@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4162CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD61CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ao9S444lZiP2U5NBhucLSQH6SGHozb3Z0cqr/Ck3lZc=; b=AIrPePI9Rau4aHaFgjoo9O9KQw
-	aiG0clv/mfBv5pT2Uhj9Km2XtdohdmaLE2z+UB3jk76LB7k4KRkgSGCwHQ+5WKBeM0sDdPmTvwwOt
-	7VmBkGYmuRWQCmvEprwFzSnqKJdGde2eXIuKRDaW9HG5NcdrnBdGNON4yS8C+3x8hpV/Vhp4dlm2Y
-	M5D+98UlXSzQp5KChx2s5b6HqSOODvUKRH0RufH9cUC38uVF+ly2rDnS70nWwAQeUG1L+hmlH9FVG
-	WBK3t/5W8JUrk+oJJHNSck0VgdOKMlCYF9HqBos0vxEZtindmosdlDs65+ZXm/HmlyGo2giF8JcKS
-	Yi9qak3Q==;
+	bh=gzCAW7Zwf6xDfQSyxPUmlwZZUk4YE6Eytp6Ef7icSYA=; b=fDWrRy62gwqkYOfdlj7gLKtQHS
+	7q7WjrhXm8Dxi5ibntVB9npT9P4Q+s/IJSIih9VrbTjJVtda2lGaptk800m0CqRfL/Z9tKFHJozRz
+	SYcACqJT9+0PPU+xCIhbqX4hvG0B/xQNYZ4YJ0WnPimNzN3nq4BKttUAIAx/zIzQeBKHcekBUaJBR
+	Y4ZxLBZhWtDqYvMNft7E2ED1WQJPWZnjYQlBg+bj8wJPadXtKHkfqaOLiIlSUy1lNEw3Zu0CwnX/H
+	MABm3U1rThqbU4R1xFIgYNrZqHLxfU7JP9qcFVVr8TAoWYkzyyuH2Ad+tHtiYQC+gVUYwQyqVZ7hz
+	0lgTyqjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCL9a-0000000A3U7-0gqq;
-	Fri, 24 Oct 2025 17:00:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vCLFb-0000000A4Uf-3u8C;
+	Fri, 24 Oct 2025 17:06:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCL9Y-0000000A3Tz-3wbH
+	id 1vCLFZ-0000000A4UK-36bY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 17:00:37 +0000
+	Fri, 24 Oct 2025 17:06:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 33A99614B4;
-	Fri, 24 Oct 2025 17:00:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F798C4CEF1;
-	Fri, 24 Oct 2025 17:00:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E13340990;
+	Fri, 24 Oct 2025 17:06:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8883C4CEFB;
+	Fri, 24 Oct 2025 17:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761325235;
-	bh=P30Amz6t4gClv82kJnXzJCEXNT49i1otAZuXWkHsM8w=;
+	s=k20201202; t=1761325609;
+	bh=Ury8HZVn+UOCZQaBhNOWpNwaBpO6odlNFuHtT24PBy0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NuOyzL52sbbNkLTISaUiZcxVPMMcvE6/aTHVBAKCncbKyPyCpaTJbaelkUrzmIvHW
-	 /IQIIQH7hbBF2AjPQD68Pt4oJ7flSwE7WTcAmsTRXwZtluGJBM1hUtep1EscNVEtGw
-	 DYRvG672/gLhggR5E6rPmBLHOgHJ0I7vmRWesKniWEjE7PYFofpc114Sqd9bHnYefw
-	 YRVO6uihtxFDs4fa/4bV22aIP/BWlz6ieB2svEgOX2KesQ1bU3NzQaHK9ECvbm/oa4
-	 SFvLUUzabBni7gjMcjnMStoX+T31dDTY4yTdYVozPoXLDTCriC69BpwkCCFOXhlatN
-	 soVUdWoN86OOQ==
-Date: Fri, 24 Oct 2025 18:00:30 +0100
-From: Simon Horman <horms@kernel.org>
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Matthew Gerlach <matthew.gerlach@altera.com>, kernel@pengutronix.de,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Teoh Ji Sheng <ji.sheng.teoh@intel.com>
-Subject: Re: [PATCH v5 02/10] net: stmmac: Use interrupt mode INTM=1 for per
- channel irq
-Message-ID: <aPuwrvGOgfBifrmC@horms.kernel.org>
-References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
- <20251024-v6-12-topic-socfpga-agilex5-v5-2-4c4a51159eeb@pengutronix.de>
+	b=bcUygfWuhpmiNMIMzxAEmZzKLgnXJlJaUEmIbEohiaIh9SrtftsiBAQxlcMw95MKu
+	 i4GjX5+yhFZxdw83YlRwWEGHWhV8DeFrmk1DazVUQ/E8ha1U2zu2dO3JM7zD2U4fUv
+	 ARCD28C47ovhLur4SbW1WKItzR5rU3o4nhgoRjtXwxebIJcxy/tXaf/qRnaS3XlcNE
+	 jAhdkkgVTFlhmLXfQz7fZVM/ndeIuU6SlXgrkulzNDwhLBytBUrglScCVozQh6F7+P
+	 WqVzVuWvlgojyvfavFTDyHM0C7CDm/UElVnWCjFcNfEhyJ1qh7U5+EjA6tbDzxyHLU
+	 f/ymsROZchy2Q==
+Date: Fri, 24 Oct 2025 18:06:43 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	bhelgaas@google.com, frank.li@nxp.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 2/3] dt-bindings: PCI: pci-imx6: Add external
+ reference clock input
+Message-ID: <20251024-unburned-lip-6f142d83ed76@spud>
+References: <20251024024013.775836-1-hongxing.zhu@nxp.com>
+ <20251024024013.775836-3-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="XcZSjLvU49YOzPxG"
 Content-Disposition: inline
-In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-2-4c4a51159eeb@pengutronix.de>
+In-Reply-To: <20251024024013.775836-3-hongxing.zhu@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251024_100649_817444_69DC92EE 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +79,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 01:49:54PM +0200, Steffen Trumtrar wrote:
 
-...
+--XcZSjLvU49YOzPxG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+On Fri, Oct 24, 2025 at 10:40:12AM +0800, Richard Zhu wrote:
+> i.MX95 PCIes have two reference clock inputs: one from internal PLL, the
+> other from off chip crystal oscillator. The "extref" clock refers to a
+> reference clock from an external crystal oscillator.
+>=20
+> Add external reference clock input for i.MX95 PCIes.
+>=20
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/=
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> index ca5f2970f217c..b4c40d0573dce 100644
+> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> @@ -212,14 +212,17 @@ allOf:
+>      then:
+>        properties:
+>          clocks:
+> +          minItems: 4
+>            maxItems: 5
+>          clock-names:
+> +          minItems: 4
+>            items:
+>              - const: pcie
 
-...
+1
 
-> @@ -746,6 +750,22 @@ int stmmac_get_platform_resources(struct platform_device *pdev,
->  	if (stmmac_res->irq < 0)
->  		return stmmac_res->irq;
->  
-> +	/* For RX Channel */
-> +	for (i = 0; i < MTL_MAX_RX_QUEUES; i++) {
-> +		sprintf(irq_name, "%s%d", "macirq_rx", i);
-> +		stmmac_res->rx_irq[i] = platform_get_irq_byname(pdev, irq_name);
-> +		if (stmmac_res->rx_irq[i] < 0)
-> +			break;
-> +	}
-> +
-> +	/* For TX Channel */
-> +	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
-> +		sprintf(irq_name, "%s%d", "macirq_tx", i);
-> +		stmmac_res->tx_irq[i] = platform_get_irq_byname(pdev, irq_name);
-> +			if (stmmac_res->tx_irq[i] < 0)
-> +				break;
+>              - const: pcie_bus
 
-nit: The two lines above abbove to be indented a bit too much.
+2
 
-> +	}
-> +
->  	/* On some platforms e.g. SPEAr the wake up irq differs from the mac irq
->  	 * The external wake up irq can be passed through the platform code
->  	 * named as "eth_wake_irq"
+>              - const: pcie_phy
 
-...
+3
+
+>              - const: pcie_aux
+
+4
+
+>              - const: ref
+
+5
+
+> +            - const: extref  # Optional
+
+6
+
+There are 6 clocks here, but clocks and clock-names in this binding do
+not permit 6:
+|  clocks:
+|    minItems: 3
+|    items:
+|      - description: PCIe bridge clock.
+|      - description: PCIe bus clock.
+|      - description: PCIe PHY clock.
+|      - description: Additional required clock entry for imx6sx-pcie,
+|           imx6sx-pcie-ep, imx8mq-pcie, imx8mq-pcie-ep.
+|      - description: PCIe reference clock.
+|
+|  clock-names:
+|    minItems: 3
+|    maxItems: 5
+
+AFAICT, what this patch actually did is make "ref" an optional clock,
+but the claim in the patch is that extref is optional. With this patch
+applied, you can have a) no reference clocks or b) only "ref". "extref"
+is never allowed.
+
+Is it supposed to be possible to have "ref" and "extref"?
+Or "extref" without "ref"?
+Neither "ref" or "extref"?
+I don't know the answer to that question because you're doing things
+that are contradictory in your patch and the commit message isn't clear.
+
+I don't see how this can have been successfully tested.
+
+pw-bot: changes-requested
+
+
+--XcZSjLvU49YOzPxG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPuyIwAKCRB4tDGHoIJi
+0qmAAP43Y5c5EpXWguFo8pYVr2jdc1RmVmgslABpylj0GDLEawEAjzc9MPMpxAcT
+3CM8pI7Q006oqHCJD34NB+JJATROLw4=
+=XZe8
+-----END PGP SIGNATURE-----
+
+--XcZSjLvU49YOzPxG--
 
