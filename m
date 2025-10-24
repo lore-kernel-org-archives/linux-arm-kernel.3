@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FD0CCF9E9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DEDCCF9EB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGRuomyKbteDPRa9/9WOz++5GVMzv42o6KtvcgnPHRw=; b=AKbNvMdIwFZseM2mPoQ0nxrOOG
-	6n7fxssoOIFMhKbM6sqLpfdayDWk/AiFdO11+NtwJpq+vLrHX54zR8WtrS7vnGs/luBevps8WMbl6
-	EVilPSodHXE91zcQFvUxWU4zwOa27FO0DoYm/WFUWX3PT1oUVFlTaQlHlSFFoEkB9kNT8ov28tb5N
-	h2YwbdWbc8jsieHNP5iN/cVjgqda1psXssaHV2fS5OsW17Nrc13yq0ZtGrAy4MLfwilJb8lw57cyI
-	vmNZyLqfnaHdWQOigCdgQoSMhy2fRwyrAe8xU6I6Wp1FnnW0/zp0FPb3/KY2zzynI9Nk7yBY52ml1
-	D4ihXm5w==;
+	bh=cd1iZSTKWdzqHs1iRMW/H49Qtv368aYcChH5XqqZXRk=; b=pigBscZ7ijWZqxB+Qze7EWg0iJ
+	w1S09W2KsnyxgSVmndUhTCzOKViCnTueXoCOnI+V9QvYVsdKN97x82Epw4lgUSjPTUS1PWSYp/gRf
+	cpU1wDHSA8JECPULl/xSjqTNvI99ZFc+rkRQnJITl3pZbaafK4gBdMWExIqOocGD9ZCfTKe9db9hq
+	ejU7IZOVuU/wo4V2jFw3WrI7hWg7v2LCGovwX/ly2cTmbZlGb2SIaL9t8xUGGzvg7bXgNkg6CkKQT
+	FP/ExNwZiHOh7azSuox2rnS8fwzqxytfRPmSkN2YXuhgceQav/mKcCaVnqc+RJsxcgXHn8CvQKMF5
+	hYfRbNfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHGm-00000009QUf-1tao;
-	Fri, 24 Oct 2025 12:51:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCHGl-00000009QT8-2asp;
+	Fri, 24 Oct 2025 12:51:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHGb-00000009QGk-0HQO;
+	id 1vCHGc-00000009QHa-018c;
 	Fri, 24 Oct 2025 12:51:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D9F84647C;
+	by tor.source.kernel.org (Postfix) with ESMTP id D1C2061288;
 	Fri, 24 Oct 2025 12:51:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EAD2DC4CEF5;
-	Fri, 24 Oct 2025 12:51:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 63AFCC2BCB7;
+	Fri, 24 Oct 2025 12:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1761310296;
-	bh=hMPx1L64TXdBvG1OmeDT25zE76B+Ey0LnJbekLD6eY4=;
+	bh=UIrJN68kElCxBVF7n6PJ8kfGlSlrI/qz1zPfJGHuaOc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Af5baGXHWSfW2dYq2J8jqo87yLs6vIm+7slf0Dl8W7+LaHGmGqO6mdS4zOjq0kUPq
-	 I+V6C/+2WVwNoOcFZeqK/19ofsngtIlL6ZGqgv2PU2k75PYwMZQ3+q5IlT8d3jyLf0
-	 sBat5+QQDzKu7y+rjN67L7m3sc1E1TiJgdPKdNlVwTwWgjXISnoH7SDUcOQlqfK4Sm
-	 TJDCoD8wpROWut/0c4FDDgQggF4jb9YgiJX4wYmamemIk1TAyjuU5yTSBsCStkxphm
-	 lHeQOdst5EyQYDJHOyoFTSp7F1atFe/7mTAM6IxfU/qYoExsqXJzuLjTJGsdH7FtVK
-	 NkR8XGoK0tg2A==
+	b=X/+1vIk7QkDKBeTNYkFRuCTWuVNEz8uU0F+/KUlisSGc8jBx4VPdvT7fFZB5t/aoQ
+	 37xjz9BhVyXTFX8wlSQeswC5uaSPhOK5YM5nIp95WqgsNHoRbSaInaFHUcTpAer34K
+	 Z4Tl3dNqQsxvfJUPI4y7PjVEn+PXBECf9P+YsTzFCSx/n6wgsOzNkVQ/4C/4bQTcEk
+	 RjYAFMj5lc7D6/oQQV6U8U7xoN5aMiXFG6BoxzZ9KNpWMGeO3QkJwDIUvIhe9X7FmK
+	 oOG+KoIW63aGYz+RF/ZclozGEjpXvaSHi8KjJFDcg3K9F6gROSGf94levlEx3GglCF
+	 rNAjvWQmqxyDA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D983DCCD1A5;
-	Fri, 24 Oct 2025 12:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 55D01CCF9E3;
+	Fri, 24 Oct 2025 12:51:36 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Fri, 24 Oct 2025 14:51:30 +0200
-Subject: [PATCH v14 01/18] Documentation: admin-guide: media: add rockchip
+Date: Fri, 24 Oct 2025 14:51:36 +0200
+Subject: [PATCH v14 07/18] media: rockchip: add driver for the rockchip
  camera interface
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20240220-rk3568-vicap-v14-1-b38b6da0fc80@collabora.com>
+Message-Id: <20240220-rk3568-vicap-v14-7-b38b6da0fc80@collabora.com>
 References: <20240220-rk3568-vicap-v14-0-b38b6da0fc80@collabora.com>
 In-Reply-To: <20240220-rk3568-vicap-v14-0-b38b6da0fc80@collabora.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -80,19 +80,16 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  Michael Riesch <michael.riesch@collabora.com>, 
  Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761310293; l=7304;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761310293; l=12686;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=51St+NbT0YQu6YJyw957O3MJ2nQcNONtN6g+86sgoCQ=;
- b=+u/tR28SsGYNd27uVDb3Y/aqRUS4nGrPL7YuJaQqPuluOObGHz3iTxmGBa+d/zdOprsFwYOuE
- Ri+mvuEs6P8BD9sSO7w5EJjCBkYgo8ZOSvrBAuYsc3aOtG/AGk7J2mP
+ bh=W6+5TZPeEqczgGgNhjcxJKv3eBYuIrq45EiGu3Fqx3Y=;
+ b=A4+A1Xl2vksw515807eQK7QUBiP/tAdEEyBkNjmeDVQPfiNAong63E4UpaYa3pY1hACH0DS8h
+ O2NEdW5exj8DmT+I5xil8F3nYabOI1n2OpgKTBUma9q8DrzIh4Jez5Z
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_055137_174716_C5F8D395 
-X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,167 +107,424 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Riesch <michael.riesch@collabora.com>
 
-Add a document that describes the different variants of the Rockchip
-Camera Interface (CIF), their hardware layout, as well as their
-representation in the media controller centric rkcif device driver,
-which is located under drivers/media/platform/rockchip/rkcif.
+Add the skeleton for a media controller centric V4L2 driver for the
+Rockchip Camera Interface (CIF).
+The skeleton features support for the PX30 Video Input Processor (VIP)
+and the RK3568 Video Capture (VICAP) unit.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Gerald Loacker <gerald.loacker@wolfvision.net>
+Reviewed-by: Gerald Loacker <gerald.loacker@wolfvision.net>
 Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- .../admin-guide/media/rkcif-rk3568-vicap.dot       | 21 ++++++
- Documentation/admin-guide/media/rkcif.rst          | 83 ++++++++++++++++++++++
- Documentation/admin-guide/media/v4l-drivers.rst    |  1 +
- MAINTAINERS                                        |  7 ++
- 4 files changed, 112 insertions(+)
+ MAINTAINERS                                        |   1 +
+ drivers/media/platform/rockchip/Kconfig            |   1 +
+ drivers/media/platform/rockchip/Makefile           |   1 +
+ drivers/media/platform/rockchip/rkcif/Kconfig      |  18 ++
+ drivers/media/platform/rockchip/rkcif/Makefile     |   4 +
+ .../media/platform/rockchip/rkcif/rkcif-common.h   |  55 +++++
+ drivers/media/platform/rockchip/rkcif/rkcif-dev.c  | 262 +++++++++++++++++++++
+ 7 files changed, 342 insertions(+)
 
-diff --git a/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot
-new file mode 100644
-index 000000000000..02340135a2ac
---- /dev/null
-+++ b/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot
-@@ -0,0 +1,21 @@
-+digraph board {
-+        rankdir=TB
-+        n00000001 [label="{{<port0> 0} | rkcif-dvp0\n/dev/v4l-subdev0 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000001:port1 -> n00000004
-+        n00000004 [label="rkcif-dvp0-id0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
-+        n0000000a [label="{{<port0> 0} | rkcif-mipi0\n/dev/v4l-subdev1 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n0000000a:port1 -> n0000000d
-+        n0000000a:port1 -> n00000013 [style=dashed]
-+        n0000000a:port1 -> n00000019 [style=dashed]
-+        n0000000a:port1 -> n0000001f [style=dashed]
-+        n0000000d [label="rkcif-mipi0-id0\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
-+        n00000013 [label="rkcif-mipi0-id1\n/dev/video2", shape=box, style=filled, fillcolor=yellow]
-+        n00000019 [label="rkcif-mipi0-id2\n/dev/video3", shape=box, style=filled, fillcolor=yellow]
-+        n0000001f [label="rkcif-mipi0-id3\n/dev/video4", shape=box, style=filled, fillcolor=yellow]
-+        n00000025 [label="{{} | it6801 2-0048\n/dev/v4l-subdev2 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000025:port0 -> n00000001:port0
-+        n00000029 [label="{{<port0> 0} | rockchip-mipi-csi fdfb0000.csi\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000029:port1 -> n0000000a:port0
-+        n0000002e [label="{{} | imx415 4-001a\n/dev/v4l-subdev4 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n0000002e:port0 -> n00000029:port0
-+}
-diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
-new file mode 100644
-index 000000000000..f35f644a54a0
---- /dev/null
-+++ b/Documentation/admin-guide/media/rkcif.rst
-@@ -0,0 +1,83 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+=========================================
-+Rockchip Camera Interface (CIF)
-+=========================================
-+
-+Introduction
-+============
-+
-+The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs in
-+different variants.
-+The different variants are combinations of common building blocks, such as
-+
-+* INTERFACE blocks of different types, namely
-+
-+  * the Digital Video Port (DVP, a parallel data interface)
-+  * the interface block for the MIPI CSI-2 receiver
-+
-+* CROP units
-+
-+* MIPI CSI-2 receiver (not available on all variants): This unit is referred
-+  to as MIPI CSI HOST in the Rockchip documentation.
-+  Technically, it is a separate hardware block, but it is strongly coupled to
-+  the CIF and therefore included here.
-+
-+* MUX units (not available on all variants) that pass the video data to an
-+  image signal processor (ISP)
-+
-+* SCALE units (not available on all variants)
-+
-+* DMA engines that transfer video data into system memory using a
-+  double-buffering mechanism called ping-pong mode
-+
-+* Support for four streams per INTERFACE block (not available on all
-+  variants), e.g., for MIPI CSI-2 Virtual Channels (VCs)
-+
-+This document describes the different variants of the CIF, their hardware
-+layout, as well as their representation in the media controller centric rkcif
-+device driver, which is located under drivers/media/platform/rockchip/rkcif.
-+
-+Variants
-+========
-+
-+Rockchip PX30 Video Input Processor (VIP)
-+-----------------------------------------
-+
-+The PX30 Video Input Processor (VIP) features a digital video port that accepts
-+parallel video data or BT.656.
-+Since these protocols do not feature multiple streams, the VIP has one DMA
-+engine that transfers the input video data into system memory.
-+
-+The rkcif driver represents this hardware variant by exposing one V4L2 subdevice
-+(the DVP INTERFACE/CROP block) and one V4L2 device (the DVP DMA engine).
-+
-+Rockchip RK3568 Video Capture (VICAP)
-+-------------------------------------
-+
-+The RK3568 Video Capture (VICAP) unit features a digital video port and a MIPI
-+CSI-2 receiver that can receive video data independently.
-+The DVP accepts parallel video data, BT.656 and BT.1120.
-+Since the BT.1120 protocol may feature more than one stream, the RK3568 VICAP
-+DVP features four DMA engines that can capture different streams.
-+Similarly, the RK3568 VICAP MIPI CSI-2 receiver features four DMA engines to
-+handle different Virtual Channels (VCs).
-+
-+The rkcif driver represents this hardware variant by exposing up to three V4L2
-+subdevices:
-+
-+* rkcif-dvp0: INTERFACE/CROP block for the DVP
-+* rockchip-mipi-csi fdfb0000.csi: MIPI CSI-2 receiver
-+* rkcif-mipi0: INTERFACE/CROP block for the MIPI CSI-2 receiver
-+
-+and up to five V4L2 devices:
-+
-+* rkcif-dvp0-id0: The support for multiple streams on the DVP is not yet
-+  implemented, as it is hard to find test hardware. Thus, this video device
-+  represents the first DMA engine of the RK3568 DVP.
-+* rkcif-mipi0-id[0...3]: The four DMA engines of the RK3568 MIPI CSI-2
-+  receiver. Each DMA engine can capture a certain MIPI CSI-2 Virtual Channel.
-+
-+.. kernel-figure:: rkcif-rk3568-vicap.dot
-+    :alt:   Topology of the RK3568 Video Capture (VICAP) unit
-+    :align: center
-diff --git a/Documentation/admin-guide/media/v4l-drivers.rst b/Documentation/admin-guide/media/v4l-drivers.rst
-index 3bac5165b134..694fad685ff5 100644
---- a/Documentation/admin-guide/media/v4l-drivers.rst
-+++ b/Documentation/admin-guide/media/v4l-drivers.rst
-@@ -25,6 +25,7 @@ Video4Linux (V4L) driver-specific documentation
- 	qcom_camss
- 	raspberrypi-pisp-be
- 	rcar-fdp1
-+	rkcif
- 	rkisp1
- 	raspberrypi-rp1-cfe
- 	saa7134
 diff --git a/MAINTAINERS b/MAINTAINERS
-index f7351fced572..1b47d5e73f04 100644
+index d4ef44651f7b..a4edcdf7af53 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22209,6 +22209,13 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
- F:	drivers/net/can/rockchip/
+@@ -22217,6 +22217,7 @@ S:	Maintained
+ F:	Documentation/admin-guide/media/rkcif*
+ F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+ F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
++F:	drivers/media/platform/rockchip/rkcif/
  
-+ROCKCHIP CAMERA INTERFACE (RKCIF) DRIVER
-+M:	Mehdi Djait <mehdi.djait@linux.intel.com>
-+M:	Michael Riesch <michael.riesch@collabora.com>
-+L:	linux-media@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/admin-guide/media/rkcif*
-+
  ROCKCHIP CRYPTO DRIVERS
  M:	Corentin Labbe <clabbe@baylibre.com>
- L:	linux-crypto@vger.kernel.org
+diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
+index 2f6f77afecfc..54b698c4cd2c 100644
+--- a/drivers/media/platform/rockchip/Kconfig
++++ b/drivers/media/platform/rockchip/Kconfig
+@@ -3,6 +3,7 @@
+ comment "Rockchip media platform drivers"
+ 
+ source "drivers/media/platform/rockchip/rga/Kconfig"
++source "drivers/media/platform/rockchip/rkcif/Kconfig"
+ source "drivers/media/platform/rockchip/rkcsi/Kconfig"
+ source "drivers/media/platform/rockchip/rkisp1/Kconfig"
+ source "drivers/media/platform/rockchip/rkvdec/Kconfig"
+diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
+index 33e24b47735c..522a7d3e30b0 100644
+--- a/drivers/media/platform/rockchip/Makefile
++++ b/drivers/media/platform/rockchip/Makefile
+@@ -1,5 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-y += rga/
++obj-y += rkcif/
+ obj-y += rkcsi/
+ obj-y += rkisp1/
+ obj-y += rkvdec/
+diff --git a/drivers/media/platform/rockchip/rkcif/Kconfig b/drivers/media/platform/rockchip/rkcif/Kconfig
+new file mode 100644
+index 000000000000..efd82ac35bd8
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/Kconfig
+@@ -0,0 +1,18 @@
++config VIDEO_ROCKCHIP_CIF
++	tristate "Rockchip Camera Interface (CIF)"
++	depends on VIDEO_DEV
++	depends on ARCH_ROCKCHIP || COMPILE_TEST
++	depends on V4L_PLATFORM_DRIVERS
++	depends on PM && COMMON_CLK
++	select MEDIA_CONTROLLER
++	select VIDEOBUF2_DMA_CONTIG
++	select V4L2_FWNODE
++	select VIDEO_V4L2_SUBDEV_API
++	help
++	  This is a driver for Rockchip Camera Interface (CIF). It is featured
++	  in many Rockchips SoCs in different variations, such as the PX30
++	  Video Input Processor (VIP, one Digital Video Port (DVP)) or the
++	  RK3568 Video Capture (VICAP, one DVP, one MIPI CSI-2 receiver) unit.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called rockchip-cif.
+diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
+new file mode 100644
+index 000000000000..c6837ed2f65c
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_VIDEO_ROCKCHIP_CIF) += rockchip-cif.o
++
++rockchip-cif-objs += rkcif-dev.o
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+new file mode 100644
+index 000000000000..b456a56b5ac4
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+@@ -0,0 +1,55 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Rockchip Camera Interface (CIF) Driver
++ *
++ * Copyright (C) 2018 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2023 Mehdi Djait <mehdi.djait@bootlin.com>
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ * Copyright (C) 2025 Collabora, Ltd.
++ */
++
++#ifndef _RKCIF_COMMON_H
++#define _RKCIF_COMMON_H
++
++#include <linux/clk.h>
++#include <linux/mutex.h>
++#include <linux/regmap.h>
++
++#include <media/media-device.h>
++#include <media/media-entity.h>
++#include <media/v4l2-common.h>
++#include <media/v4l2-device.h>
++#include <media/v4l2-fwnode.h>
++#include <media/v4l2-mc.h>
++#include <media/v4l2-subdev.h>
++#include <media/videobuf2-v4l2.h>
++
++#define RKCIF_DRIVER_NAME "rockchip-cif"
++#define RKCIF_CLK_MAX	  4
++
++struct rkcif_remote {
++	struct v4l2_async_connection async_conn;
++	struct v4l2_subdev *sd;
++};
++
++struct rkcif_match_data {
++	const char *const *clks;
++	unsigned int clks_num;
++};
++
++struct rkcif_device {
++	struct device *dev;
++
++	const struct rkcif_match_data *match_data;
++	struct clk_bulk_data clks[RKCIF_CLK_MAX];
++	unsigned int clks_num;
++	struct regmap *grf;
++	struct reset_control *reset;
++	void __iomem *base_addr;
++
++	struct media_device media_dev;
++	struct v4l2_device v4l2_dev;
++	struct v4l2_async_notifier notifier;
++};
++
++#endif
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+new file mode 100644
+index 000000000000..9215dbe90353
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+@@ -0,0 +1,262 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Rockchip Camera Interface (CIF) Driver
++ *
++ * Copyright (C) 2018 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2020 Maxime Chevallier <maxime.chevallier@bootlin.com>
++ * Copyright (C) 2023 Mehdi Djait <mehdi.djait@bootlin.com>
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ * Copyright (C) 2025 Collabora, Ltd.
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/interrupt.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_graph.h>
++#include <linux/of_platform.h>
++#include <linux/pm_runtime.h>
++#include <linux/reset.h>
++
++#include <media/v4l2-fwnode.h>
++#include <media/v4l2-mc.h>
++
++#include "rkcif-common.h"
++
++static const char *const px30_vip_clks[] = {
++	"aclk",
++	"hclk",
++	"pclk",
++};
++
++static const struct rkcif_match_data px30_vip_match_data = {
++	.clks = px30_vip_clks,
++	.clks_num = ARRAY_SIZE(px30_vip_clks),
++};
++
++static const char *const rk3568_vicap_clks[] = {
++	"aclk",
++	"hclk",
++	"dclk",
++	"iclk",
++};
++
++static const struct rkcif_match_data rk3568_vicap_match_data = {
++	.clks = rk3568_vicap_clks,
++	.clks_num = ARRAY_SIZE(rk3568_vicap_clks),
++};
++
++static const struct of_device_id rkcif_plat_of_match[] = {
++	{
++		.compatible = "rockchip,px30-vip",
++		.data = &px30_vip_match_data,
++	},
++	{
++		.compatible = "rockchip,rk3568-vicap",
++		.data = &rk3568_vicap_match_data,
++	},
++	{}
++};
++MODULE_DEVICE_TABLE(of, rkcif_plat_of_match);
++
++static int rkcif_register(struct rkcif_device *rkcif)
++{
++	return 0;
++}
++
++static void rkcif_unregister(struct rkcif_device *rkcif)
++{
++}
++
++static int rkcif_notifier_bound(struct v4l2_async_notifier *notifier,
++				struct v4l2_subdev *sd,
++				struct v4l2_async_connection *asd)
++{
++	struct rkcif_remote *remote =
++		container_of(asd, struct rkcif_remote, async_conn);
++
++	remote->sd = sd;
++
++	return 0;
++}
++
++static int rkcif_notifier_complete(struct v4l2_async_notifier *notifier)
++{
++	struct rkcif_device *rkcif =
++		container_of(notifier, struct rkcif_device, notifier);
++
++	return v4l2_device_register_subdev_nodes(&rkcif->v4l2_dev);
++}
++
++static const struct v4l2_async_notifier_operations rkcif_notifier_ops = {
++	.bound = rkcif_notifier_bound,
++	.complete = rkcif_notifier_complete,
++};
++
++static irqreturn_t rkcif_isr(int irq, void *ctx)
++{
++	irqreturn_t ret = IRQ_NONE;
++
++	return ret;
++}
++
++static int rkcif_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct rkcif_device *rkcif;
++	int ret, irq;
++
++	rkcif = devm_kzalloc(dev, sizeof(*rkcif), GFP_KERNEL);
++	if (!rkcif)
++		return -ENOMEM;
++
++	rkcif->match_data = of_device_get_match_data(dev);
++	if (!rkcif->match_data)
++		return -ENODEV;
++
++	dev_set_drvdata(dev, rkcif);
++	rkcif->dev = dev;
++
++	rkcif->base_addr = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(rkcif->base_addr))
++		return PTR_ERR(rkcif->base_addr);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	ret = devm_request_irq(dev, irq, rkcif_isr, IRQF_SHARED,
++			       dev_driver_string(dev), dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to request irq\n");
++
++	if (rkcif->match_data->clks_num > RKCIF_CLK_MAX)
++		return dev_err_probe(dev, -EINVAL, "invalid number of clocks\n");
++
++	rkcif->clks_num = rkcif->match_data->clks_num;
++	for (unsigned int i = 0; i < rkcif->clks_num; i++)
++		rkcif->clks[i].id = rkcif->match_data->clks[i];
++	ret = devm_clk_bulk_get(dev, rkcif->clks_num, rkcif->clks);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get clocks\n");
++
++	rkcif->reset = devm_reset_control_array_get_exclusive(dev);
++	if (IS_ERR(rkcif->reset))
++		return PTR_ERR(rkcif->reset);
++
++	rkcif->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
++						     "rockchip,grf");
++	if (IS_ERR(rkcif->grf))
++		rkcif->grf = NULL;
++
++	pm_runtime_enable(&pdev->dev);
++
++	rkcif->media_dev.dev = dev;
++	strscpy(rkcif->media_dev.model, RKCIF_DRIVER_NAME,
++		sizeof(rkcif->media_dev.model));
++	media_device_init(&rkcif->media_dev);
++
++	rkcif->v4l2_dev.mdev = &rkcif->media_dev;
++	ret = v4l2_device_register(dev, &rkcif->v4l2_dev);
++	if (ret)
++		goto err_media_dev_cleanup;
++
++	ret = media_device_register(&rkcif->media_dev);
++	if (ret < 0) {
++		dev_err(dev, "failed to register media device: %d\n", ret);
++		goto err_v4l2_dev_unregister;
++	}
++
++	v4l2_async_nf_init(&rkcif->notifier, &rkcif->v4l2_dev);
++	rkcif->notifier.ops = &rkcif_notifier_ops;
++
++	ret = rkcif_register(rkcif);
++	if (ret) {
++		dev_err(dev, "failed to register media entities: %d\n", ret);
++		goto err_notifier_cleanup;
++	}
++
++	ret = v4l2_async_nf_register(&rkcif->notifier);
++	if (ret)
++		goto err_rkcif_unregister;
++
++	return 0;
++
++err_rkcif_unregister:
++	rkcif_unregister(rkcif);
++err_notifier_cleanup:
++	v4l2_async_nf_cleanup(&rkcif->notifier);
++	media_device_unregister(&rkcif->media_dev);
++err_v4l2_dev_unregister:
++	v4l2_device_unregister(&rkcif->v4l2_dev);
++err_media_dev_cleanup:
++	media_device_cleanup(&rkcif->media_dev);
++	pm_runtime_disable(&pdev->dev);
++	return ret;
++}
++
++static void rkcif_remove(struct platform_device *pdev)
++{
++	struct rkcif_device *rkcif = platform_get_drvdata(pdev);
++
++	v4l2_async_nf_unregister(&rkcif->notifier);
++	rkcif_unregister(rkcif);
++	v4l2_async_nf_cleanup(&rkcif->notifier);
++	media_device_unregister(&rkcif->media_dev);
++	v4l2_device_unregister(&rkcif->v4l2_dev);
++	media_device_cleanup(&rkcif->media_dev);
++	pm_runtime_disable(&pdev->dev);
++}
++
++static int rkcif_runtime_suspend(struct device *dev)
++{
++	struct rkcif_device *rkcif = dev_get_drvdata(dev);
++
++	/*
++	 * Reset CIF (CRU, DMA, FIFOs) to allow a clean resume.
++	 * Since this resets the IOMMU too, we cannot issue this reset when
++	 * resuming.
++	 */
++	reset_control_assert(rkcif->reset);
++	udelay(5);
++	reset_control_deassert(rkcif->reset);
++
++	clk_bulk_disable_unprepare(rkcif->clks_num, rkcif->clks);
++
++	return 0;
++}
++
++static int rkcif_runtime_resume(struct device *dev)
++{
++	struct rkcif_device *rkcif = dev_get_drvdata(dev);
++	int ret;
++
++	ret = clk_bulk_prepare_enable(rkcif->clks_num, rkcif->clks);
++	if (ret) {
++		dev_err(dev, "failed to enable clocks\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct dev_pm_ops rkcif_plat_pm_ops = {
++	.runtime_suspend = rkcif_runtime_suspend,
++	.runtime_resume = rkcif_runtime_resume,
++};
++
++static struct platform_driver rkcif_plat_drv = {
++	.driver = {
++		   .name = RKCIF_DRIVER_NAME,
++		   .of_match_table = rkcif_plat_of_match,
++		   .pm = &rkcif_plat_pm_ops,
++	},
++	.probe = rkcif_probe,
++	.remove = rkcif_remove,
++};
++module_platform_driver(rkcif_plat_drv);
++
++MODULE_DESCRIPTION("Rockchip Camera Interface (CIF) platform driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.39.5
