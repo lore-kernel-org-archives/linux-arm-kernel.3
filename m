@@ -4,79 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7296CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 15:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E068CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 15:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vX6q5KsWvP/pqF1uXTr61P+nn+J2TSZ+8mTaeYcEPG8=; b=Lcohr4EXIdwHewvkTllwk5UM0h
-	KN8+WqQLSlsLftNZHOeOblcnTewNJdjA2A0+QzghaDG5Sn102tji1HxehEzm56oo/WWU06xSmAKzq
-	viPztTURQn7T0w2ej1NDQFtGVMqCWStMXRKcbG6ivi2Qkpccxyh3MPQuJelVc6EKY3YkV59egQOrg
-	d1XwqQC7qrG8dZIzy1yg2hkgAtl8Vi5hUC5Aqfj38Zh8P74lqWdhLMqu8D35EXOevEtf0gWiOwFNS
-	0D/+HmPYEPyi59TL7EAhpsqTmOQPNzGMsYqGhkX85hXP4JKvXHMYwtO+IN4PbznVkZcqx4s+iaqLN
-	pyyH3Nsw==;
+	bh=1AaJlXldRQdUZVrDPVz4R5Iffk/6ZTr097Ec3PdGEns=; b=sKCacdaDEZQplmOzf5gyrmGYkO
+	ZUuO2pC5V3nMqo23AlbeBevCxgspjR8sSmWawLhYigOBWSRL3drYwgCy6YChZ0AvuYRqGYFsMAcz3
+	orPxTnRWtkz+Oj0W/3NAUJCFwEfHEqA8bUPIspHF/aus6KANbFlhuDHg9RhiWWpAQ9SqDF82mtKuy
+	jJheeenXh26vgpFZn9J0sfr6XjhOcBo6VpCbaa4GXDi0fkh/t3DhrKD1p5k90XO4a8OjujoCwTJkV
+	dTde6r5Pvuk6TyhEq49mouAs56FULxOyQrH/uKw1YUdWQ8JkALbQSML3l+myA2q1T7Gp0whIMUMh7
+	PWP5qvOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCJXg-00000009mq6-23YU;
-	Fri, 24 Oct 2025 15:17:24 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vCJkj-00000009oYE-2kUU;
+	Fri, 24 Oct 2025 15:30:53 +0000
+Received: from mail-northeuropeazon11012054.outbound.protection.outlook.com ([52.101.66.54] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCJXf-00000009mpp-1yEV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 24 Oct 2025 15:17:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=vX6q5KsWvP/pqF1uXTr61P+nn+J2TSZ+8mTaeYcEPG8=; b=gDnU6DHIdceHt5TWtp/21TLKxG
-	bT1wzsEr2z4OfNLbuXGb/Ro4AFnwD3sE52NY83fR9ieUwW3++4Vbdlivr6tKMTxJKEgK7vSXaTk/6
-	FlOq0rg9uKxjcP2m0YoALKLYtt7MFUra347J67q3tsKaT18UHNM7bhlTlLmjdwroHsrgFzJJjHoaB
-	/bztisngf7nkDl05L64bo+nRvlesqYJqVBBJXJZsouTKNEOgZtZcUbdDTudf5IGr2MfNpyJQcDk5n
-	q4XHcqmpyDW/6JkaGWr9As1wex7kvmTF8YJfbtqj4IH8ksKLDblU1JkzzsVECbtAxPBhbGRvC5pB2
-	WJLEMgqw==;
-Received: from [2001:8b0:10b:5:d8ad:45c0:47cf:4bed] (helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCJXb-00000003dWb-3ylw;
-	Fri, 24 Oct 2025 15:17:21 +0000
-Message-ID: <7324616a8d2631aa8132f725f9f6551e3e6b21dd.camel@infradead.org>
-Subject: Re: [PATCH v3 11/13] x86/xen: use lazy_mmu_state when
- context-switching
-From: David Woodhouse <dwmw2@infradead.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>, David Hildenbrand
- <david@redhat.com>,  linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev
- <agordeev@linux.ibm.com>,  Andreas Larsson <andreas@gaisler.com>, Andrew
- Morton <akpm@linux-foundation.org>, Boris Ostrovsky
- <boris.ostrovsky@oracle.com>, Borislav Petkov <bp@alien8.de>, Catalin
- Marinas <catalin.marinas@arm.com>, Christophe Leroy
- <christophe.leroy@csgroup.eu>,  Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,  Juergen
- Gross <jgross@suse.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Madhavan Srinivasan
- <maddy@linux.ibm.com>,  Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko
- <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, Nicholas Piggin
- <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, Ryan Roberts
- <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>, Thomas
- Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>, Will
- Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-Date: Fri, 24 Oct 2025 16:17:20 +0100
-In-Reply-To: <6ed9f404-9939-4e9f-b5aa-4253bef46df1@arm.com>
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
-	 <20251015082727.2395128-12-kevin.brodsky@arm.com>
-	 <f0067f35-1048-4788-8401-f71d297f56f3@redhat.com>
-	 <348e5f1c5a90e4ab0f14b4d997baf7169745bf04.camel@infradead.org>
-	 <6ed9f404-9939-4e9f-b5aa-4253bef46df1@arm.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-YI9KzXTKaCZlBvC3KOA8"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1vCJkh-00000009oXb-08s6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 15:30:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qO6Z61ivKyDhGUKEGZkTFIbi9341wJ04s69o9aE0OEpOV5fJ0U12cGqp8Xtof4HL/BG3tPjXThBGuCVYtAeT9auVQcSoDdQPZLVwlecSRJxE4oSwVOH4TQx1DjtPmdZBtRehKblplHX1mKbAll7v7V5PvGb/wB7tLwkslU9FXhl/M19fgSAcZpDi6iaCmNZ1BZpcOz64HopHNGHGddsDBpbVhb6jYUbgM7HEGRzmoRoeofsa6w93qjI4c/RRyqsawpIgcjcWwfUYcHU2NQij+E4JC3U0ucMRDq/BUTeSz5CY3ytNay69gHeWHOWyUPx/TJI3/owSz2MPqE1FKE4xoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1AaJlXldRQdUZVrDPVz4R5Iffk/6ZTr097Ec3PdGEns=;
+ b=dIh6Ol9Q6KSAHn8vaypcldNrietSfiioqCJ3A5nG31yc1tc8sPzQ8pKGfuSw11ToSnS+xnDtAQDKw0eSMbHMJWVkS+jNf0GWE7+Tf+WqkfTmPbgRo0e01y9yktvOsnmONL6EDHmhKpQttLFQSxRGyMEkdyHULwqdOaoayPbd8Kl6SMYdg2LFEjADY9Ta5wFKqAk8gcTJ/LDSewH0Vj3LQElT5Idhv0LNLR/SM1S1eqylfxEUEHygzMG2V0eHjBnuB3PxzO6nF2YrTbQVRreXdHGruPVwBHyoNOB6YRBmErzR+dr/rWecRGDgXqSIXVicCPYXCmC/c15+7f7SINjNUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1AaJlXldRQdUZVrDPVz4R5Iffk/6ZTr097Ec3PdGEns=;
+ b=RjMb8aKJESvPHLdqD5wEz8iBSX39KgkNWh6Qee2/+4mBmE7Jx6cznmEdU5DppJ9Fs/+MhiVOel3TfS2vdpJeXFO/FtvNBTuvEraohFAMTg2U9/94cnlhc4Ab4TalkoHzannRZN89I5kRkmqvO+ZxMoiAs6KVNGd7jI3GHQ1hg8HAh/zjn6y/sUOnJkXrVCsAy3D1c4rQE9vHc1W8I0LysCxVAyVRymr1mkSbaAkYeMH0iyeYtyYKA08wvf7w7YglwqkyFhnUMkOBXVPQX0QiCEjPJMntgvHCnqb84uGrV0xUj/4QVGK72hxrVx0Ofa9Qnq6rgXzTr/b7yuo9WNT+mg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DU2PR04MB8856.eurprd04.prod.outlook.com (2603:10a6:10:2e3::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
+ 2025 15:30:46 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
+ 15:30:46 +0000
+Date: Fri, 24 Oct 2025 11:30:39 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: carlos.song@nxp.com
+Cc: broonie@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] spi: imx: support SPI target PIO mode for IMX51_ECSPI
+Message-ID: <aPubn5XQCHDLvsHq@lizhi-Precision-Tower-5810>
+References: <20251024055243.408461-1-carlos.song@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251024055243.408461-1-carlos.song@nxp.com>
+X-ClientProxiedBy: PH0PR07CA0031.namprd07.prod.outlook.com
+ (2603:10b6:510:e::6) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DU2PR04MB8856:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59ce79c2-d6a7-47da-aafa-08de13124d6f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|19092799006|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DfMZvDmrapez4Ldu3KHF6F1nQKdJte4Kk77VzwTayIbwCFbPDisE4HjONNzo?=
+ =?us-ascii?Q?jHNG8Vc8p/DDthqNIcQaWmLDnWqDxP8dPf94DRHyVk53IvOwB7l6TzWfCMXs?=
+ =?us-ascii?Q?0Z0t1YB4dzTmDZBEGeBdTbR4vW5o8yYLjhwF9koRTg7qC/As7E7X2h1pimUp?=
+ =?us-ascii?Q?j1keL8rp5eDE38/GzhzvQUGHhWaH/g3IEEDuR2WQ0tb6ha3w//87tmi+toAc?=
+ =?us-ascii?Q?sewS//hYHGQsD6jjHwjLRz1LfQ/BAw5pmAVvmUfR0Og1CKun0/jVbVrUoUEd?=
+ =?us-ascii?Q?/ZkGOm5iMA5+FMa0rJXZrVDe5JMnhzHj7jJ5r4VfS3mAaP2vsI24Wj/T4HX5?=
+ =?us-ascii?Q?XpF+T3vxKUQN74pcC6Lk3rWGwVtHrkG2Bn3mgDrqjeFxECIC61vZbZlPH4vq?=
+ =?us-ascii?Q?KuaAGpeWKKO+kfgUgfjb3MzSURd4X+JZ0eVLmU9PAQjnmn39U0M3OnIl14jG?=
+ =?us-ascii?Q?DDQFy6Ltjd+5Hz59hMRt7z20qntwe5YqcvUOKFWfPOlHGt0DlmEvY55iataB?=
+ =?us-ascii?Q?Ce3fW9fWffGqXP3ey5hsgfjGhuAdQkvv94DF2U+wfqCJA8jGgwVzmLbFPV9e?=
+ =?us-ascii?Q?4c/P2qCujK0O20E/URQNtE6idnXQ3QN00a0W8szkscf/Ja7TJQS8a1Xjn6VN?=
+ =?us-ascii?Q?jkc7zvtRJfFoBIxkdViFHm8oSqZIhSmzzP4rAP3ylwAuZ+VGDaLpeEO60f6d?=
+ =?us-ascii?Q?GkDAHO/KtJiLgtduMC2ZWVoJwBwT5YdKvlv80SVnSVfGI6eOkAj0TlIOulVJ?=
+ =?us-ascii?Q?u9HfE++oavc39nJSi9Xse/hgoB6a6vlSYXKR8gbwNalPvlVSUEbjJXo1mOM7?=
+ =?us-ascii?Q?Y+2Bzd3hL17AiD0HovMWP3oF5OH+ACIyawLMFzn8TyL16cAosD8DX5cGXp4u?=
+ =?us-ascii?Q?iGnjxWVO2h+JuROfJImyyXmBpRmfgKJHdk9UI4WpETHuvBRJry6gP6U99PKC?=
+ =?us-ascii?Q?cUCsSSvw1oo9nukZhq41izdS3BeEcQnJDlEobfa5Uy9loCM0BzSbyGJxn97b?=
+ =?us-ascii?Q?ktUaGPvVG2FbHvImuhOoFSaqaJmfKT/nP92DqyyzmaawLdFxmARFxz1Ri6Ix?=
+ =?us-ascii?Q?klWrbNI+gx9+xFVOyl3zYxzaZq71w5/k0Om1Lq4LaMHjTIaK0UOdEtmy08fZ?=
+ =?us-ascii?Q?kkaQXz9TQwKn5zWzoHMb9HqSrcKysfYG4d/tjlqJSb663BX945eexcMPxyoB?=
+ =?us-ascii?Q?RI5Rdut0/lw9s52btIt+j/0WVhBwJU91gW/PezL2s65HU3MHZo1uKMwetZjL?=
+ =?us-ascii?Q?bcpZ521XbpxrRrj3j2hrORG/ZAkPO2afR8NUsbcL3GSUltPVuo5UKotyFIZf?=
+ =?us-ascii?Q?5BYK7Juu6rxBheQS3fll+z5UB87GSRtaqE+0Dpydn3EIhrQ82QV9l1wz5uf/?=
+ =?us-ascii?Q?e3B1j+6dN9/cQxU3mac7ktiqgL1QGFT7VXlq9YQ7YcQNW02Y8yHVIgm+nf3I?=
+ =?us-ascii?Q?oGvHEXXqu0n+MZgOx0/TMmAou9Lf8nGbCXQqMfvO08IXitPpVwN7nNm5lyRM?=
+ =?us-ascii?Q?efYzyfCJOXCwKbmFw1Zwr2JgORxWkD7vOJ5E?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tVcFgkMzt2TsE2LBPmKHdrmiEwfMS6oMFCuWWJqMg197IismQSVZGXRw40gv?=
+ =?us-ascii?Q?QNN78TVjFq480mfcCUJLLk9/YnvtgVRm4yxTAzQ2Qbzi+mlDRU5L0JhIoTxG?=
+ =?us-ascii?Q?p3pTkUBXzzNUOEyC8rCVQyMYePqrTIBUq2NFUbkkpujJbfJTymJCCsccXFUP?=
+ =?us-ascii?Q?Pa/o0rFspLSkQ1JnHw0Pdh6dsGMSye0tkkTWFTB/Xpd5uXKZiGayXRl+3s+Z?=
+ =?us-ascii?Q?QKRt594JS3i6amgp1JlZpGPMLjTRJ2ilGN17Ukwsdu6QYsH2x/FAN0GX5p9t?=
+ =?us-ascii?Q?R3qQ4nsJqw5AJF7qrSJDifUoiURXPWaEyquFq/TIbjAPE+4pXG91DlEgjOdB?=
+ =?us-ascii?Q?BR+ogWzUqeImfaNoYQ3HCytgKRhkSz9XGjNJJbLChVCSD2zGpVy8Hok9HDkq?=
+ =?us-ascii?Q?mHC10ZY06CpN4TPohF8THBZ7Xu5Wcskw9lUbIfRVtHlIITm2EnmU1SdeTtMl?=
+ =?us-ascii?Q?cTei94k4ateKGSq3ThTdtTvuLpv7HMteoIo3Tdd8bJ6GBtm82QezXpcNYRro?=
+ =?us-ascii?Q?KLQ+f2EcPqOA5gC7bV/RTrLP+qFi1sC9m5KUM8iil4oEMxC9i7r/PIPfvq7z?=
+ =?us-ascii?Q?ipEXHbyzAZ/wURzQoEmnz+hKHwt4MF1CBjLVUuu0U/97njTqvn3scSRIiLxI?=
+ =?us-ascii?Q?9Y3jGSCIp84BUlA7ykDxrVUzvhQ5eBKLI+tqJT+ZkeV1uxe6utNigBV9ON/o?=
+ =?us-ascii?Q?c0mQQE4Jmez2On4M5oRmICwVcqnbHp1UVbCwi2KARs0w7ZViJB6ptr+gCbeE?=
+ =?us-ascii?Q?VwMLt7hGOIvJewMNnOoOZm2pshpmrPIK26ZhcHK6AkQsS4xdmhAqVlb/Aa/A?=
+ =?us-ascii?Q?WkS7YAdZGRIhpo9yE/oZBcLDa+WdnM5BO4W5BBkj3t902c9s8KBEMRpvkYtL?=
+ =?us-ascii?Q?BroKQdR4W2pHYEqMra41rfTg9J3KmNDWZYmfkKIj6HSGgUSfsAaZPXoykoj8?=
+ =?us-ascii?Q?Rvd0Rc8od74CDfTqDlLCEw0Ahbne8cwlpXHqp032yUU5Ggd6YlprPKG5kUr1?=
+ =?us-ascii?Q?3ilgD04y2QKo8e1kXjwK5Is/sWBTZChxDQiXlkGk6/GtHinBYgWyvHob2DAx?=
+ =?us-ascii?Q?xWM/psvKWYU9mryXRvLS6atFQelSbj5QXfN+Ue9f7vGYlvAw2JcdWFBgOHIr?=
+ =?us-ascii?Q?l1RVkj5N5dWP9GiOCbAJu2UZwFEay62Y8CeVrfs6icWKYnNYjdjUTp4JZQob?=
+ =?us-ascii?Q?ttFLEQGRZZAkN9vqxTgpSsKO7JALPxB+Z9H/CuFSR/P0WVCjaVwzd2eg+O8X?=
+ =?us-ascii?Q?1dtLDvHIKFp5DymeK6aucEP90TPgRz269xq3CfXAibu+WVZMhxsR1VhAyc01?=
+ =?us-ascii?Q?X7WDgVmpriBB7kjlMsktywpk+pq5ZC/F1oFrSgZq6oabh7FjtdAND/p1h4Nl?=
+ =?us-ascii?Q?296v99fO1Hza6GUWj5kC/qqin74xAJp7KmKcJ7W+q55cCT9XgMRN/1CV2TNu?=
+ =?us-ascii?Q?6TgikXuxsQ2sqngwUt5OmsaTGDLCD/m1JFkRCbXo3Vr/1FR/EiJVJFLm69aU?=
+ =?us-ascii?Q?elCr93sIVm1/DXW7k7vvBrRZqveHDTKoe1TY3Nm2dk71GTGWOoYM04Irk3Zc?=
+ =?us-ascii?Q?xjnN9Dp8Qs4LeAanhDetDoOWkWR2uIRG/4SUZlXm?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59ce79c2-d6a7-47da-aafa-08de13124d6f
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 15:30:46.5011
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bR7SI9iZ0mTnzOFZBZVhGSN9YAcuHnPTiURlw3dKsjsQ0w/PSbmpiElmDzeThSNF8juDUQYmUxnhCNHxIYKg2w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8856
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251024_083051_092967_E70D8554 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,146 +158,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Oct 24, 2025 at 01:52:43PM +0800, carlos.song@nxp.com wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+>
+> IMX51_ECSPI and IMX53_ECSPI both has target mode, but now PIO target mode
+> is only supported for IMX53_ECSPI.
+>
+> Support target PIO mode for IMX51_ECSPI. It can share the same functions
+> for data transmission and reception in target mode with IMX53_ECSPI. So
+> remove target mode restriction only for IMX53_ECSPI and move target max
+> transfer len to devtype_data of IMX53_ECSPI and IMX51_ECSPI to improve
+> readability.
 
---=-YI9KzXTKaCZlBvC3KOA8
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Look like whole patch have not touch PIO mode and DMA mode at all.
 
-On Fri, 2025-10-24 at 17:05 +0200, Kevin Brodsky wrote:
-> On 24/10/2025 16:47, David Woodhouse wrote:
-> > On Thu, 2025-10-23 at 22:06 +0200, David Hildenbrand wrote:
-> > > On 15.10.25 10:27, Kevin Brodsky wrote:
-> > > > We currently set a TIF flag when scheduling out a task that is in
-> > > > lazy MMU mode, in order to restore it when the task is scheduled
-> > > > again.
-> > > >=20
-> > > > The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-> > > > mode in task_struct::lazy_mmu_state. We can therefore check that
-> > > > state when switching to the new task, instead of using a separate
-> > > > TIF flag.
-> > > >=20
-> > > > Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> > > > ---
-> > >=20
-> > > Looks ok to me, but I hope we get some confirmation from x86 / xen
-> > > folks.
-> >=20
-> > I know tglx has shouted at me in the past for precisely this reminder,
-> > but you know you can test Xen guests under QEMU/KVM now and don't need
-> > to actually run Xen? Has this been boot tested?
->=20
-> I considered boot-testing a Xen guest (considering the Xen-specific
-> changes in this series), but having no idea how to go about it I quickly
-> gave up... Happy to follow instructions :)
+spi: imx: add i.MX51 ECSPI target mode support.
 
-https://qemu-project.gitlab.io/qemu/system/i386/xen.html covers booting
-Xen HVM guests, and near the bottom PV guests too (for which you do
-need a copy of Xen to run in QEMU with '--kernel xen', and your
-distro's build should suffice for that).
-
-Let me know if you have any trouble. Here's a sample command line which
-works here...
-
-qemu-system-x86_64 -display none --accel kvm,xen-version=3D0x40011,kernel-i=
-rqchip=3Dsplit -drive file=3D/var/lib/libvirt/images/fedora28.qcow2,if=3Dxe=
-n -kernel ~/git/linux-2.6/arch/x86/boot/bzImage -append "root=3D/dev/xvda1 =
-console=3DttyS0" -serial mon:stdio
-
---=-YI9KzXTKaCZlBvC3KOA8
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MTAyNDE1MTcy
-MFowLwYJKoZIhvcNAQkEMSIEIIUU83TFm9d5DeqzChjuYLSRaIbNzIAsod/MspuHnzkaMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAtCYQJZ65jySB
-ggxFo1IeuLM9/NpiFSWEHe6gqDHUdt1IPg1boHBROVnNBUdiWwfIMK5n1C3GTfokgSIa+07t5Lnt
-Vx/xCqFDvpJpvZaOHSIY0B1wh543U501BBOyGYRjHId8gPD/1q10+XuuAQ2Vxtl3qq8z76bbGYCs
-7pEYo5tyGGcpmX1RPTl9R6/k5Va8q41sud+qUPqDTu44AuionVzsRgYW3gr0Sj1Dh9zqlod0+eo1
-MawTB7qZxvGKb44374TDmwMFTb4WEf5vs9qRAqB51rrxHgyIk2Zbt6KR3RltCxpRV5BiPZF7t9Pa
-N6EAPLmbs3ArPHgUiAaLZEMEbjPN2ltxg+yNx6Y4lNPAQvHDbMtgbqWz+y03kWqED9qyOwD5C/PD
-pg/8KLQ0JMq8WGHib+FN+z/wS4MaJR6W+9tOUVkKpPiSB1vXJAUARaFa2E8niyFpzm+haTr452Xd
-LL0vO+kSiSv0QKBvKQB9KbL5cJzn06K2mgCt0snHOcRWUQHETSmvLsgGT0N4FrMnrr8LxUaBhv9A
-eTTl/gRgVni08bazozq9Ulwvk5PvnbUMSSQ6pbgqcp3X6R2IiCNOeqam+OoqbMr2viVk3g0BvtWw
-K1Q9zPY9RjSEYwP+GrtzxjDRh/rB8geb+8JvvdB1UPMFYiHbHwEeWgbIdtAIrWQAAAAAAAA=
+ECSPI in i.MX51 and i.MX53 support target mode. Current code only support
+i.MX53. Remove is_imx53_ecspi() check for target mode to support i.MX51.
 
 
---=-YI9KzXTKaCZlBvC3KOA8--
+Add target_max_transfer_bytes should be new patch. Any difference between
+SoCs? if all the same, needn't this movement.
+
+Frank
+>
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
+>  drivers/spi/spi-imx.c | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+> index 6eb4bfb7be4a..cd40db61d8d1 100644
+> --- a/drivers/spi/spi-imx.c
+> +++ b/drivers/spi/spi-imx.c
+> @@ -85,6 +85,7 @@ struct spi_imx_devtype_data {
+>  	void (*disable)(struct spi_imx_data *spi_imx);
+>  	bool has_dmamode;
+>  	bool has_targetmode;
+> +	int target_max_transfer_bytes;
+>  	unsigned int fifo_size;
+>  	bool dynamic_burst;
+>  	/*
+> @@ -594,7 +595,7 @@ static int mx51_ecspi_prepare_message(struct spi_imx_data *spi_imx,
+>  	 * is not functional for imx53 Soc, config SPI burst completed when
+>  	 * BURST_LENGTH + 1 bits are received
+>  	 */
+> -	if (spi_imx->target_mode && is_imx53_ecspi(spi_imx))
+> +	if (spi_imx->target_mode)
+>  		cfg &= ~MX51_ECSPI_CONFIG_SBBCTRL(channel);
+>  	else
+>  		cfg |= MX51_ECSPI_CONFIG_SBBCTRL(channel);
+> @@ -682,7 +683,7 @@ static int mx51_ecspi_prepare_transfer(struct spi_imx_data *spi_imx,
+>
+>  	/* Clear BL field and set the right value */
+>  	ctrl &= ~MX51_ECSPI_CTRL_BL_MASK;
+> -	if (spi_imx->target_mode && is_imx53_ecspi(spi_imx))
+> +	if (spi_imx->target_mode)
+>  		ctrl |= (spi_imx->target_burst * 8 - 1)
+>  			<< MX51_ECSPI_CTRL_BL_OFFSET;
+>  	else {
+> @@ -1140,6 +1141,7 @@ static struct spi_imx_devtype_data imx51_ecspi_devtype_data = {
+>  	.has_dmamode = true,
+>  	.dynamic_burst = true,
+>  	.has_targetmode = true,
+> +	.target_max_transfer_bytes = MX53_MAX_TRANSFER_BYTES,
+>  	.disable = mx51_ecspi_disable,
+>  	.devtype = IMX51_ECSPI,
+>  };
+> @@ -1154,6 +1156,7 @@ static struct spi_imx_devtype_data imx53_ecspi_devtype_data = {
+>  	.fifo_size = 64,
+>  	.has_dmamode = true,
+>  	.has_targetmode = true,
+> +	.target_max_transfer_bytes = MX53_MAX_TRANSFER_BYTES,
+>  	.disable = mx51_ecspi_disable,
+>  	.devtype = IMX53_ECSPI,
+>  };
+> @@ -1170,6 +1173,7 @@ static struct spi_imx_devtype_data imx6ul_ecspi_devtype_data = {
+>  	.has_dmamode = true,
+>  	.dynamic_burst = true,
+>  	.has_targetmode = true,
+> +	.target_max_transfer_bytes = MX53_MAX_TRANSFER_BYTES,
+>  	.tx_glitch_fixed = true,
+>  	.disable = mx51_ecspi_disable,
+>  	.devtype = IMX51_ECSPI,
+> @@ -1375,7 +1379,7 @@ static int spi_imx_setupxfer(struct spi_device *spi,
+>  	spi_imx->rx_only = ((t->tx_buf == NULL)
+>  			|| (t->tx_buf == spi->controller->dummy_tx));
+>
+> -	if (is_imx53_ecspi(spi_imx) && spi_imx->target_mode) {
+> +	if (spi_imx->target_mode) {
+>  		spi_imx->rx = mx53_ecspi_rx_target;
+>  		spi_imx->tx = mx53_ecspi_tx_target;
+>  		spi_imx->target_burst = t->len;
+> @@ -1649,8 +1653,7 @@ static int spi_imx_pio_transfer_target(struct spi_device *spi,
+>  	struct spi_imx_data *spi_imx = spi_controller_get_devdata(spi->controller);
+>  	int ret = 0;
+>
+> -	if (is_imx53_ecspi(spi_imx) &&
+> -	    transfer->len > MX53_MAX_TRANSFER_BYTES) {
+> +	if (transfer->len > spi_imx->devtype_data->target_max_transfer_bytes) {
+>  		dev_err(&spi->dev, "Transaction too big, max size is %d bytes\n",
+>  			MX53_MAX_TRANSFER_BYTES);
+>  		return -EMSGSIZE;
+> --
+> 2.34.1
+>
 
