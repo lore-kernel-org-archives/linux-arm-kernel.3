@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EA5CCF9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 11:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A582CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 11:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I01gilt597ssbstG3/Wac7ngYgWIq9bxKRTcwDQ6Hvw=; b=yl3gYe13UdUaisLcLnjv4qk9UR
-	WwCoIS1/fNNEwhBSsCIxQGjG8U9yNj4sBOWywa0eZ+mBCFtyShv+Va7dj4LbPSMA9l0JWcRUlGeVg
-	gwNFn6G8j32WgmQRSMKKepR9gYa8vfLcenHoAwExx5VhAcZswROT3d2gsUmXslzqKMwyYTvVxWTa4
-	+1J6PC7ebwrLQChdEM8uykctsle6KGSXRF9DkKcM7NpK3pOhwUFeSPD96Yf/wF/zo7aEaNIkABaHg
-	GyqT00QWhiNta4B26trM76EIxhr3i48iotTEAbbfn8tC9HIMxMr9DL3+2FvNxhaxQfe1KgLlFKY1y
-	v4KPd9Gg==;
+	bh=WWXoixfODlUqDxsjKDlztTxWIJvxLL5GEq5nJfjkj0A=; b=cjaxn4fsFTZrJ+QaFQZlgcH8A3
+	ESytrBHKHEhcz8u/4LHVg8RpuytYxAyxtiHGD0qKiyak4mkqutXRq/smB3p5iUs4oEWCM9BuGHz7B
+	EjnnPeJH0x2oL6fbxPq5GaDuu56cjNvtCektq4bB8rFzg0TnW/yWqf6jlh8LHXX6hrzsxnXed1mQr
+	zVLqPX8bZ6WleyrMg91p7wrxj1K4FEKjuSiEdhb0Ituhv0O1apSWvxd8Xn8GXpNB4qYXoFjzyxxie
+	w4vEAP6P9inRKj5R89vi25wsGSmhAOGFDRsHnZfAYNE6s82f4XSXr3P+kO7ooXxDGpUYwHJOztM1r
+	JJ3nstnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGJZ-00000009GMV-0VRb;
+	id 1vCGJZ-00000009GNC-1wb9;
 	Fri, 24 Oct 2025 11:50:37 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGJS-00000009GH3-1Lap
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vCGJT-00000009GI2-1jyw
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 24 Oct 2025 11:50:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=WWXoixfODlUqDxsjKDlztTxWIJvxLL5GEq5nJfjkj0A=; b=NH1ve9xNbEbtCkACDWZdXRnaDF
+	xdmBNdtT92YV+yuVvDST+v5EuCGI24j07WLwBO0r7e/O1BCrQfhkmdc3agBnbBUhwi7gIc1QrQ+rP
+	Asdvt5tlhACXg+5w4LvT2rfL4aaz+exoS3xgtdbpHz2d2EGsT3Prz94rnTQlMPP3is1G+QUqI/8sP
+	H36lPUsrtCady5d08bwVVonMg1EaDLI4zc3JDP+Znyv0ypLUonOWYZ0oeRp/sGP6VlWZe2f7sDbc9
+	aed+3ykXRbRV3tOisTSyxHVnjbm6ZFoFu80u4B8/XPANA6T2sjTqN97JZfnQcIinWvm8JdVwV8Syc
+	vWgLfLmw==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vCFRk-00000002FSQ-45tm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 10:55:04 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1vCGJB-0002FG-DJ; Fri, 24 Oct 2025 13:50:13 +0200
+	id 1vCGJ4-0002FG-RS; Fri, 24 Oct 2025 13:50:06 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Fri, 24 Oct 2025 13:50:02 +0200
-Subject: [PATCH v5 10/10] arm64: dts: socfpga: agilex5: initial support for
- Arrow AXE5-Eagle
+Date: Fri, 24 Oct 2025 13:49:54 +0200
+Subject: [PATCH v5 02/10] net: stmmac: Use interrupt mode INTM=1 for per
+ channel irq
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251024-v6-12-topic-socfpga-agilex5-v5-10-4c4a51159eeb@pengutronix.de>
+Message-Id: <20251024-v6-12-topic-socfpga-agilex5-v5-2-4c4a51159eeb@pengutronix.de>
 References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
 In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -55,15 +70,15 @@ Cc: kernel@pengutronix.de, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, 
  Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ Teoh Ji Sheng <ji.sheng.teoh@intel.com>
 X-Mailer: b4 0.14.3
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_045030_366945_E0EA7A9F 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20251024_115501_094115_130EC6AF 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,191 +93,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arrow AXE5-Eagle is an Intel Agilex5 SoCFPGA based board with:
+From: Teoh Ji Sheng <ji.sheng.teoh@intel.com>
 
-   - 1x PCIe Gen4.0 edge connector
-   - 4-port USB HUB
-   - 2x 1Gb Ethernet
-   - microSD
-   - HDMI output
-   - 2x 10Gb SFP+ cages
+commit 6ccf12ae111e ("net: stmmac: use interrupt mode INTM=1
+for multi-MSI") is introduced for platform that uses MSI.
 
-As most devices aren't supported mainline yet, this is only the initial
-support for the board: leds, gpios, gmac2, i2c, uart and qspi. Although
-gmac1 is equipped on the board, it doesn't work yet as it needs
-additional pinctrl settings in the bootloader to work.
+Similar approach is taken to enable per channel interrupt
+that uses shared peripheral interrupt (SPI), so only per channel
+TX and RX intr (TI/RI) are handled by TX/RX ISR without calling
+common interrupt ISR.
 
+TX/RX NORMAL interrupts check is now decoupled, since NIS bit
+is not asserted for any TI/RI events when INTM=1.
+
+Signed-off-by: Teoh Ji Sheng <ji.sheng.teoh@intel.com>
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/intel/Makefile                 |   1 +
- .../boot/dts/intel/socfpga_agilex5_axe5_eagle.dts  | 146 +++++++++++++++++++++
- 2 files changed, 147 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       |  3 +++
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c   | 10 +++++++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c    | 20 ++++++++++++++++++++
+ include/linux/stmmac.h                               |  2 ++
+ 4 files changed, 34 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/intel/Makefile b/arch/arm64/boot/dts/intel/Makefile
-index 33f6d01266b1a..0a18ca306054b 100644
---- a/arch/arm64/boot/dts/intel/Makefile
-+++ b/arch/arm64/boot/dts/intel/Makefile
-@@ -2,6 +2,7 @@
- dtb-$(CONFIG_ARCH_INTEL_SOCFPGA) += socfpga_agilex_n6000.dtb \
- 				socfpga_agilex_socdk.dtb \
- 				socfpga_agilex_socdk_nand.dtb \
-+				socfpga_agilex5_axe5_eagle.dtb \
- 				socfpga_agilex5_socdk.dtb \
- 				socfpga_agilex5_socdk_nand.dtb \
- 				socfpga_n5x_socdk.dtb
-diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5_axe5_eagle.dts b/arch/arm64/boot/dts/intel/socfpga_agilex5_axe5_eagle.dts
-new file mode 100644
-index 0000000000000..a2a262f3d07c6
---- /dev/null
-+++ b/arch/arm64/boot/dts/intel/socfpga_agilex5_axe5_eagle.dts
-@@ -0,0 +1,146 @@
-+// SPDX-License-Identifier:     GPL-2.0
-+/*
-+ * Copyright (C) 2024, Arrow Electronics, Inc.
-+ */
-+#include "socfpga_agilex5.dtsi"
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index 0d408ee17f337..64b533207e4a6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -326,6 +326,9 @@
+ /* DMA Registers */
+ #define XGMAC_DMA_MODE			0x00003000
+ #define XGMAC_SWR			BIT(0)
++#define DMA_MODE_INTM_MASK		GENMASK(13, 12)
++#define DMA_MODE_INTM_SHIFT		12
++#define DMA_MODE_INTM_MODE1		0x1
+ #define XGMAC_DMA_SYSBUS_MODE		0x00003004
+ #define XGMAC_WR_OSR_LMT		GENMASK(29, 24)
+ #define XGMAC_WR_OSR_LMT_SHIFT		24
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index 4d6bb995d8d84..1e9ee1f10f0ef 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -31,6 +31,13 @@ static void dwxgmac2_dma_init(void __iomem *ioaddr,
+ 		value |= XGMAC_EAME;
+ 
+ 	writel(value, ioaddr + XGMAC_DMA_SYSBUS_MODE);
 +
-+/ {
-+	model = "SoCFPGA Agilex5 Arrow AXE5-Eagle";
-+	compatible = "arrow,socfpga-agilex5-axe5-eagle", "intel,socfpga-agilex5";
++	if (dma_cfg->multi_irq_en) {
++		value = readl(ioaddr + XGMAC_DMA_MODE);
++		value &= ~DMA_MODE_INTM_MASK;
++		value |= (DMA_MODE_INTM_MODE1 << DMA_MODE_INTM_SHIFT);
++		writel(value, ioaddr + XGMAC_DMA_MODE);
++	}
+ }
+ 
+ static void dwxgmac2_dma_init_chan(struct stmmac_priv *priv,
+@@ -359,13 +366,14 @@ static int dwxgmac2_dma_interrupt(struct stmmac_priv *priv,
+ 		}
+ 	}
+ 
+-	/* TX/RX NORMAL interrupts */
++	/* RX NORMAL interrupts */
+ 	if (likely(intr_status & XGMAC_RI)) {
+ 		u64_stats_update_begin(&stats->syncp);
+ 		u64_stats_inc(&stats->rx_normal_irq_n[chan]);
+ 		u64_stats_update_end(&stats->syncp);
+ 		ret |= handle_rx;
+ 	}
++	/* TX NORMAL interrupts */
+ 	if (likely(intr_status & (XGMAC_TI | XGMAC_TBU))) {
+ 		u64_stats_update_begin(&stats->syncp);
+ 		u64_stats_inc(&stats->tx_normal_irq_n[chan]);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 27bcaae07a7f2..cfa82b8e04b94 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -607,6 +607,8 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 	dma_cfg->fixed_burst = of_property_read_bool(np, "snps,fixed-burst");
+ 	dma_cfg->mixed_burst = of_property_read_bool(np, "snps,mixed-burst");
+ 
++	dma_cfg->multi_irq_en = of_property_read_bool(np, "snps,multi-irq-en");
 +
-+	aliases {
-+		serial0 = &uart0;
-+	};
+ 	plat->force_thresh_dma_mode = of_property_read_bool(np, "snps,force_thresh_dma_mode");
+ 	if (plat->force_thresh_dma_mode && plat->force_sf_dma_mode) {
+ 		plat->force_sf_dma_mode = 0;
+@@ -737,6 +739,8 @@ EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
+ int stmmac_get_platform_resources(struct platform_device *pdev,
+ 				  struct stmmac_resources *stmmac_res)
+ {
++	char irq_name[11];
++	int i;
+ 	memset(stmmac_res, 0, sizeof(*stmmac_res));
+ 
+ 	/* Get IRQ information early to have an ability to ask for deferred
+@@ -746,6 +750,22 @@ int stmmac_get_platform_resources(struct platform_device *pdev,
+ 	if (stmmac_res->irq < 0)
+ 		return stmmac_res->irq;
+ 
++	/* For RX Channel */
++	for (i = 0; i < MTL_MAX_RX_QUEUES; i++) {
++		sprintf(irq_name, "%s%d", "macirq_rx", i);
++		stmmac_res->rx_irq[i] = platform_get_irq_byname(pdev, irq_name);
++		if (stmmac_res->rx_irq[i] < 0)
++			break;
++	}
 +
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
++	/* For TX Channel */
++	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
++		sprintf(irq_name, "%s%d", "macirq_tx", i);
++		stmmac_res->tx_irq[i] = platform_get_irq_byname(pdev, irq_name);
++			if (stmmac_res->tx_irq[i] < 0)
++				break;
++	}
 +
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			label = "hps_led0";
-+			gpios = <&porta 6 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-1 {
-+			label = "hps_led1";
-+			gpios = <&porta 7 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		key-0 {
-+			label = "hps_sw0";
-+			gpios = <&porta 10 0>;
-+			linux,input-type = <5>;	/* EV_SW */
-+			linux,code = <0x0>;
-+		};
-+
-+		key-1 {
-+			label = "hps_sw1";
-+			gpios = <&porta 1 0>;
-+			linux,input-type = <5>;	/* EV_SW */
-+			linux,code = <0x0>;
-+		};
-+
-+		key-2 {
-+			label = "hps_pb0";
-+			gpios = <&porta 8 1>;
-+			linux,code = <187>;		/* KEY_F17 */
-+		};
-+
-+		key-3 {
-+			label = "hps_pb1";
-+			gpios = <&porta 9 1>;
-+			linux,code = <188>;		/* KEY_F18 */
-+		};
-+	};
-+
-+	vdd: regulator-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-supply";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+	};
-+
-+	vdd_3_3: regulator-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-supply";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&gmac2 {
-+	status = "okay";
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&emac2_phy0>;
-+
-+	mdio0 {
-+		compatible = "snps,dwmac-mdio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		emac2_phy0: ethernet-phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <0x1>;
-+		};
-+	};
-+};
-+
-+&gpio0 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+
-+	i2c-mux@70 {
-+		compatible = "nxp,pca9544";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0x70>;
-+		status = "okay";
-+	};
-+};
-+
-+&osc1 {
-+	clock-frequency = <25000000>;
-+};
-+
-+&qspi {
-+	status = "okay";
-+
-+	flash@0 {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		compatible = "micron,mt25qu02g", "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <100000000>;
-+
-+		m25p,fast-read;
-+		cdns,read-delay = <2>;
-+		cdns,tshsl-ns = <50>;
-+		cdns,tsd2d-ns = <50>;
-+		cdns,tchsh-ns = <4>;
-+		cdns,tslch-ns = <4>;
-+	};
-+};
-+
-+&smmu {
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
+ 	/* On some platforms e.g. SPEAr the wake up irq differs from the mac irq
+ 	 * The external wake up irq can be passed through the platform code
+ 	 * named as "eth_wake_irq"
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index fa1318bac06c4..a8b15b4e3c370 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -102,6 +102,7 @@ struct stmmac_dma_cfg {
+ 	bool aal;
+ 	bool eame;
+ 	bool multi_msi_en;
++	bool multi_irq_en;
+ 	bool dche;
+ 	bool atds;
+ };
+@@ -290,6 +291,7 @@ struct plat_stmmacenet_data {
+ 	u8 vlan_fail_q;
+ 	struct pci_dev *pdev;
+ 	int int_snapshot_num;
++	bool multi_irq_en;
+ 	int msi_mac_vec;
+ 	int msi_wol_vec;
+ 	int msi_lpi_vec;
 
 -- 
 2.51.0
