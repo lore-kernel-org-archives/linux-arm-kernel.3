@@ -4,79 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51931CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14FBACCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bLpiuHTkVYJeeQyf1nxnU5c82uk7vYrn+Np6jyjJloc=; b=EmIScGEhanmYxsc8fDdq4d9eM+
-	lI6KakWh5lxKJtAF0PDU/lkRi/qHwUx5ZmhPWd9jtxNZe5Isef4VLgBuTvbWwoidI/+Gx1R5yYpBh
-	J3aBJx7FiyaYwiXNLv1Gy4tgknxAcqzxBIdYE2HG8dqrlnL7XbT4iJvRRE+uvvKJQhIP3GT8coQWi
-	3m/t1PTYRjty2HuE2GQFyNZAW3T6mDHXvIp8oHzijccZmDHJrmXAl+E+GoWvRObYBI94tt35ddmvl
-	uRKOVFlxc2BE21IxRQ/cNzEJFdJpdvwBjdn4TfXsRkd2CvxnINJSApge6ztDuoHFfq2RojGJkhhFj
-	VUlAwrkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JtnFXCExsZdLZq2G/tjwJUqj6ybBomMbkly4sZvH1LI=; b=1FrmlA4FjP93rpxRflQ1l9YzZ3
+	rbFdhhdW2awd6doNBLVMEw55jRyQzpZN4wrCpbTgq2A/rvyzUaHnD8nybrHH/BgFjMmQMta9InT+a
+	BMnq084VuJH79CL3HO2PLIr4K8WDvcv6rgRLZpAsk3bbylNRNPV27WuFSaur4G7InhFMiyWXNK5ZN
+	7UIyS4VtCxRfD5N7We5XpLFhDRL55kXJYuS598VrvVAIymDD3wqiU1OSCPFUECGMp8wHSlqGt+WZx
+	8Os0wpN74UsTblmSNnN+9WEO8CAy5D3ekIbnGeMLEEZ9sk42/I/T9oMM56LcN0TMLMGiEf+ZM/+8Q
+	C5U+iPPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGuf-00000009Mnb-2PEa;
-	Fri, 24 Oct 2025 12:28:57 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vCGwc-00000009N7H-1yu9;
+	Fri, 24 Oct 2025 12:30:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGuc-00000009Mmt-3oJX
+	id 1vCGwb-00000009N7B-0FLM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 12:28:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=bLpiuHTkVYJeeQyf1nxnU5c82uk7vYrn+Np6jyjJloc=; b=uogF3IuRHG65F4F/hUsAqYa5bv
-	5bsEVw1N/nJ5cZ5HPwcZYOW/3aWpoNIZAMC/mgFUSrbwJIbB9xWFXoHv5GOUgsHFBY4vIbbu8qtEO
-	Mv3EUx/1xB9l12UKduwnjXRhTIt7Dt2X8IJzQcM/ctu9HTVb2THqkYrI3S3QCdwG/jdo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vCGuA-00Bzil-7X; Fri, 24 Oct 2025 14:28:26 +0200
-Date: Fri, 24 Oct 2025 14:28:26 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, BMC-SW <BMC-SW@aspeedtech.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Jeremy Kerr <jk@codeconstruct.com.au>, Lee Jones <lee@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Nishanth Menon <nm@ti.com>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC
- device tree
-Message-ID: <71df9bdf-53b2-45e2-a9e3-5b00a556f957@lunn.ch>
-References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
- <20251022070543.1169173-5-ryan_chen@aspeedtech.com>
- <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
- <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
- <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	Fri, 24 Oct 2025 12:30:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40C68601D2;
+	Fri, 24 Oct 2025 12:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEBEAC4CEF1;
+	Fri, 24 Oct 2025 12:30:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761309055;
+	bh=XT/AOTXKmrxQ806Oi0c+OynPh2cfRDUjMbed7YKYidU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nexhUaAqVhKIuBosKo+UZuRvxju8WxeK8cr4uoAXHTrdSg1J2BJel6DbS/PAm8Zdg
+	 EKYlWT2RGzaMFLoOiiPMPTfB1sWthHI4uS/TO/mdpoZ0ZfFf4DKWANm47xgHGbu0TI
+	 Ml1UrGH17gDGk4OUqdLZ3WK/PDzandoAgv4lnRiKA4UYTY1m6lDUPdBhcOWgc/RLKN
+	 3M0pzjuKP/D3sB54dp9xUc9ZE9uIkmEnyo58JFKM7SrgpnvQzFUvSOzFQMnxGlKmDm
+	 3+2PF7GPnAQF3nH8lo1G88vd9TUd+US2S7JEHrE3WZYspMEyjzrbOS8X/BvDG1T4rc
+	 uy/CSWhavielQ==
+Message-ID: <563d6efb-966e-41e7-aade-ddec2abc7568@kernel.org>
+Date: Fri, 24 Oct 2025 14:30:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_052854_967125_63517FC6 
-X-CRM114-Status: GOOD (  16.11  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
+ new YAML
+To: Jeremy Kerr <jk@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com,
+ linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
+ <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
+ <20251024-dark-ringtail-of-defiance-1daabd@kuoka>
+ <2939cae6-2e8a-4528-8e27-8c932e2f82de@kernel.org>
+ <bf3d6690b9124ecf74df6c0f9f1c0f72ae1db9f7.camel@codeconstruct.com.au>
+ <8341a903-639b-471a-8425-a98c473f5ab0@kernel.org>
+ <7a650d60cabcbd33b65c954b0c9c5918dfcabb09.camel@codeconstruct.com.au>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <7a650d60cabcbd33b65c954b0c9c5918dfcabb09.camel@codeconstruct.com.au>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +126,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > >> This probably needs some explanation: why are there two 'soc@...'
-> > >> devices? Is this literally two chips in the system, or are you
-> > >> describing two buses inside of the same SoC?
-> > >
-> > > The AST2700 is two soc connection with a property bus.
-> > > Sharing some decode registers. Each have it own ahb bus.
-> > 
-> > I don't understand your explanation,
+On 24/10/2025 10:40, Jeremy Kerr wrote:
+> Hi Krzysztof,
 > 
-> Let me clarify more clearly:
-> The AST2700 is a dual-SoC architecture, consisting of two interconnected SoCs,
-> referred to as SoC0 and SoC1. Each SoC has its own clock/reset domains. 
-> They are connected through an internal "property bus", 
-> which is Aspeed's internal interconnect providing shared
-> address decoding and communication between the two SoCs.
+>> On 24/10/2025 09:56, Jeremy Kerr wrote:
+>>> Hi Krzysztof,
+>>>
+>>>> Although now I saw next patch, so clearly this commit is
+>>>> incomplete.
+>>>
+>>> The split that Ryan has done here - by shifting to an identical
+>>> separate
+>>> binding, then making the changes explicit - allows us to review the
+>>> actual changes without losing them in the move. Sounds like a
+>>> benefit to
+>>> me?
+>>
+>> Not related. I commented that rationale is incomplete. We do not move
+>> parts of bindings because new device is someway different. There are
+>> hundreds of bindings which cover different devices. We move them
+>> because the binding is different.
+> 
+> OK, but in that case I think we're after guidance on the threshold for
+> "difference" here.
+> 
+>> Not much different than every other soc. All of them are separate IPs.
+>> Look at any Samsung, NXP or Qualcomm binding. Separate IPs.
+> 
+> So, something like this?
+> 
+>     allOf:
+>       - $ref: /schemas/i2c/i2c-controller.yaml#
+>       - if:
+>           properties:
+>             compatible:
+>               contains:
+>                 enum:
+>                   - aspeed,ast2600-i2c-bus
+>         then:
+>           required:
+>             - aspeed,global-regs
 
-By SoC are you just referring to peripherals? Or are there two sets of
-CPUs as well?
 
-If it is just peripherals, this has been done before by Marvell.
+else:
+  properties:
+   ... : false
 
-See armada-cp11x.dtsi. Marvell calls it a CP, they are identical, so
-there is one description of it, which then gets included twice.
+> 
+> 
+> I can't see how we could represent aspeed,transfer-mode though, as it's
+> optional on aspeed,ast2600-i2c-bus, but prohibited on others. Any hints
+> on that?
 
-	Andrew
+
+It's shown in the example-schema, if we go that way.
+
+Best regards,
+Krzysztof
 
