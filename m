@@ -4,102 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C1ACCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80B8CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WOuNrW310/87AuysnVn8f56bmg1dUBIWWmh8D5BQhSw=; b=LzrS3tAsLtHbs02+TX97hdURIN
-	ACUpSM9YvBpkTIlRXjnuy2xnfkVXHjAJuwwspPnNw+zGX2+FwBYHswr4mXubkfBqNUP5ePtM+J7I5
-	RFRIvTVHBwgPlgM7zq/JrH+h/yOc5Ck2pzXHalw1i1yumcSzR15JSYvWZAdAqYje96n7xXcgHoSL7
-	hnQ3MgAIEH2NgiKUKUDEcdznbz3ogUrTYmb8tIFUDcI/2VSNcZt+eBLq8dPwmMBxVg5ikP/hq59hb
-	05TmYVGbNOGDycSHv+0Fb5B41O1/8PWoSR8haf3OrNxyV4sIHroIAe48NfEEjnEQnXr+nhAWrV/Sk
-	/57l4/fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HY2q1+xJKg4azQuMAYEYuLlJhhn5b+ALxExQmfB3kYg=; b=poNezYdmVUnSZ/+oQgbVwPPJ0Q
+	KL0TRMy743ZGB5+IEmOhE2SCsdam0zc1Rrbke+lqSdJZ8sQxwFHTwb+jBvvmK0wMCbBl/Hh4DZ5eA
+	ytU0AJia8p40sooBAO8gmjSmn8v46UyHGBCKAscaWO1HCBy0sp+N+zt2ZnXqfPRsTZlwL4Lk4/ogt
+	qgdxAp8QaXHr9Yl10tZG2q6TOfUBgYytCCdYY4NR6DrURb7Gg7a8t/8CIdxEgkIVhIHe0trt2mqRS
+	nCKHC+vtT0RsNzaiCDhy6dP7Y+wP6p+xPcSalIxTYOb2wLtP0tpIB7gUeZinT6uUpyRE9q6PFcwHR
+	QTNoVo0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLHH-0000000A4mQ-1KiU;
-	Fri, 24 Oct 2025 17:08:35 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
+	id 1vCLHp-0000000A4tL-2mhn;
+	Fri, 24 Oct 2025 17:09:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLHD-0000000A4lS-2fLR
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 17:08:33 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id BB6C11D001A4;
-	Fri, 24 Oct 2025 13:08:29 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Fri, 24 Oct 2025 13:08:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm2; t=1761325709; x=1761412109; bh=WO
-	uNrW310/87AuysnVn8f56bmg1dUBIWWmh8D5BQhSw=; b=cDycCcnTveLKfv1w1x
-	Xkv+qnoZBCS+B1c/CeVxcJ8vIJMhayLgHrOYLrW7/u0MAjfPxcG62fmI4uPs7Y5P
-	cVczG+g8wjcgDQY4c6GJlyLluA8oYMsgrJr9b4WSN1sUD0CH6EDd1V1TviU+9Wzl
-	c3OqKY+hAC5I1GaBQeBHzYbtH0NZt6vC5WSZwz2Cf0ORqaKggRph4gn7kiNGp3yK
-	IiS/ap0bHyTezdGlZ2DTXJQCqfD2n4291a+l6E8ioxox0DHLK+GE5N3kbCbw9F1e
-	j9DqUWJ5b+sFznKK4OM1nXO3YF5nOHUAxvyiq9o615fI2F5XMsCzwN4sxf1p7Z78
-	rLNQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1761325709; x=1761412109; bh=WOuNrW310/87AuysnVn8f56bmg1d
-	UBIWWmh8D5BQhSw=; b=gJyRWPD6+oGVY21VPy8PjdK4Dbg5lgU14jSYxp0YcjUH
-	5PeSLcrv/qB+18HwIbPPga8pWag1uWlpJFfjyvVugTz7jCkuXHzMDh7WY/hzDwWj
-	ZSRi21Nl053CbEMPXTScu8EVrsHEShrwxapl3SxzRgvkaFVDhTveuKexGHOdhCGG
-	kLfOb5QwrtRa864ZdZGm4GSiZCfC4n7KmU7UldDfuPka6lmYoABNUgZ8q5uya4t8
-	vVkiYbVqZ+MYSWbolW4hEvywpSMUWUOk/3tyxbFePhV6MEDF3ugLM+PRtq1Y6obW
-	a77uWJczOY57LAGit1beflm/IO/JMOkn1JdcCtEQ8Q==
-X-ME-Sender: <xms:jLL7aMNxLqujDZs0DRQxDY8glzgBegewYb7Vs3yQ4wryvGCzPHSkpg>
-    <xme:jLL7aNx1TnKODg7qudhJxda0jwkUIp-1RWMdfD-55unCw20HcnP-6ZY3MtZx7O25I
-    IGTNrEIo5qJ8HRR5lxtYLMR75b99dLfcNR0o3AQ6j3Bx5PzzL69Ubo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddugeelledtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epudfgfeeuheelheehfeeigeeigeeiveevheelteelleeijeeikeekvddthfejieffnecu
-    ffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluhhsth
-    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggs
-    rdguvgdpnhgspghrtghpthhtohepkedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
-    eprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdprhgtphht
-    thhopehfuhhsthhinhhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikheskh
-    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgr
-    rhhordhorhhgpdhrtghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurg
-    htihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhi
-    shhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrd
-    hlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdr
-    khgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:jbL7aA-cUy09bl4q7zOl26a3hICbbw3yEDZOXVG2fqa58xGeYjkRQw>
-    <xmx:jbL7aLTMVn34Eoq1e8cwii0SbZ17f3dDoLrbGpdTPD62XTeWuk3Eyg>
-    <xmx:jbL7aJq17K67lAffy5_jbJ98Ij0P_lvWqgGVJPmhqtlXnw7k1LLmrw>
-    <xmx:jbL7aAlkdikE5Q0TU5KGYBVzfwu3ctKQ5WwQWM0ipUflI5geuzUz8Q>
-    <xmx:jbL7aEFVULMdq-1_XLE-oZWZ5thWPLTKsYIsNLLlc2KO_vmmekcXkv9G>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id DC0C9700063; Fri, 24 Oct 2025 13:08:28 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vCLHo-0000000A4sZ-2pOT;
+	Fri, 24 Oct 2025 17:09:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D768B6023A;
+	Fri, 24 Oct 2025 17:09:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B69DAC4CEF1;
+	Fri, 24 Oct 2025 17:09:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761325747;
+	bh=nEsdPzi/tI01PeUgGVuo2zqDEcBVeBbnMqQ68PWLzVQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QamugzSLBu5WaDeDpKXu4OBuo2iT0CBGV4gsQNQieHyIBXMKIEoRrJoeARLexzznd
+	 s0Jv5aVIYnZUz+9cX6dEIlPuyltqWfS85b0qGIAMbS/29Jvpd3zhro6HTjRyjC0ALl
+	 /FEhzqwZ9g/P4xNmU0baHCs8viygjcFDwnYx81rEinu0bfEs3ZeXJq5gi6dTGRv8js
+	 xHWAS8qqJwYsxi6B3Pv8dRR4bAyW6UGBIPAHA8AQgwnwIma+suj9Upc9ZTrXkI/Wlx
+	 nfx9mW+0t5M+h/NdkjyPFxEoodFuQABjnPlbXrRXO+gt86g63Pr2r/QIFib8KfWOGw
+	 vWzsgrucEU6HA==
+Date: Fri, 24 Oct 2025 18:09:00 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@wdc.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Peter Wang <peter.wang@mediatek.com>,
+	Stanley Jhu <chu.stanley@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	kernel@collabora.com, linux-scsi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH v3 01/24] dt-bindings: phy: Add mediatek,mt8196-ufsphy
+ variant
+Message-ID: <20251024-spilt-deviate-e3f6bfd3642c@spud>
+References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
+ <20251023-mt8196-ufs-v3-1-0f04b4a795ff@collabora.com>
 MIME-Version: 1.0
-Date: Fri, 24 Oct 2025 19:08:08 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev, "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Drew Fustini" <fustini@kernel.org>
-Message-Id: <a51522e4-61d3-4d8d-8850-678f7fc410db@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.18, part 2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_100831_736360_ECDC3925 
-X-CRM114-Status: GOOD (  11.49  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="w3wlVB5ViarihM4q"
+Content-Disposition: inline
+In-Reply-To: <20251023-mt8196-ufs-v3-1-0f04b4a795ff@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,75 +90,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+--w3wlVB5ViarihM4q
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-are available in the Git repository at:
+On Thu, Oct 23, 2025 at 09:49:19PM +0200, Nicolas Frattaroli wrote:
+> The MediaTek MT8196 SoC includes an M-PHY compatible with the already
+> existing mt8183 binding.
+>=20
+> However, one omission from the original binding was that all of these
+> variants may have an optional reset.
+>=20
+> Add the new compatible, and also the resets property, with an example.
+>=20
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.18-2
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-for you to fetch changes up to b0cd17fd31a86b55dcec3eb64b9d2a17c1c01e6a:
+> ---
+>  .../devicetree/bindings/phy/mediatek,ufs-phy.yaml        | 16 ++++++++++=
+++++++
+>  1 file changed, 16 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml =
+b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+> index 3e62b5d4da61..f414aaa18997 100644
+> --- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+> @@ -26,6 +26,7 @@ properties:
+>        - items:
+>            - enum:
+>                - mediatek,mt8195-ufsphy
+> +              - mediatek,mt8196-ufsphy
+>            - const: mediatek,mt8183-ufsphy
+>        - const: mediatek,mt8183-ufsphy
+> =20
+> @@ -42,6 +43,10 @@ properties:
+>        - const: unipro
+>        - const: mp
+> =20
+> +  resets:
+> +    items:
+> +      - description: Optional UFS M-PHY reset.
+> +
+>    "#phy-cells":
+>      const: 0
+> =20
+> @@ -65,5 +70,16 @@ examples:
+>          clock-names =3D "unipro", "mp";
+>          #phy-cells =3D <0>;
+>      };
+> +  - |
+> +    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
+> +    ufs-phy@16800000 {
+> +        compatible =3D "mediatek,mt8196-ufsphy", "mediatek,mt8183-ufsphy=
+";
+> +        reg =3D <0x16800000 0x10000>;
+> +        clocks =3D <&ufs_ao_clk 3>,
+> +                 <&ufs_ao_clk 5>;
+> +        clock-names =3D "unipro", "mp";
+> +        resets =3D <&ufs_ao_clk MT8196_UFSAO_RST0_UFS_MPHY>;
+> +        #phy-cells =3D <0>;
+> +    };
+> =20
+>  ...
+>=20
+> --=20
+> 2.51.1.dirty
+>=20
 
-  soc: officially expand maintainership team (2025-10-23 22:30:48 +0200)
+--w3wlVB5ViarihM4q
+Content-Type: application/pgp-signature; name="signature.asc"
 
-----------------------------------------------------------------
-soc: fixes for 6.18, part 2
+-----BEGIN PGP SIGNATURE-----
 
-The main change this time is an update to the MAINTAINERS file,
-listing Krzysztof Kozlowski, Alexandre Belloni, and Linus Walleij as
-additional maintainers for the SoC tree, in order to go back to a group
-maintainership.  Drew Fustini joins as an additional reviewer for the
-SoC tree.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPuyrAAKCRB4tDGHoIJi
+0n3qAQDuISPZivWMxQqyWT7hptpBU8VJakYcV1f/3Uook67DEgD9Fuw/t0xI+buQ
+vy1+kgKQvO/lTUze9oKFvo5TZQgdYAI=
+=ts27
+-----END PGP SIGNATURE-----
 
-Thanks to all of you for volunteering to help out.
-
-On the actual bugfixes, we have a few correctness changes for firmware
-drivers (qtee, arm-ffa, scmi) and two devicetree fixes for Raspberry Pi.
-
-----------------------------------------------------------------
-Arnd Bergmann (6):
-      Merge tag 'tee-qcomtee-fixes-for-v6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'ffa-fix-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
-      Merge tag 'scmi-fixes-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
-      Merge tag 'arm-soc/for-6.18/devicetree-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
-      Merge tag 'arm-soc/for-6.18/devicetree-arm64-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
-      soc: officially expand maintainership team
-
-Artem Shimko (1):
-      firmware: arm_scmi: Fix premature SCMI_XFER_FLAG_IS_RAW clearing in raw mode
-
-Cristian Marussi (3):
-      firmware: arm_scmi: Account for failed debug initialization
-      include: trace: Fix inflight count helper on failed initialization
-      firmware: arm_scmi: Skip RAW initialization on failure
-
-Dan Carpenter (2):
-      tee: qcom: prevent potential off by one read
-      tee: qcom: return -EFAULT instead of -EINVAL if copy_from_user() fails
-
-Geert Uytterhoeven (1):
-      tee: QCOMTEE should depend on ARCH_QCOM
-
-Peter Robinson (1):
-      arm64: dts: broadcom: bcm2712: Define VGIC interrupt
-
-Stefan Wahren (1):
-      ARM: dts: broadcom: rpi: Switch to V3D firmware clock
-
-Sudeep Holla (1):
-      firmware: arm_ffa: Add support for IMPDEF value in the memory access descriptor
-
- MAINTAINERS                                        |  4 ++
- arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi        |  8 +++
- arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi |  9 ++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  2 +
- drivers/firmware/arm_ffa/driver.c                  | 37 ++++++++++----
- drivers/firmware/arm_scmi/common.h                 | 32 +++++++++---
- drivers/firmware/arm_scmi/driver.c                 | 59 ++++++++--------------
- drivers/tee/qcomtee/Kconfig                        |  1 +
- drivers/tee/qcomtee/call.c                         |  2 +-
- drivers/tee/qcomtee/core.c                         |  2 +-
- include/linux/arm_ffa.h                            | 21 +++++++-
- 11 files changed, 119 insertions(+), 58 deletions(-)
+--w3wlVB5ViarihM4q--
 
