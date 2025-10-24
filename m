@@ -4,98 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488E6CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 08:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F603CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 08:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2H0+Y+0nbHCT1nPmHP2N1suTimvZ79Q7MXGtF4XoMw0=; b=FZQLjzHWEi/cS/jQLFDseF6gBe
-	U4Jw2EXu7+XoPDnhi9qF9VbzKPe6cvi+gm5vFfXPaQP8YKiOMmZ9Me2lwR9thzY6lbYVpIY8DaLDS
-	t2agPouzoeQ0YVLf8d/sdQqL8wZfUvKMgjIfWS1YOOKmf8tm/2Cn/bozldDzN/PTL3ukv2wIYbR0f
-	RRljc4OR8EdIrYVE8PW9tctsskNHwo7ct209Nm2kK8IweuytXI2AfR5vi7wo7O3DyH/i1oyHxv8ZT
-	v4VC8DGAly7UUqrL77eoK7SQ+sjlYt60LKzlqX0CZOGE/Tu9OMsaz2ndkRFgMV/mb6WXALXedfqrw
-	tA4NrePg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vpjZ2YvujITd6dGEpHYKHsQ9sfLWVWK6FSdI85sjwHE=; b=gdeZaLa1FaD0ZNZ6A1SmMFHmp8
+	ZG6H0xNhHSkuY7xNI0PHiFhR/XAPlJZQ0OvbsDLwVh70VuVF5TZHYU3V8WScPIJy4O50o6kwfnAmu
+	ZMwaMwkK6fVhp3uXLnKHJfoq7oIA2s3sz8FLAidjcw5jy2jqjXwbYbCNMZB75AEBH12YeX1K4cyR9
+	AN4bLXP16rjV8qJ0DvztQUN6SduW8/e3InLzqhyxsGTx3W6PpVDO+VQ3YrF2TzWZB0qtkjWhLvA3S
+	dCZ6BaPlxLzMrH90/xdeRmXaPwj7wQUY4WQgR0w+SbhdFzI/RNFhCM1/x49sxVRQheBq0VTlNd5X5
+	D04FACbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCCnH-00000008c6d-1lZn;
-	Fri, 24 Oct 2025 08:05:03 +0000
-Received: from mail-qk1-f174.google.com ([209.85.222.174])
+	id 1vCCoO-00000008cPt-3I0M;
+	Fri, 24 Oct 2025 08:06:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCCnE-00000008c4l-0LK9
+	id 1vCCoN-00000008cPY-2Dnh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 08:05:01 +0000
-Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-88ed6837e2eso266269485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 01:04:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761293099; x=1761897899;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2H0+Y+0nbHCT1nPmHP2N1suTimvZ79Q7MXGtF4XoMw0=;
-        b=YlhfUt80pBKmCbeV0Ss9T78/JKa2lS19Btl5WYVjXurgNRTli+0LiSzC/UZLCwqmQP
-         LNh04A5iWe/0cc4Tp0D7x95o65qIQ8NbChwFkU1R0A7oFdOAv9sFmYbCVNbhHTWYpu+R
-         FXzaYGankPzyMl0rhK1Y5pbWVgYEQiZzlIlFjOWd2JE2ezfzUFH2hhfwA+yMUq5wHQRD
-         Mago2WX8KWdRHXxEmiQQcZO0JKNi4o2xqsAM2yegAde2zB1iC0tcibhw2mARN8kIoOts
-         cp7yLRmMeoHRViMV0U+yth7n73CwAvadcAtSAi7f1jTEf/DRWnEewtAFN5CAhWaJasDH
-         +OWA==
-X-Forwarded-Encrypted: i=1; AJvYcCUFpS3aI7ff74ptSGQKYMsdJeSJ3Zh05nH9fA/4bjVdLvR3KLUeTXgs7aPhpkajz8tOR560eDcbYM8e7/3sIr9O@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgX9CW+id56Bq7ERIZlyFHXMELTFyRZS52AzuogkV3cxH6bsAw
-	y4SqGlkteWOPi2ltNph+xzIhnmPApiNelSUaIPXgDN4UuWpa6MlyW/dLvfNW4KGT
-X-Gm-Gg: ASbGnctopFuFjPEzVYqRu8zaYiwCdVWRQe2cDssffOSHD8REHjT1R8b91yjDIWIgqaw
-	Pffyn2GV8DKIbc5s27L/btDMKVzK17St8fgGwScGMzHwSe+p9+6dOx6W72CU/aifx6nlecIIiIP
-	BUWLY1Se0E9gKsOFNkPBu+ohvabmFpKDxF5fgk/t/Ro3gK6R8v0scNM5/duhBYbV04qqg5LY+6X
-	dLMftt6aM145phsX3kkBbnW9N6+MMRYO75PRdt+rejCcyimotZGCXH43fQ5xKkwlBlHcqVpwZtX
-	xgupJvA2KyHr0SABSzMSjwcVgASVrceTL2hAdPIYHL+9JrIyYrj1im1+mwL9nE0957XPqMlku0j
-	JTbrPnquNvuk7o5px56CoMP3jmNmKGRiyQiNPM2/m2cNeL4BmHGsPHC+RwfFKpNeVG9Cyewdadd
-	1N4PMx595Vs9pIpl1EjbEeMqBVreLvun4APzCUi/6NrA==
-X-Google-Smtp-Source: AGHT+IGcsta4wYNP9SK8dXPlhaXywbUCc14MLJcXdacSy4PRSS/bBbC7eIrs23h6MlhKO2zk6YUVkA==
-X-Received: by 2002:a05:620a:319f:b0:891:c248:a513 with SMTP id af79cd13be357-891c248a792mr2634644885a.66.1761293098154;
-        Fri, 24 Oct 2025 01:04:58 -0700 (PDT)
-Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com. [209.85.160.170])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-89c0e97efa6sm331034685a.24.2025.10.24.01.04.57
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Oct 2025 01:04:58 -0700 (PDT)
-Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-4e89f35f943so22801861cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 01:04:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXhJrkh9dPUybt3Axc6uCtrbSfi+DKDNTSAGZaLdosVUiBfbb2u8HFnVaY9Htlfl+bDqqYtPswwvk/WHHZJRbz+@lists.infradead.org
-X-Received: by 2002:a05:6102:50a3:b0:5db:2f62:c15 with SMTP id
- ada2fe7eead31-5db2f621029mr1782604137.41.1761292628800; Fri, 24 Oct 2025
- 00:57:08 -0700 (PDT)
+	Fri, 24 Oct 2025 08:06:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D5AC66119E;
+	Fri, 24 Oct 2025 08:06:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84318C4CEF1;
+	Fri, 24 Oct 2025 08:06:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761293170;
+	bh=LXA8EKHQrQTivIKrM29ysPVd8yGf5vfMeH3fOvz9+Lk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gSZpJEHl7kYbY78lE4zMvC3YuoIKL/mE0hbP6cX+EkMD9RyBAjrMIh/R8b1XNy/EZ
+	 jrFak4fSaUsZeL6zsJOdy1iG9TC5qtzSXBdqqE3CU6L/kO4FLvepysKHCGFztYKM1f
+	 SHVqA3FyRTcmIcpd9a6b0t8AZt4AIsgDPvEbpNswNB2iEduJ9fsSOiwsJ29tZWNdRf
+	 gLpZi6pNXwWo/eqa6IdPk3A9DRHebLc+iozWSu2dK9UXaKToIT6h+2KZlHGS3R1yTy
+	 u4ugsqgavYV0qUP1VEY9ISdARqsrBFObTgD/nYA9CC1h257CMVzewrQRoK7Jdw/uXw
+	 d1aFzmIBA9N2w==
+Message-ID: <8341a903-639b-471a-8425-a98c473f5ab0@kernel.org>
+Date: Fri, 24 Oct 2025 10:06:04 +0200
 MIME-Version: 1.0
-References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
- <20251022070543.1169173-5-ryan_chen@aspeedtech.com> <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
- <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
-In-Reply-To: <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 24 Oct 2025 09:56:57 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXTZZK-Tk0gerpARfr+jUNGPhEfRqGOtTvTTJp=SZ2ayg@mail.gmail.com>
-X-Gm-Features: AWmQ_bnSAouTBsQ6YdE-Y1_3m37NwmxEYp_NrgytrqguGhvssb4gZifd3I_f9eg
-Message-ID: <CAMuHMdXTZZK-Tk0gerpARfr+jUNGPhEfRqGOtTvTTJp=SZ2ayg@mail.gmail.com>
-Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device tree
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ryan Chen <ryan_chen@aspeedtech.com>, BMC-SW <BMC-SW@aspeedtech.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Jeremy Kerr <jk@codeconstruct.com.au>, Lee Jones <lee@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Nishanth Menon <nm@ti.com>, 
-	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Taniya Das <quic_tdas@quicinc.com>, 
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_010500_145589_7FDA58AC 
-X-CRM114-Status: GOOD (  35.32  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
+ new YAML
+To: Jeremy Kerr <jk@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com,
+ linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
+ <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
+ <20251024-dark-ringtail-of-defiance-1daabd@kuoka>
+ <2939cae6-2e8a-4528-8e27-8c932e2f82de@kernel.org>
+ <bf3d6690b9124ecf74df6c0f9f1c0f72ae1db9f7.camel@codeconstruct.com.au>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <bf3d6690b9124ecf74df6c0f9f1c0f72ae1db9f7.camel@codeconstruct.com.au>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,93 +124,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Oct 2025 at 22:11, Arnd Bergmann <arnd@arndb.de> wrote:
-> On Thu, Oct 23, 2025, at 09:37, Ryan Chen wrote:
-> >> > +  aliases {
-> >> > +          serial0 = &uart0;
-> >> > +          serial1 = &uart1;
-> >> > +          serial2 = &uart2;
-> >> > +          serial3 = &uart3;
-> >> > +          serial4 = &uart4;
-> >> > +          serial5 = &uart5;
-> >> > +          serial6 = &uart6;
-> >> > +          serial7 = &uart7;
-> >> > +          serial8 = &uart8;
-> >> > +          serial9 = &uart9;
-> >> > +          serial10 = &uart10;
-> >> > +          serial11 = &uart11;
-> >> > +          serial12 = &uart12;
-> >> > +          serial13 = &uart13;
-> >> > +          serial14 = &uart14;
-> >> > +  };
-> >>
-> >> This looks like you just list all the uarts that are present on the chip, which is
-> >> not how the aliases are meant to be used. Move this block into the board
-> >> specific file and only list the ones that are actually enabled on that particular
-> >> board.
-> >>
-> >> In particular, the alias names are meant to be local to the board and don't
-> >> usually correspond to the numbering inside of the chip. In the defconfig, we
-> >> currently set CONFIG_SERIAL_8250_NR_UARTS=8, which is enough for any
-> >> board we support so far, but that means only the first
-> >> 8 aliases in the list will actually work.
-> >
-> > Understood. I'll move the aliases block from the SoC dtsi into the
-> > EVB board dts. For the EVB, UART12 is used as the default console,
-> > and the board labels match the SoC numbering, so I plan to keep:
-> >
-> > Does that look acceptable?
-> > ast2700-evb.dts
-> >       aliases {
-> >               serial0 = &uart0;
-> >               serial1 = &uart1;
-> >               serial2 = &uart2;
-> >               serial3 = &uart3;
-> >               serial4 = &uart4;
-> >               serial5 = &uart5;
-> >               serial6 = &uart6;
-> >               serial7 = &uart7;
-> >               serial8 = &uart8;
-> >               serial9 = &uart9;
-> >               serial10 = &uart10;
-> >               serial11 = &uart11;
-> >               serial12 = &uart12;
-> >               serial13 = &uart13;
-> >               serial14 = &uart14;
-> > }
+On 24/10/2025 09:56, Jeremy Kerr wrote:
+> Hi Krzysztof,
+> 
+>> Although now I saw next patch, so clearly this commit is incomplete.
+> 
+> The split that Ryan has done here - by shifting to an identical separate
+> binding, then making the changes explicit - allows us to review the
+> actual changes without losing them in the move. Sounds like a benefit to
+> me?
+
+Not related. I commented that rationale is incomplete. We do not move
+parts of bindings because new device is someway different. There are
+hundreds of bindings which cover different devices. We move them because
+the binding is different.
+
+> 
+>> You just need allOf:if:then: section to narrow the
+>> constraints/presence of properties.
+> 
+> That seems like a more complex approach. This is separate IP from the
+> 2500 controllers, wouldn't that warrant a new binding spec?
 >
-> I think this would be broken for the defconfig if the consol is
-> on serial12. I would recommend using serial0 as the console, like
->
-> aliases {
->        serial0 = &uart12;
-> }
->
-> in this case. If additional uarts are enabled, add those as
-> further aliases.
 
-Indeed. Are all these serial ports exposed on the board?
-Aliases is mean to list only the ones that are exposed, and the alias
-number should match the label on the board/port ("serialN", "debugN",
-...), ideally.
+Not much different than every other soc. All of them are separate IPs.
+Look at any Samsung, NXP or Qualcomm binding. Separate IPs.
 
-Typically only a few ports are exposed, so you may end up with something like:
-
-arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi:           serial0 = &scif1;
-arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi:           serial1 = &scif3;
-arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi:           serial3 = &scif0;
-
-I deliberately picked this example, as it shows how the serialN
-numbering does not need to match the scifM (or uartM) numbering.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
