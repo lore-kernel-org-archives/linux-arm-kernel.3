@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340C5CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B24F5CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n2SfjqX6lNSkj1H/YLHGctb/htiBAD/kfjrbeKtoNe8=; b=z3SDNEVDVtF1NK0yttTEc4e8En
-	ZSh8x+wTa7h26wov5mgFMSxY1Yg/lEFi8S8GlYcQW66qRfjJJm0bwkDchEBg5nxAVueEgM9SSDI0g
-	87wNmxYZxJjykE4kqMMoLrQgq/Vf9z0IOG7ukAAohZS7kr2aik+lCUiQ/Z2WRM90KYR4wRFNB5FVJ
-	LI1ihBUQ8Yc395RgGLGlaQqiJYGznrDZb8JlviagqNSYzvgfhui7wvxxCK5majQIOg+5VpUn55bsX
-	lNJNCC++OncVjNw2rC8mi0G1uvJaq3vIMB3ITT4fk1VzdrAiS6B8MFrEh9fZL767W9kCsRBYrng7M
-	+8f6mwXQ==;
+	bh=38gY834GUHR+j6861lRqgRvynKkRDCinlWSi9NmcSr0=; b=id7tAcNahpbPYk6VG9Ks9uXgQZ
+	NnJIs03c8hXWoLtx7KcB9CTRC1DRVkRfYMMZqJhXg9ourfx9AyU/6sZ+8tZXPWQ+j5SM64W9/dY9H
+	WnAKwEhuwuVnm4VdYbMelUj8rwfWAdhWT8yyYCRO1F/OvsIdQnfQfzNrLbFA/LQgPZwRYsjhACUA3
+	o8rrhXi4TnsdoL9l5KTuAKPBWOSPkD169xrgLLU9ks0q8t5AbWScO2uWJu3rHS/B04fwI+KxYV/iE
+	bKqtzjePfo+eGnqbra0LPkWtmUrYGtHJQD3WFfTk6ht4bXYgsHmcwXjdLhLH8xPXw0CL+43RnEot0
+	Vbzh145g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCC76-00000008TRg-0LtN;
-	Fri, 24 Oct 2025 07:21:28 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vCCHn-00000008VNE-0RYV;
+	Fri, 24 Oct 2025 07:32:31 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCC71-00000008TMl-1m0I;
-	Fri, 24 Oct 2025 07:21:26 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id F1D0D4E412CE;
-	Fri, 24 Oct 2025 07:21:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C4F6760703;
-	Fri, 24 Oct 2025 07:21:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2EB30102F244A;
-	Fri, 24 Oct 2025 09:21:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761290478; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=n2SfjqX6lNSkj1H/YLHGctb/htiBAD/kfjrbeKtoNe8=;
-	b=puPpxBP2v/7GBLcTgiHZwflmwE+c7IIPgQnODmI+9FPa5WOXR1bQd1A8CnbxM3Q5gmoVsN
-	W11z0YLDO+Hyl0+f1X0L3BRgUfkWUSA0Nk5meqcbJoQjvbpBVFLrkmhPMY5WtbbqkVsEBb
-	g3D1EP4iu7g1a4P90Fi3n8fG/OTWe3/qunL0k9zXx3auk86Ki2ksYKvUxD6D1OCs3N/B+G
-	kOfBP/AWnWTknh6ErkZfBhvn30fLexAoFDqVkvGnVnzcW1Ope7DSeuv1ahBltn9ngXH36U
-	agAthTSviB78yes0nszNAjig8JoB75pyIOsYrn9m+byEn2fvIXgiWILHHQCr2A==
-Message-ID: <f076f6a6-372a-41ff-a78a-48d1af4ec33d@bootlin.com>
-Date: Fri, 24 Oct 2025 09:20:58 +0200
+	id 1vCCHi-00000008VKR-0pzZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 07:32:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761291147; x=1792827147;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=eaxooXoJIwmcd0CEY30Yd6if/sFPAp16VRbJcMq8Keg=;
+  b=jfbkYdpNd3xf8j11mHQRKOv5I+dQnYgbzExkug2J8oTMwB61Z6JOS3ke
+   QKVSR30FNA9Tdb9ZAGBT73zLaEQou8MF/hUPkMT9osyhnG5oAPaa2XKF9
+   F5MJ+FKSGporT+VbQBDfULYt3tGV34Cuncv5NAiaTE5lORDwfB2e2/g0N
+   JA1Ucj+JsBbiuzXGwvS8RO9gJhW4Ge2gKWR8MdXNBCSrZdZjX8ZiDN5al
+   Wnb+YlC2c1bKPkr2lc9adbxKbcJ1oKq3FCV3ylR/rFdQ/w/Q3sulHbqfB
+   bUafiRCESna4FKh96kg0lvyzlh1K+MwAm6cp2p+EZk/Davo1hmBkfGXQu
+   w==;
+X-CSE-ConnectionGUID: g0nga0m7Q0CBvvXocfVGUA==
+X-CSE-MsgGUID: DgRiJp7zTjiGzCL+EHbx8A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="86100610"
+X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
+   d="scan'208";a="86100610"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 00:32:26 -0700
+X-CSE-ConnectionGUID: yNWj9OsXSROF0TUUq8ct3g==
+X-CSE-MsgGUID: zkApki+9SzmjUPgtZniraQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
+   d="scan'208";a="189491561"
+Received: from carterle-desk.ger.corp.intel.com (HELO [10.245.246.211]) ([10.245.246.211])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 00:32:18 -0700
+Message-ID: <3907f4ea-31c2-42fb-b4ff-a6952874a9bb@linux.intel.com>
+Date: Fri, 24 Oct 2025 10:32:25 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/15] mtd: rawnand: sunxi: introduce reg_user_data in
- sunxi_nfc_caps
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra
- <vigneshr@ti.com>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v2 00/10] gpio: improve support for shared GPIOs
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
- Maxime Ripard <mripard@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20251020101311.256819-1-richard.genoud@bootlin.com>
- <20251020101311.256819-5-richard.genoud@bootlin.com>
- <87y0p3tiz9.fsf@bootlin.com>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <87y0p3tiz9.fsf@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Andy Shevchenko <andy@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
+ <db05003c-8ac5-49da-b0ce-e0b668f49caf@linux.intel.com>
+ <CAMRc=MdWjyTyJh5zfE5qncO8ABn7QSuV1CUZXa+cSMjWoXUrNA@mail.gmail.com>
+From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@linux.intel.com>
+Content-Language: en-US
+In-Reply-To: <CAMRc=MdWjyTyJh5zfE5qncO8ABn7QSuV1CUZXa+cSMjWoXUrNA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_002123_625325_C28F8110 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20251024_003226_294271_0075CDD8 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,82 +102,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-Le 22/10/2025 à 10:54, Miquel Raynal a écrit :
-> Hi Richard,
-> 
-> On 20/10/2025 at 12:13:00 +02, Richard Genoud <richard.genoud@bootlin.com> wrote:
-> 
->> The H6/H616 USER_DATA register is not at the same offset as the
->> A10/A23 one, so move its offset into sunxi_nfc_caps
+
+
+On 24/10/2025 10:20, Bartosz Golaszewski wrote:
+> On Fri, Oct 24, 2025 at 9:17 AM Péter Ujfalusi
+> <peter.ujfalusi@linux.intel.com> wrote:
 >>
->> No functional change.
 >>
->> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
->> ---
->>   drivers/mtd/nand/raw/sunxi_nand.c | 13 +++++++++----
->>   1 file changed, 9 insertions(+), 4 deletions(-)
 >>
->> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
->> index 0285e4d0ca7f..8f5d8df19e33 100644
->> --- a/drivers/mtd/nand/raw/sunxi_nand.c
->> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
->> @@ -48,7 +48,8 @@
->>   #define NFC_REG_DEBUG		0x003C
->>   #define NFC_REG_A10_ECC_ERR_CNT	0x0040
->>   #define NFC_REG_ECC_ERR_CNT(nfc, x)	((nfc->caps->reg_ecc_err_cnt + (x)) & ~0x3)
->> -#define NFC_REG_USER_DATA(x)	(0x0050 + ((x) * 4))
->> +#define NFC_REG_A10_USER_DATA	0x0050
->> +#define NFC_REG_USER_DATA(nfc, x)	(nfc->caps->reg_user_data + ((x) * 4))
->>   #define NFC_REG_SPARE_AREA	0x00A0
->>   #define NFC_REG_PAT_ID		0x00A4
->>   #define NFC_REG_MDMA_ADDR	0x00C0
->> @@ -214,6 +215,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
->>    *			through MBUS on A23/A33 needs extra configuration.
->>    * @reg_io_data:	I/O data register
->>    * @reg_ecc_err_cnt:	ECC error counter register
->> + * @reg_user_data:	User data register
->>    * @dma_maxburst:	DMA maxburst
->>    * @ecc_strengths:	Available ECC strengths array
->>    * @nstrengths:		Size of @ecc_strengths
->> @@ -222,6 +224,7 @@ struct sunxi_nfc_caps {
->>   	bool has_mdma;
->>   	unsigned int reg_io_data;
->>   	unsigned int reg_ecc_err_cnt;
->> +	unsigned int reg_user_data;
->>   	unsigned int dma_maxburst;
->>   	const u8 *ecc_strengths;
->>   	unsigned int nstrengths;
->> @@ -723,8 +726,8 @@ static void sunxi_nfc_hw_ecc_get_prot_oob_bytes(struct nand_chip *nand, u8 *oob,
->>   {
->>   	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
->>   
->> -	sunxi_nfc_user_data_to_buf(readl(nfc->regs + NFC_REG_USER_DATA(step)),
->> -				   oob);
->> +	sunxi_nfc_user_data_to_buf(readl(nfc->regs +
->> +					 NFC_REG_USER_DATA(nfc, step)),
->> oob);
+>> On 22/10/2025 16:10, Bartosz Golaszewski wrote:
+>>> Problem statement: GPIOs are implemented as a strictly exclusive
+>>> resource in the kernel but there are lots of platforms on which single
+>>> pin is shared by multiple devices which don't communicate so need some
+>>> way of properly sharing access to a GPIO. What we have now is the
+>>> GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
+>>> doesn't do any locking or arbitration of access - it literally just hand
+>>> the same GPIO descriptor to all interested users.
+>>
+>> I had few stabs on this in the past, all got somehow derailed, one
+>> example was:
+>> https://lkml.org/lkml/2019/10/30/311
+>>
 > 
-> Minor nit, column limit is 100 now, so typically for this kind of
-> situation everything would fit on a single line.
-Indeed, the 80 column limit has been loosened (but braille displays are 
-still 80 cells max AFAIK).
-Anyway, you're right, the 80-rule could be bent here for readability.
+> The main issue I see with this approach is adding an actual device
+> node for the shared GPIO which is now not accepted in DT bindings. We
+> only create nodes for actual HW components.
+
+Right, that policy came later, true.
+
+All the information is
+> already in the device-tree, we just need to scan it which is what I'm
+> trying to do here.
+
+I had a prototype later without the sofware-node which worked for the
+use case I had, but over the years I dropped it, it was a bit of hassle
+to roll it for nothing.
+
+One can argue that the shared-gpio node is describing the solder blob
+where the GPIO line is split and routed to two different component.
+With the approach one can handle cases where the level is inverted by a
+passive component for one of the device for example - unfortunately I
+have seen such a board marvel as well.
+
+The device's binding will tell _how_ it expects the GPIO's active level,
+which might or might not match with the real level of the GPIO line and
+if one of the device's branch have an inverter, that is going to be
+interesting to work out in conjunction with the other devices non
+inverted 'direct' line to the same GPIO.
+
+Never the less, it is great that someone is trying to get this supported!
 
 > 
-> Don't respin just for that if there is nothing else later, but if a v4
-> is needed you can change it.
-> 
-> Looks neat otherwise so far.
-> 
-> Thanks,
-> Miquèl
-
-Thanks!
-
+> Bartosz
 
 -- 
-Richard Genoud, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Péter
+
 
