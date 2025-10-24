@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68E1CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 03:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB50CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 03:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cLatmwC5DOTCzklJj+UKIGFCark+KyCO2ajmI0Q8jXs=; b=p9gF35sMn0h91AOAfuH/IUS75K
-	sGlSOPsKPdrLMGhl1FEpdVmlCve6gi5ZI1+vHf1PTwe5FMsNfclWv5+Hxk7CPTMCR1KBoG8CnKARY
-	QYvaf7kSHGw5pvw8P5ZrAcVg2Bf4fLVC0jW0KagLoOCuDx8KomJ1bVCc+m1Wyjno9aCgOmxPXQC5X
-	DE9pJt/EUmU92XOqUpOsbJBHtMbfMyjHwfjnAr/i+a/Xfzxx/a4vQ/lBKXcelZCYOIaQDlPqSZ+in
-	Ryv3J3/85vEBMmhacBVhEDhgKYaUbElAV02zoOVHKrLYbdlnevowQKdre/NxaNE1s5UhlGVTqewZ6
-	czUTcdpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LlN5DvyH2+GBtNgIhKU58Oi5/dzl5ldvweXQc1JJd8Y=; b=iBN70eGUej+P9AkTkcetPkByMF
+	hwjtRk800C3VoiYwNiZsbEXJvzkrNSUlkOv0CSy4WqM4IvRDfwuXF/T2nuIA/Ot5VjC96L3rMz4Vo
+	AMDdvaVj1RzOJeR1gVq7opGH6vFDhpQTcl2x4M7TOwd7XsFGfLzByaDxrbZt6MkzEFUebcgrQZqku
+	SNHtLwZXAdjlNdvqPXlIqY7oKAIUq8CFoj3AZ6Ixepj6dVQpaWIohsvN9HI5LPIe4GuDSODTb0+ew
+	B7udaVQV9O/OIkZ2TCTr3Ht8oZSz4gV8npval6XalK4lxqCj5ke3yRmseLv0kjxNxZjVDC4eERAbd
+	0ckDejyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC8Ou-000000088o1-18Hg;
-	Fri, 24 Oct 2025 03:23:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vC8bR-00000008A1F-2wYP;
+	Fri, 24 Oct 2025 03:36:33 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC8Os-000000088nt-1WAb
+	id 1vC8bP-00000008A0u-3gVP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 03:23:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4CFA9601DE;
-	Fri, 24 Oct 2025 03:23:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A10ABC4CEE7;
-	Fri, 24 Oct 2025 03:23:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761276212;
-	bh=CNwnT8O4JG4Ottnhbl1cNUX0P6pAoK8TTMrHAWFkULg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=PAZW1d9nE4BKbSDO5YSLJIHFY7fvvq7/qb+KsjUsGRLmxi56jdxvmOARnYJv4d2ld
-	 Ic/xOGBjxwDNwmiwJ7cwI4V+apON+qMOt3p6cSvOAfiZ8jtjp0hXvhPBg0AM77I1zp
-	 g6i8gpSAFD7DosiR9Fi+RdTt41wplPyJOLqBMx3xzyWe4tOmA43TExpxPsd4IS8kb2
-	 ffQAI4FNvAT46dKsdBSkShyj3Tac9+wpugnoPlwOkCefGTwchZzYXux2HTezbtbDFb
-	 cD2F6SLTQmqfuVuj5vCgghi+8YZx5WXGvZntDmaWeqh9aFw3ZihEuSB6O7yksVD5ou
-	 igWnqilxSCITA==
-Date: Thu, 23 Oct 2025 22:23:30 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 24 Oct 2025 03:36:33 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-339d7c4039aso1600843a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 20:36:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761276991; x=1761881791; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LlN5DvyH2+GBtNgIhKU58Oi5/dzl5ldvweXQc1JJd8Y=;
+        b=JHPpxFiFaiIeKt6Tpvn/XL7mH3oeZX5maD0Ane2OAQIsdvc2IXatb8gcRuFo/DUivr
+         vGN2/2cWXH2GNlndXwyB3MFvOUjDbgRraSLKbY05qZfNY8UsmilFmjuN/zJwSuSWMnod
+         /8TtdrwW1/MfbqvD1rLrOmrEZ/ScXExQt+05d2lzQLMPe2/0sGaRTnDZDI+ChE/xlNOh
+         Nq7Smz8Lbr1EIof7KJ9Ch2waboN1dKWViDKS2gjAhvFwvDpkz4hPZCzHhKfg4JipyMHT
+         T1LDgGx84KErAId6uF4nR2u7QT2gMaq+Gc0nUvF75S4lzGxFKUjA4e7G2T/zOslZPcoR
+         /02g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761276991; x=1761881791;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LlN5DvyH2+GBtNgIhKU58Oi5/dzl5ldvweXQc1JJd8Y=;
+        b=ZFg+GtBdMMbxbpXzhxmXkQMQpUWm9TiD+Nrg2HBqFv+9bDiUIh3RnZY536jLrewt1d
+         d5nhq0Dfds/l8s81/4pBE1y2VfAbIM8rI0prE+oHvpH04kXZz28Mok0AYkwUHbETZzGT
+         DGsPZh9MFCV2xQvW4MfXUSO+sQBG0g+mz1+cR8eYtqaLu4G5eDgB5q91fvfcXTfyF35Y
+         Sqs99ysT1gBLbl1YxXcbIXJ7m2kwmL9ZRJVOB1A90+btljxwBOUrEvFiFHX7XKLWYIGl
+         SIX3OMXDzXt4KvWuqhQ1u0SLwRApC6Gx4Ix7ggNQ9FRaYUyz755LmEHDOmTttj4RCWvZ
+         HLVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXuhcjZkJB+q3y0dCpS6qUT7qA5IdYJpwfSq+1ryxsOfOTA3Hda66CiitYDHk1f8mp3cJdx6R44eqCmPlD/opse@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyWROcWiC5bOXoUKuwqQWu5aARSlND3m9rJP5druCqNe8OMh/L
+	z7HupiPnT3kOku99rUVcImdKZ4Hd29vsW/NuQ6iIb5VAEn771u2cNtSHIuF3EVGYqjxl7gMRrLu
+	VCKjpVPrFdXHeLGN4xdwXg38qsltm/yU=
+X-Gm-Gg: ASbGncs631Gb9oCKdrifEAvYglkPK5b6JgrsE2BNaqabBoQ/rYlyML45366xz6RPL1h
+	jJd3eDnEVdS0xoGK5I2/SX0bkWSAg+EV7oVgSltUtTBYaeWuoI4Prghc4/tFl4U33UOjhf5TNp4
+	UKHpB1o1TdD+94jzsGhH+GD+P2vREVaDdB6thQzO6vgk1QUP92vyqoDismmmbE9m8wxn1ah6B1a
+	Tcdz6XHRXDFp6u2VAeb0o4aMfNctqhh5btJyqO+OT7R9AsZ6S2QZPWYOANufv6+QUGBtXg=
+X-Google-Smtp-Source: AGHT+IHmAjQXW6oneD0rQyql9NZfZkZxeQX5ygzBPkzltdafT4YRRH8XN5RuqvianxiGov8Gjv/rIG5Ew31uUO9ltuI=
+X-Received: by 2002:a17:90a:e708:b0:330:7f80:bbd9 with SMTP id
+ 98e67ed59e1d1-33bcf9202abmr28546749a91.31.1761276991065; Thu, 23 Oct 2025
+ 20:36:31 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, 
- Jakub Kicinski <kuba@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
- Icenowy Zheng <uwu@icenowy.me>, Vivian Wang <wangruikang@iscas.ac.cn>, 
- Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Eric Dumazet <edumazet@google.com>, Chen Wang <unicorn_wang@outlook.com>, 
- Yao Zi <ziyao@disroot.org>, linux-stm32@st-md-mailman.stormreply.com, 
- Longbin Li <looong.bin@gmail.com>, linux-arm-kernel@lists.infradead.org, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Paolo Abeni <pabeni@redhat.com>, 
- "David S. Miller" <davem@davemloft.net>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
- sophgo@lists.linux.dev, Han Gao <rabenda.cn@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-In-Reply-To: <20251024015524.291013-2-inochiama@gmail.com>
-References: <20251024015524.291013-1-inochiama@gmail.com>
- <20251024015524.291013-2-inochiama@gmail.com>
-Message-Id: <176127621096.199631.1552825919177332173.robh@kernel.org>
-Subject: Re: [PATCH v3 1/3] dt-bindings: net: sophgo,sg2044-dwmac: add phy
- mode restriction
+References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com> <20251017112025.11997-2-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20251017112025.11997-2-laurentiumihalcea111@gmail.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Fri, 24 Oct 2025 11:36:19 +0800
+X-Gm-Features: AS18NWAUWGWX5ZUSW4jhS3wlXEPW7gKSGrcNhdPOEUHBjtb-V-Oq2o2RBvRxgdE
+Message-ID: <CAA+D8AN=Q7-b-SxfziJqsk1T-yNxw+VnOPAGsQhXh68e3UpN5w@mail.gmail.com>
+Subject: Re: [PATCH v2 1/8] reset: imx8mp-audiomix: Fix bad mask values
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Daniel Baluta <daniel.baluta@nxp.com>, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251023_203631_948370_3982C2DF 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +101,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Oct 17, 2025 at 7:22=E2=80=AFPM Laurentiu Mihalcea
+<laurentiumihalcea111@gmail.com> wrote:
+>
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> As per the i.MX8MP TRM, section 14.2 "AUDIO_BLK_CTRL", table 14.2.3.1.1
+> "memory map", the definition of the EARC control register shows that the
+> EARC controller software reset is controlled via bit 0, while the EARC PH=
+Y
+> software reset is controlled via bit 1.
+>
+> This means that the current definitions of IMX8MP_AUDIOMIX_EARC_RESET_MAS=
+K
+> and IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK are wrong since their values woul=
+d
+> imply that the EARC controller software reset is controlled via bit 1 and
+> the EARC PHY software reset is controlled via bit 2. Fix them.
+>
+> Fixes: a83bc87cd30a ("reset: imx8mp-audiomix: Prepare the code for more r=
+eset bits")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-On Fri, 24 Oct 2025 09:55:22 +0800, Inochi Amaoto wrote:
-> As the ethernet controller of SG2044 and SG2042 only supports
-> RGMII phy. Add phy-mode property to restrict the value.
-> 
-> Also, since SG2042 has internal rx delay in its mac, make
-> only "rgmii-txid" and "rgmii-id" valid for phy-mode.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Reviewed-by: Shengjiu Wang <shengjiu.wang@gmail.com>
+
+best regards
+shengjiu wang
 > ---
->  .../bindings/net/sophgo,sg2044-dwmac.yaml       | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml: allOf:1:then: 'anyOf' conditional failed, one must be fixed:
-	'phy-mode' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
-	'type' was expected
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251024015524.291013-2-inochiama@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+>  drivers/reset/reset-imx8mp-audiomix.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-=
+imx8mp-audiomix.c
+> index 6b357adfe646..eceb37ff5dc5 100644
+> --- a/drivers/reset/reset-imx8mp-audiomix.c
+> +++ b/drivers/reset/reset-imx8mp-audiomix.c
+> @@ -14,8 +14,8 @@
+>  #include <linux/reset-controller.h>
+>
+>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET      0x200
+> -#define IMX8MP_AUDIOMIX_EARC_RESET_MASK                BIT(1)
+> -#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK    BIT(2)
+> +#define IMX8MP_AUDIOMIX_EARC_RESET_MASK                BIT(0)
+> +#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK    BIT(1)
+>
+>  #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET    0x108
+>  #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK      BIT(5)
+> --
+> 2.43.0
+>
+>
 
