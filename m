@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63241CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25F3CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 18:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1HvYCNLV5CI0boyLI+MOBTwgyqBxpYEqfcX5SoAEoA=; b=Jm1mcdGU1zsVHKU9DJflE3bcJX
-	C/6s2SOeo++Nu/6bQvZF8E4mOo18f8qwVKQ3nAMtpBeuCctvHqPpcouamtviZM5IpGDRejx4xE/4N
-	U+xrCbj7QMgBvzNbw3a6PVPcknU5+7DaFEgnPfNwcPIrP1QEQ3ZzN6GMx7LAj23lUCfbWP8AuTbo5
-	oNpfqPYh+Zfh405HHQJVa7b09C3FlHQkadI/Uxxw8gfp/CZiC/em3UiPqcqn1KecP6ua8udaC+Kef
-	jULfXacv5372jjnTh6Y8OVf5F39Xyh2+kgkuc0UcLuPDELh1stb4bd4LOovAL9r5gcWj5hWwRHQck
-	1E+4KlIw==;
+	bh=V2zR8MDkegwg6orcspkhzjkSMYr/Sn5SRSP5/WTkX/w=; b=j03zK87idpscmlqXfuiKRdt+K6
+	mHlKiMNK21fc1rmOO0M3wrv3uxKYy+1ZHxt31M88buEoHXBnc0FU6Zg/Zdiu7duC8kzm8ynVeHy8E
+	lSg+TBSbiXACrv9Zjmt83IkYikZUh+6gkeocOw0ovEy2mmpV7dy7hASiLkzOwI29g6ZpNqbj7rRjd
+	51aqqMwRZigBdl39pjpJRssPyttOyTz67lncorp4vpYKtXHUBTMiFe71Gcxuf6dPNCBi/2BZacLFL
+	GjwmBusUis57N3bsLwwWCneC3eZ+h8c+ybbEIx825bzmXkqni2Tw1Vdpi0GergIwJdFkCxy8/RZZ5
+	xxd0ibGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCM3D-0000000AAPb-1UIE;
-	Fri, 24 Oct 2025 17:58:07 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vCM8T-0000000ABVj-0axc;
+	Fri, 24 Oct 2025 18:03:33 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCM33-0000000AAL0-3FaM
+	id 1vCM8Q-0000000ABTl-0E3j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 17:57:59 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-475dae5d473so1358035e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 10:57:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761328676; x=1761933476; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=S1HvYCNLV5CI0boyLI+MOBTwgyqBxpYEqfcX5SoAEoA=;
-        b=dASDilj1ahDfGLj+P/twWPSZ5qSjT3jpM08RgCjwQTKSE9psRjOlv3JlmnVB03Irsa
-         Snf/UO0kEYKk4xj3ota5k2VFdfxHQVVObL63JtDyLJmRNHfRukvN/ZswekjkzDDGLDcU
-         9UZsBQPFOiB8bdJWW2CI/L8PX/AjHsFBh/dcl6nLeGF/OCRU/ykNeAbpKir5Hn590pOH
-         7JYGgdi+64Ojvf5gOWCN0NV9dVKvzW+LDgoAKYGBtD6Ryhh3zkHihbOeiJD6J3r12UMJ
-         ow6UnIxgbQT+YdH0/ZVyXaw7j3B+DdZjvGtvGPAmnu6FP4q0WcX/JcddcVJ5Ofv5XbGG
-         FERA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761328676; x=1761933476;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=S1HvYCNLV5CI0boyLI+MOBTwgyqBxpYEqfcX5SoAEoA=;
-        b=Bi633We1Juovgyt1oNjeyswHZqB8Er6XgKfbmpuFNrFNK6Jn1q8vThO3bdW6qF+qKs
-         1WSMz5rpf6/U30azZs3SKZZKBbGdYru7NcRaoX5Qch3RkFx6Gjz0wM4SOSz1FuH/lzud
-         +Xd2F1t70y4yx5M3yrOe8+AVfSdw16ufqRViNnMYA6rw42EiOK0WdEkfFNXJNV2ZIPgp
-         fqu8SHbcNkUyxvj5r/U9uYp6YZWjvQRXGhRRYflmhb8LFLzeK6WGGtDBSo7lXg+HGcT0
-         xicrUBIYBhhpUDUyXUggjFTwRtuJw+Sbqkz7ywtsVDN/EY59LvJWL2+AuGtKIoJJj+5/
-         qnyg==
-X-Forwarded-Encrypted: i=1; AJvYcCWGPllWTNUHOxx5zNPGVzeQ/nqm7HN+zwVoIlS2Ou+IxSLbORE6rQOmk2SW1sMW1r2waWwxEwW1UpTLzNkk73xx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxH9PdJ0sNMf1JGo0ha/i2eTp5ctssqjp3MfoxN/Cvm3pdBlhju
-	OQyglFYS9vc7QmP4vuLZhQc7AvO5dxIhsk8uZixtlfEiJ9LbEDy2KFmXL+JubaaZtzQ=
-X-Gm-Gg: ASbGnctacNMXslsNBKv6gOs8EM5Rx7jL6q4jHv0OT3Is5On22SYA7QBQ2G33ApVbxTs
-	nSSUy4kVxzbfGnNOGnTSe7o0aka6m291EIH+sZN4Ny1pv5f4X8gCEdFvhXmii3fPyxLVCjBWb/p
-	h8YrtgDPj/vP/v7emPkoDhZt/YjjpkjiFKLSB4C7Xij0EVXCR4aEtcgEnmmc6NlsAmPm+wFEe3o
-	9FHp9nrqxiv5mb46KHLxsJC0vzv1v6Zb0n7y6jQ81e/Dq83DEzQVovfuKJlDZqRRMVwzQMdsxcm
-	1a6ts7shrVFKV7sxiFloZYtJgkX+dwSpQRgWBLrvZPpJh9Np6FdoXj2jzCTJhbO0jhgUUyZSd+1
-	XvUfSlnENqsj+MWA/AUv5dlpC+4SSjTyofBoXSDyhG7UdxG+iF2UT5rRfJL6ap51OhQFpMX3LVe
-	7nldd2XxSjfSxKhDp07Y6HpbvKN/Soh1f1bd6EIPyfx7uhlROxytOX
-X-Google-Smtp-Source: AGHT+IE+5PmFi1We1tilKXscowMasxj24erK04eAcHqZVpBCNsemi8AXPZs34q0XanuKK/hwWTSoFQ==
-X-Received: by 2002:a05:600c:821a:b0:46f:b42e:e3a0 with SMTP id 5b1f17b1804b1-4711791dc89mr214479995e9.41.1761328676155;
-        Fri, 24 Oct 2025 10:57:56 -0700 (PDT)
-Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475cad4c81dsm104062465e9.0.2025.10.24.10.57.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 10:57:55 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Fri, 24 Oct 2025 17:57:35 +0000
-Subject: [PATCH v3 2/2] arm64: dts: exynos: gs101: add TRNG node
+	Fri, 24 Oct 2025 18:03:31 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ctVzL6WlJz6M4gJ;
+	Sat, 25 Oct 2025 01:59:42 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4DB8B140417;
+	Sat, 25 Oct 2025 02:03:26 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 24 Oct
+ 2025 19:03:24 +0100
+Date: Fri, 24 Oct 2025 19:03:23 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+	Gavin Shan <gshan@redhat.com>
+Subject: Re: [PATCH v3 18/29] arm_mpam: Register and enable IRQs
+Message-ID: <20251024190323.0000328d@huawei.com>
+In-Reply-To: <20251017185645.26604-19-james.morse@arm.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+	<20251017185645.26604-19-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251024-gs101-trng-v3-2-5d3403738f39@linaro.org>
-References: <20251024-gs101-trng-v3-0-5d3403738f39@linaro.org>
-In-Reply-To: <20251024-gs101-trng-v3-0-5d3403738f39@linaro.org>
-To: =?utf-8?q?=C5=81ukasz_Stelmach?= <l.stelmach@samsung.com>, 
- Olivia Mackall <olivia@selenic.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org, 
- willmcvicker@google.com, kernel-team@android.com, 
- linux-samsung-soc@vger.kernel.org, linux-crypto@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761328674; l=1126;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=raBiU2TNdnYW5GXBQGKlY34qsI95KKrr7UkG+dolrPs=;
- b=n8ttb4+2yhuOeX73uGYQwTvsumIUfL2WsqyJ9Prm3ZBf2zclOGKO4Uu6jkQke19TJjW5R1dqp
- D/80qq4n02cBz5QO5G2fQ9BjuhqxLSHVCZtf1wEDrPzpH1pJmHwJyCA
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_105757_821373_7556AB85 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_110330_401675_66CA16E2 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,37 +86,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define the TRNG node. GS101 TRNG works well with the current
-Exynos850 TRNG support. Specify the Google specific compatible
-in front of the Exynos one.
+On Fri, 17 Oct 2025 18:56:34 +0000
+James Morse <james.morse@arm.com> wrote:
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever
+> signalled, attempt to disable MPAM.
+> 
+> Only the irq handler accesses the MPAMF_ESR register, so no locking is
+> needed. The work to disable MPAM after an error needs to happen at process
+> context as it takes mutex. It also unregisters the interrupts, meaning
+> it can't be done from the threaded part of a threaded interrupt.
+> Instead, mpam_disable() gets scheduled.
+> 
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+> can access the MSC.
+> 
+> Once the IRQ is requested, the mpam_disable() path can be called
+> asynchronously, which will walk structures sized by max_partid. Ensure
+> this size is fixed before the interrupt is requested.
+> 
+> CC: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+One trivial thing inline to reduce the patch churn a tiny bit.
+May not be worth the hassle.
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index d06d1d05f36408137a8acd98e43d48ea7d4f4292..380f7e70910ab8bcc28690782532fff87ca7e30b 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -630,6 +630,15 @@ watchdog_cl1: watchdog@10070000 {
- 			status = "disabled";
- 		};
- 
-+		trng: rng@10141400 {
-+			compatible = "google,gs101-trng",
-+				     "samsung,exynos850-trng";
-+			reg = <0x10141400 0x100>;
-+			clocks = <&cmu_misc CLK_GOUT_MISC_SSS_I_ACLK>,
-+				 <&cmu_misc CLK_GOUT_MISC_SSS_I_PCLK>;
-+			clock-names = "secss", "pclk";
-+		};
-+
- 		gic: interrupt-controller@10400000 {
- 			compatible = "arm,gic-v3";
- 			#address-cells = <0>;
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
--- 
-2.51.1.851.g4ebd6896fd-goog
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 545482e112b7..f18a22f825a0 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -14,6 +14,9 @@
+
+
+
+>  static void mpam_enable_once(void)
+>  {
+> -	mutex_lock(&mpam_list_lock);
+> -	mpam_enable_merge_features(&mpam_classes);
+> -	mutex_unlock(&mpam_list_lock);
+
+Can you shift this later in the earlier patch (ordering clearly doesn't matter)
+so as to reduce churn here?
+
+> +	int err;
+>  
+>  	/*
+>  	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
+> @@ -1318,6 +1572,27 @@ static void mpam_enable_once(void)
+>  	partid_max_published = true;
+>  	spin_unlock(&partid_max_lock);
+>  
+> +	/*
+> +	 * If all the MSC have been probed, enabling the IRQs happens next.
+> +	 * That involves cross-calling to a CPU that can reach the MSC, and
+> +	 * the locks must be taken in this order:
+> +	 */
+> +	cpus_read_lock();
+> +	mutex_lock(&mpam_list_lock);
+> +	mpam_enable_merge_features(&mpam_classes);
+> +
+> +	err = mpam_register_irqs();
+> +
+> +	mutex_unlock(&mpam_list_lock);
+> +	cpus_read_unlock();
+> +
+> +	if (err) {
+> +		pr_warn("Failed to register irqs: %d\n", err);
+> +		mpam_disable_reason = "Failed to enable.";
+> +		schedule_work(&mpam_broken_work);
+> +		return;
+> +	}
+> +
+>  	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline,
+>  				      "mpam:online");
+>  
+> @@ -1385,6 +1660,8 @@ void mpam_disable(struct work_struct *ignored)
+>  	}
+>  	mutex_unlock(&mpam_cpuhp_state_lock);
+>  
+> +	mpam_unregister_irqs();
+> +
+>  	idx = srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>  				 srcu_read_lock_held(&mpam_srcu))
 
 
