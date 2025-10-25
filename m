@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048E5CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3B3CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MI/jvL4mE24s2oM9lD/LxL6n9HS97AVriA79ZjMQerU=; b=aNo7c1qZHcM3mu26md8s19k5W4
-	7NjmU0tNz4sWPA1j6aAh3UWhgKOFZIM1BQqal+6HuiXFNQTRTRMev+dKo4nheBR2aGhRTKlKD9yXD
-	Q09oaxr0sFrC9D0X9hp8+7BKcxwrRqCXOlmn+yIkPmWTyh/4i1D/EMND5bI+F0whfMWH19qdXycLx
-	pjhXORw/OKDt71seDzA1sE+Xp0uLN5Qi+NKGLJtxzCjtMcrPOMjQ6Kj3Z6Kbl1gypwb7cjuIl9sVe
-	1yQ8H53b6mqWZZq1QIK56TSDYoJshlsbhv8Zlc0/cJmKPqGNbsZvejjt05UutyOsnYzsOvNLz43VE
-	LiAgTNaQ==;
+	bh=STgGSUOd7ZlHB0ZsOnO4DpA67e56zzxq2W4izFgla08=; b=hgR8PztnWFux5ve5i+o6lreJDd
+	PMD2PF1ckEPmyyKdqqQJjYq9/s01C+fk2ux0/mVwkYBKBu6jUnJxv08PdMBGK5yMREoRTFsBinp1Z
+	OV9bLOTGZOLhOVSxNhVyh7ToYlZc7F6nI6sIPXeaCJT82jLwYn2QUba35HN9TBjj4SEcC5w6DWNxc
+	p8EzABkZDfA91Bo3VL2V/ZphmMijQoShPKsuEmO0AxaqOpoPngWKtPU74gAjOWw++OWMAingA0GNh
+	je1iiAFOZRvrBXWG97CD2XRhMwEfRTH7iHub0Tqb425xZPi7BVlFHl7JEoRrVZsOYfV+8EVcxIyIl
+	JEXaqJ7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgvv-0000000BS3D-3f17;
-	Sat, 25 Oct 2025 16:15:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCgwY-0000000BSEE-3Hfv;
+	Sat, 25 Oct 2025 16:16:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgvt-0000000BS2H-09ys;
-	Sat, 25 Oct 2025 16:15:58 +0000
+	id 1vCgwX-0000000BSE0-3zrH;
+	Sat, 25 Oct 2025 16:16:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A1B8544FE1;
-	Sat, 25 Oct 2025 16:15:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51377C4CEFB;
-	Sat, 25 Oct 2025 16:15:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 637CB605D8;
+	Sat, 25 Oct 2025 16:16:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E988CC4CEFF;
+	Sat, 25 Oct 2025 16:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761408956;
-	bh=sDveZVjGmF+hFWzrw2cClUD8xKZBCyZ7F/vmzkMigQg=;
+	s=k20201202; t=1761408997;
+	bh=JabiHfliSwSHQuQwQs2XA+E+27md+dnI+Xnb/fgeaRI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MWAvGlPwzPUXPm/DUT91D3C+te0LDlemo88W+BdX4pw6WHNnT9RL9/M++sDVzbHAX
-	 U163x5pBH2GWKkpChGx9dhHc5/HsiPQnJcFihaQWiqgjiujRiWGGnX6IQqKxUdORhx
-	 0tgOs+pGV/HMW4QrmDZ9RVIUO9PNhf4R8TPVK7iQWfryaD4qEzccle38oHYnlX9IiB
-	 03CX2ZEgCveAmsQi2Hu34BN0UouRqALztBQiLcdl3vmHA0wRM56rOhdzXjv2m+D+rv
-	 vQtsGg3Vhwrcw4OqUKIdlrRdcopFXOmW4LO6YuZzHGqEBbYyYhIPQw6fpf/j/3cmQC
-	 9MRQ4HSeuGpCg==
+	b=Mq8RGfqm9z5KJUUyk4QJOKfoan8GVuF+zN8bgEl6TFmRu19/w9rlapSOyQrz9lAUI
+	 uwXVm5ScYx9w4an+FByVwsZDUJHssidAvZQXEFRvkaIB3kin3Pph9zeI/QoFIHbpoq
+	 u9gOTeyM178c/EkuuoJtojnDdu7gP99msNyJ1exUhNXkafj71Spdr5pSlW1Zj+HY7V
+	 VKEUbRzu+YSR6WVP7HG2lwEmMXhLUQ7MB1KUshU0EjD5LIC8fY+gSGZIYQamWUmEGI
+	 2WtYei1r24ZGLTOhOx8hV4gCj9a5/1pUJuuQOFtgbT1KDqxE6IoIOKwSrDsO2RMhSE
+	 hur4/nYrc/VZw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Peter Wang <peter.wang@mediatek.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
+Cc: Xion Wang <xion.wang@mediatek.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Sasha Levin <sashal@kernel.org>,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	linux-scsi@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17-6.6] scsi: ufs: host: mediatek: Disable auto-hibern8 during power mode changes
-Date: Sat, 25 Oct 2025 11:56:21 -0400
-Message-ID: <20251025160905.3857885-150-sashal@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-6.6] char: Use list_del_init() in misc_deregister() to reinitialize list pointer
+Date: Sat, 25 Oct 2025 11:56:38 -0400
+Message-ID: <20251025160905.3857885-167-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251025160905.3857885-1-sashal@kernel.org>
 References: <20251025160905.3857885-1-sashal@kernel.org>
@@ -65,9 +64,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_091557_118914_4788AC86 
-X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peter Wang <peter.wang@mediatek.com>
+From: Xion Wang <xion.wang@mediatek.com>
 
-[ Upstream commit f5ca8d0c7a6388abd5d8023cc682e1543728cc73 ]
+[ Upstream commit e28022873c0d051e980c4145f1965cab5504b498 ]
 
-Disable auto-hibern8 during power mode transitions to prevent unintended
-entry into auto-hibern8. Restore the original auto-hibern8 timer value
-after completing the power mode change to maintain system stability and
-prevent potential issues during power state transitions.
+Currently, misc_deregister() uses list_del() to remove the device
+from the list. After list_del(), the list pointers are set to
+LIST_POISON1 and LIST_POISON2, which may help catch use-after-free bugs,
+but does not reset the list head.
+If misc_deregister() is called more than once on the same device,
+list_empty() will not return true, and list_del() may be called again,
+leading to undefined behavior.
 
-Signed-off-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
+Replace list_del() with list_del_init() to reinitialize the list head
+after deletion. This makes the code more robust against double
+deregistration and allows safe usage of list_empty() on the miscdevice
+after deregistration.
+
+[ Note, this seems to keep broken out-of-tree drivers from doing foolish
+  things.  While this does not matter for any in-kernel drivers,
+  external drivers could use a bit of help to show them they shouldn't
+  be doing stuff like re-registering misc devices - gregkh ]
+
+Signed-off-by: Xion Wang <xion.wang@mediatek.com>
+Link: https://lore.kernel.org/r/20250904063714.28925-2-xion.wang@mediatek.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -100,174 +110,57 @@ LLM Generated explanations, may be completely bogus:
 
 YES
 
-Summary
-- The change disables Auto-Hibern8 (AH8) around UFS power mode
-  transitions and restores the prior timer afterward. This prevents
-  unintended AH8 entry while the link is being reconfigured, which can
-  cause timeouts or recovery events during transitions. The fix is
-  small, self-contained, and limited to the Mediatek UFS host driver.
+- What changed: In drivers/char/misc.c, misc_deregister() replaces
+  list_del(&misc->list) with list_del_init(&misc->list)
+  (drivers/char/misc.c: list_del → list_del_init).
+- Bug addressed: After list_del(), the entry’s next/prev are poisoned,
+  so list_empty(&misc->list) is false and a second misc_deregister() can
+  call list_del() on poisoned pointers, causing undefined behavior. With
+  list_del_init(), the list node is reinitialized to point to itself, so
+  list_empty(&misc->list) returns true after deregistration and a second
+  call cleanly becomes a no-op for the list operation.
+- Scope and impact: The fix is a one-line, localized change confined to
+  the misc core. It doesn’t alter the normal registration/deregistration
+  flow. The surrounding teardown remains unchanged and safe on repeated
+  calls: device_destroy(&misc_class, MKDEV(MISC_MAJOR, misc->minor)) and
+  misc_minor_free(misc->minor) are tolerant when the device is already
+  gone, and the code resets the minor to MISC_DYNAMIC_MINOR afterward
+  (drivers/char/misc.c: the nearby if (misc->minor > MISC_DYNAMIC_MINOR)
+  misc->minor = MISC_DYNAMIC_MINOR;), further reducing risk on
+  subsequent calls.
+- Risk assessment: Minimal. The only behavior change is reinitializing
+  the list node instead of poisoning it, which improves idempotency and
+  enables correct membership checks via list_empty() after
+  deregistration. Concurrency is guarded by misc_mtx as before. The main
+  trade-off is slightly less aggressive poisoning for this node, but it
+  materially reduces the chance of crashes from double deregistration
+  paths.
+- Stable criteria: This is a defensive bug fix that prevents potential
+  crashes/oopses when drivers—particularly in error paths or out-of-tree
+  modules—call misc_deregister() more than once. It is small, contained,
+  and non-architectural, with no new features or API changes. The commit
+  message explicitly notes the robustness improvement against double
+  deregistration and has maintainer sign-off.
 
-What the patch does
-- Saves current AH8 timer and disables AH8 in PRE_CHANGE:
-  - drivers/ufs/host/ufs-mediatek.c:1472–1476
-    - Reads `REG_AUTO_HIBERNATE_IDLE_TIMER` into a static `reg` and
-      calls `ufs_mtk_auto_hibern8_disable(hba)`.
-- Disables AH8 in a helper and ensures the link is up before proceeding:
-  - drivers/ufs/host/ufs-mediatek.c:1436–1461
-    - Writes 0 to `REG_AUTO_HIBERNATE_IDLE_TIMER` (disables AH8), waits
-      for the host idle state, then waits for `VS_LINK_UP`. On failure,
-      warns and triggers `ufshcd_force_error_recovery(hba)` and returns
-      `-EBUSY`.
-- Restores the previous AH8 timer in POST_CHANGE:
-  - drivers/ufs/host/ufs-mediatek.c:1480–1483
+Conclusion: This is a low-risk, robustness-improving bug fix suitable
+for stable backporting.
 
-Why this fixes a bug
-- Power mode transitions involve DME configuration and link parameter
-  changes (see setup/adaptation in `ufs_mtk_pre_pwr_change()`:
-  drivers/ufs/host/ufs-mediatek.c:1405–1434). If the link enters AH8
-  mid-transition, the controller and device can deadlock or time out,
-  requiring error recovery. Temporarily disabling AH8 ensures the link
-  stays in the expected state while power mode changes occur and
-  restores normal power-saving afterwards.
-- The helper already used in suspend PRE_CHANGE (drivers/ufs/host/ufs-
-  mediatek.c:1748–1751) shows the driver’s established pattern to
-  disable AH8 before low-power transitions; extending this to power mode
-  changes closes a similar race.
+ drivers/char/misc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Scope and risk
-- Scope: One driver file; no UFS core changes; no architectural shifts.
-  Uses existing helpers (`ufshcd_is_auto_hibern8_supported`,
-  `ufshcd_readl/writel`, `ufs_mtk_wait_*`,
-  `ufshcd_force_error_recovery`).
-- Regression risk: Low. Behavior change is to temporarily disable AH8
-  only during power mode changes and then restore the previous timer.
-  - Note: `ufs_mtk_pwr_change_notify()` stores the old AH8 timer in a
-    function-scope static (`reg`) (drivers/ufs/host/ufs-
-    mediatek.c:1469). While typical Mediatek systems have a single UFS
-    host and power mode changes are serialized, a static variable is
-    theoretically shared if multiple controllers triggered this
-    concurrently. In practice, impact is negligible on common
-    configurations.
-  - Note: The PRE_CHANGE path does not propagate the return of
-    `ufs_mtk_auto_hibern8_disable()` (drivers/ufs/host/ufs-
-    mediatek.c:1473–1478). The helper triggers error recovery internally
-    and returns `-EBUSY`, so recovery still occurs, but the immediate
-    PRE_CHANGE return value won’t reflect the failure. A tiny follow-up
-    improvement would propagate this error directly (as done later in-
-    tree).
-
-Evidence of established pattern
-- Other vendor drivers also manage AH8 around sensitive transitions,
-  supporting this approach:
-  - Hisilicon disables/adjusts AH8 during link setup:
-    drivers/ufs/host/ufs-hisi.c:234–237
-  - Spreadtrum disables AH8 during suspend PRE_CHANGE:
-    drivers/ufs/host/ufs-sprd.c:185–190
-
-Stable backport criteria
-- Fixes a real operational bug (unintended AH8 mid-transition),
-  observable as timeouts or recovery during power mode changes.
-- Small, targeted change in a single vendor driver; minimal risk to
-  other subsystems.
-- No new features or architectural changes; follows established patterns
-  in UFS vendor drivers.
-- While the commit message lacks an explicit Fixes/Stable tag, the
-  change aligns well with stable policy as a platform-specific
-  reliability fix.
-
-Recommendation
-- Backport to stable: YES.
-- Optional but advisable: include the small follow-up that returns an
-  error immediately on idle wait timeout (to propagate the PRE_CHANGE
-  failure) to match the improved error handling now seen in-tree.
-
- drivers/ufs/host/ufs-mediatek.c | 53 +++++++++++++++++++--------------
- 1 file changed, 30 insertions(+), 23 deletions(-)
-
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 91081d2aabe44..3defb5f135e33 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1400,19 +1400,49 @@ static int ufs_mtk_pre_pwr_change(struct ufs_hba *hba,
- 	return ret;
- }
+diff --git a/drivers/char/misc.c b/drivers/char/misc.c
+index 4c276b8066ff8..ea5b4975347a0 100644
+--- a/drivers/char/misc.c
++++ b/drivers/char/misc.c
+@@ -281,7 +281,7 @@ void misc_deregister(struct miscdevice *misc)
+ 		return;
  
-+static int ufs_mtk_auto_hibern8_disable(struct ufs_hba *hba)
-+{
-+	int ret;
-+
-+	/* disable auto-hibern8 */
-+	ufshcd_writel(hba, 0, REG_AUTO_HIBERNATE_IDLE_TIMER);
-+
-+	/* wait host return to idle state when auto-hibern8 off */
-+	ufs_mtk_wait_idle_state(hba, 5);
-+
-+	ret = ufs_mtk_wait_link_state(hba, VS_LINK_UP, 100);
-+	if (ret) {
-+		dev_warn(hba->dev, "exit h8 state fail, ret=%d\n", ret);
-+
-+		ufshcd_force_error_recovery(hba);
-+
-+		/* trigger error handler and break suspend */
-+		ret = -EBUSY;
-+	}
-+
-+	return ret;
-+}
-+
- static int ufs_mtk_pwr_change_notify(struct ufs_hba *hba,
- 				enum ufs_notify_change_status stage,
- 				const struct ufs_pa_layer_attr *dev_max_params,
- 				struct ufs_pa_layer_attr *dev_req_params)
- {
- 	int ret = 0;
-+	static u32 reg;
- 
- 	switch (stage) {
- 	case PRE_CHANGE:
-+		if (ufshcd_is_auto_hibern8_supported(hba)) {
-+			reg = ufshcd_readl(hba, REG_AUTO_HIBERNATE_IDLE_TIMER);
-+			ufs_mtk_auto_hibern8_disable(hba);
-+		}
- 		ret = ufs_mtk_pre_pwr_change(hba, dev_max_params,
- 					     dev_req_params);
- 		break;
- 	case POST_CHANGE:
-+		if (ufshcd_is_auto_hibern8_supported(hba))
-+			ufshcd_writel(hba, reg, REG_AUTO_HIBERNATE_IDLE_TIMER);
- 		break;
- 	default:
- 		ret = -EINVAL;
-@@ -1646,29 +1676,6 @@ static void ufs_mtk_dev_vreg_set_lpm(struct ufs_hba *hba, bool lpm)
- 	}
- }
- 
--static int ufs_mtk_auto_hibern8_disable(struct ufs_hba *hba)
--{
--	int ret;
--
--	/* disable auto-hibern8 */
--	ufshcd_writel(hba, 0, REG_AUTO_HIBERNATE_IDLE_TIMER);
--
--	/* wait host return to idle state when auto-hibern8 off */
--	ufs_mtk_wait_idle_state(hba, 5);
--
--	ret = ufs_mtk_wait_link_state(hba, VS_LINK_UP, 100);
--	if (ret) {
--		dev_warn(hba->dev, "exit h8 state fail, ret=%d\n", ret);
--
--		ufshcd_force_error_recovery(hba);
--
--		/* trigger error handler and break suspend */
--		ret = -EBUSY;
--	}
--
--	return ret;
--}
--
- static int ufs_mtk_suspend(struct ufs_hba *hba, enum ufs_pm_op pm_op,
- 	enum ufs_notify_change_status status)
- {
+ 	mutex_lock(&misc_mtx);
+-	list_del(&misc->list);
++	list_del_init(&misc->list);
+ 	device_destroy(&misc_class, MKDEV(MISC_MAJOR, misc->minor));
+ 	misc_minor_free(misc->minor);
+ 	if (misc->minor > MISC_DYNAMIC_MINOR)
 -- 
 2.51.0
 
