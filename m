@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698EACCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 08:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E42CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 09:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXyAFA5Wbi47ZBAxqv5Bu/yKif771bwawPjOvd+jr7w=; b=arqBdq+vMvVknd3BVS6/vfsbVl
-	SqNiC4whA5IbkowZ6UclzVcx9tJpB4sSnceSMgr/5305/ScI9oqMWixgPedmd96bwbWpcy2aTlv1i
-	UFYiCMGkP93cToblOHiBB/xpFUFaN8CLvdgjGNdJl2zIswKb2Gjg6R+csSmhiKSgmKM6M5C340wev
-	iXLv7+g8kJ/1JczzS+y/a5TXb4Qbugtb+0ipJ8aOnIbNKMGVjBWMYNtrj++8I6agKbirC5WYs93Ej
-	ZpDXW6UCqKKdHkM7aXusXGfZEOfjInJLBVLj2DMkj5+ogjxJSaicHkHkduh0gRauRkXcbW1FiYCDQ
-	cein9yng==;
+	bh=AO4386yNxVFuR4ViyLt/237opsz9K4kw/MJn/OvQtBc=; b=LkI1zBljvRX8thLQ14CiIMwSal
+	njXykpivRFEaeHwk+O3L0lky6upXRoZ/40CjDcSZ/Mm4arONs4FRBN0nmXpg4m2VtGSBh5/FR1a3X
+	85pGYSJuL6j4rXOimHiBYw3eC8Ue3OqhiXdRynUuGBVz6OkbFdd6EY8lpyFgQsagQ2fpEGMSKaQAF
+	f0Orp50zG3gGOx3SBmysaA8jVBMBLj11gBQjZL/1WyWENMKZxMvaCRXxBAV5wjznHpBCfJzJCTQ2k
+	66oxqL1yaScCL239Lcaov+HYwhy7uBUTd/yjPkin7IlE2AxLekp7wtevRPGgnotYN+7qSeoi622zw
+	mwH9gNXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCZuO-0000000B8KW-3VPL;
-	Sat, 25 Oct 2025 08:45:56 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vCa9e-0000000B8yc-0wgy;
+	Sat, 25 Oct 2025 09:01:42 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCZuL-0000000B8IL-2HRg
+	id 1vCa9a-0000000B8yE-30iL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 08:45:55 +0000
+	Sat, 25 Oct 2025 09:01:40 +0000
 dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=WXyAFA5Wbi47ZBAxqv5Bu/yKif771bwawPjOvd+jr7w=;
-	b=lNsJIeyYZiwTBahxj1BEFLlccwGR1V9DsvyWON/GCcWZ0vZkcYf9mxKmA25qQgxCoo8FWZHr9
-	TdUvkijvAfvZLy3SxFzpspBtHZMaEq3uxfIdWVSVZ6fShrIwswyZQXJ54yughkIXwSfMwxIbi4p
-	C+HOhZTTeGQO9FtdhQasgZ4=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cttcm03srz12LFQ;
-	Sat, 25 Oct 2025 16:44:56 +0800 (CST)
+	bh=AO4386yNxVFuR4ViyLt/237opsz9K4kw/MJn/OvQtBc=;
+	b=OJbRp5ulXukGYxbxg6Us0kZljfYUxHttOzAsKE8A4C0lq3GWANRknkxTJxJIR95ln9RmWRitF
+	LgaYa5Rt5TSMfFGpJWiDschNI0RaNIe61sA/j/DBMzEEvb+1B3TP0xakdl64yW9SG4TTSpO5t3d
+	e/M4ZWdkItO8cqdW5+Qv8hc=
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4cttz62KvxznTVF;
+	Sat, 25 Oct 2025 17:00:50 +0800 (CST)
 Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 78B6B180B71;
-	Sat, 25 Oct 2025 16:45:35 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C327E140143;
+	Sat, 25 Oct 2025 17:01:29 +0800 (CST)
 Received: from [10.174.178.24] (10.174.178.24) by
  kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 25 Oct 2025 16:45:33 +0800
-Message-ID: <a3e95937-b0c7-020e-d52d-7189d2540f8f@huawei.com>
-Date: Sat, 25 Oct 2025 16:45:32 +0800
+ 15.2.1544.11; Sat, 25 Oct 2025 17:01:27 +0800
+Message-ID: <1c037f72-485a-567b-bf8f-489255330de8@huawei.com>
+Date: Sat, 25 Oct 2025 17:01:27 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
@@ -76,11 +76,12 @@ In-Reply-To: <8e22c81e-5e78-41e0-a81e-0f9826e5edf0@arm.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.174.178.24]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_014553_884197_52001D05 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20251025_020139_186565_485D38C9 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,21 +99,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Ben,
 
 On 2025/10/23 0:17, Ben Horgan wrote:
->>
->> Also fix the handling of overflow amount calculation. There's no need to
->> subtract mbwu_state->prev_val when calculating overflow_val.
-> 
-> Why not? Isn't this the pre-overflow part that we are missing from the
-> running count?
-> 
 
-The MSMON_MBWU register accumulates counts monotonically forward and
-would not automatically cleared to zero on overflow.
-
-The overflow portion is exactly what mpam_msmon_overflow_val() computes,
-there is no need to additionally subtract mbwu_state->prev_val.
-
->>
 >> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
 >> ---
 >>   drivers/resctrl/mpam_devices.c | 8 +++++---
@@ -131,11 +118,12 @@ there is no need to additionally subtract mbwu_state->prev_val.
 >> +			 (ctl_val | MSMON_CFG_x_CTL_EN);
 > 
 > This only considers 31 bit counters. I would expect any change here to
-> consider all lengths of counter. Also, as the overflow bit is no longer
-> reset due to the config mismatch it needs to be reset somewhere else.
+> consider all lengths of counter. 
+> 
 
-Yes, overflow bit needs to be cleared somewhere. I try to point out in
-the next patch mail.
+Sorry, regardless of whether the counter is 32-bit or 64-bit, the
+config_mismatch logic should be handled the same way here. Am I
+wrong?
 
 Best Regards,
 Zeng Heng
