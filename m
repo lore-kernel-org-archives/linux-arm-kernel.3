@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426F4CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29DCCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HCgmLTwUULBX9QX85VetACwJSdv37/HgS9V4M0/4NQ=; b=R2G4eeDhG/Chv/jXR6J+a7WyqE
-	hb6UDcyAUpViKKCmPBMXX/vp4XsiLjpOGFHdvI9lsbYvFP1jV8ojWo4E7wedGAh5McbmjrHS71P/k
-	yz+LLR7NIQQo7DjZsvmf2kiW/FsZMSJcApDFEXRouZrD5dBdm3dBt0zmuVU5Rsxpb0lFms11EvfF7
-	ZXVx/g+fEOF/QT6705YaeFFWSSX7YHvWuHQVMOUZ1xLRLX3QaDB+Aipi8szNQMSsiJBTihIFvQTCt
-	s1ipLIQQwGuEMZPJwl+kxUzwWWj/4QhCIRNmEe7u7hnG0vwDWJlAnYlYyJ+ZDPaQE5nyoM67FRA+z
-	aZnKDzrA==;
+	bh=J1stEsnuPCS68w+zweNa5i8/J795Jz5IjnFU2CcZghw=; b=d3TI+oaW+RQFTm5yxRMhhqLE0q
+	qcAy7jKGdxv3deEagBjYo1sClHg7g1cAr8T68rS0wARmDirgW9LwXM2FPiGtlEqF87cHPZRhVBfav
+	8IPOltj9mm8hgWU/vnozAUfv/r3RLtkmJ9sLVEKO257swXSiLYiL6CAw4y9Krfk7F3Wl0YYGIKo2J
+	5AtCE8aaHvyeZbybnnI9tzu0ouZZJ0ElU/4V9Hmgh+lVx1ZUJq9hq/oz/zTtcdauLqvwPpyXnXPFI
+	dGGmE9vUwIQ9ROFlO8aAINIvVUXs5xtPKsVx5kqb8RBzIE0LzIbGoMbz5eHRxdrZwcBflPaOxBkrS
+	w6eDTGcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgzY-0000000BTJ7-2kMY;
-	Sat, 25 Oct 2025 16:19:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCh09-0000000BTU5-493g;
+	Sat, 25 Oct 2025 16:20:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgzW-0000000BTIA-1Shx
+	id 1vCh08-0000000BTTi-0xsQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 16:19:43 +0000
+	Sat, 25 Oct 2025 16:20:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 08A6D450E8;
-	Sat, 25 Oct 2025 16:19:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E39EDC4CEF5;
-	Sat, 25 Oct 2025 16:19:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 935FD6111C;
+	Sat, 25 Oct 2025 16:20:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA43CC116C6;
+	Sat, 25 Oct 2025 16:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761409181;
-	bh=afWHb3gFsT0vDh4zieSFw/sUmsJjUwN4HXbzjwzZjfI=;
+	s=k20201202; t=1761409219;
+	bh=36PUBBTO/OOmdCTWhl24pff229qR+QMDPdU7ahtPRKA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hCxNJVdE2/tZnEP+d9OpVyehdRxSDUkiMkcv/Q8QG8jfeG1xb/vcCI8U4Eo5Dt2bV
-	 MWVrIwi3bp53/OKMR8EBrS58lmJOhjNvpiS1ngWOsm4iCwz9NKjg30tFAdMYQnuGVR
-	 Y9Sj16kb0RFBQ9LpUA16J6oB+kIehp0pJNqU7ZdPILMLJxY3mvyK/gFuUTciEBvGHP
-	 fo2rJilzGeU2zUarTjYwrz/Rpk09s9dFAzzwNc6FKmarx64o09vGFQw1PeXU2hc1ra
-	 V4mPGT9uzkf0myAPEA3wJzYgaVmvXxCaq3BJjXah2RbmlJJraoCPAOnZcNYSu73GVl
-	 zgVKgXj7+B0xA==
+	b=Oy1hkwN4g9ji0ALsUnYI52sjZZJCwOvs+aaY7DvHLiwDF9YWRBdOaNpqFzcE3aM0M
+	 Ywvl85Ir3TtfZzLlikFdfE2S5fpporhSLr7FjCW++1YKlY6SEzMCWNA33Sc3yMiCIw
+	 InLHRU5VTLVOVTs/tgquT/yOm7CdtXJPr882napCB//5Q4nWvZsUWvnTtI3StaeIZy
+	 DrqfY278dKN7Ueubty7bcCOmDrP08Nsb6QZeUBXokEsdaI4A7OZ18GgZtC8TG02sQy
+	 4dOBlyMntrb8crGjeh4/6q+TxpNoEs+v0Q0pwERdXG9SazEwRW8sXWtSYLZPmTSyu9
+	 CeGrGVw/hz+Mg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+Cc: Bharat Uppal <bharat.uppal@samsung.com>,
+	Nimesh Sati <nimesh.sati@samsung.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
 	Sasha Levin <sashal@kernel.org>,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	jacob.e.keller@intel.com,
-	hayashi.kunihiko@socionext.com,
-	alexandre.f.demers@gmail.com,
-	alexander.deucher@amd.com,
-	alexis.lothore@bootlin.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	alim.akhtar@samsung.com,
+	krzk@kernel.org,
+	linux-scsi@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17-6.12] net: stmmac: est: Drop frames causing HLBS error
-Date: Sat, 25 Oct 2025 11:57:42 -0400
-Message-ID: <20251025160905.3857885-231-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.17-6.12] scsi: ufs: exynos: fsd: Gate ref_clk and put UFS device in reset on suspend
+Date: Sat, 25 Oct 2025 11:57:58 -0400
+Message-ID: <20251025160905.3857885-247-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251025160905.3857885-1-sashal@kernel.org>
 References: <20251025160905.3857885-1-sashal@kernel.org>
@@ -72,11 +65,7 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_091942_426487_EFF1BA9B 
-X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,116 +80,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+From: Bharat Uppal <bharat.uppal@samsung.com>
 
-[ Upstream commit 7ce48d497475d7222bd8258c5c055eb7d928793c ]
+[ Upstream commit 6d55af0f0740bf3d77943425fdafb77dc0fa6bb9 ]
 
-Drop those frames causing Head-of-Line Blocking due to Scheduling
-(HLBS) error to avoid HLBS interrupt flooding and netdev watchdog
-timeouts due to blocked packets. Tx queues can be configured to drop
-those blocked packets by setting Drop Frames causing Scheduling Error
-(DFBS) bit of EST_CONTROL register.
+On FSD platform, gating the reference clock (ref_clk) and putting the
+UFS device in reset by asserting the reset signal during UFS suspend,
+improves the power savings and ensures the PHY is fully turned off.
 
-Also, add per queue HLBS drop count.
+These operations are added as FSD specific suspend hook to avoid
+unintended side effects on other SoCs supported by this driver.
 
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
-Reviewed-by: Furong Xu <0x1207@gmail.com>
-Link: https://patch.msgid.link/20250925-hlbs_2-v3-1-3b39472776c2@altera.com
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Co-developed-by: Nimesh Sati <nimesh.sati@samsung.com>
+Signed-off-by: Nimesh Sati <nimesh.sati@samsung.com>
+Signed-off-by: Bharat Uppal <bharat.uppal@samsung.com>
+Link: https://lore.kernel.org/r/20250821053923.69411-1-bharat.uppal@samsung.com
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
 YES
-- Enabling EST currently leaves blocked frames in the Tx queue when a
-  Head-of-Line Blocking due to Scheduling (HLBS) fault happens, so the
-  scheduler keeps retrying the same frame and continuously raises HLBS
-  interrupts, which ends in watchdog timeouts. The fix explicitly sets
-  the hardware “Drop Frames causing Scheduling error” bit when EST is
-  enabled (`drivers/net/ethernet/stmicro/stmmac/stmmac_est.c:66`
-  together with the new definition in `stmmac_est.h:19`), so those
-  unschedulable frames are discarded by the MAC instead of wedging the
-  queue.
-- The change is tightly scoped to the EST path: when EST is disabled
-  nothing changes (`stmmac_est.c:65-68`), so non-TSN users of stmmac are
-  unaffected. The additional per-queue accounting merely increments a
-  counter when HLBS drops occur (`stmmac_est.c:110-114` with storage
-  added in `common.h:231`); it does not alter behaviour and has no UAPI
-  impact.
-- This solves a real, user-visible failure (interrupt storms and `netdev
-  watchdog` fires) that exists in all builds with EST support since it
-  was introduced, while the code delta is minimal and self-contained.
-  There are no prerequisite refactors beyond what is already in stable,
-  and there is no evidence of regressions from setting this documented
-  control bit.
 
- drivers/net/ethernet/stmicro/stmmac/common.h     | 1 +
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.c | 9 ++++++---
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.h | 1 +
- 3 files changed, 8 insertions(+), 3 deletions(-)
+- Adds FSD-only suspend hook: defines `fsd_ufs_suspend(struct exynos_ufs
+  *ufs)` that gates the controller clocks and asserts the device reset
+  line on suspend (`drivers/ufs/host/ufs-exynos.c:1899`).
+  - Gates clocks via `exynos_ufs_gate_clks(ufs)` (`drivers/ufs/host/ufs-
+    exynos.c:1901`), which calls `exynos_ufs_ctrl_clkstop(ufs, true)`
+    (`drivers/ufs/host/ufs-exynos.c:202,204`).
+  - `exynos_ufs_ctrl_clkstop()` sets the clock-stop enables and applies
+    `CLK_STOP_MASK` to `HCI_CLKSTOP_CTRL` (`drivers/ufs/host/ufs-
+    exynos.c:436-448`).
+  - The `CLK_STOP_MASK` includes `REFCLK_STOP` and `REFCLKOUT_STOP`,
+    ensuring the reference clock to the PHY is gated
+    (`drivers/ufs/host/ufs-exynos.c:61-69`).
+- Asserts reset: writes `0` to `HCI_GPIO_OUT` on suspend
+  (`drivers/ufs/host/ufs-exynos.c:1902`), matching how a device reset is
+  asserted (see `exynos_ufs_dev_hw_reset()` which pulses 0 then 1 on
+  `HCI_GPIO_OUT`; `drivers/ufs/host/ufs-exynos.c:1558-1565`). This
+  ensures the device and PHY are fully quiesced for maximal power
+  savings.
+- Scoped to FSD only: the new hook is wired into the FSD driver data via
+  `.suspend = fsd_ufs_suspend` (`drivers/ufs/host/ufs-
+  exynos.c:2158-2173`). Other SoCs use their own hooks (e.g., GS101:
+  `.suspend = gs101_ufs_suspend`; `drivers/ufs/host/ufs-
+  exynos.c:2175-2191`), avoiding unintended side effects on non-FSD
+  systems.
+- Integrates correctly with UFS core PM:
+  - The vendor suspend callback is invoked by the UFS core at the
+    POST_CHANGE phase of suspend (`ufshcd_vops_suspend(hba, pm_op,
+    POST_CHANGE)`), which happens after link/device PM state transitions
+    but before clocks are fully managed by the core
+    (`drivers/ufs/core/ufshcd.c:9943-9951`).
+  - On resume, the vendor resume callback runs before link transitions
+    (`ufshcd_vops_resume()`; `drivers/ufs/core/ufshcd.c:10006-10013`),
+    and the core will either exit HIBERN8 or, if the link is off,
+    perform a full `ufshcd_reset_and_restore()`
+    (`drivers/ufs/core/ufshcd.c:10018-10041`). During host (re)init, the
+    Exynos driver pulses the device reset line high in
+    `exynos_ufs_hce_enable_notify(PRE_CHANGE)` (`drivers/ufs/host/ufs-
+    exynos.c:1612-1638`), matching the asserted reset in suspend.
+- Mirrors proven pattern: GS101 already asserts the reset line during
+  suspend (`gs101_ufs_suspend()` writes `0` to `HCI_GPIO_OUT`;
+  `drivers/ufs/host/ufs-exynos.c:1704-1707`). This change extends a
+  similar, already-accepted approach to FSD while additionally gating
+  ref_clk.
+- Fix nature and impact:
+  - Addresses a real-world issue: excessive power usage and PHY not
+    fully turning off on FSD during suspend. Gating `ref_clk` and
+    asserting reset directly target these symptoms, aligning with the
+    commit message intent.
+  - Minimal, contained change (one new static function + one driver-data
+    hook). No API/ABI or architectural changes; no feature additions.
+  - Low regression risk for non-FSD platforms since behavior is
+    explicitly guarded by the FSD driver-data wiring.
+- Stable criteria alignment:
+  - Fixes a platform-specific power management defect that affects users
+    (improper power savings and PHY not fully off).
+  - Small, self-contained change in a single driver file with explicit
+    platform scoping.
+  - No broad subsystem risk; integrates with existing suspend/resume
+    flows and uses established helpers (`exynos_ufs_gate_clks`,
+    `HCI_GPIO_OUT` semantics).
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index cbffccb3b9af0..450a51a994b92 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -228,6 +228,7 @@ struct stmmac_extra_stats {
- 	unsigned long mtl_est_btrlm;
- 	unsigned long max_sdu_txq_drop[MTL_MAX_TX_QUEUES];
- 	unsigned long mtl_est_txq_hlbf[MTL_MAX_TX_QUEUES];
-+	unsigned long mtl_est_txq_hlbs[MTL_MAX_TX_QUEUES];
- 	/* per queue statistics */
- 	struct stmmac_txq_stats txq_stats[MTL_MAX_TX_QUEUES];
- 	struct stmmac_rxq_stats rxq_stats[MTL_MAX_RX_QUEUES];
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-index ac6f2e3a3fcd2..4b513d27a9889 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-@@ -63,7 +63,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
- 			 EST_GMAC5_PTOV_SHIFT;
- 	}
- 	if (cfg->enable)
--		ctrl |= EST_EEST | EST_SSWL;
-+		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
- 	else
- 		ctrl &= ~EST_EEST;
+Given the above, this is a good stable backport candidate for trees that
+include the Exynos UFS driver with FSD support.
+
+ drivers/ufs/host/ufs-exynos.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+index f0adcd9dd553d..513cbcfa10acd 100644
+--- a/drivers/ufs/host/ufs-exynos.c
++++ b/drivers/ufs/host/ufs-exynos.c
+@@ -1896,6 +1896,13 @@ static int fsd_ufs_pre_pwr_change(struct exynos_ufs *ufs,
+ 	return 0;
+ }
  
-@@ -109,6 +109,10 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
- 
- 		x->mtl_est_hlbs++;
- 
-+		for (i = 0; i < txqcnt; i++)
-+			if (value & BIT(i))
-+				x->mtl_est_txq_hlbs[i]++;
++static int fsd_ufs_suspend(struct exynos_ufs *ufs)
++{
++	exynos_ufs_gate_clks(ufs);
++	hci_writel(ufs, 0, HCI_GPIO_OUT);
++	return 0;
++}
 +
- 		/* Clear Interrupt */
- 		writel(value, est_addr + EST_SCH_ERR);
+ static inline u32 get_mclk_period_unipro_18(struct exynos_ufs *ufs)
+ {
+ 	return (16 * 1000 * 1000000UL / ufs->mclk_rate);
+@@ -2162,6 +2169,7 @@ static const struct exynos_ufs_drv_data fsd_ufs_drvs = {
+ 	.pre_link               = fsd_ufs_pre_link,
+ 	.post_link              = fsd_ufs_post_link,
+ 	.pre_pwr_change         = fsd_ufs_pre_pwr_change,
++	.suspend                = fsd_ufs_suspend,
+ };
  
-@@ -131,10 +135,9 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
- 
- 		x->mtl_est_hlbf++;
- 
--		for (i = 0; i < txqcnt; i++) {
-+		for (i = 0; i < txqcnt; i++)
- 			if (feqn & BIT(i))
- 				x->mtl_est_txq_hlbf[i]++;
--		}
- 
- 		/* Clear Interrupt */
- 		writel(feqn, est_addr + EST_FRM_SZ_ERR);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-index d247fa383a6e4..f70221c9c84af 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-@@ -16,6 +16,7 @@
- #define EST_XGMAC_PTOV_MUL		9
- #define EST_SSWL			BIT(1)
- #define EST_EEST			BIT(0)
-+#define EST_DFBS			BIT(5)
- 
- #define EST_STATUS			0x00000008
- #define EST_GMAC5_BTRL			GENMASK(11, 8)
+ static const struct exynos_ufs_drv_data gs101_ufs_drvs = {
 -- 
 2.51.0
 
