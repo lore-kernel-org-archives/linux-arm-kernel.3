@@ -4,112 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859A9CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4314CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+kdgwxqgLpSk+BXagyhyh0KizQR0PlmXlxRpNRvoio=; b=jj0kmsTMpcgmuOS7oMK/Jh1Zqp
-	DC+dE55MWZ+U/gxmk5620jGks1RShebzlVBgOkjb9T/QylLiROhae7Ry+M80HoR+jTfpm+lhyLGlF
-	/i1s1AiKJ03xKKu1aqwQ4UQNFFdRse4sKkPghCC/egCnXUCcZPZu7Kh8a3/cg92s7KlJcqA6IFnw8
-	M2helNfg8zXcRG98Iv/oxs4qCpXUGtie7nTAgbEVGcgnGeDYLfyjQqrM5LHH2/emW/1otLwjsK1iJ
-	qYa3+B+5ZQxf+R0U5xXXLgoqYrw9awpS7bb29cso5Xo4Wcpjlo1j7GAdxhQUo1b6Ens+R/lg5/fj3
-	JFaYreHA==;
+	bh=lCukDE2Wz/llmJRA1Dhhk+dKRYCeKOkr6t5vR7uoeBo=; b=B0DikWAwp5kuB6roamvW5/YO9F
+	dtGaGf0tHAEdz/GEmh3FocXypd/Ycr/zDqGNnFmmjKiTPl4bGdul1/qcri0NLV4Sz40byX8vr56dv
+	zAHEObS0b4uYROARRpop6wc1WcdEqeWf8cFykNRywdQfOrQF6xARAu2trNGDmN0myo4r2xdiX+jwM
+	gJSM6t4ronlGCkM84n3xay1M9ar/nQVgUbCEQk7KibO3h4pchXxFw+cE88E1R3dJu+KYH5IXDLadz
+	4mE1pONdZDme8yZ5Bm85MYIU5TrnuPyB2nZq731810PMchtsCYtxoFTklF9qFA2UuBdhwy2umhZLY
+	1qh7Nruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vChDM-0000000BXOx-0BjW;
-	Sat, 25 Oct 2025 16:34:00 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1vChDN-0000000BXQ7-0lQo;
+	Sat, 25 Oct 2025 16:34:01 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vChCz-0000000BX0l-2008
+	id 1vChD5-0000000BX7w-0JCx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 16:33:41 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-87de60d0e3eso31617006d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 09:33:37 -0700 (PDT)
+	Sat, 25 Oct 2025 16:33:49 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-88f8f346c2cso331685685a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 09:33:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761410016; x=1762014816; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761410021; x=1762014821; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=v+kdgwxqgLpSk+BXagyhyh0KizQR0PlmXlxRpNRvoio=;
-        b=SpSNNEBEmWwA667t8Rl4DE5CwL1fbSLRKrT5mqcKGmm84T5+x1zIsTjZy6EuAeOfNj
-         UiEnSW3O5uXvRJ/74IRi7F1HGe8IH5LIgG6AB79vVNFUpM2+LiE78lbUou/p0IjwOove
-         S7+X6SyHHPwPLaJs/Q74RU5cP32RSyvKScK6+m8zH377CWZnrmFkssVcUNsqgfHRW7CT
-         c4Tw+xYBAxlkUAIXpINTs1jTLtBB+qujAiJ0bY6KXrfjamO5wXqbATMsA54IgtlYpRY6
-         9lzSv8MzM+K0YWKnP5DaxPOsgYUdyB/NiOYPS8FWGfujHjupbafPQ7LREoYhsSRgUx7+
-         c+xQ==
+        bh=lCukDE2Wz/llmJRA1Dhhk+dKRYCeKOkr6t5vR7uoeBo=;
+        b=RbIUaeOFP/zbiTujNE6AKn4Do9Q54BoZqSovQLN5DNjfoP12734aEMfZWuhROAPtUZ
+         XZcRKlmXtRg9poEdut+a9B03KXVJNO2dJZ3ONXaEvTN/j5zYCsnm4V7yip1fZj/Vrp4m
+         04MeEKUapIVTmCZj9yocpMTF9YolpoS4+trhm8uQIlV0DcWXI3vkQhDxppOuFi3byslH
+         v0xbvzUfSPpZT7e5qsGJAzVwTraE7gocVqNxMGW7xuJZ/xsTuyFamnebOTaWVhKmF2/z
+         MZ8Gu/GOQIGxK7YNx067+yE0Zs4nXnWiQ/JLFqiHf/tU30Ba1M4+OiVWJKhg0Fm1Eh1m
+         xT2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761410016; x=1762014816;
+        d=1e100.net; s=20230601; t=1761410021; x=1762014821;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=v+kdgwxqgLpSk+BXagyhyh0KizQR0PlmXlxRpNRvoio=;
-        b=XON8lIwVfnppPoI1IKJwUX722/eSkW1je61yX51A+0obTXRuxsgoYA2ZenccaO9kQW
-         8rfkU083oFhstZM6/gD9Tc0V8EaR1CZ+++gVTp++lp5/NY00ikOiQhJBjo0dkIj8b0S3
-         CxQRLHfDlSel47tiim5lm/tvon66dN5x5Uwcz8y2Vfidfv2MAGQm9afIMYn/Wr/9qEH/
-         PwTy9boH+dUewSBvF0oVdLpX2Z+qI/HW9Y+qEFX4u6RJlXswufplPWy3o64IAvCAo6fZ
-         hPGiB4VTjbcK+cTwbo5awa0ZCR66crKlzFepZB57pupkrq7a+WKd4ZWF4FQTzoKDo+Cb
-         qO9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVqqdV1Zkfhx74P4XtmMDGFBWoEDwR+ZqwWa+Dfg3zYgEk1Md1qFmRUPQL2uXY+NwiP4Ey+lnY19DK3v4pjTgCC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFrSjJZ0+24lbsX61WILVWv2a90tcfVi7LblQ+cBoaOyQthRXb
-	UA4qb6Xx7gHW43GLcRRjjRGHScVLsLxjmvfocfwzu67bZ00QOlrnSwWT
-X-Gm-Gg: ASbGnctJtLz+i5zI4C41PLId6WlKXICVNI0hmPe5q/zsFRBt8+Zxp2CXaWgCdiXdzbw
-	oYyPngm3xyzdUbhuyNZsBgJZm1Fl107weUHfckIJJ+3mOHmyl7JQ5D/vOjv4ZD2J0pujDF03JG+
-	Drj0HoCiHGeovvJltUdL3v6nYS2kAD7WqEc3E3GHQzRUM+ocROFKlmb8D9LKBAgyrG2Rk1ESANh
-	DjfpEGGxqeAyBpjltSwZMTftwYokR/Zf016si5HyqFPsfrLTeb4XoBk7A3+Y2T5rjRYxB2dZUym
-	OcfEbikKhgUXpmB7YMyCIP48D+WYtUvrT2IEw7Iumr9+wHamO3MleL5rUzp5gF+IZvSWae881mf
-	yGLlIiGfDP/np6CCHTVNBzCooWrlHPHTu4fOirJmWwiCM608OmpBXSp83qeG+s+PW1688KfW4
-X-Google-Smtp-Source: AGHT+IFUNq9E9F5tkFvF4iIGRPUJo2bGn0CXF3o3/vXLG4KH0hAs0g3n//wSNOK/rhmKbOn3qmKqqg==
-X-Received: by 2002:a05:6214:f6d:b0:87c:1032:e849 with SMTP id 6a1803df08f44-87f9edc81b9mr140672916d6.30.1761410016037;
-        Sat, 25 Oct 2025 09:33:36 -0700 (PDT)
+        bh=lCukDE2Wz/llmJRA1Dhhk+dKRYCeKOkr6t5vR7uoeBo=;
+        b=pXnrNEeZNQ3Ybt0NfGCT49pBvKT2h7YWTPAA/3/h0qqfmRe7PJ5u/VUiDG8KKTa0Sm
+         WknNreWqdAQJP38tq6xRAvvN5+6ET7LuFxnEoY+g5WwbyYuViYp9afSd4svoLTfZ5oUz
+         649uJvCfCAoA6zZD+80JZdob8wrw7irPTweWQeBPWKyT45w+ZDn6ihSZg1pBG5PBo8rJ
+         Lk4CEWM+noNp34UpM/w1VYU0ImoqAFJY8CVYTe3XO9HUlnQif9j/uLB5vsHSGU1imKlk
+         TZVupsT2CKscirROTYQglGFJUa+8y1yFqr5kxHPIEINr6Q5iLPxda9VnwtGe8EIdjRS6
+         MQzg==
+X-Forwarded-Encrypted: i=1; AJvYcCU61RFbQHTYbv5q5NYLNOxM77kroTLqWGaZidqX4PFgGMmElWYsh4RL5RFdqcLMdsrhtcaVq1oZO55Us8OhR6vp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYjwlJkLfi9rEqn0YaE3g3ktpx3aNUIALJSvMYPJtHqEUCFx5t
+	ESdeC/WMEfBsXXyPdadMlRKMIA6Mc9/2FAS+y11wwXPsIfcnG4HcBQ6d
+X-Gm-Gg: ASbGncvBt6EdQDId7xB3UOSbqog9zq9Keid2fi4cX2XGZK11uv5aargwnHUyYDf+K+L
+	z9shXKEaFKJeLRCJfRHfWmUGlcc12oVH/8E/dhYHxKbEsVQWrgqs29LMQVJOd08NVABRZAvAmwH
+	QCCYTZPzbDhilyzc2BaU+uVIFe6WC38qjMdnahDGEEEQuMrtq1HrvW/fvsSkpXFdX2SEZ/V/VLr
+	p5Xqk5t+WPBJJ9D/ug6eXhEtPpB+tJbWWa9w+BhliVpz7B2NsmJwZZO384S1eILO67V+wSA1FxD
+	AX9XNaTvRN6wY3Z55j9wndSHi6RM1IItliGRmPYQU6XvSRaS4KjpapT7dvYd9xqoe+P171yjGmY
+	YsAcWk3KkCWUTHeR+BWLIRISqfSc7BcC1ZAYyF8V/iRtPABJewCJed7ctX5G8aiDNtjiYGF6iM/
+	FwcFN7t4A=
+X-Google-Smtp-Source: AGHT+IFZUXzUCKjX2GS7KVjFpxXVayhaSU18PSnROxCbmg4ehcl8/3L/N8ey4/nagW/qyG5Qi/ofXg==
+X-Received: by 2002:a05:620a:2990:b0:829:b669:c791 with SMTP id af79cd13be357-890712b8ca4mr3694996585a.78.1761410021395;
+        Sat, 25 Oct 2025 09:33:41 -0700 (PDT)
 Received: from localhost ([12.22.141.131])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87fc48a8bc4sm16252346d6.7.2025.10.25.09.33.35
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-89f254a41cdsm172336185a.29.2025.10.25.09.33.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Oct 2025 09:33:35 -0700 (PDT)
+        Sat, 25 Oct 2025 09:33:40 -0700 (PDT)
 From: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Lee Jones <lee@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Gao Xiang <xiang@kernel.org>,
-	Chao Yu <chao@kernel.org>,
-	Yue Hu <zbestahu@gmail.com>,
-	Jeffle Xu <jefflexu@linux.alibaba.com>,
-	Sandeep Dhavale <dhavale@google.com>,
-	Hongbo Li <lihongbo22@huawei.com>,
-	Jaegeuk Kim <jaegeuk@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Babu Moger <babu.moger@amd.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Jinjiang Tu <tujinjiang@huawei.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Andrei Vagin <avagin@gmail.com>,
-	linux-erofs@lists.ozlabs.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-fsdevel@vger.kernel.org
+	Jonathan Corbet <corbet@lwn.net>,
+	workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org
 Cc: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
-Subject: [PATCH 19/21] fs: don't use GENMASK()
-Date: Sat, 25 Oct 2025 12:33:01 -0400
-Message-ID: <20251025163305.306787-12-yury.norov@gmail.com>
+Subject: [PATCH 21/21] Docs: add Functions parameters order section
+Date: Sat, 25 Oct 2025 12:33:03 -0400
+Message-ID: <20251025163305.306787-14-yury.norov@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251025162858.305236-1-yury.norov@gmail.com>
 References: <20251025162858.305236-1-yury.norov@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_093337_560382_01F203EE 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20251025_093343_179433_3B290D14 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,125 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GENMASK(high, low) notation is confusing. FIRST/LAST_BITS() are
-more appropriate.
+Standardize parameters ordering in some typical cases to minimize
+confusion.
 
 Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
 ---
- fs/erofs/internal.h      | 2 +-
- fs/f2fs/data.c           | 2 +-
- fs/f2fs/inode.c          | 2 +-
- fs/f2fs/segment.c        | 2 +-
- fs/f2fs/super.c          | 2 +-
- fs/proc/task_mmu.c       | 2 +-
- fs/resctrl/pseudo_lock.c | 2 +-
- include/linux/f2fs_fs.h  | 2 +-
- 8 files changed, 8 insertions(+), 8 deletions(-)
+ Documentation/process/coding-style.rst | 48 ++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-diff --git a/fs/erofs/internal.h b/fs/erofs/internal.h
-index f7f622836198..6e0f03092c52 100644
---- a/fs/erofs/internal.h
-+++ b/fs/erofs/internal.h
-@@ -250,7 +250,7 @@ static inline u64 erofs_nid_to_ino64(struct erofs_sb_info *sbi, erofs_nid_t nid)
- 	 * Note: on-disk NIDs remain unchanged as they are primarily used for
- 	 * compatibility with non-LFS 32-bit applications.
- 	 */
--	return ((nid << 1) & GENMASK_ULL(63, 32)) | (nid & GENMASK(30, 0)) |
-+	return ((nid << 1) & LAST_BITS_ULL(32)) | (nid & FIRST_BITS(31)) |
- 		((nid >> EROFS_DIRENT_NID_METABOX_BIT) << 31);
- }
+diff --git a/Documentation/process/coding-style.rst b/Documentation/process/coding-style.rst
+index d1a8e5465ed9..dde24148305c 100644
+--- a/Documentation/process/coding-style.rst
++++ b/Documentation/process/coding-style.rst
+@@ -523,6 +523,54 @@ below, compared to the **declaration** example above)::
+ 	...
+  }
  
-diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
-index 775aa4f63aa3..ef08464e003f 100644
---- a/fs/f2fs/data.c
-+++ b/fs/f2fs/data.c
-@@ -416,7 +416,7 @@ int f2fs_target_device_index(struct f2fs_sb_info *sbi, block_t blkaddr)
++6.2) Function parameters order
++------------------------------
++
++The order of parameters is important both for code generation and readability.
++Passing parameters in an unusual order is a common source of bugs. Listing
++them in standard widely adopted order helps to avoid confusion.
++
++Many ABIs put first function parameter and return value in R0. If your
++function returns one of its parameters, passing it at the very beginning
++would lead to a better code generation. For example::
++
++        void *memset64(uint64_t *s, uint64_t v, size_t count);
++        void *memcpy(void *dest, const void *src, size_t count);
++
++If your function doesn't propagate a parameter, but has a meaning of copying
++and/or processing data, the best practice is following the traditional order:
++destination, source, options, flags.
++
++for_each()-like iterators should take an enumerator the first. For example::
++
++        for_each_set_bit(bit, mask, nbits);
++                do_something(bit);
++
++        list_for_each_entry(pos, head, member);
++                do_something(pos);
++
++If function operates on a range or ranges of data, corresponding parameters
++may be described as ``start - end`` or ``start - size`` pairs. In both cases,
++the parameters should follow each other. For example::
++
++        int
++        check_range(unsigned long vstart, unsigned long vend,
++                    unsigned long kstart, unsigned long kend);
++
++        static inline void flush_icache_range(unsigned long start, unsigned long end);
++
++        static inline void flush_icache_user_page(struct vm_area_struct *vma,
++                                            struct page *page,
++                                            unsigned long addr, int len);
++
++Both ``start`` and ``end`` of the interval are inclusive.
++
++Describing intervals in order ``end - start`` is unfavorable. One notable
++example is the ``GENMASK(high, low)`` macro. While such a notation is popular
++in hardware context, particularly to describe registers structure, in context
++of software development it looks counter intuitive and confusing. Please switch
++to an equivalent ``BITS(low, high)`` version.
++
+ 7) Centralized exiting of functions
+ -----------------------------------
  
- static blk_opf_t f2fs_io_flags(struct f2fs_io_info *fio)
- {
--	unsigned int temp_mask = GENMASK(NR_TEMP_TYPE - 1, 0);
-+	unsigned int temp_mask = FIRST_BITS(NR_TEMP_TYPE);
- 	unsigned int fua_flag, meta_flag, io_flag;
- 	blk_opf_t op_flags = 0;
- 
-diff --git a/fs/f2fs/inode.c b/fs/f2fs/inode.c
-index 8c4eafe9ffac..42a43f558136 100644
---- a/fs/f2fs/inode.c
-+++ b/fs/f2fs/inode.c
-@@ -524,7 +524,7 @@ static int do_read_inode(struct inode *inode)
- 			fi->i_compress_level = compress_flag >>
- 						COMPRESS_LEVEL_OFFSET;
- 			fi->i_compress_flag = compress_flag &
--					GENMASK(COMPRESS_LEVEL_OFFSET - 1, 0);
-+						FIRST_BITS(COMPRESS_LEVEL_OFFSET);
- 			fi->i_cluster_size = BIT(fi->i_log_cluster_size);
- 			set_inode_flag(inode, FI_COMPRESSED_FILE);
- 		}
-diff --git a/fs/f2fs/segment.c b/fs/f2fs/segment.c
-index b45eace879d7..64433d3b67d4 100644
---- a/fs/f2fs/segment.c
-+++ b/fs/f2fs/segment.c
-@@ -5425,7 +5425,7 @@ static int do_fix_curseg_write_pointer(struct f2fs_sb_info *sbi, int type)
- 		wp_block = zbd->start_blk + (zone.wp >> log_sectors_per_block);
- 		wp_segno = GET_SEGNO(sbi, wp_block);
- 		wp_blkoff = wp_block - START_BLOCK(sbi, wp_segno);
--		wp_sector_off = zone.wp & GENMASK(log_sectors_per_block - 1, 0);
-+		wp_sector_off = zone.wp & FIRST_BITS(log_sectors_per_block);
- 
- 		if (cs->segno == wp_segno && cs->next_blkoff == wp_blkoff &&
- 				wp_sector_off == 0)
-diff --git a/fs/f2fs/super.c b/fs/f2fs/super.c
-index db7afb806411..96621fd45cdc 100644
---- a/fs/f2fs/super.c
-+++ b/fs/f2fs/super.c
-@@ -4501,7 +4501,7 @@ static void save_stop_reason(struct f2fs_sb_info *sbi, unsigned char reason)
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&sbi->error_lock, flags);
--	if (sbi->stop_reason[reason] < GENMASK(BITS_PER_BYTE - 1, 0))
-+	if (sbi->stop_reason[reason] < FIRST_BITS(BITS_PER_BYTE))
- 		sbi->stop_reason[reason]++;
- 	spin_unlock_irqrestore(&sbi->error_lock, flags);
- }
-diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-index fc35a0543f01..71de487b244c 100644
---- a/fs/proc/task_mmu.c
-+++ b/fs/proc/task_mmu.c
-@@ -1845,7 +1845,7 @@ struct pagemapread {
- 
- #define PM_ENTRY_BYTES		sizeof(pagemap_entry_t)
- #define PM_PFRAME_BITS		55
--#define PM_PFRAME_MASK		GENMASK_ULL(PM_PFRAME_BITS - 1, 0)
-+#define PM_PFRAME_MASK		FIRST_BITS_ULL(PM_PFRAME_BITS)
- #define PM_SOFT_DIRTY		BIT_ULL(55)
- #define PM_MMAP_EXCLUSIVE	BIT_ULL(56)
- #define PM_UFFD_WP		BIT_ULL(57)
-diff --git a/fs/resctrl/pseudo_lock.c b/fs/resctrl/pseudo_lock.c
-index 87bbc2605de1..45703bbd3bca 100644
---- a/fs/resctrl/pseudo_lock.c
-+++ b/fs/resctrl/pseudo_lock.c
-@@ -30,7 +30,7 @@
-  */
- static unsigned int pseudo_lock_major;
- 
--static unsigned long pseudo_lock_minor_avail = GENMASK(MINORBITS, 0);
-+static unsigned long pseudo_lock_minor_avail = FIRST_BITS(MINORBITS + 1);
- 
- static char *pseudo_lock_devnode(const struct device *dev, umode_t *mode)
- {
-diff --git a/include/linux/f2fs_fs.h b/include/linux/f2fs_fs.h
-index 6afb4a13b81d..9996356b79e0 100644
---- a/include/linux/f2fs_fs.h
-+++ b/include/linux/f2fs_fs.h
-@@ -356,7 +356,7 @@ enum {
- 	OFFSET_BIT_SHIFT
- };
- 
--#define OFFSET_BIT_MASK		GENMASK(OFFSET_BIT_SHIFT - 1, 0)
-+#define OFFSET_BIT_MASK		FIRST_BITS(OFFSET_BIT_SHIFT)
- 
- struct f2fs_node {
- 	/* can be one of three types: inode, direct, and indirect types */
 -- 
 2.43.0
 
