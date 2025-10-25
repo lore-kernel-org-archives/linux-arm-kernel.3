@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E000CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 18:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10873CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 18:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=njapoqUW468MWxICa8jRinTKfR2SVCoFBRR2d+cCtuk=; b=S9sMPQS/jTlKUGDGALKVdYIeDJ
-	p3dkcNLAfQeNI/fbCdFvCYAHkweGLN06M7uAzgFofYqoz2CBpC3/a0KL0PE76te7yjHgUJ97gdto/
-	S3ZAIrALc+FddVx9ilBihNEeKyCppuu6HCZaysdzAT9gAjc/2Xi53rMGLHOxuvINfZuo2G6IU63hy
-	Wz4wqJySaPWoOQsuM0zr2VRmuiKB2Xac609XG+LpCthYV9B206dhvhF2IPvU/pHGpjBTF1WhYbHbd
-	iqtv6UHygYjiWIWnmc4XeLlzO4GGcg2xKkwrOoBH1osm+MQ3SX6IO1AmRH4cfBNlOwICn244qoNkB
-	WRoSTz3g==;
+	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PENM03p/Mkr4FgZeTCTmwWhZL8Qw72e7c64zdaNuV6c=; b=atFJfRIh3t7mtm32eDyKqxqv4V
+	l8/TtoxBz8fW0re/+TT24IlVvsq/1hgTfw/+q14yfzUgoWgRQyWs3JVuhJ1GpbrYdLL1kGRr2hy1u
+	a+iRHbm0X8ANfkEUpaiIJqhqbfSTBOugM8du7Jx5kyNuh/mEk5XQs2s6TVd0kfQ4G/6aoad/FBVZS
+	CsgdeblQuz5iPIDSh8N9CcJ1uy7uj3BeEy38wrGlfGFEQslVt175Uwu2KdG3dLYdLC60TUESNKD9a
+	pP7RoIgFmS8OzR5ym0npX1+j+HGTAapUodND3SfcI2hSq9X6vIVAbQfEeAEuv0EyjfEUNGEG49scj
+	110fXabA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCj5E-0000000BdNf-3yoj;
-	Sat, 25 Oct 2025 18:33:44 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vCj7K-0000000BdWP-1Xdw;
+	Sat, 25 Oct 2025 18:35:54 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCj5B-0000000BdNI-3g3B
+	id 1vCj7H-0000000BdVo-0qxE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 18:33:43 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-475dd559a83so3442415e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 11:33:41 -0700 (PDT)
+	Sat, 25 Oct 2025 18:35:52 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-4298a028de6so2014931f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 11:35:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761417220; x=1762022020; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=njapoqUW468MWxICa8jRinTKfR2SVCoFBRR2d+cCtuk=;
-        b=HgK6x9tza6omPYTm4tpGUzTuIipegBH4gt7Rh32vJxM0gWcwCWI5TPHgcRcW/RBebi
-         AYx3JCU6UZdv+nwU0bJCri4cvxJksQcULsZuBZN3nmPVCzb3JnmAls5+PYtNZbJ5i7OB
-         WGRvGoiJrjlXa1g2Wbk5zpAN9z629Qej2MHO7/qggPXTLH5WhXEFtF6SDafjEANgGDyC
-         0SWRnvHHjZlXuZpBx2PanVyQZMp95ehkJfkk2MXMhAgcCLUrRT65AJESa8QZNfpNWmkr
-         APicxCePNpNg/sPRbegp5HmZf1xi68I13HzyYWHu66UTI9kjcQZMqG+bZzHAvm7Bf4c+
-         UtsA==
+        d=gmail.com; s=20230601; t=1761417349; x=1762022149; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:from:content-language
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PENM03p/Mkr4FgZeTCTmwWhZL8Qw72e7c64zdaNuV6c=;
+        b=L+jwyHF1x0QaFYCJNbmmp1ivKUeIR3Y1xIUSCPDe1i21P5BAepgxxEXRbSR1ufFJcA
+         kGu6c+I8zyg+36fDJXRBUZdmKfXFbPNlI+26p/R9snfxmbNzBFVxbfn+uAiaJtdlj0t4
+         Sa+GBU3gNBXfjFSbhs5Arsx4FdP0x2Vi2BXbqQILHdwiubfjmKPCK8cJ/HELDgyfVGHj
+         DYC8mY+t7uvHrz40kqIam2Z6fEO+aorMxzfjLIwBop0R+Xu06vhvfaH5MeMSDlWBdGXV
+         1r/xw2dR+/VJQmyYP/7cdBgKmpstxdTIKHf4IRkgcl1k5v8i0PMKQUoMfT5XDCn6toxQ
+         b8Mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761417220; x=1762022020;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=njapoqUW468MWxICa8jRinTKfR2SVCoFBRR2d+cCtuk=;
-        b=joghB7F7cEkcaVLAvjr3U5VB7MQGnB3H6UvPaTS5g9AkUy/UOjuuHeb6NQYf6t2upK
-         UTGDviwuvuoJfEzQe2mWLYZDp3hFAhInkNpc3XxXFXrozK2IyBJM/M6PrkHsGF8sZXBY
-         GcBq0oIhEjWeINuF5LkuUov7hRTbnYdOoqeVt4j+XaNBvm8og2f1Zx6YWLy+OT/bXwHz
-         Lqw1Qvw8A72qcJhe/uTvImbTNolyBcY7e4eAQHbfEHVE4qeW0ZGf33eukD7hFawfaByY
-         rBqlY1TSw8G5AI6NjGfj8F9Vjy5hlSPt75n6feAE2aH4MSWNVSxNAQhegKFzIwSG/Tdd
-         b8NA==
-X-Forwarded-Encrypted: i=1; AJvYcCWs5GsKLiB/B++24JIS2BA2ut55ZduqobFAwN4pVW9HD0PzOcBkSJNIbcoUv8j+wil+gctMO2C6oY9Xh+R9uHIc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0l/ceLeCFBQiDqPjIblLXShTjMh2snvnamEOjWpS+CgF8TR5W
-	0sXAi0Kx4dtTAeRGqJyxMp28kv2vvvwYsKTDKP2hPu++/Xg79PimTuqU
-X-Gm-Gg: ASbGncvG/Ww2qjrHk5RaidOe3fNEQ5jkHbodls1dAcCFTvJAl1UKp7aSVgez8nFViOR
-	/QUAR+OIpQVMBigrr+micpSexrD5FW1suzU9Dm0XQIb78q4FKqlsAjrW08i2KV33drVAJTqHWGs
-	OkH0ekCgQKkG2fbg+9YTTN7DOoZbdSrMYcZHuzJYqKtVjBVw7DNL36czNFURpBJjAzbmumwUP8G
-	XyBF6dmas5fgBLwuZQ9ge+eKX2ciDUbmdGgJ67BaahomrCnAu3ThfroiKzZM+IetOfGYFpvTC1q
-	3wBV/Buh/H4/HGzk8tdvE6e3kJDRxR3dUBKk7WLvm7vDcExVQBihrNZna0mS5J3Bq9aX0ZOrzDv
-	xnIM5mODkWqdh3yRoui5xQoQjmtugVnRsuhicNP7fygdozhNHBErQEPtvj/45YYZdCfhCRH/Auz
-	Qzqd31/mGGUnDVEE+giWLzRF4g/tH+JBGVQpli5XEklfPAldyDI9yB0jxXfqQp6W09hoZXqnWeh
-	Apyq4XiCb8u1jkx0gU+l/+rG4XkfMmYqS/wLQEwCZI=
-X-Google-Smtp-Source: AGHT+IG+DDe5oIMet8KWoLY/Yop7b4xsXXWiOxNNIX75KW86rgVdoPT8ZCbdmaSertyJd08nHYeHmA==
-X-Received: by 2002:a05:600c:1c8b:b0:475:de80:bb2a with SMTP id 5b1f17b1804b1-475de80bc38mr21178885e9.35.1761417219771;
-        Sat, 25 Oct 2025 11:33:39 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761417349; x=1762022149;
+        h=content-transfer-encoding:cc:to:subject:from:content-language
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PENM03p/Mkr4FgZeTCTmwWhZL8Qw72e7c64zdaNuV6c=;
+        b=g4PJYhomZj6PzPpt0YzuTIUwPsiOjCAN9c+ZDtFie9t0xDhDxOAtOESzpmUDUcN43A
+         CbbB905HggIFR1iqJAPUwEvdUMZnSlcoXTNXXXXrmFz9JDdWGaSWbQx7bU1tT3Vg0rH0
+         NC0QA/1vKLGJcoqnXsyAullMnSgyWBcKsp/6HPZWX5nykDrcn487w52fmd6zuz6YXGP+
+         dU6H4y814HxLph/W7ndRIcj/ZYiLiZsOMNeXprc8Aqca528D3WRtC7a0ARAxoSr7SaOK
+         XiVMemyHFua1GDQx1C2Y17KkZY/jD4mYeP0jAnoNzSVK0Mdonzj0vTlnrzsliqIl+5aM
+         Oiww==
+X-Forwarded-Encrypted: i=1; AJvYcCUYbq4M1IxvTHBRdc6a71/znSqwnTrSeftjEKkwD1aILPR68t+BdQFj+OqiXvshBtskRW4hUQruo1oBPtupyClA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw81nnUD91PDmqoByfzK5WklCiC+XeVYr8aCdSPjSFmgBhfe7He
+	Ftm3428FUCNmRLMFSXNIo28LeoMGUL5XK8U2OkwkyFLR83SRWNlAJawU
+X-Gm-Gg: ASbGnctF/SIp/10DLc+HkQOcFzqCFs1smLGvU4oxMOPeKio5zC2RG+IJutn9fUrnczR
+	KCcmWrfPdoKe5CvYqlVk1spYU/7g6GiIJCngUMcuWcJBT1NyJqX/T5ZJ/XXuCnJKZTJ5JnUsXSf
+	gKbVGQjMK7EhtwivJdrpG0eYemNzkV4+qcExMwWWCtUKZ+7TQN7VqKp9hPVU2aG6ynJWh1sSRqH
+	NwMTD+s0qZDpwKFQfghN27+NjHci3Jk3TENlTNw6+1eXR5p/PC3l32tklRdEn61AneEunWplvK7
+	hkMT2bnhuxWyBVuPEO1IY7UEaHkxaNlhaatqqB6abT79KxRV/m6nwmgoss2fwIwrkFzJGfRUs03
+	1tZhgKPLTTlurLVHulZ15acbunJ+PK3O/ZWIzycV+OE7XjMpcdCaiINo+pQjnoUvwFkO2rnXFBO
+	+RDO3RKBApBW/xh9qvaSgaOa4y4mSex1lKiwO7vRS/d30LmXrlmO9bG0OOnnSjJ84fD7aFkMDK6
+	OvMSTbzO0J5AB/yOfe3mIC3ZOT2ippqxIPgKyKTLKk=
+X-Google-Smtp-Source: AGHT+IFX9OvthXn1TU4BXDSEiEVVG2CTwp0Ga68UYsWJzmZPnpNrDzbEYmuLWSYJGqN+JXrw3hq+bg==
+X-Received: by 2002:a5d:5d10:0:b0:425:86da:325f with SMTP id ffacd0b85a97d-4298f58257fmr5895476f8f.27.1761417348977;
+        Sat, 25 Oct 2025 11:35:48 -0700 (PDT)
 Received: from ?IPV6:2003:ea:8f39:8b00:d401:6211:9005:e76e? (p200300ea8f398b00d40162119005e76e.dip0.t-ipconnect.de. [2003:ea:8f39:8b00:d401:6211:9005:e76e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952da12dsm5012085f8f.29.2025.10.25.11.33.38
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952d5768sm4949273f8f.24.2025.10.25.11.35.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 25 Oct 2025 11:33:39 -0700 (PDT)
-Message-ID: <2d840dff-60d1-4b7c-bda8-04704fc4c81a@gmail.com>
-Date: Sat, 25 Oct 2025 20:33:37 +0200
+        Sat, 25 Oct 2025 11:35:48 -0700 (PDT)
+Message-ID: <e869999b-2d4b-4dc1-9890-c2d3d1e8d0f8@gmail.com>
+Date: Sat, 25 Oct 2025 20:35:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: mdio: fix smatch warning
+Content-Language: en-US
 From: Heiner Kallweit <hkallweit1@gmail.com>
+Subject: [PATCH v2 net-next] net: stmmac: mdio: fix incorrect phy address
+ check
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>,
  Andrew Lunn <andrew+netdev@lunn.ch>, Paolo Abeni <pabeni@redhat.com>,
@@ -88,14 +90,11 @@ Cc: "moderated list:ARM/STM32 ARCHITECTURE"
  <linux-arm-kernel@lists.infradead.org>,
  "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
  Russell King - ARM Linux <linux@armlinux.org.uk>
-References: <8335ad5a-f5fa-4fb6-b67a-d73c4021291a@gmail.com>
-Content-Language: en-US
-In-Reply-To: <8335ad5a-f5fa-4fb6-b67a-d73c4021291a@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_113341_930377_F3FC72E5 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20251025_113551_266164_1CCE999A 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,21 +109,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/24/2025 9:26 PM, Heiner Kallweit wrote:
-> max_addr is the max number of addresses, not the highest possible address,
-> therefore check phydev->mdio.addr > max_addr isn't correct.
-> To fix this change the semantics of max_addr, so that it represents
-> the highest possible address. IMO this is also a little bit more intuitive
-> wrt name max_addr.
-> 
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Reported-by: Simon Horman <horms@kernel.org>
-> Fixes: 4a107a0e8361 ("net: stmmac: mdio: use phy_find_first to simplify stmmac_mdio_register")
-> Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
-> ---
+max_addr is the max number of addresses, not the highest possible address,
+therefore check phydev->mdio.addr > max_addr isn't correct.
+To fix this change the semantics of max_addr, so that it represents
+the highest possible address. IMO this is also a little bit more intuitive
+wrt name max_addr.
 
-CI complains about the patch title, so I'll change it and send a v2.
+Fixes: 4a107a0e8361 ("net: stmmac: mdio: use phy_find_first to simplify stmmac_mdio_register")
+Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+Reported-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
+---
+v2:
+- improve subject
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
---
-pw-bot: cr
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index 3f8cc3293..1e82850f2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -583,9 +583,9 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	struct device_node *mdio_node = priv->plat->mdio_node;
+ 	struct device *dev = ndev->dev.parent;
+ 	struct fwnode_handle *fixed_node;
++	int max_addr = PHY_MAX_ADDR - 1;
+ 	struct fwnode_handle *fwnode;
+ 	struct phy_device *phydev;
+-	int max_addr;
+ 
+ 	if (!mdio_bus_data)
+ 		return 0;
+@@ -609,15 +609,12 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 
+ 		if (priv->synopsys_id < DWXGMAC_CORE_2_20) {
+ 			/* Right now only C22 phys are supported */
+-			max_addr = MII_XGMAC_MAX_C22ADDR + 1;
++			max_addr = MII_XGMAC_MAX_C22ADDR;
+ 
+ 			/* Check if DT specified an unsupported phy addr */
+ 			if (priv->plat->phy_addr > MII_XGMAC_MAX_C22ADDR)
+ 				dev_err(dev, "Unsupported phy_addr (max=%d)\n",
+ 					MII_XGMAC_MAX_C22ADDR);
+-		} else {
+-			/* XGMAC version 2.20 onwards support 32 phy addr */
+-			max_addr = PHY_MAX_ADDR;
+ 		}
+ 	} else {
+ 		new_bus->read = &stmmac_mdio_read_c22;
+@@ -626,8 +623,6 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 			new_bus->read_c45 = &stmmac_mdio_read_c45;
+ 			new_bus->write_c45 = &stmmac_mdio_write_c45;
+ 		}
+-
+-		max_addr = PHY_MAX_ADDR;
+ 	}
+ 
+ 	if (mdio_bus_data->needs_reset)
+-- 
+2.51.1
+
 
