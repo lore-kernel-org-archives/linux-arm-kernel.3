@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C138BCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 00:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7DDCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 00:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uwfidYGuKHgshH134+IxmWFS70+GCQaswxiZDtAJyWU=; b=X+HECiolh7Ifzb5BI6gCodt23y
-	9pelt2ueSBH0arbYMJQOBZikjMDPK2dcmwoctGWgRItKrL6lfbtNq6YqtPz40bAtlU97Lr4b/Az1K
-	2LluFgMNv+s6gb7brVt7zLQfrpSZx9AeLQlS7xisN8zZzUBIvGv1QdUxF8tDGFJNf3OrgcWVfRHjV
-	QhQHajQvudDweyjy2bqh+ec9J9pt3KDwVTLC4kuLg4N36dR2atYN2PoAcdceUznYpowUqoeHi3l94
-	0Vq8/IJWkE6OIIsQA24PkMQDE8ihf1fMQU/8wM03jxPFi0swUHOUrmvjJ59Gi9PZj1LTmbk8Yr54m
-	9rWSTLpQ==;
+	bh=LpjDHQIYIRylJPTB3diZWWrLmxC+Ub3kw5EOc9yYTqo=; b=KMkYu0bl4mLohXtbQXHItat5Tz
+	wymmEDX1X21IqZ4t+SJYcc0Rw7MwYXhn3aMss1apCbF1YcfD4J7OJ97QDakCT2Sq0Y0ZADklJZkmw
+	69kSf0XSC0gn+3nekPSeDbsEsC0AEmv9FvRw/0ekHBg03E0e7t7a5V5an6+wW84Z+zOQvqKivwP50
+	F4qxQL1Gk63O4rkO7iorHqdWMWD/XH20P4rg2U2lKQ1dq2VYfHag60rtPMazqUKb8aQXGFoKaj9SG
+	mC6JWOChB+apxEsHsoy3+bbuiFP/gpwYkyb95/hmldRNtL1H5NmUFO0tduVZUuxHf+cXvB21dqIAm
+	PqAeTsrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCS5o-0000000AiWy-38pW;
-	Sat, 25 Oct 2025 00:25:12 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1vCS5x-0000000Aibg-0HOx;
+	Sat, 25 Oct 2025 00:25:21 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCS5m-0000000AiVV-2eA2
+	id 1vCS5u-0000000AiZJ-1Rbk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 00:25:12 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b6ce806af3eso2370269a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 17:25:10 -0700 (PDT)
+	Sat, 25 Oct 2025 00:25:19 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2698d47e776so21889045ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 17:25:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761351910; x=1761956710; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761351917; x=1761956717; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uwfidYGuKHgshH134+IxmWFS70+GCQaswxiZDtAJyWU=;
-        b=IxFwacNlMIxFCcbyUBtxps4OzKySIJ11UBi9vJsebbGqMiXZ50LDx33ryyudK7NgUq
-         8TSRhMq+Eob2jtfVVQtbsZFra25NDwqgRB1rP1XBacfCvGpXEcT8yJ1UyzyonsVGG6Lk
-         reGwgcJM7+SgYfgmxMNWYhr1REn1c0TZfu7HL4Mb5pkVeJP2H1Pike7peyopOLzZeE3i
-         ieQ/HAXSdIC6G/wKELC6XW3x93DTg457RPdLiSwQ8s9ESd5Z+pqyYTsP6IZQaIWt8ebe
-         a+ggs1ypCbfBk9J9DVutHcyouj907xVDXasW6PX6UEKHqRU0D+0+tSfHpPYV3RGVL08L
-         Z8Iw==
+        bh=LpjDHQIYIRylJPTB3diZWWrLmxC+Ub3kw5EOc9yYTqo=;
+        b=l/8ogP1qdjX8EEL8RiA00mNKTapNk79oUa1TtdVqnrfq0jbM/kKYSu0qSvN60kbKMQ
+         gkQdbm5gRSmdL6bldTAik9iRbuM+jlhxZl/uZWGErCQ7RAjY3DamHA9Nw/asK0ouL5vx
+         CiH58x58OJr4HmyUouNqygLHYJ/AwrFDs5zExrHBKfYS/CfrYfgySHFLQ4Cj1Ih385qs
+         jnVKovOYfrggGJp9J9wRDPJpdbVX2ZiCIXwkC3cRbzxoLOXRNuMSii9RsFBa7YfnsIaZ
+         C8A2ppVT9WBGXmLA9HZB1mG5qCfOezHr1fcpqjdsMvK6Q0Jyu2p6P6IaqeylnDSXMhUN
+         Dg5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761351910; x=1761956710;
+        d=1e100.net; s=20230601; t=1761351917; x=1761956717;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uwfidYGuKHgshH134+IxmWFS70+GCQaswxiZDtAJyWU=;
-        b=SQeuG9Ko/TV+Wd9G2WL4TNqedac/c2T6p6iAHxdiECMXjaxZfd33PUGNlGM2KaJxSF
-         qD8iNHH9kkk6YlQLrShvCpSnWtplqBg/IUjNliXIvO92ct3rHtRfo3lRujLeik6w8cc9
-         X63RjoQEZvvuuZd8UQ3B9oMEDo9Y3o/0t+bZc3Rg5YuUAZH5fxbzhLSC8+J12SIyo8Aw
-         hrD+wwmbgj5GI2ThqFXqfxYa7xgBYKu/CLfxjnIkOHcjHcHGH0a7Fq4N7HFYHvJonWAC
-         ZS5s4TiJbZOZHA7WURijN7VJR3USLyRtVXzgCFCz1h4znEp5rOsoDsJN7c5iu70LVU2L
-         fK8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX7VcmCv5rDQeqsHAX2jBA0HfXg5fH5of+uq1X/0dz/wwW/OCbwSUBCCbotbhyknZKSix/F/4SKQzlUC0ip1cdf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqcyS5BMEhY953HOAuP7/vjEpGItnY7Ebs+A1gdvGa6BMJhm8c
-	tMxEyEQgYkOdgnnw2AchyL1wt7rY6qRHvkIHp906VCZcp85kg+ortHo3
-X-Gm-Gg: ASbGnctdy+s0fiWfSxMADx7NBPDakplu5wr7yPBEBzSPqvvcUn64lbr0Pps3oTPa7xh
-	GXS6ROJZSaqKCjHTScuLxRpWGOIT6TbKAwDLTGUl5d6zJzGdPd/t1OLyZjRaSdynZV5yirD2GE4
-	T5VVEL4NYyCH7coqh0ie/scstC0TG3GcwpjKRpptv2OWv/Rdwn8W401NXJfBRV6ypv4KEAAZiRA
-	o5Mg7DT2yAb1aplCb7mQRzgZlXn/cHVTJBs8RH3lNHDAiJyHdIzotnw5+1UVGl3fnjglmd/0bfY
-	C1CTkwaI361HPooK7QWY8Gl9Nw+EskE9f2veDPOfmAJgcTXWeWdLAmcwhmW/Eq5nJ7+/qNEi0Ux
-	AJo006YH+3JXYX5aF3pMlZlkzpZ0xyY2wCoDipRbNtOpHyqc5IgfILKLT0n+v+0OjkWFRdzVq1X
-	ANY0Q+1pIlw9r75/xvRXMPZd4gb5LwHLo3A4XMnrmms70ViAXHwQlO1y7GgXRgMG8UWSP+ml45J
-	ElbHsWCaw1rQrfQFsDG34FRJ+pZCl6O9fTdPdXN3SkjX7K/wkHdpKL6de5z1avWOl3SVDR9mA8=
-X-Google-Smtp-Source: AGHT+IHw9sGrmw3gIagphERDqgFYOOfKGYJBT/zaK0hILzkn0QI5qiwyyeZwL/Ik3dMeZqMZWF0mQw==
-X-Received: by 2002:a17:903:38c8:b0:270:4964:ad7c with SMTP id d9443c01a7336-2948b95c6e4mr49579925ad.2.1761351909745;
-        Fri, 24 Oct 2025 17:25:09 -0700 (PDT)
+        bh=LpjDHQIYIRylJPTB3diZWWrLmxC+Ub3kw5EOc9yYTqo=;
+        b=YFOcxUm5x1Lk85QiH+6c3x0DkNCgvw7qZcceO36n8dv5Fbou2MciS64Yw9hf3QYauJ
+         wgD+/maMZ5QVuQBShfzB7pgzbgrPQr3GCfL3XCe7hGGf7HTboLyEDLdjQNoBj3fbjo0W
+         1bbDL7oE1vFdOJFEkdkobSWJtu9GWjRkJOmRXicSp4WoBqHq/2MdIB/vsAyh1T6EQ8Rv
+         4xkVUaRH5C/BAGq45nTkHhrXf7COVFrCGHDzantKHosbS8Z4jsnyMNZv637MTR+7lhz1
+         pGuaZx0JawgyM280wcSK81Ionu1ad2HDCme/JW1IXixGg8w2mgParhGiojXISxzO2fdW
+         A/Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCXU3GrlbUXPGhOXkkYDL3rJ3VwbE8ZqzhEQUSAa4GubZBK9zRbnoQp0mHqwcNY8mv5XEfCj44JKSqiNi3WijWBP@lists.infradead.org
+X-Gm-Message-State: AOJu0YweUu+JSAU8A38axa8xE3HjqwtAnXAJiui5xLbXZ4NuD/tArIna
+	wvZsYmB2TWn/Ulu+5FGczFnxD+wCmJtoyKHTpEX9h/EzTRY89nLkeooH
+X-Gm-Gg: ASbGncuMfeQekAo9q4BOSwFlMJCSXymiDvTTyyJOSbyaZjNCebRoOQnP1P6ipPvhwER
+	iNi3WRXWe6jtGfc6XP+cTd/4qr3KRTLJHqiRbEFKmMLF8IYuehYBCSZoXT05YA/DI0fXVGMpzcy
+	/7lLHOoHd2gG7DUnTlx/9nOR3H5OXXtGvaz+BIdumy3zxM6bTSpjCcQBrSzB3638LpuXtZhBaI6
+	vQK2aAt+YdCb/cgY+JyQVURl11bcL/Jijtnt0K/rbvoHWnEMDKUSxw9z6WEt2ra3M5aM42zRrly
+	g/7ULjC7x0DYiFbJyiyVsagT5F9nmTmu3obsUrTMOLX9BXJZNUwMTmCHn473oLejSvqdbhIWCU9
+	GPqu4zyTSAL7/nEaisg+0RemfeAmin/9CEckCsp81S3pT/1pTwSuHXdqeP+n9x298ZF4203p65X
+	WXkCYIjmmkp0ls5p2vLHcB/nBiyg70QRynUeYHNA88IyQQBtlfOaS7eHtP7w6Z6PasWdVzjiTSa
+	+HXrSl4fJhvxvaQmGMTuR6EKtfUuJfZq/zomkOzQSLIJjGrjUf8Obok4tsXf+qS
+X-Google-Smtp-Source: AGHT+IFvT7pNHTbj5DmC5yeORCKubjL7ZVBJx6hFhUmbeqmG4NbiAwaY0R/f8Kd7Jj5Yxiy8PVThtw==
+X-Received: by 2002:a17:903:8c6:b0:28d:18fb:bb93 with SMTP id d9443c01a7336-290c9c8968cmr397545735ad.7.1761351917386;
+        Fri, 24 Oct 2025 17:25:17 -0700 (PDT)
 Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf3f4asm4728885ad.11.2025.10.24.17.25.02
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf3f4asm4728885ad.11.2025.10.24.17.25.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 17:25:09 -0700 (PDT)
+        Fri, 24 Oct 2025 17:25:17 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sat, 25 Oct 2025 10:24:33 +1000
-Subject: [PATCH v4 02/11] dt-bindings: hwmon: Add Apple System Management
- Controller hwmon schema
+Date: Sat, 25 Oct 2025 10:24:34 +1000
+Subject: [PATCH v4 03/11] rtc: Add new rtc-macsmc driver for Apple Silicon
+ Macs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251025-macsmc-subdevs-v4-2-374d5c9eba0e@gmail.com>
+Message-Id: <20251025-macsmc-subdevs-v4-3-374d5c9eba0e@gmail.com>
 References: <20251025-macsmc-subdevs-v4-0-374d5c9eba0e@gmail.com>
 In-Reply-To: <20251025-macsmc-subdevs-v4-0-374d5c9eba0e@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -94,20 +94,21 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
- linux-input@vger.kernel.org, linux-doc@vger.kernel.org
+ linux-input@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Hector Martin <marcan@marcan.st>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6691;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6897;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=QLglMo5Tzt3fMQq9JyCYlBLgJC3+XwEd/tCVV3EfeJY=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDBl/JM4q+J7ufcBmuzj98x6LMhmZc/P4XtedWXA2xiB7v
- u3yNvb6joksDGJcDJZiiiwbmoQ8Zhux3ewXqdwLM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
- GuoY6xgxcHEKwFSrbWP4wzWnQJ3/LdfVrP3vRf/NUVHi6vxwNqziYOEpzwzFzKSpfxj+hz/xWWa
- aG1zR/LLciSfa2dRHrmafmfw3ueVLOi3ckz6yAAA=
+ bh=obg0EdYz2H0oIXhGRk+CbCHk2jpdlqeTG6wlPWzOz4k=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDBl/JM7GJFixFJx7YVvhW3ybT7RodoPFG06v6tOf4m0jJ
+ rtkXWPvmMjCIMbFYCmmyLKhSchjthHbzX6Ryr0wc1iZQIZIizQwAAELA19uYl6pkY6Rnqm2oZ6h
+ oY6xjhEDF6cATPUBPoZ/WrkvHWZucfqgOo2xS4dpbtol3vmvtbS8XDU+1/G6qhUtYvhfpDF9kdC
+ FGzmCF7g+uezI7PA7dX1ZtVGa4aH8OOMCwXpWAA==
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_172510_688428_8182E6FA 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20251024_172518_406403_90965AB6 
+X-CRM114-Status: GOOD (  29.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,193 +123,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple Silicon devices integrate a vast array of sensors, monitoring
-current, power, temperature, and voltage across almost every part of
-the system. The sensors themselves are all connected to the System
-Management Controller (SMC). The SMC firmware exposes the data
-reported by these sensors via its standard FourCC-based key-value
-API. The SMC is also responsible for monitoring and controlling any
-fans connected to the system, exposing them in the same way.
+From: Hector Martin <marcan@marcan.st>
 
-For reasons known only to Apple, each device exposes its sensors with
-an almost totally unique set of keys. This is true even for devices
-which share an SoC. An M1 Mac mini, for example, will report its core
-temperatures on different keys to an M1 MacBook Pro. Worse still, the
-SMC does not provide a way to enumerate the available keys at runtime,
-nor do the keys follow any sort of reasonable or consistent naming
-rules that could be used to deduce their purpose. We must therefore
-know which keys are present on any given device, and which function
-they serve, ahead of time.
+Apple Silicon Macs (M1, etc.) have an RTC that is part of the PMU IC,
+but most of the PMU functionality is abstracted out by the SMC.
+On T600x machines, the RTC counter must be accessed via the SMC to
+get full functionality, and it seems likely that future machines
+will move towards making SMC handle all RTC functionality.
 
-Add a schema so that we can describe the available sensors for a given
-Apple Silicon device in the Devicetree.
+The SMC RTC counter access is implemented on all current machines
+as of the time of this writing, on firmware 12.x. However, the RTC
+offset (needed to set the time) is still only accessible via direct
+PMU access. To handle this, we expose the RTC offset as an NVMEM
+cell from the SPMI PMU device node, and this driver consumes that
+cell and uses it to compute/set the current time.
 
 Reviewed-by: Neal Gompa <neal@gompa.dev>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Sven Peter <sven@kernel.org>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- .../bindings/hwmon/apple,smc-hwmon.yaml  | 86 +++++++++++++++++++++++++
- .../bindings/mfd/apple,smc.yaml          | 36 +++++++++++
- MAINTAINERS                              |  1 +
- 3 files changed, 123 insertions(+)
+ MAINTAINERS              |   1 +
+ drivers/rtc/Kconfig      |  11 ++
+ drivers/rtc/Makefile     |   1 +
+ drivers/rtc/rtc-macsmc.c | 141 +++++++++++++++++++++++++
+ 4 files changed, 154 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
-new file mode 100644
-index 000000000000..2eec317bc4b3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
-@@ -0,0 +1,86 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/hwmon/apple,smc-hwmon.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple SMC Hardware Monitoring
-+
-+description:
-+  Apple's System Management Controller (SMC) exposes a vast array of
-+  hardware monitoring sensors, including temperature probes, current and
-+  voltage sense, power meters, and fan speeds. It also provides endpoints
-+  to manually control the speed of each fan individually. Each Apple
-+  Silicon device exposes a different set of endpoints via SMC keys. This
-+  is true even when two machines share an SoC. The CPU core temperature
-+  sensor keys on an M1 Mac mini are different to those on an M1 MacBook
-+  Pro, for example.
-+
-+maintainers:
-+  - James Calligeros <jcalligeros99@gmail.com>
-+
-+$defs:
-+  sensor:
-+    type: object
-+
-+    properties:
-+      apple,key-id:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        pattern: "^[A-Za-z0-9]{4}$"
-+        description: The SMC FourCC key of the desired sensor.
-+          Must match the node's suffix.
-+
-+      label:
-+        description: Human-readable name for the sensor
-+
-+    required:
-+      - apple,key-id
-+
-+properties:
-+  compatible:
-+    const: apple,smc-hwmon
-+
-+patternProperties:
-+  "^current-[A-Za-z0-9]{4}$":
-+    $ref: "#/$defs/sensor"
-+    unevaluatedProperties: false
-+
-+  "^fan-[A-Za-z0-9]{4}$":
-+    $ref: "#/$defs/sensor"
-+    unevaluatedProperties: false
-+
-+    properties:
-+      apple,fan-minimum:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        pattern: "^[A-Za-z0-9]{4}$"
-+        description: SMC key containing the fan's minimum speed
-+
-+      apple,fan-maximum:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        pattern: "^[A-Za-z0-9]{4}$"
-+        description: SMC key containing the fan's maximum speed
-+
-+      apple,fan-target:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        pattern: "^[A-Za-z0-9]{4}$"
-+        description: Writeable endpoint for setting desired fan speed
-+
-+      apple,fan-mode:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        pattern: "^[A-Za-z0-9]{4}$"
-+        description: Writeable key to enable/disable manual fan control
-+
-+
-+  "^power-[A-Za-z0-9]{4}$":
-+    $ref: "#/$defs/sensor"
-+    unevaluatedProperties: false
-+
-+  "^temperature-[A-Za-z0-9]{4}$":
-+    $ref: "#/$defs/sensor"
-+    unevaluatedProperties: false
-+
-+  "^voltage-[A-Za-z0-9]{4}$":
-+    $ref: "#/$defs/sensor"
-+    unevaluatedProperties: false
-+
-+additionalProperties: false
-diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-index 0410e712c900..34ce048619f5 100644
---- a/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-+++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-@@ -49,6 +49,9 @@ properties:
-   rtc:
-     $ref: /schemas/rtc/apple,smc-rtc.yaml
- 
-+  hwmon:
-+    $ref: /schemas/hwmon/apple,smc-hwmon.yaml
-+
- additionalProperties: false
- 
- required:
-@@ -89,5 +92,38 @@ examples:
-           nvmem-cells = <&rtc_offset>;
-           nvmem-cell-names = "rtc_offset";
-        };
-+
-+        hwmon {
-+          compatible = "apple,smc-hwmon";
-+
-+          current-ID0R {
-+            apple,key-id = "ID0R";
-+            label = "AC Input Current";
-+          };
-+
-+          fan-F0Ac {
-+            apple,key-id = "F0Ac";
-+            apple,fan-minimum = "F0Mn";
-+            apple,fan-maximum = "F0Mx";
-+            apple,fan-target = "F0Tg";
-+            apple,fan-mode = "F0Md";
-+            label = "Fan 1";
-+          };
-+
-+          power-PSTR {
-+            apple,key-id = "PSTR";
-+            label = "Total System Power";
-+          };
-+
-+          temperature-TW0P {
-+            apple,key-id = "TW0P";
-+            label = "WiFi/BT Module Temperature";
-+          };
-+
-+          voltage-VD0R {
-+            apple,key-id = "VD0R";
-+            label = "AC Input Voltage";
-+          };
-+        };
-       };
-     };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 745d85b66365..10f4c0034b5e 100644
+index 10f4c0034b5e..3c6322872dd1 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -2418,6 +2418,7 @@ F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
- F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
- F:	Documentation/devicetree/bindings/gpio/apple,smc-gpio.yaml
- F:	Documentation/devicetree/bindings/gpu/apple,agx.yaml
-+F:	Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
- F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
- F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
+@@ -2460,6 +2460,7 @@ F:	drivers/nvmem/apple-spmi-nvmem.c
+ F:	drivers/pinctrl/pinctrl-apple-gpio.c
+ F:	drivers/power/reset/macsmc-reboot.c
+ F:	drivers/pwm/pwm-apple.c
++F:	drivers/rtc/rtc-macsmc.c
+ F:	drivers/soc/apple/*
+ F:	drivers/spi/spi-apple.c
+ F:	drivers/spmi/spmi-apple-controller.c
+diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+index 4a8dc8d0a4b7..e165301d4abb 100644
+--- a/drivers/rtc/Kconfig
++++ b/drivers/rtc/Kconfig
+@@ -2078,6 +2078,17 @@ config RTC_DRV_WILCO_EC
+ 	  This can also be built as a module. If so, the module will
+ 	  be named "rtc_wilco_ec".
+ 
++config RTC_DRV_MACSMC
++	tristate "Apple Mac System Management Controller RTC"
++	depends on MFD_MACSMC
++	help
++	  If you say yes here you get support for RTC functions
++	  inside Apple SPMI PMUs accessed through the SoC's
++	  System Management Controller
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called rtc-macsmc.
++
+ config RTC_DRV_MSC313
+ 	tristate "MStar MSC313 RTC"
+         depends on ARCH_MSTARV7 || COMPILE_TEST
+diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+index 610a9ee5fd33..32083bd5bb81 100644
+--- a/drivers/rtc/Makefile
++++ b/drivers/rtc/Makefile
+@@ -93,6 +93,7 @@ obj-$(CONFIG_RTC_DRV_M48T35)	+= rtc-m48t35.o
+ obj-$(CONFIG_RTC_DRV_M48T59)	+= rtc-m48t59.o
+ obj-$(CONFIG_RTC_DRV_M48T86)	+= rtc-m48t86.o
+ obj-$(CONFIG_RTC_DRV_MA35D1)	+= rtc-ma35d1.o
++obj-$(CONFIG_RTC_DRV_MACSMC)	+= rtc-macsmc.o
+ obj-$(CONFIG_RTC_DRV_MAX31335)	+= rtc-max31335.o
+ obj-$(CONFIG_RTC_DRV_MAX6900)	+= rtc-max6900.o
+ obj-$(CONFIG_RTC_DRV_MAX6902)	+= rtc-max6902.o
+diff --git a/drivers/rtc/rtc-macsmc.c b/drivers/rtc/rtc-macsmc.c
+new file mode 100644
+index 000000000000..05e360277f63
+--- /dev/null
++++ b/drivers/rtc/rtc-macsmc.c
+@@ -0,0 +1,141 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple SMC RTC driver
++ * Copyright The Asahi Linux Contributors
++ */
++
++#include <linux/bitops.h>
++#include <linux/mfd/core.h>
++#include <linux/mfd/macsmc.h>
++#include <linux/module.h>
++#include <linux/nvmem-consumer.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/rtc.h>
++#include <linux/slab.h>
++
++/* 48-bit RTC */
++#define RTC_BYTES 6
++#define RTC_BITS (8 * RTC_BYTES)
++
++/* 32768 Hz clock */
++#define RTC_SEC_SHIFT 15
++
++struct macsmc_rtc {
++	struct device *dev;
++	struct apple_smc *smc;
++	struct rtc_device *rtc_dev;
++	struct nvmem_cell *rtc_offset;
++};
++
++static int macsmc_rtc_get_time(struct device *dev, struct rtc_time *tm)
++{
++	struct macsmc_rtc *rtc = dev_get_drvdata(dev);
++	u64 ctr = 0, off = 0;
++	time64_t now;
++	void *p_off;
++	size_t len;
++	int ret;
++
++	ret = apple_smc_read(rtc->smc, SMC_KEY(CLKM), &ctr, RTC_BYTES);
++	if (ret < 0)
++		return ret;
++	if (ret != RTC_BYTES)
++		return -EIO;
++
++	p_off = nvmem_cell_read(rtc->rtc_offset, &len);
++	if (IS_ERR(p_off))
++		return PTR_ERR(p_off);
++	if (len < RTC_BYTES) {
++		kfree(p_off);
++		return -EIO;
++	}
++
++	memcpy(&off, p_off, RTC_BYTES);
++	kfree(p_off);
++
++	/* Sign extend from 48 to 64 bits, then arithmetic shift right 15 bits to get seconds */
++	now = sign_extend64(ctr + off, RTC_BITS - 1) >> RTC_SEC_SHIFT;
++	rtc_time64_to_tm(now, tm);
++
++	return ret;
++}
++
++static int macsmc_rtc_set_time(struct device *dev, struct rtc_time *tm)
++{
++	struct macsmc_rtc *rtc = dev_get_drvdata(dev);
++	u64 ctr = 0, off = 0;
++	int ret;
++
++	ret = apple_smc_read(rtc->smc, SMC_KEY(CLKM), &ctr, RTC_BYTES);
++	if (ret < 0)
++		return ret;
++	if (ret != RTC_BYTES)
++		return -EIO;
++
++	/* This sets the offset such that the set second begins now */
++	off = (rtc_tm_to_time64(tm) << RTC_SEC_SHIFT) - ctr;
++	return nvmem_cell_write(rtc->rtc_offset, &off, RTC_BYTES);
++}
++
++static const struct rtc_class_ops macsmc_rtc_ops = {
++	.read_time = macsmc_rtc_get_time,
++	.set_time = macsmc_rtc_set_time,
++};
++
++static int macsmc_rtc_probe(struct platform_device *pdev)
++{
++	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
++	struct macsmc_rtc *rtc;
++
++	/*
++	 * MFD will probe this device even without a node in the device tree,
++	 * thus bail out early if the SMC on the current machines does not
++	 * support RTC and has no node in the device tree.
++	 */
++	if (!pdev->dev.of_node)
++		return -ENODEV;
++
++	rtc = devm_kzalloc(&pdev->dev, sizeof(*rtc), GFP_KERNEL);
++	if (!rtc)
++		return -ENOMEM;
++
++	rtc->dev = &pdev->dev;
++	rtc->smc = smc;
++
++	rtc->rtc_offset = devm_nvmem_cell_get(&pdev->dev, "rtc_offset");
++	if (IS_ERR(rtc->rtc_offset))
++		return dev_err_probe(&pdev->dev, PTR_ERR(rtc->rtc_offset),
++				     "Failed to get rtc_offset NVMEM cell\n");
++
++	rtc->rtc_dev = devm_rtc_allocate_device(&pdev->dev);
++	if (IS_ERR(rtc->rtc_dev))
++		return PTR_ERR(rtc->rtc_dev);
++
++	rtc->rtc_dev->ops = &macsmc_rtc_ops;
++	rtc->rtc_dev->range_min = S64_MIN >> (RTC_SEC_SHIFT + (64 - RTC_BITS));
++	rtc->rtc_dev->range_max = S64_MAX >> (RTC_SEC_SHIFT + (64 - RTC_BITS));
++
++	platform_set_drvdata(pdev, rtc);
++
++	return devm_rtc_register_device(rtc->rtc_dev);
++}
++
++static const struct of_device_id macsmc_rtc_of_table[] = {
++	{ .compatible = "apple,smc-rtc", },
++	{}
++};
++MODULE_DEVICE_TABLE(of, macsmc_rtc_of_table);
++
++static struct platform_driver macsmc_rtc_driver = {
++	.driver = {
++		.name = "macsmc-rtc",
++		.of_match_table = macsmc_rtc_of_table,
++	},
++	.probe = macsmc_rtc_probe,
++};
++module_platform_driver(macsmc_rtc_driver);
++
++MODULE_LICENSE("Dual MIT/GPL");
++MODULE_DESCRIPTION("Apple SMC RTC driver");
++MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
 
 -- 
 2.51.0
