@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B48CECCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A34CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Of4ciGBE1QtDtuaFiy2j/98VhhbFACn3EI5ZjgDv2qQ=; b=x4/bJb+Uq8BNObhSxg+0WY9ET8
-	5T152ypeNOnDWuUwsAkTxGjH6D7Wk6RbKRtcTnbyySOsiMyNUEG+Ty0ULIo0mVpx4WhuMsLeRFGSu
-	MXdsnJGKtrhF7y29M3nzWdj9u2U4AOOInJ3qPSHAkqO3w3jpv/gXOAbyvKgXzIG0Ys/LIph23cUJT
-	kd3R/AazvblMIBYeANAVMqPZEStEq9v1zvx4UpqRlg6oGV4gQ3QbnfO0JlxNhXtwDfBjyo+QaQPg1
-	exwURr3RNCfIkagUFKn5d6HXi0adXm0gDzougYWcwBkigMhKdleEmGjG125kl4xXJyxJ/taIgddca
-	RmrCauNQ==;
+	bh=nZY3DbZHVIw0INsWL2v5k8E9alR+E5YxtH/AfD11KmQ=; b=hK7fduw/CCQAvv7zbvB3rCafUv
+	4WcZnm8CkN0cAOzvTkwzLERRLu8+OGANZcr9A8ind/andvrDmKe7elc+DiiaJv9cYd4w9ntg4d4YE
+	J2CB4lJ7V0zxmjGXBW+/YULOJuQRK/PW8Jw+huwP8uSG9CXFZ6TxKlrIN1RomWbmG0xqJ+O3O4doO
+	qELdIyRcBHeWIGvXy8iL0c3tHhg5EXkgz7Q8WQd6TkQIqVuoTewe5m1GJeSgH49k7qsctamp9j0TG
+	5lc7Lkjk8OZl1kvbp29OibrZ3ZpTzLQt4knPvFsPiDZSuhWZinXTqGkehsYRMb1cm+GtcS8HsXpBK
+	OeMaFjTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCh5V-0000000BUt0-0AZB;
-	Sat, 25 Oct 2025 16:25:53 +0000
+	id 1vCh6P-0000000BV35-0QhQ;
+	Sat, 25 Oct 2025 16:26:49 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCh5T-0000000BUre-3itK
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 16:25:52 +0000
+	id 1vCh6N-0000000BV2u-3Brj;
+	Sat, 25 Oct 2025 16:26:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C89E60587;
-	Sat, 25 Oct 2025 16:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900E6C4CEFB;
-	Sat, 25 Oct 2025 16:25:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 670EA611EC;
+	Sat, 25 Oct 2025 16:26:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7427C4CEFB;
+	Sat, 25 Oct 2025 16:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761409551;
-	bh=Em1vmYzb3CPqjJdulvBWr7VV9J5NImJHW4FlbVzFjhc=;
+	s=k20201202; t=1761409605;
+	bh=toGPQ+wiGt2AhGw6TSwK9UndEc09/HsXQqY6zUqc3Zo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C83fisvN6GC1POYJioqMtF7W6fBWly6hd2mrsBvtQI1QhukBKifLvwCCD66ABpG35
-	 ODhG5ogR7mIa+t6nAmJP/wHTZeQmQ3b5uOi8pS8Gi/hCBl9l4uDilJuvM32pvMJ5+M
-	 ES7YYSzCgpzI6lOojchjgQzPLG6kfUti3fV6Osu34EQHMDCY2gnbtsp7vIQpvBEu5w
-	 mf800yzNQItEXNTZFpNnD6OgfzjNVRbAnGnkqnQ15e80JgvzOhcuId2r7tgcsVzuzV
-	 2Un3LOGgfwlJ8elBcMhoNuSD8auWj8CoDdkPGFBZS7NUlTaTxQcoA/OPGdbtvt21Ji
-	 iS9DAI0bf5Itg==
+	b=GWxaHVJDqws1fKcNHFQIh+XfxAzPws22I8ziZAeW1N3XSMxO8U3/qIxrTi88A0d+S
+	 oLJaPhYt9PByd5L8KrKp536yfcY9wk/Fej9WGRAlJvxubs/PK1nfl7xaZGYw6TnSHN
+	 K67EOZfbQk9/x36m4Wx5QHp/GfGb0BuGtjsE6ntL300ebtDpoUL2WEXzVjFOrOK+tF
+	 +vnP1yYsUu6VwHmLKQ9A268IHiiG+/a/UPUettjcETcuXQ4KNT3jK6j31tyHV6td/P
+	 wE0QaZAZYaziMCLdeF6oMTyZiiCsSC9ZEMREFhuxvsGM41pUL0v9Bht9kmNR9o/qkM
+	 JO9RkjDzw+z8w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Hector Martin <marcan@marcan.st>,
-	Janne Grunau <j@jannau.net>,
-	Sven Peter <sven@kernel.org>,
-	Neal Gompa <neal@gompa.dev>,
-	Joerg Roedel <joerg.roedel@amd.com>,
+Cc: Peter Wang <peter.wang@mediatek.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
 	Sasha Levin <sashal@kernel.org>,
-	joro@8bytes.org,
-	will@kernel.org,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.17-6.6] iommu/apple-dart: Clear stream error indicator bits for T8110 DARTs
-Date: Sat, 25 Oct 2025 11:59:52 -0400
-Message-ID: <20251025160905.3857885-361-sashal@kernel.org>
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-scsi@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-6.6] scsi: ufs: host: mediatek: Fix auto-hibern8 timer configuration
+Date: Sat, 25 Oct 2025 12:00:19 -0400
+Message-ID: <20251025160905.3857885-388-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251025160905.3857885-1-sashal@kernel.org>
 References: <20251025160905.3857885-1-sashal@kernel.org>
@@ -82,19 +79,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+From: Peter Wang <peter.wang@mediatek.com>
 
-[ Upstream commit ecf6508923f87e4597228f70cc838af3d37f6662 ]
+[ Upstream commit aa86602a483ba48f51044fbaefa1ebbf6da194a4 ]
 
-These registers exist and at least on the t602x variant the IRQ only
-clears when theses are cleared.
+Move the configuration of the Auto-Hibern8 (AHIT) timer from the
+post-link stage to the 'fixup_dev_quirks' function. This change allows
+setting the AHIT based on the vendor requirements:
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Janne Grunau <j@jannau.net>
-Reviewed-by: Sven Peter <sven@kernel.org>
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Link: https://lore.kernel.org/r/20250826-dart-t8110-stream-error-v1-1-e33395112014@jannau.net
-Signed-off-by: Joerg Roedel <joerg.roedel@amd.com>
+   (a) Samsung: 3.5 ms
+   (b) Micron: 2 ms
+   (c) Others: 1 ms
+
+Additionally, the clock gating timer is adjusted based on the AHIT
+scale, with a maximum setting of 10 ms. This ensures that the clock
+gating delay is appropriately configured to match the AHIT settings.
+
+Signed-off-by: Peter Wang <peter.wang@mediatek.com>
+Link: https://lore.kernel.org/r/20250811131423.3444014-3-peter.wang@mediatek.com
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -102,71 +105,205 @@ LLM Generated explanations, may be completely bogus:
 
 YES
 
-- Fixes a real bug: On T8110-class DARTs, the interrupt only deasserts
-  when per‑stream error indicator bits are cleared. Without clearing
-  them, the IRQ can remain asserted, causing repeated interrupts and
-  potential system instability.
-- Minimal, contained change: Adds one register define and a short clear
-  loop in the T8110 IRQ handler only.
-  - Adds `DART_T8110_ERROR_STREAMS` at `0x1c0` (drivers/iommu/apple-
-    dart.c:125).
-  - In `apple_dart_t8110_irq`, after acknowledging the error status
-    (`writel(error, ...)`), clears all stream error indicator words:
-    `for (int i = 0; i < BITS_TO_U32(dart->num_streams); i++)
-    writel(U32_MAX, dart->regs + DART_T8110_ERROR_STREAMS + 4 * i);`
-    (drivers/iommu/apple-dart.c:1093, drivers/iommu/apple-dart.c:1094,
-    drivers/iommu/apple-dart.c:1095).
-- Scoped to T8110 only: The handler is registered only for the T8110
-  hardware variant (drivers/iommu/apple-dart.c:1298), so it does not
-  affect other Apple DART generations.
-- Safe by design:
-  - `num_streams` is read from hardware (`DART_T8110_PARAMS4_NUM_SIDS`)
-    and bounded by `DART_MAX_STREAMS` (drivers/iommu/apple-dart.c:1152,
-    drivers/iommu/apple-dart.c:1153, drivers/iommu/apple-dart.c:1156,
-    drivers/iommu/apple-dart.c:1161).
-  - `BITS_TO_U32(...)` ensures the correct number of 32‑bit words are
-    cleared.
-  - The driver already uses the same write‑all‑ones bitmap pattern for
-    stream operations (e.g., enabling all streams) showing these
-    registers are W1C bitmaps and that this access pattern is
-    established and safe (drivers/iommu/apple-dart.c:485,
-    drivers/iommu/apple-dart.c:486).
-- No architectural changes or API/ABI effects: This is a straightforward
-  IRQ acknowledgment fix limited to the Apple DART IOMMU driver.
-- User impact: Prevents stuck/level interrupts and interrupt floods on
-  affected Apple SoCs (e.g., t602x using T8110 DART), improving
-  stability and correctness.
+- Fixes a real bug affecting users. Today the driver unconditionally
+  programs AH8 to 10 ms during link bring-up and derives the clock-
+  gating delay from only the AHIT timer field, ignoring the scale. That
+  yields incorrect behavior when a device needs a vendor-specific AH8
+  value or when the AHIT scale is not 1 ms. The patch:
+  - Removes the hardcoded AH8 value from `ufs_mtk_post_link()` in
+    `drivers/ufs/host/ufs-mediatek.c` and defers programming until
+    device info is known.
+  - Adds `ufs_mtk_fix_ahit()` to set `hba->ahit` based on the UFS
+    vendor: Samsung 3.5 ms, Micron 2 ms, others 1 ms.
+  - Introduces `ufs_mtk_us_to_ahit()` so the AHIT encoding matches the
+    HCI (same logic as the core sysfs helper).
+  - Reworks `ufs_mtk_setup_clk_gating()` to derive the delay from the
+    full AHIT value (timer + scale), avoiding the previous scale bug.
 
-Given it is a clear bug fix, small and localized, with low regression
-risk and meaningful user impact, it is a strong candidate for
-backporting to stable kernels that include the T8110 DART support.
+- Correct stage for AHIT programming. Moving the AHIT setup from link
+  POST_CHANGE to the device-quirk fixup stage is correct because the
+  vendor ID isn’t known at `POST_CHANGE`. The fix happens in
+  `ufs_mtk_fixup_dev_quirks()` which runs after reading device
+  descriptors (see core flow in `drivers/ufs/core/ufshcd.c:8380` calling
+  `ufs_fixup_device_setup(hba)`), and before the core writes AHIT to
+  hardware (`ufshcd_configure_auto_hibern8()` at
+  `drivers/ufs/core/ufshcd.c:8967`). Hence the right AHIT gets
+  programmed without extra transitions.
 
- drivers/iommu/apple-dart.c | 5 +++++
- 1 file changed, 5 insertions(+)
+- Fixes a concrete correctness issue in clock-gating. Previously
+  `ufs_mtk_setup_clk_gating()` computed the delay as `ah_ms =
+  FIELD_GET(UFSHCI_AHIBERN8_TIMER_MASK, hba->ahit)` and then
+  `ufshcd_clkgate_delay_set(..., ah_ms + 5)`. That ignores the AHIT
+  scale and is only correct if the scale is 1 ms (which the driver
+  forcibly set earlier). The patch:
+  - Parses both AHIT scale and timer and converts to milliseconds via a
+    `scale_us[]` table before setting the gating delay. This fixes
+    gating delay when vendors require non-ms scales.
+  - Sets a minimum gating delay of 10 ms (`delay_ms = max(ah_ms, 10U)`)
+    to avoid overly aggressive gating when AHIT is small (1–3.5 ms).
+    This is a conservative, low-risk change that reduces churn.
 
-diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-index 190f28d766151..8b1272b7bb44a 100644
---- a/drivers/iommu/apple-dart.c
-+++ b/drivers/iommu/apple-dart.c
-@@ -122,6 +122,8 @@
- #define DART_T8110_ERROR_ADDR_LO 0x170
- #define DART_T8110_ERROR_ADDR_HI 0x174
- 
-+#define DART_T8110_ERROR_STREAMS 0x1c0
-+
- #define DART_T8110_PROTECT 0x200
- #define DART_T8110_UNPROTECT 0x204
- #define DART_T8110_PROTECT_LOCK 0x208
-@@ -1077,6 +1079,9 @@ static irqreturn_t apple_dart_t8110_irq(int irq, void *dev)
- 		error, stream_idx, error_code, fault_name, addr);
- 
- 	writel(error, dart->regs + DART_T8110_ERROR);
-+	for (int i = 0; i < BITS_TO_U32(dart->num_streams); i++)
-+		writel(U32_MAX, dart->regs + DART_T8110_ERROR_STREAMS + 4 * i);
-+
- 	return IRQ_HANDLED;
+- Small, contained change with minimal regression risk.
+  - Scope: one driver file (`drivers/ufs/host/ufs-mediatek.c`), no API
+    or architectural changes.
+  - Behavior: only affects Mediatek UFS host behavior and only when AH8
+    is supported and enabled.
+  - The vendor-based AHIT values are bounded and modest (1–3.5 ms), and
+    the gating floor of 10 ms is conservative.
+  - The patch respects `ufshcd_is_auto_hibern8_supported()` and won’t
+    alter systems where AH8 is disabled (driver already handles
+    disabling AH8; see `drivers/ufs/host/ufs-mediatek.c:258`).
+
+- Alignment with core defaults and flow. The core sets a default AHIT
+  (150 ms) only if none is set earlier
+  (`drivers/ufs/core/ufshcd.c:10679`). The mediatek driver previously
+  overwrote this to 10 ms unconditionally at `POST_CHANGE`. The new
+  approach correctly overrides the default with vendor-specific AHIT at
+  quirk-fixup time and before the core writes the register, making the
+  effective setting both correct and deterministic.
+
+- Backport notes and considerations.
+  - The quirk-fixup hook must be present in the target stable branch
+    (`ufshcd_vops_fixup_dev_quirks()` and call site exist in current
+    stable series; see `drivers/ufs/core/ufshcd-priv.h:195` and
+    `drivers/ufs/core/ufshcd.c:8380`).
+  - The helper macros and fields used (e.g., `UFSHCI_AHIBERN8_*`,
+    `UFS_VENDOR_*`, `hba->clk_gating.delay_ms`) are present in
+    maintained stable branches.
+  - Minor nits: the patch updates `hba->clk_gating.delay_ms` under
+    `host->host_lock` instead of using `ufshcd_clkgate_delay_set()`,
+    which in core protects the assignment with `clk_gating.lock`.
+    Functionally it’s fine for a single-word store, but for consistency
+    you may prefer `ufshcd_clkgate_delay_set(hba->dev, max(ah_ms, 10U))`
+    when backporting to preserve locking semantics.
+  - The commit message says “maximum setting of 10 ms,” but the code
+    enforces a minimum of 10 ms via `max(ah_ms, 10U)`. The
+    implementation is the safer choice and aligns with the intent to
+    avoid too-aggressive gating.
+
+Conclusion: This is a targeted bug fix that corrects AHIT configuration
+timing, applies vendor requirements, and fixes the gating-delay
+calculation to account for AHIT scale. It’s small, self-contained, and
+low risk. It is suitable for backporting to stable kernel trees.
+
+ drivers/ufs/host/ufs-mediatek.c | 86 ++++++++++++++++++++++++---------
+ 1 file changed, 64 insertions(+), 22 deletions(-)
+
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index f902ce08c95a6..8dd124835151a 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -1075,6 +1075,69 @@ static void ufs_mtk_vreg_fix_vccqx(struct ufs_hba *hba)
+ 	}
  }
  
++static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
++{
++	unsigned long flags;
++	u32 ah_ms = 10;
++	u32 ah_scale, ah_timer;
++	u32 scale_us[] = {1, 10, 100, 1000, 10000, 100000};
++
++	if (ufshcd_is_clkgating_allowed(hba)) {
++		if (ufshcd_is_auto_hibern8_supported(hba) && hba->ahit) {
++			ah_scale = FIELD_GET(UFSHCI_AHIBERN8_SCALE_MASK,
++					  hba->ahit);
++			ah_timer = FIELD_GET(UFSHCI_AHIBERN8_TIMER_MASK,
++					  hba->ahit);
++			if (ah_scale <= 5)
++				ah_ms = ah_timer * scale_us[ah_scale] / 1000;
++		}
++
++		spin_lock_irqsave(hba->host->host_lock, flags);
++		hba->clk_gating.delay_ms = max(ah_ms, 10U);
++		spin_unlock_irqrestore(hba->host->host_lock, flags);
++	}
++}
++
++/* Convert microseconds to Auto-Hibernate Idle Timer register value */
++static u32 ufs_mtk_us_to_ahit(unsigned int timer)
++{
++	unsigned int scale;
++
++	for (scale = 0; timer > UFSHCI_AHIBERN8_TIMER_MASK; ++scale)
++		timer /= UFSHCI_AHIBERN8_SCALE_FACTOR;
++
++	return FIELD_PREP(UFSHCI_AHIBERN8_TIMER_MASK, timer) |
++	       FIELD_PREP(UFSHCI_AHIBERN8_SCALE_MASK, scale);
++}
++
++static void ufs_mtk_fix_ahit(struct ufs_hba *hba)
++{
++	unsigned int us;
++
++	if (ufshcd_is_auto_hibern8_supported(hba)) {
++		switch (hba->dev_info.wmanufacturerid) {
++		case UFS_VENDOR_SAMSUNG:
++			/* configure auto-hibern8 timer to 3.5 ms */
++			us = 3500;
++			break;
++
++		case UFS_VENDOR_MICRON:
++			/* configure auto-hibern8 timer to 2 ms */
++			us = 2000;
++			break;
++
++		default:
++			/* configure auto-hibern8 timer to 1 ms */
++			us = 1000;
++			break;
++		}
++
++		hba->ahit = ufs_mtk_us_to_ahit(us);
++	}
++
++	ufs_mtk_setup_clk_gating(hba);
++}
++
+ static void ufs_mtk_init_mcq_irq(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+@@ -1369,32 +1432,10 @@ static int ufs_mtk_pre_link(struct ufs_hba *hba)
+ 
+ 	return ret;
+ }
+-
+-static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
+-{
+-	u32 ah_ms;
+-
+-	if (ufshcd_is_clkgating_allowed(hba)) {
+-		if (ufshcd_is_auto_hibern8_supported(hba) && hba->ahit)
+-			ah_ms = FIELD_GET(UFSHCI_AHIBERN8_TIMER_MASK,
+-					  hba->ahit);
+-		else
+-			ah_ms = 10;
+-		ufshcd_clkgate_delay_set(hba->dev, ah_ms + 5);
+-	}
+-}
+-
+ static void ufs_mtk_post_link(struct ufs_hba *hba)
+ {
+ 	/* enable unipro clock gating feature */
+ 	ufs_mtk_cfg_unipro_cg(hba, true);
+-
+-	/* will be configured during probe hba */
+-	if (ufshcd_is_auto_hibern8_supported(hba))
+-		hba->ahit = FIELD_PREP(UFSHCI_AHIBERN8_TIMER_MASK, 10) |
+-			FIELD_PREP(UFSHCI_AHIBERN8_SCALE_MASK, 3);
+-
+-	ufs_mtk_setup_clk_gating(hba);
+ }
+ 
+ static int ufs_mtk_link_startup_notify(struct ufs_hba *hba,
+@@ -1726,6 +1767,7 @@ static void ufs_mtk_fixup_dev_quirks(struct ufs_hba *hba)
+ 
+ 	ufs_mtk_vreg_fix_vcc(hba);
+ 	ufs_mtk_vreg_fix_vccqx(hba);
++	ufs_mtk_fix_ahit(hba);
+ }
+ 
+ static void ufs_mtk_event_notify(struct ufs_hba *hba,
 -- 
 2.51.0
 
