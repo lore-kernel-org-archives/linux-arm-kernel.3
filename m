@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4314CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ABA3CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lCukDE2Wz/llmJRA1Dhhk+dKRYCeKOkr6t5vR7uoeBo=; b=B0DikWAwp5kuB6roamvW5/YO9F
-	dtGaGf0tHAEdz/GEmh3FocXypd/Ycr/zDqGNnFmmjKiTPl4bGdul1/qcri0NLV4Sz40byX8vr56dv
-	zAHEObS0b4uYROARRpop6wc1WcdEqeWf8cFykNRywdQfOrQF6xARAu2trNGDmN0myo4r2xdiX+jwM
-	gJSM6t4ronlGCkM84n3xay1M9ar/nQVgUbCEQk7KibO3h4pchXxFw+cE88E1R3dJu+KYH5IXDLadz
-	4mE1pONdZDme8yZ5Bm85MYIU5TrnuPyB2nZq731810PMchtsCYtxoFTklF9qFA2UuBdhwy2umhZLY
-	1qh7Nruw==;
+	bh=ZXemVp+XP5C7K8PhG6mE03zKRPQX07LLYcr9/0qBaeY=; b=O11Vw1hx1WUhfVbrppwdFCa2NA
+	PWUanErFolrR///OG0Qm1xMS+XmdO+WxMPGHZOd9XBFDwPznqlGRAjdoEWCeqlnAu8j3qNG+j8lpN
+	Yd1k4M/Iun1s9o1FdtfkL1XOqHE1gps8N9gcMsgiEXQH3MFhnQfF5kA4RWVHHO5OZ0ghCRlj4noBx
+	dchtgG+qNP8L6ylX6zxvcUAvRMC9TjfltQedv6xtUdGJ2xltJvTFE2/pyQv0PD1nucqvesf8shHfk
+	L9ZsrYR7T5/JuWPvNLYHjv3087KxdAeMk73s5CiOwoFy2SzNWdx/jlqWidMbHbGUHgi29jUUts2J0
+	hX5yuQgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vChDN-0000000BXQ7-0lQo;
-	Sat, 25 Oct 2025 16:34:01 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1vChJt-0000000BYLx-2Sr8;
+	Sat, 25 Oct 2025 16:40:45 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vChD5-0000000BX7w-0JCx
+	id 1vChJr-0000000BYKz-2RxU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 16:33:49 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-88f8f346c2cso331685685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 09:33:42 -0700 (PDT)
+	Sat, 25 Oct 2025 16:40:44 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4eba67d4ae6so3132681cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 09:40:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761410021; x=1762014821; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761410442; x=1762015242; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lCukDE2Wz/llmJRA1Dhhk+dKRYCeKOkr6t5vR7uoeBo=;
-        b=RbIUaeOFP/zbiTujNE6AKn4Do9Q54BoZqSovQLN5DNjfoP12734aEMfZWuhROAPtUZ
-         XZcRKlmXtRg9poEdut+a9B03KXVJNO2dJZ3ONXaEvTN/j5zYCsnm4V7yip1fZj/Vrp4m
-         04MeEKUapIVTmCZj9yocpMTF9YolpoS4+trhm8uQIlV0DcWXI3vkQhDxppOuFi3byslH
-         v0xbvzUfSPpZT7e5qsGJAzVwTraE7gocVqNxMGW7xuJZ/xsTuyFamnebOTaWVhKmF2/z
-         MZ8Gu/GOQIGxK7YNx067+yE0Zs4nXnWiQ/JLFqiHf/tU30Ba1M4+OiVWJKhg0Fm1Eh1m
-         xT2A==
+        bh=ZXemVp+XP5C7K8PhG6mE03zKRPQX07LLYcr9/0qBaeY=;
+        b=CPFOW/8GMX+eWHGaZGf7bLAKeaL9g82ud2G8u0bI3maVIRNiuN11W1Q/1quBi+QenD
+         0oRR2qHbAuShU6HuQo7d68SOIyeC3sszTKthyonnkyIWVKssj9Xsp6sI97coXngIEyCn
+         qBDvjKewfRriPU7lgsAy4wXSuM04DvQWclT2cQclG7Bpo2tMLw+p/udP8mS4zpoDub9h
+         XwjlPCWiacPTWCQzZ7ToG0WzAetv1C/jDScE2olb4zle8Al4IZ5FQDW1zGcc9hZ7TuPj
+         nL1meEkzX1AEMgt7sh8+PR+Ss6FGesgdD1dFiycBKI0IObP6pXnrE5epf9FaVgEuW9Vs
+         QtbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761410021; x=1762014821;
+        d=1e100.net; s=20230601; t=1761410442; x=1762015242;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lCukDE2Wz/llmJRA1Dhhk+dKRYCeKOkr6t5vR7uoeBo=;
-        b=pXnrNEeZNQ3Ybt0NfGCT49pBvKT2h7YWTPAA/3/h0qqfmRe7PJ5u/VUiDG8KKTa0Sm
-         WknNreWqdAQJP38tq6xRAvvN5+6ET7LuFxnEoY+g5WwbyYuViYp9afSd4svoLTfZ5oUz
-         649uJvCfCAoA6zZD+80JZdob8wrw7irPTweWQeBPWKyT45w+ZDn6ihSZg1pBG5PBo8rJ
-         Lk4CEWM+noNp34UpM/w1VYU0ImoqAFJY8CVYTe3XO9HUlnQif9j/uLB5vsHSGU1imKlk
-         TZVupsT2CKscirROTYQglGFJUa+8y1yFqr5kxHPIEINr6Q5iLPxda9VnwtGe8EIdjRS6
-         MQzg==
-X-Forwarded-Encrypted: i=1; AJvYcCU61RFbQHTYbv5q5NYLNOxM77kroTLqWGaZidqX4PFgGMmElWYsh4RL5RFdqcLMdsrhtcaVq1oZO55Us8OhR6vp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYjwlJkLfi9rEqn0YaE3g3ktpx3aNUIALJSvMYPJtHqEUCFx5t
-	ESdeC/WMEfBsXXyPdadMlRKMIA6Mc9/2FAS+y11wwXPsIfcnG4HcBQ6d
-X-Gm-Gg: ASbGncvBt6EdQDId7xB3UOSbqog9zq9Keid2fi4cX2XGZK11uv5aargwnHUyYDf+K+L
-	z9shXKEaFKJeLRCJfRHfWmUGlcc12oVH/8E/dhYHxKbEsVQWrgqs29LMQVJOd08NVABRZAvAmwH
-	QCCYTZPzbDhilyzc2BaU+uVIFe6WC38qjMdnahDGEEEQuMrtq1HrvW/fvsSkpXFdX2SEZ/V/VLr
-	p5Xqk5t+WPBJJ9D/ug6eXhEtPpB+tJbWWa9w+BhliVpz7B2NsmJwZZO384S1eILO67V+wSA1FxD
-	AX9XNaTvRN6wY3Z55j9wndSHi6RM1IItliGRmPYQU6XvSRaS4KjpapT7dvYd9xqoe+P171yjGmY
-	YsAcWk3KkCWUTHeR+BWLIRISqfSc7BcC1ZAYyF8V/iRtPABJewCJed7ctX5G8aiDNtjiYGF6iM/
-	FwcFN7t4A=
-X-Google-Smtp-Source: AGHT+IFZUXzUCKjX2GS7KVjFpxXVayhaSU18PSnROxCbmg4ehcl8/3L/N8ey4/nagW/qyG5Qi/ofXg==
-X-Received: by 2002:a05:620a:2990:b0:829:b669:c791 with SMTP id af79cd13be357-890712b8ca4mr3694996585a.78.1761410021395;
-        Sat, 25 Oct 2025 09:33:41 -0700 (PDT)
+        bh=ZXemVp+XP5C7K8PhG6mE03zKRPQX07LLYcr9/0qBaeY=;
+        b=rd8gWrQuXAQkkiUekJFq/1ykcBati0JJkIgMjbZrcKzyy4e8AGcSiaWXR9Ex/aVWOJ
+         czQL3LuzpLJ3IW1gkVEmfEYC/F4Lge+CYQ719Bf/a7VX+9nFh73mVlbrt94gkAoM6HqO
+         uXab2n0GwMbP40+k7ZmeXX6NLaySYcwrnCWTkd0MOnJBZ2mcIGb8engRb4mpi3V5YAh7
+         xoJy6BlSN7RDX5SHOgQQflB6kOutv4UWE9FY3c0NQs+IXKCSTDaoxkoo1Vh/cWasq5Zi
+         L8dclPiasSiPsrIIHKOWd2dMajQ7hsuoolNvlKeBhjS5OREO5Ig1euvpb1PHg7wJ8IyN
+         Qd1g==
+X-Forwarded-Encrypted: i=1; AJvYcCVw+yJLGgLlASP+aNXq3moAi2ZNEXt84boxD0dP5Dad2K8iDNfMB9sHDM0Wx1nzVBEcWvibCGoLFlqXoliD8YE+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPbVfVULgq35raD/Qls0wGhfYM8dMn8v081mYBaj37K4wIBNYm
+	sQJLuHKL7sX2UA39glb/8pVCnIS8lEtB6ZYhdlPBz+GydcLBFbxv72gNqGmsFQ==
+X-Gm-Gg: ASbGnctNhX/H8GdElrhoJktIU3uTu2yi8y3bhHFlhUS/VKg5PERZ6GlvuzonPRjQr5e
+	PIv8LI2nlpQ/xQ54PT90qk8VQYqdIGeZ4zu/BbgaqXWigzICdHj9ULZ1o78uXS5jdQfJkHUU3nN
+	Rva9AC+1V5os5+mro3bhCqc/Q/j81xnastpGC3ZRYQuuvpP6d97E9s5l1+z3ZYo696256Ou8a/6
+	1GRmcgq/3NH2PbQ1eL/K7csKvXyk8RbmKC2+q0x3jGPM9jBq803JtQTgpxUYLTnUWby8QgSEh60
+	bm7pfnONijs+x45/D2qstd0l08yrTHC/nF0ETtvdgCJEqizkra8iH9TzxgXRAFF0bDuVUemR3LY
+	f41JE7uuXFxSL65gAUmTFemM8BkKFZeFgwkv04zcNrSrn41EXDnnriNLwT63dyI5lLDTbZsUBvO
+	CoUyub7J4=
+X-Google-Smtp-Source: AGHT+IFkeV9A6Ptus3JmqPV8qa6Aad4UN1X85QS76U9hx0IlT5Ln2gOuZnWRlM9bH9mA3BFWyYon/A==
+X-Received: by 2002:ac8:7e84:0:b0:4e8:b793:1c3b with SMTP id d75a77b69052e-4e8b79325e2mr295994671cf.61.1761410442323;
+        Sat, 25 Oct 2025 09:40:42 -0700 (PDT)
 Received: from localhost ([12.22.141.131])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-89f254a41cdsm172336185a.29.2025.10.25.09.33.39
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4eba37db728sm15162421cf.12.2025.10.25.09.40.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Oct 2025 09:33:40 -0700 (PDT)
+        Sat, 25 Oct 2025 09:40:41 -0700 (PDT)
 From: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
 	Lee Jones <lee@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Cc: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
-Subject: [PATCH 21/21] Docs: add Functions parameters order section
-Date: Sat, 25 Oct 2025 12:33:03 -0400
-Message-ID: <20251025163305.306787-14-yury.norov@gmail.com>
+	linux-kernel@vger.kernel.org
+Cc: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Subject: [PATCH 06/21] mfd: prepare to generalize BITS() macro
+Date: Sat, 25 Oct 2025 12:40:05 -0400
+Message-ID: <20251025164023.308884-7-yury.norov@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251025162858.305236-1-yury.norov@gmail.com>
-References: <20251025162858.305236-1-yury.norov@gmail.com>
+In-Reply-To: <20251025164023.308884-1-yury.norov@gmail.com>
+References: <20251025164023.308884-1-yury.norov@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_093343_179433_3B290D14 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20251025_094043_619896_E629C68D 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,73 +104,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Standardize parameters ordering in some typical cases to minimize
-confusion.
+In preparation for adding generic BITS() macro, add an #undef directive
+for the existing BITS(). The following patches will drop it entirely.
 
 Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
 ---
- Documentation/process/coding-style.rst | 48 ++++++++++++++++++++++++++
- 1 file changed, 48 insertions(+)
+ drivers/mfd/db8500-prcmu-regs.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/process/coding-style.rst b/Documentation/process/coding-style.rst
-index d1a8e5465ed9..dde24148305c 100644
---- a/Documentation/process/coding-style.rst
-+++ b/Documentation/process/coding-style.rst
-@@ -523,6 +523,54 @@ below, compared to the **declaration** example above)::
- 	...
-  }
+diff --git a/drivers/mfd/db8500-prcmu-regs.h b/drivers/mfd/db8500-prcmu-regs.h
+index 75fd1069372c..25d2d5966211 100644
+--- a/drivers/mfd/db8500-prcmu-regs.h
++++ b/drivers/mfd/db8500-prcmu-regs.h
+@@ -12,6 +12,7 @@
+ #ifndef __DB8500_PRCMU_REGS_H
+ #define __DB8500_PRCMU_REGS_H
  
-+6.2) Function parameters order
-+------------------------------
-+
-+The order of parameters is important both for code generation and readability.
-+Passing parameters in an unusual order is a common source of bugs. Listing
-+them in standard widely adopted order helps to avoid confusion.
-+
-+Many ABIs put first function parameter and return value in R0. If your
-+function returns one of its parameters, passing it at the very beginning
-+would lead to a better code generation. For example::
-+
-+        void *memset64(uint64_t *s, uint64_t v, size_t count);
-+        void *memcpy(void *dest, const void *src, size_t count);
-+
-+If your function doesn't propagate a parameter, but has a meaning of copying
-+and/or processing data, the best practice is following the traditional order:
-+destination, source, options, flags.
-+
-+for_each()-like iterators should take an enumerator the first. For example::
-+
-+        for_each_set_bit(bit, mask, nbits);
-+                do_something(bit);
-+
-+        list_for_each_entry(pos, head, member);
-+                do_something(pos);
-+
-+If function operates on a range or ranges of data, corresponding parameters
-+may be described as ``start - end`` or ``start - size`` pairs. In both cases,
-+the parameters should follow each other. For example::
-+
-+        int
-+        check_range(unsigned long vstart, unsigned long vend,
-+                    unsigned long kstart, unsigned long kend);
-+
-+        static inline void flush_icache_range(unsigned long start, unsigned long end);
-+
-+        static inline void flush_icache_user_page(struct vm_area_struct *vma,
-+                                            struct page *page,
-+                                            unsigned long addr, int len);
-+
-+Both ``start`` and ``end`` of the interval are inclusive.
-+
-+Describing intervals in order ``end - start`` is unfavorable. One notable
-+example is the ``GENMASK(high, low)`` macro. While such a notation is popular
-+in hardware context, particularly to describe registers structure, in context
-+of software development it looks counter intuitive and confusing. Please switch
-+to an equivalent ``BITS(low, high)`` version.
-+
- 7) Centralized exiting of functions
- -----------------------------------
++#undef BITS
+ #define BITS(_start, _end) ((BIT(_end) - BIT(_start)) + BIT(_end))
  
+ #define PRCM_ACLK_MGT		(0x004)
 -- 
 2.43.0
 
