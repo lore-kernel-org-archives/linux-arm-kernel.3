@@ -4,53 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 309C5CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 09:14:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C5CCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 09:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3jeBt/C+M83/qY7P4oGOdCypT2/psEDSb60WbPhdsRo=; b=hYiKmgiHujLYIjGhUJzNcHpppj
-	pzdS7wpTbCKUgytHHI90Pj3cInQrMA4GHgG9SGr/kq7JbLMHRuuDsaTketBdpQxQMkqraRsaA5I+8
-	7qu5z3jym4g5ewcSZfcWI8G/AaYcIGPJiNBuBWQKkHL4JogpMdfIkFmjNufLz8/SkQvoaOFwoq4PB
-	FFqsrlX5VIvFu7N7M3G+z5cwkAtkPQbmk6k2KRzhu5VJ0PeVpu/cZFLbNS+mJE7I8iqgewF1w7yct
-	N+7SxJ9Zou0In7QeMmDRuFg2zS6X3vqXKclSnLqZFWvjnrZRe9BiXZpj8HEDIzbjdrSKXk3Gae0gv
-	WGtH3INA==;
+	bh=lKlFKPFWui0rBF7JkALPT4rV4/6BtprmXI6qCc+ucnA=; b=mMfSPaJdGKRfYb035tTEye5QbA
+	8w89ylidxG+udW1TXX3Veocwnr+Pn4wiasoo7m6ydZj5Annz3bpKOxei0TJeao0UlwbDeOUiHUWXq
+	dzYi0mTxsND+c6E7e0WU/1tOrKTmNf2R4a2SVyzIq4pDmKsrZgAcypBMtLoXZ4QpbTv1/vnMSfOZd
+	0WGglcrGzCPdEKGMLkftYd29iTO1/bYQ6hvanmmKVswoMhFgwhDQoU71mFMFJT5lJdaR0/cWjaWYX
+	xOj1gDahhlHSCb8EX1/6de76v4KLv4JX8h7ELrlAzssMKP7JQbPPaMHfrcGqC7X/qiOsDpduY0+d6
+	/Epv4n3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCaLU-0000000B9Xj-2sGj;
-	Sat, 25 Oct 2025 09:13:56 +0000
-Received: from smtp6-g21.free.fr ([212.27.42.6])
+	id 1vCafj-0000000BB2l-2AwW;
+	Sat, 25 Oct 2025 09:34:51 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCaLQ-0000000B9XL-3bdk
+	id 1vCaff-0000000BB2N-1Yoz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 09:13:55 +0000
-Received: from belgarion.local (unknown [IPv6:2a01:e0a:a6a:5f90:41bc:b925:1818:463c])
-	by smtp6-g21.free.fr (Postfix) with ESMTPS id 50F58780505;
-	Sat, 25 Oct 2025 11:13:36 +0200 (CEST)
-From: Robert Jarzmik <robert.jarzmik@free.fr>
-To: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Peng Fan" <peng.fan@nxp.com>,  "Daniel Mack" <daniel@zonque.org>,
-  "Haojian Zhuang" <haojian.zhuang@gmail.com>,  "Jaroslav Kysela"
- <perex@perex.cz>,  "Takashi Iwai" <tiwai@suse.com>,  "Mark Brown"
- <broonie@kernel.org>,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-sound@vger.kernel.org
-Subject: Re: [PATCH 1/2] ASoC: codec: Remove pxa2xx-ac97.c
-In-Reply-To: <fd5451a1-9720-417a-915c-1ee3149426f2@app.fastmail.com> (Arnd
-	Bergmann's message of "Thu, 18 Sep 2025 09:15:23 +0200")
-References: <20250918-audio-v1-0-e9d0df5c60d2@nxp.com>
-	<20250918-audio-v1-1-e9d0df5c60d2@nxp.com>
-	<fd5451a1-9720-417a-915c-1ee3149426f2@app.fastmail.com>
-User-Agent: mu4e 1.12.13; emacs 29.4
-Date: Sat, 25 Oct 2025 11:13:05 +0200
-Message-ID: <m2jz0j4a5a.fsf@free.fr>
+	Sat, 25 Oct 2025 09:34:49 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=lKlFKPFWui0rBF7JkALPT4rV4/6BtprmXI6qCc+ucnA=;
+	b=pI2Ce4vySPQvfHaznAABDEnVBnVP5iKVw+xG5yvYh+bN0vv24/CP7qMoFWYrpqHsj4RYoRu3X
+	z+fZXrVao8Lu/FXvBQzyK53O5TTEzH7KrybEvJkIUlmqabHGNXmO4OIA1AuIUmiQNXe9URANqOy
+	cc8GcvVx4i33G4OQvyLozkU=
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4ctvjW3FDSz1prLt;
+	Sat, 25 Oct 2025 17:34:07 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3FCA6180087;
+	Sat, 25 Oct 2025 17:34:34 +0800 (CST)
+Received: from huawei.com (10.50.87.109) by kwepemf100008.china.huawei.com
+ (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 25 Oct
+ 2025 17:34:32 +0800
+From: Zeng Heng <zengheng4@huawei.com>
+To: <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <zengheng4@huawei.com>, <amitsinght@marvell.com>,
+	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
+	<guohanjun@huawei.com>, <jeremy.linton@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <sunnanyong@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<wangkefeng.wang@huawei.com>, <will@kernel.org>, <xhao@linux.alibaba.com>
+Subject: [PATCH] arm64/mpam: Clean MBWU monitor overflow bit
+Date: Sat, 25 Oct 2025 17:34:28 +0800
+Message-ID: <20251025093428.1379218-1-zengheng4@huawei.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <a3e95937-b0c7-020e-d52d-7189d2540f8f@huawei.com>
+References: <a3e95937-b0c7-020e-d52d-7189d2540f8f@huawei.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-Originating-IP: [10.50.87.109]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_021353_237285_C5094563 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20251025_023448_034669_2609C170 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,51 +89,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Arnd Bergmann" <arnd@arndb.de> writes:
+The MSMON_MBWU register accumulates counts monotonically forward and
+would not automatically cleared to zero on overflow. The overflow portion
+is exactly what mpam_msmon_overflow_val() computes, there is no need to
+additionally subtract mbwu_state->prev_val.
 
-> On Thu, Sep 18, 2025, at 07:44, Peng Fan wrote:
->> With commit ce79f3a1ad5f ("ARM: pxa: prune unused device support") and
->> commit 2548e6c76ebf ("ARM: pxa: pxa2xx-ac97-lib: use IRQ resource"), there
->> is no 'pxa2xx-ac97' platform device created by machine level code, so this
->> driver could be removed.
->>
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> ---
->>  sound/arm/Kconfig       |  10 --
->>  sound/arm/Makefile      |   3 -
->>  sound/arm/pxa2xx-ac97.c | 286 ------------------------------------------------
->>  3 files changed, 299 deletions(-)
->
-> I think you are right, I was sure there was still a way to use this
-> driver either as part of sound/soc/pxa/*, or as an alternative,
-> but now I don't see how.
->
-> If we do this, I think we should just merge pxa2xx-pcm-lib.c and
-> snd-pxa2xx-lib.c into the respective callers in the sound/soc/pxa/
-> driver.
->
-> Robert, can you confirm?
-Hi Arnd,
+Before invoking write_msmon_ctl_flt_vals(), the overflow bit of the
+MSMON_MBWU register must first be read to prevent it from being
+inadvertently cleared by the write operation. Then, before updating the
+monitor configuration, the overflow bit should be cleared to zero.
 
-That'a a way of doing it, yet I would have chosen another path.
-I would have taken all the code out of sound/arm/pxa2xx-pcm-lib.c, and
-injected it into sound/soc/pxa2xx-pcm.c The reason is that the PCM code
-is used across AC97, I2S and SSP. You would have to duplicate that if
-you were to inject it to its callers.
+Finally, use the overflow bit instead of relying on counter wrap-around
+to determine whether an overflow has occurred, that avoids the case where
+a wrap-around (now > prev_val) is overlooked.
 
-I would also see with a keen eye the removal of sound/arm/*. Unless I'm
-mistaken, this code only works in platform_data environments. And if you
-want to leave only DT code, well ... the long term should be to remove
-this part.
+Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+---
+ drivers/resctrl/mpam_devices.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
-The code in sound/soc/pxa provides another access to the same
-functionality (ie. sound on pxa platforms), and is DT compliant.
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 0dd048279e02..575980e3a366 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -1062,6 +1062,21 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
+ 	}
+ }
+ 
++static bool read_msmon_mbwu_is_overflow(struct mpam_msc *msc)
++{
++	u32 ctl;
++	bool overflow;
++
++	ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
++	overflow = ctl & MSMON_CFG_x_CTL_OFLOW_STATUS ? true : false;
++
++	if (overflow)
++		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl &
++				     ~MSMON_CFG_x_CTL_OFLOW_STATUS);
++
++	return overflow;
++}
++
+ /* Call with MSC lock held */
+ static void __ris_msmon_read(void *arg)
+ {
+@@ -1069,6 +1084,7 @@ static void __ris_msmon_read(void *arg)
+ 	bool config_mismatch;
+ 	struct mon_read *m = arg;
+ 	u64 now, overflow_val = 0;
++	bool mbwu_overflow = false;
+ 	struct mon_cfg *ctx = m->ctx;
+ 	bool reset_on_next_read = false;
+ 	struct mpam_msc_ris *ris = m->ris;
+@@ -1091,6 +1107,7 @@ static void __ris_msmon_read(void *arg)
+ 			reset_on_next_read = mbwu_state->reset_on_next_read;
+ 			mbwu_state->reset_on_next_read = false;
+ 		}
++		mbwu_overflow = read_msmon_mbwu_is_overflow(msc);
+ 	}
+ 
+ 	/*
+@@ -1138,8 +1155,8 @@ static void __ris_msmon_read(void *arg)
+ 		mbwu_state = &ris->mbwu_state[ctx->mon];
+ 
+ 		/* Add any pre-overflow value to the mbwu_state->val */
+-		if (mbwu_state->prev_val > now)
+-			overflow_val = mpam_msmon_overflow_val(m->type) - mbwu_state->prev_val;
++		if (mbwu_overflow)
++			overflow_val = mpam_msmon_overflow_val(m->type);
+ 
+ 		mbwu_state->prev_val = now;
+ 		mbwu_state->correction += overflow_val;
+-- 
+2.25.1
 
-On a personal note, I only ever used sound/soc/pxa/* in all my boards,
-and never arm/pxa/*. I'm not aware of any remaining users of sound/arm/*. 
-
-Cheers.
-
---
-Robert
 
