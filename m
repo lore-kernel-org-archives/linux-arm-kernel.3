@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB39CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A0FCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FgpdQly6UAXSTR5MLgLdCsEnF7u6zwKVu6ylG76tjIg=; b=gfzs+Od+vGNjpfvTMdAFblGNiS
-	CxkF59Dx7oNj/MT8YFCrWJJSPaiCKxcJ2YdfDUZndKF/zV5dcuMAcqJF+oJmqmrNe8WFI48o2i0S3
-	Ae/G14F6iiONsSrIJlMHorJCzRyAlHCWUT4+2/WEvygrRif9/ihro8huZhMrachMd0kjWN66/29CI
-	rRvnsv2kAGYjjUMYOXgYyVippecrc2y9y2IYO/I2NcdgSl5X8piPgvgv55B1pZ0B+4H6Z8LC1E8Jj
-	TNxSaIsReX8WhDfiX697k0yDnPxWTJSg7iNhsOdwGFoVZbU+6yKxF03Kqg80ciN43Qg9o807xos1V
-	BfSs/dUw==;
+	bh=Cxuvcw+5BokTf5KtZwOgkWEs4upe9ufMvZQ/niv/DKU=; b=hs2Q2mpVjr9SAz8OTQz3acPaKf
+	RFSiVmYcWbhPMMO1H7iFEGXKkh6i/Ur8CGGBRA9EwDMt3YRz7pchVewuZGQmWEXBuqNTV0F8qURv2
+	5PpLJgo6KlxVEpZ8kmicDEpiB2/lO+ZVDP88SxbB1EXsP4yf71HNS73/YplvPwJDMJy+VsNbT/UsL
+	MlO8Nms2iXpcoMh+9ggQGC0XyOJW8EJGNtx2BFBXeD9WmMm9i6loCj10put/9xteT8MKWg+DrgBg+
+	acGAjCG/GuN9+Df1kdPafObmXu/8sl343pY73nHFgNB/v7JpqjcIxhm0d/929puNxZS6lAPUDssaJ
+	X6M37wBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vChD1-0000000BX5D-3CR8;
-	Sat, 25 Oct 2025 16:33:39 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1vChDM-0000000BXPO-1qwh;
+	Sat, 25 Oct 2025 16:34:00 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vChCx-0000000BWz2-1tGx
+	id 1vChD1-0000000BX3m-2xV6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 16:33:37 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-87c103928ffso30451216d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 09:33:34 -0700 (PDT)
+	Sat, 25 Oct 2025 16:33:46 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-87c217f4aaaso37648196d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Oct 2025 09:33:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761410014; x=1762014814; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761410018; x=1762014818; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FgpdQly6UAXSTR5MLgLdCsEnF7u6zwKVu6ylG76tjIg=;
-        b=XMvAw1kwhXFXlhGeaTMseY/T/pqMSuuzqf6MnPcsmty9sR1Hj9EUAR+U58ZMoZSiqU
-         dpNyNCyrNp8WPm1HM5q/crnSe0N4Ge/rTrL8BSZDg5bJeXmFpZTK9tx+L4rlwCBXR1WH
-         oRpSdcqHKhhrcZamH1OWnvSFtFKEQxh1XwgrgTgCXqR2EDDdTGvNCubf6HPJgVLfqeL+
-         PEHYCgCWfKb4iuCokSVlExfrfLyVJAT4YUb/P8Nv+qLt6cWd82TmYinPTc9jTDttKqza
-         9DT6GI606TtjnbsLdnhWQRHnAqR4a1+sMfvU63hRecOtyCN7v1SCuSftjDSit6BJK/HH
-         2PMg==
+        bh=Cxuvcw+5BokTf5KtZwOgkWEs4upe9ufMvZQ/niv/DKU=;
+        b=jvc6Eo+YQiTODTq6e6KgmFIPep3gxq4v2gvBAM1UwEtPhlM3g4sVvsFAvgVQjYmDVw
+         o8VMx1MoBHD6acBqNAQwV6vKmTpLcqiddPvZjPVQNpSJnxTCwS8A0IYkqJOdrmwf+PVy
+         IRjROYwXb1trAuIKMvmCixCgzHDCHbJw/w17v6QnU37IwySBzC0BJPLwWDCx8ZnV1AgK
+         VUTquNHWr6P/CtFV+Vv9GENMEm3rKMY/IEnU84kcQiCcs47ZPY0RD2rRqlcq0hZbOc2f
+         O5OCGQ+Iel7rJLmmuICb2JMePPo3lLNb0Y6h9EXF82Sb65A4xjhpTrugGmLttCGq4wiL
+         6Unw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761410014; x=1762014814;
+        d=1e100.net; s=20230601; t=1761410018; x=1762014818;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FgpdQly6UAXSTR5MLgLdCsEnF7u6zwKVu6ylG76tjIg=;
-        b=glHki5ejz+QAbMT2+j6roPJIb3FbvBXTBkysUDUCQCjTgSNYYbfO0NCvRNKj0EJpzn
-         ZdJnYyZywRU7CbI3JhhyUt+VZ6AH3T++Z0pFQIyAaiS7QdyanHQpVjyzEYMK24bEB1A4
-         qpCFkVaQOb4YK+Sg6Wp6xV39QaI4Vq8OOG8SNMVChYie977SxFLntvLwjFwOHoqB0zn4
-         B7SxfJ3Tz/vmgCvrrgugNIfzg35ExwsIK/BgIT5euusIPNurimtrywZLg6GSWUYenSJG
-         FwhxrTTdlkCZrw5B8ARSM9dn5bPObl6MSHSZX7jCpTZjOzCAkalKXfVlZGfF3xrXuAIZ
-         vzKg==
-X-Forwarded-Encrypted: i=1; AJvYcCXdeorR3R/Z6ovY+GlgWaUnbJTgutatX7HO9JEHAjdrLZMtXRR1RO/8yDmJtkoLFZj90GccUTijhbWW+BkaYEV+@lists.infradead.org
-X-Gm-Message-State: AOJu0YySGzuIcIXoC/humbYa353Zl5cVuwKgOlh04xBMaK8henTbL/YK
-	nLkppnnzZgvG/oCJ2sEmJmhSKIV/F4oaFQAXdPHMyNQ4Wl0TQ90Pn4ic
-X-Gm-Gg: ASbGncuESlaotkha4qG/bV7KCrPsQG24OhDAYDgu22BSiN+IlbX0WESiALcJuLOITeL
-	s9DXjPp4R7OEffz3lC1jkMgbdwvq7ZeYGoerrF3yef+uzdSIQTL9s0iylpuBWMHKr/bSzheKCUH
-	9yn/AIb/3SgpmnHf1wH4lzPbNyydEtyGZNH5wTkAUDhNRe/gCYCZOZZ+r7ukklHLUq3XIeONHbh
-	gunh6PWIdBb0XYnuziy/gdttE/uPzNfTgvhxsrqEbDLAlhQw+KUGC6pf4ZJSYPnCYtSaaokp2Uu
-	tZYWOAkwa5n3CQJmyytEZq1EKGGl2eigJMJeyxi0kBhynYzVy6ujFME03e7rwtCRYdF0oThoszP
-	L4Tx+1zhbrNt/nUfFnDT/5tikeoKCjxS3RcwnH9MfkQuZsmAvOMVXjvF0Mf3QpFsSvBaWxbYD
-X-Google-Smtp-Source: AGHT+IGaxqILFk1sWEKYs4/aKTapgVfZamjsAKwhDmFO0q/do78fw/vH+Xpzx9XExIL+rzfn38dWcw==
-X-Received: by 2002:a05:6214:500a:b0:87c:2797:4942 with SMTP id 6a1803df08f44-87c27974b5dmr317695766d6.15.1761410014091;
-        Sat, 25 Oct 2025 09:33:34 -0700 (PDT)
+        bh=Cxuvcw+5BokTf5KtZwOgkWEs4upe9ufMvZQ/niv/DKU=;
+        b=vUV+m4np5D+iZiFDMTziOPOx3Ngr704DnLR1hP6PEAf8XkJHzi4QGDjzygCi9pfQ2l
+         GhPnr9ij+IziBt0xWew4kzscfB4k6W9Re7FWW2qfo9DXIcPYXqosG37KeSPAQVKU/zsp
+         LvbvbB8iCZ3jzEe9pCbJfl9Vnc8bv/lDqJcd/tul24rgPlCS/M6tsgvqaqwF/3efyxNj
+         ZRDM4HvAvMTjN4cCs/ejxBqp8zf50kZd9oP6B+KmiX0YYbrwbcxl8Zp9i/gk+5uumVGd
+         zrsVN7bOgfkJW5jNHD34kgYCoObj2l/4K6htieOKg/UfZQNlWRZ9VnR1/fEAGBgUAAn2
+         4rPA==
+X-Forwarded-Encrypted: i=1; AJvYcCUb+n+45j+jRrlb/EPg9vJ6Y/TWehvAQ77Ag/vetDLUwt+rhmflQ3yEw5Ff+YsjekRxDRmalLvzbQd41TyPDyxO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRW5jMikeBCuGNs+XC7a3XMPL5PUHb2NIhCK58L7bngSoguR/h
+	j+/prpFoB7WL6mDqk0GLpFUR2/16+r4tu0lWgJwVpCJEIjFysAxoyJGM
+X-Gm-Gg: ASbGncvnN1LrCWeAIIIoqZY2blVvBDDvh7xO/T9nqHHtLbgtu+Efo9WAbmdWQGM4qkV
+	pzIiTV5SP3cFNMq3bj1CCfe45SKcEMM0k7pTlQ8ArqLcAhGll+Ubfbd2sV6MCHru7wzANyYRwWR
+	acGA/C1JinAAV3EG0f3n1/REn6XnGXf+F7QkER74rnY0xpBJPTb9fmS/kiZHTbA25LOhWQlmndm
+	+aL3PYyr/bE+GvkmdcyxgfYRWkeO4rjOgXZgKyp/gmY2j6etv3EjBTbu1PE/jK0IY2QFbxWA2aI
+	fQKVzKOuGv/g5hDCjncNFwuwaEwipEJiL216DtB7FkiexzJO2yUSW5tvKNA51fii91dBpfN8b12
+	uj2r1dOjOUSp3mv0b3rP5xRLZr2Tg44uqf4hnhNejDfR8+XB5J4skwDjNQww0ABmqdnIE4CsiqB
+	OQ8Mapyb4=
+X-Google-Smtp-Source: AGHT+IHWOynP91XK0eWWEmP39+HpO2WIYG1FD6QWp9GErpLHI7PIM/nM4hfHX/dVKVXslC7yeirnSA==
+X-Received: by 2002:a05:6214:508f:b0:87c:27c2:2c0e with SMTP id 6a1803df08f44-87c27c22f10mr333708616d6.59.1761410018091;
+        Sat, 25 Oct 2025 09:33:38 -0700 (PDT)
 Received: from localhost ([12.22.141.131])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87fc49fde48sm16301696d6.61.2025.10.25.09.33.32
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87fc48a8a1bsm16461146d6.8.2025.10.25.09.33.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Oct 2025 09:33:32 -0700 (PDT)
+        Sat, 25 Oct 2025 09:33:37 -0700 (PDT)
 From: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Lee Jones <lee@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org
+	Kees Cook <kees@kernel.org>,
+	linux-hardening@vger.kernel.org
 Cc: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
-Subject: [PATCH 18/21] fprobe: don't use GENMASK()
-Date: Sat, 25 Oct 2025 12:33:00 -0400
-Message-ID: <20251025163305.306787-11-yury.norov@gmail.com>
+Subject: [PATCH 20/21] fortify-string: don't use GENMASK()
+Date: Sat, 25 Oct 2025 12:33:02 -0400
+Message-ID: <20251025163305.306787-13-yury.norov@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251025162858.305236-1-yury.norov@gmail.com>
 References: <20251025162858.305236-1-yury.norov@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_093335_518966_0F6B5BA1 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20251025_093339_839562_09DAE60D 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GENMASK(high, low) notation is confusing. FIRST/LAST_BITS() are
-more appropriate.
+GENMASK(high, low) notation is confusing. BITS(low, high) is more
+appropriate.
 
 Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
 ---
- include/asm-generic/fprobe.h | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ include/linux/fortify-string.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/include/asm-generic/fprobe.h b/include/asm-generic/fprobe.h
-index 8659a4dc6eb6..bf2523078661 100644
---- a/include/asm-generic/fprobe.h
-+++ b/include/asm-generic/fprobe.h
-@@ -16,17 +16,14 @@
- #define ARCH_DEFINE_ENCODE_FPROBE_HEADER
+diff --git a/include/linux/fortify-string.h b/include/linux/fortify-string.h
+index b3b53f8c1b28..0c95cdcca736 100644
+--- a/include/linux/fortify-string.h
++++ b/include/linux/fortify-string.h
+@@ -11,9 +11,9 @@
+ #define __RENAME(x) __asm__(#x)
  
- #define FPROBE_HEADER_MSB_SIZE_SHIFT (BITS_PER_LONG - FPROBE_DATA_SIZE_BITS)
--#define FPROBE_HEADER_MSB_MASK					\
--	GENMASK(FPROBE_HEADER_MSB_SIZE_SHIFT - 1, 0)
-+#define FPROBE_HEADER_MSB_MASK	FIRST_BITS(FPROBE_HEADER_MSB_SIZE_SHIFT)
+ #define FORTIFY_REASON_DIR(r)		FIELD_GET(BIT(0), r)
+-#define FORTIFY_REASON_FUNC(r)		FIELD_GET(GENMASK(7, 1), r)
++#define FORTIFY_REASON_FUNC(r)		FIELD_GET(BITS(1, 7), r)
+ #define FORTIFY_REASON(func, write)	(FIELD_PREP(BIT(0), write) | \
+-					 FIELD_PREP(GENMASK(7, 1), func))
++					 FIELD_PREP(BITS(1, 7), func))
  
- /*
-  * By default, this expects the MSBs in the address of kprobe is 0xf.
-  * If any arch needs another fixed pattern (e.g. s390 is zero filled),
-  * override this.
-  */
--#define FPROBE_HEADER_MSB_PATTERN				\
--	GENMASK(BITS_PER_LONG - 1, FPROBE_HEADER_MSB_SIZE_SHIFT)
--
-+#define FPROBE_HEADER_MSB_PATTERN	LAST_BITS(FPROBE_HEADER_MSB_SIZE_SHIFT)
- #define arch_fprobe_header_encodable(fp)			\
- 	(((unsigned long)(fp) & ~FPROBE_HEADER_MSB_MASK) ==	\
- 	 FPROBE_HEADER_MSB_PATTERN)
+ /* Overridden by KUnit tests. */
+ #ifndef fortify_panic
 -- 
 2.43.0
 
