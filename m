@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0ECCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 07:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF55DCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 07:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwX/s5SYASd0iKGYB0XTDuYgCV0T6REyfugcDNoJpbI=; b=gBFBLb/rtZbJQKQwzBk97dohxp
-	/Ecm0mstFYarHvLdb+ZF9T5vh863c1ZUdPduOj9adQ0z/MMbDFrzSM6EMx7Q5cUxC1PsbOEPxhlhj
-	fsoxcxlBnVMegWEshQxFEnjxKnByEOkX38mKhLPkkAaUVVxNx6NGyj2UppqSt+2M736kWme/FOuOo
-	r9uADwjqK6Vp8f88MAJ5y4Z/To/8eD467u1P8JqiarDh2SDqPYZat/kLo5t6jNoku6rCM17LHh9Mi
-	kXGARpX+QQPiRtSxc1m2O5Nhu/YsJd2WTkJivHcEbAwrDIIhMRZtjCeQOOe2IvKM7J/OlZu6OyjLf
-	pdl/jXgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qYKT716aMY+owi+NZNJDxv+VNu37GVYDK+vvVdVsVj8=; b=A7WhmtNynGwDZqsHI4wkcsLOau
+	A+a0oPBP1PB8iLELZwmDj3HivkFGV0C1rpJP1jxNUR1IcYzeBAA33nEOWHb78GIXGXm7owonMtYVk
+	N0zlN/JRxmoHNEoppEIgZe14AuDqew3omg5FYFUkXotO9tA+FsXTgKP08xtaFGrdE1iQ/giOxMN+z
+	aNNnuRVSjF2bJ05zOgCPUrBusVbMwMVODRBMh7BsUGfdWgJff8PTfggqLd3oPP/RaaYb4502DTqLm
+	xJ7pCHe/dpMOFruj54S5e/0d+4JtTiEhOQIymG7xqXnuw+xpm6NpgPsdp2DJlmACK6f6OA1Twlaw+
+	B37hw/Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCYWj-0000000B4RN-0koV;
-	Sat, 25 Oct 2025 07:17:25 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
+	id 1vCYqq-0000000B55V-42Kd;
+	Sat, 25 Oct 2025 07:38:12 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCYWg-0000000B4Qx-0PVp
+	id 1vCYqo-0000000B552-30g6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 07:17:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=MwX/s5SYASd0iKGYB0XTDuYgCV0T6REyfugcDNoJpbI=;
-	b=KaKR063j3AwQa7jCa9q37XeA7OL63ew6l7t+cOFjS/WOFhuLOIxqZAS330KkUu
-	1yR7rAZ1g+1kz4pqma48zs6maL39Yydt2b4aPzlIthM03mb7VqfLIIy9CcVBeuGB
-	8Dn0exz3iX88KX6YMABw84bCwLafcY2+ALWBQvBsqO/VU=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD3BzBHefxoBGWeAA--.50533S3;
-	Sat, 25 Oct 2025 15:16:25 +0800 (CST)
-Date: Sat, 25 Oct 2025 15:16:22 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Rogerio Pimentel <rpimentel.silva@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, xiaofeng.wei@nxp.com,
-	kernel@pengutronix.de, festevam@gmail.com,
-	alexander.stein@ew.tq-group.com,
-	dario.binacchi@amarulasolutions.com, marex@denx.de,
-	Markus.Niebel@tq-group.com, y.moog@phytec.de,
-	joao.goncalves@toradex.com, frieder.schrempf@kontron.de,
-	josua@solid-run.com, francesco.dolcini@toradex.com,
-	primoz.fiser@norik.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-Message-ID: <aPx5RpFeqWmmhQs5@dragon>
-References: <20250922232523.844633-1-rpimentel.silva@gmail.com>
- <20250922232523.844633-2-rpimentel.silva@gmail.com>
+	Sat, 25 Oct 2025 07:38:12 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59P7buxj2053674;
+	Sat, 25 Oct 2025 02:37:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761377876;
+	bh=qYKT716aMY+owi+NZNJDxv+VNu37GVYDK+vvVdVsVj8=;
+	h=From:To:CC:Subject:Date;
+	b=aT10W6Oj0whFanBwsorhuMXW8ARYB0QQC/l/H1BZk58B2mLeJyz7V0ACbbas+RQwV
+	 4KODTeKU/TZC1n0b4QAabd/SNH4AMx5fLUtrgpUApDQlOsAl7k2PU15bo0HEs2CSZn
+	 1C8KVXQLDGbBRSREhDqaBj527H+tKvHhgfton0qk=
+Received: from DLEE201.ent.ti.com (dlee201.ent.ti.com [157.170.170.76])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59P7buam3721762
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sat, 25 Oct 2025 02:37:56 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 25 Oct
+ 2025 02:37:56 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Sat, 25 Oct 2025 02:37:56 -0500
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59P7bqnX1594606;
+	Sat, 25 Oct 2025 02:37:53 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-*: Replace rgmii-rxid with rgmii-id for CPSW ports
+Date: Sat, 25 Oct 2025 13:07:59 +0530
+Message-ID: <20251025073802.1790437-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250922232523.844633-2-rpimentel.silva@gmail.com>
-X-CM-TRANSID: Ms8vCgD3BzBHefxoBGWeAA--.50533S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW3try8XF4fZw43ZF1fCF13twb_yoWkCF4Upr
-	9xJrsrCw4vkr1Syas3J3W7Krn8Xa95G3Wq9w1DuFy8AF9rAasIqrn0krn8GrsrJrs8Z3y8
-	uFWjvryI9FnIgw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jbVysUUUUU=
-X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIAnJL2j8eUkYHwAA3s
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_001722_515078_F182D7E5 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20251025_003810_923635_46C39BD2 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,448 +83,553 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 07:25:23PM -0400, Rogerio Pimentel wrote:
-> The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
-> SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
-> 32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
-> display interfaces, camera connectors, and standard expansion headers.
-> 
-> Based on the device tree found in the NXP repository at github
-> https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
-> board kernel mainline device tree.
-> 
-> This is a basic device tree supporting:
-> 
->  - Quad Cortex-A53
->  - 4GB LPDDR4 DRAM
->  - PCA9450C PMIC with regulators
->  - Two NXP PCAL6416 GPIO expanders
->  - RGB LEDs via GPIO expander
->  - I2C1, I2C2, I2C3 controllers
->  - UART2 (console) and UART3 (with RTS/CTS)
->  - USDHC3 (8-bit eMMC)
->  - SNVS power key (onboard power button)
-> 
-> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> 
-> ---
-> 
-> Changes in v3:
-> 
->  - Removing the following tags and names added
->  on v2 by mistake: 
->  Reviewed-by: Daniel Baluta <daniel.baluta@gmail.com>
->  Signed-off-by: Anson Huang <Anson.Huang@nxp.com>
->  Signed-off-by: Shawn Guo <shawnguo@kernel.org>
-> 
-> Changes in v2:
-> 
->  - Fixed dt-binding schema warnings
->  - Renamed nodes 'red, green and blue' to
->    'led-0, led-1 and led-2'
->  - Renamed led labels 'led-0, led-1 and led-2'
->    to 'red, green and blue'
->  - Added Reviewed-by and Signed-off-by tags
->  
->  
->  arch/arm64/boot/dts/freescale/Makefile        |   1 +
->  arch/arm64/boot/dts/freescale/imx8mp-frdm.dts | 355 ++++++++++++++++++
->  2 files changed, 356 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 525ef180481d..d861e576779a 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -206,6 +206,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk3.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-picoitx.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-edm-g-wb.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-mate.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pro.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pulse.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-> new file mode 100644
-> index 000000000000..9138c65739aa
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-> @@ -0,0 +1,355 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2019 NXP
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "imx8mp.dtsi"
-> +
-> +/ {
-> +	model = "NXP i.MX8MPlus FRDM board";
-> +	compatible = "fsl,imx8mp-frdm", "fsl,imx8mp";
-> +
-> +	chosen {
-> +		stdout-path = &uart2;
-> +	};
-> +
-> +	gpio-leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-0 {
-> +			label = "red";
-> +			gpios = <&pcal6416 13 GPIO_ACTIVE_HIGH>;
-> +			default-state = "off";
-> +		};
-> +
-> +		led-1 {
-> +			label = "green";
-> +			gpios = <&pcal6416 14 GPIO_ACTIVE_HIGH>;
-> +			default-state = "on";
-> +		};
-> +
-> +		led-2 {
-> +			label = "blue";
-> +			gpios = <&pcal6416 15 GPIO_ACTIVE_HIGH>;
-> +			default-state = "off";
-> +		};
-> +	};
-> +
-> +	memory@40000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x40000000 0 0xc0000000>,
-> +		      <0x1 0x00000000 0 0x40000000>;
-> +	};
-> +};
-> +
-> +&A53_0 {
-> +	cpu-supply = <&reg_arm>;
-> +};
-> +
-> +&A53_1 {
-> +	cpu-supply = <&reg_arm>;
-> +};
-> +
-> +&A53_2 {
-> +	cpu-supply = <&reg_arm>;
-> +};
-> +
-> +&A53_3 {
-> +	cpu-supply = <&reg_arm>;
-> +};
-> +
-> +&i2c1 {
-> +	clock-frequency = <400000>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_i2c1>;
-> +	status = "okay";
-> +
-> +	pmic@25 {
+The MAC Ports across all of the CPSW instances (CPSW2G, CPSW3G, CPSW5G and
+CPSW9G) present in various K3 SoCs only support the 'RGMII-ID' mode. This
+correction has been implemented/enforced by the updates to:
+a) Device-Tree binding for CPSW [0]
+b) Driver for CPSW [1]
+c) Driver for CPSW MAC Port's GMII [2]
 
-Please sort I2C devices in order of slave address?
+To complete the transition from 'RGMII-RXID' to 'RGMII-ID', update the
+'phy-mode' property for all CPSW ports by replacing 'rgmii-rxid' with
+'rgmii-id'.
 
-> +		compatible = "nxp,pca9450c";
-> +		reg = <0x25>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_pmic>;
-> +		interrupt-parent = <&gpio1>;
-> +		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		regulators {
-> +			BUCK1 {
-> +				regulator-name = "BUCK1";
-> +				regulator-min-microvolt = <720000>;
-> +				regulator-max-microvolt = <1000000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +				regulator-ramp-delay = <3125>;
-> +			};
-> +
-> +			reg_arm: BUCK2 {
-> +				regulator-name = "BUCK2";
-> +				regulator-min-microvolt = <720000>;
-> +				regulator-max-microvolt = <1025000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +				regulator-ramp-delay = <3125>;
-> +				nxp,dvs-run-voltage = <950000>;
-> +				nxp,dvs-standby-voltage = <850000>;
-> +			};
-> +
-> +			BUCK4 {
-> +				regulator-name = "BUCK4";
-> +				regulator-min-microvolt = <3000000>;
-> +				regulator-max-microvolt = <3600000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_buck5: BUCK5 {
-> +				regulator-name = "BUCK5";
-> +				regulator-min-microvolt = <1650000>;
-> +				regulator-max-microvolt = <1950000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			BUCK6 {
-> +				regulator-name = "BUCK6";
-> +				regulator-min-microvolt = <1045000>;
-> +				regulator-max-microvolt = <1155000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			LDO1 {
-> +				regulator-name = "LDO1";
-> +				regulator-min-microvolt = <1650000>;
-> +				regulator-max-microvolt = <1950000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			LDO3 {
-> +				regulator-name = "LDO3";
-> +				regulator-min-microvolt = <1710000>;
-> +				regulator-max-microvolt = <1890000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			LDO5 {
-> +				regulator-name = "LDO5";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +		};
-> +	};
-> +
-> +	pcal6416: gpio@20 {
-> +		compatible = "nxp,pcal6416";
-> +		reg = <0x20>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_pcal6416_int>;
-> +		interrupt-parent = <&gpio3>;
-> +		interrupts = <16 IRQ_TYPE_LEVEL_LOW>;
-> +		gpio-line-names = "CSI1_nRST",
-> +			"CSI2_nRST",
-> +			"DSI_CTP_RST",
-> +			"EXT_PWREN1",
-> +			"CAN_STBY",
-> +			"EXP_P0_5",
-> +			"EXP_P0_6",
-> +			"P0_7",
-> +			"LVDS0_BLT_EN",
-> +			"LVDS1_BLT_EN",
-> +			"LVDS0_CTP_RST",
-> +			"LVDS1_CTP_RST",
-> +			"SPK_PWREN",
-> +			"RLED_GPIO",
-> +			"GLED_GPIO",
-> +			"BLED_GPIO";
-> +	};
-> +
-> +	pcal6416_1: gpio@21 {
+[0]: commit 9b357ea52523 ("dt-bindings: net: ti: k3-am654-cpsw-nuss: update phy-mode in example")
+[1]: commit ca13b249f291 ("net: ethernet: ti: am65-cpsw: fixup PHY mode for fixed RGMII TX delay")
+[2]: commit a22d3b0d49d4 ("phy: ti: gmii-sel: Always write the RGMII ID setting")
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-Would it be better to label these two pcal6416 devices as
+Hello,
 
-	pcal6416_1
-	pcal6416_2
+This patch is based on linux-next tagged next-20251024.
 
-or
-	pcal6416_0
-	pcal6416_1
-?
+Regards,
+Siddharth.
 
-Shawn
+ arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi          | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62-verdin-dev.dtsi           | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62-verdin-ivy.dtsi           | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi               | 2 +-
+ arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts           | 2 +-
+ arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi           | 3 +--
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi         | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts                  | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-dev.dtsi          | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-ivy.dtsi          | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi              | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                  | 4 ++--
+ arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi       | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi           | 2 +-
+ arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi          | 2 +-
+ arch/arm64/boot/dts/ti/k3-am642-evm.dts                  | 4 ++--
+ arch/arm64/boot/dts/ti/k3-am642-sk.dts                   | 4 ++--
+ arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts   | 2 +-
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts           | 2 +-
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts           | 2 +-
+ arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts         | 2 +-
+ arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi          | 2 +-
+ arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts         | 2 +-
+ arch/arm64/boot/dts/ti/k3-am69-sk.dts                    | 2 +-
+ arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts    | 2 +-
+ arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts       | 2 +-
+ arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts    | 2 +-
+ arch/arm64/boot/dts/ti/k3-j721e-evm-gesi-exp-board.dtso  | 8 ++++----
+ arch/arm64/boot/dts/ti/k3-j721e-sk.dts                   | 2 +-
+ arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts   | 2 +-
+ arch/arm64/boot/dts/ti/k3-j721s2-evm-gesi-exp-board.dtso | 2 +-
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts                  | 2 +-
+ arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi  | 4 ++--
+ 33 files changed, 40 insertions(+), 41 deletions(-)
 
-> +		compatible = "nxp,pcal6416";
-> +		reg = <0x21>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_pcal6416_1_int>;
-> +		interrupt-parent = <&gpio2>;
-> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
-> +		gpio-line-names = "P0_0",
-> +			"P0_1",
-> +			"AUD_nINT",
-> +			"RTC_nINTA",
-> +			"USB1_SS_SEL",
-> +			"USB2_PWR_EN",
-> +			"SPI_EXP_SEL",
-> +			"P0_7",
-> +			"W2_HOST_WAKE_SD_3V3",
-> +			"W2_HOST_WAKE_BT_3V3",
-> +			"EXP_WIFI_BT_PDN_3V3",
-> +			"EXP_BT_RST_3V3",
-> +			"W2_RST_IND_3V3",
-> +			"SPI_nINT_3V3",
-> +			"KEYM_PCIE_nWAKE",
-> +			"P1_7";
-> +	};
-> +};
-> +
-> +&i2c2 {
-> +	clock-frequency = <400000>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_i2c2>;
-> +	status = "okay";
-> +};
-> +
-> +&i2c3 {
-> +	clock-frequency = <400000>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_i2c3>;
-> +	status = "okay";
-> +};
-> +
-> +&snvs_pwrkey {
-> +	status = "okay";
-> +};
-> +
-> +&uart2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_uart2>;
-> +	status = "okay";
-> +};
-> +
-> +&uart3 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_uart3>;
-> +	assigned-clocks = <&clk IMX8MP_CLK_UART3>;
-> +	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
-> +	uart-has-rtscts;
-> +	status = "okay";
-> +};
-> +
-> +&usdhc3 {
-> +	assigned-clocks = <&clk IMX8MP_CLK_USDHC3>;
-> +	assigned-clock-rates = <400000000>;
-> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-> +	pinctrl-0 = <&pinctrl_usdhc3>;
-> +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
-> +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-> +	bus-width = <8>;
-> +	non-removable;
-> +	status = "okay";
-> +};
-> +
-> +&iomuxc {
-> +	pinctrl_i2c1: i2c1grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL	0x400001c2
-> +			MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA	0x400001c2
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c2: i2c2grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL	0x400001c2
-> +			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA	0x400001c2
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c3: i2c3grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL	0x400001c2
-> +			MX8MP_IOMUXC_I2C3_SDA__I2C3_SDA	0x400001c2
-> +		>;
-> +	};
-> +
-> +	pinctrl_pmic: pmicgrp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03	0x000001c0
-> +		>;
-> +	};
-> +
-> +	pinctrl_pcal6416_int: pcal6416_int_grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_NAND_READY_B__GPIO3_IO16	0x146
-> +		>;
-> +	};
-> +
-> +	pinctrl_pcal6416_1_int: pcal6416_1_int_grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11	0x146
-> +		>;
-> +	};
-> +
-> +	pinctrl_uart2: uart2grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX	0x140
-> +			MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX	0x140
-> +		>;
-> +	};
-> +
-> +	pinctrl_uart3: uart3grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_ECSPI1_SCLK__UART3_DCE_RX	0x140
-> +			MX8MP_IOMUXC_ECSPI1_MOSI__UART3_DCE_TX	0x140
-> +			MX8MP_IOMUXC_ECSPI1_SS0__UART3_DCE_RTS	0x140
-> +			MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS	0x140
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3: usdhc3grp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x190
-> +			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d0
-> +			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d0
-> +			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d0
-> +			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d0
-> +			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d0
-> +			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d0
-> +			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d0
-> +			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d0
-> +			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d0
-> +			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x190
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x194
-> +			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d4
-> +			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d4
-> +			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d4
-> +			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d4
-> +			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d4
-> +			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d4
-> +			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d4
-> +			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d4
-> +			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d4
-> +			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x194
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-> +		fsl,pins = <
-> +			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x196
-> +			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d6
-> +			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d6
-> +			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d6
-> +			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d6
-> +			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d6
-> +			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d6
-> +			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d6
-> +			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d6
-> +			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d6
-> +			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x196
-> +		>;
-> +	};
-> +};
-> -- 
-> 2.25.1
-> 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+index eeca643fedbe..985963774c00 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+@@ -214,7 +214,7 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy1>;
+ 	bootph-all;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin-dev.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin-dev.dtsi
+index 5c1284b802ad..3d1406acf680 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-verdin-dev.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-verdin-dev.dtsi
+@@ -74,7 +74,7 @@ &cpsw_port1 {
+ /* Verdin ETH_2_RGMII */
+ &cpsw_port2 {
+ 	phy-handle = <&cpsw3g_phy1>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin-ivy.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin-ivy.dtsi
+index 71c29eab0eee..844f59f772e1 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-verdin-ivy.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-verdin-ivy.dtsi
+@@ -268,7 +268,7 @@ &cpsw_port1 {
+ /* Verdin ETH_2_RGMII */
+ &cpsw_port2 {
+ 	phy-handle = <&cpsw3g_phy1>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+index dc4b228a9fd7..2a7242a2fef8 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+@@ -845,7 +845,7 @@ &cpsw3g {
+ /* Verdin ETH_1 (On-module PHY) */
+ &cpsw_port1 {
+ 	phy-handle = <&cpsw3g_phy0>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	status = "disabled";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+index 7028d9835c4a..7b9ae467e95a 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
++++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+@@ -593,7 +593,7 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
+index fe0b98e1d105..7eb9066bff82 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
+@@ -215,8 +215,7 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port2 {
+-	/* PCB provides an internal delay of 2ns */
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy1>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+index b3d012a5a26a..b24a63feeab8 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+@@ -192,7 +192,7 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy1>;
+ 	bootph-all;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index af591fe6ae4f..de850307912c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -731,7 +731,7 @@ &phy_gmii_sel {
+ 
+ &cpsw_port1 {
+ 	status = "okay";
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	bootph-all;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin-dev.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin-dev.dtsi
+index 0679d76f31bd..a0d5b15fc147 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin-dev.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin-dev.dtsi
+@@ -78,7 +78,7 @@ &cpsw_port1 {
+ /* Verdin ETH_2_RGMII */
+ &cpsw_port2 {
+ 	phy-handle = <&carrier_eth_phy>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin-ivy.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin-ivy.dtsi
+index 317c8818f9ee..04f13edcb166 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin-ivy.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin-ivy.dtsi
+@@ -275,7 +275,7 @@ &cpsw_port1 {
+ /* Verdin ETH_2_RGMII */
+ &cpsw_port2 {
+ 	phy-handle = <&carrier_eth_phy>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index 99810047614e..5e050cbb9eaf 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -813,7 +813,7 @@ som_eth_phy: ethernet-phy@0 {
+ /* Verdin ETH_1 (On-module PHY) */
+ &cpsw_port1 {
+ 	phy-handle = <&som_eth_phy>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	status = "disabled";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+index a064a632680e..f04cf2d23d84 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+@@ -541,14 +541,14 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	status = "okay";
+ 	bootph-all;
+ };
+ 
+ &cpsw_port2 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy1>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
+index aab74d6019b0..d6e70ee15938 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
+@@ -291,7 +291,7 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port2 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy3>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+index 58f78c0de292..50ed859ae06c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+@@ -438,7 +438,7 @@ &cpsw3g {
+ 
+ &cpsw_port1 {
+ 	bootph-all;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
+index 02ef1dd92eaa..d64fb81b04e2 100644
+--- a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
+@@ -178,7 +178,7 @@ cpsw3g_phy1: ethernet-phy@1 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy1>;
+ 	bootph-all;
+ 	status = "okay";
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+index 85dcff104936..80c52e06b4ce 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+@@ -579,13 +579,13 @@ &cpsw3g {
+ 
+ &cpsw_port1 {
+ 	bootph-all;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	status = "okay";
+ };
+ 
+ &cpsw_port2 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy3>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-sk.dts b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+index 1fb1b91a1bad..34bfa99bd4b8 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+@@ -499,13 +499,13 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	status = "okay";
+ };
+ 
+ &cpsw_port2 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy1>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
+index 8f64d6272b1b..e5f2f20fdb11 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
+@@ -185,7 +185,7 @@ &cpsw3g {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+index 0c42c486d83a..961287b6a3ed 100644
+--- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+@@ -586,7 +586,7 @@ phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+index b697035df04e..5255e04b9ac7 100644
+--- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
++++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+@@ -249,7 +249,7 @@ cpsw3g_phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts b/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts
+index 41c8f8526e15..edc9f9b12f0e 100644
+--- a/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts
++++ b/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts
+@@ -281,7 +281,7 @@ J721S2_WKUP_IOPAD(0x04c, PIN_OUTPUT, 0) /* (D27) WKUP_UART0_TXD */
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
+index adef02bd8040..911007778bc6 100644
+--- a/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
+@@ -175,7 +175,7 @@ phy1: ethernet-phy@0 {
+ 
+ &main_cpsw_port1 {
+ 	phy-handle = <&phy1>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+index 75a107456ce1..b8400cba832b 100644
+--- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+@@ -705,7 +705,7 @@ phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ 	bootph-all;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+index 5896e57b5b9e..3a870b9b984d 100644
+--- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+@@ -771,7 +771,7 @@ mcu_phy0: ethernet-phy@0 {
+ 
+ &mcu_cpsw_port1 {
+ 	status = "okay";
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&mcu_phy0>;
+ 	bootph-all;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+index f684ce6ad9ad..4608828512d1 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+@@ -334,7 +334,7 @@ phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+index 352fb60e6ce8..2e9455ab0bfa 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+@@ -677,7 +677,7 @@ phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+index 45311438315f..317cd0bfa406 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+@@ -780,7 +780,7 @@ phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-evm-gesi-exp-board.dtso b/arch/arm64/boot/dts/ti/k3-j721e-evm-gesi-exp-board.dtso
+index f84aa9f94547..3bfe6036a8e6 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-evm-gesi-exp-board.dtso
++++ b/arch/arm64/boot/dts/ti/k3-j721e-evm-gesi-exp-board.dtso
+@@ -37,7 +37,7 @@ &rgmii3_default_pins
+ &cpsw0_port1 {
+ 	status = "okay";
+ 	phy-handle = <&cpsw9g_phy12>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	mac-address = [00 00 00 00 00 00];
+ 	phys = <&cpsw0_phy_gmii_sel 1>;
+ };
+@@ -45,7 +45,7 @@ &cpsw0_port1 {
+ &cpsw0_port2 {
+ 	status = "okay";
+ 	phy-handle = <&cpsw9g_phy15>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	mac-address = [00 00 00 00 00 00];
+ 	phys = <&cpsw0_phy_gmii_sel 2>;
+ };
+@@ -53,7 +53,7 @@ &cpsw0_port2 {
+ &cpsw0_port3 {
+ 	status = "okay";
+ 	phy-handle = <&cpsw9g_phy0>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	mac-address = [00 00 00 00 00 00];
+ 	phys = <&cpsw0_phy_gmii_sel 3>;
+ };
+@@ -61,7 +61,7 @@ &cpsw0_port3 {
+ &cpsw0_port4 {
+ 	status = "okay";
+ 	phy-handle = <&cpsw9g_phy3>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	mac-address = [00 00 00 00 00 00];
+ 	phys = <&cpsw0_phy_gmii_sel 4>;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+index 5e5784ef6f85..febbac9262de 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+@@ -1045,7 +1045,7 @@ phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+index 9e43dcff8ef2..24f57f02588f 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+@@ -469,7 +469,7 @@ phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&phy0>;
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-evm-gesi-exp-board.dtso b/arch/arm64/boot/dts/ti/k3-j721s2-evm-gesi-exp-board.dtso
+index 8583178fa1f3..6869a95c6214 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-evm-gesi-exp-board.dtso
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-evm-gesi-exp-board.dtso
+@@ -80,6 +80,6 @@ main_cpsw_phy0: ethernet-phy@0 {
+ 
+ &main_cpsw_port1 {
+ 	status = "okay";
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&main_cpsw_phy0>;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index e0e303da7e15..5e7767e45130 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -388,7 +388,7 @@ cpsw3g_phy0: ethernet-phy@0 {
+ };
+ 
+ &cpsw_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	status = "okay";
+ 	bootph-all;
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+index 419c1a70e028..4221f172779b 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+@@ -920,7 +920,7 @@ mcu_phy0: ethernet-phy@0 {
+ 
+ &mcu_cpsw_port1 {
+ 	status = "okay";
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&mcu_phy0>;
+ };
+ 
+@@ -944,7 +944,7 @@ main_cpsw1_phy0: ethernet-phy@0 {
+ };
+ 
+ &main_cpsw1_port1 {
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&main_cpsw1_phy0>;
+ 	status = "okay";
+ };
+-- 
+2.51.0
 
 
