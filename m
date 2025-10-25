@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE80CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 00:26:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3C1CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 00:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6CiHvIx4iCcyVz9XM+n+OAI2ebsG3UALzSjgEuG0sIw=; b=HXac1hajca0iaOvaROJzqh0/KS
-	CBeIZci7doGFOrVXf+fhVGRdqzJZEJThqo0OJseQBB6AH2qHR65Oo4P2PQOW3cbnNLhnim8B/RSMH
-	k5ERFeNI5jXwv3VGuZpHQ3VjI102RCPwYEWIE41EOcyyIXZ26x2xerTPFLEv8/Ds2LOKNElESRjiy
-	RfDcJurXuR9p0UgGRsrlaxE+jM/Oe/McKUjgch2Xkmwoju0APVAORwmv8HIO8IoZdF6EGVCTASE6Y
-	oQEJcBQe1nhnucmle0+QrV4UL1JXSWKPQATV8biDdPZvKtUF9k8h9j9irlgeULkyiMPmOUUSoL2WG
-	AAfaE1Og==;
+	bh=U5nftmpeMNxILQOhfvmkuo3ny/kYcoPK9w/ov0DMU2I=; b=a3bzUjq3I56JyszYlqJv9UdbR5
+	chfmwOtp2UDp+4dirBvnNQni2BUcteFH/rEo8IHapHCHQ5ncww0xc8olmyDumj/Ck7DOsZdMVJOSD
+	g9QSxfaicIKGUGUNl5UNy0No/AMd8WqVoLTb2TX31EU6I5Mo2V9k/4T/k9hd5qvCTCGFUJvyughM9
+	+0jGeRjHJgDeBlwCPAxHXYCbHPNgKVTfj+hk6oXo00UHnuRm/akC3WcS2uVm/4adAXIh43o9Q+OPe
+	gzvay1GfuxgHZqw/RCrqQDVy8B/nycgf8FmbRGT7Tkaja411Q9BO7AlQZZTd2qO/4Sw2+oFhuGMJj
+	PXQhY6zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCS6i-0000000AjG3-27bT;
-	Sat, 25 Oct 2025 00:26:08 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vCS6s-0000000AjP0-43Gn;
+	Sat, 25 Oct 2025 00:26:18 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCS6d-0000000AjBA-2fTC
+	id 1vCS6l-0000000AjIS-0fur
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 00:26:07 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-26a0a694ea8so19347845ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 17:26:03 -0700 (PDT)
+	Sat, 25 Oct 2025 00:26:17 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-292fd52d527so28777065ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 17:26:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761351963; x=1761956763; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761351970; x=1761956770; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6CiHvIx4iCcyVz9XM+n+OAI2ebsG3UALzSjgEuG0sIw=;
-        b=fmAQJcO5/W8bseDnMsV0DlJ5u0QAw4EEbn6ORsiSKKG1MlgZF3lPCml831RHO6WzwD
-         1TGPVrGVHMryoXuS/+dplC0b/qfjxFqqXX2WOA4S9oCGvhvEVKHIqkg6Ouh5aJLcP3zn
-         /Z9kL9BsoX8nKjvuOizsBDyVFLf4tH8Ps0tuWcE8GBns/WaQsJmjZuW+TPkPxc2ncZLV
-         Yz8xd4Is8SXJ5wyE+IBeq4kXaFsqttJP10+YrvMkflEIBz6kZZKF90/I/biF8iehljkA
-         hoGtSJqiGV+lGBxxhpZMT7Uvjgt3U/5dZL0RxbegqJt2nKlZS7U2pWGRKwyRjDV9dOnd
-         lUcQ==
+        bh=U5nftmpeMNxILQOhfvmkuo3ny/kYcoPK9w/ov0DMU2I=;
+        b=fyunUheCVUmZ+Y12hpZjH8Tl5kvbsaj9dpppdGLP3PxcjTz57ukxJDdFTA1XPGhYPL
+         aynqW8xzLvMrvYvt1e/7Fa+ZMp13JaH4PnCnQGBuJcsCt0epyl2wHSfespdb8vOCQxP9
+         qy7zZcq0YQgcBvK6fZ3lXnbbtif7dRLPtO6EFvdUPtRsdIpzr5R1TEelpJMb5OqgWayw
+         3Rp2iCoTSl0DZL2AkiKkRpOqEmpmpy0BNvz+mmlCSLJWrBb1KXKB/wsMdXTn/MUGB8ut
+         3KgCvOmpeyssKWQzW8+pC+G7m+gKb0aMW7NcDxM2F4tWFP29B50oQBzf5VsrLFZenvQ5
+         yGGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761351963; x=1761956763;
+        d=1e100.net; s=20230601; t=1761351970; x=1761956770;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6CiHvIx4iCcyVz9XM+n+OAI2ebsG3UALzSjgEuG0sIw=;
-        b=dW2dTKOb9pIHsYVZwWF6TXnGfy/+tA+3dskrhG7nUKxWTwiFJa18eresvebWDTIOMJ
-         4denOnM59QBdQc3iOMprBWn/dz0UOmbaEmgaSQYzYilsC0xzS65K/I7k2qWEq6Uvcgq0
-         15ht2OyTx5qJJ/GYyDi2f+NFiJD1ew8DYvKHryyp3nxRpj3Z7nbTVbvBzcnxl4pts8IN
-         RF3rZG4DRIlwHO6QSMVMLorp12XkDfWPHOBVdaKWPEIpf+BQpGyoBMfxXWuIOXXErm1c
-         9XbrKnDnheGSjdWkcZyR0YoKwbnzIci2cnRn7msl+fXsyGKIzd3PCigIQs+PoDihYKqZ
-         OzHg==
-X-Forwarded-Encrypted: i=1; AJvYcCVK6KYRdbmjiD2shlabqR3t31tPaOST0L5DInw+aaLrzt1UNQ0WTCpmF8ZzOrLWMT2az974nW7G94hmyHPAIPnq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHdE6TnT00ioFWehra+tmUMHmjUJTo4qTPE0i/bsLd6gu5tj9R
-	zIGX4xIiQlOoVvTmz1J157JmAIImFroEEh0r7djeg4uk4gjKU5QiKWHy
-X-Gm-Gg: ASbGncvYKxd9ojfdvokZ1+LYIgEh7I2vFxobwpFc6XgM8DxSPgp3lydBksyawKhSeKv
-	0F0FbTrdoOefZo0fA085SD+hUoPJHFLYA88pdCZuJrZP/tupTEUPlBuKc8/uk/CIFPK8741Ujc9
-	8F8Mw3QpdvTTzZUCl4vrbj+QiCzLqIvbHQKMjc21EF+EZ/ok+F3ZDtUzneSbsjSJvQd/pADQrpK
-	/3v9w5qIHo3soDWlafjzRCo5qY+Qzvc6NwhehmRHrwa84xO97Q2JVOZIIQpieuICCJA9sqLjC4V
-	bQWgqPdqZALug7mYAZQL1ZoWfXQa2tJpF1Pr08hoXxKTS3W2EJtSS1kKogGw6HxEu1xqCe0+ryX
-	Pj7IpUJbyP1eN1quAHp+/2e6e5p7nRyyOwF6U8VpzNzJq9nkG344gRNeDVbJPVzUY/LY2NrlNmj
-	wbXGdeSMA6i9ksvsz76bXC646McflJX98vi0eITaBGZE+xj6u298yx3BtWOMdt1c+llve1u81bU
-	TQV1nRq1ZVHmp04CsfGMj1DB2QNDvYSiHO+ynEAoqdiucZzgyUfbg==
-X-Google-Smtp-Source: AGHT+IHSa7MdO+RyudQ13l7ZBDW5YjuDQoXfBKNGzygwW/8ijBbpH54bUrATc3DfIp5eGwuXkgv2HQ==
-X-Received: by 2002:a17:902:fc44:b0:26d:58d6:3fb2 with SMTP id d9443c01a7336-290c9c89697mr387774495ad.12.1761351962920;
-        Fri, 24 Oct 2025 17:26:02 -0700 (PDT)
+        bh=U5nftmpeMNxILQOhfvmkuo3ny/kYcoPK9w/ov0DMU2I=;
+        b=TDfT/ekMZD/jrWaIvpQOSysIDrbbvvVUIkwLc6rGMbdljIo6n+5hCu+vXMXR21OgjS
+         5FBeJ8XTZ6leEduWllJL3SCQrPqG/9SmquFfFsH4IbA6eE96py4p66IaldKk4lK4XWST
+         DTCmgiZcLRJnKQ+2QcSPk7jrRypAMN8XsXauZF12cvzx/xO4q3dkRHYkktDoVnUCikic
+         otLElrz54J1NbLb91r0asbkmAzbxhRI8Qh96i8uQ0qiXBotdWv+zZCOuTmCtuHC9WyZX
+         7xab+WgFTtQ+g9N4Xgs0FYXdSeKkUvUR0hMeejw/T0UotfUNemH7oe1Wxm13dIxvLVuW
+         uVPw==
+X-Forwarded-Encrypted: i=1; AJvYcCX//SUXN4slNPmMffdFptAJpDCRrJXX7v3aLSdvPoRCghY64NSTU0fF5o8J1Tys+XzaJkVPWBbnc3bxL/SaTQpt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyupZ4Dd7JRaCH2Rh+6Jczfq3NjKYmL2HTAb+TjaSBEMenDhVUE
+	Id1m81MWq8NP3+C33JrHfxlH2KxgFYtHE9WjZaYQLgeYfz0s2In4vLat
+X-Gm-Gg: ASbGncvRUXTBlz5kgucoIF667HTfA6YHFCj+uk/Zx7xHgGNOMwE5cKKMc+rVAWej05M
+	Jx01P3EgKmQtOvWr+lvbcUwq+UbRbZmo69DQMEQShoHDYMkgub+hODYAf7Orz+FXEaZo9Oh0ver
+	osizJ7iFEUrne3fXRgzxDM7iW3tjZEcOjBObQ4qEHlbLafetxs2Q4hViEGFTXLqC1u+j5H/qAwE
+	8NuCdEeEQ8SWrwMcPcm5xZ91+lqKQYmqabgMj1U55sIcO7D2aCzggN8+atHTXyYhSbRT6cTASbg
+	O4UpGinaA16VZMJXak4kiQy4mKosspzLVEMH8bBcMuUcxcELOFscnQIw/2TICvZm/Xqz3qXYW+n
+	ySOaCpNZRRJv6qKZvgc5A+gcj50awtqnSkuk+62e2/xOUv05T91mkBrukjA4c7yvp4WEeGGZNzw
+	2K18j1+QYjz9ru6T0tDBZ2DNTarORHYO8Fm3DvPQWLFzJhFrrhwgcZE5GAzRXioK56f+A2Uf1Nl
+	XtEY63opkghxfiQNKBT7Eb8frxsKNqT2QWWoxULBie9gj/74NajOg==
+X-Google-Smtp-Source: AGHT+IE8KakcB5GHMGG8ECARmltmRt3k8h0a0+JIbETOJrnh8ND1oGT/dCjWnKYo35ORe4+xL9/X1A==
+X-Received: by 2002:a17:902:db05:b0:269:8f0c:4d86 with SMTP id d9443c01a7336-2948ba5b73cmr48845065ad.53.1761351970277;
+        Fri, 24 Oct 2025 17:26:10 -0700 (PDT)
 Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf3f4asm4728885ad.11.2025.10.24.17.25.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf3f4asm4728885ad.11.2025.10.24.17.26.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 17:26:02 -0700 (PDT)
+        Fri, 24 Oct 2025 17:26:10 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sat, 25 Oct 2025 10:24:40 +1000
-Subject: [PATCH v4 09/11] mfd: macsmc: Wire up Apple SMC input subdevice
+Date: Sat, 25 Oct 2025 10:24:41 +1000
+Subject: [PATCH v4 10/11] arm64: dts: apple: t8103,t60xx,t8112: Add SMC RTC
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251025-macsmc-subdevs-v4-9-374d5c9eba0e@gmail.com>
+Message-Id: <20251025-macsmc-subdevs-v4-10-374d5c9eba0e@gmail.com>
 References: <20251025-macsmc-subdevs-v4-0-374d5c9eba0e@gmail.com>
 In-Reply-To: <20251025-macsmc-subdevs-v4-0-374d5c9eba0e@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -95,18 +96,19 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
  linux-input@vger.kernel.org, linux-doc@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=737;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2689;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=9CvGSj3k52YgdYK4J0MHeIq2HkIZQxGeUJahNJ19td0=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDBl/JM4d3hJqcNPewfPwlleiK7fkXZLhtVltl2i2UGbKY
- wMxq6iQjoksDGJcDJZiiiwbmoQ8Zhux3ewXqdwLM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
- GuoY6xgxcHEKwFQ32DP8D1tQvEl5SoUQr3Tpeel9LQEufdveGjjeWpK55erOQgadQ4wMBy1+6wZ
- LhiSptYttjWV5voFZ8fr10xZCNt+PsEww+B/ACgA=
+ bh=2GQnZlbwDgkFgLSJTTlkgGVtMUC2q8Y46wlmJNb88ZA=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDBl/JM59fOHE8XGD1q5TTvfe1J0p3i1UNPndGn9/d7OLU
+ d1ZTR9rOyayMIhxMViKKbJsaBLymG3EdrNfpHIvzBxWJpAh0iINDEDAwsCXm5hXaqRjpGeqbahn
+ aKhjrGPEwMUpAFNteIiRYdmlmbkMnxU871/kSnOszjRcPnf5/0tbq3w+nJg8l2vSeQ1Ghlvlif/
+ yF+yz+2l6ZbLx3N8bhLcfEPusO+nlav2A3Ss3neQHAA==
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_172603_728218_01DBDA5B 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20251024_172611_233986_BCD69048 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,26 +123,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the new SMC input function to the mfd device
+From: Sven Peter <sven@kernel.org>
+
+The System Manager Controller of all M1/M2 SoCs supports the RTC
+sub-device.
 
 Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Sven Peter <sven@kernel.org>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- drivers/mfd/macsmc.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../arm64/boot/dts/apple/t600x-die0.dtsi | 6 ++++++
+ .../arm64/boot/dts/apple/t602x-die0.dtsi | 6 ++++++
+ arch/arm64/boot/dts/apple/t8103.dtsi     | 6 ++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi     | 6 ++++++
+ 4 files changed, 24 insertions(+)
 
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index 51dd667d3b5f..3b69eb6d032a 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -45,6 +45,7 @@
- #define SMC_TIMEOUT_MS		500
+diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+index 3603b276a2ab..f715b19efd16 100644
+--- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+@@ -44,6 +44,12 @@ smc_reboot: reboot {
+ 			nvmem-cell-names = "shutdown_flag", "boot_stage",
+ 				"boot_error_count", "panic_count";
+ 		};
++
++		rtc {
++			compatible = "apple,smc-rtc";
++			nvmem-cells = <&rtc_offset>;
++			nvmem-cell-names = "rtc_offset";
++		};
+ 	};
  
- static const struct mfd_cell apple_smc_devs[] = {
-+	MFD_CELL_NAME("macsmc-input"),
- 	MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
- 	MFD_CELL_OF("macsmc-hwmon", NULL, NULL, 0, 0, "apple,smc-hwmon"),
- 	MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
+ 	smc_mbox: mbox@290408000 {
+diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
+index 2e7d2bf08ddc..8622ddea7b44 100644
+--- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
++++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
+@@ -121,6 +121,12 @@ smc_reboot: reboot {
+ 			nvmem-cell-names = "shutdown_flag", "boot_stage",
+ 				"boot_error_count", "panic_count";
+ 		};
++
++		rtc {
++			compatible = "apple,smc-rtc";
++			nvmem-cells = <&rtc_offset>;
++			nvmem-cell-names = "rtc_offset";
++		};
+ 	};
+ 
+ 	pinctrl_smc: pinctrl@2a2820000 {
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index 8b7b27887968..59f2678639cf 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -916,6 +916,12 @@ smc_reboot: reboot {
+ 				nvmem-cell-names = "shutdown_flag", "boot_stage",
+ 					"boot_error_count", "panic_count";
+ 			};
++
++			rtc {
++				compatible = "apple,smc-rtc";
++				nvmem-cells = <&rtc_offset>;
++				nvmem-cell-names = "rtc_offset";
++			};
+ 		};
+ 
+ 		smc_mbox: mbox@23e408000 {
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index 3f79878b25af..6bc3f58b06f7 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -919,6 +919,12 @@ smc_reboot: reboot {
+ 				nvmem-cell-names = "shutdown_flag", "boot_stage",
+ 					"boot_error_count", "panic_count";
+ 			};
++
++			rtc {
++				compatible = "apple,smc-rtc";
++				nvmem-cells = <&rtc_offset>;
++				nvmem-cell-names = "rtc_offset";
++			};
+ 		};
+ 
+ 		smc_mbox: mbox@23e408000 {
 
 -- 
 2.51.0
