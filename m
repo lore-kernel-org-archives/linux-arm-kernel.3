@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77ABCCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 20:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1263DCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 21:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/N/oLqkGW3BMgjpSmw/8uAUR56fVILDSc5y0jXf1qy0=; b=U/i8OWlySOrkUo+IzwAASQurwp
-	l2Xc3F17WSkBf8gXifW5oQIvxWqTTJnC1y0DtuSwBRjNQTFhGl1uvecdzenk8e8c7gB6OTxpL2WmS
-	kQjei+KTtmZHEtONL9u992G/Pa9lxg5hOfkRMo+CnLvuFWYQLMJDdaTCktza2CiYldrtvjFpo3bBP
-	6FPo5YW3XSgzKkPZsMRovdcCvSF0qw+hk552qeI5jAbE8pNimbm8Fwsx7VTZq/0hNzjYTCrGOQvFQ
-	AMeD5zLu5l9Q+hyc0zGn+MVqFzdrGqKopi6D3dK64f0rzUVJMMw/aju3YRTGT80utCTcahHMjsPxd
-	Jf7Taj/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UPmSx/rC/bLVWOw7yLLlRYHnQQ8/QE5D94ipJ1ensxQ=; b=c8fkXJeDJuZvTddFkIhvqun20B
+	Utk852D0hfhGncMigd3QdpnhGpVzQGVBl8V0I/7wyWt54AV23v3pPO5ffTH8QUiUSaix3h48D72qh
+	QXedNcbRvyvpjmZz4m4H2rPUCUhbWcaWLp3TIyb3apWo6bo/9RhEJaXm077lpe7ZIsrC+jcEm+xxs
+	kPoPWuO8UBOgk/j2/VNNO7YlCiw3r5y/ynHG5xuSrqjoLzw8qQqLAa4SeNIhQRE8WuXLy1gyJkHBa
+	K8OSFJVYyXYgyvMHsYDgsvA5QPsYPcBTL2M+A7R/XjrE/9wTSwm94u531sC+0ZYb37uV/m4+83UzX
+	YUeLV2bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vClGu-0000000BkKp-02rp;
-	Sat, 25 Oct 2025 20:53:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vClQ8-0000000BktK-066R;
+	Sat, 25 Oct 2025 21:03:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vClGp-0000000BkIb-1NLo
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 20:53:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA291602EB;
-	Sat, 25 Oct 2025 20:53:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6576AC4CEFB;
-	Sat, 25 Oct 2025 20:53:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761425630;
-	bh=Mat9VxZHBL0yR1NJE0Sr7s9tFOz/Ujx/ASRcrsLo2u4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DzboqHNR6b7YAK/AUFIyjPlywlnGFoSVpIJamZ9O5dnKDJg8Imsrvq7i7iInHUJlC
-	 YuokKw1U2HEcROCUm2Jk/L4o65LXzgoFCXxpetdbAWeICJ01FujcA0wr6ZVJTMbHG3
-	 Muu2VovKrAV6hjuQSCLmfzU9tXwfuiG0nZsaBm0kdz300LONEUlvacAnqSMCgi0Q+s
-	 M/ChilFU/ewTw529F/2z8UEEldjxkze9lzkGOII6ExkIqFYE+tGmBjgRwEla+nkwXB
-	 XQWP3pThD1esuOMry27jV9gPBoSU0cAM1pq85WyXg++E3Ymk3ndg1smOSnUHRydYt/
-	 7yO6yHGiMtUMQ==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Sat, 25 Oct 2025 21:53:20 +0100
-Subject: [PATCH 3/3] libeth: xdp: Disable generic kCFI pass for
- libeth_xdp_tx_xmit_bulk()
+	id 1vClQ5-0000000Bksq-1ass;
+	Sat, 25 Oct 2025 21:03:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=UPmSx/rC/bLVWOw7yLLlRYHnQQ8/QE5D94ipJ1ensxQ=; b=YEASFOKREVuSgjHgpy0Y2dRBS3
+	s82bVK4joK0JDK3UxqW/p4Y+wOnrE1Z/gZ1xovq/jEE/iWp2erD6477NYCnkHkJhntAkS7Xt/sWMk
+	eqxQiHLMv5qgMYH3W+UKGZo9GMivQN0gpIxjon1UaOBTeHvm0QeoPdAbfILHltsECucUdEzwREHmg
+	j8wL8BOvlHlTE8ksd5mOq1Wej4mYpIPWPCaeVhwgjWdwSx2nGgrJKXr82Txtqu955ouA+BaqOcdcf
+	ZsCwQgQqzoBHmD2rGpH8r/7GmVwM6Q+SssAZ6LxkeYciepqmsKAMgMjs0a0EiDppethbe3IHQ/XSC
+	MKArByuA==;
+Received: from i53875aba.versanet.de ([83.135.90.186] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vClPs-0005MZ-EF; Sat, 25 Oct 2025 23:03:12 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
+ Jonas Karlman <jonas@kwiboo.se>, Coia Prant <coiaprant@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Coia Prant <coiaprant@gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add devicetree for the X3568 v4
+Date: Sat, 25 Oct 2025 23:03:11 +0200
+Message-ID: <2940731.88bMQJbFj6@phil>
+In-Reply-To: <20251025203711.3859240-1-coiaprant@gmail.com>
+References: <20251025203711.3859240-1-coiaprant@gmail.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251025-idpf-fix-arm-kcfi-build-error-v1-3-ec57221153ae@kernel.org>
-References: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
-In-Reply-To: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
-To: Kees Cook <kees@kernel.org>, 
- Alexander Lobakin <aleksander.lobakin@intel.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Sami Tolvanen <samitolvanen@google.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Tony Nguyen <anthony.l.nguyen@intel.com>, 
- Michal Kubiak <michal.kubiak@intel.com>, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2425; i=nathan@kernel.org;
- h=from:subject:message-id; bh=Mat9VxZHBL0yR1NJE0Sr7s9tFOz/Ujx/ASRcrsLo2u4=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDBl/Lc4s8byy2+zW+2tnI17aCb7y78nm1vC4yCC7xrr22
- K2NnbP9O0pZGMS4GGTFFFmqH6seNzScc5bxxqlJMHNYmUCGMHBxCsBEVt9h+B/6c9+7XWH/52jz
- y2bfy3zF/i3juG9i2YSqQJGdfM58/uyMDMt92Iu7Ah++Mld6tpGp2/hLEPse18vWllvakzwfrHT
- U4AUA
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251025_140325_444998_DB24F0C7 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,61 +72,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building drivers/net/ethernet/intel/idpf/xsk.c for ARCH=arm with
-CONFIG_CFI=y using a version of LLVM prior to 22.0.0, there is a
-BUILD_BUG_ON failure:
+Hi,
 
-  $ cat arch/arm/configs/repro.config
-  CONFIG_BPF_SYSCALL=y
-  CONFIG_CFI=y
-  CONFIG_IDPF=y
-  CONFIG_XDP_SOCKETS=y
+general comments, I haven't disected the devicetrees yet.
 
-  $ make -skj"$(nproc)" ARCH=arm LLVM=1 clean defconfig repro.config drivers/net/ethernet/intel/idpf/xsk.o
-  In file included from drivers/net/ethernet/intel/idpf/xsk.c:4:
-  include/net/libeth/xsk.h:205:2: error: call to '__compiletime_assert_728' declared with 'error' attribute: BUILD_BUG_ON failed: !__builtin_constant_p(tmo == libeth_xsktmo)
-    205 |         BUILD_BUG_ON(!__builtin_constant_p(tmo == libeth_xsktmo));
-        |         ^
-  ...
 
-libeth_xdp_tx_xmit_bulk() indirectly calls libeth_xsk_xmit_fill_buf()
-but these functions are marked as __always_inline so that the compiler
-can turn these indirect calls into direct ones and see that the tmo
-parameter to __libeth_xsk_xmit_fill_buf_md() is ultimately libeth_xsktmo
-from idpf_xsk_xmit().
+Am Samstag, 25. Oktober 2025, 22:37:11 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Coia Prant:
 
-Unfortunately, the generic kCFI pass in LLVM expands the kCFI bundles
-from the indirect calls in libeth_xdp_tx_xmit_bulk() in such a way that
-later optimizations cannot turn these calls into direct ones, making the
-BUILD_BUG_ON fail because it cannot be proved at compile time that tmo
-is libeth_xsktmo.
+Please also provide some description what type of board this is,
+not just a list of specs
 
-Disable the generic kCFI pass for libeth_xdp_tx_xmit_bulk() to ensure
-these indirect calls can always be turned into direct calls to avoid
-this error.
+> Specification:
+> - SoC: RockChip RK3568 ARM64 (4 cores)
+> - eMMC: 16-128 GB
+> - RAM: 2-8 GB
+> - Power: DC 12V 2A
+> - Ethernet: 2x YT8521SC RGMII (10/100/1000 Mbps)
+> - Wireless radio: 802.11b/g/n/ac/ax dual-band
+> - LED:
+>   Power: AlwaysOn
+>   User: GPIO
+> - Button:
+>   VOL+: SARADC/0 <35k =C2=B5V>
+>   VOL-: SARADC/0 <450k =C2=B5V>
+>   Power/Reset: PMIC RK809
+> - CAN
+>   CAN/1: 4-pin (PH 2.0)
+> - PWM
+>   PWM/4: Backlight DSI/0 DSI/1
+>   PWM/7: IR Receiver [may not install]
+> - UART:
+>   UART/2: Debug TTL - 1500000 8N1 (1.25mm)
+>   UART/3: TTL (PH 2.0)
+>   UART/4: TTL (PH 2.0)
+>   UART/8: AP6275S Bluetooth
+>   UART/9: TTL (PH 2.0)
+> - I2C:
+>   I2C/0: PMIC RK809
+>   I2C/1: Touchscreen DSI/0 DSI/1
+>   I2C/4: Camera
+>   I2C/5: RTC@51 PCF8563
+> - I2S:
+>   I2S/0: miniHDMI Sound
+>   I2S/1: RK809 Audio Codec
+>   I2S/3: AP6275S Bluetooth Sound
+> - SDMMC:
+>   SDMMC/0: microSD (TF) slot
+>   SDMMC/2: AP6275S SDIO WiFi card
+> - Camera: 1x CSI
+> - Video: miniHDMI / DSI0 (MIPI/LVDS) / DSI1 (MIPI/EDP)
+> - Audio: miniHDMI / MIC on-board / Speaker / SPDIF / 3.5mm Headphones / A=
+P6275S Bluetooth
+> - USB:
+>   USB 2.0 HOST x2
+>   USB 2.0 HOST x3 (4-pin)
+>   USB 2.0 OTG x1 (shared with USB 3.0 OTG/HOST) [slot may not install]
+>   USB 3.0 HOST x1
+>   USB 3.0 OTG/HOST x1
+> - SATA: 1x SATA 3.0 with Power/4-pin [slot may not install]
+> - PCIe: 1x PCIe 3.0 x2 (x4 connecter) [clock/slot may not install]
+>=20
+> Link:
+> - https://appletsapi.52solution.com/media/X3568V4%E5%BC%80%E5%8F%91%E6%9D=
+%BF%E7%A1%AC%E4%BB%B6%E6%89%8B%E5%86%8C.pdf
+> - https://blog.gov.cooking/archives/research-ninetripod-x3568-v4-and-flas=
+h.html
 
-Closes: https://github.com/ClangBuiltLinux/linux/issues/2124
-Fixes: 9705d6552f58 ("idpf: implement Rx path for AF_XDP")
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- include/net/libeth/xdp.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+2nd link ends in a 404 error, page not found
 
-diff --git a/include/net/libeth/xdp.h b/include/net/libeth/xdp.h
-index bc3507edd589..898723ab62e8 100644
---- a/include/net/libeth/xdp.h
-+++ b/include/net/libeth/xdp.h
-@@ -513,7 +513,7 @@ struct libeth_xdp_tx_desc {
-  * can't fail, but can send less frames if there's no enough free descriptors
-  * available. The actual free space is returned by @prep from the driver.
-  */
--static __always_inline u32
-+static __always_inline __nocfi_generic u32
- libeth_xdp_tx_xmit_bulk(const struct libeth_xdp_tx_frame *bulk, void *xdpsq,
- 			u32 n, bool unroll, u64 priv,
- 			u32 (*prep)(void *xdpsq, struct libeth_xdpsq *sq),
 
--- 
-2.51.1
+> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> Tested-by: Coia Prant <coiaprant@gmail.com>
+
+
+When you submit a patch, we expect you to have tested it, so tere
+is no need to have a separate tested-by line :-) .
+
+
+> ---
+>  arch/arm64/boot/dts/rockchip/Makefile         |  11 +
+>  .../rockchip/rk3568-x3568-camera-demo.dtso    |  82 ++
+>  .../boot/dts/rockchip/rk3568-x3568-v4.dts     | 884 ++++++++++++++++++
+>  .../dts/rockchip/rk3568-x3568-video-demo.dtso | 141 +++
+
+please name your boards including the ninetree name, because x3568 is way
+too generic, so
+rk3568-ninetree-x3568 .....
+
+Additionally, from that PDF above, it seems this is a system-on-module?
+X3568CV2 + baseboard? If so, please split this into a dtsi + dts.
+See all the other system-on-modules for reference.
+
+Additionally, you'll need to have a 2nd patch to add the board to
+Documentation/devicetree/bindings/arm/rockchip.yaml
+
+And also possily a 3rd patch to add ninetree to
+Documentation/devicetree/bindings/vendor-prefixes.yaml
+
+
+Heiko
+
 
 
