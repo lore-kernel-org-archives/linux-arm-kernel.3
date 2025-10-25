@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32640CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 07:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4B8CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 08:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RbdeyP+eDVCA00Q0ivESHkryAn8CRzx/dtn5+VRV56o=; b=HEdq+b2BokEoUis9Fg9OUiMBcP
-	GJH2N8VCmoVIAO9Gq1IAGjKnZPtSvZVcaN6OYo8g3kQlr6eYwi8wnvBfIs5tNrtm33KUi/DBsXS60
-	xc53cNSxP9HvdzHCj/FsLbvm70U0b3U0eL9uVBOUeZdv34J+MZ1ljJsv4W9Hloz6gVCI33UtDsw4D
-	r1JUqvO3QT8ihcVXGT7RGBAwNEF5pTVDIKBdjM1DQ9CJYPPq14gKk+oFd8PAMwzwKIdDWBvjmg7Xv
-	gnTyinZBHTYL0EMToc0ZM0O0HeN+uyyEiAhK77WF/SWsPf0RTTo5Q5t/NUHgVcazvZat67Oh3h1wB
-	1aDfb9yg==;
+	bh=DiTcJgJML7VPWotE97Q4MxQQlpiwpQepFZOTkMMNb1w=; b=p64NrgO3idERWXLkqnp/EPZ6cr
+	Yeqy4ZhoJ/CfMSdjUsclIIL7emZu2sNwqrTaCZHcWy9kd2XPefs7eZsX2cJodTTGnor43YIwiSzzo
+	fRh1xB1JK0ec/DlhXcPojNgObGEkwKeqZdw69JhqOmYfOoUsQuDkeTcyB5SD7FYmHPvlx+ZGmfFMw
+	PA4Jbtvog1JxkfUNDLKfYm1o5ceGSKZ++WiWmQpLqFkmcJjN4gFfL9GRib4TiUCWVK3W+eSDWHEoO
+	TIJPckA9Pxgc9jyKrkJy6jAxc9/1or1ExlHx6+2D//tJFO1OZ8AcEZVGx06V0vkRAh/sb8knkE4T2
+	Lk4EHCQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCZ3M-0000000B660-0DLU;
-	Sat, 25 Oct 2025 07:51:08 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1vCZEr-0000000B6iE-4Bub;
+	Sat, 25 Oct 2025 08:03:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCZ3J-0000000B65e-41OT
+	id 1vCZEp-0000000B6hN-1yyg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 07:51:07 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59P7owZm2039353;
-	Sat, 25 Oct 2025 02:50:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1761378658;
-	bh=RbdeyP+eDVCA00Q0ivESHkryAn8CRzx/dtn5+VRV56o=;
-	h=Subject:From:To:CC:Date:In-Reply-To:References;
-	b=TrVOj+BH9xRNybAjg8fw4lwtU/K9UAAE3YIutcuI8xne/E8EjESIWlft8NvYT4iLf
-	 UxBKSqY9ysRpeRtVMv7rBu5NFafRtqMhP66CetvpCxdBNJAFZm/aTOgiaibDrMV0ec
-	 8sJ72sFqVMztFZyXr5yByHwYg8W+9n7F8N/aNRzE=
-Received: from DLEE203.ent.ti.com (dlee203.ent.ti.com [157.170.170.78])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59P7oviI239962
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 25 Oct 2025 02:50:57 -0500
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 25 Oct
- 2025 02:50:57 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sat, 25 Oct 2025 02:50:57 -0500
-Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59P7orDT1595972;
-	Sat, 25 Oct 2025 02:50:54 -0500
-Message-ID: <e6f4f3c93cfc2f18c36da10d3f86c1a50ab2bbf5.camel@ti.com>
-Subject: Re: [PATCH v2 1/2] PCI: j721e: Use devm_clk_get_optional_enabled()
- to get the clock
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Anand Moon <linux.amoon@gmail.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>,
-        Lorenzo Pieralisi
-	<lpieralisi@kernel.org>,
-        Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=
-	<kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        "Rob
- Herring" <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        "open
- list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>,
-        "open
- list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>,
-        "moderated
- list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>,
-        open list <linux-kernel@vger.kernel.org>,
-        Markus Elfring
-	<Markus.Elfring@web.de>,
-        Dan Carpenter <dan.carpenter@linaro.org>,
-        Siddharth
- Vadapalli <s-vadapalli@ti.com>
-Date: Sat, 25 Oct 2025 13:21:03 +0530
-In-Reply-To: <20251025074336.26743-2-linux.amoon@gmail.com>
-References: <20251025074336.26743-1-linux.amoon@gmail.com>
-	 <20251025074336.26743-2-linux.amoon@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	Sat, 25 Oct 2025 08:03:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DiTcJgJML7VPWotE97Q4MxQQlpiwpQepFZOTkMMNb1w=; b=l1fpE7eNDN2Pio1MCdPSCLkAQq
+	IqiddzouUUi+vK/4ATK6jSRXOuBhK4+IxdbhyjzslRPAOc5MrxM5kBBrK2IKdBJXX9CV1i58mxy0F
+	mJQAddngLfempOQS1thJHdfCr3LPasqIvdT2EmI19meX+dMAd3Pm1xvLge6sg2LSjhmuEm+bGnAjc
+	x5Q0IRoumx6GNBj6hJhIN6N9WAtch3jgY9jw0fGUtxYN4Gs3Av9NclVjzsPZytRW6AzbQKYIxvmGo
+	JuIEDi4KXIKsKKK0o5ONByXkO/3Go4Kby0H5Gtqld5zDiqjDCMHh2tUDUSvWY0LeTP+NWwtlGODqr
+	wU7Bo2Ig==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47732)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vCZEh-000000008P1-2JUj;
+	Sat, 25 Oct 2025 09:02:51 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vCZEe-000000003Vi-1fyn;
+	Sat, 25 Oct 2025 09:02:48 +0100
+Date: Sat, 25 Oct 2025 09:02:48 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 1/2] net: stmmac: add stmmac_mac_irq_modify()
+Message-ID: <aPyEKGCeXwnsn4OC@shell.armlinux.org.uk>
+References: <aPn5YVeUcWo4CW3c@shell.armlinux.org.uk>
+ <E1vBrtk-0000000BMYm-3CV5@rmk-PC.armlinux.org.uk>
+ <20251024190159.60f897e5@kernel.org>
 MIME-Version: 1.0
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251024190159.60f897e5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_005106_093371_9AECE560 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20251025_010259_533799_0AE8EC57 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,51 +87,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2025-10-25 at 13:13 +0530, Anand Moon wrote:
-> Use devm_clk_get_optional_enabled() helper instead of calling
-> devm_clk_get_optional() and then clk_prepare_enable(). It simplifies
-> the clk_prepare_enable() and clk_disable_unprepare() with proper error
-> handling and makes the code more compact.
-> The result of devm_clk_get_optional_enabled() is now assigned directly
-> to pcie->refclk. This removes a superfluous local clk variable,
-> improving code readability and compactness. The functionality
-> remains unchanged, but the code is now more streamlined.
->=20
-> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
-> v2: Rephase the commit message and use proper error pointer
->     PTR_ERR(pcie->refclk) to return error.
-> v1: Drop explicit clk_disable_unprepare as it handled by
->     devm_clk_get_optional_enabled, Since devm_clk_get_optional_enabled
->     internally manages clk_prepare_enable and clk_disable_unprepare
->     as part of its lifecycle, the explicit call to clk_disable_unprepare
->     is redundant and can be safely removed.
-> ---
->  drivers/pci/controller/cadence/pci-j721e.c | 21 +++++----------------
->  1 file changed, 5 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/con=
-troller/cadence/pci-j721e.c
-> index 5bc5ab20aa6d..b678f7d48206 100644
-> --- a/drivers/pci/controller/cadence/pci-j721e.c
-> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+On Fri, Oct 24, 2025 at 07:01:59PM -0700, Jakub Kicinski wrote:
+> On Thu, 23 Oct 2025 10:46:20 +0100 Russell King (Oracle) wrote:
+> > Add a function to allow interrupts to be enabled and disabled in a
+> > core independent manner.
+> 
+> Sorry for a general question but I'm curious why stick to the callback
+> format this driver insists on. Looks like we could get away with
+> parameterizing the code with the register offset via the priv structure.
 
-[TRIMMED]
+Not quite - some cores, it's a mask (bits need to be set to be disabled).
+Other cores, it's an enable (bits need to be set to enable). So one
+can't get away with just "this is where the register is", it would need
+three pieces of information - register offset, type of regster (mask or
+enable) and then a core specific bitmask.
 
-> @@ -692,7 +682,6 @@ static int j721e_pcie_suspend_noirq(struct device *de=
-v)
-> =20
->  	if (pcie->mode =3D=3D PCI_MODE_RC) {
->  		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
-> -		clk_disable_unprepare(pcie->refclk);
+> Mostly curious. Personally, I'm always annoyed having to dig thru the
+> indirections in this driver.
 
-j721e_pcie_resume_noirq() contains clk_enable_prepare().
+Me too, especially when it's not obvious what is an indirection and
+what is not. There's the fun that a lot of the PTP-related indirection
+actually has no difference. For example, at the bottom of
+stmmac_hwtstamp.c, the struct stmmac_hwtimestamp initialisers have
+almost all of the methods pointing at the same implementation
+with the exeption of .get_ptptime, .timestamp_interrupt and
+.hwtstamp_correct_latency.
 
->  	}
-> =20
->  	cdns_pcie_disable_phy(pcie->cdns_pcie);
-
-Regards,
-Siddharth.
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
