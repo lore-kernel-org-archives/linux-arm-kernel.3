@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D217ECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426F4CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QM5EeeIXOsOonLkPWUKjUVsmtB7ksdu+Vn14X3GUplo=; b=V+8OYif5ULZlKiwJm+p2/5RFpl
-	fgNXZvFsz4PUO8gj5ekf+cvsFMEk2KBkw1MtHFPurNv0Q40jUZ/Akx/cx+g8NvyUpgDwoxcySYokw
-	O36UBSjCyUUZ14qp5tEeK4M7BZCkuUel/3q33i/QX8ihiaAg1o2UGrQ11RWsPPyz6t7wRyJj6DZan
-	q9DZzVFiQjD13yyUaJDlhS3Hkl+rMggTb8xvhhBYdRpb5MRUPQoiIPM21LzL8PPItmRH/1/4rmqLw
-	JUzne14c05sny5CXNhx57wwcWqNsxIYrgPtwmCRlUj4qUneoRhuSDCqziGQ97Yq1ciHhedK6S/Hay
-	TS7l9fYA==;
+	bh=8HCgmLTwUULBX9QX85VetACwJSdv37/HgS9V4M0/4NQ=; b=R2G4eeDhG/Chv/jXR6J+a7WyqE
+	hb6UDcyAUpViKKCmPBMXX/vp4XsiLjpOGFHdvI9lsbYvFP1jV8ojWo4E7wedGAh5McbmjrHS71P/k
+	yz+LLR7NIQQo7DjZsvmf2kiW/FsZMSJcApDFEXRouZrD5dBdm3dBt0zmuVU5Rsxpb0lFms11EvfF7
+	ZXVx/g+fEOF/QT6705YaeFFWSSX7YHvWuHQVMOUZ1xLRLX3QaDB+Aipi8szNQMSsiJBTihIFvQTCt
+	s1ipLIQQwGuEMZPJwl+kxUzwWWj/4QhCIRNmEe7u7hnG0vwDWJlAnYlYyJ+ZDPaQE5nyoM67FRA+z
+	aZnKDzrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgz8-0000000BT5u-0xaK;
-	Sat, 25 Oct 2025 16:19:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vCgzY-0000000BTJ7-2kMY;
+	Sat, 25 Oct 2025 16:19:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgz6-0000000BT4r-06m2;
-	Sat, 25 Oct 2025 16:19:17 +0000
+	id 1vCgzW-0000000BTIA-1Shx
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 25 Oct 2025 16:19:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B61245075;
-	Sat, 25 Oct 2025 16:19:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0DBAC4CEF5;
-	Sat, 25 Oct 2025 16:19:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 08A6D450E8;
+	Sat, 25 Oct 2025 16:19:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E39EDC4CEF5;
+	Sat, 25 Oct 2025 16:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761409155;
-	bh=LpufHFRecLmN77OlpTVdTjowSFY0QAMP0NfmEIO769s=;
+	s=k20201202; t=1761409181;
+	bh=afWHb3gFsT0vDh4zieSFw/sUmsJjUwN4HXbzjwzZjfI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Pc17s/CTGZaV6l9HQFhhymDq5zRDxCxsfOIGxfHXvtNmthtJ7xdo3VxDOtPkzac+t
-	 7tcalpRwSNEFSGmw1/ROnaBifGYQa3oihQnjnp9EgOex6OYpKSjOd2zK0wXHZHGDo3
-	 Zwi4cQW5voOE7Wozg2VxbKyrtBaEK3HoKb/Fxrkjjo1IJRfIUHLcUqKGN0SvoM9DED
-	 usLBHJN3lFzMZDWEAreXrb0/+hq1z+RQiO5KsvoHAQL94wcMQhtRplo1ggYmVTY0Gy
-	 S9gMJCofuNztXJivzX/RJc6Hhd1W2sUc+4K4k8JDA0Ec7mV1xr9M8WWM0tINHGT6o2
-	 dKHlzGxS1xPUA==
+	b=hCxNJVdE2/tZnEP+d9OpVyehdRxSDUkiMkcv/Q8QG8jfeG1xb/vcCI8U4Eo5Dt2bV
+	 MWVrIwi3bp53/OKMR8EBrS58lmJOhjNvpiS1ngWOsm4iCwz9NKjg30tFAdMYQnuGVR
+	 Y9Sj16kb0RFBQ9LpUA16J6oB+kIehp0pJNqU7ZdPILMLJxY3mvyK/gFuUTciEBvGHP
+	 fo2rJilzGeU2zUarTjYwrz/Rpk09s9dFAzzwNc6FKmarx64o09vGFQw1PeXU2hc1ra
+	 V4mPGT9uzkf0myAPEA3wJzYgaVmvXxCaq3BJjXah2RbmlJJraoCPAOnZcNYSu73GVl
+	 zgVKgXj7+B0xA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
+Cc: Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	lorenzo@kernel.org,
-	shayne.chen@mediatek.com,
-	chui-hao.chiu@mediatek.com,
-	Bo.Jiao@mediatek.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	jacob.e.keller@intel.com,
+	hayashi.kunihiko@socionext.com,
 	alexandre.f.demers@gmail.com,
-	howard-yh.hsu@mediatek.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17-6.12] wifi: mt76: mt7996: fix memory leak on mt7996_mcu_sta_key_tlv error
-Date: Sat, 25 Oct 2025 11:57:31 -0400
-Message-ID: <20251025160905.3857885-220-sashal@kernel.org>
+	alexander.deucher@amd.com,
+	alexis.lothore@bootlin.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-6.12] net: stmmac: est: Drop frames causing HLBS error
+Date: Sat, 25 Oct 2025 11:57:42 -0400
+Message-ID: <20251025160905.3857885-231-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251025160905.3857885-1-sashal@kernel.org>
 References: <20251025160905.3857885-1-sashal@kernel.org>
@@ -70,8 +75,8 @@ X-stable-base: Linux 6.17.5
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_091916_110113_1B97FE3B 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20251025_091942_426487_EFF1BA9B 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,229 +91,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Felix Fietkau <nbd@nbd.name>
+From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-[ Upstream commit 7c0f63fe37a5da2c13fc35c89053b31be8ead895 ]
+[ Upstream commit 7ce48d497475d7222bd8258c5c055eb7d928793c ]
 
-Free the allocated skb on error
+Drop those frames causing Head-of-Line Blocking due to Scheduling
+(HLBS) error to avoid HLBS interrupt flooding and netdev watchdog
+timeouts due to blocked packets. Tx queues can be configured to drop
+those blocked packets by setting Drop Frames causing Scheduling Error
+(DFBS) bit of EST_CONTROL register.
 
-Link: https://patch.msgid.link/20250915075910.47558-5-nbd@nbd.name
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Also, add per queue HLBS drop count.
+
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+Reviewed-by: Furong Xu <0x1207@gmail.com>
+Link: https://patch.msgid.link/20250925-hlbs_2-v3-1-3b39472776c2@altera.com
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## BACKPORT RECOMMENDATION: **YES**
+YES
+- Enabling EST currently leaves blocked frames in the Tx queue when a
+  Head-of-Line Blocking due to Scheduling (HLBS) fault happens, so the
+  scheduler keeps retrying the same frame and continuously raises HLBS
+  interrupts, which ends in watchdog timeouts. The fix explicitly sets
+  the hardware “Drop Frames causing Scheduling error” bit when EST is
+  enabled (`drivers/net/ethernet/stmicro/stmmac/stmmac_est.c:66`
+  together with the new definition in `stmmac_est.h:19`), so those
+  unschedulable frames are discarded by the MAC instead of wedging the
+  queue.
+- The change is tightly scoped to the EST path: when EST is disabled
+  nothing changes (`stmmac_est.c:65-68`), so non-TSN users of stmmac are
+  unaffected. The additional per-queue accounting merely increments a
+  counter when HLBS drops occur (`stmmac_est.c:110-114` with storage
+  added in `common.h:231`); it does not alter behaviour and has no UAPI
+  impact.
+- This solves a real, user-visible failure (interrupt storms and `netdev
+  watchdog` fires) that exists in all builds with EST support since it
+  was introduced, while the code delta is minimal and self-contained.
+  There are no prerequisite refactors beyond what is already in stable,
+  and there is no evidence of regressions from setting this documented
+  control bit.
 
-Based on my comprehensive analysis, this commit **SHOULD be backported**
-to stable kernel trees.
+ drivers/net/ethernet/stmicro/stmmac/common.h     | 1 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.c | 9 ++++++---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.h | 1 +
+ 3 files changed, 8 insertions(+), 3 deletions(-)
 
----
-
-## DETAILED ANALYSIS
-
-### **Summary of the Bug**
-
-The commit fixes a memory leak in the mt7996 MediaTek WiFi 7 driver. In
-the function `mt7996_mcu_add_key()`
-(drivers/net/wireless/mediatek/mt76/mt7996/mcu.c:2590), when
-`mt7996_mcu_sta_key_tlv()` returns an error, the function was returning
-immediately without freeing the previously allocated socket buffer
-(`skb`).
-
-### **Code Analysis**
-
-**Before the fix (lines 2603-2605):**
-```c
-ret = mt7996_mcu_sta_key_tlv(wcid, skb, key, cmd);
-if (ret)
-    return ret;  // MEMORY LEAK: skb is not freed
-```
-
-**After the fix (lines 2603-2607):**
-```c
-ret = mt7996_mcu_sta_key_tlv(wcid, skb, key, cmd);
-if (ret) {
-    dev_kfree_skb(skb);  // Properly free the allocated memory
-    return ret;
-}
-```
-
-### **When the Leak Occurs**
-
-The `mt7996_mcu_sta_key_tlv()` function returns errors in two specific
-scenarios:
-
-1. **Line 2552**: Returns `-EOPNOTSUPP` when `cipher == MCU_CIPHER_NONE`
-   (unsupported cipher type)
-2. **Line 2582**: Returns `-EOPNOTSUPP` for beacon protection keys
-   (keyidx 6 or 7) using unsupported cipher suites (anything other than
-   AES-CMAC, BIP-GMAC-128, or BIP-GMAC-256)
-
-Each leak would be of size `MT7996_STA_UPDATE_MAX_SIZE` (approximately
-several hundred bytes to a few KB, depending on the sum of multiple
-structure sizes).
-
-### **Impact Assessment**
-
-**Severity: MODERATE to HIGH**
-
-1. **User Impact**: Memory leaks can gradually degrade system stability,
-   especially on systems with limited memory or long uptimes. Each
-   failed key configuration leaks memory that cannot be reclaimed until
-   reboot.
-
-2. **Trigger Conditions**: The leak occurs during WiFi key configuration
-   operations, which happen:
-   - During station association with access points
-   - During key rotation operations
-   - When unsupported cipher suites are requested (could be
-     configuration errors or attack attempts)
-   - When beacon protection keys use unsupported ciphers
-
-3. **Frequency**: While the error conditions are relatively uncommon in
-   normal operation, they could be triggered:
-   - By misconfigured wireless networks
-   - During compatibility issues with certain access points
-   - Potentially by malicious actors attempting to exhaust system memory
-   - In enterprise environments with frequent key rotations
-
-4. **Security Implications**: While no CVE has been assigned, kernel-
-   level memory leaks in WiFi drivers are security-relevant because:
-   - They operate at kernel privilege level
-   - They can lead to denial-of-service through memory exhaustion
-   - WiFi drivers process unauthenticated network frames
-   - The mt76 driver family has had other security-related memory leak
-     fixes
-
-### **Historical Context**
-
-- **Bug Age**: This bug has existed since the mt7996 driver was first
-  introduced in commit `98686cd21624c` (November 22, 2022, merged in
-  v6.2-rc1)
-- **Affected Versions**: All kernel versions from v6.2 onwards
-  (approximately 2.5 years)
-- **Fix Date**: September 15, 2025 (approximately 1 month ago)
-- **Related Fixes**: Part of a series of key management improvements by
-  Felix Fietkau, including other key-related fixes around the same
-  timeframe
-
-### **Backporting Assessment**
-
-**Positive Factors for Backporting:**
-
-1. ✅ **Fixes Important Bug**: Memory leaks affect system stability and
-   can lead to DoS
-2. ✅ **Small, Contained Change**: Only 3 lines added (+2, -0, modified
-   braces)
-3. ✅ **Clear, Straightforward Fix**: Classic error path resource cleanup
-   pattern
-4. ✅ **No Architectural Changes**: Pure bug fix with no design changes
-5. ✅ **Minimal Regression Risk**: Adding cleanup on error path is safe
-6. ✅ **Long-Standing Bug**: Has affected users for 2.5 years across many
-   kernel versions
-7. ✅ **Isolated to Subsystem**: Confined to mt7996 driver, no impact on
-   other components
-8. ✅ **Clean Application**: Function signature hasn't changed, should
-   apply cleanly to older kernels
-9. ✅ **Part of Quality Effort**: Matches pattern of ongoing memory leak
-   fixes in mt76 driver family
-
-**Potential Concerns (All Low Risk):**
-
-1. ⚠️ **No Fixes Tag**: The commit lacks a "Fixes:" tag, which is
-   typically expected for backports (but this is a documentation issue,
-   not a technical one)
-2. ⚠️ **No Stable CC**: No "Cc: stable@vger.kernel.org" in commit
-   message (again, documentation issue)
-3. ⚠️ **Limited Test Coverage**: As a relatively new WiFi 7 driver,
-   there may be fewer users testing this specific hardware
-
-### **Risk Analysis**
-
-**Risk of Backporting: VERY LOW**
-
-- The change only affects an error path that was previously incorrect
-- Adding `dev_kfree_skb()` on error is the standard kernel pattern and
-  cannot introduce new bugs
-- The fix doesn't change any logic, just adds missing cleanup
-- If the error path was not being hit before, this change has zero
-  effect
-- If the error path was being hit, this fix only helps (prevents memory
-  leak)
-
-**Risk of NOT Backporting: MODERATE**
-
-- Continued memory leaks on affected systems
-- Potential stability issues in production environments
-- Possible security implications if leak can be triggered remotely
-- Users on stable kernels won't benefit from this fix for years
-
-### **Stable Tree Applicability**
-
-This commit should be backported to all stable trees that include the
-mt7996 driver:
-- ✅ v6.17.x (current)
-- ✅ v6.16.x
-- ✅ v6.15.x
-- ✅ v6.14.x
-- ✅ v6.13.x
-- ✅ v6.12.x (LTS)
-- ✅ v6.11.x
-- ✅ v6.10.x
-- ✅ v6.9.x
-- ✅ v6.8.x
-- ✅ v6.7.x
-- ✅ v6.6.x (LTS)
-- ✅ v6.5.x
-- ✅ v6.4.x
-- ✅ v6.3.x
-- ✅ v6.2.x (where mt7996 was introduced)
-
-**Priority: HIGH** for LTS kernels (6.12.x, 6.6.x) as these will be
-maintained for years and have the most users.
-
-### **Similar Precedents**
-
-The Linux kernel has a strong history of backporting similar memory leak
-fixes:
-- Multiple mt76 driver memory leak fixes have been backported previously
-- Other MediaTek driver leak fixes (mt7663u, mt76x02u) were backported
-- Kernel memory leaks in drivers are routinely fixed in stable trees
-
-### **Conclusion**
-
-This is a textbook example of a commit that **should be backported**:
-- Important bug (memory leak affecting stability)
-- Minimal change (3 lines)
-- No architectural modifications
-- Extremely low risk
-- Affects multiple stable kernel versions
-- Clear benefit to users
-
-**RECOMMENDATION: Backport to all stable trees from v6.2 onwards, with
-priority for LTS releases.**
-
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index aad58f7831c7b..0d688ec5a8163 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -2535,8 +2535,10 @@ int mt7996_mcu_add_key(struct mt76_dev *dev, struct ieee80211_vif *vif,
- 		return PTR_ERR(skb);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index cbffccb3b9af0..450a51a994b92 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -228,6 +228,7 @@ struct stmmac_extra_stats {
+ 	unsigned long mtl_est_btrlm;
+ 	unsigned long max_sdu_txq_drop[MTL_MAX_TX_QUEUES];
+ 	unsigned long mtl_est_txq_hlbf[MTL_MAX_TX_QUEUES];
++	unsigned long mtl_est_txq_hlbs[MTL_MAX_TX_QUEUES];
+ 	/* per queue statistics */
+ 	struct stmmac_txq_stats txq_stats[MTL_MAX_TX_QUEUES];
+ 	struct stmmac_rxq_stats rxq_stats[MTL_MAX_RX_QUEUES];
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+index ac6f2e3a3fcd2..4b513d27a9889 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+@@ -63,7 +63,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+ 			 EST_GMAC5_PTOV_SHIFT;
+ 	}
+ 	if (cfg->enable)
+-		ctrl |= EST_EEST | EST_SSWL;
++		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
+ 	else
+ 		ctrl &= ~EST_EEST;
  
- 	ret = mt7996_mcu_sta_key_tlv(wcid, skb, key, cmd);
--	if (ret)
-+	if (ret) {
-+		dev_kfree_skb(skb);
- 		return ret;
-+	}
+@@ -109,6 +109,10 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
  
- 	return mt76_mcu_skb_send_msg(dev, skb, mcu_cmd, true);
- }
+ 		x->mtl_est_hlbs++;
+ 
++		for (i = 0; i < txqcnt; i++)
++			if (value & BIT(i))
++				x->mtl_est_txq_hlbs[i]++;
++
+ 		/* Clear Interrupt */
+ 		writel(value, est_addr + EST_SCH_ERR);
+ 
+@@ -131,10 +135,9 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
+ 
+ 		x->mtl_est_hlbf++;
+ 
+-		for (i = 0; i < txqcnt; i++) {
++		for (i = 0; i < txqcnt; i++)
+ 			if (feqn & BIT(i))
+ 				x->mtl_est_txq_hlbf[i]++;
+-		}
+ 
+ 		/* Clear Interrupt */
+ 		writel(feqn, est_addr + EST_FRM_SZ_ERR);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+index d247fa383a6e4..f70221c9c84af 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+@@ -16,6 +16,7 @@
+ #define EST_XGMAC_PTOV_MUL		9
+ #define EST_SSWL			BIT(1)
+ #define EST_EEST			BIT(0)
++#define EST_DFBS			BIT(5)
+ 
+ #define EST_STATUS			0x00000008
+ #define EST_GMAC5_BTRL			GENMASK(11, 8)
 -- 
 2.51.0
 
