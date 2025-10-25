@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31583CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3498CCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVM/Q2iunblfJ7G6uiz6InybINTATTyk3ou2HCwjpcM=; b=b+SUuIz7pH/JTMIVXaWdqlqXoX
-	96+O/t1QjHPv1WBYrpGVGKZFv673W+rMSV35/TXnjMIpR3IQEBqKUHj7ETjJeelmc3xk2RRo2jzzn
-	zZPYv7Zf3pyCXqo7ZiZ5e3eMafbyzJsDEcpouomnQEl8LzjAuUf/EJnUT6uPIthspNGhtwp9591Qe
-	q+lE/5nJaYTL8Ld3Dy1JhmIcCUbJX4ByQgbDNRu2PQ0rReBRkUaUvd8+tAbdOX5INFFCTMwZVzJlT
-	PtTSCB32mDlbZzH5b3ZB7L9OtxDjwYsCa8G8nMpMecXekKl6dW1YbPXV3WR0e7l+q7GRQlGdwWd2z
-	+A3TW3cQ==;
+	bh=nfz2m1EHP+ww/odTjhJF6NfQlFBPLAaWNAEwvqidzMI=; b=gpqpa1hPpNgCOeQi8ifEmKsVX6
+	5OnwM1juhhGKllbglf3Xg1ETVeUVspxUhMcH53LvH0lvwFKDoJipw79uPEqd2Zh8S1+Hqa+HjAMf6
+	7Qbe4LbH8QLq9kTvoa8fmPj7aknSvLa/tt1CiZEVGP4fxBsNtH7wvcGgCtrR3UZ4nWucGDZl7ff0E
+	v4LqnFGZeMJOn6IMd0THP9D4KzCwVGYIA0UjF6k7fvr1wmlCN3rAySTuFc1p9WZHopzsxxjtXbodw
+	S1wW2riqwgIA3GJcU1NeJ0JFceiaXFx0RLXzkKexXkT8dwibObBPjI+/0dE+HgjuEWyruL2cUC7Hc
+	6fbfTakQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCh6W-0000000BV6u-3C7f;
-	Sat, 25 Oct 2025 16:26:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vCh6u-0000000BVKV-0MDl;
+	Sat, 25 Oct 2025 16:27:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCh6T-0000000BV4v-3lle
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 16:26:54 +0000
+	id 1vCh6s-0000000BVJJ-1wG3;
+	Sat, 25 Oct 2025 16:27:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5475C601E8;
-	Sat, 25 Oct 2025 16:26:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3330C19421;
-	Sat, 25 Oct 2025 16:26:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F334D43FD2;
+	Sat, 25 Oct 2025 16:27:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2534C4CEFB;
+	Sat, 25 Oct 2025 16:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761409613;
-	bh=Pyi/deS0BK1bu5+MfdJKjF/aJj54u1WpI9UwOtwyXzY=;
+	s=k20201202; t=1761409637;
+	bh=674ScUfL2y2OnNZx6hSiuHRi3Sb7Jh74ZzdnAu96/C0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VpWurLt4sZ1WGpYJcUKZfXotlmn3+SYqt7y4SbGyIQH/bxg5ZdMXKyDTVqUXWjKnz
-	 yA3XQq1ESDABBZntDvAJ/C/Ytug7bvLrDamz4GRyY+1bs/3gZ8/mGKgNKeFm50tWdW
-	 Fpmqxf/+4yuC/CPA6q+O0Nmv0TBvGFDPH1vyMNHPh4E6AIvqWmVzrzHj6FP3kd0kNk
-	 shOFhnUqUU/0Oo46R6Y7HSAPQvPq1vtJzD2k/qlfIUmZodZ1IN1ZAOQtyY0/N+yT1O
-	 6wMdGbuyJGjMAjBYWXmbF+r5pttDGktZB6QXE080MIfY8KIy4GhPtgPYfhBhxOzXcl
-	 F0ruSfp7ApYyQ==
+	b=FB9FP3Ze/ksaLxYh9WIvnqxymo4lIUHCrh/1Xv4GFd7ZsJHLX9y0g5COqwLvWsS5/
+	 +WBF/gMDBMXSlJd9vIeKEQX3mtuzEcRXC0Bn8yF7SZ+9lNw68IlbiEEejLHEMjs2QY
+	 nX90j8buf54dEEahRT3cKu1stpEuKLtJFd3CRg+WfhcW3r+JLgSqgJJyQJwQO9Rcjy
+	 7+wmnUjht5zIOQ0CRAVb6xfU0Q5FrxwsIusqQPkvlojc6/JkSwuqOrvqC5n2vWVmWq
+	 hSL3h3FCL/yLkKlC4jtoApVyd27fc+Kg77x8a+ZkU5O2bkY7a3Dv04rfvL3HdMWLHA
+	 fkRjcaxoollzw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Olivier Moysan <olivier.moysan@foss.st.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Peter Wang <peter.wang@mediatek.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
 	Sasha Levin <sashal@kernel.org>,
-	arnaud.pouliquen@foss.st.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-sound@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-scsi@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17-6.6] ASoC: stm32: sai: manage context in set_sysclk callback
-Date: Sat, 25 Oct 2025 12:00:24 -0400
-Message-ID: <20251025160905.3857885-393-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.17-6.1] scsi: ufs: host: mediatek: Enhance recovery on resume failure
+Date: Sat, 25 Oct 2025 12:00:31 -0400
+Message-ID: <20251025160905.3857885-400-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251025160905.3857885-1-sashal@kernel.org>
 References: <20251025160905.3857885-1-sashal@kernel.org>
@@ -64,8 +63,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251025_092718_543958_B49D00E1 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,74 +81,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Olivier Moysan <olivier.moysan@foss.st.com>
+From: Peter Wang <peter.wang@mediatek.com>
 
-[ Upstream commit 27fa1a8b2803dfd88c39f03b0969c55f667cdc43 ]
+[ Upstream commit 15ef3f5aa822f32524cba1463422a2c9372443f0 ]
 
-The mclk direction now needs to be specified in endpoint node with
-"system-clock-direction-out" property. However some calls to the
-set_sysclk callback, related to CPU DAI clock, result in unbalanced
-calls to clock API.
-The set_sysclk callback in STM32 SAI driver is intended only for mclk
-management. So it is relevant to ensure that calls to set_sysclk are
-related to mclk only.
-Since the master clock is handled only at runtime, skip the calls to
-set_sysclk in the initialization phase.
+Improve the recovery process for failed resume operations. Log the
+device's power status and return 0 if both resume and recovery fail to
+prevent I/O hang.
 
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-Link: https://patch.msgid.link/20250916123118.84175-1-olivier.moysan@foss.st.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Peter Wang <peter.wang@mediatek.com>
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
 YES
-- Guarding `stm32_sai_set_sysclk()` until the card is instantiated
-  (`sound/soc/stm/stm32_sai_sub.c:675-681`) prevents the early simple-
-  card `init` call (`sound/soc/generic/simple-card-utils.c:571`) from
-  programming clocks before runtime.
-- That init-time call currently triggers a second
-  `clk_rate_exclusive_get()` on the shared SAI kernel clock
-  (`sound/soc/stm/stm32_sai_sub.c:442`) and another
-  `clk_set_rate_exclusive()` on the MCLK
-  (`sound/soc/stm/stm32_sai_sub.c:709`) before any matching “0 Hz”
-  teardown happens; at shutdown we only drop one reference
-  (`sound/soc/stm/stm32_sai_sub.c:692-702`), leaving the clocks
-  permanently locked and causing later `-EBUSY` failures.
-- The regression shows up as soon as boards tag the CPU endpoint with
-  `system-clock-direction-out` (parsed in `simple-card-utils.c:290` and
-  already present in ST’s shipping DTs such as
-  `arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi:520`), a configuration
-  encouraged since commit 5725bce709db; the exclusive clock management
-  added in 2cfe1ff22555 made the imbalance fatal.
-- The fix is minimal and contained: it simply skips the init-phase
-  invocation for a driver that already derives MCLK from the stream
-  rate, so the risk of regressions is low while it resolves a real
-  runtime bug on current hardware.
 
- sound/soc/stm/stm32_sai_sub.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Explanation
+- What changed (drivers/ufs/host/ufs-mediatek.c: fail path in
+  `ufs_mtk_resume()`):
+  - Old behavior: on resume failure, jump to `fail:` and return
+    `ufshcd_link_recovery(hba)` (propagate error).
+  - New behavior: at `fail:` call `ufshcd_link_recovery(hba)` and log
+    runtime PM status if it fails; then unconditionally `return 0 /*
+    Cannot return a failure, otherwise, the I/O will hang. */`.
+  - Code reference: drivers/ufs/host/ufs-mediatek.c:1814 (call to
+    `ufshcd_link_recovery(hba)`), followed by the new `dev_err()` that
+    prints `hba->dev->power.request`, `runtime_status`, `runtime_error`,
+    and the unconditional `return 0`.
 
-diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-index 463a2b7d023b9..0ae1eae2a59e2 100644
---- a/sound/soc/stm/stm32_sai_sub.c
-+++ b/sound/soc/stm/stm32_sai_sub.c
-@@ -672,6 +672,14 @@ static int stm32_sai_set_sysclk(struct snd_soc_dai *cpu_dai,
- 	struct stm32_sai_sub_data *sai = snd_soc_dai_get_drvdata(cpu_dai);
- 	int ret;
+- Why this fixes a real bug affecting users (I/O hang):
+  - The UFS core resume path calls the vendor resume first and bails out
+    immediately if the vops `resume()` returns an error, skipping core
+    recovery steps like hibern8 exit or full reset/restore:
+    - Code reference: drivers/ufs/core/ufshcd.c:10011 (`ret =
+      ufshcd_vops_resume(hba, pm_op); if (ret) goto out;`).
+    - If the Mediatek variant previously returned an error from
+      `ufs_mtk_resume()`, the core code would not attempt
+      `ufshcd_uic_hibern8_exit()` or `ufshcd_reset_and_restore()`,
+      leaving the link/device in a bad state and causing I/O to hang.
+  - With this patch, the Mediatek driver tries `ufshcd_link_recovery()`
+    locally and returns 0, allowing the core resume sequence to proceed:
+    - If the link is in Hibern8, the core performs
+      `ufshcd_uic_hibern8_exit()` (drivers/ufs/core/ufshcd.c:10025) and
+      sets the link active.
+    - If the link is off, the core performs `ufshcd_reset_and_restore()`
+      (drivers/ufs/core/ufshcd.c:10034).
+  - Hence, even if the vendor-specific parts hit an error, the core
+    still executes its well-tested recovery and bring-up, which avoids
+    the I/O hang scenario the commit message calls out.
+
+- Localized change, minimal risk:
+  - The change is confined to one function in the Mediatek UFS host
+    driver; no interface or architectural changes.
+  - `ufshcd_link_recovery()` is the standard core recovery path for UFS
+    (drivers/ufs/core/ufshcd.c:4467), which resets the device and host
+    and is safe to invoke on failures.
+  - Logging uses existing runtime PM fields for debugging and has no
+    functional side effects.
+
+- Side effects considered:
+  - Masking the error return from `ufshcd_link_recovery()` at the
+    variant level does not hide failures overall: subsequent core steps
+    will still return errors if the link/device is not brought back
+    correctly, and the resume wrapper will report failure
+    (drivers/ufs/core/ufshcd.c:10011+ path).
+  - This approach improves robustness by ensuring core recovery always
+    runs, which is preferable to aborting early and risking an
+    unrecovered link and stuck I/O.
+
+- Stable backport criteria:
+  - Fixes a user-visible bug (I/O hang after resume failures).
+  - Patch is small, self-contained, and limited to Mediatek UFS host
+    driver.
+  - No new features or API changes; follows existing error-handling
+    patterns (attempt recovery, proceed to core recovery, log details).
+  - Low regression risk relative to the severity of the hang it
+    prevents.
+
+Conclusion: This is a targeted bug fix that prevents I/O hangs by
+ensuring the core resume/recovery sequence runs even if the vendor
+resume fails. It is suitable for backporting to stable.
+
+ drivers/ufs/host/ufs-mediatek.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index bb0be6bed1bca..188f90e468c41 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -1727,8 +1727,21 @@ static int ufs_mtk_resume(struct ufs_hba *hba, enum ufs_pm_op pm_op)
+ 	}
  
-+	/*
-+	 * The mclk rate is determined at runtime from the audio stream rate.
-+	 * Skip calls to the set_sysclk callback that are not relevant during the
-+	 * initialization phase.
-+	 */
-+	if (!snd_soc_card_is_instantiated(cpu_dai->component->card))
-+		return 0;
+ 	return 0;
 +
- 	if (dir == SND_SOC_CLOCK_OUT && sai->sai_mclk) {
- 		ret = stm32_sai_sub_reg_up(sai, STM_SAI_CR1_REGX,
- 					   SAI_XCR1_NODIV,
+ fail:
+-	return ufshcd_link_recovery(hba);
++	/*
++	 * Check if the platform (parent) device has resumed, and ensure that
++	 * power, clock, and MTCMOS are all turned on.
++	 */
++	err = ufshcd_link_recovery(hba);
++	if (err) {
++		dev_err(hba->dev, "Device PM: req=%d, status:%d, err:%d\n",
++			hba->dev->power.request,
++			hba->dev->power.runtime_status,
++			hba->dev->power.runtime_error);
++	}
++
++	return 0; /* Cannot return a failure, otherwise, the I/O will hang. */
+ }
+ 
+ static void ufs_mtk_dbg_register_dump(struct ufs_hba *hba)
 -- 
 2.51.0
 
