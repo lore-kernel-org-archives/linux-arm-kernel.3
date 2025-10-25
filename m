@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E921DCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD522CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Oct 2025 16:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MOGjJkW3Jp7ZQTjs+Fn9AWtKjQyxraz8q0kcog9cj8Q=; b=JGv1Gv3Dn08pKQiHYh3NP8G2am
-	tDR0ld0y4b1MN5KDApejkbZPUGbs/5tHhULrKyVvB9IWtsvCNVP2LrtBKBCPXykpgErjc1vpGQF4x
-	ISdbylJqlRYxvuJzNF6Xb6Liwgmk00WTPkzbux9KXC4eywTlCJQuMWXhVSwpRz9YeE1UjQgBcCKK2
-	9x53Bxxgg51gdTTqXlpS52mLR1QS8UNgIXJGcH3yzmieDLU/XkmF2Mro7uCe7IUrB9GyoBNcGIr5p
-	iqkPJqkvgTY0RlQWS7NIQcwLnjRPsjb0iZ1s/3UN7n0F5jDev3h9NS85SShbhV/gHG114XC0DPSXu
-	2KU6pwbQ==;
+	bh=l6/hWM7e3ZihNUyBxJ9L7BLEEJEsm1W2K7LaqizS0qA=; b=ZWNBd61K9xNI4WtsvZTRg073ex
+	uX0H8+9AgVbx/jR3/dD3rHklSWCgOVvLbF0q3OH+d9+GbHvSi1RSHguFGnTb3FPEhF0t7Uob7Q7lm
+	QqSREm1646p7StTpNQp+tS/3Z+rTCo40L/uK/TdJzlWydMLbsV2oZpYKfYcophdwFV75YFwIYhCaQ
+	xpeD5Cvom/2Y1BI2ayvcLr2SukwbSPKbGWxTZHGL31jMn6dtlhuJ2s35NWD4SbBLe+LJWQElAtpON
+	dAs3FWV6AJTO8hWxai3fE0AO77vySSWBDZdb4WoSg+6DbaApNy9TV3rocSugM1Q4hheggUwdcRdcA
+	St8EipSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgtj-0000000BRBo-2mUf;
-	Sat, 25 Oct 2025 16:13:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCgty-0000000BRLD-2O34;
+	Sat, 25 Oct 2025 16:13:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCgtd-0000000BR8C-49YJ
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Oct 2025 16:13:39 +0000
+	id 1vCgtx-0000000BRKS-2XzM;
+	Sat, 25 Oct 2025 16:13:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B13D744983;
-	Sat, 25 Oct 2025 16:13:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 611DDC116B1;
-	Sat, 25 Oct 2025 16:13:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A65C60514;
+	Sat, 25 Oct 2025 16:13:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A725C4CEFB;
+	Sat, 25 Oct 2025 16:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761408817;
-	bh=ykKpstcD/nFFD4tx9FG9wgDXP6IoofyoYUuh6BLPYos=;
+	s=k20201202; t=1761408836;
+	bh=zVtHnfPXG4ioxX+DlgXGFZiXd2qgpVY5VuTt9jhmCqU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Art3gyvDW7YsLgQ5MxH+GlcxwIzMPREX21vtGRhHmDvVZQ726tFnJwKu9xbWSffg0
-	 n9k2ivCgkAoXufNNPf667R/D2HEGklyhCxdXzaTf34cVaMwRC9gGtwbA51NPEyfGmF
-	 tQOL7dfb4svQH8NOI4FfEbvVxSYE3QtitM7jFCAV6B55twSUHxJ/ixZ7jCyeaIhFKd
-	 T7OVkS1Q7hV7kQAhAeMs7OLBnJFuYEWLmQtzrjWRVvBx51I13GW/XOMwWE6UxQd4QY
-	 BWGsjhVG80hC4JPz6H8WbbsN23jSqTU+skGN4y+YTdkARwUNvcADNCSwxYCIrN46/F
-	 IKLBa5XHnSv/A==
+	b=YbOwP7QwePA8fGDUTJWGSWAG7qbQ1Iym1GQkBEuSZcjDOtyFwXLLTprPB2z13gMJM
+	 nBnlmHniVN1aJvGMFeRh3UT8qbkgKCxsx8ada608Nz+5iLP7wSWFCBAssFvR5TljkR
+	 YYvyVCNrGcYYRXe+rT0a/9DjZfyTzKXpZ1iPYDPviIDbnHBboyH4eSAHWKLBWoLHs8
+	 AbnFTd6zcAq0ZacrZ1Zx8nfxPdF9tPVIh55xCyWResVNxGyTdPIRz4gaa5+iBQ1CWz
+	 bLnvj2TjO8emxcKsclWYcJAyZl59wZ2qCb+Ib5qEFPt7nxe8eXz3UJ0E7/IF4OdWqb
+	 y0nmfRe2pT/Cg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Haibo Chen <haibo.chen@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Primoz Fiser <primoz.fiser@norik.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+Cc: Peter Wang <peter.wang@mediatek.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
 	Sasha Levin <sashal@kernel.org>,
-	shawnguo@kernel.org,
-	linux-iio@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17-6.6] iio: adc: imx93_adc: load calibrated values even calibration failed
-Date: Sat, 25 Oct 2025 11:55:13 -0400
-Message-ID: <20251025160905.3857885-82-sashal@kernel.org>
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	mani@kernel.org,
+	alim.akhtar@samsung.com,
+	chenyuan0y@gmail.com,
+	ping.gao@samsung.com,
+	alok.a.tiwari@oracle.com,
+	alexandre.f.demers@gmail.com,
+	avri.altman@sandisk.com,
+	beanhuo@micron.com,
+	adrian.hunter@intel.com,
+	quic_cang@quicinc.com,
+	quic_nitirawa@quicinc.com,
+	neil.armstrong@linaro.org,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17] scsi: ufs: core: Change MCQ interrupt enable flow
+Date: Sat, 25 Oct 2025 11:55:23 -0400
+Message-ID: <20251025160905.3857885-92-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251025160905.3857885-1-sashal@kernel.org>
 References: <20251025160905.3857885-1-sashal@kernel.org>
@@ -66,9 +78,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_091338_213190_15ABC142 
-X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,145 +92,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haibo Chen <haibo.chen@nxp.com>
+From: Peter Wang <peter.wang@mediatek.com>
 
-[ Upstream commit 12c9b09e981ab14ebec8e4eefa946cbd26dd306b ]
+[ Upstream commit 253757797973c54ea967f8fd8f40d16e4a78e6d4 ]
 
-ADC calibration might fail because of the noise on reference voltage.
-To avoid calibration fail, need to meet the following requirement:
-    ADC reference voltage Noise < 1.8V * 1/2^ENOB
+Move the MCQ interrupt enable process to
+ufshcd_mcq_make_queues_operational() to ensure that interrupts are set
+correctly when making queues operational, similar to
+ufshcd_make_hba_operational(). This change addresses the issue where
+ufshcd_mcq_make_queues_operational() was not fully operational due to
+missing interrupt enablement.
 
-For the case which the ADC reference voltage on board do not meet
-the requirement, still load the calibrated values, so ADC can also
-work but maybe not that accurate.
+This change only affects host drivers that call
+ufshcd_mcq_make_queues_operational(), i.e. ufs-mediatek.
 
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Primoz Fiser <primoz.fiser@norik.com>
-Link: https://patch.msgid.link/20250812-adc-v2-2-0260833f13b8@nxp.com
-Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Signed-off-by: Peter Wang <peter.wang@mediatek.com>
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
 YES
+- `ufs-mediatek` is the only host driver that calls
+  `ufshcd_mcq_make_queues_operational()` directly
+  (`drivers/ufs/host/ufs-mediatek.c:1654`). Without this patch, that
+  path never enables the MCQ-specific interrupt bits, so after MCQ
+  reconfiguration the controller cannot receive queue completion
+  interrupts and I/O stalls.
+- The fix moves the interrupt enable step into
+  `ufshcd_mcq_make_queues_operational()` itself (`drivers/ufs/core/ufs-
+  mcq.c:355`), so every caller—both the core flow and the MediaTek
+  vops—now enables `UFSHCD_ENABLE_MCQ_INTRS`, while still honoring
+  `UFSHCD_QUIRK_MCQ_BROKEN_INTR`.
+- To make that call possible from `ufs-mcq.c`, the patch simply exports
+  `ufshcd_enable_intr()` and its prototype
+  (`drivers/ufs/core/ufshcd.c:336`, `include/ufs/ufshcd.h:1310`). This
+  does not alter behavior for existing callers; it just exposes the
+  already-used helper.
+- The change is small, self-contained, and limited to MCQ bring-up. It
+  fixes a real functional regression introduced when MCQ support landed
+  for MediaTek platforms, with no architectural churn and minimal
+  regression risk.
 
-Explanation
-- Problem addressed: On some boards the i.MX93 ADC calibration fails due
-  to reference voltage noise (commit message). In the current code, a
-  calibration failure aborts driver probe, leaving the ADC unusable for
-  users.
-- Current failure path: `imx93_adc_calibration()` returns `-EAGAIN` on
-  calibration failure, explicitly powering down the ADC and aborting
-  probe:
-  - Failure check/return: drivers/iio/adc/imx93_adc.c:181 (checks
-    `IMX93_ADC_MSR_CALFAIL_MASK`) and drivers/iio/adc/imx93_adc.c:185
-    (returns `-EAGAIN`).
-  - Probe abort on error: drivers/iio/adc/imx93_adc.c:367 (calibration
-    call) and drivers/iio/adc/imx93_adc.c:368–396 (error unwinding).
-- What the patch changes:
-  - Adds `IMX93_ADC_CALCFG0` (0x3A0) and `IMX93_ADC_CALCFG0_LDFAIL_MASK`
-    (BIT(4)) so the driver can instruct hardware to load calibrated
-    values even if calibration “fails”.
-  - In `imx93_adc_calibration()` (drivers/iio/adc/imx93_adc.c:146),
-    before starting calibration, it writes
-    `IMX93_ADC_CALCFG0_LDFAIL_MASK` to `IMX93_ADC_CALCFG0` to enable
-    “load-on-fail”.
-  - It changes the failure handling on `CALFAIL`: instead of returning
-    `-EAGAIN`, it logs a warning and continues, allowing the driver to
-    register and the ADC to function, albeit with potentially reduced
-    accuracy.
-  - The timeout path remains unchanged and still returns an error if
-    calibration never completes (drivers/iio/adc/imx93_adc.c:171–178),
-    preserving safety for a hard failure.
-- User impact: This is a practical fix for real boards where Vref noise
-  is above the stated threshold; without it, the ADC never comes up.
-  With it, the ADC works (possibly with lower accuracy), which is
-  typically preferable to complete unavailability.
-- Scope and risk:
-  - Small, contained change in a single driver
-    (`drivers/iio/adc/imx93_adc.c`) with no ABI or framework changes.
-  - No architectural refactoring; only adds a register define and a
-    single bit write plus relaxed error handling.
-  - Timeout/hard-error behavior is unchanged; only soft failure
-    (CALFAIL) behavior is relaxed.
-  - The driver matches only `nxp,imx93-adc`
-    (drivers/iio/adc/imx93_adc.c:465–469), so the change is isolated to
-    this hardware.
-- Stable criteria:
-  - Fixes a user-visible bug (driver failing to probe on noisy Vref
-    boards).
-  - Minimal and low risk; confined to probe/calibration logic.
-  - No new features; behavior change is a robustness fix with guarded
-    warning.
-  - No broader side effects beyond this ADC device.
+ drivers/ufs/core/ufs-mcq.c | 11 +++++++++++
+ drivers/ufs/core/ufshcd.c  | 12 +-----------
+ include/ufs/ufshcd.h       |  1 +
+ 3 files changed, 13 insertions(+), 11 deletions(-)
 
-Given these points, this is a solid candidate for backporting to any
-stable trees that contain the i.MX93 ADC driver and its current fail-
-hard calibration path.
-
- drivers/iio/adc/imx93_adc.c | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c
-index 7feaafd2316f2..9f1546c3d39d5 100644
---- a/drivers/iio/adc/imx93_adc.c
-+++ b/drivers/iio/adc/imx93_adc.c
-@@ -38,6 +38,7 @@
- #define IMX93_ADC_PCDR6		0x118
- #define IMX93_ADC_PCDR7		0x11c
- #define IMX93_ADC_CALSTAT	0x39C
-+#define IMX93_ADC_CALCFG0	0x3A0
+diff --git a/drivers/ufs/core/ufs-mcq.c b/drivers/ufs/core/ufs-mcq.c
+index cc88aaa106da3..c9bdd4140fd04 100644
+--- a/drivers/ufs/core/ufs-mcq.c
++++ b/drivers/ufs/core/ufs-mcq.c
+@@ -29,6 +29,10 @@
+ #define MCQ_ENTRY_SIZE_IN_DWORD	8
+ #define CQE_UCD_BA GENMASK_ULL(63, 7)
  
- /* ADC bit shift */
- #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
-@@ -58,6 +59,8 @@
- #define IMX93_ADC_IMR_ECH_MASK			BIT(0)
- #define IMX93_ADC_PCDR_CDATA_MASK		GENMASK(11, 0)
- 
-+#define IMX93_ADC_CALCFG0_LDFAIL_MASK		BIT(4)
++#define UFSHCD_ENABLE_MCQ_INTRS	(UTP_TASK_REQ_COMPL |\
++				 UFSHCD_ERROR_MASK |\
++				 MCQ_CQ_EVENT_STATUS)
 +
- /* ADC status */
- #define IMX93_ADC_MSR_ADCSTATUS_IDLE			0
- #define IMX93_ADC_MSR_ADCSTATUS_POWER_DOWN		1
-@@ -145,7 +148,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc *adc)
+ /* Max mcq register polling time in microseconds */
+ #define MCQ_POLL_US 500000
  
- static int imx93_adc_calibration(struct imx93_adc *adc)
+@@ -355,9 +359,16 @@ EXPORT_SYMBOL_GPL(ufshcd_mcq_poll_cqe_lock);
+ void ufshcd_mcq_make_queues_operational(struct ufs_hba *hba)
  {
--	u32 mcr, msr;
-+	u32 mcr, msr, calcfg;
- 	int ret;
+ 	struct ufs_hw_queue *hwq;
++	u32 intrs;
+ 	u16 qsize;
+ 	int i;
  
- 	/* make sure ADC in power down mode */
-@@ -158,6 +161,11 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
- 
- 	imx93_adc_power_up(adc);
- 
-+	/* Enable loading of calibrated values even in fail condition */
-+	calcfg = readl(adc->regs + IMX93_ADC_CALCFG0);
-+	calcfg |= IMX93_ADC_CALCFG0_LDFAIL_MASK;
-+	writel(calcfg, adc->regs + IMX93_ADC_CALCFG0);
++	/* Enable required interrupts */
++	intrs = UFSHCD_ENABLE_MCQ_INTRS;
++	if (hba->quirks & UFSHCD_QUIRK_MCQ_BROKEN_INTR)
++		intrs &= ~MCQ_CQ_EVENT_STATUS;
++	ufshcd_enable_intr(hba, intrs);
 +
- 	/*
- 	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
- 	 * can add the setting of these bit if need in future.
-@@ -180,9 +188,13 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
- 	/* check whether calbration is success or not */
- 	msr = readl(adc->regs + IMX93_ADC_MSR);
- 	if (msr & IMX93_ADC_MSR_CALFAIL_MASK) {
-+		/*
-+		 * Only give warning here, this means the noise of the
-+		 * reference voltage do not meet the requirement:
-+		 *     ADC reference voltage Noise < 1.8V * 1/2^ENOB
-+		 * And the resault of ADC is not that accurate.
-+		 */
- 		dev_warn(adc->dev, "ADC calibration failed!\n");
--		imx93_adc_power_down(adc);
--		return -EAGAIN;
- 	}
+ 	for (i = 0; i < hba->nr_hw_queues; i++) {
+ 		hwq = &hba->uhq[i];
+ 		hwq->id = i;
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index 1907c0f6eda0e..85d5e3938891a 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -45,11 +45,6 @@
+ 				 UTP_TASK_REQ_COMPL |\
+ 				 UFSHCD_ERROR_MASK)
  
- 	return 0;
+-#define UFSHCD_ENABLE_MCQ_INTRS	(UTP_TASK_REQ_COMPL |\
+-				 UFSHCD_ERROR_MASK |\
+-				 MCQ_CQ_EVENT_STATUS)
+-
+-
+ /* UIC command timeout, unit: ms */
+ enum {
+ 	UIC_CMD_TIMEOUT_DEFAULT	= 500,
+@@ -372,7 +367,7 @@ EXPORT_SYMBOL_GPL(ufshcd_disable_irq);
+  * @hba: per adapter instance
+  * @intrs: interrupt bits
+  */
+-static void ufshcd_enable_intr(struct ufs_hba *hba, u32 intrs)
++void ufshcd_enable_intr(struct ufs_hba *hba, u32 intrs)
+ {
+ 	u32 old_val = ufshcd_readl(hba, REG_INTERRUPT_ENABLE);
+ 	u32 new_val = old_val | intrs;
+@@ -8925,16 +8920,11 @@ static int ufshcd_alloc_mcq(struct ufs_hba *hba)
+ static void ufshcd_config_mcq(struct ufs_hba *hba)
+ {
+ 	int ret;
+-	u32 intrs;
+ 
+ 	ret = ufshcd_mcq_vops_config_esi(hba);
+ 	hba->mcq_esi_enabled = !ret;
+ 	dev_info(hba->dev, "ESI %sconfigured\n", ret ? "is not " : "");
+ 
+-	intrs = UFSHCD_ENABLE_MCQ_INTRS;
+-	if (hba->quirks & UFSHCD_QUIRK_MCQ_BROKEN_INTR)
+-		intrs &= ~MCQ_CQ_EVENT_STATUS;
+-	ufshcd_enable_intr(hba, intrs);
+ 	ufshcd_mcq_make_queues_operational(hba);
+ 	ufshcd_mcq_config_mac(hba, hba->nutrs);
+ 
+diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+index a4eb5bde46e88..a060fa71b2b1b 100644
+--- a/include/ufs/ufshcd.h
++++ b/include/ufs/ufshcd.h
+@@ -1321,6 +1321,7 @@ static inline void ufshcd_rmwl(struct ufs_hba *hba, u32 mask, u32 val, u32 reg)
+ 
+ void ufshcd_enable_irq(struct ufs_hba *hba);
+ void ufshcd_disable_irq(struct ufs_hba *hba);
++void ufshcd_enable_intr(struct ufs_hba *hba, u32 intrs);
+ int ufshcd_alloc_host(struct device *, struct ufs_hba **);
+ int ufshcd_hba_enable(struct ufs_hba *hba);
+ int ufshcd_init(struct ufs_hba *, void __iomem *, unsigned int);
 -- 
 2.51.0
 
