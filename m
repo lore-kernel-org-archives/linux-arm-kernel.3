@@ -4,62 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E44BCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A26CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jpY4L2VfowcTLOLHoZX2APbGsjpFd8atdHuCdZF7CmM=; b=EagI8cZNgSqA+6CdyjuvfwBCi3
-	LXnq7D6g9MwNCNp582rZQxfF6Cq1DEi94chR2V6Fxc7AsnaF8C7uTqBPoI+3u0apHbcdKuMuSps3A
-	6xNStiIWI+O7MqAP5k12iuAYuzzz9eZ+KuzaQkeNUqNpU4AyOsw7PiwqcTZ2NIBF0hE2ZEmwQLgR/
-	80kgTmu5jZjkOS6fiMppsPT5hPz+NGeHWDKGLPEIxPiJTKpbFyaHAVxRs5D28d89/5NVx0LXrmR/A
-	wYUDE3dkkr4ghy11pfqmy73L7IJcoqkLyx3WLd9L6HitOcSYC6T7wTb3PRtb5lsVAP4t7HGe2GPeW
-	EJBoIU6g==;
+	bh=xVg0MZGuo80z4I/+VDSlzSWYbs3/3Bkg6CRYSPb0JEE=; b=FYhI0lpSs2AWHYG9pJ7YtE2jrP
+	/xGXFwHyU5zQK1rgoI+r9zG0WBiFjj+3YChtqTbqbrSrJXUxJtcyEXITC13tbsHoLRjZeLnOtPli4
+	hGktnnoWjpyh5x7QlB1wXRZGrSptbfz06ZE/knbZFpOf/hIGLqAHCrFDktNuDcMDKuqet8G/Lcpse
+	8+Ayq8Sbm8jP0ScV6nEOexTzv5NomL3/M2JWsuPkLJk2MjlQnwrxZPFRkRIommydrQA43xFw9ltQq
+	Ddw8Cx4QtCl/TxhK27c9Uw9DEOjrD4KqcLSnBF/oSxy7ZxluiAQ+oUfkjJANW7ZM/a4HNKRhoCHT9
+	p3Ugx4LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD24w-0000000CRzW-1eJI;
-	Sun, 26 Oct 2025 14:50:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vD250-0000000CS2E-2vIi;
+	Sun, 26 Oct 2025 14:50:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD24s-0000000CRxR-27ho
+	id 1vD24v-0000000CRyz-2x1T
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 14:50:40 +0000
+	Sun, 26 Oct 2025 14:50:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2CBEE4344C;
-	Sun, 26 Oct 2025 14:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A374C4CEE7;
-	Sun, 26 Oct 2025 14:50:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2580E60418;
+	Sun, 26 Oct 2025 14:50:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DC2C4CEFB;
+	Sun, 26 Oct 2025 14:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761490238;
-	bh=ZJuHNoGLmIbXSdjWvZ3Ub/oxRuillLG3+TXl5+O9TO4=;
+	s=k20201202; t=1761490240;
+	bh=ZF7t5uIV172t+m2t7jx1vVOLVPSTzJbCEn2iGsK/fNc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M2TcAogo2HJ+nESN7maP0Jg+Fn88K/24cbe7Of3C2IRELwEY3+kiRWuRW4jfitztY
-	 BmOUkPYLAnnlLIl5/MiNGIczwW979PdvjG4jufuanwaVK7iOeFan5ZUWpLX0RMI0I2
-	 qDsju2wsT0juEW49dSEDYokj4xAxkUPoAUCOsMs6Qs1ySVQtHur8bi/60uESJoW5tK
-	 ULepQctmfXPwJd6ocWPpwLqMm1vHAF6tECFpfwkLK1gFPn0XLE2JLUI6lMDuIATQea
-	 SwzRv74pJw3ymRUjyDI69ALxHaFOhljlQp96uxLlXvSvXJC9WLqWRxIYvf4VeD5n4f
-	 IzrNRORa9xUqg==
+	b=I4uxg9xA1zacNgtEP7WmqVNIbTU38uqiWwkqMQhQ86uA+9vdt08CIgUkWTO6i1LPp
+	 vGHgp7ac1dGy0l5xArTKA7i0ZvHqaV6rn1MKkUT9CKoMNKwaOd+rZsba3U/wQnBr43
+	 zPBi2RVVXiuQRurP5xQYICl2vTJNFKbcrq0nqtDz9yauDBfmzMOvJp8kTD0oOOhcId
+	 KqbQDHImQXCAnbgTXTzJ/Fvh2nZKjh8f2SY9CCCDaoq5g+gHOoSmvTIE8jERwnbXdX
+	 P4/oIH1DMSYInLIH764szsiu4PBGst25GLlqth/plf3MD4qRvsha8/jqKKOM+7RT+H
+	 +ajhiJ0OFsg9Q==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Cristian Birsan <cristian.birsan@microchip.com>,
-	Mihai Sain <mihai.sain@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Cristian Birsan <cristian.birsan@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
 	Sasha Levin <sashal@kernel.org>,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	alexander.deucher@amd.com,
-	alexandre.f.demers@gmail.com,
-	balamanikandan.gunasundar@microchip.com,
-	varshini.rajendran@microchip.com,
-	Ryan.Wanner@microchip.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17] clk: at91: add ACR in all PLL settings
-Date: Sun, 26 Oct 2025 10:48:53 -0400
-Message-ID: <20251026144958.26750-15-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.17-5.10] ARM: at91: pm: save and restore ACR during PLL disable/enable
+Date: Sun, 26 Oct 2025 10:48:55 -0400
+Message-ID: <20251026144958.26750-17-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251026144958.26750-1-sashal@kernel.org>
 References: <20251026144958.26750-1-sashal@kernel.org>
@@ -69,9 +63,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_075038_590383_0D4C508E 
-X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,187 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Birsan <cristian.birsan@microchip.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-[ Upstream commit bfa2bddf6ffe0ac034d02cda20c74ef05571210e ]
+[ Upstream commit 0c01fe49651d387776abed6a28541e80c8a93319 ]
 
-Add the ACR register to all PLL settings and provide the correct
-ACR value for each PLL used in different SoCs.
+Add a new word in assembly to store ACR value during the calls
+to at91_plla_disable/at91_plla_enable macros and use it.
 
-Suggested-by: Mihai Sain <mihai.sain@microchip.com>
-Signed-off-by: Cristian Birsan <cristian.birsan@microchip.com>
-[nicolas.ferre@microchip.com: add sama7d65 and review commit message]
 Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+[cristian.birsan@microchip.com: remove ACR_DEFAULT_PLLA loading]
+Signed-off-by: Cristian Birsan <cristian.birsan@microchip.com>
+Link: https://lore.kernel.org/r/20250827145427.46819-4-nicolas.ferre@microchip.com
+Reviewed-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-YES – this patch is a low-risk dependency that stable trees need before
-they can pick up the actual bug fix for the Atmel/Microchip PLL driver.
+YES – the patch fixes a real suspend/resume regression on the
+SAM9X60-style PLLs and is safe to backport.
 
-- `drivers/clk/at91/clk-sam9x60-pll.c:107` (from the follow-up fix) now
-  reads `core->characteristics->acr`; without this commit the field is
-  absent/zero, so the driver would push an invalid value into
-  PMC_PLL_ACR.
-- This change extends `struct clk_pll_characteristics` with an explicit
-  `acr` slot (`drivers/clk/at91/pmc.h:83`) and populates per-SoC values
-  for every platform that feeds the sam9x60-style PLL driver: sam9x60
-  (`drivers/clk/at91/sam9x60.c:39` and `:52`), sam9x7
-  (`drivers/clk/at91/sam9x7.c:110`/`119`/`127`/`135`/`143`), sama7d65
-  (`drivers/clk/at91/sama7d65.c:141`/`150`/`158`/`166`), and sama7g5
-  (`drivers/clk/at91/sama7g5.c:116`/`125`).
-- The new constants differ from the old hard-coded defaults (e.g.
-  sama7*d* CPU PLLs need `0x00070010` instead of `0x00020010`), so once
-  the driver starts using `characteristics->acr` the hardware finally
-  receives the correct analog-control parameters.
-- The struct growth is internal to the driver, and all in-tree users
-  either get an explicit initializer (updated here) or safely default to
-  zero, so the risk to stable is negligible.
+- `arch/arm/mach-at91/pm_suspend.S:693-767` now snapshots the PMC PLL
+  Analog Control Register before disabling PLLA and restores that exact
+  value when the PLL comes back up, instead of blindly reloading the
+  legacy default `0x00020010`. Without this, every suspend cycle
+  overwrote any board-/SoC-specific analog tuning done at boot, so PLLA
+  resumed with the wrong charge-pump/loop-filter settings.
+- The saved word added at `arch/arm/mach-at91/pm_suspend.S:1214-1215` is
+  the only state needed; no other logic changes are introduced.
+- Multiple SAM9X60-family clock descriptions (for example
+  `drivers/clk/at91/sama7g5.c:110-126`,
+  `drivers/clk/at91/sam9x60.c:39-52`) program PLL-specific `acr` values
+  via `clk-sam9x60-pll.c`, and that driver explicitly writes those
+  values into PMC_PLL_ACR before enabling the PLL
+  (`drivers/clk/at91/clk-sam9x60-pll.c:106-134`). After suspend, the old
+  code immediately replaced them with `AT91_PMC_PLL_ACR_DEFAULT_PLLA`,
+  undoing the driver’s configuration and risking unlock or unstable
+  clocks on affected boards.
+- The regression has existed since the original SAM9X60 PLL support
+  (`4fd36e458392`), so every stable kernel that supports these SoCs can
+  lose PLL configuration across low-power transitions. The fix is
+  minimal, architecture-local, and does not alter behaviour on older PMC
+  version 1 platforms because the new code is gated by both the PMC
+  version check and `CONFIG_HAVE_AT91_SAM9X60_PLL`.
 
-Follow-up: backport `ARM: at91: remove default values for PMC_PLL_ACR`
-(e204c148c83025205eaf9be89593edf350d327a0) right after this so the
-stored ACR values are actually written.
+Given the clear bug fix, confined scope, and lack of risky side effects,
+this change fits the stable backport criteria. A good follow-up when
+backporting is to run a suspend/resume cycle on a SAM9X60/SAMA7 board to
+confirm PLL lock persists.
 
- drivers/clk/at91/pmc.h      | 1 +
- drivers/clk/at91/sam9x60.c  | 2 ++
- drivers/clk/at91/sam9x7.c   | 5 +++++
- drivers/clk/at91/sama7d65.c | 4 ++++
- drivers/clk/at91/sama7g5.c  | 2 ++
- 5 files changed, 14 insertions(+)
+ arch/arm/mach-at91/pm_suspend.S | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-index 4fb29ca111f7d..5daa32c4cf254 100644
---- a/drivers/clk/at91/pmc.h
-+++ b/drivers/clk/at91/pmc.h
-@@ -80,6 +80,7 @@ struct clk_pll_characteristics {
- 	u16 *icpll;
- 	u8 *out;
- 	u8 upll : 1;
-+	u32 acr;
- };
+diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
+index 7e6c94f8edeef..aad53ec9e957b 100644
+--- a/arch/arm/mach-at91/pm_suspend.S
++++ b/arch/arm/mach-at91/pm_suspend.S
+@@ -689,6 +689,10 @@ sr_dis_exit:
+ 	bic	tmp2, tmp2, #AT91_PMC_PLL_UPDT_ID
+ 	str	tmp2, [pmc, #AT91_PMC_PLL_UPDT]
  
- struct clk_programmable_layout {
-diff --git a/drivers/clk/at91/sam9x60.c b/drivers/clk/at91/sam9x60.c
-index db6db9e2073eb..18baf4a256f47 100644
---- a/drivers/clk/at91/sam9x60.c
-+++ b/drivers/clk/at91/sam9x60.c
-@@ -36,6 +36,7 @@ static const struct clk_pll_characteristics plla_characteristics = {
- 	.num_output = ARRAY_SIZE(plla_outputs),
- 	.output = plla_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00020010),
- };
++	/* save acr */
++	ldr	tmp2, [pmc, #AT91_PMC_PLL_ACR]
++	str	tmp2, .saved_acr
++
+ 	/* save div. */
+ 	mov	tmp1, #0
+ 	ldr	tmp2, [pmc, #AT91_PMC_PLL_CTRL0]
+@@ -758,7 +762,7 @@ sr_dis_exit:
+ 	str	tmp1, [pmc, #AT91_PMC_PLL_UPDT]
  
- static const struct clk_range upll_outputs[] = {
-@@ -48,6 +49,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
- 	.output = upll_outputs,
- 	.core_output = core_outputs,
- 	.upll = true,
-+	.acr = UL(0x12023010), /* fIN = [18 MHz, 32 MHz]*/
- };
+ 	/* step 2. */
+-	ldr	tmp1, =AT91_PMC_PLL_ACR_DEFAULT_PLLA
++	ldr	tmp1, .saved_acr
+ 	str	tmp1, [pmc, #AT91_PMC_PLL_ACR]
  
- static const struct clk_pll_layout pll_frac_layout = {
-diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-index ffab32b047a01..7322220418b45 100644
---- a/drivers/clk/at91/sam9x7.c
-+++ b/drivers/clk/at91/sam9x7.c
-@@ -107,6 +107,7 @@ static const struct clk_pll_characteristics plla_characteristics = {
- 	.num_output = ARRAY_SIZE(plla_outputs),
- 	.output = plla_outputs,
- 	.core_output = plla_core_outputs,
-+	.acr = UL(0x00020010), /* Old ACR_DEFAULT_PLLA value */
- };
- 
- static const struct clk_pll_characteristics upll_characteristics = {
-@@ -115,6 +116,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
- 	.output = upll_outputs,
- 	.core_output = upll_core_outputs,
- 	.upll = true,
-+	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
- };
- 
- static const struct clk_pll_characteristics lvdspll_characteristics = {
-@@ -122,6 +124,7 @@ static const struct clk_pll_characteristics lvdspll_characteristics = {
- 	.num_output = ARRAY_SIZE(lvdspll_outputs),
- 	.output = lvdspll_outputs,
- 	.core_output = lvdspll_core_outputs,
-+	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
- };
- 
- static const struct clk_pll_characteristics audiopll_characteristics = {
-@@ -129,6 +132,7 @@ static const struct clk_pll_characteristics audiopll_characteristics = {
- 	.num_output = ARRAY_SIZE(audiopll_outputs),
- 	.output = audiopll_outputs,
- 	.core_output = audiopll_core_outputs,
-+	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
- };
- 
- static const struct clk_pll_characteristics plladiv2_characteristics = {
-@@ -136,6 +140,7 @@ static const struct clk_pll_characteristics plladiv2_characteristics = {
- 	.num_output = ARRAY_SIZE(plladiv2_outputs),
- 	.output = plladiv2_outputs,
- 	.core_output = plladiv2_core_outputs,
-+	.acr = UL(0x00020010),  /* Old ACR_DEFAULT_PLLA value */
- };
- 
- /* Layout for fractional PLL ID PLLA. */
-diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
-index a5d40df8b2f27..7dee2b160ffb3 100644
---- a/drivers/clk/at91/sama7d65.c
-+++ b/drivers/clk/at91/sama7d65.c
-@@ -138,6 +138,7 @@ static const struct clk_pll_characteristics cpu_pll_characteristics = {
- 	.num_output = ARRAY_SIZE(cpu_pll_outputs),
- 	.output = cpu_pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- /* PLL characteristics. */
-@@ -146,6 +147,7 @@ static const struct clk_pll_characteristics pll_characteristics = {
- 	.num_output = ARRAY_SIZE(pll_outputs),
- 	.output = pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- static const struct clk_pll_characteristics lvdspll_characteristics = {
-@@ -153,6 +155,7 @@ static const struct clk_pll_characteristics lvdspll_characteristics = {
- 	.num_output = ARRAY_SIZE(lvdspll_outputs),
- 	.output = lvdspll_outputs,
- 	.core_output = lvdspll_core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- static const struct clk_pll_characteristics upll_characteristics = {
-@@ -160,6 +163,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
- 	.num_output = ARRAY_SIZE(upll_outputs),
- 	.output = upll_outputs,
- 	.core_output = upll_core_outputs,
-+	.acr = UL(0x12020010),
- 	.upll = true,
- };
- 
-diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
-index 8385badc1c706..1340c2b006192 100644
---- a/drivers/clk/at91/sama7g5.c
-+++ b/drivers/clk/at91/sama7g5.c
-@@ -113,6 +113,7 @@ static const struct clk_pll_characteristics cpu_pll_characteristics = {
- 	.num_output = ARRAY_SIZE(cpu_pll_outputs),
- 	.output = cpu_pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- /* PLL characteristics. */
-@@ -121,6 +122,7 @@ static const struct clk_pll_characteristics pll_characteristics = {
- 	.num_output = ARRAY_SIZE(pll_outputs),
- 	.output = pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- /*
+ 	/* step 3. */
+@@ -1207,6 +1211,8 @@ ENDPROC(at91_pm_suspend_in_sram)
+ #endif
+ .saved_mckr:
+ 	.word 0
++.saved_acr:
++	.word 0
+ .saved_pllar:
+ 	.word 0
+ .saved_sam9_lpr:
 -- 
 2.51.0
 
