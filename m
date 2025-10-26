@@ -4,161 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34F4CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 03:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F8DCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 05:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PVlUsR6MkagZQZAcoxrsw831QkGncuv7sR4E7vpVVW0=; b=k71usX7G4NOTBaL7c9X22h9t5d
-	v8jQnpoLVDjCVi+3WxCPxBM42/WQwAbyHjJxXlCrtEfOVrxE49+/fjXfr8q7DzcOKMooxsg96LQt3
-	RwNNA9g1hJNQ1YgxC/D93HA6UI41pj7IXmzsUqOVGjgv+SAa4BvJo8ZQxUHe8qn14zVTZSfQcUSQE
-	CCHgfMra3F9ZPL8Q23CEsuPn2hR+6QPl2om2TxYeNlpWIh2K9nih3dAnTJlEO8hDo359jsDsrvqxT
-	RlS/fDIR96Bab7jruzb/g2YygPzf0uYTh9n+QmRLL0wBkRzUeqGI1c/nmGyfhZ5sf+Kz37POBWzAr
-	3RxXmtwQ==;
+	bh=TVGPySEnxjFy2QOQpcAfInwnpkDXb9sJXNYBkhDhx/c=; b=LWCCU6L2GC8Wz2l00dUDBh+/aU
+	7RAu8/5aU3SRs2YgaTUg4ajBq3jGlCiJcPTRvze9fCmRuvbtlfIDxowjELsjEN8LNzAfo/RhFktIs
+	mCBzjYtMCIlu0I5FavKe0rTZCVyEX4FjU/mPyasFwV751LNyDmICUrPtokTHTaIip2pPvLihiYOdU
+	j3He6xrYcoxYsa/BuQb1eX+/JF7f/7S8Srs9xAIHefdUN4hHSLjnBGnoxOaOv4Txtm2w7GcQpYmcu
+	rTpUrrUD4yRbV5Vt4gdHN94iHmE7onRGx9EwfyFkC1UxNqBiZeaUSodXw8IwRutU1Y0IZC9Kt/dQo
+	rx+m8i/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCrse-0000000ByzF-2LyA;
-	Sun, 26 Oct 2025 03:57:20 +0000
-Received: from mail-koreacentralazon11023114.outbound.protection.outlook.com ([40.107.44.114] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vCt5h-0000000C1TV-2NTO;
+	Sun, 26 Oct 2025 05:14:53 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCrsb-0000000Byym-1ebi
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 03:57:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C5PUhQC+J1YtSUJFee07BULo0tVx3Psc2DfqcRTtaA3pCnx4JqixHSy980G4Tu+vT41eZ8SP425sO27hExn0RXseBfdfTGJidLTJnIB1/4No8+9cqQdu6tUUtv7mOYB/qNBn7ZyksQn18XkwAORzomgXuB3sCfEriJgP94/D/I/71aXDf6oHBm5bfq3zVWZG76AXOFys+b01AMSN5y8hhBxcTWIpYbDyWm5hUj3f9vsQmuBiqPK1b1InYHzxhmqKhELOI+ozxdnnU/fv4GXjLk0tTz214ytlHRANwvsPyLezbtLfxeELfM3J4rLNC5BydT+ea0Pw7Om4vMoCs5UUdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PVlUsR6MkagZQZAcoxrsw831QkGncuv7sR4E7vpVVW0=;
- b=VG9dDGx055aQOCmR4Yjw6cKSrly4piViG5lIEtdqpSFoXESacji/ZU8rsI1wOYdheyg2mFcCjmr4txTI54YQ5owDZOZDG1q0EujIS5a9TT/BINAdyCQ4GNQE6ioy2m/0e7d0EvFkWDJrSV65mfJbgYkMFETzGDt2EsQqBudcTwxHhOGKFt7rw9lSqSYEG9LR3nDOA6hze5WSO+pDUam2OBqgzgOHBfBhFLUbUfnXkG78vWNzsBGjG3PNsjbdeLhTqp3Y0BBxGjeKLN6GAnCCgIRUdpnZ0vhkw7YhVl/W7bfrvZA/j0+wEF75Og6FZLveuAAmUPBaNQBOD3OscPD4WA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PVlUsR6MkagZQZAcoxrsw831QkGncuv7sR4E7vpVVW0=;
- b=h0rpnEWSXD+6gWdWx69vzVv/kj4PrqtClcY3TuzXM1/qorZlzBEcHS41Xjj8qiUOeg2JqGN7DPDWJg+9riKkuE1X4NesmrjgVT8pVqpkLEi1+rfqoWDPTVPp1KysTCbkV7q0KkNHf++/VKwhdpQ1WQ/Apwr6M9seClu/Kk2YCZa4FE5sN7bHOi6b+jdMs+wn3he3Il/GJkgWlOLy76TYGBcKnBY4yheJF/kikXvHBosoTVJUc3GEgGLhWPeNdiR2UxdjFGjeHPsyEdqnzVF1vvHcNZlVrzqRb0Zq8M/eLeGeO2emQ6E1cA5f54zAJuJIpmU7IP/ZirQuNuKCNXYAcg==
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
- by TYPPR06MB8104.apcprd06.prod.outlook.com (2603:1096:405:313::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Sun, 26 Oct
- 2025 03:57:07 +0000
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::df4f:b1a1:1825:4a80]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::df4f:b1a1:1825:4a80%7]) with mapi id 15.20.9253.011; Sun, 26 Oct 2025
- 03:57:06 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>
-CC: Thomas Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>, Kevin Chen
-	<kevin_chen@aspeedtech.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>
-Subject: RE: [PATCH v5 1/3] dt-bindings: interrupt-controller: aspeed,ast2700:
- Add support for INTC hierarchy
-Thread-Topic: [PATCH v5 1/3] dt-bindings: interrupt-controller:
- aspeed,ast2700: Add support for INTC hierarchy
-Thread-Index: AQHcQyDQYO/3l6vgwk2QRDf7VCK0I7TOL4uAgAEN90CAArNoAIAB3pOg
-Date: Sun, 26 Oct 2025 03:57:06 +0000
-Message-ID: <TY2PPF5CB9A1BE6CDE8AF88A638BEC06B41F2FFA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20251022065507.1152071-1-ryan_chen@aspeedtech.com>
- <20251022065507.1152071-2-ryan_chen@aspeedtech.com>
- <20251022135101.GA3349934-robh@kernel.org>
- <TY2PPF5CB9A1BE674594566C13B8D8B2984F2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <20251024231154.GA2962687-robh@kernel.org>
-In-Reply-To: <20251024231154.GA2962687-robh@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|TYPPR06MB8104:EE_
-x-ms-office365-filtering-correlation-id: b160912d-66b3-415f-4aaf-08de1443baee
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?/AGcO45365STq4XMbmugr6druN4IPpwgW64nRshfW0gAmKYcyGrVcF88O0o/?=
- =?us-ascii?Q?oXX2nx8rAAl9fpRwA3EU67R1iB+o4hcgymHtLvCMlP7/8GCl1FjyTf025UPv?=
- =?us-ascii?Q?NKKUX74esE6ZMARyUP7/CCv1eoCzE1xO0VVUXCWn5eLhgYeOvEzher8iE9U4?=
- =?us-ascii?Q?9WcQyqan4cKyBbxI3TIE1UtS/gjhlhMA89jFz++o+qtJp/XZVmJn5qt+s8Ce?=
- =?us-ascii?Q?IJ9L8W4ABEzYhhLU427udzmL5hZEBO/tYLgnhLRezQOPQCTTyNy4q2bYYQ5l?=
- =?us-ascii?Q?Cs73+8/zs0cuZlfKyvACjZsaO81ekr+X51bkx/7LgJusaL3fby6IW4QCZKgk?=
- =?us-ascii?Q?rhJKyQxkQt15hgcfVacsv8+msbZMXnhmTSnbyla33hTzgrJY4NZ07IDwDFLt?=
- =?us-ascii?Q?6ojnRlb1+Rro1xZUZDuiHO8UjCJzfz6TUWSHS3yePEV3nbPUkycrobmvuPxk?=
- =?us-ascii?Q?IljQyCGwK+lqcRLY7q/0HemLtvuWyXDqMK325bUXgofIdfOAZbsfFufaGXSD?=
- =?us-ascii?Q?yjr3Uxcufd2JpsSkwP13i0loc7jY2fQN3C4HaxPGnSPDeP6CAHSHhbxZaE5X?=
- =?us-ascii?Q?4El60R/cMaozVmblfe1Y/wLSoFQyeICWenGFUwGW2AiJSN+AaNhrt4Ogi9rb?=
- =?us-ascii?Q?hpa9Plp0hV4ZJ+MiaYuL4uQtRHofXcrWmMbTdOOUx9OTV3lbd98DG+0srQWr?=
- =?us-ascii?Q?Dtow9GcQ/+sbyDGUDWFO/8+WmFguqieEI/W5tJtVmSOZeMeHltT9/YTFkuCa?=
- =?us-ascii?Q?tLZwGr077D8LIP1LtmE/S2S0+3AjRtrR/aSX+VWhXr6g3K/9n2H7fuC4PRvJ?=
- =?us-ascii?Q?JkrJqaxDzZ9Ibkxc19blSaxgR7dYxHTkuJGnSPsQjePm9yIWe+u0CHHfEryx?=
- =?us-ascii?Q?91ecF9T2ZyyVSDFquNykE8wIsIEmSlTORY/dhjnjg0Z/b3zRiH1EWcvRRydE?=
- =?us-ascii?Q?WG8NLeOZ0qHe0JCCN8a1zgRxjcElJJNxqxB0dlwKDb1u1azWs1xR9iYc24np?=
- =?us-ascii?Q?5vSAGBqo+VlJgGETbH7BJcYhWqmXGpIK5op7D6Qjj/bWpnWlqoTRTovuf7v3?=
- =?us-ascii?Q?wI/5hc0wdcbIPaHF5a3bPwXW/WYWk+6tK9QI0XHAWgSI+MOcvGi/uy/SOTMi?=
- =?us-ascii?Q?pjDRNBHs7kz7mKkZCz/CDmCqk1YzIUS5nu4RS+WJI0SwpIWCTE/ywJ6ppi6l?=
- =?us-ascii?Q?GsW6diPy763xPzQvmptM5uxbGTzADj6xwKrO4gPFlC5lYGylMOKf7Mld+jEZ?=
- =?us-ascii?Q?QRv5n1ecWzVpOwpgQmHLWf0HIVz2zAtJ8znX1gOPEwaUgCIDLWxxIS1YPIju?=
- =?us-ascii?Q?vguWF98x1IG9tJ3YTpnbG1fIHFQdqAEu9dRQ02ryOtVEGQsZdgVmpfs19zZ0?=
- =?us-ascii?Q?zKOQowVXy+1S+BnLP8wWfcgSo0UtzHtFLnwaKFngnCQMyqex/V7saiSiu06b?=
- =?us-ascii?Q?FCXl9JdpTA19V3jRxP6FTwF0lnolE0dlFcMypNwMrFxmcL+1BQJuS230KAbs?=
- =?us-ascii?Q?nq4QOwk4GlmOKihfjXSYHS7ahcZdtKXqZ04k?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?vhIIE4pWlY2+p94Ah8DUNF73ab7yqWUbqo6W5CqukCs0chERz5/pdoCSXWGp?=
- =?us-ascii?Q?XDxqfzskDARuqzo91ZCxWKOyND+AOZhTWp7IrCyMRT/c2ODnpEy0MLjAcHYK?=
- =?us-ascii?Q?o1JU/n4XZLRn3VbGx3A3x0sYl3Ltoy3KE5nn2bUHzcLe4HeLj+wt5h19Ofwu?=
- =?us-ascii?Q?BhkIOqMj4fMA3IQhkbwyMtO/1OIAFf14NOmwJkRSNfLAYEayReDwS70gbj/G?=
- =?us-ascii?Q?/rDZa5XdMiU5PQs65fvs8Hf7coJVnlYDsL+EVZIFF+EKis8wiv2P97/HmtgP?=
- =?us-ascii?Q?y/ANiVlMkrHGsM/IN656CjdllzeJdVpG5sGC6XpynL2vTvR5b/muEvnfnduf?=
- =?us-ascii?Q?h9Kf8/ltIMflbcF5QgSP7KPM2il0iIvEbkw1bVnV+e4sv2fCyMvQEvPRgECc?=
- =?us-ascii?Q?H4LsbgymtykleJZIVjkcRqUr/uqR+70N0ctXw9L80/tm4RZB3SsTyBI0AxbN?=
- =?us-ascii?Q?HK0QmDlL7rLCKOtse1SUdfkN/8c0WTkp2tvqFXRbm7GTu0gdXahi8KPDbfnx?=
- =?us-ascii?Q?UYBzREwuqzs+n0Ywm/h4l2sx1hPA0SBK4L/CTa50QX4smDc6aRj6QwAhqACk?=
- =?us-ascii?Q?2iEZ+QIWIuwAnFM4fl71gpkkgUigxJHLjiGkw4LWa83FuvZnengDfNox1Szt?=
- =?us-ascii?Q?lxHliJASnxzd/tzR34QD4okUDGiuKDqL1f4UPfMl/28yHFr5Ghak3XCFHNmB?=
- =?us-ascii?Q?+WApGCoMNW7IKXPD2jK1E8z8YLjxAy5uend5S1DgWalSTd5DvTgpesB/Ty6i?=
- =?us-ascii?Q?vXZWFo9QpyWNJkDQFS3SCHcFJPf1UK57zh/l5zg8zQaHUCVhkjuMwocw5VUc?=
- =?us-ascii?Q?yD6Y8bwU/4UTa3YVVvByUy6XfCbqgUCHTkeSS/RbKvAZ5bmSClWdALtu3yJk?=
- =?us-ascii?Q?H6sTA1dCbPR/ds7OBaEI8JHolXFghUqRE2ATQ+JIc1aMirPJINjfLCuhYteq?=
- =?us-ascii?Q?Z/0DLj/hnU7d6lv/UbWyXEDaEXVa1A3kwLFx60mRdDaJib84Wio3RBT7RPLP?=
- =?us-ascii?Q?RAcZeKIAKYe/T0AOuZ3u9kYOPJ0IvHgCGG0QeD+1IXTRl4gyIMqCAi1nc08Q?=
- =?us-ascii?Q?1RyfRrLIB9/f1aGTaRg28UeoAHUl3wI179yJ/KYtRNSmUQCWk32E5qP9dePR?=
- =?us-ascii?Q?uahzVov+PBXmLH6BezDv4VIWX56O93SOM+yTNFM0ybBnqxokJVnrNhPFeFC5?=
- =?us-ascii?Q?66JYVIsZKMScKrkl/sC3n1NOWopN5oqwMK7s1M0tJQzwQfN6ca79C6CU5wmn?=
- =?us-ascii?Q?b7Nntu9JH7QnjACDySFoo0W+at7dCFZxofUYcOZc0UtKSqSKQE1qUnqLH18b?=
- =?us-ascii?Q?yl8PlcqlQFQatnLEiQQ88Brt/7urtjecWhr7zeYl6bc7zgfyNqCHRjNOLe3m?=
- =?us-ascii?Q?wcZAlkrLz2Wnq4SYoUcH5LkqdbEECshI2Ozgi0uNXs5RMHPIxealSl5wNNVP?=
- =?us-ascii?Q?Sf5KWcwLIjWqAqKneodH1LLzpunVFPthzGn3e8hCOwqhrAxawVfFo2EEFk+E?=
- =?us-ascii?Q?he0nURGwEWukYKRVAtm3RRQqSQQOhT8F46YrA3qSkJAwgTW22p8gf46tHMMm?=
- =?us-ascii?Q?Mnu1ZraDS5a19IDMtLTJgeyYHumd3jywKg9uA2eZ?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vCt5e-0000000C1T6-3HXW;
+	Sun, 26 Oct 2025 05:14:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761455690; x=1792991690;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gKJE14w1KDbJqmE7/dHsKdynDf2xulvE3IRzaIW6bj4=;
+  b=dkjTTV+T/qLsrQrcuRto5ZwAnVm3UAIIB/JPhFgLXrPdo+idq981jKW7
+   a4S4C4Fln2L0dJQi3NltYqKBHBSffYS7jkankFxG4vr93XGdOZvEcGPwA
+   DkY2umU7iDf6tHJqzE2HJJfDlEol97keT3AMLFhgpSlW69TJuifckRXub
+   5AI7kVbm0Qztd/9FAHGhE/cXI3Md6FeOpjEJyqTYtgmqgWPtSXjjaVwLV
+   UBIyVao61BjArkdKMDyG/5Cv7E4r5alZVDvFGBb2hceGU5jcxr9u2eAlf
+   Vg+dsVVj8FN84vvYUjhdaxzYtZTkLRVDhwQuI9o5OmR0/a9b3pQBypo7c
+   Q==;
+X-CSE-ConnectionGUID: o1uogyzHS+K/ZDtPJtfqcg==
+X-CSE-MsgGUID: /HVxjU/2S0yx6wENsrxCWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="74919508"
+X-IronPort-AV: E=Sophos;i="6.19,256,1754982000"; 
+   d="scan'208";a="74919508"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2025 22:14:45 -0700
+X-CSE-ConnectionGUID: 3IfibMsMR/SdoNhlTH/RrA==
+X-CSE-MsgGUID: x7CYNeabSyG2So3RbmdNKA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,256,1754982000"; 
+   d="scan'208";a="184839789"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 25 Oct 2025 22:14:42 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vCt5F-000Fty-0a;
+	Sun, 26 Oct 2025 05:14:34 +0000
+Date: Sun, 26 Oct 2025 13:13:51 +0800
+From: kernel test robot <lkp@intel.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	alexandre.belloni@bootlin.com
+Cc: oe-kbuild-all@lists.linux.dev, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v1 2/2] rtc: Add support for MT6685 Clock IC's RTC over
+ SPMI
+Message-ID: <202510261223.NRLximA4-lkp@intel.com>
+References: <20251024083318.25890-3-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b160912d-66b3-415f-4aaf-08de1443baee
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Oct 2025 03:57:06.4613
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: dNhFfXBxnynLFE2GGZ8mzUSUvNp7IhuT8Gbxl45wm55bxheDmQPmZO6TqLaecNT3UZ8e4E+SCgDrvCHbXRrXyeEx4QaGSKiNXN7z5GD71V8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYPPR06MB8104
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251024083318.25890-3-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_205717_888174_CE518980 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20251025_221450_888020_5221C04E 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,146 +92,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v5 1/3] dt-bindings: interrupt-controller: aspeed,ast=
-2700:
-> Add support for INTC hierarchy
->=20
-> On Thu, Oct 23, 2025 at 06:57:01AM +0000, Ryan Chen wrote:
-> > Hello Rob.
-> > 	Thank you for your detailed review and comments.
-> >
-> > > Subject: Re: [PATCH v5 1/3] dt-bindings: interrupt-controller:
-> aspeed,ast2700:
-> > > Add support for INTC hierarchy
-> > >
-> > > On Wed, Oct 22, 2025 at 02:55:05PM +0800, Ryan Chen wrote:
-> > > > AST2700 contains two-level interrupt controllers (INTC0 and
-> > > > INTC1), each with its own register space and handling different
-> > > > sets of peripherals.
-> > >
-> > > This is a mess!
-> > >
-> > > How does this relate to the existing "aspeed,ast2700-intc-ic"? Its
-> > > schema has a block diagram of connections which I can understand. Thi=
-s
-> does not.
-> > >
-> > > The use of child nodes here is questionable. A variable number of
-> > > interrupt banks is not a reason to have child nodes. I'm only
-> > > guessing that's what's happening here because you haven't explained i=
-t.
-> >
-> > Let me clarify the hardware structure and the purpose of these bindings=
-.
-> >
-> > The AST2700 SoC includes two top-level interrupt controller modules,
-> > INTC0 and INTC1. (aspeed,ast2700-intc0, aspeed,ast2700-intc1) Each of
-> > them provides routing selection and register protection features.
-> > Within each INTCx block, there are multiple sub-blocks called intc-ic,
-> > each handling multi-interrupt sources.
-> > ("aspeed,ast2700-intc0-ic", "aspeed,ast2700-intc1-ic")
-> >
-> > Cascading occurs between the child banks:
-> > Level 1 : intc0-ic have multi-interrupts connect to GIC (root) Level 2
-> > : multi Intc1-ic# connect to intc0-ic The parent intc0/1 nodes expose
-> > register regions for routing and protection control, serving as
-> > containers for their intc-ic children.
->=20
-> Being a 2nd vs. 3rd level interrupt controller is not a reason for differ=
-ent
-> compatibles. The programming model is obviously the same for both as you
-> essentially have 0 driver changes. Having N banks of 32 interrupts vs. 1 =
-bank of
-> 32 interrupts is not a reason to have multiple intcN-ic nodes. That is a =
-very
-> common difference between instances of the same interrupt controller such=
- as
-> the GIC.
->=20
-> What you need to do is simply extend your driver to support N banks of
-> 32 interrupts. That's what almost every other irqchip driver with more th=
-an 32
-> interrupts does. If you are lucky, then the offset to each bank's registe=
-rs is just
-> hwirq/32 * <bank stride> and the number of banks can be calculated from t=
-he
-> length of 'reg'. If you are not lucky, then you could put 1 'reg' entry f=
-or each
-> bank.
->=20
-> AFAICT, the existing binding in aspeed,ast2700-intc.yaml should work for =
-you.
->=20
-> >
-> > The following simplified diagram shows the hierarchy:
-> >
-> >
-> >                                  +----------+       +----------+
-> >                                  |  intc0   |       |  intc1   |
-> > - - - - - - - - - - - - - - - - -+---- -----+- -  - +------ - -+
-> >   +-----------------------+      |          |       |          |
-> >   | +-------+ +---------+ |      |          |       |          |
-> >   | |       | |         | |      |          |       |          |
-> >   | |  PSP  +-+ GIC     | |      |          |       |          |
-> >   | |       | |         | |      |          |       |          |
-> >   | +-------+ |         | |      |          |       |          |
-> >   |           |         | |      +----------+       |          |
-> >   |           | 192~201 <-|------+          <-------+ intc1-ic |
-> >   |           +---------+ |      |          |       |          |
-> >   +-----------------------+      | intc0-ic <-------+ intc1-ic |
-> >                                  |          |       |
-> |
-> >                                  | 			<-------+ intc1-ic |
-> >                                  +----------+		  .....
->=20
-> You already match on intc0 and handle 32 interrupts. Now you are adding
-> intc0-ic to match on and handling the same 32 interrupts?
+Hi AngeloGioacchino,
 
-Thank your guidance, understood your point. the currently is met requiremen=
-t.
-For currently aspeed,ast2700-intc.yaml I still need update following.
-#1. Interrupts:
-	- maxItems: 6
-    + minItems: 1
-    + maxItems: 10
+kernel test robot noticed the following build errors:
 
-The 1 level request multi-interrupt to root GIC, the max is 10.
-2nd level only request 1 to level 1 intc-ic.=20
-in level 1: will be need 10, 2nd level only need 1.
-=09
-Level1 :=20
-        intc0_11: interrupt-controller@12101b00 {
-            compatible =3D "aspeed,ast2700-intc-ic";
-            reg =3D <0x0 0x12101b00 0x0 0x10>;
-            #interrupt-cells =3D <1>;
-            interrupt-controller;
-            interrupts =3D <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>,
-                    <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>;
-        };
+[auto build test ERROR on abelloni/rtc-next]
+[also build test ERROR on robh/for-next linus/master v6.18-rc2 next-20251024]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Level 2:
-     intc1_0: interrupt-controller@14c18100 {
-            compatible =3D "aspeed,ast2700-intc-ic";
-            reg =3D <0x0 0x14c18100 0x0 0x10>;
-            #interrupt-cells =3D <1>;
-            interrupt-controller;
-            interrupts-extended =3D <&intc0_11 0>;
-        };
+url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-rtc-Add-MediaTek-MT6685-PM-Clock-IC-Real-Time-Clock/20251024-164423
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux.git rtc-next
+patch link:    https://lore.kernel.org/r/20251024083318.25890-3-angelogioacchino.delregno%40collabora.com
+patch subject: [PATCH v1 2/2] rtc: Add support for MT6685 Clock IC's RTC over SPMI
+config: sparc64-randconfig-r062-20251026 (https://download.01.org/0day-ci/archive/20251026/202510261223.NRLximA4-lkp@intel.com/config)
+compiler: sparc64-linux-gcc (GCC) 9.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251026/202510261223.NRLximA4-lkp@intel.com/reproduce)
 
-#2. '#interrupt-cells':
-    -const: 2=20
-    +const: 1
-Due to the driver irq-aspeed-intc.c not support any trigger type.=20
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510261223.NRLximA4-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   drivers/rtc/rtc-mt6685.c: In function 'rtc_mt6685_probe':
+   drivers/rtc/rtc-mt6685.c:380:13: error: implicit declaration of function 'devm_spmi_subdevice_alloc_and_add' [-Werror=implicit-function-declaration]
+     380 |  sub_sdev = devm_spmi_subdevice_alloc_and_add(dev, sparent);
+         |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/rtc/rtc-mt6685.c:380:11: warning: assignment to 'struct spmi_subdevice *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+     380 |  sub_sdev = devm_spmi_subdevice_alloc_and_add(dev, sparent);
+         |           ^
+   In file included from drivers/rtc/rtc-mt6685.c:20:
+>> drivers/rtc/rtc-mt6685.c:397:51: error: dereferencing pointer to incomplete type 'struct spmi_subdevice'
+     397 |  rtc->regmap = devm_regmap_init_spmi_ext(&sub_sdev->sdev, &mt6685_rtc_regmap_config);
+         |                                                   ^~
+   include/linux/regmap.h:775:6: note: in definition of macro '__regmap_lockdep_wrapper'
+     775 |   fn(__VA_ARGS__, &_key,     \
+         |      ^~~~~~~~~~~
+   drivers/rtc/rtc-mt6685.c:397:16: note: in expansion of macro 'devm_regmap_init_spmi_ext'
+     397 |  rtc->regmap = devm_regmap_init_spmi_ext(&sub_sdev->sdev, &mt6685_rtc_regmap_config);
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~
+   cc1: some warnings being treated as errors
 
 
->=20
-> Rob
+vim +397 drivers/rtc/rtc-mt6685.c
+
+   358	
+   359	static int rtc_mt6685_probe(struct platform_device *pdev)
+   360	{
+   361		struct regmap_config mt6685_rtc_regmap_config = {
+   362			.reg_bits = 16,
+   363			.val_bits = 8,
+   364			.max_register = 0x60,
+   365			.fast_io = true,
+   366			.use_single_read = true,
+   367			.use_single_write = true,
+   368		};
+   369		struct device *dev = &pdev->dev;
+   370		struct spmi_subdevice *sub_sdev;
+   371		struct spmi_device *sparent;
+   372		struct mt6685_rtc *rtc;
+   373		int ret;
+   374	
+   375		rtc = devm_kzalloc(dev, sizeof(struct mt6685_rtc), GFP_KERNEL);
+   376		if (!rtc)
+   377			return -ENOMEM;
+   378	
+   379		sparent = to_spmi_device(dev->parent);
+ > 380		sub_sdev = devm_spmi_subdevice_alloc_and_add(dev, sparent);
+   381		if (IS_ERR(sub_sdev))
+   382			return PTR_ERR(sub_sdev);
+   383	
+   384		ret = of_property_read_u32(pdev->dev.of_node, "reg",
+   385					   &mt6685_rtc_regmap_config.reg_base);
+   386		if (ret)
+   387			return ret;
+   388	
+   389		rtc->irq = platform_get_irq(pdev, 0);
+   390		if (rtc->irq < 0)
+   391			return rtc->irq;
+   392	
+   393		rtc->mclk = devm_clk_get(dev, 0);
+   394		if (IS_ERR(rtc->mclk))
+   395			return PTR_ERR(rtc->mclk);
+   396	
+ > 397		rtc->regmap = devm_regmap_init_spmi_ext(&sub_sdev->sdev, &mt6685_rtc_regmap_config);
+   398		if (IS_ERR(rtc->regmap))
+   399			return PTR_ERR(rtc->regmap);
+   400	
+   401		rtc->rdev = devm_rtc_allocate_device(dev);
+   402		if (IS_ERR(rtc->rdev))
+   403			return PTR_ERR(rtc->rdev);
+   404	
+   405		platform_set_drvdata(pdev, rtc);
+   406	
+   407		/* Clock is required to auto-synchronize IRQ enable to RTC */
+   408		ret = clk_prepare_enable(rtc->mclk);
+   409		if (ret)
+   410			return ret;
+   411	
+   412		ret = devm_request_threaded_irq(&pdev->dev, rtc->irq, NULL,
+   413						rtc_mt6685_irq_handler_thread,
+   414						IRQF_ONESHOT | IRQF_TRIGGER_HIGH,
+   415						"mt6685-rtc", rtc);
+   416		clk_disable_unprepare(rtc->mclk);
+   417		if (ret)
+   418			return dev_err_probe(&pdev->dev, ret, "Cannot request alarm IRQ");
+   419	
+   420		device_init_wakeup(&pdev->dev, true);
+   421	
+   422		rtc->rdev->ops = &rtc_mt6685_ops;
+   423		rtc->rdev->range_min = RTC_TIMESTAMP_BEGIN_1900;
+   424		rtc->rdev->range_max = mktime64(2027, 12, 31, 23, 59, 59);
+   425		rtc->rdev->start_secs = mktime64(1968, 1, 1, 0, 0, 0);
+   426		rtc->rdev->set_start_time = true;
+   427	
+   428		return devm_rtc_register_device(rtc->rdev);
+   429	}
+   430	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
