@@ -4,90 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DF7CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 19:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F58CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 20:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dGAlA6xEEpg5Sg3NpocSMWJ7GFQOTpi3dlaTTRDDDLM=; b=tXyVjlrZtzGn/b0QFg3H6EPKoJ
-	iZ1uNyrOB4zq0cZYNpBdE2DFopbUrHgMtmIVe7io90cEhpKoNzTuz6/ah+wFPcGW1kPjSA817CoCv
-	PFKqQYIvMeNEuUDAI+vOt7bsr3FQWUNgIsAfiKyUanDonCfbhA920xcLGp4eBiaMApFiW6phnMBdt
-	i3W/+l3qqTATypvmpAjZUJmLCSUecLVHctCdleHI4iw5JgC7wBFoVaVLH5TuT+HTL5ZIwiYCgCdTu
-	CpRNlkU59zcN9hYkFDOm2GKAmnj1rpOkkw/sncrxd3JhO+8AkbEBkzLyu6So7KAFbG1zDJb8p/Ovv
-	nkOFRCRg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aX98xM5uLTwNgSn/07WIOBdC4l1s/Q8i8XO2+Sj+EJg=; b=k2tzzLj5K+kwzKiN80i4Vkp2T/
+	C9/W7sNu/ueHQ2bRB0LokyJtpG+k3uiDy1ZKnYSo1zYKC07nCkCv4O383Khuuu6AAVyq9OVH8zEec
+	E1hxVVvVCKGwXSqCnAOQ9sMPiQLKuvB+IW17+vSLf2HdFkH9dJ0c2qcClKrn1ICrHvsxGojNoCHm9
+	gXQqgUJQewUcHUvyFCrrHa5LQeFQ6zlVbTytaLL7/fqqHuBtvocsr1Gxh3g2trdEi1i96XG4XXk3N
+	gR53vz4UFCQugFE+TCRqRKgRegiSbhN6C26AVA0yyIEoW21EPHoV7yc6Sigzwtg58S1M5s7+gKw4v
+	gymIN6Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD6jl-0000000CgK4-3njF;
-	Sun, 26 Oct 2025 19:49:09 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vD7AY-0000000Chb0-0hnO;
+	Sun, 26 Oct 2025 20:16:50 +0000
+Received: from mail-qv1-xf62.google.com ([2607:f8b0:4864:20::f62])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD6jh-0000000CgJD-4AqC
+	id 1vD7AU-0000000ChZh-3Ezy
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 19:49:08 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-475de184058so4167085e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 12:49:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761508144; x=1762112944; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dGAlA6xEEpg5Sg3NpocSMWJ7GFQOTpi3dlaTTRDDDLM=;
-        b=QwNGaCeRn3+r7WM996ZO7ZdBC+4EoPKzdmlwdedhM6QUiezlcV/1+1b5qs/XsjE0Gu
-         fmkWDdQpUXSnufLWF/v4ytz7VuTFW9bZmWnIII+c0JageqUfxVrMcIRpWP9joqTm6ZY8
-         UkrRt4UgUyKDjxz9u6IXfLy/mH3W4rx8wKAkOiQwiTWQHmVcsXQfmoMVCfDnGYVWLQHd
-         hs65E9a1Lw/eYSIqGqyL57bdYt1AjAYO7lQwctYjVQq4Br04Xu/WtNUS4I4s6d//E9/u
-         YDK2PWiH6bTUUzooDfQLSer9Jr9dnniDPtHJfqz8Aoxdl2HbmAMKtw/gfbpajbb4PiMA
-         Z9YQ==
+	Sun, 26 Oct 2025 20:16:48 +0000
+Received: by mail-qv1-xf62.google.com with SMTP id 6a1803df08f44-81efcad9c90so47929266d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:16:46 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761508144; x=1762112944;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dGAlA6xEEpg5Sg3NpocSMWJ7GFQOTpi3dlaTTRDDDLM=;
-        b=lXSfB7d4DOu7FuBftFOjrtMBVCO08CyS5HfbrvWRzOIzzt1N9jmnWqjFVJFED2HNYY
-         C/awbjombPnncRp3d4k15pk4qqXytY6F6pY73p72sV2QhSUnQK81cw2d9alcEWsj72/Z
-         rwatdO/S0lsZwtSTgjrXonHChlZlqQSCCaqsOVgC/fR86eBJTN8pT6BUqHgweW8IIXFP
-         iKMSwS41tbRJIhVdrhbl2TJqdpEU/gdd9N5O/AdZL1qoesQVzQsb508GZNa1Ooyulk4m
-         wFnRBaNu87nvqdhBG8oQY2oYEMYtgvE0qH9yrlcKXrKaw/C+d7fRbFLgwKNzlWFZBjv/
-         QdpA==
-X-Forwarded-Encrypted: i=1; AJvYcCVnhINqTynpDMMIwUQ2tZtHtE6dkJa0AmiiZUuchFEAelut2mpGUn6R/S43xF6Im5T0qYTxA/uEafvBIT72Mr3e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOh9GAcGH49Pz/OGkPZO547E7IQNOxy7tKLf9laDNw9Wy8ixDc
-	JjEtqrDU2uWGUVjjtfSUENgl2uenDb+BGjqCjwU/0Pkb++xb/sZfVF8v
-X-Gm-Gg: ASbGnctf635iJ14PDkg9QiCPcKSO9b1rZsk3SWq6L8wYBehcvjbkHIPyzmC7xDIv+n7
-	DbvN5Ski6sVJQNBA2lJdnNTEpd7n3Q+3Mq/7utL8ewUknzKlJp0eH/opOgNzQgvvbDtI9OGeikF
-	PaDGNiXW7+XcyHYmH7pHRPdEqDJ9v3Gv6KylbBGXuwK5SEDYG4DBqSaO3PcUMcnxzYAvwtx6Uc4
-	QRjUVVUf+aRfEAezPOplvrPOT7ZPy7Y5+UykIT3HcnFuNf6hCwlmXA22xNKsjPiJhDBB8LfaoON
-	fs+B+g5nuNadTTEcekxjJ1O5kQBWyeJl/A0SIq7+UoPlGXxUlO6XXE4Ir2RrJtewQGhui1GLYTv
-	qedMXNKi39cZ94BWt3QWXHr3wd+5lfBODIptp8joPva8mUKlJQv5vSXo2f4+YzebXR6g0Ch+YkQ
-	o8AePvClJ9HIgNcw==
-X-Google-Smtp-Source: AGHT+IHxjRQnRW5DZRFV2Qwhcw+akufX9vynEkSIauiFSd7fK9owVylMsihE4r48/PVg7PHb0yVz6Q==
-X-Received: by 2002:a05:600c:468d:b0:471:95a:60b1 with SMTP id 5b1f17b1804b1-475d2ed6e11mr100007385e9.32.1761508143555;
-        Sun, 26 Oct 2025 12:49:03 -0700 (PDT)
-Received: from orange.info ([2a02:8010:6606:0:8fa:2ba2:6886:7fe4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd05098dsm45244265e9.5.2025.10.26.12.49.02
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 26 Oct 2025 12:49:02 -0700 (PDT)
-From: Hugh Cole-Baker <sigmaris@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Hugh Cole-Baker <sigmaris@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: pwm-fan overlay for NanoPC-T6
-Date: Sun, 26 Oct 2025 19:48:40 +0000
-Message-ID: <20251026194858.92461-1-sigmaris@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        d=1e100.net; s=20230601; t=1761509805; x=1762114605;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aX98xM5uLTwNgSn/07WIOBdC4l1s/Q8i8XO2+Sj+EJg=;
+        b=a8usSehsKMQkkz4TCsL6Xu+mCJ1TOC+rOsWzEwtj90xZ7GVEcpstTwMmkx/h9FAuH6
+         qb28UA1MeiAZyuZs+2B2vtN9vqzt9We1UQW8Fl2QfStj0LKD15coXAjP2SINpZbI5+IK
+         hm2QwQxXw66hHUMFhvXOBPa5t/0QCuowaC1+5N6zF6botAhRyjQNLBW1DcK15Z5EmzH8
+         xSXphHrS6aGjMeTuGi9ngKkEmfCQKIZrxo7ynqxJHZwDXGO6vya0vd7wS7hfsrrESplf
+         kjVxdrYhJewBOoDFHDrsevbIt5SKrwXsR0xJhAZCplZnOlUuDqeW1t69nDlXCDeIxH+2
+         R4Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCXgEzZ15sRIF24Nr1PKSDOcJrLzh6bIO6aJqrwBlp9+vRPbfb0s+h9qmYkZr2VA/VhiUnEDZgRSR6B8iNK7YI/z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzRVal6y12ETQVBGlhyUyyoraNGqaUEgbw8WPFfpBWTmpK0f5X
+	II4HLtjP9yCkwFUGxDgNJmd93EH1dTD8pFTLQreCaodeRYHhosq5v/78pfhciSTXwgxFc6SJjcT
+	AvlstE/VubVCBdThZvc6V9zq2fpX68q6gDe7yJesPGxjN9lVjSNz1XcoyBvUf6HG2dWlxpC5WCm
+	ik5uCL6eN6f9rpI0tkRXVEvWI6ByAUf/dbh9hk98tb4zRiMUJ1TUWduh3N/nZhk/W6l7YDuWMTM
+	brknBIzRmtEfiV6OEUNYiSXxkge7sypdMQ=
+X-Gm-Gg: ASbGncseUjfZeAodt6XHn9z4q1JIHTSk6P56Z1FZ/VtnrdYgXZf/mi1KQ0aclWUO1eb
+	G3Mizu19sKBjqD+nPhuwMx6qjUDwhpDSpeibe1j2fMJ3QjP8ISSJyk8iTfq7mReigyY04A7ug1o
+	TrdQrnEM0B8a1qWVlHhfdOIWqQuHn5zjs7+pjz3bYHrKN61/YddsN935Q9AgTASCzlFZW3K4evu
+	VL2ZnAJLcVjbS1RVvZHT4FRfg6kddDBG5OGVpLB6lorvSeZzOhYChr2tLPWFGD2ZI5mUkbz6i/4
+	yKlqft7/csdcO1DLRRWDFNz9lbH4XnTX2BB+7GNpkwwYUcxgppFrjNhIIhniucVg5/PlwNpR/ff
+	FZb1cTV6G6fLd77+q/DXj2JGQKcCG/mAE49FsjmWEcrRZ+xb56VwQTHu4qpbjhYU9PGZpN6VI/d
+	EXGgH1S2ON/yotVcF3NdZfpurO+DnQ9PL4FyqJxpw=
+X-Google-Smtp-Source: AGHT+IH0hNflyCfMh4a5FM7Mx3YHqe7jpro3WglE1aCZtzyXgXU3CfGf17LD2922rhGOBGcLMs09X23yRr0B
+X-Received: by 2002:a05:6214:e8c:b0:87c:2b03:c776 with SMTP id 6a1803df08f44-87c2b03ccf0mr418147846d6.47.1761509804815;
+        Sun, 26 Oct 2025 13:16:44 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-19.dlp.protect.broadcom.com. [144.49.247.19])
+        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-87fc4913c9bsm5617236d6.12.2025.10.26.13.16.44
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 26 Oct 2025 13:16:44 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-77f610f7325so2889579b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:16:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1761509803; x=1762114603; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=aX98xM5uLTwNgSn/07WIOBdC4l1s/Q8i8XO2+Sj+EJg=;
+        b=ZkDXXX+gEE7dMUKm5gPhOd9/JjBYsN3X0a4pqTG3tbR8OZSkospJ6QzVL+4Jqoohhl
+         +j6TDH+agx9ovrCSg8d30jkz/SNlcp0MPbfT7zGjQwp/5yhnH+EZU6pTyF7Q0UqTy3a/
+         jXETIgjVkOz1x92hQIS46bc1t2dZqDsFexUTQ=
+X-Forwarded-Encrypted: i=1; AJvYcCVqCaMWqOaveEd1owfLBX0DWxdSaSL9anoteZb4bWEzk4HrGovoWvNFezOQN0fV3NfiSg0KPI2XyAqSI8rVHmNc@lists.infradead.org
+X-Received: by 2002:a05:6a00:1916:b0:77f:2f7c:b709 with SMTP id d2e1a72fcca58-7a220a083f7mr40308900b3a.5.1761509803524;
+        Sun, 26 Oct 2025 13:16:43 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1916:b0:77f:2f7c:b709 with SMTP id d2e1a72fcca58-7a220a083f7mr40308882b3a.5.1761509803117;
+        Sun, 26 Oct 2025 13:16:43 -0700 (PDT)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414032c71sm5754054b3a.25.2025.10.26.13.16.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 26 Oct 2025 13:16:41 -0700 (PDT)
+Message-ID: <20ca3d0e-a935-4296-8678-5903310b3712@broadcom.com>
+Date: Sun, 26 Oct 2025 13:16:35 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] pmdomain: bcm: bcm2835-power: Prepare to support
+ BCM2712
+To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, linux-pm@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Lee Jones <lee@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Willow Cunningham <willow.e.cunningham@gmail.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Saenz Julienne <nsaenz@kernel.org>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
+ <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
+References: <20250917063233.1270-1-svarbanov@suse.de>
+ <20250917063233.1270-2-svarbanov@suse.de>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250917063233.1270-2-svarbanov@suse.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_124906_077001_8C37CCA1 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20251026_131647_203186_ACA50E7A 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,134 +162,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FriendlyELEC offers an optional heatsink and fan addon for the NanoPC-T6
-and T6 LTS. Add an overlay which can be applied if the fan is fitted and
-configures the fan as an active cooling device for the SoC package.
 
-Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
----
-FriendlyELEC heatsink with fan addon:
-https://www.friendlyelec.com/index.php?route=product/product&product_id=305
-Vendor DT with trip points and PWM duty cycle values:
-https://github.com/friendlyarm/kernel-rockchip/blob/4944602540b62f5aad139fe602a76cf7c3176128/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev01.dts#L75-L90
 
- arch/arm64/boot/dts/rockchip/Makefile         |  9 +++
- .../dts/rockchip/rk3588-nanopc-t6-fan.dtso    | 78 +++++++++++++++++++
- 2 files changed, 87 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-fan.dtso
+On 9/16/2025 11:32 PM, Stanimir Varbanov wrote:
+> BCM2712 has a PM block but lacks asb and rpivid_asb register
+> spaces. To avoid unwanted results add a check for asb existence
+> during probe and also add a new register offset for bcm2712 to
+> control grafx_v3d power domain. The decision to use the new
+> register is implicit - if asb register base is null then the
+> driver is probed for bcm2712 (the other supported SoCs have
+> asb register space).
+> 
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4cd8ef607f55c..7a67b68a6bb03 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -178,6 +178,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-ethernet-switch.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-mnt-reform2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-fan.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-max.dtb
-@@ -271,6 +272,14 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtb
- rk3588-jaguar-pre-ict-tester-dtbs := rk3588-jaguar.dtb \
- 	rk3588-jaguar-pre-ict-tester.dtbo
- 
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-with-fan.dtb
-+rk3588-nanopc-t6-with-fan-dtbs := rk3588-nanopc-t6.dtb \
-+	rk3588-nanopc-t6-fan.dtbo
-+
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts-with-fan.dtb
-+rk3588-nanopc-t6-lts-with-fan-dtbs := rk3588-nanopc-t6-lts.dtb \
-+	rk3588-nanopc-t6-fan.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
- rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
- 	rk3588-rock-5b-pcie-ep.dtbo
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-fan.dtso b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-fan.dtso
-new file mode 100644
-index 0000000000000..08c4782fb4148
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-fan.dtso
-@@ -0,0 +1,78 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/thermal/thermal.h>
-+
-+&{/} {
-+	fan: pwm-fan {
-+		compatible = "pwm-fan";
-+		cooling-levels = <0 35 64 100 150 255>;
-+		fan-supply = <&vcc5v0_sys>;
-+		pwms = <&pwm1 0 50000 0>;
-+		#cooling-cells = <2>;
-+	};
-+};
-+
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	trips {
-+		package_fan0: package-fan0 {
-+			temperature = <50000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan1: package-fan1 {
-+			temperature = <55000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan2: package-fan2 {
-+			temperature = <60000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan3: package-fan3 {
-+			temperature = <65000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan4: package-fan4 {
-+			temperature = <70000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&package_fan0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&package_fan1>;
-+			cooling-device = <&fan 2 3>;
-+		};
-+
-+		map2 {
-+			trip = <&package_fan2>;
-+			cooling-device = <&fan 3 4>;
-+		};
-+
-+		map3 {
-+			trip = <&package_fan3>;
-+			cooling-device = <&fan 4 5>;
-+		};
-+
-+		map4 {
-+			trip = <&package_fan4>;
-+			cooling-device = <&fan 5 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+};
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-2.50.1 (Apple Git-155)
+Florian
 
 
