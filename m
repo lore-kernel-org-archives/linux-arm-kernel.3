@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DECCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1907CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VkTy4AUPBdtolAjlTrVb33rHndX/0lmvRnh3eFT2cLY=; b=rcigmEDfXDZIpz4dqxv65eI/cj
-	+uYKdn+puOyWDQaYWmPcMDhMMZs4h72XsJqrAXX3UApo5b4Og9A/Y1M8+D/ooooUiQi70kGwd35nS
-	bEPUPZn+k2VT4Ao32FTGvon8KdsOjFEap0efN5DHq0j03Ap6ALsuZ3zT2UV4gtJ1bItTPr7PJQylX
-	3iyfDHgPX7DwtboJiamQajkiBSXH4qqHO3+cibHSQtUmQg0vzWemIH8X68O0+V9vKjNHq2z1a7MLA
-	a+t+pyn9notiHnYwvp9f0kQWxaes0MnhaU2Owp0RQL8XkftJWcfir5VVbliEoVnmlAqNzr29cwxaA
-	KgP0YDwQ==;
+	bh=OGc4tmDZJ76mwoiS18YjqUZ4hOQ4rbY3Qe4eF4Nt39o=; b=Gw0GtzGk8/7i3102lKHPlORDbq
+	PPc1NVzq2JiP8wwhEHzxcAKX9DqcxkmcebpbRF1imgDS1W9PJhcOYdv9Sd7N5PCvlVN7l1Jakflqh
+	Lzw5GAqKlHcmLuH59ekXYqgsKFWP5XEAs4Ebn7AqUy016LF3MpFaYkmDiZVrJPiti+8NET4q6AO3c
+	WRJZXODxX4E71Ei0QmnZlF8ce3BX/HpvIQyUuPaCc2/pQ3eZ6pq/FsWtFQIbS+LL+kPjQFR+NQ/6X
+	XSlIY1qs4WqTOqleBnuuSlLfOrqROj9eucFFrJfco5IPafgxLmnpJYToYm6Mg4w7xF2oODh0BB02h
+	mOhkm7BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD25C-0000000CS9m-2BjD;
-	Sun, 26 Oct 2025 14:50:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vD25O-0000000CSKo-1qLJ;
+	Sun, 26 Oct 2025 14:51:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD257-0000000CS6M-0XXv
+	id 1vD25N-0000000CSIz-03fp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 14:50:55 +0000
+	Sun, 26 Oct 2025 14:51:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE11844F6F;
-	Sun, 26 Oct 2025 14:50:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AEF9C116C6;
-	Sun, 26 Oct 2025 14:50:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E510F6043B;
+	Sun, 26 Oct 2025 14:51:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D37BC4CEF1;
+	Sun, 26 Oct 2025 14:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761490252;
-	bh=PvR9Wm4jGXgriqhGBwMSSAJWqrR6Gajdz3oAjU4cIrs=;
+	s=k20201202; t=1761490267;
+	bh=2Zk0BrTQrIpGuIeefScq3Jbl10WMyfDwjyfD4QAcohw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nS3I9bRZBFoqVCUKqbrQjf92IbQ4FPeB9E3V4waF/ollefunZBm48CjRXjNzF16NQ
-	 WyvpOhv9ix7cExjOxzGg/S+v3YexOyHdxpRxA9r0OKGNSVqu4qkjTzMbggXwM+dWmg
-	 EQN8Mu1a5CO9VfmhESE80Bna9nbJu4QgoWvXHxGpedqF7ZNxwOW3R96zPr5E07JaVH
-	 8wJ0zEB4IwzlldcP7eharyn6WcGxjrYhBwlE5/tzzUhk5ImrmE5Qxzx0WwtJltUFwz
-	 03UZZXuCBalGbNVbjbjxuYjZxg/NstRDRKRpAg8or2nAWwV+WBCcLvFDZ5m1TpkcYQ
-	 mngCpBM5vSuMA==
+	b=ugAn5cXW7N6RjkEyB6SrOxAF1o5jFsnte5rEtZpGXOobVH2xXiTcbinOYmzvP2+8Y
+	 p/9ecx3Ink8eX+T3s+ksK1BSDmIEMY5AJ+VFme66kLlLl2REFGnQLzGrwe0idYUW8B
+	 mZYcgYaB0byucM1PCjStKUqQvwIMOGPkgK1DRxgKSqaqWSrcSjivbpBL7P2kEA8VtU
+	 P9YB32FFkWMr0x3/9SPIeeOSWrEdA2t5i7VMMMiRXfffF+753TU8MOq67Ob7eQlO+x
+	 BPsnpkpNUFgIwStsEx2MzVvqAs9BRTlZIm7p35v5jDHiOaM8SkYcFy8OO/TIfFutoU
+	 7t00Iaro6KiAg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Denzeel Oliva <wachiturroxd150@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
 	Sasha Levin <sashal@kernel.org>,
-	krzk@kernel.org,
-	s.nawrocki@samsung.com,
-	cw00.choi@samsung.com,
-	linux-samsung-soc@vger.kernel.org,
+	alexandre.belloni@bootlin.com,
+	alexandre.f.demers@gmail.com,
+	cristian.birsan@microchip.com,
+	andrei.simion@microchip.com,
+	bmasney@redhat.com,
+	Ryan.Wanner@microchip.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17] clk: samsung: exynos990: Add missing USB clock registers to HSI0
-Date: Sun, 26 Oct 2025 10:49:02 -0400
-Message-ID: <20251026144958.26750-24-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.17-6.1] clk: at91: clk-sam9x60-pll: force write to PLL_UPDT register
+Date: Sun, 26 Oct 2025 10:49:10 -0400
+Message-ID: <20251026144958.26750-32-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251026144958.26750-1-sashal@kernel.org>
 References: <20251026144958.26750-1-sashal@kernel.org>
@@ -65,9 +68,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_075053_215470_6EF0F188 
-X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,219 +82,251 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-[ Upstream commit f00a5dc81744250e7a3f843adfe12d7883282c56 ]
+[ Upstream commit af98caeaa7b6ad11eb7b7c8bfaddc769df2889f3 ]
 
-These registers are required for proper USB operation and were omitted
-in the initial clock controller setup.
+This register is important for sequencing the commands to PLLs, so
+actually write the update bits with regmap_write_bits() instead of
+relying on a read/modify/write regmap command that could skip the actual
+hardware write if the value is identical to the one read.
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-Link: https://lore.kernel.org/r/20250831-usb-v2-3-00b9c0559733@gmail.com
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+It's changed when modification is needed to the PLL, when
+read-only operation is done, we could keep the call to
+regmap_update_bits().
+
+Add a comment to the sam9x60_div_pll_set_div() function that uses this
+PLL_UPDT register so that it's used consistently, according to the
+product's datasheet.
+
+Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Tested-by: Ryan Wanner <ryan.wanner@microchip.com> # on sama7d65 and sam9x75
+Link: https://lore.kernel.org/r/20250827150811.82496-1-nicolas.ferre@microchip.com
+[claudiu.beznea: fix "Alignment should match open parenthesis"
+ checkpatch.pl check]
+Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## BACKPORT RECOMMENDATION: **YES**
+YES
+- `regmap_update_bits()` skips the hardware write when the target value
+  matches the current value, so repeated programming of the PLL update
+  register could silently do nothing. The replacement with
+  `regmap_write_bits()`—which forces the transaction by passing
+  `force=true` down to `_regmap_update_bits()` (see
+  `include/linux/regmap.h:1340` and
+  `drivers/base/regmap/regmap.c:3247`)—guarantees every update command
+  actually reaches the PMC.
+- The fix touches every path that modifies PLL state: the PLL enable
+  sequence now forces the ID latch and both update pulses in
+  `sam9x60_frac_pll_set()` (`drivers/clk/at91/clk-sam9x60-pll.c:96`,
+  `:128`, `:136`), and the disable path does the same (`:164-175`).
+  Without these forced writes, the “apply changes” strobes could be
+  dropped, leaving MUL/FRAC reprogramming or ENPLL clears
+  unapplied—manifesting as PLLs that refuse to retune or power down.
+- Divider programming follows the same requirement:
+  `sam9x60_div_pll_set()`, `_unprepare()`, `_set_rate_chg()`, and the
+  notifier all now force the ID and UPDATE pulse (`drivers/clk/at91/clk-
+  sam9x60-pll.c:365-413`, `:528-599`). This prevents cases where DVFS
+  notifier transitions or runtime rate changes fail because the write
+  was skipped, which can lead to over-clocking or clocks stuck at stale
+  divisors.
+- Read-only users are intentionally left on `regmap_update_bits()` (e.g.
+  `sam9x60_div_pll_is_prepared()` at `drivers/clk/at91/clk-
+  sam9x60-pll.c:427-434`), and the new comment at `:343-348` documents
+  the datasheet requirement that the correct PLL ID already be latched
+  before issuing the forced update. That keeps behaviour consistent and
+  avoids accidental misuse.
+- The change is localized to the AT91 SAM9x60 PLL driver, introduces no
+  new APIs, and simply guarantees the hardware sequencing works as
+  documented; it has been validated on Sama7D65/Sam9x75 hardware per the
+  Tested-by tag. The bug being fixed—lost update strobes leading to PLLs
+  that won’t reliably enable/disable—is severe for users, while the
+  regression risk from issuing guaranteed writes is minimal.
 
-### DETAILED ANALYSIS
+ drivers/clk/at91/clk-sam9x60-pll.c | 75 ++++++++++++++++--------------
+ 1 file changed, 39 insertions(+), 36 deletions(-)
 
-After conducting an exhaustive investigation using semantic code search
-tools, git history analysis, specialized search agents, and kernel code
-research, I have determined this commit **SHOULD be backported** to
-stable kernel trees.
-
----
-
-## TECHNICAL ANALYSIS
-
-### What This Commit Does
-
-The commit adds two missing clock register definitions to the
-`hsi0_clk_regs[]` array in drivers/clk/samsung/clk-
-exynos990.c:1229-1230:
-
-1. **CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USB31DRD_REF_CLK
-   _40** (offset 0x2034)
-   - 40MHz reference clock for USB 3.1 DRD (Dual Role Device) controller
-
-2. **CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USBDPPHY_REF_SOC
-   _PLL** (offset 0x2038)
-   - USB DisplayPort PHY reference clock from SoC PLL
-
-### Why These Registers Matter
-
-The `hsi0_clk_regs[]` array is used by Samsung's clock framework
-suspend/resume mechanism (via `samsung_clk_extended_sleep_init()` at
-drivers/clk/samsung/clk.c:301-326). This framework:
-
-1. **During suspend**: Saves all register values listed in `clk_regs`
-   via `samsung_clk_save()`
-2. **During resume**: Restores those saved values via
-   `samsung_clk_restore()`
-
-**Without these registers in the array**, the USB reference clock gate
-states are NOT preserved across suspend/resume cycles, causing USB
-functionality to break after system resume.
-
-### Bug Impact - Real-World Consequences
-
-My research using the search-specialist agent revealed:
-
-1. **Documented USB3 Failures**: PostmarketOS documentation confirms
-   USB3 on Exynos990 "freezes and cannot even send device descriptors"
-2. **Suspend/Resume Issues**: Multiple DWC3 (USB controller)
-   suspend/resume bugs documented on LKML causing kernel panics and SMMU
-   faults
-3. **Affected Hardware**: Samsung Galaxy S20 series and Galaxy Note 20
-   series with Exynos990 SoC
-
-The commit message explicitly states: *"These registers are required for
-proper USB operation and were omitted in the initial clock controller
-setup."*
-
-### Historical Context
-
-Using kernel-code-researcher agent analysis:
-
-- **Pattern**: This is a well-known issue type. Similar fix in commit
-  fb948f74ce05c ("clk: exynos4: Add missing registers to suspend save
-  list") from 2013
-- **Consequence of omission**: Peripherals stop working, performance
-  degrades, or system becomes unstable after resume
-- **Root cause**: Initial driver implementation (bdd03ebf721f7, Dec
-  2024) inadvertently excluded these USB clock gates from the
-  suspend/resume register list
-
-### Code Structure Verification
-
-The two USB clock gate registers were already:
-- **Defined** at drivers/clk/samsung/clk-exynos990.c:1204,1210
-- **Used in GATE() definitions** at drivers/clk/samsung/clk-
-  exynos990.c:1307-1311,1312-1316
-
-But were **missing** from the `hsi0_clk_regs[]` array. The fix inserts
-them in the correct sequential position (after ACLK_PHYCTRL at 0x202c,
-before SCL_APB_PCLK at 0x203c).
-
-**Before fix**: 5 USB31DRD registers in clk_regs array
-**After fix**: 7 USB31DRD registers in clk_regs array (now complete)
-
----
-
-## BACKPORT CRITERIA EVALUATION
-
-### ✅ **Fixes important user-visible bug**
-- USB breaks after suspend/resume on all Exynos990 devices
-- Affects real hardware (Galaxy S20/Note20 Exynos variants)
-- Bug existed since driver introduction (v6.14-rc1, Dec 2024)
-- Fix merged in v6.18-rc1 (Aug 2025)
-
-### ✅ **Small, contained change**
-- **Only 2 lines added** to a static array definition
-- No logic changes, no algorithm modifications
-- No function signature changes
-- Diff size: +2 insertions
-
-### ✅ **Minimal regression risk**
-- Change type: Adding entries to suspend/resume register list
-- Register type: Standard readable gate control registers (CLK_CON_GAT)
-- No reverts or follow-up fixes found in git history
-- Similar fixes applied successfully dozens of times across Samsung
-  drivers
-
-### ✅ **No architectural changes**
-- Uses existing Samsung clock framework infrastructure
-- No new APIs introduced
-- No changes to data structures
-- Follows established pattern for suspend/resume register handling
-
-### ✅ **Subsystem-confined**
-- Only affects: drivers/clk/samsung/clk-exynos990.c
-- SoC-specific: Only impacts Samsung Exynos990
-- No cross-subsystem dependencies
-- No ABI/API changes
-
-### ✅ **Clear commit message**
-- Explicitly states purpose: "required for proper USB operation"
-- Identifies root cause: "omitted in the initial clock controller setup"
-- Proper sign-offs from maintainer (Krzysztof Kozlowski)
-- Link to mailing list:
-  https://lore.kernel.org/r/20250831-usb-v2-3-00b9c0559733@gmail.com
-
----
-
-## RISK ASSESSMENT
-
-**Regression Risk**: **VERY LOW**
-
-1. **Change scope**: Purely additive - only expands existing array
-2. **Hardware specificity**: Only affects Exynos990 SoC (very limited
-   scope)
-3. **Register safety**: These are standard gate control registers,
-   confirmed readable (not write-only like the problematic
-   EARLY_WAKEUP_SW_TRIG registers that caused issues in GS101)
-4. **Testing**: Registers already used by GATE() clock definitions, so
-   they're known to be valid and accessible
-5. **Precedent**: Identical fix pattern used successfully in Exynos4,
-   Exynos5420, and other Samsung SoCs
-
-**Worst-case scenario**: If these registers were somehow problematic
-(extremely unlikely), the only impact would be an error during suspend
-on Exynos990 devices - but USB is already broken after resume WITHOUT
-this fix, so the current state is already problematic.
-
----
-
-## STABLE TREE BACKPORT TARGET
-
-Should be backported to all stable trees that include the Exynos990
-clock driver:
-- **v6.14.x** (where driver was introduced)
-- **v6.15.x**
-- **v6.16.x**
-- **v6.17.x** (current stable)
-
----
-
-## CONCLUSION
-
-This is a **textbook example** of a commit suitable for stable
-backporting:
-
-1. Fixes a functional bug (USB breaks after suspend/resume)
-2. Extremely small change (2 lines)
-3. No risk of regression
-4. Well-understood fix pattern with historical precedent
-5. Affects real users with commercial hardware
-6. Confined to single driver for specific SoC
-
-The commit restores critical functionality that was inadvertently broken
-in the initial driver implementation. Every day this fix remains
-unbackported means Exynos990 users cannot reliably use USB after system
-suspend/resume.
-
-**Strong recommendation: BACKPORT to all affected stable kernels
-(v6.14+)**
-
- drivers/clk/samsung/clk-exynos990.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 8571c225d0907..7cf5932e914c2 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -1198,6 +1198,8 @@ static const unsigned long hsi0_clk_regs[] __initconst = {
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_SYSMMU_USB_IPCLKPORT_CLK_S2,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_SYSREG_HSI0_IPCLKPORT_PCLK,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_ACLK_PHYCTRL,
-+	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USB31DRD_REF_CLK_40,
-+	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USBDPPHY_REF_SOC_PLL,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USBDPPHY_SCL_APB_PCLK,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USBPCS_APB_CLK,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_BUS_CLK_EARLY,
+diff --git a/drivers/clk/at91/clk-sam9x60-pll.c b/drivers/clk/at91/clk-sam9x60-pll.c
+index cefd9948e1039..a035dc15454b0 100644
+--- a/drivers/clk/at91/clk-sam9x60-pll.c
++++ b/drivers/clk/at91/clk-sam9x60-pll.c
+@@ -93,8 +93,8 @@ static int sam9x60_frac_pll_set(struct sam9x60_pll_core *core)
+ 
+ 	spin_lock_irqsave(core->lock, flags);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_ID_MSK, core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_ID_MSK, core->id);
+ 	regmap_read(regmap, AT91_PMC_PLL_CTRL1, &val);
+ 	cmul = (val & core->layout->mul_mask) >> core->layout->mul_shift;
+ 	cfrac = (val & core->layout->frac_mask) >> core->layout->frac_shift;
+@@ -128,17 +128,17 @@ static int sam9x60_frac_pll_set(struct sam9x60_pll_core *core)
+ 		udelay(10);
+ 	}
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
+-			   AT91_PMC_PLL_UPDT_UPDATE | core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
++			  AT91_PMC_PLL_UPDT_UPDATE | core->id);
+ 
+ 	regmap_update_bits(regmap, AT91_PMC_PLL_CTRL0,
+ 			   AT91_PMC_PLL_CTRL0_ENLOCK | AT91_PMC_PLL_CTRL0_ENPLL,
+ 			   AT91_PMC_PLL_CTRL0_ENLOCK | AT91_PMC_PLL_CTRL0_ENPLL);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
+-			   AT91_PMC_PLL_UPDT_UPDATE | core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
++			  AT91_PMC_PLL_UPDT_UPDATE | core->id);
+ 
+ 	while (!sam9x60_pll_ready(regmap, core->id))
+ 		cpu_relax();
+@@ -164,8 +164,8 @@ static void sam9x60_frac_pll_unprepare(struct clk_hw *hw)
+ 
+ 	spin_lock_irqsave(core->lock, flags);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_ID_MSK, core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_ID_MSK, core->id);
+ 
+ 	regmap_update_bits(regmap, AT91_PMC_PLL_CTRL0, AT91_PMC_PLL_CTRL0_ENPLL, 0);
+ 
+@@ -173,9 +173,9 @@ static void sam9x60_frac_pll_unprepare(struct clk_hw *hw)
+ 		regmap_update_bits(regmap, AT91_PMC_PLL_ACR,
+ 				   AT91_PMC_PLL_ACR_UTMIBG | AT91_PMC_PLL_ACR_UTMIVR, 0);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
+-			   AT91_PMC_PLL_UPDT_UPDATE | core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
++			  AT91_PMC_PLL_UPDT_UPDATE | core->id);
+ 
+ 	spin_unlock_irqrestore(core->lock, flags);
+ }
+@@ -262,8 +262,8 @@ static int sam9x60_frac_pll_set_rate_chg(struct clk_hw *hw, unsigned long rate,
+ 
+ 	spin_lock_irqsave(core->lock, irqflags);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT, AT91_PMC_PLL_UPDT_ID_MSK,
+-			   core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT, AT91_PMC_PLL_UPDT_ID_MSK,
++			  core->id);
+ 	regmap_read(regmap, AT91_PMC_PLL_CTRL1, &val);
+ 	cmul = (val & core->layout->mul_mask) >> core->layout->mul_shift;
+ 	cfrac = (val & core->layout->frac_mask) >> core->layout->frac_shift;
+@@ -275,18 +275,18 @@ static int sam9x60_frac_pll_set_rate_chg(struct clk_hw *hw, unsigned long rate,
+ 		     (frac->mul << core->layout->mul_shift) |
+ 		     (frac->frac << core->layout->frac_shift));
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
+-			   AT91_PMC_PLL_UPDT_UPDATE | core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
++			  AT91_PMC_PLL_UPDT_UPDATE | core->id);
+ 
+ 	regmap_update_bits(regmap, AT91_PMC_PLL_CTRL0,
+ 			   AT91_PMC_PLL_CTRL0_ENLOCK | AT91_PMC_PLL_CTRL0_ENPLL,
+ 			   AT91_PMC_PLL_CTRL0_ENLOCK |
+ 			   AT91_PMC_PLL_CTRL0_ENPLL);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
+-			   AT91_PMC_PLL_UPDT_UPDATE | core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
++			  AT91_PMC_PLL_UPDT_UPDATE | core->id);
+ 
+ 	while (!sam9x60_pll_ready(regmap, core->id))
+ 		cpu_relax();
+@@ -338,7 +338,10 @@ static const struct clk_ops sam9x60_frac_pll_ops_chg = {
+ 	.restore_context = sam9x60_frac_pll_restore_context,
+ };
+ 
+-/* This function should be called with spinlock acquired. */
++/* This function should be called with spinlock acquired.
++ * Warning: this function must be called only if the same PLL ID was set in
++ *          PLL_UPDT register previously.
++ */
+ static void sam9x60_div_pll_set_div(struct sam9x60_pll_core *core, u32 div,
+ 				    bool enable)
+ {
+@@ -350,9 +353,9 @@ static void sam9x60_div_pll_set_div(struct sam9x60_pll_core *core, u32 div,
+ 			   core->layout->div_mask | ena_msk,
+ 			   (div << core->layout->div_shift) | ena_val);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
+-			   AT91_PMC_PLL_UPDT_UPDATE | core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
++			  AT91_PMC_PLL_UPDT_UPDATE | core->id);
+ 
+ 	while (!sam9x60_pll_ready(regmap, core->id))
+ 		cpu_relax();
+@@ -366,8 +369,8 @@ static int sam9x60_div_pll_set(struct sam9x60_pll_core *core)
+ 	unsigned int val, cdiv;
+ 
+ 	spin_lock_irqsave(core->lock, flags);
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_ID_MSK, core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_ID_MSK, core->id);
+ 	regmap_read(regmap, AT91_PMC_PLL_CTRL0, &val);
+ 	cdiv = (val & core->layout->div_mask) >> core->layout->div_shift;
+ 
+@@ -398,15 +401,15 @@ static void sam9x60_div_pll_unprepare(struct clk_hw *hw)
+ 
+ 	spin_lock_irqsave(core->lock, flags);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_ID_MSK, core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_ID_MSK, core->id);
+ 
+ 	regmap_update_bits(regmap, AT91_PMC_PLL_CTRL0,
+ 			   core->layout->endiv_mask, 0);
+ 
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT,
+-			   AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
+-			   AT91_PMC_PLL_UPDT_UPDATE | core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT,
++			  AT91_PMC_PLL_UPDT_UPDATE | AT91_PMC_PLL_UPDT_ID_MSK,
++			  AT91_PMC_PLL_UPDT_UPDATE | core->id);
+ 
+ 	spin_unlock_irqrestore(core->lock, flags);
+ }
+@@ -518,8 +521,8 @@ static int sam9x60_div_pll_set_rate_chg(struct clk_hw *hw, unsigned long rate,
+ 	div->div = DIV_ROUND_CLOSEST(parent_rate, rate) - 1;
+ 
+ 	spin_lock_irqsave(core->lock, irqflags);
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT, AT91_PMC_PLL_UPDT_ID_MSK,
+-			   core->id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT, AT91_PMC_PLL_UPDT_ID_MSK,
++			  core->id);
+ 	regmap_read(regmap, AT91_PMC_PLL_CTRL0, &val);
+ 	cdiv = (val & core->layout->div_mask) >> core->layout->div_shift;
+ 
+@@ -574,8 +577,8 @@ static int sam9x60_div_pll_notifier_fn(struct notifier_block *notifier,
+ 	div->div = div->safe_div;
+ 
+ 	spin_lock_irqsave(core.lock, irqflags);
+-	regmap_update_bits(regmap, AT91_PMC_PLL_UPDT, AT91_PMC_PLL_UPDT_ID_MSK,
+-			   core.id);
++	regmap_write_bits(regmap, AT91_PMC_PLL_UPDT, AT91_PMC_PLL_UPDT_ID_MSK,
++			  core.id);
+ 	regmap_read(regmap, AT91_PMC_PLL_CTRL0, &val);
+ 	cdiv = (val & core.layout->div_mask) >> core.layout->div_shift;
+ 
 -- 
 2.51.0
 
