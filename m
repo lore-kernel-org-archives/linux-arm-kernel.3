@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F58CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 20:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF62CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 20:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aX98xM5uLTwNgSn/07WIOBdC4l1s/Q8i8XO2+Sj+EJg=; b=k2tzzLj5K+kwzKiN80i4Vkp2T/
-	C9/W7sNu/ueHQ2bRB0LokyJtpG+k3uiDy1ZKnYSo1zYKC07nCkCv4O383Khuuu6AAVyq9OVH8zEec
-	E1hxVVvVCKGwXSqCnAOQ9sMPiQLKuvB+IW17+vSLf2HdFkH9dJ0c2qcClKrn1ICrHvsxGojNoCHm9
-	gXQqgUJQewUcHUvyFCrrHa5LQeFQ6zlVbTytaLL7/fqqHuBtvocsr1Gxh3g2trdEi1i96XG4XXk3N
-	gR53vz4UFCQugFE+TCRqRKgRegiSbhN6C26AVA0yyIEoW21EPHoV7yc6Sigzwtg58S1M5s7+gKw4v
-	gymIN6Tg==;
+	bh=J58LymEyd0eWh2BlEICOgBmMyqoMmGyghTiG80Pa5/o=; b=qEbabjdOgA7Aq5j1KXSkkZxpnE
+	RNJwUl0lIys6MDpqmsi8DK6mXhCcEo7RBJyCrc32tppybNygYvCYDJdyQFE8nazRaZlUevkrOlNvf
+	Dx7BuyasuuTFW0TDM+kcg6l7PZpj2JjfF4K/gIZfJk8N4ehlnjmb7hpjcJVAOQmo45m3RiHfhsn+Y
+	FMCNodQAbnqh92FmHDOqZ01Fqvur/+SBt9dKcRWS35f/ESvMkQ1qHJ3sa5fbcLV9t7Tpr1f4vYMa+
+	eCJhtUt9RQ484QoeR78W7w/Tx8zB9nrEUt8BFv5DEaGLeNXi/Co4XYNCVLkA0B1WYhAPinT2Ds1H0
+	VUzmDjTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD7AY-0000000Chb0-0hnO;
-	Sun, 26 Oct 2025 20:16:50 +0000
-Received: from mail-qv1-xf62.google.com ([2607:f8b0:4864:20::f62])
+	id 1vD7Be-0000000ChhW-0trz;
+	Sun, 26 Oct 2025 20:17:58 +0000
+Received: from mail-il1-x164.google.com ([2607:f8b0:4864:20::164])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD7AU-0000000ChZh-3Ezy
+	id 1vD7Bb-0000000ChgP-1VKH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 20:16:48 +0000
-Received: by mail-qv1-xf62.google.com with SMTP id 6a1803df08f44-81efcad9c90so47929266d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:16:46 -0700 (PDT)
+	Sun, 26 Oct 2025 20:17:56 +0000
+Received: by mail-il1-x164.google.com with SMTP id e9e14a558f8ab-430da72d67bso24575575ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:17:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761509805; x=1762114605;
+        d=1e100.net; s=20230601; t=1761509874; x=1762114674;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aX98xM5uLTwNgSn/07WIOBdC4l1s/Q8i8XO2+Sj+EJg=;
-        b=a8usSehsKMQkkz4TCsL6Xu+mCJ1TOC+rOsWzEwtj90xZ7GVEcpstTwMmkx/h9FAuH6
-         qb28UA1MeiAZyuZs+2B2vtN9vqzt9We1UQW8Fl2QfStj0LKD15coXAjP2SINpZbI5+IK
-         hm2QwQxXw66hHUMFhvXOBPa5t/0QCuowaC1+5N6zF6botAhRyjQNLBW1DcK15Z5EmzH8
-         xSXphHrS6aGjMeTuGi9ngKkEmfCQKIZrxo7ynqxJHZwDXGO6vya0vd7wS7hfsrrESplf
-         kjVxdrYhJewBOoDFHDrsevbIt5SKrwXsR0xJhAZCplZnOlUuDqeW1t69nDlXCDeIxH+2
-         R4Yw==
-X-Forwarded-Encrypted: i=1; AJvYcCXgEzZ15sRIF24Nr1PKSDOcJrLzh6bIO6aJqrwBlp9+vRPbfb0s+h9qmYkZr2VA/VhiUnEDZgRSR6B8iNK7YI/z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzRVal6y12ETQVBGlhyUyyoraNGqaUEgbw8WPFfpBWTmpK0f5X
-	II4HLtjP9yCkwFUGxDgNJmd93EH1dTD8pFTLQreCaodeRYHhosq5v/78pfhciSTXwgxFc6SJjcT
-	AvlstE/VubVCBdThZvc6V9zq2fpX68q6gDe7yJesPGxjN9lVjSNz1XcoyBvUf6HG2dWlxpC5WCm
-	ik5uCL6eN6f9rpI0tkRXVEvWI6ByAUf/dbh9hk98tb4zRiMUJ1TUWduh3N/nZhk/W6l7YDuWMTM
-	brknBIzRmtEfiV6OEUNYiSXxkge7sypdMQ=
-X-Gm-Gg: ASbGncseUjfZeAodt6XHn9z4q1JIHTSk6P56Z1FZ/VtnrdYgXZf/mi1KQ0aclWUO1eb
-	G3Mizu19sKBjqD+nPhuwMx6qjUDwhpDSpeibe1j2fMJ3QjP8ISSJyk8iTfq7mReigyY04A7ug1o
-	TrdQrnEM0B8a1qWVlHhfdOIWqQuHn5zjs7+pjz3bYHrKN61/YddsN935Q9AgTASCzlFZW3K4evu
-	VL2ZnAJLcVjbS1RVvZHT4FRfg6kddDBG5OGVpLB6lorvSeZzOhYChr2tLPWFGD2ZI5mUkbz6i/4
-	yKlqft7/csdcO1DLRRWDFNz9lbH4XnTX2BB+7GNpkwwYUcxgppFrjNhIIhniucVg5/PlwNpR/ff
-	FZb1cTV6G6fLd77+q/DXj2JGQKcCG/mAE49FsjmWEcrRZ+xb56VwQTHu4qpbjhYU9PGZpN6VI/d
-	EXGgH1S2ON/yotVcF3NdZfpurO+DnQ9PL4FyqJxpw=
-X-Google-Smtp-Source: AGHT+IH0hNflyCfMh4a5FM7Mx3YHqe7jpro3WglE1aCZtzyXgXU3CfGf17LD2922rhGOBGcLMs09X23yRr0B
-X-Received: by 2002:a05:6214:e8c:b0:87c:2b03:c776 with SMTP id 6a1803df08f44-87c2b03ccf0mr418147846d6.47.1761509804815;
-        Sun, 26 Oct 2025 13:16:44 -0700 (PDT)
+        bh=J58LymEyd0eWh2BlEICOgBmMyqoMmGyghTiG80Pa5/o=;
+        b=Ly9vXOzgwlXerG+fB8hWUisW9yeFuEBEyjKt99iQjUY9f+2cR+sXYH2PAuH6amP16R
+         cV/27nTkJ4eRNlQ9ZqOROfhnQtdvwDfrPb9wXlsQBP9hjgEBj3GY3yJHa3mvOplpXEl4
+         zRIIGo2GL9hIds9xXNFdKPh7Rc969PKwkiLN34ViI5V5PPZyb/xGie6tqoaM0VamAh7R
+         MUNzuLNawwaF3WqfZZrS2OByqgGHEW7ciISlZM4ruhb1R0J66ZVMZzEw9KljDN4Xe/aH
+         LcVOIunhSJqx+Mxu0AY11vbmXkdd7GPnOw1IjuH2spmdRRNLH1+VLyEcvM6QsrlReoS+
+         tmCw==
+X-Forwarded-Encrypted: i=1; AJvYcCUHDPtv13p32A1pEa/pBFRrfx9OGpSt0r8sT/1pJAsRO0fv4UicloExfpcz4mENqZr3G+snkoKc6S/U+U9ny1u0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpNOONm3Gw6+nLGhYcv/RaS3g98Hq2cFjJKF4yOLzjZL0x5/s3
+	ApLXo0337ZFM3VBG61+s7fnRvnepBh+friUnQIU3M7sWZOHBUWHkZArrCQDQ4xnOAAR8Ra5jea6
+	osqWBn4IAIv68aV2zIJenCstZUHNu8cYTMtbIO/Xm5tVDxb9BLrPYQFeQJCN5sDJo3rrzOAmRPe
+	BfFBde0GBf5LDEfB+kaQDgs4F8gb+9DLANuXt2POHtt9N8Rb0BgcA+/qC2k7b3efQSAQwo4hYwu
+	9oiva7Ys4jJYPajwvIXJ77fv41+RJ3ekUc=
+X-Gm-Gg: ASbGncvfr39xcuYyAr0zFbMmDthWZpkeYa03G/KjeTKuWzKTBMf76JiQTNeeEteeAkG
+	YdInlCqgjldDgxNs9Uoe2BJNZ3kjZwkl0y0muy8mUTQtWvFzLGOPQz5i5vtslDNCkZ/jJXFTBUe
+	JCNyZp9tpwfFt6C9facoddo4HpeefEHRMuEQPaqiNg6CHG7sdfz8fnN0A8xiWzyyRJegupJY7oS
+	lAAv9NaW/sYDAWROgU+t/qlVaFtVGQbhlce3HCLkAq079ApoCGZfjZHjeNj+DUjUGlxQIrzgAVJ
+	nPtTQvdxPGlOsALsVu3UnAtP+6pBtaHWfrJUFrtvVEe15Y6p5vR3j4c9mWgYEvl15ajIDbu87u3
+	PnPkmpUS56gCKt71CvrU8lDVyLsNVe6TswZIqWNTSs4rM1LTiymRBIdlqSFb0EOd+8TJf5Y00HK
+	8S/hppOZR7A7ySH0ngHyYGBPznqa4v24joCYtUqLE=
+X-Google-Smtp-Source: AGHT+IGq3iE+xZzUsjH1aPlGoSbR3djBNH/nlkj5inVrb7b/HhJD9ZKRWb2WQfwnpQuET4d9I+3LU/yyL9KY
+X-Received: by 2002:a05:6e02:2502:b0:431:d678:fcb with SMTP id e9e14a558f8ab-431eb668375mr137349965ab.9.1761509874306;
+        Sun, 26 Oct 2025 13:17:54 -0700 (PDT)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-19.dlp.protect.broadcom.com. [144.49.247.19])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-87fc4913c9bsm5617236d6.12.2025.10.26.13.16.44
+        by smtp-relay.gmail.com with ESMTPS id 8926c6da1cb9f-5aea9e32c85sm405350173.29.2025.10.26.13.17.53
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 26 Oct 2025 13:16:44 -0700 (PDT)
+        Sun, 26 Oct 2025 13:17:54 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-77f610f7325so2889579b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:16:44 -0700 (PDT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-33826e101ecso5300955a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:17:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1761509803; x=1762114603; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1761509872; x=1762114672; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=aX98xM5uLTwNgSn/07WIOBdC4l1s/Q8i8XO2+Sj+EJg=;
-        b=ZkDXXX+gEE7dMUKm5gPhOd9/JjBYsN3X0a4pqTG3tbR8OZSkospJ6QzVL+4Jqoohhl
-         +j6TDH+agx9ovrCSg8d30jkz/SNlcp0MPbfT7zGjQwp/5yhnH+EZU6pTyF7Q0UqTy3a/
-         jXETIgjVkOz1x92hQIS46bc1t2dZqDsFexUTQ=
-X-Forwarded-Encrypted: i=1; AJvYcCVqCaMWqOaveEd1owfLBX0DWxdSaSL9anoteZb4bWEzk4HrGovoWvNFezOQN0fV3NfiSg0KPI2XyAqSI8rVHmNc@lists.infradead.org
-X-Received: by 2002:a05:6a00:1916:b0:77f:2f7c:b709 with SMTP id d2e1a72fcca58-7a220a083f7mr40308900b3a.5.1761509803524;
-        Sun, 26 Oct 2025 13:16:43 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1916:b0:77f:2f7c:b709 with SMTP id d2e1a72fcca58-7a220a083f7mr40308882b3a.5.1761509803117;
-        Sun, 26 Oct 2025 13:16:43 -0700 (PDT)
+        bh=J58LymEyd0eWh2BlEICOgBmMyqoMmGyghTiG80Pa5/o=;
+        b=HUamXO6YEEXRRmHIq0bjrjWaSfQUQTrc4lCvlnHfxSNtr9jlLLRqk7SQPxh7oSPfT6
+         kpphyJFx3BDkrr5frhU96o5CaOstRpoFEF05mikzW2p0iPWgWER581fpWDHLMh7qBGpd
+         AyrpJtl0wcfml+ah/Z86+R9Dwu2wfR6lX/q+0=
+X-Forwarded-Encrypted: i=1; AJvYcCU3hSuHGLCG+fVZFrhv4PzOzghi3KX8mNA6NFM4TvJ/mkbLn8VqhWknLkjSbVtv5SrRayO16bZltSdjXnlAo/Kx@lists.infradead.org
+X-Received: by 2002:a17:90b:5490:b0:32d:e309:8d76 with SMTP id 98e67ed59e1d1-33fd3bbda7amr10674466a91.10.1761509872518;
+        Sun, 26 Oct 2025 13:17:52 -0700 (PDT)
+X-Received: by 2002:a17:90b:5490:b0:32d:e309:8d76 with SMTP id 98e67ed59e1d1-33fd3bbda7amr10674445a91.10.1761509872119;
+        Sun, 26 Oct 2025 13:17:52 -0700 (PDT)
 Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414032c71sm5754054b3a.25.2025.10.26.13.16.39
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fed81b40fsm5946267a91.16.2025.10.26.13.17.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Oct 2025 13:16:41 -0700 (PDT)
-Message-ID: <20ca3d0e-a935-4296-8678-5903310b3712@broadcom.com>
-Date: Sun, 26 Oct 2025 13:16:35 -0700
+        Sun, 26 Oct 2025 13:17:50 -0700 (PDT)
+Message-ID: <8f2edb24-e5fa-4ef2-ac8d-609ceb454c33@broadcom.com>
+Date: Sun, 26 Oct 2025 13:17:44 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] pmdomain: bcm: bcm2835-power: Prepare to support
- BCM2712
+Subject: Re: [PATCH 2/4] dt-bindings: soc: bcm: Add bcm2712 compatible
 To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rpi-kernel@lists.infradead.org,
@@ -106,7 +105,7 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
  <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
 References: <20250917063233.1270-1-svarbanov@suse.de>
- <20250917063233.1270-2-svarbanov@suse.de>
+ <20250917063233.1270-3-svarbanov@suse.de>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -141,13 +140,14 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250917063233.1270-2-svarbanov@suse.de>
+In-Reply-To: <20250917063233.1270-3-svarbanov@suse.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_131647_203186_ACA50E7A 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20251026_131755_405954_402BAAE0 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,15 +165,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 9/16/2025 11:32 PM, Stanimir Varbanov wrote:
-> BCM2712 has a PM block but lacks asb and rpivid_asb register
-> spaces. To avoid unwanted results add a check for asb existence
-> during probe and also add a new register offset for bcm2712 to
-> control grafx_v3d power domain. The decision to use the new
-> register is implicit - if asb register base is null then the
-> driver is probed for bcm2712 (the other supported SoCs have
-> asb register space).
-> 
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> Add bcm2712-pm compatible and update the bindings to satisfy it's
+> requirements. The PM hardware block inside bcm2712 lacks the "asb"
+> and "rpivid_asb" register ranges and also does not has clocks, update
+> the bindings accordingly.
+
+s/does not has/does not have/
+
+With Conor's feedback addressed:
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
