@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF024CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 17:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33765CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 17:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Da7n/lRyiS06YbMDRGJe/PhIKNbj4s3MR8oTEu6nwl4=; b=358E1vRQlU+J0VIpCB3YfhVBRs
-	vNZov6v+cu4IsV1dRxrb95HNeNO9JFNVys6H2wjSP7I93BGPtG+Nb0cQj2UsPcFRzMPdF/a9C2zuJ
-	3XjML/giGbMht+ntwppMmi4H0pNiNerQvWT0XtnTczBzGaebi3gvyt0Havg9w8i13Ric3ABo+oPRt
-	v+N7M15Mp0LBMFuNuy0QEibDRdsJS2gchwJglNxWfCduyFoxx98YPnS5swhdRCAaeELCwh9vuYDUB
-	9dy7khC3qiom6iYxHlcCdX95+QRWil0Wi+wYd49qUbigCzn1LNKi8fteBd04JQSO79krElkKuNdfx
-	LmYS8nSw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3lFD1esy0bOO1GR9/VeKIxmL26xXKQjGQtkmjDjqjxk=; b=1la97tg96q28WtY6uOwJk8GgO1
+	14EzG9wPAPcMZWwtKBXRWFj2fq/t7TuOH+FeHNtI1l/0ywhNmUyzgUwLMaYpsWNVyLrLFPYL5wdHz
+	ryp2OlqpqAcO5B97kjczGZDh4IMCH9MKRD2bhf7BnOF2TMftj2rHgjHs85z/eLBXsJcSTSc9jup3o
+	ktDnQSNghtir7hZWMAWBu7I8Odj+OLUDe90wmlI5QEokqRbgV7EE+eeRHRRFank/tKmp1F5XT2uia
+	xQxGNhykMpmh6HUNG4S3lc2CUxLAgt3QDIoF1O8A4Nh0vejxX1bKbzrZ4mnaN+9USL3r2h7KF2ElB
+	+BNKLzEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD4Kn-0000000CZN1-44bf;
-	Sun, 26 Oct 2025 17:15:13 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1vD4W0-0000000CZsO-1WqA;
+	Sun, 26 Oct 2025 17:26:48 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD4Kk-0000000CZM8-48g5
+	id 1vD4Vx-0000000CZru-3LCq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 17:15:12 +0000
-Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-b4539dddd99so820233966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 10:15:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761498909; x=1762103709; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Da7n/lRyiS06YbMDRGJe/PhIKNbj4s3MR8oTEu6nwl4=;
-        b=dJA5ZydhJmIuXVTVwhGXRkRyaRnVQoUxOoA1mHFaCOq/BHKrxk98FaEAQt3+g/J3g+
-         gCwqzgWQLX8Ca1f0dkHCxTQFljaQ2cqWF7FoZ9xQmbA89g6qfa5JRp6ZTr6qLmqdBeQA
-         Ecc+LFJjEj2boYWv2Nual1ph2U0/FKYuNr8+KAKkkciSmLTs3SU+VZ2iOw7gjrEhZ/RG
-         C/NUO+AIfuPey70pAS9KqJPxSKj1lhbbGpSTBEq1IjnZuEjJ0soXyAAGLlS863PvntSv
-         lqMxo1m0tkqcrhyV4BA32+cWyOS8F+g4GtD5vJnzkUltnDuvj+CpC/ERcx2m9MAS34iE
-         ldnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761498909; x=1762103709;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Da7n/lRyiS06YbMDRGJe/PhIKNbj4s3MR8oTEu6nwl4=;
-        b=WmprK9IXCtuEUvDZ2xiQQnWMFNXt0VoO1ED2A6DgNAVnXokLORyt91wd595zVNZ/aO
-         clNNINN5lf02uSL6WMr9BjoNUuec5siIHjHO88VxRHKpF5teW9257PN5AgB5Q8T8XFtg
-         cflVHEIFzGBkv5Ls70gYiRAZsdi0JLpx19wd90BR4CBbP95ZJqq2kBnKU6dh+xFJPS5C
-         4cunmSx1cxuLEY9QLnBr3DqFsFoIEVnV8B6QjwGOKQ/Z4dkEGFnx/QiWO/tHiNyUmNMU
-         daUThq3uMiyQ5KwEe/Q+fl2zpSD2esPmCybrRwzHBLhdS0GKGqZf9fLEV31H8N05+YS0
-         HZEg==
-X-Forwarded-Encrypted: i=1; AJvYcCXKL+wtGnT/WmtDFUvpdshaHcGEjczisvQjnmqKfzFqboYwVi1tATvVDkELDQjTyOTBwVC5A/YQdXZW5g7D2fMj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRLVCIbLgZIHav5JI8g6RFtPMZ4MhcQrF4ZPC8Pf5PhA4Q6MWP
-	xiPTkaCEDTi+cdBGxZTjsJzWL36/WKdwuY42TVsvUEOJvb9vnfBp9xhQoiuMZj5eTQaEgCq//Kv
-	xzQjfdaefbbzJvhv3W8mH8orm+VvF67mb3NchbPLo7w==
-X-Gm-Gg: ASbGncuxEr8v7LYmRcakbjamWhq3chHQk9IDlHAUVLe9jb8kYPBMJowAGe65ljdebRS
-	0srSp+6YcaQ8jj6WuTcGAHTc/2TrR0SIuEJw31Bu4KnymVpB9Y2sq12lDtPzASluMP9T+38ZuVb
-	2IL3n+dTa1BxyvYm576NwduhK7UdaNMwFBvNbe/HpFribM7pwfdVWu9udOcxkfFdDcsiy6qgqCO
-	05Zl+Xp0vYrkv42+IbuC+rDdUPStjlAmHEVQ8OYA5H34ZJWp6VO42kMwYyDwTe1KhvRW27kMA==
-X-Google-Smtp-Source: AGHT+IFzqU3QsaPE1MW2duZ8/dKVM5Mj7D0icnFlvp/4DYRo9NMCY1YBcoIDI7zlJrtuI8cbSwsY9j7dHSYnlbDke2o=
-X-Received: by 2002:a17:907:1c81:b0:b6c:8e24:21f with SMTP id
- a640c23a62f3a-b6d51c325c6mr1741819066b.55.1761498908937; Sun, 26 Oct 2025
- 10:15:08 -0700 (PDT)
+	Sun, 26 Oct 2025 17:26:47 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1761499602;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3lFD1esy0bOO1GR9/VeKIxmL26xXKQjGQtkmjDjqjxk=;
+	b=n/d0hMqPEpqnefQswGuQIuiH8oNIJ4/MOodZcOSESvtfOXccz3rc9tV60y5yy3N4tzjbS6
+	koNKze4JXyvBxVHQ6kCa9B43pfeMqqBi1Z7aod9BeTKny59Xu8lYq7X76wItWO6SuC8vXV
+	ZoWQ+GsJq5rwoohqUKG6FFa1sfjx4/r1TCkditqUxlMlRScLDIdj/ZASW2wc+15zg4hMa7
+	bfCMfBgutA0EpC2mW0tmE8iLvtRuOyWgteaCHxexnKX83Q5rxEAWzUVYOD7kfjKt5m3VvI
+	ZNTQD34SPl75NnVCweff1Ar+2Z/IhUY3Fwyq6KzzSEvKpHVMDso902J6KYh+Fw==
+From: Diederik de Haas <diederik@cknow-tech.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dragan Simic <dsimic@manjaro.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: [PATCH] arm64: dts: rockchip: Fix vccio4-supply on rk3566-pinetab2
+Date: Sun, 26 Oct 2025 18:25:47 +0100
+Message-ID: <20251026172608.108956-1-diederik@cknow-tech.com>
 MIME-Version: 1.0
-References: <20251026150358.1078453-1-coiaprant@gmail.com>
-In-Reply-To: <20251026150358.1078453-1-coiaprant@gmail.com>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Mon, 27 Oct 2025 01:14:56 +0800
-X-Gm-Features: AWmQ_bnvhjvqwSYSkZyszEhUHRG058LD6n9gayksgoabyqflquBOY2fvBCiBW_0
-Message-ID: <CALj3r0jVPGtVtHUwxmxjePkj4T3jZD5JUHfJL6xa6h8CAKHRzw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/3] dt-bindings: vendor-prefixes: Add NineTripod
-To: devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_101511_044551_D778BAD2 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20251026_102646_173015_38EB10A4 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sorry, v2/v3 causes compilation errors, which armbian's build system
-automatically ignores.
+Page 13 of the PineTab2 v2 schematic dd 20230417 shows VCCIO4's power
+source is VCCIO_WL. Page 19 shows that VCCIO_WL is connected to
+VCCA1V8_PMU, so fix the PineTab2 dtsi to reflect that.
 
-v4 has fixed the build failure issue.
-
-:(
-
+Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
 ---
+ arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I'm new here
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
+index d0e38412d56a..08bf40de17ea 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
+@@ -789,7 +789,7 @@ &pmu_io_domains {
+ 	vccio1-supply = <&vccio_acodec>;
+ 	vccio2-supply = <&vcc_1v8>;
+ 	vccio3-supply = <&vccio_sd>;
+-	vccio4-supply = <&vcc_1v8>;
++	vccio4-supply = <&vcca1v8_pmu>;
+ 	vccio5-supply = <&vcc_1v8>;
+ 	vccio6-supply = <&vcc1v8_dvp>;
+ 	vccio7-supply = <&vcc_3v3>;
+-- 
+2.51.0
 
-OMG, Gmail Android cannot send as plaintext mode :(
-
-(Resending with corrected Cc list and plaintext mode, sorry for the noise.)
-
-Coia Prant <coiaprant@gmail.com> =E4=BA=8E2025=E5=B9=B410=E6=9C=8826=E6=97=
-=A5=E5=91=A8=E6=97=A5 23:04=E5=86=99=E9=81=93=EF=BC=9A
->
-> Add NineTripod to the vendor prefixes.
->
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
-umentation/devicetree/bindings/vendor-prefixes.yaml
-> index f1d188200..37687737e 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1124,6 +1124,8 @@ patternProperties:
->      description: National Instruments
->    "^nicera,.*":
->      description: Nippon Ceramic Co., Ltd.
-> +  "^ninetripod,.*":
-> +    description: Shenzhen 9Tripod Innovation and Development CO., LTD.
->    "^nintendo,.*":
->      description: Nintendo
->    "^nlt,.*":
-> --
-> 2.47.3
->
 
