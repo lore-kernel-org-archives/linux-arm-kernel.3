@@ -4,118 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90058CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 08:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A2FCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 09:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9M90kOzsIrclhukmUSG8Nw6aW4iDRAEs363yHzp+b2o=; b=VvGQKNGkMIYQ5xpAx4knadX0a1
-	MNAsJR8X1XGvXqg0pzDJFXrtKcNI/E/gmMJ+TwtY24ZVIfTKCa+Dt43dmM9G+RzyL4OwYohshvdYN
-	nq8HndzHlD95z8Ck2WoZBafTumQQf2IGINjcjeToQItj5zPEjBeU8GF0Wd9S+zw+AQI1c4p+EYKIv
-	VxHdKL0QLZz25s8VASYdsm8pGIzdY0gFxZIag1DbZNeplv3EUnuAE+nrJtDTe3GWIO/Ay7HhsZiqx
-	seg19KRW8jGeibobt6dRRp+B05IgI/De/EiDDEy+Ez8imYAxGb8ChoA4VAQ3nkZ74zv1snbTfVydE
-	6LF8Bs4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bSpn+4WRuRwwudYVmTek66HaE4RbnCydNGtY/Y6hVWI=; b=HI3rH2URSow/ikGnX4E8GPsc9k
+	vcZgUWr5LTx8Mb/+0MChtg7ThjKTKiBTDWV4GII77bsAm9DYPFBxD4CBmMj1eE32W1D93XaZlzDWy
+	XIt5mvPx1FPPDq0Dlfo3RibHf+wiyzPxBlyRQ0ZhmHmGURXYkLqGkFvT6o7w8vFakZB+wuX+ztHuG
+	2daKcklHnrZ1gQ6kGBI8uisodkLR6dh68Xi9RTK0WJmZSnccl4ORtJb0cRx8+PnTQ3cXDS41ifpse
+	UEQ34PNTghOJ9nG+qsvMs7LDHnTJpI/RYABhPOTJzLYunreGUeXem46owRmWV7ldauHPlI2fFNd79
+	h8IsGbZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCwV7-0000000CBra-16d4;
-	Sun, 26 Oct 2025 08:53:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vCxI1-0000000CDfQ-3Xsw;
+	Sun, 26 Oct 2025 09:43:53 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCwV4-0000000CBrC-3Qz4
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 08:53:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 722B1415EA;
-	Sun, 26 Oct 2025 08:53:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD7C9C4CEE7;
-	Sun, 26 Oct 2025 08:53:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761468798;
-	bh=ETFWaSzahPsIU/f0IDtZ2cbGfc13FYOQRJh3Ot+xAbI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eebruFlfGd6ZRt+naeqmWT15LN4otiyVnoS1OMafAA7mHskCk9n3mdoicK7qGeQx5
-	 013eA5386qeA06t7K9pJXNTKikbEhQ9BxlKG1KE4WKIwG/eYFgtsOKUWxCOTN2BUMG
-	 0aGtVi9fm8qWYYS3VtBthAIhIXg1ZvQgJTiQpS9YQTg+WZgnD56H2Hbj2pjhU34s5o
-	 6UpbNZ6vke378jW8lLB8xwjizSHCy4OthPKCCap3LKz9JioIDpzzDKEcIaVq4GtoXv
-	 uQPRm3T8vx7a2Pqg9qPB8DOBVwL40JH8mep38iV+Qj0VtRrCidUqbbdgt5aPLNonGR
-	 7l1pThwn3e2ig==
-Message-ID: <e6a34c11-4ec8-4b96-ad61-642a4be3eef6@kernel.org>
-Date: Sun, 26 Oct 2025 09:53:11 +0100
+	id 1vCxHy-0000000CDf0-2RPg;
+	Sun, 26 Oct 2025 09:43:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761471830; x=1793007830;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MyRDkkeM1WniRrNwIECJAWX6rR/HsGtbFOS5K7hsaLo=;
+  b=S2cpkLtxga2aoYQoSAUYGHefRaoCxfxZfMin1a8umubTHTf/0hDF+Q25
+   BXsdBl0aV6bGpue3F5/cBGLGWBaj5lqW3GfxFOxHqq3QlC7cVRRHPIgLp
+   bG+yxv4ZAVZradH76PSAKr/JF7TXtBWylsPcXovNbuEI5x8ah99fI3JnL
+   Aws82GDsUgBJ2DM8jhfB1fLTljEzpB8RollMViVKRSqtf8qOVCeVfk2FB
+   84vHk+tGfjObm3WkXaO4gz2eQlwU/bSGyGe47gWMoVHwx4UH9mDB6xP8U
+   vpXRIlU1QQtZGzXNRAZww2PapvCCbycKiW3YAi76SyEgbaEy/mcdeg8Uv
+   g==;
+X-CSE-ConnectionGUID: 4UPHdfkKQUO9zyv66GW7OA==
+X-CSE-MsgGUID: RUF8/xZ0Sh+un3tSAOxjeg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="89052155"
+X-IronPort-AV: E=Sophos;i="6.19,256,1754982000"; 
+   d="scan'208";a="89052155"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2025 02:43:49 -0700
+X-CSE-ConnectionGUID: RJXJrLBXRruANBTCQE/mPQ==
+X-CSE-MsgGUID: sgB1CLxGQzyoEeuxq8N8/Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,256,1754982000"; 
+   d="scan'208";a="184877434"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 26 Oct 2025 02:43:46 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vCxHr-000G1x-2v;
+	Sun, 26 Oct 2025 09:43:43 +0000
+Date: Sun, 26 Oct 2025 17:43:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: Coia Prant <coiaprant@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Coia Prant <coiaprant@gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add devicetree for the X3568 v4
+Message-ID: <202510261750.glZ5VRca-lkp@intel.com>
+References: <20251025203711.3859240-1-coiaprant@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 05/10] dt-bindings: net: altr,socfpga-stmmac: add
- generic dwxgmac compatible
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Matthew Gerlach <matthew.gerlach@altera.com>
-Cc: kernel@pengutronix.de, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
- <20251024-v6-12-topic-socfpga-agilex5-v5-5-4c4a51159eeb@pengutronix.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-5-4c4a51159eeb@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251025203711.3859240-1-coiaprant@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_015318_922606_83295AC2 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251026_024350_654324_DBF22E7C 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,25 +92,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2025 13:49, Steffen Trumtrar wrote:
-> Add the more generic "snps,dwxgmac" compatible to the list of
-> compatibles for the agilex5.
-> 
-> The snps,dwmac binding explicitly uses the "snps,dwxgmac-2.10",
+Hi Coia,
 
-Hm? No, binding says only dwxgmac-2.10, DTS only dwxgmac-2.10.
+kernel test robot noticed the following build errors:
 
-> "snps,dwxgmac" combination as example; the stmmac driver only checks on
+[auto build test ERROR on krzk/for-next]
+[also build test ERROR on krzk-dt/for-next linus/master v6.18-rc2]
+[cannot apply to rockchip/for-next next-20251024]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Example does not matter.
+url:    https://github.com/intel-lab-lkp/linux/commits/Coia-Prant/arm64-dts-rockchip-Add-devicetree-for-the-X3568-v4/20251026-043855
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git for-next
+patch link:    https://lore.kernel.org/r/20251025203711.3859240-1-coiaprant%40gmail.com
+patch subject: [PATCH] arm64: dts: rockchip: Add devicetree for the X3568 v4
+config: arm64-randconfig-002-20251026 (https://download.01.org/0day-ci/archive/20251026/202510261750.glZ5VRca-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project e1ae12640102fd2b05bc567243580f90acb1135f)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251026/202510261750.glZ5VRca-lkp@intel.com/reproduce)
 
-> dwmac and dwxgmac compatibles to decide what kind of gmac it is working
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510261750.glZ5VRca-lkp@intel.com/
 
-Huh? I clearly see snps,dwxgmac-2.10 in dwmac-generic.c
+All errors (new ones prefixed by >>):
 
-> with.
-This change really lacks proper rationale.
+>> Error: missing overlay file(s)
 
-Best regards,
-Krzysztof
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
