@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2FECCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 12:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9309FCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 12:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xhSctYjH9Rr38j6lYic7dZqTUlNx7v9z2EjOasSd8c=; b=lTKEhs2AfDiZIWdl3ioOsjmrJS
-	f47L6zlXyjo0DBvJImTWVZ1Qg7yfTcx2qrR9qoQQ1aFO9CF4tr7ugHcL9QuoH7F/Dgkou2AKMHeDZ
-	UOkiNmgUjo+ZMgwpMrSahNJp1/3jXg81SBl76Da1ip8wZRSG8CbisZx+1tFrDKpHe4p8OTRZ9q1O+
-	JzorE1ylszo3ge86vuv4uPPNkggWh8B/82vqvcPucW4cuONYnH1f0h9j2E19ZS4DVXbTbW5LJi5GS
-	El2rZu05OzeI5ikUu2pcGnVK+ySgnObIddRrQV9phMd4gs4Drbdi+UbKcYIgByavdQEnI9iVzWdyB
-	TL2v9uJA==;
+	bh=utgZIgZouZ2rivSw9fdUqvFMGknqClgIGWmWeoQd928=; b=4KlGjFOQD5u0GC5TF89Kujpc+j
+	X2sR10nlPn6BozmmqvTLRBbgwDq/36dLAwE3dztBFD/XPZOFZvOUIna9/fOVVZF+WRmnjo26LqpSv
+	d157B34myNI/1dxZhMCG4adKfVRNM/sb/on0cXimMFgqHjFBWBlQ0qAqpVhR09/Nr00Mck7fzPz2t
+	FF188Bf7Y4VmKrQnK4BIhTpFFwNOqaFMPdJXwWkpVLtlb1f+axaK2XnvIZOMeFNThFQMx17Dxr5pJ
+	bdLLHqvX9YmroikNrCCbHarUPm66v94E9VtFMDJFOP3bTHsCIWxXS0aY2s+/TV/q1O8oqy5+th2K2
+	NUqMT0+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCzlE-0000000CJAP-1aAC;
-	Sun, 26 Oct 2025 12:22:12 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1vCzlM-0000000CJFn-1YWG;
+	Sun, 26 Oct 2025 12:22:20 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCzlC-0000000CJ8B-1A00;
-	Sun, 26 Oct 2025 12:22:11 +0000
+	id 1vCzlC-0000000CJ8A-14qu;
+	Sun, 26 Oct 2025 12:22:12 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id AE13F40027;
-	Sun, 26 Oct 2025 12:22:05 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id EAA3160666;
+	Sun, 26 Oct 2025 12:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	s=routing; t=1761481325;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2xhSctYjH9Rr38j6lYic7dZqTUlNx7v9z2EjOasSd8c=;
-	b=slZAivgUGmXS6MXAwMunhdNmLh1re0Cepb/YihkUrtunpWcf2mfGvV+82+C2zd+Ww2gCTB
-	IPe+N1tyT8sEskbkt4ADY/8PktYZNDOPKJe/XmNOUkHMyY9Eda9b0tFDME457o084HlT8C
-	YVMNgfrcE3XNgvR2sgyWCG9qhGuOfbc=
+	bh=utgZIgZouZ2rivSw9fdUqvFMGknqClgIGWmWeoQd928=;
+	b=jzFkCQ0rm5xX/AZDOCLrqTZSn5am4MENCC0H+Ho2xlaXNHXFgJ+AKsYvXjQeqZpOg6wnjb
+	sPKmZvIwR5nnDZUB+kEYwVgNSXKErXUBoXuXLCUBbExorNtKZaNfeUL24rDCftc4ry0Poo
+	b96b3Ur9mhDC6x3sKXiF1rhmN9LZh1Q=
 Received: from frank-u24.. (fttx-pool-217.61.154.70.bambit.de [217.61.154.70])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 70EA71226F7;
-	Sun, 26 Oct 2025 12:22:05 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id AA9F51226F7;
+	Sun, 26 Oct 2025 12:22:04 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
@@ -62,17 +62,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v1 4/5] thermal/drivers/mediatek/lvts_thermal: Add SoC based golden Temp
-Date: Sun, 26 Oct 2025 13:21:33 +0100
-Message-ID: <20251026122143.71100-5-linux@fw-web.de>
+Subject: [PATCH v1 1/5] dt-bindings: thermal: mediatek: make interrupt only required for current SoCs
+Date: Sun, 26 Oct 2025 13:21:30 +0100
+Message-ID: <20251026122143.71100-2-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251026122143.71100-1-linux@fw-web.de>
 References: <20251026122143.71100-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_052210_487796_0CBA15E5 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20251026_052210_508623_8085BDF3 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +90,59 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add SoC based golden temp for invalid efuse data.
-
-This is a preliminary patch for mt7987 support where goldentemp is
-slightly higher than other SOCs.
+Upcoming MT7987 does not have a IRQ we have to make interrupt-property only
+required for current supported SoCs.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- drivers/thermal/mediatek/lvts_thermal.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+ .../bindings/thermal/mediatek,lvts-thermal.yaml | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index 9413b30f7b69..544941e8219a 100644
---- a/drivers/thermal/mediatek/lvts_thermal.c
-+++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -134,6 +134,7 @@ struct lvts_data {
- 	int num_init_cmd;
- 	int temp_factor;
- 	int temp_offset;
-+	int golden_temp;
- 	int gt_calib_bit_offset;
- 	unsigned int def_calibration;
- 	bool irq_enable;
-@@ -811,8 +812,10 @@ static int lvts_golden_temp_init(struct device *dev, u8 *calib,
- 	gt = (((u32 *)calib)[0] >> lvts_data->gt_calib_bit_offset) & 0xff;
+diff --git a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+index 0259cd3ce9c5..7ec9c46eef22 100644
+--- a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+@@ -58,6 +58,16 @@ properties:
+ allOf:
+   - $ref: thermal-sensor.yaml#
  
- 	/* A zero value for gt means that device has invalid efuse data */
--	if (gt && gt < LVTS_GOLDEN_TEMP_MAX)
-+	if (gt && gt <= LVTS_GOLDEN_TEMP_MAX)
- 		golden_temp = gt;
-+	else
-+		golden_temp = lvts_data->golden_temp;
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt7988-lvts-ap
++    then:
++      required:
++        - interrupts
++
+   - if:
+       properties:
+         compatible:
+@@ -75,6 +85,9 @@ allOf:
+         nvmem-cell-names:
+           maxItems: 1
  
- 	golden_temp_offset = golden_temp * 500 + lvts_data->temp_offset;
++      required:
++        - interrupts
++
+   - if:
+       properties:
+         compatible:
+@@ -91,10 +104,12 @@ allOf:
+         nvmem-cell-names:
+           minItems: 2
  
-@@ -1786,6 +1789,7 @@ static const struct lvts_data mt7988_lvts_ap_data = {
- 	.num_init_cmd	= ARRAY_SIZE(mt7988_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT7988,
- 	.temp_offset	= LVTS_COEFF_B_MT7988,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 24,
- 	.irq_enable = true, //SDK false
- };
-@@ -1799,6 +1803,7 @@ static const struct lvts_data mt8186_lvts_data = {
- 	.num_init_cmd	= ARRAY_SIZE(default_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT7988,
- 	.temp_offset	= LVTS_COEFF_B_MT7988,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 24,
- 	.def_calibration = 19000,
- 	.irq_enable = true,
-@@ -1813,6 +1818,7 @@ static const struct lvts_data mt8188_lvts_mcu_data = {
- 	.num_init_cmd	= ARRAY_SIZE(default_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT8195,
- 	.temp_offset	= LVTS_COEFF_B_MT8195,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 20,
- 	.def_calibration = 35000,
- 	.irq_enable = true,
-@@ -1827,6 +1833,7 @@ static const struct lvts_data mt8188_lvts_ap_data = {
- 	.num_init_cmd	= ARRAY_SIZE(default_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT8195,
- 	.temp_offset	= LVTS_COEFF_B_MT8195,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 20,
- 	.def_calibration = 35000,
- 	.irq_enable = true,
-@@ -1841,6 +1848,7 @@ static const struct lvts_data mt8192_lvts_mcu_data = {
- 	.num_init_cmd	= ARRAY_SIZE(default_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT8195,
- 	.temp_offset	= LVTS_COEFF_B_MT8195,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 24,
- 	.def_calibration = 35000,
- 	.irq_enable = true,
-@@ -1855,6 +1863,7 @@ static const struct lvts_data mt8192_lvts_ap_data = {
- 	.num_init_cmd	= ARRAY_SIZE(default_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT8195,
- 	.temp_offset	= LVTS_COEFF_B_MT8195,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 24,
- 	.def_calibration = 35000,
- 	.irq_enable = true,
-@@ -1869,6 +1878,7 @@ static const struct lvts_data mt8195_lvts_mcu_data = {
- 	.num_init_cmd	= ARRAY_SIZE(default_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT8195,
- 	.temp_offset	= LVTS_COEFF_B_MT8195,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 24,
- 	.def_calibration = 35000,
- 	.irq_enable = true,
-@@ -1883,6 +1893,7 @@ static const struct lvts_data mt8195_lvts_ap_data = {
- 	.num_init_cmd	= ARRAY_SIZE(default_init_cmds),
- 	.temp_factor	= LVTS_COEFF_A_MT8195,
- 	.temp_offset	= LVTS_COEFF_B_MT8195,
-+	.golden_temp	= LVTS_GOLDEN_TEMP_DEFAULT,
- 	.gt_calib_bit_offset = 24,
- 	.def_calibration = 35000,
- };
++      required:
++        - interrupts
++
+ required:
+   - compatible
+   - reg
+-  - interrupts
+   - clocks
+   - resets
+   - nvmem-cells
 -- 
 2.43.0
 
