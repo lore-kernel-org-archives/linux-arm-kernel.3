@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634EECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 08:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90058CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 08:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnpWDm3jW+jOkbt6LiW1wo3ORj3l65PkVY/a0r76THQ=; b=3zv1pi1cEeOuZcpgflf0eTQPmB
-	YFoGYcNy1irxMJwGksaMesAeMZRf9rO+b++E99CQVXTrzsERilla+YeiQNHuFBtHm7VlsIUcmyovO
-	rxTQzwLNBNEsZhSoEIv9aSnAVU9m9AtH+oBsLvK19YGLO/wV1iepQavPmh2fD0PpsYrc6jhN1wsHp
-	jg0XXAfL5aREKk9WzU0aUif6/7WX+VmmyFrwCeT7pNZpJW61mMC3/xy5l87vLrXMe49hZwVOODcno
-	g3oGHwXMVbOzflN/c4m94GywaJuC0MtVufu+MifbraKPasZkoaY1tq1RtA0SBO36SFoymdhjSPSdM
-	IgSjYztw==;
+	bh=9M90kOzsIrclhukmUSG8Nw6aW4iDRAEs363yHzp+b2o=; b=VvGQKNGkMIYQ5xpAx4knadX0a1
+	MNAsJR8X1XGvXqg0pzDJFXrtKcNI/E/gmMJ+TwtY24ZVIfTKCa+Dt43dmM9G+RzyL4OwYohshvdYN
+	nq8HndzHlD95z8Ck2WoZBafTumQQf2IGINjcjeToQItj5zPEjBeU8GF0Wd9S+zw+AQI1c4p+EYKIv
+	VxHdKL0QLZz25s8VASYdsm8pGIzdY0gFxZIag1DbZNeplv3EUnuAE+nrJtDTe3GWIO/Ay7HhsZiqx
+	seg19KRW8jGeibobt6dRRp+B05IgI/De/EiDDEy+Ez8imYAxGb8ChoA4VAQ3nkZ74zv1snbTfVydE
+	6LF8Bs4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCwSb-0000000CBjA-38zD;
-	Sun, 26 Oct 2025 08:50:45 +0000
+	id 1vCwV7-0000000CBra-16d4;
+	Sun, 26 Oct 2025 08:53:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCwSZ-0000000CBim-3BCj
+	id 1vCwV4-0000000CBrC-3Qz4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 08:50:44 +0000
+	Sun, 26 Oct 2025 08:53:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 99991431CD;
-	Sun, 26 Oct 2025 08:50:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FF7FC4CEE7;
-	Sun, 26 Oct 2025 08:50:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 722B1415EA;
+	Sun, 26 Oct 2025 08:53:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD7C9C4CEE7;
+	Sun, 26 Oct 2025 08:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761468642;
-	bh=oP9r+izdqj4wtIPWIKwEKuljhS1FCmk4lSnwOX0lRis=;
+	s=k20201202; t=1761468798;
+	bh=ETFWaSzahPsIU/f0IDtZ2cbGfc13FYOQRJh3Ot+xAbI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kejM9QgWHbt2ooSE+OPtoWwWdzmMWHUSzaS2VuKkTxU+ayEbs7nYinD4Vu8gDCo1s
-	 Ql/fy/wmBhfjcL6K2C0/r9QzBSVECa9NwsAaQnaOl0fvRm0CxHQ28DBDSHs7qs9x1e
-	 dae0/LjIErAdajUH55c8SwnpD0K0bUwoOU/7UDz6ADU/RpTdsECjV//1i8A6md2yCK
-	 rrHH17ql6QdAidwdvcRCG+AYw7ndI2VI7sMIwab5Cr/xfhvnlOnG+gjTEWjW5lvAnL
-	 FaE+SckBqcNl1N3b+eY8ba2qvRklGv/Vjctd8vWzLfBv5fiugJgFUe00w9yLSeJ483
-	 /MsjZvvoivJMA==
-Message-ID: <749bdc31-e34d-449b-9ab8-ba542276ee8d@kernel.org>
-Date: Sun, 26 Oct 2025 09:50:36 +0100
+	b=eebruFlfGd6ZRt+naeqmWT15LN4otiyVnoS1OMafAA7mHskCk9n3mdoicK7qGeQx5
+	 013eA5386qeA06t7K9pJXNTKikbEhQ9BxlKG1KE4WKIwG/eYFgtsOKUWxCOTN2BUMG
+	 0aGtVi9fm8qWYYS3VtBthAIhIXg1ZvQgJTiQpS9YQTg+WZgnD56H2Hbj2pjhU34s5o
+	 6UpbNZ6vke378jW8lLB8xwjizSHCy4OthPKCCap3LKz9JioIDpzzDKEcIaVq4GtoXv
+	 uQPRm3T8vx7a2Pqg9qPB8DOBVwL40JH8mep38iV+Qj0VtRrCidUqbbdgt5aPLNonGR
+	 7l1pThwn3e2ig==
+Message-ID: <e6a34c11-4ec8-4b96-ad61-642a4be3eef6@kernel.org>
+Date: Sun, 26 Oct 2025 09:53:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/10] dt-bindings: net: altr,socfpga-stmmac: allow
- dma-coherent property
+Subject: Re: [PATCH v5 05/10] dt-bindings: net: altr,socfpga-stmmac: add
+ generic dwxgmac compatible
 To: Steffen Trumtrar <s.trumtrar@pengutronix.de>,
  Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
  <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
@@ -63,7 +63,7 @@ Cc: kernel@pengutronix.de, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
 References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
- <20251024-v6-12-topic-socfpga-agilex5-v5-7-4c4a51159eeb@pengutronix.de>
+ <20251024-v6-12-topic-socfpga-agilex5-v5-5-4c4a51159eeb@pengutronix.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-7-4c4a51159eeb@pengutronix.de>
+In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-5-4c4a51159eeb@pengutronix.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_015043_864176_99BBE54B 
-X-CRM114-Status: UNSURE (   6.45  )
+X-CRM114-CacheID: sfid-20251026_015318_922606_83295AC2 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,15 +131,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/10/2025 13:49, Steffen Trumtrar wrote:
-> The DMA operations on the SoCFPGA stmmac can be dma-coherent. Add as
-> optional property.
+> Add the more generic "snps,dwxgmac" compatible to the list of
+> compatibles for the agilex5.
 > 
-> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+> The snps,dwmac binding explicitly uses the "snps,dwxgmac-2.10",
 
-There is little point in mixing two subsystems in one patchset.
-Especially without marking this net-next how maintainers are supposed to
-take it?
+Hm? No, binding says only dwxgmac-2.10, DTS only dwxgmac-2.10.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> "snps,dwxgmac" combination as example; the stmmac driver only checks on
 
+Example does not matter.
+
+> dwmac and dwxgmac compatibles to decide what kind of gmac it is working
+
+Huh? I clearly see snps,dwxgmac-2.10 in dwmac-generic.c
+
+> with.
+This change really lacks proper rationale.
+
+Best regards,
+Krzysztof
 
