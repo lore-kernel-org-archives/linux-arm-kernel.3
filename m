@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF867CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 18:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1AFCCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 18:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YzhIdawRjO+AxQtjLDEcxwAEGsa8XhjWBxl0gSxmXBk=; b=Iq4XTAtKwGHZ42yLnhFotIRKWC
-	AQ4W8jN6TC7P7W22RF5qSz5XikuoV8IyS/DS+g9drAAvTNNdKbrO3pnjBMcacMYgzkYOT+pMrBvIm
-	YPn8KKpAKNokOgMlCcpNLjHxl1Lij7prFyLeBI+1ODDvoDkTySoeVgilGiWQvNwAflpoVjCDznIlj
-	CNZPzUGrw806+cg9qXou/vcZ7oynbPs7XwMoZ29hod1wvHfQIGts4wkGZWn7yc1C9I8fn/s37yVqm
-	lYnntAXLlDsI+HfMg/ByCURGXJ7UbOfCTXlFoP5M1M+DCVTIDs7uMtR/3atl4WgYeK6FnsISFiCzd
-	KO0bxJ1g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pZPnNNIfItaWXhurcxi0vMwTs0Lsqn4l/evDT63v+Tw=; b=kyqeZEdAw5NdVCV2pFi3AMQVOg
+	xgQ+n4MgKWLbAECJMFqBeGrz+53cCMjpHVkKn5fpVmYAD3UAU8hVSDZDDNl32OuEeqB0J3YQqx8pr
+	O9XpjGmYoL6kBDi4zKBXVvf/DZEYKhclKV1ZmsXYcbVi0sjE4OAFaDjX5Y06KQL50irnwUY6gvnhv
+	Y5Kj58pt6fTyjWsHZj9qaa0kI6Cf2eBPJASvr0kgkZIe9CTGlXwIAptngbEorHPzg8eR0iD+nEv80
+	RUgyIWE8AnNAHJVznuAhhbAB1FJ0ZstSuEffrG1kEWBW7l3zvAPfjPuvytbYDEcODLvCEoGZS3F14
+	A8SED/sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD5T6-0000000Cd6h-0WEm;
-	Sun, 26 Oct 2025 18:27:52 +0000
+	id 1vD5TB-0000000Cd8N-0HlO;
+	Sun, 26 Oct 2025 18:27:57 +0000
 Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD5T3-0000000Cd5F-0ZEo
+	id 1vD5T3-0000000Cd5U-0WgF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 18:27:51 +0000
+	Sun, 26 Oct 2025 18:27:52 +0000
 X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
 	serial F5FD910E8FE2121B897F7E55B84E351D
 	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
 	auth type TLS.CUNI
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
-	s=submission; t=1761503225; x=1762803225;
-	bh=YzhIdawRjO+AxQtjLDEcxwAEGsa8XhjWBxl0gSxmXBk=; h=From;
-	b=oXCdWBefexpIjIu2/qhYmEu/vgffAyYS4FX4lWPOIW+y64TrsDE9IUg9OFhfytbmq
-	 9Hsdp4InwQ0Z7GuTjmmjLa7x+UnRI6g5Vo0Zlzp0y+k6Al3CBfYN3RBZ0PbiDy7UMo
-	 tNrjABO/hqDRu6ZKpYW8zML0em8iZG26hKpNxZDv8AUplvuJEIE5Oc3M+UNZXRJFZi
-	 F5HgosUD+j6iN4U2f0Ry1mb4V3NnkjLxqRLS+ce0ixrHka6KZOHQ4vOWBjxZeqztPT
-	 crFok3nG2e5KgJ5vSiv+ulUqrdrwd+Vwt+i8595pucDAVG9s333TBiBB1+WmSLD4kR
-	 sCUC91xhxlnjw==
+	s=submission; t=1761503215; x=1762803215;
+	bh=pZPnNNIfItaWXhurcxi0vMwTs0Lsqn4l/evDT63v+Tw=; h=From;
+	b=m1Ow9j43CkZe4whqZREYpOs3d9RDjJCdpxl5z9mrSQVff0Do01TZnF+fqBHpDCJws
+	 qH2MTfrk1F5yiBJdABNlryHZYp6GQoLOVvoMdMAjP72/l7JmugIdhtpiTI6mL45whm
+	 Kk2rSBeN45f1OLms7vpUmHrgHjAI7KO4DI+YnalGOuc/2xgIsknY7mfM/zgtx3dDD5
+	 td+gKlUG5VB2nagLl08ctJF7CnKQ1f/QUuhZEDV4TA59pFNDK6l/fu8J2etHq3BL6q
+	 DKljwsIApQCGRztx1napPsTduJ9GaGMi/ovsRxfnKAh27mve3QIMPNj2LZ/xM4WtS5
+	 mRskW/PdYhnCg==
 Received: from localhost (internet5.mraknet.com [185.200.108.250])
 	(authenticated)
-	by smtp1.ms.mff.cuni.cz (8.16.1/8.16.1) with ESMTPS id 59QIR3Pt043068
+	by smtp1.ms.mff.cuni.cz (8.16.1/8.16.1) with ESMTPS id 59QIQqnR043047
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Sun, 26 Oct 2025 19:27:04 +0100 (CET)
+	Sun, 26 Oct 2025 19:26:53 +0100 (CET)
 	(envelope-from balejk@matfyz.cz)
 From: Karel Balej <balejk@matfyz.cz>
 To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
@@ -63,17 +63,16 @@ To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
 Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
         Karel Balej <balejk@matfyz.cz>, Jeff Chen <jeff.chen_1@nxp.com>,
         Peng Fan <peng.fan@nxp.com>
-Subject: [DONOTAPPLY RFC PATCH v2 3/4] DONOTMERGE: net: mwifiex: fix timeouts with the SD8777 chip
-Date: Sun, 26 Oct 2025 19:20:40 +0100
-Message-ID: <20251026182602.26464-4-balejk@matfyz.cz>
+Subject: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for samsung,coreprimevelte
+Date: Sun, 26 Oct 2025 19:20:37 +0100
+Message-ID: <20251026182602.26464-1-balejk@matfyz.cz>
 X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251026182602.26464-1-balejk@matfyz.cz>
-References: <20251026182602.26464-1-balejk@matfyz.cz>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_112749_799358_E5CE2A8D 
-X-CRM114-Status: GOOD (  28.39  )
+X-CRM114-CacheID: sfid-20251026_112749_819163_3FA2DDA9 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,170 +87,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It has been observed with the samsung,coreprimevelte smartphone which
-uses this wireless chip that the driver would irrecoverably fail upon
-certain operations, usually after timing out on a FW command such as
-with these logs:
+Hello,
 
-	[ 2101.209913] mwifiex_sdio mmc2:0001:1: mwifiex_cmd_timeout_func: Timeout cmd id = 0xa4, act = 0x0
-	[ 2101.209941] mwifiex_sdio mmc2:0001:1: num_data_h2c_failure = 0
-	[ 2101.209949] mwifiex_sdio mmc2:0001:1: num_cmd_h2c_failure = 0
-	[ 2101.209957] mwifiex_sdio mmc2:0001:1: is_cmd_timedout = 1
-	[ 2101.209964] mwifiex_sdio mmc2:0001:1: num_tx_timeout = 0
-	[ 2101.209971] mwifiex_sdio mmc2:0001:1: last_cmd_index = 1
-	[ 2101.209978] mwifiex_sdio mmc2:0001:1: last_cmd_id: 16 00 a4 00 75 00 a4 00 7f 00
-	[ 2101.209988] mwifiex_sdio mmc2:0001:1: last_cmd_act: 00 00 00 00 02 00 00 00 00 00
-	[ 2101.209995] mwifiex_sdio mmc2:0001:1: last_cmd_resp_index = 0
-	[ 2101.210003] mwifiex_sdio mmc2:0001:1: last_cmd_resp_id: 16 80 a4 80 75 80 a4 80 7f 80
-	[ 2101.210010] mwifiex_sdio mmc2:0001:1: last_event_index = 4
-	[ 2101.210018] mwifiex_sdio mmc2:0001:1: last_event: 0b 00 0a 00 0b 00 0a 00 1c 00
-	[ 2101.210025] mwifiex_sdio mmc2:0001:1: data_sent=1 cmd_sent=1
-	[ 2101.210033] mwifiex_sdio mmc2:0001:1: ps_mode=1 ps_state=0
-	[ 2101.210089] mwifiex_sdio mmc2:0001:1: failed to get signal information
-	[ 2101.210761] mwifiex_sdio mmc2:0001:1: PREP_CMD: FW is in bad state
-	[ 2101.210786] mwifiex_sdio mmc2:0001:1: failed to get signal information
-	[ 2101.211162] mwifiex_sdio mmc2:0001:1: ===mwifiex driverinfo dump start===
-	[ 2101.211178] mwifiex_sdio mmc2:0001:1: info: MWIFIEX VERSION: mwifiex 1.0 (14.75.33.p119)
-	[ 2101.211202] mwifiex_sdio mmc2:0001:1: SDIO register dump start
-	[ 2101.211482] mwifiex_sdio mmc2:0001:1: SDIO Func0 (0x0-0x9): 32 02 02 02 03 00 00 02 03 00
-	[ 2101.211649] mwifiex_sdio mmc2:0001:1: SDIO Func1 (0x0-0x9): 02 3f 03 00 00 00 00 00 92 00
-	[ 2101.211740] mwifiex_sdio mmc2:0001:1: SDIO Func1: (0x28) 00 (0x30) 08 (0x34) 07 (0x38) 11 (0x3c) 00
-	[ 2101.211921] mwifiex_sdio mmc2:0001:1: SDIO Func1 (0x60-0x6a): dc fe 5f 81 ca 04 00 79 79 00 30
-	[ 2101.314135] mwifiex_sdio mmc2:0001:1: SDIO Func1 (0x60-0x6a): dc fe 5f 81 ca 04 00 79 79 00 30
-	[ 2101.314168] mwifiex_sdio mmc2:0001:1: SDIO register dump end
-	[ 2101.314300] mwifiex_sdio mmc2:0001:1: ===mwifiex driverinfo dump end===
-	[ 2101.314313] mwifiex_sdio mmc2:0001:1: == mwifiex dump information to /sys/class/devcoredump start
-	[ 2101.314586] mwifiex_sdio mmc2:0001:1: == mwifiex dump information to /sys/class/devcoredump end
-	[ 2101.314610] mwifiex_sdio mmc2:0001:1: PREP_CMD: FW is in bad state
-	[ 2101.314638] mwifiex_sdio mmc2:0001:1: PREP_CMD: FW is in bad state
-	[ 2101.317997] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.318029] mwifiex_sdio mmc2:0001:1: deleting the crypto keys
-	[ 2101.318037] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.318044] mwifiex_sdio mmc2:0001:1: deleting the crypto keys
-	[ 2101.318051] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.318057] mwifiex_sdio mmc2:0001:1: deleting the crypto keys
-	[ 2101.318064] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.318071] mwifiex_sdio mmc2:0001:1: deleting the crypto keys
-	[ 2101.318078] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.318084] mwifiex_sdio mmc2:0001:1: deleting the crypto keys
-	[ 2101.318091] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.318098] mwifiex_sdio mmc2:0001:1: deleting the crypto keys
-	[ 2101.321278] mwifiex_sdio mmc2:0001:1: info: shutdown mwifiex...
-	[ 2101.323214] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.323250] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.324427] mwifiex_sdio mmc2:0001:1: PREP_CMD: card is removed
-	[ 2101.419786] mmc2: queuing unknown CIS tuple 0x50 [40 1e fd d1 c0 46 70 47 00 b5 23 48 24 49 01 60 24 48 24 49 01 60 24 49 08 47 1f 48 24 49 01 60] (32 bytes)
-	[ 2101.460850] mmc2: queuing unknown CIS tuple 0x70 [53 f0 21 e3 1e ff 2f e1 10 1f 11 ee 00 00 50 e3 02 2a a0 e3 02 10 c1 01 02 10 81 11 10 1f 01 ee 1e ff 2f e1 01 00 a0 e3 f6 ff ff eb ea ff ff fa 48 00 9f e5 54 10 9f e5 54 20 9f e5 ef ff ff eb] (71 bytes)
-	[ 2101.532495] mmc2: queuing unknown CIS tuple 0xe8 [2f 07 ee 1e ff 2f e1 0e 30 a0 e1 00 00 a0 e3 ea ff ff eb e5 ff ff fa 03 e0 a0 e1 2c 30 9f e5 13 ff 2f e1 00 10 80 e5 1a 9f 00 ee 12 ff 2f e1 04 21 00 80 c0 00 10 80 04 22 00 80 06 0a 46 02 48] (144 bytes)
-	[ 2101.598922] mmc2: queuing unknown CIS tuple 0x9d [29 15 1d 01 00 4d 61 72 76 65 6c 6c 20 42 6c 75 65 74 6f 6f 74 68 20 44 65 76 69 63 65 00 00 ff 20 04 df 02 32 91 21 02 0c 00 22 2a 01 01 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00] (162 bytes)
-	[ 2101.599647] mmc2: tried to HW reset card, got error -2
-	[ 2101.599699] mwifiex_sdio mmc2:0001:1: SDIO HW reset failed: -2
+this series adds support for WiFi to the samsung,coreprimevelte
+smartphone (and can be straightforwardly reused for the other known
+Marvell PXA1908-based smartphones).
 
-(besides cmd id 0xa4 also 0xce is often seen in these dumps).
+The series is currently not intended for application as indicated in the
+subject prefix as the firmware necessary for the operation of the chip is not
+available in linux-firmware.
 
-One of these operations which would cause the timeout reliably was
-initiating a SSH connection into the phone over the WiFi and this was
-used for tracking down the issue. The other known ones are heavier usage
-of the XMPP client Dino on the phone and any more than basic browsing in
-Firefox.
+Instead, my intentions are to publish the recent developments regarding
+the chip support (see the third patch of the series) and offer them for
+others to use and if possible get some feedback on them and also
+hopefully to spark some conversation with NXP regarding getting the FW
+into linux-firmware which would allow this series to be mainlined.
 
-It was however verified that the mwifiex driver works without issues on
-the vendor Samsung kernel with the proper support for the chip added,
-although the stock Android on the phone doesn't use mwifiex but instead
-a specialized driver for the chip which however is very similar to
-mwifiex.
+Regarding the firmware I have been in contact with Jeff Chen of NXP some
+time ago who promised to ask about it internally – I am thus now gently
+reminding Jeff of the matter. I will also appreciate input from anyone
+else who may help with upstreaming whichever version of the firmware.
 
-A support for the phone and it's components essential for the WiFi
-function were thus backported to the v3.14 kernel on whose stable branch
-the stock kernel was based and it was verified that the WiFi (namely SSH
-over WiFi) also works there without timeouts. Afterwards, a bisect was
-performed which first indicated the commit 808bbebcc8fc ("mwifiex: add
-Tx status support for EAPOL packets") introduced in the v3.18-v3.19
-cycle.
+The trouble of upstreaming the FW is mostly a legal one (although an up
+to date version of it would also be very welcome) as it is available as
+part of the stock Android of the devices with this chip and can thus be
+used on individual basis, it cannot however be submitted to
+linux-firmware by myself for instance as the license is not known
+(although probably is the same as for the other blobs in the mrvl
+directory) and as the submission would require a sign-off from someone
+involved with NXP.
 
-Reverting this commit (and the following one, commit 18ca43823f3c
-("mwifiex: add Tx status support for ACTION frames"), to facilitate a
-clean revert) fixed the timeouts for v3.19, but during the next cycle,
-v3.19-v4.0, another breakage was introduced via commit 84b313b35f81
-("mwifiex: make tx packet 64 byte DMA aligned").
+The third patch in this series fixes a serious issue with the WiFi
+observed on the phone (see the relevant commit message). The form is
+however not directly usptreamable and it is not clear to me how to best
+make it be since it involves changing a data type which probably cannot
+be easily be special-cased for the new chip and would likely break the
+other chips the mwifiex driver supports if applied as is. I will thus
+welcome suggestions on this, although I'm also hopeful that a possible
+reasonably up to date FW would not require this workaround at all.
 
-Reverting all three commits fixed the timeouts on the current mainline
-kernel also. This patch contains the minimal changes needed to achieve
-that derived from the full revert commits.
+The series is based on the pxa1908-dt-for-6.19 tag of Duje's tree [1] as
+it contains the necessary SDIO description in the phone's device tree.
 
-Note that a few timeouts were still observed on mainline Linux even with
-these changes, however they were all on a particular network and don't
-have a known reproducer. On other networks, the chip performs flawlessly
-as far as it was tested so far.
+I have not applied the trailers sent in response to v1 as it has been
+some time and as this is not expected to be applied anyway.
 
-These changes also don't mitigate the observed firmware loading issues:
+[1] https://gitlab.com/pxa1908-mainline/linux/-/commits/pxa1908-dt-for-6.19
 
-	[   68.698674] mwifiex_sdio mmc2:0001:1: FW download, write iomem (0) failed @ 208016
-	[   68.698711] mwifiex_sdio mmc2:0001:1: prog_fw failed ret=0xffffffff
+Cc: Jeff Chen <jeff.chen_1@nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>
 
-These were however also seen with the old kernels and as such are likely
-caused either by some inherent incompatibility of the driver with the
-chip in this regard or, more likely given their occasional nature, by an
-issue at some other level, such as the stability of the SDIO (the
-occurrence of the problem does seem to loosely correlate with the load
-exerted on the phone while the FW loading is performed (i. e. mainly on
-startup)).
+v2:
+- Rebase to Duje's tag.
+- Add a new patch fixing observed firmware crashes.
+- Link to v1: https://lore.kernel.org/r/20231029111807.19261-1-balejk@matfyz.cz/
 
-Note that Bluetooth on the phone (provided by the same chip) has also
-been seen crashing in a similar way as the WiFi without this patch,
-although seemingly less frequently/deterministically, and a similar
-change might thus be needed in the btmrvl driver if it is to be used for
-the phone's BT without issues.
+Karel Balej (4):
+  dt-bindings: mwifiex: document use with the SD8777 chipset
+  net: mwifiex: add support for the SD8777 chipset
+  DONOTMERGE: net: mwifiex: fix timeouts with the SD8777 chip
+  arm64: dts: samsung,coreprimevelte: add wifi node
 
-Signed-off-by: Karel Balej <balejk@matfyz.cz>
----
+ .../bindings/net/wireless/marvell,sd8787.yaml |  1 +
+ .../mmp/pxa1908-samsung-coreprimevelte.dts    | 15 +++++++++++++
  drivers/net/wireless/marvell/mwifiex/fw.h     |  4 +---
- drivers/net/wireless/marvell/mwifiex/sta_tx.c | 10 ++--------
- 2 files changed, 3 insertions(+), 11 deletions(-)
+ drivers/net/wireless/marvell/mwifiex/sdio.c   | 21 +++++++++++++++++++
+ drivers/net/wireless/marvell/mwifiex/sdio.h   |  1 +
+ drivers/net/wireless/marvell/mwifiex/sta_tx.c | 10 ++-------
+ include/linux/mmc/sdio_ids.h                  |  1 +
+ 7 files changed, 42 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/wireless/marvell/mwifiex/fw.h b/drivers/net/wireless/marvell/mwifiex/fw.h
-index e9e896606912..5c4c3363c7de 100644
---- a/drivers/net/wireless/marvell/mwifiex/fw.h
-+++ b/drivers/net/wireless/marvell/mwifiex/fw.h
-@@ -690,9 +690,7 @@ struct txpd {
- 	u8 priority;
- 	u8 flags;
- 	u8 pkt_delay_2ms;
--	u8 reserved1[2];
--	u8 tx_token_id;
--	u8 reserved[2];
-+	u8 reserved1;
- } __packed;
- 
- struct rxpd {
-diff --git a/drivers/net/wireless/marvell/mwifiex/sta_tx.c b/drivers/net/wireless/marvell/mwifiex/sta_tx.c
-index 9d0ef04ebe02..857eb22f4c24 100644
---- a/drivers/net/wireless/marvell/mwifiex/sta_tx.c
-+++ b/drivers/net/wireless/marvell/mwifiex/sta_tx.c
-@@ -41,8 +41,8 @@ void mwifiex_process_sta_txpd(struct mwifiex_private *priv,
- 
- 	pkt_type = mwifiex_is_skb_mgmt_frame(skb) ? PKT_TYPE_MGMT : 0;
- 
--	pad = ((uintptr_t)skb->data - (sizeof(*local_tx_pd) + hroom)) &
--	       (MWIFIEX_DMA_ALIGN_SZ - 1);
-+	pad = (4 - (((void *)skb->data - NULL) & 0x3)) % 4;
-+
- 	skb_push(skb, sizeof(*local_tx_pd) + pad);
- 
- 	local_tx_pd = (struct txpd *) skb->data;
-@@ -58,12 +58,6 @@ void mwifiex_process_sta_txpd(struct mwifiex_private *priv,
- 	local_tx_pd->pkt_delay_2ms =
- 				mwifiex_wmm_compute_drv_pkt_delay(priv, skb);
- 
--	if (tx_info->flags & MWIFIEX_BUF_FLAG_EAPOL_TX_STATUS ||
--	    tx_info->flags & MWIFIEX_BUF_FLAG_ACTION_TX_STATUS) {
--		local_tx_pd->tx_token_id = tx_info->ack_frame_id;
--		local_tx_pd->flags |= MWIFIEX_TXPD_FLAGS_REQ_TX_STATUS;
--	}
--
- 	if (local_tx_pd->priority <
- 	    ARRAY_SIZE(priv->wmm.user_pri_pkt_tx_ctrl))
- 		/*
 -- 
 2.51.1
 
