@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E38CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E13CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 15:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sk6Hz5L1RfWRmUoFy7wusKFzTs3nYi+DeP2g2Ii9slI=; b=T0c3l059tN4Ifq2iiYPdYErRB3
-	r5gqL9EnMgNWMiapwCAq4tQZIQ6cwtGuN+xX9I3Sxke0bMJ2W7QDKuiadOVWLPMTURKL+oHGRkuOc
-	uQxlkFFjRN83jYTvR/t32/uAyXVXThAyZoxdHoVeInWOet5JRFd59vmVvKI3HpB1yvIMPYP370kRh
-	PWKU1c28zvye9caUlkUxWXdkdMRYxZhgEkcRdbz+i39O775OYSsslnzYj2koTBxoksOgLceI9e+g1
-	uLFl2+N/8Ik5rxFtgchQujTcVQq+OfVR/3c4IGhD+1l6LOdQrX+qGlhK07KNJZLpnI4MYkiN05+is
-	4bOn/hHw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Px4DGTedr0t+HqBVc78Zx84UzxWlcHUehvdoHcOj/G4=; b=lZK4J1/8om1F7gJEyECGDleYS7
+	6H7hsVb0Z/Fs4AazxtPS4RzZ+TuKppRalE0AVHEtkH8jr+CP1vDSCrVSgRp8IKJz5zHxyF0zRXiKU
+	CQLk9R8VK+zs87yO5+c1/4cSETrsrey0CcwrXhIcAMSjS4L8CPQDYIkgEar6hO4uhYyP93PJCGiWt
+	CmzDYGS8v5FpbHCLI3jrLfqH3jmPk7xrD5fh2j/m8Bh059nEeSPAi76jAdwGvi5xTDlF+3yGwfv1+
+	sK/9+xoz9FKBmJ8UfDI4R2miUyNX6SLWG/1bINx/NpWux5t8WBfO1NJ+bxL2ZRN79LoVa1toCyqY5
+	N3Iqh5cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD25l-0000000CSdZ-0bXP;
-	Sun, 26 Oct 2025 14:51:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vD2IG-0000000CTjO-05k1;
+	Sun, 26 Oct 2025 15:04:28 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD25h-0000000CSZv-2iNB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 26 Oct 2025 14:51:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Sk6Hz5L1RfWRmUoFy7wusKFzTs3nYi+DeP2g2Ii9slI=; b=hwxr+qfBpVOPu9hVIoABTDc4gL
-	HIjkxvJi06uTv8D0ZUjUkEhPp+on7rmtVAPrgNvHZ+TFsMV9f4GDnfzWjPHAoCsGK4U8vc24pOHXr
-	ng4rY55ZTJz++OWgkBKbnWUiwYdG4FWyzEdkrAYrDTqNSX88RBDTqLQ06XgdJTgGut3cIqu7YfCoN
-	OAiHnREVvxIODjs1ueQopbfLoV1T+cn4E0zFLISoEWGNvbTGkokjWSPN6FCBn6h/LqUQZ8JNcncDF
-	31ZIooqBgrPqAndjIjBWC9BDsTlMBrbu+5z29nmPAY3r4f4rDppncc7un6PpYPIRdr3GtNSdeNeCm
-	EdBHp/qA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD1Du-00000000fcf-04Gq
+	id 1vD2ID-0000000CTiP-14FT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 13:55:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ABE7E44FB8;
-	Sun, 26 Oct 2025 14:51:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E9A2C116B1;
-	Sun, 26 Oct 2025 14:51:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761490284;
-	bh=zcvqXRuTUF9jQBSa3cAUl/qxhCMKR5cmmCS0GeuQS14=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XUgZ4DWLbQfcPvJj2d5ZHUbufuCTKqlo+aHoe2pu1AaF1S2YsgMWhWUDqLk0bSMZF
-	 ABNRXeF2cq5jh4snF600YVPQSvai2+nLnoLQ7lBouHwN1oHes1lI5ZOidG++H8uBUk
-	 vR3TVVTe6ENdc7PV/Z/AAKZfm6CEs7v0a2Qv2hxvxigGw4rQJ6woHPqYv5gbDULPrs
-	 JgyHv9QPve0X+3dfopKoWCKfnk5ab2qqqjqZeWGfOBzrIhxo34qKxmjFvCr6lggMt/
-	 +8ZdtCFrnPfqT/t4oJzA07Cit5XVpbR+MgOg/QlJsCAzq+Lkj+LVSkbbCcgwLY8IW1
-	 sRjnaDM9bQgtw==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Brian Masney <bmasney@redhat.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Sasha Levin <sashal@kernel.org>,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	arm-scmi@vger.kernel.org,
+	Sun, 26 Oct 2025 15:04:26 +0000
+Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-290c2b6a6c2so40273975ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 08:04:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761491064; x=1762095864; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Px4DGTedr0t+HqBVc78Zx84UzxWlcHUehvdoHcOj/G4=;
+        b=ncjtlyHZ1J2dw52S4Smcu1pVLZXh2ViDLoVqPw7pCMJvZT5HvFkpZ1TkgJkE7PDaF7
+         OY4NfHXMIq7ouxmvwhzxukyQZbrQo0t5oMWf+gBODrc7VX+xqIhwAnHXDtvGvdFqMNA0
+         4KLQmO2km1qQp+PaffAGDaW6Pwg/9UfLe6JL62V4gaD0DvH/WRruxmM0RackBlmtWWA0
+         xjlSXSgdaHUTfyesL31fR2vpmqrubtlGC4Sa/E4rgoRxu1BlQwhe3iBNQQTyOfDQG608
+         P4YH28hEY6GLw2aFGcxvWG9vh9jZGZhwEITXhVNN2xJydibdMNY4g2zPBHO7pCKMtu4Y
+         LOEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761491064; x=1762095864;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Px4DGTedr0t+HqBVc78Zx84UzxWlcHUehvdoHcOj/G4=;
+        b=mmRUBbEXjlURtFavJjYA5ch+OZJam/wr0dFYr1K8iDaUPgsbA8+OaiGfJCgxPvQKFV
+         xHX223TLjEViva53UlqX7QI8E91H+JjGBtm1Wp0kiij4xp5UY+TXj/9v3YAn+8OEtF4q
+         UuuzlkRj/aTt41fHQZ9IHDDDrCM10ZtzN8AbVhBfb1dPWVciDB/OkWqT3ghsfg+cMfHu
+         5fJGxrt8RfraQKs4X2k+/VLTpStVcft1dnuDtWKuj27vitoZOW1oUTRmcnsb/83tioeE
+         gErv6QZPy1SJSkx8qcJEznUS/REUN4vR0FeY2q9b5+3Wz40I/Z1QKR91oXEnuASfNgep
+         rftg==
+X-Forwarded-Encrypted: i=1; AJvYcCUKXzgGNVqUDFm0s60n/j3KACjH16eHd5guyAFh+rhNhe0231l2DJVcl7sdwiJUEiq+kJHSxZ5z/oA810PWM/2q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvr/0HVfD/V0t69QulmLvhYzWOKFbZQv3NeZIpvK9jof4AiB1J
+	ayNCsblwSUg8FVCF+TA0NpnjeVw1ui6+RkNIOCtw2dg6omMQvv5eHzpF
+X-Gm-Gg: ASbGncsMw3OgBSVgXymDwlYtRM+5aVe6ERPATcopE/e4o04Ibt+J2jjuGx2z/3rKuGT
+	t8PRJXWSkBspOSsPcv81to2VLRk6fa/JaKG7tbmq5/UyH7byWr2VMuzh2bLmaDbem5txv9NVuDF
+	VfICyClsX2kDuGorJSsX5CzKd2vmHafNJBE/V9bsqiGfQmyMJVas53l0H6AJOb6Sx7wvd7m31Fn
+	/ZgDyv8v/SyzR+rh9OZVLs+dpSXKRHk3fulF3oX8RyvWBgGUEB+gUFnZg7wIDfxQoVhcQSRzDaI
+	Sf1RanLVBNMgNajjTCN0jfjj+0oX8qoDNLyO5IvpN3YynE+ze/p5TYosh+vG5L3ep5iOyOmwduH
+	pRqQfUzrQ+D83ELOsS9k3J3g4mt9FfZsi61mWMJ1RQXJJkNoE9LSDErM/mRLIV6WhzBPcVTVNOh
+	MhayX+UEi5AA==
+X-Google-Smtp-Source: AGHT+IGL4spg1O0mDgF7D8EgJ3Ni4wTgAIJZGQLvD5iwsaPiYkWPvkdowdH8iIGlLOxo0R0ZBTdCOQ==
+X-Received: by 2002:a17:902:ce0e:b0:264:befb:829c with SMTP id d9443c01a7336-290c9c8a738mr391932175ad.9.1761491064394;
+        Sun, 26 Oct 2025 08:04:24 -0700 (PDT)
+Received: from server.lan ([150.230.217.250])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d09958sm52320375ad.24.2025.10.26.08.04.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Oct 2025 08:04:23 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.17-6.12] clk: scmi: migrate round_rate() to determine_rate()
-Date: Sun, 26 Oct 2025 10:49:17 -0400
-Message-ID: <20251026144958.26750-39-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251026144958.26750-1-sashal@kernel.org>
-References: <20251026144958.26750-1-sashal@kernel.org>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Coia Prant <coiaprant@gmail.com>
+Subject: [PATCH v4 1/3] dt-bindings: vendor-prefixes: Add NineTripod
+Date: Sun, 26 Oct 2025 23:03:56 +0800
+Message-ID: <20251026150358.1078453-1-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.17.5
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_135554_409869_167ED9EA 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20251026_080425_289166_5FCF9286 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,138 +105,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Brian Masney <bmasney@redhat.com>
+Add NineTripod to the vendor prefixes.
 
-[ Upstream commit 80cb2b6edd8368f7e1e8bf2f66aabf57aa7de4b7 ]
-
-This driver implements both the determine_rate() and round_rate() clk
-ops, and the round_rate() clk ops is deprecated. When both are defined,
-clk_core_determine_round_nolock() from the clk core will only use the
-determine_rate() clk ops.
-
-The existing scmi_clk_determine_rate() is a noop implementation that
-lets the firmware round the rate as appropriate. Drop the existing
-determine_rate implementation and convert the existing round_rate()
-implementation over to determine_rate().
-
-scmi_clk_determine_rate() was added recently when the clock parent
-support was added, so it's not expected that this change will regress
-anything.
-
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Tested-by: Peng Fan <peng.fan@nxp.com> #i.MX95-19x19-EVK
-Signed-off-by: Brian Masney <bmasney@redhat.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Coia Prant <coiaprant@gmail.com>
 ---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-LLM Generated explanations, may be completely bogus:
-
-YES The patch restores the SCMI clock driver's ability to return a valid
-rounded rate when the framework asks for it.
-
-- With the regression-introducing stub in `scmi_clk_determine_rate()`
-  every request fell through without touching `req->rate`, so
-  `clk_core_determine_round_nolock()` would return the caller’s original
-  value whenever both ops were present (`drivers/clk/clk.c:1596-1613`),
-  making `clk_round_rate()` lie about the hardware outcome on platforms
-  that advertise min/max/step limits.
-- The new implementation in `drivers/clk/clk-scmi.c:57-90` moves the
-  logic that used to live in `.round_rate()` into `.determine_rate()`,
-  clamping to `min_rate`/`max_rate` and quantising by `step_size`,
-  exactly reproducing the behaviour that worked before the noop
-  `determine_rate()` was introduced.
-- Discrete-rate clocks remain unchanged—the function still bails out
-  early (`drivers/clk/clk-scmi.c:63-71`), matching the old behaviour—and
-  the ops table simply stops advertising the deprecated `.round_rate()`
-  callback (`drivers/clk/clk-scmi.c:299-304`), so risk is minimal and
-  confined to SCMI clocks.
-- The bug has shipped since the recent parent-support work (first seen
-  in v6.10), so stable kernels carrying that change are returning
-  incorrect values to consumers today.
-
-Because this is a regression fix with low risk and no architectural
-churn, it is a good candidate for backporting to every stable series
-that contains the broken noop `determine_rate()`.
-
- drivers/clk/clk-scmi.c | 35 ++++++++++++++++-------------------
- 1 file changed, 16 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index d2408403283fc..78dd2d9c7cabd 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -54,8 +54,8 @@ static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
- 	return rate;
- }
- 
--static long scmi_clk_round_rate(struct clk_hw *hw, unsigned long rate,
--				unsigned long *parent_rate)
-+static int scmi_clk_determine_rate(struct clk_hw *hw,
-+				   struct clk_rate_request *req)
- {
- 	u64 fmin, fmax, ftmp;
- 	struct scmi_clk *clk = to_scmi_clk(hw);
-@@ -67,20 +67,27 @@ static long scmi_clk_round_rate(struct clk_hw *hw, unsigned long rate,
- 	 * running at then.
- 	 */
- 	if (clk->info->rate_discrete)
--		return rate;
-+		return 0;
- 
- 	fmin = clk->info->range.min_rate;
- 	fmax = clk->info->range.max_rate;
--	if (rate <= fmin)
--		return fmin;
--	else if (rate >= fmax)
--		return fmax;
-+	if (req->rate <= fmin) {
-+		req->rate = fmin;
-+
-+		return 0;
-+	} else if (req->rate >= fmax) {
-+		req->rate = fmax;
- 
--	ftmp = rate - fmin;
-+		return 0;
-+	}
-+
-+	ftmp = req->rate - fmin;
- 	ftmp += clk->info->range.step_size - 1; /* to round up */
- 	do_div(ftmp, clk->info->range.step_size);
- 
--	return ftmp * clk->info->range.step_size + fmin;
-+	req->rate = ftmp * clk->info->range.step_size + fmin;
-+
-+	return 0;
- }
- 
- static int scmi_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-@@ -119,15 +126,6 @@ static u8 scmi_clk_get_parent(struct clk_hw *hw)
- 	return p_idx;
- }
- 
--static int scmi_clk_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
--{
--	/*
--	 * Suppose all the requested rates are supported, and let firmware
--	 * to handle the left work.
--	 */
--	return 0;
--}
--
- static int scmi_clk_enable(struct clk_hw *hw)
- {
- 	struct scmi_clk *clk = to_scmi_clk(hw);
-@@ -300,7 +298,6 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- 
- 	/* Rate ops */
- 	ops->recalc_rate = scmi_clk_recalc_rate;
--	ops->round_rate = scmi_clk_round_rate;
- 	ops->determine_rate = scmi_clk_determine_rate;
- 	if (feats_key & BIT(SCMI_CLK_RATE_CTRL_SUPPORTED))
- 		ops->set_rate = scmi_clk_set_rate;
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index f1d188200..37687737e 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1124,6 +1124,8 @@ patternProperties:
+     description: National Instruments
+   "^nicera,.*":
+     description: Nippon Ceramic Co., Ltd.
++  "^ninetripod,.*":
++    description: Shenzhen 9Tripod Innovation and Development CO., LTD.
+   "^nintendo,.*":
+     description: Nintendo
+   "^nlt,.*":
 -- 
-2.51.0
+2.47.3
 
 
