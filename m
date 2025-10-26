@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C1DCCF9EA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0174CCCF9E5
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 05:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RrT7Mf5omRHyRowKcG8xS225AK0Ko0WnNWSjwNURiY8=; b=gKTlsHaxi7YxPooePHT9u0ZYZu
-	L/89CWhwUjB5ncbkzOzKKiWm3Z8N/p6vDrMQDE+pb9kMmjiW2zY5c+Q9p+7Sj7PKs7i+sS2nKAd+o
-	XG+aDrUB4iHGEgr3Sj4X0U1gTOAPe5tn94pmH8vFfXDFJ02/IwbVAqnSsfuRV93VCKEgxK0fCNMes
-	0dgGDelDhKumQvf9hxjexU6geMLLfraWpPCb4lP44Zv0UWxIJ2EwOAX4wwSCUY+wndO3k9zuKGNqq
-	EyK3/4V5iKs1Ir4MJKLmsw4hKrtIrkKNEWWKRyUIr02RcqxTCXfUxn4fLY66rhOUrENs2lOx/uMrd
-	ziylRmrg==;
+	bh=kT0TKdsmMTovlY/K154/fcd1GAzLVwXD+1VDHohXKMU=; b=ciUt7GTUx3EwZM+LRUzQIK6271
+	6YmWSVr88tKt+J9enGgSclOp9Zn9iYvtN7j0/4lWYdQzceHYhc7hxWyO31omskyMzQS2U/gDkROba
+	NnE4wQLLFrid3VGCfelovaexwetMyzvaCIVYNxwM2or4Ngna6Y4fdlYrewrN4lOl/E/zKU+94rYYy
+	ORedGsKVyb2fDj3plgnEB3szZE6dXOpN06gMTviiXMTuTCBGn9SHQRyhGKV54oHr1CsQ7K/RnLpE8
+	j+xuzNgqCYxPXxvGPfhqffQDFzg+DWE15EhVi2QUWDVamDaaVNxCuQQuRBH0pEi4NQTBQqqbN/j3h
+	CeIaTfYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCtgl-0000000C2ob-3UnE;
-	Sun, 26 Oct 2025 05:53:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vCtgn-0000000C2pp-0Lr5;
+	Sun, 26 Oct 2025 05:53:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCtgf-0000000C2ji-41Gt
+	id 1vCtgj-0000000C2mP-0nIZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 05:53:06 +0000
+	Sun, 26 Oct 2025 05:53:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46F4260331;
-	Sun, 26 Oct 2025 05:53:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98D9DC4AF09;
-	Sun, 26 Oct 2025 05:53:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9552360330;
+	Sun, 26 Oct 2025 05:53:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8E41C4AF0B;
+	Sun, 26 Oct 2025 05:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761457985;
-	bh=G4phGjZg/4DyxMiZScpeB5F56Kh8gOR6USagGkBx7Vo=;
+	s=k20201202; t=1761457988;
+	bh=TbVLbaUPq3TI8tu/I7Jnha1NiyG1jt55JtZfnYEOEf4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TlTvEPglQOHat1LvQgZUeyeuH7Hcljru/KjtGuDlPGeis3n5PDywGuUR25jVngEOp
-	 T5yZXcLFZ6og46oOZMuQ7zxtDth/L4dx3COFvfMV2Ow2EFNErD0glGUlcdwh7UeBOE
-	 wWenUYvUP+Ih//cuIDUWWg4XEVrTtksjyp3Hrr6JIDvEU1OCybt2M1YcdmsLDis+mU
-	 eWoRbzOIp5aaz5BtZ4nWu/8zl2nG9wqJV/h4GPP4EX2ZBDcXb8UQ5NFva900cfcsXS
-	 Uah4c0CN9RaIVGM+Q7TDU4TRcbg3JQiuhVNtJMXM6hlZYSFRY4ishXF3Nd3XaNcyhX
-	 3XHR8lijJDvvQ==
+	b=VzIzVp/98BzPaqHpgDXy9lQcQUD53jo9sL7ZNoHHIu2yiWxxWDvWMQohZSuBT20il
+	 oICPtpc0wRBUgfldpYr23cY5Xg2JLjRi7z+yy4c/RKLNyPIfGtqZQq1JNBPe8OMKVJ
+	 XYBZFFXliuGCsJykRNPn/Mzv5W4Sodla4EOmohhJ2ZTJgsUWDFPm5CT+EzWfNYqIFG
+	 prh6Qdqz/COR2oh6fY0Jff+Hdo71h74/WNC+VBmSzyfGJA5joMC+Ws0fcgaJAjg9ck
+	 0w4fSYweNEqoud+Kb/BiVCKP9p5Ql4cEDmZO4gpjTijkIa8FCdgsafazfWPToHUg/7
+	 IEzljMhGNvZwg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -54,9 +54,9 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 04/15] lib/crypto: sha3: Move SHA3 Iota step mapping into round function
-Date: Sat, 25 Oct 2025 22:50:21 -0700
-Message-ID: <20251026055032.1413733-5-ebiggers@kernel.org>
+Subject: [PATCH v2 11/15] lib/crypto: sha3: Support arch overrides of one-shot digest functions
+Date: Sat, 25 Oct 2025 22:50:28 -0700
+Message-ID: <20251026055032.1413733-12-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251026055032.1413733-1-ebiggers@kernel.org>
 References: <20251026055032.1413733-1-ebiggers@kernel.org>
@@ -76,81 +76,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Howells <dhowells@redhat.com>
+Add support for architecture-specific overrides of sha3_224(),
+sha3_256(), sha3_384(), and sha3_512().  This will be used to implement
+these functions more efficiently on s390 than is possible via the usual
+init + update + final flow.
 
-In crypto/sha3_generic.c, the keccakf() function calls keccakf_round()
-to do four of Keccak-f's five step mappings.  However, it does not do
-the Iota step mapping - presumably because that is dependent on round
-number, whereas Theta, Rho, Pi and Chi are not.
-
-Note that the keccakf_round() function needs to be explicitly
-non-inlined on certain architectures as gcc's produced output will (or
-used to) use over 1KiB of stack space if inlined.
-
-Now, this code was copied more or less verbatim into lib/crypto/sha3.c,
-so that has the same aesthetic issue.  Fix this there by passing the
-round number into sha3_keccakf_one_round_generic() and doing the Iota
-step mapping there.
-
-crypto/sha3_generic.c is left untouched as that will be converted to use
-lib/crypto/sha3.c at some point.
-
-Suggested-by: Eric Biggers <ebiggers@kernel.org>
-Signed-off-by: David Howells <dhowells@redhat.com>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/sha3.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ lib/crypto/sha3.c | 37 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
 diff --git a/lib/crypto/sha3.c b/lib/crypto/sha3.c
-index 049be8414de26..ee7a2ca92b2c5 100644
+index 6c94b4ebd0fd1..a598138d47a59 100644
 --- a/lib/crypto/sha3.c
 +++ b/lib/crypto/sha3.c
-@@ -46,11 +46,11 @@ static const u64 sha3_keccakf_rndc[SHA3_KECCAK_ROUNDS] = {
- };
+@@ -278,44 +278,81 @@ void shake_squeeze(struct shake_ctx *shake_ctx, u8 *out, size_t out_len)
+ 	}
+ 	ctx->squeeze_offset = squeeze_offset;
+ }
+ EXPORT_SYMBOL_GPL(shake_squeeze);
  
- /*
-  * Perform a single round of Keccak mixing.
-  */
--static SHA3_INLINE void sha3_keccakf_one_round_generic(u64 st[25])
-+static SHA3_INLINE void sha3_keccakf_one_round_generic(u64 st[25], int round)
- {
- 	u64 t[5], tt, bc[5];
- 
- 	/* Theta */
- 	bc[0] = st[0] ^ st[5] ^ st[10] ^ st[15] ^ st[20];
-@@ -147,10 +147,13 @@ static SHA3_INLINE void sha3_keccakf_one_round_generic(u64 st[25])
- 	st[20] ^= bc[ 0];
- 	st[21] ^= bc[ 1];
- 	st[22] ^= bc[ 2];
- 	st[23] ^= bc[ 3];
- 	st[24] ^= bc[ 4];
++#ifndef sha3_224_arch
++static inline bool sha3_224_arch(const u8 *in, size_t in_len,
++				 u8 out[SHA3_224_DIGEST_SIZE])
++{
++	return false;
++}
++#endif
++#ifndef sha3_256_arch
++static inline bool sha3_256_arch(const u8 *in, size_t in_len,
++				 u8 out[SHA3_256_DIGEST_SIZE])
++{
++	return false;
++}
++#endif
++#ifndef sha3_384_arch
++static inline bool sha3_384_arch(const u8 *in, size_t in_len,
++				 u8 out[SHA3_384_DIGEST_SIZE])
++{
++	return false;
++}
++#endif
++#ifndef sha3_512_arch
++static inline bool sha3_512_arch(const u8 *in, size_t in_len,
++				 u8 out[SHA3_512_DIGEST_SIZE])
++{
++	return false;
++}
++#endif
 +
-+	/* Iota */
-+	st[0] ^= sha3_keccakf_rndc[round];
- }
- 
- /* Generic implementation of the Keccak-f[1600] permutation */
- static void sha3_keccakf_generic(struct sha3_state *state)
+ void sha3_224(const u8 *in, size_t in_len, u8 out[SHA3_224_DIGEST_SIZE])
  {
-@@ -161,15 +164,12 @@ static void sha3_keccakf_generic(struct sha3_state *state)
- 	 */
+ 	struct sha3_ctx ctx;
  
- 	for (int i = 0; i < ARRAY_SIZE(state->words); i++)
- 		state->native_words[i] = le64_to_cpu(state->words[i]);
- 
--	for (int round = 0; round < SHA3_KECCAK_ROUNDS; round++) {
--		sha3_keccakf_one_round_generic(state->native_words);
--		/* Iota */
--		state->native_words[0] ^= sha3_keccakf_rndc[round];
--	}
-+	for (int round = 0; round < SHA3_KECCAK_ROUNDS; round++)
-+		sha3_keccakf_one_round_generic(state->native_words, round);
- 
- 	for (int i = 0; i < ARRAY_SIZE(state->words); i++)
- 		state->words[i] = cpu_to_le64(state->native_words[i]);
++	if (sha3_224_arch(in, in_len, out))
++		return;
+ 	sha3_224_init(&ctx);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
  }
+ EXPORT_SYMBOL_GPL(sha3_224);
  
+ void sha3_256(const u8 *in, size_t in_len, u8 out[SHA3_256_DIGEST_SIZE])
+ {
+ 	struct sha3_ctx ctx;
+ 
++	if (sha3_256_arch(in, in_len, out))
++		return;
+ 	sha3_256_init(&ctx);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
+ }
+ EXPORT_SYMBOL_GPL(sha3_256);
+ 
+ void sha3_384(const u8 *in, size_t in_len, u8 out[SHA3_384_DIGEST_SIZE])
+ {
+ 	struct sha3_ctx ctx;
+ 
++	if (sha3_384_arch(in, in_len, out))
++		return;
+ 	sha3_384_init(&ctx);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
+ }
+ EXPORT_SYMBOL_GPL(sha3_384);
+ 
+ void sha3_512(const u8 *in, size_t in_len, u8 out[SHA3_512_DIGEST_SIZE])
+ {
+ 	struct sha3_ctx ctx;
+ 
++	if (sha3_512_arch(in, in_len, out))
++		return;
+ 	sha3_512_init(&ctx);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
+ }
+ EXPORT_SYMBOL_GPL(sha3_512);
 -- 
 2.51.1.dirty
 
