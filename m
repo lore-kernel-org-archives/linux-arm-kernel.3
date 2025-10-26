@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518EECCF9EA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A882BCCF9EE
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 05:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZlJHbfMLGIB6bFiqI5hD3tSOrEPwYr5Ft6VD9gdkqE=; b=emaygwZkvdTum7txgSLwWyHi4O
-	wEDQSfAKQJvPu7B7hprIbNmO2bqPef0RoBDd7QnJb1jPt0R/Jn4wrf7qPL+buK2VDrWW8ZnHQ8lc4
-	0dBMG2ZIt9tmp4S2TlK2C9zbgF5IVsCOAE4XRx3VfhZFLgn/wykZcgycNdT9/aAG25hGs1HfFjRAW
-	gsvETrDMjbh51JmPtBd7UON9fZDWbaNrJPFDZpB0ecxlJgVT68g+yV6tP9Oqr/yivrq65deD6S1Ae
-	d1W8lovRC+sq7NCCOdOi25WT0iTaMPYPuKzDEnvdtwEbbolZl3lVCnhDxEzTAF//RAms0RGzfpDVe
-	lKGSGu6Q==;
+	bh=ui84qcjbxtwwMEit4cCIJ9F470JNM2dsvJNHqtXCr7o=; b=deBjwSgzzoejJA2hO5YxkyGRg5
+	p1Bq0IPPqJ60bx7FNluCbpvPJyEhmGAFwz08/BJpyIj2faX+tdkNBfNip92REQf4QCwnhbj5kbht+
+	VoU4L+vRvZdHbMRArkuU18X0o6hh4L/YU/FVFCm0h3iiUjiUHw37Tc0gYfVf82CiqrKq9r3Dczne7
+	O1z/JBNp9x3y7RagUMcLMbplKehJys/IRJOjkd/sniWdrjMPpZ2jUZXX55MeJUTtcVSAFtI6ZGGzK
+	7CU2CC5B1Ww66RzLv7NFCzFW3LUi2OWG7l0lBgcn3Z4yt4gD9OxEsmexn/vmo+Ardmtu4AUIJef0B
+	rk7Du+IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCtgo-0000000C2rQ-0KLC;
-	Sun, 26 Oct 2025 05:53:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vCtgn-0000000C2qF-1u1Z;
+	Sun, 26 Oct 2025 05:53:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCtgh-0000000C2la-3qoF
+	id 1vCtgh-0000000C2js-0Q2Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 05:53:10 +0000
+	Sun, 26 Oct 2025 05:53:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 751BD44B07;
-	Sun, 26 Oct 2025 05:53:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 021BAC4CEE7;
+	by sea.source.kernel.org (Postfix) with ESMTP id 075D744C1F;
 	Sun, 26 Oct 2025 05:53:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E0EBC4CEF7;
+	Sun, 26 Oct 2025 05:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761457987;
-	bh=whd3/UAU+Av8P94JmMwJInAffIEeimNA4qb0IpZM3BE=;
+	s=k20201202; t=1761457985;
+	bh=GCyZqLSJojQX4LemND++76qvdpEf1Eblafr0NXESqYE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JkuRP+EvVU4pwZ7E6PK7sAdaSnn9Gseea3mkv7c7lrYvjNCdLocin68xIEW73mnIu
-	 G1+xw1WwcuiedY94SAOKIfsoKHSKt5ujrL36GWVwkyuu88jHtFRqwIz/HC+kPKB46g
-	 r7EBcLuZ6YVTkzr4gLDKn0ib+cL80u/w+62ZekNVooTRwHURSlSj9wFrS8PEKWkPkx
-	 Puuj2RELLpDDFm9Yk1CMlIP0PlrIxXruVuJGjXMWxJohG3jBtTwRLMdlJp3iWrjIF4
-	 zAVOdrZYQHiO6qRR5Tu4f2r1PDD5WQ6dS3U/zY7hnWNSinxfn6ZyFcClRen7R96M+x
-	 XjAN4Bw14/yGA==
+	b=KRVAkIgfwa+dovbgZ/yeDOA7VZ0bi6PGr6wswsdq7ScLz/iDbQ42bjAj8LW+QOnPY
+	 EQ0pk487IVPypsHlXF6oLAjTJgz6nr+QNHl7w4DJBjzGmP1HeYttVhiXT3h6RMDy3r
+	 k0RnFejMO+p6gne6PjHqiDzci9sV+sybf33ai22PExNaJWRPTNEUc8fW55ZDqDjv7x
+	 2NhyEhQbsYBOrh+SQ+K/xQV+N1jm9O+00qCoz5rKRcYq00m9vU8hwAmgpYNWtp+y5W
+	 eiFB7ol/cYVmucuu7rLkzRfA9vDDuvP28xTBWcMi/vacIZJsOnLnn7z/9h8mVwPC93
+	 uC3OjMr+vIrXw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -54,17 +54,17 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 09/15] lib/crypto: arm64/sha3: Migrate optimized code into library
-Date: Sat, 25 Oct 2025 22:50:26 -0700
-Message-ID: <20251026055032.1413733-10-ebiggers@kernel.org>
+Subject: [PATCH v2 06/15] lib/crypto: tests: Add additional SHAKE tests
+Date: Sat, 25 Oct 2025 22:50:23 -0700
+Message-ID: <20251026055032.1413733-7-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251026055032.1413733-1-ebiggers@kernel.org>
 References: <20251026055032.1413733-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_225308_050157_EEFAA625 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20251025_225307_290128_CF425316 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,365 +79,348 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of exposing the arm64-optimized SHA-3 code via arm64-specific
-crypto_shash algorithms, instead just implement the sha3_absorb_blocks()
-and sha3_keccakf() library functions.  This is much simpler, it makes
-the SHA-3 library functions be arm64-optimized, and it fixes the
-longstanding issue where the arm64-optimized SHA-3 code was disabled by
-default.  SHA-3 still remains available through crypto_shash, but
-individual architectures no longer need to handle it.
+Add the following test cases to cover gaps in the SHAKE testing:
 
-Note: to see the diff from arch/arm64/crypto/sha3-ce-glue.c to
-lib/crypto/arm64/sha3.h, view this commit with 'git show -M10'.
+    - test_shake_all_lens_up_to_4096()
+    - test_shake_multiple_squeezes()
+    - test_shake_with_guarded_bufs()
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Remove test_shake256_tiling() and test_shake256_tiling2() since they are
+superseded by test_shake_multiple_squeezes().  It provides better test
+coverage by using randomized testing.  E.g., it's able to generate a
+zero-length squeeze followed by a nonzero-length squeeze, which the
+first 7 versions of the SHA-3 patchset handled incorrectly.
+
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/configs/defconfig                  |   2 +-
- arch/arm64/crypto/Kconfig                     |  11 --
- arch/arm64/crypto/Makefile                    |   3 -
- arch/arm64/crypto/sha3-ce-glue.c              | 150 ------------------
- lib/crypto/Kconfig                            |   5 +
- lib/crypto/Makefile                           |   5 +
- .../crypto/arm64}/sha3-ce-core.S              |   0
- lib/crypto/arm64/sha3.h                       |  62 ++++++++
- 8 files changed, 73 insertions(+), 165 deletions(-)
- delete mode 100644 arch/arm64/crypto/sha3-ce-glue.c
- rename {arch/arm64/crypto => lib/crypto/arm64}/sha3-ce-core.S (100%)
- create mode 100644 lib/crypto/arm64/sha3.h
+ lib/crypto/tests/sha3-testvecs.h    |  20 ++-
+ lib/crypto/tests/sha3_kunit.c       | 186 ++++++++++++++++++++--------
+ scripts/crypto/gen-hash-testvecs.py |  27 +++-
+ 3 files changed, 174 insertions(+), 59 deletions(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index e3a2d37bd1042..20dd3a39faead 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1781,14 +1781,14 @@ CONFIG_SECURITY=y
- CONFIG_CRYPTO_USER=y
- CONFIG_CRYPTO_CHACHA20=m
- CONFIG_CRYPTO_BENCHMARK=m
- CONFIG_CRYPTO_ECHAINIV=y
- CONFIG_CRYPTO_MICHAEL_MIC=m
-+CONFIG_CRYPTO_SHA3=m
- CONFIG_CRYPTO_ANSI_CPRNG=y
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_GHASH_ARM64_CE=y
--CONFIG_CRYPTO_SHA3_ARM64=m
- CONFIG_CRYPTO_SM3_ARM64_CE=m
- CONFIG_CRYPTO_AES_ARM64_CE_BLK=y
- CONFIG_CRYPTO_AES_ARM64_BS=m
- CONFIG_CRYPTO_AES_ARM64_CE_CCM=y
- CONFIG_CRYPTO_DEV_SUN8I_CE=m
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 91f3093eee6ab..376d6b50743ff 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -23,21 +23,10 @@ config CRYPTO_NHPOLY1305_NEON
- 	  NHPoly1305 hash function (Adiantum)
+diff --git a/lib/crypto/tests/sha3-testvecs.h b/lib/crypto/tests/sha3-testvecs.h
+index 9c4c403cc6e06..8d614a5fa0c37 100644
+--- a/lib/crypto/tests/sha3-testvecs.h
++++ b/lib/crypto/tests/sha3-testvecs.h
+@@ -1,7 +1,9 @@
+ /* SPDX-License-Identifier: GPL-2.0-or-later */
+-/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py sha3-256 */
++/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py sha3 */
++
++/* SHA3-256 test vectors */
  
- 	  Architecture: arm64 using:
- 	  - NEON (Advanced SIMD) extensions
+ static const struct {
+ 	size_t data_len;
+ 	u8 digest[SHA3_256_DIGEST_SIZE];
+ } hash_testvecs[] = {
+@@ -227,5 +229,21 @@ static const u8 hash_testvec_consolidated[SHA3_256_DIGEST_SIZE] = {
+ 	0x3b, 0x33, 0x67, 0xf8, 0xea, 0x92, 0x78, 0x62,
+ 	0xdd, 0xbe, 0x72, 0x15, 0xbd, 0x6f, 0xfa, 0xe5,
+ 	0x5e, 0xab, 0x9f, 0xb1, 0xe4, 0x23, 0x7c, 0x2c,
+ 	0x80, 0xcf, 0x09, 0x75, 0xf8, 0xe2, 0xfa, 0x30,
+ };
++
++/* SHAKE test vectors */
++
++static const u8 shake128_testvec_consolidated[SHA3_256_DIGEST_SIZE] = {
++	0x89, 0x88, 0x3a, 0x44, 0xec, 0xfe, 0x3c, 0xeb,
++	0x2f, 0x1c, 0x1d, 0xda, 0x9e, 0x36, 0x64, 0xf0,
++	0x85, 0x4c, 0x49, 0x12, 0x76, 0x5a, 0x4d, 0xe7,
++	0xa8, 0xfd, 0xcd, 0xbe, 0x45, 0xb4, 0x6f, 0xb0,
++};
++
++static const u8 shake256_testvec_consolidated[SHA3_256_DIGEST_SIZE] = {
++	0x5a, 0xfd, 0x66, 0x62, 0x5c, 0x37, 0x2b, 0x41,
++	0x77, 0x1c, 0x01, 0x5d, 0x64, 0x7c, 0x63, 0x7a,
++	0x7c, 0x76, 0x9e, 0xa8, 0xd1, 0xb0, 0x8e, 0x02,
++	0x16, 0x9b, 0xfe, 0x0e, 0xb5, 0xd8, 0x6a, 0xb5,
++};
+diff --git a/lib/crypto/tests/sha3_kunit.c b/lib/crypto/tests/sha3_kunit.c
+index c267984c4aff1..ed5fbe80337fe 100644
+--- a/lib/crypto/tests/sha3_kunit.c
++++ b/lib/crypto/tests/sha3_kunit.c
+@@ -245,76 +245,153 @@ static void test_shake256_nist(struct kunit *test)
+ 		 out, sizeof(out));
+ 	KUNIT_ASSERT_MEMEQ_MSG(test, out, test_shake256_nist_1600, sizeof(out),
+ 			       "SHAKE256 gives wrong output for NIST.1600");
+ }
  
--config CRYPTO_SHA3_ARM64
--	tristate "Hash functions: SHA-3 (ARMv8.2 Crypto Extensions)"
--	depends on KERNEL_MODE_NEON
--	select CRYPTO_HASH
--	select CRYPTO_SHA3
--	help
--	  SHA-3 secure hash algorithms (FIPS 202)
--
--	  Architecture: arm64 using:
--	  - ARMv8.2 Crypto Extensions
--
- config CRYPTO_SM3_NEON
- 	tristate "Hash functions: SM3 (NEON)"
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_SM3
-diff --git a/arch/arm64/crypto/Makefile b/arch/arm64/crypto/Makefile
-index a8b2cdbe202c1..fd3d590fa1137 100644
---- a/arch/arm64/crypto/Makefile
-+++ b/arch/arm64/crypto/Makefile
-@@ -3,13 +3,10 @@
- # linux/arch/arm64/crypto/Makefile
- #
- # Copyright (C) 2014 Linaro Ltd <ard.biesheuvel@linaro.org>
- #
- 
--obj-$(CONFIG_CRYPTO_SHA3_ARM64) += sha3-ce.o
--sha3-ce-y := sha3-ce-glue.o sha3-ce-core.o
--
- obj-$(CONFIG_CRYPTO_SM3_NEON) += sm3-neon.o
- sm3-neon-y := sm3-neon-glue.o sm3-neon-core.o
- 
- obj-$(CONFIG_CRYPTO_SM3_ARM64_CE) += sm3-ce.o
- sm3-ce-y := sm3-ce-glue.o sm3-ce-core.o
-diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
-deleted file mode 100644
-index 250f4fb76b472..0000000000000
---- a/arch/arm64/crypto/sha3-ce-glue.c
-+++ /dev/null
-@@ -1,150 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
 -/*
-- * sha3-ce-glue.c - core SHA-3 transform using v8.2 Crypto Extensions
-- *
-- * Copyright (C) 2018 Linaro Ltd <ard.biesheuvel@linaro.org>
-- *
-- * This program is free software; you can redistribute it and/or modify
-- * it under the terms of the GNU General Public License version 2 as
-- * published by the Free Software Foundation.
+- * Output tiling test of SHAKE256; equal output tiles barring the last.  A
+- * series of squeezings of the same context should, if laid end-to-end, match a
+- * single squeezing of the combined size.
 - */
--
--#include <asm/hwcap.h>
--#include <asm/neon.h>
--#include <asm/simd.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha3.h>
--#include <linux/cpufeature.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/string.h>
--#include <linux/unaligned.h>
--
--MODULE_DESCRIPTION("SHA3 secure hash using ARMv8 Crypto Extensions");
--MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
--MODULE_LICENSE("GPL v2");
--MODULE_ALIAS_CRYPTO("sha3-224");
--MODULE_ALIAS_CRYPTO("sha3-256");
--MODULE_ALIAS_CRYPTO("sha3-384");
--MODULE_ALIAS_CRYPTO("sha3-512");
--
--asmlinkage size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
--				    size_t nblocks, size_t block_size);
--
--static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
--			     unsigned int len)
--{
--	struct sha3_state *sctx = shash_desc_ctx(desc);
--	struct crypto_shash *tfm = desc->tfm;
--	unsigned int bs;
--	int blocks;
--
--	bs = crypto_shash_blocksize(tfm);
--	blocks = len / bs;
--	len -= blocks * bs;
--	do {
--		int rem;
--
--		kernel_neon_begin();
--		rem = sha3_ce_transform(sctx, data, blocks, bs);
--		kernel_neon_end();
--		data += (blocks - rem) * bs;
--		blocks = rem;
--	} while (blocks);
--	return len;
--}
--
--static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
--		      u8 *out)
--{
--	struct sha3_state *sctx = shash_desc_ctx(desc);
--	struct crypto_shash *tfm = desc->tfm;
--	__le64 *digest = (__le64 *)out;
--	u8 block[SHA3_224_BLOCK_SIZE];
--	unsigned int bs, ds;
--	int i;
--
--	ds = crypto_shash_digestsize(tfm);
--	bs = crypto_shash_blocksize(tfm);
--	memcpy(block, src, len);
--
--	block[len++] = 0x06;
--	memset(block + len, 0, bs - len);
--	block[bs - 1] |= 0x80;
--
--	kernel_neon_begin();
--	sha3_ce_transform(sctx, block, 1, bs);
--	kernel_neon_end();
--	memzero_explicit(block , sizeof(block));
--
--	for (i = 0; i < ds / 8; i++)
--		put_unaligned_le64(sctx->st[i], digest++);
--
--	if (ds & 4)
--		put_unaligned_le32(sctx->st[i], (__le32 *)digest);
--
--	return 0;
--}
--
--static struct shash_alg algs[] = { {
--	.digestsize		= SHA3_224_DIGEST_SIZE,
--	.init			= crypto_sha3_init,
--	.update			= arm64_sha3_update,
--	.finup			= sha3_finup,
--	.descsize		= SHA3_STATE_SIZE,
--	.base.cra_name		= "sha3-224",
--	.base.cra_driver_name	= "sha3-224-ce",
--	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
--	.base.cra_blocksize	= SHA3_224_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--	.base.cra_priority	= 200,
--}, {
--	.digestsize		= SHA3_256_DIGEST_SIZE,
--	.init			= crypto_sha3_init,
--	.update			= arm64_sha3_update,
--	.finup			= sha3_finup,
--	.descsize		= SHA3_STATE_SIZE,
--	.base.cra_name		= "sha3-256",
--	.base.cra_driver_name	= "sha3-256-ce",
--	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
--	.base.cra_blocksize	= SHA3_256_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--	.base.cra_priority	= 200,
--}, {
--	.digestsize		= SHA3_384_DIGEST_SIZE,
--	.init			= crypto_sha3_init,
--	.update			= arm64_sha3_update,
--	.finup			= sha3_finup,
--	.descsize		= SHA3_STATE_SIZE,
--	.base.cra_name		= "sha3-384",
--	.base.cra_driver_name	= "sha3-384-ce",
--	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
--	.base.cra_blocksize	= SHA3_384_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--	.base.cra_priority	= 200,
--}, {
--	.digestsize		= SHA3_512_DIGEST_SIZE,
--	.init			= crypto_sha3_init,
--	.update			= arm64_sha3_update,
--	.finup			= sha3_finup,
--	.descsize		= SHA3_STATE_SIZE,
--	.base.cra_name		= "sha3-512",
--	.base.cra_driver_name	= "sha3-512-ce",
--	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
--	.base.cra_blocksize	= SHA3_512_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--	.base.cra_priority	= 200,
--} };
--
--static int __init sha3_neon_mod_init(void)
--{
--	return crypto_register_shashes(algs, ARRAY_SIZE(algs));
--}
--
--static void __exit sha3_neon_mod_fini(void)
--{
--	crypto_unregister_shashes(algs, ARRAY_SIZE(algs));
--}
--
--module_cpu_feature_match(SHA3, sha3_neon_mod_init);
--module_exit(sha3_neon_mod_fini);
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index a05f5a349cd8c..587490ca65654 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -200,10 +200,15 @@ config CRYPTO_LIB_SHA3
- 	select CRYPTO_LIB_UTILS
- 	help
- 	  The SHA3 library functions.  Select this if your module uses any of
- 	  the functions from <crypto/sha3.h>.
+-static void test_shake256_tiling(struct kunit *test)
++static void shake(int alg, const u8 *in, size_t in_len, u8 *out, size_t out_len)
+ {
+-	struct shake_ctx ctx;
+-	u8 out[8 + SHA3_512_DIGEST_SIZE + 8];
++	if (alg == 0)
++		shake128(in, in_len, out, out_len);
++	else
++		shake256(in, in_len, out, out_len);
++}
  
-+config CRYPTO_LIB_SHA3_ARCH
-+	bool
-+	depends on CRYPTO_LIB_SHA3 && !UML
-+	default y if ARM64 && KERNEL_MODE_NEON
-+
- config CRYPTO_LIB_SM3
- 	tristate
+-	for (int tile_size = 1; tile_size < SHAKE256_DEFAULT_SIZE; tile_size++) {
+-		int left = SHAKE256_DEFAULT_SIZE;
+-		u8 *p = out + 8;
++static void shake_init(struct shake_ctx *ctx, int alg)
++{
++	if (alg == 0)
++		shake128_init(ctx);
++	else
++		shake256_init(ctx);
++}
  
- source "lib/crypto/tests/Kconfig"
- 
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 0cfdb511f32b6..5515e73bfd5e3 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -279,10 +279,15 @@ endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
- ################################################################################
- 
- obj-$(CONFIG_CRYPTO_LIB_SHA3) += libsha3.o
- libsha3-y := sha3.o
- 
-+ifeq ($(CONFIG_CRYPTO_LIB_SHA3_ARCH),y)
-+CFLAGS_sha3.o += -I$(src)/$(SRCARCH)
-+libsha3-$(CONFIG_ARM64) += arm64/sha3-ce-core.o
-+endif # CONFIG_CRYPTO_LIB_SHA3_ARCH
-+
- ################################################################################
- 
- obj-$(CONFIG_MPILIB) += mpi/
- 
- obj-$(CONFIG_CRYPTO_SELFTESTS_FULL)		+= simd.o
-diff --git a/arch/arm64/crypto/sha3-ce-core.S b/lib/crypto/arm64/sha3-ce-core.S
-similarity index 100%
-rename from arch/arm64/crypto/sha3-ce-core.S
-rename to lib/crypto/arm64/sha3-ce-core.S
-diff --git a/lib/crypto/arm64/sha3.h b/lib/crypto/arm64/sha3.h
-new file mode 100644
-index 0000000000000..6dd5183056da4
---- /dev/null
-+++ b/lib/crypto/arm64/sha3.h
-@@ -0,0 +1,62 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
+-		memset(out, 0, sizeof(out));
+-		shake256_init(&ctx);
+-		shake_update(&ctx, test_sha3_sample,
+-			     sizeof(test_sha3_sample) - 1);
+-		while (left > 0) {
+-			int part = umin(tile_size, left);
 +/*
-+ * Copyright (C) 2018 Linaro Ltd <ard.biesheuvel@linaro.org>
-+ *
-+ * This program is free software; you can redistribute it and/or modify
-+ * it under the terms of the GNU General Public License version 2 as
-+ * published by the Free Software Foundation.
++ * Test each of SHAKE128 and SHAKE256 with all input lengths 0 through 4096, for
++ * both input and output.  The input and output lengths cycle through the values
++ * together, so we do 4096 tests total.  To verify all the SHAKE outputs,
++ * compute and verify the SHA3-256 digest of all of them concatenated together.
 + */
-+
-+#include <asm/neon.h>
-+#include <asm/simd.h>
-+#include <linux/cpufeature.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha3);
-+
-+asmlinkage size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
-+				    size_t nblocks, size_t block_size);
-+
-+static void sha3_absorb_blocks(struct sha3_state *state, const u8 *data,
-+			       size_t nblocks, size_t block_size)
++static void test_shake_all_lens_up_to_4096(struct kunit *test)
 +{
-+	if (static_branch_likely(&have_sha3) && likely(may_use_simd())) {
-+		do {
-+			size_t rem;
++	struct sha3_ctx main_ctx;
++	const size_t max_len = 4096;
++	u8 *const in = test_buf;
++	u8 *const out = &test_buf[TEST_BUF_LEN - max_len];
++	u8 main_hash[SHA3_256_DIGEST_SIZE];
 +
-+			kernel_neon_begin();
-+			rem = sha3_ce_transform(state, data, nblocks,
-+						block_size);
-+			kernel_neon_end();
-+			data += (nblocks - rem) * block_size;
-+			nblocks = rem;
-+		} while (nblocks);
-+	} else {
-+		sha3_absorb_blocks_generic(state, data, nblocks, block_size);
++	KUNIT_ASSERT_LE(test, 2 * max_len, TEST_BUF_LEN);
++
++	rand_bytes_seeded_from_len(in, max_len);
++	for (int alg = 0; alg < 2; alg++) {
++		sha3_256_init(&main_ctx);
++		for (size_t in_len = 0; in_len <= max_len; in_len++) {
++			size_t out_len = (in_len * 293) % (max_len + 1);
++
++			shake(alg, in, in_len, out, out_len);
++			sha3_update(&main_ctx, out, out_len);
++		}
++		sha3_final(&main_ctx, main_hash);
++		if (alg == 0)
++			KUNIT_ASSERT_MEMEQ_MSG(test, main_hash,
++					       shake128_testvec_consolidated,
++					       sizeof(main_hash),
++					       "shake128() gives wrong output");
++		else
++			KUNIT_ASSERT_MEMEQ_MSG(test, main_hash,
++					       shake256_testvec_consolidated,
++					       sizeof(main_hash),
++					       "shake256() gives wrong output");
 +	}
 +}
-+
-+static void sha3_keccakf(struct sha3_state *state)
+ 
+-			shake_squeeze(&ctx, p, part);
+-			p += part;
+-			left -= part;
++/*
++ * Test that a sequence of SHAKE squeezes gives the same output as a single
++ * squeeze of the same total length.
++ */
++static void test_shake_multiple_squeezes(struct kunit *test)
 +{
-+	if (static_branch_likely(&have_sha3) && likely(may_use_simd())) {
-+		/*
-+		 * Passing zeroes into sha3_ce_transform() gives the plain
-+		 * Keccak-f permutation, which is what we want here.  Any
-+		 * supported block size may be used.  Use SHA3_512_BLOCK_SIZE
-+		 * since it's the shortest.
-+		 */
-+		static const u8 zeroes[SHA3_512_BLOCK_SIZE];
++	const size_t max_len = 512;
++	u8 *ref_out;
 +
-+		kernel_neon_begin();
-+		sha3_ce_transform(state, zeroes, 1, sizeof(zeroes));
-+		kernel_neon_end();
-+	} else {
-+		sha3_keccakf_generic(state);
-+	}
-+}
++	KUNIT_ASSERT_GE(test, TEST_BUF_LEN, 2 * max_len);
 +
-+#define sha3_mod_init_arch sha3_mod_init_arch
-+static void sha3_mod_init_arch(void)
-+{
-+	if (cpu_have_named_feature(SHA3))
-+		static_branch_enable(&have_sha3);
-+}
++	ref_out = kunit_kzalloc(test, max_len, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, ref_out);
++
++	for (int i = 0; i < 2000; i++) {
++		const int alg = rand32() % 2;
++		const size_t in_len = rand_length(max_len);
++		const size_t out_len = rand_length(max_len);
++		const size_t in_offs = rand_offset(max_len - in_len);
++		const size_t out_offs = rand_offset(max_len - out_len);
++		u8 *const in = &test_buf[in_offs];
++		u8 *const out = &test_buf[out_offs];
++		struct shake_ctx ctx;
++		size_t remaining_len, j, num_parts;
++
++		rand_bytes(in, in_len);
++		rand_bytes(out, out_len);
++
++		/* Compute the output using the one-shot function. */
++		shake(alg, in, in_len, ref_out, out_len);
++
++		/* Compute the output using a random sequence of squeezes. */
++		shake_init(&ctx, alg);
++		shake_update(&ctx, in, in_len);
++		remaining_len = out_len;
++		j = 0;
++		num_parts = 0;
++		while (rand_bool()) {
++			size_t part_len = rand_length(remaining_len);
++
++			shake_squeeze(&ctx, &out[j], part_len);
++			num_parts++;
++			j += part_len;
++			remaining_len -= part_len;
++		}
++		if (remaining_len != 0 || rand_bool()) {
++			shake_squeeze(&ctx, &out[j], remaining_len);
++			num_parts++;
+ 		}
+ 
+-		KUNIT_ASSERT_MEMEQ_MSG(test, out, test_shake256, sizeof(test_shake256),
+-				       "SHAKE tile %u gives wrong output", tile_size);
++		/* Verify that the outputs are the same. */
++		KUNIT_ASSERT_MEMEQ_MSG(
++			test, out, ref_out, out_len,
++			"Multi-squeeze test failed with in_len=%zu in_offs=%zu out_len=%zu out_offs=%zu num_parts=%zu alg=%d",
++			in_len, in_offs, out_len, out_offs, num_parts, alg);
+ 	}
+ }
+ 
+ /*
+- * Output tiling test of SHAKE256; output tiles getting gradually smaller and
+- * then cycling round to medium sized ones.  A series of squeezings of the same
+- * context should, if laid end-to-end, match a single squeezing of the combined
+- * size.
++ * Test that SHAKE operations on buffers immediately followed by an unmapped
++ * page work as expected.  This catches out-of-bounds memory accesses even if
++ * they occur in assembly code.
+  */
+-static void test_shake256_tiling2(struct kunit *test)
++static void test_shake_with_guarded_bufs(struct kunit *test)
+ {
+-	struct shake_ctx ctx;
+-	u8 out[8 + SHA3_512_DIGEST_SIZE + 8];
++	const size_t max_len = 512;
++	u8 *reg_buf;
+ 
+-	for (int first_tile_size = 3;
+-	     first_tile_size < SHAKE256_DEFAULT_SIZE;
+-	     first_tile_size++) {
+-		int tile_size = first_tile_size;
+-		int left = SHAKE256_DEFAULT_SIZE;
+-		u8 *p = out + 8;
+-
+-		memset(out, 0, sizeof(out));
+-		shake256_init(&ctx);
+-		shake_update(&ctx, test_sha3_sample,
+-			     sizeof(test_sha3_sample) - 1);
+-		while (left > 0) {
+-			int part = umin(tile_size, left);
+-
+-			shake_squeeze(&ctx, p, part);
+-			p += part;
+-			left -= part;
+-			tile_size--;
+-			if (tile_size < 1)
+-				tile_size = 5;
+-		}
++	KUNIT_ASSERT_GE(test, TEST_BUF_LEN, max_len);
+ 
+-		KUNIT_ASSERT_MEMEQ_MSG(test, out, test_shake256, sizeof(test_shake256),
+-				       "SHAKE tile %u gives wrong output", tile_size);
++	reg_buf = kunit_kzalloc(test, max_len, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, reg_buf);
++
++	for (int alg = 0; alg < 2; alg++) {
++		for (size_t len = 0; len <= max_len; len++) {
++			u8 *guarded_buf = &test_buf[TEST_BUF_LEN - len];
++
++			rand_bytes(reg_buf, len);
++			memcpy(guarded_buf, reg_buf, len);
++
++			shake(alg, reg_buf, len, reg_buf, len);
++			shake(alg, guarded_buf, len, guarded_buf, len);
++
++			KUNIT_ASSERT_MEMEQ_MSG(
++				test, reg_buf, guarded_buf, len,
++				"Guard page test failed with len=%zu alg=%d",
++				len, alg);
++		}
+ 	}
+ }
+ 
+ static struct kunit_case sha3_test_cases[] = {
+ 	HASH_KUNIT_CASES,
+@@ -324,12 +401,13 @@ static struct kunit_case sha3_test_cases[] = {
+ 	KUNIT_CASE(test_sha3_512_basic),
+ 	KUNIT_CASE(test_shake128_basic),
+ 	KUNIT_CASE(test_shake256_basic),
+ 	KUNIT_CASE(test_shake128_nist),
+ 	KUNIT_CASE(test_shake256_nist),
+-	KUNIT_CASE(test_shake256_tiling),
+-	KUNIT_CASE(test_shake256_tiling2),
++	KUNIT_CASE(test_shake_all_lens_up_to_4096),
++	KUNIT_CASE(test_shake_multiple_squeezes),
++	KUNIT_CASE(test_shake_with_guarded_bufs),
+ 	KUNIT_CASE(benchmark_hash),
+ 	{},
+ };
+ 
+ static struct kunit_suite sha3_test_suite = {
+diff --git a/scripts/crypto/gen-hash-testvecs.py b/scripts/crypto/gen-hash-testvecs.py
+index 47f79602e2903..ae2682882cd18 100755
+--- a/scripts/crypto/gen-hash-testvecs.py
++++ b/scripts/crypto/gen-hash-testvecs.py
+@@ -109,10 +109,22 @@ def gen_unkeyed_testvecs(alg):
+         hash_update(ctx, compute_hash(alg, data[:data_len]))
+     print_static_u8_array_definition(
+             f'hash_testvec_consolidated[{alg_digest_size_const(alg)}]',
+             hash_final(ctx))
+ 
++def gen_additional_sha3_testvecs():
++    max_len = 4096
++    in_data = rand_bytes(max_len)
++    for alg in ['shake128', 'shake256']:
++        ctx = hashlib.new('sha3-256')
++        for in_len in range(max_len + 1):
++            out_len = (in_len * 293) % (max_len + 1)
++            out = hashlib.new(alg, data=in_data[:in_len]).digest(out_len)
++            ctx.update(out)
++        print_static_u8_array_definition(f'{alg}_testvec_consolidated[SHA3_256_DIGEST_SIZE]',
++                                         ctx.digest())
++
+ def gen_hmac_testvecs(alg):
+     ctx = hmac.new(rand_bytes(32), digestmod=alg)
+     data = rand_bytes(4096)
+     for data_len in range(len(data) + 1):
+         ctx.update(data[:data_len])
+@@ -153,21 +165,28 @@ def gen_additional_poly1305_testvecs():
+             'poly1305_allones_macofmacs[POLY1305_DIGEST_SIZE]',
+             Poly1305(key).update(data).digest())
+ 
+ if len(sys.argv) != 2:
+     sys.stderr.write('Usage: gen-hash-testvecs.py ALGORITHM\n')
+-    sys.stderr.write('ALGORITHM may be any supported by Python hashlib, or poly1305.\n')
++    sys.stderr.write('ALGORITHM may be any supported by Python hashlib, or poly1305 or sha3.\n')
+     sys.stderr.write('Example: gen-hash-testvecs.py sha512\n')
+     sys.exit(1)
+ 
+ alg = sys.argv[1]
+ print('/* SPDX-License-Identifier: GPL-2.0-or-later */')
+ print(f'/* This file was generated by: {sys.argv[0]} {" ".join(sys.argv[1:])} */')
+-gen_unkeyed_testvecs(alg)
+ if alg.startswith('blake2'):
++    gen_unkeyed_testvecs(alg)
+     gen_additional_blake2_testvecs(alg)
+ elif alg == 'poly1305':
++    gen_unkeyed_testvecs(alg)
+     gen_additional_poly1305_testvecs()
+-elif alg.startswith('sha3-'):
+-    pass # no HMAC
++elif alg == 'sha3':
++    print()
++    print('/* SHA3-256 test vectors */')
++    gen_unkeyed_testvecs('sha3-256')
++    print()
++    print('/* SHAKE test vectors */')
++    gen_additional_sha3_testvecs()
+ else:
++    gen_unkeyed_testvecs(alg)
+     gen_hmac_testvecs(alg)
 -- 
 2.51.1.dirty
 
