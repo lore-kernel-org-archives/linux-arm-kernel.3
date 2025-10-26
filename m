@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15DFCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 17:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C48FCCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 18:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Os2gdwgFgiG/vQXZuUM1r/XXyjqP6W0/g6mR5BtctSk=; b=4JmwkaQ76bHTsH1br+FYnRaQma
-	bM/Y3nan00qMTFrE8Q780LBfXAn4p8aBjfovQSrWW7Kr1x+jr05u56gWYXKq/2RccdIxOfT+0CT3D
-	MiDDGxTP8PewOYCVIHCVZXLAvANm8zvuciD3mhRw0vmXRVq+YBWETuHDAX5lRXmr1LSrs05m8mwsg
-	nnlVLJD9pEaC6N2MdFel44ZSB/bbJ3revW7MBmft8SbtS25U1blAWN+k6ZNJhP+lWDaQQuWMDQF3l
-	521juyNRik0fHSgKZvwa52lDgmohxp7b/zQLaVMopZx1BWu5hoBoP2P1fWZE1H/VrxhFK6kOuKgw9
-	4lWF98rg==;
+	bh=thIl0eoythKb01PWr+ANwhU9Ff6R4yl+rTHFbaUTblI=; b=dkGN6ugF/KmTy4P+TaEggxa5Pz
+	kpITBbadvXL/4Q3mjBY1epyzgNNAnqF4YXKxTz9msP7MDwfM9CPqXfR5Pkz607lxgFm6a5ltC3spP
+	UWpFdgauU0rnxUPA6bUtAqa+kRSF+C/9O5DGzkhT7sL6hS6m9gUBcUoUseKUDKLLlgHU0uXU1IU2v
+	Rh08Bz5r9IZwJxGZVTvjiq4CkWp1fO7+yo/oRkpcQKMb9d7rzET1m8BLjwmFQfxzi8TfWnY3EAoGU
+	WcA2gWva92SBZyKQei7jIw7JPLOAyoZNWFPCDAAoWED/iHwNqL10YQJOf5sklcsxgQsZ/HLC4ae4O
+	yei2j3KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD4ne-0000000CaxX-3gjo;
-	Sun, 26 Oct 2025 17:45:02 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1vD5TA-0000000Cd86-2zGe;
+	Sun, 26 Oct 2025 18:27:56 +0000
+Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD4nb-0000000Cawo-2XwY
+	id 1vD5T3-0000000Cd5I-0c4K
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 17:45:01 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1761500695;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Os2gdwgFgiG/vQXZuUM1r/XXyjqP6W0/g6mR5BtctSk=;
-	b=WGObrId+lc+EJHIlJzN+dD7JmH64mJaxToM+He6Bg64ipj7P9PoZ51oO3eVEBKpVmNiPS8
-	cKCqohngr3qvrAUcsONF/aT1AmNRoMPz6pmHrX0iTa8h17dzdC507UN3WqA6YW1YuLIYYR
-	I0ZgGkQYUtAUvTeWUUO3rCuBqMOhJTOOCcvfq1alots9bWpGPB3ScyVLioV2j+vC3is/cP
-	cXHRAem2rR/iS/mFCgVeXHQWCFFl0teHusYHPHYU76GZftHFY+EKoAmwzZ4M3C+Iqt2VVE
-	n1Mk4v8P0S8vv50X6ix3myq3bU4MJUwtr0VN3UCIGwIHMGmeauBn9noYt0ASKA==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 26 Oct 2025 18:44:42 +0100
-Message-Id: <DDSFVM1TXN8C.3JNX2M8XX04IF@cknow-tech.com>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Dragan Simic" <dsimic@manjaro.org>, "Johan Jonker" <jbx6244@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Harmonize regulator formatting
- for Pine64 rk3566 devices
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Diederik de Haas" <diederik@cknow-tech.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20251026153805.107774-1-diederik@cknow-tech.com>
-In-Reply-To: <20251026153805.107774-1-diederik@cknow-tech.com>
-X-Migadu-Flow: FLOW_OUT
+	Sun, 26 Oct 2025 18:27:52 +0000
+X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
+	serial F5FD910E8FE2121B897F7E55B84E351D
+	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
+	auth type TLS.CUNI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
+	s=submission; t=1761503228; x=1762803228;
+	bh=thIl0eoythKb01PWr+ANwhU9Ff6R4yl+rTHFbaUTblI=; h=From;
+	b=Alvj1afza8dYCwi0s/dGQRKNnatbHJflZbyYAYLJg0iaHsYdPTg3Ak3CnTSa4Mj0T
+	 H7D49mQ8BjVd6krsOK2qcgoUc+ziHnYRt+izW8yW5fOTXibom0SCSpm5T8R+lez2wG
+	 IH+5VJA0oCzOJikDRjHyosg72fInAPlXBsxFcGOlsemuBl4w+5/qAhGjowantpx9Nt
+	 4bbE3S4MQwnMaQBd1z/FRxlpSFbfr+lyJyfPOiogPMx5p/QPF4w4FsIpWTMybkc9+1
+	 mgO4TnvKR32d8Bbl9mpwf9iyFCHyr9+hCHs9VY70agWF1DWPTFUBAutZ6YDA5NVFF5
+	 Y4GCS7skZiphQ==
+Received: from localhost (internet5.mraknet.com [185.200.108.250])
+	(authenticated)
+	by smtp1.ms.mff.cuni.cz (8.16.1/8.16.1) with ESMTPS id 59QIR6Wb043073
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Sun, 26 Oct 2025 19:27:08 +0100 (CET)
+	(envelope-from balejk@matfyz.cz)
+From: Karel Balej <balejk@matfyz.cz>
+To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
+        Andrew Lunn <andrew@lunn.ch>,
+        Gregory Clement <gregory.clement@bootlin.com>,
+        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+        Brian Norris <briannorris@chromium.org>,
+        Francesco Dolcini <francesco@dolcini.it>,
+        Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+        linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mmc@vger.kernel.org
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
+        Karel Balej <balejk@matfyz.cz>, Jeff Chen <jeff.chen_1@nxp.com>,
+        Peng Fan <peng.fan@nxp.com>
+Subject: [DONOTAPPLY RFC PATCH v2 4/4] arm64: dts: samsung,coreprimevelte: add wifi node
+Date: Sun, 26 Oct 2025 19:20:41 +0100
+Message-ID: <20251026182602.26464-5-balejk@matfyz.cz>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251026182602.26464-1-balejk@matfyz.cz>
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_104459_937390_83E74DD4 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20251026_112749_812798_E9500032 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun Oct 26, 2025 at 4:37 PM CET, Diederik de Haas wrote:
-> The regulator node properties in Pine64 rk3566 devices were formatted
-> rather inconsistently. To name a few:
-> - 'name' was sometimes put at the top of the list, while at other times
->   it was (mostly) sorted in alphabetical order
-> - 'always-on' and 'boot-on' were sometimes at the top of the list,
->   sometimes not
-> - 'state-mem' nodes sometimes had a preceding blank line, as they
->   should, but sometimes not
-> - other properties seem to have been added to the end of the list, not
->   in their alphabetical/natural order
->
-> So harmonize the formatting by making all properties sorted
-> alphabetically/naturally. And harmonize the formatting of the
-> 'state-mem' nodes so they all have a preceding blank line. While at it,
-> also fix 2 incorrectly indented nodes.
->
-> No functional changes.
+Add a node for the phone's WiFi serviced by the Marvell SD8777 chip a
+communication with which happens over the SDIO. Also enable a regulator
+without which it is not possible to connect to networks although they
+are discovered properly.
 
-I just found some additional ones.
-If these changes are considered OK (in principle), then I'll send a v2
-at some point.
+Signed-off-by: Karel Balej <balejk@matfyz.cz>
+---
+ .../mmp/pxa1908-samsung-coreprimevelte.dts        | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Cheers,
-  Diederik
+diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+index b2ce5edd9c6a..36d6ae4e902e 100644
+--- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
++++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+@@ -475,6 +475,14 @@ ldo14: ldo14 {
+ 				regulator-min-microvolt = <1200000>;
+ 				regulator-max-microvolt = <3300000>;
+ 			};
++
++			/*
++			 * Needs to be enabled in order for the WiFi to be able
++			 * to connect to networks.
++			 */
++			ldo15 {
++				regulator-always-on;
++			};
+ 		};
+ 	};
+ };
+@@ -523,6 +531,13 @@ &sdh1 {
+ 	pinctrl-1 = <&sdh1_fast_pins_0 &sdh1_fast_pins_1 &sdh1_pins_2>;
+ 	bus-width = <4>;
+ 	non-removable;
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	wifi@1 {
++		compatible = "marvell,sd8777";
++		reg = <1>;
++	};
+ };
+ 
+ &pwm3 {
+-- 
+2.51.1
 
-> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
-> ---
->  .../boot/dts/rockchip/rk3566-pinenote.dtsi    | 52 +++++++++----------
->  .../boot/dts/rockchip/rk3566-pinetab2.dtsi    | 29 ++++++++---
->  .../boot/dts/rockchip/rk3566-quartz64-a.dts   | 51 +++++++++++-------
->  .../boot/dts/rockchip/rk3566-quartz64-b.dts   | 52 ++++++++++---------
->  .../dts/rockchip/rk3566-soquartz-blade.dts    |  6 +--
->  .../boot/dts/rockchip/rk3566-soquartz-cm4.dts |  6 +--
->  .../dts/rockchip/rk3566-soquartz-model-a.dts  | 10 ++--
->  .../boot/dts/rockchip/rk3566-soquartz.dtsi    | 43 ++++++++++-----
->  8 files changed, 148 insertions(+), 101 deletions(-)
 
