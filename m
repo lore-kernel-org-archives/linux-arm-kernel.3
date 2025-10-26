@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C40DCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 12:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FABFCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 13:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xXfOlg+vxhS0Rr3hUv2hxCnZTAbxGhsNk9YtBS4+xrU=; b=LP7nJHTG5srRZfMhpBfWq1CU2p
-	YrC3wcWXZHg3+QnklF78uiy5/2KHGiRM01pfJRlE0qH2PwiryQKYohJfLuEZPu13Y4LcpTLkoJvzC
-	xXLBud+EjtupfomXaXJWpWT5FCeUtkV3P8JwzHvO5vj1Bwrqfyltrz3g9/DZ5sldAHw0xnE3ead5i
-	CygUoACNlZyqHtiCJKhSKXPhVfxkLH9vpljCVu17O/Fs0aaTu9ZrlRChq2a7vp4iwumNiboWslADQ
-	q3uauOVE0cg0iqJ2/i7GY8P7xqcctIYkfCOgCsOJ2lhxFF1ulwTgGnX1CAdkLnR29Jb2XLtJckET1
-	MJQPA+UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yeLboth8MhYHlUz38A/r0dQtFdupgQteaWKHhnJgAQc=; b=ObLKWwHd/9I2Za
+	bwkI0WMrLvmWvDB6EKidTsjOReQMgGQ3NvgmYF/NxjOAQV9tXUhBsoNldn5ENQNNWvmOp781BKRrC
+	C24TegQus4v9ojFNKATwt+hVpjFsIsk0c1/DPV5MtcRq+sIfckFieBagEAOeqYwTawvgu22SKpLfL
+	QTvwfYv1U6tWPKnkbzBCJn0anaS+cZPx3OO/0d1SLqNXWBLXwqYeWC0jK2CG3FgHVGCYnUDJUhLew
+	Mc9mIeHhWZKA7GhSATgWlptQYQ9MuuTbo0fABpco1z8ijfGDiv9CILRuFbSjSsEbQI/YAFqJNh6dd
+	nsxrQdpqnfTzjp91mRpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCzsC-0000000CK1p-0WU8;
-	Sun, 26 Oct 2025 12:29:24 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vD1AK-0000000CNau-497F;
+	Sun, 26 Oct 2025 13:52:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCzs9-0000000CK1T-1gsH
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 12:29:22 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 276F1AB4;
-	Sun, 26 Oct 2025 13:27:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761481652;
-	bh=pzVG8b6JUQj2Bt9sXSZDDeW26gA2PpIPU+wUY7d6Xsk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=GW/HxhpZ225i9Tvtsc4U23VNmiAhwLYsTJ3RjLrnvkhZbEUkjAmNKDNwXOWW5j3ef
-	 KheSpcpvBNMuK25qlcmu/lCiZqRQRba0bz3fp70o+uCfdU86P1GS+vnASzsLoR6ysW
-	 wps6oAsvkagbrnHgvcNoLJgc4wHI0nsxcEknZUIY=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Date: Sun, 26 Oct 2025 14:29:04 +0200
-Message-ID: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.51.0
+	id 1vD1AJ-0000000CNZo-1Y9D;
+	Sun, 26 Oct 2025 13:52:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 87E5660347;
+	Sun, 26 Oct 2025 13:52:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 01868C4CEE7;
+	Sun, 26 Oct 2025 13:52:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761486730;
+	bh=Qn6+VQWRGWVLcW0LssIvm+mf9owqObJv5nvDTG7kjhs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=aKxdhNuQdMAqLyJJpBm1CJlbszRqcjpNKtSxr6zksUikCgbt5Gqcdd3feAIzOcdd+
+	 67NNPc+n8P57QeLa/uAtcPSxUV93nIPJOQxA8N/+W994+hyc5o7Zo4HUTY/+Fc9ZHv
+	 sdLlxk3YCeiqIqtPVI5NnXtKtdqtJebXCDZXb3zeuu1OLze9tuy2/WkgYfHpVH0kB2
+	 cUF2yP4ges7dI6Wy7xRg6S3rgQX70rRhZzt8rrBTiWwKIjPRHEuhdh19wmEby1JP3V
+	 P/KSDFjrg6SWyCx2zoNGLY0kV1jP5khuX+tEpsw0WgnG7+CQngVdMGLUAEOirrf4RC
+	 0qSn51nTX8FSg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2449CCD193;
+	Sun, 26 Oct 2025 13:52:09 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Subject: [PATCH 0/3] Apple Silicon Type-C PHY
+Date: Sun, 26 Oct 2025 13:52:00 +0000
+Message-Id: <20251026-b4-atcphy-v1-0-f81b1225f9c6@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_052921_582134_A765BAAA 
-X-CRM114-Status: GOOD (  14.39  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIAn/mgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDA0Nj3SQT3cSS5IKMSt0Us0TzZEtjyxQTQ3MloPqCotS0zAqwWdGxtbU
+ Ao+uRLFsAAAA=
+X-Change-ID: 20251013-b4-atcphy-d6a7c939d417
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sven Peter <sven@kernel.org>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Hector Martin <marcan@marcan.st>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2495; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=Qn6+VQWRGWVLcW0LssIvm+mf9owqObJv5nvDTG7kjhs=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8Y/9cbCqdWGKQsYCn5d2ifVsPLRfIcvzk98G7jLLzGrz
+ ffxu7mto5SFQYyDQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjCRxeGMDFue8sr92Bp8TmvR
+ s5BvQt92xoscVm+tFb+Y2ui6Isr0719Ghn1tK9uWvH/mJMu/873vC277Ntm3b1Z3VllJ55ly7n2
+ Zxw8A
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +89,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
-(DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
-devices produces an interrupts storm. Disable EEE support to fix it.
+Hi,
 
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+As requested in the previous version of the Apple Silicon USB3 support
+series this one only contains the changes required for the Type-C PHY.
+
+The generic tunable support inside driver/soc/apple will also be re-used
+for Thunderbolt later. I may submit a RFC for that this cycle but I
+don't expect that to land before the next one so it should be fine to
+just take that commit through the phy tree as well.
+
+Changes since v2 of the combined series:
+- Link to v2: https://lore.kernel.org/asahi/20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org/
+- atc.c:
+  - Removed a bunch of outdated safety checks from atc.c that were only
+    required in a previous version that did not rely on the dwc3-glue
+    driver
+  - Addressed Philipp's review comments:
+    - Added documentation for struct apple_atcphy (and a bunch of other
+      things while I was at it)
+    - Moved the mutex guard from atcphy_dpphy_configure to atcphy_dp_configure
+      since the first one doesn't touch any shared structures or MMIO
+- apple,atcphy.yaml:
+  - Added a generic apple,tunable definition that uses uint32-matrix
+    and refer to that one from the individual tunable properties
+  - Adjust the tunable description to make it easier to understand
+  - Limited all lines to 80 chars
+  - Used > for longer descriptions
+  - Fixed some typos
+- Picked up r-b tags (thanks!)
+
+Best,
+
+Sven
+
+Signed-off-by: Sven Peter <sven@kernel.org>
 ---
-The exact reason for the interrupt storm is unknown, and my attempts to
-diagnose it was hindered by my lack of expertise with DWMAC. As far as I
-understand, the DWMAC implements EEE support, and so does the RTL8211E
-PHY according to its datasheet. What each side does exactly is unknown
-to me. One theory I've heard to explain the issue is that the two
-implementations conflict. There is no register in the RTL8211E PHY to
-disable EEE on the PHY side while still advertising its support to the
-peer and relying on the implementation in the DWMAC (if this even makes
-sense), so disabling EEE is the only viable option.
+Sven Peter (3):
+      soc: apple: Add hardware tunable support
+      dt-bindings: phy: Add Apple Type-C PHY
+      phy: apple: Add Apple Type-C PHY
 
-This patch is likely a workaround, but it fixes ethernet usage on the
-board, so it's in my opinion worth being merged. If someone with better
-knowledge of EEE and DWMAC, as well as an interest in getting it working
-properly on the Debix board, wants to submit additional patches to drop
-eee-broken-1000t, I will be happy to test them.
+ .../devicetree/bindings/phy/apple,atcphy.yaml      |  222 ++
+ MAINTAINERS                                        |    2 +
+ drivers/phy/Kconfig                                |    1 +
+ drivers/phy/Makefile                               |    1 +
+ drivers/phy/apple/Kconfig                          |   14 +
+ drivers/phy/apple/Makefile                         |    4 +
+ drivers/phy/apple/atc.c                            | 2279 ++++++++++++++++++++
+ drivers/soc/apple/Kconfig                          |    4 +
+ drivers/soc/apple/Makefile                         |    3 +
+ drivers/soc/apple/tunable.c                        |   71 +
+ include/linux/soc/apple/tunable.h                  |   60 +
+ 11 files changed, 2661 insertions(+)
 ---
- arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts | 1 +
- 1 file changed, 1 insertion(+)
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251013-b4-atcphy-d6a7c939d417
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-index 9422beee30b2..4aa47f71425b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-@@ -102,6 +102,7 @@ ethphy0: ethernet-phy@1 { /* RTL8211E */
- 			reset-gpios = <&gpio4 18 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <20>;
- 			reset-deassert-us = <200000>;
-+			eee-broken-1000t;
- 		};
- 	};
- };
+Best regards,
 -- 
-Regards,
+Sven Peter <sven@kernel.org>
 
-Laurent Pinchart
 
 
