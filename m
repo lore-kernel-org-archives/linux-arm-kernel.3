@@ -4,108 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1AE0CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 20:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC0E2CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 20:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVS6LiUU36AQl8NmfGBhHoZlr4o5V+sFm0sfdWcZXDg=; b=q/Aw6TJVYk92wxhehwoyTx7OXw
-	EDWArVJpAYB77TC3Vx041OW6AcC3yXQwGlnP9qnS7B6JYd0oCpZoleYWQfFw+PUZ+jVDTKbyyhjcP
-	4O/V4Pc0fhJHbF2NYEWtD2GVfgUZQtWIHBV1GbD8O/qq8Z3jSUKDyjllhQ4mzgbyA1Ejhco/y4zLa
-	TMVRGh5DSoyXuX87KSV8QfoIAlxDecfRcul2YsGIEAHaLrkEg3tidZV3KaO9FSoe1WQiNgaxsvFMU
-	hPR+kowsjIkkCv61P/WT/p8tfTC5/ygyc4NC2TfJyB96Wgm+z4yDPdZWNFYKMV6cdrNuv3tcUYcHj
-	amlkZnmA==;
+	bh=8tv4EJsASL1wPUSDcCCUa8FCSZ/HO6INTApnbMDnxMQ=; b=xfFd5QUUp70Hvi98udwGNPN/3N
+	wODe93uQYXon/SDGMing8Jck9hfM1Oe0vZfOKryuH5oxxr160WsAFku1CCZEbyBX3niCt4oA4ArnI
+	Ow0FcRZkhn/WERWGVysPJ2rSnAoCL68DnesZNekaCqNVFRaHxPZEuSIE1iNv+CL5a6LodVw3zllmF
+	f13etMjNMfkly9xxaOKth1XiaK2On/bdsmXuZ+K9RaxzJMa7vX0n7ej9J2xeKPqVAWPWRcBGSmpMM
+	Dkfb6KDuzLSOLJnh+5Mqywg0aOu6hISYsZx6j5bpXjokdD6QjAlBkECOZSbI6VyBiybAVPNQxA8RE
+	L1GV944w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD7FN-0000000CiAU-3vMN;
-	Sun, 26 Oct 2025 20:21:49 +0000
-Received: from mail-ua1-x962.google.com ([2607:f8b0:4864:20::962])
+	id 1vD7Gg-0000000CiK3-0PK1;
+	Sun, 26 Oct 2025 20:23:10 +0000
+Received: from mail-il1-x162.google.com ([2607:f8b0:4864:20::162])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD7FL-0000000Ci9S-17Tq
+	id 1vD7Gd-0000000CiJM-3DB1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 20:21:48 +0000
-Received: by mail-ua1-x962.google.com with SMTP id a1e0cc1a2514c-932f654eaaeso2949771241.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:21:46 -0700 (PDT)
+	Sun, 26 Oct 2025 20:23:09 +0000
+Received: by mail-il1-x162.google.com with SMTP id e9e14a558f8ab-430c97cbe0eso40354365ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:23:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761510106; x=1762114906;
+        d=1e100.net; s=20230601; t=1761510187; x=1762114987;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YVS6LiUU36AQl8NmfGBhHoZlr4o5V+sFm0sfdWcZXDg=;
-        b=fnjJGdvAAf07EBonf8Fm8QCninwvxPnEtKC7EEyP1CjEnzQx5T8akl1U5ZTsejuXHc
-         R07dlAmsYFcUFh4lP0fCJIvKCLUJ9/Qg4tQM9CathN9nRs3anRlYI90LxELMFmv6k1Go
-         Wgj7tyLiDH7Yv5ysxkq2b2lj8/RUdmtH3fiB+R9jEXG72k8Q5r7/qbqU7gsYve0UZKBj
-         E/sD8lduSAo9bM32MbOLeRB+B8iFUc0IhOzDSBizZibW3l5sqafSxKb36e3xaLDKbekB
-         Ot3qyOcCSofeiEhBu4clMJtNvghrBF4T2CNY14Pu1WjVZI6gSfK5bphlew/8IPtvfAb+
-         ttkw==
-X-Forwarded-Encrypted: i=1; AJvYcCUc61nIy30VbollKy4V8/V0aLEFOGj89v0/XEV7mlPHIqtLGE67l6nrFmb3yiIZNyBIjDN9thFDmAoT0PxNu5NC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHj+sKTk45oBk6llKjiKcc+UCq438AqWfZr/HdfbjflOQ3BuWG
-	KU3GHQ91N/mJ0So+MKxlzT5+VlOqsRLk2esBjMsn0N5qBpzHz6URtQsEbX7u8P3O3YXcsUetkyD
-	9UlaYcsHiIwehmRGZ31d3g7xg9TXJoGxyIvX3ZBU+DV9l+jDNVD9C7k3SfpRkdJg+OdFqYJ31iy
-	8DI0THwt1pD9qStc5oDDOq3noCM/MvwdLOigrO7dpclJCS3PVTn3FZYTH7ET8lRbmv3A9EbnatV
-	UPZpkqO1+wr6spWAvFlARqaV4AVyXpAoJM=
-X-Gm-Gg: ASbGncueVjsVjN857rcDFTVaR6bJkfLBW/8zQ7rVjCePnC18rpMSV20d9WbPju5JZUA
-	u1MsK1Bnz576TR8p++e6RAWMI2wpBoChAEmHbBrXzz9yoiVgbxM1hcP8z5Q1V0vh5EnjsGwzKL9
-	aMpgB3oGbHBSRF3ZkFlB3bg84QrQcG9KsDJJsajSRzyjB/kIfvXl6zPEj3jGkvPwLKYtvINzvvP
-	RRe1GiK+ozHs+3wplPCOHgfmzOPVG8ON1X7CYhB05nfPWYGVjV5Ytjps1rOk2psXSgmNCCf+8k0
-	gZOhvRZGbQ728S5hvUeCeepjyn3XFbJHjb8Xat1BgNkufmDfEPdilDAIUBmbCCxAtkoUVmdI5M2
-	lxk5j0QzhvYGSX7NsnZC5MPyzTwCGQ5VolscaHPZZ1AHYNBdWLHh2YD8SmMkVQsz96IaMbCrMEJ
-	nys5ubs/iuKJ98/RzWnxqwNNEMvh3gjVaUOAsDn0c=
-X-Google-Smtp-Source: AGHT+IGq5bDNoUnZerW/Qqp6os5Cx7a1blJxHn0X6kRoTQ0uUrJyoOpSLICgLEGQvlt9MYadonmbAK+cq5bX
-X-Received: by 2002:a05:6122:8b15:b0:557:c38b:4dbd with SMTP id 71dfb90a1353d-557cf08e2ebmr2542546e0c.9.1761510105926;
-        Sun, 26 Oct 2025 13:21:45 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-72.dlp.protect.broadcom.com. [144.49.247.72])
-        by smtp-relay.gmail.com with ESMTPS id 71dfb90a1353d-557ddb541d0sm644236e0c.7.2025.10.26.13.21.45
+        bh=8tv4EJsASL1wPUSDcCCUa8FCSZ/HO6INTApnbMDnxMQ=;
+        b=s7GvUCpLAWkd9ZGEVKscTlo7G7Yky9ZdAXXy76l1gwyo2qyfhUGe5hQPjKixYPI6P2
+         M2sp82wUbcrspBw1XkKNtK7ipujDehxEvLazYffKtc2+ZFEAY/MPXe0eCvtv2JNJ3Bwn
+         RLABdMNwBx70eKMZYdf+siI0AY6UYcynEdk9Fv0DPk4uqYZmGzZlZ+cUyOBBeK4XTq7k
+         eYstjK41zmv8t4P1zu97aTvhMI3eoOQKtz03p02hsTgWlJE27hUcqN90E9jsWk/H9e/e
+         QOELCkhRGHQlX3RbM0fgsBaxieoeI3j5C4xvBu5f/Qhtl5TsuQAz7Kg7FbUjXzMCn70g
+         UxGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUtxlzKU49onLrAZR+uMPJmimW5co01ClFR8IOHzd8wVOmdB2qcV4jl5oa1qyOXchcdZC78iG8hBaK3EFOaRrc1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj/5IX75wGU/82yRVmE686y4irRnTnOyVorqXnJdVusF6of8ml
+	L9PI/C1zNPCJScm7TSGpIduAA4bLxQp7biQ6WUXmiaaDyULwR3ryt3VaIOWKT5hiegUU39f0zdr
+	Q/yNksfNX5ajYN14yrnNqDBE5ARMRrhOF1kkdbd7YmlOAeS4BDFFo8FI8cksI+hWAHnUiujWgyq
+	+9TKnH0eIHsmekbhCWYs5frwAxpBCCCHZzVeZL6OOUW0e9bUOjzqFRUud/itxIv5N6/pVbaJb8s
+	yTYTYHkcEnsIXC8hd6ZJF2D6VYpmxbCdoY=
+X-Gm-Gg: ASbGncuLM6PJOUB1nL+9n584JHWxIHZDxDp21mRYxp7szPrgKIBTQBEcs7y4TbjEGK7
+	c/Oqu60lYM6EWAFAdWs2dMYgn1JDVHNl7LzwCeMf+0GU2Py0c7n0vJQEpOJUXxm5Q0QIZPgo3Um
+	aW5oSl2PC69+ccbHWz4jha5ss7RhLeWaoXEPmTKM9yP0w9wpXgk3xVLoMye0noOjTz+9Ghfjxsd
+	Gx5jYhGPfuGeb7rn++D2bg977HP9oSKcUqG6tgqHAWLVDi6QSgqpgdm9Oiglu3H/TLbXmwCKenf
+	Yy1XVNfnzIZAkEIGD9QsCb7razClzQSOsJGxpTTqJpmjn6bY7kWF90Q2ohp1o+IIL+0oKziur/H
+	PZcoq35npgZmqG58JPZeExi61LsxxXnt7erOjr+79QHJGSc5KtGbHp/YVjmv9ld9BR4s6xbkPE9
+	HUb0khSGKJjQMbqR6vKHJj2qhJajW+uZTPpwHrAhFUNw==
+X-Google-Smtp-Source: AGHT+IEojBJ3HZmA2n41c06izt4UHPEfc42oE5QGLf32NA0rJA2QaNeZClOvNC1bUhlUk/PiseZTLviNZoHv
+X-Received: by 2002:a05:6e02:1707:b0:430:ab98:7b1f with SMTP id e9e14a558f8ab-431dc1e2718mr182206125ab.18.1761510186974;
+        Sun, 26 Oct 2025 13:23:06 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-122.dlp.protect.broadcom.com. [144.49.247.122])
+        by smtp-relay.gmail.com with ESMTPS id e9e14a558f8ab-431f689a695sm5403655ab.29.2025.10.26.13.23.06
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 26 Oct 2025 13:21:45 -0700 (PDT)
+        Sun, 26 Oct 2025 13:23:06 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7a27ade1e73so2507268b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:21:45 -0700 (PDT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-32eddb7e714so3281767a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 13:23:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1761510104; x=1762114904; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1761510185; x=1762114985; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=YVS6LiUU36AQl8NmfGBhHoZlr4o5V+sFm0sfdWcZXDg=;
-        b=cl7FFYBKqCgHRVfWaNKB007YTliuCc87LRJ95H6HdvzuviRMRpTGD5aVaO8RELKitx
-         JoHbEd/Euy6AvoBYrcp0K0BeF6FFo/+Nuwthx50Jl+K62rehQcNnV/GYJ8xmNdtfCp/F
-         MWM/G9BYFkvGz+qSFr5pI0W832JpR6G09SA3c=
-X-Forwarded-Encrypted: i=1; AJvYcCWLwpusQgCKZ7Oq4hdvn6214TKnDkDtS1AlQMoCL2j0TLkvetYdD4HHs5oZ/NIBbmVfzyOLv0lsTy614GNbX0B0@lists.infradead.org
-X-Received: by 2002:a05:6a20:734e:b0:341:2fea:6b5 with SMTP id adf61e73a8af0-3412fea07ffmr6653466637.20.1761510104286;
-        Sun, 26 Oct 2025 13:21:44 -0700 (PDT)
-X-Received: by 2002:a05:6a20:734e:b0:341:2fea:6b5 with SMTP id adf61e73a8af0-3412fea07ffmr6653436637.20.1761510103855;
-        Sun, 26 Oct 2025 13:21:43 -0700 (PDT)
+        bh=8tv4EJsASL1wPUSDcCCUa8FCSZ/HO6INTApnbMDnxMQ=;
+        b=d4kXB064VCRoZxRJC6iKwpTmydLmsBTU6ILZ9zFDmmidI59sHj1e4Kotne4c4eifzI
+         gKn/YUkRJCPb2boWLH9E8c9htRGc5zNwI1/8V5qqVg2ynrM3UGVTgZp6E5GQ52W+cSts
+         OEpzAfy9AJMqOW39gsUlqUouUgcSopWlyEdOc=
+X-Forwarded-Encrypted: i=1; AJvYcCXC/ecR2mPJZkyubmDzEmRsRn20TiD3ppRnuIzv4wn8RbUwmELXjK92YzoAKRm0G4viZ5Lt4qtx2gxt+57iUfQv@lists.infradead.org
+X-Received: by 2002:a17:90b:38c6:b0:33b:c853:2d95 with SMTP id 98e67ed59e1d1-33fafc8a042mr16326562a91.33.1761510185410;
+        Sun, 26 Oct 2025 13:23:05 -0700 (PDT)
+X-Received: by 2002:a17:90b:38c6:b0:33b:c853:2d95 with SMTP id 98e67ed59e1d1-33fafc8a042mr16326533a91.33.1761510185004;
+        Sun, 26 Oct 2025 13:23:05 -0700 (PDT)
 Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414049290sm5593723b3a.34.2025.10.26.13.21.40
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fed7f6040sm5951572a91.16.2025.10.26.13.22.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Oct 2025 13:21:42 -0700 (PDT)
-Message-ID: <88c3c5a1-1b51-4b08-8b01-803659e9b1a0@broadcom.com>
-Date: Sun, 26 Oct 2025 13:21:31 -0700
+        Sun, 26 Oct 2025 13:23:03 -0700 (PDT)
+Message-ID: <c379087c-1702-44b7-a890-beb5b77d794b@broadcom.com>
+Date: Sun, 26 Oct 2025 13:22:57 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: dts: broadcom: bcm2712: Add watchdog DT node
-To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org,
+Subject: Re: [PATCH 0/4] Add watchdog support for bcm2712
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+ Stanimir Varbanov <svarbanov@suse.de>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
  Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, linux-pm@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ <bcm-kernel-feedback-list@broadcom.com>, linux-pm@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
  Scott Branden <sbranden@broadcom.com>, Lee Jones <lee@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
  Willow Cunningham <willow.e.cunningham@gmail.com>,
  Stefan Wahren <wahrenst@gmx.net>, Saenz Julienne <nsaenz@kernel.org>,
  Andrea della Porta <andrea.porta@suse.com>,
  Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
  <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
 References: <20250917063233.1270-1-svarbanov@suse.de>
- <20250917063233.1270-5-svarbanov@suse.de>
+ <CAPDyKFpus05RAkYAoG7zjyvgAJiuXwRt3=z-JB5Kb7mo0AK4vw@mail.gmail.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -140,13 +140,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250917063233.1270-5-svarbanov@suse.de>
+In-Reply-To: <CAPDyKFpus05RAkYAoG7zjyvgAJiuXwRt3=z-JB5Kb7mo0AK4vw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_132147_313093_59CBBD7C 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20251026_132307_816417_1A5EDE34 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,28 +163,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/16/2025 11:32 PM, Stanimir Varbanov wrote:
-> Add watchdog device-tree node for bcm2712 SoC.
+On 10/13/2025 4:08 AM, Ulf Hansson wrote:
+> On Wed, 17 Sept 2025 at 08:33, Stanimir Varbanov <svarbanov@suse.de> wrote:
+>>
+>> Hello,
+>>
+>> The following patch-set aims to:
+>>
+>>   * allow probe of bcm2835-wdt watchdog driver for bcm2712.
+>>   * prepare bcm2835-power driver for enabling of v3d for bcm2712.
+>>
+>>   - patch 1/4 is preparing bcm2835-power driver to be able to
+>> control GRAFX_V3D pm-domain. This is a prerequisite for the follow-up
+>> patch-set which will add a v3d DT node for bcm2712 (RPi5).
+>>
+>>   - patches 2/4 and 3/4 are adding bcm2712-pm compatible in MFD driver
+>> and update the dt-bindings accordingly.
+>>
+>>   - patch 4/4 is adding a watchdog DT node for bcm2712.
+>>
+>> Comments are welcome!
 > 
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> ---
->   arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 9 +++++++++
->   1 file changed, 9 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> index 0a9212d3106f..3094a8e69f35 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> @@ -243,6 +243,15 @@ uart10: serial@7d001000 {
->   			status = "disabled";
->   		};
->   
-> +		pm: watchdog@7d200000 {
-> +			compatible = "brcm,bcm2712-pm", "brcm,bcm2835-pm-wdt";
-> +			reg = <0x7d200000 0x308>;
+> This looks good to me!
 
-The register actually spans up to offset 0x600, so the register size 
-would be 0x604 here.
+How do you want to proceed with merging those patches? I would assume 
+you would take patches 1-3 and I would take patch 4.
+
+Thanks!
 -- 
 Florian
 
