@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DAACCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E44BCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SpvFbaS0nT1L4IPPUXMLckNgF5wAwYhG0iI2W+rvPj8=; b=StjKxj2u5g08+yDWRPk1JRFdC7
-	EAl4snL+tfMA+RokhHnmF3st/NOho4mLWOOGvCxjslmTk/P4LIJEBnmHZFTJmG6fSU43UhYXmnj9e
-	uWX6FKvr/vsRoB038vJS0BQq4hYdfASDS0s+nVJ3qubj3UtRO40ZP67EVIPYRMwRH3vNwFFWgigvE
-	hDVUyAu72S7duCDPU/YidrzGTRRWL/DTkT0YXgfrOUVkzoDc9ObHLzWawrFgzc6jWjl1KwZxwJzNd
-	WmpplbfMG+GAabblL94ZJ9Tt7UCskM0ULGsiZw+tYP1qbe5NMQgoND6vJ0FJCKqMe4mm4m3v5mjUQ
-	IbdOXd5A==;
+	bh=jpY4L2VfowcTLOLHoZX2APbGsjpFd8atdHuCdZF7CmM=; b=EagI8cZNgSqA+6CdyjuvfwBCi3
+	LXnq7D6g9MwNCNp582rZQxfF6Cq1DEi94chR2V6Fxc7AsnaF8C7uTqBPoI+3u0apHbcdKuMuSps3A
+	6xNStiIWI+O7MqAP5k12iuAYuzzz9eZ+KuzaQkeNUqNpU4AyOsw7PiwqcTZ2NIBF0hE2ZEmwQLgR/
+	80kgTmu5jZjkOS6fiMppsPT5hPz+NGeHWDKGLPEIxPiJTKpbFyaHAVxRs5D28d89/5NVx0LXrmR/A
+	wYUDE3dkkr4ghy11pfqmy73L7IJcoqkLyx3WLd9L6HitOcSYC6T7wTb3PRtb5lsVAP4t7HGe2GPeW
+	EJBoIU6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD24f-0000000CRrE-2W7g;
-	Sun, 26 Oct 2025 14:50:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vD24w-0000000CRzW-1eJI;
+	Sun, 26 Oct 2025 14:50:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD24d-0000000CRqN-1dbv;
-	Sun, 26 Oct 2025 14:50:23 +0000
+	id 1vD24s-0000000CRxR-27ho
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 26 Oct 2025 14:50:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D5D460414;
-	Sun, 26 Oct 2025 14:50:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B94EFC4CEF1;
-	Sun, 26 Oct 2025 14:50:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CBEE4344C;
+	Sun, 26 Oct 2025 14:50:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A374C4CEE7;
+	Sun, 26 Oct 2025 14:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761490220;
-	bh=jMTtq6Xo1XlrvYqcb4wROaYCZBEw5JdAq4ePIhysOLk=;
+	s=k20201202; t=1761490238;
+	bh=ZJuHNoGLmIbXSdjWvZ3Ub/oxRuillLG3+TXl5+O9TO4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G37DIfbyVj9pg2udsJc3AEnkoKA10XRbnPRlHhoFqW9GgI+TZklVde0cQBOzAShGW
-	 rgWCpL5G2HsfPSk1rraanJh1i/f8jY3wz23PY3ASwFYgGaFFOglvn/zCUd+UNqPecG
-	 hCE/1Pm223Q90HIdelf5OpwUugadxP4MwhTeDVJBy+WRo/UFnFUELMuB/WQmDpOJFO
-	 7cyRHMgSxH6C+f6cEdylPoz/j6xRv/N4ZPtgn6CVWsoKTUPvgJ9Ij45k3UKjgY4wxt
-	 skmdSKJJilfllhWtrmeY1r3BiZyEId3x8fpMMLF+dgdnLaoAF3nXcaYXsGw0R301gm
-	 x0ApNbId5USnQ==
+	b=M2TcAogo2HJ+nESN7maP0Jg+Fn88K/24cbe7Of3C2IRELwEY3+kiRWuRW4jfitztY
+	 BmOUkPYLAnnlLIl5/MiNGIczwW979PdvjG4jufuanwaVK7iOeFan5ZUWpLX0RMI0I2
+	 qDsju2wsT0juEW49dSEDYokj4xAxkUPoAUCOsMs6Qs1ySVQtHur8bi/60uESJoW5tK
+	 ULepQctmfXPwJd6ocWPpwLqMm1vHAF6tECFpfwkLK1gFPn0XLE2JLUI6lMDuIATQea
+	 SwzRv74pJw3ymRUjyDI69ALxHaFOhljlQp96uxLlXvSvXJC9WLqWRxIYvf4VeD5n4f
+	 IzrNRORa9xUqg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Valerio Setti <vsetti@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Cristian Birsan <cristian.birsan@microchip.com>,
+	Mihai Sain <mihai.sain@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Sasha Levin <sashal@kernel.org>,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17-5.10] ASoC: meson: aiu-encoder-i2s: fix bit clock polarity
-Date: Sun, 26 Oct 2025 10:48:49 -0400
-Message-ID: <20251026144958.26750-11-sashal@kernel.org>
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	alexander.deucher@amd.com,
+	alexandre.f.demers@gmail.com,
+	balamanikandan.gunasundar@microchip.com,
+	varshini.rajendran@microchip.com,
+	Ryan.Wanner@microchip.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17] clk: at91: add ACR in all PLL settings
+Date: Sun, 26 Oct 2025 10:48:53 -0400
+Message-ID: <20251026144958.26750-15-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251026144958.26750-1-sashal@kernel.org>
 References: <20251026144958.26750-1-sashal@kernel.org>
@@ -65,6 +69,9 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251026_075038_590383_0D4C508E 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,78 +86,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Valerio Setti <vsetti@baylibre.com>
+From: Cristian Birsan <cristian.birsan@microchip.com>
 
-[ Upstream commit 4c4ed5e073a923fb3323022e1131cb51ad8df7a0 ]
+[ Upstream commit bfa2bddf6ffe0ac034d02cda20c74ef05571210e ]
 
-According to I2S specs audio data is sampled on the rising edge of the
-clock and it can change on the falling one. When operating in normal mode
-this SoC behaves the opposite so a clock polarity inversion is required
-in this case.
+Add the ACR register to all PLL settings and provide the correct
+ACR value for each PLL used in different SoCs.
 
-This was tested on an OdroidC2 (Amlogic S905 SoC) board.
-
-Signed-off-by: Valerio Setti <vsetti@baylibre.com>
-Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-Link: https://patch.msgid.link/20251007-fix-i2s-polarity-v1-1-86704d9cda10@baylibre.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Suggested-by: Mihai Sain <mihai.sain@microchip.com>
+Signed-off-by: Cristian Birsan <cristian.birsan@microchip.com>
+[nicolas.ferre@microchip.com: add sama7d65 and review commit message]
+Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-YES – this change fixes a long-standing functional bug with the Meson
-AIU I²S encoder and is low risk to backport.
-- The updated `aiu_encoder_i2s_set_fmt()` now inverts the bit clock
-  whenever the DAI format requests the normal (non-inverted) polarity
-  (`SND_SOC_DAIFMT_NB_*`), matching the hardware quirk described in the
-  new comment (`sound/soc/meson/aiu-encoder-i2s.c:239-245`). Without
-  this inversion, the CPU-side master drives BCLK so that data toggles
-  on the rising edge, which makes all mainline DT users (e.g. Odroid C2)
-  sample on the wrong edge and yields audible corruption.
-- Frames (`LRCLK`) are still handled exactly as before, and the fix only
-  flips which `inv` combinations set `AIU_CLK_CTRL_AOCLK_INVERT`, so
-  `IB_*` formats continue to work as they already matched the SoC’s
-  “inverted” default.
-- The change is tightly scoped to one helper in the Meson AIU encoder
-  driver, leaves register programming and clock sequencing untouched,
-  and has been validated on real hardware per the commit log.
-- Mainline device trees for this DAI all rely on the default `NB_NF`
-  format, so the bug is user-visible today; there are no dependency or
-  API concerns blocking stable backporting.
+YES – this patch is a low-risk dependency that stable trees need before
+they can pick up the actual bug fix for the Atmel/Microchip PLL driver.
 
-Suggested follow-up: 1) Run a quick playback sanity test on an Odroid C2
-(or any Meson GX board using the AIU encoder) after backporting to
-confirm audio becomes clean.
+- `drivers/clk/at91/clk-sam9x60-pll.c:107` (from the follow-up fix) now
+  reads `core->characteristics->acr`; without this commit the field is
+  absent/zero, so the driver would push an invalid value into
+  PMC_PLL_ACR.
+- This change extends `struct clk_pll_characteristics` with an explicit
+  `acr` slot (`drivers/clk/at91/pmc.h:83`) and populates per-SoC values
+  for every platform that feeds the sam9x60-style PLL driver: sam9x60
+  (`drivers/clk/at91/sam9x60.c:39` and `:52`), sam9x7
+  (`drivers/clk/at91/sam9x7.c:110`/`119`/`127`/`135`/`143`), sama7d65
+  (`drivers/clk/at91/sama7d65.c:141`/`150`/`158`/`166`), and sama7g5
+  (`drivers/clk/at91/sama7g5.c:116`/`125`).
+- The new constants differ from the old hard-coded defaults (e.g.
+  sama7*d* CPU PLLs need `0x00070010` instead of `0x00020010`), so once
+  the driver starts using `characteristics->acr` the hardware finally
+  receives the correct analog-control parameters.
+- The struct growth is internal to the driver, and all in-tree users
+  either get an explicit initializer (updated here) or safely default to
+  zero, so the risk to stable is negligible.
 
- sound/soc/meson/aiu-encoder-i2s.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Follow-up: backport `ARM: at91: remove default values for PMC_PLL_ACR`
+(e204c148c83025205eaf9be89593edf350d327a0) right after this so the
+stored ACR values are actually written.
 
-diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
-index a0dd914c8ed13..3b4061508c180 100644
---- a/sound/soc/meson/aiu-encoder-i2s.c
-+++ b/sound/soc/meson/aiu-encoder-i2s.c
-@@ -236,8 +236,12 @@ static int aiu_encoder_i2s_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
- 	    inv == SND_SOC_DAIFMT_IB_IF)
- 		val |= AIU_CLK_CTRL_LRCLK_INVERT;
- 
--	if (inv == SND_SOC_DAIFMT_IB_NF ||
--	    inv == SND_SOC_DAIFMT_IB_IF)
-+	/*
-+	 * The SoC changes data on the rising edge of the bitclock
-+	 * so an inversion of the bitclock is required in normal mode
-+	 */
-+	if (inv == SND_SOC_DAIFMT_NB_NF ||
-+	    inv == SND_SOC_DAIFMT_NB_IF)
- 		val |= AIU_CLK_CTRL_AOCLK_INVERT;
- 
- 	/* Signal skew */
-@@ -328,4 +332,3 @@ const struct snd_soc_dai_ops aiu_encoder_i2s_dai_ops = {
- 	.startup	= aiu_encoder_i2s_startup,
- 	.shutdown	= aiu_encoder_i2s_shutdown,
+ drivers/clk/at91/pmc.h      | 1 +
+ drivers/clk/at91/sam9x60.c  | 2 ++
+ drivers/clk/at91/sam9x7.c   | 5 +++++
+ drivers/clk/at91/sama7d65.c | 4 ++++
+ drivers/clk/at91/sama7g5.c  | 2 ++
+ 5 files changed, 14 insertions(+)
+
+diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
+index 4fb29ca111f7d..5daa32c4cf254 100644
+--- a/drivers/clk/at91/pmc.h
++++ b/drivers/clk/at91/pmc.h
+@@ -80,6 +80,7 @@ struct clk_pll_characteristics {
+ 	u16 *icpll;
+ 	u8 *out;
+ 	u8 upll : 1;
++	u32 acr;
  };
--
+ 
+ struct clk_programmable_layout {
+diff --git a/drivers/clk/at91/sam9x60.c b/drivers/clk/at91/sam9x60.c
+index db6db9e2073eb..18baf4a256f47 100644
+--- a/drivers/clk/at91/sam9x60.c
++++ b/drivers/clk/at91/sam9x60.c
+@@ -36,6 +36,7 @@ static const struct clk_pll_characteristics plla_characteristics = {
+ 	.num_output = ARRAY_SIZE(plla_outputs),
+ 	.output = plla_outputs,
+ 	.core_output = core_outputs,
++	.acr = UL(0x00020010),
+ };
+ 
+ static const struct clk_range upll_outputs[] = {
+@@ -48,6 +49,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
+ 	.output = upll_outputs,
+ 	.core_output = core_outputs,
+ 	.upll = true,
++	.acr = UL(0x12023010), /* fIN = [18 MHz, 32 MHz]*/
+ };
+ 
+ static const struct clk_pll_layout pll_frac_layout = {
+diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+index ffab32b047a01..7322220418b45 100644
+--- a/drivers/clk/at91/sam9x7.c
++++ b/drivers/clk/at91/sam9x7.c
+@@ -107,6 +107,7 @@ static const struct clk_pll_characteristics plla_characteristics = {
+ 	.num_output = ARRAY_SIZE(plla_outputs),
+ 	.output = plla_outputs,
+ 	.core_output = plla_core_outputs,
++	.acr = UL(0x00020010), /* Old ACR_DEFAULT_PLLA value */
+ };
+ 
+ static const struct clk_pll_characteristics upll_characteristics = {
+@@ -115,6 +116,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
+ 	.output = upll_outputs,
+ 	.core_output = upll_core_outputs,
+ 	.upll = true,
++	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
+ };
+ 
+ static const struct clk_pll_characteristics lvdspll_characteristics = {
+@@ -122,6 +124,7 @@ static const struct clk_pll_characteristics lvdspll_characteristics = {
+ 	.num_output = ARRAY_SIZE(lvdspll_outputs),
+ 	.output = lvdspll_outputs,
+ 	.core_output = lvdspll_core_outputs,
++	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
+ };
+ 
+ static const struct clk_pll_characteristics audiopll_characteristics = {
+@@ -129,6 +132,7 @@ static const struct clk_pll_characteristics audiopll_characteristics = {
+ 	.num_output = ARRAY_SIZE(audiopll_outputs),
+ 	.output = audiopll_outputs,
+ 	.core_output = audiopll_core_outputs,
++	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
+ };
+ 
+ static const struct clk_pll_characteristics plladiv2_characteristics = {
+@@ -136,6 +140,7 @@ static const struct clk_pll_characteristics plladiv2_characteristics = {
+ 	.num_output = ARRAY_SIZE(plladiv2_outputs),
+ 	.output = plladiv2_outputs,
+ 	.core_output = plladiv2_core_outputs,
++	.acr = UL(0x00020010),  /* Old ACR_DEFAULT_PLLA value */
+ };
+ 
+ /* Layout for fractional PLL ID PLLA. */
+diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+index a5d40df8b2f27..7dee2b160ffb3 100644
+--- a/drivers/clk/at91/sama7d65.c
++++ b/drivers/clk/at91/sama7d65.c
+@@ -138,6 +138,7 @@ static const struct clk_pll_characteristics cpu_pll_characteristics = {
+ 	.num_output = ARRAY_SIZE(cpu_pll_outputs),
+ 	.output = cpu_pll_outputs,
+ 	.core_output = core_outputs,
++	.acr = UL(0x00070010),
+ };
+ 
+ /* PLL characteristics. */
+@@ -146,6 +147,7 @@ static const struct clk_pll_characteristics pll_characteristics = {
+ 	.num_output = ARRAY_SIZE(pll_outputs),
+ 	.output = pll_outputs,
+ 	.core_output = core_outputs,
++	.acr = UL(0x00070010),
+ };
+ 
+ static const struct clk_pll_characteristics lvdspll_characteristics = {
+@@ -153,6 +155,7 @@ static const struct clk_pll_characteristics lvdspll_characteristics = {
+ 	.num_output = ARRAY_SIZE(lvdspll_outputs),
+ 	.output = lvdspll_outputs,
+ 	.core_output = lvdspll_core_outputs,
++	.acr = UL(0x00070010),
+ };
+ 
+ static const struct clk_pll_characteristics upll_characteristics = {
+@@ -160,6 +163,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
+ 	.num_output = ARRAY_SIZE(upll_outputs),
+ 	.output = upll_outputs,
+ 	.core_output = upll_core_outputs,
++	.acr = UL(0x12020010),
+ 	.upll = true,
+ };
+ 
+diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
+index 8385badc1c706..1340c2b006192 100644
+--- a/drivers/clk/at91/sama7g5.c
++++ b/drivers/clk/at91/sama7g5.c
+@@ -113,6 +113,7 @@ static const struct clk_pll_characteristics cpu_pll_characteristics = {
+ 	.num_output = ARRAY_SIZE(cpu_pll_outputs),
+ 	.output = cpu_pll_outputs,
+ 	.core_output = core_outputs,
++	.acr = UL(0x00070010),
+ };
+ 
+ /* PLL characteristics. */
+@@ -121,6 +122,7 @@ static const struct clk_pll_characteristics pll_characteristics = {
+ 	.num_output = ARRAY_SIZE(pll_outputs),
+ 	.output = pll_outputs,
+ 	.core_output = core_outputs,
++	.acr = UL(0x00070010),
+ };
+ 
+ /*
 -- 
 2.51.0
 
