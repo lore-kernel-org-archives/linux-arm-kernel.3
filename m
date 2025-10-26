@@ -4,107 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36040CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 16:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF024CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 17:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t0DBvMDILnDk72EnjQ+s8jDNwYGavQF6fjACzfyRTZI=; b=matOyvICZYe+hzVUy2H9nvZasZ
-	2ShtAXNjwGOHuCajRA4IoIbh0wsNW/5/ikKPzKVf/Mv3uiZ3D4rp1ickk/6IDSLLwzqAsN/GajaWd
-	diw4ziAbOdcnLuS38vdq9Xloy61uWA9AkqfalVyEClBGkz3IVFUJUvWkQ0hQpdY61PVTXQyGQyIFB
-	l1MxFmhuuBtBWMk+c/x5zoZ7HxflM5gTasMt5VQEJCaT3oSQsywS9tEAZ6yOUoxyvmm2m+0DO0f5B
-	7DL3FVfoDpHq0rhKSNefqzyF9uol0h+3MVvbB4EjYHjiffqnxSmKVZDeEGI/ET5QsF067Bqxr0zt+
-	SdeJIdrA==;
+	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Da7n/lRyiS06YbMDRGJe/PhIKNbj4s3MR8oTEu6nwl4=; b=358E1vRQlU+J0VIpCB3YfhVBRs
+	vNZov6v+cu4IsV1dRxrb95HNeNO9JFNVys6H2wjSP7I93BGPtG+Nb0cQj2UsPcFRzMPdF/a9C2zuJ
+	3XjML/giGbMht+ntwppMmi4H0pNiNerQvWT0XtnTczBzGaebi3gvyt0Havg9w8i13Ric3ABo+oPRt
+	v+N7M15Mp0LBMFuNuy0QEibDRdsJS2gchwJglNxWfCduyFoxx98YPnS5swhdRCAaeELCwh9vuYDUB
+	9dy7khC3qiom6iYxHlcCdX95+QRWil0Wi+wYd49qUbigCzn1LNKi8fteBd04JQSO79krElkKuNdfx
+	LmYS8nSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD3aH-0000000CXI4-1RAA;
-	Sun, 26 Oct 2025 16:27:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vD4Kn-0000000CZN1-44bf;
+	Sun, 26 Oct 2025 17:15:13 +0000
+Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD3aE-0000000CXHa-2Uwv;
-	Sun, 26 Oct 2025 16:27:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C88CD4362F;
-	Sun, 26 Oct 2025 16:27:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC028C4CEE7;
-	Sun, 26 Oct 2025 16:27:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761496025;
-	bh=TdXB0ISYKRIWJDthOnWDF2K3IYL33xlQ6qaCJWuJLtg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=owbCws9Bly4XdsayCFHdJJ3LbvAip0EhZCwRgFaL+Q7NnD/OHG7BgveJm5OAafii0
-	 y2ROBq2KYqF7+gYWdtSDLV2uqyE8fNkva8+HQAnQXlGJpK4T7ktSGWTTUFZJBx/f1R
-	 +De9Ly1Lg/j8okaQLElC9inVclaqV8y5lTn2+6jeinIxRxW3hyJp1PdTsrbn7846XF
-	 wwXTikCd46jSGbyVudxF79PQKmljZ+SfT/ncWLWjjdOuSWyjaWGFaNjdINHblNnwmM
-	 /ewQc6duT1RpFFUx8HEZFs1y4CfTRoGUNBAE7Y+Inpnhp/XLNi6yFPohRHMS0GemQY
-	 ZC4DVxeyXhFUw==
-Message-ID: <f6535596-fdc5-4076-a925-26cecf25eacb@kernel.org>
-Date: Sun, 26 Oct 2025 17:27:00 +0100
+	id 1vD4Kk-0000000CZM8-48g5
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 26 Oct 2025 17:15:12 +0000
+Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-b4539dddd99so820233966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 10:15:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761498909; x=1762103709; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Da7n/lRyiS06YbMDRGJe/PhIKNbj4s3MR8oTEu6nwl4=;
+        b=dJA5ZydhJmIuXVTVwhGXRkRyaRnVQoUxOoA1mHFaCOq/BHKrxk98FaEAQt3+g/J3g+
+         gCwqzgWQLX8Ca1f0dkHCxTQFljaQ2cqWF7FoZ9xQmbA89g6qfa5JRp6ZTr6qLmqdBeQA
+         Ecc+LFJjEj2boYWv2Nual1ph2U0/FKYuNr8+KAKkkciSmLTs3SU+VZ2iOw7gjrEhZ/RG
+         C/NUO+AIfuPey70pAS9KqJPxSKj1lhbbGpSTBEq1IjnZuEjJ0soXyAAGLlS863PvntSv
+         lqMxo1m0tkqcrhyV4BA32+cWyOS8F+g4GtD5vJnzkUltnDuvj+CpC/ERcx2m9MAS34iE
+         ldnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761498909; x=1762103709;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Da7n/lRyiS06YbMDRGJe/PhIKNbj4s3MR8oTEu6nwl4=;
+        b=WmprK9IXCtuEUvDZ2xiQQnWMFNXt0VoO1ED2A6DgNAVnXokLORyt91wd595zVNZ/aO
+         clNNINN5lf02uSL6WMr9BjoNUuec5siIHjHO88VxRHKpF5teW9257PN5AgB5Q8T8XFtg
+         cflVHEIFzGBkv5Ls70gYiRAZsdi0JLpx19wd90BR4CBbP95ZJqq2kBnKU6dh+xFJPS5C
+         4cunmSx1cxuLEY9QLnBr3DqFsFoIEVnV8B6QjwGOKQ/Z4dkEGFnx/QiWO/tHiNyUmNMU
+         daUThq3uMiyQ5KwEe/Q+fl2zpSD2esPmCybrRwzHBLhdS0GKGqZf9fLEV31H8N05+YS0
+         HZEg==
+X-Forwarded-Encrypted: i=1; AJvYcCXKL+wtGnT/WmtDFUvpdshaHcGEjczisvQjnmqKfzFqboYwVi1tATvVDkELDQjTyOTBwVC5A/YQdXZW5g7D2fMj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRLVCIbLgZIHav5JI8g6RFtPMZ4MhcQrF4ZPC8Pf5PhA4Q6MWP
+	xiPTkaCEDTi+cdBGxZTjsJzWL36/WKdwuY42TVsvUEOJvb9vnfBp9xhQoiuMZj5eTQaEgCq//Kv
+	xzQjfdaefbbzJvhv3W8mH8orm+VvF67mb3NchbPLo7w==
+X-Gm-Gg: ASbGncuxEr8v7LYmRcakbjamWhq3chHQk9IDlHAUVLe9jb8kYPBMJowAGe65ljdebRS
+	0srSp+6YcaQ8jj6WuTcGAHTc/2TrR0SIuEJw31Bu4KnymVpB9Y2sq12lDtPzASluMP9T+38ZuVb
+	2IL3n+dTa1BxyvYm576NwduhK7UdaNMwFBvNbe/HpFribM7pwfdVWu9udOcxkfFdDcsiy6qgqCO
+	05Zl+Xp0vYrkv42+IbuC+rDdUPStjlAmHEVQ8OYA5H34ZJWp6VO42kMwYyDwTe1KhvRW27kMA==
+X-Google-Smtp-Source: AGHT+IFzqU3QsaPE1MW2duZ8/dKVM5Mj7D0icnFlvp/4DYRo9NMCY1YBcoIDI7zlJrtuI8cbSwsY9j7dHSYnlbDke2o=
+X-Received: by 2002:a17:907:1c81:b0:b6c:8e24:21f with SMTP id
+ a640c23a62f3a-b6d51c325c6mr1741819066b.55.1761498908937; Sun, 26 Oct 2025
+ 10:15:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: vendor-prefixes: Add NineTripod
-To: Coia Prant <coiaprant@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20251026150358.1078453-1-coiaprant@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
 In-Reply-To: <20251026150358.1078453-1-coiaprant@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Coia Prant <coiaprant@gmail.com>
+Date: Mon, 27 Oct 2025 01:14:56 +0800
+X-Gm-Features: AWmQ_bnvhjvqwSYSkZyszEhUHRG058LD6n9gayksgoabyqflquBOY2fvBCiBW_0
+Message-ID: <CALj3r0jVPGtVtHUwxmxjePkj4T3jZD5JUHfJL6xa6h8CAKHRzw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: vendor-prefixes: Add NineTripod
+To: devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_092706_681000_BF6DB99F 
-X-CRM114-Status: UNSURE (   6.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251026_101511_044551_D778BAD2 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,16 +94,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/10/2025 16:03, Coia Prant wrote:
+Sorry, v2/v3 causes compilation errors, which armbian's build system
+automatically ignores.
+
+v4 has fixed the build failure issue.
+
+:(
+
+---
+
+I'm new here
+
+OMG, Gmail Android cannot send as plaintext mode :(
+
+(Resending with corrected Cc list and plaintext mode, sorry for the noise.)
+
+Coia Prant <coiaprant@gmail.com> =E4=BA=8E2025=E5=B9=B410=E6=9C=8826=E6=97=
+=A5=E5=91=A8=E6=97=A5 23:04=E5=86=99=E9=81=93=EF=BC=9A
+>
 > Add NineTripod to the vendor prefixes.
-> 
+>
 > Signed-off-by: Coia Prant <coiaprant@gmail.com>
-
-
-Please slow down sending the same. One patchset per 24h.
-
-None of these have changelog, so I do not get why you send v4 now.
-
-Best regards,
-Krzysztof
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
+umentation/devicetree/bindings/vendor-prefixes.yaml
+> index f1d188200..37687737e 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -1124,6 +1124,8 @@ patternProperties:
+>      description: National Instruments
+>    "^nicera,.*":
+>      description: Nippon Ceramic Co., Ltd.
+> +  "^ninetripod,.*":
+> +    description: Shenzhen 9Tripod Innovation and Development CO., LTD.
+>    "^nintendo,.*":
+>      description: Nintendo
+>    "^nlt,.*":
+> --
+> 2.47.3
+>
 
