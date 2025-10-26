@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19201CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DAACCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 14:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXzkdNt1/rtabtQYtuwbkqi0YDDPkJ6QX9Ea/uTIeic=; b=v8U7uQn9dI9dMbI7inFgq99XBr
-	2us2bA2LU4YPK2hegmMVS4RGOF6eMi8h9aEN4GJQIk8TgEdrx/u4tfwC9YiENIBmy0CoOdoDtzfqQ
-	tf2hCWZy/17xbGSF0RAJEOOVdBBHEQ9sJBsbXhMYeHQrqQWccxe4De7Adxsm6P5dY6NrHU1zfsQKZ
-	4XHyw+lxw4D+65mik8KmWZEGol7e/cPNPZWLRhxrWIK4N500O/yNt89NQYH8Ykv8gxcGE39AgYInr
-	xQgjrVMr2qhsEGTx5mAFHyXn7ZjbYU7xQzAbzP6wy99pS85m6v6Kqmbq/hTmgtSw1g6FnfGY2YdEh
-	c5VyjX4w==;
+	bh=SpvFbaS0nT1L4IPPUXMLckNgF5wAwYhG0iI2W+rvPj8=; b=StjKxj2u5g08+yDWRPk1JRFdC7
+	EAl4snL+tfMA+RokhHnmF3st/NOho4mLWOOGvCxjslmTk/P4LIJEBnmHZFTJmG6fSU43UhYXmnj9e
+	uWX6FKvr/vsRoB038vJS0BQq4hYdfASDS0s+nVJ3qubj3UtRO40ZP67EVIPYRMwRH3vNwFFWgigvE
+	hDVUyAu72S7duCDPU/YidrzGTRRWL/DTkT0YXgfrOUVkzoDc9ObHLzWawrFgzc6jWjl1KwZxwJzNd
+	WmpplbfMG+GAabblL94ZJ9Tt7UCskM0ULGsiZw+tYP1qbe5NMQgoND6vJ0FJCKqMe4mm4m3v5mjUQ
+	IbdOXd5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD24V-0000000CRnO-0B4g;
-	Sun, 26 Oct 2025 14:50:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vD24f-0000000CRrE-2W7g;
+	Sun, 26 Oct 2025 14:50:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD24R-0000000CRlC-3wJB
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 14:50:13 +0000
+	id 1vD24d-0000000CRqN-1dbv;
+	Sun, 26 Oct 2025 14:50:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C5C344CA2;
-	Sun, 26 Oct 2025 14:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24AACC4CEE7;
-	Sun, 26 Oct 2025 14:50:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D5D460414;
+	Sun, 26 Oct 2025 14:50:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B94EFC4CEF1;
+	Sun, 26 Oct 2025 14:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761490211;
-	bh=jY0mVRH9vGGA3XQwuOzAK8Am1h8Cl0lc9WteBzrBfnI=;
+	s=k20201202; t=1761490220;
+	bh=jMTtq6Xo1XlrvYqcb4wROaYCZBEw5JdAq4ePIhysOLk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Wv+p60qRjiw8Lp72ChwpOKNfvl1Xi0necj7mPX0VqhIK23KDgiAHgXBaI6FuGoeaQ
-	 i6N9gFnAvFEXfc340YvdqkaIbI2/UrJ6F2dKrntmKkoYPuDMt65r50dMi4mBNzbkeQ
-	 mTrVS9b2ToNaYW6d6mKxkg4C9Llp20u+tNUkH+/gsv3DOWYZzlQ7oheOEcHvGZ/zOo
-	 rX09pE9MJQsTzzjc2lX/c2Ebp8R3B905Skikb/jyCYi5PdBQJkREfwDe802KeQRYZz
-	 Wfve25x6lz/CRz7eBuXpa8SISRiYijIZB6SokfM6EXdT3v6q2sdKrLMZbtuWxyDZVx
-	 ScRdyRgONX3pQ==
+	b=G37DIfbyVj9pg2udsJc3AEnkoKA10XRbnPRlHhoFqW9GgI+TZklVde0cQBOzAShGW
+	 rgWCpL5G2HsfPSk1rraanJh1i/f8jY3wz23PY3ASwFYgGaFFOglvn/zCUd+UNqPecG
+	 hCE/1Pm223Q90HIdelf5OpwUugadxP4MwhTeDVJBy+WRo/UFnFUELMuB/WQmDpOJFO
+	 7cyRHMgSxH6C+f6cEdylPoz/j6xRv/N4ZPtgn6CVWsoKTUPvgJ9Ij45k3UKjgY4wxt
+	 skmdSKJJilfllhWtrmeY1r3BiZyEId3x8fpMMLF+dgdnLaoAF3nXcaYXsGw0R301gm
+	 x0ApNbId5USnQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Harini T <harini.t@amd.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+Cc: Valerio Setti <vsetti@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	michal.simek@amd.com,
-	linux-rtc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17] rtc: zynqmp: Restore alarm functionality after kexec transition
-Date: Sun, 26 Oct 2025 10:48:45 -0400
-Message-ID: <20251026144958.26750-7-sashal@kernel.org>
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-5.10] ASoC: meson: aiu-encoder-i2s: fix bit clock polarity
+Date: Sun, 26 Oct 2025 10:48:49 -0400
+Message-ID: <20251026144958.26750-11-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251026144958.26750-1-sashal@kernel.org>
 References: <20251026144958.26750-1-sashal@kernel.org>
@@ -63,9 +65,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.5
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_075012_024548_86369138 
-X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,104 +79,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Harini T <harini.t@amd.com>
+From: Valerio Setti <vsetti@baylibre.com>
 
-[ Upstream commit e22f4d1321e0055065f274e20bf6d1dbf4b500f5 ]
+[ Upstream commit 4c4ed5e073a923fb3323022e1131cb51ad8df7a0 ]
 
-During kexec reboots, RTC alarms that are fired during the kernel
-transition experience delayed execution. The new kernel would eventually
-honor these alarms, but the interrupt handlers would only execute after
-the driver probe is completed rather than at the intended alarm time.
+According to I2S specs audio data is sampled on the rising edge of the
+clock and it can change on the falling one. When operating in normal mode
+this SoC behaves the opposite so a clock polarity inversion is required
+in this case.
 
-This is because pending alarm interrupt status from the previous kernel
-is not properly cleared during driver initialization, causing timing
-discrepancies in alarm delivery.
+This was tested on an OdroidC2 (Amlogic S905 SoC) board.
 
-To ensure precise alarm timing across kexec transitions, enhance the
-probe function to:
-1. Clear any pending alarm interrupt status from previous boot.
-2. Detect existing valid alarms and preserve their state.
-3. Re-enable alarm interrupts for future alarms.
-
-Signed-off-by: Harini T <harini.t@amd.com>
-Link: https://lore.kernel.org/r/20250730142110.2354507-1-harini.t@amd.com
-Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+Link: https://patch.msgid.link/20251007-fix-i2s-polarity-v1-1-86704d9cda10@baylibre.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-YES
-- `drivers/rtc/rtc-zynqmp.c:303-307` clears a latched `RTC_INT_ALRM` bit
-  left behind by the kexec’d kernel so the new instance doesn’t mis-
-  handle a stale interrupt; this matches the existing acknowledge flow
-  in `xlnx_rtc_alarm_irq_enable()` (`drivers/rtc/rtc-zynqmp.c:125-152`),
-  but now happens eagerly during probe to avoid delayed/duplicate
-  delivery.
-- `drivers/rtc/rtc-zynqmp.c:309-312` inspects the hardware alarm
-  register and only preserves state when the stored alarm time is still
-  in the future, preventing stray enables after a cold boot while
-  keeping real alarms armed across the handover.
-- Because the prior kernel disables the alarm IRQ in the ISR
-  (`drivers/rtc/rtc-zynqmp.c:268-272`), the new code re-arms it when a
-  valid alarm is detected (`drivers/rtc/rtc-zynqmp.c:355-357`); without
-  this, alarms that were scheduled before the kexec never fire under the
-  new kernel, which is a user-visible regression.
-- The change is tightly scoped to probe-time initialization, uses
-  existing register helpers, and introduces no ABI or architectural
-  churn; risk is low compared with the clear functional gain of
-  delivering RTC alarms correctly after kexec on ZynqMP hardware.
+YES – this change fixes a long-standing functional bug with the Meson
+AIU I²S encoder and is low risk to backport.
+- The updated `aiu_encoder_i2s_set_fmt()` now inverts the bit clock
+  whenever the DAI format requests the normal (non-inverted) polarity
+  (`SND_SOC_DAIFMT_NB_*`), matching the hardware quirk described in the
+  new comment (`sound/soc/meson/aiu-encoder-i2s.c:239-245`). Without
+  this inversion, the CPU-side master drives BCLK so that data toggles
+  on the rising edge, which makes all mainline DT users (e.g. Odroid C2)
+  sample on the wrong edge and yields audible corruption.
+- Frames (`LRCLK`) are still handled exactly as before, and the fix only
+  flips which `inv` combinations set `AIU_CLK_CTRL_AOCLK_INVERT`, so
+  `IB_*` formats continue to work as they already matched the SoC’s
+  “inverted” default.
+- The change is tightly scoped to one helper in the Meson AIU encoder
+  driver, leaves register programming and clock sequencing untouched,
+  and has been validated on real hardware per the commit log.
+- Mainline device trees for this DAI all rely on the default `NB_NF`
+  format, so the bug is user-visible today; there are no dependency or
+  API concerns blocking stable backporting.
 
-Next step you may want: 1) run the RTC selftests or a quick kexec/alarm
-smoke test on target hardware to validate the restored behavior.
+Suggested follow-up: 1) Run a quick playback sanity test on an Odroid C2
+(or any Meson GX board using the AIU encoder) after backporting to
+confirm audio becomes clean.
 
- drivers/rtc/rtc-zynqmp.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ sound/soc/meson/aiu-encoder-i2s.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-index f39102b66eac2..3baa2b481d9f2 100644
---- a/drivers/rtc/rtc-zynqmp.c
-+++ b/drivers/rtc/rtc-zynqmp.c
-@@ -277,6 +277,10 @@ static irqreturn_t xlnx_rtc_interrupt(int irq, void *id)
- static int xlnx_rtc_probe(struct platform_device *pdev)
- {
- 	struct xlnx_rtc_dev *xrtcdev;
-+	bool is_alarm_set = false;
-+	u32 pending_alrm_irq;
-+	u32 current_time;
-+	u32 alarm_time;
- 	int ret;
+diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
+index a0dd914c8ed13..3b4061508c180 100644
+--- a/sound/soc/meson/aiu-encoder-i2s.c
++++ b/sound/soc/meson/aiu-encoder-i2s.c
+@@ -236,8 +236,12 @@ static int aiu_encoder_i2s_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
+ 	    inv == SND_SOC_DAIFMT_IB_IF)
+ 		val |= AIU_CLK_CTRL_LRCLK_INVERT;
  
- 	xrtcdev = devm_kzalloc(&pdev->dev, sizeof(*xrtcdev), GFP_KERNEL);
-@@ -296,6 +300,17 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
- 	if (IS_ERR(xrtcdev->reg_base))
- 		return PTR_ERR(xrtcdev->reg_base);
+-	if (inv == SND_SOC_DAIFMT_IB_NF ||
+-	    inv == SND_SOC_DAIFMT_IB_IF)
++	/*
++	 * The SoC changes data on the rising edge of the bitclock
++	 * so an inversion of the bitclock is required in normal mode
++	 */
++	if (inv == SND_SOC_DAIFMT_NB_NF ||
++	    inv == SND_SOC_DAIFMT_NB_IF)
+ 		val |= AIU_CLK_CTRL_AOCLK_INVERT;
  
-+	/* Clear any pending alarm interrupts from previous kernel/boot */
-+	pending_alrm_irq = readl(xrtcdev->reg_base + RTC_INT_STS) & RTC_INT_ALRM;
-+	if (pending_alrm_irq)
-+		writel(pending_alrm_irq, xrtcdev->reg_base + RTC_INT_STS);
-+
-+	/* Check if a valid alarm is already set from previous kernel/boot */
-+	alarm_time = readl(xrtcdev->reg_base + RTC_ALRM);
-+	current_time = readl(xrtcdev->reg_base + RTC_CUR_TM);
-+	if (alarm_time > current_time && alarm_time != 0)
-+		is_alarm_set = true;
-+
- 	xrtcdev->alarm_irq = platform_get_irq_byname(pdev, "alarm");
- 	if (xrtcdev->alarm_irq < 0)
- 		return xrtcdev->alarm_irq;
-@@ -337,6 +352,10 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
- 
- 	xlnx_init_rtc(xrtcdev);
- 
-+	/* Re-enable alarm interrupt if a valid alarm was found */
-+	if (is_alarm_set)
-+		writel(RTC_INT_ALRM, xrtcdev->reg_base + RTC_INT_EN);
-+
- 	device_init_wakeup(&pdev->dev, true);
- 
- 	return devm_rtc_register_device(xrtcdev->rtc);
+ 	/* Signal skew */
+@@ -328,4 +332,3 @@ const struct snd_soc_dai_ops aiu_encoder_i2s_dai_ops = {
+ 	.startup	= aiu_encoder_i2s_startup,
+ 	.shutdown	= aiu_encoder_i2s_shutdown,
+ };
+-
 -- 
 2.51.0
 
