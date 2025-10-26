@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ABACCD193
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BA8CCF9E5
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 05:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vnp2uVuhR1t7ourcun8xeDvHxO825rZAiXsNIuOySiw=; b=sVlHw+vsKCK3zsHeazUQ54b0+6
-	cPBHwUP3kTKfdOifz9MbRkUasNPoUabLDpQ0an0a9ysr6NDhvAIw8gEff7L6Q6Y5e0GMbAWIWc7al
-	CAXQ+mTyVNn+gu10DwYJIkQ9t8Pu3pXwUXBZdBF8hw2P451/DslS9h4o00TZx8NBtPo3WQ7LGAzg+
-	Y7UfW5UB3Cfc3lFCa1tanqBofoi9ifhRLpNfOFK4P4j0ulCLyxPmDVF0sEpttqmOtB2zY5OFOhIw6
-	DeNpxdWSP+Yt0G+CZ2Ag/SVYekc3fN0p9c5nWQBpO4ccmYk4PgFmzAzOxvrCa933Md1x/xBwqVkbU
-	9/tqFmpQ==;
+	bh=Vxh7/YKj7ExAj/pKg0vV3MeLEu8y/caG0c7bA9QRZm0=; b=QTb+47/TokTFtxdq3gZuixQhnC
+	PoKOkNK7IkX8PbMOkSCiSB91j51n7wibO/9JHjTLqjY1T+yKJsqTHgIgpgsOcuWW1xthy5jmedGbY
+	uPwYAElqUJsFc4dNA9DSs5hTHljDWAbwOt/NvQxU6pUOaOJFRvFMspalwPE9BsgDkWG8zirOBPoSX
+	E+QuGGEFyXbFnXeMC1OFkiCoP9jwTpyeWs3wsV02rRW5251C3O6clmAaCsaAQbL30DMYJxirlaZyl
+	gYzv2lI/dchg1lAyrXDkAQcGPB2zrDYPdmyt5YA3vC8c0UZuo0GPJ7IHr5XLr+OJp7ySTusG3UWCJ
+	2b+BgieQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCthR-0000000C3Ne-2akE;
-	Sun, 26 Oct 2025 05:53:53 +0000
+	id 1vCthS-0000000C3Ol-1DMP;
+	Sun, 26 Oct 2025 05:53:54 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCtgj-0000000C2n5-3UGa
+	id 1vCtgj-0000000C2ma-0n9Q
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 26 Oct 2025 05:53:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F5F744D5B;
-	Sun, 26 Oct 2025 05:53:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBBC1C4CEE7;
+	by sea.source.kernel.org (Postfix) with ESMTP id D97BB44B70;
+	Sun, 26 Oct 2025 05:53:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68413C116C6;
 	Sun, 26 Oct 2025 05:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761457989;
-	bh=J3m+RqWldOSAlbAr+elclDhB5NSc/+pHmiWDmVt7Zz4=;
+	s=k20201202; t=1761457988;
+	bh=tK4ZwtbvVT+WWMAoNFlch+KJGW1l/8qhroTz/lgXZ+w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fJWEPIXQJVdiF8om1EtHzN8GX9OBPNVfzf2bgq3sTdtKwrz3f5gMcKWNV3fJW3aId
-	 FQgVyV5Nq8FwB4EVlMSZ2dgwXr6JWPzyQpRysrgBNptPeidPWzySe9sCEcAzCHgd46
-	 wmFyiTVTrbUTd9lnxhdBncQ6tpkZ5wwQKND0af8Oo5rpoFoPMKAY2UBbkh/ExT620y
-	 mon9WeI8757GA5SKwNN9FC4UJ6gz853GlVrykUPmtNQ3pE0FwFGtVQ1lypnXh26l85
-	 yY+p7BuEsxsmvbc2PS0erCbH1bB4KZYL1AigdrHD1iPXQkMHFMRXFqy4wayfpB9cJu
-	 N2dD2j64H0kvQ==
+	b=VjCjZuVIcC04piSCOr/VPr+Acxc4Jbc9WzwyZjZsuZyijzdgb4V2ePe38orck/ib4
+	 0QDKFZgHjokI7bVMZWsYUuc5osS8lr1CTrTtc4tVumVXTGVy2QFbBft1mQwlkFKYwj
+	 EyuYZXpOpVH7tKFGUGFf9wvRiuQibbsFoeFc5THM2DijB77in3MrMLNRpya/Bj0PuX
+	 ZDj47k4Sy1BRg1Z5kQEmwrVqxi6F4NHEQldxYeGterWeNg57gMojOcKASpAW3uDvEs
+	 Zz7xK6V/lReCdjwRzMavc+tLiIDxETdLKM7iZYd/rjCBbR6EKISWx5mn73nHurZXcE
+	 S5wYHNmhhtH5g==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -54,17 +54,17 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 13/15] crypto: jitterentropy - Use default sha3 implementation
-Date: Sat, 25 Oct 2025 22:50:30 -0700
-Message-ID: <20251026055032.1413733-14-ebiggers@kernel.org>
+Subject: [PATCH v2 12/15] lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest functions
+Date: Sat, 25 Oct 2025 22:50:29 -0700
+Message-ID: <20251026055032.1413733-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251026055032.1413733-1-ebiggers@kernel.org>
 References: <20251026055032.1413733-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_225309_944470_8CBD14E0 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20251025_225309_312982_093B5361 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,64 +79,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make jitterentropy use "sha3-256" instead of "sha3-256-generic", as the
-ability to explicitly request the generic code is going away.  It's not
-worth providing a special generic API just for jitterentropy.  There are
-many other solutions available to it, such as doing more iterations or
-using a more effective jitter collection method.
+Some z/Architecture processors can compute a SHA-3 digest in a single
+instruction.  Use this capability to implement the sha3_224(),
+sha3_256(), sha3_384(), and sha3_512() library functions.
 
-Moreover, the status quo is that SHA-3 is quite slow anyway.  Currently
-only arm64 and s390 have architecture-optimized SHA-3 code.  I'm not
-familiar with the performance of the s390 one, but the arm64 one isn't
-actually that much faster than the generic code anyway.
+Note that the performance improvement is likely to be relatively small
+and be noticeable primarily on short messages, as the actual Keccak
+permutation is already accelerated via the implementations of
+sha3_absorb_blocks() and sha3_keccakf().  Nevertheless,
+arch/s390/crypto/ takes advantage of the "do the full SHA-3" capability,
+and it was requested that lib/crypto/ do so as well for parity with it.
 
-Note that jitterentropy should just use the library API instead of
-crypto_shash.  But that belongs in a separate change later.
-
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/jitterentropy-kcapi.c | 12 ++----------
- 1 file changed, 2 insertions(+), 10 deletions(-)
+ lib/crypto/s390/sha3.h | 67 ++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 65 insertions(+), 2 deletions(-)
 
-diff --git a/crypto/jitterentropy-kcapi.c b/crypto/jitterentropy-kcapi.c
-index a53de7affe8d1..7c880cf34c523 100644
---- a/crypto/jitterentropy-kcapi.c
-+++ b/crypto/jitterentropy-kcapi.c
-@@ -46,11 +46,11 @@
- #include <linux/time.h>
- #include <crypto/internal/rng.h>
+diff --git a/lib/crypto/s390/sha3.h b/lib/crypto/s390/sha3.h
+index 668e53da93d2c..85471404775a3 100644
+--- a/lib/crypto/s390/sha3.h
++++ b/lib/crypto/s390/sha3.h
+@@ -6,10 +6,11 @@
+  */
+ #include <asm/cpacf.h>
+ #include <linux/cpufeature.h>
  
- #include "jitterentropy.h"
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha3);
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha3_init_optim);
  
--#define JENT_CONDITIONING_HASH	"sha3-256-generic"
-+#define JENT_CONDITIONING_HASH	"sha3-256"
- 
- /***************************************************************************
-  * Helper function
-  ***************************************************************************/
- 
-@@ -228,19 +228,11 @@ static int jent_kcapi_init(struct crypto_tfm *tfm)
- 	struct shash_desc *sdesc;
- 	int size, ret = 0;
- 
- 	spin_lock_init(&rng->jent_lock);
- 
--	/*
--	 * Use SHA3-256 as conditioner. We allocate only the generic
--	 * implementation as we are not interested in high-performance. The
--	 * execution time of the SHA3 operation is measured and adds to the
--	 * Jitter RNG's unpredictable behavior. If we have a slower hash
--	 * implementation, the execution timing variations are larger. When
--	 * using a fast implementation, we would need to call it more often
--	 * as its variations are lower.
--	 */
-+	/* Use SHA3-256 as conditioner */
- 	hash = crypto_alloc_shash(JENT_CONDITIONING_HASH, 0, 0);
- 	if (IS_ERR(hash)) {
- 		pr_err("Cannot allocate conditioning digest\n");
- 		return PTR_ERR(hash);
+ static void sha3_absorb_blocks(struct sha3_state *state, const u8 *data,
+ 			       size_t nblocks, size_t block_size)
+ {
+ 	if (static_branch_likely(&have_sha3)) {
+@@ -58,10 +59,65 @@ static void sha3_keccakf(struct sha3_state *state)
+ 	} else {
+ 		sha3_keccakf_generic(state);
  	}
+ }
+ 
++static inline bool s390_sha3(int func, const u8 *in, size_t in_len,
++			     u8 *out, size_t out_len)
++{
++	struct sha3_state state;
++
++	if (!static_branch_likely(&have_sha3))
++		return false;
++
++	if (static_branch_likely(&have_sha3_init_optim))
++		func |= CPACF_KLMD_NIP | CPACF_KLMD_DUFOP;
++	else
++		memset(&state, 0, sizeof(state));
++
++	cpacf_klmd(func, &state, in, in_len);
++
++	if (static_branch_likely(&have_sha3_init_optim))
++		kmsan_unpoison_memory(&state, out_len);
++
++	memcpy(out, &state, out_len);
++	memzero_explicit(&state, sizeof(state));
++	return true;
++}
++
++#define sha3_224_arch sha3_224_arch
++static bool sha3_224_arch(const u8 *in, size_t in_len,
++			  u8 out[SHA3_224_DIGEST_SIZE])
++{
++	return s390_sha3(CPACF_KLMD_SHA3_224, in, in_len,
++			 out, SHA3_224_DIGEST_SIZE);
++}
++
++#define sha3_256_arch sha3_256_arch
++static bool sha3_256_arch(const u8 *in, size_t in_len,
++			  u8 out[SHA3_256_DIGEST_SIZE])
++{
++	return s390_sha3(CPACF_KLMD_SHA3_256, in, in_len,
++			 out, SHA3_256_DIGEST_SIZE);
++}
++
++#define sha3_384_arch sha3_384_arch
++static bool sha3_384_arch(const u8 *in, size_t in_len,
++			  u8 out[SHA3_384_DIGEST_SIZE])
++{
++	return s390_sha3(CPACF_KLMD_SHA3_384, in, in_len,
++			 out, SHA3_384_DIGEST_SIZE);
++}
++
++#define sha3_512_arch sha3_512_arch
++static bool sha3_512_arch(const u8 *in, size_t in_len,
++			  u8 out[SHA3_512_DIGEST_SIZE])
++{
++	return s390_sha3(CPACF_KLMD_SHA3_512, in, in_len,
++			 out, SHA3_512_DIGEST_SIZE);
++}
++
+ #define sha3_mod_init_arch sha3_mod_init_arch
+ static void sha3_mod_init_arch(void)
+ {
+ 	int num_present = 0;
+ 	int num_possible = 0;
+@@ -77,12 +133,19 @@ static void sha3_mod_init_arch(void)
+ 	({ num_present += !!cpacf_query_func(opcode, func); num_possible++; })
+ 	QUERY(CPACF_KIMD, CPACF_KIMD_SHA3_224);
+ 	QUERY(CPACF_KIMD, CPACF_KIMD_SHA3_256);
+ 	QUERY(CPACF_KIMD, CPACF_KIMD_SHA3_384);
+ 	QUERY(CPACF_KIMD, CPACF_KIMD_SHA3_512);
++	QUERY(CPACF_KLMD, CPACF_KLMD_SHA3_224);
++	QUERY(CPACF_KLMD, CPACF_KLMD_SHA3_256);
++	QUERY(CPACF_KLMD, CPACF_KLMD_SHA3_384);
++	QUERY(CPACF_KLMD, CPACF_KLMD_SHA3_512);
+ #undef QUERY
+ 
+-	if (num_present == num_possible)
++	if (num_present == num_possible) {
+ 		static_branch_enable(&have_sha3);
+-	else if (num_present != 0)
++		if (test_facility(86))
++			static_branch_enable(&have_sha3_init_optim);
++	} else if (num_present != 0) {
+ 		pr_warn("Unsupported combination of SHA-3 facilities\n");
++	}
+ }
 -- 
 2.51.1.dirty
 
