@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8722CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 08:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034DDCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 08:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExtqBh+ARRQsybAT0pCGag1omed3G+BiN7p1gORg8fE=; b=ywpKny1TPX2gU0iLoXxKPjmGlU
-	MWAd4s2+9nAi3NUpvawbrqyHC1pAMyax+byhFWptAsVEoHQw/yOtNy1Ef+zq1Qv8hupB+Dcfev54a
-	f7voVzlm6fJoQ0F+cPzB++NsisN3h9Z2iigqsF2ThJ8HUP7OUbkpZ9cQ8/UQovoe0urYPYSlZmBXn
-	vETyIWR1wciffr2r+am7hSigYvFZxlkSf7a8rl5KGZR5twJ5sJdPmrqI1rkk0KUzjoAHpty5ogoUP
-	3Xi1iEjG3ATwxtegPxMot8cKEGzzziedV7mTFqMFl7G/BpQZ1+3624/2ReuDe+L+t3pXwG/RzYpro
-	xntr9GCQ==;
+	bh=0OLdVaLLI5kfMlOu3GGlrhNjdZVOMs09ADRUhLNYwzc=; b=bWtKkJNBTFBHg8VBIuIjI0lOvN
+	Uf0Pu6Ja5dDEC64hSToKn0TJO93ZsFHj4CqR2D3aHtO72GmmeV13cwq3hTn7Y7yfSgZwZHj+FWHVz
+	pYutqFfvbSwuGSJSf0vHVezNDDkbX9ktztKQ1M5W19b/n3GcIu42lgTnhLlYzwRZuXNCfH1YHH2BN
+	2DjMn6V9CZ7NOica7JwvDOFuGLVf8TYDj9y46cWpqJpz2LWhJ5Hx/6UmuxXFv6najjRn/XE4nvMUC
+	hAyPKbraQXmncRf9EKp/NUmxCGadk8rhAS8YbJWYgPlBMMQu+UunU/9T4SHJhoyTBnuu7FjSyXGr2
+	Vg0Nbjdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCwE2-0000000CAdd-32HP;
-	Sun, 26 Oct 2025 08:35:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vCwFI-0000000CAsp-3Vvh;
+	Sun, 26 Oct 2025 08:37:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCwE0-0000000CAcW-1jju;
-	Sun, 26 Oct 2025 08:35:41 +0000
+	id 1vCwFH-0000000CAsI-1QaL;
+	Sun, 26 Oct 2025 08:36:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CDD644DB2;
-	Sun, 26 Oct 2025 08:35:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54824C4CEE7;
-	Sun, 26 Oct 2025 08:35:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B59E4601D6;
+	Sun, 26 Oct 2025 08:36:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B15A8C4CEE7;
+	Sun, 26 Oct 2025 08:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761467739;
-	bh=rzxJTNoSOeK7VNGYumqIb4DOxnBQhT9we9NoIaaK07o=;
+	s=k20201202; t=1761467817;
+	bh=Zim3qGKsCpC2JYTbatO+MU+Eu3vnLSQRr1CABozWbcM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BeZN8h/WuGf9UdFvLhwi25+qrZW9fazEHdDdD8MZsFo/Rj2iLsTv+mLReMs/RGbHH
-	 Gdocozotplr+wWvgUEucfti9d9T9Y5hF9PTnDKKMohctpC+VTeKsTtfKBB2zBS2aFX
-	 83xV58yUHs51uQ3/kvB4bl2r6Q5fjbVy8C7reiV5FVHENfTMrPqy5NMlB1mNKmUiDI
-	 XR516/n8izQJUkeYaYezKnbMcwM7lE+qlTip1qqNY1bIaLC8FXmzYGuMrJ1vJsIDNH
-	 TtG/3CCi0dISme7goXKS4Kq+2JVP8fXfV1wiMPfk5ZEeKMbtTaobci081rt9s6nidl
-	 6mRajpX24eLKg==
-Message-ID: <84082a2a-c5ef-499a-8374-58f9a063f862@kernel.org>
-Date: Sun, 26 Oct 2025 09:35:34 +0100
+	b=XZ8fER3VQro4Ggyjf1AxjtI4qhktJF7hl645sn4jiLi+1xu3Rb9pzKp/rIr97TiHP
+	 BXANLH2pvo21B8amxi23knLJGukH5FivnQCN4NQ4i25bcawBkJ1L0whBCZtKrVCW1N
+	 51JGD5K3vtuFWAGAJ2A9CzHXQqBddNEwJbaHV+JqfzHCEZJO8E0ORSpAxy4kunFnCL
+	 K0x0UouQeLhvVStmfrDr43WLhjhmDHV3JMupBziOky08nQAMsUxnhpg6lO/4J/hzL9
+	 BKN621dXHnwBGryWBmLsvgoTz8CMc2IabBNX55YRnpxHbj8uCk+JNilSRrryrOMoYJ
+	 Vy49jOFYQ+0eg==
+Message-ID: <b4395d23-9004-4a01-942f-060876312317@kernel.org>
+Date: Sun, 26 Oct 2025 09:36:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: arm: rockchip: Add NineTripod X3568
- series
+Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: Add devicetree for the
+ NineTripod X3568 v4
 To: Coia Prant <coiaprant@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
@@ -55,7 +55,7 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  stable@vger.kernel.org
 References: <20251026062831.4045083-3-coiaprant@gmail.com>
- <20251026062831.4045083-5-coiaprant@gmail.com>
+ <20251026062831.4045083-7-coiaprant@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,13 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251026062831.4045083-5-coiaprant@gmail.com>
+In-Reply-To: <20251026062831.4045083-7-coiaprant@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_013540_501121_4472663F 
-X-CRM114-Status: UNSURE (   6.33  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,16 +119,73 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 26/10/2025 07:28, Coia Prant wrote:
-> This documents NineTripod X3568 v4 which is a SBC based on RK3568 SoC.
+> The NineTripod X3568 v4 is an RK3568-based SBC, just like the RK3568-EVB.
+> It always uses soldered connections between the X3568CV2 core board and the X3568bv4 IO board.
 > 
-> Link: http://www.9tripod.com/showpro.php?id=117
-> Link: https://appletsapi.52solution.com/media/X3568V4%E5%BC%80%E5%8F%91%E6%9D%BF%E7%A1%AC%E4%BB%B6%E6%89%8B%E5%86%8C.pdf
+> The X3568 board has multiple hardware revisions, and we currently support v4.
+> 
+> Specification:
+> - SoC: RockChip RK3568 ARM64 (4 cores)
+> - eMMC: 16-128 GB
+> - RAM: 2-8 GB
+> - Power: DC 12V 2A
+> - Ethernet: 2x YT8521SC RGMII (10/100/1000 Mbps)
+> - Wireless radio: 802.11b/g/n/ac/ax dual-band
+> - LED:
+>   Power: AlwaysOn
+>   User: GPIO
+> - Button:
+>   VOL+: SARADC/0 <35k µV>
+>   VOL-: SARADC/0 <450k µV>
+>   Power/Reset: PMIC RK809
+> - CAN
+>   CAN/1: 4-pin (PH 2.0)
+> - PWM
+>   PWM/4: Backlight DSI/0 DSI/1
+>   PWM/7: IR Receiver [may not install]
+> - UART:
+>   UART/2: Debug TTL - 1500000 8N1 (1.25mm)
+>   UART/3: TTL (PH 2.0)
+>   UART/4: TTL (PH 2.0)
+>   UART/8: AP6275S Bluetooth
+>   UART/9: TTL (PH 2.0)
+> - I2C:
+>   I2C/0: PMIC RK809
+>   I2C/1: Touchscreen DSI/0 DSI/1
+>   I2C/4: Camera
+>   I2C/5: RTC@51 PCF8563
+> - I2S:
+>   I2S/0: miniHDMI Sound
+>   I2S/1: RK809 Audio Codec
+>   I2S/3: AP6275S Bluetooth Sound
+> - SDMMC:
+>   SDMMC/0: microSD (TF) slot
+>   SDMMC/2: AP6275S SDIO WiFi card
+> - Camera: 1x CSI
+> - Video: miniHDMI / DSI0 (MIPI/LVDS) / DSI1 (MIPI/EDP)
+> - Audio: miniHDMI / MIC on-board / Speaker / SPDIF / 3.5mm Headphones / AP6275S Bluetooth
+> - USB:
+>   USB 2.0 HOST x2
+>   USB 2.0 HOST x3 (4-pin)
+>   USB 2.0 OTG x1 (shared with USB 3.0 OTG/HOST) [slot may not install]
+>   USB 3.0 HOST x1
+>   USB 3.0 OTG/HOST x1
+> - SATA: 1x SATA 3.0 with Power/4-pin [slot may not install]
+> - PCIe: 1x PCIe 3.0 x2 (x4 connecter) [clock/slot may not install]
+> 
+> Link:
+> - https://appletsapi.52solution.com/media/X3568V4%E5%BC%80%E5%8F%91%E6%9D%BF%E7%A1%AC%E4%BB%B6%E6%89%8B%E5%86%8C.pdf
+> - https://blog.gov.cooking/archives/research-ninetripod-x3568-v4-and-flash.html
 > 
 > Signed-off-by: Coia Prant <coiaprant@gmail.com>
 > Cc: stable@vger.kernel.org
 
 
-No, not a stable commit.
+While adding vendor prefix could fall into adding quirks (it's not...),
+but how is new support supposed to be bugfix or quirk?
+
+That's definitely not right.
+
 
 Best regards,
 Krzysztof
