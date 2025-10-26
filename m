@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B87CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 22:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6382FCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Oct 2025 22:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yZ0vSHoHKsO4D1kYiFv4ZRRp+7vkRGPl7Jw2YxO/UMI=; b=bLsmM4Le5jbz6jpicEq/uFSc9g
-	pv8CsKvlMC2WIg2fYgMDCzQxDFuNa+rKkZP+8zgyztVTwKyYoXG795GyPTNuy2dF0Djn+zPuovhHX
-	AQ2/lpClYemaQIYXMuEyWQOee/tBQeyzkO7K7VY+iWesnGdOKgW6xJk7iI51fBiJVW4rX/xNoxvr4
-	9LkOGJ9NyR9Nwdt5vWd3EPCnY3aSjQ9HK2wUzt7XM7w14sH1MemdXxJrtaVNp72Ct5NHoXVQhsMnr
-	qRK4c49hg7AMf1tEx8dnXjjC6BE+Xh0yrq9GD0x98r8GfBeq7nVUaTbINnoqdTcO1+0lWtEGiLNtB
-	9Gbj+oOA==;
+	bh=VzAKqpVX83Tivx4OizdgS+imdgKRCOVLPlwMEKsHoOA=; b=hh5dEmBnHEPzg/8OTv36AfHwxY
+	R36Wp3h4jt8xrF5qV0cO79rDaLDXrd+TdUGhHZZhkoTavBIXthz2EuP02Ee1uKHHyKDJ8gO0LV+BT
+	eFFbyr/9v6tFTy17vNITSfxSPUbruNBQ84PVXWcY18EJeSigjYTwuMjSF3ztcfv8sgGyR67P1L5My
+	OTVy0lJuYMj1chxu3Xmv9EFB+5B0wA7g9Ihya9wt4S5v7lbP181FaLqvq6p3c37C+sOHGrywsXsYo
+	FvsR/ZFFAwfdVmap992SbX7FkV1XVdhbQx4RA/m9VDFqn+In/7gOMk9b85jIJ6GD2nZcpA40uhCVz
+	M65DQZOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD91J-0000000CnxX-25av;
-	Sun, 26 Oct 2025 22:15:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vD97j-0000000CoGD-0XpM;
+	Sun, 26 Oct 2025 22:22:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD91H-0000000CnxA-0y3s
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Oct 2025 22:15:24 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4CCCE1F0E;
-	Sun, 26 Oct 2025 23:13:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761516814;
-	bh=GRJJh+euJBb7Q3UYKG8XfvgSRz/qMSbefV+j3k8HTpM=;
+	id 1vD97g-0000000CoFh-41l2;
+	Sun, 26 Oct 2025 22:22:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C434443ED0;
+	Sun, 26 Oct 2025 22:21:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE71BC4CEE7;
+	Sun, 26 Oct 2025 22:21:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761517319;
+	bh=shvt/H62MSL/X9zYi3wGfN1JdJm+2GxmIeTsccBYlo0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ENJ4Qj8loGEmGVnpDuHIsZojbsdBJSMiN1hgdJoY4UptY5CwOttTMYVPGoCQGu8Ca
-	 Vyih4w1LvF4Avh2CE6CUv7D5/sZEMSlAo6l+o6W3SC4Hjlmwro1LyUJqqhv/SFoO7+
-	 pL3GDphfqMiL5DiVuPmLqi20em3nleOaS+sKBU8c=
-Date: Mon, 27 Oct 2025 00:15:07 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH 3/3] media: nxp: imx8-isi: Add ISI support for i.MX95
-Message-ID: <20251026221507.GI13023@pendragon.ideasonboard.com>
-References: <20251024-isi_imx95-v1-0-3ad1af7c3d61@nxp.com>
- <20251024-isi_imx95-v1-3-3ad1af7c3d61@nxp.com>
- <aPuEEDzY3FoeM9tQ@lizhi-Precision-Tower-5810>
+	b=M2zin1Z72la3TT+4nnVV6RnFFNATQhk8uw/M8t+PYAw7o+NSpYyuCpvRuMSRaWKXI
+	 XYXbsqFUchbqhrAysO8wKh421BTh1cg4zH1cfn6rSf40wnT6bxwkD9IrC9vyAqnnbM
+	 LfXHbx54mgn2dTt3DvKyqTFbpJfOe88eAw9ZSGg3tNkLNMlf7OqJALbtqWA3ZkdBpY
+	 ORnbXGTC6W46Vwz6Smk4y3je5R3NAyzggsPT88+H4rGKxdvQLu0CxGRwN7VBzKiuZa
+	 jiD03wbYxbRyRU4M3Wu8lE34yHP4FLGYU8lRy8QuJb0FA7YyQ7n4R73N+52+sew5UC
+	 Oz549dNSfmSWg==
+Date: Sun, 26 Oct 2025 22:21:54 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-mediatek@lists.infradead.org, lee@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+	lgirdwood@gmail.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com, wenst@chromium.org,
+	igor.belwon@mentallysanemainliners.org
+Subject: Re: [PATCH v10 1/9] dt-bindings: regulator: Document MediaTek MT6316
+ PMIC Regulators
+Message-ID: <20251026-despise-treadmill-12636f1a476f@spud>
+References: <20251024083221.25758-1-angelogioacchino.delregno@collabora.com>
+ <20251024083221.25758-2-angelogioacchino.delregno@collabora.com>
+ <20251024-think-handwoven-504634ca620d@spud>
+ <aPvETBr5aebElQUS@finisterre.sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Dhk4ruQsXIYcg54z"
 Content-Disposition: inline
-In-Reply-To: <aPuEEDzY3FoeM9tQ@lizhi-Precision-Tower-5810>
+In-Reply-To: <aPvETBr5aebElQUS@finisterre.sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_151523_413902_6797D2B5 
-X-CRM114-Status: GOOD (  27.28  )
+X-CRM114-CacheID: sfid-20251026_152201_042042_01ED77FD 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,146 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 09:50:08AM -0400, Frank Li wrote:
-> On Fri, Oct 24, 2025 at 05:46:54PM +0800, Guoniu Zhou wrote:
-> > From: Guoniu Zhou <guoniu.zhou@nxp.com>
-> >
-> > The ISI module on i.MX95 supports up to eight channels and four link
-> > sources to obtain the image data for processing in its pipelines. It
-> > can process up to eight image sources at the same time.
-> >
-> > In i.MX95, the gasket callbacks set ISI QoS which decide the priority
-> > to access system memory when there are multiple masters access memory
-> > simultaneously in camera domain.
-> >
-> > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> > ---
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 13 +++++++
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  2 +
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-gasket.c  | 44 ++++++++++++++++++++++
-> >  3 files changed, 59 insertions(+)
-> >
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > index adc8d9960bf0df87d4e475661a3439beaf5ce9f6..ea9cc6d72bd4605000c6cbac2fa8cb9806e3cd3b 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > @@ -337,6 +337,18 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
-> >  	.has_36bit_dma		= false,
-> >  };
-> >
-> > +static const struct mxc_isi_plat_data mxc_imx95_data = {
-> > +	.model			= MXC_ISI_IMX95,
-> > +	.num_ports		= 4,
-> > +	.num_channels		= 8,
-> > +	.reg_offset		= 0x10000,
-> > +	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> > +	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > +	.buf_active_reverse	= true,
-> > +	.gasket_ops		= &mxc_imx95_gasket_ops,
-> > +	.has_36bit_dma		= true,
-> > +};
-> > +
-> >  static const struct mxc_isi_plat_data mxc_imx8qm_data = {
-> >  	.model			= MXC_ISI_IMX8QM,
-> >  	.num_ports		= 5,
-> > @@ -548,6 +560,7 @@ static const struct of_device_id mxc_isi_of_match[] = {
-> >  	{ .compatible = "fsl,imx8qxp-isi", .data = &mxc_imx8qxp_data },
-> >  	{ .compatible = "fsl,imx8ulp-isi", .data = &mxc_imx8ulp_data },
-> >  	{ .compatible = "fsl,imx93-isi", .data = &mxc_imx93_data },
-> > +	{ .compatible = "fsl,imx95-isi", .data = &mxc_imx95_data },
-> >  	{ /* sentinel */ },
-> >  };
-> >  MODULE_DEVICE_TABLE(of, mxc_isi_of_match);
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > index e84af5127e4e7938e55e31b7063bee5e2cd4cb11..d1297ac26c56bdd97e4dd325b2a7394430a7adb9 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > @@ -161,6 +161,7 @@ enum model {
-> >  	MXC_ISI_IMX8QXP,
-> >  	MXC_ISI_IMX8ULP,
-> >  	MXC_ISI_IMX93,
-> > +	MXC_ISI_IMX95,
-> >  };
-> >
-> >  struct mxc_isi_plat_data {
-> > @@ -297,6 +298,7 @@ struct mxc_isi_dev {
-> >
-> >  extern const struct mxc_gasket_ops mxc_imx8_gasket_ops;
-> >  extern const struct mxc_gasket_ops mxc_imx93_gasket_ops;
-> > +extern const struct mxc_gasket_ops mxc_imx95_gasket_ops;
-> >
-> >  int mxc_isi_crossbar_init(struct mxc_isi_dev *isi);
-> >  void mxc_isi_crossbar_cleanup(struct mxc_isi_crossbar *xbar);
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
-> > index f69c3b5d478209c083738477edf380e3f280c471..6418ee1aabdad3cb92e84f2ef6406c5503987401 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
-> > @@ -3,6 +3,7 @@
-> >   * Copyright 2019-2023 NXP
-> >   */
-> >
-> > +#include <linux/bits.h>
-> >  #include <linux/regmap.h>
-> >
-> >  #include <media/mipi-csi2.h>
-> > @@ -83,3 +84,46 @@ const struct mxc_gasket_ops mxc_imx93_gasket_ops = {
-> >  	.enable = mxc_imx93_gasket_enable,
-> >  	.disable = mxc_imx93_gasket_disable,
-> >  };
-> > +
-> > +/* -----------------------------------------------------------------------------
-> > + * i.MX95 gasket
-> > + */
-> > +#define ISI_QOS						0x10
-> > +#define ISI_QOS_AWQOS(x)				FIELD_PREP(GENMASK(2, 0), (x))
-> > +
-> > +#define ISI_PANIC_QOS					0x14
-> > +#define ISI_PANIC_QOS_HURRY_AWQOS(x)			FIELD_PREP(GENMASK(2, 0), (x))
-> > +
-> > +static void mxc_imx95_set_qos(struct mxc_isi_dev *isi, unsigned int val)
-> > +{
-> > +	/* Config QoS */
-> > +	regmap_write(isi->gasket, ISI_QOS, ISI_QOS_AWQOS(val));
-> > +
-> > +	/* Config Panic QoS */
-> > +	regmap_write(isi->gasket, ISI_PANIC_QOS, ISI_PANIC_QOS_HURRY_AWQOS(val));
-> > +}
-> > +
-> > +static void mxc_imx95_clear_qos(struct mxc_isi_dev *isi)
-> > +{
-> > +	regmap_write(isi->gasket, ISI_QOS, 0x0);
-> > +	regmap_write(isi->gasket, ISI_PANIC_QOS, 0x0);
-> > +}
-> > +
-> > +static void mxc_imx95_gasket_enable(struct mxc_isi_dev *isi,
-> > +				    const struct v4l2_mbus_frame_desc *fd,
-> > +				    const struct v4l2_mbus_framefmt *fmt,
-> > +				    const unsigned int port)
-> > +{
-> > +	mxc_imx95_set_qos(isi, 0x3);
-> > +}
-> 
-> can we use standard interconnects standard interface to config Qos stuff.
-> https://elixir.bootlin.com/linux/v6.17.4/source/include/linux/interconnect.h
 
-Good suggestion, that would be my preference too. Otherwise we'll end up
-hardcoding parameters here, which doesn't feel right. I assume the
-values above would need to be tweaked based on use cases.
+--Dhk4ruQsXIYcg54z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > +
-> > +static void mxc_imx95_gasket_disable(struct mxc_isi_dev *isi,
-> > +				     unsigned int port)
-> > +{
-> > +	mxc_imx95_clear_qos(isi);
-> > +}
-> > +
-> > +const struct mxc_gasket_ops mxc_imx95_gasket_ops = {
-> > +	.enable = mxc_imx95_gasket_enable,
-> > +	.disable = mxc_imx95_gasket_disable,
-> > +};
+On Fri, Oct 24, 2025 at 07:24:12PM +0100, Mark Brown wrote:
+> On Fri, Oct 24, 2025 at 05:29:31PM +0100, Conor Dooley wrote:
+> > On Fri, Oct 24, 2025 at 10:32:13AM +0200, AngeloGioacchino Del Regno wr=
+ote:
+>=20
+> > > +      regulator-allowed-modes:
+> > > +        description: |
+> > > +          Allowed Buck regulator operating modes allowed. Valid valu=
+es below.
+>=20
+> > > +        minItems: 1
+> > > +        maxItems: 3
+> > > +        items:
+> > > +          enum: [ 0, 1, 2 ]
+>=20
+> > This property has no default, and the property is not required. Is one
+> > of these modes the default, or is there another mode beyond what's here
+> > that is used if the property is absent? Or are all modes allowed with no
+> > property?
+>=20
+> The general approach the regulator API takes with everything is that if
+> there is no explict configuration then it will simply not touch the
+> hardware.  If nothing is configured then the hardware will be left in
+> whatever state we found it in which could be anything as far as we know,
+> it might vary depending on what was running before and what it was doing.
 
--- 
-Regards,
+Okay, thanks for explaining Mark.
 
-Laurent Pinchart
+--Dhk4ruQsXIYcg54z
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaP6fAgAKCRB4tDGHoIJi
+0n9OAQCobSKgp224TCJ/mWYTt04fs5bxUTVnFJHz1LwZzQH0swEA+rPzYffubTv6
+nxvq1BN/kkR//ktv2ykl6VnXkm0CJQ8=
+=2u0+
+-----END PGP SIGNATURE-----
+
+--Dhk4ruQsXIYcg54z--
 
