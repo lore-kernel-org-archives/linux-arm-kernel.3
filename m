@@ -4,78 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65955CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA2BCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5GqcCzFslWvwspg/f+Srh9ebuYfL4ZY09Ogmj+CHlmg=; b=xy0JuM1qHoHUFe85qNhlqDkQwv
-	6IjPYRMuVj+7DsRWiLBaEp1qFQQDYlrhrC/FrAP5DMrTl4qmkdZ37RpqVsDmWtVJvAW3+wYqEGkVZ
-	nIXzamwGJ/zzUzyeEWDTAvSszPyaicRo4tMMLXrrqNfhDnHFh7/fye2nBXk/ilkUYFkRFAMRq/K3j
-	eeCl7511/mbgSlFapKRiiZ1ImJx2kaSQFippB7U/QsAr+aIQYtgywN9x24LqJs3vA4PMu/uVHtXqX
-	sx2XEQL9h2rIhQJP3nWETeL68vpGB6E2QlMLCatReJDWikccMot+E6Tl+Gp5bXah+vTC4iGvlHgK0
-	0zy8YiTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=56PhuafYXsirG+UhANSH3mXfKoGfLYzu3y07BccvFzE=; b=2aOqy81V4kY8pOkwAoa4zMV1yy
+	YbXUh4DLbruRWNOyfQIms/9irkVmIue+dBf60oh0FG0iUCavUMzrIMd1odsysRzVFZhzstdYXsWKK
+	LtqCU1tpRpQqigT6G2/TT1/X7otUxJ3840dnxdiQvhDHoAICkYKyz+d/j8vzLd4KbMA6zJCP3BkjR
+	2TqB56bFSx5utY7otcSvcfYRETXyAhKuzQNW5IANOPfJ3QOOUUy6JFU/UGFmquoq18zME8M9M/WUr
+	9YWMaIhwGVJsn8MPeTiHC3JSS0RiY/dH3ASATIe2+96V1MVGlXLyeThzvNNKAB+xPdyZlDHTeUACq
+	W99vn42Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJab-0000000DXwl-2tYp;
-	Mon, 27 Oct 2025 09:32:33 +0000
-Received: from pandora.armlinux.org.uk ([78.32.30.218])
+	id 1vDJau-0000000DY7M-2Bmm;
+	Mon, 27 Oct 2025 09:32:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJaY-0000000DXtp-2dWl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 09:32:31 +0000
+	id 1vDJab-0000000DXvm-1fXu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 27 Oct 2025 09:32:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5GqcCzFslWvwspg/f+Srh9ebuYfL4ZY09Ogmj+CHlmg=; b=ZOyWRBO8eHuPLliV5wfH0oKhQK
-	IKEMn3aguU+Yqku44v/jYUeNtf8sioy+jDr24vH9ZxWwT5Fu29lShStH0MEuD5SLtIIf5DV33fO8r
-	j5IHxDKD5YD2ImYR074CJBWlQKzxRsFPSmx8jyEZMRHtcECssO9h5mNoW4f2W+ZnmHXBtLxka280E
-	Ee01tYiO1EaGeVnvwW0ByKTFhN/UZXBMIrRC0rQ16XxVJo5UpsuWx53e8OzUvqGvrNR17JM9C4rEw
-	o0QZX17jLNmrC/Jt/aE6hMwDrQLseTjFT9I7mR/CxqNBjLBC1tbT7vU/38VyO7YFLrgMbd4kvR+Os
-	vPPqTQ2w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56852)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vDJaV-000000001a2-0LdX;
-	Mon, 27 Oct 2025 09:32:27 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vDJaT-000000005TA-0D3p;
-	Mon, 27 Oct 2025 09:32:25 +0000
-Date: Mon, 27 Oct 2025 09:32:24 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=56PhuafYXsirG+UhANSH3mXfKoGfLYzu3y07BccvFzE=; b=Et6rUBkK/H5++v9MewReM8QDjj
+	NGiGScth8pgOcKHjTmv1GV3Ai+RYI9LPNCxqThEY/d6lWQpEC45z6YZc5HbUWSMnWAQO7c/Nj64Rg
+	n85N8lkb80btDOouylicLfrccjzl+JLSJO93yJXY4XQopoQjmlxDeWRbHksrsY/xuUPyNf5ogEzLK
+	TVtxf0D+OD0vrCULOtO9xunJ2irTiYafMk8VVk4ZWAh7y1TJLeq0AolNnBAck4goKXy70wvaZIABz
+	3wu98nQXLR7OLo959t/FxOV1qu+QJiOlUBvlg9gQCSvz/a5UYk6Zb/bYRR0UEKyQ7VgAApFeWFaSG
+	9UThEMXw==;
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDIio-00000001kqY-1OnT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 08:37:00 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-63c21467e5bso297101a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:32:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761557549; x=1762162349; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=56PhuafYXsirG+UhANSH3mXfKoGfLYzu3y07BccvFzE=;
+        b=flvVB1Tsj1R6N9Nezq5EPMdf3quNWWuPZLFkz0CnXVpfmo1Z/Nv8uIsjuEi/qiBnNH
+         n6IVieAMqjEiQUICEhIBvwHdOPmd8ovqYYifJu5dNQpwMZ+pmxdj8d+fZbNJpRkIjFO+
+         pUc01ZsMQqEY+OK+EuBAbU2s89Hbu2BI/qg5KdEb8rcTJ93uRh/55m1DEbsYfoEhcQPq
+         ZwKOYhuvxRBy5tm/XofDiF5Sy4sVSAkXakKWKM/8vmuq1+xtS42oXYi4ojIa8FgP/KoP
+         wqPubFCaQjS7eQYx+gFZeHOFl4M7moGUxokBJI/MFvn30a/8DxeqF32SW2tUoyEV7pXW
+         XRtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761557549; x=1762162349;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=56PhuafYXsirG+UhANSH3mXfKoGfLYzu3y07BccvFzE=;
+        b=LZFM1YdnVck4yuulT2p7xnzNea8ertvdWVr7pzo+7PlW0c88wgK1KRX5/7F+S4RJwo
+         ORAPMKtRgajudaZPiDqbCQFuZUWlkpzM+LF4ACUbLYp4aWPsD6ZP7qd+RU4uYZ5XeKAi
+         gCl7BHm+Rqo1ywz+eBhAvgCb7DLJBhQ7zpm9iUfbv6M+hrToCBHCi4OU+m9AHbOwPOW1
+         Pzh00ZZ21dZ1kTg6bgTM+yS81rcIDOKJ65d2O5uOHmH4wVklXBJq3SFgSSBM/ctzCPAn
+         kFUMfKMZd/sbznGK8wviFjU1ddzt+CMvzpcWn/+Cjcqz27bXx7r0VtXRrlwDHL02eX2C
+         CMnw==
+X-Forwarded-Encrypted: i=1; AJvYcCVgvQ3mAxp0sf/lWyvQ9Um2IXS23IJ5zc/lsI0+zP5007oD3YyET6y+Ii+WvE6UovLV/pQ5TaWAzTTM9PJY/0Cd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1c8Wrn+0siBxI1/C9vA8+x3Ux4sgYHgkVU0CW2+lx7PFApFpO
+	WYgBFiUiVZbWBAcYmVKXUWc0enu9cSfKCUEOCBGxsMVPD9mUnX6qsJUD
+X-Gm-Gg: ASbGncuowQ8h5H2KXpEdPCDCfvp0TlN9lBkrz21vvbReDU9Er1q8k/+6e9qJxshP71U
+	j5MkPetrzdFTvF9aYNLlafVBBwTY5xK5p+Q9ZLLZaS8NTsg7n/LdYUz1o/flDvOq9zkpky8DSPk
+	mfg4Pu3seGuBPYqmMqMYiVu4g48V30GQNG0pSfkHOpggbMKW8IEp8Jv02rnn8EUaJlWAVTBALDN
+	z79NOVqqNhAqAW+KlMEAEO3ADVo+EDdIXCLrsDUL7+k0pRLTvmvP7QKLDpSZ6m264xtdkeSRr4U
+	rPhOp8QR+L9c7V2Y0YFjzHxa9X1GTt+Wnvp16pG1D1KtAxOM/Who1O0s5PfGQjVM6zTrf9+Q9lZ
+	S0ZivQGsAHcbl5a8rQP24Bl8VYzbMp3FO79+gxFgHCpf3YAs5gu6fVBB1ufYX/+n/4ZkKrq0jC4
+	bsnDWx+UqENXE/zcDIA2n4Hzc5vP4URKiebcQ/5q/hawfQjGCi7mW27RPfXxZIlzbzLKLL4JN/M
+	Jp8eQgm6F1dnnhW
+X-Google-Smtp-Source: AGHT+IEFwNpP3dTtFNugaADyHzm9NL9na2nqJocl90kjFXsdtQrxoTlQehatWBhcXvoqHgFBklRLfQ==
+X-Received: by 2002:a05:6402:2807:b0:63c:a17c:8efe with SMTP id 4fb4d7f45d1cf-63ca17c9097mr22821321a12.12.1761557548713;
+        Mon, 27 Oct 2025 02:32:28 -0700 (PDT)
+Received: from toolbox.int.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef6be28sm5681014a12.2.2025.10.27.02.32.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 02:32:28 -0700 (PDT)
+From: max.oss.09@gmail.com
+To: Max Krummenacher <max.krummenacher@toradex.com>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Cc: Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aP88KO8uVrEQlmMm@shell.armlinux.org.uk>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
- <20251027072749.GA7811@pendragon.ideasonboard.com>
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 5/5] arm64: dts: imx8-apalis: use startup-delay-us for wifi regulator
+Date: Mon, 27 Oct 2025 10:30:11 +0100
+Message-ID: <20251027093133.2344267-6-max.oss.09@gmail.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20251027093133.2344267-1-max.oss.09@gmail.com>
+References: <20251027093133.2344267-1-max.oss.09@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251027072749.GA7811@pendragon.ideasonboard.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_023230_670135_FC8E0090 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20251027_083658_626570_D0F29750 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +125,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 09:27:49AM +0200, Laurent Pinchart wrote:
-> I've tried to diagnose the issue by adding interrupt counters to
-> dwmac4_irq_status(), counting interrupts for each bit of GMAC_INT_STATUS
-> (0x00b0). Bit RGSMIIIS (0) is the only one that seems linked to the
-> interrupts storm, increasing at around 10k per second. However, the
-> corresponding bit in GMAC_INT_EN (0x00b4) is *not* set.
+From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-This is a change in the PCS series rather than the EEE series. It would
-be good to narrow down whehn this problem appeared for you.
+We used regulator-settling-time-us for the wifi regulator which is
+wrong for regulator-fixed. We have to use startup-delay-us instead.
 
-The RGSMIIIS bit set without RGSMIIIM (0x00b4 bit 0) shouldn't result
-in an interrupt storm since the status will be masked. That doens't
-mean that RGSMIIIS won't be set. So, at this point I'm not worried
-about that.
+Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
 
-Can you print the intr_status and intr_values in dwmac4_irq_status(),
-maybe something like this:
+---
 
-	static int ctr = 0;
+ arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-	if (ctr++ >= 9996) {
-		printk("stmmac: INTS=%08x INTE=%08x\n", intr_status,
-			intr_enable);
-
-		if (ctr >= 10000)
-			ctr = 0;
-	}
-
-        /* Discard disabled bits */
-        intr_status &= intr_enable;
-
-which should avoid too much noise during "normal" operation. It'll
-print six consecutive interrupts every 10000.
-
-> I ould suspect that the LPI RX exit interrupt is the one that fires
-> constantly given its name, but I'm not sure how to test that.
-
-You can check this because the LPI interrupts have statistic counter
-associated with them. ethtool -S should give these, look for
-lpi_mode_n.
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
+index 4234289d4012..f2646db74a5f 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
+@@ -78,7 +78,7 @@ reg_module_wifi: regulator-module-wifi {
+ 		enable-active-high;
+ 		regulator-always-on;
+ 		regulator-name = "Wi-Fi_POWER_DOWN"; /* Wi-Fi module PDn */
+-		regulator-settling-time-us = <100>;
++		startup-delay-us = <100>;
+ 	};
+ 
+ 	reg_pcie_switch: regulator-pcie-switch {
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.42.0
+
 
