@@ -4,103 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A8ECCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80267CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ehs8czoQPjVKOHqW4ZFLgwuoXf6oH7SJucxSNVSnhpo=; b=Y2kHZSBBy3xky4y+SC8NTdJTtM
-	E4TRa+BboWGT88n2y7XNoUmM9FOjDkuWpITBx0dm1Nc7QYQu8Vd/jknJlp6nsQgv25lSFOTTaGd2i
-	bwipNlSvBeDhtWayMM7GAmfYckzkymIOSufNt1yQHTtZCBiCnjhphCX2pBGNy3cbhExptYitx8rm9
-	h0gH0rVUsQYz0KyrwjTm7iiOrfbAaK6h1RDAa61eHxoucif8XJSjyOq1D+Z4zaQgFbnAW0Eav/fmG
-	/Ft/Pedd6M/rVkGGTsOtlPwA9lWFcxdF0quLNHTPgfbL35QuzD7DptcD5BYgzMBub2+BnNLZdtVry
-	RIkK8ffA==;
+	bh=idLQEGHawEowPnMFpADe7JKEtzSuZ6zkkitTWQDADFM=; b=2NhHpQEnh9AUOZSMD/O5vVGFvD
+	0T/m5o5cG8XLXEDhDiuLNpNqktYP8AsnEfRSLza26Tn9vKqfXLfm7c2wM5snZhd2KO6F9bcPuJ4GS
+	022D4jh7okjlepieH2aRLX1ARAMLC6qIEWKMkUHvyySHnz6hRdd/Nc2fB4Dj8+0SjG2iOfqnZi+/S
+	QFCah0LAoxVviwcZmFdx8nxNF/+eCrZZiIWnhqdogBYFZ8/R0xZUSwlRGu3y3xn6nxN8aHvv6EKYj
+	vU53s2k+iEMTfdcnNpyVKT2KeWAM8IriIo/Xg0YEBkGf1Ov6TcpDf4hB86f9J6L9AomLQYCy1WoxY
+	EJwcOvUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJNH-0000000DVda-041U;
-	Mon, 27 Oct 2025 09:18:47 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vDJRJ-0000000DW3f-1ows;
+	Mon, 27 Oct 2025 09:22:57 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJND-0000000DVcr-3src
+	id 1vDJRF-0000000DW1p-3mkY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 09:18:45 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-63c4b5a1b70so8358279a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:18:43 -0700 (PDT)
+	Mon, 27 Oct 2025 09:22:55 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b6d5e04e0d3so692383866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:22:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761556722; x=1762161522; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
+        d=linaro.org; s=google; t=1761556972; x=1762161772; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ehs8czoQPjVKOHqW4ZFLgwuoXf6oH7SJucxSNVSnhpo=;
-        b=LpHK0p57EwRnl//tGZqffC9306ygx68Vw5ip1YYzDNH5IDPwcV9RNl3HXTVh0bwaiy
-         Hyynt+hLZvBH9lYOgcyL9E3j0OWv8s7EbsK6rV+dHFuNbtjIXceDyS8OP7x2mqEfpyfe
-         eUyFZJpeWBU680XMWup6RSEZduRdCGhMQFxB5wwsU1ToQ1cFltcCQqeljryfVGSrkSG7
-         ITrzgaCNZzTbOlNizTfLz2kz7KBiP3FbXkPUsZEkXbvETlhzC/4uMQQEKoAMJyeUQgMC
-         3EDZFc8IH0cOif2xEKJkDbcK4pAtAt3a8i+Y49aJXt/05IQs1IA8OYFZ6p0d39atUlVR
-         oFDQ==
+        bh=idLQEGHawEowPnMFpADe7JKEtzSuZ6zkkitTWQDADFM=;
+        b=gMG0i4syMQmOSyHQREgQ3R87FW3UyXXyrwMUH0CyQmmoIPSTnMcQeRUXime4NANpE9
+         EnrXsqkz7Xr/NLJ2OYHmzCfG+UrDhP4QpEAO2x0mcYTxBUyoRT4BjO/Dlg7fXOsbJqLP
+         WUUY9IXARU7P+gqX1ochZp6jF6s5m0bvdKF1c+p8EuEgdmPYP43AgqdY14MwL5QJSzZh
+         GQW0DSmofcXASOi2LtMaH6+VLmWCDbmEfzkp/puLLeOmv8Dj/j2paUv+huJf+wlOcNLv
+         K8M0LRihUxxlzHymgd8Ot/RUJMVVvcS8G4MXF7RZIe5Hv2qEAfP3wNGCSRb2vHrYc7gS
+         xiPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761556722; x=1762161522;
-        h=content-transfer-encoding:in-reply-to:from:content-language
+        d=1e100.net; s=20230601; t=1761556972; x=1762161772;
+        h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ehs8czoQPjVKOHqW4ZFLgwuoXf6oH7SJucxSNVSnhpo=;
-        b=GDnD9nGaPLek7YHvdQGBw/HHyx8H0NOmQ6FTPaaqmnqMDt8LqoBXvf8HBwy585hh8T
-         Esu1stMBHiHgRN+dN2xz5UD/E+kWNyRpN2zzg9I4UXUqwXwNwOfc3YjdiIvXtLtBFO/J
-         dPixok7SdhKmvBNwY/JJLmz/0L2Y7ksKd84TFw63UYHsG+nwyTb4cFWIV1J5FO3rcTTr
-         1bCTDXmBpruoaCsOKJiBXyjx7HRqCEqO3qkVX40XTqrZWhaO8wYke9cv2L/l7LFudMo9
-         mW9hljFx2BeFCJvcpjOVvuDQkc3DuQ3gf1wTLFCfuEiGmzoirtdFr3Ig7uJqPv2cjTq1
-         rWvg==
-X-Forwarded-Encrypted: i=1; AJvYcCW+aZM1LdpC2zAiDxC2V5JUfbakMQRkX7FbwRqF501xqB3CwYkg2C9tVamAQaInbW9WgeYsEUtdZfuWAWA4+O0t@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIjoPflCS0rzYSlYa1nGwq+sbmAZOUQda54uPN4mKCRkpOH4Hz
-	ddYwNRZjR3epU3JdhP1XL3Puf4X6SNkIuF2EQdTnPOhgRZxOZxMbQLkH
-X-Gm-Gg: ASbGncsnrWg0URNyXjNES7T0MYLuEgyTT4SYHaWz+cTzhR8RxK4uGJV/eUc1ReVElZh
-	K7VC1Eg959kOm3lIC/D7traQ9J27IwIDChCtdwB0GCQksQyTlvyP2Psqz9akKROKXBg96clWbPH
-	pHtUs2aSroHIrAw6yfSGfUdmTSjThvjQ8+RqGKbhP1ZD7uwkJsxq5pkUZ0f2Ac7o0ZbhgHaSHEg
-	qaiCP01VAlQOP6z2rb3tz2x5CxH4fFJOPdGxHixMJ58LjfRXGd+JX5ywJc5Vk7F7bZy2T7+vT30
-	+5Y9QFWljaZsx1I0nw9FcI0ITgJwXiuwliRvu/3BTs6GrtZnhDI1DOC3982yf4tiGtvaGL/PMVq
-	76KZaXkNgp4xOQZMkI2aZvDems4gmruakF2fD1Z3CIR+4EnvCM5OfqTSeSNZhbkgI7377yfiP4p
-	tbKoRCIzUUlEN5nogk4vNBBoVUvPekVG0Orw12dXDw9J+Kgqh8JaTjNaODvuJyKEfXvQoa
-X-Google-Smtp-Source: AGHT+IESiBzo8z/tHlQ7I5VEkOfigXvoHYj6wHPdrwNr6qgyel91D2wbArQpcNK3kTl+H1frH3DoZA==
-X-Received: by 2002:a05:6402:34c5:b0:63c:1e15:b9fb with SMTP id 4fb4d7f45d1cf-63c1f6b4d28mr36374925a12.22.1761556721921;
-        Mon, 27 Oct 2025 02:18:41 -0700 (PDT)
-Received: from [10.0.1.60] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef95e81sm5781449a12.21.2025.10.27.02.18.41
+        bh=idLQEGHawEowPnMFpADe7JKEtzSuZ6zkkitTWQDADFM=;
+        b=w9fXvYy9d2FpoXBAWgwoa+VO+CS+UxzH0pZp1EgiUhn7VCkH4LE9/vv44wtnQUCBAc
+         rOsTTjQOF7RruYnP8sTTD1MfgfneoeElNQuGdpIA5cuViZMlLXVhKU9sQ8U6prp7YTps
+         yVgU+Mtgtl0OZCQzvXjvbT52FzP+E+UVy91o1Lb6kx4f5rr77n2XA43D1ceGgSXamXwy
+         xTtkSa1QiYT4rXo7qZLsbbAowv1aGrRmHXl7sp8WV6uh1iodwlO/hAwxS8YAGvdn5PXo
+         8aAYJu6u4TCzP1AMT/qxV/6txJ8dsWjzRZvwFiFR+ogWSB0sa80MaYnzFcdgNsKAyxA3
+         p9iA==
+X-Forwarded-Encrypted: i=1; AJvYcCXYpb93i9jv6q+vYfZeF6HkJHfvFjnlhGJtYJ8daJ0617o+hrSTvWhb9gDzzC2CpF+kWY1GdxL+SRwblv0bAnLE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzpj0YKcYR1rCkL/kmXcKMDcXQrwN2pk0mcbNmD+W2A4MbY7ODS
+	1pqVesrL68L5JJ6Z1xDJbE/TgHPCiY3SsDKeS++/xOsCebSqmaKfhZrJhChcsU06Jc0=
+X-Gm-Gg: ASbGncvi24hSkIVHwkmI+o/5kvm27sQGHlWygnaBb+w8X2a8EYvFxmTZA/TgRpR5k9G
+	cKUeVc0EM9RVVLBHHcVLzoTWenWaPf4BGk7O/p6qCJtNB3a5sTk4uIba9cczHlOlygcvedRSR/6
+	C0Fx8r2tsNwQ+2UI3nc8hbS5nTniLVjfpgrI7UQDUOyCWww4bQd8AG5/odu4s3BD2LUP430yhMQ
+	1WarljxWsiDDMsYYb7R70/akuWXeq3kBFlHPnpg1VZSVPeexiOl0g6j1oRnq82FH5HgyzHbHEOu
+	I+s/ewFBrqx0oWFDMCY7+BEUJYTq05bJ76uyfbjDkIJQYAedu6rG/d4ishoFGD4jb8u9Rh3uGdH
+	Cs1PNXK63ed2Gs5AwKaDhd3VYdKARRufCMVU8zVPVSNV60SLflFnALbCn0QsTLocCqblgXxWS7W
+	hAVV6WpNDQob3ZqRDI/w==
+X-Google-Smtp-Source: AGHT+IFgheBk8plPZFOvo1Fh8CqMw+IDlX5zjqqJtiHnOJ15bA0846Akm4ZoeAvbvhHYf1Mdb/gfzw==
+X-Received: by 2002:a17:907:6d20:b0:b6d:6a35:99a0 with SMTP id a640c23a62f3a-b6d6a359c49mr1253713666b.33.1761556971534;
+        Mon, 27 Oct 2025 02:22:51 -0700 (PDT)
+Received: from [192.168.0.39] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d853c549fsm708029666b.37.2025.10.27.02.22.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 02:18:41 -0700 (PDT)
-Message-ID: <e60ec752-df05-4ad8-bc18-2ad68a6d745e@gmail.com>
-Date: Mon, 27 Oct 2025 10:18:40 +0100
+        Mon, 27 Oct 2025 02:22:51 -0700 (PDT)
+Message-ID: <56a13c84-7d8b-42f1-97f6-c338b931f205@linaro.org>
+Date: Mon, 27 Oct 2025 11:22:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Daniel Scally <dan.scally@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Stefan Klug <stefan.klug@ideasonboard.com>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Subject: Re: [PATCH v3 01/31] dt-bindings: media: add DW MIPI CSI-2 Host
+ support
+To: Sakari Ailus <sakari.ailus@iki.fi>, Frank Li <Frank.Li@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>,
- Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
- <20251027072749.GA7811@pendragon.ideasonboard.com>
- <341f56de-9dde-4c44-9542-b523e1917dcb@gmail.com>
- <aP80y6hQmCnxDoeC@shell.armlinux.org.uk>
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Steve Longerbeam <slongerbeam@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ linux-staging@lists.linux.dev, Luis Oliveira <lolivei@synopsys.com>
+References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
+ <20250821-95_cam-v3-1-c9286fbb34b9@nxp.com>
+ <aP8t3YClrZxOnHea@valkosipuli.retiisi.eu>
+From: Eugen Hristev <eugen.hristev@linaro.org>
 Content-Language: en-US
-From: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
-In-Reply-To: <aP80y6hQmCnxDoeC@shell.armlinux.org.uk>
+In-Reply-To: <aP8t3YClrZxOnHea@valkosipuli.retiisi.eu>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_021844_005383_C63E2BF3 
-X-CRM114-Status: GOOD (  32.79  )
+X-CRM114-CacheID: sfid-20251027_022253_993022_A0F3E5B9 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,119 +122,219 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 27/10/2025 10:00, Russell King (Oracle) wrote:
-> On Mon, Oct 27, 2025 at 09:47:53AM +0100, Emanuele Ghidoli wrote:
->> On 27/10/2025 08:27, Laurent Pinchart wrote:
->>> Hi Andrew,
->>>
->>> Thank you for your quick reply.
->>>
->>> On Mon, Oct 27, 2025 at 04:08:42AM +0100, Andrew Lunn wrote:
->>>> Adding Russell King
->>>>
->>>> On Sun, Oct 26, 2025 at 02:29:04PM +0200, Laurent Pinchart wrote:
->>>>> Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
->>>>> (DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
->>>>> devices produces an interrupts storm. Disable EEE support to fix it.
->>>>>
->>>>> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->>>>> ---
->>>>> The exact reason for the interrupt storm is unknown, and my attempts to
->>>>> diagnose it was hindered by my lack of expertise with DWMAC. As far as I
->>>>> understand, the DWMAC implements EEE support, and so does the RTL8211E
->>>>> PHY according to its datasheet.
->>>>
->>>> I believe for DWMAC it is a synthesis option. However, there is a bit
->>>> indicating if the hardware supports it.
->>>>
->>>> The PHY should not be able to trigger an interrupt storm in the
->>>> MAC. So this is likely to be an DWMAC issue.
->>>>
->>>> Which interrupt bit is causing the storm?
->>>
->>> That's where I hit my first wall :-)
->>>
->>> I've tried to diagnose the issue by adding interrupt counters to
->>> dwmac4_irq_status(), counting interrupts for each bit of GMAC_INT_STATUS
->>> (0x00b0). Bit RGSMIIIS (0) is the only one that seems linked to the
->>> interrupts storm, increasing at around 10k per second. However, the
->>> corresponding bit in GMAC_INT_EN (0x00b4) is *not* set.
->>>
->>> The ENET_EQOS interrupt on the i.MX8MP is an OR'ed signal that combines
->>> four interrupt sources:
->>>
->>> - ENET QOS TSN LPI RX exit Interrupt
->>> - ENET QOS TSN Host System Interrupt
->>> - ENET QOS TSN Host System RX Channel Interrupts
->>> - ENET QOS TSN Host System TX Channel Interrupts
->>>
->>> The last two interrupt sources are themselves local OR of channels[4:0].
->>>
->>> I ould suspect that the LPI RX exit interrupt is the one that fires
->>> constantly given its name, but I'm not sure how to test that.
->>>
->>>>> What each side does exactly is unknown
->>>>> to me. One theory I've heard to explain the issue is that the two
->>>>> implementations conflict. There is no register in the RTL8211E PHY to
->>>>> disable EEE on the PHY side while still advertising its support to the
->>>>> peer and relying on the implementation in the DWMAC (if this even makes
->>>>> sense)
->>>>
->>>> It does not make sense. EEE is split into two major parts. The two
->>>> PHYs communicate with each other to negotiate the feature, if both
->>>> ends support it and both ends want to use it. The result of this
->>>> negotiation is then passed to the MACs.
->>>>
->>>> It is then the MAC who decides when to send a Low Power Indication to
->>>> the PHY to tell the PHY to enter low power mode. The MAC also wakes
->>>> the PHY when it has packets to send.
->>>>
->>>> A quick look at the data sheet for the RTL8211E suggests this is what
->>>> is supports.
->>>>
->>>> There are a few PHYs which implement SmartEEE, or some other similar
->>>> name. They operate differently, the PHY does it all, and the MAC is
->>>> not even aware EEE is happening. Such PHYs should really only be
->>>> paired with MACs which do not support EEE. An EEE capable MAC paired
->>>> with a SmartEEE PHY could have problems, but hopefully the EEE
->>>> abilities and negotiation registers in the PHY would be sufficient to
->>>> dissuade the MAC from doing EEE. But i would not expect a setup like
->>>> this to trigger an interrupt storm.
->>>
->>> Thanks for the explanation, I read documents to try and figure out how
->>> it worked and didn't find such a clear and concise high-level summary.
->>>
->>> I'm not very experienced with ethernet, but I can easily test patches or
->>> even rough ideas on hardware.
->>>
+On 10/27/25 10:31, Sakari Ailus wrote:
+> Hei Eugen,
+> 
+> On Thu, Aug 21, 2025 at 04:15:36PM -0400, Frank Li wrote:
+>> From: Eugen Hristev <eugen.hristev@linaro.org>
+
+Hi everyone,
+
+While I originally wrote this patch, and Frank keeping me as author, I
+have not contributed more to it, so, I think you can drop me as author
+and Frank you can put your name to it.
+
+Thanks for continuing the work on it.
+
+Eugen
 >>
->> Hi Laurent,
->> I had the same problem, interrupt storm plus link instability with dwmac.
+>> Add bindings for Synopsys DesignWare MIPI CSI-2 host, which used at i.MX93
+>> and i.MX95 platform.
+>>
+>> Signed-off-by: Luis Oliveira <lolivei@synopsys.com>
+>> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+>> ---
+>> Change in v3
+>> - drop remote-endpoint: true
+>> - drop clock-lanes
+>>
+>> Change in v2
+>> - remove Eugen Hristev <eugen.hristev@microchip.com> from mantainer.
+>> - update ugen Hristev's s-o-b tag to align original author's email address
+>> - remove single snps,dw-mipi-csi2-v150 compatible string
+>> - move additionalProperties after required
+>> ---
+>>  .../bindings/media/snps,dw-mipi-csi2-v150.yaml     | 151 +++++++++++++++++++++
+>>  MAINTAINERS                                        |   1 +
+>>  2 files changed, 152 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..d950daa4ee9cfd504ef84b83271b2a1b710ffd6b
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+>> @@ -0,0 +1,151 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/media/snps,dw-mipi-csi2-v150.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Synopsys DesignWare CSI-2 Host controller (csi2host)
+>> +
+>> +maintainers:
+>> +  - Frank Li <Frank.Li@nxp.com>
+>> +
+>> +description:
+>> +  CSI2HOST is used to receive image coming from an MIPI CSI-2 compatible
+>> +  camera. It will convert the incoming CSI-2 stream into a dedicated
+>> +  interface called the Synopsys IDI (Image Data Interface).
+>> +  This interface is a 32-bit SoC internal only, and can be assimilated
+>> +  with a CSI-2 interface.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - enum:
+>> +          - fsl,imx93-mipi-csi2
+>> +      - const: snps,dw-mipi-csi2-v150
+>> +
+>> +  reg:
+>> +    items:
+>> +      - description: MIPI CSI-2 core register
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: core
+>> +
+>> +  clocks:
+>> +    maxItems: 2
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: per
+>> +      - const: pixel
+>> +
+>> +  phys:
+>> +    maxItems: 1
+>> +    description: MIPI D-PHY
+>> +
+>> +  phy-names:
+>> +    items:
+>> +      - const: rx
+>> +
+>> +  resets:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  ports:
+>> +    $ref: /schemas/graph.yaml#/properties/ports
+>> +
+>> +    properties:
+>> +      port@0:
+>> +        $ref: /schemas/graph.yaml#/$defs/port-base
+>> +        unevaluatedProperties: false
+>> +        description:
+>> +          Input port node, single endpoint describing the input port.
+>> +
+>> +        properties:
+>> +          endpoint:
+>> +            $ref: video-interfaces.yaml#
+>> +            unevaluatedProperties: false
+>> +            description: Endpoint connected to input device
+>> +
+>> +            properties:
+>> +              bus-type:
+>> +                const: 4
 > 
-> You never said that in your patch description. You said "it causes
-> link instability and communication failures." Have you investigated
-> what the cause of the interrupt storm is?
+> If 4 is the only value supported, you can drop the property altogether.
 > 
->> I found out that 2c81f3357136 ("net: stmmac: convert to phylink PCS support")
->> commit is the one causing the problem to me.
-The correct commit is 4218647d4556 (“net: stmmac: convert to phylink managed
-EEE support”).>
-> You claim this commit enables EEE by default. It does. However, stmmac
-> _before_ this commit enables EEE by default as I've already explained,
-> quoting the old code which effects this. I've asked you to test
-> further. So far, I've heard nothing back.
+>> +
+>> +              data-lanes:
+>> +                minItems: 1
+>> +                maxItems: 4
+>> +                items:
+>> +                  maximum: 4
+>> +
+>> +      port@1:
+>> +        $ref: /schemas/graph.yaml#/$defs/port-base
+>> +        unevaluatedProperties: false
+>> +        description:
+>> +          Output port node, single endpoint describing the output port.
+>> +
+>> +        properties:
+>> +          endpoint:
+>> +            unevaluatedProperties: false
+>> +            $ref: video-interfaces.yaml#
+>> +            description: Endpoint connected to output device
+>> +
+>> +            properties:
+>> +              bus-type:
+>> +                const: 4
 > 
-> What has changed is that we no longer do anything with the RGSMIIS
-> status, and in theory keep the mask/enable for this disabled. Howeer,
-> that is a subsequent commit.
+> Are both input and output of this block CSI-2 with D-PHY?
 > 
-Hi Russell,
+>> +
+>> +    required:
+>> +      - port@0
+>> +      - port@1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - reg-names
+>> +  - interrupts
+>> +  - ports
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    csi@3000 {
+>> +        compatible = "fsl,imx93-mipi-csi2", "snps,dw-mipi-csi2-v150";
+>> +        reg = <0x03000 0x1000>;
+>> +        reg-names = "core";
+>> +        phys = <&mipi_dphy_rx 0>;
+>> +        phy-names = "rx";
+>> +        resets = <&dw_rst 1>;
+>> +        interrupts = <2>;
+>> +
+>> +        ports {
+>> +            #address-cells = <1>;
+>> +            #size-cells = <0>;
+>> +
+>> +            port@0 {
+>> +                reg = <0>;
+>> +
+>> +                endpoint {
+>> +                    bus-type = <4>; /* MIPI CSI2 D-PHY */
+>> +                    remote-endpoint = <&camera_1>;
+>> +                    data-lanes = <1 2>;
+>> +                    clock-lanes = <0>;
+>> +                };
+>> +            };
+>> +
+>> +            port@1 {
+>> +                reg = <1>;
+>> +
+>> +                endpoint {
+>> +                    remote-endpoint = <&idi_receiver>;
+>> +                    bus-type = <4>;
+>> +                };
+>> +            };
+>> +        };
+>> +    };
+>> +
+>> +...
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 9d9d2be7be8037dfa96f1c9edd24a0cf997b9393..ecb7bc7cc8ad797f43173075ca8973804bf335f7 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -15334,6 +15334,7 @@ F:	Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
+>>  F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+>>  F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
+>>  F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+>> +F:	Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+>>  F:	drivers/media/platform/nxp/imx-mipi-csis.c
+>>  F:	drivers/media/platform/nxp/imx-parallel-csi.c
+>>  F:	drivers/media/platform/nxp/imx7-media-csi.c
+>>
+> 
 
-Sorry, I made a copy-and-paste mistake earlier.
-
-
-I identified it through a bisect, and reverting this commit (or disabling EEE)
-resolves the issue I’m seeing.
-
-I’m continuing to investigate further to understand the root cause.
 
