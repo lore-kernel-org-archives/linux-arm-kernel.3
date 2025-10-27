@@ -4,84 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C99CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBBFCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=D+xbO1Y4egrEeQMjxUSNcmmDafwwerz93fqHD7K/qDc=; b=20nrIuMlRWfw4FGOtwDzxXzKdg
-	vY2Dc0iMCxtZYrWPsMaSPQQxiW7zM2G5h5S16qoI3mIEeLue/nghBv/pP5foOXVUAJcHKTB0ICtzw
-	0EfKHzZY0LyMgVXYLrIEzyzCflfCqa7vqtH/eNhTkU/+LL4soGkoGUKe5APnGXGOerN8tzzQ9AlGy
-	pa7x05T3rFyHxCSsRjf4eR+Y6K/sCsGy5WJEdBpr0X+ndZx12TRIE5oNBhHcxXjCEwCWJiNa40Kcr
-	sD5GZOsjI6dR0ugnizrSkJNNF8Y6rEepXZRBuOt5XSxgeHzrBeW4dB2uM/bX4LsBSMWARmkukLqwr
-	P/z1IO9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=36Cbfb/vjeQ/MuEIGnK6bEu0FQjCPhD4xvsTx+U2YiI=; b=t7ouGGdUE5kHM4VQ3dw9ztCMwO
+	9NTRVGF8PF6G00KgYqaYIcm/G74M1lJx0mtQT5+zCmbnC1Z8jmmgUotIxIfH6X5+hQTFHL7PRgmqk
+	AlDSewDe0HSjYsKQiP2Gdp/8RA2rURVptMIEgzMzMAc7VU15mvsmPDVONFFQLjGgmVx9pIC2kYb4I
+	WWvG+VXimrmYlau0Lnj3Q9L3OTENIjxgEugBfYLigPVztZO5QbduZOE6EaAEqwijA/LdSij9ZcSeP
+	z8xPRWo/kSasa9Nh+sDGPtnsmYqDCf7WXfvWCw/ydvbxBQ49Rc7dhvLU8uIim1Bj0COY60y70Qcjn
+	jUnX0haw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRnV-0000000EXM0-2Yvr;
-	Mon, 27 Oct 2025 18:18:25 +0000
-Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
+	id 1vDRom-0000000EXc1-3JZB;
+	Mon, 27 Oct 2025 18:19:44 +0000
+Received: from mail1.manjaro.org ([142.132.176.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRnT-0000000EXLR-2drG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 18:18:24 +0000
-Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RFPQKB2226760
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:18:22 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=s2048-2025-q2; bh=D+xbO1Y4egrEeQMjxU
-	SNcmmDafwwerz93fqHD7K/qDc=; b=MKmGV+u4q+k9ETPJxNt7keRnvDdakFl4f+
-	ioNOB0nofjBrPQpgs9D59omsPR7HPJcPeUP9McpvfWQNEuWTKmL13mPz7QBXZ/G+
-	1Adcr1BgmXPYy7TLtXf8beGj73Gr2xVy9VNU8T5Pevk3dXGHi+3wqaMBvrAJvXdp
-	5WpCL7Cc2mAsNstfpGW2y0pjCbROi0Z7d7iYSEEFIA0/cZq3lUFObY52JTRBy3ya
-	O6uCJtG+KUqdAvMljuaQ04P3H3iKK+GcFCQleDvNIBCRuyTcnAVyKNUfGCxVgNUT
-	Jnd3YeaiLpTG588QkZQtuD5a1KHNW4Sd5tmezeN4FHKFJqZgL+oA==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4a2bc49mhr-4
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:18:22 -0700 (PDT)
-Received: from twshared67921.04.prn6.facebook.com (2620:10d:c0a8:1b::8e35) by
- mail.thefacebook.com (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.20; Mon, 27 Oct 2025 18:18:19 +0000
-Received: by devbig071.cco5.facebook.com (Postfix, from userid 704538)
-	id B6A5A75B4A99; Mon, 27 Oct 2025 11:18:03 -0700 (PDT)
-From: Ben Niu <benniu@meta.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: Will Deacon <will@kernel.org>, <tytso@mit.edu>, <Jason@zx2c4.com>,
-        Ben Niu
-	<benniu@meta.com>, Ben Niu <niuben003@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] tracing: Enable kprobe tracing for Arm64 asm functions
-Date: Mon, 27 Oct 2025 11:17:49 -0700
-Message-ID: <20251027181749.240466-1-benniu@meta.com>
-X-Mailer: git-send-email 2.47.3
+	id 1vDRok-0000000EXad-2m1Z;
+	Mon, 27 Oct 2025 18:19:44 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 9416840D1B;
+	Mon, 27 Oct 2025 19:19:36 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1761589178; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=36Cbfb/vjeQ/MuEIGnK6bEu0FQjCPhD4xvsTx+U2YiI=;
+	b=hqARmNiwPpusSwZKYVqiX/9ApyoiqEQ34kuYnR5OGtVLZuJCUemXxsuyCtUKGlv3pq5bo0
+	VVnO2r9zlxTW1PAB6V1GeVc62DBZvqYa9UnFy0MwiAcHnEXFnHM05jUkspAdBO7fWYaP+y
+	urmSrkx/NUvm5Z6HBpzFwW2itsn+taP8SA28E8tHErXq4vUisZrUWn+M/umpX6vzHe408F
+	W3eqbHZWCfFvHz6QDWNTNIvaRvs5EeFKviSmsv0bPFZFLnZpdGgEwTYPRatYYhMsubajif
+	YjeqZ7OWCAGIRsKDHG4McORglLhhQK3i5cdkFLGwJyEe6Z0TnQup9qGF9TW7Jw==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <60a1046c-437e-400a-8e2c-391cd471c358@kwiboo.se>
+Content-Type: text/plain; charset="utf-8"
+References: <20251027154517.136976-1-diederik@cknow-tech.com> <60a1046c-437e-400a-8e2c-391cd471c358@kwiboo.se>
+Date: Mon, 27 Oct 2025 19:19:36 +0100
+Cc: "Diederik de Haas" <diederik@cknow-tech.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, "Johan Jonker" <jbx6244@gmail.com>
+To: "Jonas Karlman" <jonas@kwiboo.se>
 MIME-Version: 1.0
+Message-ID: <7dc31259-c172-de0e-554c-2563014b9c2c@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH v2] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
+ =?utf-8?q?_rockchip=3A?= Harmonize regulator formatting for Pine64 rk3566 
+ devices
+User-Agent: SOGoMail 5.12.3
 Content-Transfer-Encoding: quoted-printable
-X-FB-Internal: Safe
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDE2OSBTYWx0ZWRfXwTeLzd2J6n5c
- dg2jJyGGdZTQDiQcTX2pRq+wPOYnJWi7SuRm22vgQAWy80r+SaO6myE25XcVfvECpD/wk23rNeA
- 07WA5fUQXa0oxu48g+lEA800KqP0rISq+u8DsqKFiwZ5kjslnPuKcR4VOy5ocgDKFmwgszVB8uX
- 7pTkU8is2Kiid0WTgTXPfGjkRWVhPaakpSnNkn+c4+tHsKdq2jDbtTFhZig94drga6pMx1mwrX0
- 9jF8f8EddKT1XYnuIWSLffrjyutnUKc+qfLmgVp5/FCnjrgKyLqjeAig2bVe8csHopw1xSKxvh9
- JUlZczEyz1/j0m01URImB5zA2FQVu7C11uZLhdd0ONb8qkaRY3xpp0gPZvW59AVPshNE0AjJOc7
- YFBFfKRpceXrUv6kmZnpch/cmahOmA==
-X-Authority-Analysis: v=2.4 cv=e68LiKp/ c=1 sm=1 tr=0 ts=68ffb76e cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VabnemYjAAAA:8
- a=zeGFJKBHtnJr8_X531kA:9 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-GUID: I0HCTDF2kYn1YZ5cVmO673jNVMTDHr_O
-X-Proofpoint-ORIG-GUID: I0HCTDF2kYn1YZ5cVmO673jNVMTDHr_O
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-27_07,2025-10-22_01,2025-03-28_01
+X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_111823_670848_A3ADA220 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20251027_111942_942474_BED3F51A 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,180 +69,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, Arm64 assembly functions always have a bti c
-instruction inserted before the prologue. When ftrace is enabled,
-no padding nops are inserted at all.
+Hello Jonas and Heiko,
 
-This breaks kprobe tracing for asm functions, which assumes that
-proper nops are added before and within functions (when ftrace is
-enabled) and bti c is only present when CONFIG_ARM64_BTI_KERNEL is
-defined.
+On Monday, October 27, 2025 19:06 CET, Jonas Karlman <jonas@kwiboo.se> =
+wrote:
+> On 10/27/2025 4:39 PM, Diederik de Haas wrote:
+> > The regulator node properties in Pine64 rk3566 devices were formatt=
+ed
+> > rather inconsistently. To name a few:
+> > - 'name' was sometimes put at the top of the list, while at other t=
+imes
+> >   it was (mostly) sorted in alphabetical order
+>=20
+> Personally I prefer to list the regulator-name as the first property,=
+ I
+> think it makes it visually easier/quicker to identify a regulator wit=
+h
+> the name prop at top.
+>=20
+> I typically try to use the following prop ordering for regulators on
+> board DTs I submit (and review):
+>=20
+> - regulator-name as the first prop (to quickly identify the regulator=
+)
+> - regulator-min-* before regulator-max-* (natural order)
+> - regulator-* in alphabetical/natural order
+>=20
+> Maybe this preference just comes from a long history of always puttin=
+g
+> id/primary key/unique identifiers at top or beginning of data tables,
+> classes, structs etc ;-)
 
-The patch fixes the bug by inserting nops and bti c in Arm64 asm
-in the same way as compiled C code.
+Oh, I actually agree with your and Heiko's preferences when
+it comes to the ordering, regardless of that being personal
+preference, tribal knowledge or just common sense. :)
 
-Note: although this patch unblocks kprobe tracing, fentry is still
-broken because no BTF info gets generated from assembly files. A
-separate patch is needed to fix that.
-
-I built this patch with different combos of the following features
-and confirmed kprobe tracing for asm function __arch_copy_to_user
-worked in all cases:
-
-CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-CONFIG_DYNAMIC_FTRACE_WITH_ARGS
-CONFIG_ARM64_BTI_KERNEL
-
-Signed-off-by: Ben Niu <benniu@meta.com>
----
- arch/arm64/include/asm/linkage.h           | 103 ++++++++++++++++-----
- arch/arm64/kernel/vdso/vgetrandom-chacha.S |   2 +-
- 2 files changed, 81 insertions(+), 24 deletions(-)
-
-diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/li=
-nkage.h
-index d3acd9c87509..f3f3bc168162 100644
---- a/arch/arm64/include/asm/linkage.h
-+++ b/arch/arm64/include/asm/linkage.h
-@@ -5,8 +5,47 @@
- #include <asm/assembler.h>
- #endif
-=20
--#define __ALIGN		.balign CONFIG_FUNCTION_ALIGNMENT
--#define __ALIGN_STR	".balign " #CONFIG_FUNCTION_ALIGNMENT
-+#define __ALIGN .balign CONFIG_FUNCTION_ALIGNMENT
-+#define __ALIGN_STR ".balign " #CONFIG_FUNCTION_ALIGNMENT
-+
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-+
-+#define PRE_FUNCTION_NOPS                                               =
-    \
-+	ALIGN;                                                              \
-+	nops CONFIG_FUNCTION_ALIGNMENT / 4 - 2;                             \
-+	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
-+	.p2align 3;                                                         \
-+	.8byte 1f;                                                          \
-+	.popsection;                                                        \
-+	1 :;                                                                \
-+	nops 2;
-+
-+#define PRE_PROLOGUE_NOPS nops 2;
-+
-+#elif defined(CONFIG_DYNAMIC_FTRACE_WITH_ARGS)
-+
-+#define PRE_FUNCTION_NOPS
-+
-+#define PRE_PROLOGUE_NOPS                                               =
-    \
-+	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
-+	.p2align 3;                                                         \
-+	.8byte 1f;                                                          \
-+	.popsection;                                                        \
-+	1 :;                                                                \
-+	nops 2;
-+
-+#else
-+
-+#define PRE_FUNCTION_NOPS
-+#define PRE_PROLOGUE_NOPS
-+
-+#endif
-+
-+#ifdef CONFIG_ARM64_BTI_KERNEL
-+#define BTI_C bti c;
-+#else
-+#define BTI_C
-+#endif
-=20
- /*
-  * When using in-kernel BTI we need to ensure that PCS-conformant
-@@ -15,32 +54,50 @@
-  * everything, the override is done unconditionally so we're more
-  * likely to notice any drift from the overridden definitions.
-  */
--#define SYM_FUNC_START(name)				\
--	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
--	bti c ;
-+#define SYM_FUNC_START(name)                       \
-+	PRE_FUNCTION_NOPS                          \
-+	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
-+	BTI_C                                      \
-+	PRE_PROLOGUE_NOPS
-+
-+#define SYM_FUNC_START_NOTRACE(name)               \
-+	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
-+	BTI_C
-=20
--#define SYM_FUNC_START_NOALIGN(name)			\
--	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE)	\
--	bti c ;
-+#define SYM_FUNC_START_NOALIGN(name)              \
-+	PRE_FUNCTION_NOPS                         \
-+	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE) \
-+	BTI_C                                     \
-+	PRE_PROLOGUE_NOPS
-=20
--#define SYM_FUNC_START_LOCAL(name)			\
--	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN)	\
--	bti c ;
-+#define SYM_FUNC_START_LOCAL(name)                \
-+	PRE_FUNCTION_NOPS                         \
-+	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN) \
-+	BTI_C                                     \
-+	PRE_PROLOGUE_NOPS
-=20
--#define SYM_FUNC_START_LOCAL_NOALIGN(name)		\
--	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE)	\
--	bti c ;
-+#define SYM_FUNC_START_LOCAL_NOALIGN(name)       \
-+	PRE_FUNCTION_NOPS                        \
-+	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE) \
-+	BTI_C                                    \
-+	PRE_PROLOGUE_NOPS
-=20
--#define SYM_FUNC_START_WEAK(name)			\
--	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN)	\
--	bti c ;
-+#define SYM_FUNC_START_WEAK(name)                \
-+	PRE_FUNCTION_NOPS                        \
-+	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN) \
-+	BTI_C                                    \
-+	PRE_PROLOGUE_NOPS
-=20
--#define SYM_FUNC_START_WEAK_NOALIGN(name)		\
--	SYM_START(name, SYM_L_WEAK, SYM_A_NONE)		\
--	bti c ;
-+#define SYM_FUNC_START_WEAK_NOALIGN(name)       \
-+	PRE_FUNCTION_NOPS                       \
-+	SYM_START(name, SYM_L_WEAK, SYM_A_NONE) \
-+	BTI_C                                   \
-+	PRE_PROLOGUE_NOPS
-=20
--#define SYM_TYPED_FUNC_START(name)				\
--	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
--	bti c ;
-+#define SYM_TYPED_FUNC_START(name)                       \
-+	PRE_FUNCTION_NOPS                                \
-+	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
-+	BTI_C                                            \
-+	PRE_PROLOGUE_NOPS
-=20
- #endif
-diff --git a/arch/arm64/kernel/vdso/vgetrandom-chacha.S b/arch/arm64/kern=
-el/vdso/vgetrandom-chacha.S
-index 67890b445309..21c27b64cf9f 100644
---- a/arch/arm64/kernel/vdso/vgetrandom-chacha.S
-+++ b/arch/arm64/kernel/vdso/vgetrandom-chacha.S
-@@ -40,7 +40,7 @@
-  *	x2: 8-byte counter input/output
-  *	x3: number of 64-byte block to write to output
-  */
--SYM_FUNC_START(__arch_chacha20_blocks_nostack)
-+SYM_FUNC_START_NOTRACE(__arch_chacha20_blocks_nostack)
-=20
- 	/* copy0 =3D "expand 32-byte k" */
- 	mov_q		x8, 0x3320646e61707865
---=20
-2.47.3
+However, that's quite conflicting with the current official
+rules for writing DT files, which don't recognize such exceptions
+at all.  Perhaps we should attempt to incorporate such preferences
+into the official rules, because such non-standard ordering does
+make DTs more readable?  Following the rules is good, unless it
+makes the end results worse, IMHO.
 
 
