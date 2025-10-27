@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5905FCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E27ECCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IGCNUlcyl6xtHIdm21CL+8PloPNSua2zESi+9nGOjAs=; b=skSMFdCoFNynvp/FR0yqLXdKmD
-	TyRjQVbmasI7GincIljOFBZGBjDEYPdsMu26Bj/CG1N47Nq5sPSKigQ6krWkzIJkXWlenORuIq7KN
-	7hEWffhxGmIU6e6XcqREcPgYRwwEmmcKwX+9HNVAxpccKO+vSraxSwCrjxZD10SHD52DOy+DyOzYO
-	WNV3X1BuYo4SzV7w4O9FQWmcf5jeLSsnEfSP2hYVSgehBGH9ps58m3cVnME6h5AIWG/RtZuCxHtZD
-	U210xCWBJF7noK4GJ169TKb/PATeN3DnSI9Z+ZzvSn82Lb94GslDtMr2SKCi7KpC4AtOLKGHl8vM4
-	rjMgGM6g==;
+	bh=ZbODBbC5w9/QDsohpwHce5qIUglq861ABT73R6CnNv8=; b=jeAx1Xk8m0O8LwmmObaTjHVPZc
+	8kAdjVYmEeHdwjcTFbrKvka0/mHBdW3UqjmRtWDmV6aMeul9yuKF8v7suf6NASbH84cLpNS/Qs7mB
+	+lM0H3oDZEjRLrp8B5140FOIDXilQycVwb/VlemrYHGtIwYRlPMdRsmt2YmVQMVDnko+FzNjpsEGH
+	i2xbzOJ4Ji4IiSocUatkCKe0/pYJyhPAYARBj3vI1Aa7/frrWd93tnfIdwwV7S7wLp9U3Q8+RY/tA
+	8m8yIiTQLTpZ/yTCEsGle1mStVIP3qyj55joJJxm6rAO6J8bx0XlFOeb8zT4wISJLy1igsy0H0uI+
+	L8f9Y3cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMuT-0000000DySE-32DM;
-	Mon, 27 Oct 2025 13:05:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vDMvR-0000000DyZC-1cTO;
+	Mon, 27 Oct 2025 13:06:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMuQ-0000000DyRG-40Yx;
-	Mon, 27 Oct 2025 13:05:16 +0000
+	id 1vDMvO-0000000DyYS-2IPv;
+	Mon, 27 Oct 2025 13:06:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 225E943484;
-	Mon, 27 Oct 2025 13:05:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4889C4CEF1;
-	Mon, 27 Oct 2025 13:05:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 15ACD4558E;
+	Mon, 27 Oct 2025 13:06:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6AA7C4CEF1;
+	Mon, 27 Oct 2025 13:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761570314;
-	bh=TuHEym0B6rKM3/jxEON5qYqiU4gHzQV0bZqW68U9z38=;
+	s=k20201202; t=1761570373;
+	bh=PsQsp861Ykv1mY2uESLxhH32w+HggUC3IjQqF4o6Zns=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BEiQnkdu8BCMG3ckTNZo7brBJgg8rYBk1aCqjp9Nooq04D9gr6uY3Zu+ND8hF4MeO
-	 /oWq2gymN1M8J7bqbxhV/l/1zwdlvu6KveSWgmOebbKpP2BRnX0NbXRVLZA7apuPXB
-	 Ce59oUD7xB4R+JES7NBy1m7yauJqUQ8E+bkIhetDB6s+mEMrMv2XO/YbX0IN9rRtpn
-	 9eRd+UOX0M+Lyss3qD9oX5c9uYyvpsd4NSBJfUFapgqBbuwUUI5ddXy+ishgcDTUqP
-	 KPLPeTSAf11b7f3jt19g7jxqHhHmSZDtUBMYCeuqxEnYAl91wnWYMrRAf3doF7+iNG
-	 94CLWI22Pbsdw==
-Message-ID: <b989fba3-223d-498a-8efe-7a60e26cf0db@kernel.org>
-Date: Mon, 27 Oct 2025 14:05:08 +0100
+	b=ZTuZSqWbRWHOJ9iQJkpEpEFtJxFv7qeEqU68tQmKjnT0rwUymr4wLIAKcrQP6jVSX
+	 b2s9fkfbr++IvxtY8qUO81CW2Uj1cpPIwfqngNPtBOeOuMu2gXTyCDLHcC70P238pq
+	 QqYq0Jm7jGOKlaOmsKECrEQKw7amnu1Cf9jxPsLMTC86PrgesBYMVXxcxX2cMSRsJN
+	 fUp7g4sAv+cAuG43odFdgUUbhfjMKtAr2MAgGALhCsg19w682zXSh4JWaG36rguyWw
+	 ezDGki/dTkMP+/wnOAt5JPUCNODNOt1Jjz8puoiQPZrN0WzJ66av4h2fM9rybgjTeO
+	 NRqbHSG/7enJQ==
+Message-ID: <43280bcc-5afd-4b46-a83d-d81c80405e71@kernel.org>
+Date: Mon, 27 Oct 2025 14:06:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: vdec: Add binding document of Amlogic
- decoder accelerator
+Subject: Re: [PATCH 2/3] dts: decoder: Support V4L2 stateless decoder dt node
+ for S4
 To: zhentao.guo@amlogic.com, Mauro Carvalho Chehab <mchehab@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -57,7 +57,7 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org
 References: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com>
- <20251027-b4-s4-vdec-upstream-v1-1-620401813b5d@amlogic.com>
+ <20251027-b4-s4-vdec-upstream-v1-2-620401813b5d@amlogic.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251027-b4-s4-vdec-upstream-v1-1-620401813b5d@amlogic.com>
+In-Reply-To: <20251027-b4-s4-vdec-upstream-v1-2-620401813b5d@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_060515_053056_F89FC2E3 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20251027_060614_633556_A0BAF8E8 
+X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,7 +127,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 27/10/2025 06:42, Zhentao Guo via B4 Relay wrote:
 > From: Zhentao Guo <zhentao.guo@amlogic.com>
 > 
-> Add dt-binding of the Amlogic hardware decoder accelerator.
+> Add vcodec_dec to the s4 dtsi for the V4L2 stateless decoder driver
+> 
+> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+
 
 Please use subject prefixes matching the subsystem. You can get them for
 example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
@@ -134,97 +138,8 @@ your patch is touching. For bindings, the preferred subjects are
 explained here:
 https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-A nit, subject: drop second/last, redundant "binding document for". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
-
-> 
-> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
-> ---
->  .../bindings/media/amlogic,vcodec-dec.yaml         | 96 ++++++++++++++++++++++
->  1 file changed, 96 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/amlogic,vcodec-dec.yaml b/Documentation/devicetree/bindings/media/amlogic,vcodec-dec.yaml
-> new file mode 100644
-> index 000000000000..6cea8af72639
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/amlogic,vcodec-dec.yaml
-
-Filename matching compatible.
-
-> @@ -0,0 +1,96 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/amlogic,vcodec-dec.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Amlogic Video Decode Accelerator
-> +
-> +maintainers:
-> +  - Zhentao Guo <zhentao.guo@amlogic.com>
-> +
-> +description: |
-
-
-Do not need '|' unless you need to preserve formatting.
-
-> +  The Video Decoder Accelerator present on Amlogic SOCs.
-> +  It supports stateless h264 decoding.
-> +
-> +properties:
-> +  compatible:
-> +    const: amlogic,s4-vcodec-dec
-> +
-> +  reg:
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dosbus
-> +      - const: dmcbus
-
-Is "bus" really name of this in datasheet?
-
-> +
-> +  interrupts:
-> +    maxItems: 3
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: mailbox_0
-> +      - const: mailbox_1
-> +      - const: mailbox_2
-
-Useless names, so just drop interrupt-names property.
-
-> +
-> +  clocks:
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    items:
-> +      - const: vdec
-> +      - const: clk_vdec_mux
-> +      - const: clk_hevcf_mux
-> +
-> +  power-domains:
-> +    maxItems: 2
-> +
-> +  power-domain-names:
-> +    items:
-> +      - const: pwrc-vdec
-
-Drop pwrc
-
-> +      - const: pwrc-hevc
-
-Drop pwrc
-
-Missing iommus. I really doubt hardware works without IOMMU.
-
+Please order the patchset as expressed in submitting patches DT
+document. Or SoC maintainer profile.
 
 
 Best regards,
