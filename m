@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD4BCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43401CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yAymcYhA/pn5tMA7pJa1pR2I6ummX8iuTLSj3q3nLbw=; b=zbYa9yW0CBqV+VBLnd1y1mJGny
-	rW9vpfbRoGe92JhIf6/+AWjE16fAu6DLJiOZkRpMNwWERRtJ/Q4LJmI7W9ZYGrrW6qJZ76aLCt4Q+
-	rKgftJzdjFDn81xzMFSWjKFd6BsgEukV19fFUAYXP8hm5cLHT3NEo0bluUiDZrv2T8+MY2vAmKyOM
-	rcVeM5BreHjwUtsEMOO/V9na/+1vEEbArhZpGeAKZ2C3pGecfOsZ2RwtoVO+YIIKWjYpldk1Ogm/5
-	YSTi5FX4SgIJBBLTpUw+azmheR6X+6JwwYJ/HMg5Snzlm3xLOznI8hDGzHPvQIJbGkDf/fUJJaIjr
-	rptStOSQ==;
+	bh=hKaaHV2NST1VuzXBfc6VQU/jhNrAzykCq1FQtjK/evA=; b=JTiG+LOiUYguLVG80IpBWVOcTk
+	ubRSd0XYC6bM3JRJwls14Jk0vw+TJcO89VVk+hWvJqolgv8NQCj6aQG1zoYNYmOZtPsxzBZPlt2xV
+	5FLfWPuo5MU2QYh/q1FzNhhFJuUE+KshCyJa/7mGeOUPwPX+I3jdD+3crkYfvNPWCOvERfMFvwU0D
+	IJs2YUrecMLHowqID0lrveXgmc4UkT4kZ+fy/CN5eRVhUPTOLUiijvYU+UWMszXIp9K3WH8YNH+fK
+	945xp10dUl9s5k9oC6ENfJrf4FEWh9/73JtoCeKxo92KJlf508ZOfoKzLNTz5FmLbuXFTmjHcqCra
+	w6HLoIXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMZZ-0000000DvNu-0SAE;
-	Mon, 27 Oct 2025 12:43:41 +0000
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMZX-0000000DvNX-0rKa;
-	Mon, 27 Oct 2025 12:43:40 +0000
-Received: from 8bytes.org (p549214ac.dip0.t-ipconnect.de [84.146.20.172])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id F096A59903;
-	Mon, 27 Oct 2025 13:43:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1761569018;
-	bh=2G56BnpRGoI+NqEwEfPETIyrfVpN7iBlb7p/Lhy7kEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FqiODjdGsHG3QIPyv6y1hgH1SJBEBvJAVuF70t2w19PW6FTBU5dU93uaxknOuuwLz
-	 RU6wFENh+OpdEZVTCQYR1I9XWND1eCvmyb10IMWv+SzYrlSCz3y5kFxn8yxAo13lmu
-	 0yRdaolADOmUlLnAD8JSluajl8waz2SU09xjOH/BBYfRyHhyXAos2MGe1hrJRbM6lj
-	 Yw0TDAle0xRyf3PQzlAj1ypSSUZL0B3f7ANpqkwqdkiJ5/T3etsTD9dPlAm+kAYzl3
-	 FvZgArL5YYo5kIbY+mdvOLVxvqbcD7kqF086FzrfJ8Yk1bEovxZCHqv609Ojk9KjcI
-	 a1ZZnCQiPaFiw==
-Date: Mon, 27 Oct 2025 13:43:36 +0100
-From: Joerg Roedel <joro@8bytes.org>
-To: Zhengnan Chen <zhengnan.chen@mediatek.com>
-Cc: Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, iommu@lists.linux.dev, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v4 0/5] MT8189 IOMMU SUPPORT
-Message-ID: <b4jjrpqu4pqu6nm3nohye57eauqvlqny7xtesnelhj4kcnwc6w@cohioft65alz>
-References: <20251018132625.14428-1-zhengnan.chen@mediatek.com>
+	id 1vDMgC-0000000DvoW-1O8x;
+	Mon, 27 Oct 2025 12:50:32 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDMg9-0000000DvoA-3fAS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 12:50:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=hKaaHV2NST1VuzXBfc6VQU/jhNrAzykCq1FQtjK/evA=; b=YMVoSKxVmOBII8dLdRmBG6fWwB
+	AsarXFDeYQj4nAHcnPas0cq9acQUKIhXjC+Ln4PI8dOFWtDhahRYh9SJMrPaY0nypYfD1IQCuvz0U
+	/ZZmbN26xi0kZWSbFyRrS3YepU4hTKr4HhwNSOA3qbkSz6QWVDiclQnAxK3fJdS8vGyk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vDMg1-00CBuN-58; Mon, 27 Oct 2025 13:50:21 +0100
+Date: Mon, 27 Oct 2025 13:50:21 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	imx@lists.linux.dev, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <f66d181d-7dd9-4955-bad5-478db2876e47@lunn.ch>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+ <aP83bMDWCre7-Sjw@pengutronix.de>
+ <20251027100227.GE1544@pendragon.ideasonboard.com>
+ <aP9IB4y5_gyfJGMW@pengutronix.de>
+ <20251027103107.GF1544@pendragon.ideasonboard.com>
+ <aP9Kuyndws_dYFna@shell.armlinux.org.uk>
+ <aP9NJHtbAEmsd89r@pengutronix.de>
+ <aP9N9tCdlAbBgovC@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251018132625.14428-1-zhengnan.chen@mediatek.com>
+In-Reply-To: <aP9N9tCdlAbBgovC@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_054339_387976_34E0E2DC 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20251027_055029_911221_D199252B 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,20 +85,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 18, 2025 at 09:26:09PM +0800, Zhengnan Chen wrote:
-> Zhengnan Chen (5):
->   dt-bindings: mediatek: mt8189: Add bindings for MM & APU & INFRA IOMMU
->   iommu/mediatek: Add a flag DL_WITH_MULTI_LARB
->   iommu/mediatek: mt8189: Add APU IOMMUs support
->   iommu/mediatek: mt8189: Add INFRA IOMMUs support
->   iommu/mediatek: mt8189: Add MM IOMMUs support
+> > Ack. With comment in the code, why we prefer this way, in case some one
+> > wont to spend time on making it work. Probably SmartEEE or some other
+> > word should be used.
 > 
->  .../bindings/iommu/mediatek,iommu.yaml        |   8 +
->  drivers/iommu/mtk_iommu.c                     | 132 +++++++-
->  .../memory/mediatek,mt8189-memory-port.h      | 283 ++++++++++++++++++
->  3 files changed, 410 insertions(+), 13 deletions(-)
->  create mode 100644 include/dt-bindings/memory/mediatek,mt8189-memory-port.h
+> So we have options.
+> 
+> However, we need to get to the bottom of what caused the change of
+> behaviour before we start throwing solutions at this.
 
-Just realized this newer version, removed v1 and applied this. Sorry for the
-confusion.
+It also seems like the PHY is FUBAR. If the standard 802.3 EEE
+registers are being used, a management plane is using them to
+negotiate EEE with the link partner, the PHY firmware should disable
+SmartEEE and only provide 802.3 EEE.
+
+It sounds like this PHY is not 802.3 compatible.
+
+	Andrew
 
