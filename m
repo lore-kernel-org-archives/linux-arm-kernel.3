@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D0FCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E877CCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/w9V1QhsQaDj4BDudraOA9fYuyiTPGwZZdruZ++SGc8=; b=OeS7A0n9JuCrFP1OyIgHQZjEt1
-	gwJPAprrPEgkWE8keT6NWYqtoXxqRv8ETEol4kheWmUOdgkoW1xyfbjFBy+tbxyT9BwjW7qE+Ta1A
-	Ti39PLCLPDGnDxPirc6YKpDTEWQy7Qt1e7g+iPoPRwWLY/ZzvGGWC5uyUYuw1gcYRuViSYwFHwXm/
-	wR+5IXkCHxeEFT7MiOK/wqrHgXrPtka1KxeOBE1UJVMJ1TFIomVOH+oFISEzfFmJfD12XCTgiHYHs
-	tD+PKKd35MGN+wjbl+HOPLgXlSbfvXRwqUgfqfpg7WfRtrUw/JVY8wrsI021fTSpVwkSgmcva5r1q
-	iY9bUtXQ==;
+	bh=BYZHP/h1h6LMXmA5rHQVK6kbxBrD0shRYIBtDi9X0/0=; b=4nDXpqhZmACRKzcJPPOyK6IS+D
+	aULzs1lgvpnXfZQTYVo7JmTi4sZluSWTTZdsK3snTqRhn8IxA2m6hJ7XdPkeW9uFgsZK/1hnte5MH
+	EYrb0m7nn1x/p8mM2+wEzV3JsC+sFfdw3jB5p89eGnMcUv4KTYbc4jlGjYXlf/bM/QUl6qoQ8+3ko
+	7zDZF/nHUhR+WMKN/cLDB1GxUaHetvzf7wUB85aENJiIECJdzLxnUVLG0bGVMZYQJ0RMdLIQvQGju
+	R3dK70Puv54TVOaA5x0O7q5m+KBkrrKOuQ3uE33Wa/EwuBYVe+ahq6Mr0TWeYz3BbeQUTZQamjOmV
+	61fWVAmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLkM-0000000DoHy-40Cp;
+	id 1vDLkN-0000000DoIO-1Ox9;
 	Mon, 27 Oct 2025 11:50:47 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLkB-0000000DoDS-1Vfa
+	id 1vDLkC-0000000DoDy-1Ekc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 11:50:36 +0000
+	Mon, 27 Oct 2025 11:50:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761565835; x=1793101835;
+  t=1761565837; x=1793101837;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=j468xXoR9cr3OXREFcfRw79OYR6IigAtpibsNTQMHX8=;
-  b=Cxi2tbl9R2ej4O/JS6eYJLXQei0VdbUcNt7CHy4aSYP3tV++YpU/JPGg
-   hqSWQaqoc/3JnjYbjVrY/dOr7kDvIdg737bxViqcjCiWb2yp9PuXVtltA
-   OrzyzdJoFzWOkGNpyMHyTgHn9qZWkppzi+k3Fd1i7xg71NYpRxfezAkqS
-   tS4VB5yTVBsOJnv40ZOvReWJ8iB/cIa/Zo44oQ18gPBw2b3liUUfOYaMF
-   b8DAuMLiX7sFYVzQ+PPqcwaBIdV2yrGKASF+934ylO1lgiLud2fd+wChc
-   Q2mo+YZ1WtwxR9B8cWy2UoKmhSobW0VX1IHCTERyy8OBN7xM0at2uQwsP
-   g==;
-X-CSE-ConnectionGUID: TZ7JzDImTk2vyRCk6sslJg==
-X-CSE-MsgGUID: z63TtG93QF2dwbFhvbABVQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="74242077"
+  bh=1Nq4OsIRGvzLFnYkMUeCuaM3aAF/kNBZikR/j5G0pus=;
+  b=VXDSaNHCw/QfOR1qq+Iu2hTWExTlSoIdmJ0Pk0WWV99Igwa2T+jXLYXE
+   4/+hxaW8Muez1VUDLeNv7ygs3FquIHrHMrL3MWeeUBhV+ufC7juqw3TBg
+   H/OKWuHEwYiJtj5lcG5KAq1CJoCtXVF2FNY3r56tMJcYPZLp716hbzK/w
+   mWn4QJB4zSN46aN/MfNAYG+xxXUYZS2O/lyXU9JWFeIxk7SwljIJzNo/E
+   HJp3T5OTei5+MgM69nkB7Z1Df92nUwqQ//IrYBJjEz8aWOVy2LLrsK/Us
+   87Y7/HXgbxd226pHlz4NavmthTSIig3tlPrSjALW3VLL/Xd5AOjkMflPJ
+   A==;
+X-CSE-ConnectionGUID: D+7gg4OuQ9utFCxayvfp2g==
+X-CSE-MsgGUID: MeIb9QGfScGIZ5p+bN3fQw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63792128"
 X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="74242077"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:50:35 -0700
-X-CSE-ConnectionGUID: ewcYyfhlT66sdCovZySfjA==
-X-CSE-MsgGUID: UsAuCo6QT/a82eNu+1Oo3Q==
+   d="scan'208";a="63792128"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:50:34 -0700
+X-CSE-ConnectionGUID: yf4hwXKdT0u1qNVHr+E5xA==
+X-CSE-MsgGUID: S5tKJIZWSy+k3nbfHateeQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="184922007"
+   d="scan'208";a="185370930"
 Received: from klitkey1-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.31])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:50:25 -0700
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:50:25 -0700
 Received: from punajuuri.localdomain (unknown [192.168.240.130])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id E87C7121EFA;
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id E4FCC121EC5;
 	Mon, 27 Oct 2025 13:50:22 +0200 (EET)
 Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
 	(envelope-from <sakari.ailus@linux.intel.com>)
-	id 1vDLjy-00000001dis-3lbe;
+	id 1vDLjy-00000001dik-3coj;
 	Mon, 27 Oct 2025 13:50:22 +0200
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
@@ -107,17 +107,17 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org
-Subject: [PATCH RESEND 4/4] net: wwan: Remove redundant pm_runtime_mark_last_busy() calls
-Date: Mon, 27 Oct 2025 13:50:22 +0200
-Message-ID: <20251027115022.390997-4-sakari.ailus@linux.intel.com>
+Subject: [PATCH RESEND 2/4] net: ipa: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Mon, 27 Oct 2025 13:50:20 +0200
+Message-ID: <20251027115022.390997-2-sakari.ailus@linux.intel.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251027115022.390997-1-sakari.ailus@linux.intel.com>
 References: <20251027115022.390997-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_045035_422675_251C170C 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20251027_045036_377461_DA143094 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,99 +139,112 @@ pm_runtime_mark_last_busy().
 
 Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 ---
- drivers/net/wwan/qcom_bam_dmux.c           | 2 --
- drivers/net/wwan/t7xx/t7xx_hif_cldma.c     | 3 ---
- drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 2 --
- drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c | 2 --
- 4 files changed, 9 deletions(-)
+ drivers/net/ipa/ipa_interrupt.c | 1 -
+ drivers/net/ipa/ipa_main.c      | 1 -
+ drivers/net/ipa/ipa_modem.c     | 4 ----
+ drivers/net/ipa/ipa_smp2p.c     | 2 --
+ drivers/net/ipa/ipa_uc.c        | 2 --
+ 5 files changed, 10 deletions(-)
 
-diff --git a/drivers/net/wwan/qcom_bam_dmux.c b/drivers/net/wwan/qcom_bam_dmux.c
-index 64dab8b57611..6a5b22589af4 100644
---- a/drivers/net/wwan/qcom_bam_dmux.c
-+++ b/drivers/net/wwan/qcom_bam_dmux.c
-@@ -162,7 +162,6 @@ static void bam_dmux_tx_done(struct bam_dmux_skb_dma *skb_dma)
- 	struct bam_dmux *dmux = skb_dma->dmux;
- 	unsigned long flags;
- 
--	pm_runtime_mark_last_busy(dmux->dev);
- 	pm_runtime_put_autosuspend(dmux->dev);
- 
- 	if (skb_dma->addr)
-@@ -397,7 +396,6 @@ static void bam_dmux_tx_wakeup_work(struct work_struct *work)
- 	dma_async_issue_pending(dmux->tx);
- 
- out:
--	pm_runtime_mark_last_busy(dmux->dev);
- 	pm_runtime_put_autosuspend(dmux->dev);
- }
- 
-diff --git a/drivers/net/wwan/t7xx/t7xx_hif_cldma.c b/drivers/net/wwan/t7xx/t7xx_hif_cldma.c
-index 97163e1e5783..689c920ca898 100644
---- a/drivers/net/wwan/t7xx/t7xx_hif_cldma.c
-+++ b/drivers/net/wwan/t7xx/t7xx_hif_cldma.c
-@@ -250,7 +250,6 @@ static void t7xx_cldma_rx_done(struct work_struct *work)
- 	t7xx_cldma_clear_ip_busy(&md_ctrl->hw_info);
- 	t7xx_cldma_hw_irq_en_txrx(&md_ctrl->hw_info, queue->index, MTK_RX);
- 	t7xx_cldma_hw_irq_en_eq(&md_ctrl->hw_info, queue->index, MTK_RX);
--	pm_runtime_mark_last_busy(md_ctrl->dev);
- 	pm_runtime_put_autosuspend(md_ctrl->dev);
- }
- 
-@@ -362,7 +361,6 @@ static void t7xx_cldma_tx_done(struct work_struct *work)
+diff --git a/drivers/net/ipa/ipa_interrupt.c b/drivers/net/ipa/ipa_interrupt.c
+index 245a06997055..8336596b1247 100644
+--- a/drivers/net/ipa/ipa_interrupt.c
++++ b/drivers/net/ipa/ipa_interrupt.c
+@@ -149,7 +149,6 @@ static irqreturn_t ipa_isr_thread(int irq, void *dev_id)
+ 		iowrite32(pending, ipa->reg_virt + reg_offset(reg));
  	}
- 	spin_unlock_irqrestore(&md_ctrl->cldma_lock, flags);
+ out_power_put:
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
  
--	pm_runtime_mark_last_busy(md_ctrl->dev);
- 	pm_runtime_put_autosuspend(md_ctrl->dev);
+ 	return IRQ_HANDLED;
+diff --git a/drivers/net/ipa/ipa_main.c b/drivers/net/ipa/ipa_main.c
+index 25500c5a6928..95a61bae3124 100644
+--- a/drivers/net/ipa/ipa_main.c
++++ b/drivers/net/ipa/ipa_main.c
+@@ -903,7 +903,6 @@ static int ipa_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_deconfig;
+ done:
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
+diff --git a/drivers/net/ipa/ipa_modem.c b/drivers/net/ipa/ipa_modem.c
+index 8fe0d0e1a00f..9b136f6b8b4a 100644
+--- a/drivers/net/ipa/ipa_modem.c
++++ b/drivers/net/ipa/ipa_modem.c
+@@ -71,7 +71,6 @@ static int ipa_open(struct net_device *netdev)
+ 
+ 	netif_start_queue(netdev);
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
+@@ -102,7 +101,6 @@ static int ipa_stop(struct net_device *netdev)
+ 	ipa_endpoint_disable_one(priv->rx);
+ 	ipa_endpoint_disable_one(priv->tx);
+ out_power_put:
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
+@@ -175,7 +173,6 @@ ipa_start_xmit(struct sk_buff *skb, struct net_device *netdev)
+ 
+ 	ret = ipa_endpoint_skb_tx(endpoint, skb);
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
+ 
+ 	if (ret) {
+@@ -432,7 +429,6 @@ static void ipa_modem_crashed(struct ipa *ipa)
+ 		dev_err(dev, "error %d zeroing modem memory regions\n", ret);
+ 
+ out_power_put:
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
  }
  
-@@ -987,7 +985,6 @@ int t7xx_cldma_send_skb(struct cldma_ctrl *md_ctrl, int qno, struct sk_buff *skb
+diff --git a/drivers/net/ipa/ipa_smp2p.c b/drivers/net/ipa/ipa_smp2p.c
+index fcaadd111a8a..420098796eec 100644
+--- a/drivers/net/ipa/ipa_smp2p.c
++++ b/drivers/net/ipa/ipa_smp2p.c
+@@ -171,7 +171,6 @@ static irqreturn_t ipa_smp2p_modem_setup_ready_isr(int irq, void *dev_id)
+ 	WARN(ret != 0, "error %d from ipa_setup()\n", ret);
  
- allow_sleep:
- 	t7xx_pci_enable_sleep(md_ctrl->t7xx_dev);
--	pm_runtime_mark_last_busy(md_ctrl->dev);
- 	pm_runtime_put_autosuspend(md_ctrl->dev);
- 	return ret;
+ out_power_put:
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
+ 
+ 	return IRQ_HANDLED;
+@@ -213,7 +212,6 @@ static void ipa_smp2p_power_release(struct ipa *ipa)
+ 	if (!ipa->smp2p->power_on)
+ 		return;
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
+ 	ipa->smp2p->power_on = false;
  }
-diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-index 2310493203d3..b76bea6ab2d7 100644
---- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-+++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-@@ -877,7 +877,6 @@ int t7xx_dpmaif_napi_rx_poll(struct napi_struct *napi, const int budget)
- 		t7xx_dpmaif_clr_ip_busy_sts(&rxq->dpmaif_ctrl->hw_info);
- 		t7xx_dpmaif_dlq_unmask_rx_done(&rxq->dpmaif_ctrl->hw_info, rxq->index);
- 		t7xx_pci_enable_sleep(rxq->dpmaif_ctrl->t7xx_dev);
--		pm_runtime_mark_last_busy(rxq->dpmaif_ctrl->dev);
- 		pm_runtime_put_autosuspend(rxq->dpmaif_ctrl->dev);
- 		atomic_set(&rxq->rx_processing, 0);
- 	} else {
-@@ -1078,7 +1077,6 @@ static void t7xx_dpmaif_bat_release_work(struct work_struct *work)
- 	}
+diff --git a/drivers/net/ipa/ipa_uc.c b/drivers/net/ipa/ipa_uc.c
+index 2963db83ab6b..dc7e92f2a4fb 100644
+--- a/drivers/net/ipa/ipa_uc.c
++++ b/drivers/net/ipa/ipa_uc.c
+@@ -158,7 +158,6 @@ static void ipa_uc_response_hdlr(struct ipa *ipa)
+ 		if (ipa->uc_powered) {
+ 			ipa->uc_loaded = true;
+ 			ipa_power_retention(ipa, true);
+-			pm_runtime_mark_last_busy(dev);
+ 			(void)pm_runtime_put_autosuspend(dev);
+ 			ipa->uc_powered = false;
+ 		} else {
+@@ -203,7 +202,6 @@ void ipa_uc_deconfig(struct ipa *ipa)
+ 	if (!ipa->uc_powered)
+ 		return;
  
- 	t7xx_pci_enable_sleep(dpmaif_ctrl->t7xx_dev);
--	pm_runtime_mark_last_busy(dpmaif_ctrl->dev);
- 	pm_runtime_put_autosuspend(dpmaif_ctrl->dev);
+-	pm_runtime_mark_last_busy(dev);
+ 	(void)pm_runtime_put_autosuspend(dev);
  }
- 
-diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
-index 8dab025a088a..236d632cf591 100644
---- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
-+++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
-@@ -185,7 +185,6 @@ static void t7xx_dpmaif_tx_done(struct work_struct *work)
- 	}
- 
- 	t7xx_pci_enable_sleep(dpmaif_ctrl->t7xx_dev);
--	pm_runtime_mark_last_busy(dpmaif_ctrl->dev);
- 	pm_runtime_put_autosuspend(dpmaif_ctrl->dev);
- }
- 
-@@ -468,7 +467,6 @@ static int t7xx_dpmaif_tx_hw_push_thread(void *arg)
- 		t7xx_pci_disable_sleep(dpmaif_ctrl->t7xx_dev);
- 		t7xx_do_tx_hw_push(dpmaif_ctrl);
- 		t7xx_pci_enable_sleep(dpmaif_ctrl->t7xx_dev);
--		pm_runtime_mark_last_busy(dpmaif_ctrl->dev);
- 		pm_runtime_put_autosuspend(dpmaif_ctrl->dev);
- 	}
  
 -- 
 2.47.3
