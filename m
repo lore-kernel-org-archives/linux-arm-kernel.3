@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61805CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F55CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gFyTNoE2X2hQrZXZgQ1MBu5TC8MY83aQCzpJALZfkd4=; b=TAK36kVletYugvSKKxZN/KjvGf
-	vBKQj0Gn182XBFjsTSVC7jO+t9Jo6pUNns3AJGdpfC0qe1ieFEnO0/0a9Mu1Dg+p/Uy/k+U6Rtr2S
-	C+gKR2ZevM2ZYU4MS7wDKRlyOSDmREWOFuqwLLldYRJDXEvEz8hcpuAB61+a3eFgBMoxuuPZgmLCO
-	Vzvlch54l0cdptyZriKxEPy+8tPbwARgy6AdVkTcVDtv7Up+MRTpTI8EUdlPD6oO6W0HMD1JIYAqY
-	V9pnS3PGPjHNoo2qFub76vwcGbMKr3M9c0pLsSZMpjiHkv43FL1jtmNSE51HEozhGddc4Ya8dtpWC
-	qMR0QPYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yTyXAmu6h8p0aUgPYpkn5R7UxPSmEWLXG8jASemzHPo=; b=FlNimeOHLAltuGGWl4gAvTNMOn
+	VmGhwtA4Aa+a2r5frPp8ElvqbiKYhno3v3dghXGiRNfaeXm21onBQ1YtPbDLJYPa0MkaUZs+oF2BT
+	JiG9sHU5htf9O2SihgZfgw71u0K7XTJ2dgYA2qMD4YlLEpGTLcyrtEZ0xIOSFE7PbmwrQ9n3725vS
+	Xz+SrJlZYva/a40PK440K82zMGniWI/Wi3EyhAzhNJsnik5oAOv5L+1wXs9k4SE7EHHeezcKDbUB3
+	Neh9uWyK/Flj1cYwAw/+L53XFoym3sYiPb3sDTH7DZ4n0mq68yV7kvZbFotepfFO5Blf3OE7GaILw
+	dj0/qBkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRQK-0000000EUgz-3LNv;
-	Mon, 27 Oct 2025 17:54:28 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1vDRS9-0000000EUrA-0pu9;
+	Mon, 27 Oct 2025 17:56:21 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRQI-0000000EUft-1lhd
+	id 1vDRS6-0000000EUqm-32l1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 17:54:27 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59RHrssW2479401;
-	Mon, 27 Oct 2025 12:53:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1761587634;
-	bh=gFyTNoE2X2hQrZXZgQ1MBu5TC8MY83aQCzpJALZfkd4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=DfT9TLL1J4E5CSALY/kZQMoepMNVcrZdFJ8G15x4Q9Um4UiFHL4anwgTSzoDcKX1P
-	 2AOpvzY1e81vSYXz2PEnEreCy/rByPtzdWqPFQattLfXetkj1E4vOmFbyZxBqFzc6A
-	 HnYhVaehSyU5gmGxes8Pgh7UejjHh3LcA0DPOZgY=
-Received: from DLEE212.ent.ti.com (dlee212.ent.ti.com [157.170.170.114])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59RHrrD81816199
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 27 Oct 2025 12:53:53 -0500
-Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 27 Oct
- 2025 12:53:53 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 27 Oct 2025 12:53:53 -0500
-Received: from [10.249.128.221] ([10.249.128.221])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59RHriYB1061461;
-	Mon, 27 Oct 2025 12:53:45 -0500
-Message-ID: <dcf71d6b-f453-425f-a49e-2408d0caad20@ti.com>
-Date: Mon, 27 Oct 2025 23:23:44 +0530
+	Mon, 27 Oct 2025 17:56:19 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-470ffbf2150so35782975e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:56:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761587777; x=1762192577; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yTyXAmu6h8p0aUgPYpkn5R7UxPSmEWLXG8jASemzHPo=;
+        b=KJxU953zNMr8WUEDumrCb+ub+q75RKkr3QTCdwEcqdz3hC1ppSTtfBj90Xz/6n7IUp
+         k/+v+nX6vnPrNScePbYjAI2wU0WurxZS3MhuwKJWw8u8fqrFNPIv7AI9M38xg++wm5fo
+         BjvUBzCP/a8kHIEfqnzD5nxWv3fYh0oriiYuPliNwzcwl39c/1c6L2FvSimkYuuZO9Km
+         gCgVdxQLFKT3g3fHaj2Qmf+XxMWIEks2Z241WIBGo27wEHjt9YTB52jPoBtdosw/3AXn
+         XkpCZmFyacvTgNJ33uxQe32aNKsMvPDg5MLoo2iHHVDKQUjM4uNWlo4Dd28LFpfGgMWL
+         sR3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761587777; x=1762192577;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yTyXAmu6h8p0aUgPYpkn5R7UxPSmEWLXG8jASemzHPo=;
+        b=IeszDVhWV8BB56skZLd6GN/OWBGUYYAO+vh/InDyOAaS6XDFU0emYIhPkUSHTBAUok
+         LxwuWH/gAwlVBVXHsyBP2Dbem95XrBt41Lqzb2JmtxaWGuuJiShifdpYXfTFvbcS6SSW
+         6qipVMYekj3r3pQbFf3Xa77qU3HQE+ipDHJEaeVdmrZaFrgMX7NaMWefbxq8AqXjcuYF
+         q+GwiBXF1AMz3CgA20Z3tgYx5kvIlz+Css/wi9qrdG/JoLfxLcNwYoksoc2rCjN+XOF5
+         WL+UPR+PvuvrCrO02420n4sxP9bJcA/3H2I94W49uQ6Q5orImbUDGidfeil9f9OACUU+
+         Gnng==
+X-Gm-Message-State: AOJu0YxHWgRByfkNQLyvIeH1xWcSCSwbHCbbyjfinKzWr4W0b0OhPBsy
+	K0ERMz7DJvbYbqITTlPKb35Gmt3YTQGMObTnWdWiEU0ag7wj23un0yz50lFRCw==
+X-Gm-Gg: ASbGncvk+FUAw7ZfU6iao+82u/QjBnSLEaXFq4VL2vfH3f7KZlSfnTqcthGOZ9z/e/S
+	n6ozyKmYwaGX8p+1aSppg04kWUR8bWbbqM0oYpc62MWmLSlYIl/3vBVE5RztQt02Mlaq1TGFMxF
+	bdeHoEw+ovgnECwonExkIB7tlhrKREyVrT3xGUEanz8VY9o3/t8e3UiVCmcxKSInNIHCr/Cdv1s
+	Kmmy07Pf9IuiTF8+Ikbm7XG+jdmdRxrb/nZjYUca6nrpATUYYE5EvPjvXFhN/P8sCQbR2jXvhG0
+	Bv/tREwS1ZHb4MoZW4Zfb6bHEvCqw9ik9GfO+URSa70diUvylah9kHaXKol6wMkrkV7sX0T8d0c
+	/1OYMTVesvTF71mmEMbpqV9Mivvdy1DWYckCTWurU1XDbtH/RIC/dM9d2nRR9yp9zNoqHWMg8m7
+	0NFxRBEqMqDo0+uXyz3ZuHqN85c5u0i6yuKjthrTAbeZSbwtZcIneBbje/LF3k01dTq5ModsSdk
+	7xsAg==
+X-Google-Smtp-Source: AGHT+IGLlw4i5A56qdLTkfeHx+BuS0U50SIVfjOqfOSi6b+A2jTY4TxAjYbyLaxVW5BAGIINTcSj5A==
+X-Received: by 2002:a05:6000:3110:b0:428:56ed:c68e with SMTP id ffacd0b85a97d-429a81b117fmr275475f8f.9.1761587776413;
+        Mon, 27 Oct 2025 10:56:16 -0700 (PDT)
+Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475ddad455fsm74789945e9.2.2025.10.27.10.56.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 10:56:15 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 1/1] bus: sunxi-rsb: Remove redundant pm_runtime_mark_last_busy()
+ calls
+Date: Mon, 27 Oct 2025 18:56:14 +0100
+Message-ID: <12766665.O9o76ZdvQC@jernej-laptop>
+In-Reply-To: <20251027133359.392984-1-sakari.ailus@linux.intel.com>
+References: <20251027133359.392984-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] drm/tidss: Fixes data edge sampling
-To: Louis Chauvet <louis.chauvet@bootlin.com>, Jyri Sarha <jyri.sarha@iki.fi>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, "Sam
- Ravnborg" <sam@ravnborg.org>,
-        Benoit Parrot <bparrot@ti.com>, Lee Jones
-	<lee@kernel.org>,
-        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, "Thakkar, Devarsh"
-	<devarsht@ti.com>
-CC: <thomas.petazzoni@bootlin.com>, Jyri Sarha <jsarha@ti.com>,
-        Tomi Valkeinen
-	<tomi.valkeinen@ti.com>,
-        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <stable@vger.kernel.org>
-References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
-Content-Language: en-US
-From: Swamil Jain <s-jain1@ti.com>
-In-Reply-To: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_105426_559621_9749E0B9 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20251027_105618_789447_361806E9 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,45 +104,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Louis,
+Dne ponedeljek, 27. oktober 2025 ob 14:33:59 Srednjeevropski standardni =C4=
+=8Das je Sakari Ailus napisal(a):
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
+>=20
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 
-On 30-07-2025 22:32, Louis Chauvet wrote:
-> Currently the driver only configure the data edge sampling partially. The
-> AM62 require it to be configured in two distincts registers: one in tidss
-> and one in the general device registers.
-> 
-> Introduce a new dt property to link the proper syscon node from the main
-> device registers into the tidss driver.
-> 
-> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
-> ---
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-We are planning to re-spin the series with a v2.
-If you have any concerns please inform.
+Best regards,
+Jernej
 
-Regards,
-Swamil
-
-> Cc: stable@vger.kernel.org
-> 
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> 
-> ---
-> Louis Chauvet (4):
->        dt-bindings: display: ti,am65x-dss: Add clk property for data edge synchronization
->        dt-bindings: mfd: syscon: Add ti,am625-dss-clk-ctrl
->        arm64: dts: ti: k3-am62-main: Add tidss clk-ctrl property
->        drm/tidss: Fix sampling edge configuration
-> 
->   .../devicetree/bindings/display/ti/ti,am65x-dss.yaml       |  6 ++++++
->   Documentation/devicetree/bindings/mfd/syscon.yaml          |  3 ++-
->   arch/arm64/boot/dts/ti/k3-am62-main.dtsi                   |  6 ++++++
->   drivers/gpu/drm/tidss/tidss_dispc.c                        | 14 ++++++++++++++
->   4 files changed, 28 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 85c23f28905cf20a86ceec3cfd7a0a5572c9eb13
-> change-id: 20250730-fix-edge-handling-9123f7438910
-> 
-> Best regards,
 
 
