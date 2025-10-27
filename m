@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C67CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C120ACCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DeQGUILbiMV/cmXfbYTTD1k5ZvwG0FKA/FKscxQwSno=; b=I8m5cZe1GGQzLalQGXGNVcBMmX
-	SaWnzKYtoluWV/hyUS/Ssz47jOfM8wuSYm/FKhMu8MmiSjHy2/kV9xWkSrr5AgYYgkzJ3ClDNEAij
-	VTvlV5jDpFKolycwKt8+Xe8KfBPzSHXFlwPlrb0CqQrAKw2XKMHzFpwTei29oTzcLtV6k9GKMt3Q4
-	HW7/iLSGZjwLwbzU5xW0709DAs/zuqOf2gco4FkJnz4+EMrQ9H4I3TakjLXdGucfj621h3N2R44x8
-	M5io5i2f2nlGPkRiQKvrg7I2Dsv8g+RE/9Foph1EENvZk/bi1g61iIRAbCGNH86wevcUM4PlUcDD+
-	l/v2Tn8w==;
+	bh=3fBwlxqF1rMthy0kfk2jdGLzMVHGBv5ddKjWRByDHHw=; b=LUspHaQIOVPCI5v8ynl3ylv92V
+	nYp/2K2rgULfz8HZMIVqPpPDQmiLuLzlbd1cu/m2hmJnUyw6MRZaYqJCTYK48hmQ6//jsTvKz9uN7
+	Tl+f1Cr4jy4I9AgiC0MSyCgy9vqfkynOItB9T4aoC+TfkeMnHRkUJguM70dEJZiDHgXCE0YqXtvgS
+	FsDpIJVr3fdeqd3Q5/o6+qnDn16eObYOp4JPKfpZNnnWm4eO4LVYKlN8x9X2Ieg0COYkgQk2MfzI/
+	CFMyzp0D+ApgbeacGtWVRXeRFm/g4XnlDBC/qAq73225cQ4EwDSWKwAuaKbLB9NXPFW3ZZriDYz9O
+	Tpy8T5WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMzq-0000000DzAJ-3f8Z;
-	Mon, 27 Oct 2025 13:10:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vDN9L-0000000E0Kv-0569;
+	Mon, 27 Oct 2025 13:20:39 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMzq-0000000DzA6-1Rrx;
-	Mon, 27 Oct 2025 13:10:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B72C60333;
-	Mon, 27 Oct 2025 13:10:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C89C4CEF1;
-	Mon, 27 Oct 2025 13:10:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761570649;
-	bh=f9IEcVfP2kRCqxut50nXsL8UsN+mLFg9FFXWZh9r9Ac=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f097X8kxQ29rBIOYCXwgi0kQSgxeowPnkNwptbuTFkWy5FIvO+TtOaiMB3B0MSjpY
-	 sjORIp3f0qoAe+JsuojLKEnx6JO+n/Nr1ZOFOufKlh/hEzgFjapssLK65EGCDPx4vo
-	 VHi4eN8IRC8f+9Sn6Ef3m7aKs3wtxMkE/CrrCu2+iLqmjZR3cmYOX0tb9SPDXQDgW7
-	 NPItTTT8vcyYhsn4qqKB8sA+l2khRCMBP0SzIHokzipz6fN/09xyFJIPd9BbCh1+XV
-	 DIP9JNlraKIPn3wI42gEnOq279jGDTGK7/etbVSzdmpjmiazpTWI+8y3Z8Yvm1N5/R
-	 a+fsXXfRX6NdQ==
-Date: Mon, 27 Oct 2025 13:10:40 +0000
-From: Mark Brown <broonie@kernel.org>
-To: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Shreeya Patel <shreeya.patel@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Jaehoon Chung <jh80.chung@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, kernel@collabora.com,
-	linux-mmc@vger.kernel.org, linux-sound@vger.kernel.org,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Subject: Re: [PATCH 11/21] drivers: don't use GENMASK() in FIELD_PREP_WM16()
-Message-ID: <432db4d2-1f36-4531-b0b3-2a06ae682fd1@sirena.org.uk>
-References: <20251025164023.308884-1-yury.norov@gmail.com>
- <20251025164023.308884-12-yury.norov@gmail.com>
+	id 1vDN9I-0000000E0KF-3zCf;
+	Mon, 27 Oct 2025 13:20:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761571224; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Asloh+xn+knVNYl9BHFuXQ4FNT/zWj6LaO2R6Alg4JGqgAfAFe3irG7u6St8zFeznz7lbtasssruZADw6vBqNEi6WY458LX9tM/KtPGNWOJ4XC4Q6aEZU1WGhNZcROIo80iU3C3RYQa7TfvNyzVvnfQm5r10jrfeAyAPAXi17bc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761571224; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=3fBwlxqF1rMthy0kfk2jdGLzMVHGBv5ddKjWRByDHHw=; 
+	b=T38z2Dd22vCdc82ezGP2rK9ar1EGYu+6WE/xztT6zw4Z6dYM+ReniX1j9iP43+Wy7sMxPEf7oLoffFmhzrxWDhYz9XbuanwNbXkEagS9YozakkzrL4UXZnLtkrjcxn43fQMRNbB91wc6B9yG6CUgfYmDc4EW2OClmj1+nh6Rgoo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761571224;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=3fBwlxqF1rMthy0kfk2jdGLzMVHGBv5ddKjWRByDHHw=;
+	b=hynv0x2dC17SoDNCyeTypjQ1ySmLQnPXS/ZK6AtDaw5TYJHK0OGF9OTJrHSYBCWb
+	kV0t6zcc5sq5KFytwYI17Z2h7+1ZyFYAdZQb8Hfubn6qwbXMQ+MHURMDmWVSFGG9hcK
+	WcLhVH962QXQ7pWTTU0YxbfoFRGc7ijmjSD4yo9o=
+Received: by mx.zohomail.com with SMTPS id 1761571221990644.5175832769804;
+	Mon, 27 Oct 2025 06:20:21 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id E09E3180E8B; Mon, 27 Oct 2025 14:20:15 +0100 (CET)
+Date: Mon, 27 Oct 2025 14:20:15 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, mturquette@baylibre.com, sboyd@kernel.org, 
+	zhangqing@rock-chips.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when
+ setting dclk_vop2_src
+Message-ID: <w3ttg7rmkut44gbys7m7rcwvsa67d4bqyez5fie3cxgbtjs6ib@pyelryb6gth2>
+References: <20251008133135.3745785-1-heiko@sntech.de>
+ <2749454.BddDVKsqQX@diego>
+ <eumxn7lvp34si2gik33hcavcrsstqqoxixiznjbertxars7zcx@xsycorjhj3id>
+ <4856104.usQuhbGJ8B@phil>
+ <j6ondk5xnwbm36isdoni5vtdq5mf5ak4kp63ratqlnpwsgrqj2@paw5lzwqa2ze>
+ <7fb0eadb.1d09.19a23686d5a.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tcUV2s8VfPxXlH7h"
+	protocol="application/pgp-signature"; boundary="kppsckzt35vuaz7b"
 Content-Disposition: inline
-In-Reply-To: <20251025164023.308884-12-yury.norov@gmail.com>
-X-Cookie: How do I get HOME?
+In-Reply-To: <7fb0eadb.1d09.19a23686d5a.Coremail.andyshrk@163.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.3/261.561.22
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251027_062037_039001_C37AD974 
+X-CRM114-Status: GOOD (  51.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,67 +92,163 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---tcUV2s8VfPxXlH7h
-Content-Type: text/plain; charset=us-ascii
+--kppsckzt35vuaz7b
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when
+ setting dclk_vop2_src
+MIME-Version: 1.0
 
-On Sat, Oct 25, 2025 at 12:40:10PM -0400, Yury Norov (NVIDIA) wrote:
+Hi,
 
-> Recently added FIELD_PREP_WM16() in a few places uses GENMASK. It's
-> confusing and may mislead readers. Switch to BITS() or FIRST_BITS()
-> as appropriate.
+On Mon, Oct 27, 2025 at 10:03:57AM +0800, Andy Yan wrote:
+> At 2025-10-21 00:00:59, "Sebastian Reichel" <sebastian.reichel@collabora.=
+com> wrote:
+> >On Mon, Oct 20, 2025 at 02:49:10PM +0200, Heiko Stuebner wrote:
+> >> Am Donnerstag, 16. Oktober 2025, 00:57:15 Mitteleurop=C3=A4ische Somme=
+rzeit schrieb Sebastian Reichel:
+> >> > On Wed, Oct 15, 2025 at 03:27:12PM +0200, Heiko St=C3=BCbner wrote:
+> >> > > Am Mittwoch, 15. Oktober 2025, 14:58:46 Mitteleurop=C3=A4ische Som=
+merzeit schrieb Quentin Schulz:
+> >> > > > On 10/8/25 3:31 PM, Heiko Stuebner wrote:
+> >> > > > > dclk_vop2_src currently has CLK_SET_RATE_PARENT | CLK_SET_RATE=
+_NO_REPARENT
+> >> > > > > flags set, which is vastly different than dclk_vop0_src or dcl=
+k_vop1_src,
+> >> > > > > which have none of those.
+> >> > > > >=20
+> >> > > > > With these flags in dclk_vop2_src, actually setting the clock =
+then results
+> >> > > > > in a lot of other peripherals breaking, because setting the ra=
+te results
+> >> > > > > in the PLL source getting changed:
+> >> > > > >=20
+> >> > > > > [   14.898718] clk_core_set_rate_nolock: setting rate for dclk=
+_vop2 to 152840000
+> >> > > > > [   15.155017] clk_change_rate: setting rate for pll_gpll to 1=
+680000000
+> >> > > > > [ clk adjusting every gpll user ]
+> >> > > > >=20
+> >> > > > > This includes possibly the other vops, i2s, spdif and even the=
+ uarts.
+> >> > > > > Among other possible things, this breaks the uart console on a=
+ board
+> >> > > > > I use. Sometimes it recovers later on, but there will be a big=
+ block
+> >> > > >=20
+> >> > > > I can reproduce on the same board as yours and this fixes the is=
+sue=20
+> >> > > > indeed (note I can only reproduce for now when display the modet=
+est=20
+> >> > > > pattern, otherwise after boot the console seems fine to me).
+> >> > >=20
+> >> > > I boot into a Debian rootfs with fbcon on my system, and the serial
+> >> > > console produces garbled output when the vop adjusts the clock
+> >> > >=20
+> >> > > Sometimes it recovers after a bit, but other times it doesn't
+> >> > >=20
+> >> > > > Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+> >> > > > Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Ti=
+ger w/DP carrierboard
+> >> >=20
+> >> > I'm pretty sure I've seen this while playing with USB-C DP AltMode
+> >> > on Rock 5B. So far I had no time to investigate further.
+> >> >=20
+> >> > What I'm missing in the commit message is the impact on VOP. Also
+> >> > it might be a good idea to have Andy in Cc, so I've added him.
+> >>=20
+> >> Hmm, it brings VP2 in line with the other two VPs, only VP2 had this
+> >> special setting - even right from the start, so it could very well
+> >> have been left there accidentially during submission.
+> >
+> >I did the initial upstream submission based on downstream (the TRM
+> >is quite bad regading describing the clock trees, so not much
+> >validation has been done by me). The old vendor kernel tree had it
+> >like this, but that also changed a bit over time afterwards and no
+> >longer has any special handling for VP2. OTOH it does set
+> >CLK_SET_RATE_NO_REPARENT for all dclk_vop<number>_src, which you
+> >are now removing for VP2.
+> >
+> >FWIW these are the two flags:
+> >
+> >#define CLK_SET_RATE_PARENT     BIT(2) /* propagate rate change up one l=
+evel */
+> >#define CLK_SET_RATE_NO_REPARENT BIT(7) /* don't re-parent on rate chang=
+e */
+> >
+> >So by removing CLK_SET_RATE_NO_REPARENT you are allowing dclk_vop2_src
+> >to be switched to a different PLL when a different rate is being
+> >requested. That change is completley unrelated to the bug you are
+> >seeing right now?
+> >
+> >> So in the end VP2 will have to deal with this, because when the VP
+> >> causes a rate change in the GPLL, this changes so many clocks of
+> >> other possibly running devices. Not only the uart, but also emmc
+> >> and many more. And all those devices do not like if their clock gets
+> >> changed under them I think.
+> >
+> >It's certainly weird, that VP2 was (and still is in upstream) handled
+> >special. Note that GPLL being changed is not really necessary.
+> >dclk_vop2_src parent can be GPLL, CPLL, V0PLL or AUPLL. Effects on
+> >other hardware IP very much depends on the parent setup. What I try
+> >to understand is if there is also a bug in the rockchipdrm driver
+> >and/or if removing CLK_SET_RATE_NO_REPARENT is a good idea. That's
+> >why I hoped Andy could chime in and provide some background :)
+>=20
+> The main limitation is that there are not enough PLLs on the SoC
+> to be used for the display side. In our downstream code
+> implementation, we usually exclusively assign V0PLL to a certain
+> VP. Other VPs generally need to share the PLL with other
+> peripherals , or use the HDMI PHY PLL.
+>=20
+> For GPLL and CPLL,  they will be set to a fixed frequency during
+> the system startup stage, and they should not be modified again as
+> these two PLL always shared by other peripherals.
+>=20
+> When shared with other peripherals,  we can not do
+> CLK_SET_RATE_PARENT,. However, when we need a relatively precise
+> frequency in certain scenarios, such as driving an eDP or DSI
+> panel=EF=BC=88see what we do for eDP on rk3588s-evb1-v10.dts and
+> rk3588-coolpi-cm5-genbook.dts =EF=BC=89, we tend to use V0PLL. But since
+> V0PLL does not proper initializated at system startup, we then
+> need CLK_SET_RATE_PARENT. This does indeed seem to be a
+> contradiction.
 
-This doesn't seem to line up with the actual change, you're not altering
-FIELD_PREP_WM16() at all but rather altering things that use it.
+I suppose for eDP and DSI, which are more or less fixed, it would
+be possible to assign a board specific fixed frequency like this
+and get the frequency initialized without relying on VOP setting
+the PLL rate via CLK_SET_RATE_PARENT from the driver:
 
-As mentioned in submitting-patches.rst when submitting a patch series
-you should supply a cover letter for that patch series which describes
-the overall content of the series.  This helps people understand what
-they are looking at and how things fit together.
+&vop {
+    assigned-clocks =3D <&cru DCLK_VOP2_SRC>, <&cru PLL_V0PLL>;
+    assigned-clock-parents =3D <&cru PLL_V0PLL>;
+    assigned-clock-rates =3D <0>, <1337>;
+};
 
-> ---
->  drivers/gpu/drm/rockchip/rockchip_lvds.h             | 2 +-
->  drivers/gpu/drm/rockchip/rockchip_vop2_reg.c         | 4 ++--
->  drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h | 4 ++--
->  drivers/mmc/host/dw_mmc-rockchip.c                   | 4 ++--
->  drivers/soc/rockchip/grf.c                           | 4 ++--
->  sound/soc/rockchip/rockchip_i2s_tdm.h                | 2 +-
->  6 files changed, 10 insertions(+), 10 deletions(-)
+Greetings,
 
-It doesn't help to send changes to unrelated subsystems in one patch
-either...
+-- Sebastian
 
-> --- a/sound/soc/rockchip/rockchip_i2s_tdm.h
-> +++ b/sound/soc/rockchip/rockchip_i2s_tdm.h
-> @@ -287,7 +287,7 @@ enum {
->  #define I2S_TDM_RXCR	(0x0034)
->  #define I2S_CLKDIV	(0x0038)
-> =20
-> -#define HIWORD_UPDATE(v, h, l)	(FIELD_PREP_WM16_CONST(GENMASK((h), (l)),=
- (v)))
-> +#define HIWORD_UPDATE(v, h, l)	(FIELD_PREP_WM16_CONST(BITS((l), (h)), (v=
-)))
-
-This is adjusting the implementation of something that takes in h, l to
-use l, h which if anything seems likely to introduce confusion, and
-definitely feels well into bikeshed territory.  I don't *super* care but
-I'm having a hard time seeing the benefit.
-
---tcUV2s8VfPxXlH7h
+--kppsckzt35vuaz7b
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj/b08ACgkQJNaLcl1U
-h9BrOgf/WZesOvGZkIjzC0cgXcITxYU+d0wJLcf0GA0ADyZjEl0v5GWiIXwSKFZ2
-96/4KlYfP+QnWypd7OPgmCe0w8QeJJAea7lmFwnE8sqRkjyYikoRC318PN1ywNB1
-Pyuh/mtAE5cQ+9UzI7j4nKoW3MTx2p2/bulGH1TQs5DyOO9iQK1jeaVwrD3k+ZdI
-mEER+xUO2NH09agCTqrQQONeRG9S0Sfs/PstH4X744VpErUsWyuYu794BxrtC8Un
-U18ljABlmQfvRVjCV9pDq73C4qwAqAlpsW/X+bTBa0JmLo/1n84hOjdI7Fobo6Kw
-cyxDW3840JcPzrlIo2WKdbrXXVH/xw==
-=OWcQ
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmj/cYwACgkQ2O7X88g7
++pqeExAAopKE8fQlZFA9f5GoOW/acdzUtKRTxdt/L8XQdwB+pJ0uky/rYvk6m4q/
+eeSP4wJ9fLwCOt9clKNaaKqcD3gYZfXrnUKtC4ya6R7p0rXi/okSZw/Fu+PZPQOm
+F5eWlZpfJRph+b8v+qF0+uo8XFreZom+KDoIHdm94fp9Ow35p1+zTHNNAxmWuNRZ
+HKTvgm0mw4MbDCjqkAqzRhhVNW4X6L3A2CZUsRppUDNApecM/DqUSW5z/SgR8qKM
+3hNcZ83/qLWgmBWugp1lD2lijRsXYJkvquC0QVcrNfbna86hI80SEly3/Hvzo5gm
+vHieEuKjPWtMqHsR3T+vavhS572tQBLPfB7WoV9gdT5pDcU3fRK9NyF+bjfVtl2i
+D8hoIfzXJon2o409APanLUpioyxvJL30pTs8rzsS2jlj81oasv3Xaj8fAEi+hhQ8
+p1qJFGi1AgMAtEaNuy6iftpGmaYYelHxwNkSXePaoKVG7DI9hK+e58zop7+KNsHQ
+eR6Rq713wT2d4cQuQcR3GDCR1KD8+otrpAkRFHfXWuoe2jWiG7O2AxYGHmZewzEz
+sYhf7UGdgHzs53ElculKFlH6N/j+7xZHxT9XL5d2C2xTcwZcE/aoKXmSBGc9KaMn
+1idkp+olhSDElrlx2R+qjg4mN/7xIjuf19yLm7BUmblRo7umtXI=
+=ErWp
 -----END PGP SIGNATURE-----
 
---tcUV2s8VfPxXlH7h--
+--kppsckzt35vuaz7b--
 
