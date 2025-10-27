@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B57CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:58:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692C8CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TcnvnJ0EDsbh2HgTw68qT2VPMbWvBxyXim8/aNAse1I=; b=tyHooa4CNUUWnrGgbnir/q4kRb
-	4fJXcoteELMtiqxg8+LgeBqG5UtKIIOuRydOY2Lu8PoxY5+q8zjOiq4YBHDhdDvrM4QoPmjwjpGgV
-	wKXvvqcZprt6Ax18etGnMBwoSFx25GN33LI+tFbx2SJeUf2y+X2L8QYJiKMfFwSPkx3m0pKUN74O9
-	FnRTSr9uvFAcVstKuGlxwVCmsmxGRxuYelJZYAekzDd6wuYGrSPu5Inxb1jY0IhtAVJyc/Xt/NZGD
-	9YVt1jNGJ2Y86JlaMzA7HoKOkqRoBcfCMWzdVeJfen5TOIBG4Ze97/erpNeXrCEou+Floy0wcJn8X
-	dqoMDo3w==;
+	bh=shyQnY3YHWfiVFVYpdQzZRY/aKcQtMNw7xgIsZxMDkU=; b=hkkISvkjP4TK5AsoMq4m2qw/XM
+	l87Cxybio1iXaoyiFc5h/pK/CzOeRD6X5cJuz91xFPH2G4oNlba8IvcDuoeZgtKtpBMN+dCPhN3ya
+	uJ1jt2fA9WYnkw259t+xcgL0taECoN5074+yWBpCtxjlWiOQ5sf3y58Eybslh5eG1gUvaamO62QtW
+	towkr+1+7LwObQWGsG/bOJXeSoQ6VzcGFfFTbTa/LJ6E18U8w0uayFjXd2aFw33rrRr+uRef7FcjP
+	qLqB2WJMQGU52j3y3KY8xD4qt6ujqLCq3ephhUmOix7vSYlRCuS7gyxW1MSKYEZpahaTCguN38Pvg
+	fWktBWKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNjS-0000000E670-1dDT;
-	Mon, 27 Oct 2025 13:57:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDNnv-0000000E6Qn-1Vyh;
+	Mon, 27 Oct 2025 14:02:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNjP-0000000E66a-3Mxp
+	id 1vDNnq-0000000E6QP-480Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 13:57:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E79140408;
-	Mon, 27 Oct 2025 13:57:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E7C3C4CEF1;
-	Mon, 27 Oct 2025 13:57:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761573475;
-	bh=vQlBeuOimfnDQArLcW6HVQ1cZwXaJm+WEydOmRjU5rE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QYX9aQgnXs4w4qx23uZ1wSZQTKEhkqsu6hBA8OFqCL03nz4a66I2RXsW+tItPEiZB
-	 tTr+MMdzfFfQaEPMNodsnPXLZE8WCKh+lHTgF1W4gXBIi9U6kkQI382+B2swxQjFrv
-	 S3LuZBfQXKw0wr6cX8MbB15mCu0dRuPNPFnBjdfBMMB+2YrxFlnO0UvwTjznpckpc4
-	 hptzh3FzAeEHNNnePQXkAC3No2jW9SzTVKDMCuVmwymv7m+wKfeNW97T0SZepVPJxE
-	 sn/w1JCP5khrBGhHV9essXo5om5jcbms9lj5N7tuYGT4/ExjTRd4qOejG4inPuWxaE
-	 EyOKH6g+NzS4A==
-Date: Mon, 27 Oct 2025 08:57:52 -0500
-From: Rob Herring <robh@kernel.org>
-To: Charan Pedumuru <charan.pedumuru@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Taichi Sugaya <sugaya.taichi@socionext.com>,
-	Takao Orito <orito.takao@socionext.com>, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: mmc: socionext,milbeaut-m10v-sdhci-3.0:
- convert to DT schema
-Message-ID: <20251027135752.GA316916-robh@kernel.org>
-References: <20251023-milbeaut-v1-1-3e4ff67110ad@gmail.com>
+	Mon, 27 Oct 2025 14:02:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761573749;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=shyQnY3YHWfiVFVYpdQzZRY/aKcQtMNw7xgIsZxMDkU=;
+	b=BzKz6nUKcUHLqAQG17WkfHbpxOAfvbSQq8e7ywRla27vQVzR/ELGcGz2B6M/jrONbWxtnG
+	xBQku+QgkqRGlGZ6py3rShCc0fFpe47/nCMnyNWIbOi2vMrDcS69KjZNbkZgx9+1KW8Jba
+	l4WMM28on6ISOfStEEB8DmNVzL7rS3c=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-330-N6SEJ_JuP2Ocf030-5Ow1Q-1; Mon, 27 Oct 2025 10:02:27 -0400
+X-MC-Unique: N6SEJ_JuP2Ocf030-5Ow1Q-1
+X-Mimecast-MFC-AGG-ID: N6SEJ_JuP2Ocf030-5Ow1Q_1761573746
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-426ec5e9278so2892986f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 07:02:27 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761573746; x=1762178546;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=shyQnY3YHWfiVFVYpdQzZRY/aKcQtMNw7xgIsZxMDkU=;
+        b=t4Cb7d2DQZGTNl/3zsLSUnBxzLFrFSeNsCslHFY0ZhhVkVR06/B9j5GOIlNaTfDxpp
+         xPnWuz9XM/HqUJWPurc8jJ13/Hv/woAVeeRIWWqkZpvHH06Bmr8kP4sCg5h5cUL7hWaT
+         fKuRlRAuYfk6ToASCKh2h7eEnlAOQEF7GttEtaDVC2/+qP8M47ckKGJz8Akki3nkySHD
+         Sl0VVDMzppIWdRb9LS6rnfhIGA93BLdKr7c63wQkLtwiX+Cj7/Nb7e0KHrtG03cXBIc/
+         fG9PStJ55RQMl1sLTDEzZ41KwmQEWvWpcCMMVgHYlkXtOYMXsBgDFuPm39tvrzDA1lOM
+         JyrA==
+X-Gm-Message-State: AOJu0YxMkV42lADZL6MK2qzyIb++/RFJijtfbHuF+EoauDfw/ggNLDsw
+	K/r4vIi+Bx2GfUmv+x92Zhd1enWfn9AkrXJoumBmruFwW9vHGGaEzEhFudrR/wyjFwEuLGZsqDx
+	REhtiNTDIrARGRrXuIOYuROrBiu0v2d+IylSCOFFDu8i4FJ+eEaPYbORukSq2Ibliyf/PvO54zX
+	OH
+X-Gm-Gg: ASbGncuPQyZYPV/uVHaggyxcbHPI4cKzuAmQcnBKDV1FC5xslhAxvSq2NoEZ8oaBugd
+	uclLNxavnDeMfaO16DcCgf+hZH35gA2ZWcnvYsN7aS8LTiVE1F4wa0hGtWvlDB/ulJ2E8++G6QW
+	QkWkAJICSu21J+Wq7MJjqPP5BDwA3CkgfgnIMPcERRXxFZ+0hGUjAGuHmbRbONYfU74qE7Odc/y
+	K91uH7Hr9SfoAdEvNw0fFRUEzd+z2oNjAkr6bnHMf5n6PeMlNMvriiHsavml+IiVQL821z9WmkN
+	cD5daaPUNZvkTNyc47MQqZS61RTyvjVcIPvaESPWzv872RZDFgIHuZ3dXc5FhRsjsIe6lJThORh
+	5uQ7v51/fb48e25g/bMGgwvrso/TMf2zVL1kYNbRnDEnBrp0T
+X-Received: by 2002:a05:6000:288f:b0:427:a37:ea3e with SMTP id ffacd0b85a97d-42990755b87mr8916533f8f.52.1761573744786;
+        Mon, 27 Oct 2025 07:02:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IETyCrcEtLcl3q6Rbfg7qOzwYfycn5fPY5jgI68IwSrW44NCEA1DZHmuz8NQf54cnQJ3dYQ8g==
+X-Received: by 2002:a05:6000:288f:b0:427:a37:ea3e with SMTP id ffacd0b85a97d-42990755b87mr8916495f8f.52.1761573744177;
+        Mon, 27 Oct 2025 07:02:24 -0700 (PDT)
+Received: from rh (p200300f6af131a0027bd20bfc18c447d.dip0.t-ipconnect.de. [2003:f6:af13:1a00:27bd:20bf:c18c:447d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952b79cbsm14242478f8f.4.2025.10.27.07.02.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 07:02:23 -0700 (PDT)
+Date: Mon, 27 Oct 2025 15:02:22 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+    "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+    "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>, 
+    "maz@kernel.org" <maz@kernel.org>, 
+    "broonie@kernel.org" <broonie@kernel.org>, 
+    "oliver.upton@linux.dev" <oliver.upton@linux.dev>, 
+    Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
+    "yuzenghui@huawei.com" <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: vgic-v3: Trap all if no in-kernel irqchip
+In-Reply-To: <20251021094358.1963807-1-sascha.bischoff@arm.com>
+Message-ID: <e2d3e614-4e5e-7ad9-5cc6-867d85dca5c0@redhat.com>
+References: <20251021094358.1963807-1-sascha.bischoff@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251023-milbeaut-v1-1-3e4ff67110ad@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Dc9CeULW72ogq1ekmHaUa_eH0qqA-QpM_pjFOWMZ52A_1761573746
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_065755_906661_403D9F34 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20251027_070231_139885_F4268812 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,118 +113,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 05:37:36PM +0000, Charan Pedumuru wrote:
-> Convert SOCIONEXT Milbeaut SDHCI controller binding to YAML format.
-> Add a new property "voltage-ranges" to resolve dt_check errors.
-> 
-> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
-> ---
->  .../devicetree/bindings/mmc/sdhci-milbeaut.txt     | 30 ---------
->  .../mmc/socionext,milbeaut-m10v-sdhci-3.0.yaml     | 78 ++++++++++++++++++++++
->  2 files changed, 78 insertions(+), 30 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/mmc/sdhci-milbeaut.txt b/Documentation/devicetree/bindings/mmc/sdhci-milbeaut.txt
-> deleted file mode 100644
-> index 627ee89c125b..000000000000
-> --- a/Documentation/devicetree/bindings/mmc/sdhci-milbeaut.txt
-> +++ /dev/null
-> @@ -1,30 +0,0 @@
-> -* SOCIONEXT Milbeaut SDHCI controller
-> -
-> -This file documents differences between the core properties in mmc.txt
-> -and the properties used by the sdhci_milbeaut driver.
-> -
-> -Required properties:
-> -- compatible: "socionext,milbeaut-m10v-sdhci-3.0"
-> -- clocks: Must contain an entry for each entry in clock-names. It is a
-> -  list of phandles and clock-specifier pairs.
-> -  See ../clocks/clock-bindings.txt for details.
-> -- clock-names: Should contain the following two entries:
-> -	"iface" - clock used for sdhci interface
-> -	"core"  - core clock for sdhci controller
-> -
-> -Optional properties:
-> -- fujitsu,cmd-dat-delay-select: boolean property indicating that this host
-> -  requires the CMD_DAT_DELAY control to be enabled.
-> -
-> -Example:
-> -	sdhci3: mmc@1b010000 {
-> -		compatible = "socionext,milbeaut-m10v-sdhci-3.0";
-> -		reg = <0x1b010000 0x10000>;
-> -		interrupts = <0 265 0x4>;
-> -		voltage-ranges = <3300 3300>;
-> -		bus-width = <4>;
-> -		clocks = <&clk 7>, <&ahb_clk>;
-> -		clock-names = "core", "iface";
-> -		cap-sdio-irq;
-> -		fujitsu,cmd-dat-delay-select;
-> -	};
-> diff --git a/Documentation/devicetree/bindings/mmc/socionext,milbeaut-m10v-sdhci-3.0.yaml b/Documentation/devicetree/bindings/mmc/socionext,milbeaut-m10v-sdhci-3.0.yaml
-> new file mode 100644
-> index 000000000000..6b67bef30347
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mmc/socionext,milbeaut-m10v-sdhci-3.0.yaml
-> @@ -0,0 +1,78 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mmc/socionext,milbeaut-m10v-sdhci-3.0.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SOCIONEXT Milbeaut SDHCI controller
-> +
-> +maintainers:
-> +  - Taichi Sugaya <sugaya.taichi@socionext.com>
-> +  - Takao Orito <orito.takao@socionext.com>
-> +
-> +description:
-> +  The SOCIONEXT Milbeaut SDHCI controller is a specialized SD Host
-> +  Controller found in some of Socionext's Milbeaut image processing SoCs.
-> +  It features a dedicated "bridge controller." This bridge controller
-> +  implements special functions like reset control, clock management for
-> +  various SDR modes (SDR12, SDR25, SDR50) and physical pin property settings.
-> +
-> +allOf:
-> +  - $ref: sdhci-common.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: socionext,milbeaut-m10v-sdhci-3.0
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 2
-> +
-> +  clock-names:
-> +    items:
-> +      - const: core
-> +      - const: iface
-> +
-> +  fujitsu,cmd-dat-delay-select:
-> +    description:
-> +      Its presence indicates that the controller requires a specific command
-> +      and data line delay selection mechanism for proper operation, particularly
-> +      when dealing with high-speed SD/eMMC modes.
-> +    type: boolean
-> +
-> +  voltage-ranges:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+On Tue, 21 Oct 2025, Sascha Bischoff wrote:
 
-Sounds more like a uint32-array.
+> If there is no in-kernel irqchip for a GICv3 host set all of the trap
+> bits to block all accesses. This fixes the no-vgic-v3 selftest again.
+>
+> Fixes: 3193287ddffb ("KVM: arm64: gic-v3: Only set ICH_HCR traps for v2-on-v3 or v3 guests")
+> Reported-by: Mark Brown <broonie@kernel.org>
+> Closes: https://lore.kernel.org/all/23072856-6b8c-41e2-93d1-ea8a240a7079@sirena.org.uk
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 
-> +    description:
-> +      Two cells are required, first cell specifies minimum slot voltage (mV),
-> +      second cell specifies maximum slot voltage (mV).
-> +    maxItems: 1
+Reviewed-by: Sebastian Ott <sebott@redhat.com>
 
-You can better describe it like this:
-
-items:
-  - description: minimum slot voltage (mV)
-  - description: maximum slot voltage (mV)
 
