@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D4ACCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C730CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llevhbx7w2gVPSgxchYQykyfF3P6kCmvO3Z+1l6bNEw=; b=B0TjoB560NBBQ2wyrjvF/rFF1x
-	h9xzvhObUYKg2dfnz3MxFYa753eODTbWWB8JsjZ6VnhQqsShywPZfIaFopeNi4Pv+4U9qir8tdhky
-	a0bQC23uuJTFoOgbyR6oV/Tk0ZYCbmKk+zQ2KwV3IH8MWdM4ogUjDgjc9IPneGVLVMCPzQaLyFT/J
-	ewNweH3H0ExidxRpKyGN+Nycnd8Dv15LM4l64qVIJR3c/roqScV4kdwfxwH1BjPwA5gWw/zLQufh/
-	aOjZWWVEQLrNGwtwdbcSEoKoXqCylQGEGMhScrDuMROYHRN8dW+twYtDOIhLGJJK+V+uSM8htOL52
-	wRdSuQzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D6Vse7+b3rUL1tte5xHL5/9p1ZISrxwTkAHrGAF5Ng8=; b=0cpdRJHmB+fp8dGso/lkLm7R2f
+	B+u470UX1orMOvO1075HcXfNv3AV0DV3JI1Uc/AEF4zoMBVyGQa3mivqxzb8Pf4+auwD/xjXI0Q50
+	kdQSQ+xAiy2kKedkEtLqx5mR5+TFDhLg3bop5Ejiorz/UQnX+fwSefJUsja0Lw7FddlwBsz5ch7Qj
+	HM+zJUWPTueA6tz9dj4D10TJWGvsaYXN4tJOTGfVoEovzBcscjrMHtViT6CYEiuqh5E7PXxmxkl6N
+	qxKXRqeid6xKUWW5hG0sQGSb7HC4BuDZeheek+fY+7kulSC8s0YwXSj4T1yT+R+b0M5/TIo9pmHIc
+	/GPVS/cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDK1e-0000000DbqI-0Urv;
-	Mon, 27 Oct 2025 10:00:30 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1vDK3r-0000000Dc6t-3kge;
+	Mon, 27 Oct 2025 10:02:47 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDK1b-0000000Dbpt-1vih
+	id 1vDK3p-0000000Dc6M-1sXW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 10:00:28 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b608df6d2a0so4040907a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 03:00:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761559227; x=1762164027; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=llevhbx7w2gVPSgxchYQykyfF3P6kCmvO3Z+1l6bNEw=;
-        b=W+vG1xvzQtmBSzV+bzY+cBpz+yB8fwpyuDN0A1mJy+hiOATShSEKihERjtPK+z09Mc
-         1+O8m1zENRgRu26Lnl/CeptW9HT8ulzRsq3FJpfsopu78xBdLoMrR6Gx+brBvhocrTc+
-         /gbizs9+CgOdQtnMvx9IvUozSZ29M+CGHrSnGZKlL/AePcRLlCc0J9ns0onAA6V3f0uF
-         hUHtGsGHEIxe4kBM7lfLfRdMWQp5yd5kmpROcThUn7dHHZtrYbF+ChyFviZvTjrjuAdy
-         t49lSt/hX7H3M1j4+CFlcoQJU/UIb4FbvuQwwjP8jy/ZhUzSb3mzVGive6I/dKtb037K
-         WP2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761559227; x=1762164027;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=llevhbx7w2gVPSgxchYQykyfF3P6kCmvO3Z+1l6bNEw=;
-        b=uAopQ2NgvUilvjoJ9X8VXVH+PEon1kFugKH6uL9zQAEOG3/WjXkNEB+Y+scJ0kWGeP
-         SnWaBUv2DOGC5Sj3YWaJ7LpLT+p4s/foF1tek++sY2jruVLfx1x+YmTh4EuUke4cJTfD
-         OUNQWPB3hTAP8LfOJdx4JdKBOtJJLIOE/FSfd1ZoTgRSrK5vC8O69wDFcCbq9NdNcu0m
-         fXs3mHeAi/Ws1bW2YK4W9okqmVcBDI6LH6uG8CCePJ/Y7KcETamDRatEWrdpd1HZSa7q
-         GujptjewL2paTPBK/q1Nsij+pmmgeUtWhLfZWF/PEaYR9jjrCa2b4u25UWHNs9d6BNzW
-         uMRg==
-X-Forwarded-Encrypted: i=1; AJvYcCXgqTl3njfGMiITvEcGxIRYPESOmY2m/kQVUwMLt2EUc8JBWUmkr5kDAsisIPVvybarEFOqZllQPG+pZz/gXigq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLAfjUn4gvicm4XeODG7wjGxAHB3juasBgAyXdJlljQyaLewSU
-	wAiHEWD+kAamUgpKI9USvvrkTBdF+c6xjdIsZbNKWUEyzsy3AUQx6HwUQy5gxMAKhS5ifvL6seF
-	rA2sDTgrvmd1SeLVI46wAfl+lTeCYMmA=
-X-Gm-Gg: ASbGncvxQsuEzy4wwxSglVFko8acwVxWw94PjNLMROuzukoJVcvHpQBACIpOC3hzQZg
-	pfTirYeAkyOOOfS8r8ur7Mq9oKPIL7MNKDHEFYcxt3IE7Za7owM3ErvX/Bn4TIOaoIQ2Ez82E7J
-	Q4La6ZYi69CK6Ioiwnj50Y9ZAnKpMjNq9urHOvohJjXPtXH5l3Q5fYvQe+/zwRut4wFCPl6bGTT
-	QUO78ee1hp6hhPdhFsj/rLB4h1kuMtETrEjjegLkCXiyaqFKeSynFQr0mEucSvAu+MtsCGSJ4b6
-	Hs4cG8xTMpPug8bVYyzxCPtiaBOyEZn2N2Y=
-X-Google-Smtp-Source: AGHT+IEVKeBh2X8nn5edN2JNYH0ip6RRsXlkactmrlxMJ24ltADBqpxEPIq5x0ftvH+xeOzwVb5LwOMRmctLYx+ASlY=
-X-Received: by 2002:a17:903:18d:b0:269:b2ff:5c0e with SMTP id
- d9443c01a7336-2948ba5aac4mr144470455ad.46.1761559225678; Mon, 27 Oct 2025
- 03:00:25 -0700 (PDT)
+	Mon, 27 Oct 2025 10:02:46 +0000
+Received: from pendragon.ideasonboard.com (unknown [193.209.96.36])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 333831661;
+	Mon, 27 Oct 2025 11:00:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1761559255;
+	bh=oK4MAK69sWkbk17ePUCVJkTmSfCbcfChTa3yzciFfCU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gvZwhuMOZqzmB1g3j3ERKzn65qoVI2LnEaaIhmJCxS5l9MLEa7nDNA5PhOrw6B0xY
+	 147oYuIZRQ/Fk4BWR0OplbvMWn5GQZFvuT175LT2qBY7sjl8FdEnHrhvzQ3rHdIIlX
+	 1+Cn5HGek8rFHs0xxnZhLhwhJEJGNo963so3fo9o=
+Date: Mon, 27 Oct 2025 12:02:27 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Andrew Lunn <andrew@lunn.ch>, Russell King <rmk+kernel@armlinux.org.uk>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <20251027100227.GE1544@pendragon.ideasonboard.com>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+ <aP83bMDWCre7-Sjw@pengutronix.de>
 MIME-Version: 1.0
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-5-laurentiumihalcea111@gmail.com> <aPJWUDXmGkb8QGMz@lizhi-Precision-Tower-5810>
-In-Reply-To: <aPJWUDXmGkb8QGMz@lizhi-Precision-Tower-5810>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 27 Oct 2025 12:02:50 +0200
-X-Gm-Features: AWmQ_bnztc34-LVMElYU3hA5bxPnJsvEFVV1IWI00q3s-IiPzNkbThRFF6roaYA
-Message-ID: <CAEnQRZBFCi9GPaAw+NdKboADSpzPKGL-1B3WNh1M4Nuxd_9rqw@mail.gmail.com>
-Subject: Re: [PATCH v2 4/8] reset: imx8mp-audiomix: Drop unneeded macros
-To: Frank Li <Frank.li@nxp.com>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aP83bMDWCre7-Sjw@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_030027_503184_DB1955DA 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20251027_030245_628415_617F9AED 
+X-CRM114-Status: GOOD (  35.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +79,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 5:47=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
->
-> On Fri, Oct 17, 2025 at 04:20:21AM -0700, Laurentiu Mihalcea wrote:
-> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Hi Oleksij,
+
+On Mon, Oct 27, 2025 at 10:12:12AM +0100, Oleksij Rempel wrote:
+> On Mon, Oct 27, 2025 at 04:08:42AM +0100, Andrew Lunn wrote:
+> > Adding Russell King
 > >
-> > The macros defining the mask values for the EARC, EARC PHY resets,
-> > and the DSP RUN_STALL signal can be dropped as they are not and will
-> > not be used anywhere else except to set the value of the "mask" field
-> > from "struct imx8mp_reset_map". In this particular case, based on the
-> > name of the "mask" field, you can already deduce what these values are
-> > for, which is why defining macros for them doesn't offer any new
-> > information, nor does it help with the code readability.
+> > On Sun, Oct 26, 2025 at 02:29:04PM +0200, Laurent Pinchart wrote:
+> > > Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
+> > > (DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
+> > > devices produces an interrupts storm. Disable EEE support to fix it.
+> > >
+> > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > > ---
+> > > The exact reason for the interrupt storm is unknown, and my attempts to
+> > > diagnose it was hindered by my lack of expertise with DWMAC. As far as I
+> > > understand, the DWMAC implements EEE support, and so does the RTL8211E
+> > > PHY according to its datasheet.
 > >
-> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > ---
->
-> Register define still prefer use macro.
->
-> So far const string, hexvalue prefer use value if only use once.
+> > I believe for DWMAC it is a synthesis option. However, there is a bit
+> > indicating if the hardware supports it.
+> >
+> > The PHY should not be able to trigger an interrupt storm in the
+> > MAC. So this is likely to be an DWMAC issue.
+> >
+> > Which interrupt bit is causing the storm?
+> >
+> > > What each side does exactly is unknown
+> > > to me. One theory I've heard to explain the issue is that the two
+> > > implementations conflict. There is no register in the RTL8211E PHY to
+> > > disable EEE on the PHY side while still advertising its support to the
+> > > peer and relying on the implementation in the DWMAC (if this even makes
+> > > sense)
+> >
+> > It does not make sense. EEE is split into two major parts. The two
+> > PHYs communicate with each other to negotiate the feature, if both
+> > ends support it and both ends want to use it. The result of this
+> > negotiation is then passed to the MACs.
+> >
+> > It is then the MAC who decides when to send a Low Power Indication to
+> > the PHY to tell the PHY to enter low power mode. The MAC also wakes
+> > the PHY when it has packets to send.
+> >
+> > A quick look at the data sheet for the RTL8211E suggests this is what
+> > is supports.
+> >
+> > There are a few PHYs which implement SmartEEE, or some other similar
+> > name. They operate differently, the PHY does it all, and the MAC is
+> > not even aware EEE is happening. Such PHYs should really only be
+> > paired with MACs which do not support EEE. An EEE capable MAC paired
+> > with a SmartEEE PHY could have problems, but hopefully the EEE
+> > abilities and negotiation registers in the PHY would be sufficient to
+> > dissuade the MAC from doing EEE. But i would not expect a setup like
+> > this to trigger an interrupt storm.
+> 
+> Please note, RTL8211E PHY do use undocumented SmartEEE mode by default.
+> It ignores RGMII LPI opcodes and doing own thing. It can be confirmed by
+> monitoring RGMII TX and MDI lines with oscilloscope and changing
+> tx-timer configurations. I also confirmed this information from other
+> source. To disable SmartEEE and use plain MAC based mode, NDA documentation
+> is needed.
 
-This is simple enough that we can use the BIT() macro directly to express
-the masks.
+That's useful information, thank you. Would you by any chance to know if
+such NDA would allow contributing the feature upstream ?
 
-As you said you can use the const value (including BIT()) when the value is=
- used
-only once as it is this case.
+-- 
+Regards,
 
-So I think this patch is fine:
-
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Laurent Pinchart
 
