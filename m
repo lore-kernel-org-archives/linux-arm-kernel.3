@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D9BCCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A6DCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=74D/cP7pFiURZ3JuqRKHPfcmtlRbgAjQ4Nd4ybjX2qY=; b=iqUC5LEtcq8davJsqbn/8DtLgZ
-	pVTARSGR2ss8dg/rkfRuMq3Hi5eKwiL4FqunVzhT/s03Q/xVO9ekXtSGD2ymJV27DykcBtF8zMXWS
-	mi1ZicLmVuH2S5O6LAZ7/s87AFfeF0IstN2Z6BZYJqwYYb2MnFpOlTPv7UBxaGZzPDNf2n90OMRH/
-	uOWT++UGQLF8CedmpPojiwXrneAQ2E7Kttv0Q+1RZIz/gyRlSbUfHU4pGHbQPfiZDHLXDng+5VE53
-	9t64JPnUiqoAm+ixRdrHKyEZDfKY8pDMIamWAKfq0V0IqXZrPAVVnj2hU6XeogW0JxFazRyWFnUHq
-	isORoUog==;
+	bh=TEVZQ7umfQ/e8KFlENApvsOj36JwyAfdhPSR2FTrVk0=; b=4PTxcTroqeWAidwlv3CiuBXvD/
+	63ubhQFCkuB2LrIkJyq7Xl4TTMW00Xq4pl7IWv1RhuvYslN/2hXJcEhQ1SoRmCb1v72c6/+FmO6ZS
+	w3uhR6f5rQPkK5CW3Wc93N9Qwoeco1tZNIRur/Jl0ozzkoTTcVX8FLvqMqfzPJmoWv0ZNLsGPRxZB
+	IZFNvb/YZuI+jc649K9/w8GLbSXJtzWYxn+8oLLqEvQCMy9ZB4wz1B9HYXR965bfxTqu0eiar9YDB
+	DTyU0MpN0YO9uenAafmYUahkUerN253aCF9lylyuNFkEKXzSWzGbaDmb7p7y9E4DvSieP2u4O1ULa
+	dijvF0Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSya-0000000EgGc-29Pm;
-	Mon, 27 Oct 2025 19:33:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vDTGw-0000000Eh3i-1Xq1;
+	Mon, 27 Oct 2025 19:52:54 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSyZ-0000000EgGG-2Gxq;
-	Mon, 27 Oct 2025 19:33:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BF71662079;
-	Mon, 27 Oct 2025 19:33:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065A5C4CEFD;
-	Mon, 27 Oct 2025 19:33:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761593634;
-	bh=GBuTHku0HZy+N4bLq8h+zIHugchhObZYaWI/ZaqLViI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CB2wAqAXCd/BB8/BunSqi7t8cuGIdnwMtSgaxpuj9p59XOiO31MeOL5zM6ifVnaV4
-	 iuefubtyNvSxYAwTvkUqis4tKHehdEQQrq+lrA9ebAKQdR35IBWt8ReFf2UUAiJQGj
-	 ykqic2i6CR6itbn9zTBbYqjLO4YJAQkAxTVw8ao39GzzAJXGIh/WajnI7x7A9REZNd
-	 tXcFYm6NoY7SrLpu6wXXdPoUle/k9xXO+mnqaHpYAgHVsKzApXvfeGA59TAaKiGiAw
-	 fIOLe7G557DyFoPl/tLx/MjdFdN0SF6i+nu8D9igcCv4lxbqmyyYLlAAJMQQlG9QEc
-	 xxXSDeMBK008A==
-Date: Mon, 27 Oct 2025 14:33:52 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Jonas Karlman <jonas@kwiboo.se>,
-	Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1vDTGu-0000000Eh3B-1T5U
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 19:52:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=TEVZQ7umfQ/e8KFlENApvsOj36JwyAfdhPSR2FTrVk0=; b=Hmvr1wH8kgdIYIEL18y3IH+31c
+	hBa/CfiSGqy8VWgsi9/0Y1DeYon5eQFbOf5f9D0zno9gGUUa0PW/xmu4+kO31q3meia0nYmUj0h1W
+	DFImuXA7GA7nXo4aKsV0yNsgFiSIzKr21IPCLMEJPcE9x2ZymNCxeEiM6e0EKXTjFxxE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vDTGp-00CEGj-AO; Mon, 27 Oct 2025 20:52:47 +0100
+Date: Mon, 27 Oct 2025 20:52:47 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v4 2/3] dt-bindings: arm: rockchip: Add NineTripod X3568
- series
-Message-ID: <176159363059.1460567.9335053361524523986.robh@kernel.org>
-References: <20251026150358.1078453-1-coiaprant@gmail.com>
- <20251026150358.1078453-2-coiaprant@gmail.com>
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <1b25edfc-5f8c-4530-8b0f-a0f247c0b2ba@lunn.ch>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <aP-ML-A_h13pXY2d@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251026150358.1078453-2-coiaprant@gmail.com>
+In-Reply-To: <aP-ML-A_h13pXY2d@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251027_125252_389639_47E6044D 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> If we decide that EEE should be enabled by default, then we'll need
+> to revert this change. However, given Oleksij's recent input, I'm
+> wondering whether EEE should default to disabled given the issues
+> with Tq. The suggestion there is that many PHYs get it wrong and thus
+> are incompatible with each other when EEE is enabled.
 
-On Sun, 26 Oct 2025 23:03:57 +0800, Coia Prant wrote:
-> This documents NineTripod X3568 v4 which is a SBC based on RK3568 SoC.
-> 
-> Link: http://www.9tripod.com/showpro.php?id=117
-> Link: https://appletsapi.52solution.com/media/X3568V4%E5%BC%80%E5%8F%91%E6%9D%BF%E7%A1%AC%E4%BB%B6%E6%89%8B%E5%86%8C.pdf
-> 
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
-> ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
+I would probably default to leaving the hardware alone, take over its
+configuration. If the reset default or strapping has EEE enabled, its
+probably been reasonable well tested. If the reset default or
+strapping is EEE is disabled, it probably is not so well tested, so
+maybe dangerous to enable by default.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-
+      Andrew
 
