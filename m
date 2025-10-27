@@ -4,75 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BED2CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C99CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ARsvbd4oQ3Zie1x5W6Qz9uYLK/GO+I7rqDeqCXUEpo=; b=B7W4+zneIDBHns
-	B6GO0/j17lqXhfc+qXxDFnMNYZW5ZT43dEwYVl5ksL+iRmaE7icvMDruW4l1y7I8oCX1hrxEQvZK3
-	Cum2M79RWgyziPeoxfXg0X9jpLAayrqHmTgAyFW0NCYezYs+beBf0IqFXMZV17xgaBETd4NKKpNxY
-	eWlQg/XAdpVhUAAHXW2pinqgIZV9Jb8v6xwGS/DFpxuZO7WCaVsD9Et8rWhItTIc1ndBabqx8Mt7N
-	px+M746gjwTNu1vKnPSgi6PeTnTI2APABPtA768wzoXpcrROWZWd0OKQemdzuENOr/LT1ydztJEnZ
-	OQvsbKHtxexzBTg9fbmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D+xbO1Y4egrEeQMjxUSNcmmDafwwerz93fqHD7K/qDc=; b=20nrIuMlRWfw4FGOtwDzxXzKdg
+	vY2Dc0iMCxtZYrWPsMaSPQQxiW7zM2G5h5S16qoI3mIEeLue/nghBv/pP5foOXVUAJcHKTB0ICtzw
+	0EfKHzZY0LyMgVXYLrIEzyzCflfCqa7vqtH/eNhTkU/+LL4soGkoGUKe5APnGXGOerN8tzzQ9AlGy
+	pa7x05T3rFyHxCSsRjf4eR+Y6K/sCsGy5WJEdBpr0X+ndZx12TRIE5oNBhHcxXjCEwCWJiNa40Kcr
+	sD5GZOsjI6dR0ugnizrSkJNNF8Y6rEepXZRBuOt5XSxgeHzrBeW4dB2uM/bX4LsBSMWARmkukLqwr
+	P/z1IO9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRmS-0000000EXDX-14y8;
-	Mon, 27 Oct 2025 18:17:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vDRnV-0000000EXM0-2Yvr;
+	Mon, 27 Oct 2025 18:18:25 +0000
+Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRmP-0000000EXCu-1HBr
+	id 1vDRnT-0000000EXLR-2drG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 18:17:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 910FE442D0
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 18:17:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D77BC19425
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 18:17:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761589036;
-	bh=6nd/xaCVmVViBpeV0cBqu/UumtloLX/T9G1ZHGpbMWc=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=lKDUIcrQbRWMzcs/byoQUfInnMtMm4M/OR53T9IQQhw/pUi/12XLs/X12lQzVF5PO
-	 nof4BoXiil+9PMKQDUtXURLrmEqw/dTSe1Tz29pJ2udO7wYiz9duSSQV0fM2BslIEo
-	 4Y+47rUQnb6qOr9RHJIjE9WGhJzD78cDAZ6AGHxMqhtdJWs/8mXKoasLP3cuYO4TLU
-	 6MlKur3i67dx6iHfiscGoChkYSdZhD2X/ubr/y38QaBPN6DhsyWIhQsn706VS30xqL
-	 rjiiPPHMaKoc7GGsAKn7W6hj9jOoWx2xWjhKWC9tpCJ5n0LhiZnxUzNX9jm/g3szs/
-	 VuESXGe8wrsCw==
-Received: by mail-io1-f44.google.com with SMTP id ca18e2360f4ac-93e89a59d68so214217239f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:17:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXWmKTREeLr52ArYm59W1TbFNXQErf1VKWYK+XEmSClDK6Fg8vJ0Dlp4FIZZjqrINYrFwLTvzn/woVQ8qrMJ+0w@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJA4uEE+10couw/hqJFBaY0txV5QwIgTqNHOJh6wWmaP02eP19
-	7NFGF26rOh00bBXhvo9aAQoOcHiZd3IE2UjltimdcWhMAykTfBFeSXvlvhLNyU7qDqGkjoEFGxp
-	0FJEXFv6vCRZCdUnVpqur1437mxJFlAo=
-X-Google-Smtp-Source: AGHT+IG8zyj7yHZN9LacH9IlKXFT7dH+scROPtkp6gXmpK9NPsaJpiuFwmBzdRIMm/de3SVZSRzRTX72Xl1Fa1OPcJs=
-X-Received: by 2002:a05:6602:6d14:b0:93e:856a:2fe8 with SMTP id
- ca18e2360f4ac-945b84edf9fmr159706739f.19.1761589035669; Mon, 27 Oct 2025
- 11:17:15 -0700 (PDT)
+	Mon, 27 Oct 2025 18:18:24 +0000
+Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RFPQKB2226760
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:18:22 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=s2048-2025-q2; bh=D+xbO1Y4egrEeQMjxU
+	SNcmmDafwwerz93fqHD7K/qDc=; b=MKmGV+u4q+k9ETPJxNt7keRnvDdakFl4f+
+	ioNOB0nofjBrPQpgs9D59omsPR7HPJcPeUP9McpvfWQNEuWTKmL13mPz7QBXZ/G+
+	1Adcr1BgmXPYy7TLtXf8beGj73Gr2xVy9VNU8T5Pevk3dXGHi+3wqaMBvrAJvXdp
+	5WpCL7Cc2mAsNstfpGW2y0pjCbROi0Z7d7iYSEEFIA0/cZq3lUFObY52JTRBy3ya
+	O6uCJtG+KUqdAvMljuaQ04P3H3iKK+GcFCQleDvNIBCRuyTcnAVyKNUfGCxVgNUT
+	Jnd3YeaiLpTG588QkZQtuD5a1KHNW4Sd5tmezeN4FHKFJqZgL+oA==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4a2bc49mhr-4
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:18:22 -0700 (PDT)
+Received: from twshared67921.04.prn6.facebook.com (2620:10d:c0a8:1b::8e35) by
+ mail.thefacebook.com (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.20; Mon, 27 Oct 2025 18:18:19 +0000
+Received: by devbig071.cco5.facebook.com (Postfix, from userid 704538)
+	id B6A5A75B4A99; Mon, 27 Oct 2025 11:18:03 -0700 (PDT)
+From: Ben Niu <benniu@meta.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: Will Deacon <will@kernel.org>, <tytso@mit.edu>, <Jason@zx2c4.com>,
+        Ben Niu
+	<benniu@meta.com>, Ben Niu <niuben003@gmail.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] tracing: Enable kprobe tracing for Arm64 asm functions
+Date: Mon, 27 Oct 2025 11:17:49 -0700
+Message-ID: <20251027181749.240466-1-benniu@meta.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
- <20251012192330.6903-9-jernej.skrabec@gmail.com> <CAGb2v668p+GOAA=Kgr6dhbkJb33artbPnYsiwEygq7O+92sovQ@mail.gmail.com>
- <10742932.nUPlyArG6x@jernej-laptop>
-In-Reply-To: <10742932.nUPlyArG6x@jernej-laptop>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 28 Oct 2025 02:16:36 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64YkkYRqfXnOcHkn+L3xh26mSXZ+CWjzbr_KXdNmq+Jpw@mail.gmail.com>
-X-Gm-Features: AWmQ_bkVDWDL1iQ2lwVNNkITQo8BZYUH6exm_dJJvH_NxnAyZvBvVjoZ7LEJoQs
-Message-ID: <CAGb2v64YkkYRqfXnOcHkn+L3xh26mSXZ+CWjzbr_KXdNmq+Jpw@mail.gmail.com>
-Subject: Re: [PATCH 08/30] drm/sun4i: ui layer: Write attributes in one go
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-FB-Internal: Safe
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDE2OSBTYWx0ZWRfXwTeLzd2J6n5c
+ dg2jJyGGdZTQDiQcTX2pRq+wPOYnJWi7SuRm22vgQAWy80r+SaO6myE25XcVfvECpD/wk23rNeA
+ 07WA5fUQXa0oxu48g+lEA800KqP0rISq+u8DsqKFiwZ5kjslnPuKcR4VOy5ocgDKFmwgszVB8uX
+ 7pTkU8is2Kiid0WTgTXPfGjkRWVhPaakpSnNkn+c4+tHsKdq2jDbtTFhZig94drga6pMx1mwrX0
+ 9jF8f8EddKT1XYnuIWSLffrjyutnUKc+qfLmgVp5/FCnjrgKyLqjeAig2bVe8csHopw1xSKxvh9
+ JUlZczEyz1/j0m01URImB5zA2FQVu7C11uZLhdd0ONb8qkaRY3xpp0gPZvW59AVPshNE0AjJOc7
+ YFBFfKRpceXrUv6kmZnpch/cmahOmA==
+X-Authority-Analysis: v=2.4 cv=e68LiKp/ c=1 sm=1 tr=0 ts=68ffb76e cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VabnemYjAAAA:8
+ a=zeGFJKBHtnJr8_X531kA:9 a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-GUID: I0HCTDF2kYn1YZ5cVmO673jNVMTDHr_O
+X-Proofpoint-ORIG-GUID: I0HCTDF2kYn1YZ5cVmO673jNVMTDHr_O
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-27_07,2025-10-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_111717_382153_DC937B92 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20251027_111823_670848_A3ADA220 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,78 +93,183 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025 at 2:13=E2=80=AFAM Jernej =C5=A0krabec <jernej.skrabec=
-@gmail.com> wrote:
->
-> Dne ponedeljek, 27. oktober 2025 ob 17:04:38 Srednjeevropski standardni =
-=C4=8Das je Chen-Yu Tsai napisal(a):
-> > On Mon, Oct 13, 2025 at 3:23=E2=80=AFAM Jernej Skrabec <jernej.skrabec@=
-gmail.com> wrote:
-> > >
-> > > It turns out that none of the UI channel registers were meant to be
-> > > read. Mostly it works fine but sometimes it returns incorrect values.
-> > >
-> > > Rework UI layer code to write all registers in one go to avoid reads.
-> > >
-> > > This rework will also allow proper code separation.
-> > >
-> > > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> >
-> > Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-> >
-> > > ---
-> > >  drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 50 +++++++++---------------=
---
-> > >  1 file changed, 16 insertions(+), 34 deletions(-)
-> > >
-> > > diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm=
-/sun4i/sun8i_ui_layer.c
-> > > index 12c83c54f9bc..8634d2ee613a 100644
-> > > --- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> > > +++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> > > @@ -25,25 +25,27 @@
-> > >  #include "sun8i_ui_scaler.h"
-> > >  #include "sun8i_vi_scaler.h"
-> > >
-> > > -static void sun8i_ui_layer_update_alpha(struct sun8i_mixer *mixer, i=
-nt channel,
-> > > -                                       int overlay, struct drm_plane=
- *plane)
-> > > +static void sun8i_ui_layer_update_attributes(struct sun8i_mixer *mix=
-er,
-> > > +                                            int channel, int overlay=
-,
-> > > +                                            struct drm_plane *plane)
-> > >  {
-> > > -       u32 mask, val, ch_base;
-> > > +       struct drm_plane_state *state =3D plane->state;
-> > > +       const struct drm_format_info *fmt;
-> > > +       u32 val, ch_base, hw_fmt;
-> > >
-> > >         ch_base =3D sun8i_channel_base(mixer, channel);
-> > > +       fmt =3D state->fb->format;
-> > > +       sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
-> > >
-> > > -       mask =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MODE_MASK |
-> > > -               SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MASK;
-> > > -
-> > > -       val =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA(plane->state->al=
-pha >> 8);
-> > > -
-> > > -       val |=3D (plane->state->alpha =3D=3D DRM_BLEND_ALPHA_OPAQUE) =
-?
-> > > +       val =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA(state->alpha >> =
-8);
-> > > +       val |=3D (state->alpha =3D=3D DRM_BLEND_ALPHA_OPAQUE) ?
-> >
-> > Changing "plane->state" to "state" made the diff somewhat harder to rea=
-d.
->
-> Do you prefer that I change that in next revision?
+Currently, Arm64 assembly functions always have a bti c
+instruction inserted before the prologue. When ftrace is enabled,
+no padding nops are inserted at all.
 
-No need.
+This breaks kprobe tracing for asm functions, which assumes that
+proper nops are added before and within functions (when ftrace is
+enabled) and bti c is only present when CONFIG_ARM64_BTI_KERNEL is
+defined.
+
+The patch fixes the bug by inserting nops and bti c in Arm64 asm
+in the same way as compiled C code.
+
+Note: although this patch unblocks kprobe tracing, fentry is still
+broken because no BTF info gets generated from assembly files. A
+separate patch is needed to fix that.
+
+I built this patch with different combos of the following features
+and confirmed kprobe tracing for asm function __arch_copy_to_user
+worked in all cases:
+
+CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+CONFIG_ARM64_BTI_KERNEL
+
+Signed-off-by: Ben Niu <benniu@meta.com>
+---
+ arch/arm64/include/asm/linkage.h           | 103 ++++++++++++++++-----
+ arch/arm64/kernel/vdso/vgetrandom-chacha.S |   2 +-
+ 2 files changed, 81 insertions(+), 24 deletions(-)
+
+diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/li=
+nkage.h
+index d3acd9c87509..f3f3bc168162 100644
+--- a/arch/arm64/include/asm/linkage.h
++++ b/arch/arm64/include/asm/linkage.h
+@@ -5,8 +5,47 @@
+ #include <asm/assembler.h>
+ #endif
+=20
+-#define __ALIGN		.balign CONFIG_FUNCTION_ALIGNMENT
+-#define __ALIGN_STR	".balign " #CONFIG_FUNCTION_ALIGNMENT
++#define __ALIGN .balign CONFIG_FUNCTION_ALIGNMENT
++#define __ALIGN_STR ".balign " #CONFIG_FUNCTION_ALIGNMENT
++
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
++
++#define PRE_FUNCTION_NOPS                                               =
+    \
++	ALIGN;                                                              \
++	nops CONFIG_FUNCTION_ALIGNMENT / 4 - 2;                             \
++	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
++	.p2align 3;                                                         \
++	.8byte 1f;                                                          \
++	.popsection;                                                        \
++	1 :;                                                                \
++	nops 2;
++
++#define PRE_PROLOGUE_NOPS nops 2;
++
++#elif defined(CONFIG_DYNAMIC_FTRACE_WITH_ARGS)
++
++#define PRE_FUNCTION_NOPS
++
++#define PRE_PROLOGUE_NOPS                                               =
+    \
++	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
++	.p2align 3;                                                         \
++	.8byte 1f;                                                          \
++	.popsection;                                                        \
++	1 :;                                                                \
++	nops 2;
++
++#else
++
++#define PRE_FUNCTION_NOPS
++#define PRE_PROLOGUE_NOPS
++
++#endif
++
++#ifdef CONFIG_ARM64_BTI_KERNEL
++#define BTI_C bti c;
++#else
++#define BTI_C
++#endif
+=20
+ /*
+  * When using in-kernel BTI we need to ensure that PCS-conformant
+@@ -15,32 +54,50 @@
+  * everything, the override is done unconditionally so we're more
+  * likely to notice any drift from the overridden definitions.
+  */
+-#define SYM_FUNC_START(name)				\
+-	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_FUNC_START(name)                       \
++	PRE_FUNCTION_NOPS                          \
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
++	BTI_C                                      \
++	PRE_PROLOGUE_NOPS
++
++#define SYM_FUNC_START_NOTRACE(name)               \
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
++	BTI_C
+=20
+-#define SYM_FUNC_START_NOALIGN(name)			\
+-	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE)	\
+-	bti c ;
++#define SYM_FUNC_START_NOALIGN(name)              \
++	PRE_FUNCTION_NOPS                         \
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE) \
++	BTI_C                                     \
++	PRE_PROLOGUE_NOPS
+=20
+-#define SYM_FUNC_START_LOCAL(name)			\
+-	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_FUNC_START_LOCAL(name)                \
++	PRE_FUNCTION_NOPS                         \
++	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN) \
++	BTI_C                                     \
++	PRE_PROLOGUE_NOPS
+=20
+-#define SYM_FUNC_START_LOCAL_NOALIGN(name)		\
+-	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE)	\
+-	bti c ;
++#define SYM_FUNC_START_LOCAL_NOALIGN(name)       \
++	PRE_FUNCTION_NOPS                        \
++	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE) \
++	BTI_C                                    \
++	PRE_PROLOGUE_NOPS
+=20
+-#define SYM_FUNC_START_WEAK(name)			\
+-	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_FUNC_START_WEAK(name)                \
++	PRE_FUNCTION_NOPS                        \
++	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN) \
++	BTI_C                                    \
++	PRE_PROLOGUE_NOPS
+=20
+-#define SYM_FUNC_START_WEAK_NOALIGN(name)		\
+-	SYM_START(name, SYM_L_WEAK, SYM_A_NONE)		\
+-	bti c ;
++#define SYM_FUNC_START_WEAK_NOALIGN(name)       \
++	PRE_FUNCTION_NOPS                       \
++	SYM_START(name, SYM_L_WEAK, SYM_A_NONE) \
++	BTI_C                                   \
++	PRE_PROLOGUE_NOPS
+=20
+-#define SYM_TYPED_FUNC_START(name)				\
+-	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_TYPED_FUNC_START(name)                       \
++	PRE_FUNCTION_NOPS                                \
++	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
++	BTI_C                                            \
++	PRE_PROLOGUE_NOPS
+=20
+ #endif
+diff --git a/arch/arm64/kernel/vdso/vgetrandom-chacha.S b/arch/arm64/kern=
+el/vdso/vgetrandom-chacha.S
+index 67890b445309..21c27b64cf9f 100644
+--- a/arch/arm64/kernel/vdso/vgetrandom-chacha.S
++++ b/arch/arm64/kernel/vdso/vgetrandom-chacha.S
+@@ -40,7 +40,7 @@
+  *	x2: 8-byte counter input/output
+  *	x3: number of 64-byte block to write to output
+  */
+-SYM_FUNC_START(__arch_chacha20_blocks_nostack)
++SYM_FUNC_START_NOTRACE(__arch_chacha20_blocks_nostack)
+=20
+ 	/* copy0 =3D "expand 32-byte k" */
+ 	mov_q		x8, 0x3320646e61707865
+--=20
+2.47.3
+
 
