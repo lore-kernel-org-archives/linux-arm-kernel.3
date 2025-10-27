@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590E9CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 153A3CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mx6qce1QvYPrCvX+nnNjmWVayPG89i/5tERfc8V0M5I=; b=fB8CHM7r671Vsl9IZDjmOGw8JD
-	xGC9RYlTL2UAFZG4CnroYlLFGbihw0r9ESmjIveXbCeufMY0ZSh6mj2QiEb/o/qaN4nzG0EuFWVsh
-	9rUKrM7FI912DriwhgBYX3bO/VSsgyCB2+ix7ZN2KgJ4MV0axWcr4VxDoe6N1droh/IjEkgwgdChM
-	GHo943lfAq1ghlWwTEgEDhgjH9HxV2cLHKcRm28DdCm2gx8bBJHnsK1PbRUnq+l6qccisi1UYKy6R
-	7zz60IsN4ZHJu3VLVTAo2RdNPPfqISbswX8tcKiSxQYFWp/lEC0abOaT3bSa482ekrP7M1WwOKKmV
-	RvHorPpw==;
+	bh=3fXrczP/tH9sGyN44YbyszhSBDmNu6JorF9M9mPbTjU=; b=pN3Oyx2t5Iu0y/wET4bXcvSFn8
+	OLpT2R2KhLasS1L3xMiS9QctclTnlHvd406Bf3f1V5hUgIYN+tt2s6CYpn8i1SWj//4dhY9PTlj0B
+	0OsCaTBNCw7gNX/f4LGLXzMmWOJHB4p/rS9wol3vwupUNeE3YzUkjLoUANT5AwQOBHrgex5nd7N0B
+	o7W9a2eI8RBHuis9lNkIQpekT9odBhfhACFHGSghbB5KfRYdYP3a4VBmE1gzwDqgFxJjcKlMeeap5
+	oNjMzz3PhdXezFMHpAapcxvDkcfT/eZUgkLdDXHV0oYVwUo+oM1LM+/NAy0WrczfySqHTINPEq3Se
+	d8RxPVHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVom-0000000Esix-0WFz;
-	Mon, 27 Oct 2025 22:36:00 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vDW8l-0000000Eu7B-3xwx;
+	Mon, 27 Oct 2025 22:56:39 +0000
+Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVof-0000000EsfU-2w2R
+	id 1vDW8i-0000000Eu6b-241n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 22:35:55 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-47103b6058fso38211165e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:35:53 -0700 (PDT)
+	Mon, 27 Oct 2025 22:56:37 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-63cd60ca2b2so5743031d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:56:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761604552; x=1762209352; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1761605795; x=1762210595; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mx6qce1QvYPrCvX+nnNjmWVayPG89i/5tERfc8V0M5I=;
-        b=yAaq8sTxVsT9xit7bjuxhJfQ0A/uUxgKcXClxvA8BoHewQYo0Sxa40e3PRqo7c0gTs
-         k08r0aUYp5ipfSGD8uCfcbLuYapE/8c9rkeHQaUnaeayCGJCiHB/mdRobxAYrxgthmdL
-         8qZOMd8qW8CJMB8sbiVJiD+ZajpNjp6+Q7EbZ368WWyk1aZRyrrkSjPrp6FWrF+XzgQL
-         UEJk6mcUirjNilsWXnXEs3T4IfrfbV12mRnx1W+aw5QaMsIc3LKmdFBpNAugS/KNO0Oj
-         XA2WhtKibKFc3zVI6DU02Y2eAM3USzgZtzpbxfz/XyiSS9GP+psO6YPHg7gDRwz9gHsN
-         /sNg==
+        bh=3fXrczP/tH9sGyN44YbyszhSBDmNu6JorF9M9mPbTjU=;
+        b=meaOPKf/4zqC+Ttuvb0w7HHhBJ3FA49S3QaWvZVUF5V3cUjutNVZj9DIca2eBMOQ/U
+         5eUG8aZIz2t4jEWbuL5zb8Cz5a9laO/i1JSjne0G0C/Ba7A5bP2moRI1/YNo0M5fQELN
+         +DBRTHOKXKBwEZsA5dVYn9RbPuTlpmxg6TgSW5sIrX6mKkFCNgisn5Khxm/B2gSyWLM9
+         qgBwFEF5Fab1h5NBqj4pxfkwUXXHnbr9TF+OCOvqbp+lMHFJ7+vyApcLH3Wwjb5LmRvV
+         fnFgSEk+uczfzQD2HVan4DjtBz6eQJDaE7Z1VzPAkCU2pmvgjjxgjqfDXT56N0M5CulX
+         3VZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761604552; x=1762209352;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1761605795; x=1762210595;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mx6qce1QvYPrCvX+nnNjmWVayPG89i/5tERfc8V0M5I=;
-        b=w5Wy+edT10R8gQm2CxW9xotJk61SqJDFQUbqQ9lr2QdBbxwnbZcMvLu40RPeBWk5US
-         UyQ98xI5C8bvmeVXFIcuiZfs7uf96yz42PcANSUsfHIv7bVzZaQWEAuQ4ClB6j9J9bNv
-         j2vq587jltlBvPzuB0RcxWFXf0arnFpc9AWRe9JhvA+60d4uPa5zt8kckzs77/Vk+wAU
-         T/5QnZPjBvy6PoK05CCKMBFyP7sPiKRznMHByp0R7eGQfx2LFj6G4sYbXK1qTSWl3Svk
-         Yzhor7UWfpusIM/bgHdYdi6dUriR5vqY9O6c7Vk86CVirphwmMj4xMglrAYyR06r424N
-         Zy9g==
-X-Forwarded-Encrypted: i=1; AJvYcCX+hZ1vRDM70+mn450XHuF6xZJ3f+eMBUPV9f0QMfuLSc2y531cdbhjTCqDaKs8iyhLlzQkZ/rGM+k3QQdyTvKU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrvKJd0LhN3wTiClow+M8fV7ZaCoYi8iiiYO1Vk13faouQZfEh
-	emge04PmxqD+dXJpLVUqqdeFAOjVA23SCMZFKpLjFS5OLMAYO6LlDfI76XyhreRpcQc=
-X-Gm-Gg: ASbGncsAUAJ1cUYqdlkNvRdqVVZqWxFy9sLS3Mb6+QTTz5K7brQdEBwI5GSFrpxCEgX
-	Y4nGqAnnqYrr2xMs9lk4tvQATl7KVjrS+mHrZA9b1yxZ8kGgY+sldB3Yt3XozrNTxbBt36Ox4xl
-	RqVCjFY+OE+bruduSCuRiJ6vrjZJMrpeQxX6YA+vC4lsQ2TgTgibdZ4CTdIPPKNsOhBd/cLBZEm
-	F6dgU9zH+xeaZ+5wsv4I4i0tpcn4R7cYXeqvFRQapr/4SX5HxyyTgh5+ZPTdiPY39cvIseyrGiz
-	c9U87z+dYjpN+t6WUzbkJ4GhXDjuyKAh5pqrxRcZ44Vmpn5Xa0BuG7jm6fiXmyw74URhLTG22M0
-	RmSV0tISNZSDoqR+JrSoD0iJArn2/JOqnH7kfuLS4Q6RXvtWZPZjn5TL3QvfslhQPk7bbEeKpK4
-	L9WjYOp+4apcPQTNQuMPTeA49Ad+Jgy5tSNSmKRkZRFiti881F01+E0+RjiipT2DPyhrCfu1Yit
-	X5y9TTNcM0J+yx1VAeQveYJwHEX
-X-Google-Smtp-Source: AGHT+IEI18RlKvu3sL7/TxLhdbwGpT52FovIZ8TtiIYoo2vbR/zws0/ySXLOf1ihsMWG10P23FTF6g==
-X-Received: by 2002:a05:600c:4f07:b0:46e:1a60:c995 with SMTP id 5b1f17b1804b1-477181098d4mr9866555e9.2.1761604551834;
-        Mon, 27 Oct 2025 15:35:51 -0700 (PDT)
-Received: from linaro.org (host86-130-206-17.range86-130.btcentralplus.com. [86.130.206.17])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475ddad455fsm79826845e9.2.2025.10.27.15.35.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 15:35:51 -0700 (PDT)
-From: Mike Leach <mike.leach@linaro.org>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	leo.yan@arm.com,
-	james.clark@linaro.org,
-	Mike Leach <mike.leach@linaro.org>
-Subject: [PATCH v2 1/1] coresight: fix issue where coresight component has no claimtags
-Date: Mon, 27 Oct 2025 22:35:45 +0000
-Message-Id: <20251027223545.2801-2-mike.leach@linaro.org>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20251027223545.2801-1-mike.leach@linaro.org>
-References: <20251027223545.2801-1-mike.leach@linaro.org>
+        bh=3fXrczP/tH9sGyN44YbyszhSBDmNu6JorF9M9mPbTjU=;
+        b=MMOAoL+gYGFFVz7VtCaRhB/97Dv0+4iYcWp4Fl0CfYHcH0pEyck3llcSv0XOrffozn
+         YNnYXNoMr+j2Qs1YKzwFHh34S4HPVcqFT1LjIMME1xHLoMzJ1vVE1AvUvISZQbciC7ml
+         RmpOznFZOtHkTne0l19V9FGmJ+nTzSly0zX+WkA/FR3L4p70YgJf19ocR39zi0EOXHpW
+         xfVhVQ+o+6Vhf8xPSrxI4FbW7Ydxyqrxc4tTbVwNX/dugN0wrrkFDEnj2fhH4LQRqUbu
+         mFVSeWp23qjCV/UKTWvxTjXl71shdw1IAv3RkWDs0OgAzVJ9k/hjIflNyMBHwfl5tfbc
+         Hwvg==
+X-Forwarded-Encrypted: i=1; AJvYcCWaBnP0HIZm8vEHC1ifw50eEAUHtYBonBpfkcWhBk1MDtG8SlRc+/7YKdQChTiJFJZLIW8eUXjXggunUn1DUNSu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxekf/F6t6Fn9fsnDtTSO0fDqQ0oT6/742Ou1gXfifJ6DcwqWW7
+	B73jRjuBtXizda91W5n48aS3VK/lL0ZDu7GjOKUNiNWBHmJ2BtWiDidnGAxLk9GDFd1El63gwgW
+	ZFjXUPRVw4aVrQ27WTuaqzzSHrEW05/V19De4487MZQ==
+X-Gm-Gg: ASbGncsSZcBTuSs2ZRtCqpsWNg2BrA2Atqq0FREHGRQ1mwpkSgYoI9pyxUScF8QPnf7
+	n6cOZa08z0phU/dQ4myL5HyOS924ZMWCCw1UGq4CWXDWKSFZ29gu2G3Z9U47qmcCOWKYnfGqVJq
+	00PtSCZvtfj6a5+ExfIW44aBT6CTkQnv4jKPHWftwUymf15FwezGN1upWEOtp8gsGhIWTENJQ0q
+	KQPvtsCAluKumoFVjoAkE0/l1+E+rrgQ5nhM5ub908kz/59C4YD0hFq/L+Y
+X-Google-Smtp-Source: AGHT+IFJxZPsBn36jb9IqqtiTCDa4X0Ih3+3+W1DlxJFcn7w7OJaZooe7uHyHPMcjKs42kSUEEM7iqG3b3fxHPvN1mY=
+X-Received: by 2002:a05:690e:4184:b0:63f:2b69:9a2a with SMTP id
+ 956f58d0204a3-63f6b8559e7mr1530051d50.0.1761605793644; Mon, 27 Oct 2025
+ 15:56:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
+ <20251025-idpf-fix-arm-kcfi-build-error-v1-2-ec57221153ae@kernel.org> <CABCJKuesdSH2xhm_NZOjxHWpt5M866EL_RUBdQNZ54ov7ObH-Q@mail.gmail.com>
+In-Reply-To: <CABCJKuesdSH2xhm_NZOjxHWpt5M866EL_RUBdQNZ54ov7ObH-Q@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 27 Oct 2025 23:56:21 +0100
+X-Gm-Features: AWmQ_bno-qx6koLOtrZwcQNDXGnT81r2Gd96qzGlQrBISAXpENMYtJk71SRHkpM
+Message-ID: <CACRpkdaeOYEcK9w1oy59WBqjNrK7q5zT2rzg8pHgDdZdKWVKZg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] ARM: Select ARCH_USES_CFI_GENERIC_LLVM_PASS
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Alexander Lobakin <aleksander.lobakin@intel.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Russell King <linux@armlinux.org.uk>, Tony Nguyen <anthony.l.nguyen@intel.com>, 
+	Michal Kubiak <michal.kubiak@intel.com>, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_153553_799385_840E8604 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20251027_155636_544280_DFE46E40 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,174 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Coresight components have 0 to 8 claim tag bits. ARM recommends 4 and
-the implemented claim tag protocol uses two of these.
+On Mon, Oct 27, 2025 at 4:54=E2=80=AFPM Sami Tolvanen <samitolvanen@google.=
+com> wrote:
+> On Sat, Oct 25, 2025 at 1:53=E2=80=AFPM Nathan Chancellor <nathan@kernel.=
+org> wrote:
+> >
+> > Prior to clang 22.0.0 [1], ARM did not have an architecture specific
+> > kCFI bundle lowering in the backend, which may cause issues. Select
+> > CONFIG_ARCH_USES_CFI_GENERIC_LLVM_PASS to enable use of __nocfi_generic=
+.
+> >
+> > Link: https://github.com/llvm/llvm-project/commit/d130f402642fba3d065aa=
+cb506cb061c899558de [1]
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/2124
+> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-If a component has insufficient claim tags then the protocol incorrectly
-returns an error when attempting to claim a component.
+I didn't know Kees stepped in and fixed this, christmas comes
+early this year! I had it on my TODO to do this or get someone to
+do this, but now it turns out I don't have to.
 
-Fix by reading CLAIMSET to establish then actual number of claim tags
-and return success when attempting to claim a component were there are
-insufficient tags to implement the protocol.
+> > +       # https://github.com/llvm/llvm-project/commit/d130f402642fba3d0=
+65aacb506cb061c899558de
+> > +       select ARCH_USES_CFI_GENERIC_LLVM_PASS if CLANG_VERSION < 22000=
+0
+>
+> Instead of working around issues with the generic pass, would it make
+> more sense to just disable arm32 CFI with older Clang versions
+> entirely? Linus, any thoughts?
 
-Signed-off-by: Mike Leach <mike.leach@linaro.org>
----
- drivers/hwtracing/coresight/coresight-core.c | 46 ++++++++++++++++++--
- drivers/hwtracing/coresight/coresight-priv.h | 10 +++++
- include/linux/coresight.h                    | 15 +++++++
- 3 files changed, 68 insertions(+), 3 deletions(-)
+We have people using this with the default compilers that come with
+Debiand and Fedora. I would say as soon as the latest release of
+the major distributions supports this, we can drop support for older
+compilers.
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 3267192f0c1c..61b4902b0ead 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -131,6 +131,39 @@ coresight_find_out_connection(struct coresight_device *csdev,
- 	return ERR_PTR(-ENODEV);
- }
- 
-+/*
-+ * Reading CLAiMSET returns  a bitfield representing the number of claim tags
-+ * implemented from bit 0 to bit nTag-1, valid bits set to 1.
-+ *
-+ * Claim protocol requires 2 bits so test for MS bit required,
-+ * bit 1 -  CORESIGHT_CLAIM_BIT_PROTOCOL_HI
-+ *
-+ * return true if sufficient claim tags implemented for protocol
-+ */
-+static bool coresight_claim_tags_implemented_unlocked(struct csdev_access *csa)
-+{
-+	u32 claim_bits_impl = FIELD_GET(CORESIGHT_CLAIM_BITS_MAX_MASK,
-+			 csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMSET));
-+	return ((claim_bits_impl & CORESIGHT_CLAIM_BIT_PROTOCOL_HI) != 0);
-+}
-+
-+/*
-+ * check if we can use the claim tag protocol.
-+ *
-+ * If currently unknown - read register to determine if sufficient tags and
-+ * save value, otherwise return current value.
-+ */
-+static bool coresight_check_use_claim_tag_unlocked(struct coresight_device *csdev)
-+{
-+	if (csdev->claim_tag_info == CS_CLAIM_TAG_UNKNOWN) {
-+		if (coresight_claim_tags_implemented_unlocked(&csdev->access))
-+			csdev->claim_tag_info = CS_CLAIM_TAG_STD_PROTOCOL;
-+		else
-+			csdev->claim_tag_info = CS_CLAIM_TAG_NOT_IMPL;
-+	}
-+	return (csdev->claim_tag_info == CS_CLAIM_TAG_STD_PROTOCOL);
-+}
-+
- static u32 coresight_read_claim_tags_unlocked(struct coresight_device *csdev)
- {
- 	return FIELD_GET(CORESIGHT_CLAIM_MASK,
-@@ -156,6 +189,9 @@ EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
- 
- void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
- {
-+	if (!coresight_claim_tags_implemented_unlocked(csa))
-+		return;
-+
- 	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
- 				     CORESIGHT_CLAIMCLR);
- 	isb();
-@@ -175,12 +211,13 @@ EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
- int coresight_claim_device_unlocked(struct coresight_device *csdev)
- {
- 	int tag;
--	struct csdev_access *csa;
- 
- 	if (WARN_ON(!csdev))
- 		return -EINVAL;
- 
--	csa = &csdev->access;
-+	if (!coresight_check_use_claim_tag_unlocked(csdev))
-+		return 0;
-+
- 	tag = coresight_read_claim_tags_unlocked(csdev);
- 
- 	switch (tag) {
-@@ -190,7 +227,7 @@ int coresight_claim_device_unlocked(struct coresight_device *csdev)
- 			return 0;
- 
- 		/* There was a race setting the tag, clean up and fail */
--		coresight_clear_self_claim_tag_unlocked(csa);
-+		coresight_clear_self_claim_tag_unlocked(&csdev->access);
- 		dev_dbg(&csdev->dev, "Busy: Couldn't set self claim tag");
- 		return -EBUSY;
- 
-@@ -237,6 +274,9 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
- 	if (WARN_ON(!csdev))
- 		return;
- 
-+	if (!coresight_check_use_claim_tag_unlocked(csdev))
-+		return;
-+
- 	if (coresight_read_claim_tags_unlocked(csdev) == CORESIGHT_CLAIM_SELF_HOSTED)
- 		coresight_clear_self_claim_tag_unlocked(&csdev->access);
- 	else
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 33e22b1ba043..270f179c8535 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -41,6 +41,16 @@ extern const struct device_type coresight_dev_type[];
- #define CORESIGHT_CLAIM_SELF_HOSTED	2
- #define CORESIGHT_CLAIM_INVALID		3
- 
-+/*
-+ * Coresight specification defines a maximum of 8 claim tag bits.
-+ * The precise number is implementation defined, and may be obtained by
-+ * reading the CLAIMSET register.
-+ */
-+#define CORESIGHT_CLAIM_BITS_MAX_MASK	GENMASK(7, 0)
-+
-+/* MS Bit required by the protocol */
-+#define CORESIGHT_CLAIM_BIT_PROTOCOL_HI	BIT(1)
-+
- #define TIMEOUT_US		100
- #define BMVAL(val, lsb, msb)	((val & GENMASK(msb, lsb)) >> lsb)
- 
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 6de59ce8ef8c..fefe4317a793 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -242,6 +242,19 @@ struct coresight_trace_id_map {
- 	raw_spinlock_t lock;
- };
- 
-+/*
-+ * Coresight claim tag info:
-+ * CS_CLAIM_TAG_UNKNOWN      - not yet checked.
-+ * CS_CLAIM_TAG_STD_PROTOCOL - using standard claim/release protocol.
-+ * CS_CLAIM_TAG_NOT_IMPL     - no claim tags available.
-+ */
-+enum coresight_claim_tag_info {
-+	CS_CLAIM_TAG_UNKNOWN,
-+	CS_CLAIM_TAG_STD_PROTOCOL,
-+	CS_CLAIM_TAG_NOT_IMPL,
-+};
-+
-+
- /**
-  * struct coresight_device - representation of a device as used by the framework
-  * @pdata:	Platform data with device connections associated to this device.
-@@ -265,6 +278,7 @@ struct coresight_trace_id_map {
-  *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
-  *		spinlock.
-  * @orphan:	true if the component has connections that haven't been linked.
-+ * @claim_tag_info: how the device is using claim tags.
-  * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
-  *		by writing a 1 to the 'enable_sink' file.  A sink can be
-  *		activated but not yet enabled.  Enabling for a _sink_ happens
-@@ -291,6 +305,7 @@ struct coresight_device {
- 	local_t	mode;
- 	int refcnt;
- 	bool orphan;
-+	enum coresight_claim_tag_info claim_tag_info;
- 	/* sink specific fields */
- 	bool sysfs_sink_activated;
- 	struct dev_ext_attribute *ea;
--- 
-2.32.0
-
+Yours,
+Linus Walleij
 
