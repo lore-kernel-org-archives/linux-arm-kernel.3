@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E028DCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AA3CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:cc:Content-Type:
-	MIME-Version:References:Subject:To:From:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=as4pbOCxyeTzYGzifOoPeMiju/LrgMig7nFy3Mj05oM=; b=bfGkBjYrmIojUb
-	CqbtfKmz1xplrgsMSH81E5MifyTdaTphC8gcFrrBeUrc9qq0K3KkUlfJhowHeLhvz3Xogk7E65q7W
-	iVvZds1bw46WXKUGSSDnaRfnGommsZBkugUWeQE+c7XpAoiGOIttMM7mtsAN/Qcbg+wUL8UchS75B
-	PwWwz+oCXZ1AsHz1DW0sM3K3jvE/951l7BxodRISSHB1M+W8s+43mH57d/GPFzWi/PTxTJnrqAq+k
-	zAUCfAoJvTSDqEYOiy2T7e1re7N0Dh98fH6imcI5XFKtFB7tTrv6zFvGjsN0E7mpwBU20xQunvaos
-	ttOsAROoYzUIdY+C0Udg==;
+	List-Owner; bh=ZrsCoY/QONubl8AjZs982M2i5AjJzlGkiHAIdVey4uk=; b=JfxWWzzN3NjIxX
+	O08bOZAjMZrePa4Ur6Nroqb3s5fVoVTKgNnnymYuIA6ptVagvOdubV/GYA4hKJU6ke9qq8x1Lwo/m
+	I1s23/OAfCVRU2swnbvQO0vV98alq5FZ6xh2HeCKjjvaa7B2/Eo1roHFTlq3VJeX2GTvjEK8MUGR7
+	SLLbtbBpROBdDcJPm/lMBZmsmCjubLCoGIXTEHCa9EJhS2rT5n6pcyZmtGsswwWbN2F/GD2Lo3Wq8
+	n1bT2UfH4WURaKMkWMsKR4pmZT4QK9VLIMQdDPtxsBYJkS9isQUgQrxkwaRPyhclKuDhdhe0Y+hKf
+	x65cMZoXETJTmE7aQJsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIqC-0000000DOqy-02wi;
-	Mon, 27 Oct 2025 08:44:36 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vDIq5-0000000DOj9-0dE6;
+	Mon, 27 Oct 2025 08:44:29 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpc-0000000DO95-3HRa;
-	Mon, 27 Oct 2025 08:44:08 +0000
-Message-ID: <20251027083745.609031602@linutronix.de>
+	id 1vDIpZ-0000000DO52-37YN;
+	Mon, 27 Oct 2025 08:44:05 +0000
+Message-ID: <20251027083745.546420421@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761554638;
+	s=2020; t=1761554635;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=as4pbOCxyeTzYGzifOoPeMiju/LrgMig7nFy3Mj05oM=;
-	b=ZVzA63ZcU5mloVrwo8+Jfcyohj0YpcWp8iDv0uosSTIGcM45Tl8yQXKTF3WdtzlsM1z+mJ
-	f8TA9NOrPnTyPyVmugWaX5MxqCnytrkuKrBuLV26iaNZqxMEtBr6xJ45WTbOR/vB+3gzzV
-	0jNCxcRcapxFnr3bWoJY97mTfcv5YEKGvo7Tq4oSQsHCMrQ6FBCAcYDG+ifbE9gMHosLHb
-	zkzf0SDgTCLBEJJbQ1BEUmbtn9GjOI9CG6cUmFHccokGfgEJjy/2JkinfGlDNP8ioNLaW0
-	dnn85SIAnHnJayOM5hUUKyanxcds+OjyyMzirFKdQw9EW1wOg2U3qD+4JnQUmg==
+	 references:references; bh=ZrsCoY/QONubl8AjZs982M2i5AjJzlGkiHAIdVey4uk=;
+	b=oHyfClpREYOt1DiKIHZy2q1D6EpBPTaoCeVSeGU+7kWzsJwDmc6t4vwq/Nzp417tixXozL
+	zHUFCAziO5WB0+iBFYECuXo2LFeYCLSiv/HuhcVfrHrKr8COk39C5F/wZ7LEYcxVbe2UBc
+	C6JMDd73S9T/wtyUNwJuzqVvOVwWFUefct9Barbcn14VwUDotP2TvjQfEvOTFsfbxAchOb
+	0xRG4HJyR4oZZVeEYccaFPPZ2qe37pUEyYXcLsOwjGnRS5OYkIgtzUrBH/1C4xFs30IMtj
+	VpKpPwIxkT79pG+f59BRo7YiVsbqFiG1Z/gZw0eOpA+IiQYHcrL0SCfyYzCoyA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761554638;
+	s=2020e; t=1761554635;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=as4pbOCxyeTzYGzifOoPeMiju/LrgMig7nFy3Mj05oM=;
-	b=wry6l0YwTe1mHwd3wZkgxRkSddPV4gTf1dO6fAnvsK4rZdyFD/mI82Mc3upvCPaozRA33y
-	FSBO9vnYcONdE5Dw==
+	 references:references; bh=ZrsCoY/QONubl8AjZs982M2i5AjJzlGkiHAIdVey4uk=;
+	b=s55tla3LEt3rPB0wqY2iQdz+zsY4pWv51I0pXo2FSoEgL+EUsdiSNtmtRkZjOfVYQ+A0iT
+	KSA1hGNBK3FruZBw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Subject: [patch V5 08/12] uaccess: Provide put/get_user_inline()
-References: <20251027083700.573016505@linutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-cc: kernel test robot <lkp@intel.com>,
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ David Laight <david.laight.linux@gmail.com>,
+ kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>,
  x86@kernel.org,
  Madhavan Srinivasan <maddy@linux.ibm.com>,
  Michael Ellerman <mpe@ellerman.id.au>,
  Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
  linuxppc-dev@lists.ozlabs.org,
  Paul Walmsley <pjw@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
@@ -67,9 +66,6 @@ cc: kernel test robot <lkp@intel.com>,
  Christian Borntraeger <borntraeger@linux.ibm.com>,
  Sven Schnelle <svens@linux.ibm.com>,
  linux-s390@vger.kernel.org,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- David Laight <david.laight.linux@gmail.com>,
  Julia Lawall <Julia.Lawall@inria.fr>,
  Nicolas Palix <nicolas.palix@imag.fr>,
  Peter Zijlstra <peterz@infradead.org>,
@@ -80,10 +76,14 @@ cc: kernel test robot <lkp@intel.com>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Date: Mon, 27 Oct 2025 09:43:56 +0100 (CET)
+Subject: [patch V5 07/12] uaccess: Provide scoped user access regions
+References: <20251027083700.573016505@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 27 Oct 2025 09:43:55 +0100 (CET)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_014402_525360_A510E271 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20251027_014358_172744_0240CB2B 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,77 +98,343 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide conveniance wrappers around scoped user access similiar to
-put/get_user(), which reduce the usage sites to:
+User space access regions are tedious and require similar code patterns all
+over the place:
 
-       if (!get_user_inline(val, ptr))
-       		return -EFAULT;
+     	if (!user_read_access_begin(from, sizeof(*from)))
+		return -EFAULT;
+	unsafe_get_user(val, from, Efault);
+	user_read_access_end();
+	return 0;
+Efault:
+	user_read_access_end();
+	return -EFAULT;
 
-Should only be used if there is a demonstrable performance benefit.
+This got worse with the recent addition of masked user access, which
+optimizes the speculation prevention:
+
+	if (can_do_masked_user_access())
+		from = masked_user_read_access_begin((from));
+	else if (!user_read_access_begin(from, sizeof(*from)))
+		return -EFAULT;
+	unsafe_get_user(val, from, Efault);
+	user_read_access_end();
+	return 0;
+Efault:
+	user_read_access_end();
+	return -EFAULT;
+
+There have been issues with using the wrong user_*_access_end() variant in
+the error path and other typical Copy&Pasta problems, e.g. using the wrong
+fault label in the user accessor which ends up using the wrong accesss end
+variant. 
+
+These patterns beg for scopes with automatic cleanup. The resulting outcome
+is:
+    	scoped_user_read_access(from, Efault)
+		unsafe_get_user(val, from, Efault);
+	return 0;
+  Efault:
+	return -EFAULT;
+
+The scope guarantees the proper cleanup for the access mode is invoked both
+in the success and the failure (fault) path.
+
+The scoped_user_$MODE_access() macros are implemented as self terminating
+nested for() loops. Thanks to Andrew Cooper for pointing me at them. The
+scope can therefore be left with 'break', 'goto' and 'return'.  Even
+'continue' "works" due to the self termination mechanism. Both GCC and
+clang optimize all the convoluted macro maze out and the above results with
+clang in:
+
+ b80:	f3 0f 1e fa          	       endbr64
+ b84:	48 b8 ef cd ab 89 67 45 23 01  movabs $0x123456789abcdef,%rax
+ b8e:	48 39 c7    	               cmp    %rax,%rdi
+ b91:	48 0f 47 f8          	       cmova  %rax,%rdi
+ b95:	90                   	       nop
+ b96:	90                   	       nop
+ b97:	90                   	       nop
+ b98:	31 c9                	       xor    %ecx,%ecx
+ b9a:	8b 07                	       mov    (%rdi),%eax
+ b9c:	89 06                	       mov    %eax,(%rsi)
+ b9e:	85 c9                	       test   %ecx,%ecx
+ ba0:	0f 94 c0             	       sete   %al
+ ba3:	90                   	       nop
+ ba4:	90                   	       nop
+ ba5:	90                   	       nop
+ ba6:	c3                   	       ret
+
+Which looks as compact as it gets. The NOPs are placeholder for STAC/CLAC.
+GCC emits the fault path seperately:
+
+ bf0:	f3 0f 1e fa          	       endbr64
+ bf4:	48 b8 ef cd ab 89 67 45 23 01  movabs $0x123456789abcdef,%rax
+ bfe:	48 39 c7             	       cmp    %rax,%rdi
+ c01:	48 0f 47 f8          	       cmova  %rax,%rdi
+ c05:	90                   	       nop
+ c06:	90                   	       nop
+ c07:	90                   	       nop
+ c08:	31 d2                	       xor    %edx,%edx
+ c0a:	8b 07                	       mov    (%rdi),%eax
+ c0c:	89 06                	       mov    %eax,(%rsi)
+ c0e:	85 d2                	       test   %edx,%edx
+ c10:	75 09                	       jne    c1b <afoo+0x2b>
+ c12:	90                   	       nop
+ c13:	90                   	       nop
+ c14:	90                   	       nop
+ c15:	b8 01 00 00 00       	       mov    $0x1,%eax
+ c1a:	c3                   	       ret
+ c1b:	90                   	       nop
+ c1c:	90                   	       nop
+ c1d:	90                   	       nop
+ c1e:	31 c0                	       xor    %eax,%eax
+ c20:	c3                   	       ret
+
+
+The fault labels for the scoped*() macros and the fault labels for the
+actual user space accessors can be shared and must be placed outside of the
+scope.
+
+If masked user access is enabled on an architecture, then the pointer
+handed in to scoped_user_$MODE_access() can be modified to point to a
+guaranteed faulting user address. This modification is only scope local as
+the pointer is aliased inside the scope. When the scope is left the alias
+is not longer in effect. IOW the original pointer value is preserved so it
+can be used e.g. for fixup or diagnostic purposes in the fault path.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: Andrew Cooper <andrew.cooper3@citrix.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: David Laight <david.laight.linux@gmail.com>
 ---
-V5: Rename to inline
-V4: Rename to scoped
+V4: Remove the _masked_ naming as it's actually confusing - David
+    Remove underscores and make _tmpptr void - David
+    Add comment about access size and range - David
+    Shorten local variables and remove a few unneeded brackets - Mathieu
+V3: Make it a nested for() loop
+    Get rid of the code in macro parameters - Linus
+    Provide sized variants - Mathieu
+V2: Remove the shady wrappers around the opening and use scopes with automatic cleanup
 ---
- include/linux/uaccess.h |   50 ++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 50 insertions(+)
+ include/linux/uaccess.h |  192 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 192 insertions(+)
 
 --- a/include/linux/uaccess.h
 +++ b/include/linux/uaccess.h
-@@ -825,6 +825,56 @@ for (bool done = false; !done; done = tr
- #define scoped_user_rw_access(uptr, elbl)				\
- 	scoped_user_rw_access_size(uptr, sizeof(*(uptr)), elbl)
+@@ -2,6 +2,7 @@
+ #ifndef __LINUX_UACCESS_H__
+ #define __LINUX_UACCESS_H__
  
-+/**
-+ * get_user_inline - Read user data inlined
-+ * @val:	The variable to store the value read from user memory
-+ * @usrc:	Pointer to the user space memory to read from
-+ *
-+ * Return: 0 if successful, -EFAULT when faulted
-+ *
-+ * Inlined variant of get_user(). Only use when there is a demonstrable
-+ * performance reason.
-+ */
-+#define get_user_inline(val, usrc)				\
-+({								\
-+	__label__ efault;					\
-+	typeof(usrc) _tmpsrc = usrc;				\
-+	int _ret = 0;						\
++#include <linux/cleanup.h>
+ #include <linux/fault-inject-usercopy.h>
+ #include <linux/instrumented.h>
+ #include <linux/minmax.h>
+@@ -35,9 +36,17 @@
+ 
+ #ifdef masked_user_access_begin
+  #define can_do_masked_user_access() 1
++# ifndef masked_user_write_access_begin
++#  define masked_user_write_access_begin masked_user_access_begin
++# endif
++# ifndef masked_user_read_access_begin
++#  define masked_user_read_access_begin masked_user_access_begin
++#endif
+ #else
+  #define can_do_masked_user_access() 0
+  #define masked_user_access_begin(src) NULL
++ #define masked_user_read_access_begin(src) NULL
++ #define masked_user_write_access_begin(src) NULL
+  #define mask_user_address(src) (src)
+ #endif
+ 
+@@ -633,6 +642,189 @@ static inline void user_access_restore(u
+ #define user_read_access_end user_access_end
+ #endif
+ 
++/* Define RW variant so the below _mode macro expansion works */
++#define masked_user_rw_access_begin(u)	masked_user_access_begin(u)
++#define user_rw_access_begin(u, s)	user_access_begin(u, s)
++#define user_rw_access_end()		user_access_end()
++
++/* Scoped user access */
++#define USER_ACCESS_GUARD(_mode)				\
++static __always_inline void __user *				\
++class_user_##_mode##_begin(void __user *ptr)			\
++{								\
++	return ptr;						\
++}								\
 +								\
-+	scoped_user_read_access(_tmpsrc, efault)		\
-+		unsafe_get_user(val, _tmpsrc, efault);		\
-+	if (0) {						\
-+	efault:							\
-+		_ret = -EFAULT;					\
-+	}							\
-+	_ret;							\
++static __always_inline void					\
++class_user_##_mode##_end(void __user *ptr)			\
++{								\
++	user_##_mode##_access_end();				\
++}								\
++								\
++DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
++	     class_user_##_mode##_end(_T),			\
++	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
++								\
++static __always_inline class_user_##_mode##_access_t		\
++class_user_##_mode##_access_ptr(void __user *scope)		\
++{								\
++	return scope;						\
++}
++
++USER_ACCESS_GUARD(read)
++USER_ACCESS_GUARD(write)
++USER_ACCESS_GUARD(rw)
++#undef USER_ACCESS_GUARD
++
++/**
++ * __scoped_user_access_begin - Start a scoped user access
++ * @mode:	The mode of the access class (read, write, rw)
++ * @uptr:	The pointer to access user space memory
++ * @size:	Size of the access
++ * @elbl:	Error label to goto when the access region is rejected
++ *
++ * Internal helper for __scoped_user_access(). Don't use directly
++ */
++#define __scoped_user_access_begin(mode, uptr, size, elbl)		\
++({									\
++	typeof(uptr) __retptr;						\
++									\
++	if (can_do_masked_user_access()) {				\
++		__retptr = masked_user_##mode##_access_begin(uptr);	\
++	} else {							\
++		__retptr = uptr;					\
++		if (!user_##mode##_access_begin(uptr, size))		\
++			goto elbl;					\
++	}								\
++	__retptr;							\
 +})
 +
 +/**
-+ * put_user_inline - Write to user memory inlined
-+ * @val:	The value to write
-+ * @udst:	Pointer to the user space memory to write to
++ * __scoped_user_access - Open a scope for user access
++ * @mode:	The mode of the access class (read, write, rw)
++ * @uptr:	The pointer to access user space memory
++ * @size:	Size of the access
++ * @elbl:	Error label to goto when the access region is rejected. It
++ *		must be placed outside the scope
 + *
-+ * Return: 0 if successful, -EFAULT when faulted
++ * If the user access function inside the scope requires a fault label, it
++ * can use @elvl or a different label outside the scope, which requires
++ * that user access which is implemented with ASM GOTO has been properly
++ * wrapped. See unsafe_get_user() for reference.
 + *
-+ * Inlined variant of put_user(). Only use when there is a demonstrable
-+ * performance reason.
++ *	scoped_user_rw_access(ptr, efault) {
++ *		unsafe_get_user(rval, &ptr->rval, efault);
++ *		unsafe_put_user(wval, &ptr->wval, efault);
++ *	}
++ *	return 0;
++ *  efault:
++ *	return -EFAULT;
++ *
++ * The scope is internally implemented as a autoterminating nested for()
++ * loop, which can be left with 'return', 'break' and 'goto' at any
++ * point.
++ *
++ * When the scope is left user_##@_mode##_access_end() is automatically
++ * invoked.
++ *
++ * When the architecture supports masked user access and the access region
++ * which is determined by @uptr and @size is not a valid user space
++ * address, i.e. < TASK_SIZE, the scope sets the pointer to a faulting user
++ * space address and does not terminate early. This optimizes for the good
++ * case and lets the performance uncritical bad case go through the fault.
++ *
++ * The eventual modification of the pointer is limited to the scope.
++ * Outside of the scope the original pointer value is unmodified, so that
++ * the original pointer value is available for diagnostic purposes in an
++ * out of scope fault path.
++ *
++ * Nesting scoped user access into a user access scope is invalid and fails
++ * the build. Nesting into other guards, e.g. pagefault is safe.
++ *
++ * The masked variant does not check the size of the access and relies on a
++ * mapping hole (e.g. guard page) to catch an out of range pointer, the
++ * first access to user memory inside the scope has to be within
++ * @uptr ... @uptr + PAGE_SIZE - 1
++ *
++ * Don't use directly. Use scoped_masked_user_$MODE_access() instead.
 + */
-+#define put_user_inline(val, udst)				\
-+({								\
-+	__label__ efault;					\
-+	typeof(udst) _tmpdst = udst;				\
-+	int _ret = 0;						\
-+								\
-+	scoped_user_write_access(_tmpdst, efault)		\
-+		unsafe_put_user(val, _tmpdst, efault);		\
-+	if (0) {						\
-+	efault:							\
-+		_ret = -EFAULT;					\
-+	}							\
-+	_ret;							\
-+})
++#define __scoped_user_access(mode, uptr, size, elbl)					\
++for (bool done = false; !done; done = true)						\
++	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
++	     !done; done = true)							\
++		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
++			/* Force modified pointer usage within the scope */		\
++			for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
++
++/**
++ * scoped_user_read_access_size - Start a scoped user read access with given size
++ * @usrc:	Pointer to the user space address to read from
++ * @size:	Size of the access starting from @usrc
++ * @elbl:	Error label to goto when the access region is rejected
++ *
++ * For further information see __scoped_user_access() above.
++ */
++#define scoped_user_read_access_size(usrc, size, elbl)		\
++	__scoped_user_access(read, usrc, size, elbl)
++
++/**
++ * scoped_user_read_access - Start a scoped user read access
++ * @usrc:	Pointer to the user space address to read from
++ * @elbl:	Error label to goto when the access region is rejected
++ *
++ * The size of the access starting from @usrc is determined via sizeof(*@usrc)).
++ *
++ * For further information see __scoped_user_access() above.
++ */
++#define scoped_user_read_access(usrc, elbl)				\
++	scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
++
++/**
++ * scoped_user_write_access_size - Start a scoped user write access with given size
++ * @udst:	Pointer to the user space address to write to
++ * @size:	Size of the access starting from @udst
++ * @elbl:	Error label to goto when the access region is rejected
++ *
++ * For further information see __scoped_user_access() above.
++ */
++#define scoped_user_write_access_size(udst, size, elbl)			\
++	__scoped_user_access(write, udst, size, elbl)
++
++/**
++ * scoped_user_write_access - Start a scoped user write access
++ * @udst:	Pointer to the user space address to write to
++ * @elbl:	Error label to goto when the access region is rejected
++ *
++ * The size of the access starting from @udst is determined via sizeof(*@udst)).
++ *
++ * For further information see __scoped_user_access() above.
++ */
++#define scoped_user_write_access(udst, elbl)				\
++	scoped_user_write_access_size(udst, sizeof(*(udst)), elbl)
++
++/**
++ * scoped_user_rw_access_size - Start a scoped user read/write access with given size
++ * @uptr	Pointer to the user space address to read from and write to
++ * @size:	Size of the access starting from @uptr
++ * @elbl:	Error label to goto when the access region is rejected
++ *
++ * For further information see __scoped_user_access() above.
++ */
++#define scoped_user_rw_access_size(uptr, size, elbl)			\
++	__scoped_user_access(rw, uptr, size, elbl)
++
++/**
++ * scoped_user_rw_access - Start a scoped user read/write access
++ * @uptr	Pointer to the user space address to read from and write to
++ * @elbl:	Error label to goto when the access region is rejected
++ *
++ * The size of the access starting from @uptr is determined via sizeof(*@uptr)).
++ *
++ * For further information see __scoped_user_access() above.
++ */
++#define scoped_user_rw_access(uptr, elbl)				\
++	scoped_user_rw_access_size(uptr, sizeof(*(uptr)), elbl)
 +
  #ifdef CONFIG_HARDENED_USERCOPY
  void __noreturn usercopy_abort(const char *name, const char *detail,
