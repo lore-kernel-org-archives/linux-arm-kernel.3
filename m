@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4685ECCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BFEFCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I67bOjSOGdKubyE5dBnDfBCdL3Y5Tg26wF/RzeIjnlA=; b=e5DAzt3zj7aipenC8U0YOwPbRt
-	TqGyPe1pfHi+uNKMq7XrksICtzCYsZHrShohoHdLtAHOeDFZNiL4xwX2ulptmDaVtl/vydl5pQZYH
-	1KvHIPzNXCUwuILV2V6ZzLUh7c+xWZ5HWRTTC4c+UhAsIoYjQVd8kAXfE2p6KBqk7Yk73SOBkwlbW
-	G2/S/oEtyXNdRa7wRpeuov3UDqHqCPB8DnGsJ/eoYxEvpX3dK92drPHH1+p83luWGyjAgPI5DmLrS
-	lC8KddsAWHVFzMTBCf10RKMkAWoEfbLl7OfvkHv9os/o9jmtMboEtpiYPzPGerXB4+YaPMgYRgClu
-	ZPbbDQPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a0Kmg0M/pihg+3mchefRKJW/8qhO0EXT2ncDeCzUrSc=; b=KxZ9RrPQlCxXozP9OHnQ27SBaB
+	Ptt+Q0ChL7MjgHIYufgqQmkUu3uebOP0PLsTZENVCV/5Y8sjkBSMaEtxI8vwvcDO3eKmyY1YOzoUT
+	gEuFblthZAJiqMys+dUAvp5mK0wwvuUEOByA2K9Gbc3+zN6IdeT/OSCTMfLJOeDd47WP4SK3/iaU6
+	8Rt3pSgfWz8dFzShymLMMQ4aft10ra0x9lENmnZJAbmXclsh0HblkNjFpP7y2oemJoTn5qCpvJi+Z
+	2Nn6vPKb2e5q8ZezIVOygXKg4jEIwYOTPONHptxGNKiWYZqVkNDWO7zTEtTsAq6fsuOQfNVcojJc6
+	3xsQWSOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQnp-0000000EPwv-3SvJ;
-	Mon, 27 Oct 2025 17:14:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vDQoJ-0000000EQFn-3XnT;
+	Mon, 27 Oct 2025 17:15:11 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQnk-0000000EPrA-2AhV;
-	Mon, 27 Oct 2025 17:14:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=I67bOjSOGdKubyE5dBnDfBCdL3Y5Tg26wF/RzeIjnlA=; b=GBz44Vlsr4BCwcXe6RE4FIgJi4
-	u3AyHNLx/j8rgYP/EtVvj+S25VHOChb2JdZ8DcrX4KqkFn5e/Fl//dQPsfZUX9VfMeDOtW65l7SPO
-	++oWgYtva+RV5C2uS2wkuw2kIelOb7Y3TirlbkNqjxN7IuJzsGcsgKr1ThdfDAt9SoNcWE1hETsPv
-	zhI1KXcAIFvtvH2KAgl7QWNw3y9qkoNTgKpS92g21fgY/SQK5925Rl/kR8qygxa7zdkMCAugi6KSv
-	NwNJCXE2tQajw38uLtWXHWAxvHQY4hWX3EA5qMBhxHpGbV9Wf9TVtL5eVAPaN40OiKGwd8Fbs5id6
-	hkvXx/zA==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPvx-00000002en0-2VFG;
-	Mon, 27 Oct 2025 16:19:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761585261; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nzWjLn5Z4BUtKuZOvnAE43l/MLdQnAujCdOBInOotQGFGQrQvs27n3K+M22Z/Ff3tQVam79kLGiANlt9C60hjKo6j0flyw7Kuo9wKwRYpy8xq13UEwySAJNM4TbhfF9HLSmeLfX389ykt9dhHCgR/cfLlwHKJyrMpFvAraJNikM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761585261; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=I67bOjSOGdKubyE5dBnDfBCdL3Y5Tg26wF/RzeIjnlA=; 
-	b=J6+jlv9flXuV2f3w0ic3kEwtuPbBwMwPEHPHn/Q+uPp3OoV1n0eHkwR1sxtV2JzUfUvkgbw+/GpCQ8/HVykuWPUsgkvZOs5C3AZL0Eo9d7/BFPTjNVvn+cw9ZObwPzCH+aGwtiAdYPbTPw8OWq1LBXYGPkhS48cqolcgGrb3x6w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761585261;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=I67bOjSOGdKubyE5dBnDfBCdL3Y5Tg26wF/RzeIjnlA=;
-	b=L0ZNfKKIYVQySWQBrC0n0WMpXErySYf3/Y0qttS3k1ACADSfZMX84UzyDdnWjJW/
-	C0XMlxH2WjzLDdpzUt43wenuRRXqNaZ+l0+S5Of3V8g3J2bAyknVa81Lh3slRCNmFvR
-	lxi/ndBhtVywtdHK/pFswg1gpaJlDBBvnu7BIn7w=
-Received: by mx.zohomail.com with SMTPS id 1761585260004677.38213585215;
-	Mon, 27 Oct 2025 10:14:20 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 27 Oct 2025 18:12:00 +0100
-Subject: [PATCH v3 5/5] arm64: dts: rockchip: add PWM nodes to RK3576 SoC
- dtsi
+	id 1vDQoG-0000000EQDH-37oU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 17:15:10 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1761585306;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a0Kmg0M/pihg+3mchefRKJW/8qhO0EXT2ncDeCzUrSc=;
+	b=S+1joJJKL5HOP2QI7bePmaQsErjZHts/8tAjGua3A3++P+uxwhzP6Fx+CgA+saMowyM/Un
+	qF1s+8Z1CTSJc278sFPw14sZSSoNPm71h0PyF/0QKybtsp+jpWQPmjC4zruRYx0vkSIFvy
+	UWhtf5ww4Zpghxxms4sRdmPlCamm85FHT9I1E+9CpPa2boPNMt2j3JjdgppUSlh1Sn1bNR
+	FmzEyEDDyPeq7kQKP/vw2ziBPXIDOqE3QlkAYQCKJeOmJf5nSl66AotEtUGLuhrOdu3wzs
+	JDiizpLx+fpfP8M8doVAcRU9Vj/rT8NqbqjYG4J6tCYaCDxF4BmEUlPc/ZDVMA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1761585306;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a0Kmg0M/pihg+3mchefRKJW/8qhO0EXT2ncDeCzUrSc=;
+	b=RCyckc7oww7LF/Ey96p7Gohn/JMg7811PjAJquXTWtNmny2y8jawDxqgoepfeTcokWQ1pv
+	GYPaiP3kZRgFcxBg==
+To: Ulf Hansson <ulf.hansson@linaro.org>, Ben Horgan <ben.horgan@arm.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Maulik Shah
+ <quic_mkshah@quicinc.com>, Sudeep Holla <sudeep.holla@arm.com>, Daniel
+ Lezcano <daniel.lezcano@linaro.org>, Vincent Guittot
+ <vincent.guittot@linaro.org>, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] smp: Introduce a helper function to check for
+ pending IPIs
+In-Reply-To: <CAPDyKFrY5kOsoOH-mcWFiaiggV4q84xOtiKHdNN4bMfFmYOQPQ@mail.gmail.com>
+References: <20251020141718.150919-1-ulf.hansson@linaro.org>
+ <20251020141718.150919-2-ulf.hansson@linaro.org>
+ <a0120876-0f00-4e1a-aa17-5fe7c3512276@arm.com>
+ <CAPDyKFrY5kOsoOH-mcWFiaiggV4q84xOtiKHdNN4bMfFmYOQPQ@mail.gmail.com>
+Date: Mon, 27 Oct 2025 18:15:04 +0100
+Message-ID: <874irkw9k7.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251027-rk3576-pwm-v3-5-654a5cb1e3f8@collabora.com>
-References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
-In-Reply-To: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>
-Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, 
- Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org, 
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-iio@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_161901_988344_0D5B48FC 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251027_101509_036041_7FF1E064 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,243 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3576 SoC features three distinct PWM controllers, with variable
-numbers of channels. Add each channel as a separate node to the SoC's
-device tree, as they don't really overlap in register ranges.
+On Tue, Oct 21 2025 at 12:08, Ulf Hansson wrote:
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 208 +++++++++++++++++++++++++++++++
- 1 file changed, 208 insertions(+)
+> On Mon, 20 Oct 2025 at 21:11, Ben Horgan <ben.horgan@arm.com> wrote:
+>>
+>> Hi Ulf,
+>>
+>> Only a comment on the naming rather than a full review.
+>>
+>> On 10/20/25 15:17, Ulf Hansson wrote:
+>> > When governors used during cpuidle, tries to find the most optimal
+>> > idlestate for a CPU or a group of CPUs, they are known to quite often fail.
+>> > One reason for this, is that we are not taking into account whether there
+>> > has been an IPI scheduled for any of the CPUs that are affected by the
+>> > selected idlestate.
+>> >
+>> > To enable pending IPIs to be taken into account for cpuidle decisions,
+>> > let's introduce a new helper function, cpus_may_have_pending_ipi().
+>>
+>> To me, "may" indicates permission, i.e. is allowed, rather than
+>> correctness. Would "likely" be better here, cpus_likely_have_pending_ipi()?
+>
+> Sure, that sounds better to me too.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index f0c3ab00a7f3..1e135cf09efc 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1030,6 +1030,32 @@ uart1: serial@27310000 {
- 			status = "disabled";
- 		};
- 
-+		pwm0_2ch_0: pwm@27330000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x27330000 0x0 0x1000>;
-+			clocks = <&cru CLK_PMU1PWM>, <&cru PCLK_PMU1PWM>,
-+				 <&cru CLK_PMU1PWM_OSC>, <&cru CLK_PMU1PWM_RC>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 100 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm0m0_ch0>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm0_2ch_1: pwm@27331000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x27331000 0x0 0x1000>;
-+			clocks = <&cru CLK_PMU1PWM>, <&cru PCLK_PMU1PWM>,
-+				 <&cru CLK_PMU1PWM_OSC>, <&cru CLK_PMU1PWM_RC>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm0m0_ch1>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
- 		pmu: power-management@27380000 {
- 			compatible = "rockchip,rk3576-pmu", "syscon", "simple-mfd";
- 			reg = <0x0 0x27380000 0x0 0x800>;
-@@ -2480,6 +2506,188 @@ uart9: serial@2adc0000 {
- 			status = "disabled";
- 		};
- 
-+		pwm1_6ch_0: pwm@2add0000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add0000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch0>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm1_6ch_1: pwm@2add1000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add1000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch1>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm1_6ch_2: pwm@2add2000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add2000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch2>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm1_6ch_3: pwm@2add3000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add3000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch3>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm1_6ch_4: pwm@2add4000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add4000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch4>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm1_6ch_5: pwm@2add5000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add5000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch5>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_0: pwm@2ade0000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade0000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch0>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_1: pwm@2ade1000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade1000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch1>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_2: pwm@2ade2000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade2000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch2>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_3: pwm@2ade3000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade3000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch3>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_4: pwm@2ade4000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade4000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch4>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_5: pwm@2ade5000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade5000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch5>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_6: pwm@2ade6000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade6000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch6>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_7: pwm@2ade7000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade7000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch7>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
- 		saradc: adc@2ae00000 {
- 			compatible = "rockchip,rk3576-saradc", "rockchip,rk3588-saradc";
- 			reg = <0x0 0x2ae00000 0x0 0x10000>;
-
--- 
-2.51.1
-
+cpus_peek_for_pending_ipis() perhaps?
+  
 
