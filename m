@@ -4,78 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3556BCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3820CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgddpgXXdpWRrOCO4kQaM3CnBjKkRhnDW13T+vqMRLM=; b=j9AxiXfIXv6GypV//NBLAejBLj
-	jImSXel9/PhOgxhGudHS0S+YfatOClUFEbEVkjmQ928tdjwFf+pcCGtKBPK+aVhFY6tFZBCqnbs23
-	dC1uCfWjDOo8izDm4l8kAppXiInciPNsKlFW0pU+GgNG1ZaV0FSV1mFo9KWfgn6Z7RTGdoqYyUwoZ
-	hdN5BGbRFaJx3XgJ7jwp5i3Difdwo3ZaMZHv6NsrJ3hlwSo4CPzbkbUeyWeMkVXc8AUn5hZ4ixQ0T
-	HV0qDAsXMHJ8EpFbmsRT+HM2VobF1eiF2Qygkf59IcI+EaqJi/WFYVDiAq6xjhFb188xz1xPi8/dc
-	XmqFoGXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8oKmouidKKBVsyXF0K/DNGIxfENXL583CftUMKE39cU=; b=V7UKd3bed1l0tb6/zJu7SW84qj
+	5Aw6nA7kwG/IFhQszs2UOxA2ECr5FGwzxt5Sb5Q9+ipw/H64z5oivRE8vU4BOb9JDDr1xuOt1ljWy
+	jpCU4kr07KxLL8VYcnqQhnfKAWoWTqzoSucmOr36kUOkicCys13sDApOmX62k4pbdzb3yxBW83Guy
+	wsUDk95CNgu2a2C8h7lrohxGjpFnRcYVYwi75tpQasZ5eqjtcPBEsfybTK+ORWrGGOhpJFL5WZGCi
+	fsoR8MoUYH+eNDoWebp9p5yb1cNecBMNt5X7fCAhIjwUVpOOsZ/qF08AiCfy0LuZ0q2NdyZJAVj6o
+	9mlm/MLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLJC-0000000Dl9j-39LI;
-	Mon, 27 Oct 2025 11:22:42 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLJ9-0000000Dl9P-3cH7
+	id 1vDLRm-0000000DlVh-32IY;
+	Mon, 27 Oct 2025 11:31:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDLRk-0000000DlV9-20wq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 11:22:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hgddpgXXdpWRrOCO4kQaM3CnBjKkRhnDW13T+vqMRLM=; b=OQbvNXOgYgjq3OEgqECQuxj/rU
-	Gd0YDsGDJu2bW1LKLAs1bG1BF0SymVgBxcwV4WY8J9GTGfjELv/Vvz4Vz8KuBVTU2/peQC5gjWgQ9
-	DeDh6hiWz4CnAnH2WdGDyCoLFzFdjDRs33CldLJmuA1D63ywul7e4M7sNjIGWAZT0jZGF2RrzgIzC
-	S6wKx4jgg4D/5gT2AV6nURlldDThPwr2VKhAcLviUB9PVYvtSfnec+K10fo6NoYZsc67zVB7JeUC2
-	n3sEthjKkS7kGsapk5fTCxMjkL1x9DF7qEtc7BHSEelek9I2Ptk6qQAsFPTiuTPfvLs7eFFVxN+QJ
-	PbdL5Hzw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35864)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vDLJ6-000000001jm-3RHy;
-	Mon, 27 Oct 2025 11:22:36 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vDLJ5-000000005Xs-0wS5;
-	Mon, 27 Oct 2025 11:22:35 +0000
-Date: Mon, 27 Oct 2025 11:22:35 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aP9V-zosjg7rY5vZ@shell.armlinux.org.uk>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
- <20251027072749.GA7811@pendragon.ideasonboard.com>
+	Mon, 27 Oct 2025 11:31:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D9AC169E;
+	Mon, 27 Oct 2025 04:31:22 -0700 (PDT)
+Received: from [10.57.67.85] (unknown [10.57.67.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 262D53F673;
+	Mon, 27 Oct 2025 04:31:27 -0700 (PDT)
+Message-ID: <8304f4b3-3c17-4ecc-b1f1-528941e32b56@arm.com>
+Date: Mon, 27 Oct 2025 11:31:26 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251027072749.GA7811@pendragon.ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 05/11] coresight: etm4x: Ensure context synchronization
+ is not ignored
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com>
+ <20251024-arm_coresight_power_management_fix-v4-5-690e69ae6977@arm.com>
+ <503e673c-441b-46dc-89d0-fb54ac81ec60@arm.com>
+ <aP9M7W9ufz0NGt80@e129823.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aP9M7W9ufz0NGt80@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_042239_899798_3F454373 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20251027_043132_554966_B7CD3702 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,22 +73,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 09:27:49AM +0200, Laurent Pinchart wrote:
-> I've tried to diagnose the issue by adding interrupt counters to
-> dwmac4_irq_status(), counting interrupts for each bit of GMAC_INT_STATUS
-> (0x00b0). Bit RGSMIIIS (0) is the only one that seems linked to the
-> interrupts storm, increasing at around 10k per second. However, the
-> corresponding bit in GMAC_INT_EN (0x00b4) is *not* set.
+On 27/10/2025 10:43, Yeoreum Yun wrote:
+> Hi Suzuki,
+>> On 24/10/2025 17:45, Leo Yan wrote:
+>>> As recommended in section 4.3.7 "Synchronization of register updates" of
+>>> ARM IHI0064H.b, a self-hosted trace analyzer should always executes an
+>>> ISB instruction after programming the trace unit registers.
+>>>
+>>> An ISB works as a context synchronization event; a DSB is not required.
+>>> Removes the redundant barrier in the enabling flow.
+>>
+>> It is required for MMIO based instances and must be retained.
+> 
+> I think it seems fine. since the the etm4x device mmio is mapped as
+> Device-nGnRE and according to the section Leo mention:
+> 
+>    Synchronization when using the memory-mapped interface
+>    ..
+>    When disabling or enabling the trace unit, the trace analyzer must poll TRCSTATR to check the trace unit is either
+>    idle or not idle, as described in Use of the trace unit main enable bit on page 4-169:
+>      • When the memory is marked as Device-nGnRE or stronger.
+>        — Write to enable or disable the trace unit.
+>        — Poll TRCSTATR to ensure the previous write has completed.
+>        — Execute an ISB operation.
+> 
+> Therefore, we can omit the dsb in here.
 
-I'll add to my comments earlier, because it may help you work out
-what's going on.
+You are right, to be precise, as long as we quote the following, I am fine.
 
-RGSMIIS will be set when the LNKSTS bit (bit 19) of 0xf8 changes
-state. RGSMIIS is only cleared by reading this register. So, something
-else to test would be to do a dummy read of this register and see
-whether the interrupt storm still has the RGSMIIS bit set.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Section 4.3.7, Synchronization when using the memory-mapped interface -
+
+When using the memory-mapped interface to program the trace unit, the 
+trace analyzer must ensure that writes have completed, to ensure that 
+the trace unit is fully programmed and either enabled or disabled.
+
+• If the memory marked is as Device-nGnRE or stronger, read back the 
+value of any register in the trace unit. This relies on peripheral 
+coherence order defined in the Arm architecture.
+
+
+Suzuki
+
+
+> 
+> [...]
+> 
+> Thanks.
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
+
 
