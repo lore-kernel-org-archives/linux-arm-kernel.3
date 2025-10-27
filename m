@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC36CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1FC5CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EHx2M6g+EAlFKiq+5G5E+4KFp696VRvzSrJ5XFbCxek=; b=4E7nDaKO/6X1U/z1/I8qHJavd6
-	i40WjzumMa//86Pus9t3Fid05y0mZeD/Kt7XQxX7LC/+vw9+JsfJXSkvn62NAEl3dBYaGmBSGytPp
-	oDEKvpIAiG4ur5Hv0Iyr3u6UM20qT5SFS8a0zHrnabsQnNKecooNIO82n6LWMuewfdZrlabS8pBIe
-	HFlG+zmxjrxHgZIyCSHUz7O4d/2T7j5psmdJVXsMFjgoxV3z+YA80O3Jko1P+oqu1RbgCH3T0hFri
-	EzEz01C0aVLH2MJFrhsnyvSPGtE3aEZOnJ//U1GY+q6Nfa0N1q3V1FiFEFoimbN7YpEFxR7QAVoQr
-	s/DyPNVA==;
+	bh=3Zy5oeeZYFnehUdPPoTES70H7E8Y6e4YZbExOOF6RO4=; b=YkzEIo41RRKjmLVo3Afpx3SaWe
+	q9OldRczXElpigDXKlP8qQbqhLKbkWlqiXuFVO6F2BOWbd9NNdgzcmXbQaxOYN1Wj6fNKWTRa7PMp
+	S9gXvAo10GMV6qUSmpFbVvCCAuDB2pEBIOjPczGgNihir+OPzp84U93TLCN6BKUt5XF7x/Mvb3bNh
+	KVijSTrY1NSQOSYJ5ap3HlNNGLjB0PGNHAK0ObM8X2a7q/livKHYuN92Nr7btrAKtinXhA9Sbg3Pu
+	1drkvsYRyXBO+/ZZ/Prf2WWkCQQ8blDdafVX8a0o1MCAVDtFcfTkStZRQTawAXvE5lP0AhKhw+TVo
+	8J0CnMJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQIY-0000000ELmM-0wn2;
-	Mon, 27 Oct 2025 16:42:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vDQIw-0000000ELte-1BSp;
+	Mon, 27 Oct 2025 16:42:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQIX-0000000ELlz-0DQC;
-	Mon, 27 Oct 2025 16:42:21 +0000
+	id 1vDQIt-0000000ELsn-2YF2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 16:42:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78A7160332;
-	Mon, 27 Oct 2025 16:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 067B0C113D0;
-	Mon, 27 Oct 2025 16:42:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3182F406B1;
+	Mon, 27 Oct 2025 16:42:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41562C4CEF1;
+	Mon, 27 Oct 2025 16:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761583340;
-	bh=EHx2M6g+EAlFKiq+5G5E+4KFp696VRvzSrJ5XFbCxek=;
+	s=k20201202; t=1761583363;
+	bh=3Zy5oeeZYFnehUdPPoTES70H7E8Y6e4YZbExOOF6RO4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IPvB2bfwFV6WYvMXAd8vU17nGchCLQ9RsLgnQxYYU/R3VLUs+ekwuSmdpcUdyQuRN
-	 a+rAN1sk4Em9OU6d0PtOfnDjjOFxhmEFJ96ouIFz/rxKS1M6umWvkFkW7PDvCXJPVG
-	 aglqrLm0lkcOfcIx7Gnwk1ZZXLZ1ZamXoeTZ03j9eS/eVnZouOLOrijvzwhe3J5ADk
-	 6QUtjwaWIWHpEnS3UWOX6G8nV2n26TgRLw/4Ty5QDr6PDoGTY0/hbmZJAX1vSkpBim
-	 WhZ241SB4vpXyGkoWMLPnUZGufouVaAp4BnwRAVauXIN+YNg01QDZUBhmZVyqrDAjp
-	 oYVLXH6wshbGA==
-Date: Mon, 27 Oct 2025 16:42:14 +0000
+	b=pEOaY8i2CA368n555Cyivloi0NKa+GHB+dqed1sOLk3b8HIh2EBlvQ6J/03mdxy4r
+	 QfAyN7TW9G5l/VCdjs64nTYKIWvjiWxbqvdSgpndg8683ztsIHAL0wdEXxJItiiR52
+	 cGFsh+Wr7gJoZ9OYPRnCUoD1ofoXK/tUaNuGO4xogPjZeHao2zKcmfXOgq8Ls+rUAL
+	 6ySja4/O/NLpoN0Wkd/Evdw3pnpX5IfuunHfYaIHPfSIHK8Jk+TKJWypv5vvz7IU8Y
+	 +X1G27czOq8/JE7Nio+QxZ+H7CVNgQn3qQVsCN6krMKKuwclEGbh2rfGAGm8egMPp+
+	 fvUmjjSFjZAdg==
+Date: Mon, 27 Oct 2025 16:42:38 +0000
 From: Conor Dooley <conor@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: sboyd@kernel.org, mturquette@baylibre.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	laura.nao@collabora.com, nfraprado@collabora.com,
-	wenst@chromium.org, y.oudjana@protonmail.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v2 6/7] dt-bindings: clock: Describe MT6685 PM/Clock IC
- Clock Controller
-Message-ID: <20251027-oblivious-antiquity-1c2b0f3972dc@spud>
-References: <20251027111343.21723-1-angelogioacchino.delregno@collabora.com>
- <20251027111343.21723-7-angelogioacchino.delregno@collabora.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matthias Schiffer <matthias.schiffer@tq-group.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: fsl: add TQ-Systems boards
+ MBLS1028A and MBLS1028A-IND
+Message-ID: <20251027-rants-blah-e2cb48f029e2@spud>
+References: <20251027110459.420857-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NeWl3Rg4icXQ/OM8"
+	protocol="application/pgp-signature"; boundary="1MaDd/w6OphELE1T"
 Content-Disposition: inline
-In-Reply-To: <20251027111343.21723-7-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20251027110459.420857-1-alexander.stein@ew.tq-group.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251027_094243_666258_9951B3EB 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +82,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---NeWl3Rg4icXQ/OM8
+--1MaDd/w6OphELE1T
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 27, 2025 at 12:13:42PM +0100, AngeloGioacchino Del Regno wrote:
-> Add bindings to describe the SCK_TOP clock controller embedded
-> in the MT6685 IC, reachable over the SPMI bus.
+On Mon, Oct 27, 2025 at 12:04:55PM +0100, Alexander Stein wrote:
+> From: Matthias Schiffer <matthias.schiffer@tq-group.com>
 >=20
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
+> Add two mainboards for the TQ-Systems TQMLS1028A SoM, based on the NXP
+> Layerscape LS1028A.
+>=20
+> Signed-off-by: Matthias Schiffer <matthias.schiffer@tq-group.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---NeWl3Rg4icXQ/OM8
+--1MaDd/w6OphELE1T
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaP+g5gAKCRB4tDGHoIJi
-0qinAP4qLR3o3aZJbssQAeJ7otn4Uy3XT2CNs4xAyhDkX/oUOQEAhHZSAs3z/fUg
-W6t168PxJh6XweOhoxLKJANAvx6JkQs=
-=JA0w
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaP+g/gAKCRB4tDGHoIJi
+0iGlAQCoFN3hxghANDls800B6MI+ZpPw4ts8AIPh6HSc+dI9yQD+LX9iEoHKH5pv
+9BOFPHyf7oUMd01SAxhwCtj2dhNp2wc=
+=gTmS
 -----END PGP SIGNATURE-----
 
---NeWl3Rg4icXQ/OM8--
+--1MaDd/w6OphELE1T--
 
