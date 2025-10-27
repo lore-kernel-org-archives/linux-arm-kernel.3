@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED59CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385A9CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdru/g1UDfmEH8Ssu1G/uWYFsLY+kwVhWPET9PZ9Xs0=; b=zIa42kZytx94bXUnRVPBAhXcgr
-	ufUWKdlzurichnttbwG/edXWgdTfBF+vmainT/8ofOISfM72gjdjjIQLVIl+X2E6jFQ7pFmKbyH1H
-	iLOba381aJkNliDGTqq8qQmI7MDihvD9X37JLvOMbBdpj+HOBefmzZqudAhuKjjePqd2lpVmJeohm
-	4bv7NxPY7CtpcLHubG5Kf/lS0eSCl2vjy0f5c/Rpq3KYfhE10uags6myp5LcSwymuEN82mMbfFXaw
-	OkbOPSVE1wEb1ThZW8sJ6qXUueOO+kk2dnAjh7qpngjiv457RYn46gefaOjYnilmA7GmFUQo/OdUL
-	HQU0YQvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J1OB9wrnfRrLpJRqO2TJVsU1eDqTHG5eRxmlRnhudiw=; b=OLwA6FCZjY9gBMpyNDQKXor9eV
+	tWU7t2vMA9Cnxe0giLZNLpzWZMqssp/jE+RI16NfVRm0ZanuhMmonpR8rhNkYUQ4dTB8KTlaYJIlq
+	aeJX5hBjKDged1ofjJmF6976+d39Zx4tLeU8y/wNj9tXoD6zQDSUgMbPXuFm5d2PoKCe0TjjOVDjj
+	H4mndhttJo/qJHIXkTqil1D4ofQGbWIodi1CB+PNvJsno6cn5dYkHvOfKELCNi5N7Q3/b+Rip0F9m
+	91YCg+bSrVs9rBHkcqE2ayDwCILcGPi+IC7MgyNWfoQWtDFDyxYW2h49UPZodA9AM6GBPvFbp+45j
+	M6zZHymQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNM4-0000000E3SJ-43ql;
-	Mon, 27 Oct 2025 13:33:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vDNML-0000000E3YD-1BxX;
+	Mon, 27 Oct 2025 13:34:05 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNM3-0000000E3Rm-2hqM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Oct 2025 13:33:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=jdru/g1UDfmEH8Ssu1G/uWYFsLY+kwVhWPET9PZ9Xs0=; b=b5oxrt02zwm8+Z0LzXg+oSwvzw
-	WHiJzOBTAicdSMiBpQgaFgHvX5LClMe4Sv0yzKj3z68lyFMGBKurdtBSrWoPA2fKgSmTfMIOSiW2d
-	oV2cK4KJULZqL0Of5CoKep77nPFGf/dcl+QNb8oQqz8cVhtWLJ9UX+nvNGT08qpLbrp5hsCKkF/Hx
-	HvDGOp1Me98DKKEdOfUeQBlXQECN7E/p2Zf5dTbH755pBaIG79+cZHAbUEw4wFfCB08XZiS6IxZdh
-	f4Zxx34wnU/wLP9P/xaJH6andJfnE181wkkk6Z84YzqBHgSA3wq0fSIK0VhmJgIokP9HKTtKnHjvO
-	QRAiMutg==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMUG-00000002Bpf-1L6q
+	id 1vDNMJ-0000000E3Xc-3U7X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:38:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jdru/g1UDfmEH8Ssu1G/uWYFsLY+kwVhWPET9PZ9Xs0=; b=DHPcyJSk6sjzs7WSFEoWbKk0kY
-	q0u6hTxBXjylBWdZ4mUpAPChK/JLqlU1lRbRDru6tToO6DUyrYQOxEOmhGBLw0/T/+dTamGDbnU/x
-	S/9odHu07HjB6uoprKTHP/MT12z0HLcgKENeOGmHD+FhoTIhWNpCgemdCyT9aLkoXkI4k9h/Q5eRE
-	1YQgwyaVCco8ZcrhF58yMEFzHzSMUyJzpJtCuo0WaNaNJJ5WeuzFG5u0YBYA1sp3xv6VHwTskP2PE
-	/UluW7RwKMBMgCh8A7zhwi44CzoTkW/jpj8JA5Mqq/QrEajf9qHKA6jT5SUoUMTNCXvMZeJpXkyXJ
-	Vk4k0USA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48776)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vDNLv-000000001uq-0oOg;
-	Mon, 27 Oct 2025 13:33:39 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vDNLt-000000005cR-1q37;
-	Mon, 27 Oct 2025 13:33:37 +0000
-Date: Mon, 27 Oct 2025 13:33:37 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aP90sT5c-_xajH8S@shell.armlinux.org.uk>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <aP82VEjNDgrNAZzy@shell.armlinux.org.uk>
+	Mon, 27 Oct 2025 13:34:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761572044; x=1793108044;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=pDOIWQm2Pb2yaskYb7YG9zNBNAaV4QP98n/IzFf/fTs=;
+  b=PUyEtdkPdOkIbLvrEUjQRUbN8whL0O5KTdHvtZNvUf4fgxXS4KsAyBtA
+   AV88kIANXhDf2aErBDQx9Drkx/M7zFkZ4exLiQr/JHBd8Jwo/Zi/0Dudg
+   1obJH87Y2lgVUJvnA10x/3gmljqrpmnORt0Frbn8B2TA8mvQ6F/aNZBo/
+   EEJOAykkZ9r2wtaimagY/NtZDCATx/YOcHvxGHmZrJmvPQQOZe7XPa90h
+   eBkETO2N2exVAzzvDHTW0MjBO60m6eoKOT/pMs3P3A/DAHmTrTMn2HlJL
+   zUyUIXfjr9nO8Jgr25qEm/JhnCrRe+gw+v87nnYPwGhELxNZr6YqgTQjY
+   w==;
+X-CSE-ConnectionGUID: K/xt+ppYS/KBIzKRz3Szrw==
+X-CSE-MsgGUID: 68yjTRmbSyWDJLADQjEerQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="63573361"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="63573361"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:34:03 -0700
+X-CSE-ConnectionGUID: MAweIGDcR+6Uu4QLokWN1Q==
+X-CSE-MsgGUID: oyiT45llT5+5Seg48/7Xrw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
+   d="scan'208";a="190256817"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.31])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:34:01 -0700
+Received: from punajuuri.localdomain (unknown [192.168.240.130])
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id 2898B11FADA;
+	Mon, 27 Oct 2025 15:33:59 +0200 (EET)
+Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
+	(envelope-from <sakari.ailus@linux.intel.com>)
+	id 1vDNMF-00000001eEe-0bu7;
+	Mon, 27 Oct 2025 15:33:59 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 1/1] bus: sunxi-rsb: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Mon, 27 Oct 2025 15:33:59 +0200
+Message-ID: <20251027133359.392984-1-sakari.ailus@linux.intel.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aP82VEjNDgrNAZzy@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_123812_472551_CFD5805C 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20251027_063403_918978_F85F4144 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,71 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 09:07:32AM +0000, Russell King (Oracle) wrote:
-> The changes to stmmac have been tested on nVidia Jetson Xavier NX,
-> which uses RGMII with dwmac4 and a RTL8211F PHY, connected to a Netgear
-> GS108 switch. It seems to be the same that your board is using similar.
-> 
-> I will re-test today.
+pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+pm_runtime_mark_last_busy().
 
-I just booted net-next on this platform.
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+---
+ drivers/bus/sunxi-rsb.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-# ethtool -S eth0 | grep lpi_mode_n
-     irq_tx_path_in_lpi_mode_n: 24
-     irq_tx_path_exit_lpi_mode_n: 23
-     irq_rx_path_in_lpi_mode_n: 201
-     irq_rx_path_exit_lpi_mode_n: 200
-# ethtool --show-eee eth0
-EEE Settings for eth0:
-        EEE status: enabled - active
-        Tx LPI: 1000000 (us)
-        Supported EEE link modes:  100baseT/Full
-                                   1000baseT/Full
-        Advertised EEE link modes:  100baseT/Full
-                                    1000baseT/Full
-        Link partner advertised EEE link modes:  100baseT/Full
-                                                 1000baseT/Full
-
-So it looks like everything is working as it should here.
-
-stmmac was converted to phylink managed EEE in v6.14-rc1. I've built
-v6.13 to check that my assertions w.r.t. EEE defaulting to being
-enabled are correct, and:
-
-# # ethtool -S eth0 | grep lpi
-     irq_tx_path_in_lpi_mode_n: 15
-     irq_tx_path_exit_lpi_mode_n: 14
-     irq_rx_path_in_lpi_mode_n: 0
-     irq_rx_path_exit_lpi_mode_n: 0
-# ethtool --show-eee eth0
-EEE Settings for eth0:
-        EEE status: enabled - active
-        Tx LPI: disabled
-        Supported EEE link modes:  100baseT/Full
-                                   1000baseT/Full
-        Advertised EEE link modes:  100baseT/Full
-                                    1000baseT/Full
-        Link partner advertised EEE link modes:  100baseT/Full
-                                                 1000baseT/Full
-
-So, as I have asserted in response to Emanuele, the conversion of
-stmmac to phylink-managed EEE hasn't changed whether EEE is enabled
-by default. It was enabled by default before phylink-managed EEE, and
-as I always try to do, I try to avoid introducing different behaviours
-when converting drivers to a new implementation. That point holds up
-here w.r.t. whether EEE is enabled by default. Hence, blaming these
-problems on the phylink conversion enabling EEE by default is
-incorrect - and I wish people would *stop* jumping to false conclusions
-without evidence. As phylink maintainer, it is extremely disheartening
-to keep having problems falsely levelled at phylink.
-
-Note that the difference here is the receive path at the MAC doesn't
-enter LPI mode. This is because PHY-mode EEE is enabled, which prevents
-the LPI state on the receive side being forwarded to the MAC. I fixed
-via commit bfc17c165835 ("net: phy: realtek: disable PHY-mode EEE") for
-RTL8211F PHYs merged in v6.15-rc1.
-
+diff --git a/drivers/bus/sunxi-rsb.c b/drivers/bus/sunxi-rsb.c
+index 7a33c3b31d1e..82735c58be11 100644
+--- a/drivers/bus/sunxi-rsb.c
++++ b/drivers/bus/sunxi-rsb.c
+@@ -373,7 +373,6 @@ static int sunxi_rsb_read(struct sunxi_rsb *rsb, u8 rtaddr, u8 addr,
+ unlock:
+ 	mutex_unlock(&rsb->lock);
+ 
+-	pm_runtime_mark_last_busy(rsb->dev);
+ 	pm_runtime_put_autosuspend(rsb->dev);
+ 
+ 	return ret;
+@@ -417,7 +416,6 @@ static int sunxi_rsb_write(struct sunxi_rsb *rsb, u8 rtaddr, u8 addr,
+ 
+ 	mutex_unlock(&rsb->lock);
+ 
+-	pm_runtime_mark_last_busy(rsb->dev);
+ 	pm_runtime_put_autosuspend(rsb->dev);
+ 
+ 	return ret;
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
