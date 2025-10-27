@@ -4,77 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BA8CCF9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DBBCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uWd7MdZnKJktaRLhzxqLomvXSX44XMh48NVBRNGV46U=; b=Pape5BRMVOKCjcKuj85FYgt/wq
-	ZymBJcbTjscEkaT4lUIfQc4GGjOBaeKXCDDkANv3eVPt+jXJZHggBCzH5jz4/MfsNKHDFB/Yobag6
-	oYaHy5neFEZhuVYdYX+p9Aa3Jv/UCAWITpTMOWv3ZAq3nOLXXvEJGdQYq7dOanJ1I3aia0jdkCOkX
-	IQByKxONutsdgq6eavo/RKKBBzCk21Oz2db4LcKLltggrgIPMHeiF8SbUYxhIZYfiCMqehyMvJ5JV
-	sNEVz0s2bAT2XPXg5aUQuHnQlm12rjYOJ2cmCE/eeGmGzDxyF1lCmr8ysTiZpYQ/T0z7Ppx/G9roN
-	oWMV0DpA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+eTCjaNAo=; b=bQry6BB2/IYCQR7WSPIBveud2B
+	eAkOt2rmXbQ7m+BeKbcNeLbgeaZgfwk49Btt1RwRsNr/bLMjSfgrsGl8SV29kRhig1bJ2uTFF/56G
+	gLanc6bNHIYDnvwF3kmvaI+8aBuNPX8CeXOeqIcY+7VsYtNAGQAXMkaOaE7V9/IL1OY1SbR/vyjtM
+	xDcbrGW9EibSl10+pxSE+z7rO2x74Vk4Foe0STBWrCe4FNvISdcGVPfMnY4dSZ0JTklXBYTf9Gh6E
+	Wgjy1F67MtFg2sBWz+zW9YoDewbSAzlnbkyD80NJu13c6Y4ce2rGi6KWVpMs3DTD3mNJC3qR0OkQZ
+	hh6PkDaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDO49-0000000E8Bo-18TD;
-	Mon, 27 Oct 2025 14:19:21 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vDO4g-0000000E8JW-3ZfU;
+	Mon, 27 Oct 2025 14:19:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDO46-0000000E8B0-1Q24;
-	Mon, 27 Oct 2025 14:19:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761574736; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DnsobMsqiu82DegXihbeMBLp5uuwh1vMC8jsMkr3N4QPhfCasmpvScCeHKPCNXGxtNk/ZeuUNZzXkVsQ4DEaI4PVKafIgPQ+eJTP+gfGoCN9uPGehZe1zxlfLcY7emdqNdzs24xcvwRS090s0BoDLfdmN6NEqE8bOYkG8YPDIsM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761574736; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=uWd7MdZnKJktaRLhzxqLomvXSX44XMh48NVBRNGV46U=; 
-	b=mKNpmJBiq+nVPl+HJYgX4lLYWnaWY9Wo+RgKK92QFOyl3XRLEfo88iqOti5wpwottZowSzg2uDv4MioyxK20G3K3W5+BsD/qI7OXnzOcOviQWv4E0wTU3ZUAH3W+omyDdMsmz+3jcg2P8gtAgczNBvBYdLfELFEceO1+536iLcA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761574736;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=uWd7MdZnKJktaRLhzxqLomvXSX44XMh48NVBRNGV46U=;
-	b=C6h1NsOLBD7bAPa9jAW11Uy8yQlfpSrdASivQflXlTDwWXpU73X/4LXh6ch1VEgT
-	jbVyLz8fWSv7/gAYgRrZCseop4D0QrOhweKv5iet4K9r1VPUrCDwfIyeL49ud/Sy59X
-	P/TOVq5fs2xAl4qIsQUjCoHyh2dJN8PujpsNqRKA=
-Received: by mx.zohomail.com with SMTPS id 1761574730100360.25318619661607;
-	Mon, 27 Oct 2025 07:18:50 -0700 (PDT)
-Message-ID: <edabca63-594e-44ae-8a3d-0f60987a8664@collabora.com>
-Date: Mon, 27 Oct 2025 10:18:45 -0400
+	id 1vDO4f-0000000E8JN-42SL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 27 Oct 2025 14:19:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+eTCjaNAo=; b=F31Mpr9107+ofSUdbaPUF2h0Az
+	3mpaCmvpWed30KKl2sxgThuOpZOMpBIZW0goO4Mua/7r3i3h+pl2EpWfSIs4CGiZfu8JaAb74Ez1p
+	1hasazdgTFFzW33g3wqN31f2JA4cFyqzZOpXEGrimXZQXsh9pdyEoMM0qqftzjxcte5y+k/4PC0zi
+	pnGwHu2gfzVocGOqzYAKtFTctSKnanfK3E0Dc33juFL10uADnGDEFRzcZkaFBEVMuQvqobSpEEcYq
+	aRgjG3LW7RMzPrdqmuOecKnxYk0nE+FF/KNqzkG6gfVrmjmLPK/0sDzEsdnwUvFd7nBLCzyk6LeQS
+	PdYsodlw==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDNCs-00000002HiD-29r3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 13:24:20 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59R8MYqH783388
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 14:19:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+
+	eTCjaNAo=; b=NOAzgqD4d3Qm0rgFqW2gYYImaUgP5bAXwQAokDWZ8d9tZ0EHpl5
+	ac0CwZLOT6HFA7iP1vvjzII4xDZDf8InxfuT6Q1Kb+LbBa4NG0cLMoyiL41w9Ds7
+	x+5n4n0+FuM4bUNbEnbgNj5dDXEta8m3/t5yrCWCww/q15zrBUlIN+1megJo4Did
+	gI4nBp/cH/zRw13TaHavPBqWCQjk65VLpLiRAZsGNuQodRDGllfwZ6zSQ2SxBbza
+	QBDJeqqut2j8WWSiQKrCitgRF34zXOISWMeuPQEVxexYI6csE+p3f641piEorLjK
+	ed18vEous8Kiz8Ms/oEcg5p3RDeMsDhvsPg==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a0p4g4u1u-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 14:19:46 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-269880a7bd9so48306915ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 07:19:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761574785; x=1762179585;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+eTCjaNAo=;
+        b=v2wVtQYpHFd8xkn2Fm3oYc3TZeLvsXk6J8OyDlo0smUHo9F1kmc8n9SOKFVRGunE1j
+         sGf9qoI4rGE1EC574CKkMV+Tl+GZI9z/8jL68mufWnFe4lbMi1P1fsGxAeMI3QcRoSyT
+         Yoem4oyCbf5eyHCH9ZFjZG3YmlnUkCpVbfU0cRJg0gX6LQA8OIdsauDhwjX82wChWqjJ
+         pMXWHrn+QOvyt69eSUYbYgMUdbm5mCowYti2PrXwUp0V9NkQKq+cOsj174WmPFIrfCwy
+         Wro0p9HuhKDUfzq7RF4pBtccWKSlHSUiOdruYtdXOjHylTR5VU5sklG+mzjmaE8ptL1D
+         Ju1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU7keKdw4xoZ0tdn0RD9g0s18MNfZV9D8d5dx7fboGhLtQ7SaBwLxz4mEiDjoLW6jPtTf0g4nYqQzFYbICu4+qe@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLzoigUH7zJS6PL3F8K2EhtDt0kZMcSzbtc1XOzlXqMiFaJbQm
+	XLaPJApYaTqtFdBWfjLaXyUOotX9MY+JJY9ZwIXg4/YhH+8MX3Kce4uU1zzxq1cBYhrHpPhZzb0
+	J3peYhVVj2glp4Tim6HFO1yHo4hXzpHPQ27tK8GCyqbLowWwg+jfMtX640J7Ob4kCV+kWsmRBYH
+	t+rA==
+X-Gm-Gg: ASbGnctLcnHoJwVArn+Xx7i4ZHpdLdGtZE8lCY6YaXg+3QDCIO/6NdknwA2sXPni/rK
+	u4Tc7X6KJ9hFTCjP7nQSgvVR37Ln8T9P/gTwqPS6NDir49pgdO4uWhjhjUXknUL1Vmze2qHetLd
+	xMfpNYgUKdRIMfFIqh9dqwbuM2Y6QRrlVRvT1yTre3VZWN5C2bfPdAHbHQd5IcCfBgS4XTfp8Qz
+	8DhUuq1iIaR2RIX/CkKZWDkOw+KrrcwFD9OTCtW+wfbvBOBTH8ROla75QJmlDSomHL5xajONBsM
+	iNKubVIPcIJz+zUAhleIbC2aYAryB+vPxnc3ONV94NaqUQ3SB2rVvR+6uQEe7ZfxF7tMuTdti3a
+	6GnQZTgHUYu70R8HinPgmNKujz5uo3u8w4YuKsvR+maj8VIlZE2KB
+X-Received: by 2002:a17:902:ce12:b0:269:4759:904b with SMTP id d9443c01a7336-294cb6a76b9mr468725ad.58.1761574785274;
+        Mon, 27 Oct 2025 07:19:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IExvrfR+k2bxHu4WE1FcWWwIJx/pEgGfmAedtlb2r0MJvVY54fZi5aQUGEv1i6ShpGJ4LdyIQ==
+X-Received: by 2002:a17:902:ce12:b0:269:4759:904b with SMTP id d9443c01a7336-294cb6a76b9mr468395ad.58.1761574784655;
+        Mon, 27 Oct 2025 07:19:44 -0700 (PDT)
+Received: from hu-punita-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d230basm83818175ad.46.2025.10.27.07.19.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 07:19:44 -0700 (PDT)
+From: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+To: catalin.marinas@arm.com, will@kernel.org
+Cc: guohanjun@huawei.com, chenl311@chinatelecom.cn,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Subject: [PATCH] arm64: acpi: Fix incorrect check for default console message
+Date: Mon, 27 Oct 2025 14:19:41 +0000
+Message-Id: <20251027141941.3089914-1-punit.agrawal@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] arm64: dts: rockchip: Add vdpu 381 and 383 nodes
-To: Diederik de Haas <diederik@cknow-tech.com>, linux-kernel@vger.kernel.org
-Cc: Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>,
- Kever Yang <kever.yang@rock-chips.com>, Chukun Pan <amadeus@jmu.edu.cn>,
- Alexander Shiyan <eagle.alexander923@gmail.com>, kernel@collabora.com,
- Dragan Simic <dsimic@manjaro.org>, Rob Herring <robh@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Damon Ding <damon.ding@rock-chips.com>,
- Chris Morgan <macromorgan@hotmail.com>,
- linux-arm-kernel@lists.infradead.org, Patrick Wildt <patrick@blueri.se>,
- Alexey Charkov <alchark@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Tomeu Vizoso <tomeu@tomeuvizoso.net>
-References: <20251020212009.8852-1-detlev.casanova@collabora.com>
- <DDQSO2HR1BFU.2JONNHRBR0LR5@cknow-tech.com>
-Content-Language: en-US
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <DDQSO2HR1BFU.2JONNHRBR0LR5@cknow-tech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+X-Proofpoint-GUID: 9Y3fsEu3xn56m_oQrK5IDAv8u7e7dDd7
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDEzMyBTYWx0ZWRfX2z5uXFR+Ge9Z
+ HQe/TLfPmWo8SpUaJHhRjaOKcT59G7EWvs0Rd6XDXKOCnTP7f8nnuOPOuzfp+OM/7kVV15xWg4j
+ rksJIkv0I9/N0jlrz2ksyWiG2dvlQoWq1++cvj8VhGjlG58RtkiG0MC+Ew50JNdtXZK8zEcx173
+ pHZbAyLQxVCbRJKi8k05abwj0qNmNnuVraBfYNyg4r4UDDUTEnFIlUgSpseS4tgi9CXWcW6LuxP
+ VKx+GIG/OZaoHNUHHVYDQp5dfJU3uyZH3muCJDP23a+lSu1Pwfu4eEKuIkDmILYbAVt2gsyeMo+
+ om+8OpG3Yscsx8VeGGpC0WkugcjrWqQoRERnL0m4AnhwADXh1SfKB7TjE8KIz04yn5irAcUcpJL
+ qPkm65w+xt9fksByosLCoNJyaR2/NA==
+X-Authority-Analysis: v=2.4 cv=L9YQguT8 c=1 sm=1 tr=0 ts=68ff7f82 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=EWBPczn9GtEGnfwowZAA:9 a=324X-CrmTo6CU4MGRt3R:22 a=HhbK4dLum7pmb74im6QT:22
+X-Proofpoint-ORIG-GUID: 9Y3fsEu3xn56m_oQrK5IDAv8u7e7dDd7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-27_06,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 clxscore=1011 phishscore=0 impostorscore=0
+ adultscore=0 priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510270133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_071918_438126_8148E366 
-X-CRM114-Status: GOOD (  29.25  )
+X-CRM114-CacheID: sfid-20251027_132418_865043_960E0104 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,108 +141,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederick,
+bad3fa2fb920 ("ACPI: Suppress misleading SPCR console message when
+SPCR table is absent") mistakenly assumes acpi_parse_spcr() returning
+0 to indicate a failure to parse SPCR and prints a message to the
+kernel logs accordingly. In reality acpi_parse_spcr() returns 0 on
+success and -ERRNO on failure.
 
-On 10/24/25 15:20, Diederik de Haas wrote:
-> Hi Detlev,
->
-> On Mon Oct 20, 2025 at 11:20 PM CEST, Detlev Casanova wrote:
->> Add the nodes for vdpu 381 and 383, respectively RK3588 and RK3576.
->> To keep compatibility with older variants, the reg ranges order is not
->> in register order so that the function reg range is kept first.
-> This is a great comment, which I'd have preferred to have seen in the
-> commit messages themselves.
->
-> Especially since I'm getting DTB validation warnings:
->
->    DTC [C] arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb
-> arch/arm64/boot/dts/rockchip/rk3576.dtsi:1292.30-1314.5: Warning (simple_bus_reg):
-> /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
->    DTC [C] arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb
-> arch/arm64/boot/dts/rockchip/rk3576.dtsi:1292.30-1314.5: Warning (simple_bus_reg):
-> /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
->
->
-> For some reason I'm not getting that for rk3588, which I need to
-> investigate further. Technically, I ran my DTB validation script on your
-> 'add-vdpu381-and-383-to-rkvdec-v3-on-next' branch, but I don't see how
-> that would/could change the outcome.
->
-> My validation script does essentially this:
-> ``make CHECK_DTBS=y W=1 $(get_my_dtbs)``
->
-> ('get_my_dtbs' returns a list of dtb files I want to check)
->
-> So it looks like the DTB validation tool is not happy that the
-> reg ranges are not sorted in 'proper' order.
->
-> Note that the ``W=1`` is essential to see the warning, it does not show
-> up when ``W=0`` is used.
-> I'll leave it up to you and the maintainers to judge whether this is
-> problematic or not, but wanted to mention it.
+Fix the faulty check to output the correct logging message.
 
-The main reason for doing it this way is that the bindings are added to 
-the already existing media/rockchip,vdec.yaml file.
+Fixes: bad3fa2fb920 ("ACPI: Suppress misleading SPCR console message when SPCR table is absent")
+Signed-off-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+---
+Hi,
 
-In the previous version of the decoder, only the "function" registers 
-existed. But in these 2 SoCs, the function registers are prepended by a 
-range of 0x100 registers called "link".
+After sending a patch to fix incorrect parsing of SPCR[0], I was still
+seeing inconsistent logging on arm64. The result is this nugget.
 
-At the binding level, I only could add "link" and "cache" after 
-"function", so that rk3399 uses "maxItems: 1" and the other 2 use 
-"minItems: 3".
+Considering the pointless churn - I wondered if it isn't better to
+drop the message? If others agree, I can send a patch (and revert
+bad3fa2fb920 while at it).
 
-Unfortunately, that forces the order in the device tree:
+Thanks,
+Punit
 
-- function
+[0] https://lore.kernel.org/all/20251024123125.1081612-1-punit.agrawal@oss.qualcomm.com/
 
-- link
+ arch/arm64/kernel/acpi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
--cache
+diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+index 7aca29e1d30b..2fba72d51d71 100644
+--- a/arch/arm64/kernel/acpi.c
++++ b/arch/arm64/kernel/acpi.c
+@@ -254,7 +254,7 @@ void __init acpi_boot_table_init(void)
+ 		 */
+ 		ret = acpi_parse_spcr(earlycon_acpi_spcr_enable,
+ 			!param_acpi_nospcr);
+-		if (!ret || param_acpi_nospcr || !IS_ENABLED(CONFIG_ACPI_SPCR_TABLE))
++		if (ret < 0 || param_acpi_nospcr || !IS_ENABLED(CONFIG_ACPI_SPCR_TABLE))
+ 			pr_info("Use ACPI SPCR as default console: No\n");
+ 		else
+ 			pr_info("Use ACPI SPCR as default console: Yes\n");
+-- 
+2.34.1
 
-Which is not in register offset order, making the node called 
-video-codec@27b00000 have its first reg entry at 27b00100.
-
-I have to admit I only checked that the check tools were happy for 
-rk3588 and did the same for rk3576.
-
-The only difference I see that could explain why it warns only on rk356 
-is that rk3576 device nodes are children of "/soc" and the rk3588 ones 
-are children of "/".
-
-Let's see what maintainers think indeed.
-
-
-Detlev.
-
->
-> Cheers,
->    Diederik
-
->> Also adds the corresponding iommu nodes.
->>
->> Note that on RK3588, both cores are added as it represents the hardware,
->> but the driver, later will only register the first one.
->>
->> Regards,
->> Detlev.
->>
->> Changes since v2:
->>   - Set the correct IRQ number for the second rk3588 core
->>
->> Changes since v1:
->>   - Set node name to match first reg range
->>
->> Detlev Casanova (2):
->>    arm64: dts: rockchip: Add the vdpu381 Video Decoders on RK3588
->>    arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576
->>
->>   arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 36 +++++++++
->>   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 74 +++++++++++++++++++
->>   2 files changed, 110 insertions(+)
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
