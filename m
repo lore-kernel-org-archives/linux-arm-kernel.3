@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F77CCF9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BB4CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O/IAo5Oi+YN1TvC5L+T4+FTIT9PU5gRVBHT1xVrzic0=; b=PkbWpm+x9gy9E5XRKuf2nOeu/E
-	go2Qps4BuEduOF+0N5kKZ1V6OpQZXAxpcbKAveZYln+r3TFts7Cm04jLnTv/GkNF7xyyF/1d+xQ98
-	cD0893z5osRdGwbw21yNHLNC89QvYY8an2KDdkgrEu78eoOL+RXoNJwJFmWdijCFjXMVEsTd+o+59
-	Vm71kburx1dYKvVP4nYhPgGi7YcR2o0uUViZC49tNr9NkUuYm2Y6wNzU+A0xRVOA37c9k2OtnqeNv
-	hYbVHcV8gakS0bb+sY3TH4QWBNas90fDOv+MCUgQexkqa7EqCPgSAkW1m7PFbOl+QA5cgKNqb2vC+
-	ZmRUVYqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UyxD9Boc+ibOartMo5HwRbgyceQjp6DjZGkKk0jShXE=; b=4AuDrqLVO7VlqwyLYiwuo4UcNk
+	wtqLFQtkcNOTe/U5Zvs4aNs4ZcdUJKoJ7ThweDgwdFBKEQCZ+PpEIoZb7VWlUUyi2nosruqXdeg6i
+	PnaBNd96fxhEpjQV6dRdoowvEjRgB8CJJJbKS/QNepW4QytCFZdK3PPBvNoIGdVy0gjPGFPgUorKc
+	PSlqJayq1SizQOXYt/hkBVxUMdj0NelSbOvraEyE3GQktG7BiwpFtXrDY+os7EHg7pB9q4eFD85sV
+	cwfy0akBji8bOlG/+5gd9+sIwwn7+rMbWrkBSfyRq6pJABojNT1lUGUsdbJKJyzfkyjiwmEOGeViL
+	2Z6MoSeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNIk-0000000E1zF-3oLT;
-	Mon, 27 Oct 2025 13:30:22 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1vDNL5-0000000E2yB-2By9;
+	Mon, 27 Oct 2025 13:32:47 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNIh-0000000E1vN-2hpY
+	id 1vDNL2-0000000E2xl-2wtU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 13:30:21 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59RDU7JJ2417320;
-	Mon, 27 Oct 2025 08:30:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1761571807;
-	bh=O/IAo5Oi+YN1TvC5L+T4+FTIT9PU5gRVBHT1xVrzic0=;
-	h=From:To:CC:Subject:Date;
-	b=aI2CP9r9jLdy8sgXigtM/mxkBooyd4Xdpin6a67gwKHxgIzlJx+bC6n2NZhPXmQvt
-	 iqx1vqd4554D0U0C0rIKeTKOhbNFddj+DIJWou+4G2jwsjPo2yd7Z53Ju/NpKPepA+
-	 PW1e8Ij7v6kNF7onUuBTmDT6fBCqHh1IcPfGvlZM=
-Received: from DLEE204.ent.ti.com (dlee204.ent.ti.com [157.170.170.84])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59RDU7EJ1686831
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 27 Oct 2025 08:30:07 -0500
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 27 Oct
- 2025 08:30:07 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 27 Oct 2025 08:30:07 -0500
-Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59RDU2fl732990;
-	Mon, 27 Oct 2025 08:30:03 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <unicorn_wang@outlook.com>,
-        <kishon@kernel.org>, <18255117159@163.com>
-CC: <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH] PCI: cadence: Enable support for applying lane equalization presets
-Date: Mon, 27 Oct 2025 18:59:06 +0530
-Message-ID: <20251027133013.2589119-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.51.0
+	Mon, 27 Oct 2025 13:32:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761571965; x=1793107965;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=mSv4aivh/25dKTV3yCbWUl1DefAAZN9jvBNFADSthdA=;
+  b=ixm1AiBv5DGw2Qrxn49U98hf89fTl73hzmUsus7YrmRk/p2xroOriCg5
+   G0kuX1i4Nps/k6m6B/OqLmzRnCREmbAColxzzE5sLYCyd86Omp2KLz/Wu
+   uZiCvIloZY3IqH3Y/CfPmC/IABOfxUj0BnwpMAWO3nmHeFEN4RfoFPqTW
+   1UqwDY0fSP5nI9b3BUbUoSkf4fZILDbMgRdXB/Tu0TrNQVWILYZc1qAmm
+   +wPIn/Ia3MRMCnD4MxVH5L63aBygHklD+G3G4cG86fvt9dZZKDoQXyF6Y
+   L376V9a2EMnE+R53fYrDKOAXUytZSXSQhIbU4LyZL1WfVjUgTD4gUkXka
+   g==;
+X-CSE-ConnectionGUID: HL16IUF6RySnSj03tenyhQ==
+X-CSE-MsgGUID: AfnKlprwTbiVG0PVMoSaNg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="86277752"
+X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
+   d="scan'208";a="86277752"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:32:45 -0700
+X-CSE-ConnectionGUID: U+nLFdlWRzyJoRqjD+5+rw==
+X-CSE-MsgGUID: z07qLKJvQUqaBN4Doutzcg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
+   d="scan'208";a="190176389"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.31])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:32:40 -0700
+Received: from punajuuri.localdomain (unknown [192.168.240.130])
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id A3D22121F01;
+	Mon, 27 Oct 2025 15:32:37 +0200 (EET)
+Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
+	(envelope-from <sakari.ailus@linux.intel.com>)
+	id 1vDNKq-00000001eDf-2iIp;
+	Mon, 27 Oct 2025 15:32:32 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Sinan Kaya <okaya@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Stephan Gerhold <stephan.gerhold@linaro.org>,
+	Md Sadre Alam <quic_mdalam@quicinc.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Casey Connolly <casey.connolly@linaro.org>,
+	Abin Joseph <abin.joseph@amd.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	linux-arm-msm@vger.kernel.org
+Subject: [PATCH 5/6] dmaengine: ti: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Mon, 27 Oct 2025 15:32:31 +0200
+Message-ID: <20251027133232.392898-5-sakari.ailus@linux.intel.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251027133232.392898-1-sakari.ailus@linux.intel.com>
+References: <20251027133232.392898-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_063019_847506_54ED74A9 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20251027_063244_798847_65DF41E6 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,180 +102,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe Link Equalization procedure allows peers on a PCIe Link to
-improve the signal quality by exchanging transmitter presets and
-receiver preset hints in the form of Ordered Sets.
+pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+pm_runtime_mark_last_busy().
 
-For link speeds of 8.0 GT/s and above, the transmitter presets and the
-receiver preset hints are configurable parameters which can be tuned to
-establish a stable link. This allows setting up a stable link that is
-specific to the peers across a Link.
-
-The device-tree property 'eq-presets-Ngts' (eq-presets-8gts,
-eq-presets-16gts, ...) specifies the transmitter presets and receiver
-preset hints to be applied to every lane of the link for every supported
-link speed that is greater than or equal to 8.0 GT/s.
-
-Hence, enable support for applying the 'optional' lane equalization
-presets when operating in the Root-Port (Root-Complex / Host) mode.
-
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 ---
+ drivers/dma/ti/cppi41.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-Hello,
-
-This patch is based on linux-next tagged 20251027.
-It also applies cleanly on 6.18-rc1.
-
-Patch has been tested on J784S4-EVM which has 2 instances of PCIe,
-namely PCIe0 and PCIe1. The diff corresponding to the device-tree change
-for applying Presets to PCIe0 is:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/892ff417df178fcdf502e70d41bf5b48
-An NVMe SSD has been connected to the PCIe connector for PCIe0 and
-functionality has been validated after applying the current patch.
-Test Logs:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/481e3ae5d359907cd9c3d9797ea028cc
-
-Regards,
-Siddharth.
-
- .../controller/cadence/pcie-cadence-host.c    | 84 +++++++++++++++++++
- drivers/pci/controller/cadence/pcie-cadence.h |  5 ++
- 2 files changed, 89 insertions(+)
-
-diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
-index fffd63d6665e..3fac89703c0c 100644
---- a/drivers/pci/controller/cadence/pcie-cadence-host.c
-+++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
-@@ -168,6 +168,89 @@ static void cdns_pcie_host_enable_ptm_response(struct cdns_pcie *pcie)
- 	cdns_pcie_writel(pcie, CDNS_PCIE_LM_PTM_CTRL, val | CDNS_PCIE_LM_TPM_CTRL_PTMRSEN);
+diff --git a/drivers/dma/ti/cppi41.c b/drivers/dma/ti/cppi41.c
+index 8d8c3d6038fc..88756dccd62c 100644
+--- a/drivers/dma/ti/cppi41.c
++++ b/drivers/dma/ti/cppi41.c
+@@ -390,7 +390,6 @@ static int cppi41_dma_alloc_chan_resources(struct dma_chan *chan)
+ 	if (!c->is_tx)
+ 		cppi_writel(c->q_num, c->gcr_reg + RXHPCRA0);
+ 
+-	pm_runtime_mark_last_busy(cdd->ddev.dev);
+ 	pm_runtime_put_autosuspend(cdd->ddev.dev);
+ 
+ 	return 0;
+@@ -411,7 +410,6 @@ static void cppi41_dma_free_chan_resources(struct dma_chan *chan)
+ 
+ 	WARN_ON(!list_empty(&cdd->pending));
+ 
+-	pm_runtime_mark_last_busy(cdd->ddev.dev);
+ 	pm_runtime_put_autosuspend(cdd->ddev.dev);
  }
  
-+static void cdns_pcie_setup_lane_equalization_presets(struct cdns_pcie_rc *rc)
-+{
-+	struct cdns_pcie *pcie = &rc->pcie;
-+	struct device *dev = pcie->dev;
-+	struct device_node *np = dev->of_node;
-+	int max_link_speed, max_lanes, ret;
-+	u32 lane_eq_ctrl_reg;
-+	u16 cap;
-+	u16 *presets_8gts;
-+	u8 *presets_ngts;
-+	u8 i, j;
-+
-+	ret = of_property_read_u32(np, "num-lanes", &max_lanes);
-+	if (ret)
-+		return;
-+
-+	/* Lane Equalization presets are optional, so error message is not necessary */
-+	ret = of_pci_get_equalization_presets(dev, &rc->eq_presets, max_lanes);
-+	if (ret)
-+		return;
-+
-+	max_link_speed = of_pci_get_max_link_speed(np);
-+	if (max_link_speed < 0) {
-+		dev_err(dev, "%s: link-speed unknown, skipping preset setup\n", __func__);
-+		return;
-+	}
-+
-+	/*
-+	 * Setup presets for data rates including and upward of 8.0 GT/s until the
-+	 * maximum supported data rate.
-+	 */
-+	switch (pcie_link_speed[max_link_speed]) {
-+	case PCIE_SPEED_16_0GT:
-+		presets_ngts = (u8 *)rc->eq_presets.eq_presets_Ngts[EQ_PRESET_TYPE_16GTS - 1];
-+		if (presets_ngts[0] != PCI_EQ_RESV) {
-+			cap = cdns_pcie_find_ext_capability(pcie, PCI_EXT_CAP_ID_PL_16GT);
-+			if (!cap)
-+				break;
-+			lane_eq_ctrl_reg = cap + PCI_PL_16GT_LE_CTRL;
-+			/*
-+			 * For Link Speeds including and upward of 16.0 GT/s, the Lane Equalization
-+			 * Control register has the following layout per Lane:
-+			 * Bits 0-3: Downstream Port Transmitter Preset
-+			 * Bits 4-7: Upstream Port Transmitter Preset
-+			 *
-+			 * 'eq_presets_Ngts' is an array of u8 (byte).
-+			 * Therefore, we need to write to the Lane Equalization Control
-+			 * register in units of bytes per-Lane.
-+			 */
-+			for (i = 0; i < max_lanes; i++)
-+				cdns_pcie_rp_writeb(pcie, lane_eq_ctrl_reg + i, presets_ngts[i]);
-+
-+			dev_info(dev, "Link Equalization presets applied for 16.0 GT/s\n");
-+		}
-+	case PCIE_SPEED_8_0GT:
-+		presets_8gts = (u16 *)rc->eq_presets.eq_presets_8gts;
-+		if ((presets_8gts[0] & PCI_EQ_RESV) != PCI_EQ_RESV) {
-+			cap = cdns_pcie_find_ext_capability(pcie, PCI_EXT_CAP_ID_SECPCI);
-+			if (!cap)
-+				break;
-+			lane_eq_ctrl_reg = cap + PCI_SECPCI_LE_CTRL;
-+			/*
-+			 * For a Link Speed of 8.0 GT/s, the Lane Equalization Control register has
-+			 * the following layout per Lane:
-+			 * Bits   0-3:  Downstream Port Transmitter Preset
-+			 * Bits   4-6:  Downstream Port Receiver Preset Hint
-+			 * Bit      7:  Reserved
-+			 * Bits  8-11:  Upstream Port Transmitter Preset
-+			 * Bits 12-14:  Upstream Port Receiver Preset Hint
-+			 * Bit     15:  Reserved
-+			 *
-+			 * 'eq_presets_8gts' is an array of u16 (word).
-+			 * Therefore, we need to write to the Lane Equalization Control
-+			 * register in units of words per-Lane.
-+			 */
-+			for (i = 0, j = 0; i < max_lanes; i++, j += 2)
-+				cdns_pcie_rp_writew(pcie, lane_eq_ctrl_reg + j, presets_8gts[i]);
-+
-+			dev_info(dev, "Link Equalization presets applied for 8.0 GT/s\n");
-+		}
-+	}
-+}
-+
- static int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc)
- {
- 	struct cdns_pcie *pcie = &rc->pcie;
-@@ -600,6 +683,7 @@ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
- 		cdns_pcie_detect_quiet_min_delay_set(&rc->pcie);
+@@ -509,7 +507,6 @@ static void cppi41_dma_issue_pending(struct dma_chan *chan)
+ 		cppi41_run_queue(cdd);
+ 	spin_unlock_irqrestore(&cdd->lock, flags);
  
- 	cdns_pcie_host_enable_ptm_response(pcie);
-+	cdns_pcie_setup_lane_equalization_presets(rc);
+-	pm_runtime_mark_last_busy(cdd->ddev.dev);
+ 	pm_runtime_put_autosuspend(cdd->ddev.dev);
+ }
  
- 	ret = cdns_pcie_start_link(pcie);
- 	if (ret) {
-diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
-index e2a853d2c0ab..39d03b309978 100644
---- a/drivers/pci/controller/cadence/pcie-cadence.h
-+++ b/drivers/pci/controller/cadence/pcie-cadence.h
-@@ -11,6 +11,8 @@
- #include <linux/pci-epf.h>
- #include <linux/phy/phy.h>
+@@ -627,7 +624,6 @@ static struct dma_async_tx_descriptor *cppi41_dma_prep_slave_sg(
+ 	txd = &c->txd;
  
-+#include "../../pci.h"
-+
- /* Parameters for the waiting for link up routine */
- #define LINK_WAIT_MAX_RETRIES	10
- #define LINK_WAIT_USLEEP_MIN	90000
-@@ -288,6 +290,8 @@ struct cdns_pcie {
-  *                available
-  * @quirk_retrain_flag: Retrain link as quirk for PCIe Gen2
-  * @quirk_detect_quiet_flag: LTSSM Detect Quiet min delay set as quirk
-+ * @eq_presets: Lane Equalization presets for Link Speed including and upward
-+ *              of 8.0 GT/s
-  */
- struct cdns_pcie_rc {
- 	struct cdns_pcie	pcie;
-@@ -298,6 +302,7 @@ struct cdns_pcie_rc {
- 	bool			avail_ib_bar[CDNS_PCIE_RP_MAX_IB];
- 	unsigned int		quirk_retrain_flag:1;
- 	unsigned int		quirk_detect_quiet_flag:1;
-+	struct pci_eq_presets	eq_presets;
- };
+ err_out_not_ready:
+-	pm_runtime_mark_last_busy(cdd->ddev.dev);
+ 	pm_runtime_put_autosuspend(cdd->ddev.dev);
  
- /**
+ 	return txd;
+@@ -1139,7 +1135,6 @@ static int cppi41_dma_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_of;
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
 -- 
-2.51.0
+2.47.3
 
 
