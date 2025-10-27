@@ -4,69 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5B8CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B21BCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:34:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EL18DRmiuTWLATBe5Gs34HIgGkwAeVge3RkC2LhpsLg=; b=KzCqm8cML5OB3RZanb+KRrXeUU
-	GCf6J5unAlRUoJvEKrV7244hJMfpHACy36/CQPBUaiKucEs6h5MtHHjKxai6j1/z7ItbgbtyM+9/B
-	10eibIqoeL5Van/p2ZsK1gTw/C+81Xibr1TX0iCw+scS05J4gbXwEIOd+Y6ifftYPaUtOcyYeB8Xz
-	U21kES3tzeJ99p9rZa7GKTPfLqBMJA1ykgEeejUaNoMKs0ZyGP6AcoANKiMaNnSzRTULaYSehF6/z
-	oEfEOOhlb7X1HkPiktBoWWcNatlcn9KG+8aPdMmBZZwq7AKmILdU5N9IGYGlO0gwVWgHegkcbjYzG
-	OR/OINMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kEjlvHcQp4lpZ1m36wlxzDAnqifTiWNPk+NjQID7RjI=; b=YayWI6vFz925niwJKIZEXt61Fs
+	9eHS1T/6f1FNr1uLPFuW9+S3J26M5f10C44uZrU59SZ8TR7ybjQvVI3GE6Pd267hAev2zySuZtYau
+	31t6E9Bt5NeEhI9x4Q+0J/DzHabZYDhrqVkDBdCudgbkvJ6QIo5sdGGPiLhZ0MorLOdiAEAe7kwc2
+	dQXUtluWUAS4T5YBorYlccPQHXI3y8/XX1IeiWks4tJ/6kOv8GwqhYv+HwygqPVVgEx3fWgeRvGUd
+	X6J3zErmG85cYbPCeu0hqwicPOvVb7BnjgIxBaX5YKqo6gQpL8s0LLyirzs2cInCjakpTK6wTMqd+
+	0a83N/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQtH-0000000EQud-2tCz;
-	Mon, 27 Oct 2025 17:20:19 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vDR76-0000000ERxB-3P90;
+	Mon, 27 Oct 2025 17:34:36 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQtF-0000000EQuF-37ob
+	id 1vDR73-0000000ERwC-0h80
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 17:20:18 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761585616;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EL18DRmiuTWLATBe5Gs34HIgGkwAeVge3RkC2LhpsLg=;
-	b=Y14ZqlD0EkXH4iXjM70FdXLZ+iOmw30C2f7uSB34GLPzWVrHPR6OXTNqwiVcy3+bZNKHkp
-	6K1KOrw6cVb9UR7MqjEoTKh821zZ8z3a+Pf5p2aA2Axnet/8ZauSCNdRYDrIlU4dJquAFd
-	jKh+n99niLkinU17cVLbaOaySoruhIk8BMB89Pi5toNhruNW+EQiH1SVEZOrH354Y+Yt06
-	Viaw77hlRVAUvWKxKWJR+fynvTuYcuWFp9dNX4qtnWL1NQ0jwc+gwO+NZeRRKmA9lk5f6/
-	CLJS3BiWWLqaZmxUXQuZJvOkCI5iXQEhY2/B/fd6MmpzAlE4oYYVI+jxxZrMsw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761585616;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EL18DRmiuTWLATBe5Gs34HIgGkwAeVge3RkC2LhpsLg=;
-	b=A42MOUxIaJbK5VTM2nYXH7xNrbkEdlYKRkj/alxqESRm5Jg4OCECUkjGTLfYR5G4C0rGLJ
-	SoYRkgVexCygZbBQ==
-To: Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
- Maulik Shah <quic_mkshah@quicinc.com>, Sudeep Holla
- <sudeep.holla@arm.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Vincent Guittot <vincent.guittot@linaro.org>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Ulf
- Hansson <ulf.hansson@linaro.org>
-Subject: Re: [PATCH v2 1/2] smp: Introduce a helper function to check for
- pending IPIs
-In-Reply-To: <20251020141718.150919-2-ulf.hansson@linaro.org>
-References: <20251020141718.150919-1-ulf.hansson@linaro.org>
- <20251020141718.150919-2-ulf.hansson@linaro.org>
-Date: Mon, 27 Oct 2025 18:20:15 +0100
-Message-ID: <871pmow9bk.ffs@tglx>
+	Mon, 27 Oct 2025 17:34:35 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-79af647cef2so4225830b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:34:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761586472; x=1762191272; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kEjlvHcQp4lpZ1m36wlxzDAnqifTiWNPk+NjQID7RjI=;
+        b=NGKjxsJf5sYw7PoWJP+L1ZpnH8va2mSaqGU/6UqV1QRfuGD1NXv1/q6dU/GWRBubDs
+         HdQfoU3XHjlOxBw+kfuxBglOWfNBoYBmaXJcdCeD8T2F2II9YpFCVXK1LNLvP3C3ESpw
+         XXZEkN8vVe2/vz2IKflSyF3HugrqUl6ztuArsHZDEFQCk3R0fAGDsnfigIGEU5clgV+A
+         1K6rzNgCQTTQ9u+D/BasYUZiowMw8SJ07wluA36Mm8EMudWPZcpsQuKyHwzyiV6wHEcY
+         OmevlQhi/xyb8Qf02YNa/9YzToBiyLcWN5CwfwBqu2ngLD/G+vZhEs6F7dPAxjKMoJ2y
+         EhDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761586472; x=1762191272;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=kEjlvHcQp4lpZ1m36wlxzDAnqifTiWNPk+NjQID7RjI=;
+        b=IosfwO5zMPqTekeEkwh8p3bRaJCRgXD2NvYV/wKnRVilhFs64HwtNaQU1O3DwjjJbi
+         rO4PUe1ZZZln5ruAbTxkiblnw+cd9jOqvZmSgwrHFxAF/OnvrywltAbJXEKXflIv1x19
+         Z/1SbQI8dhwrwZu/zLO7TOeBpqGXiV/48UvNpj1hPNRj27Sara+NT8eJwTUm0NxfnyyC
+         vXKVR7xcQkLeoxwh8uhVzUx0v6Vp/9Q/+0TkUDiFwpDKatHwK2v3NizDlbS1Hl//Okwi
+         gDBZv3LWOby/+TjzHfktxwnMZ0qUVth2l++P9fs7kOSrhchwL/nzDwKfVqT2eQ3WP/pv
+         cZfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVGIcGRRvIBt8g5DCyVKMTuCnBZtMtzhY7ZR6bQ285viwqZ447LrAS7CFD2/J0V6cophaWCfpDfpen/5IlrmY93@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy03IXWxwErC528cT0mvAf2YKOgCHhJC7U8G4WiuqIuSottVanA
+	tY2EHUB/MZNoc+jYQLZ2L2WZP17WGACvp3ICdQFW7LfMZjOLYy7EDe4t
+X-Gm-Gg: ASbGnctd9JWpwBltl6rn1Z4oy8WzHs7+5NHh7FH/rWSCAglSLuuEUKXWipr9sVlm0oT
+	Wn86aXlV+ujm0TRXvuH1j9oVQb3miDzeurgpvTY4MFGjmdxW4AOU8hVcs5DqqTpv09Psv+75rWr
+	CXGcyeOWkYb1ipqPFwIh+phFWx1aBxKYGmpnzk2RdUmu5qNnjMjw9OR58X+G8Vt9/XF2Pre1ok+
+	6J3kJpbPRT/pX9u5GsIHBD24S9kzbbFr8XfiJPWcFhL5urSkQHSugndDg23pH+ddgfuDEKxdPih
+	wvnSnuLWX9FZ1TwjWDiZeVE3LCON/EUE5W7oCKiVZ7LEfcDTfUf+vCntF7RTuznYlG38weoP7IF
+	O2shS9D/E5ibQ0tVGS4zCtbMzb+Aq67in9MDGwrlAItI9xFi+44mFvFd4iNrgBYdQtxzkVqHODP
+	ohVQ==
+X-Google-Smtp-Source: AGHT+IHAljstHcaoMHk/lLRlsppwJy/V1KHAMxtXlEIjZrVw2dfhWs2pVvM+g1XbMmpxHBsC5hDZxg==
+X-Received: by 2002:a05:6a00:13a0:b0:7a2:8853:28f6 with SMTP id d2e1a72fcca58-7a441c476f3mr801487b3a.22.1761586471576;
+        Mon, 27 Oct 2025 10:34:31 -0700 (PDT)
+Received: from CNSZTL-PC.lan ([2001:df0:a640:1::15])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a4140a0d47sm8684282b3a.73.2025.10.27.10.34.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Oct 2025 10:34:31 -0700 (PDT)
+Message-ID: <5af928c4-4b6e-489c-ad39-26cef3dd7473@gmail.com>
+Date: Tue, 28 Oct 2025 01:34:25 +0800
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6
+ with A3A444 chips
+From: Tianling Shen <cnsztl@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Grzegorz Sterniczuk <grzegorz@sternicz.uk>, Dragan Simic
+ <dsimic@manjaro.org>, Heiko Stuebner <heiko@sntech.de>,
+ Jonas Karlman <jonas@kwiboo.se>, Jianfeng Liu <liujianfeng1994@gmail.com>
+References: <20251017073954.130710-1-cnsztl@gmail.com>
+ <d70c0eb5-9aa2-47b1-8205-81b724180319@rock-chips.com>
+ <08911ae2-fef3-432d-a236-d820c9cb67ac@gmail.com>
+In-Reply-To: <08911ae2-fef3-432d-a236-d820c9cb67ac@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_102017_931565_91EF8E03 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20251027_103433_213637_164A1321 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +108,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20 2025 at 16:17, Ulf Hansson wrote:
++ Jianfeng
 
-> When governors used during cpuidle, tries to find the most optimal
+On 2025/10/20 12:44, Tianling Shen wrote:
+> Hi Shawn,
+> 
+> On 2025/10/20 9:53, Shawn Lin wrote:
+>> Hi Tianling
+>>
+>> On 2025/10/17 Friday 15:39, Tianling Shen wrote:
+>>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+>>>
+>>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors and
+>>> corruption when using HS400 mode. Downgrade to HS200 mode to ensure
+>>> stable operation.
+>>
+>> May I ask you to test another patch I just posted to see if it fixes
+>> your issue?
+>>
+>> https://patchwork.kernel.org/project/linux-mmc/ 
+>> patch/1760924981-52339-1- git-send-email-shawn.lin@rock-chips.com/
+> 
+> Thank you for the patch! I will ask my friend to test it but he uses 
+> this board as a home router, so it may take a few days or weeks to 
+> report the result.
 
-When governors used during cpuidle trie to ...
+Hi all, sorry for the late. My friend has tested this patch and it works 
+fine after 50 times dd operation. A big thanks to Shawn!
 
-Both plural and no comma.
-
-> idlestate for a CPU or a group of CPUs, they are known to quite often fail.
-
-idle state
-
-> One reason for this, is that we are not taking into account whether there
-
-...for this is, that they are not taking into account
-
-> has been an IPI scheduled for any of the CPUs that are affected by the
-> selected idlestate.
->
-> To enable pending IPIs to be taken into account for cpuidle decisions,
-> let's introduce a new helper function, cpus_may_have_pending_ipi().
-
-s/let's//
-
-> Note that, the implementation is intentionally as lightweight as possible,
-> in favor of always providing the correct information.
-
-That sentence doesn't make sense. It's a snapshot and therefore can't
-provide the correct information.
-
->  For cpuidle decisions this is good enough.
+And hi Jianfeng, I found you made a similiar patch[1] for the ROCK 5 ITX 
+board to lower down the mmc speed, could you please check if this patch 
+also fixes your issue?
 
 Thanks,
+Tianling.
 
-        tglx
+1. 
+https://lore.kernel.org/linux-rockchip/20250228143341.70244-1-liujianfeng1994@gmail.com/
+
+> 
+> Thanks,
+> Tianling.
+> 
+>>
+>>
+>>>
+>>> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+>>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
+>>> ---
+>>>   arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
+>>>   1 file changed, 1 insertion(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/ 
+>>> arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>> index fafeabe9adf9..5f63f38f7326 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>> @@ -717,8 +717,7 @@ &sdhci {
+>>>       no-sd;
+>>>       non-removable;
+>>>       max-frequency = <200000000>;
+>>> -    mmc-hs400-1_8v;
+>>> -    mmc-hs400-enhanced-strobe;
+>>> +    mmc-hs200-1_8v;
+>>>       status = "okay";
+>>>   };
+>>
+> 
+
 
