@@ -4,100 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692C8CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906FECCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shyQnY3YHWfiVFVYpdQzZRY/aKcQtMNw7xgIsZxMDkU=; b=hkkISvkjP4TK5AsoMq4m2qw/XM
-	l87Cxybio1iXaoyiFc5h/pK/CzOeRD6X5cJuz91xFPH2G4oNlba8IvcDuoeZgtKtpBMN+dCPhN3ya
-	uJ1jt2fA9WYnkw259t+xcgL0taECoN5074+yWBpCtxjlWiOQ5sf3y58Eybslh5eG1gUvaamO62QtW
-	towkr+1+7LwObQWGsG/bOJXeSoQ6VzcGFfFTbTa/LJ6E18U8w0uayFjXd2aFw33rrRr+uRef7FcjP
-	qLqB2WJMQGU52j3y3KY8xD4qt6ujqLCq3ephhUmOix7vSYlRCuS7gyxW1MSKYEZpahaTCguN38Pvg
-	fWktBWKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Ioh+ei422mDRHRCmTRqwhrTiu6Qwunip7YW9iEf+bQ=; b=vouez3vl3VsDcqZhk49fC7/230
+	MSNCVEYVLYEkq0/bl4R3VIEEnglotdvGkq/jjPofHv5ejgKyggXp2UloLmQOIIb4+naWFFEhBizZ0
+	1mtJSXzDNEuNN9jIvfQBZqZSSdjCcUOPS7AnTSHHFHWZACn/iqQ3MxnJyZqsR99PoyAv4/Tp+GiMw
+	ewT6q06QuRE9f6BvdqTGYSBzT3IjyLybABMn9YI88TptUXVBHIN8O2YlRQ8nuWzaQGbhOGz4GR4xz
+	lStiR05gykrfkQElAqWzyNAGeAXhaGTxRW/5JvhtWbAFqIE5dP4KXBZbI3OCYfmMyVudlEy3IB7wJ
+	wtLmoZnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNnv-0000000E6Qn-1Vyh;
-	Mon, 27 Oct 2025 14:02:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vDNoG-0000000E6TW-3BgF;
+	Mon, 27 Oct 2025 14:02:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNnq-0000000E6QP-480Z
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 14:02:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761573749;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=shyQnY3YHWfiVFVYpdQzZRY/aKcQtMNw7xgIsZxMDkU=;
-	b=BzKz6nUKcUHLqAQG17WkfHbpxOAfvbSQq8e7ywRla27vQVzR/ELGcGz2B6M/jrONbWxtnG
-	xBQku+QgkqRGlGZ6py3rShCc0fFpe47/nCMnyNWIbOi2vMrDcS69KjZNbkZgx9+1KW8Jba
-	l4WMM28on6ISOfStEEB8DmNVzL7rS3c=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-330-N6SEJ_JuP2Ocf030-5Ow1Q-1; Mon, 27 Oct 2025 10:02:27 -0400
-X-MC-Unique: N6SEJ_JuP2Ocf030-5Ow1Q-1
-X-Mimecast-MFC-AGG-ID: N6SEJ_JuP2Ocf030-5Ow1Q_1761573746
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-426ec5e9278so2892986f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 07:02:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761573746; x=1762178546;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=shyQnY3YHWfiVFVYpdQzZRY/aKcQtMNw7xgIsZxMDkU=;
-        b=t4Cb7d2DQZGTNl/3zsLSUnBxzLFrFSeNsCslHFY0ZhhVkVR06/B9j5GOIlNaTfDxpp
-         xPnWuz9XM/HqUJWPurc8jJ13/Hv/woAVeeRIWWqkZpvHH06Bmr8kP4sCg5h5cUL7hWaT
-         fKuRlRAuYfk6ToASCKh2h7eEnlAOQEF7GttEtaDVC2/+qP8M47ckKGJz8Akki3nkySHD
-         Sl0VVDMzppIWdRb9LS6rnfhIGA93BLdKr7c63wQkLtwiX+Cj7/Nb7e0KHrtG03cXBIc/
-         fG9PStJ55RQMl1sLTDEzZ41KwmQEWvWpcCMMVgHYlkXtOYMXsBgDFuPm39tvrzDA1lOM
-         JyrA==
-X-Gm-Message-State: AOJu0YxMkV42lADZL6MK2qzyIb++/RFJijtfbHuF+EoauDfw/ggNLDsw
-	K/r4vIi+Bx2GfUmv+x92Zhd1enWfn9AkrXJoumBmruFwW9vHGGaEzEhFudrR/wyjFwEuLGZsqDx
-	REhtiNTDIrARGRrXuIOYuROrBiu0v2d+IylSCOFFDu8i4FJ+eEaPYbORukSq2Ibliyf/PvO54zX
-	OH
-X-Gm-Gg: ASbGncuPQyZYPV/uVHaggyxcbHPI4cKzuAmQcnBKDV1FC5xslhAxvSq2NoEZ8oaBugd
-	uclLNxavnDeMfaO16DcCgf+hZH35gA2ZWcnvYsN7aS8LTiVE1F4wa0hGtWvlDB/ulJ2E8++G6QW
-	QkWkAJICSu21J+Wq7MJjqPP5BDwA3CkgfgnIMPcERRXxFZ+0hGUjAGuHmbRbONYfU74qE7Odc/y
-	K91uH7Hr9SfoAdEvNw0fFRUEzd+z2oNjAkr6bnHMf5n6PeMlNMvriiHsavml+IiVQL821z9WmkN
-	cD5daaPUNZvkTNyc47MQqZS61RTyvjVcIPvaESPWzv872RZDFgIHuZ3dXc5FhRsjsIe6lJThORh
-	5uQ7v51/fb48e25g/bMGgwvrso/TMf2zVL1kYNbRnDEnBrp0T
-X-Received: by 2002:a05:6000:288f:b0:427:a37:ea3e with SMTP id ffacd0b85a97d-42990755b87mr8916533f8f.52.1761573744786;
-        Mon, 27 Oct 2025 07:02:24 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IETyCrcEtLcl3q6Rbfg7qOzwYfycn5fPY5jgI68IwSrW44NCEA1DZHmuz8NQf54cnQJ3dYQ8g==
-X-Received: by 2002:a05:6000:288f:b0:427:a37:ea3e with SMTP id ffacd0b85a97d-42990755b87mr8916495f8f.52.1761573744177;
-        Mon, 27 Oct 2025 07:02:24 -0700 (PDT)
-Received: from rh (p200300f6af131a0027bd20bfc18c447d.dip0.t-ipconnect.de. [2003:f6:af13:1a00:27bd:20bf:c18c:447d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952b79cbsm14242478f8f.4.2025.10.27.07.02.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 07:02:23 -0700 (PDT)
-Date: Mon, 27 Oct 2025 15:02:22 +0100 (CET)
-From: Sebastian Ott <sebott@redhat.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-    "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-    "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>, 
-    "maz@kernel.org" <maz@kernel.org>, 
-    "broonie@kernel.org" <broonie@kernel.org>, 
-    "oliver.upton@linux.dev" <oliver.upton@linux.dev>, 
-    Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
-    "yuzenghui@huawei.com" <yuzenghui@huawei.com>
-Subject: Re: [PATCH] KVM: arm64: vgic-v3: Trap all if no in-kernel irqchip
-In-Reply-To: <20251021094358.1963807-1-sascha.bischoff@arm.com>
-Message-ID: <e2d3e614-4e5e-7ad9-5cc6-867d85dca5c0@redhat.com>
-References: <20251021094358.1963807-1-sascha.bischoff@arm.com>
+	id 1vDNoE-0000000E6Sy-3DcC;
+	Mon, 27 Oct 2025 14:02:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1BDAD43C8E;
+	Mon, 27 Oct 2025 14:02:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E169C4CEF1;
+	Mon, 27 Oct 2025 14:02:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761573774;
+	bh=+ST9ufHu58j28Ts6nVeN1rz7S/b1aHIA8XFSEZT4kHM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iKRUaqy6VsiPeaGL+9xgk6jV32mELION86nQQkiqDChs0Qk89z+omcC67+xbup0d/
+	 VpfxTlEB/mZtuRdmTonKQSWXNOF6xy23jYpCA1NfVG8ZyQliCuq1+CwefvSpaOF0Pj
+	 i5miS2VH8zhL+1edoYy22EzdY37lvbUuK+qjBtGp6oGTIH2C/tx/PX6WlNX5spat9M
+	 gqMnPcPzcuDea1TI4DUcFhAaOSoAU+vGwYj8Z99pBnCeZPAWpJJECknkwgQwCBFren
+	 +H43pDHrHVVcUtxmqeAqn+PQP6qMc9ZHA/MnuQKdLeIj6Na1IUbwCNG2lyGFRtCTrU
+	 5Pm8r0PQSl91Q==
+Message-ID: <8e4c8875-10bc-4f4c-a675-a7cefc68c863@kernel.org>
+Date: Mon, 27 Oct 2025 15:02:48 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Dc9CeULW72ogq1ekmHaUa_eH0qqA-QpM_pjFOWMZ52A_1761573746
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII; format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB
+ PHY
+To: Roy Luo <royluo@google.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
+ Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20251017235159.2417576-1-royluo@google.com>
+ <20251017235159.2417576-2-royluo@google.com>
+ <20251023-collie-of-impossible-plenty-fc9382@kuoka>
+ <CA+zupgwQTLEs8_7i-VsGbGV7O2Y3XFA1C3aV7iuv2HLOwKns3w@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <CA+zupgwQTLEs8_7i-VsGbGV7O2Y3XFA1C3aV7iuv2HLOwKns3w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_070231_139885_F4268812 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20251027_070254_851749_4B044A65 
+X-CRM114-Status: UNSURE (   7.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,16 +129,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025, Sascha Bischoff wrote:
+On 24/10/2025 00:22, Roy Luo wrote:
+>>> +
+>>> +  clocks:
+>>> +    items:
+>>> +      - description: USB2 PHY clock.
+>>> +      - description: USB2 PHY APB clock.
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: usb2_phy
+>>
+>> core
+>>
+>>> +      - const: u2phy_apb
+>>
+>> apb
+>>
+> 
+> Just to provide the full context, these two clocks/resets
+> (usb2_phy and u2phy_apb) are specifically for eUSB2 PHY.
+> USB3/DP combo PHY has its own clock/reset that hasn't
+> been added yet, we would have to differentiate them once
 
-> If there is no in-kernel irqchip for a GICv3 host set all of the trap
-> bits to block all accesses. This fixes the no-vgic-v3 selftest again.
->
-> Fixes: 3193287ddffb ("KVM: arm64: gic-v3: Only set ICH_HCR traps for v2-on-v3 or v3 guests")
-> Reported-by: Mark Brown <broonie@kernel.org>
-> Closes: https://lore.kernel.org/all/23072856-6b8c-41e2-93d1-ea8a240a7079@sirena.org.uk
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+That's confusing a bit. You must add all clocks, all resets, all power
+domains, all pins etc. Bindings are supposed to be complete, see writing
+bindings doc.
 
-Reviewed-by: Sebastian Ott <sebott@redhat.com>
 
+Best regards,
+Krzysztof
 
