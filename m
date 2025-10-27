@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800CACCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABE3CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GtePFZ50OQu9UkVOuH4kfo7gCP1X+r6DH1nkl7ycn/s=; b=C6C8iwaoLOhKLT
-	/u9hBA+78oGl8MuiEDMIcTdt/QCpwW8wm/CuCXVDWCTS8eMYXRqtRBT7Ay13sBFmFmIrtnYjwBbxf
-	wL+DRKTNAh3YYcnAxe7F9kXcTLH1vvuBDiVs5FajKdjyJCMp6wf7bo4vKW30gcgPUNvki4FxtLm6K
-	FBxPZKN+b3+7yZ1Gvl6cPO0+7BWpWSAl8qMdhGGBecmtwDNpYw7xIuTeAfI2r57ktFsGC/+e6/+VJ
-	37es/M3NttbzRo8ONb2IoAZfU0bvIyEVIuxHMUSEEOwnsovO16q6e6Pl63nRiDJ77E89+iZMr4DS0
-	TzZGExFLcagxdr6T1+ag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IgLf2SVScm95+f02HH0OAwFjGNzD1ph15QV31vmZKhE=; b=K+2IVUrI9XYb0qreUM/4sA6YZl
+	ly3lBSb4p71qoJska92N8pJbHIX8QWZCigGRaaGhFWGEUaR8zQhcWh35gQD1NQIPzcU1WQIi66wzx
+	CkSjX+FgZLmqWwlx1u7aYhwczwWILAM51gBzHGdrZnDzFEFJJdT/ippakbxonBwsMGl8OoX/FeTOT
+	ELaljUtOaCJA6WEPrKtglg8INWHh+Bvt6fvXmUHHf4cASd8VL7zN6qVkyrxXkYlUKvJk59bSHe/nT
+	V9co1+qcBueQeIucqKEhtPjtyt/TjMh+tnq6tAPt0d9Rry9RVBzeB4XwI1bdWEsjpdv/s0uAvVLPA
+	WSud6hcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQ5A-0000000EJk3-1Qkz;
-	Mon, 27 Oct 2025 16:28:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vDQ8I-0000000EKHF-1lFk;
+	Mon, 27 Oct 2025 16:31:46 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQ58-0000000EJji-3pve
+	id 1vDQ8F-0000000EKGI-3cYr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 16:28:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A16940621
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BC58C113D0
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:28:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761582510;
-	bh=fMenu6Yz1dq6zD+MZ2kntyQwfvO1AlHWbUVPFlNZHb4=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=QjBrNJgPN2J+PdfNRb2TaFKtGlxPdFKzV1VY+Dts/k/KuYsSt1pxbVIxS6mvghoBU
-	 VjSQp2AwmDyg1Q0x/AJ1NFnCfGx0VhOHdLlhh1O9f91Ehrou0siTZSQBsxgKwFQDKK
-	 xfYQSOCWpC0BztLlQzHyLgGd24JvL48Czecrk9C2AbSxDXzHxS7NGYojViZye8ckph
-	 Xs36GqhgYIhehHg4yIhZFSBiiUU6GPNYS9PUudCowjL/SOuytaHAb/+vh7ioHFFAuT
-	 8SvSKBGZyHZPiSCEC/SOOuKDPKINOz+7piqTaFBpdHECcFRP9WOUZ5WDa6MHJtRaS4
-	 Jk0TGk1RA9bTA==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-378d61ce75aso45009881fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:28:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW3vKPUCe2YWqzrpK/llnmojkpUEzM/BXwTP4b/tax/Lhcci+5VwkGlWIK7HQE0+MZ+lS0Wl1N0+EMigFgPOyY8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCQihUB05kXP2AaDyklt43CBPJtYsfNWvnidiDslLvXLPe8z5K
-	Z/2E1Qaq5mO3mGeqG2nRG2hEvWBNgNyOLMJ7PkA2+SqUwHYUuQ9AaoHUaP3ITCwRgrHT9Ahh+aR
-	XhMYG4Opt2NImu/5ycXU8w/ShoMh9Hnk=
-X-Google-Smtp-Source: AGHT+IGr03Psc7IsDVuI7yBuiNpX7NgGOZZdYIYCrKCF0skdMpdkze/KFWqxct1dY9Bgybzo997IvN+845ppP7qCOgg=
-X-Received: by 2002:a05:651c:1444:b0:372:221a:b124 with SMTP id
- 38308e7fff4ca-37907b313edmr360691fa.0.1761582508856; Mon, 27 Oct 2025
- 09:28:28 -0700 (PDT)
+	Mon, 27 Oct 2025 16:31:45 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-63c31c20b64so7854996a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:31:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761582702; x=1762187502; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=IgLf2SVScm95+f02HH0OAwFjGNzD1ph15QV31vmZKhE=;
+        b=iH3NF1prIWsS9TCd/t5xVTRs40Xh/WKJ7kVRgRJWnXINcKzQ667s3v/QByS1THlKX8
+         6hizLhDfGJ0pcZULDZ+GqKglEFm/TivGmbWfD6t/7OxsxtsVOFtkx7OUiDb/HfXclzV9
+         avBrq+R4yUPmJTq8gTBysJrz27thzlnsyuxFacEniU5XqZT9cEz6uWxhGVcJEcUAbdLM
+         /m176s95/xFGKD9zqqok0YUzpsqU2pbudqUb3MpMIvhxB7xJNz7RR+zBRv4FwMXFp6ll
+         kLfNNHW7J8E+tYcACzetCs4RJW1sswun+CK51cQ5yiK0q4SkDi34z0redwn94IQ8I39G
+         M97w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761582702; x=1762187502;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IgLf2SVScm95+f02HH0OAwFjGNzD1ph15QV31vmZKhE=;
+        b=pRxP9ca0ejLMuB7c7Patt51t9OcY5o4IRznyL1+a8nsLhOVaGNCMUQtvqFSxwrfiAk
+         /XbBjS5xw/y/V84MuYnxLb1mdWy1qpU2rbemekw7aYRFuG7GvmOq11ZlpwsDveYbctF9
+         ith/ophNJA9JLI+ZWstTanbwtZZLynM8gWHxULrJFCr/0kmVK1ObkS4MEFLybTXZH+IQ
+         YDM74mBkkhw01JEH7MudqZqNbo1fYCRRgP9wzTZrbOcaX/YUyljU/zNEMxgJjHQkrvSE
+         yuJ1ELG7a8UKU17vPEP3yH5uZX1238Fix0hkQQAB2tT0GLY0+uvUoKsy9Zat+tkj/Wx7
+         F0/g==
+X-Forwarded-Encrypted: i=1; AJvYcCURQB7Sz7h1fP7D4YHoUFAsfl3fWiYdP/TIJ6aMEMeRkrA0bDsbh/YO0R1Lpt5IIt4udzqbPmK9ZSANjeb0V6MK@lists.infradead.org
+X-Gm-Message-State: AOJu0YygkkQ2ARxIltnGVqKtzbfczM5mz8Txvio8h00LB0dv7AG8AUra
+	9K7VlaCk1wD05Wyh+uAzT111Gc+EeAKhIANXJKJNXnrQhnZpTcZJwPvmjAUualmwuH9jW74cqD2
+	VqIZjwy0t5nC5meR05jtQPakv8mb5BAA=
+X-Gm-Gg: ASbGncuBNPWWsZwIW8MPJ7YPWex4OnZ1WxzlLe+Sx8VSLn4qw+oo1XjWN5QlIdOO6N3
+	kX7w3K90/j9WU3HdXdzfR1wIN7aNsoHpPWB//Zd6OqK4YnWBrL7bDyjBR+4BNOB1WX4JjGBW/bk
+	RXmX0RDTGOKq7XLMOUFtHo89yKYu4pR6NhwVaua3klYiuUb5t4r6IJ4kWRCDrddvKMzW4JRVmPD
+	jdZsNM/siC/7hZp+ieL1J9fbNDLM2rS/lBm6YxI9cD9llg61J683ezII4k=
+X-Google-Smtp-Source: AGHT+IG/IzMgRJGe0oU595mEmHs6fWEe0QVZBG2v7Ej1G6fm9/HYSbgpPg786Jnq6SwSPlQ24dt/1V+XJmYkuCP5oq0=
+X-Received: by 2002:a05:6402:280d:b0:63e:914e:5159 with SMTP id
+ 4fb4d7f45d1cf-63ed810957cmr526172a12.13.1761582701754; Mon, 27 Oct 2025
+ 09:31:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-11-jernej.skrabec@gmail.com>
-In-Reply-To: <20251012192330.6903-11-jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 28 Oct 2025 00:28:13 +0800
-X-Gmail-Original-Message-ID: <CAGb2v651SuBsN2SxsN3wRhVeNnzENkicbjQMVwOmB_9TQycTKQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bkWdarzFS1VL6yseX35ShJMc0dIOsuN3Cbpqr0YIgGq5nI4qQttqtOqeeU
-Message-ID: <CAGb2v651SuBsN2SxsN3wRhVeNnzENkicbjQMVwOmB_9TQycTKQ@mail.gmail.com>
-Subject: Re: [PATCH 10/30] drm/sun4i: mixer: Remove setting layer enable bit
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20251027145602.199154-1-linux.amoon@gmail.com>
+ <20251027145602.199154-2-linux.amoon@gmail.com> <5235617.GXAFRqVoOG@workhorse>
+In-Reply-To: <5235617.GXAFRqVoOG@workhorse>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Mon, 27 Oct 2025 22:01:23 +0530
+X-Gm-Features: AWmQ_bmuEGyIyVMM2F7v93d4eNawEzucpBZ6agLVtw_PaD2oW-53hrPDNMYJwI8
+Message-ID: <CANAwSgTmOvOZ35=3XjhrKu2iPCMOU8c8prK5XVAkf3cF1DHekQ@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>, 
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_092831_000407_8A1A4CD5 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20251027_093143_981305_8994FF81 
+X-CRM114-Status: GOOD (  24.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,153 +97,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 3:23=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
-l.com> wrote:
->
-> This task is now done by plane atomic update callback. There is no fear
-> that bit would be set incorrectly, as all register reads are eliminated.
->
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Hi Nicolas,
 
-You should probably mention the new path used to quickly disable a layer,
-otherwise,
+Thanks for your review comments.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+On Mon, 27 Oct 2025 at 20:42, Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+>
+> On Monday, 27 October 2025 15:55:29 Central European Standard Time Anand Moon wrote:
+> > Introduce a .remove() callback to the Rockchip DesignWare PCIe
+> > controller driver to ensure proper resource deinitialization during
+> > device removal. This includes disabling clocks and deinitializing the
+> > PCIe PHY.
+> >
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> >  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
+> >  1 file changed, 11 insertions(+)
+> >
+> > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > index 87dd2dd188b4..b878ae8e2b3e 100644
+> > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+> >       return ret;
+> >  }
+> >
+> > +static void rockchip_pcie_remove(struct platform_device *pdev)
+> > +{
+> > +     struct device *dev = &pdev->dev;
+> > +     struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+> > +
+> > +     /* Perform other cleanups as necessary */
+> > +     clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> > +     rockchip_pcie_phy_deinit(rockchip);
+>
+> You may want to add a
+>
+>     if (rockchip->vpcie3v3)
+>             regulator_disable(rockchip->vpcie3v3);
+>
+> here, since it's enabled in the probe function if it's found.
+>
+> Not doing so means the regulator core will produce a warning
+> splat when devres removes it I'm fairly sure.
+>
+I've removed the dependency on vpcie3v3 in the following commit:
+ c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator setup with
+devm_regulator_get_enable_optional()")
+Please review this commit and confirm if everything looks good.
 
-
-> ---
->  drivers/gpu/drm/sun4i/sun8i_mixer.c    | 24 ------------------------
->  drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 13 ++++++++++++-
->  drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 13 ++++++++++++-
->  3 files changed, 24 insertions(+), 26 deletions(-)
+> Kind regards,
+> Nicolas Frattaroli
 >
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/=
-sun8i_mixer.c
-> index a3194b71dc6d..1fca05a760b8 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> @@ -250,24 +250,6 @@ int sun8i_mixer_drm_format_to_hw(u32 format, u32 *hw=
-_format)
->         return -EINVAL;
->  }
->
-> -static void sun8i_layer_enable(struct sun8i_layer *layer, bool enable)
-> -{
-> -       u32 ch_base =3D sun8i_channel_base(layer->mixer, layer->channel);
-> -       u32 val, reg, mask;
-> -
-> -       if (layer->type =3D=3D SUN8I_LAYER_TYPE_UI) {
-> -               val =3D enable ? SUN8I_MIXER_CHAN_UI_LAYER_ATTR_EN : 0;
-> -               mask =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_EN;
-> -               reg =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, layer->ov=
-erlay);
-> -       } else {
-> -               val =3D enable ? SUN8I_MIXER_CHAN_VI_LAYER_ATTR_EN : 0;
-> -               mask =3D SUN8I_MIXER_CHAN_VI_LAYER_ATTR_EN;
-> -               reg =3D SUN8I_MIXER_CHAN_VI_LAYER_ATTR(ch_base, layer->ov=
-erlay);
-> -       }
-> -
-> -       regmap_update_bits(layer->mixer->engine.regs, reg, mask, val);
-> -}
-> -
->  static void sun8i_mixer_commit(struct sunxi_engine *engine,
->                                struct drm_crtc *crtc,
->                                struct drm_atomic_state *state)
-> @@ -304,12 +286,6 @@ static void sun8i_mixer_commit(struct sunxi_engine *=
-engine,
->                                  plane->base.id, layer->channel, layer->o=
-verlay,
->                                  enable, zpos, x, y, w, h);
->
-> -               /*
-> -                * We always update the layer enable bit, because it can =
-clear
-> -                * spontaneously for unknown reasons.
-> -                */
-> -               sun8i_layer_enable(layer, enable);
-> -
->                 if (!enable)
->                         continue;
->
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun=
-4i/sun8i_ui_layer.c
-> index 8634d2ee613a..9d5d5e0b7e63 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> @@ -25,6 +25,15 @@
->  #include "sun8i_ui_scaler.h"
->  #include "sun8i_vi_scaler.h"
->
-> +static void sun8i_ui_layer_disable(struct sun8i_mixer *mixer,
-> +                                  int channel, int overlay)
-> +{
-> +       u32 ch_base =3D sun8i_channel_base(mixer, channel);
-> +
-> +       regmap_write(mixer->engine.regs,
-> +                    SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, overlay), 0)=
-;
-> +}
-> +
->  static void sun8i_ui_layer_update_attributes(struct sun8i_mixer *mixer,
->                                              int channel, int overlay,
->                                              struct drm_plane *plane)
-> @@ -201,8 +210,10 @@ static void sun8i_ui_layer_atomic_update(struct drm_=
-plane *plane,
->         struct sun8i_layer *layer =3D plane_to_sun8i_layer(plane);
->         struct sun8i_mixer *mixer =3D layer->mixer;
->
-> -       if (!new_state->crtc || !new_state->visible)
-> +       if (!new_state->crtc || !new_state->visible) {
-> +               sun8i_ui_layer_disable(mixer, layer->channel, layer->over=
-lay);
->                 return;
-> +       }
->
->         sun8i_ui_layer_update_attributes(mixer, layer->channel,
->                                          layer->overlay, plane);
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun=
-4i/sun8i_vi_layer.c
-> index dcc4429368d6..727117658c6c 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> @@ -18,6 +18,15 @@
->  #include "sun8i_vi_layer.h"
->  #include "sun8i_vi_scaler.h"
->
-> +static void sun8i_vi_layer_disable(struct sun8i_mixer *mixer,
-> +                                  int channel, int overlay)
-> +{
-> +       u32 ch_base =3D sun8i_channel_base(mixer, channel);
-> +
-> +       regmap_write(mixer->engine.regs,
-> +                    SUN8I_MIXER_CHAN_VI_LAYER_ATTR(ch_base, overlay), 0)=
-;
-> +}
-> +
->  static void sun8i_vi_layer_update_attributes(struct sun8i_mixer *mixer,
->                                              int channel, int overlay,
->                                              struct drm_plane *plane)
-> @@ -320,8 +329,10 @@ static void sun8i_vi_layer_atomic_update(struct drm_=
-plane *plane,
->         struct sun8i_layer *layer =3D plane_to_sun8i_layer(plane);
->         struct sun8i_mixer *mixer =3D layer->mixer;
->
-> -       if (!new_state->crtc || !new_state->visible)
-> +       if (!new_state->crtc || !new_state->visible) {
-> +               sun8i_vi_layer_disable(mixer, layer->channel, layer->over=
-lay);
->                 return;
-> +       }
->
->         sun8i_vi_layer_update_attributes(mixer, layer->channel,
->                                          layer->overlay, plane);
-> --
-> 2.51.0
->
->
+Thanks
+-Anand
 
