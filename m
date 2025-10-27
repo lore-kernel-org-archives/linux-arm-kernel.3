@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8E4CCF9EF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69814CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qPNgQd3tvN+U16PQSse1qazzinVkbj5D7r4jyYJwpDQ=; b=Lx7gpq3IzUHL0ZZdytP7oGk7x1
-	3jTwkv5OD8Xcpz7xxsnN/PnUQ4tgePbirTt0vqiXun9yklfEnh8s4UOCLphLbKSVq4uclD8wknHOP
-	toogT2y+5XH6+A7Q0b9OFo0tpKkV8EGjpec3POk4WLyrGkP2dQUIn/GTziY9UecPKVe+YxmTplgY3
-	JCdxOeZYOiSuaR6asmWJRaDrfsvDQ/2i+21bejRoIM8cgf3Bx58+Ph0IEwizJRLeF/xJZJ3THQ5lR
-	s4vszP01jn2hMdD4x7JDupjSgLw/A0x3VmEhL+E1ATi0OBq9S0iCIpzuVDzwxCVAuX5IfrDVUYLHo
-	+7fILnQw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iwt0jedyUiNOzFlobqK/cAcMQOp8Zb3j6L3DOCL3MJ8=; b=tNmFd8DE+B06b9
+	+10Pks9lhzMP9k8QVfRrGJ4p0oorop/3SMuT5c8Xj5tVFwPDnTZrRCOHBVRxTQQd4bFOKPLG/hHvM
+	KMDpySVboBXkZa6DVCr31hhJV/o9eMAWFedVnehVIsvz8OCFnae1ljbb6ISdJdR1NTuKK3ptOWZWn
+	rMwKlXVH1+uwsuOAQxKZzPplY6uLErqXQMj5tm4WOt2judtl8alipgs9AW8JFJoA3XBBCx5PHyGdn
+	fuRyNx/iFQpF2qquX8MIIqlglEcecOsH2Eqh8qkf36ddq4xy/ROzlX1FxJH1cN98/Ix+Tt6yL79mh
+	+/7/HfY5KVozMTwbUVHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQNL-0000000EMRR-3Nhb;
-	Mon, 27 Oct 2025 16:47:19 +0000
+	id 1vDQPS-0000000EMkw-3aCw;
+	Mon, 27 Oct 2025 16:49:30 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQNK-0000000EMQp-2fLs;
-	Mon, 27 Oct 2025 16:47:18 +0000
+	id 1vDQPR-0000000EMkZ-3ByL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 16:49:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B3346041B;
-	Mon, 27 Oct 2025 16:47:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37CE3C113D0;
-	Mon, 27 Oct 2025 16:47:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E42DC60546
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:49:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91B3BC4CEFD
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761583637;
-	bh=32yOyFVynkfVIvnGVgJ92i0Ip1krG1hpIICP4cn0SOY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nIRBPzybk9NCdARzw23obr4pZMzwR/6XNdofj1qMoexG/4DU8IIk2+PM8X5IDn/gG
-	 /y1QthXqj9X6dblAsvAyIqeUiVOMpdrDk5BKx96RXacgKJFftP5+Z13HaYlb04F6gq
-	 SrY6R7NHuQFVjki4d6xx9Wy63ZuftiRH6jf5zyzitCSlTM24JBfK9VMx58eDCqgeEb
-	 odSzeccOojfaQ6ZC5gt0zyFnw20uNcDtwcX1cA3ifbaBMmhHwEa5G4hymHgg4yLhdk
-	 2hNg51IkIJRIObKlWkpVtrQwI0MckKkOLBzJJR5Vw9swl3jZwaB3lIPodHTno/fNvH
-	 B/GM2H8mSaPyw==
-Date: Mon, 27 Oct 2025 16:47:11 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
-	heiko@sntech.de, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	huangtao@rock-chips.com, finley.xiao@rock-chips.com
-Subject: Re: [PATCH v5 6/7] dt-bindings: clock: rockchip: Add RK3506 clock
- and reset unit
-Message-ID: <20251027-await-wound-0aee2d20e0a3@spud>
-References: <20251027084147.4148739-1-zhangqing@rock-chips.com>
- <20251027084147.4148739-7-zhangqing@rock-chips.com>
+	s=k20201202; t=1761583768;
+	bh=iwt0jedyUiNOzFlobqK/cAcMQOp8Zb3j6L3DOCL3MJ8=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=spnCglXjZvgKfzL4Yh67/LPtpXbNsmmsvIcdUaJEmXTVIRDxkkjn3AcLZF99Rkgam
+	 MZYOPgkn69POki8jL61AtdMxSHXSM5xee+poAVTOfHf7uZ511JYHDwHdRUOeXMrU6J
+	 +MjQ1Uwx/xShff8Ug9Zs/gYeLi4bvVK3enujeE1aAMdNQahL+sVavlb3ln0Itqwilo
+	 vMgAviDAsUmWDvn3TewOKtFgiAJcFx18ojQacW3Q3QmhWsadDK7CowbcS4/3DjxARg
+	 navc+Z46aTu0M918PiHTPlfTsMSGoYeisIs2Hw7lz3hGuuP0b/kbmtRnNg2fs8Zkas
+	 OUBM9tuP0oTsw==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-57f0aa38aadso5779303e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:49:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXr+bXehrQzmUdxoh8XKEvLeJQyackuazdrlveRzwqgQ232jmnUTHTFT7WjdmhQ4Jxk/H8nPoACQ7TNEVQ5XRPy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPC6l6Yo8w42gU1PTePs8t3D9ysMQq8YW5g+BDbc/pObD+3n/S
+	8q6NyoaHJHqS7on5ilZSbq7s7bO6Sx2VMZKvPXDRVYo3LEd3BwQQIfaICzjVjsqkgiyGUmLA3ar
+	LRHmzGin8uTQe4QyIUGwn7IOcXeLzhEA=
+X-Google-Smtp-Source: AGHT+IGjZBPVCroqeihNgSQn8QEjwNnQ2fNEMf1WNTWh/VQEvPpTrq85cH+GmAxeA1rjsw+++pJ4KpH26mh31O7ZNf0=
+X-Received: by 2002:a2e:a902:0:b0:364:f830:230b with SMTP id
+ 38308e7fff4ca-379076f696bmr1122261fa.22.1761583766949; Mon, 27 Oct 2025
+ 09:49:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eSWQ1Ctgvp2pmYfz"
-Content-Disposition: inline
-In-Reply-To: <20251027084147.4148739-7-zhangqing@rock-chips.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-12-jernej.skrabec@gmail.com>
+In-Reply-To: <20251012192330.6903-12-jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 28 Oct 2025 00:49:13 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66f0s0n4cv7M6_DXF6cxnzjd=9jRuCk-o-=rVV+6OZLqw@mail.gmail.com>
+X-Gm-Features: AWmQ_bm0ycd464KA4-SLL89Dthjko7sDvbYHRomqDxy1qMNmkmTwAyRYJbT_EzA
+Message-ID: <CAGb2v66f0s0n4cv7M6_DXF6cxnzjd=9jRuCk-o-=rVV+6OZLqw@mail.gmail.com>
+Subject: Re: [PATCH 11/30] drm/sun4i: de2/de3: Simplify CSC config interface
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,96 +79,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Oct 13, 2025 at 3:23=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
+>
+> Merging both function into one lets this one decide on it's own if CSC
+> should be enabled or not. Currently heuristics for that is pretty simple
+> - enable it for YUV formats and disable for RGB. DE3 and newer allows
+> YUV pipeline, which will be easier to implement these way.
+>
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
---eSWQ1Ctgvp2pmYfz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Oct 27, 2025 at 04:41:46PM +0800, Elaine Zhang wrote:
-> From: Finley Xiao <finley.xiao@rock-chips.com>
->=20
-> Add device tree bindings for clock and reset unit on RK3506 SoC.
-> Add clock and reset IDs for RK3506 SoC.
->=20
-> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-> ---
->  .../bindings/clock/rockchip,rk3506-cru.yaml   |  51 ++++
->  .../dt-bindings/clock/rockchip,rk3506-cru.h   | 285 ++++++++++++++++++
->  .../dt-bindings/reset/rockchip,rk3506-cru.h   | 211 +++++++++++++
->  3 files changed, 547 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk35=
-06-cru.yaml
->  create mode 100644 include/dt-bindings/clock/rockchip,rk3506-cru.h
->  create mode 100644 include/dt-bindings/reset/rockchip,rk3506-cru.h
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.=
-yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
-> new file mode 100644
-> index 000000000000..ecb5fa497747
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
-> @@ -0,0 +1,51 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/rockchip,rk3506-cru.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip RK3506 Clock and Reset Unit (CRU)
-> +
-> +maintainers:
-> +  - Finley Xiao <finley.xiao@rock-chips.com>
-> +  - Heiko Stuebner <heiko@sntech.de>
-> +
-> +description: |
-> +  The RK3506 CRU generates the clock and also implements reset for SoC
-> +  peripherals.
-> +
-> +properties:
-> +  compatible:
-> +    const: rockchip,rk3506-cru
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-
-Can you explain somewhere why the input clock is not required?
-Feels like it really should be required, if it is what the output clocks
-are generated from, but I can also see why it might be optional either.
-pw-bot: changes-requested
-
-> +
-> +  clock-names:
-> +    const: xin24m
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-
---eSWQ1Ctgvp2pmYfz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaP+iDwAKCRB4tDGHoIJi
-0o54AP98UXzeSXPMJY9coqV6N4MEVJH9zwk04uZhVRES8i7hMgEAysyNVT4D/cF6
-jLYYWNYeQbkblle37SMJSItJT554Rgc=
-=vAfi
------END PGP SIGNATURE-----
-
---eSWQ1Ctgvp2pmYfz--
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
