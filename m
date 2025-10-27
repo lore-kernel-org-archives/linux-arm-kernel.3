@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8502BCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44BC8CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SSdcMt8QLFSkKLYqTrSr4WGRCehiRklAAWxzKvWYKCM=; b=WVTHt+HIyyjyv7aqzCP9XLYp19
-	iR6Q83VUFKQWKI/SZbPpl4Jg7/4FXAacisw8ySIYGmuxvnJciVDqYhoB/1XZgOHuLZYvQF6qBb9Z4
-	tpzqZZeQBz10GdC+eHxviufezu3f9egnTGnhHc+xVJ7xhQGkqUiGH8F7BNH70hqsI0Wz//RCTfwj1
-	ugH7I0kJJpOYSBjkHDycOjGnaGi/6PaiE9vG2OVvAPkDAX6zENMsITRdAUrfC2lYDfprDgBBePu2o
-	t4gOyBss/2q2xkq73Z7V1eSUwUF3+OacQUd8ZpYVupwYkq/hfk6rb53dQCoHDzj9s3kvChBWBikcQ
-	Fx1pqYLQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TAupImhqXJxGshldNSxgSBXNWLiRLeN6B6RUAynMoUI=; b=t5vApW/6I8EHkhuc4zdgzywTNg
+	N9KSCuGAB1BlQuxwQ9C9rvXKEb/jwLndX/xqGa1t/jzBJ73eqW3t9x/8CS4IfudfMvFX5w00H9e2T
+	Asl8kO5uIug79NlKsBC4beciiJGxAH4AYxYmqVraQs9q9ugeJF6cpIIQglu0YbeHPHqKTW+x9ImaB
+	sA/F+xXyukD5LOOvHnq2zjLIq/RsMM/2tKtkQ1Qn/UE8gCDLXYBCv1Ywv1Q2vyelEHOLi332uR7KB
+	4HFZV5fiqJLa9evebr1sCrIC0SS+WJK1ziwadoL6i+AvwxD53KcbBxLO2Vbsa/4fW8kHoi/pK1HDE
+	+zlV114g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSEY-0000000EZHW-12n4;
-	Mon, 27 Oct 2025 18:46:22 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1vDSFT-0000000EZRD-0tzX;
+	Mon, 27 Oct 2025 18:47:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSEV-0000000EZH1-11KJ
+	id 1vDSFQ-0000000EZQK-01nB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 18:46:20 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4cwMsg0bsvz9sQJ;
-	Mon, 27 Oct 2025 19:46:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761590775;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SSdcMt8QLFSkKLYqTrSr4WGRCehiRklAAWxzKvWYKCM=;
-	b=Mxon/2Nq1YWy+zSVRs/eVW89dD2gFeQWBy+dHfi5G9jYwymoxm5vDKnJJWQsy1VCoMYcEv
-	P7t1sCf+Nt56yD1/CeBznN6hwhGBEKFsmltIeMsnSMOSn2H1LuUFmncXjarrZbq8ysj+6W
-	/wgLqVv0HERXmOcqbbPnLQIEwmxRDlytYdUin2dzPGDHxsvPrX1s/sGMhj7tFHHMJvUO0J
-	qkTX2Gmuly0U2Jd89pO0IerdQ+PD/Uw/SRrhWS0E9mirkInw0GAQ/3aXeHqFS73qyhL4MH
-	k4y9hWcSJi3AWB/AF5pZgXlnsBTSGsS2pCJAgbxaDU7btV89VSIiQvyK6AsECg==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761590773;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SSdcMt8QLFSkKLYqTrSr4WGRCehiRklAAWxzKvWYKCM=;
-	b=vsVHmfg8KX/1tyPf86mHAubkNuBhaA6ePfVT6amTgHEKTBXNPXhY+CnspJ1x2J959Eos1P
-	YFC/ITDmHCQsRkLoFYSCY8X2RdqDSKo87i4tNbW+RNmyukE4UE9ME8yl5kLiMn/tIN0uMP
-	7pzzOIKca5Akhc2VJIOKl6I1h24n/6Otxi1NUr9hEKNyY8z/OuQBM7HKotw0KKoj0KhR+6
-	8A09tkfdfXUxslKSO9itiRIcRc2nIQAFDkxmLi1uF43w9+Eqt72M2uDGhkPJ+1EK0PWfE8
-	vIQ0g40e5WN0ylw7tWwqPQ5XA31WNYe1SdQ7eh3HZJtAQjQ9rnfZhLhWanTV+A==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] arm64: dts: renesas: sparrow-hawk: Fix full-size DP connector node name and labels
-Date: Mon, 27 Oct 2025 19:45:53 +0100
-Message-ID: <20251027184604.34550-1-marek.vasut+renesas@mailbox.org>
+	Mon, 27 Oct 2025 18:47:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6587843E8D;
+	Mon, 27 Oct 2025 18:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3518C4CEF1;
+	Mon, 27 Oct 2025 18:47:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1761590835;
+	bh=Pg35hgBGJgVKKuPxLxM1Jrv7bX0Ya6lorh4S3qxI9hI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=xKpKwvLA7HckZOhubwGqMwwElKreQB9UAOKN2wCdblX3vrQxT75U3SRm/mZH2rf7l
+	 MbBEjLWNDWEUu/JlSL+IyvF9OJIBtgSAyg8Mr5rSRk2ziwJE0Qc7K12NJMKxChPCM6
+	 RIJZxf7UfBl5BzYjCAojrW9eqUO9dHgkE5eiAZDw=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Huang Ying <ying.huang@linux.alibaba.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 5.4 192/224] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
+Date: Mon, 27 Oct 2025 19:35:38 +0100
+Message-ID: <20251027183513.964676516@linuxfoundation.org>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251027183508.963233542@linuxfoundation.org>
+References: <20251027183508.963233542@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: x4q7fii5z44mhgk4fkog53ugrzf6ugap
-X-MBO-RS-ID: a54833429e75fd65622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_114619_456205_0E42D0B9 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20251027_114716_480150_B43B69BC 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,54 +83,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DisplayPort connector on Retronix R-Car V4H Sparrow Hawk board
-is a full-size DisplayPort connector. Fix the copy-paste error and
-update the DT node name and labels accordingly. No functional change.
+5.4-stable review patch.  If anyone has any objections, please let me know.
 
-Fixes: a719915e76f2 ("arm64: dts: renesas: r8a779g3: Add Retronix R-Car V4H Sparrow Hawk board support")
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+------------------
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-index 0e36a1b96b83a..f4181f6020203 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-@@ -119,13 +119,13 @@ memory@600000000 {
- 	};
+From: Huang Ying <ying.huang@linux.alibaba.com>
+
+[ Upstream commit 143937ca51cc6ae2fccc61a1cb916abb24cd34f5 ]
+
+Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
+mark some pages that are never written dirty wrongly.  For example,
+do_swap_page() may map the exclusive pages with writable and clean PTEs
+if the VMA is writable and the page fault is for read access.
+However, current pte_mkwrite_novma() implementation always dirties the
+PTE.  This may cause unnecessary disk writing if the pages are
+never written before being reclaimed.
+
+So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
+PTE_DIRTY bit is set to make it possible to make the PTE writable and
+clean.
+
+The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
+Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
+pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
+clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
+are set.
+
+To test the performance impact of the patch, on an arm64 server
+machine, run 16 redis-server processes on socket 1 and 16
+memtier_benchmark processes on socket 0 with mostly get
+transactions (that is, redis-server will mostly read memory only).
+The memory footprint of redis-server is larger than the available
+memory, so swap out/in will be triggered.  Test results show that the
+patch can avoid most swapping out because the pages are mostly clean.
+And the benchmark throughput improves ~23.9% in the test.
+
+Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
+Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Gavin Shan <gshan@redhat.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Yicong Yang <yangyicong@hisilicon.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/include/asm/pgtable.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 709badd4475f5..a05d782dcf5e9 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -145,7 +145,8 @@ static inline pte_t set_pte_bit(pte_t pte, pgprot_t prot)
+ static inline pte_t pte_mkwrite(pte_t pte)
+ {
+ 	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+-	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
++	if (pte_sw_dirty(pte))
++		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+ 	return pte;
+ }
  
- 	/* Page 27 / DSI to Display */
--	mini-dp-con {
-+	dp-con {
- 		compatible = "dp-connector";
- 		label = "CN6";
- 		type = "full-size";
- 
- 		port {
--			mini_dp_con_in: endpoint {
-+			dp_con_in: endpoint {
- 				remote-endpoint = <&sn65dsi86_out>;
- 			};
- 		};
-@@ -412,7 +412,7 @@ sn65dsi86_in: endpoint {
- 					port@1 {
- 						reg = <1>;
- 						sn65dsi86_out: endpoint {
--							remote-endpoint = <&mini_dp_con_in>;
-+							remote-endpoint = <&dp_con_in>;
- 						};
- 					};
- 				};
 -- 
 2.51.0
+
+
 
 
