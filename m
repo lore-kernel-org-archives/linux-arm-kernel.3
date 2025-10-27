@@ -4,196 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12BE7CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92484CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p5OQr+MFzlMGc6I9Y782X9OVD2TBTVEwb8PmsNrrg0s=; b=M9esDzyq9TgXO5jGcey8qErRYc
-	SqQyLR6cEqIRKYnQkTrkmQ2C2Hig44wTsCil9jXvfswRfQXHxCH/9Qw+PA5LwFhmIKjqyVkyTiOtX
-	eQDTvPFjXxwOg51M1vuv3ivVk+cbBGt8BywTnqwgnY9jZ+RmnU3PwotshaXbCGKvIasLUGULAZckm
-	6jAolMvzBo2HKtsDafLKCsvF5jOVC8xFBAjaU9VVao7rBYixUg9LCKkryu5L7IFa416KDm1bNhFDl
-	bpsGBHzzbN21gO9a63XYbfXzs5YIiFrGGKcYrGFv1q7JuJ3gsX6mDX60df/8uFLQkXG8VaRpgD2rc
-	rkqjZOeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AZrglM0feZRMpVVMsK8QY3tN6/k1/wvtgT7x8DYEV1U=; b=mCPWDSiWOeLJLC8lCuUcKY57Uh
+	2TdgDn5bFjD2/6eKVwoVAXOiMj3s811iywvTXzOnU3zLnGjMLx5BAd6k4A2RE6dLu+5I34pFICL/j
+	ocskYi6Gx9P4yBv4RQcwuylXB2jsEhsIS/jky+JZopoxcvz4RfSRCKy6OsriLT59ESk+gHrukscvW
+	3J3cNGRPVv5qjxQP33MzUCvAZ+J8fRiHwFJhX5rDZ/wVV9bnQWJq/SeZbS1QoSPAkP1O/0UJF20PQ
+	gAxcbciqAd+DWb3D26R2hGAl7LHcwEDe6u1uOsSazg6VgZlNa8CVsqVdscowO5cyM9+4roeWquJSk
+	QziGMQdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJWi-0000000DWiH-3MuN;
-	Mon, 27 Oct 2025 09:28:32 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJWf-0000000DWhI-28W2;
-	Mon, 27 Oct 2025 09:28:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761557309; x=1793093309;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=DEUF6WAg77zuPjvlQ73axiOdcVSSkMRAGxbd7of9zIc=;
-  b=cvDOcIBX/YLbwGPa3+Uu8LACchK/lArnNjpzqrWKIKqUHJ9A/aXwa9w2
-   j7JswrOuQswexpZQZyhSZyIeYl4td+cEZVVcifRwLoimll0cbS94kDRTn
-   weJ8SyowlByFVBAKyqd95MT/hwzJleETCXjwgAuipiSuqjmP+NAnpKdOL
-   8v58Ec22XdrmCasu9/+rCNxG6CHwlmQUIvDuJKofyNk+PsVPeYI0lUu+S
-   u0ZFoy/RqCSrxg0R7QKeZ5agdXEpmPMSJFfwvnnDONgGiLjQBVhPxg4XN
-   cfHZW/HOim7cJ/k4H+XQnHh+uDn8/2lTplm55DSsFwLOLHI+CIEFyZYVE
-   w==;
-X-CSE-ConnectionGUID: JtlCN9gNQdCVIpiG8zQscg==
-X-CSE-MsgGUID: /1qpfSAITzWhPsraC6TsFw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63667106"
-X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="63667106"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 02:28:28 -0700
-X-CSE-ConnectionGUID: xizAC1e5TYuVvhOzUF6o3A==
-X-CSE-MsgGUID: j3afkVfBRNqK2W9rLjca8g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="184898482"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 02:28:28 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 27 Oct 2025 02:28:27 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Mon, 27 Oct 2025 02:28:27 -0700
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.26)
- by edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 27 Oct 2025 02:28:26 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oUIDdMyDUVlzcls0x0VOqZMIOPhmpSQjN4jKzHOASggTHiPE7z+bJRxNGVtCxpQfoX9r2pekVBW8pUE8P+ao0VTOzC9g26Vu9IkvQS2G0aZHOHV8rAUwQpbKWjGDuX0s0xi+qnMQ6zA0bwM5a0Yz3O6PLxBuZ4cVc8VZv1x72NT/3xvFmcHmDX1aqIwUp+IVGA2SqrLtV6utvtQRwPtYz2TVbwHgRJoeqcyUVfOVUWhEDeNxzPpM+zdCwNefN9ogAnwgmaSfr2F5W1f1A8H6qtk+D3tDvkA4IbhreUi6XRacmSwdkEAtrXirXqCINEOUh3st3sELSgIt7jbULZV9DA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p5OQr+MFzlMGc6I9Y782X9OVD2TBTVEwb8PmsNrrg0s=;
- b=D357bLmB9LizJ4woVAn+yI2VemeAmqOfav0nimSRynOerFxLCY4lnDd9PveAr6Ja08FwxLD9sKBZVm/WakuPMWEIZEBNPW25wNwlyenzT73zkHBsu8gVu1yTCl8F7BycW9tiSABHppbtGMk0ligKbhWaqbfB7ugsTa5Otr6YcFiEehqm3jt4MmZRiTkMtY7YEdN810BW9X6Hh21Ih/yYoOL10GYcOGWmnydRq7BfX8PEM21QI0AFNFO1pZZ7DEeYVg7Og+XEJTCcpk8bLHH96wwdlPaD65hpEj4O0vL3FE6L5Ptm0bzkLbJlFYySeJJ7VeH2KoBKnL8IHdmi2777nQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- DS0PR11MB7459.namprd11.prod.outlook.com (2603:10b6:8:144::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.18; Mon, 27 Oct 2025 09:28:23 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
- 09:28:23 +0000
-Date: Mon, 27 Oct 2025 17:26:09 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
-	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Kirill A.
- Shutemov" <kas@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<x86@kernel.org>, <linux-coco@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, Kai Huang
-	<kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>, Vishal Annapurve
-	<vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Ackerley Tng <ackerleytng@google.com>, Binbin Wu <binbin.wu@linux.intel.com>
-Subject: Re: [PATCH v3 24/25] KVM: TDX: Guard VM state transitions with "all"
- the locks
-Message-ID: <aP86sdBZxXm5I17f@yzhao56-desk.sh.intel.com>
-References: <20251017003244.186495-1-seanjc@google.com>
- <20251017003244.186495-25-seanjc@google.com>
- <aPtOtzGLigbY0Vqw@yzhao56-desk.sh.intel.com>
- <aPuv8F8iDp3SLb9q@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aPuv8F8iDp3SLb9q@google.com>
-X-ClientProxiedBy: KUZPR04CA0003.apcprd04.prod.outlook.com
- (2603:1096:d10:32::15) To MN0PR11MB5964.namprd11.prod.outlook.com
- (2603:10b6:208:373::17)
+	id 1vDJYE-0000000DWyJ-486z;
+	Mon, 27 Oct 2025 09:30:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDJYB-0000000DWxp-2MUB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 09:30:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0D7C1764;
+	Mon, 27 Oct 2025 02:29:54 -0700 (PDT)
+Received: from [10.57.67.85] (unknown [10.57.67.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D50373F673;
+	Mon, 27 Oct 2025 02:30:00 -0700 (PDT)
+Message-ID: <d71e09ff-c063-46d9-8d02-f69c18b6efe5@arm.com>
+Date: Mon, 27 Oct 2025 09:29:58 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|DS0PR11MB7459:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ea2a0aa-f334-42b5-f2e5-08de153b2bbb
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jf2TD4vgrkud3/LPADiR80oelqkc+cRMBmRsd2TRNcwaKNYcW00L6IRaRmAd?=
- =?us-ascii?Q?6h+W9kBssAC/9ct3fje7b2YFAwcMrtChT/YhkcphkJhABFxyyXLvLvVj+f+4?=
- =?us-ascii?Q?by3p/GyliYnC5mLLfSU2LjriNJoDuwIY3w+v/HgPS6svYzvBVAnj/qs65pNL?=
- =?us-ascii?Q?jN0ipVwTcqfSOt8uVF23i+SseVN0TAV86kinFmxteAsgPY1/jzLjOvvgd0Cn?=
- =?us-ascii?Q?+ikMPN5jNIt6vwKFN/LfMObrgxAy7JbRplDXYwKgFTYW9Jg6AZL25fQoMt/O?=
- =?us-ascii?Q?ZYwZhrX87qk9dnj2lO98soD0FeOhMSOQYv/YhTcKRSPSiqYv73sQMBkTRRV9?=
- =?us-ascii?Q?NldP8kdBSl/9z6Allv83rBQILIIcosnT7+JLuPj0w9BGw/ySvCtD+z1WPURG?=
- =?us-ascii?Q?PV8iQADsGyHs3bKUI3K9KbxXI8uA7xxsQ4WLW/Bz42ahD5s6RsmcncGST8oZ?=
- =?us-ascii?Q?qiioxTKnq2yNTYsugOnikYTCqW2G58WP42yhncoxog7O/nmvCXmCIHuC8L2V?=
- =?us-ascii?Q?0vhIHakEykz1A7xApP+J9oJ8KOaYZII23vjdRgXtwEggrfEtKS3M2hj5WJDz?=
- =?us-ascii?Q?7k2uXIoWexTzZa2U6YsG4clVAIvw+6azQC1rFkHiGBR9BQuUIXrpqjyGyzme?=
- =?us-ascii?Q?zvmBfVRAlez+fSyZRk9iUi+RkcwnITA/8sa50THzVR/f80BVRlLkJKaM0MQl?=
- =?us-ascii?Q?lb3rPrzVM13Sc700sagbnmDuEDonpK6a+2x6CxMMPfFYEM8PjEAuca+UtQX2?=
- =?us-ascii?Q?U5KFcQ59QaTJoDMxmKZpwypFow2+Qh2W/0dMBtzR8omdVzBKviptM62OWjp9?=
- =?us-ascii?Q?yKJEtcouk8r9Te7dvgz8ECHpPbP2RfOyw69P/kedaGd3PW0Ijkhhf/FYPFjM?=
- =?us-ascii?Q?Ig3TmCaX8QqoU0k+FYfCKTtgZdpzcCjhggRMo2AlLnI2ip9yfKhLpkNSwoxC?=
- =?us-ascii?Q?lmPtAFVNp7X01xR8QMJ64Hv+uUTOwnfxRwkEJEWghRTXBnFHSbLh7BugbcrG?=
- =?us-ascii?Q?X6BcUwXfQ9Am7814utc3+InyzzuKw2NU+9wE0eYdyk04HUwpEu0OLu/sacZo?=
- =?us-ascii?Q?qWzsToj9+7QEYMV4bJdL0b/jcS6MhO5fUDTrzeV/wZyO3SDY3zdhIIMeQlq0?=
- =?us-ascii?Q?9FRUu7bwZN+Dn+uxvYWc7s8bSrpDEkBqb6qZwv/6XBe1Qtkj0XIJi2RCRzim?=
- =?us-ascii?Q?Z0KwkF7NwOjpFYOqjaYSoBHLJtAPWAnDub5PD7ceWTYKDbyNbkUOaOf4Jq0L?=
- =?us-ascii?Q?dWmS3st2jjCI9SK42MYQto53Ypdszeuxwpjc3YPX2mB7hrXQ/7eF6IemyvHf?=
- =?us-ascii?Q?WNwgdFIrF+BPl4lsWnN0+4kiyIO9D+kczGeApMHbkNnh8xeIQlKYVOwQ9NrF?=
- =?us-ascii?Q?WgxIqXI0sG4gKd7Q3cEPGFyZeg9v3WsW1V2b1DwuVV5qAtMxBqyLj4f51noK?=
- =?us-ascii?Q?dkPiJJlRMEnDRlg2Wpt3qXFX2z81q0HWJrVql9WTsOIjK3/Ephuc6w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rsa7QifGsaLFajjtYnrPCBrIxY7iTdozE4brShSobXnEy90UkIcwflCr7IY4?=
- =?us-ascii?Q?03vGQszLgJIqO575tVMDCVtIRGlnLwyhu6MIVIsE4vl6Hak19sBMRjMokVl7?=
- =?us-ascii?Q?0gYKGqMLwNzDRbSafJxmlK6hEnoU54YJgoHl0SHPCY5IfDQ75ND5jFlHM2yS?=
- =?us-ascii?Q?T1wN5JxlC8ChfCgC6SYE5luMn9CsDTt6g82XtYIVpgklKqqM3Z5DeCkRIa5B?=
- =?us-ascii?Q?jd3LUCopAGt7cw8wT5oHfJnASlAxHugtboFTNVXmOvOjRsJJ+7Cq4xYIUyEp?=
- =?us-ascii?Q?sAvUYjEFTq28ZnunKfiWpI1U9duWgT0BIw+g+WmFI1gsphtIeIu93U5FWqP2?=
- =?us-ascii?Q?h+XdwfMI/y+Nq3PdA9FgwAeEs6qTvYcLh1WXE7nsPw5hP/W7jvpjHLCecYqO?=
- =?us-ascii?Q?wwwLdgW0NYXqC2sCvYIDEOSiKyV6kur68XtmDuSu1kHzmFNeJzT+EQ/u6ags?=
- =?us-ascii?Q?tWDY+opeOCxIeINOpW5sDho1ql+kYDK7Kt0LxxWdo3E/oStobTSj3KgnQDaE?=
- =?us-ascii?Q?S7s0b6yJi7gmigwXbIgxCZp9YqbSs9sIG1fWiuLyNAlRr8TZswI2kr5MyUTL?=
- =?us-ascii?Q?/t4zO9GuqNyP0tWYjPBsgCtxw51jdeLALwyIqzh07uT3rZKh3kNODnNEtVuz?=
- =?us-ascii?Q?oepUYq/Cnv8neNZFOUCaHWAEqeC86QU6iTPSf2Dtj79b2yKt3enTblkDBIrP?=
- =?us-ascii?Q?y8CfoSXsjmMah5/+kgEegbGT75HkU3orUbAG1ZchsTEIOmrIdha9wn+8IpSc?=
- =?us-ascii?Q?qHuU7L5BqijWx0raitDKkItgZHGG+ot2Tu0rYhelbkUY/z8QYP1b3Y6CChb6?=
- =?us-ascii?Q?pxLwIWleyEZjLlen3nRPwvSmXW4SzuPHV8Jh+QVRyFAh1b+S/cGRb0fJY8jF?=
- =?us-ascii?Q?YS5Wal0vItbtGDkHaKN078/NngYYLnNpDTBgK1mGQ0Ew9K8mqXqR7HLANCjz?=
- =?us-ascii?Q?/0whyDr0LJIw2DkyI5vH1ml+0lpljR7vEgYbzvCnjZ2XWUd6XEcTQJpz0bFe?=
- =?us-ascii?Q?FZMwXo+3fEb+g8/KRU+24h0Ps2y5VeIzXwQfQpGegFzTrGJUg0IL8tDuXMzO?=
- =?us-ascii?Q?jYntYQUzmWmka8lwOFXyn95xK9q3A5DRTvBvJPTXFWezZ4zgQQKvbqAmXfTe?=
- =?us-ascii?Q?vAw+CtcGbF1hQAcM3e+tGtLRRc7Ia19BYXt2eRNox92AmJgi0zArGy4U+EL2?=
- =?us-ascii?Q?1kx+V1ksf0IM+GmoCCb7mwMoYI21df0kroTsb1YCVSfxF9YzzOunjw/HSWDh?=
- =?us-ascii?Q?IIhBxeEtWXUiUWDsk5wROe1Wy88X0HLJWx3IKBc023nwhep9EGj3K02KUi7g?=
- =?us-ascii?Q?QFOXaVtrP1coSRhkVR4l9anBks+/qD8MQsoyLEDVp4EIP61PkL572AQtirI8?=
- =?us-ascii?Q?bCfCfR5DacEjMj+vUqIVRooUu9lum2p+nWyF2IPSg15uRuRBVRr/Yi3eE9gp?=
- =?us-ascii?Q?oCzidz59173a6DpQS5pQvBHVz8K5j5ogES84IH5iIfaClu56czXXmRsljjKB?=
- =?us-ascii?Q?wy2OyzvHhHxrZL5GcjQlHTkmLx+2ubrZuxzf77roUXo4DSYUxosfFBmNfBng?=
- =?us-ascii?Q?2WrccTiNJkNAB9Xw3lPBkV0wlzTA6tRQNFYFaRkJ?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ea2a0aa-f334-42b5-f2e5-08de153b2bbb
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB5964.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2025 09:28:23.1401
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hj30LUqvHef2dGBQX4wm72dt3peybIJGOYOYiMhoRemUBW40W5YFAUuW6WN2VYuSbEd2b7tDiMcJ8bfgPNXP6g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7459
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] add sysfs nodes to configure TPDA's registers
+Content-Language: en-GB
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+References: <20250827105545.7140-1-jie.gan@oss.qualcomm.com>
+ <b5762a05-8b63-4354-925e-fa3c8296e19f@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <b5762a05-8b63-4354-925e-fa3c8296e19f@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_022829_567477_4388731E 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20251027_023003_647857_96CEE836 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,66 +65,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 09:57:20AM -0700, Sean Christopherson wrote:
-> On Fri, Oct 24, 2025, Yan Zhao wrote:
-> > On Thu, Oct 16, 2025 at 05:32:42PM -0700, Sean Christopherson wrote:
-> > We may have missed a zap in the guest_memfd punch hole path:
-> > 
-> > The SEAMCALLs tdh_mem_range_block(), tdh_mem_track() tdh_mem_page_remove()
-> > in the guest_memfd punch hole path are only protected by the filemap invaliate
-> > lock and mmu_lock, so they could contend with v1 version of tdh_vp_init().
-> >
-> > (I'm writing a selftest to verify this, haven't been able to reproduce
-> > tdh_vp_init(v1) returning BUSY yet. However, this race condition should be
-> > theoretically possible.)
-> > 
-> > Resources              SHARED  users              EXCLUSIVE users
-> > ------------------------------------------------------------------------
-> > (1) TDR                tdh_mng_rdwr               tdh_mng_create
-> >                        tdh_vp_create              tdh_mng_add_cx
-> >                        tdh_vp_addcx               tdh_mng_init
-> >                        tdh_vp_init(v0)            tdh_mng_vpflushdone
-> >                        tdh_vp_enter               tdh_mng_key_config
-> >                        tdh_vp_flush               tdh_mng_key_freeid
-> >                        tdh_vp_rd_wr               tdh_mr_extend
-> >                        tdh_mem_sept_add           tdh_mr_finalize
-> >                        tdh_mem_sept_remove        tdh_vp_init(v1)
-> >                        tdh_mem_page_aug           tdh_mem_page_add
-> >                        tdh_mem_page_remove
-> >                        tdh_mem_range_block
-> >                        tdh_mem_track
-> >                        tdh_mem_range_unblock
-> >                        tdh_phymem_page_reclaim
-> > 
-> > Do you think we can acquire the mmu_lock for cmd KVM_TDX_INIT_VCPU?
+On 27/10/2025 01:14, Jie Gan wrote:
 > 
-> Ugh, I'd rather not?  Refresh me, what's the story with "v1"?  Are we now on v2?
-No... We are now on v1.
-As in [1], I found that TDX module changed SEAMCALL TDH_VP_INIT behavior to
-require exclusive lock on resource TDR when leaf_opcode.version > 0.
-
-Therefore, we moved KVM_TDX_INIT_VCPU to tdx_vcpu_unlocked_ioctl() in patch 22.
-
-[1] https://lore.kernel.org/all/aLa34QCJCXGLk%2Ffl@yzhao56-desk.sh.intel.com/
-
-> If this is effectively limited to deprecated TDX modules, my vote would be to
-> ignore the flaw and avoid even more complexity in KVM.
-Conversely, the new TDX module has this flaw...
-
-> > > @@ -3155,12 +3198,13 @@ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
-> > >  	if (r)
-> > >  		return r;
-> > >  
-> > > +	CLASS(tdx_vm_state_guard, guard)(kvm);
-> > Should we move the guard to inside each cmd? Then there's no need to acquire the
-> > locks in the default cases. 
 > 
-> No, I don't think it's a good tradeoff.  We'd also need to move vcpu_{load,put}()
-> into the cmd helpers, and theoretically slowing down a bad ioctl invocation due
-> to taking extra locks is a complete non-issue.
-Fair enough.
+> On 8/27/2025 6:55 PM, Jie Gan wrote:
+>> Patchset 1 introduces configuration of the cross-trigger registers with
+>> appropriate values to enable proper generation of cross-trigger packets.
+>>
+>> Patchset 2 introduces a logic to configure the TPDA_SYNCR register,
+>> which determines the frequency of ASYNC packet generation. These packets
+>> assist userspace tools in accurately identifying each valid packet.
+>>
+>> Patchset 3 introduces a sysfs node to initiate a flush request for the
+>> specific port, forcing the data to synchronize and be transmitted to the
+>> sink device.
+>>
+> 
+> Gentle reminder.
+
+Please could you fix the dates and version to v6.19 ?
+
+Suzuki
+
+> 
+> Thanks,
+> Jie
+> 
+>> Changes in V3:
+>> 1. Optimizing codes according to James's comment.
+>> Link to V2 - https://lore.kernel.org/all/20250827042042.6786-1- 
+>> jie.gan@oss.qualcomm.com/
+>>
+>> Changes in V2:
+>> 1. Refactoring the code based on James's comment for optimization.
+>> Link to V1 - https://lore.kernel.org/all/20250826070150.5603-1- 
+>> jie.gan@oss.qualcomm.com/
+>>
+>> Tao Zhang (3):
+>>    coresight: tpda: add sysfs nodes for tpda cross-trigger configuration
+>>    coresight: tpda: add logic to configure TPDA_SYNCR register
+>>    coresight: tpda: add sysfs node to flush specific port
+>>
+>>   .../testing/sysfs-bus-coresight-devices-tpda  |  50 ++++
+>>   drivers/hwtracing/coresight/coresight-tpda.c  | 278 ++++++++++++++++++
+>>   drivers/hwtracing/coresight/coresight-tpda.h  |  33 ++-
+>>   3 files changed, 360 insertions(+), 1 deletion(-)
+>>   create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight- 
+>> devices-tpda
+>>
+> 
+
 
