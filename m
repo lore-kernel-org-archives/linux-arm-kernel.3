@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D7ECCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 05:42:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121F5CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 05:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVn4b0deNMpWiRLKcZDZlWur5NaH7E5RHtbADcGazGw=; b=ssdXaQJAA53l4wWEsdjugDJrWH
-	Yrzvn+uD59AuH4YdoR9+fqna/G9YJDPCwxlP/zcqV4oGtNgxvO5t0zd6Lx1esC9DaumZ3uuoyw0DK
-	90mTOPsIvzn3PpBtVWZVM2d+/3EDs1BC1vCzXEOuo2lHFblRo4arrRWnU3k/GnB0MFliNTyNqpPiL
-	HYMJ5QK3fCifUIToJbHKXM1vvJXKtr7JjQfAKVUjVZ6+PsduX3mdofOKQMBK8+kvpj6MgN/ZDYI5z
-	898IPF0Wx9RS1+13v7nWEyOgkoEvCah68eHlyVWmtmrwR7dZHezKAamUpjwVsY9J88g6RUaJtZvEy
-	QY7MFUiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CKRrBqA7qVngOvEQZZ8tf14UPu41+3MbcjiQ9TlNHBM=; b=hp+M1qQSUGfvgI78dMnrfQgsr5
+	A5jRfBC7oaimItI3sh7m1cf9+eGVluy6nO1KroBNR57aF+6G7hWsynlza0X3GnOeOHbIhOVfunAVb
+	ubrZ+0DHvnccqk/yNomBWkNO83wZ03NmQYDfZLJ+kpudwK6fSvDsZwGFW+gtgmULjFaetEZ9TTPi/
+	iBsuD5fi+ZL8vw/70Pj0zHCP4UHQJfiWL/vm2imoJsze1FN91SRBKfSN6q8PkfLIX+QaLf8HXLaa/
+	sweZ5+SlfDEU/KQZdNbw7tXUB6EiSOBkfuqrwvLNoebh1lOuwyGc2UHnMtvMu6PHY+2VW9l+my/0A
+	Ux3/h7uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDFzS-0000000D89X-2LAV;
-	Mon, 27 Oct 2025 05:41:58 +0000
-Received: from mail-m16.yeah.net ([220.197.32.18])
+	id 1vDG0H-0000000D8GP-1Abb;
+	Mon, 27 Oct 2025 05:42:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDFzP-0000000D89A-2kXT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 05:41:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=iVn4b0deNMpWiRLKcZDZlWur5NaH7E5RHtbADcGazGw=;
-	b=F3/HY2nw5S6JLNqpitn99uVadtBHG8q2efti5F2VT3SfG79Q1WOqTTiMz+TVIr
-	1u/hHh/T6FAH6VTsaJmfN8fIbVQxm2dsiPmhmAdrPLSs3qyfZKe9Y8Pc1QPIqvFp
-	rQM/0VVvWHU3Mwwfp/Z3Mc31nmltNz4zfJXQe0jVYvU2c=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDHz6gVBv9okR2+AA--.24198S3;
-	Mon, 27 Oct 2025 13:41:43 +0800 (CST)
-Date: Mon, 27 Oct 2025 13:41:40 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Jan Remmet <j.remmet@phytec.de>
-Cc: Teresa Remmet <t.remmet@phytec.de>,
-	Janine Hagemann <j.hagemann@phytec.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/6] arm64: dts: imx8mm-phyboard-polis-peb-av-10:
- reorder properties to match dts coding style
-Message-ID: <aP8GFPBVQhyIA0-2@dragon>
-References: <20251007-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v2-0-7e5de62c79bf@phytec.de>
- <20251007-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v2-3-7e5de62c79bf@phytec.de>
+	id 1vDG0E-0000000D8EY-4Bhs;
+	Mon, 27 Oct 2025 05:42:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EC0F603E6;
+	Mon, 27 Oct 2025 05:42:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B0451C4CEFB;
+	Mon, 27 Oct 2025 05:42:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761543765;
+	bh=44qN4cXbDRuGkOkp834OqQv4i7x65eWUBJtq27tjHD4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=oj0Njm697xDGaxXE8xLeBb2PqytIbhJbwoIImZuEDlb7UA1u3tet7uw/1w6MGZ0cg
+	 AadawIxZHYQM9hFthTAhOI7U60Yn5ktVfu+zaWFVvTG3JmBgyVQLxfm5vDzNhwv6Y3
+	 7PpnMmnndLWcqhDG1hRJpWwczFBd6UTsWysRZmcxVsxT9Ty8++EmNqToFjEr1BoUd+
+	 EqomDS5CzMJWyXYohLoJMkwzp5nO+xJNtWQNce2V2ZhpnAlNYZoomvs9PqklNxcJCC
+	 o8HLP1Wjgbnh49odGswhM2TVh12++fM57QOm5uHlXEdvaXqpArt2SDL3eWAdzfI8D7
+	 XU4OFK7ZfleTg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BF7DCCF9EB;
+	Mon, 27 Oct 2025 05:42:45 +0000 (UTC)
+From: Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org>
+Date: Mon, 27 Oct 2025 13:42:38 +0800
+Subject: [PATCH 2/3] dts: decoder: Support V4L2 stateless decoder dt node
+ for S4
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251007-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v2-3-7e5de62c79bf@phytec.de>
-X-CM-TRANSID: Ms8vCgDHz6gVBv9okR2+AA--.24198S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUcYhFUUUUU
-X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIhegBmj-Bhc3ZAAA3G
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_224156_035525_DC5A3DC9 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251027-b4-s4-vdec-upstream-v1-2-620401813b5d@amlogic.com>
+References: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com>
+In-Reply-To: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, Zhentao Guo <zhentao.guo@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761543762; l=1381;
+ i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
+ bh=LcY8cMBMKErZcyqsCWF2LS5nXjw5kG0pKkyeU/UPzbo=;
+ b=Mr7z0YtZ2hQe/xIjZV57FO+a0pPguCGABpUUZmWIzYTlQHlNNnTTjWDxX3NM5t959kyXml7Zj
+ HUjLajdPhxRD5iOtdXalisob0ScsnctG2q660clLZY8xN6O2Cy/XbKq
+X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
+ pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
+X-Endpoint-Received: by B4 Relay for zhentao.guo@amlogic.com/20251024 with
+ auth_id=555
+X-Original-From: Zhentao Guo <zhentao.guo@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,16 +85,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: zhentao.guo@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 07, 2025 at 10:12:28AM +0200, Jan Remmet wrote:
-> Sort properties. Rename regulator label to match schematics.
-> 
-> Signed-off-by: Jan Remmet <j.remmet@phytec.de>
+From: Zhentao Guo <zhentao.guo@amlogic.com>
 
-It doesn't apply to my branch.  Could you rebase?
+Add vcodec_dec to the s4 dtsi for the V4L2 stateless decoder driver
 
-Shawn
+Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+---
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+index 9d99ed2994df..028566f7423d 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+@@ -853,5 +853,29 @@ emmc: mmc@fe08c000 {
+ 			no-sd;
+ 			status = "disabled";
+ 		};
++
++		video-codec@fe320000 {
++			compatible = "amlogic,s4-vcodec-dec";
++			reg = <0x0 0xfe320000 0x0 0x10000>,
++			      <0x0 0xfe036000 0x0 0x2000>;
++			reg-names = "dosbus",
++				    "dmcbus";
++			interrupts = <GIC_SPI 91 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 92 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 93 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "mailbox_0",
++					  "mailbox_1",
++					  "mailbox_2";
++			clocks = <&clkc_periphs CLKID_DOS>,
++				 <&clkc_periphs CLKID_VDEC_SEL>,
++				 <&clkc_periphs CLKID_HEVCF_SEL>;
++			clock-names = "vdec",
++				      "clk_vdec_mux",
++				      "clk_hevcf_mux";
++			power-domains = <&pwrc PWRC_S4_DOS_VDEC_ID>,
++					<&pwrc PWRC_S4_DOS_HEVC_ID>;
++			power-domain-names = "pwrc-vdec",
++					     "pwrc-hevc";
++		};
+ 	};
+ };
+
+-- 
+2.42.0
+
 
 
