@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8A1CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F77CCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Wt2P3rgJn+5UKGAbxiwQscDH8snP1L4I/rTGNdNX60=; b=lpjg+8cN7B0Qi+pV/MhweEpxMW
-	SdqH//sY5YDWqqJVNBKjPb7TzPpnPS5Fl2V9FrpVapp/oYXCmh5DKlVT6ZryaQrrCW1aexKIqQCdy
-	LaEESKpKquUxCmpbM90TfgPvxqgOBT5FDUwKY+fZUUoosbfchltA09LeGerJhPiy1uRLNxbuRTN1V
-	BuuwUwSx0kiAwLhjrfO8yfCf/gtbTPCIMVCshgrF6m7Q+CevAKUNS/KDytQYIF3uHgy7nGpJpVN2Z
-	wvPD+Gj0ASrdmBN5whxSWSUrIcMfY5elJKY/qfVVkB7a5KYbIGONu/ao38MSN+FOEbcoGISiXe2vF
-	7sb7XA8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O/IAo5Oi+YN1TvC5L+T4+FTIT9PU5gRVBHT1xVrzic0=; b=PkbWpm+x9gy9E5XRKuf2nOeu/E
+	go2Qps4BuEduOF+0N5kKZ1V6OpQZXAxpcbKAveZYln+r3TFts7Cm04jLnTv/GkNF7xyyF/1d+xQ98
+	cD0893z5osRdGwbw21yNHLNC89QvYY8an2KDdkgrEu78eoOL+RXoNJwJFmWdijCFjXMVEsTd+o+59
+	Vm71kburx1dYKvVP4nYhPgGi7YcR2o0uUViZC49tNr9NkUuYm2Y6wNzU+A0xRVOA37c9k2OtnqeNv
+	hYbVHcV8gakS0bb+sY3TH4QWBNas90fDOv+MCUgQexkqa7EqCPgSAkW1m7PFbOl+QA5cgKNqb2vC+
+	ZmRUVYqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNI8-0000000E1je-0AtG;
-	Mon, 27 Oct 2025 13:29:44 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1vDNIk-0000000E1zF-3oLT;
+	Mon, 27 Oct 2025 13:30:22 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNI5-0000000E1iE-3izi
+	id 1vDNIh-0000000E1vN-2hpY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 13:29:43 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b6cf257f325so3802968a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 06:29:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1761571781; x=1762176581; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3Wt2P3rgJn+5UKGAbxiwQscDH8snP1L4I/rTGNdNX60=;
-        b=IeEr3prJr25wZmZRqtzvAljjN7kIBa/ib3StTQ9oSy5d1MhgdS6emRR6D2xx8m1xxw
-         x32StbW0Sr14n+HSVpoa4VUo/YaRhfdp+ikICBkwIQDxqYFB/j9WKkYvEMSFLxrMLLwV
-         E4q49kR2UeA4cURYWcWu5iA02KgmMLFE9cJyXgp48nGiC/WL9z4Ooy9j19ibpKV6KXsn
-         EWteaePH+1AdcJWzN2chC9bs1FSdpOCARMg5ASIP6FXvShXZAkCGB5jLCS6ys3nCf4Ti
-         up9XIkZmw9KQKb1eg8OCHFIAI5CLOi1qcEdywLnQ5mYB/fafToaa7WUhVxzJ4yT47q82
-         U7GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761571781; x=1762176581;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3Wt2P3rgJn+5UKGAbxiwQscDH8snP1L4I/rTGNdNX60=;
-        b=jBd9OkZ1CGgF2AneTGa5AmI38JnwEjBjSxfVKcvohu+tG/MwOkDqBE86QJ1vL4kbRS
-         GaCKRFw8zzWDL/xE3t7eg+2h3NEruEzb4O7uipGpVHGiTVZm9JQSkD2XXdQLRw93qZ39
-         xE9Zjmd5Z3Gz/vL0MUveh6puttLCJtUKoYFEruQxzQzypCiVvN+P2cUztIqZzaQ1JIWi
-         A/d/hTedZzjhnoGyWaaUpjQBAayc4YcY8m31nb5zw8zSHLBjsNnVgwPoegMNUcercIk3
-         k8b1wgNPamBQmidPX7wu5zpIhzG2R30DJfhiQrM50LXa2csIJe+poK5czmPQ9RfcObcV
-         PJYw==
-X-Forwarded-Encrypted: i=1; AJvYcCUBGqx2jFUtVlkkz3R9lDcRQw0MdizMreqi3yJn0HYJ+k67r5cdkwl8R7Gp66jSvOeX3jv9xIE72R3VpvG0B9zi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzh5i99mNo5CeV67d/IDspV/7PRx5tD4YxoclplvKrqEOZyyxJV
-	NW5AMozhHE+IgviY/hKC0KUJy2luXEoCNUYu5aP2+IrEjwy4fCddnvD25bIDWbmj8o8=
-X-Gm-Gg: ASbGnct2rdUzs9Qc8/tJ1TG0eS/LePpMO972l1UTs+59toDKAONVa4iqVhws1pgimiG
-	fEHvKocQS9cOYG8Qvmpf/vgQb8/W1gw6PXu0q2PjdtCKcSvd3B7fsh9DlUsmdfc1nNBq6s92u27
-	0q1/1BOGvp9VfCcao6uDZYOAUo29Y4tEwha/d+4hex+1Z4YklYfQyCK2OqEgy9XQP8ha42UY3Y5
-	PvXwTfwEWlTJeyauB/P4OEVs3hK0grRdn84kunJPAkGZIaYMZGt7UpTJ+d05vczznn/fz5HRLen
-	iO6W4mT25RUShK6kML2G8SG+z/124vzBXpnaJTzDlK429ZIpvdTvjLU70EkiR9zSdke3Kj/HZIu
-	2csprQnEqyIkcN3QQ7e0G0K8jWpY39QFN5kSZm1XF65HCIButeu8y6S2ph3HsdiLstB1T0PZPl/
-	RCJp08icvDqEl1gKxQgS01ErDKQn1L8tBxVRrDBs9LtF5qag==
-X-Google-Smtp-Source: AGHT+IGhfwb4u5norrCouP8BPxoTLYfO2XYGgio+ddfcnsYJ7Y7fRmFkfkRRSKjz9BOxITMsUStHfA==
-X-Received: by 2002:a17:903:9ce:b0:267:bd8d:19e with SMTP id d9443c01a7336-2948b9a823fmr133319325ad.22.1761571781056;
-        Mon, 27 Oct 2025 06:29:41 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fed5b056dsm4181028a91.1.2025.10.27.06.29.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 06:29:40 -0700 (PDT)
-Message-ID: <2b4cd5a6-98f8-4ec6-bdac-c6c7dae84049@rivosinc.com>
-Date: Mon, 27 Oct 2025 14:29:29 +0100
+	Mon, 27 Oct 2025 13:30:21 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59RDU7JJ2417320;
+	Mon, 27 Oct 2025 08:30:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761571807;
+	bh=O/IAo5Oi+YN1TvC5L+T4+FTIT9PU5gRVBHT1xVrzic0=;
+	h=From:To:CC:Subject:Date;
+	b=aI2CP9r9jLdy8sgXigtM/mxkBooyd4Xdpin6a67gwKHxgIzlJx+bC6n2NZhPXmQvt
+	 iqx1vqd4554D0U0C0rIKeTKOhbNFddj+DIJWou+4G2jwsjPo2yd7Z53Ju/NpKPepA+
+	 PW1e8Ij7v6kNF7onUuBTmDT6fBCqHh1IcPfGvlZM=
+Received: from DLEE204.ent.ti.com (dlee204.ent.ti.com [157.170.170.84])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59RDU7EJ1686831
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 27 Oct 2025 08:30:07 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 27 Oct
+ 2025 08:30:07 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 27 Oct 2025 08:30:07 -0500
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59RDU2fl732990;
+	Mon, 27 Oct 2025 08:30:03 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <unicorn_wang@outlook.com>,
+        <kishon@kernel.org>, <18255117159@163.com>
+CC: <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH] PCI: cadence: Enable support for applying lane equalization presets
+Date: Mon, 27 Oct 2025 18:59:06 +0530
+Message-ID: <20251027133013.2589119-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [External] [PATCH v7 2/5] riscv: add support for SBI Supervisor
- Software Events extension
-To: Xu Lu <luxu.kernel@bytedance.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Himanshu Chauhan <hchauhan@ventanamicro.com>,
- Anup Patel <apatel@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Yunhui Cui <cuiyunhui@bytedance.com>
-References: <20250908181717.1997461-1-cleger@rivosinc.com>
- <20250908181717.1997461-3-cleger@rivosinc.com>
- <CAPYmKFuVC3CwHbytPzQCHOYPoQp2LhucbLRRRRsqHk9upkrW8A@mail.gmail.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <CAPYmKFuVC3CwHbytPzQCHOYPoQp2LhucbLRRRRsqHk9upkrW8A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_062942_071884_2F4896D2 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20251027_063019_847506_54ED74A9 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,48 +84,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The PCIe Link Equalization procedure allows peers on a PCIe Link to
+improve the signal quality by exchanging transmitter presets and
+receiver preset hints in the form of Ordered Sets.
 
+For link speeds of 8.0 GT/s and above, the transmitter presets and the
+receiver preset hints are configurable parameters which can be tuned to
+establish a stable link. This allows setting up a stable link that is
+specific to the peers across a Link.
 
-On 10/27/25 13:00, Xu Lu wrote:
->> +void do_sse(struct sse_event_arch_data *arch_evt, struct pt_regs *regs)
->> +{
->> +       nmi_enter();
->> +
->> +       /* Retrieve missing GPRs from SBI */
->> +       sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_READ, arch_evt->evt_id,
->> +                 SBI_SSE_ATTR_INTERRUPTED_A6,
->> +                 (SBI_SSE_ATTR_INTERRUPTED_A7 - SBI_SSE_ATTR_INTERRUPTED_A6) + 1,
->> +                 arch_evt->interrupted_phys, 0, 0);
->> +
->> +       memcpy(&regs->a6, &arch_evt->interrupted, sizeof(arch_evt->interrupted));
->> +
->> +       sse_handle_event(arch_evt, regs);
->> +
->> +       /*
->> +        * The SSE delivery path does not uses the "standard" exception path
->> +        * (see sse_entry.S) and does not process any pending signal/softirqs
->> +        * due to being similar to a NMI.
->> +        * Some drivers (PMU, RAS) enqueue pending work that needs to be handled
->> +        * as soon as possible by bottom halves. For that purpose, set the SIP
->> +        * software interrupt pending bit which will force a software interrupt
->> +        * to be serviced once interrupts are reenabled in the interrupted
->> +        * context if they were masked or directly if unmasked.
->> +        */
->> +       csr_set(CSR_IP, IE_SIE);
-> IE_SIE may not always be enabled in CSR_IE(for example when we disable
-> CONFIG_ACLINT_SSWI and use imsic for ipi). Maybe we should send ipi to
-> the current cpu here.
+The device-tree property 'eq-presets-Ngts' (eq-presets-8gts,
+eq-presets-16gts, ...) specifies the transmitter presets and receiver
+preset hints to be applied to every lane of the link for every supported
+link speed that is greater than or equal to 8.0 GT/s.
 
-Hi Xu,
+Hence, enable support for applying the 'optional' lane equalization
+presets when operating in the Root-Port (Root-Complex / Host) mode.
 
-Indeed, that's a good catch. Sending an IPI will be more generic.
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-Thanks,
+Hello,
 
-Clément
+This patch is based on linux-next tagged 20251027.
+It also applies cleanly on 6.18-rc1.
 
-> 
-> Best regards,
-> Xu Lu
+Patch has been tested on J784S4-EVM which has 2 instances of PCIe,
+namely PCIe0 and PCIe1. The diff corresponding to the device-tree change
+for applying Presets to PCIe0 is:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/892ff417df178fcdf502e70d41bf5b48
+An NVMe SSD has been connected to the PCIe connector for PCIe0 and
+functionality has been validated after applying the current patch.
+Test Logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/481e3ae5d359907cd9c3d9797ea028cc
+
+Regards,
+Siddharth.
+
+ .../controller/cadence/pcie-cadence-host.c    | 84 +++++++++++++++++++
+ drivers/pci/controller/cadence/pcie-cadence.h |  5 ++
+ 2 files changed, 89 insertions(+)
+
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
+index fffd63d6665e..3fac89703c0c 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+@@ -168,6 +168,89 @@ static void cdns_pcie_host_enable_ptm_response(struct cdns_pcie *pcie)
+ 	cdns_pcie_writel(pcie, CDNS_PCIE_LM_PTM_CTRL, val | CDNS_PCIE_LM_TPM_CTRL_PTMRSEN);
+ }
+ 
++static void cdns_pcie_setup_lane_equalization_presets(struct cdns_pcie_rc *rc)
++{
++	struct cdns_pcie *pcie = &rc->pcie;
++	struct device *dev = pcie->dev;
++	struct device_node *np = dev->of_node;
++	int max_link_speed, max_lanes, ret;
++	u32 lane_eq_ctrl_reg;
++	u16 cap;
++	u16 *presets_8gts;
++	u8 *presets_ngts;
++	u8 i, j;
++
++	ret = of_property_read_u32(np, "num-lanes", &max_lanes);
++	if (ret)
++		return;
++
++	/* Lane Equalization presets are optional, so error message is not necessary */
++	ret = of_pci_get_equalization_presets(dev, &rc->eq_presets, max_lanes);
++	if (ret)
++		return;
++
++	max_link_speed = of_pci_get_max_link_speed(np);
++	if (max_link_speed < 0) {
++		dev_err(dev, "%s: link-speed unknown, skipping preset setup\n", __func__);
++		return;
++	}
++
++	/*
++	 * Setup presets for data rates including and upward of 8.0 GT/s until the
++	 * maximum supported data rate.
++	 */
++	switch (pcie_link_speed[max_link_speed]) {
++	case PCIE_SPEED_16_0GT:
++		presets_ngts = (u8 *)rc->eq_presets.eq_presets_Ngts[EQ_PRESET_TYPE_16GTS - 1];
++		if (presets_ngts[0] != PCI_EQ_RESV) {
++			cap = cdns_pcie_find_ext_capability(pcie, PCI_EXT_CAP_ID_PL_16GT);
++			if (!cap)
++				break;
++			lane_eq_ctrl_reg = cap + PCI_PL_16GT_LE_CTRL;
++			/*
++			 * For Link Speeds including and upward of 16.0 GT/s, the Lane Equalization
++			 * Control register has the following layout per Lane:
++			 * Bits 0-3: Downstream Port Transmitter Preset
++			 * Bits 4-7: Upstream Port Transmitter Preset
++			 *
++			 * 'eq_presets_Ngts' is an array of u8 (byte).
++			 * Therefore, we need to write to the Lane Equalization Control
++			 * register in units of bytes per-Lane.
++			 */
++			for (i = 0; i < max_lanes; i++)
++				cdns_pcie_rp_writeb(pcie, lane_eq_ctrl_reg + i, presets_ngts[i]);
++
++			dev_info(dev, "Link Equalization presets applied for 16.0 GT/s\n");
++		}
++	case PCIE_SPEED_8_0GT:
++		presets_8gts = (u16 *)rc->eq_presets.eq_presets_8gts;
++		if ((presets_8gts[0] & PCI_EQ_RESV) != PCI_EQ_RESV) {
++			cap = cdns_pcie_find_ext_capability(pcie, PCI_EXT_CAP_ID_SECPCI);
++			if (!cap)
++				break;
++			lane_eq_ctrl_reg = cap + PCI_SECPCI_LE_CTRL;
++			/*
++			 * For a Link Speed of 8.0 GT/s, the Lane Equalization Control register has
++			 * the following layout per Lane:
++			 * Bits   0-3:  Downstream Port Transmitter Preset
++			 * Bits   4-6:  Downstream Port Receiver Preset Hint
++			 * Bit      7:  Reserved
++			 * Bits  8-11:  Upstream Port Transmitter Preset
++			 * Bits 12-14:  Upstream Port Receiver Preset Hint
++			 * Bit     15:  Reserved
++			 *
++			 * 'eq_presets_8gts' is an array of u16 (word).
++			 * Therefore, we need to write to the Lane Equalization Control
++			 * register in units of words per-Lane.
++			 */
++			for (i = 0, j = 0; i < max_lanes; i++, j += 2)
++				cdns_pcie_rp_writew(pcie, lane_eq_ctrl_reg + j, presets_8gts[i]);
++
++			dev_info(dev, "Link Equalization presets applied for 8.0 GT/s\n");
++		}
++	}
++}
++
+ static int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc)
+ {
+ 	struct cdns_pcie *pcie = &rc->pcie;
+@@ -600,6 +683,7 @@ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
+ 		cdns_pcie_detect_quiet_min_delay_set(&rc->pcie);
+ 
+ 	cdns_pcie_host_enable_ptm_response(pcie);
++	cdns_pcie_setup_lane_equalization_presets(rc);
+ 
+ 	ret = cdns_pcie_start_link(pcie);
+ 	if (ret) {
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+index e2a853d2c0ab..39d03b309978 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.h
++++ b/drivers/pci/controller/cadence/pcie-cadence.h
+@@ -11,6 +11,8 @@
+ #include <linux/pci-epf.h>
+ #include <linux/phy/phy.h>
+ 
++#include "../../pci.h"
++
+ /* Parameters for the waiting for link up routine */
+ #define LINK_WAIT_MAX_RETRIES	10
+ #define LINK_WAIT_USLEEP_MIN	90000
+@@ -288,6 +290,8 @@ struct cdns_pcie {
+  *                available
+  * @quirk_retrain_flag: Retrain link as quirk for PCIe Gen2
+  * @quirk_detect_quiet_flag: LTSSM Detect Quiet min delay set as quirk
++ * @eq_presets: Lane Equalization presets for Link Speed including and upward
++ *              of 8.0 GT/s
+  */
+ struct cdns_pcie_rc {
+ 	struct cdns_pcie	pcie;
+@@ -298,6 +302,7 @@ struct cdns_pcie_rc {
+ 	bool			avail_ib_bar[CDNS_PCIE_RP_MAX_IB];
+ 	unsigned int		quirk_retrain_flag:1;
+ 	unsigned int		quirk_detect_quiet_flag:1;
++	struct pci_eq_presets	eq_presets;
+ };
+ 
+ /**
+-- 
+2.51.0
 
 
