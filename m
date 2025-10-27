@@ -4,86 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BCECCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A2FCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aBt+IECqNVtAsegMkIX7fm58vbKYt/6Urfpjeenw3Ow=; b=aa9L+cZb5Q35l+
-	R6/ZVxdwPxDrMkNKiWcQ5SU/yjNCmREHaiAQaDee1PxBOE0Z+rLw0WpaOLhmC2GMvcqs/hLT5iiKA
-	ztt1tLYIJYAfLmlOS1SSoJrnm8Se8mkKp7Y9PNTTxbxLowAWvgY9ZhL9BUibgMqxcLMrp+O7X37zV
-	WYjP4V0MZ1TvvKJ+/ZwOAC0tTL9lmhdOUvRF+IPU8JTFf5jdnw53a6bqjht6tbo30fwlI/S/yWLh4
-	ThAgx7YD05ISutxTKzjKEgTlCEvzWOWaspW2iQB5QHsDL9ENyos6Mk2Eu9jkGu33KXF9CHU83EQA/
-	FtY/iPYNN7y0vOrzhlFw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KgRMpIuzEklhMyLqeSgTqelB6K/jP1FY8xNuF/F7waE=; b=4dg5nWS12eMJ+kZ75+yZ6bLBNK
+	WwWEi17N6eqSkvFXY3j/ZBmpXFhMvsB0n9jUBrA1o4s9sPqLvmqw62u9Y1PpAA9up3KbAUiA6urkL
+	fB0Xg+3PpcHUf9T/kHKM/fPMWDupJbzVbalIG1DRnqMN9rw2hI5V+DCjG78yX1lsuWv+AEtDAstr1
+	a1COAM074x/qLp0y9etLJ4zmYyqkcPerFLVGhhQ0NKAHd7tuQQw/DdX+8gCJqlQcKeDg4Q2P96Duq
+	IQGPs1EVDCn7IgtEOLqzaSsukr/YqLrti5vvzhipotZ9zL1YywgoPZK40Of6Qf9/DWP2IdNT48wZX
+	mBO6Z3mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPiM-0000000EHKo-0pnN;
-	Mon, 27 Oct 2025 16:04:58 +0000
-Received: from mail-lj1-f172.google.com ([209.85.208.172])
+	id 1vDPmC-0000000EHcF-1Qws;
+	Mon, 27 Oct 2025 16:08:56 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPiJ-0000000EHJy-2Zpa
+	id 1vDPmA-0000000EHbr-11Qk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 16:04:56 +0000
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-378ccb8f84aso51837131fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:04:55 -0700 (PDT)
+	Mon, 27 Oct 2025 16:08:55 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RBK7sw2547940
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:08:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	KgRMpIuzEklhMyLqeSgTqelB6K/jP1FY8xNuF/F7waE=; b=mcGpyXKeJIl3if0g
+	BTHBHMbOb5aFzf8YLocOxs83v1pY7wAmIyfj/BIAB05engfqIrH8DQ7Dze48c6V5
+	jUkJSqKFQihpS/LuCSe55d0lqn4kiJO6svl7GdaUM3r77/bQcB04FoBJTPxYiiVV
+	oa/EVozhJoNDzSGj+gguASqcrQZDUEkNHgfvcB5ZJqk8Adqtwcz9E3Q0j8pfWibY
+	iPs8skpBVponxxBsg4fBAE3GYhx/gSSrArMH39KJtG3WfN2viTmYsO3KA6PPIHGi
+	YUREWHeHZGQPrTYgWB5VJ+9meKoTXlHnMNzARJM7e3FHDOpd9fG2H7pXlOtQ39QB
+	+Fc7Mg==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a27s2gy4v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:08:53 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-7a2878dca50so5822327b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:08:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761581093; x=1762185893;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aBt+IECqNVtAsegMkIX7fm58vbKYt/6Urfpjeenw3Ow=;
-        b=FK+69zEnSrx5Z9ev7m8fRFcIMBvdqH/HvEyg637eoo+aZ9u3SFmw6Ukxv2kmmhbxjF
-         zIhBG2AqzwzYX4t0nOD7cUTisyNF2WPKf526ihOIR9uxgjl1ue0yyeJu9Bx3tbfghkcj
-         SYoLpyPQIrndVmPgOHkaMofv9z68iBF28RYYRpmP+PyCAiKxTTr2XwGa/4oJ/gbOhzcx
-         qUAzrKY9cpE27+Vi/CgFOAzxWY1VSJYW/JIsxNTpc/WGoHOKnc8LurYlBkahXmep3Smx
-         6W2Lu7r1kwlzHQh1RTa1soJEIaOEcCUgkNLu7GCav/ITd1LBlcJpRbFwL0I0yfBcf4qA
-         Og1w==
-X-Forwarded-Encrypted: i=1; AJvYcCV2BmlwKJxNIo6Qlb20eOcHhjkEL7QrFrQxkMqFP840/1VLmqEOrkl45n5TO+KmStj7rwTFtZK61yG5GCvT45Jj@lists.infradead.org
-X-Gm-Message-State: AOJu0YybcxV02YYmlm9u/VpRVKGWWnGlc5gluJq7c4VFNsDMjXZLYspg
-	6Z9OgPMHLJmQEgg+kDLdRNGc8Cksmqlrr5L2jnW5arWl2UpiLIUkPqMLXmeWToGBV20=
-X-Gm-Gg: ASbGncvqohyM5ylWex6fE4uNDriDsHMzkZhBkHCmHNMqpxNixFRVsCoNE8tl7ja1kwO
-	dk1vsd68SajapmaXjXlYH0NK5iWRQSBVgZN8/c28D3yU9V/5wxoER9extofH/d1vZFovqktMxc6
-	yvkC2nmxmwEJpXyABvQSpRAg/WKfF69K5hnWBX/EmaJLib5TUXbBEFHNaHnyMs4G0k2zPyA2hx1
-	sQmfPOok57ZroWqbRhk8ORh7r4YGqcWY1m4AG8k9tw/MMLMGtt4bZUGYYBW3FHWzuJA49lvaQvX
-	rf+2kdaw9bmQHMyjBd+JBnZZz6jP7GuNTGUiT2bjEblV/5PnSUDbw0tGPbCC+ORpZF9hIjCpWrd
-	D4fvTaEXAF+WzJS2nr4//iM0QrLzXT09tu9vkjJTb6SZqbD6KDtVmDwShM7LOtW8E8NrWz18tdM
-	iraxt0/rfs8p+mqhZ9F/MV358m9XtpI/owZX1bCJ5K+x8=
-X-Google-Smtp-Source: AGHT+IEKtxfIZ42II/PJp0x4aSJbNtNThjwH9BhLvLJcaIuMmyfY/M09OCPLgD4PuA0oug0nuRN27g==
-X-Received: by 2002:a2e:a98d:0:b0:36e:f1ae:d4bc with SMTP id 38308e7fff4ca-379076da90dmr580451fa.14.1761581092900;
-        Mon, 27 Oct 2025 09:04:52 -0700 (PDT)
-Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com. [209.85.208.171])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-378ee09d2e5sm20821141fa.17.2025.10.27.09.04.52
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1761581332; x=1762186132;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KgRMpIuzEklhMyLqeSgTqelB6K/jP1FY8xNuF/F7waE=;
+        b=FYlG2V+x/aVyXx5am7ngwixHAgyls0CieaqtTJc7egW5+iRTP7praGUcY3dRDnUYce
+         nTiwzt1IWFCjRCyOkIcsF9rjqHHngVqKED7E7ttoZDGzvhqtbiMUOhjsHTW4w/BPOs/S
+         PDqluYXdgdtpNG0BFQntiomdIv0sw1RaqkHugZifM6+8FyclcQ3oPvGxH5jgr70z6agE
+         TIEVHoSIanRDeNjaZ3X39yfBp4WN5sI1g5oNJ7wDTwwy03ku7RiWdNSL8h2q0b15jQKS
+         6TSibh6dWPVkDIzvXnEw9VM0elkbAuKbWVaCB7Y9uDjeUy26kS/T89seWfJm2KrFAt6j
+         dt8w==
+X-Forwarded-Encrypted: i=1; AJvYcCXaTDSpqvZwEFqpwyeR1T95E8QzHijxoLlafFgFrbjIOi1qOTaZ1M7zMCkFFE26ec9wsY9VfTfOmtN6Divq2DzR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyG58i5ix4rUT5KdleT0ljAp3TSCH7axZpk3S8Dtda24PDwXxXV
+	hnjsR134D9HXaqt7S2nPkYfi6LC39U6TaxZ5eRSI/yfXyFkkZVWlAvc50/Qrvnmy7Td3RVMuCjb
+	ffDifY5rtI9GuA+fop+8KbfswjLhMiNX/kQDSuPhuSy23GIHatBgAventLHYXPcyxF+7n7u3qOq
+	s1/Q==
+X-Gm-Gg: ASbGnctHYONXn931xaLx+yY6YIB7KjAcgeOeojvexpvCzEgKA45apWX/RdxyMYJx1U1
+	TuJYHisKYPMeyHUKrKWbJnnK16CV79VHHO4zL66wqIJAfs58mzW4zK986KoKS+AoGMAD4l8Iy5+
+	l6WtOIF24QVeZPHpKYvwjjtbcgyCqRUzMNrTcDoKBSDNf9IXFvtE1UM3QkxRhk9JvsI0yY8OP9P
+	EQJVcW3rJfyK2pUyEqGnvVAeZoV5ZRCvsW78S08fE1E2nR7gOg+TfDfL+HraL+c0hFs17kz1QMV
+	3vRbZryAObyfZps6zaemU5lUuHpK0OQcLzknTXarswzzCkrq2f4Nk18gx3Ba3c9IAqmhHd+vFBX
+	Puj2Qo1aJQiirAoQ3Rg3AXdHtwmP5sgoC39z5T4ofDUllMyPeQTCcAGzWd4A=
+X-Received: by 2002:a05:6a00:b42:b0:7a2:8201:e35a with SMTP id d2e1a72fcca58-7a441c377b7mr521889b3a.19.1761581332096;
+        Mon, 27 Oct 2025 09:08:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH7riuKLotC98dQqIszw6mdR718UOVWaI+4GmJRuMzQgpAmf75t39TRUDzdW3vneRdu0UeB2Q==
+X-Received: by 2002:a05:6a00:b42:b0:7a2:8201:e35a with SMTP id d2e1a72fcca58-7a441c377b7mr521838b3a.19.1761581331421;
+        Mon, 27 Oct 2025 09:08:51 -0700 (PDT)
+Received: from [10.227.110.203] (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414049c01sm8540758b3a.37.2025.10.27.09.08.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 09:04:52 -0700 (PDT)
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-378cfbf83f2so53504301fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:04:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUMii/e54fngg5RaeDM0t74I9HjDUwNdcYDuKgyfU5ozn3fczKQ8vgIwuqXzbAHrE4/ZP3Oh3AHzrkHF1EHJhFF@lists.infradead.org
-X-Received: by 2002:a05:651c:222c:b0:378:d499:d34d with SMTP id
- 38308e7fff4ca-379076d8741mr539671fa.15.1761581092345; Mon, 27 Oct 2025
- 09:04:52 -0700 (PDT)
+        Mon, 27 Oct 2025 09:08:50 -0700 (PDT)
+Message-ID: <b002e4e7-fb35-4c2b-8414-b26aa7f71f25@oss.qualcomm.com>
+Date: Mon, 27 Oct 2025 09:08:49 -0700
 MIME-Version: 1.0
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-9-jernej.skrabec@gmail.com>
-In-Reply-To: <20251012192330.6903-9-jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Tue, 28 Oct 2025 00:04:38 +0800
-X-Gmail-Original-Message-ID: <CAGb2v668p+GOAA=Kgr6dhbkJb33artbPnYsiwEygq7O+92sovQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bm99AcS6yMWuT9w2DAubuMwkVTQftsOHcXhHkfhxsBt-ffhIxUo7tu2w44
-Message-ID: <CAGb2v668p+GOAA=Kgr6dhbkJb33artbPnYsiwEygq7O+92sovQ@mail.gmail.com>
-Subject: Re: [PATCH 08/30] drm/sun4i: ui layer: Write attributes in one go
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 21/21] Docs: add Functions parameters order section
+To: Jani Nikula <jani.nikula@intel.com>,
+        "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
+        Linus Walleij <linus.walleij@linaro.org>, Lee Jones <lee@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Jonathan Corbet <corbet@lwn.net>, workflows@vger.kernel.org,
+        linux-doc@vger.kernel.org
+References: <20251025162858.305236-1-yury.norov@gmail.com>
+ <20251025163305.306787-14-yury.norov@gmail.com>
+ <723c936f92352352c3b1a84b858d684f5b7a0834@intel.com>
+From: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <723c936f92352352c3b1a84b858d684f5b7a0834@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: A1w-sEUWxxP2e_TXzk7u-WW6TogvJkHd
+X-Proofpoint-GUID: A1w-sEUWxxP2e_TXzk7u-WW6TogvJkHd
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDE1MCBTYWx0ZWRfX+yFc+6XVI1Ci
+ 194mHKKBmH7SKIWIPpfC9Nm6uNJhLa9wvirUrnm57EyCF4WW7pxEj0F+dQSAbkUHF40rPokqV61
+ JTkN6LxjJV0jBVnwjrk+SJZW7hVFE6Vg53Rn9cCC50N/IlXOzAFZEPQJU1mA44YmLqxS8e74KcN
+ 7TP98X9frmxgnyiqGOoOpen/IWFxNqOmzNBNtNWlzKFWSj+f7t9+6QC+WV3v/awr21N3Nd6AUqJ
+ Tt2zJCEOwo99T7AZ5cP4I450Z9Fn9qVbSVedZITYRl5jeBopBaBhZlD5yNByBxbE0Lg7iySGGNM
+ /p9HJd7UYrR6Er/nevG/mrZsnRgnxuWPM/j0ZsXk3QYpBTFz+CRtA+WJrSbhDCnc0UA54u5mqhx
+ x/k7Ra9+9q4AYQIjjjooDIOlOQiYRQ==
+X-Authority-Analysis: v=2.4 cv=R60O2NRX c=1 sm=1 tr=0 ts=68ff9915 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=pGLkceISAAAA:8 a=9sl_EADGoQNm_DCWk-wA:9 a=QEXdDO2ut3YA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-27_06,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 phishscore=0 bulkscore=0
+ impostorscore=0 clxscore=1015 spamscore=0 adultscore=0 malwarescore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
+ definitions=main-2510270150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_090455_704078_AB3186E4 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20251027_090854_429255_0F12AEC8 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,132 +134,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 3:23=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
-l.com> wrote:
->
-> It turns out that none of the UI channel registers were meant to be
-> read. Mostly it works fine but sometimes it returns incorrect values.
->
-> Rework UI layer code to write all registers in one go to avoid reads.
->
-> This rework will also allow proper code separation.
->
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+On 10/27/2025 2:02 AM, Jani Nikula wrote:
+> On Sat, 25 Oct 2025, "Yury Norov (NVIDIA)" <yury.norov@gmail.com> wrote:
+>> Standardize parameters ordering in some typical cases to minimize
+>> confusion.
+>>
+>> Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
+>> ---
+>>  Documentation/process/coding-style.rst | 48 ++++++++++++++++++++++++++
+>>  1 file changed, 48 insertions(+)
+>>
+>> diff --git a/Documentation/process/coding-style.rst b/Documentation/process/coding-style.rst
+>> index d1a8e5465ed9..dde24148305c 100644
+>> --- a/Documentation/process/coding-style.rst
+>> +++ b/Documentation/process/coding-style.rst
+>> @@ -523,6 +523,54 @@ below, compared to the **declaration** example above)::
+>>  	...
+>>   }
+>>  
+>> +6.2) Function parameters order
+>> +------------------------------
+>> +
+>> +The order of parameters is important both for code generation and readability.
+>> +Passing parameters in an unusual order is a common source of bugs. Listing
+>> +them in standard widely adopted order helps to avoid confusion.
+>> +
+>> +Many ABIs put first function parameter and return value in R0. If your
+>> +function returns one of its parameters, passing it at the very beginning
+>> +would lead to a better code generation. For example::
+>> +
+>> +        void *memset64(uint64_t *s, uint64_t v, size_t count);
+>> +        void *memcpy(void *dest, const void *src, size_t count);
+>> +
+>> +If your function doesn't propagate a parameter, but has a meaning of copying
+>> +and/or processing data, the best practice is following the traditional order:
+>> +destination, source, options, flags.
+>> +
+>> +for_each()-like iterators should take an enumerator the first. For example::
+>> +
+>> +        for_each_set_bit(bit, mask, nbits);
+>> +                do_something(bit);
+>> +
+>> +        list_for_each_entry(pos, head, member);
+>> +                do_something(pos);
+>> +
+>> +If function operates on a range or ranges of data, corresponding parameters
+>> +may be described as ``start - end`` or ``start - size`` pairs. In both cases,
+>> +the parameters should follow each other. For example::
+>> +
+>> +        int
+>> +        check_range(unsigned long vstart, unsigned long vend,
+>> +                    unsigned long kstart, unsigned long kend);
+>> +
+>> +        static inline void flush_icache_range(unsigned long start, unsigned long end);
+>> +
+>> +        static inline void flush_icache_user_page(struct vm_area_struct *vma,
+>> +                                            struct page *page,
+>> +                                            unsigned long addr, int len);
+>> +
+>> +Both ``start`` and ``end`` of the interval are inclusive.
+>> +
+>> +Describing intervals in order ``end - start`` is unfavorable. One notable
+>> +example is the ``GENMASK(high, low)`` macro. While such a notation is popular
+>> +in hardware context, particularly to describe registers structure, in context
+>> +of software development it looks counter intuitive and confusing. Please switch
+>> +to an equivalent ``BITS(low, high)`` version.
+>> +
+> 
+> GENMASK when used for defining hardware registers is completely fine,
+> and *much* easier to deal with when you cross check against the specs
+> that almost invariably define high:low.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Not only that, there is no common definition of BITS
 
-> ---
->  drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 50 +++++++++-----------------
->  1 file changed, 16 insertions(+), 34 deletions(-)
->
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun=
-4i/sun8i_ui_layer.c
-> index 12c83c54f9bc..8634d2ee613a 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> @@ -25,25 +25,27 @@
->  #include "sun8i_ui_scaler.h"
->  #include "sun8i_vi_scaler.h"
->
-> -static void sun8i_ui_layer_update_alpha(struct sun8i_mixer *mixer, int c=
-hannel,
-> -                                       int overlay, struct drm_plane *pl=
-ane)
-> +static void sun8i_ui_layer_update_attributes(struct sun8i_mixer *mixer,
-> +                                            int channel, int overlay,
-> +                                            struct drm_plane *plane)
->  {
-> -       u32 mask, val, ch_base;
-> +       struct drm_plane_state *state =3D plane->state;
-> +       const struct drm_format_info *fmt;
-> +       u32 val, ch_base, hw_fmt;
->
->         ch_base =3D sun8i_channel_base(mixer, channel);
-> +       fmt =3D state->fb->format;
-> +       sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
->
-> -       mask =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MODE_MASK |
-> -               SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MASK;
-> -
-> -       val =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA(plane->state->alpha =
->> 8);
-> -
-> -       val |=3D (plane->state->alpha =3D=3D DRM_BLEND_ALPHA_OPAQUE) ?
-> +       val =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA(state->alpha >> 8);
-> +       val |=3D (state->alpha =3D=3D DRM_BLEND_ALPHA_OPAQUE) ?
+Defined in 7 files as a macro:
+arch/arc/include/asm/disasm.h, line 32 (as a macro)
+drivers/mfd/db8500-prcmu-regs.h, line 15 (as a macro)
+drivers/net/wireless/intel/iwlwifi/fw/api/coex.h, line 14 (as a macro)
+fs/select.c, line 415 (as a macro)
+lib/zlib_inflate/inflate.c, line 232 (as a macro)
+sound/core/oss/rate.c, line 28 (as a macro)
+tools/perf/dlfilters/dlfilter-show-cycles.c, line 22 (as a macro)
 
-Changing "plane->state" to "state" made the diff somewhat harder to read.
+Most of these do NOT have a (low, high) signature.
 
->                 SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MODE_PIXEL :
->                 SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MODE_COMBINED;
-> +       val |=3D hw_fmt << SUN8I_MIXER_CHAN_UI_LAYER_ATTR_FBFMT_OFFSET;
-> +       val |=3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_EN;
->
-> -       regmap_update_bits(mixer->engine.regs,
-> -                          SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, overla=
-y),
-> -                          mask, val);
-> +       regmap_write(mixer->engine.regs,
-> +                    SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, overlay), va=
-l);
->  }
->
->  static void sun8i_ui_layer_update_coord(struct sun8i_mixer *mixer, int c=
-hannel,
-> @@ -111,24 +113,6 @@ static void sun8i_ui_layer_update_coord(struct sun8i=
-_mixer *mixer, int channel,
->         }
->  }
->
-> -static void sun8i_ui_layer_update_formats(struct sun8i_mixer *mixer, int=
- channel,
-> -                                         int overlay, struct drm_plane *=
-plane)
-> -{
-> -       struct drm_plane_state *state =3D plane->state;
-> -       const struct drm_format_info *fmt;
-> -       u32 val, ch_base, hw_fmt;
-> -
-> -       ch_base =3D sun8i_channel_base(mixer, channel);
-> -
-> -       fmt =3D state->fb->format;
-> -       sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
-> -
-> -       val =3D hw_fmt << SUN8I_MIXER_CHAN_UI_LAYER_ATTR_FBFMT_OFFSET;
-> -       regmap_update_bits(mixer->engine.regs,
-> -                          SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, overla=
-y),
-> -                          SUN8I_MIXER_CHAN_UI_LAYER_ATTR_FBFMT_MASK, val=
-);
-> -}
-> -
->  static void sun8i_ui_layer_update_buffer(struct sun8i_mixer *mixer, int =
-channel,
->                                          int overlay, struct drm_plane *p=
-lane)
->  {
-> @@ -220,12 +204,10 @@ static void sun8i_ui_layer_atomic_update(struct drm=
-_plane *plane,
->         if (!new_state->crtc || !new_state->visible)
->                 return;
->
-> +       sun8i_ui_layer_update_attributes(mixer, layer->channel,
-> +                                        layer->overlay, plane);
->         sun8i_ui_layer_update_coord(mixer, layer->channel,
->                                     layer->overlay, plane);
-> -       sun8i_ui_layer_update_alpha(mixer, layer->channel,
-> -                                   layer->overlay, plane);
-> -       sun8i_ui_layer_update_formats(mixer, layer->channel,
-> -                                     layer->overlay, plane);
->         sun8i_ui_layer_update_buffer(mixer, layer->channel,
->                                      layer->overlay, plane);
->  }
-> --
-> 2.51.0
->
->
+And GENMASK will throw a compile error if you swap the high and low:
+#define GENMASK_INPUT_CHECK(h, l) BUILD_BUG_ON_ZERO(const_true((l) > (h)))
+
+IMO the real confusion with GENMASK(), which would be the same with the
+proposed BITS(), is that without knowledge of the implementation, when looking
+at an instance of usage you can't tell if the parameters are two bit numbers
+or a start bit and number of bits.
+
+/jeff
 
