@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E02CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B50CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N0RklZbmwkn8tuI09mtvTbzPIkOPBKf9i2aye/jiFz4=; b=rridj+PA02XIkkCddScZddmnhb
-	mOl68lqYw+i+ZGneq5NDZcqr1rXdx7rDOfT1Q9QPLrLpl41C/0MURw9scfDfSuqrn5UyH0Qks8cwT
-	ziMwBheN3yvw9t428F6Pgl6CcUVAOwBbA/8MJ1VrLuNs9hPZGC5a7xqdkD4Wou/tg43rNknUuz7Mf
-	iUS+Z3GU//WSlzEUxEYLX4C7dT5jxJsSFZkqwsy6Fj69Nun9eJd839diPt4FiJ1Kmeqc3IM1N8yvR
-	JLX5JOIb5rntE8SO7fz9Y0QzUCg4f68I4c1eJ05KW9rUYGdymidrjgPngwQzKYriOskA7iaIv+SfF
-	Mat5nnQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JzOl43h72qIg903VcLgPPqEaQOxJyebUM6Y8SFlK3FI=; b=GfI4ZE0bBeuY4l1HQfqvaP9+N4
+	DKzfb06L9iWSgOu69sOsJ0KePjyu6L9FitC7Fjb7pZF5tQbyrUPJGa4UjElMr9erDjxw1RCd1pgiN
+	YMP654/XovWA5DpEqt2YzDPkCYmofukZ3mZZga3iGXc8NukpqiFXwcKE1LLzhp3/oCTLR4/2EmxlY
+	pYKKrVZOVGL29ISRfZuSzZ4ok9aHd5wyG9m6Oef4jfI04owYz+rUHIjqb0hnWMQ8GhLwtiafoGBZB
+	JD0VZQYZMXf5T1YWdOJRwkbfSu/8T4Q70Zg72MY91DmUed0Vt7yAYs3mFzgdoG04GcbuPEY8c4oPx
+	DgEisegA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMAl-0000000DsWZ-2cGQ;
-	Mon, 27 Oct 2025 12:18:03 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vDMEk-0000000Dsni-0wq1;
+	Mon, 27 Oct 2025 12:22:10 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMAi-0000000DsW0-3yAm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:18:02 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7a226a0798cso3679193b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:18:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761567480; x=1762172280; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=N0RklZbmwkn8tuI09mtvTbzPIkOPBKf9i2aye/jiFz4=;
-        b=McpCenUu67QBsoPjNrT0i6Jaoom2MRLvCjs2o16U0gLRH0mrM9uIagLXmqND88SW3f
-         h7YUrTKCTTDCsHoKY7WmuKWlPkIkbFTpuKBEQ5/nAI9SbwUjsukzYKnb8riLzGypL5PO
-         +rBJ824ya2mef2MUazp8SJjf/riwG8TRMjuuAFjx1PdY61PekuEuZLz+8koOym15X+DF
-         mw4JTKOFw5aadyflcoBNidoEgh40MGVi4225jIrgDI4tsGXmgTtTVt7l7gQ1YST9l/XU
-         5okr0UqYPvCwFghawGvCjKfRBsSlzPykBf6FVkUFoT5TwHzvvUtIpw3MQCqddwyHht+J
-         8AFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761567480; x=1762172280;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=N0RklZbmwkn8tuI09mtvTbzPIkOPBKf9i2aye/jiFz4=;
-        b=EupC3rCHQkDjcOpUJXxPy/DV0X5nHdGbAbqs17FYdCqIQobmp+aJeSZcjEMxgtaa2G
-         XrqKNx505tnGzYFuI8IJCFNHOfHVR/p2VfjS2MPdvY+p6LoNWv29PatVTT5VtGlq6aAm
-         cfMuxtavp/PKb3+Sd+v6wNP2H3GXf5OZra6NgEaNtN111/UL2W1+FPSdBJj6X8N8RKMW
-         llICbL04kBS2AocOdOm/5wWP8xuIOCk8e+rRcE84cFedfHPNJQF11amTNcRHXM/zPWlS
-         kElmMfyGWBYMICGBYGMuopm8+SR5uMeGCuBptWd4CyIUKuj1nd7o+3M06Ud/G3m2ZVAi
-         2lKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWlfeLEt69gktLMMosvLTVCCdMDdaOLIS2HG6taFxv49V01+Vg238B2iS2dNODiCOivsjlrWw40Eqm89xxn4rhD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLiWqRlBuK6yViy+VW29p7aoiHZnR9vIeGOzhbaGlG7SO27UIH
-	3jOpSM9nYqT1AbY6xyRUDJj+jEqaEcf0l8CBCrcyTQckiIUdm7Dt5hEu
-X-Gm-Gg: ASbGnctiToGm2OZm6WI6qfZpgUYIEg2WEdjkN0kgkCEYEab3a4R9CX2sLtZ+PPTtPce
-	L7ygxPrC76jR2t097OxLIsbvKLozu60jGaaVH6tjuwsrM3Luy4kpcHgYWhIj+1Xs0hhicpspnpN
-	LAq/cQjJUvqkOTBOiyIWpeCs7zNngXORsAYYEWTJUgIedvfiB2rmmTZwENNkN/8U5b1ajCNK4d1
-	4SXm6s/adBLPDJixwBHhhrum40zmMkVNKLrM3zukjeSf1w0VEUmRYUPJT35HjjgVPSv+XUY0KrD
-	I+GVCHAlrQyePHc3DWbykzAD+nZ1I0C2IDq+BuBfh5ibO5SasBaonOxgRDGo8ZpgvKRiFYapWKT
-	x6Fis9G88nCdaMSAni76EFGZ2ZxSgcjI4EadOb9UizUWuu5nkkrGQro3fpIXxfL8xxATS4Dx1Bi
-	6MTB/ITk8CvikRHoOpUDI=
-X-Google-Smtp-Source: AGHT+IEwkXBY2OMy9ASrensu6jMrPB9Ho+SulT3M8md5DlEm9/4e426KOKOmOaSVBvx4B/22F0kseQ==
-X-Received: by 2002:aa7:8096:0:b0:7a2:218c:962d with SMTP id d2e1a72fcca58-7a2218c974fmr29088665b3a.3.1761567479514;
-        Mon, 27 Oct 2025 05:17:59 -0700 (PDT)
-Received: from [192.168.0.8] ([2804:14c:490:135b:9fc5:9b54:db50:756e])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a4140978dfsm7943873b3a.69.2025.10.27.05.17.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 05:17:58 -0700 (PDT)
-From: =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
-Date: Mon, 27 Oct 2025 09:17:53 -0300
-Subject: [PATCH v2] arm64: defconfig: Enable i.MX95 drivers for pinctrl,
- Ethernet and PCIe
+	id 1vDMEh-0000000DsnL-1dyJ;
+	Mon, 27 Oct 2025 12:22:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761567688; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=B37m3tRXg9231oauumFgq3IS919cZOBg5SjkoJsfAAEv3xg7NZzheR2/o1Z6DWXuET3Phh+B65kMnrMCibaDLL47gqWercUuzNjDdQ/QEDk4PDMfokyzUxleEz3k8oEQQE8eM/LGA6cXBQj3Z5m2bCDyEdLFNH72QNvwSyqfTHs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761567688; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=JzOl43h72qIg903VcLgPPqEaQOxJyebUM6Y8SFlK3FI=; 
+	b=PHxByQ8byaqaWcg7cDcy7ZXDXysm3SbInlN64ODpr8FHXGPi7kW3HXHt+zOniUMSCoQtu7DUByVBCUDCbhdmo00hUk8zNn6A7YdjO/9J7MEh1bEETNOogOlizsXIBRbcRpyX3gSWzK3sSO0p/n4fuKKbZFBpqUY9Cjzvie0NDxU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761567688;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=JzOl43h72qIg903VcLgPPqEaQOxJyebUM6Y8SFlK3FI=;
+	b=kDy9KX2417EVcr5ZvR/y8uZmt2IgIbpSIydVjZEiNT4mUYn+LTARqHpo2PI9/c+O
+	XrqA+KwqLPKUa7++D+dlwBTP8fipyA2OMRQQKoikyQmHtIagGSU4zKzvjDMhQPiCI7W
+	A4THQcscyFyTp2lEGrAOYogNvIgC0YM8dyTtux88=
+Received: by mx.zohomail.com with SMTPS id 1761567685152749.0643459384486;
+	Mon, 27 Oct 2025 05:21:25 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Shreeya Patel <shreeya.patel@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, kernel@collabora.com, linux-mmc@vger.kernel.org,
+ linux-sound@vger.kernel.org, "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
+Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Subject: Re: [PATCH 11/21] drivers: don't use GENMASK() in FIELD_PREP_WM16()
+Date: Mon, 27 Oct 2025 13:21:15 +0100
+Message-ID: <2824034.mvXUDI8C0e@workhorse>
+In-Reply-To: <20251025164023.308884-12-yury.norov@gmail.com>
+References: <20251025164023.308884-1-yury.norov@gmail.com>
+ <20251025164023.308884-12-yury.norov@gmail.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251027-upstream-imx95-smarc-defconfig-v2-1-0f664b08d553@toradex.com>
-X-B4-Tracking: v=1; b=H4sIAPBi/2gC/42NQQ6DIBAAv2L23G0Eg9We/EfjAWHRPSAGrLEx/
- r3UF/Q4c5g5IFFkSvAsDoi0ceIwZ5C3Asyk55GQbWaQpVSilBW+l7RG0h7Z763C5HU0aMmZMDs
- esWkf0g6qUq1oIEeWSI73a/DqM0+c1hA/128TP/t3ehMosJamptqpoRKqyyVtab+b4KE/z/ML4
- OqBTM4AAAA=
-X-Change-ID: 20251023-upstream-imx95-smarc-defconfig-8972db535918
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, 
- Peng Fan <peng.fan@nxp.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, 
- =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_051800_989174_C7E2BB7F 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20251027_052207_452983_65C444C0 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,71 +92,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+On Saturday, 25 October 2025 18:40:10 Central European Standard Time Yury Norov (NVIDIA) wrote:
+> Recently added FIELD_PREP_WM16() in a few places uses GENMASK. It's
+> confusing and may mislead readers. Switch to BITS() or FIRST_BITS()
+> as appropriate.
+> 
+> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+> Link: https://lore.kernel.org/all/CAHk-=whoOUsqPKb7OQwhQf9H_3=5sXGPJrDbfQfwLB3Bi13tcQ@mail.gmail.com/
+> Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
+> ---
+>  drivers/gpu/drm/rockchip/rockchip_lvds.h             | 2 +-
+>  drivers/gpu/drm/rockchip/rockchip_vop2_reg.c         | 4 ++--
+>  drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h | 4 ++--
+>  drivers/mmc/host/dw_mmc-rockchip.c                   | 4 ++--
+>  drivers/soc/rockchip/grf.c                           | 4 ++--
+>  sound/soc/rockchip/rockchip_i2s_tdm.h                | 2 +-
+>  6 files changed, 10 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.h b/drivers/gpu/drm/rockchip/rockchip_lvds.h
+> index 2d92447d819b..e79e6031be59 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.h
+> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.h
+> @@ -115,7 +115,7 @@
+>  #define   PX30_LVDS_INVERT_DCLK(val)		FIELD_PREP_WM16(BIT(5), (val))
+>  
+>  #define PX30_LVDS_GRF_PD_VO_CON1		0x438
+> -#define   PX30_LVDS_FORMAT(val)			FIELD_PREP_WM16(GENMASK(14, 13), (val))
+> +#define   PX30_LVDS_FORMAT(val)			FIELD_PREP_WM16(BITS(13, 14), (val))
+>  #define   PX30_LVDS_MODE_EN(val)		FIELD_PREP_WM16(BIT(12), (val))
+>  #define   PX30_LVDS_MSBSEL(val)			FIELD_PREP_WM16(BIT(11), (val))
+>  #define   PX30_LVDS_P2S_EN(val)			FIELD_PREP_WM16(BIT(6), (val))
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> index 38c49030c7ab..438fea5f6f6d 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> @@ -1698,7 +1698,7 @@ static unsigned long rk3588_set_intf_mux(struct vop2_video_port *vp, int id, u32
+>  		val = rk3588_get_hdmi_pol(polflags);
+>  		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, FIELD_PREP_WM16(BIT(1), 1));
+>  		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0,
+> -			     FIELD_PREP_WM16(GENMASK(6, 5), val));
+> +			     FIELD_PREP_WM16(BITS(5, 6), val));
+>  		break;
+>  	case ROCKCHIP_VOP2_EP_HDMI1:
+>  		div &= ~RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV;
+> @@ -1711,7 +1711,7 @@ static unsigned long rk3588_set_intf_mux(struct vop2_video_port *vp, int id, u32
+>  		val = rk3588_get_hdmi_pol(polflags);
+>  		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, FIELD_PREP_WM16(BIT(4), 1));
+>  		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0,
+> -			     FIELD_PREP_WM16(GENMASK(8, 7), val));
+> +			     FIELD_PREP_WM16(BITS(7, 8), val));
+>  		break;
+>  	case ROCKCHIP_VOP2_EP_EDP0:
+>  		div &= ~RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV;
+> diff --git a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
+> index b13f58e31944..14df3f53ff8f 100644
+> --- a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
+> +++ b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
+> @@ -12,8 +12,8 @@
+>  #include <linux/bitops.h>
+>  #include <linux/hw_bitfield.h>
+>  
+> -#define UPDATE(x, h, l)		FIELD_PREP(GENMASK((h), (l)), (x))
+> -#define HIWORD_UPDATE(v, h, l)	FIELD_PREP_WM16(GENMASK((h), (l)), (v))
+> +#define UPDATE(x, h, l)		FIELD_PREP(BITS((l), (h)), (x))
+> +#define HIWORD_UPDATE(v, h, l)	FIELD_PREP_WM16(BITS((l), (h)), (v))
+>  
+>  /* SYS_GRF */
+>  #define SYS_GRF_SOC_CON1			0x0304
+> diff --git a/drivers/mmc/host/dw_mmc-rockchip.c b/drivers/mmc/host/dw_mmc-rockchip.c
+> index 82dd906bb002..7fac1a7281bf 100644
+> --- a/drivers/mmc/host/dw_mmc-rockchip.c
+> +++ b/drivers/mmc/host/dw_mmc-rockchip.c
+> @@ -148,10 +148,10 @@ static int rockchip_mmc_set_internal_phase(struct dw_mci *host, bool sample, int
+>  
+>  	if (sample)
+>  		mci_writel(host, TIMING_CON1,
+> -			   FIELD_PREP_WM16(GENMASK(11, 1), raw_value));
+> +			   FIELD_PREP_WM16(BITS(1, 11), raw_value));
+>  	else
+>  		mci_writel(host, TIMING_CON0,
+> -			   FIELD_PREP_WM16(GENMASK(11, 1), raw_value));
+> +			   FIELD_PREP_WM16(BITS(1, 11), raw_value));
+>  
+>  	dev_dbg(host->dev, "set %s_phase(%d) delay_nums=%u actual_degrees=%d\n",
+>  		sample ? "sample" : "drv", degrees, delay_num,
+> diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
+> index 344870da7675..89fd4a4c69eb 100644
+> --- a/drivers/soc/rockchip/grf.c
+> +++ b/drivers/soc/rockchip/grf.c
+> @@ -125,8 +125,8 @@ static const struct rockchip_grf_info rk3566_pipegrf __initconst = {
+>  #define RK3576_SYSGRF_SOC_CON1		0x0004
+>  
+>  static const struct rockchip_grf_value rk3576_defaults_sys_grf[] __initconst = {
+> -	{ "i3c0 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(GENMASK(7, 6), 3) },
+> -	{ "i3c1 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(GENMASK(9, 8), 3) },
+> +	{ "i3c0 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(BITS(6, 7), 3) },
+> +	{ "i3c1 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(BITS(8, 9), 3) },
+>  };
+>  
+>  static const struct rockchip_grf_info rk3576_sysgrf __initconst = {
+> diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.h b/sound/soc/rockchip/rockchip_i2s_tdm.h
+> index 0171e05ee886..eee6db372ee7 100644
+> --- a/sound/soc/rockchip/rockchip_i2s_tdm.h
+> +++ b/sound/soc/rockchip/rockchip_i2s_tdm.h
+> @@ -287,7 +287,7 @@ enum {
+>  #define I2S_TDM_RXCR	(0x0034)
+>  #define I2S_CLKDIV	(0x0038)
+>  
+> -#define HIWORD_UPDATE(v, h, l)	(FIELD_PREP_WM16_CONST(GENMASK((h), (l)), (v)))
+> +#define HIWORD_UPDATE(v, h, l)	(FIELD_PREP_WM16_CONST(BITS((l), (h)), (v)))
+>  
+>  /* PX30 GRF CONFIGS */
+>  #define PX30_I2S0_CLK_IN_SRC_FROM_TX		HIWORD_UPDATE(1, 13, 12)
+> 
 
-Enable i.MX95 pinctrl driver necessary for booting. Also enable the
-missing drivers required for Ethernet and PCIe functionality. These
-drivers are used on i.MX95 boards, including the NXP i.MX95 19x19 EVK.
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-The below configurations were enabled (listed with their DT nodes on
-imx95.dtsi):
+I made sure there were no accidental changes introduced by the
+swapping of values, so in terms of correctness, this appears
+all good to me.
 
-* CONFIG_PINCTRL_IMX_SCMI for the `scmi_iomuxc` pinctrl.
-* CONFIG_CLK_IMX95_BLK_CTL for the HSIO domain clock controller
-  (`hsio_blk_ctl`) used by the PCIe controller.
-* CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
-  (`netc_blk_ctrl`).
-* CONFIG_NXP_ENETC4 for the Ethernet controller (`enetc_port*`).
+Kind regards,
+Nicolas Frattaroli
 
-Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
----
-Changes in v2:
-- Rephrase the commit message to clearly explain why these configs were
-  enabled and on which boards they are used.
-- Link to v1:
-  https://lore.kernel.org/r/20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..787d3ae3f5afeac486a905e0943e7b0e1dcee3a9 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -354,8 +354,10 @@ CONFIG_FSL_FMAN=y
- CONFIG_FSL_DPAA_ETH=y
- CONFIG_FSL_DPAA2_ETH=y
- CONFIG_FSL_ENETC=y
-+CONFIG_NXP_ENETC4=m
- CONFIG_FSL_ENETC_VF=y
- CONFIG_FSL_ENETC_QOS=y
-+CONFIG_NXP_NETC_BLK_CTRL=m
- CONFIG_HIX5HD2_GMAC=y
- CONFIG_HNS_DSAF=y
- CONFIG_HNS_ENET=y
-@@ -615,6 +617,7 @@ CONFIG_PINCTRL_IMX8DXL=y
- CONFIG_PINCTRL_IMX8ULP=y
- CONFIG_PINCTRL_IMX91=y
- CONFIG_PINCTRL_IMX93=y
-+CONFIG_PINCTRL_IMX_SCMI=y
- CONFIG_PINCTRL_MSM=y
- CONFIG_PINCTRL_IPQ5018=y
- CONFIG_PINCTRL_IPQ5332=y
-@@ -1349,6 +1352,7 @@ CONFIG_CLK_IMX8MQ=y
- CONFIG_CLK_IMX8QXP=y
- CONFIG_CLK_IMX8ULP=y
- CONFIG_CLK_IMX93=y
-+CONFIG_CLK_IMX95_BLK_CTL=y
- CONFIG_TI_SCI_CLK=y
- CONFIG_COMMON_CLK_MT8192_AUDSYS=y
- CONFIG_COMMON_CLK_MT8192_CAMSYS=y
-
----
-base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
-change-id: 20251023-upstream-imx95-smarc-defconfig-8972db535918
-
-Best regards,
--- 
-João Paulo Gonçalves <joao.goncalves@toradex.com>
 
 
