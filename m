@@ -4,79 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5242CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FA1CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dOijxY4yU1FSMyaDhxn4I+Okufrw4ljdJUN2JDfS9Dc=; b=EsKdzNmuwnToxmDgv6hkk47S4W
-	/xzTfulOvA9XB+TQjySe/Se6Ec8blPZxZ6Q5v+k/n0rwcCY00HeckDJfr1ujYKFrpSshepLLvuvyU
-	m8d/dWlyE68gdo1KFr1ODR2rrtAm80GDFia23VkrRlSPnMpoQnNVf4CrotVEujPCfNpSMaMUo/S/0
-	0ri10iK77Ye/immoLaDDIEFCE2UTmLwMHPjpjauOqreQI0dhGd916vV9YMAm04xrQzEcN9tWXVXKl
-	561XFFSh8yPaFSzJMq3zbAXtLqPvJhYESShN3PGItSIy4RjRQ3RDnOm3RBjVzgVSBDMCLlT01ei/F
-	GmfzTANw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=npA/8I1oLyiBkr0yQrv00lOaUfdNgtibYTrAQgoL9sE=; b=S4ceLVsa86KOdhEVFlnJVv+9vt
+	P+u/o7BRZVg8CSUwvo1A2KfZSyEfNInEHkqrfEjfUTHWyuE/f11qdBKKMxmGBx5DVSqVm6NJ4OSmi
+	BiGt6wFBCFK4w/5mm15a369oA8mitxmcZm09ZvA43XmFL97qTK3RHsjgzGuiSfTJ2kgNB3NNiNZhB
+	R8OJumn4kx3tVW2AGSTTeAWl2EbgsIYrnw38mpRHIwnYsjtXx9OGp4aHCcE97tNqvt4rfMADg7yDj
+	2qOyGp+yuxP17hyCw0Mr/86mlwu3Q2qKyqbRxP/TWkuLOP7I7pj5YI1VbG2gRqTj80eja5qRHfSkt
+	81mbhblA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJnd-0000000DZbC-00Bx;
-	Mon, 27 Oct 2025 09:46:01 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJna-0000000DZak-44fB
+	id 1vDJrH-0000000DZpg-3jYD;
+	Mon, 27 Oct 2025 09:49:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDJrE-0000000DZpK-1pJ1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 09:46:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=dOijxY4yU1FSMyaDhxn4I+Okufrw4ljdJUN2JDfS9Dc=; b=s3AjK7vOVdO9yapjAJKe+t7cO5
-	hKRBh4UX2ixS+KVr3oM7uZ0w9zIVqT5eyfWWO3eQjkuxxlmAp9vI44Jor5doPNB73OPp+AINp9q3A
-	/8WKoJxjH9kW5Mqg5xWaNXtJs/5rwSBJuLlN7cUrV7MM3sj8zSqSAVWGramQB6uYWuAgdr682h5gT
-	F+9Uzl0fs3nmDEXGrCRn68gNtT/H9ytgtrpvdugyeNyerBu3vkX4sRCcMIBfAJUn0F5o07V+HlO+m
-	Au7krtZJ4v+r2Y1/Xk9CpoWAkV5kVymx98KEtfdib8QA/7QlsLcQmfJh6qsCKnI8t0209n/QIXtV7
-	FNz6hYtg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56120)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vDJnX-000000001bf-3JsR;
-	Mon, 27 Oct 2025 09:45:55 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vDJnW-000000005UD-1dSd;
-	Mon, 27 Oct 2025 09:45:54 +0000
-Date: Mon, 27 Oct 2025 09:45:54 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aP8_UjqvCHbrP3lH@shell.armlinux.org.uk>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <aP82VEjNDgrNAZzy@shell.armlinux.org.uk>
- <20251027093346.GB1544@pendragon.ideasonboard.com>
+	Mon, 27 Oct 2025 09:49:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C26C21764;
+	Mon, 27 Oct 2025 02:49:35 -0700 (PDT)
+Received: from [10.57.67.85] (unknown [10.57.67.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9609C3F673;
+	Mon, 27 Oct 2025 02:49:41 -0700 (PDT)
+Message-ID: <503e673c-441b-46dc-89d0-fb54ac81ec60@arm.com>
+Date: Mon, 27 Oct 2025 09:49:39 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251027093346.GB1544@pendragon.ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 05/11] coresight: etm4x: Ensure context synchronization
+ is not ignored
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com>
+ <20251024-arm_coresight_power_management_fix-v4-5-690e69ae6977@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251024-arm_coresight_power_management_fix-v4-5-690e69ae6977@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_024559_010867_76419302 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20251027_024944_555974_588A11EE 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,37 +70,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 11:33:46AM +0200, Laurent Pinchart wrote:
-> Hi Russell,
+On 24/10/2025 17:45, Leo Yan wrote:
+> As recommended in section 4.3.7 "Synchronization of register updates" of
+> ARM IHI0064H.b, a self-hosted trace analyzer should always executes an
+> ISB instruction after programming the trace unit registers.
 > 
-> On Mon, Oct 27, 2025 at 09:07:32AM +0000, Russell King (Oracle) wrote:
-> > On Sun, Oct 26, 2025 at 02:29:04PM +0200, Laurent Pinchart wrote:
-> > > Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
-> > > (DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
-> > > devices produces an interrupts storm. Disable EEE support to fix it.
-> > 
-> > As this is the second problem that has been reported recently, please
-> > bisect the conversion of stmmac to phylink managed EEE support and see
-> > whether there is anything in that which is causing this.
+> An ISB works as a context synchronization event; a DSB is not required.
+> Removes the redundant barrier in the enabling flow.
+
+It is required for MMIO based instances and must be retained.
+
 > 
-> Emanuele Ghidoli has bisected this to commit 2c81f3357136 ("net: stmmac:
-> convert to phylink PCS support"), as reported in [1]. I can test that
-> commit and the commit just before tonight.
+> The ISB was placed at the end of the enable and disable functions.
+> However, this does not guarantee a context synchronization event in the
+> calling code, which may speculatively execute across function
+> boundaries.
+
+It is not allowed to commit though, right ? I don't think this change
+is required TBH.
+
+Suzuki
+
 > 
-> [1] https://lore.kernel.org/all/341f56de-9dde-4c44-9542-b523e1917dcb@gmail.com/
+> ISB instructions are moved into callers to ensure that a context
+> synchronization is imposed immediately after enabling or disabling trace
+> unit.
+> 
+> Fixes: 40f682ae5086 ("coresight: etm4x: Extract the trace unit controlling")
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> Tested-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 38 +++++++++++++++-------
+>   1 file changed, 26 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index c562f82985192ad71e181be1b570c9a2f334f29f..45bf76901650641d45a0d85965651667a8762b8c 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -460,13 +460,6 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
+>   		return -ETIME;
+>   	}
+>   
+> -	/*
+> -	 * As recommended by section 4.3.7 ("Synchronization when using the
+> -	 * memory-mapped interface") of ARM IHI 0064D
+> -	 */
+> -	dsb(sy);
+> -	isb();
+> -
+>   	return 0;
+>   }
+>   
+> @@ -581,6 +574,13 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   
+>   	if (!drvdata->paused)
+>   		rc = etm4_enable_trace_unit(drvdata);
+> +
+> +	/*
+> +	 * As recommended by section 4.3.7 (Synchronization of register updates)
+> +	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
+> +	 * ISB instruction after programming the trace unit registers.
+> +	 */
+> +	isb();
+>   done:
+>   	etm4_cs_lock(drvdata, csa);
+>   
+> @@ -954,11 +954,6 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+>   	if (etm4x_wait_status(csa, TRCSTATR_PMSTABLE_BIT, 1))
+>   		dev_err(etm_dev,
+>   			"timeout while waiting for PM stable Trace Status\n");
+> -	/*
+> -	 * As recommended by section 4.3.7 (Synchronization of register updates)
+> -	 * of ARM IHI 0064H.b.
+> -	 */
+> -	isb();
+>   }
+>   
+>   static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+> @@ -981,6 +976,13 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>   
+>   	etm4_disable_trace_unit(drvdata);
+>   
+> +	/*
+> +	 * As recommended by section 4.3.7 (Synchronization of register updates)
+> +	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
+> +	 * ISB instruction after programming the trace unit registers.
+> +	 */
+> +	isb();
+> +
+>   	/* read the status of the single shot comparators */
+>   	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
+>   		config->ss_status[i] =
+> @@ -1118,6 +1120,12 @@ static int etm4_resume_perf(struct coresight_device *csdev)
+>   
+>   	etm4_cs_unlock(drvdata, csa);
+>   	etm4_enable_trace_unit(drvdata);
+> +	/*
+> +	 * As recommended by section 4.3.7 (Synchronization of register updates)
+> +	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
+> +	 * ISB instruction after programming the trace unit registers.
+> +	 */
+> +	isb();
+>   	etm4_cs_lock(drvdata, csa);
+>   
+>   	drvdata->paused = false;
+> @@ -1134,6 +1142,12 @@ static void etm4_pause_perf(struct coresight_device *csdev)
+>   
+>   	etm4_cs_unlock(drvdata, csa);
+>   	etm4_disable_trace_unit(drvdata);
+> +	/*
+> +	 * As recommended by section 4.3.7 (Synchronization of register updates)
+> +	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
+> +	 * ISB instruction after programming the trace unit registers.
+> +	 */
+> +	isb();
+>   	etm4_cs_lock(drvdata, csa);
+>   
+>   	drvdata->paused = true;
+> 
 
-As you will notice in that thread, I have responded to it last week, so
-I am well aware of it. I am also well aware of the claims Emanuele made
-in his commit description are demonstrably false.
-
-That's not to say the commit isn't a problem, but the explanation of
-why it's a problem doesn't make sense right now, and thus what needs to
-be done to fix it is unknown.
-
-I don't think going around disabling EEE on individual platforms is the
-right approach.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
