@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9504ACCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 03:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 114BACCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 03:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAeOHfgUT6r3fiFo8cNAJVc1VqoNbWb3MuAwo4bKF7o=; b=IK3chy0TaUnvg8lhEETqMsdhDT
-	dkx1jFcVEFMopaUHVrqDIA9CdEb/hhZSzZ3yPlZr15YtHevvyEIgnAxMmNlT+/qy/GMBUQMNPQFuP
-	e6ViPL1pXjldieCT4ScNwHphHkPV4UV5gqoYtOTMXc5ekzqoXVGKpMNBlQJIUD2vZ2tt/9ScdcO6l
-	g7Gh2H1mh2mThm8GhcUZHXm8YG91yZp+Stp1s6lerBkqYT0eGpxrQVr0G0s6k1HfsYkOp71qm86Xz
-	TcJmn7S+L7Ekp+9qIz4ig5T30xhBycZ8Hq1o0S8b2gx+cGsGWV8/iPz3TXVrVC1+ZxBn82o/auCO6
-	S+zIBczA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VMAa48VV4WNzxnbugA0Rcp3703e/G17GYUEc0RKkr2Y=; b=nZlFZqnK9VnZz/tog/qqBGDK6I
+	Wu3KI7pA+l+mQEqJtIu2kbhapp1uvc8o/y7Mqac4ktvIKcMjIe+/hdlLs//zmPJjuTQqaf7BZO0tp
+	vlr3NfNbht6VCUxAiHMqAmxVuOD6p7ppXwp6S/45aHhzvFmvqLG0vM+9Icun6ek3EYosnAyciI8qI
+	HY63T0Zb3fQWd6wbWVuUH851WP3LKDXPNaWEYWf8ZS3SowHTkIn6Diso9cSxUkgAh6LiX8trz246G
+	3I3l+CXuyF6j8AHk9YOjr2myf3C7vmrpznw/oSRaKFghYLv4i11MZjsCl/ktjx9CZAyznMD4Uwtxt
+	5P598nHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDbG-0000000D2je-3DJG;
-	Mon, 27 Oct 2025 03:08:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vDDpP-0000000D3UM-2rmP;
+	Mon, 27 Oct 2025 03:23:27 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDbE-0000000D2jE-0OFc
+	id 1vDDpM-0000000D3TX-3Bb6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 03:08:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=GAeOHfgUT6r3fiFo8cNAJVc1VqoNbWb3MuAwo4bKF7o=; b=vwHQJ2Sow6ozOIG3NRmCoT3bQe
-	kL1rU1HzVMODq/Poeh6tfjRENi4Cu1dLqft2bED6DT8SCsksDMUGMHE+PrC3pd6tjDuHyz1yxNIcj
-	7nm1nbn2oAIusdRxdt3JNol5btUtk49BffMeeScg6S/hr8+Ws6jLZtZh7SdZ+c6qkvDw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vDDb8-00C9V7-Qu; Mon, 27 Oct 2025 04:08:42 +0100
-Date: Mon, 27 Oct 2025 04:08:42 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+	Mon, 27 Oct 2025 03:23:26 +0000
+Received: from localhost.localdomain (unknown [202.112.113.212])
+	by APP-01 (Coremail) with SMTP id qwCowACHY7aU5f5oAK+HAg--.18889S2;
+	Mon, 27 Oct 2025 11:23:09 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: will@kernel.org,
+	mark.rutland@arm.com,
+	james.clark@linaro.org,
+	robin.murphy@arm.com,
+	ilkka@os.amperecomputing.com,
+	make24@iscas.ac.cn,
+	u.kleine-koenig@baylibre.com,
+	suzuki.poulose@arm.com,
+	bwicaksono@nvidia.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	stable@vger.kernel.org
+Subject: [PATCH] perf: arm_cspmu: fix device leak in arm_cspmu_impl_unregister
+Date: Mon, 27 Oct 2025 11:22:59 +0800
+Message-Id: <20251027032259.5818-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.17.1
+X-CM-TRANSID: qwCowACHY7aU5f5oAK+HAg--.18889S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF1fZrW3ArW5GF17JF43Wrg_yoW8Xry3pr
+	48CFyYvFyjgr4UK39rZay8ZFWUGa1ru3s5CryxK34F9F9rZry8t348tr9xK3W8JFWUJayU
+	t34aqr1kWa15JFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwV
+	AFwVW8GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
+	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
+	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
+	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
+	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU3kucU
+	UUUU=
+X-Originating-IP: [202.112.113.212]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_200848_134264_C9FC963E 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20251026_202325_175214_CF31A868 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +87,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adding Russell King
+arm_cspmu_impl_unregister() utilizes driver_find_device() to locate
+matching devices. driver_find_device() increments the ref count of the
+found device by calling get_device(), but arm_cspmu_impl_unregister()
+fails to call put_device() to decrement the reference count after
+processing each device. This results in a reference count leak of the
+device objects, which prevents devices from being properly released
+and causes a memory leak. Fix the leak by adding put_device() after
+device_release_driver() in the while loop.
 
-On Sun, Oct 26, 2025 at 02:29:04PM +0200, Laurent Pinchart wrote:
-> Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
-> (DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
-> devices produces an interrupts storm. Disable EEE support to fix it.
-> 
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
-> The exact reason for the interrupt storm is unknown, and my attempts to
-> diagnose it was hindered by my lack of expertise with DWMAC. As far as I
-> understand, the DWMAC implements EEE support, and so does the RTL8211E
-> PHY according to its datasheet.
+Found by code review.
 
-I believe for DWMAC it is a synthesis option. However, there is a bit
-indicating if the hardware supports it.
+Cc: stable@vger.kernel.org
+Fixes: bfc653aa89cb ("perf: arm_cspmu: Separate Arm and vendor module")
+Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+---
+ drivers/perf/arm_cspmu/arm_cspmu.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-The PHY should not be able to trigger an interrupt storm in the
-MAC. So this is likely to be an DWMAC issue.
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index efa9b229e701..e0d4293f06f9 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -1365,8 +1365,10 @@ void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match *impl_match)
+ 
+ 	/* Unbind the driver from all matching backend devices. */
+ 	while ((dev = driver_find_device(&arm_cspmu_driver.driver, NULL,
+-			match, arm_cspmu_match_device)))
++			match, arm_cspmu_match_device))) {
+ 		device_release_driver(dev);
++		put_device(dev);
++	}
+ 
+ 	mutex_lock(&arm_cspmu_lock);
+ 
+-- 
+2.17.1
 
-Which interrupt bit is causing the storm?
-
-> What each side does exactly is unknown
-> to me. One theory I've heard to explain the issue is that the two
-> implementations conflict. There is no register in the RTL8211E PHY to
-> disable EEE on the PHY side while still advertising its support to the
-> peer and relying on the implementation in the DWMAC (if this even makes
-> sense)
-
-It does not make sense. EEE is split into two major parts. The two
-PHYs communicate with each other to negotiate the feature, if both
-ends support it and both ends want to use it. The result of this
-negotiation is then passed to the MACs.
-
-It is then the MAC who decides when to send a Low Power Indication to
-the PHY to tell the PHY to enter low power mode. The MAC also wakes
-the PHY when it has packets to send.
-
-A quick look at the data sheet for the RTL8211E suggests this is what
-is supports.
-
-There are a few PHYs which implement SmartEEE, or some other similar
-name. They operate differently, the PHY does it all, and the MAC is
-not even aware EEE is happening. Such PHYs should really only be
-paired with MACs which do not support EEE. An EEE capable MAC paired
-with a SmartEEE PHY could have problems, but hopefully the EEE
-abilities and negotiation registers in the PHY would be sufficient to
-dissuade the MAC from doing EEE. But i would not expect a setup like
-this to trigger an interrupt storm.
-
-	Andrew
 
