@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2284CCF9EF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58ECCCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6cDqk9TYRjtXm22uwa6MPbsB01Bc33tFzEiW8ZtIxM=; b=lkoFWl6u2uUNXgD/++t/fH3CLk
-	zC0Zs8o76QXUTMojJZtPCMDirDTfDQ8sK6RqANcEBra0HcA5AHABve3yvc6cV2+M/gLTY1LYza2eO
-	1X6dMGgp1XetG6Sq1bQB1B6zYXGzN0kaiIiYl23ePbSuBsBYl7DR90nctrs8Jd8FWMJntLpuEIOIl
-	AHzOwDwOcBVrA4QLPjpeZq0VHHaUWTv/8efaYUhU2HMnkCSH17By/COJfIsZJEUp0ow4aH3UKzmhl
-	R3ZhQJKqjyxWzbcTUy/58Zvonn8ADqZTi8pp/OXHRVJfJKaMkTDpKsHrvSH3+1J0pmKwEbs2SX9cB
-	g1l1vgng==;
+	bh=eaAyOTnsT0tBnjEoM51jYXGc6jOBJRr//NyAicJXspw=; b=ZX8US+oTnk00gdHIrB+LuZhaLr
+	ts87hiSC3QBbk6gMsa0nRES/oxLiTwZS6AaSshvJXvV3tioP776jxazTLLowR4jO4GgrHgPRqtiLN
+	qk0ASBBToZuEHf0/p4v8c/zXCpBzzf2MTYn1OhZzoJsEX9Xj0h7omduklz8LpyXWueE2LMC9yk+Vp
+	B4dy454jjeC6+lyfRs3dE0MsKbQ5IWXaE4fXDsVlaIsRRPnuNnCa66HYb+RvoxM6/8JzFnk05ZuYY
+	VFQpeWVDjXgatN59GG21MpIifOjbA7IlLiympdv5T0YWDAQv/VnmX7rHG/MtART+qCoxQUuG/loR1
+	ANrBYyiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDL2v-0000000Di5E-2c1W;
-	Mon, 27 Oct 2025 11:05:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vDL30-0000000DiBn-2SrV;
+	Mon, 27 Oct 2025 11:05:58 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDL2i-0000000Dhpg-0VN5;
-	Mon, 27 Oct 2025 11:05:43 +0000
+	id 1vDL2k-0000000Dhsu-2uBt;
+	Mon, 27 Oct 2025 11:05:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761563138;
-	bh=04K1WanaDUA2MiF5nmHGi2OjVDZ06Gl3ovx/Z0/32LE=;
+	s=mail; t=1761563140;
+	bh=4FHpSId7Du1Y1aQnRlM6XVzE5i5c19+XkaTCitYnhJc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KBJrCrcz7EuKleLOSHVsXcOdGgdRzY3TsAX/DwLZunbJX0ek861mJ3hnccpSk6qcA
-	 jph4Jv9wg4CIAO+VIMHoN9ZDPc+/FRBG8jQThJrQXF2o84Cf6z/49f6WBoSrXlMoFe
-	 ZZjqYw72+adXV40nQDkP4UgC0AA5fAHQ+Wk6WRcLolJx8EIHiLLcPi0l89x//g9pyg
-	 DnT/ENwQAMTj+y6s3MoPECsf6iL2FjjsOl3ncyYJBZgTUF5ijLlvO0YCdpC6+0lObv
-	 UDTnj41uMDUeUbBS2yftcRqggdl2CAKRSIaJuQ7DY3vBnf9ZVjFxJDap3MVhLW50/M
-	 IaWO30AMfR9/Q==
+	b=VWTk7A9aLR9a7jRgTKxtmJw3non+5DS+n+/hhbO9BWiBptTJEbtqU8XAmBTpdrXb8
+	 RWQPMAmFRdRT+IqOKkVJAeprUKcsegUlKcKFUUIEDXx/vlIiAnftkymQ6BnanzcnEZ
+	 OHwHlmqBBh+fB95mz5PQfNnupQ71EZ7ywftRNHzVuJBbNJFBf7yE2ukprwgco9/4O3
+	 IX9ffvqgj0vghtQ2sHUGP5ITpjyudYnz+027z90ER9bR7ZSoQuQmlaap1JE9sJEH7c
+	 C1jWMR05bjO3NVutAHeaY0usI2fmBptxDu74sUO74/m8Dv9TbjZjUkkx6F7qGHXB5Q
+	 pTJfVt99B3V+g==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8FE1917E1423;
-	Mon, 27 Oct 2025 12:05:37 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 06CB917E10F4;
+	Mon, 27 Oct 2025 12:05:39 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: lee@kernel.org,
@@ -58,18 +58,20 @@ Cc: lee@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	wenst@chromium.org,
-	igor.belwon@mentallysanemainliners.org
-Subject: [PATCH v11 6/9] regulator: Add support for MediaTek MT6373 SPMI PMIC Regulators
-Date: Mon, 27 Oct 2025 12:05:24 +0100
-Message-ID: <20251027110527.21002-7-angelogioacchino.delregno@collabora.com>
+	igor.belwon@mentallysanemainliners.org,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>
+Subject: [PATCH v11 9/9] mfd: Add support for MediaTek SPMI PMICs and MT6363/73
+Date: Mon, 27 Oct 2025 12:05:27 +0100
+Message-ID: <20251027110527.21002-10-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251027110527.21002-1-angelogioacchino.delregno@collabora.com>
 References: <20251027110527.21002-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_040540_542918_D0751E58 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20251027_040543_112275_6CEED3B5 
+X-CRM114-Status: GOOD (  37.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,1002 +86,554 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a driver for the regulators found on the MediaTek MT6373 PMIC,
-fully controlled by SPMI interface.
-Similarly to MT6363, this PMIC regulates voltage with input range
-of 2.6-5.0V, and features 10 buck converters and 25 LDOs.
+This driver adds support for the MediaTek SPMI PMICs and their
+interrupt controller (which is present in 95% of the cases).
 
-This PMIC is usually found on board designs using the MT6991 or
-MT8196 SoC, in combination with the MT6363 PMIC.
+Other than probing all of the sub-devices of a SPMI PMIC, this
+sets up a regmap from the relevant SPMI bus and initializes an
+interrupt controller with its irq domain and irqchip to handle
+chained interrupts, with the SPMI bus itself being its parent
+irq controller, and the PMIC being the outmost device.
 
+This driver hence holds all of the information about a specific
+PMIC's interrupts and will properly handle them, calling the
+ISR for any subdevice that requested an interrupt.
+
+As for the interrupt spec, this driver wants either three or
+two interrupt cells, but in the case 3 were given it ignores
+the first one: this is because of how this first revision of
+of the MediaTek SPMI 2.0 Controller works, which doesn't hold
+hold irq number information in its register, but delegates
+that to the SPMI device - it's possible that this will change
+in the future with a newer revision of the controller IP, and
+this is the main reason for that.
+
+To make use of this implementation, this driver also adds the
+required bits to support MediaTek MT6363 and MT6373 SPMI PMICs.
+
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/regulator/Kconfig                  |  10 +
- drivers/regulator/Makefile                 |   1 +
- drivers/regulator/mt6373-regulator.c       | 772 +++++++++++++++++++++
- include/linux/regulator/mt6373-regulator.h | 161 +++++
- 4 files changed, 944 insertions(+)
- create mode 100644 drivers/regulator/mt6373-regulator.c
- create mode 100644 include/linux/regulator/mt6373-regulator.h
+ drivers/mfd/Kconfig                       |  16 +
+ drivers/mfd/Makefile                      |   1 +
+ drivers/mfd/mtk-spmi-pmic.c               | 427 ++++++++++++++++++++++
+ include/linux/mfd/mt63x3_spmi/registers.h |  34 ++
+ 4 files changed, 478 insertions(+)
+ create mode 100644 drivers/mfd/mtk-spmi-pmic.c
+ create mode 100644 include/linux/mfd/mt63x3_spmi/registers.h
 
-diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
-index 4e1c293adc69..cc054955af6d 100644
---- a/drivers/regulator/Kconfig
-+++ b/drivers/regulator/Kconfig
-@@ -972,6 +972,16 @@ config REGULATOR_MT6370
- 	  This driver supports the control for DisplayBias voltages and one
- 	  general purpose LDO which is commonly used to drive the vibrator.
+diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+index dbeac6825a10..fcd796544fd7 100644
+--- a/drivers/mfd/Kconfig
++++ b/drivers/mfd/Kconfig
+@@ -1137,6 +1137,22 @@ config MFD_MT6397
+ 	  accessing the device; additional drivers must be enabled in order
+ 	  to use the functionality of the device.
  
-+config REGULATOR_MT6373
-+	tristate "MT6373 SPMI PMIC regulator driver"
++config MFD_MTK_SPMI_PMIC
++	tristate "MediaTek SPMI PMICs"
++	depends on ARCH_MEDIATEK || COMPILE_TEST
++	depends on OF
 +	depends on SPMI
 +	select REGMAP_SPMI
 +	help
-+	  Say Y here to enable support for buck and LDO regulators found in
-+	  the MediaTek MT6373 SPMI PMIC and its variants.
-+	  This driver supports the control of different power rails of device
-+	  through regulator interface.
++	  Say yes here to enable support for MediaTek's SPMI PMICs.
++	  These PMICs made their first appearance in board designs using the
++	  MediaTek Dimensity 9400 series of SoCs.
++	  Note that this will only be useful when paired with descriptions
++	  of the independent functions as child nodes in the device tree.
 +
- config REGULATOR_MT6380
- 	tristate "MediaTek MT6380 PMIC"
- 	depends on MTK_PMIC_WRAP
-diff --git a/drivers/regulator/Makefile b/drivers/regulator/Makefile
-index a2ebefacb98c..43ee486f56cc 100644
---- a/drivers/regulator/Makefile
-+++ b/drivers/regulator/Makefile
-@@ -115,6 +115,7 @@ obj-$(CONFIG_REGULATOR_MT6359)	+= mt6359-regulator.o
- obj-$(CONFIG_REGULATOR_MT6360) += mt6360-regulator.o
- obj-$(CONFIG_REGULATOR_MT6363) += mt6363-regulator.o
- obj-$(CONFIG_REGULATOR_MT6370) += mt6370-regulator.o
-+obj-$(CONFIG_REGULATOR_MT6373) += mt6373-regulator.o
- obj-$(CONFIG_REGULATOR_MT6380)	+= mt6380-regulator.o
- obj-$(CONFIG_REGULATOR_MT6397)	+= mt6397-regulator.o
- obj-$(CONFIG_REGULATOR_MTK_DVFSRC) += mtk-dvfsrc-regulator.o
-diff --git a/drivers/regulator/mt6373-regulator.c b/drivers/regulator/mt6373-regulator.c
++	  Say M here if you want to include support for the MediaTek SPMI
++	  PMICs as a module. The module will be called "mtk-spmi-pmic".
++
+ config MFD_MENF21BMC
+ 	tristate "MEN 14F021P00 Board Management Controller Support"
+ 	depends on I2C
+diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+index e75e8045c28a..e00d283450c6 100644
+--- a/drivers/mfd/Makefile
++++ b/drivers/mfd/Makefile
+@@ -190,6 +190,7 @@ obj-$(CONFIG_MFD_MT6360)	+= mt6360-core.o
+ obj-$(CONFIG_MFD_MT6370)	+= mt6370.o
+ mt6397-objs			:= mt6397-core.o mt6397-irq.o mt6358-irq.o
+ obj-$(CONFIG_MFD_MT6397)	+= mt6397.o
++obj-$(CONFIG_MFD_MTK_SPMI_PMIC)	+= mtk-spmi-pmic.o
+ 
+ obj-$(CONFIG_RZ_MTU3)		+= rz-mtu3.o
+ obj-$(CONFIG_ABX500_CORE)	+= abx500-core.o
+diff --git a/drivers/mfd/mtk-spmi-pmic.c b/drivers/mfd/mtk-spmi-pmic.c
 new file mode 100644
-index 000000000000..90672ae1eb80
+index 000000000000..d1fc8156e696
 --- /dev/null
-+++ b/drivers/regulator/mt6373-regulator.c
-@@ -0,0 +1,772 @@
-+// SPDX-License-Identifier: GPL-2.0
-+//
-+// Copyright (c) 2024 MediaTek Inc.
-+// Copyright (c) 2025 Collabora Ltd
-+//                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++++ b/drivers/mfd/mtk-spmi-pmic.c
+@@ -0,0 +1,427 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * MediaTek SPMI PMICs Driver
++ *
++ * Copyright (c) 2024 MediaTek Inc.
++ * Copyright (c) 2025 Collabora Ltd
++ *
++ * Authors:
++ * AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++ */
 +
-+#include <linux/bitfield.h>
-+#include <linux/delay.h>
-+#include <linux/devm-helpers.h>
-+#include <linux/err.h>
-+#include <linux/interrupt.h>
++#include <linux/device.h>
++#include <linux/errno.h>
++#include <linux/gfp.h>
 +#include <linux/irq.h>
++#include <linux/irqchip/chained_irq.h>
 +#include <linux/irqdomain.h>
 +#include <linux/kernel.h>
++#include <linux/mfd/mt63x3_spmi/registers.h>
 +#include <linux/module.h>
 +#include <linux/of.h>
 +#include <linux/of_device.h>
 +#include <linux/of_irq.h>
-+#include <linux/platform_device.h>
++#include <linux/of_platform.h>
 +#include <linux/regmap.h>
 +#include <linux/spmi.h>
++#include <linux/types.h>
 +
-+#include <linux/regulator/driver.h>
-+#include <linux/regulator/machine.h>
-+#include <linux/regulator/mt6373-regulator.h>
-+#include <linux/regulator/of_regulator.h>
++#define MTK_SPMI_PMIC_VAL_BITS		8
++#define MTK_SPMI_PMIC_REG_CHIP_ID	0xb
++#define MTK_SPMI_PMIC_RCS_IRQ_DONE	0x41b
 +
-+#define MT6373_REGULATOR_MODE_NORMAL	0
-+#define MT6373_REGULATOR_MODE_FCCM	1
-+#define MT6373_REGULATOR_MODE_LP	2
-+#define MT6373_REGULATOR_MODE_ULP	3
-+
-+#define EN_SET_OFFSET			0x1
-+#define EN_CLR_OFFSET			0x2
-+
-+#define OC_IRQ_ENABLE_DELAY_MS		10
-+
-+/* Unlock key for mode setting */
-+#define MT6373_BUCK_TOP_UNLOCK_VALUE	0x5543
-+
-+enum {
-+	MT6373_ID_VBUCK0,
-+	MT6373_ID_VBUCK1,
-+	MT6373_ID_VBUCK2,
-+	MT6373_ID_VBUCK3,
-+	MT6373_ID_VBUCK4,
-+	MT6373_ID_VBUCK5,
-+	MT6373_ID_VBUCK6,
-+	MT6373_ID_VBUCK7,
-+	MT6373_ID_VBUCK8,
-+	MT6373_ID_VBUCK9,
-+	MT6373_ID_VANT18,
-+	MT6373_ID_VAUD18,
-+	MT6373_ID_VAUX18,
-+	MT6373_ID_VCN18IO,
-+	MT6373_ID_VCN33_1,
-+	MT6373_ID_VCN33_2,
-+	MT6373_ID_VCN33_3,
-+	MT6373_ID_VEFUSE,
-+	MT6373_ID_VFP,
-+	MT6373_ID_VIBR,
-+	MT6373_ID_VIO28,
-+	MT6373_ID_VMC,
-+	MT6373_ID_VMCH,
-+	MT6373_ID_VMCH_EINT_HIGH,
-+	MT6373_ID_VMCH_EINT_LOW,
-+	MT6373_ID_VRF09_AIF,
-+	MT6373_ID_VRF12_AIF,
-+	MT6373_ID_VRF13_AIF,
-+	MT6373_ID_VRF18_AIF,
-+	MT6373_ID_VRFIO18_AIF,
-+	MT6373_ID_VSRAM_DIGRF_AIF,
-+	MT6373_ID_VTP,
-+	MT6373_ID_VUSB,
++/**
++ * struct mtk_spmi_pmic_irq_group - Group of interrupts in SPMI PMIC
++ * @num_int_regs: Number of registers for this group of interrupts
++ * @con_reg:      PMIC Interrupt Group Control 0 register
++ * @sta_reg:      PMIC Interrupt Group Status 0 register
++ * @group_num:    PMIC Interrupt Group number - also corresponds to the
++ *                status bit in the global IRQ Control register
++ */
++struct mtk_spmi_pmic_irq_grp {
++	u8 hwirq_base;
++	u8 num_int_regs;
++	u16 con_reg;
++	u16 sta_reg;
++	u8 group_num;
 +};
 +
 +/**
-+ * struct mt6373_regulator_info - MT6373 regulators information
-+ * @desc: Regulator description structure
-+ * @lp_mode_reg: Low Power mode register (normal/idle)
-+ * @lp_mode_mask: Low Power mode regulator mask
-+ * @modeset_reg: AUTO/PWM mode register
-+ * @modeset_mask: AUTO/PWM regulator mask
-+ * @oc_work: Delayed work for enabling overcurrent IRQ
-+ * @hwirq: PMIC-Internal HW Interrupt for overcurrent event
-+ * @virq: Mapped Interrupt for overcurrent event
++ * struct mtk_spmi_pmic_variant - SPMI PMIC variant-specific data
++ * @pmic_irq:    Group of interrupts in SPMI PMIC
++ * @num_groups:  Number of groups of interrupts
++ * @con_reg_len: Length in bytes of Control registers, depends on
++ *               existence of SET and CLR registers in the layout
++ * @irq_grp_reg: Global interrupt status register, explains which
++ *               group needs attention because of a group IRQ;
++ *               if this is zero, it means that there is only one
++ *               group and the device has no irqgroup register
++ * @chip_id_reg: Chip ID Register
 + */
-+struct mt6373_regulator_info {
-+	struct regulator_desc desc;
-+	u16 lp_mode_reg;
-+	u16 lp_mode_mask;
-+	u16 modeset_reg;
-+	u16 modeset_mask;
-+	struct delayed_work oc_work;
-+	u8 hwirq;
-+	int virq;
++struct mtk_spmi_pmic_variant {
++	const struct mtk_spmi_pmic_irq_grp *pmic_irq;
++	u8 num_groups;
++	u8 con_reg_len;
++	u8 irq_grp_reg;
++	u8 chip_id_reg;
 +};
 +
-+#define MT6373_BUCK(match, vreg, min, max, step, en_reg, lp_reg,	\
-+		    mset_reg, ocp_intn)					\
-+[MT6373_ID_##vreg] = {							\
-+	.desc = {							\
-+		.name = match,						\
-+		.supply_name = "vsys-"match,				\
-+		.of_match = of_match_ptr(match),			\
-+		.ops = &mt6373_vreg_setclr_ops,				\
-+		.type = REGULATOR_VOLTAGE,				\
-+		.id = MT6373_ID_##vreg,					\
-+		.owner = THIS_MODULE,					\
-+		.n_voltages = (max - min) / step + 1,			\
-+		.min_uV = min,						\
-+		.uV_step = step,					\
-+		.enable_reg = en_reg,					\
-+		.enable_mask = BIT(MT6373_PMIC_RG_BUCK_##vreg##_EN_BIT),\
-+		.vsel_reg = MT6373_PMIC_RG_BUCK_##vreg##_VOSEL_ADDR,	\
-+		.vsel_mask = MT6373_PMIC_RG_BUCK_VOSEL_MASK,		\
-+		.of_map_mode = mt6373_map_mode,				\
-+	},								\
-+	.lp_mode_reg = lp_reg,						\
-+	.lp_mode_mask = BIT(MT6373_PMIC_RG_BUCK_##vreg##_LP_BIT),	\
-+	.modeset_reg = mset_reg,					\
-+	.modeset_mask = BIT(MT6373_PMIC_RG_##vreg##_FCCM_BIT),		\
-+	.hwirq = ocp_intn,						\
-+}
-+
-+
-+#define MT6373_LDO_L(match, vreg, in_sup, min, max, step, ocp_intn)	\
-+[MT6373_ID_##vreg] = {							\
-+	.desc = {							\
-+		.name = match,						\
-+		.supply_name = in_sup,					\
-+		.of_match = of_match_ptr(match),			\
-+		.ops = &mt6373_ldo_linear_ops,				\
-+		.type = REGULATOR_VOLTAGE,				\
-+		.id = MT6373_ID_##vreg,					\
-+		.owner = THIS_MODULE,					\
-+		.n_voltages = (max - min) / step + 1,			\
-+		.min_uV = min,						\
-+		.uV_step = step,					\
-+		.enable_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+		.enable_mask = BIT(0),					\
-+		.vsel_reg = MT6373_PMIC_RG_##vreg##_VOSEL_ADDR,		\
-+		.vsel_mask = MT6373_PMIC_RG_##vreg##_VOSEL_MASK,	\
-+		.of_map_mode = mt6373_map_mode,				\
-+	},								\
-+	.lp_mode_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+	.lp_mode_mask = BIT(1),						\
-+	.hwirq = ocp_intn,						\
-+}
-+
-+#define MT6373_LDO_VT_OPS(match, vreg, in_sup, vops, vrnum, ocp_intn)	\
-+[MT6373_ID_##vreg] = {							\
-+	.desc = {							\
-+		.name = match,						\
-+		.supply_name = in_sup,					\
-+		.of_match = of_match_ptr(match),			\
-+		.ops = &vops,						\
-+		.type = REGULATOR_VOLTAGE,				\
-+		.id = MT6373_ID_##vreg,					\
-+		.owner = THIS_MODULE,					\
-+		.n_voltages = ARRAY_SIZE(ldo_volt_ranges##vrnum) * 11,	\
-+		.linear_ranges = ldo_volt_ranges##vrnum,		\
-+		.n_linear_ranges = ARRAY_SIZE(ldo_volt_ranges##vrnum),	\
-+		.linear_range_selectors_bitfield = ldos_cal_selectors,	\
-+		.enable_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+		.enable_mask = BIT(0),					\
-+		.vsel_reg = MT6373_PMIC_RG_##vreg##_VOCAL_ADDR,		\
-+		.vsel_mask = MT6373_PMIC_RG_LDO_VT_VOCALSEL_MASK,	\
-+		.vsel_range_reg = MT6373_PMIC_RG_##vreg##_VOSEL_ADDR,	\
-+		.vsel_range_mask = MT6373_PMIC_RG_LDO_VT_VOCALSEL_MASK,	\
-+		.of_map_mode = mt6373_map_mode,				\
-+	},								\
-+	.lp_mode_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+	.lp_mode_mask = BIT(1),						\
-+	.hwirq = ocp_intn,						\
-+}
-+
-+#define MT6373_LDO_VT(match, vreg, inp, vrnum, ocp_intn)		\
-+	MT6373_LDO_VT_OPS(match, vreg, inp, mt6373_ldo_vtable_ops,	\
-+			  vrnum, ocp_intn)
-+
-+#define MT6373_LDO_EI(match, vreg, inp, vrnum, ocp_intn)		\
-+	MT6373_LDO_VT_OPS(match, vreg, inp, mt6373_vmch_eint_ops,	\
-+			  vrnum, ocp_intn)
-+
-+static const unsigned int ldos_cal_selectors[] = {
-+	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
++/**
++ * struct mtk_spmi_pmic - Main driver structure
++ * @variant:  SPMI PMIC variant-specific data
++ * @dev:      Handle to SPMI Device
++ * @dom:      IRQ Domain of the PMIC's interrupt controller
++ * @regmap:   Handle to PMIC regmap
++ * @irq:      PMIC chained interrupt
++ */
++struct mtk_spmi_pmic {
++	const struct mtk_spmi_pmic_variant *variant;
++	struct device *dev;
++	struct irq_domain *dom;
++	struct regmap *regmap;
++	int irq;
 +};
 +
-+static const struct linear_range ldo_volt_ranges1[] = {
-+	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1500000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3400000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3500000, 0, 10, 10000)
-+};
-+
-+static const struct linear_range ldo_volt_ranges2[] = {
-+	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2400000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2500000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2600000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3300000, 0, 10, 10000)
-+};
-+
-+static const struct linear_range ldo_volt_ranges3[] = {
-+	REGULATOR_LINEAR_RANGE(600000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1400000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1500000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1600000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2100000, 0, 10, 10000)
-+};
-+
-+static const struct linear_range ldo_volt_ranges4[] = {
-+	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1500000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2500000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2600000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3400000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3500000, 0, 10, 10000)
-+};
-+
-+static const struct linear_range ldo_volt_ranges5[] = {
-+	REGULATOR_LINEAR_RANGE(900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
-+};
-+
-+static int mt6373_vreg_enable_setclr(struct regulator_dev *rdev)
++static void mtk_spmi_pmic_irq_set_unmasking(struct irq_data *d, bool unmask)
 +{
-+	return regmap_write(rdev->regmap, rdev->desc->enable_reg + EN_SET_OFFSET,
-+			    rdev->desc->enable_mask);
-+}
++	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
++	const struct mtk_spmi_pmic_variant *variant = pmic->variant;
++	struct regmap *regmap = pmic->regmap;
++	irq_hw_number_t hwirq = irqd_to_hwirq(d);
++	unsigned short i;
 +
-+static int mt6373_vreg_disable_setclr(struct regulator_dev *rdev)
-+{
-+	return regmap_write(rdev->regmap, rdev->desc->enable_reg + EN_CLR_OFFSET,
-+			    rdev->desc->enable_mask);
-+}
++	for (i = 0; i < variant->num_groups; i++) {
++		const struct mtk_spmi_pmic_irq_grp *irq_grp = &variant->pmic_irq[i];
++		u32 con_reg;
++		u8 irq_en_bit;
 +
-+static inline unsigned int mt6373_map_mode(unsigned int mode)
-+{
-+	switch (mode) {
-+	case MT6373_REGULATOR_MODE_NORMAL:
-+		return REGULATOR_MODE_NORMAL;
-+	case MT6373_REGULATOR_MODE_FCCM:
-+		return REGULATOR_MODE_FAST;
-+	case MT6373_REGULATOR_MODE_LP:
-+		return REGULATOR_MODE_IDLE;
-+	case MT6373_REGULATOR_MODE_ULP:
-+		return REGULATOR_MODE_STANDBY;
-+	default:
-+		return REGULATOR_MODE_INVALID;
++		if (hwirq < irq_grp->hwirq_base)
++			continue;
++
++		con_reg = irq_grp->con_reg + (variant->con_reg_len * i);
++		irq_en_bit = hwirq - irq_grp->hwirq_base;
++		regmap_assign_bits(regmap, con_reg, BIT(irq_en_bit), unmask);
++
++		break;
 +	}
 +}
 +
-+static int mt6373_vmch_eint_enable(struct regulator_dev *rdev)
++static void mtk_spmi_pmic_irq_mask(struct irq_data *d)
 +{
-+	const struct regulator_desc *rdesc = rdev->desc;
-+	unsigned int val;
-+	int ret;
-+
-+	if (rdesc->id == MT6373_ID_VMCH_EINT_HIGH)
-+		val = MT6373_PMIC_RG_LDO_VMCH_EINT_POL_BIT;
-+	else
-+		val = 0;
-+
-+	ret = regmap_update_bits(rdev->regmap,
-+				 MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR,
-+				 MT6373_PMIC_RG_LDO_VMCH_EINT_POL_BIT, val);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(rdev->regmap,
-+			      MT6373_PMIC_RG_LDO_VMCH_ADDR,
-+			      rdesc->enable_mask);
-+	if (ret)
-+		return ret;
-+
-+	return regmap_set_bits(rdev->regmap, rdesc->enable_reg, rdesc->enable_mask);
++	mtk_spmi_pmic_irq_set_unmasking(d, false);
 +}
 +
-+static int mt6373_vmch_eint_disable(struct regulator_dev *rdev)
++static void mtk_spmi_pmic_irq_unmask(struct irq_data *d)
 +{
-+	const struct regulator_desc *rdesc = rdev->desc;
-+	int ret;
-+
-+	ret = regmap_clear_bits(rdev->regmap,
-+				MT6373_PMIC_RG_LDO_VMCH_ADDR,
-+				rdesc->enable_mask);
-+	if (ret)
-+		return ret;
-+
-+	/* Wait for VMCH discharging */
-+	usleep_range(1500, 1600);
-+
-+	return regmap_clear_bits(rdev->regmap, rdesc->enable_reg, rdesc->enable_mask);
++	mtk_spmi_pmic_irq_set_unmasking(d, true);
 +}
 +
-+static unsigned int mt6373_regulator_get_mode(struct regulator_dev *rdev)
++static struct irq_chip mtk_spmi_pmic_irq_chip = {
++	.name = "mtk-spmi-pmic",
++	.irq_mask = mtk_spmi_pmic_irq_mask,
++	.irq_unmask = mtk_spmi_pmic_irq_unmask,
++	.flags = IRQCHIP_SKIP_SET_WAKE,
++};
++
++static struct lock_class_key mtk_spmi_pmic_irq_lock_class, mtk_spmi_pmic_irq_request_class;
++
++static int mtk_spmi_pmic_irq_translate(struct irq_domain *d, struct irq_fwspec *fwspec,
++				       unsigned long *out_hwirq, unsigned int *out_type)
 +{
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
-+	unsigned int val;
-+	int ret;
++	struct mtk_spmi_pmic *pmic = d->host_data;
++	u32 intsize = fwspec->param_count;
++	u32 *intspec = fwspec->param;
++	unsigned int irq_type_index;
++	unsigned int irq_num_index;
 +
-+	if (info->modeset_reg) {
-+		ret = regmap_read(rdev->regmap, info->modeset_reg, &val);
-+		if (ret) {
-+			dev_err(&rdev->dev, "Failed to get mt6373 mode: %d\n", ret);
-+			return ret;
-+		}
-+
-+		if (val & info->modeset_mask)
-+			return REGULATOR_MODE_FAST;
-+	} else {
-+		val = 0;
-+	};
-+
-+	ret = regmap_read(rdev->regmap, info->lp_mode_reg, &val);
-+	val &= info->lp_mode_mask;
-+	if (ret) {
-+		dev_err(&rdev->dev, "Failed to get lp mode: %d\n", ret);
-+		return ret;
++	/*
++	 * Interrupt cell index - For interrupt size 3:
++	 * [0] - SID Interrupt number
++	 * [1] - SPMI PMIC (Sub-)Device Interrupt number
++	 * [2] - Interrupt Type mask
++	 *
++	 * When only two cells are specified the SID Interrupt is not present.
++	 */
++	if (intsize != 2 && intsize != 3) {
++		dev_err(pmic->dev, "Expected IRQ specifier of size 2 or 3, got %u\n", intsize);
++		return -EINVAL;
 +	}
 +
-+	if (val)
-+		return REGULATOR_MODE_IDLE;
-+	else
-+		return REGULATOR_MODE_NORMAL;
++	/* irq_num_index refers to the SPMI (Sub-)Device Interrupt number */
++	irq_num_index = intsize - 2;
++	irq_type_index = irq_num_index + 1;
++
++	/*
++	 * For 3 cells, the IRQ number in intspec[0] is ignored on purpose here!
++	 *
++	 * This is because of how at least the first revision of the SPMI 2.0
++	 * controller works in MediaTek SoCs: the controller will raise an
++	 * interrupt for each SID (but doesn't know the details), and the
++	 * specific IRQ number that got raised must be read from the PMIC or
++	 * its sub-device driver.
++	 * It's possible that this will change in the future with a newer
++	 * revision of the SPMI controller, and this is why the device tree
++	 * holds the full interrupt specifier.
++	 *
++	 * out_hwirq: SPMI PMIC (Sub-)Device Interrupt number
++	 * out_type:  Interrupt type sense mask
++	 */
++	*out_hwirq = intspec[irq_num_index];
++	*out_type = intspec[irq_type_index] & IRQ_TYPE_SENSE_MASK;
++
++	return 0;
 +}
 +
-+static int mt6373_buck_unlock(struct regmap *map, bool unlock)
++static int mtk_spmi_pmic_irq_alloc(struct irq_domain *d, unsigned int virq,
++				   unsigned int nr_irqs, void *data)
 +{
-+	u16 buf = unlock ? MT6373_BUCK_TOP_UNLOCK_VALUE : 0;
++	struct mtk_spmi_pmic *pmic = d->host_data;
++	struct irq_fwspec *fwspec = data;
++	irq_hw_number_t hwirq;
++	unsigned int irqtype;
++	int i, ret;
 +
-+	return regmap_bulk_write(map, MT6373_BUCK_TOP_KEY_PROT_LO, &buf, sizeof(buf));
-+}
-+
-+static int mt6373_regulator_set_mode(struct regulator_dev *rdev,
-+				     unsigned int mode)
-+{
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
-+	struct regmap *regmap = rdev->regmap;
-+	int cur_mode, ret;
-+
-+	if (!info->modeset_reg && mode == REGULATOR_MODE_FAST)
-+		return -EOPNOTSUPP;
-+
-+	switch (mode) {
-+	case REGULATOR_MODE_FAST:
-+		ret = mt6373_buck_unlock(regmap, true);
-+		if (ret)
-+			break;
-+
-+		ret = regmap_set_bits(regmap, info->modeset_reg, info->modeset_mask);
-+
-+		mt6373_buck_unlock(regmap, false);
-+		break;
-+	case REGULATOR_MODE_NORMAL:
-+		cur_mode = mt6373_regulator_get_mode(rdev);
-+		if (cur_mode < 0) {
-+			ret = cur_mode;
-+			break;
-+		}
-+
-+		if (cur_mode == REGULATOR_MODE_FAST) {
-+			ret = mt6373_buck_unlock(regmap, true);
-+			if (ret)
-+				break;
-+
-+			ret = regmap_clear_bits(regmap, info->modeset_reg, info->modeset_mask);
-+
-+			mt6373_buck_unlock(regmap, false);
-+			break;
-+		} else if (cur_mode == REGULATOR_MODE_IDLE) {
-+			ret = regmap_clear_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
-+			if (ret == 0)
-+				usleep_range(100, 200);
-+		} else {
-+			ret = 0;
-+		}
-+		break;
-+	case REGULATOR_MODE_IDLE:
-+		ret = regmap_set_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
-+		break;
-+	default:
-+		ret = -EINVAL;
-+	}
-+
-+	if (ret) {
-+		dev_err(&rdev->dev, "Failed to set mode %u: %d\n", mode, ret);
++	ret = mtk_spmi_pmic_irq_translate(d, fwspec, &hwirq, &irqtype);
++	if (ret)
 +		return ret;
++
++	for (i = 0; i < nr_irqs; i++) {
++		irq_set_lockdep_class(virq, &mtk_spmi_pmic_irq_lock_class,
++				      &mtk_spmi_pmic_irq_request_class);
++		irq_domain_set_info(d, virq, hwirq, &mtk_spmi_pmic_irq_chip,
++				    pmic, handle_level_irq, NULL, NULL);
 +	}
 +
 +	return 0;
 +}
 +
-+static void mt6373_oc_irq_enable_work(struct work_struct *work)
-+{
-+	struct delayed_work *dwork = to_delayed_work(work);
-+	struct mt6373_regulator_info *info =
-+		container_of(dwork, struct mt6373_regulator_info, oc_work);
 +
-+	enable_irq(info->virq);
++static const struct irq_domain_ops mtk_spmi_pmic_irq_domain_ops = {
++	.alloc = mtk_spmi_pmic_irq_alloc,
++	.free = irq_domain_free_irqs_common,
++	.translate = mtk_spmi_pmic_irq_translate,
++};
++
++static int mtk_spmi_pmic_handle_group_irq(struct mtk_spmi_pmic *pmic, int group)
++{
++	const struct mtk_spmi_pmic_irq_grp *irq_grp = &pmic->variant->pmic_irq[group];
++	struct regmap *regmap = pmic->regmap;
++	struct device *dev = pmic->dev;
++	int i, ret;
++
++	for (i = 0; i < irq_grp->num_int_regs; i++) {
++		u32 status, saved_status;
++
++		ret = regmap_read(regmap, irq_grp->sta_reg + i, &status);
++		if (ret) {
++			dev_err(dev, "Could not read IRQ status register: %d", ret);
++			return ret;
++		}
++
++		if (status == 0)
++			continue;
++
++		saved_status = status;
++		do {
++			irq_hw_number_t hwirq;
++			u8 bit = __ffs(status);
++
++			/* Each register has 8 bits: this is the first IRQ of this group */
++			hwirq = MTK_SPMI_PMIC_VAL_BITS * i;
++
++			/* Offset by this group's start interrupt */
++			hwirq += irq_grp->hwirq_base;
++
++			/* Finally, offset by the fired IRQ's bit number */
++			hwirq += bit;
++
++			status &= ~BIT(bit);
++
++			generic_handle_domain_irq_safe(pmic->dom, hwirq);
++		} while (status);
++
++		/* Clear the interrupts by writing the previous status */
++		regmap_write(regmap, irq_grp->sta_reg + i, saved_status);
++	}
++
++	return 0;
 +}
 +
-+static irqreturn_t mt6373_oc_isr(int irq, void *data)
++static void mtk_spmi_pmic_handle_chained_irq(struct irq_desc *desc)
 +{
-+	struct regulator_dev *rdev = (struct regulator_dev *)data;
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
-+
-+	disable_irq_nosync(info->virq);
-+
-+	if (regulator_is_enabled_regmap(rdev))
-+		regulator_notifier_call_chain(rdev, REGULATOR_EVENT_OVER_CURRENT, NULL);
-+
-+	schedule_delayed_work(&info->oc_work, msecs_to_jiffies(OC_IRQ_ENABLE_DELAY_MS));
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int mt6373_set_ocp(struct regulator_dev *rdev, int lim, int severity, bool enable)
-+{
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
-+
-+	/* MT6373 supports only enabling protection and does not support limits */
-+	if (lim || severity != REGULATOR_SEVERITY_PROT || !enable)
-+		return -EINVAL;
-+
-+	/* If there is no OCP interrupt, there's nothing to set */
-+	if (info->virq <= 0)
-+		return -EINVAL;
-+
-+	return devm_request_threaded_irq(&rdev->dev, info->virq, NULL,
-+					 mt6373_oc_isr, IRQF_ONESHOT,
-+					 info->desc.name, rdev);
-+}
-+
-+static const struct regulator_ops mt6373_vreg_setclr_ops = {
-+	.list_voltage = regulator_list_voltage_linear,
-+	.map_voltage = regulator_map_voltage_linear,
-+	.set_voltage_sel = regulator_set_voltage_sel_regmap,
-+	.get_voltage_sel = regulator_get_voltage_sel_regmap,
-+	.set_voltage_time_sel = regulator_set_voltage_time_sel,
-+	.enable = mt6373_vreg_enable_setclr,
-+	.disable = mt6373_vreg_disable_setclr,
-+	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
-+};
-+
-+static const struct regulator_ops mt6373_ldo_linear_ops = {
-+	.list_voltage = regulator_list_voltage_linear,
-+	.map_voltage = regulator_map_voltage_linear,
-+	.set_voltage_sel = regulator_set_voltage_sel_regmap,
-+	.get_voltage_sel = regulator_get_voltage_sel_regmap,
-+	.set_voltage_time_sel = regulator_set_voltage_time_sel,
-+	.enable = regulator_enable_regmap,
-+	.disable = regulator_disable_regmap,
-+	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
-+};
-+
-+static const struct regulator_ops mt6373_ldo_vtable_ops = {
-+	.list_voltage = regulator_list_voltage_pickable_linear_range,
-+	.map_voltage = regulator_map_voltage_pickable_linear_range,
-+	.set_voltage_sel = regulator_set_voltage_sel_pickable_regmap,
-+	.get_voltage_sel = regulator_get_voltage_sel_pickable_regmap,
-+	.set_voltage_time_sel = regulator_set_voltage_time_sel,
-+	.enable = regulator_enable_regmap,
-+	.disable = regulator_disable_regmap,
-+	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
-+};
-+
-+static const struct regulator_ops mt6373_vmch_eint_ops = {
-+	.list_voltage = regulator_list_voltage_pickable_linear_range,
-+	.map_voltage = regulator_map_voltage_pickable_linear_range,
-+	.set_voltage_sel = regulator_set_voltage_sel_pickable_regmap,
-+	.get_voltage_sel = regulator_get_voltage_sel_pickable_regmap,
-+	.set_voltage_time_sel = regulator_set_voltage_time_sel,
-+	.enable = mt6373_vmch_eint_enable,
-+	.disable = mt6373_vmch_eint_disable,
-+	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
-+};
-+
-+/* The array is indexed by id(MT6373_ID_XXX) */
-+static struct mt6373_regulator_info mt6373_regulators[] = {
-+	MT6373_BUCK("vbuck0", VBUCK0, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 0),
-+	MT6373_BUCK("vbuck1", VBUCK1, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 1),
-+	MT6373_BUCK("vbuck2", VBUCK2, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 2),
-+	MT6373_BUCK("vbuck3", VBUCK3, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 3),
-+	MT6373_BUCK("vbuck4", VBUCK4, 0, 0, 1, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 4),
-+	MT6373_BUCK("vbuck5", VBUCK5, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 5),
-+	MT6373_BUCK("vbuck6", VBUCK6, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 6),
-+	MT6373_BUCK("vbuck7", VBUCK7, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 7),
-+	MT6373_BUCK("vbuck8", VBUCK8, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK1_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK1_LP_ADDR, MT6373_PMIC_RG_BUCK1_FCCM_ADDR, 8),
-+	MT6373_BUCK("vbuck9", VBUCK9, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK1_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK1_LP_ADDR, MT6373_PMIC_RG_BUCK1_FCCM_ADDR, 9),
-+	MT6373_LDO_VT("vant18", VANT18, "vs1-ldo1", 3, 28),
-+	MT6373_LDO_VT("vaud18", VAUD18, "vs1-ldo1", 3, 16),
-+	MT6373_LDO_VT("vaux18", VAUX18, "vsys-ldo2", 2, 18),
-+	MT6373_LDO_VT("vcn18io", VCN18IO, "vs1-ldo1", 3, 25),
-+	MT6373_LDO_VT("vcn33-1", VCN33_1, "vsys-ldo1", 4, 22),
-+	MT6373_LDO_VT("vcn33-2", VCN33_2, "vsys-ldo1", 4, 23),
-+	MT6373_LDO_VT("vcn33-3", VCN33_3, "vsys-ldo2", 4, 24),
-+	MT6373_LDO_VT("vefuse", VEFUSE, "vsys-ldo2", 1, 31),
-+	MT6373_LDO_VT("vfp", VFP, "vsys-ldo2", 1, 36),
-+	MT6373_LDO_VT("vibr", VIBR, "vsys-ldo2", 1, 34),
-+	MT6373_LDO_VT("vio28", VIO28, "vsys-ldo2", 1, 35),
-+	MT6373_LDO_VT("vmc", VMC, "vsys-ldo1", 1, 33),
-+	MT6373_LDO_VT("vmch", VMCH, "vsys-ldo3", 4, 32),
-+	MT6373_LDO_EI("vmch-eint-high", VMCH_EINT_HIGH, "vsys-ldo3", 4, 0),
-+	MT6373_LDO_EI("vmch-eint-low", VMCH_EINT_LOW, "vsys-ldo3", 4, 0),
-+	MT6373_LDO_VT("vrf09-aif", VRF09_AIF, "vs3-ldo1", 3, 26),
-+	MT6373_LDO_VT("vrf12-aif", VRF12_AIF, "vs2-ldo1", 5, 27),
-+	MT6373_LDO_VT("vrf13-aif", VRF13_AIF, "vs2-ldo1", 3, 19),
-+	MT6373_LDO_VT("vrf18-aif", VRF18_AIF, "vs1-ldo1", 3, 20),
-+	MT6373_LDO_VT("vrfio18-aif", VRFIO18_AIF, "vs1-ldo1", 3, 25),
-+	MT6373_LDO_L("vsram-digrf-aif", VSRAM_DIGRF_AIF, "vs3-ldo1", 400000, 1193750, 6250, 29),
-+	MT6373_LDO_VT("vtp", VTP, "vsys-ldo2", 1, 37),
-+	MT6373_LDO_VT("vusb", VUSB, "vsys-ldo2", 1, 17)
-+};
-+
-+static void mt6373_irq_remove(void *data)
-+{
-+	int *virq = data;
-+
-+	irq_dispose_mapping(*virq);
-+}
-+
-+static void mt6373_spmi_remove(void *data)
-+{
-+	struct spmi_device *sdev = data;
-+
-+	spmi_device_remove(sdev);
-+};
-+
-+static struct regmap *mt6373_spmi_register_regmap(struct device *dev)
-+{
-+	struct regmap_config mt6373_regmap_config = {
-+		.reg_bits = 16,
-+		.val_bits = 16,
-+		.max_register = 0x1f90,
-+		.fast_io = true,
-+	};
-+	struct spmi_device *sdev, *sparent;
-+	u32 base;
-+	int ret;
-+
-+	if (!dev->parent)
-+		return ERR_PTR(-ENODEV);
-+
-+	ret = device_property_read_u32(dev, "reg", &base);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	sparent = to_spmi_device(dev->parent);
-+	if (!sparent)
-+		return ERR_PTR(-ENODEV);
-+
-+	sdev = spmi_device_alloc(sparent->ctrl);
-+	if (!sdev)
-+		return ERR_PTR(-ENODEV);
-+
-+	sdev->usid = sparent->usid;
-+	dev_set_name(&sdev->dev, "%d-%02x-regulator", sdev->ctrl->nr, sdev->usid);
-+	ret = device_add(&sdev->dev);
-+	if (ret) {
-+		put_device(&sdev->dev);
-+		return ERR_PTR(ret);
-+	};
-+
-+	ret = devm_add_action_or_reset(dev, mt6373_spmi_remove, sdev);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	mt6373_regmap_config.reg_base = base;
-+
-+	return devm_regmap_init_spmi_ext(sdev, &mt6373_regmap_config);
-+}
-+
-+static int mt6373_regulator_probe(struct platform_device *pdev)
-+{
-+	struct device_node *interrupt_parent;
-+	struct regulator_config config = {};
-+	struct mt6373_regulator_info *info;
-+	struct device *dev = &pdev->dev;
-+	struct regulator_dev *rdev;
-+	struct irq_domain *domain;
-+	struct irq_fwspec fwspec;
-+	struct spmi_device *sdev;
-+	bool is_vbuck4_hw_ctrl;
-+	bool is_cw_variant;
++	struct mtk_spmi_pmic *pmic = irq_desc_get_handler_data(desc);
++	const struct mtk_spmi_pmic_variant *variant = pmic->variant;
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	struct regmap *regmap = pmic->regmap;
++	bool irq_handled = false;
 +	int i, ret;
 +	u32 val;
 +
-+	config.regmap = mt6373_spmi_register_regmap(dev);
-+	if (IS_ERR(config.regmap))
-+		return dev_err_probe(dev, PTR_ERR(config.regmap),
-+				     "Cannot get regmap\n");
-+	config.dev = dev;
-+	sdev = to_spmi_device(dev->parent);
-+	dev_set_drvdata(dev, config.regmap);
++	chained_irq_enter(chip, desc);
 +
-+	interrupt_parent = of_irq_find_parent(dev->of_node);
-+	if (!interrupt_parent)
-+		return -EINVAL;
++	/* If irq_grp_reg is present there are multiple IRQ groups */
++	if (variant->irq_grp_reg > 0) {
++		ret = regmap_read(regmap, variant->irq_grp_reg, &val);
++		if (ret)
++			handle_bad_irq(desc);
 +
-+	domain = irq_find_host(interrupt_parent);
-+	of_node_put(interrupt_parent);
-+	fwspec.fwnode = domain->fwnode;
-+
-+	fwspec.param_count = 3;
-+	fwspec.param[0] = sdev->usid;
-+	fwspec.param[2] = IRQ_TYPE_LEVEL_HIGH;
-+
-+	/*
-+	 * The first read may fail if the bootloader sets sleep mode: wake up
-+	 * this PMIC with W/R on the SPMI bus and ignore the first result.
-+	 */
-+	regmap_read(config.regmap, MT6373_PLG_CFG_ELR1, &val);
-+
-+	/* Read PMIC variant information */
-+	ret = regmap_read(config.regmap, MT6373_PLG_CFG_ELR1, &val);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Cannot read ID register\n");
-+
-+	val = FIELD_GET(MT6373_ELR_VARIANT_MASK, val);
-+	is_cw_variant = (val == MT6373_ELR_VARIANT_MT6373CW);
-+
-+	/* Read Reserved-SW information */
-+	ret = regmap_read(config.regmap, MT6373_RG_RSV_SWREG_H, &val);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Cannot read RSV_SW register\n");
-+
-+	is_vbuck4_hw_ctrl = val & MT6373_RG_RSV_SWREG_VBUCK4_HW_CTRL;
-+
-+	for (i = 0; i < ARRAY_SIZE(mt6373_regulators); i++) {
-+		info = &mt6373_regulators[i];
-+
-+		/* MT6373CW VBUCK4 constraints are different */
-+		if (info->desc.id == MT6373_ID_VBUCK4) {
-+			unsigned int vbuck4_max_uV;
-+
-+			/* VBUCK4 vreg software control not allowed in hw_ctrl mode */
-+			if (is_vbuck4_hw_ctrl)
-+				continue;
-+
-+			if (is_cw_variant) {
-+				info->desc.uV_step = 6250;
-+				vbuck4_max_uV = 1193750;
-+			} else {
-+				info->desc.uV_step = 13875;
-+				vbuck4_max_uV = 2650125;
-+			}
-+			info->desc.n_voltages = vbuck4_max_uV / info->desc.uV_step + 1;
++		/* This is very unlikely to happen */
++		if (val == 0) {
++			chained_irq_exit(chip, desc);
++			return;
 +		}
-+
-+		fwspec.param[0] = to_spmi_device(dev->parent)->usid;
-+		fwspec.param[1] = info->hwirq;
-+		info->virq = irq_create_fwspec_mapping(&fwspec);
-+		if (!info->virq)
-+			return dev_err_probe(dev, -EINVAL,
-+					     "Failed to map IRQ%d\n", info->hwirq);
-+
-+		ret = devm_add_action_or_reset(dev, mt6373_irq_remove, &info->virq);
-+		if (ret) {
-+			irq_dispose_mapping(info->virq);
-+			return ret;
-+		}
-+
-+		config.driver_data = info;
-+		INIT_DELAYED_WORK(&info->oc_work, mt6373_oc_irq_enable_work);
-+
-+		rdev = devm_regulator_register(dev, &info->desc, &config);
-+		if (IS_ERR(rdev))
-+			return dev_err_probe(dev, PTR_ERR(rdev),
-+					     "failed to register %s\n", info->desc.name);
++	} else {
++		val = BIT(0);
 +	}
++
++	for (i = 0; i < variant->num_groups; i++) {
++		const struct mtk_spmi_pmic_irq_grp *irq_grp = &variant->pmic_irq[i];
++		u8 group_bit = BIT(irq_grp[i].group_num);
++
++		if (val & group_bit) {
++			ret = mtk_spmi_pmic_handle_group_irq(pmic, i);
++			if (ret == 0)
++				irq_handled = true;
++		}
++	}
++
++	/* The RCS flag has to be cleared even if the IRQ was not handled. */
++	ret = regmap_write(regmap, MTK_SPMI_PMIC_RCS_IRQ_DONE, 1);
++	if (ret)
++		dev_warn(pmic->dev, "Could not clear RCS flag!\n");
++
++	if (!irq_handled)
++		handle_bad_irq(desc);
++
++	chained_irq_exit(chip, desc);
++}
++
++static void mtk_spmi_pmic_irq_remove(void *data)
++{
++	struct mtk_spmi_pmic *pmic = (struct mtk_spmi_pmic *)data;
++
++	irq_set_chained_handler_and_data(pmic->irq, NULL, NULL);
++	irq_domain_remove(pmic->dom);
++}
++
++static int mtk_spmi_pmic_irq_init(struct device *dev, struct regmap *regmap,
++				  const struct mtk_spmi_pmic_variant *variant)
++{
++	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
++	struct mtk_spmi_pmic *pmic;
++	int ret;
++
++	pmic = devm_kzalloc(dev, sizeof(*pmic), GFP_KERNEL);
++	if (!pmic)
++		return -ENOMEM;
++
++	pmic->irq = of_irq_get(dev->of_node, 0);
++	if (pmic->irq < 0)
++		return dev_err_probe(dev, pmic->irq, "Cannot get IRQ\n");
++
++	pmic->dev = dev;
++	pmic->regmap = regmap;
++	pmic->variant = variant;
++
++	pmic->dom = irq_domain_create_tree(fwnode, &mtk_spmi_pmic_irq_domain_ops, pmic);
++	if (!pmic->dom)
++		return dev_err_probe(dev, -ENOMEM, "Cannot create IRQ domain\n");
++
++	ret = devm_add_action_or_reset(dev, mtk_spmi_pmic_irq_remove, pmic);
++	if (ret) {
++		irq_domain_remove(pmic->dom);
++		return ret;
++	}
++
++	irq_set_chained_handler_and_data(pmic->irq, mtk_spmi_pmic_handle_chained_irq, pmic);
 +
 +	return 0;
 +}
 +
-+static void mt6373_regulator_shutdown(struct platform_device *pdev)
-+{
-+	struct regmap *regmap = dev_get_drvdata(&pdev->dev);
-+
-+	regmap_write(regmap, MT6373_TOP_CFG_ELR5, MT6373_TOP_CFG_ELR5_SHUTDOWN);
++#define MTK_SPMI_PMIC_IRQ_GROUP(pmic, group_name, group_index, first_irq, last_irq)	\
++{											\
++	.hwirq_base = first_irq,							\
++	.num_int_regs = ((last_irq - first_irq) / MTK_SPMI_PMIC_VAL_BITS) + 1,		\
++	.con_reg = pmic##_REG_##group_name##_TOP_INT_CON0,				\
++	.sta_reg = pmic##_REG_##group_name##_TOP_INT_STATUS0,				\
++	.group_num = group_index,							\
 +}
 +
-+static const struct of_device_id mt6373_regulator_match[] = {
-+	{ .compatible = "mediatek,mt6373-regulator" },
++static const struct mtk_spmi_pmic_irq_grp mt6363_irq_groups[] = {
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BUCK,	0,  0,   9),
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, LDO,	1, 16,  40),
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, PSC,	2, 48,  57),
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, MISC,	3, 64,  79),
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, HK,	4, 80,  87),
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BM,	6, 88, 107)
++};
++
++static const struct mtk_spmi_pmic_irq_grp mt6373_irq_groups[] = {
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, BUCK,	0,  0,  9),
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, LDO,	1, 16, 39),
++	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, MISC,	3, 56, 71),
++};
++
++static const struct mtk_spmi_pmic_variant mt6363_variant = {
++	.pmic_irq = mt6363_irq_groups,
++	.num_groups = ARRAY_SIZE(mt6363_irq_groups),
++	.con_reg_len = 3,
++	.irq_grp_reg = MT6363_REG_TOP_INT_STATUS1,
++	.chip_id_reg = MTK_SPMI_PMIC_REG_CHIP_ID,
++};
++
++static const struct mtk_spmi_pmic_variant mt6373_variant = {
++	.pmic_irq = mt6373_irq_groups,
++	.num_groups = ARRAY_SIZE(mt6373_irq_groups),
++	.con_reg_len = 3,
++	.irq_grp_reg = MT6373_REG_TOP_INT_STATUS1,
++	.chip_id_reg = MTK_SPMI_PMIC_REG_CHIP_ID,
++};
++
++static const struct regmap_config mtk_spmi_regmap_config = {
++	.reg_bits	= 16,
++	.val_bits	= MTK_SPMI_PMIC_VAL_BITS,
++	.max_register	= 0xffff,
++	.fast_io	= true,
++};
++
++static int mtk_spmi_pmic_probe(struct spmi_device *sdev)
++{
++	const struct mtk_spmi_pmic_variant *variant;
++	struct device *dev = &sdev->dev;
++	struct regmap *regmap;
++	int ret;
++
++	regmap = devm_regmap_init_spmi_ext(sdev, &mtk_spmi_regmap_config);
++	if (IS_ERR(regmap))
++		return PTR_ERR(regmap);
++
++	variant = (const struct mtk_spmi_pmic_variant *)device_get_match_data(dev);
++	if (variant && variant->num_groups) {
++		ret = mtk_spmi_pmic_irq_init(dev, regmap, variant);
++		if (ret)
++			return ret;
++	}
++
++	return devm_of_platform_populate(dev);
++}
++
++static const struct of_device_id mtk_pmic_spmi_id_table[] = {
++	{ .compatible = "mediatek,mt6363", .data = &mt6363_variant },
++	{ .compatible = "mediatek,mt6373", .data = &mt6373_variant },
 +	{ /* sentinel */ }
 +};
++MODULE_DEVICE_TABLE(of, mtk_pmic_spmi_id_table);
 +
-+static struct platform_driver mt6373_regulator_driver = {
++static struct spmi_driver mtk_spmi_pmic_driver = {
++	.probe = mtk_spmi_pmic_probe,
 +	.driver = {
-+		.name = "mt6373-regulator",
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+		.of_match_table = mt6373_regulator_match,
++		.name = "mtk-spmi-pmic",
++		.of_match_table = mtk_pmic_spmi_id_table,
 +	},
-+	.probe = mt6373_regulator_probe,
-+	.shutdown = mt6373_regulator_shutdown
 +};
-+module_platform_driver(mt6373_regulator_driver);
++module_spmi_driver(mtk_spmi_pmic_driver);
 +
 +MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
-+MODULE_DESCRIPTION("MediaTek MT6373 PMIC Regulator Driver");
++MODULE_DESCRIPTION("MediaTek SPMI PMIC driver");
 +MODULE_LICENSE("GPL");
-diff --git a/include/linux/regulator/mt6373-regulator.h b/include/linux/regulator/mt6373-regulator.h
+diff --git a/include/linux/mfd/mt63x3_spmi/registers.h b/include/linux/mfd/mt63x3_spmi/registers.h
 new file mode 100644
-index 000000000000..dd791717d2a1
+index 000000000000..808927280b40
 --- /dev/null
-+++ b/include/linux/regulator/mt6373-regulator.h
-@@ -0,0 +1,161 @@
++++ b/include/linux/mfd/mt63x3_spmi/registers.h
+@@ -0,0 +1,34 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * Copyright (c) 2024 MediaTek Inc.
++ * Copyright (c) 2021 MediaTek Inc.
 + * Copyright (c) 2025 Collabora Ltd
 + */
 +
-+#include <linux/bits.h>
++#ifndef __MFD_MT63X3_SPMI_REGISTERS_H__
++#define __MFD_MT63X3_SPMI_REGISTERS_H__
 +
-+#ifndef __LINUX_REGULATOR_MT6373_H
-+#define __LINUX_REGULATOR_MT6373_H
++/* MT6363 PMIC Registers */
++#define MT6363_REG_MISC_TOP_INT_CON0		0x37
++#define MT6363_REG_MISC_TOP_INT_STATUS0		0x43
++#define MT6363_REG_TOP_INT_STATUS1		0x4e
++#define MT6363_REG_PSC_TOP_INT_CON0		0x90f
++#define MT6363_REG_PSC_TOP_INT_STATUS0		0x91b
++#define MT6363_REG_BM_TOP_INT_CON0		0xc24
++#define MT6363_REG_BM_TOP_INT_STATUS0		0xc36
++#define MT6363_REG_HK_TOP_INT_CON0		0xf92
++#define MT6363_REG_HK_TOP_INT_STATUS0		0xf9e
++#define MT6363_REG_BUCK_TOP_INT_CON0		0x1411
++#define MT6363_REG_BUCK_TOP_INT_STATUS0		0x141d
++#define MT6363_REG_LDO_TOP_INT_CON0		0x1b11
++#define MT6363_REG_LDO_TOP_INT_STATUS0		0x1b29
 +
-+/* Register */
-+#define MT6373_TOP_CFG_ELR5			0x117
-+#define MT6373_TOP_CFG_ELR5_SHUTDOWN		BIT(0)
++/* MT6373 PMIC Registers */
++#define MT6373_REG_MISC_TOP_INT_CON0		0x3c
++#define MT6373_REG_MISC_TOP_INT_STATUS0		0x48
++#define MT6373_REG_TOP_INT_STATUS1		0x53
++#define MT6373_REG_BUCK_TOP_INT_CON0		0x1411
++#define MT6373_REG_BUCK_TOP_INT_STATUS0		0x141d
++#define MT6373_REG_LDO_TOP_INT_CON0		0x1b10
++#define MT6373_REG_LDO_TOP_INT_STATUS0		0x1b22
 +
-+#define MT6373_PMIC_RG_BUCK0_EN_ADDR		0x210
-+#define MT6373_PMIC_RG_BUCK_VBUCK0_EN_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK1_EN_BIT	1
-+#define MT6373_PMIC_RG_BUCK_VBUCK2_EN_BIT	2
-+#define MT6373_PMIC_RG_BUCK_VBUCK3_EN_BIT	3
-+#define MT6373_PMIC_RG_BUCK_VBUCK4_EN_BIT	4
-+#define MT6373_PMIC_RG_BUCK_VBUCK5_EN_BIT	5
-+#define MT6373_PMIC_RG_BUCK_VBUCK6_EN_BIT	6
-+#define MT6373_PMIC_RG_BUCK_VBUCK7_EN_BIT	7
-+
-+#define MT6373_PMIC_RG_BUCK1_EN_ADDR		0x213
-+#define MT6373_PMIC_RG_BUCK_VBUCK8_EN_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK9_EN_BIT	1
-+
-+#define MT6373_PMIC_RG_BUCK0_LP_ADDR		0x216
-+#define MT6373_PMIC_RG_BUCK_VBUCK0_LP_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK1_LP_BIT	1
-+#define MT6373_PMIC_RG_BUCK_VBUCK2_LP_BIT	2
-+#define MT6373_PMIC_RG_BUCK_VBUCK3_LP_BIT	3
-+#define MT6373_PMIC_RG_BUCK_VBUCK4_LP_BIT	4
-+#define MT6373_PMIC_RG_BUCK_VBUCK5_LP_BIT	5
-+#define MT6373_PMIC_RG_BUCK_VBUCK6_LP_BIT	6
-+#define MT6373_PMIC_RG_BUCK_VBUCK7_LP_BIT	7
-+
-+#define MT6373_PMIC_RG_BUCK1_LP_ADDR		0x219
-+#define MT6373_PMIC_RG_BUCK_VBUCK8_LP_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK9_LP_BIT	1
-+
-+#define MT6373_PMIC_RG_BUCK_VBUCK0_VOSEL_ADDR	0x21c
-+#define MT6373_PMIC_RG_BUCK_VBUCK1_VOSEL_ADDR	0x21d
-+#define MT6373_PMIC_RG_BUCK_VBUCK2_VOSEL_ADDR	0x21e
-+#define MT6373_PMIC_RG_BUCK_VBUCK3_VOSEL_ADDR	0x21f
-+#define MT6373_PMIC_RG_BUCK_VBUCK4_VOSEL_ADDR	0x220
-+#define MT6373_PMIC_RG_BUCK_VBUCK5_VOSEL_ADDR	0x221
-+#define MT6373_PMIC_RG_BUCK_VBUCK6_VOSEL_ADDR	0x222
-+#define MT6373_PMIC_RG_BUCK_VBUCK7_VOSEL_ADDR	0x223
-+#define MT6373_PMIC_RG_BUCK_VBUCK8_VOSEL_ADDR	0x224
-+#define MT6373_PMIC_RG_BUCK_VBUCK9_VOSEL_ADDR	0x225
-+#define MT6373_PMIC_RG_BUCK_VOSEL_MASK		GENMASK(8, 0)
-+
-+#define MT6373_PLG_CFG_ELR1			0x37b
-+#define MT6373_ELR_VARIANT_MASK			GENMASK(3, 2)
-+#define MT6373_ELR_VARIANT_MT6373CW		1
-+#define MT6373_RG_RSV_SWREG_H			0x9d9
-+#define MT6373_RG_RSV_SWREG_VBUCK4_HW_CTRL	BIT(0)
-+
-+#define MT6373_BUCK_TOP_KEY_PROT_LO		0x13fa
-+
-+#define MT6373_PMIC_RG_BUCK1_FCCM_ADDR		0x196d
-+#define MT6373_PMIC_RG_VBUCK8_FCCM_BIT		6
-+#define MT6373_PMIC_RG_VBUCK9_FCCM_BIT		7
-+
-+#define MT6373_PMIC_RG_BUCK0_FCCM_ADDR		0x1a02
-+#define MT6373_PMIC_RG_VBUCK0_FCCM_BIT		0
-+#define MT6373_PMIC_RG_VBUCK1_FCCM_BIT		1
-+#define MT6373_PMIC_RG_VBUCK2_FCCM_BIT		2
-+#define MT6373_PMIC_RG_VBUCK3_FCCM_BIT		3
-+
-+#define MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR	0x1a82
-+#define MT6373_PMIC_RG_VBUCK4_FCCM_BIT		0
-+#define MT6373_PMIC_RG_VBUCK5_FCCM_BIT		1
-+#define MT6373_PMIC_RG_VBUCK6_FCCM_BIT		2
-+#define MT6373_PMIC_RG_VBUCK7_FCCM_BIT		3
-+
-+#define MT6373_PMIC_RG_VSRAM_DIGRF_AIF_VOSEL_ADDR 0x1b09
-+#define MT6373_PMIC_RG_VSRAM_DIGRF_AIF_VOSEL_MASK GENMASK(6, 0)
-+
-+#define MT6373_PMIC_RG_LDO_VAUD18_ADDR		0x1b57
-+#define MT6373_PMIC_RG_LDO_VUSB_ADDR		0x1b65
-+#define MT6373_PMIC_RG_LDO_VAUX18_ADDR		0x1b73
-+#define MT6373_PMIC_RG_LDO_VRF13_AIF_ADDR	0x1b81
-+#define MT6373_PMIC_RG_LDO_VRF18_AIF_ADDR	0x1b8f
-+#define MT6373_PMIC_RG_LDO_VRFIO18_AIF_ADDR	0x1b9d
-+#define MT6373_PMIC_RG_LDO_VCN33_1_ADDR		0x1bd7
-+#define MT6373_PMIC_RG_LDO_VCN33_2_ADDR		0x1be5
-+#define MT6373_PMIC_RG_LDO_VCN33_3_ADDR		0x1bf3
-+#define MT6373_PMIC_RG_LDO_VCN18IO_ADDR		0x1c01
-+#define MT6373_PMIC_RG_LDO_VRF09_AIF_ADDR	0x1c0f
-+#define MT6373_PMIC_RG_LDO_VRF12_AIF_ADDR	0x1c1d
-+#define MT6373_PMIC_RG_LDO_VANT18_ADDR		0x1c57
-+#define MT6373_PMIC_RG_LDO_VEFUSE_ADDR		0x1c73
-+#define MT6373_PMIC_RG_LDO_VMCH_ADDR		0x1c81
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR	0x1c8f
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_HIGH_ADDR	MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_LOW_ADDR	MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_POL_BIT	BIT(2)
-+#define MT6373_PMIC_RG_LDO_VMC_ADDR		0x1c90
-+#define MT6373_PMIC_RG_LDO_VIBR_ADDR		0x1c9e
-+#define MT6373_PMIC_RG_LDO_VIO28_ADDR		0x1cd7
-+#define MT6373_PMIC_RG_LDO_VFP_ADDR		0x1ce5
-+#define MT6373_PMIC_RG_LDO_VTP_ADDR		0x1cf3
-+#define MT6373_PMIC_RG_LDO_VSIM1_ADDR		0x1d01
-+#define MT6373_PMIC_RG_LDO_VSIM2_ADDR		0x1d10
-+#define MT6373_PMIC_RG_LDO_VSIM2_LP_ADDR	0x1d10
-+#define MT6373_PMIC_RG_LDO_VSRAM_DIGRF_AIF_ADDR	0x1d57
-+#define MT6373_PMIC_RG_VAUX18_VOCAL_ADDR	0x1dd8
-+#define MT6373_PMIC_RG_VAUX18_VOSEL_ADDR	0x1dd9
-+#define MT6373_PMIC_RG_VUSB_VOCAL_ADDR		0x1ddc
-+#define MT6373_PMIC_RG_VUSB_VOSEL_ADDR		0x1ddd
-+#define MT6373_PMIC_RG_VCN33_1_VOCAL_ADDR	0x1de0
-+#define MT6373_PMIC_RG_VCN33_1_VOSEL_ADDR	0x1de1
-+#define MT6373_PMIC_RG_VCN33_2_VOCAL_ADDR	0x1de4
-+#define MT6373_PMIC_RG_VCN33_2_VOSEL_ADDR	0x1de5
-+#define MT6373_PMIC_RG_VCN33_3_VOCAL_ADDR	0x1de8
-+#define MT6373_PMIC_RG_VCN33_3_VOSEL_ADDR	0x1de9
-+#define MT6373_PMIC_RG_VMCH_VOCAL_ADDR		0x1dec
-+#define MT6373_PMIC_RG_VMCH_VOSEL_ADDR		0x1ded
-+#define MT6373_PMIC_RG_VMCH_EINT_HIGH_VOSEL_ADDR MT6373_PMIC_RG_VMCH_VOSEL_ADDR
-+#define MT6373_PMIC_RG_VMCH_EINT_LOW_VOSEL_ADDR	MT6373_PMIC_RG_VMCH_VOSEL_ADDR
-+#define MT6373_PMIC_RG_VEFUSE_VOCAL_ADDR	0x1df0
-+#define MT6373_PMIC_RG_VEFUSE_VOSEL_ADDR	0x1df1
-+#define MT6373_PMIC_RG_VMC_VOCAL_ADDR		0x1df4
-+#define MT6373_PMIC_RG_VMCH_EINT_HIGH_VOCAL_ADDR MT6373_PMIC_RG_VMC_VOCAL_ADDR
-+#define MT6373_PMIC_RG_VMCH_EINT_LOW_VOCAL_ADDR	MT6373_PMIC_RG_VMC_VOCAL_ADDR
-+#define MT6373_PMIC_RG_VMC_VOSEL_ADDR		0x1df5
-+#define MT6373_PMIC_RG_VIBR_VOCAL_ADDR		0x1df8
-+#define MT6373_PMIC_RG_VIBR_VOSEL_ADDR		0x1df9
-+#define MT6373_PMIC_RG_VIO28_VOCAL_ADDR		0x1dfc
-+#define MT6373_PMIC_RG_VIO28_VOSEL_ADDR		0x1dfd
-+#define MT6373_PMIC_RG_VFP_VOCAL_ADDR		0x1e00
-+#define MT6373_PMIC_RG_VFP_VOSEL_ADDR		0x1e01
-+#define MT6373_PMIC_RG_VTP_VOCAL_ADDR		0x1e04
-+#define MT6373_PMIC_RG_VTP_VOSEL_ADDR		0x1e05
-+#define MT6373_PMIC_RG_VSIM1_VOCAL_ADDR		0x1e08
-+#define MT6373_PMIC_RG_VSIM1_VOSEL_ADDR		0x1e09
-+#define MT6373_PMIC_RG_VSIM2_VOCAL_ADDR		0x1e0c
-+#define MT6373_PMIC_RG_VSIM2_VOSEL_ADDR		0x1e0d
-+#define MT6373_PMIC_RG_VAUD18_VOCAL_ADDR	0x1e58
-+#define MT6373_PMIC_RG_VAUD18_VOSEL_ADDR	0x1e59
-+#define MT6373_PMIC_RG_VRF18_AIF_VOCAL_ADDR	0x1e5c
-+#define MT6373_PMIC_RG_VRF18_AIF_VOSEL_ADDR	0x1e5d
-+#define MT6373_PMIC_RG_VCN18IO_VOCAL_ADDR	0x1e60
-+#define MT6373_PMIC_RG_VCN18IO_VOSEL_ADDR	0x1e61
-+#define MT6373_PMIC_RG_VRFIO18_AIF_VOCAL_ADDR	0x1e64
-+#define MT6373_PMIC_RG_VRFIO18_AIF_VOSEL_ADDR	0x1e65
-+#define MT6373_PMIC_RG_VANT18_VOCAL_ADDR	0x1e68
-+#define MT6373_PMIC_RG_VANT18_VOSEL_ADDR	0x1e69
-+#define MT6373_PMIC_RG_VRF13_AIF_VOCAL_ADDR	0x1ed8
-+#define MT6373_PMIC_RG_VRF13_AIF_VOSEL_ADDR	0x1ed9
-+#define MT6373_PMIC_RG_VRF12_AIF_VOCAL_ADDR	0x1edc
-+#define MT6373_PMIC_RG_VRF12_AIF_VOSEL_ADDR	0x1edd
-+#define MT6373_PMIC_RG_VRF09_AIF_VOCAL_ADDR	0x1f58
-+#define MT6373_PMIC_RG_VRF09_AIF_VOSEL_ADDR	0x1f59
-+#define MT6373_PMIC_RG_LDO_VT_VOCALSEL_MASK	GENMASK(7, 0)
-+
-+#endif /* __LINUX_REGULATOR_MT6373_H */
++#endif /* __MFD_MT63X3_SPMI_REGISTERS_H__ */
 -- 
 2.51.1
 
