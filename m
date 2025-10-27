@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE3CCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B34CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/tr4wNuP/viUV2bLwDGJ/MFnyH+q9BQY2mO1mUn+Lc=; b=UcG27Tp0NX92numlFLghZcyTvS
-	ZCZGTVAwLOQsKHx7OX64OxDP8yAKx2AZPct3iMvn050ZhzD/mPBpYXE38DoWK84XnG+H+0KpBofzI
-	dmIfnCKaEefAo1OQYMDP4yv3ni8qmc1NjpSLH7wKfpzsoG/4as59QfUSai8rSYbiEFy4jyw85ZTmT
-	DTNXHaDr3uBKp4OyIVN/dNyIzxBuG40KXnRzya4C+T4G6E/b52X/78eO9ZHC0E5kKBnusGdAPF9r8
-	t+Q+g9atvpqTrBLWNRNBgjUr2qe69pN/V6B9+AO23XBR47y+VkUGuAQ0IH7seBx5IodIa3NA7YElH
-	gfWbvuRQ==;
+	bh=4a6LotzoT2wotkC+18NM23FPBfm0gNIMR2NilMKa+6U=; b=xcSQVZGmlbqu0Kt+40LB38e7HQ
+	0pX3usK43qyhuggBUFaLs5T6/Yaz9Agyjx7GzdGSY1S/ye1hnV0iByPUa7Nc/NppHEzGNhrS91muA
+	33yCH/8S/tA7yUaZCYAcHgHmLHW8dl2+u7m7E5JOVat81dPiUkAABUujJZ1taJmwZFx4mRXw4cqOl
+	jim7RtHuVrRqKirGeNzNC4hgbmcOPAS9PF78O4PbHvfWMYP+DR8O2qbj9CO5FWedCmjVpNf6KgsTf
+	g/GqPyxyjCubCVcpEXncuJtJk21Ir2KbGaWbQR2fIMJM50cT5ntIlThcCJnjZNgild8eBdEo9Nvw1
+	f0ZKWOpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRhH-0000000EWWL-0erU;
-	Mon, 27 Oct 2025 18:11:59 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vDRie-0000000EWjc-2RXH;
+	Mon, 27 Oct 2025 18:13:24 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRhD-0000000EWVM-40oQ
+	id 1vDRic-0000000EWit-2TjW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 18:11:58 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-46e6a689bd0so50134375e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:11:55 -0700 (PDT)
+	Mon, 27 Oct 2025 18:13:23 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47117f92e32so44674485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:13:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761588714; x=1762193514; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761588801; x=1762193601; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=h/tr4wNuP/viUV2bLwDGJ/MFnyH+q9BQY2mO1mUn+Lc=;
-        b=jZLBg5bQq37Qw0C1ViM5Bw7Fo7MCok0ZdrGz25Xz0fJc/rjUulQaMx5s+dDRK9avnW
-         VGlU+B8lx1wIkP+Zc9k1VQeU9iTHEkUVuwAAb6glh+H5igqoKlhEsHpGDUJtuSy3xOlN
-         nzJrcnuNrlSaXAzbmoOM/aXApTPZ3eN1ayDTGtwrd+rDM3Ud1GwIhronXiPZT6jOxIOx
-         ivHeMTBBKG48l0wdMQ5DMGT/qtElg305xyJAu/XjFXxUIN73tSZIIMh+0hx6BfyGx7aX
-         GON8RgyYMlo1C8dQONvT9R+uwUIWPs49nwO/uD8XQxIzH2ClcNtL0AIWqUwtcCaMlbrK
-         1OkQ==
+        bh=4a6LotzoT2wotkC+18NM23FPBfm0gNIMR2NilMKa+6U=;
+        b=D5Agq0PurZV2ZivtJbiXcPDKK3X9ZDToZlD4nmlZi3Q0cSTDWDXLdSqfX5FNpxSxeh
+         ZHRnCfu4s6B83Oxam+INSOz5mLQvew72rlTFi0CmD7j7y0hvEplADo5BiE39yvqrTCBW
+         tgpaJvYz0toh71HA/0TZE1UTcuNZ1oQkGUjVoVWKmwfjdf0SaSD1FFj/YFAb7p5ycnDY
+         T09sdFsoCSCiGEPu0YSRe4fRpT7U0E+z8/rohrwRtg9wzAK7FLQiY/6XO3p/9buiD9qg
+         DPG94IM7Ih5AweZEGNts/eoIQTJHxto7baJ15eWkCp54WXYMlJpYS50jsmnspGgPNVUN
+         mo3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761588714; x=1762193514;
+        d=1e100.net; s=20230601; t=1761588801; x=1762193601;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=h/tr4wNuP/viUV2bLwDGJ/MFnyH+q9BQY2mO1mUn+Lc=;
-        b=anyoTALXogar3vf80oW6pPdD3CZWLj6svKF/qPKrGgfVkrU1AEZ3/IH4z1u6luuYyn
-         ERF/N3AIBxlaIrqkCg9H0aUKXEe+PCB0Sb9/Q9CPpP8cBcutYRSFSJxWN5QzL1go/hB5
-         QJTwjOHc9W52emGD/e3xqg0vjidbFCe4m+qzQTA0XE6UMUIwoe5FKyalbmabJpfJhNYb
-         T2GMm6shgLYf5HcSVyCtmf17RKO/eNbHonHy5/irktICJJa0tw1gUU/kBY11M6T0w06z
-         60AlMZE7alMaWIkqbPXUi93AS5/VVKEMA3hGtsgDphH4GvuObSB6Uw7Ou02MXrIcymav
-         36qA==
-X-Forwarded-Encrypted: i=1; AJvYcCU93DBVB5ksFlKsr900vlTGZOqVvkcEy5Z3IQdMYMe/T7NOMwKiZYCkSY7GUacpJoI1aDrPhSJtnMVVmdC98dfg@lists.infradead.org
-X-Gm-Message-State: AOJu0YytdiOYrmda5tn6du7I92xLKJvuEwApBc7wCBFESsoDnnWbuZo9
-	IfE+RecAERUbf7NhP4eLvLNx1SkOE82cv9nQaYeOggr8LGWMZVBIuwZW
-X-Gm-Gg: ASbGncuvNZZIov0AfzNBwVZrpiwWlZU9ZNhOlShEYeMommRh4NPrnO37shwdb7ZIDsP
-	VswKoypq803XyuCzp0JQRHGfPvaLSBd73VEd0WDBmTswsGiRuxRkTy4qdV9Qg7ui8ZxKKLMtysw
-	7gd35d+CHhREZHGbGotURsW2QBP9zSXVOqMTA0ybxMHLYIbQja4P5eraQ3HAqS6lUY7pSCHJGOw
-	IDOppeDTSJ4kJsfcYrGcffltthCz8SdNwdjTEkl/tOHCezgjIgWa7G9EJtIUCGWH1R9kcMdcFdq
-	qHwGplIkZvYOiCBGklLFtSYiJ7+djduk3WGqvtwEtUCrFHwOmVvvLwIiyk/znWNeX1cxcOboWix
-	XfU+4KFxdp8CYtcISkn/aM3dKqVI5+4yJWWodRKBnB9ZBnNN+2jmgEr38udxdi0m7aI1knlwbsF
-	I+TxIU2m4+ElakgyVEu9EFzxLTRXu1DkQvO+hrwvg2mhWw/kDV7yMoxevmMGtJRYbsFDLc
-X-Google-Smtp-Source: AGHT+IGXaCcfOwLIrQj9yH9WMbrO4UAf1AZg1ch/afDpC4pXgTmkjf1NdqvThLXtmMqqXSWGbWSmXg==
-X-Received: by 2002:a05:600c:4446:b0:46e:4a30:2b0f with SMTP id 5b1f17b1804b1-47717e6ab4bmr5964995e9.29.1761588713974;
-        Mon, 27 Oct 2025 11:11:53 -0700 (PDT)
+        bh=4a6LotzoT2wotkC+18NM23FPBfm0gNIMR2NilMKa+6U=;
+        b=tPiFT7eP5guS0jNmBtpKG+xDgzxd1Zu1WY4/iZuDTJ7ayDE/KTygjwRSbR43htGTCB
+         psaMiUPVH1v9ibm11HJQ/bUTm8sSpdjYb0jCt4q92nivL/5jlViGYQMhE5eirE0ucB4K
+         kVkv7G4bXDcEcqdROXiUQ4PfceaBIwBQ1xRi5amIcPAolt3H5qo/MaRSyfgM8iMZOD9n
+         RiRDWsAiJmRPP7zWkHRYOFA+01WA+AEFJymWavnafAakr6QifKxiUxnVWm5qHUmNeydi
+         KNKq0/BPgYxPsgcjcMP4AclVD36LH15ys63qWpc6h4uGTuIE1NDwCsvft2hnmBDp2hzj
+         hrGA==
+X-Forwarded-Encrypted: i=1; AJvYcCWhOasmd59xnTh1k02aoIYRT3lUPc4S0k8UhBQk8BA3Vdh6+EtJlBvasFBUlUs2FtG4l4WN45jRp0bLJBwFc0/j@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZmqL0j2XwZqoYngV4EHIMLbmNjQzvzvkYjq3V3Qhy9HnN+QIh
+	SC6qXR6LTf+C11h2Lyy5mt2Drv7a+NB7gTOQhqqsYNkMa40ZrFX+WTqd
+X-Gm-Gg: ASbGncutjd4yQcn0lA3g9lOM3EpOZSRCZm5eWxdjvex9IzjoyjPdDAb0KpH6+m1CNfb
+	o5aR2xgHptCxelcw7xRVnRlNc/NUEaH0lYraFKzkLfeHgy7WIJaFDKRSmylmLyFbSvlK8HI/8cz
+	+RwBMhI7EgiHYwFb09snenkBao5cMvMjtvITvv6gRNuzwgVUdrxv2iunYLsKIDSWXDw+XVPkJC0
+	5vgPHqYSRF20EECiooPjFH91hM8MXF48f06C5bptgjn6Z4B90PcuAMeWSRAa5oHN0sOa+/NIRvZ
+	hSD/u8TB35VqLwRpzMduTMBvT+zn2J46l6T4i4t/m2OfVVnhcecI47jQ2wXVo0CfhgKzF0UrTGE
+	ZuXA4BOrG5PVZlc32FY3sqLY8Paj/7Ji6pxflRhpdMEbz0sa8P6nqeatD1I95wvHMrAY+uXqR6t
+	SlorLSXFOmJXHdXvT5UpbKsm8EyNEOFFl1EMqT8CUL7SxzG4sHw/sdwnMUkTzUsZN3OB9qA3L39
+	kPwBA==
+X-Google-Smtp-Source: AGHT+IEqlnVwDpi13GnycHHx8DE0kjDHzXjgMTxar3Q9GtHCBjX6mOGesLa7ZV6EWb6wgPy30T7PJg==
+X-Received: by 2002:a05:600c:6818:b0:475:de05:661f with SMTP id 5b1f17b1804b1-47717e67c68mr5088525e9.41.1761588800714;
+        Mon, 27 Oct 2025 11:13:20 -0700 (PDT)
 Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952da645sm14913054f8f.30.2025.10.27.11.11.53
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd4924e2sm149902535e9.8.2025.10.27.11.13.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 11:11:53 -0700 (PDT)
+        Mon, 27 Oct 2025 11:13:20 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: wens@csie.org
 Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com,
  tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org,
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 07/30] drm/sun4i: Move blender config from layers to mixer
-Date: Mon, 27 Oct 2025 19:11:52 +0100
-Message-ID: <3382705.44csPzL39Z@jernej-laptop>
-In-Reply-To: <CAGb2v65KEKPtg=WZw9su_DBc5JKsjjYV3DmpUD+LXGhX96sEfA@mail.gmail.com>
+Subject: Re: [PATCH 08/30] drm/sun4i: ui layer: Write attributes in one go
+Date: Mon, 27 Oct 2025 19:13:19 +0100
+Message-ID: <10742932.nUPlyArG6x@jernej-laptop>
+In-Reply-To: <CAGb2v668p+GOAA=Kgr6dhbkJb33artbPnYsiwEygq7O+92sovQ@mail.gmail.com>
 References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
- <20251012192330.6903-8-jernej.skrabec@gmail.com>
- <CAGb2v65KEKPtg=WZw9su_DBc5JKsjjYV3DmpUD+LXGhX96sEfA@mail.gmail.com>
+ <20251012192330.6903-9-jernej.skrabec@gmail.com>
+ <CAGb2v668p+GOAA=Kgr6dhbkJb33artbPnYsiwEygq7O+92sovQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_111156_027032_C6D6F8E0 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20251027_111322_660705_A0825724 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +104,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne ponedeljek, 27. oktober 2025 ob 17:00:05 Srednjeevropski standardni =C4=
+Dne ponedeljek, 27. oktober 2025 ob 17:04:38 Srednjeevropski standardni =C4=
 =8Das je Chen-Yu Tsai napisal(a):
 > On Mon, Oct 13, 2025 at 3:23=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gm=
 ail.com> wrote:
 > >
-> > With upcoming DE33 support, layer management must be decoupled from
-> > other operations like blender configuration. There are two reasons:
-> > - DE33 will have separate driver for planes and thus it will be harder
-> >   to manage different register spaces
->=20
-> So if I understand correctly:
->=20
-> - the "layer" is from DMA up to CSC, which is the last stage before routi=
-ng
-> - in DE30 and before, routing was limited to within one mixer
-> - in DE33 and onward, routing is global
-
-If you mean routing layers, then yes.
-
-=46or example, you have pool of 4 UI planes and 3 VI planes. You can assign=
- them
-in any combination to both mixers. Later you have additional Z-pos routing =
-too
-within mixer.
-
->=20
-> > - Architecturaly it's better to split access by modules. Blender is now
-> >   exclusively managed by mixer.
+> > It turns out that none of the UI channel registers were meant to be
+> > read. Mostly it works fine but sometimes it returns incorrect values.
+> >
+> > Rework UI layer code to write all registers in one go to avoid reads.
+> >
+> > This rework will also allow proper code separation.
 > >
 > > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 >=20
 > Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 >=20
+> > ---
+> >  drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 50 +++++++++-----------------
+> >  1 file changed, 16 insertions(+), 34 deletions(-)
+> >
+> > diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/s=
+un4i/sun8i_ui_layer.c
+> > index 12c83c54f9bc..8634d2ee613a 100644
+> > --- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+> > +++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+> > @@ -25,25 +25,27 @@
+> >  #include "sun8i_ui_scaler.h"
+> >  #include "sun8i_vi_scaler.h"
+> >
+> > -static void sun8i_ui_layer_update_alpha(struct sun8i_mixer *mixer, int=
+ channel,
+> > -                                       int overlay, struct drm_plane *=
+plane)
+> > +static void sun8i_ui_layer_update_attributes(struct sun8i_mixer *mixer,
+> > +                                            int channel, int overlay,
+> > +                                            struct drm_plane *plane)
+> >  {
+> > -       u32 mask, val, ch_base;
+> > +       struct drm_plane_state *state =3D plane->state;
+> > +       const struct drm_format_info *fmt;
+> > +       u32 val, ch_base, hw_fmt;
+> >
+> >         ch_base =3D sun8i_channel_base(mixer, channel);
+> > +       fmt =3D state->fb->format;
+> > +       sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
+> >
+> > -       mask =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MODE_MASK |
+> > -               SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MASK;
+> > -
+> > -       val =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA(plane->state->alph=
+a >> 8);
+> > -
+> > -       val |=3D (plane->state->alpha =3D=3D DRM_BLEND_ALPHA_OPAQUE) ?
+> > +       val =3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA(state->alpha >> 8);
+> > +       val |=3D (state->alpha =3D=3D DRM_BLEND_ALPHA_OPAQUE) ?
+>=20
+> Changing "plane->state" to "state" made the diff somewhat harder to read.
 
-Thanks.
+Do you prefer that I change that in next revision?
 
 Best regards,
 Jernej
+
+>=20
+> >                 SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MODE_PIXEL :
+> >                 SUN8I_MIXER_CHAN_UI_LAYER_ATTR_ALPHA_MODE_COMBINED;
+> > +       val |=3D hw_fmt << SUN8I_MIXER_CHAN_UI_LAYER_ATTR_FBFMT_OFFSET;
+> > +       val |=3D SUN8I_MIXER_CHAN_UI_LAYER_ATTR_EN;
+> >
+> > -       regmap_update_bits(mixer->engine.regs,
+> > -                          SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, over=
+lay),
+> > -                          mask, val);
+> > +       regmap_write(mixer->engine.regs,
+> > +                    SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, overlay), =
+val);
+> >  }
+> >
+> >  static void sun8i_ui_layer_update_coord(struct sun8i_mixer *mixer, int=
+ channel,
+> > @@ -111,24 +113,6 @@ static void sun8i_ui_layer_update_coord(struct sun=
+8i_mixer *mixer, int channel,
+> >         }
+> >  }
+> >
+> > -static void sun8i_ui_layer_update_formats(struct sun8i_mixer *mixer, i=
+nt channel,
+> > -                                         int overlay, struct drm_plane=
+ *plane)
+> > -{
+> > -       struct drm_plane_state *state =3D plane->state;
+> > -       const struct drm_format_info *fmt;
+> > -       u32 val, ch_base, hw_fmt;
+> > -
+> > -       ch_base =3D sun8i_channel_base(mixer, channel);
+> > -
+> > -       fmt =3D state->fb->format;
+> > -       sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
+> > -
+> > -       val =3D hw_fmt << SUN8I_MIXER_CHAN_UI_LAYER_ATTR_FBFMT_OFFSET;
+> > -       regmap_update_bits(mixer->engine.regs,
+> > -                          SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, over=
+lay),
+> > -                          SUN8I_MIXER_CHAN_UI_LAYER_ATTR_FBFMT_MASK, v=
+al);
+> > -}
+> > -
+> >  static void sun8i_ui_layer_update_buffer(struct sun8i_mixer *mixer, in=
+t channel,
+> >                                          int overlay, struct drm_plane =
+*plane)
+> >  {
+> > @@ -220,12 +204,10 @@ static void sun8i_ui_layer_atomic_update(struct d=
+rm_plane *plane,
+> >         if (!new_state->crtc || !new_state->visible)
+> >                 return;
+> >
+> > +       sun8i_ui_layer_update_attributes(mixer, layer->channel,
+> > +                                        layer->overlay, plane);
+> >         sun8i_ui_layer_update_coord(mixer, layer->channel,
+> >                                     layer->overlay, plane);
+> > -       sun8i_ui_layer_update_alpha(mixer, layer->channel,
+> > -                                   layer->overlay, plane);
+> > -       sun8i_ui_layer_update_formats(mixer, layer->channel,
+> > -                                     layer->overlay, plane);
+> >         sun8i_ui_layer_update_buffer(mixer, layer->channel,
+> >                                      layer->overlay, plane);
+> >  }
+> > --
+> > 2.51.0
+> >
+> >
+>=20
+
+
 
 
 
