@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7C1CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B2ACCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FPUGAfF8P3SzKOyM1xk5ROJj3jrmeUHaY4OoMigdJ9c=; b=RzoG7sBsbsy5dAeubzHCP8TEIv
-	ksJM3KEcc+KA2MOO8TwEOotR1lr5wMA8j0uk33gjCzrxQrpqwTvAtZW6gvZjy4b/xk/SQ76DhBZ7x
-	IUZFEXImcPfry3Nu1v3BmQ4cEUSaoAX0Sag85b9Llls/lQ1j57HYSnhZMBTTNB/wNGR/fe3VXwEJh
-	v0CuzWUBMQitXJiz5gsxif/51lA52AyPqZfrOWuZUETyzHTrN4oKGbw0/wXLYVO1VzMQmDHWYizRh
-	PFStUheHQ7or73rEYzQh5L4CYBZIa0cp75h8TSScAeRI/iU34PstUPME+gwfDwg+tccM9b4GRCR2v
-	PjbhVbJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JqypE7UtaBkPJfmxSehLinN3EFuQs6Bw1umXmkFIcG0=; b=V5VOLKNUS6dKbzOhFEYxkfD4Yr
+	veLY7jFO0uv2q3OekWozbK6kLtGYJQKotOLSuLpZnSyktugw7uR2Y0V2OA8dgTMxPVt8sgRNeNfQ7
+	Yjxxny3DzjuQU52caHGWouLLJiGlxueqMZ30oBlqCbJku2IvV/EOefsoh5hHsADpY53OOyzb6WyQN
+	MooiSWHYVjxMpcw8vPvF/62lC02uHWYXhT2muZIiZMC6Fr6Dsqqg4jYh6CvFMIuWwsZ0Iv2sLKutt
+	N6G4EHjXvpMD+jflzlSyQM0gUcFcta86G/2aBEKjzr8LX/vAUpmRpB5eTjZ1VLfwkqIpmiSVndnZ/
+	mquQ+i+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKSn-0000000Dezg-2anf;
-	Mon, 27 Oct 2025 10:28:33 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vDKVY-0000000DfDC-3mbA;
+	Mon, 27 Oct 2025 10:31:24 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKSk-0000000DezF-30BJ;
-	Mon, 27 Oct 2025 10:28:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761560908;
-	bh=80A5WGzXwOBAEhYFN6darwmjlsAVc8wuGY5F609g7q4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aZZlNJof71hPdQNaI1GKLmACWl8FA8kgZfqROQqPUpXu5eCCn03YIcePo/4oBB11c
-	 KEsELY43p8d+Mz1tsz3cz/j9v7oxNWFx3c8nUCIaI/VG6iMJ3ieBTIKP0caEr5vrk9
-	 +MQ2ccGqkOsBl6uNiB5ZOHvCTAB90Cmhc9DI/4A1cmmbatp3OOGisVd8orYyw9CmM+
-	 dMSdbEUqPES4LhcGhTtXGhnxbQH7bOE6twHtMiBXEKk8sJm2BVDNDcZbaN5rvRF6gK
-	 63L5ATtY1XTYWJ+2S3eYOsM4uklK/tg9pc5PE0a/SiHaFoAJXTQJh9ILrL1ToS5Sqa
-	 CUKaHUhlUsksQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8333617E10F4;
-	Mon, 27 Oct 2025 11:28:27 +0100 (CET)
-Message-ID: <dc619e4b-78fc-4306-8aa0-83d8d87a11cf@collabora.com>
-Date: Mon, 27 Oct 2025 11:28:27 +0100
+	id 1vDKVW-0000000DfCm-24ob
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 10:31:23 +0000
+Received: from pendragon.ideasonboard.com (unknown [193.209.96.36])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 05415E1F;
+	Mon, 27 Oct 2025 11:29:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1761560973;
+	bh=woR0YkWOLoOVnkusOQvb+uOUj+GPQRpu6GLsFacG4SU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sbnFY7w1nY83x7Yfrg65qDDjoOFXFj29h8KBE/qIKqEQ2DR3hTiOM4IIhnH8GQB8f
+	 LXqClKaF1LarrQ6Mpd7Ekda+u/bgkFr7pkBrFVM1rxJTD1wL7Z8IYxLG9LcIBlMnsM
+	 FaNVPYUv0Mj0/7F9HRMlQYSQnRaetAbKQpjllrnQ=
+Date: Mon, 27 Oct 2025 12:31:07 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Andrew Lunn <andrew@lunn.ch>, Russell King <rmk+kernel@armlinux.org.uk>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <20251027103107.GF1544@pendragon.ideasonboard.com>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+ <aP83bMDWCre7-Sjw@pengutronix.de>
+ <20251027100227.GE1544@pendragon.ideasonboard.com>
+ <aP9IB4y5_gyfJGMW@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3 0/9] Add thermal sensor driver support for
- Mediatek MT8196
-To: Laura Nao <laura.nao@collabora.com>, srini@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
- daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- matthias.bgg@gmail.com
-Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
- u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
- lala.lin@mediatek.com, bchihi@baylibre.com, frank-w@public-files.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com
-References: <20251016142158.740242-1-laura.nao@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251016142158.740242-1-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aP9IB4y5_gyfJGMW@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_032830_907929_12009218 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20251027_033122_697957_63B690E5 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,57 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 16/10/25 16:21, Laura Nao ha scritto:
-> This patch series extends the MediaTek LVTS thermal driver to support the
-> MT8196 SoC.
+On Mon, Oct 27, 2025 at 11:23:03AM +0100, Oleksij Rempel wrote:
+> On Mon, Oct 27, 2025 at 12:02:27PM +0200, Laurent Pinchart wrote:
+> > Hi Oleksij,
+> > > Please note, RTL8211E PHY do use undocumented SmartEEE mode by default.
+> > > It ignores RGMII LPI opcodes and doing own thing. It can be confirmed by
+> > > monitoring RGMII TX and MDI lines with oscilloscope and changing
+> > > tx-timer configurations. I also confirmed this information from other
+> > > source. To disable SmartEEE and use plain MAC based mode, NDA documentation
+> > > is needed.
+> > 
+> > That's useful information, thank you. Would you by any chance to know if
+> > such NDA would allow contributing the feature upstream ?
 > 
-> MT8196 requires a different implementation of the lvts_temp_to_raw()
-> function.
-> 
-> To support this, the series introduces:
-> 
-> - A new struct lvts_platform_ops to allow platform-specific
->    conversion logic between raw sensor values and temperature
-> - A variant of the lvts_temp_to_raw() implementation
-> - Platform data and controller definitions for MT8196
-> 
-> Link to v2: https://lore.kernel.org/all/20250730152128.311109-1-laura.nao@collabora.com/
-> 
-> Changes in v3:
-> - Make ops in struct lvts_data a pointer to const struct lvts_platform_ops
-> - Changed mediatek,mt8188-efuse const entry in eFuse binding to an enum
-> with mediatek,mt8196-efuse and mediatek,mt8188-efuse, dropped mediatek,mt8196-efuse
-> const entry
-> 
+> Good question, but the NDA process was actually aborted. We didn't move
+> forward due to a lack of time and ultimately, a lack of commercial
+> interest from any projects or customers for this PHY.
 
-I think this series is ready to be picked.
+Fair enough. I've tried :-)
 
-Please don't let this slip through the cracks.
+If we can't disable SmartEEE in the PHY, does it mean we need to somehow
+disable EEE in the MAC, but still program the PHY to advertise EEE to
+the link partner ?
 
+-- 
 Regards,
-Angelo
 
-> Laura Nao (9):
->    dt-bindings: thermal: mediatek: Add LVTS thermal controller support
->      for MT8196
->    thermal/drivers/mediatek/lvts: Make number of calibration offsets
->      configurable
->    thermal/drivers/mediatek/lvts: Guard against zero temp_factor in
->      lvts_raw_to_temp
->    thermal: mediatek: lvts: Add platform ops to support alternative
->      conversion logic
->    thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant
->    thermal/drivers/mediatek/lvts: Add support for ATP mode
->    thermal/drivers/mediatek/lvts: Support MSR offset for 16-bit
->      calibration data
->    thermal/drivers/mediatek/lvts_thermal: Add MT8196 support
->    dt-bindings: nvmem: mediatek: efuse: Add support for MT8196
-> 
->   .../bindings/nvmem/mediatek,efuse.yaml        |   4 +-
->   .../thermal/mediatek,lvts-thermal.yaml        |   2 +
->   drivers/thermal/mediatek/lvts_thermal.c       | 305 ++++++++++++++++--
->   .../thermal/mediatek,lvts-thermal.h           |  26 ++
->   4 files changed, 314 insertions(+), 23 deletions(-)
-> 
-
+Laurent Pinchart
 
