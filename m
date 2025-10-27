@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BB8CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE30CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJ/ihzhnBg2h+OIog5s51f1nDJzu1yBHwy2SCCUQ1bo=; b=SYj6LNcld7Ty2CYw8eBubRgc4a
-	VIF8GeZhVD78hDxH4H+C5dOyr42BGOuBqnkW4IuMRM6r0GMiaUoSn3bYEPeRH0mSogskT9BcRx4dg
-	aKFewXRJvLwDGTv2UMuj2Xef0MxDJW3L2XJvdX5ZRSc5ZE/Va77SPPRHQJIbylPHXUDDvB/jH6zih
-	Gq3xdmfkNr9X/D0poKu5ZW92+adg5T++kectYnCJxd2gaaUqjN/eTEeaB3uApbwfaZ2wLingw8sVo
-	1sDFBUJ/3hMcwa+sV7iiuWB9b5syM52BluJvy7dYT3IaHi2H2dqDA3gEbvTI4P0Qr8qniBNqyTVcp
-	wF3dgxTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jA26eMiJ8s/jvEdxkMbrQL7wFPmCEgvVEnfhg9MrWHM=; b=GLIAQsmmaBoTBaJS+pbLpp3zU5
+	LmtN17eJR+HQ+FrMfVS3PkNkSJ/eBBwreQLFUO4J9h+AKqTIx8rjKZrphRfJPgPQYDeaH26oe2YhY
+	87UE0nGYrsc8WrYuTOV/r0vKEMevOhodN5aoHmKBtGwY3P4hskPUIi8xg9PpaFZ5v6o67IyryL1mn
+	zdCIgyKVU6ktccYXRDdKgdlupvdkZLWO4114XgKduT68ufXjGOVyoX1oH3RZT4MTQeI/l/pqn9kza
+	Kr2DCjhQ8WlNJKUlwrCat0OHG5/ji5krEfzsdvTOWtzACyuAhPRgLhh4i56Io5xJMbs3EveJCdnIR
+	ohlYN3Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSlM-0000000EeK4-45nN;
-	Mon, 27 Oct 2025 19:20:17 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1vDSm3-0000000EeYd-2AST;
+	Mon, 27 Oct 2025 19:20:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSlJ-0000000EeIO-1cDj
+	id 1vDSm2-0000000EeYM-1w3l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 19:20:15 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-294a938fa37so45156845ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 12:20:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761592812; x=1762197612; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GJ/ihzhnBg2h+OIog5s51f1nDJzu1yBHwy2SCCUQ1bo=;
-        b=n4y/XYJpxZT47gkE17oanNSpUzIHRSa8/lHwHWyIGnDreQveRJsc9TtirCII2alHmC
-         C6wB9mu16rlgSy288A4eyouvM/QgvGv+4/NYOB+vIW/3mKavVFZmg4QO+bWjPGRszmRm
-         yVge6w1sfoiBdWthgMmrQAdn1EZlE2BYgpIPaptncXr1zyffos/a8m5b54iXDqHBB5Nq
-         aGCnvFGxUFS7leQAgnn/qFlD69PjLBF38v8UeDeYX/TsNK5CXhalbIg+393nXn6bBESY
-         UIAKzaEN5fpAoVzv3mRgTN3BuZH+xwNDLOHKDJ7tg5l2Ozws+u2qsWXKcRpbXm7mmQUS
-         kcQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761592812; x=1762197612;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GJ/ihzhnBg2h+OIog5s51f1nDJzu1yBHwy2SCCUQ1bo=;
-        b=aoD85e/B3+fB5ZHS49K0xPY/egw4gA4YX/SW0tBCxPYQf2bGYw6/L2Tgl1mPr5jCAB
-         Mh8sfn4xG6y0zB74wektorhwNzjR/UqUTaWnaCvw7TR4Bwy0Tm6l3dxOTtw0VlvRQz0R
-         Bu357i/8fkmtRYo7CmedmImohaDZsLxzpQSdx6ozwwi/kGr35Lq47sd/lB7GtdqAzxRC
-         fyXy9aT8drZrnbf7PeoXc1VJtBjw6FBi8VQkiGXAx5I1P3TWRctJTQi1jAo5GfWt7K2v
-         ZZ83Z7FXfVuYohf6alflWGjfs1ERxZ3uTse9mkdfrKvjHBooA32+Z5sk+gNHE7wcyOHd
-         qLsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBEsSuZEzFkORr2ghW7H3SpOcByrlme+tjefNBG1aelxo8g9ySxFjUt97ovGEa/vwiHKzOPANCgIW6YC2BkLPI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1TZQBLkk1MSa8ry58lPcMDcvuQUmyDbdUe1iHjBD9OQk3I5/C
-	9MhkLkGktwHUlKSFJO0J8xWI0smxcHWwqNQEmxVuYx/Vjmvt4cI6eH87KnhFJozfMORn7SXA3Qh
-	loXi9Lg==
-X-Google-Smtp-Source: AGHT+IGEzxKOsu0TIx9JeJ8jo0iJqVMcVQCTPniC3ps1TgJ3BGzDUda18OgqbILlA0+mvKP7+G2jd9/+Iec=
-X-Received: from pjbrs15.prod.google.com ([2002:a17:90b:2b8f:b0:33b:51fe:1a73])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e5c4:b0:25d:1640:1d59
- with SMTP id d9443c01a7336-294cb378610mr8002455ad.8.1761592811798; Mon, 27
- Oct 2025 12:20:11 -0700 (PDT)
-Date: Mon, 27 Oct 2025 12:20:10 -0700
-In-Reply-To: <4809644b0ba02d0987ac56f4be7c426d0724cdef.camel@intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-21-seanjc@google.com>
- <4809644b0ba02d0987ac56f4be7c426d0724cdef.camel@intel.com>
-Message-ID: <aP_F6tmzomRtdbpU@google.com>
-Subject: Re: [PATCH v3 20/25] KVM: TDX: Add macro to retry SEAMCALLs when
- forcing vCPUs out of guest
-From: Sean Christopherson <seanjc@google.com>
-To: Kai Huang <kai.huang@intel.com>
-Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
-	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
-	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
-	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Yan Y Zhao <yan.y.zhao@intel.com>, 
-	"michael.roth@amd.com" <michael.roth@amd.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, Vishal Annapurve <vannapurve@google.com>, 
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_122013_452670_FFE173C4 
-X-CRM114-Status: GOOD (  24.83  )
+	Mon, 27 Oct 2025 19:20:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF11C61F3E;
+	Mon, 27 Oct 2025 19:20:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05B91C4CEF1;
+	Mon, 27 Oct 2025 19:20:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1761592857;
+	bh=hFZ2YxO2FwCJ/yNw/yePU/d5E2uzQtsh4Z8bFlW8z5Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=jp1KCuiaFdYzzNbbK6siNzjxNtix2DrgBMHxmLPbE3M224XVpIyns7UzdonR/Y/xj
+	 oWBAhYb6ja2eY/6fcA0spZ/n2ro2Fo5ppOHqwgZ0plxgQ+uxC6+n9gztZQ31UcEUVO
+	 QLUH01QZx5b51ksn73G4949VQkVipmEYmF8uEcyE=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Huang Ying <ying.huang@linux.alibaba.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.12 039/117] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
+Date: Mon, 27 Oct 2025 19:36:05 +0100
+Message-ID: <20251027183455.039186307@linuxfoundation.org>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251027183453.919157109@linuxfoundation.org>
+References: <20251027183453.919157109@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,91 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025, Kai Huang wrote:
-> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
-> > Add a macro to handle kicking vCPUs out of the guest and retrying
-> > SEAMCALLs on -EBUSY instead of providing small helpers to be used by each
-> > SEAMCALL.  Wrapping the SEAMCALLs in a macro makes it a little harder to
-> > tease out which SEAMCALL is being made, but significantly reduces the
-> > amount of copy+paste code and makes it all but impossible to leave an
-> > elevated wait_for_sept_zap.
-> > 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/x86/kvm/vmx/tdx.c | 72 ++++++++++++++----------------------------
-> >  1 file changed, 23 insertions(+), 49 deletions(-)
-> > 
-> > diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-> > index f6782b0ffa98..2e2dab89c98f 100644
-> > --- a/arch/x86/kvm/vmx/tdx.c
-> > +++ b/arch/x86/kvm/vmx/tdx.c
-> > @@ -294,25 +294,24 @@ static inline void tdx_disassociate_vp(struct kvm_vcpu *vcpu)
-> >  	vcpu->cpu = -1;
-> >  }
-> >  
-> > -static void tdx_no_vcpus_enter_start(struct kvm *kvm)
-> > -{
-> > -	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
-> > -
-> > -	lockdep_assert_held_write(&kvm->mmu_lock);
-> > -
-> > -	WRITE_ONCE(kvm_tdx->wait_for_sept_zap, true);
-> > -
-> > -	kvm_make_all_cpus_request(kvm, KVM_REQ_OUTSIDE_GUEST_MODE);
-> > -}
-> > -
-> > -static void tdx_no_vcpus_enter_stop(struct kvm *kvm)
-> > -{
-> > -	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
-> > -
-> > -	lockdep_assert_held_write(&kvm->mmu_lock);
-> > -
-> > -	WRITE_ONCE(kvm_tdx->wait_for_sept_zap, false);
-> > -}
-> > +#define tdh_do_no_vcpus(tdh_func, kvm, args...)					\
-> > +({										\
-> > +	struct kvm_tdx *__kvm_tdx = to_kvm_tdx(kvm);				\
-> > +	u64 __err;								\
-> > +										\
-> > +	lockdep_assert_held_write(&kvm->mmu_lock);				\
-> > +										\
-> > +	__err = tdh_func(args);							\
-> > +	if (unlikely(tdx_operand_busy(__err))) {				\
-> > +		WRITE_ONCE(__kvm_tdx->wait_for_sept_zap, true);			\
-> > +		kvm_make_all_cpus_request(kvm, KVM_REQ_OUTSIDE_GUEST_MODE);	\
-> > +										\
-> > +		__err = tdh_func(args);						\
-> > +										\
-> > +		WRITE_ONCE(__kvm_tdx->wait_for_sept_zap, false);		\
-> > +	}									\
-> > +	__err;									\
-> > +})
-> 
-> The comment which says "the second retry should succeed" is lost, could we
-> add it to tdh_do_no_vcpus()?
+6.12-stable review patch.  If anyone has any objections, please let me know.
 
-+1, definitely needs a comment.
+------------------
 
-/*
- * Execute a SEAMCALL related to removing/blocking S-EPT entries, with a single
- * retry (if necessary) after forcing vCPUs to exit and wait for the operation
- * to complete.  All flows that remove/block S-EPT entries run with mmu_lock
- * held for write, i.e. are mutually exlusive with each other, but they aren't
- * mutually exclusive with vCPUs running (because that would be overkill), and
- * so can fail with "operand busy" if a vCPU acquires a required lock in the
- * TDX-Module.
- *
- * Note, the retry is guaranteed to succeed, absent KVM and/or TDX-Module bugs.
- */
+From: Huang Ying <ying.huang@linux.alibaba.com>
+
+[ Upstream commit 143937ca51cc6ae2fccc61a1cb916abb24cd34f5 ]
+
+Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
+mark some pages that are never written dirty wrongly.  For example,
+do_swap_page() may map the exclusive pages with writable and clean PTEs
+if the VMA is writable and the page fault is for read access.
+However, current pte_mkwrite_novma() implementation always dirties the
+PTE.  This may cause unnecessary disk writing if the pages are
+never written before being reclaimed.
+
+So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
+PTE_DIRTY bit is set to make it possible to make the PTE writable and
+clean.
+
+The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
+Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
+pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
+clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
+are set.
+
+To test the performance impact of the patch, on an arm64 server
+machine, run 16 redis-server processes on socket 1 and 16
+memtier_benchmark processes on socket 0 with mostly get
+transactions (that is, redis-server will mostly read memory only).
+The memory footprint of redis-server is larger than the available
+memory, so swap out/in will be triggered.  Test results show that the
+patch can avoid most swapping out because the pages are mostly clean.
+And the benchmark throughput improves ~23.9% in the test.
+
+Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
+Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Gavin Shan <gshan@redhat.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Yicong Yang <yangyicong@hisilicon.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/include/asm/pgtable.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 5ba8376735cb0..eb57ddb5ecc53 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -212,7 +212,8 @@ static inline pmd_t set_pmd_bit(pmd_t pmd, pgprot_t prot)
+ static inline pte_t pte_mkwrite_novma(pte_t pte)
+ {
+ 	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+-	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
++	if (pte_sw_dirty(pte))
++		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+ 	return pte;
+ }
  
-> Also, perhaps we can just TDX_BUG_ON() inside tdh_do_no_vcpus() when the
-> second call of tdh_func() fails?
+-- 
+2.51.0
 
-Heh, this also caught my eye when typing up the comment.  Unfortunately, I don't
-think it's worth doing the TDX_BUG_ON() inside the macro as that would require
-plumbing in the UPPERCASE name, and doesn't work well with the variadic arguments,
-e.g. TRACK wants TDX_BUG_ON(), but REMOVE and BLOCK want TDX_BUG_ON_2().
 
-Given that REMOVE and BLOCK need to check the return value, getting the TDX_BUG_ON()
-call into the macro wouldn't buy that much.
+
 
