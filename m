@@ -4,74 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C51CCCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2004CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbuqKhXRsvSFS0d7R7eRUzQx5INctpu7Sg3XDqW3bXY=; b=RXbsbZ2P+Xzv02bK1B01/PwnpZ
-	JB826nHtBEAIOthJWOTlW42CQZ19tyG0EE3HCbVASGE+7QsQzhTx4nu5/WMnUDGXaGHuBFzLEgekX
-	S6IN0Jwe4ue2e0VEgFI3aMw6s3PjlHqD82LgTRqkQ2rm5s1rDOcELGQ59/5QyIGw6xFcLfdZqPXvg
-	WCRBlfpU78iFtuT2G8r40wfyzihOwihkgEa19TBR9lG+d2N7bm+4gx24tQA+0n/kK7NRlA/MjcCYR
-	xa+xSCp4DSYHgKKlyOnfJda9a/TV+V4KAPQ3GEdBlkMZewJCxd3h8rsUBsY8vz2TY83R5NYncCWO+
-	IwfSNVoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B4MiDQt21TWA8KCz0B9NzC2Gfsz63s/U3vTgfyRaGPQ=; b=lKtpC7mIELJBSMALYb5YHO61wF
+	Zg7vDiaqkBpEHGB7OzmXjWLh6A01yA0JpEAq7nA0JXw9jEz1D7EAZdOO4dWHc3htSRKch/D4YwqAa
+	Gbp6TBaZv8PsqTLXXR8IKOogvBn+dZ/939wpXToD2U2gbbY5TEo44o7nMGAC+VXBrZC10hMgDh50F
+	qsA2XGGGZPDWxhpcytYJqXL194zxDtYcLIZ1jnneG5YWlTvNZGRyyJ5+IUawB+npRFzLu1pdGrEa6
+	oiVI0h0u+4KLMNxFr0lTkezvkjU2xbj4e8MfQnOrLmKwOzaJUiNQGXrV+UOmaOrseCkBWxorX0Kp5
+	8tCL1QeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDC5u-0000000CxHg-1GID;
-	Mon, 27 Oct 2025 01:32:22 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDC5s-0000000CxHB-2E8P;
-	Mon, 27 Oct 2025 01:32:21 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id EFCD61661;
-	Mon, 27 Oct 2025 02:30:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761528631;
-	bh=yFdODJVtmdjjGHLb8tOkp0fjAyONRBoDFl7X90AVRKc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qHLDAoHrXBz4+NJMt7COiK2ppTYtBnu0lcplmeDaCo2lnzFhZ2Mpy0C8hQHK9vITO
-	 VaydBm+5SfuzXLBJeaFoNrD4KEwHBMRgeO5qcLQNajFuaVPDkvM8CCBJUKD9hO0SCZ
-	 b0iZrWZ+t8nzsok8d+7QqXQNv/GSigAnxiZEF2/A=
-Date: Mon, 27 Oct 2025 03:32:04 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v3 03/31] media: v4l2-common: Add helper function
- media_bus_fmt_to_csi2_(bpp|dt)()
-Message-ID: <20251027013204.GT13023@pendragon.ideasonboard.com>
-References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
- <20250821-95_cam-v3-3-c9286fbb34b9@nxp.com>
+	id 1vDCAJ-0000000CxWK-14qu;
+	Mon, 27 Oct 2025 01:36:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDCAG-0000000CxVy-3sZS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 01:36:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC97F175D;
+	Sun, 26 Oct 2025 18:36:43 -0700 (PDT)
+Received: from [10.163.70.164] (unknown [10.163.70.164])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A48F3F673;
+	Sun, 26 Oct 2025 18:36:48 -0700 (PDT)
+Message-ID: <6e7d0bf3-ddf1-44a0-a0cb-7dc994101878@arm.com>
+Date: Mon, 27 Oct 2025 07:06:45 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250821-95_cam-v3-3-c9286fbb34b9@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 2/2] arm64/mm: Add remaining TLBI_XXX_MASK macros
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, ben.horgan@arm.com,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+References: <20251024040207.137480-1-anshuman.khandual@arm.com>
+ <20251024040207.137480-3-anshuman.khandual@arm.com>
+ <20251024120014.000020af@huawei.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251024120014.000020af@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_183220_849631_EB5032B8 
-X-CRM114-Status: GOOD (  28.42  )
+X-CRM114-CacheID: sfid-20251026_183653_087335_795C5C85 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,302 +68,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
 
-Thank you for the patch.
 
-On Thu, Aug 21, 2025 at 04:15:38PM -0400, Frank Li wrote:
-> Add helper function media_bus_fmt_to_csi2_bpp() to get media bus fmt's bpp
-> to reduce codes such as
+On 24/10/25 4:30 PM, Jonathan Cameron wrote:
+> On Fri, 24 Oct 2025 05:02:07 +0100
+> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 > 
-> 	static const struct imx7_csi_pixfmt pixel_formats[] = {
->         {
->                 .fourcc = V4L2_PIX_FMT_UYVY,
->                 .codes  = IMX_BUS_FMTS(
->                         MEDIA_BUS_FMT_UYVY8_2X8,
->                         MEDIA_BUS_FMT_UYVY8_1X16
->                 ),
->                 .yuv    = true,
->                 .bpp    = 16,
->         },
-> 	....
+>> Add remaining TLBI_XXX_MASK macros and replace current open encoded fields.
+>> While here replace hard coded page size based shifts but with derived ones
+>> via ilog2() thus adding some required context.
+>>
+>> TLBI_TTL_MASK has been split into separate TLBI_TTL_MASK and TLBI_TG_MASK
+>> as appropriate because currently it simultaneously contains both page size
+>> and translation table level information. KVM on arm64 has been updated to
+>> accommodate these changes to TLBI_TTL_MASK.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Oliver Upton <oliver.upton@linux.dev>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: kvmarm@lists.linux.dev
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++++++--------
+>>  arch/arm64/kvm/nested.c           |  8 +++++---
+>>  2 files changed, 23 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+>> index 131096094f5b..cf75fc2a06c3 100644
+>> --- a/arch/arm64/include/asm/tlbflush.h
+>> +++ b/arch/arm64/include/asm/tlbflush.h
+>> @@ -57,9 +57,10 @@
+>>  /* This macro creates a properly formatted VA operand for the TLBI */
+>>  #define __TLBI_VADDR(addr, asid)				\
+>>  	({							\
+>> -		unsigned long __ta = (addr) >> 12;		\
+>> -		__ta &= GENMASK_ULL(43, 0);			\
+>> -		__ta |= (unsigned long)(asid) << 48;		\
+>> +		unsigned long __ta = (addr) >> ilog2(SZ_4K);	\
+>> +		__ta &= TLBI_BADDR_MASK;			\
+>> +		__ta &= ~TLBI_ASID_MASK;			\
+>> +		__ta |= FIELD_PREP(TLBI_ASID_MASK, asid);	\
+> I think you can replace the two lines above with
+> 		FIELD_MODIFY(TLBI_ASID_MASK, &__ta, asid);
 > 
-> .bpp can be removed from pixel_formats with this helper function.
+> It's a small reduction in code but I don't mind much either way.
+
+Right. FIELD_MODIFY() might be appropriate in this scenario but
+there will be some additional code churn needed. I don't have a
+strong opinion either way.
+
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -55,13 +55,12 @@
+ } while (0)
+
+ /* This macro creates a properly formatted VA operand for the TLBI */
+-#define __TLBI_VADDR(addr, asid)                               \
+-       ({                                                      \
+-               unsigned long __ta = (addr) >> ilog2(SZ_4K);    \
+-               __ta &= TLBI_BADDR_MASK;                        \
+-               __ta &= ~TLBI_ASID_MASK;                        \
+-               __ta |= FIELD_PREP(TLBI_ASID_MASK, asid);       \
+-               __ta;                                           \
++#define __TLBI_VADDR(addr, asid)                                       \
++       ({                                                              \
++               unsigned long __ta = (addr) >> ilog2(SZ_4K);            \
++               __ta &= TLBI_BADDR_MASK;                                \
++               __ta |= FIELD_MODIFY(TLBI_ASID_MASK, &__ta, asid);      \
++               __ta;                                                   \
+        })
+ > 
+>>  		__ta;						\
+>>  	})
+>>  
+>> @@ -100,8 +101,17 @@ static inline unsigned long get_trans_granule(void)
+>>   *
+>>   * For Stage-2 invalidation, use the level values provided to that effect
+>>   * in asm/stage2_pgtable.h.
+>> + *
+>> + * +----------+------+-------+--------------------------------------+
+>> + * |   ASID   |  TG  |  TTL  |                 BADDR                |
+>> + * +-----------------+-------+--------------------------------------+
+>> + * |63      48|47  46|45   44|43                                   0|
+>> + * +----------+------+-------+--------------------------------------+
+>>   */
+>> -#define TLBI_TTL_MASK		GENMASK_ULL(47, 44)
+>> +#define TLBI_ASID_MASK		GENMASK_ULL(63, 48)
+>> +#define TLBI_TG_MASK		GENMASK_ULL(47, 46)
+>> +#define TLBI_TTL_MASK		GENMASK_ULL(45, 44)
+>> +#define TLBI_BADDR_MASK		GENMASK_ULL(43, 0)
+>>  
+>>  #define TLBI_TTL_UNKNOWN	INT_MAX
+>>  
+>> @@ -110,10 +120,10 @@ static inline unsigned long get_trans_granule(void)
+>>  									\
+>>  	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) &&	\
+>>  	    level >= 0 && level <= 3) {					\
+>> -		u64 ttl = level;					\
+>> -		ttl |= get_trans_granule() << 2;			\
+>> +		arg &= ~TLBI_TG_MASK;					\
+>> +		arg |= FIELD_PREP(TLBI_TG_MASK, get_trans_granule());	\
+>>  		arg &= ~TLBI_TTL_MASK;					\
+>> -		arg |= FIELD_PREP(TLBI_TTL_MASK, ttl);			\
+>> +		arg |= FIELD_PREP(TLBI_TTL_MASK, level);		\
 > 
-> CSI2 data type is defined by MIPI Camera Serial Interface 2 Spec Ver4.1.
-> See section 9.4.
+> Similar potential to use FIELD_MODIFY for these.
 > 
-> Add helper function media_bus_fmt_to_csi2_dt() to convert media bus fmt to
-> MIPI defined data type and avoid below duplicated static array in each CSI2
-> drivers.
-> 
-> 	{
-> 		.code = MEDIA_BUS_FMT_UYVY8_1X16,
-> 		.data_type = MIPI_CSI2_DT_YUV422_8B,
-> 	}
-> 
-> Only add known map for dt type. Need update media_bus_fmt_info when new
-> mapping used.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Change in v3:
-> - squash two help function patch to one.
-> - use media_bus_fmt_info to do map.
-> ---
->  drivers/media/v4l2-core/v4l2-common.c | 149 ++++++++++++++++++++++++++++++++++
->  include/media/mipi-csi2.h             |  30 +++++++
->  2 files changed, 179 insertions(+)
-> 
-> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-> index a5334aa35992e5f57fb228c33d40c51fdafdc135..a75987aa5fc69d6368709b7d521bede666da9513 100644
-> --- a/drivers/media/v4l2-core/v4l2-common.c
-> +++ b/drivers/media/v4l2-core/v4l2-common.c
-> @@ -46,6 +46,7 @@
->  #include <linux/uaccess.h>
->  #include <asm/io.h>
->  #include <asm/div64.h>
-> +#include <media/mipi-csi2.h>
->  #include <media/v4l2-common.h>
->  #include <media/v4l2-device.h>
->  #include <media/v4l2-ctrls.h>
-> @@ -757,3 +758,151 @@ struct clk *devm_v4l2_sensor_clk_get(struct device *dev, const char *id)
->  	return clk_hw->clk;
->  }
->  EXPORT_SYMBOL_GPL(devm_v4l2_sensor_clk_get);
-> +
-> +static const struct media_bus_fmt_info media_bus_fmt_info[] = {
-> +	{ .fmt = MEDIA_BUS_FMT_RGB444_1X12, .bpp = 12},
-
-Missing space before }.
-
-> +	{ .fmt = MEDIA_BUS_FMT_RGB444_2X8_PADHI_BE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB444_2X8_PADHI_LE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB555_2X8_PADHI_BE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB555_2X8_PADHI_LE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB565_1X16, .dt = MIPI_CSI2_DT_RGB565, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_BGR565_2X8_BE, .dt = MIPI_CSI2_DT_RGB565, .bpp = 16},
-
-Let's not specify .dt for formats that must not be used with CSI-2
-buses.
-
-> +	{ .fmt = MEDIA_BUS_FMT_BGR565_2X8_LE, .dt = MIPI_CSI2_DT_RGB565, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB565_2X8_BE, .dt = MIPI_CSI2_DT_RGB565, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB565_2X8_LE, .dt = MIPI_CSI2_DT_RGB565, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB666_1X18, .bpp = 18},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB666_2X9_BE, .bpp = 18},
-> +	{ .fmt = MEDIA_BUS_FMT_BGR666_1X18, .bpp = 18},
-> +	{ .fmt = MEDIA_BUS_FMT_RBG888_1X24, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB666_1X24_CPADHI, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_BGR666_1X24_CPADHI, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB565_1X24_CPADHI, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB666_1X7X3_SPWG, .bpp = 21},
-> +	{ .fmt = MEDIA_BUS_FMT_BGR888_1X24, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_BGR888_3X8, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_GBR888_1X24, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_1X24, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_2X12_BE, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_2X12_LE, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_3X8, .dt = MIPI_CSI2_DT_RGB888, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_3X8_DELTA, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_1X7X4_SPWG, .bpp = 28},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA, .bpp = 28},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB666_1X30_CPADLO, .bpp = 30},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_1X30_CPADLO, .bpp = 30},
-> +	{ .fmt = MEDIA_BUS_FMT_ARGB8888_1X32, .bpp = 32},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_1X32_PADHI, .bpp = 32},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB101010_1X30, .bpp = 30},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB101010_1X7X5_SPWG, .bpp = 35},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB101010_1X7X5_JEIDA, .bpp = 35},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB666_1X36_CPADLO, .bpp = 36},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB888_1X36_CPADLO, .bpp = 36},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB121212_1X36, .bpp = 36},
-> +	{ .fmt = MEDIA_BUS_FMT_RGB161616_1X48, .bpp = 48},
-> +
-> +	{ .fmt = MEDIA_BUS_FMT_Y8_1X8, .dt = MIPI_CSI2_DT_RAW8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_UV8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_UYVY8_1_5X8, .bpp = 40},
-
-This doesn't seem correct.
-
-> +	{ .fmt = MEDIA_BUS_FMT_VYUY8_1_5X8, .bpp = 40},
-> +	{ .fmt = MEDIA_BUS_FMT_YUYV8_1_5X8, .bpp = 40},
-> +	{ .fmt = MEDIA_BUS_FMT_YVYU8_1_5X8, .bpp = 40},
-> +	{ .fmt = MEDIA_BUS_FMT_UYVY8_2X8, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_VYUY8_2X8, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_YUYV8_2X8, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_YVYU8_2X8, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_Y10_1X10, .dt = MIPI_CSI2_DT_RAW10, .bpp = 10},
-> +	{ .fmt = MEDIA_BUS_FMT_Y10_2X8_PADHI_LE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_UYVY10_2X10, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_VYUY10_2X10, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_YUYV10_2X10, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_YVYU10_2X10, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_Y12_1X12, .dt = MIPI_CSI2_DT_RAW12, .bpp = 12},
-> +	{ .fmt = MEDIA_BUS_FMT_UYVY12_2X12, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_VYUY12_2X12, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_YUYV12_2X12, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_YVYU12_2X12, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_Y14_1X14, .dt = MIPI_CSI2_DT_RAW14, .bpp = 14},
-> +	{ .fmt = MEDIA_BUS_FMT_Y16_1X16, .dt = MIPI_CSI2_DT_RAW16, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_UYVY8_1X16, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_VYUY8_1X16, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_YUYV8_1X16, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_YVYU8_1X16, .dt = MIPI_CSI2_DT_YUV422_8B, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_YDYUYDYV8_1X16, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_UYVY10_1X20, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_VYUY10_1X20, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_YUYV10_1X20, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_YVYU10_1X20, .dt = MIPI_CSI2_DT_YUV422_10B, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_VUY8_1X24, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_YUV8_1X24, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_UYYVYY8_0_5X24, .dt = MIPI_CSI2_DT_YUV420_8B, .bpp = 120},
-> +	{ .fmt = MEDIA_BUS_FMT_UYVY12_1X24, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_VYUY12_1X24, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_YUYV12_1X24, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_YVYU12_1X24, .bpp = 24},
-> +	{ .fmt = MEDIA_BUS_FMT_YUV10_1X30, .bpp = 30},
-> +	{ .fmt = MEDIA_BUS_FMT_UYYVYY10_0_5X30, .bpp = 150},
-> +	{ .fmt = MEDIA_BUS_FMT_AYUV8_1X32, .bpp = 32},
-> +	{ .fmt = MEDIA_BUS_FMT_UYYVYY12_0_5X36, .bpp = 180},
-> +	{ .fmt = MEDIA_BUS_FMT_YUV12_1X36, .bpp = 36},
-> +	{ .fmt = MEDIA_BUS_FMT_YUV16_1X48, .bpp = 48},
-> +	{ .fmt = MEDIA_BUS_FMT_UYYVYY16_0_5X48, .bpp = 240},
-> +
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR8_1X8, .dt = MIPI_CSI2_DT_RAW8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SGBRG8_1X8, .dt = MIPI_CSI2_DT_RAW8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SGRBG8_1X8, .dt = MIPI_CSI2_DT_RAW8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SRGGB8_1X8, .dt = MIPI_CSI2_DT_RAW8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR10_ALAW8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SGBRG10_ALAW8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SGRBG10_ALAW8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SRGGB10_ALAW8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR10_DPCM8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SGBRG10_DPCM8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SGRBG10_DPCM8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SRGGB10_DPCM8_1X8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR10_2X8_PADHI_BE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR10_2X8_PADHI_LE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR10_2X8_PADLO_BE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR10_2X8_PADLO_LE, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR10_1X10, .dt = MIPI_CSI2_DT_RAW10, .bpp = 10},
-> +	{ .fmt = MEDIA_BUS_FMT_SGBRG10_1X10, .dt = MIPI_CSI2_DT_RAW10, .bpp = 10},
-> +	{ .fmt = MEDIA_BUS_FMT_SGRBG10_1X10, .dt = MIPI_CSI2_DT_RAW10, .bpp = 10},
-> +	{ .fmt = MEDIA_BUS_FMT_SRGGB10_1X10, .dt = MIPI_CSI2_DT_RAW10, .bpp = 10},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR12_1X12, .dt = MIPI_CSI2_DT_RAW12, .bpp = 12},
-> +	{ .fmt = MEDIA_BUS_FMT_SGBRG12_1X12, .dt = MIPI_CSI2_DT_RAW12, .bpp = 12},
-> +	{ .fmt = MEDIA_BUS_FMT_SGRBG12_1X12, .dt = MIPI_CSI2_DT_RAW12, .bpp = 12},
-> +	{ .fmt = MEDIA_BUS_FMT_SRGGB12_1X12, .dt = MIPI_CSI2_DT_RAW12, .bpp = 12},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR14_1X14, .dt = MIPI_CSI2_DT_RAW14, .bpp = 14},
-> +	{ .fmt = MEDIA_BUS_FMT_SGBRG14_1X14, .dt = MIPI_CSI2_DT_RAW14, .bpp = 14},
-> +	{ .fmt = MEDIA_BUS_FMT_SGRBG14_1X14, .dt = MIPI_CSI2_DT_RAW14, .bpp = 14},
-> +	{ .fmt = MEDIA_BUS_FMT_SRGGB14_1X14, .dt = MIPI_CSI2_DT_RAW14, .bpp = 14},
-> +	{ .fmt = MEDIA_BUS_FMT_SBGGR16_1X16, .dt = MIPI_CSI2_DT_RAW16, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_SGBRG16_1X16, .dt = MIPI_CSI2_DT_RAW16, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_SGRBG16_1X16, .dt = MIPI_CSI2_DT_RAW16, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_SRGGB16_1X16, .dt = MIPI_CSI2_DT_RAW16, .bpp = 16},
-> +
-> +	{ .fmt = MEDIA_BUS_FMT_JPEG_1X8, .bpp = 8},
-> +
-> +	{ .fmt = MEDIA_BUS_FMT_S5C_UYVY_JPEG_1X8, .bpp = 8},
-> +
-> +	{ .fmt = MEDIA_BUS_FMT_AHSV8888_1X32, .bpp = 8},
-> +
-> +	{ .fmt = MEDIA_BUS_FMT_META_8, .bpp = 8},
-> +	{ .fmt = MEDIA_BUS_FMT_META_10, .bpp = 10},
-> +	{ .fmt = MEDIA_BUS_FMT_META_12, .bpp = 12},
-> +	{ .fmt = MEDIA_BUS_FMT_META_14, .bpp = 14},
-> +	{ .fmt = MEDIA_BUS_FMT_META_16, .bpp = 16},
-> +	{ .fmt = MEDIA_BUS_FMT_META_20, .bpp = 20},
-> +	{ .fmt = MEDIA_BUS_FMT_META_24, .bpp = 24},
-> +};
-> +
-> +const struct media_bus_fmt_info *media_bus_fmt_info_get(u32 bus_fmt)
-> +{
-> +	int i;
-
-unsigned
-
-> +
-> +	for (i = 0; i < ARRAY_SIZE(media_bus_fmt_info); i++)
-> +		if (media_bus_fmt_info[i].fmt == bus_fmt)
-> +			return &media_bus_fmt_info[i];
-
-Add curly braces for the "for" statement.
-
-> +
-> +	return NULL;
-> +}
-> +EXPORT_SYMBOL_GPL(media_bus_fmt_info_get);
-> diff --git a/include/media/mipi-csi2.h b/include/media/mipi-csi2.h
-> index 40fc0264250d779ab5dfa7d2fe16e6f1382c07d4..3227d28224b7c32ef2745548391da9e792cfa559 100644
-> --- a/include/media/mipi-csi2.h
-> +++ b/include/media/mipi-csi2.h
-> @@ -8,6 +8,8 @@
->  #ifndef _MEDIA_MIPI_CSI2_H
->  #define _MEDIA_MIPI_CSI2_H
->  
-> +/* DT value ref to MIPI Camera Serial Interface 2 Spec Ver4.1 section 9.4 */
-> +
->  /* Short packet data types */
->  #define MIPI_CSI2_DT_FS			0x00
->  #define MIPI_CSI2_DT_FE			0x01
-> @@ -44,4 +46,32 @@
->  #define MIPI_CSI2_DT_RAW20		0x2f
->  #define MIPI_CSI2_DT_USER_DEFINED(n)	(0x30 + (n))	/* 0..7 */
->  
-> +/**
-> + * struct media_bus_fmt_info - information about a media bus format
-> + * @fmt: media bus format identifier (MEDIA_BUS_FMT_*)
-
-We usually name this "code".
-
-> + * @dt: data type define in MIPI spec (MIPI_CSI2_DT *)
-> + * @bpp: bit width per pixel
-
-You will need to define this much more precisely. In particular, how is
-padding handled ? How about compressed formats such as JPEG ? How about
-the LVDS formats, how are the control bits accounted for ?
-
-I understand you're trying to share code between two drivers, but I'm
-not sure we will be able to come up with a standard definition of bpp
-that will match the needs of all drivers. It feels that this information
-would be better stored in driver-specific tables.
-
-> + */
-> +struct media_bus_fmt_info {
-> +	u32 fmt;
-> +	u32 dt;
-> +	u8 bpp;
-> +};
-> +
-> +const struct media_bus_fmt_info *media_bus_fmt_info_get(u32 bus_fmt);
-> +
-> +static inline int media_bus_fmt_to_csi2_dt(int bus_fmt)
-> +{
-> +	const struct media_bus_fmt_info *info = media_bus_fmt_info_get(bus_fmt);
-> +
-> +	return info ? info->dt : 0;
-> +}
-> +
-> +static inline int media_bus_fmt_to_csi2_bpp(int bus_fmt)
-> +{
-> +	const struct media_bus_fmt_info *info = media_bus_fmt_info_get(bus_fmt);
-> +
-> +	return info ? info->bpp : 0;
-> +}
-> +
-
-These are not specific to CSI-2, they belong to a different header.
-v4l2-common.h is an option, given that the implementation goes to
-v4l2-common.c.
-
->  #endif /* _MEDIA_MIPI_CSI2_H */
-> 
+> Jonathan
 > 
 
--- 
-Regards,
-
-Laurent Pinchart
 
