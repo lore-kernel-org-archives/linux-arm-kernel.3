@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C1DCCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14FDECCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdVdpQQI97U0WIuGQMTtkVHzkmSiQwUSqCdlCPbwfCk=; b=tWsl48hccScNuy7AkH3lVDg+L3
-	58R2cKPzzvKNLkG6Y8GALN5AzrGM4f5l31w2RtOSH0eJx4EoXmQNsLP4ImXeTNuIzvIr40eo2Bev5
-	k+10evI1lk5TdIJo6MQ8uun9L9TsjT7d5brSqiNHe5JxXX6nXwiC5F95asdvuRXMDAnN9q8pSJwjV
-	zGUxrdZ2YWAwo43REGTY6bYe0psSP3v+1MWUBDgQK6+pcVcyChbWhXE0pFysEAEkGNBFA0QxbkXgx
-	zx/zrN6HdwGrCOIdDE/YE/vc3/i6Jw5GyBO2r54aHuB6PXr686dGsv0opYvmx7FpdrIF3O8qRvdOk
-	hztEwgbg==;
+	bh=L6bkh4YuddqnSVuQ20gFGqKBoYSg0qIQ97/wArQOi2k=; b=YPEz0+eAjVsnrDq34j5/9OSI4+
+	pE1B6617ytgBI22vJjLut4JiqBa84J99IU13YKSejbyRPwW1/7Fb9DBUIr/zmyua2XRBcXU0Rjd+y
+	irKeppSoumxhXrbLCfi/GfQgAJh1LrFXZnJaJx1jwyVRvHqMFGgX2uW1dsEk5IekLUpUfets/IHaq
+	0KAUVgtefU73K17hOscXmYGD7hTzjmUj3V7kva4K4JmuN8hhmliMWcQ0fBYt4e8RCgUSOaytRBVON
+	kxycbfy4bdIScH3B5UYVspUq+Rvq5DZUz6/O0SamfH46xDcGcqnLSaADGPCpyTWEFoUR961qRl1Bk
+	tXD1YJNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSix-0000000Edq4-3qlj;
-	Mon, 27 Oct 2025 19:17:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSio-0000000Edkr-03NF
+	id 1vDSjG-0000000Edy1-0yr5;
+	Mon, 27 Oct 2025 19:18:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDSjF-0000000Edx4-09Ll
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 19:17:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 799381DB5;
-	Mon, 27 Oct 2025 12:17:27 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 69D843F63F;
-	Mon, 27 Oct 2025 12:17:33 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	perlarsen@google.com,
-	ayrton@google.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	Mon, 27 Oct 2025 19:18:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FCD861EEB;
+	Mon, 27 Oct 2025 19:18:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA17C4CEF1;
+	Mon, 27 Oct 2025 19:18:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1761592683;
+	bh=R+b1Oy20HuQfqVSsApk8HxKMmROwQDEieiBLTvfYlHE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=AGar4Cva2yrBmrrpttnYn+JeL1/6HQcmJ7iMDt97Umq8qRSKoGF6y/lSJwV83jMwO
+	 rvGOu82K5funqA+TgIigVPqFgA1OZU0tFNT5Q2sNSHmzFVCM/yG5jTiB65Gveh2Xp+
+	 atgnAER88nlSXLd89BxZIVA7d9jGvsohAxWPMa34=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Huang Ying <ying.huang@linux.alibaba.com>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 1/2] KVM: arm64: fix FF-A call failure when ff-a driver is built-in
-Date: Mon, 27 Oct 2025 19:17:28 +0000
-Message-Id: <20251027191729.1704744-2-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251027191729.1704744-1-yeoreum.yun@arm.com>
-References: <20251027191729.1704744-1-yeoreum.yun@arm.com>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.6 29/84] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
+Date: Mon, 27 Oct 2025 19:36:18 +0100
+Message-ID: <20251027183439.595353130@linuxfoundation.org>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251027183438.817309828@linuxfoundation.org>
+References: <20251027183438.817309828@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_121738_095587_06E77C2F 
-X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Until has_version_negotiated is set to true,
-all FF-A function calls fail except FFA_VERSION.
-The has_version_negotiated flag is set to true when
-the first FFA_VERSION call is made after init_hyp_mode().
+6.6-stable review patch.  If anyone has any objections, please let me know.
 
-This works fine when the FF-A driver is built as a module,
-since ffa_init() is invoked after kvm_arm_init(), allowing do_ffa_version()
-to set has_version_negotiated to true.
+------------------
 
-However, when the FF-A driver is built-in (CONFIG_ARM_FFA_TRANSPORT=y),
-all FF-A calls fail. This happens because ffa_init() runs before
-kvm_arm_init() — the init level of ffa_init() is rootfs_initcall.
-As a result, the hypervisor cannot set has_version_negotiated,
-since the FFA_VERSION call made in ffa_init() does not trap to the hypervisor
-(HCR_EL2.TSC is cleared before kvm_arm_init()).
+From: Huang Ying <ying.huang@linux.alibaba.com>
 
-Consequently, this causes failures when using EFI variable services
-with secure partitions that rely on FFA_SEND_DIRECT_MSG.
+[ Upstream commit 143937ca51cc6ae2fccc61a1cb916abb24cd34f5 ]
 
-To fix this, call hyp_ffa_post_init() and set has_version_negotiated
-during hyp_ffa_init() when the FF-A driver is built-in (CONFIG_ARM_FFA_TRANSPORT=y).
+Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
+mark some pages that are never written dirty wrongly.  For example,
+do_swap_page() may map the exclusive pages with writable and clean PTEs
+if the VMA is writable and the page fault is for read access.
+However, current pte_mkwrite_novma() implementation always dirties the
+PTE.  This may cause unnecessary disk writing if the pages are
+never written before being reclaimed.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
+PTE_DIRTY bit is set to make it possible to make the PTE writable and
+clean.
+
+The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
+Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
+pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
+clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
+are set.
+
+To test the performance impact of the patch, on an arm64 server
+machine, run 16 redis-server processes on socket 1 and 16
+memtier_benchmark processes on socket 0 with mostly get
+transactions (that is, redis-server will mostly read memory only).
+The memory footprint of redis-server is larger than the available
+memory, so swap out/in will be triggered.  Test results show that the
+patch can avoid most swapping out because the pages are mostly clean.
+And the benchmark throughput improves ~23.9% in the test.
+
+Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
+Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Gavin Shan <gshan@redhat.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Yicong Yang <yangyicong@hisilicon.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ arch/arm64/include/asm/pgtable.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 4e16f9b96f63..0ae87ff61758 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -984,5 +984,17 @@ int hyp_ffa_init(void *pages)
- 	};
- 
- 	version_lock = __HYP_SPIN_LOCK_UNLOCKED;
-+
-+	if (IS_BUILTIN(CONFIG_ARM_FFA_TRANSPORT)) {
-+		hyp_spin_lock(&version_lock);
-+		if (hyp_ffa_post_init()) {
-+			hyp_spin_unlock(&version_lock);
-+			return -EOPNOTSUPP;
-+		}
-+
-+		smp_store_release(&has_version_negotiated, true);
-+		hyp_spin_unlock(&version_lock);
-+	}
-+
- 	return 0;
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 0212129b13d07..92e43b3a10df9 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -184,7 +184,8 @@ static inline pmd_t set_pmd_bit(pmd_t pmd, pgprot_t prot)
+ static inline pte_t pte_mkwrite_novma(pte_t pte)
+ {
+ 	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+-	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
++	if (pte_sw_dirty(pte))
++		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+ 	return pte;
  }
+ 
 -- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+2.51.0
+
+
 
 
