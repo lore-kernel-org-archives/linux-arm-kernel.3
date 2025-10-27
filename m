@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FD9CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F4CCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/jgPYWC0V1D8IWJvZFoe28znSAzn2itXE/nwEWLtiQ=; b=hTNm/PSt4aAHyipD1Qk+IPDYLG
-	A4B8u2/51VOxMOBaaDTBjyMNZAllwG4FhxcAV3faC57oW/mk1TjsGqFU9AxyY/uvEmosKgvFkLbst
-	+CWygFrXPV+bj+x44EWjGRuQRQLYiUpBFe9prGDWUN7DqSii40t9h0CJnMC4RKBPnZvXlwwWKWozG
-	JwrQW3mJlBJCVxhQyxX4BAsb6IRptImiJVWPeTyvX8sKQdcwY4eUA4dnjqQgn38+P8gVF4gmlZk/D
-	Z0qD7mM3uHOHlGoVkjOJvBA0QlvhMSqWTK1e9nIkTG/ulRbhqM7McnHpjMTAs4ssyFtuuw89BbLuf
-	JfdKBjoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sAteg+F5oQJPVS5wX8AGAiIq+FclqksfL+/bVRY3pIY=; b=I0/hTctsW1BnN5TymLevNcVIKT
+	VHipaYWfcPJxMBNzs2or1vu2bx60AE6Vu3zPMrRqS3yDQRK24mUpNVu7V/9UwhgCYoyV6Fb+cPppY
+	k+y/LElqTgbOetFEQzLLwS3kl0coOkYVDljzsBwbvblqqpeOhMIMFpQd1km1sFxCH5pJFOJoBaS9v
+	5U8KKRjn9Mtvn/HGCXStvQTlXc4ulNL6yZM7u6WOYoNd165TTUf9qTzLdB2MGuJRbuqE5+eaN6dun
+	Xozuy6tYWmOYbQM8gdKTSHZ1lEDatrP+uB+QSUglnRLve0KZYZBp8FtkB/kWij9lhtgL3C9My9ICq
+	nr6RCznw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTak-0000000EiWR-1m9D;
-	Mon, 27 Oct 2025 20:13:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vDTlL-0000000EjFE-2EOa;
+	Mon, 27 Oct 2025 20:24:19 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTai-0000000EiW6-3zm7
+	id 1vDTlJ-0000000EjEO-01Lp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 20:13:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D030848B38
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 20:13:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF477C116D0
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 20:13:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761595999;
-	bh=7/jgPYWC0V1D8IWJvZFoe28znSAzn2itXE/nwEWLtiQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tw5k8+RRR8ZQWGB85VYzWf2Wi58LdQQOsk1Wd6HUWngGMEl3xHQQJ+6QMEnaIqyjE
-	 hwq+u9XOBdXqtLS1aSDdxiMwMIgByssijVT+USX9/Zm4rKR3bw++NOg5WdUIl+kM+E
-	 j6sh6H4aYiKT/EyPhuYAvwLCadoZzOlRFiWbZQZKl3eFz+is5npDUZT7ZerlpYPO9f
-	 QwhlCyG5YN6UWxOfBnsK1VxGWtD3RO24J4/QNZEMqBkgfeibbDqjzFf4GA8n9onp3+
-	 fKXGM4DZFNJwJyYXnRSLvTFEXN7NdjFiTrAuuoO2f9tfqnujndf+H2tDbrE1WrzoW5
-	 nmJlPR4bI4x4Q==
-Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-44d9d7aacc5so807076b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:13:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWMwcroS/ZVGCibbdfg5ZPIX2zB62tW9baZDWAbrnXFykVS6IOXPEHWh4Op22x5c9xC9dMpm8vT/hmHcAyoaSOH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4j7Ex5sDmkhow6dzARNWH0LaBtAPuW66onOHYebFct0+xsW92
-	iedVPGyVqeDsb7/V5YapK00LVG5yfmp/hoz9Wajue+gIIxSmuATJ1j40uXdpqJkvyYgOD+7v/ch
-	SzJeRQwYQiq+vDQSjdQrcQCS3kOF8hwQ=
-X-Google-Smtp-Source: AGHT+IFzhgtS06rA+RZsyYcTHjt7tKv3IPYAqJiI30Zg7pVKVf7PdFA1QapVHBr8NekG6KSfuz58bzGzmJpR6s1c8PI=
-X-Received: by 2002:a05:6808:8919:10b0:44f:6df7:cf42 with SMTP id
- 5614622812f47-44f6df7d022mr64955b6e.64.1761595999030; Mon, 27 Oct 2025
- 13:13:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20251017061606.455701-1-ankur.a.arora@oracle.com>
- <20251017061606.455701-8-ankur.a.arora@oracle.com> <874irkun26.fsf@oracle.com>
-In-Reply-To: <874irkun26.fsf@oracle.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 27 Oct 2025 21:13:07 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gHbOKN_3gVufY-Uv5yNuFsZ7vGdJgm8VMWJMq8EJJ5iA@mail.gmail.com>
-X-Gm-Features: AWmQ_bnp6ii4CmrVCoy6tewQvRu5JbQ235PW681sgNQsgSfTn4C6zcDylVx5kw8
-Message-ID: <CAJZ5v0gHbOKN_3gVufY-Uv5yNuFsZ7vGdJgm8VMWJMq8EJJ5iA@mail.gmail.com>
-Subject: Re: [PATCH v7 7/7] cpuidle/poll_state: Poll via smp_cond_load_relaxed_timeout()
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org, 
-	peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com, 
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, memxor@gmail.com, 
-	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com, 
-	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+	Mon, 27 Oct 2025 20:24:18 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42557c5cedcso3448122f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:24:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761596655; x=1762201455; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=sAteg+F5oQJPVS5wX8AGAiIq+FclqksfL+/bVRY3pIY=;
+        b=XIfLYr9twZU1kqgcK25IZcD9IMBwggg9uwPUs6aUtWoUteytR1BkRp5l1tuVkmoqyo
+         ZBTVurY1OqF88GXpkKQJ+HgN7sNgvB+ktwisPiB2o+6O5joXta9TyI97wftGg2MVagDF
+         6wRH/PuScH0bGf21ynRBYYC23ERGypLFamOPp1sp2d4rj4mUCk8V7Udz4weBqNbIJ4FM
+         jKLr4UtJwsy79SA5n8xIibIKaRhyFoVYkxJTdQCe8FUVHvgMPv8gUXfffC0FbZWbIufh
+         oxIHY1us+SdGawjTMeFHAkIaWy3pY47LyBSpo9iIEK8WceIOfKYTyZ2XSdjw8AVazGAO
+         /8kQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761596655; x=1762201455;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sAteg+F5oQJPVS5wX8AGAiIq+FclqksfL+/bVRY3pIY=;
+        b=Q+eKOG2rkkGJbk97KLN4EtMStxb+c4G/qWF9wNx/nT5lDnuD5oPcptTjayJYzHxDU1
+         gcyR2cuAcLxQ08Pj6jSe3M17dUiGds+R06qhXROx7TXT1PwqNmjeXA+dDJtpIR4dpPx0
+         8boYAooQ/x+43COVpp9uG3V/80t2omRMWLZFCTUDvDF/+AT4Uo5xSQBRGd3RaHonyPGE
+         aJxXtAkD4qRx8rrM7QXcpWifpnuvA2qXonWluXhco9NsYNz00HWgx3RLrJDjItMLZCRj
+         jjC3UiBMxLQOBnvBOeuDIUSsiUGWlUIgeu816PjSH99mYVK4k6CoEQixRjXqZfHP5Zif
+         VG3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUfMW9x6DgCMV9dq5cqidkEqQ4KyH4ElFg7PuDMUTmWbETJqa+WqF3JHoj/YDc6CVAd4wzR5uTSDPsAo3MU4LqG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzttKMN7I70SfllzPbA0oNXQo8m4VHDeUvxi3y38o9XmoVDHIYy
+	YOQxdAVUvSBy0GdixOrtX9HREdpy2UKMqdNnrTtUMpVClXpf46yQn5L2
+X-Gm-Gg: ASbGnctg6BBQR9aQPIUJFT7eVqoyA6z3BW8TcHgC1kTbhikrnjXbK2eD5TR9apnm/eP
+	LsDdprJfeuh4QvuE+eMChBMPXxm+0r/PQZkELvQGqX+wM2xrH0A/QrGFACEbWYSNSy31r8FmRMP
+	Dsok3gZ9D1wY1bMvYMtG5LznBQd4OuNj747Skzmtgg7FcDbcDTjozPkABJ+osjXoZQzwX115MKT
+	wkBv5g3af4tHzUqBbpU+6JOOfMwBQpI/IPUvoHyEAEgBWmMBxicvM5dIpbJhAHrsGnJs3EiDArH
+	ieLYq3jnlhxFgXR3loKJhuYt2nKhCP/lE0fYPgXQtsALirs26SpvG5CYmz7kS2l2r7po3vK4ZNX
+	vN/+TAY+lAiZb04BQ7nhq2ax6GyHOVqCid9cJNQwcIc2okqu4Q+EtiIKv2IhWKW1antRYmPv6Nh
+	SSy24JSBi1K4EiTBJW/FekDJ9UoTyRNwuxPA==
+X-Google-Smtp-Source: AGHT+IFjSyEOJ8OO9p5enPOa4OY5LYK/YHPQz+HhFO/SNaTbXxhM08eDKEWgk5JuJu6a3RlEJUVVfQ==
+X-Received: by 2002:a5d:64e4:0:b0:429:8b44:57b7 with SMTP id ffacd0b85a97d-429a7e844eemr974038f8f.51.1761596654557;
+        Mon, 27 Oct 2025 13:24:14 -0700 (PDT)
+Received: from vitor-nb.Home (bl19-170-125.dsl.telepac.pt. [2.80.170.125])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd47794asm173897105e9.1.2025.10.27.13.24.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 13:24:13 -0700 (PDT)
+Message-ID: <91e8f4346a677a2ea46a210d7422adb99e70b3be.camel@gmail.com>
+Subject: Re: [PATCH v1 2/2] PCI: j721e: Add support for optional regulator
+ supplies
+From: Vitor Soares <ivitro@gmail.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli
+	 <s-vadapalli@ti.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof
+	=?UTF-8?Q?Wilczy=C5=84ski?=
+	 <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas
+	 <bhelgaas@google.com>, Vitor Soares <vitor.soares@toradex.com>, 
+	linux-omap@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 27 Oct 2025 20:24:12 +0000
+In-Reply-To: <p3l2p2raecqqkpdjswiddkthpxzvhm3rl4cw56y2epgcxfiwbb@gsieef3yqvpk>
+References: <20251014112553.398845-1-ivitro@gmail.com>
+	 <20251014112553.398845-3-ivitro@gmail.com>
+	 <p3l2p2raecqqkpdjswiddkthpxzvhm3rl4cw56y2epgcxfiwbb@gsieef3yqvpk>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_131321_034055_95AD438B 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251027_132417_081585_1E699234 
+X-CRM114-Status: GOOD (  26.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,18 +108,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 9:07=E2=80=AFPM Ankur Arora <ankur.a.arora@oracle.c=
-om> wrote:
->
->
-> Hi Rafael, Daniel,
->
-> Could you take a look at the proposed smp_cond_load_relaxed_timeout()
-> interface and how it's used here and see if that looks fine to you?
+Hello Mani,
 
-Well, can you please resend this with a CC to linux-pm?
+Thank you for the feedback.
 
-I believe others on that list may be interested in it too.
+On Tue, 2025-10-21 at 07:36 +0530, Manivannan Sadhasivam wrote:
+> On Tue, Oct 14, 2025 at 12:25:49PM +0100, Vitor Soares wrote:
+> > From: Vitor Soares <vitor.soares@toradex.com>
+> >=20
+> > Some boards require external regulators to power PCIe endpoints.
+> > Add support for optional 1.5V, 3.3V, and 12V supplies, which may be
+> > defined in the device tree as vpcie1v5-supply, vpcie3v3-supply, and
+> > vpcie12v-supply.
+> >=20
+> > Use devm_regulator_get_enable_optional() to obtain and enable each
+> > supply, so it will be automatically disabled when the driver is
+> > removed.
+> >=20
+> > Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+> > ---
+> > =C2=A0drivers/pci/controller/cadence/pci-j721e.c | 13 +++++++++++++
+> > =C2=A01 file changed, 13 insertions(+)
+> >=20
+> > diff --git a/drivers/pci/controller/cadence/pci-j721e.c
+> > b/drivers/pci/controller/cadence/pci-j721e.c
+> > index 5bc5ab20aa6d..f29ce2aef04e 100644
+> > --- a/drivers/pci/controller/cadence/pci-j721e.c
+> > +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> > @@ -21,6 +21,7 @@
+> > =C2=A0#include <linux/platform_device.h>
+> > =C2=A0#include <linux/pm_runtime.h>
+> > =C2=A0#include <linux/regmap.h>
+> > +#include <linux/regulator/consumer.h>
+> > =C2=A0
+> > =C2=A0#include "../../pci.h"
+> > =C2=A0#include "pcie-cadence.h"
+> > @@ -467,6 +468,10 @@ static const struct of_device_id of_j721e_pcie_mat=
+ch[]
+> > =3D {
+> > =C2=A0};
+> > =C2=A0MODULE_DEVICE_TABLE(of, of_j721e_pcie_match);
+> > =C2=A0
+> > +static const char * const j721e_pcie_supplies[] =3D {
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0"vpcie12v", "vpcie3v3", "vpc=
+ie1v5"
+> > +};
+>=20
+> Please don't hardcode the supplies in driver. The DT binding should make =
+sure
+> the relevant supplies are passed (including the optional ones). Just use
+> of_regulator_bulk_get_all() to acquire all the passed supplies.
+>=20
+> - Mani
+>=20
 
-Thanks!
+I checked the bulk regulator APIs as suggested and of_regulator_bulk_get_al=
+l()
+does handle optional supplies correctly, however it is not a managed functi=
+on
+and doesn't enable the  regulators automatically.
+
+To use of_regulator_bulk_get_all(), I would need to:
+- Manually enable regulators with regulator_bulk_enable()
+- Add cleanup/disable logic in remove path
+- Handle error cleanup path manually
+
+This would actually make the code more complex and error-prone compared to =
+the
+current approach using devm_regulator_get_enable_optional(), which provides
+managed cleanup and automatic enable for optional supplies.
+
+I also checked devm_regulator_bulk_get_enable(), it treats all supplies as
+required and needs the supplies name as well.
+
+Unless there is a devm_regulator_bulk_get_optional_enable() API I'm not awa=
+re
+of, the current per-supply approach is the standard kernel pattern for this=
+ use
+case. Would you still prefer the bulk approach despite these limitations?
+
+Best regards,
+Vitor Soares
+
+
+
 
