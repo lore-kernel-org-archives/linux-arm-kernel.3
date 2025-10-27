@@ -4,131 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4181CCCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB30CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+7a7BdSUX1H4XYC5sftPvUND0oWh/62HBMHDzpCxI4=; b=lRH5rHDzXi5n9JtpTV1IOg5sRj
-	hJvpxY1fXSMb8YhyHFS8ukaByoOm3eUMFOPF/nKOPiyUAlYVzPyBjZhkGGtN3khlBc0Vny/plpGnI
-	4Gr1Uehbwl4YV6FyBPhBdUAFIKfi/8t41HlA4uIsM++H+hlWVreHBvJ046lc9UfUIJ7PJO7YJ3BC6
-	KG2Aq4EvosrTLeuzFyHYDUIsHM5cX35b8vk0bO1tuUV6roAXvuNNI7ANPzlP/G5wDgxHM4PpVuHet
-	pSQN39qn+wFHa0fGQhj9eHE9uwBsO/Urgv8qZ37+lWQeSDbPuHYpitjpppngGg9ZOOrUdAbOCo4CE
-	Dq9FiV9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1yB6sQuoxIrStAJiD+3OYFTTHYglYUSCUWDl/1PQcws=; b=lcq7od2dv6voI/aWZYmkmjA+dI
+	aH7Xu/JSlTJODfkGuyc+/ikvwTY+LPyXOGjBVZxJF3W5cpxIyW4OOvgRoYH1uZmhbjncd3MCrROe7
+	FtY7so4LhNESW/R4E3lxOMYJAve67l05gjd5O71BzbyuzMXFXc0djtYHR7xkWa0Ff1i3hnNTTxXcu
+	47TArSR5MDiHrv8pZcUkVi4WNl4rkA2xzwMYro0lEhvJsPEkdT4wxwz+BSGa+lkuFw30oQ5XkfpUR
+	RGMkCB/550QsIP2als/QCbByRKLDYrE6J/C6DSXM11dh6Cn+tlsjEHPkpf6IL4FCPI4oaBIWkrIt5
+	qQTo77Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDBps-0000000CwFX-0SD6;
-	Mon, 27 Oct 2025 01:15:48 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vDBti-0000000CwQy-0If2;
+	Mon, 27 Oct 2025 01:19:46 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDBpq-0000000CwF8-0IXU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 01:15:47 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59R00FKf1135341
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 01:15:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	q+7a7BdSUX1H4XYC5sftPvUND0oWh/62HBMHDzpCxI4=; b=iGo1ncHIQF3TKNPv
-	+ru2TcdU/qQ8oHm/ajlDPxfKBc8QB9mWMKotQ1skrldzEVH+G6Mykk+HqSC6cQtp
-	Kv4Mko9pN3cZduZ/jEWAQ18vkpWA2lVizoz9Hjs5fApu/DRRY5Lnsn1Xs7TFk/Uo
-	DT89urDTRXH6CmBuvsLPgtPjRsrMoqi33/49LbWLhpy9EY6Xsy/cwSqYeYeH9P/H
-	eu+KoYXltw0bLi9GrY9Z7+gfAYC44DgoHfsX74i5ZFBoQruwp9ErukByfsWRAKMe
-	IHLws87FHva2+sTfSKgP1wto2sSZqOqwiyicsv4HzfqaTQBaxcUMg3NLrxYyd0X/
-	7XMNIA==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a0p4g2tkv-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 01:15:44 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b6cf50cbd2cso2857752a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 18:15:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761527744; x=1762132544;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q+7a7BdSUX1H4XYC5sftPvUND0oWh/62HBMHDzpCxI4=;
-        b=OKkYhaOOzs0NoF6d72cE2DIPHa6c9y+pED54xuPWHlLx/T8NRYGUhWL7x8bPzuTRSg
-         SN9kQqn5cwn5qBIJ5G0AmXSWBu1pc/J0Ko2Qxrhq1tFSSW8e5eXTLXRT1jEt/NZmib7o
-         kDxWicwt4OSnJDQKEKve3N/1OdADr5zcLCwehb5mG5djMAw3t3QlMAqjG9VcYeaC4k6A
-         4I7UHBgifT7MRGUMcYelecTBw4yVEoCASACxshx0yBk5aMt8VBgfT6aOy5fBIJZKOSec
-         279KuCmi5iOUIYEp2fX+bEiYFecuURnuId+rI596/JafP4qByGbYGVLtw64wFaOlNrAd
-         8UhA==
-X-Forwarded-Encrypted: i=1; AJvYcCUiLrSiFO3cFOR15wYhC7MqxSyLMtL45eZVd3TZQZlPH4LJ2qfQKba8nT2jU/mEATJO/Ae06s1yK5EfThF1xYLE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyl4Be0l6zw+NAvuUVWqNYpxE4jjCWPPTUa8L5d1YyB+GxJF0lZ
-	bzYZIqCQ48GJ+xTMqA1PjGtHZHNLZOoe8nRqcjIEZYijqQqtzhJFMVBHoh2YUusTUvaCY3KnwEP
-	S2Dw15u51mfWjOo8FIJH0Hh/kRRnVFymOkWwCpMuTToM7+9BVpPGNt7zitESYs53XBsfxYWmmVz
-	Z+Sg==
-X-Gm-Gg: ASbGnctoMuJ1EPD28Rq26UxE1IA5p6sC/O1lRiQA2jpA2p4OKzcnlndSzF7QTDfN+9x
-	IsIUM/t73qv7xBepQ8ymfWmB4codDXxdcnJpgnOJvf59tSw5YrtV5n1O4NvNcjVIq76jaakj5uU
-	oGFxPtOIhaaP6bLDXmR5xl//F1oSC9HfUmTA9RM8d+M3UYoP8yEf8i9ii1Q5wEYOysmYyErng71
-	WR9eEfVQ94YBVsNjBVelmVHiNGij5EPcnFnbuzZ/ACeKcRuJ66a+Q8j6zPrXTfvuDiavMRpG0ad
-	/rOvzYWgJNjFQTqMGSovjCyf4Lu+hz9N5zCG8il6EI6znpQZKig61nix1/g/vETM9dbn1hEoBfk
-	VQzEFF0Tq+j+4zJpPZlBeEsBOkDLuebPwNmli48WuLkLZXhIzhn8Ztp4wQ6IHzmuw
-X-Received: by 2002:a05:6a20:918c:b0:334:9bbd:39c7 with SMTP id adf61e73a8af0-33deb36ec75mr12023883637.51.1761527743990;
-        Sun, 26 Oct 2025 18:15:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEvB8qqyzh0X9NyroUn58B+zjJ+gl/No1zjTrW0lEw1jH8sE1qhiGkm3tGhFUWui+5c86exCw==
-X-Received: by 2002:a05:6a20:918c:b0:334:9bbd:39c7 with SMTP id adf61e73a8af0-33deb36ec75mr12023852637.51.1761527743538;
-        Sun, 26 Oct 2025 18:15:43 -0700 (PDT)
-Received: from [10.133.33.212] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414012bf4sm6220585b3a.1.2025.10.26.18.15.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Oct 2025 18:15:43 -0700 (PDT)
-Message-ID: <bcaffc33-851c-4b73-add3-affe864414ed@oss.qualcomm.com>
-Date: Mon, 27 Oct 2025 09:15:37 +0800
+	id 1vDBte-0000000CwQE-41fd;
+	Mon, 27 Oct 2025 01:19:44 +0000
+Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8594D14A6;
+	Mon, 27 Oct 2025 02:17:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1761527873;
+	bh=FS+KlOZTayfUweHo35RYfizlXiiTS/dCMqOAye4j6/s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cSr4M6GXYmVqXJ9DNbAIsvskO1G8IzD4w5TqPONHF5q/NBWj+wASYuTLdhVHb38C2
+	 7YKeykbbg0p9Y3WWXgQjfVYQejOJXz1HsTyGjxy1DTjXtadyc/uwMysXRqBDDPCp/p
+	 1q1pdqj5EsuYsjtJ1H0vlJ1rVgpwGLaEfTbbQTHY=
+Date: Mon, 27 Oct 2025 03:19:27 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Eugen Hristev <eugen.hristev@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH v3 02/31] media: v4l2-common: Add helper function
+ v4l_get_required_align_by_bpp()
+Message-ID: <20251027011927.GS13023@pendragon.ideasonboard.com>
+References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
+ <20250821-95_cam-v3-2-c9286fbb34b9@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] Enable CTCU device for QCS8300
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>
-References: <20251013-enable-ctcu-for-qcs8300-v3-0-611e6e0d3085@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20251013-enable-ctcu-for-qcs8300-v3-0-611e6e0d3085@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: qqXyVjPV0nKUY4cjRv-uOEt_ssRm8eI5
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDAwOSBTYWx0ZWRfX2I4ZLiQm6JS6
- l/JvcOeucEj8zywMiPKLeW8npharxz8oER7aqcsipilDYbVbFQXFQK7ud24zr1P9W5LPr3Eb2G0
- Y9uBx0lLppTdRq3s9DCUITG+MSin9pD/BC6nEI6cTjBlvAbft4ZG5eXjA8RGuwRCVV58tuDU9cK
- h2e4rzvGopQeKb9IudJWYkfWj8KjiECChjU+Zu6NT8pEnghhV5K5943VVDpPAb7MLuC5QQXNWut
- m6Zv2PA2hMJ8D3WVVvw/0MVYKCMNdrcd7R9lRM3jIItU/p/HPjBcx6V/GTMcyM6HdagPgFOBYeH
- UjhlNNgg28MNDsSJgUbbw4j5dPiaY/QIhn5KTom9reG0dIW2d0JZgT4KN5SIxHK6/l6s83sXjgP
- 0LU1Yu5W9sAnDZPowP+vTpOeu93OHA==
-X-Authority-Analysis: v=2.4 cv=L9YQguT8 c=1 sm=1 tr=0 ts=68fec7c0 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=fSwdLtKwHKkDrnzOdDIA:9 a=QEXdDO2ut3YA:10
- a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-ORIG-GUID: qqXyVjPV0nKUY4cjRv-uOEt_ssRm8eI5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-27_01,2025-10-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 clxscore=1015 phishscore=0 impostorscore=0
- adultscore=0 priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510270009
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250821-95_cam-v3-2-c9286fbb34b9@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_181546_236402_21708F05 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20251026_181943_140100_A7A3A9E7 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,50 +86,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/13/2025 4:34 PM, Jie Gan wrote:
-> Hi Suzuki, Mike, James, Rob
+On Thu, Aug 21, 2025 at 04:15:37PM -0400, Frank Li wrote:
+> Add helper v4l_get_required_align_by_bpp() to help get width alignment
+> requirement. Basic replace below logic and enhance to any 2^[0..31] in
+> drivers/media/platform/nxp/imx-mipi-csis.c
 > 
-> Can you please help to review the dt patches? The dt maintainer needs
-> your comment before apply this patch series.
+> mipi_csis_set_fmt(
+> {
+>         ...
 > 
-> Thanks a lot
+>         switch (csis_fmt->width % 8) {
+>         case 0:
+>                 align = 0;
+>                 break;
+>         case 4:
+>                 align = 1;
+>                 break;
+>         case 2:
+>         case 6:
+>                 align = 2;
+>                 break;
+>         default:
+>                 /* 1, 3, 5, 7 */
+>                 align = 3;
+>                 break;
+>         }
+> 	...
+> }
 > 
-
-Gentle reminder.
-
-Thanks
-Jie
-
-> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in binding to utilize
-> the compitable of the SA8775p platform becuase the CTCU for QCS8300 shares same
-> configurations as SA8775p platform.
-> 
-> Changes in V3:
-> 1. rebased on tag next-20251010
-> Link to V2 - https://lore.kernel.org/all/20250624095905.7609-1-jie.gan@oss.qualcomm.com/
-> 
-> Changes in V2:
-> 1. Add Krzysztof's R-B tag for dt-binding patch.
-> 2. Add Konrad's Acked-by tag for dt patch.
-> 3. Rebased on tag next-20250623.
-> 4. Missed email addresses for coresight's maintainers in V1, loop them.
-> Link to V1 - https://lore.kernel.org/all/20250327024943.3502313-1-jie.gan@oss.qualcomm.com/
-> 
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> Jie Gan (2):
->        dt-bindings: arm: add CTCU device for QCS8300
->        arm64: dts: qcom: qcs8300: Add CTCU and ETR nodes
-> 
->   .../bindings/arm/qcom,coresight-ctcu.yaml          |   9 +-
->   arch/arm64/boot/dts/qcom/qcs8300.dtsi              | 153 +++++++++++++++++++++
->   2 files changed, 160 insertions(+), 2 deletions(-)
+> The same patch will be see at https://lore.kernel.org/imx/20250729-imx8qxp_pcam-v4-2-4dfca4ed2f87@nxp.com/
+> dw csi2 patch also this
 > ---
-> base-commit: 2b763d4652393c90eaa771a5164502ec9dd965ae
-> change-id: 20251013-enable-ctcu-for-qcs8300-ec83661e5acd
+>  include/media/v4l2-common.h | 30 ++++++++++++++++++++++++++++++
+>  1 file changed, 30 insertions(+)
 > 
-> Best regards,
+> diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
+> index 39dd0c78d70f7b935c2e10f9767646d2cedd3079..0a9da5e8daaddf26903d9ff4bed08b283dcd38b2 100644
+> --- a/include/media/v4l2-common.h
+> +++ b/include/media/v4l2-common.h
+> @@ -704,4 +704,34 @@ static inline bool v4l2_is_quant_valid(__u8 quantization)
+>  	       quantization == V4L2_QUANTIZATION_LIM_RANGE;
+>  }
+>  
+> +/**
+> + * v4l_get_required_align_by_bpp - get align requirement for
+> + *	v4l_bound_align_image(). (bpp * width) % (1 << align) have to be 0.
+> + *	given number bpp, get width's alignment requirement. For example,
+> + *	if align is 3, means require bpp * width must be multiples of 8.
+> + *	    bpp     return  width's requirememnt
+> + *	    0       0       none
+> + *	    1       3       8 (need 3 zero bits)
+> + *	    2       2       4
+> + *	    3       3       8
+> + *	    4       1       2
+> + *	    5       3       8
+> + *	    6       2       4
+> + *	    7       3       8
 
+This is supposed to be a brief one-line description. The rest of the
+documentation goes after the argument.
+
+Also, have checked the formatting of the generated documentation ?
+
+> + * @bpp: input bpp
+
+I have no idea if this is a bits per pixel or bytes per pixel value. I'm
+actually not sure what the function is even supposed to do. It feels
+it's really a ad-hoc helper, I would like to see it being used in
+multiple drivers to see if it makes sense.
+
+> + * @align: expected alignment, 2^(align).
+> + *
+> + * return: required alignment.
+> + */
+> +static inline u32 v4l_get_required_align_by_bpp(u32 bpp, u32 align)
+> +{
+> +	int pos;
+> +
+> +	if (bpp == 0)
+> +		return 0;
+> +
+> +	pos = ffs(bpp) - 1;
+> +	return pos > align ? 0 : align - pos;
+> +}
+> +
+>  #endif /* V4L2_COMMON_H_ */
+> 
+
+-- 
+Regards,
+
+Laurent Pinchart
 
