@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72781CCF9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3556BCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bLUe7ok4FRIwf0amsFxxdNsa8W0l4xogDvz9PTcumrA=; b=oS1RbW4jIzeEazUt1wWDYp5mgC
-	hZBtpwFyZ0Kcc+gfdAEdQxS7i5+JPw8+l8vspKVcKE/QB7C0rx8IzK2XpwcvFCFPblAqfMpZEWUXC
-	doFY0MorLbo8EtFT0/zKJUccS0SRxvbV1NooLW2/94qmHCuMrQxCqH9efyaRUYDdBqKwT+yEF12zI
-	GhKpezjG6LCqDc9JevRKk4C4OMD6YHz9Hc2gl1fH8mhyX1Q2IqoSIadIXWR6yVIUr0TDwtmmCZYsa
-	qChjEOQiM2nOIdjHYYhN1SC4c7oXTgBVGOdTVeh0aeveZUX7H5hPLdrsRk6fVUj6hahQIr02VOfoN
-	fdSTn0Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hgddpgXXdpWRrOCO4kQaM3CnBjKkRhnDW13T+vqMRLM=; b=j9AxiXfIXv6GypV//NBLAejBLj
+	jImSXel9/PhOgxhGudHS0S+YfatOClUFEbEVkjmQ928tdjwFf+pcCGtKBPK+aVhFY6tFZBCqnbs23
+	dC1uCfWjDOo8izDm4l8kAppXiInciPNsKlFW0pU+GgNG1ZaV0FSV1mFo9KWfgn6Z7RTGdoqYyUwoZ
+	hdN5BGbRFaJx3XgJ7jwp5i3Difdwo3ZaMZHv6NsrJ3hlwSo4CPzbkbUeyWeMkVXc8AUn5hZ4ixQ0T
+	HV0qDAsXMHJ8EpFbmsRT+HM2VobF1eiF2Qygkf59IcI+EaqJi/WFYVDiAq6xjhFb188xz1xPi8/dc
+	XmqFoGXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLAs-0000000Djtt-1UcZ;
-	Mon, 27 Oct 2025 11:14:06 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vDLJC-0000000Dl9j-39LI;
+	Mon, 27 Oct 2025 11:22:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLAd-0000000Djjv-1P41;
-	Mon, 27 Oct 2025 11:13:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761563629;
-	bh=f5P3+e3xtzKeCpgjf0REjVgwacDa/HF6QyCwbdP8mxs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xyxvd/U1O2a3lCyj/QysGL0noPhkvEb7ZearpAdcQoN6BXRe8Dt7PpdbzbncKghY8
-	 jgrCcHOhdOxIkemvrtoxwVUERBEfcSICh++GmgL7Jso0rOgCl2Woehj0iDdQ+qGIA4
-	 cK/yK2FfFbFJtuW1AHq7t7IDgMg3PSDjf6LLGYI7hyqpiR7ZjGELWKVKpxJq1IZNie
-	 xOzwvxEtrRC30UTtyFx1KOo+rsMYUo2+hNTtaN8QakQlIlyGmgk+h4e0psdbZ7/jct
-	 tXuVgNUFQ7cI5XkmiIbGLhF/rDJLywAyM0QLJPTt/B0u+grXtAld7yOkQ3zvsZkiDP
-	 lJLhahC/Mxh4w==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ADD0817E1413;
-	Mon, 27 Oct 2025 12:13:48 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: sboyd@kernel.org
-Cc: mturquette@baylibre.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	laura.nao@collabora.com,
-	nfraprado@collabora.com,
-	wenst@chromium.org,
-	y.oudjana@protonmail.com,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v2 4/7] clk: mediatek: Add and wire up mtk_spmi_clk_register_gates()
-Date: Mon, 27 Oct 2025 12:13:40 +0100
-Message-ID: <20251027111343.21723-5-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251027111343.21723-1-angelogioacchino.delregno@collabora.com>
-References: <20251027111343.21723-1-angelogioacchino.delregno@collabora.com>
+	id 1vDLJ9-0000000Dl9P-3cH7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 11:22:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=hgddpgXXdpWRrOCO4kQaM3CnBjKkRhnDW13T+vqMRLM=; b=OQbvNXOgYgjq3OEgqECQuxj/rU
+	Gd0YDsGDJu2bW1LKLAs1bG1BF0SymVgBxcwV4WY8J9GTGfjELv/Vvz4Vz8KuBVTU2/peQC5gjWgQ9
+	DeDh6hiWz4CnAnH2WdGDyCoLFzFdjDRs33CldLJmuA1D63ywul7e4M7sNjIGWAZT0jZGF2RrzgIzC
+	S6wKx4jgg4D/5gT2AV6nURlldDThPwr2VKhAcLviUB9PVYvtSfnec+K10fo6NoYZsc67zVB7JeUC2
+	n3sEthjKkS7kGsapk5fTCxMjkL1x9DF7qEtc7BHSEelek9I2Ptk6qQAsFPTiuTPfvLs7eFFVxN+QJ
+	PbdL5Hzw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35864)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vDLJ6-000000001jm-3RHy;
+	Mon, 27 Oct 2025 11:22:36 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vDLJ5-000000005Xs-0wS5;
+	Mon, 27 Oct 2025 11:22:35 +0000
+Date: Mon, 27 Oct 2025 11:22:35 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <aP9V-zosjg7rY5vZ@shell.armlinux.org.uk>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+ <20251027072749.GA7811@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251027072749.GA7811@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_041351_530575_DBF67DC3 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20251027_042239_899798_3F454373 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,82 +90,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding means to register SPMI clock controllers
-add a new mtk_spmi_clk_register_gates() function and wire it up to
-mtk_clk_simple_probe_internal().
+On Mon, Oct 27, 2025 at 09:27:49AM +0200, Laurent Pinchart wrote:
+> I've tried to diagnose the issue by adding interrupt counters to
+> dwmac4_irq_status(), counting interrupts for each bit of GMAC_INT_STATUS
+> (0x00b0). Bit RGSMIIIS (0) is the only one that seems linked to the
+> interrupts storm, increasing at around 10k per second. However, the
+> corresponding bit in GMAC_INT_EN (0x00b4) is *not* set.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/clk/mediatek/clk-gate.c | 10 ++++++++++
- drivers/clk/mediatek/clk-gate.h |  6 ++++++
- drivers/clk/mediatek/clk-mtk.c  |  8 ++++++--
- 3 files changed, 22 insertions(+), 2 deletions(-)
+I'll add to my comments earlier, because it may help you work out
+what's going on.
 
-diff --git a/drivers/clk/mediatek/clk-gate.c b/drivers/clk/mediatek/clk-gate.c
-index 8d1cc6a98a5f..1bc09c5ca897 100644
---- a/drivers/clk/mediatek/clk-gate.c
-+++ b/drivers/clk/mediatek/clk-gate.c
-@@ -319,6 +319,16 @@ int mtk_clk_register_gates(struct device *dev, struct device_node *node,
- }
- EXPORT_SYMBOL_GPL(mtk_clk_register_gates);
- 
-+int mtk_spmi_clk_register_gates(struct device *dev, struct device_node *node,
-+				const struct mtk_gate *clks, int num,
-+				struct clk_hw_onecell_data *clk_data,
-+				struct regmap *regmap)
-+{
-+	return mtk_clk_register_all_gates(dev, node, regmap, NULL,
-+					  clks, num, clk_data);
-+}
-+EXPORT_SYMBOL_GPL(mtk_spmi_clk_register_gates);
-+
- void mtk_clk_unregister_gates(const struct mtk_gate *clks, int num,
- 			      struct clk_hw_onecell_data *clk_data)
- {
-diff --git a/drivers/clk/mediatek/clk-gate.h b/drivers/clk/mediatek/clk-gate.h
-index 4f05b9855dae..924219344021 100644
---- a/drivers/clk/mediatek/clk-gate.h
-+++ b/drivers/clk/mediatek/clk-gate.h
-@@ -14,6 +14,7 @@ struct clk_hw_onecell_data;
- struct clk_ops;
- struct device;
- struct device_node;
-+struct regmap;
- 
- extern const struct clk_ops mtk_clk_gate_ops_setclr;
- extern const struct clk_ops mtk_clk_gate_ops_setclr_inv;
-@@ -57,6 +58,11 @@ int mtk_clk_register_gates(struct device *dev, struct device_node *node,
- 			   const struct mtk_gate *clks, int num,
- 			   struct clk_hw_onecell_data *clk_data);
- 
-+int mtk_spmi_clk_register_gates(struct device *dev, struct device_node *node,
-+				const struct mtk_gate *clks, int num,
-+				struct clk_hw_onecell_data *clk_data,
-+				struct regmap *regmap);
-+
- void mtk_clk_unregister_gates(const struct mtk_gate *clks, int num,
- 			      struct clk_hw_onecell_data *clk_data);
- 
-diff --git a/drivers/clk/mediatek/clk-mtk.c b/drivers/clk/mediatek/clk-mtk.c
-index bf57c65b01ff..a33011358f08 100644
---- a/drivers/clk/mediatek/clk-mtk.c
-+++ b/drivers/clk/mediatek/clk-mtk.c
-@@ -552,8 +552,12 @@ int mtk_clk_simple_probe_internal(struct platform_device *pdev,
- 	}
- 
- 	if (mcd->clks) {
--		r = mtk_clk_register_gates(&pdev->dev, node, mcd->clks,
--					   mcd->num_clks, clk_data);
-+		if (regmap)
-+			r = mtk_spmi_clk_register_gates(&pdev->dev, node, mcd->clks,
-+							mcd->num_clks, clk_data, regmap);
-+		else
-+			r = mtk_clk_register_gates(&pdev->dev, node, mcd->clks,
-+						   mcd->num_clks, clk_data);
- 		if (r)
- 			goto unregister_dividers;
- 	}
+RGSMIIS will be set when the LNKSTS bit (bit 19) of 0xf8 changes
+state. RGSMIIS is only cleared by reading this register. So, something
+else to test would be to do a dummy read of this register and see
+whether the interrupt storm still has the RGSMIIS bit set.
+
 -- 
-2.51.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
