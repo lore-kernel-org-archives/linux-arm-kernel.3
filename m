@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB4ACCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38085CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZ+q597kUNGqIq8Y48TGj7KcH72hkRPIAwT7wzsSsNE=; b=Ntpx+xMlu5foOBSEJmjR2fMRzg
-	+FbuF5ZDuHcodLB9NIYODbwb3kUMEm1pCC3JAmTUXtssBxaWztGMgP+A95S/KirGxdMt+LNuskNS9
-	is3dddmaEy5898+WBLGjUvjj3u1M3+rSPTG3SRwC9K+vKnfIM+zLYmmI/zLpYSHGZy24HjMAhu38r
-	QhJPk+5Mx2LV//tRqpXxdcRpDvluoEHU8X8cwTaCdcNxlA/OtWqpVApki1DMNOUgMBdGL3VKQpL4z
-	s21h5r6Zxvr0pgGgwWYjiaPxzflrfQ1ZavQ6j3/rzW26y+lGysXCY9FtkrTHuLPnbGCwFioYUcsJa
-	8YO0kMiA==;
+	bh=l5doOeAnSYSQI+MnlDBwnrzy87dYaAS/wZNmV4aDiaM=; b=luK0ETaUShxbKNOcBGThIM/wzN
+	v2IvE2b1NXu9T1D8Xj1cMHLTbB9mK7L0N23MHmGv9B1kohxRW6+WyXkj2HfsAwDKKrG0kED5978eU
+	j39x3iiEicEbicLiGpVjZygW1x3Bc3y/jRLDJlSd4jovkWyhp2QvIJI2h1fW8rNg1VlDUHJbRVBOc
+	B93H0ZoIWZQDTrUuIl4Fmrj3+IBOL1DHW8XbzDz7j7EfVpqq3yddFdME0OknH30IiRpULOs+IgqNr
+	Ceuto9eK/s+xmLjeV42c3nj5KJEgvxQhi8Se+UpzqfbAE6PBjRgKMc6uK7GBjhymupGiLmFtLfY/O
+	NFRraZIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDK5d-0000000DcQo-3bqI;
-	Mon, 27 Oct 2025 10:04:37 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vDK7W-0000000Dcf2-3hVL;
+	Mon, 27 Oct 2025 10:06:34 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDK5c-0000000DcQT-1Wc8
+	id 1vDK7U-0000000DceX-1QPg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 10:04:37 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-290aaff555eso40948905ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 03:04:36 -0700 (PDT)
+	Mon, 27 Oct 2025 10:06:33 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7a4176547bfso1501112b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 03:06:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761559475; x=1762164275; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761559591; x=1762164391; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bZ+q597kUNGqIq8Y48TGj7KcH72hkRPIAwT7wzsSsNE=;
-        b=VX/YlepMQ9NHfvZxEqBt/NLfEXa99AXbx8ONdTeE5fMa49r3Vb3xdj0CNiz0kFvQWS
-         NfrtX7wUJcpqQxWa8QybsDNp4RVX61eMHi5foHLevB1sWoGz4Dm+6pv+jvRCDy8vLji7
-         JJqTMiJ+hupJjE/xXD5sysk8Y+diEa/hVNHHRfMDiGY9b78dZSzI31JXNW+e32ZMiFQq
-         K0Ez7o4Ncjb50i6+i4IJwo/LLU/j2D3dfPM+ANAN5fIcHEVAH5j6X8bFw9Nk8Ebad5Sn
-         xrp8tgY9htAtHTVt/IdwoiVF/OmlDWGVLyf31tmR14WLTEk8n6Irnol5tC8SJJnBTpc2
-         wlgA==
+        bh=l5doOeAnSYSQI+MnlDBwnrzy87dYaAS/wZNmV4aDiaM=;
+        b=Uws6+F/XupwDtHn70bpjcMEj+//CXC/LKaUfGEiCh3QIGipLjvTMTs97ZvPYjxFl5p
+         vFY6DikQ39ykjoQS7EPGBdwe82T1TUdTpY+jTgWcj1uWz4XxDTOAmJNkV2PG+Mf0Kk+W
+         8x1VYgQx8IHvB0x+06L1wMue0HLoMJKC+5PxccRCpcHDu6Rkp6xWPKOZP9SXL4EEdXwJ
+         Pxy9aXdJ1qZaMWVd8a6sj2ez47RpnwHhhVjsgNDC/SfHD6BsbIWCkoC1JMmwTn9eXWHB
+         WidIdyc1mZFjN9EMd2qh3Q/C09ERvbY4LwmxVVK1+2R9Bq6UqXkYhB/km1+OZZS8a+7u
+         Frmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761559475; x=1762164275;
+        d=1e100.net; s=20230601; t=1761559591; x=1762164391;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bZ+q597kUNGqIq8Y48TGj7KcH72hkRPIAwT7wzsSsNE=;
-        b=FWxJ6bYdOhX+oHKvog2wpsvTh4yj52mOBy3yroKkQT71OD9Z+f4UY5TeLljUoXg8hU
-         NiBK4TQ0yF2bUIJmOP5jN0bsinkALPAd6OAE3YYcpRdmQ3kF0c7dXULH/kmF0/v+U4yK
-         nzUNXfBOQpBTUUL/EbUxZqYyIj6TJFHBCkHdyte/U1IFe0qGldM3gnvwrMDe8s0avCAX
-         bIWPKHlw9FpIarxExrgzYwY7TbRZGOlbkqkAOR2NW2k+c/GiMUx13Hb6eysS5c9tcICS
-         1GNONjVzvKzGLekj1SHn4CwLFW0mcNcbgG1Alg5z+4ACLxoiY6K3YbFnTqxpnnPze4+P
-         YkNA==
-X-Forwarded-Encrypted: i=1; AJvYcCWw7Wlqg227y2hR0YMOeHie2jo2OCjwSXS3Uptnb3/dyXK5lPHKqIYMy8IHL3c3Cs3P7dIhMOsY3adASWXpmwkb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFcmP2hT0Ct8qdoUQmlQy/j0xJn9SKlWnIYnaCYQQg2KApQNY2
-	qX+GMqwW0rs4e1CHYhvmO6eVKb5DBJoIv97jsl0/8KM8pEBP/KC0S0lVqtgAOE2vlkl2BZqweNL
-	XMUqZRlzEmuzM2DMie685jN86tobibpk=
-X-Gm-Gg: ASbGncviOmC2SALg/bkhe1xWfmVMkFBf06YMHKLSNa/ajnRejOJrKre7SuXZIp27waJ
-	L++PBHM3hwv+9J4YU4U7ZAzIUj7Ak7w6ZVFNrWzAxaEeXOK+y2qNc+fQQ+GzP0bVgl0iStaxlkR
-	6p7H0z5jdnn5aWms9mCqm+LSD3A/MJNIOIvNRC3nkz5eXhub043FHgE7N3EhKS2/N2Qvs5TGVRa
-	LBvCrEz3iFcSFHLOEiWpFb3tE/aNhTnJT9xotmXp7OOvj2gV1fSMyN0v7CobSbrb9REo/7wLwR1
-	qcSTKbjhVW/+OQ==
-X-Google-Smtp-Source: AGHT+IGw9d1pKeseKB3lkBBW02LMj7kEUpU+h4+fmOwbWm1TH6VnLmuaWiTPpQmTwuE7imUFGIVOUC22U7kWNosjmns=
-X-Received: by 2002:a17:902:ec88:b0:293:57e:cd70 with SMTP id
- d9443c01a7336-293057ecfddmr246648875ad.28.1761559475507; Mon, 27 Oct 2025
- 03:04:35 -0700 (PDT)
+        bh=l5doOeAnSYSQI+MnlDBwnrzy87dYaAS/wZNmV4aDiaM=;
+        b=py1grpLnfq13loev5zIl0a3VtvySvaSAUN1/wguAxqr4uMje2g4TwIYnjHs1q+QGNW
+         hn+NUeWNaC5XdeiRIBDAT7FJfQ76QMkmqGWmkZsVB6icoEn8cEi8chYuaQFV4wjurtVR
+         z5TntQz6zd2aJxhiXG1FaHsB5aWr8BfMvwdQPm3QlVeVFQda2luN2p2GC5mz8yjFgr5c
+         Ghbl/x8E4HGEnPQWG0V5B1RzHYNO2wXLxcrpFGdukmFm7nNk89S6IDAK8w0WJ1ex383R
+         it7gC8EWKLtwIiHYeRT4tZ+OvBUpggL8kSdEBzBKMu9ZOmcXDfBEML9RDChF0bh4sfBZ
+         N4Dw==
+X-Forwarded-Encrypted: i=1; AJvYcCWA4RnBz7F10B/PT9YIWOcyayacyI3l33CitW+YI/hzsYeWkLvBHE6d4e45D7r/zTCMXhhvqd+lm0LFMCFMdzrh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6CpzsvcUr7SSYJZ8jYVGGEuP9Hme1u5rS/6jKDmIH8WltLKRy
+	fKmbs8yGI1Vq6hd4RJsh5Vth+BfDR9ScdBAhav9dPnJBQQBZxuUzqXJJF46pxsURwyzCvyT8rKq
+	H9pcAYHzU3Oo8EMocv3w/zKPlCOZZok0=
+X-Gm-Gg: ASbGncv0la97wxpp2Q26BQDTyFQtIsr+hvFa1rfb9qOEp5nwjyd4A/RlNyka7nEr59l
+	7rHW20N24P6ChTcndWJUlHf7mOx+cYRVmcA6dMg9xLzHDEgYK80qY4wpUmR6e88pZR7fZgHLMzh
+	QCfh/3raHMkAGcIsqT8EFFAYJmnLx6BHMpChhQPkdzZQiSPLcpJAhNWIbo6zh7SKjjlsJY6Z7d6
+	uMfz04d80lO1C9AAYDIvmNUWqC9fww5apOrkxBy0YP4qa3UYj9mZcpXROn+mAeUyWAksyAZSk6p
+	0WHp3ZekYMlWiA==
+X-Google-Smtp-Source: AGHT+IHRpB86RXroRDzzRdYSB7oYFAv4dqfXwWvXOZ++yIISCsXtN6hFohYhh9Tmy4ZRUzQ+j+Lng2VlTrE5kMPFzuc=
+X-Received: by 2002:a17:902:e5cc:b0:270:4964:ad82 with SMTP id
+ d9443c01a7336-2948ba0d9a1mr120199225ad.38.1761559591357; Mon, 27 Oct 2025
+ 03:06:31 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com> <20251017112025.11997-9-laurentiumihalcea111@gmail.com>
-In-Reply-To: <20251017112025.11997-9-laurentiumihalcea111@gmail.com>
+References: <20251027093133.2344267-1-max.oss.09@gmail.com> <20251027093133.2344267-2-max.oss.09@gmail.com>
+In-Reply-To: <20251027093133.2344267-2-max.oss.09@gmail.com>
 From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 27 Oct 2025 12:07:00 +0200
-X-Gm-Features: AWmQ_bkbCiTHPHYYWScVXCVLYPxiC042hgQVGHC_daQ-QvhcSia1ZdA6dYYMWm4
-Message-ID: <CAEnQRZAN0Kn=3hnw6dvCDsXXrQc17E87_hRT1R78ueKh+PzKjw@mail.gmail.com>
-Subject: Re: [PATCH v2 8/8] arm64: dts: imx8ulp: add sim lpav node
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
+Date: Mon, 27 Oct 2025 12:08:57 +0200
+X-Gm-Features: AWmQ_bmTfGXGF5x3XTOBQj8jm2eoTyHs4EQJMNTtCvVM7Dk1SHwZVtKvKWhTgLA
+Message-ID: <CAEnQRZDrqKFmenTiNi4U==X-xE0pv0Qt=qpXJAVi4sGvnBL4cg@mail.gmail.com>
+Subject: Re: [PATCH v1 1/5] arm64: dts: imx8-apalis: cleanup todo
+To: max.oss.09@gmail.com
+Cc: Max Krummenacher <max.krummenacher@toradex.com>, 
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_030436_401595_785F5DE7 
-X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-CacheID: sfid-20251027_030632_381198_CD3F9B52 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,14 +102,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 2:24=E2=80=AFPM Laurentiu Mihalcea
-<laurentiumihalcea111@gmail.com> wrote:
+On Mon, Oct 27, 2025 at 11:32=E2=80=AFAM <max.oss.09@gmail.com> wrote:
 >
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> From: Max Krummenacher <max.krummenacher@toradex.com>
 >
-> Add DT node for the SIM LPAV module.
+> Functionality has been added without removing the associated TODO
+> comments.
+> Clean that up by removing TODOs no longer applicable.
 >
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
 
 Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
