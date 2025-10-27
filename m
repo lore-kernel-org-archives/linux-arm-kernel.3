@@ -4,105 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE884CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 15:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB34CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 15:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lyo3P6jUrO11oV/07r7VEk3+sHuM/zfcTZIIBqJLkxg=; b=s0lJEAsmg10NIiyOyl9wjRKrk3
-	b+xzLXE4E0jfwsKX12YIhnpLR5xCzf7f8AbeyteyDsPN/p+NzPYAR7e1Ch6WbI91xEd5CqiTTNlxB
-	rI8aSRpGYUt3CLtCfPFq8wJ6ZRzNGxksG09ClMi72R/RWrPUeHRc8IQPmT8/TO1R/ikK4AK2S/UE5
-	yUwfYzIu4TEml7KdkYWbHN9o2Pf9NfUsf8P3ckaz13TzNCXxt0Z3nuACBmuuVErvm8dPYh0O+V0+8
-	1f0MooQcZ2z6it2oNcYWdUt4iEBE9n/DevsSGZs5m6uhxoYW5GPhNReolO7j5D/AtzX8Or85fb0tN
-	DOvxy0UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TOV2usxAVtrzpjNrsCDY6+oTbSzm7HQ0OagyrYKBhwU=; b=Seu1uRnL88l5vJNNsedOPpIoO9
+	38DeXc8DJFvJkI6zbVGjCCsThsLY/UyiVok+E+3lg/i+uC76wvQqSKirg39nmiKMrlrB7kDUaDhic
+	pREJ+srqaqNGTm1l6zEwxROdTJm3ibemGxA1prXRm2wRQXggFLSh7mb6VXljfOmTLl+F/Xe/wQCc6
+	uc5J7OfNGjO39vc3zxXaKzv92S//IEDwteNK/cPvSWCvNguf4+zy//6RFP+SPfh/BvHhyBvI3phjS
+	OwVXjlHSVRDw9EpfLKr/9a615zsWiF+TYCh0JSs6C708M1CsnofXP/dIkR1Bfz+usX9wwbflfViid
+	nZFAZB3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPXo-0000000EGOF-42uO;
-	Mon, 27 Oct 2025 15:54:04 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vDPYE-0000000EGTr-2HTt;
+	Mon, 27 Oct 2025 15:54:30 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPXm-0000000EGNS-0AAl
+	id 1vDPYC-0000000EGSj-371P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 15:54:03 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b6d53684cfdso1083339666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 08:53:59 -0700 (PDT)
+	Mon, 27 Oct 2025 15:54:29 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-27eeafd4882so427865ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 08:54:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1761580439; x=1762185239; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lyo3P6jUrO11oV/07r7VEk3+sHuM/zfcTZIIBqJLkxg=;
-        b=QMjgtlFUi/pD22IE4k56eIxVTHqFJNV1ACQMUSXSFDg3ugmWE1L5+TeDU5MaiBrE8X
-         FDtPxlxifRzFXAe1gzQAhShFcjN7eh4v/MNhxTFcRWGDRBTKpn0PnXuaDrNfrZ352J5i
-         bu3EMoyuOMVEyNZL6HUVisnicivN9AchKp6Mg=
+        d=google.com; s=20230601; t=1761580467; x=1762185267; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TOV2usxAVtrzpjNrsCDY6+oTbSzm7HQ0OagyrYKBhwU=;
+        b=SQ9nvWx+jGNl1SOKzcWf7Bp4uQHWCLaNxOpfWef79ViHEUFrWHCwZinf4hIl4/HpZt
+         iuWmBOIwbYQJ7hSD8TR6W6oaG45Al+AKnO95lH7d9GiWFi/TFzBX+0/7lu097tS8Na3t
+         NZHR5pnrw2qGAy8Ul6IpB3EB7NzIWnU9QgG75Kery/P7VbAmBQ3PWXzKOJPUr8thgC1j
+         9viNF6uTkp/kcoUQ5ONQ08ANhIslvsqh4/EyAV7M1ivZNYiA9PuWuVLjJkzFc0hbuRFz
+         yEQJgAO2/kB89o82vBaEXdKu9NLUY39YekbqcVhysHG2c71AuHUbBgql0gU3MaVryfaR
+         rb8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761580439; x=1762185239;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Lyo3P6jUrO11oV/07r7VEk3+sHuM/zfcTZIIBqJLkxg=;
-        b=M8+O6GhOHApqQbZ136HXi3VxIo5kfDUq1S0GVs+pSN8cSq2yUp01VVtq6SLdQzCuiI
-         b10xIMI0r8CRlyFXzfYmSZSESFsMykSY07yV1mKwfS9NaaRX0cUB6WJ0vfWSlZvkdH0V
-         YdkiCrhwao/wbPDmennbZ0BrAgcWSfaqKt7kE9D7M/ZXmfhJKemGsGTjd2ateYCUfjRq
-         jixmfqd3qg159yKMQ1KvWy8fjWLUCNkcQxhqOkEDOo3mWWrjwKDw5X6sxxTgeQZQYtpK
-         f0NdLwnKbzB1UBAP+tp/1or/i4W+94bfc4mZJeOZq75O8nkoywR0D7jXI376R3qZInWN
-         yqzw==
-X-Forwarded-Encrypted: i=1; AJvYcCV2V+Atlw/Sc1pArWcBDngzLhusIiru7sjbOB9oUN9/1V16YTxPfvejrDB+uaap2h/13lg7Yzoz2pROPDBCAJ0o@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSu5xHTP1KMhb3esxAAmHeA3rOJEZrGjLjYT9haulpYoQDWzUN
-	GKKsiSgrYISQrMXkwcUyTAsq9y167SmCDWMCEwJv7CfDi7iQiUHZyhP5CCd4jFn8IfnS3zuI6Wh
-	9UT353nY=
-X-Gm-Gg: ASbGnctNm5/Us1FCuKZlXkS/MVwa236KelmFM6u/evfiupXPiox/DIDbFSyYZL04U6a
-	PCMJuLtiAlk1c4kt/klbEmCm9U7LdVZDSoilRqGFfeMCaL13rD1ZV1riGX3heba4rhzo5Pwmi66
-	FH06koIsmxxnEOne+322mB0iARJUhkLBBwG1VXtAYqs/gh8ZkA19c8UvXh6UW/Qf4yy1pRbQ/tB
-	YrGgAzPvjc2+vC8c+jqfvo5N56GvUvak3gburU2ZT7pIpUzbkRXs1Xp5uIQYwm3p6Me9M/UT65D
-	hQAfDZ8asn6OqYmouRQm3w8l0jemRcSYifLpL2nmTTven0BN3EV58oG01qMyQPw6vVeXESk0kh9
-	kqzBsVbCLjZsq+pftTLG7McpGlBxryw+h0w5p2heQ9yIQPvA/Fy+pXQJPYioeqBtd6GJDUBfQOx
-	W21UbbrioyeQQZKJaphm4T5OMTmgKvAE/d/D9N/IBZYaL3/nDmVN/0koohy5CXFmOroqS3xG0=
-X-Google-Smtp-Source: AGHT+IG0ggg6de/7SwehdrMlBq1KzpqYn9RGRA85PKi8x8fKOKRW9ANSAtAGjKbXE4k8XodDkHhKYQ==
-X-Received: by 2002:a17:907:3f0a:b0:b6d:603b:490f with SMTP id a640c23a62f3a-b6dba56f8eemr33784566b.35.1761580438712;
-        Mon, 27 Oct 2025 08:53:58 -0700 (PDT)
-Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com. [209.85.208.54])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d8548eda6sm784596266b.75.2025.10.27.08.53.58
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 08:53:58 -0700 (PDT)
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-63c09ff13aeso8306397a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 08:53:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUmnZ3I9OdRCgsqkPqOrGAD8bgpFPujHM2YYvBQXmdCcfyYcIQyUS++GboJRJKIALzcjNbv6mtVn32bhBRln4Bn@lists.infradead.org
-X-Received: by 2002:a05:6402:4412:b0:628:b619:49bd with SMTP id
- 4fb4d7f45d1cf-63ed84db9e2mr369134a12.25.1761580437926; Mon, 27 Oct 2025
- 08:53:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761580467; x=1762185267;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TOV2usxAVtrzpjNrsCDY6+oTbSzm7HQ0OagyrYKBhwU=;
+        b=gpS4xgcHxaTjYqWZPN7WAcE2CXD4WB+/2vUSLu6vOi6MKhGioI7RkVAm+lPsec5+4S
+         6OnEBoYJqDtNL38lbP47y6jcp3TEHs+ZRcCPHjEbMJ9IO9mHCkF93Y03cy6k0SHwiEYU
+         xzKZsbPEkfpEFt+CE+VaXDpzIpkZ1L6Gqjo4YhWz3yL/66uu1Hca9xh/SJbDl/NocqRV
+         4j61/S4LTOPsIcLmzecha6UvN3TwyGTMV6WP7x/yvqRVaxuUWJNwGR3jpmaav7mr9+Qg
+         puRZwN3460XN/rEZbe5qVAQNt3Opc9qwxXRghSQu/Hzypsq4CE773B/z83RWHhz2OhoC
+         /+TA==
+X-Forwarded-Encrypted: i=1; AJvYcCWk7Zp2ze+B4bQCD1rb06YLqUgRKSggsCgb9yL3l1ut/cqqs2M1EaVQA2NeeMT/yh3tnI0TdJOVTKhuNcttoqd/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQm9xSYCENZ+EFoJyQ/UYpzocqh2EeI+Nb/J3pjDaC2UaRcq2A
+	bmrlVaih93Cw1F8mvG/PVt4f55DfKTVp+dY+/9db8UVWSyj6tCkYKpG2Mg4W0/C/s5tcuQUH+pN
+	lS1B7jIs3pa/Gncnvh3KHdAuX47QrpFQcE2WRj8C/
+X-Gm-Gg: ASbGnctP4iJzOTheL8Rtz/fUZ5BmrlnBmsCDojT3F6IWOhVw21z1riyvvAILA1sveeF
+	9GlncPqHj5+C6gb3NEZ//Pv/1IpbnYEB3uspRHh4IxcMSzdUtF7bBtVs314bdiVt8+1BZJjHZt3
+	mZz7+O0h67cQeGfWi4T8L/mS3IZt86n9l1LkoquUW1M5lG158YSJsYvLyXgw9vPvhiAwEGfnwuY
+	WjANeelJCZTWOhjWWJ/ky4oopJgG0AarSiWaARAIuDbTVKrE6IKtejcC4vGyDFmXZuV
+X-Google-Smtp-Source: AGHT+IGd2VC+1ri7Tm8Icu43HfhHP31Eha9krNlCyWKJpXSqm52Nv3U4r4IDiw+4iGHBWYRgukstDdR1FrBi6TFHiUE=
+X-Received: by 2002:a17:902:c40c:b0:25b:d970:fe45 with SMTP id
+ d9443c01a7336-294ca876b46mr835215ad.1.1761580466893; Mon, 27 Oct 2025
+ 08:54:26 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251027083700.573016505@linutronix.de>
-In-Reply-To: <20251027083700.573016505@linutronix.de>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Mon, 27 Oct 2025 08:53:41 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wiZ0RdDzpafUUduCn3gOVX3a=ZmGOw7wu1s-jqe8KypDA@mail.gmail.com>
-X-Gm-Features: AWmQ_blZNXFTqWGx07mPO-qNDyYJc9sRx0MxijvPg_spVplnaBKcigb1OKRcACM
-Message-ID: <CAHk-=wiZ0RdDzpafUUduCn3gOVX3a=ZmGOw7wu1s-jqe8KypDA@mail.gmail.com>
-Subject: Re: [patch V5 00/12] uaccess: Provide and use scopes for user access
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel test robot <lkp@intel.com>, 
-	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Heiko Carstens <hca@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Cooper <andrew.cooper3@citrix.com>, 
-	David Laight <david.laight.linux@gmail.com>, Julia Lawall <Julia.Lawall@inria.fr>, 
-	Nicolas Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>, 
-	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	linux-fsdevel@vger.kernel.org
+References: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
+ <20251025-idpf-fix-arm-kcfi-build-error-v1-2-ec57221153ae@kernel.org>
+In-Reply-To: <20251025-idpf-fix-arm-kcfi-build-error-v1-2-ec57221153ae@kernel.org>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Mon, 27 Oct 2025 08:53:49 -0700
+X-Gm-Features: AWmQ_bkZ-boZ1PO-DZE1ghKe_XcmKdU5EzkIpPpXzyaf8mX9qkr6Gzs7ALPdxQ0
+Message-ID: <CABCJKuesdSH2xhm_NZOjxHWpt5M866EL_RUBdQNZ54ov7ObH-Q@mail.gmail.com>
+Subject: Re: [PATCH 2/3] ARM: Select ARCH_USES_CFI_GENERIC_LLVM_PASS
+To: Nathan Chancellor <nathan@kernel.org>, Linus Walleij <linus.walleij@linaro.org>
+Cc: Kees Cook <kees@kernel.org>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Russell King <linux@armlinux.org.uk>, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Michal Kubiak <michal.kubiak@intel.com>, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+	intel-wired-lan@lists.osuosl.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_085402_086522_29F2CBE9 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20251027_085428_804717_1A9065EB 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,12 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Oct 2025 at 01:43, Thomas Gleixner <tglx@linutronix.de> wrote:
+Hi Nathan,
+
+On Sat, Oct 25, 2025 at 1:53=E2=80=AFPM Nathan Chancellor <nathan@kernel.or=
+g> wrote:
 >
-> This is a follow up on the V4 feedback:
+> Prior to clang 22.0.0 [1], ARM did not have an architecture specific
+> kCFI bundle lowering in the backend, which may cause issues. Select
+> CONFIG_ARCH_USES_CFI_GENERIC_LLVM_PASS to enable use of __nocfi_generic.
+>
+> Link: https://github.com/llvm/llvm-project/commit/d130f402642fba3d065aacb=
+506cb061c899558de [1]
+> Link: https://github.com/ClangBuiltLinux/linux/issues/2124
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  arch/arm/Kconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 2e3f93b690f4..4fb985b76e97 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -44,6 +44,8 @@ config ARM
+>         select ARCH_USE_BUILTIN_BSWAP
+>         select ARCH_USE_CMPXCHG_LOCKREF
+>         select ARCH_USE_MEMTEST
+> +       # https://github.com/llvm/llvm-project/commit/d130f402642fba3d065=
+aacb506cb061c899558de
+> +       select ARCH_USES_CFI_GENERIC_LLVM_PASS if CLANG_VERSION < 220000
 
-This series looks all sane to me, and I think the naming etc now all
-makes perfect sense.
+Instead of working around issues with the generic pass, would it make
+more sense to just disable arm32 CFI with older Clang versions
+entirely? Linus, any thoughts?
 
-                  Linus
+Sami
 
