@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF2BCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 02:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B47CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 02:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V0xO3eccx9J1JFeRrYmbh54SIcFbkNO2ChisP5DHSmA=; b=kmTQM8fmEvm1mF
-	yMN3s32ebgkwoe2B6IBRuXvZDPt8MP++xyHyjEroG1a9e6wMEBuQ7qELqm4WP2AE0Z/IadbrE6R9t
-	gWPS6ECc/WHZeWh7xcwsiDDPDRB9t69Yk2BBZkHwbqZxu7OYGPSFRPKLGT6YjxsasIxOg/pPDNiNr
-	2rV+EVCtSWYmrAl7zMsIpSxBpDqPHfqaMwaiByQ8PkV61F0Y0MAct6jlO8DB+fB4g/JuoiLD6rt27
-	84pmt4ZEm8/K1LJ+jE9pPlbgaWr651W9WFo5L/mTizH+yC72MYYVh67v5cLR4DS40yr0ze8m6TrkV
-	o4JqEOkS+Lm36wthMkyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9YL2ts8v3aqASRcurPBvoJpVYvJz4KJtDkbKb7oDb1o=; b=QQddc7WbMMFdDCCN5FMLlqkkIQ
+	Ty7gtsqdhUkEE4Q/mFbADsZNaDrYn0SqyBFSPnp4PyRBvkjB1EwlpfNqIrUEqwXEvGlP0fdFPPPzq
+	Sw/52A0M550kO64hSN45iQa/pjZbUT8fnf1M8cJpisjsiScdYWifnrOuN4Rf8Nk4QTVRLHQX6q1AZ
+	UUxKPptoAmw+6Us71ONNpK+q5c3PCaHbjGFQys2aiJvE4jADLEK1f7JhJVsLnsEowEOkZLGqh/AyL
+	lalAiyURnpxVhPorcFFr5VpJtXWIJ095I/JcIrIQc0VM/j6glh2s4PS6bOVW7vFSySnmJz88VaQrM
+	ZAecp1Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDEV-0000000D1rY-2rpV;
-	Mon, 27 Oct 2025 02:45:19 +0000
-Received: from mail-ej1-f53.google.com ([209.85.218.53])
+	id 1vDDK6-0000000D28U-0IXZ;
+	Mon, 27 Oct 2025 02:51:06 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDES-0000000D1qh-0n0U
+	id 1vDDK2-0000000D27V-2fmH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 02:45:17 +0000
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-b6d6c11f39aso541453266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 19:45:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761533113; x=1762137913;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=V0xO3eccx9J1JFeRrYmbh54SIcFbkNO2ChisP5DHSmA=;
-        b=HTfwpgoOuKwuioavCp3/QLbhm5Utcrq4Hc5RSAHNc7FJC0hmMNL0Ngoy9bQ/3U4vu3
-         iFX+0ycf/KBaJ+PA5THdwQoUeI6NHNsum+jt8ELnp0xZIun/bnQhQY87Oqm+v3P2C4op
-         hdpIW6l1oDD5hHLVNMKVFZwq5qJD1Li2HHPrV8QV8cdWlmnZt7yXWlAj2w07E70XGWIP
-         zEwn3t/llIE2RGQMZL0fPAchULQdL/V3YoDfZQGnNqd+aPPv1oOA1UwxxWFOVOjJvLUV
-         lAmvvFJzVdyo6cycNrgRMpD9bp42A7k5/27bgLgoK8xBPpeZUG2n4rHrCnaEyIrkWXIE
-         8jYA==
-X-Forwarded-Encrypted: i=1; AJvYcCUghLSwAlwZZ9+F+LOGUg52RFnuOyIMEreHu21DLsctilM3doWTTKc+tHxc/XT57wKG/71u69qtve7Geo6D+3Rn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxj2It2wMT2AVySX6Fgqf2jQrDH3HzQBGqLAmempb0Qq35WAVCH
-	nea5SyXU97KDVzRQfqv1msfHGCeyInJ0FdBVsv4h5Ma3wIq/ieGnKuUu5gWsJh4XWwQ=
-X-Gm-Gg: ASbGncvWx5rS7KdMUSyaiwMRML26p6YdMfXTDVqhO9QfRd+Arw8/dX5GZKaOIkjGIN5
-	Dmm8Q9j8VTB3wo+OxNy8wvNzU5fpXgyFhk+uenHhLqDN8dSC38gR2yR6TRbkV00dF0v8oxN4ckj
-	16mOxnxiC2B6rLwzfK9D2jv0qNo5R6ImotvGdQChKzjHN1HVdV5pjj3VZBMHUMbvqbeOCaMjE7e
-	prodIiHxw3VD1B6uwpC09cgoKl6Sd6+mnmyS975/FICoswJPwycVItcBz3diHNmPmATVTML/c5R
-	UeGg/XsaOpMDGnxqrEyWe5XOVyLVuj5Zw4PEWzHL5I3mWIvyq7F9Oph2Iza7HpX0ZFocjKCCEhg
-	Wv7ke9d8i8KUdVsueNqR40YL4IWBVerdJEx0nzlUBpQRFns+wjkHv0zyG/A4gsZT9h6C+hd8Pdj
-	zzB7VaSlNgNRYEP8DLfkao+oFQuJpj
-X-Google-Smtp-Source: AGHT+IE9+IUraiGZ4lMi5lhuI6fi8DV3vOR7jQ35BTG1BtN5z28SXFSt6JjqVrU0P3J1GYH8lfUshA==
-X-Received: by 2002:a17:907:bb49:b0:b45:eea7:e97c with SMTP id a640c23a62f3a-b6d51c30f7cmr1302544066b.47.1761533113473;
-        Sun, 26 Oct 2025 19:45:13 -0700 (PDT)
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com. [209.85.218.41])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef6c164sm5128804a12.5.2025.10.26.19.45.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Oct 2025 19:45:13 -0700 (PDT)
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-b6d2f5c0e8eso846449466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 19:45:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUUbRyPFvocSY/LEge5mIAHqNejwbkvEXDJV3RG7MZLCpbDqrcrP0icToHEyIJ5dD1jyWd8v2ZjsDO4+mXmRi0U@lists.infradead.org
-X-Received: by 2002:a05:651c:1509:b0:376:2802:84a8 with SMTP id
- 38308e7fff4ca-378d6f87cf1mr39477651fa.46.1761532753914; Sun, 26 Oct 2025
- 19:39:13 -0700 (PDT)
+	Mon, 27 Oct 2025 02:51:05 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cvyfZ09rDz12LDD;
+	Mon, 27 Oct 2025 10:50:14 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 87746180B63;
+	Mon, 27 Oct 2025 10:50:52 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 27 Oct 2025 10:50:52 +0800
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 27 Oct 2025 10:50:51 +0800
+Message-ID: <0cdb8919-012e-c556-1082-63d44c6c7d97@hisilicon.com>
+Date: Mon, 27 Oct 2025 10:50:50 +0800
 MIME-Version: 1.0
-References: <20251025043129.160454-1-iuncuim@gmail.com> <20251025043129.160454-3-iuncuim@gmail.com>
-In-Reply-To: <20251025043129.160454-3-iuncuim@gmail.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 27 Oct 2025 10:39:00 +0800
-X-Gmail-Original-Message-ID: <CAGb2v656qzX3YrcuTt++=-r5JCyDKgGB8NYTAM3TpyRtAwdibw@mail.gmail.com>
-X-Gm-Features: AWmQ_bltF2M2RvHvljsl22XgW5kEnSwcYVFG9c-kdXV1SwRk_st0sy4RKS89u_w
-Message-ID: <CAGb2v656qzX3YrcuTt++=-r5JCyDKgGB8NYTAM3TpyRtAwdibw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/6] thermal/drivers/sun8i: add gpadc clock
-To: iuncuim <iuncuim@gmail.com>
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Andre Przywara <andre.przywara@arm.com>, 
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH v6 7/7] kselftest/arm64: Add HWCAP test for FEAT_{LS64,
+ LS64_V}
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+	<oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
+References: <20251024090819.4097819-1-wangzhou1@hisilicon.com>
+ <20251024090819.4097819-8-wangzhou1@hisilicon.com>
+ <e40ce220-e857-4ecf-985b-40407f99fcb3@app.fastmail.com>
+ <752915f0-1085-b32e-f94c-c6c68dfa6cd4@hisilicon.com>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <752915f0-1085-b32e-f94c-c6c68dfa6cd4@hisilicon.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_194516_237449_0979D2F9 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20251026_195103_020288_5BE649FC 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,72 +80,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 25, 2025 at 12:32=E2=80=AFPM iuncuim <iuncuim@gmail.com> wrote:
->
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
->
-> Some processors (e.g. Allwinner A523) require GPADC clocking activation f=
-or
-> temperature sensors to work. So let's add support for enabling it.
->
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+On 2025/10/25 18:06, Zhou Wang wrote:
+> On 2025/10/25 0:18, Arnd Bergmann wrote:
+>> On Fri, Oct 24, 2025, at 11:08, Zhou Wang wrote:
+>>
+>>> +static void ls64_sigill(void)
+>>> +{
+>>> +	struct sigaction ign, old;
+>>> +	char src[64] __aligned(64) = { 1 };
+>>> +
+>>> +	/*
+>>> +	 * LS64, LS64_V require target memory to be Device/Non-cacheable (if
+>>> +	 * FEAT_LS64WB not supported) and the completer supports these
+>>> +	 * instructions, otherwise we'll receive a SIGBUS. Since we are only
+>>> +	 * testing the ABI here, so just ignore the SIGBUS and see if we can
+>>> +	 * execute the instructions without receiving a SIGILL. Restore the
+>>> +	 * handler of SIGBUS after this test.
+>>> +	 */
+>>> +	ign.sa_sigaction = ignore_signal;
+>>> +	ign.sa_flags = SA_SIGINFO | SA_RESTART;
+>>> +	sigemptyset(&ign.sa_mask);
+>>> +	sigaction(SIGBUS, &ign, &old);
+>>> +
+>>> +	register void *xn asm ("x8") = src;
+>>> +	register u64 xt_1 asm ("x0");
+>>> +	register u64 __maybe_unused xt_2 asm ("x1");
+>>> +	register u64 __maybe_unused xt_3 asm ("x2");
+>>> +	register u64 __maybe_unused xt_4 asm ("x3");
+>>> +	register u64 __maybe_unused xt_5 asm ("x4");
+>>> +	register u64 __maybe_unused xt_6 asm ("x5");
+>>> +	register u64 __maybe_unused xt_7 asm ("x6");
+>>> +	register u64 __maybe_unused xt_8 asm ("x7");
+>>> +
+>>> +	/* LD64B x0, [x8] */
+>>> +	asm volatile(".inst 0xf83fd100" : "=r" (xt_1) : "r" (xn));
+>>
+>> Relying on the __maybe_unused register declaration seems a little
+>> fragile, can you change this so that the inline asm specifies
+>> all of the registers correctly as input/output arguments?
+> 
+> Seems we can remove xt_2 ... xt8, but add x1 ... x7 to asm clobber list,
+> something like:
+> 
+>     asm volatile(".inst 0xf83fd100" : "=r" (xt_1) : "r" (xn)
+>                  : "x1", "x2", "x3", "x4", "x5", "x6", "x7");
+> 
+>>> +static void ls64_v_sigill(void)
+>>> +{
+>>> +	struct sigaction ign, old;
+>>> +	char dst[64] __aligned(64);
+>>> +
+>>> +	/* See comment in ls64_sigill() */
+>>> +	ign.sa_sigaction = ignore_signal;
+>>> +	ign.sa_flags = SA_SIGINFO | SA_RESTART;
+>>> +	sigemptyset(&ign.sa_mask);
+>>> +	sigaction(SIGBUS, &ign, &old);
+>>> +
+>>> +	register void *xn asm ("x8") = dst;
+>>> +	register u64 xt_1 asm ("x0") = 1;
+>>> +	register u64 __maybe_unused xt_2 asm ("x1") = 2;
+>>> +	register u64 __maybe_unused xt_3 asm ("x2") = 3;
+>>> +	register u64 __maybe_unused xt_4 asm ("x3") = 4;
+>>> +	register u64 __maybe_unused xt_5 asm ("x4") = 5;
+>>> +	register u64 __maybe_unused xt_6 asm ("x5") = 6;
+>>> +	register u64 __maybe_unused xt_7 asm ("x6") = 7;
+>>> +	register u64 __maybe_unused xt_8 asm ("x7") = 8;
+>>> +	register u64 st   asm ("x9");
+>>> +
+>>> +	/* ST64BV x9, x0, [x8] */
+>>> +	asm volatile(".inst 0xf829b100" : "=r" (st) : "r" (xt_1), "r" (xn));
+>>> +
+>>> +	sigaction(SIGBUS, &old, NULL);
+>>
+>> Is ST64BV expected to cause SIGBUS here, or should it return the
+>> 0xffffffffffffffff output to indicate an unsupported memory area?
+> 
+> I think it should return 0xffffffffffffffff without an exception,
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+My understanding above is wrong.
 
-> ---
->  drivers/thermal/sun8i_thermal.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_ther=
-mal.c
-> index 226747906..c02c398b0 100644
-> --- a/drivers/thermal/sun8i_thermal.c
-> +++ b/drivers/thermal/sun8i_thermal.c
-> @@ -66,6 +66,7 @@ struct tsensor {
->  };
->
->  struct ths_thermal_chip {
-> +       bool            has_gpadc_clk;
->         bool            has_mod_clk;
->         bool            has_bus_clk_reset;
->         bool            needs_sram;
+As mentioned in C3.2.6 of ARM spec L.b:
 
-We could optimize this using bit fields instead. This can be done in a late=
-r
-patch if you want to do it.
+1. "When the instructions access a memory type that is not one of the following,
+   a data abort for unsupported Exclusive or atomic access is generated"
 
+2. "If the target memory location does not support the ST64BV or ST64BV0
+   instructions, then the register specified by <Xs> is set to 0xFFFFFFFF_FFFFFFFF"
 
-ChenYu
+Here the test code is the first case, so a fault should be triggered.
 
-> @@ -89,6 +90,7 @@ struct ths_device {
->         struct regmap_field                     *sram_regmap_field;
->         struct reset_control                    *reset;
->         struct clk                              *bus_clk;
-> +       struct clk                              *gpadc_clk;
->         struct clk                              *mod_clk;
->         struct tsensor                          sensor[MAX_SENSOR_NUM];
->  };
-> @@ -417,6 +419,12 @@ static int sun8i_ths_resource_init(struct ths_device=
- *tmdev)
->         if (ret)
->                 return ret;
->
-> +       if (tmdev->chip->has_gpadc_clk) {
-> +               tmdev->gpadc_clk =3D devm_clk_get_enabled(&pdev->dev, "gp=
-adc");
-> +               if (IS_ERR(tmdev->gpadc_clk))
-> +                       return PTR_ERR(tmdev->gpadc_clk);
-> +       }
-> +
->         if (tmdev->chip->needs_sram) {
->                 struct regmap *regmap;
->
-> --
-> 2.51.0
->
->
+Best,
+Zhou
+
+> will modify above test codes in next version.
+> 
+> Best,
+> Zhou
+> 
+>>
+>>      Arnd
+>> .
+> .
 
