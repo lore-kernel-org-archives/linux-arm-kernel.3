@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692F2CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05498CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MklpS3nPFH/8Q8+o9LUwlAzS9y0GP87dIrP5WY05aXE=; b=fZNtdLQKDOSPodc7hryEfeqZQD
-	ymrsaRCivxcUfPQcWFtuLiXXZifrqNbp3VLGcw+NJ7i6yrNgsDGE/U9DGSMmzCZqlXfVUpc9X7y0O
-	w3rr5FrvbJHWB9MiTwPnrIGN9mKCxPWTQeASHbMbwOVeYc/kaQnvQlc/SQRQg/wDa04Cx0prHwsGW
-	9wdefITUYdq0XwrQhnlY9qUWOzqQGg2gFlh1K/90jccvGm/tWDHR0gEiQjxUED5ESpqPkoyS5dadq
-	oBBpj2AiM6SNeQBfOQLDUi2dA13Qc2FMvIeHSpckxVDTWcnnFFh1RJIBRc2vlYhQowTc94bIFHfj0
-	5E3Q8DTw==;
+	bh=dKH8vYMf6SqqIJ4Nr7m9tVSkocGsGWocEbO61fBw+IQ=; b=PmqN0Sn9zQxwpSMGMz9uQ05SXL
+	6wy9HtlAzwrRxCY/MzKfMR3TkgRG+IJu+gX81VZYIvT9HI/vLo7UIoUGl1euMsL0Q1/ZrWwTWOFCY
+	i2ucr+YejMIt67IH2SBUTNrm+DkTeaIGCT8di9pLxFPfbTl7wLIbYVJjXmfbfQCn9gif7452Gvs2g
+	xztLO37JiCZ1GttJd2UfwNOeIrE4ICqf8NlQfCyo2owPiCZtpCOrgNMjPqE8Mj3eJJLjcDQUN/BmD
+	O0LNkJWypuul6aWfRnXhwJmrGhCBlMzW0DNUryts6ht0lHBK1qsvYcJVIZQodExwhM5u4kpaG5mS8
+	+K5QlNbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVUa-0000000EqX0-46fn;
-	Mon, 27 Oct 2025 22:15:08 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1vDVVB-0000000Eqbd-1c5J;
+	Mon, 27 Oct 2025 22:15:45 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVUY-0000000EqWK-2Shj
+	id 1vDVV9-0000000EqbF-0Ta1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 22:15:08 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-592ee9a16adso8899665e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:15:06 -0700 (PDT)
+	Mon, 27 Oct 2025 22:15:44 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-378ddb31efaso62058901fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:15:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761603304; x=1762208104; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761603341; x=1762208141; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MklpS3nPFH/8Q8+o9LUwlAzS9y0GP87dIrP5WY05aXE=;
-        b=b28HWuF47gs8rF0fK1dbPbLc1y+4eHOS6YvDXbc5NklOiZwEQcrH71FpEdhBRmipIm
-         X9neoFO4Y4uCA5N6O1rWrzqpu+mpUXXi2PwQkIc1QxIvwhsspkhNJ0NmaTrwN3nCTEpl
-         bcQ+BHntQflHRwJ80yc5DMHmm89D1ISD5WzUsU2T25K6mpqDa7cGp8jtd4Vn3FQ5OMzk
-         otMdlHiY6p29uX/rAHkvuDDDMY023OUYtWGvQnVut2p8sUYpc3N+OIcXllEwZ+xz+gKM
-         OV/qEd/9aMhUlDPdHF/R+73R+DdbERCtMIrBUdd4OD70kT2CNKBtYCyQxP8ip0WzEWKx
-         BZCQ==
+        bh=dKH8vYMf6SqqIJ4Nr7m9tVSkocGsGWocEbO61fBw+IQ=;
+        b=a1CkvPXYXurIC47tjUtXVkqG5maKJDVD18GWO3CfKXORAq28/DTVWgGYykf3nb0kkp
+         +YXHq2zteUnuqokHYgEzpZ5avZExHv2+NVO92jFjcv0qEH65XTpKBNHUW6I7VqNRp2sT
+         WpDl7O5KIP3oqP2VuJmMyO+jMHKILSyvsmgvEBhDyqtXGa5/0qaNf4FSZDCIEk5Zwfap
+         e/an5GayqHZgvYi9DMWcCVEE2WsOuOW+7allLDfdTkPgtPnHFf3NhOlfZvN14ngdsdxP
+         7KwQjM9WrfHfl/euvfPUVxwLTrMjOG/pXnOXEyHJ7SPbPFRe+KbASV2hfL0wVVYmwFoo
+         oQfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761603304; x=1762208104;
+        d=1e100.net; s=20230601; t=1761603341; x=1762208141;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MklpS3nPFH/8Q8+o9LUwlAzS9y0GP87dIrP5WY05aXE=;
-        b=I9y0g75Q/7O82w2iZxj/E4tLCpfnyb6m/kZUNTbqoZwV8huLHt1IyxXoKPA/cQhAWI
-         FsU5vmK8rAq9gqrLagaJm6D46UwPrO+vAHgapioO0PIkMRP+uVZ06z0WGYHLQCU3VNj+
-         x+meulqmG/74ECMSBPS1Toi0JuWRy1a+2EsyMp3yItvP1/55A7UTpgO+sggsW3hv/4T7
-         B/O5nT8Y24GYAG2ClirmzNkfE9Kj7ZoTxNuRkO59vk0o5taoJtkly2jYbEJxI+R5yCFs
-         awZP34g/qJ0xj/ksUSzCKS5GFF2m3m65/gGKONxV87RApbjFXRpxmcLXuiHH7vNF2iN/
-         7W0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXV89sovFDS4pe1pYYzIZMVmURbORpbIkn4ZJarRueMFSYlYVV+aJmXJkhXHQg707w9q5ZI5gsLUgGNVjrl2sD0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNlXpemvodfRm4oCAv79sfWVWkTLzll2/czrkYFhjmxbwOcuyh
-	Yy5k2m506J/vbJVxCJx5aC2VsuscAKNz2chTQQpvYxl0QD5NWpjr/RRzbbhQ1L52In9KS408r8A
-	OqtVqOSPBJ4G97VWbAHbiznOBySilWXEBEAYdNEJXYA==
-X-Gm-Gg: ASbGncsj63hP8nwjr74FGcKaVjxgUUP9OMDmXVXztAJfGIw+GMpmdO0rZbsvu+zGeP3
-	lSfO505WufzOMiwimQQCKP3qEg9e2OAYfdmHcFBGiFHkIgvhcNJgkBDPbLUli+fRib20+IQd69H
-	DOs8CacOO7Oq+WPS4/uXRGW0hg8X6qC7FgWjkibNYYrlNNkobtRR+blmIINZih2QkZXv1ERzw6+
-	PbzEgDn43OW3EcUlbCLGJKdnmifma4wlkdoIQ6iJqJljDd0B+z//TV9Q0ntPybwqA+DcrI=
-X-Google-Smtp-Source: AGHT+IGLhiO6SgwWEy6J63NGSkHEkhNG2WH3ZWZ7Mjt5HjFADLOLTHG32rGKFBXTboiBLjapU4iKntf9dVI4uinRnL8=
-X-Received: by 2002:a05:6512:308c:b0:591:ec0d:3014 with SMTP id
- 2adb3069b0e04-5930e9c3bb1mr426683e87.48.1761603304563; Mon, 27 Oct 2025
- 15:15:04 -0700 (PDT)
+        bh=dKH8vYMf6SqqIJ4Nr7m9tVSkocGsGWocEbO61fBw+IQ=;
+        b=DnJ6jm4ybqo4HjiUArJrxIMSnHMoXJuRQWb+8KVaFTNAoetvcg4RTiqvD1ELkFgaxd
+         +oNGdMNRejMkhlWUvg1OmrafNob73TzisTR9b+XwX8x9+FwHeQhpxMMytDY5lOLYFq/E
+         oEm6AMODXfFsVIQjmja1NQzgLkw+Vm7XtJ6D5PyorGubUrr4PooAxvZRuemLRYUBtBtG
+         142Lit1goV+eKQoqQmJxRuiymitmcgKOAgKgYB8riUfS2m2Cutg2/xQDlP8JI+GqTNwp
+         dj7Ii67l41iFh73x6WE5ERsI0ixn2rDrAU1RNC4L6wozTJiOBtYHySbBpHY7kPutVXDe
+         ot/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUsAi/dck7bjwMa3VlTI/ABJDLxM9FKSKbycDZg6wmQbaFeCRzngGAuWmJFM6s7TcEh8zC4QEnq6YbN4v4JprWf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8wONdoKHEJ3pKflY/OACfjUQGK+FCftljKb9/TiXN4zGptNdg
+	xMYzGIN0eCArasXtE227cEmwohlz5Vc4Ek4NfVvqx6FgoTA72pmZNi/6XIcOZUghOguM39Mt8I/
+	OpTPkPwZfZx7lW7HFWfpzW9e3TcxQ4tova+ExEmGVMw==
+X-Gm-Gg: ASbGncuTuLRM8I+SrG/W07VgYQCUa41oKpLd6V2BT9DmBDrzxQgMVzK+SLwkGruIYd0
+	FJUhioqX2pY5VWo95qhZbFPlxUJBLJV+MoxTgdrMb7x1zTcxEk/+Fhz31qCDnhaBZdlWtbHZvjY
+	/K5h2D6kNG2UYivJ4xvBc6xrtHPh39GU626FQ1aA11pR84Hz6LulZQRWrH4jihXmSXv+u9aKFBW
+	e+KrKHNGzKfkZ9dS+d04aKIRSwiugjDpUFG1IMWETa4D38fcwcB3l5xLQWVRBgcjYdskNE=
+X-Google-Smtp-Source: AGHT+IH6m3DSKBdAo1TUZBBV1Cir681XUQKPd2M1XukvdECylY8ML9HXimk23Lw5yV+XpOoav6hKjxByUPzz5iNTOgg=
+X-Received: by 2002:a05:651c:1107:20b0:378:cd74:a289 with SMTP id
+ 38308e7fff4ca-3790774e9edmr2648271fa.42.1761603340965; Mon, 27 Oct 2025
+ 15:15:40 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251023132700.1199871-1-antonio.borneo@foss.st.com> <20251023132700.1199871-10-antonio.borneo@foss.st.com>
-In-Reply-To: <20251023132700.1199871-10-antonio.borneo@foss.st.com>
+References: <20251023132700.1199871-1-antonio.borneo@foss.st.com> <20251023132700.1199871-11-antonio.borneo@foss.st.com>
+In-Reply-To: <20251023132700.1199871-11-antonio.borneo@foss.st.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 27 Oct 2025 23:14:53 +0100
-X-Gm-Features: AWmQ_bld4K6zXNCkN---w7iwBNN2WjFxw2gv2dtNkgQHft2zTjwtq7Bsw-LLEv4
-Message-ID: <CACRpkdZoecqkKfXmu4ih3qb00OMPmAtJVvyqerXf52n+s7vFxg@mail.gmail.com>
-Subject: Re: [PATCH v4 09/12] pinctrl: stm32: Support I/O synchronization parameters
+Date: Mon, 27 Oct 2025 23:15:28 +0100
+X-Gm-Features: AWmQ_bmjdTr7EUx2uJYxfPf9xIolvT4VGvVXwZyfYUonTVISSkwT-eVliP6qaRY
+Message-ID: <CACRpkdYzT3DaqiXTg2swEKxxh2UQbhw2=uF6Md=RON9rWz+6ZQ@mail.gmail.com>
+Subject: Re: [PATCH v4 10/12] dt-bindings: pinctrl: stm32: Use properties from pincfg-node.yaml
 To: Antonio Borneo <antonio.borneo@foss.st.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -85,8 +85,9 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_151506_645999_331685DC 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20251027_151543_154780_3945DEFC 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +105,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Oct 23, 2025 at 3:27=E2=80=AFPM Antonio Borneo
 <antonio.borneo@foss.st.com> wrote:
 
-> Devices in the stm32mp2xx family include an I/O synchronization
-> block on each pin that is used to fine tune and improve the I/O
-> timing margins of high speed synchronous interfaces.
-> It can be configured to provide independently for each pin:
-> - skew rate on input direction or latch delay on output direction;
-> - inversion of clock signals or re-sampling of data signals.
+> Don't re-declare the standard pincfg properties; take them from
+> the default schema.
 >
-> Add support for the generic properties:
-> - skew-delay-input-ps;
-> - skew-delay-output-ps.
->
-> Add support for the property 'st,io-sync' to configure clock
-> inversion or data re-sampling mode.
->
-> Show the new parameters on debugfs pinconf-pins.
->
-> Enable it for the stm32mp257 pinctrl driver.
->
-> Co-developed-by: Valentin Caron <valentin.caron@foss.st.com>
-> Signed-off-by: Valentin Caron <valentin.caron@foss.st.com>
-> Co-developed-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
-> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
 > Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
 
 Patch applied!
-
-I'm really happy about how this turned out, lots of generic improvement
-with this as the end result!
 
 Yours,
 Linus Walleij
