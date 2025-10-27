@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BB4CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183B1CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyxD9Boc+ibOartMo5HwRbgyceQjp6DjZGkKk0jShXE=; b=4AuDrqLVO7VlqwyLYiwuo4UcNk
-	wtqLFQtkcNOTe/U5Zvs4aNs4ZcdUJKoJ7ThweDgwdFBKEQCZ+PpEIoZb7VWlUUyi2nosruqXdeg6i
-	PnaBNd96fxhEpjQV6dRdoowvEjRgB8CJJJbKS/QNepW4QytCFZdK3PPBvNoIGdVy0gjPGFPgUorKc
-	PSlqJayq1SizQOXYt/hkBVxUMdj0NelSbOvraEyE3GQktG7BiwpFtXrDY+os7EHg7pB9q4eFD85sV
-	cwfy0akBji8bOlG/+5gd9+sIwwn7+rMbWrkBSfyRq6pJABojNT1lUGUsdbJKJyzfkyjiwmEOGeViL
-	2Z6MoSeQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PuYiANs1AmCRU8MYggoHiBCZRFbrH3KvVKX2HTi5tkg=; b=haTfyr91t/BwH7qqVm41J4Ca2u
+	7nt9eM2UabAhrqqcgLt5+aQA22wx81sG6Tw86PmNFcZkpPF7ULeB/5II1rDnRBVDnxBQJKFxAdth3
+	KhoQbVUWwf9z+RlnMA2a5vTp//1QboP4GORRR6qW8EmovKRxBrcZVMcnX1IvXx33x3AjHSK49GsOq
+	CrWhuuSH0bEk5T1fF2SgGcfIAwo/G2Ep7C5VKELauWrHYU7iHXo+TO+GV1ZzecSLlCVvDWqv3O+Kb
+	2wa6qcFwqIbIUIZw2e5fH8v1Rv29ScjsY68Mkcjia6intpeLIqeyHGPA/qj/DgIqWywjAFshCue+I
+	V9xgcVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNL5-0000000E2yB-2By9;
-	Mon, 27 Oct 2025 13:32:47 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1vDNLA-0000000E2zk-3WLH;
+	Mon, 27 Oct 2025 13:32:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNL2-0000000E2xl-2wtU
+	id 1vDNL8-0000000E2ym-1xK8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 27 Oct 2025 13:32:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=PuYiANs1AmCRU8MYggoHiBCZRFbrH3KvVKX2HTi5tkg=; b=ZLNN7Q+eG8H79OTA63fNsYFnpO
+	jCDilgzugb5PJsdkKUcjCWRZryOQDQsjUcJFlxWMoCo28aHqZeJMJ8d6kFDQSZqAlVQL746M/5VRB
+	RMIR3vujg8hZef3hhnUMu8nHEqQMCBai+RF0R241thMHJ37yXkzXb1rAXWc3MjleO2IMlHe+ItvWr
+	rnXSgQ6hhxL0Ib44+BZ+gtsBpchbqKlg8eSmyJOfaCQk7Hkw5l0HGxaIS6RKAjKuA2Z3QehsC95r2
+	mLrVq72S1o8hYhow0UiwGzGLWeVRIDXJjrFMkuWT2/0Gbc5fY4AKedon6Vu1M54HyOUfsL3XP2hC0
+	oYjVeoRQ==;
+Received: from mgamail.intel.com ([198.175.65.16])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDMTL-00000002Bcn-1hWE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 13:32:45 +0000
+	Mon, 27 Oct 2025 12:37:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761571965; x=1793107965;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=mSv4aivh/25dKTV3yCbWUl1DefAAZN9jvBNFADSthdA=;
-  b=ixm1AiBv5DGw2Qrxn49U98hf89fTl73hzmUsus7YrmRk/p2xroOriCg5
-   G0kuX1i4Nps/k6m6B/OqLmzRnCREmbAColxzzE5sLYCyd86Omp2KLz/Wu
-   uZiCvIloZY3IqH3Y/CfPmC/IABOfxUj0BnwpMAWO3nmHeFEN4RfoFPqTW
-   1UqwDY0fSP5nI9b3BUbUoSkf4fZILDbMgRdXB/Tu0TrNQVWILYZc1qAmm
-   +wPIn/Ia3MRMCnD4MxVH5L63aBygHklD+G3G4cG86fvt9dZZKDoQXyF6Y
-   L376V9a2EMnE+R53fYrDKOAXUytZSXSQhIbU4LyZL1WfVjUgTD4gUkXka
-   g==;
-X-CSE-ConnectionGUID: HL16IUF6RySnSj03tenyhQ==
-X-CSE-MsgGUID: AfnKlprwTbiVG0PVMoSaNg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="86277752"
+  t=1761571968; x=1793107968;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=AZN7S6QCt7r5m/F5D5zkopp7+Wbsjp/4T46MA6TqB7c=;
+  b=VsC6nsnPFoM7OMG+QgYtxWHxkY2KxRTA9yWpnKiXCuJ01vHlnz5dRVTq
+   lAZJYD998dkLa6gBQiLqANA6Fsuqc+IbGXM5kxJTwZRCCbWfQ5qrcmBaC
+   ty6MYm+JaeT/RYSf//X3GJV5o9L4Vi8QDobRH2Uj2Ue4MZNStk4nVqP8B
+   edWfmqvqxlcomV1rTRgbvfjtprk/orzjn4vCYoR3jPtRPoA0TZMmtr7EV
+   2cGe+WGLox13XVleNv6+Bv8G00pi63IS5YM/v8s7LYnK9BPHiNy3mtuHm
+   Z2B/JszLDGT+s0aqDUeboVMX0y6WEXGn2soE6XZ9nv0eiLo7pjQNvAWAQ
+   A==;
+X-CSE-ConnectionGUID: hb2E0h0rSEC0/UFAMqLJRQ==
+X-CSE-MsgGUID: i0bK2TqGQ9CTxFwybJf+uA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63799551"
 X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="86277752"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:32:45 -0700
-X-CSE-ConnectionGUID: U+nLFdlWRzyJoRqjD+5+rw==
-X-CSE-MsgGUID: z07qLKJvQUqaBN4Doutzcg==
+   d="scan'208";a="63799551"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:32:43 -0700
+X-CSE-ConnectionGUID: WRh17/xzRBiIO1cTreqlKQ==
+X-CSE-MsgGUID: 3+bCGemdTLKjv6J+Nb+LFw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="190176389"
+   d="scan'208";a="185391823"
 Received: from klitkey1-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.31])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:32:40 -0700
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:32:40 -0700
 Received: from punajuuri.localdomain (unknown [192.168.240.130])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id A3D22121F01;
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id 9E2C3121EC5;
 	Mon, 27 Oct 2025 15:32:37 +0200 (EET)
 Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
 	(envelope-from <sakari.ailus@linux.intel.com>)
-	id 1vDNKq-00000001eDf-2iIp;
+	id 1vDNKq-00000001eDQ-2TIh;
 	Mon, 27 Oct 2025 15:32:32 +0200
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
@@ -76,17 +91,15 @@ Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
 	Abin Joseph <abin.joseph@amd.com>,
 	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
 	linux-arm-msm@vger.kernel.org
-Subject: [PATCH 5/6] dmaengine: ti: Remove redundant pm_runtime_mark_last_busy() calls
-Date: Mon, 27 Oct 2025 15:32:31 +0200
-Message-ID: <20251027133232.392898-5-sakari.ailus@linux.intel.com>
+Subject: [PATCH 1/6] dmaengine: at_xdmac: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Mon, 27 Oct 2025 15:32:27 +0200
+Message-ID: <20251027133232.392898-1-sakari.ailus@linux.intel.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251027133232.392898-1-sakari.ailus@linux.intel.com>
-References: <20251027133232.392898-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_063244_798847_65DF41E6 
-X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-CacheID: sfid-20251027_123715_817957_BEDE10E6 
+X-CRM114-Status: UNSURE (   8.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,51 +122,99 @@ pm_runtime_mark_last_busy().
 
 Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 ---
- drivers/dma/ti/cppi41.c | 5 -----
- 1 file changed, 5 deletions(-)
+ drivers/dma/at_xdmac.c | 11 -----------
+ 1 file changed, 11 deletions(-)
 
-diff --git a/drivers/dma/ti/cppi41.c b/drivers/dma/ti/cppi41.c
-index 8d8c3d6038fc..88756dccd62c 100644
---- a/drivers/dma/ti/cppi41.c
-+++ b/drivers/dma/ti/cppi41.c
-@@ -390,7 +390,6 @@ static int cppi41_dma_alloc_chan_resources(struct dma_chan *chan)
- 	if (!c->is_tx)
- 		cppi_writel(c->q_num, c->gcr_reg + RXHPCRA0);
+diff --git a/drivers/dma/at_xdmac.c b/drivers/dma/at_xdmac.c
+index 3fbc74710a13..ada96d490847 100644
+--- a/drivers/dma/at_xdmac.c
++++ b/drivers/dma/at_xdmac.c
+@@ -379,7 +379,6 @@ static void at_xdmac_runtime_suspend_descriptors(struct at_xdmac_chan *atchan)
+ 		if (!desc->active_xfer)
+ 			continue;
  
--	pm_runtime_mark_last_busy(cdd->ddev.dev);
- 	pm_runtime_put_autosuspend(cdd->ddev.dev);
+-		pm_runtime_mark_last_busy(atxdmac->dev);
+ 		pm_runtime_put_autosuspend(atxdmac->dev);
+ 	}
+ }
+@@ -413,7 +412,6 @@ static bool at_xdmac_chan_is_enabled(struct at_xdmac_chan *atchan)
+ 
+ 	ret = !!(at_xdmac_chan_read(atchan, AT_XDMAC_GS) & atchan->mask);
+ 
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
+ 
+ 	return ret;
+@@ -446,7 +444,6 @@ static void at_xdmac_off(struct at_xdmac *atxdmac, bool suspend_descriptors)
+ 		}
+ 	}
+ 
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
+ }
+ 
+@@ -1676,7 +1673,6 @@ at_xdmac_tx_status(struct dma_chan *chan, dma_cookie_t cookie,
+ 
+ spin_unlock:
+ 	spin_unlock_irqrestore(&atchan->lock, flags);
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
+ 	return ret;
+ }
+@@ -1758,7 +1754,6 @@ static void at_xdmac_handle_error(struct at_xdmac_chan *atchan)
+ 		__func__, &bad_desc->lld.mbr_sa, &bad_desc->lld.mbr_da,
+ 		bad_desc->lld.mbr_ubc);
+ 
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
+ 
+ 	/* Then continue with usual descriptor management */
+@@ -1822,7 +1817,6 @@ static void at_xdmac_tasklet(struct tasklet_struct *t)
+ 	 * Decrement runtime PM ref counter incremented in
+ 	 * at_xdmac_start_xfer().
+ 	 */
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
+ }
+ 
+@@ -1954,7 +1948,6 @@ static int at_xdmac_device_pause(struct dma_chan *chan)
+ 
+ 	spin_unlock_irqrestore(&atchan->lock, flags);
+ 
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
  
  	return 0;
-@@ -411,7 +410,6 @@ static void cppi41_dma_free_chan_resources(struct dma_chan *chan)
+@@ -1998,7 +1991,6 @@ static int at_xdmac_device_resume(struct dma_chan *chan)
  
- 	WARN_ON(!list_empty(&cdd->pending));
+ unlock:
+ 	spin_unlock_irqrestore(&atchan->lock, flags);
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
  
--	pm_runtime_mark_last_busy(cdd->ddev.dev);
- 	pm_runtime_put_autosuspend(cdd->ddev.dev);
- }
+ 	return ret;
+@@ -2041,7 +2033,6 @@ static int at_xdmac_device_terminate_all(struct dma_chan *chan)
+ 	clear_bit(AT_XDMAC_CHAN_IS_CYCLIC, &atchan->status);
+ 	spin_unlock_irqrestore(&atchan->lock, flags);
  
-@@ -509,7 +507,6 @@ static void cppi41_dma_issue_pending(struct dma_chan *chan)
- 		cppi41_run_queue(cdd);
- 	spin_unlock_irqrestore(&cdd->lock, flags);
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
  
--	pm_runtime_mark_last_busy(cdd->ddev.dev);
- 	pm_runtime_put_autosuspend(cdd->ddev.dev);
- }
+ 	return 0;
+@@ -2235,7 +2226,6 @@ static int __maybe_unused atmel_xdmac_resume(struct device *dev)
+ 		}
+ 	}
  
-@@ -627,7 +624,6 @@ static struct dma_async_tx_descriptor *cppi41_dma_prep_slave_sg(
- 	txd = &c->txd;
+-	pm_runtime_mark_last_busy(atxdmac->dev);
+ 	pm_runtime_put_autosuspend(atxdmac->dev);
  
- err_out_not_ready:
--	pm_runtime_mark_last_busy(cdd->ddev.dev);
- 	pm_runtime_put_autosuspend(cdd->ddev.dev);
+ 	return 0;
+@@ -2412,7 +2402,6 @@ static int at_xdmac_probe(struct platform_device *pdev)
  
- 	return txd;
-@@ -1139,7 +1135,6 @@ static int cppi41_dma_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_of;
+ 	at_xdmac_axi_config(pdev);
  
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
+-	pm_runtime_mark_last_busy(&pdev->dev);
+ 	pm_runtime_put_autosuspend(&pdev->dev);
  
  	return 0;
 -- 
