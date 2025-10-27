@@ -4,142 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBEBCCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA472CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xnx1/Gf90HyEVMTLX9R0bf/iH1fw3N0nvOwqs2Qutlw=; b=v57702U/rKTr8gE0zX0W2JWZYY
-	mSNPH4MVUnp8smovwGkAx4NGVjpBQ0VXT++v/aYtD4qReJgvXY/hmYZGebeSt8Qm+Fc/PMNZZ7e2L
-	fkbeMfZh2deQl0ZYxb2T1vJE2FX9Txo9QEdmYPQyHjpGvpa0/cVTHCktymD2cWDaN9zSUCMwANoUF
-	bd+C8+BRsYHb2QbD1p+BUrEuG9jr15pSytR1TxFR3rxgafdNPquyYFu9LkNeKCTbFo3CUyXlkB6x7
-	5eAdsnsyUX66lsQNe4cKytIBQdew8BkEOxzRnxZLqcSwa7Ez8yrl966enlerHhnnxp6D3T6hYWX4Y
-	cmNhOJkw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UHwoqgImEy7LQLhZWFXUDhaPJoy+ecZ3A4KynxwsxS0=; b=LaRC2DJsBhLi8nmJs4gRCKxYjW
+	Rh7AF+K/Koqae6MHCtZyUbrRL179ZG/fqh3TzIFrpg88xANCmNtqTnHAFhs/Xl84ZLH9vImERU02k
+	FQQ4Sijn2uTUsiE+Ob5vme6ZcrTH1P7uZ3OetpJrnFBP63mG1Tf6/+uVwJkXDQEGdqCA5SM7bgZgR
+	2MDDC3kc/WGcma+JFyoD1aWOv4fH/AM/t7GHrHNeQ9suzP774XHka8XcEkh1JM8S0APf7oA84jMUV
+	WVoKZDn21W1XTqs5FPhohaBoUDZsfR0dqajt0CROAN7MNQ7wfnpNXYnKU2FGp0r69GjMx7WKfub2F
+	OyA58h4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIol-0000000DNR7-01lK;
-	Mon, 27 Oct 2025 08:43:07 +0000
-Received: from mail-koreacentralazon11023120.outbound.protection.outlook.com ([40.107.44.120] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vDIp7-0000000DNkZ-2acR;
+	Mon, 27 Oct 2025 08:43:29 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIoZ-0000000DNFC-1nN9
+	id 1vDIou-0000000DNZC-1qFs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 08:43:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=liK7QNKkWG8vPLm8zc6nXE2sw9qMPbQvxkQckVtfBSTESe0nI8G3HgatlkdmR5UQbiKFLg0UDy+O7KvS88nCKw/+AHyHBAW9//q8TzzSFUyeYM24pk+e4N1yWt/m5dal3Dj4z64BeolBDiff4yQ7cd4ytRF7JMXLFlFJ7uBt7qmVlNoCgwww7p562dglEDvfZCcZYHvftOyALMnBnfeomhjiSJ/OL1UZAKjj8P2Z8lDg8p4tXJX+zSj46zmwzCX5yLFGsUI3lW3iKn99XJnTDQ0xXaqQMfmZENqXXVBc8SbCmC+BUPvbAP8gd5LEhRO0VhqoHBjaHs95LqvQSDRxjA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xnx1/Gf90HyEVMTLX9R0bf/iH1fw3N0nvOwqs2Qutlw=;
- b=ZYBfYtkebtnrJjhf7qAk+Um5jRUKlv53QbwZWGKd8hOIpbWaePB9NYK18LP9OzResoZDtP5pC/XqhMSRMixnUO08v7H00tk/0bdi4/3RwFABB+x8DXJANqH0ykXpthttxuhjPg1biMN1FpeADuFDtMoUvXIln2u6foTk64X+5+5IqJXiJBda8911jnHOMn7UVe084X1fd+2Z6mp7jHkQxvTEm+4WDbVNAuHM2nax6rx+PlIxBtDkn9uGsP4y8obwz1dvScvAYuA4DB4iGryCJv+zf3jFJwcLOowrVwZtfI9oa529t1+ICuqnZ7yG9Qfice3beSJ+8hnZopI5/tyksw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=amd.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR02CA0127.apcprd02.prod.outlook.com (2603:1096:4:188::7) by
- TYZPR06MB7256.apcprd06.prod.outlook.com (2603:1096:405:ab::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.18; Mon, 27 Oct 2025 08:42:45 +0000
-Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
- (2603:1096:4:188:cafe::95) by SG2PR02CA0127.outlook.office365.com
- (2603:1096:4:188::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.18 via Frontend Transport; Mon,
- 27 Oct 2025 08:42:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Mon, 27 Oct 2025 08:42:41 +0000
-Received: from guoo-System-Product-Name.. (unknown [172.20.64.188])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id D713741C014A;
-	Mon, 27 Oct 2025 16:42:40 +0800 (CST)
-From: Jun Guo <jun.guo@cixtech.com>
-To: peter.chen@cixtech.com,
-	fugang.duan@cixtech.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	broonie@kernel.org
-Cc: linux-spi@vger.kernel.org,
-	michal.simek@amd.com,
-	cix-kernel-upstream@cixtech.com,
+	Mon, 27 Oct 2025 08:43:27 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b6cf1a95273so3187932a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 01:43:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761554595; x=1762159395; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UHwoqgImEy7LQLhZWFXUDhaPJoy+ecZ3A4KynxwsxS0=;
+        b=V0t9NVOU760H4pMnLqRm1uGe8VHoaSBF4coo2wF4cG2vFTlHhYZ8VqPOQYUEy6LNCY
+         fP0jOnoE5JJS1Yi/z1lUs1gQhwD15LR4v55/fFH/w8QohrOslGsnzHprnmuS/OaPu+w8
+         /YXjO9cyQur+xTB44aaFOoewTGyB68/WVSz5RaMqkIT33OwiEgPckSwEG9ZKJ2jWznhM
+         v5nRezPOFtDSHGajHZn7G9NY2Yy1B03A6yNnn5q/XkM5kcqkxzjVWtXoLJsydvZDiAkg
+         z9H1+KDqqZOcKVf5+noX9bDYtRXyJUA2k6jOiCzSTmH2vhcwx1FbrvX/bbAYBGpNCN2z
+         wmgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761554595; x=1762159395;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UHwoqgImEy7LQLhZWFXUDhaPJoy+ecZ3A4KynxwsxS0=;
+        b=eOBsI6iTIMyPVIufHPYgA14ZqfeWcakonK+0cBwJJBegEQMTtxWE0rVd5cnn+WMYD6
+         YqZLarhrHhNMPNjMVHBzcuk5Hlg5A56OWHpp3LFR52RgFM/k+yyRknkGf5z9VQoAulOn
+         LMInLu0ncNIgNPOk6KhnVxNzC9C/YMklzp7R2O8AZfF5gok1nRzsD125kYP+62kiTG9Q
+         93xgnQDoD2xKweP4eRFQPecYck9YKAIWvL+cp59c2xDVWFKhKhEs5MghFZkmJdbsmYqI
+         xAzvKsske6VYZayljGdNSRAfBkMHfEDdDRqVnusdKFf1uFWfbw5uKffJnmoIcUIMu7c5
+         r6WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyrDZX4VnzbzR/jA2A0CFi7qzLL6ylJseAt/Hp7wKIh3jqeEGmTeKKzt36JIVEa6R7spLQvhA+EtgQeUqHv+tV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaP5f/qO3LBFhE7+wfVkriSEP7A+p7HQymqXWnI+dwiIr6PzD0
+	TVlE3bcl3CqYhAd8jTGUJex+oLjHqFH5iHNbD/V6BY24UNwupK1wO7zN
+X-Gm-Gg: ASbGncswUuJPe+N+wxk9zsCFXdgRxcyR0AnUuWAyNLRZ5R5WZEriD0HyAxLGMB3ShKY
+	KiYxpf/rnGCONxFGuXkbUOcOAX5B4rBISLrwIYOlSHWShckJhjfhBDcfSZE0Ktk/aUiX9yESSJV
+	x0+R+K/UURkjMbu4LHOUtz23YmeewiMAlGocYuepQTbFLJavrix2eIzEnUOkCitnWDspNV8jWcI
+	0mkP6HkFhNpxpXAkirfXKn0UxGdvtKQrPxjax6nt1n4HvaL6Cs7ppCOaF/1Yd7HpXV4+nEwQQSZ
+	R9KTMCjFMGdXQHccE9PLsy8mA6aW0rDCAQ5W69sRszgCqZ8GEToN/5gj1VuQol9i1r31/Uiv/y+
+	lYDL0B+ad0iYMd0WmnOff99BV0WF1JuSWYmglcP0mxl2Un6H06EJQoxrYy426WYZEx+qqT4H6dS
+	udSlKdupSwE02PxgFNS5vhT3kerJiyvzKzh73Y/WRw94o=
+X-Google-Smtp-Source: AGHT+IHwgVcslq+1mjD8C6Vh5GqRLux2tDGUe1R/TUV71B2G9ynp6h0rzEeVb0xZxIg7lRsdj6RNXQ==
+X-Received: by 2002:a17:903:247:b0:294:c189:68dd with SMTP id d9443c01a7336-294c1896977mr7969545ad.44.1761554595286;
+        Mon, 27 Oct 2025 01:43:15 -0700 (PDT)
+Received: from localhost.localdomain ([124.77.218.104])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-29498e3d2aasm75349815ad.88.2025.10.27.01.43.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 27 Oct 2025 01:43:14 -0700 (PDT)
+From: Miaoqian Lin <linmq006@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Nicolas Belin <nbelin@baylibre.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-amlogic@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jun Guo <jun.guo@cixtech.com>
-Subject: [PATCH v2 2/3] dt-bindings: spi: spi-cadence: update DT binding docs to support cix sky1 SoC
-Date: Mon, 27 Oct 2025 16:42:38 +0800
-Message-Id: <20251027084239.2610141-3-jun.guo@cixtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251027084239.2610141-1-jun.guo@cixtech.com>
-References: <20251027084239.2610141-1-jun.guo@cixtech.com>
+	linux-kernel@vger.kernel.org
+Cc: linmq006@gmail.com,
+	stable@vger.kernel.org
+Subject: [PATCH] drm/meson: Fix reference count leak in meson_encoder_dsi_probe
+Date: Mon, 27 Oct 2025 16:42:58 +0800
+Message-Id: <20251027084258.79180-1-linmq006@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|TYZPR06MB7256:EE_
-X-MS-Office365-Filtering-Correlation-Id: 360e80d3-ef3f-494f-f2ab-08de1534cad0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YmhTTFRSTmhTYnVGQkZVN0tJbUoxNDJraG1lUFhCSmQ3ZEJTZHZKYW5BTTk3?=
- =?utf-8?B?VlZpRndGVlVOQ0tTOU8yY2E2KzBJcHkwaDZPOTYwcmtZdi9VbmphbDFXVnBn?=
- =?utf-8?B?Z0Z3RU5UNTlzZlNiaHdLMkFJZUxURytDTzBDYmVtWUY1VGF3ZnEyN2JUbGpZ?=
- =?utf-8?B?UnhDWnlLS1R5S2M0dzBtZ0tOemk3cVdyYjJITldUSzdVQ1gzTTVyV0NpT0dw?=
- =?utf-8?B?NXhUNVdyM3lmYUh5Y0VnS3NwcFpab3BvTzd1VlhFN2FPQzVzb0J0d3ZSdFlz?=
- =?utf-8?B?aUJmd1BJK2JlS2pCREEzR01OSlhoV1Y0aHR6T3JwZkZRSmNmZTBRcUZHVk4z?=
- =?utf-8?B?TnZaVUlMQ25rUGhUMEpIRTQ3aWdxbjJoTGtDcWVha092ZVUvTnZqKzF3VCtO?=
- =?utf-8?B?clRxUmlENFRKaUhaVGd4UWxUSGdBUHN2ZVVpdlRnVWZmVE1vMGdhbm50ZFQ3?=
- =?utf-8?B?cCt0TFgxSXdySGVsZHp1V3FtRXJVd0YxQU1XdFdadk9YV1NiVXI2d0dhaDh0?=
- =?utf-8?B?ejRGMnZ3d0tESHdVamlKRTIrQ0labHNCUUxYVFQ2MW5FdEw1N1oxa1pGRCtN?=
- =?utf-8?B?eGJtRlNFK2xwSWd5VFJDTzlMTmRJcjNadG95b0pkNmRFUE5VZCt6YmxRRjJJ?=
- =?utf-8?B?VCtlaml4M3NBWm92d25RcGtEbEU0cm40VXBJRjVRUFQxTEtBdnNjQzJ6d2Z5?=
- =?utf-8?B?cWNjL0pvUVZFazBWaVFsanVvYVJnMmFqN0dSamowRVh3SlZnVloyNE8xMnp2?=
- =?utf-8?B?ZEZlRWFVeGxDc2poNC84cGoyUEhlU1FVemNXMEtTSFFjbEl1cmkrYkdjKzhZ?=
- =?utf-8?B?RzR6S1R0YUZWTGJhSER0THpZM0wzVU44UFdsVU1majJXY08vdnBZY1NXOVMy?=
- =?utf-8?B?QUs2UXA5Qy9rN3N4d3NDbUgyY0h5VEgrRWRIK2NkWGhqbmtUenJOaE9OQXpl?=
- =?utf-8?B?cjRRTDJNQUdQQ1l1eWZuMXk1K1VHRDlYeFc4dUdhbEhPY0k0K2NORVRvNENj?=
- =?utf-8?B?ZXZ1T2VsV3p6aTY2dTVDUnNWMHNWalNrUGlXM3FadEVCTjlTTEZaU1FXUU5U?=
- =?utf-8?B?OU15RDdHUUQ2LzRmQ2tORU05UzRuMXB3VStCMkcwYzdmaEF6Q2tTOUZMd0Iv?=
- =?utf-8?B?U2c3cFZ5SWsySDFaRGFLUGZBV2RrUkVrbkRZWG9oRmsyUlJHalRNUWhBVDNH?=
- =?utf-8?B?MGw2dHV1VCtnOXd6NmdwdnI0SEZ1MzRBZXBJdFp0b0ZQS1pFd3FuSjVpQ3dM?=
- =?utf-8?B?UjFqWnJTK1dNM2kvVnV6NlBPRlZPTW9rZlR1MUp4NmE2UHVtQ1cybFlBVWR6?=
- =?utf-8?B?bHh4VGgrSzdDOWhLdEZPM1dzUTRad09LMHN2U2ZpRHkzUm9yS3lHaG0xTGFJ?=
- =?utf-8?B?bTNWUWUwYVA5TVpYV2J4ZXZ6K0hXN2JuRUZwOVhOaVhNeTV3d3piUitJV0h1?=
- =?utf-8?B?ekptVGEwWGxwM3NaUVZHRm1CMFptM3RlaGtYRHJvQXFZQkQrdk05TElmM3R5?=
- =?utf-8?B?cE02YU5FUldiL1BxeXp4SEhra05wWUFIc2lBY2gvUnBtV3F3TGtXZXg0SG9O?=
- =?utf-8?B?WG92d3NYMmpTcVhiWXZNdDRMRzBGQ3hNY0JzWE00d0JKR0FLb2toZy9sdFdD?=
- =?utf-8?B?VzA0U0tzamRZTVI5WWpVTmo4SGZwbXBaVWE0cVk1U3ZtQ012TTQyUjlpaHFz?=
- =?utf-8?B?d2p3L0NTNlFWTU0wcFlhdXI2di9icEdHajdERlk3WWJTcTVGWkJoY09wZHpP?=
- =?utf-8?B?dVliOHhzMkU1Tjl2NTdKUzNFZWVscXZwM0dsUW9heXBGa3ppTFhDU3J3UWdL?=
- =?utf-8?B?R01BakFRaG9ORUhMWWRIOTljOGhidkVhTGdkajJ6L0hjRS9waXhad0VQdnk5?=
- =?utf-8?B?dXRrTUdRQnRlOWhYazh4aGlYVkdEeHVhZVV5K2ZLaTIxVEZPbzZaS2JqS3NP?=
- =?utf-8?B?SS9ab1lvNmpJd2ZMQUFSVzhSTmIxWGlRdTRnZDJBQXJ5K2ZvUk51Wkhjbmc0?=
- =?utf-8?B?LzRQRFB6REp5Wlp3MTBweFN6TTE2Z09LVE5rYXAwUWI0Z1FQVzc1aEtLS1p3?=
- =?utf-8?B?bnBmeGp4cGVtcWYwYythSjZSSTlNT3hyRWZHcGZPYVdXWDN6TG5raTVjaXhw?=
- =?utf-8?Q?0b/4=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2025 08:42:41.6708
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 360e80d3-ef3f-494f-f2ab-08de1534cad0
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB7256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_014255_510053_F9E76177 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20251027_014316_552602_286D9516 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -155,39 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Add new compatible strings to the DT binding documents to support
- cix sky1 SoC;
-- Adjust the configuration of the compatible property to support both
- single-item and two-items cases.​​
+The of_graph_get_remote_node() function returns a device node with its
+reference count incremented. The caller is responsible for calling
+of_node_put() to release this reference when done.
 
-Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+Fixes: 42dcf15f901c ("drm/meson: add DSI encoder")
+Cc: stable@vger.kernel.org
+Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
 ---
- .../devicetree/bindings/spi/spi-cadence.yaml          | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/meson/meson_encoder_dsi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/spi/spi-cadence.yaml b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
-index 8de96abe9da1..e75b142a1368 100644
---- a/Documentation/devicetree/bindings/spi/spi-cadence.yaml
-+++ b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
-@@ -14,9 +14,14 @@ allOf:
+diff --git a/drivers/gpu/drm/meson/meson_encoder_dsi.c b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+index 6c6624f9ba24..01edf46e30d0 100644
+--- a/drivers/gpu/drm/meson/meson_encoder_dsi.c
++++ b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+@@ -121,6 +121,7 @@ int meson_encoder_dsi_probe(struct meson_drm *priv)
+ 	}
  
- properties:
-   compatible:
--    enum:
--      - cdns,spi-r1p6
--      - xlnx,zynq-spi-r1p6
-+    oneOf:
-+      - enum:
-+          - cdns,spi-r1p6
-+          - xlnx,zynq-spi-r1p6
-+      - items:
-+          - enum:
-+              - cix,sky1-spi-r1p6
-+          - const: cdns,spi-r1p6
- 
-   reg:
-     maxItems: 1
+ 	meson_encoder_dsi->next_bridge = of_drm_find_bridge(remote);
++	of_node_put(remote);
+ 	if (!meson_encoder_dsi->next_bridge)
+ 		return dev_err_probe(priv->dev, -EPROBE_DEFER,
+ 				     "Failed to find DSI transceiver bridge\n");
 -- 
-2.34.1
+2.39.5 (Apple Git-154)
 
 
