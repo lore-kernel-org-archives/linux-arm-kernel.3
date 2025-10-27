@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A20CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38535CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Cc:To:From:Subject:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fr7pP3Ku7uQn0hbR0DUpAxmEsNjtFjv/1TzFMV45dr0=; b=b1+XVjZAVhzJ9cv7ht6F3Sc5Ah
-	IAd+fHrV1zmno5JIaGNHLm+tJRluQutweXnEFLnYxZ1usN8rd5zeADliLmwdIKzCp+1cukF1iKXGj
-	afcSriSVdQwkviym9w69/2iQMoolAA33bCKrho1wktu6n1p94rtn26Dc2wEpV7xXAWRcEguHCFQaV
-	WxSzkmsc1nwnddV+OwEuQ9vD3Dj7msFbCyYqQ2uNiSe/DQluDSTq0PKkw4ISUVSswTE5gg+Nl0rNc
-	8/RUhFJaCWnVz3Oad0M4DAONdYmvPfy9LfexlnRUt8Z+ziOEfHjY5VBKvpTK6fQFR56MV1eQ4n6nX
-	Oc+6dH8w==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Cc:To:From:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A1LGOntoEu0cxPEqR0tV9/u3NS4FCAxFw3gQ0WhdtQM=; b=WHuuJugIPBnFdZ0Vw8RY4nUp0l
+	fBwblGsTEVQe6xwsPIodFysSndSsUcVHszlDQx21GMvOOZfDV+aw65Ua1kZPRi5S6jBxBMBMLfccI
+	CIuACeKViVme+1ojFIm9NFOHEVfW//yirU+0MGvl1HyQ3w5c5cECZCmJEovNM4ZeezrDC+5uqq/IF
+	TT1RPQsHx73IZ4KwcR7mM4+7tJeSgRILS6cP3JtljNsS4rCIPDTHVRSatf90S63FJEKoKr/O0WrHm
+	HYpVtX4zkxkINDnfIgcx/yp/Gxhm5OcvxbEpUbN5qjF6HEIBEfTgm7S/R+K/g7jXr3CNLSS8plIx/
+	gQSugUjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTTD-0000000EhkU-1DgE;
-	Mon, 27 Oct 2025 20:05:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vDTTI-0000000EhlU-2ZhR;
+	Mon, 27 Oct 2025 20:05:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTTA-0000000Ehk6-1tEt
+	id 1vDTTH-0000000EhlD-2OQS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 20:05:33 +0000
+	Mon, 27 Oct 2025 20:05:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F4C1437EA;
-	Mon, 27 Oct 2025 20:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BC3CC4CEF1;
-	Mon, 27 Oct 2025 20:05:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DDB2601E9;
+	Mon, 27 Oct 2025 20:05:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDBBCC4CEF1;
+	Mon, 27 Oct 2025 20:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761595531;
-	bh=1XlzM+jAXF2KkKQm0DOR3UvVjTCMQIwuND6ijwUR7xY=;
-	h=Subject:From:To:Cc:Date:From;
-	b=EXEvNlGui5KgTr+ppiMJGdRJoLOwgsQlTuA1qHK4sJtKWZ1IotN3MQD7NrWqvRkz7
-	 4Lre7J+H82DLsM3RP95GQnA4uChAJ3oEqqkDFMFqs6C7XFzvIuxwVEi5lmqvrTWItU
-	 xhOZYUH4Y+6YyIM3mfA7urNlgaU2Ti8pQTxn4cuiVJ72iw2O2gJ3HZml9AdXxkaq+F
-	 sdUeV1OwYNIGHdi73T8lC7aLP2fYoSoqng3QRmG1L212L0SU0w4MT/6N83c/oU5p4W
-	 W9brh4mTXgzBbyRdxlvnZ2on8xP3H8iunN3r4JT9mDzcu+8dXDyFimPKU49s+DanMM
-	 jZr1S+JvDq9gQ==
-Subject: [PATCH net V2 0/2] veth: Fix TXQ stall race condition and add
- recovery
+	s=k20201202; t=1761595538;
+	bh=EUK7JGUWTWfdNiotQollFORwLt46wRvRSTbgHKwFAOo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=SSLGDk3RVIxaE6pzGZRvsYpTQhWbqhNBAFAqtmjaPCZQJ6dydoSP3I2NiVjKaxZzy
+	 aHoSzcDgHCOsbJh3YYIJU+W5NNCWAgAhYFoeVE48mrDMR/j/l3rz1zKTjcG0yOSeAT
+	 500surejLOEeieh0Hui8L9gh7Bx+6JvqUnFl3O9kYKzEm8SCaXkvult9NFXipVTIAO
+	 HPkyi4o4y4v4u+ILlEHaCUFQMIfRtXmd9IaxQ+Zm5jXbxbzq3A5KAq1FfE0j2aI0iY
+	 bxQrKkytSckMJCvO7TJOlLKkgnCj1jPgJmhGYwQvwZsY0eLw7gUweqYNcm9FmOUQmR
+	 M+8uM0HynfpeQ==
+Subject: [PATCH net V2 1/2] veth: enable dev_watchdog for detecting stalled
+ TXQs
 From: Jesper Dangaard Brouer <hawk@kernel.org>
 To: netdev@vger.kernel.org,
  =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
@@ -55,15 +55,14 @@ Cc: Jesper Dangaard Brouer <hawk@kernel.org>,
  toshiaki.makita1@gmail.com, bpf@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  kernel-team@cloudflare.com
-Date: Mon, 27 Oct 2025 21:05:25 +0100
-Message-ID: <176159549627.5396.15971398227283515867.stgit@firesoul>
+Date: Mon, 27 Oct 2025 21:05:32 +0100
+Message-ID: <176159553266.5396.10834647359497221596.stgit@firesoul>
+In-Reply-To: <176159549627.5396.15971398227283515867.stgit@firesoul>
+References: <176159549627.5396.15971398227283515867.stgit@firesoul>
 User-Agent: StGit/1.5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_130532_515923_274B787A 
-X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +77,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset addresses a race condition introduced in commit dc82a33297fc
-("veth: apply qdisc backpressure on full ptr_ring to reduce TX drops"). In
-production, this has been observed to cause a permanently stalled transmit
-queue (TXQ) on ARM64 (Ampere Altra Max) systems, leading to a "lost wakeup"
-scenario where the TXQ remains in the QUEUE_STATE_DRV_XOFF state and traffic
-halts.
+The changes introduced in commit dc82a33297fc ("veth: apply qdisc
+backpressure on full ptr_ring to reduce TX drops") have been found to cause
+a race condition in production environments.
 
-The root cause, which is fixed in patch 2, is a racy use of the
-__ptr_ring_empty() API from the producer side (veth_xmit). The producer
-stops the queue and then checks the ptr_ring consumer's head, but this is
-not guaranteed to be correct, when observed from the producer side,
-when the NAPI consumer on another CPU has just finished consuming.
+Under specific circumstances, observed exclusively on ARM64 (aarch64)
+systems with Ampere Altra Max CPUs, a transmit queue (TXQ) can become
+permanently stalled. This happens when the race condition leads to the TXQ
+entering the QUEUE_STATE_DRV_XOFF state without a corresponding queue wake-up,
+preventing the attached qdisc from dequeueing packets and causing the
+network link to halt.
 
-This series fixes the bug and make the driver more resilient to recover.
-The patches are ordered to first add recovery mechanisms, then fix the
-underlying race.
+As a first step towards resolving this issue, this patch introduces a
+failsafe mechanism. It enables the net device watchdog by setting a timeout
+value and implements the .ndo_tx_timeout callback.
 
-V2:
- - Drop patch that changed up/down NDOs
- - For race fix add a smb_rmb and improve commit message reasoning for race cases
+If a TXQ stalls, the watchdog will trigger the veth_tx_timeout() function,
+which logs a warning and calls netif_tx_wake_queue() to unstall the queue
+and allow traffic to resume.
 
-V1: https://lore.kernel.org/all/176123150256.2281302.7000617032469740443.stgit@firesoul/
+The log message will look like this:
 
+ veth42: NETDEV WATCHDOG: CPU: 34: transmit queue 0 timed out 5393 ms
+ veth42: veth backpressure stalled(n:1) TXQ(0) re-enable
+
+This provides a necessary recovery mechanism while the underlying race
+condition is investigated further. Subsequent patches will address the root
+cause and add more robust state handling.
+
+Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce TX drops")
+Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
 ---
+ drivers/net/veth.c |   16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-Jesper Dangaard Brouer (2):
-      veth: enable dev_watchdog for detecting stalled TXQs
-      veth: more robust handing of race to avoid txq getting stuck
+diff --git a/drivers/net/veth.c b/drivers/net/veth.c
+index a3046142cb8e..7b1a9805b270 100644
+--- a/drivers/net/veth.c
++++ b/drivers/net/veth.c
+@@ -959,8 +959,10 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
+ 	rq->stats.vs.xdp_packets += done;
+ 	u64_stats_update_end(&rq->stats.syncp);
+ 
+-	if (peer_txq && unlikely(netif_tx_queue_stopped(peer_txq)))
++	if (peer_txq && unlikely(netif_tx_queue_stopped(peer_txq))) {
++		txq_trans_cond_update(peer_txq);
+ 		netif_tx_wake_queue(peer_txq);
++	}
+ 
+ 	return done;
+ }
+@@ -1373,6 +1375,16 @@ static int veth_set_channels(struct net_device *dev,
+ 	goto out;
+ }
+ 
++static void veth_tx_timeout(struct net_device *dev, unsigned int txqueue)
++{
++	struct netdev_queue *txq = netdev_get_tx_queue(dev, txqueue);
++
++	netdev_err(dev, "veth backpressure stalled(n:%ld) TXQ(%u) re-enable\n",
++		   atomic_long_read(&txq->trans_timeout), txqueue);
++
++	netif_tx_wake_queue(txq);
++}
++
+ static int veth_open(struct net_device *dev)
+ {
+ 	struct veth_priv *priv = netdev_priv(dev);
+@@ -1711,6 +1723,7 @@ static const struct net_device_ops veth_netdev_ops = {
+ 	.ndo_bpf		= veth_xdp,
+ 	.ndo_xdp_xmit		= veth_ndo_xdp_xmit,
+ 	.ndo_get_peer_dev	= veth_peer_dev,
++	.ndo_tx_timeout		= veth_tx_timeout,
+ };
+ 
+ static const struct xdp_metadata_ops veth_xdp_metadata_ops = {
+@@ -1749,6 +1762,7 @@ static void veth_setup(struct net_device *dev)
+ 	dev->priv_destructor = veth_dev_free;
+ 	dev->pcpu_stat_type = NETDEV_PCPU_STAT_TSTATS;
+ 	dev->max_mtu = ETH_MAX_MTU;
++	dev->watchdog_timeo = msecs_to_jiffies(5000);
+ 
+ 	dev->hw_features = VETH_FEATURES;
+ 	dev->hw_enc_features = VETH_FEATURES;
 
-
- drivers/net/veth.c | 53 +++++++++++++++++++++++++++++-----------------
- 1 file changed, 34 insertions(+), 19 deletions(-)
-
---
 
 
