@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2239ACCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D5BCCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIlMXVZM7u5N4GC7/QPTBmuvnR/eWVEU2XMt5zd3xvk=; b=hputKEuf0ngk3NJ+avMflGfr6n
-	O5l1wy1Q3PBLCgNblsYAvRYXK+yznGofjaTUG0PNftPu7M8uBaBqj/aPXwbWCp/RUcRLBVHu7Do91
-	dYHR4tAzm8GGWD7U0fGT+kejJZXD0lCTkZRBK23JqW/zfWgTJCeJ+Jns1S25lfD3xss8ZQ+rt+NFm
-	WZZLMJZK15ysdD5+mqERb/c2E661qbhXD6RpbLc0JoCZROc0FETfCrwvu0Mj8g5Bma+5fCyKNjKZw
-	tYrJTaBvkNigr4akfW02FQYXN7mlXb3DPPaqy6Axjd9VfsF5irpYmDPo/O5/rAnLMM+rh5plkz07Q
-	Uegsy/nA==;
+	bh=uHZIvBo2w1MTfQAp1MbdkxhqheGGsSeb06hs1bU0eWo=; b=rhvqhz0MwDf/T4g3DCes6c+UCi
+	VGcZww1t+tzxFm43Uv2D9U0D7EIuEDMCMgH2BCWpIPGswAxo8efVyHk5La0bDiTcuMbEXgvGbHXeJ
+	pP8AJHj0HUilCSRLkZPdbKPZY44RLjK97/d5NsevNzOeN/eiuqg07u5gmGY9sFzwen81Y156WIxVG
+	loV/xc+RszH5qqKoEpPM0+o5qwcxFOfa+uppjzm/lJkoVbCRibj2RUohE1BjWxsM8IBido46oYL7p
+	kNI7frpRHi4am+YloX0v7Bo3bGqHZ63m0SjHANJTi5L80tA2LVAow9J+yllZxgu14FtWjjrMzG9tU
+	/k9QIVLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJtJ-0000000DaCx-04VU;
-	Mon, 27 Oct 2025 09:51:53 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1vDJux-0000000DaOq-2ALn;
+	Mon, 27 Oct 2025 09:53:35 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJtG-0000000DaC3-07Kb
+	id 1vDJuv-0000000DaOU-47qL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 09:51:51 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-27c369f8986so39780015ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:51:49 -0700 (PDT)
+	Mon, 27 Oct 2025 09:53:35 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-b6ce6d1d3dcso2993935a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:53:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761558709; x=1762163509; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761558813; x=1762163613; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xIlMXVZM7u5N4GC7/QPTBmuvnR/eWVEU2XMt5zd3xvk=;
-        b=QGvbMjmkkduvGTLMyi5SFk5jV9J3BTHQupsKAReKKDuH36Z540NDJjSCf2iJvmq9eV
-         1GX3Y9OpKmDGzaLmYksWi0risOuEvKz7CMXPhhKCYXs4uvBVkcJmgmtkKeuyPz8ypDWq
-         o03QCcJMuYoPOW9ehK30fqibGr6HOFjBXBw8KHH4ZMpZ6/lUFGKBy1gJnQtqXXm4byFb
-         5UrJsEKuLBJusbmCPFnJFtj7faB+0WU/zRhAtO0KOF/5bh1uw8WdPJn/NeykNPGzbZUm
-         U26DLWdfehIcs2F2mLUb7LttPagrF++m/gNBwNbn9vM6Ot7ghl+DwZv9gRBpFT5kBoF+
-         ieZA==
+        bh=uHZIvBo2w1MTfQAp1MbdkxhqheGGsSeb06hs1bU0eWo=;
+        b=hGB4n0sLbm1P4GPmwq1qZlDVEG1cxkBeMXT9/eFqFdz8jyqhQzriRKqaJKlG/BPOeA
+         hVOtvfyPVz+oTWESHqujALeR0MzQIpQQr02W3ceBoaaXiZAT1ebhNAPGQU4zd+42X/Dl
+         sTC3XUYBDtfw7FF8rGnrwUi0tUBUcsugvhG515GoeU77ojqaAq7/l97K7RNE6Pz4He1h
+         XGpiXZTBondlEDFHmT+9r48H2IIuyfOFmrP/Q0N5HJ4DNCzs3o/MD0qaE6jnpwKj8Hg5
+         52HiikgNsLe3KlW/zwZGgTKf1M2A64ZdZzVlHeaNAFSwutGSdkpFxDsf0jyi1VaPE6wB
+         sS7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761558709; x=1762163509;
+        d=1e100.net; s=20230601; t=1761558813; x=1762163613;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xIlMXVZM7u5N4GC7/QPTBmuvnR/eWVEU2XMt5zd3xvk=;
-        b=L/kKnmgqXCZPkWFUHp/dH/O+UG728TUDcxZlHo4moLzppLGjCEKFvVL0uX+yV7qERR
-         3viGoOJ/05lQOp68mKaWGPzMvcn14a+Njed1URQ4HApOuM9+Z86Ac5jS/KyzTIbC/Pia
-         gqY2dmjE8xjFJC05bm+pyrygvUejp1JQwXJKsG62CtTYSYxsu9a4DKBRHO0yoTgLaZ5J
-         N37YtqFtTy5So81o1AOd/afrBvrDCoWmmiM1FH26qk7jpsSrxLW4D3lUkBFvfM1SDIns
-         SrnYFYQROYloQhc6AQ65ie8iHacGOSDAyBXeTOOUtqYvolu4uapSJtLToGTnEkbhcGcb
-         GrXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVG1cbwRk4bhy3e0s5rWOJ+FyE1hlnAN27w4qkSISNjcuKoIHnQdf7k2qQZKLKbqHskFm2ynrIkgrPVP6aQ7BA4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVOTYkLcz2ZbW5x+4cXyaoE9egkQ6kH238gaoDt6qZe1cgQ5GG
-	S8mipgJ+akMIn+oOsRbeHbTrFICnRqt8LzuFOWVLXrHzlfFiMdIk6O6C3jxZQzpVKEoM/tib7ph
-	bR1QaLojgzV7/DVDo8BMZ4fhwwDXjYzc=
-X-Gm-Gg: ASbGncvVVNLcbBd6/LHSVIGeJHHY7JSs0bEPcCKt5puGT5fVAvFGiz4sGQP95wBn/Nv
-	3HevyXgE1kfgvTYa1RoEpKbEQyEEEbocjPnQh+vuUuoqwFaox3SHjoi80wcJsq6yQag8SB26pSI
-	Up8j4kqezJpExwKsS2UaQi2ajr0iJgQb2ax0oKnDIIzMehlA0kNbSGp1/219v1FXs2IecijRkN2
-	Mb6ciFGIil8oDVOnMtSzmv7sAA43RGJR1Jz7wvYiFf0BHT/Ui9WIYHUwUvb/DP9ZyGV2Zh1B97c
-	JPyNGn7lKHtwmId3lV3BK1hq
-X-Google-Smtp-Source: AGHT+IFRzbIzqFV7pKBghEkL/y5mdil9BPJteZ22VTJLWtgkr233BhWTD9Jj/7BDpxsKVDDIAx7A2JjJcaX7rlq1vtg=
-X-Received: by 2002:a17:903:2f82:b0:290:26fb:2b91 with SMTP id
- d9443c01a7336-2948b8366cbmr145344475ad.0.1761558708890; Mon, 27 Oct 2025
- 02:51:48 -0700 (PDT)
+        bh=uHZIvBo2w1MTfQAp1MbdkxhqheGGsSeb06hs1bU0eWo=;
+        b=caoahprBNeLj1xEJQuvO1/YrQJj7N79ndxbW0z2VyA4uSlU5FBisMHGYqPIhKfMuwM
+         To0JCdyOyWrLKZbEF/79f9a2OH1fCG/wYkjgV0PZL/rld76yv+WHJ58r3K+WVh9wYr6/
+         TNHP3SbnuX0x05xlZr1rq6GW/wiv+8vjCrtEqFwHM2x4GVjk17rGQm1nARTdPZ5XO+U0
+         KvzZsy/WC/2PhYbQNHL8+eDvTvob1kt5D8nxIAx6pPARInZAaVtd8jx8VhFmclSu4T4d
+         8qkTxPP5cRGJ2IcYlYQW5PTK9ez6v40nGbtQFOPbubnzm+YZnUz3jQL49E/ThdlGvCnB
+         Pgjg==
+X-Forwarded-Encrypted: i=1; AJvYcCXo4yTphA4yhqKchu25TX6ppBwivKqoe6U/vnIGR9xAF5DfdGpjO50gP+dhh9umYXAEpE/sRXQKySfcO3ikL/Bh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxcu0PTqiwg9kBVeEawnNVdKl/GWA2TGGfakKWkthkFSCZuC1tc
+	TDl616yuN9s9IhmkvKKSZedz+bi138W1vH0g8NUaBRpeXQy3EwwJ3fG88cHMtwpoLRIx7BZYUJm
+	6fMuvFVZBsS3KpnhifdOFpgWm9PMhHAA=
+X-Gm-Gg: ASbGncsGQNDcIfDA78fJRXKTsi3ZrGSVBln9tYFVgQ7RlM1AZbjr42qDOwvGloWFsRY
+	hgR3oGasxPErAgVrLLtdfEn82kYpa+xmUd4aAR+uVTPdpWJKQCnRhchaT1JdUm7PkFI4MVBEHya
+	AdYHqnXAodmyWInysP2AlvLGA3pYHXadbrbnYW9a57oTEnQHVGrXD2XVkuJ6fn8moFm+0mEJ0O2
+	K+65W+MQN3spu1VdJ7MuNdSyDMenrSc8XuXupjih4rFxKAFbdyfwJTHkSkZvjNkuzO/64tOg6Ud
+	JgpqZLEU7846JYYMDB4B4sayrN49XOivBrs=
+X-Google-Smtp-Source: AGHT+IHtoK9BtAWkuBlb8wHMY81e3C7F/tuuKHdZ9dReVXpNyDrBKViu/Dmg9ERnj0atAtepiwCmQJhoe6CLgiAV9x0=
+X-Received: by 2002:a17:903:38c8:b0:26e:d0aa:7690 with SMTP id
+ d9443c01a7336-2948ba3e147mr140058725ad.41.1761558813104; Mon, 27 Oct 2025
+ 02:53:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com> <20251017112025.11997-2-laurentiumihalcea111@gmail.com>
-In-Reply-To: <20251017112025.11997-2-laurentiumihalcea111@gmail.com>
+References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com> <20251017112025.11997-3-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20251017112025.11997-3-laurentiumihalcea111@gmail.com>
 From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 27 Oct 2025 11:54:15 +0200
-X-Gm-Features: AWmQ_blOtiRFVXUmTtN1O1lNjloemNSQ0tmWC3j2G4npOc3ifmBMtfeWO07HwwM
-Message-ID: <CAEnQRZDFkQ80TGvpCDRZgVtKF9oUVoKQsaAtyhYHWHAZsg0fHQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/8] reset: imx8mp-audiomix: Fix bad mask values
+Date: Mon, 27 Oct 2025 11:55:58 +0200
+X-Gm-Features: AWmQ_bn8djVWD9T3hbxz5BaFzJdgRNmgPK4MMnk5oMPTdlZh7IbRd6rHqy4Tk8c
+Message-ID: <CAEnQRZDXhb=ssjbL-SOWXN74pjqzKgwXQ3SUUaQYMJapRPgKFA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/8] dt-bindings: clock: document 8ULP's SIM LPAV
 To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
 	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
@@ -86,8 +86,9 @@ Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_025150_064473_79A5579D 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20251027_025334_022267_88E15427 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,22 +108,8 @@ On Fri, Oct 17, 2025 at 2:22=E2=80=AFPM Laurentiu Mihalcea
 >
 > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 >
-> As per the i.MX8MP TRM, section 14.2 "AUDIO_BLK_CTRL", table 14.2.3.1.1
-> "memory map", the definition of the EARC control register shows that the
-> EARC controller software reset is controlled via bit 0, while the EARC PH=
-Y
-> software reset is controlled via bit 1.
+> Add documentation for i.MX8ULP's SIM LPAV module.
 >
-> This means that the current definitions of IMX8MP_AUDIOMIX_EARC_RESET_MAS=
-K
-> and IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK are wrong since their values woul=
-d
-> imply that the EARC controller software reset is controlled via bit 1 and
-> the EARC PHY software reset is controlled via bit 2. Fix them.
->
-> Fixes: a83bc87cd30a ("reset: imx8mp-audiomix: Prepare the code for more r=
-eset bits")
-> Cc: stable@vger.kernel.org
 > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
 Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
