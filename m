@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C87FCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E4E7CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRnjBnuhyqMXvpQh9LLMBSoQASKq7nZHyQViUHKVz1M=; b=XngRXsoVf9Cron01Rz7LXMwYWp
-	KpJubd/8I/BPU4FElwtX4eWONxfp1MN9nIM4baoTVXWu6Tr6Jm0vMYGZsKLnKDClRP+l9lTsGryrl
-	dRKZPSEQ7LtA8u4LKpyGvEvXsNMvGg2ViIxO0KkiuYPHlVFrXkhrA9WWqWZDYjZOtO5OvuJ7K7Cco
-	Uze+zW/0KvR7JTgukv/jIDHWtYSlX2ODDVHiyP0l7Lj0t662C8aZ4PLwbeo7+Wi+XtKQO6Np5ic3I
-	lszeALN6Pcu5Hxd+n6Ufz9Pk/1+DMx3oAQpMNAmo6SE1l6f5bp1pYCSVlYBULm/O/ndpsu7v/gkQv
-	L9JLI7bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5MoVf5Kl/6L1RrhGRcruXT/51Lf6AulqPFulSW9hKkI=; b=fqbFlH2qGBKmX191Fs8XyRtTn2
+	ceoJQmWO5y2dxIUvMhk/Nm7r3JEYEpvu5tYTkRUyDEqHA/DNFmrh+l1WE4kZlKlB09rvkyrudROVs
+	AeeIczZ5jx1xyo1kheh1eRXe2p0RRveHa2WdjXNqa9uyYzfUL3qJL27EKYCrxVqEtf6/qVVEYwuaj
+	mcS8HKr2LMJz/AlKCpmFdT5SjzkMugZEljYH9vjbyj40JuCIJkhC8igQjHtghcPJwxj6WaTpLlREt
+	kHsOlde+8dJeH6UoyKqrib5R3fd5DbNnkgbpZ4CxfRb47Ih0UQ3G1vi7TmQKApW9Q/wUKlNXeroQb
+	7suEXsUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDM6H-0000000Drg6-0QPT;
-	Mon, 27 Oct 2025 12:13:25 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1vDM83-0000000Drx4-285V;
+	Mon, 27 Oct 2025 12:15:15 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDM6E-0000000DrfE-1ywE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:13:23 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-378cfd75fb0so48782261fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:13:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761567200; x=1762172000; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wRnjBnuhyqMXvpQh9LLMBSoQASKq7nZHyQViUHKVz1M=;
-        b=UBTr00QGSZTf39968xZc6BQ7BAMzEb6HFf9D79vqhV1w3Oh+J9q9amE3gaY7H8mBqJ
-         psAHQr6CWUBsm7UYGtI/lYTxspBLBDyXokEc34UjLw6bWj9vV+DYfhYINxJu54RXGA6a
-         96pcC2c+ZB3CM31xwDNxXKVoNwxl5zRg+rtyRKQGOUuz7MllUV5JKnHgJGXSxsVvouDU
-         QLirgZhcFjHuaB4u0wJ8inLkY+K2ahBZFSO/CAnLTp23XZGpW5aXEQPVO1FZY8HVUt62
-         cXCHcRh4dx11lt8UtAxpBMMEWr7cns9R3sGkcsL52vgOzC8fAmbEilrrAOFmoNKbuNVK
-         jrSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761567200; x=1762172000;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wRnjBnuhyqMXvpQh9LLMBSoQASKq7nZHyQViUHKVz1M=;
-        b=KHmBhjeGRT5dd5GvNOH3EO+a4xHg44U/SE8Ea5948tYqFij0Yk4wGuDiPi/7lblOdd
-         kk8wVycZrwCtTUZeCmSWDhve1JZ8uvSflO3cQ5TSAktKLKz/ysNT8dHoKQ0fJ74f49gP
-         gSbe5uP7o7uPstGPreES9jYRL2X/0n9eG0oQK8VyxYIgqN8AQHvZYhiDKiJZkNe9co7b
-         xhkXmWBCgvMBO/Sck635cIefvvcNODtxA9EFED2npDZ6UYuBPHRK9XK6yVGhbsTY/MZB
-         wyzpqwOZjEJv7/TJhRALY0+EBWm1/unX3Su9uKhTlwUs6r9qxcxE40lE5fUQLXw9eR/x
-         eEGA==
-X-Forwarded-Encrypted: i=1; AJvYcCXy9Hg/IlxDafdMrJOMvXABkhh7zwGrPKSzdn0DIEhkaOIlXzq4ueNNcOHSmvLsWpycacGspjX4c1FfNr3kab+c@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBhhM0gNg2XFqOoyiITzaYHtlawPdzesBihfiTqiA15L0rXeEA
-	/++eZPWqU82FeqtfLorv1RBHyfxpjGYzw9KogXV+CwH3o4/20cDJtm9zh3o6JDMAjKYgq/Q5FvE
-	IPTsMOyzC2T/ZfPGXB3AwgCYWQ37XiXo=
-X-Gm-Gg: ASbGnct3G0aTHrjmyvgsY94OITufxii09PeRQmPIOck4IblSnUyOakkvkzGT2960eEi
-	kQze83J1lpKrefp3glTkmtzlbvW28i/ANNvHu5DC5K34pfU6ctwtTp95MJinqZ1uj0JnG3hcCDO
-	+1SSSl6HaJuKz3pa/qyzH3f4dI6ON92JIXoud+dFxGyhXmyNup+iCWbJFLGJJSYmc5Y4Xss+VBV
-	843NmLmkNWSmpscHEQr9BgLlA4dwjcgrK4nSwtrbLrqTLSR+fgGvCGK8B749Sv5/MkMqktL349z
-	UfrsrkRCuvSg1iGKFekRXsPD3P0=
-X-Google-Smtp-Source: AGHT+IFFfKN+siPeEk510LCYlRaBchkOKpAuwWhbm3bWGz56uyRA9KKdEl3XVRQWOc57AU14oMs/9BA7nmAnn1K3lvg=
-X-Received: by 2002:a2e:be09:0:b0:372:8c4b:8065 with SMTP id
- 38308e7fff4ca-37797a2cb95mr104193231fa.26.1761567199979; Mon, 27 Oct 2025
- 05:13:19 -0700 (PDT)
+	id 1vDM81-0000000DrwZ-1GXc;
+	Mon, 27 Oct 2025 12:15:14 +0000
+X-UUID: 952becbab32e11f0a52f393f94899d25-20251027
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=5MoVf5Kl/6L1RrhGRcruXT/51Lf6AulqPFulSW9hKkI=;
+	b=lUnCNaqxmtr7DSdHq3OfLvKLxVrYHs4jhRwvZ1CmwnPQOjU2ELigq5/pL9IImInpLDafDPH8QBtIp6DbdnU+RJq09y5VG7zhSdZB3jDE8SQKNLAsyK/4EinoigixLdIgLPAclRozC/oS7EN9SHjhoSuYbwhf+j2DeYO8t6gHcWA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:d212d466-9109-49ea-83c4-54d4adf3c320,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:d2b8de3a-b16f-49fc-bb37-560773c432f7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:99|1,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 952becbab32e11f0a52f393f94899d25-20251027
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <zhengnan.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 337042274; Mon, 27 Oct 2025 05:15:10 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 27 Oct 2025 20:15:06 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 27 Oct 2025 20:15:05 +0800
+From: Zhengnan Chen <zhengnan.chen@mediatek.com>
+To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Zhengnan Chen
+	<zhengnan.chen@mediatek.com>
+Subject: [PATCH v2 0/2] MT8189 SMI SUPPORT
+Date: Mon, 27 Oct 2025 20:14:26 +0800
+Message-ID: <20251027121443.16783-1-zhengnan.chen@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-References: <20251027110406.543370-1-carlos.song@nxp.com>
-In-Reply-To: <20251027110406.543370-1-carlos.song@nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Mon, 27 Oct 2025 09:13:08 -0300
-X-Gm-Features: AWmQ_bkk_6yx_Hjl3n22lrPiupz3ujJbjohrrhluMrC5cpjjXVzvvJEhkBoNxhs
-Message-ID: <CAOMZO5DM5NyGdyz4_6WF7qcsMmjAdQvfK0AKxZprUfhC=882pg@mail.gmail.com>
-Subject: Re: [PATCH v2] spi: imx: keep dma request disabled before dma
- transfer setup
-To: carlos.song@nxp.com
-Cc: frank.li@nxp.com, broonie@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, linux-spi@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_051322_516162_39AED53F 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20251027_051513_349544_C86B34F3 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 8:04=E2=80=AFAM <carlos.song@nxp.com> wrote:
->
-> From: Robin Gong <yibin.gong@nxp.com>
->
-> Due to a hardware limitation on SDMA event enable (ENBLn), the DMA reques=
-t
-> must remain disabled until the DMA transfer setup is complete.
->
-> Refer SDMA 2.6.28 Channel Enable RAM (SDMAARMx_CHNENBLn) section:
->
-> "
-> It is thus essential for the Arm platform to program them before any DMA
-> request is triggered to the SDMA, otherwise an unpredictable combination
-> of channels may be started.
-> "
->
-> SDMA hardware configuration is postponed to transfer phase, so enabling
-> the DMA request too early may cause unpredictable channel activation.
-> Then keep dma request disabled before dma transfer setup.
->
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Robin Gong <yibin.gong@nxp.com>
+Based on tag: next-20251024, linux-next/master
 
-Should this contain a Fixes tag?
+This patchset add mt8189 smi support.
+
+---
+Changes in v2:
+Just modify the mediatek,smi-common.yaml file as follows:
+- Add schematic diagram explanation between smi-common and smi-sub-common
+- Change the clock numbers of smi-sub-common to minimum 2, the third clock
+  is optional
+- Link to v1:
+  https://lore.kernel.org/all/20250919081014.14100-1-zhengnan.chen@mediatek.com/
+---
+
+Zhengnan Chen (2):
+  dt-bindings: memory-controllers: mtk-smi: Add support for mt8189
+  memory: mtk-smi: Add mt8189 support
+
+ .../mediatek,smi-common.yaml                  | 25 ++++++++++-
+ .../memory-controllers/mediatek,smi-larb.yaml |  3 ++
+ drivers/memory/mtk-smi.c                      | 44 +++++++++++++++++++
+ 3 files changed, 70 insertions(+), 2 deletions(-)
+
+-- 
+2.46.0
+
 
