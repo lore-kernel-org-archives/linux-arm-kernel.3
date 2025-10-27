@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5D6CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22548CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KpTLXq4Bl+s2v44deT895JNM/3sC92D6LsAgAux2acA=; b=Hln7IvSHD551JPhLW3QQeXxRjz
-	6jyCWW8Um1enwAt67Pu1MoyQJjBHob4asFGVC7qFZcohK3Evx8dtfBRmcT8QWAobUy8T9Auz17tP9
-	HXCGvChettqeNJKjM3HwwKnrURxraGTn6ZCvB3akvnA2AtElxiooIfcdi+IG5llXy1ov+dy1679t3
-	j1ya21bLcGEKqC+L79rjFd7SCkXBuZEWZHkGXwUMXjqtEP+TP3QRPBAKWp+ij5+3/0d6AZXt9Lqx1
-	0G6CMNXtyqP6RnYsgboB1CrwbhCoxt+JsK//JtK1qEkCWxxAK+UfzvKnHSdvlF536U2Z3VWoAXnBA
-	5ZWVYJ8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uLPbwj85v90l93eEK3Le8Huyt9tCmBVKSc/s7w2usfs=; b=Mn6LWSJpwEG1ufz+4pmv+wCh1u
+	b1f9WeCF3WTi1G2T95wvKVR/qJ/C6m0y0yk+CWE7k+tu0xRl0JV4iMi7pUobfeMnB9cNOvprfr5en
+	Sgemi3RHEVPAfZeGO01/NpQxgZ6Sr8aGDpwGoGV3omN9e7yeNcHYn+5oHGU2RT/mN5FQQGNGMpqR9
+	8a4f4fwNNMLw+8BgBwVZ/Xftx8E/e4IHdoMpxIOa7Q6L5Pv5VePqS8cKzgdM5h/BQm6yaiD+jYP6M
+	tz6lltOmGyPi7/xqMr1eHhf0c8VAAgBsHCd9TS1rN6ncHbAU3zGBjim6dw1CUjdbSpVzlEv1EEGt/
+	kCxSl3WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDCIG-0000000Cy73-1V0c;
-	Mon, 27 Oct 2025 01:45:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vDCL9-0000000CyO1-16F3;
+	Mon, 27 Oct 2025 01:48:07 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDCIB-0000000Cy6G-3fQ2;
-	Mon, 27 Oct 2025 01:45:07 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A6FF01661;
-	Mon, 27 Oct 2025 02:43:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761529394;
-	bh=Hk/Cv0JH4I2/bc25Mtk3P330bEAkbyQwBrU4iJ+LcR0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DmTIN/959mBfIT+SM6ajcFq7f1gtKFOU1XBpuVR9S5nMNJAfTME+ec9eVlp/IrWpZ
-	 jnhQpBCdBl3dBL2OQsmBcFjLIrAAgHT11G0ROsI9kpfcxBJ+5LGmQv5Ksyhy9cRwGw
-	 ldoeuI7N0ZfgwF0zLYsD1QT3Cmqwr3+/+ocVbQlc=
-Date: Mon, 27 Oct 2025 03:44:48 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v3 12/31] media: staging: media: imx6-mipi-csi2: move sd
- imx6's specific initialization into imx6-sci2.c
-Message-ID: <20251027014448.GV13023@pendragon.ideasonboard.com>
-References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
- <20250821-95_cam-v3-12-c9286fbb34b9@nxp.com>
+	id 1vDCL5-0000000CyMY-3Fd3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 01:48:06 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-654f209c809so323859eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Oct 2025 18:48:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1761529680; x=1762134480; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uLPbwj85v90l93eEK3Le8Huyt9tCmBVKSc/s7w2usfs=;
+        b=kcHTs/4TNlhL5BzK8W1PekvZXwsb5xr8atfwJVyVxqRwYxwlojvIBgJPOyiivjm9Kk
+         IVElmteuopwTaiebELSxY+zZrrz9NEeFgaprAONYn4FPC3AzVrXygnV7yixeuNunr/uK
+         im0VkngqJufkGJ4KbmhRM6AzuVn9kdIWH1CjLAA1pI9zNAZwdVoSvXenVPnLbJA5Qg2q
+         z/LNnZ6qIZ9MMnIEXx8sj6fYO2OTDpVKhQhPD5MbL5AgHWZDtKs2sGWCa/u1KVDsI3xm
+         tCLiJmvlDTB5EmtTujK5c3NpnVUeHpqn7s1T+K3WXNI1ciXRkAMzGFyEREzvwzByk5sj
+         hP7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761529680; x=1762134480;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uLPbwj85v90l93eEK3Le8Huyt9tCmBVKSc/s7w2usfs=;
+        b=hOZ1rJo12T/RINif9L09p+IN2asFohuyzl2ao7EA94GWeFHwJxmEdmMCuTaYyAHtde
+         +c4YgvApY0me3fcUdMs9TL3qKm7/7hig/3dau8JrgUMFqgOkoQWLc3SDLBYsecZzAZsB
+         yzCdIm0y4dJs1LEQEJWNhbYHRI1L7Dcmigc+jFAPidUXb0g34oVWNhe/NkXpIm+cFAcw
+         9Y4dP6PzCf7rkG+tfR9PDWBjEVpArIPqxaG7vDyzaSwYtto8mOgwT/8T9wAnMIScuejC
+         KXWu0WnuKBjWHj0wCKpq8g1pWF1TDjz7KUFQp3jok1cbBAC08tZ9PRVWuAq8XvmS+h9V
+         4JbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWIg43zXbO109FkgmxEWRDzjdkz1ivm0YpbbQAmOGiM3mmL9WrUejQ0ukZxbS5Fl66IWaTi1hI1zWKsDBaN4SXt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaFGWrKy49XoVP5xRSo0KL0v4r9SyfrjgA9O3UsPDlKMOIOAtG
+	mn60wUE+1/FJL/Jz7lQ2WP18pZKSZPEHy/8jQs6peR6+Z/nseb1HRFX8ePXh/3tHLyIUspBXSW0
+	tejrI8tvsSJlbpT1L8oqLGVIWdMXi2cb8Vwp7bV0tRw==
+X-Gm-Gg: ASbGncsXX9KyKW0N8WYhA4hsmrx52NqtVPzMPhukymR4F7jAqgDDsL39wkeUl2kxii8
+	9PnyQiYCqc8SbGcuGD+4heETZ873BmqXaGfXbQj3ZjoVUsI9hHcF+zmhB7jwqVFrgL3O/4eGPuE
+	m1I0AfeNULvRrtcviTgl+tAzL+HZ/ux9jiddVpgNOrNt0Ph4qNySNjT78HcQEuGbCYolOqGQVoO
+	YhgK2UK9wu/yAVRZJXuNnhSWSfjX6zm1SW43Y7vmRyElvQd+Bdh1hGeqX3t0HC/aGY=
+X-Google-Smtp-Source: AGHT+IG7bxA+PHV99Aw4iB0z55T1gP3l3ESJv9wNHSuFIiEE56H1vWz5R07p7Qxhtux+BEUsHU7Fn7qQblr/M8e8DV0=
+X-Received: by 2002:a05:6820:80c3:b0:654:f659:3b8a with SMTP id
+ 006d021491bc7-654f65953afmr1755651eaf.5.1761529679819; Sun, 26 Oct 2025
+ 18:47:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250821-95_cam-v3-12-c9286fbb34b9@nxp.com>
+References: <20250908181717.1997461-1-cleger@rivosinc.com>
+In-Reply-To: <20250908181717.1997461-1-cleger@rivosinc.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Mon, 27 Oct 2025 09:47:48 +0800
+X-Gm-Features: AWmQ_bnnLbizvhHaiJiQlgXoDyG0L8tIG5yzbvOD1RakpwNGIdqeb0Lk0rDxEkQ
+Message-ID: <CAEEQ3w=6F-QHvvA-tEhM2CnYqumQfobLje--d7i61-EdK6uxZw@mail.gmail.com>
+Subject: Re: [External] [PATCH v7 0/5] riscv: add support for SBI Supervisor
+ Software Events
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Himanshu Chauhan <hchauhan@ventanamicro.com>, Anup Patel <apatel@ventanamicro.com>, 
+	Xu Lu <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_184504_052104_09EFBA69 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20251026_184803_821665_F64BE3E8 
+X-CRM114-Status: GOOD (  46.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,150 +100,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 04:15:47PM -0400, Frank Li wrote:
-> Move imx6's specific sd's owner, name, csi2_internal_ops, grp_id into
+Hi Cl=C3=A9ment,
 
-grp_id needs to go. It's specific to the i.MX6 IPUv3 framework, and is
-the main part hindering splitting the CSI-2 receiver driver from the
-rest of the code.
-
-> imx6-sci2.c.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+On Tue, Sep 9, 2025 at 2:19=E2=80=AFAM Cl=C3=A9ment L=C3=A9ger <cleger@rivo=
+sinc.com> wrote:
+>
+> The SBI Supervisor Software Events (SSE) extensions provides a mechanism
+> to inject software events from an SBI implementation to supervisor
+> software such that it preempts all other supervisor level traps and
+> interrupts. This extension is introduced by the SBI v3.0 specification[1]=
+.
+>
+> Various events are defined and can be send asynchronously to supervisor
+> software (RAS, PMU, DEBUG, Asynchronous page fault) from SBI as well
+> as platform specific events. Events can be either local (per-hart) or
+> global. Events can be nested on top of each other based on priority and
+> can interrupt the kernel at any time.
+>
+> First patch adds the SSE definitions. Second one adds support for SSE
+> at arch level (entry code and stack allocations) and third one at driver
+> level. Finally, the last patch add support for SSE events in the SBI PMU
+> driver. Additional testing for that part is highly welcomed since there
+> are a lot of possible path that needs to be exercised.
+>
+> Amongst the specific points that needs to be handle is the interruption
+> at any point of the kernel execution and more specifically at the
+> beginning of exception handling. Due to the fact that the exception entry
+> implementation uses the SCRATCH CSR as both the current task struct and
+> as the temporary register to switch the stack and save register, it is
+> difficult to reliably get the current task struct if we get interrupted
+> at this specific moment (ie, it might contain 0, the task pointer or tp).
+> A fixup-like mechanism is not possible due to the nested nature of SSE
+> which makes it really hard to obtain the original interruption site. In
+> order to retrieve the task in a reliable manner, add an additional
+> __sse_entry_task per_cpu array which stores the current task. Ideally,
+> we would need to modify the way we retrieve/store the current task in
+> exception handling so that it does not depend on the place where it's
+> interrupted.
+>
+> Contrary to pseudo NMI [2], SSE does not modifies the way interrupts are
+> handled and does not adds any overhead to existing code. Moreover, it
+> provides "true" NMI-like interrupts which can interrupt the kernel at
+> any time (even in exception handling). This is particularly crucial for
+> RAS errors which needs to be handled as fast as possible to avoid any
+> fault propagation.
+>
+> A test suite is available as a separate kselftest module. In order to
+> build it, you can use the following command:
+>
+> $ KDIR=3D<build_dir> make O=3Dbuild TARGETS=3D"riscv/sse"-j $(($(nproc)-1=
+)) -C tools/testing/selftests
+>
+> Then load the module using:
+>
+> $ sh run_sse_test.sh
+>
+> A KVM SBI SSE extension implementation is available at [2].
+>
+> Link: https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3=
+.0-rc7/riscv-sbi.pdf [1]
+> Link: https://github.com/rivosinc/linux/tree/dev/cleger/sse_kvm [2]
+>
 > ---
->  drivers/staging/media/imx/imx6-csi2.c      | 23 +++++++++++++++++++++++
->  drivers/staging/media/imx/imx6-mipi-csi2.c | 29 ++++++-----------------------
->  include/media/dw-mipi-csi2.h               |  4 ++++
->  3 files changed, 33 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/staging/media/imx/imx6-csi2.c b/drivers/staging/media/imx/imx6-csi2.c
-> index 72eff685fad99b3def46cf2866565191b7de9a8b..66274d8d73b67b35682bb82a9eb745bb24da7ae4 100644
-> --- a/drivers/staging/media/imx/imx6-csi2.c
-> +++ b/drivers/staging/media/imx/imx6-csi2.c
-> @@ -19,6 +19,29 @@ struct imx6_csi2 {
->  	struct dw_mipi_csi2_dev dw;
->  };
->  
-> +static int csi2_registered(struct v4l2_subdev *sd)
-> +{
-> +	struct dw_mipi_csi2_dev *csi2 = sd_to_dw_mipi_csi2_dev(sd);
-> +
-> +	/* set a default mbus format  */
-> +	return imx_media_init_mbus_fmt(&csi2->format_mbus,
-> +				      IMX_MEDIA_DEF_PIX_WIDTH,
-> +				      IMX_MEDIA_DEF_PIX_HEIGHT, 0,
-> +				      V4L2_FIELD_NONE, NULL);
-> +}
-> +
-> +static const struct v4l2_subdev_internal_ops csi2_internal_ops = {
-> +	.init_state = imx_media_init_state,
-> +	.registered = csi2_registered,
-> +};
-> +
-> +static const struct dw_mipi_csi2_config imx6_config = {
-> +	.module = THIS_MODULE,
-> +	.name = "imx6-mipi-csi2",
-> +	.internal_ops = &csi2_internal_ops,
-> +	.grp_id = IMX_MEDIA_GRP_ID_CSI2,
-> +};
-> +
->  static int csi2_probe(struct platform_device *pdev)
->  {
->  	struct imx6_csi2 *csi2;
-> diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> index b5911a37972be868e10c115ada1910fa04b2765c..ff06a739b957b305625d145c04c06999d0c13cae 100644
-> --- a/drivers/staging/media/imx/imx6-mipi-csi2.c
-> +++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> @@ -15,11 +15,11 @@
->  #include <linux/platform_device.h>
->  #include <media/dw-mipi-csi2.h>
->  #include <media/v4l2-common.h>
-> +#include <media/v4l2-ctrls.h>
->  #include <media/v4l2-device.h>
->  #include <media/v4l2-fwnode.h>
->  #include <media/v4l2-mc.h>
->  #include <media/v4l2-subdev.h>
-> -#include "imx-media.h"
->  
->  /*
->   * The default maximum bit-rate per lane in Mbps, if the
-> @@ -44,8 +44,6 @@ struct dw_csi2_regs {
->  	u32	phy_tst_ctrl1;
->  };
->  
-> -#define DEVICE_NAME "imx6-mipi-csi2"
-> -
->  /* Help check wrong access unexisted register at difference IP version */
->  #define DW_REG_EXIST		0x80000000
->  #define DW_REG(x)		(DW_REG_EXIST | (x))
-> @@ -544,17 +542,6 @@ static int csi2_set_fmt(struct v4l2_subdev *sd,
->  	return 0;
->  }
->  
-> -static int csi2_registered(struct v4l2_subdev *sd)
-> -{
-> -	struct dw_mipi_csi2_dev *csi2 = sd_to_dev(sd);
-> -
-> -	/* set a default mbus format  */
-> -	return imx_media_init_mbus_fmt(&csi2->format_mbus,
-> -				      IMX_MEDIA_DEF_PIX_WIDTH,
-> -				      IMX_MEDIA_DEF_PIX_HEIGHT, 0,
-> -				      V4L2_FIELD_NONE, NULL);
-> -}
-> -
->  /* --------------- CORE OPS --------------- */
->  
->  static int csi2_log_status(struct v4l2_subdev *sd)
-> @@ -605,11 +592,6 @@ static const struct v4l2_subdev_ops csi2_subdev_ops = {
->  	.pad = &csi2_pad_ops,
->  };
->  
-> -static const struct v4l2_subdev_internal_ops csi2_internal_ops = {
-> -	.init_state = imx_media_init_state,
-> -	.registered = csi2_registered,
-> -};
-> -
->  static int csi2_notify_bound(struct v4l2_async_notifier *notifier,
->  			     struct v4l2_subdev *sd,
->  			     struct v4l2_async_connection *asd)
-> @@ -709,14 +691,15 @@ int dw_mipi_csi2_init(struct platform_device *pdev, struct dw_mipi_csi2_dev *csi
->  	csi2->regs = &dw_csi2_v0;
->  	v4l2_subdev_init(&csi2->sd, &csi2_subdev_ops);
->  	v4l2_set_subdevdata(&csi2->sd, &pdev->dev);
-> -	csi2->sd.internal_ops = &csi2_internal_ops;
->  	csi2->sd.entity.ops = &csi2_entity_ops;
->  	csi2->sd.dev = &pdev->dev;
-> -	csi2->sd.owner = THIS_MODULE;
->  	csi2->sd.flags = V4L2_SUBDEV_FL_HAS_DEVNODE;
-> -	strscpy(csi2->sd.name, DEVICE_NAME, sizeof(csi2->sd.name));
->  	csi2->sd.entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
-> -	csi2->sd.grp_id = IMX_MEDIA_GRP_ID_CSI2;
-> +
-> +	csi2->sd.owner = config->module;
-> +	strscpy(csi2->sd.name, config->name, sizeof(csi2->sd.name));
-> +	csi2->sd.internal_ops = config->internal_ops;
-> +	csi2->sd.grp_id = config->grp_id;
->  
->  	for (i = 0; i < CSI2_NUM_PADS; i++) {
->  		csi2->pad[i].flags = (i == CSI2_SINK_PAD) ?
-> diff --git a/include/media/dw-mipi-csi2.h b/include/media/dw-mipi-csi2.h
-> index 4e656f09c81db9dc9f232ed061f70803a5478c85..dfd25e23ea93fd53b064471b6a9557ef9c070fe7 100644
-> --- a/include/media/dw-mipi-csi2.h
-> +++ b/include/media/dw-mipi-csi2.h
-> @@ -10,6 +10,10 @@
->  #include <media/v4l2-subdev.h>
->  
->  struct dw_mipi_csi2_config {
-> +	struct module *module;
-> +	const char *name;
-> +	int grp_id;
-> +	const struct v4l2_subdev_internal_ops *internal_ops;
->  };
->  
->  /*
+>
+> Changes in v7:
+>  - Check return values of sse_on_each_cpu()
+>  - Fix typos in commit
+>  - Rename SBI_SSE_EVENT_SIGNAL to SBI_SSE_EVENT_INJECT
+>  - Rename SBI_SSE_EVENT_HART_UNMASK/MASK to SBI_SSE_HART_UNMASK/MASK
+>  - Add tlb flush for vmap stack to avoid taking exception during sse
+>    handler upon stack access. (Alex)
+>  - Move some assembly instruction to slow path
+>  - Renamed sse.c to sbi_sse.c, ditto for other files
+>  - Renamed RISCV_SSE to RISCV_SBI_SSE
+>  - Renamed sse_event_handler to sse_event_handler_fn
+>  - Put ifdef around sse_evt in PMU SBI driver
+>
+> Changes in v6:
+>  - Fix comment in assembly argument
+>  - Check hart id to be the expected one in order to skip CPU id
+>    matching in sse assembly.
+>
+> Changes in v5:
+>  - Added a SSE test module in kselftests
+>  - Removed an unused variable
+>  - Applied checkpatch.pl --strict and fix all errors
+>  - Use scope_guard(cpus_read_lock) instead of manual cpus_read_lock()
+>  - Fix wrong variable returned in sse_get_event
+>  - Remove useless init of events list
+>  - Remove useless empty for loop on cpus
+>  - Set sse_available as  __ro_after_init
+>  - Changed a few pr_debug to pr_warn
+>  - Fix event enabled stated updated in case of failure
+>  - Change no_lock to nolock
+>  - Rename attr_buf to attr
+>  - renamed sse_get_event_phys() to sse_event_get_attr_phys() and removed
+>    the second argument
+>  - Simplify return value in sse_event_attr_set_nolock()
+>  - Remove while loop(-EINVAL) for event cpu set call
+>  - Renamed interrupted_state_phys to interrupted_phys
+>  - Use scoped_guards/guard for sse_mutex
+>  - Remove useless struct forward declaration in sse.h
+>  - Add more explanations as to why we set SIE bit in IP
+>  - Unconditionnally set SIE in SIP
+>  - Move SSE_STACK_SIZE adjustement in sse_stack_alloc/free()
+>  - Replace move instructions with mv
+>  - Rename NR_CPUS asm symbol to ASM_NR_CPUS
+>  - Restore SSTATUS first in sse_entry return path so that it works for
+>    double trap without any modification later.
+>  - Implement proper per cpu revert if enable/register fails
+>
+> Changes in v4:
+>  - Fix a bug when using per_cpu ptr for local event (Andrew)
+>  - Add sse_event_disable/enable_local()
+>  - Add pmu_disable/pmu_enable() to disable/enable SSE event
+>  - Update event ID description according to the latest spec
+>  - Fix comment about arguments in handle_sse()
+>  - Added Himanchu as a SSE reviewer
+>  - Used SYM_DATA_*() macros instead of hardcoded labels
+>  - Invoke softirqs only if not returning to kernel with irqs disabled
+>  - Remove invalid state check for write attribute function.
+>  - Remove useless bneq statement in sse_entry.S
+>
+> Changes in v3:
+>  - Split arch/driver support
+>  - Fix potential register failure reporting
+>  - Set a few pr_err as pr_debug
+>  - Allow CONFIG_RISCV_SSE to be disabled
+>  - Fix build without CONFIG_RISCV_SSE
+>  - Remove fixup-like mechanism and use a per-cpu array
+>  - Fixed SSCRATCH being corrupted when interrupting the kernel in early
+>    exception path.
+>  - Split SSE assembly from entry.S
+>  - Add Himanchu SSE mask/unmask and runtime PM support.
+>  - Disable user memory access/floating point/vector in SSE handler
+>  - Rebased on master
+>
+> v2: https://lore.kernel.org/linux-riscv/20240112111720.2975069-1-cleger@r=
+ivosinc.com/
+>
+> Changes in v2:
+>  - Implemented specification v2
+>  - Fix various error handling cases
+>  - Added shadow stack support
+>
+> v1: https://lore.kernel.org/linux-riscv/20231026143122.279437-1-cleger@ri=
+vosinc.com/
+>
+> Cl=C3=A9ment L=C3=A9ger (5):
+>   riscv: add SBI SSE extension definitions
+>   riscv: add support for SBI Supervisor Software Events extension
+>   drivers: firmware: add riscv SSE support
+>   perf: RISC-V: add support for SSE event
+>   selftests/riscv: add SSE test module
+>
+>  MAINTAINERS                                   |  15 +
+>  arch/riscv/include/asm/asm.h                  |  14 +-
+>  arch/riscv/include/asm/sbi.h                  |  61 ++
+>  arch/riscv/include/asm/scs.h                  |   7 +
+>  arch/riscv/include/asm/sse.h                  |  47 ++
+>  arch/riscv/include/asm/switch_to.h            |  14 +
+>  arch/riscv/include/asm/thread_info.h          |   1 +
+>  arch/riscv/kernel/Makefile                    |   1 +
+>  arch/riscv/kernel/asm-offsets.c               |  14 +
+>  arch/riscv/kernel/sbi_sse.c                   | 174 +++++
+>  arch/riscv/kernel/sbi_sse_entry.S             | 178 +++++
+>  drivers/firmware/Kconfig                      |   1 +
+>  drivers/firmware/Makefile                     |   1 +
+>  drivers/firmware/riscv/Kconfig                |  15 +
+>  drivers/firmware/riscv/Makefile               |   3 +
+>  drivers/firmware/riscv/riscv_sbi_sse.c        | 701 ++++++++++++++++++
+>  drivers/perf/Kconfig                          |  10 +
+>  drivers/perf/riscv_pmu.c                      |  23 +
+>  drivers/perf/riscv_pmu_sbi.c                  |  71 +-
+>  include/linux/perf/riscv_pmu.h                |   5 +
+>  include/linux/riscv_sbi_sse.h                 |  57 ++
+>  tools/testing/selftests/riscv/Makefile        |   2 +-
+>  tools/testing/selftests/riscv/sse/Makefile    |   5 +
+>  .../selftests/riscv/sse/module/Makefile       |  16 +
+>  .../riscv/sse/module/riscv_sse_test.c         | 513 +++++++++++++
+>  .../selftests/riscv/sse/run_sse_test.sh       |  44 ++
+>  26 files changed, 1979 insertions(+), 14 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/sse.h
+>  create mode 100644 arch/riscv/kernel/sbi_sse.c
+>  create mode 100644 arch/riscv/kernel/sbi_sse_entry.S
+>  create mode 100644 drivers/firmware/riscv/Kconfig
+>  create mode 100644 drivers/firmware/riscv/Makefile
+>  create mode 100644 drivers/firmware/riscv/riscv_sbi_sse.c
 
--- 
-Regards,
+These newly added files use different GPL-xxx licenses respectively:
+arch/riscv/kernel/sbi_sse.c: // SPDX-License-Identifier: GPL-2.0-or-later
+drivers/firmware/riscv/riscv_sbi_sse.c: // SPDX-License-Identifier: GPL-2.0=
+-only
+arch/riscv/include/asm/sse.h: /* SPDX-License-Identifier: GPL-2.0-only */
+Should they be consistent, or is this by design?
 
-Laurent Pinchart
+
+>  create mode 100644 include/linux/riscv_sbi_sse.h
+>  create mode 100644 tools/testing/selftests/riscv/sse/Makefile
+>  create mode 100644 tools/testing/selftests/riscv/sse/module/Makefile
+>  create mode 100644 tools/testing/selftests/riscv/sse/module/riscv_sse_te=
+st.c
+>  create mode 100644 tools/testing/selftests/riscv/sse/run_sse_test.sh
+>
+> --
+> 2.43.0
+>
+
+Thanks,
+Yunhui
 
