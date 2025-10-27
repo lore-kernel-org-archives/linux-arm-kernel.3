@@ -4,101 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0663CCF9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA393CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k3ckgEiSkq+y7z9usMTBGQkVGgGdig/5c1NbkqTAlEY=; b=ySZtFVCpJGe83Vzuh17ITgdWzg
-	pn1OK54p4LDe6l0Jxcgvh0b+cXqZO6vtlX/nYS8SiIfrZHLGbc/kR+HYP0eOxOFqOKoM34oCsQRdE
-	T+nbihlLBZm5V0yBhlIX4nDImcCDhMAsJF72Gj9RJ/sEFQF5jjxB4heXcyAh+Rj/sBsosT+YZtyXo
-	ZU9EZjMaEYQlVjekcPV9Bw83tZvIj0u/I48WcS2H9d9DWJdU6Q1LLVAJVxPSKiyHx0Pf/ezRiHY2O
-	aLzjgnwkjY0vTwlTshlQHxbm3AEJIRrpC8v9chZkAEqE20qesn+dzDD23CBE3qTTRc84SqXPgCaNw
-	kAQ6NJMw==;
+	bh=yNjQaSlyqBjzdw1QheQZSvBkEOYkWL+P9izn1QMIxLY=; b=zCkN7xLAuOSOY6ue5kb8/PLRcP
+	aPlIvvJK1eAm7+JP/UlzkzqS5bqm8Y3iRy31wuLf756WldOAa9Cf/oIyIsLO5amGVO9mFaYiCYsPJ
+	42tQo/uZOVr12QR8NgQV6lXKC9Hnsen+MmU5sAF5iZ7Q/tFCbGO4cr7s/wLHCihAGlNScXhfAwoD0
+	Bjfru08mgFeXm59g1WZe9PgWGxL2ZZxkniW2jixEVXlfhKDWJ99LtzAjKopDzUIqqof19Wbv6LzJa
+	T87CzxK+CxFDxCuAtQbq6sB818Pq/DUr9WioiYLagTOQZNP5AmOzge9qaundzyfTc8XXLH48gRx+j
+	n3AH90kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJJL-0000000DVFY-0Pwv;
-	Mon, 27 Oct 2025 09:14:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJJK-0000000DVFD-07kS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Oct 2025 09:14:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=k3ckgEiSkq+y7z9usMTBGQkVGgGdig/5c1NbkqTAlEY=; b=kr4U+T4fYkicTgdBntJQQJcGN4
-	aBArk8CNpBLU9uk/521LA784dy3QbhpuRJYQOCHw2or5jJRDv1Jgz18kzFMYWmU57RtB58gWHhPnh
-	Ku3e+lkY0xX9exoxgWpzv9uwGKsr0qceqzFuQX1oCoS0hF16/0/JBx50xa7dFDEcGdAAjco5iPmnG
-	q/dnGNwYwrUnOWnHOaCWY26eovnYLvsl0k40fCskSGMeTi3xPmR+VjPLLmQXUWjmbDSqTSWgRXchk
-	aHvVRZ1Er0LhA8jYTSYoE1LbCy0qBte/mzhhdoouqZlkA8icO61D2fg8hMgZh+kt1RKfboX1SmHPB
-	VpkN9+bw==;
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIRW-00000001icL-3AYh
+	id 1vDJMQ-0000000DVWe-2fE5;
+	Mon, 27 Oct 2025 09:17:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDJMO-0000000DVW9-10Oh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 08:19:08 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4e8b3b6715bso30823841cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:14:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761556476; x=1762161276; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k3ckgEiSkq+y7z9usMTBGQkVGgGdig/5c1NbkqTAlEY=;
-        b=c9vED40XQJRS3l1OLjd+tvKKEh/UxLWlfaepZmOX7xPc7BHJK44TKHCiVSHSzAz4px
-         HDTyRunes0NmRRVx8E4u8OwX3Zvn2I/woLwy0/8P9PjRL1QdoAy5UE/ZLUYAy9T9zwMl
-         2lr0iNjI9CnA92GSMbEkD4CBkpcsRN4vS5y7tlrasEUv57O3hdlE0MYUwvzAPzR4JR1f
-         Ej2V98S6xabfQCPgFUmPyVzvr2MF5E4QwZHDhi0POMEsEX4rANFr8FuLm+mz80Lixcv6
-         5ispZTbHrXG2fLVSFfGfWp7aneRY66ouUKDpdgwgbRfZ80bGcRDNxHgfbwkH5RSvL5gn
-         TMQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761556476; x=1762161276;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=k3ckgEiSkq+y7z9usMTBGQkVGgGdig/5c1NbkqTAlEY=;
-        b=fRSaBdL1F6+ALK2IciAYN7GmFcD4x3OU3RJnUFN4bYvv8LyhOeOKCqjQKIh7zEXPRi
-         mFplSrhEWk22K0+zR0tvPssaRXmfHd0YDCptu5LJnagJ5IBKwj9Ek9/3nCJixAscN57C
-         citw9KnkXu5rfKFNUQVm87m7WwaLdNiaUkU4/C6K7DubA1RR6CGzVfDfzCpVwuYLboXA
-         ahu1kGgXY1YGtQHOE89JOLeCW1nf5h0U8445EaVTLHUahUmPUsuIlVe697U3ywd34TRr
-         14noSlkMl+pHSefCPJOwx7aOtGW0wLXQqJSVQE3/mETnjJKH2M1oN1OtbBx71nI82Ps9
-         Ch4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXZh05s89RHx/W0AAvEc/VE9+3ybf0M0AQsfgeF6iX2OF68OXt+v+w+BMUbZlwoGnhgK+CNSL+h8tRwcU1MQK8E@lists.infradead.org
-X-Gm-Message-State: AOJu0YzipD5U1sOEIjzFdQh+cvVPdt84vRaPAt3qp13uctLSHZWn26mi
-	fiMpaZcxp84YjzxrxC8BM7febEdsD/XJrbgRyNIoelx9VD/hb3zb1xtpjD18E4EvYY3+A0vQ7ez
-	jfyVnii8sYaXbG3Lie9Xv5nbmQADvA+s=
-X-Gm-Gg: ASbGncvAiXUebzKLb7kwdtV6LP+PhEmXj8TtOOUfrEDiNrIRTcvBa41tZFstcdXjABh
-	Ha/Z7H9z2Kps+QgLioesmm+yn5wX8zoI06s9PX7vv+1ECzf//PMD3S+yTmk9FnUrRdHRtoSZ3jm
-	FYAPk9L1Zt4zCHW6Er5IRUzGX0pks8iibXc21Oa3f+V7vrBcpmG1p/mP3wGxmH7blPu7jveL3Vz
-	WaLvFDZM4WU2iG2dnM3xeDfub1E4kgKfZXMXeS5RCNUqBaUimcCreTEKm9wgnpvB5iYvkZSGKHi
-	SWcCTfznKl47U+QjkTeuY0u4YthY
-X-Google-Smtp-Source: AGHT+IF/2QvCzE1TEuKomhBiAScmROMfTstvpHg7L8JdAeBZ1CrC1wuEfqNsUGGYV9Dp9piQXEYqMgRlhzJKaaFXdAc=
-X-Received: by 2002:a05:622a:d16:b0:4eb:a2ab:4182 with SMTP id
- d75a77b69052e-4eba2ab4738mr100138481cf.22.1761556476187; Mon, 27 Oct 2025
- 02:14:36 -0700 (PDT)
+	Mon, 27 Oct 2025 09:17:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75B5D1764;
+	Mon, 27 Oct 2025 02:17:40 -0700 (PDT)
+Received: from [10.57.67.85] (unknown [10.57.67.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 669873F673;
+	Mon, 27 Oct 2025 02:17:45 -0700 (PDT)
+Message-ID: <7386e009-2d53-4a0b-8c83-a84f51b4b79a@arm.com>
+Date: Mon, 27 Oct 2025 09:17:43 +0000
 MIME-Version: 1.0
-References: <20251026194858.92461-1-sigmaris@gmail.com>
-In-Reply-To: <20251026194858.92461-1-sigmaris@gmail.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 27 Oct 2025 13:14:28 +0400
-X-Gm-Features: AWmQ_bny2G__jDeyWDUL9Y-J8F57fNDWZftO8M3HOK0HvZdNg6brhmmHAL6LiRE
-Message-ID: <CABjd4YxsfxwEbic8QEabX1h9j0B3DBw9LWwctJx7SzdvXZdDhA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: pwm-fan overlay for NanoPC-T6
-To: Hugh Cole-Baker <sigmaris@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] coresight: tpdm: add static tpdm support
+Content-Language: en-GB
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+ Tao Zhang <tao.zhang@oss.qualcomm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251013-add-static-tpdm-support-v3-0-a720b73e83db@oss.qualcomm.com>
+ <20251013-add-static-tpdm-support-v3-2-a720b73e83db@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251013-add-static-tpdm-support-v3-2-a720b73e83db@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_081907_018892_7CEF179C 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20251027_021752_370950_8FEC67D9 
+X-CRM114-Status: GOOD (  31.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,31 +74,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hugh,
-
-On Mon, Oct 27, 2025 at 1:09=E2=80=AFPM Hugh Cole-Baker <sigmaris@gmail.com=
-> wrote:
->
-> FriendlyELEC offers an optional heatsink and fan addon for the NanoPC-T6
-> and T6 LTS. Add an overlay which can be applied if the fan is fitted and
-> configures the fan as an active cooling device for the SoC package.
->
-> Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
+On 13/10/2025 07:11, Jie Gan wrote:
+> The static TPDM function as a dummy source, however, it is essential
+> to enable the port connected to the TPDA and configure the element size.
+> Without this, the TPDA cannot correctly receive trace data from the
+> static TPDM. Since the static TPDM does not require MMIO mapping to
+> access its registers, a clock controller is not mandatory for its
+> operation.
+> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > ---
-> FriendlyELEC heatsink with fan addon:
-> https://www.friendlyelec.com/index.php?route=3Dproduct/product&product_id=
-=3D305
-> Vendor DT with trip points and PWM duty cycle values:
-> https://github.com/friendlyarm/kernel-rockchip/blob/4944602540b62f5aad139=
-fe602a76cf7c3176128/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev01.dts#L=
-75-L90
+>   drivers/hwtracing/coresight/coresight-tpda.c |   9 ++
+>   drivers/hwtracing/coresight/coresight-tpdm.c | 148 +++++++++++++++++++++------
+>   drivers/hwtracing/coresight/coresight-tpdm.h |   8 ++
+>   3 files changed, 131 insertions(+), 34 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+> index 333b3cb23685..4e93fa5bace4 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+> @@ -68,6 +68,15 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+>   	int rc = -EINVAL;
+>   	struct tpdm_drvdata *tpdm_data = dev_get_drvdata(csdev->dev.parent);
+>   
+> +	if (coresight_is_static_tpdm(csdev)) {
+> +		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+> +					      "qcom,dsb-element-bits", &drvdata->dsb_esize);
+> +		rc &= fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+> +					       "qcom,cmb-element-bits", &drvdata->cmb_esize);
+> +
 
-Is there any downside to enabling this unconditionally in the board
-.dts? Overlays require more user configuration, and not all
-bootloaders support them directly (e.g. systemd-boot users would
-struggle). Compiling with overlays enabled also makes .dtb's a lot
-larger due to added symbols information.
+This doesn't match the "dynamic" tpdm case ? We mandate that static
+TPDMs have DSB and CMB. I would rather set the appropriate flags in
 
-Best regards,
-Alexey
+tpdm_drvdata->dsb/cmb in the TPDM driver for static tpdms and not
+let the "static" vs "dynamic" creep into the TPDA and other users.
+
+e.g., in TPDM driver:
+
+if (static_tpdm()) {
+   tpdm_data->dsb = has_dsb_element_bits_property;
+   tpdm_data->cmb = has_cmb_element_bits_property;
+}
+
+
+> +		goto out;
+> +	}
+> +
+>   	if (tpdm_data->dsb) {
+>   		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>   				"qcom,dsb-element-bits", &drvdata->dsb_esize);
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+> index 7214e65097ec..1766b0182819 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+> @@ -495,7 +495,9 @@ static int tpdm_enable(struct coresight_device *csdev, struct perf_event *event,
+>   		return -EBUSY;
+>   	}
+>   
+> -	__tpdm_enable(drvdata);
+> +	if (!coresight_is_static_tpdm(csdev))
+> +		__tpdm_enable(drvdata);
+> +
+>   	drvdata->enable = true;
+>   	spin_unlock(&drvdata->spinlock);
+>   
+> @@ -551,7 +553,9 @@ static void tpdm_disable(struct coresight_device *csdev,
+>   		return;
+>   	}
+>   
+> -	__tpdm_disable(drvdata);
+> +	if (!coresight_is_static_tpdm(csdev))
+> +		__tpdm_disable(drvdata);
+
+minor nit: It is much safer to do this check in __tpdm_xxable() and
+return early.
+
+> +
+>   	coresight_set_mode(csdev, CS_MODE_DISABLED);
+>   	drvdata->enable = false;
+>   	spin_unlock(&drvdata->spinlock);
+> @@ -1342,10 +1346,9 @@ static const struct attribute_group *tpdm_attr_grps[] = {
+>   	NULL,
+>   };
+>   
+> -static int tpdm_probe(struct amba_device *adev, const struct amba_id *id)
+> +static int tpdm_probe(struct device *dev, struct resource *res)
+>   {
+>   	void __iomem *base;
+> -	struct device *dev = &adev->dev;
+>   	struct coresight_platform_data *pdata;
+>   	struct tpdm_drvdata *drvdata;
+>   	struct coresight_desc desc = { 0 };
+> @@ -1354,32 +1357,33 @@ static int tpdm_probe(struct amba_device *adev, const struct amba_id *id)
+>   	pdata = coresight_get_platform_data(dev);
+>   	if (IS_ERR(pdata))
+>   		return PTR_ERR(pdata);
+> -	adev->dev.platform_data = pdata;
+> +	dev->platform_data = pdata;
+>   
+>   	/* driver data*/
+>   	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+>   	if (!drvdata)
+>   		return -ENOMEM;
+> -	drvdata->dev = &adev->dev;
+> +	drvdata->dev = dev;
+>   	dev_set_drvdata(dev, drvdata);
+>   
+> -	base = devm_ioremap_resource(dev, &adev->res);
+> -	if (IS_ERR(base))
+> -		return PTR_ERR(base);
+> +	if (res) {
+> +		base = devm_ioremap_resource(dev, res);
+> +		if (IS_ERR(base))
+> +			return PTR_ERR(base);
+>   
+> -	drvdata->base = base;
+> +		drvdata->base = base;
+> +		ret = tpdm_datasets_setup(drvdata);
+> +		if (ret)
+> +			return ret;
+>   
+> -	ret = tpdm_datasets_setup(drvdata);
+> -	if (ret)
+> -		return ret;
+> +		if (drvdata && tpdm_has_dsb_dataset(drvdata))
+> +			of_property_read_u32(drvdata->dev->of_node,
+> +					     "qcom,dsb-msrs-num", &drvdata->dsb_msr_num);
+>   
+> -	if (drvdata && tpdm_has_dsb_dataset(drvdata))
+> -		of_property_read_u32(drvdata->dev->of_node,
+> -			   "qcom,dsb-msrs-num", &drvdata->dsb_msr_num);
+> -
+> -	if (drvdata && tpdm_has_cmb_dataset(drvdata))
+> -		of_property_read_u32(drvdata->dev->of_node,
+> -			   "qcom,cmb-msrs-num", &drvdata->cmb_msr_num);
+> +		if (drvdata && tpdm_has_cmb_dataset(drvdata))
+> +			of_property_read_u32(drvdata->dev->of_node,
+> +					     "qcom,cmb-msrs-num", &drvdata->cmb_msr_num);
+> +	}
+>   
+>   	/* Set up coresight component description */
+>   	desc.name = coresight_alloc_device_name(&tpdm_devs, dev);
+> @@ -1388,34 +1392,51 @@ static int tpdm_probe(struct amba_device *adev, const struct amba_id *id)
+>   	desc.type = CORESIGHT_DEV_TYPE_SOURCE;
+>   	desc.subtype.source_subtype = CORESIGHT_DEV_SUBTYPE_SOURCE_TPDM;
+>   	desc.ops = &tpdm_cs_ops;
+> -	desc.pdata = adev->dev.platform_data;
+> -	desc.dev = &adev->dev;
+> +	desc.pdata = dev->platform_data;
+> +	desc.dev = dev;
+>   	desc.access = CSDEV_ACCESS_IOMEM(base);
+> -	desc.groups = tpdm_attr_grps;
+> +	if (res)
+> +		desc.groups = tpdm_attr_grps;
+>   	drvdata->csdev = coresight_register(&desc);
+>   	if (IS_ERR(drvdata->csdev))
+>   		return PTR_ERR(drvdata->csdev);
+>   
+>   	spin_lock_init(&drvdata->spinlock);
+>   
+> -	/* Decrease pm refcount when probe is done.*/
+> -	pm_runtime_put(&adev->dev);
+> -
+>   	return 0;
+>   }
+>   
+> -static void tpdm_remove(struct amba_device *adev)
+> +static int tpdm_remove(struct device *dev)
+>   {
+> -	struct tpdm_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+> +	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev);
+>   
+>   	coresight_unregister(drvdata->csdev);
+> +
+> +	return 0;
+> +}
+> +
+> +static int dynamic_tpdm_probe(struct amba_device *adev,
+> +			      const struct amba_id *id)
+> +{
+> +	int ret;
+> +
+> +	ret = tpdm_probe(&adev->dev, &adev->res);
+> +	if (!ret)
+> +		pm_runtime_put(&adev->dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static void dynamic_tpdm_remove(struct amba_device *adev)
+> +{
+> +	tpdm_remove(&adev->dev);
+>   }
+>   
+>   /*
+>    * Different TPDM has different periph id.
+>    * The difference is 0-7 bits' value. So ignore 0-7 bits.
+>    */
+> -static const struct amba_id tpdm_ids[] = {
+> +static const struct amba_id dynamic_tpdm_ids[] = {
+>   	{
+>   		.id	= 0x001f0e00,
+>   		.mask	= 0x00ffff00,
+> @@ -1423,17 +1444,76 @@ static const struct amba_id tpdm_ids[] = {
+>   	{ 0, 0, NULL },
+>   };
+>   
+> -static struct amba_driver tpdm_driver = {
+> +MODULE_DEVICE_TABLE(amba, dynamic_tpdm_ids);
+> +
+> +static struct amba_driver dynamic_tpdm_driver = {
+>   	.drv = {
+>   		.name   = "coresight-tpdm",
+>   		.suppress_bind_attrs = true,
+>   	},
+> -	.probe          = tpdm_probe,
+> -	.id_table	= tpdm_ids,
+> -	.remove		= tpdm_remove,
+> +	.probe          = dynamic_tpdm_probe,
+> +	.id_table	= dynamic_tpdm_ids,
+> +	.remove		= dynamic_tpdm_remove,
+>   };
+>   
+> -module_amba_driver(tpdm_driver);
+> +static int tpdm_platform_probe(struct platform_device *pdev)
+> +{
+> +	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	int ret;
+> +
+> +	pm_runtime_get_noresume(&pdev->dev);
+> +	pm_runtime_set_active(&pdev->dev);
+> +	pm_runtime_enable(&pdev->dev);
+> +
+> +	ret = tpdm_probe(&pdev->dev, res);
+> +	pm_runtime_put(&pdev->dev);
+> +	if (ret)
+> +		pm_runtime_disable(&pdev->dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static void tpdm_platform_remove(struct platform_device *pdev)
+> +{
+> +	struct tpdm_drvdata *drvdata = dev_get_drvdata(&pdev->dev);
+> +
+> +	if (WARN_ON(!drvdata))
+> +		return;
+> +
+> +	tpdm_remove(&pdev->dev);
+> +	pm_runtime_disable(&pdev->dev);
+> +}
+> +
+> +static const struct of_device_id static_tpdm_match[] = {
+> +	{.compatible = "qcom,coresight-static-tpdm"},
+> +	{}
+> +};
+> +
+> +MODULE_DEVICE_TABLE(of, static_tpdm_match);
+> +
+> +static struct platform_driver static_tpdm_driver = {
+> +	.probe		= tpdm_platform_probe,
+> +	.remove		= tpdm_platform_remove,
+> +	.driver		= {
+> +		.name	= "coresight-static-tpdm",
+> +		.of_match_table = static_tpdm_match,
+> +		.suppress_bind_attrs = true,
+> +	},
+> +};
+> +
+> +static int __init tpdm_init(void)
+> +{
+> +	return coresight_init_driver("tpdm", &dynamic_tpdm_driver, &static_tpdm_driver,
+> +				     THIS_MODULE);
+> +}
+> +
+> +static void __exit tpdm_exit(void)
+> +{
+> +	coresight_remove_driver(&dynamic_tpdm_driver, &static_tpdm_driver);
+> +}
+> +
+> +module_init(tpdm_init);
+> +module_exit(tpdm_exit);
+>   
+>   MODULE_LICENSE("GPL");
+>   MODULE_DESCRIPTION("Trace, Profiling & Diagnostic Monitor driver");
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/drivers/hwtracing/coresight/coresight-tpdm.h
+> index b11754389734..9f52c88ce5c1 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.h
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
+> @@ -343,4 +343,12 @@ struct tpdm_dataset_attribute {
+>   	enum dataset_mem mem;
+>   	u32 idx;
+>   };
+> +
+> +static inline bool coresight_is_static_tpdm(struct coresight_device *csdev)
+> +{
+> +	struct device_node *node = csdev->dev.parent->of_node;
+> +
+> +	return (csdev &&
+> +		of_device_is_compatible(node, "qcom,coresight-static-tpdm"));
+
+Why do we have to go check the firmware table all the time ? Could we 
+not cache this in drvdata ? Or even better, we can use the csdev->access
+
+by using :  coresight_device_is_tpdm()
+
+return (coresight_device_is_tpdm(csdev) && !csdev->access->base);
+
+Suzuki
 
