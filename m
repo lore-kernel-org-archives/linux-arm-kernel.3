@@ -4,61 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3820CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16CFFCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oKmouidKKBVsyXF0K/DNGIxfENXL583CftUMKE39cU=; b=V7UKd3bed1l0tb6/zJu7SW84qj
-	5Aw6nA7kwG/IFhQszs2UOxA2ECr5FGwzxt5Sb5Q9+ipw/H64z5oivRE8vU4BOb9JDDr1xuOt1ljWy
-	jpCU4kr07KxLL8VYcnqQhnfKAWoWTqzoSucmOr36kUOkicCys13sDApOmX62k4pbdzb3yxBW83Guy
-	wsUDk95CNgu2a2C8h7lrohxGjpFnRcYVYwi75tpQasZ5eqjtcPBEsfybTK+ORWrGGOhpJFL5WZGCi
-	fsoR8MoUYH+eNDoWebp9p5yb1cNecBMNt5X7fCAhIjwUVpOOsZ/qF08AiCfy0LuZ0q2NdyZJAVj6o
-	9mlm/MLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0IYenQhIa9PZj00vW7IIruD0UnAnXJ3V9tGf3ph9/f0=; b=h2p3cSagb/ABsxZlVvNW5ipw99
+	YHxocCl+5YZZhoO1PIatK91nYkpzfiqV4BuwGCl9VkXHRbpNKUBPDdKvIhmkwcralNizn5goBgKQt
+	y67KwoPqT//xIOcVXLeTb8CgDGiR76HLlKeuERODxxtHaF5+YKliSz9py99U7TFkoFFkORh0VZncK
+	O4NhTglFRqJjYXS8RxwjcsBeCBAhWxTndsPU4GOW/+3Pm55BnNMrkuGeVrCQ4CMYueNLhTyZy5wyq
+	qf1T6td9dJq3tprwcSeMo6DsPaI1VvROwOUztQ74Z9wKE/j6U3qB4iZC+pO3zFEf5BXlUE1MkPu6l
+	hxF+kttw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLRm-0000000DlVh-32IY;
-	Mon, 27 Oct 2025 11:31:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLRk-0000000DlV9-20wq
+	id 1vDLY6-0000000DmOs-2BxG;
+	Mon, 27 Oct 2025 11:38:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDLY4-0000000DmNt-1jY7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 11:31:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D9AC169E;
-	Mon, 27 Oct 2025 04:31:22 -0700 (PDT)
-Received: from [10.57.67.85] (unknown [10.57.67.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 262D53F673;
-	Mon, 27 Oct 2025 04:31:27 -0700 (PDT)
-Message-ID: <8304f4b3-3c17-4ecc-b1f1-528941e32b56@arm.com>
-Date: Mon, 27 Oct 2025 11:31:26 +0000
+	Mon, 27 Oct 2025 11:38:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761565081;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=0IYenQhIa9PZj00vW7IIruD0UnAnXJ3V9tGf3ph9/f0=;
+	b=VhAz8E/sdaPw9KMgIRjJP6vdCVTlIN/0mvoJsO5O6qslxq9Mt64FJv6/yihgspIGaghUBO
+	EG4Skess3+he7XR5TDwclKKyLyb6WpyPosUF0bhIJVlpBx9oWdNp8xaRJgRjQ59XJTJSL0
+	y/QsmUp8DUbLiuD59qcMCUqLjE8QhUs=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-302-1EPx5-RuN2ydAFDTV1SSwQ-1; Mon, 27 Oct 2025 07:37:58 -0400
+X-MC-Unique: 1EPx5-RuN2ydAFDTV1SSwQ-1
+X-Mimecast-MFC-AGG-ID: 1EPx5-RuN2ydAFDTV1SSwQ_1761565077
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-42700099ff5so4246109f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 04:37:58 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761565077; x=1762169877;
+        h=mime-version:message-id:subject:cc:to:from:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0IYenQhIa9PZj00vW7IIruD0UnAnXJ3V9tGf3ph9/f0=;
+        b=IR8a1R/OyxxACiYaskaZkcDd7bVk2/ZgHXky8k/4JSO66SiJDdo/Q4ywCdYFhr5XYR
+         wtLCmrctBd+N2qcNSsnfKQvy9dIzAzQOdgBGeeYtXRxdLY/nsl+Yh5nT6K3qgERVsZX5
+         uj+ZCE2XuzDzVpY1V+srh5Kg6UsSRPsNjhqjq7E+KUk6KVU1Pk8M9VHPMNtsaoxYgjVs
+         0Y908+XoXbk5BPnyKtPuwY33g6FBC9JScRGkq2AIp3rqPBO3Y7Aa69EjvsaHxw93OzqP
+         kRxEq9duLGrkMGxel2tcNQLKEHKN9JldQ4J8Jo3zcbRJyYsJhM948tGsIb9aeiHn8ZWe
+         HhuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXlkYdu2CHGFGebGwCqiR5h6OCE2luZ3kauycLP2h6+GRuFJdGNcFZGPRvCCYMM1/LQqlw9Pe1tr43JEgggY3+Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmqKg89r7xSmvAT9oMROqxhNEIlNfHKoJnJ5hW/gkUDg89dJ9F
+	/uvCcXIcUH+dpKGq8BZiu4W7586+FEPTL5Ymd/8Y0Y0EPQBXM+OIUIZItHi/9m59nDdi0KeyRT6
+	Ra8nKyjYKNoWaBJsqT66mVil8lF8PF+SN6+Le7p+zlynPFnUCAAbqqDO5A33la/iKngx4yPnRqN
+	ygMZ9T65Qi
+X-Gm-Gg: ASbGncvF80DiSkvZRqO6qrbZlD8oz6SZklc0sEzzSWF2mDYrnPdB/sKIUF7hgCJkKWf
+	/udYHTBc0enYVUusduYqBlkX/DWJ8SH8N8nF8LWwbhu3WxbvcuHPG6miI91fdyIFW8ia0AqWj0x
+	egfW79PrPCUiEPqb2BWj/maU44MqhYiSViaD4EhrA0Vklb0fyptM/3I94/qdPwhrR2GBO6O15gM
+	s2mJBu8G9q0Upt+w6bmS+58jNQBqLyfz7Vn4oi7liyLelqXNCS0KDTpkpxAD29vY3gCjPPJsiqi
+	vDQv8NeUBGK0GPNKzWEt+pM0vqVTPDhoASxaqTrsiYiDTL/Yi/CKl8c4Dxt/UYwgIBy4EoeEOr/
+	jdgJslr4njSe15vNxdYa5ECOZs6JnF08XePXnXQXSr0ZcbaBw
+X-Received: by 2002:a5d:5c89:0:b0:425:7406:d298 with SMTP id ffacd0b85a97d-42704d7e9ebmr30407491f8f.5.1761565076782;
+        Mon, 27 Oct 2025 04:37:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEGx4uKgsYoM0fU52HYyWEvQMrYgypwVSrAUmI9lNjcwUX5i2uMZCdkDcF1SDu586SVN9WApQ==
+X-Received: by 2002:a5d:5c89:0:b0:425:7406:d298 with SMTP id ffacd0b85a97d-42704d7e9ebmr30407464f8f.5.1761565076305;
+        Mon, 27 Oct 2025 04:37:56 -0700 (PDT)
+Received: from rh (p200300f6af131a0027bd20bfc18c447d.dip0.t-ipconnect.de. [2003:f6:af13:1a00:27bd:20bf:c18c:447d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952cb7e8sm14108931f8f.19.2025.10.27.04.37.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 04:37:55 -0700 (PDT)
+Date: Mon, 27 Oct 2025 12:37:54 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+    Sascha Bischoff <Sascha.Bischoff@arm.com>
+cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+    Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>, 
+    Joey Gouly <joey.gouly@arm.com>, Will Deacon <will@kernel.org>, 
+    linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+    linux-kernel@vger.kernel.org
+Subject: Failing no-vgic-v3 test
+Message-ID: <f9c7fffa-53ba-a506-b48b-07e3df2d1d5a@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/11] coresight: etm4x: Ensure context synchronization
- is not ignored
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com>
- <20251024-arm_coresight_power_management_fix-v4-5-690e69ae6977@arm.com>
- <503e673c-441b-46dc-89d0-fb54ac81ec60@arm.com>
- <aP9M7W9ufz0NGt80@e129823.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aP9M7W9ufz0NGt80@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: xul7jHcfNT-Xh9i7ESdeSgCjPNjP3i8KiQ2nBzRYlf0_1761565077
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; format=flowed; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_043132_554966_B7CD3702 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20251027_043804_521916_3A61C303 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +108,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/10/2025 10:43, Yeoreum Yun wrote:
-> Hi Suzuki,
->> On 24/10/2025 17:45, Leo Yan wrote:
->>> As recommended in section 4.3.7 "Synchronization of register updates" of
->>> ARM IHI0064H.b, a self-hosted trace analyzer should always executes an
->>> ISB instruction after programming the trace unit registers.
->>>
->>> An ISB works as a context synchronization event; a DSB is not required.
->>> Removes the redundant barrier in the enabling flow.
->>
->> It is required for MMIO based instances and must be retained.
-> 
-> I think it seems fine. since the the etm4x device mmio is mapped as
-> Device-nGnRE and according to the section Leo mention:
-> 
->    Synchronization when using the memory-mapped interface
->    ..
->    When disabling or enabling the trace unit, the trace analyzer must poll TRCSTATR to check the trace unit is either
->    idle or not idle, as described in Use of the trace unit main enable bit on page 4-169:
->      • When the memory is marked as Device-nGnRE or stronger.
->        — Write to enable or disable the trace unit.
->        — Poll TRCSTATR to ensure the previous write has completed.
->        — Execute an ISB operation.
-> 
-> Therefore, we can omit the dsb in here.
+Hey,
 
-You are right, to be precise, as long as we quote the following, I am fine.
+on an ampere altra I've got a sad selftest:
+
+[root@virtlab-arm11 kvm]# ./arm64/no-vgic-v3
+Random seed: 0x6b8b4567
+==== Test Assertion Failure ====
+   arm64/no-vgic-v3.c:66: handled
+   pid=3793 tid=3793 errno=4 - Interrupted system call
+      1  0x0000000000402feb: test_run_vcpu at no-vgic-v3.c:128
+      2  0x000000000040214f: test_guest_no_gicv3 at no-vgic-v3.c:155 (discriminator 17)
+      3   (inlined by) main at no-vgic-v3.c:174 (discriminator 17)
+      4  0x0000ffff873eb587: ?? ??:0
+      5  0x0000ffff873eb65f: ?? ??:0
+      6  0x00000000004022af: _start at ??:?
+   ICC_PMR_EL1 no read trap
+
+This is a guest without VGICv3 on GICv3 HW. The test expects UNDEF on reg
+access - which is not happening since:
+
+3193287ddffb KVM: arm64: gic-v3: Only set ICH_HCR traps for v2-on-v3 or v3 guests
+
+As a local fix I've done:
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index 6fbb4b099855..1fe53a021926 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -297,11 +297,15 @@ void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
+  {
+  	struct vgic_v3_cpu_if *vgic_v3 = &vcpu->arch.vgic_cpu.vgic_v3;
+
+  	if (!vgic_is_v3(vcpu->kvm))
+  		return;
+
+  	/* Hide GICv3 sysreg if necessary */
+-	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V2) {
++	if (!kvm_has_gicv3(vcpu->kvm) ||
++	    vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V2) {
+  		vgic_v3->vgic_hcr |= (ICH_HCR_EL2_TALL0 | ICH_HCR_EL2_TALL1 |
+  				      ICH_HCR_EL2_TC);
+  		return;
 
 
-Section 4.3.7, Synchronization when using the memory-mapped interface -
+but following the intention of the patch above maybe we should do smth
+like:
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index 6fbb4b099855..1fe53a021926 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -297,11 +297,15 @@ void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
+  {
+  	struct vgic_v3_cpu_if *vgic_v3 = &vcpu->arch.vgic_cpu.vgic_v3;
 
-When using the memory-mapped interface to program the trace unit, the 
-trace analyzer must ensure that writes have completed, to ensure that 
-the trace unit is fully programmed and either enabled or disabled.
+  	if (!vgic_is_v3(vcpu->kvm))
+  		return;
 
-• If the memory marked is as Device-nGnRE or stronger, read back the 
-value of any register in the trace unit. This relies on peripheral 
-coherence order defined in the Arm architecture.
+  	/* Hide GICv3 sysreg if necessary */
+-	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V2) {
++	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR0_EL1, GIC, NI) ||
++	    vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V2) {
+  		vgic_v3->vgic_hcr |= (ICH_HCR_EL2_TALL0 | ICH_HCR_EL2_TALL1 |
+  				      ICH_HCR_EL2_TC);
+  		return;
 
-
-Suzuki
-
-
-> 
-> [...]
-> 
-> Thanks.
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
+Thoughts?
+Sebastian
 
 
