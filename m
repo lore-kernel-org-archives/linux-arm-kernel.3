@@ -4,101 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A8CCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B885DCCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yOYdLIvACytBpVHjrdATGnV0/c7ZzUCpXjvbRDnZ37c=; b=FgriWFuzpzA+9iSaj0t+Ps+q6m
-	vusS/J8NBbUNBWMGm/9wN+x5nZkWowvlExoXluD4cwF1JnPZd+hxBHBwIx+6+2NoPzWr7/FaxXYvn
-	9uyXZ1IxlFxJqvaGxP60lwSC8JBuXtN2eMWYk/OnukHeh0sKG6ciDyzoUs5RRH7DHH9jFYkVASebN
-	tiMUUiV0kpACMWLuzQbzU7mQo022KZdgM8euVuhi/wutgPQQm+EDf/0+2FrPfjOsFXznUtHwVHHRe
-	XafA/GOq+bW7Fx3+vmDeTKbzatLNRrsQzMRZE3iJLlL00OCBsjmn3ddUQl5bIV6SBxdNatZaYt/f+
-	ErW8M+/Q==;
+	bh=ZIHQREHt+l8XAscKxuWlR1jje62LN0QUhsJTrFrmIjQ=; b=ZaF0XCgl5A6Lst2B3Db8TYZ6AB
+	bVi8kkWBdcj+GFDr9btJO2AJQiLpRYjnPgXGiPug/MXQUlCPT3+xSYcDTzKwGHL1lkgAmmXgmdeSR
+	zJswvMTQI1L6sHuvLJhQQIHTQGRoiAgd2+OBO3YaIVHOj0DHpcRpOcyIH4fw/95nb/wpFSDp+bGA1
+	Np1NllV8HyeqMDzz//AVjJ4zB8TwPxe/OUCjfcNFovuWrKa69H/T8U7g11u9e7eeQNbq3jN/6f91F
+	tgYoDalAPqw9BxbX68ZNBqiU78xz5ssSILvpaQRRPJHQwBYvJXuFv7+OAz7f0ZBv+pR99kGEqlWIK
+	DauUUIkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMja-0000000Dw4q-1D3f;
-	Mon, 27 Oct 2025 12:54:02 +0000
-Received: from mail-vk1-f180.google.com ([209.85.221.180])
+	id 1vDMlb-0000000Dwee-2U8K;
+	Mon, 27 Oct 2025 12:56:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMjX-0000000Dw4N-1vyk
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:54:00 +0000
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-54aa30f4093so1641306e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:53:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761569637; x=1762174437;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yOYdLIvACytBpVHjrdATGnV0/c7ZzUCpXjvbRDnZ37c=;
-        b=je/Ol2GtC/tpmI4B14e+6/n0kM8Slu8kSiacmu+2JwEffEDS9juUjiHX6AInDZOjrs
-         4c5rniUYkRdQO/leK0xhE+8MEOUQCKGFvhsc10OvEI52FnI8QG6AR1KbqYf7Jag/9Le4
-         C8HzmjathaTCMnWU/JuZJWvgjRTVulU4CA9Dr3GiKLc4/hQu1A4WroFbhbFm9Zz7CJIh
-         Fpb6lwo+JS3MA+abOuDgJ9KWstGw7TpmLEgYPZaSLdQbgTzu8lGSmWwFRGTiGwuLCIeZ
-         VcVm8mqGi28AQVrQZ43Z7kLwhG69tu5Uoa0/s0GCpLE3p2QmcS6sXrVSle8lkoN/rnMO
-         UlBw==
-X-Forwarded-Encrypted: i=1; AJvYcCWCYgMoGqqyhMGO6NmqGruSe4qjh1fTj079wf/2fwgaKFg8W8WeN2mO5wY3Nca73P5zV/A8dJa5agIzyY8/aKdl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP8tbyRfBcd0eHzJxyIME/EASKO1ddw21P/5BgU3NU04ro9LCX
-	zlmww+RuZlYkmD3a9va79A1CAh5riTuFTiHFl1JW62J99M9C14rEX6M7g9hVEM+6
-X-Gm-Gg: ASbGnctprIfxKPXqSsWcEU+s2Wm0PaEG7ZJcq8xde2FNBAWia2rTYG/e1sDJmwyzAv2
-	hOPWPivfIdt4Yz71s518NkWkzGw6P6EeJDO5O44tfuqI9gq1WWFZ7AUfBGOqBr8XQKx+HKXobui
-	nm36LZJJGtpFuAJO6quxf+sATsWXb43TvbSUQ/RaBYDyO5kFhERe3XcnKveSp88eml0pAEXtqi+
-	0gvC13wtFNLYTAu21KBU5CQ0ROqmr321YeXoGQnXLE/AvbCyGN8JsJxWY7w2Gb3NH2QwQ60Uqqi
-	KFThEAvkNypFt8J9AGY0CTOwWTIxBZwSH0J8ctxcV8OuZGlzXrfp7+Gya9LNeWJht1SRFB/ZMGi
-	wtIl96gk+BTGxYIy0zeVTd31y8V9owygi3JLr2IXCLMTHb5V8FwoNorOD6DDIJUTEQxaMoR06Uo
-	TP6CUshPs7DiMhhpT5fcusxaRLrdC822NavGEXcQ==
-X-Google-Smtp-Source: AGHT+IGbIyOMBVV+CGKO9O5oKPdw75JvkFk3rnlXR7m6Oe5ZJ7kPlmv1qeiZm4WVJTNH6+zQSNHamA==
-X-Received: by 2002:a05:6122:d1d:b0:557:c0c8:5092 with SMTP id 71dfb90a1353d-557c0c85229mr4701933e0c.15.1761569637372;
-        Mon, 27 Oct 2025 05:53:57 -0700 (PDT)
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-557ddac10f4sm2824322e0c.1.2025.10.27.05.53.56
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 05:53:56 -0700 (PDT)
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-932bf9df69dso1439927241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:53:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV5jdQfeDyLGiiQJtgJO1l+FjqqkTZOaCqfB1XC4IE9Rp9r0ambeDSVY7QEAYLNMzbgUkZsDQ85mbq59kF9e64x@lists.infradead.org
-X-Received: by 2002:a05:6102:26d4:b0:522:86ea:42c with SMTP id
- ada2fe7eead31-5d7dd5a64c5mr10674902137.11.1761569636629; Mon, 27 Oct 2025
- 05:53:56 -0700 (PDT)
+	id 1vDMla-0000000Dwe5-3yOE;
+	Mon, 27 Oct 2025 12:56:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ZIHQREHt+l8XAscKxuWlR1jje62LN0QUhsJTrFrmIjQ=; b=juO0dUTBltU0F29M+2/0hv7+zR
+	JnMnagQ/Pql/OnX1CQO3nVEHbd+Mj0oCk06NXwDMu0SmIXTwcgxNdK/qHyfNTWvDHnpgtVkwzr+14
+	IcblOw1H3qCvrOTVEwnQwGWc1gUEeV+fuhEbtxv94eaKjcloIfygcNj0e3cUO9M1F3oYbphK+14XB
+	rcbI6DLkhqtQqa2AcHke5TaB01Wsu/1O5hmBuJHH9xiBMylXHQYxiCf3OJQMDyu0QrO+7fNfXtG/Z
+	3B3ZMJM/aSo9Ai0jXp7anvz6MNK0s5fWphxyDVKilDbZRI8B0pSrbJbgjEMp0Q1W3GZ/04sDikY2O
+	/DEsFJAg==;
+Received: from mail.8bytes.org ([85.214.250.239])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDLti-000000026oQ-12nZ;
+	Mon, 27 Oct 2025 12:00:30 +0000
+Received: from 8bytes.org (p549214ac.dip0.t-ipconnect.de [84.146.20.172])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 574F959993;
+	Mon, 27 Oct 2025 13:55:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1761569756;
+	bh=wdPrvvPNgCJ92pfYnd82XapNMb2/K9Lk7SnMdXsPwYo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HA4IsI57/crRJKm5huZnz2yM9cueuQ83JrqqF31F0g7mwiTfeSnd43x0jF6LZthZc
+	 xInJr7Dl8APiu4Qf/1dKwgAOW7EJNTBxKaqeF3SCeMWstoORITwx7nsvUeINWh5k+9
+	 Ny8WfW/m0sLSzi4YzjffMfU5XZZBpghT634JsVKbHjtinJ84F0IqokpBXMlZ9vPJO6
+	 HareDmhYXldiDUpmdDec87KCRVmJXWOlsHVldVZQAV6o+WAdhsPOkS6ZLKvwvFxjCx
+	 iZSNYPT42T4jbU1r7D4nVssf6XfXSjG7/V3tsl+vP1evUijU+Z9RswofRmqxeAExhN
+	 NJmXcf6NEl0nQ==
+Date: Mon, 27 Oct 2025 13:55:55 +0100
+From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, suravee.suthikulpanit@amd.com, 
+	will@kernel.org, robin.murphy@arm.com, sven@kernel.org, j@jannau.net, 
+	robin.clark@oss.qualcomm.com, m.szyprowski@samsung.com, krzk@kernel.org, dwmw2@infradead.org, 
+	baolu.lu@linux.intel.com, yong.wu@mediatek.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, tjeznach@rivosinc.com, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, heiko@sntech.de, schnelle@linux.ibm.com, mjrosato@linux.ibm.com, 
+	orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, wens@csie.org, 
+	jernej.skrabec@gmail.com, samuel@sholland.org, thierry.reding@gmail.com, 
+	jonathanh@nvidia.com, jean-philippe@linaro.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, virtualization@lists.linux.dev, patches@lists.linux.dev
+Subject: Re: [PATCH v2 0/6] iommu: Pass in old_domain pointer to attach_dev
+Message-ID: <xlu227m6u3wubnexhxh2cpx7nwudhvbmgqcqoas57a6sqgvege@p4s5i5p77v7a>
+References: <cover.1761017765.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
- <20251022070543.1169173-5-ryan_chen@aspeedtech.com> <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
- <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com> <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <71df9bdf-53b2-45e2-a9e3-5b00a556f957@lunn.ch> <TY2PPF5CB9A1BE6F3E95C7FD61CF4F90ECAF2FEA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <fdbc471f-514e-4521-b7a1-dcf6127d64ff@lunn.ch> <TY2PPF5CB9A1BE6DD93D0F397C961D5CB5AF2FCA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <01573262-69a8-44cf-ae02-2e9842c59dde@lunn.ch>
-In-Reply-To: <01573262-69a8-44cf-ae02-2e9842c59dde@lunn.ch>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 27 Oct 2025 13:53:45 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXAOPemhTjdJqminXhi+1+Dsc5rN1GLqAUcfF3ZyphRoQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bnc0FKdJRTj1IhXsyeFKk3WmW431oeoaAfsizI36RwwOH6YiF14-6GD61A
-Message-ID: <CAMuHMdXAOPemhTjdJqminXhi+1+Dsc5rN1GLqAUcfF3ZyphRoQ@mail.gmail.com>
-Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device tree
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Ryan Chen <ryan_chen@aspeedtech.com>, Arnd Bergmann <arnd@arndb.de>, 
-	BMC-SW <BMC-SW@aspeedtech.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Jeremy Kerr <jk@codeconstruct.com.au>, 
-	Lee Jones <lee@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Nishanth Menon <nm@ti.com>, 
-	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Taniya Das <quic_tdas@quicinc.com>, 
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1761017765.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_055359_509220_934CCC70 
-X-CRM114-Status: GOOD (  28.43  )
+X-CRM114-CacheID: sfid-20251027_120026_334931_230A6645 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,49 +97,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Wed, Oct 22, 2025 at 07:21:03PM -0700, Nicolin Chen wrote:
+> Jason Gunthorpe (1):
+>   iommu: Generic support for RMRs during device release
+> 
+> Nicolin Chen (5):
+>   iommu/arm-smmu-v3: Set release_domain to arm_smmu_blocked_domain
+>   iommu/exynos-iommu: Set release_domain to exynos_identity_domain
+>   iommu/amd: Set release_domain to blocked_domain
+>   iommu: Do not revert set_domain for the last gdev
+>   iommu: Pass in old domain to attach_dev callback functions
+> 
+>  include/linux/iommu.h                         |  3 +-
+>  arch/powerpc/kernel/iommu.c                   |  5 ++-
+>  drivers/iommu/amd/iommu.c                     | 21 +++------
+>  drivers/iommu/apple-dart.c                    |  9 ++--
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  5 ++-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 31 ++++++-------
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c         |  9 ++--
+>  drivers/iommu/arm/arm-smmu/qcom_iommu.c       | 11 ++---
+>  drivers/iommu/exynos-iommu.c                  | 11 ++---
+>  drivers/iommu/fsl_pamu_domain.c               | 12 ++---
+>  drivers/iommu/intel/iommu.c                   | 10 +++--
+>  drivers/iommu/intel/nested.c                  |  2 +-
+>  drivers/iommu/iommu.c                         | 44 +++++++++++++------
+>  drivers/iommu/iommufd/selftest.c              |  2 +-
+>  drivers/iommu/ipmmu-vmsa.c                    | 10 ++---
+>  drivers/iommu/msm_iommu.c                     | 11 ++---
+>  drivers/iommu/mtk_iommu.c                     |  8 ++--
+>  drivers/iommu/mtk_iommu_v1.c                  |  7 ++-
+>  drivers/iommu/omap-iommu.c                    | 12 ++---
+>  drivers/iommu/riscv/iommu.c                   |  9 ++--
+>  drivers/iommu/rockchip-iommu.c                | 20 ++++++---
+>  drivers/iommu/s390-iommu.c                    | 13 +++---
+>  drivers/iommu/sprd-iommu.c                    |  3 +-
+>  drivers/iommu/sun50i-iommu.c                  |  8 ++--
+>  drivers/iommu/tegra-smmu.c                    | 10 ++---
+>  drivers/iommu/virtio-iommu.c                  |  6 ++-
+>  26 files changed, 172 insertions(+), 120 deletions(-)
 
-On Mon, 27 Oct 2025 at 13:01, Andrew Lunn <andrew@lunn.ch> wrote:
-> On Mon, Oct 27, 2025 at 02:42:01AM +0000, Ryan Chen wrote:
-> > > Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device
-> > > tree
-> > >
-> > > > SoC0, referred to as the CPU die, contains a dual-core Cortex-A35
-> > > > cluster and two Cortex-M4 cores, along with its own clock/reset
-> > > > domains and high-speed peripheral set.
-> > >
-> > > > SoC1, referred to as the I/O die, contains the Boot MCU and its own
-> > > > clock/reset domains and low-speed peripheral set, and is responsible
-> > > > for system boot and control functions.
-> > >
-> > > So is the same .dtsi file shared by both systems?
-> >
-> > This .dtsi represents the Cortex-A35 view only and is not shared
-> > with the Cortex-M4 or the Boot MCU side, since they are separate
-> > 32-bit and 64-bit systems running independent firmware.
->
-> DT describes the hardware. The .dtsi file could be shared, you just
-> need different status = <>; lines in the dtb blob.
->
-> > > How do you partition devices
-> > > so each CPU cluster knows it has exclusive access to which peripherals?
-> >
-> > Before the system is fully brought up, Boot MCU configure hardware
-> > controllers handle the resource partitioning to ensure exclusive access.
->
-> Are you saying it modifies the .dtb blob and changes some status =
-> "okay"; to "disabled";?
-
-"reserved" is the appropriate status value for that.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Applied, thanks.
 
