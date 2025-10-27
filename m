@@ -4,71 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44BC8CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29ECACCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAupImhqXJxGshldNSxgSBXNWLiRLeN6B6RUAynMoUI=; b=t5vApW/6I8EHkhuc4zdgzywTNg
-	N9KSCuGAB1BlQuxwQ9C9rvXKEb/jwLndX/xqGa1t/jzBJ73eqW3t9x/8CS4IfudfMvFX5w00H9e2T
-	Asl8kO5uIug79NlKsBC4beciiJGxAH4AYxYmqVraQs9q9ugeJF6cpIIQglu0YbeHPHqKTW+x9ImaB
-	sA/F+xXyukD5LOOvHnq2zjLIq/RsMM/2tKtkQ1Qn/UE8gCDLXYBCv1Ywv1Q2vyelEHOLi332uR7KB
-	4HFZV5fiqJLa9evebr1sCrIC0SS+WJK1ziwadoL6i+AvwxD53KcbBxLO2Vbsa/4fW8kHoi/pK1HDE
-	+zlV114g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aq3mRXZAgvKFJUq1c/lN7f16a6dx7afUVteRnnsVfCI=; b=ZtM3WMg2YfDBVt8bSj+1TaneRW
+	LlBOdup5D/0+wy6fARFIwa2WxTy6+ZVFCxiUwEE3oCt9cB32bXDpUTbRtHgAVjD2QvxKuhtiQLxfl
+	fYuYME8m//uTDpdVnL8a6D+KjX147A8jXI06daCfz809jn0pKJdbiapPRBx9RZiZ3p3tXf8a6U7u7
+	g+TGIjrzJ6ziZ+tVrI+nVo4RHBje5/WoEMGqq1kDCRQ+2Zizq1/iMCymwYtiXcswPD0GEX5nYUMvK
+	wLsJMuM9no+LoouaNkXikELjw/VJ324nQ7irasyxlFWZGfdEy9wJ512tNiREf1YOIL275lqyW9huT
+	juDj1v/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSFT-0000000EZRD-0tzX;
-	Mon, 27 Oct 2025 18:47:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDSIe-0000000EZeO-34PQ;
+	Mon, 27 Oct 2025 18:50:36 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSFQ-0000000EZQK-01nB
+	id 1vDSIb-0000000EZdx-3KIR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 18:47:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6587843E8D;
-	Mon, 27 Oct 2025 18:47:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3518C4CEF1;
-	Mon, 27 Oct 2025 18:47:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1761590835;
-	bh=Pg35hgBGJgVKKuPxLxM1Jrv7bX0Ya6lorh4S3qxI9hI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=xKpKwvLA7HckZOhubwGqMwwElKreQB9UAOKN2wCdblX3vrQxT75U3SRm/mZH2rf7l
-	 MbBEjLWNDWEUu/JlSL+IyvF9OJIBtgSAyg8Mr5rSRk2ziwJE0Qc7K12NJMKxChPCM6
-	 RIJZxf7UfBl5BzYjCAojrW9eqUO9dHgkE5eiAZDw=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Huang Ying <ying.huang@linux.alibaba.com>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.4 192/224] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
-Date: Mon, 27 Oct 2025 19:35:38 +0100
-Message-ID: <20251027183513.964676516@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251027183508.963233542@linuxfoundation.org>
-References: <20251027183508.963233542@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Mon, 27 Oct 2025 18:50:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ieCazSpJjtbmBpPsacrualaVpON+xmrWpWNpzzLXfkiQHgl81OPaPQs7MpJu4DYhNY9xox/sNeCj1XwTajRP9eg1P7VxY1Zf7HnyqSyTc+iJj797Qsl76nCQ6VVmXedNF+RlNeeJgLQE+HSp3XSdqrA90hY9qMyePBmIm+aMpOmUE7JlLwy2fKeHtpo307oZbWdrEzk2u0+c5cvdq0e0grKDw5J/fJlWHl2YWuPy9xsjbabLX8HSYSPGrpjp+O94x51oYYPFDiGKScbXCTAKZAOfgrzbwB0bdtqCr0dF7Kt7o1IAYcnmP4rey5c2OXbacVQgggNafpwY2F58pB8I+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aq3mRXZAgvKFJUq1c/lN7f16a6dx7afUVteRnnsVfCI=;
+ b=Of21t3lYkRQwBJURpnOsfpJ9+s5ZZc//Q480RzEBgQVqh8rQI3eveQGtyI1OEafKE0sIYnWrzgXL2Kfc2PR02Wx0Ud/LsSrxfanpByzv4yHODwLc9fLakmPYt1DKc2qHEwz+bMDjPMVhzmRXrjO9854/Q9NeorWHQfFNptak+ohYu7Bc/Jystu+6ybwgMeKYVe3XHA8QoQW+BqBea3IALwd+7x7dW8W44KBOAUcvM95rFSgOXNErhRzeKStXrXSVWkmHrf4msQler5h25ouEJ8n0q/hE31Mk6uWwEDyyUSgYNhR4JU2zHW7qs3rT/XRC83q5CgI1jK4jfK0D5MWIuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aq3mRXZAgvKFJUq1c/lN7f16a6dx7afUVteRnnsVfCI=;
+ b=HNzlSNofsxuMla6HC+HZ/kjGO08Wz+8Lw3LT/op8z8j4X67cagdc2Dl0H80K0mwjZSEu8uw3w0nrgQ4fSe0kDXlhbirkFkkD415rBTnXse/KWqrc3Qslyh3hP7jlq8SnTzg4aVA2AD56bfzd3ZBDl0rhZfndHKQAuNjJ5NeOs/FBV8XNtkfOhOMTfJPdTD8Bx2pmNvU0v+oESnKUlNt4rdIKR57aZb11KjPNUGRqd4LA6TRjPyK9WNZ79onfyhyQc955LIlazJk/muPUMUrSODugrmAk07wa752vMBUt4cCFP6rthoSXW8NAK/9i5Pm5wZRgyEydAdiguySuVkFkTA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by VI2PR04MB11148.eurprd04.prod.outlook.com (2603:10a6:800:293::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Mon, 27 Oct
+ 2025 18:50:27 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
+ 18:50:27 +0000
+Date: Mon, 27 Oct 2025 14:50:18 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: "mkl@pengutronix.de" <mkl@pengutronix.de>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support for target
+ mode
+Message-ID: <aP++6ghId1LvQ1NF@lizhi-Precision-Tower-5810>
+References: <20251024113107.513604-1-carlos.song@nxp.com>
+ <aPt+JJhaB9dUOwL8@lizhi-Precision-Tower-5810>
+ <VI2PR04MB11147AB20690F99BB6CEE2300E8FCA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <VI2PR04MB11147AB20690F99BB6CEE2300E8FCA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: SJ0PR13CA0226.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c1::21) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|VI2PR04MB11148:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e95c72f-ff5b-42dc-1a8d-08de1589b188
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|366016|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BxjG13GqeNBWVcoUXOcNQp0ezEjqXtUdaDpNZQ4fWOeEOhexGRPZm3wrPRbz?=
+ =?us-ascii?Q?eorNolPQ+7a0cFhLubybnQJMx+lZF03ovq5jWPclDJoqpAGIZRMf6ZhSzS7j?=
+ =?us-ascii?Q?Rh6chHqph6PzE53PseeDjSdeuP98eW5KYMijTj/VK+eTbCzMZqZAHQ1zqP+L?=
+ =?us-ascii?Q?61P2RkOE85SN6+DPxEPC5fVyWlt/0Nq6BmUszErTZYj1+Zy7pQNAbNAvJvwU?=
+ =?us-ascii?Q?0d/3PN+p05+RGgLeVR3wW7Vf/Xz8LX/qTrLyJHUpjm5uWvkIAcNXDTwntn0V?=
+ =?us-ascii?Q?7zr9j3aODDn+zB/rw0j0LIFqDcND2KNKMfEnteWz6s10YLm/8b9+0YEtlpcv?=
+ =?us-ascii?Q?eZ7xVESsTULtR5WZiViKDVbwi6t268oqzZKaFSAHujc1eS8UQ14IFwV4J56U?=
+ =?us-ascii?Q?hhB7TO3Glp7ozi3waFu91euyEPm5esiAet3I3yHgQY5Nuv30gU02rZpArZpu?=
+ =?us-ascii?Q?EEj0c6jVVfGnaWW0fsXj3v0UuIu0ru8v+vtyE2j2lAJh6x2xvYUuhqTvicLC?=
+ =?us-ascii?Q?xmrFMrC+QJANFoSOdbA2OYyxN0PXH7Jtp/cLtGI0b8XXPDSOCCKuDz+OhC0Q?=
+ =?us-ascii?Q?SrASHKS5Km1iANj2reTBAxH2rO3aY3FEA7vE/4mSbhINGAhH0lOYRpSzitsq?=
+ =?us-ascii?Q?ESDu/w5wxpGpfOTUK80bonh2gacVRuMSF34D2iN2szgyiRdOa30X0cPiBNoN?=
+ =?us-ascii?Q?REYfhP6fSigXW9wacmoO4fMkr2AgYsB/MBoNonj2Ph49PrZ3evQ6sQhY+hx4?=
+ =?us-ascii?Q?emfdJrj2XJ+ZXbUQ0q4lqAxXA+tCxzsCNebZGddZP1vL3vX1ITP7xhKhnpKv?=
+ =?us-ascii?Q?gIm2Qnrk+LkhFqK+9YdIXLZqw3D1fmzMFaP/+QyrBpw6TxAVADGxqrK1IEDo?=
+ =?us-ascii?Q?pZOeyn2REaeGhGoeEzff8WcZSSSDynvfXRLjFOQSnwRwPY1Mb5CvpZP7ukOO?=
+ =?us-ascii?Q?/6ccVDWTvKbZ9G69PlbJp7J3xHIzcchGyg/5gyiDXNS8bBY0SY+T2Rm4iiUY?=
+ =?us-ascii?Q?1k9Luibx33ijhrohFNP4F4e/GjLejOFV2qaVbJnF2KR7LgsA1FeuNUFc25SB?=
+ =?us-ascii?Q?si7RxtXgsWZ8+ov7uu0iJOpM8kla7bD/LRGjkWpu2MOvhwltiZW49vFjewoQ?=
+ =?us-ascii?Q?V/Uz96w1Lccejor80pAh40GwKrqGvSw6zYO2lAqWCbhtGL63vlVT+eQcQT0H?=
+ =?us-ascii?Q?7F1U9LrClFNQu3pI1iMJZTet5gbr8F+xCenqNEaysMB3Hqd7jDMjAYklym5w?=
+ =?us-ascii?Q?ITTBgDhOp3/7eRaQHHqBvF88iNzEdmQj1D1tXYZ9pis5GJIoVMb/MrgJXpx5?=
+ =?us-ascii?Q?zL9NH1KyzPZxQHRxlRV0YnMgCKHIJQLQW7cWnMhKauNSNhLEOelaYduN4oHj?=
+ =?us-ascii?Q?p6QGPK/W69D3kKuu5M/l4MkE5W7F3xOr1sSyavVet8u45Av6ueJ1pK6WpmnW?=
+ =?us-ascii?Q?ejZrKsbw6cLn+GcgXjEFNLq73A3WBUO0dSgphRWVRLW3B0q5mB36hYpkRpJ/?=
+ =?us-ascii?Q?LIsvgAaETVhyzjNipIzJv1I7M3nHHZjSgdG1?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?h37XW6ETYyXSTJlbH0lHsFg7GDPDwdqsXO1grG7i6CWA7gwmAkm5IZZ88nzC?=
+ =?us-ascii?Q?y4q2zhqZAWjV3ygjtqjDl4UlOEm8KFMwIj/9LTED3psa5HIJL0c1CYf8RbqP?=
+ =?us-ascii?Q?BGkDmsW7Kbg/lfI6MOz6sqR1WcUT6b0JjL7txr/5zcrG78aQrJSg61INC2DX?=
+ =?us-ascii?Q?WgPgQPFdC5QAnDX55XRPBhONphCuKIwKepoTKisnVhlavMsFSd0R1onANEH5?=
+ =?us-ascii?Q?wS+DH/UJVm+JxTcnXe7b/MLRX2LNjcwZ43nhHNj3EMgMIPEZ57m9AYTDqlR1?=
+ =?us-ascii?Q?PC1Cijsii7i/l5XLYslShF5NNXRQPTLrvOH8lMY6e6Joe5wFtBKU+lA2vGBu?=
+ =?us-ascii?Q?xnPzFAL5LAlQ+i7WV+IzUm4E7dwtzMHEy3y7bnLaf2n+EmW1Zef3Cp7b+MH5?=
+ =?us-ascii?Q?UG3MnyVh0SPY8VXFnvWi1WxeGJtJ1KkXsVjObUdj6na+V7WiJ9FBwn30noA2?=
+ =?us-ascii?Q?otMOHKZCGzEuvuY8pncCRpxETzNq3pMf5kFZjuc42KY6OzWyahZDt6IDbGco?=
+ =?us-ascii?Q?zx1vHuXak3/usWCoLJD4pXp9k679z07oujt2k5GjTrISqwEzAl5P5fqr4rTx?=
+ =?us-ascii?Q?/R1rqiMYqi6xVhrefNrK46tp24itOPIznQ+aply5d0WOr9NXeuWDtBfQnTAV?=
+ =?us-ascii?Q?MEebWe1aThsh9SLW8A9KucKDmlCqC1bxD/TOb2vk3ihL94H0f0qrGptHrsML?=
+ =?us-ascii?Q?SHTn8DZIbRojYBETQudb0FMO28mk9aXwaOCRxzlLWwkxsw9UCIdWkoGbXpPV?=
+ =?us-ascii?Q?Jn0LW8bYz5zW74lbX7PH5AuNazmfNghjuykDou7SwOgcA0m5pFtTyNO3/mLf?=
+ =?us-ascii?Q?HECWwZjuVjMbfSdCExJ7Ufup1k9hK1CzS73MxySIqsXLfIN+H7hJ91z9912A?=
+ =?us-ascii?Q?ja+Kmo/vtjiHtTgz1TTBEbBDf8PtP2yRS2U+5nS8gAT60K+WHNuUm7MwRPW3?=
+ =?us-ascii?Q?JbTvVaWuaFLWbqx8GSNRg408NvQMwicDWuqT2oFkKliSRNbjfk9RPW9/Kw4r?=
+ =?us-ascii?Q?jqEHc810vCv2nCjJBt4vQMG3JlTZLWfR19f4I4fPI+3CpCJBxo+fO9Ii5xmu?=
+ =?us-ascii?Q?BFqmzIAe0WDcHCdcH9F1IEiJJYZyG1nEaAx6g6+KETpiSS/BI0rFSE8Czijp?=
+ =?us-ascii?Q?IrLZ1mHv+Uyu5vCUjl3kwApyPN8vrjCIx/Q76PRlq+E3oxeWyKvadf+evOV6?=
+ =?us-ascii?Q?AttrTMDy/UdBRWAnwzLwYdTWetF7PPkpYlMreO6UJpd45SHJAXzBmaZOJt/i?=
+ =?us-ascii?Q?6sgGF4qlLj6X1+9FN/ZXYvMYd2duuUA8HvaH6xRyFPXmumaFN0RQzRHwRZQY?=
+ =?us-ascii?Q?NSEGnuMKT2qoA3IdjqBJXfL7wRyCJPq5Ko+J0FCCFNH64JEy5x+CRHyNUnSZ?=
+ =?us-ascii?Q?URvZbOdzZ1cPAcDePn6w3RoNZfsYGRe5xnu60+PA3DBu3lP1C9XkCrzv8TBz?=
+ =?us-ascii?Q?bf9pEvzgC9bH9c/xIi0tFfGjUlVl7hlEEjyN4xUUZqMO7Y8EG97GI8s0XFH0?=
+ =?us-ascii?Q?oG2esBBq8iDWZdTbdKSLLeICLnvdMGsDGKlS6f04QgsDj0nASQ3/uyuGnFxz?=
+ =?us-ascii?Q?pKZe7L7hI+cC9P2urvc=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e95c72f-ff5b-42dc-1a8d-08de1589b188
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2025 18:50:26.9600
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +S9yizvfJnxMklcNXPuMYcihxzqn0E4fFIY04zC46jCuUxFEeZuhhiiEX1B6Vux3OGxgcbGq0GBVmmuNwBieaQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11148
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_114716_480150_B43B69BC 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20251027_115035_228460_A29525DD 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +167,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.4-stable review patch.  If anyone has any objections, please let me know.
+On Mon, Oct 27, 2025 at 03:39:36AM +0000, Carlos Song wrote:
+>
+>
+> > -----Original Message-----
+> > From: Frank Li <frank.li@nxp.com>
+> > Sent: Friday, October 24, 2025 9:25 PM
+> > To: Carlos Song <carlos.song@nxp.com>
+> > Cc: mkl@pengutronix.de; broonie@kernel.org; shawnguo@kernel.org;
+> > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> > linux-spi@vger.kernel.org; imx@lists.linux.dev;
+> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> > Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support for target
+> > mode
+> >
+> > On Fri, Oct 24, 2025 at 07:31:07PM +0800, carlos.song@nxp.com wrote:
+> > > From: Carlos Song <carlos.song@nxp.com>
+> > >
+> > > Now for ECSPI only support 8 bits per word in target mode.
+> > > Enable 16/32 bits per word support for spi-imx target mode.
+> > >
+> > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> > > ---
+> > >  drivers/spi/spi-imx.c | 12 ++++++++++--
+> > >  1 file changed, 10 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c index
+> > > 155ddeb8fcd4..017f83f5dfdf 100644
+> > > --- a/drivers/spi/spi-imx.c
+> > > +++ b/drivers/spi/spi-imx.c
+> > > @@ -424,8 +424,12 @@ static void spi_imx_buf_tx_swap(struct
+> > > spi_imx_data *spi_imx)
+> > >
+> > >  static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)  {
+> > > -	u32 val = ioread32be(spi_imx->base + MXC_CSPIRXDATA);
+> > > +	u32 val = readl(spi_imx->base + MXC_CSPIRXDATA);
+> > >
+> > > +	if (spi_imx->bits_per_word <= 8)
+> > > +		swab32s(&val);
+> > > +	else if (spi_imx->bits_per_word <= 16)
+> > > +		swahw32s(&val);
+> >
+> > Needn't swap when bits_per_word > 24, like 32? or our hardware max support
+> > to 16?
+> >
+> > Frank
+>
+> I think we don't need. We are reading/writing FIFO by 32-bits word. In this case, we just need keep
+> the default byte order.
+>
+> Is it more reasonable only support bits per word=8/16/32 for target mode?
+> -b 8/16/32 can cover most use case.
 
-------------------
+yes, I only can't understand why needn't swap at 32bits workds, but other
+needs.
 
-From: Huang Ying <ying.huang@linux.alibaba.com>
+FIFO 31..24  23..16  15..8  7..0
+      B0      B1     B2      B3
 
-[ Upstream commit 143937ca51cc6ae2fccc61a1cb916abb24cd34f5 ]
+next you
 
-Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
-mark some pages that are never written dirty wrongly.  For example,
-do_swap_page() may map the exclusive pages with writable and clean PTEs
-if the VMA is writable and the page fault is for read access.
-However, current pte_mkwrite_novma() implementation always dirties the
-PTE.  This may cause unnecessary disk writing if the pages are
-never written before being reclaimed.
+in memory val is
 
-So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
-PTE_DIRTY bit is set to make it possible to make the PTE writable and
-clean.
+0x0: B3
+0x1: B2
+0x2: B1
+0x3: B0
 
-The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
-Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
-pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
-clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
-are set.
+swab32s() to  bits_per_work 8
 
-To test the performance impact of the patch, on an arm64 server
-machine, run 16 redis-server processes on socket 1 and 16
-memtier_benchmark processes on socket 0 with mostly get
-transactions (that is, redis-server will mostly read memory only).
-The memory footprint of redis-server is larger than the available
-memory, so swap out/in will be triggered.  Test results show that the
-patch can avoid most swapping out because the pages are mostly clean.
-And the benchmark throughput improves ~23.9% in the test.
+0x0: B0
+0x1: B1
+0x2: B2
+0x3: B3
 
-Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
-Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Gavin Shan <gshan@redhat.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/include/asm/pgtable.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+if bits per_word 16
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 709badd4475f5..a05d782dcf5e9 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -145,7 +145,8 @@ static inline pte_t set_pte_bit(pte_t pte, pgprot_t prot)
- static inline pte_t pte_mkwrite(pte_t pte)
- {
- 	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
--	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
-+	if (pte_sw_dirty(pte))
-+		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
- 	return pte;
- }
- 
--- 
-2.51.0
+val
 
+0x0: X
+0x1: X
+0x2: B1
+0x3: B0
 
+after swahw32s change to
 
+0x0: B1
+0x1: B0
+0x2: x
+0x3: x
+
+B0 and B1 still be swapped.
+
+Does SPI defined term word fixed big-endian?
+
+Frank
+
+>
+> Carlos
+> > >  	if (spi_imx->rx_buf) {
+> > >  		int n_bytes = spi_imx->target_burst % sizeof(val);
+> > >
+> > > @@ -453,12 +457,16 @@ static void mx53_ecspi_tx_target(struct
+> > spi_imx_data *spi_imx)
+> > >  	if (spi_imx->tx_buf) {
+> > >  		memcpy(((u8 *)&val) + sizeof(val) - n_bytes,
+> > >  		       spi_imx->tx_buf, n_bytes);
+> > > +		if (spi_imx->bits_per_word <= 8)
+> > > +			swab32s(&val);
+> > > +		else if (spi_imx->bits_per_word <= 16)
+> > > +			swahw32s(&val);
+> > >  		spi_imx->tx_buf += n_bytes;
+> > >  	}
+> > >
+> > >  	spi_imx->count -= n_bytes;
+> > >
+> > > -	iowrite32be(val, spi_imx->base + MXC_CSPITXDATA);
+> > > +	writel(val, spi_imx->base + MXC_CSPITXDATA);
+> > >  }
+> > >
+> > >  /* MX51 eCSPI */
+> > > --
+> > > 2.34.1
+> > >
 
