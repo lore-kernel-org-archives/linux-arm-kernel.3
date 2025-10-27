@@ -4,157 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD60CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 03:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21909CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 03:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ONJFlDC9ZvZONra1GTc8Tka2XBjTcomOJig0XwL4fZg=; b=ijNEryU+HWYU3AxR6l0WYKVqLN
-	2Xfo8P1lc/iFeoNefzbS152kEJA1I2iAa3jSiO9686+MNM0jax5U118AjYi8di4aAJFAVZ+Mg4Ub6
-	dLKJBbHl9qjG2Z4XPoVwZdQLUUuyEQ+5PokeJHBjzHtyTmOr1NqEEbTQtnfeNENYJGY19/zYdhhva
-	Hkdo7kE+GrbtATRWCU68Tl0H7qR/yB702Y3n86XaST4jvBzoiNGr4lJubQgVu1hz1oP3kMguVX8dk
-	8Hz73zj2cysaKuoudL0LrkgmXHFsjFL6iTStbM22I54FF0x5HslHWWJ1c0ZiKJ/nQK8vk1SvmOJAB
-	vJ02F5og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GH1rp1IvB9GX2JiwW5ZpYAb3JZ2Tf3hU3x3vAETwZOw=; b=bJQEnU6IdVSC4/rSzoI7NaBPkg
+	qhRWFuHgwV3rYwo6mzEq5sqetTU/obpSOTDw//Uf4i67Q+ORjABh2vvTo1LSnmxRY12i9m3p8PaVP
+	3a+OSq1PR+cNkseJFOI78dOF92eu9HRCzBXK+qnS+bdwV1T2WH7myI0FckdJGG90Y8SKSeSD4Ie2l
+	V1nd1WMT8UXIND+WIgsjCfKwCe55RgxzyxPn/NClkCXwkgWjW+/e85xMHxPe0jTCh18gO90nJngdD
+	5J0/B0rLwBbc85rrthCBYXiiCYTfJGshXsGX6CW97Jysl7Hkb8FuaToTZzBmhQgFWutlygqFEaqPb
+	mcHQ9psQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDE5A-0000000D49i-1kw7;
-	Mon, 27 Oct 2025 03:39:44 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vDECY-0000000D4Tc-3Ms8;
+	Mon, 27 Oct 2025 03:47:22 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDE58-0000000D490-1mLy
+	id 1vDECW-0000000D4SD-2ZXs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 03:39:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FPIeGQZ2Fk/PNk9nElyfmrXclXQn86bl75tpG7xLsPPnsa+yBH62Dq098NjyDj7PPAm4FANZbTYhRUDeg9WBxVQQmfj8vOKCMhgcroUZqOacr2sm8XWDMqoBvhVkm/cXLE2YshDb2LLW63uHJZy6r44vRfiiRQyD93a2oAGmBxurgvYjfe9GYHzHLwuXNkX4dY31OF2gHmfd9mIVKLIyBc3QaKdrEooGHJBoj+81lceLn3I1Yg/ayTnBEE6GfmZGowblHMdpzCn3+v9w1txP5X5BKn2Lcg4zsOSr3o3PNeyVKGSgwsYzDkyWhY1YIk1HFP9nA1sBLnrGyogz6KcCSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ONJFlDC9ZvZONra1GTc8Tka2XBjTcomOJig0XwL4fZg=;
- b=lyjVBWBHQUTQGf+2855dwG/Oo0hm+KnOfAUn/OSvxanV87uwQLgwYxCI6a/5KNEd/jSzk3XqSm8pJx/7K5QQ2bb+DxC8CRVVkargM578pCfpmKvceiwZ7To3fZgtoUsiXk7YvtslisOaCK3k5bNd4aXUYSu5X/vDZmeI+ws7bjLYrd8QYzpmKqO3UNLJB5XFFcBEFpFl5pUQupx+4YWxw40zAZq6JQvftz11caK/ptC7vsYevLMDOOIntH2uD7uUXBttf7/WS+xmNeQAilOwPZefLwI4aIKhOyWtff3jLglb+499liWY+0q3MFsWardRUUlbsOUb7zgzMbyb32OV4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ONJFlDC9ZvZONra1GTc8Tka2XBjTcomOJig0XwL4fZg=;
- b=BjO5pUtrkSK3ZwrkpO/K62gYmM4jRaZf8iT8qSImHLsvtbE0qi8Www182t6DRrIWzuugu6qMZXblpey6jAaUxcBau9hdGTKZG4K5ieWlmLnN1Z5Hw+hsCkAISjD3A1Q6tME3IZGimN1uxKxM4EA3AgMnJJGeg/M6QSu2sf9p8n9zJPnwgU9pIugiN0rGqzQxtEKNUb7MPNcMBInAVUSWxarVRDoA+CVwnC7lH6n7Pel/0fbq4zbSh+TcsOqrhq3sjUfcScd3nJGcx0ZwtH/xWnbqJ4pAhKroJEIHFxCn9KWIxe2ePuNFM31MexIg9L7nT7lz7iBj/tkF6H/70y6TLA==
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by DU4PR04MB10648.eurprd04.prod.outlook.com
- (2603:10a6:10:586::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Mon, 27 Oct
- 2025 03:39:36 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
- 03:39:36 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: "mkl@pengutronix.de" <mkl@pengutronix.de>, "broonie@kernel.org"
-	<broonie@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PACTH v2] spi: imx: add 16/32 bits per word support for target
- mode
-Thread-Topic: [PACTH v2] spi: imx: add 16/32 bits per word support for target
- mode
-Thread-Index: AQHcRNm/zRpEV+zYiU25ok3CqsF1ObTRSXUAgAP4xlA=
-Date: Mon, 27 Oct 2025 03:39:36 +0000
-Message-ID: <VI2PR04MB11147AB20690F99BB6CEE2300E8FCA@VI2PR04MB11147.eurprd04.prod.outlook.com>
-References: <20251024113107.513604-1-carlos.song@nxp.com>
- <aPt+JJhaB9dUOwL8@lizhi-Precision-Tower-5810>
-In-Reply-To: <aPt+JJhaB9dUOwL8@lizhi-Precision-Tower-5810>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|DU4PR04MB10648:EE_
-x-ms-office365-filtering-correlation-id: 1e02baa1-8107-49b2-65e9-08de150a7379
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|38070700021|7053199007;
-x-microsoft-antispam-message-info: =?us-ascii?Q?kuO/F16QelgeKWctF24gNagvszMym3OOWRI2TFOWJ5/6Oe/PWACUuymt/0G8?=
- =?us-ascii?Q?903aoWWADbWwx/H/4Q0aCMCO7wp83uOOqfQglEgyMK/0POvYVcv7V1aw7sZi?=
- =?us-ascii?Q?2YAe8CMOaI8zOA0B9Vb1/IE3tCCLVwTiDbKevX3Qdn8pkLZEhWrPXpOIGtvQ?=
- =?us-ascii?Q?70KviYjmK/Ion8eDEYiL2iv6J2xMVgDL4s2Cgeg+EEWhf9rTQBGxnJMrDuAN?=
- =?us-ascii?Q?Mxpe37hNuKKYFOL9oZAEjZGBWyLpHoC+6f2P+6yxIUHgAsA7jaiKVvX0BTHM?=
- =?us-ascii?Q?rJszZIVUHOSyppsSZS8V0gehQwU0oNFuqtvTu/tkBywsP7X8W2mntTRaxMLG?=
- =?us-ascii?Q?hlnhjaSUNo62BKkrrRFbIEBajsOkPbaLi+tRZYFeQ4EHD8s6+ubDHaEFJVbv?=
- =?us-ascii?Q?YgKMGnbYZh6Joxh1lKmJRGevT/ZX0sBqXQc+3JM3s3LRJLPfnKmTjo8c8HZZ?=
- =?us-ascii?Q?GIvbmmhllPjE2Qfm4f39FOfDO/qMYSOwlQmtHqqshDl1VRrDLs95VWgOmWjC?=
- =?us-ascii?Q?MCPeW5dxiB8skyCUcTY5nXz0JW8GF+Qv328UVbLDnWgfbliz4FTcrARmEI2W?=
- =?us-ascii?Q?BF558sYvRgF4ZheRVVXrJf6ugwfMmWCyrmoOEvd4u2CBrhshVXCjapNePtU8?=
- =?us-ascii?Q?e0+/+YtA0yZ3snF02CQ0tvrc6bg/6ooTgH4SCUxlh5qqBZeBJ0nwk50tIBw8?=
- =?us-ascii?Q?Lok+2Il6Dc774hduGjp/4mqdR0eL35QywZtMWlvNMlTUoqsQ9oeq3zX53eGD?=
- =?us-ascii?Q?z92o97J+v5mSwHYGgrnfWnYCpO35IqBCUj2+P1U8zd3szbuAg/36MkyA81K0?=
- =?us-ascii?Q?zXQj6tbO5oSu9AcAIcFxbtW80VkxfevToly87LPEabX0yQCeTp9tCYbhnu0y?=
- =?us-ascii?Q?zFk5XFUF6eZ5OGoF80TbmHPNfh3+Qcq2/KnGqJzScHA0079ZhWnBfXdHgYOq?=
- =?us-ascii?Q?ptJ8Q9G6S0XX7/0omzYQWREmqUQcaa59d/d610Byee17NfefrPgVZAjwcR4+?=
- =?us-ascii?Q?F9zBWKvu3l3iDpwAIF8+Qr+0RQBleVaJ00Wbja45oDR6LgjXCUlemMLY35I6?=
- =?us-ascii?Q?3UnYOqVxayVhb7f5llFomUK3iDfF21ncSyPv+ljbQE3RNla2fyclhSS2fzc3?=
- =?us-ascii?Q?CJ6833w2XKfPQmwuWPY811nxIL+1QUk6Yps9kHkkCBay/h10dItwh2hwt5nu?=
- =?us-ascii?Q?x7jBvOQ85Vp+5zsmtnuyuRRAckAeVzrOqKITa08MRAIuuvhxKTu+AkEsl6rA?=
- =?us-ascii?Q?bdCxtvX6ej6h3C10SZnOQizvXnAiuz4EQStszLE+/zLR3ajVDyinO5V21oWZ?=
- =?us-ascii?Q?fRQHL+tXUtiUnUVa58guZpZRmNN9jQjhG6LUqZcj8Dqz2XJ2sYBsCs/Oukak?=
- =?us-ascii?Q?QnSIx4AH1Xrx8cYoJpHhGJSVXV75bm70jLk29PnDysBTrAab3P3dNCKcWw62?=
- =?us-ascii?Q?wv8xuzUhAzmUZXBJJFnc+jLYJw2UUHP5beoi7iw8keXYVWpKFyjN4ymmMzzx?=
- =?us-ascii?Q?Y6sa38BAGxD8w4pELL7YU1okUnPIo+4bf/r3?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(38070700021)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?GhiC6jZkGHxoQ/3lrUumY3bmENwAQRvNn4JzEaVrpi4dotEVX4EAsvZsB12d?=
- =?us-ascii?Q?IVM3Ptmh4ROgeOHp4Jja7dvtNCgiB5xEB814l0OWGsg6qIsLIKeWgitqGH0L?=
- =?us-ascii?Q?+BgTnTwGD8tB1SfcW9s+qTi/DakeT3IQd9NFCsDKZHgsHpuMZFTQUrnaeFgI?=
- =?us-ascii?Q?kNu8kSFv9B7n7dNZ7pjd7kAKG96g4JSGWfcndZeUgqC60YhvSVbn3m75SL5P?=
- =?us-ascii?Q?STgdsYZLhz2utWp/zZ17YlJHXkIoq5FbbtEkJVxUDFffBejKGfrK9ZSelZCG?=
- =?us-ascii?Q?I1IqI4oUN384RtsDJeXX8L6NGtON/8mrKp293feCCqL8wJQJT9cszKAQ4SVi?=
- =?us-ascii?Q?z18vFzR9+4X8pwMdSgQu8DYxZg6SB+Lh6Kt8lOnLsGZ6jl8wOC+2bMkCyw5C?=
- =?us-ascii?Q?tqWVL4MABqFHJH1Bx9gPH//2OgPMiaX9lXpY9N9gbeEzIRO+FNILrha0OOyI?=
- =?us-ascii?Q?HNb9kcCrGm7KSdyD0pRZW0n8cXdShBhtPf5IY4aE+1EGoVgsmevdc4a6NO4k?=
- =?us-ascii?Q?30POgkBeXzaOPumSx3NHzHDQtu1uzPGjruZfgqlKJyvPEg+gxJGguFK8Tsoh?=
- =?us-ascii?Q?gKQJ7SB8s4ULabfNT/iqUMM3yW0iGsXMIgzodCYXi7jstY8KZpAowFOs9mLn?=
- =?us-ascii?Q?FCKc5vpefC/YIAXxVm1iBkCQftbfh596eJXgfhbPHy50EYOSmRRTA1d0L8aV?=
- =?us-ascii?Q?9VKfq5WboX0h184r3TMdmavWDuzLeOXCYY9JCIN5UGaBWPNNCEpx0Fo8kapw?=
- =?us-ascii?Q?j6m6+S3TB22sLrd7JCxcYudU1eppZTgYrShE3jLoUOz2nw7Knhx7MWS5nJzv?=
- =?us-ascii?Q?yr0VaSYJdCNjEOntvde6Bg48O+qHGAc5JnOa0hN+AyBng6XXUUytkDkRFaUw?=
- =?us-ascii?Q?HVnXglfrFUIQsgEDfrpymcuz4UbvTyp5M26MO0DfAk/NvzugESfSEULw/U6r?=
- =?us-ascii?Q?qB84g3fDeUz//gzqaaxeZuqZq2COnnlna6o4GFHVxpSLLfCdRTWIxpN/92BX?=
- =?us-ascii?Q?of/mRRMDTOR1aqIY7ing6Dw/JQrdRy09qAPmIwVqWz3mYkflgZzfGJ6V+pRU?=
- =?us-ascii?Q?XF038fyQtGXL4LFWWZPR5eglnqHbQF4mkFQfKmotnLpNbXzkLvyRkKZoj2K7?=
- =?us-ascii?Q?F2QbN/2dkCqKSJf6e882bzpHW2ynE1lw/vgLyMJ9LR7pQljfmylUVm4thm8s?=
- =?us-ascii?Q?tRmPXhZTmCZGpe7Mr/PtjSHnpjczkiOh6fq37hXCI76op9NNnURG+knlhQKO?=
- =?us-ascii?Q?4Jo4WH2hTFoom+zgPQyA5NeW+mZjav7xZJDt0Do1HVBeB54VmdemWFvOQ9TL?=
- =?us-ascii?Q?/sl02myemweb2qyJHwla2jU9HdZj1MdC+ym2kbNRiLFuZzQYDf1lQzAJBrYC?=
- =?us-ascii?Q?eWtS920IHUZGDHJNEhritscyIjxBgXFCoPYB5jPvkuXc1trJyK0ZZqFojWrq?=
- =?us-ascii?Q?Pkravfw8RADYG78uYif+ESefYKTE5u4xXg9RMNBBCkIVZ7P595a6EU8rDhFX?=
- =?us-ascii?Q?G6uwqlxh4G5wuspv4ETAfvicyeIucLU9Gt4sSjnz+WTU7Tib+xqu2E0QIXrJ?=
- =?us-ascii?Q?osO0CARuViRDMCgfD+8=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 27 Oct 2025 03:47:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1761536765;
+	bh=GH1rp1IvB9GX2JiwW5ZpYAb3JZ2Tf3hU3x3vAETwZOw=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=kE5CTSl9qHgVEE1xcvfg90p7ywuDJhzErjasbRGHBR27iY9HNQpQOQzkvduqlTnvV
+	 Ov6w/Gx81jsqKprdhbEwxSUkwjE83bMt9F4r1WpLTDGoheKNjeYtdeGVjpeNzzt9tU
+	 f7N0/qAPV1XG64bnSUe3kWbtlRdRPDAdyPqe50fA=
+X-QQ-mid: zesmtpgz3t1761536758tae45e91c
+X-QQ-Originating-IP: 5faAr8goJjyzbCyUMsccEbc0vjz64JAT+lkSY6B33kw=
+Received: from [10.10.74.117] ( [123.114.60.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 27 Oct 2025 11:45:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 4447698992672488604
+Message-ID: <10D9A93B0633E6BE+75720e07-b39d-452c-952e-41f8ab6aad94@uniontech.com>
+Date: Mon, 27 Oct 2025 11:45:56 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e02baa1-8107-49b2-65e9-08de150a7379
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Oct 2025 03:39:36.4135
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: mbFl1W5gJRIqk4Su5yjC7LJUtCRLI3fNAjC3hP6G/8sKu9k8KeZe2LrXDiXXPfqueOXVXD7XBF+9hXe6PUyuPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10648
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux@armlinux.org.uk, linux-efi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20251023082129.75612-1-maqianga@uniontech.com>
+ <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
+Content-Language: en-US
+From: Qiang Ma <maqianga@uniontech.com>
+In-Reply-To: <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: NvjhxCSDgXIC1vjyXzfCUUD28uX6thRu0yRvJdVZlrrhgKumJz5F8RCD
+	+1RIhmVkvLiUIebNUcRcMyeNjNlTHQvdfOjvBN4tQWBGrbjr8Lv3OVqdQEUI4r3v/1qrNn3
+	6R/Hs+UZp3htX1qOuQ9BiUIMwHx98AR1oqiBPZQaHuEVw9Sma/lY5uurqWGnUTqBLXghsLH
+	gQA5zyrpr43pC7BZmt+FpwVbrhK6JZQPZRfYu3PlVoUvQrZ+s5Bl2JB2i20fdm+hsZA8ZSc
+	+73p9TfOsZqRnEOSmj509SDP1zysl+m9DkHpatoRxUV1B5hok1X2KESX/Oo0ek/L6r81r/h
+	IxcSGj+FIXxvRY2C2jmU+9im4+f28lkZludhTIkbsLMM/IG03hZFXUruoRUyIC4CY77RR5W
+	pT4ob4Ocz8qQOu9HW9Z3oARfZ642ac+Dbd6rGKuCuBHcDnu7VmiWhCzI5y3H8wqPRtpXH88
+	Or2JqnOUFVuwUgfbdBZM11ZDiZSM9NSsx0xCr0+ouzhGTxkuIfb5EJBHR227nMabOKQtN0e
+	OUPjztFGc4Xvvcj5qwX4cX4kap6OLhXgEmpBbbmha477v0qnUgPPpQS1fyTpPp6nC2duinF
+	2mSj2Jvyv0bpTVWqht+1kSxg73LQlah+Y4zovrTR9HUNKhhkRa/dqMrCS8TiQU/wFJMOU4g
+	ZOHIzHgQ2IO5AD9MX7jykHdDmfnhh8OQEvWNzIgg2TMsdRLbHL8vr8PzwsSUixRk//8KOjJ
+	dhA0ShnqdV5/MD3NrHwoz0OtCS/bb7jTmu9uo0seO5Ez8OR/ZbXL5sE0hlmzvaIWXq/bRfS
+	c/gGtAGDVPUutjrETJVrCgkmqs0ctBmCDis8uSEU/J7hEbpKsO1Zu2SksgJIrm6ibc3/k2J
+	XgfN1Pp26XxRfDoIIK3qRXdb7pPTOtxyQ2sm+LKeXzsISSY036sj5OKp4f3sC6In/SdlJKQ
+	2tXBje6jxxmWxkg1/8TmKvntfxOGy4OYUdomK8VGEFk/fErNwBUNuaPhOmiZHi6YNfiqla9
+	Tp0nrgBCoe7t4gHmXq
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_203942_483228_4E03C26C 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20251026_204721_381862_8E5D8709 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,84 +95,93 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+在 2025/10/23 16:30, Ard Biesheuvel 写道:
+> On Thu, 23 Oct 2025 at 10:22, Qiang Ma <maqianga@uniontech.com> wrote:
+>> In the efi_virtmap_init(), permission settings have been applied:
+>>
+>> static bool __init efi_virtmap_init(void)
+>> {
+>>          ...
+>>          for_each_efi_memory_desc(md)
+>>                  ...
+>>                  efi_create_mapping(&efi_mm, md);
+>>          ...
+>>          efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions);
+>>          ...
+>> }
+>>
+>> Therefore, there is no need to apply it again in the efi_create_mapping().
+>>
+>> Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI Runtime Services regions")
+>>
+>> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+> No, efi_memattr_apply_permissions() uses the /optional/ memory
+> attributes table, whereas efi_create_mapping() uses the permission
+> attributes in the EFI memory map. The memory attributes table is
+> optional, in which case any RO/XP attributes from the memory map
+> should be used.
+>
+I see.
 
-> -----Original Message-----
-> From: Frank Li <frank.li@nxp.com>
-> Sent: Friday, October 24, 2025 9:25 PM
-> To: Carlos Song <carlos.song@nxp.com>
-> Cc: mkl@pengutronix.de; broonie@kernel.org; shawnguo@kernel.org;
-> s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
-> linux-spi@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support for tar=
-get
-> mode
->=20
-> On Fri, Oct 24, 2025 at 07:31:07PM +0800, carlos.song@nxp.com wrote:
-> > From: Carlos Song <carlos.song@nxp.com>
-> >
-> > Now for ECSPI only support 8 bits per word in target mode.
-> > Enable 16/32 bits per word support for spi-imx target mode.
-> >
-> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-> > ---
-> >  drivers/spi/spi-imx.c | 12 ++++++++++--
-> >  1 file changed, 10 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c index
-> > 155ddeb8fcd4..017f83f5dfdf 100644
-> > --- a/drivers/spi/spi-imx.c
-> > +++ b/drivers/spi/spi-imx.c
-> > @@ -424,8 +424,12 @@ static void spi_imx_buf_tx_swap(struct
-> > spi_imx_data *spi_imx)
-> >
-> >  static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)  {
-> > -	u32 val =3D ioread32be(spi_imx->base + MXC_CSPIRXDATA);
-> > +	u32 val =3D readl(spi_imx->base + MXC_CSPIRXDATA);
-> >
-> > +	if (spi_imx->bits_per_word <=3D 8)
-> > +		swab32s(&val);
-> > +	else if (spi_imx->bits_per_word <=3D 16)
-> > +		swahw32s(&val);
->=20
-> Needn't swap when bits_per_word > 24, like 32? or our hardware max suppor=
-t
-> to 16?
->=20
-> Frank
+Then, can it be modified like this?
+--- a/arch/arm/kernel/efi.c
++++ b/arch/arm/kernel/efi.c
+@@ -65,16 +65,13 @@ int __init efi_create_mapping(struct mm_struct *mm, 
+efi_memory_desc_t *md)
+                 desc.type = MT_MEMORY_RWX_NONCACHED;
+         else if (md->attribute & EFI_MEMORY_WC)
+                 desc.type = MT_DEVICE_WC;
++       else if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
++               desc.type = MT_MEMORY_RO;
+         else
+                 desc.type = MT_DEVICE;
 
-I think we don't need. We are reading/writing FIFO by 32-bits word. In this=
- case, we just need keep
-the default byte order.
+         create_mapping_late(mm, &desc, true);
 
-Is it more reasonable only support bits per word=3D8/16/32 for target mode?
--b 8/16/32 can cover most use case.
+-       /*
+-        * If stricter permissions were specified, apply them now.
+-        */
+-       if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
+-               return efi_set_mapping_permissions(mm, md, false);
+         return 0;
+  }
 
-Carlos
-> >  	if (spi_imx->rx_buf) {
-> >  		int n_bytes =3D spi_imx->target_burst % sizeof(val);
-> >
-> > @@ -453,12 +457,16 @@ static void mx53_ecspi_tx_target(struct
-> spi_imx_data *spi_imx)
-> >  	if (spi_imx->tx_buf) {
-> >  		memcpy(((u8 *)&val) + sizeof(val) - n_bytes,
-> >  		       spi_imx->tx_buf, n_bytes);
-> > +		if (spi_imx->bits_per_word <=3D 8)
-> > +			swab32s(&val);
-> > +		else if (spi_imx->bits_per_word <=3D 16)
-> > +			swahw32s(&val);
-> >  		spi_imx->tx_buf +=3D n_bytes;
-> >  	}
-> >
-> >  	spi_imx->count -=3D n_bytes;
-> >
-> > -	iowrite32be(val, spi_imx->base + MXC_CSPITXDATA);
-> > +	writel(val, spi_imx->base + MXC_CSPITXDATA);
-> >  }
-> >
-> >  /* MX51 eCSPI */
-> > --
-> > 2.34.1
-> >
+The create_mapping_late() finds the corresponding page table attribute 
+from mem_types through type.
+Here it is MT_MEMORY_RO, and its corresponding prot_pte is:
+       ...
+         [MT_MEMORY_RO] = {
+                 .prot_pte  = L_PTE_PRESENT | L_PTE_YOUNG | L_PTE_DIRTY |
+                              L_PTE_XN | L_PTE_RDONLY,
+       ...
+
+Finally, the page table is also set through the set_pte_ext().
+
+
+Thanks.
+
+>> ---
+>>   arch/arm/kernel/efi.c | 5 -----
+>>   1 file changed, 5 deletions(-)
+>>
+>> diff --git a/arch/arm/kernel/efi.c b/arch/arm/kernel/efi.c
+>> index 6f9ec7d28a71..d2fca20d912e 100644
+>> --- a/arch/arm/kernel/efi.c
+>> +++ b/arch/arm/kernel/efi.c
+>> @@ -70,11 +70,6 @@ int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
+>>
+>>          create_mapping_late(mm, &desc, true);
+>>
+>> -       /*
+>> -        * If stricter permissions were specified, apply them now.
+>> -        */
+>> -       if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
+>> -               return efi_set_mapping_permissions(mm, md, false);
+>>          return 0;
+>>   }
+>>
+>> --
+>> 2.20.1
+>>
+
 
