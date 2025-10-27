@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9045ACCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE24CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0LOIk4XAej1gR4QcJU4+DlomoMUz/xZxsuIi12Hlnlo=; b=hbQL6oDzxQ19PGNfb7z0PYjzJS
-	gNsz+0dp1qfGuyOtfRPvvl3lyPQVwnGYv32LRbZfVlZqw73P8CUCcmMr0ghbd9yB1LJJaBoPY6TX6
-	UwSlIF5VrYT42oGeP3hKDMGANXOajfIeNnXjQ6MYG+Xxs7gKbF4C5toteFlORa3G2ePh4EmEIVNl1
-	aWbhWbY5RCz8lFyuejQPC5gkUISCgL20P+wFY5igPRxaIQKs7pJMwFJxGOsSH/E2Kj4Aqo2N7AOgj
-	HT6GmfrXNYZHiSN8d390pU8wsHXY9Jj0BdxE3eyMvhYhFnRmJNggfvrneLHBZ0OxE90mUjQX8nLDv
-	XS4/gJxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=01IXpqC7TIZ5mj2iH0pdDn0rPqM6SOZi4vm8wKhQg+A=; b=EazP/STq9m5Gbor5W5+POgGbnv
+	UyO1CZ3X3fkjHBGuWbEbqGRV1KgA+wRKrw5ZdAd6TLdIUEMiSgm36Us26HVS0muO2qsNzCCHAzi0G
+	ZGruCFek1jfqfYGVmkmJQumSroMZVHX6aImgbmNgJk1HaTmFHm4wYUIof5CpwTq2kdrXWYRz83070
+	stTigRwFj6m7Z4qjOHejHyQf97KEVJwKnjkYG4GC2zYQtVOuChjuyvKwoaS/X45eGGO4VimWQy+05
+	IOAzWrCk6IoLlEz91NgClAv/tLIrfsYvHkiVluMU2StIobxk5wTKN6ja5bfpP/+YHtMhTseKOsoRq
+	tS99PfpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDUEM-0000000EkxN-2SfV;
-	Mon, 27 Oct 2025 20:54:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vDUGb-0000000El8c-1N9O;
+	Mon, 27 Oct 2025 20:56:37 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDUEL-0000000EkxD-2BGF
+	id 1vDUGY-0000000El7q-0hQP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 20:54:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7892A6149B;
-	Mon, 27 Oct 2025 20:54:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7267AC4CEF1;
-	Mon, 27 Oct 2025 20:54:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761598456;
-	bh=uUiV7M0JZyX2CSv7f9ahj+RSKvrXNw1GjFMW/sbepkE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Bv7swv2Vy5HIoJj0IeNA/HUdm/7Tvm2TPzj5ffzqBQn3VCjiHehnp7EgYx1tQdL8X
-	 Olr8Fit+1wuR5JT133eEO/hhTStqcqSeHC7xw2a3lTxD3sOPImFYH1HKDOXDAMADnX
-	 04PqLJ88APKr4lZvK751n8qXcjcrMn7qiIyLND547vY+Uo93h11HmKeLYLQ6EX1ToO
-	 7rm9tcb2dXSaOzzQ7rp51psaIbb/s6Fu2plViBCz1TLY5UPApAy/Hckld7+r+Mtgz/
-	 2kzXgT7y0UTuneT84Wpk5n67Bees6h1/OkHwzR+WOECr978M5Y3PmdUK2NN6Vm3lHA
-	 juAb69oS+a4Fw==
-Date: Mon, 27 Oct 2025 13:54:09 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: Kees Cook <kees@kernel.org>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Michal Kubiak <michal.kubiak@intel.com>,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org
-Subject: Re: [PATCH 3/3] libeth: xdp: Disable generic kCFI pass for
- libeth_xdp_tx_xmit_bulk()
-Message-ID: <20251027205409.GB3183341@ax162>
-References: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
- <20251025-idpf-fix-arm-kcfi-build-error-v1-3-ec57221153ae@kernel.org>
- <dfc94b21-0baa-4b1f-9261-725d8d5c66f0@intel.com>
+	Mon, 27 Oct 2025 20:56:35 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4eceef055fbso38256481cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:56:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761598592; x=1762203392; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=01IXpqC7TIZ5mj2iH0pdDn0rPqM6SOZi4vm8wKhQg+A=;
+        b=fzj4t2PG7DOqe7PvVu5rp3TSHd4zRmGSdsQBUJDX1PuykHFyaSnLdFMO30r5O2hMxB
+         W6RTMbF+NIGWMIBVDAIRQIb3Ms6Cwsw5yrl0vZ4xEl3/ZJHnTuy2VGBqgaM5fJLXGzKf
+         HSkOo9oY4JCAWYmNtUJUF1PQoCgP5+M/2lM/dzZ3PlKIKXudL+9fLIzn71TS7EEoMc3R
+         z81QAbWcvB52XEDoA1slh8OhDkDnryTlHwhAqic522SnNY3w4n4+4/FcbEnzARweFB45
+         lrcZTqQN3HT2bpsgmbg4/BrGcF9ptJGSc2QyHdH6LFULNDDle7d/i5eF7EDNRFyj7Alg
+         mfCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761598592; x=1762203392;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=01IXpqC7TIZ5mj2iH0pdDn0rPqM6SOZi4vm8wKhQg+A=;
+        b=JQ8gA+nUKJOlF7iLjejkUNM9FeHihS4wygJ8u/COMtZ6GRY12myUi3buXHIyjpGciu
+         +/UBzb+PMC4ps7yfWu6ZcXDUZXYcvaOUbpEGvkPlHyihlSO54u3ZuIhavVM9ELUGqbo3
+         VHNSkxLElJ9iTxy2pmbFA1N2Pc6FqWj3OzXb0d16qxLyOsx8zlT4PMkgRQFLzGf3kCfu
+         6Mo6/rDa2Y0MDc5wYNMw6jnHRfJN1M7/AhrTg9e//d4ynWI6CkQga01GEet1tsZrNgx0
+         4oUUSCHR2tYVPXg+N1JMvyAdJJLi1Qd6yRbPyWR339vVHjGj90setCQqCN9x5fhvbqNo
+         nIbA==
+X-Forwarded-Encrypted: i=1; AJvYcCUy8rvSEG/VHQ4hCsk2NrEszp1jmFyMP6Ig/hbv09b//SkbIxR42/jU74EHzGcZGtuPaAz8SANH8YowhUzk8NbS@lists.infradead.org
+X-Gm-Message-State: AOJu0YziPN3uhnA4Jl3LDlyaIg3UBaAIWCKEnqK1mwpFB2va3NUhWzw3
+	dhdaaJu14GVIheOLmuhWdArZpmq9PztpqAH2NhYxCT+7N7v+CZXt8iS+bvtkyPeF0l10PAjJgjY
+	Di5RxY4nHaGmFCVgrUrWISvLC7CZWAP8=
+X-Gm-Gg: ASbGncu0QwrtbHFtXsgpZdm1jldCoTCwz4ycyv0B3I45DCmntI9viYT8DFrmHMIpmX1
+	YqNagHMVtlunHfi+zcP1hi1GMWihDWN2x5NLbEeBdV4zWW5oSdzAt4VGgVFWadQtk04LYWNrkIs
+	P+ynliDvuYZ71GKRSPw6C4tvEVhlNUDjhUZTVBx29PebmMCwOQSJ6Jj8C/klPr7Cb+Pmyjo+1Jk
+	9D9wCvCMoK2Z4krcDEAannsaR80v14i9kq7xcLOQ5yBxuaJ2iogt0/04isVxIQpb0Bmsoa/
+X-Google-Smtp-Source: AGHT+IFNepnjW1ln2/qkUxgl+nTX/lKuWDuPuR+uSkSWvw1XDCRuJvbtDz+7gIkX9u2wG4O2TSxknsPpmxchsLm6W7Q=
+X-Received: by 2002:a05:622a:56:b0:4eb:72a3:d700 with SMTP id
+ d75a77b69052e-4ed07486220mr18468201cf.1.1761598591759; Mon, 27 Oct 2025
+ 13:56:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dfc94b21-0baa-4b1f-9261-725d8d5c66f0@intel.com>
+References: <d583ee43-38c4-40fb-b33b-ce3153c9723b@gmail.com> <20251027200213.1821809-1-dsimic@manjaro.org>
+In-Reply-To: <20251027200213.1821809-1-dsimic@manjaro.org>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Tue, 28 Oct 2025 00:56:20 +0400
+X-Gm-Features: AWmQ_bn5rbspTLkQfy8fItkWXbaf0FPuu7U9ED3igS0nELLu-MdDWTDVKU7YnWg
+Message-ID: <CABjd4Yzfx-4xBHVB=W_r6nEdbwNJKdpHYB6bN3Xsk8dZOegJWw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: pwm-fan overlay for NanoPC-T6
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: sigmaris@gmail.com, conor+dt@kernel.org, devicetree@vger.kernel.org, 
+	heiko@sntech.de, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	robh@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251027_135634_302645_5377B4A6 
+X-CRM114-Status: GOOD (  42.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +97,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 03:59:51PM +0100, Alexander Lobakin wrote:
-> Hmmm,
-> 
-> For this patch:
-> 
-> Acked-by: Alexander Lobakin <aleksander.lobakin@intel.com>
+On Tue, Oct 28, 2025 at 12:02=E2=80=AFAM Dragan Simic <dsimic@manjaro.org> =
+wrote:
+>
+> Hello Hugh and Alexey,
+>
+> On Mon, Oct 27, 2025 at 7:08=E2=80=AFPM Hugh Cole-Baker <sigmaris@gmail.c=
+om> wrote:
+> > On 27/10/2025 09:14, Alexey Charkov wrote:
+> >
+> >> Is there any downside to enabling this unconditionally in the board
+> >> .dts?
+> >
+> > Only that it goes against the principle that the DT should describe the
+> > hardware; the board .dts would describe a cooling device that doesn't
+> > actually exist on the base board.
+>
+> Having a separate DT overlay is perfectly fine if we want to
+> describe a board absolutely correctly: if the fan actually isn't
+> present, the operating system shouldn't be made to think it is
+> there, especially if there's no fan RPM feedback, which is the
+> case on almost all Rockchip boards that support a fan.
+>
+> Preventing the kernel from managing a non-existent fan might even
+> save some CPU cycles, ending up producing a bit less heat, which
+> can only help in passively cooled setups.
 
-Thanks a lot for taking a look, even if it seems like we might not
-actually go the route of working around this.
+Sounds like an overcomplication without real benefit. It's one thing
+with overlays for functionality that can be software-incompatible
+depending on whether an external attachment is connected or depending
+on the type of attachment connected. Here we are looking at a plain
+2-pin fan which cannot be software incompatible to anything really
+(it's not like one could repurpose the fan connector for anything
+meaningful if a fan is not in use, and noone gets hurt if a PWM output
+is left running without load).
 
-> However,
-> 
-> The XSk metadata infra in the kernel relies on that when we call
-> xsk_tx_metadata_request(), we pass a static const struct with our
-> callbacks and then the compiler makes all these calls direct.
-> This is not limited to libeth (although I realize that it triggered
-> this build failure due to the way how I pass these callbacks), every
-> driver which implements XSk Tx metadata and calls
-> xsk_tx_metadata_request() relies on that these calls will be direct,
-> otherwise there'll be such performance penalty that is unacceptable
-> for XSk speeds.
+The CPU cycles spent parsing a slightly larger DTB at boot are likely
+comparable to those spent activating a PWM output needlessly upon
+hitting the active cooling trip point, and both are negligible for any
+practical purpose.
 
-Hmmmm, I am not really sure how you could guarantee that these calls are
-turned direct from indirect aside from placing compile time assertions
-around like this... when you say "there'll be such performance penalty
-that is unacceptable for XSk speeds", does that mean that everything
-will function correctly but slower than expected or does the lack of
-proper speed result in functionality degredation?
+> However, the practice so far has been to describe the fans in the
+> main board dts files, if the board provides fan support, regardless
+> of the fan being present in a particular board setup or not.
+>
+> > I guess then in theory, an OS might allow the SoC to reach undesirably =
+high
+> > temperatures if it's relying on the nonexistent fan to cool it down. Bu=
+t I
+> > don't think this would be an issue on Linux, at least, in practice.
+>
+> We're safe, a thermal runaway isn't going to happen when the fan is
+> defined in a board DT but actually isn't present.  Thermal CPU and
+> GPU throttling will prevent the overheating from happening.
+>
+> >> Overlays require more user configuration, and not all
+> >> bootloaders support them directly (e.g. systemd-boot users would
+> >> struggle). Compiling with overlays enabled also makes .dtb's a lot
+> >> larger due to added symbols information.
+> >
+> > Nowadays (on Debian at least) using overlays is pretty easy, I'm using =
+the
+> > u-boot-menu package in Debian, I just copy the overlay(s) to /boot/dtbo=
+/ and
+> > it detects them automatically and adds them to extlinux.conf for u-boot=
+ to
+> > apply.
+> >
+> > Couldn't systemd-boot users just use rk3588-nanopc-t6-(lts-)with-fan.dt=
+b as
+> > their single DT to load, if it doesn't support applying overlays and th=
+ey
+> > want to use the fan addon?
 
-> Maybe xsk_tx_metadata_request() should be __nocfi as well? Or all
-> the callers of it?
+Sure, but it's a manual configuration step, where otherwise the kernel
+would just default to the correct dtb for the board that the firmware
+told it about. The fan is not discoverable, so the firmware won't ever
+offer the "-with-fan" variant, meaning users would need to supply it
+manually in every instance.
 
-I would only expect __nocfi_generic to be useful for avoiding a problem
-such as this. __nocfi would be too big of a hammer because it would
-cause definite problems if these calls were emitted as indirect ones, as
-they would not have the CFI setup on the caller side, resulting in
-problems that are now flagged by commit 894af4a1cde6 ("objtool: Validate
-kCFI calls") in mainline. It sounds like it could be useful on
-xsk_tx_metadata_request() if we decide to further pursue this series but
-given we could just bump the version of LLVM necessary for CONFIG_CFI on
-ARM, we may just go that route.
+> Yes, that's an option.  However, that in general doesn't resolve
+> the issues arising from systemd-boot users wanting to apply more
+> than a single DT overlay.
+>
+> > FWIW, I haven't noticed any problems with having a larger .dtb (using m=
+ainline
+> > U-Boot to load it) and several other RK3588 boards are also compiled wi=
+th
+> > symbols enabled already, and I haven't seen any issues reported with th=
+em.
+>
+> After thinking a bit about it, I'd support the extraction of fan
+> definitions into separate DT overlays.  As I wrote above already,
+> not managing the non-existent fan might actually help a bit with
+> passively cooled board setups, which is a good enough reason for
+> me to support separate DT overlays.
 
-Cheers,
-Nathan
+Practical benefits sound far fetched here, while forcing users to
+manually configure something that would have otherwise just worked.
+Let's see what Heiko thinks.
+
+> If we end up agreeing to accept this DT overlay, I'll have some
+> comments on the way cooling maps are defined.  I think there's
+> quite a bit of redundancy there.
+
+Agree. Thermal governors can figure out the fan speed ramp-up without
+specifying each and every temperature threshold manually. Two trips
+seem to be enough for everyone (c) - as we've done e.g. on Rock 5B and
+others.
+
+Best regards,
+Alexey
 
