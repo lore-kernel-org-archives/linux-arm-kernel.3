@@ -4,77 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D8DCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A479CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkuEErUrXfFzsQkjQsraDkINjJMAVu/dSi9jyJ2QsjM=; b=qhuqBGNLhUpxekTm1R7nZ9QWps
-	Otu3HMiZD1V7EzNIzWezu/UVYd3+vK0LZY6oTlAS4uRc4y1+L+7moSSEmepiOGQY4fCE71ZHHGRHd
-	xxFcshwhJgD1L7BXsvHePoOk9pCAqPlM1KqTlE7JfKiJs9KSzG74uuEk7J1B5sPgi06HSzuiwTTyW
-	SzRuQUzIiFRmjLx+S3eACg9keYXT8cfnLihn5SMX5ocvwVGQuqWzWHJdqjWow80KNpjZFv0RlXQES
-	3GRlGV7R72xM7ibZsjCjukxawq61hUtOUIe7yg6CQ8xVQGGTUVrtuWoPw+rkdVfeawA6qMc/lUkTb
-	HNqYaxaQ==;
+	bh=RC0J3akmB3TXc++y+3XKXioAKP3259FgNBDBPlznVPQ=; b=W83y2e6JX2IgJRoKsY9n5F3Uqh
+	1qgaHLdpk9ZQK0adZeP7Dtl0doItcOS6F1kAjvcUW88OIOI1Ixi+tUC4kQiVL8qjQEZgOhFt3RdBh
+	fNUhugWSy+a8IUe9MbQ8CTfH/8m1NdUqqaTrQR0V4hh1PyhBKP3O3OXXY9STSphTihwcqKwwdiliH
+	bPdz3JNQvmmxrEFzjQa/Vx+zT51v4Ja3QBjSkWIcMLdkOwZvD481FmtgJI0myRTYKSj3cDAGKkYBD
+	5wgJ+EYNydjM6SKx1cFb2TGZQ8/zH2KSKdpsci2FVVG31/7pEDDaQKjoZq6pHuTo4ALb6+xIU5sY8
+	I5XRnDIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDM8D-0000000Ds27-2Yd0;
-	Mon, 27 Oct 2025 12:15:25 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vDMA1-0000000DsLu-2eej;
+	Mon, 27 Oct 2025 12:17:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDM84-0000000Drxq-2JGn;
-	Mon, 27 Oct 2025 12:15:17 +0000
-X-UUID: 9594f246b32e11f0a52f393f94899d25-20251027
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=KkuEErUrXfFzsQkjQsraDkINjJMAVu/dSi9jyJ2QsjM=;
-	b=f+9E024DKSvLrFKefChyN1DBGZzq1gYRhAcGd3d6KiO6i9waFszWwUBTpG3gYYsC7pEB3+i8W8+FQ3IUtg1U0KXF8q3Uq4IhtUPuNdIKrDM7uKeV/5bLELqM3f1A67knpMdXPQEpnneHUZNiM76FU+X2a0mvOChXgb7fsdwX8GU=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:f8eb9f02-51bb-4093-9d33-a974897bee0d,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:e6b8de3a-b16f-49fc-bb37-560773c432f7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 9594f246b32e11f0a52f393f94899d25-20251027
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <zhengnan.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 993933861; Mon, 27 Oct 2025 05:15:10 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Mon, 27 Oct 2025 20:15:07 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Mon, 27 Oct 2025 20:15:06 +0800
-From: Zhengnan Chen <zhengnan.chen@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Zhengnan Chen
-	<zhengnan.chen@mediatek.com>
-Subject: [PATCH v2 1/2] dt-bindings: memory-controllers: mtk-smi: Add support for mt8189
-Date: Mon, 27 Oct 2025 20:14:27 +0800
-Message-ID: <20251027121443.16783-2-zhengnan.chen@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20251027121443.16783-1-zhengnan.chen@mediatek.com>
-References: <20251027121443.16783-1-zhengnan.chen@mediatek.com>
+	id 1vDM9z-0000000DsKv-1UOK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 12:17:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761567434;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RC0J3akmB3TXc++y+3XKXioAKP3259FgNBDBPlznVPQ=;
+	b=GDHuZpywqQZi9TjaY9Zee/ZuIvYgQChKNyPrhXZDbxg7CIs4oRnHyha2uhfSAjuNjHr/2/
+	DdT2INROMtV0rU9XvMnL0Nts2+TXkb4H7BXgslu486QKBo9O9yBWkSyWtPUWtpQnrsPAna
+	QFJr0IfrKbO8ZxyppldQvAHTb6Ww9IM=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-353-kxjEZOH1OdWIqcVQZyAYtg-1; Mon, 27 Oct 2025 08:17:11 -0400
+X-MC-Unique: kxjEZOH1OdWIqcVQZyAYtg-1
+X-Mimecast-MFC-AGG-ID: kxjEZOH1OdWIqcVQZyAYtg_1761567430
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-47106720618so31662405e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:17:10 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761567430; x=1762172230;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wll0xmsacByMeT/hOTkkX96EzOS2Mn1ybFdnjeQhq3A=;
+        b=oZDFdd6ABbQ0gX3u2cTo+ISemREJx4zsYv4I7fir/RT8Q2w/IVtZQwcl2XmaJI17S4
+         Z6NBrEuf9vfu+qGGXCpwoRDCe3zUZnhti49WtALeySWn+4h76AoNTIyKYTJkCYr1OSlo
+         /8ekVSqB0wSu+bZ7nvSvcOPxQ4eA8yShsckvok4EEZ06eisare//JUTBgDkchnVwLHeK
+         XfMK9clry1BDgBvt/k1AfQ0md66yrBf489RklNLN8jMtuDuayuLCbGAjhkzHRsoXg/62
+         44JDG5juG3TDYSlxW4lhfoW0WHSj/91mqGdFPb9kgSrfwnF0GqSmOFpWQCm4DgVLXOPB
+         0w3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUzQJqXKm1gU2J7p+igYFQUUQYmVuu3gzH+rEZ/9Da0VBiMhvxBQjNQRjk0nf5PNqI29LbtpM87VBJPY3TyRr36@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQl+SnGdYDBsIAPRBYFW4Aoy3FJ/bJgxPn2Bd2WA3YlKhR008g
+	ps5ZeGnN3ezcetGSA6bbET82AZ3+SRfMNr78LOw6Csd+7E2k1X6c8DvdlJmdgSvnLE+gYD/7cln
+	Ins3oS3h6/BNRzQeuBqRhXw7ihh2tac50mC7sz57UBWzyefeg9yi3AhByXe/DmjfhZg2ACX7yHJ
+	l0
+X-Gm-Gg: ASbGncudd4kzFcUM13sZEUDGTrzHFtjJf1vuWa6PaZgPkEoak1aWji2WdUYY3UcGLcS
+	gxVefdNvLO5DFUbUEOdEDKSZZew4BID01DbcnLeK5KEJpqVc5f8Q8/ujIK5wk0DESL3nkIHadoK
+	ludTf+c89sEEsWFaKgk04EqwY24x5TShOw7bW/jGRj/fpasIoD69KA87epTGc9wO4U8uvJjCqKu
+	a9Php6lhCcsU17TLkuuFZiJc9/cgWXmUuL2NHYcoz68WAdzxW0GHZcV+qLC9uGWjVbQ0n9PMEwQ
+	0fnqhzN/eLvsTseIcB+t6ooG/U7C2TwPOMF7v2FGqJYMo7LRO7OGwKgdLdBioqhZnMPHdPRuyol
+	8zlaKTNIpwzj9s5EO1wh5Md8LnPpEnsS9LS6Ml9BOdtCK0kIm
+X-Received: by 2002:a05:600c:a02:b0:46d:5189:3583 with SMTP id 5b1f17b1804b1-475d2c2ffaemr87848395e9.0.1761567429921;
+        Mon, 27 Oct 2025 05:17:09 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH8Kt+sgYwnqm/Q4piYTRL+0NmhLKf29X3f9k3CyMYQpSiUpxteFuRbA1s4pQkL/YU8wr6E4Q==
+X-Received: by 2002:a05:600c:a02:b0:46d:5189:3583 with SMTP id 5b1f17b1804b1-475d2c2ffaemr87848105e9.0.1761567429402;
+        Mon, 27 Oct 2025 05:17:09 -0700 (PDT)
+Received: from rh (p200300f6af131a0027bd20bfc18c447d.dip0.t-ipconnect.de. [2003:f6:af13:1a00:27bd:20bf:c18c:447d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dcbd243csm65775805e9.0.2025.10.27.05.17.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 05:17:09 -0700 (PDT)
+Date: Mon, 27 Oct 2025 13:17:07 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+cc: "maz@kernel.org" <maz@kernel.org>, 
+    "oliver.upton@linux.dev" <oliver.upton@linux.dev>, 
+    "yuzenghui@huawei.com" <yuzenghui@huawei.com>, 
+    Suzuki Poulose <Suzuki.Poulose@arm.com>, nd <nd@arm.com>, 
+    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+    "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+    "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+    "will@kernel.org" <will@kernel.org>, Joey Gouly <Joey.Gouly@arm.com>
+Subject: Re: Failing no-vgic-v3 test
+In-Reply-To: <985e9c0d9079ea2a27114a8b088ddf10482e1f37.camel@arm.com>
+Message-ID: <ae15bf83-df34-59a3-712e-6102bec59801@redhat.com>
+References: <f9c7fffa-53ba-a506-b48b-07e3df2d1d5a@redhat.com> <985e9c0d9079ea2a27114a8b088ddf10482e1f37.camel@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: pt1Eafed8zOssdijJPn1dQpi_3MTFo5hlws5XkxD3Ro_1761567430
+X-Mimecast-Originator: redhat.com
+Content-Type: multipart/mixed; boundary="-1463806286-1316213544-1761567429=:13240"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_051516_597216_3B4E87B8 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20251027_051715_469290_2B91D32A 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,118 +112,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add binding description for mt8189.
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+---1463806286-1316213544-1761567429=:13240
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8BIT
 
-The clocks number of mt8189 smi-sub common has a bit difference.
-Its clock count is 2, while mt8195 has 3. Therefore, the minimum
-number of clocks is changed to 2, with the third one being optional.
+On Mon, 27 Oct 2025, Sascha Bischoff wrote:
+> On Mon, 2025-10-27 at 12:37 +0100, Sebastian Ott wrote:
+>> on an ampere altra I've got a sad selftest:
+>>
+>> [root@virtlab-arm11 kvm]# ./arm64/no-vgic-v3
+>> Random seed: 0x6b8b4567
+>> ==== Test Assertion Failure ====
+>>    arm64/no-vgic-v3.c:66: handled
+>>    pid=3793 tid=3793 errno=4 - Interrupted system call
+>>       1  0x0000000000402feb: test_run_vcpu at no-vgic-v3.c:128
+>>       2  0x000000000040214f: test_guest_no_gicv3 at no-vgic-v3.c:155
+>> (discriminator 17)
+>>       3   (inlined by) main at no-vgic-v3.c:174 (discriminator 17)
+>>       4  0x0000ffff873eb587: ?? ??:0
+>>       5  0x0000ffff873eb65f: ?? ??:0
+>>       6  0x00000000004022af: _start at ??:?
+>>    ICC_PMR_EL1 no read trap
+>>
+>> This is a guest without VGICv3 on GICv3 HW. The test expects UNDEF on
+>> reg
+>> access - which is not happening since:
+>>
+>> 3193287ddffb KVM: arm64: gic-v3: Only set ICH_HCR traps for v2-on-v3
+>> or v3 guests
+>>
+> I posted a fix for that the other day:
+>
+> https://lore.kernel.org/all/20251021094358.1963807-1-sascha.bischoff@arm.com/
+>
+> Could you please try the fix and confirm if it works for you?
+>
 
-About what smi-sub-common is, please check the below diagram,
-we add it in mediatek,smi-common.yaml file.
-
-Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
----
-Hi Angelo,
-We add a diagram in the smi-common yaml, We are not sure if you agree
-with this. thus I remove your R-b.
-
-Thanks.
----
----
- .../mediatek,smi-common.yaml                  | 25 +++++++++++++++++--
- .../memory-controllers/mediatek,smi-larb.yaml |  3 +++
- 2 files changed, 26 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-index 0762e0ff66ef..454d11a83973 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-@@ -25,6 +25,21 @@ description: |
-   SMI generation 1 to transform the smi clock into emi clock domain, but that is
-   not needed for SMI generation 2.
- 
-+  The smi-common connects with smi-larb and IOMMU. The maximum inputs number of
-+  a smi-common is 8. In SMI generation 2, the engines number may be over 8.
-+  In this case, we use a smi-sub-common to merge some larbs.
-+  The block diagram something is like:
-+
-+                          IOMMU
-+                           | |
-+                       smi-common
-+              ---------------------------
-+               |          |           ...
-+              larb0   sub-common      ...  <-max number is 8
-+                   ----------------
-+                    |     |    ...
-+                  larb1 larbX  ...  <-max number is 8
-+
- properties:
-   compatible:
-     oneOf:
-@@ -40,6 +55,8 @@ properties:
-           - mediatek,mt8186-smi-common
-           - mediatek,mt8188-smi-common-vdo
-           - mediatek,mt8188-smi-common-vpp
-+          - mediatek,mt8189-smi-common
-+          - mediatek,mt8189-smi-sub-common
-           - mediatek,mt8192-smi-common
-           - mediatek,mt8195-smi-common-vdo
-           - mediatek,mt8195-smi-common-vpp
-@@ -108,19 +125,23 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - mediatek,mt8189-smi-sub-common
-               - mediatek,mt8195-smi-sub-common
-     then:
-       required:
-         - mediatek,smi
-       properties:
-         clocks:
--          minItems: 3
-+          minItems: 2
-           maxItems: 3
-         clock-names:
-+          minItems: 2
-+          maxItems: 3
-           items:
-             - const: apb
-             - const: smi
--            - const: gals0
-+          additionalItems:
-+            const: gals0
-     else:
-       properties:
-         mediatek,smi: false
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-index 2e7fac4b5094..9a5dafd7c07e 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-@@ -27,6 +27,7 @@ properties:
-           - mediatek,mt8183-smi-larb
-           - mediatek,mt8186-smi-larb
-           - mediatek,mt8188-smi-larb
-+          - mediatek,mt8189-smi-larb
-           - mediatek,mt8192-smi-larb
-           - mediatek,mt8195-smi-larb
- 
-@@ -85,6 +86,7 @@ allOf:
-             - mediatek,mt8183-smi-larb
-             - mediatek,mt8186-smi-larb
-             - mediatek,mt8188-smi-larb
-+            - mediatek,mt8189-smi-larb
-             - mediatek,mt8195-smi-larb
- 
-     then:
-@@ -119,6 +121,7 @@ allOf:
-               - mediatek,mt6779-smi-larb
-               - mediatek,mt8186-smi-larb
-               - mediatek,mt8188-smi-larb
-+              - mediatek,mt8189-smi-larb
-               - mediatek,mt8192-smi-larb
-               - mediatek,mt8195-smi-larb
- 
--- 
-2.46.0
+Yes, that did the trick - thanks!
+Sebastian
+---1463806286-1316213544-1761567429=:13240--
 
 
