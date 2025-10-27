@@ -4,87 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF8BCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6BCCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIRS+LFSEl2pP7BA1HaGu6uS2VfHoQaGzQTmnGo7rVk=; b=FADPH3yFhv1cspoRBIeSXLPwLk
-	RbCy/Ixf6K3Z3yW+XgN8R2LlW7emFWc71TVFPnULsLUuh7aX5jpp7ZQzFvOYG+7qHan+V84kYlgC4
-	csQ9yBruKmNaYdbaa/RlvG1Zog/rRsr4+9LV77N1q9s2FkwLJb7Rp/M4WHMST+Uh/ujLksaViwHLQ
-	3Dmjt1doX3Lw0pdGvnaMNdI2H1mPUSuzDKZT53u9wJmFfx7OIaIn9MVT8Z4jLz20P13OH7yxWJbdb
-	LXpE6BVOXj9FzkBIgWcA2cb7MRnfYF3GwtawqkgIo0gGOFvuXlhdgHHImlBb90wjjYs02YUr4sajT
-	/z0nP5DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8yVMi7V8qTRELGGfV+IcZ9w9BuBp+eY7s7IocvDD4Ig=; b=agHpyFfJVlNBgwlGs5cEXVbCA7
+	DhDmsRbgPf5dd8Nyk/C+2zNm8pzgv+p7SgJvHPUwoET5wl24MnJ3bVLmqMj+Q13iqwPtMNHGOepn6
+	9XBBCaKZu7fOyUibpsdL6tVaHOHFX39SjUigvLoVxGB12xZmtsFaKjrikIsm7K9TdLQicJ9kaMvy0
+	leZfnS1KjbovsQ9XT+tDBZzYxR+e9eYY2Q2nSHxNHkoUb4/lPfwp2/M6KtlZM2viXFVMc/pdwPWHm
+	G0MWuDZls/DzQOwIHxj3SD96FoW/HTdsiddhSapUXx0BeRZTUfmgmcxdVdERiUmAxb/AZgkmWPKco
+	QG3dCTAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOZ0-0000000EA5B-352N;
-	Mon, 27 Oct 2025 14:51:14 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vDOdp-0000000EAQN-1qjY;
+	Mon, 27 Oct 2025 14:56:13 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOYv-0000000EA4M-1U0R
+	id 1vDOdn-0000000EAPZ-0Eem
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 14:51:12 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1vDOYg-0003Tf-0O; Mon, 27 Oct 2025 15:50:54 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1vDOYf-005j1D-1r;
-	Mon, 27 Oct 2025 15:50:53 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1vDOYf-003DTB-1K;
-	Mon, 27 Oct 2025 15:50:53 +0100
-Date: Mon, 27 Oct 2025 15:50:53 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	imx@lists.linux.dev, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aP-GzR_pVvXvCIn-@pengutronix.de>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
- <aP83bMDWCre7-Sjw@pengutronix.de>
- <20251027100227.GE1544@pendragon.ideasonboard.com>
- <aP9IB4y5_gyfJGMW@pengutronix.de>
- <20251027103107.GF1544@pendragon.ideasonboard.com>
- <aP9Kuyndws_dYFna@shell.armlinux.org.uk>
- <aP9NJHtbAEmsd89r@pengutronix.de>
- <aP9N9tCdlAbBgovC@shell.armlinux.org.uk>
- <f66d181d-7dd9-4955-bad5-478db2876e47@lunn.ch>
+	Mon, 27 Oct 2025 14:56:12 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7a2852819a8so3128652b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 07:56:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761576970; x=1762181770; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8yVMi7V8qTRELGGfV+IcZ9w9BuBp+eY7s7IocvDD4Ig=;
+        b=beCaQl02IcgWGtuC+xiTucKlHKQKgHifhHXLpg/b/ihg50//oHmJUS+TY6a+vqxhE/
+         ejoDvwDUWdJTtXJKbwZOWVh6CceHgRCrGBe7vmdV/9RYKQWccgXSQjlxqQlkjKklM8Hy
+         xJXOZY9mYp7QTxv3lnkDgP/uXUNkK9FxQ82FbkCALZEYaeTdZCGCnMhgzhvBSxzMZIRv
+         h9J8emL8ZHabYxS0F4KK2GOJc+1uMAaOKJN/PPzSSMlG69/vi0eYN4e0FkWzxu1m0HB3
+         7nEtIJ5f03bjMGlM/+MHu/k8cz3iy96DRJnnOJI/7Oa/YVlzt6TWf7yEw4c+j5OaV60V
+         3kfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761576970; x=1762181770;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8yVMi7V8qTRELGGfV+IcZ9w9BuBp+eY7s7IocvDD4Ig=;
+        b=oRptWTkAXl4HTz7Mt5+mFkev8dMlCnB/s+CqXIKWLuZsHkI4+u+9Rol/TCL6hb8Hos
+         8+OF4sMCyVu1gzdrRejzozoIZ5o5gOEK60jH8fJhpEOb0zmmLxPP5OLStPW8HsFHjCmP
+         d1J2d+1wWKsFjHenpForikp/If6dWTyw7cPq1N9EVFCmuBJ+J7vgojzufoHK3KGz6xFt
+         +ZrLrN/ZF/t4cUpltqNOuGEUPWLhSTyYsRY/xT+eszkqSUThfAqe9QbTnVIuLbCbDA9s
+         Ws5LSWyOEq4fV2PVuF5BqMgG9pwWq39I22lInhqbQDz3Ns1dUt5wI4EY36McGCsZJaKn
+         33JQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVPiSrraC719xkYW/gQwehZRjYiYqUWSPspvIMu6LBwXZaw5wUZHr7WeSZ8PEu2efSul0l60A0VqBcsRqvclfup@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8sKA3rXcdd61z/p+V2Q/QXb7+laOO004+iHMdleOj0rk/KEpp
+	Gnc41sYm8MfAA1HyNvrPa/+mbW3EUbu0phYqgXh3zAY5PvJFIImUqnDa
+X-Gm-Gg: ASbGncvppeS5y3NHiutj/mAxWnJH8KmCRiy+AdMV80HnQW/88ezeGt7hQfAwHvxF4QW
+	ZUgr9JlTAfg/MBdoZ3DGVrYCbal2iMfqRe+Gy1m0DeDPqGqrxpE1Ay/gCWpF9uSHyS6dqgpFUA1
+	ZcdrEOKvb4x8MXYPVN6QS21sJgKotSIw2JGH1vsDNHt9FZNnfFTt7ShgYdN3hTDLL6EO8cR5akJ
+	l65oN3BP0UaLxmjxo5m8QSMUX9e0TfF2t80AMWTVe+6CupOilUtXQue1XfnujTeyNKVzM+xEgik
+	0pfCHjvZFZHTAQt3C8+g5DBO04cw5tt0HNviacpT3sCRFoqhHvQmCL/oxQgZzof2Z2ZPmbqkzTr
+	9Lu6xjO5gzxZxpxEmZdXvNOQ8AitGgvd7oeWMJdl10A4f8aWYKXjdgUU/nh2JbJcrj1EjdfanRc
+	k5RScpGcystE7+D4eUXjo=
+X-Google-Smtp-Source: AGHT+IFNNRsqOAD0ej4MkP02YIZHAarj1O7wDlGaz+jF0eTKJU0nb26xxgTWECACFe3NIf0baZUBNA==
+X-Received: by 2002:a05:6a00:c86:b0:77f:324a:6037 with SMTP id d2e1a72fcca58-7a441b7aa11mr318696b3a.7.1761576970098;
+        Mon, 27 Oct 2025 07:56:10 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.108])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414012b19sm8373372b3a.12.2025.10.27.07.56.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 07:56:09 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Niklas Cassel <cassel@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Hans Zhang <18255117159@163.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	linux-pci@vger.kernel.org (open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
+	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v1 0/2] Add runtime PM support to Rockchip DW PCIe driver
+Date: Mon, 27 Oct 2025 20:25:28 +0530
+Message-ID: <20251027145602.199154-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <f66d181d-7dd9-4955-bad5-478db2876e47@lunn.ch>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_075109_392157_3D2AD096 
-X-CRM114-Status: GOOD (  25.90  )
+X-CRM114-CacheID: sfid-20251027_075611_122751_CDD5EA1C 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +108,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 01:50:21PM +0100, Andrew Lunn wrote:
-> > > Ack. With comment in the code, why we prefer this way, in case some one
-> > > wont to spend time on making it work. Probably SmartEEE or some other
-> > > word should be used.
-> > 
-> > So we have options.
-> > 
-> > However, we need to get to the bottom of what caused the change of
-> > behaviour before we start throwing solutions at this.
-> 
-> It also seems like the PHY is FUBAR. If the standard 802.3 EEE
-> registers are being used, a management plane is using them to
-> negotiate EEE with the link partner, the PHY firmware should disable
-> SmartEEE and only provide 802.3 EEE.
-> 
-> It sounds like this PHY is not 802.3 compatible.
+Introduce runtime power management support in the Rockchip DesignWare PCIe
+controller driver.  These changes allow the PCIe controller to suspend and
+resume dynamically, improving power efficiency on supported platforms.
 
-I do not know better place to post it, so I add it here for archive.
-At least, it explains a reason why EEE fails. Something like this is not
-possible to handle on the MAC side. At same time it is hard to
-diagnose:
+Can Patch 1 can be backpoted to stable? It helps clean shutdown of PCIe.
 
-In 100BASE-TX EEE mode, the link partner may drop link or loss packet
-when the local MAC/PHY (device) starts to transmit the “Wake” signal
-immediately following the “Sleep”/“Refresh” signal to exit Low-Power
-Idle mode and return to Active mode.
+Clarification: the series is based on
 
-Many EEE PHY link partners require a short “Quiet” (Tq) duration after
-receiving the “Sleep”/“Refresh” signal. Without this short Tq wait time,
-that is not specified in the IEEE 802.3az Standard, link drop or packet
-loss can occur.
+git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git
+branch : controller/dw-rockchip
 
-https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/Errata/80000708B.pdf
+Thanks
+-Anand
 
+Anand Moon (2):
+  PCI: dw-rockchip: Add remove callback for resource cleanup
+  PCI: dw-rockchip: Add runtime PM support to Rockchip PCIe driver
+
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+
+base-commit: 7ad31f88429369ada44710176e176256a2812c3f
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+2.50.1
+
 
