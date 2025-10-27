@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D31CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 00:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A54CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 00:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mfe/m5mRhKga9zLtu31a/sVqXTyfvHsMKaxlczQ85zs=; b=T8NJysuvdZyyAOvWKjN9C1mNlD
-	NlJqBa4wCBmjxW5KMXZDzyr79wTHu4uzeLPvyUjAObdJ5VMK9wcLqf0a7nHlVu9VtfNsnCWmOmjot
-	XOglLIikdFlPRS6onsrzrx7d17dA6PevLNkTTLtUtee2oAQxlq/ESLxpkpABtEIqhJ2bLeO/NZL9X
-	bIaqqtO8LdTrfn1famzCsdYVoR2LgGKGO7AIAk7QU8ielcc6o+PCwtAXOc/vCgdimtMyzoLjrI/rB
-	LSTOZazQ+3RMj1Za74b+dMnGzwJ4rPa/4y6ihe3BTmBKLLXhjRzC+Mv1lfih50Sy++heZc746okkg
-	NDIvqJFA==;
+	bh=PpsDspoPGuFN+kp23Nw2bUNjubccczLt1s7VeJsKJOk=; b=ue9EidgNJn5nxZsD6W2U/gwKdK
+	K1TXEV4hlkksn+TTeYVaUBWF5Z8bxiMCBxjq3ThtqPyx18fzGj0Fe+hd8vKAtzt/1u96xky727b69
+	er1Yxv39WAe9dENvBuSucLKxkLepDh+148Kf4qw36HExoAh3IR0gLlmgHNi7jBlsPQRpYly3hNf2X
+	h1b1sX+lVWSBoKIbEffuCZQuo87Sn86J9/wRLm4h/fn+/tY5OMIwbJH7zMq4DAo8XHv5cj99rVyRn
+	2KQTlmy8+D4l0daZC3+MYRoXWO3jlv2T4qv1NYj/fv87mh1e1vxAgKCrt7z5ghFJoWCdM9CHbidXC
+	yj1io2Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDBRq-0000000Cucn-3H0H;
-	Mon, 27 Oct 2025 00:50:58 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1vDBYd-0000000Cuyc-1k9N;
+	Mon, 27 Oct 2025 00:57:59 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDBRn-0000000Cuc2-2fwK
+	id 1vDBYb-0000000Cuy9-03L0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 00:50:57 +0000
+	Mon, 27 Oct 2025 00:57:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=Mfe/m5mRhKga9zLtu31a/sVqXTyfvHsMKaxlczQ85zs=;
-	b=lQjAA7Flm3b7icS0LXV5lqPBu2tMioIDSh+mHMhH7vxjSynDEwGF0MZmsVi0UC
-	o9yNOxpmkRMmM8pAPWW5iMFNNURoqVxpSOncm1I9rIVQd3XRR/QzDjYjxI+ZLdsU
-	5N81f86PIssO//es7FueWFSvZH7sLuiEhKgBSXRf2pjt4=
+	Content-Type; bh=PpsDspoPGuFN+kp23Nw2bUNjubccczLt1s7VeJsKJOk=;
+	b=NsIBY0WA+Au1ix8V6Sl8Z5MmPiwBy52G8n0Qe/AeNT7C3G/kQd8avI0eZY253p
+	PIn35Kfwc4n8VZusktlXchPO5r4Yde1LqxFSHfyzcyEv9brPQmgAj1xiFcSK4c2z
+	MUkTcily0JRut8Ib72/ddchydzz22+pB7stQ4u2MtlY18=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgDn94u0wf5o7MO1AA--.46675S3;
-	Mon, 27 Oct 2025 08:49:58 +0800 (CST)
-Date: Mon, 27 Oct 2025 08:49:56 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD3H1lkw_5o1DK6AA--.23343S3;
+	Mon, 27 Oct 2025 08:57:10 +0800 (CST)
+Date: Mon, 27 Oct 2025 08:57:08 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Boris Brezillon <boris.brezillon@collabora.com>,
 	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
 	Fabio Estevam <festevam@gmail.com>,
+	"Jiyu Yang (OSS)" <jiyu.yang@oss.nxp.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [RESEND PATCH 2/3] ARM: dts: imx28-amarula-rmm: add I2S audio
-Message-ID: <aP7BtHVgigfcdtcE@dragon>
-References: <20250924130749.3012071-1-dario.binacchi@amarulasolutions.com>
- <20250924130749.3012071-2-dario.binacchi@amarulasolutions.com>
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Steven Price <steven.price@arm.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Xianzhong Li <xianzhong.li@nxp.com>, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
+Subject: Re: [PATCH v3 2/2] arm64: dts: imx95: Describe Mali G310 GPU
+Message-ID: <aP7DZCMk1pQ7wsFo@dragon>
+References: <20250925203938.169880-1-marek.vasut@mailbox.org>
+ <20250925203938.169880-2-marek.vasut@mailbox.org>
+ <ba95487c-ada7-48a4-90b7-fd99a0278f51@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250924130749.3012071-2-dario.binacchi@amarulasolutions.com>
-X-CM-TRANSID: M88vCgDn94u0wf5o7MO1AA--.46675S3
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFWkury8ur4ftFy7CFyrXrb_yoW5Cr47pr
-	1vkw4fCry8Aw18J34rJa4DGFs3G3yDGrWq9rnaqr1UAF9Iv34UXrW0kw15uF93XrZ3Aw4a
-	gF98ZFyIkws8t37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U7UUUUUUUU=
+In-Reply-To: <ba95487c-ada7-48a4-90b7-fd99a0278f51@mailbox.org>
+X-CM-TRANSID: Ms8vCgD3H1lkw_5o1DK6AA--.23343S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU0NtxDUUUU
 X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNRZ33Gj+wbZOVwAA3w
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCwHzZWj+vk4QWwAAsx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_175056_082427_FCFB5AB8 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20251026_175757_424129_6A290C8E 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,114 +90,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 03:07:45PM +0200, Dario Binacchi wrote:
-> Add support for I2S audio on Amarula rmm board. Audio codec
-> TLV320AIC3X is connected as slave to SAIF0, which provides
-> bitclock, frame and MCLK.
-> 
-> Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-> Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> ---
-> 
->  .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 51 +++++++++++++++++++
->  1 file changed, 51 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> index af59211842fb..0c5b52f67178 100644
-> --- a/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> @@ -112,6 +112,29 @@ reg_usb1_vbus: regulator-usb1-vbus {
->  		enable-active-high;
->  		regulator-always-on;
->  	};
-> +
-> +	sound {
-> +		compatible = "simple-audio-card";
-> +		simple-audio-card,name = "imx28-mrmmi-tlv320aic3x-audio";
-> +		simple-audio-card,format = "i2s";
-> +		simple-audio-card,bitclock-master = <&cpu_dai>;
-> +		simple-audio-card,frame-master = <&cpu_dai>;
-> +		simple-audio-card,widgets =
-> +			"Headphone", "Headphone Jack";
-> +		simple-audio-card,routing =
-> +			"Headphone Jack", "HPROUT",
-> +			"Headphone Jack", "HPRCOM";
-> +		simple-audio-card,mclk-fs = <512>;
-> +
-> +		cpu_dai: simple-audio-card,cpu {
-> +			sound-dai = <&saif0>;
-> +			clocks = <&saif0>;
-> +		};
-> +
-> +		codec_dai: simple-audio-card,codec {
-> +			sound-dai = <&tlv320aic3x>;
-> +		};
-> +	};
->  };
->  
->  &auart0 {
-> @@ -154,6 +177,20 @@ &i2c0 {
->  	pinctrl-0 = <&i2c0_pins_a>;
->  	status = "okay";
->  
-> +	tlv320aic3x: tlv320aic3x@18 {
+On Sat, Oct 11, 2025 at 12:53:29PM +0200, Marek Vasut wrote:
+> On 9/25/25 10:38 PM, Marek Vasut wrote:
+> > The instance of the GPU populated in i.MX95 is the G310, describe this
+> > GPU in the DT. Include dummy GPU voltage regulator and OPP tables.
+> Is there still anything that should be changed with this patchset, or can it
+> be applied ?
 
-Can we use a generic node name?
-
-> +		compatible = "ti,tlv320aic3x";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&tlv320aic3x_pins>;
-> +		reg = <0x18>;
-> +		reset-gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
-> +		#sound-dai-cells = <0>;
-> +
-
-Nitpick: unnecessary newline
+I'm waiting binding change to be applied first.  Or is it already done?
 
 Shawn
-
-> +		DVDD-supply = <&reg_1v8>;
-> +		IOVDD-supply = <&reg_3v3>;
-> +		AVDD-supply = <&reg_3v3>;
-> +		DRVDD-supply = <&reg_3v3>;
-> +	};
-> +
->  	touchscreen: touchscreen@38 {
->  		compatible = "edt,edt-ft5306";
->  		reg = <0x38>;
-> @@ -246,6 +283,14 @@ MX28_PAD_PWM1__GPIO_3_17
->  		fsl,voltage = <MXS_VOLTAGE_HIGH>;
->  	};
->  
-> +	tlv320aic3x_pins: tlv320aic3x-pins@0 {
-> +		reg = <0>;
-> +		fsl,pinmux-ids = <MX28_PAD_SSP0_DATA4__GPIO_2_4>;
-> +		fsl,drive-strength = <MXS_DRIVE_4mA>;
-> +		fsl,pull-up = <MXS_PULL_ENABLE>;
-> +		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-> +	};
-> +
->  	usb0_vbus_enable_pin: usb0-vbus-enable@0 {
->  		reg = <0>;
->  		fsl,pinmux-ids = <MX28_PAD_SSP0_DATA5__GPIO_2_5>;
-> @@ -269,6 +314,12 @@ &pwm {
->  	status = "okay";
->  };
->  
-> +&saif0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&saif0_pins_a>;
-> +	status = "okay";
-> +};
-> +
->  /* microSD */
->  &ssp0 {
->  	compatible = "fsl,imx28-mmc";
-> -- 
-> 2.43.0
-> 
-> base-commit: cec1e6e5d1ab33403b809f79cd20d6aff124ccfe
-> branch: microgea-rmm-audio
 
 
