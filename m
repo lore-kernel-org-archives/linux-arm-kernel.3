@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0836ACCF9E5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5834DCCF9EE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Kd1Hxrl9cq5HRQiwhZRmuzJbvRWW57EjJHb2/tWimA=; b=GpE8paee50Nsyi6IRGKSFTDIa7
-	N4UQBaZbOh0XmeSr2/3pn5LZAUp6LpQtRoNsn+GFzWzUA0puEXuMAWxpJ4OY769DLxLpV4XCdm2Cg
-	f9mSXSdi7W6xEUPbfR4eiskqbqeQHBf46Q7WGFqaXXRKUQFK5ctd0eiFiZv+a6ogxu0qCXPh0DfAx
-	u4GJuEZIvRt5/Uvr8NddjAK9SNyoI1C1pH3NFE6bfZb0pVRe98fHhZbVDjxlymKvl92/5jLeqFhya
-	wUzPcCHJRkbrHbTmZVupCFtWSQXq5WlZAiDlZjpDtdEHDUPBUHXrhwCkafO5DNEkcS4/RB75kMYxq
-	ufK0ObeA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cKOc9ymYgduRLbjwAbYYsJz6WnNI5zIjxvxjVDfgGQE=; b=aie4DwELvv/xpqoiiyijoSBa7k
+	wSqa38RYZqdsBcH+yi5lVmL9M1DOAbu+vrKrzJv1cJFDxSZWH3gs3H5TFqZCLDsroiMVwqO/8XedD
+	mvdzSW95FpGeLM0GK0cJ6cPagOC/9sk6gES3RRqzRZvkf8WwvwVni0fgMNHEw8NbnPhYXRk+FIVpv
+	UWXFJ0RseSgBwA8bvyA4SHB6z0PHvIZUNoBnpOqq7KColjNNys4bJLYeH+C3yTd/DVlE97ftWeqBI
+	v3shoJLcXv3LeKOEgYG9aOa4WGI6LsKc+sH1ed+cLOXq5Hpsh1LRJ4iIy3ZSELebXByvwn93vz0aL
+	goDocyzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLYz-0000000DmdH-2Lm3;
-	Mon, 27 Oct 2025 11:39:01 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vDLZ0-0000000Dmdh-05jz;
+	Mon, 27 Oct 2025 11:39:02 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLYr-0000000DmY4-1zSR
+	id 1vDLYr-0000000DmZA-3l5G
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 27 Oct 2025 11:38:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761565133; x=1793101133;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=QvmUWNIdDsPwrCr3ijQPU8sgOEBTxiu0DpWh0HAU0cw=;
-  b=kHdB45t/q25v5bBJ11kC8hNyngqEKctD3ROJ5hZlXIlA/nwaTJ07JISV
-   p67J86hjdL4TsXPYWVzO/ce5OY1wTMfwrfa9tFIkDIeHmZKj5upPKYfa1
-   +VoIOkMymU1zuJ8yzQsj0ela7Go3SAxTHNDNFGMzssiFRNnEBsOeqNUL5
-   6EB3VN+KfPnU+4AQ9OlZMbPmEOH1IJL7rYhvetZWw5+QDnHik4YlkTNeZ
-   VFGQsgY8V94VipJAsskgVn/fTWkWJo4CVelmKfCuduTlykJQjYUVdgOuR
-   7GqTc3SyQK/sQPDF63H/f+Zb+29MRuHEXXRLSr8mDfHHdSZPZbRQTrdkx
+  t=1761565134; x=1793101134;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=JUbvz9IlQ6+L8KQRASSmO9wSpjWPjTFfbMmzkjCOkKw=;
+  b=klUoVDgyJnDRDwUzsrTNvgc5yHNXP8SQ/wmSyvk35p0nyVZKn8tk2QiC
+   8X6UMSLzf+Q5b8Y4HHIGWdQBEXCwFs8KV0u4EamQoGFwbYybQ7itklJGe
+   0QO56NBCP+joySZ0PfLOmC/cqD5wBWhpvsW45/W3yKYFfVQo7Jii+nNv6
+   Ri1z/vqEw+A1gIpfbmWt8o5XhweVbJL29fmnqLfilJDvkQJr1KISzcSEG
+   CxnKtd57J8gOANRmcEntzWMMaE64OaPL1+IIVopx4i59I7hG9r+G0/MIP
+   1cqSJ9D7/i2aCwzJGQqX8ZgbThdP/grSOUNwspIau5q0k9P7rSuO5xsWd
    Q==;
-X-CSE-ConnectionGUID: Y6IzegUyThCbNP5wSxIG+g==
-X-CSE-MsgGUID: VXpttWh0T/uxi56a/ZNPFg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="74316460"
+X-CSE-ConnectionGUID: xYoYhylRT8aNnSGLPpxtRw==
+X-CSE-MsgGUID: UsmD6mK5SXOMmEsyYN5X2Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="51217020"
 X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="74316460"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:38:53 -0700
-X-CSE-ConnectionGUID: IqxBPdDrQIu+aqRydxJTnw==
-X-CSE-MsgGUID: txZZTXeXST6TQRppVnY9NA==
+   d="scan'208";a="51217020"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:38:54 -0700
+X-CSE-ConnectionGUID: G0A95y7PTseda62niZdwoA==
+X-CSE-MsgGUID: p+9mo0ATQgWn2d6ZEMfL2g==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="185487995"
+   d="scan'208";a="215672873"
 Received: from klitkey1-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.31])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:38:48 -0700
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:38:48 -0700
 Received: from punajuuri.localdomain (unknown [192.168.240.130])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 9425E121EF1;
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id 91DF7121E63;
 	Mon, 27 Oct 2025 13:38:45 +0200 (EET)
 Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
 	(envelope-from <sakari.ailus@linux.intel.com>)
-	id 1vDLYY-00000001ddi-2BrE;
+	id 1vDLYY-00000001ddb-22ra;
 	Mon, 27 Oct 2025 13:38:34 +0200
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
@@ -107,17 +107,15 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org
-Subject: [PATCH 3/4] net: wireless: Remove redundant pm_runtime_mark_last_busy() calls
-Date: Mon, 27 Oct 2025 13:38:33 +0200
-Message-ID: <20251027113834.390681-3-sakari.ailus@linux.intel.com>
+Subject: [PATCH 1/4] net: ethernet: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Mon, 27 Oct 2025 13:38:31 +0200
+Message-ID: <20251027113834.390681-1-sakari.ailus@linux.intel.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251027113834.390681-1-sakari.ailus@linux.intel.com>
-References: <20251027113834.390681-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_043853_543480_D4477C3E 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20251027_043853_993166_90629C34 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,537 +137,220 @@ pm_runtime_mark_last_busy().
 
 Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 ---
- drivers/net/wireless/ath/wil6210/pm.c       |  1 -
- drivers/net/wireless/ti/wl18xx/debugfs.c    |  3 --
- drivers/net/wireless/ti/wlcore/cmd.c        |  1 -
- drivers/net/wireless/ti/wlcore/debugfs.c    | 11 -------
- drivers/net/wireless/ti/wlcore/main.c       | 36 ---------------------
- drivers/net/wireless/ti/wlcore/scan.c       |  1 -
- drivers/net/wireless/ti/wlcore/sysfs.c      |  1 -
- drivers/net/wireless/ti/wlcore/testmode.c   |  2 --
- drivers/net/wireless/ti/wlcore/tx.c         |  1 -
- drivers/net/wireless/ti/wlcore/vendor_cmd.c |  3 --
- 10 files changed, 60 deletions(-)
+ drivers/net/ethernet/cadence/macb_main.c  | 5 -----
+ drivers/net/ethernet/freescale/fec_main.c | 8 --------
+ drivers/net/ethernet/renesas/ravb_main.c  | 4 ----
+ drivers/net/ethernet/ti/davinci_mdio.c    | 7 -------
+ 4 files changed, 24 deletions(-)
 
-diff --git a/drivers/net/wireless/ath/wil6210/pm.c b/drivers/net/wireless/ath/wil6210/pm.c
-index f521af575e9b..c866cfd144c7 100644
---- a/drivers/net/wireless/ath/wil6210/pm.c
-+++ b/drivers/net/wireless/ath/wil6210/pm.c
-@@ -458,6 +458,5 @@ void wil_pm_runtime_put(struct wil6210_priv *wil)
- {
- 	struct device *dev = wil_to_dev(wil);
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 39673f5c3337..847c4ab9df23 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -327,7 +327,6 @@ static int macb_mdio_read_c22(struct mii_bus *bus, int mii_id, int regnum)
+ 	status = MACB_BFEXT(DATA, macb_readl(bp, MAN));
+ 
+ mdio_read_exit:
+-	pm_runtime_mark_last_busy(&bp->pdev->dev);
+ 	pm_runtime_put_autosuspend(&bp->pdev->dev);
+ mdio_pm_exit:
+ 	return status;
+@@ -373,7 +372,6 @@ static int macb_mdio_read_c45(struct mii_bus *bus, int mii_id, int devad,
+ 	status = MACB_BFEXT(DATA, macb_readl(bp, MAN));
+ 
+ mdio_read_exit:
+-	pm_runtime_mark_last_busy(&bp->pdev->dev);
+ 	pm_runtime_put_autosuspend(&bp->pdev->dev);
+ mdio_pm_exit:
+ 	return status;
+@@ -405,7 +403,6 @@ static int macb_mdio_write_c22(struct mii_bus *bus, int mii_id, int regnum,
+ 		goto mdio_write_exit;
+ 
+ mdio_write_exit:
+-	pm_runtime_mark_last_busy(&bp->pdev->dev);
+ 	pm_runtime_put_autosuspend(&bp->pdev->dev);
+ mdio_pm_exit:
+ 	return status;
+@@ -451,7 +448,6 @@ static int macb_mdio_write_c45(struct mii_bus *bus, int mii_id,
+ 		goto mdio_write_exit;
+ 
+ mdio_write_exit:
+-	pm_runtime_mark_last_busy(&bp->pdev->dev);
+ 	pm_runtime_put_autosuspend(&bp->pdev->dev);
+ mdio_pm_exit:
+ 	return status;
+@@ -5564,7 +5560,6 @@ static int macb_probe(struct platform_device *pdev)
+ 		    macb_is_gem(bp) ? "GEM" : "MACB", macb_readl(bp, MID),
+ 		    dev->base_addr, dev->irq, dev->dev_addr);
+ 
+-	pm_runtime_mark_last_busy(&bp->pdev->dev);
+ 	pm_runtime_put_autosuspend(&bp->pdev->dev);
+ 
+ 	return 0;
+diff --git a/drivers/net/ethernet/freescale/fec_main.c b/drivers/net/ethernet/freescale/fec_main.c
+index 1edcfaee6819..4875101c4f3f 100644
+--- a/drivers/net/ethernet/freescale/fec_main.c
++++ b/drivers/net/ethernet/freescale/fec_main.c
+@@ -2231,7 +2231,6 @@ static int fec_enet_mdio_read_c22(struct mii_bus *bus, int mii_id, int regnum)
+ 	ret = FEC_MMFR_DATA(readl(fep->hwp + FEC_MII_DATA));
+ 
+ out:
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return ret;
+@@ -2280,7 +2279,6 @@ static int fec_enet_mdio_read_c45(struct mii_bus *bus, int mii_id,
+ 	ret = FEC_MMFR_DATA(readl(fep->hwp + FEC_MII_DATA));
+ 
+ out:
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return ret;
+@@ -2312,7 +2310,6 @@ static int fec_enet_mdio_write_c22(struct mii_bus *bus, int mii_id, int regnum,
+ 	if (ret)
+ 		netdev_err(fep->netdev, "MDIO write timeout\n");
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return ret;
+@@ -2356,7 +2353,6 @@ static int fec_enet_mdio_write_c45(struct mii_bus *bus, int mii_id,
+ 		netdev_err(fep->netdev, "MDIO write timeout\n");
+ 
+ out:
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return ret;
+@@ -2839,7 +2835,6 @@ static void fec_enet_get_regs(struct net_device *ndev,
+ 		buf[off] = readl(&theregs[off]);
+ 	}
  
 -	pm_runtime_mark_last_busy(dev);
  	pm_runtime_put_autosuspend(dev);
  }
-diff --git a/drivers/net/wireless/ti/wl18xx/debugfs.c b/drivers/net/wireless/ti/wl18xx/debugfs.c
-index 80fbf740fe6d..ac756318e8ea 100644
---- a/drivers/net/wireless/ti/wl18xx/debugfs.c
-+++ b/drivers/net/wireless/ti/wl18xx/debugfs.c
-@@ -272,7 +272,6 @@ static ssize_t radar_detection_write(struct file *file,
- 	if (ret < 0)
- 		count = ret;
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -312,7 +311,6 @@ static ssize_t dynamic_fw_traces_write(struct file *file,
- 	if (ret < 0)
- 		count = ret;
+@@ -3616,7 +3611,6 @@ fec_enet_open(struct net_device *ndev)
+ err_enet_alloc:
+ 	fec_enet_clk_enable(ndev, false);
+ clk_enable:
+-	pm_runtime_mark_last_busy(&fep->pdev->dev);
+ 	pm_runtime_put_autosuspend(&fep->pdev->dev);
+ 	pinctrl_pm_select_sleep_state(&fep->pdev->dev);
+ 	return ret;
+@@ -3647,7 +3641,6 @@ fec_enet_close(struct net_device *ndev)
+ 		cpu_latency_qos_remove_request(&fep->pm_qos_req);
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -374,7 +372,6 @@ static ssize_t radar_debug_mode_write(struct file *file,
- 				       wl->radar_debug_mode, 0);
+ 	pinctrl_pm_select_sleep_state(&fep->pdev->dev);
+-	pm_runtime_mark_last_busy(&fep->pdev->dev);
+ 	pm_runtime_put_autosuspend(&fep->pdev->dev);
+ 
+ 	fec_enet_free_buffers(ndev);
+@@ -4616,7 +4609,6 @@ fec_probe(struct platform_device *pdev)
+ 
+ 	INIT_WORK(&fep->tx_timeout_work, fec_enet_timeout_work);
+ 
+-	pm_runtime_mark_last_busy(&pdev->dev);
+ 	pm_runtime_put_autosuspend(&pdev->dev);
+ 
+ 	return 0;
+diff --git a/drivers/net/ethernet/renesas/ravb_main.c b/drivers/net/ethernet/renesas/ravb_main.c
+index c3fc15f9ec85..21a45583e7e1 100644
+--- a/drivers/net/ethernet/renesas/ravb_main.c
++++ b/drivers/net/ethernet/renesas/ravb_main.c
+@@ -1975,7 +1975,6 @@ static int ravb_open(struct net_device *ndev)
+ out_set_reset:
+ 	ravb_set_opmode(ndev, CCC_OPC_RESET);
+ out_rpm_put:
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ out_napi_off:
+ 	if (info->nc_queues)
+@@ -2404,7 +2403,6 @@ static int ravb_close(struct net_device *ndev)
+ 	if (error)
+ 		return error;
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
+@@ -3116,7 +3114,6 @@ static int ravb_probe(struct platform_device *pdev)
+ 	netdev_info(ndev, "Base address at %#x, %pM, IRQ %d.\n",
+ 		    (u32)ndev->base_addr, ndev->dev_addr, ndev->irq);
+ 
+-	pm_runtime_mark_last_busy(&pdev->dev);
+ 	pm_runtime_put_autosuspend(&pdev->dev);
+ 
+ 	return 0;
+@@ -3301,7 +3298,6 @@ static int ravb_resume(struct device *dev)
+ 
+ out_rpm_put:
+ 	if (!priv->wol_enabled) {
+-		pm_runtime_mark_last_busy(dev);
+ 		pm_runtime_put_autosuspend(dev);
  	}
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-diff --git a/drivers/net/wireless/ti/wlcore/cmd.c b/drivers/net/wireless/ti/wlcore/cmd.c
-index fa3a3f71dd15..9d73ba933a16 100644
---- a/drivers/net/wireless/ti/wlcore/cmd.c
-+++ b/drivers/net/wireless/ti/wlcore/cmd.c
-@@ -213,7 +213,6 @@ int wlcore_cmd_wait_for_event_or_timeout(struct wl1271 *wl,
- 	} while (!event);
+diff --git a/drivers/net/ethernet/ti/davinci_mdio.c b/drivers/net/ethernet/ti/davinci_mdio.c
+index 68507126be8e..9f049ebbf107 100644
+--- a/drivers/net/ethernet/ti/davinci_mdio.c
++++ b/drivers/net/ethernet/ti/davinci_mdio.c
+@@ -234,7 +234,6 @@ static int davinci_mdiobb_read_c22(struct mii_bus *bus, int phy, int reg)
  
- out:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- free_vector:
- 	kfree(events_vector);
-diff --git a/drivers/net/wireless/ti/wlcore/debugfs.c b/drivers/net/wireless/ti/wlcore/debugfs.c
-index eb3d3f0e0b4d..bbfd2725215b 100644
---- a/drivers/net/wireless/ti/wlcore/debugfs.c
-+++ b/drivers/net/wireless/ti/wlcore/debugfs.c
-@@ -63,7 +63,6 @@ void wl1271_debugfs_update_stats(struct wl1271 *wl)
- 		wl->stats.fw_stats_update = jiffies;
+ 	ret = mdiobb_read_c22(bus, phy, reg);
+ 
+-	pm_runtime_mark_last_busy(bus->parent);
+ 	pm_runtime_put_autosuspend(bus->parent);
+ 
+ 	return ret;
+@@ -251,7 +250,6 @@ static int davinci_mdiobb_write_c22(struct mii_bus *bus, int phy, int reg,
+ 
+ 	ret = mdiobb_write_c22(bus, phy, reg, val);
+ 
+-	pm_runtime_mark_last_busy(bus->parent);
+ 	pm_runtime_put_autosuspend(bus->parent);
+ 
+ 	return ret;
+@@ -268,7 +266,6 @@ static int davinci_mdiobb_read_c45(struct mii_bus *bus, int phy, int devad,
+ 
+ 	ret = mdiobb_read_c45(bus, phy, devad, reg);
+ 
+-	pm_runtime_mark_last_busy(bus->parent);
+ 	pm_runtime_put_autosuspend(bus->parent);
+ 
+ 	return ret;
+@@ -285,7 +282,6 @@ static int davinci_mdiobb_write_c45(struct mii_bus *bus, int phy, int devad,
+ 
+ 	ret = mdiobb_write_c45(bus, phy, devad, reg, val);
+ 
+-	pm_runtime_mark_last_busy(bus->parent);
+ 	pm_runtime_put_autosuspend(bus->parent);
+ 
+ 	return ret;
+@@ -332,7 +328,6 @@ static int davinci_mdio_common_reset(struct davinci_mdio_data *data)
+ 	data->bus->phy_mask = phy_mask;
+ 
+ done:
+-	pm_runtime_mark_last_busy(data->dev);
+ 	pm_runtime_put_autosuspend(data->dev);
+ 
+ 	return 0;
+@@ -441,7 +436,6 @@ static int davinci_mdio_read(struct mii_bus *bus, int phy_id, int phy_reg)
+ 		break;
  	}
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -113,7 +112,6 @@ static void chip_op_handler(struct wl1271 *wl, unsigned long value,
- 	chip_op = arg;
- 	chip_op(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
+-	pm_runtime_mark_last_busy(data->dev);
+ 	pm_runtime_put_autosuspend(data->dev);
+ 	return ret;
  }
- 
-@@ -287,7 +285,6 @@ static ssize_t dynamic_ps_timeout_write(struct file *file,
- 			wl1271_ps_set_mode(wl, wlvif, STATION_AUTO_PS_MODE);
+@@ -478,7 +472,6 @@ static int davinci_mdio_write(struct mii_bus *bus, int phy_id,
+ 		break;
  	}
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
+-	pm_runtime_mark_last_busy(data->dev);
+ 	pm_runtime_put_autosuspend(data->dev);
  
- out:
-@@ -357,7 +354,6 @@ static ssize_t forced_ps_write(struct file *file,
- 			wl1271_ps_set_mode(wl, wlvif, ps_mode);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -830,7 +826,6 @@ static ssize_t rx_streaming_interval_write(struct file *file,
- 		wl1271_recalc_rx_streaming(wl, wlvif);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -886,7 +881,6 @@ static ssize_t rx_streaming_always_write(struct file *file,
- 		wl1271_recalc_rx_streaming(wl, wlvif);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -934,7 +928,6 @@ static ssize_t beacon_filtering_write(struct file *file,
- 		ret = wl1271_acx_beacon_filter_opt(wl, wlvif, !!value);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -1015,7 +1008,6 @@ static ssize_t sleep_auth_write(struct file *file,
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -1090,7 +1082,6 @@ static ssize_t dev_mem_read(struct file *file,
- 		goto part_err;
- 
- part_err:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- skip_read:
-@@ -1172,7 +1163,6 @@ static ssize_t dev_mem_write(struct file *file, const char __user *user_buf,
- 		goto part_err;
- 
- part_err:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- skip_write:
-@@ -1247,7 +1237,6 @@ static ssize_t fw_logger_write(struct file *file,
- 
- 	ret = wl12xx_cmd_config_fwlog(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-diff --git a/drivers/net/wireless/ti/wlcore/main.c b/drivers/net/wireless/ti/wlcore/main.c
-index 6116a8522d96..12f0167d7380 100644
---- a/drivers/net/wireless/ti/wlcore/main.c
-+++ b/drivers/net/wireless/ti/wlcore/main.c
-@@ -154,7 +154,6 @@ static void wl1271_rx_streaming_enable_work(struct work_struct *work)
- 		  jiffies + msecs_to_jiffies(wl->conf.rx_streaming.duration));
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -181,7 +180,6 @@ static void wl1271_rx_streaming_disable_work(struct work_struct *work)
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -234,7 +232,6 @@ static void wlcore_rc_update_work(struct work_struct *work)
- 	}
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -711,7 +708,6 @@ static int wlcore_irq_locked(struct wl1271 *wl)
- 	}
- 
- err_ret:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -1047,7 +1043,6 @@ static void wl1271_recovery_work(struct work_struct *work)
- 	}
- 
- 	wlcore_op_stop_locked(wl);
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- 	ieee80211_restart_hw(wl->hw);
-@@ -1943,7 +1938,6 @@ static int __maybe_unused wl1271_op_resume(struct ieee80211_hw *hw)
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -2131,7 +2125,6 @@ static void wlcore_channel_switch_work(struct work_struct *work)
- 
- 	wl12xx_cmd_stop_channel_switch(wl, wlvif);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -2201,7 +2194,6 @@ static void wlcore_pending_auth_complete_work(struct work_struct *work)
- 	/* cancel the ROC if active */
- 	wlcore_update_inconn_sta(wl, wlvif, NULL, false);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -2694,7 +2686,6 @@ static int wl1271_op_add_interface(struct ieee80211_hw *hw,
- 	else
- 		wl->sta_count++;
- out:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out_unlock:
- 	mutex_unlock(&wl->mutex);
-@@ -2774,7 +2765,6 @@ static void __wl1271_op_remove_interface(struct wl1271 *wl,
- 			}
- 		}
- 
--		pm_runtime_mark_last_busy(wl->dev);
- 		pm_runtime_put_autosuspend(wl->dev);
- 	}
- deinit:
-@@ -3200,7 +3190,6 @@ static int wl1271_op_config(struct ieee80211_hw *hw, int radio_idx, u32 changed)
- 	}
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -3315,7 +3304,6 @@ static void wl1271_op_configure_filter(struct ieee80211_hw *hw,
- 	 */
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -3531,7 +3519,6 @@ static int wlcore_op_set_key(struct ieee80211_hw *hw, enum set_key_cmd cmd,
- 
- 	ret = wlcore_hw_set_key(wl, cmd, vif, sta, key_conf);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out_wake_queues:
-@@ -3695,7 +3682,6 @@ static void wl1271_op_set_default_key_idx(struct ieee80211_hw *hw,
- 	}
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out_unlock:
-@@ -3724,7 +3710,6 @@ void wlcore_regdomain_config(struct wl1271 *wl)
- 		goto out;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3772,7 +3757,6 @@ static int wl1271_op_hw_scan(struct ieee80211_hw *hw,
- 
- 	ret = wlcore_scan(hw->priv, vif, ssid, len, req);
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3823,7 +3807,6 @@ static void wl1271_op_cancel_hw_scan(struct ieee80211_hw *hw,
- 	ieee80211_scan_completed(wl->hw, &info);
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3860,7 +3843,6 @@ static int wl1271_op_sched_scan_start(struct ieee80211_hw *hw,
- 	wl->sched_vif = wlvif;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3887,7 +3869,6 @@ static int wl1271_op_sched_scan_stop(struct ieee80211_hw *hw,
- 
- 	wl->ops->sched_scan_stop(wl, wlvif);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3916,7 +3897,6 @@ static int wl1271_op_set_frag_threshold(struct ieee80211_hw *hw,
- 	if (ret < 0)
- 		wl1271_warning("wl1271_op_set_frag_threshold failed: %d", ret);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -3948,7 +3928,6 @@ static int wl1271_op_set_rts_threshold(struct ieee80211_hw *hw, int radio_idx,
- 		if (ret < 0)
- 			wl1271_warning("set rts threshold failed: %d", ret);
- 	}
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -4714,7 +4693,6 @@ static void wl1271_op_bss_info_changed(struct ieee80211_hw *hw,
- 	else
- 		wl1271_bss_info_changed_sta(wl, vif, bss_conf, changed);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -4779,7 +4757,6 @@ static void wlcore_op_change_chanctx(struct ieee80211_hw *hw,
- 		}
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4828,7 +4805,6 @@ static int wlcore_op_assign_vif_chanctx(struct ieee80211_hw *hw,
- 		wlvif->radar_enabled = true;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4871,7 +4847,6 @@ static void wlcore_op_unassign_vif_chanctx(struct ieee80211_hw *hw,
- 		wlvif->radar_enabled = false;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4941,7 +4916,6 @@ wlcore_op_switch_vif_chanctx(struct ieee80211_hw *hw,
- 			goto out_sleep;
- 	}
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4995,7 +4969,6 @@ static int wl1271_op_conf_tx(struct ieee80211_hw *hw,
- 				 0, 0);
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -5029,7 +5002,6 @@ static u64 wl1271_op_get_tsf(struct ieee80211_hw *hw,
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -5342,7 +5314,6 @@ static int wl12xx_op_sta_state(struct ieee80211_hw *hw,
- 
- 	ret = wl12xx_update_sta_state(wl, wlvif, sta, old_state, new_state);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5467,7 +5438,6 @@ static int wl1271_op_ampdu_action(struct ieee80211_hw *hw,
- 		ret = -EINVAL;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -5511,7 +5481,6 @@ static int wl12xx_set_bitrate_mask(struct ieee80211_hw *hw,
- 			wl1271_tx_min_rate_get(wl, wlvif->basic_rate_set);
- 		ret = wl1271_acx_sta_rate_policies(wl, wlvif);
- 
--		pm_runtime_mark_last_busy(wl->dev);
- 		pm_runtime_put_autosuspend(wl->dev);
- 	}
- out:
-@@ -5566,7 +5535,6 @@ static void wl12xx_op_channel_switch(struct ieee80211_hw *hw,
- 	}
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -5645,7 +5613,6 @@ static void wlcore_op_channel_switch_beacon(struct ieee80211_hw *hw,
- 	set_bit(WLVIF_FLAG_CS_PROGRESS, &wlvif->flags);
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5699,7 +5666,6 @@ static int wlcore_op_remain_on_channel(struct ieee80211_hw *hw,
- 	ieee80211_queue_delayed_work(hw, &wl->roc_complete_work,
- 				     msecs_to_jiffies(duration));
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5748,7 +5714,6 @@ static int wlcore_roc_completed(struct wl1271 *wl)
- 
- 	ret = __wlcore_roc_completed(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5839,7 +5804,6 @@ static void wlcore_op_sta_statistics(struct ieee80211_hw *hw,
- 	sinfo->signal = rssi_dbm;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-diff --git a/drivers/net/wireless/ti/wlcore/scan.c b/drivers/net/wireless/ti/wlcore/scan.c
-index b414305acc32..f6dc54c1dbad 100644
---- a/drivers/net/wireless/ti/wlcore/scan.c
-+++ b/drivers/net/wireless/ti/wlcore/scan.c
-@@ -69,7 +69,6 @@ void wl1271_scan_complete_work(struct work_struct *work)
- 
- 	wlcore_cmd_regdomain_config_locked(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- 	ieee80211_scan_completed(wl->hw, &info);
-diff --git a/drivers/net/wireless/ti/wlcore/sysfs.c b/drivers/net/wireless/ti/wlcore/sysfs.c
-index 65ca5dc569a0..5ab6c1683675 100644
---- a/drivers/net/wireless/ti/wlcore/sysfs.c
-+++ b/drivers/net/wireless/ti/wlcore/sysfs.c
-@@ -58,7 +58,6 @@ static ssize_t bt_coex_state_store(struct device *dev,
- 		goto out;
- 
- 	wl1271_acx_sg_enable(wl, wl->sg_enabled);
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
-  out:
-diff --git a/drivers/net/wireless/ti/wlcore/testmode.c b/drivers/net/wireless/ti/wlcore/testmode.c
-index fc8ea58bc165..7c0cb1b7fef0 100644
---- a/drivers/net/wireless/ti/wlcore/testmode.c
-+++ b/drivers/net/wireless/ti/wlcore/testmode.c
-@@ -127,7 +127,6 @@ static int wl1271_tm_cmd_test(struct wl1271 *wl, struct nlattr *tb[])
- 	}
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -192,7 +191,6 @@ static int wl1271_tm_cmd_interrogate(struct wl1271 *wl, struct nlattr *tb[])
- out_free:
- 	kfree(cmd);
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-diff --git a/drivers/net/wireless/ti/wlcore/tx.c b/drivers/net/wireless/ti/wlcore/tx.c
-index 464587d16ab2..f76087be2f75 100644
---- a/drivers/net/wireless/ti/wlcore/tx.c
-+++ b/drivers/net/wireless/ti/wlcore/tx.c
-@@ -863,7 +863,6 @@ void wl1271_tx_work(struct work_struct *work)
- 		goto out;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-diff --git a/drivers/net/wireless/ti/wlcore/vendor_cmd.c b/drivers/net/wireless/ti/wlcore/vendor_cmd.c
-index e4269e2b0098..5bb9eb300f97 100644
---- a/drivers/net/wireless/ti/wlcore/vendor_cmd.c
-+++ b/drivers/net/wireless/ti/wlcore/vendor_cmd.c
-@@ -60,7 +60,6 @@ wlcore_vendor_cmd_smart_config_start(struct wiphy *wiphy,
- 	ret = wlcore_smart_config_start(wl,
- 			nla_get_u32(tb[WLCORE_VENDOR_ATTR_GROUP_ID]));
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -92,7 +91,6 @@ wlcore_vendor_cmd_smart_config_stop(struct wiphy *wiphy,
- 
- 	ret = wlcore_smart_config_stop(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -140,7 +138,6 @@ wlcore_vendor_cmd_smart_config_set_group_key(struct wiphy *wiphy,
- 			nla_len(tb[WLCORE_VENDOR_ATTR_GROUP_KEY]),
- 			nla_data(tb[WLCORE_VENDOR_ATTR_GROUP_KEY]));
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
+ 	return ret;
 -- 
 2.47.3
 
