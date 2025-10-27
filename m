@@ -4,173 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B708ECCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203DACCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4cvIQRmqmBNV8P6YdgjJbon9LLe8l/9b6yM7q+yxHTQ=; b=OqzLR/VHLh0fAQK2MqOwSAGYUM
-	yf8yH/3zr4O2RCq+L9vNc4mhLA04ljRRshz3DNv/wJDgOB7sdrTiOrT9vovfkzMXj0D4OyR99qx7k
-	xN7wc1FREFDltkdCbX/WuZrzeiAvXaF5G1Wx3dcktoxqfadFdw/hcW6Eq6vmZC/YwniQP7oFS0hZt
-	tF0wyFy7DuVzHE8eKU9pAkyF+NpskfyyRpnFIXwtb5AlgdJa/VPXcHBarB64A8WPIjosNQXuNBn80
-	TjzESp3LnYguw1HAPL2kWz5gdk4rYBtMURwGo7EHW1v+omz0Xl0M6FZMq5Z6+NWLdQmtPT0UnG9gx
-	8nfuhDgw==;
+	bh=2m2cwzlH5wpE3kdOpcqs/uIBHJrsaPfS9kVRJa4lNf8=; b=jFC+krtYmOK6NoVA90mZcpfQwa
+	C3fYD8ROplPZCDwuKYb8RnQtvpNr5sFom+D2jWqesS8QZqoMdQlRHuxkqjGmfeTGxQQT9FO10rkN8
+	7Ash6CmDY/hnHLzJEs8gC0B8DKFBR4wP4RedDBjuZq+WkPXL0liKCxCkPQ6XerDT1BKvVt0skTcsn
+	Q7J5oEzgnKtKkaNyeUAutcR2bWavrmyd0IH9uqF37z8xRBZjm4+cyEeVv+ltNWM6Aprbiu65QFv3q
+	Z7LDUH3wJEn+C9+LTRBs5J9an7IAuAjr4/5zr4ZWurqFdc/xn6jFg3zopqFKALe5RGZwZDy42ZvLA
+	0Mm7fVrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMUp-0000000Duj8-1iIr;
-	Mon, 27 Oct 2025 12:38:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vDMV1-0000000DulQ-30u4;
+	Mon, 27 Oct 2025 12:38:59 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMUn-0000000DuiN-2PCJ
+	id 1vDMUz-0000000Dukn-1NbQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:38:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761568724;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=4cvIQRmqmBNV8P6YdgjJbon9LLe8l/9b6yM7q+yxHTQ=;
-	b=U9WFOt4Xet9DLbqf10fTyPJB0JSTzdpjhg9NxCyTLYxy9AnukUblBEYqkTYY6vB8GKtZqo
-	2S8POR4s+8bCgT8w/vE4oFgenxIeJxiH7arIOQFi8Je9k8BWo/cEGHEMvEJ90hgkytiGR7
-	bENYE1b20p3rsj/xj2VNO14JuvsIlKQ=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-685-gCZV8X3ENl-pFrMpo8oT-A-1; Mon, 27 Oct 2025 08:38:41 -0400
-X-MC-Unique: gCZV8X3ENl-pFrMpo8oT-A-1
-X-Mimecast-MFC-AGG-ID: gCZV8X3ENl-pFrMpo8oT-A_1761568721
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-477124f7c00so2645645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:38:41 -0700 (PDT)
+	Mon, 27 Oct 2025 12:38:58 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47714bb5c49so642435e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:38:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761568735; x=1762173535; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=2m2cwzlH5wpE3kdOpcqs/uIBHJrsaPfS9kVRJa4lNf8=;
+        b=vZsTF0+dmsTGgEIGoQFpJZv47SxaZRTco4mLNsLRLYenBRThAgXZTzvp+ITQhI2l8Y
+         ApKv0tA7Y5qjOpAzWl26tj6U+pzEeiR9EEKH29s7aPKzc8N1kV5YEJC1Wp1BUQ54vUVt
+         hFJ77sRA/8B8/wlnWx9yEHXSvP2CYky7R/3XDvQJVB4nP1xR5d+IjjsyrDi6RLmrg/94
+         gBYvl9c42bErkH/6yRhQNGfy8jb4C9JJSIWSCkh+fDmfEJFoo0zgz0dIBZjeiWe+WZ1Q
+         9PtJgMugQavVrmPMYyJJPez0B2lAosSW4OcHszU1APIO+jxwwyL/WMEhfsolPYnLK9Gj
+         61+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761568720; x=1762173520;
+        d=1e100.net; s=20230601; t=1761568735; x=1762173535;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4cvIQRmqmBNV8P6YdgjJbon9LLe8l/9b6yM7q+yxHTQ=;
-        b=HGfaIrsNKkPFxjt5JnmEXmibR9GCKqnbCiEUp1JP1s0JX6YMbCyOvRZT95Eexm6+EQ
-         4URfdfavnGlBxB4eyjsSqW/Awm9CJLZWw2SNMEDnlxx/pJzMCU5R4+yp0pWLMf5qzI1M
-         si6gqvkj84hQkRvvYSrs34+zdlfas8lCYSBICVWR+yEvgOxmiKFe6oRWual7ri9N7nlp
-         vDtYrx0Y3C9EtBSEZKYNhbYo4xecuwkhtUnvt12jKjxMRlTP23AWfQje88bLAzrNhVHl
-         BzeHlieZJ1LRdM4dr2v4kEEasbzZOsRXKVY1Y1Oc4L6f86fJ05JU0v2cMCBnODRUa+Vn
-         7+mg==
-X-Forwarded-Encrypted: i=1; AJvYcCX77mFr3FT32XW4+8iW/wG2yQ3R1VrCSxzgkXQvKVe8tWB1bifPFYrO2T7sQCGcHPSxaOhB1saP3YH1fIu85lHo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLYIYWfvGXEtZp/bEsUBH8MCUrrTiec5BjlryiEGEf55caDlSw
-	pP9YXCoakygrBpqDE12ZcZLWALKz0yHH3+oanSX2BYsHxyokMuxKcEni482ziDjUefZWvSAhb7v
-	xarGWnGRiFefzdicVDu/GjD/TtzniNNyc8q9lXItRVEugG7ETRvjhXmm0VaP8VaU9lTJ1TRInWl
-	oe
-X-Gm-Gg: ASbGncsR7n31LM7EFYQGEVNtSHjhnMSmKl13VciwMdLS+bkx9p7/CBBynxgOX3TjJRr
-	MpQZpne4J2G0pA2l1Elhyh6jAyAGdBNm/rgk08YP6Wa8j9X7cNgaLE2NHoNw1ZH0J2eOQWAnl8n
-	SAkagrVf6eY2e+TFeMoSJsU7/gxO1jLGtnHumurYLYKcOJJ8EaOTfZPYwzDhT4NHfR+y7i+OL2D
-	9d5sCuVd8+uVQExPCHrb01PrTjjYDD0USnkcSeG0QVKsLzvnjUmIxoAgTPRmZXAFOI+3U/5oGeT
-	SswdWq3xzjhmEIn1euWZviZrCG4i++qBrvtgjNY8N5fEBB6YA0PYlliTqilrFta0siNAV+z/V7k
-	EoLUa6KJCr43t83jbz6MungYDeKfk/xw=
-X-Received: by 2002:a05:600c:3b03:b0:46e:53cb:9e7f with SMTP id 5b1f17b1804b1-471178a3ff6mr279997695e9.18.1761568720547;
-        Mon, 27 Oct 2025 05:38:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH9bbdh4PWkc2jU/rl4KkAQD2PqCSpwK7SfjvxDRuSE3bTT/1W5umiWwesFjMbMJkHNKlChlg==
-X-Received: by 2002:a05:600c:3b03:b0:46e:53cb:9e7f with SMTP id 5b1f17b1804b1-471178a3ff6mr279997395e9.18.1761568720112;
-        Mon, 27 Oct 2025 05:38:40 -0700 (PDT)
-Received: from [192.168.3.141] (p4ff1f1cf.dip0.t-ipconnect.de. [79.241.241.207])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd489e6dsm133581265e9.6.2025.10.27.05.38.37
+        bh=2m2cwzlH5wpE3kdOpcqs/uIBHJrsaPfS9kVRJa4lNf8=;
+        b=Qwbw7hV7Ss7L136jzOTVTU2PSNmY/M5Y3tgKQvCbNlgI2EULAwxzLvAgVuB9tPnSfC
+         CgRCPHPKT9Yo9NbCVw3KSTksNBjzsmYyv31YW7f+IUYWhOwv0x5A2iYn09NSqrGwkvp6
+         gAJ5cB3pPvV4fquZFD39PccfjfkLr8f0bqotrNultVOU79o3yAV9b3HJkmcjutQV9+Z3
+         fer+07OoKKUEYofNPKzZ+KK7+Oqtn1Yz27wBe1gVhQQG2ob1akyDRbninJW7eDBP3sEK
+         yTehxamz6f722Yk3ts6E9X31WVN2ZAf/aD1A1ePtG+WVjHDSo3IXS3t60y9KYedj3Z2h
+         1T8w==
+X-Forwarded-Encrypted: i=1; AJvYcCVx0EThgKSA9YyovaTO2o0xX/Ln1Bx1kj2JiPIAd7aSOJjgZINvIA0i8fsSDJ07Hg02u9e5d0P6NR2qKd//2SDS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcnPEYTw/ms/9VXvRcrExvnKfBQUjyD+fQtWTSuf9sg5u3jzBI
+	0tGKQxhoL4HEIqlgdNc5k4BA6jFgXqioqrJsG5Xnusvm65+MzLUygt3H99Fc0khSKRg=
+X-Gm-Gg: ASbGncvf5QDu0fnilyuXgzTmGljlbsAclIXXwRNDphYL188n+uKebSi5DEM2LPYVkDQ
+	SM+MnCxmN+74ApAEA5h59GpSJ9QyNvrRrMBfXIItsfv9U5fo5cM/FY/hjyNJb6H1z+Ip2bqQ+Ql
+	kFOGqeIlz3nllH99kpNB38hnEPi4gc2My7JbVeNuJaAmTsymOhgy6kjODVnx91Yj9txOputR5sH
+	BzAIZI8bGar+IafbngWx107b4581GeHM95gqxEgNFenauW1TOkPJHSPFCxKdJTwMFz5kILQVwub
+	0VO9hZsvzVnQn0139zo3P539ZcbniHj4HUVy3LFQCFfztj1Lqvi8DSNJSntbDbJThu/bkQ/0amz
+	LzEY4M3b+5/vrrQ3R5mb+BS2JUUxl8/IpHfKfTl82WVjbiGCOXo1TvEuBGhodxHRzwSAYdh9/HR
+	ompI5LOHbu0djrNu7AQTkI
+X-Google-Smtp-Source: AGHT+IGnHN2+LGUXtGZpCqzNe4bVcec3o9TIo+eb2g4z7PQMElWw3oVzoXNocGieyNl5ZXcDJZ9cgA==
+X-Received: by 2002:a05:600c:350d:b0:471:3b6:e24 with SMTP id 5b1f17b1804b1-474944c2050mr86946005e9.8.1761568735253;
+        Mon, 27 Oct 2025 05:38:55 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd37467esm139395695e9.10.2025.10.27.05.38.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 05:38:39 -0700 (PDT)
-Message-ID: <7df81ee0-1161-49f4-a93f-4d9245d48e1d@redhat.com>
-Date: Mon, 27 Oct 2025 13:38:36 +0100
+        Mon, 27 Oct 2025 05:38:54 -0700 (PDT)
+Message-ID: <d97899d2-ce6c-4ef3-99f8-946a3c9ab74c@linaro.org>
+Date: Mon, 27 Oct 2025 13:38:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 11/13] x86/xen: use lazy_mmu_state when
- context-switching
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- David Woodhouse <dwmw2@infradead.org>, Kevin Brodsky
- <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-12-kevin.brodsky@arm.com>
- <f0067f35-1048-4788-8401-f71d297f56f3@redhat.com>
- <348e5f1c5a90e4ab0f14b4d997baf7169745bf04.camel@infradead.org>
- <70723f4a-f42b-4d94-9344-5824e48bfad1@redhat.com>
- <cbe0d305cce6d76e00b64e7209f15b4645c15033.camel@infradead.org>
- <fcd7b731d38b256e59edd532e792a00efa4e144e.camel@physik.fu-berlin.de>
- <9faf750e-2369-4fae-b58a-ed9052cfd6f6@redhat.com>
- <1d9f416fd3665faf27841b6305b1e8d661427125.camel@physik.fu-berlin.de>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <1d9f416fd3665faf27841b6305b1e8d661427125.camel@physik.fu-berlin.de>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: -eHHWzIEp12Jr79_vox3AS5mgeDAw6JG_GxE3UN29i0_1761568721
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v2] arm64: defconfig: Enable i.MX95 drivers for pinctrl,
+ Ethernet and PCIe
+To: =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
+ <jpaulo.silvagoncalves@gmail.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Marek Vasut <marex@denx.de>, Peng Fan <peng.fan@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
+ <joao.goncalves@toradex.com>
+References: <20251027-upstream-imx95-smarc-defconfig-v2-1-0f664b08d553@toradex.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20251027-upstream-imx95-smarc-defconfig-v2-1-0f664b08d553@toradex.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_053845_693334_BFFD055C 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20251027_053857_394410_D2491CAA 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,66 +153,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24.10.25 17:51, John Paul Adrian Glaubitz wrote:
-> Hi David,
-
-Hi,
-
+On 27/10/2025 13:17, João Paulo Gonçalves wrote:
+> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
 > 
-> On Fri, 2025-10-24 at 17:47 +0200, David Hildenbrand wrote:
->>> Please have people test kernel changes on SPARC on real hardware. QEMU does not
->>> emulate sun4v, for example, and therefore testing in QEMU does not cover all
->>> of SPARC hardware.
->>>
->>> There are plenty of people on the debian-sparc, gentoo-sparc and sparclinux
->>> LKML mailing lists that can test kernel patches for SPARC. If SPARC-relevant
->>> changes need to be tested, please ask there and don't bury such things in a
->>> deeply nested thread in a discussion which doesn't even have SPARC in the
->>> mail subject.
->>
->> out of curiosity, do people monitor sparclinux@ for changes to actively
->> offer testing when required -- like would it be sufficient to CC
->> relevant maintainers+list (like done here) and raise in the cover letter
->> that some testing help would be appreciated?
+> Enable i.MX95 pinctrl driver necessary for booting. Also enable the
+> missing drivers required for Ethernet and PCIe functionality. These
+> drivers are used on i.MX95 boards, including the NXP i.MX95 19x19 EVK.
 > 
-> Yes, that's definitely the case. But it should be obvious that from the subject
-> of the mail that the change affects SPARC as not everyone can read every mail
-> they're receiving through mailing lists.
-
-Agreed. One would hope that people only CC the sparc mailing list + 
-maintainers when there is actually something relevant in there.
-
-Also, it would be nice if someone (e.g., the maintainer or reviewers) 
-could monitor the list to spot that there is testing demand to CC the 
-right people.
-
-I guess one problem might be that nobody is getting paid to work on 
-sparc I guess (I'm happy to be wrong on that one :) ).
-
-Regarding sparc, I'll keep in mind that we might have to write a 
-separate mail to the list to get some help with testing.
-
+> The below configurations were enabled (listed with their DT nodes on
+> imx95.dtsi):
 > 
-> I'm trying to keep up, but since I'm on mailing lists for many different architectures,
-> mails can slip through the cracks.
-
-Yeah, that's understandable.
-
+> * CONFIG_PINCTRL_IMX_SCMI for the `scmi_iomuxc` pinctrl.
+> * CONFIG_CLK_IMX95_BLK_CTL for the HSIO domain clock controller
+>   (`hsio_blk_ctl`) used by the PCIe controller.
+> * CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
+>   (`netc_blk_ctrl`).
+> * CONFIG_NXP_ENETC4 for the Ethernet controller (`enetc_port*`).
 > 
-> For people that want to test changes on SPARC regularly, I can also offer accounts
-> on SPARC test machines running on a Solaris LDOM (logical domain) on a SPARC T4.
+> Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+> ---
 
-For example, I do have a s390x machine in an IBM cloud where I can test 
-stuff. But I worked on s390x before, so I know how to test and what to 
-test, and how to troubleshoot.
 
-On sparc I'd unfortunately have a hard time even understanding whether a 
-simple boot test on some machine will actually trigger what I wanted to 
-test :(
 
--- 
-Cheers
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-David / dhildenb
-
+Best regards,
+Krzysztof
 
