@@ -4,50 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2427CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6182FCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Content-Type:
 	MIME-Version:References:Subject:Cc:To:From:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=uMwKIluQZ/G+KoDWjXfgtZpH34AaSudGJEkVAvBfiV4=; b=vcRJoAMo8LO+wc
-	YETEbywawkNa0DtlvsVfa4p2m2EhKUNd6ztWc9NNgGmEl1uyqYZ+iKLXUSxs96LaaLxlBqi45aArS
-	fLqU3hm6t1jdDJXV12lHu8oQuix9Iwjw2lqQXBIOwt7Z1Btj+snrZw3HSKNcV5ulUgItpVwyMrFKf
-	40uros5gstvtBFPFR7veQm97fVdKDmDuULldwGO11W6CYEh+M/Vw4A5eFPQa4EPxmkDQY9RhqCQvq
-	x1Y96O1IVJWKa0KDYKGMBfr+oIVLaRj/mMZgnhXYFwS6bb4iGgqFK7YB6K7M9Qvewgf95ftSMtPla
-	0QNy4F/lkyZv6DeHuZ9Q==;
+	List-Owner; bh=435+37KhAU0mhng1XnAbeS2nHoeU+rxEjwbVMsKftxA=; b=Z61r6gXd+FGHOy
+	i3lYTR6yHhCRlhWCgLfq+j2T2uAjFoWJuUWyDj1H2SlRnrSyOyRuFTX0qHWYVdA2TFQ9hz0vsedqV
+	oZXInVsDTDhQxLG6u9Y7E+6w1a3QDmKJiBThJxjtgyf8wtEeDqVgk/ah4iIaCKg45oSlW3PekI7Pq
+	i8mYQwjqSmgK/jnYe7b1/BPC+BjlGHga5s/lOLrj1O0l29md58cgeQUU43wDweK79URxv9M4pEIK9
+	6cJhWuvYb+Gh90t42SlzWWIglSdOXweSp4plCqKLvhpAVOfqBNw4Qo5K56SI1tcEn/+hI4ymMnWoY
+	oUun8S8sqkJaTQVaxaSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIqB-0000000DOqN-2cs1;
-	Mon, 27 Oct 2025 08:44:35 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vDIqL-0000000DP2J-2T13;
+	Mon, 27 Oct 2025 08:44:45 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpe-0000000DOBA-1qCm;
-	Mon, 27 Oct 2025 08:44:08 +0000
-Message-ID: <20251027083745.673465359@linutronix.de>
+	id 1vDIpf-0000000DOBt-3gjw;
+	Mon, 27 Oct 2025 08:44:09 +0000
+Message-ID: <20251027083745.736737934@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761554640;
+	s=2020; t=1761554641;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=uMwKIluQZ/G+KoDWjXfgtZpH34AaSudGJEkVAvBfiV4=;
-	b=xItvuyS+liJchgafJHpU9tYzPOno9TqkarDH1yZCK3/SY8LaeF0qT3opEQkDdO2pbpY6RP
-	Htv+fdHsKQ7EcNx1mU7B7kjkr2MwCU/4llsA9ZTs/iz+8JRvkjQPVcPUyemRxjlbtktGKw
-	GsJHGW2ZY09kGlWJaszbHS77TSX4HGu2viKiUm9yVfGlp4Wr7eYi0dBWXqDf+lbjgf3UOL
-	EK1SbwjiDt9mqIf2xFqEMIs2XBc6hrKI7n1ZGKPIsTdyVEWZ5039b7tBmAnJ6wMzAJxKjx
-	WAWU5PRgWHSrODttFM/9WH+13KTG9uP6NXR5SYwhtmgFY+wKA/oNAOAMka0zHA==
+	 references:references; bh=435+37KhAU0mhng1XnAbeS2nHoeU+rxEjwbVMsKftxA=;
+	b=I4Kw5Ywek/IX9WMSt/JXEa6snrzGFocVq/IjZtkNm1ANMjiG+drhyzT6KMpNFoZ81+hpq6
+	7eExgfokt10EBfmMcQQqV3fHS7o+tZ1wKnuLPw3dhoCmS+7DNc4GlQebCPGHmHeHNEXGGv
+	dHUpqGVUsaIl7lhAhzePlzvZ9TZmCnQJkRaIhw6kSszp+Oe3T28gR/NmuCpMOdRMmdbgWK
+	49R4Iz46M9aRnw8O5tqYDlJeRDC1t10xoiAaSTGN43wU0DwX72QRSrd7bLWPPaoJLnpDRt
+	WsrcrnhgR+2dkKcsStXQmlVjHMHAgmZ8OHZztJdfAQhnJWROQZ2fWyeT4rsVLg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761554640;
+	s=2020e; t=1761554641;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=uMwKIluQZ/G+KoDWjXfgtZpH34AaSudGJEkVAvBfiV4=;
-	b=tYimNmTfzHE55VQN/cxG6Mfbc65avtlgEq43Xb/8LXKZ65sSl0k4ojYbJ4I2f258Ii1cd0
-	MyXDnpD51wgg7VCQ==
+	 references:references; bh=435+37KhAU0mhng1XnAbeS2nHoeU+rxEjwbVMsKftxA=;
+	b=5fUpbazZrmkMXN7jn9+9G33jFnKwKg6Vab+X7NXNyTTxhdWjb/TPTSoWsl2TtGRcijzTye
+	9yPo5IrGwO3RP/DA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Julia Lawall <Julia.Lawall@inria.fr>,
- Nicolas Palix <nicolas.palix@imag.fr>,
+Cc: Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
  kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
@@ -68,23 +70,20 @@ Cc: Julia Lawall <Julia.Lawall@inria.fr>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Cooper <andrew.cooper3@citrix.com>,
  David Laight <david.laight.linux@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>,
  Alexander Viro <viro@zeniv.linux.org.uk>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V5 09/12] [RFC] coccinelle: misc: Add
- scoped_masked_$MODE_access() checker script
+Subject: [patch V5 10/12] futex: Convert to get/put_user_inline()
 References: <20251027083700.573016505@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 27 Oct 2025 09:43:58 +0100 (CET)
+Date: Mon, 27 Oct 2025 09:44:00 +0100 (CET)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_014402_744893_3ED1DA63 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20251027_014404_173639_2A9DEBE1 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,139 +98,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A common mistake in user access code is that the wrong access mode is
-selected for starting the user access section. As most architectures map
-Read and Write modes to ReadWrite this goes often unnoticed for quite some
-time.
+From: Thomas Gleixner <tglx@linutronix.de>
 
-Aside of that the scoped user access mechanism requires that the same
-pointer is used for the actual accessor macros that was handed in to start
-the scope because the pointer can be modified by the scope begin mechanism
-if the architecture supports masking.
+Replace the open coded implementation with the new get/put_user_inline()
+helpers. This might be replaced by a regular get/put_user(), but that needs
+a proper performance evaluation.
 
-Add a basic (and incomplete) coccinelle script to check for the common
-issues. The error output is:
+No functional change intended
 
-kernel/futex/futex.h:303:2-17: ERROR: Invalid pointer for unsafe_put_user(p) in scoped_masked_user_write_access(to)
-kernel/futex/futex.h:292:2-17: ERROR: Invalid access mode unsafe_get_user() in scoped_masked_user_write_access()
-
-Not-Yet-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Julia Lawall <Julia.Lawall@inria.fr>
-Cc: Nicolas Palix <nicolas.palix@imag.fr>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Darren Hart <dvhart@infradead.org>
+Cc: Davidlohr Bueso <dave@stgolabs.net>
+Cc: "André Almeida" <andrealmeid@igalia.com>
 ---
- scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++++++++++++++++++++
- 1 file changed, 108 insertions(+)
-
---- /dev/null
-+++ b/scripts/coccinelle/misc/scoped_uaccess.cocci
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/// Validate scoped_masked_user*access() scopes
-+///
-+// Confidence: Zero
-+// Options: --no-includes --include-headers
-+
-+virtual context
-+virtual report
-+virtual org
-+
-+@initialize:python@
-+@@
-+
-+scopemap = {
-+  'scoped_user_read_access_size'  : 'scoped_user_read_access',
-+  'scoped_user_write_access_size' : 'scoped_user_write_access',
-+  'scoped_user_rw_access_size'    : 'scoped_user_rw_access',
-+}
-+
-+# Most common accessors. Incomplete list
-+noaccessmap = {
-+  'scoped_user_read_access'       : ('unsafe_put_user', 'unsafe_copy_to_user'),
-+  'scoped_user_write_access'      : ('unsafe_get_user', 'unsafe_copy_from_user'),
-+}
-+
-+# Most common accessors. Incomplete list
-+ptrmap = {
-+  'unsafe_put_user'			 : 1,
-+  'unsafe_get_user'			 : 1,
-+  'unsafe_copy_to_user'		 	 : 0,
-+  'unsafe_copy_from_user'		 : 0,
-+}
-+
-+print_mode = None
-+
-+def pr_err(pos, msg):
-+   if print_mode == 'R':
-+      coccilib.report.print_report(pos[0], msg)
-+   elif print_mode == 'O':
-+      cocci.print_main(msg, pos)
-+
-+@r0 depends on report || org@
-+iterator name scoped_user_read_access,
-+	      scoped_user_read_access_size,
-+	      scoped_user_write_access,
-+	      scoped_user_write_access_size,
-+	      scoped_user_rw_access,
-+	      scoped_user_rw_access_size;
-+iterator scope;
-+statement S;
-+@@
-+
-+(
-+(
-+scoped_user_read_access(...) S
-+|
-+scoped_user_read_access_size(...) S
-+|
-+scoped_user_write_access(...) S
-+|
-+scoped_user_write_access_size(...) S
-+|
-+scoped_user_rw_access(...) S
-+|
-+scoped_user_rw_access_size(...) S
-+)
-+&
-+scope(...) S
-+)
-+
-+@script:python depends on r0 && report@
-+@@
-+print_mode = 'R'
-+
-+@script:python depends on r0 && org@
-+@@
-+print_mode = 'O'
-+
-+@r1@
-+expression sp, a0, a1;
-+iterator r0.scope;
-+identifier ac;
-+position p;
-+@@
-+
-+  scope(sp,...) {
-+    <...
-+    ac@p(a0, a1, ...);
-+    ...>
-+  }
-+
-+@script:python@
-+pos << r1.p;
-+scope << r0.scope;
-+ac << r1.ac;
-+sp << r1.sp;
-+a0 << r1.a0;
-+a1 << r1.a1;
-+@@
-+
-+scope = scopemap.get(scope, scope)
-+if ac in noaccessmap.get(scope, []):
-+   pr_err(pos, 'ERROR: Invalid access mode %s() in %s()' %(ac, scope))
-+
-+if ac in ptrmap:
-+   ap = (a0, a1)[ptrmap[ac]]
-+   if sp != ap.lstrip('&').split('->')[0].strip():
-+      pr_err(pos, 'ERROR: Invalid pointer for %s(%s) in %s(%s)' %(ac, ap, scope, sp))
+V5: Rename again and remove the helpers
+V4: Rename once moar
+V3: Adapt to scope changes
+V2: Convert to scoped variant
+---
+ kernel/futex/core.c  |    4 +--
+ kernel/futex/futex.h |   58 ++-------------------------------------------------
+ 2 files changed, 5 insertions(+), 57 deletions(-)
+---
+--- a/kernel/futex/core.c
++++ b/kernel/futex/core.c
+@@ -581,7 +581,7 @@ int get_futex_key(u32 __user *uaddr, uns
+ 	if (flags & FLAGS_NUMA) {
+ 		u32 __user *naddr = (void *)uaddr + size / 2;
+ 
+-		if (futex_get_value(&node, naddr))
++		if (get_user_inline(node, naddr))
+ 			return -EFAULT;
+ 
+ 		if ((node != FUTEX_NO_NODE) &&
+@@ -601,7 +601,7 @@ int get_futex_key(u32 __user *uaddr, uns
+ 			node = numa_node_id();
+ 			node_updated = true;
+ 		}
+-		if (node_updated && futex_put_value(node, naddr))
++		if (node_updated && put_user_inline(node, naddr))
+ 			return -EFAULT;
+ 	}
+ 
+--- a/kernel/futex/futex.h
++++ b/kernel/futex/futex.h
+@@ -281,63 +281,11 @@ static inline int futex_cmpxchg_value_lo
+ 	return ret;
+ }
+ 
+-/*
+- * This does a plain atomic user space read, and the user pointer has
+- * already been verified earlier by get_futex_key() to be both aligned
+- * and actually in user space, just like futex_atomic_cmpxchg_inatomic().
+- *
+- * We still want to avoid any speculation, and while __get_user() is
+- * the traditional model for this, it's actually slower than doing
+- * this manually these days.
+- *
+- * We could just have a per-architecture special function for it,
+- * the same way we do futex_atomic_cmpxchg_inatomic(), but rather
+- * than force everybody to do that, write it out long-hand using
+- * the low-level user-access infrastructure.
+- *
+- * This looks a bit overkill, but generally just results in a couple
+- * of instructions.
+- */
+-static __always_inline int futex_get_value(u32 *dest, u32 __user *from)
+-{
+-	u32 val;
+-
+-	if (can_do_masked_user_access())
+-		from = masked_user_access_begin(from);
+-	else if (!user_read_access_begin(from, sizeof(*from)))
+-		return -EFAULT;
+-	unsafe_get_user(val, from, Efault);
+-	user_read_access_end();
+-	*dest = val;
+-	return 0;
+-Efault:
+-	user_read_access_end();
+-	return -EFAULT;
+-}
+-
+-static __always_inline int futex_put_value(u32 val, u32 __user *to)
+-{
+-	if (can_do_masked_user_access())
+-		to = masked_user_access_begin(to);
+-	else if (!user_write_access_begin(to, sizeof(*to)))
+-		return -EFAULT;
+-	unsafe_put_user(val, to, Efault);
+-	user_write_access_end();
+-	return 0;
+-Efault:
+-	user_write_access_end();
+-	return -EFAULT;
+-}
+-
++/* Read from user memory with pagefaults disabled */
+ static inline int futex_get_value_locked(u32 *dest, u32 __user *from)
+ {
+-	int ret;
+-
+-	pagefault_disable();
+-	ret = futex_get_value(dest, from);
+-	pagefault_enable();
+-
+-	return ret;
++	guard(pagefault)();
++	return get_user_inline(*dest, from);
+ }
+ 
+ extern void __futex_unqueue(struct futex_q *q);
 
 
