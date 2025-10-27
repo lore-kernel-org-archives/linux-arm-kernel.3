@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F093CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3C8CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nS2ceydtY7arO53figgNl3Skob7MFYJcnB/okNLIQQo=; b=KT6C56vAT8h4po
-	bIh8Oa+6Ryc0Bh4g1bWhHco9EvlD4ksTL24coPF6/MJ7QNsb3Jo4w08N5THLweHEZhywbgGs5NLIX
-	SwR5KO53VyULauFl6MM1gppSKehoA5mhLlxgJOGjqswwrgt0OBa8r7Nj7+yPsA1MH5MhyiMmkFeUV
-	4tmpxvAXq4lP/SYsGgCh80W6SMcqYJU7EbyRMhWMGn/GPhC05Vm6HsxZpMI5qa577FdQsP3/Vm2lR
-	JEUWZaqmqtZ3e/K3HmXbgJaH4j+nZVI2f73GlEG2IzSsJRziYO2nXwvheQw6SJXD2Fjh6nbyBztN0
-	5fudvrHwYwnkoOnZj2ww==;
+	List-Owner; bh=upm4Fx4Zyity5YEegKY8XfpMcrJf2ls4KbygxA0gOhs=; b=DvKmGZE7zqizs7
+	qO8IupiitMQxRHghoQP9W6R+IKTF7anVQNlaxCIc6cAkdwkPUllcYBv6atpa1PWjsIrZUSxv6cyn1
+	VIMwbcNb+WQqaoVxFNgO+esAiyFXT/vJwkv9Ugn7z2bhaeG0MgKedC/bS62jDXSWNJh2EI8kmMASt
+	YiqF7GeJChV3ltSQTMdawsouHU+sAqq9weI5M65Q2d3w8n0alJiM72c1ENq4Ojg9/Z58uXvmTjzCe
+	OWmba9V867AXf/6z8OMd/NgwPE6IW7E2sDp6muEt41f/Z6L9VCjwbIAbgojUATmB/PggMd+m+cCrp
+	31Rcz4FcxNurguRiF0Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRG4-0000000ESSZ-0FxS;
-	Mon, 27 Oct 2025 17:43:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vDRHf-0000000ESdz-1tdd;
+	Mon, 27 Oct 2025 17:45:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRG2-0000000ESSB-02Fl
+	id 1vDRHd-0000000ESdh-2O8e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 17:43:50 +0000
+	Mon, 27 Oct 2025 17:45:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2327161470
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:43:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B32C0C19421
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:43:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D60640A5E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:45:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DA90C4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761587028;
-	bh=nS2ceydtY7arO53figgNl3Skob7MFYJcnB/okNLIQQo=;
+	s=k20201202; t=1761587129;
+	bh=upm4Fx4Zyity5YEegKY8XfpMcrJf2ls4KbygxA0gOhs=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=cjJgdn31XIKVTvn/EQRmDwJvDk+eUYujuuM1rf4nIDHf8QMPJnsaHb8ZwxrF2X4w7
-	 FN0rCQrr22UjMCXMMgvOCfwTtIIaq8QQuJHGtcJtp1zYhWg7OlI7c3y7HLJAE9kgPt
-	 vQYvgjVvfu1tubtbxXnq+MD4JJDp/ev7VlBbHkVjeKVBPME8BlPWj8AA403wkDCBDb
-	 D5NU2EANOWv/4e4ipiDfu3b2owrASECX4K6qOre8VZbpFj9Y2Xdym8XURQurHZFHg6
-	 Fhl3bvO0LfuVtgI5uP+4Du5TuyeHhVsjdV9i9H+HE0oDjHCEtkR5OMQnFDjdmxDloj
-	 pDnqcStXCz6/Q==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-378d50162e0so57553711fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:43:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVp5MTVvZlcXB+Js0CSsWUPRWD454v+Fdp/WdIE2qe3S07EaU4xOOvRJzCFkFMk+kCNUWLMQFnNdtnX0CgHfoNt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZsleY3//iV+DTHvV4kcGq6GdTmYFjGfOIIzsq0wTeuHmlEmGj
-	XlTGRlP1EWza6bnKqp+uoFpek7g4PzeoMZ86PFhzy6qAU9B9iuniCvWHtwB8NCg0jokgMm6bfnM
-	0MazbDn4HnGqGGIM6rtfbQzLvX3tFK3c=
-X-Google-Smtp-Source: AGHT+IFUgpNOk2/lm1vINh6P/T+9hrDdSIGL0HQ0DNlL7efemsNxiG/a9dBuTEttStk6lJAJUQFTUsvRn5K8JymcC2E=
-X-Received: by 2002:a05:651c:4112:20b0:378:de30:74e6 with SMTP id
- 38308e7fff4ca-3790774baa7mr1284371fa.25.1761587027036; Mon, 27 Oct 2025
- 10:43:47 -0700 (PDT)
+	b=Cj14kJH+FRFQaq800dK+D2JysmG7w5AjqVnjQRupPGzirc9wn/yrC5Rcfe1Hx+95T
+	 8iu2ONvQEsgLyKRwOVIy65cPnLYM87isb/TqYx6dNp2YI5CFb7lGyM6HHqrPsp5fZu
+	 2b7feUFVAi8CrHg+TlVk+BlhzGBH4hQDO+RpV6FmDilwGj+/wpIUbRhOcaIcKMcFpV
+	 ayfn++vB+0q1DQxHh1Yasy9l4D+BMOzs5zMCMbQF/j9d5I4hsR3Zz/Wse260cUKvCO
+	 U7I0mY2P44ao6p/8ZDTqX3bF2L7mwgtBxky0EyTZVZJr2jU/xeXuJ1sBzpvidAmMXO
+	 JI3WWuk0m5LVQ==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-37775ed97daso59930641fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:45:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUoJO3rzWVLxIuOysf6O9JKJvHiSjr+8UUHMkvg9RbFm1Mm+niJCieuw5UWwn/aTDCHct/cJrV6/RJ6UjkV0uCl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQtlNSlmCIcSBzmOjDw1zejYVJBkNNVmXdhMdLiFD5ENT+EhML
+	gRmJwhzEUBf4+JZE0wPhf4U7ztAf1lcydYrCr7x2hliPAtD1xgZ64otMkC1EnRGAvnwCYYvQaz2
+	XPsbd0XmgM9bT015XiA22DFBvSTRJPSA=
+X-Google-Smtp-Source: AGHT+IFjlWIjfh9UvXhgPZoLIWaWRXGD/zpbLYult3MgsNK73imA2OTtKPUOEvbbhsWdoXcemdcDtRY3/9kK67MPTXU=
+X-Received: by 2002:a05:651c:1585:b0:378:cd2b:5040 with SMTP id
+ 38308e7fff4ca-37907cb3b9cmr967131fa.21.1761587127507; Mon, 27 Oct 2025
+ 10:45:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-17-jernej.skrabec@gmail.com>
-In-Reply-To: <20251012192330.6903-17-jernej.skrabec@gmail.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-18-jernej.skrabec@gmail.com>
+In-Reply-To: <20251012192330.6903-18-jernej.skrabec@gmail.com>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 28 Oct 2025 01:43:34 +0800
-X-Gmail-Original-Message-ID: <CAGb2v6545EkcOCXYj2GzVNh0NK2CzqLEgHA+3yA0WcHu9jDiMw@mail.gmail.com>
-X-Gm-Features: AWmQ_bl_-VKJDXdC4sK8FJlKiPnwMqUHPzZ_DuY_Cd04DihfBUomCFRnXNe5gis
-Message-ID: <CAGb2v6545EkcOCXYj2GzVNh0NK2CzqLEgHA+3yA0WcHu9jDiMw@mail.gmail.com>
-Subject: Re: [PATCH 16/30] drm/sun4i: ui_layer: use layer struct instead of
+Date: Tue, 28 Oct 2025 01:45:14 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66KBHkZZEkORAyFO5LPqSChBm8mUFS6bgiRZopze7JuKQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bmRMHRbSFfLfGrgGggasJXji4AX31snSt1AiPTxbTOpwyHoYhtiWgiL24Q
+Message-ID: <CAGb2v66KBHkZZEkORAyFO5LPqSChBm8mUFS6bgiRZopze7JuKQ@mail.gmail.com>
+Subject: Re: [PATCH 17/30] drm/sun4i: vi_layer: use layer struct instead of
  multiple args
 To: Jernej Skrabec <jernej.skrabec@gmail.com>
 Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
@@ -69,6 +69,10 @@ Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de,
 	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251027_104529_624772_C6F06003 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,6 +93,8 @@ l.com> wrote:
 >
 > This change is equally a cleanup (less arguments) and preparation for
 > DE33 separate plane driver. It will introduce additional register space.
+>
+> No functional changes.
 >
 > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
