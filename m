@@ -4,101 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893EACCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE3CCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bO0HNahSQ0zli7kg4xL2kKu/rPaiGOzpKxwGHDcn9b4=; b=uvxvieSTF+/9XEWBDHyLIvsIeR
-	h+NuwKU35d9sfk+B4Y8HgCp99J12EEH+O2o/u2l0joRALLoR2N3FvvjFUCTu0btKwc6cim+ewP5G6
-	5MtkFwGID/FeKlCjiOYIYl54eLMtujZG5qAcghTm6+l/HupOXSwxe1KdqFcIg8nQzcNlfvpG4yioI
-	qmH/8wXOGm0ogq1WBByzI41ys2U1IjHgHoVD5r1fAiVq1oGVTfcb8S2JwTuN6IsdQulvc6PQX5P7U
-	U6UYzhRMNytBCtQj8sOofhcE+Ajej10uatKv2AWHtGnmImKrY4AWMKTp5DaF16zRyjXidfeTd6/82
-	/OV5yOdQ==;
+	bh=h/tr4wNuP/viUV2bLwDGJ/MFnyH+q9BQY2mO1mUn+Lc=; b=UcG27Tp0NX92numlFLghZcyTvS
+	ZCZGTVAwLOQsKHx7OX64OxDP8yAKx2AZPct3iMvn050ZhzD/mPBpYXE38DoWK84XnG+H+0KpBofzI
+	dmIfnCKaEefAo1OQYMDP4yv3ni8qmc1NjpSLH7wKfpzsoG/4as59QfUSai8rSYbiEFy4jyw85ZTmT
+	DTNXHaDr3uBKp4OyIVN/dNyIzxBuG40KXnRzya4C+T4G6E/b52X/78eO9ZHC0E5kKBnusGdAPF9r8
+	t+Q+g9atvpqTrBLWNRNBgjUr2qe69pN/V6B9+AO23XBR47y+VkUGuAQ0IH7seBx5IodIa3NA7YElH
+	gfWbvuRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRgF-0000000EWI9-11ZL;
-	Mon, 27 Oct 2025 18:10:55 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vDRhH-0000000EWWL-0erU;
+	Mon, 27 Oct 2025 18:11:59 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRgD-0000000EWH2-1861
+	id 1vDRhD-0000000EWVM-40oQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 18:10:54 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33bcb779733so4316431a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:10:52 -0700 (PDT)
+	Mon, 27 Oct 2025 18:11:58 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-46e6a689bd0so50134375e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 11:11:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761588652; x=1762193452; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bO0HNahSQ0zli7kg4xL2kKu/rPaiGOzpKxwGHDcn9b4=;
-        b=1Og0Ub/H7o2Birmhj8bbqS/728j3jMYI0HMQFkTpgNnPYKOONW3q/lbNJt5iNz4tl7
-         J2hsqtBUOBSUvWfiXThaG/UIVP6XDFQeslR1ZmrVBPOp7h7Dg/uE3Sl/8vxFU+vE6sWe
-         iP2ssH1fHNxNsoNLKiNa6/X5Nr0ptoNLOvZmlL90BMcZqzBHMUunYixFohGUWovR2e5X
-         o5KUCO1N3wxwbxPYDG/qZNF4TBvnzHjN/9kawGmCRGZq6kfoeugPQmTSLGODWKbsi54m
-         WHvUNsWUKFgFca7E43zTmG8ERYnTc4Cv825ZxnHZjih+ct43aT+/dpENQ8jBDnZDWp2U
-         tXIQ==
+        d=gmail.com; s=20230601; t=1761588714; x=1762193514; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h/tr4wNuP/viUV2bLwDGJ/MFnyH+q9BQY2mO1mUn+Lc=;
+        b=jZLBg5bQq37Qw0C1ViM5Bw7Fo7MCok0ZdrGz25Xz0fJc/rjUulQaMx5s+dDRK9avnW
+         VGlU+B8lx1wIkP+Zc9k1VQeU9iTHEkUVuwAAb6glh+H5igqoKlhEsHpGDUJtuSy3xOlN
+         nzJrcnuNrlSaXAzbmoOM/aXApTPZ3eN1ayDTGtwrd+rDM3Ud1GwIhronXiPZT6jOxIOx
+         ivHeMTBBKG48l0wdMQ5DMGT/qtElg305xyJAu/XjFXxUIN73tSZIIMh+0hx6BfyGx7aX
+         GON8RgyYMlo1C8dQONvT9R+uwUIWPs49nwO/uD8XQxIzH2ClcNtL0AIWqUwtcCaMlbrK
+         1OkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761588652; x=1762193452;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=bO0HNahSQ0zli7kg4xL2kKu/rPaiGOzpKxwGHDcn9b4=;
-        b=f26L6DmrOlJWpgvOriyfknSSzumSajH17xTLIysoZa5sqwU1B7RW6Hl/nOFe+HKT0u
-         PV8bXRyluGd9DkmHpvArcXi7VQxSOTtbtUj2o/NLMayUaMcI2Pd/g/6TgxE9qHUfhwLq
-         UwMIOz8LnBFPOzNSAWwXLsdBAag+99HJz5XBNvE69WNv9kOAjfwTAzdWgEHTHzbaU7eC
-         0nOxmEMASsUqIruqg8OqyDY4MYUYEGMWWqlzYQBxzKFgxx1jjjw3P+SrU3IifubEFsRw
-         hS+s5GwWA29yw5kQD+p/Wkoc3GhVKaID3OwmWCDjU4/LIZ3FHGG8BsmKV5zh3bU7abkr
-         DPjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWkQ7ormsGMSLjj8auHw6StCO2u0kEP2cyg6Afriqe/moKqFXq1Us5SvkrkZTo5NZLCl/al9rEnE3QzrD7Uzrzq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyvMzm42+4ggVbTSzMgnpi6/rrgnNEfB2OELolNXbLd8itf+1L
-	WPJFV/gv5e9WNk77jXOKs749TUtjaDzvWhHaUM19O69DGrnpp+NIYsu9EpoT100znjmx6vQ6Es8
-	U3f88og==
-X-Google-Smtp-Source: AGHT+IFYM0pQ56UGeUzsOnJj3+Ow3Uhx6HMXZ6WjKUcRvfRsyB3bsUItowqHfr7m0JixZWoiV89rDaaCMlA=
-X-Received: from pjbrs15.prod.google.com ([2002:a17:90b:2b8f:b0:33b:51fe:1a73])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4f81:b0:32e:52aa:3973
- with SMTP id 98e67ed59e1d1-340279e5fc5mr862252a91.8.1761588651707; Mon, 27
- Oct 2025 11:10:51 -0700 (PDT)
-Date: Mon, 27 Oct 2025 11:10:50 -0700
-In-Reply-To: <77d8a0d9541ce3fc2b2c76b58add50d152b52e39.camel@intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-25-seanjc@google.com>
- <aPtOtzGLigbY0Vqw@yzhao56-desk.sh.intel.com> <aPuv8F8iDp3SLb9q@google.com>
- <aP86sdBZxXm5I17f@yzhao56-desk.sh.intel.com> <77d8a0d9541ce3fc2b2c76b58add50d152b52e39.camel@intel.com>
-Message-ID: <aP-1qlTkmFUgTld-@google.com>
-Subject: Re: [PATCH v3 24/25] KVM: TDX: Guard VM state transitions with "all"
- the locks
-From: Sean Christopherson <seanjc@google.com>
-To: Rick P Edgecombe <rick.p.edgecombe@intel.com>
-Cc: Yan Y Zhao <yan.y.zhao@intel.com>, 
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	"michael.roth@amd.com" <michael.roth@amd.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
-	"x86@kernel.org" <x86@kernel.org>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, 
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, Vishal Annapurve <vannapurve@google.com>, 
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
-	"maobibo@loongson.cn" <maobibo@loongson.cn>, "maz@kernel.org" <maz@kernel.org>, 
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, "anup@brainfault.org" <anup@brainfault.org>, 
-	Kai Huang <kai.huang@intel.com>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
-	"pjw@kernel.org" <pjw@kernel.org>, "zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, 
-	"ackerleytng@google.com" <ackerleytng@google.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Ira Weiny <ira.weiny@intel.com>, 
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
-	"imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, "kas@kernel.org" <kas@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+        d=1e100.net; s=20230601; t=1761588714; x=1762193514;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=h/tr4wNuP/viUV2bLwDGJ/MFnyH+q9BQY2mO1mUn+Lc=;
+        b=anyoTALXogar3vf80oW6pPdD3CZWLj6svKF/qPKrGgfVkrU1AEZ3/IH4z1u6luuYyn
+         ERF/N3AIBxlaIrqkCg9H0aUKXEe+PCB0Sb9/Q9CPpP8cBcutYRSFSJxWN5QzL1go/hB5
+         QJTwjOHc9W52emGD/e3xqg0vjidbFCe4m+qzQTA0XE6UMUIwoe5FKyalbmabJpfJhNYb
+         T2GMm6shgLYf5HcSVyCtmf17RKO/eNbHonHy5/irktICJJa0tw1gUU/kBY11M6T0w06z
+         60AlMZE7alMaWIkqbPXUi93AS5/VVKEMA3hGtsgDphH4GvuObSB6Uw7Ou02MXrIcymav
+         36qA==
+X-Forwarded-Encrypted: i=1; AJvYcCU93DBVB5ksFlKsr900vlTGZOqVvkcEy5Z3IQdMYMe/T7NOMwKiZYCkSY7GUacpJoI1aDrPhSJtnMVVmdC98dfg@lists.infradead.org
+X-Gm-Message-State: AOJu0YytdiOYrmda5tn6du7I92xLKJvuEwApBc7wCBFESsoDnnWbuZo9
+	IfE+RecAERUbf7NhP4eLvLNx1SkOE82cv9nQaYeOggr8LGWMZVBIuwZW
+X-Gm-Gg: ASbGncuvNZZIov0AfzNBwVZrpiwWlZU9ZNhOlShEYeMommRh4NPrnO37shwdb7ZIDsP
+	VswKoypq803XyuCzp0JQRHGfPvaLSBd73VEd0WDBmTswsGiRuxRkTy4qdV9Qg7ui8ZxKKLMtysw
+	7gd35d+CHhREZHGbGotURsW2QBP9zSXVOqMTA0ybxMHLYIbQja4P5eraQ3HAqS6lUY7pSCHJGOw
+	IDOppeDTSJ4kJsfcYrGcffltthCz8SdNwdjTEkl/tOHCezgjIgWa7G9EJtIUCGWH1R9kcMdcFdq
+	qHwGplIkZvYOiCBGklLFtSYiJ7+djduk3WGqvtwEtUCrFHwOmVvvLwIiyk/znWNeX1cxcOboWix
+	XfU+4KFxdp8CYtcISkn/aM3dKqVI5+4yJWWodRKBnB9ZBnNN+2jmgEr38udxdi0m7aI1knlwbsF
+	I+TxIU2m4+ElakgyVEu9EFzxLTRXu1DkQvO+hrwvg2mhWw/kDV7yMoxevmMGtJRYbsFDLc
+X-Google-Smtp-Source: AGHT+IGXaCcfOwLIrQj9yH9WMbrO4UAf1AZg1ch/afDpC4pXgTmkjf1NdqvThLXtmMqqXSWGbWSmXg==
+X-Received: by 2002:a05:600c:4446:b0:46e:4a30:2b0f with SMTP id 5b1f17b1804b1-47717e6ab4bmr5964995e9.29.1761588713974;
+        Mon, 27 Oct 2025 11:11:53 -0700 (PDT)
+Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952da645sm14913054f8f.30.2025.10.27.11.11.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 11:11:53 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: wens@csie.org
+Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com,
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 07/30] drm/sun4i: Move blender config from layers to mixer
+Date: Mon, 27 Oct 2025 19:11:52 +0100
+Message-ID: <3382705.44csPzL39Z@jernej-laptop>
+In-Reply-To: <CAGb2v65KEKPtg=WZw9su_DBc5JKsjjYV3DmpUD+LXGhX96sEfA@mail.gmail.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
+ <20251012192330.6903-8-jernej.skrabec@gmail.com>
+ <CAGb2v65KEKPtg=WZw9su_DBc5JKsjjYV3DmpUD+LXGhX96sEfA@mail.gmail.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_111053_303193_DD20F597 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20251027_111156_027032_C6D6F8E0 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,68 +103,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025, Rick P Edgecombe wrote:
-> On Mon, 2025-10-27 at 17:26 +0800, Yan Zhao wrote:
-> > > Ugh, I'd rather not?=C2=A0 Refresh me, what's the story with "v1"?=C2=
-=A0 Are we now on
-> > > v2?
-> > No... We are now on v1.
-> > As in [1], I found that TDX module changed SEAMCALL TDH_VP_INIT behavio=
-r to
-> > require exclusive lock on resource TDR when leaf_opcode.version > 0.
-> >=20
-> > Therefore, we moved KVM_TDX_INIT_VCPU to tdx_vcpu_unlocked_ioctl() in p=
-atch
-> > 22.
-> >=20
-> > [1] https://lore.kernel.org/all/aLa34QCJCXGLk%2Ffl@yzhao56-desk.sh.inte=
-l.com/
+Dne ponedeljek, 27. oktober 2025 ob 17:00:05 Srednjeevropski standardni =C4=
+=8Das je Chen-Yu Tsai napisal(a):
+> On Mon, Oct 13, 2025 at 3:23=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gm=
+ail.com> wrote:
+> >
+> > With upcoming DE33 support, layer management must be decoupled from
+> > other operations like blender configuration. There are two reasons:
+> > - DE33 will have separate driver for planes and thus it will be harder
+> >   to manage different register spaces
 >=20
-> Looking at the PDF docs, TDR exclusive locking in version =3D=3D 1 is cal=
-led out at
-> least back to the oldest ABI docs I have (March 2024). Not sure about the
-> assertion that the behavior changed, but if indeed this was documented, i=
-t's a
-> little bit our bad. We might consider being flexible around calling it a =
-TDX ABI
-> break?
+> So if I understand correctly:
 >=20
-> Sean, can you elaborate why taking mmu_lock is objectionable here, though=
-?
+> - the "layer" is from DMA up to CSC, which is the last stage before routi=
+ng
+> - in DE30 and before, routing was limited to within one mixer
+> - in DE33 and onward, routing is global
 
-It's not, I was just hoping we could avoid yet more complexity.
+If you mean routing layers, then yes.
 
-Assuming we do indeed need to take mmu_lock, can you send a patch that appl=
-ies
-on top?  I'm not planning on sending any of this to stable@, so I don't see=
- any
-reason to try and juggle patches around.
+=46or example, you have pool of 4 UI planes and 3 VI planes. You can assign=
+ them
+in any combination to both mixers. Later you have additional Z-pos routing =
+too
+within mixer.
 
-> Note, myself (and I think Yan?) determined the locking by examining TDX m=
-odule
-> source. For myself, it's possible I misread the locking originally.
 >=20
-> Also, I'm not sure about switching gears at this point, but it makes me w=
-onder
-> about the previously discussed option of trying to just duplicate the TDX=
- locks
-> on the kernel side.
+> > - Architecturaly it's better to split access by modules. Blender is now
+> >   exclusively managed by mixer.
+> >
+> > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+>=20
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+>=20
 
-Please no.  At best that will yield a pile of effectively useless code.  At=
- worst,
-it will make us lazy and lead to real bugs because we don't propery guard t=
-he *KVM*
-flows that need exclusivity relative to what is going on in the TDX-Module.
+Thanks.
 
-> Or perhaps make some kind of debug time lockdep type thing to document/ch=
-eck
-> the assumptions in the kernel. Something along the lines of this patch, b=
-ut
-> to map the TDX locks to KVM locks or something. As we add more things (DP=
-AMT,
-> etc), it doesn't seem like the TDX locking is getting tamer...
+Best regards,
+Jernej
 
-Hmm, I like the idea, but actually getting meaningful coverage could be qui=
-te
-difficult.
+
 
