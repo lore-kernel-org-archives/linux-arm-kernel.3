@@ -4,125 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A2FCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FA3CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 16:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgRMpIuzEklhMyLqeSgTqelB6K/jP1FY8xNuF/F7waE=; b=4dg5nWS12eMJ+kZ75+yZ6bLBNK
-	WwWEi17N6eqSkvFXY3j/ZBmpXFhMvsB0n9jUBrA1o4s9sPqLvmqw62u9Y1PpAA9up3KbAUiA6urkL
-	fB0Xg+3PpcHUf9T/kHKM/fPMWDupJbzVbalIG1DRnqMN9rw2hI5V+DCjG78yX1lsuWv+AEtDAstr1
-	a1COAM074x/qLp0y9etLJ4zmYyqkcPerFLVGhhQ0NKAHd7tuQQw/DdX+8gCJqlQcKeDg4Q2P96Duq
-	IQGPs1EVDCn7IgtEOLqzaSsukr/YqLrti5vvzhipotZ9zL1YywgoPZK40Of6Qf9/DWP2IdNT48wZX
-	mBO6Z3mw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Veu3Rsq4FjpOJipbhAFeCCYDWDFK0CBkfMfLFx9DhXQ=; b=rAUNMDRXrK1Ql3eRWVH7+XGYw9
+	zb3ell7QhA3iDL0m8tpywAQKw7SWT1n8vwTkEGNte3rCNTHP7DUNYMhjzHpQobq1tJilHVxTkKjw7
+	n2N0ySECuBdlNOWqxFnfhmKPuSGSfZ4YmqsB6zaopjkQF8vYhGYW3GlwRLBQL742cJ0IKxcg3rnuE
+	UufIlTdG1IgKfu8dxox3DQLL2yGbZKl+AZ+VytIgB6kOj5tb5qtcVEykDDae75MeXUrNmD6VAg7vV
+	oyIN7OdgplKl5KRGHN7Uus9/wsgTTTLawLtjyruS3D7T0v8nR/TxXGryhOdz+5iiN/sWnJ0WDfUR3
+	hg4H3WkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPmC-0000000EHcF-1Qws;
-	Mon, 27 Oct 2025 16:08:56 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vDPo6-0000000EHtI-0IXR;
+	Mon, 27 Oct 2025 16:10:54 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPmA-0000000EHbr-11Qk
+	id 1vDPo2-0000000EHs9-3hwV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 16:08:55 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RBK7sw2547940
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:08:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KgRMpIuzEklhMyLqeSgTqelB6K/jP1FY8xNuF/F7waE=; b=mcGpyXKeJIl3if0g
-	BTHBHMbOb5aFzf8YLocOxs83v1pY7wAmIyfj/BIAB05engfqIrH8DQ7Dze48c6V5
-	jUkJSqKFQihpS/LuCSe55d0lqn4kiJO6svl7GdaUM3r77/bQcB04FoBJTPxYiiVV
-	oa/EVozhJoNDzSGj+gguASqcrQZDUEkNHgfvcB5ZJqk8Adqtwcz9E3Q0j8pfWibY
-	iPs8skpBVponxxBsg4fBAE3GYhx/gSSrArMH39KJtG3WfN2viTmYsO3KA6PPIHGi
-	YUREWHeHZGQPrTYgWB5VJ+9meKoTXlHnMNzARJM7e3FHDOpd9fG2H7pXlOtQ39QB
-	+Fc7Mg==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a27s2gy4v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 16:08:53 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-7a2878dca50so5822327b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:08:53 -0700 (PDT)
+	Mon, 27 Oct 2025 16:10:52 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b6dbb4a209aso11783066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 09:10:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1761581449; x=1762186249; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Veu3Rsq4FjpOJipbhAFeCCYDWDFK0CBkfMfLFx9DhXQ=;
+        b=HpeKlAr97PhefKQNOHlgKS+S3tvbuVPLie//iFxWZiPfXhM/6yLL/XE90yL0AKZKRI
+         I5l/5sJwXMvVTWfhhmSWlyRQ0gkZLYvrl7GFtt1ByjLC2jl1Zfp3v+wweDEzGajMrct8
+         RIO5YZ0/rvRhPJ8dlhLDLb7VP+2J2OSR4hCx8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761581332; x=1762186132;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KgRMpIuzEklhMyLqeSgTqelB6K/jP1FY8xNuF/F7waE=;
-        b=FYlG2V+x/aVyXx5am7ngwixHAgyls0CieaqtTJc7egW5+iRTP7praGUcY3dRDnUYce
-         nTiwzt1IWFCjRCyOkIcsF9rjqHHngVqKED7E7ttoZDGzvhqtbiMUOhjsHTW4w/BPOs/S
-         PDqluYXdgdtpNG0BFQntiomdIv0sw1RaqkHugZifM6+8FyclcQ3oPvGxH5jgr70z6agE
-         TIEVHoSIanRDeNjaZ3X39yfBp4WN5sI1g5oNJ7wDTwwy03ku7RiWdNSL8h2q0b15jQKS
-         6TSibh6dWPVkDIzvXnEw9VM0elkbAuKbWVaCB7Y9uDjeUy26kS/T89seWfJm2KrFAt6j
-         dt8w==
-X-Forwarded-Encrypted: i=1; AJvYcCXaTDSpqvZwEFqpwyeR1T95E8QzHijxoLlafFgFrbjIOi1qOTaZ1M7zMCkFFE26ec9wsY9VfTfOmtN6Divq2DzR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG58i5ix4rUT5KdleT0ljAp3TSCH7axZpk3S8Dtda24PDwXxXV
-	hnjsR134D9HXaqt7S2nPkYfi6LC39U6TaxZ5eRSI/yfXyFkkZVWlAvc50/Qrvnmy7Td3RVMuCjb
-	ffDifY5rtI9GuA+fop+8KbfswjLhMiNX/kQDSuPhuSy23GIHatBgAventLHYXPcyxF+7n7u3qOq
-	s1/Q==
-X-Gm-Gg: ASbGnctHYONXn931xaLx+yY6YIB7KjAcgeOeojvexpvCzEgKA45apWX/RdxyMYJx1U1
-	TuJYHisKYPMeyHUKrKWbJnnK16CV79VHHO4zL66wqIJAfs58mzW4zK986KoKS+AoGMAD4l8Iy5+
-	l6WtOIF24QVeZPHpKYvwjjtbcgyCqRUzMNrTcDoKBSDNf9IXFvtE1UM3QkxRhk9JvsI0yY8OP9P
-	EQJVcW3rJfyK2pUyEqGnvVAeZoV5ZRCvsW78S08fE1E2nR7gOg+TfDfL+HraL+c0hFs17kz1QMV
-	3vRbZryAObyfZps6zaemU5lUuHpK0OQcLzknTXarswzzCkrq2f4Nk18gx3Ba3c9IAqmhHd+vFBX
-	Puj2Qo1aJQiirAoQ3Rg3AXdHtwmP5sgoC39z5T4ofDUllMyPeQTCcAGzWd4A=
-X-Received: by 2002:a05:6a00:b42:b0:7a2:8201:e35a with SMTP id d2e1a72fcca58-7a441c377b7mr521889b3a.19.1761581332096;
-        Mon, 27 Oct 2025 09:08:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH7riuKLotC98dQqIszw6mdR718UOVWaI+4GmJRuMzQgpAmf75t39TRUDzdW3vneRdu0UeB2Q==
-X-Received: by 2002:a05:6a00:b42:b0:7a2:8201:e35a with SMTP id d2e1a72fcca58-7a441c377b7mr521838b3a.19.1761581331421;
-        Mon, 27 Oct 2025 09:08:51 -0700 (PDT)
-Received: from [10.227.110.203] (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414049c01sm8540758b3a.37.2025.10.27.09.08.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 09:08:50 -0700 (PDT)
-Message-ID: <b002e4e7-fb35-4c2b-8414-b26aa7f71f25@oss.qualcomm.com>
-Date: Mon, 27 Oct 2025 09:08:49 -0700
+        d=1e100.net; s=20230601; t=1761581449; x=1762186249;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Veu3Rsq4FjpOJipbhAFeCCYDWDFK0CBkfMfLFx9DhXQ=;
+        b=Bk75UTZi1ETD8m8AzthRXP5jm0jJVILYmplZNsHi5X6NIgj+ejB2Wo3GXOP8bs/ECM
+         ihN8DxWQoMMnHL8YwrYyqj7Z12lZF9m/O6EZfBSDOf5BmSf9Xqynxr4/suLDZsCqniHW
+         pMTQjKUy3OjnsSpn7Dhda0mLgsnOTneGYpUqwuxFcdb5JlcSx+6ldolgGfm2bshK7hpG
+         B3mwyPNeaeshD44K+ab1zBuBN3kVk3r9/1j24OsPF9eIuspLBJ1HROmTN6RjcNWGM7sH
+         t0T2olEhpkUs2jIC+qdsYIV17Gd/UyB6XzyKN5Q5pPwlZESceBZLRNK4dORCa4TO29s2
+         hVig==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ69umB15yzPLQn73EwRdvCbHgRF+Z21pJGUou0yu2K4/ZaWkrJjZ/r3PZqFkfZcq+UkyzcGwFTsvJ5gj0qLIL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDNkoZlJksg73PrKI6his8Fkhsjnkarlb8eZhXfR1BBTZ3ssoX
+	gDnm4k1YDxsahdcg/U+BcoANCEtm7Na1BUJ51XFYXro1IDbY1Cx5fu2foC3Su8w6lMM=
+X-Gm-Gg: ASbGnctyQi1QF9HMaMADpRdUrMMW8cixoSKyGuf01n5W4WnH4fbYlSSV0qSOCAHKhBV
+	/JM727P0unxfCjyMhzgK8NRN9Xn5QjxyaPzdOeG+XUXt20FBlJtjb6YEVwEhjj/KRfQICRU9geM
+	jBYHzRJjFxJhnyEz/RkbsPlbj0xWzyPcpYlQAZX10Yn0IW8+VdCsaoj5BEuj/yhsgg/T7hkoALX
+	F2CEtfIXF95LTNDtV4BYi7NQaoWsIWZA4RrrISbpe5WWDeDIVa3gypBaD+gd7QHbgHc28IrsbxX
+	QVJg+2yNxuyWly4x92Jgigek7WYHyHFclucaBHPoh2kCNdf1C/tuzxUPYiwGzejUrzE7sHg3jjs
+	X82lgVMLdtGLAbfSkcm7hRKkos//tIAqGYeekFOoArYVuYGN9De3zkmoSLj8UdDzO5/qxBscZkP
+	3e0o5xIhiYEfFXS6YkpejYVfSgmany0EXgBVKT95UiX7okFRBMeAyKLXwPB+JPTu901yLF/Vdf0
+	6ushwL9S+4uGAQnzjGsSVdiBG+wXzwyeQiR6W1Y9B4zvBk11pM+S7w=
+X-Google-Smtp-Source: AGHT+IHNVBcPF4r1uhIP+zj56hLjLDUq4AexzJeI5WwqZEYSfzmRjyop2h3ZCez24VELoNyVU95XiQ==
+X-Received: by 2002:a17:907:86a0:b0:b0b:f228:25a with SMTP id a640c23a62f3a-b6dba5f0b7cmr39405266b.64.1761581448554;
+        Mon, 27 Oct 2025 09:10:48 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-82-50-34-170.retail.telecomitalia.it. [82.50.34.170])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d8ceeaffasm742437466b.45.2025.10.27.09.10.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 09:10:48 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	linux-amarula@amarulasolutions.com,
+	Mark Brown <broonie@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 1/2] ARM: dts: imx28-amarula-rmm: add I2S audio
+Date: Mon, 27 Oct 2025 17:10:23 +0100
+Message-ID: <20251027161040.2020623-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 21/21] Docs: add Functions parameters order section
-To: Jani Nikula <jani.nikula@intel.com>,
-        "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
-        Linus Walleij <linus.walleij@linaro.org>, Lee Jones <lee@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Jonathan Corbet <corbet@lwn.net>, workflows@vger.kernel.org,
-        linux-doc@vger.kernel.org
-References: <20251025162858.305236-1-yury.norov@gmail.com>
- <20251025163305.306787-14-yury.norov@gmail.com>
- <723c936f92352352c3b1a84b858d684f5b7a0834@intel.com>
-From: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <723c936f92352352c3b1a84b858d684f5b7a0834@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: A1w-sEUWxxP2e_TXzk7u-WW6TogvJkHd
-X-Proofpoint-GUID: A1w-sEUWxxP2e_TXzk7u-WW6TogvJkHd
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDE1MCBTYWx0ZWRfX+yFc+6XVI1Ci
- 194mHKKBmH7SKIWIPpfC9Nm6uNJhLa9wvirUrnm57EyCF4WW7pxEj0F+dQSAbkUHF40rPokqV61
- JTkN6LxjJV0jBVnwjrk+SJZW7hVFE6Vg53Rn9cCC50N/IlXOzAFZEPQJU1mA44YmLqxS8e74KcN
- 7TP98X9frmxgnyiqGOoOpen/IWFxNqOmzNBNtNWlzKFWSj+f7t9+6QC+WV3v/awr21N3Nd6AUqJ
- Tt2zJCEOwo99T7AZ5cP4I450Z9Fn9qVbSVedZITYRl5jeBopBaBhZlD5yNByBxbE0Lg7iySGGNM
- /p9HJd7UYrR6Er/nevG/mrZsnRgnxuWPM/j0ZsXk3QYpBTFz+CRtA+WJrSbhDCnc0UA54u5mqhx
- x/k7Ra9+9q4AYQIjjjooDIOlOQiYRQ==
-X-Authority-Analysis: v=2.4 cv=R60O2NRX c=1 sm=1 tr=0 ts=68ff9915 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=pGLkceISAAAA:8 a=9sl_EADGoQNm_DCWk-wA:9 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-27_06,2025-10-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 phishscore=0 bulkscore=0
- impostorscore=0 clxscore=1015 spamscore=0 adultscore=0 malwarescore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
- definitions=main-2510270150
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_090854_429255_0F12AEC8 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20251027_091050_959969_56BC7A95 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,97 +107,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/27/2025 2:02 AM, Jani Nikula wrote:
-> On Sat, 25 Oct 2025, "Yury Norov (NVIDIA)" <yury.norov@gmail.com> wrote:
->> Standardize parameters ordering in some typical cases to minimize
->> confusion.
->>
->> Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
->> ---
->>  Documentation/process/coding-style.rst | 48 ++++++++++++++++++++++++++
->>  1 file changed, 48 insertions(+)
->>
->> diff --git a/Documentation/process/coding-style.rst b/Documentation/process/coding-style.rst
->> index d1a8e5465ed9..dde24148305c 100644
->> --- a/Documentation/process/coding-style.rst
->> +++ b/Documentation/process/coding-style.rst
->> @@ -523,6 +523,54 @@ below, compared to the **declaration** example above)::
->>  	...
->>   }
->>  
->> +6.2) Function parameters order
->> +------------------------------
->> +
->> +The order of parameters is important both for code generation and readability.
->> +Passing parameters in an unusual order is a common source of bugs. Listing
->> +them in standard widely adopted order helps to avoid confusion.
->> +
->> +Many ABIs put first function parameter and return value in R0. If your
->> +function returns one of its parameters, passing it at the very beginning
->> +would lead to a better code generation. For example::
->> +
->> +        void *memset64(uint64_t *s, uint64_t v, size_t count);
->> +        void *memcpy(void *dest, const void *src, size_t count);
->> +
->> +If your function doesn't propagate a parameter, but has a meaning of copying
->> +and/or processing data, the best practice is following the traditional order:
->> +destination, source, options, flags.
->> +
->> +for_each()-like iterators should take an enumerator the first. For example::
->> +
->> +        for_each_set_bit(bit, mask, nbits);
->> +                do_something(bit);
->> +
->> +        list_for_each_entry(pos, head, member);
->> +                do_something(pos);
->> +
->> +If function operates on a range or ranges of data, corresponding parameters
->> +may be described as ``start - end`` or ``start - size`` pairs. In both cases,
->> +the parameters should follow each other. For example::
->> +
->> +        int
->> +        check_range(unsigned long vstart, unsigned long vend,
->> +                    unsigned long kstart, unsigned long kend);
->> +
->> +        static inline void flush_icache_range(unsigned long start, unsigned long end);
->> +
->> +        static inline void flush_icache_user_page(struct vm_area_struct *vma,
->> +                                            struct page *page,
->> +                                            unsigned long addr, int len);
->> +
->> +Both ``start`` and ``end`` of the interval are inclusive.
->> +
->> +Describing intervals in order ``end - start`` is unfavorable. One notable
->> +example is the ``GENMASK(high, low)`` macro. While such a notation is popular
->> +in hardware context, particularly to describe registers structure, in context
->> +of software development it looks counter intuitive and confusing. Please switch
->> +to an equivalent ``BITS(low, high)`` version.
->> +
-> 
-> GENMASK when used for defining hardware registers is completely fine,
-> and *much* easier to deal with when you cross check against the specs
-> that almost invariably define high:low.
+Add support for I2S audio on Amarula rmm board. Audio codec
+TLV320AIC3X is connected as slave to SAIF0, which provides
+bitclock, frame and MCLK.
 
-Not only that, there is no common definition of BITS
+Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-Defined in 7 files as a macro:
-arch/arc/include/asm/disasm.h, line 32 (as a macro)
-drivers/mfd/db8500-prcmu-regs.h, line 15 (as a macro)
-drivers/net/wireless/intel/iwlwifi/fw/api/coex.h, line 14 (as a macro)
-fs/select.c, line 415 (as a macro)
-lib/zlib_inflate/inflate.c, line 232 (as a macro)
-sound/core/oss/rate.c, line 28 (as a macro)
-tools/perf/dlfilters/dlfilter-show-cycles.c, line 22 (as a macro)
+---
 
-Most of these do NOT have a (low, high) signature.
+Changes in v2:
+- Rename the codec node to audio-codec@18
+- Drop an unnecessary newline
 
-And GENMASK will throw a compile error if you swap the high and low:
-#define GENMASK_INPUT_CHECK(h, l) BUILD_BUG_ON_ZERO(const_true((l) > (h)))
+ .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
-IMO the real confusion with GENMASK(), which would be the same with the
-proposed BITS(), is that without knowledge of the implementation, when looking
-at an instance of usage you can't tell if the parameters are two bit numbers
-or a start bit and number of bits.
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
+index af59211842fb..ddb64f3d0471 100644
+--- a/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
++++ b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
+@@ -112,6 +112,29 @@ reg_usb1_vbus: regulator-usb1-vbus {
+ 		enable-active-high;
+ 		regulator-always-on;
+ 	};
++
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,name = "imx28-mrmmi-tlv320aic3x-audio";
++		simple-audio-card,format = "i2s";
++		simple-audio-card,bitclock-master = <&cpu_dai>;
++		simple-audio-card,frame-master = <&cpu_dai>;
++		simple-audio-card,widgets =
++			"Headphone", "Headphone Jack";
++		simple-audio-card,routing =
++			"Headphone Jack", "HPROUT",
++			"Headphone Jack", "HPRCOM";
++		simple-audio-card,mclk-fs = <512>;
++
++		cpu_dai: simple-audio-card,cpu {
++			sound-dai = <&saif0>;
++			clocks = <&saif0>;
++		};
++
++		codec_dai: simple-audio-card,codec {
++			sound-dai = <&tlv320aic3x>;
++		};
++	};
+ };
+ 
+ &auart0 {
+@@ -154,6 +177,19 @@ &i2c0 {
+ 	pinctrl-0 = <&i2c0_pins_a>;
+ 	status = "okay";
+ 
++	tlv320aic3x: audio-codec@18 {
++		compatible = "ti,tlv320aic3x";
++		pinctrl-names = "default";
++		pinctrl-0 = <&tlv320aic3x_pins>;
++		reg = <0x18>;
++		reset-gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
++		#sound-dai-cells = <0>;
++		DVDD-supply = <&reg_1v8>;
++		IOVDD-supply = <&reg_3v3>;
++		AVDD-supply = <&reg_3v3>;
++		DRVDD-supply = <&reg_3v3>;
++	};
++
+ 	touchscreen: touchscreen@38 {
+ 		compatible = "edt,edt-ft5306";
+ 		reg = <0x38>;
+@@ -246,6 +282,14 @@ MX28_PAD_PWM1__GPIO_3_17
+ 		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+ 	};
+ 
++	tlv320aic3x_pins: tlv320aic3x-pins@0 {
++		reg = <0>;
++		fsl,pinmux-ids = <MX28_PAD_SSP0_DATA4__GPIO_2_4>;
++		fsl,drive-strength = <MXS_DRIVE_4mA>;
++		fsl,pull-up = <MXS_PULL_ENABLE>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++	};
++
+ 	usb0_vbus_enable_pin: usb0-vbus-enable@0 {
+ 		reg = <0>;
+ 		fsl,pinmux-ids = <MX28_PAD_SSP0_DATA5__GPIO_2_5>;
+@@ -269,6 +313,12 @@ &pwm {
+ 	status = "okay";
+ };
+ 
++&saif0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&saif0_pins_a>;
++	status = "okay";
++};
++
+ /* microSD */
+ &ssp0 {
+ 	compatible = "fsl,imx28-mmc";
+-- 
+2.43.0
 
-/jeff
+base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
+branch: imx28-amarula-rmm-audio
 
