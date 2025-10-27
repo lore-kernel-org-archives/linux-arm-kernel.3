@@ -4,118 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5834DCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1225ECCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 11:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cKOc9ymYgduRLbjwAbYYsJz6WnNI5zIjxvxjVDfgGQE=; b=aie4DwELvv/xpqoiiyijoSBa7k
-	wSqa38RYZqdsBcH+yi5lVmL9M1DOAbu+vrKrzJv1cJFDxSZWH3gs3H5TFqZCLDsroiMVwqO/8XedD
-	mvdzSW95FpGeLM0GK0cJ6cPagOC/9sk6gES3RRqzRZvkf8WwvwVni0fgMNHEw8NbnPhYXRk+FIVpv
-	UWXFJ0RseSgBwA8bvyA4SHB6z0PHvIZUNoBnpOqq7KColjNNys4bJLYeH+C3yTd/DVlE97ftWeqBI
-	v3shoJLcXv3LeKOEgYG9aOa4WGI6LsKc+sH1ed+cLOXq5Hpsh1LRJ4iIy3ZSELebXByvwn93vz0aL
-	goDocyzw==;
+	bh=W3zZy85oW98LmzlLLVlNLP/kxDk+jUE3Sk+1kWzQBq8=; b=vyf5fiVkqlpCQL3rveL1QfqItT
+	8Vr/kfSGrntRd3YP6xy9vXaC5LLVpujkNqkZ8RDx4Tv7dX5T9vjdYn5w0cqRiFAwljC1Ogi+9uVPa
+	BTeQ5gJ+v8Fc8jA8ROz+Q6hIPGaJBxdhRsDRmaBvNoCNQLhx2eZTgoXfNUiZ/UczXqi5Qmb15dqUo
+	J9O0IwSDM26LgXln3kjE2QX/Adq4aMZbohhQHUjHjOdlY5Y28lkVJCs7PyfTDTojnp32uZ2op4SAX
+	AatXpFlqZGJT98Dk9FzDnP1TR4z85qlIQVyG4ZF9VY9Ipe3ZeLUdTv9yPJx023BV0vqPKxwtQMC5G
+	q/voNINw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLZ0-0000000Dmdh-05jz;
-	Mon, 27 Oct 2025 11:39:02 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vDLZo-0000000Dn4j-1drU;
+	Mon, 27 Oct 2025 11:39:52 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLYr-0000000DmZA-3l5G
+	id 1vDLZj-0000000Dn0Z-0L1E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 11:38:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761565134; x=1793101134;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=JUbvz9IlQ6+L8KQRASSmO9wSpjWPjTFfbMmzkjCOkKw=;
-  b=klUoVDgyJnDRDwUzsrTNvgc5yHNXP8SQ/wmSyvk35p0nyVZKn8tk2QiC
-   8X6UMSLzf+Q5b8Y4HHIGWdQBEXCwFs8KV0u4EamQoGFwbYybQ7itklJGe
-   0QO56NBCP+joySZ0PfLOmC/cqD5wBWhpvsW45/W3yKYFfVQo7Jii+nNv6
-   Ri1z/vqEw+A1gIpfbmWt8o5XhweVbJL29fmnqLfilJDvkQJr1KISzcSEG
-   CxnKtd57J8gOANRmcEntzWMMaE64OaPL1+IIVopx4i59I7hG9r+G0/MIP
-   1cqSJ9D7/i2aCwzJGQqX8ZgbThdP/grSOUNwspIau5q0k9P7rSuO5xsWd
-   Q==;
-X-CSE-ConnectionGUID: xYoYhylRT8aNnSGLPpxtRw==
-X-CSE-MsgGUID: UsmD6mK5SXOMmEsyYN5X2Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="51217020"
-X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="51217020"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:38:54 -0700
-X-CSE-ConnectionGUID: G0A95y7PTseda62niZdwoA==
-X-CSE-MsgGUID: p+9mo0ATQgWn2d6ZEMfL2g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="215672873"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.31])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 04:38:48 -0700
-Received: from punajuuri.localdomain (unknown [192.168.240.130])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 91DF7121E63;
-	Mon, 27 Oct 2025 13:38:45 +0200 (EET)
-Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
-	(envelope-from <sakari.ailus@linux.intel.com>)
-	id 1vDLYY-00000001ddb-22ra;
-	Mon, 27 Oct 2025 13:38:34 +0200
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: netdev@vger.kernel.org
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Wei Fang <wei.fang@nxp.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
-	Paul Barker <paul@pbarker.dev>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Alex Elder <elder@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Stephan Gerhold <stephan@gerhold.net>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
-	Chiranjeevi Rapolu <chiranjeevi.rapolu@linux.intel.com>,
-	Liu Haijun <haijun.liu@mediatek.com>,
-	Ricardo Martinez <ricardo.martinez@linux.intel.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Michael Nemanov <michael.nemanov@ti.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Roopni Devanathan <quic_rdevanat@quicinc.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	imx@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org
-Subject: [PATCH 1/4] net: ethernet: Remove redundant pm_runtime_mark_last_busy() calls
-Date: Mon, 27 Oct 2025 13:38:31 +0200
-Message-ID: <20251027113834.390681-1-sakari.ailus@linux.intel.com>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Mon, 27 Oct 2025 11:39:51 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-470fd92ad57so55197025e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 04:39:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761565184; x=1762169984; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=W3zZy85oW98LmzlLLVlNLP/kxDk+jUE3Sk+1kWzQBq8=;
+        b=cRd520nGGvGBN3WWVXWAUdpmTMJShL0dk47qfnK/PlrxtoMYNgUssLLhwrnRHHFWs/
+         shOv8jaGmPt7L7gJaXAtYsfVOl6Cg9Mzry+kA8z8yTiB4LUq6sa5ZlLdDt1jGWhAHc1b
+         1GTk1zdZeNk7TWOaj1+16siMdxDuNYzbcBx5FOAQhAohkeyjzKf35ejgEc5hwbdiRbTW
+         lx2Ys5HOvMzAHkVaK5Wr2QttHRvW85kYZI0TSOCKCy2pT7QPJTaGmCq8mSFJj1XlTjb0
+         y68Pr3FapUpQFafxKhvFGD7SgvDwNJ1in7bVLB8ZUPdEGUkLhGqBfeUuRzHpgJ0brEmQ
+         bEZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761565184; x=1762169984;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=W3zZy85oW98LmzlLLVlNLP/kxDk+jUE3Sk+1kWzQBq8=;
+        b=hTctXJ8zpo+cLL++eLB2mlwkN56WLCAhz8zusXT+TsSAJBKwAOTvD6aNEMzq823KvG
+         qhOnFdktPTmkx6ROCeg5jxQjCvwJ7gR1lfgyeM+p7BGK/D+3Ez4bCeHLEDsbXqwbZPV6
+         dBMmvkmlhE2Nsl86buMFyokJKvzUlM4fGclEDBuEm9/EsbmSafrQaknpzQDIoEMMCtpF
+         wo2tKO5yli+/lOqhewVSjB1Ig7Uug/02c3pTAC/LSuM4rRoDd2nnfXmx4scwZFvS6lyR
+         SyOWYwAbBdPPD4p9HGQNbOp3D/n7VbC9Opjn5i/s8USd0P5L8M7vHm+pjsKb6fsX6v9m
+         e85w==
+X-Forwarded-Encrypted: i=1; AJvYcCVhftGlIc4WcaOaAJHjh7lh898m/WYQ04xfscnJ7NKMXZHcdNaMi0ApEK4SAlPaF0gf3WxWrhBEXUrDA23l3Mzy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp9kYAegXpft/ppKDVd/olFOlytqpvQtSxdYtFWQX2BtyEE4mL
+	2kiFFREhIVl9/3wgSRnQTmXJezwWUZSNP+80nKJYrxXAkjSDD4AwtTURX4NtIdhuHeU3c7pxdzX
+	iLw==
+X-Google-Smtp-Source: AGHT+IGfIk/DDRBImLoLQrIA8NfRPRuJ6G5SFEtQg8ZEUOxNLLwzjWpF+jFxftbCRBMSKvrx+1GVUBgyOw==
+X-Received: from wmwo28.prod.google.com ([2002:a05:600d:439c:b0:471:6089:1622])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3e07:b0:46e:450d:e037
+ with SMTP id 5b1f17b1804b1-4711786c560mr290520485e9.5.1761565184474; Mon, 27
+ Oct 2025 04:39:44 -0700 (PDT)
+Date: Mon, 27 Oct 2025 11:39:39 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.1.838.g19442a804e-goog
+Message-ID: <20251027113943.1282568-1-tabba@google.com>
+Subject: [PATCH v1 0/4] KVM: arm64: Prevent sysreg helper parameter transposition
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_043853_993166_90629C34 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20251027_043947_153925_430A83DF 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,228 +88,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-pm_runtime_mark_last_busy().
+Some of the KVM/arm64 sysreg helper functions and macros, such as
+vcpu_write_sys_reg() and __vcpu_assign_sys_reg(), are prone to parameter
+transposition bugs. The 'reg'/'r' (enum vcpu_sysreg) and 'val'/'v' (u64)
+can be easily swapped, as the types are not distinct enough to be caught
+by the compiler.
 
-Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
----
- drivers/net/ethernet/cadence/macb_main.c  | 5 -----
- drivers/net/ethernet/freescale/fec_main.c | 8 --------
- drivers/net/ethernet/renesas/ravb_main.c  | 4 ----
- drivers/net/ethernet/ti/davinci_mdio.c    | 7 -------
- 4 files changed, 24 deletions(-)
+There are a few functions and macros that have similar parameters and
+behavior, e.g., vcpu_write_sys_reg(), __vcpu_assign_sys_reg(), and
+__vcpu_rmw_sys_reg(). However, the ordering of the reg and value
+parameters is not consitent across them [*].
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 39673f5c3337..847c4ab9df23 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -327,7 +327,6 @@ static int macb_mdio_read_c22(struct mii_bus *bus, int mii_id, int regnum)
- 	status = MACB_BFEXT(DATA, macb_readl(bp, MAN));
- 
- mdio_read_exit:
--	pm_runtime_mark_last_busy(&bp->pdev->dev);
- 	pm_runtime_put_autosuspend(&bp->pdev->dev);
- mdio_pm_exit:
- 	return status;
-@@ -373,7 +372,6 @@ static int macb_mdio_read_c45(struct mii_bus *bus, int mii_id, int devad,
- 	status = MACB_BFEXT(DATA, macb_readl(bp, MAN));
- 
- mdio_read_exit:
--	pm_runtime_mark_last_busy(&bp->pdev->dev);
- 	pm_runtime_put_autosuspend(&bp->pdev->dev);
- mdio_pm_exit:
- 	return status;
-@@ -405,7 +403,6 @@ static int macb_mdio_write_c22(struct mii_bus *bus, int mii_id, int regnum,
- 		goto mdio_write_exit;
- 
- mdio_write_exit:
--	pm_runtime_mark_last_busy(&bp->pdev->dev);
- 	pm_runtime_put_autosuspend(&bp->pdev->dev);
- mdio_pm_exit:
- 	return status;
-@@ -451,7 +448,6 @@ static int macb_mdio_write_c45(struct mii_bus *bus, int mii_id,
- 		goto mdio_write_exit;
- 
- mdio_write_exit:
--	pm_runtime_mark_last_busy(&bp->pdev->dev);
- 	pm_runtime_put_autosuspend(&bp->pdev->dev);
- mdio_pm_exit:
- 	return status;
-@@ -5564,7 +5560,6 @@ static int macb_probe(struct platform_device *pdev)
- 		    macb_is_gem(bp) ? "GEM" : "MACB", macb_readl(bp, MID),
- 		    dev->base_addr, dev->irq, dev->dev_addr);
- 
--	pm_runtime_mark_last_busy(&bp->pdev->dev);
- 	pm_runtime_put_autosuspend(&bp->pdev->dev);
- 
- 	return 0;
-diff --git a/drivers/net/ethernet/freescale/fec_main.c b/drivers/net/ethernet/freescale/fec_main.c
-index 1edcfaee6819..4875101c4f3f 100644
---- a/drivers/net/ethernet/freescale/fec_main.c
-+++ b/drivers/net/ethernet/freescale/fec_main.c
-@@ -2231,7 +2231,6 @@ static int fec_enet_mdio_read_c22(struct mii_bus *bus, int mii_id, int regnum)
- 	ret = FEC_MMFR_DATA(readl(fep->hwp + FEC_MII_DATA));
- 
- out:
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- 
- 	return ret;
-@@ -2280,7 +2279,6 @@ static int fec_enet_mdio_read_c45(struct mii_bus *bus, int mii_id,
- 	ret = FEC_MMFR_DATA(readl(fep->hwp + FEC_MII_DATA));
- 
- out:
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- 
- 	return ret;
-@@ -2312,7 +2310,6 @@ static int fec_enet_mdio_write_c22(struct mii_bus *bus, int mii_id, int regnum,
- 	if (ret)
- 		netdev_err(fep->netdev, "MDIO write timeout\n");
- 
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- 
- 	return ret;
-@@ -2356,7 +2353,6 @@ static int fec_enet_mdio_write_c45(struct mii_bus *bus, int mii_id,
- 		netdev_err(fep->netdev, "MDIO write timeout\n");
- 
- out:
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- 
- 	return ret;
-@@ -2839,7 +2835,6 @@ static void fec_enet_get_regs(struct net_device *ndev,
- 		buf[off] = readl(&theregs[off]);
- 	}
- 
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- }
- 
-@@ -3616,7 +3611,6 @@ fec_enet_open(struct net_device *ndev)
- err_enet_alloc:
- 	fec_enet_clk_enable(ndev, false);
- clk_enable:
--	pm_runtime_mark_last_busy(&fep->pdev->dev);
- 	pm_runtime_put_autosuspend(&fep->pdev->dev);
- 	pinctrl_pm_select_sleep_state(&fep->pdev->dev);
- 	return ret;
-@@ -3647,7 +3641,6 @@ fec_enet_close(struct net_device *ndev)
- 		cpu_latency_qos_remove_request(&fep->pm_qos_req);
- 
- 	pinctrl_pm_select_sleep_state(&fep->pdev->dev);
--	pm_runtime_mark_last_busy(&fep->pdev->dev);
- 	pm_runtime_put_autosuspend(&fep->pdev->dev);
- 
- 	fec_enet_free_buffers(ndev);
-@@ -4616,7 +4609,6 @@ fec_probe(struct platform_device *pdev)
- 
- 	INIT_WORK(&fep->tx_timeout_work, fec_enet_timeout_work);
- 
--	pm_runtime_mark_last_busy(&pdev->dev);
- 	pm_runtime_put_autosuspend(&pdev->dev);
- 
- 	return 0;
-diff --git a/drivers/net/ethernet/renesas/ravb_main.c b/drivers/net/ethernet/renesas/ravb_main.c
-index c3fc15f9ec85..21a45583e7e1 100644
---- a/drivers/net/ethernet/renesas/ravb_main.c
-+++ b/drivers/net/ethernet/renesas/ravb_main.c
-@@ -1975,7 +1975,6 @@ static int ravb_open(struct net_device *ndev)
- out_set_reset:
- 	ravb_set_opmode(ndev, CCC_OPC_RESET);
- out_rpm_put:
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- out_napi_off:
- 	if (info->nc_queues)
-@@ -2404,7 +2403,6 @@ static int ravb_close(struct net_device *ndev)
- 	if (error)
- 		return error;
- 
--	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- 
- 	return 0;
-@@ -3116,7 +3114,6 @@ static int ravb_probe(struct platform_device *pdev)
- 	netdev_info(ndev, "Base address at %#x, %pM, IRQ %d.\n",
- 		    (u32)ndev->base_addr, ndev->dev_addr, ndev->irq);
- 
--	pm_runtime_mark_last_busy(&pdev->dev);
- 	pm_runtime_put_autosuspend(&pdev->dev);
- 
- 	return 0;
-@@ -3301,7 +3298,6 @@ static int ravb_resume(struct device *dev)
- 
- out_rpm_put:
- 	if (!priv->wol_enabled) {
--		pm_runtime_mark_last_busy(dev);
- 		pm_runtime_put_autosuspend(dev);
- 	}
- 
-diff --git a/drivers/net/ethernet/ti/davinci_mdio.c b/drivers/net/ethernet/ti/davinci_mdio.c
-index 68507126be8e..9f049ebbf107 100644
---- a/drivers/net/ethernet/ti/davinci_mdio.c
-+++ b/drivers/net/ethernet/ti/davinci_mdio.c
-@@ -234,7 +234,6 @@ static int davinci_mdiobb_read_c22(struct mii_bus *bus, int phy, int reg)
- 
- 	ret = mdiobb_read_c22(bus, phy, reg);
- 
--	pm_runtime_mark_last_busy(bus->parent);
- 	pm_runtime_put_autosuspend(bus->parent);
- 
- 	return ret;
-@@ -251,7 +250,6 @@ static int davinci_mdiobb_write_c22(struct mii_bus *bus, int phy, int reg,
- 
- 	ret = mdiobb_write_c22(bus, phy, reg, val);
- 
--	pm_runtime_mark_last_busy(bus->parent);
- 	pm_runtime_put_autosuspend(bus->parent);
- 
- 	return ret;
-@@ -268,7 +266,6 @@ static int davinci_mdiobb_read_c45(struct mii_bus *bus, int phy, int devad,
- 
- 	ret = mdiobb_read_c45(bus, phy, devad, reg);
- 
--	pm_runtime_mark_last_busy(bus->parent);
- 	pm_runtime_put_autosuspend(bus->parent);
- 
- 	return ret;
-@@ -285,7 +282,6 @@ static int davinci_mdiobb_write_c45(struct mii_bus *bus, int phy, int devad,
- 
- 	ret = mdiobb_write_c45(bus, phy, devad, reg, val);
- 
--	pm_runtime_mark_last_busy(bus->parent);
- 	pm_runtime_put_autosuspend(bus->parent);
- 
- 	return ret;
-@@ -332,7 +328,6 @@ static int davinci_mdio_common_reset(struct davinci_mdio_data *data)
- 	data->bus->phy_mask = phy_mask;
- 
- done:
--	pm_runtime_mark_last_busy(data->dev);
- 	pm_runtime_put_autosuspend(data->dev);
- 
- 	return 0;
-@@ -441,7 +436,6 @@ static int davinci_mdio_read(struct mii_bus *bus, int phy_id, int phy_reg)
- 		break;
- 	}
- 
--	pm_runtime_mark_last_busy(data->dev);
- 	pm_runtime_put_autosuspend(data->dev);
- 	return ret;
- }
-@@ -478,7 +472,6 @@ static int davinci_mdio_write(struct mii_bus *bus, int phy_id,
- 		break;
- 	}
- 
--	pm_runtime_mark_last_busy(data->dev);
- 	pm_runtime_put_autosuspend(data->dev);
- 
- 	return ret;
+Moreover, there is neither a compile time nor a runtime check that
+catches these errors. This has caused at least one bug that made it
+upsteam: commit 798eb5978700 ("KVM: arm64: Sync protected guest VBAR_EL1
+on injecting an undef exception"), and other kernel developers have also
+run into similar issues from speaking to them.
+
+This series addresses this in two ways:
+
+* The parameter order of vcpu_write_sys_reg() is changed from (vcpu,
+  val, reg) to (vcpu, reg, val), making it consistent with similar
+  functions and macros.
+* Compile-time checks are added to prevent the 'reg' parameter from
+  having a 'u64' type, which directly catches the transposition bug.
+
+No functional change is intended in this series.
+
+Based on Linux 6.18-rc3.
+
+Cheers,
+/fuad
+
+[*] Just take look at __vcpu_write_sys_reg() in
+  arch/arm64/kvm/hyp/exception.c for example:
+
+static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
+{
+	if (has_vhe())
+		vcpu_write_sys_reg(vcpu, val, reg);
+	else
+		__vcpu_assign_sys_reg(vcpu, reg, val);
+}
+
+Fuad Tabba (4):
+  KVM: arm64: Switch reg and val parameter ordering in
+    vcpu_write_sys_reg()
+  KVM: arm64: Add compile-time type check for register in
+    __vcpu_assign_sys_reg()
+  KVM: arm64: Add compile-time type check to vcpu_write_sys_reg()
+  KVM: arm64: Add compile-time type check for register in
+    __vcpu_rmw_sys_reg()
+
+ arch/arm64/include/asm/kvm_emulate.h |  2 +-
+ arch/arm64/include/asm/kvm_host.h    | 44 ++++++++++++++++------------
+ arch/arm64/kvm/at.c                  |  6 ++--
+ arch/arm64/kvm/emulate-nested.c      |  4 +--
+ arch/arm64/kvm/hyp/exception.c       | 14 ++++-----
+ arch/arm64/kvm/hyp/vhe/switch.c      |  2 +-
+ arch/arm64/kvm/inject_fault.c        | 16 +++++-----
+ arch/arm64/kvm/nested.c              |  4 +--
+ arch/arm64/kvm/pmu-emul.c            |  7 +++--
+ arch/arm64/kvm/sys_regs.c            | 16 +++++-----
+ arch/arm64/kvm/sys_regs.h            |  2 +-
+ 11 files changed, 63 insertions(+), 54 deletions(-)
+
+
+base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
 -- 
-2.47.3
+2.51.1.838.g19442a804e-goog
 
 
