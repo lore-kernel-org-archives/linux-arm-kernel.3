@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D23CCF9F3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302F7CCF9F0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIPN93vEVZUhWKya9FooFrwQkLLx299e1vk/G/qCOLY=; b=xfhlk6P82ZvCD5N/2Vzfs4uX2P
-	FKGT+iUvGOsfRFJRSNYEli1LD6vBykLoNvh1iJ3mBEW/yCPUT44jI9nEV34I30zNnM4aSqi3winyU
-	xfg+kNJqMyNJBrVX8RXMYms8uNnVsirxMFCojDTIjaI2E7ZERpjnnhO33F6VMsFAQ3ELH5Wqwdxd9
-	RwewZJK8hGbuXIR+fLZ4ikIKkfuEvDxfaQ27j6/vqxddjwLV2kt8mhb48I2819IxlLf4oy6UL52Qk
-	Tvsqhxxj0HGUcTZQfsyk+GGzvR9XVQcOG1CmE0pPPNwktCohxFe1lSonll1ANmWmPTLhQ7Y14KeJg
-	SeNvQMFA==;
+	bh=P+Fu8jtIFdDL9X11DiMmje0ZFmxUN0eNDjxxgKPmz48=; b=faC2C6pF/TBJX8zr229cUEHwB7
+	jUE9DdETh4U8Kk5/+hXtzFKewlQD/9xj3CMnaxJf4JOUtF97xoWQ9ZAiyT/X5YbCFfavMBDsqyJ9O
+	vCrMMNCutEc2X7gtJNElmTgX4VcDJMjGqBRZv0c84WZjpPJMOEsUeTEGVbF2UunkRty0TVlWRxwsX
+	Ty9IS0HS3PSq9IFJFTyhAJ2Z4n4L+ixR9Qqpf70VKzW4p1sIZandtk0XsTCmsc/b2FV9pojvT+2TU
+	tZsANEMDHSerMF/PjAl60ebku0DhotqNd9U7MhNYTD35gzJYqP4UG/rlXE8iPEKqk/OC5VZkhTQfN
+	LzCCXuRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMmh-0000000Dx67-1szJ;
+	id 1vDMmh-0000000Dx5M-0Hrr;
 	Mon, 27 Oct 2025 12:57:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMmc-0000000Dx0m-3cBY
+	id 1vDMmb-0000000Dx01-45Ip
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 27 Oct 2025 12:57:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=KIPN93vEVZUhWKya9FooFrwQkLLx299e1vk/G/qCOLY=; b=Xs17OtvfLFSQcnqTiNZ8izY9QY
-	rrAGMQftSqii9sEJ8G3gs7bkC5RL7Q85UdzXCZE1vhSFpHZ7llIcwPjxTHh+FDNi4Yo92sY90jCPG
-	KzQIarVNQlsGnZjy4PX3VJQZOY447XJ2Ajo46rdREvf7pX3G+dDxUgiI+Eza18FTV/KwJPEHajjlN
-	om6LhVdp47QgLosAGw/XxExQdIcbk+KJKdBT7gesyNolVufslXBsn/xlZ1dyYASKMMQfU1Ze/ZT4z
-	HxMgmGew8nLzRpgZr1v0pmjliAd1Ov+2OuepxiiAODmhi60D5pEIAnrMqFYBr7pM0hBilvOtIH2/S
-	fUGzdm5g==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	bh=P+Fu8jtIFdDL9X11DiMmje0ZFmxUN0eNDjxxgKPmz48=; b=qZX7Fjuml2kVyCjaVfI5rc7myr
+	azVAUTorbZoWr8U1QaaxVH7qaT7ljfakqNi78ZuKA53/u1lyL+KyZWYL1fJalRyXEjOJbmZFpWWWp
+	iF1PMVUkmeKlAP06dXXYEhHhSA0HGbeVZjgekLRyDVzro5XEb0mj7HY3Qa5oEmVJx+GNAZbPaPaiU
+	s+6D7vRUJArvtddx6LfSn7vuuUgoEtMmlslJl8iJXbSzR8rCM6Q9jbYAM3pfv+bsUlgf74KF4lAvU
+	1A/jKfswzMXT9ARmDLXr6XOoSLmaUguE91BIJ2BhcvT50F87DVZyz/hoL80fq5wbqPeigMvZX/Vo2
+	oqYZzmfw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLuo-00000002737-3H6B
+	id 1vDLuo-00000002736-3DQi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:01:37 +0000
+	Mon, 27 Oct 2025 12:01:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4B076459C1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0AF7645A0F;
 	Mon, 27 Oct 2025 12:57:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE1EFC2BC87;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF72CC116B1;
 	Mon, 27 Oct 2025 12:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761569822;
-	bh=7WylpHCfl5v2xSL09jxwrG9Ik/L6u+sN2kDjKM+sdbI=;
+	s=k20201202; t=1761569821;
+	bh=gr1lBgtAFiXlQWjgkAnVsdgPcHRamw/CNfsD0rtnh5I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AytX+UM2VJpPevBJmVH1Guw+dpV6MPA9jbKvvQQHiS7kw9AfqGTx0FrICPKUZUkXe
-	 6e4CkYRLhzVMvy9sfDOv4HX/uKFcb2Xhp8o3JgnjwFvQbtA0Cw+EzT64dtVckmdoFz
-	 6asLarvlAUHXRrNNH4kghjBNEsz1CdIdiLz9bhFE8+cyEPA3z3C+C9omB/nvfR6C2R
-	 GLLFeU4geEafPxvRycr9XsIIfF6i4j2bCzOclYbNvEb0XEmyTJ6R4py5QrsHBDFZeJ
-	 btAiPlc5igKle+32Ffzt5Se1r0B2XjcnRSvWzPd+xuKic36v1TwvSYeduYk3jdLebl
-	 2Q73IV9Kql5Fw==
+	b=FEiCOsgUv6Y+W2ZHZvg2uRCOCghvJLo7bsCubi8TrN7K/i8O7GiaxTwHnKXF2ZFwL
+	 9KsRERyjTwn2iB2n9F73IVNzvVLSmuKM41PM/ej/mrYyzwnx0FmVNQCqhJ4HoZQr4L
+	 pgp1Sm27R7H4cqk6/AZx1lL7JdlwiRSVOwYsXejHua/f3JIuUN5UXHcX81LKy10ReH
+	 Wx2qdMP7d0ybfH25AkiV57SVcuzt/YHuzMdnc1mHDvpBkecvc2ld0gf4ykSVsCO4sK
+	 ZASilZoS8x7z9Ta6RhTQp4WxEsi5dCt8rFuOWbaUxBgWsxb6dwp/J0Y3idVUndU+WG
+	 Up3tiKzh00n+A==
 Received: by wens.tw (Postfix, from userid 1000)
-	id C5E7E5FFAB; Mon, 27 Oct 2025 20:56:57 +0800 (CST)
+	id A234B5FF76; Mon, 27 Oct 2025 20:56:57 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Jernej Skrabec <jernej@kernel.org>,
@@ -73,18 +73,20 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 10/10] [EXAMPLE] arm64: dts: allwinner: a527-cubie-a5e: Enable I2S and SPDIF output
-Date: Mon, 27 Oct 2025 20:56:51 +0800
-Message-ID: <20251027125655.793277-11-wens@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH v2 07/10] arm64: dts: allwinner: a523: Add device nodes for I2S controllers
+Date: Mon, 27 Oct 2025 20:56:48 +0800
+Message-ID: <20251027125655.793277-8-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251027125655.793277-1-wens@kernel.org>
 References: <20251027125655.793277-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_120135_322654_65CF3958 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20251027_120135_314739_73C8F7A5 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,99 +101,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an example change.
+The A523 family of SoCs have four I2S controllers capable of both
+playback and capture. The user manual also implies that I2S2 also
+outputs to the eDP interface controller.
 
-The Radxa Cubie A5E exposes I2S2 and SPDIF on the 40-pin header. Enable
-both.
+Add device nodes for all of them.
 
-In this example, I2S2 is connected to adafruit speaker bonnet, which
-sports a pair of MAX98357A for speaker amplication. SPDIF is connected
-to a SPDIF interface card for PCs, which has both coaxial and optical
-outputs. The output was connected via optical cable to a dumb SPDIF to
-analog audio converter.
-
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 ---
- .../dts/allwinner/sun55i-a527-cubie-a5e.dts   | 52 +++++++++++++++++++
- 1 file changed, 52 insertions(+)
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 56 +++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-index bfdf1728cd14..828d101d28e8 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-@@ -64,6 +64,46 @@ reg_usb_vbus: vbus {
- 		gpio = <&r_pio 0 8 GPIO_ACTIVE_HIGH>;	/* PL8 */
- 		enable-active-high;
- 	};
-+
-+	codec: audio-codec {
-+		compatible = "maxim,max98360a";
-+		#sound-dai-cells = <0>;
-+	};
-+
-+	sound-i2s {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "I2S";
-+		simple-audio-card,format = "left_j";
-+		simple-audio-card,bitclock-master = <&dailink_cpu>;
-+		simple-audio-card,frame-master = <&dailink_cpu>;
-+		simple-audio-card,mclk-fs = <128>;
-+
-+		dailink_cpu: simple-audio-card,cpu {
-+			sound-dai = <&i2s2>;
-+		};
-+
-+		dailink0_master: simple-audio-card,codec {
-+			sound-dai = <&codec>;
-+		};
-+	};
-+
-+	sound-spdif {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "spdif-out";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&spdif>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&spdif_out>;
-+		};
-+	};
-+
-+	spdif_out: spdif-out {
-+		#sound-dai-cells = <0>;
-+		compatible = "linux,spdif-dit";
-+	};
- };
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 33f991dbd00b..eea9ce83783c 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -818,6 +818,62 @@ mcu_ccu: clock-controller@7102000 {
+ 			#reset-cells = <1>;
+ 		};
  
- &ehci0 {
-@@ -101,6 +141,12 @@ &gpu {
- 	status = "okay";
- };
- 
-+&i2s2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2s2_pi_pins>;
-+	status = "okay";
-+};
++		i2s0: i2s@7112000 {
++			compatible = "allwinner,sun55i-a523-i2s",
++				     "allwinner,sun50i-r329-i2s";
++			reg = <0x07112000 0x1000>;
++			interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&mcu_ccu CLK_BUS_MCU_I2S0>, <&mcu_ccu CLK_MCU_I2S0>;
++			clock-names = "apb", "mod";
++			resets = <&mcu_ccu RST_BUS_MCU_I2S0>;
++			dmas = <&mcu_dma 3>, <&mcu_dma 3>;
++			dma-names = "rx", "tx";
++			#sound-dai-cells = <0>;
++			status = "disabled";
++		};
 +
- &mdio0 {
- 	ext_rgmii0_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-@@ -344,6 +390,12 @@ &r_pio {
- 	vcc-pm-supply = <&reg_aldo3>;
- };
- 
-+&spdif {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spdif_out_pi_pin>;
-+	status = "okay";
-+};
++		i2s1: i2s@7113000 {
++			compatible = "allwinner,sun55i-a523-i2s",
++				     "allwinner,sun50i-r329-i2s";
++			reg = <0x07113000 0x1000>;
++			interrupts = <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&mcu_ccu CLK_BUS_MCU_I2S1>, <&mcu_ccu CLK_MCU_I2S1>;
++			clock-names = "apb", "mod";
++			resets = <&mcu_ccu RST_BUS_MCU_I2S1>;
++			dmas = <&mcu_dma 4>, <&mcu_dma 4>;
++			dma-names = "rx", "tx";
++			#sound-dai-cells = <0>;
++			status = "disabled";
++		};
 +
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_pb_pins>;
++		i2s2: i2s@7114000 {
++			compatible = "allwinner,sun55i-a523-i2s",
++				     "allwinner,sun50i-r329-i2s";
++			reg = <0x07114000 0x1000>;
++			interrupts = <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&mcu_ccu CLK_BUS_MCU_I2S2>, <&mcu_ccu CLK_MCU_I2S2>;
++			clock-names = "apb", "mod";
++			resets = <&mcu_ccu RST_BUS_MCU_I2S2>;
++			dmas = <&mcu_dma 5>, <&mcu_dma 5>;
++			dma-names = "rx", "tx";
++			#sound-dai-cells = <0>;
++			status = "disabled";
++		};
++
++		i2s3: i2s@7115000 {
++			compatible = "allwinner,sun55i-a523-i2s",
++				     "allwinner,sun50i-r329-i2s";
++			reg = <0x07115000 0x1000>;
++			interrupts = <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&mcu_ccu CLK_BUS_MCU_I2S3>, <&mcu_ccu CLK_MCU_I2S3>;
++			clock-names = "apb", "mod";
++			resets = <&mcu_ccu RST_BUS_MCU_I2S3>;
++			dmas = <&mcu_dma 6>, <&mcu_dma 6>;
++			dma-names = "rx", "tx";
++			#sound-dai-cells = <0>;
++			status = "disabled";
++		};
++
+ 		spdif: spdif@7116000 {
+ 			compatible = "allwinner,sun55i-a523-spdif";
+ 			reg = <0x07116000 0x400>;
 -- 
 2.47.3
 
