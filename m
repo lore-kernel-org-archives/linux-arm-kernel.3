@@ -4,129 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DBBCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4C9CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+eTCjaNAo=; b=bQry6BB2/IYCQR7WSPIBveud2B
-	eAkOt2rmXbQ7m+BeKbcNeLbgeaZgfwk49Btt1RwRsNr/bLMjSfgrsGl8SV29kRhig1bJ2uTFF/56G
-	gLanc6bNHIYDnvwF3kmvaI+8aBuNPX8CeXOeqIcY+7VsYtNAGQAXMkaOaE7V9/IL1OY1SbR/vyjtM
-	xDcbrGW9EibSl10+pxSE+z7rO2x74Vk4Foe0STBWrCe4FNvISdcGVPfMnY4dSZ0JTklXBYTf9Gh6E
-	Wgjy1F67MtFg2sBWz+zW9YoDewbSAzlnbkyD80NJu13c6Y4ce2rGi6KWVpMs3DTD3mNJC3qR0OkQZ
-	hh6PkDaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sXJhzbZGnX/X/2hDE6shccsmWnwIw++Ael+vCxiOaAg=; b=uLXc+fHhINrQ/dMp8tCiCbIcrt
+	iKvrBMLbnRpfzdCkn/JLR4cyax4e8j20Qlu52gttNtpqILvDIwTsxlwgy4a7k+NPaWNRYZx7KA90V
+	P4tl9z3KuKYiXRuH303+sh/f2FZtLCbgTPbK9GvnTfvJyGbHRlIOVfYgIKH2YMIJN8jfYAztNBSA8
+	EEhqKqRMVy3Tzcig6bhSsXPx3VNzDo1484RDqZq7I6MZQk4JBWCTddArkUj1qR5yXhh1pqad3urOj
+	hndimGvwSGqvk9c+p93dbRWsUYpoRPDk6aq9ChVj3UZSE53C11e+Ty8V39MMvkwV+IFK+8JdbCali
+	xaroFmHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDO4g-0000000E8JW-3ZfU;
-	Mon, 27 Oct 2025 14:19:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vDOY1-0000000E9zZ-1cl4;
+	Mon, 27 Oct 2025 14:50:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDO4f-0000000E8JN-42SL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Oct 2025 14:19:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+eTCjaNAo=; b=F31Mpr9107+ofSUdbaPUF2h0Az
-	3mpaCmvpWed30KKl2sxgThuOpZOMpBIZW0goO4Mua/7r3i3h+pl2EpWfSIs4CGiZfu8JaAb74Ez1p
-	1hasazdgTFFzW33g3wqN31f2JA4cFyqzZOpXEGrimXZQXsh9pdyEoMM0qqftzjxcte5y+k/4PC0zi
-	pnGwHu2gfzVocGOqzYAKtFTctSKnanfK3E0Dc33juFL10uADnGDEFRzcZkaFBEVMuQvqobSpEEcYq
-	aRgjG3LW7RMzPrdqmuOecKnxYk0nE+FF/KNqzkG6gfVrmjmLPK/0sDzEsdnwUvFd7nBLCzyk6LeQS
-	PdYsodlw==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNCs-00000002HiD-29r3
+	id 1vDOXz-0000000E9zN-3VPS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 13:24:20 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59R8MYqH783388
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 14:19:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+
-	eTCjaNAo=; b=NOAzgqD4d3Qm0rgFqW2gYYImaUgP5bAXwQAokDWZ8d9tZ0EHpl5
-	ac0CwZLOT6HFA7iP1vvjzII4xDZDf8InxfuT6Q1Kb+LbBa4NG0cLMoyiL41w9Ds7
-	x+5n4n0+FuM4bUNbEnbgNj5dDXEta8m3/t5yrCWCww/q15zrBUlIN+1megJo4Did
-	gI4nBp/cH/zRw13TaHavPBqWCQjk65VLpLiRAZsGNuQodRDGllfwZ6zSQ2SxBbza
-	QBDJeqqut2j8WWSiQKrCitgRF34zXOISWMeuPQEVxexYI6csE+p3f641piEorLjK
-	ed18vEous8Kiz8Ms/oEcg5p3RDeMsDhvsPg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a0p4g4u1u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 14:19:46 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-269880a7bd9so48306915ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 07:19:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761574785; x=1762179585;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Qx3IUO2E6Fo3l/9N3ni/fAxMLk1Wml7tG2+eTCjaNAo=;
-        b=v2wVtQYpHFd8xkn2Fm3oYc3TZeLvsXk6J8OyDlo0smUHo9F1kmc8n9SOKFVRGunE1j
-         sGf9qoI4rGE1EC574CKkMV+Tl+GZI9z/8jL68mufWnFe4lbMi1P1fsGxAeMI3QcRoSyT
-         Yoem4oyCbf5eyHCH9ZFjZG3YmlnUkCpVbfU0cRJg0gX6LQA8OIdsauDhwjX82wChWqjJ
-         pMXWHrn+QOvyt69eSUYbYgMUdbm5mCowYti2PrXwUp0V9NkQKq+cOsj174WmPFIrfCwy
-         Wro0p9HuhKDUfzq7RF4pBtccWKSlHSUiOdruYtdXOjHylTR5VU5sklG+mzjmaE8ptL1D
-         Ju1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU7keKdw4xoZ0tdn0RD9g0s18MNfZV9D8d5dx7fboGhLtQ7SaBwLxz4mEiDjoLW6jPtTf0g4nYqQzFYbICu4+qe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLzoigUH7zJS6PL3F8K2EhtDt0kZMcSzbtc1XOzlXqMiFaJbQm
-	XLaPJApYaTqtFdBWfjLaXyUOotX9MY+JJY9ZwIXg4/YhH+8MX3Kce4uU1zzxq1cBYhrHpPhZzb0
-	J3peYhVVj2glp4Tim6HFO1yHo4hXzpHPQ27tK8GCyqbLowWwg+jfMtX640J7Ob4kCV+kWsmRBYH
-	t+rA==
-X-Gm-Gg: ASbGnctLcnHoJwVArn+Xx7i4ZHpdLdGtZE8lCY6YaXg+3QDCIO/6NdknwA2sXPni/rK
-	u4Tc7X6KJ9hFTCjP7nQSgvVR37Ln8T9P/gTwqPS6NDir49pgdO4uWhjhjUXknUL1Vmze2qHetLd
-	xMfpNYgUKdRIMfFIqh9dqwbuM2Y6QRrlVRvT1yTre3VZWN5C2bfPdAHbHQd5IcCfBgS4XTfp8Qz
-	8DhUuq1iIaR2RIX/CkKZWDkOw+KrrcwFD9OTCtW+wfbvBOBTH8ROla75QJmlDSomHL5xajONBsM
-	iNKubVIPcIJz+zUAhleIbC2aYAryB+vPxnc3ONV94NaqUQ3SB2rVvR+6uQEe7ZfxF7tMuTdti3a
-	6GnQZTgHUYu70R8HinPgmNKujz5uo3u8w4YuKsvR+maj8VIlZE2KB
-X-Received: by 2002:a17:902:ce12:b0:269:4759:904b with SMTP id d9443c01a7336-294cb6a76b9mr468725ad.58.1761574785274;
-        Mon, 27 Oct 2025 07:19:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IExvrfR+k2bxHu4WE1FcWWwIJx/pEgGfmAedtlb2r0MJvVY54fZi5aQUGEv1i6ShpGJ4LdyIQ==
-X-Received: by 2002:a17:902:ce12:b0:269:4759:904b with SMTP id d9443c01a7336-294cb6a76b9mr468395ad.58.1761574784655;
-        Mon, 27 Oct 2025 07:19:44 -0700 (PDT)
-Received: from hu-punita-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d230basm83818175ad.46.2025.10.27.07.19.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 07:19:44 -0700 (PDT)
-From: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-To: catalin.marinas@arm.com, will@kernel.org
-Cc: guohanjun@huawei.com, chenl311@chinatelecom.cn,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [PATCH] arm64: acpi: Fix incorrect check for default console message
-Date: Mon, 27 Oct 2025 14:19:41 +0000
-Message-Id: <20251027141941.3089914-1-punit.agrawal@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 27 Oct 2025 14:50:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F17A560590;
+	Mon, 27 Oct 2025 14:50:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A201C4CEFF;
+	Mon, 27 Oct 2025 14:50:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761576610;
+	bh=FE3hWpfbYIAESQkCdu8paBkJdZ3DdO9pXcI6pCl6tOo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IcalxHsvXSgErORlqVI3RUUOSmgY9D3IyGJsIkB4moAiYgwYmTxPHLwPtfUk0n2OL
+	 5y6rtH7GtfFFSxXxdDuioyGhvOXmZpKWhXUnXpGTvN6etosNcams+0KeNaSIKqnOEE
+	 GzxpYkPoVskissdwGhNd8AZMSf24d0wQR+ZmUYqw9HVcp47S3nkz6z4kHPxN/9k7G+
+	 uJ3n30FUUr18ng60PjJvBufjo7kKFr1XhS+xjtRI5yTy7IAZus4DbgBPUuNlNnq3F5
+	 vo1LNJj3vrcdYS+JfWKnbvBCGBDIYuvV1uzP6bkRk7I646+/i2DendFjoeUdpjbAfw
+	 P61k8Iw3Bcjqw==
+Date: Mon, 27 Oct 2025 14:50:04 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Melissa Wen <mwen@igalia.com>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Stephen Boyd <sboyd@kernel.org>, kernel-dev@igalia.com,
+	kernel-list@raspberrypi.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, soc@kernel.org
+Subject: Re: [PATCH] ARM: dts: broadcom: rpi: Switch to V3D firmware clock
+Message-ID: <2458083f-25a9-41a5-a2a6-2343e7402701@sirena.org.uk>
+References: <20251005113816.6721-1-wahrenst@gmx.net>
+ <9ebda74e-e700-4fbe-bca5-382f92417a9c@sirena.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: 9Y3fsEu3xn56m_oQrK5IDAv8u7e7dDd7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDEzMyBTYWx0ZWRfX2z5uXFR+Ge9Z
- HQe/TLfPmWo8SpUaJHhRjaOKcT59G7EWvs0Rd6XDXKOCnTP7f8nnuOPOuzfp+OM/7kVV15xWg4j
- rksJIkv0I9/N0jlrz2ksyWiG2dvlQoWq1++cvj8VhGjlG58RtkiG0MC+Ew50JNdtXZK8zEcx173
- pHZbAyLQxVCbRJKi8k05abwj0qNmNnuVraBfYNyg4r4UDDUTEnFIlUgSpseS4tgi9CXWcW6LuxP
- VKx+GIG/OZaoHNUHHVYDQp5dfJU3uyZH3muCJDP23a+lSu1Pwfu4eEKuIkDmILYbAVt2gsyeMo+
- om+8OpG3Yscsx8VeGGpC0WkugcjrWqQoRERnL0m4AnhwADXh1SfKB7TjE8KIz04yn5irAcUcpJL
- qPkm65w+xt9fksByosLCoNJyaR2/NA==
-X-Authority-Analysis: v=2.4 cv=L9YQguT8 c=1 sm=1 tr=0 ts=68ff7f82 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=EWBPczn9GtEGnfwowZAA:9 a=324X-CrmTo6CU4MGRt3R:22 a=HhbK4dLum7pmb74im6QT:22
-X-Proofpoint-ORIG-GUID: 9Y3fsEu3xn56m_oQrK5IDAv8u7e7dDd7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-27_06,2025-10-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 clxscore=1011 phishscore=0 impostorscore=0
- adultscore=0 priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510270133
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_132418_865043_960E0104 
-X-CRM114-Status: GOOD (  17.40  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uyIigU5Jew+IUWXr"
+Content-Disposition: inline
+In-Reply-To: <9ebda74e-e700-4fbe-bca5-382f92417a9c@sirena.org.uk>
+X-Cookie: How do I get HOME?
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,48 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bad3fa2fb920 ("ACPI: Suppress misleading SPCR console message when
-SPCR table is absent") mistakenly assumes acpi_parse_spcr() returning
-0 to indicate a failure to parse SPCR and prints a message to the
-kernel logs accordingly. In reality acpi_parse_spcr() returns 0 on
-success and -ERRNO on failure.
 
-Fix the faulty check to output the correct logging message.
+--uyIigU5Jew+IUWXr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: bad3fa2fb920 ("ACPI: Suppress misleading SPCR console message when SPCR table is absent")
-Signed-off-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
----
-Hi,
+On Tue, Oct 21, 2025 at 01:09:49PM +0100, Mark Brown wrote:
+> On Sun, Oct 05, 2025 at 01:38:16PM +0200, Stefan Wahren wrote:
+> > Until commit 919d6924ae9b ("clk: bcm: rpi: Turn firmware clock on/off
+> > when preparing/unpreparing") the clk-raspberrypi driver wasn't able
+> > to change the state of the V3D clock. Only the clk-bcm2835 was able
+> > to do this before. After this commit both drivers were able to work
+> > against each other, which could result in a system freeze. One step
+> > to avoid this conflict is to switch all V3D consumer to the firmware
+> > clock.
 
-After sending a patch to fix incorrect parsing of SPCR[0], I was still
-seeing inconsistent logging on arm64. The result is this nugget.
+> I'm seeing the GPU start to fail probing on the Raspberry Pi 4 in
+> today's pending-fixes:
 
-Considering the pointless churn - I wondered if it isn't better to
-drop the message? If others agree, I can send a patch (and revert
-bad3fa2fb920 while at it).
+> # # v3d fec00000.gpu: probe with driver v3d failed with error -110
+> # not ok 1 +platform:fec00000.gpu=20
+>=20
+> which bisects to this commit.  I'm not sure if that's just a preexisting
+> issue which is now being properly detected or if it's an actual issue,
+> I'm not testing the GPU at all so I couldn't tell you if it was actually
+> working.
 
-Thanks,
-Punit
+This issue is now present in mainline.
 
-[0] https://lore.kernel.org/all/20251024123125.1081612-1-punit.agrawal@oss.qualcomm.com/
+--uyIigU5Jew+IUWXr
+Content-Type: application/pgp-signature; name="signature.asc"
 
- arch/arm64/kernel/acpi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+-----BEGIN PGP SIGNATURE-----
 
-diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-index 7aca29e1d30b..2fba72d51d71 100644
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -254,7 +254,7 @@ void __init acpi_boot_table_init(void)
- 		 */
- 		ret = acpi_parse_spcr(earlycon_acpi_spcr_enable,
- 			!param_acpi_nospcr);
--		if (!ret || param_acpi_nospcr || !IS_ENABLED(CONFIG_ACPI_SPCR_TABLE))
-+		if (ret < 0 || param_acpi_nospcr || !IS_ENABLED(CONFIG_ACPI_SPCR_TABLE))
- 			pr_info("Use ACPI SPCR as default console: No\n");
- 		else
- 			pr_info("Use ACPI SPCR as default console: Yes\n");
--- 
-2.34.1
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj/hpsACgkQJNaLcl1U
+h9AMdAf/aU3Ii257L2u1kqcyUERQx4ZKdMtKxsYKCxqla7DPkzrEMiqFMlwLsBj0
+KdRyRCklCX1o0DXb/evMro0kMjmVDKVFnUvofZqAzNn2yXNTmtl0sNtmDC6cP4cR
+UhvDkCpM/eWE/A84r4i0SvX/cATbGIQ8u7dfGb6HWc2vNwuu1GpQMf/brOqkGEbB
+84ELNH+hsji1BYetV+1cuE+7K6RnhfLkRtiArRuSQK2XcIv1SNmMzCgILY73b56Y
+xdzjnCjFWpemIWP1ONuZEtttzqSn3YuEOashCmYPofVZB0TLeQTaSSUEBSNXsjfJ
+hReuwEPZTI4FOERo3wcqn9roGDmdsA==
+=vhsL
+-----END PGP SIGNATURE-----
 
+--uyIigU5Jew+IUWXr--
 
