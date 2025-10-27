@@ -4,66 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589DDCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C17CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SJeVGnZIXWk3UX+AA0XWfWaX8AWjBuSzS5UzR107kNM=; b=hqt94/IOrddsWQ8/iEfk3nyeva
-	bMoNOiv+6qEdLA2pfjGjaKS9Oomd0ljfAZrEA/FP5xm2+Dx5Yk6yB7y5jzasa/TftCecWRcGdsE90
-	V8lpkbrDTudv9JuoaVvLVlioLI7CeleJeJwqOnym3u0MeI6r4+oaR8C1xRF9X2xSSOk47vUxe1YL7
-	lIduBms+eN4rDpRGOwpdXVBtkfWy0adJdDifLsTstYJJDJkAik8IJyiE7QfOkAjOVdQRGm/AE9g2z
-	MCGF5RplpVLIWADJBzyQxks+o5Fk7Ao9ATrVVCjW8B6YOJvIyKsRuZfPUfj9/sZagrJY+kbZXxovf
-	iHrwL0Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJvSA8YZX3AlZqgSb2OmKRc9R00iJ2ZMmXzo0lfwC+4=; b=RNgXQwczN4oX45v3vMRVAU1Urv
+	Ng7lBCY0/R7K0cXebILJzPo/hguoJKOwnMlf4cXoH6lM/9aPIWCuTChuWtuS8uYnr7IHh9Rf3nx+w
+	E0qX7dNRlgzjG1IpFcmKmKm6TEJQwef8685SVpMO+Gc+mS0jtZTXylrNPhALHRETytwSM8kHEOn0p
+	N+eB16TzkDPnrot68qJdMgBjdNGc/Zhielsb8wVOGs7pmLTSbTCnWwuNRIuMuEHwvFw81Vn1OwvAl
+	m28QXN6oOhPV/ilB5aeCryVMdIoeVoN+b4Ts1hgN7yV5aZ3LhT0ju8ZfCmp6KiCWMc+dkC0S6KOui
+	Z9Xjcz1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJc4-0000000DYi0-3vVM;
-	Mon, 27 Oct 2025 09:34:04 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vDJmA-0000000DZSg-2O2c;
+	Mon, 27 Oct 2025 09:44:30 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJc2-0000000DYh8-0oZc
+	id 1vDJm7-0000000DZSK-2wt7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 09:34:03 +0000
-Received: from pendragon.ideasonboard.com (unknown [193.209.96.36])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id E04621661;
-	Mon, 27 Oct 2025 10:32:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761557532;
-	bh=JWOTEzsnqe2ZVX69WMnwkdkU+ZQ82vlW3C/Ncaoe77o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RfpAy3rGzg7hBJpFqUe7Fcpd2joSB2//BoH9daa4FQ+HnQfqX8G+sj8/R00TFllqI
-	 cQMwAYuX5R2+RasSArIE2mwNRaD6Kf/eEFGu/laS4ld6sJh9OnTie2QTLPbOQUxlDQ
-	 FTH363BCa5sL1N+W5wxr8+ivFHTA2jiaswQSmNyg=
-Date: Mon, 27 Oct 2025 11:33:46 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <20251027093346.GB1544@pendragon.ideasonboard.com>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <aP82VEjNDgrNAZzy@shell.armlinux.org.uk>
+	Mon, 27 Oct 2025 09:44:29 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id BF3481D0016B;
+	Mon, 27 Oct 2025 05:44:25 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Mon, 27 Oct 2025 05:44:26 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1761558265;
+	 x=1761644665; bh=KJvSA8YZX3AlZqgSb2OmKRc9R00iJ2ZMmXzo0lfwC+4=; b=
+	eeY3yaieiEBumzryH7jLM/ghYrAibipO8peOhqtb8bfFMaTxJtEWmMtKNYAgCGm2
+	94kVW8q94feZ4UDf9dy2WZwRKsAN5exIaoEWP3Q84MA1Olo5olZRBom/k8mW2DWQ
+	kAp+KDnTvMnHNg3WVgqZQzITlfTu3Nmb2kUzC13QO6lpPMTMxSANzuMt1DHXyIAg
+	ixPpMcQwQdZMXhy+UNbO5b7wM1g9XuDpaOOTJzefns8EWvSODVNkXdvs6M4E3dqm
+	76l/gjzvk1CpdEM81uxcGYGm3zC0kXnt/ceOrFWv+8kwyVDZ3U9A3S7EHyIJAtLb
+	UP23hcaCoQGFWUhrbiB9Vw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1761558265; x=
+	1761644665; bh=KJvSA8YZX3AlZqgSb2OmKRc9R00iJ2ZMmXzo0lfwC+4=; b=U
+	UUfqptBz0CLlDAFrqFj4ffpuCDyU31b+r5lFDAIu6dzge23rw/riviHX/GPRYG4q
+	LqOXGm8I7NfwzfG8k+FMnAJewolkRJA4H8mu+oONFbBCpvjx2wUcreKYlLhU2jFi
+	XLeBppEmE6BwP5ED60rxwDh1HhWh953IA/L5NLc7Kii7bJLx5SJe1sF6ri5m1YrT
+	Rv7T4tTWCT8tOy1uG2V1gDqXQfq7UgDozCD9WpJKvrDdCXTQApu6jM5zuejt9ux1
+	0iSm1x4PE20xOnsaGbyc3pb+Z8bAveaRLzQ262amqBKRxbJXw4vIocrprykEKSaa
+	oNzg18SFj0+/+s+w83GCw==
+X-ME-Sender: <xms:-D7_aEovHD20lFstMNr2Zox0hzxEgh6Vw7Ha3expxITBZZnDYyCyIg>
+    <xme:-D7_aFdyQ_eTlvlZG8CW8XCqFpsS4SH0sdJ9k8-TNGSFTGlJBeEzTObEjAPRD3a94
+    -h-LdJuN28jqItIaKp8c5SpXjGarmfV_Ue-wrZSzZyceV_nsb5Wt50>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduheejieegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvdelpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegtrghtrghlih
+    hnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepjhgrmhgvshdrmhhorhhs
+    vgesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtg
+    homhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhn
+    rdgtohhmpdhrtghpthhtohepjhhonhgrthhhrghnrdgtrghmvghrohhnsehhuhgrfigvih
+    drtghomhdprhgtphhtthhopehlihhnuhigrghrmheshhhurgifvghirdgtohhmpdhrtghp
+    thhtohepfigrnhhghihushhhrghnuddvsehhuhgrfigvihdrtghomhdprhgtphhtthhope
+    hpvghtvghriiesihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:-D7_aPQWpquGASXx6NTT05lR8G-iE52Vn8_1U2O848xtp-a7S6oyXQ>
+    <xmx:-D7_aA7eTn11ifHMPUzl2oRGx8mgDp1q3eptoFPLfK4p9oAKgAnOQg>
+    <xmx:-D7_aCp-0wlpKruYkQ9qZyZnzM6GI5JPml2lrT9Lc-flz_TGog4EHA>
+    <xmx:-D7_aDSzE4Gtck2H-PagpOPmRP6nF8DgsBVQKcs6YP1M9hM-qhoHqQ>
+    <xmx:-T7_aMVJ9PF8LVIjl1uGufn8MO16JMBrWkhK842OCrMPk4Yb_-H7sE0X>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 5E81B700054; Mon, 27 Oct 2025 05:44:24 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aP82VEjNDgrNAZzy@shell.armlinux.org.uk>
+X-ThreadId: A1uCXwKauNWg
+Date: Mon, 27 Oct 2025 10:44:03 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jonathan Cameron" <jonathan.cameron@huawei.com>,
+ "Conor Dooley" <conor@kernel.org>
+Cc: "Andrew Morton" <akpm@linux-foundation.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, linux-cxl@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Linux-Arch <linux-arch@vger.kernel.org>, linux-mm@kvack.org,
+ "Dan Williams" <dan.j.williams@intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "James Morse" <james.morse@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Davidlohr Bueso" <dave@stgolabs.net>, linuxarm@huawei.com,
+ "Yushan Wang" <wangyushan12@huawei.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>, x86@kernel.org,
+ "Andy Lutomirski" <luto@kernel.org>, "Dave Jiang" <dave.jiang@intel.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Drew Fustini" <fustini@kernel.org>
+Message-Id: <fe57097b-1817-4428-9940-477c3f36cafb@app.fastmail.com>
+In-Reply-To: <20251023174026.00005b42@huawei.com>
+References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
+ <20251022122241.d2aa0d7864f67112aa7691bf@linux-foundation.org>
+ <20251022-harsh-juggling-2d4778b0649e@spud>
+ <20251023174026.00005b42@huawei.com>
+Subject: Re: [PATCH v4 0/6] Cache coherency management subsystem
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_023402_392102_3375A421 
-X-CRM114-Status: GOOD (  29.85  )
+X-CRM114-CacheID: sfid-20251027_024427_820166_C40F1B2F 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +136,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+On Thu, Oct 23, 2025, at 18:40, Jonathan Cameron wrote:
+> On Wed, 22 Oct 2025 21:47:21 +0100 Conor Dooley <conor@kernel.org> wrote:
 
-On Mon, Oct 27, 2025 at 09:07:32AM +0000, Russell King (Oracle) wrote:
-> On Sun, Oct 26, 2025 at 02:29:04PM +0200, Laurent Pinchart wrote:
-> > Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
-> > (DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
-> > devices produces an interrupts storm. Disable EEE support to fix it.
-> 
-> As this is the second problem that has been reported recently, please
-> bisect the conversion of stmmac to phylink managed EEE support and see
-> whether there is anything in that which is causing this.
+> On CXL discord, some reasonable doubts were expressed about justifying
+> this to Linus via CXL. Which is fair given tiny overlap from a 'where
+> the code is' point of view and also it seems I went too far in trying to
+> avoid people interpreting this as affecting x86 systems (see earlier
+> versions for how my badly scoped cover letter distracted from what this
+> was doing) and focus in on what was specifically being enabled rather
+> than the generic bit. Hence it mentions arm64 only right now and right
+> at the top of the cover letter.
+>
+> Given it's not Arm architecture (hence just one Kconfig line in Arm
+> specific code) I guess alternative is back to drivers/cache and Conor which
+> I see goes via SoC (so +CC SoC tree maintainers).
 
-Emanuele Ghidoli has bisected this to commit 2c81f3357136 ("net: stmmac:
-convert to phylink PCS support"), as reported in [1]. I can test that
-commit and the commit just before tonight.
+I tried to understand the driver from the cover letter and the
+implementation, but I think I still have some fundamental questions
+about which parts of the system require this for coherency with
+one another.
 
-[1] https://lore.kernel.org/all/341f56de-9dde-4c44-9542-b523e1917dcb@gmail.com/
+drivers/cache/* is about keeping coherency between DMA masters
+that lack support for snooping the CPU caches on low-end SoCs.
+Does the new code fit into the same category?
+Or is this about flushing cacheable mappings on CXL devices
+that are mapped as MMIO into the CPU physical address space,
+which sounds like it would be out of scope for drivers/cache?
 
-> Please also confirm that EEE was enabled (as soon through ethtool)
-> prior to stmmac's conversion (I believe it was due to this code that
-> was present in stmmac_init_phy():
-> 
-> -               if (priv->dma_cap.eee)
-> -                       phy_support_eee(phydev);
-> -
->                 ret = phylink_connect_phy(priv->phylink, phydev);
-> 
-> > The exact reason for the interrupt storm is unknown, and my attempts to
-> > diagnose it was hindered by my lack of expertise with DWMAC. As far as I
-> > understand, the DWMAC implements EEE support, and so does the RTL8211E
-> > PHY according to its datasheet. What each side does exactly is unknown
-> > to me. One theory I've heard to explain the issue is that the two
-> > implementations conflict. There is no register in the RTL8211E PHY to
-> > disable EEE on the PHY side while still advertising its support to the
-> > peer and relying on the implementation in the DWMAC (if this even makes
-> > sense), so disabling EEE is the only viable option.
-> > 
-> > This patch is likely a workaround, but it fixes ethernet usage on the
-> > board, so it's in my opinion worth being merged. If someone with better
-> > knowledge of EEE and DWMAC, as well as an interest in getting it working
-> > properly on the Debix board, wants to submit additional patches to drop
-> > eee-broken-1000t, I will be happy to test them.
-> 
-> The changes to stmmac have been tested on nVidia Jetson Xavier NX,
-> which uses RGMII with dwmac4 and a RTL8211F PHY, connected to a Netgear
-> GS108 switch. It seems to be the same that your board is using similar.
+If it's the first of those two scenarios, we may want to
+generalize the existing riscv_nonstd_cache_ops structure into
+something that can be used across architectures.
 
-Very similar indeed, with a RTL8211E instead of the RTL8211F.
-
-> I will re-test today.
-
-Thank you.
-
--- 
-Regards,
-
-Laurent Pinchart
+     Arnd
 
