@@ -4,89 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95901CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E56CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gu9c7lWkxgnzHfgy0KZY7zp67ms1gfmmcEaQ5l83Deg=; b=Bolz2zQBG71Z7DnFzHJiTGFEN/
-	zJRaw3cfGI9yRlZ3bH9VC/AZw1XFcFpq95txJrf5Gz16+pXXXKjiU26C8Vlpx9I4I94rhT3F+BXwa
-	TdVkKkA2j4vK+uBDRW3Uk/7QZSd4Cbz7FsqCHZcpkLCT2nZqtGtxxx0dyHUBhOLTENuSELNvmrOlJ
-	0CZ+rvb0uELa9YDUQkXxz9WUVTxnpJXT5N5M0lWawCqeloR6aN9k70A13xQZdhAZsE5Aa0rUjMQ4+
-	y9wNCrqFZtZaRAKeJFpOJk1rOSdEYMiHEzJqMfNTV/9QHKAJ/SM18ThKbEjSvFnXAeQlL9lr0n7ka
-	P6ZkL+7g==;
+	bh=mk6CMIMtIPdATtZ5umlYg1fI23JT3IVr09wXtRVUQbs=; b=F8KnVxxWz59bEJDfEK4lnKXkOD
+	cQIBzPqo66WJ/4GU4aEYiCUOqRuwxLGdB+ysbQ2edQAhJ/Zl69wjm/KqNfjNaI5LUnRS+IEZ+gm9g
+	ooKlDMbnheJai7VWHig3XsZiakl7LecH9a6yQpgQE/ZptsYB/Z9k9rZEY9V84rsq+ff8wshrxTPd3
+	zvYrL0XkR45cDMfZoQfCqpj5zLB7n+/NyYF+J/HIvNJEI+N2NY02CEPyq9H5B9IBHaHfv4JT0jrTc
+	MicYuGtNfKxUgGpNAr8TIW8HIwtkfoNoU/htWv4wsXCk7WmPsIjKWmV6Ny3z7WhSboNL6P4qAoWaw
+	xuJG0JUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVWw-0000000Eqsn-2Rqo;
-	Mon, 27 Oct 2025 22:17:34 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1vDVbM-0000000Er7u-28WJ;
+	Mon, 27 Oct 2025 22:22:08 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVWt-0000000Eqs6-3uCZ
+	id 1vDVbK-0000000Er7X-1KPI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 22:17:33 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-37902f130e1so12179091fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:17:31 -0700 (PDT)
+	Mon, 27 Oct 2025 22:22:07 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-378d246f0f1so56360231fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:22:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761603450; x=1762208250; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761603724; x=1762208524; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Gu9c7lWkxgnzHfgy0KZY7zp67ms1gfmmcEaQ5l83Deg=;
-        b=doEXCtCAo12wBvL/NtWUreRUQTNFqCWtYtRQlBi+3s+jYw5XCTaLvxEd2BgU5oT53v
-         16wQ6L2JUTXs0SOkzKNR9Uz65I4CP4E8wacZ03nLO4G1f/mFuAtYl40nCz7sGGnyyAPb
-         /QsavmFHZdiC/Rm4gflxtQfiuebPOlBM/Ah3YjgoY8ZKa8xIrh09PJRhLZOmX0WWqytd
-         ecIDQSnTWoSZPAmcEby4+fuRHcjlEj2LeB3HjwTYDGjBz8dgLjQ4MoU+/iDWwyIY8QXu
-         M66hUps+37QVj0Z3P0KQAD5aoS5JgSWSV2e6qf7b7qN4dx0ihBK96o0/y2ewwlASvHI3
-         bsgQ==
+        bh=mk6CMIMtIPdATtZ5umlYg1fI23JT3IVr09wXtRVUQbs=;
+        b=pXssfa8L4fEKRP1nYFvusrx5VWEkdGgXu1BNKcqWpfccxBRfKDw90sKoOMVG7Gfz5f
+         ghF4RRY+YfdvwTlyTGBxVSExTtzdQBJueKTnhY9xNbVarXLCF2xqGBqrSkN8u1SMyZ8D
+         BgTnbVmMiwAkREdJxmq/38Pk3K9qQjRKI6bgtxVkRNGniHO5HRh7miU2QcDlMUR4/7tr
+         VPYFVrgie6E8iMaPwzo4Wazuk9VsURge4kb9Byb/FXqk4srFeHII3f0jfyMhKfD9C7fg
+         HJKc8rCGB4lmeE7RuGl3UIHxR6MwEtFwktcyhTAEA4kicpZckJSGRo1vYzVnu8IezzSx
+         FVLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761603450; x=1762208250;
+        d=1e100.net; s=20230601; t=1761603724; x=1762208524;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Gu9c7lWkxgnzHfgy0KZY7zp67ms1gfmmcEaQ5l83Deg=;
-        b=Eu1DjJtO42UtMGbjQgnsDTgdpm9wZNYQbMwhQybz7w/lRj4TywQ0WxDw6DSorOPfQS
-         6KINYG/qnMSThXK6YhFNNeixYEIdnkYArWgzHPls7xESdKzib1OafWDwHyZQusiUjbot
-         ctJWeV2HHTVN31Xb8WfBvmtY/FQ4lpOBZeKooL0sUOgJPf/tGsDszjBHw7Hbln8cXnE1
-         ln1yTIQaDLIyc0mCHMHne0eRbOxTsEYyvlMZJ9vbP2loCDzmpWMWWpIUWXiHirqbTWpH
-         fSLNUEWW2d0MgCsw5JLRtngyWcqiyJ2Cv/eLJ6TEN2J7OmouYTM26S1+wyMXy7NPp8kO
-         jINg==
-X-Forwarded-Encrypted: i=1; AJvYcCXbDEnodIx1A5NfJslVn+Bg/o5AMlMWpmiCeTAq0IvWWhO1Vii9ZppvZWn02xeT5DevmTvXv16Kb7sBpEQfnGuH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfnBqy/MRB/LawiCgyYX8pb8xH/Lbm+aj+nP25/MvrOZlLibWN
-	9PCAZZ9ObSDE0AZr5vWNiZuDaEK2CgUD1yNwZmIMbn6d4axN905ugyC5baumdNkeSmzTrmi/m9H
-	Q1x/+34h3CacAO4R8JSgPgKjvfEwqj9R2s1jeqiYoVg==
-X-Gm-Gg: ASbGncv0aY6fKQ+mJUXcxI6Kn93JjFQkkT0xIQ3B9CZ2sJHCgWMmJeG29ZpyrJ1gHWi
-	TQtEhw5/DeFyUQtHbI3wEVYKwsrn/vx2JBk1UyTOULPh4yQ1LxjOv6Q2Zff7PpDwXYGN4XvzzEV
-	L9q0PYM+zTKra5iMFEXQ8sqP31QZH7+LZ54BMgmsPdpOYENayKTlphE7nvbXDK+CilKYlQQcKTN
-	eMsdS9JFp2GNlVcWUFfX+dpLK501e2TKNYhtIRC6rF2+zBZjQRyN7OFIc3u
-X-Google-Smtp-Source: AGHT+IHJkZ6eE1AkncVU3lyfeHAfgwuxN0K4vqQ9jMi+HxWP78OGiBunIzAgT3y/91LM4yJ4y7mIdTa25YZ1xkf/4xk=
-X-Received: by 2002:a2e:9395:0:b0:36d:860c:d98c with SMTP id
- 38308e7fff4ca-379077ad874mr2869931fa.45.1761603449931; Mon, 27 Oct 2025
- 15:17:29 -0700 (PDT)
+        bh=mk6CMIMtIPdATtZ5umlYg1fI23JT3IVr09wXtRVUQbs=;
+        b=MERts1wxAx7lxcUKCbfJeu9UWGMLl+QYQYhU7OYsG0MtfMZG1/a1zkPwh23V1yMF4f
+         2P0KD+rOjCm79Mj2OH7diR52QFq3AIu5MUi+3Si/e++FSOSs//o8SyKknszdXy4GEJy4
+         m4B3dtF28cwqR2no7n4Et7UjGjEck9qgtB4shiLoq9aMs5Msvnc2P8M1YbAiAcJx3imE
+         H7qrEx26XWHpihdfNXyYWrFPjT/Q/8OYD+Y5gijfHbsqsWxst3fyugrvWjyaE5Cr4Mxl
+         MCZIRk8evjJyEsTPyZU0DjTDgOalZZsjQa1I/fKVnd/zrUGRy56tbVEk3cP1ahus7aKU
+         iiag==
+X-Forwarded-Encrypted: i=1; AJvYcCWaezEXvOeOEvtCCuugkpeOxSUh6J4/EoMT5EZ1L2fLXL+Rn4un0l5SUJRRd0/MDx5kZGRMUYtEKKvgRKIH66G/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUdmlCggmD3pGu+n7/dr3IUEkj8XpZV85L9kH9kg9HQxs0WOxY
+	HeQ3BFW8YFrw/WjbESNvdjyA/+F2e80YXzncIxS2A6H8ngVuO9bNdWPFQbjFIT3BNOuCmxrtFGZ
+	lFwExdS5HKZ7dkNp1IjkHfp4keOHWWNMXciatI2AF5Q==
+X-Gm-Gg: ASbGncuMmnqZRVge9I2hrsaxOfA1plfw4lt9aeJ7Nmx0oIAJwRGof3I9+eYpzG4rGPi
+	2wA/VZ4X+WsmNOL5oA0ADphZvKJHX4xtH+y9VdngAwegw5uGAd5muQjZns9JMIBHYDnBaqFp4gt
+	EVBCnKGx87Kwz39mS501jyBYrS5TE3/K3ewOsSrMKzLxWAZ+KRBDM/BtdcwQRIUjf5iCA+JVBB/
+	o3IxH9aJtW307j2Vhc1WkHAn1bOqkPUlsUJPOGqsChh567BJNvTmIGIXyZDOAWKYVjXsxQ=
+X-Google-Smtp-Source: AGHT+IGqZ8GiKsDXabPDIT7bgFYq/ZQGGvVGH/EZuTGyr2JhwzJhwciN+FMdAj7bErLSx2i0RsqhXtjVHaI7A0Vxzr8=
+X-Received: by 2002:a05:651c:23d3:20b0:365:e848:b7a2 with SMTP id
+ 38308e7fff4ca-3790774b8e9mr2942961fa.33.1761603724165; Mon, 27 Oct 2025
+ 15:22:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251023132700.1199871-1-antonio.borneo@foss.st.com> <20251023132700.1199871-13-antonio.borneo@foss.st.com>
-In-Reply-To: <20251023132700.1199871-13-antonio.borneo@foss.st.com>
+References: <20251025162858.305236-1-yury.norov@gmail.com> <20251025163305.306787-1-yury.norov@gmail.com>
+In-Reply-To: <20251025163305.306787-1-yury.norov@gmail.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 27 Oct 2025 23:17:19 +0100
-X-Gm-Features: AWmQ_bmnRcLAntimuZ53EMjWeghfhO7r4GpgnvkhG3-R4hWIysmsmbmnWQXNJ4M
-Message-ID: <CACRpkdbGjsGwvJ5gA-HhUQ4_XrQJAaMa0pdzHS19sgLXv0XUag@mail.gmail.com>
-Subject: Re: [PATCH v4 12/12] arm64: dts: st: Add I/O sync to eth pinctrl in stm32mp25-pinctrl.dtsi
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, 
-	Fabien Dessenne <fabien.dessenne@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
+Date: Mon, 27 Oct 2025 23:21:52 +0100
+X-Gm-Features: AWmQ_blu3pKz5p6Y6BNpnAz7Uh8TYZgX9iuMKAedvYHIEM1RmEe5NceEsDx_Lp4
+Message-ID: <CACRpkdYFqjrOb1nySjvQH7xFFqp7=w_gAz+kxpkT8GRMWU5Xkw@mail.gmail.com>
+Subject: Re: [PATCH 08/21] mfd: drop local BITS() macro
+To: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_151731_974955_D089555E 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20251027_152206_367633_D5813512 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +96,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 3:27=E2=80=AFPM Antonio Borneo
-<antonio.borneo@foss.st.com> wrote:
+On Sat, Oct 25, 2025 at 6:33=E2=80=AFPM Yury Norov (NVIDIA)
+<yury.norov@gmail.com> wrote:
 
-> On board stm32mp257f-ev1, the propagation delay between eth1/eth2
-> and the external PHY requires a compensation to guarantee that no
-> packet get lost in all the working conditions.
+> Now that generic BITS() is introduced, drop the local one.
 >
-> Add I/O synchronization properties in pinctrl on all the RGMII
-> data pins, activating re-sampling on both edges of the clock.
->
-> Co-developed-by: Christophe Roullier <christophe.roullier@foss.st.com>
-> Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
-> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+> Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
 
-Please merge this last patch through the ARM SoC tree!
-FWIW:
+Nice work Yury!
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
 Yours,
