@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8B0CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61805CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jc/356FpIO5fq3wbVBLhYJF7QyfRlww33yCqXERm6yM=; b=IvMt8mckUAIZ9Y
-	81pxR/pzrG8VxCh6hn38WPb9SeyMccOLY5Fa8Yf/L0GKRtR3PZr8Bu69sKxA5c5d/jk4BJqP5edXK
-	iIHzuh/UL3jAqTol0ltttvUiUMc19lVhshG+090hSb9NscLCr5VV5/1yjkt3ersxNXbRHfza29QNf
-	ugTH/Jn+qymYxZjr75qeKCLlANroubnl3L7cXph7P9iwxGRUdFmuYcQlf9wk7X+0IxiZRrv6w/WoZ
-	ueTmdY2MM/jLevTB//83lR9oh45K1DLJgLZWpd9QYdVdQBPKssJJrzT/DSu3b9kt++3sSDKbV8sPP
-	LJBpn6Y2ogFmTvtyeDYQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gFyTNoE2X2hQrZXZgQ1MBu5TC8MY83aQCzpJALZfkd4=; b=TAK36kVletYugvSKKxZN/KjvGf
+	vBKQj0Gn182XBFjsTSVC7jO+t9Jo6pUNns3AJGdpfC0qe1ieFEnO0/0a9Mu1Dg+p/Uy/k+U6Rtr2S
+	C+gKR2ZevM2ZYU4MS7wDKRlyOSDmREWOFuqwLLldYRJDXEvEz8hcpuAB61+a3eFgBMoxuuPZgmLCO
+	Vzvlch54l0cdptyZriKxEPy+8tPbwARgy6AdVkTcVDtv7Up+MRTpTI8EUdlPD6oO6W0HMD1JIYAqY
+	V9pnS3PGPjHNoo2qFub76vwcGbMKr3M9c0pLsSZMpjiHkv43FL1jtmNSE51HEozhGddc4Ya8dtpWC
+	qMR0QPYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRMb-0000000EUAz-3BpI;
-	Mon, 27 Oct 2025 17:50:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vDRQK-0000000EUgz-3LNv;
+	Mon, 27 Oct 2025 17:54:28 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRMb-0000000EUAq-0HFM
+	id 1vDRQI-0000000EUft-1lhd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 17:50:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D53A61474
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:50:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0837C4CEFD
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:50:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761587435;
-	bh=jc/356FpIO5fq3wbVBLhYJF7QyfRlww33yCqXERm6yM=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=hPc5udlmqmgZFtCyuwcvoyF0vHryNuhDjCkhPV1vzvSz+5k+2XSb1nJqPEqXrloqQ
-	 G2H/VFN54GYkbFKD79Mkp4StJfyREDjFMCUtEi0BmhHc1tEngsDtuoVi9a93NRHIOl
-	 NNNXLuENNF113z078ll+QdiiyPQNz/hEam9FePbsg6URFCREKBL2creHYabr8WuzZO
-	 I8jgr50Bh3OhHcEczSO+P9JFyWX1R07GUOI2A7Ijm7kf5KXWTkYuSxmiNjVn1/dVjX
-	 l9hsHViKHnowTnALtdy7v4H7Lxl++R8UNr6rb+V6Azqe6gGJVXlo5FXS90iyPKT+BB
-	 zaenp7vq3KRzg==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-362e291924aso41243261fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:50:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWMFPTH9KPc/FHvBQkjFQ3PGi/DDHfPAehbz6af8LKGA/6xFCdvMeKZL8r7DIHD0cKcatHS4L8MYUztTzhokx2/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywqsfa/Kzt25z2/G06B/RHRce4nwAllzOWgqOB2F56k9/ybkquu
-	PISo1qI/LADREewtfphG5mcIhQzhPshFVu+0I5VzUbJTVOiceAVVYkzZy7m4BVb+7IjvaA98dlP
-	bF497/TQN/G2R2/dapBHQa6l3MfqfLuc=
-X-Google-Smtp-Source: AGHT+IEpGNxxA7VDQv+o8rVV0qXU7mdmIaNInPaLQFSEX+7AAmZL6Vjak813oddK9k7tZDInWi03lBY0pbQ9WFw1kig=
-X-Received: by 2002:a2e:9f10:0:b0:378:ddbe:2d93 with SMTP id
- 38308e7fff4ca-379077813a2mr1483941fa.40.1761587434294; Mon, 27 Oct 2025
- 10:50:34 -0700 (PDT)
+	Mon, 27 Oct 2025 17:54:27 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59RHrssW2479401;
+	Mon, 27 Oct 2025 12:53:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761587634;
+	bh=gFyTNoE2X2hQrZXZgQ1MBu5TC8MY83aQCzpJALZfkd4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=DfT9TLL1J4E5CSALY/kZQMoepMNVcrZdFJ8G15x4Q9Um4UiFHL4anwgTSzoDcKX1P
+	 2AOpvzY1e81vSYXz2PEnEreCy/rByPtzdWqPFQattLfXetkj1E4vOmFbyZxBqFzc6A
+	 HnYhVaehSyU5gmGxes8Pgh7UejjHh3LcA0DPOZgY=
+Received: from DLEE212.ent.ti.com (dlee212.ent.ti.com [157.170.170.114])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59RHrrD81816199
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 27 Oct 2025 12:53:53 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 27 Oct
+ 2025 12:53:53 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 27 Oct 2025 12:53:53 -0500
+Received: from [10.249.128.221] ([10.249.128.221])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59RHriYB1061461;
+	Mon, 27 Oct 2025 12:53:45 -0500
+Message-ID: <dcf71d6b-f453-425f-a49e-2408d0caad20@ti.com>
+Date: Mon, 27 Oct 2025 23:23:44 +0530
 MIME-Version: 1.0
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-20-jernej.skrabec@gmail.com>
-In-Reply-To: <20251012192330.6903-20-jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 28 Oct 2025 01:50:21 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67mHaxFAZ_OtPoOfoKbV8x7EFCAmhiq7D0NY0zdRZ627w@mail.gmail.com>
-X-Gm-Features: AWmQ_blUGjau3HSQfAh8dWnb5YOCLFjTOutdiwr-yTqdCVXgYeAKGne6ORl8okc
-Message-ID: <CAGb2v67mHaxFAZ_OtPoOfoKbV8x7EFCAmhiq7D0NY0zdRZ627w@mail.gmail.com>
-Subject: Re: [PATCH 19/30] drm/sun4i: vi_scaler: use layer instead of mixer
- for args
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] drm/tidss: Fixes data edge sampling
+To: Louis Chauvet <louis.chauvet@bootlin.com>, Jyri Sarha <jyri.sarha@iki.fi>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, "Sam
+ Ravnborg" <sam@ravnborg.org>,
+        Benoit Parrot <bparrot@ti.com>, Lee Jones
+	<lee@kernel.org>,
+        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, "Thakkar, Devarsh"
+	<devarsht@ti.com>
+CC: <thomas.petazzoni@bootlin.com>, Jyri Sarha <jsarha@ti.com>,
+        Tomi Valkeinen
+	<tomi.valkeinen@ti.com>,
+        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <stable@vger.kernel.org>
+References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+Content-Language: en-US
+From: Swamil Jain <s-jain1@ti.com>
+In-Reply-To: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251027_105426_559621_9749E0B9 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +102,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 3:24=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
-l.com> wrote:
->
-> Layer related peripherals should take layer struct as a input. This
-> looks cleaner and also necessary for proper DE33 support later.
->
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Hi Louis,
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+On 30-07-2025 22:32, Louis Chauvet wrote:
+> Currently the driver only configure the data edge sampling partially. The
+> AM62 require it to be configured in two distincts registers: one in tidss
+> and one in the general device registers.
+> 
+> Introduce a new dt property to link the proper syscon node from the main
+> device registers into the tidss driver.
+> 
+> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
+> ---
+
+We are planning to re-spin the series with a v2.
+If you have any concerns please inform.
+
+Regards,
+Swamil
+
+> Cc: stable@vger.kernel.org
+> 
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> 
+> ---
+> Louis Chauvet (4):
+>        dt-bindings: display: ti,am65x-dss: Add clk property for data edge synchronization
+>        dt-bindings: mfd: syscon: Add ti,am625-dss-clk-ctrl
+>        arm64: dts: ti: k3-am62-main: Add tidss clk-ctrl property
+>        drm/tidss: Fix sampling edge configuration
+> 
+>   .../devicetree/bindings/display/ti/ti,am65x-dss.yaml       |  6 ++++++
+>   Documentation/devicetree/bindings/mfd/syscon.yaml          |  3 ++-
+>   arch/arm64/boot/dts/ti/k3-am62-main.dtsi                   |  6 ++++++
+>   drivers/gpu/drm/tidss/tidss_dispc.c                        | 14 ++++++++++++++
+>   4 files changed, 28 insertions(+), 1 deletion(-)
+> ---
+> base-commit: 85c23f28905cf20a86ceec3cfd7a0a5572c9eb13
+> change-id: 20250730-fix-edge-handling-9123f7438910
+> 
+> Best regards,
+
 
