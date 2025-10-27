@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB999CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5BFBCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:cc:Subject:To:From:
-	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O22qaF58WF4tGgLoC6Og2ju8TL8XuvxgR3eoZKY2RJA=; b=y0/g4JGB3zSUsJK68Wwd9/JItT
-	2VDaZAvuw8iA/MPqWhB5ewgea58UBlFszndHuvqz5K7Gi8PYvZ1RRvtW9CEr+06ElFKZ+v0yYTtwQ
-	O8IXH50FDM0KmgPaMPZSi3ijJ3IWS9Pn05qbs2+0hkNwZ5XrPuO6YRUfVSYOV0oFms9vQy31/AvZZ
-	pxwuqYxKx0JudBSO5XmjoWpjgxsbOqX0BZV+GUuL8cAb/KSLjJ/UOwir6eSgrN2q74YOofv52TeDY
-	+z2D+xrddv8LGhM0Gn6Zpwztn25RUa3KEF31Tcigg+s5gVchy/3H2HdtzFAIBgOu9M2RHOUg61yOh
-	IpefFaIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=fZFzuFe1kZwWOtUDwXLfQwu5MJAw6qMRRDC36ZwVfYw=; b=uN930bwmZRmAa2
+	rrHOPGN05x+c4CnGUTP1HP0/hMhPMnLZrdHACxZNMuVAchkcsaWBfZB7U0bt3xote0Yy9qmsF40pl
+	F94opjD3HnLiH6U7WgP5BBECXPQ/rX3W/RrTb5ZL/TIzcyiHbe36X6U3KUssYl9N9hOyVfUq2TLhU
+	VpAAymSLdxGe1EybTCDTFGhzhsd871Su2E7hP56cOGo709PHmKD4g1+cQ/R2I4NPy3kd0NecVMjRv
+	FUgj02Jc7chn2oQgkB3Hh1gyPozRwXBebV3xsilTkXs41dMYr7lJ6RkxMY5ahHlHICqeev7U5W6hN
+	+T7pLPl0KAIBh0MBsgPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpR-0000000DNyR-2s1x;
-	Mon, 27 Oct 2025 08:43:49 +0000
+	id 1vDIpX-0000000DO48-2K2r;
+	Mon, 27 Oct 2025 08:43:55 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpO-0000000DNtW-2NY1;
-	Mon, 27 Oct 2025 08:43:47 +0000
-Message-ID: <20251027083700.573016505@linutronix.de>
+	id 1vDIpP-0000000DNuO-1leR;
+	Mon, 27 Oct 2025 08:43:48 +0000
+Message-ID: <20251027083745.168468637@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761554622;
+	s=2020; t=1761554623;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc; bh=O22qaF58WF4tGgLoC6Og2ju8TL8XuvxgR3eoZKY2RJA=;
-	b=iGpxBn9D31bepoX3FHP5IxFfDs5MNFXXJwqX00s5HifGOgVtnQBNtWlVQO67EBAqw5ZFNe
-	jRyhkjcwumS8f4M4armAfDMf932m5kwZLGz6oowakDMrVHJzvvvwd/9RAPtBfWlGzRmEse
-	gHNEi72Bj3wWNLUru0yqQR3WMCgyxQGzZOpZ2j0tRwHdogz/sx2wcjKo4NQKBCDIH+c7Dv
-	M6bQlHP37PdBS0lJ7hmjRWkogKwMpxS9DNSPeAtvFcyeKirRANDrLqkiZGQwvhNKRe5C7H
-	xZdPWOc+g630w3DfFMU/UvoidKO3Wl22xCGwvhnz3O9xIynKtbYCK7vgdMHxyA==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 references:references; bh=fZFzuFe1kZwWOtUDwXLfQwu5MJAw6qMRRDC36ZwVfYw=;
+	b=iFqtRUO/UF2NLRN/kVvPD3nQK4TtwRE+uDnO/hAO9U0W3NxlSPxD/v9M3GkAgfLhzRq8vt
+	CCj5rekchm56nj5Mkf0unik0Wc1yln3p29i6fLF4pDN2PJ4nydOyxBIJ7aCWP4ANtZSG2m
+	EjPshhXBnv1o0WyIzzi7xVc6doO/sprXROIpHSbWiTpe3hvvz1UIyNOTUbrLwKuI0+Coh9
+	kRGd2RAdEdrM7wGIoDnrf7H33CaumUKoK1SI1UJVHhvofEUCgYuVGouzrKyUl6KLHmEkfh
+	zO6cBR1DBJ/kbO/dGTiHnJ+qTvaCmUiblx012RiwgwaWPfEfF3sWe7Txt2k2tg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761554622;
+	s=2020e; t=1761554623;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc; bh=O22qaF58WF4tGgLoC6Og2ju8TL8XuvxgR3eoZKY2RJA=;
-	b=dGRlxXc7DXj9/3iHmX+iKPKx+vPqnQiXifrAOlfFvv9S86+GVFnxrCPovoOdbKKfgVviBe
-	Sc3dSh9pQ+LjAIDg==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 references:references; bh=fZFzuFe1kZwWOtUDwXLfQwu5MJAw6qMRRDC36ZwVfYw=;
+	b=5XK95FhES5auvsDsX3IerBIddRz/phA3Vz8BHEXdqt/pEUw83Sq0/r1f7Qo4op0y1URgn/
+	liQFWLDPUinvqECg==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Subject: [patch V5 00/12] uaccess: Provide and use scopes for user access
-cc: kernel test robot <lkp@intel.com>,
+Cc: kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Linus Torvalds <torvalds@linux-foundation.org>,
@@ -75,11 +76,15 @@ cc: kernel test robot <lkp@intel.com>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Date: Mon, 27 Oct 2025 09:43:40 +0100 (CET)
+Subject: [patch V5 01/12] ARM: uaccess: Implement missing
+ __get_user_asm_dword()
+References: <20251027083700.573016505@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 27 Oct 2025 09:43:42 +0100 (CET)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_014346_765101_72CEB83E 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251027_014347_606162_D0E71C84 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,52 +99,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a follow up on the V4 feedback:
+When CONFIG_CPU_SPECTRE=n then get_user() is missing the 8 byte ASM variant
+for no real good reason. This prevents using get_user(u64) in generic code.
 
-   https://lore.kernel.org/20251022102427.400699796@linutronix.de
+Implement it as a sequence of two 4-byte reads with LE/BE awareness and
+make the unsigned long (or long long) type for the intermediate variable to
+read into dependend on the the target type.
 
-Changes vs. V4:
+The __long_type() macro and idea was lifted from PowerPC. Thanks to
+Christophe for pointing it out.
 
-  - Rename get/put_user_masked() to get/put_user_inline()
-
-  - Remove the futex helpers. Keep the inline get/put for now as it needs
-    more testing whether they are really valuable.
-
-  - Picked up tags
-
-The series is based on v6.18-rc1 and also available from git:
-
-    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git uaccess/scoped
-
-Thanks,
-
-	tglx
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org
+Closes: https://lore.kernel.org/oe-kbuild-all/202509120155.pFgwfeUD-lkp@intel.com/
 ---
-Thomas Gleixner (12):
-      ARM: uaccess: Implement missing __get_user_asm_dword()
-      uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
-      x86/uaccess: Use unsafe wrappers for ASM GOTO
-      powerpc/uaccess: Use unsafe wrappers for ASM GOTO
-      riscv/uaccess: Use unsafe wrappers for ASM GOTO
-      s390/uaccess: Use unsafe wrappers for ASM GOTO
-      uaccess: Provide scoped user access regions
-      uaccess: Provide put/get_user_inline()
-      coccinelle: misc: Add scoped_masked_$MODE_access() checker script
-      futex: Convert to get/put_user_inline()
-      x86/futex: Convert to scoped user access
-      select: Convert to scoped user access
+V2a: Solve the *ptr issue vs. unsigned long long - Russell/Christophe
+V2: New patch to fix the 0-day fallout
+---
+ arch/arm/include/asm/uaccess.h |   26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
- arch/arm/include/asm/uaccess.h               |   26 ++
- arch/powerpc/include/asm/uaccess.h           |    8 
- arch/riscv/include/asm/uaccess.h             |    8 
- arch/s390/include/asm/uaccess.h              |    4 
- arch/x86/include/asm/futex.h                 |   75 ++----
- arch/x86/include/asm/uaccess.h               |   12 -
- fs/select.c                                  |   12 -
- include/linux/uaccess.h                      |  314 ++++++++++++++++++++++++++-
- kernel/futex/core.c                          |    4 
- kernel/futex/futex.h                         |   58 ----
- scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++
- 11 files changed, 501 insertions(+), 128 deletions(-)
+--- a/arch/arm/include/asm/uaccess.h
++++ b/arch/arm/include/asm/uaccess.h
+@@ -283,10 +283,17 @@ extern int __put_user_8(void *, unsigned
+ 	__gu_err;							\
+ })
+ 
++/*
++ * This is a type: either unsigned long, if the argument fits into
++ * that type, or otherwise unsigned long long.
++ */
++#define __long_type(x) \
++	__typeof__(__builtin_choose_expr(sizeof(x) > sizeof(0UL), 0ULL, 0UL))
++
+ #define __get_user_err(x, ptr, err, __t)				\
+ do {									\
+ 	unsigned long __gu_addr = (unsigned long)(ptr);			\
+-	unsigned long __gu_val;						\
++	__long_type(x) __gu_val;					\
+ 	unsigned int __ua_flags;					\
+ 	__chk_user_ptr(ptr);						\
+ 	might_fault();							\
+@@ -295,6 +302,7 @@ do {									\
+ 	case 1:	__get_user_asm_byte(__gu_val, __gu_addr, err, __t); break;	\
+ 	case 2:	__get_user_asm_half(__gu_val, __gu_addr, err, __t); break;	\
+ 	case 4:	__get_user_asm_word(__gu_val, __gu_addr, err, __t); break;	\
++	case 8:	__get_user_asm_dword(__gu_val, __gu_addr, err, __t); break;	\
+ 	default: (__gu_val) = __get_user_bad();				\
+ 	}								\
+ 	uaccess_restore(__ua_flags);					\
+@@ -353,6 +361,22 @@ do {									\
+ #define __get_user_asm_word(x, addr, err, __t)			\
+ 	__get_user_asm(x, addr, err, "ldr" __t)
+ 
++#ifdef __ARMEB__
++#define __WORD0_OFFS	4
++#define __WORD1_OFFS	0
++#else
++#define __WORD0_OFFS	0
++#define __WORD1_OFFS	4
++#endif
++
++#define __get_user_asm_dword(x, addr, err, __t)				\
++	({								\
++	unsigned long __w0, __w1;					\
++	__get_user_asm(__w0, addr + __WORD0_OFFS, err, "ldr" __t);	\
++	__get_user_asm(__w1, addr + __WORD1_OFFS, err, "ldr" __t);	\
++	(x) = ((u64)__w1 << 32) | (u64) __w0;				\
++})
++
+ #define __put_user_switch(x, ptr, __err, __fn)				\
+ 	do {								\
+ 		const __typeof__(*(ptr)) __user *__pu_ptr = (ptr);	\
 
 
