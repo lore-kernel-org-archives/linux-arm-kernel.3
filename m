@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9CECCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8B0CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jc/356FpIO5fq3wbVBLhYJF7QyfRlww33yCqXERm6yM=; b=13/p4O6Lv2fHVn
-	cGl8kTTuD/yLxsO9/VzuRYqHL3i0Lluf8dKkfc63lBLjwtzdjL/MZmgCxdsVV+3NCQWDE4+UiQfxD
-	6SIt9wh0WW27ZZkFsSrHVtH2YWoryuCgsmaloASQ0K2lq9nRfRKhwfq5DjKoreB4n+PexbLaX+7yi
-	frGqBkGW/5kiQblmiAyyemOAfJbM6eVaWRamtuFYmI/nqTvUKQKVgVtO3MAxPQEFyWpG9D8OKlcaT
-	ePoqVwvXsicv7fi7ItlwotQeae3HVHeeYqMWjE3dOqGlrB7C9FsXI9owT2mE1wc555KqLG4Fnc2c+
-	DwJ1ZALZz79ociQOA1hg==;
+	List-Owner; bh=jc/356FpIO5fq3wbVBLhYJF7QyfRlww33yCqXERm6yM=; b=IvMt8mckUAIZ9Y
+	81pxR/pzrG8VxCh6hn38WPb9SeyMccOLY5Fa8Yf/L0GKRtR3PZr8Bu69sKxA5c5d/jk4BJqP5edXK
+	iIHzuh/UL3jAqTol0ltttvUiUMc19lVhshG+090hSb9NscLCr5VV5/1yjkt3ersxNXbRHfza29QNf
+	ugTH/Jn+qymYxZjr75qeKCLlANroubnl3L7cXph7P9iwxGRUdFmuYcQlf9wk7X+0IxiZRrv6w/WoZ
+	ueTmdY2MM/jLevTB//83lR9oh45K1DLJgLZWpd9QYdVdQBPKssJJrzT/DSu3b9kt++3sSDKbV8sPP
+	LJBpn6Y2ogFmTvtyeDYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRLZ-0000000ETpE-1JFY;
-	Mon, 27 Oct 2025 17:49:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vDRMb-0000000EUAz-3BpI;
+	Mon, 27 Oct 2025 17:50:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDRLY-0000000EToA-1qwg
+	id 1vDRMb-0000000EUAq-0HFM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 17:49:32 +0000
+	Mon, 27 Oct 2025 17:50:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C98B61474
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:49:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEDE2C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:49:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D53A61474
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:50:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0837C4CEFD
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761587370;
+	s=k20201202; t=1761587435;
 	bh=jc/356FpIO5fq3wbVBLhYJF7QyfRlww33yCqXERm6yM=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=nmDs5Ea2BJ0QWZz2Fnj6YnJCwAGH9ivTFSEKB7hbsxg40ESYbuLp5lADWA+AVBpAI
-	 yt3wp0PEAGmkqI0b9jM1OEM115cLxrFqjqAADUnRlb4lCnM4qxEOhBG50l4Ht6QJoH
-	 dPGJjWkTO+ZdnKTxP4Kr542JJT2c0n6l/hXpRMNsrK1UhiHuAYpCx/n+DNSh7fneiQ
-	 Xz71EBZIifFB8BGItaAtKMD982nX1dWQP7diMxUr8JpHi/7iL9EtY6An6BUSDDg6uw
-	 pPF1l5md43z77yxjTWXZLF6zRcHg0m25WL5tXIR2qgz3nf8MDh3xga2Jx7QEOhWMtc
-	 kLpCppO/X+xlQ==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-378d50e1cccso52200231fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:49:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUmADDqQvgHHwVPRK0K/SEP82EMBLhnx5ifG4XAYNWupZ/GpdMvdr2GW9TJwJo2J4cE/8zzvH+z4IGj9J0e9Ma7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFQB7oF0vN4Quxwyto5sfRWc9xvdCDIE6Clmz/RQiz9Aqs4Y8R
-	6E4vlkcJH77D6uVhu12NJ7K6RIbB4P5sAyvkL2Uv9dwSgc2yJrFWltnIDtoJV8sxj4TQ/F17lNv
-	JVP8CpQzxYMWDnSfnQFW6nnuL1aN8Am4=
-X-Google-Smtp-Source: AGHT+IGvL3+rmUcT/vmlGB6JqgMLiakuW0wtgocLdITSs5J6YhIhu+bJ3QUjjP/Dh4NLN0bmdcv0CpnIkj1evrKbsNk=
-X-Received: by 2002:a05:651c:234c:10b0:378:e097:e16e with SMTP id
- 38308e7fff4ca-3790777de3cmr1218271fa.36.1761587369224; Mon, 27 Oct 2025
- 10:49:29 -0700 (PDT)
+	b=hPc5udlmqmgZFtCyuwcvoyF0vHryNuhDjCkhPV1vzvSz+5k+2XSb1nJqPEqXrloqQ
+	 G2H/VFN54GYkbFKD79Mkp4StJfyREDjFMCUtEi0BmhHc1tEngsDtuoVi9a93NRHIOl
+	 NNNXLuENNF113z078ll+QdiiyPQNz/hEam9FePbsg6URFCREKBL2creHYabr8WuzZO
+	 I8jgr50Bh3OhHcEczSO+P9JFyWX1R07GUOI2A7Ijm7kf5KXWTkYuSxmiNjVn1/dVjX
+	 l9hsHViKHnowTnALtdy7v4H7Lxl++R8UNr6rb+V6Azqe6gGJVXlo5FXS90iyPKT+BB
+	 zaenp7vq3KRzg==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-362e291924aso41243261fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:50:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWMFPTH9KPc/FHvBQkjFQ3PGi/DDHfPAehbz6af8LKGA/6xFCdvMeKZL8r7DIHD0cKcatHS4L8MYUztTzhokx2/@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywqsfa/Kzt25z2/G06B/RHRce4nwAllzOWgqOB2F56k9/ybkquu
+	PISo1qI/LADREewtfphG5mcIhQzhPshFVu+0I5VzUbJTVOiceAVVYkzZy7m4BVb+7IjvaA98dlP
+	bF497/TQN/G2R2/dapBHQa6l3MfqfLuc=
+X-Google-Smtp-Source: AGHT+IEpGNxxA7VDQv+o8rVV0qXU7mdmIaNInPaLQFSEX+7AAmZL6Vjak813oddK9k7tZDInWi03lBY0pbQ9WFw1kig=
+X-Received: by 2002:a2e:9f10:0:b0:378:ddbe:2d93 with SMTP id
+ 38308e7fff4ca-379077813a2mr1483941fa.40.1761587434294; Mon, 27 Oct 2025
+ 10:50:34 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-19-jernej.skrabec@gmail.com>
-In-Reply-To: <20251012192330.6903-19-jernej.skrabec@gmail.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-20-jernej.skrabec@gmail.com>
+In-Reply-To: <20251012192330.6903-20-jernej.skrabec@gmail.com>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 28 Oct 2025 01:49:15 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65aY11Hi5JN1PEMyFCoYK9Z11V=xYXLcSLqQizwdVOarA@mail.gmail.com>
-X-Gm-Features: AWmQ_bkqzQW934j8vgxNIiz1K6pixo4CW7R1IQZPgknoWpc_MwhACwyMTj6ZI0U
-Message-ID: <CAGb2v65aY11Hi5JN1PEMyFCoYK9Z11V=xYXLcSLqQizwdVOarA@mail.gmail.com>
-Subject: Re: [PATCH 18/30] drm/sun4i: ui_scaler: use layer instead of mixer
+Date: Tue, 28 Oct 2025 01:50:21 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67mHaxFAZ_OtPoOfoKbV8x7EFCAmhiq7D0NY0zdRZ627w@mail.gmail.com>
+X-Gm-Features: AWmQ_blUGjau3HSQfAh8dWnb5YOCLFjTOutdiwr-yTqdCVXgYeAKGne6ORl8okc
+Message-ID: <CAGb2v67mHaxFAZ_OtPoOfoKbV8x7EFCAmhiq7D0NY0zdRZ627w@mail.gmail.com>
+Subject: Re: [PATCH 19/30] drm/sun4i: vi_scaler: use layer instead of mixer
  for args
 To: Jernej Skrabec <jernej.skrabec@gmail.com>
 Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
