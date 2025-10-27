@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07894CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 15:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F2CECCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 15:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vlE4F3UR10G7Zn5lJKVF/CJoO7DYHlDbIy6oRd+W4UI=; b=2/cjAL6jWeTJnR0q3ZaFXJAoJA
-	RiDm9SiDafomTPN68eFmbuDn1KRfxsht2E6dicvzVAlkrgRvefDxxH0hcOlrHVWq8KjL//NX97/yU
-	5PrifMyGIC5FPZWb0fRogQSkkd6HTPAJWsP56lFFdvyT1gqgNF+fBZzCXd2bxmUeKKUJo0Ftk7iRG
-	LkRdVbDCgxhk1yC240I1Isp0h7lPiIYClLw29E55p8XFhutKOl0DEvPuNaALg8ureay1lOkzDp+4u
-	1Hw2E85HU4OILVe2nJ4YHtYsXw7oqGQrXLSZ1mhIDOVgaphdtaO2VoHxr4+YckRxfPVT0ny0S8hPt
-	+ldAHZfw==;
+	bh=hW97odhM9uO/XARUDOadwueA3k57Xsj3ULKP5Obq3Vs=; b=xOEVrKqqHyU6HT9+e82cUR3Mze
+	vZWuPxCbrdtKbMfi2Di2lWYkBf11QnGwxZdgvStYdgqHIXrAyzipiJfLyv/KoF6O7pV+ocqjlXb0y
+	dQY+j87BIhgJnuRN7NgpskCINQQnnoMLwJ1djPrfGLGte0nBTRZ3SpOlr3fBBX2upJ1Hdlht8gsWs
+	UWE8g6mhnXu5H7fvsM819YcQqEnXFTfzuR7PdktHGpZX7zY5nxBSmA6GzCAHPKmQFtjSxuuX8VZjy
+	oY1FCA8B+1nJ2K2ZxhBKss4ffQ1NMr/kkEKNqHn5qpEmVukygYrI7rJ166h3iOtCrTrcTQfyYTP7/
+	bQX6c06A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOoO-0000000EBrS-0DJF;
-	Mon, 27 Oct 2025 15:07:08 +0000
+	id 1vDOtq-0000000ECFI-1Qqe;
+	Mon, 27 Oct 2025 15:12:46 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOoK-0000000EBqQ-2SEG;
-	Mon, 27 Oct 2025 15:07:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761577612; cv=none; 
+	id 1vDOtn-0000000ECEj-3Po1;
+	Mon, 27 Oct 2025 15:12:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761577951; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=l+JZGGDR2m3VU/Cwyz5ZkLBgm7Q9KyF4781HOkVfwMtyTSuo0wj47T3aajxSe7Tq5XSaiSgsYd6lbGr8XohfdQJZZA7KqpcrpPpGCut7LauQspY6C2l8/7bqIFfVIittUFKZOKfvSiajZEFIgwubqJVMLsiyhLS8cIb0PCaB9ws=
+	b=QgkEdgY84nDWlJ/3RhFF846BGSqh3D7YQ6hxECQL/DQWvrN3pHPvR1l/0/05a6aHiBlcUyieSh1W/u1dQnC7ZSWvQgQHigfMQVCPD+Lbd8byITn/PVqYUrpEMAVQB6hXDobgINgf81tcobj82dyF/ojK8Pg7X0nAXvxB8jVmKx0=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761577612; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vlE4F3UR10G7Zn5lJKVF/CJoO7DYHlDbIy6oRd+W4UI=; 
-	b=KypNEj+R1Ih647Xxqsg6sNnXb/y4n7zXm1Ynf0Ak9hF8yr0Ku2qcbjr38mqr2AA5enC5fg6BJdEdu+xNsaWniRJzAFACYZafFqLS+uFAPQqpg0G8JZEx9NWcb0AeOZ1OGiwULwRknN8+7rkjd1DIzHL+tp4deKqFkioGUIbj0c0=
+	t=1761577951; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hW97odhM9uO/XARUDOadwueA3k57Xsj3ULKP5Obq3Vs=; 
+	b=mzChHXJbbaJkZ1lQwuPmdJWcTNzjqGIH/g+QQy2Iz2xWVUAaYtToT7X4Nd7cD5ARIeFUlT8JDII1ptORL9aydQONJvs3v7p8t1ywMK590d1nJod/Pl8HBtbe5v9P3v/V6JAMG6RNf7QeN3o4u3jOoraqfp4zUubftHHJ4JjlnvM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761577612;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761577951;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=vlE4F3UR10G7Zn5lJKVF/CJoO7DYHlDbIy6oRd+W4UI=;
-	b=VS0Cw9369DkAqJrTLgI8YvVbEftCYZ/9nc/E6JOEV5UglTkCFawOrhAhT3IA1pii
-	zsKoOZ2HTDtRiSSMhT/PdG9OwhvecDsOUxgYsuAHVbgPRyPmufFvmCCFksOaWQZfyjY
-	wHasNddMVLFpTaOzMhMKhqFiGsmw9GU28HFdfsbg=
-Received: by mx.zohomail.com with SMTPS id 1761577609895742.3072902066041;
-	Mon, 27 Oct 2025 08:06:49 -0700 (PDT)
+	bh=hW97odhM9uO/XARUDOadwueA3k57Xsj3ULKP5Obq3Vs=;
+	b=hS5m5Fu+MbHy/oVUia09FXh9MSx2928G7K7rUAdUmS5oNrJeniJsasiZP09KkZcc
+	VA2npHN/ClJZTanUpVQjZG4prHxslpVmUp1hv9+KtZOBwKGcdNPsy7nwCqdyYf0HfOg
+	VsYV1QAXcpKUX7bsq4z8no+D/oYFengFbSYqY3zA=
+Received: by mx.zohomail.com with SMTPS id 17615779488931001.9507216437198;
+	Mon, 27 Oct 2025 08:12:28 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
@@ -60,17 +60,18 @@ To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
  open list <linux-kernel@vger.kernel.org>, Anand Moon <linux.amoon@gmail.com>
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: Re: [PATCH v1 0/2] Add runtime PM support to Rockchip DW PCIe driver
-Date: Mon, 27 Oct 2025 16:06:44 +0100
-Message-ID: <5264377.31r3eYUQgx@workhorse>
-In-Reply-To: <20251027145602.199154-1-linux.amoon@gmail.com>
+Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
+Date: Mon, 27 Oct 2025 16:12:19 +0100
+Message-ID: <5235617.GXAFRqVoOG@workhorse>
+In-Reply-To: <20251027145602.199154-2-linux.amoon@gmail.com>
 References: <20251027145602.199154-1-linux.amoon@gmail.com>
+ <20251027145602.199154-2-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_080704_711206_C3C84F16 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20251027_081243_907295_40ED844F 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 27 October 2025 15:55:28 Central European Standard Time Anand Moon wrote:
-> Introduce runtime power management support in the Rockchip DesignWare PCIe
-> controller driver.  These changes allow the PCIe controller to suspend and
-> resume dynamically, improving power efficiency on supported platforms.
+On Monday, 27 October 2025 15:55:29 Central European Standard Time Anand Moon wrote:
+> Introduce a .remove() callback to the Rockchip DesignWare PCIe
+> controller driver to ensure proper resource deinitialization during
+> device removal. This includes disabling clocks and deinitializing the
+> PCIe PHY.
 > 
-> Can Patch 1 can be backpoted to stable? It helps clean shutdown of PCIe.
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 87dd2dd188b4..b878ae8e2b3e 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+>  	return ret;
+>  }
+>  
+> +static void rockchip_pcie_remove(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+> +
+> +	/* Perform other cleanups as necessary */
+> +	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> +	rockchip_pcie_phy_deinit(rockchip);
 
-You can do this by adding a Fixes tag to your patch. In your case, it
-might be fixing whatever introduced the clk_bulk_prepare_enable, i.e.:
+You may want to add a
 
-Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
+    if (rockchip->vpcie3v3)
+            regulator_disable(rockchip->vpcie3v3);
 
-This would be put above your Signed-off-by in the first patch, after
-the empty line.
+here, since it's enabled in the probe function if it's found.
 
-To generate fixes tags like this, I use the following pretty format
-in my .git/config:
-
-    [pretty]
-        fixes = Fixes: %h (\"%s\")
-
-I can then do `git log --pretty=fixes` to show commits formatted
-the right way. To find which commit to pick, `git blame` and
-some sleuthing are helpful.
-
-With this tag, stable bots can pick the commit into any release
-that the commit it fixes is in.
+Not doing so means the regulator core will produce a warning
+splat when devres removes it I'm fairly sure.
 
 Kind regards,
 Nicolas Frattaroli
 
-> 
-> Clarification: the series is based on
-> 
-> git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git
-> branch : controller/dw-rockchip
-> 
-> Thanks
-> -Anand
-> 
-> Anand Moon (2):
->   PCI: dw-rockchip: Add remove callback for resource cleanup
->   PCI: dw-rockchip: Add runtime PM support to Rockchip PCIe driver
-> 
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 32 +++++++++++++++++++
->  1 file changed, 32 insertions(+)
-> 
-> 
-> base-commit: 7ad31f88429369ada44710176e176256a2812c3f
+> +}
+> +
+>  static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
+>  	.mode = DW_PCIE_RC_TYPE,
+>  };
+> @@ -754,5 +764,6 @@ static struct platform_driver rockchip_pcie_driver = {
+>  		.suppress_bind_attrs = true,
+>  	},
+>  	.probe = rockchip_pcie_probe,
+> +	.remove = rockchip_pcie_remove,
+>  };
+>  builtin_platform_driver(rockchip_pcie_driver);
 > 
 
 
