@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E1DCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173D5CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 14:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gyBK5HLss/zF/tM/K4qW2J+Z3asnvx9H1hG28ozg6Qk=; b=Yedw5vi+HaDvp2Abtx3lsY/U3O
-	ZhBXXPRLvQmWN5SpZKszi6eD3GlNq1bUewRbijBoWSXB+QY++hx97ZJi+dZ3lu7E+VvbG9ip5RIvO
-	pT12SgnD7Tp6FV/h0fY6MDoaYkS9TkbZoTpCMrJziU/qHGejqWzpoZqdE7lgxyDAiYwIUQnNTO67M
-	pOIJ1+rUz8GoVlbliA+tvBX/YTYXfKRhyNrUjE0Pd9QVaWdw6VROK7rbH8HIQEGZ9kMCEHbHC4nH/
-	vgI00cLh/GR5XCgPR1ijCrMRr179Yl2U5ulJVPm8019n5ad0Xk5DIU7PpW75lz5PjExR6lfKPtbKI
-	Fgh9Xmcg==;
+	bh=XJHpdmr2NXtFEk3A9X9aIw2etVmtC3q73hrlmlo4/OE=; b=EELmU6tp91MMe4EHlHuZgfLqcg
+	Xo3BIJYtvsVbPgiSTpfXpLv4xjAazc+Ob4AwhjefTim4s6+vAPpGg2xttsFcEyxkpbEe+4csI5leb
+	JvQ3Q3Ve/tMJiZa78bh6+SEPd4Nf+5+/R/k9Q81iXlHUwqXMwo3DrYJIAF6NUthgyvIL9N3DWZxw5
+	jLYsR3Zrm7SzRzH1tO4C/DvSksA6WSnbZh1HiXPZDmgq1/WyjuGnCEePW7R4GsW6Iq5BiA20g/6hK
+	v2wUHXovao6I3rZ8tPLV2x9S5h+u08QXHVLh/Plunk9iCMuspRSc+YMqSF/qd8On5Bpafj30qovFi
+	1gm+Is5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOdz-0000000EATL-010g;
-	Mon, 27 Oct 2025 14:56:23 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vDOe6-0000000EAXH-3PzX;
+	Mon, 27 Oct 2025 14:56:30 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOdw-0000000EASF-0Vys
+	id 1vDOe4-0000000EAVg-2g5m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 14:56:21 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7a27ab05a2dso4013872b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 07:56:19 -0700 (PDT)
+	Mon, 27 Oct 2025 14:56:30 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-781206cce18so4720356b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 07:56:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761576979; x=1762181779; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761576988; x=1762181788; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gyBK5HLss/zF/tM/K4qW2J+Z3asnvx9H1hG28ozg6Qk=;
-        b=FvXPULNr3CTQkTdb7Hsx/Tl4M5vpDUTWbXakmjOpAyEppEUgsUdyVOb5MhuVRJmC/G
-         znuOLgaqg5/jplfruj2NW1BP3TU9MsopgdLPC21D0gb/Qqr9PrheW5Pt3+5IaYBxpoa1
-         TnE7HMkOF/EWLW9e1kGtuAOOVSwHOF88uA6/7cDUmTByp0z8Rl6yKwzIA8EBdoQLHwcB
-         Yuh+vhpeZLtDrF2TBRDI8FP7vh36wqDblvKWprLu1ei0L01wcX5wU8pc3nRVrYr3XZ6E
-         bR/CpEQYZ+2CSFPLua4nuAUgkIf7A13nQ2j7khDscs8czWA2z5JAcEX2TCqpQPHXiRjV
-         zSPg==
+        bh=XJHpdmr2NXtFEk3A9X9aIw2etVmtC3q73hrlmlo4/OE=;
+        b=efdS3w11bpHaEEadEp4Fii1X/c8oExZAv/cyVOBjs1sN/8/BJDlUo8CDelUpkelfJT
+         65EaReL7YQ2vASZ7gBXUihX6wxaVKbSoNebYuVg223UezQVA68o2+g4lSPpi15CzbdmL
+         20ORgELUQU1amPUHE3wNm7Uv+tSIp232JsXSdC0zpqxDhwLbDhOnk+EgtwATnog2zBml
+         3PRIMb/oG9GHqtWN7CzELady0XM72y5yup3XCpVyGFoEhuEK5rL1kCLsWq1AhZtE8F0Y
+         kZmj1Rc/MRkryErUpnsuuChR9z3W8S7n+pp1+I0YjyHfcN07ThF+yQ0B0SGKo3lM/JUl
+         ByuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761576979; x=1762181779;
+        d=1e100.net; s=20230601; t=1761576988; x=1762181788;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gyBK5HLss/zF/tM/K4qW2J+Z3asnvx9H1hG28ozg6Qk=;
-        b=KqhjsmiKpXK3gQxfSz8SOHFNbgFuqVFgSlfaGn6IKJwfHC1E+mgeEMzxh24vDlKGA6
-         aZMLIDGhyatH+fbSbEIL8ebMsTkNCebTgqDhK1pGMd3YmFBEPs7tVt3F7ptHU4QEjuqQ
-         PLN5Umdw3fq4fvvuZojvKz4O50RRagMYnEpX/x35xKK9z01lAoY6xBja7afiFD+VciTb
-         Bs/JRp6YxBiRe394rJ5QL/O6E5wzAcKwhiDLkKPPJykL5v5MyvlM/oj6JOb9+xQGqy1k
-         sEhIPHiKmxnuTa/WAet7ZgdWca/dUuAg6Af58e5kuIbOUrUe1djMyLNwh1QXnFf4K8Tc
-         YN6A==
-X-Forwarded-Encrypted: i=1; AJvYcCWBR+xxgsgA74LFs+cpPyNI13CZj+WR9zbyfTypfR//Wc2lj/RWQLF0FS/dhC0K0Qce0fbl5+rt0QIojQ6ispWb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmPcyLLlU+PSZDPIdJjAdvIxceO6471cgf0xczF8Zh4exEJM9o
-	9kHXDJ21lztnDO65ud1TO3AJIdr6k3z7w0nNsDZI4MSUuOmeGC0iLatH
-X-Gm-Gg: ASbGnctj0sevskT+tGaN/g/JgZfxMjHxKn7ZZBcmB2I7MCw1VsY1xVrCNeS36Onw4II
-	rWSD2hNvcRTvMTsy5eON9J+6kFNepIA1wDqgig0bPfc9+8rqEIsoeFq1ahPB98Ixnxk261zk6c+
-	dHkbQuUi9W+ObjU3eUy51wqMNVre6OBNkRYfLMTAq6aR5HZV/rn0/lIMGGLxhzSi2uHriLr2uQC
-	BJaIStj1dZA1PLNjOOWYbksXfDujsUUnZHpg3PZ2rv7LkPrSF0v9ASWLaBe/zywGGtx9duRPsYt
-	bnAmGQqXW1EOzhU0w8jvZSpdUgKuj1LF0V5/npsHRFUME6EARh4yH9bppZClDWkv4L03R0leM0C
-	mYOa2Egcx8PoVoa+ytVB3rAUm+h18oyVbwTM+rxRWbUviURZPSB6J+wMsKn6s+/uaUO7UNfvRjw
+        bh=XJHpdmr2NXtFEk3A9X9aIw2etVmtC3q73hrlmlo4/OE=;
+        b=aTFIx3qzj7II4w4qUIGrteiRLrONBedL0AAXFWb5lFFF8SZGLY5aKDVNkymlch8VIv
+         2eyxbW6V0GRNGzCtMoxGbHTQq/MYW3q54Tm1q7S1MpUpDJIxV8rknM6X06DiypPgSQjT
+         SIf23prd98kmPoVrybGPCuirOhBQySHWkgLFU+e/Q6BmlS8mtf5/ANChwfp4FfwLnLIg
+         WlcQLs8BljvW2eUiTmBtd9LqK4DBd+vmzXEnt3YB58XE7uHyz7UbDoRg4VNb/U6vqg9H
+         J4x6brc0jBAUaPGAucpbSImuksKr0u3cmOPsPyJv9tYGcyQR/ENl4ru3YEKuuEPVVypc
+         3Z+A==
+X-Forwarded-Encrypted: i=1; AJvYcCW0e1sszDiKywFd5cv4L4+x1/fWuD4LGXR79Xq+l8JYRNusnLyK4eWs2Zdl0s59XoclsNbPndPz/p8uCL21MEG1@lists.infradead.org
+X-Gm-Message-State: AOJu0YylIRraN7QyHqimfuiBqPMU5aZUJrFz3CUhopMjPAqljWaBcxbs
+	/sAqJpUTPrwajDoKQuTYDoVNVQ9Fq6BvsWyUiZk/a2ns+u3m0RjgyXIc
+X-Gm-Gg: ASbGncvUZ6LP3sL95RA6sPTE9ESWY2k5miDhRApg+637QtJS0fALgmmQxp9UPGTPMkD
+	iHgqD6KBMNtSOjQZGAvmWtuOf1DQz5awn339YU5ISca/2fM9QbdRvpeXRcO2eZu4ioL6AYzC564
+	WH5NXfry+ds50eYTTRVsEX7NoO3URDm5gWyJE6QYKpR/00U7wS8gqs6EqQyl8Q9uQD9y+jl5G6I
+	xMnKCU7ooDfqnbd4vE+xCeYPlgNTlU0loAg4Ma1kPFuGkpxIlgYWVSGUuiT9uGK8gwZDP5FsA7y
+	uAK6z3URW68bF5HrCQ5Enet7SpBjjx9hjhh1AWAipnRHnqUJDtFWy8T9bTjNSDrSJBojL/qvVgS
+	tLfazNdT2G3N0jLf+dJcA5ifEogndEn0pJeqDGSobW8zKGyzhsEA2R1yuQceYnLvksjBNIpPqKA
 	==
-X-Google-Smtp-Source: AGHT+IF+HmWWIbu4RONj+wms//aaht+5AP20I8+4ooWFn7x7evY1F6ZZlpjlb36aBgMXfZJZOoYYlQ==
-X-Received: by 2002:a05:6a00:928a:b0:781:9a6:116a with SMTP id d2e1a72fcca58-7a441bdb5ecmr276136b3a.9.1761576979105;
-        Mon, 27 Oct 2025 07:56:19 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFpo+vKMKtPf87tmaXVzNFkUX+AxdjSTgekyu9iCoaPZB3m/DdveKL6EgBsKmZAINobovUjew==
+X-Received: by 2002:a05:6a00:6d48:10b0:76b:ecf2:7ece with SMTP id d2e1a72fcca58-7a284df06aamr11245249b3a.12.1761576987961;
+        Mon, 27 Oct 2025 07:56:27 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.108])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414012b19sm8373372b3a.12.2025.10.27.07.56.14
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414012b19sm8373372b3a.12.2025.10.27.07.56.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 07:56:18 -0700 (PDT)
+        Mon, 27 Oct 2025 07:56:27 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
@@ -86,17 +86,17 @@ To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
 	linux-kernel@vger.kernel.org (open list)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
-Date: Mon, 27 Oct 2025 20:25:29 +0530
-Message-ID: <20251027145602.199154-2-linux.amoon@gmail.com>
+Subject: [PATCH v1 2/2] PCI: dw-rockchip: Add runtime PM support to Rockchip PCIe driver
+Date: Mon, 27 Oct 2025 20:25:30 +0530
+Message-ID: <20251027145602.199154-3-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251027145602.199154-1-linux.amoon@gmail.com>
 References: <20251027145602.199154-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_075620_162992_EFB9948A 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20251027_075628_677283_08AD7CC5 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +111,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a .remove() callback to the Rockchip DesignWare PCIe
-controller driver to ensure proper resource deinitialization during
-device removal. This includes disabling clocks and deinitializing the
-PCIe PHY.
+Add runtime power management support to the Rockchip DesignWare PCIe
+controller driver by enabling devm_pm_runtime() in the probe function.
+These changes allow the PCIe controller to suspend and resume dynamically,
+improving power efficiency on supported platforms.
 
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 87dd2dd188b4..b878ae8e2b3e 100644
+index b878ae8e2b3e..5026598d09f8 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 	return ret;
+@@ -20,6 +20,7 @@
+ #include <linux/of_irq.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/regmap.h>
+ #include <linux/reset.h>
+ 
+@@ -690,6 +691,20 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto deinit_phy;
+ 
++	ret = pm_runtime_set_suspended(dev);
++	if (ret)
++		goto disable_pm_runtime;
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret) {
++		ret = dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
++		goto deinit_clk;
++	}
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret)
++		goto disable_pm_runtime;
++
+ 	switch (data->mode) {
+ 	case DW_PCIE_RC_TYPE:
+ 		ret = rockchip_pcie_configure_rc(pdev, rockchip);
+@@ -709,7 +724,10 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
++disable_pm_runtime:
++	pm_runtime_disable(dev);
+ deinit_clk:
++	pm_runtime_no_callbacks(dev);
+ 	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+ deinit_phy:
+ 	rockchip_pcie_phy_deinit(rockchip);
+@@ -725,6 +743,9 @@ static void rockchip_pcie_remove(struct platform_device *pdev)
+ 	/* Perform other cleanups as necessary */
+ 	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+ 	rockchip_pcie_phy_deinit(rockchip);
++	pm_runtime_put_sync(dev);
++	pm_runtime_disable(dev);
++	pm_runtime_no_callbacks(dev);
  }
  
-+static void rockchip_pcie_remove(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-+
-+	/* Perform other cleanups as necessary */
-+	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-+	rockchip_pcie_phy_deinit(rockchip);
-+}
-+
  static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
- 	.mode = DW_PCIE_RC_TYPE,
- };
-@@ -754,5 +764,6 @@ static struct platform_driver rockchip_pcie_driver = {
- 		.suppress_bind_attrs = true,
- 	},
- 	.probe = rockchip_pcie_probe,
-+	.remove = rockchip_pcie_remove,
- };
- builtin_platform_driver(rockchip_pcie_driver);
 -- 
 2.50.1
 
