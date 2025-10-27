@@ -4,68 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC686CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C187CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 19:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJkZSYMGacD4PZ8+PyrevQYXXHDe1pVR/IkV90+AfQ4=; b=tKxRidubSw7Ou3vl+H8n76MVvf
-	aSz7kINmS29+0LB+YQSwuNPBSk0hub802FrOTp4lI9Sv5+9GRFVfvi2ZOC1spa1+3gXYB6il31tix
-	pttnkAuquXpUnejccqIk2Avv00BYvhUmgAXONhYxrpTD4Yc9YWzUjMgvzfz8k/DrjzGcoYQFK6LGY
-	wwSt1JwfoyubLvRd7xYGeIusMgaBtFw6oqHvb26ax5ro7gNxwV+alogg0KUFgV55qvsDq4fkoqom2
-	+XNHRwqN+DPU1+q+EgZ8g+5Cls3mr+oxaUUO6PhdVoposcj3EhKU9tTO/hO2yB+aNxVbu9qS/5nlk
-	gUdMjkwQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LmFVx7oVdKhO3U8QLv7QpspZRLRuL98Fhy6M0Ccj9GM=; b=2YywbZ9u7LrdoeJg6HzRTvwAMm
+	el3/Q0YYKmlvHwxRNG+MDOBEMd+V1PLWfBBhUyD8lkxhT08AkKds3NH4YuqXu3AyxobnDnsZDtQKa
+	Ot/SI5ygXZThO2zjr9kf7l3qKvfjK10962m4vBtFgXzJd79yiIZewCd/4ZgCDvXH8ffLOjkadpWq8
+	tk0ENaIjaiZWSChy9gHH+XVcCF+YE6i6qgb34GMHyaJvaC6s99z4Xluck1SDdpCXIETA+2aEIV+6r
+	Moyf6RSKrmT5Lt7mH1pySDvVKJSvFM6EpVSKBI5+c52U0OrGLfeH/QEKGU+yEgatbtiffaCw3hFpB
+	M7QHXcYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSfC-0000000EdK5-2UkO;
-	Mon, 27 Oct 2025 19:13:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vDSg9-0000000EdUe-42ok;
+	Mon, 27 Oct 2025 19:14:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSfB-0000000EdJo-0D31
+	id 1vDSg8-0000000EdUD-1VIx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 19:13:53 +0000
+	Mon, 27 Oct 2025 19:14:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D43E761E4C;
-	Mon, 27 Oct 2025 19:13:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C749C4CEF1;
-	Mon, 27 Oct 2025 19:13:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1761592431;
-	bh=bMimpoJlR+P0WrJFlVcbVT1/JxN3rw+nSMPMAhbBmQM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=r9DI4hEkFXiQqyhAidHrVMR24297TydLQXyJr4qr/CiVWWORTJ9Q4B+7y19jS0ggS
-	 azBwFo9ZHJqpPRLVWiMiaYvqrA8Jq0CoGpSP80MCyI/VUdurBzSJ3Hpec8eerHmt7I
-	 qD2EW1j+QwyDq0DnStA6Ur6/YMomnwFlG8Tb+fIQ=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Huang Ying <ying.huang@linux.alibaba.com>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.1 085/157] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
-Date: Mon, 27 Oct 2025 19:35:46 +0100
-Message-ID: <20251027183503.554043304@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251027183501.227243846@linuxfoundation.org>
-References: <20251027183501.227243846@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	by sea.source.kernel.org (Postfix) with ESMTP id C58A7488F4;
+	Mon, 27 Oct 2025 19:14:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 985C7C4CEF1;
+	Mon, 27 Oct 2025 19:14:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761592491;
+	bh=UmjC+XeU6cvmCC2kxiH/o29POC8JmoxbEXi0rQcEvtM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=tGN4T1t1nWKQzfOAgL6XV6X/ZmM8w6NVxI9LH7pkbpE8CkhW9vGu3YUsTzcxyN9hq
+	 Q0PYNhgYY7gMmYkrCwOybee6FjBNbbnZpjLg5S9w9E8gBq9maFEnrdBCA9vQaCbfBy
+	 FlHQzvZPkf9gc3Vz/h98nekiYBAEFp4WJdKLPd7GcRq0rOQ0equ0V6+iUBzuOTm873
+	 DQK+L7x3mQMM09CmQoWmxemTeonPbcG9/GKm7x30Ktb2JN2VOVVoLIDbpKSR9EdwJJ
+	 BtlUpkFXP4ffjYu9FPyKgvtR3K+uiPBYbENapC1A8cjSFLviQAkivnvU+euU8Und3m
+	 ZeeKx9vWGS59w==
+Message-ID: <93a2ff5f-2f8e-494b-9652-b93bc243c229@kernel.org>
+Date: Mon, 27 Oct 2025 20:14:45 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v21 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
+To: Ryan Chen <ryan_chen@aspeedtech.com>, bmc-sw@aspeedtech.com,
+ benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
+ jk@codeconstruct.com.au, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com,
+ linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20251027061240.3427875-1-ryan_chen@aspeedtech.com>
+ <20251027061240.3427875-3-ryan_chen@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251027061240.3427875-3-ryan_chen@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251027_121452_447309_38ABE96D 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +123,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.1-stable review patch.  If anyone has any objections, please let me know.
+On 27/10/2025 07:12, Ryan Chen wrote:
+> The AST2600 I2C controller supports three transfer modes: byte,
+> buffer, and DMA. To allow board designers and firmware to
+> explicitly select the preferred transfer mode for each controller
+> instance. "aspeed,transfer-mode" to allow device tree to specify
+> the desired transfer method used by each I2C controller instance.
+> 
+> And AST2600 i2c controller have two register mode, one is legacy
+> register layout which is mix controller/target register control
+> together, another is new mode which is separate controller/target
+> register control.
+> 
 
-------------------
+This implies your "reg" properties have now completely different meaning
+and this would be quite an ABI break. We discussed this probably 15
+revisions ago. Where did you document the resolution of that discussion?
 
-From: Huang Ying <ying.huang@linux.alibaba.com>
+>  
+>  unevaluatedProperties: false
+>  
+> @@ -57,10 +85,12 @@ examples:
+>        #address-cells = <1>;
+>        #size-cells = <0>;
+>        compatible = "aspeed,ast2600-i2c-bus";
+> -      reg = <0x40 0x40>;
+> +      reg = <0x80 0x80>, <0xc00 0x20>;
 
-[ Upstream commit 143937ca51cc6ae2fccc61a1cb916abb24cd34f5 ]
+Not relevant to this patch. You just added this line in patch #1, so did
+you add incorrect code just to fix it right away?
 
-Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
-mark some pages that are never written dirty wrongly.  For example,
-do_swap_page() may map the exclusive pages with writable and clean PTEs
-if the VMA is writable and the page fault is for read access.
-However, current pte_mkwrite_novma() implementation always dirties the
-PTE.  This may cause unnecessary disk writing if the pages are
-never written before being reclaimed.
-
-So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
-PTE_DIRTY bit is set to make it possible to make the PTE writable and
-clean.
-
-The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
-Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
-pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
-clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
-are set.
-
-To test the performance impact of the patch, on an arm64 server
-machine, run 16 redis-server processes on socket 1 and 16
-memtier_benchmark processes on socket 0 with mostly get
-transactions (that is, redis-server will mostly read memory only).
-The memory footprint of redis-server is larger than the available
-memory, so swap out/in will be triggered.  Test results show that the
-patch can avoid most swapping out because the pages are mostly clean.
-And the benchmark throughput improves ~23.9% in the test.
-
-Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
-Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Gavin Shan <gshan@redhat.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/include/asm/pgtable.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 426c3cb3e3bb1..62326f249aa71 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -183,7 +183,8 @@ static inline pmd_t set_pmd_bit(pmd_t pmd, pgprot_t prot)
- static inline pte_t pte_mkwrite(pte_t pte)
- {
- 	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
--	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
-+	if (pte_sw_dirty(pte))
-+		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
- 	return pte;
- }
- 
--- 
-2.51.0
+No, fix your example when creating it.
 
 
-
+Best regards,
+Krzysztof
 
