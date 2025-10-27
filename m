@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38085CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55842CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5doOeAnSYSQI+MnlDBwnrzy87dYaAS/wZNmV4aDiaM=; b=luK0ETaUShxbKNOcBGThIM/wzN
-	v2IvE2b1NXu9T1D8Xj1cMHLTbB9mK7L0N23MHmGv9B1kohxRW6+WyXkj2HfsAwDKKrG0kED5978eU
-	j39x3iiEicEbicLiGpVjZygW1x3Bc3y/jRLDJlSd4jovkWyhp2QvIJI2h1fW8rNg1VlDUHJbRVBOc
-	B93H0ZoIWZQDTrUuIl4Fmrj3+IBOL1DHW8XbzDz7j7EfVpqq3yddFdME0OknH30IiRpULOs+IgqNr
-	Ceuto9eK/s+xmLjeV42c3nj5KJEgvxQhi8Se+UpzqfbAE6PBjRgKMc6uK7GBjhymupGiLmFtLfY/O
-	NFRraZIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ioeUNiZxJrxIrUoI7+EQTbCNZJ+KgdDKGJXfizvP3v4=; b=1vycu57qXXD1jCWjrnk9uPTHIY
+	r4rGXVTER3sZYqrDU0NytSdS5hhahl6mYVNl4KseypvlM6BznxI9YwvUI1d4IvUbJYdMkwO4nTGn4
+	9DrIrVatIlbknysNQhBQ9L0pOHM1R/J+FFS09jZYFiuPc49ffaChPhThXF4bOdBDh3SApBtPxMZng
+	WMyVXjz7PC62MibzKzqFh1lRiYsaw+cL0fq/tNT483tquqTVv6kKFdrmgCZvvaHvZOpoB5RbIN4Ql
+	XX94XmDhr5ahRsoC0d1Af1OMHqYN4VZy5MdTf8Th5PZPIO+BCVKfiElANtVdDu/m/uUAnbJO4KbRV
+	ETe3Hl+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDK7W-0000000Dcf2-3hVL;
-	Mon, 27 Oct 2025 10:06:34 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vDKNe-0000000DeF3-1PJ4;
+	Mon, 27 Oct 2025 10:23:14 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDK7U-0000000DceX-1QPg
+	id 1vDKNc-0000000DeEg-0QO7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 10:06:33 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7a4176547bfso1501112b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 03:06:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761559591; x=1762164391; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l5doOeAnSYSQI+MnlDBwnrzy87dYaAS/wZNmV4aDiaM=;
-        b=Uws6+F/XupwDtHn70bpjcMEj+//CXC/LKaUfGEiCh3QIGipLjvTMTs97ZvPYjxFl5p
-         vFY6DikQ39ykjoQS7EPGBdwe82T1TUdTpY+jTgWcj1uWz4XxDTOAmJNkV2PG+Mf0Kk+W
-         8x1VYgQx8IHvB0x+06L1wMue0HLoMJKC+5PxccRCpcHDu6Rkp6xWPKOZP9SXL4EEdXwJ
-         Pxy9aXdJ1qZaMWVd8a6sj2ez47RpnwHhhVjsgNDC/SfHD6BsbIWCkoC1JMmwTn9eXWHB
-         WidIdyc1mZFjN9EMd2qh3Q/C09ERvbY4LwmxVVK1+2R9Bq6UqXkYhB/km1+OZZS8a+7u
-         Frmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761559591; x=1762164391;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l5doOeAnSYSQI+MnlDBwnrzy87dYaAS/wZNmV4aDiaM=;
-        b=py1grpLnfq13loev5zIl0a3VtvySvaSAUN1/wguAxqr4uMje2g4TwIYnjHs1q+QGNW
-         hn+NUeWNaC5XdeiRIBDAT7FJfQ76QMkmqGWmkZsVB6icoEn8cEi8chYuaQFV4wjurtVR
-         z5TntQz6zd2aJxhiXG1FaHsB5aWr8BfMvwdQPm3QlVeVFQda2luN2p2GC5mz8yjFgr5c
-         Ghbl/x8E4HGEnPQWG0V5B1RzHYNO2wXLxcrpFGdukmFm7nNk89S6IDAK8w0WJ1ex383R
-         it7gC8EWKLtwIiHYeRT4tZ+OvBUpggL8kSdEBzBKMu9ZOmcXDfBEML9RDChF0bh4sfBZ
-         N4Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCWA4RnBz7F10B/PT9YIWOcyayacyI3l33CitW+YI/hzsYeWkLvBHE6d4e45D7r/zTCMXhhvqd+lm0LFMCFMdzrh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6CpzsvcUr7SSYJZ8jYVGGEuP9Hme1u5rS/6jKDmIH8WltLKRy
-	fKmbs8yGI1Vq6hd4RJsh5Vth+BfDR9ScdBAhav9dPnJBQQBZxuUzqXJJF46pxsURwyzCvyT8rKq
-	H9pcAYHzU3Oo8EMocv3w/zKPlCOZZok0=
-X-Gm-Gg: ASbGncv0la97wxpp2Q26BQDTyFQtIsr+hvFa1rfb9qOEp5nwjyd4A/RlNyka7nEr59l
-	7rHW20N24P6ChTcndWJUlHf7mOx+cYRVmcA6dMg9xLzHDEgYK80qY4wpUmR6e88pZR7fZgHLMzh
-	QCfh/3raHMkAGcIsqT8EFFAYJmnLx6BHMpChhQPkdzZQiSPLcpJAhNWIbo6zh7SKjjlsJY6Z7d6
-	uMfz04d80lO1C9AAYDIvmNUWqC9fww5apOrkxBy0YP4qa3UYj9mZcpXROn+mAeUyWAksyAZSk6p
-	0WHp3ZekYMlWiA==
-X-Google-Smtp-Source: AGHT+IHRpB86RXroRDzzRdYSB7oYFAv4dqfXwWvXOZ++yIISCsXtN6hFohYhh9Tmy4ZRUzQ+j+Lng2VlTrE5kMPFzuc=
-X-Received: by 2002:a17:902:e5cc:b0:270:4964:ad82 with SMTP id
- d9443c01a7336-2948ba0d9a1mr120199225ad.38.1761559591357; Mon, 27 Oct 2025
- 03:06:31 -0700 (PDT)
+	Mon, 27 Oct 2025 10:23:13 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1vDKNU-00047j-JW; Mon, 27 Oct 2025 11:23:04 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1vDKNU-005gi3-0X;
+	Mon, 27 Oct 2025 11:23:04 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1vDKNU-00394G-07;
+	Mon, 27 Oct 2025 11:23:04 +0100
+Date: Mon, 27 Oct 2025 11:23:03 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Russell King <rmk+kernel@armlinux.org.uk>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <aP9IB4y5_gyfJGMW@pengutronix.de>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+ <aP83bMDWCre7-Sjw@pengutronix.de>
+ <20251027100227.GE1544@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-References: <20251027093133.2344267-1-max.oss.09@gmail.com> <20251027093133.2344267-2-max.oss.09@gmail.com>
-In-Reply-To: <20251027093133.2344267-2-max.oss.09@gmail.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 27 Oct 2025 12:08:57 +0200
-X-Gm-Features: AWmQ_bmTfGXGF5x3XTOBQj8jm2eoTyHs4EQJMNTtCvVM7Dk1SHwZVtKvKWhTgLA
-Message-ID: <CAEnQRZDrqKFmenTiNi4U==X-xE0pv0Qt=qpXJAVi4sGvnBL4cg@mail.gmail.com>
-Subject: Re: [PATCH v1 1/5] arm64: dts: imx8-apalis: cleanup todo
-To: max.oss.09@gmail.com
-Cc: Max Krummenacher <max.krummenacher@toradex.com>, 
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251027100227.GE1544@pendragon.ideasonboard.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_030632_381198_CD3F9B52 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251027_032312_160069_D625E87A 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,15 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 11:32=E2=80=AFAM <max.oss.09@gmail.com> wrote:
->
-> From: Max Krummenacher <max.krummenacher@toradex.com>
->
-> Functionality has been added without removing the associated TODO
-> comments.
-> Clean that up by removing TODOs no longer applicable.
->
-> Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
+Hi Laurent,
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+On Mon, Oct 27, 2025 at 12:02:27PM +0200, Laurent Pinchart wrote:
+> Hi Oleksij,
+> > Please note, RTL8211E PHY do use undocumented SmartEEE mode by default.
+> > It ignores RGMII LPI opcodes and doing own thing. It can be confirmed by
+> > monitoring RGMII TX and MDI lines with oscilloscope and changing
+> > tx-timer configurations. I also confirmed this information from other
+> > source. To disable SmartEEE and use plain MAC based mode, NDA documentation
+> > is needed.
+> 
+> That's useful information, thank you. Would you by any chance to know if
+> such NDA would allow contributing the feature upstream ?
+
+Good question, but the NDA process was actually aborted. We didn't move
+forward due to a lack of time and ultimately, a lack of commercial
+interest from any projects or customers for this PHY.
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
