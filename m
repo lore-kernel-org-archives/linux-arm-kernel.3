@@ -4,171 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9EFCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13525CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MxqhGs+kErj9QojSUYfqhMME1C+HzYz58U9mBz2oLoo=; b=McOzoI8PQqggVFOY9YqTQsuX72
-	8hMjQXW32Qo+IIU6OUKaWxyGLsr8wOMtpDoIjCU5aLZbUojNcKkvL763Q3GBHgrDHhAEKu7HntZPr
-	gOLaYNOgk2m742BTYwaUweshYl9m+r7yz+TIYcx/0tAhdePOH1YFSUzkF7J5F2kvh7/JpRgNWlWbl
-	oRJHUe8ppNrS1YtiERat4Jy4ZRwpXS5tkct4WOKuTBxrMS0hVfBezfXeBGtOk4NaRrCXnDylJeP6G
-	lD5dwdlzK2/Uy7HYHuUZW6/+o011GgyXjMM0q1ca7OoGf7Q7KzMPdo+OFzWz6IB2xUXuhSQO198Z6
-	pRk4vb5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iA7t2Iu5WmijCKzI4GOFbP1+sQVyXkrlu3SiinRY5fE=; b=ciRlNICx4uabjSkyR6knd4iSIR
+	NnEClYET/ZuYbRjofFQbG1lbpZ9UOu+RVoUfJjE5EsrSoVcq1PGkmgTEpwfdomJiKdVEZiWaeYsUb
+	cePIlw2GboBB3GzDvNXo+Mz4UedBJ4vQbZYJxz98y98g84AgbC1KkmW7L9IaRFXVse9opt2LbuPEX
+	cY/YErw7ZCru9zly3V8opYSQQ5Bkd+HfO4L/U3TJ5kk7IQtk+WNBaOIx5Kc2ifF6dyatzqO7Sp5uU
+	nDhJlR1RdDFfMfQhPidmgXYOtt+RFVEAx0y5dujscys7zHwSgIt3MMiWT3gT/2udxjpEH2wIHqBUv
+	fwSnbFJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMLw-0000000DtkX-2T43;
-	Mon, 27 Oct 2025 12:29:36 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vDMRC-0000000Du8M-3mu3;
+	Mon, 27 Oct 2025 12:35:02 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMLt-0000000DtjS-43CK
+	id 1vDMR9-0000000Du7f-40CT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:29:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761568170;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=MxqhGs+kErj9QojSUYfqhMME1C+HzYz58U9mBz2oLoo=;
-	b=Pihn8HFLPPEPn/7AArsegKFXyG8b+8JW3giTzZhG1ALQA7thvvVzlK4YbdBHEianYYWsDR
-	DnmuualMFAzojNBvL0++Oai81t7Nxd91puGdLdd96x00BQn5xDAooT4a3WusAA11br8QSm
-	rgha+K1zwOgn53sRSaT2mR/IjNTtMFc=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-341-NBr2du3ROASsOqmFRfit_Q-1; Mon, 27 Oct 2025 08:29:26 -0400
-X-MC-Unique: NBr2du3ROASsOqmFRfit_Q-1
-X-Mimecast-MFC-AGG-ID: NBr2du3ROASsOqmFRfit_Q_1761568166
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-47496b3c1dcso33871405e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:29:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761568165; x=1762172965;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MxqhGs+kErj9QojSUYfqhMME1C+HzYz58U9mBz2oLoo=;
-        b=XOn5hN3rc/W7AnATasC6XIpVCALIjOTcyoCVgitZOxgYJhM+uw348D8P8IHP3QlRPF
-         Rvsoqzar01bcb33Nm+R7pd2/mZJadMZjIc11rJUwABMwfs5ygP3qUpaDvAjQJa+RHDVJ
-         ojB/Yf0eZyKtCut5g/WHSZ/KP1q9rdA0SG5xhQlTQUb8xRr0fRpMWC9CNZ6OpMS2sU2Y
-         gWCHSWTBwMmfPcDu/CkleP77g0nW0CaBzJvZ48qbsJLHZn5A0FzTPW2fbZnbWqn3bABK
-         3kJDuJdXybJvbqHZ9Xt38i5pdJIDdCKwDNzmLul7eZ7ummiTHU8//Y+7yE5wpvW5kMLQ
-         Pjag==
-X-Forwarded-Encrypted: i=1; AJvYcCWw6fmSV7YLzaW3UgsW+NX5adcUQ7ExvxGsAYKKL9RaPcXLowAG5xbzSgua5/aSNCxoKPyDBICywRodcWwyW53C@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIUnaQcEtWGPYTL1h42BC8d90EWWZhTnb8VPbCyUVP0ciiO1vb
-	d6jhnjmI1DO529tzD6hUAS0GFEmDR4cxFXmtL9pJIMxWC5RKG0UJQHKwFvif0aSziOOLG7kpGs3
-	OYkarpxDiwcwaw8ZiNZ1F+dtmAAT9/OUDzVmxDNSVmixlPFcO9KFjglkfGg2ZwJsM/TM762fEvt
-	rC
-X-Gm-Gg: ASbGnctd/E0vxceEMT16rLCg2KW91+85ODRvUDx+DxaZCvMgsYqpmSyzSNceuNqxyrh
-	x9r9ItkC51B2kUQxYxdKexN4VmO8gB5i1dYXRl9Dh6t5gud8OEh5s6FMzKOeAnCM275Q3/0mBj3
-	EmCRYZdLN1lgE3IK++FDnbMJ9tjuDyTZ4/SnyOiubYBv59ttjOh5MLMqCHri77L6k7Y0bHfpOrZ
-	zBnxGUwtMjWHNY88HsT8aQfWCqk5hA2jZxcZQcu3Fvtf37hQTWt/ruW0eEq9vhKyOUkgxd3feVb
-	hFEkDf/x6VojCMznAFwOk1NyvX6AAK0gaUXnlFN/TOeupfTV3PC4fKfVBG2OjTTpWWDVs28Iogl
-	vg3z2DZP3Bnhdx/sps1RVI8mVKOWyK51GqQEPANFEsGB9ypq1YlP9uSIQoaZmHAX82iWjcoRFC9
-	K3q27ofK3kmYXK2TrMV0W8zc8r/MY=
-X-Received: by 2002:a05:600c:6814:b0:46d:b665:1d95 with SMTP id 5b1f17b1804b1-475d2ed2703mr122459185e9.32.1761568165611;
-        Mon, 27 Oct 2025 05:29:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IERhDOSgpdu7IOhGUhd5vG2oGfH+FtLLHQ8h3X53cAF/bER/zOT53Nw9I8J5TYzsbcubMUbyA==
-X-Received: by 2002:a05:600c:6814:b0:46d:b665:1d95 with SMTP id 5b1f17b1804b1-475d2ed2703mr122458775e9.32.1761568165180;
-        Mon, 27 Oct 2025 05:29:25 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169? (p200300d82f3f4b00ee138c225cc5d169.dip0.t-ipconnect.de. [2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952db99asm14109118f8f.32.2025.10.27.05.29.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Oct 2025 05:29:24 -0700 (PDT)
-Message-ID: <6c9bd0c6-0968-41ac-b0b4-53c881748cfb@redhat.com>
-Date: Mon, 27 Oct 2025 13:29:22 +0100
+	Mon, 27 Oct 2025 12:35:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=iA7t2Iu5WmijCKzI4GOFbP1+sQVyXkrlu3SiinRY5fE=; b=xOHj51J/BGH7TW8B1tue9x+1cZ
+	ciRjmO0LOkcfCgqKGjCBlhej8qpS2adZBtz83L4kTWr2SWApaY5YfMZ2y2Ezd/LwY8+ytZgOHpVEC
+	5g2JJQlARRG/mEHbQFcddVjttfvRkuIDkru5t5BQhF1yh4cYwCY8enA2+QPSZI+5AZyY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vDMQs-00CBov-Nc; Mon, 27 Oct 2025 13:34:42 +0100
+Date: Mon, 27 Oct 2025 13:34:42 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: BMC-SW <BMC-SW@aspeedtech.com>, Arnd Bergmann <arnd@arndb.de>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: =?utf-8?B?5Zue6KaG?= =?utf-8?Q?=3A?= [net-next 0/3] Add Aspeed
+ G7 MDIO support
+Message-ID: <ad12992b-2ddf-406f-a024-dd402f8a3f0c@lunn.ch>
+References: <20241118104735.3741749-1-jacky_chou@aspeedtech.com>
+ <7368c77e-08fe-4130-9b62-f1008cb5a0dc@lunn.ch>
+ <SEYPR06MB513478C462915513DE7BE1AE9DFCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 11/13] x86/xen: use lazy_mmu_state when
- context-switching
-To: Demi Marie Obenour <demiobenour@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, Kevin Brodsky
- <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-12-kevin.brodsky@arm.com>
- <f0067f35-1048-4788-8401-f71d297f56f3@redhat.com>
- <348e5f1c5a90e4ab0f14b4d997baf7169745bf04.camel@infradead.org>
- <70723f4a-f42b-4d94-9344-5824e48bfad1@redhat.com>
- <3ff4aaeb-61ce-4b72-ba90-1b66374b1b95@gmail.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <3ff4aaeb-61ce-4b72-ba90-1b66374b1b95@gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Iyw2U-KPPGEUjlTuq6iijH4PalG4OGWR_6on88X_GuI_1761568166
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB513478C462915513DE7BE1AE9DFCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_052934_072295_F6B53E0D 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20251027_053459_999094_481F6C88 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,51 +86,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25.10.25 00:52, Demi Marie Obenour wrote:
-> On 10/24/25 10:51, David Hildenbrand wrote:
->> On 24.10.25 16:47, David Woodhouse wrote:
->>> On Thu, 2025-10-23 at 22:06 +0200, David Hildenbrand wrote:
->>>> On 15.10.25 10:27, Kevin Brodsky wrote:
->>>>> We currently set a TIF flag when scheduling out a task that is in
->>>>> lazy MMU mode, in order to restore it when the task is scheduled
->>>>> again.
->>>>>
->>>>> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
->>>>> mode in task_struct::lazy_mmu_state. We can therefore check that
->>>>> state when switching to the new task, instead of using a separate
->>>>> TIF flag.
->>>>>
->>>>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->>>>> ---
->>>>
->>>>
->>>> Looks ok to me, but I hope we get some confirmation from x86 / xen
->>>> folks.
->>>
->>>
->>> I know tglx has shouted at me in the past for precisely this reminder,
->>> but you know you can test Xen guests under QEMU/KVM now and don't need
->>> to actually run Xen? Has this been boot tested?
->>
->> And after that, boot-testing sparc as well? :D
->>
->> If it's easy, why not. But other people should not suffer for all the
->> XEN hacks we keep dragging along.
+On Mon, Oct 27, 2025 at 02:44:23AM +0000, Jacky Chou wrote:
+> Hi Andrew,
 > 
-> Which hacks?  Serious question.  Is this just for Xen PV or is HVM
-> also affected?
+> This is Jacky from ASPEED.
+> Last year, I submitted a series of patches to add a new compatible string
+> "aspeed,ast2700-mdio". At that time, the feedback I received was that if there
+> were no functional changes, a new compatible string would not be necessary.
+> Recently, we are submitting the AST2700 platform support to the Linux kernel.
+> In the following discussion thread, it appears that the MDIO driver might need
+> a new compatible string for the AST2700 platform:
+> https://lore.kernel.org/all/b048afc1-a143-4fd0-94c9-3677339d7f56@lunn.ch/
+> I would like to confirm whether this case should be submitted separately to
+> net-next, and in general, if there are no hardware or design changes, is it
+> still required to introduce a new compatible string?
 
-In the context of this series, XEN_LAZY_MMU.
+Are you sure it is identical? And are you sure there are no bugs in
+the driver which would require breaking backwards compatibility, like
+you are going to be doing for the MAC driver?
 
-Your question regarding PV/HVM emphasizes my point: how is a submitter 
-supposed to know which XEN combinations to test (and how to test them), 
-to not confidentially break something here.
+Take the reset handling for example. It looks like it was added after
+basic support for the 2600 has added, so it had to be optional, to not
+break backwards compatibility with older DT blobs. But since there is
+no support for the 2700 yet, you could make the reset mandatory,
+without breaking anything.
 
-We really need guidance+help from the XEN folks here.
+How is the clock handled on this hardware? The MDC is currently
+ticking at 2.5MHz. However many PHYs and MDIO based Ethernet switches
+will happy run at a faster speed. So you could implemented
+'clock-frequency'. But for that, do you need a clock listed? Should
+that clock be listed now, as a mandatory property for the 2700?
 
--- 
-Cheers
+Having a specific compatible and a fallback costs nothing, so i would
+do it. 
 
-David / dhildenb
-
+	Andrew
 
