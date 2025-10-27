@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F515CCF9EF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65955CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kb+oCJFy28PNmi6e8yrO96eaDIYbCEFfqpsOTMY4zgQ=; b=KowVi33P0Vl7IHSO/hSdPT53Hn
-	8l8T4M/u7u8gi9qcOcMVtc3hwX7GLmOW+WawpxsIf4zUAFH7AVA8K7bFXljCnDHfmZCPFpqRqc39g
-	4RGXWk1uMwQLbUa34KGkWUdKyJo58jjbDs2o9SA0vE1g6LrvyOrYp6C94uinSfEWRJ+hXtU6wInb/
-	Crs7noAbB6jTT25Jr2auorqXXLZQBP0W5HIl+2KClCUL8aWw1HreYuSgSpq+9DnxUsfFEcFT7sOt5
-	ziH3BIu6eplj9CkqJPgHLo38X7Es9hO75LiXZvX0bf+/oJG9hfUS6Njr98+fDX55hbHL3kTZW4eOo
-	hz25fqIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5GqcCzFslWvwspg/f+Srh9ebuYfL4ZY09Ogmj+CHlmg=; b=xy0JuM1qHoHUFe85qNhlqDkQwv
+	6IjPYRMuVj+7DsRWiLBaEp1qFQQDYlrhrC/FrAP5DMrTl4qmkdZ37RpqVsDmWtVJvAW3+wYqEGkVZ
+	nIXzamwGJ/zzUzyeEWDTAvSszPyaicRo4tMMLXrrqNfhDnHFh7/fye2nBXk/ilkUYFkRFAMRq/K3j
+	eeCl7511/mbgSlFapKRiiZ1ImJx2kaSQFippB7U/QsAr+aIQYtgywN9x24LqJs3vA4PMu/uVHtXqX
+	sx2XEQL9h2rIhQJP3nWETeL68vpGB6E2QlMLCatReJDWikccMot+E6Tl+Gp5bXah+vTC4iGvlHgK0
+	0zy8YiTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJab-0000000DXwN-1b87;
+	id 1vDJab-0000000DXwl-2tYp;
 	Mon, 27 Oct 2025 09:32:33 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+Received: from pandora.armlinux.org.uk ([78.32.30.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJaX-0000000DXtN-2exf
+	id 1vDJaY-0000000DXtp-2dWl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 09:32:30 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b3b3a6f4dd4so832770466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:32:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761557548; x=1762162348; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kb+oCJFy28PNmi6e8yrO96eaDIYbCEFfqpsOTMY4zgQ=;
-        b=Q+72OkvTQj4YtqNc+ElO1Sw6ZmIBJ3c+OIxUX7JQm9QmmnP7ysifz/onV4Gf+Hjux6
-         WM+SHd9lxXiwzIYQUX3n1QUbH3y9+U3/W1enyKGDJBFlNRbXQzzZnGT3Uqhr+DPR4d2s
-         SVNy/R5HrE0p1mHeDkzGWluM1jP9rGuV8UUMzdbs8SXCztHNGU2eBmuP9ev8jch3ydLp
-         ILE/k/nm6eygpQR2n/USr1KkjKYrUtlne/I85Jd6EjLfCmVwWtzSKftdzLbEI4r1mWDQ
-         zz+q3x81fwZvsMfMcvnYlzIzGyrE//4QqX1Qc4JOw7CNgQ63rmdQx39Y3aY7t9+bMepX
-         Q0zQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761557548; x=1762162348;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Kb+oCJFy28PNmi6e8yrO96eaDIYbCEFfqpsOTMY4zgQ=;
-        b=BKfXBBYCNo+XjFCL952q8j1pY2k+pKXfVo+PaxY7Xnss4gsSiGQboYFwxgj6XmFJZ5
-         9TErvpKKSIpX1eXu2gm5AAVheEcC8ilPVf4zOYNK0qaIVP0UeLReKN8yjFzpCjxoPhUA
-         Eai8In+ZrN+30a4FFT4JWBhmZgbA2RzpilVkfdnWuZ0nMyTRMXCBLgfk83GamAIvKXMt
-         FwZL+rePHBi6wf7fw+i2HJhlll1DSsYAXHqdFhkIzh1ccaTPcsT70k3ABFuJ2OSmIXm5
-         /agELSXx9Y9VfrxGjfOFgbBU0zOFwlOYnScfdWYwdrrHDSo+y+ETpDAix3YyLNxt8DRp
-         qYZw==
-X-Forwarded-Encrypted: i=1; AJvYcCX0yiPF1dKD+4DuicVrLVBiZ/PIidbcNZ22cMaoQpobxPouZob0YmxsNkdVsf02NsjNljBlpO4hJoFiq0wxCaRI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNGlRrUlfyXOzDrnFZ0HuN5uhl6ZCtFM/ZAfiYxN1DOgaDozuW
-	xWz9G7khQC0FPEeGfDBL9GYKr57sAtvWrHuHB3UubTuMtNJEaX1wDc0J
-X-Gm-Gg: ASbGncv3fwerRKNG76LDA4Iix+4ieUq2nnXKOnQsp7HMe9Kk/lusdln0YBjlubJGxBM
-	5tI15QfiUBPItV+IAZs7yTaZiIwJxaKOr6I+ZUQDHwnLhVFUPQnp4RlX3xT0LhRlnjbR63H1Q0M
-	UNEg9rG19/ulApdkCv88V3fzT3RcDRpX9c8oFtqlv6c+sECjG2LGpMtCGC8uC7rV9z7trRpWTyX
-	7nqn1GZ6M43c5GmYs4qfwrgdD9XAJYRJZzjT4eiFK9hQHLCaGCnHZkd1pcyEEg7m5X4+qhe0q+K
-	LNXe7Zi3UrUH7OhV83tkUxoq3ntAueQ7kiHffW5UiPAZ1yVzIehbKcC6OIqe6y7sIxbHFXgWMRn
-	JYaWwKDjXrDKQfreFsWmn6a28aexnX3irKRpBT61xiO+7f00R4916TJv9DaR0eH/WfF6M9jqQWN
-	TC6wfRZkgbBLF9UtMq5lDemHid98TJbL5zxwZq1WSpzvRoQoDky0SDzyHYXQsVKmxSB0hXKixpC
-	mIYBLAm/mUbKI1Q
-X-Google-Smtp-Source: AGHT+IHTgGv4G/+wFJOtkWMD7ZAhCWVQTDxphKQmll9bPxy5C1Umq1JWKsBdZD1UJY74GedfpKzDzw==
-X-Received: by 2002:a17:907:da1:b0:b6d:5e64:c36b with SMTP id a640c23a62f3a-b6d6fe9fac7mr988112866b.29.1761557547697;
-        Mon, 27 Oct 2025 02:32:27 -0700 (PDT)
-Received: from toolbox.int.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef6be28sm5681014a12.2.2025.10.27.02.32.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 02:32:27 -0700 (PDT)
-From: max.oss.09@gmail.com
-To: Max Krummenacher <max.krummenacher@toradex.com>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Cc: Conor Dooley <conor+dt@kernel.org>,
+	Mon, 27 Oct 2025 09:32:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5GqcCzFslWvwspg/f+Srh9ebuYfL4ZY09Ogmj+CHlmg=; b=ZOyWRBO8eHuPLliV5wfH0oKhQK
+	IKEMn3aguU+Yqku44v/jYUeNtf8sioy+jDr24vH9ZxWwT5Fu29lShStH0MEuD5SLtIIf5DV33fO8r
+	j5IHxDKD5YD2ImYR074CJBWlQKzxRsFPSmx8jyEZMRHtcECssO9h5mNoW4f2W+ZnmHXBtLxka280E
+	Ee01tYiO1EaGeVnvwW0ByKTFhN/UZXBMIrRC0rQ16XxVJo5UpsuWx53e8OzUvqGvrNR17JM9C4rEw
+	o0QZX17jLNmrC/Jt/aE6hMwDrQLseTjFT9I7mR/CxqNBjLBC1tbT7vU/38VyO7YFLrgMbd4kvR+Os
+	vPPqTQ2w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56852)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vDJaV-000000001a2-0LdX;
+	Mon, 27 Oct 2025 09:32:27 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vDJaT-000000005TA-0D3p;
+	Mon, 27 Oct 2025 09:32:25 +0000
+Date: Mon, 27 Oct 2025 09:32:24 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 4/5] arm64: dts: imx8-apalis: rename wifi regulator
-Date: Mon, 27 Oct 2025 10:30:10 +0100
-Message-ID: <20251027093133.2344267-5-max.oss.09@gmail.com>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <20251027093133.2344267-1-max.oss.09@gmail.com>
-References: <20251027093133.2344267-1-max.oss.09@gmail.com>
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <aP88KO8uVrEQlmMm@shell.armlinux.org.uk>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+ <20251027072749.GA7811@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251027072749.GA7811@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_023229_690100_E27BD939 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20251027_023230_670135_FC8E0090 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +90,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+On Mon, Oct 27, 2025 at 09:27:49AM +0200, Laurent Pinchart wrote:
+> I've tried to diagnose the issue by adding interrupt counters to
+> dwmac4_irq_status(), counting interrupts for each bit of GMAC_INT_STATUS
+> (0x00b0). Bit RGSMIIIS (0) is the only one that seems linked to the
+> interrupts storm, increasing at around 10k per second. However, the
+> corresponding bit in GMAC_INT_EN (0x00b4) is *not* set.
 
-Rename the wifi regulator to what is the net name in the schematic.
+This is a change in the PCS series rather than the EEE series. It would
+be good to narrow down whehn this problem appeared for you.
 
-Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
----
+The RGSMIIIS bit set without RGSMIIIM (0x00b4 bit 0) shouldn't result
+in an interrupt storm since the status will be masked. That doens't
+mean that RGSMIIIS won't be set. So, at this point I'm not worried
+about that.
 
- arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Can you print the intr_status and intr_values in dwmac4_irq_status(),
+maybe something like this:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-index abf6d543380c..4234289d4012 100644
---- a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-@@ -77,7 +77,7 @@ reg_module_wifi: regulator-module-wifi {
- 		gpio = <&lsio_gpio1 28 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
- 		regulator-always-on;
--		regulator-name = "wifi_pwrdn_fake_regulator";
-+		regulator-name = "Wi-Fi_POWER_DOWN"; /* Wi-Fi module PDn */
- 		regulator-settling-time-us = <100>;
- 	};
- 
+	static int ctr = 0;
+
+	if (ctr++ >= 9996) {
+		printk("stmmac: INTS=%08x INTE=%08x\n", intr_status,
+			intr_enable);
+
+		if (ctr >= 10000)
+			ctr = 0;
+	}
+
+        /* Discard disabled bits */
+        intr_status &= intr_enable;
+
+which should avoid too much noise during "normal" operation. It'll
+print six consecutive interrupts every 10000.
+
+> I ould suspect that the LPI RX exit interrupt is the one that fires
+> constantly given its name, but I'm not sure how to test that.
+
+You can check this because the LPI interrupts have statistic counter
+associated with them. ethtool -S should give these, look for
+lpi_mode_n.
+
 -- 
-2.42.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
