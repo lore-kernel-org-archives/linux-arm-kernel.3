@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80FCCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19D4CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rq+1y790pe0Cfp13+HuuVfB9eKgP7oyWGnOPXBOPhA4=; b=uHRzymimgPBbHbxi0RvlYiilrO
-	PTlnKLboKK/FXSshTXXCo/SNZ1YlsOZzMX5LXKGBPUG8VyiHdwGkkKavP2ikTNbqbJxyPC8qSDII4
-	cnixY1DvCd++KFnQkjxTxCFhX+dQdFH0IqyzsnpBop+WSBFHmblWqvaY/9FhlRnqTIZkZZ6iOy7sr
-	oxnzRH89SqHeD/T9TtuGlkAMz5fpNFunMdyLUsEEj9jvKO5Dc5JDceCvjVHd/FBVwSf5F5wz27qeK
-	bpavIzlkv70d707gdY8t1u7+TYfi6fd8dKcFfpWDqgQmT2/wpXY/tEwEFpDeExcpdJvL5TYBKjFmR
-	vNjDM7Fg==;
+	bh=cvg1Ta8rWtoQoYrjOAiG/QHi60GLvBP9/tqlZR46NZQ=; b=UPYPn0xzE7AoHXQjuYXBC/SBtS
+	bOYEmXRB/mbh4TOUm/Hdhg35Udg7lnL9MR2M3MBoXSWhgf3jRfZfrGMXk971e1HL2avH7PFWq/wT9
+	/QXyVIsHk3/QQ3Bf/+8TL2QnzhOzJ37As+kUN3srH/nyllxtpCiSJwrENpM+EiVJBbCcq5CCrlriv
+	hl7rtl9wTogfhH4wS6qZBVutN9UF8EHrf7HcLEh7NZk90t+VoXa6zQ5bDymcCUJg+aXSxS9KXvTCp
+	Gl7F+SsE9hGiIEtVY0B+FNOiIGnDDCKXv+/O+WUNQtXXOjVKjSnfpBJ1ETzTrWyZ3AuFYRnvRAiqR
+	6FaLfkOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJzs-0000000DawV-4Bh7;
-	Mon, 27 Oct 2025 09:58:41 +0000
+	id 1vDJzw-0000000Db08-0FHP;
+	Mon, 27 Oct 2025 09:58:44 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJzp-0000000DaqR-1ZSa;
-	Mon, 27 Oct 2025 09:58:38 +0000
+	id 1vDJzr-0000000DaqR-0NHR;
+	Mon, 27 Oct 2025 09:58:40 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 27 Oct
@@ -43,11 +43,10 @@ To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<linux-phy@lists.infradead.org>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>
-CC: <jacky_chou@aspeedtech.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v4 3/9] dt-bindings: pinctrl: aspeed,ast2600-pinctrl: Add PCIe RC PERST# group
-Date: Mon, 27 Oct 2025 17:58:19 +0800
-Message-ID: <20251027095825.181161-4-jacky_chou@aspeedtech.com>
+CC: <jacky_chou@aspeedtech.com>
+Subject: [PATCH v4 4/9] ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST#
+Date: Mon, 27 Oct 2025 17:58:20 +0800
+Message-ID: <20251027095825.181161-5-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251027095825.181161-1-jacky_chou@aspeedtech.com>
 References: <20251027095825.181161-1-jacky_chou@aspeedtech.com>
@@ -55,8 +54,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_025837_416758_F99FBA72 
-X-CRM114-Status: UNSURE (   5.94  )
+X-CRM114-CacheID: sfid-20251027_025839_125668_0AD7A073 
+X-CRM114-Status: UNSURE (   6.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,34 +71,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PCIe PERST# group to support for PCIe RC.
+Add pinctrl support for PCIe RC PERST#.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../devicetree/bindings/pinctrl/aspeed,ast2600-pinctrl.yaml     | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-pinctrl.yaml
-index 80974c46f3ef..af8979af9b45 100644
---- a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-pinctrl.yaml
-@@ -141,6 +141,7 @@ additionalProperties:
-         - NRTS3
-         - NRTS4
-         - OSCCLK
-+        - PCIERC1
-         - PEWAKE
-         - PWM0
-         - PWM1
-@@ -369,6 +370,7 @@ additionalProperties:
-         - NRTS3
-         - NRTS4
-         - OSCCLK
-+        - PCIERC1
-         - PEWAKE
-         - PWM0
-         - PWM1
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
+index e87c4b58994a..d46f2047135c 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
+@@ -2,6 +2,11 @@
+ // Copyright 2019 IBM Corp.
+ 
+ &pinctrl {
++	pinctrl_pcierc1_default: pcierc1-default {
++		function = "PCIERC1";
++		groups = "PCIERC1";
++	};
++
+ 	pinctrl_adc0_default: adc0_default {
+ 		function = "ADC0";
+ 		groups = "ADC0";
 -- 
 2.34.1
 
