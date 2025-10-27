@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BECCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 05:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB31CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 05:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZCgf91re28Z+mhjsd1SA4AChxcvuQ2WJ2scn/0nNvA=; b=PHN9Mm5IjxYp/uVEcohXnFCv4Y
-	DZosLE+4V5J6wHkbkkA2hVz3vmrqfRKyhVSqHYQFrUU3Tn+RNXEXuB4H8CRL9IIcxmjRbCCC1EeTL
-	9vhA8U4aqi6YTFqdph3ErsC8f4MSRkDl/9Vp45q8SRwGzqxlKKhD8w3V9ydlxskWoHKa4fq+ZFkAQ
-	jRlfvNw1Zgp+JZHPV8BbaF2eLIivotnMaMsNk1dw+cX9Clrde3KZNvsvaQLstQrDJ0zVrdnye0Yjl
-	pJPRU1eDzJWiOUjzF4TBpUSR6a8w0LvfNBIt7CsBUAekyADGOG4KIf1gyLLGQ8v9aqeMzXR/5JNWH
-	P2c/tHyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r7WBuk2/uLe2meaXUWqKZJpLgBzXsYM73eCP13b2d4g=; b=YdhXbUaZdB4OeDMXbmSg2b0xS/
+	cHbWtnUYDpYqT6h4EYt9Iwj8ZpJqyXp/OW6HTIU9SgvVA1zGacQ6YQYWmY4FLZMXoeHPGc5g02Wfq
+	qF9JCJnkvnGoiuPbofWHDaM7YhhhIdyxzpT8F8gAzjLs/fek/3L3MYXsw0RIwGVK6ZTlsh+jHJiTy
+	0QtvxTddg+f0X1oEOrwCJXpbOJXgeHM4ngd0lAUZqCkCbO1maYonf9DoHMKvtGcvC1EdD1JozuBAq
+	4No3VIecTuUu+AnAx4ucfv8OotNrdThqw80QgGOVp+rxvEc40nUq6Rg69MlEOgHgs6Wq00qz1Hois
+	9SK9ay8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDFgf-0000000D7QL-47Fp;
-	Mon, 27 Oct 2025 05:22:33 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1vDFuG-0000000D7sp-1EKA;
+	Mon, 27 Oct 2025 05:36:36 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDFgc-0000000D7Pz-2DCo
+	id 1vDFuC-0000000D7sO-2wbj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 05:22:31 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59R5MQJK2336730;
-	Mon, 27 Oct 2025 00:22:26 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1761542546;
-	bh=eZCgf91re28Z+mhjsd1SA4AChxcvuQ2WJ2scn/0nNvA=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=msWLSVsguS78kMda4jHNh4RgYidjmXRTC2lkc28TpXVU/WGp9UTi+jiv/JIYTMXqF
-	 dWLEo8dWeVkQGtxeXdc2bcbgEyYdnEtbNXO7BuGLIxP94sf+zF6CKH1Aqu3Ih6LNIv
-	 XpQcx4WF3MGYSirSCNfL8i29hrA5d9uj8NlMOnpU=
-Received: from DLEE212.ent.ti.com (dlee212.ent.ti.com [157.170.170.114])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59R5MQTr1437619
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 27 Oct 2025 00:22:26 -0500
-Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 27 Oct
- 2025 00:22:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 27 Oct 2025 00:22:26 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59R5MNH9114936;
-	Mon, 27 Oct 2025 00:22:23 -0500
-Message-ID: <1d0e3bd6-eabb-4083-aa20-faae7fd79cff@ti.com>
-Date: Mon, 27 Oct 2025 10:50:54 +0530
+	Mon, 27 Oct 2025 05:36:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=r7WBuk2/uLe2meaXUWqKZJpLgBzXsYM73eCP13b2d4g=;
+	b=qJjEJF6FhjYwipyWgYF0kUsgDCasEyNzCOv7vo1X68rIkAYLFtV3qPemM05Tp8
+	uwSHK9cGgIyuCXG9hdvXGGtzDnqUA0aXRqWyoaEE5+m8LrA/w8x/sGZLgAri3Gzy
+	Jdn+4uCIhd1MRKPJyw8tjiX3Q87EX/N6eeQ7qGIdhtNcc=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgCXXyDOBP9ok5+5AA--.1347S3;
+	Mon, 27 Oct 2025 13:36:17 +0800 (CST)
+Date: Mon, 27 Oct 2025 13:36:14 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: jan.petrous@oss.nxp.com
+Cc: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: freescale: Add GMAC Ethernet for S32G2 EVB
+ and RDB2 and S32G3 RDB3
+Message-ID: <aP8Ezk_zjo-NZCD4@dragon>
+References: <20251006-nxp-s32g-boards-v1-1-f70a57b8087f@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am62-wakeup: Enable
- cpsw_mac_syscon in U-Boot
-To: Daniel Schultz <d.schultz@phytec.de>, <nm@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <upstream@lists.phytec.de>
-References: <20250923130901.4110013-1-d.schultz@phytec.de>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20250923130901.4110013-1-d.schultz@phytec.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251006-nxp-s32g-boards-v1-1-f70a57b8087f@oss.nxp.com>
+X-CM-TRANSID: M88vCgCXXyDOBP9ok5+5AA--.1347S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Gr4kCryruw1kWF48Jr17GFg_yoWxKFy7pF
+	97Ca93Xr1Igr12vasIg3Wkur90yws5Kr15urnFvrWjyr4avr9Ivr13JrsxWw10qFs8Ww4U
+	ZFnYvFn7C3ZxXw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UpCJQUUUUU=
+X-Originating-IP: [117.80.155.87]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIhFPtGj-BNEzBQAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_222230_684965_642F7EC0 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20251026_223633_071320_E961EBD6 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +84,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
-
-On 23/09/25 18:39, Daniel Schultz wrote:
-> Add the "bootph-all" property to cpsw_mac_syscon.
+On Mon, Oct 06, 2025 at 06:31:28PM +0200, Jan Petrous via B4 Relay wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 > 
-> This fuse region contains the internal MAC address. Without this
-> syscon node enabled, this interface will get a random MAC during
-> network boot. This is problematic because the AM62x network
-> boot is using BOOTP protocol for some binaries and this protocol
-> does not support dynamic lease expiration. Therefore, the DHCP
-> server can run out of free IP addresses.
+> Add support for the Ethernet connection over GMAC controller connected to
+> the Micrel KSZ9031 Ethernet RGMII PHY located on the boards.
 > 
-> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
+> The mentioned GMAC controller is one of two network controllers
+> embedded on the NXP Automotive SoCs S32G2 and S32G3.
+> 
+> The supported boards:
+>  * EVB:  S32G-VNP-EVB with S32G2 SoC
+>  * RDB2: S32G-VNP-RDB2
+>  * RDB3: S32G-VNP-RDB3
+> 
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 > ---
->  arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi        | 50 ++++++++++++++++++++++++-
+>  arch/arm64/boot/dts/freescale/s32g274a-evb.dts  | 21 ++++++++++-
+>  arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts | 19 ++++++++++
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi        | 50 ++++++++++++++++++++++++-
+>  arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts | 21 ++++++++++-
+>  5 files changed, 157 insertions(+), 4 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> index 6549b7efa656..41ac17e809be 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> @@ -30,6 +30,7 @@ opp_efuse_table: syscon@18 {
->  		cpsw_mac_syscon: ethernet-mac-syscon@200 {
->  			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
->  			reg = <0x200 0x8>;
-> +			bootph-all;
-
-Please restrict this to boards that actually support network boot by
-moving to dts or SoM specific dtsi? Same applies to 2/2
-
->  		};
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> index d167624d1f0c..d06103e9564e 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -3,7 +3,7 @@
+>   * NXP S32G2 SoC family
+>   *
+>   * Copyright (c) 2021 SUSE LLC
+> - * Copyright 2017-2021, 2024 NXP
+> + * Copyright 2017-2021, 2024-2025 NXP
+>   */
 >  
->  		usb0_phy_ctrl: syscon@4008 {
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> @@ -738,5 +738,53 @@ gic: interrupt-controller@50800000 {
+>  			interrupt-controller;
+>  			#interrupt-cells = <3>;
+>  		};
+> +
+> +		gmac0: ethernet@4033c000 {
 
--- 
-Regards
-Vignesh
-https://ti.com/opensource
+Please sort devices in order of unit-address.
+
+> +			compatible = "nxp,s32g2-dwmac";
+> +			reg = <0x4033c000 0x2000>, /* gmac IP */
+> +			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+> +			interrupt-parent = <&gic>;
+> +			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq";
+> +			snps,mtl-rx-config = <&mtl_rx_setup>;
+> +			snps,mtl-tx-config = <&mtl_tx_setup>;
+> +			status = "disabled";
+> +
+> +			mtl_rx_setup: rx-queues-config {
+> +				snps,rx-queues-to-use = <5>;
+> +
+> +				queue0 {
+> +				};
+
+We usually have newline between nodes.
+
+> +				queue1 {
+> +				};
+> +				queue2 {
+> +				};
+> +				queue3 {
+> +				};
+> +				queue4 {
+> +				};
+> +			};
+> +
+> +			mtl_tx_setup: tx-queues-config {
+> +				snps,tx-queues-to-use = <5>;
+> +
+> +				queue0 {
+> +				};
+> +				queue1 {
+> +				};
+> +				queue2 {
+> +				};
+> +				queue3 {
+> +				};
+> +				queue4 {
+> +				};
+> +			};
+> +
+> +			gmac0mdio: mdio {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				compatible = "snps,dwmac-mdio";
+> +			};
+> +		};
+>  	};
+>  };
+> diff --git a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> index c4a195dd67bf..f020da03979a 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> +++ b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> @@ -1,7 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+>  /*
+>   * Copyright (c) 2021 SUSE LLC
+> - * Copyright 2019-2021, 2024 NXP
+> + * Copyright 2019-2021, 2024-2025 NXP
+>   */
+>  
+>  /dts-v1/;
+> @@ -15,6 +15,7 @@ / {
+>  
+>  	aliases {
+>  		serial0 = &uart0;
+> +		ethernet0 = &gmac0;
+
+Sort aliases in alphabetical order.
+
+Shawn
+
+>  	};
+>  
+>  	chosen {
+> @@ -43,3 +44,21 @@ &usdhc0 {
+>  	no-1-8-v;
+>  	status = "okay";
+>  };
+> +
+> +&gmac0 {
+> +	clocks = <&clks 24>, <&clks 19>, <&clks 18>, <&clks 15>;
+> +	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&rgmiiaphy4>;
+> +	status = "okay";
+> +};
+> +
+> +&gmac0mdio {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	/* KSZ 9031 on RGMII */
+> +	rgmiiaphy4: ethernet-phy@4 {
+> +		reg = <4>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> index 4f58be68c818..b9c2f964b3f7 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> +++ b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> @@ -16,6 +16,7 @@ / {
+>  	aliases {
+>  		serial0 = &uart0;
+>  		serial1 = &uart1;
+> +		ethernet0 = &gmac0;
+>  	};
+>  
+>  	chosen {
+> @@ -77,3 +78,21 @@ &usdhc0 {
+>  	no-1-8-v;
+>  	status = "okay";
+>  };
+> +
+> +&gmac0 {
+> +	clocks = <&clks 24>, <&clks 19>, <&clks 18>, <&clks 15>;
+> +	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&rgmiiaphy1>;
+> +	status = "okay";
+> +};
+> +
+> +&gmac0mdio {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	/* KSZ 9031 on RGMII */
+> +	rgmiiaphy1: ethernet-phy@1 {
+> +		reg = <1>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> index be3a582ebc1b..e31184847371 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+>  /*
+> - * Copyright 2021-2024 NXP
+> + * Copyright 2021-2025 NXP
+>   *
+>   * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+>   *          Ciprian Costea <ciprianmarian.costea@nxp.com>
+> @@ -883,6 +883,54 @@ gic: interrupt-controller@50800000 {
+>  			      <0x50420000 0x2000>;
+>  			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
+> +
+> +		gmac0: ethernet@4033c000 {
+> +			compatible = "nxp,s32g2-dwmac";
+> +			reg = <0x4033c000 0x2000>, /* gmac IP */
+> +			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+> +			interrupt-parent = <&gic>;
+> +			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq";
+> +			snps,mtl-rx-config = <&mtl_rx_setup>;
+> +			snps,mtl-tx-config = <&mtl_tx_setup>;
+> +			status = "disabled";
+> +
+> +			mtl_rx_setup: rx-queues-config {
+> +				snps,rx-queues-to-use = <5>;
+> +
+> +				queue0 {
+> +				};
+> +				queue1 {
+> +				};
+> +				queue2 {
+> +				};
+> +				queue3 {
+> +				};
+> +				queue4 {
+> +				};
+> +			};
+> +
+> +			mtl_tx_setup: tx-queues-config {
+> +				snps,tx-queues-to-use = <5>;
+> +
+> +				queue0 {
+> +				};
+> +				queue1 {
+> +				};
+> +				queue2 {
+> +				};
+> +				queue3 {
+> +				};
+> +				queue4 {
+> +				};
+> +			};
+> +
+> +			gmac0mdio: mdio {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				compatible = "snps,dwmac-mdio";
+> +			};
+> +		};
+>  	};
+>  
+>  	timer {
+> diff --git a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> index e94f70ad82d9..4a74923789ae 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> +++ b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+>  /*
+> - * Copyright 2021-2024 NXP
+> + * Copyright 2021-2025 NXP
+>   *
+>   * NXP S32G3 Reference Design Board 3 (S32G-VNP-RDB3)
+>   */
+> @@ -18,6 +18,7 @@ aliases {
+>  		mmc0 = &usdhc0;
+>  		serial0 = &uart0;
+>  		serial1 = &uart1;
+> +		ethernet0 = &gmac0;
+>  	};
+>  
+>  	chosen {
+> @@ -93,3 +94,21 @@ &usdhc0 {
+>  	disable-wp;
+>  	status = "okay";
+>  };
+> +
+> +&gmac0 {
+> +	clocks = <&clks 24>, <&clks 19>, <&clks 18>, <&clks 15>;
+> +	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&rgmiiaphy1>;
+> +	status = "okay";
+> +};
+> +
+> +&gmac0mdio {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	/* KSZ 9031 on RGMII */
+> +	rgmiiaphy1: ethernet-phy@1 {
+> +		reg = <1>;
+> +	};
+> +};
+> 
+> ---
+> base-commit: fd94619c43360eb44d28bd3ef326a4f85c600a07
+> change-id: 20251006-nxp-s32g-boards-2d156255b592
+> 
+> Best regards,
+> -- 
+> Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> 
+> 
 
 
