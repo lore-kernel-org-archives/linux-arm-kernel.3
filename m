@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB24CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A6CCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/SBV90iCKGz6XON109DoFy6Jo9KP1hBDt8Ha5ZIeUs=; b=DnAMSxKQwfaAdh28+Gc0weY3sH
-	fGj18Ri3OAt1Uln3OLCyHuv9ITPI7FIuzkyzj6QXxzKP030KmTOYlLu/LTpJk6dgbnBe0M21q4fER
-	lI2z4mAUeqIBoVLykzP5/HJjDzg8zdjuXWdlh/Rf17x9Ptg8cwDC9XkOX/YkzJv75ZUrMksPnHKaz
-	dmb8y3d1RFMs/yOXLaXRhs0qZck7RW2Sr9DPMIlWOgpLadUzFeVYfGbiMTDeZtWxoh8CPq5Xt45i9
-	b1UgwPVTVGIplCAJBe6FT1m5RtL6FnldOqdaqEVSgjqyd/9FAevN67xo/H/EZkN6+q5dglf87QbVL
-	0hui1uOA==;
+	bh=7vYNu/V+yB8ESbhKG+qhmi2rqh8DEHzZMx+plWdaAhk=; b=mG38Y5oXrb4aGaWAbvImTWIR/H
+	pGQnlbhxSULTr9szb8nYKcI/KnF14uk9a6iImOgZNX2JcbornToz444opnZIRvmwBQxQLs+TCFooI
+	g/Qyw3DC2DauPKfPh2yUG99qbgyjd0l/kVtb8Dj6m9w5YhADcsWwFDr2laWelrHK1Xlx6OI6JAleE
+	pmwdV4btk/Pe4bCFzuon2pd6XGlIVfmh+kXWFeAHzO167mocG9+ksz5/2pxZfj18KvlyLg26pZf58
+	ZtsL/ck8CeDTc/dVt1iExmF4jItnBc+s4l2zy7WLRWAAxZ2f5Mb5ILkh6hPoMLlpyDM0QTkRNtCoa
+	RQ47X9Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTns-0000000EjTQ-0DOS;
-	Mon, 27 Oct 2025 20:26:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vDTxI-0000000EjxB-0PTr;
+	Mon, 27 Oct 2025 20:36:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTnp-0000000EjSq-13nU
+	id 1vDTxG-0000000Ejwx-3TW2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 20:26:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761596811;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Y/SBV90iCKGz6XON109DoFy6Jo9KP1hBDt8Ha5ZIeUs=;
-	b=EMGLz+AYS+vgGUZJV8T7VtbGoQAzCaM7VokDn9t/naHm20XWuztcxBHmo7QW5geNydedPJ
-	xtirCq1wnTloYTsEHk7y45SXDG5NX9vlaU1XijapsYeO9BOKUrlBrECfTVG7F44/oWqerQ
-	5kbzHn5lQXsBqqZVJO9O4sY3D1mvdM8=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-576-QTIAYO1VPrqzcqq9vNLFyw-1; Mon, 27 Oct 2025 16:26:49 -0400
-X-MC-Unique: QTIAYO1VPrqzcqq9vNLFyw-1
-X-Mimecast-MFC-AGG-ID: QTIAYO1VPrqzcqq9vNLFyw_1761596809
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8a1ba620dc9so568559785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:26:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761596809; x=1762201609;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Y/SBV90iCKGz6XON109DoFy6Jo9KP1hBDt8Ha5ZIeUs=;
-        b=ES5wo+/3KFSJoAzAquklVJ4MsRdJY2sdeb2RC5xelx0ddLObtVAZjAa3FvSOC6Fvmj
-         ATKqci7sq3bc5aYGgvSnTEk0XrhwO7Dh2xK52K5A57yP0GIIn+zU6Qp9jVqNwD7mpBZs
-         kNuxmHRVeavO1FODyEqGbKL/Nza+yiGFdQk1I2EFoYWY1MzepluN1Ax2bjYUJm0zsVKa
-         q6llxCRLTLedeR8oO3xi7MWKJ9ZpFdTGKxCxraqc2dJxY5nW8O3mMiHdyWKQv8v3p4Dg
-         6UJsy2w9sassGpl2V1tjGr6yQBHfrI93E8vHguo0YN96xQVcI82Vnez2aPzCDDIQKfWt
-         RfJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXvXheBLr0XA8IqgabYPWRGRTJUaZ4hUgiD6WDHt4uZaNsD4yRbbpqfmaAPtZvSibt88Ffdu6aB1HFrz/xePGOK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6pBVqoudnS9OC1A4z4PZL6xqh6sdPWrK8vTTzuOGKO9b1OrcK
-	L7zTaEBijrx2LPsGDuYPKIGz1/fhbMqfcdDPIsiYnCJKZBQO7Bio1MMDVSquGqcvPlx1nEaJlhY
-	Pu4osLgSwB78O6sMRRR1wjNOd0y46+Kwq40u6S9zV9z9RAXpkn7K85Hx4obHduTJKEKXRLi2zzE
-	NA
-X-Gm-Gg: ASbGncuFX5prFC8DxLfq+xFYyX/R5cYvFtVrysvlzHLYumBMuzQFMmZGZ8Tuw9u/b/G
-	FBQJnpxgS9/trUd8OtT64JUYWvVjsSqK/KQEsg9yuFLWFjtaJvZ70pJuS0t7uFsisGrhs8xA93k
-	wh1cgAAdRmyceJe2kGJL8iRC9NdjZHJPQU/F2QXDrJ+j/JFn1eF/Oo+AIVS4fEojcs9J4s0BlyE
-	k93D5WhgwooKLZWMqwfoUkEe29hU9j0dR2SHUTrtdzJkXpqKDDp3h8LE6FxxwiX9y/frLS/JB00
-	yuZrcyfC+dBbXwoovk2AbCbnUQqUrKyt8CKiLG9qoHJZqkQWR4Ol0cgoqLYnZprEzFD6OLlmYAG
-	siwpGxsc0hRCD1WlPDyvTGpSnvcKuWO83xGiKK6Hug2f37Zj/NWcvWsQ23baouTqc/g==
-X-Received: by 2002:a05:620a:2544:b0:88e:6bac:92e7 with SMTP id af79cd13be357-8a7283cf657mr93234385a.44.1761596809228;
-        Mon, 27 Oct 2025 13:26:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHUEmCLFiys53M27OcwnIWGH/VtfZVuFONe30VKZoy1ylmoq5yRl+2RmIUCn1F3cGE5/JrVxw==
-X-Received: by 2002:a05:620a:2544:b0:88e:6bac:92e7 with SMTP id af79cd13be357-8a7283cf657mr93230885a.44.1761596808648;
-        Mon, 27 Oct 2025 13:26:48 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-89f24cd5617sm667155385a.19.2025.10.27.13.26.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 13:26:48 -0700 (PDT)
-Date: Mon, 27 Oct 2025 16:26:44 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] clk: tests: Add tests for clk lookup by name
-Message-ID: <aP_VhHGLj3-JvgTB@redhat.com>
-References: <20251015090701.2049164-1-wenst@chromium.org>
+	Mon, 27 Oct 2025 20:36:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E21466059D;
+	Mon, 27 Oct 2025 20:36:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57184C113D0;
+	Mon, 27 Oct 2025 20:36:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761597397;
+	bh=7vYNu/V+yB8ESbhKG+qhmi2rqh8DEHzZMx+plWdaAhk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D7dndVWKprOCSRBJDcOURDGTFrK7JuobTF+mTzjIHZk72c4FARzR4jiOUh37UXyUp
+	 /G1kAYzF29MRtsLosHiivhVYIUnVCPfYWzE8tUmrwxfizg8yY061hr7lAcWDNF42JY
+	 8yDvgvY4Qw/Mnf2dHilSANLgUvWmn+g4eRVLTD4C+8g83DRqj2QXyQd8a/mwpGhZ0z
+	 iWjcs7LSlcBGsu6BIyQWIBcKaq7SJc2pqvi5gzHCPAi5pKHDpbphrVZP0+thl9N3Si
+	 kcQ6g2jZ50aJLx0bC1jsEePTNV73o1C+SpRJ/2HGONCGVDnTjWtF6gmKZekOYJ7hJf
+	 cakXPLlCr953A==
+Date: Mon, 27 Oct 2025 13:36:30 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: Kees Cook <kees@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Simon Horman <horms@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Michal Kubiak <michal.kubiak@intel.com>,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	intel-wired-lan@lists.osuosl.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH 3/3] libeth: xdp: Disable generic kCFI pass for
+ libeth_xdp_tx_xmit_bulk()
+Message-ID: <20251027203630.GA3183341@ax162>
+References: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
+ <20251025-idpf-fix-arm-kcfi-build-error-v1-3-ec57221153ae@kernel.org>
+ <fa4487d0-a077-4582-80aa-2deeccee6270@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <20251015090701.2049164-1-wenst@chromium.org>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: gJzjzbSIkCLXHxXyNcYnH5ZHgPkjXyf2qVA3xco-ZqA_1761596809
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_132653_388059_A6F6E873 
-X-CRM114-Status: GOOD (  12.71  )
+In-Reply-To: <fa4487d0-a077-4582-80aa-2deeccee6270@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,18 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 05:06:59PM +0800, Chen-Yu Tsai wrote:
-> Clk lookup (by name) recently gained some performance improvements at
-> the expense of more complexity within the lookup code.
-> 
-> To make sure that this works as intended and doesn't break, add some
-> basic tests for this part of the CCF.
-> 
-> A new "clk_hw_lookup()" function is added purely for running kunit
-> tests.
-> 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Hi Przemek,
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+On Mon, Oct 27, 2025 at 12:09:47PM +0100, Przemek Kitszel wrote:
+> sorry, but from regular driver developer perspective, just after reading
+> your commit messages, I'm unable to tell what the fix is about, and from
+> that follows a bigger issue: how to write code in the future to avoid
+> such issues (it would be infeasible to always wait for a LLVM specialist
+> to come up with a fix ;))
 
+Sorry about that! To be fair, I am not sure most driver developers would
+write something as subtle as this code to get themselves into a
+situation where I or another LLVM person would need to come along to fix
+it.
+
+> was the tricky case to call __always_inline func from another that was
+> marked the same? Would it be also the case if one of the functions would
+> not be marked with __always_inline attribute, but still end up inlined?
+
+No, I think the tricky case here is that the code depends on the
+compiler being able to turn all these indirect calls, as the (*xmit)()
+and (*prep)() parameters in libeth_xdp_tx_xmit_bulk(), into direct calls
+through inlining. I find that depending on optimizations for correctness
+(i.e., passing the assertion that the result of a equality test can be
+proven true or false at compile time) is risky because it can result in
+flexible but performant code but it is also sensitive to interactions
+with other compiler internals and optimizations, resulting in changes
+such as these.
+
+> what would be the cost of the alternative naive solution, to always add
+> __nocfi_generic to functions marked __always_inline?
+> (technically you would redefine __always_inline to have also
+> __nocfi_generic for the config combinations that require that)
+
+No, you would not want to do this because if any indirect call remained
+in the inlining chain, there would be no caller side CFI code generation
+and that indirect call would automatically fail (if I understand
+correctly), which is why commit 894af4a1cde6 ("objtool: Validate kCFI
+calls") now validates this rule at compile time for x86_64 (which is not
+affected by this issue since it does not use the generic LLVM kCFI pass
+like ARM prior to 22.0.0 does).
+
+> sorry for my ignorance of not reading any of the attached URLs
+
+No worries, I am not sure how much more they would help with
+understanding the problem, which is subtle. If I can clarify anything
+further, please me know but I am not sure it will matter too much since
+we will likely just forbid using the generic kCFI pass to avoid this
+issue, rather than applying __nocfi_generic.
+
+Cheers,
+Nathan
 
