@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B52CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E74CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 18:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UMYfFkEM7UBuW6omhsL3wJ6ua+mkSgNdv+pYpmN6Wpk=; b=baOd6sFJtVvHwbAZAo77XNdhVH
-	AVp1QtqhywPrFzaXXoP9KSIRfmSvN7F4mwLPZF7nhP1FLpnPDyHuk+7bD8myzWJciencfwnc+hfcD
-	abGtDXovE+GQnzTIsRgjAxG5qGAR0kEvEt4CNFyQi8H838L8ElvvWzSz6x0Xo2CBXszno4lbiyPQV
-	UWkfed+PoCVCr7XvuKsFzfiYrt8agjVaH4VDXoXZRjKYgFJvjhcU6TR0yg1lfyYQq08uqRKBZuwDB
-	D83k9iya94YNNSM+o9wtz5MfKRng6oI+9sogblzAWJEl4EnNy9L8tdB2VwCPk5DHz7BKWBR+ZbSYa
-	TmRpaDvQ==;
+	bh=MFWQummmvWqtMZ6PmEi7qpi+SlTV+/WN6UNFhAkDscU=; b=hlQZKXgFcdJPekIL1zdwR4eMYP
+	uQU112EgcA5Rl7MUZg2GbWLA10SUTiwVPdLYT4b5svvBC6RAyjdUR1XKCNi/OgQu96YBqF32X68UJ
+	P58EdDcws8+A1FQ6x2USGukVj8020g8E8o3aR84OKryvLuuegZMFqFy2KkPXJEadrYbOFxjfcbWOs
+	tYwuPTsksQ7U4RWtGax+43ubxPyH/aGN7/EDBy/hanlpJGWdUcFSHfcghR2AOdGprCCkM4KrXFvmf
+	9CRqICe0A05G0JPykiP0QCHwQzKsrDG3eBBKMJWF2AYIWC+mfnqyQBWu82cf1zZ2hK0XcCLtYLNVz
+	z2k+NgnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSPm-0000000Eb8E-3ay6;
-	Mon, 27 Oct 2025 18:57:58 +0000
+	id 1vDSQI-0000000EbK7-40qU;
+	Mon, 27 Oct 2025 18:58:30 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSPl-0000000Eb7g-1umZ;
-	Mon, 27 Oct 2025 18:57:57 +0000
+	id 1vDSQH-0000000EbJX-3wRQ;
+	Mon, 27 Oct 2025 18:58:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D856161753;
-	Mon, 27 Oct 2025 18:57:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20A3BC113D0;
-	Mon, 27 Oct 2025 18:57:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AEF861753;
+	Mon, 27 Oct 2025 18:58:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2FAEC4CEFD;
+	Mon, 27 Oct 2025 18:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761591476;
-	bh=6jgS8F5y4zhBcgzwqpuJF3p5VuMmvRw0HGPgrCP+CYI=;
+	s=k20201202; t=1761591509;
+	bh=KokesvZHTOYQVYRu9cUCVazcgroa5wNFAdW6lFmynfU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LJt81xZXcMjevgKlU+bTjCMfNWtWI2aJZ/xH+0Zy9Ei3kv2UaBgnUvULu1zM8AT5p
-	 HVWE9/l2BnjoO3fFb198vpNTaQBsBWqnniAiHnVKdWTHLCrHSWEHexwAUXEtYKVt6l
-	 o0T2HuQTUKtFvJjcLP77cWIOBQVVHYZQOCtHQLE01Gjr1/umNNdiXnSKV8kCatjuVe
-	 gXSMIQ3XYOQ19+yqzH5BYjyyolyU+qN4phveFu4lXlsNVhreitVN/25cI2IBV/e/Dn
-	 NsIvVWbf7jLX3/6nhXDetsMCHttMIjKxwQdiPFEz6Ch7y+2eGTeeKZHOYnhK0wJ4u9
-	 PJ1b1cPxD9h0g==
-Message-ID: <644bfb1f-81a7-4554-ac9a-3f2516fdc280@kernel.org>
-Date: Mon, 27 Oct 2025 19:57:51 +0100
+	b=o+cHlvQ2JfWjnvTt2kdqYgthP/vlrcpy4gAoTrRDCW6CGk913gZrYcilQZRo4N93K
+	 E8Z8+3SRvCMaxywSn1AA+I9RRNIQQsJFUWyCU1zqOX0eeGJPMoSi9EmgES+uo0dcBl
+	 uTIoP008ffuWVmUHWzFviljVEec5rAg4nq2J+Gc0hMzvaVPJgPTu4RdaYh7HkeFSa1
+	 ekIWFRrhQJOwCupAPCMXOGyhwjYC85fudYK6ecB1ik7/B0Xk6R/HOr/+SOYvUT5p6G
+	 aGFG4KrdBdaQfE5Se9OsjStC+Vl2kkxb5tvAY83qfatnoSBecArg2oYiSvonhag9Dy
+	 z1/gD7v3rrntw==
+Message-ID: <35504988-448e-4a5c-8ea6-769c06117c01@kernel.org>
+Date: Mon, 27 Oct 2025 19:58:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/6] dt-bindings: arm: mediatek: add BPI-R4 Pro board
+Subject: Re: [PATCH v1 3/6] arm64: dts: mediatek: mt7988a: Add label for
+ ssusb0
 To: Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
@@ -57,7 +58,7 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
  linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org
 References: <20251027132817.212534-1-linux@fw-web.de>
- <20251027132817.212534-3-linux@fw-web.de>
+ <20251027132817.212534-4-linux@fw-web.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251027132817.212534-3-linux@fw-web.de>
+In-Reply-To: <20251027132817.212534-4-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,14 +124,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 27/10/2025 14:28, Frank Wunderlich wrote:
 > From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Add compatibles for Bananapi R4 Pro boards.
-> 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
+> Add label for ssusb0 node which is used for BPI-R4-Pro.
 
+This makes no sense on its own. We do not add labels because they have 0
+impact.
 
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Please drop or squash.
 
 Best regards,
 Krzysztof
