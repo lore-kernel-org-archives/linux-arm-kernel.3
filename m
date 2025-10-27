@@ -4,80 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B50CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5DDCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JzOl43h72qIg903VcLgPPqEaQOxJyebUM6Y8SFlK3FI=; b=GfI4ZE0bBeuY4l1HQfqvaP9+N4
-	DKzfb06L9iWSgOu69sOsJ0KePjyu6L9FitC7Fjb7pZF5tQbyrUPJGa4UjElMr9erDjxw1RCd1pgiN
-	YMP654/XovWA5DpEqt2YzDPkCYmofukZ3mZZga3iGXc8NukpqiFXwcKE1LLzhp3/oCTLR4/2EmxlY
-	pYKKrVZOVGL29ISRfZuSzZ4ok9aHd5wyG9m6Oef4jfI04owYz+rUHIjqb0hnWMQ8GhLwtiafoGBZB
-	JD0VZQYZMXf5T1YWdOJRwkbfSu/8T4Q70Zg72MY91DmUed0Vt7yAYs3mFzgdoG04GcbuPEY8c4oPx
-	DgEisegA==;
+	bh=JncXzot9W1gow8/tUDBTV3mAgpfqF8x82foGvNCR8u8=; b=kT9yZ/WIxT7dVhhFyNqGbGZV8+
+	6y8ShcxeLSw6+gF/ubrFxLH2L9fDyPnHqynzKWpbA80L5NnInjjfR3Ozn7GX5G0A9mK/j94ELjETD
+	dbH2KhIrOLqnI/CAjkKiP3gzUuzUmZsYa9NFvZHrChNlL0kV4Avb8gcF79ZLME/EGKjgq6IKNag4t
+	KZWVwhi8b0t7yq6THLGO0e++Kt/gWXKSA2fRNdumVvE3UZ1II1zLrMo7G1XlIIycApUUKZ6ntFZbF
+	Vi3TlZjKmmso7qJ2j+w3PL25Z5+lTZsiqKwHFNbQdWgIi4hn4Dk+0U6CrInEuKXEvIaltHk3H5O7/
+	bdbl8niA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMEk-0000000Dsni-0wq1;
-	Mon, 27 Oct 2025 12:22:10 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vDMFP-0000000DsuA-3VSH;
+	Mon, 27 Oct 2025 12:22:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMEh-0000000DsnL-1dyJ;
-	Mon, 27 Oct 2025 12:22:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761567688; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=B37m3tRXg9231oauumFgq3IS919cZOBg5SjkoJsfAAEv3xg7NZzheR2/o1Z6DWXuET3Phh+B65kMnrMCibaDLL47gqWercUuzNjDdQ/QEDk4PDMfokyzUxleEz3k8oEQQE8eM/LGA6cXBQj3Z5m2bCDyEdLFNH72QNvwSyqfTHs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761567688; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=JzOl43h72qIg903VcLgPPqEaQOxJyebUM6Y8SFlK3FI=; 
-	b=PHxByQ8byaqaWcg7cDcy7ZXDXysm3SbInlN64ODpr8FHXGPi7kW3HXHt+zOniUMSCoQtu7DUByVBCUDCbhdmo00hUk8zNn6A7YdjO/9J7MEh1bEETNOogOlizsXIBRbcRpyX3gSWzK3sSO0p/n4fuKKbZFBpqUY9Cjzvie0NDxU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761567688;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=JzOl43h72qIg903VcLgPPqEaQOxJyebUM6Y8SFlK3FI=;
-	b=kDy9KX2417EVcr5ZvR/y8uZmt2IgIbpSIydVjZEiNT4mUYn+LTARqHpo2PI9/c+O
-	XrqA+KwqLPKUa7++D+dlwBTP8fipyA2OMRQQKoikyQmHtIagGSU4zKzvjDMhQPiCI7W
-	A4THQcscyFyTp2lEGrAOYogNvIgC0YM8dyTtux88=
-Received: by mx.zohomail.com with SMTPS id 1761567685152749.0643459384486;
-	Mon, 27 Oct 2025 05:21:25 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>,
- Linus Walleij <linus.walleij@linaro.org>, Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Shreeya Patel <shreeya.patel@collabora.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>,
- Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, kernel@collabora.com, linux-mmc@vger.kernel.org,
- linux-sound@vger.kernel.org, "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
-Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Subject: Re: [PATCH 11/21] drivers: don't use GENMASK() in FIELD_PREP_WM16()
-Date: Mon, 27 Oct 2025 13:21:15 +0100
-Message-ID: <2824034.mvXUDI8C0e@workhorse>
-In-Reply-To: <20251025164023.308884-12-yury.norov@gmail.com>
-References: <20251025164023.308884-1-yury.norov@gmail.com>
- <20251025164023.308884-12-yury.norov@gmail.com>
+	id 1vDMFM-0000000Dstc-3Dmb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 12:22:50 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59R84pg22232279
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 12:22:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=JncXzot9W1gow8/tUDBTV3mA
+	gpfqF8x82foGvNCR8u8=; b=hQQFjcNu2DH5Lw59o1W3SMNAFQY0QXjO/ktVuC40
+	hzC7YzQhGKGkCh1lCcdb/C/niKl0YCCv4pxGe/CTro0PzN3sR8SCaf+bRb1G1SzN
+	q+VuVqXq66xW1wvCMEun5HJ81BTKuCA3TxV612EXGGbQdvrskchdpi2h51F/OUc0
+	NSqKEbYWk4av6IrCCZHgQNu/VoFWqFXK3rMMy9vmJNTSf4zHBpVxvjY5YwkyfErW
+	3Ps46xiotXAIzJnryRT7QeUNOyGxvZKYB+by7tQ7mfvn5y+2l69ZVBj3vtenKmSR
+	dxdsKS6jQdPufQELxCcW3VKJ+HXMXz8y5LsPIIwe11cxCQ==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a24wn8qem-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 12:22:47 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4e8a89c9750so141767581cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 05:22:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761567766; x=1762172566;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JncXzot9W1gow8/tUDBTV3mAgpfqF8x82foGvNCR8u8=;
+        b=atThJ7FO7szPE/d7lJc/mGMp9FGfqW2t2zCLoB4os5Ro4eEGptbdgkVpH/GSnd7CNx
+         SzQO6uCVPZJqp6PwkyZ9UKoKNHgJhgh9zeGLWLVzpTp0z/DnnuDfue/+UJtTs6x+qTfb
+         04SCsUmwd9hiVPG0yz5tSVHsi//fDy6BarbCAbAUeHGCljMqgCFHTiq5ypm3QVCWXBsp
+         3Sh0BlOJV43ee++iP8ChO51EBdH/RA+XUZvA1U+ReFQ6ZNhjt/b+JjOCxsV9Lc9nRUVC
+         2VbbIEyT0W31HIAlw/HIAIHOD264DG1RJgJhnsZHxdkWsV904gLtj4e7F+JoJt216k9M
+         e8uQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXGDT5A/d9B0WmmX+j3C1cDNgc4rZhg6Kl46sT/ncaGUUQFFS7IW8RBHvijpF81bp3xUE6bDutkUzKPIfusn3O1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVHqkUUx07eODKpiJGYELvviIOWpVwnfu4S25Ksz33uAzJhheT
+	gn6n5rJD6Q3yb8/Vv5sr5Fc6LYU32gbID1+6LU4/u2y6pgsdzdL4yTElWJGNHV5PKL+eZwLcJ1g
+	RGD9o/s5sAMpinGw0pNxMlYs2C8zsUgyG0Rv30/cDE1JPGhnPJZtbjjuwViHkWPXwqlBszFMbZD
+	Hv0w==
+X-Gm-Gg: ASbGncvj3TW2mqU2I3/xjhCLLY86+By+5oT8laJBlvXu+U0Etw5Arbf/fWG0oQwLhH+
+	YE+dYUoQZqXiStNlKRoXzpGMNZvgE2NWUcOZdQh/f5oAZy/cjYltOx0PpWeIWQtfhnhjO3NTw1P
+	LmuhurjD68ATOsTjgBOqLwhr3Lukxbuosyxh04K1cs0e7y3ddvmxj/klDfQwzo5lctV6fETEorX
+	6vKBB0k57anFx4KQZ4HJexIodneH7JA168NPO3dKGKLoB8FEqLe/pbqGiDi31rhoo4HJdaRC8bG
+	ASoy5DvIP/G37eB1Z7NtgE1IoHGYmuLz0tkBmLNAqciJy8H4F2l7H6Sk4InxsHATyJsAUqkpu5s
+	FCexGodhK1lzP1aTnGsYPZZTDWO5iHJB/Z75g3AUfDFYhFnzRSfTXt4caPmBZTnlOc+twU1jLxG
+	8WCIZ+93tukQ7E
+X-Received: by 2002:a05:622a:353:b0:4e8:9f87:1f42 with SMTP id d75a77b69052e-4eb94922adcmr152955891cf.69.1761567766289;
+        Mon, 27 Oct 2025 05:22:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH79d7Do90KoVZ1tYBoBY55fSIjzc3SaetN68K8JqBrkVyDzQwzXI4DnjU4YyJIchWS9APnNA==
+X-Received: by 2002:a05:622a:353:b0:4e8:9f87:1f42 with SMTP id d75a77b69052e-4eb94922adcmr152954761cf.69.1761567765265;
+        Mon, 27 Oct 2025 05:22:45 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-378ee0e0246sm19655221fa.49.2025.10.27.05.22.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 05:22:44 -0700 (PDT)
+Date: Mon, 27 Oct 2025 14:22:42 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: netdev@vger.kernel.org, Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Wei Fang <wei.fang@nxp.com>,
+        Shenwei Wang <shenwei.wang@nxp.com>,
+        Clark Wang <xiaoning.wang@nxp.com>,
+        Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+        Paul Barker <paul@pbarker.dev>,
+        Siddharth Vadapalli <s-vadapalli@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, Alex Elder <elder@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Stephan Gerhold <stephan@gerhold.net>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
+        Chiranjeevi Rapolu <chiranjeevi.rapolu@linux.intel.com>,
+        Liu Haijun <haijun.liu@mediatek.com>,
+        Ricardo Martinez <ricardo.martinez@linux.intel.com>,
+        "Dr. David Alan Gilbert" <linux@treblig.org>,
+        Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+        Michael Nemanov <michael.nemanov@ti.com>,
+        Kalle Valo <kvalo@kernel.org>, Andreas Kemnade <andreas@kemnade.info>,
+        Roopni Devanathan <quic_rdevanat@quicinc.com>,
+        Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+        Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+        imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+        linux-omap@vger.kernel.org, linux-wireless@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH RESEND 2/4] net: ipa: Remove redundant
+ pm_runtime_mark_last_busy() calls
+Message-ID: <g4ryfonkdpnsgqo4brx2dymo7o35jkndc5kkhdybhyvwo5rust@jwsivdbievvi>
+References: <20251027115022.390997-1-sakari.ailus@linux.intel.com>
+ <20251027115022.390997-2-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251027115022.390997-2-sakari.ailus@linux.intel.com>
+X-Authority-Analysis: v=2.4 cv=XIY9iAhE c=1 sm=1 tr=0 ts=68ff6417 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8
+ a=QXDDecBx9f-8Df5VMo8A:9 a=CjuIK1q_8ugA:10 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-GUID: Eit5BjpkvTgteGmVi7Q-J-xFcHmxdtNy
+X-Proofpoint-ORIG-GUID: Eit5BjpkvTgteGmVi7Q-J-xFcHmxdtNy
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDExNSBTYWx0ZWRfX4C/h6Wdl7d8n
+ M+z2/roNrtAGLnr5EcO7/tYY4TGnS5i+HREQGyKSKcVjRw6zlDq460Ap1gXK5Tv1WU7FFhvmmcd
+ YCn9S8UrjaeFWfyShtqEeljLRsXkONHJeN8Hk0Hh4KcKzEMbP73J+P1UcLUaRn6WarQTkZXe3kV
+ e5P/QouCf/FaGqgq6GuRElAbk9V+EXP2YIOJp/dMb1BodBCZ3Um1HvXZsSgspCXLCd7ru/WH7VA
+ VOwi64smavzfeGyvvMwxlyxJjSdFIT+XDvHx/RFIPRnYTc187blbycLEvDCDD6WPuYVltgdLMRq
+ vAjz8FP7wMK4Xl6QnIZyDFhur/2Ibk7T9z8+Ku1K9zMN8npa0cYo4KVtWne7kUDrm143/bt2AOB
+ LEZ4+Fhm/oppcwU1B2TlpJP8hRemyg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-27_05,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 priorityscore=1501 bulkscore=0
+ clxscore=1015 impostorscore=0 adultscore=0 spamscore=0 malwarescore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
+ definitions=main-2510270115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_052207_452983_65C444C0 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20251027_052248_936039_53710516 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,129 +164,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Saturday, 25 October 2025 18:40:10 Central European Standard Time Yury Norov (NVIDIA) wrote:
-> Recently added FIELD_PREP_WM16() in a few places uses GENMASK. It's
-> confusing and may mislead readers. Switch to BITS() or FIRST_BITS()
-> as appropriate.
+On Mon, Oct 27, 2025 at 01:50:20PM +0200, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
 > 
-> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-> Link: https://lore.kernel.org/all/CAHk-=whoOUsqPKb7OQwhQf9H_3=5sXGPJrDbfQfwLB3Bi13tcQ@mail.gmail.com/
-> Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 > ---
->  drivers/gpu/drm/rockchip/rockchip_lvds.h             | 2 +-
->  drivers/gpu/drm/rockchip/rockchip_vop2_reg.c         | 4 ++--
->  drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h | 4 ++--
->  drivers/mmc/host/dw_mmc-rockchip.c                   | 4 ++--
->  drivers/soc/rockchip/grf.c                           | 4 ++--
->  sound/soc/rockchip/rockchip_i2s_tdm.h                | 2 +-
->  6 files changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.h b/drivers/gpu/drm/rockchip/rockchip_lvds.h
-> index 2d92447d819b..e79e6031be59 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.h
-> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.h
-> @@ -115,7 +115,7 @@
->  #define   PX30_LVDS_INVERT_DCLK(val)		FIELD_PREP_WM16(BIT(5), (val))
->  
->  #define PX30_LVDS_GRF_PD_VO_CON1		0x438
-> -#define   PX30_LVDS_FORMAT(val)			FIELD_PREP_WM16(GENMASK(14, 13), (val))
-> +#define   PX30_LVDS_FORMAT(val)			FIELD_PREP_WM16(BITS(13, 14), (val))
->  #define   PX30_LVDS_MODE_EN(val)		FIELD_PREP_WM16(BIT(12), (val))
->  #define   PX30_LVDS_MSBSEL(val)			FIELD_PREP_WM16(BIT(11), (val))
->  #define   PX30_LVDS_P2S_EN(val)			FIELD_PREP_WM16(BIT(6), (val))
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> index 38c49030c7ab..438fea5f6f6d 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> @@ -1698,7 +1698,7 @@ static unsigned long rk3588_set_intf_mux(struct vop2_video_port *vp, int id, u32
->  		val = rk3588_get_hdmi_pol(polflags);
->  		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, FIELD_PREP_WM16(BIT(1), 1));
->  		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0,
-> -			     FIELD_PREP_WM16(GENMASK(6, 5), val));
-> +			     FIELD_PREP_WM16(BITS(5, 6), val));
->  		break;
->  	case ROCKCHIP_VOP2_EP_HDMI1:
->  		div &= ~RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV;
-> @@ -1711,7 +1711,7 @@ static unsigned long rk3588_set_intf_mux(struct vop2_video_port *vp, int id, u32
->  		val = rk3588_get_hdmi_pol(polflags);
->  		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, FIELD_PREP_WM16(BIT(4), 1));
->  		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0,
-> -			     FIELD_PREP_WM16(GENMASK(8, 7), val));
-> +			     FIELD_PREP_WM16(BITS(7, 8), val));
->  		break;
->  	case ROCKCHIP_VOP2_EP_EDP0:
->  		div &= ~RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV;
-> diff --git a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
-> index b13f58e31944..14df3f53ff8f 100644
-> --- a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
-> +++ b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
-> @@ -12,8 +12,8 @@
->  #include <linux/bitops.h>
->  #include <linux/hw_bitfield.h>
->  
-> -#define UPDATE(x, h, l)		FIELD_PREP(GENMASK((h), (l)), (x))
-> -#define HIWORD_UPDATE(v, h, l)	FIELD_PREP_WM16(GENMASK((h), (l)), (v))
-> +#define UPDATE(x, h, l)		FIELD_PREP(BITS((l), (h)), (x))
-> +#define HIWORD_UPDATE(v, h, l)	FIELD_PREP_WM16(BITS((l), (h)), (v))
->  
->  /* SYS_GRF */
->  #define SYS_GRF_SOC_CON1			0x0304
-> diff --git a/drivers/mmc/host/dw_mmc-rockchip.c b/drivers/mmc/host/dw_mmc-rockchip.c
-> index 82dd906bb002..7fac1a7281bf 100644
-> --- a/drivers/mmc/host/dw_mmc-rockchip.c
-> +++ b/drivers/mmc/host/dw_mmc-rockchip.c
-> @@ -148,10 +148,10 @@ static int rockchip_mmc_set_internal_phase(struct dw_mci *host, bool sample, int
->  
->  	if (sample)
->  		mci_writel(host, TIMING_CON1,
-> -			   FIELD_PREP_WM16(GENMASK(11, 1), raw_value));
-> +			   FIELD_PREP_WM16(BITS(1, 11), raw_value));
->  	else
->  		mci_writel(host, TIMING_CON0,
-> -			   FIELD_PREP_WM16(GENMASK(11, 1), raw_value));
-> +			   FIELD_PREP_WM16(BITS(1, 11), raw_value));
->  
->  	dev_dbg(host->dev, "set %s_phase(%d) delay_nums=%u actual_degrees=%d\n",
->  		sample ? "sample" : "drv", degrees, delay_num,
-> diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
-> index 344870da7675..89fd4a4c69eb 100644
-> --- a/drivers/soc/rockchip/grf.c
-> +++ b/drivers/soc/rockchip/grf.c
-> @@ -125,8 +125,8 @@ static const struct rockchip_grf_info rk3566_pipegrf __initconst = {
->  #define RK3576_SYSGRF_SOC_CON1		0x0004
->  
->  static const struct rockchip_grf_value rk3576_defaults_sys_grf[] __initconst = {
-> -	{ "i3c0 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(GENMASK(7, 6), 3) },
-> -	{ "i3c1 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(GENMASK(9, 8), 3) },
-> +	{ "i3c0 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(BITS(6, 7), 3) },
-> +	{ "i3c1 weakpull", RK3576_SYSGRF_SOC_CON1, FIELD_PREP_WM16_CONST(BITS(8, 9), 3) },
->  };
->  
->  static const struct rockchip_grf_info rk3576_sysgrf __initconst = {
-> diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.h b/sound/soc/rockchip/rockchip_i2s_tdm.h
-> index 0171e05ee886..eee6db372ee7 100644
-> --- a/sound/soc/rockchip/rockchip_i2s_tdm.h
-> +++ b/sound/soc/rockchip/rockchip_i2s_tdm.h
-> @@ -287,7 +287,7 @@ enum {
->  #define I2S_TDM_RXCR	(0x0034)
->  #define I2S_CLKDIV	(0x0038)
->  
-> -#define HIWORD_UPDATE(v, h, l)	(FIELD_PREP_WM16_CONST(GENMASK((h), (l)), (v)))
-> +#define HIWORD_UPDATE(v, h, l)	(FIELD_PREP_WM16_CONST(BITS((l), (h)), (v)))
->  
->  /* PX30 GRF CONFIGS */
->  #define PX30_I2S0_CLK_IN_SRC_FROM_TX		HIWORD_UPDATE(1, 13, 12)
+>  drivers/net/ipa/ipa_interrupt.c | 1 -
+>  drivers/net/ipa/ipa_main.c      | 1 -
+>  drivers/net/ipa/ipa_modem.c     | 4 ----
+>  drivers/net/ipa/ipa_smp2p.c     | 2 --
+>  drivers/net/ipa/ipa_uc.c        | 2 --
+>  5 files changed, 10 deletions(-)
 > 
 
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-
-I made sure there were no accidental changes introduced by the
-swapping of values, so in terms of correctness, this appears
-all good to me.
-
-Kind regards,
-Nicolas Frattaroli
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
 
-
+-- 
+With best wishes
+Dmitry
 
