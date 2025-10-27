@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4A9CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 00:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE8ACCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 00:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DLf4jUFDQ0+3J0PbkbCIaeM3GNZZYntr0oWsTns52g=; b=X0eD1IvX23XuMsOO1PpDq6VdhX
-	ljNK5w52wT87gTWQCWjV/EKLryqA9sFPuR9WPuKOE++RuAt6bw4dNwaGUyfePHdFRJ49gDSezBZCv
-	wHwkIiS0/DWCVhpBxYL+RvlUDLVU1CxCxbZRyVd/PQFMvvNw/TsnqzYZN5YKWLA8+ZNtsYQvKfxBj
-	5tuXzPYorcHfkkErRdQV1rGg3WU8f9eKh8Shqzlr3Yy3oj0Z+4wjH3JbCbvGDNW/nUvda3Anyz/hX
-	VNESLYQn6+98x7sGdZVc/+QHMXhmtvuO8OmyKjvRLpxR/cZ3UqQdvkTxtk0Scsgb70wcgoBgUlJuN
-	kGRv3s5g==;
+	bh=IDl+J2NSPrHB8OD0HoYd1EC6pCinvP7Q63HbNnrnhVw=; b=OtEaOb2ti1nDZ8A2iEJb9nISyY
+	kNYMjo8N0LKZVRujEh1e8F586U+IfaevZgbMXwHy6pgQ1iHpPZPXU7CzpPVMmIUcugfwKD9A4DKSE
+	z5PUhvCox7EBziCGCQalG70na/C+aunwNHTfF6I/V51iaXiIME45AbNMUUy0nOmLoJlYVy1MDNMsh
+	8ZYpofEerepbXROny5CQg8lN+/DFYEj6st/jBrHPcKKx5CEfrQyHlCZ1aB+TRrQr862zAmN+vsT3U
+	08ipAgYeSLxkzf1GrOLwECdCtI7swhqJT725S9SgeN8Z/ubNIr54TgyB4Rz+A0QqRjHUw59cAbOEs
+	6mmGleAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDAeg-0000000CsO7-42pK;
-	Mon, 27 Oct 2025 00:00:10 +0000
+	id 1vDAkF-0000000Csey-38bp;
+	Mon, 27 Oct 2025 00:05:55 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDAed-0000000CsNT-2BgT
+	id 1vDAkD-0000000CseZ-1QFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 00:00:10 +0000
+	Mon, 27 Oct 2025 00:05:54 +0000
 Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4411CE9B;
-	Mon, 27 Oct 2025 00:58:18 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 22ABD1440;
+	Mon, 27 Oct 2025 01:04:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761523098;
-	bh=2LEzP3txFu5ErcmDdC5BABECgcH7F5vf2cMFAPsu270=;
+	s=mail; t=1761523444;
+	bh=auHda76l+GnxC4l4AX5IUbUQ0/OD6TFUuSzzllIMoqY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gLxxpakxqUgpog66O8G7I2uQM4WUbF4UeXljNud5eTWUlQ6iKLdaBfmzHzaKUwiVl
-	 H4P8o1LyEeFyV7zungjl6PzoY5UWYmO5oFgR2RQ2RK2K//LcBk7qyiBTKtjKbFKlcw
-	 WkMGRjfcHurfqs+cBb8VXdXbF0raanqgkLPbSgSs=
-Date: Mon, 27 Oct 2025 01:59:51 +0200
+	b=fLLij5vdwxx78VYqIbIQ13SNB7tBegPvOc5vBzcKSKHeZNO8Ess/4v88akdINieS5
+	 c6XpNEGOBGxaCcazwaQQYVzLt1wT8w99Vs7rtI3rLMk6ImLsXMS9eje7T18tXylEZz
+	 y5o0p/EeKkKbR9JVwvbDY4dSkQMcjFzCYIJvc8+o=
+Date: Mon, 27 Oct 2025 02:05:37 +0200
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
 	Martin Kepplinger <martink@posteo.de>,
 	Purism Kernel Team <kernel@puri.sm>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 4/4] media: imx8mq-mipi-csi2: Implement
- .get_frame_desc subdev callback
-Message-ID: <20251026235951.GL13023@pendragon.ideasonboard.com>
-References: <20250820-csi2_imx8mq-v5-0-e04a6fc593bd@nxp.com>
- <20250820-csi2_imx8mq-v5-4-e04a6fc593bd@nxp.com>
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v7 1/5] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
+ i.MX8ULP compatible string
+Message-ID: <20251027000537.GM13023@pendragon.ideasonboard.com>
+References: <20251023-csi2_imx8ulp-v7-0-5ecb081ce79b@nxp.com>
+ <20251023-csi2_imx8ulp-v7-1-5ecb081ce79b@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250820-csi2_imx8mq-v5-4-e04a6fc593bd@nxp.com>
+In-Reply-To: <20251023-csi2_imx8ulp-v7-1-5ecb081ce79b@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_170009_169904_185D67AF 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20251026_170553_522367_B220D367 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +83,113 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Guoniu,
 
-Thank you for the patch.
-
-On Wed, Aug 20, 2025 at 07:04:59PM +0800, Guoniu Zhou wrote:
-> Implement .get_frame_desc subdev callback since downstream subdev
-> need to get frame description.
+On Thu, Oct 23, 2025 at 05:19:42PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 > 
+> The CSI-2 receiver in the i.MX8ULP is almost identical to the version
+> present in the i.MX8QXP/QM, but i.MX8ULP CSI-2 controller needs pclk
+> clock as the input clock for its APB interface of Control and Status
+> register(CSR). So add compatible string fsl,imx8ulp-mipi-csi2 and
+> increase maxItems of Clocks (clock-names) to 4 from 3.  And keep the
+> same restriction for existing compatible.
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
 > ---
->  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 32 +++++++++++++++++++++++++++
->  1 file changed, 32 insertions(+)
+>  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 41 ++++++++++++++++++++--
+>  1 file changed, 39 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> index 529928b94a193e02177f8773a0e68375b59b0a08..a28ccdeef8521c0e00d13b1860eadef5f2118651 100644
-> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> @@ -648,6 +648,37 @@ static int imx8mq_mipi_csi_set_fmt(struct v4l2_subdev *sd,
->  	return 0;
->  }
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> index 3389bab266a9adbda313c8ad795b998641df12f3..da3978da1cab75292ada3f24837443f7f4ab6418 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> @@ -20,6 +20,7 @@ properties:
+>        - enum:
+>            - fsl,imx8mq-mipi-csi2
+>            - fsl,imx8qxp-mipi-csi2
+> +          - fsl,imx8ulp-mipi-csi2
+>        - items:
+>            - const: fsl,imx8qm-mipi-csi2
+>            - const: fsl,imx8qxp-mipi-csi2
+> @@ -39,12 +40,16 @@ properties:
+>                       clock that the RX DPHY receives.
+>        - description: ui is the pixel clock (phy_ref up to 333Mhz).
+>                       See the reference manual for details.
+> +      - description: pclk is clock for csr APB interface.
+> +    minItems: 3
 >  
-> +static int imx8mq_mipi_csi_get_frame_desc(struct v4l2_subdev *sd,
-> +					  unsigned int pad,
-> +					  struct v4l2_mbus_frame_desc *fd)
-> +{
-> +	struct v4l2_mbus_frame_desc_entry *entry = &fd->entry[0];
-> +	const struct csi2_pix_format *csi2_fmt;
-> +	const struct v4l2_mbus_framefmt *fmt;
-> +	struct v4l2_subdev_state *state;
-> +
-> +	if (pad != MIPI_CSI2_PAD_SOURCE)
-> +		return -EINVAL;
-> +
-> +	state = v4l2_subdev_lock_and_get_active_state(sd);
-> +	fmt = v4l2_subdev_state_get_format(state, MIPI_CSI2_PAD_SOURCE);
-> +	csi2_fmt = find_csi2_format(fmt->code);
-> +	v4l2_subdev_unlock_state(state);
-> +
-> +	if (!csi2_fmt)
-> +		return -EPIPE;
-> +
-> +	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_CSI2;
-> +	fd->num_entries = 1;
-> +
-> +	entry->flags = 0;
-> +	entry->pixelcode = csi2_fmt->code;
-> +	entry->bus.csi2.vc = 0;
-> +	entry->bus.csi2.dt = media_bus_fmt_to_csi2_dt(csi2_fmt->code);
-> +
-> +	return 0;
-> +}
-> +
->  static const struct v4l2_subdev_video_ops imx8mq_mipi_csi_video_ops = {
->  	.s_stream	= imx8mq_mipi_csi_s_stream,
->  };
-> @@ -656,6 +687,7 @@ static const struct v4l2_subdev_pad_ops imx8mq_mipi_csi_pad_ops = {
->  	.enum_mbus_code		= imx8mq_mipi_csi_enum_mbus_code,
->  	.get_fmt		= v4l2_subdev_get_fmt,
->  	.set_fmt		= imx8mq_mipi_csi_set_fmt,
-> +	.get_frame_desc		= imx8mq_mipi_csi_get_frame_desc,
->  };
+>    clock-names:
+>      items:
+>        - const: core
+>        - const: esc
+>        - const: ui
+> +      - const: pclk
+> +    minItems: 3
 >  
->  static const struct v4l2_subdev_ops imx8mq_mipi_csi_subdev_ops = {
+>    power-domains:
+>      maxItems: 1
+> @@ -130,19 +135,51 @@ allOf:
+>          compatible:
+>            contains:
+>              enum:
+> -              - fsl,imx8qxp-mipi-csi2
+> +              - fsl,imx8ulp-mipi-csi2
+> +    then:
+> +      properties:
+> +        reg:
+> +          minItems: 2
+> +        resets:
+> +          minItems: 2
+> +          maxItems: 2
+> +        clocks:
+> +          minItems: 4
+> +        clock-names:
+> +          minItems: 4
+
+Do we need the clock-names constraint ? The DT schemas will enforce that
+clocks and clock-names always have the same number of elements.
+
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx8qxp-mipi-csi2
+>      then:
+>        properties:
+>          reg:
+>            minItems: 2
+>          resets:
+>            maxItems: 1
+> -    else:
+> +        clocks:
+> +          maxItems: 3
+> +        clock-names:
+> +          maxItems: 3
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx8mq-mipi-csi2
+> +    then:
+>        properties:
+>          reg:
+>            maxItems: 1
+>          resets:
+>            minItems: 3
+> +        clocks:
+> +          maxItems: 3
+> +        clock-names:
+> +          maxItems: 3
+>        required:
+>          - fsl,mipi-phy-gpr
+>  
+
+Could you please sort those conditional blocks by alphabetical order of
+the compatible strings ?
 
 -- 
 Regards,
