@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F83CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA76CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 01:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbQ2nvFTp+Ev/UZzO6hfJ3ypfnkAXEaRnRchw5NdZOk=; b=RYaOGi7r7Elwj56ckJdx00eR3M
-	DjZVhBmvAtnh1LcVJt8MPzHmjxOQwuh2fsTN+T+S4KRpEUD9jqrGU9+bV44nOV8+ox6fq15jFQiXt
-	SPJbjcJc1Ipm6HxgS/U8CiGJyPD/FxIQwv90dUU8Wz7ZZfVV4e6RMgtqRMDD5557dft6yiIcOZ1OV
-	yd0znMXnR5oPQRnymWF13Bay1npe5szamQ5V2xzHxlWZv8SHmCfimw7jvPIDaQnNfOipzzq+jdwu5
-	kZFPuK4y/meOkE9mvDzAxNHjRIAcaSfxn+yIhBWFMuAoizKfSA5LC5ReUXGin3YN2qhkZw2s0a5TH
-	QZ75JHfA==;
+	bh=7a/EwuumQpo2swNq1SpUCucENGWBvUDAitJ2riFGT+Q=; b=2qNYLhL5QN3ZVJbUQoRTcinf9M
+	7k4ykf00HKwezvpgmYtmqiw56AYGtMONw56jfudFmC75xaR3AMjp+K8KzBdXX9jixwssBnqdklkhm
+	K3B8U1Ruo98BPYIYFGj+++/wfmBBnQ4h/nfWkskAAVT568fD9zGRqT6/p8Oa/v7l6zLrTUineTm8f
+	ZhqNt2aM2em99jG3nubNtVssKBZPkASCLPuYFAYSSgie19MgcABroRPl7VPenZS0sGYOH4F0oT+BG
+	myFBxu2rS/sOCjoXoA1fLodkPhW7TTqV2/HT1Z87jnN7AA1rRjJYzgv4kaZy1d8fo0Uy8mW7j3D9y
+	fqOr4LgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDCER-0000000Cxnd-0bqV;
-	Mon, 27 Oct 2025 01:41:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vDCHI-0000000Cy0I-45eC;
+	Mon, 27 Oct 2025 01:44:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDCEO-0000000Cxmz-40wz;
-	Mon, 27 Oct 2025 01:41:10 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 99B671661;
-	Mon, 27 Oct 2025 02:39:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761529159;
-	bh=n2izf+vNSxdejnbRHxRXfCo5yW8E26f7kiMpnt+M1RY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V/l1R8D94FVYffJ/y1K80bQndqw60xN08/Gyck75Ld4b+RZwAxdzBgzbM/r9VJOnG
-	 33iB5BHXrR88goAvPfcxeWnsU/Aq6ubb5yvrBqkZ/NPOwHyCLfTYGS0qGYdXr0tMir
-	 UZXEHiuuXgjO8lDf5bbuyGws3cD/1gF1NvLcL8u8=
-Date: Mon, 27 Oct 2025 03:40:52 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	id 1vDCHG-0000000Cxzh-19z3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 01:44:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=7a/EwuumQpo2swNq1SpUCucENGWBvUDAitJ2riFGT+Q=; b=vqKT+cw7qfCksSfiPz3S4iHhrx
+	VA30MsXAzH6jQu6JS9fR8f45Gp3ooOLXKwGx4yGeJiduyc1fWA+bZflGabd8ESumpM+8PMl/qaSGX
+	uoGN3n/PJTTN/Ovs+5D16m3RoKgoPXO3stpKVCzTFxGasaOu5qvgLwseqVQbSNm4OKMI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vDCGa-00C9BP-I8; Mon, 27 Oct 2025 02:43:24 +0100
+Date: Mon, 27 Oct 2025 02:43:24 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, BMC-SW <BMC-SW@aspeedtech.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v3 10/31] media: staging: media: imx6-mipi-csi2: use
- devm_platform_ioremap_resource() simplify code
-Message-ID: <20251027014052.GU13023@pendragon.ideasonboard.com>
-References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
- <20250821-95_cam-v3-10-c9286fbb34b9@nxp.com>
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Jeremy Kerr <jk@codeconstruct.com.au>, Lee Jones <lee@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Nishanth Menon <nm@ti.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC
+ device tree
+Message-ID: <fdbc471f-514e-4521-b7a1-dcf6127d64ff@lunn.ch>
+References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
+ <20251022070543.1169173-5-ryan_chen@aspeedtech.com>
+ <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
+ <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
+ <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <71df9bdf-53b2-45e2-a9e3-5b00a556f957@lunn.ch>
+ <TY2PPF5CB9A1BE6F3E95C7FD61CF4F90ECAF2FEA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250821-95_cam-v3-10-c9286fbb34b9@nxp.com>
+In-Reply-To: <TY2PPF5CB9A1BE6F3E95C7FD61CF4F90ECAF2FEA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_184109_134754_89FAAE58 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20251026_184406_317284_8C6F003F 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +94,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 04:15:45PM -0400, Frank Li wrote:
-> Use devm_platform_ioremap_resource() simplify code. No functional change.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/staging/media/imx/imx6-mipi-csi2.c | 14 ++++----------
->  1 file changed, 4 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> index b04c1b98c088b8bfa66eb3f61cca8bb735b7eae4..7b8911bea3fad8187fafb1d0916d730fd6fa671c 100644
-> --- a/drivers/staging/media/imx/imx6-mipi-csi2.c
-> +++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> @@ -738,7 +738,6 @@ static void csi2_nf_cleanup(void *data)
->  static int csi2_probe(struct platform_device *pdev)
->  {
->  	struct csi2_dev *csi2;
-> -	struct resource *res;
->  	int i, ret;
->  
->  	csi2 = devm_kzalloc(&pdev->dev, sizeof(*csi2), GFP_KERNEL);
-> @@ -772,15 +771,10 @@ static int csi2_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->  
-> -	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -	if (!res) {
-> -		v4l2_err(&csi2->sd, "failed to get platform resources\n");
-> -		return -ENODEV;
-> -	}
-> -
-> -	csi2->base = devm_ioremap(&pdev->dev, res->start, PAGE_SIZE);
-> -	if (!csi2->base)
-> -		return -ENOMEM;
-> +	csi2->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(csi2->base))
-> +		return dev_err_probe(&pdev->dev, -ENOMEM,
-> +				     "failed to get platform resources");
+> SoC0, referred to as the CPU die, contains a dual-core Cortex-A35
+> cluster and two Cortex-M4 cores, along with its own clock/reset
+> domains and high-speed peripheral set.
 
-devm_platform_ioremap_resource() prints error messages internally with
-dev_err_probe(), so you can just
+> SoC1, referred to as the I/O die, contains the Boot MCU and its own
+> clock/reset domains and low-speed peripheral set, and is responsible
+> for system boot and control functions.
 
-		return PTR_ERR(csi2->base);
+So is the same .dtsi file shared by both systems? How do you partition
+devices so each CPU cluster knows it has exclusive access to which
+peripherals?
 
-here. With that,
+Seems like a fun system to play core wars on.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
->  
->  	ret = devm_mutex_init(&pdev->dev, &csi2->lock);
->  	if (ret)
-> 
-
--- 
-Regards,
-
-Laurent Pinchart
+	Andrew
 
