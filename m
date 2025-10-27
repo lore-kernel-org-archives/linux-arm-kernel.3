@@ -4,99 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBC0CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F04CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 20:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivu3nqaTqww2kM8ddgXsb86XR8Ecjso6qu9XWZHw9NQ=; b=FLjLsVAyawJL+dDDUKqOWcsN2P
-	tQCm1H/9WC+aBRNmu/nCO6ETJbGfFE+CwGELtkiQuTp7MEXkFiDDP/iPcGAU24bCnu55EUfo+zt0v
-	l2K5Na6tZuMdVcjzvaHSOkKL177fnQtESt/wDiNRfEBCGLeRNNAcX+CKCjQI2/x0cX1L1TALFYE0K
-	NUvvzv8tb/BGL2vLS5uGY6dk8QJUOeovV1TaCUDGxiYjqmo46c3x5h5LPqd6fWJu/mEKi5QVeLniH
-	2f3wvZjThRJQoRSHKytcZVAsZd5TnRFDgcwRbJFhPA8Z9eO0xTEJis1OtcFKnQ3BuRPQG4gbOcUbK
-	6PfGDufA==;
+	bh=0UzmCaPVoiS1w/FUaOytewjvTtIauYLev6TJBsSgl38=; b=uRS9RJBsWGaNsiJt0pS1j1Lcm5
+	Z5nGTYwBCzZ2wkcPux/L6DfA+lruFMcrWiWRdlnMW7TjUd+PQy8L/LjPLhZmiCxxmPa0MzN6tL5jC
+	W5YyfJR5mYfx2InxtjbEhnkJPnrHX/yuxsybFEEtuctPFmHoxSzQtUXeLjIYeXb90aNNhxkSoo8Hh
+	2QZpuJAyxSCozI0fbkM0xsaP8u24IB6AECuxo0LRQ0R0sJb7/sU/KsJgVjAve1yIZ5x6uoVoMm7G5
+	8mdtaVr5J9IO+h16LQGiAHr8QCdShA7nRb4JOYj0Bfv4U11YquKDQZeRhYRCDkJv/48ri8WiIl/js
+	9LC0Uk4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTyF-0000000Ek54-1tHr;
-	Mon, 27 Oct 2025 20:37:39 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vDUBf-0000000Ekht-1CzX;
+	Mon, 27 Oct 2025 20:51:31 +0000
+Received: from meesny.iki.fi ([195.140.195.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDTyB-0000000Ek41-3KrZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 20:37:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 199381A16C2;
-	Mon, 27 Oct 2025 20:37:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D91106062C;
-	Mon, 27 Oct 2025 20:37:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B6F94102F2494;
-	Mon, 27 Oct 2025 21:36:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761597449; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=ivu3nqaTqww2kM8ddgXsb86XR8Ecjso6qu9XWZHw9NQ=;
-	b=D0FvDvo6wBdzyM4yGf/Mo92JGsnDp3FEhnzQXToKT1lTmRgmCAobeQwwgIerEldSavB9Wj
-	8Fa1YqUSJN1a+KiX1LsgxoTiLAWFpjtTkZ/psXHq539twWXUsfVfZ1tOA47yFwLd40ImsE
-	G9WDXQxl4673JnnqnSaS0aJnztT1jPuWGeK5RQylZ1VZl0DiiBjKRSdLHbVPGru9aMBn/L
-	/NPFjf5YF1MLpjQf7UlDDcAIkfmZHS4oVHjAeodKNVAVJDdwuc8RjEgecO9ymeKN374J5m
-	aI0g1qxMk56Vwb3LCXgHJanQvqdAAA00oe5CNpFNb2x5v0Y/CqIa0frpfHITdQ==
-Date: Mon, 27 Oct 2025 21:36:40 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	David Miller <davem@davemloft.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Crt Mori <cmo@melexis.com>, Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-	Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Kim Seer Paller <kimseer.paller@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Cosmin Tanislav <demonsingur@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Jianping Shen <Jianping.Shen@de.bosch.com>,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-edac@vger.kernel.org, qat-linux@intel.com,
-	linux-gpio@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
-	linux-iio@vger.kernel.org, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 01/23] clk: at91: pmc: #undef field_{get,prep}()
- before definition
-Message-ID: <20251027203640291d726b@mail.local>
-References: <cover.1761588465.git.geert+renesas@glider.be>
- <a26cfb39f4ac309ffbff339ffa5f54db12bd8c12.1761588465.git.geert+renesas@glider.be>
+	id 1vDUBc-0000000EkhV-2O8F;
+	Mon, 27 Oct 2025 20:51:30 +0000
+Received: from hillosipuli.retiisi.eu (91-158-51-183.elisa-laajakaista.fi [91.158.51.183])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sailus)
+	by meesny.iki.fi (Postfix) with ESMTPSA id 4cwQf25Mg0zyRb;
+	Mon, 27 Oct 2025 22:51:22 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
+	t=1761598283;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0UzmCaPVoiS1w/FUaOytewjvTtIauYLev6TJBsSgl38=;
+	b=LKPxbNsoEvumyCTzXvaXlwgGq7tpa8L6cRk3TshEApKiWUUsZkFYI/+VQenMjQqJOdm7Bk
+	PtVOG5iOsJT+7gFJk9fGny3dcD89o6QQf2ZDypYDlOs2JyGN1Zn6p4yLr8WHbRBjKfseu0
+	AITo0O6gJ1Yv1ew1ARkHQ/SDbJhc2Og=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=meesny; t=1761598283;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0UzmCaPVoiS1w/FUaOytewjvTtIauYLev6TJBsSgl38=;
+	b=yrFxCASLbHlVMhaVYYeTZrnnylCerNggsiAtDRErJ8QL/KVVJot4XfqITy0TMSlwsFhfeU
+	HoyMvf5HSVu6SwAbEpA176RblHLEe/y9HDCoygdUUNiftb24i+RYb843ONWvBOgZX80iuB
+	a4Pl4QDq78Hk6LjgaKmF3GiyuPpzRyk=
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
+ARC-Seal: i=1; s=meesny; d=iki.fi; t=1761598283; a=rsa-sha256; cv=none;
+	b=LjaE/ud729xDvyU4alpwesfOqW8/XoXctkMEPWaona1Io78nhyPB7/ACsEOOXsMT+Nqdz1
+	SmR/ML3OGn/P18BkwFNPCHE+MXzs66/09La6yPfZMOI1G/2WSUKpdLRDgi1zKMdSlBraMr
+	v7r0bJcB3NFx5Y+Bv0dSOyidef24giI=
+Received: from valkosipuli.retiisi.eu (valkosipuli.local [192.168.4.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id AF27B634C51;
+	Mon, 27 Oct 2025 22:51:21 +0200 (EET)
+Date: Mon, 27 Oct 2025 22:51:21 +0200
+From: Sakari Ailus <sakari.ailus@iki.fi>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Eugen Hristev <eugen.hristev@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-staging@lists.linux.dev, Luis Oliveira <lolivei@synopsys.com>
+Subject: Re: [PATCH v3 01/31] dt-bindings: media: add DW MIPI CSI-2 Host
+ support
+Message-ID: <aP_bSQUIle_9-L-7@valkosipuli.retiisi.eu>
+References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
+ <20250821-95_cam-v3-1-c9286fbb34b9@nxp.com>
+ <aP8t3YClrZxOnHea@valkosipuli.retiisi.eu>
+ <aP+enPOHPkvZAkzS@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a26cfb39f4ac309ffbff339ffa5f54db12bd8c12.1761588465.git.geert+renesas@glider.be>
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <aP+enPOHPkvZAkzS@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_133736_318214_A411E4B1 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20251027_135128_792747_DC66E7CD 
+X-CRM114-Status: GOOD (  26.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +117,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/10/2025 19:41:35+0100, Geert Uytterhoeven wrote:
-> Prepare for the advent of globally available common field_get() and
-> field_prep() macros by undefining the symbols before defining local
-> variants.  This prevents redefinition warnings from the C preprocessor
-> when introducing the common macros later.
-> 
-> Suggested-by: Yury Norov <yury.norov@gmail.com>
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Hi Frank,
 
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+On Mon, Oct 27, 2025 at 12:32:28PM -0400, Frank Li wrote:
+> On Mon, Oct 27, 2025 at 10:31:25AM +0200, Sakari Ailus wrote:
+> > Hei Eugen,
+> >
+> > On Thu, Aug 21, 2025 at 04:15:36PM -0400, Frank Li wrote:
+> > > From: Eugen Hristev <eugen.hristev@linaro.org>
+> > >
+> > > Add bindings for Synopsys DesignWare MIPI CSI-2 host, which used at i.MX93
+> > > and i.MX95 platform.
+> > >
+> > > Signed-off-by: Luis Oliveira <lolivei@synopsys.com>
+> > > Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > > Change in v3
+> > > - drop remote-endpoint: true
+> > > - drop clock-lanes
+> > >
+> > > Change in v2
+> > > - remove Eugen Hristev <eugen.hristev@microchip.com> from mantainer.
+> > > - update ugen Hristev's s-o-b tag to align original author's email address
+> > > - remove single snps,dw-mipi-csi2-v150 compatible string
+> > > - move additionalProperties after required
+> > > ---
+> > >  .../bindings/media/snps,dw-mipi-csi2-v150.yaml     | 151 +++++++++++++++++++++
+> > >  MAINTAINERS                                        |   1 +
+> > >  2 files changed, 152 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+> > > new file mode 100644
+> > > index 0000000000000000000000000000000000000000..d950daa4ee9cfd504ef84b83271b2a1b710ffd6b
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+> > > @@ -0,0 +1,151 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/media/snps,dw-mipi-csi2-v150.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Synopsys DesignWare CSI-2 Host controller (csi2host)
+> > > +
+> > > +maintainers:
+> > > +  - Frank Li <Frank.Li@nxp.com>
+> > > +
+> > > +description:
+> > > +  CSI2HOST is used to receive image coming from an MIPI CSI-2 compatible
+> > > +  camera. It will convert the incoming CSI-2 stream into a dedicated
+> > > +  interface called the Synopsys IDI (Image Data Interface).
+> > > +  This interface is a 32-bit SoC internal only, and can be assimilated
+> > > +  with a CSI-2 interface.
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    items:
+> > > +      - enum:
+> > > +          - fsl,imx93-mipi-csi2
+> > > +      - const: snps,dw-mipi-csi2-v150
+> > > +
+> > > +  reg:
+> > > +    items:
+> > > +      - description: MIPI CSI-2 core register
+> > > +
+> > > +  reg-names:
+> > > +    items:
+> > > +      - const: core
+> > > +
+> > > +  clocks:
+> > > +    maxItems: 2
+> > > +
+> > > +  clock-names:
+> > > +    items:
+> > > +      - const: per
+> > > +      - const: pixel
+> > > +
+> > > +  phys:
+> > > +    maxItems: 1
+> > > +    description: MIPI D-PHY
+> > > +
+> > > +  phy-names:
+> > > +    items:
+> > > +      - const: rx
+> > > +
+> > > +  resets:
+> > > +    maxItems: 1
+> > > +
+> > > +  interrupts:
+> > > +    maxItems: 1
+> > > +
+> > > +  power-domains:
+> > > +    maxItems: 1
+> > > +
+> > > +  ports:
+> > > +    $ref: /schemas/graph.yaml#/properties/ports
+> > > +
+> > > +    properties:
+> > > +      port@0:
+> > > +        $ref: /schemas/graph.yaml#/$defs/port-base
+> > > +        unevaluatedProperties: false
+> > > +        description:
+> > > +          Input port node, single endpoint describing the input port.
+> > > +
+> > > +        properties:
+> > > +          endpoint:
+> > > +            $ref: video-interfaces.yaml#
+> > > +            unevaluatedProperties: false
+> > > +            description: Endpoint connected to input device
+> > > +
+> > > +            properties:
+> > > +              bus-type:
+> > > +                const: 4
+> >
+> > If 4 is the only value supported, you can drop the property altogether.
+> 
+> Sorry, What's your means here? There are more options in video-interfaces.yaml.
+> here just add restriction for bus-type. otherwise other value can be
+> provide in dts file.
 
-> --
-> v5:
->   - New.
-> ---
->  drivers/clk/at91/pmc.h | 2 ++
->  1 file changed, 2 insertions(+)
+It could, but wouldn't any other value be incorrect?
+
+In other words, this property is redundant and should be dropped.
+
 > 
-> diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-> index 5daa32c4cf2540d7..78a87d31463e98b0 100644
-> --- a/drivers/clk/at91/pmc.h
-> +++ b/drivers/clk/at91/pmc.h
-> @@ -117,7 +117,9 @@ struct at91_clk_pms {
->  	unsigned int parent;
->  };
->  
-> +#undef field_get
->  #define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
-> +#undef field_prep
->  #define field_prep(_mask, _val) (((_val) << (ffs(_mask) - 1)) & (_mask))
->  
->  #define ndck(a, s) (a[s - 1].id + 1)
-> -- 
-> 2.43.0
+> >
+> > > +
+> > > +              data-lanes:
+> > > +                minItems: 1
+> > > +                maxItems: 4
+> > > +                items:
+> > > +                  maximum: 4
+> > > +
+> > > +      port@1:
+> > > +        $ref: /schemas/graph.yaml#/$defs/port-base
+> > > +        unevaluatedProperties: false
+> > > +        description:
+> > > +          Output port node, single endpoint describing the output port.
+> > > +
+> > > +        properties:
+> > > +          endpoint:
+> > > +            unevaluatedProperties: false
+> > > +            $ref: video-interfaces.yaml#
+> > > +            description: Endpoint connected to output device
+> > > +
+> > > +            properties:
+> > > +              bus-type:
+> > > +                const: 4
+> >
+> > Are both input and output of this block CSI-2 with D-PHY?
 > 
+> Yes, input from camera sensor, output to others image processors to do data
+> transfer or format convert.
+
+The description appears to be saying this is "Synopsys IDI", not CSI-2 with
+D-PHY. We don't have a bus-type for IDI. Couldn't you simply drop it?
 
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Regards,
+
+Sakari Ailus
 
