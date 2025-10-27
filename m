@@ -4,78 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4053CCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCF7CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dF7Z4uf6So4kcsY5DTVUHGs58d6p63lEZVd0UOOfc60=; b=0xu86xAvaW1+5z68BDokoB8Vku
-	bpJltU7E1g5Ke0H6s1gyewvX5vyJeNm+lO4n7L0Ioo04ImT+eZWidsqD9x3FHX8lSLxJcYZoa7BA7
-	rX3lUhJRBMydPnzN4C3bs6G3YkodlfHokJ90w+o4xH9H5Vobmh9x+HFKxhMQ1r/xzZrlyMfyp/pWo
-	pRB/EUOM/bHilnv7l9jK/3X9LYxcx3P1gQjJmTt/1hxZ8RoyynD91DO9COubuUp9G9qMC0qyffD9o
-	N6gCsVyIl9Oxl169Wmzk+KDFUSJD7Cr3AHPv2dvqH/IbNgFsA4mnYghMtlfECitUlmeQBAZ4iLWer
-	CHzIh4nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i35dGP+d/0dkL0iLpgcnTIbCn7co3QE46vuJ/cBPHB8=; b=RT3jmJN8ncOO5KMQ+O8chYn9X2
+	gMOjl/xV3Scu3OkLLRTWGAYmf4+gJO09I00JQ6HPjZGQKZ6Fm1g3NuW2OVLTFxBTGf9cwtPakDXg9
+	RPceByYXmwEpCdEJVFJs2Th4v7/8v8JFFDyxoxZK/alN2JNdq7Z4GJrhDzZZHuO9WV7u7BX9MxRq1
+	jLegbcaZWjg3uFgA6HCxW17bkjxJo/6BWbnVu6ZU10L+wWCULQTenzmYrTX74sV+3Txo03r3VNN43
+	zqKKgsYypSQ/hcndqDvEiy79n3SQlh662Q85tCpwhOhDU+y5iZQWuikyD0UIrw5Gkal33XH1Vr8jB
+	Zil46YKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNNx-0000000E43d-26ot;
-	Mon, 27 Oct 2025 13:35:45 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1vDNOV-0000000E4Ed-2X2M;
+	Mon, 27 Oct 2025 13:36:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNNu-0000000E42Z-2bwW;
-	Mon, 27 Oct 2025 13:35:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761572142; x=1793108142;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=G8I7MYOKAADcUiNhrxg4rHdSnpHAvfS12L4GSyQ1JFI=;
-  b=nAIcy4F/qeSAJt9rvrgCpjvVcyqbUTeQkvg1nKZPjOVNz9OKhpFCD/Vd
-   xaODUGm0TSIhxmc0DJoWoPjLTkg8cZX1mNs497AXzv06mxjZIkuet6N2V
-   /0UulzvItgvlej5s19JpU0NwHZOZ6gXik/X0S/ip6NSQ6SYS3XY4xFqT6
-   0cqElCZRTW+fQmcIKctiJjqmavhlmH9p2nSpnrWscivl6oE8QzmHhR2Mr
-   8GhhTsCKAGgV9NwJswFA+5KYRROPwENwDGKtwsC90dGmo8q4VCSBnLYpS
-   gsjoMRnJfSe+bCcitVpfFoKbquINtCx+Nramko25s/ewmuiRKCaoMbM/S
-   A==;
-X-CSE-ConnectionGUID: v+9ek5vEQcG7DJfopa3h2Q==
-X-CSE-MsgGUID: e/DvewSATpSuC6C/kBoFkg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="81280581"
-X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="81280581"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:35:42 -0700
-X-CSE-ConnectionGUID: DLCoqoqJT7aiU6Mnlnl3og==
-X-CSE-MsgGUID: uWrY6G3cTv6Z38089zaNyg==
-X-ExtLoop1: 1
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.31])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 06:35:40 -0700
-Received: from punajuuri.localdomain (unknown [192.168.240.130])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 47A0111FADA;
-	Mon, 27 Oct 2025 15:35:38 +0200 (EET)
-Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
-	(envelope-from <sakari.ailus@linux.intel.com>)
-	id 1vDNNq-00000001eH8-17jf;
-	Mon, 27 Oct 2025 15:35:38 +0200
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: linux-bluetooth@vger.kernel.org
-Cc: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH 1/1] Bluetooth: Remove redundant pm_runtime_mark_last_busy() calls
-Date: Mon, 27 Oct 2025 15:35:38 +0200
-Message-ID: <20251027133538.393138-1-sakari.ailus@linux.intel.com>
-X-Mailer: git-send-email 2.47.3
+	id 1vDNOU-0000000E4EC-3sXT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 27 Oct 2025 13:36:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=i35dGP+d/0dkL0iLpgcnTIbCn7co3QE46vuJ/cBPHB8=; b=AU3glfH4n0Zei2u11+tGKSnC+c
+	xe9296iZgf7hXUpcrHFvvn2jiA6EN7JjaxoBZsDbASi+WcNt9TcoEvI3C6oaXe2hUS5GvpF76Y4w5
+	OrCeodyP40hhqnTwazt6lJqDdrQ6XPYL0QmalLn8UALspX9Ye0k9Hdr/S3m5ORRfsZMaQ1deWvCrD
+	paPLCXAxANurhy7IqGgVlK23BniXHYfh01JRDJPzveWao2qoDbqTsLhXZgXHucaVcNPgs/L0sNL0O
+	M6GK1zzwyNNxG73DDp1z9V98HMujbgRCWshjI2K7iOOKsLwPR5SOl4bXwVKINLnbqqlX434RuDUBy
+	7+xNVP+A==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDMWg-00000002CCz-2m24
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 12:40:44 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59R7jpDw588480
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:36:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=i35dGP+d/0dkL0iLpgcnTIbC
+	n7co3QE46vuJ/cBPHB8=; b=V3Wo2sjUAO8NHRkWMT81g+mImu8ocvYH1QzGV/lz
+	ckcrE62YXcyWO2z0g2/MzO+mNVR2Z6rnB1oomvm0AF2Kegzo6ODpXebkoNU30kFU
+	ifbDHLLzEEEVXTvKm+Un/UXNrV/dT1uQG2sduvvAxwckV/lcc6VKGYrhkxmrO3SH
+	BUJboaFkKvPYEHctPdqFZm1TxPhUUdxVAPJ4YK0gwX4CddMu4EUmxvbpOUWFRq8y
+	pVEaj+jaEnQhL76wxJIXf6DhKxpIkEh0JSc6QHW0uLm7iGso/nnjGiSnjaTIAEdB
+	Omujr0+0p5XQoxSHEkGsb6lkJUrMVDu0Cmvc9I5+66H39g==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a0ps14pbw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:36:10 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4e892f776d0so222870021cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 06:36:10 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761572169; x=1762176969;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=i35dGP+d/0dkL0iLpgcnTIbCn7co3QE46vuJ/cBPHB8=;
+        b=uTotMNN9QMUGzmPXFQfha46PcBMdnkmZJNZg0Is6d4Q4hx0yAHB5YKevrfm1DDQYHs
+         h1/eXYoXCcou3hwmJtT/30DICDmv2i37rdvuuR1UWfKG484Tk1DvNviMzkKNNScPOwnb
+         iXvrdn8IUIo9EkvHlcqEEAjBq8ghdoKgxifbSlvL94mFl6lUQiMRVIx2tR6Y/dyI+lcv
+         6tJjgM7hafX0GYy8ZQiAThdtFtj6FXka2S4j9P8MdAnG4EUDbamzDW3RsGgR700QMDcj
+         yUKwB0wCmgX5qOmMZzPVpvbJ22hMymPOyNKJfffnFcA2a2yj8geWznohc3ASMkCtvij/
+         At2w==
+X-Gm-Message-State: AOJu0Yxw4ANTW4K1GWGcSmwwUHAyWk3o2JRiScWukTAtZgfMUwuDkRdz
+	xMdcqJLkr0DqkRXC41K6tv+1RosleCd0oDf/GaXOu9Cgy0LFoi/F9LmShsmTY1nS3nbZYrmHmiW
+	Wz2LKIjB9ui9lZcI7ENIqxCb0rsIXOkL05Nw5nhGf8a8b33BZl/G+sCcKYO/xsi1LTvkir3KKFB
+	P+Fw==
+X-Gm-Gg: ASbGncuBZvVyn1HqprQv+xQzSLRz8qIpkdCeRGrClAJrXFORINOAkjvtMWr06go+b37
+	OLwkWdMHzroBG9QabfLUeB5qvjEXgzwkf904m2NrPUzquQysxXfKaiSoP0xFC52sfrgkxEXsId9
+	8K0mPPAUUVLIIU6DyPSgRERw8hbGdBTrIkCVXnh9Ofm594cVDT6oJT01DKE5NVDncYfK/WcRfzi
+	Fecxt8Y3+UiqWBLHaAtQIQsU+YmAOTOSvbxsNituKvznXrziaFNIjqpv91dx1LdWhhqV8yaJVjX
+	YAi7X/20C7hxtBDPJnauOkq0YHweVC7VwGQEWCeQ6oCf6MSzbOBIlSrCtsQtG4MsqxLXPQsCLbP
+	DAiWljgYyRgaOQbK3a1UdTpo7qKfXXMM37BYi0nd5jLya+XzzAbLQhmG0KrEyzWzF8JpLTFWhCB
+	ueZNdNgzqOmzf7
+X-Received: by 2002:a05:622a:481a:b0:4ed:14b:a654 with SMTP id d75a77b69052e-4ed014ba734mr18171421cf.19.1761572167629;
+        Mon, 27 Oct 2025 06:36:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGSA/sQgxBWrfN3yrs9iaFXpBMGNK/JjKUCLuabLCZo3BMcmoJ0EqI8OAXaO8cxld/gWmQocA==
+X-Received: by 2002:a05:622a:481a:b0:4ed:14b:a654 with SMTP id d75a77b69052e-4ed014ba734mr18170961cf.19.1761572167217;
+        Mon, 27 Oct 2025 06:36:07 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59302a2420dsm2222513e87.72.2025.10.27.06.36.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 06:36:06 -0700 (PDT)
+Date: Mon, 27 Oct 2025 15:36:04 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+        Ludovic Desroches <ludovic.desroches@microchip.com>,
+        Vinod Koul <vkoul@kernel.org>, Sinan Kaya <okaya@kernel.org>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Michal Simek <michal.simek@amd.com>,
+        Stephan Gerhold <stephan.gerhold@linaro.org>,
+        Md Sadre Alam <quic_mdalam@quicinc.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Casey Connolly <casey.connolly@linaro.org>,
+        Abin Joseph <abin.joseph@amd.com>,
+        Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+        linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 3/6] dmaengine: qcom: Remove redundant
+ pm_runtime_mark_last_busy() calls
+Message-ID: <wl26pbhmquwuavfch2vj2s2uispcelthn3eg7umx2dboz4ntry@uqtpzhuj4gji>
+References: <20251027133232.392898-1-sakari.ailus@linux.intel.com>
+ <20251027133232.392898-3-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251027133232.392898-3-sakari.ailus@linux.intel.com>
+X-Authority-Analysis: v=2.4 cv=Ju78bc4C c=1 sm=1 tr=0 ts=68ff754a cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8
+ a=QXuSEnVgnoAJZhOi9yIA:9 a=CjuIK1q_8ugA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-ORIG-GUID: -GqNWKD0mG3A1C2leirTWGPP2N_tDEnJ
+X-Proofpoint-GUID: -GqNWKD0mG3A1C2leirTWGPP2N_tDEnJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDEyNiBTYWx0ZWRfX1dFnunuHCbP7
+ YyDlMhJvhnD3uNs1qEfHUFlgzMvhSHhqJpJ0JP4aLCrlKWrYoyFMSB0lAwmrNWVgQzvViN0XMSn
+ 7fwrlsblfGdcgTJRffEJm+MGUDyqnegbfZwtFHc9etsbVH1pBq2u0MYmCdkT7eNUZj0tTXlBiYt
+ 1Hel2xkAYO9slKOA4AE04ZDWYlWCJjFurPT5q5w9+wer/Nbi7ebK5qtgAv6KpqKHDOGxAp8r06x
+ xjTTzKVXrO9Jx1LE0SxniC2abtJ/vziwYM1Ogls5eOdFg7c+I8jjlASJjG9nMEDCmkJte5XMYr3
+ susl6x4/ULX/t/tkvxFGM3I+gRInIknMZ9XMyCLsAIsdq6AmQJDVikPFg9nka5Dl21PKwUPcdEX
+ FvnJLocTRJGmKuPWn63LjzH1+skmhA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-27_05,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 priorityscore=1501 spamscore=0 bulkscore=0
+ adultscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510270126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_063542_671787_3CC0AF29 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20251027_124043_067330_0C30EB87 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,112 +154,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-pm_runtime_mark_last_busy().
+On Mon, Oct 27, 2025 at 03:32:29PM +0200, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
+> 
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> ---
+>  drivers/dma/qcom/bam_dma.c    |  5 -----
+>  drivers/dma/qcom/hidma.c      | 12 +-----------
+>  drivers/dma/qcom/hidma_dbg.c  |  1 -
+>  drivers/dma/qcom/hidma_mgmt.c |  2 --
+>  4 files changed, 1 insertion(+), 19 deletions(-)
+> 
 
-Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
----
- drivers/bluetooth/btmtksdio.c | 1 -
- drivers/bluetooth/hci_bcm.c   | 6 +-----
- drivers/bluetooth/hci_h5.c    | 2 --
- drivers/bluetooth/hci_intel.c | 3 ---
- 4 files changed, 1 insertion(+), 11 deletions(-)
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index 62db31bd6592..fba3ab6d30a5 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -615,7 +615,6 @@ static void btmtksdio_txrx_work(struct work_struct *work)
- 
- 	sdio_release_host(bdev->func);
- 
--	pm_runtime_mark_last_busy(bdev->dev);
- 	pm_runtime_put_autosuspend(bdev->dev);
- }
- 
-diff --git a/drivers/bluetooth/hci_bcm.c b/drivers/bluetooth/hci_bcm.c
-index fff845ed44e3..9286a5f40f55 100644
---- a/drivers/bluetooth/hci_bcm.c
-+++ b/drivers/bluetooth/hci_bcm.c
-@@ -326,7 +326,6 @@ static irqreturn_t bcm_host_wake(int irq, void *data)
- 	bt_dev_dbg(bdev, "Host wake IRQ");
- 
- 	pm_runtime_get(bdev->dev);
--	pm_runtime_mark_last_busy(bdev->dev);
- 	pm_runtime_put_autosuspend(bdev->dev);
- 
- 	return IRQ_HANDLED;
-@@ -710,7 +709,6 @@ static int bcm_recv(struct hci_uart *hu, const void *data, int count)
- 		mutex_lock(&bcm_device_lock);
- 		if (bcm->dev && bcm_device_exists(bcm->dev)) {
- 			pm_runtime_get(bcm->dev->dev);
--			pm_runtime_mark_last_busy(bcm->dev->dev);
- 			pm_runtime_put_autosuspend(bcm->dev->dev);
- 		}
- 		mutex_unlock(&bcm_device_lock);
-@@ -748,10 +746,8 @@ static struct sk_buff *bcm_dequeue(struct hci_uart *hu)
- 
- 	skb = skb_dequeue(&bcm->txq);
- 
--	if (bdev) {
--		pm_runtime_mark_last_busy(bdev->dev);
-+	if (bdev)
- 		pm_runtime_put_autosuspend(bdev->dev);
--	}
- 
- 	mutex_unlock(&bcm_device_lock);
- 
-diff --git a/drivers/bluetooth/hci_h5.c b/drivers/bluetooth/hci_h5.c
-index 43371f389fd2..96e20a66ecd1 100644
---- a/drivers/bluetooth/hci_h5.c
-+++ b/drivers/bluetooth/hci_h5.c
-@@ -616,7 +616,6 @@ static int h5_recv(struct hci_uart *hu, const void *data, int count)
- 
- 	if (hu->serdev) {
- 		pm_runtime_get(&hu->serdev->dev);
--		pm_runtime_mark_last_busy(&hu->serdev->dev);
- 		pm_runtime_put_autosuspend(&hu->serdev->dev);
- 	}
- 
-@@ -658,7 +657,6 @@ static int h5_enqueue(struct hci_uart *hu, struct sk_buff *skb)
- 
- 	if (hu->serdev) {
- 		pm_runtime_get_sync(&hu->serdev->dev);
--		pm_runtime_mark_last_busy(&hu->serdev->dev);
- 		pm_runtime_put_autosuspend(&hu->serdev->dev);
- 	}
- 
-diff --git a/drivers/bluetooth/hci_intel.c b/drivers/bluetooth/hci_intel.c
-index 1d6e09508f1f..20baf2895dec 100644
---- a/drivers/bluetooth/hci_intel.c
-+++ b/drivers/bluetooth/hci_intel.c
-@@ -280,7 +280,6 @@ static irqreturn_t intel_irq(int irq, void *dev_id)
- 
- 	/* Host/Controller are now LPM resumed, trigger a new delayed suspend */
- 	pm_runtime_get(&idev->pdev->dev);
--	pm_runtime_mark_last_busy(&idev->pdev->dev);
- 	pm_runtime_put_autosuspend(&idev->pdev->dev);
- 
- 	return IRQ_HANDLED;
-@@ -371,7 +370,6 @@ static void intel_busy_work(struct work_struct *work)
- 	list_for_each_entry(idev, &intel_device_list, list) {
- 		if (intel->hu->tty->dev->parent == idev->pdev->dev.parent) {
- 			pm_runtime_get(&idev->pdev->dev);
--			pm_runtime_mark_last_busy(&idev->pdev->dev);
- 			pm_runtime_put_autosuspend(&idev->pdev->dev);
- 			break;
- 		}
-@@ -1003,7 +1001,6 @@ static int intel_enqueue(struct hci_uart *hu, struct sk_buff *skb)
- 	list_for_each_entry(idev, &intel_device_list, list) {
- 		if (hu->tty->dev->parent == idev->pdev->dev.parent) {
- 			pm_runtime_get_sync(&idev->pdev->dev);
--			pm_runtime_mark_last_busy(&idev->pdev->dev);
- 			pm_runtime_put_autosuspend(&idev->pdev->dev);
- 			break;
- 		}
+
 -- 
-2.47.3
-
+With best wishes
+Dmitry
 
