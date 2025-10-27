@@ -4,133 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58F6CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9F9CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 12:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obydwKRf78xq6p+vbhUIwD78jMX6wxjnOG1pdFgCN10=; b=QRNf0MZqrsYejK3iPrIsopdzUT
-	yWGe6RL4TWaUtRgnYwYVItJ1+E8Wc5SwWNU+utaMeVatNpCPZ/YugJz29dxi2b6v44RU9e7PhJPYi
-	jIvtxHwVJj341pikmm4NKVcPAu/FmHSBlRauqdIJgmB82DWJxhPPFxjWuS867gce2iEs0xGecCOk5
-	O8M6qMueAwdU2EmeU8Kvh9IZl1VLYo5T6ZQN9MnkANmK9uB0po1hyMGuRnSsPU1RVxUWBAiowWH0F
-	J22mGKdruKd1nDZ+oS6MyZmT8fEYkT/bWX4hq8KmlopkA5JugYloIXJobzlqI78ctHzA0btHYnXph
-	KNgClrbQ==;
+	bh=oEV950W/0jgCB5l29DxgpP2AJ5Ky6r8MmZjLSIJrnIs=; b=3Q8OU5vgmULMziu0ZJv74qRDL8
+	du/8rtv9RogO0jMK1r4dBMZfN68G8968puH5Rd4r3sg7mchkiPi2pGCoLB2zDVZBs0rHXtUvfov3E
+	72vCCWVq1GLAOT6J7i0dAXxdcmwqcU4VoyDTtMu4bI5qvxJ6lHzSAmA3wALNnqKNnCwyb0+WMCOoJ
+	HteelnWFZeIk/7i1PaVXiMcKiqntahWRbdTjlTsjYFr8xNLCFW0EUlxv45RK/9/nlbzd2mSGkNsk9
+	RD7mS1yee7VOFFf4Qe4sdTDA2jqYkU+QEQb0dh3lroooOBUSq/NtnEjGd09sQ9nzDZ+p5vD+ctUPk
+	2rfmbA3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLzK-0000000Dqe0-2Fmc;
-	Mon, 27 Oct 2025 12:06:14 +0000
-Received: from flow-a7-smtp.messagingengine.com ([103.168.172.142])
+	id 1vDM02-0000000Dqir-3j0O;
+	Mon, 27 Oct 2025 12:06:58 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDLzI-0000000Dqdb-1t0e
+	id 1vDM00-0000000Dqhd-3ScM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:06:14 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailflow.phl.internal (Postfix) with ESMTP id DA2B81380433;
-	Mon, 27 Oct 2025 08:06:08 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-03.internal (MEProxy); Mon, 27 Oct 2025 08:06:08 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1761566768;
-	 x=1761573968; bh=obydwKRf78xq6p+vbhUIwD78jMX6wxjnOG1pdFgCN10=; b=
-	cjNBp01gixuCQodlMTPqWVqxTwnPRoNY/DB2R25etvVgxgR1/APK38Lw+AZ1Zndp
-	DqCV9nYsiaeR8MbQTwIHK6I14UFNKI6k2xBzvEVRRn8L50eV7AhnE4HhJsfonXBz
-	+o2t58cF7O7vnZWsSF787D8zmKjo6e1z0Q4c9luGeJtC++7mXlkQEnrQqQ6i+cXT
-	eFiyEfT6UE6nMXmLMTkPzAwp6/kCzRD0bgUkfdGkOkc+tOtc00zpNajUSYC5YqNA
-	VdrVgelODIV6QsQDj70kL2x/sG5lfH3fXz2cIuRZWzbTF2POiv+G0jFFlZx6LmLj
-	BmSwk+2bEog8Ac9SBH9B+Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1761566768; x=
-	1761573968; bh=obydwKRf78xq6p+vbhUIwD78jMX6wxjnOG1pdFgCN10=; b=i
-	RwdVSofLwUMzMTqcIVwD/mF0uXOT/AO834mxca5Ti2J7H6DBwzQCSca06TRreXTo
-	4xlZF+xK8Q4JtncDawNYybAlT7PndY5WVchPdwvezEK2WrfNmzC/s38XcvatRrwQ
-	qHgTfYUrQVaNwYGoEKsrO9etxerxbYJQxLiZixxSmQSoxItP2BfNS5pnkYPFJWP5
-	lXUzwWEFmYf7o5PZRXc1Iwv2S0bBwQQi488u/XqnWFZYPCp/5i+SD2PJFYAwfdt8
-	Okgh7IbR1lJMFEE+JU5igtcCHBBx5sCY1yzyXADZUqNDk9HIDdREi+oFN7Mp0KF8
-	4C8DJeBziatinymCdTOsQ==
-X-ME-Sender: <xms:LmD_aGysJ_U_9H29oPZYjT1NybZPSL2ElDxgLRbCUM7W_DwciI6Sow>
-    <xme:LmD_aP78Er8xJPMjiJttIsTm4eo-oGnRrRkT2Kfg-Wkreu73Yy3lTeT0Wats7uXub
-    u9GG6tpnCSMobNqpXBn8UXXYJJMFkDQuXLujDF9a5nU77tYgMIFWT0>
-X-ME-Received: <xmr:LmD_aN6xAEBpHuwSyVm7JJ2whkZwq_oO6tkOFkj-0haRaam9BI0SLHKocIXfa0tFSP7me4bj-w-jF8fat09mqfW2Hlo7ZWM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduheejleefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggugfgjsehtkeertddttdejnecuhfhrohhmpefpihhklhgr
-    shcuufpnuggvrhhluhhnugcuoehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrg
-    htvggthhdrshgvqeenucggtffrrghtthgvrhhnpeevteegtddvvdfhtdekgefhfeefheet
-    heekkeegfeejudeiudeuleegtdehkeekteenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhn
-    rghtvggthhdrshgvpdhnsggprhgtphhtthhopeeggedpmhhouggvpehsmhhtphhouhhtpd
-    hrtghpthhtohepshgrkhgrrhhirdgrihhluhhssehlihhnuhigrdhinhhtvghlrdgtohhm
-    pdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpth
-    htohepnhhitgholhgrshdrfhgvrhhrvgesmhhitghrohgthhhiphdrtghomhdprhgtphht
-    thhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhope
-    grnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhes
-    uggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglh
-    gvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthho
-    pehprggsvghnihesrhgvughhrghtrdgtohhm
-X-ME-Proxy: <xmx:LmD_aAJDnhPSOc7gPdVVw2jhRYyu-VX8gktGoXUSJAorWl7cqhcP3Q>
-    <xmx:LmD_aHGjujAE5x9F7a6WKdoBc1THfcZwbU-4VfC_kubY6XtsvtD40g>
-    <xmx:LmD_aF05Qto5ySZM3PAfaz_PjA9iCBoPDERvkxnW7aWEtMJ9PWGvjw>
-    <xmx:LmD_aByJkKrdTdqyhoxWN8s3inA-YszNn9W7eQ4MMYgVvaW20EAa5A>
-    <xmx:MGD_aDs_4bhiPgTqn0gze5FcQ9Os22-HmZQOY-qBzZHFiXeYQBKf_Fb_>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 27 Oct 2025 08:06:06 -0400 (EDT)
-Date: Mon, 27 Oct 2025 13:05:59 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: netdev@vger.kernel.org, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,	Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>,	Wei Fang <wei.fang@nxp.com>,
- Shenwei Wang <shenwei.wang@nxp.com>,	Clark Wang <xiaoning.wang@nxp.com>,
- Paul Barker <paul@pbarker.dev>,	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Roger Quadros <rogerq@kernel.org>, Alex Elder <elder@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Stephan Gerhold <stephan@gerhold.net>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
-	Chiranjeevi Rapolu <chiranjeevi.rapolu@linux.intel.com>,
-	Liu Haijun <haijun.liu@mediatek.com>,
-	Ricardo Martinez <ricardo.martinez@linux.intel.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Ingo Molnar <mingo@kernel.org>,	Thomas Gleixner <tglx@linutronix.de>,
-	Michael Nemanov <michael.nemanov@ti.com>,	Kalle Valo <kvalo@kernel.org>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Roopni Devanathan <quic_rdevanat@quicinc.com>,
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,	imx@lists.linux.dev,
- linux-renesas-soc@vger.kernel.org,	linux-omap@vger.kernel.org,
- linux-wireless@vger.kernel.org,	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH RESEND 1/4] net: ethernet: Remove redundant
- pm_runtime_mark_last_busy() calls
-Message-ID: <20251027120559.GA365372@ragnatech.se>
-References: <20251027115022.390997-1-sakari.ailus@linux.intel.com>
+	Mon, 27 Oct 2025 12:06:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761566816; x=1793102816;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1NfKMDtvOLYr/WPpOHrQJJ7c0my6rBmiQfB1Ha0Z+3o=;
+  b=PDPPFJC930HB+4PGNO75PpnyPXAufOenTEW4y3gTog2Zz3dc3Sn5dygh
+   BSJaV8YSkR76wyUO58+aFeV/EQK+eFtGDi+2u27/gdL5SG6NMvGohpdBN
+   CMAbPqxhhJlchPtZwpvSTYthzc5+hk5JlUnf42AwCkYobP8SHMNm7+yf1
+   zBVT0nFJeKQ7jAbeDKLMfy3AOEarUNkRwupfUkJLkyhJFDJwrHQsFiZWU
+   xQL8OS38+HifPk+39OkSU1o5M8D2IJxDRgiPPM01zgvipTlnsiwLcXhgM
+   LvonyiJ6q4EDpNQcDBsNl7xlUCPGDSz0R4dboczMSaY2WvTCP6iAaRtz8
+   g==;
+X-CSE-ConnectionGUID: 4f6YDOizS4G5TWSsF7uiZQ==
+X-CSE-MsgGUID: qWwj5frDSZ2Yy0X1VK8bOA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="67286072"
+X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
+   d="scan'208";a="67286072"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 05:06:56 -0700
+X-CSE-ConnectionGUID: HEfFwD6pRvaNzyn9whTRHw==
+X-CSE-MsgGUID: Pfb7jr26RFCjJExVu8kKUQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
+   d="scan'208";a="184205655"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa006.jf.intel.com with ESMTP; 27 Oct 2025 05:06:52 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vDLzu-000Gl1-0Q;
+	Mon, 27 Oct 2025 12:06:50 +0000
+Date: Mon, 27 Oct 2025 20:06:03 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, jgg@nvidia.com
+Cc: oe-kbuild-all@lists.linux.dev, jean-philippe@linaro.org,
+	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
+	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
+	praan@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/7] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <202510271909.iEzPjNv4-lkp@intel.com>
+References: <345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251027115022.390997-1-sakari.ailus@linux.intel.com>
+In-Reply-To: <345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_050612_798043_6EE208CD 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20251027_050656_940459_D7D5D6E0 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,242 +91,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari,
+Hi Nicolin,
 
-Thanks for your work cleaning this up!
+kernel test robot noticed the following build errors:
 
-On 2025-10-27 13:50:19 +0200, Sakari Ailus wrote:
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
-> 
-> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> ---
->  drivers/net/ethernet/cadence/macb_main.c  | 5 -----
->  drivers/net/ethernet/freescale/fec_main.c | 8 --------
->  drivers/net/ethernet/renesas/ravb_main.c  | 4 ----
->  drivers/net/ethernet/ti/davinci_mdio.c    | 7 -------
->  4 files changed, 24 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index 39673f5c3337..847c4ab9df23 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -327,7 +327,6 @@ static int macb_mdio_read_c22(struct mii_bus *bus, int mii_id, int regnum)
->  	status = MACB_BFEXT(DATA, macb_readl(bp, MAN));
->  
->  mdio_read_exit:
-> -	pm_runtime_mark_last_busy(&bp->pdev->dev);
->  	pm_runtime_put_autosuspend(&bp->pdev->dev);
->  mdio_pm_exit:
->  	return status;
-> @@ -373,7 +372,6 @@ static int macb_mdio_read_c45(struct mii_bus *bus, int mii_id, int devad,
->  	status = MACB_BFEXT(DATA, macb_readl(bp, MAN));
->  
->  mdio_read_exit:
-> -	pm_runtime_mark_last_busy(&bp->pdev->dev);
->  	pm_runtime_put_autosuspend(&bp->pdev->dev);
->  mdio_pm_exit:
->  	return status;
-> @@ -405,7 +403,6 @@ static int macb_mdio_write_c22(struct mii_bus *bus, int mii_id, int regnum,
->  		goto mdio_write_exit;
->  
->  mdio_write_exit:
-> -	pm_runtime_mark_last_busy(&bp->pdev->dev);
->  	pm_runtime_put_autosuspend(&bp->pdev->dev);
->  mdio_pm_exit:
->  	return status;
-> @@ -451,7 +448,6 @@ static int macb_mdio_write_c45(struct mii_bus *bus, int mii_id,
->  		goto mdio_write_exit;
->  
->  mdio_write_exit:
-> -	pm_runtime_mark_last_busy(&bp->pdev->dev);
->  	pm_runtime_put_autosuspend(&bp->pdev->dev);
->  mdio_pm_exit:
->  	return status;
-> @@ -5564,7 +5560,6 @@ static int macb_probe(struct platform_device *pdev)
->  		    macb_is_gem(bp) ? "GEM" : "MACB", macb_readl(bp, MID),
->  		    dev->base_addr, dev->irq, dev->dev_addr);
->  
-> -	pm_runtime_mark_last_busy(&bp->pdev->dev);
->  	pm_runtime_put_autosuspend(&bp->pdev->dev);
->  
->  	return 0;
-> diff --git a/drivers/net/ethernet/freescale/fec_main.c b/drivers/net/ethernet/freescale/fec_main.c
-> index 1edcfaee6819..4875101c4f3f 100644
-> --- a/drivers/net/ethernet/freescale/fec_main.c
-> +++ b/drivers/net/ethernet/freescale/fec_main.c
-> @@ -2231,7 +2231,6 @@ static int fec_enet_mdio_read_c22(struct mii_bus *bus, int mii_id, int regnum)
->  	ret = FEC_MMFR_DATA(readl(fep->hwp + FEC_MII_DATA));
->  
->  out:
-> -	pm_runtime_mark_last_busy(dev);
->  	pm_runtime_put_autosuspend(dev);
->  
->  	return ret;
-> @@ -2280,7 +2279,6 @@ static int fec_enet_mdio_read_c45(struct mii_bus *bus, int mii_id,
->  	ret = FEC_MMFR_DATA(readl(fep->hwp + FEC_MII_DATA));
->  
->  out:
-> -	pm_runtime_mark_last_busy(dev);
->  	pm_runtime_put_autosuspend(dev);
->  
->  	return ret;
-> @@ -2312,7 +2310,6 @@ static int fec_enet_mdio_write_c22(struct mii_bus *bus, int mii_id, int regnum,
->  	if (ret)
->  		netdev_err(fep->netdev, "MDIO write timeout\n");
->  
-> -	pm_runtime_mark_last_busy(dev);
->  	pm_runtime_put_autosuspend(dev);
->  
->  	return ret;
-> @@ -2356,7 +2353,6 @@ static int fec_enet_mdio_write_c45(struct mii_bus *bus, int mii_id,
->  		netdev_err(fep->netdev, "MDIO write timeout\n");
->  
->  out:
-> -	pm_runtime_mark_last_busy(dev);
->  	pm_runtime_put_autosuspend(dev);
->  
->  	return ret;
-> @@ -2839,7 +2835,6 @@ static void fec_enet_get_regs(struct net_device *ndev,
->  		buf[off] = readl(&theregs[off]);
->  	}
->  
-> -	pm_runtime_mark_last_busy(dev);
->  	pm_runtime_put_autosuspend(dev);
->  }
->  
-> @@ -3616,7 +3611,6 @@ fec_enet_open(struct net_device *ndev)
->  err_enet_alloc:
->  	fec_enet_clk_enable(ndev, false);
->  clk_enable:
-> -	pm_runtime_mark_last_busy(&fep->pdev->dev);
->  	pm_runtime_put_autosuspend(&fep->pdev->dev);
->  	pinctrl_pm_select_sleep_state(&fep->pdev->dev);
->  	return ret;
-> @@ -3647,7 +3641,6 @@ fec_enet_close(struct net_device *ndev)
->  		cpu_latency_qos_remove_request(&fep->pm_qos_req);
->  
->  	pinctrl_pm_select_sleep_state(&fep->pdev->dev);
-> -	pm_runtime_mark_last_busy(&fep->pdev->dev);
->  	pm_runtime_put_autosuspend(&fep->pdev->dev);
->  
->  	fec_enet_free_buffers(ndev);
-> @@ -4616,7 +4609,6 @@ fec_probe(struct platform_device *pdev)
->  
->  	INIT_WORK(&fep->tx_timeout_work, fec_enet_timeout_work);
->  
-> -	pm_runtime_mark_last_busy(&pdev->dev);
->  	pm_runtime_put_autosuspend(&pdev->dev);
->  
->  	return 0;
-> diff --git a/drivers/net/ethernet/renesas/ravb_main.c b/drivers/net/ethernet/renesas/ravb_main.c
-> index c3fc15f9ec85..21a45583e7e1 100644
-> --- a/drivers/net/ethernet/renesas/ravb_main.c
-> +++ b/drivers/net/ethernet/renesas/ravb_main.c
-> @@ -1975,7 +1975,6 @@ static int ravb_open(struct net_device *ndev)
->  out_set_reset:
->  	ravb_set_opmode(ndev, CCC_OPC_RESET);
->  out_rpm_put:
-> -	pm_runtime_mark_last_busy(dev);
->  	pm_runtime_put_autosuspend(dev);
->  out_napi_off:
->  	if (info->nc_queues)
-> @@ -2404,7 +2403,6 @@ static int ravb_close(struct net_device *ndev)
->  	if (error)
->  		return error;
->  
-> -	pm_runtime_mark_last_busy(dev);
->  	pm_runtime_put_autosuspend(dev);
->  
->  	return 0;
-> @@ -3116,7 +3114,6 @@ static int ravb_probe(struct platform_device *pdev)
->  	netdev_info(ndev, "Base address at %#x, %pM, IRQ %d.\n",
->  		    (u32)ndev->base_addr, ndev->dev_addr, ndev->irq);
->  
-> -	pm_runtime_mark_last_busy(&pdev->dev);
->  	pm_runtime_put_autosuspend(&pdev->dev);
->  
->  	return 0;
-> @@ -3301,7 +3298,6 @@ static int ravb_resume(struct device *dev)
->  
->  out_rpm_put:
->  	if (!priv->wol_enabled) {
-> -		pm_runtime_mark_last_busy(dev);
->  		pm_runtime_put_autosuspend(dev);
->  	}
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.18-rc3 next-20251027]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-You could drop the { } here. With this fixed for RAVB,
+url:    https://github.com/intel-lab-lkp/linux/commits/Nicolin-Chen/iommu-arm-smmu-v3-Explicitly-set-smmu_domain-stage-for-SVA/20251016-034754
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc%40nvidia.com
+patch subject: [PATCH v3 3/7] iommu/arm-smmu-v3: Introduce a per-domain arm_smmu_invs array
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20251027/202510271909.iEzPjNv4-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251027/202510271909.iEzPjNv4-lkp@intel.com/reproduce)
 
-Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510271909.iEzPjNv4-lkp@intel.com/
 
->  
-> diff --git a/drivers/net/ethernet/ti/davinci_mdio.c b/drivers/net/ethernet/ti/davinci_mdio.c
-> index 68507126be8e..9f049ebbf107 100644
-> --- a/drivers/net/ethernet/ti/davinci_mdio.c
-> +++ b/drivers/net/ethernet/ti/davinci_mdio.c
-> @@ -234,7 +234,6 @@ static int davinci_mdiobb_read_c22(struct mii_bus *bus, int phy, int reg)
->  
->  	ret = mdiobb_read_c22(bus, phy, reg);
->  
-> -	pm_runtime_mark_last_busy(bus->parent);
->  	pm_runtime_put_autosuspend(bus->parent);
->  
->  	return ret;
-> @@ -251,7 +250,6 @@ static int davinci_mdiobb_write_c22(struct mii_bus *bus, int phy, int reg,
->  
->  	ret = mdiobb_write_c22(bus, phy, reg, val);
->  
-> -	pm_runtime_mark_last_busy(bus->parent);
->  	pm_runtime_put_autosuspend(bus->parent);
->  
->  	return ret;
-> @@ -268,7 +266,6 @@ static int davinci_mdiobb_read_c45(struct mii_bus *bus, int phy, int devad,
->  
->  	ret = mdiobb_read_c45(bus, phy, devad, reg);
->  
-> -	pm_runtime_mark_last_busy(bus->parent);
->  	pm_runtime_put_autosuspend(bus->parent);
->  
->  	return ret;
-> @@ -285,7 +282,6 @@ static int davinci_mdiobb_write_c45(struct mii_bus *bus, int phy, int devad,
->  
->  	ret = mdiobb_write_c45(bus, phy, devad, reg, val);
->  
-> -	pm_runtime_mark_last_busy(bus->parent);
->  	pm_runtime_put_autosuspend(bus->parent);
->  
->  	return ret;
-> @@ -332,7 +328,6 @@ static int davinci_mdio_common_reset(struct davinci_mdio_data *data)
->  	data->bus->phy_mask = phy_mask;
->  
->  done:
-> -	pm_runtime_mark_last_busy(data->dev);
->  	pm_runtime_put_autosuspend(data->dev);
->  
->  	return 0;
-> @@ -441,7 +436,6 @@ static int davinci_mdio_read(struct mii_bus *bus, int phy_id, int phy_reg)
->  		break;
->  	}
->  
-> -	pm_runtime_mark_last_busy(data->dev);
->  	pm_runtime_put_autosuspend(data->dev);
->  	return ret;
->  }
-> @@ -478,7 +472,6 @@ static int davinci_mdio_write(struct mii_bus *bus, int phy_id,
->  		break;
->  	}
->  
-> -	pm_runtime_mark_last_busy(data->dev);
->  	pm_runtime_put_autosuspend(data->dev);
->  
->  	return ret;
-> -- 
-> 2.47.3
-> 
+All errors (new ones prefixed by >>):
+
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1062:23: error: static declaration of 'arm_smmu_invs_merge' follows non-static declaration
+    1062 | struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
+         |                       ^~~~~~~~~~~~~~~~~~~
+   In file included from drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:34:
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:731:23: note: previous declaration of 'arm_smmu_invs_merge' with type 'struct arm_smmu_invs *(struct arm_smmu_invs *, struct arm_smmu_invs *)'
+     731 | struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
+         |                       ^~~~~~~~~~~~~~~~~~~
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1157:8: error: static declaration of 'arm_smmu_invs_unref' follows non-static declaration
+    1157 | size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
+         |        ^~~~~~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:733:8: note: previous declaration of 'arm_smmu_invs_unref' with type 'size_t(struct arm_smmu_invs *, struct arm_smmu_invs *, void (*)(struct arm_smmu_inv *))' {aka 'long unsigned int(struct arm_smmu_invs *, struct arm_smmu_invs *, void (*)(struct arm_smmu_inv *))'}
+     733 | size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
+         |        ^~~~~~~~~~~~~~~~~~~
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1227:23: error: static declaration of 'arm_smmu_invs_purge' follows non-static declaration
+    1227 | struct arm_smmu_invs *arm_smmu_invs_purge(struct arm_smmu_invs *invs,
+         |                       ^~~~~~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:736:23: note: previous declaration of 'arm_smmu_invs_purge' with type 'struct arm_smmu_invs *(struct arm_smmu_invs *, size_t)' {aka 'struct arm_smmu_invs *(struct arm_smmu_invs *, long unsigned int)'}
+     736 | struct arm_smmu_invs *arm_smmu_invs_purge(struct arm_smmu_invs *invs,
+         |                       ^~~~~~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1227:23: warning: 'arm_smmu_invs_purge' defined but not used [-Wunused-function]
+    1227 | struct arm_smmu_invs *arm_smmu_invs_purge(struct arm_smmu_invs *invs,
+         |                       ^~~~~~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1157:8: warning: 'arm_smmu_invs_unref' defined but not used [-Wunused-function]
+    1157 | size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
+         |        ^~~~~~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1062:23: warning: 'arm_smmu_invs_merge' defined but not used [-Wunused-function]
+    1062 | struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
+         |                       ^~~~~~~~~~~~~~~~~~~
+
+
+vim +/arm_smmu_invs_merge +1062 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+
+  1043	
+  1044	/**
+  1045	 * arm_smmu_invs_merge() - Merge @to_merge into @invs and generate a new array
+  1046	 * @invs: the base invalidation array
+  1047	 * @to_merge: an array of invlidations to merge
+  1048	 *
+  1049	 * Return: a newly allocated array on success, or ERR_PTR
+  1050	 *
+  1051	 * This function must be locked and serialized with arm_smmu_invs_unref() and
+  1052	 * arm_smmu_invs_purge(), but do not lockdep on any lock for KUNIT test.
+  1053	 *
+  1054	 * Both @invs and @to_merge must be sorted, to ensure the returned array will be
+  1055	 * sorted as well.
+  1056	 *
+  1057	 * Caller is resposible for freeing the @invs and the returned new one.
+  1058	 *
+  1059	 * Entries marked as trash will be purged in the returned array.
+  1060	 */
+  1061	VISIBLE_IF_KUNIT
+> 1062	struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
+  1063						  struct arm_smmu_invs *to_merge)
+  1064	{
+  1065		struct arm_smmu_invs *new_invs;
+  1066		struct arm_smmu_inv *new;
+  1067		size_t num_trashes = 0;
+  1068		size_t num_adds = 0;
+  1069		size_t i, j;
+  1070	
+  1071		for (i = j = 0; i != invs->num_invs || j != to_merge->num_invs;) {
+  1072			int cmp = arm_smmu_invs_cmp(invs, i, to_merge, j);
+  1073	
+  1074			/* Skip any unwanted trash entry */
+  1075			if (cmp < 0 && !refcount_read(&invs->inv[i].users)) {
+  1076				num_trashes++;
+  1077				i++;
+  1078				continue;
+  1079			}
+  1080	
+  1081			if (cmp < 0) {
+  1082				/* not found in to_merge, leave alone */
+  1083				i++;
+  1084			} else if (cmp == 0) {
+  1085				/* same item */
+  1086				i++;
+  1087				j++;
+  1088			} else {
+  1089				/* unique to to_merge */
+  1090				num_adds++;
+  1091				j++;
+  1092			}
+  1093		}
+  1094	
+  1095		new_invs = arm_smmu_invs_alloc(invs->num_invs - num_trashes + num_adds);
+  1096		if (IS_ERR(new_invs))
+  1097			return new_invs;
+  1098	
+  1099		new = new_invs->inv;
+  1100		for (i = j = 0; i != invs->num_invs || j != to_merge->num_invs;) {
+  1101			int cmp = arm_smmu_invs_cmp(invs, i, to_merge, j);
+  1102	
+  1103			if (cmp <= 0 && !refcount_read(&invs->inv[i].users)) {
+  1104				i++;
+  1105				continue;
+  1106			}
+  1107	
+  1108			if (cmp < 0) {
+  1109				*new = invs->inv[i];
+  1110				i++;
+  1111			} else if (cmp == 0) {
+  1112				*new = invs->inv[i];
+  1113				refcount_inc(&new->users);
+  1114				i++;
+  1115				j++;
+  1116			} else {
+  1117				*new = to_merge->inv[j];
+  1118				refcount_set(&new->users, 1);
+  1119				j++;
+  1120			}
+  1121	
+  1122			if (new != new_invs->inv)
+  1123				WARN_ON_ONCE(arm_smmu_inv_cmp(new - 1, new) == 1);
+  1124			new++;
+  1125		}
+  1126	
+  1127		WARN_ON(new != new_invs->inv + new_invs->num_invs);
+  1128	
+  1129		return new_invs;
+  1130	}
+  1131	EXPORT_SYMBOL_IF_KUNIT(arm_smmu_invs_merge);
+  1132	
+  1133	/**
+  1134	 * arm_smmu_invs_unref() - Find in @invs for all entries in @to_unref, decrease
+  1135	 *                         the user counts without deletions
+  1136	 * @invs: the base invalidation array
+  1137	 * @to_unref: an array of invlidations to decrease their user counts
+  1138	 * @flush_fn: A callback function to invoke, when an entry's user count reduces
+  1139	 *            to 0
+  1140	 *
+  1141	 * Return: the number of trash entries in the array, for arm_smmu_invs_purge()
+  1142	 *
+  1143	 * This function will not fail. Any entry with users=0 will be marked as trash.
+  1144	 * All tailing trash entries in the array will be dropped. And the size of the
+  1145	 * array will be trimmed properly. All trash entries in-between will remain in
+  1146	 * the @invs until being completely deleted by the next arm_smmu_invs_merge()
+  1147	 * or an arm_smmu_invs_purge() function call.
+  1148	 *
+  1149	 * This function must be locked and serialized with arm_smmu_invs_merge() and
+  1150	 * arm_smmu_invs_purge(), but do not lockdep on any mutex for KUNIT test.
+  1151	 *
+  1152	 * Note that the final @invs->num_invs might not reflect the actual number of
+  1153	 * invalidations due to trash entries. Any reader should take the read lock to
+  1154	 * iterate each entry and check its users counter till the last entry.
+  1155	 */
+  1156	VISIBLE_IF_KUNIT
+> 1157	size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
+  1158				   struct arm_smmu_invs *to_unref,
+  1159				   void (*flush_fn)(struct arm_smmu_inv *inv))
+  1160	{
+  1161		unsigned long flags;
+  1162		size_t num_trashes = 0;
+  1163		size_t num_invs = 0;
+  1164		size_t i, j;
+  1165	
+  1166		for (i = j = 0; i != invs->num_invs || j != to_unref->num_invs;) {
+  1167			int cmp;
+  1168	
+  1169			/* Skip any existing trash entry */
+  1170			if (cmp <= 0 && !refcount_read(&invs->inv[i].users)) {
+  1171				num_trashes++;
+  1172				i++;
+  1173				continue;
+  1174			}
+  1175	
+  1176			cmp = arm_smmu_invs_cmp(invs, i, to_unref, j);
+  1177			if (cmp < 0) {
+  1178				/* not found in to_unref, leave alone */
+  1179				i++;
+  1180				num_invs = i;
+  1181			} else if (cmp == 0) {
+  1182				/* same item */
+  1183				if (refcount_dec_and_test(&invs->inv[i].users)) {
+  1184					/* KUNIT test doesn't pass in a flush_fn */
+  1185					if (flush_fn)
+  1186						flush_fn(&invs->inv[i]);
+  1187					num_trashes++;
+  1188				} else {
+  1189					num_invs = i + 1;
+  1190				}
+  1191				i++;
+  1192				j++;
+  1193			} else {
+  1194				/* item in to_unref is not in invs or already a trash */
+  1195				WARN_ON(true);
+  1196				j++;
+  1197			}
+  1198		}
+  1199	
+  1200		/* Exclude any tailing trash */
+  1201		num_trashes -= invs->num_invs - num_invs;
+  1202	
+  1203		/* The lock is required to fence concurrent ATS operations. */
+  1204		write_lock_irqsave(&invs->rwlock, flags);
+  1205		WRITE_ONCE(invs->num_invs, num_invs); /* Remove tailing trash entries */
+  1206		write_unlock_irqrestore(&invs->rwlock, flags);
+  1207	
+  1208		return num_trashes;
+  1209	}
+  1210	EXPORT_SYMBOL_IF_KUNIT(arm_smmu_invs_unref);
+  1211	
+  1212	/**
+  1213	 * arm_smmu_invs_purge() - Purge all the trash entries in the @invs
+  1214	 * @invs: the base invalidation array
+  1215	 * @num_trashes: expected number of trash entries, typically returned by a prior
+  1216	 *               arm_smmu_invs_unref() call
+  1217	 *
+  1218	 * Return: a newly allocated array on success removing all the trash entries, or
+  1219	 *         NULL on failure
+  1220	 *
+  1221	 * This function must be locked and serialized with arm_smmu_invs_merge() and
+  1222	 * arm_smmu_invs_unref(), but do not lockdep on any lock for KUNIT test.
+  1223	 *
+  1224	 * Caller is resposible for freeing the @invs and the returned new one.
+  1225	 */
+  1226	VISIBLE_IF_KUNIT
+> 1227	struct arm_smmu_invs *arm_smmu_invs_purge(struct arm_smmu_invs *invs,
+  1228						  size_t num_trashes)
+  1229	{
+  1230		struct arm_smmu_invs *new_invs;
+  1231		size_t i, j;
+  1232	
+  1233		if (WARN_ON(invs->num_invs < num_trashes))
+  1234			return NULL;
+  1235	
+  1236		new_invs = arm_smmu_invs_alloc(invs->num_invs - num_trashes);
+  1237		if (IS_ERR(new_invs))
+  1238			return NULL;
+  1239	
+  1240		for (i = j = 0; i != invs->num_invs; i++) {
+  1241			if (!refcount_read(&invs->inv[i].users))
+  1242				continue;
+  1243			new_invs->inv[j] = invs->inv[i];
+  1244			j++;
+  1245		}
+  1246	
+  1247		WARN_ON(j != new_invs->num_invs);
+  1248		return new_invs;
+  1249	}
+  1250	EXPORT_SYMBOL_IF_KUNIT(arm_smmu_invs_purge);
+  1251	
 
 -- 
-Kind Regards,
-Niklas Söderlund
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
