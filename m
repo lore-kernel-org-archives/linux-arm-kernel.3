@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D05CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEAA0CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Oga9ogGf0jTX/pA6LeSnCcJbghZKPh2bXwtElqu1MLY=; b=EhhocCyroJDMDFDtFl9gbxHtjU
-	MRgHJT8Ok0Pxi4I69kOGThO2h+CZ/wRFpRh74SUzlEw6uHgBGA1z1r8ziB01ybZ6xW3u2KpJIURpe
-	RBSx7Vcdsw43TAKdxDk5qOSL4t5b+LvUPOPL0UwVZGdeGokp49InPyCAuiWhVNtqiPKUJdncTZKa2
-	I80LlQDR+yIbJCqgbs4S/1ujoNUf/7oYTpuo/yRAwpQohsMS6uDumfs5U+S9OC3ZtsB5y2Ww+LLPO
-	pKISnkjIg0BiHjpTjEo/zhh1l6vDjZo4sK/xmQ/sgC02xxMHCFasDZ67PbLLbfKU9bvDSTvxWcLPA
-	4RPTfHBQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sfyrEDa5Xwfa3LOPswWIkMbfUvSeeGT+rHCNl6v1fKc=; b=bkABDjNnDrr11TatHjfNI3/wdi
+	IZOGu7sGJpZm2jILnGOesJ4SZs+nHefFMd8SrK61XdHuXYuCqjMfI7+4GhhZDB5QL4A4UNz/ITDaT
+	reuDXhiyNxbn7/C01s8BPIA8U92iYx/OPgszp3my3W+MS1M14+GISaxYYQ/+sMSQuD5fgOKT8oDAr
+	8x5OTGyD+tgVNy9ux+GLaqQpK9V8aNv9oKxBxYHcxJ3LY8yqwQ3dFQNgtBuUdkqe7ImErJEMtKyDU
+	/OCFARGUKNygP+3GcAC6jaqCAUlv+yRXs4cgzbRfYWRg/gr8Y7fvu41THRGdlUJwxWPWUidrVIIzk
+	99iE5dAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJzm-0000000Dark-3Iu2;
-	Mon, 27 Oct 2025 09:58:34 +0000
+	id 1vDJzr-0000000Daui-3deY;
+	Mon, 27 Oct 2025 09:58:39 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJzj-0000000DaqR-1Udh;
-	Mon, 27 Oct 2025 09:58:32 +0000
+	id 1vDJzl-0000000DaqR-22lC;
+	Mon, 27 Oct 2025 09:58:34 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 27 Oct
@@ -44,16 +44,19 @@ To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
 	<linux-phy@lists.infradead.org>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>
 CC: <jacky_chou@aspeedtech.com>
-Subject: [PATCH v4 0/9] Add ASPEED PCIe Root Complex support
-Date: Mon, 27 Oct 2025 17:58:16 +0800
-Message-ID: <20251027095825.181161-1-jacky_chou@aspeedtech.com>
+Subject: [PATCH v4 1/9] dt-bindings: phy: aspeed: Add ASPEED PCIe PHY
+Date: Mon, 27 Oct 2025 17:58:17 +0800
+Message-ID: <20251027095825.181161-2-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251027095825.181161-1-jacky_chou@aspeedtech.com>
+References: <20251027095825.181161-1-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_025831_416047_3E72F905 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20251027_025833_531136_FC9F2380 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,96 +71,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the ASPEED PCIe Root Complex,
-including device tree bindings, pinctrl support, and the PCIe host controller
-driver. The patches introduce the necessary device tree nodes, pinmux groups,
-and driver implementation to enable PCIe functionality on ASPEED platforms.
-Currently, the ASPEED PCIe Root Complex only supports a single port.
+Introduce device-binding for ASPEED AST2600/2700 PCIe PHY.
+The PCIe PHY is used for PCIe RC to configure as RC mode.
 
-Summary of changes:
-- Add device tree binding documents for ASPEED PCIe PHY, PCIe Config, and PCIe RC
-- Update MAINTAINERS for new bindings and driver
-- Add PCIe RC node and PERST control pin to aspeed-g6 device tree
-- Implement ASPEED PCIe PHY driver
-- Implement ASPEED PCIe Root Complex host controller driver
-
-This series has been tested on AST2600/AST2700 platforms and enables PCIe device
-enumeration and operation.
-
-Jacky Chou (9):
-  dt-bindings: phy: aspeed: Add ASPEED PCIe PHY
-  dt-bindings: PCI: Add ASPEED PCIe RC support
-  dt-bindings: pinctrl: aspeed,ast2600-pinctrl: Add PCIe RC PERST# group
-  ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST#
-  ARM: dts: aspeed-g6: Add PCIe RC and PCIe PHY node
-  PHY: aspeed: Add ASPEED PCIe PHY driver
-  PCI: Add FMT, TYPE and CPL status definition for TLP header
-  PCI: aspeed: Add ASPEED PCIe RC driver
-  MAINTAINERS: Add ASPEED PCIe RC driver
-
- .../bindings/pci/aspeed,ast2600-pcie.yaml     |  168 +++
- .../bindings/phy/aspeed,ast2600-pcie-phy.yaml |   42 +
- .../pinctrl/aspeed,ast2600-pinctrl.yaml       |    2 +
- MAINTAINERS                                   |   11 +
- .../boot/dts/aspeed/aspeed-g6-pinctrl.dtsi    |    5 +
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       |   54 +
- drivers/pci/controller/Kconfig                |   16 +
- drivers/pci/controller/Makefile               |    1 +
- drivers/pci/controller/pcie-aspeed.c          | 1122 +++++++++++++++++
- drivers/pci/pci.h                             |   15 +
- drivers/phy/Kconfig                           |    1 +
- drivers/phy/Makefile                          |    1 +
- drivers/phy/aspeed/Kconfig                    |   15 +
- drivers/phy/aspeed/Makefile                   |    2 +
- drivers/phy/aspeed/phy-aspeed-pcie.c          |  209 +++
- 15 files changed, 1664 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
+Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/phy/aspeed,ast2600-pcie-phy.yaml | 42 +++++++++++++++++++
+ 1 file changed, 42 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
- create mode 100644 drivers/pci/controller/pcie-aspeed.c
- create mode 100644 drivers/phy/aspeed/Kconfig
- create mode 100644 drivers/phy/aspeed/Makefile
- create mode 100644 drivers/phy/aspeed/phy-aspeed-pcie.c
 
----
-v4:
- - Remove aspeed,ast2700-pcie-cfg.yaml
- - Add more descriptions for AST2600 PCIe RC in aspeed,ast2600-pcie.yaml
- - Change interrupt-controller to legacy-interrupt-controller in yaml
-   and dtsi
- - Remove msi-parent property in yaml and dtsi
- - Modify the bus range to starting from 0x00 in aspeed-g6.dtsi
- - Fixed the typo on MODULE_DEVICE_TABLE() in phy-aspeed-pcie.c
- - Add PCIE_CPL_STS_SUCCESS definition in pci/pci.h
- - Add prefix ASPEED_ for register definition in RC driver
- - Add a flag to indicate clear msi status twice for AST2700 workaround
- - Remove getting domain number
- - Remove scanning AST2600 HOST bridge on device number 0
- - Remove all codes about CONFIG_PCI_MSI
- - Get root but number from resouce list by IORESOURCE_BUS
- - Change module_platform_driver to builtin_platform_driver
-v3:
- - Add ASPEED PCIe PHY driver
- - Remove the aspeed,pciecfg property from AST2600 RC node, merged into RC node
- - Update the binding doc for aspeed,ast2700-pcie-cfg to reflect the changes
- - Update the binding doc for aspeed,ast2600-pcie to reflect the changes
- - Update the binding doc for aspeed,ast2600-pinctrl to reflect the changes
- - Update the device tree source to reflect the changes
- - Adjusted the use of mutex in RC drivers to use GRAND
- - Updated from reviewer comments
-
-v2:
- - Moved ASPEED PCIe PHY yaml binding to `soc/aspeed` directory and
-   changed it as syscon
- - Added `MAINTAINERS` entry for the new PCIe RC driver
- - Updated device tree bindings to reflect the new structure
- - Refactored configuration read and write functions to main bus and
-   child bus ops
- - Refactored initialization to implement multiple ports support
- - Added PCIe FMT and TYPE definitions for TLP header in
-   `include/uapi/linux/pci_regs.h`
- - Updated from reviewer comments
----
-
+diff --git a/Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
+new file mode 100644
+index 000000000000..71a5cd91fb3f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
+@@ -0,0 +1,42 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/aspeed,ast2600-pcie-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED PCIe PHY
++
++maintainers:
++  - Jacky Chou <jacky_chou@aspeedtech.com>
++
++description:
++  The ASPEED PCIe PHY provides the physical layer functionality for PCIe
++  controllers in the SoC.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - aspeed,ast2600-pcie-phy
++          - aspeed,ast2700-pcie-phy
++
++  reg:
++    maxItems: 1
++
++  "#phy-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    phy@1e6ed200 {
++      compatible = "aspeed,ast2600-pcie-phy";
++      reg = <0x1e6ed200 0x100>;
++      #phy-cells = <0>;
++    };
 -- 
 2.34.1
 
