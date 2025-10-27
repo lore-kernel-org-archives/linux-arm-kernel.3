@@ -4,168 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BBDECCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 21:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D99CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 21:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YpkGnmsDt+sAteJ7KbmPqnTO3sF2VoJTgvSPjt4Xk+U=; b=KlLSQ+M6YK1TcgwZp7ZpjnmWr8
-	Z9YGPnZHdRBaPqnU6LM14cSv96U+FCfBOYUIWSrSK40rWAUf9jKslpm4yMRJ4V6a4q4OEIRVmQBwc
-	0oxDg4juvtJxvxEKgQbYGBrBBFWwvXuvtwSlxXdcBHnENH0NygQOCz2BFH7MYmsxEQMQO5xXJzl5N
-	zBD8D/9paU4zHobYPuDd5q13EQUJ9bjcQgkN4BOyHTnNbPWVVj0xdHyT99k1PawmnZg42QSKgvvhx
-	chXKYpcOtp8SRwOxrbe8rMg5P0/5ddcTQknpGTBhAuKobWEBSE7m37N/d/uR8EsM+a/XOBUg/GU+0
-	FTYL+zxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VX5p8zL1uHRFoHX//z5NO2RcC15Azw9VhUq1BP1qqKQ=; b=C6J3F9wMMNcIUAoKTqaEMmb/c9
+	QpKOl1RfTmVvDX8n8pp4qvzQG+mh3lwKIXsEqh2O900+Y/+eZb1TeCYHQ2XP+WnFfQxV909n7w73/
+	HZdwyp0Tt/Z+CJ7nw/VzfdMQgcm5lgdTzK9aGUmoM0G7r3f6muetn7WW0Lroy3oaHS983UrXRvbTh
+	SsJerVqJj+xWkBsykBl0Yzvk8Z9WXOwbQvoGcPsxvIopKzReeFHPNQ3iHN6yBNVDyr+zV7P1ewssK
+	Y3RrJdNFLpVIzxWXmBUEal3FCZLHALDzQAj6tA/KDBHtVBvaJG011Y2u4GX4QOnEFQwUMugU+luFD
+	5YNoqZCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDUPA-0000000Elkc-3YnU;
-	Mon, 27 Oct 2025 21:05:28 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vDUWe-0000000EmFl-1qcN;
+	Mon, 27 Oct 2025 21:13:12 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDUP7-0000000Eljv-1Reu;
-	Mon, 27 Oct 2025 21:05:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jiCrKiE6XQrTWlUEImg0qML82h3Qi1jc97CzUeIpe33UwVN/6eJsrjB4thuXe/fxni82j31isV2ouC1ElH1g/Zhm5i/vDmnBmLpjhou1DKSU7xqAxqmT9oWYX8gALPE8RPaUQTxzYFu5XUwY16/+rEsvhDGZO05wn3PYjeyQJ6wvVb55niOKIhcojr3unCyTWiyLv4xEj90t18tyTCEfbCVczV5k4emS281uCnPs5FILBkVbll/xgAnXx5UalzNTqqd4PEt1hZ/0QbkqQ31mAoq6sLi3AFby+SUcmi62Y1Ec9oab8whazPN6VaR0Cv6vNpwP1dUm6Y29i9FGO4ybuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YpkGnmsDt+sAteJ7KbmPqnTO3sF2VoJTgvSPjt4Xk+U=;
- b=LZT7L8zSQLNcIzIXoJEYwgK+mLJ6fOih2zC4Uxv8L4sacrHijA8ARJFU/v/8mo1SGN1WqrN93pETjE3OuGirRgc0P29xVdAlLujgbA8rPrPkY01Ys+2Ui+3TWsSiE4S4xs8+J/1ui/qZBfMsVVam7sBwFTfu+Vm54yaBtv13P6VhEyhV2DcJ+r/F4CyF9XK07Wu/+uQmS9xo0uZ49WlI1n/Wj8UqBgzMbV1CVQ8VZdRojmh1UAfM7/0aOMd46DtY2XcH+frKHW6ut5rUUCDX+c4aI3rO7t1KoC6zSyIV97MiSTKrX0mFpKFJTDcOdlBLC0DbPIPQsQ140qk4nKoOcQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YpkGnmsDt+sAteJ7KbmPqnTO3sF2VoJTgvSPjt4Xk+U=;
- b=D6K5bCx3NgfpQzuC+QVKu+ekPyFjh4nyklFv+0U5K5tgzbEk47IQIKEH/aCk+3jmP84/uIdypK42VAIjJ9odylbEIUYdPF4dyDDCVMTUWLZKAH2NuN/7b4+v0ESSmD82svlPuFz9MsLcRCYjjuXEUu6w5zv0U+/BOEWKQS7UepTXJVBT6zj9ulCv9xwoEm5NTbLwiwLtIagRY1Ivnr7m7E8iJenqtv6YHOEi3MBg5ZNDW5h+Ch1QPyMJu6+TrPAK558cB2jQk1H4TdrH09AXzhegTXnj2PWrnhZRlieTYTuyW/3q6DgNI+oyVmHhSXB7X/0jKPDQtvwCw6x/rxvUEQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by AM9PR04MB8649.eurprd04.prod.outlook.com (2603:10a6:20b:43c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.19; Mon, 27 Oct
- 2025 21:05:19 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
- 21:05:19 +0000
-Date: Mon, 27 Oct 2025 17:05:09 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Sakari Ailus <sakari.ailus@iki.fi>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1vDUWb-0000000EmE1-0EyB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 21:13:10 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cwR741SHZz9tV5;
+	Mon, 27 Oct 2025 22:13:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761599584;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VX5p8zL1uHRFoHX//z5NO2RcC15Azw9VhUq1BP1qqKQ=;
+	b=nB3AZRFJnRbOn7MWEz/PYzCCCcly8xk8w1Xn4YxKDdrdvOyT6Ex3XnINH5bht7ATJzJn3k
+	6kQ3BhSeWFzpEDaxNJhJR4ZTfHkYWzLU4Osz8OcXl4qD047BQ3FwenXp442kl09TvFsUAO
+	3y1iPlDNdEdVcbbITwZSXarbqImRK0ugItsAcMvCrPUK0B9zz439OEnDvqtqw0BGuKbkX5
+	9iBAQXHUFCz66v0RHnVwAl0ClZTocpJhMUN2G1wcCwe76aWiLWCb/QNPrE/5gzjb1Yi+ls
+	wfbzTnX1akNXj+DeHkkXAuwKV3I7epgPSIP6GjuJZoVF3sBmtS164Djy9vohHQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=vBbfk6Jx;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761599582;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VX5p8zL1uHRFoHX//z5NO2RcC15Azw9VhUq1BP1qqKQ=;
+	b=vBbfk6JxkcLq+3cBugcwFp00zIWoZ/OSdPt8QiaFfKd4K9o7rABAhnUtdLDIzDEBN7zDhX
+	9miC7VMspHXgzMMfRrigGulH3IOzfaPGU4e3oS45vNs8xZ23App8y82f6z4DOzDuQM5zWh
+	xRxGIDH0MBi5v0EidEqCYvXoMP/RTqqVY3QLT4E8KMxdTC/qZy/Z+pKpeqEyS6ALmgK/AH
+	f7W+B2iwGYEZFsysUpbls6KME9AhuLaVD1hG5eaT4YVD6gvQHxog9BlRhVOEtduSAA2la3
+	o9nLsxqdjQTIVqHXTgiZHiywwZEL5HmWH+dayQpMnNwJpikLS6/fyr4xs/9dMQ==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-staging@lists.linux.dev, Luis Oliveira <lolivei@synopsys.com>
-Subject: Re: [PATCH v3 01/31] dt-bindings: media: add DW MIPI CSI-2 Host
- support
-Message-ID: <aP/ehdkppeVr5G6H@lizhi-Precision-Tower-5810>
-References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
- <20250821-95_cam-v3-1-c9286fbb34b9@nxp.com>
- <aP8t3YClrZxOnHea@valkosipuli.retiisi.eu>
- <aP+enPOHPkvZAkzS@lizhi-Precision-Tower-5810>
- <aP_bSQUIle_9-L-7@valkosipuli.retiisi.eu>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aP_bSQUIle_9-L-7@valkosipuli.retiisi.eu>
-X-ClientProxiedBy: PH1PEPF000132E6.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:518:1::26) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 2/5] arm64: dts: renesas: r8a77960-salvator-x: Enable GPU support
+Date: Mon, 27 Oct 2025 22:12:18 +0100
+Message-ID: <20251027211249.95826-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20251027211249.95826-1-marek.vasut+renesas@mailbox.org>
+References: <20251027211249.95826-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|AM9PR04MB8649:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b8b7c6a-3dfe-4814-e70b-08de159c894f
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aEY0PqVyMyapEXH79Pn3S5ZOk0LMvS6cE4x0bUntGEMgszJawdbXijAgpDQG?=
- =?us-ascii?Q?A2eUGoXQOmKKJj3EHEaBQDp/DpjcZIGRPNaThHH/Kw3wOEmxEnlT5k4ysA5H?=
- =?us-ascii?Q?AUo7Dl6dLf/+vOW2AMZ9BssJEw10ao1rfAbq2N83NlP8XuMjdedVv3LMzMtI?=
- =?us-ascii?Q?C4s0jkfvUbrQVdvEBXsW10pkodkmpD8iy6f9SN9mV8TBCpS2dV1SyKtYbgpO?=
- =?us-ascii?Q?RC1Z+MHHBSAyxn9wFu5ZDpIUnJQdcKVKwnhS4rxyQEIOWjsKhlZcStI8h8pQ?=
- =?us-ascii?Q?kvvJYzWA5M3gRLw+EXX7V6f80gmedm04/AEYfNd8vmU00ulNTTvy3CJP0V+A?=
- =?us-ascii?Q?wOjZ6P5cqkl1jJaS1Yh40ph/Fi0+Fhb5bW50E0DK6gpW5knqxUxJLXR46zz+?=
- =?us-ascii?Q?W5ye67UxYAKGbc+q9Gi9k5PbJjzLK6RfbX5KlEYzgCJz/j5TULfJZp7BvuAr?=
- =?us-ascii?Q?aQ1iV79hKsjFxELEZ/1TZJqjIeIz5tRvSxMIXji2UJTZw8FH0IAWZAxy3ohv?=
- =?us-ascii?Q?vOeH0WP6G183PkLjLEQMI5Yfj+iLADRaXK/HCNL2hwj9Yviqm5lW6SW5E6cx?=
- =?us-ascii?Q?+5N4MVDPDLZy7NU2BVK0+eh/KQMh/K+wzNyFAra68HQaks4E8WNVG2HVhzQk?=
- =?us-ascii?Q?5/XKGLuhrVhCnCwbnOrnTs6lt9qmtzbwOtwC4xleHa/zJIZdRScghgWJBTSQ?=
- =?us-ascii?Q?G+lYC0jmugIXtChq17hANGTIbT6KvO1pYlIJU1VhUx1xGVF2eQPIn0KfKck8?=
- =?us-ascii?Q?/Lk9Phy+46EE6A9FUQ3dVQbfTb2EnVpnfXelyB6AA9cO4GbNH1WBTUwJKjtq?=
- =?us-ascii?Q?nc2VgpFmt3QxnWaS0B6s9L9XwcBlPD8HKrlV5j0prM3h2EGjIXzFkRq2TS++?=
- =?us-ascii?Q?4CCw97qmsf75fN3abFbrXzM3N7i2zmiSTnCFQxThYXIYQZy2yAG/YZwRg3Qg?=
- =?us-ascii?Q?+ASUw09NbzQd62eryJpJJIk24YoVqg2z6xp0DtQUObP4DNETc4u8Lj6hBAMz?=
- =?us-ascii?Q?vKtgngl278tUwL8WFgeG573VQNFndKI00fFWv1AFZLggXXrRkQiuohnPzzNb?=
- =?us-ascii?Q?2S1T7bqi2crbY58zRBcImllfyRCdotVtgqoSvXuR4aOLbNEtna43EhgvtfVs?=
- =?us-ascii?Q?nEDuopeKRMIcNV4prL1ebPEDPOFwIH5DG74RB1KqXfI416pGM6pa3x6vRGdr?=
- =?us-ascii?Q?sZir6x2/VL8Jg7Mj5izvX26ZZTd3FHnMpGBb/aAk5b2mEtnXlu4N3Cud6j8D?=
- =?us-ascii?Q?Z9Fjwsu1Nl0rSZjpzoBgpR8L5+jepyAQnmPDAWKgMoIINPhR/HTbF3jbYNeN?=
- =?us-ascii?Q?CvIhu+1F4/H2Zizb26X2KJbUZNIyjWwzU2k54vJHblCrDdXnK4wRqCHjPFUo?=
- =?us-ascii?Q?TDzIXRTH9m0g01A0amcyG9mqS3pt1UnLkm5uuM/NFTxvVUSlOJSxuHpAmTbR?=
- =?us-ascii?Q?/VdWlTNoRklzs8YRBHAANjkbYQHrKWK1gnwOpVH2r9Fz0sH6EaHNGg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WVAH0VOUQuUWwoazSAX8tlrHT0nCTjgPvWXCd22xJVSCg9pxgMplGHvpMNXm?=
- =?us-ascii?Q?SXabkecnN9hYbClSS5uKozFvwxq5jgLBwoQBMRT9xqmtSvULJ99VWO1yYsVN?=
- =?us-ascii?Q?2EMiAGGMkpolnSn+fjZJN5M9ezSocIdBubrpzkk19PpF7haCHGsIDX+kmhL4?=
- =?us-ascii?Q?f6Rfv6r3avKbrhSBF3qXET9p3wfkJPOwPouBNkIAnAIlJrpYSZ5uPRPwUz6V?=
- =?us-ascii?Q?+0gS1G5nu694pxeNadfF+LGQSRwifAiH0H2yhPCkCGuQ+fjn5WKMAy5QSiqe?=
- =?us-ascii?Q?uNW6hkxDWr/p49A7XK5MGvhXWYFOrdTOadVfc/xUbj/zsDamP7KHli2q2egs?=
- =?us-ascii?Q?bn7ETfFoIY4XVEigjObRh4n5brfefbgGgx8olcsXmB3g4D6kydYlrJ9Hl7u3?=
- =?us-ascii?Q?gQyX1CnGmc+AoVHBjK3mq1GZYI0qNQTUY/YwvsOi2+eMK/hxz9em+KDOUGAk?=
- =?us-ascii?Q?Zj33P8HW82sWNpKlb4VPvUuC7VPJaGD8leO5yWlNi6VQxREPohdgGRTXnsvv?=
- =?us-ascii?Q?edv16wErfSLlqQZxmvVFm0qSYhy+/sqPQqG1oyvHzIrlzj2vmo+zAVuRCt8H?=
- =?us-ascii?Q?0G4orI43Y6Q0jAMSlUWC6/3fc2rZ/6Iw8BQ4hBQW+Z/8Y0tNggIUwFC4Dbo3?=
- =?us-ascii?Q?kfL1l76NVSypaxyGuCNYzk6mu9IISi7yev1bOQwxDMr0cAstY9EUXNKTc/1N?=
- =?us-ascii?Q?T2F0PkvMjePMldsFGpzHHCZnjXU2SRaqsWfpOSTmwYtkT1PgVSBeF2xAH5y1?=
- =?us-ascii?Q?KKrNJiS2FksWf4JprI0GqB/94t2u9ntSLjBHlUkyI2XPKpuHe8NZcg1lQsB4?=
- =?us-ascii?Q?7OVmcL666miiAIOJMrG/O4jw3sv4mMhcz+lvJajRtxBO57l5AVgYI2QV9VLq?=
- =?us-ascii?Q?V5u7W9gW7Wd2D+VUgn5k+nv1/rVATWf2T8UwGWfrWLe/ycHnQw3MGTwVcx8i?=
- =?us-ascii?Q?PCallBuIsIRF7ggPCj4o2Fx9uEhSDPgItFRi1HTVS243GEMowxiPEqJ28ds/?=
- =?us-ascii?Q?G5ehy6wfBTJMNIeeBJNtqbXiY0mcRk6oGxwkPnLfJlifSvzlCBLWbIb9CmDI?=
- =?us-ascii?Q?pTSEqiyUSsl736i35lP36uZr6wRoZJrzBicTjbvc65iU8YgDfAllN85LQJ8V?=
- =?us-ascii?Q?b9darl7oxILhyn8i5FlT5BXxoxXiqNzomvPXla1gfT2TZOtR1j9pccF20gW/?=
- =?us-ascii?Q?jVQ5ECp74GMVzP737kIFpn1ZT/jKYvMQQUN0JlKAxPlRm9st3jNW6qtmcyfj?=
- =?us-ascii?Q?iO/sEuvefQFdUDanlnKXz9YoIYLvAh/IHPipo9Sp7yvssjoyE82SPP/jK/hv?=
- =?us-ascii?Q?+e0TMVOE9zV4qT7VuU8g+oLyu6aB4nXRnHFsmwvZoDZB/kprvaLrXS/nVUXl?=
- =?us-ascii?Q?qBwyCeeXOpoKNUFTlyL9hNxZ9iX0zci5a8bb2pBNZZach6m+CNYmg+zSSDb7?=
- =?us-ascii?Q?YLmfdoFdsnXMausUr1+krASOhqGJgZIEQ4l/UE5HSGAOHqb2+/w5lJLv/K4v?=
- =?us-ascii?Q?Qw1md442ePqQvR4j80MpSJLxBB84AFG4fEAyzR7X4nIP1jYrrkPcdvlEhrAF?=
- =?us-ascii?Q?TPanF7F6gO6S7fHjEQO+jreqeoAGb3hYGPHMi1aF?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b8b7c6a-3dfe-4814-e70b-08de159c894f
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2025 21:05:19.8471
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KuvCgokffKVRRM03Y7RpBJ56yWawDBt5ujlAUDfeZL0YX9pgZQSJoFUgG+j5dWmMFOXCBlIJ9ln6RLRDaQbJog==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8649
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: b8767696b4374a78141
+X-MBO-RS-META: w445uu5k6uas8arw9551891xcojxmg87
+X-Rspamd-Queue-Id: 4cwR741SHZz9tV5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_140525_558787_C3E8FD00 
-X-CRM114-Status: GOOD (  31.80  )
+X-CRM114-CacheID: sfid-20251027_141309_245063_F2C0155F 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,171 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 10:51:21PM +0200, Sakari Ailus wrote:
-> Hi Frank,
->
-> On Mon, Oct 27, 2025 at 12:32:28PM -0400, Frank Li wrote:
-> > On Mon, Oct 27, 2025 at 10:31:25AM +0200, Sakari Ailus wrote:
-> > > Hei Eugen,
-> > >
-> > > On Thu, Aug 21, 2025 at 04:15:36PM -0400, Frank Li wrote:
-> > > > From: Eugen Hristev <eugen.hristev@linaro.org>
-> > > >
-> > > > Add bindings for Synopsys DesignWare MIPI CSI-2 host, which used at i.MX93
-> > > > and i.MX95 platform.
-> > > >
-> > > > Signed-off-by: Luis Oliveira <lolivei@synopsys.com>
-> > > > Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
-> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > ---
-> > > > Change in v3
-> > > > - drop remote-endpoint: true
-> > > > - drop clock-lanes
-> > > >
-> > > > Change in v2
-> > > > - remove Eugen Hristev <eugen.hristev@microchip.com> from mantainer.
-> > > > - update ugen Hristev's s-o-b tag to align original author's email address
-> > > > - remove single snps,dw-mipi-csi2-v150 compatible string
-> > > > - move additionalProperties after required
-> > > > ---
-> > > >  .../bindings/media/snps,dw-mipi-csi2-v150.yaml     | 151 +++++++++++++++++++++
-> > > >  MAINTAINERS                                        |   1 +
-> > > >  2 files changed, 152 insertions(+)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
-> > > > new file mode 100644
-> > > > index 0000000000000000000000000000000000000000..d950daa4ee9cfd504ef84b83271b2a1b710ffd6b
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
-> > > > @@ -0,0 +1,151 @@
-> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/media/snps,dw-mipi-csi2-v150.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: Synopsys DesignWare CSI-2 Host controller (csi2host)
-> > > > +
-> > > > +maintainers:
-> > > > +  - Frank Li <Frank.Li@nxp.com>
-> > > > +
-> > > > +description:
-> > > > +  CSI2HOST is used to receive image coming from an MIPI CSI-2 compatible
-> > > > +  camera. It will convert the incoming CSI-2 stream into a dedicated
-> > > > +  interface called the Synopsys IDI (Image Data Interface).
-> > > > +  This interface is a 32-bit SoC internal only, and can be assimilated
-> > > > +  with a CSI-2 interface.
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    items:
-> > > > +      - enum:
-> > > > +          - fsl,imx93-mipi-csi2
-> > > > +      - const: snps,dw-mipi-csi2-v150
-> > > > +
-> > > > +  reg:
-> > > > +    items:
-> > > > +      - description: MIPI CSI-2 core register
-> > > > +
-> > > > +  reg-names:
-> > > > +    items:
-> > > > +      - const: core
-> > > > +
-> > > > +  clocks:
-> > > > +    maxItems: 2
-> > > > +
-> > > > +  clock-names:
-> > > > +    items:
-> > > > +      - const: per
-> > > > +      - const: pixel
-> > > > +
-> > > > +  phys:
-> > > > +    maxItems: 1
-> > > > +    description: MIPI D-PHY
-> > > > +
-> > > > +  phy-names:
-> > > > +    items:
-> > > > +      - const: rx
-> > > > +
-> > > > +  resets:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  interrupts:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  power-domains:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  ports:
-> > > > +    $ref: /schemas/graph.yaml#/properties/ports
-> > > > +
-> > > > +    properties:
-> > > > +      port@0:
-> > > > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > > > +        unevaluatedProperties: false
-> > > > +        description:
-> > > > +          Input port node, single endpoint describing the input port.
-> > > > +
-> > > > +        properties:
-> > > > +          endpoint:
-> > > > +            $ref: video-interfaces.yaml#
-> > > > +            unevaluatedProperties: false
-> > > > +            description: Endpoint connected to input device
-> > > > +
-> > > > +            properties:
-> > > > +              bus-type:
-> > > > +                const: 4
-> > >
-> > > If 4 is the only value supported, you can drop the property altogether.
-> >
-> > Sorry, What's your means here? There are more options in video-interfaces.yaml.
-> > here just add restriction for bus-type. otherwise other value can be
-> > provide in dts file.
->
-> It could, but wouldn't any other value be incorrect?
+Enable GPU on Salvator-X with R-Car M3-W.
 
-at least that 5 # Parallel doesn't make sense for CSI2's input.
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a77960-salvator-x.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Frank
+diff --git a/arch/arm64/boot/dts/renesas/r8a77960-salvator-x.dts b/arch/arm64/boot/dts/renesas/r8a77960-salvator-x.dts
+index d5543f26c4720..0d5c754a7f0ec 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77960-salvator-x.dts
++++ b/arch/arm64/boot/dts/renesas/r8a77960-salvator-x.dts
+@@ -35,3 +35,7 @@ &du {
+ 	clock-names = "du.0", "du.1", "du.2",
+ 		      "dclkin.0", "dclkin.1", "dclkin.2";
+ };
++
++&gpu {
++	status = "okay";
++};
+-- 
+2.51.0
 
->
-> In other words, this property is redundant and should be dropped.
->
-> >
-> > >
-> > > > +
-> > > > +              data-lanes:
-> > > > +                minItems: 1
-> > > > +                maxItems: 4
-> > > > +                items:
-> > > > +                  maximum: 4
-> > > > +
-> > > > +      port@1:
-> > > > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > > > +        unevaluatedProperties: false
-> > > > +        description:
-> > > > +          Output port node, single endpoint describing the output port.
-> > > > +
-> > > > +        properties:
-> > > > +          endpoint:
-> > > > +            unevaluatedProperties: false
-> > > > +            $ref: video-interfaces.yaml#
-> > > > +            description: Endpoint connected to output device
-> > > > +
-> > > > +            properties:
-> > > > +              bus-type:
-> > > > +                const: 4
-> > >
-> > > Are both input and output of this block CSI-2 with D-PHY?
-> >
-> > Yes, input from camera sensor, output to others image processors to do data
-> > transfer or format convert.
->
-> The description appears to be saying this is "Synopsys IDI", not CSI-2 with
-> D-PHY. We don't have a bus-type for IDI. Couldn't you simply drop it?
->
-> --
-> Regards,
->
-> Sakari Ailus
 
