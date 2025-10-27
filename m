@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A2DCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 06:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB125CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 06:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uTONtzzDCzYkWQwYqhc3PDl6+i8mJOuSLhFAjzgzdlI=; b=jUw+DfgGxAc+DSYtc/iAfr4nQk
-	s7MEvk7bKj/iR4KCVxC/Lxn3Kmdm7ctScThxVCtRL3Nh6QzIFPGpXIpiEAIV09AR3G0jmAlaQ5Lzb
-	h0jCvprE03iHWj+SndnNVeDkqeMp9GLbgdxjmdTZHeD/K3lioS+tg+TiJ1HlG7KGkF9R0eiMS56uh
-	3hQlnjopeC5HfChr0IkWR4WT+FAXVtLN7nvBT5T5OJBuS4Dr9Jbq0Qv1EL9T1xTK9onIOUsXKbOab
-	LGArXMctlrPq29msvBdGyI6jqiZzDUawcAPo/Q6Z8JjJrxD1Z9xcdunP2D7JOM6S23dEBYYTXk9i9
-	wLV83Y3A==;
+	bh=551Y0v0A1o0aoP7KQKW2C4ibdjJ4FOICqXnj3ewFFF8=; b=OcMsNamtq0rp6G18k04xsT9y5l
+	YPc37LGmsxRb0xp5mCz7pAVWEWRTzYbsE5Re0yVUq32xyiFrHs40IUbXCjpJ+zds3T1h6T5/tlIRw
+	oNUy4olOa43MV2iNENyYoIfJnrUh98tVqB3gQPzvDS6Hi+5CROMNWRrmipYX1UMhACq9n9nOZzIMn
+	hU3vWnnXsNZxpipeU5d7KoTh9rDCeXnK2yC6cqUpODpRKDu3LwELA1Xx8iDu6Em/DU/dBRrf0DGkH
+	xdKe0yGLrkaNePMh98g2LbRrZ5X8y0K2XnqLAYCiyDC+TWWo8jsBz3qcAQcxSEEBWy3ur8jLvPWvx
+	wvNdTW1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDGyE-0000000DDRi-0pSy;
-	Mon, 27 Oct 2025 06:44:46 +0000
-Received: from mail-m16.yeah.net ([220.197.32.19])
+	id 1vDH0M-0000000DDd2-1XS4;
+	Mon, 27 Oct 2025 06:46:58 +0000
+Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDGyC-0000000DDR9-04xD
+	id 1vDH0K-0000000DDcj-0V2s
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 06:44:45 +0000
+	Mon, 27 Oct 2025 06:46:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=uTONtzzDCzYkWQwYqhc3PDl6+i8mJOuSLhFAjzgzdlI=;
-	b=lE629Zb2rdpzW8UCnswCe24aAxqKE7PzYPKYv8FSfJfe39kvC3PYFzD2iF3UI2
-	dZD/Ezqj9quZ3mcfCLp0R8BIsAAdt9rE7aRL5lo5DaeqKw8AtHxDCXjvAdVvQrUC
-	OLCrvAelb2cUlAF+/+ZUSwHShxmubUDQ4ZyD7LlIm5CZ8=
+	Content-Type; bh=551Y0v0A1o0aoP7KQKW2C4ibdjJ4FOICqXnj3ewFFF8=;
+	b=qVfXX4rBeLJN0ings7Be1Q3eF2slGrTx6sTbjvp9PVatYv8DCe8beRSrrmW1KS
+	Fgi8TYY6KNi0zaBPOZACoqrTR2aQh5XYwnWPrATqCHdL+XONAA5CZQW1m3BanhpB
+	l6QjSq9MGLzrboCneaBotGd7pjyDeZJR573lh5tcnbQDE=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD331XQFP9oZPu+AA--.28142S3;
-	Mon, 27 Oct 2025 14:44:34 +0800 (CST)
-Date: Mon, 27 Oct 2025 14:44:32 +0800
+	by gzsmtp1 (Coremail) with UTF8SMTPSA id Mc8vCgDHnlZUFf9oEY8_AA--.44029S3;
+	Mon, 27 Oct 2025 14:46:46 +0800 (CST)
+Date: Mon, 27 Oct 2025 14:46:44 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] firmware: imx: scu: Misc update
-Message-ID: <aP8U0PNGA2d0kSZE@dragon>
-References: <20251017-imx-firmware-v2-0-b58f68ec2ea9@nxp.com>
+	Fabio Estevam <festevam@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] arm64: dts: imx95: Fix MSI mapping for PCIe endpoint
+ nodes
+Message-ID: <aP8VVMFRTeQILNuq@dragon>
+References: <20251017203947.2749779-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251017-imx-firmware-v2-0-b58f68ec2ea9@nxp.com>
-X-CM-TRANSID: Ms8vCgD331XQFP9oZPu+AA--.28142S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUemhFUUUUU
+In-Reply-To: <20251017203947.2749779-1-Frank.Li@nxp.com>
+X-CM-TRANSID: Mc8vCgDHnlZUFf9oEY8_AA--.44029S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUO7KIDUUUU
 X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNBJTuGj-FNJBTgAA3T
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNBZ02Wj-FVZDEAAA3I
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_234444_373532_9B565648 
-X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-CacheID: sfid-20251026_234656_502400_F7043087 
+X-CRM114-Status: UNSURE (   6.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,17 +80,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 09:56:23AM +0800, Peng Fan wrote:
-> Peng Fan (8):
->       firmware: imx: scu-irq: fix OF node leak in
->       firmware: imx: scu-irq: Free mailbox client on failure at imx_scu_enable_general_irq_channel()
->       firmware: imx: scu-irq: Init workqueue before request mbox channel
->       firmware: imx: scu-irq: Set mu_resource_id before get handle
->       firmware: imx: scu-irq: Remove unused export of imx_scu_enable_general_irq_channel
->       firmware: imx: scu: Update error code
->       firmware: imx: scu: Suppress bind attrs
->       firmware: imx: scu: Use devm_mutex_init
+On Fri, Oct 17, 2025 at 04:39:46PM -0400, Frank Li wrote:
+> The msi-map property was incorrectly applied to pcie0-ep instead of
+> pcie1-ep. Correct the msi-map for both pcie0-ep and pcie1-ep nodes.
+> 
+> Fixes: bbe4b2f7d6533 ("arm64: dts: imx95: Add msi-map for pci-ep device")
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Applied all, thanks!
+Applied, thanks!
 
 
