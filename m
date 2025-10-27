@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05498CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54FFDCCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKH8vYMf6SqqIJ4Nr7m9tVSkocGsGWocEbO61fBw+IQ=; b=PmqN0Sn9zQxwpSMGMz9uQ05SXL
-	6wy9HtlAzwrRxCY/MzKfMR3TkgRG+IJu+gX81VZYIvT9HI/vLo7UIoUGl1euMsL0Q1/ZrWwTWOFCY
-	i2ucr+YejMIt67IH2SBUTNrm+DkTeaIGCT8di9pLxFPfbTl7wLIbYVJjXmfbfQCn9gif7452Gvs2g
-	xztLO37JiCZ1GttJd2UfwNOeIrE4ICqf8NlQfCyo2owPiCZtpCOrgNMjPqE8Mj3eJJLjcDQUN/BmD
-	O0LNkJWypuul6aWfRnXhwJmrGhCBlMzW0DNUryts6ht0lHBK1qsvYcJVIZQodExwhM5u4kpaG5mS8
-	+K5QlNbA==;
+	bh=Zc9UIv9/MZ8vS/A9E/+9Rzg7ZN5v4cfKPUZNZPqRWGI=; b=BFepUTjvz+Hy9zhzCqaAERBfkE
+	tHsZwXKi7AUn6Aq3woa4oWzBSosBu+5pDlB0rsBdckA/nIO7djU3tBtXKHei0c6FuOM7dnX9dpwU9
+	4yInA7KOI88CwByAJHT71WKb+W5v1xGy/yg6sVGPYDosUCSI1JUnE4KaaA5xyRlsWzdZhrumtAOH7
+	WFy95RIF2DE04GXTotvh27vPhWYwVdCR+p3q9QsfYQ/9rUIDvRTcQeI2mTNHJaaRFCBQYmNXSi5Oa
+	v+ZVGrEoFvNNAbqCN/nknTbJezUeqYDAZlcoEms/cndiaTn/MuzkwSOpL63jRVjNMCTiMuMOWBgQX
+	Zer0vIrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVVB-0000000Eqbd-1c5J;
-	Mon, 27 Oct 2025 22:15:45 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1vDVVx-0000000Eql0-10s9;
+	Mon, 27 Oct 2025 22:16:33 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDVV9-0000000EqbF-0Ta1
+	id 1vDVVu-0000000EqkD-37pM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 22:15:44 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-378ddb31efaso62058901fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:15:42 -0700 (PDT)
+	Mon, 27 Oct 2025 22:16:32 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-378cfd75fb0so55787661fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:16:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761603341; x=1762208141; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761603389; x=1762208189; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dKH8vYMf6SqqIJ4Nr7m9tVSkocGsGWocEbO61fBw+IQ=;
-        b=a1CkvPXYXurIC47tjUtXVkqG5maKJDVD18GWO3CfKXORAq28/DTVWgGYykf3nb0kkp
-         +YXHq2zteUnuqokHYgEzpZ5avZExHv2+NVO92jFjcv0qEH65XTpKBNHUW6I7VqNRp2sT
-         WpDl7O5KIP3oqP2VuJmMyO+jMHKILSyvsmgvEBhDyqtXGa5/0qaNf4FSZDCIEk5Zwfap
-         e/an5GayqHZgvYi9DMWcCVEE2WsOuOW+7allLDfdTkPgtPnHFf3NhOlfZvN14ngdsdxP
-         7KwQjM9WrfHfl/euvfPUVxwLTrMjOG/pXnOXEyHJ7SPbPFRe+KbASV2hfL0wVVYmwFoo
-         oQfw==
+        bh=Zc9UIv9/MZ8vS/A9E/+9Rzg7ZN5v4cfKPUZNZPqRWGI=;
+        b=fhExeoWvDYCuhREvyfh3EHdSFU8+bSO+bB1lT0AiFm9/HobluD6JzaRlAildFUS1HR
+         KtmMYdDIjEpf0oLeEnPKw7yYWXDbS1oy+mWJ+QzuRnVZFS70pp2FRBnxgWJ8myTrSmBI
+         EFtBcYkgDvT27Z+hqvJ+9s/hNz5awDIWlrGYxU8BDRqThr+ok6PUW92OALDJXctM+jPe
+         YTJ00j8SeaGMvtxIhO4KuKCrCfufpu1SPnB7QfJOmMZ63Fi6OSoxq5s7UtzXKt1nxhF1
+         UzPcuGfaxZUUq2tR4bpn08fWi3xe6gyLCxYf49kGnRJv0NbEn5Y1JwU9twcL9UuhLySk
+         XFyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761603341; x=1762208141;
+        d=1e100.net; s=20230601; t=1761603389; x=1762208189;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dKH8vYMf6SqqIJ4Nr7m9tVSkocGsGWocEbO61fBw+IQ=;
-        b=DnJ6jm4ybqo4HjiUArJrxIMSnHMoXJuRQWb+8KVaFTNAoetvcg4RTiqvD1ELkFgaxd
-         +oNGdMNRejMkhlWUvg1OmrafNob73TzisTR9b+XwX8x9+FwHeQhpxMMytDY5lOLYFq/E
-         oEm6AMODXfFsVIQjmja1NQzgLkw+Vm7XtJ6D5PyorGubUrr4PooAxvZRuemLRYUBtBtG
-         142Lit1goV+eKQoqQmJxRuiymitmcgKOAgKgYB8riUfS2m2Cutg2/xQDlP8JI+GqTNwp
-         dj7Ii67l41iFh73x6WE5ERsI0ixn2rDrAU1RNC4L6wozTJiOBtYHySbBpHY7kPutVXDe
-         ot/g==
-X-Forwarded-Encrypted: i=1; AJvYcCUsAi/dck7bjwMa3VlTI/ABJDLxM9FKSKbycDZg6wmQbaFeCRzngGAuWmJFM6s7TcEh8zC4QEnq6YbN4v4JprWf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8wONdoKHEJ3pKflY/OACfjUQGK+FCftljKb9/TiXN4zGptNdg
-	xMYzGIN0eCArasXtE227cEmwohlz5Vc4Ek4NfVvqx6FgoTA72pmZNi/6XIcOZUghOguM39Mt8I/
-	OpTPkPwZfZx7lW7HFWfpzW9e3TcxQ4tova+ExEmGVMw==
-X-Gm-Gg: ASbGncuTuLRM8I+SrG/W07VgYQCUa41oKpLd6V2BT9DmBDrzxQgMVzK+SLwkGruIYd0
-	FJUhioqX2pY5VWo95qhZbFPlxUJBLJV+MoxTgdrMb7x1zTcxEk/+Fhz31qCDnhaBZdlWtbHZvjY
-	/K5h2D6kNG2UYivJ4xvBc6xrtHPh39GU626FQ1aA11pR84Hz6LulZQRWrH4jihXmSXv+u9aKFBW
-	e+KrKHNGzKfkZ9dS+d04aKIRSwiugjDpUFG1IMWETa4D38fcwcB3l5xLQWVRBgcjYdskNE=
-X-Google-Smtp-Source: AGHT+IH6m3DSKBdAo1TUZBBV1Cir681XUQKPd2M1XukvdECylY8ML9HXimk23Lw5yV+XpOoav6hKjxByUPzz5iNTOgg=
-X-Received: by 2002:a05:651c:1107:20b0:378:cd74:a289 with SMTP id
- 38308e7fff4ca-3790774e9edmr2648271fa.42.1761603340965; Mon, 27 Oct 2025
- 15:15:40 -0700 (PDT)
+        bh=Zc9UIv9/MZ8vS/A9E/+9Rzg7ZN5v4cfKPUZNZPqRWGI=;
+        b=Dhi+p+vHjUqs87i/s5DQxcSyArF9NhACGr1MlAhkfNPklCVlFpF9N8fZBXdky5eTrr
+         kxdLuCV3cPaMRzTb6TwCH0io+9tR1IqwS3IkU2PHGV8AOV/ZzBh5ULr5MhNLGsBaH/jM
+         vev7oT3ATzoAuXFzU4twFG6erENwylvCyfOLrFL4e/44hdnVIMSbWJOXsmcWcIjA1de6
+         UcVL0YhmG+3Y1uQLbHbvuHuOwYtCAObXzanJrP/p6/CqPo3JzWNC8uurnEGUBUWokjRw
+         +dgJtSNCJqylEVwfXhR8aFufTqOUBOdLU6QvoGWd0xEbP4fHMg9/q2wpNQqMIrw2MOyR
+         g+1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUxu5C39WJShvenutH2OtjXMK1NV0AJYTOg3mlfcvcIX7H8OOcrvgqjmqTBIoa4V8AumVj98ERkPygwPqx30Kf4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyX/+AsOvwVJ9ljbc5uFzki6W0bAPze/9Zb9pGGX0LIX5LOHg7u
+	jfqwZ1LDWI/kyss57ifAw8z8jTKmrN9bazri1YqwfSEcLRUUGplMlID/dND8Z97BoT4vZuOcTJW
+	giAPKPCO6ZsiTVNd+VE/3Wp4x70tnWBY8d4/y8NwWVTytk9fOoC8ZD+E=
+X-Gm-Gg: ASbGncsA+Q3xLmhhtjrUOCQfZhhgYpdV3NdrjQ8vJpoVX0YzxPfFE1DE7CMUx+qo2TR
+	bjcYiucl+tulJVGxGax7UfiRGRcfpb4/MuMWlidFall1ZAkbFZekBjHL6110GFP05PCzSiJOyLS
+	82JOeZb5qK4mF+qLTm8zcW2Z/7fRLMdDVVG+MCQ6A/GMz1ApxHLdLHPBASiIKJ46gyarBPAuI4n
+	LFKmRqNrXeQ+wtL1VpJjRJXvQXXNrgNbY9le/8E6qZ0kBT4/DfA7uopLJNo
+X-Google-Smtp-Source: AGHT+IFA8HV2G/sHhNwZvEShaiZsTM+MMwIFC3kj57n0Kcgm/A/zFAgZaU2xFGY5jATvp1YPW4KS9FCoawvfscRyh9U=
+X-Received: by 2002:a05:651c:25d7:20b0:378:d690:5d96 with SMTP id
+ 38308e7fff4ca-379076a9b61mr3296741fa.8.1761603388859; Mon, 27 Oct 2025
+ 15:16:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251023132700.1199871-1-antonio.borneo@foss.st.com> <20251023132700.1199871-11-antonio.borneo@foss.st.com>
-In-Reply-To: <20251023132700.1199871-11-antonio.borneo@foss.st.com>
+References: <20251023132700.1199871-1-antonio.borneo@foss.st.com> <20251023132700.1199871-12-antonio.borneo@foss.st.com>
+In-Reply-To: <20251023132700.1199871-12-antonio.borneo@foss.st.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 27 Oct 2025 23:15:28 +0100
-X-Gm-Features: AWmQ_bmjdTr7EUx2uJYxfPf9xIolvT4VGvVXwZyfYUonTVISSkwT-eVliP6qaRY
-Message-ID: <CACRpkdYzT3DaqiXTg2swEKxxh2UQbhw2=uF6Md=RON9rWz+6ZQ@mail.gmail.com>
-Subject: Re: [PATCH v4 10/12] dt-bindings: pinctrl: stm32: Use properties from pincfg-node.yaml
+Date: Mon, 27 Oct 2025 23:16:17 +0100
+X-Gm-Features: AWmQ_bmBzMCqn0FgOeFfQ7QhGc6mfzGjYtXO83EFE5z1zNwN1wCq6PGHLCzury8
+Message-ID: <CACRpkdY-e=KT+nOaVNaEB3nFkXTrZeJ7e47LLzD46xsfzm63sA@mail.gmail.com>
+Subject: Re: [PATCH v4 11/12] dt-bindings: pinctrl: stm32: Support I/O
+ synchronization parameters
 To: Antonio Borneo <antonio.borneo@foss.st.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -85,9 +86,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_151543_154780_3945DEFC 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251027_151630_788669_F38F3231 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,9 +105,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Oct 23, 2025 at 3:27=E2=80=AFPM Antonio Borneo
 <antonio.borneo@foss.st.com> wrote:
 
-> Don't re-declare the standard pincfg properties; take them from
-> the default schema.
+> Document the support of the I/O synchronization parameters:
+> - skew-delay-input-ps;
+> - skew-delay-output-ps;
+> - st,io-sync.
 >
+> Forbid 'skew-delay-input-ps' and 'skew-delay-output-ps' to be both
+> present on the same pin.
+> Allow the new properties only with compatibles that support them.
+> Add an example that uses the new properties.
+>
+> Co-developed-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
 > Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
 
 Patch applied!
