@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F2CECCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 15:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C387CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 15:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hW97odhM9uO/XARUDOadwueA3k57Xsj3ULKP5Obq3Vs=; b=xOEVrKqqHyU6HT9+e82cUR3Mze
-	vZWuPxCbrdtKbMfi2Di2lWYkBf11QnGwxZdgvStYdgqHIXrAyzipiJfLyv/KoF6O7pV+ocqjlXb0y
-	dQY+j87BIhgJnuRN7NgpskCINQQnnoMLwJ1djPrfGLGte0nBTRZ3SpOlr3fBBX2upJ1Hdlht8gsWs
-	UWE8g6mhnXu5H7fvsM819YcQqEnXFTfzuR7PdktHGpZX7zY5nxBSmA6GzCAHPKmQFtjSxuuX8VZjy
-	oY1FCA8B+1nJ2K2ZxhBKss4ffQ1NMr/kkEKNqHn5qpEmVukygYrI7rJ166h3iOtCrTrcTQfyYTP7/
-	bQX6c06A==;
+	bh=ZWenX7slUx+XcsY6Fh7yBAqOQ7v6LzOAOCFymybKhSo=; b=3I271sgRmy08C5ZjwPV5Zb5KNU
+	FEk/xjUoVTVdX7jabEbvapyMxQyEKaAphUd8FXC+OYnLnN1BRmilFt1Khc84s7TiJ3/kZtcJjT+J9
+	49s0lEieZhA6Ypvmq4VoMPeQ+8Ubts0zXdeff8J7gbYbZFrEntauGhDDmHIMbUNN0zpPK0OHas7+V
+	JCntzSvHNWzJODZbU7CJPzs3s+hxm52SC76c5A+Ymj8EezG3m7zPGkOITEYba4IsvZggwoGsnAwAG
+	w4XNOzGGg1942jWryCUV/UPeV4Z06GmYiiXnN7Focw7k/+jKBBcrY5gT93DP3AfwDJK9ARgZuLTsS
+	oZlCUHSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOtq-0000000ECFI-1Qqe;
-	Mon, 27 Oct 2025 15:12:46 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vDOtu-0000000ECGv-3loI;
+	Mon, 27 Oct 2025 15:12:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDOtn-0000000ECEj-3Po1;
-	Mon, 27 Oct 2025 15:12:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761577951; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=QgkEdgY84nDWlJ/3RhFF846BGSqh3D7YQ6hxECQL/DQWvrN3pHPvR1l/0/05a6aHiBlcUyieSh1W/u1dQnC7ZSWvQgQHigfMQVCPD+Lbd8byITn/PVqYUrpEMAVQB6hXDobgINgf81tcobj82dyF/ojK8Pg7X0nAXvxB8jVmKx0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761577951; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=hW97odhM9uO/XARUDOadwueA3k57Xsj3ULKP5Obq3Vs=; 
-	b=mzChHXJbbaJkZ1lQwuPmdJWcTNzjqGIH/g+QQy2Iz2xWVUAaYtToT7X4Nd7cD5ARIeFUlT8JDII1ptORL9aydQONJvs3v7p8t1ywMK590d1nJod/Pl8HBtbe5v9P3v/V6JAMG6RNf7QeN3o4u3jOoraqfp4zUubftHHJ4JjlnvM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761577951;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=hW97odhM9uO/XARUDOadwueA3k57Xsj3ULKP5Obq3Vs=;
-	b=hS5m5Fu+MbHy/oVUia09FXh9MSx2928G7K7rUAdUmS5oNrJeniJsasiZP09KkZcc
-	VA2npHN/ClJZTanUpVQjZG4prHxslpVmUp1hv9+KtZOBwKGcdNPsy7nwCqdyYf0HfOg
-	VsYV1QAXcpKUX7bsq4z8no+D/oYFengFbSYqY3zA=
-Received: by mx.zohomail.com with SMTPS id 17615779488931001.9507216437198;
-	Mon, 27 Oct 2025 08:12:28 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
- Hans Zhang <18255117159@163.com>,
- "open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
- <linux-pci@vger.kernel.org>,
- "moderated list:ARM/Rockchip SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>, Anand Moon <linux.amoon@gmail.com>
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
-Date: Mon, 27 Oct 2025 16:12:19 +0100
-Message-ID: <5235617.GXAFRqVoOG@workhorse>
-In-Reply-To: <20251027145602.199154-2-linux.amoon@gmail.com>
-References: <20251027145602.199154-1-linux.amoon@gmail.com>
- <20251027145602.199154-2-linux.amoon@gmail.com>
+	id 1vDOtp-0000000ECFA-3FyE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 15:12:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D7434602BC;
+	Mon, 27 Oct 2025 15:12:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AC4BC4CEF1;
+	Mon, 27 Oct 2025 15:12:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761577963;
+	bh=Yuf62+vsNEYIGHU7qdiXEvN44cNtqtGLtjxwCQO14nc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PYhVnaCNQJppJbs1m33EOMJSII6FXJ54Q46WVqlhXycChK5DLlI8YfUIU9QAZwurz
+	 4BEqIJvZdZ4SnKzNRp8Te8UCAa3mT0A1Mswt9AYhJ6jkGbEBeFsqfuXkoXXADqbNUU
+	 2kVQbL2lmjYguuUGX3IF2MMD/oU/Vrvu0Dc13F0En3GT878JM3VomK87D2JkaadUby
+	 6zkZ6EyXnqhh8nQ2mniuhnmFEfcEpfhSISYGxw1hGztu22f7MBn+J7f1yOuJlV+h8D
+	 xdIdloucDWhxWGHTB+ilVpI7hBC2M3p3HdJt9h+SaylotYOK9ZA/mIDuK9NsnR8YTy
+	 pSAW+22lO/dGA==
+Date: Mon, 27 Oct 2025 10:15:36 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
+	Mao Jinlong <jinlong.mao@oss.qualcomm.com>, Jie Gan <quic_jiegan@quicinc.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: add CTCU device for QCS8300
+Message-ID: <nvrjy4mqhuyngmm44l6lcst3kz7qejijvrflom2a56keqtr7zd@tu337zwgl3td>
+References: <20251013-enable-ctcu-for-qcs8300-v3-0-611e6e0d3085@oss.qualcomm.com>
+ <20251013-enable-ctcu-for-qcs8300-v3-1-611e6e0d3085@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_081243_907295_40ED844F 
-X-CRM114-Status: GOOD (  20.11  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013-enable-ctcu-for-qcs8300-v3-1-611e6e0d3085@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,62 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 27 October 2025 15:55:29 Central European Standard Time Anand Moon wrote:
-> Introduce a .remove() callback to the Rockchip DesignWare PCIe
-> controller driver to ensure proper resource deinitialization during
-> device removal. This includes disabling clocks and deinitializing the
-> PCIe PHY.
+On Mon, Oct 13, 2025 at 04:34:37PM +0800, Jie Gan wrote:
+> The CTCU device for QCS8300 shares the same configurations as SA8775p. Add
+> a fallback to enable the CTCU for QCS8300 to utilize the compitable of the
+> SA8775p.
 > 
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+
+Regards,
+Bjorn
+
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
+>  Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 87dd2dd188b4..b878ae8e2b3e 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->  	return ret;
->  }
+> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+> index c969c16c21ef..460f38ddbd73 100644
+> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+> @@ -26,8 +26,13 @@ description: |
 >  
-> +static void rockchip_pcie_remove(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> +
-> +	/* Perform other cleanups as necessary */
-> +	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-> +	rockchip_pcie_phy_deinit(rockchip);
-
-You may want to add a
-
-    if (rockchip->vpcie3v3)
-            regulator_disable(rockchip->vpcie3v3);
-
-here, since it's enabled in the probe function if it's found.
-
-Not doing so means the regulator core will produce a warning
-splat when devres removes it I'm fairly sure.
-
-Kind regards,
-Nicolas Frattaroli
-
-> +}
-> +
->  static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
->  	.mode = DW_PCIE_RC_TYPE,
->  };
-> @@ -754,5 +764,6 @@ static struct platform_driver rockchip_pcie_driver = {
->  		.suppress_bind_attrs = true,
->  	},
->  	.probe = rockchip_pcie_probe,
-> +	.remove = rockchip_pcie_remove,
->  };
->  builtin_platform_driver(rockchip_pcie_driver);
+>  properties:
+>    compatible:
+> -    enum:
+> -      - qcom,sa8775p-ctcu
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - qcom,qcs8300-ctcu
+> +          - const: qcom,sa8775p-ctcu
+> +      - enum:
+> +          - qcom,sa8775p-ctcu
+>  
+>    reg:
+>      maxItems: 1
 > 
-
-
-
-
+> -- 
+> 2.34.1
+> 
 
