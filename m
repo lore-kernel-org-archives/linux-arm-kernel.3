@@ -4,75 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 114BACCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 03:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD60CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 03:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VMAa48VV4WNzxnbugA0Rcp3703e/G17GYUEc0RKkr2Y=; b=nZlFZqnK9VnZz/tog/qqBGDK6I
-	Wu3KI7pA+l+mQEqJtIu2kbhapp1uvc8o/y7Mqac4ktvIKcMjIe+/hdlLs//zmPJjuTQqaf7BZO0tp
-	vlr3NfNbht6VCUxAiHMqAmxVuOD6p7ppXwp6S/45aHhzvFmvqLG0vM+9Icun6ek3EYosnAyciI8qI
-	HY63T0Zb3fQWd6wbWVuUH851WP3LKDXPNaWEYWf8ZS3SowHTkIn6Diso9cSxUkgAh6LiX8trz246G
-	3I3l+CXuyF6j8AHk9YOjr2myf3C7vmrpznw/oSRaKFghYLv4i11MZjsCl/ktjx9CZAyznMD4Uwtxt
-	5P598nHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ONJFlDC9ZvZONra1GTc8Tka2XBjTcomOJig0XwL4fZg=; b=ijNEryU+HWYU3AxR6l0WYKVqLN
+	2Xfo8P1lc/iFeoNefzbS152kEJA1I2iAa3jSiO9686+MNM0jax5U118AjYi8di4aAJFAVZ+Mg4Ub6
+	dLKJBbHl9qjG2Z4XPoVwZdQLUUuyEQ+5PokeJHBjzHtyTmOr1NqEEbTQtnfeNENYJGY19/zYdhhva
+	Hkdo7kE+GrbtATRWCU68Tl0H7qR/yB702Y3n86XaST4jvBzoiNGr4lJubQgVu1hz1oP3kMguVX8dk
+	8Hz73zj2cysaKuoudL0LrkgmXHFsjFL6iTStbM22I54FF0x5HslHWWJ1c0ZiKJ/nQK8vk1SvmOJAB
+	vJ02F5og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDpP-0000000D3UM-2rmP;
-	Mon, 27 Oct 2025 03:23:27 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vDE5A-0000000D49i-1kw7;
+	Mon, 27 Oct 2025 03:39:44 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDpM-0000000D3TX-3Bb6
+	id 1vDE58-0000000D490-1mLy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 03:23:26 +0000
-Received: from localhost.localdomain (unknown [202.112.113.212])
-	by APP-01 (Coremail) with SMTP id qwCowACHY7aU5f5oAK+HAg--.18889S2;
-	Mon, 27 Oct 2025 11:23:09 +0800 (CST)
-From: Ma Ke <make24@iscas.ac.cn>
-To: will@kernel.org,
-	mark.rutland@arm.com,
-	james.clark@linaro.org,
-	robin.murphy@arm.com,
-	ilkka@os.amperecomputing.com,
-	make24@iscas.ac.cn,
-	u.kleine-koenig@baylibre.com,
-	suzuki.poulose@arm.com,
-	bwicaksono@nvidia.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org,
-	stable@vger.kernel.org
-Subject: [PATCH] perf: arm_cspmu: fix device leak in arm_cspmu_impl_unregister
-Date: Mon, 27 Oct 2025 11:22:59 +0800
-Message-Id: <20251027032259.5818-1-make24@iscas.ac.cn>
-X-Mailer: git-send-email 2.17.1
-X-CM-TRANSID: qwCowACHY7aU5f5oAK+HAg--.18889S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KF1fZrW3ArW5GF17JF43Wrg_yoW8Xry3pr
-	48CFyYvFyjgr4UK39rZay8ZFWUGa1ru3s5CryxK34F9F9rZry8t348tr9xK3W8JFWUJayU
-	t34aqr1kWa15JFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwV
-	AFwVW8GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
-	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
-	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
-	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
-	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU3kucU
-	UUUU=
-X-Originating-IP: [202.112.113.212]
-X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
+	Mon, 27 Oct 2025 03:39:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FPIeGQZ2Fk/PNk9nElyfmrXclXQn86bl75tpG7xLsPPnsa+yBH62Dq098NjyDj7PPAm4FANZbTYhRUDeg9WBxVQQmfj8vOKCMhgcroUZqOacr2sm8XWDMqoBvhVkm/cXLE2YshDb2LLW63uHJZy6r44vRfiiRQyD93a2oAGmBxurgvYjfe9GYHzHLwuXNkX4dY31OF2gHmfd9mIVKLIyBc3QaKdrEooGHJBoj+81lceLn3I1Yg/ayTnBEE6GfmZGowblHMdpzCn3+v9w1txP5X5BKn2Lcg4zsOSr3o3PNeyVKGSgwsYzDkyWhY1YIk1HFP9nA1sBLnrGyogz6KcCSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ONJFlDC9ZvZONra1GTc8Tka2XBjTcomOJig0XwL4fZg=;
+ b=lyjVBWBHQUTQGf+2855dwG/Oo0hm+KnOfAUn/OSvxanV87uwQLgwYxCI6a/5KNEd/jSzk3XqSm8pJx/7K5QQ2bb+DxC8CRVVkargM578pCfpmKvceiwZ7To3fZgtoUsiXk7YvtslisOaCK3k5bNd4aXUYSu5X/vDZmeI+ws7bjLYrd8QYzpmKqO3UNLJB5XFFcBEFpFl5pUQupx+4YWxw40zAZq6JQvftz11caK/ptC7vsYevLMDOOIntH2uD7uUXBttf7/WS+xmNeQAilOwPZefLwI4aIKhOyWtff3jLglb+499liWY+0q3MFsWardRUUlbsOUb7zgzMbyb32OV4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ONJFlDC9ZvZONra1GTc8Tka2XBjTcomOJig0XwL4fZg=;
+ b=BjO5pUtrkSK3ZwrkpO/K62gYmM4jRaZf8iT8qSImHLsvtbE0qi8Www182t6DRrIWzuugu6qMZXblpey6jAaUxcBau9hdGTKZG4K5ieWlmLnN1Z5Hw+hsCkAISjD3A1Q6tME3IZGimN1uxKxM4EA3AgMnJJGeg/M6QSu2sf9p8n9zJPnwgU9pIugiN0rGqzQxtEKNUb7MPNcMBInAVUSWxarVRDoA+CVwnC7lH6n7Pel/0fbq4zbSh+TcsOqrhq3sjUfcScd3nJGcx0ZwtH/xWnbqJ4pAhKroJEIHFxCn9KWIxe2ePuNFM31MexIg9L7nT7lz7iBj/tkF6H/70y6TLA==
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by DU4PR04MB10648.eurprd04.prod.outlook.com
+ (2603:10a6:10:586::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Mon, 27 Oct
+ 2025 03:39:36 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
+ 03:39:36 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "mkl@pengutronix.de" <mkl@pengutronix.de>, "broonie@kernel.org"
+	<broonie@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PACTH v2] spi: imx: add 16/32 bits per word support for target
+ mode
+Thread-Topic: [PACTH v2] spi: imx: add 16/32 bits per word support for target
+ mode
+Thread-Index: AQHcRNm/zRpEV+zYiU25ok3CqsF1ObTRSXUAgAP4xlA=
+Date: Mon, 27 Oct 2025 03:39:36 +0000
+Message-ID: <VI2PR04MB11147AB20690F99BB6CEE2300E8FCA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+References: <20251024113107.513604-1-carlos.song@nxp.com>
+ <aPt+JJhaB9dUOwL8@lizhi-Precision-Tower-5810>
+In-Reply-To: <aPt+JJhaB9dUOwL8@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|DU4PR04MB10648:EE_
+x-ms-office365-filtering-correlation-id: 1e02baa1-8107-49b2-65e9-08de150a7379
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|38070700021|7053199007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?kuO/F16QelgeKWctF24gNagvszMym3OOWRI2TFOWJ5/6Oe/PWACUuymt/0G8?=
+ =?us-ascii?Q?903aoWWADbWwx/H/4Q0aCMCO7wp83uOOqfQglEgyMK/0POvYVcv7V1aw7sZi?=
+ =?us-ascii?Q?2YAe8CMOaI8zOA0B9Vb1/IE3tCCLVwTiDbKevX3Qdn8pkLZEhWrPXpOIGtvQ?=
+ =?us-ascii?Q?70KviYjmK/Ion8eDEYiL2iv6J2xMVgDL4s2Cgeg+EEWhf9rTQBGxnJMrDuAN?=
+ =?us-ascii?Q?Mxpe37hNuKKYFOL9oZAEjZGBWyLpHoC+6f2P+6yxIUHgAsA7jaiKVvX0BTHM?=
+ =?us-ascii?Q?rJszZIVUHOSyppsSZS8V0gehQwU0oNFuqtvTu/tkBywsP7X8W2mntTRaxMLG?=
+ =?us-ascii?Q?hlnhjaSUNo62BKkrrRFbIEBajsOkPbaLi+tRZYFeQ4EHD8s6+ubDHaEFJVbv?=
+ =?us-ascii?Q?YgKMGnbYZh6Joxh1lKmJRGevT/ZX0sBqXQc+3JM3s3LRJLPfnKmTjo8c8HZZ?=
+ =?us-ascii?Q?GIvbmmhllPjE2Qfm4f39FOfDO/qMYSOwlQmtHqqshDl1VRrDLs95VWgOmWjC?=
+ =?us-ascii?Q?MCPeW5dxiB8skyCUcTY5nXz0JW8GF+Qv328UVbLDnWgfbliz4FTcrARmEI2W?=
+ =?us-ascii?Q?BF558sYvRgF4ZheRVVXrJf6ugwfMmWCyrmoOEvd4u2CBrhshVXCjapNePtU8?=
+ =?us-ascii?Q?e0+/+YtA0yZ3snF02CQ0tvrc6bg/6ooTgH4SCUxlh5qqBZeBJ0nwk50tIBw8?=
+ =?us-ascii?Q?Lok+2Il6Dc774hduGjp/4mqdR0eL35QywZtMWlvNMlTUoqsQ9oeq3zX53eGD?=
+ =?us-ascii?Q?z92o97J+v5mSwHYGgrnfWnYCpO35IqBCUj2+P1U8zd3szbuAg/36MkyA81K0?=
+ =?us-ascii?Q?zXQj6tbO5oSu9AcAIcFxbtW80VkxfevToly87LPEabX0yQCeTp9tCYbhnu0y?=
+ =?us-ascii?Q?zFk5XFUF6eZ5OGoF80TbmHPNfh3+Qcq2/KnGqJzScHA0079ZhWnBfXdHgYOq?=
+ =?us-ascii?Q?ptJ8Q9G6S0XX7/0omzYQWREmqUQcaa59d/d610Byee17NfefrPgVZAjwcR4+?=
+ =?us-ascii?Q?F9zBWKvu3l3iDpwAIF8+Qr+0RQBleVaJ00Wbja45oDR6LgjXCUlemMLY35I6?=
+ =?us-ascii?Q?3UnYOqVxayVhb7f5llFomUK3iDfF21ncSyPv+ljbQE3RNla2fyclhSS2fzc3?=
+ =?us-ascii?Q?CJ6833w2XKfPQmwuWPY811nxIL+1QUk6Yps9kHkkCBay/h10dItwh2hwt5nu?=
+ =?us-ascii?Q?x7jBvOQ85Vp+5zsmtnuyuRRAckAeVzrOqKITa08MRAIuuvhxKTu+AkEsl6rA?=
+ =?us-ascii?Q?bdCxtvX6ej6h3C10SZnOQizvXnAiuz4EQStszLE+/zLR3ajVDyinO5V21oWZ?=
+ =?us-ascii?Q?fRQHL+tXUtiUnUVa58guZpZRmNN9jQjhG6LUqZcj8Dqz2XJ2sYBsCs/Oukak?=
+ =?us-ascii?Q?QnSIx4AH1Xrx8cYoJpHhGJSVXV75bm70jLk29PnDysBTrAab3P3dNCKcWw62?=
+ =?us-ascii?Q?wv8xuzUhAzmUZXBJJFnc+jLYJw2UUHP5beoi7iw8keXYVWpKFyjN4ymmMzzx?=
+ =?us-ascii?Q?Y6sa38BAGxD8w4pELL7YU1okUnPIo+4bf/r3?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(38070700021)(7053199007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?GhiC6jZkGHxoQ/3lrUumY3bmENwAQRvNn4JzEaVrpi4dotEVX4EAsvZsB12d?=
+ =?us-ascii?Q?IVM3Ptmh4ROgeOHp4Jja7dvtNCgiB5xEB814l0OWGsg6qIsLIKeWgitqGH0L?=
+ =?us-ascii?Q?+BgTnTwGD8tB1SfcW9s+qTi/DakeT3IQd9NFCsDKZHgsHpuMZFTQUrnaeFgI?=
+ =?us-ascii?Q?kNu8kSFv9B7n7dNZ7pjd7kAKG96g4JSGWfcndZeUgqC60YhvSVbn3m75SL5P?=
+ =?us-ascii?Q?STgdsYZLhz2utWp/zZ17YlJHXkIoq5FbbtEkJVxUDFffBejKGfrK9ZSelZCG?=
+ =?us-ascii?Q?I1IqI4oUN384RtsDJeXX8L6NGtON/8mrKp293feCCqL8wJQJT9cszKAQ4SVi?=
+ =?us-ascii?Q?z18vFzR9+4X8pwMdSgQu8DYxZg6SB+Lh6Kt8lOnLsGZ6jl8wOC+2bMkCyw5C?=
+ =?us-ascii?Q?tqWVL4MABqFHJH1Bx9gPH//2OgPMiaX9lXpY9N9gbeEzIRO+FNILrha0OOyI?=
+ =?us-ascii?Q?HNb9kcCrGm7KSdyD0pRZW0n8cXdShBhtPf5IY4aE+1EGoVgsmevdc4a6NO4k?=
+ =?us-ascii?Q?30POgkBeXzaOPumSx3NHzHDQtu1uzPGjruZfgqlKJyvPEg+gxJGguFK8Tsoh?=
+ =?us-ascii?Q?gKQJ7SB8s4ULabfNT/iqUMM3yW0iGsXMIgzodCYXi7jstY8KZpAowFOs9mLn?=
+ =?us-ascii?Q?FCKc5vpefC/YIAXxVm1iBkCQftbfh596eJXgfhbPHy50EYOSmRRTA1d0L8aV?=
+ =?us-ascii?Q?9VKfq5WboX0h184r3TMdmavWDuzLeOXCYY9JCIN5UGaBWPNNCEpx0Fo8kapw?=
+ =?us-ascii?Q?j6m6+S3TB22sLrd7JCxcYudU1eppZTgYrShE3jLoUOz2nw7Knhx7MWS5nJzv?=
+ =?us-ascii?Q?yr0VaSYJdCNjEOntvde6Bg48O+qHGAc5JnOa0hN+AyBng6XXUUytkDkRFaUw?=
+ =?us-ascii?Q?HVnXglfrFUIQsgEDfrpymcuz4UbvTyp5M26MO0DfAk/NvzugESfSEULw/U6r?=
+ =?us-ascii?Q?qB84g3fDeUz//gzqaaxeZuqZq2COnnlna6o4GFHVxpSLLfCdRTWIxpN/92BX?=
+ =?us-ascii?Q?of/mRRMDTOR1aqIY7ing6Dw/JQrdRy09qAPmIwVqWz3mYkflgZzfGJ6V+pRU?=
+ =?us-ascii?Q?XF038fyQtGXL4LFWWZPR5eglnqHbQF4mkFQfKmotnLpNbXzkLvyRkKZoj2K7?=
+ =?us-ascii?Q?F2QbN/2dkCqKSJf6e882bzpHW2ynE1lw/vgLyMJ9LR7pQljfmylUVm4thm8s?=
+ =?us-ascii?Q?tRmPXhZTmCZGpe7Mr/PtjSHnpjczkiOh6fq37hXCI76op9NNnURG+knlhQKO?=
+ =?us-ascii?Q?4Jo4WH2hTFoom+zgPQyA5NeW+mZjav7xZJDt0Do1HVBeB54VmdemWFvOQ9TL?=
+ =?us-ascii?Q?/sl02myemweb2qyJHwla2jU9HdZj1MdC+ym2kbNRiLFuZzQYDf1lQzAJBrYC?=
+ =?us-ascii?Q?eWtS920IHUZGDHJNEhritscyIjxBgXFCoPYB5jPvkuXc1trJyK0ZZqFojWrq?=
+ =?us-ascii?Q?Pkravfw8RADYG78uYif+ESefYKTE5u4xXg9RMNBBCkIVZ7P595a6EU8rDhFX?=
+ =?us-ascii?Q?G6uwqlxh4G5wuspv4ETAfvicyeIucLU9Gt4sSjnz+WTU7Tib+xqu2E0QIXrJ?=
+ =?us-ascii?Q?osO0CARuViRDMCgfD+8=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e02baa1-8107-49b2-65e9-08de150a7379
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Oct 2025 03:39:36.4135
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mbFl1W5gJRIqk4Su5yjC7LJUtCRLI3fNAjC3hP6G/8sKu9k8KeZe2LrXDiXXPfqueOXVXD7XBF+9hXe6PUyuPA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10648
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_202325_175214_CF31A868 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251026_203942_483228_4E03C26C 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +169,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_cspmu_impl_unregister() utilizes driver_find_device() to locate
-matching devices. driver_find_device() increments the ref count of the
-found device by calling get_device(), but arm_cspmu_impl_unregister()
-fails to call put_device() to decrement the reference count after
-processing each device. This results in a reference count leak of the
-device objects, which prevents devices from being properly released
-and causes a memory leak. Fix the leak by adding put_device() after
-device_release_driver() in the while loop.
 
-Found by code review.
 
-Cc: stable@vger.kernel.org
-Fixes: bfc653aa89cb ("perf: arm_cspmu: Separate Arm and vendor module")
-Signed-off-by: Ma Ke <make24@iscas.ac.cn>
----
- drivers/perf/arm_cspmu/arm_cspmu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+> -----Original Message-----
+> From: Frank Li <frank.li@nxp.com>
+> Sent: Friday, October 24, 2025 9:25 PM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: mkl@pengutronix.de; broonie@kernel.org; shawnguo@kernel.org;
+> s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> linux-spi@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support for tar=
+get
+> mode
+>=20
+> On Fri, Oct 24, 2025 at 07:31:07PM +0800, carlos.song@nxp.com wrote:
+> > From: Carlos Song <carlos.song@nxp.com>
+> >
+> > Now for ECSPI only support 8 bits per word in target mode.
+> > Enable 16/32 bits per word support for spi-imx target mode.
+> >
+> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> > ---
+> >  drivers/spi/spi-imx.c | 12 ++++++++++--
+> >  1 file changed, 10 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c index
+> > 155ddeb8fcd4..017f83f5dfdf 100644
+> > --- a/drivers/spi/spi-imx.c
+> > +++ b/drivers/spi/spi-imx.c
+> > @@ -424,8 +424,12 @@ static void spi_imx_buf_tx_swap(struct
+> > spi_imx_data *spi_imx)
+> >
+> >  static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)  {
+> > -	u32 val =3D ioread32be(spi_imx->base + MXC_CSPIRXDATA);
+> > +	u32 val =3D readl(spi_imx->base + MXC_CSPIRXDATA);
+> >
+> > +	if (spi_imx->bits_per_word <=3D 8)
+> > +		swab32s(&val);
+> > +	else if (spi_imx->bits_per_word <=3D 16)
+> > +		swahw32s(&val);
+>=20
+> Needn't swap when bits_per_word > 24, like 32? or our hardware max suppor=
+t
+> to 16?
+>=20
+> Frank
 
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-index efa9b229e701..e0d4293f06f9 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.c
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-@@ -1365,8 +1365,10 @@ void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match *impl_match)
- 
- 	/* Unbind the driver from all matching backend devices. */
- 	while ((dev = driver_find_device(&arm_cspmu_driver.driver, NULL,
--			match, arm_cspmu_match_device)))
-+			match, arm_cspmu_match_device))) {
- 		device_release_driver(dev);
-+		put_device(dev);
-+	}
- 
- 	mutex_lock(&arm_cspmu_lock);
- 
--- 
-2.17.1
+I think we don't need. We are reading/writing FIFO by 32-bits word. In this=
+ case, we just need keep
+the default byte order.
 
+Is it more reasonable only support bits per word=3D8/16/32 for target mode?
+-b 8/16/32 can cover most use case.
+
+Carlos
+> >  	if (spi_imx->rx_buf) {
+> >  		int n_bytes =3D spi_imx->target_burst % sizeof(val);
+> >
+> > @@ -453,12 +457,16 @@ static void mx53_ecspi_tx_target(struct
+> spi_imx_data *spi_imx)
+> >  	if (spi_imx->tx_buf) {
+> >  		memcpy(((u8 *)&val) + sizeof(val) - n_bytes,
+> >  		       spi_imx->tx_buf, n_bytes);
+> > +		if (spi_imx->bits_per_word <=3D 8)
+> > +			swab32s(&val);
+> > +		else if (spi_imx->bits_per_word <=3D 16)
+> > +			swahw32s(&val);
+> >  		spi_imx->tx_buf +=3D n_bytes;
+> >  	}
+> >
+> >  	spi_imx->count -=3D n_bytes;
+> >
+> > -	iowrite32be(val, spi_imx->base + MXC_CSPITXDATA);
+> > +	writel(val, spi_imx->base + MXC_CSPITXDATA);
+> >  }
+> >
+> >  /* MX51 eCSPI */
+> > --
+> > 2.34.1
+> >
 
