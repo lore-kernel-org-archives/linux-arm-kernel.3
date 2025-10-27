@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2571CCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F54CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 09:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCQDnPWqowHG59QXmb0jLVkKI2rjRu35406X3JQiDVY=; b=4B+UpE2n0h2LfkoZPu2JiglWy0
-	DmQycZZ/VdxW4ayhLAkNUMj8pl8rXYZjW5yBrkzxMJ59SClmgvX60HXw+FUr8O0N7TFGAanHQ/nvZ
-	jeFiLmRCJuhaFj43fs6SY9vqQv3aKcWTIuLpijpU4XV6Hs5ha0f6BdACeukBY+lr+MzepZhLXB+YV
-	ZRQTIqyWfWqEhmNsGxalj2ymUJpwLaqWwLQOC3sjjtlgDpOgM8rNxnN+PgIfNV+1m06leGVNtmRpk
-	m7EYrS0m6WwNBX6WVCCdBsyqzpofYmG30fIcu944avxU335irBEPOaMknHTDOIlNEKk+zNFXKy8ph
-	ywaW0cjg==;
+	bh=c6jnR1l/knmmCE7j64ceFOiYUTsDgn50GkewewG1O2A=; b=PsPLl5F5CJUbyxxYXOrdAfF6rq
+	kryKyfZKNoPkGxqQmF32hTYWtQYLYdZHNgQ842u2MOjyVbkSCS2toSjPoSyLOUp36YS4zJCEojk8b
+	I01G+fp4Jt7XfkjWUdb/GkIuKi0YiAulOSSZMCxZLumJ4n0RbuPz9z1chw5bf4YUDHj52VV14T78v
+	mFEhYHVb3GUGmtlkvjhFmTdaC46dP4OAZmwYzumcGJJapkV+rcaYRHkTjxZiB3PlrRbfGq/iDWmsD
+	whO5AQ/A0sU2W5N7gjcjIFu//+3qTMYMs11qY4ZPe1KWUCr45W+okYYF7uYToNrwN8FKHXwrpE8eA
+	I+WtF88A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJaa-0000000DXvT-1qRy;
+	id 1vDJaa-0000000DXvn-37WQ;
 	Mon, 27 Oct 2025 09:32:32 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJaV-0000000DXsr-2yxx
+	id 1vDJaW-0000000DXt1-2fzZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 09:32:28 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b6d402422c2so1053876966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:32:27 -0700 (PDT)
+	Mon, 27 Oct 2025 09:32:29 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-63d6ee383bdso9572144a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 02:32:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761557546; x=1762162346; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761557547; x=1762162347; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TCQDnPWqowHG59QXmb0jLVkKI2rjRu35406X3JQiDVY=;
-        b=hxhnNWk+XiIm28l3A2AQwtUuznZWUPGVApyITC8/oNA2iW2JREFweZAo32VIK7EosZ
-         ZWzuncm6oGXsLOf0jsg6YHg5rv9MKvj8WUlQ3iO/kjRhgpkyc5hxwtCoFWzOGGrv4i0Z
-         c2MycjomGx7RNNRPfotcxQniBQC1yTRzUDqwRWgL+KNIPvMu3Pdz3MVEq7XvIazQb30E
-         j6NBqVNsH6AI6V9TuDaCrRqSj4IGqssCDyTFwaXgU25uZClbNTvNYzpEv3hmViMvNERn
-         NMQrTxXsqpVurMmqYDKmRKZJRAyAM0NXFqDL/TfVvGAhndp9wzDq3ZfwdHa2aeb7PlKk
-         AvnQ==
+        bh=c6jnR1l/knmmCE7j64ceFOiYUTsDgn50GkewewG1O2A=;
+        b=IK8FMO7K8FWpo5fRCbY/qS93DD27F9R70JVBHgmmhBNM7YC6mOSUiPdLZH7TQDRsqh
+         RYRmDGbhQcF8/1shTqvQgFhjKSQ7H599e2jqto8cGvQVgXJrptN+bwPDRrjv5Q7HRbr0
+         7pOrHQJm3r1xtR5z1ITY89Sdl9xBhP9vozzcF5nsygx13qf37k8PTHFHsP2761dq7HQl
+         tu9NHCNPdbl9VuKQ2Q82EsoxOAxgesyyd70m2saAk2hyPcBMyqyUM9UJwtuN33PIxpyb
+         f7LRf7ezrgpyLgtl6VBho0kceKAWqBBfoVh2bvq5FRtEo2VXwjILNVLwfdsveE1p5sNp
+         vV2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761557546; x=1762162346;
+        d=1e100.net; s=20230601; t=1761557547; x=1762162347;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TCQDnPWqowHG59QXmb0jLVkKI2rjRu35406X3JQiDVY=;
-        b=Su12wHkr2YgUvcaVKvtzE6RkKN8ls+Th00F5TbuTpWHAWMq6QFxS5ibvOTilve9a4v
-         +zMzIRMZOd7RYZJ8dHSsdgEfeoijr36J/T4+Sw1R5m3FI6xrNj5yIpVt9PdlLsPiZmVM
-         K1z0XlvYBAaaomehYc+F+eV536zcBi+lQ3r/kI3fkV0xQXrlvVHjzI4XXOjuEbP7EkKX
-         Vd9TZDAWpIASNLTVMUxjVaIzyUP8jBHSPUm8Q83hnb3L/QbhARQoSNy1YjEbKq6E80SQ
-         xX3L+MkasXCGtUVI5Y8jOIS7+Wl4JIbd1rIHn4uj+hsJGlR3y9//eeuGtP/g6dTH//hI
-         iodw==
-X-Forwarded-Encrypted: i=1; AJvYcCWHs94ggvtaZK67UlHs/VGNS/gxZjOKiBYPkDlBOrzeXHJFNiCpEiGtbJfBqRFxzZVN4AOi8RvRJtBoFgwiBVZb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzGsuGWhwFb09wby1WjgH87BK2eLbQGYPUWDjJd/Bznar1hfE4
-	jaIep992NeOqzGt8QbQ4ZM1uI3fGfOWgq1Fo4r0iVngIJZ/oWK48Sw24
-X-Gm-Gg: ASbGncsOdNyo8vRGQr/fm52/5990b8+bBZ29czW3Dits9GIpCAH4mMSTwkw0eylP3Uc
-	AobeZuS+2NvJWGUUDy08g4W22xzCLUGdAMwkHDqDO63h3TAYYy1+c/V2wGVA6eTNhsIqYJttGcZ
-	Xhy6tm+scVh/uiWCQ2J5DVGH8Hh0u8mFznp03aBJCMfY26f98iWpFfttzGo1OoJsS3NzPHulInb
-	l9CxtMrx+0M9UjnD9v3cXu2wi1dIM5ikZTRiySaWibOr6KSoTFDNSYMXBWlFS16iUX6Jj8JOf/6
-	oWn91WETlzpKiymUfEgbE8LdIv9edIWlCAJncDe52/K975AOIxg7qKgIK93p4DBMz9H7MspeFD8
-	Dg6JTuYElBWfuhgfRgvPRJzngsP2IhdumW+y4kkt10ZRoeMz0InzY+V50uVZbezmPyM54wcczQE
-	owSwNihzYt/0j2j02DRyQguvufogu/DZPOuw4DZoz2TQ7j3cSzcweEkFxMJ22zLA4xMnYzCHWtx
-	8YXXg==
-X-Google-Smtp-Source: AGHT+IGjcZLCWHusJQ+RRTOnS62EVI4AzVgjShANu+qiEsSh8iA493hRxBFjM7nRHQfw9gIc6kKZYg==
-X-Received: by 2002:a17:906:4fc4:b0:b3a:b22e:dd35 with SMTP id a640c23a62f3a-b6471d45a69mr4222583766b.2.1761557545758;
-        Mon, 27 Oct 2025 02:32:25 -0700 (PDT)
+        bh=c6jnR1l/knmmCE7j64ceFOiYUTsDgn50GkewewG1O2A=;
+        b=cbPsfmxHxIckJgEpygl7C4zWihcDipl2Si9Q1Zr2TvLMQi5h0SmwthzZE+73Qzy0FB
+         QO56x9tutDVZ4841BtzyLKylZxds32uO0fUnqw2JCWIxXm6JWY4fOluvho71vsdIHrii
+         N0Ede+6OIZDNQY5sJcIUWwDW0XDrgtEZrcsTQ2egIXXtWvH5s8nXj+zj39IwUMihFHgB
+         9HDUI1OIJ4Eo91Qw8mu+BZqdyE8tkJyHuA8CuWAZ0oUaJzYxzujOCI75Gttv4rgy0vfL
+         2w5viSe47fG6UZNueY7poRLCmKEM/dvouDIcKWOf+V/fKWNtcP0UOIh+5yRaC9UmclKE
+         FXhw==
+X-Forwarded-Encrypted: i=1; AJvYcCXmAxOtbBhSBVA8Dc7Our2bUjZEX4bVi2Kai/AoZS5liRSJ2UpvGLfTCpsBQg8oM+jt/Pr58YwO6g5Z+o150Yu6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9yDEeRoKgJ7zEcpYDCRZa0fjrk6M5lZg0PbgyRNx9ISEXyzPi
+	rDaJ87zPR4QAJX0XTAx0bJlvLV8D01kn3Fiwr+nKPmSn2Ztr18zsYfv+
+X-Gm-Gg: ASbGncuzAt0Yg8G2zDZdErjyMR6bdxkw6GLjBjn/27XToXFjkUfK93CtbBGc9FO0kA5
+	eC//oA1Ic5zie6aFHQozQzjiU2ix4jDJFJHEflvfsVXb2zNi6s+FGdaEmGtg9ENGabh370ljPn2
+	0YLjx+sI4sCLOaB0NJk9dZt62z99yNAqIp0n9m3HdhcmsgUKh//IPTjk34uW4RdextQF8qiRw9K
+	5sgGEysQLXsQkHUsSthQd9a/PVUvNdnEaQ11w+pMwA5ATDlMizMHQgDLHgcNklBIV5Dqtr1+P20
+	5p8SUxq7mQHRRoQak0aslHtsd6QWrYE8J3SpO0mGve2t02btXSGr0DkiOhF0rtd64W073JKOL96
+	3iLWF2A1EIvXknBblON2W0WzTwPFSBu502uacN8FfV4er646UFgqWmuDft98VBP2ARL1AsTGWB/
+	Xk+4PaFdRI+hVAwa5uksoLOPoHZ87z53KuJDF8LN+xs8plgNew0zj88IqrypAuvK7pc4z5pSmPR
+	V3rNVkfiYHG9WI1
+X-Google-Smtp-Source: AGHT+IGo4pfv6hPnOdMTXONgc4qw1GUfLg7rVGlLeAbdxBQfM+FdGB1kbkQsXhoL+4Azs4JdFAml5Q==
+X-Received: by 2002:a05:6402:1443:b0:63c:84e:614f with SMTP id 4fb4d7f45d1cf-63c1f6b0b87mr34969695a12.18.1761557546755;
+        Mon, 27 Oct 2025 02:32:26 -0700 (PDT)
 Received: from toolbox.int.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef6be28sm5681014a12.2.2025.10.27.02.32.24
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef6be28sm5681014a12.2.2025.10.27.02.32.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 02:32:25 -0700 (PDT)
+        Mon, 27 Oct 2025 02:32:26 -0700 (PDT)
 From: max.oss.09@gmail.com
 To: Max Krummenacher <max.krummenacher@toradex.com>,
 	Stefan Eichenberger <stefan.eichenberger@toradex.com>
@@ -85,17 +85,17 @@ Cc: Conor Dooley <conor+dt@kernel.org>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/5] arm64: dts: imx8-apalis: add thermal nodes
-Date: Mon, 27 Oct 2025 10:30:08 +0100
-Message-ID: <20251027093133.2344267-3-max.oss.09@gmail.com>
+Subject: [PATCH v1 3/5] arm64: dts: imx8-apalis: specify adc reference voltage regulator
+Date: Mon, 27 Oct 2025 10:30:09 +0100
+Message-ID: <20251027093133.2344267-4-max.oss.09@gmail.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20251027093133.2344267-1-max.oss.09@gmail.com>
 References: <20251027093133.2344267-1-max.oss.09@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_023227_765021_A3A5DA04 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20251027_023228_713051_1854B628 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,81 +112,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Max Krummenacher <max.krummenacher@toradex.com>
 
-Add the thermal-zones and cooling-maps nodes for the PMIC device.
+This sets in_voltage_scale to calculate the measured voltage from the
+raw digital value of the ADC.
 
 Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
 ---
 
- .../boot/dts/freescale/imx8-apalis-v1.1.dtsi  | 30 +++++++++++++++++--
- .../dts/freescale/imx8qm-apalis-v1.1.dtsi     | 10 ++++++-
- 2 files changed, 37 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-index 6ebeade2ce72..686fce7443bb 100644
+index 686fce7443bb..abf6d543380c 100644
 --- a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-@@ -226,6 +226,34 @@ sound-spdif {
- 		spdif-out;
- 	};
- 
-+	thermal-zones {
-+		pmic-thermal {
-+			polling-delay-passive = <250>;
-+			polling-delay = <2000>;
-+			thermal-sensors = <&tsens IMX_SC_R_PMIC_0>;
-+
-+			cooling-maps {
-+				cooling_maps_map0: map0 {
-+					trip = <&pmic_alert0>;
-+				};
-+			};
-+
-+			trips {
-+				pmic_alert0: trip0 {
-+					hysteresis = <2000>;
-+					temperature = <110000>;
-+					type = "passive";
-+				};
-+
-+				pmic_crit0: trip1 {
-+					hysteresis = <2000>;
-+					temperature = <125000>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+	};
-+
- 	touchscreen: touchscreen {
- 		compatible = "toradex,vf50-touchscreen";
- 		interrupt-parent = <&lsio_gpio3>;
-@@ -833,8 +861,6 @@ &spdif0 {
- 	status = "okay";
+@@ -284,11 +284,13 @@ &asrc0 {
+ &adc0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_adc0>;
++	vref-supply = <&reg_vref_1v8>;
  };
  
--/* TODO: Thermal Zones */
--
- /* TODO: Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
- 
- /* Apalis USBH4 */
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1.dtsi
-index b1c3f331c4ed..8a37cbe922ac 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1.dtsi
-@@ -11,4 +11,12 @@ / {
- 	model = "Toradex Apalis iMX8QM V1.1";
+ &adc1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_adc1>;
++	vref-supply = <&reg_vref_1v8>;
  };
  
--/* TODO: Cooling Maps */
-+&cooling_maps_map0 {
-+	cooling-device =
-+		<&A53_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+		<&A53_1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+		<&A53_2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+		<&A53_3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+		<&A72_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+		<&A72_1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+};
+ &cpu_alert0 {
 -- 
 2.42.0
 
