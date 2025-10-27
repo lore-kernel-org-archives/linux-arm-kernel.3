@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298B9CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5B8CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNW4fieYkSA2lBxgemD0NgMNnHAiHnhoG3/C5j4275U=; b=xSnVJIkl3PSQXVsPQXYwIm/P+Q
-	LYbjjVWwXqs/lWKGOAtG9y1jmzqZigLSGqRw7nGFyw4sMakNz4gdksAtXyH0Igrn7XGKOe0AGwxBL
-	V5Z4U1YokUzNayJqkEzld+y8TsXeBCWAYkHLUE1OV0vU1LKSZPTN6pLpQ1cnsi7fyf1cOd5el8j0y
-	LTOU9pEi773kOFJ8pKsLBZnwGWYjwEXlAOpqqxFog9xVHguOvtq8nm4MAdAQt+CmdBocA2ZgimXNn
-	KKFeOwCwCqzTC4H17mIP5bNaP2Uwl8ge/EmKt3rB7a7YD9LdamDaBFlp4sE7hywARVM6oCQjnzVLD
-	WVmlldMw==;
+	bh=EL18DRmiuTWLATBe5Gs34HIgGkwAeVge3RkC2LhpsLg=; b=KzCqm8cML5OB3RZanb+KRrXeUU
+	GCf6J5unAlRUoJvEKrV7244hJMfpHACy36/CQPBUaiKucEs6h5MtHHjKxai6j1/z7ItbgbtyM+9/B
+	10eibIqoeL5Van/p2ZsK1gTw/C+81Xibr1TX0iCw+scS05J4gbXwEIOd+Y6ifftYPaUtOcyYeB8Xz
+	U21kES3tzeJ99p9rZa7GKTPfLqBMJA1ykgEeejUaNoMKs0ZyGP6AcoANKiMaNnSzRTULaYSehF6/z
+	oEfEOOhlb7X1HkPiktBoWWcNatlcn9KG+8aPdMmBZZwq7AKmILdU5N9IGYGlO0gwVWgHegkcbjYzG
+	OR/OINMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQrH-0000000EQfY-3Oq8;
-	Mon, 27 Oct 2025 17:18:15 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vDQtH-0000000EQud-2tCz;
+	Mon, 27 Oct 2025 17:20:19 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQrF-0000000EQfB-1jeg;
-	Mon, 27 Oct 2025 17:18:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761585485; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=X1gBeOXii1Wsijnw7Xu6bo8M4CrnCviOuvVZYWbFXBr1aczrloVhMYFB+MikS7pjy2qbb60tvRhENSnwzDgH6J6P1fQkI7A25H+TFVYDrRRki8ysfvS8nl3ZLS0GtRPZ9jD9w6BXOqEhTtTBD3uD0wqNMUIkZauQN5j8Mgb+5ww=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761585485; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ZNW4fieYkSA2lBxgemD0NgMNnHAiHnhoG3/C5j4275U=; 
-	b=UNU5V48pqwdNROdHla4ojkPzWnjIVdCJco+lukvORCdLcK0YkTQni+DxtavsNlNxkqw/knoWPPsYVNV0yUgaXBqmz9RG4N5rLNHE1XXMIRHPtHN0LxKLw1g/fdgVmgqnvwhXK55DgkvrNxLle/5qcJT6AYDX3gpwh4c8dJI8wVY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761585485;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=ZNW4fieYkSA2lBxgemD0NgMNnHAiHnhoG3/C5j4275U=;
-	b=S6bRuYh5DomXJIJWsJQZRBcZ07/nhdm8EK2gY1MDPYCkTD3dEQEs7p1JJmolgssh
-	xNj/Mepmd8VCF1afEJF9O2i/lRT3gfGy3mv5lkuJcHQzsTqYMuIWcYD154ZxDihIhPH
-	6wWRJWvxeNxcAuvgvUvncXRL/Clwhw+dKenajAdQ=
-Received: by mx.zohomail.com with SMTPS id 1761585483468132.07412147907223;
-	Mon, 27 Oct 2025 10:18:03 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
- Hans Zhang <18255117159@163.com>,
- "open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
- <linux-pci@vger.kernel.org>,
- "moderated list:ARM/Rockchip SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
-Date: Mon, 27 Oct 2025 18:17:58 +0100
-Message-ID: <14087628.uLZWGnKmhe@workhorse>
-In-Reply-To: <CANAwSgTmOvOZ35=3XjhrKu2iPCMOU8c8prK5XVAkf3cF1DHekQ@mail.gmail.com>
-References: <20251027145602.199154-1-linux.amoon@gmail.com>
- <5235617.GXAFRqVoOG@workhorse>
- <CANAwSgTmOvOZ35=3XjhrKu2iPCMOU8c8prK5XVAkf3cF1DHekQ@mail.gmail.com>
+	id 1vDQtF-0000000EQuF-37ob
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Oct 2025 17:20:18 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1761585616;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EL18DRmiuTWLATBe5Gs34HIgGkwAeVge3RkC2LhpsLg=;
+	b=Y14ZqlD0EkXH4iXjM70FdXLZ+iOmw30C2f7uSB34GLPzWVrHPR6OXTNqwiVcy3+bZNKHkp
+	6K1KOrw6cVb9UR7MqjEoTKh821zZ8z3a+Pf5p2aA2Axnet/8ZauSCNdRYDrIlU4dJquAFd
+	jKh+n99niLkinU17cVLbaOaySoruhIk8BMB89Pi5toNhruNW+EQiH1SVEZOrH354Y+Yt06
+	Viaw77hlRVAUvWKxKWJR+fynvTuYcuWFp9dNX4qtnWL1NQ0jwc+gwO+NZeRRKmA9lk5f6/
+	CLJS3BiWWLqaZmxUXQuZJvOkCI5iXQEhY2/B/fd6MmpzAlE4oYYVI+jxxZrMsw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1761585616;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EL18DRmiuTWLATBe5Gs34HIgGkwAeVge3RkC2LhpsLg=;
+	b=A42MOUxIaJbK5VTM2nYXH7xNrbkEdlYKRkj/alxqESRm5Jg4OCECUkjGTLfYR5G4C0rGLJ
+	SoYRkgVexCygZbBQ==
+To: Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J . Wysocki"
+ <rafael@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Maulik Shah <quic_mkshah@quicinc.com>, Sudeep Holla
+ <sudeep.holla@arm.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Ulf
+ Hansson <ulf.hansson@linaro.org>
+Subject: Re: [PATCH v2 1/2] smp: Introduce a helper function to check for
+ pending IPIs
+In-Reply-To: <20251020141718.150919-2-ulf.hansson@linaro.org>
+References: <20251020141718.150919-1-ulf.hansson@linaro.org>
+ <20251020141718.150919-2-ulf.hansson@linaro.org>
+Date: Mon, 27 Oct 2025 18:20:15 +0100
+Message-ID: <871pmow9bk.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_101813_524168_2E640122 
-X-CRM114-Status: GOOD (  25.88  )
+X-CRM114-CacheID: sfid-20251027_102017_931565_91EF8E03 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 27 October 2025 17:31:23 Central European Standard Time Anand Moon wrote:
-> Hi Nicolas,
-> 
-> Thanks for your review comments.
-> 
-> On Mon, 27 Oct 2025 at 20:42, Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
-> >
-> > On Monday, 27 October 2025 15:55:29 Central European Standard Time Anand Moon wrote:
-> > > Introduce a .remove() callback to the Rockchip DesignWare PCIe
-> > > controller driver to ensure proper resource deinitialization during
-> > > device removal. This includes disabling clocks and deinitializing the
-> > > PCIe PHY.
-> > >
-> > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
-> > >  1 file changed, 11 insertions(+)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > > index 87dd2dd188b4..b878ae8e2b3e 100644
-> > > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > > @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
-> > >       return ret;
-> > >  }
-> > >
-> > > +static void rockchip_pcie_remove(struct platform_device *pdev)
-> > > +{
-> > > +     struct device *dev = &pdev->dev;
-> > > +     struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> > > +
-> > > +     /* Perform other cleanups as necessary */
-> > > +     clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-> > > +     rockchip_pcie_phy_deinit(rockchip);
-> >
-> > You may want to add a
-> >
-> >     if (rockchip->vpcie3v3)
-> >             regulator_disable(rockchip->vpcie3v3);
-> >
-> > here, since it's enabled in the probe function if it's found.
-> >
-> > Not doing so means the regulator core will produce a warning
-> > splat when devres removes it I'm fairly sure.
-> >
-> I've removed the dependency on vpcie3v3 in the following commit:
->  c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator setup with
-> devm_regulator_get_enable_optional()")
-> Please review this commit and confirm if everything looks good.
+On Mon, Oct 20 2025 at 16:17, Ulf Hansson wrote:
 
-I see. In that case, your code is indeed correct, thank you for
-pointing this out.
+> When governors used during cpuidle, tries to find the most optimal
 
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+When governors used during cpuidle trie to ...
 
-Kind regards,
-Nicolas Frattaroli
+Both plural and no comma.
 
-> 
-> > Kind regards,
-> > Nicolas Frattaroli
-> >
-> Thanks
-> -Anand
-> 
+> idlestate for a CPU or a group of CPUs, they are known to quite often fail.
 
+idle state
 
+> One reason for this, is that we are not taking into account whether there
 
+...for this is, that they are not taking into account
 
+> has been an IPI scheduled for any of the CPUs that are affected by the
+> selected idlestate.
+>
+> To enable pending IPIs to be taken into account for cpuidle decisions,
+> let's introduce a new helper function, cpus_may_have_pending_ipi().
+
+s/let's//
+
+> Note that, the implementation is intentionally as lightweight as possible,
+> in favor of always providing the correct information.
+
+That sentence doesn't make sense. It's a snapshot and therefore can't
+provide the correct information.
+
+>  For cpuidle decisions this is good enough.
+
+Thanks,
+
+        tglx
 
