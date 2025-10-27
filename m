@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F259CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:15:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298B9CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 17:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EZ+9YzWy2jl/tRxo90fB2UylD3lSKVjcqVAde7Bc1U4=; b=4wJv55Fn68Qtqe
-	bzvKch9TvYK2QNjaXiWcjmJY5R6NimPJ2gI2X3XuF/Rc++REIAaddjQ4Ysk4UgwSbYPI1vG2msa/w
-	u5JCzRf4Yfl72P56B7XL9duQ5PVTmBiiKfTgoitaqty16ArFZNcVzK15V5FZ9DL1y42xJXpIdAJvR
-	SpBQtGr/MrtNXLYbFvH0YHL9f4rEYuZR1ClWVlKy+FIDjuGCFsODfmLnWnyuwCR8AMpb330jTjVob
-	7StI+RSTrDXmPE9iIPkUviGkGz3l7Vu3ZcHeTc/3nqzRufK2rSVl6sJF7gWN5PoEfHBsmydFJQ9/E
-	gKATDyOeL8mjykJ4mwtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZNW4fieYkSA2lBxgemD0NgMNnHAiHnhoG3/C5j4275U=; b=xSnVJIkl3PSQXVsPQXYwIm/P+Q
+	LYbjjVWwXqs/lWKGOAtG9y1jmzqZigLSGqRw7nGFyw4sMakNz4gdksAtXyH0Igrn7XGKOe0AGwxBL
+	V5Z4U1YokUzNayJqkEzld+y8TsXeBCWAYkHLUE1OV0vU1LKSZPTN6pLpQ1cnsi7fyf1cOd5el8j0y
+	LTOU9pEi773kOFJ8pKsLBZnwGWYjwEXlAOpqqxFog9xVHguOvtq8nm4MAdAQt+CmdBocA2ZgimXNn
+	KKFeOwCwCqzTC4H17mIP5bNaP2Uwl8ge/EmKt3rB7a7YD9LdamDaBFlp4sE7hywARVM6oCQjnzVLD
+	WVmlldMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQoS-0000000EQK1-11tN;
-	Mon, 27 Oct 2025 17:15:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vDQrH-0000000EQfY-3Oq8;
+	Mon, 27 Oct 2025 17:18:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDQoO-0000000EQHl-132I
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Oct 2025 17:15:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description;
-	bh=EZ+9YzWy2jl/tRxo90fB2UylD3lSKVjcqVAde7Bc1U4=; b=lOadlz9oF09KtwSDbSQqVsnm6+
-	K1wIK1PklKgbybH3eVtt9Q/MzYA1yM6nhBCbjfoSf8gzetoz0QBj0QFY2ANroDeyGniUz9OPb8bJd
-	lW/tOS2BqocoviPlMj1D+gITCgECIA4Jfqofg07L7SL80Dw4yT0z50OcaSFmtd2ES/2V/LJya77jf
-	vb5MDFHudo3eRbrca7qPcYx5ezz/Q3uCshWDKPabT2P3LVM8mdTafo6y05ha22stXDPEg7Nz29fIJ
-	/8y7CwbBnGT3BYeQM1x6WNtQ5bAgHAUfy9uFfy2M2yROeBdbwbQwsGDJAtup85MzJcYVTfetwrGeC
-	HbygPrMg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDPwb-00000002eyp-1U8k
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 16:19:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A813A45F28
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:15:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C67C19423
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:15:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761585311;
-	bh=n10NlR5AQZVuyebRk7B2SUL8HffpvVGuK0dPunXc6Is=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=HqZr+eK4r0DzyGqvmeYi5mqxzyyqHWBykNMpoMfE03X5z6pt5O8eOzMRYd9U8ZUQh
-	 eYITan5jDOYW+kPveVqXTdkK4/68+CF7oh5DF96MzpETlIk0uh4aLwwmhsahp6rIJn
-	 hb9MZzElerUW3qdZGtZinkVPXmRKFFox7+oXIB2S4M/pqJ4Ql57IqzMoKRgUaT6FkK
-	 jOYZyLvn00EyjpiJgUwyHOibmTJxoa1uwMGwn7D4dhkQA2/m62ejGggHXJUpSlXPII
-	 kuefpXpMvSLts30670r1p/D5DybsVniH/C5X0jaqa2xC7Rx2pLw3QgoPR/rDlC8ft3
-	 9Jha6fJS1+a+A==
-Received: by mail-il1-f171.google.com with SMTP id e9e14a558f8ab-430e182727dso21456785ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 10:15:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWpq5BST0vNFrGCi4iUEAJWIaGu6Eq9jQ6sKyZqDH3hxRTvBNo+lTbNBG8FgKEK4X0N1Sm02xyNsePy5P9+/0sA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc/fadofXYSXZ8vvnOOb+mwROCqKPqkv39FZBV1bNFAwyJkIh7
-	70kosaZPeO7mv0JIbP5PeCp7xikk7gUITibX/35ApMjFr6B2mCRLmkoUbCqWeEQq/W1s309RjMi
-	gP29OTjgqI5f2xUku5s84LdB+Fk3Y0XA=
-X-Google-Smtp-Source: AGHT+IHX7Cu0cAsXytC3RTDyLGsbQ6D3nuir1yy3lnzLJPUDYwnFPuEpRZmXHsx20REcyJQHIoGh74zShF/YlLRFw2s=
-X-Received: by 2002:a05:6e02:1686:b0:430:a4ba:d098 with SMTP id
- e9e14a558f8ab-4320f6e72b5mr13684325ab.14.1761585309545; Mon, 27 Oct 2025
- 10:15:09 -0700 (PDT)
+	id 1vDQrF-0000000EQfB-1jeg;
+	Mon, 27 Oct 2025 17:18:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761585485; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=X1gBeOXii1Wsijnw7Xu6bo8M4CrnCviOuvVZYWbFXBr1aczrloVhMYFB+MikS7pjy2qbb60tvRhENSnwzDgH6J6P1fQkI7A25H+TFVYDrRRki8ysfvS8nl3ZLS0GtRPZ9jD9w6BXOqEhTtTBD3uD0wqNMUIkZauQN5j8Mgb+5ww=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761585485; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ZNW4fieYkSA2lBxgemD0NgMNnHAiHnhoG3/C5j4275U=; 
+	b=UNU5V48pqwdNROdHla4ojkPzWnjIVdCJco+lukvORCdLcK0YkTQni+DxtavsNlNxkqw/knoWPPsYVNV0yUgaXBqmz9RG4N5rLNHE1XXMIRHPtHN0LxKLw1g/fdgVmgqnvwhXK55DgkvrNxLle/5qcJT6AYDX3gpwh4c8dJI8wVY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761585485;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=ZNW4fieYkSA2lBxgemD0NgMNnHAiHnhoG3/C5j4275U=;
+	b=S6bRuYh5DomXJIJWsJQZRBcZ07/nhdm8EK2gY1MDPYCkTD3dEQEs7p1JJmolgssh
+	xNj/Mepmd8VCF1afEJF9O2i/lRT3gfGy3mv5lkuJcHQzsTqYMuIWcYD154ZxDihIhPH
+	6wWRJWvxeNxcAuvgvUvncXRL/Clwhw+dKenajAdQ=
+Received: by mx.zohomail.com with SMTPS id 1761585483468132.07412147907223;
+	Mon, 27 Oct 2025 10:18:03 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
+ Hans Zhang <18255117159@163.com>,
+ "open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
+ <linux-pci@vger.kernel.org>,
+ "moderated list:ARM/Rockchip SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
+Date: Mon, 27 Oct 2025 18:17:58 +0100
+Message-ID: <14087628.uLZWGnKmhe@workhorse>
+In-Reply-To: <CANAwSgTmOvOZ35=3XjhrKu2iPCMOU8c8prK5XVAkf3cF1DHekQ@mail.gmail.com>
+References: <20251027145602.199154-1-linux.amoon@gmail.com>
+ <5235617.GXAFRqVoOG@workhorse>
+ <CANAwSgTmOvOZ35=3XjhrKu2iPCMOU8c8prK5XVAkf3cF1DHekQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-14-jernej.skrabec@gmail.com>
-In-Reply-To: <20251012192330.6903-14-jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 28 Oct 2025 01:14:55 +0800
-X-Gmail-Original-Message-ID: <CAGb2v654iKx+2_GrFAJYF0VGXSd=ssxE6UYpN3jSAspEC9t3LQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bldcoQqUG3m9k_m37cYhHNBmzCyQWdekxIPdWuxn4IqUUTfMQc9GRDtYCo
-Message-ID: <CAGb2v654iKx+2_GrFAJYF0VGXSd=ssxE6UYpN3jSAspEC9t3LQ@mail.gmail.com>
-Subject: Re: [PATCH 13/30] drm/sun4i: de2/de3: Move plane type determination
- to mixer
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_161941_606686_6F981FEB 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251027_101813_524168_2E640122 
+X-CRM114-Status: GOOD (  25.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,21 +84,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 3:24=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
-l.com> wrote:
->
-> Plane type determination logic inside layer init functions doesn't allow
-> index register to be repurposed to plane sequence, which it almost is.
->
-> So move out the logic to mixer, which allows furter rework for DE33
+On Monday, 27 October 2025 17:31:23 Central European Standard Time Anand Moon wrote:
+> Hi Nicolas,
+> 
+> Thanks for your review comments.
+> 
+> On Mon, 27 Oct 2025 at 20:42, Nicolas Frattaroli
+> <nicolas.frattaroli@collabora.com> wrote:
+> >
+> > On Monday, 27 October 2025 15:55:29 Central European Standard Time Anand Moon wrote:
+> > > Introduce a .remove() callback to the Rockchip DesignWare PCIe
+> > > controller driver to ensure proper resource deinitialization during
+> > > device removal. This includes disabling clocks and deinitializing the
+> > > PCIe PHY.
+> > >
+> > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > > ---
+> > >  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
+> > >  1 file changed, 11 insertions(+)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > > index 87dd2dd188b4..b878ae8e2b3e 100644
+> > > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > > @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+> > >       return ret;
+> > >  }
+> > >
+> > > +static void rockchip_pcie_remove(struct platform_device *pdev)
+> > > +{
+> > > +     struct device *dev = &pdev->dev;
+> > > +     struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+> > > +
+> > > +     /* Perform other cleanups as necessary */
+> > > +     clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> > > +     rockchip_pcie_phy_deinit(rockchip);
+> >
+> > You may want to add a
+> >
+> >     if (rockchip->vpcie3v3)
+> >             regulator_disable(rockchip->vpcie3v3);
+> >
+> > here, since it's enabled in the probe function if it's found.
+> >
+> > Not doing so means the regulator core will produce a warning
+> > splat when devres removes it I'm fairly sure.
+> >
+> I've removed the dependency on vpcie3v3 in the following commit:
+>  c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator setup with
+> devm_regulator_get_enable_optional()")
+> Please review this commit and confirm if everything looks good.
 
-                                               ^ further
+I see. In that case, your code is indeed correct, thank you for
+pointing this out.
 
-Otherwise,
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Kind regards,
+Nicolas Frattaroli
+
+> 
+> > Kind regards,
+> > Nicolas Frattaroli
+> >
+> Thanks
+> -Anand
+> 
+
+
+
+
 
