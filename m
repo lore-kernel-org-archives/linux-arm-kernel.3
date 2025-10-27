@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B47CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 02:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9504ACCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 03:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9YL2ts8v3aqASRcurPBvoJpVYvJz4KJtDkbKb7oDb1o=; b=QQddc7WbMMFdDCCN5FMLlqkkIQ
-	Ty7gtsqdhUkEE4Q/mFbADsZNaDrYn0SqyBFSPnp4PyRBvkjB1EwlpfNqIrUEqwXEvGlP0fdFPPPzq
-	Sw/52A0M550kO64hSN45iQa/pjZbUT8fnf1M8cJpisjsiScdYWifnrOuN4Rf8Nk4QTVRLHQX6q1AZ
-	UUxKPptoAmw+6Us71ONNpK+q5c3PCaHbjGFQys2aiJvE4jADLEK1f7JhJVsLnsEowEOkZLGqh/AyL
-	lalAiyURnpxVhPorcFFr5VpJtXWIJ095I/JcIrIQc0VM/j6glh2s4PS6bOVW7vFSySnmJz88VaQrM
-	ZAecp1Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GAeOHfgUT6r3fiFo8cNAJVc1VqoNbWb3MuAwo4bKF7o=; b=IK3chy0TaUnvg8lhEETqMsdhDT
+	dkx1jFcVEFMopaUHVrqDIA9CdEb/hhZSzZ3yPlZr15YtHevvyEIgnAxMmNlT+/qy/GMBUQMNPQFuP
+	e6ViPL1pXjldieCT4ScNwHphHkPV4UV5gqoYtOTMXc5ekzqoXVGKpMNBlQJIUD2vZ2tt/9ScdcO6l
+	g7Gh2H1mh2mThm8GhcUZHXm8YG91yZp+Stp1s6lerBkqYT0eGpxrQVr0G0s6k1HfsYkOp71qm86Xz
+	TcJmn7S+L7Ekp+9qIz4ig5T30xhBycZ8Hq1o0S8b2gx+cGsGWV8/iPz3TXVrVC1+ZxBn82o/auCO6
+	S+zIBczA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDK6-0000000D28U-0IXZ;
-	Mon, 27 Oct 2025 02:51:06 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vDDbG-0000000D2je-3DJG;
+	Mon, 27 Oct 2025 03:08:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDK2-0000000D27V-2fmH
+	id 1vDDbE-0000000D2jE-0OFc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 02:51:05 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cvyfZ09rDz12LDD;
-	Mon, 27 Oct 2025 10:50:14 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 87746180B63;
-	Mon, 27 Oct 2025 10:50:52 +0800 (CST)
-Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 27 Oct 2025 10:50:52 +0800
-Received: from [10.67.121.115] (10.67.121.115) by
- kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 27 Oct 2025 10:50:51 +0800
-Message-ID: <0cdb8919-012e-c556-1082-63d44c6c7d97@hisilicon.com>
-Date: Mon, 27 Oct 2025 10:50:50 +0800
+	Mon, 27 Oct 2025 03:08:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=GAeOHfgUT6r3fiFo8cNAJVc1VqoNbWb3MuAwo4bKF7o=; b=vwHQJ2Sow6ozOIG3NRmCoT3bQe
+	kL1rU1HzVMODq/Poeh6tfjRENi4Cu1dLqft2bED6DT8SCsksDMUGMHE+PrC3pd6tjDuHyz1yxNIcj
+	7nm1nbn2oAIusdRxdt3JNol5btUtk49BffMeeScg6S/hr8+Ws6jLZtZh7SdZ+c6qkvDw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vDDb8-00C9V7-Qu; Mon, 27 Oct 2025 04:08:42 +0100
+Date: Mon, 27 Oct 2025 04:08:42 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v6 7/7] kselftest/arm64: Add HWCAP test for FEAT_{LS64,
- LS64_V}
-Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
-	<oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
-References: <20251024090819.4097819-1-wangzhou1@hisilicon.com>
- <20251024090819.4097819-8-wangzhou1@hisilicon.com>
- <e40ce220-e857-4ecf-985b-40407f99fcb3@app.fastmail.com>
- <752915f0-1085-b32e-f94c-c6c68dfa6cd4@hisilicon.com>
-From: Zhou Wang <wangzhou1@hisilicon.com>
-In-Reply-To: <752915f0-1085-b32e-f94c-c6c68dfa6cd4@hisilicon.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.115]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemq200004.china.huawei.com (7.202.195.237)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_195103_020288_5BE649FC 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20251026_200848_134264_C9FC963E 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,105 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/10/25 18:06, Zhou Wang wrote:
-> On 2025/10/25 0:18, Arnd Bergmann wrote:
->> On Fri, Oct 24, 2025, at 11:08, Zhou Wang wrote:
->>
->>> +static void ls64_sigill(void)
->>> +{
->>> +	struct sigaction ign, old;
->>> +	char src[64] __aligned(64) = { 1 };
->>> +
->>> +	/*
->>> +	 * LS64, LS64_V require target memory to be Device/Non-cacheable (if
->>> +	 * FEAT_LS64WB not supported) and the completer supports these
->>> +	 * instructions, otherwise we'll receive a SIGBUS. Since we are only
->>> +	 * testing the ABI here, so just ignore the SIGBUS and see if we can
->>> +	 * execute the instructions without receiving a SIGILL. Restore the
->>> +	 * handler of SIGBUS after this test.
->>> +	 */
->>> +	ign.sa_sigaction = ignore_signal;
->>> +	ign.sa_flags = SA_SIGINFO | SA_RESTART;
->>> +	sigemptyset(&ign.sa_mask);
->>> +	sigaction(SIGBUS, &ign, &old);
->>> +
->>> +	register void *xn asm ("x8") = src;
->>> +	register u64 xt_1 asm ("x0");
->>> +	register u64 __maybe_unused xt_2 asm ("x1");
->>> +	register u64 __maybe_unused xt_3 asm ("x2");
->>> +	register u64 __maybe_unused xt_4 asm ("x3");
->>> +	register u64 __maybe_unused xt_5 asm ("x4");
->>> +	register u64 __maybe_unused xt_6 asm ("x5");
->>> +	register u64 __maybe_unused xt_7 asm ("x6");
->>> +	register u64 __maybe_unused xt_8 asm ("x7");
->>> +
->>> +	/* LD64B x0, [x8] */
->>> +	asm volatile(".inst 0xf83fd100" : "=r" (xt_1) : "r" (xn));
->>
->> Relying on the __maybe_unused register declaration seems a little
->> fragile, can you change this so that the inline asm specifies
->> all of the registers correctly as input/output arguments?
+Adding Russell King
+
+On Sun, Oct 26, 2025 at 02:29:04PM +0200, Laurent Pinchart wrote:
+> Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
+> (DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
+> devices produces an interrupts storm. Disable EEE support to fix it.
 > 
-> Seems we can remove xt_2 ... xt8, but add x1 ... x7 to asm clobber list,
-> something like:
-> 
->     asm volatile(".inst 0xf83fd100" : "=r" (xt_1) : "r" (xn)
->                  : "x1", "x2", "x3", "x4", "x5", "x6", "x7");
-> 
->>> +static void ls64_v_sigill(void)
->>> +{
->>> +	struct sigaction ign, old;
->>> +	char dst[64] __aligned(64);
->>> +
->>> +	/* See comment in ls64_sigill() */
->>> +	ign.sa_sigaction = ignore_signal;
->>> +	ign.sa_flags = SA_SIGINFO | SA_RESTART;
->>> +	sigemptyset(&ign.sa_mask);
->>> +	sigaction(SIGBUS, &ign, &old);
->>> +
->>> +	register void *xn asm ("x8") = dst;
->>> +	register u64 xt_1 asm ("x0") = 1;
->>> +	register u64 __maybe_unused xt_2 asm ("x1") = 2;
->>> +	register u64 __maybe_unused xt_3 asm ("x2") = 3;
->>> +	register u64 __maybe_unused xt_4 asm ("x3") = 4;
->>> +	register u64 __maybe_unused xt_5 asm ("x4") = 5;
->>> +	register u64 __maybe_unused xt_6 asm ("x5") = 6;
->>> +	register u64 __maybe_unused xt_7 asm ("x6") = 7;
->>> +	register u64 __maybe_unused xt_8 asm ("x7") = 8;
->>> +	register u64 st   asm ("x9");
->>> +
->>> +	/* ST64BV x9, x0, [x8] */
->>> +	asm volatile(".inst 0xf829b100" : "=r" (st) : "r" (xt_1), "r" (xn));
->>> +
->>> +	sigaction(SIGBUS, &old, NULL);
->>
->> Is ST64BV expected to cause SIGBUS here, or should it return the
->> 0xffffffffffffffff output to indicate an unsupported memory area?
-> 
-> I think it should return 0xffffffffffffffff without an exception,
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> ---
+> The exact reason for the interrupt storm is unknown, and my attempts to
+> diagnose it was hindered by my lack of expertise with DWMAC. As far as I
+> understand, the DWMAC implements EEE support, and so does the RTL8211E
+> PHY according to its datasheet.
 
-My understanding above is wrong.
+I believe for DWMAC it is a synthesis option. However, there is a bit
+indicating if the hardware supports it.
 
-As mentioned in C3.2.6 of ARM spec L.b:
+The PHY should not be able to trigger an interrupt storm in the
+MAC. So this is likely to be an DWMAC issue.
 
-1. "When the instructions access a memory type that is not one of the following,
-   a data abort for unsupported Exclusive or atomic access is generated"
+Which interrupt bit is causing the storm?
 
-2. "If the target memory location does not support the ST64BV or ST64BV0
-   instructions, then the register specified by <Xs> is set to 0xFFFFFFFF_FFFFFFFF"
+> What each side does exactly is unknown
+> to me. One theory I've heard to explain the issue is that the two
+> implementations conflict. There is no register in the RTL8211E PHY to
+> disable EEE on the PHY side while still advertising its support to the
+> peer and relying on the implementation in the DWMAC (if this even makes
+> sense)
 
-Here the test code is the first case, so a fault should be triggered.
+It does not make sense. EEE is split into two major parts. The two
+PHYs communicate with each other to negotiate the feature, if both
+ends support it and both ends want to use it. The result of this
+negotiation is then passed to the MACs.
 
-Best,
-Zhou
+It is then the MAC who decides when to send a Low Power Indication to
+the PHY to tell the PHY to enter low power mode. The MAC also wakes
+the PHY when it has packets to send.
 
-> will modify above test codes in next version.
-> 
-> Best,
-> Zhou
-> 
->>
->>      Arnd
->> .
-> .
+A quick look at the data sheet for the RTL8211E suggests this is what
+is supports.
+
+There are a few PHYs which implement SmartEEE, or some other similar
+name. They operate differently, the PHY does it all, and the MAC is
+not even aware EEE is happening. Such PHYs should really only be
+paired with MACs which do not support EEE. An EEE capable MAC paired
+with a SmartEEE PHY could have problems, but hopefully the EEE
+abilities and negotiation registers in the PHY would be sufficient to
+dissuade the MAC from doing EEE. But i would not expect a setup like
+this to trigger an interrupt storm.
+
+	Andrew
 
