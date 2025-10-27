@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC951CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B79CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 10:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2pv8A1uaol1pXhXlEzwlZylOOOHmbfINSrfrlQpNBrE=; b=mGIGzyG3GVRc6H3jxFz35eqj3w
-	1bJhwENfdvKB8RLian8cyonIf8m0MpSJ6d1pg/MLVVwr7Y+CbsBMWdUHjoGIs27plnxdebh/OKJ3P
-	FhhRfIKzQJWtQkN/13VhnoPv8318xvOUTnzkSX6+v4eV7I+2iTMoiiCLc3Vz+OQ3FTAjbZHpMjWgr
-	Y2Jp6TKQ2SrxKbDYI2y01AgzCh+b/GH1aQn1IEqLang2sdrdy2h9CpyE5vbcXk3gy9afAcp72CzeS
-	RIigTdFfv0s7rAuSTfbMCjqjUj17X/I25sfJ+DZVBNWMgEzTWL742okaQv789f8rGmF0DsOhqAln2
-	XIfX3Ahg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ta9WxA2Udc+JEMvkUreWUjqMknnE8f3RwqhLdwrZlKU=; b=Ms0ZCysOUSjDt70IxDgKSlZaPG
+	KZakF7EuYfithPrl0BDI0jO30VzTsPpoALzvzAApAHINpnrscsZ/xCinwFWI2f6sEOO0DLMyjdl98
+	DGE8BCCHvG8t97klmMt1Qu+M90jeAbxODHYD3ivVfVXWq1I5OYsdC41ZwkxcgFOIMyENMdKaWiKyJ
+	2OfmpNTlz+J149UvX71HG3JBSCZ1nDRcFTIqwOVQpmZgC5HQAtH6ss8uWkGNFZnIbdjdcemXYE43n
+	FkaAfKamlsRnpfJ346gvdGEkz3GrBsZ/zsGXcPDDtLB1ts94W3cne2T8PL0xShziEQbJ9xdAFEiRL
+	83zMTlFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKYm-0000000DfcS-3GlA;
-	Mon, 27 Oct 2025 10:34:44 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vDKhc-0000000Dg7w-39D8;
+	Mon, 27 Oct 2025 10:43:52 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKYj-0000000Dfc1-1vSs
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 10:34:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2pv8A1uaol1pXhXlEzwlZylOOOHmbfINSrfrlQpNBrE=; b=VkGJT2xMm4mV63P3Z5APqJBmUK
-	5SmgKPNHcNUllwMtYaHt+EjjEgMiqbw4GlAYrlxrqCfzxEGd0NMdiPukDzUimg2i7aILfivL0PlaR
-	h/XkraUjkU6K/IclhcD2TJ65YP9ap7KH2sSAcle4R7TTaX6iIg04PkrdjQBBcmdp/hrmYPGeuTxvD
-	C737tp8IOQq961DZCwJlja9FaDlg7KRyIGEgrD5np6mE8svwmAwGo+wmDlU/GFBQ00YBsKJWseHKT
-	2dktN116tmP5OSHvidk4IIZ5yLv/5Rie1scHImvxijZpAa+mg7DGvgYYxeCOJa7hAcYwwNFbcHYbM
-	sQgZDm/A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54936)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vDKYf-000000001fT-20pN;
-	Mon, 27 Oct 2025 10:34:37 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vDKYd-000000005VL-3cpb;
-	Mon, 27 Oct 2025 10:34:35 +0000
-Date: Mon, 27 Oct 2025 10:34:35 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aP9Kuyndws_dYFna@shell.armlinux.org.uk>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
- <aP83bMDWCre7-Sjw@pengutronix.de>
- <20251027100227.GE1544@pendragon.ideasonboard.com>
- <aP9IB4y5_gyfJGMW@pengutronix.de>
- <20251027103107.GF1544@pendragon.ideasonboard.com>
+	id 1vDKha-0000000Dg7B-2O5u;
+	Mon, 27 Oct 2025 10:43:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761561826;
+	bh=dnFWroSYpgKTr53sV/u987Z7MyBid44fWzMJtS7rNbQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=l7tF6X2h3MPJ5hdPR+ZmZ/oW8il+SALAIJhV77rZLNlwk3+9fORla1icaFg8wdT/e
+	 RZzCuaQgV0d3W/2+PkFa1aV2KBgHmU9oPn5CXmUhr9VXhx2SGM1aHbKUXC7fd1HWH8
+	 7a4KoJr9pyV04xRCqu4UhBzU8+8PwIe4NElWEnTZhF/M71+/DyqwbCbZDxDZkSXOXm
+	 /viuN8U3RFjOj7kmMqKr1u+iwiCCG3v0vxYNNaTflRD7I2hBrU3YTffPW5+nlNVUNO
+	 Z9bi7t6/8L9Ecxz0GmTNh8oMAGtNrADhYjye6qzRHnKP4pyTE291LHR/g8cefNsHTs
+	 Uu4+LeKBXO+ew==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3E02C17E12AE;
+	Mon, 27 Oct 2025 11:43:46 +0100 (CET)
+Message-ID: <7a8bf2e9-5033-4588-923c-53ad23c12924@collabora.com>
+Date: Mon, 27 Oct 2025 11:43:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251027103107.GF1544@pendragon.ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/5] dt-bindings: thermal: mediatek: make interrupt
+ only required for current SoCs
+To: Frank Wunderlich <linux@fw-web.de>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Mason Chang <mason-cw.chang@mediatek.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Balsam CHIHI <bchihi@baylibre.com>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20251026122143.71100-1-linux@fw-web.de>
+ <20251026122143.71100-2-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251026122143.71100-2-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_033441_520395_B837320B 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20251027_034350_824457_E87AC391 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,33 +85,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 12:31:07PM +0200, Laurent Pinchart wrote:
-> On Mon, Oct 27, 2025 at 11:23:03AM +0100, Oleksij Rempel wrote:
-> > On Mon, Oct 27, 2025 at 12:02:27PM +0200, Laurent Pinchart wrote:
-> > > Hi Oleksij,
-> > > > Please note, RTL8211E PHY do use undocumented SmartEEE mode by default.
-> > > > It ignores RGMII LPI opcodes and doing own thing. It can be confirmed by
-> > > > monitoring RGMII TX and MDI lines with oscilloscope and changing
-> > > > tx-timer configurations. I also confirmed this information from other
-> > > > source. To disable SmartEEE and use plain MAC based mode, NDA documentation
-> > > > is needed.
-> > > 
-> > > That's useful information, thank you. Would you by any chance to know if
-> > > such NDA would allow contributing the feature upstream ?
-> > 
-> > Good question, but the NDA process was actually aborted. We didn't move
-> > forward due to a lack of time and ultimately, a lack of commercial
-> > interest from any projects or customers for this PHY.
+Il 26/10/25 13:21, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Fair enough. I've tried :-)
+> Upcoming MT7987 does not have a IRQ we have to make interrupt-property only
+> required for current supported SoCs.
+
+Hmm. Thermal sensor IP with no interrupt? Looks really strange.
+
+This is odd, because LVTS always has multiple interrupts, and if this doesn't
+actually feature any, it really feels like the hardware is broken somehow.
+
+MediaTek, can you please confirm whether the LVTS IP in MT7987 is really
+like that, or can you please give the right interrupt number to Frank?
+
+Thanks,
+Angelo
+
 > 
-> If we can't disable SmartEEE in the PHY, does it mean we need to somehow
-> disable EEE in the MAC, but still program the PHY to advertise EEE to
-> the link partner ?
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> ---
+>   .../bindings/thermal/mediatek,lvts-thermal.yaml | 17 ++++++++++++++++-
+>   1 file changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+> index 0259cd3ce9c5..7ec9c46eef22 100644
+> --- a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+> +++ b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+> @@ -58,6 +58,16 @@ properties:
+>   allOf:
+>     - $ref: thermal-sensor.yaml#
+>   
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mt7988-lvts-ap
+> +    then:
+> +      required:
+> +        - interrupts
+> +
+>     - if:
+>         properties:
+>           compatible:
+> @@ -75,6 +85,9 @@ allOf:
+>           nvmem-cell-names:
+>             maxItems: 1
+>   
+> +      required:
+> +        - interrupts
+> +
+>     - if:
+>         properties:
+>           compatible:
+> @@ -91,10 +104,12 @@ allOf:
+>           nvmem-cell-names:
+>             minItems: 2
+>   
+> +      required:
+> +        - interrupts
+> +
+>   required:
+>     - compatible
+>     - reg
+> -  - interrupts
+>     - clocks
+>     - resets
+>     - nvmem-cells
 
-Or maybe the PHY needs to have EEE capability disabled?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
