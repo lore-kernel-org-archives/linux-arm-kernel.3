@@ -4,142 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCF7CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34F9CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 13:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i35dGP+d/0dkL0iLpgcnTIbCn7co3QE46vuJ/cBPHB8=; b=RT3jmJN8ncOO5KMQ+O8chYn9X2
-	gMOjl/xV3Scu3OkLLRTWGAYmf4+gJO09I00JQ6HPjZGQKZ6Fm1g3NuW2OVLTFxBTGf9cwtPakDXg9
-	RPceByYXmwEpCdEJVFJs2Th4v7/8v8JFFDyxoxZK/alN2JNdq7Z4GJrhDzZZHuO9WV7u7BX9MxRq1
-	jLegbcaZWjg3uFgA6HCxW17bkjxJo/6BWbnVu6ZU10L+wWCULQTenzmYrTX74sV+3Txo03r3VNN43
-	zqKKgsYypSQ/hcndqDvEiy79n3SQlh662Q85tCpwhOhDU+y5iZQWuikyD0UIrw5Gkal33XH1Vr8jB
-	Zil46YKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yg4tHkrWB8iD6I0E177EhXaJTLbrmVH+67p7EVU8ik0=; b=JPCAO6eUaTWxQVTGh5tsimCGju
+	Egsjmz1jRKpVkVzZZ7QUsG4gdt6oPvt3vqVNPB0HEAjk1fAgr7+55qsoqWeqcZJhsCX9U5fGif16l
+	7wRJSkIPKrZgCuL5BwoVjQNQ+cA87ZDu7MlbI40q+zfLaCYfJOFwYuM+lyoCyYac5DVg2L5TET9oV
+	EoIZhtTGM9NUCGd7nwdArb85qBGCKDtkZSUcrMgy9Kwv8YX2vVwObKwGLn9wfw/emiaangG+AG4BH
+	eiFFthZrOHDWgZRzfjBspa83NFPw1BZrzSIUkmCmKUZqYOmQezuTUA7uL1N0PmJR5SwnSZDXs8BuH
+	CEJK+Yzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNOV-0000000E4Ed-2X2M;
-	Mon, 27 Oct 2025 13:36:19 +0000
+	id 1vDNQP-0000000E4Yx-1kO9;
+	Mon, 27 Oct 2025 13:38:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNOU-0000000E4EC-3sXT
+	id 1vDNQO-0000000E4Yk-0H3a
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Oct 2025 13:36:19 +0000
+	Mon, 27 Oct 2025 13:38:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=i35dGP+d/0dkL0iLpgcnTIbCn7co3QE46vuJ/cBPHB8=; b=AU3glfH4n0Zei2u11+tGKSnC+c
-	xe9296iZgf7hXUpcrHFvvn2jiA6EN7JjaxoBZsDbASi+WcNt9TcoEvI3C6oaXe2hUS5GvpF76Y4w5
-	OrCeodyP40hhqnTwazt6lJqDdrQ6XPYL0QmalLn8UALspX9Ye0k9Hdr/S3m5ORRfsZMaQ1deWvCrD
-	paPLCXAxANurhy7IqGgVlK23BniXHYfh01JRDJPzveWao2qoDbqTsLhXZgXHucaVcNPgs/L0sNL0O
-	M6GK1zzwyNNxG73DDp1z9V98HMujbgRCWshjI2K7iOOKsLwPR5SOl4bXwVKINLnbqqlX434RuDUBy
-	7+xNVP+A==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMWg-00000002CCz-2m24
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Yg4tHkrWB8iD6I0E177EhXaJTLbrmVH+67p7EVU8ik0=; b=epQVAUHktf+ZDnJR9b3ByUMp9R
+	ifz7fGlSEPnA/mPC8OskOFmF32N38t6bpDFZBZ8KOqZZcQKMmR+YjsHSQsNCxv3HC7dkwyBBg6Uxg
+	zcCoN77VdO3c8tyEw+LgFF2PI2Wo2qpCNscAAGspFrtVS4Lnoe5mrdVqH01kc7GOvNWOlpy4/rya8
+	RxfwQeNgtYJlZ6Rf2bVQjT4k11eZ4mnpXxWj6FpkfOzAS7ctWYt9n8oKtZZg+3ik4N8Cmujud0LkH
+	uHpFj92BsJBkvQd/vaCmSBtygHEjxUMS4CoCbJ5GnNECE/6lDUkbTBLR3ITNw/5x6UyI8WX3VkqdC
+	cT90yAjQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDMYZ-00000002CWT-2UfG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 12:40:44 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59R7jpDw588480
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:36:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=i35dGP+d/0dkL0iLpgcnTIbC
-	n7co3QE46vuJ/cBPHB8=; b=V3Wo2sjUAO8NHRkWMT81g+mImu8ocvYH1QzGV/lz
-	ckcrE62YXcyWO2z0g2/MzO+mNVR2Z6rnB1oomvm0AF2Kegzo6ODpXebkoNU30kFU
-	ifbDHLLzEEEVXTvKm+Un/UXNrV/dT1uQG2sduvvAxwckV/lcc6VKGYrhkxmrO3SH
-	BUJboaFkKvPYEHctPdqFZm1TxPhUUdxVAPJ4YK0gwX4CddMu4EUmxvbpOUWFRq8y
-	pVEaj+jaEnQhL76wxJIXf6DhKxpIkEh0JSc6QHW0uLm7iGso/nnjGiSnjaTIAEdB
-	Omujr0+0p5XQoxSHEkGsb6lkJUrMVDu0Cmvc9I5+66H39g==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a0ps14pbw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 13:36:10 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4e892f776d0so222870021cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 06:36:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761572169; x=1762176969;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i35dGP+d/0dkL0iLpgcnTIbCn7co3QE46vuJ/cBPHB8=;
-        b=uTotMNN9QMUGzmPXFQfha46PcBMdnkmZJNZg0Is6d4Q4hx0yAHB5YKevrfm1DDQYHs
-         h1/eXYoXCcou3hwmJtT/30DICDmv2i37rdvuuR1UWfKG484Tk1DvNviMzkKNNScPOwnb
-         iXvrdn8IUIo9EkvHlcqEEAjBq8ghdoKgxifbSlvL94mFl6lUQiMRVIx2tR6Y/dyI+lcv
-         6tJjgM7hafX0GYy8ZQiAThdtFtj6FXka2S4j9P8MdAnG4EUDbamzDW3RsGgR700QMDcj
-         yUKwB0wCmgX5qOmMZzPVpvbJ22hMymPOyNKJfffnFcA2a2yj8geWznohc3ASMkCtvij/
-         At2w==
-X-Gm-Message-State: AOJu0Yxw4ANTW4K1GWGcSmwwUHAyWk3o2JRiScWukTAtZgfMUwuDkRdz
-	xMdcqJLkr0DqkRXC41K6tv+1RosleCd0oDf/GaXOu9Cgy0LFoi/F9LmShsmTY1nS3nbZYrmHmiW
-	Wz2LKIjB9ui9lZcI7ENIqxCb0rsIXOkL05Nw5nhGf8a8b33BZl/G+sCcKYO/xsi1LTvkir3KKFB
-	P+Fw==
-X-Gm-Gg: ASbGncuBZvVyn1HqprQv+xQzSLRz8qIpkdCeRGrClAJrXFORINOAkjvtMWr06go+b37
-	OLwkWdMHzroBG9QabfLUeB5qvjEXgzwkf904m2NrPUzquQysxXfKaiSoP0xFC52sfrgkxEXsId9
-	8K0mPPAUUVLIIU6DyPSgRERw8hbGdBTrIkCVXnh9Ofm594cVDT6oJT01DKE5NVDncYfK/WcRfzi
-	Fecxt8Y3+UiqWBLHaAtQIQsU+YmAOTOSvbxsNituKvznXrziaFNIjqpv91dx1LdWhhqV8yaJVjX
-	YAi7X/20C7hxtBDPJnauOkq0YHweVC7VwGQEWCeQ6oCf6MSzbOBIlSrCtsQtG4MsqxLXPQsCLbP
-	DAiWljgYyRgaOQbK3a1UdTpo7qKfXXMM37BYi0nd5jLya+XzzAbLQhmG0KrEyzWzF8JpLTFWhCB
-	ueZNdNgzqOmzf7
-X-Received: by 2002:a05:622a:481a:b0:4ed:14b:a654 with SMTP id d75a77b69052e-4ed014ba734mr18171421cf.19.1761572167629;
-        Mon, 27 Oct 2025 06:36:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGSA/sQgxBWrfN3yrs9iaFXpBMGNK/JjKUCLuabLCZo3BMcmoJ0EqI8OAXaO8cxld/gWmQocA==
-X-Received: by 2002:a05:622a:481a:b0:4ed:14b:a654 with SMTP id d75a77b69052e-4ed014ba734mr18170961cf.19.1761572167217;
-        Mon, 27 Oct 2025 06:36:07 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59302a2420dsm2222513e87.72.2025.10.27.06.36.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 06:36:06 -0700 (PDT)
-Date: Mon, 27 Oct 2025 15:36:04 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-        Ludovic Desroches <ludovic.desroches@microchip.com>,
-        Vinod Koul <vkoul@kernel.org>, Sinan Kaya <okaya@kernel.org>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Michal Simek <michal.simek@amd.com>,
-        Stephan Gerhold <stephan.gerhold@linaro.org>,
-        Md Sadre Alam <quic_mdalam@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Casey Connolly <casey.connolly@linaro.org>,
-        Abin Joseph <abin.joseph@amd.com>,
-        Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-        linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 3/6] dmaengine: qcom: Remove redundant
- pm_runtime_mark_last_busy() calls
-Message-ID: <wl26pbhmquwuavfch2vj2s2uispcelthn3eg7umx2dboz4ntry@uqtpzhuj4gji>
-References: <20251027133232.392898-1-sakari.ailus@linux.intel.com>
- <20251027133232.392898-3-sakari.ailus@linux.intel.com>
+	Mon, 27 Oct 2025 12:42:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 593A4175D;
+	Mon, 27 Oct 2025 06:38:02 -0700 (PDT)
+Received: from [10.57.68.196] (unknown [10.57.68.196])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0FD233F673;
+	Mon, 27 Oct 2025 06:38:02 -0700 (PDT)
+Message-ID: <1db69026-199c-4cee-bb3b-1217f8a3afad@arm.com>
+Date: Mon, 27 Oct 2025 14:38:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251027133232.392898-3-sakari.ailus@linux.intel.com>
-X-Authority-Analysis: v=2.4 cv=Ju78bc4C c=1 sm=1 tr=0 ts=68ff754a cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8
- a=QXuSEnVgnoAJZhOi9yIA:9 a=CjuIK1q_8ugA:10 a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: -GqNWKD0mG3A1C2leirTWGPP2N_tDEnJ
-X-Proofpoint-GUID: -GqNWKD0mG3A1C2leirTWGPP2N_tDEnJ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDEyNiBTYWx0ZWRfX1dFnunuHCbP7
- YyDlMhJvhnD3uNs1qEfHUFlgzMvhSHhqJpJ0JP4aLCrlKWrYoyFMSB0lAwmrNWVgQzvViN0XMSn
- 7fwrlsblfGdcgTJRffEJm+MGUDyqnegbfZwtFHc9etsbVH1pBq2u0MYmCdkT7eNUZj0tTXlBiYt
- 1Hel2xkAYO9slKOA4AE04ZDWYlWCJjFurPT5q5w9+wer/Nbi7ebK5qtgAv6KpqKHDOGxAp8r06x
- xjTTzKVXrO9Jx1LE0SxniC2abtJ/vziwYM1Ogls5eOdFg7c+I8jjlASJjG9nMEDCmkJte5XMYr3
- susl6x4/ULX/t/tkvxFGM3I+gRInIknMZ9XMyCLsAIsdq6AmQJDVikPFg9nka5Dl21PKwUPcdEX
- FvnJLocTRJGmKuPWn63LjzH1+skmhA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-27_05,2025-10-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 priorityscore=1501 spamscore=0 bulkscore=0
- adultscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510270126
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 11/13] x86/xen: use lazy_mmu_state when
+ context-switching
+To: David Woodhouse <dwmw2@infradead.org>,
+ David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
+ <20251015082727.2395128-12-kevin.brodsky@arm.com>
+ <f0067f35-1048-4788-8401-f71d297f56f3@redhat.com>
+ <348e5f1c5a90e4ab0f14b4d997baf7169745bf04.camel@infradead.org>
+ <6ed9f404-9939-4e9f-b5aa-4253bef46df1@arm.com>
+ <7324616a8d2631aa8132f725f9f6551e3e6b21dd.camel@infradead.org>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <7324616a8d2631aa8132f725f9f6551e3e6b21dd.camel@infradead.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_124043_067330_0C30EB87 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20251027_124239_998432_9948F750 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,25 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 03:32:29PM +0200, Sakari Ailus wrote:
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
-> 
-> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> ---
->  drivers/dma/qcom/bam_dma.c    |  5 -----
->  drivers/dma/qcom/hidma.c      | 12 +-----------
->  drivers/dma/qcom/hidma_dbg.c  |  1 -
->  drivers/dma/qcom/hidma_mgmt.c |  2 --
->  4 files changed, 1 insertion(+), 19 deletions(-)
-> 
+On 24/10/2025 17:17, David Woodhouse wrote:
+> On Fri, 2025-10-24 at 17:05 +0200, Kevin Brodsky wrote:
+>> On 24/10/2025 16:47, David Woodhouse wrote:
+>>> On Thu, 2025-10-23 at 22:06 +0200, David Hildenbrand wrote:
+>>>> On 15.10.25 10:27, Kevin Brodsky wrote:
+>>>>> We currently set a TIF flag when scheduling out a task that is in
+>>>>> lazy MMU mode, in order to restore it when the task is scheduled
+>>>>> again.
+>>>>>
+>>>>> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
+>>>>> mode in task_struct::lazy_mmu_state. We can therefore check that
+>>>>> state when switching to the new task, instead of using a separate
+>>>>> TIF flag.
+>>>>>
+>>>>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>>>>> ---
+>>>> Looks ok to me, but I hope we get some confirmation from x86 / xen
+>>>> folks.
+>>> I know tglx has shouted at me in the past for precisely this reminder,
+>>> but you know you can test Xen guests under QEMU/KVM now and don't need
+>>> to actually run Xen? Has this been boot tested?
+>> I considered boot-testing a Xen guest (considering the Xen-specific
+>> changes in this series), but having no idea how to go about it I quickly
+>> gave up... Happy to follow instructions :)
+> https://qemu-project.gitlab.io/qemu/system/i386/xen.html covers booting
+> Xen HVM guests, and near the bottom PV guests too (for which you do
+> need a copy of Xen to run in QEMU with '--kernel xen', and your
+> distro's build should suffice for that).
+>
+> Let me know if you have any trouble. Here's a sample command line which
+> works here...
+>
+> qemu-system-x86_64 -display none --accel kvm,xen-version=0x40011,kernel-irqchip=split -drive file=/var/lib/libvirt/images/fedora28.qcow2,if=xen -kernel ~/git/linux-2.6/arch/x86/boot/bzImage -append "root=/dev/xvda1 console=ttyS0" -serial mon:stdio
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Thanks this is helpful! Unfortunately lazy_mmu is only used in the PV
+case, so I'd need to run a PV guest. And the distro I'm using (Arch
+Linux) does not have a Xen package :/ It can be built from source from
+the AUR but that looks rather involved. Are there some prebuilt binaries
+I could grab and just point QEMU to?
 
-
--- 
-With best wishes
-Dmitry
+- Kevin
 
