@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 153A3CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 22:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C6CCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Oct 2025 23:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fXrczP/tH9sGyN44YbyszhSBDmNu6JorF9M9mPbTjU=; b=pN3Oyx2t5Iu0y/wET4bXcvSFn8
-	OLpT2R2KhLasS1L3xMiS9QctclTnlHvd406Bf3f1V5hUgIYN+tt2s6CYpn8i1SWj//4dhY9PTlj0B
-	0OsCaTBNCw7gNX/f4LGLXzMmWOJHB4p/rS9wol3vwupUNeE3YzUkjLoUANT5AwQOBHrgex5nd7N0B
-	o7W9a2eI8RBHuis9lNkIQpekT9odBhfhACFHGSghbB5KfRYdYP3a4VBmE1gzwDqgFxJjcKlMeeap5
-	oNjMzz3PhdXezFMHpAapcxvDkcfT/eZUgkLdDXHV0oYVwUo+oM1LM+/NAy0WrczfySqHTINPEq3Se
-	d8RxPVHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4NScEPCv2D/W9CpG1hBsXHwMu7iAESr+WlOwWBMmMSw=; b=xcaOZd4OsBmWs+vraiMEjpNpKJ
+	KctUDJ6XyABLrl1Mbet/3MIsqWiiB/F8aI8N77IRAcU8CfzHfSJBnRiJfSqZreYhPigktpphgQByx
+	y8cw1L9hVLfoW5BurVKpQLr6FpRhuvnyPby210urQO2BjfOlFpVDRAWsQgh2gRmTBtZOWjPDZ/nx7
+	sdq6Z+RItjpn0MOZBI5ibtqemmoGgPh4NTZIbvcCcUlDR+jwi+Ca5xOEXWTidHyiQva0qyOhZbBMn
+	Ak01/2m6hiENvSBoHQ8jDMxg+yjkENdNYlUXgm0DmLorqSZyzK8kM7dYyeivOz/TFbsyhPqsGxDmS
+	ktMr+Gjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDW8l-0000000Eu7B-3xwx;
-	Mon, 27 Oct 2025 22:56:39 +0000
-Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
+	id 1vDWKP-0000000EuX4-0Ve1;
+	Mon, 27 Oct 2025 23:08:41 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDW8i-0000000Eu6b-241n
+	id 1vDWKM-0000000EuWj-3oiL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Oct 2025 22:56:37 +0000
-Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-63cd60ca2b2so5743031d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 15:56:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761605795; x=1762210595; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3fXrczP/tH9sGyN44YbyszhSBDmNu6JorF9M9mPbTjU=;
-        b=meaOPKf/4zqC+Ttuvb0w7HHhBJ3FA49S3QaWvZVUF5V3cUjutNVZj9DIca2eBMOQ/U
-         5eUG8aZIz2t4jEWbuL5zb8Cz5a9laO/i1JSjne0G0C/Ba7A5bP2moRI1/YNo0M5fQELN
-         +DBRTHOKXKBwEZsA5dVYn9RbPuTlpmxg6TgSW5sIrX6mKkFCNgisn5Khxm/B2gSyWLM9
-         qgBwFEF5Fab1h5NBqj4pxfkwUXXHnbr9TF+OCOvqbp+lMHFJ7+vyApcLH3Wwjb5LmRvV
-         fnFgSEk+uczfzQD2HVan4DjtBz6eQJDaE7Z1VzPAkCU2pmvgjjxgjqfDXT56N0M5CulX
-         3VZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761605795; x=1762210595;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3fXrczP/tH9sGyN44YbyszhSBDmNu6JorF9M9mPbTjU=;
-        b=MMOAoL+gYGFFVz7VtCaRhB/97Dv0+4iYcWp4Fl0CfYHcH0pEyck3llcSv0XOrffozn
-         YNnYXNoMr+j2Qs1YKzwFHh34S4HPVcqFT1LjIMME1xHLoMzJ1vVE1AvUvISZQbciC7ml
-         RmpOznFZOtHkTne0l19V9FGmJ+nTzSly0zX+WkA/FR3L4p70YgJf19ocR39zi0EOXHpW
-         xfVhVQ+o+6Vhf8xPSrxI4FbW7Ydxyqrxc4tTbVwNX/dugN0wrrkFDEnj2fhH4LQRqUbu
-         mFVSeWp23qjCV/UKTWvxTjXl71shdw1IAv3RkWDs0OgAzVJ9k/hjIflNyMBHwfl5tfbc
-         Hwvg==
-X-Forwarded-Encrypted: i=1; AJvYcCWaBnP0HIZm8vEHC1ifw50eEAUHtYBonBpfkcWhBk1MDtG8SlRc+/7YKdQChTiJFJZLIW8eUXjXggunUn1DUNSu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxekf/F6t6Fn9fsnDtTSO0fDqQ0oT6/742Ou1gXfifJ6DcwqWW7
-	B73jRjuBtXizda91W5n48aS3VK/lL0ZDu7GjOKUNiNWBHmJ2BtWiDidnGAxLk9GDFd1El63gwgW
-	ZFjXUPRVw4aVrQ27WTuaqzzSHrEW05/V19De4487MZQ==
-X-Gm-Gg: ASbGncsSZcBTuSs2ZRtCqpsWNg2BrA2Atqq0FREHGRQ1mwpkSgYoI9pyxUScF8QPnf7
-	n6cOZa08z0phU/dQ4myL5HyOS924ZMWCCw1UGq4CWXDWKSFZ29gu2G3Z9U47qmcCOWKYnfGqVJq
-	00PtSCZvtfj6a5+ExfIW44aBT6CTkQnv4jKPHWftwUymf15FwezGN1upWEOtp8gsGhIWTENJQ0q
-	KQPvtsCAluKumoFVjoAkE0/l1+E+rrgQ5nhM5ub908kz/59C4YD0hFq/L+Y
-X-Google-Smtp-Source: AGHT+IFJxZPsBn36jb9IqqtiTCDa4X0Ih3+3+W1DlxJFcn7w7OJaZooe7uHyHPMcjKs42kSUEEM7iqG3b3fxHPvN1mY=
-X-Received: by 2002:a05:690e:4184:b0:63f:2b69:9a2a with SMTP id
- 956f58d0204a3-63f6b8559e7mr1530051d50.0.1761605793644; Mon, 27 Oct 2025
- 15:56:33 -0700 (PDT)
+	Mon, 27 Oct 2025 23:08:40 +0000
+Received: from pendragon.ideasonboard.com (82-203-161-16.bb.dnainternet.fi [82.203.161.16])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id EF60C735;
+	Tue, 28 Oct 2025 00:06:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1761606407;
+	bh=ELYpA/QT7AVDHwBCO8Rf3+oLxXv3ePZYdYKb8rWchmQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bTKw6iE4ZpIJ68K2EMtJD4eOa0FMqjsAyfW3kDqU4MENQEZLXtIc4cAZD+Tb9KyH6
+	 lbtGVjA6Xfupo32TB0uADmRVMbavdO5MmiiBBNzj+3D9Ex5w4VI6om/u+YUTz5hNaV
+	 B5ooezfihbuElzN8wzvPgTEy5XsFGbai2Y28OopU=
+Date: Tue, 28 Oct 2025 01:08:21 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <20251027230821.GA24987@pendragon.ideasonboard.com>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch>
+ <20251027072749.GA7811@pendragon.ideasonboard.com>
+ <aP88KO8uVrEQlmMm@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
- <20251025-idpf-fix-arm-kcfi-build-error-v1-2-ec57221153ae@kernel.org> <CABCJKuesdSH2xhm_NZOjxHWpt5M866EL_RUBdQNZ54ov7ObH-Q@mail.gmail.com>
-In-Reply-To: <CABCJKuesdSH2xhm_NZOjxHWpt5M866EL_RUBdQNZ54ov7ObH-Q@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 27 Oct 2025 23:56:21 +0100
-X-Gm-Features: AWmQ_bno-qx6koLOtrZwcQNDXGnT81r2Gd96qzGlQrBISAXpENMYtJk71SRHkpM
-Message-ID: <CACRpkdaeOYEcK9w1oy59WBqjNrK7q5zT2rzg8pHgDdZdKWVKZg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] ARM: Select ARCH_USES_CFI_GENERIC_LLVM_PASS
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Russell King <linux@armlinux.org.uk>, Tony Nguyen <anthony.l.nguyen@intel.com>, 
-	Michal Kubiak <michal.kubiak@intel.com>, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aP88KO8uVrEQlmMm@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_155636_544280_DFE46E40 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20251027_160839_090398_0B650F2C 
+X-CRM114-Status: GOOD (  25.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 4:54=E2=80=AFPM Sami Tolvanen <samitolvanen@google.=
-com> wrote:
-> On Sat, Oct 25, 2025 at 1:53=E2=80=AFPM Nathan Chancellor <nathan@kernel.=
-org> wrote:
-> >
-> > Prior to clang 22.0.0 [1], ARM did not have an architecture specific
-> > kCFI bundle lowering in the backend, which may cause issues. Select
-> > CONFIG_ARCH_USES_CFI_GENERIC_LLVM_PASS to enable use of __nocfi_generic=
-.
-> >
-> > Link: https://github.com/llvm/llvm-project/commit/d130f402642fba3d065aa=
-cb506cb061c899558de [1]
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/2124
-> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+On Mon, Oct 27, 2025 at 09:32:24AM +0000, Russell King (Oracle) wrote:
+> On Mon, Oct 27, 2025 at 09:27:49AM +0200, Laurent Pinchart wrote:
+> > I've tried to diagnose the issue by adding interrupt counters to
+> > dwmac4_irq_status(), counting interrupts for each bit of GMAC_INT_STATUS
+> > (0x00b0). Bit RGSMIIIS (0) is the only one that seems linked to the
+> > interrupts storm, increasing at around 10k per second. However, the
+> > corresponding bit in GMAC_INT_EN (0x00b4) is *not* set.
+> 
+> This is a change in the PCS series rather than the EEE series. It would
+> be good to narrow down whehn this problem appeared for you.
+> 
+> The RGSMIIIS bit set without RGSMIIIM (0x00b4 bit 0) shouldn't result
+> in an interrupt storm since the status will be masked. That doens't
+> mean that RGSMIIIS won't be set. So, at this point I'm not worried
+> about that.
+> 
+> Can you print the intr_status and intr_values in dwmac4_irq_status(),
+> maybe something like this:
+> 
+> 	static int ctr = 0;
+> 
+> 	if (ctr++ >= 9996) {
+> 		printk("stmmac: INTS=%08x INTE=%08x\n", intr_status,
+> 			intr_enable);
+> 
+> 		if (ctr >= 10000)
+> 			ctr = 0;
+> 	}
+> 
+>         /* Discard disabled bits */
+>         intr_status &= intr_enable;
+> 
+> which should avoid too much noise during "normal" operation. It'll
+> print six consecutive interrupts every 10000.
 
-I didn't know Kees stepped in and fixed this, christmas comes
-early this year! I had it on my TODO to do this or get someone to
-do this, but now it turns out I don't have to.
+I'm always getting the same values:
 
-> > +       # https://github.com/llvm/llvm-project/commit/d130f402642fba3d0=
-65aacb506cb061c899558de
-> > +       select ARCH_USES_CFI_GENERIC_LLVM_PASS if CLANG_VERSION < 22000=
-0
->
-> Instead of working around issues with the generic pass, would it make
-> more sense to just disable arm32 CFI with older Clang versions
-> entirely? Linus, any thoughts?
+[   62.638187] stmmac: INTS=00000001 INTE=00001030
 
-We have people using this with the default compilers that come with
-Debiand and Fedora. I would say as soon as the latest release of
-the major distributions supports this, we can drop support for older
-compilers.
+Now the funny part. I get about 20 of those messages printed to the
+serial console every time I press enter, and rarely otherwise. Typing
+other characters in the console do not trigger the messages.
 
-Yours,
-Linus Walleij
+> > I ould suspect that the LPI RX exit interrupt is the one that fires
+> > constantly given its name, but I'm not sure how to test that.
+> 
+> You can check this because the LPI interrupts have statistic counter
+> associated with them. ethtool -S should give these, look for
+> lpi_mode_n.
+
+# ethtool -S eth0 | grep lpi
+     irq_tx_path_in_lpi_mode_n: 32
+     irq_tx_path_exit_lpi_mode_n: 32
+     irq_rx_path_in_lpi_mode_n: 2512
+     irq_rx_path_exit_lpi_mode_n: 2508
+
+That seems reasonable.
+
+-- 
+Regards,
+
+Laurent Pinchart
 
