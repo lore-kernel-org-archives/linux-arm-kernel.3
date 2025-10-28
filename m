@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55510CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0D7CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLSaa6PcadKxSJGpM5AYmWJ5bCIVBLv3q1JgPY8IHz0=; b=qcWEvzk5soAkj2+YsHPCHmaE3N
-	gdgsyI2SbXEeRKEZBSL/xga8P6SmIZsL0vtXWTuYge9XRZeMMyITrZkKk3N7ohhyfR28wbD3R9Acn
-	NFF7gS71sicFIAC/EytVVOt7ZdIPVCuJa/Z6bN8vKLG5luO2SyD86MIIl72RzZt0Zel9UcB/fkLZx
-	lT9IqJdc6fuP18duesK2p+HdcTVj2nBp2nh5WJ4iCS3uFPq7fyx3DJQcmdDcduRJo4G/QlfPnCR+O
-	pxDiMGsFUOGPQsgW8HfmO8jVvB1xUZz2mDOIRkO3Qg+MwRJlaex7LBv8bS0ZF6bYVXeXUezMAmSkX
-	o86BYNnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0OdKjf6E11PLhTN47izQgrYewu6DAaBIZBsxLqLrIEE=; b=kgGDLHo4dnhJFFqqCIfqccG4Jq
+	t5CJs80RSwpu56XEC+hlIdYlHIOXZKYQditNQV0wri7y1U7wNKTvz1e9CLuG9T+GNO8RkQNAbsdBW
+	asbWz4a3f8Lgy0OAPnaj4JMNIzPpM/8O6KJ0VTRI9tA5Y0S4FJ4ariDwyUBSKx36qIcTh1Cerb9ry
+	Ifn5Ty+F+cpJIw0PmHUQkxYTtj3xtdEcs21D3NlEx5KJvoEmR4zniEcNBn0kuKkNJgYy8Eli5aot3
+	upriDkka4hB0beMBiOL/b6RNvyC4YXYXOipq6Wraz9mTOzH0Oq/wE184WOE0Jbo9zku46bbBya2Zs
+	Vz7G20bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlqb-0000000GD0N-16ym;
-	Tue, 28 Oct 2025 15:42:57 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1vDlrD-0000000GDDH-0UQ1;
+	Tue, 28 Oct 2025 15:43:35 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlqV-0000000GCxj-3236
+	id 1vDlrA-0000000GDC8-3iqg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 15:42:54 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b6cf1a95273so4482442a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:42:51 -0700 (PDT)
+	Tue, 28 Oct 2025 15:43:33 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4710665e7deso32552665e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:43:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761666171; x=1762270971; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761666211; x=1762271011; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nLSaa6PcadKxSJGpM5AYmWJ5bCIVBLv3q1JgPY8IHz0=;
-        b=PQlh+XoqtQ7RX8iPJzPxl8X0Ceftt96bWVM2F3yy3UMvcEKVeVU9IkZU61ZBBwU32+
-         RQYjzaxu5P065JQ2XatV7IzBwEXySbwwdtQr++sv85SN46VOjyUziLGxcSOT+IHlbske
-         7pWl/XXAj/K7tOhD8t4BkgKGhUhcZHD4FLDT98j/LqVwO5TXPUnG4q51IBqkpe6zigvK
-         j/uBmILuuakwfJu8ZHAUKdfIUprTT3H/wwqoCaUk7fg8FnwW0x3QYe9UzyWHWEy++eE/
-         0yGW10SvPyFI5IrfeRFis7SYmZ+qyZM6vr1cBRFFAliS0ZZHQ1Zzf4qF3/l/STBSd5PF
-         G6NQ==
+        bh=0OdKjf6E11PLhTN47izQgrYewu6DAaBIZBsxLqLrIEE=;
+        b=VDb/eHi6e4I9rHrt4VhOcBleWi8LsQSPQ5xo9D4x3u2WajNRlKy1OqAkYUqMIpzYHK
+         R299KG7vZwEwGECnFK/xs3XuUl9YV57+8y0PPfiskVmEt7Uz1EiycpRxD8ijkTZvVgVB
+         az4rAaTthM/BOzlbXs8cTifpavaL1k6PYPXrgjRd4Hg37vsmuHjCacqT34xJe6+9ZiKw
+         wVttnDTKcDMchR2VywEVnbHOZ/lmprmkaacjSJjaNlKx41hq4rNAUVQ1/fqh3TaeQLt5
+         r+VzMw+vLiRVU19yvuY3XHk6dlIRWWdHfb+yqVfhZmWoh1UpFUkn2Nc+aImnvPHLq6DM
+         W7+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761666171; x=1762270971;
+        d=1e100.net; s=20230601; t=1761666211; x=1762271011;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nLSaa6PcadKxSJGpM5AYmWJ5bCIVBLv3q1JgPY8IHz0=;
-        b=H5xpr0vQVAkCOgkBsa3Ak0W/vIBtacZ33huBU48wbaNXd4q1fofT9N0xmr46hUJXwU
-         7T4yVYQXQBLWTv4OOHW3Ffe8RmN6dwdQOG9H0xOXgc40TqNAnKkzXrqDuJa2TJkRWAdf
-         P0CjjIoIR82rLqXQ/oZb7swrYyO5W7jhRc9yFxx+X2fPbK8i8eCvCMXIcCPwzpvZBDm3
-         0hA3JDhcSfF+KfrUybZYESsaEfL46mZa6TPv8iQl3lJvG7LGn9naZ5/pPKVL8fTIwYXx
-         JEfG3UXL6s0RBFUOIhDdS6It23ehiPjKFnVqJxfv/Rg1+pBbzuKtjLPvigNM2245fMjA
-         HkPA==
-X-Forwarded-Encrypted: i=1; AJvYcCUhnCdp9MRwP+fe8XOVt7D2W8uJHbiv/soqMHH01PhqpUnweF7nAW+ldZj+egCvawW4tJfvc1HDasGIhJkLinbV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8YAVczsp5pZdJD3GvU+WDU7LwLW8r8WU+pDGCqPOpg3xRMlpp
-	PRkgXGhIuOhKfAiqsiN9nddfKoQm7emEGHJ8UdiV+7WkfqgzsUorP1ce
-X-Gm-Gg: ASbGncu8uindK6OQySbpujh/zD6ulYXXvE4kVqf1BUu0Rw0RIYgflCXR2BM2lBdu/PP
-	gF1nG4RE74SGx9XZS5DxMIAruDT6ZZyvt7kW5jYgYICl1DMyWHbXm7Ly0eL3P9cW7V8lRs+hRyp
-	TFFvUI2qd2cjqP1zTRomArmT0kwHC00JSB0VIy/zhhshhS4Kn26OFcsgRFFmh4XC8WXCvINVnE1
-	BX36ZtIMceq9lP5T5Bsnkm5cFKrntzkUOYpYY6dfAsfjExncCzTAx9gx1X6IR/DCK19SuUqRCBM
-	UITSlNdrkgs9IM+Jsy6t62mBgK4SvQCXY2ySTBjhjLN+ZM7Wpv671JANOIL8kct+rGtVNPTKBuM
-	7iMB+RWclWjtVmekSHuMnIJm/dTJF7ClE2c34U4rbxqoC1ekbbEBn2XypBSsNsM7ODM5+o/EZ1q
-	A2IRI5KpIA
-X-Google-Smtp-Source: AGHT+IFtaSkAiKKcd2pcmpO8llRHe3kknOAIp2k2H7U83BZTPQHu+FuTy+qLrHQP9UKuG8qf//3qLQ==
-X-Received: by 2002:a17:902:da8f:b0:26d:353c:75cd with SMTP id d9443c01a7336-294cb381901mr58454085ad.21.1761666170702;
-        Tue, 28 Oct 2025 08:42:50 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.108])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d0a4d9sm119815145ad.37.2025.10.28.08.42.46
+        bh=0OdKjf6E11PLhTN47izQgrYewu6DAaBIZBsxLqLrIEE=;
+        b=CduQNEak/g93Yh4MevGGPJe5DcT7Y87T/4RIjMqBRRUCPF67P1W4RRnIy5gV5GIbYJ
+         lA8V4F4L8ML8Ynid3Wi6s0ULmBeqQdVPhTJEWUoCqNdDScfFSCcgc2tD5YLT2KBMUmOe
+         ne9Y/VyIhX6qCcy67uwgxnK3m4p8r7QI7bziysVr0ROTzZaTDYUj2jqs5mpvIvjRfxRn
+         EYZqdydp2UDwwI58TEMJUzTdtjCgeoeJCPMI8TzjCdi5rrsfpEGfwJuJdtFQU3C9NnUV
+         PKSa+umH63C8CCa06fDYhAV091oR4Oc31c3z/1UvnAvQPaR2Apt3IvUWUGy38o1kFCX7
+         +inQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHYHwn0DUdZbQsbgTFCLc+p89Dl1sq3/zeWmsmsQhZsDIUNoOYns1JVV5YeaMNUZ0MYT5V8P16A/orF90EVLKU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSTuzktTGaU/GEshZOKsVwjdQVjYntKOofWsVcQ3ys2NP3XwrT
+	e6iNcyOioDkJdBr26S2KLNNDqPC0t0sqKrYgTZcoOnkvm03EBmOk1Q+W
+X-Gm-Gg: ASbGncsjsapnAI9Cg/I3SL2vG3sPfHxnEMUi7t04xM6qQK5vqTty7BJovADPBBQqmWh
+	emSNXQwNT6Pw+C3xXRUYaFxeybpmBpJuMYpGqHKyRkIXMwvfXuDiqsA9N1nGbUD/XbvR64N2+Ue
+	0G1H7CLo76yrHQyeYJHFlC32BB4jK3vynVIMHZG5rcy+RRJa7nq2prKoZBq3HSIAwPcbrfGGKgi
+	hpka4G29Wx4/zHPeMJXyLfCpqRXVHa8ZEMTs2UlD0/uHppkEVIa67rZw8lYlkS6kseW0vJTmXXD
+	nH8fAgcp+KyNAcosAXP7HyCdrIhid4fGIrAfQTWRADjB5+y1OkxSLf1op5edZHKLhNdfUt+se1U
+	iY1GFzER9lFhMlirrcZ/DmW2V2K1N4kXkVgFolK+UA/IGaXh+gbBnxnYGmxxtFKHr2krw5PwKIl
+	IZYNTISKNyFcxMXNW4yoB/WzGlZJrYvsogZjMt7BAagoDYG7S1rE4WXrFJ0A==
+X-Google-Smtp-Source: AGHT+IGQT1sWn537O9lUQH0SeyIcZJ4uWohxTzjPx9kV6HFu78PmQQbglpth1JWOPqlEUpT9jeFZgg==
+X-Received: by 2002:a05:600c:4e02:b0:475:dd04:128a with SMTP id 5b1f17b1804b1-47717e6b4c8mr33281395e9.31.1761666210763;
+        Tue, 28 Oct 2025 08:43:30 -0700 (PDT)
+Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd02cd6dsm210045835e9.2.2025.10.28.08.43.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 08:42:50 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	linux-omap@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
-	linux-pci@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
-	linux-arm-kernel@lists.infradead.org (moderated list:PCI DRIVER FOR TI DRA7XX/J721E),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>,
-	Markus Elfring <Markus.Elfring@web.de>,
-	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: [PATCH v3 2/2] PCI: j721e: Use inline reset GPIO assignment and drop local variable
-Date: Tue, 28 Oct 2025 21:12:24 +0530
-Message-ID: <20251028154229.6774-3-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251028154229.6774-1-linux.amoon@gmail.com>
-References: <20251028154229.6774-1-linux.amoon@gmail.com>
+        Tue, 28 Oct 2025 08:43:30 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Richard Genoud <richard.genoud@bootlin.com>
+Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
+ Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@bootlin.com>
+Subject: Re: [PATCH v4 08/16] mtd: rawnand: sunxi: add has_ecc_block_512 capability
+Date: Tue, 28 Oct 2025 16:43:29 +0100
+Message-ID: <8637155.NyiUUSuA9g@jernej-laptop>
+In-Reply-To: <20251028073534.526992-9-richard.genoud@bootlin.com>
+References: <20251028073534.526992-1-richard.genoud@bootlin.com>
+ <20251028073534.526992-9-richard.genoud@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_084251_770279_1ADC0734 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20251028_084332_936146_08AE706D 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,61 +111,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Assign the result of devm_gpiod_get_optional() directly to pcie->reset_gpio.
-Thus removes a superfluous local variable, which simplifies control flow
-and improves code clarity without affecting functional behavior.
+Dne torek, 28. oktober 2025 ob 08:35:01 Srednjeevropski standardni =C4=8Das=
+ je Richard Genoud napisal(a):
+> The H616 controller can't handle 512 bytes ECC block size. The
+> NFC_ECC_BLOCK_512 bit disappeared in H6, and NDFC_RANDOM_EN took its
+> place.
+>=20
+> So, add has_ecc_block_512 capability to only set this bit on SoC having
+> it.
+>=20
+> No functional change.
+>=20
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v4: Improve the commit message
----
- drivers/pci/controller/cadence/pci-j721e.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index a88b2e52fd78..ecd1b0312400 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -477,7 +477,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
- 	struct j721e_pcie *pcie;
- 	struct cdns_pcie_rc *rc = NULL;
- 	struct cdns_pcie_ep *ep = NULL;
--	struct gpio_desc *gpiod;
- 	void __iomem *base;
- 	u32 num_lanes;
- 	u32 mode;
-@@ -589,12 +588,12 @@ static int j721e_pcie_probe(struct platform_device *pdev)
- 
- 	switch (mode) {
- 	case PCI_MODE_RC:
--		gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
--		if (IS_ERR(gpiod)) {
--			ret = dev_err_probe(dev, PTR_ERR(gpiod), "Failed to get reset GPIO\n");
-+		pcie->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
-+		if (IS_ERR(pcie->reset_gpio)) {
-+			ret = dev_err_probe(dev, PTR_ERR(pcie->reset_gpio),
-+					    "Failed to get reset GPIO\n");
- 			goto err_get_sync;
- 		}
--		pcie->reset_gpio = gpiod;
- 
- 		ret = cdns_pcie_init_phy(dev, cdns_pcie);
- 		if (ret) {
-@@ -616,9 +615,9 @@ static int j721e_pcie_probe(struct platform_device *pdev)
- 		 * This shall ensure that the power and the reference clock
- 		 * are stable.
- 		 */
--		if (gpiod) {
-+		if (pcie->reset_gpio) {
- 			msleep(PCIE_T_PVPERL_MS);
--			gpiod_set_value_cansleep(gpiod, 1);
-+			gpiod_set_value_cansleep(pcie->reset_gpio, 1);
- 		}
- 
- 		ret = cdns_pcie_host_setup(rc);
--- 
-2.50.1
+Best regards,
+Jernej
+
 
 
