@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE0ECCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 17:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7750FCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 17:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okDm8OYPX+OIIRoCLwG7RpXVE0mKp8taEG32jPY7ZLY=; b=xkiZxhxvc/yZuHwPrRLIihpOgr
-	kLc6kQGMx6LIFLTbmwS1EObhGN+OLGU4nhmFLSTXB+6MMu68ZDeRbUY/hvHzNZQKqwYtcfMzFIvtC
-	KsMyqKofmyGX8Xa/OhbISzg5XeYL2Po60pGnbJcCwlyNVaGmxO8jrg6m4vufatu7ZUXfoXqt2n9Id
-	RO5lIeIjwJQqyG3gEwobnVBRWWvoNfw7EtpTNMnMjYz3+z1GXz/hnNYsiI/0RH1FS6121JYxEWwk5
-	Ws54iEwhbeKi99QUmVLYyWmIq+SXfN6Nx7umBVobb+aaieRY8MzqqHG/bwpiGbeMzv9u0wCQjgp+x
-	mn5cLBeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bf2z3SV0EQFH+NyJBVxm2kYHrg6mEHvbE757ZmlP2HM=; b=jC4rzaWrvtdKq6eHc31P7GafDJ
+	BW5+wc699xgf9iaWKrJ0k54kecVvANzqaMLjv7O+Zbg9o3bMFfpPL2+R/38f62GpUhNJtXJDPDEB8
+	YBZl2Fo8jgnBgbpd6mV/ZNyRR69yPlD7g36Fx4+reJp2qmz72REYTjPTnKVZBlGT2k45XnK+bNVdW
+	hw7ZmlE/dcFgQ4PYHp1h6Gf8Mj7pbP97qJngia5glddlgcIqbtDvwnJ3DDvuGTWSxF/LVdc0z/cJs
+	VGUM54o6FnU1GGXA9J+YcETSuT4Tacqh4ebeEePFem0U2X6cZz1GWCCGlFbGB5nItNkjtoOAb+JNT
+	R0IizpJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDn8b-0000000GNKC-3WT5;
-	Tue, 28 Oct 2025 17:05:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vDn8o-0000000GNO3-1pLh;
+	Tue, 28 Oct 2025 17:05:50 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDn8a-0000000GNJg-0IdM;
-	Tue, 28 Oct 2025 17:05:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A65961122;
-	Tue, 28 Oct 2025 17:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0592C4CEE7;
-	Tue, 28 Oct 2025 17:05:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761671134;
-	bh=oL0rXXmMHbcR3EvMkdJ0IKxdFjgk39YWymPhTwNMDgw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GAc4R7RrcicVl5PeahubF+TfLli3xATxMXRSgNiesCP4FlAu9VGhv4daehI46gO3t
-	 YdHl4NcawireCvk/sBo4Azw3sJfkZADoxK7hWgThsdwGxQv0LWx37SyEnoFJXQnFkc
-	 fg+aaheIUkRocD6+64eu7paqvkKQ/DSpVWcEiTuJElMCyfGc2LiclFQDx+zdVYqojG
-	 anSZI/vwWlsw3nc1UUGe3i9AKZ5Ft4y514OUiwYDcbSXE2I9ALHWxC1Q4sd7rB8FvQ
-	 jv7/p0goh4MSQI0HzGXw0pyIkbio0QbHKE8itMZ7ybLs90DcIHeYH/iNvG5rpkGqxU
-	 DHXj6ifX+xy5A==
-Received: by wens.tw (Postfix, from userid 1000)
-	id D9CDC5FCB3; Wed, 29 Oct 2025 01:05:31 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Genoud <richard.genoud@bootlin.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	Johan Hovold <johan@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-mtd@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v4 00/16] Introduce Allwinner H6/H616 NAND controller support
-Date: Wed, 29 Oct 2025 01:05:29 +0800
-Message-ID: <176167109288.1159653.8613197052957076565.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251028073534.526992-1-richard.genoud@bootlin.com>
-References: <20251028073534.526992-1-richard.genoud@bootlin.com>
+	id 1vDn8m-0000000GNN6-0skR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 17:05:49 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4ed0c8e4dbcso15741cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:05:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761671147; x=1762275947; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bf2z3SV0EQFH+NyJBVxm2kYHrg6mEHvbE757ZmlP2HM=;
+        b=H6axk1N8OE3jEfYfg6gXkAaaCuw81nmQLGcy2zhLTbGaykA+V8TsQm4QQNUXvyhpGT
+         rShSxB20Pm9fp+kBCU40gV6hAeYPs9KjPKBB1bwIyo5hC/RVU+Z/ZbQ5tnO8SuV0SCAa
+         5VALSetV5kwGFqjLK6lM++9yyilwYanCuFLbTV1WngWuwdEoV9A3RtszejGgom5RNXYW
+         RoTnrDYpZYCkHeWJY5XVPZuShmhaOAnvt9MIu50Im2Ik1wHiXrAc+JB8lSrOI0T0MDky
+         tsDn54f0eCIf5H0422l18u0ndOg7f1+Sae3a3QRJK35p7at1CwUTrfdH7DEZ+pMXkMek
+         KrHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761671147; x=1762275947;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bf2z3SV0EQFH+NyJBVxm2kYHrg6mEHvbE757ZmlP2HM=;
+        b=d+mY10jQJVOpkSNn71N7MDOn1zW90HdVj875kvo2tvEvF6AZiHnftjUkZsnPK4848v
+         230bK1eJhZs8MRTBgh1DRxIjyAUzJjXVW4wyf+9NG+5YydBPetYyWn4A0u82/Ood0DyA
+         NhDFiEGoTznN0+bclp686Q+VJsJ0uxmL6T4qrlSo+0xJP0vvc9T67/Fc2toCdTK/TD7G
+         njyoxONUDwKFfvDLFgRLvVJ0K4wmfG3az1bxRIBFMp5iWJmxnVUSchw8M7pcrbCaXNsA
+         voH4pP2GZACZ9Ixs1ir+nlFL1Mpw1DhiiQHo7i1YGf3D6aBTpc6gKo4Ud0clhrnhNR5h
+         iOjg==
+X-Forwarded-Encrypted: i=1; AJvYcCWZ5zDc2ErBVlQapuW0agp+g3qetp56pRRrWCvNccYnkV5FW5z6fMzTa5mQuyK2lnFcyXHZX436sDQTtXSKAy+s@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFFsgXKWQKcqEq9hQ7+PLiSDslbnOolEfL1slyHildPcqUzu+j
+	mM+pav1qo9X/mk1msDIwPK0Vs556CNIAyUip3CAw6xmNtiHFgXt2RSl5q3oHQ7D6WKQ1L3vXVWK
+	rUlcM4cnUs4ELCvfsGegQVc0UVB994U9I2N3WTiGl
+X-Gm-Gg: ASbGncvMHJS7A8gEyKAY7gSsYP4LAtW+XSBCdq+w8bMrBg2M4qQiBZdw76Fn2zgoNvE
+	HSyT9V1HOOtju6gnuMfbOXSVRhXVRg83UaVmXDQBkCLUjL6GUUAcHFwWfH6xMJE3Uz/TWZVNpxk
+	yeeT91zUKqJ127Ez3QddLVTqH7EUlzR9pnRyhRqdl5WchyAqZfsiK8XyROLCat9Btyl6Haow0kG
+	YvfKlaYhSgX9obsOcDCpzh46tiZqPqc4UdW8HHWhdITdfZmHoi//5MZnhWcUw==
+X-Google-Smtp-Source: AGHT+IGnY2q/qW4n//fPnWZOK39ysZoDAJatQaFWpDai28muI3fakRyU9rfMXBXhQMs1gaa0OISkshUNrKoqf5k61r0=
+X-Received: by 2002:a05:622a:1b26:b0:4b3:1617:e617 with SMTP id
+ d75a77b69052e-4ed09f6156dmr6051941cf.11.1761671146391; Tue, 28 Oct 2025
+ 10:05:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20251027113943.1282568-1-tabba@google.com> <20251027113943.1282568-3-tabba@google.com>
+ <86y0ovuwn8.wl-maz@kernel.org>
+In-Reply-To: <86y0ovuwn8.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 28 Oct 2025 17:05:09 +0000
+X-Gm-Features: AWmQ_bncQG7II35IK71jUNPHsUYcvYPp771U9qg-aPTyfjBogXSI_xu2S7Lw39E
+Message-ID: <CA+EHjTzQBfqyxtzp+4UHyCFxoEfKG4RXLfLLz==Y6t6omfckfw@mail.gmail.com>
+Subject: Re: [PATCH v1 2/4] KVM: arm64: Add compile-time type check for
+ register in __vcpu_assign_sys_reg()
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251028_100548_258518_EBC8DC45 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,25 +96,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Oct 2025 08:34:53 +0100, Richard Genoud wrote:
-> This patch series introduce H6/H616 NAND controller support (but not yet
-> the DMA/MDMA part).
-> 
-> All the work was done on a H616 board with a Kioxia TC58NVG1S3HTA00 NAND
-> chip.
-> ECC is supported, as well as scrambling.
-> 
-> [...]
+Hi Marc,
 
-Applied to sunxi/dt-for-6.19 in local tree, thanks!
+On Tue, 28 Oct 2025 at 10:51, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Mon, 27 Oct 2025 11:39:41 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > The 'r' (register) and 'val' (value) parameters in
+> > __vcpu_assign_sys_reg() can be easily transposed. The register ID is an
+> > enum, whereas the value is a u64. This has led to bugs in the past, and
+> > the risk was increased by the historically inconsistent parameter
+> > ordering of the vcpu_write_sys_reg() function.
+> >
+> > To prevent this class of bugs, add a compile-time type compatibility check
+> > to prevent the 'r' parameter from having a 'u64' type.
+> >
+> > This directly catches the erroneous transposition (passing the 'u64'
+> > value as 'r') while remaining flexible, as it does not force 'r' to
+> > be a specific enum type.
+>
+> I don't think that's enough. It is too easy to pass a u32 and
+> accidentally bypass this check. I really think we should redefine the
+> register identifiers to be a fixed value structure, something like
+> this:
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 7501a2ee4dd44..18f65dbff2379 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -624,6 +624,12 @@ enum vcpu_sysreg {
+>         NR_SYS_REGS     /* Nothing after this line! */
+>  };
+>
+> +struct vcpu_sys_reg {
+> +       enum vcpu_sysreg reg;
+> +};
+> +
+> +static const struct vcpu_sys_reg vcpu_sys_reg_SCTLR_EL1 = { SCTLR_EL1 };
+> +
+>  struct kvm_sysreg_masks {
+>         struct {
+>                 u64     res0;
+>
+> and then enforce that whatever is interpreted as a system register is
+> actually one of these structures (with some creative cpp wrapping to
+> make it less awkward).
+>
+> In a way, this is similar to what we are doing for page table
+> manipulation, where pte_t is a structure wrapping a u64.
+>
+> If we move to such construct, it becomes impossible to swap value and
+> register, and we can stop worrying about that.
+>
+> Thoughts?
 
-[16/16] arm64: dts: allwinner: h616: add NAND controller
-        commit: f55a2526317aca8ecc1b21b346dbdebbc6aad97d
+I looked into this some more, and the issue is that the number of
+callers who refer to members of `enum vcpu_sysreg` is really big, as
+well as the functions that access its value (in if or switch
+statements). It can be done, but the amount of code churn would be
+huge, that in practice I don't think would be practical.
 
-I also fixed up alignment of the clocks property in the nand-controller
-node.
+Another check I thought of, which is more robust and would catch all
+cases we have encountered in practice is something along the lines of:
 
-Best regards,
--- 
-Chen-Yu Tsai <wens@kernel.org>
+BUILD_BUG_ON(!__builtin_types_compatible_p(typeof(reg), enum vcpu_sysreg) &&
+    !__builtin_types_compatible_p(typeof(reg), int));
+
+This ensures that you cannot pass anything other than an enum value,
+or an int, as a sysreg. U32 and U64 would trigger a build error. I
+tested this, no callers needed to be changed and it did catch the bug
+I am trying to avoid. It's not as robust as wrapping in a struct, but
+it doesn't result in any churn.
+
+What do you think?
+/fuad
+
+
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
