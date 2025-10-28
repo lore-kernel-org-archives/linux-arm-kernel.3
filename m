@@ -4,131 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3743FCCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 02:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DACCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 02:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wNhB652mnMYlogksGyeHgsrdx+7RWlwaFzG6ELHGc8=; b=pAWZ2yY/LMjJpNO/x0UdurQx1E
-	83EXH/lDyPmmSmJp+XGwh85noG/6zJ6+DiV7Uj6nHWO6hH1SwljSEDXHRO/sh0/XJmVDe/6qhg8kH
-	NvQcM8NmKoqNL3tYnQ2SNff5deWY9p8gWMzljEvgTBg/5lwEijZZuGM0hA4r3GbtD2YytNoJGRoAk
-	t7SnYScqhuD79v/5q/3zRBrUKlBCB09l7H/eyU6kc+ANmrqbUbGS2TP4TnKAW3iwAX9ZkWsToiAUi
-	HKBTWU3ocqBi5noWRnwou+zCraWsZYlG9sIyVPRKEqr3a0jk2Ck/noJCkTm99u20O+Fx3oLcKdkZC
-	nX6thZ2w==;
+	bh=lrKIs+MLrp3fK072nYRHc2NnwJhU4CFeuVXvOhDyNd4=; b=CiCmFnk/U91CHFr+icp89kgdhY
+	/8GaLOhvew08NQ2BJAPBJvFNkaH5INVNQfw10meJzfEUTKLYF/80YlFJpNPxMUm9eFoAYIflbSZg+
+	6xNL2HMCtGXwCcRB7CcaBrv13cGR0f8cKeYwEslIQ2E8f6zlsTd3eBS8msGRSxbr30jXgu92UJNTd
+	Q1jBzJx0+AsEn00xc5zfeCubfZLXmYbkKXYv0vANRlBc5VlRqVglhQ6ezWetrgMVhEE9WVf/544C6
+	LlDMGiYiIh+3KsHtYeIeDcuVqcfvnN/MXX9SPEXXQZFhCozDWWP609PN2ChwFoE7wgeJNrWXIKHuI
+	Av2whqqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDZ30-0000000F6Gx-3pGK;
-	Tue, 28 Oct 2025 02:02:54 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vDZrQ-0000000F8XE-1sm1;
+	Tue, 28 Oct 2025 02:55:00 +0000
+Received: from mail-japanwestazon11022123.outbound.protection.outlook.com ([40.107.75.123] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDZ2x-0000000F6FP-2EVJ
+	id 1vDZrN-0000000F8WS-33G5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 02:02:52 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59S0u9822881686
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:02:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+wNhB652mnMYlogksGyeHgsrdx+7RWlwaFzG6ELHGc8=; b=dbz9zrsqWYQlSu0P
-	fR7DV2lWKcUJzJAUjXPws3C7B0cqHeoEAq8wGZOVP4r2JXNO4uXGhOLnHYFdQpp2
-	vmMU93DYhfIk8ypgQd2vzwKg/drsPV8ynUdUXRsf2sRq/x14/Ku9xrT/l2wY+nj9
-	PhyFQaag956rIyCvsGF6Z/JF963ES3H9WAIhdkgMqfVVsZB0CbIqiB93+1NtHx8o
-	lGhu1a/onQrl7iBmbKR3QyiD73yMgK3PHWRmMu9HWTDrg/IbXKx6TLgIRVwFG0d9
-	J8wxUb2vIuLaeV//WqrYEELdTxR/QLDYf3SLNJiO02s5OMszHkqg1Wwu30RP3+1Y
-	9yjD7Q==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a29uha084-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:02:51 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-27ee41e062cso59792005ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 19:02:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761616970; x=1762221770;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+wNhB652mnMYlogksGyeHgsrdx+7RWlwaFzG6ELHGc8=;
-        b=u/3cBToA+aiO/dKlNjh9JM6JMobWSYWo53sg/pyVWM/Bs1KUFZGjApLH9mCzan8S+/
-         XKMIu7h73eDMdlktM4UBV8jm2gNGCDmyNWNfBPFrTpnUKYNk2DmZc25ORLpVx9AR6WZV
-         DkmB9/sXqX+bUuErSu662cUGbIYWtyowACSiGennh1qJotpAnuOwFxp6XboomGkcmDxP
-         K3fKwOYd8ZMSmV1zgBy6PegSdaNYKm5wGEAyQWu2exyB7k+8hf7AuFJ1s5Cq7JY325Y9
-         h5kpXCTl6T9oSLBBEAliNGvHCM60gJeLQocgU/ouamLXc587AjPsxZR5H6Mc+WR+SmUO
-         1hdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWKwCubIAR7W3vjS6w1OGhX7wH1EFBKs9ikza5W28vmn4U6QSGILxf0bZ9bawqiSaMAU5dprZJjIJWRI/IAURSi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0bSz8b9bbSfREfRWKktYkv2puw0ZVROXtpk/HIA/aydiqZv/W
-	x41ISd0F6gIu6dSolcfRYRL0mpOSfIH5og05u+APzUM138xWbZy74ByYOSYzVQQb+Ydh4JurLc9
-	pgHn/Z4s69AG5b1LE8oSGJ1wAWKbUcLxJ/1MZBuZg21/PgsT0ctzoU1jdf5Anzqv/xdMGjOh0Cv
-	tSfg==
-X-Gm-Gg: ASbGncuYZ9kBrnXv2MVL3fegRwj7ykY4H3pEU/79J+NainSYkdgcTaPUlYXZjNoh0zB
-	587quu9ySqjfKmnwLEt92x7g+vnuCgcc+dVrVJ9ynMoI3Gx2rt5Fj8z4rxipwVJcE1npeFgjOvH
-	wCtOpAny4FE/ByTM/vCuvzIMiXJzolmrVPOD/zUQxfOoqyK57U5ZvHOO/KC1e0zwyUjj/hu/g3X
-	j3HqVkTReesET5uK6+qnBrefFCFDyFyeNpmeDRf185LKMqMv6/b6SDONCz3T/XQF7C4NTlHNDHT
-	usuYEwsFHeqyQUw7pneG7+rd0wgGrDjh2S1MjE3Jpn8m9kbdqlnQ35kvH/JQ3z5SAFShh251Fes
-	R6cXGr36CEL8fF96TTM8KmWF+XqCBwVUdgdOrpIAPt9xGBJ2lmfDsmr5xpkI3Q8MKLg==
-X-Received: by 2002:a17:903:41c2:b0:28e:80d7:663e with SMTP id d9443c01a7336-294cb4ffffdmr21884155ad.40.1761616970350;
-        Mon, 27 Oct 2025 19:02:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHUxghaYNmQqPK2saAE7r7SCzRdyzrULOVS/CNtBQxvDlc6kr4GGOx6zKHHzmW/336KTEw8nA==
-X-Received: by 2002:a17:903:41c2:b0:28e:80d7:663e with SMTP id d9443c01a7336-294cb4ffffdmr21883685ad.40.1761616969873;
-        Mon, 27 Oct 2025 19:02:49 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d2789bsm95861895ad.62.2025.10.27.19.02.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 19:02:49 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Tue, 28 Oct 2025 10:02:17 +0800
-Subject: [PATCH v4 3/3] coresight: tpda: add sysfs node to flush specific
- port
+	Tue, 28 Oct 2025 02:54:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CLjrNOlSbNVxlwCLuZA7IKzA6y3lx+AF2ZPkNDi4KU48uL4g2TSFJ7wt22eFzE6SKi7M1spn6w8kEToITiJoWqWB0c6rOHqPlOdPTUfpTao2uX5TjG2eCuAQye9jG7bLjDB5SFNFaLzExsOIH/mLgh5We5PUPSEIoFQ4qyxcF8Ojg9CyVHwfPkdHFDx6BgB9oRQY1cjU+wDcJF/daqKqxgaWLRZpOApzBSTByAomyom71OAxGjN3mW/cKo4YxEvBrIb4ewQK3bMseG7ms3Nhd+nhm6J46hWnfH6qclbw0w06CQ/5/Zfo5Oh1PdKNZNZh5gF5c6qwDqV81bxkCB97+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lrKIs+MLrp3fK072nYRHc2NnwJhU4CFeuVXvOhDyNd4=;
+ b=YTzZQJC4HVrjtC1uVKx8CfH0ydn+ZpDQQxn0QHXjBTrVcOOvLch5UqMKKFUw5Ny0V/OOgSp8AlyH63F187c6ZZ3sekrYiyO0d3QTYIl2tMaXiJw6ms29FKFd4ItFU0rc2o0QDPR0rDmw7ojCG7q+v8y7y/5+z96QuTmOVsB92Ia47r7fGA1lMIagyzC8IFrjFCTYtnWbZOwCUx/YLWpfLdAaDZsgbRXgowxfWryU+e+UymImrhukAnDT9aGTYESPBdI1dCj18+OX3e1yFCjv7MpU+Pwriy1Kg3ZdCwQZth06ZkIthrkR/zQv1PpLWvGCcHruYBNIc8z9aex+hpbX9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=amd.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2P153CA0040.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::9) by
+ KL1PR06MB6519.apcprd06.prod.outlook.com (2603:1096:820:f3::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.18; Tue, 28 Oct 2025 02:54:48 +0000
+Received: from SG1PEPF000082E7.apcprd02.prod.outlook.com
+ (2603:1096:4:c6:cafe::9c) by SG2P153CA0040.outlook.office365.com
+ (2603:1096:4:c6::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.4 via Frontend Transport; Tue,
+ 28 Oct 2025 02:54:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E7.mail.protection.outlook.com (10.167.240.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.10 via Frontend Transport; Tue, 28 Oct 2025 02:54:48 +0000
+Received: from [172.20.96.41] (unknown [172.20.96.41])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id EC1FC41604E0;
+	Tue, 28 Oct 2025 10:54:46 +0800 (CST)
+Message-ID: <f9f43492-859a-4369-b660-7fa138c86e86@cixtech.com>
+Date: Tue, 28 Oct 2025 10:54:46 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-configure_tpda_reg-v4-3-23000805d21d@oss.qualcomm.com>
-References: <20251028-configure_tpda_reg-v4-0-23000805d21d@oss.qualcomm.com>
-In-Reply-To: <20251028-configure_tpda_reg-v4-0-23000805d21d@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
-        Tao Zhang <tao.zhang@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761616955; l=3779;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=jDq21b1Z8mMMtc7DmhlI9qf036ZjY6vmqb55m6leOnQ=;
- b=TykYWRh4kXkeVJ0qVldcJsYhpROcPoeLyg/QusfUnnRl3p+TkGNRszmNpzWTK64rMcJ9EwJRa
- PpZJQhq55aYCnGajpS4jseWWlXV6gIeSqWMP/Kgs4GAsGH39iGDjaz6
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-ORIG-GUID: CQdS5ywcJIu919qEA2-pUOXGb1lGj6Ba
-X-Proofpoint-GUID: CQdS5ywcJIu919qEA2-pUOXGb1lGj6Ba
-X-Authority-Analysis: v=2.4 cv=QuFTHFyd c=1 sm=1 tr=0 ts=6900244b cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=oM8RmAA2zgEEgW_MHrIA:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDAxNyBTYWx0ZWRfX7L8z9Cpurk1N
- jMJiCVGTW4nPGK47O68LN83VMOtKCdNDAz6d9vI9KdINut1hV32TiLkoM3immkZCZGYl5YBjNpg
- HiqUXSiYpA8pt4mksg/gcxjqf50bkqJkjwqDutMg/EOy4piI/ETf2VSpyl78buYvZbJTWy/EaOl
- U/kgjSys2leMNyltU19uFEqvpXGqMPZOxRkwLIUbdV3Vf3CnXTd8dRP0jp+hvLd/PVbraWUHPcN
- TS4Y+VuZ5EAsqMf1OixjINkPHeMDWkNpupufGe05Keuq0+fRUto/HYXnOmCnaan6E1jNmFi20mt
- k927BEQ4PB9WxNFFEJP0KV2qOBj7MTGeXM4SNDND+fnxFG+1cqqg4HCMKDn6AmCXBzQ0qC0m1TB
- rjharQe2F7C8QMiC5gtuR5R9ICPYlg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-28_01,2025-10-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
- phishscore=0 clxscore=1015 priorityscore=1501 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510280017
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] dt-bindings: spi: spi-cadence: update DT binding
+ docs to support cix sky1 SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, broonie@kernel.org,
+ linux-spi@vger.kernel.org, michal.simek@amd.com,
+ cix-kernel-upstream@cixtech.com, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251027084239.2610141-1-jun.guo@cixtech.com>
+ <20251027084239.2610141-3-jun.guo@cixtech.com>
+ <20251027-strangely-reverence-6f47d87efca5@spud>
+Content-Language: en-US
+From: Jun Guo <jun.guo@cixtech.com>
+In-Reply-To: <20251027-strangely-reverence-6f47d87efca5@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E7:EE_|KL1PR06MB6519:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15b4be6f-a8eb-434e-b4b3-08de15cd5ba1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?THhLTHAzUDA1RytnSVE3eHZkL09NajdLZDA2ekhYUXh0dHQwMFFtcjlXZ1U0?=
+ =?utf-8?B?ay9CalVJV3pLSGFrR0hUU3hFR2ZRUE11VS9Mb2t0QVJOenpEdVhzdnlnZFBi?=
+ =?utf-8?B?SHI3QjM0ZHpjK2Q3OUliNkFCUUNKME9uQVJkTTdUdGJmbHNkOU0wOG4yV0RY?=
+ =?utf-8?B?WTI0UVVXYUMyMmZRakYyNVZ2dlFZODZ2cHc1MnF4WHhSRFVDejVydUdwaTd0?=
+ =?utf-8?B?R1p0L2Y4Uk02UVg5VHBwRjRYcmFPajRCUTU5NWhnUFhRYnU2K0pQQll2RThQ?=
+ =?utf-8?B?cmdVOHlrdCtPQUc2dStiZGdWKzg5Wk83eDU1WW1USE1UVGFPVGtqejhWZnlD?=
+ =?utf-8?B?VzJ4TUh5TFhIcVRsdkg0QVhHaFVMWGZVaFp4WHNCclBIaUJublVHWElyMTdS?=
+ =?utf-8?B?NnRsRFhKQkZVWDV1Vk83aThGWXIrZWUwdGM1c3NZdVZQUGlicWx4SXZrSEZ3?=
+ =?utf-8?B?V2YxbG53eUxVMDlub3Fpb05YbFB2TWc2S29KV1J0d3l0eXJxcjRDTmJlZ0JB?=
+ =?utf-8?B?RENERGdJTDU2NW1QNmZoUW9xWEVhNC9jRlNvUGtvR2I0Y08xN0R4MVF4NEVa?=
+ =?utf-8?B?OW1UMnpYd3pLVmdYOFRXS3dJN0FkTEpwOTl6cmM1ZVdQVlJ4a2NzT0FvdWFj?=
+ =?utf-8?B?ZDI2SUtWL0hLdWpCUXlxTWVQamVSQmJhSVFwREFFamhPMHpuckdpMWQ5enh1?=
+ =?utf-8?B?ZzBpaWgvUlVlb09FeTl4Qko4ZE05NGdZQjlrM05lT1F3aVlIelhwRVhCckhW?=
+ =?utf-8?B?dUpXNDIzbFFYWmNIZkxxWlNRcCtINkxMU1FQaGtqSHpqZnNIcmtJUHFKTkM3?=
+ =?utf-8?B?Y3l1ZmdQeWlRQW9xa3k3bG5UM1NCZU5XejNPcHlXVnNobFlkckc2d3ZvQUlq?=
+ =?utf-8?B?cDE4eUhEZHA3Wjl6MU1aeW1Udm1ZS1F6UE9ucC9KUEdvMUtnOThlWHpnQ0lS?=
+ =?utf-8?B?dU1pWEM0U0F1M3hKNy9WVmgweDhmS3BkcUpPSXZSYUV3MHdNOHV0dEx0cHlP?=
+ =?utf-8?B?TVROYU1RLzJDZVJGdHluZkNUK2RMMG4xUWJGTGltNkNBQ09QNEdCS2d4QzN6?=
+ =?utf-8?B?SHI0SnYzcXo4NStMZk1CMWZmcmk1dWRhMENnRVNsSVY1SmY1YjZERzlZNTlX?=
+ =?utf-8?B?MnZ1QVdkT1g1VkZUOVlWWWJWK2VTdlE4RkxjWTl4Q2NWQVpUOW5DN2hYQ3Bs?=
+ =?utf-8?B?MGduY3RJMjY5UlRvTU5MTDJEelNGL3l0Kzg0SHNpeHd0MXNDQ0NULzR6OHpC?=
+ =?utf-8?B?L2thcWtVT1pZUW5DeFNmT2RZMWpHY0dSeXVqK3R3ZGxEUzdJUllsWVA4VHFT?=
+ =?utf-8?B?UE9UTzBnUS9xUW1GMlZVN1UvbFdvQlROY1djR3phRFdtOGxlQjZyTU5CVGhu?=
+ =?utf-8?B?Rk5Pa1UyZ2hvZGJqazkzaUtuVXFITmdSeFRUQ25CbXBDRW94RlJYZy9mVGUx?=
+ =?utf-8?B?WG9Ga3NNS01pWEkzcnhPRzZMTmYvc0VMUUQ1MzRTOXpmejFURWlqUENYd0Vu?=
+ =?utf-8?B?dk1wbFM2VXAxRVRkRHVSUUhBeThFa2xtNDlRT21tdzFXMUpPRWFFbmRyeWdR?=
+ =?utf-8?B?bGQvb3NoWGwxcnE3MThRSFg3L0pTYzFzMzVZdXVDcGdpZzZWNVpES0JDR2Vt?=
+ =?utf-8?B?MXJzMXFwcmdlbzZyL3JvOVppcnJVNHZXeGk3Ti9sMlgvMTQyM1NFYUlNMVE5?=
+ =?utf-8?B?WlFhM084MzFVcUNBR2FJT1YraFpYcjd1c2U4Q0x6SXhyYXVPem9XVHBZTHNF?=
+ =?utf-8?B?elFIVjZXS1R5TUlVZGhpSlc3TWdQVCtmTXd0Z1lkM09sNmdaSlE4Tzh3RGM4?=
+ =?utf-8?B?RUw0ZXFxWWpJMnpjVURqRHBVUWVHb213MEhFdERSeXlXcjdNQ1RMeG5zNVg0?=
+ =?utf-8?B?UUMwMVZtaDljNnc3OUpwbkpveEhhc1gyNlVhcnhBbGRMYSs0TGI2M2J4dUF4?=
+ =?utf-8?B?bTBkaUxZY2UwQXhkQmtmR1Y3NnB3REZRRU4xdWtLcW1OYjU0NGtTb01BTUNW?=
+ =?utf-8?B?UTNBaTc0cTFjZXFHT1EwUC8rd21vakhWdUlvTWFuRE9lOVM3Y2ZEamxDcGJL?=
+ =?utf-8?B?eHo1S0Ryem9UK240a1ZVdlMvVG1iN2ROZjhJb2k5MjJEQk1USUgvd0J1Q3pF?=
+ =?utf-8?Q?tTlE=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 02:54:48.1398
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15b4be6f-a8eb-434e-b4b3-08de15cd5ba1
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E7.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6519
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_190251_582148_94231AD4 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20251027_195457_786072_54150F23 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,110 +151,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+Hi Conor,
 
-Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
-for port i, forcing the data to synchronize and be transmitted to the
-sink device.
+​Thank you for your prompt feedback.​​
 
-Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  7 ++++
- drivers/hwtracing/coresight/coresight-tpda.c       | 41 ++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tpda.h       |  1 +
- 3 files changed, 49 insertions(+)
-
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-index 80e4b05a1ab4..e047f69fd5cc 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-@@ -41,3 +41,10 @@ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
- Description:
- 		(RW) Configure the CMB/MCMB channel mode for all enabled ports.
- 		Value 0 means raw channel mapping mode. Value 1 means channel pair marking mode.
-+
-+What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
-+Date:		October 2025
-+KernelVersion:	6.19
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
-+Description:
-+		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index f079861da279..3121c4c527fa 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.c
-+++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -481,6 +481,46 @@ static ssize_t cmbchan_mode_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(cmbchan_mode);
- 
-+static ssize_t port_flush_req_show(struct device *dev,
-+				   struct device_attribute *attr,
-+				   char *buf)
-+{
-+	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val;
-+
-+	if (!drvdata->csdev->refcnt)
-+		return -EINVAL;
-+
-+	guard(spinlock)(&drvdata->spinlock);
-+	CS_UNLOCK(drvdata->base);
-+	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
-+	CS_LOCK(drvdata->base);
-+	return sysfs_emit(buf, "0x%lx\n", val);
-+}
-+
-+static ssize_t port_flush_req_store(struct device *dev,
-+				    struct device_attribute *attr,
-+				    const char *buf,
-+				    size_t size)
-+{
-+	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	u32 val;
-+
-+	if (kstrtou32(buf, 0, &val))
-+		return -EINVAL;
-+
-+	if (!drvdata->csdev->refcnt || !val)
-+		return -EINVAL;
-+
-+	guard(spinlock)(&drvdata->spinlock);
-+	CS_UNLOCK(drvdata->base);
-+	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
-+	CS_LOCK(drvdata->base);
-+
-+	return size;
-+}
-+static DEVICE_ATTR_RW(port_flush_req);
-+
- static struct attribute *tpda_attrs[] = {
- 	&dev_attr_trig_async_enable.attr,
- 	&dev_attr_trig_flag_ts_enable.attr,
-@@ -488,6 +528,7 @@ static struct attribute *tpda_attrs[] = {
- 	&dev_attr_freq_ts_enable.attr,
- 	&dev_attr_global_flush_req.attr,
- 	&dev_attr_cmbchan_mode.attr,
-+	&dev_attr_port_flush_req.attr,
- 	NULL,
- };
- 
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-index 0c9bf2fade56..284ac63699ad 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.h
-+++ b/drivers/hwtracing/coresight/coresight-tpda.h
-@@ -10,6 +10,7 @@
- #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
- #define TPDA_FPID_CR		(0x084)
- #define TPDA_SYNCR		(0x08C)
-+#define TPDA_FLUSH_CR		(0x090)
- 
- /* Cross trigger FREQ packets timestamp bit */
- #define TPDA_CR_FREQTS		BIT(2)
-
--- 
-2.34.1
+On 10/28/2025 12:51 AM, Conor Dooley wrote:
+> On Mon, Oct 27, 2025 at 04:42:38PM +0800, Jun Guo wrote:
+>> - Add new compatible strings to the DT binding documents to support
+>>   cix sky1 SoC;
+>> - Adjust the configuration of the compatible property to support both
+>>   single-item and two-items cases.​​
+>>
+>> Signed-off-by: Jun Guo<jun.guo@cixtech.com>
+>> ---
+>>   .../devicetree/bindings/spi/spi-cadence.yaml          | 11 ++++++++---
+>>   1 file changed, 8 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/spi/spi-cadence.yaml b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+>> index 8de96abe9da1..e75b142a1368 100644
+>> --- a/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+>> +++ b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+>> @@ -14,9 +14,14 @@ allOf:
+>>   
+>>   properties:
+>>     compatible:
+>> -    enum:
+>> -      - cdns,spi-r1p6
+>> -      - xlnx,zynq-spi-r1p6
+>> +    oneOf:
+>> +      - enum:
+>> +          - cdns,spi-r1p6
+>> +          - xlnx,zynq-spi-r1p6
+>> +      - items:
+>> +          - enum:
+>> +              - cix,sky1-spi-r1p6
+>> +          - const: cdns,spi-r1p6
+> This doesn't apply, probably needs a rebase on spi/for-next?
+> Approach is correct though, but it'll be a more minimal patch when
+> rebased.
+> pw-bot: changes-requested
+> 
+Thank you for the heads-up. I've just seen your patch, and I will base 
+my PATCH v3 on top of it.>>
+>>     reg:
+>>       maxItems: 1
+>> -- 
+>> 2.34.1
 
 
