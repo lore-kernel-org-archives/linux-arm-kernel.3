@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 919EECCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E2DCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z2gmi5A9sdMhOB9KSfIt5x+ZIc+vGxgYVE8BEvo1P9M=; b=wsxdu8wTPuDLwSGe1jF5rnFgZ7
-	a7978VmP2V2F/HqxXbFFIpOBK5yY1RSpsDmFTwXLvUd+XZvcH9rvY8VbQZFUQZJ8aglH7deL6kZs7
-	8WwTIkPWmXjmZjfEmhQHx0S4ovpCJKvD4BtRoR7asQY9LLtRsXx8VBea6S7Mnh99eW0002wILpeGy
-	J4bP1PJgJYLNwWP4/h7A0zgPo3zy+LvilbpVKKXoe4w7cJD1P0k2yAE0O1QN8q9Y0pdQhqRznP0Ew
-	Cxv4iDQwT/+7n60/pdd1TialovJFRvIfZaYlIexOhNnV4TN5wFMJUcFX3u430v6kcfES4I8PYf3hJ
-	hQ00Tvtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7ap44HjH0YVkd/U/xEEXKG+E/eyCWGHQhfiU2g2gC+I=; b=AU7g3JTqjpGgALVYcZTpAopMBL
+	TW4hMYvhC03mKwk0kDr1Re04mgornnqvRvlND9Jx0Nra5UCOEUxqeA81/6Ay+E92dlBixe1mmo/P7
+	56hFlS0M4LneIkohLHlAXiqu3M7/8BqT2JuRVxj90Nj8F+uxaysLrWb8YDIQ23wyg7Czkd8bw7ZlG
+	fELD0yChI+UXtBIm0dAb98fNg8TGPhpTRRhAq/m8a3Ck6QBhhfCBR12RLDLdkMBm58nThO5Oxa6QE
+	AR1t7j6JHxkXLuYL2N0viPxZsOGWNsxUGWtlz/lmvEixrU1cA63yjQ0MOk+JIqRSpHVYPmiW1uOdx
+	ak46pr3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDmRX-0000000GIvU-2kNF;
-	Tue, 28 Oct 2025 16:21:07 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vDmSI-0000000GJBd-3NXq;
+	Tue, 28 Oct 2025 16:21:54 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDmRQ-0000000GIu1-3z8L;
-	Tue, 28 Oct 2025 16:21:06 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7148A1A170E;
-	Tue, 28 Oct 2025 16:20:58 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 40FF0606AB;
-	Tue, 28 Oct 2025 16:20:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9DA7B117AC2F7;
-	Tue, 28 Oct 2025 17:20:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761668457; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=z2gmi5A9sdMhOB9KSfIt5x+ZIc+vGxgYVE8BEvo1P9M=;
-	b=KCJnb7ZSsKeg4swbTs2c0T6Pg/HT+ws9lWd6MSyvhjUkIl7Q6MhbEsl/T5zqMTATMJAGI9
-	+AcpEDrRx7loU39FZ/fM5LH4yxFqJEosm00gIDdispbgdjpE/aNCbUav02KAsaG7c/13jT
-	gHJlm6Ea/1YV8NSJFbWcHzUCpgyxgxXA+eJqksWBGk7EGFLut/Z+1aKbo7ZoudjToC6PZD
-	84QFupfTS0L5VwpWLPVW++YDZoKCVqr1YoCfSWwVb74hAa8l3PV0jvm0EF+nnf5eTXRLwk
-	taILyzLFkR6wt/aT5PaWbxhw9YFJwIHQJ6TnsjXc8197SvOSRQ9kkhOJdF/7rQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
- <wens@csie.org>,  Samuel Holland <samuel@sholland.org>,  Richard Genoud
- <richard.genoud@bootlin.com>,  Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
- <u.kleine-koenig@baylibre.com>,  Wentao Liang <vulab@iscas.ac.cn>,  Johan
- Hovold <johan@kernel.org>,  Maxime Ripard <mripard@kernel.org>,  Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>,  linux-mtd@lists.infradead.org,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 07/16] mtd: rawnand: sunxi: rework pattern found
- registers
-In-Reply-To: <6097267.MhkbZ0Pkbq@jernej-laptop> ("Jernej =?utf-8?Q?=C5=A0k?=
- =?utf-8?Q?rabec=22's?= message of
-	"Tue, 28 Oct 2025 16:41:48 +0100")
-References: <20251028073534.526992-1-richard.genoud@bootlin.com>
-	<20251028073534.526992-8-richard.genoud@bootlin.com>
-	<6097267.MhkbZ0Pkbq@jernej-laptop>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Tue, 28 Oct 2025 17:20:41 +0100
-Message-ID: <87v7jz576u.fsf@bootlin.com>
+	id 1vDmSF-0000000GJAI-3cyr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 16:21:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1761668510;
+	bh=7ap44HjH0YVkd/U/xEEXKG+E/eyCWGHQhfiU2g2gC+I=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=PUp2zKMDVkgsfqqbu0QS4ubCJqzkNXG8lZFZBzraFOsZzmaKQceSqL+JtksJLsT9A
+	 ffsdhEajqsL8bl4PDNRqP1qNlWtZ/Z9uxRH+8XTl6M7LY0jQ4rqqhWAtZa/cpemygO
+	 X+LwwJfxjDE907dfXDJ6SkH4X2Vx9m8NOD0EyeO0=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id 56CAD402C4; Tue, 28 Oct 2025 09:21:50 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id 55B4F402BD;
+	Tue, 28 Oct 2025 09:21:50 -0700 (PDT)
+Date: Tue, 28 Oct 2025 09:21:50 -0700 (PDT)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: Arnd Bergmann <arnd@arndb.de>
+cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org, 
+    Linux-Arch <linux-arch@vger.kernel.org>, 
+    linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+    bpf@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
+    Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+    Andrew Morton <akpm@linux-foundation.org>, 
+    Mark Rutland <mark.rutland@arm.com>, Haris Okanovic <harisokn@amazon.com>, 
+    Alexei Starovoitov <ast@kernel.org>, 
+    "Rafael J . Wysocki" <rafael@kernel.org>, 
+    Daniel Lezcano <daniel.lezcano@linaro.org>, 
+    Kumar Kartikeya Dwivedi <memxor@gmail.com>, zhenglifeng1@huawei.com, 
+    xueshuai@linux.alibaba.com, Joao Martins <joao.m.martins@oracle.com>, 
+    Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
+    Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+Subject: Re: [RESEND PATCH v7 2/7] arm64: barrier: Support
+ smp_cond_load_relaxed_timeout()
+In-Reply-To: <3642cfd1-7da6-4a75-80b7-00c21ab6955f@app.fastmail.com>
+Message-ID: <82febb6d-ba14-6a23-1955-9d505372dc23@gentwo.org>
+References: <20251028053136.692462-1-ankur.a.arora@oracle.com> <20251028053136.692462-3-ankur.a.arora@oracle.com> <3642cfd1-7da6-4a75-80b7-00c21ab6955f@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_092103_005172_A472FB5E 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_092151_944961_905E7774 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2025 at 16:41:48 +01, Jernej =C5=A0krabec <jernej.skrabec@gmail.co=
-m> wrote:
+On Tue, 28 Oct 2025, Arnd Bergmann wrote:
 
-> Dne torek, 28. oktober 2025 ob 08:35:00 Srednjeevropski standardni =C4=8D=
-as je Richard Genoud napisal(a):
->> On H6/H616, the register ECC_PAT_FOUND is at its own address, and not
->> part of ECC status register.
->> So, introduce the pattern found register offset in sunxi_nfc_caps, along
->> with its mask.
->>=20
->> Also, introduce a non compile-time field_get() because FIELD_GET() and
->> u32_get_bits() don't work with non compile-time constant.
->> https://lore.kernel.org/all/cover.1761588465.git.geert+renesas@glider.be
->
-> Urls should use Link: tag and be placed at the bottom.
+> After I looked at the entire series again, this one feels like
+> a missed opportunity. Especially on low-power systems but possibly
+> on any ARMv9.2+ implementation including Cortex-A320, it would
+> be nice to be able to both turn off the event stream and also
+> make this function take fewer wakeups:
 
-I was about to apply, so I'll fix this while applying.
+That is certainly something that should be done at some point but for now
+this patchset does the best possible with the available systems.
 
->
-> Code itself looks fine.
+Switching of the event stream is another set of complexities that should
+be handled separately later.
 
-Thanks for the review!
+Lets just get this one finally in. We have been working on this issue
+now for more than 2 years.
 
-Miqu=C3=A8l
 
