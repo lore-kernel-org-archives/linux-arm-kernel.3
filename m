@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA0DCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 08:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B52CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 08:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N5OTXUAf/flHJVLfVg3CU03drFPQaOjlM7bP3hz4WzA=; b=nx6uaTtIeL7BCuk8tLs+GKYx8e
-	2RXGyV6XsIFHHJ74vAVdg6yCV/eNTy1RDOxzjqt8Gb/ZY1VSS2GrZr4L5l+YfWJbAxMEQQKFXPraH
-	zxJq7VYnrhQ5WRngh7s+WHZtPgXtUK9z0z96rCiacp+CtZS6TKjyI1RAYneFhKsr/vNl9Nfj4JyXw
-	3ypuF2zS/fb56GhiU4g/qwJ++d6CBo9QmeOQxSLzjjDTf9z/74r/X1FXdpSiNX9SgVg/39mHLCDmT
-	SK46LY2+F6WEk3DHGNAEP3PsgRwm9DRxNlaL0fIJ0etY1/VjLNMmQRSfEmHuE38VraV2NavWzKjE6
-	WpGpr7WA==;
+	bh=wxO1XeKCLT/t7i1gdcqmSLNWzL9WCMw8QRQvjEI7KIM=; b=oXILelpgn2ysPKsiMEsxng/xb3
+	zvdTOqVXk1Dn+qSdWu9IvZHqaRq88r6shSyjFLk4y90SlasMn4TG+suXpPiFk47kTqeimZnYydu33
+	k8+vKQRW0eadtCsM7Orhl6Xa+tPPHwQqhESkiPaK2OtDsun+t05HkiqRT6f8m2dXru0fgwDN2M/wh
+	UoQ7bkZpBtf308jBNe1fDJxJ5LtpJY7qQ7o3W3KtDAZnojJZw5jFXVfRBdEteXvhtu8cV2dmQ8c44
+	80Hb3qJtKaw0KZpedOwKlcN/YQwrmyDohiEw2Fpwjau7Z8wkordy3LM0OW73iOtk4Y3PyG8oaqJci
+	QnK43XTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeeg-0000000FUvN-1uQC;
-	Tue, 28 Oct 2025 08:02:10 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vDeek-0000000FUy1-0DIE;
+	Tue, 28 Oct 2025 08:02:14 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeed-0000000FUtg-1rNk;
-	Tue, 28 Oct 2025 08:02:08 +0000
+	id 1vDeed-0000000FUth-4AyN;
+	Tue, 28 Oct 2025 08:02:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761638524;
-	bh=+JaO/wn2a0pnTQvwJNdanN5Q+8X01ku/lGh6qKEDcJ8=;
+	s=mail; t=1761638525;
+	bh=uYJ88TcbgM9QPWrzUv54FcbzxyyuyKhAl29xy9RbCKA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=e9Hz6KMZa11eaxEdEPfxtLPu9zRlks3hP2x/VScVLONAgu8FzfZDzAn7VdHE2xdgx
-	 WIIFJ7kgmIOR1zaD9BkEv20aPKIHzGCLFNQYwFTzz6dWl24Izm50NjUjLIHEhHk64e
-	 RifcOpsBwSohlRH9gG2Gv9Zu6NIxxytsW3FcrR3O5J1/tyM5sxlXYSqJRqTk32roPU
-	 c5QinLdG7mTFEMTawySGHn+jl0YRx38GZ4qsIngaOtE6nY/1JETBr/t1AQRsBR5gRE
-	 Q+ImwqkR/FeKA44kVqHkus+wrAJ8dMSB3NN5QMRB8XI1SnQYqYbx48eY8sph/xJ+Nr
-	 3GkCD9XrM9poA==
+	b=IuoKOYlrPi8E/fUPKA268uWUrhWONZzmkSyuzY0CBY3PJa7OzGv4fFUnWiRQpVkNZ
+	 kK6789gyBwTUVuESSxlUQ6cRtW993SunLMJ5Xkp1NMShfe1Yzrr2Yr/qKbtQZjLRX2
+	 +Bzt7XBzqOdckQMazsYH5ED49UnninFVL2cNOd0akF439GmYeKrjrWTmu/9ugUocmd
+	 0YUvFH+0BUXEVyWd/aONLAI1+RkmBUDNQhcpS2XmEL3RoM//4eoQTtFkzU1hzZWQ8T
+	 sqG9qiQBMMAg5grCkbOLW0fPHQMgdoWTULdKcFFP/9DQmMacxQcZ26/RErYgwYzLHI
+	 g5a5gT9WDt9lg==
 Received: from localhost (unknown [82.79.138.145])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id A3CA917E12BA;
-	Tue, 28 Oct 2025 09:02:04 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 7F41417E1401;
+	Tue, 28 Oct 2025 09:02:05 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 28 Oct 2025 10:00:54 +0200
-Subject: [PATCH RESEND 1/3] phy: rockchip: samsung-hdptx: Fix reported
- clock rate in high bpc mode
+Date: Tue, 28 Oct 2025 10:00:55 +0200
+Subject: [PATCH RESEND 2/3] phy: rockchip: samsung-hdptx: Reduce ROPLL loop
+ bandwidth
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-phy-hdptx-fixes-v1-1-ecc642a59d94@collabora.com>
+Message-Id: <20251028-phy-hdptx-fixes-v1-2-ecc642a59d94@collabora.com>
 References: <20251028-phy-hdptx-fixes-v1-0-ecc642a59d94@collabora.com>
 In-Reply-To: <20251028-phy-hdptx-fixes-v1-0-ecc642a59d94@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -59,11 +59,12 @@ To: Vinod Koul <vkoul@kernel.org>,
  Algea Cao <algea.cao@rock-chips.com>
 Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Andy Yan <andy.yan@rock-chips.com>
+ linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_010207_629934_E8E4645F 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20251028_010208_199103_31F499A7 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,67 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When making use of the clock provider functionality, the output clock
-does normally match the TMDS character rate, which is what the PHY PLL
-gets configured to.
+Due to its relatively low frequency, a noise stemming from the 24MHz PLL
+reference clock may traverse the low-pass loop filter of ROPLL, which
+could potentially generate some HDMI flash artifacts.
 
-However, this is only applicable for default color depth of 8 bpc.  For
-higher depths, the output clock is further divided by the hardware
-according to the formula:
+Reduce ROPLL loop bandwidth in an attempt to mitigate the problem.
 
-  output_clock_rate = tmds_char_rate * 8 / bpc
-
-Since the existence of the clock divider wasn't taken into account when
-support for high bpc has been introduced, make the necessary adjustments
-to report the correct clock rate.
-
-Fixes: 9d0ec51d7c22 ("phy: rockchip: samsung-hdptx: Add high color depth management")
-Reported-by: Andy Yan <andy.yan@rock-chips.com>
+Fixes: 553be2830c5f ("phy: rockchip: Add Samsung HDMI/eDP Combo PHY driver")
+Co-developed-by: Algea Cao <algea.cao@rock-chips.com>
+Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 01bbf668e05e..aee03e8655f6 100644
+index aee03e8655f6..8ba9b53c2309 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1037,7 +1037,8 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
- 
- 	ret = rk_hdptx_post_enable_pll(hdptx);
- 	if (!ret)
--		hdptx->hw_rate = hdptx->hdmi_cfg.tmds_char_rate;
-+		hdptx->hw_rate = DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.tmds_char_rate * 8,
-+						       hdptx->hdmi_cfg.bpc);
- 
- 	return ret;
- }
-@@ -1895,19 +1896,20 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
- 	 * hence ensure rk_hdptx_phy_clk_set_rate() won't be invoked with
- 	 * a different rate argument.
- 	 */
--	return hdptx->hdmi_cfg.tmds_char_rate;
-+	return DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.tmds_char_rate * 8, hdptx->hdmi_cfg.bpc);
- }
- 
- static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
- 				     unsigned long parent_rate)
- {
- 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
-+	unsigned long long tmds_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
- 
- 	/* Revert any unlikely TMDS char rate change since round_rate() */
--	if (hdptx->hdmi_cfg.tmds_char_rate != rate) {
--		dev_warn(hdptx->dev, "Reverting unexpected rate change from %lu to %llu\n",
--			 rate, hdptx->hdmi_cfg.tmds_char_rate);
--		hdptx->hdmi_cfg.tmds_char_rate = rate;
-+	if (hdptx->hdmi_cfg.tmds_char_rate != tmds_rate) {
-+		dev_warn(hdptx->dev, "Reverting unexpected rate change from %llu to %llu\n",
-+			 tmds_rate, hdptx->hdmi_cfg.tmds_char_rate);
-+		hdptx->hdmi_cfg.tmds_char_rate = tmds_rate;
- 	}
- 
- 	/*
+@@ -500,9 +500,7 @@ static const struct reg_sequence rk_hdtpx_common_cmn_init_seq[] = {
+ 	REG_SEQ0(CMN_REG(0043), 0x00),
+ 	REG_SEQ0(CMN_REG(0044), 0x46),
+ 	REG_SEQ0(CMN_REG(0045), 0x24),
+-	REG_SEQ0(CMN_REG(0046), 0xff),
+ 	REG_SEQ0(CMN_REG(0047), 0x00),
+-	REG_SEQ0(CMN_REG(0048), 0x44),
+ 	REG_SEQ0(CMN_REG(0049), 0xfa),
+ 	REG_SEQ0(CMN_REG(004a), 0x08),
+ 	REG_SEQ0(CMN_REG(004b), 0x00),
+@@ -575,6 +573,8 @@ static const struct reg_sequence rk_hdtpx_tmds_cmn_init_seq[] = {
+ 	REG_SEQ0(CMN_REG(0034), 0x00),
+ 	REG_SEQ0(CMN_REG(003d), 0x40),
+ 	REG_SEQ0(CMN_REG(0042), 0x78),
++	REG_SEQ0(CMN_REG(0046), 0xdd),
++	REG_SEQ0(CMN_REG(0048), 0x11),
+ 	REG_SEQ0(CMN_REG(004e), 0x34),
+ 	REG_SEQ0(CMN_REG(005c), 0x25),
+ 	REG_SEQ0(CMN_REG(005e), 0x4f),
 
 -- 
 2.51.0
