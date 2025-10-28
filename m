@@ -4,74 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9676CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 01:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A4DCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 02:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8siksmYb2tNlUV9hejLCVP1mNAldpgWYnYJRzRRAG9Y=; b=2M3qwxOO5hSozC9BlfQdfBXlAw
-	mQOBVbQhIX7egAiOptrCMfdPFqmnv7q2UZqROdPuK4TNTnB2CofN8FWteloBLDI5QFRKwoRnH59pQ
-	QmNeUEGu++wcdOyAWIKWBqIaTULN2p+Qgnwdn3LTlHLHh5FoAl+zx+ES6yv3BNUX0ztSkS2c7h6Wa
-	X0hS6T0oI29XlbVzOAX0BIu8S7ERlTs4r4Hzg9dS1MT0EVbHNaSui1judYiRN8IrRO5JNkEyYtXcL
-	D+VWBygLqfd5j4HQfBlcaCcmPIJXqpoy9wMuprnDRj+H4/9r8RVeP538WQcGThBHeRDMJDSHHWjXB
-	VUC01L0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LdmklqBZnSUukzci3Q8f9SkI2ZUMbamwVnYi1aOm4jw=; b=c/SAlpkgUcKzxo
+	/zq+GZ+E9tO6/E0hLvgCAnGd8+vUiRh+khAfvhnJH9OKiBS+VcmtR1rhwysHRGAjCiTHWLqxXOKL/
+	hNCsP8V+1ILWmfeQbx2vTJaQkje89Sh8IVjYhu+lj5kLoPXJZZloy6QtJ4y/pMfM6HqfxxHYorLqF
+	Wn6u3PGMGj2G20AXhhVq4tnyahAIEkgPVjL7GEi97HYV+ZNDfKkaK+ABrcK3suUo+KbzHRVxEX/iF
+	iIiwgq+IqAE/pnWlL8dmkRPL+9M1UbhtTD4sJnzjujRcVQl1d2lkVLl3sm1AOZo/T5HZZLV1hSOl4
+	qNKDiGW/UBHqy5acTQdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDYwJ-0000000F5uR-2rPA;
-	Tue, 28 Oct 2025 01:55:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDZ2q-0000000F6DM-22Vk;
+	Tue, 28 Oct 2025 02:02:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDYwH-0000000F5u1-0qna
+	id 1vDZ2n-0000000F6Cy-2OVN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 01:55:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D65D40022;
-	Tue, 28 Oct 2025 01:55:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B62A1C4CEF1;
-	Tue, 28 Oct 2025 01:55:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761616556;
-	bh=6IlL0RD/b1cmQ2o28E1LFzW/+KMUWhpSmqh1P0RR74k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jdza6PTpVIv54MadO3APb4bau5qFddYhcpvXjSTnjv2TfyE08Z4O4glutGY6oaVhu
-	 nYR75QQXC3SO8VyxMdcwoAVaMYw8Xy0BUdy3xJCg64/2eBMukdCrYKZS6TtEKR2ChL
-	 vK6A0SuB/mo+5xJJ3XLIYsS+pZRZJ0Abcr6Ni1a6iO1CXyo7+YarkUnsfxILXhESBQ
-	 qxbWXagybJU32oddPCU3AnViWYCTgv6gDWtsfwN0AqpXQwRHEO+9YyEUqA2nDm/xxy
-	 Vfju0PPjbRwyhvg21/4c5JIrFUZoBKyycNEa44C5NEQq7MuSbeO1+/2kWuELXZDfVL
-	 TJcr1Hh5zEHlA==
-Date: Tue, 28 Oct 2025 10:55:49 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Masami Hiramatsu (Google) <mhiramat@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>,
- x86@kernel.org, Jinchao Wang <wangjinchao600@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v5 6/8] selftests: tracing: Add a basic testcase for
- wprobe
-Message-Id: <20251028105549.ae94e8eeb42f4efc183d2807@kernel.org>
-In-Reply-To: <20251028084222.a3c1ae97d125d9bd88fc565b@kernel.org>
-References: <175859019940.374439.7398451124225791618.stgit@devnote2>
-	<175859026716.374439.14852239332989324292.stgit@devnote2>
-	<aPvwGhMBJqMKcC9D@finisterre.sirena.org.uk>
-	<20251027224347.4c887cc956df63602f377550@kernel.org>
-	<20251028084222.a3c1ae97d125d9bd88fc565b@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Tue, 28 Oct 2025 02:02:43 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RLpb0E2752491
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:02:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=LdmklqBZnSUukzci3Q8f9S
+	kI2ZUMbamwVnYi1aOm4jw=; b=QBEguiU5sS38RtfWnoMRT6NLYWdHrPbgPx5skc
+	1GAG31s00tYEw4AZQrwJ7lKRAFiypG3wsqWo/yd43WXjCMvMgbJEbgvR9wpMNVC0
+	sNvY6wccHBRSaA61h9cPSYJ77JFhDubwhYPPIM24jZW22h2PFZZngTKNeuixl2hk
+	+AP9Q/OBJaERTXcPT+mTShNnVCSJQ51MhzHEY43YlXMhQXmfWd0xGJC+wvl0Xlct
+	vjLMvHb4EgeJdEZf20SMv/MB5idJLobV7wFFnf41BamTsFNpXUrxv9LC7P2OXPQe
+	3v1HCFgZUXJc2CyKoW3rA3hFL2AMo78VSPGJkovR40d0xF3g==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a28swj7a4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:02:40 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-286a252bfbfso125356275ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 19:02:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761616959; x=1762221759;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LdmklqBZnSUukzci3Q8f9SkI2ZUMbamwVnYi1aOm4jw=;
+        b=siFDG/FNQpd2hPpw9Cu2tUetw0O5iZgFBFQUZ5ZOwbCXEUqDLH82I7hkmg2TVamkDb
+         tuIWWYY2jJcty+g4gVk/tjuCOo4crUEAZI9whi5s2YKdpUQh4HWpOl0/Fqd8kXcbG2lK
+         5ICFWo3+Z3HvAax9r4AP573Kv2J2KWlUUbsB/2pSAwEevRY/DeK7CXy6gahfeD+kkXpr
+         dvCM0jkfACm/TXK0HR4gVbQQiz1/e1bJ1cwJAzzvBAsHmq/AYQOLgVfueVergm4/628h
+         7Tp2+hSddEyTedcqc3G0WDFR9C3+LJJuxf60KQLjoPBezlo2Fr786uaJWROPpNZMEQRM
+         /lCw==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ59jUrqzR1I6HLAQSXWk2rj7u1lc794lDdPQgRmSlka6ZydLl1JSJ3Rb8v+ljc+zpkWMVzFLOEwmIiwRLdwLh@lists.infradead.org
+X-Gm-Message-State: AOJu0YysJGoJJft4sjJg1/uXpCDMKahIUBqv3wiCe0/XKgrhr/1g/0YJ
+	w8AoP9P2Lb+6puTGNdkmBRM8H2/pqwlFjot3blFfEMahjwQiXusv0GUUFWmC9hGb522azn+jlYC
+	dhpV3Le0kC+qu6EsRed5xQnkutr5hfkSz/StRQr9CKb4G3FUCTZnfAoaoLxKJV9VQ0tye016i1T
+	ksrw==
+X-Gm-Gg: ASbGnctfbVvjWxktlcS62eync6H1+ug9mj0K0TeqeqVMZTNFH1QehM5n6OmIazhmQB3
+	uUp5paGYVAPlIJY0kcq66LeCEWkXP2LMKsf7M7F6cf5mFLYNwH71SvYx7F82vyCOVHyMJvQLfCl
+	Z6RxrFWND6WEfFeufoSRRUx4BuzZ6CuqAx7nM6GTqwspIaU2HMHSPvB1rxMl2JnuW9WxszOvcm8
+	dHgzePv598zZrSxS2eTY90I9whVksRQOHJTK9nFZzPzMHXcJLTjZui+7E4+De2Lo7HvcXVjWKQN
+	01NLGbuzCK7cQhG9xMoFs53edyt1pXXaI5msb/icUlDTluet2ZJ46ivvDv6qaXPfoH9tH88F2e5
+	FUOvn89fNl6M1OgS2+/8OiPKKX0S7Esf8OVhFF9ov82IyTquWV00Or6ehyaove1y+ig==
+X-Received: by 2002:a17:903:1106:b0:293:33b:a9b0 with SMTP id d9443c01a7336-294cb507d15mr21024975ad.32.1761616959242;
+        Mon, 27 Oct 2025 19:02:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFQLv7Y6Q7LlJX8G4TmUxuMFLXzPFIc/VsgRRICor2MN0xh3ODz7AC5f3H4KtiKDHj57YvB8w==
+X-Received: by 2002:a17:903:1106:b0:293:33b:a9b0 with SMTP id d9443c01a7336-294cb507d15mr21024605ad.32.1761616958762;
+        Mon, 27 Oct 2025 19:02:38 -0700 (PDT)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d2789bsm95861895ad.62.2025.10.27.19.02.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Oct 2025 19:02:38 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: [PATCH v4 0/3] add sysfs nodes to configure TPDA's registers
+Date: Tue, 28 Oct 2025 10:02:14 +0800
+Message-Id: <20251028-configure_tpda_reg-v4-0-23000805d21d@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACgkAGkC/x3MSwqAMAwA0atI1ha09VevIiJFk5pNlVRFEO9uc
+ fkWMw9EFMYIffaA4MWRt5BQ5RnMqwseFS/JoAtdl4Xu1LwFYn8KTse+uEnQKzLGNmRbsq6EFO6
+ CxPc/Hcb3/QDhE7sCZAAAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Tao Zhang <tao.zhang@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761616954; l=1755;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=vvKVnKH6htpSz7iLRg1sh/CQNlAK7dhkNwyYH3ZNDeo=;
+ b=W3YrNb3jElvv1UmMrfOswBfrlRWpgRigaGB19E3fevLHfe7eAySR8eYSbTKdoRAaj73/ComKp
+ rURy7lW8VtwArv6RA8t7fY3lTzuCoMAxMmHHLcFHQ1U/t1gaO+twiWX
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Proofpoint-ORIG-GUID: uGQrqOar-BCDETDWra_eQ99DscMdoAwb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDAxNyBTYWx0ZWRfXwZGD59FcRwo5
+ 9uiqj5m4AXf+Fo2IMqKQDhX5Detf9psil/derKM4dNthowzJqHHZwe0FQf9wOte/FVd2Xz88NBu
+ Wrcp2D6noJ6GHxYe0W6JIQWiHO59g0eK13hX8eJ38W3Gp6x6qw4mzT7xIwt/MqOsIumpUXQoW9X
+ 3evR4JgMtxJwW1xK5dNc9YIzMNswB+I4RPNki0HxGvuXqW7dnarDthA2af/65/sj26VmlWaunGz
+ ktu6b2LEt1nxFGwKU/MH9eGe9pZR6phZG5UmkaeyztplzF6B/j8zqcQBdX0E9n6+CfySpjSSxi1
+ TAOWRhuDk0lIMx1CjReJ+SFlGRr98ZIjCs+gg+4c65Wn8MH6QgubcSinLHpC+cw9UYeA/8N7wTF
+ WwdCFqsn00Sb1ZdUJ5xSiBYBUCUH0A==
+X-Proofpoint-GUID: uGQrqOar-BCDETDWra_eQ99DscMdoAwb
+X-Authority-Analysis: v=2.4 cv=fL40HJae c=1 sm=1 tr=0 ts=69002440 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=djTE8_U5qf4PL7r0gQ8A:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-28_01,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 phishscore=0 suspectscore=0 priorityscore=1501
+ clxscore=1015 adultscore=0 malwarescore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510280017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_185557_290429_007C96FF 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20251027_190241_738167_5878A98B 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,98 +142,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Oct 2025 08:42:22 +0900
-Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+Patchset 1 introduces configuration of the cross-trigger registers with
+appropriate values to enable proper generation of cross-trigger packets.
 
-> ~ # cd /sys/kernel/tracing/
-> /sys/kernel/tracing # echo 'w:my_wprobe w@jiffies' >> dynamic_events 
-> /sys/kernel/tracing # echo 1 > events/wprobes/my_wprobe/enable 
-> [   54.942288] trace_wprobe: enable_trace_wprobe called
-> [   54.945306] trace_wprobe: trying to register wprobes
-> [   54.947367] trace_wprobe: __register_trace_wprobe called
-> [   54.949586] trace_wprobe: registering wprobe at addr: 0xffffb6ce429fb200, len: 4, type: 2
-> [   54.951639] Creating wide hw breakpoint on CPU 0
-> [   54.966390] Creating kernel counter on CPU 0 for event type 5
-> [   54.967758] perf_install_in_context: event 00000000736da1d9 ctx 000000005d4db900 cpu 0
-> [   54.972015] perf_install_in_context2: event 00000000736da1d9 ctx set to 000000005d4db900
-> [   54.976697] cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2c8
-> 
-> What happen if the cpu calls function on itself by
-> smp_call_function_single() on arm64?
-> 
->   smp_call_function_single(this_cpu, remote_function, &data, 1);
+Patchset 2 introduces a logic to configure the TPDA_SYNCR register,
+which determines the frequency of ASYNC packet generation. These packets
+assist userspace tools in accurately identifying each valid packet.
 
-Sorry, that was printk buffering issue. I used trace_printk() instead
-and persistent ring buffer[1] to trace it.
+Patchset 3 introduces a sysfs node to initiate a flush request for the
+specific port, forcing the data to synchronize and be transmitted to the
+sink device.
 
-[1] https://docs.kernel.org/trace/debugging.html#persistent-buffers-across-boots
+Changes in V4:
+1. Document sysfs nodes with correct kernel version and date.
+Link to V3 - https://lore.kernel.org/linux-arm-kernel/20250827105545.7140-1-jie.gan@oss.qualcomm.com/
 
-~ # echo 1 > /sys/kernel/tracing/instances/boot_map/options/trace_printk_dest
-~ # echo 'w:my_wprobe w@jiffies' >> /sys/kernel/tracing/dynamic_events 
-~ # echo 1 > /sys/kernel/tracing/events/wprobes/my_wprobe/enable 
-QEMU 8.2.2 monitor - type 'help' for more information
-(qemu) system_reset
-...
+Changes in V3:
+1. Optimizing codes according to James's comment.
+Link to V2 - https://lore.kernel.org/all/20250827042042.6786-1-jie.gan@oss.qualcomm.com/
 
-~ # cat /sys/kernel/tracing/instances/boot_map/trace 
-# tracer: nop
-#
-# entries-in-buffer/entries-written: 16/16   #P:1
-#
-#                                _-----=> irqs-off/BH-disabled
-#                               / _----=> need-resched
-#                              | / _---=> hardirq/softirq
-#                              || / _--=> preempt-depth
-#                              ||| / _-=> migrate-disable
-#                              |||| /     delay
-#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-#              | |         |   |||||     |         |
-           <...>-63      [000] .....    21.065038: register_wide_hw_breakpoint: Creating wide hw breakpoint on CPU 0
-           <...>-63      [000] .....    21.079678: perf_event_create_kernel_counter: Creating kernel counter on CPU 0 for event type 5
-           <...>-63      [000] .....    21.080051: perf_install_in_context: perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337 cpu 0
-           <...>-63      [000] .....    21.080140: perf_install_in_context: perf_install_in_context2: event 000000000b3ac4d3 ctx set to 00000000097d6337
-           <...>-63      [000] .....    21.080939: cpu_function_call: cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2f0
-           <...>-63      [000] .....    21.080966: smp_call_function_single: smp_call_function_single: calling function on CPU 0, func: remote_function+0x0/0x78, wait=1
-           <...>-63      [000] ...1.    21.080973: smp_call_function_single: smp_call_function_single: running on CPU 0, call CPU 0
-           <...>-63      [000] ...1.    21.081099: smp_call_function_single: smp_call_function_single: checking for potential deadlock conditions
-           <...>-63      [000] ...1.    21.081259: generic_exec_single: generic_exec_single: preparing to call function on CPU 0, func: remote_function+0x0/0x78
-           <...>-63      [000] ...1.    21.081269: generic_exec_single: Executing smp_call_function_single on self CPU 0, func: remote_function+0x0/0x78
-           <...>-63      [000] d..1.    21.081289: csd_do_func: csd_do_func: CPU 0 executing func remote_function+0x0/0x78
-           <...>-63      [000] d..1.    21.081429: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337
-           <...>-63      [000] d..2.    21.083211: hw_breakpoint_control: hw_breakpoint_control: ops=0
-           <...>-63      [000] d..1.    21.084191: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 done, ret=0
-           <...>-63      [000] d..1.    21.084237: csd_do_func: csd_do_func: CPU 0 finished func remote_function+0x0/0x78
-           <...>-63      [000] d..1.    21.084243: generic_exec_single: Finished csd_lock_record(NULL)
-~ # 
+Changes in V2:
+1. Refactoring the code based on James's comment for optimization.
+Link to V1 - https://lore.kernel.org/all/20250826070150.5603-1-jie.gan@oss.qualcomm.com/
 
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+Tao Zhang (3):
+      coresight: tpda: add sysfs nodes for tpda cross-trigger configuration
+      coresight: tpda: add logic to configure TPDA_SYNCR register
+      coresight: tpda: add sysfs node to flush specific port
 
-So the last message is right before the local_irq_restore() in
-generic_exec_single().
+ .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  50 ++++
+ drivers/hwtracing/coresight/coresight-tpda.c       | 278 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tpda.h       |  33 ++-
+ 3 files changed, 360 insertions(+), 1 deletion(-)
+---
+base-commit: 8fec172c82c2b5f6f8e47ab837c1dc91ee3d1b87
+change-id: 20251028-configure_tpda_reg-f3396f97f9a1
 
-static int generic_exec_single(int cpu, call_single_data_t *csd)
-{
-	...
-		csd_lock_record(csd);
-		csd_unlock(csd);
-		local_irq_save(flags);
-		csd_do_func(func, info, NULL);
-		csd_lock_record(NULL);
-		trace_printk("Finished csd_lock_record(NULL)\n"); <- 
-		local_irq_restore(flags);
-		return 0;
-
-Actually, I added another trace_printk() right after generic_exec_single().
-
-	err = generic_exec_single(cpu, csd);
-	trace_printk("generic_exec_single returned %d for CPU %d, func: %pS\n",
-		err, cpu, func);
-
-This means after setting the hw_breakpoint, when enabing the IRQ,
-the machine is frozen - but qemu is running busy.
-
-Can we specify the kernel memory address to HW breakpoint on arm64?
-
-Thank you,
+Best regards,
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Jie Gan <jie.gan@oss.qualcomm.com>
+
 
