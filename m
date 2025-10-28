@@ -4,173 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FDECCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 12:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECAECCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 12:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kn0NkZPy6tdSybcs/tuLwnQLewfxRgO3CbHBxH9kTaU=; b=DgRh2kgmRI37jXz6Pmti82sp2a
-	Lh3pGW5ZIvNAvZHkhoK7X48cbBjxETFNeONqOTimpIZ2NHwxqZZNjVNRgh+KxoWTSR9VDhtKOHkAd
-	0kw4oAQE6xmA7joGIaEPCc8XFUgYvc4d5VLykCJAi8OcuvBzWFGex1N3aCirIyQx8IobWVTx+GXEx
-	S2VwqPoj9Yh6ICgIZAbsSqjMMDh9+Ge4uLw4MioMRG3M0yJvQIMGeqB28TYWqwR46Q2AlitDASUaX
-	Y3FpvtqSX1YBOmBCAC0bc0AqRU+vqft26mbUxPT+nd3W0XbtLJNnpCw6Lr83CHEvWs3eiOn4DBoBh
-	eTtYLnOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XlmmVyLrW9dxB5D/jeLU9wLivg2YAqzJk0hijCQf38Q=; b=fUL15DPIsSBnu0tZ1O2E+oj3OI
+	nB8GUx2dAohEG7LnuyF+YG5P8To5RcP4K2fWxuqg1pDFkWKMCX7F7k/vro43RoBJJAMvi/2nKcS/5
+	h+MVNIAzrwDJjPwf34XIlE1LNp0ySNCvemCvUBu1f4tJcyPxP3zesIrmBBtKsVlEUuA3hSJXOe68n
+	/6nax5DLSJpE1m7ZJXKGp5MInr7mudQIUeNkTqIQtlQrQA4DS0KK84GoWkLkfEtU8YO4gsqrWrb8w
+	TFr/tWoQ4ZmZ5wwf46lWOSBlYfZSTnq10qTkMlSgytHTMgp3X30+X7q/0Ytef/4OpV5NPZ0bzMlRa
+	H4zS1xaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDj38-0000000FxPt-2llC;
-	Tue, 28 Oct 2025 12:43:42 +0000
-Received: from mail-northeuropeazon11021086.outbound.protection.outlook.com ([52.101.65.86] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vDj3F-0000000FxS5-49Ha;
+	Tue, 28 Oct 2025 12:43:49 +0000
+Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDj35-0000000FxPF-3iI8
+	id 1vDj3A-0000000FxPi-0Tjs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 12:43:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lURdpZAYICGJzhPQfD3qoeFz3klWG4ZBvq4NXCi9/hF0AFAVy8LFtZPx6OE1Z2V/XXYlyIkBhsSem0JBNPmgNmH9MW42jVVS6uniZLQJ7Zf/qECtkUGM6PTeAbBgbgLQz1eDZHjuCsYQ0fh0GLW49R7yUn7ok1SNCp7110PAO/SyM3nqd/27rMojbq60IU7Y2+lMteGYe3JCAk4rWZOLt0cpqHVT8czL3p44bWTmcRidAh87KmvuqCrzuhDsEF1CUP1allqHA4YvfC/g4h00URHjE70BjIbvrQ01iHOe1P1xPigAZCexO4HJdIC0eHIJ6OndVF17XeyXJIxdFGGD5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kn0NkZPy6tdSybcs/tuLwnQLewfxRgO3CbHBxH9kTaU=;
- b=i3jqDkbpVm6nhfkpIleM0+qZyAeZBZLFGEifu3Hqc4FcVNsV+LRGttCuNU9IGHa9XMAB4/SwmXXLtzAWKOQhj47nwwUYOr0dNUxzKvefufpdOJDZ35lN22ATRRCM62TANucMNyhTZAQbI3f8+1S9xOWif7osdh0eQP4Sy0ogU6H9OuyKkXuaXFj0qoFMm5Dp1s/t3Ftn0rzyhtjMxPu4upIMR0hrhqwTrb5ZzRSMhcMMqEtUDPevt/LNYEffUTFAhMq4/rVnUpR6E1CFO5XFWcuWB2O2EuQYfINvmRsCxS1Mo5KnHLaacjQaHkQsIf44+mbTrhm8AEDKuXP4X0q7Yg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=gocontroll.com; dmarc=pass action=none
- header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kn0NkZPy6tdSybcs/tuLwnQLewfxRgO3CbHBxH9kTaU=;
- b=r0z/BlY0icCaJTCoE03oMKpgboeVdYbZU6PEfmom2peG2VRE+CJXVKRUI2jCJLV9Jk7NzTMeDaUHSUewGv2WtnM7LCsCYx7I1kMpPyhtL8JXk+CHeXNcayG1sN62653NyFereVgBbdwJ4meYNbkoLHb1C6fZE1zBOPplexntPb7DCaIUtFYoMnXGdvmTOHBMSAg1lL7Odt1G0lNvOjZz5oqnSS8HXhp2MIQQFO7RxL9MruWvhXeL2jT3mRixoQGQkuJT30DCvSLYWU6j0wsSKaKLFc5k6FVa6SEUvZTusI2bMI5YH9x5ksPZ+EZGcx9GMrCZhXNxqaXaSppO6gwqNw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=gocontroll.com;
-Received: from PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16)
- by DB9PR04MB9818.eurprd04.prod.outlook.com (2603:10a6:10:4ef::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 28 Oct
- 2025 12:43:32 +0000
-Received: from PA4PR04MB7630.eurprd04.prod.outlook.com
- ([fe80::311b:ad3a:4a62:7b5f]) by PA4PR04MB7630.eurprd04.prod.outlook.com
- ([fe80::311b:ad3a:4a62:7b5f%6]) with mapi id 15.20.9253.018; Tue, 28 Oct 2025
- 12:43:32 +0000
-Message-ID: <65202d1f-6c4f-4d4e-9fef-85cfb74ec768@gocontroll.com>
-Date: Tue, 28 Oct 2025 13:42:17 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
-To: Matti Vaittinen <mazziesaccount@gmail.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
- <20251022-mini_iv-v2-3-20af8f9aac14@gocontroll.com>
- <a7012995-c2a8-48a3-abe1-5c227272f21c@gmail.com>
-Content-Language: en-US
-From: Maud Spierings <maudspierings@gocontroll.com>
-In-Reply-To: <a7012995-c2a8-48a3-abe1-5c227272f21c@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P192CA0037.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:658::28) To PA4PR04MB7630.eurprd04.prod.outlook.com
- (2603:10a6:102:ec::16)
+	Tue, 28 Oct 2025 12:43:46 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=XlmmVyLrW9dxB5D/jeLU9wLivg2YAqzJk0hijCQf38Q=;
+	b=0q6CIKqS9pZHjGnA2xxGdlLBxvFNFIVWVvYNODcuuM/VMf5yr54r4KZon8S/johgIzA5tpn1o
+	l0wTWlUL5iHLwzGeLo+GE1WjLt9uN+SIMTXs2QV/zpBtyWHoKLIVn4ePf8mf3ZyQVqO1guwdc/l
+	cZ0iIUoPEvpZcqha7wC4dD8=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.37])
+	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4cwqlx2wmcz1vnJV;
+	Tue, 28 Oct 2025 20:42:53 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cwqhk2vR4z6HJcZ;
+	Tue, 28 Oct 2025 20:40:06 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 35F071402F8;
+	Tue, 28 Oct 2025 20:43:36 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 28 Oct
+ 2025 12:43:35 +0000
+Date: Tue, 28 Oct 2025 12:43:34 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <ben.horgan@arm.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Marc
+ Zyngier" <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	<linux-kernel@vger.kernel.org>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH V2 2/2] arm64/mm: Add remaining TLBI_XXX_MASK macros
+Message-ID: <20251028124334.00001e77@huawei.com>
+In-Reply-To: <6e7d0bf3-ddf1-44a0-a0cb-7dc994101878@arm.com>
+References: <20251024040207.137480-1-anshuman.khandual@arm.com>
+	<20251024040207.137480-3-anshuman.khandual@arm.com>
+	<20251024120014.000020af@huawei.com>
+	<6e7d0bf3-ddf1-44a0-a0cb-7dc994101878@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB7630:EE_|DB9PR04MB9818:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5454b1ac-a8a6-4071-8600-08de161f9a30
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|10070799003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TUVKYjFxN1EvdzkwNENCb2hYMmUvQWU4R1hOQVltbnFrSGt5NU5QK1pJQnRv?=
- =?utf-8?B?ajFXaTlOOEZBbkNXSG5nc3dtUzJxeCtPZVYrN0RFOVBlQnJlS0dmVEF2Zm5D?=
- =?utf-8?B?eEptODlKaVNFa2FiV2djcUZSRS8yK1doSnNwQnp0eWUxMjhWTGNEOUpGZnkz?=
- =?utf-8?B?cGNwTVhNZkYwVmpCMFVlT1d5dlBBV1ZqNGdpOFdnSW5JNk9jZGtmeW0vTjdq?=
- =?utf-8?B?N3R0cGM3aWhHZGF1RWRFVEthS09CeHRMaEIxM256RUZtZ3ptaWFCYnhGQU9k?=
- =?utf-8?B?eUdIUjFXTVFmT3MvNWVxeUs3Qkx4bm41TnRFU0pzb3BKSloyWWlhYkhHa3Ex?=
- =?utf-8?B?cTNBRHk1Nmt5UEFXQWdGUjFMODhsTFBma1NOSldXbnFkL1hvRG9sYlpEUXZs?=
- =?utf-8?B?RVFleU5Wbmc3aDlmZGdSNnBJaEFoTEkyUUpkVVNVa0FYZ2dDRTVLbC96ak1m?=
- =?utf-8?B?YkRSNW9qSTNtYWtWSEF0UFZyalIzTW5uQ0lnanEvcDBESU1qalJHRnkvRkdC?=
- =?utf-8?B?Nkg4MVRSUXNUazZKVlpCdVBNaFJoTFoyOFhRa2E4T04vQkUwalBkL0M5RVE5?=
- =?utf-8?B?SUNzeGNpRENlL3B6U09tM1I1b3hXLzZYNG1TZEphcDdWL29vSU1VR3pzcTln?=
- =?utf-8?B?dkNIQ1BLQm9mNjFENzVUQUNtMEp4ZTJ3SldlbTZZU0w3V1VUUzdKeWZxNGV0?=
- =?utf-8?B?dFdjTktNRFlwZjRSdHlHb0U2cGFPQ0g1NDNZQUJPUFpsVG9hekk0WWl1anI3?=
- =?utf-8?B?MHd2aERwNDJXRnRCbzA3VlgzWUYyR2daYms2a055RENLVVJJSnpsQmxqYk44?=
- =?utf-8?B?RzV0eitCS25GcGRIQnlMd25qQk9hZm1NTGxqT0FWZTc2R3VONWhDbURWazZy?=
- =?utf-8?B?dEJRWEJlZGlLdVg3ZDMva3JLN1ZIT0pwK3kzRWdWMk54Z0FPRGd2U013Zlox?=
- =?utf-8?B?dWNNVXlyL2ljdTJwbUVXZFpaR3pyRlduZHpvNE1yMlo3SUhIekFoRGpQNnFo?=
- =?utf-8?B?VkNWemQwSnczbUM0QzZuWEhSVWh3OXhUaU93M2xVWWZKM2JNM0l4ZENFVWZF?=
- =?utf-8?B?L3FUdHhCY0cvWkw4NFBXUk5FS3NNcHBvS0FjaVRUQkdQRFl3L0dhczA3S052?=
- =?utf-8?B?TDdCZE45VGk4T0syRCtxRnhDbk9Nc3dPM1hoYjJpL2NKdjFaTW8xQ1NJaFBv?=
- =?utf-8?B?cUo5VFdndlJXSkREcUo1ZU5KbzZTaTFDYUlBKzBRc1BSVHRudGVEeXFTQlp0?=
- =?utf-8?B?eU1kQUlvL3BSY2FBL0VFTFd5ZDZndUlwUE4rditSbXpTU2JFWkVaUUxKbE1K?=
- =?utf-8?B?aEdyajJxMWhBS0ZacktqOG1wV0VKSkJNdXFHYTVzTU5EcmdJeDBqUjRRMy9u?=
- =?utf-8?B?NTY0VS9EZmYzMGtKcmhIbFMxM0luLzZ1RWk4N1RhUGdKdEI0REtCaGpPOWxu?=
- =?utf-8?B?Z2NwaGQzcldhVmdIbHBwS0pQTU1BSHBiN3k3YjYwODkvQVZuNTRhd0RYYVo5?=
- =?utf-8?B?R0tybFlVcFlNNHJnQ1BMc1pjaEZNNXgxUEllYmlETkJudzhtWkpKZ0orOHBH?=
- =?utf-8?B?VjhHMzhDV0pUMkZVRk4rcURremFFVjl2elBMOEpRNlFDQTdyQ2pYY1NyTUxC?=
- =?utf-8?B?U0NPWlNqQkpOSU55WmNwcnIzQlRuQXBKM1RaZ2ErM2UyaE01OS9BdjhYc1ZX?=
- =?utf-8?B?dkVMajhQN2RXM0l3Q1MydE1yVzgzaUxLMmVmcHNCOUJ1NzFyYzNaUDBMMlRO?=
- =?utf-8?B?ekZFMGcveTRHNjJRelNoMWdCdFNTN0d3N2hqdHg4YlNwK1h0RmVIdTRGSlk2?=
- =?utf-8?B?Z010VHNucmlJaXQ5Y3BwdWMzTmFSc2VHaE82bnpzWGNxWEUwVmRGZHkxRWlZ?=
- =?utf-8?B?UC9VTTJWMm1Ub2tOL3MzQnhHc3hRQVV3Y05JN09ZaDArM09kZ241MTNmQ2tW?=
- =?utf-8?Q?S5HpYM6azINGaHJW+31RYizxxnmBZJOf?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7630.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(10070799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3BmbVVnSXl0ZExmU0Zud2p2ZEo0bUwxRGZhUHJYOXJPTXhUQkMwVXUxSzZP?=
- =?utf-8?B?aElYbE5EaUtEQlZVMXJZbG1iZEtEVEhVeTJkZWFRZEllbkcxNEo3VE14U2o4?=
- =?utf-8?B?WlRCN2FYZkl0SnRzWStlV0RxanpCQnBSaGRFWlJvMjlMMlZSMGNBWFR3L2dI?=
- =?utf-8?B?T0RwRW5hMmlsU1F6bVdkdEpieUh5RE1XRUlMTWJ2UTZqYk8xeGExT2k4djJj?=
- =?utf-8?B?SHp3cXc1eEVLOGc2c1c2ZTEwNWhxYVovWXM2dC9Tem9jc1RaQnI4Z0F4bzFu?=
- =?utf-8?B?NXpMVnRnbk12UlFpSnoxT3VjSnczREM3d2NyczlBUHdjeG4zYkk1eVlEME1F?=
- =?utf-8?B?c2ZCK0VEbll2eEM5TG9helJFRWlsVkUvY09Dak5qMElXQkpWSEQwbkVYMzhI?=
- =?utf-8?B?QVAzWTYvamNWUnZ6K0pUMlgrb09PTDNSZjQ0OVFqYzFyM0VMUjRXR1l4cjNT?=
- =?utf-8?B?a3FlSlYrVFBNMDBzems0b0FvVlFSTWpYV1psejhLaTFhTFdoT2dHaVY2bDFo?=
- =?utf-8?B?U3Z2MjR4djd4L1NQQi9veVFpV0xTVU83eDljMGN1MEIrMXU0UXFmblJtK3Vr?=
- =?utf-8?B?Q3JrWUhvSnlTY2dmclJIT09ZVXR0bm1NTGtJaThKeG9VL3VVOURwZkJrb0Rj?=
- =?utf-8?B?Z2YwS2krN3RHNzhmUWR0ZjRUVGpUdWlpYkl3SDdFaW5VaFo5cDA2RFZ2enVJ?=
- =?utf-8?B?aDJwL3FMNGRJYlVTME9jZXNHbDdVaW5HakhnaU9QTG5YeXluVlJ5NThFd3l4?=
- =?utf-8?B?U0ZobnJYSlFFZ3FHaWpyYSt6SldQVHZHK09jL2U5ZUpFMjdJeVV2bG5DUHQ0?=
- =?utf-8?B?bXRYOE9LSUIrU0V0U2tHYnh1MmkvZmMraklNUS9LMjBCWTRCbzJjQ3Fxc0pU?=
- =?utf-8?B?RHRTK012aXhuQ2hZNVg3ZStHRmp6VjYyTEQ1RWhHRlJwUXZ5MWVaZEtiazNa?=
- =?utf-8?B?ZWNFdEwvS25ibStoRHZNUTNEd3d3WThtU0lOcW5uZW1TS2htUHJrdDg5d3Np?=
- =?utf-8?B?WTBvaDNMRVVra1cxQnJQWjlOSzNIbmhxU0t0enpKc3NxSXRCRk5hdDlONUhW?=
- =?utf-8?B?N3N5RHBXTlNzUjBLcSs3L2lSbVNuQnNxNUpvVHZhcjU0TE1vbXBWUVRtWWxS?=
- =?utf-8?B?SmhLQVZram9rWHNxTDhpZUpaTUZob01GZ0xKRFkzQytiT1NCcU4vaktoc3gr?=
- =?utf-8?B?SGN5QUM3UUsxTjhmRVUvVGVBcXQ3UkZiV3l3eVVYa0VIMi9UYk1pQ3RaZEpz?=
- =?utf-8?B?U24ralNGLzQyTkpuNTJsalZnYjJPdGdqc05PZUFKRE51Z2hNMmFYNGthRS9l?=
- =?utf-8?B?Qml2U3MrbTY1VTN6YW04U1VCcnlldUloT0tvb3RhZjdjNVRNZUVTUzl2NldY?=
- =?utf-8?B?clQ3SGhpU3BOcFU2RDBnZUFsUEJsMy8yekQyeHc4OE9nNmtsMUw0UGNZdUpE?=
- =?utf-8?B?a0ZYcjV3VDhtWXY0d1NJZVVVcGk3Z3pVU0krck4wblZxazExTGFRQyttTzdy?=
- =?utf-8?B?d0E0NHVtOGZkK1U4NnR6V2JoNVd6bUs3c012bFRNWGR6eFZJTEdUU3Z1N0Jm?=
- =?utf-8?B?STJaVER2ak5ySVNwU255L3ZXcEdHTlN3S1d3dXNpeDFPMTBiV2p2OHQ3bGRL?=
- =?utf-8?B?M1VtQnpwZWk0QmMzU3dEa3N4dncrV2c0YUpWNEFaUXVpRHI1dUliR3hxS0Nj?=
- =?utf-8?B?UG5kY1BPUWtmbUNHYkxJQ2I1cVdkQzBuakZUWHQzU1ZYVk5MYktQOWcwYnpP?=
- =?utf-8?B?Ym5SKzRnWktnUWFWb21XbFdGcElELzg2b0RQMHZUUFg0clJNNC9qbm9ONmpN?=
- =?utf-8?B?SFJpSEJPV0NVc0tXUHhnSENNc1pVbFNrN056enp3bTRTTlV0S0FDOUh5OHhE?=
- =?utf-8?B?UXRNNUNudWtuV1UyL1RvNW9KaDNtYUdrMmF1YzZtMVFINUk1dW01S3F6Z1VM?=
- =?utf-8?B?YlZkUlp1SjltOVZSOU9weGRkMVFMZmpyejEzanFtdE9icjcxSEFDY0c3cmlP?=
- =?utf-8?B?ZVQwN0pRSVlrSXFRMkJabzFRZmRza1pBck5YL0Npcy9TaDFSV001bFFCRSs4?=
- =?utf-8?B?UEVnK0E0eWhDQ3U1eHVtMG1ZQUVMN24yWjUxalFmTkc4Vy9saUJ5eWZBQURq?=
- =?utf-8?B?dmxMUCtFOXJJNWNVUW0vRmM4VmlMakZUR0ZsZnNGOHNuNkZtQ0M1L0tWTzlv?=
- =?utf-8?B?SjZIR1ZDZEJBbU9UR3NQSkVwMk95Y0t4dTFMSE5SQUdpcUxTY2RUUmkvbXJz?=
- =?utf-8?B?cWpXZDBWZUJEdnFONi81TTkxelRRPT0=?=
-X-OriginatorOrg: gocontroll.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5454b1ac-a8a6-4071-8600-08de161f9a30
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7630.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 12:43:32.1644
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Kltk6ew1TjkkEAVklRrXeavXLkbont2FLLGzAJyUXDnt9Jgi08THPwKrEABtrgD3ixZxxWKW2PpdbShta/nYfkjHs3X48nsNj/TOnoArFgA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9818
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_054340_083377_A5FFB908 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20251028_054344_974599_19BA0567 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,121 +85,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/28/25 13:15, Matti Vaittinen wrote:
-> Hi Maud,
-> 
-> Thanks for the upstreaming work! :)
-> 
-> On 22/10/2025 10:22, Maud Spierings via B4 Relay wrote:
->> From: Maud Spierings <maudspierings@gocontroll.com>
->>
->> The Ka-Ro Electronics tx8m-1610 is a COM based on the imx8mm SOC. It has
->> 1 GB of ram and 4 GB of eMMC storage on board.
->>
->> Add it to enable boards based on this module
->>
->> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
->> ---
->>   .../arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi | 439 +++++++++++ 
->> ++++++++++
->>   1 file changed, 439 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi b/ 
->> arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
->> new file mode 100644
->> index 0000000000000..46d3ad80942cc
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
->> @@ -0,0 +1,439 @@
->> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
->> +/*
->> + * Copyright (C) 2021 Lothar Waßmann <LW@KARO-electronics.de>
->> + * 2025 Maud Spierings <maudspierings@gocontroll.com>
->> + */
->> +
->> +#include "imx8mm.dtsi"
->> +
-> 
-> // snip
-> 
->> +    pmic: pmic@4b {
->> +        compatible = "rohm,bd71847";
->> +        reg = <0x4b>;
->> +        interrupt-parent = <&gpio1>;
->> +        interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
->> +        pinctrl-0 = <&pinctrl_pmic>;
->> +        pinctrl-names = "default";
->> +        rohm,reset-snvs-powered;
->> +
->> +        regulators {
->> +            reg_vdd_soc: BUCK1 {
->> +                regulator-always-on;
->> +                regulator-boot-on;
->> +                regulator-max-microvolt = <900000>;
->> +                regulator-min-microvolt = <780000>;
->> +                regulator-name = "buck1";
->> +                regulator-ramp-delay = <1250>;
->> +            };
->> +
->> +            reg_vdd_arm: BUCK2 {
->> +                regulator-always-on;
->> +                regulator-boot-on;
->> +                regulator-max-microvolt = <950000>;
->> +                regulator-min-microvolt = <805000>;
->> +                regulator-name = "buck2";
->> +                regulator-ramp-delay = <1250>;
->> +                rohm,dvs-run-voltage = <950000>;
->> +                rohm,dvs-idle-voltage = <810000>;
->> +            };
->> +
->> +            reg_vdd_dram: BUCK3 {
->> +                regulator-always-on;
->> +                regulator-boot-on;
->> +                regulator-max-microvolt = <900000>;
->> +                regulator-min-microvolt = <805000>;
->> +                regulator-name = "buck3";
->> +            };
->> +
->> +            reg_vdd_3v3: BUCK4 {
->> +                regulator-always-on;
->> +                regulator-boot-on;
->> +                regulator-max-microvolt = <3300000>;
->> +                regulator-min-microvolt = <3300000>;
->> +                regulator-name = "buck4";
->> +            };
->> +
->> +            reg_vdd_1v8: BUCK5 {
->> +                regulator-always-on;
->> +                regulator-boot-on;
->> +                regulator-max-microvolt = <1950000>;
->> +                regulator-min-microvolt = <1700000>;
->> +                regulator-name = "buck5";
->> +            };
->> +
->> +            BUCK6 {
->> +                regulator-always-on;
->> +                regulator-boot-on;
->> +                /*
->> +                 * The default output voltage is 1.1V, bumped
->> +                 * to 1.35V in HW by a 499R/2.2K voltage divider in the
->> +                 * feedback path.
->> +                 */
-> 
-> Could/Should this be described using the:
-> 'rohm,feedback-pull-up-r1-ohms' and
-> 'rohm,feedback-pull-up-r2-ohms'? If I understand the comment correctly, 
-> that might allow the driver to be able to use correctly scaled voltages.
-> 
-> https://elixir.bootlin.com/linux/v6.18-rc1/source/Documentation/ 
-> devicetree/bindings/regulator/rohm,bd71837-regulator.yaml#L108
-> 
+On Mon, 27 Oct 2025 07:06:45 +0530
+Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 
-Ah I didn't know those existed, should've checked the bindings in more 
-detail, thanks for the hint!
+> On 24/10/25 4:30 PM, Jonathan Cameron wrote:
+> > On Fri, 24 Oct 2025 05:02:07 +0100
+> > Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+> >   
+> >> Add remaining TLBI_XXX_MASK macros and replace current open encoded fields.
+> >> While here replace hard coded page size based shifts but with derived ones
+> >> via ilog2() thus adding some required context.
+> >>
+> >> TLBI_TTL_MASK has been split into separate TLBI_TTL_MASK and TLBI_TG_MASK
+> >> as appropriate because currently it simultaneously contains both page size
+> >> and translation table level information. KVM on arm64 has been updated to
+> >> accommodate these changes to TLBI_TTL_MASK.
+> >>
+> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> >> Cc: Will Deacon <will@kernel.org>
+> >> Cc: Marc Zyngier <maz@kernel.org>
+> >> Cc: Oliver Upton <oliver.upton@linux.dev>
+> >> Cc: linux-arm-kernel@lists.infradead.org
+> >> Cc: linux-kernel@vger.kernel.org
+> >> Cc: kvmarm@lists.linux.dev
+> >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> >> ---
+> >>  arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++++++--------
+> >>  arch/arm64/kvm/nested.c           |  8 +++++---
+> >>  2 files changed, 23 insertions(+), 11 deletions(-)
+> >>
+> >> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> >> index 131096094f5b..cf75fc2a06c3 100644
+> >> --- a/arch/arm64/include/asm/tlbflush.h
+> >> +++ b/arch/arm64/include/asm/tlbflush.h
+> >> @@ -57,9 +57,10 @@
+> >>  /* This macro creates a properly formatted VA operand for the TLBI */
+> >>  #define __TLBI_VADDR(addr, asid)				\
+> >>  	({							\
+> >> -		unsigned long __ta = (addr) >> 12;		\
+> >> -		__ta &= GENMASK_ULL(43, 0);			\
+> >> -		__ta |= (unsigned long)(asid) << 48;		\
+> >> +		unsigned long __ta = (addr) >> ilog2(SZ_4K);	\
+> >> +		__ta &= TLBI_BADDR_MASK;			\
+> >> +		__ta &= ~TLBI_ASID_MASK;			\
+> >> +		__ta |= FIELD_PREP(TLBI_ASID_MASK, asid);	\  
+> > I think you can replace the two lines above with
+> > 		FIELD_MODIFY(TLBI_ASID_MASK, &__ta, asid);
+> > 
+> > It's a small reduction in code but I don't mind much either way.  
+> 
+> Right. FIELD_MODIFY() might be appropriate in this scenario but
+> there will be some additional code churn needed. I don't have a
+> strong opinion either way.
+> 
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -55,13 +55,12 @@
+>  } while (0)
+> 
+>  /* This macro creates a properly formatted VA operand for the TLBI */
+> -#define __TLBI_VADDR(addr, asid)                               \
+> -       ({                                                      \
+> -               unsigned long __ta = (addr) >> ilog2(SZ_4K);    \
+> -               __ta &= TLBI_BADDR_MASK;                        \
+> -               __ta &= ~TLBI_ASID_MASK;                        \
+> -               __ta |= FIELD_PREP(TLBI_ASID_MASK, asid);       \
+> -               __ta;                                           \
+> +#define __TLBI_VADDR(addr, asid)                                       \
+> +       ({                                                              \
+> +               unsigned long __ta = (addr) >> ilog2(SZ_4K);            \
+> +               __ta &= TLBI_BADDR_MASK;                                \
+> +               __ta |= FIELD_MODIFY(TLBI_ASID_MASK, &__ta, asid);      \
+		  FIELD_MODIFY(TLBI_ASID_MASK, &__tab, asid);
 
-I will have to investigate this carefully, since I don't have access to 
-the actual design of the COM, so I don't know exactly what is there.
+as it's done in place in the second parameter.
+ 
 
-Kind regards,
-Maud
+
 
