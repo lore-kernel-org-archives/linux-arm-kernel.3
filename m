@@ -4,107 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11489CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 12:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37784CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 12:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+HQWTTzmS8TT5Tb3R6tEELAasWZz7XbENUTZplMJ86A=; b=12/1ed7rRRPPhgazyCjdgL/Z6o
-	oASHz3FY4ZDhH+TqRHTRSfa/zVKNetJFSi+179yrdaY9YxK39uMert1IfFJKg1SjpQFZ3eThXXaLH
-	4ZagaTO873osWbUhPGTRQcwhrEbalmpjMCdbR3jOToiIhnBxAEs0VMw4Z7H9SghpRF/9p0/wgY8Or
-	BwySIDxHlGRVrhOxuf95rSt3N0CXSrl/hAkyLkJD0ICH67RbnkGctW5lgLTHAbY50by0m2vtZgppH
-	HdYKBjXW6tWKdhGc7Qli6qnIGcnTG5W1DJTkQbSprTRh82huV9VGB+7aPEm5srToMZwcQ7VypKpJe
-	Yonfj5Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yxpBdJOKyHxhngHMSjEG8dbk7vjw3wQLT/ZIoSyljj8=; b=3w82+UzqHZj1OGKz4AIJzw+4cj
+	cl2PujovHV+FB8OnPph0HsLfJgxZcx4PnUD436yaXQKjioA2RTuV7rwt9uGOLO1Ud32X/KAd2P2aq
+	4BS43+XBtV1CHkaI/I11HLedL+39lo/p+enfxV+Ue44RryY6YVsBLk/1ajxN8C2Lz9zMqXCydYe2n
+	SUwCPSlUvVA3GLI+ILU6/b29QDfkER5La52eRsjlt9kZvOY2S/tXutlf4wxxr1yA74YE3NAzgKMT0
+	twPSFebit53TSSjoLWAr3ZarB/wlIPpaK0ZeSFdLrgl+pXN/jZeDh2poyH8hcB4qOga5tZCcQChPn
+	6dv1RJow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDiy5-0000000FwrO-3ng7;
-	Tue, 28 Oct 2025 12:38:29 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vDiyF-0000000Fwti-0vuN;
+	Tue, 28 Oct 2025 12:38:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDiy3-0000000Fwql-3MIE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 12:38:29 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47719ad0c7dso7039695e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 05:38:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761655105; x=1762259905; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+HQWTTzmS8TT5Tb3R6tEELAasWZz7XbENUTZplMJ86A=;
-        b=Cq0VTHdnSEo0EJYxnlRZeGk803oUyyQr01XFPLR9UFnmuOpakWqgC1f0jh/5RWdymy
-         /CnnKL2fHfAhRq+Y1z+WPrirP0PhhC454MOZH8XY5du/bVXfXU+42mT9mMVpNI/i1Z+9
-         ywBN2DTgBiy40SfZKtiK3eNGsQ3/B1YuOtTj0hIGFKPNcBCnpItvouiMN4gXfpS+CVnV
-         REH/5KyRh2D2Rgrd62T4Bk8XLcj4B+qzpj30TtTzUaBthlf9a0ofpyrzB0xJPu6K1B9K
-         CQp5Vn1ALNxOUlQKNiWTp1YX/7eZvUVooSyppvFAg/U+phHj2bEzwzhm4rjkwRo7suHx
-         jkDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761655105; x=1762259905;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+HQWTTzmS8TT5Tb3R6tEELAasWZz7XbENUTZplMJ86A=;
-        b=i8II1P/Z5lxeNEQL7gtmM/F6A7mTbsrhGv/LhGl+urXFzVLuOPoh8Zjyrgz21MOyG9
-         CG9Wuo80MbFwQKEZZjBYrf3GFTRV99sxXaGbvawfRF33EGow4uxmdx4Rw+gDr2O5G18R
-         B+OwqosgZ+TZOKpO9Act9GnW7z3JVKHbNwhkc1pUZx0AmucWRpbrGkzLDNpp44GKZe/r
-         4gLejlF8geytLQ3CHpagKnMu+ikWhd9aRl+Jtn8sAKuUyQbB2RdPRiLvWH5S4u2Tucuk
-         2klavuL7nW8GQuH6gtDMymbJ5L3ORalMIKVfkfa8fEZKime0n6k7VXzGd9bN9pwzj/cb
-         4K2g==
-X-Forwarded-Encrypted: i=1; AJvYcCVfITfROU+2+m1bblB3LqH8pxXiWoVsGZj8gCmqCzYNSJEgdSfcyXrrfq64icE5IT13Ccf1Or98pI5RB+mWMY4y@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO4y6uKaKXQ5Ht8pjQFYynpNQitBI6upZdST5yiZOYnN72CF2h
-	grxbbJYUKG5yeeJho9u6Y/N4RrR0Nv1lDk8/5qPWCdE3sptzrZh87qU4Cs34ysFxrI0=
-X-Gm-Gg: ASbGncupELeOsBAlzOxvqi3fJxmrKknAtzYmTwAsiGsFqL8nJVuQzfD+f1kJwQGX2Nv
-	QCjA9Dme4iJJawVlwGtW7+VnIYSltJIHkMcs+SwSl0vew+Sr0ZFxW5oWQL9/HQQphuo13GYLyaS
-	VUwHMgc80UnDm4HBoY+F9O3WwXvHR2sYf1E6qc0UxiSDXB/2q+bZwztTpd+thJ8SH1pK0in0ofZ
-	wrwAs/aqAlwSDTM3UZzZzvMLoflK7HqfzdQpvZaASqZjjq8JBvP54iqSi5Jef9RhszfqCbg+AXs
-	xkqAUzkdduff3OQewPfXiESx7pp3k8EheiBPTzZYbZgWPcrsCYvBmkA8jrKt3lKXIYIVORjMOP4
-	2xxBEq0/fXxI2Hlqo8TVRpxkWXWpubn/2r7JWDxoK49azKC/oJdyf1850vOwzUga2YOALXCiA3Q
-	==
-X-Google-Smtp-Source: AGHT+IGyxD6kxKArelGRFtmyoU+oQyoUCEToyxb454tLZ6do6Faoc5fje7htOPBCBaso+JeJcI0k3A==
-X-Received: by 2002:a05:600c:548b:b0:46d:996b:828c with SMTP id 5b1f17b1804b1-47717dfa90dmr28285375e9.10.1761655105404;
-        Tue, 28 Oct 2025 05:38:25 -0700 (PDT)
-Received: from hackbox.lan ([86.121.7.169])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952d5c9dsm21087888f8f.26.2025.10.28.05.38.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 05:38:24 -0700 (PDT)
-From: Abel Vesa <abel.vesa@linaro.org>
-Date: Tue, 28 Oct 2025 14:38:19 +0200
-Subject: [PATCH] iommu/arm-smmu-qcom: Add Glymur MDSS compatible
+	id 1vDiyE-0000000FwtP-0idY;
+	Tue, 28 Oct 2025 12:38:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 371A661F8D;
+	Tue, 28 Oct 2025 12:38:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF00C4CEE7;
+	Tue, 28 Oct 2025 12:38:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761655116;
+	bh=Sgz9LM+rIzEejdNuUc0XX3Frhog1qNK56KvIynP1aZE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EwQ6yHAd1upusPVwE5p+extaxEraz/6D8uln43vA20qkPH8j3iCntKEBGAaVql/8Q
+	 8Gy+UemAF2VbganZ3h9uwOojrtdW9/p/ZsfZWUHKLmRC2cUOVkXeHglFajnxSjcrYN
+	 /mNFBPFkbx/fNUMxCUwVgKp3Ds5a2jMjHw4j9oUx8Kw+BPhmWADMdwEhfWOUQMQ80h
+	 mB+YHWfKzYHYzNt4tjHZPJW2yCsBQejaO/xw6r/H8odaXC9erZ4H1bc6f6foMwvNci
+	 21ZeNhAPIdCYn72cAS/vENim2yYkoK0h5pntciSTo1F1t8M/iW/QQjEBoBrDOXp2+z
+	 zoKiEZKXcxa0w==
+Date: Tue, 28 Oct 2025 12:38:28 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Derek Foreman <derek.foreman@collabora.com>,
+	Daniel Stone <daniels@collabora.com>, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v4 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576
+ SoCs
+Message-ID: <6f3f126d-72c1-48cb-a9c8-8d354af2a3d5@sirena.org.uk>
+References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-iommu-arm-smmu-qcom-add-glymur-v1-1-73f8f884c9b4@linaro.org>
-X-B4-Tracking: v=1; b=H4sIADq5AGkC/x2NQQqDMBAAvyJ77oKmDTb9SvEQklUXXNNuUCzi3
- xu9zVxmdsikTBle1Q5KK2dOc5HmVkEY/TwQciwOpja2qc0TOYks6FUwn/ANSdDHiMP0k0WxJWf
- vIT6s8w5K5KPU83YN3t1x/AE2YNXUcAAAAA==
-X-Change-ID: 20251028-iommu-arm-smmu-qcom-add-glymur-7e953cd459a9
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Abel Vesa <abel.vesa@linaro.org>
-X-Mailer: b4 0.15-dev-dedf8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1242; i=abel.vesa@linaro.org;
- h=from:subject:message-id; bh=Mf8h+h03L2bzW9mDWJu5js5WAT5mXmT3aoXz60/jCXA=;
- b=owEBbQKS/ZANAwAKARtfRMkAlRVWAcsmYgBpALk+kUF8P0aVK/w8f0AM9SlSRvIOPU68KBcGK
- PM7XHH7f1+JAjMEAAEKAB0WIQRO8+4RTnqPKsqn0bgbX0TJAJUVVgUCaQC5PgAKCRAbX0TJAJUV
- VsnWD/9BDr2abdk3/NrmmBGMD8VxoWsJxnPo4WRfEjpZxhrNa0p0ISrW79FWqyUm35dCaVmQFvO
- wCiGBC3jHNfOYMIdWGnMCJAP7y9uttfzGyWW7j494avIDvuQKTa/IFQoUa+nqaHa0JdOklX+nPl
- OonLpbwdsJ/6tjmbnIyVG3lqeas14RPcZ0rKKS7SJADHJDxVjIKKpF1mgqpwPnr6DLQaqUxXW1K
- 0SApilA0nJhYIT5fqkI3i2lBE+6FpcftOIYxyx5ce8PSRZz9zLE4QKCtuDhIVPZ752RHj4f3z86
- wAAsUkqK6tIk5n22bAY2awmTSp6eggnWs1EiHqgkjyohDOsqMSah8gQCnA8bl44tHEUkYooNJj2
- GrBCKGJEqdkiL1cBOgvSk6WPPGtaGAVq1PzyGeo7Rwzs21hEpTJZEbGChzpBjXoyUnIdf8878S/
- 6Vfjl+nOB6ybpcRBLICWuQD0H7GxD61mJTWutk6NuBtjaB4DerA7dDbYk0IjNSkiaCsmoQnQoAI
- nCVyBHKU9BYfkb+raWMcy2rr5IBubLD4ZBqpVs+auH3UXE/dtTIzWhc+CsewgiMuJN1E+GRQmIP
- eBbJk2HseHGPuxVxtneYp4l45JDvFwng9ST9WfAZ/S1RISXMMJNwhXj1VtSmcfOcGQWm96QvGTl
- V2Hx3ejMmtlE/uQ==
-X-Developer-Key: i=abel.vesa@linaro.org; a=openpgp;
- fpr=6AFF162D57F4223A8770EF5AF7BF214136F41FAE
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_053827_975821_BC727255 
-X-CRM114-Status: GOOD (  10.61  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="A23rxmyNw6MilB90"
+Content-Disposition: inline
+In-Reply-To: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
+X-Cookie: 40 isn't old.  If you're a tree.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,36 +90,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Glymur DPU compatible to clients compatible list, as it needs
-the workarounds.
 
-Signed-off-by: Abel Vesa <abel.vesa@linaro.org>
----
-The compatible is documented here:
-https://lore.kernel.org/r/20251027-glymur-display-v3-1-aa13055818ac@linaro.org
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
- 1 file changed, 1 insertion(+)
+--A23rxmyNw6MilB90
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index 57c097e87613084ffdfbe685d4406a236d3b4b74..c21a401c71ebe768115364bf282dd324f8222109 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -367,6 +367,7 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
- 	{ .compatible = "qcom,adreno" },
- 	{ .compatible = "qcom,adreno-gmu" },
-+	{ .compatible = "qcom,glymur-mdss" },
- 	{ .compatible = "qcom,mdp4" },
- 	{ .compatible = "qcom,mdss" },
- 	{ .compatible = "qcom,qcm2290-mdss" },
+On Wed, Sep 03, 2025 at 09:50:58PM +0300, Cristian Ciocaltea wrote:
+> The first patch in the series implements the CEC capability of the
+> Synopsys DesignWare HDMI QP TX controller found in RK3588 & RK3576 Socs.
+> This is based on the downstream code, but rewritten on top of the CEC
+> helpers added recently to the DRM HDMI connector framework.
 
----
-base-commit: f7d2388eeec24966fc4d5cf32d706f0514f29ac5
-change-id: 20251028-iommu-arm-smmu-qcom-add-glymur-7e953cd459a9
+For the past couple of weeks we've been seeing various instability with
+the graphics drivers on the Rock 5B in -next, the most common system is
+that we get faults in code that looks suspiciously relevant to this
+series:
 
-Best regards,
--- 
-Abel Vesa <abel.vesa@linaro.org>
+<6>[   17.353368] rockchip-drm display-subsystem: bound fdd90000.vop (ops v=
+op2_component_ops [rockchipdrm])
+<6>[   17.355237] dwhdmiqp-rockchip fde80000.hdmi: registered DesignWare HD=
+MI QP I2C bus driver
+/ # <1>[   17.357803] Unable to handle kernel NULL pointer dereference at v=
+irtual address 0000000000000098
 
+=2E..
+
+<4>[   17.372390] Hardware name: Radxa ROCK 5B (DT)
+
+=2E..
+
+<4>[   17.382082] Call trace:
+<4>[   17.382317]  drm_bridge_connector_hdmi_cec_init+0x8/0x38 [drm_display=
+_helper] (P)
+<4>[   17.383003]  drm_bridge_connector_init+0x658/0x678 [drm_display_helpe=
+r]
+<4>[   17.383612]  dw_hdmi_qp_rockchip_bind+0x35c/0x4d8 [rockchipdrm]
+<4>[   17.384159]  component_bind_all+0x118/0x248
+<4>[   17.384550]  rockchip_drm_bind+0xb4/0x20c [rockchipdrm]
+<4>[   17.385034]  try_to_bring_up_aggregate_device+0x164/0x1d0
+<4>[   17.385528]  component_master_add_with_match+0xc4/0x104
+<4>[   17.386008]  rockchip_drm_platform_probe+0x1f8/0x31c [rockchipdrm]
+
+(from today's -next,=20
+
+Unfortunately we haven't managed to point at a specific commit, it looks
+like this might be triggered by multiple serieses interacting with each
+other.  I'm not sure what other information might be useful here?
+
+--A23rxmyNw6MilB90
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkAuUQACgkQJNaLcl1U
+h9AC5Af9Gsb4c9sm1p8qLFIcW6aNDsp2F5861XAQCPph+mfIxTF3n6q/jQj+eH9b
+/cUphOwQBRLk3Fw4QeeqaFrdnJ0iB0wTMqmI5G9O1qhAPxNN5bT3KpnJr98CRDho
+GRIy4XrxxbNA2JaKX1J8lLkSdacR1Yb5hbcUqH4a2cwpbxWhod9+wkupjvzIwuRg
+hA8sU1Wyn/d5MvG5W9oTBwPpwuyFDUlk8cKs9zpY0pKUw0TEt6+GXAjLitxraUJ3
+SC5uzQI1896NYBjZ+mH11kVTb3TtIqmNn5DL3UkmXBQF+px6Am8U8jSb08GMVuiB
+dOojB0KL8DVxYUUnxdeQFnBNT46FKw==
+=38PJ
+-----END PGP SIGNATURE-----
+
+--A23rxmyNw6MilB90--
 
