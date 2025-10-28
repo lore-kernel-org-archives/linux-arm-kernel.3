@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23C2CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33BBDCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c0wxYpGazz/mbNZkEG1ty2jCdBuuX7dP/ZCMsktvXgQ=; b=15Vxfjxqlp9OnJ92Rlltqa1PEB
-	LYFh3c2WGR5bO0N74nx+tgoSdMx4kg9PNj1OJm5e4tX99+Zi3xlrRAXsbzeg/Gplg99tcP4atCZbp
-	eHGXSIlYXMA5gPJDQmyO4DPVqah33deZTgUEaosNOieK12Vt6ALPoQqI8fDvbdhKRpTyTk+t9Sb2L
-	zm7VHS0JP7+eQL3tpIFO2lU1dB9TDHxChUPVDiaqZas55Fh8pKFHzqTmqusP26pSIjd/GObh8Krx2
-	xyvwFriA6VRU505Nvn3Mb+jHPMBf9vcb3gbWz7GhWz6q5GnzlH54VkwUDlXZRyu8GcQ4nIcHaZI+M
-	qYq8HJaA==;
+	bh=xyYFRQojunl/tRzwlh+ac2kk1NsYLl4yZPYrY+iaVBw=; b=lzu+L3gdg9scqtcpqyaVbxOcH3
+	UOTfTEGrnEcHAyMtaMQQSdPPA9OE6EMz01BsAt+7JA5nIB7gJ3A581flTIM6VpjDmnSsxF6+taWOe
+	BlKWaTXRTT39410C8FJd2bQBq1e8Sa6Au6g2cTNH1i93P7AsxPLMpfXjqoAfautZxt+2M3CYx6LKo
+	WUa8i4xXpOSePAUlFNvThjR0Dz0PCchLhghT7EgfNzVB0zVKL16R97G6Z0GEepEi7zY+fXRJFGM/4
+	mIBYOb5creGYIksqrinRQ29PTdRjw6PAd89ho5vWI7V0xNpsuGIAl/KgWPTHD6n3cQcMjJFfhGqBa
+	HvCkDMCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDh8M-0000000Fm3G-3cz2;
-	Tue, 28 Oct 2025 10:41:00 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vDh8p-0000000Fm9K-0fr9;
+	Tue, 28 Oct 2025 10:41:27 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDh8K-0000000Fm2s-1M9E
+	id 1vDh8l-0000000Fm82-3Bob
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:40:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=c0wxYpGazz/mbNZkEG1ty2jCdBuuX7dP/ZCMsktvXgQ=; b=FmlJ9xZ3AY35fJOn9eqW4EynqN
-	4md0M+JNO60HV64L82O8Q+kAXwSzTSZN8aPxxeiMYBVZ5WP19k8UPJijuTrqIHxsC0ulDf0Y8VZBf
-	89DqVHJNgHjrNestsskRMz2dSzcy5w+Qk60EoQJpRKekZw5LrmWRhUY05mp0C6EJZavc1tAyv1C0G
-	YNQNMpI+PJxz0WCx4Msg8YSUo0vG59zHvmIsWEMh0+sCJJrbs4QmpT6PkbNSUQoC0HviSuoGnRme3
-	ShHPYC/bh9+TgDXHb+WrxgoXMqgc48fmiCQmFGfzRS3wmGhJcbhuhil3H9l4pPIsVzj2qh5PT4wqf
-	7FMhcGww==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57222)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vDh8A-0000000034l-3TOU;
-	Tue, 28 Oct 2025 10:40:46 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vDh88-000000006V0-1YLu;
-	Tue, 28 Oct 2025 10:40:44 +0000
-Date: Tue, 28 Oct 2025 10:40:44 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis Lothor__ <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 3/3] net: stmmac: add support specifying PCS
- supported interfaces
-Message-ID: <aQCdrNQHF07BVPti@shell.armlinux.org.uk>
-References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
- <E1vClC5-0000000Bcbb-1WUk@rmk-PC.armlinux.org.uk>
- <604b68ce-595f-4d50-92ad-3d1d5a1b4989@bootlin.com>
- <aQCcVOYV15SeHAMU@shell.armlinux.org.uk>
+	Tue, 28 Oct 2025 10:41:25 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4ed0c8e4dbcso125711cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 03:41:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761648082; x=1762252882; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=xyYFRQojunl/tRzwlh+ac2kk1NsYLl4yZPYrY+iaVBw=;
+        b=ewON7gnAn5yVJFMCzUYHB4F/6R451kYeIjn6CAShBv9SyB1AIXIBVhDjCNGu7z2st9
+         90SGdKFNyPgeDcF3DG7SjvFglhE4AATnOHXBvrh3svZxPu+mUSy/wlupmhnN2XsR0Olb
+         +FkAXFHKGgGAlT1ETXFRgbL9hbPi2e1WbgtwzHVm267MDrWK4ObGFC6LRkCArXOsfom0
+         tUKoUaN+VgLJZXL1cyGE+lUyqxgWGE1x9qREeLvWm06lUxT5UAClkHX3z3JT2GLYqgZx
+         XdrDvZdejkMYpwTPPWE1/7XqU6fRGyaYqpk3B1s77yIbGWThrSAERNEBV6YOFPBWI39/
+         gCVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761648082; x=1762252882;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xyYFRQojunl/tRzwlh+ac2kk1NsYLl4yZPYrY+iaVBw=;
+        b=cO1IOuwEoHn9OxuroIdpXFT9eUZBXEWqu8TG7n76auI9qFO+PMao9Ex1vzDvyVFs/G
+         QFKdAmifjJf0+rvg8aDA6YD6Oql+MZ7pwHESBlT1YpI/bDdIHC070U+uo3leb+yhhPK8
+         s9oeO82GmOOspMVwmCx1Xd+OF4CPvYDGdmruzCH4Sq+L7Km5on2Y5ws3AftzqtsRB4vf
+         CnIhreAbnLpIiij23XQ0JDrwQ7xFkU7iQv3AM8JrPfk+QlWIJ2pWagWOmlrqGGbk5D/Z
+         R1G6TMz/tLq+R3z9xifEMUmTPuE7wREsLS+0an3JsXzJsercaPtRFji+DCXJI9AjqT4Q
+         aDPg==
+X-Forwarded-Encrypted: i=1; AJvYcCXf3uObgQz70jPzcCBgAoTQeupXjF6GaDeRXEATp298X0CHqabIjEqK4WlnAxosv3MB222jCi7BeFoZFdermYLc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY9AWFxptOJ1cI9+dPcsbVwsAIyEKzgqvyzd9soONTTj6yKLJ3
+	V9ImQy5HgB9/y/76X0Y62CA4gHEvOxuv1K57mPYtC/HbH7XwGdYq6gtpRNbp/9DyJ+Rwe2TmlnO
+	c5FDhWpHk6veoMCD1wS52DuhfndKQoaQtzCgGfTrTXTP/jT/TGx43US1VCv0=
+X-Gm-Gg: ASbGncvnixE3hHmTibzhS8Zd+di8PeKXLctqrpXsWECZhxq1pBg2m5f5D4ra3jG/C34
+	S8/eLhVXdEaJWxh4OCoeryz8qIpS3VtczIFKpK7z81h54g18nzV/0F0ZZ+jcjnplYDkYuwyCofD
+	lmFiNrPXC1H2fzppUW3gI3xWfPVxiJiZdOQfJ/hnor8v2TigVH3Y+I1apxzSot2d3UZf+VDQUq7
+	OpWda6zUMcoqNAlzamE6ZewfZKLxFsTkQeJ5pk8cd1lC8GHfI5Q6yjuooqUXaPih63GK2CuFtSD
+	asoppVSoDaJXqxV6nYP+BhaU
+X-Google-Smtp-Source: AGHT+IFFXfImVcBC1aHOTYgWrMceC2H6PeDXVpaOsr5+gplZ8eX17JiVPPiMcYOXVyoXKBIZ0HHBi2NKdR1/MprdqkM=
+X-Received: by 2002:a05:622a:5a98:b0:4b7:9c77:6ba5 with SMTP id
+ d75a77b69052e-4ed09f7cbd8mr4751271cf.15.1761648081564; Tue, 28 Oct 2025
+ 03:41:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQCcVOYV15SeHAMU@shell.armlinux.org.uk>
+References: <20251027113943.1282568-1-tabba@google.com> <20251027113943.1282568-2-tabba@google.com>
+ <86zf9bux8m.wl-maz@kernel.org>
+In-Reply-To: <86zf9bux8m.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 28 Oct 2025 10:40:44 +0000
+X-Gm-Features: AWmQ_bkrWFTx10BG9y6-HIb1BAzsBhsUUbx3Qvf6bdqolNIIlbJkOOCnpYFIwQ8
+Message-ID: <CA+EHjTyBSmKCpiBQPRV4joY6Qxrjywi4zseNzqdXejr+KmPG+g@mail.gmail.com>
+Subject: Re: [PATCH v1 1/4] KVM: arm64: Switch reg and val parameter ordering
+ in vcpu_write_sys_reg()
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_034056_367750_51D90F12 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20251028_034123_804869_A6ACEF13 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,33 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025 at 10:35:00AM +0000, Russell King (Oracle) wrote:
-> Thanks for giving Jakub a reason to mark this "changes required." :D
-> I'm not really expecting this to be merged as-is. So why didn't I
-> post it as RFC? Too many people see "RFC" as a sign to ignore the
-> patch series. Some people claim that "RFC" means it isn't ready and
-> thus isn't worth reviewing/testing/etc. I say to those people... I
-> can learn their game and work around their behaviour.
-> 
-> Yes, it will need a better commit log, but what I'm much much more
-> interested in is having people who are using the integrated PCS (in
-> SGMII mode as that's all we support) to test this, especially
-> dwmac-qcom-ethqos folk.
-> 
-> The 2.5G support was submitted by Sneh Shah, and my attempts to make
-> contact have resulted in no response.
+Hi Marc,
 
-I should add - I'm expecting dwmac-qcom-ethqos to reveal that we need
-to include 2500BASE-X for the PCS, and possibly 1000BASE-X as well
-(which in dwmac terms uses the TBI interface to a platform integrator
-provided serdes block.)
+On Tue, 28 Oct 2025 at 10:38, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Mon, 27 Oct 2025 11:39:40 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > The vcpu_write_sys_reg() function previously used the signature:
+> > void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg);
+> >
+> > This was inconsistent with related functions and macros such as
+> > __vcpu_assign_sys_reg() and __vcpu_rmw_sys_reg(), both of which
+> > have the register parameter before the value.
+> > '(vcpu, reg, ...)' ordering.
+>
+> On the other hand, write_sys_reg() is exactly in the same order as
+> vcpu_write_sys_reg(). I think that's the model to follow.
+>
+> The __vcpu_*_sys_reg() helpers are internal things, really, and if
+> something has to change, I'd rather change those.
 
-The most important thing is for people with the hardware that would be
-affected by these patches to test. However, I'm expecting no testing
-feedback from such people based on experience - it seems stmmac is rife
-for "throw code over the wall into mainline and run away" behaviour. :(
+Sure. I'll wait a bit for additional comments on the remaining
+patches, and respin changing the order for the __vcpu_*_sys_reg()
+helpers.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks,
+/fuad
+
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
