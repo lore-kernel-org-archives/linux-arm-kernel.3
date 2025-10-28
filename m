@@ -4,159 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56FDCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16348CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFW3cUgafNEFvdYzmDiDIjXyhlp1ejlEMqSb1hEr/yw=; b=ZqG6+dI3s4VMKPlpe7B8dXS7e3
-	X5dUyorT/PBPiOrFRkT3pO01SDd7Kq5BQhV8LgnxzecBKw/SoS+gpzQcpgdOYMhNbxLMioevf8htb
-	nT0wgEQVMid+CfWAZ6oq14zfZWNcmG+yeRMLy548RRvyy3lfLfXT12cI5E2NwFVeRdclWOeyREHVd
-	CXdayHD7MALVHyBpJ0GL7WZM/oWtabmMSOTv3dRWTrqN+/wZK/+YYwMVQBqmP0xy8qvixMAc3krKC
-	/3dyST64tzbg3fhidqcqW75TV9lUUSUJP8RsRpnO+x70tYOjtjgZMyt89BnaqyQub1nyWsmMVJLv+
-	jhiQPfyQ==;
+	bh=sK57p6KbHUXe4KkeLJ0RQ/52pmzu5AO7OLWwY8T4dwU=; b=awu0yHYNgN+lhBRLplAfx4nbz0
+	8rykUKjvNctPE3lkkL6+uu0B10MRURJe41MGl2eBLbg5XjNXNqn4jhzOBiHai2CI9k8EHsyDM9xLR
+	0w+xnj9XMBtJ4pXdOU9Nb+d07YPyEu/a6Nmzpie1HGTnc61rcjnqF92EURbht7jsCtNkwAZkkJpIf
+	g+eEAD5uW1OC7wef23XfIHArD0iBsgJcS01+wiO+3GkgWwAhS6crOdmWpr7/gyKznl8qB6/y9k7Bk
+	icWxqa3hkKa0Tci2Bi/OOWt9JIvt51+UdR7CJfED54iWTc1dATgHraTyXbTjtb+iVfEewxziaRvDG
+	xUYpUtMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDg0t-0000000Fdha-2Ara;
-	Tue, 28 Oct 2025 09:29:11 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vDg1V-0000000FdoK-3g4l;
+	Tue, 28 Oct 2025 09:29:49 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDg0q-0000000Fdgv-2WMn
+	id 1vDg1S-0000000FdnN-3IcR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 09:29:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jRXMVWGZTUHSGYdBUBEIKCv7hxoeGjkZKNO1arw3L/TiNVtRevnhOl2MOaesU9ziQXIk2WonO6/X67Ywlfo9Ypt2VjEZO80pv7gELUySbj8EPd5730nC5lh7fsEfHS8eGk5wcORkJXAi05mob5NdngaKLOZGlXnXq0mh8zWqOeXy0uNWE4gNak8lk0qCqhZuUyc/r9UE2Vg0OatKA4LF68gQAEAzkgKjAft9ffGLlp32S1ujQTv2Itd+TxOPKWZEApF7esHg7PgleytSJj7UgGUCGUqslk30g+B9lDtZaAzZ08jFKEl6b955JPhLRKSTBSndvYMxL/eYu8N5avBiJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zFW3cUgafNEFvdYzmDiDIjXyhlp1ejlEMqSb1hEr/yw=;
- b=o5qXHR9ZTDnOCUhgNO270MlrlhwXjWpALRYdSBsM17Dfv3Rcpd9+SZGm2RJll9U0cY3kggUxu2tn3dea7fS/AcDC5sbU1U6UsVFT/i8YP0/GHQsX3f27Q1jbHvBDu1ClaEeRmWtm3Gwl81xdmXaVttogBvk/QxvvQKqIe1aPN4xtFnzmnaEoUuveSmIaoyEo9IWJRnkYcRL0Mtj0aMJdA/ZeH4m+X6B6Iwc+3vwsAQaqUAIcos/uUXk70H5y0qSekcCIo3VkH78SY64gGscE+MTfZgvv6nfQqsAMN5jFOaKytCHEF+luLOWujKuysAfA/4D3PzRfzGjCGBNdQBw9Sw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zFW3cUgafNEFvdYzmDiDIjXyhlp1ejlEMqSb1hEr/yw=;
- b=Ekoy10I9XLDue3CAyLeQ7kjPd0UrUqsps0bp9wTtPiDtvbBUYVP/2X1C1N9pC9eSNIBJsmpiOvEXDSf1R4aI/tG9zG37eYqdRtLJ6DG/mfdoFal146ZnoRJJvNwvWvUEth7So9zZ+hlAMtKSYBFdFY6qJCwx6Dx9gxQQcWxvAVbiyFexPN6sb8XQtafHb2n3LJBR/vM+4VgkO8SP5/tjA2dGjpJa+e7l5QEktUx5t/anxPODOhaz96vWqSKC3+wpZrsPhf4TFP86zvjCDfDs7L+85vhQ1n72Ym1o9JW2jKmSt8JYZCq0dJporETftyYrRdAL4gbcuAMfcfdhR7wKeg==
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by PA1PR04MB10603.eurprd04.prod.outlook.com
- (2603:10a6:102:484::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 28 Oct
- 2025 09:29:02 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9253.017; Tue, 28 Oct 2025
- 09:29:02 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: "mkl@pengutronix.de" <mkl@pengutronix.de>, "broonie@kernel.org"
-	<broonie@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PACTH v2] spi: imx: add 16/32 bits per word support for target
- mode
-Thread-Topic: [PACTH v2] spi: imx: add 16/32 bits per word support for target
- mode
-Thread-Index: AQHcRNm/zRpEV+zYiU25ok3CqsF1ObTRSXUAgAP4xlCAARklAIAAxsaw
-Date: Tue, 28 Oct 2025 09:29:02 +0000
-Message-ID: <VI2PR04MB1114746F42268876E27C1B93FE8FDA@VI2PR04MB11147.eurprd04.prod.outlook.com>
-References: <20251024113107.513604-1-carlos.song@nxp.com>
- <aPt+JJhaB9dUOwL8@lizhi-Precision-Tower-5810>
- <VI2PR04MB11147AB20690F99BB6CEE2300E8FCA@VI2PR04MB11147.eurprd04.prod.outlook.com>
- <aP++6ghId1LvQ1NF@lizhi-Precision-Tower-5810>
-In-Reply-To: <aP++6ghId1LvQ1NF@lizhi-Precision-Tower-5810>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|PA1PR04MB10603:EE_
-x-ms-office365-filtering-correlation-id: ec1bbcd2-d939-4e32-1c5d-08de16046e88
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|7053199007|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?WD6pVaHl8/xpx9Bq//QO46GIIszTssfRByV1v30wAyTTCDW8E5s+Lp8bjuYM?=
- =?us-ascii?Q?DPY+tqDzx9bzFWZUVfRUWFXXNiGXaLCa5qqN+NiOshPITTPZwnDL0WStuStS?=
- =?us-ascii?Q?XftaqQzYAO4xVAiBg1HO8aAZqXZhs/MIWLshDAbpjZZnEUAguQfxB/aJKoz+?=
- =?us-ascii?Q?Qzg4TMlqkfRc2UQC3DAC5v2CiCdSBXfsm5MhtKbVXxXPFP2Chwhi8+BQgBxT?=
- =?us-ascii?Q?avXGBCIgqNkxWtysxSLk1bl5m/Ua5v6VVIYQkk//FQ7I+6NOmt5/mo0ARh4Y?=
- =?us-ascii?Q?8kpwj9bCsoaaX1km48pQ2ZKN1uakwVQWsvCHzg+qTJufP8vntFcDBbn3aYRA?=
- =?us-ascii?Q?3GNbwY6PvVfZUqP69nx097ZXhrdRpLd7iV4UlWUWOmRV9kYe8zpefyVMno0b?=
- =?us-ascii?Q?OfERx8E6992sPiNUoKSpd2CdILQqTMWDSFVaFOO6r2jKUfDciJdgZC0Wf38O?=
- =?us-ascii?Q?ED29u9dKFNXYUEywRZCdoHkwNhdoWlAMrFs4nSicI2Q2rbYEAFjPVgMRdsOL?=
- =?us-ascii?Q?NeJRgLo7MaAVCek0N42NkbfioZVcmtEQsp1HOxzCPnWoEA+NISqoCL0Z8GKa?=
- =?us-ascii?Q?yjM9ebMXMuNd9p3jQMof9bEfglJS4DwDS7ti5bAODaCsX0+rQ+QmA2TolGHi?=
- =?us-ascii?Q?3+aD0aRorQcakLiNaiRNVNPrUKrHHoXquKgb5+r+8EprrSf/pja5b2yle1jR?=
- =?us-ascii?Q?B9co1S/r2PmSoAZ2mF63mK4xYgSQahdTf2v0GvoqJ00V0dtDx2K8VejkJppp?=
- =?us-ascii?Q?PcpDOkPvruTnMYImLjcF1mgtcQyeiEu2CevZaozcXgAd1d3VmHibIbJCfM8D?=
- =?us-ascii?Q?L1gsAu1bLOa+daI+I9aQ229AifTJRDJv43wf7Vc8c3R0Q32Kdj0nRnxsP6rZ?=
- =?us-ascii?Q?d50gQ0VUwUJjf/+Yi8qOpoGv1ATi6BGeKDykRP7qzC1yU4fhkTkfVGIRQ9ni?=
- =?us-ascii?Q?maDS4aXHq7oFCkN1iR171udYc9SZ6rJ2ROzmxQzFeHjSjjMVjcxkPxp96Sqv?=
- =?us-ascii?Q?Qfa8Lztlj6Gu/HyCKdVhIstXeP2B6QWXSYw8JI1qLbRVfubxLSCt4QKXWKxi?=
- =?us-ascii?Q?mo+6w47GWR0cZ8qP2UBbPaZ7e60SXOxNFfCfYJw9+6dTnr+A/w1OVWMH+MlE?=
- =?us-ascii?Q?/HVF4p/S4RXmXICl7gvoiOucpQTJBdxHQL+ZVgoCc+PMOMkQMub2BtFEVRKF?=
- =?us-ascii?Q?EwrX0/qFp1OTf7Lmyro+fPOCpb6cDiHvy74q+aUhfI433DCNH62iPh9Z2gsm?=
- =?us-ascii?Q?CAfgzxoQ+aueHkkCdlMb8yxvDrBM4jeMVBut+mJKGUG6saGLZj1zXvBnmP9i?=
- =?us-ascii?Q?h/O64T+UJfpKefLHWJPBZWLJ0ZaFQv1FxOsnIlHQ4gUp9b9pANXCDvABNiXd?=
- =?us-ascii?Q?Pl9spyJNppHel5s3zVnVYnxAmGzqig7vlADXlPE812XanWlkle+0hLaouqiJ?=
- =?us-ascii?Q?W2cDvULQrhX3jrwKbaV01hJvvdzZGWnSf0coQaIyGDB4OPrzyqgIqLjRhekj?=
- =?us-ascii?Q?lAsWDiwM66mhtLXdQqkYBPMQE73xbWxAxksi?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(7053199007)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?7OjTTyQnFWp2uEHy/c+U4bWCkfsjl0gGTlW+jSRQhgJcgEt3SuRLyljugzcF?=
- =?us-ascii?Q?FLSI+9cFIqw50bT50g+e32VkmwZ37V3JdQx+A2dDd8wUAk/kLdblbIZUwc+8?=
- =?us-ascii?Q?bgLqYF57+RHw7KODLwoYqFYZ7BP0iybeGMJAbqGMZve7bBHOcuxt4eBhnif3?=
- =?us-ascii?Q?KZoCRrvcNGscYyFkjacmwBPXjklNoNaNPvFzgH5ouQuTcWF5ryDmvDKLl0Ai?=
- =?us-ascii?Q?pO0LJ7/+sMNTUNklhKQwBnhxc9A2U7GKeFIzuanxjQzcxEgG5A+7w8U02+Xw?=
- =?us-ascii?Q?c9yKoPNE0jv1EyxXXFfNuE5nRG6XajVStgTOiVAdtGbIgaBriDxyXJ961NE6?=
- =?us-ascii?Q?5iKsV6UKlhi/LlkwZhNM7u5ctXQOKNjM38dhdkdmnMY15Sa9iGG+O8j+qquN?=
- =?us-ascii?Q?4xZmKfC3/e7Y575TKXmmX6wkHN6t/qVBU0bdMk4DmqecHG3XKEIfBLulfNlJ?=
- =?us-ascii?Q?s0wfzeOASDWgfQaZJtT6K6MPF85wClgo1IPZN91QqN54X0rzYYrrDOr2vOQ/?=
- =?us-ascii?Q?2Hv8hUAshtm0wqkfq/bnFSzcm5tODV0fR1ePFlTdmqa9DL6EQMHRBOxoYWV+?=
- =?us-ascii?Q?bcDVClqoXH6qUWer1dMK3TqnekNT7RBZReatDiRJ9Q+kjq7r2dssdAeu1uXF?=
- =?us-ascii?Q?i0EyKRl5AOMI8kUmN3fV9zyxNtiI+qwy1QaFABoojvkdC0hLfDMjPqgB7mZn?=
- =?us-ascii?Q?QeIELhAlyIIkdDn6NPWn19BlJpHbJH4RPR1MOMgeSCHop54HPzxka0ZfRzl+?=
- =?us-ascii?Q?C3AO6pNUwDxTmDbTaTClsUQUXMN5WtDyDguyycC7v8pe0eIAg9FitY3Uojeg?=
- =?us-ascii?Q?5+dIVkJ6zkrzJAiKx8PYCXHmAdIvkPDkg/JCyctdzqKhXOb041U6hCGJ3aQ8?=
- =?us-ascii?Q?1Brei0D597Dw9oSab3ceYwqqLXYDEqrFokuN+Bc65X9iM7a+ytUPkDnqUzl6?=
- =?us-ascii?Q?Q7Dy13LhbmcsRwzp4nB2qJjTl/NLe49fwPJcRA2GSC8eOAoJKXn33PEVRj+u?=
- =?us-ascii?Q?cnzfsvx84Y63FC+RtYa/TnnBeaQA+cqZbM7aGEhcG9hGc3pKQVbuSGp0cAdt?=
- =?us-ascii?Q?k6xJ76UoOixE+ICP09mCRsuKzXWAPV9drYmr8IxQVSgf0rfvCoUH66HlMIDF?=
- =?us-ascii?Q?b4YmUKHzbRfUue48yehPflHpFw/557mBAyD97KphG4UGfBra5FxJUOUomUC9?=
- =?us-ascii?Q?hhx+bDp4w9+MpBbGin3bX3yWXgOdU6DYqJP8yQ4BHe6CJmUGAPQOuOCCiet8?=
- =?us-ascii?Q?a4M31DQWSlgjG2GDG3JJBxvfGlUd3e1E2tj+32p/K0US1IFvnUBXba+btwli?=
- =?us-ascii?Q?x8fUFur6AccrGHW03XE4dB5k5qwm97VgOs3uV8eGFrWyyLRxJkV23+k3/zMI?=
- =?us-ascii?Q?Q98JV7CAiYTlfQ1z7Vhk2kSoqvbpjHa0/3eAP5vHUzagu7U+ECPbqFPfMDPz?=
- =?us-ascii?Q?jeWpguPNiN8cyfKrgfLwmOOSa4891dABETStqaPZ1U6mmkHvD1tdV8zzZA0O?=
- =?us-ascii?Q?vx6tM0wx0nY2Tz4dGd6G3N8LhCLvX1uJQn1FD4DecanbJrMri0lCdNcyctsE?=
- =?us-ascii?Q?20rtmbrCJ3PzMnQk/mCVC3cVmf2BvhH2XhC+Mt1Z?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 28 Oct 2025 09:29:48 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7c2948b774cso3140897a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:29:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761643785; x=1762248585; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=sK57p6KbHUXe4KkeLJ0RQ/52pmzu5AO7OLWwY8T4dwU=;
+        b=KDFHSELf3ZNLm/BE7nYBeLjB7PAdtc2s3CJWTckhAEZbj8Gn9doyApiPJEE1i1yowF
+         0aF7cGO5jupxI1DfQTDqegnIZGoxfFa3teBPvGBJGgXf5I3rtZSTKCuZTI/07+5RtC5y
+         +1OST463WWbfu56P74fs8APq7LLl+aIUByiAxRRjrlL1/LQ1GwWE+kj215BeotpD4A0H
+         SHHce2NwBNaUeLrltRHZPlLIxtSozhAYgwR/cMLvrBBDj3xk5qTcLXlDcmlRnMWMB6sm
+         N3jsFoNEwAy5/AdwcDOX98cPxJOxYhDN+pQD6DerXky/ihw8OO5j/8QuriXURHghBXqW
+         yhtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761643785; x=1762248585;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sK57p6KbHUXe4KkeLJ0RQ/52pmzu5AO7OLWwY8T4dwU=;
+        b=Nj/RcRZswvucuaUYtfDhlFA7NskzsSJ9qtd/AGgXWCl8vS0YvUhM4TXYWCIZIiO0e+
+         zisMUoKWAZ8ZoliM7HLngvkg3SbDVM52lESmMHxw3bubN5Xm5Tc5xAcmZwp7avcJe4eo
+         GRZK4CUbXa7uBwWSzk7g7GjX1Yk3fJHABp2n41QUl6EW62TEmj6FWpE4IP3QOzLCMdrw
+         tH+xq5+AFEBpTP18EtCh0Eg9GBsCBE7OrFu1bV5v4Gkpv4h2YxXUHJXeofIuzuecHkgk
+         bhdUrJs0wIm4bixi/vh8IhWb1uX+3TE72gLrajPvIZgYI14MpNGMNdd+wuITcpEJB8nf
+         ZQgw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBDIAbH2wt0r88YENpuNl+fedD2zZP8YMUU81Oot3+C2CutXM8v4HHKJnqTrMMkgEAwC87P/056Rvb37lJnJgq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkQBCSZG19tLoWc9HJUNjnhpgJz7U1e4JIB+hDuT9t1MWmlJdz
+	t0LziVDJ3z6dcNv2UfcIpgPa4WR5JM6u81VVeIsxGQA8/P2r1UZZ3vAXBGXERf/r6SotSmLGfDc
+	ZG+DBH49H4q3xnJrMjSrVEI/EIkjffIRcHkZJqI2MkQ==
+X-Gm-Gg: ASbGncsJQWbNueeWrvKktTozuoi/CqSZVJgtsP3z+6bg8bIHhHP0NcY7ki8YIxa8JSQ
+	+DFT1cw01H8H0cwCfV2+UPqyNufluFa4reUt/3rp+/f4eUDG2USsI0cjJtyqWCVQlZVgTc4a7F9
+	8vFSBUW+OLecb5mLm9HVuPUiAfeLl9HqknOITC7i2CMTUUJg9Bg5OdqmiMS3xnjsLbuEwlAKDyc
+	evjScN1CKRpp8+K2Ker/SuOfLX6vr+Oc8W1+2KrP7LSQyVcYMQvel/iIypmaQ==
+X-Google-Smtp-Source: AGHT+IE1gkkMJpeTdzbXIvpbxpilEO6S9t7FL0EeiCn8ghufAQF2agJIi6G1CSuV5avrYTTw6qaQsxqTm1UDVTBC4fk=
+X-Received: by 2002:a05:6808:50a9:b0:43f:7dee:4693 with SMTP id
+ 5614622812f47-44f6b9ab81emr1251419b6e.14.1761643785051; Tue, 28 Oct 2025
+ 02:29:45 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec1bbcd2-d939-4e32-1c5d-08de16046e88
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Oct 2025 09:29:02.3179
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: FUgc2gSetQUuvDkGXRCCuIwc4EEhNQag4gAnkZx6t6nIG6x5Dvb1HKPnTCMGOFVwxcnQfMdCiYl5e4kEj7MWCA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10603
+References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
+ <20251013-automatic-clocks-v1-7-72851ee00300@linaro.org> <5ac782db-fda2-4c31-960c-20269cb40d1d@kernel.org>
+In-Reply-To: <5ac782db-fda2-4c31-960c-20269cb40d1d@kernel.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 28 Oct 2025 09:29:34 +0000
+X-Gm-Features: AWmQ_blN9jlvv15erl1p_Xix2ddOVkJn4wjuXoTixjkRRn1Iku9lQpHMXMNx69k
+Message-ID: <CADrjBPrU_Ts8iiOrLd+Z3dudHnAmNP1bP=ryrXBViLvuuN-8GA@mail.gmail.com>
+Subject: Re: [PATCH 7/9] clk: samsung: Implement automatic clock gating mode
+ for CMUs
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_022908_819421_00AB36BD 
-X-CRM114-Status: GOOD (  34.25  )
+X-CRM114-CacheID: sfid-20251028_022946_913031_BC22FF0B 
+X-CRM114-Status: GOOD (  44.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,201 +103,537 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
+Thanks for your review feedback!
 
-> -----Original Message-----
-> From: Frank Li <frank.li@nxp.com>
-> Sent: Tuesday, October 28, 2025 2:50 AM
-> To: Carlos Song <carlos.song@nxp.com>
-> Cc: mkl@pengutronix.de; broonie@kernel.org; shawnguo@kernel.org;
-> s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
-> linux-spi@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support for tar=
-get
-> mode
->=20
-> On Mon, Oct 27, 2025 at 03:39:36AM +0000, Carlos Song wrote:
+On Tue, 21 Oct 2025 at 20:45, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 13/10/2025 22:51, Peter Griffin wrote:
+> > Update exynos_arm64_init_clocks() so that it enables the automatic clock
+> > mode bits in the CMU option register if the auto_clock_gate flag and
+> > option_offset fields are set for the CMU.
 > >
+> > The CMU option register bits are global and effect every clock component in
+> > the CMU, as such clearing the GATE_ENABLE_HWACG bit and setting GATE_MANUAL
+> > bit on every gate register is only required if auto_clock_gate is false.
 > >
-> > > -----Original Message-----
-> > > From: Frank Li <frank.li@nxp.com>
-> > > Sent: Friday, October 24, 2025 9:25 PM
-> > > To: Carlos Song <carlos.song@nxp.com>
-> > > Cc: mkl@pengutronix.de; broonie@kernel.org; shawnguo@kernel.org;
-> > > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
-> > > linux-spi@vger.kernel.org; imx@lists.linux.dev;
-> > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > > Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support
-> > > for target mode
-> > >
-> > > On Fri, Oct 24, 2025 at 07:31:07PM +0800, carlos.song@nxp.com wrote:
-> > > > From: Carlos Song <carlos.song@nxp.com>
-> > > >
-> > > > Now for ECSPI only support 8 bits per word in target mode.
-> > > > Enable 16/32 bits per word support for spi-imx target mode.
-> > > >
-> > > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> > > > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-> > > > ---
-> > > >  drivers/spi/spi-imx.c | 12 ++++++++++--
-> > > >  1 file changed, 10 insertions(+), 2 deletions(-)
-> > > >
-> > > > diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c index
-> > > > 155ddeb8fcd4..017f83f5dfdf 100644
-> > > > --- a/drivers/spi/spi-imx.c
-> > > > +++ b/drivers/spi/spi-imx.c
-> > > > @@ -424,8 +424,12 @@ static void spi_imx_buf_tx_swap(struct
-> > > > spi_imx_data *spi_imx)
-> > > >
-> > > >  static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)  {
-> > > > -	u32 val =3D ioread32be(spi_imx->base + MXC_CSPIRXDATA);
-> > > > +	u32 val =3D readl(spi_imx->base + MXC_CSPIRXDATA);
-> > > >
-> > > > +	if (spi_imx->bits_per_word <=3D 8)
-> > > > +		swab32s(&val);
-> > > > +	else if (spi_imx->bits_per_word <=3D 16)
-> > > > +		swahw32s(&val);
-> > >
-> > > Needn't swap when bits_per_word > 24, like 32? or our hardware max
-> > > support to 16?
-> > >
-> > > Frank
+> > Additionally if auto_clock_gate is enabled the dynamic root clock gating
+> > and memclk registers will be configured in the corresponding CMUs sysreg
+> > bank. These registers are exposed via syscon, so the register
+> > suspend/resume paths are updated to handle using a regmap.
 > >
-> > I think we don't need. We are reading/writing FIFO by 32-bits word. In
-> > this case, we just need keep the default byte order.
+> > As many gates for various Samsung SoCs are already exposed in the Samsung
+> > clock drivers a new samsung_auto_clk_gate_ops is implemented. This uses
+> > some CMU debug registers to report whether clocks are enabled or disabled
+> > when operating in automatic mode. This allows
+> > /sys/kernel/debug/clk/clk_summary to still dump the entire clock tree and
+> > correctly report the status of each clock in the system.
 > >
-> > Is it more reasonable only support bits per word=3D8/16/32 for target m=
-ode?
-> > -b 8/16/32 can cover most use case.
->=20
-> yes, I only can't understand why needn't swap at 32bits workds, but other
-> needs.
->=20
-> FIFO 31..24  23..16  15..8  7..0
->       B0      B1     B2      B3
->=20
-> next you
->=20
-> in memory val is
->=20
-> 0x0: B3
-> 0x1: B2
-> 0x2: B1
-> 0x3: B0
->=20
-> swab32s() to  bits_per_work 8
->=20
-> 0x0: B0
-> 0x1: B1
-> 0x2: B2
-> 0x3: B3
->=20
-> if bits per_word 16
->=20
-> val
->=20
-> 0x0: X
-> 0x1: X
-> 0x2: B1
-> 0x3: B0
->=20
-> after swahw32s change to
->=20
-> 0x0: B1
-> 0x1: B0
-> 0x2: x
-> 0x3: x
->=20
-> B0 and B1 still be swapped.
->=20
-> Does SPI defined term word fixed big-endian?
->=20
-> Frank
->=20
+> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> > ---
+> >  drivers/clk/samsung/clk-exynos-arm64.c   |  47 +++++++--
+> >  drivers/clk/samsung/clk-exynos4.c        |   6 +-
+> >  drivers/clk/samsung/clk-exynos4412-isp.c |   4 +-
+> >  drivers/clk/samsung/clk-exynos5250.c     |   2 +-
+> >  drivers/clk/samsung/clk-exynos5420.c     |   4 +-
+> >  drivers/clk/samsung/clk.c                | 161 ++++++++++++++++++++++++++++---
+> >  drivers/clk/samsung/clk.h                |  49 +++++++++-
+> >  7 files changed, 244 insertions(+), 29 deletions(-)
+> >
+> > diff --git a/drivers/clk/samsung/clk-exynos-arm64.c b/drivers/clk/samsung/clk-exynos-arm64.c
+> > index bf7de21f329ec89069dcf817ca578fcf9b2d9809..c302c836e8f9f6270753d86d7d986c88e6762f4f 100644
+> > --- a/drivers/clk/samsung/clk-exynos-arm64.c
+> > +++ b/drivers/clk/samsung/clk-exynos-arm64.c
+> > @@ -24,6 +24,16 @@
+> >  #define GATE_MANUAL          BIT(20)
+> >  #define GATE_ENABLE_HWACG    BIT(28)
+> >
+> > +/* Option register bits */
+> > +#define OPT_EN_DBG                   BIT(31)
+> > +#define OPT_UNKNOWN                  BIT(30)
+> > +#define OPT_EN_PWR_MANAGEMENT                BIT(29)
+> > +#define OPT_EN_AUTO_GATING           BIT(28)
+> > +#define OPT_EN_MEM_PM_GATING         BIT(24)
+>
+> Please reverse, from lowest to highest number (LSB -> MSB).
+>
 
-No, SPI doesn't define this. This swap is caused by the SPI-IMX FIFO design=
-.
-SPI-IMX FIFO is fixed little-endian.
+Will fix
 
-One example to easy understand:
+> > +
+> > +#define CMU_OPT_GLOBAL_EN_AUTO_GATING        (OPT_EN_DBG | OPT_UNKNOWN | \
+> > +     OPT_EN_PWR_MANAGEMENT | OPT_EN_AUTO_GATING | OPT_EN_MEM_PM_GATING)
+> > +
+> >  /* PLL_CONx_PLL register offsets range */
+> >  #define PLL_CON_OFF_START    0x100
+> >  #define PLL_CON_OFF_END              0x600
+> > @@ -37,6 +47,8 @@ struct exynos_arm64_cmu_data {
+> >       unsigned int nr_clk_save;
+> >       const struct samsung_clk_reg_dump *clk_suspend;
+> >       unsigned int nr_clk_suspend;
+> > +     struct samsung_clk_reg_dump *clk_sysreg_save;
+> > +     unsigned int nr_clk_sysreg;
+> >
+> >       struct clk *clk;
+> >       struct clk **pclks;
+> > @@ -82,13 +94,28 @@ static void __init exynos_arm64_init_clocks(struct device_node *np,
+> >       if (!reg_base)
+> >               panic("%s: failed to map registers\n", __func__);
+> >
+> > +     if (cmu->auto_clock_gate && cmu->option_offset) {
+> > +             /*
+> > +              * Enable the global automatic mode for the entire CMU.
+> > +              * This overrides the individual HWACG bits in each of the
+> > +              * individual gate, mux and qch registers.
+> > +              */
+> > +             writel(CMU_OPT_GLOBAL_EN_AUTO_GATING,
+> > +                    reg_base + cmu->option_offset);
+> > +     }
+> > +
+> >       for (i = 0; i < reg_offs_len; ++i) {
+> >               void __iomem *reg = reg_base + reg_offs[i];
+> >               u32 val;
+> >
+> >               if (cmu->manual_plls && is_pll_con1_reg(reg_offs[i])) {
+> >                       writel(PLL_CON1_MANUAL, reg);
+> > -             } else if (is_gate_reg(reg_offs[i])) {
+> > +             } else if (is_gate_reg(reg_offs[i]) && !cmu->auto_clock_gate) {
+> > +                     /*
+> > +                      * Setting GATE_MANUAL bit (which is described in TRM as
+> > +                      * reserved!) overrides the global CMU automatic mode
+> > +                      * option.
+> > +                      */
+> >                       val = readl(reg);
+> >                       val |= GATE_MANUAL;
+> >                       val &= ~GATE_ENABLE_HWACG;
+> > @@ -219,7 +246,7 @@ void __init exynos_arm64_register_cmu(struct device *dev,
+> >   * Return: 0 on success, or negative error code on error.
+> >   */
+> >  int __init exynos_arm64_register_cmu_pm(struct platform_device *pdev,
+> > -                                     bool set_manual)
+> > +                                     bool init_clk_regs)
+> >  {
+> >       const struct samsung_cmu_info *cmu;
+> >       struct device *dev = &pdev->dev;
+> > @@ -249,7 +276,7 @@ int __init exynos_arm64_register_cmu_pm(struct platform_device *pdev,
+> >               dev_err(dev, "%s: could not enable bus clock %s; err = %d\n",
+> >                      __func__, cmu->clk_name, ret);
+> >
+> > -     if (set_manual)
+> > +     if (init_clk_regs)
+> >               exynos_arm64_init_clocks(np, cmu);
+> >
+> >       reg_base = devm_platform_ioremap_resource(pdev, 0);
+> > @@ -280,14 +307,18 @@ int exynos_arm64_cmu_suspend(struct device *dev)
+> >       struct exynos_arm64_cmu_data *data = dev_get_drvdata(dev);
+> >       int i;
+> >
+> > -     samsung_clk_save(data->ctx->reg_base, data->clk_save,
+> > +     samsung_clk_save(data->ctx->reg_base, NULL, data->clk_save,
+> >                        data->nr_clk_save);
+> >
+> > +     if (data->ctx->sysreg)
+>
+> No need for if() here and in samsung_clk_save.
 
-If buf is:
+Will fix.
 
-0XB0B1B2B3
+>
+> I find it confusing. You do samsung_clk_save() for regular CMU MMIO
+> address and then immediately - for GS101 - do the same for sysreg:
+>
+> > +             samsung_clk_save(NULL, data->ctx->sysreg, data->clk_save,
+> > +                              data->nr_clk_save);
+>
+> So this feels like you could make one call of samsung_clk_save() with
+> both arguments - reg_base and sysreg. It also leads to confusion - first
+> read from MMIO will be overwritten by sysreg read.
 
-So data in TXFIFO is:
-FIFO 31..24  23..16  15..8  7..0
-  B0        B1		B2   B3
+Apologies for the confusion, that was a typo/bug in v1 it should have
+read like this:
 
-So we can always see data on SPI bus:
-0xB3B2B1B0
+samsung_clk_save(data->ctx->reg_base, NULL, data->clk_save,
+data->nr_clk_save);
 
-For this patch:
-bits per word=3D 8: it means one byte is one word, so it should not effect =
-by big endian or little endian, so every bytes should keep the same order b=
-etween memory and SPI bus.
-We write FIFO by 32 bits word, So we should swap every bytes in this word f=
-rom 0XB0B1B2B3 to 0XB3B2B1B0
+samsung_clk_save(NULL, data->ctx->sysreg, data->clk_sysreg_save,
+data->nr_clk_sysreg);
 
-Data in TXFIFO is
-FIFO 31..24  23..16  15..8  7..0
-  B3        B2		B1  B0
-Then we can see data on SPI bus is
-0XB0B1B2B3
+First it saves the CMU MMIO regs, then the second call saves the
+sysreg registers (drcg & memclk).
 
-For bits per word =3D 16, it means two bytes in one word, so every 2 bytes =
-is one word, the word should be a little endian word,
+>
+>
+> > +
+> >       for (i = 0; i < data->nr_pclks; i++)
+> >               clk_prepare_enable(data->pclks[i]);
+> >
+> >       /* For suspend some registers have to be set to certain values */
+> > -     samsung_clk_restore(data->ctx->reg_base, data->clk_suspend,
+> > +     samsung_clk_restore(data->ctx->reg_base, NULL, data->clk_suspend,
+> >                           data->nr_clk_suspend);
+> >
+> >       for (i = 0; i < data->nr_pclks; i++)
+> > @@ -308,9 +339,13 @@ int exynos_arm64_cmu_resume(struct device *dev)
+> >       for (i = 0; i < data->nr_pclks; i++)
+> >               clk_prepare_enable(data->pclks[i]);
+> >
+> > -     samsung_clk_restore(data->ctx->reg_base, data->clk_save,
+> > +     samsung_clk_restore(data->ctx->reg_base, NULL, data->clk_save,
+> >                           data->nr_clk_save);
+> >
+> > +     if (data->ctx->sysreg)
+> > +             samsung_clk_restore(NULL, data->ctx->sysreg, data->clk_save,
+> > +                                 data->nr_clk_save);
+> > +
+> >       for (i = 0; i < data->nr_pclks; i++)
+> >               clk_disable_unprepare(data->pclks[i]);
+> >
+> > diff --git a/drivers/clk/samsung/clk-exynos4.c b/drivers/clk/samsung/clk-exynos4.c
+> > index cc5c1644c41c08b27bc48d809a08cd8a006cbe8f..26ac9734722d1e7ed8ec3f1c0a956f26e32b92d4 100644
+> > --- a/drivers/clk/samsung/clk-exynos4.c
+> > +++ b/drivers/clk/samsung/clk-exynos4.c
+> > @@ -1378,15 +1378,15 @@ static void __init exynos4_clk_init(struct device_node *np,
+> >       if (soc == EXYNOS4212 || soc == EXYNOS4412)
+> >               exynos4x12_core_down_clock();
+> >
+> > -     samsung_clk_extended_sleep_init(reg_base,
+> > +     samsung_clk_extended_sleep_init(reg_base, NULL,
+> >                       exynos4_clk_regs, ARRAY_SIZE(exynos4_clk_regs),
+> >                       src_mask_suspend, ARRAY_SIZE(src_mask_suspend));
+> >       if (exynos4_soc == EXYNOS4210)
+> > -             samsung_clk_extended_sleep_init(reg_base,
+> > +             samsung_clk_extended_sleep_init(reg_base, NULL,
+> >                   exynos4210_clk_save, ARRAY_SIZE(exynos4210_clk_save),
+> >                   src_mask_suspend_e4210, ARRAY_SIZE(src_mask_suspend_e4210));
+> >       else
+> > -             samsung_clk_sleep_init(reg_base, exynos4x12_clk_save,
+> > +             samsung_clk_sleep_init(reg_base, NULL, exynos4x12_clk_save,
+> >                                      ARRAY_SIZE(exynos4x12_clk_save));
+> >
+> >       samsung_clk_of_add_provider(np, ctx);
+> > diff --git a/drivers/clk/samsung/clk-exynos4412-isp.c b/drivers/clk/samsung/clk-exynos4412-isp.c
+> > index fa915057e109e0008ebe0b1b5d1652fd5804e82b..772bc18a1e686f23b11bf160b803becff6279637 100644
+> > --- a/drivers/clk/samsung/clk-exynos4412-isp.c
+> > +++ b/drivers/clk/samsung/clk-exynos4412-isp.c
+> > @@ -94,7 +94,7 @@ static int __maybe_unused exynos4x12_isp_clk_suspend(struct device *dev)
+> >  {
+> >       struct samsung_clk_provider *ctx = dev_get_drvdata(dev);
+> >
+> > -     samsung_clk_save(ctx->reg_base, exynos4x12_save_isp,
+> > +     samsung_clk_save(ctx->reg_base, NULL, exynos4x12_save_isp,
+> >                        ARRAY_SIZE(exynos4x12_clk_isp_save));
+> >       return 0;
+> >  }
+> > @@ -103,7 +103,7 @@ static int __maybe_unused exynos4x12_isp_clk_resume(struct device *dev)
+> >  {
+> >       struct samsung_clk_provider *ctx = dev_get_drvdata(dev);
+> >
+> > -     samsung_clk_restore(ctx->reg_base, exynos4x12_save_isp,
+> > +     samsung_clk_restore(ctx->reg_base, NULL, exynos4x12_save_isp,
+> >                           ARRAY_SIZE(exynos4x12_clk_isp_save));
+> >       return 0;
+> >  }
+> > diff --git a/drivers/clk/samsung/clk-exynos5250.c b/drivers/clk/samsung/clk-exynos5250.c
+> > index e90d3a0848cbc24b2709c10795f6affcda404567..f97f30b29be7317db8186bac39cf52e1893eb106 100644
+> > --- a/drivers/clk/samsung/clk-exynos5250.c
+> > +++ b/drivers/clk/samsung/clk-exynos5250.c
+> > @@ -854,7 +854,7 @@ static void __init exynos5250_clk_init(struct device_node *np)
+> >               PWR_CTRL2_CORE2_UP_RATIO | PWR_CTRL2_CORE1_UP_RATIO);
+> >       __raw_writel(tmp, reg_base + PWR_CTRL2);
+> >
+> > -     samsung_clk_sleep_init(reg_base, exynos5250_clk_regs,
+> > +     samsung_clk_sleep_init(reg_base, NULL, exynos5250_clk_regs,
+> >                              ARRAY_SIZE(exynos5250_clk_regs));
+> >       exynos5_subcmus_init(ctx, ARRAY_SIZE(exynos5250_subcmus),
+> >                            exynos5250_subcmus);
+> > diff --git a/drivers/clk/samsung/clk-exynos5420.c b/drivers/clk/samsung/clk-exynos5420.c
+> > index a9df4e6db82fa7831d4e5c7210b0163d7d301ec1..1982e0751ceec7e57f9e82d96dcbadce1f691092 100644
+> > --- a/drivers/clk/samsung/clk-exynos5420.c
+> > +++ b/drivers/clk/samsung/clk-exynos5420.c
+> > @@ -1649,12 +1649,12 @@ static void __init exynos5x_clk_init(struct device_node *np,
+> >                               ARRAY_SIZE(exynos5800_cpu_clks));
+> >       }
+> >
+> > -     samsung_clk_extended_sleep_init(reg_base,
+> > +     samsung_clk_extended_sleep_init(reg_base, NULL,
+> >               exynos5x_clk_regs, ARRAY_SIZE(exynos5x_clk_regs),
+> >               exynos5420_set_clksrc, ARRAY_SIZE(exynos5420_set_clksrc));
+> >
+> >       if (soc == EXYNOS5800) {
+> > -             samsung_clk_sleep_init(reg_base, exynos5800_clk_regs,
+> > +             samsung_clk_sleep_init(reg_base, NULL, exynos5800_clk_regs,
+> >                                      ARRAY_SIZE(exynos5800_clk_regs));
+> >
+> >               exynos5_subcmus_init(ctx, ARRAY_SIZE(exynos5800_subcmus),
+> > diff --git a/drivers/clk/samsung/clk.c b/drivers/clk/samsung/clk.c
+> > index dbc9925ca8f46e951dfb5d391c0e744ca370abcc..07b2948ae7ea48f126ab420be57d8c2705979464 100644
+> > --- a/drivers/clk/samsung/clk.c
+> > +++ b/drivers/clk/samsung/clk.c
+> > @@ -12,8 +12,10 @@
+> >  #include <linux/clkdev.h>
+> >  #include <linux/clk-provider.h>
+> >  #include <linux/io.h>
+> > +#include <linux/mfd/syscon.h>
+> >  #include <linux/mod_devicetable.h>
+> >  #include <linux/of_address.h>
+> > +#include <linux/regmap.h>
+> >  #include <linux/syscore_ops.h>
+> >
+> >  #include "clk.h"
+> > @@ -21,19 +23,29 @@
+> >  static LIST_HEAD(clock_reg_cache_list);
+> >
+> >  void samsung_clk_save(void __iomem *base,
+> > +                                 struct regmap *regmap,
+>
+> Here it is regmap, in samsung_clk_extended_sleep_init() it is called
+> sysreg.
 
-so we should swap half word from
-0XB0B1B2B3 to 0XB2B3B0B1
+I'll update samsung_clk_sleep_init so it is named regmap to be
+consistent with the naming. Currently it is only used with the sysreg
+regmap, but I suppose in the future there could be other regmaps we
+wish to save/restore.
 
-Then data in TXFIFO is:
-FIFO 31..24  23..16  15..8  7..0
-  B2        B3		B0  B1
-Then we can see data on SPI bus is
-0XB1B0B3B2
+>This suggests that in some cases this replaces the MMIO - like
+> here in samsung_clk_save().
 
-For bis per word =3D32, it means for bytes in one word, so every 4 bytes is=
- one word. The whole word is a little endian.
-So we keep the default order.
-0XB0B1B2B3
+Each CMU has MMIO registers and nearly all of them (so far only
+cmu_top I've found doesn't) have a couple of clock related registers
+in the correspondingly named sysreg. This patch was updating the
+samsung_clk_save/restore functions so that as well as saving the MMIO
+registers via base, you can alternatively pass it a regmap (instead of
+base) and it will save those registers as well. It was obfuscated
+unfortunately due to the copy/paste bug mentioned above in the first
+version.
 
-FIFO 31..24  23..16  15..8  7..0
-  B0        B1		B2  B3
+Maybe we should just have separate functions instead of overloading
+these samsung_clk_save_regmap() and samsung_clk_restore_regmap()
 
-So we can see the data on bus is:
-0xB3B2B1B0
+>
+>
+> >                                   struct samsung_clk_reg_dump *rd,
+> >                                   unsigned int num_regs)
+> >  {
+> > -     for (; num_regs > 0; --num_regs, ++rd)
+> > -             rd->value = readl(base + rd->offset);
+> > +     for (; num_regs > 0; --num_regs, ++rd) {
+> > +             if (base)
+> > +                     rd->value = readl(base + rd->offset);
+> > +             if (regmap)
+> > +                     regmap_read(regmap, rd->offset, &rd->value);
+> > +     }
+> >  }
+> >
+> >  void samsung_clk_restore(void __iomem *base,
+> > +                                   struct regmap *regmap,
+> >                                     const struct samsung_clk_reg_dump *rd,
+> >                                     unsigned int num_regs)
+> >  {
+> > -     for (; num_regs > 0; --num_regs, ++rd)
+> > -             writel(rd->value, base + rd->offset);
+> > +     for (; num_regs > 0; --num_regs, ++rd) {
+> > +             if (base)
+> > +                     writel(rd->value, base + rd->offset);
+> > +             if (regmap)
+> > +                     regmap_write(regmap, rd->offset, rd->value);
+> > +     }
+> >  }
+> >
+> >  struct samsung_clk_reg_dump *samsung_clk_alloc_reg_dump(
+> > @@ -227,6 +239,82 @@ void __init samsung_clk_register_div(struct samsung_clk_provider *ctx,
+> >       }
+> >  }
+> >
+> > +#define ACG_MSK GENMASK(6, 4)
+> > +#define CLK_IDLE GENMASK(5, 4)
+> > +static int samsung_auto_clk_gate_is_en(struct clk_hw *hw)
+> > +{
+> > +     u32 reg;
+> > +     struct clk_gate *gate = to_clk_gate(hw);
+> > +
+> > +     reg = readl(gate->reg);
+> > +     return ((reg & ACG_MSK) == CLK_IDLE) ? 0 : 1;
+> > +}
+> > +
+> > +/* enable and disable are nops in automatic clock mode */
+> > +static int samsung_auto_clk_gate_en(struct clk_hw *hw)
+> > +{
+> > +     return 0;
+> > +}
+> > +
+> > +static void samsung_auto_clk_gate_dis(struct clk_hw *hw)
+> > +{
+> > +}
+> > +
+> > +static const struct clk_ops samsung_auto_clk_gate_ops = {
+> > +     .enable = samsung_auto_clk_gate_en,
+> > +     .disable = samsung_auto_clk_gate_dis,
+> > +     .is_enabled = samsung_auto_clk_gate_is_en,
+> > +};
+> > +
+> > +struct clk_hw *samsung_register_auto_gate(struct device *dev,
+> > +             struct device_node *np, const char *name,
+> > +             const char *parent_name, const struct clk_hw *parent_hw,
+> > +             const struct clk_parent_data *parent_data,
+> > +             unsigned long flags,
+> > +             void __iomem *reg, u8 bit_idx,
+> > +             u8 clk_gate_flags, spinlock_t *lock)
+> > +{
+> > +     struct clk_gate *gate;
+> > +     struct clk_hw *hw;
+> > +     struct clk_init_data init = {};
+> > +     int ret = -EINVAL;
+> > +
+> > +     /* allocate the gate */
+> > +     gate = kzalloc(sizeof(*gate), GFP_KERNEL);
+> > +     if (!gate)
+> > +             return ERR_PTR(-ENOMEM);
+> > +
+> > +     init.name = name;
+> > +     init.ops = &samsung_auto_clk_gate_ops;
+> > +     init.flags = flags;
+> > +     init.parent_names = parent_name ? &parent_name : NULL;
+> > +     init.parent_hws = parent_hw ? &parent_hw : NULL;
+> > +     init.parent_data = parent_data;
+> > +     if (parent_name || parent_hw || parent_data)
+> > +             init.num_parents = 1;
+> > +     else
+> > +             init.num_parents = 0;
+> > +
+> > +     /* struct clk_gate assignments */
+> > +     gate->reg = reg;
+> > +     gate->bit_idx = bit_idx;
+> > +     gate->flags = clk_gate_flags;
+> > +     gate->lock = lock;
+> > +     gate->hw.init = &init;
+> > +
+> > +     hw = &gate->hw;
+> > +     if (dev || !np)
+> > +             ret = clk_hw_register(dev, hw);
+> > +     else if (np)
+> > +             ret = of_clk_hw_register(np, hw);
+> > +     if (ret) {
+> > +             kfree(gate);
+> > +             hw = ERR_PTR(ret);
+> > +     }
+> > +
+> > +     return hw;
+> > +}
+> > +
+> >  /* register a list of gate clocks */
+> >  void __init samsung_clk_register_gate(struct samsung_clk_provider *ctx,
+> >                               const struct samsung_gate_clock *list,
+> > @@ -234,11 +322,21 @@ void __init samsung_clk_register_gate(struct samsung_clk_provider *ctx,
+> >  {
+> >       struct clk_hw *clk_hw;
+> >       unsigned int idx;
+> > +     void __iomem *reg_offs;
+> >
+> >       for (idx = 0; idx < nr_clk; idx++, list++) {
+> > -             clk_hw = clk_hw_register_gate(ctx->dev, list->name, list->parent_name,
+> > -                             list->flags, ctx->reg_base + list->offset,
+> > +             reg_offs = ctx->reg_base + list->offset;
+> > +
+> > +             if (ctx->auto_clock_gate && ctx->gate_dbg_offset)
+> > +                     clk_hw = samsung_register_auto_gate(ctx->dev, NULL,
+> > +                             list->name, list->parent_name, NULL, NULL,
+> > +                             list->flags, reg_offs + ctx->gate_dbg_offset,
+> >                               list->bit_idx, list->gate_flags, &ctx->lock);
+> > +             else
+> > +                     clk_hw = clk_hw_register_gate(ctx->dev, list->name,
+> > +                             list->parent_name, list->flags,
+> > +                             ctx->reg_base + list->offset, list->bit_idx,
+> > +                             list->gate_flags, &ctx->lock);
+> >               if (IS_ERR(clk_hw)) {
+> >                       pr_err("%s: failed to register clock %s\n", __func__,
+> >                               list->name);
+> > @@ -276,10 +374,11 @@ static int samsung_clk_suspend(void)
+> >       struct samsung_clock_reg_cache *reg_cache;
+> >
+> >       list_for_each_entry(reg_cache, &clock_reg_cache_list, node) {
+> > -             samsung_clk_save(reg_cache->reg_base, reg_cache->rdump,
+> > -                             reg_cache->rd_num);
+> > -             samsung_clk_restore(reg_cache->reg_base, reg_cache->rsuspend,
+> > -                             reg_cache->rsuspend_num);
+> > +             samsung_clk_save(reg_cache->reg_base, reg_cache->sysreg,
+> > +                              reg_cache->rdump, reg_cache->rd_num);
+> > +             samsung_clk_restore(reg_cache->reg_base, reg_cache->sysreg,
+> > +                                 reg_cache->rsuspend,
+> > +                                 reg_cache->rsuspend_num);
+> >       }
+> >       return 0;
+> >  }
+> > @@ -289,8 +388,8 @@ static void samsung_clk_resume(void)
+> >       struct samsung_clock_reg_cache *reg_cache;
+> >
+> >       list_for_each_entry(reg_cache, &clock_reg_cache_list, node)
+> > -             samsung_clk_restore(reg_cache->reg_base, reg_cache->rdump,
+> > -                             reg_cache->rd_num);
+> > +             samsung_clk_restore(reg_cache->reg_base, reg_cache->sysreg,
+> > +                                 reg_cache->rdump, reg_cache->rd_num);
+> >  }
+> >
+> >  static struct syscore_ops samsung_clk_syscore_ops = {
+> > @@ -299,6 +398,7 @@ static struct syscore_ops samsung_clk_syscore_ops = {
+> >  };
+> >
+> >  void samsung_clk_extended_sleep_init(void __iomem *reg_base,
+> > +                     struct regmap *sysreg,
+> >                       const unsigned long *rdump,
+> >                       unsigned long nr_rdump,
+> >                       const struct samsung_clk_reg_dump *rsuspend,
+> > @@ -319,6 +419,7 @@ void samsung_clk_extended_sleep_init(void __iomem *reg_base,
+> >               register_syscore_ops(&samsung_clk_syscore_ops);
+> >
+> >       reg_cache->reg_base = reg_base;
+> > +     reg_cache->sysreg = sysreg;
+> >       reg_cache->rd_num = nr_rdump;
+> >       reg_cache->rsuspend = rsuspend;
+> >       reg_cache->rsuspend_num = nr_rsuspend;
+> > @@ -334,6 +435,12 @@ void samsung_clk_extended_sleep_init(void __iomem *reg_base,
+> >  void __init samsung_cmu_register_clocks(struct samsung_clk_provider *ctx,
+> >                                       const struct samsung_cmu_info *cmu)
+> >  {
+> > +     ctx->auto_clock_gate = cmu->auto_clock_gate;
+> > +     ctx->gate_dbg_offset = cmu->gate_dbg_offset;
+> > +     ctx->option_offset = cmu->option_offset;
+> > +     ctx->drcg_offset = cmu->drcg_offset;
+> > +     ctx->memclk_offset = cmu->memclk_offset;
+> > +
+> >       if (cmu->pll_clks)
+> >               samsung_clk_register_pll(ctx, cmu->pll_clks, cmu->nr_pll_clks);
+> >       if (cmu->mux_clks)
+> > @@ -353,6 +460,31 @@ void __init samsung_cmu_register_clocks(struct samsung_clk_provider *ctx,
+> >               samsung_clk_register_cpu(ctx, cmu->cpu_clks, cmu->nr_cpu_clks);
+> >  }
+> >
+> > +/* Enable Dynamic Root Clock Gating of bus components*/
+> > +void samsung_en_dyn_root_clk_gating(struct device_node *np,
+> > +                                 struct samsung_clk_provider *ctx,
+> > +                                 const struct samsung_cmu_info *cmu)
+> > +{
+> > +     if (ctx && !ctx->auto_clock_gate)
+>
+> Test for ctx should trigger Smatch warning.
 
-The RX handle is the same with TX. From bus to FIFO is a little word, so sw=
-ap in memory.
+Will remove the ctx test.
+>
+> > +             return;
+> > +
+> > +     ctx->sysreg = syscon_regmap_lookup_by_phandle(np, "samsung,sysreg");
+> > +     if (!IS_ERR_OR_NULL(ctx->sysreg)) {
+>
+> Can it return NULL? anyway that's very confusing if() - negated OR_NULL.
+> Better just
+> if (IS_ERR()) {
+>         ctx->sysreg = NULL;
+>         return;
+> }
 
-Carlos
+Will update like you suggest in v2. Thanks for the review feedback.
 
-> > Carlos
-> > > >  	if (spi_imx->rx_buf) {
-> > > >  		int n_bytes =3D spi_imx->target_burst % sizeof(val);
-> > > >
-> > > > @@ -453,12 +457,16 @@ static void mx53_ecspi_tx_target(struct
-> > > spi_imx_data *spi_imx)
-> > > >  	if (spi_imx->tx_buf) {
-> > > >  		memcpy(((u8 *)&val) + sizeof(val) - n_bytes,
-> > > >  		       spi_imx->tx_buf, n_bytes);
-> > > > +		if (spi_imx->bits_per_word <=3D 8)
-> > > > +			swab32s(&val);
-> > > > +		else if (spi_imx->bits_per_word <=3D 16)
-> > > > +			swahw32s(&val);
-> > > >  		spi_imx->tx_buf +=3D n_bytes;
-> > > >  	}
-> > > >
-> > > >  	spi_imx->count -=3D n_bytes;
-> > > >
-> > > > -	iowrite32be(val, spi_imx->base + MXC_CSPITXDATA);
-> > > > +	writel(val, spi_imx->base + MXC_CSPITXDATA);
-> > > >  }
-> > > >
-> > > >  /* MX51 eCSPI */
-> > > > --
-> > > > 2.34.1
-> > > >
+regards,
+
+Peter
 
