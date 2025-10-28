@@ -4,99 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0D7CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F34CCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0OdKjf6E11PLhTN47izQgrYewu6DAaBIZBsxLqLrIEE=; b=kgGDLHo4dnhJFFqqCIfqccG4Jq
-	t5CJs80RSwpu56XEC+hlIdYlHIOXZKYQditNQV0wri7y1U7wNKTvz1e9CLuG9T+GNO8RkQNAbsdBW
-	asbWz4a3f8Lgy0OAPnaj4JMNIzPpM/8O6KJ0VTRI9tA5Y0S4FJ4ariDwyUBSKx36qIcTh1Cerb9ry
-	Ifn5Ty+F+cpJIw0PmHUQkxYTtj3xtdEcs21D3NlEx5KJvoEmR4zniEcNBn0kuKkNJgYy8Eli5aot3
-	upriDkka4hB0beMBiOL/b6RNvyC4YXYXOipq6Wraz9mTOzH0Oq/wE184WOE0Jbo9zku46bbBya2Zs
-	Vz7G20bg==;
+	bh=aLzgqt9BJ8ROBu1ytd8NRk8G5nhO+d5g2MyNEPanXaA=; b=wcYrFZ+Z6qZOad9BIuSYU7QpM3
+	4dPl/MloH0A2oASJpl68au0XkH3F+uC+okfyRloQOyA47T2O4iUz7Q9J6zxVN+WHmv3zfz94ECmAA
+	PkMgTXYLI9GGsxZXH/hHNQpNsRH3eCupX4cGgXIBecsePTB36NxvrqQxf4+lnoEZUFqc+S2LXYnOY
+	3S51EZXAxbEKk0acUnTvhAnXUtTFbV7Dd1QtfO2lhStLWnp2ci6v9QLd4BUmAqu/fxPd1RsNZ8d8D
+	Gm2E0TuNxaGAYhw/pVjnJGiHb6wDV5x92nLSwPJ7gNd1yUIR2pvHgT9wYZD38nS1uYDMPTf1B0gpM
+	T4iOiIWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlrD-0000000GDDH-0UQ1;
-	Tue, 28 Oct 2025 15:43:35 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vDlrN-0000000GDJe-306z;
+	Tue, 28 Oct 2025 15:43:45 +0000
+Received: from mail-northeuropeazon11012031.outbound.protection.outlook.com ([52.101.66.31] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlrA-0000000GDC8-3iqg
+	id 1vDlrK-0000000GDHI-0Reu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 15:43:33 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4710665e7deso32552665e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:43:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761666211; x=1762271011; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0OdKjf6E11PLhTN47izQgrYewu6DAaBIZBsxLqLrIEE=;
-        b=VDb/eHi6e4I9rHrt4VhOcBleWi8LsQSPQ5xo9D4x3u2WajNRlKy1OqAkYUqMIpzYHK
-         R299KG7vZwEwGECnFK/xs3XuUl9YV57+8y0PPfiskVmEt7Uz1EiycpRxD8ijkTZvVgVB
-         az4rAaTthM/BOzlbXs8cTifpavaL1k6PYPXrgjRd4Hg37vsmuHjCacqT34xJe6+9ZiKw
-         wVttnDTKcDMchR2VywEVnbHOZ/lmprmkaacjSJjaNlKx41hq4rNAUVQ1/fqh3TaeQLt5
-         r+VzMw+vLiRVU19yvuY3XHk6dlIRWWdHfb+yqVfhZmWoh1UpFUkn2Nc+aImnvPHLq6DM
-         W7+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761666211; x=1762271011;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0OdKjf6E11PLhTN47izQgrYewu6DAaBIZBsxLqLrIEE=;
-        b=CduQNEak/g93Yh4MevGGPJe5DcT7Y87T/4RIjMqBRRUCPF67P1W4RRnIy5gV5GIbYJ
-         lA8V4F4L8ML8Ynid3Wi6s0ULmBeqQdVPhTJEWUoCqNdDScfFSCcgc2tD5YLT2KBMUmOe
-         ne9Y/VyIhX6qCcy67uwgxnK3m4p8r7QI7bziysVr0ROTzZaTDYUj2jqs5mpvIvjRfxRn
-         EYZqdydp2UDwwI58TEMJUzTdtjCgeoeJCPMI8TzjCdi5rrsfpEGfwJuJdtFQU3C9NnUV
-         PKSa+umH63C8CCa06fDYhAV091oR4Oc31c3z/1UvnAvQPaR2Apt3IvUWUGy38o1kFCX7
-         +inQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVHYHwn0DUdZbQsbgTFCLc+p89Dl1sq3/zeWmsmsQhZsDIUNoOYns1JVV5YeaMNUZ0MYT5V8P16A/orF90EVLKU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSTuzktTGaU/GEshZOKsVwjdQVjYntKOofWsVcQ3ys2NP3XwrT
-	e6iNcyOioDkJdBr26S2KLNNDqPC0t0sqKrYgTZcoOnkvm03EBmOk1Q+W
-X-Gm-Gg: ASbGncsjsapnAI9Cg/I3SL2vG3sPfHxnEMUi7t04xM6qQK5vqTty7BJovADPBBQqmWh
-	emSNXQwNT6Pw+C3xXRUYaFxeybpmBpJuMYpGqHKyRkIXMwvfXuDiqsA9N1nGbUD/XbvR64N2+Ue
-	0G1H7CLo76yrHQyeYJHFlC32BB4jK3vynVIMHZG5rcy+RRJa7nq2prKoZBq3HSIAwPcbrfGGKgi
-	hpka4G29Wx4/zHPeMJXyLfCpqRXVHa8ZEMTs2UlD0/uHppkEVIa67rZw8lYlkS6kseW0vJTmXXD
-	nH8fAgcp+KyNAcosAXP7HyCdrIhid4fGIrAfQTWRADjB5+y1OkxSLf1op5edZHKLhNdfUt+se1U
-	iY1GFzER9lFhMlirrcZ/DmW2V2K1N4kXkVgFolK+UA/IGaXh+gbBnxnYGmxxtFKHr2krw5PwKIl
-	IZYNTISKNyFcxMXNW4yoB/WzGlZJrYvsogZjMt7BAagoDYG7S1rE4WXrFJ0A==
-X-Google-Smtp-Source: AGHT+IGQT1sWn537O9lUQH0SeyIcZJ4uWohxTzjPx9kV6HFu78PmQQbglpth1JWOPqlEUpT9jeFZgg==
-X-Received: by 2002:a05:600c:4e02:b0:475:dd04:128a with SMTP id 5b1f17b1804b1-47717e6b4c8mr33281395e9.31.1761666210763;
-        Tue, 28 Oct 2025 08:43:30 -0700 (PDT)
-Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd02cd6dsm210045835e9.2.2025.10.28.08.43.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 08:43:30 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- Richard Genoud <richard.genoud@bootlin.com>
-Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
- Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
- Maxime Ripard <mripard@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@bootlin.com>
-Subject: Re: [PATCH v4 08/16] mtd: rawnand: sunxi: add has_ecc_block_512 capability
-Date: Tue, 28 Oct 2025 16:43:29 +0100
-Message-ID: <8637155.NyiUUSuA9g@jernej-laptop>
-In-Reply-To: <20251028073534.526992-9-richard.genoud@bootlin.com>
-References: <20251028073534.526992-1-richard.genoud@bootlin.com>
- <20251028073534.526992-9-richard.genoud@bootlin.com>
+	Tue, 28 Oct 2025 15:43:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mYhhFnyAGBXQ2NlJDa/snv9FWb+893p2cJxn+CPcf6+0sstI7naCBxdZrwE9ZBgYswzZbULpW7pBcqFNjS+Ol2555juEJRtKI4iCy7S62OsqbpjVu6ivEt+c9KFCbC1pxtAaj6IWYqqdidnE0X/OzpMng/ET6yLyzpoHVw7KHmEhsFq8EvwZJkh5vhBqSQqR5xVqzw7z7es7F5aYOGDHeUrUxy8hSkeCJTu+7dUPZ9yZVr7qYBMkMrGik6a2wfQDMimBCtcdb0L+MPXdyJMBlmCDiONWcMK53SwF26laDWJXFLBmYhUWSvpSl/v5L0ng8Ly5WZw8VO3ZcrXRZ0Qcvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aLzgqt9BJ8ROBu1ytd8NRk8G5nhO+d5g2MyNEPanXaA=;
+ b=LRtWCAo/EvGX9b0aKuj11wSR5o9hzn975G6/IjnG3csNJdMAqFaRBvYR/dLk4eky3x/A1iidXDOgH5Usll7yfxNHAcS0I/FZgaAZ2KHXTwlB+Ak9fNLV+euCAgnzdsSWMwqvy39xcNjnO636DP2Q7aFMCEPTyUPqXbdoo5BY9kh4Iq1/ybzfp3Bk2QsBD+EjWStKIVQrJ0y+a851xyX+zcB7c2jOTiSPE6AOzndFYcJQCuagTJnYCbq4B/HYEzPxjr3QnccgSST+8m+bXkEz7yTqEbw5uMrm++HxyKe2f7JG/S9fHf4WydWenwO7SoBW/h04bSFNEPXQTi0E+L2XKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aLzgqt9BJ8ROBu1ytd8NRk8G5nhO+d5g2MyNEPanXaA=;
+ b=Ngth1kIU07pN/U4JHAeMUgdbxEJJfQZIR5zA0vSg+RAQOIdNKQvGhAyQljBOsEIU+cWJ9h2kHGpn0Kx8kzWFAyZEc8c1mnXyplxi+OImfbGKWhFAu6KGbX3n7D5ZYLj2kMpByGt+MKx00Gj1xWwjk8hxdnbXj3JTon+dFok+Pd1+msDHZWLz2l0l+ja0gpqhfiAsrld8xrtn+EL8LyaV+hFvs8IePEfOjVOCGzAE4cHccS7UlvpG9xQdDFpiUzpnAXHGf4uAXnlrYR4qtCFi4NHHx/6aGrp3Tv6WTF8Mr3sK1YxVUvUBrorEwJehQUNr9j/VCwEhyjsmaMf50TNRcg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AS5PR04MB9970.eurprd04.prod.outlook.com (2603:10a6:20b:67e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.19; Tue, 28 Oct
+ 2025 15:43:38 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.011; Tue, 28 Oct 2025
+ 15:43:38 +0000
+Date: Tue, 28 Oct 2025 11:43:31 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: "mkl@pengutronix.de" <mkl@pengutronix.de>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support for target
+ mode
+Message-ID: <aQDko60j5lB1ngCl@lizhi-Precision-Tower-5810>
+References: <20251024113107.513604-1-carlos.song@nxp.com>
+ <aPt+JJhaB9dUOwL8@lizhi-Precision-Tower-5810>
+ <VI2PR04MB11147AB20690F99BB6CEE2300E8FCA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+ <aP++6ghId1LvQ1NF@lizhi-Precision-Tower-5810>
+ <VI2PR04MB1114746F42268876E27C1B93FE8FDA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <VI2PR04MB1114746F42268876E27C1B93FE8FDA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: PH7PR10CA0021.namprd10.prod.outlook.com
+ (2603:10b6:510:23d::20) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS5PR04MB9970:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2aecf1e8-72fb-4725-7649-08de1638c2fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|366016|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dFf6O9/7G0KmtozUhEWMETCp7/sgXTin1zgSx6C92VuIJZPuIkRi1jc2aJx9?=
+ =?us-ascii?Q?ZZ+2p1IPztE+KORgbb2HTJ5Cdj3/avrzMf90aLt7LmCJrhsGYONWC6pbj5H5?=
+ =?us-ascii?Q?uvhCFaEYB9XJl7/zjj8KJhgFQMflIbMYAzLtD0aCYJOpQu4NSreII2Ut59Z/?=
+ =?us-ascii?Q?+2I1sGfMw4cQLxVUartGA/jbPKi8FcCLOvlp+MLf7cWXHTqav9ibtQpSARrw?=
+ =?us-ascii?Q?kaJttv4jBnVxc185MP6tQKY2z/sDWrUoNV9jhy3WEkMxyAkwcxUu7I2m33LN?=
+ =?us-ascii?Q?ZvgPyglyyvCXb48XL+W4ovuTMK86bQaSZ46WgExQAU76mPA4W3l7tM6psee3?=
+ =?us-ascii?Q?q/58IGbfVIoNOubM08KmSf6WexPp8XwM4vJxC6JnWDZc/W0Juc9bL+AXi4la?=
+ =?us-ascii?Q?R8aaHNDJ8u3sKJXWjn5Yf3ybs79WaBYA9PWJ6FBD2o5vQyh2JgijbG4LJlhT?=
+ =?us-ascii?Q?+aMDoRA3YGhsRSw7U2WXEXpAUgwnAIfKBpPW0Mj7mzvcB1E6QGCgSKMUdvwY?=
+ =?us-ascii?Q?HqRLWH+OGMp/+baRoVLcw9eXpr7gJCv8GmM0ywipLEvU2++8lS0GPMerFmPo?=
+ =?us-ascii?Q?ZKIWo4o6UlOxhR/fBJahPF2eShSI2gO7TrsKaYx7PGHPkrmb1fqBH5gOAzQo?=
+ =?us-ascii?Q?n1byx9IsWlpx5e/OfmJHhOrs3Gng2MBEO7sMqdfeLQrjDkohii9Rnn4vAHlH?=
+ =?us-ascii?Q?WgB9n/JwkCx8YDcOQ/8pj/gCRr8+82A6Inhf7qlLhN8zLElWBARoxnXdIjKV?=
+ =?us-ascii?Q?gBYGDULywRWt74K88ezR0HTBv1HtJyTgbqi/1JyCT1zu8vOr4E2qzQ3l4Xym?=
+ =?us-ascii?Q?3HMXnSOTLTJdWr7AaO1BrcRGBGLl1c1yYUnQgGnSNo6ibx182U3mhxiuZe9l?=
+ =?us-ascii?Q?wruT1iLTYq47V3tsWt32ErAH2PmFGSYZnCIATw4dyEx+SQZk/tGqhCLaazyQ?=
+ =?us-ascii?Q?ZC9cpF3Sao2UYz0HoRC4Z5tL1CiUl6OobALmZQA0WYsgvG+u6ILLI0t0Zvmn?=
+ =?us-ascii?Q?Vsg9gBG1wvCloblH85OhyXJ0whLbTQg+qETbKRoqSFBJYMDp0abXwi7vT3nn?=
+ =?us-ascii?Q?WBBDOz6PbGgaOB+Jmnt7umn9Oux8pPMkwZ80WhOFriUNMwlWFA/M1dA/kgR/?=
+ =?us-ascii?Q?MKOnmg6eHE2Wr+uwjdB7CRPstZ4OOH57aKWc2Kb3E9jFi2rQaGnCrrt7PFNc?=
+ =?us-ascii?Q?vFs29BKvJPiwbfUUYCco3l1pinShsckPHYltNsAUeop/5qhtM5YuQEwknI3A?=
+ =?us-ascii?Q?eeYdJsYRqJD8RB/Pf9CJ42Y3aLMdEF4CeCmmm9SxQZISR86GasSGS7henEiO?=
+ =?us-ascii?Q?9Rxeq1I6hrxTomj94IxgO650qcf1Meq8wtzTs3pwR94D80Wr9luDNF//19SZ?=
+ =?us-ascii?Q?8XsN1NZp42CArWrb7+DmabLo0l/vtjpr5fsFzjYo59IVY/w+mG2XF1mMm/+j?=
+ =?us-ascii?Q?r0Zc3iSeAvKeHsyCawNs52mkIbNwW/H1WQKrXuAu2lFemIuG0SpyY2rKWpBR?=
+ =?us-ascii?Q?XLeaO/F781ecbJSP3dxKBpAVDP/8vdYlWAWm?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8NKERhosz3h1ePM9/ox82p9pAGExFydkZCHZpHJZgMt9yGZe5eQ0S4CSqi4z?=
+ =?us-ascii?Q?oDbEkZ/Gw1r67tVk0K5ko0ENGPRi5wC7CliESYV6RaBCDYIECBg2DKuGo1wp?=
+ =?us-ascii?Q?8hBdFORWyTHTbTtzOlDxvfO1KPFOyU5nkirp0RauJ6MDIXbLAu5USvbB2Ng5?=
+ =?us-ascii?Q?n5zgAihmBvN0ehcLZwjwyEkb5N8HnIqQnrE6JSdx4meiXUnJympnb5a2zoM5?=
+ =?us-ascii?Q?wQQCVA0MUCn5U/UzQmhFuoDLHJHPxl+rrcVaFGLe00ihsbezxXNEU+v7SvSm?=
+ =?us-ascii?Q?/JcLY6Q5Y+F5P1wPb0noSlE2p/GK6aBjNChAl9fjmN6nBga+3lQFPRz6iEr3?=
+ =?us-ascii?Q?qWDTIv/iR2HdGRatcnIwPoJ/RY4pq9mK3/qnFE3o+Vib3/UQj3J3GEpe+g5j?=
+ =?us-ascii?Q?7EwKMq7et0U4uVVZ/yAkaCPhqlujiPRr2arasSYaqiWmncuIg6EUZrDp80vV?=
+ =?us-ascii?Q?PkAoCPyXjbOSS54UsLhIVQbQEsr/MDfNjyiGEUEV1W4hOgxT7kRPrmn94/bG?=
+ =?us-ascii?Q?aGmQ/tWgPRakxsUaI3sMOV0g0ez2xkkFO06OKWnAic2gm+sI779NHERXEOV9?=
+ =?us-ascii?Q?v/2G0keIknrcaRnWs9YLfHO5RB03OobP4Dh8bC2ypoPAsuoS0tmRJwa0ikht?=
+ =?us-ascii?Q?8L3HOSZ2Tx7AGO2bmuja+9Z4Tqlb8OxBcW6OLOd7FC7+Ua6/IIUhUR60U9H7?=
+ =?us-ascii?Q?+d8q3YzDqI6eSgRVUznVBTocxMyf4zJRgnm9g3ethgYM/NoV0LbW4pCqzMVn?=
+ =?us-ascii?Q?bpw196XlIqly2NwRBSazXGIFnhBY1wiQI9+f/SpjfQNpKlTZ7RGKW5X9yiMn?=
+ =?us-ascii?Q?DcGeDLM7zQpTO20RbPioPFEqK9DzRmoXnMA+ywM1NT5uCv8YYaSmP/WtUk1Y?=
+ =?us-ascii?Q?2CoDsaBpjDhB9lh8kGmsOyqF9bNy8rpAydjUH9AD3+G4PHUEtEkhGSjXAKSk?=
+ =?us-ascii?Q?vpL1r4BesVqyYBaiONYdfyQUIQfLgXsgnHOchXpjC51B6OaQgWiRbvq/Wx13?=
+ =?us-ascii?Q?OQJhMXlljBDRsgc28QAgrupdfjDk4bxNV+U8VWridup4WsdwZNjpXhYn2ynm?=
+ =?us-ascii?Q?JTMaIaK1mjxqdNotNJ/sb6I1H7N7iNnouoYhz01anKEZ9wvm4dxyn5pzlCg3?=
+ =?us-ascii?Q?j8nN2D+ftHRxOzfJyt5FMpMo12LzlJdlkWGudQvPtf4C1MsCoxTcustrMNW5?=
+ =?us-ascii?Q?CK1XRD/SSjDSzPkpgqvLJOv2Kxzfr5zMg0DgnJO/08j9PG1ZfKwQgucNyb1J?=
+ =?us-ascii?Q?hbB9d3x7Rg2LxJR/s6mBDf0l4OVN0f8okU0wsVLhXet8WX7SVGFUXhryEKSE?=
+ =?us-ascii?Q?LC74pF3KQpiqHpkck6cAtGOusNfEtbTgx/tb3rY36yysDXKpT7TB7uz7WVRJ?=
+ =?us-ascii?Q?ipTFN4y0L9ylzks9CgxZRuLAtnkU9BQq57na8hF0vq/uRIAQKxOEeG2Z2nee?=
+ =?us-ascii?Q?1YhssB1e0c9c0mC1knF+3wm1Ty5OBtNf3RH8PPwvv9OGTlO17B7fIuP2pfmP?=
+ =?us-ascii?Q?DHU0t794QkpqG2ubjZEaNcchktC8xXloobSX5lNGjTJS9Z8/pnhm9hywwVQX?=
+ =?us-ascii?Q?j+0nxgtRMIxsWDQyvaQ3BmDs/jx59J5btyG0BZXh?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2aecf1e8-72fb-4725-7649-08de1638c2fd
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 15:43:37.9586
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: X/980zArF9X7s5AdTBjOoTjpbviBiyfXyNrnjg7ROMVWL9Qnadq7ajfvlYQyrGU1qpL/pHivAVEUj7BfhflaEA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9970
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_084332_936146_08AE706D 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_084342_365451_BDD4DA18 
+X-CRM114-Status: GOOD (  40.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,23 +169,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 28. oktober 2025 ob 08:35:01 Srednjeevropski standardni =C4=8Das=
- je Richard Genoud napisal(a):
-> The H616 controller can't handle 512 bytes ECC block size. The
-> NFC_ECC_BLOCK_512 bit disappeared in H6, and NDFC_RANDOM_EN took its
-> place.
->=20
-> So, add has_ecc_block_512 capability to only set this bit on SoC having
-> it.
->=20
-> No functional change.
->=20
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+On Tue, Oct 28, 2025 at 09:29:02AM +0000, Carlos Song wrote:
+>
+>
+> > -----Original Message-----
+> > From: Frank Li <frank.li@nxp.com>
+> > Sent: Tuesday, October 28, 2025 2:50 AM
+> > To: Carlos Song <carlos.song@nxp.com>
+> > Cc: mkl@pengutronix.de; broonie@kernel.org; shawnguo@kernel.org;
+> > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> > linux-spi@vger.kernel.org; imx@lists.linux.dev;
+> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> > Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support for target
+> > mode
+> >
+> > On Mon, Oct 27, 2025 at 03:39:36AM +0000, Carlos Song wrote:
+> > >
+> > >
+> > > > -----Original Message-----
+> > > > From: Frank Li <frank.li@nxp.com>
+> > > > Sent: Friday, October 24, 2025 9:25 PM
+> > > > To: Carlos Song <carlos.song@nxp.com>
+> > > > Cc: mkl@pengutronix.de; broonie@kernel.org; shawnguo@kernel.org;
+> > > > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> > > > linux-spi@vger.kernel.org; imx@lists.linux.dev;
+> > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> > > > Subject: Re: [PACTH v2] spi: imx: add 16/32 bits per word support
+> > > > for target mode
+> > > >
+> > > > On Fri, Oct 24, 2025 at 07:31:07PM +0800, carlos.song@nxp.com wrote:
+> > > > > From: Carlos Song <carlos.song@nxp.com>
+> > > > >
+> > > > > Now for ECSPI only support 8 bits per word in target mode.
+> > > > > Enable 16/32 bits per word support for spi-imx target mode.
+> > > > >
+> > > > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > > > > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> > > > > ---
+> > > > >  drivers/spi/spi-imx.c | 12 ++++++++++--
+> > > > >  1 file changed, 10 insertions(+), 2 deletions(-)
+> > > > >
+> > > > > diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c index
+> > > > > 155ddeb8fcd4..017f83f5dfdf 100644
+> > > > > --- a/drivers/spi/spi-imx.c
+> > > > > +++ b/drivers/spi/spi-imx.c
+> > > > > @@ -424,8 +424,12 @@ static void spi_imx_buf_tx_swap(struct
+> > > > > spi_imx_data *spi_imx)
+> > > > >
+> > > > >  static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)  {
+> > > > > -	u32 val = ioread32be(spi_imx->base + MXC_CSPIRXDATA);
+> > > > > +	u32 val = readl(spi_imx->base + MXC_CSPIRXDATA);
+> > > > >
+> > > > > +	if (spi_imx->bits_per_word <= 8)
+> > > > > +		swab32s(&val);
+> > > > > +	else if (spi_imx->bits_per_word <= 16)
+> > > > > +		swahw32s(&val);
+> > > >
+> > > > Needn't swap when bits_per_word > 24, like 32? or our hardware max
+> > > > support to 16?
+> > > >
+> > > > Frank
+> > >
+> > > I think we don't need. We are reading/writing FIFO by 32-bits word. In
+> > > this case, we just need keep the default byte order.
+> > >
+> > > Is it more reasonable only support bits per word=8/16/32 for target mode?
+> > > -b 8/16/32 can cover most use case.
+> >
+> > yes, I only can't understand why needn't swap at 32bits workds, but other
+> > needs.
+> >
+> > FIFO 31..24  23..16  15..8  7..0
+> >       B0      B1     B2      B3
+> >
+> > next you
+> >
+> > in memory val is
+> >
+> > 0x0: B3
+> > 0x1: B2
+> > 0x2: B1
+> > 0x3: B0
+> >
+> > swab32s() to  bits_per_work 8
+> >
+> > 0x0: B0
+> > 0x1: B1
+> > 0x2: B2
+> > 0x3: B3
+> >
+> > if bits per_word 16
+> >
+> > val
+> >
+> > 0x0: X
+> > 0x1: X
+> > 0x2: B1
+> > 0x3: B0
+> >
+> > after swahw32s change to
+> >
+> > 0x0: B1
+> > 0x1: B0
+> > 0x2: x
+> > 0x3: x
+> >
+> > B0 and B1 still be swapped.
+> >
+> > Does SPI defined term word fixed big-endian?
+> >
+> > Frank
+> >
+>
+> No, SPI doesn't define this. This swap is caused by the SPI-IMX FIFO design.
+> SPI-IMX FIFO is fixed little-endian.
+>
+> One example to easy understand:
+>
+> If buf is:
+>
+> 0XB0B1B2B3
+>
+> So data in TXFIFO is:
+> FIFO 31..24  23..16  15..8  7..0
+>   B0        B1		B2   B3
+>
+> So we can always see data on SPI bus:
+> 0xB3B2B1B0
+>
+> For this patch:
+> bits per word= 8: it means one byte is one word, so it should not effect by big endian or little endian, so every bytes should keep the same order between memory and SPI bus.
+> We write FIFO by 32 bits word, So we should swap every bytes in this word from 0XB0B1B2B3 to 0XB3B2B1B0
+>
+> Data in TXFIFO is
+> FIFO 31..24  23..16  15..8  7..0
+>   B3        B2		B1  B0
+> Then we can see data on SPI bus is
+> 0XB0B1B2B3
+>
+> For bits per word = 16, it means two bytes in one word, so every 2 bytes is one word, the word should be a little endian word,
+>
+> so we should swap half word from
+> 0XB0B1B2B3 to 0XB2B3B0B1
+>
+> Then data in TXFIFO is:
+> FIFO 31..24  23..16  15..8  7..0
+>   B2        B3		B0  B1
+> Then we can see data on SPI bus is
+> 0XB1B0B3B2
+>
+> For bis per word =32, it means for bytes in one word, so every 4 bytes is one word. The whole word is a little endian.
+> So we keep the default order.
+> 0XB0B1B2B3
+>
+> FIFO 31..24  23..16  15..8  7..0
+>   B0        B1		B2  B3
+>
+> So we can see the data on bus is:
+> 0xB3B2B1B0
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Does SPI require send MSB/LSB first of a CPU's word?
 
-Best regards,
-Jernej
+Frank
 
-
+>
+> The RX handle is the same with TX. From bus to FIFO is a little word, so swap in memory.
+>
+> Carlos
+>
+> > > Carlos
+> > > > >  	if (spi_imx->rx_buf) {
+> > > > >  		int n_bytes = spi_imx->target_burst % sizeof(val);
+> > > > >
+> > > > > @@ -453,12 +457,16 @@ static void mx53_ecspi_tx_target(struct
+> > > > spi_imx_data *spi_imx)
+> > > > >  	if (spi_imx->tx_buf) {
+> > > > >  		memcpy(((u8 *)&val) + sizeof(val) - n_bytes,
+> > > > >  		       spi_imx->tx_buf, n_bytes);
+> > > > > +		if (spi_imx->bits_per_word <= 8)
+> > > > > +			swab32s(&val);
+> > > > > +		else if (spi_imx->bits_per_word <= 16)
+> > > > > +			swahw32s(&val);
+> > > > >  		spi_imx->tx_buf += n_bytes;
+> > > > >  	}
+> > > > >
+> > > > >  	spi_imx->count -= n_bytes;
+> > > > >
+> > > > > -	iowrite32be(val, spi_imx->base + MXC_CSPITXDATA);
+> > > > > +	writel(val, spi_imx->base + MXC_CSPITXDATA);
+> > > > >  }
+> > > > >
+> > > > >  /* MX51 eCSPI */
+> > > > > --
+> > > > > 2.34.1
+> > > > >
 
