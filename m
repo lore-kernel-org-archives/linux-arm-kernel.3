@@ -4,65 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 418F6CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 08:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EF8CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 08:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
-	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K+6HGTgjaSvG82Coa3pZ418ociHvbPlPsxJ2duK2Hvo=; b=w+fjmW5E06aWDv1qJvtYSAFn/w
-	rGLGacMGIlWvT7Hlj3pddYY4mGi251JMSr1m3iksE/u6bl+6sLGST2PrBupZG+ZUfNIx+0ev77NWB
-	9E3dMpYHAahR2mQx6+7xBk/CnIvSLA+8DAAvrKRitrfEoXhRzH9KBzJlsJLMx4goFIQAUtrqQNqs/
-	6ngPnJfYXNoAitS2oojVQslg5Fe3MOI4mybqp9QdU/ZlJw4mlDcYDrx9PtreXmbCdKmaHb48h2waJ
-	tlDU1PBEuE4cDh+FvTIFexWAJPilr/4hXSdN+f+QgF8Mb3hQvF94QAYHQQ/KEu5aVTCMyfe1gTvmk
-	AFwpY29g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2N8AOpZtXL90kxMW408k7sDHUVRifvBajw+0G3SRJog=; b=F/Z2Uw0PG3w8qv8JaUYc1J0oFH
+	3p+gBhCJuh50ormOIaqRjMSoF47ufnDuK/Ax8UqM019jPdzFBhwRBB3mfrCbXKT9Cb1bFVahqdIaP
+	h1ABXXxZYH6hPAWkvmgAYZNg1EOyNXg9Id0SflOI4pQuDJi0dlQRrnB7TZbTnILC5plG+kn2U7j1r
+	emRJFKS3Voz5UrqfS8mp5TWGvt+zPrsy1j4q0cKPi4tAKGiDElSWkyITh8cyBKwJOURENrdaKNOHG
+	Q/qnES8cYH4ewbMVU6XyaRnhZe1ACngk+eldN1uQHNHn6Nfwrde1zLeUsOtSG5mdb68xD9OcXzxwr
+	UXjPq0gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDesd-0000000FWEH-3uEN;
-	Tue, 28 Oct 2025 08:16:35 +0000
-Received: from mail-m49217.qiye.163.com ([45.254.49.217])
+	id 1vDeud-0000000FWZ0-0zcO;
+	Tue, 28 Oct 2025 08:18:39 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDesa-0000000FWCu-1ZeI;
-	Tue, 28 Oct 2025 08:16:34 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 277602d99;
-	Tue, 28 Oct 2025 16:16:27 +0800 (GMT+08:00)
-Content-Type: multipart/mixed; boundary="------------PdXS0cE3u8xAHvhAPnkRnp4J"
-Message-ID: <8a6e920b-9565-4161-9d71-63f924593c23@rock-chips.com>
-Date: Tue, 28 Oct 2025 16:16:26 +0800
+	id 1vDeua-0000000FWY6-1yHs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 08:18:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=um0MWWqhh/aK7eXHs7L+SNvkcbZYbVkUJ/PAkqJXcWL09QoOrFBI/4FA+1N40co0tmwMSWij3boG3JRxIq3XHoUoOsF/D7dlQLOlcz8FJxnKxGILWQWnT31M3ZnLT+lZMPCIk9+99d5QmUh9y/K70B+Y/QJICUAG/yD3yXvoDPY+4wpFyx8DYP7UvOQUOc1JhyVpvkn767muoHPuODdLVgPSsdNIf+Y4987MTKZPiBIXNsNDKjlHkZVKk3FJjFLTXvsPXfkqJv9ncnyLOQv+TNud+0KaDnyO1N+Lc7tGr7dH8VuB0KBQdXqgVhfBML5IXBGjaCXh2K+dtuRqN2FnGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2N8AOpZtXL90kxMW408k7sDHUVRifvBajw+0G3SRJog=;
+ b=HjwzqNzM1M8PStWmq9ruS0P3+WablTSulWCJmF1pKd3luH9/Mb7k4rH10aBMg+Jn3ExjtNXAmo9JqPsnOCU3wr0m917UpVDWhzwh3lvIWK7FBOvqy5rLXedO4yPAh2bH5KNAB3TnBJWQSJ8MIBVmOae/vxc/BgQCF4oh6nVGeibM8FfhfoultKKH7eb6PD+ZOFig9x3KlNvDPW5IfHQH3YJetqqnEB7rvC0bg+O69p8ELe5nyONaTrYV3SzagJCceMKbGoFrNHLwLKMg7zbrDjyBdC2qKeGSEWIsmpydwIfOM6mirEquOSGagJWaFq5TmoWnUmN7nU0KA+Wsr+EtvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2N8AOpZtXL90kxMW408k7sDHUVRifvBajw+0G3SRJog=;
+ b=ewiOMTgYqDIYa9Bs6LBw7pu554ZSsBdtrJDwFzz9KLVv3n+jGkrVKOlqT/XKUxWpjJxxAIP5GMfe8nvvMAjnjPV6JX0BPdqdzyiflv7PvMn1PQrbrMvXoFOdHwgVijiTesZ/VjicLYItN5RE+pr/0NT+AgjGZT2KxuRYiHf1dMDbOVIC/YA0ra03Yrxl/DbSATncFjb8xQpYCN6q6Jdh0yt6fSiIJiGl2W39k0TulauL0w1PNA2qv/iOfK8BZmPf5+ImwrOtu57CjtIU3oEYZiLuEsrbKEnv5888F8XPCo0ke5BeY3c+5GjMcskljfOLTzbzz0g0HSgydYp7UXijPQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB8PR04MB7020.eurprd04.prod.outlook.com (2603:10a6:10:126::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Tue, 28 Oct
+ 2025 08:18:30 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9253.018; Tue, 28 Oct 2025
+ 08:18:30 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH 0/4] remoteproc: imx_rproc: Support i.MX95
+Date: Tue, 28 Oct 2025 16:18:00 +0800
+Message-Id: <20251028-imx95-rproc-2025-10-28-v1-0-ce9e7db9edcb@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADh8AGkC/x2MSQqAMAwAvyI5G2iK+1fEg9ioOaglBSkU/271O
+ AMzCQKrcIChSKB8S5DrzEBlAcs+nxujuMxgja3J2A7liH2N6vVa8JNIBrOeG+valpuKmCDHXnm
+ V+I/H6XleHmwiDGgAAAA=
+X-Change-ID: 20251028-imx95-rproc-2025-10-28-a62d77e641e1
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
+ Frank Li <frank.li@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761639500; l=2716;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=xHK/S60PS6KNOnfKoUQfhlXjqB+AWb/fdKDyp5XO5yM=;
+ b=0HGfU6XmWHz9hKkwgwYqfnMGQo5vLbBmuUEdZmJ7v2AlCsgIPo1YyNhQ/Fu77JQU/ac/3anyJ
+ YU2maoiiGiYBwnvpMSeyxF4UnoSbSZFuJnaN8FGmJzsuiY9hD9EquDB
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI1PR02CA0035.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] pwm: Add rockchip PWMv4 driver
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>
-Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
- Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org
-References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
- <20251027-rk3576-pwm-v3-3-654a5cb1e3f8@collabora.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20251027-rk3576-pwm-v3-3-654a5cb1e3f8@collabora.com>
-X-HM-Tid: 0a9a29e3d04203a3kunma54aa20d1201d1
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRhNHVYYGkJPHU5PHhpNHUhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=SB3GWG7T0SlKULOUlaw954l4NyDL+/Bzf8HSPCc4jUguT6hvhizVzYnaLQSSvWeM9oEUq6ff3MuChk3Ts9xBN5xTncQCaPBtW1XqOVC8PV4UY1lmOCCAB68DO6ZMey7vmjiErK5PUVOukLybRhiWCZOcd53xlul0/VsWkPBCO5o=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=K+6HGTgjaSvG82Coa3pZ418ociHvbPlPsxJ2duK2Hvo=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB8PR04MB7020:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfc280f3-eeda-4737-4018-08de15fa9410
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aVNTMXJBenUyVEZqUFdNa3l6Vm1kZVN6L2pVNTdDa0NnUkJoVFlCZ3lyZHFC?=
+ =?utf-8?B?Q0pZSThGUFg2QlpSMEV1TGk0RGpiOS9heW5tVElMbzdVS3ZvSUNwNzdORkRU?=
+ =?utf-8?B?T3lNL294cm1VMGRDZFgyUDdmYm5Wc3FJR0RLNTNuZjMya2J1QWRDclRwSEl1?=
+ =?utf-8?B?TDhHTUdCbzU1elNJM0ZxNW4vTnQ4ZFFwOEJlN2ZhMVdEY2d3SjRHdEJBbGZF?=
+ =?utf-8?B?QklodEN6Z0NQeVlrc1hyL0lKZE51TC9DOWFPMlNSS0RvOG9KTlJmWWV5czJj?=
+ =?utf-8?B?a2pCTmlGRW9kb0RoREFnQkhvbEpCUHJUU2FLckltdUhKS0J1cURsSjNwRG8y?=
+ =?utf-8?B?Zy9jNHRwNDM1bmtUTTREOFcyNW1lUkl4VVBWRjdmb25tNitsb21jWm1KQ0NH?=
+ =?utf-8?B?OStPblFpbzZ1SmNiWkhabTNDdjR3QW1tMDBUWWhrOEJuaUc4U0k3ZVJzb3ds?=
+ =?utf-8?B?WVpFdmg5RkE4ZVNsNWJpbXlsRHBoY0RiSlNPU1FtZUJyT2ZSUUt5N0Rxcmtx?=
+ =?utf-8?B?NjdJSWwvb1NlSGMvZWVWLzJXNmNjOXd1RFo1aEdzMFlSWDQvN1E0dlBFZmF6?=
+ =?utf-8?B?YW1LdHpQcFd1dzJFSnlEQzVwMG1GSlM1YzRlczNldUdWMDd1MlJINTBsMjg5?=
+ =?utf-8?B?ajRYQ1plR29qR1pDMGJqNXNIaGxYaEVLdHdxYWIvTkFhVStkeVlTa2N2cmtl?=
+ =?utf-8?B?ampnN2kzY1IzUUtGdjNTb3Y3MmpDQm11NnZMQ0szSlNIa29GMUFGWnRlQ2Y5?=
+ =?utf-8?B?YkFNZVNYS1J6dUpsMEVpd1p2YmdqL3pmQ2dQVHR1NW1UYmJWeFU0VmpqYXdJ?=
+ =?utf-8?B?NkN5aUhGZ1lZdlhMWGVYNm9OVTZ0WnVGRi9LREYvWksybGk4Zy9kYXUzVjF3?=
+ =?utf-8?B?aURuU3RyQ0JqTFpBR0JBQkpxMjhGRmhTQ1lINHQ5Q0VnalEwRFQvMzRGdDJs?=
+ =?utf-8?B?VUN5Z2p2S1NYRmN1Ti9HM05rbVJtSVdUdGluT21nb2ZFb0RmMTFneDdFb2Vs?=
+ =?utf-8?B?clVnMlZ1bE9tYk51ZTZFYUxRSk94SEtmNFdzUVdXaXp6TWVRK01BYjR5d1gz?=
+ =?utf-8?B?RUcyU1BZTjI3UDdRTldmRHc0NFE3blVjSm1CY2tySEVBS3BoQzNYeGZoY1k5?=
+ =?utf-8?B?NzRveFpESzBlY2dJMDQ3WEhHVC9aL3ZhWmg4NU81N29NMjBuNTMzOGY0Rll0?=
+ =?utf-8?B?WE8yK2dYWWhuanp2ZnpiNlArdURwaWlySW9HQ2pkd3p0SmFrVTZORkhXb2Nt?=
+ =?utf-8?B?Nk5qQ3lzUE1RKytpUVNTM0JpWHdSOER6NytuUkNOSHZ0UEdvTklOV05ZTWY1?=
+ =?utf-8?B?cE5YRGdGNW42VlliQ3libDI5RGdaR3prbGpNTGlwakVuSVVseGg4dDVqZnAw?=
+ =?utf-8?B?cUlzUjR0aVlJMEJDVHdXdHZiWjBsbFNyRUx1bWxIclUvUlFETlZ4WXZoTWFp?=
+ =?utf-8?B?d1pHYW5mVEQ0d002cGFjekgrVTBZNjlMbkx3R3VsVXo5QzFtY21CbU5td3ha?=
+ =?utf-8?B?bWV5QUJBV2h6TEFjMVhYS0hjTDVBTWFmY0VpL1M0M2l4Mk5jdXp4anhNVStD?=
+ =?utf-8?B?ek9OcnBsZ3FBaGlwblE4Y1lmeEFuMW9WTllUZ3NqaWhHdjR5L2MvV3cyTFRr?=
+ =?utf-8?B?RmJCYWNuRFJJRW93am5zc1JYTU9GTS9MZHJLcjRtb21oYUdsQmxLalpyVVkz?=
+ =?utf-8?B?bTdJaG91a2NHelN6dmpYU1ZiRzVqaUFaSlBuYVFWcm9kTXZHYUE3MEVSb1Zp?=
+ =?utf-8?B?anJ6Wkk0bXFveWp4OENMNDRwT2FEcjQ0YllaUXVzOVQzOEdyRzFtM1lGai84?=
+ =?utf-8?B?OUEvbUtEbGF0OGtBMlBqUUJXV043Tk9QQlV3TmZWenp0V1pVSVlOYkNqSjg5?=
+ =?utf-8?B?UFdYdEF5SE5Qend2Sno5eG9wSURNTjNzOUpvb0J1cjBDT01Xb0k1QW1xSlNT?=
+ =?utf-8?B?MzdLYU93aVJMeHFMdjZyRjRLTHNPTkRDSXNPcHNuektqbElRVFBPQUZFUGhR?=
+ =?utf-8?Q?qD+wzWdBVckPH02QHSC46/u8OvBLgo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aVZnaWZBOUZzOXZlSmIwbk05b29vM0hSblZvZVUyUlRDMGxGWElsWEZvQ3Ew?=
+ =?utf-8?B?WTlVMjRkOVcvWGlKSG9WdDR5RFJ5S21pb2cxVkFSSUsya0hiekJpMUZ0TmxZ?=
+ =?utf-8?B?U2Z5UnZ5UFdsU3kwQmdPWkxlZTlkNElVN1VrVEJLWGxHZmI2SERvSWVFd2Nu?=
+ =?utf-8?B?OFAvNENtQkZjc0JoUmxZclVyclVkaHhBUXluVUR5aUo0dE9wZ1J2aDY4MVFo?=
+ =?utf-8?B?NlNFVDIzQTlvTEZ3TXYva09zUUFMVlJzNVhra3VZNDBMYndoQkRSWG82Rnk1?=
+ =?utf-8?B?QWVPaWI2MDBKd2QvTG9EV1FoaDBLeVVkc0xxcW8vVFY0YkZoT0U0UjI0QXVi?=
+ =?utf-8?B?MVAxdk40ZXFMYnVNenpQVEZTeFFhVjRzT1g0NjA0UVhXK29OOENuR3ZCYUxu?=
+ =?utf-8?B?TnJmZlNYY0tIbE5aQUM1VkVFcVRkTXcxR3VsRG51ejVyRUlHMk1CWC91SDRa?=
+ =?utf-8?B?azVNaHp0T0VQZTVvclZOQ0JXS1JJQ3NWQUM4eUFLTHhRalZlWVlzZkF5U0dT?=
+ =?utf-8?B?R0E1cVRzb0NzYTM2UTBRY1owaE9UbTliSlVhTFd4c0lxNGdTOG42TVZ4cC93?=
+ =?utf-8?B?cWpPOHIwaTRPQ2tMLzBiWXRiaGF1V2U0dXl1elRtbndXdXcxMU9TQzdMWUdz?=
+ =?utf-8?B?bnlTa2xaNXZSSjlneUFtL2RHVSt5bjFMVXhWRXZHbXdqeDlxUGRQaWJnbDF1?=
+ =?utf-8?B?QVBGOTVQdzM2alRUaVUwMHUrNXcyNHl2TitKbGZ4ejZMWVBpTXRPblpEY2JQ?=
+ =?utf-8?B?YnBqcHYyWEdRZlNMaTZBZHFxZ29hdDN6M21Tb0dOcVVRQzBCNytEYS9mazhp?=
+ =?utf-8?B?emlycDNWV2V1NzNibE9jbTk1UTdKZU1LaDBlSlh2OVN5bE9LN29heWh0aDBQ?=
+ =?utf-8?B?bXZtazRhY0hUYTIwY25GSTFIalV3MGh2RFluYU9QRVVYeXh2Z0Q5ZGFVRjI1?=
+ =?utf-8?B?eGFjdGwwRUlvSXhjdUVQZWN6TDAxbDJRaXVIbHh2ckg0a3F0b2xaS3ZGcTRY?=
+ =?utf-8?B?Mk9FZ09ySlhoN002dFptcDBNQVo1TGtqSTY0YzZPbnRTbnpDYWZtekZkZ0cv?=
+ =?utf-8?B?d0dWZE40QThXb2xJVW9UaTZrbXg4cVFxaEJCLzRTZWpxTEEvTHNtTHR0ZzBs?=
+ =?utf-8?B?bFZWV1Vnb1F4Y3FyYUhNZkdNM2Nva281UXpsZ1hYcmVXc1ZtZFBxNnBDa1FY?=
+ =?utf-8?B?dHMyaGNhdjNHZmJoSVZ6QTZ5alR0R2Zxa2FSZ28zRXA0bXFtdElLbXByN3Rz?=
+ =?utf-8?B?cFBjend0bWJ3SG8xd1psUG90Y1AxQjd0QzNoT0tSenhES29wR3N6c2lqVXB1?=
+ =?utf-8?B?ZmFmV0YrSnk4VjkrY0VzRzRZcStIL3hFd3VrNXdmZkZQZ0hEbEJFZDNZTmN1?=
+ =?utf-8?B?Y1crUktFRHdHUGFFOWF1NG1XOWJrdHJDcWRBMzM2RWFrSWpFQlEzTXYzTnRh?=
+ =?utf-8?B?d2I5NFRNRUpaQVhzVXdqS0lERUdDVlk0UEMzZVMzWDNiVUd6SSs3YzlQbFlh?=
+ =?utf-8?B?YkRQbzRtclNYajNSVjZDbmZ1eGhXK3hIdjBKbzRORlVxWnNYSk92OEpBZk0r?=
+ =?utf-8?B?WWdDeXRzVWFRbUJ2NVlYT1VKSTZhSVFYWjhJZk5kNlJLdFp6NGdqL09XTHFu?=
+ =?utf-8?B?VlR1V0p4bGNIanpWTHI5d3dGa0VoVmpDa21mc1NucEl5b09MNCtkcmpKYjgw?=
+ =?utf-8?B?Y25xYVYyRXdreG1YSFFXazA0N3o5WGxieXZsRUNYdDQ1SG5CMDBRZUI1Nks4?=
+ =?utf-8?B?WGx3UFVOYWY3WFZaZUV6TjNlYjMwNGo3U0xnaXNKYjE4QlYyVkJ2RFdRNGNN?=
+ =?utf-8?B?RWxXMmlHckFLbkp1TUd6UmVaSUs4dGxPYmQ5eUI5S0wxRDF1dFRFcDFWTGhV?=
+ =?utf-8?B?QzNVeE0wbWZ0SndMNEM0SFQ2RHd3ZHNBYWc3SEpySCtQbkRRTVdnRGFvTk5p?=
+ =?utf-8?B?cENvT0xJWlRWRkQ2ZDQ0QU1oYVNqQXR3WE9oTVErTG5rZWN2NmplZ0NFVDlj?=
+ =?utf-8?B?OTZGQ3BNcEtOMUt2OXl1cWZGVDJIMnBVblY4V1JXRjJ2bkJ6d1RUakxLUmhS?=
+ =?utf-8?B?MjZGL3NqWTNOSUZ0SkhCdmhXc084ckw4b3pXV2tRRnprbncrUGRtWHY3OTFF?=
+ =?utf-8?Q?QXIm5mvFegdtEORzJUWagMHtw?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfc280f3-eeda-4737-4018-08de15fa9410
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 08:18:30.4996
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: voG3AQak/GBWT2RTQDeIynO8DW8z+J/rBrq3lZ+KeX+n9e0Dm3DbBfAAE9D40EmSSz96S0PqWtSasRyLOaX4cg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_011632_940840_22C3C7C7 
-X-CRM114-Status: GOOD (  36.28  )
+X-CRM114-CacheID: sfid-20251028_011836_528994_8D63E4C6 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,234 +192,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a multi-part message in MIME format.
---------------PdXS0cE3u8xAHvhAPnkRnp4J
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+This patchset is pick up a previous patchset [1] with rebased on
+next-20251027, and some changes applied.
+ - Add runtime ops to separate cpu ops and lmm ops
+ - added more comments
+ - moved some check imx_sm_rproc_detect_mode() from imx_rproc_sm_prepare().
 
-Hi Nicolas,
+No changes to the dt-binding patch, so R-b/A-b are kept.
+More info could be found in commit message of each patch and below.
 
-On 10/28/2025 1:11 AM, Nicolas Frattaroli wrote:
-> The Rockchip RK3576 brings with it a new PWM IP, in downstream code
-> referred to as "v4". This new IP is different enough from the previous
-> Rockchip IP that I felt it necessary to add a new driver for it, instead
-> of shoehorning it in the old one.
-> 
-> Add this new driver, based on the PWM core's waveform APIs. Its platform
-> device is registered by the parent mfpwm driver, from which it also
-> receives a little platform data struct, so that mfpwm can guarantee that
-> all the platform device drivers spread across different subsystems for
-> this specific hardware IP do not interfere with each other.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->   MAINTAINERS                   |   1 +
->   drivers/pwm/Kconfig           |  13 ++
->   drivers/pwm/Makefile          |   1 +
->   drivers/pwm/pwm-rockchip-v4.c | 353 ++++++++++++++++++++++++++++++++++++++++++
->   4 files changed, 368 insertions(+)
-> 
+[1]https://lore.kernel.org/linux-remoteproc/20250821-imx95-rproc-1-v5-0-e93191dfac51@nxp.com/
 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8f3235ba825e..2079c2d51d5c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22372,6 +22372,7 @@ L:	linux-rockchip@lists.infradead.org
->   L:	linux-pwm@vger.kernel.org
->   S:	Maintained
->   F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-> +F:	drivers/pwm/pwm-rockchip-v4.c
->   F:	drivers/soc/rockchip/mfpwm.c
->   F:	include/soc/rockchip/mfpwm.h
->   
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index c2fd3f4b62d9..b852a7b2a29d 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -615,6 +615,19 @@ config PWM_ROCKCHIP
->   	  Generic PWM framework driver for the PWM controller found on
->   	  Rockchip SoCs.
->   
-> +config PWM_ROCKCHIP_V4
-> +	tristate "Rockchip PWM v4 support"
-> +	depends on ARCH_ROCKCHIP || COMPILE_TEST
-> +	depends on HAS_IOMEM
-> +	depends on MFD_ROCKCHIP_MFPWM
-> +	help
-> +	  Generic PWM framework driver for the PWM controller found on
-> +	  later Rockchip SoCs such as the RK3576.
-> +
-> +	  Uses the Rockchip Multi-function PWM controller driver infrastructure
-> +	  to guarantee fearlessly concurrent operation with other functions of
-> +	  the same device implemented by drivers in other subsystems.
-> +
->   config PWM_SAMSUNG
->   	tristate "Samsung PWM support"
->   	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index dfa8b4966ee1..fe0d16558d99 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -55,6 +55,7 @@ obj-$(CONFIG_PWM_RENESAS_RZG2L_GPT)	+= pwm-rzg2l-gpt.o
->   obj-$(CONFIG_PWM_RENESAS_RZ_MTU3)	+= pwm-rz-mtu3.o
->   obj-$(CONFIG_PWM_RENESAS_TPU)	+= pwm-renesas-tpu.o
->   obj-$(CONFIG_PWM_ROCKCHIP)	+= pwm-rockchip.o
-> +obj-$(CONFIG_PWM_ROCKCHIP_V4)	+= pwm-rockchip-v4.o
->   obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
->   obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
->   obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
-> diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockchip-v4.c
-> new file mode 100644
-> index 000000000000..7afa83f12b6a
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-rockchip-v4.c
-> @@ -0,0 +1,353 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Copyright (c) 2025 Collabora Ltd.
-> + *
-> + * A Pulse-Width-Modulation (PWM) generator driver for the generators found in
-> + * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4". Uses
-> + * the MFPWM infrastructure to guarantee exclusive use over the device without
-> + * other functions of the device from different drivers interfering with its
-> + * operation while it's active.
-> + *
-> + * Technical Reference Manual: Chapter 31 of the RK3506 TRM Part 1, a SoC which
-> + * uses the same PWM hardware and has a publicly available TRM.
-> + * https://opensource.rock-chips.com/images/3/36/Rockchip_RK3506_TRM_Part_1_V1.2-20250811.pdf
-> + *
-> + * Authors:
-> + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> + *
-> + * Limitations:
-> + * - When the output is disabled, it will end abruptly without letting the
-> + *   current period complete.
-> + *   TODO: This can be fixed in the driver in the future by having the enable-
-> + *         to-disable transition switch to oneshot mode with one repetition,
-> + *         and then disable the pwmclk and release mfpwm when the oneshot
-> + *         complete interrupt fires.
-> + * - When the output is disabled, the pin will remain driven to whatever state
-> + *   it last had.
-> + * - Adjustments to the duty cycle will only take effect during the next period.
-> + * - Adjustments to the period length will only take effect during the next
-> + *   period.
-> + * - offset should be between 0 and (period - duty)
-> + */
-> +
-> +#include <linux/math64.h>
-> +#include <linux/mfd/rockchip-mfpwm.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +
-> +struct rockchip_pwm_v4 {
-> +	struct rockchip_mfpwm_func *pwmf;
-> +	struct pwm_chip chip;
-> +};
-> +
-> +struct rockchip_pwm_v4_wf {
-> +	u32 period;
-> +	u32 duty;
-> +	u32 offset;
-> +	u8 enable;
-> +};
-> +
+i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
+one Cortex-M7 core. The System Control Management Interface(SCMI)
+firmware runs on the M33 core. The i.MX95 SCMI firmware named System
+Manager(SM) includes vendor extension protocols, Logical Machine
+Management(LMM) protocol and CPU protocol and etc.
 
-...
+There are three cases for M7:
+Management(LMM) protocol and CPU protocol and etc.
 
-> +
-> +static int rockchip_pwm_v4_read_wf(struct pwm_chip *chip, struct pwm_device *pwm,
-> +				   void *_wfhw)
-> +{
-> +	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-> +	struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-> +	int ret = 0;
-> +
+There are three cases for M7:
+(1) M7 in a separate Logical Machine(LM) that Linux couldn't control it.
+(2) M7 in a separate Logical Machine that Linux could control it using
+    LMM protocol
+(3) M7 runs in same Logical Machine as A55, so Linux could control it
+    using CPU protocol
 
-Redundant blank lin. ;-)
+In patch 3, Use LMM and CPU protocol to manage M7. More info could be
+found in the patch commit log
 
-> +
-> +	ret = mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-> +
-> +	wfhw->period = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_PERIOD);
-> +	wfhw->duty = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_DUTY);
-> +	wfhw->offset = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_OFFSET);
-> +	wfhw->enable = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_ENABLE) & PWMV4_EN_BOTH_MASK;
-> +
-> +	mfpwm_release(pc->pwmf);
-> +
-> +	return 0;
-> +}
-> +
+Current setup relies on pre-Linux software(U-Boot) to do
+M7 TCM ECC initialization. In future, we could add the support in Linux
+to decouple U-Boot and Linux.
 
-...
+Patchset was tested with below boot images when the patchset based on next-20251027:
+imx-boot-variant-rpmsg-imx95-19x19-lpddr5-evk-sd.bin-flash_lpboot_sm_a55 (Use LMM protocol)
+imx-boot-variant-alt-imx95-19x19-lpddr5-evk-sd.bin-flash_alt (Use CPU protocol)
+imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_a55 (M7 not under A55 control)
+imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_all (M7 not under A55 control)
 
-> +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-> +MODULE_DESCRIPTION("Rockchip PWMv4 Driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_IMPORT_NS("ROCKCHIP_MFPWM");
-> +MODULE_ALIAS("platform:pwm-rockchip-v4");
-> 
+Also tested i.MX8MP-EVK.
 
-Tested-by: Damon Ding <damon.ding@rock-chips.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (4):
+      dt-bindings: remoteproc: fsl,imx-rproc: Add support for i.MX95
+      remoteproc: imx_rproc: Add runtime ops copy to support dynamic behavior
+      remoteproc: imx_rproc: Add support for System Manager API
+      remoteproc: imx_rproc: Add support for i.MX95
 
-I have tested all the PWM channels in continuous mode on my 
-RK3576-IOTEST board.
-
-Test commands are like:
-
-cd /sys/class/pwm/pwmchip0/
-echo 0 > export
-cd pwm0
-echo 10000 > period
-echo 5000 > duty_cycle
-echo normal > polarity
-echo 1 > enable
-
-In addition, the patch related to DTS are attached.
+ .../bindings/remoteproc/fsl,imx-rproc.yaml         |   1 +
+ drivers/remoteproc/Kconfig                         |   2 +
+ drivers/remoteproc/imx_rproc.c                     | 243 +++++++++++++++++++--
+ drivers/remoteproc/imx_rproc.h                     |   3 +
+ 4 files changed, 235 insertions(+), 14 deletions(-)
+---
+base-commit: f7d2388eeec24966fc4d5cf32d706f0514f29ac5
+change-id: 20251028-imx95-rproc-2025-10-28-a62d77e641e1
 
 Best regards,
-Damon
+-- 
+Peng Fan <peng.fan@nxp.com>
 
---------------PdXS0cE3u8xAHvhAPnkRnp4J
-Content-Type: text/plain; charset=UTF-8;
- name="rk3576_evb1_enable_all_pwm_channels.patch"
-Content-Disposition: attachment;
- filename="rk3576_evb1_enable_all_pwm_channels.patch"
-Content-Transfer-Encoding: base64
-
-ZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmszNTc2LWV2YjEt
-djEwLmR0cyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmszNTc2LWV2YjEtdjEw
-LmR0cwppbmRleCBkYjhmZWY3YTRmMWIuLmI4ZGI2ZTRjMTI0NiAxMDA2NDQKLS0tIGEvYXJj
-aC9hcm02NC9ib290L2R0cy9yb2NrY2hpcC9yazM1NzYtZXZiMS12MTAuZHRzCisrKyBiL2Fy
-Y2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmszNTc2LWV2YjEtdjEwLmR0cwpAQCAtMjQs
-NiArMjQsNyBAQCBhbGlhc2VzIHsKIAogCWNob3NlbjogY2hvc2VuIHsKIAkJc3Rkb3V0LXBh
-dGggPSAic2VyaWFsMDoxNTAwMDAwbjgiOworCQlib290YXJncyA9ICJyb290PVBBUlRVVUlE
-PTYxNGUwMDAwLTAwMDAgcm9vdHdhaXQiOwogCX07CiAKIAlhZGNfa2V5czogYWRjLWtleXMg
-ewpAQCAtOTQxLDMgKzk0Miw4MyBAQCB2cDBfb3V0X2hkbWk6IGVuZHBvaW50QFJPQ0tDSElQ
-X1ZPUDJfRVBfSERNSTAgewogCQlyZW1vdGUtZW5kcG9pbnQgPSA8JmhkbWlfaW5fdnAwPjsK
-IAl9OwogfTsKKworJnB3bTBfMmNoXzAgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJs
-LTAgPSA8JnB3bTBtMV9jaDA+OworfTsKKworJnB3bTBfMmNoXzEgeworCXN0YXR1cyA9ICJv
-a2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTBtMl9jaDE+OworfTsKKworJnB3bTFfNmNoXzAg
-eworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTFtMV9jaDA+OworfTsK
-KworJnB3bTFfNmNoXzEgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3
-bTFtMV9jaDE+OworfTsKKworJnB3bTFfNmNoXzIgeworCXN0YXR1cyA9ICJva2F5IjsKKwlw
-aW5jdHJsLTAgPSA8JnB3bTFtMl9jaDI+OworfTsKKworJnB3bTFfNmNoXzMgeworCXN0YXR1
-cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTFtMV9jaDM+OworfTsKKworJnB3bTFf
-NmNoXzQgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTFtMV9jaDQ+
-OworfTsKKworJnB3bTFfNmNoXzUgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAg
-PSA8JnB3bTFtMV9jaDU+OworfTsKKworJnB3bTJfOGNoXzAgeworCXN0YXR1cyA9ICJva2F5
-IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTJtMV9jaDA+OworfTsKKworJnB3bTJfOGNoXzEgewor
-CXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTJtMV9jaDE+OworfTsKKwor
-JnB3bTJfOGNoXzIgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTJt
-MV9jaDI+OworfTsKKworJnB3bTJfOGNoXzMgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5j
-dHJsLTAgPSA8JnB3bTJtMV9jaDM+OworfTsKKworJnB3bTJfOGNoXzQgeworCXN0YXR1cyA9
-ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTJtMV9jaDQ+OworfTsKKworJnB3bTJfOGNo
-XzUgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8JnB3bTJtMV9jaDU+Owor
-fTsKKworJnB3bTJfOGNoXzYgeworCXN0YXR1cyA9ICJva2F5IjsKKwlwaW5jdHJsLTAgPSA8
-JnB3bTJtMl9jaDY+OworfTsKKworJnB3bTJfOGNoXzcgeworCXN0YXR1cyA9ICJva2F5IjsK
-KwlwaW5jdHJsLTAgPSA8JnB3bTJtMl9jaDc+OworfTsK
-
---------------PdXS0cE3u8xAHvhAPnkRnp4J--
 
