@@ -4,85 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02EB2CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB76CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/Nb3WWvH/1mUIXPrTIH4b2yaDJsbnyCRLr9hPVOhPI=; b=uGc5rZbhyJVvP8PzxdYxsTRcji
-	HrLBQtXsYYcm0Fn6c3fDFoKdZ4vFg3i/g2N+4c6m5JWXOAcKbvV5IkxL0QSDoKpAf71ZaesXgkkC2
-	T3fMafzgeWRpxJrxSA14rPtuse0y5bVEELyuprtdPU8ic6959Opbu+M8HG4k0klC5HV09f1Xq7JjM
-	R3esxbHZxQBlj+iCE6jJ6qLjRdLsRANrB+vcMdUpFCxRpih679mfL3XbW5qE8RVLfNeYEoB1hv7HS
-	xl1mqTg0XzxMGr0hMobACcElssyKyvIZ0zBE5NARxjxOSXGvpYi48iEG5x5BOXGm2wsb3iGAH1djC
-	vJE9RtQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8I8yp/MiZ7ri17yJV9kzL93n+BFpQFCc+/QSsi4tVMs=; b=4NtZPrefQhjYNC4vqNEaoMbUJy
+	Hne97flanQvi1TVXJEHOnfvkJ29j6ONtGRXAWAb8gCS8DUoi/Q9/Xa8tCv3o6eH4+DBpj/eic5jCd
+	CfA+v8JCRJvXYfetK73NyRQFgvG1YPIIEF4lIKKapl7e2prwskTscnTS+iSgCDU+FyBmD1Q+L1Rkn
+	i1YOS5ygljHikzrthu1CWEn9ZsxPbA74wq6J707nVG1DtD/ptX4EIMjoCz2PAMRU0sCAf35St2gKp
+	rDywiDajlztnX8EYURqGjE7Yat/V1QlKTPv/0KW/SL75I+5rEhfNNvsH/r35Jt7yqhBk0ISVWvj0p
+	yv/FOnIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgOK-0000000Fgjz-07no;
-	Tue, 28 Oct 2025 09:53:24 +0000
-Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
+	id 1vDgOp-0000000Fh2D-1nCA;
+	Tue, 28 Oct 2025 09:53:55 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgOG-0000000FgfO-3vIl
+	id 1vDgOm-0000000Fh0p-2X1z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 09:53:22 +0000
-Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-44db1c1056cso1232826b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:53:20 -0700 (PDT)
+	Tue, 28 Oct 2025 09:53:54 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4770c2cd96fso20322095e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:53:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761645199; x=1762249999; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4/Nb3WWvH/1mUIXPrTIH4b2yaDJsbnyCRLr9hPVOhPI=;
-        b=aiIEh1MWf4llWhiRHhVCjFhqeH9+XZ0pp770BwA2ZTtJ0dZwHNS0wNbzoLx+X8JobA
-         U1BxaF81hqUqzSKKABnT95gdPBh+nvKV8zf5YYBO3YMA7Y8gPsVaEzzZZUaOcYrtRjwq
-         2xRPmh9ttM3+/+/KMmVvh4ZUKABpwAQgiWNTugp/cBsgThh6OI92mhhPR9GOkBy5ICmV
-         /jOi0aO5/ZaKD6EnXBX6TheDXFIphadPVGGXjRipVi4BoJXJl2C2wjuGXSmgyRJSNWOK
-         18Ji6s5b56r164FnZcKlDcBE37maetj9GozWOw5m+7x9PXySNmjpSaZXAO6iw1f9vMsC
-         5r9w==
+        d=linaro.org; s=google; t=1761645230; x=1762250030; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8I8yp/MiZ7ri17yJV9kzL93n+BFpQFCc+/QSsi4tVMs=;
+        b=QR9U4wkmv3qFbE+hInG246EU7YabUXGU8O7n0pQVEPku1njVrZ9CnG78AD0ivwg8PI
+         qhgwLA6YjII3W06/KqS3/Zpy0tPbRabAPsgSfHJm3QeBoyH3xQ517Iz84AduI8vT5h48
+         kPkcSdT5X1xVyfNUJkiY50LCmirLV4l4HwEvFvdrpgZj2eM2i+GPPPqbsm0HngFkHjXk
+         rm0NxXbQP0KnX/vm8V8Q5JkgbFkwMWGmpHqz2QhkbGd/UQUGupRwMm3NAQGGdNNdu2oW
+         Mo7HvHahzs/VPxtr3uTkTDewvTfWDxVFlf1NgjTMCgJNVZZhXkJHYpYZbPQ0idrB2S+g
+         eJhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761645199; x=1762249999;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4/Nb3WWvH/1mUIXPrTIH4b2yaDJsbnyCRLr9hPVOhPI=;
-        b=arSZY9CJdjIl7tmQ6zkxRA/QyOM+iuK/EGTc5ue3Lao9f5qji532VNn7b9TejkRNuj
-         1ltI0BDdIVAv9AJ1xSRC35U0khWEMO6JMdbbjE5qVy6V2sIoUcfndx7jr/340N6I6Cfb
-         1/Y7vM5dFoFEqR++CrC5oRHMfgjtvPVXrPAfio1SSqIvNL9R28NmePAVR8288cgCfceC
-         grXlnatufvwKzVOPsNZ2cc6KvggNQk7eOEWN6rFAkjUzlK4mXQzpHynNvOIRXGRAw/2C
-         cpWk/ugbW0aeywmdHa/kXB5SThl6U2RPrWOZ7KQw2dQoC3Pt1ONNG4UaoIR5SBAEGCIG
-         sb+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVQpAHENtmKl8rdxaGqgY5VLYwo1N1FUQugM/KlOBxox+zgT+rnf0UOLszHctTk/e0cBU+JXx3Swhzgwu5o+lPN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTNccu3jhTUYSE42gzjFyf57j/IgEbuswVg7c68eItPhyh/1Rx
-	E9l530WQ8qLik+gvkvPpOCE+s3NIgdzRsf1SFBA8u/FGaTVG2DLfmy1PstTZcZ+5eaNtt83xfwp
-	MqeEJ5dhlaWTSAJ5Q/tkzUZMmY7IApSQ=
-X-Gm-Gg: ASbGncuvEk11EBLjvkSOqvZXFRRFExl4z1SEMDXg89WSLYiDX3wKCim16vrixZlIfl4
-	K2GUta3kHCV0R7SFbCPfOpUse3MwKw2ZkgnF66DQL7SDJId2VUl1SGRIytXfNW+06jpyYIdcPwL
-	RC3iMuUoFV6B8uKcrXrDnAbJ+dGGKcgVwhWjAAceyjluVlhrhmwVQJ8tzsnnAZhpCVZAVK3cqNG
-	5jIa9dTDyryt/5gBe/6DtrV+IIjszxE2qFVkBEf8fNx/E848L80cFVK0+It1g==
-X-Google-Smtp-Source: AGHT+IEbWmUMugzBeIPUgI1/BsJBgV+0SWoENDsfOHTRTsl6JEQadKCa6qWvaTqxnr9sGbNnfs44CBd9zTl5zKommQA=
-X-Received: by 2002:a05:6808:320f:b0:441:8f74:f0b with SMTP id
- 5614622812f47-44f6ba984f6mr1130597b6e.53.1761645199645; Tue, 28 Oct 2025
- 02:53:19 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761645230; x=1762250030;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=8I8yp/MiZ7ri17yJV9kzL93n+BFpQFCc+/QSsi4tVMs=;
+        b=mkug2NWNeNM46WrjGPjJCfUdzFa2Aso61tENfOq05lqgzIGV4Fp7owdSku6fZj+M1P
+         2uSezv9Sf1jEjIiQtYzFtYkwmlZKWWLooxtSIn3/ClVw+FN/0+QPmhLt1kQTYqWM9CxG
+         qUw/8YVKjb4VUKcxRSfbTyMSPCS+LtZ9v1fFb5+U3DRfDW8HXIv4nf1YFBRMPKEDyZXS
+         wIfNI1eiKsBBKlteZnKsGuBopZl24Xa/YStA4cK2cv0HpBpAZSpVQaF4GqslLgZGtOa4
+         nrM7/Y1KjeFnaQZjYsyQVjfW4t3FxsWVeL/KBtPtXrVNGERIio1kh1ORQTMIw7YVa6gp
+         PEWA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6Xd6XIv/eS6AONeJO527EF6eZhavyp+vRftLyNmolYnAv5rp5CJmQGY7dSl5htzhKgvQ6X6qxY0a53FnK9/P1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaI0LZwAQE3l3T2l5Ppru8Ek/H4wIjjXh84ihONwZvaJX/jF83
+	FmuAM96Q3NndYyKlQ1Zc9xuBXYiGQauADDJnKfhMMme/yyKTX70hOSPdqRbTprjasK8=
+X-Gm-Gg: ASbGnctQx3B7UslYoEP1CFT/BF8n80j+po/zKUrwjm8BJRsBUsc4JQGfBcvZGhRkueu
+	NgtERi4+QdQXATXCyQ50JhgA/2iWgZe7IVEEH2DsFGbY+qM0rpooyhrfHbLPF1IlpHq3n1+RV+R
+	VS8YAAwI6F8AjJ0VsXe0TKl4GJCliLiJJY5buccCI8IfiapVR/tCe0fZVjPOtutZv0XEKSu3TZi
+	VK9YxcuxrJJgZ1hq+AjJ06T3lSwdUYy66IjO8iwbfGZ6l0TtfXsvupPNlvUlBKZhJcVG6/hMpDM
+	gYtY1m8k9t+gsAp1ZFySTGMNsvImOV7XypkoBVHovrBC1S0J2J3V9mIlBkezQf14gosyuAw4riM
+	U4yQeKvvPfKsWBRigvDkXHhhnysfwTxqoJ6azr2YuxMYscSZ/wJ6mDk7RGljMx1R4BoSdwmCCEX
+	wUo7bYPK5CU4MZgv7YI7p35A6xiVr2knYMUbRHr59xQ1KR8m4BlA==
+X-Google-Smtp-Source: AGHT+IEqG+78yGFGY+SL/zvW3Zf5gXKbhNU8p6clS9qReHpKKpmAUUwL60SMqhqOg8eCmjLjilEooQ==
+X-Received: by 2002:a05:600c:4f0b:b0:476:4efc:8edc with SMTP id 5b1f17b1804b1-47717dfe1fdmr20085705e9.15.1761645230249;
+        Tue, 28 Oct 2025 02:53:50 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:cad:2140:ebe6:df10:d28d:aa5? ([2a01:e0a:cad:2140:ebe6:df10:d28d:aa5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd48942dsm189090425e9.4.2025.10.28.02.53.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Oct 2025 02:53:49 -0700 (PDT)
+Message-ID: <fbc3237e-0185-4c06-a6ea-f061a2afbd64@linaro.org>
+Date: Tue, 28 Oct 2025 10:53:48 +0100
 MIME-Version: 1.0
-References: <20251028031527.43003-1-linmq006@gmail.com> <0103d31e-f7f8-45df-9add-76adcca3ec40@kernel.org>
-In-Reply-To: <0103d31e-f7f8-45df-9add-76adcca3ec40@kernel.org>
-From: =?UTF-8?B?5p6X5aaZ5YCp?= <linmq006@gmail.com>
-Date: Tue, 28 Oct 2025 17:53:02 +0800
-X-Gm-Features: AWmQ_bkMyjcKORFWNp8J-vJD4NSkB71CvF6mfPoA-5wZktbAILoRLRbfvGQOD3w
-Message-ID: <CAH-r-ZF9r6hoDOBak5pj7Q5+2wmFto=onHF4_Atv1qcyVjbeXA@mail.gmail.com>
-Subject: Re: [PATCH] soc: samsung: exynos-pmu: fix reference count leak in exynos_get_pmu_regmap_by_phandle
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH] drm/meson: Fix reference count leak in
+ meson_encoder_dsi_probe
+To: Miaoqian Lin <linmq006@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Nicolas Belin <nbelin@baylibre.com>, Jagan Teki
+ <jagan@amarulasolutions.com>, dri-devel@lists.freedesktop.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20251027084258.79180-1-linmq006@gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20251027084258.79180-1-linmq006@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_025320_980147_56F522DB 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20251028_025352_663260_34870A9E 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +134,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof
+On 10/27/25 09:42, Miaoqian Lin wrote:
+> The of_graph_get_remote_node() function returns a device node with its
+> reference count incremented. The caller is responsible for calling
+> of_node_put() to release this reference when done.
+> 
+> Fixes: 42dcf15f901c ("drm/meson: add DSI encoder")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
+> ---
+>   drivers/gpu/drm/meson/meson_encoder_dsi.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/gpu/drm/meson/meson_encoder_dsi.c b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+> index 6c6624f9ba24..01edf46e30d0 100644
+> --- a/drivers/gpu/drm/meson/meson_encoder_dsi.c
+> +++ b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+> @@ -121,6 +121,7 @@ int meson_encoder_dsi_probe(struct meson_drm *priv)
+>   	}
+>   
+>   	meson_encoder_dsi->next_bridge = of_drm_find_bridge(remote);
+> +	of_node_put(remote);
+>   	if (!meson_encoder_dsi->next_bridge)
+>   		return dev_err_probe(priv->dev, -EPROBE_DEFER,
+>   				     "Failed to find DSI transceiver bridge\n");
 
-Thanks for your review.
-
-Krzysztof Kozlowski <krzk@kernel.org> =E4=BA=8E2025=E5=B9=B410=E6=9C=8828=
-=E6=97=A5=E5=91=A8=E4=BA=8C 16:42=E5=86=99=E9=81=93=EF=BC=9A
->
-> On 28/10/2025 04:15, Miaoqian Lin wrote:
-> > The driver_find_device_by_of_node() function calls driver_find_device
-> > and returns a device with its reference count incremented.
-> > Add the missing put_device() call to
-> > release this reference after the device is used.
-> >
-> > Found via static analysis.
->
-> What static analysis? You must name the tool.
->
-
-I use weggli (AST pattern search) followed by manual review.
-
-> Anyway, same comments as before.
->
-> https://lore.kernel.org/all/?q=3Ddfn%3Adrivers%2Fsoc%2Fsamsung%2Fexynos-p=
-mu.c
-
-Got it, thanks.
-
-
->
-> Best regards,
-> Krzysztof
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
