@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909D5CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C645CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRHCOkh4N5PCb53quDW9/VegPwopMuUXUgLMaF1jWbo=; b=x1Hvg7HWXBFQZF7u7LQnmETBwr
-	Vp38ftlQv+AVkqij4bgTdhWvqD/ZVu5gXpVjAKrOiUWfonNFb/aWOxzRGDVYlV51L+pLnYoUeiX/U
-	mf2mGEA24TWRGhUsnOgkPPHlL6f8mOaffVw7tAyhWKIcUOb32f/9vRZiEw7itJeXIcK0qv7TutE8k
-	/8kmGzstafL0DTba1nqWJowCeO0UfheMuHqix9t53A5tKfk/76KdEwBiYuE+N+82r1agfTH6P2lUy
-	7vOTr+/HNEWmZss3LIy4skHHR5dmZD0cwWQrKLla+iGn/cDoUXnUalSwrz8aa2WCY6PHLHA6vSPq+
-	2EnbL+cA==;
+	bh=Tq1rindzPoSv1LaOddPS8k5NKUTrYDUpuyisQ7twQKY=; b=yo3wNbIaN93UoXGSkQEXTy+Hh8
+	gbTMc4Lynz62JO7piGWBDoCbHrCOAUs/rFPw0EzQ9TnrsdNJ9i+tiEDmuo5HSAMDQvKYPpGqhT4s8
+	s47JOoHCkcPpk+8RFvKSmSj+9OrCvAGcOSvTOUQLLrNCyKF71tcWgHMSf6a4CqVwVAVOzBNIFOxHg
+	nroiTeMk55iHv0GL/5i4z1gIpjJI0wa+F+Q47ThLrGZfZVi8QtBMlNvkoe3fa38N92eq5X+Ir4CiG
+	/7npzFO83IIoSalY67tgy9yLSuKDRSuXvbbMO8Ig9qavMgqnPaTk+jhzx2oufzi/xTqOdTuu8R3+o
+	1jE1Lfrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlkl-0000000GC64-1zB1;
-	Tue, 28 Oct 2025 15:36:55 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vDllR-0000000GCEO-3WSK;
+	Tue, 28 Oct 2025 15:37:37 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlki-0000000GC5A-2S3p
+	id 1vDllQ-0000000GCDN-0jID
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 15:36:53 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47118259fd8so47654095e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:36:51 -0700 (PDT)
+	Tue, 28 Oct 2025 15:37:37 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-475dbc3c9efso25981095e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:37:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761665810; x=1762270610; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761665854; x=1762270654; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bRHCOkh4N5PCb53quDW9/VegPwopMuUXUgLMaF1jWbo=;
-        b=hFAcJWesmMj5GjntKz/vFXqRM6WMldh92hFEMU8VB+wLUEARxU8He31HekOXw2bzGn
-         WTr7qytIkXjXGFf/Pt2Y75q0csHL33qTc8jQnbcUMExoGQtUWStyA/jA0FbUOFwoUv5E
-         CeXCcDg6Lu1j9ZGccCjvbvrPPp6/z3UVxrQqhd+eaxfAi8X7zqPvqfT2Ng8wVqjPjg9u
-         f3B9qiFIiVtQwZL8wy6/PExUkWs1ytgKaWrRSZxMCBShQum+QhyBdlkRQy3mZ9OE6JhO
-         MRU47J+RbCkyxTXyOFlM8vdahHovKgDJW1mSCZuJgb4S/S/KazJkfmxIYHlzEDDW8vaw
-         bJsw==
+        bh=Tq1rindzPoSv1LaOddPS8k5NKUTrYDUpuyisQ7twQKY=;
+        b=jo3eCfHsnuSX1g2WbwMhzajTvUPlwqmpI8owm49XSUoprYGXOZAJo11sRf8pV0P0gx
+         hbwBB1+J7z1LFbXZJq7enRdJwsl7Ad+lNhE67BHFminjhuBS2+RWeqNSWr4cMBea7XWY
+         z3TBK3cgGcZF+0LxoI9kxeiKnjFoMLyDpNu2zr/NEJyNnD3Stx8aQ6bpRQGPK7yGM1tO
+         vKgtZGgakSNBCWfspAi4SCQKTDH5wAWYr/IsficCF7f7g6KjKeXNtJjZMRpu4dCczG2C
+         EZ/5pHC1pA22ZpkVLP2EoJo547eC0SOgnd95nmrLA7cVX5bamV418RUxEiyq9sI4AsD2
+         egAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761665810; x=1762270610;
+        d=1e100.net; s=20230601; t=1761665854; x=1762270654;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bRHCOkh4N5PCb53quDW9/VegPwopMuUXUgLMaF1jWbo=;
-        b=gw0PC7WzTc2exOJXFb+PRL2voL9KKX5OnES6sUaPcP5E+T2PhalpIfdKTchajfmFRs
-         n5+Wj5eLGGs0OoSn9S5HBB/zSum3P9E3BKKeQiPKrYVofmB8oDt2qK5cQXZWAxT5BBrN
-         nS8aF1d2HSMVl4xDxN+jrKsVqpTM6nOZwZFFWUlfAuNJ1sQ1y3rPRuSFquwgTCnIj87i
-         cWz290D8eqnIQEgMDOZeS9ttOUwhmsCKiIKvxNt6STkswW0UJZAm0suguq7xV4LhmNUm
-         rh9omoj95yluLlbM5V3+SGQC4Wp4zw6ofsghQk0qi7Kf6JGNFPaybw+CIoW+fe3XLNhE
-         Cbsg==
-X-Forwarded-Encrypted: i=1; AJvYcCVPZNsAjb16Ck7nplZEF12hLVCG0OurevyTNPRJmKwrltu8I8oSvEZaV8z2GcKmUmczzm9SXpJ9WvWyTOBaEE2s@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCDOEGnTvQkhCdl+yQOCmtfiEhaGQv7oIMpwhHuKm8T8T2J+Z2
-	JABZWWECMFtyzZjTALls3re2HTnpUZWsz+2PiUrJnaG7gyg2MsYNWRp6
-X-Gm-Gg: ASbGnctmhYuZ4ssnBBZ+DPt/3X/zeDkfF1MlwluCfpDjqWK6Ou6QA6f19+9S2lRgRuR
-	684jIZflxCBtPcGrYNxtx6rLJKYUYO6TMhmaerhqOHdAovMxgdsuBwbQb7R9Uc7/TYXHeB1p6yk
-	FVU0Bbioc/yCRB31pMT9wYs9UvZ3StYO3wvPgww2hN9LlqIGk0RsURmxhstzyVXFr+AqXEdr6ai
-	CwlJmDwuXXQUUQT5zIusXfBV1oULITEyG6u+vLxiuQPyV8tepzrs/Bg4TwVerXaRGq4pUQh44Tw
-	wQvMR19cGEkHh0VeyKvUGU1j0HRvnCvR4O6yKhNYabXv3wRB5emYqxGzOGNXwUXvDJ88dWQvoqn
-	UWBQMDodQfWhqb/CSuzt3nCwR91Xc3cogv2d56PJ+GMIfYnMX+WdF1fJwDPkVSF7EN6SVl7Dof+
-	en1EtWfh3rJUwdL9aoEujsIIczERlsyTuzKrGz1p/v7SvcaE1aWO1OBJpXyA==
-X-Google-Smtp-Source: AGHT+IHcEqxrDGNbCr9Qf3fhYUvlJSJPyM3H2iUm9WQHT2tvvW1arfoNj1Bg06ZOGX1vRi4tbPm82Q==
-X-Received: by 2002:a05:600c:8216:b0:471:d2f:7987 with SMTP id 5b1f17b1804b1-47717e30970mr33449425e9.26.1761665810438;
-        Tue, 28 Oct 2025 08:36:50 -0700 (PDT)
+        bh=Tq1rindzPoSv1LaOddPS8k5NKUTrYDUpuyisQ7twQKY=;
+        b=odd2jVsuXKwF0DoztWTRwBGWdAeTblWgq530batvBhKJzwKiycT8kji9Xloi83LEaN
+         4AK///P1hqhg9fBUfXH0+6frV0b6zyXTDD6ZIhKfcyXXraQEKczjg7N+8qiZOniwm1Vh
+         CKBY2demk/4idoKxpoTcfuh61w0zK36r7V8KH7rVc20/SF9U0IamgSmp2gW0Wm9VVoq1
+         LT+1eBIMeQPE+MT4MHgb53KQgWZ9BuAaZX+XhQ6WmeuCwZccPrk2zIXRqdj5AW/50JT7
+         stZ+GcjwnZgdlOfqminfkvdc1gySkdZmG3wpavrN6AjxwcY1yBr/5/mC7U8vF0bqm8Tf
+         8keQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWWhfSUa8L/N2yOc0mBKX7CGDfN5V+RWLzrUjZ1k5e+liYOxIf00Oderx266VSBwBQQWjflgqWG13HB+fDqV3Cw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsRmBdLvE/mYHTNs8D3CV+RbklxMp3EI+Zd6BR15BhV30S5aAl
+	uW4NLf+3Xe5osXEPJBKoNvm6JcRkwmewPzxa8Ejfr+lBl4tEwsDAOhiL
+X-Gm-Gg: ASbGnct5ytmiiyyvv44hsMJStF74ttU0PPm64WUAZfO0zTo6gAeQQ1n8PT90g51nnQg
+	UszjQym9Ots4tmk/wbKnGRKGTzgLlgNYLNcSie4xdGwGxL4keKAUxIBqEaIBRcbU2ikYcK+Zm9J
+	A+WZHhKLpynSVm1E0aoS+iM62tjpHzdl8W5kwL41dCYcmSC36dyA7MZtEUPHr5+LCf79UV1skOJ
+	AtHFDrxiis5X/xh9URNdgVZyJi5VrdCZpaZ79yUJxu5nO+gp7rlVjEtaDRCQ1dYcZHAANBN3TU9
+	aU2vtDQ08qzUuPMx5T/0bZ/IoI/lBDY1crlY3SRJhE6VXSC3I6C5QJJumQ+E6BwhuXJmzJuI3Od
+	Ub2fFNWqbtPsdwi/u25pu9VTtBZpwHLFR8970/AhCf/7WgvFMcmdUK83Rwg44Fh5lhpJ3WvLXZB
+	nrE3cWgzTFcsG+jWcfwGQ1WQJVw/i8nDaqXusnk0ra6NS6vQgHN6cqAm+lWQ==
+X-Google-Smtp-Source: AGHT+IHXOTFO2WAIn1ZujBJa9U0PAXYA4glOCwdtcmQllsrumq7MYqoGH/iY7FhfpKKBj/R4vTdKSg==
+X-Received: by 2002:a05:600c:848e:b0:476:84e9:b55d with SMTP id 5b1f17b1804b1-47717deef5dmr32584225e9.3.1761665853339;
+        Tue, 28 Oct 2025 08:37:33 -0700 (PDT)
 Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd374e41sm202105775e9.12.2025.10.28.08.36.49
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952db9d1sm20581519f8f.35.2025.10.28.08.37.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 08:36:50 -0700 (PDT)
+        Tue, 28 Oct 2025 08:37:33 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
@@ -84,18 +84,18 @@ Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
  linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@bootlin.com>
-Subject: Re: [PATCH v4 05/16] mtd: rawnand: sunxi: introduce reg_ecc_err_cnt in
+Subject: Re: [PATCH v4 06/16] mtd: rawnand: sunxi: introduce reg_user_data in
  sunxi_nfc_caps
-Date: Tue, 28 Oct 2025 16:36:48 +0100
-Message-ID: <7866116.EvYhyI6sBW@jernej-laptop>
-In-Reply-To: <20251028073534.526992-6-richard.genoud@bootlin.com>
+Date: Tue, 28 Oct 2025 16:37:31 +0100
+Message-ID: <3656445.iIbC2pHGDl@jernej-laptop>
+In-Reply-To: <20251028073534.526992-7-richard.genoud@bootlin.com>
 References: <20251028073534.526992-1-richard.genoud@bootlin.com>
- <20251028073534.526992-6-richard.genoud@bootlin.com>
+ <20251028073534.526992-7-richard.genoud@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_083652_647094_5D69C6C4 
+X-CRM114-CacheID: sfid-20251028_083736_220639_1CD443CA 
 X-CRM114-Status: UNSURE (   8.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -112,9 +112,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 28. oktober 2025 ob 08:34:58 Srednjeevropski standardni =C4=8Das=
+Dne torek, 28. oktober 2025 ob 08:34:59 Srednjeevropski standardni =C4=8Das=
  je Richard Genoud napisal(a):
-> The H6/H616 ECC_ERR_CNT register is not at the same offset as the
+> The H6/H616 USER_DATA register is not at the same offset as the
 > A10/A23 one, so move its offset into sunxi_nfc_caps
 >=20
 > No functional change.
