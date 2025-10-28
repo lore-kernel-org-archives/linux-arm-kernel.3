@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17422CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55510CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ATRw3tFFmEK1zPWNKP140zh9kBKwr+zrf40M6SOBpU=; b=1wjnEfYxM4ZUGVc7YUyVO2phX/
-	sVqNRrhqw93MAQrn98IwIjidwgOrFQjFnVTxyNC50xzm66EWX414evozba2hoDpMt0JqaDVA79nDw
-	USsEIDMNgFoFkcZPFKpU1Uuii8q4FHmEx3dpXts6NAv5wLPBpTUc1JCRGwzyDnH47L9pe1lEFXim7
-	f4p3D1zEXcBhb2v3lkY/sUGNKD1ZzIl8Ee7f6k6rFwc0HWOEhq/TX3L/ycJiu61xBQejuXnIBoKES
-	8zaUyak342L3Im1CO9BKYxr+owwbAQXrhQofi2D85zs+OG1wAS5uTrw/sdipFLIYp+lr/C90fAtvt
-	x1lC/F8Q==;
+	bh=nLSaa6PcadKxSJGpM5AYmWJ5bCIVBLv3q1JgPY8IHz0=; b=qcWEvzk5soAkj2+YsHPCHmaE3N
+	gdgsyI2SbXEeRKEZBSL/xga8P6SmIZsL0vtXWTuYge9XRZeMMyITrZkKk3N7ohhyfR28wbD3R9Acn
+	NFF7gS71sicFIAC/EytVVOt7ZdIPVCuJa/Z6bN8vKLG5luO2SyD86MIIl72RzZt0Zel9UcB/fkLZx
+	lT9IqJdc6fuP18duesK2p+HdcTVj2nBp2nh5WJ4iCS3uFPq7fyx3DJQcmdDcduRJo4G/QlfPnCR+O
+	pxDiMGsFUOGPQsgW8HfmO8jVvB1xUZz2mDOIRkO3Qg+MwRJlaex7LBv8bS0ZF6bYVXeXUezMAmSkX
+	o86BYNnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlqU-0000000GCxD-3m75;
-	Tue, 28 Oct 2025 15:42:50 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1vDlqb-0000000GD0N-16ym;
+	Tue, 28 Oct 2025 15:42:57 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlqP-0000000GCuq-4C8w
+	id 1vDlqV-0000000GCxj-3236
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 15:42:47 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-b6cf1a95274so4241826a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:42:45 -0700 (PDT)
+	Tue, 28 Oct 2025 15:42:54 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b6cf1a95273so4482442a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:42:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761666165; x=1762270965; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761666171; x=1762270971; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1ATRw3tFFmEK1zPWNKP140zh9kBKwr+zrf40M6SOBpU=;
-        b=Ffx5ZvEEoR7uCZ600MK1CJnJgU9ugy+MnDmgUXfC1d1NOwKPOcTRw/5fED3fL6aT3R
-         jpXph/LvhC/Mjph5gHNzTgIZmRUFFnj6BdXOePADlzR3IJK+GRJMuQTc2Gx22tIOZjl1
-         bcMJfzYh8mEehBufF0E4x3oU/1bQQnim4/uO8WeOLbpQd5MtQB+KpvtMUxyA2PAv5T6a
-         46ONRLKC4j6OBcxxlsarzAktR2BSaupuFZtwMAhO9xDcbt8KeE+EjF+9fwAqXTELy2EN
-         FKXybmW1nzRH5A5rCAuL2j6IlTuV+zwSTgc65Q91rQ6xKP/Kft+4zwum0Esl5jC8AiNr
-         Oxjg==
+        bh=nLSaa6PcadKxSJGpM5AYmWJ5bCIVBLv3q1JgPY8IHz0=;
+        b=PQlh+XoqtQ7RX8iPJzPxl8X0Ceftt96bWVM2F3yy3UMvcEKVeVU9IkZU61ZBBwU32+
+         RQYjzaxu5P065JQ2XatV7IzBwEXySbwwdtQr++sv85SN46VOjyUziLGxcSOT+IHlbske
+         7pWl/XXAj/K7tOhD8t4BkgKGhUhcZHD4FLDT98j/LqVwO5TXPUnG4q51IBqkpe6zigvK
+         j/uBmILuuakwfJu8ZHAUKdfIUprTT3H/wwqoCaUk7fg8FnwW0x3QYe9UzyWHWEy++eE/
+         0yGW10SvPyFI5IrfeRFis7SYmZ+qyZM6vr1cBRFFAliS0ZZHQ1Zzf4qF3/l/STBSd5PF
+         G6NQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761666165; x=1762270965;
+        d=1e100.net; s=20230601; t=1761666171; x=1762270971;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1ATRw3tFFmEK1zPWNKP140zh9kBKwr+zrf40M6SOBpU=;
-        b=NXgdr7I0xFS5w1Vo2wlkDjZrNSMYbYFLnkxFvLawyqBvXHGP6L+hmCEuhXGMwS1MaY
-         cUnXZY+WWITOM/aVYoffNmDmCxf06pZX8tH8akbFeDrZWf9TnOmQW5s66w1G9PSd5zEy
-         2wZrMPicy+Ufe0CdHPrS/8uw9PHQhwe+ZuKC7iuSWjbbGoVNwez6DxaK7sMBmtCdCYws
-         78wIopzYkfFREYy/eFwgGGKFYS2BV8cuHx9kE09g+cwWMjipBbStGKfCgpG34lET9pTw
-         e/LxwuU6is16hJpTJr4d3FdeRGGn01zRWtCTHr08K7cm4TKqgO7zqNiBciN9j1XxOJ3O
-         Ga4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVqMtBNWol9d4pHMxHSY7Bg8CC0cjO/6nE2ikcooEsPiMs4KYT7na/ca5E89aYix2rpzsIgEEU6xSBpMAjqlXKP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQo6QMmb84R8r1S0Z13dpwGLdNMoPza86+bI7IFH+haZwsUl97
-	n5a26DSUIzL/JixPrmFtfPIfPjCOyD7aVITRH7ogeSnWC7B8bdwe2iJCJwGmBg==
-X-Gm-Gg: ASbGncuH6kUEwSisGsFkMSuZFSv0ilez1IKyta1ggUP//2Fe9q+ELO5NlDlBnogE9jy
-	2vp2E6d/JCDFwpSRm2saX/AOIpP2TiUP4Ln5mkwkdorCuJNNreU//XRM6rdO6pwIZbrVKd4V25J
-	GrzH2qK1Bius6vy1J1oc4cLHqF0x2+ha+tgZo6IN5N0vEePtjzW6Kiz9v2YbLNJ8y1x6t3qxoU8
-	Bi4Nr4XNl8hDG4o1fGOBfO0oup3DJZ44CC/wPLJkNQFKYa1otJAt20TpZLIrEE82ihJAeLNvAkF
-	zDtriAD73jDmf7SHkJf56fll++DlGCuo3mhsSqWI+T5zkAB+TqE7xj0O9o2Hu5Ii6zkaJ3me5zG
-	cni2LN5PK7gnpuM7J/+zxwewCVWusHQe2DtBrMiwyBT0c1odI1Y5RY8mB+ikHeVaTBj/uwSGp8w
-	==
-X-Google-Smtp-Source: AGHT+IFX1XKPhnz3Nfvrc+6BGz+aJT/D7E5JuxSlko5PpiJVk9W0Dbe0cl4ODkgGZEnXaVBp1Weykg==
-X-Received: by 2002:a17:903:2348:b0:24c:cca1:7cfc with SMTP id d9443c01a7336-294cb6756bdmr53895455ad.59.1761666164805;
-        Tue, 28 Oct 2025 08:42:44 -0700 (PDT)
+        bh=nLSaa6PcadKxSJGpM5AYmWJ5bCIVBLv3q1JgPY8IHz0=;
+        b=H5xpr0vQVAkCOgkBsa3Ak0W/vIBtacZ33huBU48wbaNXd4q1fofT9N0xmr46hUJXwU
+         7T4yVYQXQBLWTv4OOHW3Ffe8RmN6dwdQOG9H0xOXgc40TqNAnKkzXrqDuJa2TJkRWAdf
+         P0CjjIoIR82rLqXQ/oZb7swrYyO5W7jhRc9yFxx+X2fPbK8i8eCvCMXIcCPwzpvZBDm3
+         0hA3JDhcSfF+KfrUybZYESsaEfL46mZa6TPv8iQl3lJvG7LGn9naZ5/pPKVL8fTIwYXx
+         JEfG3UXL6s0RBFUOIhDdS6It23ehiPjKFnVqJxfv/Rg1+pBbzuKtjLPvigNM2245fMjA
+         HkPA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhnCdp9MRwP+fe8XOVt7D2W8uJHbiv/soqMHH01PhqpUnweF7nAW+ldZj+egCvawW4tJfvc1HDasGIhJkLinbV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8YAVczsp5pZdJD3GvU+WDU7LwLW8r8WU+pDGCqPOpg3xRMlpp
+	PRkgXGhIuOhKfAiqsiN9nddfKoQm7emEGHJ8UdiV+7WkfqgzsUorP1ce
+X-Gm-Gg: ASbGncu8uindK6OQySbpujh/zD6ulYXXvE4kVqf1BUu0Rw0RIYgflCXR2BM2lBdu/PP
+	gF1nG4RE74SGx9XZS5DxMIAruDT6ZZyvt7kW5jYgYICl1DMyWHbXm7Ly0eL3P9cW7V8lRs+hRyp
+	TFFvUI2qd2cjqP1zTRomArmT0kwHC00JSB0VIy/zhhshhS4Kn26OFcsgRFFmh4XC8WXCvINVnE1
+	BX36ZtIMceq9lP5T5Bsnkm5cFKrntzkUOYpYY6dfAsfjExncCzTAx9gx1X6IR/DCK19SuUqRCBM
+	UITSlNdrkgs9IM+Jsy6t62mBgK4SvQCXY2ySTBjhjLN+ZM7Wpv671JANOIL8kct+rGtVNPTKBuM
+	7iMB+RWclWjtVmekSHuMnIJm/dTJF7ClE2c34U4rbxqoC1ekbbEBn2XypBSsNsM7ODM5+o/EZ1q
+	A2IRI5KpIA
+X-Google-Smtp-Source: AGHT+IFtaSkAiKKcd2pcmpO8llRHe3kknOAIp2k2H7U83BZTPQHu+FuTy+qLrHQP9UKuG8qf//3qLQ==
+X-Received: by 2002:a17:902:da8f:b0:26d:353c:75cd with SMTP id d9443c01a7336-294cb381901mr58454085ad.21.1761666170702;
+        Tue, 28 Oct 2025 08:42:50 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.108])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d0a4d9sm119815145ad.37.2025.10.28.08.42.40
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d0a4d9sm119815145ad.37.2025.10.28.08.42.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 08:42:44 -0700 (PDT)
+        Tue, 28 Oct 2025 08:42:50 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Vignesh Raghavendra <vigneshr@ti.com>,
 	Siddharth Vadapalli <s-vadapalli@ti.com>,
@@ -85,17 +85,17 @@ To: Vignesh Raghavendra <vigneshr@ti.com>,
 Cc: Anand Moon <linux.amoon@gmail.com>,
 	Markus Elfring <Markus.Elfring@web.de>,
 	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: [PATCH v3 1/2] PCI: j721e: Use devm_clk_get_optional_enabled() to get the clock
-Date: Tue, 28 Oct 2025 21:12:23 +0530
-Message-ID: <20251028154229.6774-2-linux.amoon@gmail.com>
+Subject: [PATCH v3 2/2] PCI: j721e: Use inline reset GPIO assignment and drop local variable
+Date: Tue, 28 Oct 2025 21:12:24 +0530
+Message-ID: <20251028154229.6774-3-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251028154229.6774-1-linux.amoon@gmail.com>
 References: <20251028154229.6774-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_084246_075489_B82A353C 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20251028_084251_770279_1ADC0734 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use devm_clk_get_optional_enabled() helper instead of calling
-devm_clk_get_optional() and then clk_prepare_enable(). It simplifies
-the clk_prepare_enable() and clk_disable_unprepare() with proper error
-handling and makes the code more compact.
-The result of devm_clk_get_optional_enabled() is now assigned directly
-to pcie->refclk. This removes a superfluous local clk variable,
-improving code readability and compactness. The functionality
-remains unchanged, but the code is now more streamlined.
+Assign the result of devm_gpiod_get_optional() directly to pcie->reset_gpio.
+Thus removes a superfluous local variable, which simplifies control flow
+and improves code clarity without affecting functional behavior.
 
 Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
 Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
-v4: Add Rb Siddharth
+v4: Improve the commit message
 ---
- drivers/pci/controller/cadence/pci-j721e.c | 20 +++++---------------
- 1 file changed, 5 insertions(+), 15 deletions(-)
+ drivers/pci/controller/cadence/pci-j721e.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 5bc5ab20aa6d..a88b2e52fd78 100644
+index a88b2e52fd78..ecd1b0312400 100644
 --- a/drivers/pci/controller/cadence/pci-j721e.c
 +++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -479,7 +479,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+@@ -477,7 +477,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 	struct j721e_pcie *pcie;
+ 	struct cdns_pcie_rc *rc = NULL;
  	struct cdns_pcie_ep *ep = NULL;
- 	struct gpio_desc *gpiod;
+-	struct gpio_desc *gpiod;
  	void __iomem *base;
--	struct clk *clk;
  	u32 num_lanes;
  	u32 mode;
- 	int ret;
-@@ -603,19 +602,13 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+@@ -589,12 +588,12 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 
+ 	switch (mode) {
+ 	case PCI_MODE_RC:
+-		gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
+-		if (IS_ERR(gpiod)) {
+-			ret = dev_err_probe(dev, PTR_ERR(gpiod), "Failed to get reset GPIO\n");
++		pcie->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
++		if (IS_ERR(pcie->reset_gpio)) {
++			ret = dev_err_probe(dev, PTR_ERR(pcie->reset_gpio),
++					    "Failed to get reset GPIO\n");
  			goto err_get_sync;
  		}
+-		pcie->reset_gpio = gpiod;
  
--		clk = devm_clk_get_optional(dev, "pcie_refclk");
--		if (IS_ERR(clk)) {
--			ret = dev_err_probe(dev, PTR_ERR(clk), "failed to get pcie_refclk\n");
-+		pcie->refclk = devm_clk_get_optional_enabled(dev, "pcie_refclk");
-+		if (IS_ERR(pcie->refclk)) {
-+			ret = dev_err_probe(dev, PTR_ERR(pcie->refclk),
-+					    "failed to enable pcie_refclk\n");
- 			goto err_pcie_setup;
- 		}
- 
--		ret = clk_prepare_enable(clk);
--		if (ret) {
--			dev_err_probe(dev, ret, "failed to enable pcie_refclk\n");
--			goto err_pcie_setup;
--		}
--		pcie->refclk = clk;
--
- 		/*
- 		 * Section 2.2 of the PCI Express Card Electromechanical
- 		 * Specification (Revision 5.1) mandates that the deassertion
-@@ -629,10 +622,8 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 		ret = cdns_pcie_init_phy(dev, cdns_pcie);
+ 		if (ret) {
+@@ -616,9 +615,9 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 		 * This shall ensure that the power and the reference clock
+ 		 * are stable.
+ 		 */
+-		if (gpiod) {
++		if (pcie->reset_gpio) {
+ 			msleep(PCIE_T_PVPERL_MS);
+-			gpiod_set_value_cansleep(gpiod, 1);
++			gpiod_set_value_cansleep(pcie->reset_gpio, 1);
  		}
  
  		ret = cdns_pcie_host_setup(rc);
--		if (ret < 0) {
--			clk_disable_unprepare(pcie->refclk);
-+		if (ret < 0)
- 			goto err_pcie_setup;
--		}
- 
- 		break;
- 	case PCI_MODE_EP:
-@@ -679,7 +670,6 @@ static void j721e_pcie_remove(struct platform_device *pdev)
- 
- 	gpiod_set_value_cansleep(pcie->reset_gpio, 0);
- 
--	clk_disable_unprepare(pcie->refclk);
- 	cdns_pcie_disable_phy(cdns_pcie);
- 	j721e_pcie_disable_link_irq(pcie);
- 	pm_runtime_put(dev);
 -- 
 2.50.1
 
