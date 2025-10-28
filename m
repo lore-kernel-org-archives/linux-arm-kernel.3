@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B878CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 18:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36B5CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 18:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SByi/noK1LzrmChetu+9tAciMT7QNCZcLIgFo+c/8VA=; b=ZsmBLIA3pDR8cWFQPNGYN2KdZt
-	cZ8MzTMa3c2nSLOQFjHs78sizcr8EPkGRvukRdx45nc603/G8kBQhmPcqK+CNsUvSPZU+TSeLWYOL
-	jYi9p6PbMlWCY+w7GXRdRwbu3HvCM5OxvMn5XfvEPWq46egsT+2JfbLgU1UaIki+09Td1IeTz6/Dy
-	/60NXZra4KvOn9/6LhO5qIEXepRMEwMIoFjaY+Ynn1vmWRYD3Y36SuDtYV6T/m17nlW1qV9Sxs6sT
-	1RrFlJ70mcG1hhSyUrkrG4jETw+jKAu3wO9Gzr7SSzfCU3EWavDWA2HxEtjo7oht12FE2+iSDjdlU
-	wuGPkUNw==;
+	bh=MCqkedhq8gefJ0vq9o5JT8van1611cBRTjmA+ft6YH8=; b=B78beHa21w33VpKs5LhCVlBlML
+	A3gZ6XlPFP6rhLsnuQrBjbdjm++i/PXdlZKCMXrsIzpV0uL98HRy8KU9zlqbY969FzAU23mMu56Nx
+	uqHsJxJMgB43AJdLgppc7pjSOSi0AsVXpmI/NutrBJh5BMk1VaXEvBrvlgN5br4JAzv5yKnIieKP+
+	0zEG3a3SYHTtwVkn/NGug5PI/hfYBRMEuAGNIs4evvfuF+t0+vmErJcaUJwFAZE0A5J0XXccuyLab
+	m1p+zI2W25a6UtJFv6PdHjMhMAOuRvEPreRGIIz4mPxeb+fjtVGIS8POWaCGCwhTAjzb/RdMOjvxK
+	FrOXyyGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDoMI-0000000GUS0-3tcJ;
-	Tue, 28 Oct 2025 18:23:50 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1vDoOC-0000000GUdW-1fAW;
+	Tue, 28 Oct 2025 18:25:48 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDoMG-0000000GURY-1wJN
+	id 1vDoOA-0000000GUcT-0vbn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 18:23:49 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-62fc0b7bf62so3061434a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 11:23:47 -0700 (PDT)
+	Tue, 28 Oct 2025 18:25:47 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b6dbb4a209aso291101866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 11:25:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761675826; x=1762280626; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761675944; x=1762280744; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SByi/noK1LzrmChetu+9tAciMT7QNCZcLIgFo+c/8VA=;
-        b=gfiUmeqrAWY4Xz40xOHxKMVYDJ/1QDuBsKHHEidQAGaIFirnYM7mrUOhxXIkMUWi+n
-         aQULHOfyv6xs7e15EWGFiCuSRdZF5a4ARGRkM9V6ZeVGywFdKssY+avg3KEof2yQPhAe
-         fcWAZ/wYCaivtmpr38KvMdnSKvGAV/M3pDSsMHIuq5oQuBfdWf1T2UQ2Lkj/4vNMsUxm
-         CMlE70M5qtOq26vxmhNTedUffZtZXvMvi+y/pxr29wZD3AK/A4TCEHl7Ukdi72HPnjdu
-         i5cfe/xKQSm4Y4c0SnDIHkSklOjidsE6NLIASilq/7zt6NawtCIvuNgq1jgzTkNbszsb
-         bavw==
+        bh=MCqkedhq8gefJ0vq9o5JT8van1611cBRTjmA+ft6YH8=;
+        b=MeQp/I1cpewUV09YDcWK3jkBvXkesULmozcuTna+rKkGfN5bhOjlw92S0we5W4U1Fw
+         MAc3j9N803Fh7bjgrADXZR9MVK61H+g5z7DRO2XVPiDa2yfJtATx+Ula0WxY5NrWjJcc
+         mdkFSn8yjCnoSnzh/naxam0htei/vsiZrpA+TsDEXkzqw5tOdBjokId1vYuskwINmt84
+         1rdPSLz7t6CETl2D0cXGYWs8pAU6S/L7aKWwY2G93pQmzcKY36vxGPUZGVoU75PF9Ay6
+         KbJI0yMFU8O/fIClPvgOFC7ub4BoY/JS09BDrHE8tBgHfI0fspoEgoPo2lSRZRdWZXUZ
+         6qZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761675826; x=1762280626;
+        d=1e100.net; s=20230601; t=1761675944; x=1762280744;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SByi/noK1LzrmChetu+9tAciMT7QNCZcLIgFo+c/8VA=;
-        b=tHYaRr6w+i3PnNylomFjU/TmHxIypJfiLQna8AWeoi3Qhe+Ug8OHxBa4QTEkDxyM3B
-         JH+gd1EqIZqlOG3RAYjzsXac27/+ced1ET6W7TuDIwZWRyTBs0U+yHC813KkEWCvjEAQ
-         moELmp7y5eXneWB1deWhqmYPJfuNyYw1SadlG+fL2vdDLFAeFME402L/zZSrwSkfRSmg
-         HOwO8xySXr6+Zfd7fQXCvcQoqunKHbzIiqK5otRbXaj+idoN1CIVSTiMlK9rzJsIWV02
-         oB/AjsMTZg1wbG5bCqKq1pCgKUlxI6sjMGzX1wj+Za8Uo0IYkvJs1LaKMqt7yI3Fyzkf
-         x94g==
-X-Forwarded-Encrypted: i=1; AJvYcCUremortgX2vfhr3ittBZKpOJnZQ+Vgj6ZeanaANMaBfleaUQxFHyzRLaDFnWLNMqsd+o3/UwSHpirvTkpC35al@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9jPF5rfaX1A6EGeYWAHiUgAksgFSJrN1ev4b/DklPt/UU8EYV
-	VcjuSWJ8bX4Ew+E/7/Sbp8/kuKP78gujfl6hatt0qjb6caKT8k3kUDKZFD2ADodqplVd+UQpWD5
-	TXg/5mzvNF6afzv/D2coNlqD2T0Jr5WY=
-X-Gm-Gg: ASbGncvxeNUa/Ma7RX8EV0YCaAmB6YZw11Apg987DUyVCdtec2Yj1ONh+/30t9HCVkv
-	dsiv4Y8se3cnxqD1dJqtQibzcwQ9nVIQX0hxvKChpkUbnwFrzGxDVbl5V2GvefOHYj18+6uOBei
-	NN3NELj0fXDu4DFQu1h/QAWLJr8jKMyRMQf8zpzgagbmtq/XL8obyhc/ASrcSWwDBFQzMH7uIpH
-	BjKE/Tvit3Ni34riHhwDwGgMM1lYPD0VIK081QdB4CMgQItN7y5wnNFlmOK
-X-Google-Smtp-Source: AGHT+IERzCnM1Q+dG5xJk3p4f7frp3yawAfW/uKDFumZLMQ7OAJhXOruAAAPxc8vqZJQImIU0+jA31a/xFLrLwySBTg=
-X-Received: by 2002:a17:907:980b:b0:b3e:f89e:9861 with SMTP id
- a640c23a62f3a-b6dba4a8de7mr443497866b.28.1761675826412; Tue, 28 Oct 2025
- 11:23:46 -0700 (PDT)
+        bh=MCqkedhq8gefJ0vq9o5JT8van1611cBRTjmA+ft6YH8=;
+        b=O9iqeOkLKSzSPuBx98In6T0c16SovpoPPnRuvsC/9sB+FX0nuz7/rzhyhspq1QZB0+
+         cf8UyBFZmkxM9mSWFB5pJKpKZK+hSY92ArU1Gtw5MjxhRbzC8dfWAD5mU41Ubgqaf7PP
+         423lrAf69/MvOmmFiVo/eB463fRro1v30XzIUji9Zi/FPzNtZj/6aEOesPrwKh5WCZ4s
+         ikSxABYBaB1PYx28WeKB09j4HfS21ocnAd79s0uhy8j/dxe5shPDcrHnupJPc26YhboN
+         OCD88GQMmIIezlIiSqi/o/dav6W3D/Lq6zwkIyVoPoGq+M+7klhnG81NnrWJ1ZmvSK5V
+         IQ7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXaUBCdPYNQv3pYFmZqkAcWvRoXISbPg0R8NXhsh1yYV9GbNWYnuLCldgmF9RIVE06MJnNxuLZtoOtCA6KHv40b@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqjOul/HspPXop6Zd8bR94BDbIoxBqyEtBNA0G4WfvNx5ETFp1
+	C+gTmtMl9JsT5ob+aUwgb6gSnpLXuKZk3BwTRVy6Vw4QFox60YX/S9SG78zC9nE9ZccmV6uvUCb
+	63omMq/jHnrTxY4Chc6CUfcFgx7uZPRc=
+X-Gm-Gg: ASbGncv3kaygP3aU0MalSYzCVLQZEziTK8yFSr2RBw+6dmPyR1IBR4VBpssGjTCKsW+
+	9bXhmkdFUf19Ezpp4by5nzazYHe/+SWRyMHcwtjMDbkTuMvpY6kBcdyJ7zAKkF82RINZED+qvwL
+	lsyUOTKFs5/tQwLQmP2jI/EJSYEPBIdX73UlLPT8ebend4AXCvfF02hYjW44sHwomAP5Wvi+VBd
+	+zPxDr70EI9y3qlpmuo4lIRL0cr+tnfef1AnJxIS26goMtvSXzt/AqN2XAi
+X-Google-Smtp-Source: AGHT+IHUN9iAMdCMTe6iKPq3e6j4mC/AjCVKjhKIhI0duJ1VlADSpP0NivnP3lrSv3tcevZNdZbSiCNvU3n7YE5rU4Q=
+X-Received: by 2002:a17:907:6d0d:b0:b04:1249:2b24 with SMTP id
+ a640c23a62f3a-b703290dd00mr58549566b.37.1761675944176; Tue, 28 Oct 2025
+ 11:25:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com> <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
-In-Reply-To: <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
+References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com> <20251002-c55-v12-4-3eda2dba9554@ideasonboard.com>
+In-Reply-To: <20251002-c55-v12-4-3eda2dba9554@ideasonboard.com>
 From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 28 Oct 2025 18:23:19 +0000
-X-Gm-Features: AWmQ_bmm1K9uTQjGChVp6dXcI7uBwmD2Omk5zjMb8vPaExIO7xEYl9DV_jPi_n0
-Message-ID: <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
-Subject: Re: [PATCH v12 03/15] dt-bindings: media: Add bindings for ARM mali-c55
+Date: Tue, 28 Oct 2025 18:25:17 +0000
+X-Gm-Features: AWmQ_bm2B_mhjyhjxwffXBBORyZZbcAxcXJ9p2Wws_R9xPcbz_GEzTbnOC3k5mM
+Message-ID: <CA+V-a8t8H9rYmXtrMrEvnx6otoktK=EFptZndYLTFCc9qM_mKg@mail.gmail.com>
+Subject: Re: [PATCH v12 04/15] media: uapi: Add controls for Mali-C55 ISP
 To: Daniel Scally <dan.scally@ideasonboard.com>
 Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, 
@@ -80,13 +80,12 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
 	mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
 	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
 	laurent.pinchart@ideasonboard.com, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+	Sakari Ailus <sakari.ailus@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_112348_532549_2746ADE1 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20251028_112546_306930_22D0B1A9 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,201 +100,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
-
-Thank you for the patch.
-
 On Thu, Oct 2, 2025 at 11:19=E2=80=AFAM Daniel Scally
 <dan.scally@ideasonboard.com> wrote:
 >
-> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+> Add definitions and documentation for the custom control that will
+> be needed by the Mali-C55 ISP driver. This will be a read only
+> bitmask of the driver's capabilities, informing userspace of which
+> blocks are fitted and which are absent.
 >
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
-> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 > ---
 > Changes in v12:
 >
->         - _Actually_ dropped the arm,inline property mode, having forgott=
-en to
->           do so in v11.
+>         - Removed _FITTED suffix from control value names
+>         - Specified bitmask for control name
+>         - Used (1 << n) instead of BIT(n) in uapi header
+>         - Updated comment to reserve 16 controls for driver
 >
 > Changes in v11:
 >
->         - Dropped in arm,inline_mode property. This is now identical to t=
-he
->           reviewed version 8, so I have kept the tags on there.
->
+>         - None
 > Changes in v10:
 >
 >         - None
 >
 > Changes in v9:
 >
->         - Added the arm,inline_mode property to differentiate between inl=
-ine and
->           memory input configurations
->
-> Changes in v8:
->
->         - Added the video clock back in. Now that we have actual hardware=
- it's
->           clear that it's necessary.
->         - Added reset lines
->         - Dropped R-bs
->
-> Changes in v7:
->
->         - None
->
-> Changes in v6:
->
->         - None
->
-> Changes in v5:
->
->         - None
->
-> Changes in v4:
->
->         - Switched to port instead of ports
->
-> Changes in v3:
->
->         - Dropped the video clock as suggested by Laurent. I didn't retai=
-n it
->         for the purposes of the refcount since this driver will call .s_s=
-tream()
->         for the sensor driver which will refcount the clock anyway.
->         - Clarified that the port is a parallel input port rather (Sakari=
-)
->
-> Changes in v2:
->
->         - Added clocks information
->         - Fixed the warnings raised by Rob
+>         - New patch
 > ---
->  .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++=
+>  .../userspace-api/media/drivers/index.rst          |  1 +
+>  .../userspace-api/media/drivers/mali-c55.rst       | 55 ++++++++++++++++=
 ++++++
->  1 file changed, 82 insertions(+)
+>  include/uapi/linux/media/arm/mali-c55-config.h     | 26 ++++++++++
+>  include/uapi/linux/v4l2-controls.h                 |  6 +++
+>  4 files changed, 88 insertions(+)
 >
-> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/=
-Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1b=
-ae234147eb967a8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> @@ -0,0 +1,82 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ARM Mali-C55 Image Signal Processor
-> +
-> +maintainers:
-> +  - Daniel Scally <dan.scally@ideasonboard.com>
-> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,mali-c55
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: ISP Video Clock
-> +      - description: ISP AXI clock
-> +      - description: ISP AHB-lite clock
-As per RZ/V2H HW manual we have reg clock looking at the driver code
-it does have readl. IVC has reg clock if IVC driver fails are you
-still able to read/write regs from ISP driver? I think we do need to
-pass reg clock too.
-
-Also for IVC we do have a main clock (which is a system clock).  Can
-you please educate me on what is the purpose of it. Just curious as we
-pass to IVC and not ISP.
-
-> +
-> +  clock-names:
-> +    items:
-> +      - const: vclk
-> +      - const: aclk
-> +      - const: hclk
-Not sure if we want to have the same names as IVC or vice versa.
-
-> +
-> +  resets:
-> +    items:
-> +      - description: vclk domain reset
-> +      - description: aclk domain reset
-> +      - description: hclk domain reset
-Same query here, wrt register reset.
-
-> +
-> +  reset-names:
-> +    items:
-> +      - const: vresetn
-> +      - const: aresetn
-> +      - const: hresetn
-ditto naming.
-
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    description: Input parallel video bus
-> +
-> +    properties:
-> +      endpoint:
-> +        $ref: /schemas/graph.yaml#/properties/endpoint
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - port
-maybe also resets and rest-names should be part of required properties?
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    mali_c55: isp@400000 {
-we could drop `mali_c55`
-
-> +      compatible =3D "arm,mali-c55";
-> +      reg =3D <0x400000 0x200000>;
-> +      clocks =3D <&clk 0>, <&clk 1>, <&clk 2>;
-> +      clock-names =3D "vclk", "aclk", "hclk";
-> +      resets =3D <&resets 0>, <&resets 1>, <&resets 2>;
-> +      reset-names =3D "vresetn", "aresetn", "hresetn";
-> +      interrupts =3D <0>;
-I would have a non-zero val here.
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
 Cheers,
 Prabhakar
 
+> diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Docume=
+ntation/userspace-api/media/drivers/index.rst
+> index d706cb47b1122b6e145a02ab826eb3ecc7997c2b..02967c9b18d6e90f414ccc132=
+9c09bffee895e68 100644
+> --- a/Documentation/userspace-api/media/drivers/index.rst
+> +++ b/Documentation/userspace-api/media/drivers/index.rst
+> @@ -32,6 +32,7 @@ For more details see the file COPYING in the source dis=
+tribution of Linux.
+>         cx2341x-uapi
+>         dw100
+>         imx-uapi
+> +       mali-c55
+>         max2175
+>         npcm-video
+>         omap3isp-uapi
+> diff --git a/Documentation/userspace-api/media/drivers/mali-c55.rst b/Doc=
+umentation/userspace-api/media/drivers/mali-c55.rst
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..74f2cdb717e0dddeb11fb1eab=
+a69eeebb2534f95
+> --- /dev/null
+> +++ b/Documentation/userspace-api/media/drivers/mali-c55.rst
+> @@ -0,0 +1,55 @@
+> +.. SPDX-License-Identifier: GPL-2.0-only
 > +
-> +      port {
-> +        isp_in: endpoint {
-> +            remote-endpoint =3D <&csi2_rx_out>;
-> +        };
-> +      };
-> +    };
-> +...
+> +Arm Mali-C55 ISP driver
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +
+> +The Arm Mali-C55 ISP driver implements a single driver-specific control:
+> +
+> +``V4L2_CID_MALI_C55_CAPABILITIES (bitmask)``
+> +    Detail the capabilities of the ISP by giving detail about the fitted=
+ blocks.
+> +
+> +    .. flat-table:: Bitmask meaning definitions
+> +       :header-rows: 1
+> +       :widths: 2 4 8
+> +
+> +       * - Bit
+> +         - Macro
+> +         - Meaning
+> +        * - 0
+> +          - MALI_C55_GPS_PONG
+> +          - Pong configuration space is fitted in the ISP
+> +        * - 1
+> +          - MALI_C55_GPS_WDR
+> +          - WDR Framestitch, offset and gain is fitted in the ISP
+> +        * - 2
+> +          - MALI_C55_GPS_COMPRESSION
+> +          - Temper compression is fitted in the ISP
+> +        * - 3
+> +          - MALI_C55_GPS_TEMPER
+> +          - Temper is fitted in the ISP
+> +        * - 4
+> +          - MALI_C55_GPS_SINTER_LITE
+> +          - Sinter Lite is fitted in the ISP instead of the full Sinter =
+version
+> +        * - 5
+> +          - MALI_C55_GPS_SINTER
+> +          - Sinter is fitted in the ISP
+> +        * - 6
+> +          - MALI_C55_GPS_IRIDIX_LTM
+> +          - Iridix local tone mappine is fitted in the ISP
+> +        * - 7
+> +          - MALI_C55_GPS_IRIDIX_GTM
+> +          - Iridix global tone mapping is fitted in the ISP
+> +        * - 8
+> +          - MALI_C55_GPS_CNR
+> +          - Colour noise reduction is fitted in the ISP
+> +        * - 9
+> +          - MALI_C55_GPS_FRSCALER
+> +          - The full resolution pipe scaler is fitted in the ISP
+> +        * - 10
+> +          - MALI_C55_GPS_DS_PIPE
+> +          - The downscale pipe is fitted in the ISP
+> +
+> +    The Mali-C55 ISP can be configured in a number of ways to include or=
+ exclude
+> +    blocks which may not be necessary. This control provides a way for t=
+he
+> +    driver to communicate to userspace which of the blocks are fitted in=
+ the
+> +    design.
+> \ No newline at end of file
+> diff --git a/include/uapi/linux/media/arm/mali-c55-config.h b/include/uap=
+i/linux/media/arm/mali-c55-config.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..7fddece54ada9dadc3c76372d=
+496d9395237a41c
+> --- /dev/null
+> +++ b/include/uapi/linux/media/arm/mali-c55-config.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+> +/*
+> + * ARM Mali-C55 ISP Driver - Userspace API
+> + *
+> + * Copyright (C) 2023 Ideas on Board Oy
+> + */
+> +
+> +#ifndef __UAPI_MALI_C55_CONFIG_H
+> +#define __UAPI_MALI_C55_CONFIG_H
+> +
+> +#include <linux/v4l2-controls.h>
+> +
+> +#define V4L2_CID_MALI_C55_CAPABILITIES (V4L2_CID_USER_MALI_C55_BASE + 0x=
+0)
+> +#define MALI_C55_GPS_PONG              (1U << 0)
+> +#define MALI_C55_GPS_WDR               (1U << 1)
+> +#define MALI_C55_GPS_COMPRESSION       (1U << 2)
+> +#define MALI_C55_GPS_TEMPER            (1U << 3)
+> +#define MALI_C55_GPS_SINTER_LITE       (1U << 4)
+> +#define MALI_C55_GPS_SINTER            (1U << 5)
+> +#define MALI_C55_GPS_IRIDIX_LTM                (1U << 6)
+> +#define MALI_C55_GPS_IRIDIX_GTM                (1U << 7)
+> +#define MALI_C55_GPS_CNR               (1U << 8)
+> +#define MALI_C55_GPS_FRSCALER          (1U << 9)
+> +#define MALI_C55_GPS_DS_PIPE           (1U << 10)
+> +
+> +#endif /* __UAPI_MALI_C55_CONFIG_H */
+> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2=
+-controls.h
+> index 2d30107e047ee3cf6b149e5b075cc9d4137b7d3f..f84ed133a6c9b2ddc1aedbd58=
+2ddf78cb71f34e5 100644
+> --- a/include/uapi/linux/v4l2-controls.h
+> +++ b/include/uapi/linux/v4l2-controls.h
+> @@ -228,6 +228,12 @@ enum v4l2_colorfx {
+>   */
+>  #define V4L2_CID_USER_RKISP1_BASE              (V4L2_CID_USER_BASE + 0x1=
+220)
+>
+> +/*
+> + * The base for the Arm Mali-C55 ISP driver controls.
+> + * We reserve 16 controls for this driver
+> + */
+> +#define V4L2_CID_USER_MALI_C55_BASE            (V4L2_CID_USER_BASE + 0x1=
+230)
+> +
+>  /* MPEG-class control IDs */
+>  /* The MPEG controls are applicable to all codec controls
+>   * and the 'MPEG' part of the define is historical */
 >
 > --
 > 2.43.0
