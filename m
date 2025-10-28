@@ -4,170 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72600CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9605CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ers8kR9eRPCvZsN30kgyxdxdh3V0IJ72AtdW7sjKxTQ=; b=PCFkMnuHqNYLeJD1yVHAJ6gVRR
-	3jQMenKjTJQRK783BFNMwjoNLIwZtrlvMOo2zRtNi/UnzTSYItAkOOSndP1zJqQsSFLIoxuO8FGPY
-	KTiciubDSjXfVN87wSknWcqjboccdxyrWhbM3CaLjamwm/gkvmbtyXBuACTICpGW6C2I1n4O6krd9
-	XCPF7VXNmMRkG59/AYsMdo6fvPx9ZvSsW8gp7rNLjIcJdTnudxtaSK9jgLcsPVJ+gqr0czCFYOh2t
-	DaEvuIfKEyomklKhRQzytlANuJDnf2jo1Z5Ya2jKcz9Qipx5GMbj29DOnc/frr7HWQf1Nk+8lJA3A
-	wlorbiWw==;
+	bh=ObzEsPq61FRSniDfj3DytDNv1iDibJTYW/ngEac+GvI=; b=BDSq7fnn88HOYubDQOvkeei4Cu
+	Rz8OxcyKmGv22YE9S65vEfbySNYD5/PaJ0lRBoDVvjLcqJI8jfU5z0aopIrNjfw07rD8fLFdN9nRL
+	jztClBZUuEU8fmg3nX8fa8ZygGKMrZks7xFOvaw3mvOuvTw/TaVBDcayqjTp7oGJdDbvfdofCd0v5
+	odTcHMpMlWGkIN3DX316hgsWctH/qE/5Ij9UMdM5y27A1OWpfQxtnLxAsFYllRGnra67CPoxIbXQd
+	BKxN5Jsno1ywi2WwBshmNoyqqj6468N8xN51kYkv6nYKjUXjmYj+WgpwTQv54mxQBmavtNrSQ0CuK
+	981i2vEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDcms-0000000FJ2h-1Szh;
-	Tue, 28 Oct 2025 06:02:30 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vDcsy-0000000FJU6-3eQD;
+	Tue, 28 Oct 2025 06:08:48 +0000
+Received: from mail-japaneastazon11023087.outbound.protection.outlook.com ([52.101.127.87] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDcmq-0000000FJ2H-23OY
+	id 1vDcsu-0000000FJSf-29Vg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 06:02:29 +0000
+	Tue, 28 Oct 2025 06:08:47 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I4b1TomGAfLRcgQcKNpJGc35cdpeFVcD989nKnzr+Jyt4f3jVMax/vOqEz2Y+jiXCkMWXTpso1gkZMM9+NVSpfbQCHiLZx9roOyF1CQqFtw2qQ8yxD0Z13sNeQ4dZ7cr4YSatKCcFaO35EIEZ751Ef+7mAJOpWYQV4L4Us+fk7XEu+DX/dM3SpyODNRKCASJ4aZNceBJfAAcqLq572Tw+BpAJfM0XlAfHlaAs/Ds6MCEVeucFHEnBmP29EJL7vrP/sQ+RAjOeTD9ZsfpvhIzyhACa4I4C7H1shnme15wj165hgTlGrRGCBtylvp2YJyjXXQpWo9Z9uDWADmcywIQIA==
+ b=Co6k7yUcY6oD5UV2kzTvIshMvPSQApVLcQwTF9CuTFMgwszJpNEnVOTrEGkmtqg24NsL6UABWNFFj53qgt3+V6RDJcEBWXVw3eGjsQp1p7v9WF11xUvPb63npVjOqbip3iEYpApJqBy080VQhG2fxP0pRXO7xk9OCclbx8rq2fhxTZ5HWk+oK/+WTXTmJ7yeA72i/csHFa7kn5CJVazFggR4wbLYaG5tV6BDALGxDbsnwt2l7jiQDW0lUQ4KbCe+MIDk76LvU4kiQMLDm1uC4gQTsoFVD2jq9dk7+efa2hygwBpElFY8WObI39uXO68nAtFP3VDPGWW6VCS6OsY+dw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ers8kR9eRPCvZsN30kgyxdxdh3V0IJ72AtdW7sjKxTQ=;
- b=ahh4IScS/cp29WNNH5udwW/It3LsHeaIHC3LW+RTOc014kUKh0rFXFBscIDQP3n/KW6+E0Q1/uoPHO779UUtkEJXiBu8wCz0rVHLPVk/Xyi5WfCeNOjh9dQ3t4ZdTo1D0dNqkfmNkQhAR+Qhza8vkWQnYUz41ZfZ02566MuBTp9hVyxE1PZGcDeXmfKvXV/AmjWXvvWK8WYl4jcQWvMNMRWj5Ag9dUjHYgTqkca30ItL2oNxySdja6s1ViLVAJxyqJEIO0oqNWDFAsLSh8VG7v+eIcakWPlAl8LA9vTuNsmri2hM03rVSm3F931TVMUR/STi83JLGdRBmYl6fkOLbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ers8kR9eRPCvZsN30kgyxdxdh3V0IJ72AtdW7sjKxTQ=;
- b=ZAbOiItdgIu/BBVxno4cIWJ+ZC3Od7IInODgeaCEsxLPgwl2V4M4g+5SnnBFetYVKGUw0UEf2ZWih1KG8Qqer6jwu0+oa6VEZ6vXsGLX4uRRNEuP9e6mo5lMJfCuWIg4bT1tFVL9f8lsZg+fhAZKsFUtn+f3SX2f1p4hdySo8jQ=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
- BY3PR01MB6722.prod.exchangelabs.com (2603:10b6:a03:367::11) with Microsoft
+ bh=ObzEsPq61FRSniDfj3DytDNv1iDibJTYW/ngEac+GvI=;
+ b=HMulzYSSPDulqjhn/Nr9kKoHSIVWgI2tbww+G0OKU9mMmRmlnhqUMyca+99FqraAwmyvWWWt8qsuwekl92Kt0Hw/sNsTeSiruRNw5QDusrqEPPlIr/NfZNBi7eDJ6vlcEd3ejJJAfvEs1j6hGg85r9lNz7JJ/gOoD7a/o8RJl97qGiNUSxcqUcqSUyDmOFzekmtABOAuLoXPpQWrOq/cMDyfUukPfEtOOVF0Ur3mbzc7xBiMMA6wLwv0Jis2RX98BcxEq8L0et3JrqaZviGpfQNroDEfffWlmn5ZtnWn4HqQjG2B8MMGGIRhQPjgd4k/s0UWftnR3g9o6/kSYttmYQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SEWP216CA0093.KORP216.PROD.OUTLOOK.COM (2603:1096:101:2bf::8)
+ by SI6PR06MB7217.apcprd06.prod.outlook.com (2603:1096:4:24f::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.20; Tue, 28 Oct
+ 2025 06:08:18 +0000
+Received: from TY2PEPF0000AB85.apcprd03.prod.outlook.com
+ (2603:1096:101:2bf:cafe::db) by SEWP216CA0093.outlook.office365.com
+ (2603:1096:101:2bf::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.20 via Frontend Transport; Tue,
+ 28 Oct 2025 06:08:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB85.mail.protection.outlook.com (10.167.253.5) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.18; Tue, 28 Oct 2025 06:02:21 +0000
-Received: from SJ2PR01MB8101.prod.exchangelabs.com
- ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
- ([fe80::292:6d9c:eb9a:95c9%4]) with mapi id 15.20.9275.011; Tue, 28 Oct 2025
- 06:02:21 +0000
-Message-ID: <060fe820-85b8-4476-be95-a0d37e53fa12@os.amperecomputing.com>
-Date: Tue, 28 Oct 2025 11:32:03 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] KVM: arm64: nv: Optimize unmapping of shadow S2-MMU
- tables
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, oliver.upton@linux.dev, will@kernel.org,
- catalin.marinas@arm.com, suzuki.poulose@arm.com, joey.gouly@arm.com,
- yuzenghui@huawei.com, darren@os.amperecomputing.com, cl@gentwo.org,
- scott@os.amperecomputing.com, gklkml16@gmail.com
-References: <20251013065125.767779-1-gankulkarni@os.amperecomputing.com>
- <0345c510-5db4-462f-95fb-591e71468aca@os.amperecomputing.com>
- <87v7k53cud.wl-maz@kernel.org>
-Content-Language: en-US
-From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-In-Reply-To: <87v7k53cud.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0174.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1af::8) To SJ2PR01MB8101.prod.exchangelabs.com
- (2603:10b6:a03:4f6::10)
+ 15.20.9275.10 via Frontend Transport; Tue, 28 Oct 2025 06:08:16 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 90B1B41604E0;
+	Tue, 28 Oct 2025 14:08:15 +0800 (CST)
+Date: Tue, 28 Oct 2025 14:08:11 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: <linus.walleij@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux-gpio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<cix-kernel-upstream@cixtech.com>
+Subject: Re: [PATCH v5 3/3] arm64: dts: cix: Add pinctrl nodes for sky1
+Message-ID: <aQBdy0ZSwq4V_sIs@nchen-desktop>
+References: <20251021070410.3585997-1-gary.yang@cixtech.com>
+ <20251021070410.3585997-4-gary.yang@cixtech.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251021070410.3585997-4-gary.yang@cixtech.com>
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|BY3PR01MB6722:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02c66939-2482-4a29-4da7-08de15e78ee3
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB85:EE_|SI6PR06MB7217:EE_
+X-MS-Office365-Filtering-Correlation-Id: e78bfaf2-d063-4f7e-52ae-08de15e862cf
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YXJZRnpGT3VreDEzWXlGY2xZVCtPQjJHZ01ZTHM3NTYxdzhQRWhwUjZQdUt3?=
- =?utf-8?B?SjA5YlV6a3loZnJJTlFrYzZINXM3TVFDQTVWdGc4YVpISm80ZnhPeVcxbDQ5?=
- =?utf-8?B?Mkh0Z3pNUE13S0dGVHlXbEZnTGR2QmRaTHduMlc2cXV2K09VR0w1V0ttS1Rv?=
- =?utf-8?B?b1g4OHIvSnhLVm1ObExSK0Q4czdZdVJQdS9BcFoyZVFQeWduMitXRXdOWjBC?=
- =?utf-8?B?ckFzUlJvb254VTBxYkhXT2gwcWxadldXdWN0KzBWOHZJNFpiTzZLWWxyRDZ4?=
- =?utf-8?B?eVh1UmhjY21RRlk1VFkxV21kNjNld2FCdXE0ZzJBRWV0dmhkalJjRVkvTVFB?=
- =?utf-8?B?V05VdXVMNFFHWUtuNGZ6S05taVJKUmpmR1E1blhoU2x6T01FZTkvWmFxRUJr?=
- =?utf-8?B?d3BOcWpFeVBmOGFIVWV1VnJyRmNZaTQvdmpzSVFXa3NnM0VwQlc4c25BNm9u?=
- =?utf-8?B?ajhiWWU5VHBCNjJhVll2VFFZN0lQNHptN0NJTkJuZTdJRHNVbERva1NDWjR2?=
- =?utf-8?B?UTFKOWZPZG9jdngyMDl4amd4ZmUvRWFrTXRHNUhCYURDQlVWNjdvTmVxZFNH?=
- =?utf-8?B?VXJlajRXMG5DVmF0ZjMvMUQzWWNyNm9NZFN6ZXBiTThhVkVqVUNIK3NOUnU0?=
- =?utf-8?B?ZVVvcXBtcER1Z2wwTzVvVGE0M2NhR2FSWkkyY1NhUUVRQzVNMDJTeTR3a2tZ?=
- =?utf-8?B?dHljS1NwSmhJeGp2OHY3ZnhCNG50WFpxa0x3dU9GeTZGb2FIbFdoUzRrelNx?=
- =?utf-8?B?cXNERk1sSVY4M3hOdTI5RWhGVmFmZWpPaGt6UEpmNmlmK0l0TEtKOTNYY0Zo?=
- =?utf-8?B?VFhaa1c5Q3RTN2k5UXRpRkt2MC92czA1VU4zUlg0TktMb2w3cHFkUE9HN3Ir?=
- =?utf-8?B?QTFWM1RSOW93c3VQcit1aWNYcnJjbzdscEFSWXFrWVY5RUduNEVLYTVwNjJY?=
- =?utf-8?B?dEVIdFpLNDB3UlpsMWgweWEwSmRINXNxUXo3WGZVUFlCcktUZzZiWVk1Vnly?=
- =?utf-8?B?Z29xb1ZWUWwveDlrbFRJcml0MjVmRzdWRE5UZ245Ry9SWm1xSU43SkkxRm10?=
- =?utf-8?B?MHozV3A5R1Rkb3ArcFJGeCtwTEcvRWtHVmZKWW90cG1naUtQcjF5T2VUQzVh?=
- =?utf-8?B?M1JVcDJ0NlZ6YWNsSjlDeHdZYi9tZVJUWUliSzBnNzA3QVZ2L0d2anpWek5o?=
- =?utf-8?B?M2pkQTdyenNHWGFSUkUySDcvOHBtall3YkMyOHZWMmdwYlVNYnJEd0JuR2hI?=
- =?utf-8?B?MVVjTnNwaVN0aVRRU2xsN1RiVmNSbHFwMmZDaWptNXJHQkZpbFpTdGJUbjgy?=
- =?utf-8?B?MHRVbHpCaU85M0s3akRoY2M5d1FabVhIdFA4cm9xTjZuRy9KM2xPWkY4bE8v?=
- =?utf-8?B?NGltY2FTWTU1b05CZ3NheEppdkdITjJOOE9uLzF4ZFNySW9SQmprZndlY1lY?=
- =?utf-8?B?RG9pdk5mMm9haU5qTldCd1ErbUl3V2NycGhiQXZvcmxUemtLMTlNYWhvSStq?=
- =?utf-8?B?YWJtMnZaSXBDMXUzT0Zsakh3YUhJYjRtYWpwT2J6S0MxeGVtZ2xSRFFzYlZ6?=
- =?utf-8?B?OU96bDFFRTVGN0F6MGE4RGUxVGNGalc0V1dOSkdJaFZvR0NUbmYzV3NWR0xo?=
- =?utf-8?B?L3ZxdndJVmNmamFzdEJGRnBiSS9vWjNLM0U5alp3VnIvVkZoQXVPT05LRTV6?=
- =?utf-8?B?bGhhWmQvOGp4Sk9NRVBPejl4UnduLzREeW5DcFMvMkVzOXRsVmRKRUZvMGlT?=
- =?utf-8?B?VDBhWHJHZUtjUU00UVliOVZEMnBVTTNQNVNyT0pXczAwYmJSY2l6aFFsN3lM?=
- =?utf-8?B?dXpXcFkxMS9ZaTlkWnhMS2JsbmUxdzE4VlJORWd2cU00eTdtR1JlV3ZaSjhw?=
- =?utf-8?B?OHd4ZjBQOVZBYVlibnpSSEFrUWV5SGJ6Uklyb2Uwamc4MHc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDJMSEpnNEVBLys5NEZrQmltSW5hTGdvNkt2UU9JL2duN1BxVmhEY0tQLzhw?=
- =?utf-8?B?VXo5UEI5VjlkODdtcGt5RnRXRVhHSHZnSStQSGVJY1ZBL29xYTc4aFhVNkFj?=
- =?utf-8?B?UXlYd0FPKy8xYVRuZ2lnN29qVW5SMWYwN0RkbDRhWnZEekNrTTdzQW5uL0NZ?=
- =?utf-8?B?TllxVEk5dE5nb1c5VkJDZk5VVHRUYnBoaHNRV1A3RHRudmJUZ2N6VVMxTVl6?=
- =?utf-8?B?T0IrU0tKV0hMaUVVSDZnQVpESm1nYmN5R0VjRk1HZ2RJWG5xdXpLL0hPRjd1?=
- =?utf-8?B?Z0Vlb1NDZkFzM2N4SE1MZXg0OFEwNlQwMENINytSTFVwODBRWklTZ1MzdHBJ?=
- =?utf-8?B?OUZWcEEzYVhlckJGU1lZV2k0N3FTVFI0OGlyWlMxcmlkZzFCRlZZZGJOTU03?=
- =?utf-8?B?OU5sQ0FZSFhkdm1XT2dmbVVpYnFpWEtPWHFTQ2NkRGFFbHVHejJWU1R2cmJp?=
- =?utf-8?B?cXQvdThoMjc3V2JjT3ZxdHNSd2p5TW5OKzA0NUREK1NEazBUTmh6bDBOenZ1?=
- =?utf-8?B?TUdoME04cFowSW5jbnl4ajBCVlJ0bG9nS2FWY2VLMGJjZFlPN2krcWtKVjhW?=
- =?utf-8?B?bG5NUm02Znh2NFBtejF5RUlCN0pmQUlCd2ZPNG01VmZEWkxLUFcrTkhhdktC?=
- =?utf-8?B?dzY1VDUvdWJ2VVBJaG9mYkdjT2JLNmNVR1F1K1QwRStZalFpekVITDVFUHZH?=
- =?utf-8?B?NnZtajFBeDVYMGRyeEJNTXo4angwTkdySC9sY2tCUEJCOHY1bWtOZERaUWM5?=
- =?utf-8?B?WW5jc09vTWNNOW56cHk4M3lIK0VZTlFhUUgvakw0S2N3aHNLUy9YTWtaWm01?=
- =?utf-8?B?cGJwbWR6MWxiVWtKQ1pMRDdTQm9IcFZNQUNBaHZtUGJnN2Y5WGxXNGxZUXBq?=
- =?utf-8?B?Nkd5WHJWWjltRGJESStuSFhYV1FKdlZDcVdUcXArV05wL2UwMDhlMlhSVVYz?=
- =?utf-8?B?VWp2UlBVbGtZbVA1MUhEemNOaXE4eUZTd0Fxb1FQdHplZzZReTZ3cExQeHFV?=
- =?utf-8?B?Ym9vdURzbmtTUjNkZ2IwbkhoZFF2QUMzcllMTkNTdmJwR3RSNnNNSXkrUGpr?=
- =?utf-8?B?Z21CVjV0blZ1RHJLRGhDUFdCTXViRFZaOWVmcTQ2bm45RFYyWUNkelFCSnhw?=
- =?utf-8?B?K2VldjJtWDdtNm1GSmhudTh4VFdzYjZYWEVMUXdOR2hmUWRYTXRQU0JEMUZC?=
- =?utf-8?B?Mkt1aDNaSkU1RkYyZXlzTXRXM2JONkVJaDJZTWFKbWd1TlRLeW93OEd0ZlRv?=
- =?utf-8?B?VG9yODkyWEt1M0Nja3UxTnk1R1JJdWxjejljL2puQnhVdG1qcXJGNDA3RVlI?=
- =?utf-8?B?V3N0RU9LWWpvRmhHc1NYVTl5SUZqeWZjaS9KY09jS3d1Ui9yWGVEVFRlbGVj?=
- =?utf-8?B?eUkvelY4ek0yZXJxazJDaW9MaTlYWTJWSlFLQkR0VFkzTlJtUEltdTBZU2Qw?=
- =?utf-8?B?bDBSdmVBOUpkZWFraDZLTHZhM0pxd3V0L20yMU5SK0VsWHVnQ1JuVVFVc0Fn?=
- =?utf-8?B?bmpxZzBWTkh1Nm5OaXpJTlhLNTlJSDR1dFEwMG5PRkNDVGpLbWlkWXk2L1Rv?=
- =?utf-8?B?dUJ0UDk0WXBDNHBpelZBdjgzb2hTRFlHQ091NGVIQjRlSUxLb2RaVmEwT1dF?=
- =?utf-8?B?Wm1FSUl0dm5uODJYaW9qVVFuc01lUWV1QkJQRXZUL1lvY3NmNkZDQnZQVDZa?=
- =?utf-8?B?VWx0bkJjSVBKZXhaSmNyU2w1QkVFMkxZMlROSmdlNUVHKzBJSktrUFcrNkFy?=
- =?utf-8?B?NzY2Sk9ocGRsQkoyOHM1dlpRUHc4WG1iMTg3N0tOaVJZRmZwRVVJVGl4UkRK?=
- =?utf-8?B?WDR6dlVFa2c3bCtIUFBaTmRIVEFGZ1JuWVVmZVcrd0lRdmpSUUN5UzNtSGhu?=
- =?utf-8?B?dTVkQnpvUXZaUkF5SHd2Vjd1Um5BZUtkMHloajZybGFQTG1vY3BjRHhvMHQr?=
- =?utf-8?B?WGlPVklRVzRQRGg5NWxvMkNacmxPc1kwWFhPSExwcnYxdEdPRFFZVng0V1lG?=
- =?utf-8?B?NDY3V09QZFI1aXQyV3p3NHFlVHdFQlBoZHpkdldjQmZrd0RyUWhZaVBiVWFL?=
- =?utf-8?B?M21JelE0ckU1WEZkNkowUGg3bTUvWTF2eEZzUHdKaVlBVEx3YVp4dUFCWVZ6?=
- =?utf-8?B?N0k2aHhwZjBBZHV6WGt2QUZMbzFsdHBmTm94WkZ6bjh4NVNqYUZsRThVN245?=
- =?utf-8?Q?2Gp1ae33nHces7maUeib5JU=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02c66939-2482-4a29-4da7-08de15e78ee3
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 06:02:21.3454
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kxOtKb4BqPVo51rpL6MFiPm2cjHZ7lQR2ntkoU+g1kRu2LgSnJHee25Lbyxw?=
+ =?us-ascii?Q?rbIyeP7pd6GcCdRRAswEK+61lVOFMF3XW7duv9R3LNH+xniJdLNX2rsO5kuu?=
+ =?us-ascii?Q?7sr6+DVBOg5BNq1Ot58epJJE0DkrD1IvustfjD8HlJKZydyB+WGQgwbAg6r1?=
+ =?us-ascii?Q?HVY3dvLsMuALgy7Pia1yZu1TUHWQ9t4PxbCuurUTXI4dQ0rTaR5fR+MAryJ3?=
+ =?us-ascii?Q?RYNo+jGEESAsBWfiQ++bLxQY8PzJzJdQTtnW3fz32je+/eukHA2aElOVFlFW?=
+ =?us-ascii?Q?FH03oZwOIqtqfbwhgOPlflW+4b03J2GL2nQjnCBw8j/5MjqVNT2OYsUQrXp8?=
+ =?us-ascii?Q?IyQwUAwyFLfuQWY3esUIBqMrR/lgv2Y2HAMQUkAxAaMITyHR/GXUVcGvJ3UG?=
+ =?us-ascii?Q?tAyzx5FcjmqvA+4SPBACGD0N6dz83MBfRSSOC92KmVSKWTyyC6n7hBy+vgH+?=
+ =?us-ascii?Q?jHlat7PqrjdXfVlb+bwBzHvS7d7r/GqR1OuEqsRDjFppqOAAJI4J2gMk029h?=
+ =?us-ascii?Q?KHlhUHP0rbuitBFBu8mJGLIOIACtha5X+gdHpeCjiX2HUIsr/nlyw9geAtH9?=
+ =?us-ascii?Q?YHjzEu/9ItBYA/xJUF79LS24et+oohjHkAa1KGzC/3MtQCc6QivPAyPeTZH9?=
+ =?us-ascii?Q?kG+D1GYWBAQa73ZBY0kqIhqbRrzyrk7LEXr/6tHYen+fZif2k59GMjvPdPLB?=
+ =?us-ascii?Q?Dm9Reo8wHlRWKCjoq69ra00PhdQkK4xqMm/UbOusDPm6BnGcmYReHVwlZc1j?=
+ =?us-ascii?Q?1A3I+Z9eI/z41dhwPlGhp9Y+g8SfKtrMnMT8g+t6nv40j9UFBH6BtXFpJ4zd?=
+ =?us-ascii?Q?AjGHqNN71mdmMf4zO4b0aaPrO9xCkVBUe9tnjXN2J3zRTH+8J5UmBlOsDK5r?=
+ =?us-ascii?Q?0RI5KUBSJOaTHlet1aKOnL8dL6NoUg4x87S8gEoYSIDyb55rlOXoB50P63OH?=
+ =?us-ascii?Q?Nuev0o8gv9XTRd4FTy37VbdOuwvDZrjGC1wOe6sl6l0bb8im6HB4Wde5T6op?=
+ =?us-ascii?Q?1UinD3a5H2k6mEYlF1Tidp1jOnzgg4n/TRtM4hLTg4/wr/wWEN3w6h5O7nCr?=
+ =?us-ascii?Q?KiWuUbyctBKz/3lBvf115M3cYsJlx3nFSZ78SJP7xa1MxBUF0idm/8K22/T5?=
+ =?us-ascii?Q?W20dzbbqMaf7mvgzF7OsNqqN1U3uPrmJHdio0Im3zslV2skhKwfPHKn+/K7l?=
+ =?us-ascii?Q?Ug3e5PAD6N3JVi/rpQHYCPgfk98xzdr9icQn4P04+W9Dv3vBnXFe//VWcVA3?=
+ =?us-ascii?Q?f06gEwXObrHcera4X60ugpjlLay+fNCGxfINWonAN+jjyTYBgCc7GW8M7jZq?=
+ =?us-ascii?Q?5BlqjtLW3AzNLJ+cYUL6I/R2QTiGEH80dSYf9Shf2IWgZYK+M87ebamPvteu?=
+ =?us-ascii?Q?XrRTgWN5jFGGYWSgSsTZi1hQVq3TNHgCb8vTms9qsqxzyg4CQu7aN9y1WMfH?=
+ =?us-ascii?Q?wqO4U5twa6bVhv8wMaRMxt6horQMkFq0QekSCMcRWUsSZNnabRjNysnwP/Y/?=
+ =?us-ascii?Q?1jUuBTkugbV7/rnCVt4aPg8Tylkhdt3wvUdAFkutLcMFoHuXVAml5HQzZBZl?=
+ =?us-ascii?Q?HSgk+IULghEG0EQlApc=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 06:08:16.5065
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vgKU8hydRv2/MVTwfzEs69CCLpCo1znIO7XE+lghHFL14fvUaO2KZK1aPcAhvZqV+7xdOzDXqEYmLBsWITC0AsgeCj2/9Vj/SLdt1cFyxBIurxJBmoAoYQPE6gnCYv2B
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR01MB6722
+X-MS-Exchange-CrossTenant-Network-Message-Id: e78bfaf2-d063-4f7e-52ae-08de15e862cf
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB85.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI6PR06MB7217
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_230228_582641_2FEC746C 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20251027_230844_675992_E269068A 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,325 +139,512 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/23/2025 8:05 PM, Marc Zyngier wrote:
-> On Thu, 23 Oct 2025 12:11:42 +0100,
-> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
->>
->>
->> Hi Marc, Oliver,
->>
->> On 10/13/2025 12:21 PM, Ganapatrao Kulkarni wrote:
->>> As of commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow
->>> stage 2 page tables"), an unmap of a canonical IPA range mapped at L1
->>> triggers invalidation in L1 S2-MMU and in all active shadow (L2) S2-MMU
->>> tables. Because there is no direct mapping to locate the corresponding
->>> shadow IPAs, the code falls back to a full S2-MMU page-table walk and
->>> invalidation across the entire L1 address space.
->>>
->>> For 4K pages this causes roughly 256K loop iterations (about 8M for
->>> 64K pages) per unmap, which can severely impact performance on large
->>> systems and even cause soft lockups during NV (L1/L2) boots with many
->>> CPUs and large memory. It also causes long delays during L1 reboot.
->>>
->>> This patch adds a maple-tree-based lookup that records canonical-IPA to
->>> shadow-IPA mappings whenever a page is mapped into any shadow (L2)
->>> table. On unmap, the lookup is used to target only those shadow IPAs
->>> which are fully or partially mapped in shadow S2-MMU tables, avoiding
->>> a full-address-space walk and unnecessary unmap/flush operations.
->>>
->>> The lookup is updated on map/unmap operations so entries remain
->>> consistent with shadow table state. Use it during unmap to invalidate
->>> only affected shadow IPAs, avoiding unnecessary CPU work and reducing
->>> latency when shadow mappings are sparse.
->>>
->>> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
->>> Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
->>> ---
->>>
->>> Changes since v1:
->>> 		Rebased to 6.18-rc1.
->>> 		Fixed alignment issue while adding the shadow ipa range
->>> 		to lookup.	
->>>
->>> Changes since RFC v1:
->>> 		Added maple tree based lookup and updated with review
->>> 		comments from [1].
->>>
->>> [1] https://lkml.indiana.edu/2403.0/03801.html
->>>
->>>    arch/arm64/include/asm/kvm_host.h   |   3 +
->>>    arch/arm64/include/asm/kvm_nested.h |   9 +++
->>>    arch/arm64/kvm/mmu.c                |  17 ++--
->>>    arch/arm64/kvm/nested.c             | 120 ++++++++++++++++++++++++++--
->>>    4 files changed, 138 insertions(+), 11 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->>> index b763293281c8..e774681c6ba4 100644
->>> --- a/arch/arm64/include/asm/kvm_host.h
->>> +++ b/arch/arm64/include/asm/kvm_host.h
->>> @@ -227,6 +227,9 @@ struct kvm_s2_mmu {
->>>    	 * >0: Somebody is actively using this.
->>>    	 */
->>>    	atomic_t refcnt;
->>> +
->>> +	/* For IPA to shadow IPA lookup */
->>> +	struct maple_tree nested_mmu_mt;
->>>    };
->>>      struct kvm_arch_memory_slot {
->>> diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
->>> index f7c06a840963..5b7c4e7ed18f 100644
->>> --- a/arch/arm64/include/asm/kvm_nested.h
->>> +++ b/arch/arm64/include/asm/kvm_nested.h
->>> @@ -69,6 +69,8 @@ extern void kvm_init_nested(struct kvm *kvm);
->>>    extern int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu);
->>>    extern void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu);
->>>    extern struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu);
->>> +extern int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa, u64 ipa,
->>> +		u64 size);
->>>      union tlbi_info;
->>>    @@ -95,6 +97,12 @@ struct kvm_s2_trans {
->>>    	u64 desc;
->>>    };
->>>    +struct shadow_ipa_map {
->>> +	u64 shadow_ipa;
->>> +	u64 ipa;
->>> +	u64 size;
->>> +};
->>> +
->>>    static inline phys_addr_t kvm_s2_trans_output(struct kvm_s2_trans *trans)
->>>    {
->>>    	return trans->output;
->>> @@ -132,6 +140,7 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
->>>    extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
->>>    extern void kvm_nested_s2_wp(struct kvm *kvm);
->>>    extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
->>> +extern void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size, bool may_block);
->>>    extern void kvm_nested_s2_flush(struct kvm *kvm);
->>>      unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu,
->>> u64 val);
->>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->>> index 7cc964af8d30..27c120556e1b 100644
->>> --- a/arch/arm64/kvm/mmu.c
->>> +++ b/arch/arm64/kvm/mmu.c
->>> @@ -1872,6 +1872,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->>>    		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
->>>    					     __pfn_to_phys(pfn), prot,
->>>    					     memcache, flags);
->>> +
->>> +		/* Add to lookup, if canonical IPA range mapped to shadow mmu */
->>> +		if (nested)
->>> +			add_to_shadow_ipa_lookup(pgt, fault_ipa, ipa, vma_pagesize);
->>>    	}
->>>      out_unlock:
->>> @@ -2094,14 +2098,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->>>      bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range
->>> *range)
->>>    {
->>> +	gpa_t start = range->start << PAGE_SHIFT;
->>> +	gpa_t end = (range->end - range->start) << PAGE_SHIFT;
->>> +	bool may_block = range->may_block;
->>> +
->>>    	if (!kvm->arch.mmu.pgt)
->>>    		return false;
->>>    -	__unmap_stage2_range(&kvm->arch.mmu, range->start <<
->>> PAGE_SHIFT,
->>> -			     (range->end - range->start) << PAGE_SHIFT,
->>> -			     range->may_block);
->>> -
->>> -	kvm_nested_s2_unmap(kvm, range->may_block);
->>> +	__unmap_stage2_range(&kvm->arch.mmu, start, end, may_block);
->>> +	kvm_nested_s2_unmap_range(kvm, start, end, may_block);
->>>    	return false;
->>>    }
->>>    @@ -2386,7 +2391,7 @@ void kvm_arch_flush_shadow_memslot(struct
->>> kvm *kvm,
->>>      	write_lock(&kvm->mmu_lock);
->>>    	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
->>> -	kvm_nested_s2_unmap(kvm, true);
->>> +	kvm_nested_s2_unmap_range(kvm, gpa, size, true);
->>>    	write_unlock(&kvm->mmu_lock);
->>>    }
->>>    diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
->>> index 7a045cad6bdf..3a7035e7526a 100644
->>> --- a/arch/arm64/kvm/nested.c
->>> +++ b/arch/arm64/kvm/nested.c
->>> @@ -7,6 +7,7 @@
->>>    #include <linux/bitfield.h>
->>>    #include <linux/kvm.h>
->>>    #include <linux/kvm_host.h>
->>> +#include <linux/maple_tree.h>
->>>      #include <asm/fixmap.h>
->>>    #include <asm/kvm_arm.h>
->>> @@ -725,6 +726,7 @@ void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
->>>    	mmu->tlb_vttbr = VTTBR_CNP_BIT;
->>>    	mmu->nested_stage2_enabled = false;
->>>    	atomic_set(&mmu->refcnt, 0);
->>> +	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
->>>    }
->>>      void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
->>> @@ -1067,6 +1069,99 @@ void kvm_nested_s2_wp(struct kvm *kvm)
->>>    	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
->>>    }
->>>    +/*
->>> + * Store range of canonical IPA mapped to a nested stage 2 mmu table.
->>> + * Canonical IPA used as pivot in maple tree for the lookup later
->>> + * while IPA unmap/flush.
->>> + */
->>> +int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa,
->>> +		u64 ipa, u64 size)
->>> +{
->>> +	struct kvm_s2_mmu *mmu;
->>> +	struct shadow_ipa_map *entry;
->>> +	unsigned long start, end;
->>> +	int ret;
->>> +
->>> +	start = ALIGN_DOWN(ipa, size);
->>> +	end = start + size;
->>> +	mmu = pgt->mmu;
->>> +
->>> +	entry = kzalloc(sizeof(struct shadow_ipa_map), GFP_KERNEL_ACCOUNT);
->>> +
->>> +	if (!entry)
->>> +		return -ENOMEM;
->>> +
->>> +	entry->ipa = start;
->>> +	entry->shadow_ipa = ALIGN_DOWN(shadow_ipa, size);
->>> +	entry->size = size;
->>> +	ret = mtree_store_range(&mmu->nested_mmu_mt, start, end - 1, entry,
->>> +			  GFP_KERNEL_ACCOUNT);
->>> +	if (ret) {
->>> +		kfree(entry);
->>> +		WARN_ON(ret);
->>> +	}
->>> +
->>> +	return ret;
->>> +}
->>> +
->>> +static void nested_mtree_erase(struct maple_tree *mt, unsigned long start,
->>> +		unsigned long size)
->>> +{
->>> +	void *entry = NULL;
->>> +
->>> +	MA_STATE(mas, mt, start, start + size - 1);
->>> +
->>> +	mtree_lock(mt);
->>> +	entry = mas_erase(&mas);
->>> +	mtree_unlock(mt);
->>> +	kfree(entry);
->>> +}
->>> +
->>> +static void nested_mtree_erase_and_unmap_all(struct kvm_s2_mmu *mmu,
->>> +		unsigned long start, unsigned long end, bool may_block)
->>> +{
->>> +	struct shadow_ipa_map *entry;
->>> +
->>> +	mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu)) {
->>> +		kvm_stage2_unmap_range(mmu, entry->shadow_ipa, entry->size,
->>> +				may_block);
->>> +		kfree(entry);
->>> +	}
->>> +
->>> +	mtree_destroy(&mmu->nested_mmu_mt);
->>> +	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
->>> +}
->>> +
->>> +void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size,
->>> +		bool may_block)
->>> +{
->>> +	int i;
->>> +	struct shadow_ipa_map *entry;
->>> +
->>> +	lockdep_assert_held_write(&kvm->mmu_lock);
->>> +
->>> +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
->>> +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
->>> +		unsigned long start = ipa;
->>> +		unsigned long end = ipa + size;
->>> +
->>> +		if (!kvm_s2_mmu_valid(mmu))
->>> +			continue;
->>> +
->>> +		do {
->>> +			entry = mt_find(&mmu->nested_mmu_mt, &start, end - 1);
->>> +			if (!entry)
->>> +				break;
->>> +
->>> +			kvm_stage2_unmap_range(mmu, entry->shadow_ipa,
->>> +							entry->size, may_block);
->>> +			start = entry->ipa + entry->size;
->>> +			nested_mtree_erase(&mmu->nested_mmu_mt, entry->ipa,
->>> +							entry->size);
->>> +		} while (start < end);
->>> +	}
->>> +}
->>> +
->>>    void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
->>>    {
->>>    	int i;
->>> @@ -1076,8 +1171,10 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
->>>    	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
->>>    		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
->>>    -		if (kvm_s2_mmu_valid(mmu))
->>> -			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
->>> +		if (!kvm_s2_mmu_valid(mmu))
->>> +			continue;
->>> +
->>> +		nested_mtree_erase_and_unmap_all(mmu, 0, kvm_phys_size(mmu), may_block);
->>>    	}
->>>      	kvm_invalidate_vncr_ipa(kvm, 0,
->>> BIT(kvm->arch.mmu.pgt->ia_bits));
->>> @@ -1091,9 +1188,14 @@ void kvm_nested_s2_flush(struct kvm *kvm)
->>>      	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
->>>    		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
->>> +		struct shadow_ipa_map *entry;
->>> +		unsigned long start = 0;
->>>    -		if (kvm_s2_mmu_valid(mmu))
->>> -			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
->>> +		if (!kvm_s2_mmu_valid(mmu))
->>> +			continue;
->>> +
->>> +		mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
->>> +			kvm_stage2_flush_range(mmu, entry->shadow_ipa, entry->size);
->>>    	}
->>>    }
->>>    @@ -1104,8 +1206,16 @@ void kvm_arch_flush_shadow_all(struct kvm
->>> *kvm)
->>>    	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
->>>    		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
->>>    -		if (!WARN_ON(atomic_read(&mmu->refcnt)))
->>> +		if (!WARN_ON(atomic_read(&mmu->refcnt))) {
->>> +			struct shadow_ipa_map *entry;
->>> +			unsigned long start = 0;
->>> +
->>>    			kvm_free_stage2_pgd(mmu);
->>> +
->>> +			mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
->>> +				kfree(entry);
->>> +			mtree_destroy(&mmu->nested_mmu_mt);
->>> +		}
->>>    	}
->>>    	kvfree(kvm->arch.nested_mmus);
->>>    	kvm->arch.nested_mmus = NULL;
->>
->> Any review comments or suggestions for this patch?
+On 25-10-21 15:04:10, Gary Yang wrote:
+> Add the pin-controller nodes for Sky1 platform.
 > 
-> None. This patch is obviously lacking the basic requirements that such
-> an "optimisation" should handle, such as dealing with multiple
-> mappings to the same IPA in the shadow S2, hence will happily fail to
-> correctly unmap stuff. There is no documentation, and no test.
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+
+Applied, thanks.
+
+Peter
+> ---
+>  arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  32 ++
+>  arch/arm64/boot/dts/cix/sky1-pinfunc.h    | 401 ++++++++++++++++++++++
+>  arch/arm64/boot/dts/cix/sky1.dtsi         |  10 +
+>  3 files changed, 443 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/cix/sky1-pinfunc.h
 > 
-Thanks for the comment.
-How about adding list of multiple mappings ranges to the maple tree entry/node while adding to the lookup and later unmapping every range present in that list?
-
-I tested this patch on an AmpereOne system (2 NUMA nodes, 96 CPUs per node, numa balance enabled) with large vCPU counts and large memory to L1 and L2.
-The current full-address-space walk caused very large unmap/flush work and significant delays (exacerbated by NUMA balancing / page migration activity).
-The targeted unmap using the list per node removes only the affected mappings and reduces the unmap latency substantially in our workloads.
-
-I booted multiple L1s, each hosting several L2s, and observed no panics or failures related to missing support for multiple‑IPA mappings.
-If you have any test cases or scenarios that would validate support for multiple IPA mappings, could you please share them?
-
+> diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> index d74964d53c3b..cdaca197edda 100644
+> --- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> +++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> @@ -7,6 +7,8 @@
+>  /dts-v1/;
+>  
+>  #include "sky1.dtsi"
+> +#include "sky1-pinfunc.h"
+> +
+>  / {
+>  	model = "Radxa Orion O6";
+>  	compatible = "radxa,orion-o6", "cix,sky1";
+> @@ -34,6 +36,36 @@ linux,cma {
+>  
+>  };
+>  
+> +&iomuxc {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_hog>;
+> +
+> +	pinctrl_hog: hog-cfg {
+> +		pins {
+> +			pinmux = <CIX_PAD_GPIO144_FUNC_GPIO144>,
+> +				<CIX_PAD_GPIO145_FUNC_GPIO145>,
+> +				<CIX_PAD_GPIO146_FUNC_GPIO146>,
+> +				<CIX_PAD_GPIO147_FUNC_GPIO147>;
+> +			bias-pull-down;
+> +			drive-strength = <8>;
+> +		};
+> +	};
+> +};
+> +
+> +&iomuxc_s5 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_hog_s5>;
+> +
+> +	pinctrl_hog_s5: hog-s5-cfg {
+> +		pins {
+> +			pinmux = <CIX_PAD_GPIO014_FUNC_GPIO014>;
+> +			bias-pull-up;
+> +			drive-strength = <8>;
+> +
+> +		};
+> +	};
+> +};
+> +
+>  &uart2 {
+>  	status = "okay";
+>  };
+> diff --git a/arch/arm64/boot/dts/cix/sky1-pinfunc.h b/arch/arm64/boot/dts/cix/sky1-pinfunc.h
+> new file mode 100644
+> index 000000000000..ebe9f6fef403
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/cix/sky1-pinfunc.h
+> @@ -0,0 +1,401 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright 2024-2025 Cix Technology Group Co., Ltd.
+> + */
+> +
+> +#ifndef __CIX_SKY1_H
+> +#define __CIX_SKY1_H
+> +
+> +/* s5 pads */
+> +#define CIX_PAD_GPIO001_FUNC_GPIO001				   (0 << 8 | 0x0)
+> +#define CIX_PAD_GPIO002_FUNC_GPIO002				   (1 << 8 | 0x0)
+> +#define CIX_PAD_GPIO003_FUNC_GPIO003				   (2 << 8 | 0x0)
+> +#define CIX_PAD_GPIO004_FUNC_GPIO004				   (3 << 8 | 0x0)
+> +#define CIX_PAD_GPIO005_FUNC_GPIO005				   (4 << 8 | 0x0)
+> +#define CIX_PAD_GPIO006_FUNC_GPIO006				   (5 << 8 | 0x0)
+> +#define CIX_PAD_GPIO007_FUNC_GPIO007				   (6 << 8 | 0x0)
+> +#define CIX_PAD_GPIO008_FUNC_GPIO008				   (7 << 8 | 0x0)
+> +#define CIX_PAD_GPIO009_FUNC_GPIO009				   (8 << 8 | 0x0)
+> +#define CIX_PAD_GPIO010_FUNC_GPIO010				   (9 << 8 | 0x0)
+> +#define CIX_PAD_GPIO011_FUNC_GPIO011				   (10 << 8 | 0x0)
+> +#define CIX_PAD_GPIO012_FUNC_GPIO012				   (11 << 8 | 0x0)
+> +#define CIX_PAD_GPIO013_FUNC_GPIO013				   (12 << 8 | 0x0)
+> +#define CIX_PAD_GPIO014_FUNC_GPIO014				   (13 << 8 | 0x0)
+> +#define CIX_PAD_SFI_I2C0_SCL_FUNC_SFI_I2C0_SCL			   (28 << 8 | 0x0)
+> +#define CIX_PAD_SFI_I2C0_SCL_FUNC_SFI_I3C0_SCL			   (28 << 8 | 0x1)
+> +#define CIX_PAD_SFI_I2C0_SDA_FUNC_SFI_I2C0_SDA			   (29 << 8 | 0x0)
+> +#define CIX_PAD_SFI_I2C0_SDA_FUNC_SFI_I3C0_SDA			   (29 << 8 | 0x1)
+> +#define CIX_PAD_SFI_I2C1_SCL_FUNC_SFI_I2C1_SCL			   (30 << 8 | 0x0)
+> +#define CIX_PAD_SFI_I2C1_SCL_FUNC_SFI_I3C1_SCL			   (30 << 8 | 0x1)
+> +#define CIX_PAD_SFI_I2C1_SCL_FUNC_SFI_SPI_CS0			   (30 << 8 | 0x2)
+> +#define CIX_PAD_SFI_I2C1_SDA_FUNC_SFI_I2C1_SDA			   (31 << 8 | 0x0)
+> +#define CIX_PAD_SFI_I2C1_SDA_FUNC_SFI_I3C1_SDA			   (31 << 8 | 0x1)
+> +#define CIX_PAD_SFI_I2C1_SDA_FUNC_SFI_SPI_CS1			   (31 << 8 | 0x2)
+> +#define CIX_PAD_SFI_GPIO0_FUNC_GPIO015				   (32 << 8 | 0x0)
+> +#define CIX_PAD_SFI_GPIO0_FUNC_SFI_SPI_SCK			   (32 << 8 | 0x1)
+> +#define CIX_PAD_SFI_GPIO0_FUNC_SFI_GPIO0			   (32 << 8 | 0x2)
+> +#define CIX_PAD_SFI_GPIO1_FUNC_GPIO016				   (33 << 8 | 0x0)
+> +#define CIX_PAD_SFI_GPIO1_FUNC_SFI_SPI_MOSI			   (33 << 8 | 0x1)
+> +#define CIX_PAD_SFI_GPIO1_FUNC_SFI_GPIO1			   (33 << 8 | 0x2)
+> +#define CIX_PAD_SFI_GPIO2_FUNC_GPIO017				   (34 << 8 | 0x0)
+> +#define CIX_PAD_SFI_GPIO2_FUNC_SFI_SPI_MISO			   (34 << 8 | 0x1)
+> +#define CIX_PAD_SFI_GPIO2_FUNC_SFI_GPIO2			   (34 << 8 | 0x2)
+> +#define CIX_PAD_GPIO018_FUNC_SFI_GPIO3				   (35 << 8 | 0x0)
+> +#define CIX_PAD_GPIO018_FUNC_GPIO018				   (35 << 8 | 0x1)
+> +#define CIX_PAD_GPIO019_FUNC_SFI_GPIO4				   (36 << 8 | 0x0)
+> +#define CIX_PAD_GPIO019_FUNC_GPIO019				   (36 << 8 | 0x1)
+> +#define CIX_PAD_GPIO020_FUNC_SFI_GPIO5				   (37 << 8 | 0x0)
+> +#define CIX_PAD_GPIO020_FUNC_GPIO020				   (37 << 8 | 0x1)
+> +#define CIX_PAD_GPIO021_FUNC_SFI_GPIO6				   (38 << 8 | 0x0)
+> +#define CIX_PAD_GPIO021_FUNC_GPIO021				   (38 << 8 | 0x1)
+> +#define CIX_PAD_GPIO022_FUNC_SFI_GPIO7				   (39 << 8 | 0x0)
+> +#define CIX_PAD_GPIO022_FUNC_GPIO022				   (39 << 8 | 0x1)
+> +#define CIX_PAD_GPIO023_FUNC_SFI_GPIO8				   (40 << 8 | 0x0)
+> +#define CIX_PAD_GPIO023_FUNC_GPIO023				   (40 << 8 | 0x1)
+> +#define CIX_PAD_GPIO023_FUNC_SFI_I3C0_PUR_EN_L			   (40 << 8 | 0x2)
+> +#define CIX_PAD_GPIO024_FUNC_SFI_GPIO9				   (41 << 8 | 0x0)
+> +#define CIX_PAD_GPIO024_FUNC_GPIO024				   (41 << 8 | 0x1)
+> +#define CIX_PAD_GPIO024_FUNC_SFI_I3C1_PUR_EN_L			   (41 << 8 | 0x2)
+> +#define CIX_PAD_SPI1_MISO_FUNC_SPI1_MISO			   (42 << 8 | 0x0)
+> +#define CIX_PAD_SPI1_MISO_FUNC_GPIO025				   (42 << 8 | 0x1)
+> +#define CIX_PAD_SPI1_CS0_FUNC_SPI1_CS0				   (43 << 8 | 0x0)
+> +#define CIX_PAD_SPI1_CS0_FUNC_GPIO026				   (43 << 8 | 0x1)
+> +#define CIX_PAD_SPI1_CS1_FUNC_SPI1_CS1				   (44 << 8 | 0x0)
+> +#define CIX_PAD_SPI1_CS1_FUNC_GPIO027				   (44 << 8 | 0x1)
+> +#define CIX_PAD_SPI1_MOSI_FUNC_SPI1_MOSI			   (45 << 8 | 0x0)
+> +#define CIX_PAD_SPI1_MOSI_FUNC_GPIO028				   (45 << 8 | 0x1)
+> +#define CIX_PAD_SPI1_CLK_FUNC_SPI1_CLK				   (46 << 8 | 0x0)
+> +#define CIX_PAD_SPI1_CLK_FUNC_GPIO029				   (46 << 8 | 0x1)
+> +#define CIX_PAD_GPIO030_FUNC_GPIO030				   (47 << 8 | 0x0)
+> +#define CIX_PAD_GPIO030_FUNC_USB_OC0_L				   (47 << 8 | 0x1)
+> +#define CIX_PAD_GPIO031_FUNC_GPIO031				   (48 << 8 | 0x0)
+> +#define CIX_PAD_GPIO031_FUNC_USB_OC1_L				   (48 << 8 | 0x1)
+> +#define CIX_PAD_GPIO032_FUNC_GPIO032				   (49 << 8 | 0x0)
+> +#define CIX_PAD_GPIO032_FUNC_USB_OC2_L				   (49 << 8 | 0x1)
+> +#define CIX_PAD_GPIO033_FUNC_GPIO033				   (50 << 8 | 0x0)
+> +#define CIX_PAD_GPIO033_FUNC_USB_OC3_L				   (50 << 8 | 0x1)
+> +#define CIX_PAD_GPIO034_FUNC_GPIO034				   (51 << 8 | 0x0)
+> +#define CIX_PAD_GPIO034_FUNC_USB_OC4_L				   (51 << 8 | 0x1)
+> +#define CIX_PAD_GPIO035_FUNC_GPIO035				   (52 << 8 | 0x0)
+> +#define CIX_PAD_GPIO035_FUNC_USB_OC5_L				   (52 << 8 | 0x1)
+> +#define CIX_PAD_GPIO036_FUNC_GPIO036				   (53 << 8 | 0x0)
+> +#define CIX_PAD_GPIO036_FUNC_USB_OC6_L				   (53 << 8 | 0x1)
+> +#define CIX_PAD_GPIO037_FUNC_GPIO037				   (54 << 8 | 0x0)
+> +#define CIX_PAD_GPIO037_FUNC_USB_OC7_L				   (54 << 8 | 0x1)
+> +#define CIX_PAD_GPIO038_FUNC_GPIO038				   (55 << 8 | 0x0)
+> +#define CIX_PAD_GPIO038_FUNC_USB_OC8_L				   (55 << 8 | 0x1)
+> +#define CIX_PAD_GPIO039_FUNC_GPIO039				   (56 << 8 | 0x0)
+> +#define CIX_PAD_GPIO039_FUNC_USB_OC9_L				   (56 << 8 | 0x1)
+> +#define CIX_PAD_GPIO040_FUNC_GPIO040				   (57 << 8 | 0x0)
+> +#define CIX_PAD_GPIO040_FUNC_USB_DRIVE_VBUS0			   (57 << 8 | 0x1)
+> +#define CIX_PAD_GPIO041_FUNC_GPIO041				   (58 << 8 | 0x0)
+> +#define CIX_PAD_GPIO041_FUNC_USB_DRIVE_VBUS4			   (58 << 8 | 0x1)
+> +#define CIX_PAD_GPIO042_FUNC_GPIO042				   (59 << 8 | 0x0)
+> +#define CIX_PAD_GPIO042_FUNC_USB_DRIVE_VBUS5			   (59 << 8 | 0x1)
+> +#define CIX_PAD_SE_QSPI_CLK_FUNC_SE_QSPI_CLK			   (60 << 8 | 0x0)
+> +#define CIX_PAD_SE_QSPI_CLK_FUNC_QSPI_CLK			   (60 << 8 | 0x1)
+> +#define CIX_PAD_SE_QSPI_CS_L_FUNC_SE_QSPI_CS_L			   (61 << 8 | 0x0)
+> +#define CIX_PAD_SE_QSPI_CS_L_FUNC_QSPI_CS_L			   (61 << 8 | 0x1)
+> +#define CIX_PAD_SE_QSPI_DATA0_FUNC_SE_QSPI_DATA0		   (62 << 8 | 0x0)
+> +#define CIX_PAD_SE_QSPI_DATA0_FUNC_QSPI_DATA0			   (62 << 8 | 0x1)
+> +#define CIX_PAD_SE_QSPI_DATA1_FUNC_SE_QSPI_DATA1		   (63 << 8 | 0x0)
+> +#define CIX_PAD_SE_QSPI_DATA1_FUNC_QSPI_DATA1			   (63 << 8 | 0x1)
+> +#define CIX_PAD_SE_QSPI_DATA2_FUNC_SE_QSPI_DATA2		   (64 << 8 | 0x0)
+> +#define CIX_PAD_SE_QSPI_DATA2_FUNC_QSPI_DATA2			   (64 << 8 | 0x1)
+> +#define CIX_PAD_SE_QSPI_DATA3_FUNC_SE_QSPI_DATA3		   (65 << 8 | 0x0)
+> +#define CIX_PAD_SE_QSPI_DATA3_FUNC_QSPI_DATA3			   (65 << 8 | 0x1)
+> +/* s0 pads */
+> +#define CIX_PAD_GPIO043_FUNC_GPIO043				   (0 << 8 | 0x0)
+> +#define CIX_PAD_GPIO044_FUNC_GPIO044				   (1 << 8 | 0x0)
+> +#define CIX_PAD_GPIO045_FUNC_GPIO045				   (2 << 8 | 0x0)
+> +#define CIX_PAD_GPIO046_FUNC_GPIO046				   (3 << 8 | 0x0)
+> +#define CIX_PAD_DP2_DIGON_FUNC_DP2_DIGON			   (18 << 8 | 0x0)
+> +#define CIX_PAD_DP2_BLON_FUNC_DP2_BLON				   (19 << 8 | 0x0)
+> +#define CIX_PAD_DP2_VARY_BL_FUNC_DP2_VARY_BL			   (20 << 8 | 0x0)
+> +#define CIX_PAD_I2C7_SCL_FUNC_I2C7_SCL				   (21 << 8 | 0x0)
+> +#define CIX_PAD_I2C7_SDA_FUNC_I2C7_SDA				   (22 << 8 | 0x0)
+> +#define CIX_PAD_I2C5_SCL_FUNC_I2C5_SCL				   (26 << 8 | 0x0)
+> +#define CIX_PAD_I2C5_SCL_FUNC_GPIO047				   (26 << 8 | 0x1)
+> +#define CIX_PAD_I2C5_SDA_FUNC_I2C5_SDA				   (27 << 8 | 0x0)
+> +#define CIX_PAD_I2C5_SDA_FUNC_GPIO048				   (27 << 8 | 0x1)
+> +#define CIX_PAD_I2C6_SCL_FUNC_I2C6_SCL				   (28 << 8 | 0x0)
+> +#define CIX_PAD_I2C6_SCL_FUNC_GPIO049				   (28 << 8 | 0x1)
+> +#define CIX_PAD_I2C6_SDA_FUNC_I2C6_SDA				   (29 << 8 | 0x0)
+> +#define CIX_PAD_I2C6_SDA_FUNC_GPIO050				   (29 << 8 | 0x1)
+> +#define CIX_PAD_I2C0_CLK_FUNC_I2C0_CLK				   (30 << 8 | 0x0)
+> +#define CIX_PAD_I2C0_CLK_FUNC_GPIO051				   (30 << 8 | 0x1)
+> +#define CIX_PAD_I2C0_SDA_FUNC_I2C0_SDA				   (31 << 8 | 0x0)
+> +#define CIX_PAD_I2C0_SDA_FUNC_GPIO052				   (31 << 8 | 0x1)
+> +#define CIX_PAD_I2C1_CLK_FUNC_I2C1_CLK				   (32 << 8 | 0x0)
+> +#define CIX_PAD_I2C1_CLK_FUNC_GPIO053				   (32 << 8 | 0x1)
+> +#define CIX_PAD_I2C1_SDA_FUNC_I2C1_SDA				   (33 << 8 | 0x0)
+> +#define CIX_PAD_I2C1_SDA_FUNC_GPIO054				   (33 << 8 | 0x1)
+> +#define CIX_PAD_I2C2_SCL_FUNC_I2C2_SCL				   (34 << 8 | 0x0)
+> +#define CIX_PAD_I2C2_SCL_FUNC_I3C0_SCL				   (34 << 8 | 0x1)
+> +#define CIX_PAD_I2C2_SCL_FUNC_GPIO055				   (34 << 8 | 0x2)
+> +#define CIX_PAD_I2C2_SDA_FUNC_I2C2_SDA				   (35 << 8 | 0x0)
+> +#define CIX_PAD_I2C2_SDA_FUNC_I3C0_SDA				   (35 << 8 | 0x1)
+> +#define CIX_PAD_I2C2_SDA_FUNC_GPIO056				   (35 << 8 | 0x2)
+> +#define CIX_PAD_GPIO057_FUNC_GPIO057				   (36 << 8 | 0x0)
+> +#define CIX_PAD_GPIO057_FUNC_I3C0_PUR_EN_L			   (36 << 8 | 0x1)
+> +#define CIX_PAD_I2C3_CLK_FUNC_I2C3_CLK				   (37 << 8 | 0x0)
+> +#define CIX_PAD_I2C3_CLK_FUNC_I3C1_CLK				   (37 << 8 | 0x1)
+> +#define CIX_PAD_I2C3_CLK_FUNC_GPIO058				   (37 << 8 | 0x2)
+> +#define CIX_PAD_I2C3_SDA_FUNC_I2C3_SDA				   (38 << 8 | 0x0)
+> +#define CIX_PAD_I2C3_SDA_FUNC_I3C1_SDA				   (38 << 8 | 0x1)
+> +#define CIX_PAD_I2C3_SDA_FUNC_GPIO059				   (38 << 8 | 0x2)
+> +#define CIX_PAD_GPIO060_FUNC_GPIO060				   (39 << 8 | 0x0)
+> +#define CIX_PAD_GPIO060_FUNC_I3C1_PUR_EN_L			   (39 << 8 | 0x1)
+> +#define CIX_PAD_I2C4_CLK_FUNC_I2C4_CLK				   (40 << 8 | 0x0)
+> +#define CIX_PAD_I2C4_CLK_FUNC_GPIO061				   (40 << 8 | 0x1)
+> +#define CIX_PAD_I2C4_SDA_FUNC_I2C4_SDA				   (41 << 8 | 0x0)
+> +#define CIX_PAD_I2C4_SDA_FUNC_GPIO062				   (41 << 8 | 0x1)
+> +#define CIX_PAD_HDA_BITCLK_FUNC_HDA_BITCLK			   (42 << 8 | 0x0)
+> +#define CIX_PAD_HDA_BITCLK_FUNC_I2S0_SCK			   (42 << 8 | 0x1)
+> +#define CIX_PAD_HDA_BITCLK_FUNC_I2S9_RSCK_DBG			   (42 << 8 | 0x2)
+> +#define CIX_PAD_HDA_RST_L_FUNC_HDA_RST_L			   (43 << 8 | 0x0)
+> +#define CIX_PAD_HDA_RST_L_FUNC_I2S0_DATA_IN			   (43 << 8 | 0x1)
+> +#define CIX_PAD_HDA_RST_L_FUNC_I2S9_DATA_IN0_DBG		   (43 << 8 | 0x2)
+> +#define CIX_PAD_HDA_SDIN0_FUNC_HDA_SDIN0			   (44 << 8 | 0x0)
+> +#define CIX_PAD_HDA_SDIN0_FUNC_I2S0_MCLK			   (44 << 8 | 0x1)
+> +#define CIX_PAD_HDA_SDIN0_FUNC_I2S9_TSCK_DBG			   (44 << 8 | 0x2)
+> +#define CIX_PAD_HDA_SDOUT0_FUNC_HDA_SDOUT0			   (45 << 8 | 0x0)
+> +#define CIX_PAD_HDA_SDOUT0_FUNC_I2S0_DATA_OUT			   (45 << 8 | 0x1)
+> +#define CIX_PAD_HDA_SDOUT0_FUNC_I2S9_TWS_DBG		           (45 << 8 | 0x2)
+> +#define CIX_PAD_HDA_SYNC_FUNC_HDA_SYNC				   (46 << 8 | 0x0)
+> +#define CIX_PAD_HDA_SYNC_FUNC_I2S0_WS				   (46 << 8 | 0x1)
+> +#define CIX_PAD_HDA_SYNC_FUNC_I2S9_RWS_DBG			   (46 << 8 | 0x2)
+> +#define CIX_PAD_HDA_SDIN1_FUNC_HDA_SDIN1			   (47 << 8 | 0x0)
+> +#define CIX_PAD_HDA_SDIN1_FUNC_GPIO063				   (47 << 8 | 0x1)
+> +#define CIX_PAD_HDA_SDIN1_FUNC_I2S9_DATA_IN1_DBG		   (47 << 8 | 0x2)
+> +#define CIX_PAD_HDA_SDOUT1_FUNC_HDA_SDOUT1			   (48 << 8 | 0x0)
+> +#define CIX_PAD_HDA_SDOUT1_FUNC_GPIO064				   (48 << 8 | 0x1)
+> +#define CIX_PAD_HDA_SDOUT1_FUNC_I2S9_DATA_OUT0_DBG		   (48 << 8 | 0x2)
+> +#define CIX_PAD_I2S1_MCLK_FUNC_I2S1_MCLK			   (49 << 8 | 0x0)
+> +#define CIX_PAD_I2S1_MCLK_FUNC_GPIO065				   (49 << 8 | 0x1)
+> +#define CIX_PAD_I2S1_SCK_FUNC_I2S1_SCK				   (50 << 8 | 0x0)
+> +#define CIX_PAD_I2S1_SCK_FUNC_GPIO066				   (50 << 8 | 0x1)
+> +#define CIX_PAD_I2S1_WS_FUNC_I2S1_WS				   (51 << 8 | 0x0)
+> +#define CIX_PAD_I2S1_WS_FUNC_GPIO067				   (51 << 8 | 0x1)
+> +#define CIX_PAD_I2S1_DATA_IN_FUNC_I2S1_DATA_IN			   (52 << 8 | 0x0)
+> +#define CIX_PAD_I2S1_DATA_IN_FUNC_GPIO068			   (52 << 8 | 0x1)
+> +#define CIX_PAD_I2S1_DATA_OUT_FUNC_I2S1_DATA_OUT		   (53 << 8 | 0x0)
+> +#define CIX_PAD_I2S1_DATA_OUT_FUNC_GPIO069			   (53 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_MCLK_FUNC_I2S2_MCLK			   (54 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_MCLK_FUNC_GPIO070				   (54 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_RSCK_FUNC_I2S2_RSCK			   (55 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_RSCK_FUNC_GPIO071				   (55 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_RSCK_FUNC_I2S5_RSCK_DBG			   (55 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_RSCK_FUNC_I2S6_RSCK_DBG			   (55 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_RWS_FUNC_I2S2_RWS				   (56 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_RWS_FUNC_GPIO072				   (56 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_RWS_FUNC_I2S5_RWS_DBG			   (56 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_RWS_FUNC_I2S6_RWS_DBG			   (56 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_TSCK_FUNC_I2S2_TSCK			   (57 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_TSCK_FUNC_GPIO073				   (57 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_TSCK_FUNC_I2S5_TSCK_DBG			   (57 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_TSCK_FUNC_I2S6_TSCK_DBG			   (57 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_TWS_FUNC_I2S2_TWS				   (58 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_TWS_FUNC_GPIO074				   (58 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_TWS_FUNC_I2S5_TWS_DBG			   (58 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_TWS_FUNC_I2S6_TWS_DBG			   (58 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_DATA_IN0_FUNC_I2S2_DATA_IN0		   (59 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_DATA_IN0_FUNC_GPIO075			   (59 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_DATA_IN0_FUNC_I2S5_DATA_IN0_DBG		   (59 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_DATA_IN0_FUNC_I2S6_DATA_IN0_DBG		   (59 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_DATA_IN1_FUNC_I2S2_DATA_IN1		   (60 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_DATA_IN1_FUNC_GPIO076			   (60 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_DATA_IN1_FUNC_I2S5_DATA_IN1_DBG		   (60 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_DATA_IN1_FUNC_I2S6_DATA_IN1_DBG		   (60 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_DATA_OUT0_FUNC_I2S2_DATA_OUT0		   (61 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_DATA_OUT0_FUNC_GPIO077			   (61 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_DATA_OUT0_FUNC_I2S5_DATA_OUT0_DBG		   (61 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_DATA_OUT0_FUNC_I2S6_DATA_OUT0_DBG		   (61 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_DATA_OUT1_FUNC_I2S2_DATA_OUT1		   (62 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_DATA_OUT1_FUNC_GPIO078			   (62 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_DATA_OUT1_FUNC_I2S5_DATA_OUT1_DBG		   (62 << 8 | 0x2)
+> +#define CIX_PAD_I2S2_DATA_OUT1_FUNC_I2S6_DATA_OUT1_DBG		   (62 << 8 | 0x3)
+> +#define CIX_PAD_I2S2_DATA_OUT2_FUNC_I2S2_DATA_OUT2		   (63 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_DATA_OUT2_FUNC_GPIO079			   (63 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_DATA_OUT3_FUNC_I2S2_DATA_OUT3		   (64 << 8 | 0x0)
+> +#define CIX_PAD_I2S2_DATA_OUT3_FUNC_GPIO080			   (64 << 8 | 0x1)
+> +#define CIX_PAD_I2S2_DATA_OUT3_FUNC_I2S9_DATA_OUT1_DBG		   (64 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_MCLK_FUNC_I2S3_MCLK			   (65 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_MCLK_FUNC_GPIO081				   (65 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_RSCK_FUNC_I2S3_RSCK			   (66 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_RSCK_FUNC_GPIO082				   (66 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_RSCK_FUNC_I2S7_RSCK_DBG			   (66 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_RSCK_FUNC_I2S8_RSCK_DBG			   (66 << 8 | 0x3)
+> +#define CIX_PAD_I2S3_RWS_FUNC_I2S3_RWS				   (67 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_RWS_FUNC_GPIO083				   (67 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_RWS_FUNC_I2S7_RWS_DBG			   (67 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_RWS_FUNC_I2S8_RWS_DBG			   (67 << 8 | 0x3)
+> +#define CIX_PAD_I2S3_TSCK_FUNC_I2S3_TSCK			   (68 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_TSCK_FUNC_GPIO084				   (68 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_TSCK_FUNC_I2S7_TSCK_DBG			   (68 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_TSCK_FUNC_I2S8_TSCK_DBG			   (68 << 8 | 0x3)
+> +#define CIX_PAD_I2S3_TWS_FUNC_I2S3_TWS				   (69 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_TWS_FUNC_GPIO085				   (69 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_TWS_FUNC_I2S7_TWS_DBG			   (69 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_TWS_FUNC_I2S8_TWS_DBG			   (69 << 8 | 0x3)
+> +#define CIX_PAD_I2S3_DATA_IN0_FUNC_I2S3_DATA_IN0		   (70 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_DATA_IN0_FUNC_GPIO086			   (70 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_DATA_IN0_FUNC_I2S7_DATA_IN0_DBG		   (70 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_DATA_IN0_FUNC_I2S8_DATA_IN0_DBG		   (70 << 8 | 0x3)
+> +#define CIX_PAD_I2S3_DATA_IN1_FUNC_I2S3_DATA_IN1		   (71 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_DATA_IN1_FUNC_GPIO087			   (71 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_DATA_IN1_FUNC_I2S7_DATA_IN1_DBG		   (71 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_DATA_IN1_FUNC_I2S8_DATA_IN1_DBG		   (71 << 8 | 0x3)
+> +#define CIX_PAD_I2S3_DATA_OUT0_FUNC_I2S3_DATA_OUT0		   (72 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_DATA_OUT0_FUNC_GPIO088			   (72 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_DATA_OUT0_FUNC_I2S7_DATA_OUT0_DBG		   (72 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_DATA_OUT0_FUNC_I2S8_DATA_OUT0_DBG		   (72 << 8 | 0x3)
+> +#define CIX_PAD_I2S3_DATA_OUT1_FUNC_I2S3_DATA_OUT1		   (73 << 8 | 0x0)
+> +#define CIX_PAD_I2S3_DATA_OUT1_FUNC_GPIO089			   (73 << 8 | 0x1)
+> +#define CIX_PAD_I2S3_DATA_OUT1_FUNC_I2S7_DATA_OUT1_DBG		   (73 << 8 | 0x2)
+> +#define CIX_PAD_I2S3_DATA_OUT1_FUNC_I2S8_DATA_OUT1_DBG		   (73 << 8 | 0x3)
+> +#define CIX_PAD_GPIO090_FUNC_GPIO090				   (74 << 8 | 0x0)
+> +#define CIX_PAD_GPIO090_FUNC_I2S4_MCLK_LB			   (74 << 8 | 0x1)
+> +#define CIX_PAD_GPIO091_FUNC_GPIO091				   (75 << 8 | 0x0)
+> +#define CIX_PAD_GPIO091_FUNC_I2S4_SCK_LB			   (75 << 8 | 0x1)
+> +#define CIX_PAD_GPIO092_FUNC_GPIO092				   (76 << 8 | 0x0)
+> +#define CIX_PAD_GPIO092_FUNC_I2S4_WS_LB				   (76 << 8 | 0x1)
+> +#define CIX_PAD_GPIO093_FUNC_GPIO093				   (77 << 8 | 0x0)
+> +#define CIX_PAD_GPIO093_FUNC_I2S4_DATA_IN_LB			   (77 << 8 | 0x1)
+> +#define CIX_PAD_GPIO094_FUNC_GPIO094				   (78 << 8 | 0x0)
+> +#define CIX_PAD_GPIO094_FUNC_I2S4_DATA_OUT_LB			   (78 << 8 | 0x1)
+> +#define CIX_PAD_UART0_TXD_FUNC_UART0_TXD			   (79 << 8 | 0x0)
+> +#define CIX_PAD_UART0_TXD_FUNC_PWM0				   (79 << 8 | 0x1)
+> +#define CIX_PAD_UART0_TXD_FUNC_GPIO095				   (79 << 8 | 0x2)
+> +#define CIX_PAD_UART0_RXD_FUNC_UART0_RXD			   (80 << 8 | 0x0)
+> +#define CIX_PAD_UART0_RXD_FUNC_PWM1				   (80 << 8 | 0x1)
+> +#define CIX_PAD_UART0_RXD_FUNC_GPIO096				   (80 << 8 | 0x2)
+> +#define CIX_PAD_UART0_CTS_FUNC_UART0_CTS			   (81 << 8 | 0x0)
+> +#define CIX_PAD_UART0_CTS_FUNC_FAN_OUT2				   (81 << 8 | 0x1)
+> +#define CIX_PAD_UART0_CTS_FUNC_GPIO097				   (81 << 8 | 0x2)
+> +#define CIX_PAD_UART0_RTS_FUNC_UART0_RTS			   (82 << 8 | 0x0)
+> +#define CIX_PAD_UART0_RTS_FUNC_FAN_TACH2			   (82 << 8 | 0x1)
+> +#define CIX_PAD_UART0_RTS_FUNC_GPIO098				   (82 << 8 | 0x2)
+> +#define CIX_PAD_UART1_TXD_FUNC_UART1_TXD			   (83 << 8 | 0x0)
+> +#define CIX_PAD_UART1_TXD_FUNC_FAN_OUT0				   (83 << 8 | 0x1)
+> +#define CIX_PAD_UART1_TXD_FUNC_GPIO099				   (83 << 8 | 0x2)
+> +#define CIX_PAD_UART1_RXD_FUNC_UART1_RXD			   (84 << 8 | 0x0)
+> +#define CIX_PAD_UART1_RXD_FUNC_FAN_TACH0			   (84 << 8 | 0x1)
+> +#define CIX_PAD_UART1_RXD_FUNC_GPIO100				   (84 << 8 | 0x2)
+> +#define CIX_PAD_UART1_CTS_FUNC_UART1_CTS			   (85 << 8 | 0x0)
+> +#define CIX_PAD_UART1_CTS_FUNC_FAN_OUT1				   (85 << 8 | 0x1)
+> +#define CIX_PAD_UART1_CTS_FUNC_GPIO101				   (85 << 8 | 0x2)
+> +#define CIX_PAD_UART1_RTS_FUNC_UART1_RTS			   (86 << 8 | 0x0)
+> +#define CIX_PAD_UART1_RTS_FUNC_FAN_TACH1			   (86 << 8 | 0x1)
+> +#define CIX_PAD_UART1_RTS_FUNC_GPIO102				   (86 << 8 | 0x2)
+> +#define CIX_PAD_UART2_TXD_FUNC_UART2_TXD			   (87 << 8 | 0x0)
+> +#define CIX_PAD_UART2_TXD_FUNC_GPIO103				   (87 << 8 | 0x1)
+> +#define CIX_PAD_UART2_RXD_FUNC_UART2_RXD			   (88 << 8 | 0x0)
+> +#define CIX_PAD_UART2_RXD_FUNC_GPIO104				   (88 << 8 | 0x1)
+> +#define CIX_PAD_UART3_TXD_FUNC_UART3_TXD			   (89 << 8 | 0x0)
+> +#define CIX_PAD_UART3_TXD_FUNC_GPIO105				   (89 << 8 | 0x1)
+> +#define CIX_PAD_UART3_RXD_FUNC_UART3_RXD			   (90 << 8 | 0x0)
+> +#define CIX_PAD_UART3_RXD_FUNC_GPIO106				   (90 << 8 | 0x1)
+> +#define CIX_PAD_UART3_CTS_FUNC_UART3_CTS			   (91 << 8 | 0x0)
+> +#define CIX_PAD_UART3_CTS_FUNC_GPIO107				   (91 << 8 | 0x1)
+> +#define CIX_PAD_UART3_CTS_FUNC_TRIGIN0				   (91 << 8 | 0x2)
+> +#define CIX_PAD_UART3_RTS_FUNC_UART3_RTS			   (92 << 8 | 0x0)
+> +#define CIX_PAD_UART3_RTS_FUNC_GPIO108				   (92 << 8 | 0x1)
+> +#define CIX_PAD_UART3_RTS_FUNC_TRIGIN1				   (92 << 8 | 0x2)
+> +#define CIX_PAD_UART4_CSU_PM_TXD_FUNC_UART4_CSU_PM_TXD		   (93 << 8 | 0x0)
+> +#define CIX_PAD_UART4_CSU_PM_TXD_FUNC_GPIO109			   (93 << 8 | 0x1)
+> +#define CIX_PAD_UART4_CSU_PM_RXD_FUNC_UART4_CSU_PM_RXD		   (94 << 8 | 0x0)
+> +#define CIX_PAD_UART4_CSU_PM_RXD_FUNC_GPIO110			   (94 << 8 | 0x1)
+> +#define CIX_PAD_UART5_CSU_SE_TXD_FUNC_UART5_CSU_SE_TXD		   (95 << 8 | 0x0)
+> +#define CIX_PAD_UART5_CSU_SE_TXD_FUNC_GPIO111			   (95 << 8 | 0x1)
+> +#define CIX_PAD_UART5_CSU_SE_RXD_FUNC_UART5_CSU_SE_RXD		   (96 << 8 | 0x0)
+> +#define CIX_PAD_UART5_CSU_SE_RXD_FUNC_GPIO112			   (96 << 8 | 0x1)
+> +#define CIX_PAD_UART6_CSU_SE_RXD_FUNC_UART6_CSU_SE_RXD		   (97 << 8 | 0x0)
+> +#define CIX_PAD_UART6_CSU_SE_RXD_FUNC_GPIO113			   (97 << 8 | 0x1)
+> +#define CIX_PAD_CLK_REQ0_L_FUNC_CLK_REQ0_L			   (98 << 8 | 0x0)
+> +#define CIX_PAD_CLK_REQ0_L_FUNC_GPIO114				   (98 << 8 | 0x1)
+> +#define CIX_PAD_CLK_REQ2_L_FUNC_CLK_REQ2_L			   (99 << 8 | 0x0)
+> +#define CIX_PAD_CLK_REQ2_L_FUNC_GPIO115				   (99 << 8 | 0x1)
+> +#define CIX_PAD_CLK_REQ4_L_FUNC_CLK_REQ4_L			   (100 << 8 | 0x0)
+> +#define CIX_PAD_CLK_REQ4_L_FUNC_GPIO116				   (100 << 8 | 0x1)
+> +#define CIX_PAD_CSI0_MCLK0_FUNC_CSI0_MCLK0			   (101 << 8 | 0x0)
+> +#define CIX_PAD_CSI0_MCLK0_FUNC_GPIO117				   (101 << 8 | 0x1)
+> +#define CIX_PAD_CSI0_MCLK1_FUNC_CSI0_MCLK1			   (102 << 8 | 0x0)
+> +#define CIX_PAD_CSI0_MCLK1_FUNC_GPIO118				   (102 << 8 | 0x1)
+> +#define CIX_PAD_CSI1_MCLK0_FUNC_CSI1_MCLK0			   (103 << 8 | 0x0)
+> +#define CIX_PAD_CSI1_MCLK0_FUNC_GPIO119				   (103 << 8 | 0x1)
+> +#define CIX_PAD_CSI1_MCLK1_FUNC_CSI1_MCLK1			   (104 << 8 | 0x0)
+> +#define CIX_PAD_CSI1_MCLK1_FUNC_GPIO120				   (104 << 8 | 0x1)
+> +#define CIX_PAD_GPIO121_FUNC_GPIO121				   (105 << 8 | 0x0)
+> +#define CIX_PAD_GPIO121_FUNC_GMAC0_REFCLK_25M			   (105 << 8 | 0x1)
+> +#define CIX_PAD_GPIO122_FUNC_GPIO122				   (106 << 8 | 0x0)
+> +#define CIX_PAD_GPIO122_FUNC_GMAC0_TX_CTL			   (106 << 8 | 0x1)
+> +#define CIX_PAD_GPIO123_FUNC_GPIO123				   (107 << 8 | 0x0)
+> +#define CIX_PAD_GPIO123_FUNC_GMAC0_TXD0				   (107 << 8 | 0x1)
+> +#define CIX_PAD_GPIO124_FUNC_GPIO124				   (108 << 8 | 0x0)
+> +#define CIX_PAD_GPIO124_FUNC_GMAC0_TXD1				   (108 << 8 | 0x1)
+> +#define CIX_PAD_GPIO125_FUNC_GPIO125				   (109 << 8 | 0x0)
+> +#define CIX_PAD_GPIO125_FUNC_GMAC0_TXD2				   (109 << 8 | 0x1)
+> +#define CIX_PAD_GPIO126_FUNC_GPIO126				   (110 << 8 | 0x0)
+> +#define CIX_PAD_GPIO126_FUNC_GMAC0_TXD3				   (110 << 8 | 0x1)
+> +#define CIX_PAD_GPIO127_FUNC_GPIO127				   (111 << 8 | 0x0)
+> +#define CIX_PAD_GPIO127_FUNC_GMAC0_TX_CLK			   (111 << 8 | 0x1)
+> +#define CIX_PAD_GPIO128_FUNC_GPIO128				   (112 << 8 | 0x0)
+> +#define CIX_PAD_GPIO128_FUNC_GMAC0_RX_CTL			   (112 << 8 | 0x1)
+> +#define CIX_PAD_GPIO129_FUNC_GPIO129				   (113 << 8 | 0x0)
+> +#define CIX_PAD_GPIO129_FUNC_GMAC0_RXD0				   (113 << 8 | 0x1)
+> +#define CIX_PAD_GPIO130_FUNC_GPIO130				   (114 << 8 | 0x0)
+> +#define CIX_PAD_GPIO130_FUNC_GMAC0_RXD1				   (114 << 8 | 0x1)
+> +#define CIX_PAD_GPIO131_FUNC_GPIO131				   (115 << 8 | 0x0)
+> +#define CIX_PAD_GPIO131_FUNC_GMAC0_RXD2				   (115 << 8 | 0x1)
+> +#define CIX_PAD_GPIO132_FUNC_GPIO132				   (116 << 8 | 0x0)
+> +#define CIX_PAD_GPIO132_FUNC_GMAC0_RXD3				   (116 << 8 | 0x1)
+> +#define CIX_PAD_GPIO133_FUNC_GPIO133				   (117 << 8 | 0x0)
+> +#define CIX_PAD_GPIO133_FUNC_GMAC0_RX_CLK			   (117 << 8 | 0x1)
+> +#define CIX_PAD_GPIO134_FUNC_GPIO134				   (118 << 8 | 0x0)
+> +#define CIX_PAD_GPIO134_FUNC_GMAC0_MDC				   (118 << 8 | 0x1)
+> +#define CIX_PAD_GPIO135_FUNC_GPIO135				   (119 << 8 | 0x0)
+> +#define CIX_PAD_GPIO135_FUNC_GMAC0_MDIO				   (119 << 8 | 0x1)
+> +#define CIX_PAD_GPIO136_FUNC_GPIO136				   (120 << 8 | 0x0)
+> +#define CIX_PAD_GPIO136_FUNC_GMAC1_REFCLK_25M			   (120 << 8 | 0x1)
+> +#define CIX_PAD_GPIO137_FUNC_GPIO137				   (121 << 8 | 0x0)
+> +#define CIX_PAD_GPIO137_FUNC_GMAC1_TX_CTL			   (121 << 8 | 0x1)
+> +#define CIX_PAD_GPIO138_FUNC_GPIO138				   (122 << 8 | 0x0)
+> +#define CIX_PAD_GPIO138_FUNC_GMAC1_TXD0				   (122 << 8 | 0x1)
+> +#define CIX_PAD_GPIO138_FUNC_SPI2_MISO				   (122 << 8 | 0x2)
+> +#define CIX_PAD_GPIO139_FUNC_GPIO139				   (123 << 8 | 0x0)
+> +#define CIX_PAD_GPIO139_FUNC_GMAC1_TXD1				   (123 << 8 | 0x1)
+> +#define CIX_PAD_GPIO139_FUNC_SPI2_CS0				   (123 << 8 | 0x2)
+> +#define CIX_PAD_GPIO140_FUNC_GPIO140				   (124 << 8 | 0x0)
+> +#define CIX_PAD_GPIO140_FUNC_GMAC1_TXD2				   (124 << 8 | 0x1)
+> +#define CIX_PAD_GPIO140_FUNC_SPI2_CS1				   (124 << 8 | 0x2)
+> +#define CIX_PAD_GPIO141_FUNC_GPIO141				   (125 << 8 | 0x0)
+> +#define CIX_PAD_GPIO141_FUNC_GMAC1_TXD3				   (125 << 8 | 0x1)
+> +#define CIX_PAD_GPIO141_FUNC_SPI2_MOSI				   (125 << 8 | 0x2)
+> +#define CIX_PAD_GPIO142_FUNC_GPIO142				   (126 << 8 | 0x0)
+> +#define CIX_PAD_GPIO142_FUNC_GMAC1_TX_CLK			   (126 << 8 | 0x1)
+> +#define CIX_PAD_GPIO142_FUNC_SPI2_CLK				   (126 << 8 | 0x2)
+> +#define CIX_PAD_GPIO143_FUNC_GPIO143				   (127 << 8 | 0x0)
+> +#define CIX_PAD_GPIO143_FUNC_GMAC1_RX_CTL			   (127 << 8 | 0x1)
+> +#define CIX_PAD_GPIO144_FUNC_GPIO144				   (128 << 8 | 0x0)
+> +#define CIX_PAD_GPIO144_FUNC_GMAC1_RXD0				   (128 << 8 | 0x1)
+> +#define CIX_PAD_GPIO145_FUNC_GPIO145				   (129 << 8 | 0x0)
+> +#define CIX_PAD_GPIO145_FUNC_GMAC1_RXD1				   (129 << 8 | 0x1)
+> +#define CIX_PAD_GPIO146_FUNC_GPIO146				   (130 << 8 | 0x0)
+> +#define CIX_PAD_GPIO146_FUNC_GMAC1_RXD2				   (130 << 8 | 0x1)
+> +#define CIX_PAD_GPIO147_FUNC_GPIO147				   (131 << 8 | 0x0)
+> +#define CIX_PAD_GPIO147_FUNC_GMAC1_RXD3				   (131 << 8 | 0x1)
+> +#define CIX_PAD_GPIO148_FUNC_GPIO148				   (132 << 8 | 0x0)
+> +#define CIX_PAD_GPIO148_FUNC_GMAC1_RX_CLK			   (132 << 8 | 0x1)
+> +#define CIX_PAD_GPIO149_FUNC_GPIO149				   (133 << 8 | 0x0)
+> +#define CIX_PAD_GPIO149_FUNC_GMAC1_MDC				   (133 << 8 | 0x1)
+> +#define CIX_PAD_GPIO150_FUNC_GPIO150				   (134 << 8 | 0x0)
+> +#define CIX_PAD_GPIO150_FUNC_GMAC1_MDIO				   (134 << 8 | 0x1)
+> +#define CIX_PAD_GPIO151_FUNC_GPIO151				   (135 << 8 | 0x0)
+> +#define CIX_PAD_GPIO151_FUNC_PM_GPIO0				   (135 << 8 | 0x1)
+> +#define CIX_PAD_GPIO152_FUNC_GPIO152				   (136 << 8 | 0x0)
+> +#define CIX_PAD_GPIO152_FUNC_PM_GPIO1				   (136 << 8 | 0x1)
+> +#define CIX_PAD_GPIO153_FUNC_GPIO153				   (137 << 8 | 0x0)
+> +#define CIX_PAD_GPIO153_FUNC_PM_GPIO2				   (137 << 8 | 0x1)
+> +
+> +#endif
+> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+> index 2fb2c99c0796..bc28e5b0f065 100644
+> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
+> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+> @@ -328,6 +328,11 @@ i3c1: i3c@4100000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		iomuxc: pinctrl@4170000 {
+> +			compatible = "cix,sky1-pinctrl";
+> +			reg = <0x0 0x04170000 0x0 0x1000>;
+> +		};
+> +
+>  		mbox_ap2se: mailbox@5060000 {
+>  			compatible = "cix,sky1-mbox";
+>  			reg = <0x0 0x05060000 0x0 0x10000>;
+> @@ -416,6 +421,11 @@ ppi_partition1: interrupt-partition-1 {
+>  				};
+>  			};
+>  		};
+> +
+> +		iomuxc_s5: pinctrl@16007000 {
+> +			compatible = "cix,sky1-pinctrl-s5";
+> +			reg = <0x0 0x16007000 0x0 0x1000>;
+> +		};
+>  	};
+>  
+>  	timer {
+> -- 
+> 2.49.0
+> 
 
 -- 
-Thanks,
-Gk
+
+Best regards,
+Peter
 
