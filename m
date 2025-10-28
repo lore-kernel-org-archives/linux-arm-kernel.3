@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16348CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D43CCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sK57p6KbHUXe4KkeLJ0RQ/52pmzu5AO7OLWwY8T4dwU=; b=awu0yHYNgN+lhBRLplAfx4nbz0
-	8rykUKjvNctPE3lkkL6+uu0B10MRURJe41MGl2eBLbg5XjNXNqn4jhzOBiHai2CI9k8EHsyDM9xLR
-	0w+xnj9XMBtJ4pXdOU9Nb+d07YPyEu/a6Nmzpie1HGTnc61rcjnqF92EURbht7jsCtNkwAZkkJpIf
-	g+eEAD5uW1OC7wef23XfIHArD0iBsgJcS01+wiO+3GkgWwAhS6crOdmWpr7/gyKznl8qB6/y9k7Bk
-	icWxqa3hkKa0Tci2Bi/OOWt9JIvt51+UdR7CJfED54iWTc1dATgHraTyXbTjtb+iVfEewxziaRvDG
-	xUYpUtMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=odW3qtXEWjV0YpOhuEaOM6Q/wDrQniW9fcSMR6G8lw0=; b=AcNro7ZrjwSYRtorIOvRaGMX5S
+	Z/GsERLChPmcf2SIjtgAvAQMADqtzFEWzHBxgHnodbBNDPhfIhfgWzhCx+y9A9ZLHM8ly026945zJ
+	V+CDexj2UGoktXXqFtVpjAgi80ldSYMJM2jFnn4XiaoZKJoKLPY5HpKuqt6jlDOu0unXulximSNo0
+	6Yb9sk0h/WuSZtaA8Pyf81aLjikvAAryFT8uV5KjV6O/JaoPDzV3rRf5qzwKHtbKYmwfamcBTDrS4
+	UHggcvwvBhHJNecF07Y+OoJ0p7rvJ7UIxNXoCdIDlyk3BGiybB7SoF2E0Exg5gBljs8Rfdog9pDc/
+	XUYZcr3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDg1V-0000000FdoK-3g4l;
-	Tue, 28 Oct 2025 09:29:49 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1vDg6F-0000000FeGQ-4BXe;
+	Tue, 28 Oct 2025 09:34:44 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDg1S-0000000FdnN-3IcR
+	id 1vDg6D-0000000FeF3-40ya
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 09:29:48 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7c2948b774cso3140897a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:29:46 -0700 (PDT)
+	Tue, 28 Oct 2025 09:34:43 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6399328ff1fso9740933a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:34:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761643785; x=1762248585; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=sK57p6KbHUXe4KkeLJ0RQ/52pmzu5AO7OLWwY8T4dwU=;
-        b=KDFHSELf3ZNLm/BE7nYBeLjB7PAdtc2s3CJWTckhAEZbj8Gn9doyApiPJEE1i1yowF
-         0aF7cGO5jupxI1DfQTDqegnIZGoxfFa3teBPvGBJGgXf5I3rtZSTKCuZTI/07+5RtC5y
-         +1OST463WWbfu56P74fs8APq7LLl+aIUByiAxRRjrlL1/LQ1GwWE+kj215BeotpD4A0H
-         SHHce2NwBNaUeLrltRHZPlLIxtSozhAYgwR/cMLvrBBDj3xk5qTcLXlDcmlRnMWMB6sm
-         N3jsFoNEwAy5/AdwcDOX98cPxJOxYhDN+pQD6DerXky/ihw8OO5j/8QuriXURHghBXqW
-         yhtg==
+        d=gmail.com; s=20230601; t=1761644080; x=1762248880; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=odW3qtXEWjV0YpOhuEaOM6Q/wDrQniW9fcSMR6G8lw0=;
+        b=hSz0ZSKPrQ2dFst1GCqwU7fwP9QHlPpXET09AsclPhDFsbygwesJ6bR16YdWPmuBt4
+         ML0uQLXNVeK44s53RPuyupavyil5dfqbQypm91ebV59j4Jb7daXqQtUWcCzA2gz6Qf10
+         VawVBtgfQvu8Fyf0W8BTwd+JNxWqK/KhBUEq7kgzhtzTMO5SdgRuE+CqVekRS+F4Bi+s
+         ODyhOw01KrHnte5HKPO0tNMj3ZKGR45HiD+FSvLraWw5n4uQwRANp0rahA4m+NdoxANv
+         me2KWV/cKKB2HGWOq2r/uEV8s46BL+PIsplD4iQmhh/z0OTpUTg4GYKeFBcS2BmzRL4A
+         ijNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761643785; x=1762248585;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sK57p6KbHUXe4KkeLJ0RQ/52pmzu5AO7OLWwY8T4dwU=;
-        b=Nj/RcRZswvucuaUYtfDhlFA7NskzsSJ9qtd/AGgXWCl8vS0YvUhM4TXYWCIZIiO0e+
-         zisMUoKWAZ8ZoliM7HLngvkg3SbDVM52lESmMHxw3bubN5Xm5Tc5xAcmZwp7avcJe4eo
-         GRZK4CUbXa7uBwWSzk7g7GjX1Yk3fJHABp2n41QUl6EW62TEmj6FWpE4IP3QOzLCMdrw
-         tH+xq5+AFEBpTP18EtCh0Eg9GBsCBE7OrFu1bV5v4Gkpv4h2YxXUHJXeofIuzuecHkgk
-         bhdUrJs0wIm4bixi/vh8IhWb1uX+3TE72gLrajPvIZgYI14MpNGMNdd+wuITcpEJB8nf
-         ZQgw==
-X-Forwarded-Encrypted: i=1; AJvYcCXBDIAbH2wt0r88YENpuNl+fedD2zZP8YMUU81Oot3+C2CutXM8v4HHKJnqTrMMkgEAwC87P/056Rvb37lJnJgq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkQBCSZG19tLoWc9HJUNjnhpgJz7U1e4JIB+hDuT9t1MWmlJdz
-	t0LziVDJ3z6dcNv2UfcIpgPa4WR5JM6u81VVeIsxGQA8/P2r1UZZ3vAXBGXERf/r6SotSmLGfDc
-	ZG+DBH49H4q3xnJrMjSrVEI/EIkjffIRcHkZJqI2MkQ==
-X-Gm-Gg: ASbGncsJQWbNueeWrvKktTozuoi/CqSZVJgtsP3z+6bg8bIHhHP0NcY7ki8YIxa8JSQ
-	+DFT1cw01H8H0cwCfV2+UPqyNufluFa4reUt/3rp+/f4eUDG2USsI0cjJtyqWCVQlZVgTc4a7F9
-	8vFSBUW+OLecb5mLm9HVuPUiAfeLl9HqknOITC7i2CMTUUJg9Bg5OdqmiMS3xnjsLbuEwlAKDyc
-	evjScN1CKRpp8+K2Ker/SuOfLX6vr+Oc8W1+2KrP7LSQyVcYMQvel/iIypmaQ==
-X-Google-Smtp-Source: AGHT+IE1gkkMJpeTdzbXIvpbxpilEO6S9t7FL0EeiCn8ghufAQF2agJIi6G1CSuV5avrYTTw6qaQsxqTm1UDVTBC4fk=
-X-Received: by 2002:a05:6808:50a9:b0:43f:7dee:4693 with SMTP id
- 5614622812f47-44f6b9ab81emr1251419b6e.14.1761643785051; Tue, 28 Oct 2025
- 02:29:45 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761644080; x=1762248880;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=odW3qtXEWjV0YpOhuEaOM6Q/wDrQniW9fcSMR6G8lw0=;
+        b=oeX1c8/YHA4YhpQ+VLsv9PrVggsJXfAwQY6SEgAxQVeiMIMxLq2tafnlKvNj2rOxpS
+         0Qva3tFwbXaN7UoS3rryr8H4Q4neJjX2IU2OIqs7S6Kjy34QlYqSYuKv/YVEjb1r+cMZ
+         F03K/veGVwfJk+r/55UHpD0LAAt4OvPFwJ1DljqA3BChxFDQ7f6FSs2WuL+l/Mp4dkDc
+         Nmb6EBtIQdM9kGI/Z0yp4/+RZhYlB1QyafS/oW6j2dGyZs/+fZpjSK6Mq7ZeHBr/pG5q
+         tF01jnpBM9xYCoxLoYJwvwAH/jR79FuSNCHrTLJFbnP0gAT72w6D19LN5TmZEhfqzG2o
+         1j/w==
+X-Forwarded-Encrypted: i=1; AJvYcCULH71h2gSeKpVFmnBiCRydjZy9inSTy9hZDbNtbnF8khaHbwdXEc2Nceh/mVougtXoUwKlHw0tTSkhpWc67x99@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoGprvVb3+fyyIGNxDFrK++QNyoOCa7zuOnOc/GR+9lA7w/h8i
+	JaYCyDrizytWcxXkzA1Va8vvHrCo5oWQxQUk4fSnDe2BnK6Ow609vnfyEgT2oCC2fJAmidxsiJ7
+	XG12T1VxVySNlXfJb+nmsZIsmusDtxeQ=
+X-Gm-Gg: ASbGnctTUY3UjMxWMGLPgw70FzfC+EHUjOyPenh0xI1GD1MmcjJ1Ks5ke5iG0tpf6FZ
+	sza+jIe6JN32klkzG/qPj53k4XjaqE915oRVOmDWrBojyJ8vLxkSXpeGrnNmbfcm+DhJvsQbaNt
+	yOsrkFu6mxMvnWjRbjlC+zMfWIcGgO3FBosh7kEis2No5lWhrYy3jGrBHecUjNq+BHb6T71eD/E
+	Rlc7/XNS3B/skP8sDXxLqOXeCCtkYZvfoIQZ/DFr4tPb296WTu6XS9WksU=
+X-Google-Smtp-Source: AGHT+IGsPCbe8r5dH8aant/YcEWw31jcAKY6dud6j8gJef9y0b9mBgF4kNxJ/GBJ3EJ/6/I5pBM64WHstQkAUKfPv+w=
+X-Received: by 2002:a05:6402:84a:b0:63c:533f:4b18 with SMTP id
+ 4fb4d7f45d1cf-63ed8279e25mr2443085a12.36.1761644079781; Tue, 28 Oct 2025
+ 02:34:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
- <20251013-automatic-clocks-v1-7-72851ee00300@linaro.org> <5ac782db-fda2-4c31-960c-20269cb40d1d@kernel.org>
-In-Reply-To: <5ac782db-fda2-4c31-960c-20269cb40d1d@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 28 Oct 2025 09:29:34 +0000
-X-Gm-Features: AWmQ_blN9jlvv15erl1p_Xix2ddOVkJn4wjuXoTixjkRRn1Iku9lQpHMXMNx69k
-Message-ID: <CADrjBPrU_Ts8iiOrLd+Z3dudHnAmNP1bP=ryrXBViLvuuN-8GA@mail.gmail.com>
-Subject: Re: [PATCH 7/9] clk: samsung: Implement automatic clock gating mode
- for CMUs
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
-	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, kernel-team@android.com
+References: <20251027145602.199154-1-linux.amoon@gmail.com>
+ <20251027145602.199154-2-linux.amoon@gmail.com> <4fe0ccf9-8866-443a-8083-4a2af7035ee6@rock-chips.com>
+In-Reply-To: <4fe0ccf9-8866-443a-8083-4a2af7035ee6@rock-chips.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Tue, 28 Oct 2025 15:04:22 +0530
+X-Gm-Features: AWmQ_bmPsHqocSX1aRGHrBmzWUPGfL89N89yzNkDBUrKAG5QnhtWURPNx9mXmf8
+Message-ID: <CANAwSgRXcg4tO00SNu77EKdp6Ay6X7+_f-ZoHxgkv1himxdi0Q@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, Hans Zhang <18255117159@163.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_022946_913031_BC22FF0B 
-X-CRM114-Status: GOOD (  44.47  )
+X-CRM114-CacheID: sfid-20251028_023442_028188_63B8E941 
+X-CRM114-Status: GOOD (  29.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,537 +102,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Shawn,
 
-Thanks for your review feedback!
+Thanks for your review comments.
 
-On Tue, 21 Oct 2025 at 20:45, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On Tue, 28 Oct 2025 at 05:56, Shawn Lin <shawn.lin@rock-chips.com> wrote:
 >
-> On 13/10/2025 22:51, Peter Griffin wrote:
-> > Update exynos_arm64_init_clocks() so that it enables the automatic clock
-> > mode bits in the CMU option register if the auto_clock_gate flag and
-> > option_offset fields are set for the CMU.
+> =E5=9C=A8 2025/10/27 =E6=98=9F=E6=9C=9F=E4=B8=80 22:55, Anand Moon =E5=86=
+=99=E9=81=93:
+> > Introduce a .remove() callback to the Rockchip DesignWare PCIe
+> > controller driver to ensure proper resource deinitialization during
+> > device removal. This includes disabling clocks and deinitializing the
+> > PCIe PHY.
 > >
-> > The CMU option register bits are global and effect every clock component in
-> > the CMU, as such clearing the GATE_ENABLE_HWACG bit and setting GATE_MANUAL
-> > bit on every gate register is only required if auto_clock_gate is false.
-> >
-> > Additionally if auto_clock_gate is enabled the dynamic root clock gating
-> > and memclk registers will be configured in the corresponding CMUs sysreg
-> > bank. These registers are exposed via syscon, so the register
-> > suspend/resume paths are updated to handle using a regmap.
-> >
-> > As many gates for various Samsung SoCs are already exposed in the Samsung
-> > clock drivers a new samsung_auto_clk_gate_ops is implemented. This uses
-> > some CMU debug registers to report whether clocks are enabled or disabled
-> > when operating in automatic mode. This allows
-> > /sys/kernel/debug/clk/clk_summary to still dump the entire clock tree and
-> > correctly report the status of each clock in the system.
-> >
-> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 > > ---
-> >  drivers/clk/samsung/clk-exynos-arm64.c   |  47 +++++++--
-> >  drivers/clk/samsung/clk-exynos4.c        |   6 +-
-> >  drivers/clk/samsung/clk-exynos4412-isp.c |   4 +-
-> >  drivers/clk/samsung/clk-exynos5250.c     |   2 +-
-> >  drivers/clk/samsung/clk-exynos5420.c     |   4 +-
-> >  drivers/clk/samsung/clk.c                | 161 ++++++++++++++++++++++++++++---
-> >  drivers/clk/samsung/clk.h                |  49 +++++++++-
-> >  7 files changed, 244 insertions(+), 29 deletions(-)
+> >   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
+> >   1 file changed, 11 insertions(+)
 > >
-> > diff --git a/drivers/clk/samsung/clk-exynos-arm64.c b/drivers/clk/samsung/clk-exynos-arm64.c
-> > index bf7de21f329ec89069dcf817ca578fcf9b2d9809..c302c836e8f9f6270753d86d7d986c88e6762f4f 100644
-> > --- a/drivers/clk/samsung/clk-exynos-arm64.c
-> > +++ b/drivers/clk/samsung/clk-exynos-arm64.c
-> > @@ -24,6 +24,16 @@
-> >  #define GATE_MANUAL          BIT(20)
-> >  #define GATE_ENABLE_HWACG    BIT(28)
+> > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pc=
+i/controller/dwc/pcie-dw-rockchip.c
+> > index 87dd2dd188b4..b878ae8e2b3e 100644
+> > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_dev=
+ice *pdev)
+> >       return ret;
+> >   }
 > >
-> > +/* Option register bits */
-> > +#define OPT_EN_DBG                   BIT(31)
-> > +#define OPT_UNKNOWN                  BIT(30)
-> > +#define OPT_EN_PWR_MANAGEMENT                BIT(29)
-> > +#define OPT_EN_AUTO_GATING           BIT(28)
-> > +#define OPT_EN_MEM_PM_GATING         BIT(24)
->
-> Please reverse, from lowest to highest number (LSB -> MSB).
->
-
-Will fix
-
-> > +
-> > +#define CMU_OPT_GLOBAL_EN_AUTO_GATING        (OPT_EN_DBG | OPT_UNKNOWN | \
-> > +     OPT_EN_PWR_MANAGEMENT | OPT_EN_AUTO_GATING | OPT_EN_MEM_PM_GATING)
-> > +
-> >  /* PLL_CONx_PLL register offsets range */
-> >  #define PLL_CON_OFF_START    0x100
-> >  #define PLL_CON_OFF_END              0x600
-> > @@ -37,6 +47,8 @@ struct exynos_arm64_cmu_data {
-> >       unsigned int nr_clk_save;
-> >       const struct samsung_clk_reg_dump *clk_suspend;
-> >       unsigned int nr_clk_suspend;
-> > +     struct samsung_clk_reg_dump *clk_sysreg_save;
-> > +     unsigned int nr_clk_sysreg;
-> >
-> >       struct clk *clk;
-> >       struct clk **pclks;
-> > @@ -82,13 +94,28 @@ static void __init exynos_arm64_init_clocks(struct device_node *np,
-> >       if (!reg_base)
-> >               panic("%s: failed to map registers\n", __func__);
-> >
-> > +     if (cmu->auto_clock_gate && cmu->option_offset) {
-> > +             /*
-> > +              * Enable the global automatic mode for the entire CMU.
-> > +              * This overrides the individual HWACG bits in each of the
-> > +              * individual gate, mux and qch registers.
-> > +              */
-> > +             writel(CMU_OPT_GLOBAL_EN_AUTO_GATING,
-> > +                    reg_base + cmu->option_offset);
-> > +     }
-> > +
-> >       for (i = 0; i < reg_offs_len; ++i) {
-> >               void __iomem *reg = reg_base + reg_offs[i];
-> >               u32 val;
-> >
-> >               if (cmu->manual_plls && is_pll_con1_reg(reg_offs[i])) {
-> >                       writel(PLL_CON1_MANUAL, reg);
-> > -             } else if (is_gate_reg(reg_offs[i])) {
-> > +             } else if (is_gate_reg(reg_offs[i]) && !cmu->auto_clock_gate) {
-> > +                     /*
-> > +                      * Setting GATE_MANUAL bit (which is described in TRM as
-> > +                      * reserved!) overrides the global CMU automatic mode
-> > +                      * option.
-> > +                      */
-> >                       val = readl(reg);
-> >                       val |= GATE_MANUAL;
-> >                       val &= ~GATE_ENABLE_HWACG;
-> > @@ -219,7 +246,7 @@ void __init exynos_arm64_register_cmu(struct device *dev,
-> >   * Return: 0 on success, or negative error code on error.
-> >   */
-> >  int __init exynos_arm64_register_cmu_pm(struct platform_device *pdev,
-> > -                                     bool set_manual)
-> > +                                     bool init_clk_regs)
-> >  {
-> >       const struct samsung_cmu_info *cmu;
-> >       struct device *dev = &pdev->dev;
-> > @@ -249,7 +276,7 @@ int __init exynos_arm64_register_cmu_pm(struct platform_device *pdev,
-> >               dev_err(dev, "%s: could not enable bus clock %s; err = %d\n",
-> >                      __func__, cmu->clk_name, ret);
-> >
-> > -     if (set_manual)
-> > +     if (init_clk_regs)
-> >               exynos_arm64_init_clocks(np, cmu);
-> >
-> >       reg_base = devm_platform_ioremap_resource(pdev, 0);
-> > @@ -280,14 +307,18 @@ int exynos_arm64_cmu_suspend(struct device *dev)
-> >       struct exynos_arm64_cmu_data *data = dev_get_drvdata(dev);
-> >       int i;
-> >
-> > -     samsung_clk_save(data->ctx->reg_base, data->clk_save,
-> > +     samsung_clk_save(data->ctx->reg_base, NULL, data->clk_save,
-> >                        data->nr_clk_save);
-> >
-> > +     if (data->ctx->sysreg)
->
-> No need for if() here and in samsung_clk_save.
-
-Will fix.
-
->
-> I find it confusing. You do samsung_clk_save() for regular CMU MMIO
-> address and then immediately - for GS101 - do the same for sysreg:
->
-> > +             samsung_clk_save(NULL, data->ctx->sysreg, data->clk_save,
-> > +                              data->nr_clk_save);
->
-> So this feels like you could make one call of samsung_clk_save() with
-> both arguments - reg_base and sysreg. It also leads to confusion - first
-> read from MMIO will be overwritten by sysreg read.
-
-Apologies for the confusion, that was a typo/bug in v1 it should have
-read like this:
-
-samsung_clk_save(data->ctx->reg_base, NULL, data->clk_save,
-data->nr_clk_save);
-
-samsung_clk_save(NULL, data->ctx->sysreg, data->clk_sysreg_save,
-data->nr_clk_sysreg);
-
-First it saves the CMU MMIO regs, then the second call saves the
-sysreg registers (drcg & memclk).
-
->
->
-> > +
-> >       for (i = 0; i < data->nr_pclks; i++)
-> >               clk_prepare_enable(data->pclks[i]);
-> >
-> >       /* For suspend some registers have to be set to certain values */
-> > -     samsung_clk_restore(data->ctx->reg_base, data->clk_suspend,
-> > +     samsung_clk_restore(data->ctx->reg_base, NULL, data->clk_suspend,
-> >                           data->nr_clk_suspend);
-> >
-> >       for (i = 0; i < data->nr_pclks; i++)
-> > @@ -308,9 +339,13 @@ int exynos_arm64_cmu_resume(struct device *dev)
-> >       for (i = 0; i < data->nr_pclks; i++)
-> >               clk_prepare_enable(data->pclks[i]);
-> >
-> > -     samsung_clk_restore(data->ctx->reg_base, data->clk_save,
-> > +     samsung_clk_restore(data->ctx->reg_base, NULL, data->clk_save,
-> >                           data->nr_clk_save);
-> >
-> > +     if (data->ctx->sysreg)
-> > +             samsung_clk_restore(NULL, data->ctx->sysreg, data->clk_save,
-> > +                                 data->nr_clk_save);
-> > +
-> >       for (i = 0; i < data->nr_pclks; i++)
-> >               clk_disable_unprepare(data->pclks[i]);
-> >
-> > diff --git a/drivers/clk/samsung/clk-exynos4.c b/drivers/clk/samsung/clk-exynos4.c
-> > index cc5c1644c41c08b27bc48d809a08cd8a006cbe8f..26ac9734722d1e7ed8ec3f1c0a956f26e32b92d4 100644
-> > --- a/drivers/clk/samsung/clk-exynos4.c
-> > +++ b/drivers/clk/samsung/clk-exynos4.c
-> > @@ -1378,15 +1378,15 @@ static void __init exynos4_clk_init(struct device_node *np,
-> >       if (soc == EXYNOS4212 || soc == EXYNOS4412)
-> >               exynos4x12_core_down_clock();
-> >
-> > -     samsung_clk_extended_sleep_init(reg_base,
-> > +     samsung_clk_extended_sleep_init(reg_base, NULL,
-> >                       exynos4_clk_regs, ARRAY_SIZE(exynos4_clk_regs),
-> >                       src_mask_suspend, ARRAY_SIZE(src_mask_suspend));
-> >       if (exynos4_soc == EXYNOS4210)
-> > -             samsung_clk_extended_sleep_init(reg_base,
-> > +             samsung_clk_extended_sleep_init(reg_base, NULL,
-> >                   exynos4210_clk_save, ARRAY_SIZE(exynos4210_clk_save),
-> >                   src_mask_suspend_e4210, ARRAY_SIZE(src_mask_suspend_e4210));
-> >       else
-> > -             samsung_clk_sleep_init(reg_base, exynos4x12_clk_save,
-> > +             samsung_clk_sleep_init(reg_base, NULL, exynos4x12_clk_save,
-> >                                      ARRAY_SIZE(exynos4x12_clk_save));
-> >
-> >       samsung_clk_of_add_provider(np, ctx);
-> > diff --git a/drivers/clk/samsung/clk-exynos4412-isp.c b/drivers/clk/samsung/clk-exynos4412-isp.c
-> > index fa915057e109e0008ebe0b1b5d1652fd5804e82b..772bc18a1e686f23b11bf160b803becff6279637 100644
-> > --- a/drivers/clk/samsung/clk-exynos4412-isp.c
-> > +++ b/drivers/clk/samsung/clk-exynos4412-isp.c
-> > @@ -94,7 +94,7 @@ static int __maybe_unused exynos4x12_isp_clk_suspend(struct device *dev)
-> >  {
-> >       struct samsung_clk_provider *ctx = dev_get_drvdata(dev);
-> >
-> > -     samsung_clk_save(ctx->reg_base, exynos4x12_save_isp,
-> > +     samsung_clk_save(ctx->reg_base, NULL, exynos4x12_save_isp,
-> >                        ARRAY_SIZE(exynos4x12_clk_isp_save));
-> >       return 0;
-> >  }
-> > @@ -103,7 +103,7 @@ static int __maybe_unused exynos4x12_isp_clk_resume(struct device *dev)
-> >  {
-> >       struct samsung_clk_provider *ctx = dev_get_drvdata(dev);
-> >
-> > -     samsung_clk_restore(ctx->reg_base, exynos4x12_save_isp,
-> > +     samsung_clk_restore(ctx->reg_base, NULL, exynos4x12_save_isp,
-> >                           ARRAY_SIZE(exynos4x12_clk_isp_save));
-> >       return 0;
-> >  }
-> > diff --git a/drivers/clk/samsung/clk-exynos5250.c b/drivers/clk/samsung/clk-exynos5250.c
-> > index e90d3a0848cbc24b2709c10795f6affcda404567..f97f30b29be7317db8186bac39cf52e1893eb106 100644
-> > --- a/drivers/clk/samsung/clk-exynos5250.c
-> > +++ b/drivers/clk/samsung/clk-exynos5250.c
-> > @@ -854,7 +854,7 @@ static void __init exynos5250_clk_init(struct device_node *np)
-> >               PWR_CTRL2_CORE2_UP_RATIO | PWR_CTRL2_CORE1_UP_RATIO);
-> >       __raw_writel(tmp, reg_base + PWR_CTRL2);
-> >
-> > -     samsung_clk_sleep_init(reg_base, exynos5250_clk_regs,
-> > +     samsung_clk_sleep_init(reg_base, NULL, exynos5250_clk_regs,
-> >                              ARRAY_SIZE(exynos5250_clk_regs));
-> >       exynos5_subcmus_init(ctx, ARRAY_SIZE(exynos5250_subcmus),
-> >                            exynos5250_subcmus);
-> > diff --git a/drivers/clk/samsung/clk-exynos5420.c b/drivers/clk/samsung/clk-exynos5420.c
-> > index a9df4e6db82fa7831d4e5c7210b0163d7d301ec1..1982e0751ceec7e57f9e82d96dcbadce1f691092 100644
-> > --- a/drivers/clk/samsung/clk-exynos5420.c
-> > +++ b/drivers/clk/samsung/clk-exynos5420.c
-> > @@ -1649,12 +1649,12 @@ static void __init exynos5x_clk_init(struct device_node *np,
-> >                               ARRAY_SIZE(exynos5800_cpu_clks));
-> >       }
-> >
-> > -     samsung_clk_extended_sleep_init(reg_base,
-> > +     samsung_clk_extended_sleep_init(reg_base, NULL,
-> >               exynos5x_clk_regs, ARRAY_SIZE(exynos5x_clk_regs),
-> >               exynos5420_set_clksrc, ARRAY_SIZE(exynos5420_set_clksrc));
-> >
-> >       if (soc == EXYNOS5800) {
-> > -             samsung_clk_sleep_init(reg_base, exynos5800_clk_regs,
-> > +             samsung_clk_sleep_init(reg_base, NULL, exynos5800_clk_regs,
-> >                                      ARRAY_SIZE(exynos5800_clk_regs));
-> >
-> >               exynos5_subcmus_init(ctx, ARRAY_SIZE(exynos5800_subcmus),
-> > diff --git a/drivers/clk/samsung/clk.c b/drivers/clk/samsung/clk.c
-> > index dbc9925ca8f46e951dfb5d391c0e744ca370abcc..07b2948ae7ea48f126ab420be57d8c2705979464 100644
-> > --- a/drivers/clk/samsung/clk.c
-> > +++ b/drivers/clk/samsung/clk.c
-> > @@ -12,8 +12,10 @@
-> >  #include <linux/clkdev.h>
-> >  #include <linux/clk-provider.h>
-> >  #include <linux/io.h>
-> > +#include <linux/mfd/syscon.h>
-> >  #include <linux/mod_devicetable.h>
-> >  #include <linux/of_address.h>
-> > +#include <linux/regmap.h>
-> >  #include <linux/syscore_ops.h>
-> >
-> >  #include "clk.h"
-> > @@ -21,19 +23,29 @@
-> >  static LIST_HEAD(clock_reg_cache_list);
-> >
-> >  void samsung_clk_save(void __iomem *base,
-> > +                                 struct regmap *regmap,
->
-> Here it is regmap, in samsung_clk_extended_sleep_init() it is called
-> sysreg.
-
-I'll update samsung_clk_sleep_init so it is named regmap to be
-consistent with the naming. Currently it is only used with the sysreg
-regmap, but I suppose in the future there could be other regmaps we
-wish to save/restore.
-
->This suggests that in some cases this replaces the MMIO - like
-> here in samsung_clk_save().
-
-Each CMU has MMIO registers and nearly all of them (so far only
-cmu_top I've found doesn't) have a couple of clock related registers
-in the correspondingly named sysreg. This patch was updating the
-samsung_clk_save/restore functions so that as well as saving the MMIO
-registers via base, you can alternatively pass it a regmap (instead of
-base) and it will save those registers as well. It was obfuscated
-unfortunately due to the copy/paste bug mentioned above in the first
-version.
-
-Maybe we should just have separate functions instead of overloading
-these samsung_clk_save_regmap() and samsung_clk_restore_regmap()
-
->
->
-> >                                   struct samsung_clk_reg_dump *rd,
-> >                                   unsigned int num_regs)
-> >  {
-> > -     for (; num_regs > 0; --num_regs, ++rd)
-> > -             rd->value = readl(base + rd->offset);
-> > +     for (; num_regs > 0; --num_regs, ++rd) {
-> > +             if (base)
-> > +                     rd->value = readl(base + rd->offset);
-> > +             if (regmap)
-> > +                     regmap_read(regmap, rd->offset, &rd->value);
-> > +     }
-> >  }
-> >
-> >  void samsung_clk_restore(void __iomem *base,
-> > +                                   struct regmap *regmap,
-> >                                     const struct samsung_clk_reg_dump *rd,
-> >                                     unsigned int num_regs)
-> >  {
-> > -     for (; num_regs > 0; --num_regs, ++rd)
-> > -             writel(rd->value, base + rd->offset);
-> > +     for (; num_regs > 0; --num_regs, ++rd) {
-> > +             if (base)
-> > +                     writel(rd->value, base + rd->offset);
-> > +             if (regmap)
-> > +                     regmap_write(regmap, rd->offset, rd->value);
-> > +     }
-> >  }
-> >
-> >  struct samsung_clk_reg_dump *samsung_clk_alloc_reg_dump(
-> > @@ -227,6 +239,82 @@ void __init samsung_clk_register_div(struct samsung_clk_provider *ctx,
-> >       }
-> >  }
-> >
-> > +#define ACG_MSK GENMASK(6, 4)
-> > +#define CLK_IDLE GENMASK(5, 4)
-> > +static int samsung_auto_clk_gate_is_en(struct clk_hw *hw)
+> > +static void rockchip_pcie_remove(struct platform_device *pdev)
 > > +{
-> > +     u32 reg;
-> > +     struct clk_gate *gate = to_clk_gate(hw);
+> > +     struct device *dev =3D &pdev->dev;
+> > +     struct rockchip_pcie *rockchip =3D dev_get_drvdata(dev);
 > > +
-> > +     reg = readl(gate->reg);
-> > +     return ((reg & ACG_MSK) == CLK_IDLE) ? 0 : 1;
+> > +     /* Perform other cleanups as necessary */
+> > +     clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> > +     rockchip_pcie_phy_deinit(rockchip);
 > > +}
-> > +
-> > +/* enable and disable are nops in automatic clock mode */
-> > +static int samsung_auto_clk_gate_en(struct clk_hw *hw)
-> > +{
-> > +     return 0;
-> > +}
-> > +
-> > +static void samsung_auto_clk_gate_dis(struct clk_hw *hw)
-> > +{
-> > +}
-> > +
-> > +static const struct clk_ops samsung_auto_clk_gate_ops = {
-> > +     .enable = samsung_auto_clk_gate_en,
-> > +     .disable = samsung_auto_clk_gate_dis,
-> > +     .is_enabled = samsung_auto_clk_gate_is_en,
-> > +};
-> > +
-> > +struct clk_hw *samsung_register_auto_gate(struct device *dev,
-> > +             struct device_node *np, const char *name,
-> > +             const char *parent_name, const struct clk_hw *parent_hw,
-> > +             const struct clk_parent_data *parent_data,
-> > +             unsigned long flags,
-> > +             void __iomem *reg, u8 bit_idx,
-> > +             u8 clk_gate_flags, spinlock_t *lock)
-> > +{
-> > +     struct clk_gate *gate;
-> > +     struct clk_hw *hw;
-> > +     struct clk_init_data init = {};
-> > +     int ret = -EINVAL;
-> > +
-> > +     /* allocate the gate */
-> > +     gate = kzalloc(sizeof(*gate), GFP_KERNEL);
-> > +     if (!gate)
-> > +             return ERR_PTR(-ENOMEM);
-> > +
-> > +     init.name = name;
-> > +     init.ops = &samsung_auto_clk_gate_ops;
-> > +     init.flags = flags;
-> > +     init.parent_names = parent_name ? &parent_name : NULL;
-> > +     init.parent_hws = parent_hw ? &parent_hw : NULL;
-> > +     init.parent_data = parent_data;
-> > +     if (parent_name || parent_hw || parent_data)
-> > +             init.num_parents = 1;
-> > +     else
-> > +             init.num_parents = 0;
-> > +
-> > +     /* struct clk_gate assignments */
-> > +     gate->reg = reg;
-> > +     gate->bit_idx = bit_idx;
-> > +     gate->flags = clk_gate_flags;
-> > +     gate->lock = lock;
-> > +     gate->hw.init = &init;
-> > +
-> > +     hw = &gate->hw;
-> > +     if (dev || !np)
-> > +             ret = clk_hw_register(dev, hw);
-> > +     else if (np)
-> > +             ret = of_clk_hw_register(np, hw);
-> > +     if (ret) {
-> > +             kfree(gate);
-> > +             hw = ERR_PTR(ret);
-> > +     }
-> > +
-> > +     return hw;
-> > +}
-> > +
-> >  /* register a list of gate clocks */
-> >  void __init samsung_clk_register_gate(struct samsung_clk_provider *ctx,
-> >                               const struct samsung_gate_clock *list,
-> > @@ -234,11 +322,21 @@ void __init samsung_clk_register_gate(struct samsung_clk_provider *ctx,
-> >  {
-> >       struct clk_hw *clk_hw;
-> >       unsigned int idx;
-> > +     void __iomem *reg_offs;
-> >
-> >       for (idx = 0; idx < nr_clk; idx++, list++) {
-> > -             clk_hw = clk_hw_register_gate(ctx->dev, list->name, list->parent_name,
-> > -                             list->flags, ctx->reg_base + list->offset,
-> > +             reg_offs = ctx->reg_base + list->offset;
-> > +
-> > +             if (ctx->auto_clock_gate && ctx->gate_dbg_offset)
-> > +                     clk_hw = samsung_register_auto_gate(ctx->dev, NULL,
-> > +                             list->name, list->parent_name, NULL, NULL,
-> > +                             list->flags, reg_offs + ctx->gate_dbg_offset,
-> >                               list->bit_idx, list->gate_flags, &ctx->lock);
-> > +             else
-> > +                     clk_hw = clk_hw_register_gate(ctx->dev, list->name,
-> > +                             list->parent_name, list->flags,
-> > +                             ctx->reg_base + list->offset, list->bit_idx,
-> > +                             list->gate_flags, &ctx->lock);
-> >               if (IS_ERR(clk_hw)) {
-> >                       pr_err("%s: failed to register clock %s\n", __func__,
-> >                               list->name);
-> > @@ -276,10 +374,11 @@ static int samsung_clk_suspend(void)
-> >       struct samsung_clock_reg_cache *reg_cache;
-> >
-> >       list_for_each_entry(reg_cache, &clock_reg_cache_list, node) {
-> > -             samsung_clk_save(reg_cache->reg_base, reg_cache->rdump,
-> > -                             reg_cache->rd_num);
-> > -             samsung_clk_restore(reg_cache->reg_base, reg_cache->rsuspend,
-> > -                             reg_cache->rsuspend_num);
-> > +             samsung_clk_save(reg_cache->reg_base, reg_cache->sysreg,
-> > +                              reg_cache->rdump, reg_cache->rd_num);
-> > +             samsung_clk_restore(reg_cache->reg_base, reg_cache->sysreg,
-> > +                                 reg_cache->rsuspend,
-> > +                                 reg_cache->rsuspend_num);
-> >       }
-> >       return 0;
-> >  }
-> > @@ -289,8 +388,8 @@ static void samsung_clk_resume(void)
-> >       struct samsung_clock_reg_cache *reg_cache;
-> >
-> >       list_for_each_entry(reg_cache, &clock_reg_cache_list, node)
-> > -             samsung_clk_restore(reg_cache->reg_base, reg_cache->rdump,
-> > -                             reg_cache->rd_num);
-> > +             samsung_clk_restore(reg_cache->reg_base, reg_cache->sysreg,
-> > +                                 reg_cache->rdump, reg_cache->rd_num);
-> >  }
-> >
-> >  static struct syscore_ops samsung_clk_syscore_ops = {
-> > @@ -299,6 +398,7 @@ static struct syscore_ops samsung_clk_syscore_ops = {
-> >  };
-> >
-> >  void samsung_clk_extended_sleep_init(void __iomem *reg_base,
-> > +                     struct regmap *sysreg,
-> >                       const unsigned long *rdump,
-> >                       unsigned long nr_rdump,
-> >                       const struct samsung_clk_reg_dump *rsuspend,
-> > @@ -319,6 +419,7 @@ void samsung_clk_extended_sleep_init(void __iomem *reg_base,
-> >               register_syscore_ops(&samsung_clk_syscore_ops);
-> >
-> >       reg_cache->reg_base = reg_base;
-> > +     reg_cache->sysreg = sysreg;
-> >       reg_cache->rd_num = nr_rdump;
-> >       reg_cache->rsuspend = rsuspend;
-> >       reg_cache->rsuspend_num = nr_rsuspend;
-> > @@ -334,6 +435,12 @@ void samsung_clk_extended_sleep_init(void __iomem *reg_base,
-> >  void __init samsung_cmu_register_clocks(struct samsung_clk_provider *ctx,
-> >                                       const struct samsung_cmu_info *cmu)
-> >  {
-> > +     ctx->auto_clock_gate = cmu->auto_clock_gate;
-> > +     ctx->gate_dbg_offset = cmu->gate_dbg_offset;
-> > +     ctx->option_offset = cmu->option_offset;
-> > +     ctx->drcg_offset = cmu->drcg_offset;
-> > +     ctx->memclk_offset = cmu->memclk_offset;
-> > +
-> >       if (cmu->pll_clks)
-> >               samsung_clk_register_pll(ctx, cmu->pll_clks, cmu->nr_pll_clks);
-> >       if (cmu->mux_clks)
-> > @@ -353,6 +460,31 @@ void __init samsung_cmu_register_clocks(struct samsung_clk_provider *ctx,
-> >               samsung_clk_register_cpu(ctx, cmu->cpu_clks, cmu->nr_cpu_clks);
-> >  }
-> >
-> > +/* Enable Dynamic Root Clock Gating of bus components*/
-> > +void samsung_en_dyn_root_clk_gating(struct device_node *np,
-> > +                                 struct samsung_clk_provider *ctx,
-> > +                                 const struct samsung_cmu_info *cmu)
-> > +{
-> > +     if (ctx && !ctx->auto_clock_gate)
 >
-> Test for ctx should trigger Smatch warning.
-
-Will remove the ctx test.
+> Thanks for the patch.
 >
-> > +             return;
-> > +
-> > +     ctx->sysreg = syscon_regmap_lookup_by_phandle(np, "samsung,sysreg");
-> > +     if (!IS_ERR_OR_NULL(ctx->sysreg)) {
+> Dou you need to call dw_pcie_host_deinit()?
+I feel the rockchip_pcie_phy_deinit will power off the phy
+> And I think you should also try to mask PCIE_CLIENT_INTR_MASK_MISC and
+> remove the irq domain as well.
 >
-> Can it return NULL? anyway that's very confusing if() - negated OR_NULL.
-> Better just
-> if (IS_ERR()) {
->         ctx->sysreg = NULL;
->         return;
+> if (rockchip->irq_domain) {
+>         int virq, j;
+>         for (j =3D 0; j < PCI_NUM_INTX; j++) {
+>                 virq =3D irq_find_mapping(rockchip->irq_domain, j);
+>                 if (virq > 0)
+>                         irq_dispose_mapping(virq);
+>          }
+>         irq_set_chained_handler_and_data(rockchip->irq, NULL, NULL);
+>         irq_domain_remove(rockchip->irq_domain);
 > }
+>
+I have implemented resource cleanup in rockchip_pcie_remove,
+which is invoked when the system is shutting down.
+Your feedback on the updated code is welcome.
 
-Will update like you suggest in v2. Thanks for the review feedback.
+static void rockchip_pcie_remove(struct platform_device *pdev)
+{
+        struct device *dev =3D &pdev->dev;
+        struct rockchip_pcie *rockchip =3D dev_get_drvdata(dev);
+        int irq;
 
-regards,
+        irq =3D of_irq_get_byname(dev->of_node, "legacy");
+        if (irq < 0)
+                return;
 
-Peter
+        /* Perform other cleanups as necessary */
+        /* clear up INTR staatus register */
+        rockchip_pcie_writel_apb(rockchip, 0xffffffff,
+                                 PCIE_CLIENT_INTR_STATUS_MISC);
+        if (rockchip->irq_domain) {
+                int virq, j;
+                for (j =3D 0; j < PCI_NUM_INTX; j++) {
+                        virq =3D irq_find_mapping(rockchip->irq_domain, j);
+                        if (virq > 0)
+                                irq_dispose_mapping(virq);
+                }
+                irq_set_chained_handler_and_data(irq, NULL, NULL);
+                irq_domain_remove(rockchip->irq_domain);
+        }
+
+        clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+        /* poweroff the phy */
+        rockchip_pcie_phy_deinit(rockchip);
+        /* release the reset */
+        reset_control_assert(rockchip->rst);
+        pm_runtime_put_sync(dev);
+        pm_runtime_disable(dev);
+        pm_runtime_no_callbacks(dev);
+}
+
+> Another thin I noticed is should we call pm_runtime_* here for hope that
+> genpd could be powered donw once removed?
+>
+I could not find 'genpd' (power domain) used in the PCIe driver
+If we have an example to use genpd I will update this.
+
+I am also looking into adding NOIRQ_SYSTEM_SLEEP_PM_OPS
+
+Thanks
+-Anand
 
