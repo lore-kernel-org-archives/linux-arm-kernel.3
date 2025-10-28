@@ -4,78 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9283BCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23C2CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p0P0p7pWVw6Zu9bcfIZsXnpvPvZr/5WHW2oMXRkEU8E=; b=kRKjZSw+VzBK0AvVTt8Pd+pXa3
-	JbEXX8twpjrTezZ/CO1YHc7DDfpN6nHh0ADoCHnMymVII1G2JPVzCcRivwJY9V1KRphWsZKWkvVx3
-	yfmrgM+WYMr+KutgbQnOJGnGjJ8jB4KtTC8+09STDIgH/SPOwXcVCA5LJRkcuQ42afNQdZWFK8shN
-	4VBbCu3NdrGRJbp3DFKeNjQRMS5k6aEDOETDK1/BkFqi2kPKvWriso789vXGigsxa0Qnc8i5uS1cm
-	Pjp6G9JJJA4gpilAAXkRm3Yrj/dLFmAlTBsGuR8bfDPEAsQ7Qk2nFHhhc1z9rR4GfgMH8Bf3G0XHV
-	lwK96Cqg==;
+	bh=c0wxYpGazz/mbNZkEG1ty2jCdBuuX7dP/ZCMsktvXgQ=; b=15Vxfjxqlp9OnJ92Rlltqa1PEB
+	LYFh3c2WGR5bO0N74nx+tgoSdMx4kg9PNj1OJm5e4tX99+Zi3xlrRAXsbzeg/Gplg99tcP4atCZbp
+	eHGXSIlYXMA5gPJDQmyO4DPVqah33deZTgUEaosNOieK12Vt6ALPoQqI8fDvbdhKRpTyTk+t9Sb2L
+	zm7VHS0JP7+eQL3tpIFO2lU1dB9TDHxChUPVDiaqZas55Fh8pKFHzqTmqusP26pSIjd/GObh8Krx2
+	xyvwFriA6VRU505Nvn3Mb+jHPMBf9vcb3gbWz7GhWz6q5GnzlH54VkwUDlXZRyu8GcQ4nIcHaZI+M
+	qYq8HJaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDh6O-0000000FltD-1Zl4;
-	Tue, 28 Oct 2025 10:38:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDh8M-0000000Fm3G-3cz2;
+	Tue, 28 Oct 2025 10:41:00 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDh6M-0000000Flsl-2px6
+	id 1vDh8K-0000000Fm2s-1M9E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:38:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C250944EDE;
-	Tue, 28 Oct 2025 10:38:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BAB0C4CEE7;
-	Tue, 28 Oct 2025 10:38:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761647932;
-	bh=D7yB2su+JpWEU/gxLcsdAnmcL24HVifgVoD8o7Fwu1I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Yk7xJLkIel9PFMMlHeJ002D3fvMQz/Z5vn8lYhohprnr9XfaLabSM/fMBBP2u1gI1
-	 0x8qYRGcQVyHPIdGVC0HJpkbycdpm9Q1ubnyTIOFrG/pZSH0xSDUT/p/KCSwi7SPAx
-	 n3yXZLQp1ZWgI6XPUr+ufJnQs8CG5h/Qxcv7FIDkXIfcoqfU1Eb2UpXRpQoszXgnEw
-	 wjjj64m7fSf2dFixh9f6Va94K7gtog1pIDVGuafz3jEiiJ7wmdNCwPQX9/HpY8ZQVD
-	 eczYIQhCJTAdC5d5LnPIDd+PpQGIjOqa8NhhFJtetylb2ZDKHTdzEVC1c6N1477ak/
-	 YXjZdqhJID6wg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Tue, 28 Oct 2025 10:40:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=c0wxYpGazz/mbNZkEG1ty2jCdBuuX7dP/ZCMsktvXgQ=; b=FmlJ9xZ3AY35fJOn9eqW4EynqN
+	4md0M+JNO60HV64L82O8Q+kAXwSzTSZN8aPxxeiMYBVZ5WP19k8UPJijuTrqIHxsC0ulDf0Y8VZBf
+	89DqVHJNgHjrNestsskRMz2dSzcy5w+Qk60EoQJpRKekZw5LrmWRhUY05mp0C6EJZavc1tAyv1C0G
+	YNQNMpI+PJxz0WCx4Msg8YSUo0vG59zHvmIsWEMh0+sCJJrbs4QmpT6PkbNSUQoC0HviSuoGnRme3
+	ShHPYC/bh9+TgDXHb+WrxgoXMqgc48fmiCQmFGfzRS3wmGhJcbhuhil3H9l4pPIsVzj2qh5PT4wqf
+	7FMhcGww==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57222)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vDh6I-00000000Djq-0l4o;
-	Tue, 28 Oct 2025 10:38:50 +0000
-Date: Tue, 28 Oct 2025 10:38:49 +0000
-Message-ID: <86zf9bux8m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vDh8A-0000000034l-3TOU;
+	Tue, 28 Oct 2025 10:40:46 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vDh88-000000006V0-1YLu;
+	Tue, 28 Oct 2025 10:40:44 +0000
+Date: Tue, 28 Oct 2025 10:40:44 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis Lothor__ <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH v1 1/4] KVM: arm64: Switch reg and val parameter ordering in vcpu_write_sys_reg()
-In-Reply-To: <20251027113943.1282568-2-tabba@google.com>
-References: <20251027113943.1282568-1-tabba@google.com>
-	<20251027113943.1282568-2-tabba@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: add support specifying PCS
+ supported interfaces
+Message-ID: <aQCdrNQHF07BVPti@shell.armlinux.org.uk>
+References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
+ <E1vClC5-0000000Bcbb-1WUk@rmk-PC.armlinux.org.uk>
+ <604b68ce-595f-4d50-92ad-3d1d5a1b4989@bootlin.com>
+ <aQCcVOYV15SeHAMU@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aQCcVOYV15SeHAMU@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_033854_737404_A8AB7AD0 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20251028_034056_367750_51D90F12 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +95,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Oct 2025 11:39:40 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+On Tue, Oct 28, 2025 at 10:35:00AM +0000, Russell King (Oracle) wrote:
+> Thanks for giving Jakub a reason to mark this "changes required." :D
+> I'm not really expecting this to be merged as-is. So why didn't I
+> post it as RFC? Too many people see "RFC" as a sign to ignore the
+> patch series. Some people claim that "RFC" means it isn't ready and
+> thus isn't worth reviewing/testing/etc. I say to those people... I
+> can learn their game and work around their behaviour.
 > 
-> The vcpu_write_sys_reg() function previously used the signature:
-> void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg);
+> Yes, it will need a better commit log, but what I'm much much more
+> interested in is having people who are using the integrated PCS (in
+> SGMII mode as that's all we support) to test this, especially
+> dwmac-qcom-ethqos folk.
 > 
-> This was inconsistent with related functions and macros such as
-> __vcpu_assign_sys_reg() and __vcpu_rmw_sys_reg(), both of which
-> have the register parameter before the value.
-> '(vcpu, reg, ...)' ordering.
+> The 2.5G support was submitted by Sneh Shah, and my attempts to make
+> contact have resulted in no response.
 
-On the other hand, write_sys_reg() is exactly in the same order as
-vcpu_write_sys_reg(). I think that's the model to follow.
+I should add - I'm expecting dwmac-qcom-ethqos to reveal that we need
+to include 2500BASE-X for the PCS, and possibly 1000BASE-X as well
+(which in dwmac terms uses the TBI interface to a platform integrator
+provided serdes block.)
 
-The __vcpu_*_sys_reg() helpers are internal things, really, and if
-something has to change, I'd rather change those.
-
-Thanks,
-
-	M.
+The most important thing is for people with the hardware that would be
+affected by these patches to test. However, I'm expecting no testing
+feedback from such people based on experience - it seems stmmac is rife
+for "throw code over the wall into mainline and run away" behaviour. :(
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
