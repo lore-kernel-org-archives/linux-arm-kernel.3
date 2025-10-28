@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA1FCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936DDCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g431kojCgCIdaHw5eAvJNcxgtIOm3Z6fvyH460xV/cg=; b=zg+8F0vJIPUhNvcdkFyj0LHCc/
-	UAfrMyMb1VvvRf4LwtUdPnfWP1x7h9A4J1OcsZXY7LFyc60aS/+RgsoIVypuBEchD7IpoQAg7vDhz
-	urQop+mpnjMFTBO5v5ReZ4QSrpp9p8awKolMg5gYenQhRoznGYwTgQzgAZNOZ/g6ezRLCE1G3g+4d
-	VK6Mb+ZPe/ae5lvqK5243O/Yh7mJFfT9bEOA8d9LFMPyTkjuHDzYc8jXobpo8Au2dRUeiJA3ECQj0
-	Z+5jvCaqriACkadeJQFTehxIiiirX3oO9MQZ+KBgQRB2YWgeOwWjn6k0Hbn6+zYH9ZaFBVaEUP/+Y
-	YFcdV72A==;
+	bh=OpHBCdnSgFY8OByltD72t3aaSdewiYsQALJgMeWf4do=; b=JNfq9wnznlepiVMbwdJNs7daHE
+	jXzir4UKFZn/OKbtmGb70/nsw28Kyw+nOs+Sn84+H3O0TI7+bRt9n21SU7bYhlBsWDjkHDwianuav
+	MTf8yUDsWAo15dTioroOVmlpFzPSk8rkUTTjmof3s5wl2FGRiMW1mTHS4pBLRUxViW25nK1Df4Msm
+	LKOAOaYbLZC+AJjrKiSvw9Ab0HuHVa1dW9DVTsU8lsUMu7m7ECHBKfdFEeb5jrvb0/QSJ9VvDBVOr
+	ambuU7PfLneJ/F6t5VaUMNhJkP31P0Kp9kKYdAvT9GCOYu/akuWyuMtHaMACJu29eWlAwdrgaHcMu
+	pCqiZ3gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdC9-0000000FL7b-0bRn;
+	id 1vDdC9-0000000FL86-2fvb;
 	Tue, 28 Oct 2025 06:28:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdBw-0000000FKyP-12gB
+	id 1vDdBw-0000000FKz1-2NcA
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Oct 2025 06:28:25 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RKBpHm2547940
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:23 GMT
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59S45H7p573507
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:24 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	g431kojCgCIdaHw5eAvJNcxgtIOm3Z6fvyH460xV/cg=; b=SOtAkgkpe75CSDY1
-	MBmaVB/riACzGOn+oRa/V7XW9wWQ9OMsvRuT2XWAdjJHhtUHGmbJ+r156kCwDWFn
-	3r1oe8fGJGon4zSEDIi0LLukaWIz+4FYZ18RdnzpQGiMfwVyWdGxHbgoUEgouamX
-	0/rxaxbYFah8MAIWW1c1Q4ExDGSsqt6/OhUVnHo291ljrAbdePWfvCm5H8C9D/k4
-	S7xGiQ4jltCZnjiWR47Jmpaa85KJFINL/sQjFhqjNhzwENa+jsiCdgYU4L1jSUZa
-	QheRRRS6XTxERezdUWdDcYPMsq2BlIZrdmKtO7QU1qSldROdlODqLv4wjy3hU1af
-	xt/fiA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a27s2k1vr-1
+	OpHBCdnSgFY8OByltD72t3aaSdewiYsQALJgMeWf4do=; b=Dej40s/T4ejdKCM9
+	atjVzQatQQfbPzKOIX3fNhPGTrliYcX+bZT8Ki7uAbDa5kvKLjtaUl4q23m4OThz
+	kBwcAAL+THzCNe6y0w8f2umsED9JCQpO9nLvN/OB8jgRgUhE2yY9QU1/Spzac0Mo
+	fnbyf4bRZ0N0uAP5lbcnh5Vj1JNYJTfQbZN0KdfgF/qnPKG2qpPtWvTXaJAWTEdp
+	XbZU5ElKS9iV9yJV6B/FqM/AkoCIQy/8eqCe7u9zseRBKEu8VsanKhIT70oBYT4U
+	BUZKUKfjTuWjdmt/BICkN7qzs/6Z8K3/KsX2fAu0+1QVPnr8qxa5dXLCI90aiLMu
+	l0XyUg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a2pge8amy-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:22 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2697410e7f9so145487005ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 23:28:22 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:24 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-290d860acbcso121430435ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 23:28:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761632902; x=1762237702;
+        d=1e100.net; s=20230601; t=1761632903; x=1762237703;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=g431kojCgCIdaHw5eAvJNcxgtIOm3Z6fvyH460xV/cg=;
-        b=O0tWySw7A077P44yQAi3UQL4ByDz1jsBEO/QDG4E0b68bN9nK23LtZ3MKtUB7Pcd1L
-         pCNW9BmPmRCh1uifhv5X9Vx+f1jhaKIf6aNBQsSSiuMW7Ed9ElXhP6hP3AARR6ud2NaC
-         o5t/8V1Sl3OJZHTEMQZ3rsS8EFZeaZ2s1Y7h4wL/ITr2hMipR+qNj6wH2kEzQa8//PDL
-         NMkPLHkuxy+LVcXVSrcJnwaDL/UMxW0+KHsdVCQOC75kSda2YKfakAigeZs8vG1aWREG
-         NeqCWH8BiKk/7BKg5+ot7qUL2nSIQDu1OeduZEzrLBIUDdCcbgYeVUijen0/G86fSZ7y
-         j4pQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXzx0p9li1gDpM8aRp5BiZKa93kxqT6pcZ+cW081YsmU45cQl5rIOqzt9eOI7sxc56JsG/dSx65IvA8sftgaCmr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0Mi9ZLKMHxFYUAMvH3KRkqWiPuajLaZOG2uKlFIkyrzcoM2I4
-	CFnrbZ6gg1Adp6z8/Zam3Qv3N2wdNk74ltwvoRuiEto1bbQHvTJryO8V72HAdE2qLe90m4h+x8k
-	ZnVQlKZ+CQ0Gfuxgcigi/7bY2DgTY3QzOMusE2OnFaGguBS04Xkktied6il3HrPZ/6/CQGMbqLK
-	UTDg==
-X-Gm-Gg: ASbGncsA3Pp57n6I51eSO86bxhgMZgi9KGApJRa26NlFYdSh3z/D7qG7YIZBt/mmI0c
-	hglExxDmQwBOP/As0hcN0HW5Ugl5KIoByTglfHOO+0SYOG9o/2+y1pkmkg4zXwgEDKS5CqToAGK
-	T85PXY56BQ7F8w6MMYvX7hkGDR3w028KXEgnbebiU51Yn5ZwZhHiWZ+XuUa+Tb543dZKo970qfZ
-	w0kIOovaWsAeadmju0COdbXVxTgmNuQjHJnwatgsV58uC7J9pXUPNYQm6aulO20mX9t5huiloGA
-	/2yofBVEK+bfkOKeGWKJDTru29Pww0fsDiArS1UyNtlK2zEOk8r/aKH4irDjeS5lvXZoFR8wsmY
-	z04IADXUi57i9r8mKS78pfdpj7O0ibJjabu4gayNTXDKgZtysMcqdAuhP
-X-Received: by 2002:a17:902:d512:b0:24f:dbe7:73a2 with SMTP id d9443c01a7336-294cb507e7fmr35701555ad.31.1761632901956;
-        Mon, 27 Oct 2025 23:28:21 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGEME/3GpZ+fHVnhT/neGuF54I/YdEoLry6x5u4DcYZycqBkHn6J3tXGPw60NQ582VfUQ6nLA==
-X-Received: by 2002:a17:902:d512:b0:24f:dbe7:73a2 with SMTP id d9443c01a7336-294cb507e7fmr35701155ad.31.1761632901455;
-        Mon, 27 Oct 2025 23:28:21 -0700 (PDT)
+        bh=OpHBCdnSgFY8OByltD72t3aaSdewiYsQALJgMeWf4do=;
+        b=fZUwpx8JiXM71zhT7ueNRXcAIl85bmUJt4EWr20dSQ0hsZMgkTbi6ARFudkshO28AQ
+         +3MEDRistD+1yxTPrd/BqEK6R7K1PtoQfGTOmPPCijeZjXIxOlIst6vio48dXyxwrsh/
+         x8yheuMEkhQD5EYoBqgIziP2PsbvQ2c6a84O0rdlDYR55sILjR2IunfTQbOqJjhOqoA7
+         sxWBGMFQ7qRfcQnLsp6NDErXuxgCVJILJHSIV9Eoy+NWFLMXBaBYuFNzli8qz4WiFq0v
+         2kdE9jCGf/NUQ0BxPepJrZiuh4O/RTavcCRN7ZYHPSM9ZM3GDMqgWdnEtneSFpcczpkE
+         GtZg==
+X-Forwarded-Encrypted: i=1; AJvYcCXWPgu1WOHql4LAFDCCkfdUoNbxUtPoLMBMw2nUcDPxyN2j/icry2HDTn/T89HbabFrXS4Q+d+05U2s2zSxe44l@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCN31edxvrS0Dcg/0nV9n9bK1ftnArbfkfN9DOCue94f5BZ7sL
+	z+UcSOBl8IRLMuwxq9ZYPOORRX4YnBgLPBAoTaZnylOBPLSVZg+ZoYZJHnCUSzZL9nIMNIjtaVU
+	rOTc9Px8LPSG1XNRDgC2OLDxkc2GKW1FussirhYWs0Loj+I8FT8qAp1/ftZLtaUcGmCYVcw7M2v
+	VUyg==
+X-Gm-Gg: ASbGncvAQseyq8RSahWV+/9av6XWPETVdc03mmuzFI04keErEH0xwl/f+DHY0xRC3tH
+	5CHqbiIzwReVrw8W8rscZfvZ1SvGJb4uO6Y3YF7Kk7wb/XsBei3MaaiH579shXzaam1nZthdX17
+	yrTz4kdVI216I0eTXqK8uv6z32IPvTQegnmHTkYknNyTYLgNbF47hAFdkypnmZFUgw38W9qrIml
+	JQrmPGcCwFBlXogcGH9JWNULStxVbvg1051FpPhiPaZdV5VUOZ4NRDVb8irZtT4fBB1K74R5nCz
+	sz4rmvkWEAcUDeAda7uMsztnVH8AwDfDkgGqADNJ0BQ6xHIg5gJ+Dy0CAN2JhAElygdAtG4+a0/
+	yGbJ1nz6/6QF7hR2sZHcW78wzX+vdRf0Tuej1KRkTT4qmBib9apm5mjAk
+X-Received: by 2002:a17:902:c943:b0:272:a900:c42b with SMTP id d9443c01a7336-294cb5064b2mr34400615ad.31.1761632903377;
+        Mon, 27 Oct 2025 23:28:23 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFwpw5M+tATyrDto8FoONGgcMqSPhAZcuLevcTVatT/4cowXARX69BX8IDLgj59x34/zI4gqw==
+X-Received: by 2002:a17:902:c943:b0:272:a900:c42b with SMTP id d9443c01a7336-294cb5064b2mr34400235ad.31.1761632902853;
+        Mon, 27 Oct 2025 23:28:22 -0700 (PDT)
 Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf359asm102503265ad.12.2025.10.27.23.28.18
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf359asm102503265ad.12.2025.10.27.23.28.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 23:28:18 -0700 (PDT)
+        Mon, 27 Oct 2025 23:28:22 -0700 (PDT)
 From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Date: Mon, 27 Oct 2025 23:28:07 -0700
-Subject: [PATCH 05/12] coresight-replicator: Handle delayed probe for CPU
- cluster replicator
+Date: Mon, 27 Oct 2025 23:28:08 -0700
+Subject: [PATCH 06/12] coresight-replicator: Update mgmt_attrs for CPU
+ cluster replicator compatibility
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251027-cpu_cluster_component_pm-v1-5-31355ac588c2@oss.qualcomm.com>
+Message-Id: <20251027-cpu_cluster_component_pm-v1-6-31355ac588c2@oss.qualcomm.com>
 References: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
 In-Reply-To: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -103,39 +103,39 @@ Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761632890; l=4448;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761632890; l=2874;
  i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=qIU3aNCwc/5hLOTjRkewyXRoR9HF6h6FxhePov1nhio=;
- b=WfK40WV2y8LNmku++Vn6N1Zf/2VTmZeY7+ENZ6akJVkIVwtz+hRg9mjsmdR993NMUEjTIetb/
- hI7bYBE9VN+CY2JUPDMelBWe28EKfG4FMUBKyANLLsrBS08X7hezlyf
+ bh=wrtq8428nZWzeJ2YM87p20K7H7FcxcHonAVQhsF4btU=;
+ b=n1XFP/EYxn0Wrkm/FhLrkJPZ1Y/amwYC2N3lVShkOdDVseUu8Y5JQriQZy2P5STM6yEHYntwF
+ /iWXOi7L3MICOcvUcKbift/V4Hvz+PTq/q04qbju4hzYZurophy3iDJ
 X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
  pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
-X-Proofpoint-ORIG-GUID: PtKZ4z6vH0nLMpqI7XSIGKE7YpVO66RQ
-X-Proofpoint-GUID: PtKZ4z6vH0nLMpqI7XSIGKE7YpVO66RQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA1NCBTYWx0ZWRfX/JurZDc+W+kO
- Ok5m6jJiLRr+O9vBeSmMw90PG9SgOUoYGKEY8YpplNBj33T4dUqcfo6QWZe4/zuUMRdP0fRZyAy
- KWIyYykXL2QbMlV3Eum2bkvSC7PUd/9S7/CqDUAsBjJogzxwTXxMH6LAkyoN2fzlxhGIEZSSwk+
- aoLNChEHef01UROVug9AbxYGwxuidGDYsJxFANpK4vRliBBHizko4Gqx0iC5a4ZgbUbqQbu/N6F
- ycdRrKSduFlVJjB8ojfoypjT7hZjeNNb9frbVc2Ef789CdC7YukyC/UUk6v11VUHZEs5GqrVQkF
- gyS+zGti28iAj7+HCktTrTiXTAYoZ7GasoxBAeZfMZl0a/55fdrbXS/2u/f/bwEHqvkr/Q2AVTf
- VGXoNPmiHTVJ56hh6wwkUcUZdoO23A==
-X-Authority-Analysis: v=2.4 cv=R60O2NRX c=1 sm=1 tr=0 ts=69006286 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-ORIG-GUID: SCI53AyVyrTcl1rWHcM5uXk1FK0QeJFA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA1NCBTYWx0ZWRfX9BDb0pyTI1q/
+ daar8O4ycPhTwecPTEH3vA8Bn7LsiNoORHA+QtsVsG6lCnRWp41/Vn0XwlEpsTA6p3KJeGSUDCQ
+ Z8sFQoJLyCaN9vj3kqmoVozOOrjq/BMOSeniI5VlUqAjnp92TZNFtHg+qKllmoXTZBpC93Af7y7
+ tzcQJ6nxk4AcDegercNfWbNs2LCK8jyhqconCwKyybQt1rCrZ1dPQ5HkBhUIpwpSvc08oxBV2ok
+ fX5GolSWz5lLiOWOAqh73tqZAeROecxbE3yvfB/ZOyKm6GSnvV3aA/oR8Mc+SFyTt3oUil9iuuh
+ 9BOOqWMKohrILFmo6YtaIiRjpu6yl+3jyQHwLioYxEcYBOkCrH/oHXZrrm1hWUUl4/zNrnseJez
+ gKU786/TzB8BzEeM8owLa1GvNaOsTg==
+X-Proofpoint-GUID: SCI53AyVyrTcl1rWHcM5uXk1FK0QeJFA
+X-Authority-Analysis: v=2.4 cv=fLU0HJae c=1 sm=1 tr=0 ts=69006288 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=GdHxG0adR5Xe-XRRLWYA:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
+ a=EUspDBNiAAAA:8 a=ViDxg2sRvTZTAOTQKJ0A:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-28_03,2025-10-22_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 phishscore=0 bulkscore=0
- impostorscore=0 clxscore=1015 spamscore=0 adultscore=0 malwarescore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
+ clxscore=1015 suspectscore=0 spamscore=0 phishscore=0 malwarescore=0
+ lowpriorityscore=0 priorityscore=1501 impostorscore=0 adultscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
  definitions=main-2510280054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_232824_441894_180C4A18 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20251027_232824_625046_503DD79C 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,150 +150,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Delay probe the CPU cluster replicator when all CPUs of the cluster are
-offline, and re-probe the replicator when any CPU in the cluster comes
-online.
-
-Key changes:
-- Maintain a global list to track delayed replicators waiting for
-  CPU online.
-- Add a CPU hotplug callback to retry registration on CPU online events.
+This patch refactors the sysfs interfaces to ensure compatibility with
+CPU cluster replicators. For CPU cluster replicators, register reads
+are performed via smp_call_function_single().
 
 Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-replicator.c | 65 ++++++++++++++++++++--
- 1 file changed, 61 insertions(+), 4 deletions(-)
+ drivers/hwtracing/coresight/coresight-replicator.c | 61 +++++++++++++++++++++-
+ 1 file changed, 59 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index c5a9c7a2adfa90ae22890ed730fc008fe6901778..1dfe11940cd6001db3cf17249b0493027b65e19c 100644
+index 1dfe11940cd6001db3cf17249b0493027b65e19c..22c9bc71817d238c2d4ddffbb42678bf792b29af 100644
 --- a/drivers/hwtracing/coresight/coresight-replicator.c
 +++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -26,6 +26,9 @@
- #define REPLICATOR_IDFILTER1		0x004
- 
- DEFINE_CORESIGHT_DEVLIST(replicator_devs, "replicator");
-+static LIST_HEAD(replicator_delay_probe);
-+static enum cpuhp_state hp_online;
-+static DEFINE_SPINLOCK(delay_lock);
- 
- /**
-  * struct replicator_drvdata - specifics associated to a replicator component
-@@ -37,6 +40,8 @@ DEFINE_CORESIGHT_DEVLIST(replicator_devs, "replicator");
-  * @spinlock:	serialize enable/disable operations.
-  * @check_idfilter_val: check if the context is lost upon clock removal.
-  * @cpumask:	CPU mask representing the CPUs related to this replicator.
-+ * @dev:	pointer to the device associated with this replicator.
-+ * @link:	link to the delay_probed list.
-  */
- struct replicator_drvdata {
- 	void __iomem		*base;
-@@ -46,6 +51,8 @@ struct replicator_drvdata {
- 	raw_spinlock_t		spinlock;
- 	bool			check_idfilter_val;
- 	struct cpumask		*cpumask;
-+	struct device		*dev;
-+	struct list_head	link;
- };
- 
+@@ -58,6 +58,7 @@ struct replicator_drvdata {
  struct replicator_smp_arg {
-@@ -395,7 +402,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 		drvdata->cpumask = replicator_get_cpumask(dev);
- 		if (!drvdata->cpumask)
- 			return -EINVAL;
--
-+		drvdata->dev = dev;
- 		cpus_read_lock();
- 		for_each_cpu(cpu, drvdata->cpumask) {
- 			ret = smp_call_function_single(cpu,
-@@ -403,10 +410,15 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 			if (!ret)
- 				break;
- 		}
--		cpus_read_unlock();
- 
--		if (ret)
-+		if (ret) {
-+			scoped_guard(spinlock,  &delay_lock)
-+				list_add(&drvdata->link, &replicator_delay_probe);
-+			cpus_read_unlock();
- 			return 0;
-+		}
-+
-+		cpus_read_unlock();
- 	} else if (res) {
- 		replicator_init_hw(drvdata);
- 	}
-@@ -420,8 +432,13 @@ static int replicator_remove(struct device *dev)
- {
- 	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata->csdev)
-+	if (drvdata->csdev) {
- 		coresight_unregister(drvdata->csdev);
-+	} else {
-+		scoped_guard(spinlock,  &delay_lock)
-+			list_del(&drvdata->link);
-+	}
-+
- 	return 0;
- }
- 
-@@ -554,8 +571,44 @@ static struct amba_driver dynamic_replicator_driver = {
- 	.id_table	= dynamic_replicator_ids,
+ 	struct replicator_drvdata *drvdata;
+ 	int outport;
++	u32 offset;
+ 	int rc;
  };
  
-+static int replicator_online_cpu(unsigned int cpu)
+@@ -286,9 +287,65 @@ static const struct coresight_ops replicator_cs_ops = {
+ 	.link_ops	= &replicator_link_ops,
+ };
+ 
++static void replicator_read_register_smp_call(void *info)
 +{
-+	struct replicator_drvdata *drvdata, *tmp;
-+	int ret;
++	struct replicator_smp_arg *arg = info;
 +
-+	spin_lock(&delay_lock);
-+	list_for_each_entry_safe(drvdata, tmp, &replicator_delay_probe, link) {
-+		if (cpumask_test_cpu(cpu, drvdata->cpumask)) {
-+			list_del(&drvdata->link);
-+			spin_unlock(&delay_lock);
-+			ret = pm_runtime_resume_and_get(drvdata->dev);
-+			if (ret < 0)
-+				return 0;
-+
-+			replicator_clear_self_claim_tag(drvdata);
-+			replicator_reset(drvdata);
-+			replicator_add_coresight_dev(drvdata->dev);
-+			pm_runtime_put(drvdata->dev);
-+			spin_lock(&delay_lock);
-+		}
-+	}
-+	spin_unlock(&delay_lock);
-+	return 0;
++	arg->rc = readl_relaxed(arg->drvdata->base + arg->offset);
 +}
 +
- static int __init replicator_init(void)
- {
-+	int ret;
++static ssize_t coresight_replicator_reg32_show(struct device *dev,
++					       struct device_attribute *attr,
++					       char *buf)
++{
++	struct replicator_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct cs_off_attribute *cs_attr = container_of(attr, struct cs_off_attribute, attr);
++	unsigned long flags;
++	struct replicator_smp_arg arg = { 0 };
++	u32 val;
++	int ret, cpu;
 +
-+	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
-+					"arm/coresight-replicator:online",
-+					replicator_online_cpu, NULL);
++	pm_runtime_get_sync(dev->parent);
 +
-+	if (ret > 0)
-+		hp_online = ret;
-+	else
-+		return ret;
++	if (!drvdata->cpumask) {
++		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
++		val = readl_relaxed(drvdata->base + cs_attr->off);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
 +
- 	return coresight_init_driver("replicator", &dynamic_replicator_driver, &replicator_driver,
- 				     THIS_MODULE);
- }
-@@ -563,6 +616,10 @@ static int __init replicator_init(void)
- static void __exit replicator_exit(void)
- {
- 	coresight_remove_driver(&dynamic_replicator_driver, &replicator_driver);
-+	if (hp_online) {
-+		cpuhp_remove_state_nocalls(hp_online);
-+		hp_online = 0;
++	} else {
++		arg.drvdata = drvdata;
++		arg.offset = cs_attr->off;
++		for_each_cpu(cpu, drvdata->cpumask) {
++			ret = smp_call_function_single(cpu,
++						       replicator_read_register_smp_call,
++						       &arg, 1);
++			if (!ret)
++				break;
++		}
++		if (!ret) {
++			val = arg.rc;
++		} else {
++			pm_runtime_put_sync(dev->parent);
++			return ret;
++		}
 +	}
- }
++
++	pm_runtime_put_sync(dev->parent);
++
++	return sysfs_emit(buf, "0x%x\n", val);
++}
++
++#define coresight_replicator_reg32(name, offset)				\
++	(&((struct cs_off_attribute[]) {				\
++	   {								\
++		__ATTR(name, 0444, coresight_replicator_reg32_show, NULL),	\
++		offset							\
++	   }								\
++	})[0].attr.attr)
++
+ static struct attribute *replicator_mgmt_attrs[] = {
+-	coresight_simple_reg32(idfilter0, REPLICATOR_IDFILTER0),
+-	coresight_simple_reg32(idfilter1, REPLICATOR_IDFILTER1),
++	coresight_replicator_reg32(idfilter0, REPLICATOR_IDFILTER0),
++	coresight_replicator_reg32(idfilter1, REPLICATOR_IDFILTER1),
+ 	NULL,
+ };
  
- module_init(replicator_init);
 
 -- 
 2.34.1
