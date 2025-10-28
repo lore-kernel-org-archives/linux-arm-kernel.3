@@ -4,102 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0260CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 00:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0A6CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 00:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jpCJYgRp82lQv0i8mBtIwWCb3ISLbvZkCqkJQSt4yh8=; b=Qmk1UtL4ykOsWuBl5kzXO27PWT
-	HZi6Bpt5ZCYeKnpx/1AUXP63QOTL6pWruEBZ+3eND6fPo0eHitDmVg7pZ013peHVSPpL659DAUdyw
-	/aUecYJHA6hw2m0zXzhzRFduAcy3O6K0OzyE4iV7KSodl7UvbdWLdXO0xFCe8fPupMWoTeN9Rx4JH
-	g15i80Gd5x171Qkb2snLnDvuTVWo5upDuaH15TCErcX4hCiAbeczTLjdMYm+H4Cx8ZrHUKjC9lDNi
-	dlyXtxk6sbp7vsDNyJuPaBBBYgwdDD3N7ZKV7RgFlXt4ggFXo+I3AYKCXgUhNmirtkDErsvX63GPz
-	W5ELjyvA==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3fZq3tbinLN9iV6tR9wh+L1TcJJLRbds3pWQbE4SVPQ=; b=AVJtMGwg1IEvbRMxYli+eCSK7E
+	BSeSSFBukryMzmYeamFNeAhU1ZP2yDs9Zf0do9bly1UC+WB4gWKM6yc8Y+F2f8c+xBkrk41UNwEJ0
+	v8Xz/KGUBgElIBX68sCN9p1xcjnQ7tf3IAmOdxTu4MIeejNaki07/mILKlygTyxbDvdaST2gtmpn8
+	8W/PTohqFoyzmlosBb8rDxZm2xlHBKAuZdwaSmQLGGNDjMx0jxMpiTj83Aw0HuQY0R2akMpQ9Mlw7
+	6nAiEWdDNsffukXpeaogqqLZ7FHN7wMgSGzSgc1r04jmT1X4n63Yww1vcwjk5LkglxYuSEVfOR4Z6
+	PhUW8v3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDXZo-0000000Ez5t-3kse;
-	Tue, 28 Oct 2025 00:28:40 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1vDXau-0000000EzT6-3j71;
+	Tue, 28 Oct 2025 00:29:48 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDXZi-0000000Ez3Y-1KLa;
-	Tue, 28 Oct 2025 00:28:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761611314; x=1793147314;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=O9r9SqoXgXXFWNnj6936GGaEnFwZ1KbD5C04lY3OlKM=;
-  b=RbYjObmZKXBJdSRuwfmkCmPx+mi3qLxxaAyMe4c3KeYAMYe3eza1AAtL
-   R3pFlN012+MMRUl1p6TFuPjGoQrRhLzAdEYfULcgyHExu57D6eZhpI2ej
-   ThQm1udRITMOWc2kIxZZ2tDNiqLEkVPlAIW7Amc+Pu+ElUWJ29sszqoWM
-   lDXO2Dnssei/Fkx6aFeKDS7QblEtkXe/dFtW+VMPCljFCgLSDGKiJViv1
-   nGp7xUZlSfwp9+yWe9ZxwBa+hhpLGBeuLeC66LjZHh2qpzJEQklKbmD/I
-   eUSxSUULMj7yLwnZHn6kaQTb32e0DVS7bk0WJ8IyPaTvzobkiDGEq01kw
-   A==;
-X-CSE-ConnectionGUID: h4bP0oUZSOik21wiuaU9OQ==
-X-CSE-MsgGUID: p+/AWTEXSRi/m2d2T3zrxA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63741217"
-X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
-   d="scan'208";a="63741217"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 17:28:34 -0700
-X-CSE-ConnectionGUID: MtsX8J75QwO7JVf7pLQ1Rw==
-X-CSE-MsgGUID: sxeH5MnIQqC0pE4YKx+1fg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
-   d="scan'208";a="222400872"
-Received: from rpedgeco-desk.jf.intel.com ([10.88.27.139])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 17:28:32 -0700
-From: Rick Edgecombe <rick.p.edgecombe@intel.com>
-To: seanjc@google.com
-Cc: ackerleytng@google.com,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	binbin.wu@linux.intel.com,
-	borntraeger@linux.ibm.com,
-	chenhuacai@kernel.org,
-	frankja@linux.ibm.com,
-	imbrenda@linux.ibm.com,
-	ira.weiny@intel.com,
-	kai.huang@intel.com,
-	kas@kernel.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-coco@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	maddy@linux.ibm.com,
-	maobibo@loongson.cn,
-	maz@kernel.org,
-	michael.roth@amd.com,
-	oliver.upton@linux.dev,
-	palmer@dabbelt.com,
-	pbonzini@redhat.com,
-	pjw@kernel.org,
-	rick.p.edgecombe@intel.com,
-	vannapurve@google.com,
-	x86@kernel.org,
-	yan.y.zhao@intel.com,
-	zhaotianrui@loongson.cn
-Subject: [PATCH] KVM: TDX: Take MMU lock around tdh_vp_init()
-Date: Mon, 27 Oct 2025 17:28:24 -0700
-Message-ID: <20251028002824.1470939-1-rick.p.edgecombe@intel.com>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <aP-1qlTkmFUgTld-@google.com>
-References: <aP-1qlTkmFUgTld-@google.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1vDXar-0000000EzQe-33Ac
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 00:29:47 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b6ce15aaa99so3828368a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:29:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761611384; x=1762216184; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3fZq3tbinLN9iV6tR9wh+L1TcJJLRbds3pWQbE4SVPQ=;
+        b=W2KTpxdBog6wEgizqYtCyy8IeBp9EwKpxA+gvoIg0oZivMIshahawOfTZ7aTsE5+yO
+         y7K4K8jzpPg3Qag70h9+DyrlI5MQsNW0V3tHmCCvSMnc3bo9qAFcJtc24yHdWluh4cVT
+         GV3m5g3cUQQLDReFpOoYRvGquhHQ2heFoY1B6dUIHNNNnRwGUxOIS+0ZygzzvGh050aV
+         VUga1gJzwSwhdz15wbJX/RR29vk3u4nUuZLL/Xld3uT+ZdO5gOQ8TLuHuqWL06uChmR8
+         tyK83ZDwmle6MtYHvo1diz029+LGOwm2fBJwu40L0qNpb/aC1Y88xiLlT324upXbCr35
+         doJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761611384; x=1762216184;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=3fZq3tbinLN9iV6tR9wh+L1TcJJLRbds3pWQbE4SVPQ=;
+        b=mxJncatz720l4J7T3Qgkj7lm7axNYGV7fLSD/JdM6Nsi4Wr292SRR6gVnKsqcq26ZQ
+         P1EdvkEXAKaI2WfheX2V1ZXIy4JDKQJzlkhcvZlywB/NSezNi0AdeZjufGZsHjahkRQF
+         95AlE6O0oCYDJhPwRAXTwNhRrm2Fzj4yfP63qhHmmHudzW1qPWajHatwkY836uWPPVa1
+         iDF2KvdnYU4IAPLBxq9hwxpGSx8Poj0wG6spIEu9MpwLLASF1mK12+ekIMFLmYUD0wzQ
+         SMwbaYh9KeAzXoRPBsfpefqwbuMAdwcPgjFN1zoN5AAcq2h5qACmbTyUvHcjRrWZuxl+
+         FLxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVeJo//ilPhGBL4OvtQNhGS7dF0DQgp/H4Y0uJh3tJbQnsr65UiS4ECnBr+X1ApR88Zp13O0U9MgfSu2Dn5iEee@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJof9sZUngh+/qEkesmwSQLkQAYL224lekGVGa8qOlHDC7UeHr
+	1S5Gy5YWylZXXCmpnKVCCan8cdvwgUY+q60im2KX5cYlcDl7oNKz46JhNKSz5vriXbgSTX/GvSO
+	Hz8cHZQ==
+X-Google-Smtp-Source: AGHT+IEcbPffJX+DPzKHtANj5YoID2qTNS+wCvJIhOFTengBDdmvUTitjaF5SaOhKDAJ4Iu3BAJZiOrVVlg=
+X-Received: from pjqc14.prod.google.com ([2002:a17:90a:a60e:b0:33b:51fe:1a77])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3d0f:b0:33e:30e8:81cb
+ with SMTP id 98e67ed59e1d1-34027a0775bmr1898674a91.13.1761611384405; Mon, 27
+ Oct 2025 17:29:44 -0700 (PDT)
+Date: Mon, 27 Oct 2025 17:29:42 -0700
+In-Reply-To: <59ae9957-88a8-4777-9bd2-196e8b4eb8ac@linux.intel.com>
+Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-14-seanjc@google.com>
+ <5dea4a3d-c7b7-48f0-b2d5-7597e0cd5f00@linux.intel.com> <aPuqYz3ly5a3__mf@google.com>
+ <59ae9957-88a8-4777-9bd2-196e8b4eb8ac@linux.intel.com>
+Message-ID: <aQAOdiSUktmAJKsw@google.com>
+Subject: Re: [PATCH v3 13/25] KVM: TDX: Fold tdx_mem_page_record_premap_cnt()
+ into its sole caller
+From: Sean Christopherson <seanjc@google.com>
+To: Binbin Wu <binbin.wu@linux.intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
+	Michael Roth <michael.roth@amd.com>, Yan Zhao <yan.y.zhao@intel.com>, 
+	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
+	Ackerley Tng <ackerleytng@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_172834_538553_FA8C1FDE 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20251027_172945_785704_E4A54838 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,84 +108,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Take MMU lock around tdh_vp_init() in KVM_TDX_INIT_VCPU to prevent
-meeting contention during retries in some no-fail MMU paths.
+On Mon, Oct 27, 2025, Binbin Wu wrote:
+>=20
+>=20
+> On 10/25/2025 12:33 AM, Sean Christopherson wrote:
+> > On Fri, Oct 24, 2025, Binbin Wu wrote:
+> > >=20
+> > > On 10/17/2025 8:32 AM, Sean Christopherson wrote:
+> > > > Fold tdx_mem_page_record_premap_cnt() into tdx_sept_set_private_spt=
+e() as
+> > > > providing a one-off helper for effectively three lines of code is a=
+t best a
+> > > > wash, and splitting the code makes the comment for smp_rmb()  _extr=
+emely_
+> > > > confusing as the comment talks about reading kvm->arch.pre_fault_al=
+lowed
+> > > > before kvm_tdx->state, but the immediately visible code does the ex=
+act
+> > > > opposite.
+> > > >=20
+> > > > Opportunistically rewrite the comments to more explicitly explain w=
+ho is
+> > > > checking what, as well as _why_ the ordering matters.
+> > > >=20
+> > > > No functional change intended.
+> > > >=20
+> > > > Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> > > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+> > >=20
+> > > One nit below.
+> > >=20
+> > > [...]
+> > > > +	/*
+> > > > +	 * If the TD isn't finalized/runnable, then userspace is initiali=
+zing
+> > > > +	 * the VM image via KVM_TDX_INIT_MEM_REGION.  Increment the numbe=
+r of
+> > > > +	 * pages that need to be mapped and initialized via TDH.MEM.PAGE.=
+ADD.
+> > > > +	 * KVM_TDX_FINALIZE_VM checks the counter to ensure all mapped pa=
+ges
+> > >  =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0^
+> > >  =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 Nit: Is pre-mapped better?
+> > Yeah, updated (and then it gets deleted a few commits later :-) ).
+> Oh, right, nr_premapped will be dropped later.
+>=20
+> Since the whole nr_premapped will be dropped, do we still need a cleanup =
+patch
+> like patch 12 which will be dropped finally?
 
-The TDX module takes various try-locks internally, which can cause
-SEAMCALLs to return an error code when contention is met. Dealing with
-an error in some of the MMU paths that make SEAMCALLs is not straight
-forward, so KVM takes steps to ensure that these will meet no contention
-during a single BUSY error retry. The whole scheme relies on KVM to take
-appropriate steps to avoid making any SEAMCALLs that could contend while
-the retry is happening.
-
-Unfortunately, there is a case where contention could be met if userspace
-does something unusual. Specifically, hole punching a gmem fd while
-initializing the TD vCPU. The impact would be triggering a KVM_BUG_ON().
-
-The resource being contended is called the "TDR resource" in TDX docs 
-parlance. The tdh_vp_init() can take this resource as exclusive if the 
-'version' passed is 1, which happens to be version the kernel passes. The 
-various MMU operations (tdh_mem_range_block(), tdh_mem_track() and 
-tdh_mem_page_remove()) take it as shared.
-
-There isn't a KVM lock that maps conceptually and in a lock order friendly 
-way to the TDR lock. So to minimize infrastructure, just take MMU lock 
-around tdh_vp_init(). This makes the operations we care about mutually 
-exclusive. Since the other operations are under a write mmu_lock, the code 
-could just take the lock for read, however this is weirdly inverted from 
-the actual underlying resource being contended. Since this is covering an 
-edge case that shouldn't be hit in normal usage, be a little less weird 
-and take the mmu_lock for write around the call.
-
-Fixes: 02ab57707bdb ("KVM: TDX: Implement hooks to propagate changes of TDP MMU mirror page table")
-Reported-by: Yan Zhao <yan.y.zhao@intel.com>
-Suggested-by: Yan Zhao <yan.y.zhao@intel.com>
-Signed-off-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
----
-Hi,
-
-It was indeed awkward, as Sean must have sniffed. But seems ok enough to
-close the issue.
-
-Yan, can you give it a look?
-
-Posted here, but applies on top of this series.
-
-Thanks,
-
-Rick
----
- arch/x86/kvm/vmx/tdx.c | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
-
-diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index daec88d4b88d..8bf5d2624152 100644
---- a/arch/x86/kvm/vmx/tdx.c
-+++ b/arch/x86/kvm/vmx/tdx.c
-@@ -2938,9 +2938,18 @@ static int tdx_td_vcpu_init(struct kvm_vcpu *vcpu, u64 vcpu_rcx)
- 		}
- 	}
- 
--	err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
--	if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
--		return -EIO;
-+	/*
-+	 * tdh_vp_init() can take a exclusive lock of the TDR resource inside
-+	 * the TDX module. This resource is also taken as shared in several
-+	 * no-fail MMU paths, which could return TDX_OPERAND_BUSY on contention.
-+	 * A read lock here would be enough to exclude the contention, but take
-+	 * a write lock to avoid the weird inversion.
-+	 */
-+	scoped_guard(write_lock, &vcpu->kvm->mmu_lock) {
-+		err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
-+		if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
-+			return -EIO;
-+	}
- 
- 	vcpu->arch.mp_state = KVM_MP_STATE_RUNNABLE;
- 
--- 
-2.51.1
-
+We don't strictly "need" the cleanups, but IMO intermediate cleanups are of=
+ten
+worth doing even if they get thrown away, soo that the code is in a (hopefu=
+lly)
+better state when the "big" functional change comes along.  I.e. if code 'X=
+' is
+easier to understand than code 'Y', then theoretically/hopefully X=3D>Z is =
+also
+easier to understand than Y=3D>Z.
 
