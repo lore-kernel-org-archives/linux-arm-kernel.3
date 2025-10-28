@@ -4,142 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4B5CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 21:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5B1CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 21:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rABTTFZBFQwtr5xis7+txKec9oflYXcMtuYAQcXsFuc=; b=NL0LvC5b+JPU+uVPwpQAck4sOm
-	6qa5hFtluMnRZ8cZ+MGaUxsVyjGPSaiwzqqrFY+v2IYOJr/8oYDaHRM1HgjDvPQZ6023JD4ozSFZE
-	CVECp40Ekd7yulEJjQDKfMC436sjZXGdixsdhjxRxfTbt9vXeiuQq8ai7yNsPGgeiRklgK1LS2ST+
-	a6cCcGDhkT+QrVmuevzv2wFis64eqY+EN10ejCH42h/DvWIaI5qhiahnt38YW7aVoBq6GQdg7jVth
-	zNBw+T9znJyms8iUDYggf47RLbdPDpzPtM8d8icxTxEJY4gHVFfjw1QDv4Oav0HMHES646frtq3tM
-	t32J4xFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5vxH7XCTx/b/UD3e1BSyTYOs/DR5vW+vdklYIkA5zaM=; b=e7dM6XvjjjGRJc019MKGFm6tFF
+	wD2QhyyX8KQrKiXyLQ4RyKFmy3fMIqfakDbD5AxfCNzAVc7vuoQItiVl7l9Xp8uKuimPOG8gCy2zN
+	pJh5wqa9U/4iNN9UFHf1qJ051DZSErizCVZnFJwab6uRwGasWLRA6nIyGdsWbHUjk5D7RXTuYpjmT
+	5dBWPvrv1wGv0NFnLmjOWKzIHVWvD6NBRlvmTfWBnERRxLk3lYMjYp0Ar/nP+wCqeWjDoOu5pkK/O
+	946frG20gKVyEDOBJNcrtzhJb/mYuypfciuWIdCofD4Ogl3TgQw+XWRvEIFQ4Iy4QLcxRJPBqjnba
+	LklR0Ccg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDqqf-0000000Gebc-20D5;
-	Tue, 28 Oct 2025 21:03:21 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vDquT-0000000Gev9-3jR0;
+	Tue, 28 Oct 2025 21:07:17 +0000
+Received: from mail-francecentralazon11013037.outbound.protection.outlook.com ([40.107.162.37] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDqqc-0000000Geb6-0yan
+	id 1vDquQ-0000000GeuH-2TWw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 21:03:20 +0000
+	Tue, 28 Oct 2025 21:07:16 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=r6hxej0o1ELEBD+xTCvm3gho64FK5bYwlh/04FSB7dO7UEwg1PFeKlJb/QJpGK7MY6O0OxcbA0f1rXFFHLyx0QTDhiQnt36FPnJ8M2cvG1HfKobWx4VRrsOB4mP6hAhhw4Qa+lgyak1FCg6HqHFTBVs7dJxJSIsYSEQ/ia0q5YYqtcwrQ1m18xLlafkwTisb4Ddmg3FqSmilanVm6rQwRWMjysZS1457B9yQldnNxYdLQ+/xb4wPoqWTO6VDq4GHTsr6Kx4NKdjRjxwcy5p4dQozRoD57rxj/Ww7n76ONMLO8Tylh1+1ehUv1t35+EoO+s9XiEJMg5UqEmMs/Zw1dQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5vxH7XCTx/b/UD3e1BSyTYOs/DR5vW+vdklYIkA5zaM=;
+ b=b79KDNK9f4ACDVupK7Nq+ZIQS7W0PKgb6l9QvFR9TX3vGOUYrTIV3nA17WFJGFq7iv2KX/e9tEwHp5Eouwb0navguWEGhXHMFC8DveA+AZTKESQENqvr0ow220KuPIk+AHkZ0FChhoZcsliIFNdf59lTN7T/1X35/+9U1DLAWoWMG6rrB0xsxR590VSZchtYVSn9KoJ6Wiagq2EFlXu+z+mL7KenYOpOeNXKrGMMoZe5MywBxz/6w/DE0kJTP4eNGcDo2xkUcUyL5a9AYuw50xOet8UZ9JR9HBeo2ZB0s37CZFBIwDdyfuSPGn3I19ajwG7Sr8oD1UHGGMA6f5BeAg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5vxH7XCTx/b/UD3e1BSyTYOs/DR5vW+vdklYIkA5zaM=;
+ b=Qg0JdxuX8rNPf5BM6jP0PcBPxwnEJ3a6CAfZzUeChZi6XYg9MHosuSAFKBLdr1id4y0ssIzGQ9mav9ysIUWwBZy8hDDs3jdlmvcwWsv/0QTyAxbyLHH1QdiFDo8Z6lBPXkNsVGJs6zma9hXCqtvfeA7FrXhOwJn3HqIS81rVSp0=
+Received: from DU2PR04CA0277.eurprd04.prod.outlook.com (2603:10a6:10:28c::12)
+ by AM9PR08MB6020.eurprd08.prod.outlook.com (2603:10a6:20b:2d6::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Tue, 28 Oct
+ 2025 21:07:06 +0000
+Received: from DB5PEPF00014B92.eurprd02.prod.outlook.com
+ (2603:10a6:10:28c:cafe::3e) by DU2PR04CA0277.outlook.office365.com
+ (2603:10a6:10:28c::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.16 via Frontend Transport; Tue,
+ 28 Oct 2025 21:07:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB5PEPF00014B92.mail.protection.outlook.com (10.167.8.230) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.10
+ via Frontend Transport; Tue, 28 Oct 2025 21:07:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QKrClS6lBhJco/2jhJfJ+41rtl1Cq+qPWOyELAY2qVAgqvmJOwWILExNLPJOqWaW3Wfy7PG16ZeOdb5mduAP70QIlxRRM3miq/kg+LL2VzXRhN9B4ezEOqFioFHIacQi8xr2/E/lRBlskhNm4hNXSxDBWbuKVTTOQ1uMWwwqaD8VH9ml4J8iSWMkEQMyZK+dOWonUQwvp9FHgapvcdKzbKg9rGKQn0EyV+SKAQKjIiN6QV1iHMXv/+1/ukaNnSDB/A0RS8jJCsoOWHbp1f4l0RXhwJGk2ioMWkiD8N5yNtNpFByn0nY/b8IuMnPeDwdkMl/YFL8yYCrMR/rlsyfpFA==
+ b=qKZhIc6czNhBuo61Qmvxix+CHE3ICLhtWpelXfV85nARfPThYtRCd0BIQxB5U82QPL3JIA76ahAPyKYPIv/WSFfrxId5x+zkzVwBnt+pU95wdTFOAHnPevYhZtwaIpyFTOk1Rr1cM2OKrj74N+02AsmMb1Fcl1CgVHFeTHcJrb9pQk8DwbG3EvXCQL85McxZ2t88PHVn90NLYEWf8efxu1yzhCyN3NxNmO1i5+b8+R7/4ePA97pBdHBqQa+uB7GrMv8WGZm77/+HydVb2ylKqeApyV+PkDz0qJc/VErRQJ/v2I9QKdzu4VT5vCU1nBVnShLfMagbVolHYjx55u+C6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rABTTFZBFQwtr5xis7+txKec9oflYXcMtuYAQcXsFuc=;
- b=tXOPEo7DVdL8/feAoV4vbtlwhTDBklmIHCA20M/h79zm7rN7JwAhLSwoEHm3t2vju69lPwlnb3BVV5uo97Tov6LhCntaEM8ryxvcSnUhI8BHp19GmAmapm1//xnLDnEUuHc4WWv1kSjkBWUdAAQhEoACJz7tn60r3Omj9MtYvUSlfl7mEdfGXEBZ4oXI3K2iJ/Z8yv2XVvTYaKAQa3JpHD4Y/2OTk/eJVFmWfDSsGbyObWH7tVKwDuFYFkdxA9pYjlWuOcYR/r/akugUSXikbTYTQedJuZf98MHfOJuAvRAldB0sMQJb/BDCN+mHNAtegNSxWEqHQpj61dGiLjcPAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=5vxH7XCTx/b/UD3e1BSyTYOs/DR5vW+vdklYIkA5zaM=;
+ b=sXpMmY8TeGfeDY1pONW+86MaHvM+d7V1kavSREO5imjQed/cFljySXCaJoVOyMe80Hpc2+UwxNTSo0moLaLk2iV6Ay9hK9GAXTAp4po5TXvgeArNPYO62MGduE+HaCstPyAhbIIDCMS/iV17jNscyfEIiI8J3JqB/R3iLsU8Mw/Ei/9TOmAMBbMrHfCiuTWvAAP2AV9puXE7AX4rbvsAFUMDxBCbChdmg2Gtwu+TknAf5TJ3ecHEVhraCtkLE002SeUUoSnrLxWpW1ZSYbShGsUEXOqUE3yuMbXpJbJx81GXGH1NzW6lrYDGQD/wmp2hByWHDFD+p01JOeABeAuVkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rABTTFZBFQwtr5xis7+txKec9oflYXcMtuYAQcXsFuc=;
- b=XdRhQw/uTx5gmZcz2VSJDQB1yJ+qM+smUlR0h76t58QTHaV8HADSpRyqekm74wdz1WlRkCYGupdWf938JVQq3VltakjfwcIv86EqcoDQalA2itVdpBD9+WVooM26/4AlBEIphQ9p0N4hkpC2ORba+FpIcWhv5NtZhwzw2nj1bEE=
-Received: from SJ0PR13CA0150.namprd13.prod.outlook.com (2603:10b6:a03:2c6::35)
- by IA4PR10MB8520.namprd10.prod.outlook.com (2603:10b6:208:55d::8) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=5vxH7XCTx/b/UD3e1BSyTYOs/DR5vW+vdklYIkA5zaM=;
+ b=Qg0JdxuX8rNPf5BM6jP0PcBPxwnEJ3a6CAfZzUeChZi6XYg9MHosuSAFKBLdr1id4y0ssIzGQ9mav9ysIUWwBZy8hDDs3jdlmvcwWsv/0QTyAxbyLHH1QdiFDo8Z6lBPXkNsVGJs6zma9hXCqtvfeA7FrXhOwJn3HqIS81rVSp0=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by PAVPR08MB9651.eurprd08.prod.outlook.com
+ (2603:10a6:102:31b::9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 28 Oct
- 2025 21:03:07 +0000
-Received: from MWH0EPF000989E5.namprd02.prod.outlook.com
- (2603:10b6:a03:2c6:cafe::e6) by SJ0PR13CA0150.outlook.office365.com
- (2603:10b6:a03:2c6::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.13 via Frontend Transport; Tue,
- 28 Oct 2025 21:02:36 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000989E5.mail.protection.outlook.com (10.167.241.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Tue, 28 Oct 2025 21:03:05 +0000
-Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Oct
- 2025 16:02:52 -0500
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Oct
- 2025 16:02:52 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Oct 2025 16:02:52 -0500
-Received: from localhost (ula0502350.dhcp.ti.com [172.24.233.249])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59SL2pPm2932959;
-	Tue, 28 Oct 2025 16:02:51 -0500
-From: Paresh Bhagat <p-bhagat@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
-	<s-ramamoorthy@ti.com>
-Subject: [PATCH v2] arm64: dts: ti: k3-am62d2-evm: Fix regulator properties
-Date: Wed, 29 Oct 2025 02:31:53 +0530
-Message-ID: <20251028210153.420473-1-p-bhagat@ti.com>
-X-Mailer: git-send-email 2.34.1
+ 2025 21:06:33 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9275.011; Tue, 28 Oct 2025
+ 21:06:32 +0000
+Date: Tue, 28 Oct 2025 21:06:29 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, perlarsen@google.com,
+	ayrton@google.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: support optional calls of FF-A v1.2
+Message-ID: <aQEwVe8+okm/Nmso@e129823.arm.com>
+References: <20251027191729.1704744-1-yeoreum.yun@arm.com>
+ <20251027191729.1704744-3-yeoreum.yun@arm.com>
+ <f5aa3c19-fdea-4f62-9541-530e59b20a87@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f5aa3c19-fdea-4f62-9541-530e59b20a87@arm.com>
+X-ClientProxiedBy: LO2P265CA0421.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a0::25) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000989E5:EE_|IA4PR10MB8520:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1fd5134c-648e-478f-2422-08de16656403
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|PAVPR08MB9651:EE_|DB5PEPF00014B92:EE_|AM9PR08MB6020:EE_
+X-MS-Office365-Filtering-Correlation-Id: a44cd3ac-375e-43c6-cf50-08de1665f306
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|34070700014|34020700016|36860700013|82310400026|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hnWqfLjf3fQyRP6CceHZrHSvWgQ/Yd3UFjxeB4bLo+rl0ptzonDoI/nM2ryr?=
- =?us-ascii?Q?BSUrrdoKYia+gVjGH+/EgvcXWHLi/EwpWebyOIxzN3QjaVIBEjRY0k3Ehp6T?=
- =?us-ascii?Q?rQM2/3xKxtrBGRLspHoOyR3Vy8eRQSyr9vlNl1ipMpdOJ7VW6Ohevw2ZLHYP?=
- =?us-ascii?Q?PrgQoWE3xQkLfXefY3aOq77oVhEBgF9nAGIoeO3ku8r9w/Mc7AwY5Mq5ggZg?=
- =?us-ascii?Q?DFdgOmb5EBGYpCrUWGd+HV+0BkPsureyI7NGvTb4cb5U/3NcCBN4VUFwNUvQ?=
- =?us-ascii?Q?iQSdbYNq4kKvt+OpNFsQA6A+S+unWDDmOeCdNzQC4GyKmhjOAP4mIHRksSTK?=
- =?us-ascii?Q?lDBGrysIl2EJLRpnMJvft/mxNQfsrhbiqmEro/vD/pBDKolRdo6gMzIrwDfL?=
- =?us-ascii?Q?b44fymZ4nDsbRFVh2yn5nEXN6jZ9wiLvdOkbccZCV5A2OFHbWia0z+qv1ylj?=
- =?us-ascii?Q?wwxVaZKy9ySYDYE6oZ7/tXtvgOL0ud4j8hjszbtHQXmRXy8+KPNOclKdzG8X?=
- =?us-ascii?Q?5NsrmaWyWWLj54EqUqunvZmqzhLv+nEAijvvmckIoAUS8pxunQ94xPKJitQ/?=
- =?us-ascii?Q?vk1o1CazeA5EvK9e8my1v84eBMB0KSFv+Oa7mVHfzYwdylcf43cR26RRNcTX?=
- =?us-ascii?Q?gS5IDIjQtLpr9O9HUnp3oBYVBP71tPYANNxXjkhmHpTquolTUeHEnOdSgvky?=
- =?us-ascii?Q?Z0x7bbFZnoFw8aJrshjAdGyg1ruPRV4LE8ssV6QwwUcfzIXmvg23jULqvhpT?=
- =?us-ascii?Q?dBV0Uf8GqMAJDtWU5oREU8u2K2L4aiG/jIXalFKUBbluGAcRbQ3zsHZtdxcq?=
- =?us-ascii?Q?/iER4/XZfkNfSpw7Qs4eakDGfjlWXrs1JAG8Y3Vec+nc/KfhsKz3UkoNQYci?=
- =?us-ascii?Q?nBtKqlvItg+wua8xk0aNNRGY8qI/stuO5aK//yep5rDr0dT4rwyK5TAwLf1/?=
- =?us-ascii?Q?Xzo1yK/SVcQ9a+sfI+5DQXuTssrHH0nuMtUF/TVwrPB2u2QNIFBxTALRCaAv?=
- =?us-ascii?Q?xcxWOvcKp8QmBGscFmq8DYsSyNTSMcRCNbPewt4nyxKbhlLBkkxkIy+J54pm?=
- =?us-ascii?Q?vtrUmCa/3xuLip/xTbY+rgD42jGVpAxoUsihH7VYBA8ZMH01EazZhOkJFMvz?=
- =?us-ascii?Q?jd3cskNWczFOET7gTOvayMm/Lmj+kRqMNaEW6TtB0CnYNVRwk4D003ptKQU7?=
- =?us-ascii?Q?G2D2BGjwfbENvg9L/wZQtzMbOGWyP67Hl+oAIL4fvAuMC1L2vCjP0IwzfEKU?=
- =?us-ascii?Q?hAyedNTIHjj09g8fMLEarrAPwB7LG9RqTIdmcf1/y9FcRXZVdSaitHxkvlGQ?=
- =?us-ascii?Q?3WJPwDqmOjfwzPHGJC/5KNPdYt8gXEaBqB0jDdkpZV0CPGJ1tVKW+jbweRRA?=
- =?us-ascii?Q?NO6FToNe4YO+SZ57axGPGNzfL42dQ5Ijw7GFCzuECHCia2SyQxFpRMQt9F0p?=
- =?us-ascii?Q?/klcpY7ifONJ844eXqDJNRpDpsok8yLzOojd4AY/OiCQI9rcz+v5Wo15uC6l?=
- =?us-ascii?Q?zpeH6Ci7jqpyrFg=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(34070700014)(34020700016)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 21:03:05.7510
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?m5iLyNIaJe8xVDdF0Xuba8LCRWAl8//vh4Oi9FeXZaHuOfRG1+9LERYw+IGw?=
+ =?us-ascii?Q?THY4lE9S6gtkfWJJ7xYUGfi5sX2BZWEg+BgPFnV/rZ4smI3ifXQWo2crR2/1?=
+ =?us-ascii?Q?EGp8gfMA2amRgX4FyfNIy1yaCIT+ycLsvGp9LP4QKb2L+g6fX7cy2uHv+uEK?=
+ =?us-ascii?Q?EvieIyvFY4/n7MWHxRkUfCZr9PYjrunYWO4MZKzyjmpiwbaqx5jdjs4yMZpC?=
+ =?us-ascii?Q?UoxSsDANsjXT4oQuVk777szd0LEVRYMT4K0lm+6Y4CZDIS1XSZGbG1v8z+oI?=
+ =?us-ascii?Q?d9/9cfX6EQC9tj8R3NE4/LaE3Q1lsq1nW56k1HPs6J3rnBfT58CF3t1669f3?=
+ =?us-ascii?Q?Aj2/kTFw/lqb4e9SfTqFZ7L4qWpRdYk2yBFddzLOswcSYRXrVLhwlbJ/qGbC?=
+ =?us-ascii?Q?0cJdNCYHDMxC0sONuoojhV3ikz5+JN/2FZHJ3sD1sd4KBfVQPmuKZ4+tz+a3?=
+ =?us-ascii?Q?EIpF3nfgLDHVhe+fNgHBeQAxjnrPJRhU7BB3NuRuC1xMvfIG/3AUiSQf251o?=
+ =?us-ascii?Q?vAJWzCErE2UqRQTXOyBg2Gy1XaYyLlr+VeYLc57zNIwbzi76gz30UAywgIA2?=
+ =?us-ascii?Q?FzErw0M9AeFNn4Kh7mJfKcDodWWF5PYwGDY2/yCdewx8ftBl5pXLTouH7sz+?=
+ =?us-ascii?Q?lvW7xdmaxXpkhtjZr9lOqADieEDcagyGWfqXm6tS72+AFDv1QzP+NC5jB4DL?=
+ =?us-ascii?Q?nimuD8XwQugFDMCoREY2Yjhi3BTE8eQZDBV27nBrkzTx2sAZNQIFzTOcKe2B?=
+ =?us-ascii?Q?+FVZCP9Nl7/9KFubIRfb/PtuEfZFCXHGhaOo9xzdTaz+/+mWD22R6Qual13s?=
+ =?us-ascii?Q?oiuNaCNYHwfJFGQGggAaBHWq1S4NELR+859wrixqb54eKvzXZK/fYoofQYaw?=
+ =?us-ascii?Q?xzI8dg+St+z0mLqYrQcfjvLOrMTaPvJXDP08EgVCNPNgu+DqY7I0Uea5ZMJK?=
+ =?us-ascii?Q?rWCGSbJ5gCFK6Aot5E+yf/Hpe4yCqEHCwryItwOFmjHOTHRTKA8cUT++uRaS?=
+ =?us-ascii?Q?zYesVWhychiSzyffNMtm/2Z/iJ4po1HAQA2Uj3Ja2OB1JexPTkr5utfhMKO7?=
+ =?us-ascii?Q?/EijiNGrIF7b++YZCFMjLeC81HcGJrRi7covD5gBAVSNLRlvsHMuTNuCEzta?=
+ =?us-ascii?Q?FwbD9uR0TobqNNjZJ0RO2pFv0hwHJ5faxkD+648ynJjrQC4INfaXQpuMKpvd?=
+ =?us-ascii?Q?d3licFLQ55c2n9bKsQvHU06TZzhYbBn5iS32vHs5voGpvp49y51Ygf3DphyX?=
+ =?us-ascii?Q?2ykDSuWsaiOVLJAwCOKFvOcPmqCdDBMFh+kZJmL5GW2taqcee+sV14VJCDGc?=
+ =?us-ascii?Q?m2UX+rxkJrduNeKQmychOVjXUJMOoUKQT1Nv58lmXnjtDvXBe6+AwA7vK8kD?=
+ =?us-ascii?Q?Kjs4t47UpVnzZSEYvGPGadXZQ5XXOX+ZjMTHcTg6TDkYsGKByoGrVuz9kmrK?=
+ =?us-ascii?Q?ThvSWXzRW2ZjG1VCFC2PX3qCVtpycWsP?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9651
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B92.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: f1c5deaa-f691-45e0-411b-08de1665debf
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|35042699022|1800799024|36860700013|14060799003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?O9jPadH6JTDLSoW7PHkcVIRAU9HGblaqYIR2pdP6Wa5ecxdMknZmNvWeq/h7?=
+ =?us-ascii?Q?r0Ss4XVYDwnlmcnIXZhgk5FC778eSNED6eMIX7O28EXzjYdedfcJDGcwueag?=
+ =?us-ascii?Q?MCepvjlW7c8Y1UiUMcARL+tbWcwbPTzRad+CsnScddNoiEMK44CIxtjgd8xL?=
+ =?us-ascii?Q?pBzCPQih6pubP1fy8VwCsbdLyLWDyS1fFqra/uGDhS0mXJ0HnxxEeoLuTs9M?=
+ =?us-ascii?Q?3VHbTwN0/K40vYWIn7k4gw0BKBQ5ey5ltWFaSYIeYcUUyBY8ZL/zCKQcL78D?=
+ =?us-ascii?Q?RYSycDzJW/M5ed/wHuLwKobP5m+OGF9ASf9GYFMadIx8l3euAa6NhHeWUNg1?=
+ =?us-ascii?Q?tRBVCfQMQ8p4OAW9l358FwNF0O1d1+VmCue4h4MzuusXPpWPtn1KNW++/m0C?=
+ =?us-ascii?Q?2KoGkK0Odz5p7tGireG+wn7nna7HlLusOQ9Q3iprYKwQDo7h7Ds9SNRXmIBe?=
+ =?us-ascii?Q?55Ls0AijT2erUAEXNYlXP89HGqj/xq3TZCNoohbmwyTFTvk6UpEnfP1aHreq?=
+ =?us-ascii?Q?Nh0W5eMyEuka2rwSOMXoBLheSCLTdNmPJmrypMXGsjn4v9Z2VFUS75L0ElYJ?=
+ =?us-ascii?Q?KUhIoV5SMRwk4JQNBwmU4WpQHvwvoPNx971OSdU14uTOjy8iuejmyVgVewvf?=
+ =?us-ascii?Q?5xydbO06+Ga4DTsaNpULUl2nCpxSPX+IaP2iuh0Wcd0OAmmYWnQGUDRV9KDx?=
+ =?us-ascii?Q?YZbsUi/dvj0xWOQuntvtqhTMHQHj0ISfcUdiTDYN8LvFmLCDX1HjkfyhjgRt?=
+ =?us-ascii?Q?ogeSOMcLy/winRnlfvxqnLXV/dfEQsKnKdha2J7wDcXdig7W8JXDZhp8g4YB?=
+ =?us-ascii?Q?UrCKun9b9RzZhu1GnGnBPiDljlHgzjwUDaMTo5uOhzvPsb9/eWslyOHeILn1?=
+ =?us-ascii?Q?zAtN81gZpjHpBjJAZNPnDctqpCeJKtzvUr+HlTIDm0vRu6Y1G4rJgdAPc6oo?=
+ =?us-ascii?Q?KFQMLulyxRcpTQivWMMyHR0N39T+HjwlUhFpE+N2J0/ef3b4CNbr7jfVFNEK?=
+ =?us-ascii?Q?oIAbqzUau7olyZxMK7457UOKA/xOxJYFOA0NYx0wNJ2DehI0auLdkI8BL7P4?=
+ =?us-ascii?Q?r9x7icZtt5XiH0txOqS3rW4NbjM/W8A0Eezrh/SRY6fHiEq7g915OW3aqBVS?=
+ =?us-ascii?Q?fR95wyJlVnD7f094quQ77swn39yRsvJRxcHVrkdco/kFT18fOeTAqvVyw9JX?=
+ =?us-ascii?Q?P8dnxpQVNaVil/0KUgm8DBNI7PqV7TisB81M17n37nKWeTdqi+FTNiG6ZWzR?=
+ =?us-ascii?Q?CKS5/FMI+u9V07f8IEPZ/ByrdFxap8W9B5FBoKoR7CbdPtqmPmUDKU7QUYPn?=
+ =?us-ascii?Q?SsNpxHYjristg9mmmFGNjc2wXDNI1klRzTPkcwWjJkqYkK5IOdwtOOm6j75J?=
+ =?us-ascii?Q?yyo9NeanxHOSd06gS+AwigmYEIfdUWUzNahvR0DdgMyhuR36+8kJgUCAvT0t?=
+ =?us-ascii?Q?eFzsCiiFCvMmuqz+OKojKWyQNTOyMo08n/6l3OCRrD00sm4KvrOWraOuBX19?=
+ =?us-ascii?Q?7ub4XT5Ka/BfQ2TQoIQSrA20nlKKBfVruQyUhOvsg4FPUfZr3ynFvHK+OtZL?=
+ =?us-ascii?Q?2ggd5BT5Awp1a+sLSsI=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(35042699022)(1800799024)(36860700013)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 21:07:05.7030
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1fd5134c-648e-478f-2422-08de16656403
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E5.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a44cd3ac-375e-43c6-cf50-08de1665f306
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B92.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB8520
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR08MB6020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_140318_416858_FA6F06BF 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_140714_879257_482466DA 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,69 +203,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix missing supply for regulators TLV7103318QDSERQ1 and TPS22918DBVR.
-Correct padconfig and gpio for TLV7103318QDSERQ1.
+Hi Ben,
 
-Reference Docs
-Datasheet - https://www.ti.com/lit/ug/sprujd4/sprujd4.pdf
-Schematics - https://www.ti.com/lit/zip/sprcal5
+> > To use TPM drvier which uses CRB over FF-A with FFA_DIRECT_REQ2,
+> > support the FF-A v1.2's optinal calls by querying whether
+> > SPMC supports those.
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
+> >  1 file changed, 18 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > index 0ae87ff61758..9ded1c6369b9 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > @@ -646,6 +646,22 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+> >  		ffa_to_smccc_res(res, ret);
+> >  }
+> >
+> > +static bool ffa_1_2_optional_calls_supported(u64 func_id)
+> > +{
+> > +	struct arm_smccc_1_2_regs res;
+> > +
+> > +	if (!smp_load_acquire(&has_version_negotiated) ||
+> > +		(FFA_MINOR_VERSION(FFA_VERSION_1_2) < 2))
+> > +		return false;
+> > +
+> > +	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
+> > +		.a0 = FFA_FEATURES,
+> > +		.a1 = func_id,
+> > +	}, &res);
+> > +
+> > +	return res.a0 == FFA_SUCCESS;
+> > +}
+> > +
+> >  /*
+> >   * Is a given FFA function supported, either by forwarding on directly
+> >   * or by handling at EL2?
+> > @@ -678,12 +694,13 @@ static bool ffa_call_supported(u64 func_id)
+> >  	case FFA_NOTIFICATION_SET:
+> >  	case FFA_NOTIFICATION_GET:
+> >  	case FFA_NOTIFICATION_INFO_GET:
+> > +		return false;
+> >  	/* Optional interfaces added in FF-A 1.2 */
+> >  	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
+> >  	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+> >  	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
+>
+> Looking at table 13.54 in the FF-A 1.2 spec FFA_CONSOLE_LOG is only supported in secure FF-A
+> instances and not from the normal world.
 
-Fixes: 1544bca2f188e ("arm64: dts: ti: Add support for AM62D2-EVM")
-Cc: stable@vger.kernel.org
-Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-Reviewed-by: Shree Ramamoorthy <s-ramamoorthy@ti.com>
----
-Change log
-	v1->v2: rebase to latest tag and added cc stable@vger.kernel.org
+Thanks. in that case, we can return false for FFA_CONSOLE_LOG
+unconditionally.
 
-v1:https://lore.kernel.org/all/20250916090736.2299127-1-p-bhagat@ti.com/
+>
+> >  	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
+> > -		return false;
+> > +		return ffa_1_2_optional_calls_supported(func_id);
+> >  	}
+>
+> I don't think that an smc call here is the right thing to do. This changes this from a light
+> weight deny list to an extra smc call for each ffa_msg_send_direct_req2 from the driver.
+>
+> Instead, I would expect this patch just to remove FFA_MSG_SEND_DIRECT_REQ2 from the deny list
+> and rely on the TPM driver to use FFA_FEATURES to check whether it's supported.
+>
+> So, just this change:
+>
+> @@ -679,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
+>         case FFA_NOTIFICATION_GET:
+>         case FFA_NOTIFICATION_INFO_GET:
+>         /* Optional interfaces added in FF-A 1.2 */
+> -       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
+>         case FFA_MSG_SEND_DIRECT_RESP2:         /* Optional per 7.5.1 */
+>         case FFA_CONSOLE_LOG:                   /* Optional per 13.1: not in Table 13.1 */
+>         case FFA_PARTITION_INFO_GET_REGS:       /* Optional for virtual instances per 13.1 */
+>
+> Am I missing something?
 
-Boot logs
-https://gist.github.com/paresh-bhagat12/9a4a1aec5119ceedb386743921432c91
+Nope. I think you don't think you miss anything and
+I also think about it.
 
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+But, I'm not sure about "support" means in the pkvm about FF-A.
+Anyway unless the SPMC doesn't support the specific FF-A ABI,
+I don't know that's meaningful to return "TRUE" in here.
+IOW, suppose pkvm returns supports of  FFA_MSG_SEND_DIRECT_REQ2
+but user receive when it calls FFA_MSG_SEND_DIRECT_REQ2 with NOT SUPPORTED.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index 83af889e790a..d202484eec3f 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -146,6 +146,7 @@ vdd_mmc1: regulator-4 {
- 		regulator-name = "vdd_mmc1";
- 		regulator-min-microvolt = <3300000>;
- 		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3_sys>;
- 		regulator-boot-on;
- 		enable-active-high;
- 		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
-@@ -165,14 +166,16 @@ vcc_3v3_sys: regulator-5 {
- 	};
- 
- 	vddshv_sdio: regulator-6 {
-+		/* output of TLV7103318QDSERQ1 */
- 		compatible = "regulator-gpio";
- 		regulator-name = "vddshv_sdio";
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&vddshv_sdio_pins_default>;
- 		regulator-min-microvolt = <1800000>;
- 		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_5v0>;
- 		regulator-boot-on;
--		gpios = <&main_gpio1 31 GPIO_ACTIVE_HIGH>;
-+		gpios = <&main_gpio0 59 GPIO_ACTIVE_HIGH>;
- 		states = <1800000 0x0>,
- 			 <3300000 0x1>;
- 		bootph-all;
-@@ -334,7 +337,7 @@ AM62DX_IOPAD(0x01d4, PIN_INPUT, 7) /* (C15) UART0_RTSn.GPIO1_23 */
- 
- 	vddshv_sdio_pins_default: vddshv-sdio-default-pins {
- 		pinctrl-single,pins = <
--			AM62DX_IOPAD(0x1f4, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO1_31 */
-+			AM62DX_IOPAD(0x00f0, PIN_INPUT, 7) /* (Y21) GPIO0_59 */
- 		>;
- 		bootph-all;
- 	};
--- 
-2.34.1
+I'm not sure this inconsistency is allowed or not so as a defensive
+perspective.
 
+If that allows, I don't have a any special comment for this.
+
+Thanks!
+
+--
+Sincerely,
+Yeoreum Yun
 
