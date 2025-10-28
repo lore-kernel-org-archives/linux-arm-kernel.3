@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4858ACCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A434ACCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYDtPrC3G6SjHluGEZkqxO1EAHQjQdzxEg9eUYrW+6M=; b=wTlPhNhrVT28mtE3/qzCaJ1QNi
-	IrZ6nlskAmmkiQCQY4T8YNjgNIxbNI708uDq3DJadVEM1VpTXFL8SvQj1TMlMvEx5zbP305nAIkS7
-	GmhCwG9V3c87lVX3IIDSRqnH7MtqgKeC6HawjIBfZDN4Q74zdIUJczMnXoAPfZFOxiKOuBJZCAnhs
-	JbEF5JgDYa+l7h996TB5IVbzCgAMUy50+lRTHXhpgezkwGW/0lIXQ/JBhnHOG1bBUH8FXtAz7AXe8
-	9gp4Yhf1cZQrd3z54c/uQ0H+MMw3o8vr1YYtJomI1HTNniTZI9kf4yJg/m43cu20pLbJwHjo1jwXy
-	m6xY768A==;
+	bh=6AOYj+NGGeRZ7Yqf6v29L00+UqblIskONx8KDUVHi1Q=; b=5Bab4DyARllRvl0mzIECJlpqa/
+	mQ6VlApqmOp+NGzZv/aaeVkgOsXTvpoeP4YfQ4UcfJKgsY17RZGXiG1C9P3aw2wv3vvjq4wL3QW6/
+	lixG4QttUweCDz65ZvpV8qVZ3xwimsHG8VStRwP86vMDz34EldJacPG4ct5TCVXSp8sD3xDKvZD4m
+	g1u3JGIUyoHoJZ25f/CVMk4kSXsrJsyGTs1Srt1mF07ABSkYk6U8AW3PS9LdVl/KQWTv9cmyOyV3t
+	aiQxMRSdED0fwaXPtHXBDEmmByXJ0JlemyxBMVgleHVeQ3YMuJvSNJ/kK7o8U0R+on8RFwauKey0q
+	T36Sr1jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDggb-0000000FisS-0oAP;
-	Tue, 28 Oct 2025 10:12:17 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vDggi-0000000Fivl-1znO;
+	Tue, 28 Oct 2025 10:12:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDggW-0000000FirK-2FBs
+	id 1vDggf-0000000FiuY-3uTt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:12:14 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59S8Xrnu1177133
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:12:11 GMT
+	Tue, 28 Oct 2025 10:12:23 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59S45Lbl573685
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:12:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iYDtPrC3G6SjHluGEZkqxO1EAHQjQdzxEg9eUYrW+6M=; b=Vvc9m+mfS8OT9S8t
-	5RaG6Y4QXH0PSMcW6M8yaHZfd2mhdkovxcLjjOiL6ul42Re4WpoylwkUgCy2TKvj
-	Gg5twFbuk2b1SdsD4umkFQoEb9EcjTIcbimYGW+gHkvUpzWsfh4cI2CckKOnFk++
-	k4gq0awmMIa37G1WSiuIQuMPDPkjMvBQTljzxRJ40kjzQCFpCOBJXL9QoRE20OwG
-	/7B5A9brzZ2CgcPFkQbZlAKXAxt1TSSZHKy9wWu1I99U4SyA/akBS6XCpBMqst2r
-	IeRGRj5GlsfTTT0EUUhm0r0KFvsaECh+ZZfHgl5dHcgCPjZNpZgcQ8jLpI42/hCs
-	P6CEFA==
+	6AOYj+NGGeRZ7Yqf6v29L00+UqblIskONx8KDUVHi1Q=; b=e/RUqVnX6twUu1R4
+	1SL5Y5v3qcICnszJ+UT0irCp/VoYOI/uNdB77jwr1x8hk/C4xNMnXfajzfuQWigr
+	GR/Puw7ZXSjPVmMCYY0LWRjNN/s4REYi1Z9gBalYzlbtMkEABjCFWpalDhuenWJX
+	SqTm2vS3LaPUv/2Un9ugR0IpIoxG6pWrkTizgHpXSO0DvvKTqnjXBTwI6zMHpQUj
+	1OsDxRZZ5P5wTwwUqDU8yD+rq35+NU9I82sHItgLJPMB3KhynBWSNyb9Th5RfN0s
+	jjm+8du6e7Jfy5iGZJCVK8TQIhhAkGkpNAkvxpSho0JtLVXGNMwJhx7XQ30WKjDV
+	FmDAnw==
 Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a2tebga53-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a2pge918y-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:12:11 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-26983c4d708so44343935ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 03:12:11 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:12:21 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-290c2d13a01so43000765ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 03:12:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761646331; x=1762251131;
+        d=1e100.net; s=20230601; t=1761646341; x=1762251141;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iYDtPrC3G6SjHluGEZkqxO1EAHQjQdzxEg9eUYrW+6M=;
-        b=vCBcnWIWcezC5w/d5pSDf59vkUEqEwhC7Zi+uic8KS9gjRoDAxLuzoRMA5yKRx6Xx6
-         uEJISMSbRjExmtyzpQcf/AKHsXJQUKqq7tD6DyHJeNka5q5Fs6Ic+lfZyki9EjWyhz6F
-         BW+BCRFP66uCgiliBHJIZ7UBfeRR0zHOS4lZg7F1evwsuiDXW5C85TO6zq1rBanY8uc1
-         yfFGV+NQdazUPWSuF98VBrLzkW89HeNVZAxCvBmiq0FQwqPA/gjXo/Cytj/02mksRXu3
-         uoTeRckGj6G7hC1FUrANA2OjyF7CyfSb4xi568Ocehy71rZBL+Uh87sA80erdDaQq+pR
-         6Btg==
-X-Forwarded-Encrypted: i=1; AJvYcCWLYmywCUQ9nNR4Ea+Hq5j6WSxYF+E5pAdPq//h4POZIoX+BrwVO5W3GdQb07fTzWOxQvAcCPmCFMd/H11OB0GZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdmbGyKrMC7bka5rBWFTqTa42fPXk9j2jeCpipcjVwX1ayJkvW
-	L4mYhEOpyNGFIg0Yu0dmDD5LOgaMO+UG8MbOFWEV5Yj5q3zZioFynCeK6wp0WBy3tYpzMomYpqe
-	3MpEls3YllQFZi8A9IgdVYWMjh+q9wSKp5P3wW1JS/Tr9hNtRI35AzLcQiJsqSqf4eIhkxHugAg
-	p2nw==
-X-Gm-Gg: ASbGncs9FnqU5kFZLtbbxFPkoJzE9QMgznPhWJQubbpADZAqvuMdaG5g6Yd+W1XPJAn
-	9QBoLqGxL/5pZoirk6KmViS6giuahM/bIvVytwPhdbI12ym/6Eha/WVnChbftd0SfiCodRFTAxx
-	feFVgPhEsdXng4arVv7l5Z5mpnIdqNDyjzJrNjfV4KJPsfBVERLE0wvbIUcJHW+ssNW/kFU0FOa
-	Ff5Rl1f8M/6WkyPX9PpPCLQkbuNswdA5Fx9ODT275cdc/ZBuw4wsH0xe8m0TZM8KRVKU3D7cdQv
-	YpsS05qMYDJ1IcFpPj29YhUm/DsmnpTHeWUEDKEA6S+ZyXXEGmcCZ5bIuzndgm81dli1vjAZgFw
-	B4sS1Nu6v1BMKmV7cvhr2R3l8hO3qro3VDXl4qYnaEqrPrGjA79Njhhdtu3wuew==
-X-Received: by 2002:a17:902:e5c6:b0:293:e5f:85d7 with SMTP id d9443c01a7336-294cb5186efmr37248125ad.55.1761646330540;
-        Tue, 28 Oct 2025 03:12:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFb29YgEWk2tLkfhGz57DmwvdMAhUJDCMmBCcvIBnASLKQ2A1aNC//pQlo+JzoyOuG/gwC8nA==
-X-Received: by 2002:a17:902:e5c6:b0:293:e5f:85d7 with SMTP id d9443c01a7336-294cb5186efmr37247615ad.55.1761646329885;
-        Tue, 28 Oct 2025 03:12:09 -0700 (PDT)
+        bh=6AOYj+NGGeRZ7Yqf6v29L00+UqblIskONx8KDUVHi1Q=;
+        b=KxeX78wDAjKS2oL4qs21I2UVi1lVZBxuY1whzJvCdZgplpyr8KgP8+fOvuQDm60l2v
+         lJjbA5QTcI2qZ9Tc0m8aM+WvX9GHTBPblFUwhn1ei0O61/tf2fBtfjRIU7BqSsVZs9EY
+         /uL8rtFLh7s9dFhhszZ4HLgZmb8UROgkbfAEPlyEAqN8NN45x+O1L7YCr4BqWOX7VAHL
+         scMsSdSbmzQ3IiZglga44MEo84HXxasgObK0AP1GBQLycxSiyr7WJKjYzAbXqAJ+YBix
+         mOpXSX3sHP/NWeVOseuJLyrDb330D4+k7lyjs3NyxKEKlD0ZUc1wk0WJr/oNPxJCj7zb
+         0DuA==
+X-Forwarded-Encrypted: i=1; AJvYcCWJSok9iv0l9vU5QE+vaq/kMaX4VCJY26agyI3j33Sbejlv1IYeqC/ps8S5/oXvc0QqgDEPN+qBZ/Mri/NQM/oz@lists.infradead.org
+X-Gm-Message-State: AOJu0YymaUCT+5i5+sQpYkgpK46o9OFxa+8lA0WI/lTck4o3vaGohpsl
+	hEX7k/b9lfYNDFu/SAh+zjpLQNgmNgsmUQqGwfCg+7n93TmoTqGpCyqaKlIlCoPdLRhL81TVdAP
+	ckyKJzrCxjhAWJ4CbzFqxv/vA3vU+I9+bIAg4krtZT3zWbNXzR9XIqQYwqosA1V9ZlqoBqa/oel
+	XmCQ==
+X-Gm-Gg: ASbGncsaBOwx3Puv0CyS8HXKwjUZLmHsRHQkmre8yzMFS5sVGSXbRPMOQoVg+KW/VZt
+	kv1PMD05bb0qNbhdWjmKodsCaoBZjnPKHF/Wo0Krgy5qF+tDxg+s7wumKWeY0w3iBQlOi8yYLxW
+	uCalK7WnYxPwcEIieE2kbOzPZI9qFvHkFuKGjK1si5OJKwdGp9Il4x196jQJ1yMEbv0TWOfQvsU
+	VlLY/hpVglkQSv1hUMkSQcS+JOhIyJgE6RfNb4twiQfH9ZiwdtPulfv8p5AsLvSCeB+gB/XxeOc
+	XxSf5X4C3oapZvgU1pICYG7r9Lw8vPT+dm9qJ2MECNSP/zHh+qCYzxnRoIR5nLdZoh8Q3+1uu8L
+	M+0DGpBMh/jZb7MQIij97tGjSQL2S7UBCnuFqfNpWpdigOMHw9l9zn2nf73p7ug==
+X-Received: by 2002:a17:903:15cc:b0:292:b0d0:2ef1 with SMTP id d9443c01a7336-294cc722b29mr32133175ad.18.1761646340557;
+        Tue, 28 Oct 2025 03:12:20 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEQcK2UoPhoEuKHRrlWuWBy8+oO5uc8TBTCYd9RSa/HN7HmGG2vRuqfaewpomWa5UmuaODLLg==
+X-Received: by 2002:a17:903:15cc:b0:292:b0d0:2ef1 with SMTP id d9443c01a7336-294cc722b29mr32132545ad.18.1761646339772;
+        Tue, 28 Oct 2025 03:12:19 -0700 (PDT)
 Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf423esm110408755ad.19.2025.10.28.03.12.05
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf423esm110408755ad.19.2025.10.28.03.12.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 03:12:09 -0700 (PDT)
+        Tue, 28 Oct 2025 03:12:19 -0700 (PDT)
 From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Tue, 28 Oct 2025 18:11:40 +0800
-Subject: [PATCH v4 1/3] dt-bindings: arm: document the static TPDM
- compatible
+Date: Tue, 28 Oct 2025 18:11:42 +0800
+Subject: [PATCH v4 3/3] arm64: dts: qcom: lemans: enable static TPDM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-add_static_tpdm_support-v4-1-84e21b98e727@oss.qualcomm.com>
+Message-Id: <20251028-add_static_tpdm_support-v4-3-84e21b98e727@oss.qualcomm.com>
 References: <20251028-add_static_tpdm_support-v4-0-84e21b98e727@oss.qualcomm.com>
 In-Reply-To: <20251028-add_static_tpdm_support-v4-0-84e21b98e727@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -101,40 +100,42 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Konrad Dybcio <konradybcio@kernel.org>
 Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
         linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
+        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761646319; l=1550;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761646319; l=3216;
  i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=ril99Wt36AaQWNv+PDjT8BlLjpjvdFqefjO73sSkLmU=;
- b=mC9O91ScEQM7m0k2xJ3977SHUKVvtGlMU4RgMcCTUIhDtXcp4RUl8RyAH0i257VDDl+paWKOZ
- Ud/cYhe0oszCVKf4JALO09nYTVsuzQS/TGrgVZkmPzzzxnohyEVD1zM
+ bh=/rV8b02lFbRn8hnY0VJDTTwq6M9xJWBmQ2RE2hCI1Ho=;
+ b=NW8JrTq58ErqSr16wGg0PZvUE6ItBGloVWbTHohKLxaFebf5hWosb78ZE7f0jF4wGUAcuYMie
+ pZa9rUTi8emBz2PUihhD7npvKKnpvnBjjSlHcaLEb4CU6TqJMr1/yvC
 X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
  pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA4NSBTYWx0ZWRfX6+rzIfERvguc
- d12G3+0mW/q/BH96MaNjBrITOErRT1cKPnPMXKKp67DJXJNj+01RLt5MeD+Cr6NyS7ROoZ/kgxE
- ftp1ff70YpV/LTh1dKagAZ/lWRVBuj0gnQKIphFGEInbTNRDjMY/djmzJN7Z7A9ihMR3tMAI3rY
- +OOtuoDkAAfMVHggH2iTUi0OuMszE427c7U+odDGHYXBPco8vhoGhMLNre0QS/k+JtzrVBZkpt4
- ofAlE/J2mD5hECWM3W/dAz7RX+pZvYqZPyb6wm/rQ9Mr90c9IkwsC8MCvGjf9Vtjvt+oO9aFjPn
- cUhCg0qeqNT444sQhz7A7fYCdZ8KYlTfiNYxGFQkm3VcGbH+3EdeD8QB+K5V+gkcOifoO8x0/WU
- LUKIxSgnwEE8EiCvsP4tTVfat1mlFA==
-X-Proofpoint-GUID: 0Hx-BRyJirWO7ctTbHWhQRUmPznE8hS2
-X-Proofpoint-ORIG-GUID: 0Hx-BRyJirWO7ctTbHWhQRUmPznE8hS2
-X-Authority-Analysis: v=2.4 cv=V/BwEOni c=1 sm=1 tr=0 ts=690096fb cx=c_pps
+X-Proofpoint-ORIG-GUID: _0JFDdsz2Gi50CkxmXtburgq2gllA0qD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA4NSBTYWx0ZWRfX27A2cZIKx6Of
+ 3tAO9d/sKMdv/reSOCLYjMAUEYZaDWv2AmY5c1Mj/DLLp8GQdcQXYpQ2VnaL7Kb+3fjPEnBpZSE
+ 4nV9K7dMITGaOPd/LPZZ4vZXnyqAOSNUh+wPi9JvlHY1zE9Xu0OF4rYItSMAOA34nitzBSsPxiD
+ DhjWxylQ4/TYkZJ+mdFX+aUiJv8dKLjALuOlojU3sVQVvEF3eqFVd85pYGPK3k4qEIiWYHAtDWK
+ p8tkXNgSilN6AWO8QBiUO6uqyIRDCJYbjSpQ5gE7A2Vmvh1eD8grf4ZjeOCfvrmhcbnTQHT0D+w
+ CuFTefTj8CUtn4t2BBGGJVQff3D1tontI3UesLTeR3R3nJh2FGGgMyvYZnWlKx83tgO9jLIouSr
+ 0tQMVA3x+KmZhRnpeSsXY5iW6q+Ohg==
+X-Proofpoint-GUID: _0JFDdsz2Gi50CkxmXtburgq2gllA0qD
+X-Authority-Analysis: v=2.4 cv=fLU0HJae c=1 sm=1 tr=0 ts=69009705 cx=c_pps
  a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=5Z_N_GBq0btHVWfAyk4A:9 a=QEXdDO2ut3YA:10
+ a=EUspDBNiAAAA:8 a=_1kJojZ1I3LL_-Zbm_IA:9 a=QEXdDO2ut3YA:10
  a=1OuFwYUASf3TG4hYMiVC:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-28_04,2025-10-22_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 adultscore=0 malwarescore=0 spamscore=0
- phishscore=0 impostorscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510280085
+ clxscore=1015 suspectscore=0 spamscore=0 phishscore=0 malwarescore=0
+ lowpriorityscore=0 priorityscore=1501 impostorscore=0 adultscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
+ definitions=main-2510280085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_031212_759719_79B7A1C4 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20251028_031222_012729_C2ED3B54 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,55 +150,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The static TPDM device is intended for sources that do not require MMIO
-mapping. Its compatible string should be documented clearly, along with
-an example illustrating how to define a static TPDM node in the DT.
+Enable static TPDM device for lemans.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 ---
- .../bindings/arm/qcom,coresight-tpdm.yaml          | 23 +++++++++++++++++++---
- 1 file changed, 20 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/qcom/lemans.dtsi | 105 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 105 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-index 4edc47483851..c349306f0d52 100644
---- a/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-+++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-@@ -36,9 +36,12 @@ properties:
-   $nodename:
-     pattern: "^tpdm(@[0-9a-f]+)$"
-   compatible:
--    items:
--      - const: qcom,coresight-tpdm
--      - const: arm,primecell
-+    oneOf:
-+      - items:
-+          - const: qcom,coresight-static-tpdm
-+      - items:
-+          - const: qcom,coresight-tpdm
-+          - const: arm,primecell
+diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
+index 0b154d57ba24..8a93b353d11c 100644
+--- a/arch/arm64/boot/dts/qcom/lemans.dtsi
++++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
+@@ -2961,6 +2961,14 @@ funnel1_in4: endpoint {
+ 						<&apss_funnel1_out>;
+ 					};
+ 				};
++
++				port@5 {
++					reg = <5>;
++
++					funnel1_in5: endpoint {
++						remote-endpoint = <&dlct0_funnel_out>;
++					};
++				};
+ 			};
+ 		};
  
-   reg:
-     maxItems: 1
-@@ -147,4 +150,18 @@ examples:
-         };
-       };
-     };
+@@ -3118,6 +3126,60 @@ etr1_out: endpoint {
+ 			};
+ 		};
+ 
++		tpda@4ad3000 {
++			compatible = "qcom,coresight-tpda", "arm,primecell";
++			reg = <0x0 0x4ad3000 0x0 0x1000>;
 +
-+    turing-llm-tpdm {
-+      compatible = "qcom,coresight-static-tpdm";
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
 +
-+      qcom,cmb-element-bits = <32>;
++			in-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+      out-ports {
-+        port {
-+         turing_llm_tpdm_out: endpoint {
-+           remote-endpoint = <&turing0_funnel_in1>;
-+         };
-+        };
-+      };
-+    };
- ...
++				port@10 {
++					reg = <16>;
++					dlct0_tpda_in16: endpoint {
++						remote-endpoint = <&turing0_funnel_out>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					dlct0_tpda_out: endpoint {
++						remote-endpoint =
++						<&dlct0_funnel_in0>;
++					};
++				};
++			};
++
++		};
++
++		funnel@4ad4000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++			reg = <0x0 0x4ad4000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				port {
++					dlct0_funnel_in0: endpoint {
++						remote-endpoint = <&dlct0_tpda_out>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					dlct0_funnel_out: endpoint {
++						remote-endpoint = <&funnel1_in5>;
++					};
++				};
++			};
++		};
++
+ 		funnel@4b04000 {
+ 			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+ 			reg = <0x0 0x4b04000 0x0 0x1000>;
+@@ -3390,6 +3452,35 @@ aoss_cti: cti@4b13000 {
+ 			clock-names = "apb_pclk";
+ 		};
+ 
++		funnel@4b83000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++			reg = <0x0 0x4b83000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@1 {
++					reg = <1>;
++
++					turing0_funnel_in1: endpoint {
++						remote-endpoint = <&turing_llm_tpdm_out>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					turing0_funnel_out: endpoint {
++						remote-endpoint = <&dlct0_tpda_in16>;
++					};
++				};
++			};
++		};
++
+ 		etm@6040000 {
+ 			compatible = "arm,primecell";
+ 			reg = <0x0 0x6040000 0x0 0x1000>;
+@@ -8269,6 +8360,20 @@ arch_timer: timer {
+ 			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
+ 	};
+ 
++	turing-llm-tpdm {
++		compatible = "qcom,coresight-static-tpdm";
++
++		qcom,cmb-element-bits = <32>;
++
++		out-ports {
++			port {
++				turing_llm_tpdm_out: endpoint {
++					remote-endpoint = <&turing0_funnel_in1>;
++				};
++			};
++		};
++	};
++
+ 	pcie0: pcie@1c00000 {
+ 		compatible = "qcom,pcie-sa8775p";
+ 		reg = <0x0 0x01c00000 0x0 0x3000>,
 
 -- 
 2.34.1
