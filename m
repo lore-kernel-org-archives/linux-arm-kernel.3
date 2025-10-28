@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBD9CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 11:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFAFCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 11:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6RBxOpQwM9ZQILp1LIjr5FHqyEz/6xG2wfXnnp3R8PE=; b=Hwu1r1PAT0cGiqG74G8eq9ZnhF
-	KbUlvHDIhD694OcwEwnYiyJsk1qcUaEPPKwPzx4eYs7wp6QP8duYIYNMfIq7hBcIX2FBr3ZgQjQwI
-	S65zE5bP70FY+caoKLtVfETtUn1X2QSOLh8vLpWtdPQzptdjBd/sfMzkWioUIdR5oKHA+TU0x/kOC
-	cUIyJsVcZOvkuz4t4v5L2Zs8PYxza6sLf0fScsaulEqJZO83MtLeO66d855aZ6DKH9wpQzHExZiC9
-	QnzG81wHHhhm7bvGuSrF4uqLuVDnWpetE0YX8rjBWEBUjvWtJlEGRUO1Eqdvpq7fsnXJnTfNVc+wZ
-	mxRYnUDA==;
+	bh=PWcMpUbr5EvoYwg6OCCvCq3zKJMQIWwwgnasyRi2T/U=; b=TV83Hx22DN+WE5dIRbsygrFYDn
+	lSnzUqNQ0qYGjkGNoixaFwqDYPkp/0riBFL2fxjCKbol0WmOVDTeDo1jO+AJQ81Eq7ovtOCT5omGR
+	BSeBXA9zKBzGg1LPbppclK1PfZLerQpaRoLUloraHBmj4utjaSftaNEyXwPC7Qqe67UYFd7j14uv6
+	4iBueuC+bMsZsAJeR8+80L3VIYwUICscWr8iM0TstoUvx388TqWWIEx4sl7F88g/+NzHEzEJgIxKS
+	1ToUDLoCfEfK7iZL9L75tC3HuqK4PqbVxFTb5qpxTZ2EiX/uJ/NZ+FVWNG4p9eRgDb427A+VWKcUp
+	fmSdvaiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDi7O-0000000FrPF-24A7;
-	Tue, 28 Oct 2025 11:44:02 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vDi7X-0000000FrRj-3YLJ;
+	Tue, 28 Oct 2025 11:44:11 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDi7J-0000000FrMn-3PyI
+	id 1vDi7W-0000000FrQt-1iwV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 11:44:00 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cwpMp484kz6L4yt;
-	Tue, 28 Oct 2025 19:40:22 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3FC4C1400D3;
-	Tue, 28 Oct 2025 19:43:52 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 28 Oct
- 2025 11:43:50 +0000
-Date: Tue, 28 Oct 2025 11:43:48 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Arnd Bergmann <arnd@arndb.de>
-CC: Conor Dooley <conor@kernel.org>, Andrew Morton
-	<akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Linux-Arch <linux-arch@vger.kernel.org>, <linux-mm@kvack.org>, Dan Williams
-	<dan.j.williams@intel.com>, "H. Peter Anvin" <hpa@zytor.com>, "Peter
- Zijlstra" <peterz@infradead.org>, James Morse <james.morse@arm.com>, Will
- Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	<linuxarm@huawei.com>, Yushan Wang <wangyushan12@huawei.com>, "Lorenzo
- Pieralisi" <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Dave
- Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	<x86@kernel.org>, Andy Lutomirski <luto@kernel.org>, "Dave Jiang"
-	<dave.jiang@intel.com>, Krzysztof Kozlowski <krzk@kernel.org>, Alexandre
- Belloni <alexandre.belloni@bootlin.com>, Linus Walleij
-	<linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>
-Subject: Re: [PATCH v4 0/6] Cache coherency management subsystem
-Message-ID: <20251028114348.000006ed@huawei.com>
-In-Reply-To: <fe57097b-1817-4428-9940-477c3f36cafb@app.fastmail.com>
-References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
-	<20251022122241.d2aa0d7864f67112aa7691bf@linux-foundation.org>
-	<20251022-harsh-juggling-2d4778b0649e@spud>
-	<20251023174026.00005b42@huawei.com>
-	<fe57097b-1817-4428-9940-477c3f36cafb@app.fastmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 28 Oct 2025 11:44:11 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3ee130237a8so3826141f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 04:44:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761651848; x=1762256648; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PWcMpUbr5EvoYwg6OCCvCq3zKJMQIWwwgnasyRi2T/U=;
+        b=EgL4V+W2FnNSg0ggaNIE3bZRQyEtGa8qQrGsUhxl8Aq8joYZ/XE8GukXUYNAGjOLYh
+         khfEPInBMLtFmhTwRXHdFF+zgjbN1yT3do21hsjvmn+n/UBkF4uNrJwhZK6HcmxrIdZz
+         ANRzHSBDZGiYXLwDrpDXsaYJ3Y5qStX8lVwRhUkWr5f6ClnkBqXDRx6xiC+lvTGsHvAQ
+         k7m5nCtcrXMPrjg8gTsmCsPXZ3lxl/TfIttwG679AgJUPP0vd1XND/O8754qZim10Ooj
+         VlevORh7zoWBC/S6ZNDNSayFFyjt3IoJsRQXY58GcmvXB+T55LxTuyeflbP2EhkGXksV
+         R3tA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761651848; x=1762256648;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PWcMpUbr5EvoYwg6OCCvCq3zKJMQIWwwgnasyRi2T/U=;
+        b=ICDK8cDU3GOQvhmdodpCFjzro4tv4mIwFliZjoMGjS7+KfJAKmQvkeUb77E9LYEZ1l
+         JQktZCF9CM0o8tRySIW5GlBqN4BZ7MRl2JQ2qliSDYNgNOMHN9dKsXBt5qOLAXNdr+bC
+         eQYO94F1voXdmIqU+dt4D1VxhloCZK/mHAxh7NiPF9VotG2y67qc5PLdPPIItWdhVSZ0
+         Pm6gg+cS4oRf+uLYUk0dDe0zxvvxLirmeCmPbt1LiiIZZu3CDgxXgpHgR2IprD2jnaEG
+         a75HWD8qcwal4sW3+JFUSvQFt9788CstARFAzt1Hx9e8sx2HW369DhxCaVwZzhzk05Dt
+         HvFg==
+X-Forwarded-Encrypted: i=1; AJvYcCX7e26SyDNspmalZASRzsOYNCS6d0v9VjEYcKWp3iivjkNO0flF+bxBl72nfDvepa1J++5uMSBVxxwQ55LeKNH4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1Zfhhcv2KqINvUcQ2Rp+8/5MwGrbXyOsPWuDk7Fd49rMorKiv
+	CBZw3XNr1Xt8fojTS2X7dxoOy6IwwZJGbVzkwcsz25B6NOGP4CANkVXj
+X-Gm-Gg: ASbGncsomlin7eFjz9lFTCkptQLLG/xMcUb+rziLDj2X2a2eDF4hvgQaScMtlweUh+t
+	oELYqQwhvSyHEDpmqS0q58HnEvDrseLP+D6rhYHNKFk1lyXFzqU0iqlck7+8UswCDjRGhPXZclj
+	pXTOBlLdGs3ZN7i85IGIUUrm1rjg2kCM8vTD4xe4L1mS5bThn8AB78t536j3AJpW+iy5ucOxPH9
+	6/yY4dW17GR3KUzsN3qF/M+USgK72LTZtreeTpj15RuQLuDle3FVy/AOpEB5kb3HVdzhnWJQla4
+	PxHi0UYPNEU3VWj9l74TyAJGLb0pp9WFiU/FY4LojJW/CFbUwIlJG2e3DPTBehaygVfRjwZC110
+	8JG0xivOEHpA8csV6OfLpdzn+LX1MQtPCq9vrYu8pYgjOAgemHgUdRFD9HjVyQcan2SQwapak3h
+	1qNOFbQGXRHfou4tfxonod
+X-Google-Smtp-Source: AGHT+IGWKlgpP2z1QhsSUQHXl7C4b+OW6D0eUSaDQiNKqIYxyLK5t9gJfLBx15l4AM6BkXPesoBDGw==
+X-Received: by 2002:a05:6000:3103:b0:429:8cda:dd4e with SMTP id ffacd0b85a97d-429a7e732bdmr2556153f8f.32.1761651847905;
+        Tue, 28 Oct 2025 04:44:07 -0700 (PDT)
+Received: from [10.24.67.204] ([15.248.3.88])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952b7b43sm20301815f8f.6.2025.10.28.04.44.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Oct 2025 04:44:07 -0700 (PDT)
+Message-ID: <c52db7bf-494f-49a8-9829-3805db6dda7c@gmail.com>
+Date: Tue, 28 Oct 2025 11:44:06 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] KVM: selftests: Fix unaligned mmap allocations
+Content-Language: en-GB
+To: Sean Christopherson <seanjc@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ isaku.yamahata@intel.com, roypat@amazon.co.uk, kalyazin@amazon.co.uk,
+ jackabt@amazon.com
+References: <20251013151502.6679-1-jackabt.amazon@gmail.com>
+ <20251013151502.6679-3-jackabt.amazon@gmail.com>
+ <aPpi1c-8EpWuo87B@google.com>
+From: "Thomson, Jack" <jackabt.amazon@gmail.com>
+In-Reply-To: <aPpi1c-8EpWuo87B@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_044358_155676_90672912 
-X-CRM114-Status: GOOD (  51.14  )
+X-CRM114-CacheID: sfid-20251028_044410_477959_1FE6F613 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,148 +108,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Oct 2025 10:44:03 +0100
-"Arnd Bergmann" <arnd@arndb.de> wrote:
 
-> On Thu, Oct 23, 2025, at 18:40, Jonathan Cameron wrote:
-> > On Wed, 22 Oct 2025 21:47:21 +0100 Conor Dooley <conor@kernel.org> wrote:  
+
+On 23/10/2025 6:16 pm, Sean Christopherson wrote:
+> On Mon, Oct 13, 2025, Jack Thomson wrote:
+>> From: Jack Thomson <jackabt@amazon.com>
+>>
+>> When creating a VM using mmap with huge pages, and the memory amount does
+>> not align with the underlying page size. The stored mmap_size value does
+>> not account for the fact that mmap will automatically align the length
+>> to a multiple of the underlying page size. During the teardown of the
+>> test, munmap is used. However, munmap requires the length to be a
+>> multiple of the underlying page size.
 > 
-> > On CXL discord, some reasonable doubts were expressed about justifying
-> > this to Linus via CXL. Which is fair given tiny overlap from a 'where
-> > the code is' point of view and also it seems I went too far in trying to
-> > avoid people interpreting this as affecting x86 systems (see earlier
-> > versions for how my badly scoped cover letter distracted from what this
-> > was doing) and focus in on what was specifically being enabled rather
-> > than the generic bit. Hence it mentions arm64 only right now and right
-> > at the top of the cover letter.
-> >
-> > Given it's not Arm architecture (hence just one Kconfig line in Arm
-> > specific code) I guess alternative is back to drivers/cache and Conor which
-> > I see goes via SoC (so +CC SoC tree maintainers).  
+> What happens when selftests use the wrong map_size?  E.g. is munmap() silently
+> failing?  If so, then I should probably take this particular patch through
+> kvm-x86/gmem, otherwise it means we'll start getting asserts due to:
 > 
-> I tried to understand the driver from the cover letter and the
-> implementation, but I think I still have some fundamental questions
-> about which parts of the system require this for coherency with
-> one another.
+>    3223560c93eb ("KVM: selftests: Define wrappers for common syscalls to assert success")
 > 
-> drivers/cache/* is about keeping coherency between DMA masters
-> that lack support for snooping the CPU caches on low-end SoCs.
-> Does the new code fit into the same category?
-
-Hi Arnd,
-
-Sort of if you squint a bit.  The biggest difference is every architecture
-has to do something explicit and often that's different from what it would
-do for local (same host) non coherent DMA. In some cases it's a CPU
-instruction (x86 - which this patch set doesn't touch) in others an MMIO
-interface (all known arm64 implementations today).
-
-The closest to your question that this comes is if we do end up using this
-for the multi host non-coherent shared memory case.
-
-Before I expand on this, note it is very doubtful this use case
-of the patch set here will be realized as the performance will
-be terrible unless the change of ownership is very very rare.
-
-In that case you could conceive of it being a bit like two symmetric
-DMA masters combined with CPUs. From viewpoint of each host the other one
-is the DMA master that doesn't support snooping.
- 
-View from Host A... Host B looks like non coherent DMA
- ________                            ________
-|        |                          |        |
-| Host A |                          | Host B |
-|  CPU   |---------- MEM -----------|  (CPU) |
-| (DMA)  |                          |  DMA   | 
-|________|                          |________|
-
-View from Host B... Host A looks like non coherent DMA
- ________                            ________
-|        |                          |        |
-| Host A |                          | Host B |
-| (CPU)  |---------- MEM -----------|  CPU   |
-|  DMA   |                          | (DMA)  | 
-|________|                          |________|
-
-In my opinion, new architecture is needed to make fine grained sharing
-without hardware coherency viable. Note that CXL supports fully hardware
-coherent multi host shared memory which resolves that problem but doesn't
-cover the hotplug aspect as the device won't flush out lines it never
-knew the host cached (before it was hot plugged!)
-
-Use case that matters is much closer to flushing because memory hotplug
-occurred - something hosts presumably do, but hide in firmware when it's
-physical DDR hotplug).  Arguably you could conceive of persistent memory
-hotplug as being non coherent DMA done by some host at an earlier time
-that is then exposed to the local host by the hotplug event.   Kind of
-a stretch though.
-
-> Or is this about flushing cacheable mappings on CXL devices
-> that are mapped as MMIO into the CPU physical address space,
-> which sounds like it would be out of scope for drivers/cache?
-
-Not MMIO. The memory in question is mapped as normal RAM - just the same
-as DDR DIMM or similar.
-
-As above, the easiest thing to think of it is as is memory hotplug where
-the memory may contain data (so could think of it as similar to
-hotplugging possibly persistent memory).
-
-Before the memory is there you can be served zeros (or poison) and when
-the memory is plugged in you need to make sure those zeros are not in
-cache.  More complex sequences of removing memory then putting other
-memory back at the same PA are covered as well.
-
+> If munmap() isn't failing, then that begs the question of what this patch is
+> actually doing :-)
 > 
-> If it's the first of those two scenarios, we may want to
-> generalize the existing riscv_nonstd_cache_ops structure into
-> something that can be used across architectures.
 
-There are some strong similarities, hence very similar function prototype
-for wbinv().  We could generalize that infrastructure and a) make it handle
-multiple (heterogeneous) flushing agents b) polling for completion c)
-late arrival of those agents which is a problem for anything that can't
-be made to wait by user space (not a problem for use cases I need this
-for, userspace is always in the loop for policy decisions anyway).
+Hi Sean, sorry I completely missed your reply.
 
-The hard part would be that we'd have to add infrastructure to distinguish
-when the operation should be called and that the level of flush will be
-dependent on that.  An example is the use of the riscv ops in
-arch_invalidate_pmem(). That's used for clearing poison for example.
+Yeah currently with a misaligned map_size it causes munmap() to fail, I
+noticed when tested with different backings.
 
-On x86 the implementation of that is clflush_cache_range() whereas today
-the implementation we are replacing here is the much heavier WBINVD
-(whether we could use clflush is an open question that was discussed in
-earlier versions of this patch set - not in scope here though).
-On arm64 for this case today dcache_inval_poc() is enough as long as
-we are dealing with a single host (as those code paths are). If this
-flush did go far enough I believe a secondary issue is we would have to
-jump through hoops to create a temporary VA to PA mapping to memory
-that doesn't actually exist at some points in time where we flush/
+>> Update the vm_mem_add method to ensure the mmap_size is aligned to the
+>> underlying page size.
+>>
+>> Signed-off-by: Jack Thomson <jackabt@amazon.com>
+>> ---
+>>   tools/testing/selftests/kvm/lib/kvm_util.c | 12 +++++-------
+>>   1 file changed, 5 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+>> index c3f5142b0a54..b106fbed999c 100644
+>> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
+>> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+>> @@ -1051,7 +1051,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+>>   	/* Allocate and initialize new mem region structure. */
+>>   	region = calloc(1, sizeof(*region));
+>>   	TEST_ASSERT(region != NULL, "Insufficient Memory");
+>> -	region->mmap_size = mem_size;
+>>   
+>>   #ifdef __s390x__
+>>   	/* On s390x, the host address must be aligned to 1M (due to PGSTEs) */
+>> @@ -1060,6 +1059,11 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+>>   	alignment = 1;
+>>   #endif
+>>   
+>> +	alignment = max(backing_src_pagesz, alignment);
+>> +	region->mmap_size = align_up(mem_size, alignment);
+>> +
+>> +	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
+>> +
+>>   	/*
+>>   	 * When using THP mmap is not guaranteed to returned a hugepage aligned
+>>   	 * address so we have to pad the mmap. Padding is not needed for HugeTLB
+>> @@ -1067,12 +1071,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+>>   	 * page size.
+>>   	 */
+>>   	if (src_type == VM_MEM_SRC_ANONYMOUS_THP)
+>> -		alignment = max(backing_src_pagesz, alignment);
+>> -
+>> -	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
+>> -
+>> -	/* Add enough memory to align up if necessary */
+>> -	if (alignment > 1)
+>>   		region->mmap_size += alignment;
+>>   
+>>   	region->fd = -1;
+>> -- 
+>> 2.43.0
+>>
 
-On arm64 at least, the Point of Coherence is currently a single host thing
-so not guaranteed to write far enough for the 'hotplug' of memory case
-(and does not do so on some existing hardware as for fully coherent
-single hosts this is a noop).
-
-Also the DMA use cases of the existing riscv ops are not applicable here
-at all as when DMA is going on we'd better be sure the memory remains
-available and doesn't need any flushes.
-
-Longer term I can see we might want to combine the two approaches or
-(this patch set and the existing riscv specific infrastructure), but
-I have little idea on how to do that with the usecases we have
-visibility of today.  This stuff is all in kernel so I'm not that worried
-about getting everything perfect first time.
-
-The drivers/cache placement was mostly about finding a place where
-we'd naturally see exactly the sort of overlap you've drawn attention to.
-
+-- 
 Thanks,
-
-Jonathan
-
-> 
->      Arnd
-
+Jack
 
