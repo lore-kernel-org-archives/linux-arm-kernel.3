@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0A6CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 00:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE4ECCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 00:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fZq3tbinLN9iV6tR9wh+L1TcJJLRbds3pWQbE4SVPQ=; b=AVJtMGwg1IEvbRMxYli+eCSK7E
-	BSeSSFBukryMzmYeamFNeAhU1ZP2yDs9Zf0do9bly1UC+WB4gWKM6yc8Y+F2f8c+xBkrk41UNwEJ0
-	v8Xz/KGUBgElIBX68sCN9p1xcjnQ7tf3IAmOdxTu4MIeejNaki07/mILKlygTyxbDvdaST2gtmpn8
-	8W/PTohqFoyzmlosBb8rDxZm2xlHBKAuZdwaSmQLGGNDjMx0jxMpiTj83Aw0HuQY0R2akMpQ9Mlw7
-	6nAiEWdDNsffukXpeaogqqLZ7FHN7wMgSGzSgc1r04jmT1X4n63Yww1vcwjk5LkglxYuSEVfOR4Z6
-	PhUW8v3w==;
+	bh=IOVvQiJpGvp6+xA294rJerEG3dTHQnXxn46jZXjb5wY=; b=uddWgK4iB5s/+4Aqi9FS7k3d8N
+	961qKPiOUIvd0xh1pODwT0t01cI0cIfiZU9AyQC1RFfRfNPjYNBcvhTSsboG9PGlBZxBGULgN/Xy8
+	f1Jq+qJHPFbiNQzQHYQljaHLfMPECRriixUPF6Av1jZLZUOx7Wrupc3eeAOc9qTgXRiybIzX5xUDZ
+	Fd6pt47JqlSjfZ0BzFZj0MmwPiLibp77XNc54+RrH1pt3M8u3U0G6iMHJzcMPJ9Kkx1T5iAgQHDs0
+	cmRfkCbKG+uICCPxaeDDv+11Ju7OTv+o+hG8o49kzxy1HgeK34V/GhcotwSQU1BaNaqvF7WE/YCcF
+	1exswAGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDXau-0000000EzT6-3j71;
-	Tue, 28 Oct 2025 00:29:48 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1vDXhk-0000000EzvQ-16q8;
+	Tue, 28 Oct 2025 00:36:52 +0000
+Received: from pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.83.148.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDXar-0000000EzQe-33Ac
+	id 1vDXhh-0000000Ezuw-329s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 00:29:47 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b6ce15aaa99so3828368a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:29:45 -0700 (PDT)
+	Tue, 28 Oct 2025 00:36:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761611384; x=1762216184; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3fZq3tbinLN9iV6tR9wh+L1TcJJLRbds3pWQbE4SVPQ=;
-        b=W2KTpxdBog6wEgizqYtCyy8IeBp9EwKpxA+gvoIg0oZivMIshahawOfTZ7aTsE5+yO
-         y7K4K8jzpPg3Qag70h9+DyrlI5MQsNW0V3tHmCCvSMnc3bo9qAFcJtc24yHdWluh4cVT
-         GV3m5g3cUQQLDReFpOoYRvGquhHQ2heFoY1B6dUIHNNNnRwGUxOIS+0ZygzzvGh050aV
-         VUga1gJzwSwhdz15wbJX/RR29vk3u4nUuZLL/Xld3uT+ZdO5gOQ8TLuHuqWL06uChmR8
-         tyK83ZDwmle6MtYHvo1diz029+LGOwm2fBJwu40L0qNpb/aC1Y88xiLlT324upXbCr35
-         doJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761611384; x=1762216184;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=3fZq3tbinLN9iV6tR9wh+L1TcJJLRbds3pWQbE4SVPQ=;
-        b=mxJncatz720l4J7T3Qgkj7lm7axNYGV7fLSD/JdM6Nsi4Wr292SRR6gVnKsqcq26ZQ
-         P1EdvkEXAKaI2WfheX2V1ZXIy4JDKQJzlkhcvZlywB/NSezNi0AdeZjufGZsHjahkRQF
-         95AlE6O0oCYDJhPwRAXTwNhRrm2Fzj4yfP63qhHmmHudzW1qPWajHatwkY836uWPPVa1
-         iDF2KvdnYU4IAPLBxq9hwxpGSx8Poj0wG6spIEu9MpwLLASF1mK12+ekIMFLmYUD0wzQ
-         SMwbaYh9KeAzXoRPBsfpefqwbuMAdwcPgjFN1zoN5AAcq2h5qACmbTyUvHcjRrWZuxl+
-         FLxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVeJo//ilPhGBL4OvtQNhGS7dF0DQgp/H4Y0uJh3tJbQnsr65UiS4ECnBr+X1ApR88Zp13O0U9MgfSu2Dn5iEee@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJof9sZUngh+/qEkesmwSQLkQAYL224lekGVGa8qOlHDC7UeHr
-	1S5Gy5YWylZXXCmpnKVCCan8cdvwgUY+q60im2KX5cYlcDl7oNKz46JhNKSz5vriXbgSTX/GvSO
-	Hz8cHZQ==
-X-Google-Smtp-Source: AGHT+IEcbPffJX+DPzKHtANj5YoID2qTNS+wCvJIhOFTengBDdmvUTitjaF5SaOhKDAJ4Iu3BAJZiOrVVlg=
-X-Received: from pjqc14.prod.google.com ([2002:a17:90a:a60e:b0:33b:51fe:1a77])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3d0f:b0:33e:30e8:81cb
- with SMTP id 98e67ed59e1d1-34027a0775bmr1898674a91.13.1761611384405; Mon, 27
- Oct 2025 17:29:44 -0700 (PDT)
-Date: Mon, 27 Oct 2025 17:29:42 -0700
-In-Reply-To: <59ae9957-88a8-4777-9bd2-196e8b4eb8ac@linux.intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-14-seanjc@google.com>
- <5dea4a3d-c7b7-48f0-b2d5-7597e0cd5f00@linux.intel.com> <aPuqYz3ly5a3__mf@google.com>
- <59ae9957-88a8-4777-9bd2-196e8b4eb8ac@linux.intel.com>
-Message-ID: <aQAOdiSUktmAJKsw@google.com>
-Subject: Re: [PATCH v3 13/25] KVM: TDX: Fold tdx_mem_page_record_premap_cnt()
- into its sole caller
-From: Sean Christopherson <seanjc@google.com>
-To: Binbin Wu <binbin.wu@linux.intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Yan Zhao <yan.y.zhao@intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
-	Ackerley Tng <ackerleytng@google.com>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1761611809; x=1793147809;
+  h=from:to:cc:date:message-id:references:in-reply-to:
+   content-id:content-transfer-encoding:mime-version:subject;
+  bh=IOVvQiJpGvp6+xA294rJerEG3dTHQnXxn46jZXjb5wY=;
+  b=D4FhpE5sI9ROyhZoj7LTzwcE9rhkGuTZ9z6/Gx3X2zPhPEvRGkUcfCsG
+   Fda7VBLhJpuJ/ZJhVqzpNduLxSIR98bUkgiStqzhS6wccvYxpnrhMhay2
+   rWVKJ+vzUt06QWD27l2DjeJJtLrpt3/xOZv+nfn0twY4QwNh2ht+SQ4pI
+   RegUnQn2l+nDg6Op39rvwLSXEvIVEjLY+qRTNq3e64T59x8D2EyCdmWCt
+   psO9iBdpjMXi3Snw9r79uTn9kVco96qGd6BOCeIo+ViOm+snnwSMtS18k
+   4i4KNLbKlHCor+aA9wRukcSbOmPktC2OEC3QjqjPr76bDtZh2EtqVNEyk
+   A==;
+X-CSE-ConnectionGUID: 26SJ8qqZRE+FNdoNM3ro3g==
+X-CSE-MsgGUID: YiTQtjjxR1CtkjkcG+NhGw==
+X-IronPort-AV: E=Sophos;i="6.19,260,1754956800"; 
+   d="scan'208";a="5635122"
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Thread-Topic: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2025 00:36:45 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:26105]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.58.51:2525] with esmtp (Farcaster)
+ id 9f41d556-68c3-4916-acdf-260b786a1eb9; Tue, 28 Oct 2025 00:36:45 +0000 (UTC)
+X-Farcaster-Flow-ID: 9f41d556-68c3-4916-acdf-260b786a1eb9
+Received: from EX19D032UWA004.ant.amazon.com (10.13.139.56) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Tue, 28 Oct 2025 00:36:37 +0000
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19D032UWA004.ant.amazon.com (10.13.139.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
+ Tue, 28 Oct 2025 00:36:37 +0000
+Received: from EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497]) by
+ EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497%5]) with mapi id
+ 15.02.2562.029; Tue, 28 Oct 2025 00:36:37 +0000
+From: "Bandi, Ravi Kumar" <ravib@amazon.com>
+To: Bjorn Helgaas <helgaas@kernel.org>, Manivannan Sadhasivam
+	<mani@kernel.org>
+CC: "thippeswamy.havalige@amd.com" <thippeswamy.havalige@amd.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "kwilczynski@kernel.org"
+	<kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"michal.simek@amd.com" <michal.simek@amd.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>, Stefan Roese <stefan.roese@mailbox.org>, "Musham,
+ Sai Krishna" <sai.krishna.musham@amd.com>, Sean Anderson
+	<sean.anderson@linux.dev>, "Yeleswarapu, Nagaradhesh"
+	<nagaradhesh.yeleswarapu@amd.com>
+Thread-Index: AQHcKoFWBnk90o/gZUOv7QYU+iHxwrTJOZeAgA2kSICAABLnAA==
+Date: Tue, 28 Oct 2025 00:36:36 +0000
+Message-ID: <C863FB65-E6B8-48B8-A2FF-779330D9BE5A@amazon.com>
+References: <20251027232847.GA1488235@bhelgaas>
+In-Reply-To: <20251027232847.GA1488235@bhelgaas>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.187.171.62]
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-ID: <34DBB2AF1B6DC649B354F3E881A47C26@amazon.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_172945_785704_E4A54838 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20251027_173649_822063_77520B86 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,68 +110,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025, Binbin Wu wrote:
->=20
->=20
-> On 10/25/2025 12:33 AM, Sean Christopherson wrote:
-> > On Fri, Oct 24, 2025, Binbin Wu wrote:
-> > >=20
-> > > On 10/17/2025 8:32 AM, Sean Christopherson wrote:
-> > > > Fold tdx_mem_page_record_premap_cnt() into tdx_sept_set_private_spt=
-e() as
-> > > > providing a one-off helper for effectively three lines of code is a=
-t best a
-> > > > wash, and splitting the code makes the comment for smp_rmb()  _extr=
-emely_
-> > > > confusing as the comment talks about reading kvm->arch.pre_fault_al=
-lowed
-> > > > before kvm_tdx->state, but the immediately visible code does the ex=
-act
-> > > > opposite.
-> > > >=20
-> > > > Opportunistically rewrite the comments to more explicitly explain w=
-ho is
-> > > > checking what, as well as _why_ the ordering matters.
-> > > >=20
-> > > > No functional change intended.
-> > > >=20
-> > > > Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-> > > > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > > Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
-> > >=20
-> > > One nit below.
-> > >=20
-> > > [...]
-> > > > +	/*
-> > > > +	 * If the TD isn't finalized/runnable, then userspace is initiali=
-zing
-> > > > +	 * the VM image via KVM_TDX_INIT_MEM_REGION.  Increment the numbe=
-r of
-> > > > +	 * pages that need to be mapped and initialized via TDH.MEM.PAGE.=
-ADD.
-> > > > +	 * KVM_TDX_FINALIZE_VM checks the counter to ensure all mapped pa=
-ges
-> > >  =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0^
-> > >  =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 Nit: Is pre-mapped better?
-> > Yeah, updated (and then it gets deleted a few commits later :-) ).
-> Oh, right, nr_premapped will be dropped later.
->=20
-> Since the whole nr_premapped will be dropped, do we still need a cleanup =
-patch
-> like patch 12 which will be dropped finally?
-
-We don't strictly "need" the cleanups, but IMO intermediate cleanups are of=
-ten
-worth doing even if they get thrown away, soo that the code is in a (hopefu=
-lly)
-better state when the "big" functional change comes along.  I.e. if code 'X=
-' is
-easier to understand than code 'Y', then theoretically/hopefully X=3D>Z is =
-also
-easier to understand than Y=3D>Z.
+DQoNCj4gT24gT2N0IDI3LCAyMDI1LCBhdCA0OjI44oCvUE0sIEJqb3JuIEhlbGdhYXMgPGhlbGdh
+YXNAa2VybmVsLm9yZz4gd3JvdGU6DQo+IA0KPiBDQVVUSU9OOiBUaGlzIGVtYWlsIG9yaWdpbmF0
+ZWQgZnJvbSBvdXRzaWRlIG9mIHRoZSBvcmdhbml6YXRpb24uIERvIG5vdCBjbGljayBsaW5rcyBv
+ciBvcGVuIGF0dGFjaG1lbnRzIHVubGVzcyB5b3UgY2FuIGNvbmZpcm0gdGhlIHNlbmRlciBhbmQg
+a25vdyB0aGUgY29udGVudCBpcyBzYWZlLg0KPiANCj4gDQo+IA0KPiBbK2NjIFN0ZWZhbiBldCBh
+bF0NCj4gDQo+IE9uIFN1biwgT2N0IDE5LCAyMDI1IGF0IDEyOjM5OjI1UE0gKzA1MzAsIE1hbml2
+YW5uYW4gU2FkaGFzaXZhbSB3cm90ZToNCj4+IE9uIFNhdCwgMjAgU2VwIDIwMjUgMjI6NTI6MzIg
+KzAwMDAsIFJhdmkgS3VtYXIgQmFuZGkgd3JvdGU6DQo+Pj4gVGhlIHBjaWUteGlsaW54LWRtYS1w
+bCBkcml2ZXIgZG9lcyBub3QgZW5hYmxlIElOVHggaW50ZXJydXB0cw0KPj4+IGFmdGVyIGluaXRp
+YWxpemluZyB0aGUgcG9ydCwgcHJldmVudGluZyBJTlR4IGludGVycnVwdHMgZnJvbQ0KPj4+IFBD
+SWUgZW5kcG9pbnRzIGZyb20gZmxvd2luZyB0aHJvdWdoIHRoZSBYaWxpbnggWERNQSByb290IHBv
+cnQNCj4+PiBicmlkZ2UuIFRoaXMgaXNzdWUgYWZmZWN0cyBrZXJuZWwgNi42LjAgYW5kIGxhdGVy
+IHZlcnNpb25zLg0KPj4+IA0KPj4+IFRoaXMgcGF0Y2ggYWxsb3dzIElOVHggaW50ZXJydXB0cyBn
+ZW5lcmF0ZWQgYnkgUENJZSBlbmRwb2ludHMNCj4+PiB0byBmbG93IHRocm91Z2ggdGhlIHJvb3Qg
+cG9ydC4gVGVzdGVkIHRoZSBmaXggb24gYSBib2FyZCB3aXRoDQo+Pj4gdHdvIGVuZHBvaW50cyBn
+ZW5lcmF0aW5nIElOVHggaW50ZXJydXB0cy4gSW50ZXJydXB0cyBhcmUNCj4+PiBwcm9wZXJseSBk
+ZXRlY3RlZCBhbmQgc2VydmljZWQuIFRoZSAvcHJvYy9pbnRlcnJ1cHRzIG91dHB1dA0KPj4+IHNo
+b3dzOg0KPj4+IA0KPj4+IFsuLi5dDQo+PiANCj4+IEFwcGxpZWQsIHRoYW5rcyENCj4+IA0KPj4g
+WzEvMV0gUENJOiB4aWxpbngteGRtYTogRW5hYmxlIElOVHggaW50ZXJydXB0cw0KPj4gICAgICBj
+b21taXQ6IGMwOThjMTNmNDM2NWU2NzUwMDA5YmU0ZDkwZGJhMzZmYTRhMTliNGUNCj4gDQo+IFBy
+ZXR0eSBzdXJlIHdlIGhhdmUgY29uZmlybWF0aW9uIHRoYXQgd2UgZG9uJ3QgbmVlZCBlaXRoZXIg
+dGhpcyBwYXRjaA0KPiBvciBTdGVmYW4ncyBwYXRjaCwgc28gSSByZW1vdmVkIHRoZSBwY2kvY29u
+dHJvbGxlci94aWxpbngtZG1hIGJyYW5jaC4NCj4gDQo+IEl0IHdhcyBhdCAyMDAyNDc4ZTUwMzQg
+KCJQQ0k6IHhpbGlueC14ZG1hOiBFbmFibGUgSU5UeCBpbnRlcnJ1cHRzIikgaW4NCj4gY2FzZSB3
+ZSBuZWVkIHRvIHJlc3VycmVjdCBpdC4NCj4gDQo+IElJVUMsIFN0ZWZhbiBjb25maXJtZWQgdGhh
+dCBoZSBkaWRuJ3QgbmVlZCB0aGlzIHBhdGNoIChSYXZpJ3MpIFsxXSwNCj4gYW5kIHRoYXQgYWZ0
+ZXIgVml2YWRvIGlzIGZpeGVkIHRvIGdlbmVyYXRlIHRoZSBjb3JyZWN0IGludGVycnVwdC1tYXAs
+DQo+IGhpcyBwYXRjaCAoU3RlZmFuJ3MpIHdvbid0IGJlIG5lZWRlZCBlaXRoZXIgWzJdLg0KPiAN
+Cj4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjliYzVlOTItMDRjOS00NzVhLWJhM2Qt
+YTVlYTI2ZjFjOTVhQG1haWxib3gub3JnDQo+IFsyXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9y
+LzljN2U0M2MzLTI0ZTktNGIwOC1hNmNlLTIwMzViNTAyMjZmNEBtYWlsYm94Lm9yZw0KDQpIZWxs
+byBCam9ybiwgYW5kIE1hbmkgZXQgYWwuLA0KDQpUaGFuayB5b3UgZm9yIHRha2luZyB0aGUgdGlt
+ZSB0byByZXZpZXcgdGhlIHBhdGNoIGFuZCBleHBsYWluIHRoZSByZWFzb25pbmcuDQoNClNpbmNl
+cmx5LA0KUmF2aQ0KDQo=
 
