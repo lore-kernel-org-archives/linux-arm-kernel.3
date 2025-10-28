@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4698CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F20CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qYkSNjVRC4huW3BOIeZ7ligdjSUf5E+H3Pi1sGaKGTU=; b=MMs5xlDDFU/Mt9o6Rp66CWpD6e
-	WSuiWXnk7ipfEqZxyiQWXjg0AX6zumutMHg3wRWwzcBsmDcqjQ4HUrSrXm2lJyZqAJ3gsqjRnCbaU
-	L69Zq9zxDf2ZdzPkba7SSxWKpNUabRgkHSiofNkosbIheMLZEDpZoKbIIOBpKkt3/aecXfEB6ybXh
-	/pvNAPT1KziiUvhzjZ//j5xMpe7U/1rqtbp2eTXZYJCOu5SofQd2I5QFxVkmtuvBlDZ7i7FP1YHO7
-	wlqMmt8NIcAZawn01kewit4R6iw+CJBKlFzguzANd3QsfOKcUsb32lH9exkZVLugs13lG2YIosKir
-	kAVVLO1g==;
+	bh=ls9js8pk1OxApOPfHjg+6OhXCiFAAL8Poa+LHhv8b+I=; b=Cp5hXDwx8Skz5LXyB0fVKNHPmV
+	OxTl9YZCMjkFyfovwV7QpwIkWiqT4NVW3gGL1fgQMypPt62wDW2tQEL9zpJ5Qe1JIIPDJW6uxtYa/
+	Fp50pq2idJO+MNIY+pJ+L6SVCSbxicgWXMwlP+741CDaOVrTecUK/+71hsQhqDjFKczOmdbiDYpNh
+	egl+gAufiZJUa+GTYcEFGWi9SSWKP6e6ANYIRg/t4T6pQY6N1YmGX847SHa6UdWL14kPaPpzeY2bk
+	uJVjwn8XAXiSbtgWXrsAY6ncdjerav7GUY4SGwdtyeKchFPEqd9YnQ2vpWThGcxp8mX7cpTWkbMFR
+	AjAkb92g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgko-0000000Fjcf-0Zje;
-	Tue, 28 Oct 2025 10:16:39 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vDgl3-0000000Fjga-0Qbo;
+	Tue, 28 Oct 2025 10:16:53 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgkk-0000000Fjbk-0knj
+	id 1vDgl0-0000000FjfA-3itx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:16:36 +0000
+	Tue, 28 Oct 2025 10:16:52 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id AAF79C0C408;
-	Tue, 28 Oct 2025 10:16:08 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 5E34E1A16F9;
+	Tue, 28 Oct 2025 10:16:46 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C3F8E606AB;
-	Tue, 28 Oct 2025 10:16:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B7D061179B09A;
-	Tue, 28 Oct 2025 11:16:02 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2EE15606AB;
+	Tue, 28 Oct 2025 10:16:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2EABC1179B169;
+	Tue, 28 Oct 2025 11:16:38 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761646587; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=qYkSNjVRC4huW3BOIeZ7ligdjSUf5E+H3Pi1sGaKGTU=;
-	b=ZE6JGDOoX/OJXZ0LOEM3oy69yMuQAYK5M1YXgue5oYH7XCOttwhDf/7shVjzM0SdXm8+Y/
-	hgJl5upKofTjs1nPPeCSZMI0w8W/bWyYCZsHzRc3+HasMQpH1y6E91LjVGmZ1G1AAZxx15
-	hRZGUGv/VQ6fDfuVF7azTAiIBjrBC/x9XllDyp+Fwg8i6Ys7XnxMwCz4u+KInwxcIn9Yz2
-	Db9c4onUPoBG+GVDsrFLGJbNWr2kpHUGZbtxGajI53YPSaUi8EyWJKlXiElJ1vgHhawgVn
-	/H69KBXCwRSFqJ5H4K/R/Wq9gtHsM0SbutsmVmBSwIDJq4SE8h0CF74QvLROjg==
-Message-ID: <604b68ce-595f-4d50-92ad-3d1d5a1b4989@bootlin.com>
-Date: Tue, 28 Oct 2025 11:16:00 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: stmmac: add support specifying PCS
- supported interfaces
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexis Lothor__ <alexis.lothore@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Boon Khai Ng <boon.khai.ng@altera.com>,
- Daniel Machon <daniel.machon@microchip.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Furong Xu <0x1207@gmail.com>, Jacob Keller <jacob.e.keller@intel.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	t=1761646605; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ls9js8pk1OxApOPfHjg+6OhXCiFAAL8Poa+LHhv8b+I=;
+	b=T2mWuyF1Qd8XV3vwoWIodU+brS+15SaCjgzWX2XlEE5kUJTtJQyb0GGWuqTyZhH+FFDKpc
+	Xqqvn5L2mdvJ0MNnISgT0M6sIU8mXNXeLM9S2z65uY1z3ukIyHZ0Xwr68Hha+oAXOtfkIq
+	aA/mFYHiKksHLih9RQc5ooPMSLYOf1Ml8ex93rbVOk7S95p5VZ8JzIBngXxbW6J82SowfD
+	DOv2auU7aXka0nHFhn9wPan+sLhIOmuRtM3yeXOFknGNV3rsdnAvD2eS2hBfT0jIApcrSG
+	H/xvyhnJEHWwN3EkGE8s920SdZ66mHv5s4MtvnLKB7JooqhGCynqXJP8+XQIbA==
+Date: Tue, 28 Oct 2025 11:16:36 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Vadim Fedorenko
+ <vadim.fedorenko@linux.dev>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Yu-Chun Lin <eleanor15x@gmail.com>
-References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
- <E1vClC5-0000000Bcbb-1WUk@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <E1vClC5-0000000Bcbb-1WUk@rmk-PC.armlinux.org.uk>
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Add a devlink attribute to
+ control timestamping mode
+Message-ID: <20251028111636.7eaba25e@kmaincent-XPS-13-7390>
+In-Reply-To: <20251024070720.71174-3-maxime.chevallier@bootlin.com>
+References: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+	<20251024070720.71174-3-maxime.chevallier@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_031634_380426_A3559525 
-X-CRM114-Status: UNSURE (   4.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_031651_062372_1993B7BB 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,13 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Russell,
+On Fri, 24 Oct 2025 09:07:18 +0200
+Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
 
-On 25/10/2025 22:48, Russell King (Oracle) wrote:
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> The DWMAC1000 supports 2 timestamping configurations to configure how
+> frequency adjustments are made to the ptp_clock, as well as the reported
+> timestamp values.
+>=20
+> There was a previous attempt at upstreaming support for configuring this
+> mode by Olivier Dautricourt and Julien Beraud a few years back [1]
+>=20
+> In a nutshell, the timestamping can be either set in fine mode or in
+> coarse mode.
+>=20
+> In fine mode, which is the default, we use the overflow of an accumulator=
+ to
+> trigger frequency adjustments, but by doing so we lose precision on the
+> timetamps that are produced by the timestamping unit. The main drawback
+> is that the sub-second increment value, used to generate timestamps, can'=
+t be
+> set to lower than (2 / ptp_clock_freq).
+>=20
+> The "fine" qualification comes from the frequent frequency adjustments we=
+ are
+> able to do, which is perfect for a PTP follower usecase.
+>=20
+> In Coarse mode, we don't do frequency adjustments based on an
+> accumulator overflow. We can therefore have very fine subsecond
+> increment values, allowing for better timestamping precision. However
+> this mode works best when the ptp clock frequency is adjusted based on
+> an external signal, such as a PPS input produced by a GPS clock. This
+> mode is therefore perfect for a Grand-master usecase.
+>=20
+> Introduce a driver-specific devlink parameter "ts_coarse" to enable or
+> disable coarse mode, keeping the "fine" mode as a default.
+>=20
+> This can then be changed with:
+>=20
+>   devlink dev param set <dev> name ts_coarse value true cmode runtime
+>=20
+> The associated documentation is also added.
+>=20
+> [1] :
+> https://lore.kernel.org/netdev/20200514102808.31163-1-olivier.dautricourt=
+@orolia.com/
 
-Maybe this needs a commit log, even a small one ? :(
 
-Maxime
+Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
 
+Thank you!
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
