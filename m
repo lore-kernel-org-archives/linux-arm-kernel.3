@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED00ECCF9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BE7CCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fRUxnw6pXvyE394udsJX6ncRbZWsnmFjns+RRxM9PM4=; b=mXqK8SBrpwWl8JaqiO+N2f8EBZ
-	eWRYz3e6HXKij2XSi3ihQ1nBsjb7ayi+O1LZyR0oD1Ei6l2d+SerCDd/qTLGGMJ923Va8e2/+pGUg
-	I9XF6OD0D0mF6983JT5NsKi85wEGR0z2gpyn+dalnbT8jpyFZRIZ1446pJkH0at3jInW1lppu/jZa
-	UWDtPca2/MTk2tYU7RBbBsNN0VJFCBc4/ZChLXq7Es9wqv2SJyTSmrFfzQoV7Unkw0tcQWAR+suBU
-	ftz+/f3QGE9qdnFeEqF3If1LJDxDv4xhNXigBSrTXq/KQSvtuqQamHVCpIUGusFN8nALJxiCegzo+
-	p67oYXUA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ag4RpPho5sULiazlXNA0y7JZ5ZSjgCMfktnwGNRil1A=; b=XyMwsee1yrGf9fRobJwovpprzj
+	ORcWr8FcziPhkB9XIgoyz7QxNoNbT1LDN2YoVR+fPEqmG1ZaS47WB0TZ2Q4E6XlFIxBHPppo2Ulch
+	mGL6Cp///1napZShyzgxjIJaFz/SIBfO31U5us2xRxOFHWBb7wrhYB8tBqbkzWx5rTfNLD2ijfLEY
+	DnTDWV9Yhg4l0KbXXx2FWhILk3YXtuM9yCp1sCzgaPaswAKU+eFDenCYMi/u/5K1rbcg3Zwuw5jRt
+	u3oX2TK5r0qql1agzJY8mQEgxwQNg9aWxDGIzr7JHBYudJlKoaEofzsRIhPFrQbW4/DPiBorMOnh5
+	IOGRTbNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgJm-0000000FfQ1-1B0X;
-	Tue, 28 Oct 2025 09:48:42 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vDgKa-0000000FfYv-2Zan;
+	Tue, 28 Oct 2025 09:49:32 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgJi-0000000FfPC-20rZ;
-	Tue, 28 Oct 2025 09:48:41 +0000
-Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
-	by APP-01 (Coremail) with SMTP id qwCowACHZrlukQBpRIpCBA--.6967S2;
-	Tue, 28 Oct 2025 17:48:32 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com,
-	vz@mleia.com,
-	piotr.wojtaszczyk@timesys.com
-Cc: dmitry.torokhov@gmail.com,
-	linux-mtd@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haotian Zhang <vulab@iscas.ac.cn>
-Subject: [PATCH] mtd: rawnand: lpc32xx_slc: fix GPIO descriptor leak on probe error and remove
-Date: Tue, 28 Oct 2025 17:47:47 +0800
-Message-ID: <20251028094747.1089-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	id 1vDgKX-0000000FfXw-3FFJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 09:49:30 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-3717780ea70so75005531fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:49:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761644966; x=1762249766; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ag4RpPho5sULiazlXNA0y7JZ5ZSjgCMfktnwGNRil1A=;
+        b=Ws8+OYwlKrIl53hF4HUZIe3Q1l4pORhYHHFcAoeFh5bkgoANkZRm36uzBc6K/EBVaD
+         t/fMvV3ByC9YtxSTHPcHB63kS7bMQ2iCRg5lg2o54M5pkKJZJ5YnlWxZpGVte02ViTQZ
+         BQCt3dHc5PEqnIe0FQiEzo3rYGFtFQRH2KNI60OJBfqmZVTiUTxK4fNK53WzABKBoJZy
+         BXzr51qF13CU3vxfCLpWoBFLYdZAvHndpcIrZisa+p12tY1r7Z3L5TBDI+OxmeOf55cA
+         RNcpFPD48M5dar9GAracvIdRKXoVuC1aQqs9j86rE7AOOOOaFL/tU2ARv9CD+PPi356N
+         d+DQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761644966; x=1762249766;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ag4RpPho5sULiazlXNA0y7JZ5ZSjgCMfktnwGNRil1A=;
+        b=mIsTXo17LcPYrap/7G7SAVIPTBQnaLrI/pQABA9Bi9TCvAXW7tL3KaWSUX6sYnGmzv
+         Uykqab7kFutSuUHz8FiybmAvJfLp4afB7qw2Hpf3q/tqWPsDJppB8/Hl77PfwofEX3+R
+         HEa6mSTv8NdiqaxfScpTV320rIvBPuXxAcKyGFGVB3IKxZdrSus8/+/CeYQzvApjDD0S
+         oEaxMK0FmAqle8fX+QpE51EnkhoRpgn6sA4ZDbTzokIXpcNa5V1/Q4ZFuzHiXAPy96+i
+         /RE9M3U6QrQJ5OIDPAe/tYINzO+n0V1dKH6sTbwi4irejfcBEeKQgXVuNPfXt4U+Wt3z
+         0XNw==
+X-Forwarded-Encrypted: i=1; AJvYcCUGZu3ya8h3CBZkN/Uwd8FwJ22B9eKbhWAX3dUpFjaqFDPThghTxn5CCiOaO6g1HdeziFBKafEt85Z/QMQtUONG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBNNTP9S9kiuG0yqd6WgZCYWxHzOgZkRIZDdC5NigXyMksMumy
+	UQAbqlFpGTySMGt/Pyc1XZOh1QU5E1CA7sDt6mQkh46WTTyjQp5hzPVb5FYC+iCaJPlxy9JAmSJ
+	oHCCJQ6u3c10Asx4iYKSCjH0Fds4lzx7rcR/5dLmYeg==
+X-Gm-Gg: ASbGncsjPTG0wxLFQk6ZCCE0Ibr8kCXBhg1SmnSu6+F3Ky3bf4pUeWhQgod2t72jjSE
+	0BCoXdVDw5UNniJRRSjOMHj3Mzx1SHOaA8HY50lIbfJXhU92rUduMNa84Fh8ucM7DPjcYbbYqwN
+	BvFcoj3aFQjP+2X0Et00ytpTMdsF9k5Vqo0ilhQwQaIL2QgH7zM6x8JEUFdgl6Z0xwFAIsQV6WT
+	4Q1EAj4Wz9KiNC9Q9cvPQWDrwd1lPe48GTSOjRaBX/GjEit9+bPb4aBfBp0
+X-Google-Smtp-Source: AGHT+IHLnbuiTb17yCojPLzTfDTPTsYUvPEhpjzcDmPys9LqE0Vi78zD5Ee5nCAV3CJXyUjTEm0Hy+cMggR26FQ+KH8=
+X-Received: by 2002:a05:651c:254e:20b0:378:e8d1:117 with SMTP id
+ 38308e7fff4ca-379076aa8b7mr6977841fa.11.1761644966332; Tue, 28 Oct 2025
+ 02:49:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowACHZrlukQBpRIpCBA--.6967S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AFWfZw1xXrW5tryDCF47XFb_yoW8Gr45pa
-	18ArWjkr4UCr47Kan2ka18AF1Fyw40yrWYqr92k34F93Z8AryUXF95XayYvF4DKFWrGF4a
-	vFs7tF1rAr1DZr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjFfO7UUUUU==
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAgJA2kAjysG1gAAsT
+References: <20251028061345.3885632-1-gary.yang@cixtech.com>
+In-Reply-To: <20251028061345.3885632-1-gary.yang@cixtech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 28 Oct 2025 10:49:15 +0100
+X-Gm-Features: AWmQ_bmvf5Ur8d5O7ggkU8MMUQcJO6q9gUJ2SA5XsMYb2o4yAVo6574UPA09OxU
+Message-ID: <CACRpkdYdQa4=4JvBWJcRv0X_A0PnkQpZQQ8NTPzF0ntdt9qX=A@mail.gmail.com>
+Subject: Re: [PATCH] Pinctrl: core: export pinctrl_provide_dummies() to fix
+ build error
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	cix-kernel-upstream@cixtech.com, sfr@canb.auug.org.au
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_024838_885683_42569C3C 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_024929_823399_2A323F23 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver calls gpiod_get_optional() in the probe function but
-never calls gpiod_put() in the remove function or in the probe
-error path. This leads to a GPIO descriptor resource leak.
-The lpc32xx_mlc.c driver in the same directory handles this
-correctly by calling gpiod_put() on both paths.
+On Tue, Oct 28, 2025 at 7:13=E2=80=AFAM Gary Yang <gary.yang@cixtech.com> w=
+rote:
 
-Add gpiod_put() in the remove function and in the probe error path
-to fix the resource leak.
+> If a pinctrl driver uses pinctrl_provide_dummies() interface, and
+>
+> is built as a module, then an error occur as follow:
+>
+> ERROR: modpost: "pinctrl_provide_dummies" [drivers/pinctrl/cix/pinctrl-sk=
+y1-base.ko] undefined!
+> make[2]: *** [scripts/Makefile.modpost:147: Module.symvers] Error 1
+> make[1]: *** [/home/gary/workspace/upstream/kernel_upstream/Makefile:1960=
+: modpost] Error 2
+> make: *** [Makefile:248: __sub-make] Error 2
+>
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
 
-Fixes: 6b923db2867c ("mtd: rawnand: lpc32xx_slc: switch to using gpiod API")
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
----
- drivers/mtd/nand/raw/lpc32xx_slc.c | 2 ++
- 1 file changed, 2 insertions(+)
+I just deleted the call to pinctrl_provide_dummies() from the SKY1
+driver instead, because I didn't understand it.
 
-diff --git a/drivers/mtd/nand/raw/lpc32xx_slc.c b/drivers/mtd/nand/raw/lpc32xx_slc.c
-index b54d76547ffb..fea3705a2138 100644
---- a/drivers/mtd/nand/raw/lpc32xx_slc.c
-+++ b/drivers/mtd/nand/raw/lpc32xx_slc.c
-@@ -937,6 +937,7 @@ static int lpc32xx_nand_probe(struct platform_device *pdev)
- 	dma_release_channel(host->dma_chan);
- enable_wp:
- 	lpc32xx_wp_enable(host);
-+	gpiod_put(host->wp_gpio);
- 
- 	return res;
- }
-@@ -962,6 +963,7 @@ static void lpc32xx_nand_remove(struct platform_device *pdev)
- 	writel(tmp, SLC_CTRL(host->io_base));
- 
- 	lpc32xx_wp_enable(host);
-+	gpiod_put(host->wp_gpio);
- }
- 
- static int lpc32xx_nand_resume(struct platform_device *pdev)
--- 
-2.50.1.windows.1
+But if you need it, put it in a series with this patch based on the latest
+devel and an explanation why it is needed.
 
+The only other driver that use it is the Renesas driver and it uses
+it like this:
+
+        /* Enable dummy states for those platforms without pinctrl support =
+*/
+        if (!of_have_populated_dt())
+                pinctrl_provide_dummies();
+
+I don't understand why you would need this? The SKY1 has pinctrl
+support after this patch I think and since the arch code in arm64
+requires DT, it seems fine. But maybe this is for ACPI boots or
+something like that, so you would have this driver but there would
+not be any device tree?
+
+Just explain it in a patch and we can add it back.
+
+Yours,
+Linus Walleij
 
