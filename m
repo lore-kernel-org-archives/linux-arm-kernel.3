@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87382CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E275CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrCAv39Ush6FhTLmamRXYmaMfCDqXckHHe5ZV3K240A=; b=vi2yA5YoE63CiovLnT/V4QSahB
-	78HULL0JwOIgTymGwoDoZy64Xbnblvce7Of9ep55cBgYj5bZQF2QUT66/up9K569e3zdMfrNMyB5Q
-	JGOp/4et0F4CD8CpwVwjiJf7uuLDJT1DCGew5PeE/87RPA7KMsk3a3fyG1yfeWKPOluRvSHxjC+nB
-	L6XTDGz20242ucLuNDdEDoNT7q8DdOPctOEL8l4ai5O+1OiOsuosrspOQUuKfwxHsd/8NxW1RIkfD
-	Z9kKjr7QnJxTHXwbfsSoAdCPBalbns8py9SxiI8k6kXRPoCaYKOiu1AwEOkvh7XOyZpCc2B8LMc9B
-	OIjzbU6A==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kS+v7UxhH3NIRfcFBUgh9cjGXshVr2JyUKKPIyxO3A0=; b=0gHvwIYy5SwjGbq+UIj3uzpfJx
+	s5LezZB/dT/SeLSwDgapkY0exIrwdJWE4Zdx4h55sMrT8Xf4v8ZKRL7v81L0Sez29Dga21EdDa/zr
+	71Y2BciABKXmuPI5f4D3mfvATFFoRYPl0Z131DBg84qua4K7xhWb5UT9gb11XyesGKL9RZpHujAAh
+	WRy/FSKaDFHc4Wa//O0/f2JKBp/2JggvSk3ykxrqDuA2liqey6jHWNWUJhbK0/hEEizaR5Fc9eOdG
+	cJLniCoebnd4tStlq/2+PpsOhvdJPT/96zjZsbcjWvrvVzv83xW6mfNTKxSOwLt7xPQOFfuj3/COZ
+	Tm1QNDjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeDp-0000000FQCB-02Ml;
-	Tue, 28 Oct 2025 07:34:25 +0000
-Received: from mout.web.de ([212.227.15.4])
+	id 1vDeFT-0000000FQPu-1Hqs;
+	Tue, 28 Oct 2025 07:36:08 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeDm-0000000FQBd-0NFL
+	id 1vDeFO-0000000FQOG-3nQz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 07:34:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1761636834; x=1762241634; i=markus.elfring@web.de;
-	bh=zrCAv39Ush6FhTLmamRXYmaMfCDqXckHHe5ZV3K240A=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=kRWlAGEOP7Cgq8QHcc9+CljtgeX1L33pq6I1y2lFGvYh+aeXdBDI2Z/SLYqx7oOt
-	 ayk15aH/uazhyobxQTY7rEfS6u5+qcBK0lqolLVs6u74DhKJba+ceVuZKdOH+fdwU
-	 gKODbDXB8Q0PTEGc4yvAmuhvp9pv69UUe31deQytujJqRLYFDlKza6aIj7yJEyc0s
-	 LRiF8UyYhhNKwe+Ptf8yFR6VIBvYprYJUmACFGw1d5yJ5V9P+AOoxMmM8Rg/Pj30g
-	 /B3tBH1ppDnW9EyQbaP+gOWruhGjf1nFZHdnJJsezaMrbY1Y4GTBzimG0Or/ujm82
-	 /bhIj8ciGBwu+2f3uw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.187]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MGxQV-1vRcZe3odH-00Dqqa; Tue, 28
- Oct 2025 08:33:53 +0100
-Message-ID: <b715fd29-3e83-4087-951d-4a6ed803c272@web.de>
-Date: Tue, 28 Oct 2025 08:33:44 +0100
+	Tue, 28 Oct 2025 07:36:05 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 81C24C0BE98;
+	Tue, 28 Oct 2025 07:35:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8FF69606AB;
+	Tue, 28 Oct 2025 07:36:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0AE70102F2511;
+	Tue, 28 Oct 2025 08:35:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761636959; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=kS+v7UxhH3NIRfcFBUgh9cjGXshVr2JyUKKPIyxO3A0=;
+	b=e628aea8rtzS7HMfOueonC377QxRQ8Kym+dGULqdTzFtYF6atHkETnXomz5YoWuTMq0eZL
+	tk41px3Vj9dCl5lttpveLS1T9Q2/ex3MRuF8np9QSc/c+A9P5aNZz/Re0fWt8f+B36M0e7
+	J1o0Sp0TEOEePjWxBdfjfn0xAVd9kOSOVRcMUIm2OoSVUSBYtno7/CD/b0dG+IUyvV5Yig
+	Qi7vLyjP5a9K5eNSwSSrzOTkw7XyTB26L0hlYFwgLK7kXgKRXP0kJgu0ZJkpd/Gk9NhVOw
+	RywNA517kYC0l8fZRxpXa++PSHGtQB7fomey5bqpUgapWnGYV3di6OcciGdEQg==
+From: Richard Genoud <richard.genoud@bootlin.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	Johan Hovold <johan@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-mtd@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Genoud <richard.genoud@bootlin.com>
+Subject: [PATCH v4 00/16] Introduce Allwinner H6/H616 NAND controller support
+Date: Tue, 28 Oct 2025 08:34:53 +0100
+Message-ID: <20251028073534.526992-1-richard.genoud@bootlin.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 2/2] PCI: j721e: Use inline reset GPIO assignment and drop
- local variable
-To: Anand Moon <linux.amoon@gmail.com>, linux-omap@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Dan Carpenter <dan.carpenter@linaro.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-References: <20251027090310.38999-1-linux.amoon@gmail.com>
- <20251027090310.38999-3-linux.amoon@gmail.com>
- <f36a77b1-79ce-4bd4-ba4a-b9260bae7f11@web.de>
- <CANAwSgT43rsi+DxaMF3T-gsVoAAGSSDEL6s+TE2yZ+q+W3bRsQ@mail.gmail.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <CANAwSgT43rsi+DxaMF3T-gsVoAAGSSDEL6s+TE2yZ+q+W3bRsQ@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:O24eJhkwZW4LnBuNwZ+VwlHDFh06Nb+lLsUu9Mmb4fjiDS12qQN
- FIDJF0kYfUWzw9D7gGMB0Uq4Wu/pWQvxVrJeDmWRVAaOS4XB4z22SYKTHOOaxDKGqn2R0uF
- Ow5qkCsOm8bmUC/Y3ZalMUTJDGEXaSpumhOgPpfn1nhE1+DSDZx5FoxfvkbIdxkUQ208QR8
- RIig6nUTVQqEz58omhDOw==
-UI-OutboundReport: notjunk:1;M01:P0:L73BP8/G06M=;tg8lfMyVxtgZi+mqix7sZc4ckIV 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 DStJA==
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_003423_177278_F7387CE8 
-X-CRM114-Status: UNSURE (   4.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_003604_117138_79EC0591 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,24 +89,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/Documentation/process/submitting-patches.rst?h=3Dv6.18-rc3#n94
->>
-> Assign the result of devm_gpiod_get_optional() directly to pcie->reset_g=
-pio.
+Hi everyone,
 
-                       a =E2=80=A6                       call?
+This patch series introduce H6/H616 NAND controller support (but not yet
+the DMA/MDMA part).
 
+All the work was done on a H616 board with a Kioxia TC58NVG1S3HTA00 NAND
+chip.
+ECC is supported, as well as scrambling.
 
-> This removes a superfluous local variable, improving code clarity withou=
-t
+H6 SoC has not been tested, but it shares all registers with H616, plus
+some registers dedicated to Embedded Crypto Engine that H616 lacks.
 
-  Thus remove?                             . Improve?
+This IP has quite some register fields modified from the A10/A23, but in
+the end, it works more or less the same.
+Main differences with A10/A23 are:
+- The need for 2 more clocks (for ECC and MBUS)
+- The use of a new USER_DATA_LEN register
+- More ECC strengths (44, 52, 68, 72, 76 and 80 bits / 1KB)
+- MDMA based on chained buffers
+- some registers layouts have changed (mainly due do the stronger ECC)
 
+Patch 1 introduces allwinner,sun50i-h616-nand-controller compatible
+in order to differentiate from the A10 and A23.
 
-> altering the driver's behavior.
-=E2=80=A6
+Patch 2 removes a superfluous call, and is independent from the others.
+
+Patch 3 replaces the hard coded value '4' used for user data length by
+a more meaningful define
+
+Patches 4-14 are paving the way to the introduction of H616 NAND
+controller support.
+They are small, without functional change and easier to review than a
+big patch.
+They move a fixed value (register offset, field mask, SRAM size) into
+the struct sunxi_nfc_caps when this value is different on H6/H616.
+
+Patch 15 introduces the support for H6/H616 NAND controller.
+
+Patch 16 adds the NAND controller node to sun50i-h616.dtsi
+
+Changes from v3:
+- fix patches order by beginning with binding patch and finishing with
+  dts patch
+- add a patch to replace user data length hard coded value by a define
+  as suggested by Miquèl
+- un-break a line in patch 5 as suggested by Miquèl
+- update Geert's series link to v5
+- update patch 8 commit message with a mention to Geert's series
+- address Miquèl remarks on patch 15:
+  - change // to /* */
+  - remove statics set to false
+
+Changes from v2:
+- add missing 'status = "disabled";' in nand controller node.
+- factorize back clock/clock-names in binding.
+- pick-up reviewed-by
+
+Changes from v1:
+- reorder patches to have dtsi/bindings patches at the end.
+- reorder nand-controller and pins nodes to respect the order.
+- add /omit-if-no-ref/ on pins that may be unused.
+- remove pinctrl from nand controller node (this should be added to device
+ DT).
+- rework dt binding.
+- fix H616 comment on chained descriptors support.
+- add missing mbus_clk description.
+- make ECC clock mandatory for H6 (because it's indeed mandatory).
+- harmonize new clock retrieving error messages with older ones.
+- harmonize commits subjects (mtd: rawnand: sunxi).
+- reword commit messages to use imperative mood.
+- pick-up reviewed-by
+
+Thanks Krzysztof, Jernej, Chen-Yu and Miquèl for the reviews!
 
 Regards,
-Markus
+Richard
+
+Richard Genoud (16):
+  dt-bindings: mtd: sunxi: Add H616 compatible
+  mtd: rawnand: sunxi: Remove superfluous register readings
+  mtd: rawnand: sunxi: Replace hard coded value by a define
+  mtd: rawnand: sunxi: move ECC strenghts in sunxi_nfc_caps
+  mtd: rawnand: sunxi: introduce reg_ecc_err_cnt in sunxi_nfc_caps
+  mtd: rawnand: sunxi: introduce reg_user_data in sunxi_nfc_caps
+  mtd: rawnand: sunxi: rework pattern found registers
+  mtd: rawnand: sunxi: add has_ecc_block_512 capability
+  mtd: rawnand: sunxi: introduce ecc_mode_mask in sunxi_nfc_caps
+  mtd: rawnand: sunxi: introduce random en/dir in sunxi_nfc_caps
+  mtd: rawnand: sunxi: introduce reg_pat_id in sunxi_nfc_caps
+  mtd: rawnand: sunxi: introduce reg_spare_area in sunxi_nfc_caps
+  mtd: rawnand: sunxi: introduce ecc_err_mask in sunxi_nfc_caps
+  mtd: rawnand: sunxi: introduce sram_size in sunxi_nfc_caps
+  mtd: rawnand: sunxi: Add support for H616 nand controller
+  arm64: dts: allwinner: h616: add NAND controller
+
+ .../mtd/allwinner,sun4i-a10-nand.yaml         |  41 +-
+ .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  52 +++
+ drivers/mtd/nand/raw/sunxi_nand.c             | 407 +++++++++++++++---
+ 3 files changed, 426 insertions(+), 74 deletions(-)
+
+
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+-- 
+2.47.3
+
 
