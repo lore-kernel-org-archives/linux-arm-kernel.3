@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339ACCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 23:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E95CCF9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 23:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1uikCk1PVoFKraVmv1JjdTmyz7aVTR16X64oIcnMf8=; b=Id3fwW5H0XOMnMSxmHUl115buk
-	z+5hlMNoOdj8R1lz2JhBQaWQ9hCKM48f8KstddKQKkLmZep3/HGu+wQA67aAaqpJQg1cSQLWbI4Ob
-	BZYf9imTzaHWHF+/dY3vS6A4ZEe4ZjJNGISsqDdLqyyVotcoJeTFjJo0/j/50KdCx3LPb8641w8XP
-	JVEhROF1Frmj+qoNhYR5esp3GnV57QBKeFWFTTOUUml3SBtfIl2pIaduBclVb8EC7826VeJxPhHLx
-	R8eZ5XLUHy/c/a1KfTCgMUCDsXdrBUZ4SLg3yvarFVeuDTAbp53o0DmJ2rfGueCIJuD8hMGt27iwG
-	UOXkWVCw==;
+	bh=+ScJmt+/0Os57nukiGynVFNomd71ekgTNx8UM6wvsiM=; b=ABP2Oq+kzCuZH6zwRJR5gMTOSs
+	39V1wDA6SQxq/rNt73LQn7JD+0mXeQjpQTax9cSVXS1zFddM6JcEf5QHoJjMfgpWNszU06kdxV39S
+	qx7uRtJQcUvGFZf1QxcRFY1XmZ9nmWDc/dwO+XDfkX7prZ4xl/5LcfNZpFO9i7JD7UKjPRiuNkuWN
+	ra7R8HMnm2KU2eC4ghqHUiZx+6PfLItIMwPo3Glg03UM3MNYm9eK2RLhx5m1y/Q/Fjj3t/tkPUIK3
+	HvgVNQEfEVJX9KUdJ3JgwNbch/JLUoe62YuXYRgHNaNenCHdrPn0wbq3PG0NhTYo4STikQUElCtN9
+	L52q9JXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDtX0-0000000GodJ-42PQ;
-	Tue, 28 Oct 2025 23:55:14 +0000
+	id 1vDtZX-0000000Goo9-2q8K;
+	Tue, 28 Oct 2025 23:57:51 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDtWx-0000000Gocm-30HO
+	id 1vDtZV-0000000Gonb-1aOq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 23:55:13 +0000
+	Tue, 28 Oct 2025 23:57:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=S1uikCk1PVoFKraVmv1JjdTmyz7aVTR16X64oIcnMf8=; b=SA1gJowDBcLZISZx0Lli/3K9Tr
-	tSQGuKix+Lwh74Sfj/czjDbD+PnGWw7ARxxjBvN5rOHI+4H2ewkNHUPFg+WtHUOPGO8x2RJQKdDYC
-	pdybl08H/jFyXjVqDIP2uBppNyOHf1z97iYoOnGNAdnArT9qoiDC2f3ScEQv2UjyIDX3HY3CY1ltT
-	e94lz91ONXafGZP1BifBuX/mawC8G2o6UlUaEbZaSV4Dfks24zWdHZIaIHgjxy2p8GGXs/IxzxHUP
-	j6O+zAU8PPw3K0SAfHx+4P5w2kbpHPxKi9eq9ARmOHYnaZ8Yi9oudR9PZiojyBt6yP0hoyrV6QWBW
-	Pv34Ld6Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40576)
+	bh=+ScJmt+/0Os57nukiGynVFNomd71ekgTNx8UM6wvsiM=; b=DtBgppHxDmU/Kd/3Ruec8pBeu9
+	6L3U554pxuSnq3NejqoXqHrRGkn4CGgFOyXlGnlK2d3m8IhamY8ccmOa/Weu3O3yKOFJHEUx+1Y/4
+	LmIEwOegwyaAUS7t2ONwQ8gbkOo4Ol4aZP4uDJtf31ZGScnCN104FG6jGbZIRqX9wvCqtkXNQB0Dh
+	t1SBNH/GoA5fPpPFsDtqTHqtyMZyEMZ/vZ39fryyZhzCP0a78gVpIMzPiDGBO+oMyndDGoWGg7V/d
+	Om1WFXacBpBrjt0/M+XKNHB0TWaxBLR6z7exMpMC/BriAozJJzMvxfpNrI3fPxfRtYBLekG4RtUxP
+	hqt671pg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56542)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1vDtWo-000000003f0-3177;
-	Tue, 28 Oct 2025 23:55:02 +0000
+	id 1vDtZP-000000003fK-1CVt;
+	Tue, 28 Oct 2025 23:57:43 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vDtWk-000000006xk-0Ryn;
-	Tue, 28 Oct 2025 23:54:58 +0000
-Date: Tue, 28 Oct 2025 23:54:57 +0000
+	id 1vDtZN-000000006xv-1h3p;
+	Tue, 28 Oct 2025 23:57:41 +0000
+Date: Tue, 28 Oct 2025 23:57:41 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Jakub Kicinski <kuba@kernel.org>
 Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
@@ -63,7 +63,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Richard Cochran <richardcochran@gmail.com>
 Subject: Re: [PATCH net-next 0/8] net: stmmac: hwif.c cleanups
-Message-ID: <aQFX0cdyCHLHIquB@shell.armlinux.org.uk>
+Message-ID: <aQFYdRZV9CQVuqFu@shell.armlinux.org.uk>
 References: <aPt1l6ocBCg4YlyS@shell.armlinux.org.uk>
  <20251028164257.067bdbcd@kernel.org>
 MIME-Version: 1.0
@@ -71,8 +71,8 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20251028164257.067bdbcd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_165511_759307_34EF7FED 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20251028_165749_443409_6A8D2EDC 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,8 +118,10 @@ On Tue, Oct 28, 2025 at 04:42:57PM -0700, Jakub Kicinski wrote:
 > 
 > This one needs a respin (patch 6 vs your IRQ masking changes?).
 
-Are you sure? Nothing came up in the re-base, and nothing was reported
-in PW.
+Ah, I see it, rebase can cope with that, but not application. Bah.
+Another week of waiting for it to be applied. :(
+
+I'm going to start sending larger patch series...
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
