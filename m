@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548F5CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDDACCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1xMqnnqJK30zQ78MqVOT+twZNmlAKYnhW8x+ckUtG0=; b=t96MvY3Axn5+/ya356yLAWr3DS
-	2UqERPA28LQnHNOP9tm6+A4LFBj9308Jup/mERpEcuxytDaplMqMf+9SbRo/xNIkzaf/30cwrJ0/i
-	S0gnJT3kHs0cxWJogPdE0YHKMkz6RZi6bCSsjN551cvGaKGZeVtKTR9WAMYGX3F5NLnsUWreDI1Hb
-	HsPTXuw2Oo3dqebWbFej5e+zkhrq0D3idN5Z1QFdkZAf6RIAwkvgLMf1fPje4Rq7vg57hkRvROaFI
-	/tbUYBLSFDX+UjBHRqhczYhyjr5OPsaTCUhl2VNKtEsdqmSYAC8j1CcGXoFSBXzHxFx4qMLc9kGW1
-	fF06MU4A==;
+	bh=y0yxojRUhkv7avomLXrPgMCU3DkrIfYAD2DDV/SBzIk=; b=kQLdplHvlp6yQidY2SglyTXpHQ
+	vwGEqL7BXOrh3nZEUI77mNfJn9UOQwFdlPhGFAnV+4RGnq1FLrOu/+fxbGTALxL5LTIUKGAV7cq1I
+	E4CI6Szet/53f4tx3dRvE1r0dBWZif+epqJU0hVmHZMms/HGOmT15J/tn46RKTKrm3nzCLjaaOgSr
+	YuEdv44WoL1l+YSbF3h0DDB+M8MA1QbSA8Je8IMeJ/q0KmIOWMAhok3wsi+dyETpzQQTQZsk67ya8
+	TEfdHUoVbZlqiGfCkjZPCcgo/PxOhznWhaKeoHudVKAUG57EbvSr51iurmOXjycV8baDq5J87eT4d
+	8zJL/m+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgnv-0000000FkJD-0INJ;
-	Tue, 28 Oct 2025 10:19:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgnq-0000000FkF0-0JaJ
+	id 1vDgu6-0000000Fl2s-0oAw;
+	Tue, 28 Oct 2025 10:26:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDgu2-0000000Fl23-1dOb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:19:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A82D648D37;
-	Tue, 28 Oct 2025 10:19:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 390BCC4CEE7;
-	Tue, 28 Oct 2025 10:19:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761646785;
-	bh=minlv4Mdvyv58h6PsDl8RTUVTBPlA8ZCb/VHYefz728=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=rE6jA4kBM/6yhoGJSJ5ecD8L3pv7MXwX0H6hSlr0/gP1I8sJQpdnQfzsFedwcwNWA
-	 GUbOchBgOVDZtiJvLfkEKXNjYmJ9xYPA1c8qkL4WPbfQKKxJHVz72x5dNgSQT3CyUE
-	 /Uc4ZOZDeOTiplsYI5fsrsPiXEgBdVGybh4Vw6mcVSp7OyOJ9TX1CWK4abXQwV81BE
-	 4Ue6d9caBSS4hqka6ZCoe+zo05RV0+BmgnDq2Y2u7ON0agkCGOh2eD0w70ktt0APHG
-	 I4bGK9QtJq1vQZ+Rdt8o7IR3MLxrlxNZU6JJg/E+W00XTT4CAjj5mnAMYbVAOHIc1l
-	 UGncB2jrLmtww==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 28 Oct 2025 11:19:05 +0100
-Subject: [PATCH not for merging 7/7] irqchip/gic-v5: Add ACPI IWB probing
+	Tue, 28 Oct 2025 10:26:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CCDB106F;
+	Tue, 28 Oct 2025 03:26:01 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 146923F63F;
+	Tue, 28 Oct 2025 03:26:06 -0700 (PDT)
+Message-ID: <f5aa3c19-fdea-4f62-9541-530e59b20a87@arm.com>
+Date: Tue, 28 Oct 2025 10:26:05 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] KVM: arm64: support optional calls of FF-A v1.2
+To: Yeoreum Yun <yeoreum.yun@arm.com>, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+ perlarsen@google.com, ayrton@google.com
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251027191729.1704744-1-yeoreum.yun@arm.com>
+ <20251027191729.1704744-3-yeoreum.yun@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251027191729.1704744-3-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-gicv5-host-acpi-v1-7-01a862feb5ca@kernel.org>
-References: <20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org>
-In-Reply-To: <20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Robert Moore <robert.moore@intel.com>, Thomas Gleixner <tglx@linutronix.de>, 
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Marc Zyngier <maz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_031946_186018_1CB8BA8B 
-X-CRM114-Status: GOOD (  33.12  )
+X-CRM114-CacheID: sfid-20251028_032610_549968_1244A384 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,331 +68,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To probe an IWB in an ACPI based system it is required:
+Hi Levi,
 
-- to implement the IORT functions handling the IWB IORT node and create
-  functions to retrieve IWB firmware information
-- to augment the driver to match the DSDT ACPI "ARMH0003" device and
-  retrieve the IWB wire and trigger mask from the GSI interrupt descriptor
-  in the IWB msi_domain_ops.msi_translate() function
+On 10/27/25 19:17, Yeoreum Yun wrote:
+> To use TPM drvier which uses CRB over FF-A with FFA_DIRECT_REQ2,
+> support the FF-A v1.2's optinal calls by querying whether
+> SPMC supports those.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 0ae87ff61758..9ded1c6369b9 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -646,6 +646,22 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+>  		ffa_to_smccc_res(res, ret);
+>  }
+>  
+> +static bool ffa_1_2_optional_calls_supported(u64 func_id)
+> +{
+> +	struct arm_smccc_1_2_regs res;
+> +
+> +	if (!smp_load_acquire(&has_version_negotiated) ||
+> +		(FFA_MINOR_VERSION(FFA_VERSION_1_2) < 2))
+> +		return false;
+> +
+> +	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
+> +		.a0 = FFA_FEATURES,
+> +		.a1 = func_id,
+> +	}, &res);
+> +
+> +	return res.a0 == FFA_SUCCESS;
+> +}
+> +
+>  /*
+>   * Is a given FFA function supported, either by forwarding on directly
+>   * or by handling at EL2?
+> @@ -678,12 +694,13 @@ static bool ffa_call_supported(u64 func_id)
+>  	case FFA_NOTIFICATION_SET:
+>  	case FFA_NOTIFICATION_GET:
+>  	case FFA_NOTIFICATION_INFO_GET:
+> +		return false;
+>  	/* Optional interfaces added in FF-A 1.2 */
+>  	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
+>  	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+>  	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
 
-Make the required driver changes to enable IWB probing in ACPI systems.
+Looking at table 13.54 in the FF-A 1.2 spec FFA_CONSOLE_LOG is only supported in secure FF-A
+instances and not from the normal world.
 
-The GICv5 GSI format requires special handling for IWB routed IRQs.
+>  	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
+> -		return false;
+> +		return ffa_1_2_optional_calls_supported(func_id);
+>  	}
 
-Add IWB GSI detection to the top level driver gic_v5_get_gsi_domain_id()
-function so that the correct IRQ domain for a GSI can be detected by
-parsing the GSI and check whether it is an IWB-backed IRQ or not.
+I don't think that an smc call here is the right thing to do. This changes this from a light 
+weight deny list to an extra smc call for each ffa_msg_send_direct_req2 from the driver.
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Hanjun Guo <guohanjun@huawei.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
----
- drivers/acpi/arm64/iort.c          | 95 ++++++++++++++++++++++++++++++++------
- drivers/irqchip/irq-gic-v5-iwb.c   | 42 +++++++++++++----
- drivers/irqchip/irq-gic-v5.c       |  4 ++
- include/linux/acpi_iort.h          |  1 +
- include/linux/irqchip/arm-gic-v5.h |  6 +++
- 5 files changed, 123 insertions(+), 25 deletions(-)
+Instead, I would expect this patch just to remove FFA_MSG_SEND_DIRECT_REQ2 from the deny list
+and rely on the TPM driver to use FFA_FEATURES to check whether it's supported.
 
-diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-index 7354760cad5d..76ec31d385cd 100644
---- a/drivers/acpi/arm64/iort.c
-+++ b/drivers/acpi/arm64/iort.c
-@@ -264,39 +264,47 @@ static acpi_status iort_match_node_callback(struct acpi_iort_node *node,
- 	struct device *dev = context;
- 	acpi_status status = AE_NOT_FOUND;
- 
--	if (node->type == ACPI_IORT_NODE_NAMED_COMPONENT) {
-+	if (node->type == ACPI_IORT_NODE_NAMED_COMPONENT ||
-+	    node->type == ACPI_IORT_NODE_IWB) {
- 		struct acpi_buffer buf = { ACPI_ALLOCATE_BUFFER, NULL };
--		struct acpi_device *adev;
- 		struct acpi_iort_named_component *ncomp;
--		struct device *nc_dev = dev;
-+		struct acpi_iort_iwb *iwb;
-+		struct device *cdev = dev;
-+		struct acpi_device *adev;
-+		const char *device_name;
- 
- 		/*
- 		 * Walk the device tree to find a device with an
- 		 * ACPI companion; there is no point in scanning
--		 * IORT for a device matching a named component if
-+		 * IORT for a device matching a named component or IWB if
- 		 * the device does not have an ACPI companion to
- 		 * start with.
- 		 */
- 		do {
--			adev = ACPI_COMPANION(nc_dev);
-+			adev = ACPI_COMPANION(cdev);
- 			if (adev)
- 				break;
- 
--			nc_dev = nc_dev->parent;
--		} while (nc_dev);
-+			cdev = cdev->parent;
-+		} while (cdev);
- 
- 		if (!adev)
- 			goto out;
- 
- 		status = acpi_get_name(adev->handle, ACPI_FULL_PATHNAME, &buf);
- 		if (ACPI_FAILURE(status)) {
--			dev_warn(nc_dev, "Can't get device full path name\n");
-+			dev_warn(cdev, "Can't get device full path name\n");
- 			goto out;
- 		}
- 
--		ncomp = (struct acpi_iort_named_component *)node->node_data;
--		status = !strcmp(ncomp->device_name, buf.pointer) ?
--							AE_OK : AE_NOT_FOUND;
-+		if (node->type == ACPI_IORT_NODE_NAMED_COMPONENT) {
-+			ncomp = (struct acpi_iort_named_component *)node->node_data;
-+			device_name = ncomp->device_name;
-+		} else {
-+			iwb = (struct acpi_iort_iwb *)node->node_data;
-+			device_name = iwb->device_name;
-+		}
-+		status = !strcmp(device_name, buf.pointer) ?  AE_OK : AE_NOT_FOUND;
- 		acpi_os_free(buf.pointer);
- 	} else if (node->type == ACPI_IORT_NODE_PCI_ROOT_COMPLEX) {
- 		struct acpi_iort_root_complex *pci_rc;
-@@ -317,12 +325,28 @@ static acpi_status iort_match_node_callback(struct acpi_iort_node *node,
- 	return status;
- }
- 
-+static acpi_status iort_match_iwb_callback(struct acpi_iort_node *node, void *context)
-+{
-+	acpi_status status = AE_NOT_FOUND;
-+	u32 *id = context;
-+
-+	if (node->type == ACPI_IORT_NODE_IWB) {
-+		struct acpi_iort_iwb *iwb;
-+
-+		iwb = (struct acpi_iort_iwb *)node->node_data;
-+		status = iwb->iwb_index == *id ? AE_OK : AE_NOT_FOUND;
-+	}
-+
-+	return status;
-+}
-+
- static int iort_id_map(struct acpi_iort_id_mapping *map, u8 type, u32 rid_in,
- 		       u32 *rid_out, bool check_overlap)
- {
- 	/* Single mapping does not care for input id */
- 	if (map->flags & ACPI_IORT_ID_SINGLE_MAPPING) {
- 		if (type == ACPI_IORT_NODE_NAMED_COMPONENT ||
-+		    type == ACPI_IORT_NODE_IWB		   ||
- 		    type == ACPI_IORT_NODE_PCI_ROOT_COMPLEX) {
- 			*rid_out = map->output_base;
- 			return 0;
-@@ -392,6 +416,7 @@ static struct acpi_iort_node *iort_node_get_id(struct acpi_iort_node *node,
- 
- 	if (map->flags & ACPI_IORT_ID_SINGLE_MAPPING) {
- 		if (node->type == ACPI_IORT_NODE_NAMED_COMPONENT ||
-+		    node->type == ACPI_IORT_NODE_IWB ||
- 		    node->type == ACPI_IORT_NODE_PCI_ROOT_COMPLEX ||
- 		    node->type == ACPI_IORT_NODE_SMMU_V3 ||
- 		    node->type == ACPI_IORT_NODE_PMCG) {
-@@ -562,9 +587,14 @@ static struct acpi_iort_node *iort_find_dev_node(struct device *dev)
- 			return node;
- 		/*
- 		 * if not, then it should be a platform device defined in
--		 * DSDT/SSDT (with Named Component node in IORT)
-+		 * DSDT/SSDT (with Named Component node in IORT) or an
-+		 * IWB device in the DSDT/SSDT.
- 		 */
--		return iort_scan_node(ACPI_IORT_NODE_NAMED_COMPONENT,
-+		node = iort_scan_node(ACPI_IORT_NODE_NAMED_COMPONENT,
-+				      iort_match_node_callback, dev);
-+		if (node)
-+			return node;
-+		return iort_scan_node(ACPI_IORT_NODE_IWB,
- 				      iort_match_node_callback, dev);
- 	}
- 
-@@ -756,6 +786,35 @@ struct irq_domain *iort_get_device_domain(struct device *dev, u32 id,
- 	return irq_find_matching_fwnode(handle, bus_token);
- }
- 
-+struct fwnode_handle *iort_iwb_handle(u32 iwb_id)
-+{
-+	struct fwnode_handle *fwnode;
-+	struct acpi_iort_node *node;
-+	struct acpi_device *device;
-+	struct acpi_iort_iwb *iwb;
-+	acpi_status status;
-+	acpi_handle handle;
-+
-+	/* find its associated IWB node */
-+	node = iort_scan_node(ACPI_IORT_NODE_IWB, iort_match_iwb_callback, &iwb_id);
-+	if (!node)
-+		return NULL;
-+
-+	iwb = (struct acpi_iort_iwb *)node->node_data;
-+	status = acpi_get_handle(NULL, iwb->device_name, &handle);
-+	if (ACPI_FAILURE(status))
-+		return NULL;
-+
-+	device = acpi_get_acpi_dev(handle);
-+	if (!device)
-+		return NULL;
-+
-+	fwnode = acpi_fwnode_handle(device);
-+	acpi_put_acpi_dev(device);
-+
-+	return fwnode;
-+}
-+
- static void iort_set_device_domain(struct device *dev,
- 				   struct acpi_iort_node *node)
- {
-@@ -816,8 +875,14 @@ static struct irq_domain *iort_get_platform_device_domain(struct device *dev)
- 	/* find its associated iort node */
- 	node = iort_scan_node(ACPI_IORT_NODE_NAMED_COMPONENT,
- 			      iort_match_node_callback, dev);
--	if (!node)
--		return NULL;
-+	if (!node) {
-+		/* find its associated iort node */
-+		node = iort_scan_node(ACPI_IORT_NODE_IWB,
-+				      iort_match_node_callback, dev);
-+
-+		if (!node)
-+			return NULL;
-+	}
- 
- 	/* then find its msi parent node */
- 	for (i = 0; i < node->mapping_count; i++) {
-diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-index ad9fdc14d1c6..f6f3d30cbc99 100644
---- a/drivers/irqchip/irq-gic-v5-iwb.c
-+++ b/drivers/irqchip/irq-gic-v5-iwb.c
-@@ -4,6 +4,7 @@
-  */
- #define pr_fmt(fmt)	"GICv5 IWB: " fmt
- 
-+#include <linux/acpi.h>
- #include <linux/init.h>
- #include <linux/kernel.h>
- #include <linux/msi.h>
-@@ -136,18 +137,31 @@ static int gicv5_iwb_irq_domain_translate(struct irq_domain *d, struct irq_fwspe
- 					  irq_hw_number_t *hwirq,
- 					  unsigned int *type)
- {
--	if (!is_of_node(fwspec->fwnode))
--		return -EINVAL;
-+	if (is_of_node(fwspec->fwnode)) {
- 
--	if (fwspec->param_count < 2)
--		return -EINVAL;
-+		if (fwspec->param_count < 2)
-+			return -EINVAL;
- 
--	/*
--	 * param[0] is be the wire
--	 * param[1] is the interrupt type
--	 */
--	*hwirq = fwspec->param[0];
--	*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
-+		/*
-+		 * param[0] is be the wire
-+		 * param[1] is the interrupt type
-+		 */
-+		*hwirq = fwspec->param[0];
-+		*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
-+	}
-+
-+	if (is_acpi_device_node(fwspec->fwnode)) {
-+
-+		if (fwspec->param_count < 2)
-+			return -EINVAL;
-+
-+		/*
-+		 * param[0] is the wire
-+		 * param[1] is the interrupt type
-+		 */
-+		*hwirq = FIELD_GET(GICV5_GSI_IWB_WIRE, fwspec->param[0]);
-+		*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
-+	}
- 
- 	return 0;
- }
-@@ -265,10 +279,18 @@ static const struct of_device_id gicv5_iwb_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, gicv5_iwb_of_match);
- 
-+#ifdef CONFIG_ACPI
-+static const struct acpi_device_id iwb_acpi_match[] = {
-+	{ "ARMH0003", 0 },
-+	{}
-+};
-+#endif
-+
- static struct platform_driver gicv5_iwb_platform_driver = {
- 	.driver = {
- 		.name			= "GICv5 IWB",
- 		.of_match_table		= gicv5_iwb_of_match,
-+		.acpi_match_table	= ACPI_PTR(iwb_acpi_match),
- 		.suppress_bind_attrs	= true,
- 	},
- 	.probe				= gicv5_iwb_device_probe,
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index 23fd551c4347..da867dd2e77d 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt)	"GICv5: " fmt
- 
-+#include <linux/acpi_iort.h>
- #include <linux/cpuhotplug.h>
- #include <linux/idr.h>
- #include <linux/irqdomain.h>
-@@ -1187,6 +1188,9 @@ static struct fwnode_handle *gsi_domain_handle;
- 
- static struct fwnode_handle *gic_v5_get_gsi_domain_id(u32 gsi)
- {
-+	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
-+		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+
- 	return gsi_domain_handle;
- }
- 
-diff --git a/include/linux/acpi_iort.h b/include/linux/acpi_iort.h
-index 2d22268677a9..17bb3374f4ca 100644
---- a/include/linux/acpi_iort.h
-+++ b/include/linux/acpi_iort.h
-@@ -27,6 +27,7 @@ int iort_register_domain_token(int trans_id, phys_addr_t base,
- 			       struct fwnode_handle *fw_node);
- void iort_deregister_domain_token(int trans_id);
- struct fwnode_handle *iort_find_domain_token(int trans_id);
-+struct fwnode_handle *iort_iwb_handle(u32 iwb_id);
- 
- #ifdef CONFIG_ACPI_IORT
- u32 iort_msi_map_id(struct device *dev, u32 id);
-diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-index 334b6986435c..3da1ad80fc9d 100644
---- a/include/linux/irqchip/arm-gic-v5.h
-+++ b/include/linux/irqchip/arm-gic-v5.h
-@@ -265,6 +265,12 @@
- 
- #define GICV5_IWB_WENABLE_STATUSR_IDLE		BIT(0)
- 
-+#define GICV5_GSI_IC_TYPE			GENMASK(31, 29)
-+#define GICV5_GSI_IWB_TYPE			0x7
-+
-+#define GICV5_GSI_IWB_FRAME_ID			GENMASK(28, 16)
-+#define GICV5_GSI_IWB_WIRE			GENMASK(15, 0)
-+
- /*
-  * Global Data structures and functions
-  */
+So, just this change:
 
--- 
-2.50.1
+@@ -679,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
+        case FFA_NOTIFICATION_GET:
+        case FFA_NOTIFICATION_INFO_GET:
+        /* Optional interfaces added in FF-A 1.2 */
+-       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
+        case FFA_MSG_SEND_DIRECT_RESP2:         /* Optional per 7.5.1 */
+        case FFA_CONSOLE_LOG:                   /* Optional per 13.1: not in Table 13.1 */
+        case FFA_PARTITION_INFO_GET_REGS:       /* Optional for virtual instances per 13.1 */
+
+Am I missing something?
+
+>  
+>  	return true; 
+Thanks,
+
+Ben
 
 
