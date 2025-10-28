@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76234CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0728CCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WaTABlPQzql62JP4bYpGFB1GN/KGFtKB/QnUa6OyJ+E=; b=OEuwSSJgLAzd82OxVwSHKq6InY
-	ViuzHOUQghV/ZHC+HQMoNiPb+UaLSG+fXVmNQNryP2kAiouFxfRmeNAl/vYfAAHtbWpOX3FX+pcoQ
-	2mE/jY4nW9Mt1QPeSFWp6nSaJSTpaKP0bb0lnAg4ABstSDN0nmREgqBlS3/tXV4M4d1aoPtFi0opQ
-	STm6ywAVSGAiewWFgDJsI4y1xDDN3C0b41erauwZwibJvfkZgST/PawfN24uRlng2MKqsHBn5iUuT
-	7vgeZiSSN6nTBFwJApWQtUXKS9inZ5ZEf3v1QSN/EkXEe++no43IGKzqjHqS5ylrWzPT93JchNOCr
-	9Z0XvtKw==;
+	bh=A+AvzqL2PUg5/KNJsIM8y5ZcgxOgqaHEyRCBU7/z2OY=; b=QJRwWMEJWBHgK/zD3NbODeP8wW
+	5275CztnAuDYJLr85/CPF50qs6h1digzjld8qjp/krfAYYiyxQvqCOnUpcYWTkMYERZSPMWQDzQuK
+	Fxi3MyXD8l8mhBHfMwz+M5JNvGFHyHYHxPZTXbilGV1T87KeHYaXGrL8I0ISHsClYhmLRa5xGoRjL
+	A2pvYKoJPSeWU9yuj4wWB3fjc2m11YKSFKvHP/ePuclhb/YhOEmGoJ9wDqJUPLxksy7INT+5g3UUQ
+	Il6wgmA/VCFd6XTXQcKjP+b4TkcrU/Fr7cse5W13EOOu7zVTx0hY+WWZSfilYuNg3pEwhiPml7PsF
+	W1LaW2dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDfhX-0000000Fc21-3JAJ;
-	Tue, 28 Oct 2025 09:09:11 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
+	id 1vDfi2-0000000Fc6E-0Rk9;
+	Tue, 28 Oct 2025 09:09:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDfhU-0000000Fc1E-0Vfu
+	id 1vDfi0-0000000Fc5u-0wHR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 09:09:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=WaTABlPQzql62JP4bYpGFB1GN/KGFtKB/QnUa6OyJ+E=;
-	b=mJLRAgOBFmbF4UXSo3Qm6FPpTQs8JJU8wIFm7iGmahKNMDfFafS2NaRysmcHWa
-	c8NiIPAv/k9sNdIJDaFtj+1k5XDbw7Mg3OFeFAbOQz4s3DxWQpNYZoMj8xZl3jCt
-	7WImln7p/K3KCn4IAmqZQKXCN+G1FpLsBEc+lhPdVs0Lc=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDXf10BiABp90vTAA--.48036S3;
-	Tue, 28 Oct 2025 17:08:20 +0800 (CST)
-Date: Tue, 28 Oct 2025 17:08:17 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Rain Yang <jiyu.yang@oss.nxp.com>
-Cc: airlied@gmail.com, boris.brezillon@collabora.com, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
-	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
-	liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com,
-	marek.vasut@mailbox.org, mripard@kernel.org, p.zabel@pengutronix.de,
-	robh@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org,
-	simona@ffwll.ch, sre@kernel.org, steven.price@arm.com,
-	tzimmermann@suse.de, xianzhong.li@nxp.com
-Subject: Re: [PATCH v3 2/2] arm64: dts: imx95: Describe Mali G310 GPU
-Message-ID: <aQCIAfyUC6N5y2fB@dragon>
-References: <20250925203938.169880-1-marek.vasut@mailbox.org>
- <20250925203938.169880-2-marek.vasut@mailbox.org>
- <ba95487c-ada7-48a4-90b7-fd99a0278f51@mailbox.org>
- <aP7DZCMk1pQ7wsFo@dragon>
- <aQB88c_AEC1RAZtH@oss.nxp.com>
+	Tue, 28 Oct 2025 09:09:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 55895601AF;
+	Tue, 28 Oct 2025 09:09:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74176C4CEE7;
+	Tue, 28 Oct 2025 09:09:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761642579;
+	bh=ZeszJ3G5pFbOJEm0PLsqfPwRQuGZps8vSqiFmYtwyKY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MS8HsA3gHTzSFAkqVuH2/l8x1ouMjR1uDE4ZkKX7gH9k7EojJyCK4fKjjovw27RTp
+	 A1c4+6iqPHZjJW0zXOtiHS0TV+vlW37gAldPWA/ImTJljpZHvNLVI4Jpgs667xo6lH
+	 s6PVRRtHGv1l2bngpH5Qr3X8nQbgInqUMxD3jS+U9DMtXvfp9N5u06k0wpc4ZwpDqE
+	 BLC9iKNMcNuKGU5nfR/s2rAprUa7Wn4sKzQykkWjXuZcUwNPiZ4XW3I3VHby96bEtl
+	 whB5SVnoVtD8+xHnOA63yI7RY2LpBw23xPm2x+Ixy/LtxcDvzhi8dEG4SBVU7s7JcT
+	 EmlAuKIT3Mi6A==
+Date: Tue, 28 Oct 2025 10:09:36 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Leo Yan <leo.yan@linux.dev>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 01/12] dt-bindings: arm: coresight: Add cpu cluster
+ tmc/funnel/replicator support
+Message-ID: <20251028-enigmatic-astonishing-husky-f2c47a@kuoka>
+References: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
+ <20251027-cpu_cluster_component_pm-v1-1-31355ac588c2@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aQB88c_AEC1RAZtH@oss.nxp.com>
-X-CM-TRANSID: Ms8vCgDXf10BiABp90vTAA--.48036S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtrWrAFyUKr1kGw4UJw1xGrg_yoWkAFb_uF
-	4UCrs7Aw42gryUtFZ3CF4q9ryvkw15Jry3uw15JFnrZ34DAa48Ca9IkrWxZa4rCrWDArn8
-	tF98XryYkr4IvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1qQ6JUUUUU==
-X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNwV94mkAiAXl5gAA3K
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_020908_548193_76EDBB00 
-X-CRM114-Status: GOOD (  15.01  )
+In-Reply-To: <20251027-cpu_cluster_component_pm-v1-1-31355ac588c2@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +76,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025 at 04:21:05PM +0800, Rain Yang wrote:
-> On Mon, Oct 27, 2025 at 08:57:08AM +0800, Shawn Guo wrote:
-> >On Sat, Oct 11, 2025 at 12:53:29PM +0200, Marek Vasut wrote:
-> >> On 9/25/25 10:38 PM, Marek Vasut wrote:
-> >> > The instance of the GPU populated in i.MX95 is the G310, describe this
-> >> > GPU in the DT. Include dummy GPU voltage regulator and OPP tables.
-> >> Is there still anything that should be changed with this patchset, or can it
-> >> be applied ?
-> >
-> >I'm waiting binding change to be applied first.  Or is it already done?
-> >
-> >Shawn
-> >
-> Hi Shawn,
-> It might be better for Marek to remove the always-on GPUAPB clock from the DTS, given that
-> it's an SCMI protocol clock and the kernel expects it to be available during operations.
-> 
-> Also, the gpu_fix_reg appears unnecessary for the driver and could be removed[1].
-> 
-> [1] https://cgit.freedesktop.org/drm/drm-misc/commit/?id=a8cb5ca53690aa809f4f65e14192753073e61a71,
-> https://cgit.freedesktop.org/drm/drm-misc/commit/?id=02df3543f3e0ea572e2c739605ebd6c20e1149c4
+On Mon, Oct 27, 2025 at 11:28:03PM -0700, Yuanfang Zhang wrote:
+> Add the following compatible strings to the bindings:
+> - arm,coresight-cpu-funnel
+> - arm,coresight-cpu-replicator
+> - arm,coresight-cpu-tmc
 
-Ah, sorry! I did not know we haven't reached agreement on the change.
+We see that from the diff. Explain here the hardware instead.
 
-Shawn
+> 
+> Each requires 'power-domains' when used.
+> 
+> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> ---
+>  .../bindings/arm/arm,coresight-dynamic-funnel.yaml | 23 +++++++++++++++++-----
+>  .../arm/arm,coresight-dynamic-replicator.yaml      | 22 +++++++++++++++++----
+>  .../devicetree/bindings/arm/arm,coresight-tmc.yaml | 22 +++++++++++++++++----
+>  3 files changed, 54 insertions(+), 13 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
+> index b74db15e5f8af2226b817f6af5f533b1bfc74736..8f32d4e3bbb750f5a6262db0032318875739cf81 100644
+> --- a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
+> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
+> @@ -28,19 +28,32 @@ select:
+>    properties:
+>      compatible:
+>        contains:
+> -        const: arm,coresight-dynamic-funnel
+> +        enum:
+> +          - arm,coresight-dynamic-funnel
+> +          - arm,coresight-cpu-funnel
+
+Keep alphabetical sorting. We asked this multiple times already.
+
+>    required:
+>      - compatible
+>  
+>  allOf:
+>    - $ref: /schemas/arm/primecell.yaml#
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: arm,coresight-cpu-funnel
+> +    then:
+> +      required:
+> +        - power-domains
+
+Just move the allOf to the bottom like in example-schema.
+
+> +
+>  properties:
+>    compatible:
+> -    items:
+> -      - const: arm,coresight-dynamic-funnel
+> -      - const: arm,primecell
+> -
+
+Why do you remove this?
+
+> +    oneOf:
+> +      - items:
+> +          - const: arm,coresight-dynamic-funnel
+> +          - const: arm,primecell
+> +      - items:
+> +          - const: arm,coresight-cpu-funnel
+
+Hm? Why do you need custom select if this is not primecell? And nothing
+in commit msg explains why this is not primecell anymore.
+
+You have entire commit msg to say something useful, WHY you are doing
+this, WHY you are doing it DIFFERENTLY. Don't say what you did - that's
+obvious, we are capable of reading diffs.
+
+Best regards,
+Krzysztof
 
 
