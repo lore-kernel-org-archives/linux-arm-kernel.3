@@ -4,155 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E38CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 12:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF19CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 12:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2mXUqaEV5S6b/O0t0qBrRUWn9sswUt2El6JXMNsk/1U=; b=aqaq+p9BkiQQJQvQ2mrkpEHnqc
-	O4MlqJ7jMLvRyU7dFllknIng40FB+oLr0fJzmvOOn0WbPT1Q0te5xln7SBeHjIQee0T6+JvLxsJ4E
-	cSw9ox9x4RcEL+w3MGxs97UEswAFRsh1HmPVq7v/8gF8k8O23loEz01rcSsyvmAOrjOYvY1T7byi7
-	V1WYaWceZWVBlKhEhtXhenPh2N7nQ8JaKBPYAcS9Xrw6wTDvjaB2cImEESjBHkyWR9KKW5kXQn1Zw
-	7p1kzIrYDgPg+Dm1kqArzBzoX0FGzUu9IoLnjfTX3FsTyrRbK4jkrEGaN+0TJ3lTY5thMmJwqSauU
-	hFMFzUhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B0fSlXMm7jmTD5WzGsyoKLunwxTVIGKx8RK1BSLE8yk=; b=r+A/IDIkujU4muOoiDiXD+KXeh
+	XL605dLYKTsp91IqWtHlEuJEU/o2Ohf1pd1CDgGVnS2+5XuIA+QFmPJ0YyvXSYXD0buk1sH4Oa2tE
+	5XJh5RE0sCVwxlrE4ylQwcIQRDp3dIBERf1c+khgKa0G06FsBsuR8jT9cOBK5vWTf6maysBLKoAdZ
+	btDeW1f3qfdpitNcTiWUdYcafg7VwrnuzcZDQYWui0P2gO1ivGYZhK/wZLapeY2HvZEeRbD/XklzP
+	+h3rlwcn8ilxPeEdO4b9x7GsyrmCxUHfpZY1MVRFukX3eL5552WLxVzhFBJrX58hjX5OLUWCkVixU
+	aRYRFh4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDj3M-0000000FxUM-1Ceg;
-	Tue, 28 Oct 2025 12:43:56 +0000
-Received: from mail-westcentralusazhn150100000.outbound.protection.outlook.com ([2a01:111:f403:d902::] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vDj7p-0000000Fxry-08MJ;
+	Tue, 28 Oct 2025 12:48:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDj3I-0000000FxT6-43Ru
+	id 1vDj7n-0000000Fxrj-1a02
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 12:43:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lYMX2PJFmT0gWzGNt+n8houPbpH7xgQCRxGvSp5T6Xfbipl6/UFQHApCpigml9xk4TY+km7XBfdO7T/A+UFE01IoNAgSKfu1jeO7LXOrvax6yjd51LOw4Sr+Ys05bHNTYAdtPdOEIVVyOkDvVQnu0Jf4KWdHanIaw+PHljEPuVq8UTl5zRApFTc6hqYg5uc61blDR4Wt9Ru3ywhe5lMbO2r7nO9/Y5YU3CKjVo9EOe29CJBckGF3E/Q0BFohnd0bX40okdmHKbP9fpUfLmp2W8OJkplDNrfQaKvOStDJqXNyfHlGqs/SVP1+pRuxxqQJyWyf2O9P4TjU/J+RGBd0Kw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2mXUqaEV5S6b/O0t0qBrRUWn9sswUt2El6JXMNsk/1U=;
- b=dk//N86dzzDz7OAn0URp+akfxyaiAI1wXCfu+Khl4U0OQcUl6kuDm2a+56RoarolE6WEXl7+OrCSDHWR9aiH3Sht3WKnj3fZY4BDKdULUkH2437vkNIyXb5x8xGZ3kLoe2XCZThqrfZCTParaKC7ZMR7eZZ9LsFI+8xyOBJI4FO8u9uEHV6+yG80qViACrHAr+ljiyJlpiQnfy8v+ipHpDyJTOL0IIyoFK7G9AtvkQzxakty/6LsH4kflxWcc/w2UtdBUPu/As2t2c5SuhoRZJcYT6yoFpzo5m9HcvdJ3oGXNUj6QNplV6dn/VW16iOQrkKg94BRdh4bzgp1gDQrwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=fail (p=quarantine sp=none pct=100) action=quarantine
- header.from=ti.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2mXUqaEV5S6b/O0t0qBrRUWn9sswUt2El6JXMNsk/1U=;
- b=KITFs+IgUljlCRJX3hL1OYrdZWLpu8o7ZJSzyw/dZmn01EdMmMx8/E/Ci9A177Xly0OXAqtR9FiyQWEgshA49hMmvWjXqhp37fkspvpd7S1EbBfZt9ux1SnyDfuHy36JAvwO66uymBOHd5S9SClvcd5idVl6lvCHtsnR9GbpIqM=
-Received: from BN9P222CA0003.NAMP222.PROD.OUTLOOK.COM (2603:10b6:408:10c::8)
- by CH3PR10MB7987.namprd10.prod.outlook.com (2603:10b6:610:1d1::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Tue, 28 Oct
- 2025 12:43:46 +0000
-Received: from MN1PEPF0000ECD9.namprd02.prod.outlook.com
- (2603:10b6:408:10c:cafe::d9) by BN9P222CA0003.outlook.office365.com
- (2603:10b6:408:10c::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.12 via Frontend Transport; Tue,
- 28 Oct 2025 12:43:45 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=fail
- action=quarantine header.from=ti.com;
-Received-SPF: Fail (protection.outlook.com: domain of ti.com does not
- designate 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com;
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- MN1PEPF0000ECD9.mail.protection.outlook.com (10.167.242.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Tue, 28 Oct 2025 12:43:43 +0000
-Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Oct
- 2025 07:43:40 -0500
-Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Oct
- 2025 07:43:39 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Oct 2025 07:43:39 -0500
-Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59SChZUo2338171;
-	Tue, 28 Oct 2025 07:43:35 -0500
-Message-ID: <eed524b60b43bf22e88c40dd770a6b0bc38c44b9.camel@ti.com>
-Subject: Re: [PATCH] PCI: cadence: Enable support for applying lane
- equalization presets
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: kernel test robot <lkp@intel.com>, <lpieralisi@kernel.org>,
-	<kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
-	<bhelgaas@google.com>, <unicorn_wang@outlook.com>, <kishon@kernel.org>,
-	<18255117159@163.com>, <oe-kbuild-all@lists.linux.dev>,
-	<linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, <s-vadapalli@ti.com>
-Date: Tue, 28 Oct 2025 18:13:46 +0530
-In-Reply-To: <20251028114746.GA1505797@bhelgaas>
-References: <20251028114746.GA1505797@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	Tue, 28 Oct 2025 12:48:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CC6EF61F98;
+	Tue, 28 Oct 2025 12:48:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE876C16AAE;
+	Tue, 28 Oct 2025 12:48:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761655710;
+	bh=up6DAN6s+RjU+k6yEjhEfBrjGGkOEgvJ0auo3biralU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=rUW6kJLstv3SGwHz/k9YO+feDrrQj1grLwSzR9gLYt1r6sG6fLFUBWvGjYdVoqpXv
+	 JotjWGYCb95CfQs3j/lZLgjpwdThMauoVUX6hFwbSAR3xyc6ll+j+IO4v6PJcx2pNe
+	 JBhVDFoao8YzLpJpxYUCimcuceQSX37n7O9agh+rNRRn0wLwG5ExhD2XkDiHYNCON0
+	 bngFzug1K1BhX5xiBqhj7q0sw7425A4m6wnD9C9HFfEDOanqR1JvDOWmvyOne4GKoi
+	 g7lyZRfuqC8O7s+6uimaoMS8lxEGhVCn+Y9EQGUCekiLzLHC5omLL6A6YlB521Lv+w
+	 m8ghh4E4P7THA==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Sasha Levin <sashal@kernel.org>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-6.6] firmware: arm_scmi: Skip RAW initialization on failure
+Date: Tue, 28 Oct 2025 08:48:07 -0400
+Message-ID: <20251028124815.1058740-7-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251028124815.1058740-1-sashal@kernel.org>
+References: <20251028124815.1058740-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD9:EE_|CH3PR10MB7987:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d05864e-73a8-4606-6a17-08de161fa155
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013|34070700014|32650700017|34020700016|34110700003|34140700187;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V1h5L3lkSkNxeG1Lc0EweUNWMG51NExKNlJjQWxwTVdFSjJSb2NXTG9QMW5V?=
- =?utf-8?B?VS9Oc0l5MHA3eUpheFhBZmdDalJBZmFUWWpza1BlMDhnRmdCVHpjNjl4SFVz?=
- =?utf-8?B?eHcxelBKVHp3SXhKQUU0MkVXUVJ0alltSVRPd3VMWCtERldKWXdvWVhhTGg5?=
- =?utf-8?B?QWZPaUNsZ1prWlNjWmgvQVFZMWtMaVlNbU96WWkwMENYRThHSkgwSXRZWnJX?=
- =?utf-8?B?enVLWHI2eDFaUHJad1o3Tm9KOTFYV1orZlliUkliZFowTUZGaVJYdGYvNGlE?=
- =?utf-8?B?cGpIRlhpNVV5RktQUUdzNThhY1RBaVQvNDJFQjk4WmpFWEdqWitYMFVlVUtn?=
- =?utf-8?B?VzFVTkh1alR3UEg5TW5IYVk4aWtRUGJBcXBaVzR5cGFQRnpZQ2taalF1TWtz?=
- =?utf-8?B?QWQ4dVQ5SGlnTWIvVWEyNVNKU1JDZktheWN1VHFzNW8weDViWWVnSjQ0NEpv?=
- =?utf-8?B?K2NpU0VyeHdqdHQ2RzQ1WkVEVExUbndNY2E0Z2toSFRrZW9yTllJdFlJWndh?=
- =?utf-8?B?YVR6Y01jd3Mra01sSmwzYmJ0LzFKbDZYeDJ5b1FyZSs4RnUwTkUvMVJ0ZFZM?=
- =?utf-8?B?V0FKcnc2Ty9TT1QzWVhiSzBrYjVzV21lalZIZHUraTNlYWRmcXJUb2xSSU9E?=
- =?utf-8?B?WGhXTVh0YWdhanR2YVdoREd0N3JpYjNGQlFyR09Lc3BYRFJJREExVzgxbTZw?=
- =?utf-8?B?WTVQc2pjcGJMTXRpb3B3dk5zNGNuajl5VXdMaU1NemZvSjBHd0l5YVBFd2do?=
- =?utf-8?B?TzkrU3BKOGxVWTAwSU9LT3BaU3A1NkxuTEQ0dTd2blVIOHJkSnE0Qmw4Zkhp?=
- =?utf-8?B?N2FBMDR4SjZsR3lWV0tqNStBSmx4N1ZucVpkSUwwcEMyY0hlRlBKZGxwMXdZ?=
- =?utf-8?B?S3o1aXNPSkZwK1lWQnp5cEJkQzRMS2gzTTBGNERDOGVtWnJtT0hTOUF3bmRQ?=
- =?utf-8?B?RmhLeTBZUW5tOVVxYXcyM2hVZnZMVldCMGNuVDNuVTFGZDRKcWtEZEFEWXNP?=
- =?utf-8?B?OTN3OG0zSTUyMDFUeGE3d0VCUEtqT1FEQktpRUtJQXQyNmFNZ3J3OE8ycjlF?=
- =?utf-8?B?QytBUVJQd1dmZVliK0RXSFJoV2hnSHEwaGpjZ0kvdGR1TlRNS2tRWnVwRTVt?=
- =?utf-8?B?MDh1RUlyVU9zKzBPWVgvU1JWdjgrWVNIYXZ3Mjh3YTNublJKV1BKU25pd3hx?=
- =?utf-8?B?RmxEK0d4bWw5UTV2LzVMSGtFVVE0RnVHaFZUcVZQMGNnM3hPTDdyNlU5VkJp?=
- =?utf-8?B?TkhYQ0NmZDk1ZXVPeXYwTk90WjNQUFdvODc5Q1lTemRDVDg2SUozN0VmN285?=
- =?utf-8?B?ajQxMm9aaFQ5d2licWc5dVlBSEZUZlk3Y2R5OUZ6NzIwc1p6TTJ2cTkveSt0?=
- =?utf-8?B?VnpFLzlaM0NxY1h5SktMeUNzbEFiWnVWcHhySEVQTlBDdDU4Z3h6MjExYU4v?=
- =?utf-8?B?bTBwZHN3MkpyaUw3anl4aFAxZzdJN3A5MENjc1J2V1I0U0hsTEFTblcyNXNK?=
- =?utf-8?B?aDlXSFVPVEZBMEZ1QW1iNVpMZnBQRmI4VExFcUt2bCtMYXNEZmhRUFR4ZmM0?=
- =?utf-8?B?RjZ6cTVhU29sZlNqMmVCT1FiSVk5L3owZm0xUGgzUUFtYXBOSGZ6c3NDeWFn?=
- =?utf-8?B?WjNoUEJHRnBodFVBUFp0ZG5iQUdrZlNFM2RNa0pueUpCWlFZMWRBbzVYOUFB?=
- =?utf-8?B?SWw1WVFjTUN3djVDNmliTUdQTGkveGxmZDdsY0tNUmNUVzlvMzU4UjJuRmhZ?=
- =?utf-8?B?a2RDMFN1WEFjb1oyNGlyTG83bnBNN3BqMjMzODZOSUFiZW1qaHdTZ0h6RWxw?=
- =?utf-8?B?UFN0NzZuSkZ1akNaNi85TXNHOEZSbFY4dlAzc3R6NCtzLzJCdFJFRHE2bmd6?=
- =?utf-8?B?K1hxYWVST0huVFhTREx6alFacmp4UlphMVowUGdDOWQ1WjZ2amVBU3JoT2Ix?=
- =?utf-8?B?K21zMWNxK2pZRWtFcDg3OTRud1ZKSW5qdlI2VS9YRUM3ekROVXBleDlSYXFI?=
- =?utf-8?B?dmNwMnJESHh5eTlUQUZNY29RK3V6YUVLTHdFSG5XdG9pb3pyMUFHR0lFZ1d4?=
- =?utf-8?B?aHVsb0U3Tkw2cDRwTnhVZ0YxeE9JSDVaZGMyL01IUEw0cUpDRWZvRUhGdDl4?=
- =?utf-8?Q?freiw2XvymhWTve4Da0lDqVgu?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013)(34070700014)(32650700017)(34020700016)(34110700003)(34140700187);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 12:43:43.8642
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d05864e-73a8-4606-6a17-08de161fa155
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD9.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7987
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_054353_207342_768EF2F6 
-X-CRM114-Status: GOOD (  20.85  )
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.17.5
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,74 +76,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-10-28 at 06:47 -0500, Bjorn Helgaas wrote:
+From: Cristian Marussi <cristian.marussi@arm.com>
 
-Hello Bjorn,
+[ Upstream commit 092b9e2ce6dd63d2f36822751a51957412706986 ]
 
-> On Tue, Oct 28, 2025 at 10:56:33AM +0530, Siddharth Vadapalli wrote:
-> > On Tue, 2025-10-28 at 13:16 +0800, kernel test robot wrote:
-> > > Hi Siddharth,
-> > >=20
-> > > kernel test robot noticed the following build warnings:
-> > >=20
-> > > [auto build test WARNING on pci/next]
-> > > [also build test WARNING on pci/for-linus linus/master v6.18-rc3 next=
--20251027]
-> > > [If your patch is applied to the wrong git tree, kindly drop us a not=
-e.
-> > > And when submitting patch, we suggest to use '--base' as documented i=
-n
-> > > https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> > >=20
-> > > url:    https://github.com/intel-lab-lkp/linux/commits/Siddharth-Vada=
-palli/PCI-cadence-Enable-support-for-applying-lane-equalization-presets/202=
-51027-213657
-> > > base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git n=
-ext
-> > > patch link:    https://lore.kernel.org/r/20251027133013.2589119-1-s-v=
-adapalli%40ti.com
-> > > patch subject: [PATCH] PCI: cadence: Enable support for applying lane=
- equalization presets
-> > > config: x86_64-buildonly-randconfig-002-20251028 (https://download.01=
-.org/0day-ci/archive/20251028/202510281329.racaZPSI-lkp@intel.com/config)
-> > > compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-> > > reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/a=
-rchive/20251028/202510281329.racaZPSI-lkp@intel.com/reproduce)
-> > >=20
-> > > If you fix the issue in a separate patch/commit (i.e. not just a new =
-version of
-> > > the same patch/commit), kindly add following tags
-> > > > Reported-by: kernel test robot <lkp@intel.com>
-> > > > Closes: https://lore.kernel.org/oe-kbuild-all/202510281329.racaZPSI=
--lkp@intel.com/
-> > >=20
-> > > All warnings (new ones prefixed by >>):
-> > >=20
-> > >    drivers/pci/controller/cadence/pcie-cadence-host.c: In function 'c=
-dns_pcie_setup_lane_equalization_presets':
-> > > > > drivers/pci/controller/cadence/pcie-cadence-host.c:205:20: warnin=
-g: this statement may fall through [-Wimplicit-fallthrough=3D]
-> > >      205 |                 if (presets_ngts[0] !=3D PCI_EQ_RESV) {
-> > >          |                    ^
-> > >    drivers/pci/controller/cadence/pcie-cadence-host.c:225:9: note: he=
-re
-> > >      225 |         case PCIE_SPEED_8_0GT:
-> > >          |         ^~~~
-> >=20
-> > Fallthrough is intentional. The lane equalization presets are programme=
-d
-> > starting from the Max Supported Link speed and we fallthrough until we =
-get
-> > to 8.0 GT/s.
->=20
-> It's poorly documented, but use "fallthrough" here:
->=20
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
-ocumentation/process/deprecated.rst?id=3Dv6.17#n200
+Avoid attempting to initialize RAW mode when the debug subsystem itself
+has failed to initialize, since doing so is pointless and emits
+misleading error messages.
 
-Thank you for pointing me to the documentation. I will update the patch
-accordingly and post the v2 patch.
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Message-Id: <20251014115346.2391418-3-cristian.marussi@arm.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
 
-Regards,
-Siddharth.
+LLM Generated explanations, may be completely bogus:
+
+Now I have enough information to make my determination. Let me create a
+comprehensive analysis:
+
+## BACKPORT ANALYSIS DECISION
+
+**Backport Status: YES**
+
+---
+
+## COMPREHENSIVE ANALYSIS
+
+### 1. CODE CHANGE ANALYSIS
+
+The commit makes two related changes:
+
+**Change 1** (drivers/firmware/arm_scmi/driver.c:3047-3048):
+```c
+- if (!info->dbg)
+- return -EINVAL;
+```
+Removes the NULL check from inside `scmi_debugfs_raw_mode_setup()`.
+
+**Change 2** (drivers/firmware/arm_scmi/driver.c:3221):
+```c
+- if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT)) {
++               if (info->dbg &&
+IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT)) {
+```
+Adds guard condition to prevent calling the function when `info->dbg` is
+NULL.
+
+### 2. SEMANTIC ANALYSIS PERFORMED
+
+**Tools Used:**
+- `git log` and `git show` for commit history analysis
+- `Grep` for code pattern searches across SCMI subsystem
+- `Read` for examining driver code and Kconfig
+- Task agent (Explore) for understanding SCMI ecosystem context
+- Git blame and tag analysis for version tracking
+
+**Key Findings from Analysis:**
+
+**Impact Scope (from code examination):**
+- Function `scmi_debugfs_raw_mode_setup()` is called from only ONE
+  location: `scmi_probe()` at line 3222
+- Function accesses `info->dbg->top_dentry` at line 3068, which would be
+  a **NULL pointer dereference** if the removed check wasn't there
+- The calling site now has proper guard, so function is never called
+  with NULL dbg
+
+**Caller Analysis:**
+- `scmi_probe()` is the driver probe function - called during device
+  initialization
+- Prior commits in series (2290ab43b9d8e, 289ce7e9a5e1a) fixed NULL
+  handling in debug helpers
+- This commit completes the debug failure handling by preventing
+  pointless RAW init attempt
+
+**Dependency Analysis:**
+- RAW mode requires debugfs (CONFIG dependency in Kconfig line 35)
+- `scmi_raw_mode_init()` expects valid `top_dentry` parameter (line
+  3068)
+- If debug setup fails, `info->dbg` is NULL, making RAW mode init
+  impossible
+
+### 3. BUG IMPACT ANALYSIS
+
+**Affected Kernel Versions:**
+- Introduced: v6.3-rc1 (commit 7063887b53860, January 2023)
+- Fixed: v6.18-rc3 (commit 092b9e2ce6dd6, October 2025)
+- **Affected range: v6.3 through v6.17**
+
+**Failure Scenario:**
+```c
+// Before fix - in scmi_probe():
+if (scmi_top_dentry) {
+    info->dbg = scmi_debugfs_common_setup(info);  // Returns NULL on
+failure
+    if (!info->dbg)
+        dev_warn(dev, "Failed to setup SCMI debugfs.\n");
+
+    if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT)) {
+        ret = scmi_debugfs_raw_mode_setup(info);  // Called with NULL
+dbg!
+        if (!coex) {  // Default config
+            if (ret)  // ret = -EINVAL
+                goto clear_dev_req_notifier;  // PROBE FAILS!
+            return 0;
+        }
+    }
+}
+```
+
+**Real-World Impact:**
+- **Who is affected**: Development/testing systems with
+  CONFIG_ARM_SCMI_RAW_MODE_SUPPORT=y
+- **When it triggers**: When debugfs initialization fails (no debugfs
+  support, memory failure, mount issues)
+- **What breaks**: **Entire SCMI driver probe fails** → system may not
+  boot
+- **Criticality**: SCMI manages power domains, clocks, DVFS, thermal
+  sensors - critical for ARM platforms
+
+From Explore agent findings:
+- SCMI is used on STM32MP, ARM Juno, NXP i.MX95 platforms
+- Controls essential services: CPU frequency, power states, system
+  shutdown/reboot
+- Kconfig notes it "may be needed early in boot" for power control
+
+**Severity Assessment:**
+- **Medium-High for affected configurations**
+- Not production issue (RAW mode is debug/testing feature per Kconfig
+  line 42)
+- But complete driver failure is **unacceptable** for development
+  systems
+- Misleading error messages make debugging difficult
+
+### 4. ARCHITECTURAL & SIDE EFFECTS
+
+**Architectural Impact:** None
+- No data structure changes
+- No API modifications
+- No changes to core SCMI protocol handling
+
+**Side Effects:** Positive only
+- Prevents probe failure when debugfs fails
+- Eliminates misleading error messages
+- Improves graceful degradation
+- No functional changes to success path
+
+### 5. STABLE TREE COMPLIANCE
+
+**Compliance Check:**
+✅ **Bug fix**: Yes - fixes probe failure
+✅ **Small and contained**: 2 simple changes in 1 file
+✅ **Obviously correct**: Guard check before function call
+✅ **No new features**: Pure bug fix
+✅ **No architectural changes**: Minimal scope
+✅ **Low regression risk**: Only affects error path
+
+**Stable Tree Rules Alignment:**
+- Fixes important bug (probe failure)
+- Self-contained change
+- Easy to review and verify
+- Part of coordinated fix series (related commits already backported)
+
+### 6. BACKPORT INDICATORS
+
+**Evidence for backporting:**
+- **Related commits already backported**: Commit 2290ab43b9d8e (with
+  Fixes tag) has been backported to multiple stable trees
+  (7056e61a28a83, 4c0f9a50f2e98, fae8405cfddb0, 58d3e2680bea9,
+  30c89140a4ddc, 75446183128d2)
+- **Part of fix series**: This is patch 3/3 in a coordinated series
+  addressing debug initialization failures
+- **Fixes merged in mainline**: Present in v6.18-rc3, merged via
+  arm/fixes tree (71a5970259c3f)
+- **No Cc: stable tag**: But related patches were backported, suggesting
+  subsystem maintainers want the series in stable
+
+**Evidence against backporting:**
+- No explicit "Fixes:" tag (but commit message clearly states it fixes a
+  problem)
+- No "Cc: stable@vger.kernel.org" tag
+- Only affects debug/testing configuration
+
+### 7. DEPENDENCY CHECK
+
+**Depends on:**
+- None - independent fix
+- Works better with commits 2290ab43b9d8e and 289ce7e9a5e1a (already
+  backported)
+
+**Required by:**
+- None identified
+
+---
+
+## FINAL RECOMMENDATION
+
+**YES - This commit SHOULD be backported to stable kernel trees.**
+
+**Justification:**
+
+1. **Fixes probe failure**: When debugfs fails + RAW mode enabled
+   (without coex), entire SCMI driver fails to load, breaking critical
+   platform services
+
+2. **Completes backported series**: Related fixes (2290ab43b9d8e,
+   289ce7e9a5e1a) already backported to stable. This commit completes
+   the debug failure handling
+
+3. **Low risk, high correctness**: Minimal change, obviously correct
+   logic (guard before function call)
+
+4. **Stable tree compliant**: Small, contained, bug-fix-only change with
+   no architectural impact
+
+5. **Affects supported feature**: CONFIG_ARM_SCMI_RAW_MODE_SUPPORT
+   exists in stable kernels since v6.3
+
+6. **Graceful degradation**: Enables proper fallback behavior when debug
+   subsystem fails
+
+**Target stable trees:** v6.3+ (where RAW mode was introduced)
+
+**Priority:** Medium - affects development/testing systems, not
+production, but fixes complete driver failure
+
+ drivers/firmware/arm_scmi/driver.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index bd56a877fdfc8..85392228d1739 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3044,9 +3044,6 @@ static int scmi_debugfs_raw_mode_setup(struct scmi_info *info)
+ 	u8 channels[SCMI_MAX_CHANNELS] = {};
+ 	DECLARE_BITMAP(protos, SCMI_MAX_CHANNELS) = {};
+ 
+-	if (!info->dbg)
+-		return -EINVAL;
+-
+ 	/* Enumerate all channels to collect their ids */
+ 	idr_for_each_entry(&info->tx_idr, cinfo, id) {
+ 		/*
+@@ -3218,7 +3215,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 		if (!info->dbg)
+ 			dev_warn(dev, "Failed to setup SCMI debugfs.\n");
+ 
+-		if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT)) {
++		if (info->dbg && IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT)) {
+ 			ret = scmi_debugfs_raw_mode_setup(info);
+ 			if (!coex) {
+ 				if (ret)
+-- 
+2.51.0
+
 
