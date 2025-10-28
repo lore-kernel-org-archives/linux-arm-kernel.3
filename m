@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AABDCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC47CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SabJRVn0JNohyzY4K40NzhYHLME+QEL5+1a7OcvzBdE=; b=GXXyOeVYjloLYyPwRZLje/ZGOm
-	LmKMOSI6mSBX4IRaTjfl9gKQyK1nPNE48kjZhPgWpDLcyOJP4kFTI071umBcebyMlbdbELBqvO4zJ
-	9AKtHmWaXIFBiXXUD30/5GqFs2rH84p9i+4O3QPgoG/JkyqCseQ8dfFeDgALKSTlZzQfBEM063X3G
-	HeZR17/90DdjShCTvML594vP0GR951n+7JTYbrp3z3hHGLhmWmGr2QooCEWsk/4u2LqQXnRzP8MJa
-	VoxM0u7aB9HttaDwMb4S8c+vrh4idiSEO3xaNRTLulezj9gZ0jfISu7PWB5Quzk2SKoMJlxCoH/ij
-	XhPa0ncw==;
+	bh=yCeW08scrr2ACBo1vbxVy1YcULpnUDlueJqIMQ2qt7E=; b=mUfxJPC9gn5EOPtIblQbxlvEX3
+	ISqfeoP186lNmkIW8Kvd0YKtj981ejwNxZPZ1HNakyYnSiEcmZH105qwKPXgYJ3FWbf/oUwDGSWyj
+	z9B4QpJR9zPBYbwFzz4lXREoBhhMHpsiNqEMMB9yUUj6GBIZZwNw/O6VVz0resWt9Zu9gY2o0G2r6
+	OT5fOUUsbI9b7r/tE6f54hriUGRPLSncxkYSaHJlnDsgzC4M3CsX/EQfX1uk53jkCcWEmpEiGaqHq
+	zoYaT5sD/bDtiDyAwygrhb40NUZ82dleCJZCl1Lj5LouyKHkuXNRggHeyj6YNIcyhknJQjP1xVq76
+	cJFsozcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeV2-0000000FTqY-19iU;
-	Tue, 28 Oct 2025 07:52:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vDeVv-0000000FTyv-3eLa;
+	Tue, 28 Oct 2025 07:53:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeV1-0000000FTqL-1icb;
-	Tue, 28 Oct 2025 07:52:11 +0000
+	id 1vDeVt-0000000FTyS-1VfD;
+	Tue, 28 Oct 2025 07:53:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A4323602D7;
-	Tue, 28 Oct 2025 07:52:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF514C4CEE7;
-	Tue, 28 Oct 2025 07:52:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 980F145037;
+	Tue, 28 Oct 2025 07:53:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEAB9C113D0;
+	Tue, 28 Oct 2025 07:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761637930;
-	bh=lgCu1/5LkJDVUKGcQ1LJt6hU1F8MpL35/q8ICEa7ZPU=;
+	s=k20201202; t=1761637984;
+	bh=yCeW08scrr2ACBo1vbxVy1YcULpnUDlueJqIMQ2qt7E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eeZ0Tj72+n38VyiBnwzBzv1JPxT5YjRmABluQrQbslUPzrY4kOjj2dZbDJn+VKxVX
-	 QE4fZj6gTStX4n5HsGpMaSXgVAhZ+8sC6W3k2yfrzQi/FS5BfbFSmqjNtPow4aVUkg
-	 5DdvTG6gAECtFsUFZwk25O92EL6Ytj9Sf/i8d5n5tAvZb9+b9HIpIO2qNo6AoI1zbc
-	 uj3JznohxOTHbhva7pBZea7/H0kbzXJxVEhRbWpRCEKWiO5oxrTRcBgBQYjbVQsXEo
-	 U2OLHi4bSp94ssMT2o94756zksQZG9E2cv82F00lUI88X6OPvu6fGDPhE0qiZ7i57x
-	 tJY3u1FKZhsLA==
-Date: Tue, 28 Oct 2025 08:52:07 +0100
+	b=KJ9GAhwGQiUOpcjuOp1NuWsZ3BZtwb4Eri9cttZxeRuZUm14FV9fzvpPkqAD/YJ4R
+	 2YsxmfjFSooPJ8j/dKdWTQp9CEysFOjZruputzlsYvAdBjwOi+lJWEIiz+GI8fTmze
+	 T8gOxlLywka3cT/6t1L/5aAu3EL+FsjmPEVXF80Y2eZcEdZYK9bTI+UgQmBRwe/RSC
+	 p3Sm/0khowvPb07B5bgjZSydbQnzzhWG252l2CkCmzXu6NXTv814h5FfLwhF7lZXbv
+	 e0zs3EsjocEpcO7ND3rFjhfG51I/1I7EgOtDRN3NbM4QPCNbT4BTKGaLmISZHWak+p
+	 XhqHrydapfx2g==
+Date: Tue, 28 Oct 2025 08:53:01 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com, 
-	heiko@sntech.de, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	huangtao@rock-chips.com, finley.xiao@rock-chips.com
-Subject: Re: [PATCH v5 4/7] dt-bindings: clock: Add support for rockchip
- pvtpll
-Message-ID: <20251028-hasty-amusing-guan-e57f62@kuoka>
-References: <20251027084147.4148739-1-zhangqing@rock-chips.com>
- <20251027084147.4148739-5-zhangqing@rock-chips.com>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
+	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	joel@jms.id.au, andrew@codeconstruct.com.au, vkoul@kernel.org, kishon@kernel.org, 
+	linus.walleij@linaro.org, p.zabel@pengutronix.de, linux-aspeed@lists.ozlabs.org, 
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org, 
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v4 4/9] ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST#
+Message-ID: <20251028-witty-nickel-pig-5bd4bc@kuoka>
+References: <20251027095825.181161-1-jacky_chou@aspeedtech.com>
+ <20251027095825.181161-5-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251027084147.4148739-5-zhangqing@rock-chips.com>
+In-Reply-To: <20251027095825.181161-5-jacky_chou@aspeedtech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251028_005305_414178_C669C138 
+X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,66 +77,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 04:41:44PM +0800, Elaine Zhang wrote:
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#clock-cells":
-> +    const: 0
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-output-names:
-> +    maxItems: 1
-> +
-> +  rockchip,cru:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      Phandle to the main Clock and Reset Unit (CRU) controller.
-> +      Required for PVTPLLs that need to interact with the main CRU
-> +      for clock management operations.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#clock-cells"
+On Mon, Oct 27, 2025 at 05:58:20PM +0800, Jacky Chou wrote:
+> Add pinctrl support for PCIe RC PERST#.
 
-Missing clocks.
-
-> +  - clock-output-names
-
-Missing rockchip,cru
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pvtpll@20480000 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-If you cannot find a name matching your device, please check in kernel
-sources for similar cases or you can grow the spec (via pull request to
-DT spec repo).
-
-> +      compatible = "rockchip,rv1126b-core-pvtpll";
-> +      reg = <0x20480000 0x100>;
-> +      #clock-cells = <0>;
-> +      clock-output-names = "clk_core_pvtpll";
-
-Incomplete example - missing clock.
-
-> +    };
-> +
-> +  - |
-> +    pvtpll@21c60000 {
-
-Drop all other examples, no need to repeat the same.
-
-They weren't even here before!
+This is part of PCI commit. Makes no sense on its own.
 
 Best regards,
 Krzysztof
