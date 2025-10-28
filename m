@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C885DCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F17CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kd93NqVShxtW1B6/oVtCTj9E0dVWdTivuNuvZCaYUPI=; b=BFN9JIs15rmLST70VMV3I2p5ha
-	DP1l4j5Yei4m7Mla3os3h14c+DQF3S2jt5mNkDYfYbexgSoZfVqbPO7WoRJzPGICws+7uKtj2HV49
-	PUYL7JPYDh02V2HxmmjJgGTQKMrk11FMDd7dADQYPr28ZDTinR7iZIIJuXTwvB04yx9XdGxBtqDV4
-	VR8j8Yx77kLUfyT5Au9AeoAYB86yTQlKtzfyyt5+PtFWhlIb4qdPXQ2KqyGtmC7uKsQCAXy084stQ
-	aWJeRtXV9Jtsbsrew3aM/u73wlHhID6ObOrNk8eOYonNTHzfhQMZv+7QnCA8DzjUTZZbgrwLFIP/X
-	LoE8sg6g==;
+	bh=zCP706gNUhID59kefIlv1pEeyWMRWQrzSimQZf43gGI=; b=i6p4o3rTKmSDxHVvL8geoMdg6s
+	ldU71fyAZeyvkn0dOGw5lD4y2otTgUUAWbSBTFJLh+FQ4s+6N3Br9gArHwpPBKQPuJ9sZO5421Mgy
+	/Hyx0Bj/7GoVg75vR3W3NW/emzHvr+A1rLg3iV2SbQcWGm9t2e8+YfjUNG52EVSoX4l2Nlcsmzaj/
+	zl3eloJEFhTsrYNBuM/Qp7t00DrZlmKg6fybaEylb+1warm29dKc1nYW+QAuhtwkK+w/SAWFundPS
+	IU9BCd2CrcEB9P5uVr0rZ5WLpc4ifTLMFDSZeTElmU9KDUaYWoxectXCbmdjm6WePNv5TVi/gaizL
+	wWDR+q7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgnU-0000000Fk1v-3Ai9;
-	Tue, 28 Oct 2025 10:19:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDgnZ-0000000Fk3u-0DfO;
+	Tue, 28 Oct 2025 10:19:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgnR-0000000Fk0W-24bO
+	id 1vDgnW-0000000Fk2u-1VaM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:19:22 +0000
+	Tue, 28 Oct 2025 10:19:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2513437A7;
-	Tue, 28 Oct 2025 10:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73ED4C4CEF7;
-	Tue, 28 Oct 2025 10:19:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C471F61F05;
+	Tue, 28 Oct 2025 10:19:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB06C116C6;
+	Tue, 28 Oct 2025 10:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761646760;
-	bh=KkOSLYci++vNRNEQTXDYGgJqFXUhVXvlHo6io3wLa/k=;
+	s=k20201202; t=1761646765;
+	bh=mcD+09JpIvqsqebTYtxhjCLGrP7RjNZxDg9R66+62F0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cPuh0EB0azQbYctGin8hqnUkPiYwN2MTm0rtBoagUm5KGBcfPOxcUIRMkkiPWhlbg
-	 9nXKlDYoqPaGGRTLqqNsUiJ7EV4vHI/7s1ImXFl3lDsy/nJ/VQtjxgtLdmMdPPjbzC
-	 /IO6krhU/I6Qh91mifyLsmQxD00sHLn0t3iJZn7yU42/4d8T+ed6pM89Gfaf00CNpx
-	 x4Wr4gV1N3YR+euOSAdoxcOZ7+qf+6unzfRiHWVLYoUM0eIHbaC1DIgoEccjxTRRD2
-	 AmoUtju3D2HfCFAbTnFSKM9+XRKKsa1MSBqb8WK/4LpHZC8NC2p7nFMjpjHolOny9H
-	 TjjoTaXS5vC/w==
+	b=kla7tCnv0JF9dJLj5VYpCy7ya63VZlpgFQ9vzNir/y5fmztD5BP+IbFu5JIx1hW+U
+	 dfP8v3x2mb0sUZys0r9JADSCWgLJbS+PD3H66cKDCGX+kgcgjuFVBK8uslWWowy7Jw
+	 j1cIwQC6qRv8+VoEBLCDzaExBcBkFmYnVKL3VsZO3yR7DW60GTz76GmbGS8MVxQpfh
+	 pcXEqwqlkYM4Gr7diLckHcobZvtFZ7FevYdDswOvNIu2d4IXr3k5tOybI9oylKhDJ7
+	 F2nRrmtn1xtfLjaTfNsnILZtRGSLwLS2PhNynjgjIvCSX293ULBzJljuOzN+HLoHSS
+	 HitGoNQI54QQg==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 28 Oct 2025 11:19:00 +0100
-Subject: [PATCH not for merging 2/7] ACPICA: Add Arm IORT IWB node
- definitions
+Date: Tue, 28 Oct 2025 11:19:01 +0100
+Subject: [PATCH not for merging 3/7] irqdomain: Add parent field to
+ irqchip_fwid
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-gicv5-host-acpi-v1-2-01a862feb5ca@kernel.org>
+Message-Id: <20251028-gicv5-host-acpi-v1-3-01a862feb5ca@kernel.org>
 References: <20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org>
 In-Reply-To: <20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
@@ -58,13 +58,8 @@ To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
  Marc Zyngier <maz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
 Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Jose Marinho <jose.marinho@arm.com>
+ linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_031921_570063_FCB01056 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +74,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jose Marinho <jose.marinho@arm.com>
+The GICv5 driver IRQ domain hierarchy requires adding a parent field to
+struct irqchip_fwid so that core code can reference a fwnode_handle parent
+for a given fwnode.
 
-ACPICA commit d68693b24e5235a7da4d57e690d3c13380c14c16
+Add a parent field to struct irqchip_fwid and update the related kernel API
+functions to initialize and handle it.
 
-The IORT IUWB node is defined in IORT issue E.g
-See https://developer.arm.com/documentation/den0049/eg
-
-Link: https://github.com/acpica/acpica/commit/d68693b2
-Signed-off-by: Jose Marinho <jose.marinho@arm.com>
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>
 ---
- include/acpi/actbl2.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+ include/linux/irqdomain.h | 30 ++++++++++++++++++++++++++----
+ kernel/irq/irqdomain.c    | 14 +++++++++++++-
+ 2 files changed, 39 insertions(+), 5 deletions(-)
 
-diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
-index fdabc6c64a9c..ba1a36d23e32 100644
---- a/include/acpi/actbl2.h
-+++ b/include/acpi/actbl2.h
-@@ -680,6 +680,7 @@ enum acpi_iort_node_type {
- 	ACPI_IORT_NODE_SMMU_V3 = 0x04,
- 	ACPI_IORT_NODE_PMCG = 0x05,
- 	ACPI_IORT_NODE_RMR = 0x06,
-+	ACPI_IORT_NODE_IWB = 0x07,
- };
+diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
+index 4a86e6b915dd..289a390ccbe6 100644
+--- a/include/linux/irqdomain.h
++++ b/include/linux/irqdomain.h
+@@ -236,7 +236,8 @@ static inline void irq_domain_set_pm_device(struct irq_domain *d, struct device
  
- struct acpi_iort_id_mapping {
-@@ -858,6 +859,12 @@ struct acpi_iort_rmr_desc {
- 	u32 reserved;
- };
+ #ifdef CONFIG_IRQ_DOMAIN
+ struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
+-						const char *name, phys_addr_t *pa);
++						const char *name, phys_addr_t *pa,
++						struct fwnode_handle *parent);
  
-+struct acpi_iort_iwb {
-+	u64 base_address;
-+	u16 iwb_index;		/* Unique IWB identifier matching with the IWB GSI namespace. */
-+	char device_name[];	/* Path of the IWB namespace object */
-+};
+ enum {
+ 	IRQCHIP_FWNODE_REAL,
+@@ -246,18 +247,39 @@ enum {
+ 
+ static inline struct fwnode_handle *irq_domain_alloc_named_fwnode(const char *name)
+ {
+-	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL);
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, NULL);
++}
 +
- /*******************************************************************************
++static inline
++struct fwnode_handle *irq_domain_alloc_named_fwnode_parent(const char *name,
++							   struct fwnode_handle *parent)
++{
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, parent);
+ }
+ 
+ static inline struct fwnode_handle *irq_domain_alloc_named_id_fwnode(const char *name, int id)
+ {
+ 	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED_ID, id, name,
+-					 NULL);
++					 NULL, NULL);
++}
++
++static inline
++struct fwnode_handle *irq_domain_alloc_named_id_fwnode_parent(const char *name, int id,
++							      struct fwnode_handle *parent)
++{
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED_ID, id, name,
++					 NULL, parent);
+ }
+ 
+ static inline struct fwnode_handle *irq_domain_alloc_fwnode(phys_addr_t *pa)
+ {
+-	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa);
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa, NULL);
++}
++
++static inline struct fwnode_handle *irq_domain_alloc_fwnode_parent(phys_addr_t *pa,
++								   struct fwnode_handle *parent)
++{
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa, parent);
+ }
+ 
+ void irq_domain_free_fwnode(struct fwnode_handle *fwnode);
+diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+index dc473faadcc8..a6e159785cc2 100644
+--- a/kernel/irq/irqdomain.c
++++ b/kernel/irq/irqdomain.c
+@@ -33,6 +33,7 @@ static void irq_domain_free_one_irq(struct irq_domain *domain, unsigned int virq
+ 
+ struct irqchip_fwid {
+ 	struct fwnode_handle	fwnode;
++	struct fwnode_handle	*parent;
+ 	unsigned int		type;
+ 	char			*name;
+ 	phys_addr_t		*pa;
+@@ -53,8 +54,16 @@ static const char *irqchip_fwnode_get_name(const struct fwnode_handle *fwnode)
+ 	return fwid->name;
+ }
+ 
++static struct fwnode_handle *irqchip_fwnode_get_parent(const struct fwnode_handle *fwnode)
++{
++	struct irqchip_fwid *fwid = container_of(fwnode, struct irqchip_fwid, fwnode);
++
++	return fwid->parent;
++}
++
+ const struct fwnode_operations irqchip_fwnode_ops = {
+ 	.get_name = irqchip_fwnode_get_name,
++	.get_parent = irqchip_fwnode_get_parent,
+ };
+ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
+ 
+@@ -65,6 +74,7 @@ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
+  * @id:		Optional user provided id if name != NULL
+  * @name:	Optional user provided domain name
+  * @pa:		Optional user-provided physical address
++ * @parent:	Optional parent fwnode_handle
   *
-  * IVRS - I/O Virtualization Reporting Structure
+  * Allocate a struct irqchip_fwid, and return a pointer to the embedded
+  * fwnode_handle (or NULL on failure).
+@@ -76,7 +86,8 @@ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
+  */
+ struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
+ 						const char *name,
+-						phys_addr_t *pa)
++						phys_addr_t *pa,
++						struct fwnode_handle *parent)
+ {
+ 	struct irqchip_fwid *fwid;
+ 	char *n;
+@@ -104,6 +115,7 @@ struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
+ 	fwid->type = type;
+ 	fwid->name = n;
+ 	fwid->pa = pa;
++	fwid->parent = parent;
+ 	fwnode_init(&fwid->fwnode, &irqchip_fwnode_ops);
+ 	return &fwid->fwnode;
+ }
 
 -- 
 2.50.1
