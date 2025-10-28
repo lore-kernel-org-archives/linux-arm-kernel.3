@@ -4,88 +4,213 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129F4CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 18:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16752CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 18:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCEQzFxW+madwrv8aBawelGrP3CVpUaeIwsfLgnOZAU=; b=fb+aVsLQ8Ta/b2lkzAxDq1qR4a
-	6iOUScgU8ndvketkkJ8sqMO3jJjk8VSLyYkfeDX1UCjRKO68LdWYDB5CBK9RnaakCTTpRCJB8EBaO
-	W66ThOI9Omm/3n667U26YlACZnWFXwPRLorSLOXqPjEOuJx7EwCvw91zCZsFqbQ7DHivh2jVXYWmD
-	pRQ2PwRIKVSS3sx8WrzJhS9Emzlna26OzKWVZNZP2F3YsVky6capf4EY5e4Vo2DzLKnXpJJr4yDnd
-	pG+2RrUPRes60Zy84eJkt4Tv+yhCfmnoogZF2RxP8VKxZ2U4qVBtykjJ11+o4M/FGw4nCtEP0zvF2
-	y846ZjBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UDfhcWFzSCu9yBN4fLD3PumvC/82PC14Hrc9djg7wNI=; b=K+yL0FtHOPcWPghLUchGhdNNH2
+	KVWCaCgBqBzInDF3NLFJQovgMOjjOvMhoc62jrQdkjFWmiQj38w9Gju55kBoFfp87YVCofO5dYQ9T
+	K3k8JRlAfsZPuylF7YnymlggZ72TpCPijyR198m67u3aObHjwjEZyjHHj4T7OcRoEjbn6CmV1doCd
+	UYs4pXin8saMwhpU1ZogJCIhSCOe+mGhNxXU3R0afKFStcBGqqhMOZ3hzZfyORJVAZ9ii1sLnh0hY
+	manSRwf85A7rIKr2PK2try+IqxezzY3z1fGA1cRMLI/wjcwjjUxuqsZaK/j+bpGPPUkUBuDbBo4EQ
+	DzyQp5TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDo0P-0000000GRmp-3jUN;
-	Tue, 28 Oct 2025 18:01:13 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vDo13-0000000GRvk-3QvN;
+	Tue, 28 Oct 2025 18:01:53 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDo0L-0000000GRmE-3SV5
+	id 1vDo11-0000000GRv7-0oMo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 18:01:12 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3ecde0be34eso99916f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 11:01:09 -0700 (PDT)
+	Tue, 28 Oct 2025 18:01:52 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59SHYN3i024432;
+	Tue, 28 Oct 2025 18:01:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=UDfhcWFzSCu9yBN4fL
+	D3PumvC/82PC14Hrc9djg7wNI=; b=XTDslkzYBBaajJA7u1eDDPUGxlrbWjvSeF
+	feAqteg/XvY/TW1tmB4rUd/E+OEbLBYe6tV2sFRcSYQhhcsDyuZtpDEYNm/NhZGt
+	jsHQku/PhYBXQJXntxh4+yH4wwCbB/B9Nw3h3Ck9/Js/7I2ahRWcHtxQA2vJvZC0
+	5NMYkWwYaVlwyPQNWw+5b3UAkJzT1mnd5Up4100G3tNOrN3T4AzWRJ3+HBQ+IhPQ
+	NTHfIPu0wDGX/Kh66Ax92w1ibTlqqz5Glcu82y1x7QOVakRJAeq6iTvHuPTz5SKp
+	5ITQLh0+4/0G3rgjYJls0aSiN8yesTVULo5UazZn4HJ+9hFIJuyg==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4a2357ma4t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 28 Oct 2025 18:01:29 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59SHUSB3015008;
+	Tue, 28 Oct 2025 18:01:27 GMT
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012042.outbound.protection.outlook.com [52.101.48.42])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4a0n08ju7u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 28 Oct 2025 18:01:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=czYKdShW5qkxLro/pJlil0Xf95c61WG0FXTCU+zaxytbD+YgFHRoNZFAURJTi1ULza4HqMAc9EO5QFpGMQH8n6gIPASA+A0Ng9nxH8TM55MFTE8N+l6QEFrWfSIKEVKDlCs8biNewQ28X8bMX+9CZeAWC1b9IV4P3booWYwpZflANCx3Sg78CT3CH1GQW2+l0kRQHUCfQImbpU0aVr3c8PKEnr7f2pnoFjVzYuupwc1SZqwIeA4KdqBQEZRncYKa5b/HMcUpm48xB/ubB30QvqTpNArWyVQoLS0NwLYKvn4RW9YVVUsmROyXCNMBl3L8CXvtmvijs8PctjDkid2aCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UDfhcWFzSCu9yBN4fLD3PumvC/82PC14Hrc9djg7wNI=;
+ b=lNU5ePN94NWmYnQYUo9Tbn7dHfoCH0/SlxJnBGJb/nFD3dwf6dZUjqZEAxx4slGYj8GeLmkgVtmgy8AewNAisKgIGAikEVfsMk4XkbmaEdSsMG2QFPteB5xNLrQrFcZp3W18UY6xerMsWLSvjXaEBlGXfMH4Z6G/BT79c7Y1csHVNcv84Onxx6dAIMnkpB5HJmn1ZwLXGiJQShms1Q74Gejr30Feq066+v4JPbekXESTzB7FcUTPx8FDV3zM68I6DGYktTdhOc/l5m95R+bC7IVdI+rTAZfSSIPA/2rFWgv8B4+752yS9ijK0lvfYsNjpQ4RwA0JTt1NsytqmuDXgQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761674468; x=1762279268; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pCEQzFxW+madwrv8aBawelGrP3CVpUaeIwsfLgnOZAU=;
-        b=KEHyVIEc4HyVrw+8+dS8HZM/soj0cMy3zjAAk9lS6HXKm0qs2Q0oIhXEgzE8ru+JaQ
-         6+3yk309tLTOQXiK9/udDIqbq6+B/1ohH79+qgUdwJYZn8G4eR1a3UO+z5iykL1dJ/Ie
-         Qps/8uCfclnT8HeD9+O0YjlpvqxQBz+5fom+ihFHyIj7ihDBlsDRtcRtl8c9BY0S0Wl2
-         Foi8IKlXSwZ46K4J065gWUQhkWmNfpnaFwhz032Ttm4pi8wK3T2xeACwj7ifzDn+56s2
-         CTrzHEjBl/EzWytDZ6mZ45U6Q6PX8hMpFAZvtJZY7JHbtcNfL0Stq2c/kg2QlGhSW609
-         5TAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761674468; x=1762279268;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pCEQzFxW+madwrv8aBawelGrP3CVpUaeIwsfLgnOZAU=;
-        b=J10n4noXRVoZYdiPMOLpGnjqNRY55Rp2DrNwCR0if1KFFhJi+sVQGDCbHq0soEZz0Q
-         dadKQ/qJ5c2xmjPO0PdWetDX1YdJ7N31BQlrEtaXk8Vd128Iv/AeoumfbOUSGgbdIY1L
-         NxdGseZL8okgaC6FeiikaJ5BbjvC32BxAyDIl7LQKBJ1HxUv9/X740C+BI9ehPChJi2/
-         kNkE9YDx5PCCropzCea/5WWGDrImrYOkS7YfL8D8KaUrLAC12y+/WsjB7lQ9wF9ie3Tv
-         nPfyVSjQy2vgp5xboU1Xd4kcCIEotR68ztGcaST1V/u5j5+KT3YD0FKxAg4dbDQ0OY5Y
-         Xrow==
-X-Forwarded-Encrypted: i=1; AJvYcCXKvetIYegsSNYyMBAFZ4sBt341xEJKmtq1tUPJIylsT4WTeiP1eMuopRCpqEXZh7ZyjaJRJDMQb5HggmYrZupt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6prBWPd33tEKE4nusqL+HmJK//cpS5xjLcsoIiyZ1Fr67ccez
-	GCsdFUmNqRTIELtc2qVMoYyznSeyZk/JdInUwDaXkYZPqxTfmkPSFwBK/9V7FQcvULzHb3gXphY
-	m5N1eZvLolCXUvO5QotSGuMpBTMpoJFg=
-X-Gm-Gg: ASbGncsnHoqspnCSBxWlxdesWngcpoewQaE6EowlmNsR/QNsI93vE9pqoWd1jnf9WGG
-	4S6A0+hO2bCkM45uOgD0gKrv0vVZWRTFB8x4sc+sjmXudSIxbo0u6Je/yWQqBwMgE5Cx+J9sp2e
-	W75LN6P/ZCPuL+nCw42zxQU8ReEJPRrzI7AE740Z3pn00LLP28RYjF7FrH1+gzOb1lI1KEEYapR
-	cnuJsRdtKTuxa5TcyILOsJRkuwXerbRy1jaR1ZCzHxWmxGBIgrD5owlmDZIXiY0xY7NKqQ=
-X-Google-Smtp-Source: AGHT+IHpEn293xUQBtxDVQ71PVjUFm7YcMZrTKR+UYoQPv+Rm0ZHF2wr51C1F4u8ECE4D8JahpoR5i75Grw6elZvooM=
-X-Received: by 2002:a05:6000:2887:b0:429:8b81:5ace with SMTP id
- ffacd0b85a97d-429a81b1470mr3944782f8f.7.1761674467657; Tue, 28 Oct 2025
- 11:01:07 -0700 (PDT)
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UDfhcWFzSCu9yBN4fLD3PumvC/82PC14Hrc9djg7wNI=;
+ b=UtkEJRlS73hpRzMyJmCYbgBgGrgbBhRbRqE8h8mSAzYYqnb7rEQTb67QiDGy4pzAOva11dB0xH3d/R1J/ZrKeCuw8a3iLTjf0Ay0f2YASRt8N04Xy9ndEV1BC512ZJKOGEuC3jf4TlkOm0wrr3mjETPwA6XIn6lbcv0BSgDel3U=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by PH0PR10MB4583.namprd10.prod.outlook.com (2603:10b6:510:43::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Tue, 28 Oct
+ 2025 18:01:24 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9275.011; Tue, 28 Oct 2025
+ 18:01:24 +0000
+References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
+ <20251028053136.692462-3-ankur.a.arora@oracle.com>
+ <3642cfd1-7da6-4a75-80b7-00c21ab6955f@app.fastmail.com>
+User-agent: mu4e 1.4.10; emacs 27.2
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+        Linux-Arch <linux-arch@vger.kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        bpf@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+        Will
+ Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+        Andrew
+ Morton <akpm@linux-foundation.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Haris Okanovic <harisokn@amazon.com>,
+        "Christoph Lameter (Ampere)"
+ <cl@gentwo.org>,
+        Alexei Starovoitov <ast@kernel.org>,
+        "Rafael J . Wysocki"
+ <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@linaro.org>,
+        Kumar
+ Kartikeya Dwivedi <memxor@gmail.com>, zhenglifeng1@huawei.com,
+        xueshuai@linux.alibaba.com, Joao Martins <joao.m.martins@oracle.com>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Konrad Rzeszutek Wilk
+ <konrad.wilk@oracle.com>
+Subject: Re: [RESEND PATCH v7 2/7] arm64: barrier: Support
+ smp_cond_load_relaxed_timeout()
+In-reply-to: <3642cfd1-7da6-4a75-80b7-00c21ab6955f@app.fastmail.com>
+Date: Tue, 28 Oct 2025 11:01:22 -0700
+Message-ID: <87qzumq51p.fsf@oracle.com>
+Content-Type: text/plain
+X-ClientProxiedBy: MW4PR03CA0200.namprd03.prod.outlook.com
+ (2603:10b6:303:b8::25) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
 MIME-Version: 1.0
-References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com> <20251002-c55-v12-2-3eda2dba9554@ideasonboard.com>
-In-Reply-To: <20251002-c55-v12-2-3eda2dba9554@ideasonboard.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 28 Oct 2025 18:00:39 +0000
-X-Gm-Features: AWmQ_bkbLojgbgpv5n9DbkH76vLTXPQ-oionzdgMQBrgFA-kSP32mMdP7wnhQz8
-Message-ID: <CA+V-a8uVjR7p_+LCXOTjH4MxL_PMv4O5obuJxpvoyJvFfHG--A@mail.gmail.com>
-Subject: Re: [PATCH v12 02/15] media: uapi: Add 20-bit bayer formats
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, 
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com, robh+dt@kernel.org, 
-	mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
-	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
-	laurent.pinchart@ideasonboard.com, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|PH0PR10MB4583:EE_
+X-MS-Office365-Filtering-Correlation-Id: 152e9eeb-c31a-4e97-8867-08de164c01f8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?D3bIj6rxBvyHVwY1CguIBP18vLXt8Gmg+ADydtSQEHOxYvpyM04GNVUdwQgW?=
+ =?us-ascii?Q?FLXWhrlaYg020NKryv/YxgdMve/xKt9boVlreOU3+v49+INnze0ClgXKVQLo?=
+ =?us-ascii?Q?368OGo4c1JSIofWbM69LBYhCELTW1I8Tl3YSZVh/vDJWKJSi9PRUBtPKJcoy?=
+ =?us-ascii?Q?2+08GduY8HDmRgs1eWgcsGkBe2nS4OAtdro8QoHblbXRSjJefGVHA9AbylRc?=
+ =?us-ascii?Q?DQBWAA6VNBc5Fs+FPYc3hvjZ3hbAc76mVrsYwb9GNn7cCrKs5Ehrj9NFTeR/?=
+ =?us-ascii?Q?0hv6WlYSsbY8abnZj+gXH+kfatPN2WAtx8Y7Y+v4QcgXeFIaQlAfvqLVZBbh?=
+ =?us-ascii?Q?F48WVNanQofXDJCW3Gj8HHqMCRQh+GKsrWYyrOQykPwERFjvE3os9jg2IaYl?=
+ =?us-ascii?Q?Lxkt3Cr8vuFT3BMQXLN1GKxvo74CJSDi7Dsumn3EoRKM1HkNi23UYHGxLTUy?=
+ =?us-ascii?Q?nLMWv+yNW+jNtK43cjj8SP6ISCffev7duYx0R6pebiJe+ehaNgNo0atsSf6+?=
+ =?us-ascii?Q?owjqJBw/ZoRUVeKTX2j+HhFyBVZooFFoDWPon1ZWEzzEkAyLvKeaZJqTQQTC?=
+ =?us-ascii?Q?i8dAkKRKqD4fF4dL2x9T0GBO2WrjCIcYD67GIdeEyTnm9oeAaqLybNB7M7lp?=
+ =?us-ascii?Q?yzzvDRTu8VR+pErMRVpv3U4+Vf+on5Ty6/rBKEqqkP74OXsevpOeLbepq2Cz?=
+ =?us-ascii?Q?7PTyad5Rt18h3K5LoonRvSQtNzKR36jGN0pDELvSLlVEmCLwZQwl0geCgfV6?=
+ =?us-ascii?Q?U+9cT51KgE2x9/jyHiQSxQjOBtp2hnqrfKs90Mv3zrRSykC1vdN/YYIuKg6v?=
+ =?us-ascii?Q?pg4Ey98+MsrI5688VNEg+OEfdZnnz03aGih1u3C1U0XFP67aYLV2Ky2A0nNT?=
+ =?us-ascii?Q?maWVD5lJti9KgcypEftj1BJnJ6jB4TbbPatU/Ewpo0KKS5+R7q1Phf82V/iD?=
+ =?us-ascii?Q?caK5tJDEb8J6beAsFVMxLyfbyOdS332yGLrtDvVpZiqKb9uej19j0L/yW/vK?=
+ =?us-ascii?Q?sjph3p4jNLDKXNulpbLNvJSBH0iH5lnbFGEtF8OpK4/oYyZlHbjxPbKftf83?=
+ =?us-ascii?Q?ebhXIFN0bZ6C4evpCBXlQwY/9oLda/iE19/XmajKtR+QJTm0asf1mY5KZ2u9?=
+ =?us-ascii?Q?YGMDql3hGD6ScQPxOll6yMLhrlojZPrVvjr9AfWWlETrOobxyQdcLrwm2b72?=
+ =?us-ascii?Q?yMo2xjESx9YDmZsJYl6mTC6xWxzk7YVI4fH6Dc7QwDT2UWWsUIv3VXtFx73O?=
+ =?us-ascii?Q?YSVLavcH6lBgvmffciq7JVy7MWMi4V84a+6q299NxcImLve29pf5sdbLb5SA?=
+ =?us-ascii?Q?0UzvOyi/J0eeeK/MuHX7YwIqrDECMp2ICSGCBgZKDjpb/XqkRb3FYCY13ECl?=
+ =?us-ascii?Q?o2yBFfRWnq5O8Vy+wXVHOzFcwHC/PPI/9HksM65dz3+r0YhzEgojwTSusstO?=
+ =?us-ascii?Q?Kq2deaU96owu/TYXdJVpcHZEYwNquyNezUWioAT2K6VSjuY5PgCbzQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JDfFItEt0mk+tkxD6oMHIZJiKjUOKEw7STpHPAoA1L1Wlema3rRgpeIOkaZm?=
+ =?us-ascii?Q?rBopTYOxRjy+wEbXYFVf+8oiQTlG4Ve7OhLjzFFCFkpxHT5PAJf7RkWWkEco?=
+ =?us-ascii?Q?s+NsnYJRf+F9hgicmWB6lzinn/4io7WRJBRbRGhH7g0MkRmRlP8CUfkVo1Dx?=
+ =?us-ascii?Q?bBX3yLkAu+hH0t0BgNS5IaAr/jX+5xEuGkhMjxiBGGufTRm/pSgwGHsfyAi1?=
+ =?us-ascii?Q?D/upkIK99AfvuXQ/J3qxJETMR1LxLO4VKCsAAdCWn9vccdX+U2+tMnK22vA5?=
+ =?us-ascii?Q?BS+UgUMcoMklnBKn8TLs7oRkbtz++YZHeVp5jFD+xCBmwUpTlggLQMwgK0ju?=
+ =?us-ascii?Q?+AioZmp6R1EVmzpFj6SDyD5oGQN5YbYeiTh2LOrnld1pxy2lJAuoueHRgDwy?=
+ =?us-ascii?Q?4MinUCgzRDhfMrxAD7DaC7681Sj5QZyG+zIzmf6AXtWYL2dCERifHd1jY0au?=
+ =?us-ascii?Q?2pPAFWAJGtA2Ez9eMk4PBtpsPk/Z6/WVy2ZOgAfGmpQdiu3rhPGmIZAvaPU0?=
+ =?us-ascii?Q?tr9fkE4wMpiqd6q3ZbkR37rmDrMKQUU9uX2imfzGK3dTOg9UuFhOP+lk20U+?=
+ =?us-ascii?Q?GgE8UVfCChg8S73vWy7AQl8nRuwB5WzJ9k3aiL4OUDpRenO+sLPZhVz4AXXd?=
+ =?us-ascii?Q?YgQN2U27E6604ul6+M5uYYg2Sall7Yl11gtqZf7l0OQRp9sQq8i2lkKcg4HM?=
+ =?us-ascii?Q?kVCHcBIC9a38OQCgKHgwdbX71cvr3sKIdeZ0kUkIAIG+vBWVfzEFr8ZPFau7?=
+ =?us-ascii?Q?4DGSzHUMvU4InrJXOjBJbaGN6UgrdkZV3xuXnWw6DO85tm25jPmH1n8sUmF5?=
+ =?us-ascii?Q?8x+Rw9jPqMcvAJhNYV2Z+TS58ZbaosyllYcJ+t36Z2fkIkRQKOOfoIyxm+X5?=
+ =?us-ascii?Q?+S6gzwrpC4VC3LRl7QvOYCmoJTJLT/kGDG+sT3xhbWfYEemjDrCboLt6cRcf?=
+ =?us-ascii?Q?7oNu6d0AnsMDTHzIZd2hgXYoU/BK1gC36zI9E7mQFfAzKbMH6GpcwcfHtTEs?=
+ =?us-ascii?Q?8sWJuQoyJMHQTDJrakhbj1eoL2QWF0visOvOOUTaKUdfv14sE8tNU3Sb/8N8?=
+ =?us-ascii?Q?dPUU86mxo6WskJTS6hb+r8+Sw4Gj2FrUKrZ+WS8x/GCoEXy7shGOaE7jEJls?=
+ =?us-ascii?Q?8BYf+Ay4bEcYN1Q1/ZMijAHu/jVA7OldfJjHh9WOiq4Hfogxw8oKN6NOaXUa?=
+ =?us-ascii?Q?c94RPBt5MwtRuGMaxK47IUArwCo581puy1RK0IG//V0XvCEUoSLaVT31nYec?=
+ =?us-ascii?Q?+WNiONj8jYE4vTR3QvTp8qF8MZqSE18sBhFj9LsKcRxxaprAa/U6ySLUwmgQ?=
+ =?us-ascii?Q?GRFxndzORvQuW2u5jytV2dbbMPEpMhd+cpE8DpsDrD6k0MONPfKbd5c4/WvR?=
+ =?us-ascii?Q?MXv1HaA84fUil/PapqPEFqb/3/XmmceYVBwG8P/mdHnIDoVNzO9dRAIkiBjv?=
+ =?us-ascii?Q?xzle+dj2I+hy5EtHXW74+NvbR4tHzLVZt9snIa3N1ILTKONtOuvWxENbk3Kv?=
+ =?us-ascii?Q?PsOMochEznXE48X4eIbhq9CTC1ZySiqC3IF+UsNzfcsZqpuMEn/LnKwUqD8h?=
+ =?us-ascii?Q?TS3156JH5wbQNVmYFvScyaWsxGwJYVUKDll295ZdgKPRPYIyUBCaI/yHO74N?=
+ =?us-ascii?Q?xQ=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: Hs31psGqTVRLuDBx0CVu34A8/n68Ju4IvfE+x5OlPIIOr+Qn1jsr/VdBseoKxEPmN7aFnUPrbF4m7uh54uhhj4ltY5dBzJWXpA7NFh4x8+PF1nKYrJLrzz09eB5uIMPfq1DNRj98FCNGZ4A/XRd8BWWsJAY/PQGj11o3SWNR0Bp2i5MKdj2ALBW3LMvyFLowYc/6Iui8Bfq3iTsD8TjVw4fbhBYBFpB0/iD3Kt7NBl4Gvi7tbIDisGbkqIzbw3IJxCkB+7xl5G0UBKQE4dXzu0/2w0V6lWUcj9+mN0YDaImvaAzFiYkaFR/kWfBP0rrR8J3FM7QEgYtb+2IifSYaog+vnQbOvaCNxBlClk4iIrgmfs7YuKyHKpswywGZ8O0uBPyD9oGTL6aDHZ6ZpuY9FAkl0REl2EZQ2EptKadN+1wIcHMmYMOPKtqxuqBefixgrsS+0TYJSwq6YHmZXpztLZZ0CVs2tD0nGcL3URRTJwABxF7uSbqDce/gDSdhaed3g6lNTqraETNW3u3Br+fcPl5+ojARPS1jzw+90ApXDwSgknkREXQwg1tiphJ1BaYvOiHqyhpqszGuIZgQ+tJ6/QAmVPJQC9czhQeuxlDm4sY=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 152e9eeb-c31a-4e97-8867-08de164c01f8
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 18:01:24.2251
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: F+gmphpUrFjFDbwLDIum/Y2F5PBfr9qpNknGmqxxgTJAf7E7RkFv0E4ZB+5vfN4XvhEyjBoo2rV1dhdZM+rl/ACAVrWsPxtegtsZOKN9i5Y=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB4583
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-28_06,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 spamscore=0 adultscore=0
+ phishscore=0 bulkscore=0 mlxscore=0 mlxlogscore=999 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510020000
+ definitions=main-2510280152
+X-Authority-Analysis: v=2.4 cv=Bt2QAIX5 c=1 sm=1 tr=0 ts=690104f9 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=x6icFKpwvdMA:10
+ a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=yPCof4ZbAAAA:8
+ a=tryrKIeg8lcIwRkrc0QA:9 cc=ntf awl=host:13657
+X-Proofpoint-GUID: _gsmcgc9Tqj0JZLGkUDblORafU6-KrTs
+X-Proofpoint-ORIG-GUID: _gsmcgc9Tqj0JZLGkUDblORafU6-KrTs
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI3MDA1NCBTYWx0ZWRfXxdpMy6ThVeyX
+ QfIMG3X1V9tIcJ7dckaH54OXWyTdzNbnnZWtIk4x7pUlnVi7Vtv3VbuKzw1pq+ic9NQzCy3j7oQ
+ AKxGKYc47nYc/IwB6dsBnoPOfp3uAUVpX09+SYzGrw8MCCH7ZyWrI0IwHdmpgn4ULhepgqgp252
+ a1wKGX9vntP+7s9SIvDMtpVybcD8npdeO7W3bEXwDbuai+s+LmGRSflaeksYe3dA6tXe3KA2Oej
+ lrct0TtdqQxYBoRFsqSmlcwAf2MtMvaUhlCHx/5hBlQ8HeMhOwbyeDLMxU2r7BgOx8K4lpdiPn8
+ sPhcMJj/CZ7++l1eNk2USeeUSYlxlWvcj1G1hpm1DLYmu2t2hPXCD9RPcRT02drl/jPIjpq90jC
+ r7OcvY3xRdwUVQF7P1ch6/yZYbwsnYltGtva7onjo/Z5whgfOAo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_110110_017877_1F48238D 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20251028_110151_385736_B9B872A4 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,658 +225,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 2, 2025 at 11:20=E2=80=AFAM Daniel Scally
-<dan.scally@ideasonboard.com> wrote:
->
-> The Mali-C55 requires input data be in 20-bit format, MSB aligned.
-> Add some new media bus format macros to represent that input format.
->
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> ---
-> Changes in v12:
->
->         - None
->
-> Changes in v11:
->
->         - None
->
-> Changes in v10:
->
->         - None
->
-> Changes in v9:
->
->         - None
->
-> Changes in v8:
->
->         - None
->
-> Changes in v7:
->
->         - None
->
-> Changes in v6:
->
->         - Fixed the table formatting
->
-> Changes in v5:
->
->         - New patch
-> ---
->  .../userspace-api/media/v4l/subdev-formats.rst     | 252 +++++++++++++++=
-+++++-
->  include/uapi/linux/media-bus-format.h              |   6 +-
->  2 files changed, 255 insertions(+), 3 deletions(-)
->
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Cheers,
-Prabhakar
+Arnd Bergmann <arnd@arndb.de> writes:
 
-> diff --git a/Documentation/userspace-api/media/v4l/subdev-formats.rst b/D=
-ocumentation/userspace-api/media/v4l/subdev-formats.rst
-> index 57194180fe42f31f88aa0aeb4a4650bf4fb32bcc..ecbe83dcc4b716c77ce37f55f=
-bb8a59b2eed17ab 100644
-> --- a/Documentation/userspace-api/media/v4l/subdev-formats.rst
-> +++ b/Documentation/userspace-api/media/v4l/subdev-formats.rst
-> @@ -2816,7 +2816,7 @@ organization is given as an example for the first p=
-ixel only.
->      \tiny
->      \setlength{\tabcolsep}{2pt}
+> On Tue, Oct 28, 2025, at 06:31, Ankur Arora wrote:
+>> Support waiting in smp_cond_load_relaxed_timeout() via
+>> __cmpwait_relaxed(). Limit this to when the event-stream is enabled,
+>> to ensure that we wake from WFE periodically and don't block forever
+>> if there are no stores to the cacheline.
+>>
+>> In the unlikely event that the event-stream is unavailable, fallback
+>> to spin-waiting.
+>>
+>> Also set SMP_TIMEOUT_POLL_COUNT to 1 so we do the time-check for each
+>> iteration in smp_cond_load_relaxed_timeout().
 >
-> -.. tabularcolumns:: |p{6.0cm}|p{0.7cm}|p{0.3cm}|p{0.22cm}|p{0.22cm}|p{0.=
-22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}=
-|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|
-> +.. tabularcolumns:: |p{6.0cm}|p{0.7cm}|p{0.3cm}|p{0.22cm}|p{0.22cm}|p{0.=
-22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}=
-|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.=
-22cm}|p{0.22cm}|p{0.22cm}|
+> After I looked at the entire series again, this one feels like
+> a missed opportunity. Especially on low-power systems but possibly
+> on any ARMv9.2+ implementation including Cortex-A320, it would
+> be nice to be able to both turn off the event stream and also
+> make this function take fewer wakeups:
 >
->  .. _v4l2-mbus-pixelcode-bayer:
+>> +/* Re-declared here to avoid include dependency. */
+>> +extern bool arch_timer_evtstrm_available(void);
+>> +
+>> +#define cpu_poll_relax(ptr, val)					\
+>> +do {									\
+>> +	if (arch_timer_evtstrm_available())				\
+>> +		__cmpwait_relaxed(ptr, val);				\
+>> +	else								\
+>> +		cpu_relax();						\
+>> +} while (0)
+>> +
 >
-> @@ -2829,10 +2829,14 @@ organization is given as an example for the first=
- pixel only.
->      * - Identifier
->        - Code
->        -
-> -      - :cspan:`15` Data organization
-> +      - :cspan:`19` Data organization
->      * -
->        -
->        - Bit
-> +      - 19
-> +      - 18
-> +      - 17
-> +      - 16
->        - 15
->        - 14
->        - 13
-> @@ -2862,6 +2866,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`7`
->        - b\ :sub:`6`
->        - b\ :sub:`5`
-> @@ -2883,6 +2891,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`7`
->        - g\ :sub:`6`
->        - g\ :sub:`5`
-> @@ -2904,6 +2916,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`7`
->        - g\ :sub:`6`
->        - g\ :sub:`5`
-> @@ -2925,6 +2941,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - r\ :sub:`7`
->        - r\ :sub:`6`
->        - r\ :sub:`5`
-> @@ -2946,6 +2966,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`7`
->        - b\ :sub:`6`
->        - b\ :sub:`5`
-> @@ -2967,6 +2991,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`7`
->        - g\ :sub:`6`
->        - g\ :sub:`5`
-> @@ -2988,6 +3016,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`7`
->        - g\ :sub:`6`
->        - g\ :sub:`5`
-> @@ -3009,6 +3041,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - r\ :sub:`7`
->        - r\ :sub:`6`
->        - r\ :sub:`5`
-> @@ -3030,6 +3066,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`7`
->        - b\ :sub:`6`
->        - b\ :sub:`5`
-> @@ -3051,6 +3091,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`7`
->        - g\ :sub:`6`
->        - g\ :sub:`5`
-> @@ -3072,6 +3116,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`7`
->        - g\ :sub:`6`
->        - g\ :sub:`5`
-> @@ -3093,6 +3141,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - r\ :sub:`7`
->        - r\ :sub:`6`
->        - r\ :sub:`5`
-> @@ -3114,6 +3166,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - 0
->        - 0
->        - 0
-> @@ -3133,6 +3189,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`7`
->        - b\ :sub:`6`
->        - b\ :sub:`5`
-> @@ -3154,6 +3214,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`7`
->        - b\ :sub:`6`
->        - b\ :sub:`5`
-> @@ -3173,6 +3237,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - 0
->        - 0
->        - 0
-> @@ -3194,6 +3262,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`9`
->        - b\ :sub:`8`
->        - b\ :sub:`7`
-> @@ -3213,6 +3285,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`1`
->        - b\ :sub:`0`
->        - 0
-> @@ -3234,6 +3310,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`1`
->        - b\ :sub:`0`
->        - 0
-> @@ -3253,6 +3333,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`9`
->        - b\ :sub:`8`
->        - b\ :sub:`7`
-> @@ -3272,6 +3356,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`9`
->        - b\ :sub:`8`
->        - b\ :sub:`7`
-> @@ -3293,6 +3381,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`9`
->        - g\ :sub:`8`
->        - g\ :sub:`7`
-> @@ -3314,6 +3406,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`9`
->        - g\ :sub:`8`
->        - g\ :sub:`7`
-> @@ -3335,6 +3431,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - r\ :sub:`9`
->        - r\ :sub:`8`
->        - r\ :sub:`7`
-> @@ -3354,6 +3454,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`11`
->        - b\ :sub:`10`
->        - b\ :sub:`9`
-> @@ -3375,6 +3479,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`11`
->        - g\ :sub:`10`
->        - g\ :sub:`9`
-> @@ -3396,6 +3504,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`11`
->        - g\ :sub:`10`
->        - g\ :sub:`9`
-> @@ -3417,6 +3529,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - r\ :sub:`11`
->        - r\ :sub:`10`
->        - r\ :sub:`9`
-> @@ -3436,6 +3552,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`13`
->        - b\ :sub:`12`
->        - b\ :sub:`11`
-> @@ -3457,6 +3577,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`13`
->        - g\ :sub:`12`
->        - g\ :sub:`11`
-> @@ -3478,6 +3602,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`13`
->        - g\ :sub:`12`
->        - g\ :sub:`11`
-> @@ -3499,6 +3627,10 @@ organization is given as an example for the first =
-pixel only.
->        -
->        -
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - r\ :sub:`13`
->        - r\ :sub:`12`
->        - r\ :sub:`11`
-> @@ -3518,6 +3650,10 @@ organization is given as an example for the first =
-pixel only.
->        - MEDIA_BUS_FMT_SBGGR16_1X16
->        - 0x301d
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - b\ :sub:`15`
->        - b\ :sub:`14`
->        - b\ :sub:`13`
-> @@ -3539,6 +3675,10 @@ organization is given as an example for the first =
-pixel only.
->        - MEDIA_BUS_FMT_SGBRG16_1X16
->        - 0x301e
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`15`
->        - g\ :sub:`14`
->        - g\ :sub:`13`
-> @@ -3560,6 +3700,10 @@ organization is given as an example for the first =
-pixel only.
->        - MEDIA_BUS_FMT_SGRBG16_1X16
->        - 0x301f
->        -
-> +      -
-> +      -
-> +      -
-> +      -
->        - g\ :sub:`15`
->        - g\ :sub:`14`
->        - g\ :sub:`13`
-> @@ -3581,6 +3725,110 @@ organization is given as an example for the first=
- pixel only.
->        - MEDIA_BUS_FMT_SRGGB16_1X16
->        - 0x3020
->        -
-> +      -
-> +      -
-> +      -
-> +      -
-> +      - r\ :sub:`15`
-> +      - r\ :sub:`14`
-> +      - r\ :sub:`13`
-> +      - r\ :sub:`12`
-> +      - r\ :sub:`11`
-> +      - r\ :sub:`10`
-> +      - r\ :sub:`9`
-> +      - r\ :sub:`8`
-> +      - r\ :sub:`7`
-> +      - r\ :sub:`6`
-> +      - r\ :sub:`5`
-> +      - r\ :sub:`4`
-> +      - r\ :sub:`3`
-> +      - r\ :sub:`2`
-> +      - r\ :sub:`1`
-> +      - r\ :sub:`0`
-> +    * .. _MEDIA-BUS-FMT-SBGGR20-1X20:
-> +
-> +      - MEDIA_BUS_FMT_SBGGR20_1X20
-> +      - 0x3021
-> +      -
-> +      - b\ :sub:`19`
-> +      - b\ :sub:`18`
-> +      - b\ :sub:`17`
-> +      - b\ :sub:`16`
-> +      - b\ :sub:`15`
-> +      - b\ :sub:`14`
-> +      - b\ :sub:`13`
-> +      - b\ :sub:`12`
-> +      - b\ :sub:`11`
-> +      - b\ :sub:`10`
-> +      - b\ :sub:`9`
-> +      - b\ :sub:`8`
-> +      - b\ :sub:`7`
-> +      - b\ :sub:`6`
-> +      - b\ :sub:`5`
-> +      - b\ :sub:`4`
-> +      - b\ :sub:`3`
-> +      - b\ :sub:`2`
-> +      - b\ :sub:`1`
-> +      - b\ :sub:`0`
-> +    * .. _MEDIA-BUS-FMT-SGBRG20-1X20:
-> +
-> +      - MEDIA_BUS_FMT_SGBRG20_1X20
-> +      - 0x3022
-> +      -
-> +      - g\ :sub:`19`
-> +      - g\ :sub:`18`
-> +      - g\ :sub:`17`
-> +      - g\ :sub:`16`
-> +      - g\ :sub:`15`
-> +      - g\ :sub:`14`
-> +      - g\ :sub:`13`
-> +      - g\ :sub:`12`
-> +      - g\ :sub:`11`
-> +      - g\ :sub:`10`
-> +      - g\ :sub:`9`
-> +      - g\ :sub:`8`
-> +      - g\ :sub:`7`
-> +      - g\ :sub:`6`
-> +      - g\ :sub:`5`
-> +      - g\ :sub:`4`
-> +      - g\ :sub:`3`
-> +      - g\ :sub:`2`
-> +      - g\ :sub:`1`
-> +      - g\ :sub:`0`
-> +    * .. _MEDIA-BUS-FMT-SGRBG20-1X20:
-> +
-> +      - MEDIA_BUS_FMT_SGRBG20_1X20
-> +      - 0x3023
-> +      -
-> +      - g\ :sub:`19`
-> +      - g\ :sub:`18`
-> +      - g\ :sub:`17`
-> +      - g\ :sub:`16`
-> +      - g\ :sub:`15`
-> +      - g\ :sub:`14`
-> +      - g\ :sub:`13`
-> +      - g\ :sub:`12`
-> +      - g\ :sub:`11`
-> +      - g\ :sub:`10`
-> +      - g\ :sub:`9`
-> +      - g\ :sub:`8`
-> +      - g\ :sub:`7`
-> +      - g\ :sub:`6`
-> +      - g\ :sub:`5`
-> +      - g\ :sub:`4`
-> +      - g\ :sub:`3`
-> +      - g\ :sub:`2`
-> +      - g\ :sub:`1`
-> +      - g\ :sub:`0`
-> +    * .. _MEDIA-BUS-FMT-SRGGB20-1X20:
-> +
-> +      - MEDIA_BUS_FMT_SRGGB20_1X20
-> +      - 0x3024
-> +      -
-> +      - r\ :sub:`19`
-> +      - r\ :sub:`18`
-> +      - r\ :sub:`17`
-> +      - r\ :sub:`16`
->        - r\ :sub:`15`
->        - r\ :sub:`14`
->        - r\ :sub:`13`
-> diff --git a/include/uapi/linux/media-bus-format.h b/include/uapi/linux/m=
-edia-bus-format.h
-> index 62ad82fd285a8ce24bd16c207c51c0e75ea95070..6005f033e62c04bdd3dff7ac9=
-05f5b921341cd47 100644
-> --- a/include/uapi/linux/media-bus-format.h
-> +++ b/include/uapi/linux/media-bus-format.h
-> @@ -124,7 +124,7 @@
->  #define MEDIA_BUS_FMT_YUV16_1X48               0x202a
->  #define MEDIA_BUS_FMT_UYYVYY16_0_5X48          0x202b
->
-> -/* Bayer - next is     0x3021 */
-> +/* Bayer - next is     0x3025 */
->  #define MEDIA_BUS_FMT_SBGGR8_1X8               0x3001
->  #define MEDIA_BUS_FMT_SGBRG8_1X8               0x3013
->  #define MEDIA_BUS_FMT_SGRBG8_1X8               0x3002
-> @@ -157,6 +157,10 @@
->  #define MEDIA_BUS_FMT_SGBRG16_1X16             0x301e
->  #define MEDIA_BUS_FMT_SGRBG16_1X16             0x301f
->  #define MEDIA_BUS_FMT_SRGGB16_1X16             0x3020
-> +#define MEDIA_BUS_FMT_SBGGR20_1X20             0x3021
-> +#define MEDIA_BUS_FMT_SGBRG20_1X20             0x3022
-> +#define MEDIA_BUS_FMT_SGRBG20_1X20             0x3023
-> +#define MEDIA_BUS_FMT_SRGGB20_1X20             0x3024
->
->  /* JPEG compressed formats - next is   0x4002 */
->  #define MEDIA_BUS_FMT_JPEG_1X8                 0x4001
->
-> --
-> 2.43.0
->
->
+> Since the caller knows exactly how long it wants to wait for,
+> we should be able to fit a 'wfet' based primitive in here and
+> pass the timeout as another argument.
+
+Per se, I don't disagree with this when it comes to WFET.
+
+Handling a timeout, however, is messier when we use other mechanisms.
+
+Some problems that came up in my earlier discussions with Catalin:
+
+  - when using WFE, we also need some notion of slack
+    - and if a caller specifies only a small or no slack, then we need
+      to combine WFE+cpu_relax()
+
+  - for platforms that only use a polling primitive, we want to check
+    the clock only intermittently for power reasons.
+    Now, this could be done with an architecture specific spin-count.
+    However, if the caller specifies a small slack, then we might need
+    to we check the clock more often as we get closer to the deadline etc.
+
+A smaller problem was that different users want different clocks and so
+folding the timeout in a 'timeout_cond_expr' lets us do away with the
+interface having to handle any of that.
+
+I had earlier versions [v2] [v3] which had rather elaborate policies for
+handling timeout, slack etc. But, given that the current users of the
+interface don't actually care about precision, all of that seemed
+a little overengineered.
+
+[v2] https://lore.kernel.org/lkml/20250502085223.1316925-1-ankur.a.arora@oracle.com/#r
+[v3] https://lore.kernel.org/lkml/20250627044805.945491-1-ankur.a.arora@oracle.com/
+
+--
+ankur
 
