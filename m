@@ -4,90 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59A7CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 03:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C46CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 03:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Iwk85JlTUEBI3yJjsshayntPryiTY23zzfTEHf0Um/k=; b=lekJ5DiD9nomTm6grJP7qJUSNm
-	Du6rpa/KuDaIiEeYRr96B6HfDyFwUWXmJ8TnFbKmH5pPhxEmY2fUNY+JncjRme5Lrxc+UuRs0AK01
-	TqeWdhz4+7kUheUBGuFLCU6adZRTbW8pgfobH1aZATHfK9r+p39gLdj7leKu7HqctNvA8fE0ZzrpV
-	UpTcQCFEokouhyTqW+AdlTcNwX9e0/KUVhDu3a55hHR4iRybZfYWJv0io0dzugAuC+dzfIm6HqiLK
-	CO9PoV2qFgCJB+poz2tcA794cuEoj88Y9vXoBfLS+3vmmjyp0GQ4a8LsCyPNFAWFtSRIHk8O099p9
-	vFi3xglA==;
+	bh=q7Dr88n0rsMeY0SbLXIpFyJggBzx8goTlgYQ7zbZXXM=; b=ZRO4Yhbyqs4wt7EY4yQyYfA+tz
+	mj1p6Xk2BoOGZM23USMlyiXAbMeCtPiR+o2bSAQ9Pcs7h0d7vND6aJBl9kxdvpKMkLw/quF7sP51N
+	Imh95cV+SsLtHYVh1Qc7N0s+ZhceVun5i5zQgRc2zCGg+qjYW438FvPIcaKOoonfyfiybAoR1jNjG
+	3Yxq3EPbGuQmkpxZZSxAGYTDFGSvvbbETJzS46G1Jx9rcCtELjAWQGRaAFCOMz8lN8fP+eMkizE/n
+	zdLudyq1K+TxC2dg3FT+Sda+tEdqfbdfb5bQVFsQ974ippc5oKmi9uoh595X500kc33rio0jgLfLv
+	QV0qW//Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDaBZ-0000000F9fN-0GHa;
-	Tue, 28 Oct 2025 03:15:49 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1vDaCR-0000000F9lJ-1gH4;
+	Tue, 28 Oct 2025 03:16:43 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDaBX-0000000F9f2-1Yy6
+	id 1vDaCO-0000000F9kg-0j2s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 03:15:48 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7a2738daea2so4626623b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 20:15:46 -0700 (PDT)
+	Tue, 28 Oct 2025 03:16:42 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-77f67ba775aso6792933b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 20:16:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761621346; x=1762226146; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761621399; x=1762226199; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Iwk85JlTUEBI3yJjsshayntPryiTY23zzfTEHf0Um/k=;
-        b=J0aPvhJpJSFroR+Oka94pWKZvyQSRRjNzXIqkmhrgjRWyojZN+uz3S/wa0md00FXF8
-         bLXci7LJ0HeERzOoRC3dOVohTD8Ypm6HzytRe6C+7ql3ltRQQcnteHYxIWzI7aaTKJIb
-         aCRqUcMGQXsgvf1K/cH+SVCLlB0fzqcn3p4u8zs9NTa9j8aZPHu08bG21dx7N0vo2dYk
-         b8d/XzmORdaExknhXht7AVsvjHeJfiRdB/ZIqTxJIC/+cSoYX+ui1QbKGr8pNOW22dJP
-         /5djDP9E2cmz7zkbbGlQvlfo7BSDkAsJW1s0qLlkRsD5K80v+pznysR001LaUZtyrRDj
-         GvZQ==
+        bh=q7Dr88n0rsMeY0SbLXIpFyJggBzx8goTlgYQ7zbZXXM=;
+        b=dQ+mk8n5d0TgfiGgkY+gzgYxzZyZ39ynd2YKyHOeMKiruRBH+byJTASuy2Vbt5GsFg
+         rvm5OzFijsvNJCEoyfEWD35r2VjnjJ5htSHce9ZvzwOzw3jZnORhoA1NcXEN+GQCmj5J
+         GVHf4IkXauIfnZzj+7jKpME5q6JfIal+JVkh6/2eQQccXkJYLR9O8c9um2jQaMBIophy
+         Zr8Py6IMJM+pBQ25313ENP684K70CTWwlU9NyUtiqWar/cAtVBs/Cju1g9yz/Zb2tLjU
+         NWTBqxIHjbesiX0KhAumvC17w6zxRyTkTzq7hS6ahUYL6rJuBbnTyb2u30rqZdeMz+wr
+         uz8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761621346; x=1762226146;
+        d=1e100.net; s=20230601; t=1761621399; x=1762226199;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Iwk85JlTUEBI3yJjsshayntPryiTY23zzfTEHf0Um/k=;
-        b=VILqOefvjfDDCwVIaFt/6VLMpG8OV4eMk0w5laKHo0RR9u00j/YmDguzYg5vMQkSen
-         9Lg2NX9kgehcS6PbUmen1wLGBCfmGjytDJ5xDwYCCmEnrqfi8opaOkFaGUSRumswhegh
-         yQSSMjr0ovG1CacVLYt8Bdh6F+AEVMrm0BekruefIXD9iVkizQ0hVe7E2PS5o+IwfkDh
-         qOM4Mwi7tataVMflALrz8sAnjPv8NWbUcBoMqkUFn1JRxfthu2LzFSwbbf296ggAQXCk
-         F+wqYPGp8iTVTtEPTZ1W88TGjBUb5LL7OewJSthD1UIWgzeflGXHwZrB83u6AW0V8eZm
-         UEWg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwh4phZ8BvlKvmE7K8uxMHlcg6eylKUeGJLH6Cmyl7Qn9u3lpta3PADr03MOezmG12K2H3DKjvFyVFD1IAo2pk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzz38L0/3MlF98ehyr6r0gXM1B8o5KqDTDKjcCG+rIy5ZEYqaaz
-	9qjWDK1B/F8cHzUykgZGXz9KbACH91lElrcWR4ti1jY5WF7AhFGVKtuE
-X-Gm-Gg: ASbGncsdHAMylpu0RKsyJ7S7bGbU/FXOGu6jIMmfhUUo1W3dJIUkDj2i8UPQFJXdxd4
-	DX3fysYDwTuY20vsMaqCGLAciTPtiCFFesjyj+NYpSiK+XB4pa66gXtg7xzb6ENz1Jf9zCWV/4p
-	HUYrbrxOdce0eH0sbnE27g5CaRJ2FtXIhDamwVWTyGnpR4ijYibel2/CgcaswxYO61yjQZMVLAa
-	wcCyiOoaruE4cXU/zwAi/34ElsF/ZDWct/QuNc33/3p3GvHjYcN+LF+X9yxea8u8GEYBWfDoX01
-	SxmkjptvICNQCFzm9Re63bYC2UsoGqt9Uc0mRAimC/+r9DiqtYSlfxML18WI2DqAkIZi7DNgJLM
-	91TXwYmESvwv6sBgm2m4M/r1tPecxODEuOAaRs6JVslksa7qlMXIhS/NLRSc2xcuSnu48xG2XYd
-	WC+iRzJ8vZKO/ppFYrW43J+w==
-X-Google-Smtp-Source: AGHT+IGuxaZzDv7SIXihLd34aYSMzDHA1ChbWY+uD7KdVdbaExQIFl+ZQhnMyiYov0T8YhmH+laVjQ==
-X-Received: by 2002:a05:6a20:734c:b0:342:c891:a9c6 with SMTP id adf61e73a8af0-344d1baa8a7mr2317412637.1.1761621345900;
-        Mon, 27 Oct 2025 20:15:45 -0700 (PDT)
+        bh=q7Dr88n0rsMeY0SbLXIpFyJggBzx8goTlgYQ7zbZXXM=;
+        b=JYfoC7yvPqVCYKXcZcdEqefbWF7rKRcpkYqEfpxryKLTlUr3ZVmCjSbJevzZy6OyVn
+         Mi7TcperoNwYFwcQCsEAVgjNzDhK3jYMF1OWDPQf/NvSMMW++lEdP2vujx0lQeNuj02Z
+         gMJbHkFaNF9p6YH99ZUXg4wWXP0L8J0owCgW4+CUpN1w85p0dIDClCwfwWPhy/jN6loB
+         SKhRTa/JXIljSleSvVNNX46ojHuYGg590whLJgEa+iB/xqfgzUmp6dRDNZnhI7DEtLzD
+         oE2uQOzCy7Z5ap0+dRCJORCCHCJAh8vVsd0j9KABv9FfPnQD2CnEjAXF7ugWkStcJxXZ
+         Vlnw==
+X-Forwarded-Encrypted: i=1; AJvYcCUBvrgBUq8EWoUkJpI1Zs+kQRd0Tu2E8dzc6Ua8kb7SARhAaRHv/hImx226mvFTTJUTGaSHX6lQr3yKwwbe8Avt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4VtfOjerSETQdqJgTcTK3Qqr63tZYPPme2iqvmUuD3J1K9kO+
+	vGUg3EIc30VVnJNPe9OAshtzDuPc3ZtMPFOMjqn0B1GLcS4XKOCsUUKH
+X-Gm-Gg: ASbGnctx/2T+qfB/FE9UsVP5xcml2+GUWZM/KVsCG6oXruHOK4U5hWJiECGd0KNN2Hn
+	rmof/KG9N9UC/hAUPZ+3gETu1SI5hCu0f11RIMu+anc8GIqy7vYhU6UpFGk3aygHR3AZWBaGdY8
+	yTO6AYqtFp3aml0VWzSl/iqNeDNSfRgeczoWz99klVSMWLgmwBNtAECbukr2YC+DusF5hIbixW4
+	jOUB7jkyGS6J+7hCjUvqWracSd7vlk8jdCuDEB21B54DN5UXouomyTLndHzcwx/20UQNXGk8SVp
+	bOqOS3iQMLF9JFEcYntl6Yn2vyHgqmZGD8PFWdsvCIuZEyUeZSEQ6bVBJ5897yL90eIA5ZX8cMf
+	NlwDaYzHJ2J6IxWP4cegtmuASqFfVPa+UMAzdzS34riEELxsp8/64JN67YMbsuJcuCUNVXBwrPa
+	1F4MJWvoRuHbETlVMvB1uj5Q==
+X-Google-Smtp-Source: AGHT+IGeeElAGdz52QvzDON6TZ6X2VN+9KdN3tRsb9MvpzKrX+azsLuImQoCuSHnyIB4CWg/XHY7mQ==
+X-Received: by 2002:a05:6a00:c8d:b0:7a2:6b48:5359 with SMTP id d2e1a72fcca58-7a441c46a7cmr2594121b3a.24.1761621399271;
+        Mon, 27 Oct 2025 20:16:39 -0700 (PDT)
 Received: from localhost.localdomain ([124.77.218.104])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-b71268bdd50sm9123455a12.0.2025.10.27.20.15.43
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7a41408c4dfsm9818276b3a.65.2025.10.27.20.16.36
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 27 Oct 2025 20:15:45 -0700 (PDT)
+        Mon, 27 Oct 2025 20:16:38 -0700 (PDT)
 From: Miaoqian Lin <linmq006@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: linmq006@gmail.com,
 	stable@vger.kernel.org
-Subject: [PATCH] soc: samsung: exynos-pmu: fix reference count leak in exynos_get_pmu_regmap_by_phandle
-Date: Tue, 28 Oct 2025 11:15:27 +0800
-Message-Id: <20251028031527.43003-1-linmq006@gmail.com>
+Subject: [PATCH] soc: imx: gpc: fix reference count leak in imx_gpc_remove
+Date: Tue, 28 Oct 2025 11:16:20 +0800
+Message-Id: <20251028031623.43284-1-linmq006@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_201547_414234_5FCF7282 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20251027_201640_216647_2671FBAF 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver_find_device_by_of_node() function calls driver_find_device
-and returns a device with its reference count incremented.
-Add the missing put_device() call to
-release this reference after the device is used.
+of_get_child_by_name() returns a node pointer with refcount
+incremented, we should use of_node_put() on it when not need anymore.
+Add missing of_node_put() to avoid refcount leak.
 
-Found via static analysis.
-
-Fixes: 0b7c6075022c ("soc: samsung: exynos-pmu: Add regmap support for SoCs that protect PMU regs")
+Fixes: 721cabf6c660 ("soc: imx: move PGC handling to a new GPC driver")
 Cc: stable@vger.kernel.org
 Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
 ---
- drivers/soc/samsung/exynos-pmu.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pmdomain/imx/gpc.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index 22c50ca2aa79..a53c1f882e1a 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -346,6 +346,7 @@ struct regmap *exynos_get_pmu_regmap_by_phandle(struct device_node *np,
- 	if (!dev)
- 		return ERR_PTR(-EPROBE_DEFER);
- 
-+	put_device(dev);
- 	return syscon_node_to_regmap(pmu_np);
+diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
+index 33991f3c6b55..a34b260274f7 100644
+--- a/drivers/pmdomain/imx/gpc.c
++++ b/drivers/pmdomain/imx/gpc.c
+@@ -536,6 +536,8 @@ static void imx_gpc_remove(struct platform_device *pdev)
+ 			return;
+ 		}
+ 	}
++
++	of_node_put(pgc_node);
  }
- EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
+ 
+ static struct platform_driver imx_gpc_driver = {
 -- 
 2.39.5 (Apple Git-154)
 
