@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B3FCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 22:01:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93FC6CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 22:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXnh59nBcFWNlYT0v6PXDwQhFAtGG7ySSricjDezmZI=; b=b2umjdDG4A/FJMv+ANrKYX4PnT
-	ba0B3CCuOQ054x9DLxcvxUMOrfoSmtmAu3Jr9fuNLlYIq9NrfxnzdeFpH3i6/m0JGRnsSLfm+18OZ
-	JQHefAG7nLgOz6gZgUQRSwlQ547hVsq84EyHJ71U+D/2uxKnLCitlHTE0VtJcMmpGicieDxNkqo9b
-	TtGeDD82vAHZtwf7JbZfr2M5n+l79Xd89F9DTsUtvVGmZ6PQHz+N90+ezf+UIogYqU8nzUBulKGjD
-	C6qQQyNdB5jO1L2FqlNLSnVMmzPXN8tNLixkCSdyz8E52QzH7O4w73KQ9VckuZTkNqMkk9GOW8fCs
-	DBi5/lew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I/ZZy45LaWl74Y6BY6lZZWWarHxQqFY8+u/3TE6bopY=; b=RdmajRIpM+gxMJHCVTydZnyjkW
+	6BH9f0HMPWkI6XLY2PImgjkXB++rBErCokYSC9MkqYCdCN90L1+VuIl1y2d93000n0xRIoVCaEDzt
+	dwva3GvyqFQRJModlZuDvCxL0CRvFuyr0dcWEWmyUBTUprRGfglqCiGNah/2LGBqvhdjupQZno7tN
+	Zd2kvLHKNLBJJWlKLqiq4NBMKGFbHa5tLEx1OwMpu3+jk5uNuO/IAI9UxvlTDH2k+Z9oH6lHagyC2
+	iumj4jnxInUOAc9wuoNh3DE1GoeT9N7/Vv+abg8oIlp6WvpjqErXsVTmQK+BTUaUrIqejVNC24uMk
+	MqlA1shA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDrkg-0000000GitR-1xGu;
-	Tue, 28 Oct 2025 22:01:14 +0000
+	id 1vDs2M-0000000Gjl5-01Eh;
+	Tue, 28 Oct 2025 22:19:30 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDrke-0000000GitK-3oog
+	id 1vDs2K-0000000Gjkv-2g4J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 22:01:13 +0000
+	Tue, 28 Oct 2025 22:19:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 107EC603FE;
-	Tue, 28 Oct 2025 22:01:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07A86C4CEE7;
-	Tue, 28 Oct 2025 22:01:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C2FAC6026D;
+	Tue, 28 Oct 2025 22:19:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C785C4CEE7;
+	Tue, 28 Oct 2025 22:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761688871;
-	bh=axkFG9sBBk92SZMcb2CWNRulpTDXD1Y8N5Mk/ScHrDk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QM0AKc5DCU3iBAaMAaoULokkQsILBOAEqZhala/2ILEwKDeRFwKfN9E2ZmXf+ClUt
-	 qWcVJfO6x6GOsDKqVD23u1SIhKoHzgputa6M4WzjV7S2YnOy3w7Hqpm8agAnf2zrxE
-	 PkcxM0zFoHY1EC4SD2JFlQdf+g8TlGXAdoWkv/H4AOiVt6MTmz+BGoOS4NSifJpcQW
-	 a2wcNWebFB+7QJJe/sZ5znEkG17uL8Rk3q7kCUs6WJ4VSaX27iCQbqKox/IToLeP+w
-	 T0gTgUj/FYKWhneLLpKO8ZHwhBA0ZBTBd/UxpvT2SnX727l2ky+QE0R0NecZyiUGez
-	 PEXDI4rQ41Heg==
-Date: Tue, 28 Oct 2025 15:01:05 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: Kees Cook <kees@kernel.org>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Michal Kubiak <michal.kubiak@intel.com>,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org
-Subject: Re: [PATCH 3/3] libeth: xdp: Disable generic kCFI pass for
- libeth_xdp_tx_xmit_bulk()
-Message-ID: <20251028220105.GC1548965@ax162>
-References: <20251025-idpf-fix-arm-kcfi-build-error-v1-0-ec57221153ae@kernel.org>
- <20251025-idpf-fix-arm-kcfi-build-error-v1-3-ec57221153ae@kernel.org>
- <dfc94b21-0baa-4b1f-9261-725d8d5c66f0@intel.com>
- <20251027205409.GB3183341@ax162>
- <5eb7ba26-8ecb-4a39-b9ed-961fffe4aa97@intel.com>
+	s=k20201202; t=1761689967;
+	bh=yzrt0FYCMLcKcOf8fkJpIi0sW/mpdZ4QYj6NRuWqX6Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ETgH2vqRVFELtRx6mfXR2jj78Pj7OJ1UhP25bGPbjy2Z3qr2B3AWDbQb6Ee91di0G
+	 0EiK455ipRcrCx/Eum8WD9d85EQ388CwVjcM3c6v2RglaQasBguyLUSeFKC4sqyJHl
+	 dlMoHSz+6nskNWpFaPgK6O36SLGauKkvnuPk2Lvfi4n/ybY+k2tZS7XQ92I9hqBa80
+	 fjeYtAQUUV7WqOjnMoUPlUFIyssJiJ+6JoXbUinYWIQOz7fN5g0/RSSPTi3H9cky4u
+	 SdKAgRuxqEQSO681n+jsQIgC6QjY/QAbb8GVUaCxobtFeFivoryWYLc3Hzp4WX+MYZ
+	 la612AfZ5BfZQ==
+Date: Tue, 28 Oct 2025 15:19:25 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Richard
+ Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Vadim Fedorenko
+ <vadim.fedorenko@linux.dev>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Add a devlink attribute to
+ control timestamping mode
+Message-ID: <20251028151925.12784dca@kernel.org>
+In-Reply-To: <20251024070720.71174-3-maxime.chevallier@bootlin.com>
+References: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+	<20251024070720.71174-3-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5eb7ba26-8ecb-4a39-b9ed-961fffe4aa97@intel.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025 at 05:29:30PM +0100, Alexander Lobakin wrote:
-> From: Nathan Chancellor <nathan@kernel.org>
-> Date: Mon, 27 Oct 2025 13:54:09 -0700
-> 
-> > On Mon, Oct 27, 2025 at 03:59:51PM +0100, Alexander Lobakin wrote:
-> >> Hmmm,
-> >>
-> >> For this patch:
-> >>
-> >> Acked-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-> > 
-> > Thanks a lot for taking a look, even if it seems like we might not
-> > actually go the route of working around this.
-> > 
-> >> However,
-> >>
-> >> The XSk metadata infra in the kernel relies on that when we call
-> >> xsk_tx_metadata_request(), we pass a static const struct with our
-> >> callbacks and then the compiler makes all these calls direct.
-> >> This is not limited to libeth (although I realize that it triggered
-> >> this build failure due to the way how I pass these callbacks), every
-> >> driver which implements XSk Tx metadata and calls
-> >> xsk_tx_metadata_request() relies on that these calls will be direct,
-> >> otherwise there'll be such performance penalty that is unacceptable
-> >> for XSk speeds.
-> > 
-> > Hmmmm, I am not really sure how you could guarantee that these calls are
-> > turned direct from indirect aside from placing compile time assertions
-> > around like this... when you say "there'll be such performance penalty
-> 
-> You mean in case of CFI or in general? Because currently on both GCC and
-> Clang with both OPTIMIZE_FOR_{SIZE,SPEED} they get inlined in every driver.
+Sorry didn't get to review this in time.
 
-I mean in general but obviously that sort of optimization is high value
-for the compiler to perform so I would only expect it not to occur in
-extreme cases like sanitizers being enabled; I would expect no issues
-when using a backend CFI implementation
+On Fri, 24 Oct 2025 09:07:18 +0200 Maxime Chevallier wrote:
+> +   * - ``ts_coarse``
 
-> > that is unacceptable for XSk speeds", does that mean that everything
-> > will function correctly but slower than expected or does the lack of
-> > proper speed result in functionality degredation?
-> 
-> Nothing would break, just work way slower than expected.
-> xsk_tx_metadata_request() is called for each Tx packet (when Tx metadata
-> is enabled). Average XSK Tx perf is ~35-40 Mpps (millions of packets per
-> second), often [much] higher. Having an indirect call there would divide
-> it by n.
+This is not a great name IMHO. Is "coarse" from the PRM?
+It's the increment that's coarse, right? Not the timestamp
+This naming confuses me greatly.
 
-Ah okay.
+> +     - Boolean
+> +     - runtime
+> +     - Enable the Coarse timestamping mode. In Coarse mode, the ptp clock is
+> +       expected to be updated through an external PPS input, but the subsecond
 
-> >> Maybe xsk_tx_metadata_request() should be __nocfi as well? Or all
-> >> the callers of it?
-> > 
-> > I would only expect __nocfi_generic to be useful for avoiding a problem
-> > such as this. __nocfi would be too big of a hammer because it would
-> 
-> Yep, sorry, I actually meant __nocfi_generic...
+I guess the definition of "PPS input" got diluted but technically it
+means Pulse Per Second, right? Here IIUC we need an actual 50MHz clock
+fed in?
 
-I figured, just wanted to make sure! This series needs to go to mainline
-sooner rather than later, so maybe xsk_tx_metadata_request() could pick
-up __nocfi_generic as a future change to net-next since there is no
-obvious breakage? 32-bit ARM is the only architecture affected by this
-change since all other architectures that support kCFI have a backend
-specific lowering and I am guessing very few people would actually
-notice this problem in practice.
+> +       increment used for timestamping is set to 1/ptp_clock_rate. In Fine mode
+> +       (i.e. Coarse mode == false), the ptp clock frequency is adjusted more
+> +       frequently, but the subsecond increment is set to 2/ptp_clock_rate.
+> +       Coarse mode is suitable for PTP Grand Master operation. If unsure, leave
+> +       the parameter to False.
 
-Thanks again for chiming in and taking a look!
+My understanding based on your previous explanation is that basically
+in one of the modes the frequency cannot be adjusted. It's only usable
+if a very stable reference clock is fed into the device (or otherwise
+we "trust" the clock that's fed in). So that's why Grand Master.
 
-Cheers,
-Nathan
+In the other mode we can tweak the frequency more accurately.
+But it comes at a cost of the HW time incrementing 2x larger step.
+
+If that's the case I think we should update the documentation and
+rename the knob to indicate that it's the frequency adjustment that's
+coarse.
 
