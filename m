@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F20CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D2CCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ls9js8pk1OxApOPfHjg+6OhXCiFAAL8Poa+LHhv8b+I=; b=Cp5hXDwx8Skz5LXyB0fVKNHPmV
-	OxTl9YZCMjkFyfovwV7QpwIkWiqT4NVW3gGL1fgQMypPt62wDW2tQEL9zpJ5Qe1JIIPDJW6uxtYa/
-	Fp50pq2idJO+MNIY+pJ+L6SVCSbxicgWXMwlP+741CDaOVrTecUK/+71hsQhqDjFKczOmdbiDYpNh
-	egl+gAufiZJUa+GTYcEFGWi9SSWKP6e6ANYIRg/t4T6pQY6N1YmGX847SHa6UdWL14kPaPpzeY2bk
-	uJVjwn8XAXiSbtgWXrsAY6ncdjerav7GUY4SGwdtyeKchFPEqd9YnQ2vpWThGcxp8mX7cpTWkbMFR
-	AjAkb92g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xq9L0wmF9N9OaI65piMG16LFpkcrNIRs70fAnr5Cj6g=; b=hLRkbjcN3k4QLT
+	FlfqnR0APBT5SpuH4TVhQ+srpzWW+050JCxQOewLKYXdbOABejX8ukgO6HwXmRRix9OHEOvtqPxw/
+	kTKkW5qWoEg77mzlSx5rl8mwj88uQ/BITd8GUgUNgmRuxjo3Im9Ctw5NMxJ/njubsUeJN/dt0z7pL
+	BKL/YjF9QMsWoTTrd5FBGRAySW9KIjZnUnTgoAoFAfkOSnCayvRbRfPnseBy6YyVlv8aHgrKfeQKO
+	TAsbrXZCJ9k8ToiB5VfrpNyCo+w5SjGJiBg+YrIungOf5+ClPfWMtglshCH5SQlVItdkQMv+qdmNJ
+	t/h2bRS41Xxrag0MmwPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgl3-0000000Fjga-0Qbo;
-	Tue, 28 Oct 2025 10:16:53 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vDgnJ-0000000Fjyc-2XjJ;
+	Tue, 28 Oct 2025 10:19:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgl0-0000000FjfA-3itx
+	id 1vDgnI-0000000FjyV-09iw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:16:52 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 5E34E1A16F9;
-	Tue, 28 Oct 2025 10:16:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2EE15606AB;
-	Tue, 28 Oct 2025 10:16:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2EABC1179B169;
-	Tue, 28 Oct 2025 11:16:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761646605; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ls9js8pk1OxApOPfHjg+6OhXCiFAAL8Poa+LHhv8b+I=;
-	b=T2mWuyF1Qd8XV3vwoWIodU+brS+15SaCjgzWX2XlEE5kUJTtJQyb0GGWuqTyZhH+FFDKpc
-	Xqqvn5L2mdvJ0MNnISgT0M6sIU8mXNXeLM9S2z65uY1z3ukIyHZ0Xwr68Hha+oAXOtfkIq
-	aA/mFYHiKksHLih9RQc5ooPMSLYOf1Ml8ex93rbVOk7S95p5VZ8JzIBngXxbW6J82SowfD
-	DOv2auU7aXka0nHFhn9wPan+sLhIOmuRtM3yeXOFknGNV3rsdnAvD2eS2hBfT0jIApcrSG
-	H/xvyhnJEHWwN3EkGE8s920SdZ66mHv5s4MtvnLKB7JooqhGCynqXJP8+XQIbA==
-Date: Tue, 28 Oct 2025 11:16:36 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Vadim Fedorenko
- <vadim.fedorenko@linux.dev>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
- <alexis.lothore@bootlin.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Add a devlink attribute to
- control timestamping mode
-Message-ID: <20251028111636.7eaba25e@kmaincent-XPS-13-7390>
-In-Reply-To: <20251024070720.71174-3-maxime.chevallier@bootlin.com>
-References: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
-	<20251024070720.71174-3-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Tue, 28 Oct 2025 10:19:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E2B861EF8;
+	Tue, 28 Oct 2025 10:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3228C4CEE7;
+	Tue, 28 Oct 2025 10:19:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761646750;
+	bh=rTsiu6Lg9PZhrtKUJKqwPQO26S58LDXJ57pUZwdY5ng=;
+	h=From:Subject:Date:To:Cc:From;
+	b=fpCjauIFUkgpfgT171hCNQY/l4yDNErSco51dU7/5qdghLbuP22zvvc5Tm6IZrCIC
+	 5anRaznpikHViYV1KfvO/wgw4T8WXN5odJead3jyN9MDiHyALSAhAoUPGGdM5DQfzv
+	 I3pHRxCMUqCN2ZrQh1zMYHV9LIcex/MWeThdRRkIr/wMRjSCkc+30oSKXBUbKq/Q/7
+	 Rdjpqhc8E+oYFlw1SN+KmoJhj+VMi2l+daVPvdFJi3uJ2RBf5eZmB03Q2EG3emAzvz
+	 2Os6VzM3Ic24NgRJSwhqiNj/igG9k7bsPoPmAJFgA8CR5hMgJDW2EOkeEuVYI/Hvql
+	 reD5AiDv50eMw==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH not for merging 0/7] irqchip/gic-v5: Code first ACPI boot
+ support
+Date: Tue, 28 Oct 2025 11:18:58 +0100
+Message-Id: <20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_031651_062372_1993B7BB 
-X-CRM114-Status: GOOD (  18.39  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJKYAGkC/x3MQQqEMAxA0auUrA20HTqDXkVcSBNrFraSigji3
+ S2zfIv/b6iswhUGc4PyKVVKbnCdgbjOOTEKNYO3PjjrPSaJZ8C11APnuAtS6OkbHX3I/qBVu/I
+ i1/84Qi6HWYqajTVJTjA9zwvbbNIpcgAAAA==
+X-Change-ID: 20251022-gicv5-host-acpi-d59d6c1d3d07
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Robert Moore <robert.moore@intel.com>, Thomas Gleixner <tglx@linutronix.de>, 
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+ Marc Zyngier <maz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Jose Marinho <jose.marinho@arm.com>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +77,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Oct 2025 09:07:18 +0200
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+The ACPI and ACPI IORT specifications are being updated to support bindings
+required to describe GICv5 based systems.
 
-> The DWMAC1000 supports 2 timestamping configurations to configure how
-> frequency adjustments are made to the ptp_clock, as well as the reported
-> timestamp values.
->=20
-> There was a previous attempt at upstreaming support for configuring this
-> mode by Olivier Dautricourt and Julien Beraud a few years back [1]
->=20
-> In a nutshell, the timestamping can be either set in fine mode or in
-> coarse mode.
->=20
-> In fine mode, which is the default, we use the overflow of an accumulator=
- to
-> trigger frequency adjustments, but by doing so we lose precision on the
-> timetamps that are produced by the timestamping unit. The main drawback
-> is that the sub-second increment value, used to generate timestamps, can'=
-t be
-> set to lower than (2 / ptp_clock_freq).
->=20
-> The "fine" qualification comes from the frequent frequency adjustments we=
- are
-> able to do, which is perfect for a PTP follower usecase.
->=20
-> In Coarse mode, we don't do frequency adjustments based on an
-> accumulator overflow. We can therefore have very fine subsecond
-> increment values, allowing for better timestamping precision. However
-> this mode works best when the ptp clock frequency is adjusted based on
-> an external signal, such as a PPS input produced by a GPS clock. This
-> mode is therefore perfect for a Grand-master usecase.
->=20
-> Introduce a driver-specific devlink parameter "ts_coarse" to enable or
-> disable coarse mode, keeping the "fine" mode as a default.
->=20
-> This can then be changed with:
->=20
->   devlink dev param set <dev> name ts_coarse value true cmode runtime
->=20
-> The associated documentation is also added.
->=20
-> [1] :
-> https://lore.kernel.org/netdev/20200514102808.31163-1-olivier.dautricourt=
-@orolia.com/
+The ACPI specification GICv5 bindings ECR [1] was published and now it is
+going through the approval process to get it ratified.
 
+The Arm IORT specification [2] has been updated to include GICv5 IWB
+specific bindings in revision E.g.
 
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+Implement kernel code that - based on the aforementioned bindings - adds
+support for GICv5 ACPI probing.
 
-Thank you!
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+ACPICA changes supporting the bindings are posted with the series
+to make it self-contained - they should not be considered for merging
+(and consequently the kernel code as well is not ready to be upstreamed,
+it is posted so that it can be reviewed ahead of spec ratification, we
+are not expecting any major spec changes).
+
+The ACPI bindings were prototyped in edk2 - code available in these
+branches [3][4].
+
+===========================
+Kernel implementation notes
+===========================
+
+IRS and ITS probing is triggered using the standard irqchip ACPI probing
+mechanism - there is no significant difference compared to previous GIC
+versions other.
+
+The only difference that is worth noting is that GICv3/4 systems include a
+single MADT component describing the interrupt controller (ie GIC distributor)
+whereas GICv5 systems include one or more IRSes. The probing code is
+implemented so that an MADT IRS detection triggers probing for all IRSes
+in one go.
+
+The IWB driver probes like any other ACPI device. IORT code is updated so
+that a deviceID for the IWB can be detected.
+
+The only major change compared to GICv3/4 systems is the GSI namespace that
+is split between PPI/SPI IRQs and IWB backed IRQs.
+
+The main GSI handle - to map an IRQ - has to detect whether to look-up
+using the top level GSI domain or an IWB domain in that the two IRQ
+namespaces are decoupled.
+
+IORT code implements the logic to retrieve an IWB domain by looking up its
+IWB frame id, as described in [1].
+
+Most important implementation detail worth noting is that - at this stage -
+ACPI code is not capable of handling devices probe order IRQ dependency on
+the interrupt controller driver their IRQ is routed to.
+
+This is not an issue on GICv3/4 systems in that the full GIC hierarchy
+probes earlier than any other device, so by the time IRQs mappings have to
+be carried out (ie acpi_register_gsi()) the GIC drivers have already
+probed.
+
+On GICv5 systems, the IWB is modelled as a device and its device driver
+probes at device_initcall time. That's when the IWB IRQ domain is actually
+registered - which poses problems for devices whose IRQs are IWB routed and
+require to resolve the IRQ mapping before the IWB driver has a chance to
+probe.
+
+Work on resolving devices<->IWB probe order dependency has started in
+parallel with this series.
+
+For PPI/SPI/LPI backed IRQs the probe dependency is not a problem because
+in GICv5 systems the IRSes and ITSes probe early so their IRQ domain are
+set in place before devices require IRQ mappings.
+
+ACPICA patches are a Linuxised version of ACPICA GICv5 pull request [5] and
+should not be considered for merging (ACPICA changes won't be finalized
+until the ACPI specification is ratified), they are there so that the
+kernel can map/parse GICv5 ACPI firmware data structures 
+
+[1] https://github.com/tianocore/edk2/issues/11148
+[2] https://developer.arm.com/documentation/den0049/eg
+[3] https://github.com/LeviYeoReum/edk2/tree/levi/gicv5_patch
+[4] https://github.com/LeviYeoReum/edk2-platforms/tree/levi/gicv5_patch
+[5] https://github.com/acpica/acpica/pull/1043
+
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+---
+Jose Marinho (2):
+      ACPICA: Add GICv5 MADT structures
+      ACPICA: Add Arm IORT IWB node definitions
+
+Lorenzo Pieralisi (5):
+      irqdomain: Add parent field to irqchip_fwid
+      PCI/MSI: Make the pci_msi_map_rid_ctlr_node() interface firmware agnostic
+      irqchip/gic-v5: Add ACPI IRS probing
+      irqchip/gic-v5: Add ACPI ITS probing
+      irqchip/gic-v5: Add ACPI IWB probing
+
+ drivers/acpi/arm64/iort.c                | 190 +++++++++++++++++++-----
+ drivers/acpi/bus.c                       |   3 +
+ drivers/irqchip/irq-gic-its-msi-parent.c |  45 +++---
+ drivers/irqchip/irq-gic-v5-irs.c         | 247 ++++++++++++++++++++++++-------
+ drivers/irqchip/irq-gic-v5-its.c         | 132 ++++++++++++++++-
+ drivers/irqchip/irq-gic-v5-iwb.c         |  42 ++++--
+ drivers/irqchip/irq-gic-v5.c             | 138 ++++++++++++++---
+ drivers/pci/msi/irqdomain.c              |  24 ++-
+ include/acpi/actbl2.h                    |  56 ++++++-
+ include/linux/acpi.h                     |   1 +
+ include/linux/acpi_iort.h                |  11 +-
+ include/linux/irqchip/arm-gic-v5.h       |   8 +
+ include/linux/irqdomain.h                |  30 +++-
+ include/linux/msi.h                      |   3 +-
+ kernel/irq/irqdomain.c                   |  14 +-
+ 15 files changed, 786 insertions(+), 158 deletions(-)
+---
+base-commit: 211ddde0823f1442e4ad052a2f30f050145ccada
+change-id: 20251022-gicv5-host-acpi-d59d6c1d3d07
+
+Best regards,
+-- 
+Lorenzo Pieralisi <lpieralisi@kernel.org>
+
 
