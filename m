@@ -4,210 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A8ECCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 01:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9676CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 01:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	In-Reply-To:Content-Transfer-Encoding:Content-Type:References:Message-ID:
-	Subject:CC:To:From:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m6MLg7v7yQ+soFgsw37Q2JBnJHZRfQcFhC6ilajngEg=; b=l4wsoHH6DL6kUUbqfgsGUctDuQ
-	Nz6YtgHug36GkhlyBJdNo6j+8q2HKtYKt/qI5ClSz67LiHoRLLP18qmXaKt2vSt9L3et0m+36tta2
-	qbqc/9wmw+iEgAiC/LNOTu8wmO5akYYPVLrtJFgmXC3WzyNfXb3NJeIGl15PwY1GFPZCv4iAr3Hnl
-	Cy0MWDGARCSjWNk1IvcyjazRhmVxc5kBuNM/IW1FJQDeCLp+MZ2zwIKstdeDdTCOf5YXWyUePgOhS
-	/st5JMpsRW76jGx7YCF+RQ8jcP9oGUtRJhIHVCd0W0O8iz+6uILy/iUStSjRHsTOjhDVXgiYK4LcQ
-	al9pYx/A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8siksmYb2tNlUV9hejLCVP1mNAldpgWYnYJRzRRAG9Y=; b=2M3qwxOO5hSozC9BlfQdfBXlAw
+	mQOBVbQhIX7egAiOptrCMfdPFqmnv7q2UZqROdPuK4TNTnB2CofN8FWteloBLDI5QFRKwoRnH59pQ
+	QmNeUEGu++wcdOyAWIKWBqIaTULN2p+Qgnwdn3LTlHLHh5FoAl+zx+ES6yv3BNUX0ztSkS2c7h6Wa
+	X0hS6T0oI29XlbVzOAX0BIu8S7ERlTs4r4Hzg9dS1MT0EVbHNaSui1judYiRN8IrRO5JNkEyYtXcL
+	D+VWBygLqfd5j4HQfBlcaCcmPIJXqpoy9wMuprnDRj+H4/9r8RVeP538WQcGThBHeRDMJDSHHWjXB
+	VUC01L0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDYg7-0000000F52B-1Tp9;
-	Tue, 28 Oct 2025 01:39:15 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vDYwJ-0000000F5uR-2rPA;
+	Tue, 28 Oct 2025 01:55:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDYg4-0000000F51f-21cF;
-	Tue, 28 Oct 2025 01:39:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761615552; x=1793151552;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=0qEOgFqxS8byCB8rnlPAGovSB1qn9i4mePwB3HlbtYU=;
-  b=jjvUCE5LY4zt14sElb94qb9JIHnVLNBsmVBmnduCGwaFxA+riP4oIFpd
-   j5lRHuOvoMjfs1jlX5Ep736lIQoNTTzEdieKuvDx9rv3zsTOMQ2dCgJvA
-   tdsQGEqNnXndFzL2GnWhaCkZee4E6tOwEFNjVGNtbyW4BFmbOy5wcHx0k
-   GWV7VZJD44WWwj4Fnb8FB2KQSiEWiuWEzkW7UNGt3x+fX//vj891Trtg0
-   8n9B01rjn7u0jKBDoKj3nOeoOr48EhaNmVx4OgXAnGbamKUX203Z96k/z
-   oXKayxAMNQRj6bFWeXDT4qii60mGodcPkZvLGiwA8XQyyqH6F0q1F6ryO
-   w==;
-X-CSE-ConnectionGUID: teuYZeeESH2TIcsTHvPkeQ==
-X-CSE-MsgGUID: q5fv2e4GQMameI5o8MbszQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63595575"
-X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
-   d="scan'208";a="63595575"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 18:39:11 -0700
-X-CSE-ConnectionGUID: JBHyLqc/Sl2Gw9H9+zIDBQ==
-X-CSE-MsgGUID: ZDXIa3HHSrOreE9ZrY/k2g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
-   d="scan'208";a="185963692"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 18:39:11 -0700
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 27 Oct 2025 18:39:10 -0700
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Mon, 27 Oct 2025 18:39:10 -0700
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.11) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 27 Oct 2025 18:39:10 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hwz3Bmzb32OugWah6/EjcCLo3PODjtRwhm9UzEPwL0sFK5Po0kvvU2rHcdVf3Ub2srl1QlDVinedG4AodAvqlx0lmrAl91IBANIUZK4xY7MT9fc/sIBQvYp+BlBFrK+I94i6BLKzB8H44w3TCdpNXUyymb7USvonuyB5ZHn3wf6pEiXGrWFC8DfY4eg/VcIHOUKAAqyoDCwUbGfC8NfMAvP6Ud8iNjuFpNmtrQWdMEKGm06TnbH8E+VTwXbND/1aiB2KNC48/F4VMhIvm6YeBPpGqbxL0ANe1PUTas9x9jjXkR9Cuvk+yUJFRzIIF4mfz8p69d/vY/kMEALGM+hGCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KN0UXd++EQV9tIQejojWBftPqUEbLCOAHSJ/3a3GZIs=;
- b=ezuYooIjT+OEF19ShFwfPMHI7f/gxHsyOMyzi24wazzIRDSMZD3vJJ6PkVMkyT1C1R7xGSu4jPoeGXWcX6m32vbg1Qqw1ZoW2sWBgMWVR6HNtKOwYoIWrUMcR2dz3rtV1GvBoH/iZRmwJRYKuGwu46uV1ltJyFuBD562w8Nj3koxwlT54nixSvNEnrCr8SQTX3eY/ZNoK+FuncjxhP1pGxi1PwZDiJ5CvN4QqNORriqBDvLJUiEwlOVz7cA+9q/2Urx9+XadBB/wRvAZLvX06QEw9X4WKfTG12c85T5B692fDQXThcW2ym4pQebmGf196ikDwvuQyPfWFE+AQgyA8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- MN2PR11MB4600.namprd11.prod.outlook.com (2603:10b6:208:26e::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Tue, 28 Oct
- 2025 01:39:08 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9253.017; Tue, 28 Oct 2025
- 01:39:07 +0000
-Date: Tue, 28 Oct 2025 09:37:05 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-CC: "seanjc@google.com" <seanjc@google.com>, "borntraeger@linux.ibm.com"
-	<borntraeger@linux.ibm.com>, "kvm-riscv@lists.infradead.org"
-	<kvm-riscv@lists.infradead.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "michael.roth@amd.com"
-	<michael.roth@amd.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "x86@kernel.org" <x86@kernel.org>,
-	"chenhuacai@kernel.org" <chenhuacai@kernel.org>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "Annapurve, Vishal" <vannapurve@google.com>,
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>,
-	"maddy@linux.ibm.com" <maddy@linux.ibm.com>, "maobibo@loongson.cn"
-	<maobibo@loongson.cn>, "maz@kernel.org" <maz@kernel.org>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"anup@brainfault.org" <anup@brainfault.org>, "Huang, Kai"
-	<kai.huang@intel.com>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>,
-	"pjw@kernel.org" <pjw@kernel.org>, "zhaotianrui@loongson.cn"
-	<zhaotianrui@loongson.cn>, "ackerleytng@google.com" <ackerleytng@google.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Weiny, Ira" <ira.weiny@intel.com>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, "kas@kernel.org"
-	<kas@kernel.org>
-Subject: Re: [PATCH v3 24/25] KVM: TDX: Guard VM state transitions with "all"
- the locks
-Message-ID: <aQAeQV+xrQB5IFBF@yzhao56-desk.sh.intel.com>
-References: <20251017003244.186495-1-seanjc@google.com>
- <20251017003244.186495-25-seanjc@google.com>
- <aPtOtzGLigbY0Vqw@yzhao56-desk.sh.intel.com>
- <aPuv8F8iDp3SLb9q@google.com>
- <aP86sdBZxXm5I17f@yzhao56-desk.sh.intel.com>
- <77d8a0d9541ce3fc2b2c76b58add50d152b52e39.camel@intel.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <77d8a0d9541ce3fc2b2c76b58add50d152b52e39.camel@intel.com>
-X-ClientProxiedBy: KL1PR01CA0126.apcprd01.prod.exchangelabs.com
- (2603:1096:820:4::18) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|MN2PR11MB4600:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e3f323d-269b-4b0b-f423-08de15c2c920
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?S58biPjkBzQWQwelfug4uVNLWfl7G2x/vwGlKsFxCt8QPYTKZYV4mI9m8Y?=
- =?iso-8859-1?Q?LWjzqvbhGWFLSByGb8i6CS0x1m/u7CICOmAqBx5aFBDdKyEwL4kM5pt/eI?=
- =?iso-8859-1?Q?xevISIQ6iDoeHT4bDgUwltI4g9vALjupyB0hdLNIZoN7lMDT/wFxDt0VDd?=
- =?iso-8859-1?Q?uVg4lL0KoF6N7tLb4I9mUVlT4dR5eIWM4Ri9h6EgRJiPJCalbAJNO4tO3T?=
- =?iso-8859-1?Q?HPfffZNVH9kMutAhnzDCf0FZez7s3Z7DQvJwWWpijS5p4FVUi8+1WIsLQ5?=
- =?iso-8859-1?Q?zHW7+Q5KrgfuJojKQX20mU4OAuJao5a8K95K3zGhJYQeYy0fYWPx5AIk5w?=
- =?iso-8859-1?Q?/eVg8kC7Doe58IF8Pm+JgGkJ58wFLu1QMU/o8904Y6cSrBg5zfRjq22GW0?=
- =?iso-8859-1?Q?kae7OMb1bOVieIOZ5IjVx/8lmgfH1IyBOn18z8bVV23S7WLyeabm1j83BF?=
- =?iso-8859-1?Q?jeop0NjGNnFtHfR//Re+PDogJoU0QRiy1RD0cwRduJylFmj1bFZW/fCiSB?=
- =?iso-8859-1?Q?eDXaM2MKIcW7FeegKi81JirU9Yjl8O84XeZlJZHxq2e98j/SkQuO5onN/t?=
- =?iso-8859-1?Q?Tsu1C8sN2maGl30cwRRRv6umrBInuv0e1LOYLegvzGPHyr39MOaHjcZ0Ks?=
- =?iso-8859-1?Q?fQ2zHKnzAK5fqa9SlAKl5OSjKbPJwj+cxmMDRr0zxnmYPoK+2UV5qi6i7v?=
- =?iso-8859-1?Q?m8AO8wMwUW2RzLP9t13KKONDqoJ2pghSaziS6bux74i2bUvJ1nmxME20Jz?=
- =?iso-8859-1?Q?9devC6A4Z6SwhNIhoFHpXKE4XiNhczyKzZ6rx5JlWS1NdEsG9i0iTjTfoc?=
- =?iso-8859-1?Q?vJIMzhU16qWYocOolWkfmukn3o7uzUVtIq8ThuhNr+MKsagLVXmaOKL+d5?=
- =?iso-8859-1?Q?Z6F0RyHlR4sYX4iUgOm1IMXF3O4DScHZ205BijJ9zFun3RpIvoAKfK9cxo?=
- =?iso-8859-1?Q?BLsV1qSMCSHsmU9ADI4G9T59kcI4R3tTwUn7Lrk+8TEE5cSD0aUgePL5eO?=
- =?iso-8859-1?Q?q5Ij/82xcpM4ZSetB8/3y3yjng4Jj/gbJjEjfeDR85wUJ4NGPPa3VNiB+b?=
- =?iso-8859-1?Q?mfoBJZ97eT2h/uJsSx+Mm/z+JIY2FfNtzxZ/76W4YQbpW9WoZD/F0BwpyN?=
- =?iso-8859-1?Q?sZ/GD+mrZO2k+OeODAJl1EbeO+q18/wFU0iWuQlr6EaL8Vcq0Sz8NuD2hW?=
- =?iso-8859-1?Q?efBvadkVMOkngccXjqFd0iA7ZRVoL+cA/oBGUAz9AT7K+PrJqV335hqOt1?=
- =?iso-8859-1?Q?NTh2zki7z+6lNDrkIgQWjnLmkBGxuqsIAEX1vOpv8+EqX5jc/sJ07Gto0H?=
- =?iso-8859-1?Q?z4+qJDer6RTpPpMxs2HpJjJKsyV1D7Akrx5dXCwc5Ozx/i5daEPauhd7Ww?=
- =?iso-8859-1?Q?7lm30v0SRJ5sYm4ae5rNZ5+222PNaiVnRjy59OTFVu8BOHKBxn4I6FzMFP?=
- =?iso-8859-1?Q?Kq/rvjdQlt0U2n+YE9XqiB2+xSJFM05oQ3V0Vg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?1wzqaF31IDJMHeLTV4jsnALPJgtaJZJkPLA3W2XLJEIa8EhvfXWtzv2BA+?=
- =?iso-8859-1?Q?ZbbCxutcQc+3j/UehBVqQZjikUIiqpez3ln1PaBZasQptA3PYjARFQuU6q?=
- =?iso-8859-1?Q?8V//1uPaT+soNlPS+PEgwkeUd/7Iq+PSjElA13wpUsIDTXQCudsjZNMPDh?=
- =?iso-8859-1?Q?9rMsB2yZ5OGtVNJpgh9jTUSxYmn6iaWlJv34SjH9gQEJXp/WA9Ka38xSXV?=
- =?iso-8859-1?Q?/dw6lMwHgZAesDB7+4mNBI89pnlPUplnnBPS5OKj/G6sSZAxew7i4cONdo?=
- =?iso-8859-1?Q?+iSWgJsdVYLEDN3WUP8OROGovStOxzINIpHgjicYmtCorLlxVXEnWU0MH1?=
- =?iso-8859-1?Q?FpygeNOC93xmKRZwodDLbW9wKh2Ncp/mxO5DioDaD4CTe/N4ywAbUoHS84?=
- =?iso-8859-1?Q?mbxFDQsb5mTDEk20osyovN5Rt3GPapOvSWY4oSiTST0PXPnz9nj7luVYh4?=
- =?iso-8859-1?Q?CMFAzOA7tniKEhbLyH/QyvEefPpGpxX7z7yFGoKq2beZvCjgTyqg+0vKPy?=
- =?iso-8859-1?Q?P75A3LEfn88fcnBnm4+/CxnNBCW8rADd5xGNhgmlzvVEnKdqYDewW1XpnS?=
- =?iso-8859-1?Q?nLj8P9Kapykd2hojlK8KQScO1nT8hiOmi1lgSvBgLjoGW18gx77YWpxxgf?=
- =?iso-8859-1?Q?CT1N3Ao/SGeuqiYlkhSKcApvoFgx3p+jRxIVKDhkzntJHVbas4HUX4E82U?=
- =?iso-8859-1?Q?1gQYDYeV5Gbu4kCYTrCJdSB7mP5OUo6A5p9f2O6LY3gzxsnSKcN62/Y8xg?=
- =?iso-8859-1?Q?rvooQZUn2rTMUeAWMDELFMYxjdQXM8X5dpWZAG5Vln3NLJb+joinwsN0wr?=
- =?iso-8859-1?Q?gLu0KeKW+8CfZ4bpLL1k/9mHQ6RZ0vQ6NOZBJk36b4PwF9RfreJpuyPKcL?=
- =?iso-8859-1?Q?oXYAQPT8a1Ub/Qm3oCeUBZD0B6ANMo9PGowN0V0flF1bCSXB7LvhfMUDPB?=
- =?iso-8859-1?Q?xLd7mHSXCB1cM4rHhFWNtOlDZnc1DhWnQEvl0upqfEuXbvX2D1SPi6xwbX?=
- =?iso-8859-1?Q?n3sIQzd+NirzHWTwSUHYtAgkUmniKFUoOUWpgepgs+rxcwBPExm1DzHSrK?=
- =?iso-8859-1?Q?/ZWaNRTMaK2+ui0+dfDYIurgD5MntVy16OFkr/ks6igTUB9T1Qg5bVUWze?=
- =?iso-8859-1?Q?t9N+EbUAlh94X6x0cGCd0mLy64MXIIZ9j0+c02pY8G+TXH4VEr7ePIdajp?=
- =?iso-8859-1?Q?e6+5uLRIPtbEbQeUya/Cnjc3a8eBtdBD/btf5jmcGWGQHbxQFGQc40+n7k?=
- =?iso-8859-1?Q?oSp0f20jNHyoSpvoW8jMQigr+Ly3cuPb+g4HLxC2XUxBcXES4eNO/g3Yhd?=
- =?iso-8859-1?Q?ib7P6ZuIo8ZFF9Sg2EjtJXIeX2HceE086gHtOzAwWmgmHNlFve47HGcNfS?=
- =?iso-8859-1?Q?a6zv0duD1+9ure054Z703n+7PnkVicZgP/1JDDIoXdFS6aIzl/sCG2xe3g?=
- =?iso-8859-1?Q?BhqTmrxdw3RtXwYHxrScYqLARF1MDvnHt626dmSiiMWCowxf1+fS/M5zGl?=
- =?iso-8859-1?Q?VGIt1Qmo0Uqaz6CRptu9i9Xb4R00QHYy/tvYshG+afOtwJ+fw+KsGvZgcR?=
- =?iso-8859-1?Q?rWolgDkWTi9cTs9rcF4/XpsRs9ghrP23aBh58jUh2J1JqC3cfb3jGSqkqI?=
- =?iso-8859-1?Q?o89BPliaRhSpmA6nXHloepEviKLUl/C+in?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e3f323d-269b-4b0b-f423-08de15c2c920
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 01:39:07.7912
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oqmZWw5b83oRLCqjfweqeVSm9bzyRSJVPtWBA4ZXWn/wz6KjQTMQag39CQEm2jFHraeaHZau62u0v6YlGXkCaQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4600
-X-OriginatorOrg: intel.com
+	id 1vDYwH-0000000F5u1-0qna
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 01:55:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D65D40022;
+	Tue, 28 Oct 2025 01:55:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B62A1C4CEF1;
+	Tue, 28 Oct 2025 01:55:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761616556;
+	bh=6IlL0RD/b1cmQ2o28E1LFzW/+KMUWhpSmqh1P0RR74k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jdza6PTpVIv54MadO3APb4bau5qFddYhcpvXjSTnjv2TfyE08Z4O4glutGY6oaVhu
+	 nYR75QQXC3SO8VyxMdcwoAVaMYw8Xy0BUdy3xJCg64/2eBMukdCrYKZS6TtEKR2ChL
+	 vK6A0SuB/mo+5xJJ3XLIYsS+pZRZJ0Abcr6Ni1a6iO1CXyo7+YarkUnsfxILXhESBQ
+	 qxbWXagybJU32oddPCU3AnViWYCTgv6gDWtsfwN0AqpXQwRHEO+9YyEUqA2nDm/xxy
+	 Vfju0PPjbRwyhvg21/4c5JIrFUZoBKyycNEa44C5NEQq7MuSbeO1+/2kWuELXZDfVL
+	 TJcr1Hh5zEHlA==
+Date: Tue, 28 Oct 2025 10:55:49 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Masami Hiramatsu (Google) <mhiramat@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>,
+ x86@kernel.org, Jinchao Wang <wangjinchao600@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v5 6/8] selftests: tracing: Add a basic testcase for
+ wprobe
+Message-Id: <20251028105549.ae94e8eeb42f4efc183d2807@kernel.org>
+In-Reply-To: <20251028084222.a3c1ae97d125d9bd88fc565b@kernel.org>
+References: <175859019940.374439.7398451124225791618.stgit@devnote2>
+	<175859026716.374439.14852239332989324292.stgit@devnote2>
+	<aPvwGhMBJqMKcC9D@finisterre.sirena.org.uk>
+	<20251027224347.4c887cc956df63602f377550@kernel.org>
+	<20251028084222.a3c1ae97d125d9bd88fc565b@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_183912_621558_D05E9E04 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20251027_185557_290429_007C96FF 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -219,139 +83,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025 at 01:46:03AM +0800, Edgecombe, Rick P wrote:
-> On Mon, 2025-10-27 at 17:26 +0800, Yan Zhao wrote:
-> > > Ugh, I'd rather not?  Refresh me, what's the story with "v1"?  Are we now on
-> > > v2?
-> > No... We are now on v1.
-> > As in [1], I found that TDX module changed SEAMCALL TDH_VP_INIT behavior to
-> > require exclusive lock on resource TDR when leaf_opcode.version > 0.
-> > 
-> > Therefore, we moved KVM_TDX_INIT_VCPU to tdx_vcpu_unlocked_ioctl() in patch
-> > 22.
-> > 
-> > [1] https://lore.kernel.org/all/aLa34QCJCXGLk%2Ffl@yzhao56-desk.sh.intel.com/
+On Tue, 28 Oct 2025 08:42:22 +0900
+Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+
+> ~ # cd /sys/kernel/tracing/
+> /sys/kernel/tracing # echo 'w:my_wprobe w@jiffies' >> dynamic_events 
+> /sys/kernel/tracing # echo 1 > events/wprobes/my_wprobe/enable 
+> [   54.942288] trace_wprobe: enable_trace_wprobe called
+> [   54.945306] trace_wprobe: trying to register wprobes
+> [   54.947367] trace_wprobe: __register_trace_wprobe called
+> [   54.949586] trace_wprobe: registering wprobe at addr: 0xffffb6ce429fb200, len: 4, type: 2
+> [   54.951639] Creating wide hw breakpoint on CPU 0
+> [   54.966390] Creating kernel counter on CPU 0 for event type 5
+> [   54.967758] perf_install_in_context: event 00000000736da1d9 ctx 000000005d4db900 cpu 0
+> [   54.972015] perf_install_in_context2: event 00000000736da1d9 ctx set to 000000005d4db900
+> [   54.976697] cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2c8
 > 
-> Looking at the PDF docs, TDR exclusive locking in version == 1 is called out at
-> least back to the oldest ABI docs I have (March 2024). Not sure about the
-> assertion that the behavior changed, but if indeed this was documented, it's a
-> little bit our bad. We might consider being flexible around calling it a TDX ABI
-> break?
-I apologize that the ABI documentation had already called this out earlier in
-March 2024.
+> What happen if the cpu calls function on itself by
+> smp_call_function_single() on arm64?
+> 
+>   smp_call_function_single(this_cpu, remote_function, &data, 1);
 
-I determined the locking behavior by reading the TDX module's source code,
-specifically, from public repo https://github.com/intel/tdx-module.git, branch
-tdx_1.5.
+Sorry, that was printk buffering issue. I used trace_printk() instead
+and persistent ring buffer[1] to trace it.
 
-I checked my git snapshot of that branch, and I think it's because back to my
-checking time, branch tdx_1.5 was pointing to TDX_1.5.01, which did not include
-the code for version 1.
+[1] https://docs.kernel.org/trace/debugging.html#persistent-buffers-across-boots
 
-commit 72d8cffb214b74ae94d75afce36423020f74b47c (HEAD -> tdx_1.5, tag: TDX_1.5.01)
-Author: mvainer <michael1.vainer@intel.com>
-Date:   Thu Feb 22 15:36:58 2024 +0200
+~ # echo 1 > /sys/kernel/tracing/instances/boot_map/options/trace_printk_dest
+~ # echo 'w:my_wprobe w@jiffies' >> /sys/kernel/tracing/dynamic_events 
+~ # echo 1 > /sys/kernel/tracing/events/wprobes/my_wprobe/enable 
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) system_reset
+...
 
-    TDX 1.5.01
+~ # cat /sys/kernel/tracing/instances/boot_map/trace 
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 16/16   #P:1
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+           <...>-63      [000] .....    21.065038: register_wide_hw_breakpoint: Creating wide hw breakpoint on CPU 0
+           <...>-63      [000] .....    21.079678: perf_event_create_kernel_counter: Creating kernel counter on CPU 0 for event type 5
+           <...>-63      [000] .....    21.080051: perf_install_in_context: perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337 cpu 0
+           <...>-63      [000] .....    21.080140: perf_install_in_context: perf_install_in_context2: event 000000000b3ac4d3 ctx set to 00000000097d6337
+           <...>-63      [000] .....    21.080939: cpu_function_call: cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2f0
+           <...>-63      [000] .....    21.080966: smp_call_function_single: smp_call_function_single: calling function on CPU 0, func: remote_function+0x0/0x78, wait=1
+           <...>-63      [000] ...1.    21.080973: smp_call_function_single: smp_call_function_single: running on CPU 0, call CPU 0
+           <...>-63      [000] ...1.    21.081099: smp_call_function_single: smp_call_function_single: checking for potential deadlock conditions
+           <...>-63      [000] ...1.    21.081259: generic_exec_single: generic_exec_single: preparing to call function on CPU 0, func: remote_function+0x0/0x78
+           <...>-63      [000] ...1.    21.081269: generic_exec_single: Executing smp_call_function_single on self CPU 0, func: remote_function+0x0/0x78
+           <...>-63      [000] d..1.    21.081289: csd_do_func: csd_do_func: CPU 0 executing func remote_function+0x0/0x78
+           <...>-63      [000] d..1.    21.081429: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337
+           <...>-63      [000] d..2.    21.083211: hw_breakpoint_control: hw_breakpoint_control: ops=0
+           <...>-63      [000] d..1.    21.084191: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 done, ret=0
+           <...>-63      [000] d..1.    21.084237: csd_do_func: csd_do_func: CPU 0 finished func remote_function+0x0/0x78
+           <...>-63      [000] d..1.    21.084243: generic_exec_single: Finished csd_lock_record(NULL)
+~ # 
 
-    Signed-off-by: mvainer <michael1.vainer@intel.com>
 
+So the last message is right before the local_irq_restore() in
+generic_exec_single().
 
+static int generic_exec_single(int cpu, call_single_data_t *csd)
+{
+	...
+		csd_lock_record(csd);
+		csd_unlock(csd);
+		local_irq_save(flags);
+		csd_do_func(func, info, NULL);
+		csd_lock_record(NULL);
+		trace_printk("Finished csd_lock_record(NULL)\n"); <- 
+		local_irq_restore(flags);
+		return 0;
 
-In that repository, the latest tdx_1.5 branch points to tag TDX_1.5.16.
-The exclusive TDR lock in TDH.VP.INIT was introduced starting from TDX 1.5.05.
+Actually, I added another trace_printk() right after generic_exec_single().
 
+	err = generic_exec_single(cpu, csd);
+	trace_printk("generic_exec_single returned %d for CPU %d, func: %pS\n",
+		err, cpu, func);
 
-commit 147ba2973479be63147048954f77a0d7248fcc35
-Author: Vainer, Michael1 <michael1.vainer@intel.com>
-Date:   Mon Aug 11 11:53:07 2025 +0300
+This means after setting the hw_breakpoint, when enabing the IRQ,
+the machine is frozen - but qemu is running busy.
 
-    TDX 1.5.05
+Can we specify the kernel memory address to HW breakpoint on arm64?
 
-    Signed-off-by: Vainer, Michael1 <michael1.vainer@intel.com>
-
-diff --git a/src/vmm_dispatcher/api_calls/tdh_vp_init.c b/src/vmm_dispatcher/api_calls/tdh_vp_init.c
-index ccb6b9e..ee51a18 100644
---- a/src/vmm_dispatcher/api_calls/tdh_vp_init.c
-+++ b/src/vmm_dispatcher/api_calls/tdh_vp_init.c
-@@ -114,6 +114,17 @@ api_error_type tdh_vp_init(uint64_t target_tdvpr_pa, uint64_t td_vcpu_rcx)
-
-     api_error_type        return_val = UNINITIALIZE_ERROR;
-
-+    tdx_leaf_and_version_t leaf_opcode;
-+    leaf_opcode.raw = get_local_data()->vmm_regs.rax;
-+
-+    uint64_t x2apic_id = get_local_data()->vmm_regs.r8;
-+
-+    // TDH.VP.INIT supports version 1.  Other version checks are done by the SEAMCALL dispatcher.
-+    if (leaf_opcode.version > 1)
-+    {
-+        return_val = api_error_with_operand_id(TDX_OPERAND_INVALID, OPERAND_ID_RAX);
-+        goto EXIT;
-+    }
-
-     // Check and lock the parent TDVPR page
-     return_val = check_and_lock_explicit_4k_private_hpa(tdvpr_pa,
-@@ -129,11 +140,13 @@ api_error_type tdh_vp_init(uint64_t target_tdvpr_pa, uint64_t td_vcpu_rcx)
-         goto EXIT;
-     }
-
-+    lock_type_t tdr_lock_type = (leaf_opcode.version > 0) ? TDX_LOCK_EXCLUSIVE : TDX_LOCK_SHARED;
-+
-     // Lock and map the TDR page
-     return_val = lock_and_map_implicit_tdr(get_pamt_entry_owner(tdvpr_pamt_entry_ptr),
-                                            OPERAND_ID_TDR,
-                                            TDX_RANGE_RO,
--                                           TDX_LOCK_SHARED,
-+                                           tdr_lock_type,
-                                            &tdr_pamt_entry_ptr,
-                                            &tdr_locked_flag,
-                                            &tdr_ptr);
-@@ -190,6 +203,32 @@ api_error_type tdh_vp_init(uint64_t target_tdvpr_pa, uint64_t td_vcpu_rcx)
-     }
-     tdvps_ptr->management.vcpu_index = vcpu_index;
-
-+    if (leaf_opcode.version == 0)
-+    {
-+        // No x2APIC ID was provided
-+        tdcs_ptr->executions_ctl_fields.topology_enum_configured = false;
-+    }
-+    else
-+    {
-+        // Check and save the configured x2APIC ID.  Upper 32 bits must be 0.
-+        if (x2apic_id > 0xFFFFFFFF)
-+        {
-+            (void)_lock_xadd_32b(&tdcs_ptr->management_fields.num_vcpus, (uint32_t)-1);
-+            return_val = api_error_with_operand_id(TDX_OPERAND_INVALID, OPERAND_ID_R8);
-+            goto EXIT;
-+        }
-+
-+        for (uint32_t i = 0; i < vcpu_index; i++)
-+        {
-+            if ((uint32_t)x2apic_id == tdcs_ptr->x2apic_ids[i])
-+            {
-+                return_val = api_error_with_operand_id(TDX_X2APIC_ID_NOT_UNIQUE, tdcs_ptr->x2apic_ids[i]);
-+                goto EXIT;
-+            }
-+        }
-+
-+        tdcs_ptr->x2apic_ids[vcpu_index] = (uint32_t)x2apic_id;
-+    }
-
-     // We read TSC below.  Compare IA32_TSC_ADJUST to the value sampled on TDHSYSINIT
-     // to make sure the host VMM doesn't play any trick on us. */
-@@ -282,7 +321,7 @@ EXIT:
-     }
-     if (tdr_locked_flag)
-     {
--        pamt_implicit_release_lock(tdr_pamt_entry_ptr, TDX_LOCK_SHARED);
-+        pamt_implicit_release_lock(tdr_pamt_entry_ptr, tdr_lock_type);
-         free_la(tdr_ptr);
-     }
-     if (tdvpr_locked_flag)
-
+Thank you,
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
