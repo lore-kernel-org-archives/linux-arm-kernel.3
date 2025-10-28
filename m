@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936DDCCF9F0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A1B7CCF9EF
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,80 +12,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OpHBCdnSgFY8OByltD72t3aaSdewiYsQALJgMeWf4do=; b=JNfq9wnznlepiVMbwdJNs7daHE
-	jXzir4UKFZn/OKbtmGb70/nsw28Kyw+nOs+Sn84+H3O0TI7+bRt9n21SU7bYhlBsWDjkHDwianuav
-	MTf8yUDsWAo15dTioroOVmlpFzPSk8rkUTTjmof3s5wl2FGRiMW1mTHS4pBLRUxViW25nK1Df4Msm
-	LKOAOaYbLZC+AJjrKiSvw9Ab0HuHVa1dW9DVTsU8lsUMu7m7ECHBKfdFEeb5jrvb0/QSJ9VvDBVOr
-	ambuU7PfLneJ/F6t5VaUMNhJkP31P0Kp9kKYdAvT9GCOYu/akuWyuMtHaMACJu29eWlAwdrgaHcMu
-	pCqiZ3gQ==;
+	bh=jF+INNhgLS0eIQd6UyyLDzCUNgzjGz+l2LgLPRrmPKI=; b=QIQfxvfu6Gv6BdGxWzqB/YK0Hc
+	NCvlcl5GgF917v1P2Twcc6stUcVy3BUkz9PUoFOzMx6rY4uFSK0x5vf/0azvWETYLfN+uFXcgMEtK
+	gzK+dc1APwi0rUobBL5doUFgaHK7Q0ok7Q9jyEepP89NbG5jBA4tjdftm0vXzs86+aJBJLOG5HhR9
+	5loLCZDRte2grDy6Guh2xnYXz3og1m5g2efyxdDzC4FK+y/Z2jCsZMs6pPfiwr3DgpL5WxY2tdMV1
+	z5WgaHFzzbjybGHXBOvA9jIICyk9KYaE1IoVSCcGE8MqAFpXjf7kDq0nO9LIk5KfK7TLUJlCN3jMD
+	/e/0Ujgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdC9-0000000FL86-2fvb;
-	Tue, 28 Oct 2025 06:28:37 +0000
+	id 1vDdCA-0000000FL8Y-0Qm8;
+	Tue, 28 Oct 2025 06:28:38 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdBw-0000000FKz1-2NcA
+	id 1vDdBy-0000000FL0Y-2HQc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 06:28:25 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59S45H7p573507
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:24 GMT
+	Tue, 28 Oct 2025 06:28:28 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RMIwll2752121
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:26 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OpHBCdnSgFY8OByltD72t3aaSdewiYsQALJgMeWf4do=; b=Dej40s/T4ejdKCM9
-	atjVzQatQQfbPzKOIX3fNhPGTrliYcX+bZT8Ki7uAbDa5kvKLjtaUl4q23m4OThz
-	kBwcAAL+THzCNe6y0w8f2umsED9JCQpO9nLvN/OB8jgRgUhE2yY9QU1/Spzac0Mo
-	fnbyf4bRZ0N0uAP5lbcnh5Vj1JNYJTfQbZN0KdfgF/qnPKG2qpPtWvTXaJAWTEdp
-	XbZU5ElKS9iV9yJV6B/FqM/AkoCIQy/8eqCe7u9zseRBKEu8VsanKhIT70oBYT4U
-	BUZKUKfjTuWjdmt/BICkN7qzs/6Z8K3/KsX2fAu0+1QVPnr8qxa5dXLCI90aiLMu
-	l0XyUg==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a2pge8amy-1
+	jF+INNhgLS0eIQd6UyyLDzCUNgzjGz+l2LgLPRrmPKI=; b=FUEJF8Zll/uH0uK6
+	EmJCU2wHG4bKJwhSfRjdG3ZJcenfIbpzSOzat7aMAkKH8uvrdbfw8emXfHfqMIWc
+	xii1wGoXh2gPpwRDOUHYGexmVdZSHBwiOC4T21SDYmNWvBaGEspUNc1iyh4o2MC7
+	LzlLBQyU06jtNZGqwZdYDdp3ZTI4vaSinfolbDezaJRAIwhtfMDFxqCHFODvJqRz
+	MO8n2/Qs+E8LHHveofY28FShItCYK4ZM7T19nRKLelJqPupfBGzdJjYEaBhLlrNJ
+	7jfyc9eLYsB/JArL6dO/wBU+Ggm2DrGHX4wC44c9yUL0Hhkb+XDFf4mMPttR2PlV
+	IxwvvA==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a28nstw7m-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:24 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-290d860acbcso121430435ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 23:28:24 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:26 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-33dadf7c5beso5036291a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 23:28:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761632903; x=1762237703;
+        d=1e100.net; s=20230601; t=1761632905; x=1762237705;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OpHBCdnSgFY8OByltD72t3aaSdewiYsQALJgMeWf4do=;
-        b=fZUwpx8JiXM71zhT7ueNRXcAIl85bmUJt4EWr20dSQ0hsZMgkTbi6ARFudkshO28AQ
-         +3MEDRistD+1yxTPrd/BqEK6R7K1PtoQfGTOmPPCijeZjXIxOlIst6vio48dXyxwrsh/
-         x8yheuMEkhQD5EYoBqgIziP2PsbvQ2c6a84O0rdlDYR55sILjR2IunfTQbOqJjhOqoA7
-         sxWBGMFQ7qRfcQnLsp6NDErXuxgCVJILJHSIV9Eoy+NWFLMXBaBYuFNzli8qz4WiFq0v
-         2kdE9jCGf/NUQ0BxPepJrZiuh4O/RTavcCRN7ZYHPSM9ZM3GDMqgWdnEtneSFpcczpkE
-         GtZg==
-X-Forwarded-Encrypted: i=1; AJvYcCXWPgu1WOHql4LAFDCCkfdUoNbxUtPoLMBMw2nUcDPxyN2j/icry2HDTn/T89HbabFrXS4Q+d+05U2s2zSxe44l@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCN31edxvrS0Dcg/0nV9n9bK1ftnArbfkfN9DOCue94f5BZ7sL
-	z+UcSOBl8IRLMuwxq9ZYPOORRX4YnBgLPBAoTaZnylOBPLSVZg+ZoYZJHnCUSzZL9nIMNIjtaVU
-	rOTc9Px8LPSG1XNRDgC2OLDxkc2GKW1FussirhYWs0Loj+I8FT8qAp1/ftZLtaUcGmCYVcw7M2v
-	VUyg==
-X-Gm-Gg: ASbGncvAQseyq8RSahWV+/9av6XWPETVdc03mmuzFI04keErEH0xwl/f+DHY0xRC3tH
-	5CHqbiIzwReVrw8W8rscZfvZ1SvGJb4uO6Y3YF7Kk7wb/XsBei3MaaiH579shXzaam1nZthdX17
-	yrTz4kdVI216I0eTXqK8uv6z32IPvTQegnmHTkYknNyTYLgNbF47hAFdkypnmZFUgw38W9qrIml
-	JQrmPGcCwFBlXogcGH9JWNULStxVbvg1051FpPhiPaZdV5VUOZ4NRDVb8irZtT4fBB1K74R5nCz
-	sz4rmvkWEAcUDeAda7uMsztnVH8AwDfDkgGqADNJ0BQ6xHIg5gJ+Dy0CAN2JhAElygdAtG4+a0/
-	yGbJ1nz6/6QF7hR2sZHcW78wzX+vdRf0Tuej1KRkTT4qmBib9apm5mjAk
-X-Received: by 2002:a17:902:c943:b0:272:a900:c42b with SMTP id d9443c01a7336-294cb5064b2mr34400615ad.31.1761632903377;
-        Mon, 27 Oct 2025 23:28:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFwpw5M+tATyrDto8FoONGgcMqSPhAZcuLevcTVatT/4cowXARX69BX8IDLgj59x34/zI4gqw==
-X-Received: by 2002:a17:902:c943:b0:272:a900:c42b with SMTP id d9443c01a7336-294cb5064b2mr34400235ad.31.1761632902853;
-        Mon, 27 Oct 2025 23:28:22 -0700 (PDT)
+        bh=jF+INNhgLS0eIQd6UyyLDzCUNgzjGz+l2LgLPRrmPKI=;
+        b=xBp8niDiDwdt4eC1fR6ZuAdfEN3R8coEsvDWSKZfVYRyZ3hHp4BcsBLTVGLze3D9Of
+         uaFi9TGQL1bz8c3V6hc4MUkWdNS/AEmv5zAOZA2xSz9c1iQoJfyB1sHYVnD48JuJA8iQ
+         77rGBYhFU8AxVtaV0JMRZx61gYYbM+v2W/49fCUrz4bLLeyXcn6u3i88lWy0mkpMmH/l
+         vqxklzkJ7w3Kem6RlE99cT1JwuPj/w6PVsR23iWkFHPsWMH0WgiDIRovl+NTJICNHmZh
+         VTJdsem48EbUuJpBrVV1UtXQnDKERRAiCApCXCWFACKqGjubzyV7NlMcVUd/CXrRG/X0
+         Lk9g==
+X-Forwarded-Encrypted: i=1; AJvYcCV+9Emx4b/ZKn6/6ToYWeEfgVZ93UDZdE9Qtz0X6EPYoP9X/3le6POOU5oNojz20vg1K3fi9tIE4FKPpIz5RF+f@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJoFZ4Zu/NiZhcJAKWUpFX2fuMegK6hve2129ng56b6OFan6FH
+	o2S6FEF2VyFMoTsH1p6LrMlnV7gkGhfJLuBkwOd+ppEWL3RwDxRmUbY6meMYUAFWeCQgbM3mEAF
+	DbAnZ9kidZvFdiZmG2ajCfD62oi/D0KQ09hSUGxud35cFvgfcOv9geub5Wjed6PNA1i0QuPrTGY
+	bpGIh42aThnYVM
+X-Gm-Gg: ASbGncucAjOhC2AwriJ9lAlN6NpnTajeXoPnyS3AXT1ytA+wlCNfg30qaWTaDPhuon4
+	mPD/esqguz+tXaZZLovWTKv5NAiV8b3L8WKf9RnZHa4G0XfosFRystEGc/bURjyWc0nqQu6Gttu
+	pZLe+goU1OzpM/DZ2iubF6N2zxsVZVSBeL+kv3uSt8tCslYCglPyLquEKTnGXmA14Q8jdsF9KmC
+	6wi4p7dnLf/1k3deS8VN3st5NnQK88P3374vrXYQwR1bCGmyIxtoM/Rl8LCq7hhN1xS78EFAtph
+	O3EEDs4fbXzrdIaV1797VH8En+wmPYsBv21r6IeuQFY0h0ux2n46LL9LJdH+LRjf20xosYq624D
+	eUglO/5cn5qjGj7s7IRbyp4EUm5rMubXiNCPAGFjI3tIaY5eiGfLCWuhw
+X-Received: by 2002:a17:902:d4c9:b0:269:9a71:dc4a with SMTP id d9443c01a7336-294cb528b7cmr29036245ad.41.1761632904838;
+        Mon, 27 Oct 2025 23:28:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG0PQhb7nrOPw0owTHAb3UKocoVdUClhf+q6Z+WRWbHQ8BqO2EjJqP+VdWfwsWlpn2aNVCP9A==
+X-Received: by 2002:a17:902:d4c9:b0:269:9a71:dc4a with SMTP id d9443c01a7336-294cb528b7cmr29035985ad.41.1761632904243;
+        Mon, 27 Oct 2025 23:28:24 -0700 (PDT)
 Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf359asm102503265ad.12.2025.10.27.23.28.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf359asm102503265ad.12.2025.10.27.23.28.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 23:28:22 -0700 (PDT)
+        Mon, 27 Oct 2025 23:28:23 -0700 (PDT)
 From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Date: Mon, 27 Oct 2025 23:28:08 -0700
-Subject: [PATCH 06/12] coresight-replicator: Update mgmt_attrs for CPU
- cluster replicator compatibility
+Date: Mon, 27 Oct 2025 23:28:09 -0700
+Subject: [PATCH 07/12] coresight-tmc: Add support for CPU cluster ETF and
+ refactor probe flow
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251027-cpu_cluster_component_pm-v1-6-31355ac588c2@oss.qualcomm.com>
+Message-Id: <20251027-cpu_cluster_component_pm-v1-7-31355ac588c2@oss.qualcomm.com>
 References: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
 In-Reply-To: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -103,39 +103,38 @@ Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761632890; l=2874;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761632890; l=10579;
  i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=wrtq8428nZWzeJ2YM87p20K7H7FcxcHonAVQhsF4btU=;
- b=n1XFP/EYxn0Wrkm/FhLrkJPZ1Y/amwYC2N3lVShkOdDVseUu8Y5JQriQZy2P5STM6yEHYntwF
- /iWXOi7L3MICOcvUcKbift/V4Hvz+PTq/q04qbju4hzYZurophy3iDJ
+ bh=2oaRzZpkpBcaDL+LXhi7LqTRCwRt9ypQSujziItZ0/o=;
+ b=VbRLKaV4ZZf4K+mfX6223CCeK+C08cMMtg5ExiBoeA7d7WYQ+SrZBEsI6X/0m+K1BD90HjSrP
+ YrqnvJpPDTjCu/4Ah1MCMgwVDHRCo6qdyWZXPDGgsCIUD3y2jzNnZv/
 X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
  pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
-X-Proofpoint-ORIG-GUID: SCI53AyVyrTcl1rWHcM5uXk1FK0QeJFA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA1NCBTYWx0ZWRfX9BDb0pyTI1q/
- daar8O4ycPhTwecPTEH3vA8Bn7LsiNoORHA+QtsVsG6lCnRWp41/Vn0XwlEpsTA6p3KJeGSUDCQ
- Z8sFQoJLyCaN9vj3kqmoVozOOrjq/BMOSeniI5VlUqAjnp92TZNFtHg+qKllmoXTZBpC93Af7y7
- tzcQJ6nxk4AcDegercNfWbNs2LCK8jyhqconCwKyybQt1rCrZ1dPQ5HkBhUIpwpSvc08oxBV2ok
- fX5GolSWz5lLiOWOAqh73tqZAeROecxbE3yvfB/ZOyKm6GSnvV3aA/oR8Mc+SFyTt3oUil9iuuh
- 9BOOqWMKohrILFmo6YtaIiRjpu6yl+3jyQHwLioYxEcYBOkCrH/oHXZrrm1hWUUl4/zNrnseJez
- gKU786/TzB8BzEeM8owLa1GvNaOsTg==
-X-Proofpoint-GUID: SCI53AyVyrTcl1rWHcM5uXk1FK0QeJFA
-X-Authority-Analysis: v=2.4 cv=fLU0HJae c=1 sm=1 tr=0 ts=69006288 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA1NCBTYWx0ZWRfXyCmG6RUXzJXm
+ XJ4YVl5Mi9/2itp3KADLepKmr7k8wE/3uZsZfD1oLhjCKCW672bdAQyA0NE4SHXBUxYI3qjdKEe
+ AB998Q7ivPVhVjQFj5OHaHe3+oxXGHgZuVljD3PMrGgNA3dar8ZQglzmfU3HtG6OhcesXQMlGEC
+ rvHuorOtQB82m6jGaXQ/GYwW8Es3p58fuGjE9pJA4/wr+qA5lS13J3WKSuvqIdFTyccZSFFr5tl
+ FpdqsE+btmRC7I88FtQKdPgXBzvTQ9Pwy9OlqDaNIyNJJlbBpQzreiCy/4LCZOKZSLupfIkAp0K
+ vC3duBZdGstmCmcBPQi0wAdUIrhZ+NbbbESk5QttbAWtwkrO08HvrMnCU3e7kPZgzJ/0hc52Yvy
+ +D8iMvArPVtvlJ0luCCN7tapcwMaIA==
+X-Authority-Analysis: v=2.4 cv=RIW+3oi+ c=1 sm=1 tr=0 ts=6900628a cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=ViDxg2sRvTZTAOTQKJ0A:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
+ a=EUspDBNiAAAA:8 a=ko4GrPIkLBdci27uQwEA:9 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-ORIG-GUID: GJAcCESzUDf9r7wIn8Pk7LrlafM9Hy_n
+X-Proofpoint-GUID: GJAcCESzUDf9r7wIn8Pk7LrlafM9Hy_n
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-28_03,2025-10-22_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 spamscore=0 phishscore=0 malwarescore=0
- lowpriorityscore=0 priorityscore=1501 impostorscore=0 adultscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
- definitions=main-2510280054
+ suspectscore=0 spamscore=0 impostorscore=0 adultscore=0 priorityscore=1501
+ malwarescore=0 clxscore=1015 bulkscore=0 phishscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510280054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_232824_625046_503DD79C 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20251027_232827_146164_19C21DF0 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,95 +149,346 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch refactors the sysfs interfaces to ensure compatibility with
-CPU cluster replicators. For CPU cluster replicators, register reads
-are performed via smp_call_function_single().
+The CPU cluster ETF is a type of Coresight ETF that resides inside the
+CPU cluster's power domain. Unlike system-level ETFs, these devices
+share the CPU cluster's power management behavior: when the cluster
+enters low-power mode, ETF registers become inaccessible. Runtime PM
+alone cannot bring the cluster out of LPM, making standard register
+access unreliable.
+
+This patch adds support for CPU cluster ETF and restructures the probe
+sequence to handle such cases safely:
+
+- Wrap hardware access in tmc_init_hw_config(). For cluster TMCs, use
+  smp_call_function_single() to ensure register visibility.
+- Encapsulate CoreSight device registration and misc_register setup in
+  tmc_add_coresight_dev().
+
+This ensures TMC initialization and runtime operations remain safe even
+when the CPU cluster is in low-power states, while maintaining
+compatibility with existing system-level TMCs.
 
 Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-replicator.c | 61 +++++++++++++++++++++-
- 1 file changed, 59 insertions(+), 2 deletions(-)
+ drivers/hwtracing/coresight/coresight-tmc-core.c | 204 +++++++++++++++--------
+ drivers/hwtracing/coresight/coresight-tmc.h      |   6 +
+ 2 files changed, 141 insertions(+), 69 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index 1dfe11940cd6001db3cf17249b0493027b65e19c..22c9bc71817d238c2d4ddffbb42678bf792b29af 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -58,6 +58,7 @@ struct replicator_drvdata {
- struct replicator_smp_arg {
- 	struct replicator_drvdata *drvdata;
- 	int outport;
-+	u32 offset;
- 	int rc;
- };
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index 36599c431be6203e871fdcb8de569cc6701c52bb..d00f23f9a479ee9d4bdb4e051ed895d266bcc116 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -21,6 +21,7 @@
+ #include <linux/slab.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/spinlock.h>
++#include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+@@ -769,56 +770,14 @@ static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
+ 			"Valid crash tracedata found\n");
+ }
  
-@@ -286,9 +287,65 @@ static const struct coresight_ops replicator_cs_ops = {
- 	.link_ops	= &replicator_link_ops,
- };
+-static int __tmc_probe(struct device *dev, struct resource *res)
++static int tmc_add_coresight_dev(struct device *dev)
+ {
+-	int ret = 0;
+-	u32 devid;
+-	void __iomem *base;
+-	struct coresight_platform_data *pdata = NULL;
+-	struct tmc_drvdata *drvdata;
++	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
+ 	struct coresight_desc desc = { 0 };
+ 	struct coresight_dev_list *dev_list = NULL;
++	int ret = 0;
  
-+static void replicator_read_register_smp_call(void *info)
-+{
-+	struct replicator_smp_arg *arg = info;
+-	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+-	if (!drvdata)
+-		return -ENOMEM;
+-
+-	dev_set_drvdata(dev, drvdata);
+-
+-	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
+-	if (ret)
+-		return ret;
+-
+-	ret = -ENOMEM;
+-
+-	/* Validity for the resource is already checked by the AMBA core */
+-	base = devm_ioremap_resource(dev, res);
+-	if (IS_ERR(base)) {
+-		ret = PTR_ERR(base);
+-		goto out;
+-	}
+-
+-	drvdata->base = base;
+-	desc.access = CSDEV_ACCESS_IOMEM(base);
+-
+-	raw_spin_lock_init(&drvdata->spinlock);
+-
+-	devid = readl_relaxed(drvdata->base + CORESIGHT_DEVID);
+-	drvdata->config_type = BMVAL(devid, 6, 7);
+-	drvdata->memwidth = tmc_get_memwidth(devid);
+-	/* This device is not associated with a session */
+-	drvdata->pid = -1;
+-	drvdata->etr_mode = ETR_MODE_AUTO;
+-
+-	if (drvdata->config_type == TMC_CONFIG_TYPE_ETR) {
+-		drvdata->size = tmc_etr_get_default_buffer_size(dev);
+-		drvdata->max_burst_size = tmc_etr_get_max_burst_size(dev);
+-	} else {
+-		drvdata->size = readl_relaxed(drvdata->base + TMC_RSZ) * 4;
+-	}
+-
+-	tmc_get_reserved_region(dev);
+-
++	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+ 	desc.dev = dev;
+ 
+ 	switch (drvdata->config_type) {
+@@ -834,9 +793,9 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+ 		desc.type = CORESIGHT_DEV_TYPE_SINK;
+ 		desc.subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_SYSMEM;
+ 		desc.ops = &tmc_etr_cs_ops;
+-		ret = tmc_etr_setup_caps(dev, devid, &desc.access);
++		ret = tmc_etr_setup_caps(dev, drvdata->devid, &desc.access);
+ 		if (ret)
+-			goto out;
++			return ret;
+ 		idr_init(&drvdata->idr);
+ 		mutex_init(&drvdata->idr_mutex);
+ 		dev_list = &etr_devs;
+@@ -851,44 +810,142 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+ 		break;
+ 	default:
+ 		pr_err("%s: Unsupported TMC config\n", desc.name);
+-		ret = -EINVAL;
+-		goto out;
++		return -EINVAL;
+ 	}
+ 
+ 	desc.name = coresight_alloc_device_name(dev_list, dev);
+-	if (!desc.name) {
+-		ret = -ENOMEM;
++	if (!desc.name)
++		return -ENOMEM;
 +
-+	arg->rc = readl_relaxed(arg->drvdata->base + arg->offset);
++	drvdata->desc_name = desc.name;
++
++	desc.pdata = dev->platform_data;
++
++	drvdata->csdev = coresight_register(&desc);
++	if (IS_ERR(drvdata->csdev))
++		return PTR_ERR(drvdata->csdev);
++
++	drvdata->miscdev.name = desc.name;
++	drvdata->miscdev.minor = MISC_DYNAMIC_MINOR;
++	drvdata->miscdev.fops = &tmc_fops;
++	ret = misc_register(&drvdata->miscdev);
++	if (ret)
++		coresight_unregister(drvdata->csdev);
++
++	return ret;
 +}
 +
-+static ssize_t coresight_replicator_reg32_show(struct device *dev,
-+					       struct device_attribute *attr,
-+					       char *buf)
++static void tmc_clear_self_claim_tag(struct tmc_drvdata *drvdata)
 +{
-+	struct replicator_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	struct cs_off_attribute *cs_attr = container_of(attr, struct cs_off_attribute, attr);
-+	unsigned long flags;
-+	struct replicator_smp_arg arg = { 0 };
-+	u32 val;
-+	int ret, cpu;
++	struct csdev_access access = CSDEV_ACCESS_IOMEM(drvdata->base);
 +
-+	pm_runtime_get_sync(dev->parent);
++	coresight_clear_self_claim_tag(&access);
++}
 +
-+	if (!drvdata->cpumask) {
-+		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-+		val = readl_relaxed(drvdata->base + cs_attr->off);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
++static void tmc_init_hw_config(struct tmc_drvdata *drvdata)
++{
++	u32 devid;
 +
-+	} else {
-+		arg.drvdata = drvdata;
-+		arg.offset = cs_attr->off;
++	devid = readl_relaxed(drvdata->base + CORESIGHT_DEVID);
++	drvdata->config_type = BMVAL(devid, 6, 7);
++	drvdata->memwidth = tmc_get_memwidth(devid);
++	drvdata->devid = devid;
++	drvdata->size = readl_relaxed(drvdata->base + TMC_RSZ) * 4;
++	tmc_clear_self_claim_tag(drvdata);
++}
++
++static void tmc_init_on_cpu(void *info)
++{
++	struct tmc_drvdata *drvdata = info;
++
++	tmc_init_hw_config(drvdata);
++}
++
++static struct cpumask *tmc_get_cpumask(struct device *dev)
++{
++	struct generic_pm_domain *pd;
++
++	pd = pd_to_genpd(dev->pm_domain);
++	if (pd)
++		return pd->cpus;
++
++	return NULL;
++}
++
++static int __tmc_probe(struct device *dev, struct resource *res)
++{
++	int cpu, ret = 0;
++	void __iomem *base;
++	struct coresight_platform_data *pdata = NULL;
++	struct tmc_drvdata *drvdata;
++
++	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
++	if (!drvdata)
++		return -ENOMEM;
++
++	dev_set_drvdata(dev, drvdata);
++
++	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
++	if (ret)
++		return ret;
++
++	ret = -ENOMEM;
++
++	/* Validity for the resource is already checked by the AMBA core */
++	base = devm_ioremap_resource(dev, res);
++	if (IS_ERR(base)) {
++		ret = PTR_ERR(base);
+ 		goto out;
+ 	}
+ 
++	drvdata->base = base;
++
++	raw_spin_lock_init(&drvdata->spinlock);
++	/* This device is not associated with a session */
++	drvdata->pid = -1;
++	drvdata->etr_mode = ETR_MODE_AUTO;
++	tmc_get_reserved_region(dev);
++
+ 	pdata = coresight_get_platform_data(dev);
+ 	if (IS_ERR(pdata)) {
+ 		ret = PTR_ERR(pdata);
+ 		goto out;
+ 	}
+ 	dev->platform_data = pdata;
+-	desc.pdata = pdata;
+ 
+-	coresight_clear_self_claim_tag(&desc.access);
+-	drvdata->csdev = coresight_register(&desc);
+-	if (IS_ERR(drvdata->csdev)) {
+-		ret = PTR_ERR(drvdata->csdev);
+-		goto out;
++	if (is_of_node(dev_fwnode(dev)) &&
++	    of_device_is_compatible(dev->of_node, "arm,coresight-cpu-tmc")) {
++		drvdata->cpumask = tmc_get_cpumask(dev);
++		if (!drvdata->cpumask)
++			return -EINVAL;
++
++		cpus_read_lock();
 +		for_each_cpu(cpu, drvdata->cpumask) {
 +			ret = smp_call_function_single(cpu,
-+						       replicator_read_register_smp_call,
-+						       &arg, 1);
++						       tmc_init_on_cpu, drvdata, 1);
 +			if (!ret)
 +				break;
 +		}
-+		if (!ret) {
-+			val = arg.rc;
-+		} else {
-+			pm_runtime_put_sync(dev->parent);
-+			return ret;
++		cpus_read_unlock();
++		if (ret) {
++			ret = 0;
++			goto out;
 +		}
-+	}
++	} else {
++		tmc_init_hw_config(drvdata);
+ 	}
+ 
+-	drvdata->miscdev.name = desc.name;
+-	drvdata->miscdev.minor = MISC_DYNAMIC_MINOR;
+-	drvdata->miscdev.fops = &tmc_fops;
+-	ret = misc_register(&drvdata->miscdev);
+-	if (ret) {
+-		coresight_unregister(drvdata->csdev);
+-		goto out;
++	if (drvdata->config_type == TMC_CONFIG_TYPE_ETR) {
++		drvdata->size = tmc_etr_get_default_buffer_size(dev);
++		drvdata->max_burst_size = tmc_etr_get_max_burst_size(dev);
+ 	}
+ 
++	ret = tmc_add_coresight_dev(dev);
 +
-+	pm_runtime_put_sync(dev->parent);
-+
-+	return sysfs_emit(buf, "0x%x\n", val);
-+}
-+
-+#define coresight_replicator_reg32(name, offset)				\
-+	(&((struct cs_off_attribute[]) {				\
-+	   {								\
-+		__ATTR(name, 0444, coresight_replicator_reg32_show, NULL),	\
-+		offset							\
-+	   }								\
-+	})[0].attr.attr)
-+
- static struct attribute *replicator_mgmt_attrs[] = {
--	coresight_simple_reg32(idfilter0, REPLICATOR_IDFILTER0),
--	coresight_simple_reg32(idfilter1, REPLICATOR_IDFILTER1),
-+	coresight_replicator_reg32(idfilter0, REPLICATOR_IDFILTER0),
-+	coresight_replicator_reg32(idfilter1, REPLICATOR_IDFILTER1),
- 	NULL,
+ out:
+ 	if (is_tmc_crashdata_valid(drvdata) &&
+ 	    !tmc_prepare_crashdata(drvdata))
+-		register_crash_dev_interface(drvdata, desc.name);
++		register_crash_dev_interface(drvdata, drvdata->desc_name);
+ 	return ret;
+ }
+ 
+@@ -934,10 +991,12 @@ static void __tmc_remove(struct device *dev)
+ 	 * etb fops in this case, device is there until last file
+ 	 * handler to this device is closed.
+ 	 */
+-	misc_deregister(&drvdata->miscdev);
++	if (!drvdata->cpumask)
++		misc_deregister(&drvdata->miscdev);
+ 	if (drvdata->crashdev.fops)
+ 		misc_deregister(&drvdata->crashdev);
+-	coresight_unregister(drvdata->csdev);
++	if (drvdata->csdev)
++		coresight_unregister(drvdata->csdev);
+ }
+ 
+ static void tmc_remove(struct amba_device *adev)
+@@ -992,7 +1051,6 @@ static void tmc_platform_remove(struct platform_device *pdev)
+ 
+ 	if (WARN_ON(!drvdata))
+ 		return;
+-
+ 	__tmc_remove(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+ }
+@@ -1029,6 +1087,13 @@ static const struct dev_pm_ops tmc_dev_pm_ops = {
+ 	SET_RUNTIME_PM_OPS(tmc_runtime_suspend, tmc_runtime_resume, NULL)
  };
  
++static const struct of_device_id tmc_match[] = {
++	{.compatible = "arm,coresight-cpu-tmc"},
++	{}
++};
++
++MODULE_DEVICE_TABLE(of, tmc_match);
++
+ #ifdef CONFIG_ACPI
+ static const struct acpi_device_id tmc_acpi_ids[] = {
+ 	{"ARMHC501", 0, 0, 0}, /* ARM CoreSight ETR */
+@@ -1043,6 +1108,7 @@ static struct platform_driver tmc_platform_driver = {
+ 	.remove = tmc_platform_remove,
+ 	.driver	= {
+ 		.name			= "coresight-tmc-platform",
++		.of_match_table		= tmc_match,
+ 		.acpi_match_table	= ACPI_PTR(tmc_acpi_ids),
+ 		.suppress_bind_attrs	= true,
+ 		.pm			= &tmc_dev_pm_ops,
+diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+index cbb4ba43915855a8acbb9205167e87185c9a8c6c..f5c76ca2dc9733daa020b79b1dcfc495045a2618 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc.h
++++ b/drivers/hwtracing/coresight/coresight-tmc.h
+@@ -243,6 +243,9 @@ struct tmc_resrv_buf {
+  *		(after crash) by default.
+  * @crash_mdata: Reserved memory for storing tmc crash metadata.
+  *		 Used by ETR/ETF.
++ * @cpumask:	CPU mask representing the CPUs related to this TMC.
++ * @devid:	TMC variant ID inferred from the device configuration register.
++ * @desc_name:	Name to be used while creating crash interface.
+  */
+ struct tmc_drvdata {
+ 	struct clk		*atclk;
+@@ -273,6 +276,9 @@ struct tmc_drvdata {
+ 	struct etr_buf		*perf_buf;
+ 	struct tmc_resrv_buf	resrv_buf;
+ 	struct tmc_resrv_buf	crash_mdata;
++	struct cpumask		*cpumask;
++	u32			devid;
++	const char		*desc_name;
+ };
+ 
+ struct etr_buf_operations {
 
 -- 
 2.34.1
