@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB732CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 19:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A35CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 19:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KRj2ZMjLQ9MiV/+cNr6hXbMzB4RDW9flfgaJjhzFxlg=; b=wIRinxADd6n8BZkxKrx1r0jJi0
-	spsCf7hurUMri3EYIHowpjrRIESMTAkQcX47J9kX8yrxdILFfcfWXfeDWzDkuMT39ZhJ8re34Z1dw
-	iQec9Zf5y9kwDd/1b5Gq1TP4xBjIqSNYxB09YLLPGy0sJ5EYE2eoH3gNX2ydqXpSM1Yx7VyTVMJW1
-	SyCWjr2B4HDfuDgPyw/8I9U/HHtVc1cHBTvNciPYHn3yrKyn3PD8KYgmaUdqHN89w7idb/tPyTzrl
-	gQzQ2MaNUPZaP5Ml8LPZIdjHgr41AnVE76lV4BTrmApMw8WTnZMkd5h+NSALd2vEP/73XiWzynQqU
-	SrOwi/HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HPR7bn9u3armvqTiVBDnasIewghcApJJ0SXmHX6cCZs=; b=V4YiPBRrpFucZh017iOxC1UFB/
+	C1FVioaQVZNz8UNHbfDkWUZKYp/XIYEpXgoHTYPvj08E7zDHNzU/U778A5D4E69DDroTJ8O63dW/+
+	ymTNjRq6pjUX+7o2Z+f9/CoBD0TgIZPie0CQPVpJKdVYCL7lh2O4TOKH8U1uLZZkKKi1Qw8kkwI6m
+	VL5yqk1Ejce22Xb9hLJbp9gqooDuOmyK+ineBe1QI7YNdBER48bundsLTiyLDYQrtlJcXHflvRWyI
+	5eLBl+20koinFPnGV8WGHeiUzD4u4xOaVlH+Hjf0EAHStWXc/8ltb9YC+Yaj1xFPwr9pJIzNiJJfd
+	3wGkAksg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDpe3-0000000GZNo-3xh9;
-	Tue, 28 Oct 2025 19:46:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vDpja-0000000GZel-44DW;
+	Tue, 28 Oct 2025 19:51:58 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDpdx-0000000GZNL-2R2s;
-	Tue, 28 Oct 2025 19:46:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7A5941A1E;
-	Tue, 28 Oct 2025 19:46:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77482C4CEE7;
-	Tue, 28 Oct 2025 19:46:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761680768;
-	bh=w3VcIMFNncYev6xyyHdkUM5LCBO6snPWm/1dFj2oeDk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GHQwPYXmFh/OqSYeZ9teA5Cb8sxABO+O8gpxByZTt2tr8hEVS7m4Kx7nRp3O0dpR2
-	 Wf5h41rCJpWbeni650Xz72zX0gfMhAFipd/8DlXFwhk1L+HWu1+15i+rLieZkj8cqp
-	 f1zkHB3tL8lZ25qC7Tew3nGK0HceXRQJpmo47FWO3p40DBi3i8tPcQfMezW7rNyg2N
-	 qnaHWVldSVRtOON2ncmO1upjl5nq+PagisYIQ7Lf1Ui7impHNFgqCSsj40HrCjkh0/
-	 M8zZSgcF6fSHyvnCfyRYeIbTN3Hq4dBzATbHMd1Cd5J5Fxr/3bc9SMmPHMFIu6xDRm
-	 6nGik2Ue5rHjQ==
-Date: Tue, 28 Oct 2025 19:46:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>,
-	Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: vendor-prefixes: Add NineTripod
-Message-ID: <20251028-semicolon-audacity-dd5bdd418207@spud>
-References: <20251028-haste-amusing-78c28e834b5b@spud>
- <CALj3r0jQ-Y3wt=iyykrFVWDXyA+2feCtYy+budYzqOaVY6WqnQ@mail.gmail.com>
+	id 1vDpjY-0000000GZeH-2dvK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 19:51:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1761681099; x=1762285899; i=markus.elfring@web.de;
+	bh=HPR7bn9u3armvqTiVBDnasIewghcApJJ0SXmHX6cCZs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=AsbYHXLY0u9l3ORP/80P2qk1FULBbjxeIrpMi/Ns0u6Mg2UR+8dHItYgr2tyi5AD
+	 ld7AcAi0TfKCS0cwEsO4FgA4gqhYTmtmbvG2SnWIVJhBMKs7NGQdKH3ieiA2TnK6V
+	 yKBegd+FOWrH+WT+pye8n7okDvPTb4N83yQNU5lemu0+JQF/zRH8MK+G2Ew9woQWy
+	 JSJ9sICixWh/ku1Fhezlq4Fpz96U3xDWnKTv2M7eKLWNxf6GHAbuKdEvMdNeMCCyx
+	 ugA60B0FkjFYeoLrWEndRxZO/wVeWkzlfJgarpUirhj6mlNToCAXvdpfBahhnjsiP
+	 +9yRrbPIqC+woUxKYA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.187]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MlLE9-1vz0zO0a4b-00lQO3; Tue, 28
+ Oct 2025 20:51:39 +0100
+Message-ID: <24319a9a-ccf8-48a9-8b5d-3a846976afcd@web.de>
+Date: Tue, 28 Oct 2025 20:51:37 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="niplE5DXJ5xnJ+ih"
-Content-Disposition: inline
-In-Reply-To: <CALj3r0jQ-Y3wt=iyykrFVWDXyA+2feCtYy+budYzqOaVY6WqnQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v? 0/2] PCI: j721e: A couple of cleanups
+To: Anand Moon <linux.amoon@gmail.com>, linux-omap@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Dan Carpenter <dan.carpenter@linaro.org>
+References: <20251028154229.6774-1-linux.amoon@gmail.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20251028154229.6774-1-linux.amoon@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:8RT/X/a+nAT87MaHyc2aytHhWPQxv6T2zFiD+0gY/7WIYB0Zmc3
+ PoqVaPKjrDYY1TQQF5kNfefzUt+lVX7R/IXtBdKVrYMj2XntMLyiSRETUzyVppnqn8XsOsl
+ 15hS/tFNNsUPS3mem1fnW6xkEb3xsJg6J7BgT4RNBT9MsJ9nBH/5e7hY0WWs2jKbRlnAbAr
+ zJxXj3uiVOsn1Evv/unCQ==
+UI-OutboundReport: notjunk:1;M01:P0:Rav8MSgGMSs=;aHTFPVET8EOMwSljeklGe1k//Db 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 rQnHPsC8ZpZH9P9xzqOnr35N254jzbMOutY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_124609_662470_ECCFDDA4 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20251028_125157_021089_CCE0EC3A 
+X-CRM114-Status: UNSURE (   4.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +90,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+=E2=80=A6> Changes
+> v4  : Improve the commit message.
 
---niplE5DXJ5xnJ+ih
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Would an other version number be more appropriate for the subject prefixes
+of this patch series?
 
-On Tue, Oct 28, 2025 at 12:38:10PM -0700, Coia Prant wrote:
-> At first, it was to avoid problems with the beginning of numbers.
 
-What problems does starting with a number produce?
+=E2=80=A6> v1:
+=E2=80=A6>    dropped unsesary clk_disable_unprepare as its handle by
+=E2=80=A6
 
-> Given that it is already used by downstream projects, we have retained
-> this to ensure that users can seamlessly migrate to the mainline
-> version.
+             unnecessary?
 
-What's the actual impact of changing it from "nine" to "9" for
-downstream users? This is a board vendor, probably nothing is even
-interacting with the board-level compatible at all programmatically?
-
-Please don't top post.
-
-> Thanks.
->=20
-> 2025-10-28 19:35 (GMT+00:00), Conor Dooley <conor@kernel.org> said:
-> > On Sun, Oct 26, 2025 at 10:36:44PM +0800, Coia Prant wrote:
-> > Add NineTripod to the vendor prefixes.
-> >
-> > Signed-off-by: Coia Prant
-> > ---
-> > Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-> > 1 file changed, 2 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > index f1d188200..37687737e 100644
-> > --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > @@ -1124,6 +1124,8 @@ patternProperties:
-> > description: National Instruments
-> > "^nicera,.*":
-> > description: Nippon Ceramic Co., Ltd.
-> > +  "^ninetripod,.*":
-> > Why ninetripod instead of 9tripod? That's what the company uses and in
-> > the marketing fluff for the boards.
-> > +    description: Shenzhen 9Tripod Innovation and Development CO., LTD.
-> > "^nintendo,.*":
-> > description: Nintendo
-> > "^nlt,.*":
-> > --
-> > 2.47.3
-> >
-
---niplE5DXJ5xnJ+ih
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQEdfAAKCRB4tDGHoIJi
-0t0JAPwMQxn3n3NWEpsiImdiPhus3HKlzVvj5qA2XdW1fRX9ZAEAv2NYiwS8iLK3
-cRoKFl4agYz9hNMDop3M98ItwQtM7wE=
-=VZvn
------END PGP SIGNATURE-----
-
---niplE5DXJ5xnJ+ih--
+Regards,
+Markus
 
