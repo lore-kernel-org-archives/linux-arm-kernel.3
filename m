@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E71CCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 03:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8E2CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 03:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qAFowZ1y6BOoIVO6v58PSEPsSoMANk3xj3Kq9zHLct8=; b=j39dD/dGwd41i+mkWATeLTn43u
-	mq5BIZa5cciTI72REW5BkbO9I8vKFO0yNyjlDrpnZNqPUPskNcsK8dW+eiCRmw7uGvvSiGo5IvBo7
-	HtjuemajkQBvR78U+QY7LmamvWb1KgAPTb8h0fC1nVARsQDJWOqtRRzicneFQes6BWfrZTxn0hE7O
-	TKdKcYoGYpk7J+OUkHrtvy3bCR/XI0J8va51j5U0BytZvs5JarFgJuq8PJeBVu1YL8N2sMcLncqAw
-	UgP/3BaJNuvcm5W+1G5G+US8zPjoUDxlt96mV6H36eMGmsOp4BrdRvobYcTIb2CmfMwhFhLPps/1E
-	6yHbN6iw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8JToey07904TiVpqv7Z8xpzxZUSZIBqARj54fT+ia8=; b=JLj1GcgBZ+29TIrxnZJdM3iIYP
+	m71KKPdSRoUrNEXXYSKuU5m3x1r+OgT7rbIsAuAththJ5s7WXQd7prcS+k7mmdLmz6LuxsWD7zUeJ
+	JrTakEDCm31CNn/1+HGZ7YLoeNX4vKOPyQyFkfm2SAp3dFRFPBS6w9LFQKPkIlnlZslezmJ6gYdAj
+	eR+j6ArFXBIbjRiktDLz2gMlW35fuVT1QX7895GhAu/eCfi2dQig5L5Usw/Y0/p4f8MuHWcX3dtQR
+	wfRfV7T/s5h6BAi3N5jZPCbEgcwPvsek6rREy3ESwPmfIs6MKOnTmmgN8hyAdJ5BXJC/KyIMuKhe8
+	hqw9EsuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDaEt-0000000F9xI-05BT;
-	Tue, 28 Oct 2025 03:19:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDaR4-0000000FAgd-2VIV;
+	Tue, 28 Oct 2025 03:31:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDaEl-0000000F9uu-2qLP
+	id 1vDaR2-0000000FAgN-2Qsr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 03:19:08 +0000
+	Tue, 28 Oct 2025 03:31:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FE3E45909;
-	Tue, 28 Oct 2025 03:19:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4850FC4CEFB;
-	Tue, 28 Oct 2025 03:19:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A936F6028A;
+	Tue, 28 Oct 2025 03:31:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33DD9C4CEF1;
+	Tue, 28 Oct 2025 03:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761621546;
-	bh=hSMjXziVpPMEtbuIC86BFTIcw4ntPZpdEiitAvSj+tY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=mBwCMk+yM52E8gR3aBMJB+YT6svhs9WzDS/MZgefCEljgwhUuVb5PFFcVelEXRJT6
-	 7CoRciHg1bISWi/pfDeQhCc3jJ27mGucNVX0uT7V2Ym2NzgPyJZTTsctKrswcBxM4S
-	 eYIRDZcgKn4408Kn5PaP7y+yS1GlGVp7x/zpWmPI0bCpdvk73TbpRKl2K+RROU9eOs
-	 o0XE7CaVVUs3oftPwbqs1gvWKKd+lkSvLeX4S7tEf2nPAt7KrgnuGFDJAyyc2k0PJ+
-	 X3EiD0XP44EDyKf9qTyBD9Ku7nZZABhIb/ozCsUIfnoDa94vdG6pDUlghy5qffxMRZ
-	 okUEKm8Qyot1g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 399C0CCD1BF;
-	Tue, 28 Oct 2025 03:19:06 +0000 (UTC)
-From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Tue, 28 Oct 2025 11:18:44 +0800
-Subject: [PATCH net v4 2/3] net: stmmac: Consider Tx VLAN offload tag
- length for maxSDU
+	s=k20201202; t=1761622307;
+	bh=Jl/8CHVAK7+L4vEEBKRiYKyCXkLAMwmArYnWsTUg74Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eVtL5zvE2Sw10TJD4SsYkiqzTAQtue5QkhxVXBEMu6PGR98ZO4hWUeFWZ1nd9sJhU
+	 IUMLgzg7shdljsdXSmXyEkx4UowbgfK3a55oOQz/HORjnlSw+gluAVF8uz/nWc4vCc
+	 nt/Oq9ddADgIDxNddJQI0lswU8CKJP1iiTG8bNwtqLhuMISeYZbOcvk8kTPzb7soD0
+	 I30ItpvPehfnNBrUnJLfHzGqu13Di0MCZIY6VAxF6HOsMKVtsFQxESr9FuI/Qr87Ap
+	 jvYm47igU8kBy6q4V/7kScMlRm0SsujXqm/fOr4bUg4qzsjHRjte7Yo13OXl0Vy+md
+	 +5E+MQ8sJKgQA==
+Date: Mon, 27 Oct 2025 22:34:41 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andy Yan <andy.yan@rock-chips.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
+	Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Moritz Fischer <moritz.fischer@ettus.com>, John Stultz <john.stultz@linaro.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
+	Stephen Boyd <swboyd@chromium.org>, Andre Draszik <andre.draszik@linaro.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, Elliot Berman <quic_eberman@quicinc.com>, 
+	Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v16 01/14] power: reset: reboot-mode: Synchronize list
+ traversal
+Message-ID: <5l2tcjbdtikkhkuhuz64ymk5et6wtl4kwf2mc265su27oh57rt@3shmo3wfx7fb>
+References: <20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com>
+ <20251015-arm-psci-system_reset2-vendor-reboots-v16-1-b98aedaa23ee@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-qbv-fixes-v4-2-26481c7634e3@altera.com>
-References: <20251028-qbv-fixes-v4-0-26481c7634e3@altera.com>
-In-Reply-To: <20251028-qbv-fixes-v4-0-26481c7634e3@altera.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <Jose.Abreu@synopsys.com>, 
- Rohan G Thomas <rohan.g.thomas@intel.com>, 
- Boon Khai Ng <boon.khai.ng@altera.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rohan G Thomas <rohan.g.thomas@altera.com>, 
- Matthew Gerlach <matthew.gerlach@altera.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761621544; l=2209;
- i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=CO26pwlKR66OKT0ufmF/QwQbSxoYj3sToTSLa+5EzgI=;
- b=Gx526F+k/ZNMujmfc2ZDc8kjxctS/U7dvX8WX5u1qa+DoeQOX4uMPftUDysPHK0eIcXFcqg6f
- z96MVfr+AWPA9DUEipfGr9/X2Y0tjgBGEbyththa8HqFWE+xwgXnZb4
-X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
- pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
-X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
- with auth_id=494
-X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_201907_764136_09475AE9 
-X-CRM114-Status: GOOD (  12.32  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015-arm-psci-system_reset2-vendor-reboots-v16-1-b98aedaa23ee@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,65 +82,250 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+On Wed, Oct 15, 2025 at 10:08:16AM +0530, Shivendra Pratap wrote:
+> List traversals must be synchronized to prevent race conditions
+> and data corruption. The reboot-mode list is not protected by a
+> lock currently, which can lead to concurrent access and race.
 
-Queue maxSDU requirement of 802.1 Qbv standard requires mac to drop
-packets that exceeds maxSDU length and maxSDU doesn't include
-preamble, destination and source address, or FCS but includes
-ethernet type and VLAN header.
+Is it a theoretical future race or something that we can hit in the
+current implementation?
 
-On hardware with Tx VLAN offload enabled, VLAN header length is not
-included in the skb->len, when Tx VLAN offload is requested. This
-leads to incorrect length checks and allows transmission of
-oversized packets. Add the VLAN_HLEN to the skb->len before checking
-the Qbv maxSDU if Tx VLAN offload is requested for the packet.
+> 
+> Introduce a mutex lock to guard all operations on the reboot-mode
+> list and ensure thread-safe access. The change prevents unsafe
+> concurrent access on reboot-mode list.
 
-Fixes: c5c3e1bfc9e0 ("net: stmmac: Offload queueMaxSDU from tc-taprio")
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+I was under the impression that these lists where created during boot
+and then used at some later point, which at best would bring a
+theoretical window for a race... Reviewing the code supports my
+understanding, but perhaps I'm missing something?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 0e2dc0a464d5516b8aabe2f9afc60c6e37f0209e..042c823bbced88070fa26003c6b513257c0f2bb6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4518,6 +4518,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	bool has_vlan, set_ic;
- 	int entry, first_tx;
- 	dma_addr_t des;
-+	u32 sdu_len;
- 
- 	tx_q = &priv->dma_conf.tx_queue[queue];
- 	txq_stats = &priv->xstats.txq_stats[queue];
-@@ -4536,10 +4537,15 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	}
- 
- 	if (priv->est && priv->est->enable &&
--	    priv->est->max_sdu[queue] &&
--	    skb->len > priv->est->max_sdu[queue]){
--		priv->xstats.max_sdu_txq_drop[queue]++;
--		goto max_sdu_err;
-+	    priv->est->max_sdu[queue]) {
-+		sdu_len = skb->len;
-+		/* Add VLAN tag length if VLAN tag insertion offload is requested */
-+		if (priv->dma_cap.vlins && skb_vlan_tag_present(skb))
-+			sdu_len += VLAN_HLEN;
-+		if (sdu_len > priv->est->max_sdu[queue]) {
-+			priv->xstats.max_sdu_txq_drop[queue]++;
-+			goto max_sdu_err;
-+		}
- 	}
- 
- 	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
+> 
+> Fixes: 4fcd504edbf7 ("power: reset: add reboot mode driver")
+> Fixes: ca3d2ea52314 ("power: reset: reboot-mode: better compatibility with DT (replace ' ,/')")
+> 
 
--- 
-2.43.7
+Skip this empty line, please.
 
 
+And given that you have fixes here, I guess this is a problem today. In
+which case, this shouldn't have been carried for 16 versions - but have
+sent and been merged on its own already.
+
+So please, if this is a real issue, start your commit message with a
+descriptive problem description, to make it clear that this needs to be
+merged yesterday - or drop the fixes.
+
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  drivers/power/reset/reboot-mode.c | 96 +++++++++++++++++++++------------------
+>  include/linux/reboot-mode.h       |  4 ++
+>  2 files changed, 57 insertions(+), 43 deletions(-)
+> 
+> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
+> index fba53f638da04655e756b5f8b7d2d666d1379535..8fc3e14638ea757c8dc3808c240ff569cbd74786 100644
+> --- a/drivers/power/reset/reboot-mode.c
+> +++ b/drivers/power/reset/reboot-mode.c
+> @@ -29,9 +29,11 @@ static unsigned int get_reboot_mode_magic(struct reboot_mode_driver *reboot,
+>  	if (!cmd)
+>  		cmd = normal;
+>  
+> -	list_for_each_entry(info, &reboot->head, list)
+> -		if (!strcmp(info->mode, cmd))
+> -			return info->magic;
+> +	scoped_guard(mutex, &reboot->rb_lock) {
+> +		list_for_each_entry(info, &reboot->head, list)
+> +			if (!strcmp(info->mode, cmd))
+> +				return info->magic;
+> +	}
+>  
+>  	/* try to match again, replacing characters impossible in DT */
+>  	if (strscpy(cmd_, cmd, sizeof(cmd_)) == -E2BIG)
+> @@ -41,9 +43,11 @@ static unsigned int get_reboot_mode_magic(struct reboot_mode_driver *reboot,
+>  	strreplace(cmd_, ',', '-');
+>  	strreplace(cmd_, '/', '-');
+>  
+> -	list_for_each_entry(info, &reboot->head, list)
+> -		if (!strcmp(info->mode, cmd_))
+> -			return info->magic;
+> +	scoped_guard(mutex, &reboot->rb_lock) {
+> +		list_for_each_entry(info, &reboot->head, list)
+> +			if (!strcmp(info->mode, cmd_))
+> +				return info->magic;
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -78,46 +82,50 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
+>  
+>  	INIT_LIST_HEAD(&reboot->head);
+>  
+> -	for_each_property_of_node(np, prop) {
+> -		if (strncmp(prop->name, PREFIX, len))
+> -			continue;
+> -
+> -		info = devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
+> -		if (!info) {
+> -			ret = -ENOMEM;
+> -			goto error;
+> -		}
+> -
+> -		if (of_property_read_u32(np, prop->name, &info->magic)) {
+> -			dev_err(reboot->dev, "reboot mode %s without magic number\n",
+> -				info->mode);
+> -			devm_kfree(reboot->dev, info);
+> -			continue;
+> -		}
+> -
+> -		info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+> -		if (!info->mode) {
+> -			ret =  -ENOMEM;
+> -			goto error;
+> -		} else if (info->mode[0] == '\0') {
+> -			kfree_const(info->mode);
+> -			ret = -EINVAL;
+> -			dev_err(reboot->dev, "invalid mode name(%s): too short!\n",
+> -				prop->name);
+> -			goto error;
+> +	mutex_init(&reboot->rb_lock);
+> +
+> +	scoped_guard(mutex, &reboot->rb_lock) {
+
+I don't see how this can race with anything, reboot_mode_register() is
+supposed to be called from some probe function, with reboot_mode_driver
+being a "local" object.
+
+The guard here "protects" &reboot->head, but that is not a shared
+resources at this point.
+
+> +		for_each_property_of_node(np, prop) {
+> +			if (strncmp(prop->name, PREFIX, len))
+> +				continue;
+> +
+> +			info = devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
+> +			if (!info) {
+> +				ret = -ENOMEM;
+> +				goto error;
+> +			}
+> +
+> +			if (of_property_read_u32(np, prop->name, &info->magic)) {
+> +				dev_err(reboot->dev, "reboot mode %s without magic number\n",
+> +					info->mode);
+> +				devm_kfree(reboot->dev, info);
+> +				continue;
+> +			}
+> +
+> +			info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+> +			if (!info->mode) {
+> +				ret =  -ENOMEM;
+> +				goto error;
+> +			} else if (info->mode[0] == '\0') {
+> +				kfree_const(info->mode);
+> +				ret = -EINVAL;
+> +				dev_err(reboot->dev, "invalid mode name(%s): too short!\n",
+> +					prop->name);
+> +				goto error;
+> +			}
+> +
+> +			list_add_tail(&info->list, &reboot->head);
+>  		}
+>  
+> -		list_add_tail(&info->list, &reboot->head);
+> -	}
+> -
+> -	reboot->reboot_notifier.notifier_call = reboot_mode_notify;
+> -	register_reboot_notifier(&reboot->reboot_notifier);
+> +		reboot->reboot_notifier.notifier_call = reboot_mode_notify;
+> +		register_reboot_notifier(&reboot->reboot_notifier);
+
+Once register_reboot_notifier() has been called, &reboot->head is
+visible outside the specific driver instance.
+
+So, there's no reason to lock in reboot_mode_register().
+
+>  
+> -	return 0;
+> +		return 0;
+>  
+>  error:
+> -	list_for_each_entry(info, &reboot->head, list)
+> -		kfree_const(info->mode);
+> +		list_for_each_entry(info, &reboot->head, list)
+> +			kfree_const(info->mode);
+> +	}
+>  
+>  	return ret;
+>  }
+> @@ -133,8 +141,10 @@ int reboot_mode_unregister(struct reboot_mode_driver *reboot)
+>  
+>  	unregister_reboot_notifier(&reboot->reboot_notifier);
+>  
+> -	list_for_each_entry(info, &reboot->head, list)
+> -		kfree_const(info->mode);
+> +	scoped_guard(mutex, &reboot->rb_lock) {
+
+get_reboot_mode_magic() is only called from reboot_mode_notify(), which
+is only invoked by blocking_notifier_call_chain().
+
+blocking_notifier_call_chain() takes a read semaphore.
+unregister_reboot_notifier() take a write semaphore.
+
+So, if we're racing with a shutdown or reboot, I see two possible
+things:
+
+1) blocking_notifier_call_chain() happens first and calls
+   reboot_mode_notify(), blocking unregister_reboot_notifier(). Once it
+   returns, the unregister proceeds and we enter case #2
+
+2) unregister_reboot_notifier() happens first (or after the
+   blocking_notifier_call_chain() returns). Our reboot object is removed
+   from the list and blocking_notifier_call_chain() will not invoke
+   reboot_mode_notify().
+
+In either case, the list has a single owner here.
+
+
+As far as I can see, the only race left is if multiple concurrent calls
+happens to blocking_notifier_call_chain(), the behavior of
+reboot->write() might be undefined. But I think that is reasonable.
+
+
+Please let me know if I'm missing something.
+
+Thanks,
+Bjorn
+
+> +		list_for_each_entry(info, &reboot->head, list)
+> +			kfree_const(info->mode);
+> +	}
+>  
+>  	return 0;
+>  }
+> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
+> index 4a2abb38d1d612ec0fdf05eb18c98b210f631b7f..b73f80708197677db8dc2e43affc519782b7146e 100644
+> --- a/include/linux/reboot-mode.h
+> +++ b/include/linux/reboot-mode.h
+> @@ -2,11 +2,15 @@
+>  #ifndef __REBOOT_MODE_H__
+>  #define __REBOOT_MODE_H__
+>  
+> +#include <linux/mutex.h>
+> +
+>  struct reboot_mode_driver {
+>  	struct device *dev;
+>  	struct list_head head;
+>  	int (*write)(struct reboot_mode_driver *reboot, unsigned int magic);
+>  	struct notifier_block reboot_notifier;
+> +	/*Protects access to reboot mode list*/
+> +	struct mutex rb_lock;
+>  };
+>  
+>  int reboot_mode_register(struct reboot_mode_driver *reboot);
+> 
+> -- 
+> 2.34.1
+> 
 
