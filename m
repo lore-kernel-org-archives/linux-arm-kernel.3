@@ -4,93 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16791CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F7DCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HDL+cduKGo0iwjImHuxRFOSxsiEzs6TUgE6gWmABSIg=; b=PiJr1STUdKsRC5ickbid/M6yjd
-	+Nqp+kGg8FqHk4wmzQjCnAudYIFULbAUUL8Vhy4v0OsUiXvmAV9pRrWWEwVRcTDjSWnknWrZ3hE6o
-	k5JTbp4EcgYbiR2duGvyJ2u5dI7EtErMWYj2NFPcwvTp9V+o3zndlaXawDOR4rq0XY9J80xU1g2Tf
-	aHTRkzeQE52pm+hiEKO0BHky0NDh8cJdp+8dSVmstggUlW6CVp6tGmaM8eYimdcPD3ltQMt9VkKTQ
-	12MLlo+vjQAT4xVfMBzQAR4w8BgOMhPVtnWo2PbH2bnhpVXEoHw2gFNVBxDixHqbtrFCZBr9D65mE
-	kcNqtmvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QL8VsAg1at7SuW5tNZ8SM68KMxfARdF7RwLyGMZNOH0=; b=wYwPuM+LDTv4DReQ2cgDdy3Tax
+	tvZ/FwcmTFbhdK0Qs6tpROZY4urKS/6bDqmG0wkAEQepUeHcgWgW6h5xqkJ/wmwYe5smV5pGdzaTt
+	BZDXwqDhV2iMtGRe4SIYLqn9AKiuaUELJYfQl6sOcKJmEGEaWQFRRt1bfOXs0n7jBNRiYnBD0Kr06
+	crFuMyFKbIVYQEeW3YSr2O/Cik0jE3+IM4seKB1QQEYkYW9jX1CRJyx+plujET9/Z7i6il7Umg48t
+	l+AsdkdDljPPQOqHqiYS9MjVeQ0iAo+h6+HOv+eVWL79kndLm+wwlYzYwecWRHREvm0SRD1aNwcHv
+	K7eEzGnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeGl-0000000FRwS-1yWs;
-	Tue, 28 Oct 2025 07:37:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vDeR1-0000000FTdV-2hjR;
+	Tue, 28 Oct 2025 07:48:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeG2-0000000FR0v-0SCO;
-	Tue, 28 Oct 2025 07:36:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=HDL+cduKGo0iwjImHuxRFOSxsiEzs6TUgE6gWmABSIg=; b=G+iQqGtRjneI4RuXK4FYit/b01
-	LdSKWx3H+0Ngtz7zVMJAIthxL9zsoEdDl3eqdJcG7leNet8QZGrccW5laHjnEes1lJrx1r2wkuHPX
-	67dGm9qAACsPzbcLjylmrxGuIRQDJiCSESk9WvXQf0CDht61/VDjIWs7TCo4e/SY87s7qmeEimW+e
-	IlY21VFuspg+/0CN8yb7vszpLlaT+jr7bhMktn65yHzQsnSe+MjiRS7//ng0Bkjydo0nVg10zTvWT
-	6wBr8qqS5yJGC5CxptZtry3GaCW+zk+cx77kYFuRYWVHqfOzvP+xFAomYOH5w/mZbA3GTJHkXXrfp
-	r3YBPZ2w==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdOC-00000003p4v-1WqQ;
-	Tue, 28 Oct 2025 06:41:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 194AFC0BE9A;
-	Tue, 28 Oct 2025 07:36:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 56327606AB;
-	Tue, 28 Oct 2025 07:36:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 935F4102F251B;
-	Tue, 28 Oct 2025 08:36:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761636994; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=HDL+cduKGo0iwjImHuxRFOSxsiEzs6TUgE6gWmABSIg=;
-	b=VfW+i13nyaovNMhOgJDRHw3FVtH49cPKUE/qlj/T3LX2zoZz8OaUuNkQidN4SvX+UxhxmX
-	zAlRe30kXPqneuD46fPFB1Sk3osgunGsMn4ln0on/w604ivEwkGk7XIQ8ffKdyPByVRoh2
-	sjAZ72dzOLO+ScPme5ueaQGv27fjYaS7fCQVMW5RNdCiOH7vxCWzgc9ASauxrcPEjo5AyR
-	jxKqDPwBmDk64gC5RjIViG5XKDYfZVA92J7upzyz1QJPKOcyJNRuU0I52g1yri0xsPqVBI
-	oPc5ufrAS98mXp0AihVw9/N3ukKYmO5bv0+K/hA/14f8Xgvy1DVsYP5IoR83iA==
-From: Richard Genoud <richard.genoud@bootlin.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	Johan Hovold <johan@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-mtd@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v4 16/16] arm64: dts: allwinner: h616: add NAND controller
-Date: Tue, 28 Oct 2025 08:35:09 +0100
-Message-ID: <20251028073534.526992-17-richard.genoud@bootlin.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251028073534.526992-1-richard.genoud@bootlin.com>
-References: <20251028073534.526992-1-richard.genoud@bootlin.com>
+	id 1vDeR0-0000000FTdO-1iqd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 07:48:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9E8046027E;
+	Tue, 28 Oct 2025 07:48:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD480C113D0;
+	Tue, 28 Oct 2025 07:48:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761637681;
+	bh=KClJh703ruviggVORWywOzunQO6HBuBT/e1jnVpnPXc=;
+	h=Date:From:To:Subject:References:In-Reply-To:From;
+	b=JSp4dhCXz/ltiFCTPO0JZcMRQ0fsKve6CAnHmMlvgGjKIsE9cs2S5JvV5W2MW7nAn
+	 82HXAZqM6GUp1+SVIebgExEctwbw5eR8rdTw73RBFVFYfA+vDmsp+U4HqdAgSoU5F/
+	 /TKhjJf/vrUuHq96xsIZAhivbBsQ/tgYZuM83LA1aYES/wvftOKN+q0du0hlugp8Sz
+	 fa01y6qXoBel8u57qib+5TEcobWqo/i4L+Cz73uiN0CdPftCQZDwWT1lXiIESFogAy
+	 6OQvGLFdXKq9D1mZ7L2/12L7C9M+hmgdIEAFAJ83G+sJ30s0jnr9tUhLF61qe4Wa7r
+	 a9BW8d4ARqz2g==
+Date: Tue, 28 Oct 2025 08:47:58 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, bmc-sw@aspeedtech.com, 
+	benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org, jk@codeconstruct.com.au, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	andrew@codeconstruct.com.au, p.zabel@pengutronix.de, andriy.shevchenko@linux.intel.com, 
+	naresh.solanki@9elements.com, linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v21 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
+Message-ID: <20251028-ingenious-dazzling-jackdaw-af487d@kuoka>
+References: <20251027061240.3427875-1-ryan_chen@aspeedtech.com>
+ <20251027061240.3427875-3-ryan_chen@aspeedtech.com>
+ <93a2ff5f-2f8e-494b-9652-b93bc243c229@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_064104_487079_91232A69 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <93a2ff5f-2f8e-494b-9652-b93bc243c229@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,88 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 has a NAND controller quite similar to the A10/A23 ones, but
-with some register differences, more clocks (for ECC and MBUS), more ECC
-strengths, so this requires a new compatible string.
+On Mon, Oct 27, 2025 at 08:14:45PM +0100, Krzysztof Kozlowski wrote:
+> On 27/10/2025 07:12, Ryan Chen wrote:
+> > The AST2600 I2C controller supports three transfer modes: byte,
+> > buffer, and DMA. To allow board designers and firmware to
+> > explicitly select the preferred transfer mode for each controller
+> > instance. "aspeed,transfer-mode" to allow device tree to specify
+> > the desired transfer method used by each I2C controller instance.
+> > 
+> > And AST2600 i2c controller have two register mode, one is legacy
+> > register layout which is mix controller/target register control
+> > together, another is new mode which is separate controller/target
+> > register control.
+> > 
+> 
+> This implies your "reg" properties have now completely different meaning
+> and this would be quite an ABI break. We discussed this probably 15
+> revisions ago. Where did you document the resolution of that discussion?
+> 
+> >  
+> >  unevaluatedProperties: false
+> >  
+> > @@ -57,10 +85,12 @@ examples:
+> >        #address-cells = <1>;
+> >        #size-cells = <0>;
+> >        compatible = "aspeed,ast2600-i2c-bus";
+> > -      reg = <0x40 0x40>;
+> > +      reg = <0x80 0x80>, <0xc00 0x20>;
+> 
+> Not relevant to this patch. You just added this line in patch #1, so did
+> you add incorrect code just to fix it right away?
+> 
+> No, fix your example when creating it.
 
-Add the NAND controller node and pins in the device tree.
+Heh, and this was not even tested... you have warnings here (see
+maintainer soc profiles).
 
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
----
- .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 52 +++++++++++++++++++
- 1 file changed, 52 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index ceedae9e399b..2a4d70298655 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -304,6 +304,42 @@ mmc2_pins: mmc2-pins {
- 				bias-pull-up;
- 			};
- 
-+			/omit-if-no-ref/
-+			nand_pins: nand-pins {
-+				pins = "PC0", "PC1", "PC2", "PC5", "PC8", "PC9",
-+				       "PC10", "PC11", "PC12", "PC13", "PC14",
-+				       "PC15", "PC16";
-+				function = "nand0";
-+			};
-+
-+			/omit-if-no-ref/
-+			nand_cs0_pin: nand-cs0-pin {
-+				pins = "PC4";
-+				function = "nand0";
-+				bias-pull-up;
-+			};
-+
-+			/omit-if-no-ref/
-+			nand_cs1_pin: nand-cs1-pin {
-+				pins = "PC3";
-+				function = "nand0";
-+				bias-pull-up;
-+			};
-+
-+			/omit-if-no-ref/
-+			nand_rb0_pin: nand-rb0-pin {
-+				pins = "PC6";
-+				function = "nand0";
-+				bias-pull-up;
-+			};
-+
-+			/omit-if-no-ref/
-+			nand_rb1_pin: nand-rb1-pin {
-+				pins = "PC7";
-+				function = "nand0";
-+				bias-pull-up;
-+			};
-+
- 			/omit-if-no-ref/
- 			spi0_pins: spi0-pins {
- 				pins = "PC0", "PC2", "PC4";
-@@ -377,6 +413,22 @@ iommu: iommu@30f0000 {
- 			#iommu-cells = <1>;
- 		};
- 
-+		nfc: nand-controller@4011000 {
-+			compatible = "allwinner,sun50i-h616-nand-controller";
-+			reg = <0x04011000 0x1000>;
-+			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_NAND>, <&ccu CLK_NAND0>,
-+				<&ccu CLK_NAND1>, <&ccu CLK_MBUS_NAND>;
-+			clock-names = "ahb", "mod", "ecc", "mbus";
-+			resets = <&ccu RST_BUS_NAND>;
-+			reset-names = "ahb";
-+			dmas = <&dma 10>;
-+			dma-names = "rxtx";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		mmc0: mmc@4020000 {
- 			compatible = "allwinner,sun50i-h616-mmc",
- 				     "allwinner,sun50i-a100-mmc";
--- 
-2.47.3
+Best regards,
+Krzysztof
 
 
