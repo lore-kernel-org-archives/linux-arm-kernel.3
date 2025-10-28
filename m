@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15817CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44154CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHxjM5LMQ4g0r8TfjyC7UV5DiqKeWmastZlvJ1Y7vjg=; b=Z2b/xBOhK2YyKhhAvODxTfQRcO
-	c+jH6y12KMuK+17DSg1C3ke+H9VEs5OqxlWhDKkN63j2/bSMsC464qal8o08QN38/3qZsTXHKvLB+
-	VI/50RUqjFr4ALUg2wQ313FNPvs8BAQqnsTdE+JUtiEJdqdiMeH6FtkYR7Y0OP5yUvwploK00alzp
-	WE14W/pWQQ1FkTbVsG48W6KBMUDnCxBqoq42ZAytsW4e65ICuiO7t5ZB8JbAk7d0z8i75R5MM8+H0
-	IzHts7BiLUC8G86JomZW9WxS1Tw+B5EqnjcOMC/564nzx1iAK4pliK6eKxg77eoBfJXalPsoitmKR
-	umozHLnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xs89r8H28EFiXnm/zzZ/Zym5khL0vOyiwLDrFtHPdCQ=; b=TpONEIkqcSt/5CQj8emJ2zAOZi
+	6x5sNXUoTco1Vw6PGKWaDq04/RYWEA8NyNI/FhvPRg46xi9op3xbtYIL/R5bT+f1Qf6Suwx87syrp
+	tsMt9G+S1Esi9+RuGeLLzMDG05o6UEAmU9VqTHXimtxAOG66x3XYIcF5PJWNgAfBLHF7CAHjJYDR4
+	KHXYhbVk65xgIbkQ6cSfrdkiQ7WYLMCCcTAY444KuQzsZgXcw1tDOtlhHwUSqf1YJNe3EHrmwXBAR
+	cbj71FRleLXBnIwZ5TRA1NYvANXqFeurFVBAb2fGGPLn1JEf2PyCEI7FT8/bDb721W+O0mdCfQwFb
+	+xvjuJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdyV-0000000FOpM-3slR;
-	Tue, 28 Oct 2025 07:18:35 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vDeAG-0000000FPia-2uIY;
+	Tue, 28 Oct 2025 07:30:44 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdyT-0000000FOod-0k0a
+	id 1vDeAC-0000000FPhJ-2UNN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 07:18:34 +0000
-Received: from pendragon.ideasonboard.com (unknown [193.209.96.36])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 3FEB713BE;
-	Tue, 28 Oct 2025 08:16:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761635802;
-	bh=uwl4S+0VVmxOF+41YWBs/pcpifL5J3z3aL5XY8xuVBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AfcXcfvk823pXMB/CidGYHN1+aUyWZMHnwW+YXHN7FtGrmtU7EpVsZ8we+lcYbbDT
-	 FlZGTyDd5lcEsVTYojCsUFJAhGR/5nAoG6nIL5u6Y+Ab8HFNd0e5xzzr/3/qkhz4P+
-	 QdnRfbLjLaCVJ/fb+VmHF6JC8R8x/Yiuq+45APwU=
-Date: Tue, 28 Oct 2025 09:18:17 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <20251028071817.GX13023@pendragon.ideasonboard.com>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <aP-ML-A_h13pXY2d@shell.armlinux.org.uk>
- <20251027234648.GC24987@pendragon.ideasonboard.com>
- <aQAVE96NAD4Z4lgt@shell.armlinux.org.uk>
+	Tue, 28 Oct 2025 07:30:43 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 7FE191A16E5;
+	Tue, 28 Oct 2025 07:30:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 517D5606AB;
+	Tue, 28 Oct 2025 07:30:35 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 50BFD102F2511;
+	Tue, 28 Oct 2025 08:30:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761636634; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=xs89r8H28EFiXnm/zzZ/Zym5khL0vOyiwLDrFtHPdCQ=;
+	b=1Y+wzb7UUJ61PlahSm8nRwugGzVzHAklP8KvqU1naq4LkJTh6EVjdR9QB+HkyhPM/23+Ik
+	8JxBOOwNk6N2aOfNDEeftgV7q2UXOSnD2/++xlMR9N0OgLLfBObu4XQccPwAmmBvQTB2bt
+	t7bhmwOYUZ0nME43CU413N3RjnODMgyNWlu/TBJ53iy5bz/59mDAAqXCXF6vMeEHbENRtU
+	jDgCxfC2s8YGsTesIXo++jJum/TR+Gy51avfvbU0JOWlRNOFS7izyCZxPBVbCzrXg52BWJ
+	HkxL7rUGsAwxzPp/7HP3EuPQscpm7FnfKxak+X+Ug2Ul2nyWPnqy20ZXljzk4w==
+Message-ID: <795aa141-e977-4628-826f-f65715afaf9d@bootlin.com>
+Date: Tue, 28 Oct 2025 08:30:13 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aQAVE96NAD4Z4lgt@shell.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Subject: Re: [PATCH v3 13/15] mtd: rawnand: sunxi: Add support for H616 nand
+ controller
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251020101311.256819-1-richard.genoud@bootlin.com>
+ <20251020101311.256819-14-richard.genoud@bootlin.com>
+ <87ecqvthv4.fsf@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <87ecqvthv4.fsf@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_001833_358348_0089FB4E 
-X-CRM114-Status: GOOD (  25.76  )
+X-CRM114-CacheID: sfid-20251028_003040_893200_132267C8 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +91,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(CC'ing Catalin)
-
-On Tue, Oct 28, 2025 at 12:57:55AM +0000, Russell King (Oracle) wrote:
-> On Tue, Oct 28, 2025 at 01:46:48AM +0200, Laurent Pinchart wrote:
-> > On Mon, Oct 27, 2025 at 03:13:51PM +0000, Russell King (Oracle) wrote:
-> > > On Sun, Oct 26, 2025 at 02:29:04PM +0200, Laurent Pinchart wrote:
-> > > > Energy Efficient Ethernet (EEE) is broken at least for 1000T on the EQOS
-> > > > (DWMAC) interface. When connected to an EEE-enabled peer, the ethernet
-> > > > devices produces an interrupts storm. Disable EEE support to fix it.
-> > > 
-> > > We've finally got to the bottom of what's going on here. Please try
-> > > this patch (it's building locally, but will take some time because
-> > > I'd wound the tree back to 6.13 and 6.14, so it's going to be a full
-> > > rebuild.) Thus, there may be compile bugs remaining.
-> > 
-> > I've applied it on top of 
-> > 
-> > I've started with a branch based on v6.18-rc3 plus "[PATCH net-next 0/5]
-> > net: stmmac: more cleanups" ([1]) and "[PATCH net-next v2 0/6] net: add
-> > phylink managed WoL and convert stmmac" ([2]) to make the patch apply
-> > cleanly.
-> > 
-> > [1] https://lore.kernel.org/all/aO_HIwT_YvxkDS8D@shell.armlinux.org.uk/
-> > [2] https://lore.kernel.org/all/aPnyW54J80h9DmhB@shell.armlinux.org.uk/
-> > 
-> > The base branch exhibits the interrupt storm issue. The patch
-> > unfortunately doesn't fix it.
+Le 22/10/2025 à 11:18, Miquel Raynal a écrit :
+> Hello Richard,
 > 
-> So it's highly unlikely that your problem is the same as Emanuele's.
+> On 20/10/2025 at 12:13:09 +02, Richard Genoud <richard.genoud@bootlin.com> wrote:
 > 
-> Do you know when the interrupt storm behaviour started? If not, I'd
-> suggest testing 6.13 and 6.14 as a starting point to see whether
-> the phylink-managed EEE conversion is involved.
+>> The H616 nand controller has the same base as A10/A23, with some
+>> differences:
+>> - mdma is based on chained buffers
+>> - its ECC supports up to 80bit per 1024bytes
+>> - some registers layouts are a bit different, mainly due do the stronger
+>>    ECC.
+>> - it uses USER_DATA_LEN registers along USER_DATA registers.
+>> - it needs a specific clock for ECC and MBUS.
+>>
+>> Introduce the basic support, with ECC and scrambling, but without
+>> DMA/MDMA.
+>>
+>> Tested on Whatsminer H616 board (with and without scrambling, ECC)
+>>
+>> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> 
+> ...
+> 
+>>   
+>> +#define NFC_TIMING_CFG2(tCDQSS, tSC, tCLHZ, tCSS, tWC)		\
+>> +	((((tCDQSS) & 0x1) << 11) | (((tSC) & 0x3) << 12) |	\
+>> +	 (((tCLHZ) & 0x3) << 14) | (((tCSS) & 0x3) << 16) |	\
+>> +	 (((tWC) & 0x3) << 18))
+>> +
+>>   /* define bit use in NFC_CMD */
+>>   #define NFC_CMD_LOW_BYTE_MSK	GENMASK(7, 0)
+>> -#define NFC_CMD_HIGH_BYTE_MSK	GENMASK(15, 8)
+>> +#define NFC_CMD_HIGH_BYTE_MSK	GENMASK(15, 8)  // 15-10 reserved on H6
+> 
+> Wrong comment type :-)
+ok
 
-I can't test it right now (no access to hardware during daytime for this
-week), but if I recall correctly my colleague Stefan Klug bisected the
-issue to
+> 
+>> +#define NFC_CMD_ADR_NUM_MSK	GENMASK(9, 8)
+>>   #define NFC_CMD(x)		(x)
+>>   #define NFC_ADR_NUM_MSK		GENMASK(18, 16)
+>>   #define NFC_ADR_NUM(x)		(((x) - 1) << 16)
+>> @@ -122,6 +156,7 @@
+>>   #define NFC_SEQ			BIT(25)
+>>   #define NFC_DATA_SWAP_METHOD	BIT(26)
+>>   #define NFC_ROW_AUTO_INC	BIT(27)
+>> +#define NFC_H6_SEND_RND_CMD2	BIT(27)
+>>   #define NFC_SEND_CMD3		BIT(28)
+>>   #define NFC_SEND_CMD4		BIT(29)
+>>   #define NFC_CMD_TYPE_MSK	GENMASK(31, 30)
+>> @@ -133,6 +168,7 @@
+>>   #define NFC_READ_CMD_MSK	GENMASK(7, 0)
+>>   #define NFC_RND_READ_CMD0_MSK	GENMASK(15, 8)
+>>   #define NFC_RND_READ_CMD1_MSK	GENMASK(23, 16)
+>> +#define NFC_RND_READ_CMD2_MSK	GENMASK(31, 24)
+> 
+> ...
+> 
+>> @@ -858,6 +967,8 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+>>   	if (ret)
+>>   		return ret;
+>>   
+>> +	sunxi_nfc_reset_user_data_len(nfc);
+>> +	sunxi_nfc_set_user_data_len(nfc, 4, 0);
+> 
+> I'm not sure I understand this properly. Why isn't this a fixed setting?
+> Also, what is 4? It is not obvious to me and my require either a comment
+> or a define (or maybe a sizeof()).
 
-commit dda1bc1d8ad13672c2728eedee0dd02d27a5314a
-Author: Catalin Popescu <catalin.popescu@leica-geosystems.com>
-Date:   Mon Oct 7 15:44:24 2024 +0200
+Yes, indeed. There are '4' all over the place, maybe a bit of tidy up is 
+needed in a separate patch.
+(and some explanations)
 
-    arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
+I'll resend a v4 with that.
 
-    So far, only WFI is supported on i.MX8mp platform. Add support for
-    deeper cpuidle state "cpu-pd-wait" that would allow for better power
-    usage during runtime. This is a port from NXP downstream kernel.
+> 
+>>   	sunxi_nfc_randomizer_config(nand, page, false);
+>>   	sunxi_nfc_randomizer_enable(nand);
+>>   	writel(NFC_DATA_TRANS | NFC_DATA_SWAP_METHOD | NFC_ECC_OP,
+>> @@ -968,6 +1079,8 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf
+>>   		return ret;
+>>   
+>>   	sunxi_nfc_hw_ecc_enable(nand);
+>> +	sunxi_nfc_reset_user_data_len(nfc);
+>> +	sunxi_nfc_set_user_data_len(nfc, 4, 0);
+>>   	sunxi_nfc_randomizer_config(nand, page, false);
+>>   	sunxi_nfc_randomizer_enable(nand);
+>>   
+>> @@ -1100,6 +1213,8 @@ static int sunxi_nfc_hw_ecc_write_chunk(struct nand_chip *nand,
+>>   
+>>   	sunxi_nfc_randomizer_config(nand, page, false);
+>>   	sunxi_nfc_randomizer_enable(nand);
+>> +	sunxi_nfc_reset_user_data_len(nfc);
+>> +	sunxi_nfc_set_user_data_len(nfc, 4, 0);
+>>   	sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, 0, bbm, page);
+>>   
+>>   	writel(NFC_DATA_TRANS | NFC_DATA_SWAP_METHOD |
+>> @@ -1344,10 +1459,12 @@ static int sunxi_nfc_hw_ecc_write_page_dma(struct nand_chip *nand,
+>>   	if (ret)
+>>   		goto pio_fallback;
+>>   
+>> +	sunxi_nfc_reset_user_data_len(nfc);
+>>   	for (i = 0; i < ecc->steps; i++) {
+>>   		const u8 *oob = nand->oob_poi + (i * (ecc->bytes + 4));
+>>   
+>>   		sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, i, !i, page);
+>> +		sunxi_nfc_set_user_data_len(nfc, 4, i);
+> 
+> Here you use it differently, maybe a bit of explanation in a comment
+> could help.
+> 
+yes, definitely
 
-    Signed-off-by: Catalin Popescu <catalin.popescu@leica-geosystems.com>
-    Signed-off-by: Shawn Guo <shawnguo@kernel.org>
+>>   	}
+>>   
+>>   	nand_prog_page_begin_op(nand, page, 0, NULL, 0);
+>> @@ -2148,6 +2265,10 @@ static int sunxi_nfc_probe(struct platform_device *pdev)
+>>   	if (irq < 0)
+>>   		return irq;
+>>   
+>> +	nfc->caps = of_device_get_match_data(dev);
+>> +	if (!nfc->caps)
+>> +		return -EINVAL;
+>> +
+>>   	nfc->ahb_clk = devm_clk_get_enabled(dev, "ahb");
+>>   	if (IS_ERR(nfc->ahb_clk)) {
+>>   		dev_err(dev, "failed to retrieve ahb clk\n");
+>> @@ -2160,6 +2281,22 @@ static int sunxi_nfc_probe(struct platform_device *pdev)
+>>   		return PTR_ERR(nfc->mod_clk);
+>>   	}
+>>   
+> 
+> ...
+> 
+>>   static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+>>   	.has_ecc_block_512 = true,
+>> +	.has_ecc_clk = false,
+>> +	.has_mbus_clk = false,
+> 
+> As you want, but setting these fields (and below) to false is not
+> strictly required as they will be set to 0 (which means false,
+> automatically).
+> 
+yes, I'll remove them.
 
-I didn't notice it at the time because my board was connected to a
-switch that didn't support EEE.
+>>   	.reg_io_data = NFC_REG_A10_IO_DATA,
+>>   	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
+>>   	.reg_user_data = NFC_REG_A10_USER_DATA,
+>> @@ -2242,11 +2383,14 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+>>   	.dma_maxburst = 4,
+>>   	.ecc_strengths = sunxi_ecc_strengths_a10,
+>>   	.nstrengths = ARRAY_SIZE(sunxi_ecc_strengths_a10),
+>> +	.max_ecc_steps = 16,
+>>   	.sram_size = 1024,
+>>   };
+>>   
+> 
+>> +static const struct sunxi_nfc_caps sunxi_nfc_h616_caps = {
+>> +	.has_mdma = false, // H616 supports only chained descriptors
+> 
+> Wrong comment type :-)
+I'll drop this line also.
+
+> 
+> LGTM otherwise.
+> 
+> Thanks,
+> Miquèl
+Thanks!
 
 -- 
-Regards,
-
-Laurent Pinchart
+Richard Genoud, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
