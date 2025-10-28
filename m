@@ -4,181 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531C3CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 13:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D426DCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 14:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i9/UO5Y7GzVMD4CAr2mVFirIStRpUcx/JRfYzyLPCYA=; b=4Nr3CteyRFmYbi87bEiY7dE2Jn
-	enqFBEQQbspLY/lyiBBY0mwxlUbKSeYwhzSMtEq+flC2auxCW33+5cs4bYZw8kFjVdSV07mbRmSjA
-	0KYtSTLcJ9clNTwKCajhD9X8CP0GRzJKqUEDFc1383tg3IUtrKEIRrRjZYsHAkxjdFH6LD7bv524C
-	zU01Mw/oWtT4mPr0XVH6bT/aVpciqf3UNnghEpgKmT3S1pE2W+4VralZwgo7R6IBI+toS/R0Eb6S7
-	EWsd96AicKvCF1THMpXcYgH+LBxrSTZxUHa6d8zDEg2CuNAdVi92PQIvO4Ppcd4eObgI+m/sJol51
-	34vji2hA==;
+	bh=lwEvUQvD2SOjdx94xPite5icB9pZBzBE1kFycvnRD9o=; b=JJfnmM2i/8A2NSYCwP0lbpPJIW
+	Q/PWx32FUhQMq/KCoggKiLGC1NvayZ9Mj0Q/QyAqXc/xH3sRBcW270EafEdWFnSE6pLZCZN9y26ja
+	v5RsUeMl/808hgXh4kJYvtorhsn7bbYJMpuZ1a/Aioc6gv7KPKY0irKVhB24xft8Ln4JR3SvKw86E
+	RlcNRLZclWXd6eRzQHjIMZtzMlyKDwgcW19KAWvQcfi7G7yl1P67RIcExTDgDn6DzPHexa3fOa7Fg
+	E1YNd46hLX12+JinElB2C5yny6/qvLlpUlzDZ6lorMjuTL6iXjWTLQcBMP3kY9Ak8Urtt7GAd9+i7
+	HoavXIvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDk9Q-0000000G31E-3gDo;
-	Tue, 28 Oct 2025 13:54:16 +0000
-Received: from mail-canadacentralazon11021111.outbound.protection.outlook.com ([40.107.192.111] helo=YT5PR01CU002.outbound.protection.outlook.com)
+	id 1vDkFa-0000000G3QN-2tlv;
+	Tue, 28 Oct 2025 14:00:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDk9N-0000000G30H-2f9H;
-	Tue, 28 Oct 2025 13:54:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q+WZc+FnMew4kbZkHPt5hBDlHT/4GeFo3hT2ZkpcqCrLZLa9hPeOsb2L5OVwAokF4+G/Ev4k5DmmOGTX9csKESqL8bo0RcMG2Ukzp3bmYHD5EM3tB7r/mIV2ZgvGKGcIfeZPcfZEoTFSb2cwK3Vg+4d3KkAkZRdBuOpxj3UziRNlFXa9axpPXN7sah4/hxf6fDC2pFkjgq6rjKM4TiEcvt7MhD6dE0anfJA7ibhVh00k79SUtFgMedlDvH/1urXd8W1uiXg/J6eqvEgSRnWQlxsTvaoZCkz4ARrm57rH1hKj7YpohTkgV5GYyWeBTOFnDisNj+qKqqrNDt2b4+pPqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i9/UO5Y7GzVMD4CAr2mVFirIStRpUcx/JRfYzyLPCYA=;
- b=pGt+8LkdmD83YdHbNOW7y5uKBzhi+UekIvfb77UGqpsG85pk9bBGk1rLkBg/TdIeKNhz9r8JCchPpAl6T+h1whbe73ajjlPHoywV4F916ANvKwd3NwjRL4Wu84snwKvCGtzJmqayQ7juQb5v3gbto2iJpghcHIWVrOZ7z107vu9HDhyNy6u44DIkh/qbfaZJq7moC8c1phfOPaGXGIAzcz0kYRfy8MZij9A3SWn5KujO+obCegl8FIJ1v/zsov+k7nlM7LHrMSpgOGWPG51m5fEYmisoWcb5VRrvLdtpaJ1/PBlZC5kknkqrZdRD1MLrZES3X8POqqY1ftLQ8eELvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i9/UO5Y7GzVMD4CAr2mVFirIStRpUcx/JRfYzyLPCYA=;
- b=eTQ9UpMsaKQY7QtVdIIhFiPL7USlzOA0OziFgl2n8zdt4Mqh8RKsNL/ZmhABd99GROwoHHYyW1zUaZFQj2JvjZsMtf1xMP4IWTyUTWZbAknCExPRgrXlYWLr7YQeIoiIJAj/VmxBhdxckBQSOr3pY50ezxvEnre3xosIpPoYFcDrS8HFM7WiGEL6gWTWLmPHMaKgVCbmfvorl8y2mjk+YRwkzcg54YoERNu5R3xAs2wEEcDinN3C2R5nI5rlgCxrAfy8+1gCf+4J1s6tLkjvUFRRWAUswT0cc+bYUoFkImThruFSyiyATVIrk5FooQT+Wapo6kVINYL0w/NxKPerdg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YQ1PR01MB11638.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:a2::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Tue, 28 Oct
- 2025 13:54:10 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4%2]) with mapi id 15.20.9275.013; Tue, 28 Oct 2025
- 13:54:10 +0000
-Message-ID: <439a31b2-af27-4756-a5ae-abbad93b9ebb@efficios.com>
-Date: Tue, 28 Oct 2025 09:54:08 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V5 06/12] s390/uaccess: Use unsafe wrappers for ASM GOTO
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
- kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- David Laight <david.laight.linux@gmail.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-References: <20251027083700.573016505@linutronix.de>
- <20251027083745.483079889@linutronix.de>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <20251027083745.483079889@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR01CA0127.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:1::27) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
+	id 1vDkFX-0000000G3Pl-45l1;
+	Tue, 28 Oct 2025 14:00:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 71DA444D38;
+	Tue, 28 Oct 2025 14:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9390C116C6;
+	Tue, 28 Oct 2025 14:00:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761660033;
+	bh=MF/2zsZwtCVjQVdBsn7UVVx9xBhDIK+KrSqUNMSbxwQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NBRPGeiy1Xn7eADQ9yFvkjIS2p83OMRe4k2CO4ITc0ALWFN0ZWRqZGjvsq0KHLGHX
+	 9cLYR4EEJw7n2OOILsuLBxlnyUxNKQ48TBEmQOfsOJWlMu7MQczs8PAvuoeQ7dv4ga
+	 VOOh+zSbwQI9UVXLYMTTaAF8VC5Qe0AH08UMx6o59oif+TOluzOhoNUJlPqWrkWdWa
+	 F3YMSrmA8q04Tc3o7V5G0rOnVvXrSlmYuCHYUdaC1/9bEi1kSPQjNs6B/CMP7UMuA7
+	 kBZG8J5QQqHSS4JWOSkiN2pZrTn7EOaJWqEI8O7YB913GvijwyU/Jjvqzu6dZc0XeA
+	 6pjFmq9Y38R2g==
+Date: Tue, 28 Oct 2025 15:00:30 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 23/29] context-tracking: Introduce work deferral
+ infrastructure
+Message-ID: <aQDMfu0tzecFzoGr@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-24-vschneid@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YQ1PR01MB11638:EE_
-X-MS-Office365-Filtering-Correlation-Id: 677e2425-67a7-44f2-03d9-08de16297826
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dXZieXRCZFBRVXBubWpDdHNicUZZTXpsNEo3dmJUaGhoV0lSUjVWUnZ2U2ly?=
- =?utf-8?B?UExqd1dLUWRGZEVvSFVSSjE0VDZ0cE5TblZNcWlhd202Q2s3Um9pWXo1VHlG?=
- =?utf-8?B?bmJSVFEvRDBZZi8zc0VLSVVGUXBXQnBEci9rU010YkxleGdvVlNGdnhyaGtD?=
- =?utf-8?B?cnlDZE96MFFyVG5iWjNhbGdJNjJyeHlPWHdZRm1teEJpSGUrekl3QUtsR1Y4?=
- =?utf-8?B?bWM4OWZYK1UvMmZzVU8xWUI4TzNnU2lXNHR1NUpQZFFMZGpsUWVuaDlNK0lw?=
- =?utf-8?B?YUxkWFZvRXBxUkZ5bThjMHBMZnJtK0FLMG9SeHdpRUNZaERIaDVLd1h5Q2Mz?=
- =?utf-8?B?c1ZCVms0aGdsY0hHUUo2M1FCL1NxaytHV0l4T3ZYUS9wTTRxUm9XS2JiUEVG?=
- =?utf-8?B?UVd3dzdDN0NGclhFOC9IN2RmY05BY0JXaElDbEdqQ25FdEc0RSt0RmdzMTFl?=
- =?utf-8?B?U1kwM204ZGt2ZjZlSHcyY1RJY0Y4cTZmODFCR01FMTVFZXNRSnBKcDU3ZFoy?=
- =?utf-8?B?WXhSb1h0K3J2c01NNFY5VXVjd0pQWERJT3FqNlBUWW5hRUJPWjlFK3B5RkRD?=
- =?utf-8?B?Q3EvQlgzYi9neVZqeVViMThTOVN1K1BaY1ppd2hpRjhkcWtSV29FU3lEcllZ?=
- =?utf-8?B?OUdITmVvQVNFNURUbEF0ZjNwbllhYkpzRXFRMTBjeHF4SmxIbTNXS1RWQ1ds?=
- =?utf-8?B?TzFHejdPajU1bzJQN1VrSFE4S3U1Zk5qajlubC9QK2ZnSGZtWXFLdDBTYzJo?=
- =?utf-8?B?eWJhWG9WK0tHbW9OOEl4RnRHNFV0UzlqWkR6SWJ6YjUxTVR4UlJMUE9jTE53?=
- =?utf-8?B?dldMMENFcDNUMysyK3dzWUpBMXhmZUtnK1lZbjV1YXROWmZ1WXgzMTJBa3Zs?=
- =?utf-8?B?Nk9CY0toNnczSHppTjY5UjdkTGNnL1lVZVRyeDJXTEk3S0ZIT2J5MGdoNjhK?=
- =?utf-8?B?NzF2M2pFR2JFM25zdHVrUjFtMUhaUGdMNmtUSU9GSFhVc01QcUNraFZvZldo?=
- =?utf-8?B?RWQ5Wkd5NCszRTFiYUNQY1p3S0ZSaExZU3BiRkdiNU11SHhla2JzRzRtZzRG?=
- =?utf-8?B?YkQyNHRtc3U1VXd3SFJ2Q3dKMFZ6ZWdETWNTekMwVVRHcWV1VlptaURqekxl?=
- =?utf-8?B?QjBtRjR6Ty91c29nVzZMWnNIRElQT1BnZkFIbDVORHBxR3dWUjZaVE50eldT?=
- =?utf-8?B?em5zQWg2UUQ5d0NjRjVneW9XOTIwNzV2Rk9jUW1rT2hsNmVOalJkM3RNRit5?=
- =?utf-8?B?WTVKaEZYd0dsa0ltVnI3T0tFMlFDeUlrUDV2R3QvbngrMEhTcjJFWkdldnlx?=
- =?utf-8?B?L25WRmhMYW5kTVg1a3Blbmh4UnFGVS96dEFTMFNnaXlFSHpFT3N4WWFldlNZ?=
- =?utf-8?B?V3hVVlhoOGFwYlEwNmk1WGNva3J0NWFzd09OMlJwd0tUN04rVGVaeUd6MDl5?=
- =?utf-8?B?VjUzVkRUUFhNWEtNWWlnVXFvclJQSHhtZUl6NE1WYjdtS1QyWXdsVGdLd2x5?=
- =?utf-8?B?c2JRMHlEZjZwWXROWlVEQ3JJNWc4bks4UHFTODRjNWdYV2w0Z0R0cnk3TFNr?=
- =?utf-8?B?Vkl0MU5POUJ4TnA0QklJSUtnNnFESWRybWppMDBCMjJQS3h6WXpNcnN4ZHVN?=
- =?utf-8?B?cmJaaGdERFdXTktER29Hd1pxWXo5RUYvQlI5OEF5dk9BWUFkaUprRjVRUHE0?=
- =?utf-8?B?bEc5VnREZUlqNU8zWUpDVnVER2g0Rk8wMGx0QTA4SHRrRnErZ3lNKzNwMjV4?=
- =?utf-8?B?OUZyb0dhM3Y4VUhZeUt4Z3RFbDRIRWlhYWluV3JOZU85MDVGQXpMdEQ2VjRR?=
- =?utf-8?B?UENDaVBIc1VTUElWa0s2RlF1TExPSUJsZVQrR3pLK2dLdnBvUDlubEtvMG9j?=
- =?utf-8?B?dHF4dThMTG9tR0ZlM3RtT1hUbHJBYkhKVmIxeVJxVldFd2c9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dHlUaHRLUXovb1JuczlsbUlHOFM1b1QyRlowbHE5Y0s5dE56MGIwVHZjYXNn?=
- =?utf-8?B?TTVvcHJGUmFFM0F4cmFTcUU4cVpPbzk4cTVRZkc0cDlzdkNrMEZYTTU1MVRt?=
- =?utf-8?B?QzFLUDl5U3BFQllaeXo5ZHUwQU01WEYyVUVJMlErMkxXS05JazU3MDFKd2x0?=
- =?utf-8?B?Y1BOWU10cUJNQWVVRDlqSFRrODhCam9kdFAyQTVSQjRNbW9odk14M1pmS3Nm?=
- =?utf-8?B?NFQzcm9SNzMwOVFnQW5zdjJvb1o2QjZFVHJYZXhjRWtoOTM4YzViRnVuT1gw?=
- =?utf-8?B?aG1yRHBlNGFsSGNXUUoyL0N2UnZuK2NoQmhrNzk1RHFxWG0wZEg3d2t3ZE16?=
- =?utf-8?B?ZzdmOTFxZ0l6N3lrbElBSHlyWU0rMWJmYzREUS92L2xTVXR1eFFvamNObC9n?=
- =?utf-8?B?ODZJK1BNK2Z3Rk8zMkFtOEVwcnVFRjBIL3Zrck9yS1hEZEliMFIvR04wSEs3?=
- =?utf-8?B?Si85dlJFUXhxRGttWGVNZG1xWll2VnJTR0txc01kMWxtMnNZbmVJUzhJVGpz?=
- =?utf-8?B?Z3ArcU1IWjJTMFFCenlsUjMweEVEUGZwQnYxeTArbWg2V2k4L2ZJVWFwbEc1?=
- =?utf-8?B?NDNXeE94azVXaVNESGtpVjNyWjJNT3R3SXJ3ajdIWFd0MEJGalhZWHhUcll0?=
- =?utf-8?B?bW8zVkZCZzc5THB0MXFwTGhITllscDBVc2gvWk5GbnE2WSsxamlDY1ZSWlBj?=
- =?utf-8?B?d3EyY21wd3hGall4T1Y1M3BNLzMzeVZlL1B0TnhpVVhsZkp2eVd2cnJhc1dG?=
- =?utf-8?B?aUl0bFFtUEI5Ym9ucVp0QzB5aERNVzdabjZKSnNtMGZFS2JIZ3Q3cTNLZWls?=
- =?utf-8?B?bmU4QzQ3MDNYcHJVM2NkZ2crc2hVU3FPd1VjL29MTUFiT09rNWlkb292cFYz?=
- =?utf-8?B?UTlNWXZ2eUIwNjVBaUpBUjA2MnM5bDh0bGwwT2ZMTDNuQ2h0ZThRMjc1Ulpq?=
- =?utf-8?B?NGY3aFdMN1MxOWtiSnlrbHpOU1ZXK1RQS1RrcjRQRkdRV05QRGRRckRvU2pN?=
- =?utf-8?B?NmJxM1VUa3AwemJnbG5sYkZLQVltTkRNc1BUVVJKQWU5VHBGTmlkK1pCYkNS?=
- =?utf-8?B?aGZwQjBUbUZLNDhwUEZUK0pIZms2VnNrN1ZaV3BaMXZUNXFJK0paUEY4c1BK?=
- =?utf-8?B?UXVER3UxbnpFazArMnJGRC9ITXBlNElvTWE2RGZRejkvSTQwREtLM1FqZlVs?=
- =?utf-8?B?KzhZb0hUdituSjE1RytsV2xXRWQwa1d5ZytFTFVvT1dieWdURSt3VkJ6WGty?=
- =?utf-8?B?R0VlNDd5V1U4OHI5WWxpUThmUm9VbUtzaTBNQ0gxZENweHZHRmJJbHBGMVlV?=
- =?utf-8?B?M1NEMTFYd3E0L0dNU3N5VHFSQitUMGYzMzhPbFEvamxkTHJpV1c2a3JIeHIz?=
- =?utf-8?B?KzBkbExGSk05ejA0bTdPVUtwOFpUQmJlS05TK2tBZlI0eWpzZXNjak1RMXFz?=
- =?utf-8?B?enRXTHVLa0JQbis3Z016ZFpGajhPYm0xb0lFQk9OWHpPSVo1d2RlWnA3MnUx?=
- =?utf-8?B?NTd3T3pFUEErRVFlc3VNaFBhSFdhU1dYTHhDWXNxc2dJZ2NwTUFlc2tsUGhL?=
- =?utf-8?B?Vm1tNWpsTEdNMGpaM0YrTG1pOGJnZG5WakNzc0lCaklOZXhMeUFDUXp0cEgx?=
- =?utf-8?B?MGMzTGMyYld1c2UxMTVhaUlNZWx4YWs5RWMraFNGVitsd1JVcVBUQXI3MWVo?=
- =?utf-8?B?Z3FHQkkxYktMR2JtZ0NDK25DVGYxWERxaVhQL1RZS2ptcm1NeXdrVmdBZHFJ?=
- =?utf-8?B?eVg5bmZsditMRWJIMzZPZ2xpZXVPM0huYm0zMU1UN1F5RUpPZXp5cTQ2U2JL?=
- =?utf-8?B?d0ZKQ2h0cStpM2h5SGU5VzAxM3gxNnRUS0JHRFRyMUVSZjFiV3ZZa2hhMkNN?=
- =?utf-8?B?eHIrR2NsN2NwNXBVZ0k2dUlPVHg5UVhoNFZYc0hHWE9FV2Vtbm02cUhYc2M2?=
- =?utf-8?B?RmFBTmZTcmRLR210NGhVRldaQVkvdG9hemRNZEdYVmtiMHhyTmpUUVhmNVdZ?=
- =?utf-8?B?dmoveXZBYmZTd2svRUtZZG1wZ3RKTlI5VVRCRzYwK21kcXVQbHJ4SEFGcEIv?=
- =?utf-8?B?VkZxaTNEQUdXS2FKOW5ydGNhWHNYTWE4WEhGNEYxNnZFRk4waXRaSFpJRnQ1?=
- =?utf-8?B?SnJZTTJPdHFpSmpwdTdBVzNvSG5XNXoxQkdhWDJBOWtuUEVpbVNiYnRSRGVD?=
- =?utf-8?Q?vX+W3B+AhkVdt+xeMz8DqqI=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 677e2425-67a7-44f2-03d9-08de16297826
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 13:54:10.0102
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: c8ZY4rEhd60ZSmam+XFdqnEj5UI2pfZZzVn9edbRw6NL4SSexBLfTT8IRDXqNmIFXWwT1p0/lKK/x+g7HFTgb6w57DrVMWp+OtcElTJ+Nh8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQ1PR01MB11638
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251010153839.151763-24-vschneid@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_065413_678234_18F123FE 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_070036_065961_2EE6D10B 
+X-CRM114-Status: GOOD (  50.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,19 +107,373 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-27 04:43, Thomas Gleixner wrote:
-[...]
+Le Fri, Oct 10, 2025 at 05:38:33PM +0200, Valentin Schneider a écrit :
+> smp_call_function() & friends have the unfortunate habit of sending IPIs to
+> isolated, NOHZ_FULL, in-userspace CPUs, as they blindly target all online
+> CPUs.
 > 
-> S390 is not affected for unsafe_*_user() as it uses it's own local label
+> Some callsites can be bent into doing the right, such as done by commit:
+> 
+>   cc9e303c91f5 ("x86/cpu: Disable frequency requests via aperfmperf IPI for nohz_full CPUs")
+> 
+> Unfortunately, not all SMP callbacks can be omitted in this
+> fashion. However, some of them only affect execution in kernelspace, which
+> means they don't have to be executed *immediately* if the target CPU is in
+> userspace: stashing the callback and executing it upon the next kernel entry
+> would suffice. x86 kernel instruction patching or kernel TLB invalidation
+> are prime examples of it.
+> 
+> Reduce the RCU dynticks counter width to free up some bits to be used as a
+> deferred callback bitmask. Add some build-time checks to validate that
+> setup.
+> 
+> Presence of CT_RCU_WATCHING in the ct_state prevents queuing deferred work.
+> 
+> Later commits introduce the bit:callback mappings.
+> 
+> Link: https://lore.kernel.org/all/20210929151723.162004989@infradead.org/
+> Signed-off-by: Nicolas Saenz Julienne <nsaenzju@redhat.com>
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+> ---
+>  arch/Kconfig                                 |  9 +++
+>  arch/x86/Kconfig                             |  1 +
+>  arch/x86/include/asm/context_tracking_work.h | 16 +++++
+>  include/linux/context_tracking.h             | 21 ++++++
+>  include/linux/context_tracking_state.h       | 30 ++++++---
+>  include/linux/context_tracking_work.h        | 26 ++++++++
+>  kernel/context_tracking.c                    | 69 +++++++++++++++++++-
+>  kernel/time/Kconfig                          |  5 ++
+>  8 files changed, 165 insertions(+), 12 deletions(-)
+>  create mode 100644 arch/x86/include/asm/context_tracking_work.h
+>  create mode 100644 include/linux/context_tracking_work.h
+> 
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index d1b4ffd6e0856..a33229e017467 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -968,6 +968,15 @@ config HAVE_CONTEXT_TRACKING_USER_OFFSTACK
+>  	  - No use of instrumentation, unless instrumentation_begin() got
+>  	    called.
+>  
+> +config HAVE_CONTEXT_TRACKING_WORK
+> +	bool
+> +	help
+> +	  Architecture supports deferring work while not in kernel context.
+> +	  This is especially useful on setups with isolated CPUs that might
+> +	  want to avoid being interrupted to perform housekeeping tasks (for
+> +	  ex. TLB invalidation or icache invalidation). The housekeeping
+> +	  operations are performed upon re-entering the kernel.
+> +
+>  config HAVE_TIF_NOHZ
+>  	bool
+>  	help
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index 05880301212e3..3f1557b7acd8f 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -222,6 +222,7 @@ config X86
+>  	select HAVE_CMPXCHG_LOCAL
+>  	select HAVE_CONTEXT_TRACKING_USER		if X86_64
+>  	select HAVE_CONTEXT_TRACKING_USER_OFFSTACK	if HAVE_CONTEXT_TRACKING_USER
+> +	select HAVE_CONTEXT_TRACKING_WORK		if X86_64
+>  	select HAVE_C_RECORDMCOUNT
+>  	select HAVE_OBJTOOL_MCOUNT		if HAVE_OBJTOOL
+>  	select HAVE_OBJTOOL_NOP_MCOUNT		if HAVE_OBJTOOL_MCOUNT
+> diff --git a/arch/x86/include/asm/context_tracking_work.h b/arch/x86/include/asm/context_tracking_work.h
+> new file mode 100644
+> index 0000000000000..5f3b2d0977235
+> --- /dev/null
+> +++ b/arch/x86/include/asm/context_tracking_work.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_X86_CONTEXT_TRACKING_WORK_H
+> +#define _ASM_X86_CONTEXT_TRACKING_WORK_H
+> +
+> +static __always_inline void arch_context_tracking_work(enum ct_work work)
+> +{
+> +	switch (work) {
+> +	case CT_WORK_n:
+> +		// Do work...
+> +		break;
+> +	case CT_WORK_MAX:
+> +		WARN_ON_ONCE(true);
+> +	}
+> +}
+> +
+> +#endif
+> diff --git a/include/linux/context_tracking.h b/include/linux/context_tracking.h
+> index af9fe87a09225..0b0faa040e9b5 100644
+> --- a/include/linux/context_tracking.h
+> +++ b/include/linux/context_tracking.h
+> @@ -5,6 +5,7 @@
+>  #include <linux/sched.h>
+>  #include <linux/vtime.h>
+>  #include <linux/context_tracking_state.h>
+> +#include <linux/context_tracking_work.h>
+>  #include <linux/instrumentation.h>
+>  
+>  #include <asm/ptrace.h>
+> @@ -137,6 +138,26 @@ static __always_inline unsigned long ct_state_inc(int incby)
+>  	return raw_atomic_add_return(incby, this_cpu_ptr(&context_tracking.state));
+>  }
+>  
+> +#ifdef CONFIG_CONTEXT_TRACKING_WORK
+> +static __always_inline unsigned long ct_state_inc_clear_work(int incby)
+> +{
+> +	struct context_tracking *ct = this_cpu_ptr(&context_tracking);
+> +	unsigned long new, old, state;
+> +
+> +	state = arch_atomic_read(&ct->state);
+> +	do {
+> +		old = state;
+> +		new = old & ~CT_WORK_MASK;
+> +		new += incby;
+> +		state = arch_atomic_cmpxchg(&ct->state, old, new);
+> +	} while (old != state);
+> +
+> +	return new;
+> +}
+> +#else
+> +#define ct_state_inc_clear_work(x) ct_state_inc(x)
+> +#endif
+> +
+>  static __always_inline bool warn_rcu_enter(void)
+>  {
+>  	bool ret = false;
+> diff --git a/include/linux/context_tracking_state.h b/include/linux/context_tracking_state.h
+> index 0b81248aa03e2..d2c302133672f 100644
+> --- a/include/linux/context_tracking_state.h
+> +++ b/include/linux/context_tracking_state.h
+> @@ -5,6 +5,7 @@
+>  #include <linux/percpu.h>
+>  #include <linux/static_key.h>
+>  #include <linux/context_tracking_irq.h>
+> +#include <linux/context_tracking_work.h>
+>  
+>  /* Offset to allow distinguishing irq vs. task-based idle entry/exit. */
+>  #define CT_NESTING_IRQ_NONIDLE	((LONG_MAX / 2) + 1)
+> @@ -39,16 +40,19 @@ struct context_tracking {
+>  };
+>  
+>  /*
+> - * We cram two different things within the same atomic variable:
+> + * We cram up to three different things within the same atomic variable:
+>   *
+> - *                     CT_RCU_WATCHING_START  CT_STATE_START
+> - *                                |                |
+> - *                                v                v
+> - *     MSB [ RCU watching counter ][ context_state ] LSB
+> - *         ^                       ^
+> - *         |                       |
+> - * CT_RCU_WATCHING_END        CT_STATE_END
+> + *                     CT_RCU_WATCHING_START                  CT_STATE_START
+> + *                                |         CT_WORK_START          |
+> + *                                |               |                |
+> + *                                v               v                v
+> + *     MSB [ RCU watching counter ][ context work ][ context_state ] LSB
+> + *         ^                       ^               ^
+> + *         |                       |               |
+> + *         |                  CT_WORK_END          |
+> + * CT_RCU_WATCHING_END                        CT_STATE_END
+>   *
+> + * The [ context work ] region spans 0 bits if CONFIG_CONTEXT_WORK=n
+>   * Bits are used from the LSB upwards, so unused bits (if any) will always be in
+>   * upper bits of the variable.
+>   */
+> @@ -59,18 +63,24 @@ struct context_tracking {
+>  #define CT_STATE_START 0
+>  #define CT_STATE_END   (CT_STATE_START + CT_STATE_WIDTH - 1)
+>  
+> -#define CT_RCU_WATCHING_MAX_WIDTH (CT_SIZE - CT_STATE_WIDTH)
+> +#define CT_WORK_WIDTH (IS_ENABLED(CONFIG_CONTEXT_TRACKING_WORK) ? CT_WORK_MAX_OFFSET : 0)
+> +#define	CT_WORK_START (CT_STATE_END + 1)
+> +#define CT_WORK_END   (CT_WORK_START + CT_WORK_WIDTH - 1)
+> +
+> +#define CT_RCU_WATCHING_MAX_WIDTH (CT_SIZE - CT_WORK_WIDTH - CT_STATE_WIDTH)
+>  #define CT_RCU_WATCHING_WIDTH     (IS_ENABLED(CONFIG_RCU_DYNTICKS_TORTURE) ? 2 : CT_RCU_WATCHING_MAX_WIDTH)
+> -#define CT_RCU_WATCHING_START     (CT_STATE_END + 1)
+> +#define CT_RCU_WATCHING_START     (CT_WORK_END + 1)
+>  #define CT_RCU_WATCHING_END       (CT_RCU_WATCHING_START + CT_RCU_WATCHING_WIDTH - 1)
+>  #define CT_RCU_WATCHING           BIT(CT_RCU_WATCHING_START)
+>  
+>  #define CT_STATE_MASK        GENMASK(CT_STATE_END,        CT_STATE_START)
+> +#define CT_WORK_MASK         GENMASK(CT_WORK_END,         CT_WORK_START)
+>  #define CT_RCU_WATCHING_MASK GENMASK(CT_RCU_WATCHING_END, CT_RCU_WATCHING_START)
+>  
+>  #define CT_UNUSED_WIDTH (CT_RCU_WATCHING_MAX_WIDTH - CT_RCU_WATCHING_WIDTH)
+>  
+>  static_assert(CT_STATE_WIDTH        +
+> +	      CT_WORK_WIDTH         +
+>  	      CT_RCU_WATCHING_WIDTH +
+>  	      CT_UNUSED_WIDTH       ==
+>  	      CT_SIZE);
+> diff --git a/include/linux/context_tracking_work.h b/include/linux/context_tracking_work.h
+> new file mode 100644
+> index 0000000000000..c68245f8d77c5
+> --- /dev/null
+> +++ b/include/linux/context_tracking_work.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _LINUX_CONTEXT_TRACKING_WORK_H
+> +#define _LINUX_CONTEXT_TRACKING_WORK_H
+> +
+> +#include <linux/bitops.h>
+> +
+> +enum {
+> +	CT_WORK_n_OFFSET,
+> +	CT_WORK_MAX_OFFSET
+> +};
+> +
+> +enum ct_work {
+> +	CT_WORK_n        = BIT(CT_WORK_n_OFFSET),
+> +	CT_WORK_MAX      = BIT(CT_WORK_MAX_OFFSET)
+> +};
+> +
+> +#include <asm/context_tracking_work.h>
+> +
+> +#ifdef CONFIG_CONTEXT_TRACKING_WORK
+> +extern bool ct_set_cpu_work(unsigned int cpu, enum ct_work work);
+> +#else
+> +static inline bool
+> +ct_set_cpu_work(unsigned int cpu, unsigned int work) { return false; }
+> +#endif
+> +
+> +#endif
+> diff --git a/kernel/context_tracking.c b/kernel/context_tracking.c
+> index fb5be6e9b423f..3238bb1f41ff4 100644
+> --- a/kernel/context_tracking.c
+> +++ b/kernel/context_tracking.c
+> @@ -72,6 +72,70 @@ static __always_inline void rcu_task_trace_heavyweight_exit(void)
+>  #endif /* #ifdef CONFIG_TASKS_TRACE_RCU */
+>  }
+>  
+> +#ifdef CONFIG_CONTEXT_TRACKING_WORK
+> +static noinstr void ct_work_flush(unsigned long seq)
+> +{
+> +	int bit;
+> +
+> +	seq = (seq & CT_WORK_MASK) >> CT_WORK_START;
+> +
+> +	/*
+> +	 * arch_context_tracking_work() must be noinstr, non-blocking,
+> +	 * and NMI safe.
+> +	 */
+> +	for_each_set_bit(bit, &seq, CT_WORK_MAX)
+> +		arch_context_tracking_work(BIT(bit));
+> +}
+> +
+> +/**
+> + * ct_set_cpu_work - set work to be run at next kernel context entry
+> + *
+> + * If @cpu is not currently executing in kernelspace, it will execute the
+> + * callback mapped to @work (see arch_context_tracking_work()) at its next
+> + * entry into ct_kernel_enter_state().
+> + *
+> + * If it is already executing in kernelspace, this will be a no-op.
+> + */
+> +bool ct_set_cpu_work(unsigned int cpu, enum ct_work work)
+> +{
+> +	struct context_tracking *ct = per_cpu_ptr(&context_tracking, cpu);
+> +	unsigned int old;
+> +	bool ret = false;
+> +
+> +	if (!ct->active)
+> +		return false;
+> +
+> +	preempt_disable();
+> +
+> +	old = atomic_read(&ct->state);
+> +
+> +	/*
+> +	 * The work bit must only be set if the target CPU is not executing
+> +	 * in kernelspace.
+> +	 * CT_RCU_WATCHING is used as a proxy for that - if the bit is set, we
+> +	 * know for sure the CPU is executing in the kernel whether that be in
+> +	 * NMI, IRQ or process context.
+> +	 * Set CT_RCU_WATCHING here and let the cmpxchg do the check for us;
+> +	 * the state could change between the atomic_read() and the cmpxchg().
+> +	 */
+> +	old |= CT_RCU_WATCHING;
 
-it's -> its
+Most of the time, the task should be either idle or in userspace. I'm still not
+sure why you start with a bet that the CPU is in the kernel with RCU watching.
 
-Other than this nit:
+> +	/*
+> +	 * Try setting the work until either
+> +	 * - the target CPU has entered kernelspace
+> +	 * - the work has been set
+> +	 */
+> +	do {
+> +		ret = atomic_try_cmpxchg(&ct->state, &old, old | (work << CT_WORK_START));
+> +	} while (!ret && !(old & CT_RCU_WATCHING));
 
-Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+So this applies blindly to idle as well, right? It should work but note that
+idle entry code before RCU watches is also fragile.
+
+The rest looks good.
+
+Thanks!
+
+
+> +
+> +	preempt_enable();
+> +	return ret;
+> +}
+> +#else
+> +static __always_inline void ct_work_flush(unsigned long work) { }
+> +static __always_inline void ct_work_clear(struct context_tracking *ct) { }
+> +#endif
+> +
+>  /*
+>   * Record entry into an extended quiescent state.  This is only to be
+>   * called when not already in an extended quiescent state, that is,
+> @@ -88,7 +152,7 @@ static noinstr void ct_kernel_exit_state(int offset)
+>  	rcu_task_trace_heavyweight_enter();  // Before CT state update!
+>  	// RCU is still watching.  Better not be in extended quiescent state!
+>  	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !rcu_is_watching_curr_cpu());
+> -	(void)ct_state_inc(offset);
+> +	(void)ct_state_inc_clear_work(offset);
+>  	// RCU is no longer watching.
+>  }
+>  
+> @@ -99,7 +163,7 @@ static noinstr void ct_kernel_exit_state(int offset)
+>   */
+>  static noinstr void ct_kernel_enter_state(int offset)
+>  {
+> -	int seq;
+> +	unsigned long seq;
+>  
+>  	/*
+>  	 * CPUs seeing atomic_add_return() must see prior idle sojourns,
+> @@ -107,6 +171,7 @@ static noinstr void ct_kernel_enter_state(int offset)
+>  	 * critical section.
+>  	 */
+>  	seq = ct_state_inc(offset);
+> +	ct_work_flush(seq);
+>  	// RCU is now watching.  Better not be in an extended quiescent state!
+>  	rcu_task_trace_heavyweight_exit();  // After CT state update!
+>  	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !(seq & CT_RCU_WATCHING));
+> diff --git a/kernel/time/Kconfig b/kernel/time/Kconfig
+> index 7c6a52f7836ce..1a0c027aad141 100644
+> --- a/kernel/time/Kconfig
+> +++ b/kernel/time/Kconfig
+> @@ -181,6 +181,11 @@ config CONTEXT_TRACKING_USER_FORCE
+>  	  Say N otherwise, this option brings an overhead that you
+>  	  don't want in production.
+>  
+> +config CONTEXT_TRACKING_WORK
+> +	bool
+> +	depends on HAVE_CONTEXT_TRACKING_WORK && CONTEXT_TRACKING_USER
+> +	default y
+> +
+>  config NO_HZ
+>  	bool "Old Idle dynticks config"
+>  	help
+> -- 
+> 2.51.0
+> 
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Frederic Weisbecker
+SUSE Labs
 
