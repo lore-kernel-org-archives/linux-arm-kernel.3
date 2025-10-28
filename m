@@ -4,169 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AED1CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E14CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8iLXANqp5GLRVSl9BAqSbFY/ygfcL5MH5h+BFeV7LU0=; b=3XP7YEdcpi0drrhfNdRet8LttQ
-	kTC6/PxzJhDvMnsdbxwz24i5+hQO+8QKc39Wg7qIbcMi8ukaC8rw+/9QBuQzw4hNRVl0aK0wOM8ce
-	yLqVmJafUAf3ft/V1Krv2+KzvEj2AN3MOoHrMxLxQCrPWqfzq3ATIzOXiYS+JllJp4AuU0BtwXJ0S
-	IgS1fbv+EQ5+HhwMLvlA/l2z6c8scX9o6NZ/6tqTwVednHrnjqay715KPbvj4Z11tja7N1jXFChwv
-	BoJWOuVcZ4GkG7rutqWPPLzSv4W+6/sIYwsbuBtMqhUQdWUutOKYe67Achi7gcp7gCKp93cnBC0cg
-	ImFX3FLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OtcQmrRvdSlbSiEkImOQ+CrTU8NT3s7u4HyVWFe/59s=; b=2cM+SYiJ5Km0IK+kkIx6loA0S3
+	ouhnogz6fF0ZLkVLYiJptZe6weP6sRwZqFR7ENGWesWEgvws7NCW8JaAFzApC4DALTwhw42So0GHW
+	Zdm3DJRLMSKykUCZW6EOmtfWei1pZw+3vYMlll2jbo0XL1uBfkTCOl7OMbq/UYhB/0YVOlG/PAJZw
+	k8/t5M2t2Zc3bUyIP+gjgKBjCGLokhA6qxMs1ljjcIJLAOqLPrtzGjham4BvYwOFKGlwypnfzOptS
+	BhX/twJt9DQsyUYjmXci6/H7ov+nvhp8F+KZBu3/2NHSUibAOl6v8yqXklmkbap7sexNZmo81CQUp
+	RsE0nbKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDltp-0000000GE1n-3ewt;
-	Tue, 28 Oct 2025 15:46:17 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vDlwb-0000000GEaA-3M8Y;
+	Tue, 28 Oct 2025 15:49:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlti-0000000GDvS-1rzt;
-	Tue, 28 Oct 2025 15:46:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GpL9G94NQFPm5sgd42r1W3a3QBjP6VgIcJoUYIYUDWM32uCBboZ8oZmWTATTb940kDWf3KXeXIFd+ojEkn1hy0ZvYFtzB3XJOu+vgv7hNFYPmup8SQ9DR1vBDwpClWfHp+7YlVLuM3CnXVT49YJg2JheQtukZxfZL8BzM3ayjlkkK8kB6f5DKNqWCqpXjV41ryZ3LFcRy95tGUCM2TTcJH/jkFU7GxPhhDkqkYP5hXassSLegilqLLGLO2IpzsgI3R/LIS7vD04oLcgwwkut9s7p5Jm6Rj8ZP7q8oR69rn07PjcMN9lpUyxgKBGOiLzsGW1zuDLXhGjuJCTdJhhFWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8iLXANqp5GLRVSl9BAqSbFY/ygfcL5MH5h+BFeV7LU0=;
- b=k2f3kbHtRb02bR4TjQFOUD3bzyXeWkjwoAYM+xapdIeVRccHzTWLpIZxh9bxTRA8WK6Zffi9dXJkKUXjLeC4xIKCB8UFoJ1DBhQfi6qedpHI39FrPoD7BtCEXVdWfgU+BBj/bwrmyPNuRDpneFY04OEMb9vFIXVk50t5D+A8yf8ZT+HFNTGb3Nz9u5lt7VsoFhSN6Ue1F/F+vKaYDmGL6ZvDnaBGc/KdEoDYOtTF0WkGo0dDVA6ARCzsSM5bhVUR6Y/qRhwdx09VR8pggD3t0PPi1OHllBjf1jllsy3v7I3F/8iAxfZ/uDK5Hn0Q42jeYTZFGseHtELCmxXUaTj3tQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8iLXANqp5GLRVSl9BAqSbFY/ygfcL5MH5h+BFeV7LU0=;
- b=EfpIkGUyJBgWAdw7m/CgvvoOgWlmr8l5mvINB0LkvSF6xUbuzebvR5GkR8dWyPvqWNngvpxgbNUd9tckRAaD6VT8Kxe3QKMKBsHdk09wN55ufnUGJRnB0bFjEd2j/REyOlAk5iI/j1N4c4IFqF/IrP00ri6ezqDSQkRbKO7ncWEcOQar5twpoo+uc5NpOh4WfvfLWABHunSqizf9XYaO8/i3j5aBmolNQ+sfy6J+YBeG60LA2YGFEnjJofpR8I/edjCHNuvZlsoTy7CAzodDcvXFMW0eqy1rBNYyJJtAWG0pnxTPe6XJX/77noMVrPIidMAwbOTAWJfXVi3+5VDF3A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AS5PR04MB9970.eurprd04.prod.outlook.com (2603:10a6:20b:67e::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.19; Tue, 28 Oct
- 2025 15:46:06 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.011; Tue, 28 Oct 2025
- 15:46:06 +0000
-Date: Tue, 28 Oct 2025 11:45:54 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Sakari Ailus <sakari.ailus@iki.fi>, Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-staging@lists.linux.dev, Luis Oliveira <lolivei@synopsys.com>
-Subject: Re: [PATCH v3 01/31] dt-bindings: media: add DW MIPI CSI-2 Host
- support
-Message-ID: <aQDlMpKgRkeSIx0y@lizhi-Precision-Tower-5810>
-References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
- <20250821-95_cam-v3-1-c9286fbb34b9@nxp.com>
- <aP8t3YClrZxOnHea@valkosipuli.retiisi.eu>
- <aP+enPOHPkvZAkzS@lizhi-Precision-Tower-5810>
- <aP_bSQUIle_9-L-7@valkosipuli.retiisi.eu>
- <aP/ehdkppeVr5G6H@lizhi-Precision-Tower-5810>
- <20251028082753.GZ13023@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251028082753.GZ13023@pendragon.ideasonboard.com>
-X-ClientProxiedBy: BY3PR04CA0008.namprd04.prod.outlook.com
- (2603:10b6:a03:217::13) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	id 1vDlwZ-0000000GEZ6-1uno;
+	Tue, 28 Oct 2025 15:49:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761666542;
+	bh=l01DKyQC0PTsXWdnuRqRYStmYUw5jCENSutaJBHzE1Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jBQ1AbYA8Hvuh8VixD34dl3PERXuemF+curQiifdvo7E2Yx+kFJnyS49M9wpUHiqE
+	 ZSXiGMYstHG1FIOoEUY5wm0g+vMu6hKIX2s1S9MqxDPcPPvm5+IxyoxxhDpTbkPYxe
+	 fWWK0I05WsvO1/FQ4sq8g0oDs9e3eZHesjRobm8MmWBXh2yWMZPRk965MM1bXR3dk3
+	 z51lD8BxuujfpF6YfKqGkZ2GfwG3g3Oq7l3KpKWKR7E25xYTOkAWFBoc3XzFLSHLC5
+	 mysKNSuUG/BTjC0yOJpfAv2uP8obFVYDhADKN7ScepCor6ToSIENBoesh9shk6rh33
+	 MOGPFTDxhCd5g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5D70F17E1276;
+	Tue, 28 Oct 2025 16:49:01 +0100 (CET)
+Message-ID: <51af30ea-dce9-49b8-a5e1-0ee8e9644879@collabora.com>
+Date: Tue, 28 Oct 2025 16:49:00 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS5PR04MB9970:EE_
-X-MS-Office365-Filtering-Correlation-Id: b6268eb5-935a-4739-4c40-08de16391b7f
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9jsCGDRgqJHodEj/bKwa+HqwkBGnOUydEnefeQyZi8OKThAZJF26tilwzIBd?=
- =?us-ascii?Q?7C/B9y0X7FhL573SyP5276UBauHmIv2UFdb6HuTCUqr+maRY4Arbwn727j8p?=
- =?us-ascii?Q?6vCvyvMRr9y4r0aa677PUQHJ9NBaR0oqYnYDrUHQsDP34gSKDWN3KyONmpVu?=
- =?us-ascii?Q?MRUFFahMF4maF2o4MRP8ZEylrHJDBtEwLLHUZbrqYStslUxqFGisahGElayu?=
- =?us-ascii?Q?vS47Dpk+ToCj/vh19KfSynaAEj995YUxpbYAzcUumFxQchccGB3Po+86dT1n?=
- =?us-ascii?Q?ZLy8D61D40HkJnQ9Q9qp+8C1ZHOCju67uqOP5okB91GdhKxTIM/dvKcL0P9P?=
- =?us-ascii?Q?3kYcUWdC5DByidH0I57xtXKc9Z2A+oFGdtTVU/xw3c4cIQCPPH+Kq+flskE7?=
- =?us-ascii?Q?KN73xSqS5Asu8RWrLmdVrYAFBWYbvnxhzEgLILejgNcuoVKAujT/qndWfuCT?=
- =?us-ascii?Q?/ugp+fHRF6wcxtF1AdCTs8di1c4jZQZadjDsYkDRHlqp2t7HiHNh032tN9f5?=
- =?us-ascii?Q?QCEmPhYcUlLxRef80u4yQ9OLEehpr76wAI5wrBjzvyVxtWKSapO6AGvShQVQ?=
- =?us-ascii?Q?D32eTyDn7lqN9ancOLQ+ekc7w16VmoudEG7NzuJ+qZsBcWPDdKK65AP8gnc1?=
- =?us-ascii?Q?zT8evGX+oS1xSv/xlSEJtzsOgDk4giYbscfYpDzWHEEot31lxK9KOpd9DzPt?=
- =?us-ascii?Q?Z5lbJJ0SgYZe9/UibaxkZPgMX6Y1P34tXjjCHglQmR87xLf6ofaBC0v4KqPS?=
- =?us-ascii?Q?CkTLtO+1ejzLQn7m+1dCupMUpXLOTnvnHywVKl0wuMYVC+Q8qR41umONSWH0?=
- =?us-ascii?Q?px8f5D9KGRhlAkVCTjJNUg/NfZtNtz5/A5FC944FqBFTUNGzwtS3R6qjVReQ?=
- =?us-ascii?Q?dPsq5yi9hLEoAIvxVusiL0LjA1vFu6ItgAgCqHckGeVX1kgqRntMtbfsPOYy?=
- =?us-ascii?Q?XDoa8V8lmk+1M7oDOWZz48LwP3jobG+iH9PDDfuaWBXB/cplHsQCgE8zTNBh?=
- =?us-ascii?Q?F+kLZRyQ4v32jkwD11cMIKVbYU3BT10ECMerUoiO90mnt3OHOHw9rr6+eW5T?=
- =?us-ascii?Q?vfLr1jrl3d2p8OkRJ7fKaT/cSGO0uGF+bUQaW0LwCJW7Dr+l4ISL6uJ+u6Sl?=
- =?us-ascii?Q?3YUcAq5ZWTvhLE9Lkl4PtIp9+pTTCyeLohAudWdpJpkr99LEqe8/V2SeeAQN?=
- =?us-ascii?Q?hMG6AXiPD2lFv4WGJJjhItgsJKtVbiRu3jKXzTtfpNICVHRAEp14m9j9YRgf?=
- =?us-ascii?Q?ksciI9ZNQaJQTmN4WjqRDetUCWEukxRxOYDC6OCadNvCayt0dqHPbpUCPHdd?=
- =?us-ascii?Q?T/Ic7PYxv8b2dvDICg5WwErYk8DCzBse+xRg5DnbmsoGNnl3WHvXUSFuciTO?=
- =?us-ascii?Q?fIsb/YErz/hWYRkVSIOmlAfYzX6WKPmGibeJxzjQiJyaXpighECKSVzcw9pn?=
- =?us-ascii?Q?KQaSbnEvPwniojw44QYhDJRUYKdFo5r/4/QIbX1BnYa4W4kb6yc42w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O5j522nm/9kSQ4nT0squtWAP+05jH2J9D4m9g2NmuJFrbvvQJMax8IT8FYKC?=
- =?us-ascii?Q?mgzjqI6jZkBT8K6UW/gsZulSyvIapJguZZH6LIdu/aHTFsxo6cJ3NS7cgYpK?=
- =?us-ascii?Q?0XvuOVpT10baQaHAnxNw6mbEsLJx6UhXLZ7xf9bXKK3NaBmmO766oWw5Bqa2?=
- =?us-ascii?Q?mz4enPCkE9YaivfzizV31NF8ZNOSVgcc8FDEzgKIB6ibwguoecOrjE068A8Q?=
- =?us-ascii?Q?arihS0lrictePFU+ogX+2zGCyC8oGtIdGk/cbeLmGgfnW2WW8DWNRB7h6YWv?=
- =?us-ascii?Q?A+vvEyyzS5ABjvgsN9AO1oMC2lUShzYppbMEnKHQsdz2VbW7AzXwkDw/ELs8?=
- =?us-ascii?Q?yvvd0qGXmrquaT9CKwI27Ahk1RQAp3VBjoxyGlwaKX5QaVBgVpNQwIS8x/1Y?=
- =?us-ascii?Q?wH6kb8aB8xNyXOdS/LeU73PC7IDSirblDzrmdWq1010PKqK3lwbNzqcHxSgv?=
- =?us-ascii?Q?r5M8wav9DbwDPeYHNBuJNLCyy9J3n5T6x7i7m5IUkjrzwmMi2Yd6SyscF9PM?=
- =?us-ascii?Q?ayNXCp7jtBH3/lTmvPWpV04GG7poVbjwmnm5YEOe/6x1lJ7QIHtCXgoFuqsE?=
- =?us-ascii?Q?DbF8PwNNXonEos1McD3zVhw83/wKPKgbfOzvcORul/ZUogIWuyHVGWBhRu1T?=
- =?us-ascii?Q?yM6ghyL8hUhUKIxjE9tfKtuAHEaBU9zcC6XqWnS+6M9SnRVnPyDvwhyqeG9W?=
- =?us-ascii?Q?IOLXYrsUq/x3tn187EJlKkVRc/mR9ZbIV1YSbm9r8WUqkR8zXPQmuUTCD1vQ?=
- =?us-ascii?Q?Ey3ctygJDTkU21j5E9W4gHzBhyybsr9q54Vx4gT3WaTEFwBIyJJz0tRAfc6t?=
- =?us-ascii?Q?KG/xsl/Jf7faSQ+d7Ri9OhTa7MaLat5cg7Bvs9BhZ/4OGNfsVqoNkI1kHuWQ?=
- =?us-ascii?Q?2stdTfrUetL6qG9RSnD58xJxt5jbim/q/k03FRsgwGeuXBZGL1rSF4eXLvW/?=
- =?us-ascii?Q?k5sAKwb4wbwT8LB8EerM1MY067RNNKEVC1c780iWmbKrlYM4FOZXM0Q4rFS4?=
- =?us-ascii?Q?NJ9B1zbaRHEGpDt8ad++CJd5FfufOgOzvwHOzaqL/UIy0Ggc0xJGNjJR8O68?=
- =?us-ascii?Q?p05QReRViB+hMwxbUmsQRaxS4rS4CO85hRTY5W+QgGM8O53CNII5XLN0vxa0?=
- =?us-ascii?Q?DPItr+t9yvh7tbl6GOI6+u+IyzAZDpqxswOtblOMAvezJPJ7v1bmp76uUOSm?=
- =?us-ascii?Q?w9VJgGBDOE/eiEJ8CAI1V6baihf/yBaQRb6SXYskjN5YJj2y5/FhbnH3DYST?=
- =?us-ascii?Q?47yIvfQDgr2w/WFxgcv7wcfmYy4wnf2Zua3vS1Mj5QuRTECob1zrTffD62vL?=
- =?us-ascii?Q?AGxYx/yX8Ouvp8TU2QqAS9egC/Are2COOTaKDL9ZQ2UY+L8EfmqwoS71r99o?=
- =?us-ascii?Q?b0TDSzSApOwr4xYhjPBHSvgMa89WyGeNAu4f/xOo5+HntIx9OeayLTLlhuwK?=
- =?us-ascii?Q?/ezWxiFyfOmsu6VZpSCWfyebwkHuFIPQbSCFDf45dVku1TyMem/s63/kyN1p?=
- =?us-ascii?Q?G2Q3Kx/W4fElw2wOHgJQSNZeH0TlNrnNYwZIPOriW1+IhaWpFDpXE5s5ZUOA?=
- =?us-ascii?Q?/W56W9dpir6kqfU7ow4=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b6268eb5-935a-4739-4c40-08de16391b7f
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 15:46:06.5688
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NlDLsZW3iZzUIT893GQG18JegW7e2NfAe4SxswNVno3NGMtPRhZy3rRLpQm1Chp/UUk5ksFOOV6C+QENWN6d0w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9970
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] drm/mediatek: mtk_disp_rdma: Enable/disable interrupt
+ on bind/unbind
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: Alexandre Mergnat <amergnat@baylibre.com>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "dmitry.osipenko@collabora.com" <dmitry.osipenko@collabora.com>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "djkurtz@chromium.org" <djkurtz@chromium.org>,
+ "granquet@baylibre.com" <granquet@baylibre.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ =?UTF-8?B?QmliYnkgSHNpZWggKOisnea/n+mBoCk=?= <Bibby.Hsieh@mediatek.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "littlecvr@chromium.org" <littlecvr@chromium.org>,
+ =?UTF-8?B?UmV4LUJDIENoZW4gKOmZs+afj+i+sCk=?= <Rex-BC.Chen@mediatek.com>
+References: <20250924103708.19071-1-angelogioacchino.delregno@collabora.com>
+ <20250924103708.19071-4-angelogioacchino.delregno@collabora.com>
+ <fb2c7169b3c3e2e376ee0b092699735dc38bcbb6.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <fb2c7169b3c3e2e376ee0b092699735dc38bcbb6.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_084610_629256_1E7CADCA 
-X-CRM114-Status: GOOD (  32.92  )
+X-CRM114-CacheID: sfid-20251028_084907_866344_0551379C 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,173 +93,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025 at 10:27:53AM +0200, Laurent Pinchart wrote:
-> On Mon, Oct 27, 2025 at 05:05:09PM -0400, Frank Li wrote:
-> > On Mon, Oct 27, 2025 at 10:51:21PM +0200, Sakari Ailus wrote:
-> > > On Mon, Oct 27, 2025 at 12:32:28PM -0400, Frank Li wrote:
-> > > > On Mon, Oct 27, 2025 at 10:31:25AM +0200, Sakari Ailus wrote:
-> > > > > On Thu, Aug 21, 2025 at 04:15:36PM -0400, Frank Li wrote:
-> > > > > > From: Eugen Hristev <eugen.hristev@linaro.org>
-> > > > > >
-> > > > > > Add bindings for Synopsys DesignWare MIPI CSI-2 host, which used at i.MX93
-> > > > > > and i.MX95 platform.
-> > > > > >
-> > > > > > Signed-off-by: Luis Oliveira <lolivei@synopsys.com>
-> > > > > > Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
-> > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > > ---
-> > > > > > Change in v3
-> > > > > > - drop remote-endpoint: true
-> > > > > > - drop clock-lanes
-> > > > > >
-> > > > > > Change in v2
-> > > > > > - remove Eugen Hristev <eugen.hristev@microchip.com> from mantainer.
-> > > > > > - update ugen Hristev's s-o-b tag to align original author's email address
-> > > > > > - remove single snps,dw-mipi-csi2-v150 compatible string
-> > > > > > - move additionalProperties after required
-> > > > > > ---
-> > > > > >  .../bindings/media/snps,dw-mipi-csi2-v150.yaml     | 151 +++++++++++++++++++++
-> > > > > >  MAINTAINERS                                        |   1 +
-> > > > > >  2 files changed, 152 insertions(+)
-> > > > > >
-> > > > > > diff --git a/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
-> > > > > > new file mode 100644
-> > > > > > index 0000000000000000000000000000000000000000..d950daa4ee9cfd504ef84b83271b2a1b710ffd6b
-> > > > > > --- /dev/null
-> > > > > > +++ b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
-> > > > > > @@ -0,0 +1,151 @@
-> > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > +%YAML 1.2
-> > > > > > +---
-> > > > > > +$id: http://devicetree.org/schemas/media/snps,dw-mipi-csi2-v150.yaml#
-> > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > > +
-> > > > > > +title: Synopsys DesignWare CSI-2 Host controller (csi2host)
-> > > > > > +
-> > > > > > +maintainers:
-> > > > > > +  - Frank Li <Frank.Li@nxp.com>
-> > > > > > +
-> > > > > > +description:
-> > > > > > +  CSI2HOST is used to receive image coming from an MIPI CSI-2 compatible
-> > > > > > +  camera. It will convert the incoming CSI-2 stream into a dedicated
-> > > > > > +  interface called the Synopsys IDI (Image Data Interface).
-> > > > > > +  This interface is a 32-bit SoC internal only, and can be assimilated
-> > > > > > +  with a CSI-2 interface.
-> > > > > > +
-> > > > > > +properties:
-> > > > > > +  compatible:
-> > > > > > +    items:
-> > > > > > +      - enum:
-> > > > > > +          - fsl,imx93-mipi-csi2
-> > > > > > +      - const: snps,dw-mipi-csi2-v150
-> > > > > > +
-> > > > > > +  reg:
-> > > > > > +    items:
-> > > > > > +      - description: MIPI CSI-2 core register
-> > > > > > +
-> > > > > > +  reg-names:
-> > > > > > +    items:
-> > > > > > +      - const: core
-> > > > > > +
-> > > > > > +  clocks:
-> > > > > > +    maxItems: 2
-> > > > > > +
-> > > > > > +  clock-names:
-> > > > > > +    items:
-> > > > > > +      - const: per
-> > > > > > +      - const: pixel
-> > > > > > +
-> > > > > > +  phys:
-> > > > > > +    maxItems: 1
-> > > > > > +    description: MIPI D-PHY
-> > > > > > +
-> > > > > > +  phy-names:
-> > > > > > +    items:
-> > > > > > +      - const: rx
-> > > > > > +
-> > > > > > +  resets:
-> > > > > > +    maxItems: 1
-> > > > > > +
-> > > > > > +  interrupts:
-> > > > > > +    maxItems: 1
-> > > > > > +
-> > > > > > +  power-domains:
-> > > > > > +    maxItems: 1
-> > > > > > +
-> > > > > > +  ports:
-> > > > > > +    $ref: /schemas/graph.yaml#/properties/ports
-> > > > > > +
-> > > > > > +    properties:
-> > > > > > +      port@0:
-> > > > > > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > > > > > +        unevaluatedProperties: false
-> > > > > > +        description:
-> > > > > > +          Input port node, single endpoint describing the input port.
-> > > > > > +
-> > > > > > +        properties:
-> > > > > > +          endpoint:
-> > > > > > +            $ref: video-interfaces.yaml#
-> > > > > > +            unevaluatedProperties: false
-> > > > > > +            description: Endpoint connected to input device
-> > > > > > +
-> > > > > > +            properties:
-> > > > > > +              bus-type:
-> > > > > > +                const: 4
-> > > > >
-> > > > > If 4 is the only value supported, you can drop the property altogether.
-> > > >
-> > > > Sorry, What's your means here? There are more options in video-interfaces.yaml.
-> > > > here just add restriction for bus-type. otherwise other value can be
-> > > > provide in dts file.
-> > >
-> > > It could, but wouldn't any other value be incorrect?
-> >
-> > at least that 5 # Parallel doesn't make sense for CSI2's input.
->
-> The point is that, if the only valid value is CSI-2 DPHY (4), then
-> there's no need to specify it in DT. The driver would know the input bus
-> is CSI-2 DPHY, so there's no need to convey that information in the
-> device tree.
+Il 28/10/25 10:49, CK Hu (胡俊光) ha scritto:
+> On Wed, 2025-09-24 at 12:37 +0200, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>
+>>
+>> The RDMA driver is installing an ISR in the probe function but, if
+>> the component is not bound yet, the interrupt handler may call the
+>> vblank_cb ahead of time (while probing other drivers) or too late
+>> (while removing other drivers), possibly accessing memory that it
+>> should not try to access by reusing stale pointers.
+>>
+>> In order to fix this, like done in the OVL driver, add a new `irq`
+>> member to struct mtk_disp_ovl and then set the NOAUTOEN flag to
+>> the irq before installing the ISR to manually disable and clear
+>> the hwirqs with register writes, and enable_irq() and disable_irq()
+>> in the bind and unbind callbacks respectively.
+>>
+>> Fixes: 119f5173628a ("drm/mediatek: Add DRM Driver for Mediatek SoC MT8173.")
+>> Link: https://lore.kernel.org/r/20250402083628.20111-6-angelogioacchino.delregno@collabora.com
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/mtk_disp_rdma.c | 34 ++++++++++++++----------
+>>   1 file changed, 20 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_rdma.c b/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
+>> index c9d41d75e7f2..9fd9bb1ee544 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
+>> @@ -81,6 +81,7 @@ struct mtk_disp_rdma_data {
+>>   struct mtk_disp_rdma {
+>>          struct clk                      *clk;
+>>          void __iomem                    *regs;
+>> +       int                             irq;
+>>          struct cmdq_client_reg          cmdq_reg;
+>>          const struct mtk_disp_rdma_data *data;
+>>          void                            (*vblank_cb)(void *data);
+>> @@ -295,13 +296,23 @@ void mtk_rdma_layer_config(struct device *dev, unsigned int idx,
+>>   static int mtk_disp_rdma_bind(struct device *dev, struct device *master,
+>>                                void *data)
+>>   {
+>> -       return 0;
+>> +       struct mtk_disp_rdma *priv = dev_get_drvdata(dev);
+>> +
+>> +       /* Disable and clear pending interrupts */
+>> +       writel(0x0, priv->regs + DISP_REG_RDMA_INT_ENABLE);
+>> +       writel(0x0, priv->regs + DISP_REG_RDMA_INT_STATUS);
+>> +
+>> +       enable_irq(priv->irq);
+>>
+>> +       return 0;
+>>   }
+>>
+>>   static void mtk_disp_rdma_unbind(struct device *dev, struct device *master,
+>>                                   void *data)
+>>   {
+>> +       struct mtk_disp_rdma *priv = dev_get_drvdata(dev);
+>> +
+>> +       disable_irq(priv->irq);
+>>   }
+>>
+>>   static const struct component_ops mtk_disp_rdma_component_ops = {
+>> @@ -313,16 +324,15 @@ static int mtk_disp_rdma_probe(struct platform_device *pdev)
+>>   {
+>>          struct device *dev = &pdev->dev;
+>>          struct mtk_disp_rdma *priv;
+>> -       int irq;
+>>          int ret;
+>>
+>>          priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+>>          if (!priv)
+>>                  return -ENOMEM;
+>>
+>> -       irq = platform_get_irq(pdev, 0);
+>> -       if (irq < 0)
+>> -               return irq;
+>> +       priv->irq = platform_get_irq(pdev, 0);
+>> +       if (priv->irq < 0)
+>> +               return priv->irq;
+>>
+>>          priv->clk = devm_clk_get(dev, NULL);
+>>          if (IS_ERR(priv->clk))
+>> @@ -345,21 +355,17 @@ static int mtk_disp_rdma_probe(struct platform_device *pdev)
+>>          if (ret && (ret != -EINVAL))
+>>                  return dev_err_probe(dev, ret, "Failed to get rdma fifo size\n");
+>>
+>> -       /* Disable and clear pending interrupts */
+>> -       writel(0x0, priv->regs + DISP_REG_RDMA_INT_ENABLE);
+>> -       writel(0x0, priv->regs + DISP_REG_RDMA_INT_STATUS);
+> 
+> Pending interrupt is cleared here, and interrupt is disabled here.
+> So the problem you mention would not happen.
+> 
 
-Make sense.
+When unbinding the component, the interrupt is not cleared nor disabled.
 
-Frank
->
-> > > In other words, this property is redundant and should be dropped.
-> > >
-> > > > > > +
-> > > > > > +              data-lanes:
-> > > > > > +                minItems: 1
-> > > > > > +                maxItems: 4
-> > > > > > +                items:
-> > > > > > +                  maximum: 4
-> > > > > > +
-> > > > > > +      port@1:
-> > > > > > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > > > > > +        unevaluatedProperties: false
-> > > > > > +        description:
-> > > > > > +          Output port node, single endpoint describing the output port.
-> > > > > > +
-> > > > > > +        properties:
-> > > > > > +          endpoint:
-> > > > > > +            unevaluatedProperties: false
-> > > > > > +            $ref: video-interfaces.yaml#
-> > > > > > +            description: Endpoint connected to output device
-> > > > > > +
-> > > > > > +            properties:
-> > > > > > +              bus-type:
-> > > > > > +                const: 4
-> > > > >
-> > > > > Are both input and output of this block CSI-2 with D-PHY?
-> > > >
-> > > > Yes, input from camera sensor, output to others image processors to do data
-> > > > transfer or format convert.
-> > >
-> > > The description appears to be saying this is "Synopsys IDI", not CSI-2 with
-> > > D-PHY. We don't have a bus-type for IDI. Couldn't you simply drop it?
->
-> --
+If there is any pending interrupt while unbinding (or if the HW raises an interrupt
+after rdma gets unbound) the ISR will produce a use-after-free issue.
+
+I wrote this after experiencing the issue that I described in the commit message,
+didn't just go and casually write code.
+
+I also want to remind you that use-after-free may also be a security concern.
+
+Regards,
+Angelo
+
 > Regards,
->
-> Laurent Pinchart
+> CK
+> 
+>> -
+>> -       ret = devm_request_irq(dev, irq, mtk_disp_rdma_irq_handler,
+>> -                              IRQF_TRIGGER_NONE, dev_name(dev), priv);
+>> -       if (ret < 0)
+>> -               return dev_err_probe(dev, ret, "Failed to request irq %d\n", irq);
+>> -
+>>          priv->data = of_device_get_match_data(dev);
+>>
+>>          platform_set_drvdata(pdev, priv);
+>>
+>>          pm_runtime_enable(dev);
+>>
+>> +       ret = devm_request_irq(dev, priv->irq, mtk_disp_rdma_irq_handler,
+>> +                              IRQF_NO_AUTOEN, dev_name(dev), priv);
+>> +       if (ret < 0)
+>> +               return dev_err_probe(dev, ret, "Failed to request irq %d\n", priv->irq);
+>> +
+>>          ret = component_add(dev, &mtk_disp_rdma_component_ops);
+>>          if (ret) {
+>>                  pm_runtime_disable(dev);
+>> --
+>> 2.51.0
+>>
+>>
+> 
+
+
 
