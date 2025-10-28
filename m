@@ -4,130 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F8DCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB1BCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5Iejxv9Gr2idrK8Z1eYw0jd3gqjl02BkBgc+md6e5+0=; b=GI9/QHUAaePIsNsFsJnwXrlepJ
-	0BEl84S/+A285zRf/tjWJDvs5wr++VbDW8QuRKdO0J7LTv6mNBmIYvUo9Z5Mg1QHj2XEo4A4hc4x5
-	MoznUZ/SR1NEzMpWQ+qGhb68CFYYHjEDBD4jO9Fp+/nawHBNf/LVGRljGSjvTkEiOaUSfEX3TLEjs
-	HrfUaLWABtBD4rN6SVQF7WMITs2TgGH4lc+Vue3LR0bQzaqgj9EJrVImQzWOtMC/AtwZFR8BgA4F1
-	YK7jZ/1RDQ7Is9co3gnAwdwGk5kHqsZtPFBgjMUoyS65afDKYQvgincY9SjzgzKL33zbkIoFcO7NW
-	6FVAs1+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/bwZX8NaNeCjNz5xtFo8tTrg/X/6uhvhX7RQ2Ckv/pw=; b=zLVeI+blx32UujbGc4LkjMIQcb
+	IjulVSYPYaLHmveV+Iek5KODRA6KVZ14SBXTk4iRgDrHuN5mwZV1ZOJXU40/scdMby8Nuf+E5QenZ
+	zgVWa5HI6e9mM2F7taM25R1AXBVN+tTkaqG2fbCfGn4ixUxveOj8w3xLosngIjCkdAPSSeYfH/2RT
+	+SqRLh2DxE3VpTY81/mvjYjaSXEW3WX2N8lhYmtof81V1v7diaPDcmvGdlPLMTyrbO6dlzin3cZ1c
+	pdnyZf7DmuKPSak8aBUtm7EIFNl7SgDbjrhrwPO5e3DCQumITph6qmvXjzj6+Jbqk8d5AdnxtHNxi
+	wqSJ6Pfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDcxx-0000000FJsw-0dPv;
-	Tue, 28 Oct 2025 06:13:57 +0000
-Received: from mail-japanwestazon11022106.outbound.protection.outlook.com ([40.107.75.106] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vDd8j-0000000FKd4-2R3y;
+	Tue, 28 Oct 2025 06:25:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDcxv-0000000FJsX-23aL
+	id 1vDd8i-0000000FKch-0RUV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 28 Oct 2025 06:25:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=/bwZX8NaNeCjNz5xtFo8tTrg/X/6uhvhX7RQ2Ckv/pw=; b=ThYk1SdlSwM9d3SOrAx1dx2AkX
+	dKOx8QObyTRtTewPaDW08N6QG2VfJYjStlfUz4K4b/hn2EGQgCrTEYvFodBrxKombPVLgPEVMBBI9
+	wZw1fkLn2sZD9c8Yl4O2Oj1Rg/KFhfhXCNNcvYvSiX2qEVpRIakPIyldA0FvFHCiVoZdBTF+Y86EE
+	X7HdSwuBV4Ln9ot54Hu0v4hAPQVTv+Gj0S3soqsd67M4zkcpub+11lM3vDy+7t/5LJWNv4BL+4o5d
+	qs5u335mf1JMa7Kq0nZX1b/7GDsqej0Bk1yLeQtI3C6rZdfJ0wver/sj9QdjUZl2VqTb7xMtp0HaE
+	XaLe5ihQ==;
+Received: from cp2.siel.si ([46.19.12.180])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDcGr-00000003jLr-2sy0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 06:13:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m5Bq51TQVWZ21n/+8Tv/BwWi/C/5IxKqq+NHGsMU0aIa2iJ0T5NSyp6X+zOek9eIgGf49vjvPWZ+HUjyhZRpvmSR8CYZ0WCx3P6fr9abZmhSD5fSbbMMECUYzbQxJQPcTXUfAziBM9HBYvkkJbCrJwSnzKLT0gdZhujqfXD/A6oJJnObuZ/xZr6t0EnozGZaVZtv0V4RJWvVIMJNKTt/ZfxSuIrmg+cJL89pHur6i1ZW8lw22vALQ8ViO2WStxP3qRUGtVjGcyO8zQNhbcVrk0LFP0K1SZbeSrLDCX5sxVjmh+6Haq5w4K1UoQifISoaQh4ArLiv5QvoPNBcPwKAEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5Iejxv9Gr2idrK8Z1eYw0jd3gqjl02BkBgc+md6e5+0=;
- b=mwilTIO8L+AOJiLx2715yOcfLJWHCGzk9/sXl74beUuvGJetZj7ODt4MtMUp+VGTYUbMQ27523cyn3T53CDVa+VQ4YVZYjT7q5hj3tXN8Xq+6CL/qw3748iYhs+r3sw1TUveVv6NPdWRe105avLUFKauenmyDKdrhMZ0bkYgbBy1y0l3ZcEnfw1QP6dmzr8DZx9eVCDnd9kTsJWG1qUm+yOWsBxuCRqdErZO2k6bTnK2x+GY+kEo2eX+1cFzTXhOnIFLB4cxAhxtWjjq7cy8O15sXs4I2wf1Q5D80CYiJ46REHfNcdjlDxIN0isfq4Bj4DM3TqIoiCqQ7z6i6FBSOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=canb.auug.org.au smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR04CA0171.apcprd04.prod.outlook.com (2603:1096:4::33) by
- SEYPR06MB7995.apcprd06.prod.outlook.com (2603:1096:101:2d0::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.18; Tue, 28 Oct 2025 06:13:48 +0000
-Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
- (2603:1096:4:0:cafe::4a) by SG2PR04CA0171.outlook.office365.com
- (2603:1096:4::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.19 via Frontend Transport; Tue,
- 28 Oct 2025 06:13:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Tue, 28 Oct 2025 06:13:46 +0000
-Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8EE2E40A5A13;
-	Tue, 28 Oct 2025 14:13:45 +0800 (CST)
-From: Gary Yang <gary.yang@cixtech.com>
-To: linus.walleij@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	cix-kernel-upstream@cixtech.com,
-	sfr@canb.auug.org.au,
-	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH] Pinctrl: core: export pinctrl_provide_dummies() to fix build error
-Date: Tue, 28 Oct 2025 14:13:45 +0800
-Message-ID: <20251028061345.3885632-1-gary.yang@cixtech.com>
-X-Mailer: git-send-email 2.49.0
+	Tue, 28 Oct 2025 05:29:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/bwZX8NaNeCjNz5xtFo8tTrg/X/6uhvhX7RQ2Ckv/pw=; b=DzpX4aL2ITM/2aTmP4HaOK3Skk
+	wTcJ89CRbii5D/gvPXFoKNH5Ab8K7X8773FNTdXsHUY7Drthck2gkZIFWLJO9pNh+z0wZJZqm4Cuh
+	E3iUhLZiFJQ8xQysNymfEPT96bzPdRhOU0dd3Nuut8Z459Zz0xLn+OQID2z0MtFXFJflKKQXRt3UT
+	M1WxICLWC3tkgyuohcLxdPpSzwLOChJ0inZiXFu1isLMkEWE/D3kN31ytbxWXMiRnMC+RVBwm3s/f
+	Etbagn0/Unb064upBEmBd5HffwW3zmgeZnkLKunyWs6NiF8JmF1UY1Qv+9tB2yobUfGrHssH9SlwT
+	1avj86Ew==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:46904 helo=[192.168.69.116])
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.98.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1vDd7h-00000009FJT-023f;
+	Tue, 28 Oct 2025 07:23:59 +0100
+Message-ID: <658fa62e-cc80-436a-9812-c67b0dc8de03@norik.com>
+Date: Tue, 28 Oct 2025 07:23:57 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SEYPR06MB7995:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: cb72fdf5-c086-4b01-45f0-08de15e9276d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FS1pXUg2YH7OfIjKVnhGVR9rBxQJGeqL6WYxCezMzYYiI/o2PcP4kGXfx6sj?=
- =?us-ascii?Q?v9DM89Cnv6c7qeUNO+mE4wIQUXALYSM25x2r6npVAIUgNftJPslAVbskzPEn?=
- =?us-ascii?Q?vZFDcIXGBJNUTOPymUpd5SW/+bK8hIbfIz/MeLsm5ZO2pVRA12R/bEkJaApI?=
- =?us-ascii?Q?JrLEAM17J1DzMlA4trCdCKTJ4vD/cFCkkBOnhirdHJNDiSmsHWicvn+Vj3JG?=
- =?us-ascii?Q?dg6bT4MdM+cMp84pMPrTgsz7RA/Kxb6exgk9J2b4VL06nSRJYWdPFO9FlEUn?=
- =?us-ascii?Q?0bPoVy4RsW5gN5IAX/DMS4I5yT07nEQwqCLo6kBDBRzJKP5iE72h0XC0LD//?=
- =?us-ascii?Q?Kwu2veKp/iEzbyQbFVYHLPTEKP7H38imSSW+l6SW2BTUASQ+Kh2YHneJrHBj?=
- =?us-ascii?Q?QwLA/y+AYApz2D/FPZz3L/a3vHTiGujLmlTYFMhGQ7rgjGtbKbjypx8HRioV?=
- =?us-ascii?Q?gjLjJrMXfGc+rz4LbSk4kwL9mEXIXxrH5kAhUpAIII4SdO8an8+aDDIYtGwY?=
- =?us-ascii?Q?aKxQExd2mcwokhkZTXpwjzTVexQD5vunho9oFF67GWzbLW2hy3fj8FzmIyL4?=
- =?us-ascii?Q?uL0UUzsUXwD57GU7lF3/YG+n/5G1rHP9gFcxSz+/ydQFl8Tcj1L0aMHXoLT5?=
- =?us-ascii?Q?9gQuUDfoXeq+VB4L7arngZYYGDsuFOyxLO/2YYE3CH914ppnYmNf3aw2YzMI?=
- =?us-ascii?Q?o2HQzsvfI2rNJaX/JaNr0VSNOiUu2zR+H/DZsDmCdtKW4fDYvdbath11lo28?=
- =?us-ascii?Q?ctHi7LZRr/YHn8YFYl9mOAkU655n77lQjiGmY7O1xq5o50hRKikqI1wwYc27?=
- =?us-ascii?Q?8AdOzVPcvVlN2RZ75Ub0a/LOl50FeyMCSxmnDJeOjjWvbFvl+5InK1Ql6ku/?=
- =?us-ascii?Q?6OaCxQc2h+325rF/RlepNjMZaVwQlNIst7TyV7LO85z9j5LgC/663e8MSvDl?=
- =?us-ascii?Q?mOewmOkSKNFITI2NiNKUrP3ine9SWsHCepZ5bplSKTlUWAVVUzrVSQ2p5iSU?=
- =?us-ascii?Q?+KpQS+3tKLvkryTzWaW7Qi2ParYYO2nPMY/ZtfhmKDt8IrfCS2zv7c5mUinZ?=
- =?us-ascii?Q?bsxmUYhCfTqKhFyMRyZ/pk3gR/tO2VbGD74WPbr1bR7FLGO+WJN8OQiDc/qW?=
- =?us-ascii?Q?GcxVME+IPnlgJxpz4WlB2YoridVR8DMr+dYBxTaEDoc6tpMZl++pZUujkLcM?=
- =?us-ascii?Q?GnNejqTQ+74QvJ5tRwMjaUA7ZQI5RVJIxrho3hGSwc1fLDzXukCmtrzqCyK4?=
- =?us-ascii?Q?QJokPJtYF11dsVf27sZgk+gpUe0di62RHn1uOM5d2KrEd2GWruZlzfWJ7NLI?=
- =?us-ascii?Q?Cwp3jpRUt14MmUKh2R0S2m+Z8SrZ0W3tjMWrY6f91JXk+ugMbKgfDqmoYthQ?=
- =?us-ascii?Q?6Zy1KAFcZlPD7MoFet+F0It0leypXuELDFgTuOTD/oq6j6jtWBRlRWsX3Woi?=
- =?us-ascii?Q?2R0zrUtf7iR45G3eQJ+WDDQbntRmUdNtCFOPkvYjAPYPPcMVN5YGrydq+yla?=
- =?us-ascii?Q?GbgubOWcDFtcnBHtpFe8v4TgdEgHEiijYKgj447nWEEXcaZqRWoiw7b1G+yf?=
- =?us-ascii?Q?0FQNU+Fhy4wbk1b05zU=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 06:13:46.4510
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb72fdf5-c086-4b01-45f0-08de15e9276d
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB7995
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: freescale: imx93-phyboard-nash: Add jtag
+ overlay
+To: Frank Li <Frank.li@nxp.com>, Alberto Merciai <alb3rt0.m3rciai@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+References: <20251007084028.1125185-1-primoz.fiser@norik.com>
+ <aPt/d9svTeUIRljW@lizhi-Precision-Tower-5810>
+ <aPuO+FCeeIFv3bQm@alb3rt0-ThinkPad-P15-Gen-1>
+ <aPuvYwwG5N84MwGA@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <aPuvYwwG5N84MwGA@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_231355_532937_2FBE402F 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_052926_064531_C11C0320 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,33 +120,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a pinctrl driver uses pinctrl_provide_dummies() interface, and
+Hi both,
 
-is built as a module, then an error occur as follow:
+On 24. 10. 25 18:54, Frank Li wrote:
+> On Fri, Oct 24, 2025 at 04:36:40PM +0200, Alberto Merciai wrote:
+>> On Fri, Oct 24, 2025 at 09:30:31AM -0400, Frank Li wrote:
+>>> On Tue, Oct 07, 2025 at 10:40:27AM +0200, Primoz Fiser wrote:
+>>>> Add overlay to enable JTAG pins on the board's JTAG (X41) connector.
+>>>>
+>>>> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+>>>> ---
+>>>>  arch/arm64/boot/dts/freescale/Makefile        |  2 ++
+>>>>  .../freescale/imx93-phyboard-nash-jtag.dtso   | 26 +++++++++++++++++++
+>>>>  2 files changed, 28 insertions(+)
+>>>>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+>>>> index 525ef180481d..c72a6fdc5412 100644
+>>>> --- a/arch/arm64/boot/dts/freescale/Makefile
+>>>> +++ b/arch/arm64/boot/dts/freescale/Makefile
+>>>> @@ -356,10 +356,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+>>>>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+>>>>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+>>>>
+>>>> +imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
+>>>>  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+>>>>  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+>>>>  imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+>>>>  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
+>>>> +dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
+>>>>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
+>>>>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+>>>>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+>>>> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
+>>>> new file mode 100644
+>>>> index 000000000000..4744eabf95f3
+>>>> --- /dev/null
+>>>> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
+>>>> @@ -0,0 +1,26 @@
+>>>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>>>> +/*
+>>>> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+>>>> + * Author: Primoz Fiser <primoz.fiser@norik.com>
+>>>> + */
+>>>> +
+>>>> +#include "imx93-pinfunc.h"
+>>>> +
+>>>> +/dts-v1/;
+>>>> +/plugin/;
+>>>> +
+>>>> +&gpio2 {
+>>>> +	pinctrl-names = "default";
+>>>> +	pinctrl-0 = <&pinctrl_jtag>;
+>>>> +};
+>>>
+>>> Use gpio to set pinctrl to no-gpio mode is strange. I am not sure if there
+>>> are better method, but at need comments here to show why have to do that.
+>>>
+>>
+>> In old imx6 platform we use pinctrl_hog for that purpose, is not?
+> 
+> It'd better than gpio, but I am not sure if pinctrl_hog still be supported
+> because I have not seen it for the long time.
+> 
 
-ERROR: modpost: "pinctrl_provide_dummies" [drivers/pinctrl/cix/pinctrl-sky1-base.ko] undefined!
-make[2]: *** [scripts/Makefile.modpost:147: Module.symvers] Error 1
-make[1]: *** [/home/gary/workspace/upstream/kernel_upstream/Makefile:1960: modpost] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+I am OK with both suggestions:
 
-Signed-off-by: Gary Yang <gary.yang@cixtech.com>
----
- drivers/pinctrl/core.c | 1 +
- 1 file changed, 1 insertion(+)
+1) adding an explanation comment
+2) Using pinctrl_hog method
 
-diff --git a/drivers/pinctrl/core.c b/drivers/pinctrl/core.c
-index c5dbf4e9db84..acf4a86fb5cd 100644
---- a/drivers/pinctrl/core.c
-+++ b/drivers/pinctrl/core.c
-@@ -70,6 +70,7 @@ void pinctrl_provide_dummies(void)
- {
- 	pinctrl_dummy_state = true;
- }
-+EXPORT_SYMBOL_GPL(pinctrl_provide_dummies);
- 
- const char *pinctrl_dev_get_name(struct pinctrl_dev *pctldev)
- {
+Personally however, I would prefer method 1) since it would be better in
+this case because base customer dts can already contain default
+pinctrl_hog which would be overwritten by this overlay.
+
+Not that common, but can still happen.
+
+What do you suggest for v2?
+
+BR,
+Primoz
+
+> Frank
+>>
+>>> Frank
+>>>> +
+>>>> +&iomuxc {
+>>>> +	pinctrl_jtag: jtaggrp {
+>>>> +		fsl,pins = <
+>>>> +			MX93_PAD_GPIO_IO24__JTAG_MUX_TDO	0x31e
+>>>> +			MX93_PAD_GPIO_IO25__JTAG_MUX_TCK	0x31e
+>>>> +			MX93_PAD_GPIO_IO26__JTAG_MUX_TDI	0x31e
+>>>> +			MX93_PAD_GPIO_IO27__JTAG_MUX_TMS	0x31e
+>>>> +		>;
+>>>> +	};
+>>>> +};
+>>>> --
+>>>> 2.34.1
+>>>>
+>>>
+
 -- 
-2.49.0
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
 
