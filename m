@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC70CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4C6CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/M/jMwPlbBN6qYrgDuj/YgdYHhhq/RJErSe+NmtVYeE=; b=SUzqxwFoaC42KE9aeHsI79EMoO
-	z+/oLLa+821hruNqsYIX+yktkb9sJCte7t6c4o9m4CYRDWhD2fWHcH4A5vMqC5+woKkL+ah0yQ4if
-	utWfRs1CaHCgbsOLyal1ngr9U8Gw/uoCte+nAv4ml7CTh6FRAnHVnmusdE7/FeqFDw/JK6HD66gcM
-	MHBqc6428lFZpkSGVw571sOaEcV97F7cCIStw1Yb4vxDTzMP5Ns/9/K2LB5wZfKrnBxA180PnGUE+
-	MB+jM5m+bE0hCeFRh/xzUaLYKftB78a5wPtJvzlSrzQZns4AqLbzriZ2lIm42RpqJ8priAt09ycD/
-	Ygd6aVLQ==;
+	bh=WHT5aJzkY83/xR8KEjHxLalZD9CDZAzX9GTwaJs76KY=; b=EwDMV6ztFyrC6f489/O21vcNAv
+	yIBAW1j3b/MHf7UV0fCmi4b9d0vjdcxxd73w/OSgWV0SvXs+jRimiTkBsoYSYixC6EZJxgHFTDp/G
+	XpJnD2e8CsISpEkfIUiXwXHnq+WX0eQZ60bgEN34H0L9WFVTju39U3a3NkabH745QwPtVR8b8ueXL
+	XvAIKhIqT4L5+BvaUv3YaqE9LSSG0/MKtTk71FND3NiblKszFMvIIlceWzAdcywYD2fZEUninMDaY
+	7sLDYM5wf3sDsO1rv7G8c97ZUbkkbd1pDUwFvqOSrGPVWNZSSKwZQL+ZapQkuRbQmMRBdbumbeWi+
+	ghRLAGsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeG3-0000000FR3t-29BR;
-	Tue, 28 Oct 2025 07:36:43 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vDeGA-0000000FRC8-2LvA;
+	Tue, 28 Oct 2025 07:36:50 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeFf-0000000FQbF-3MRI
+	id 1vDeFi-0000000FQeo-1FW2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 07:36:22 +0000
+	Tue, 28 Oct 2025 07:36:24 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 5B6794E41391;
-	Tue, 28 Oct 2025 07:36:18 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6C1E6C0BE9B;
+	Tue, 28 Oct 2025 07:36:00 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3117B606AB;
-	Tue, 28 Oct 2025 07:36:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 666E4102F251E;
-	Tue, 28 Oct 2025 08:36:15 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A460C606AB;
+	Tue, 28 Oct 2025 07:36:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7C20B102F2520;
+	Tue, 28 Oct 2025 08:36:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761636977; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1761636979; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=/M/jMwPlbBN6qYrgDuj/YgdYHhhq/RJErSe+NmtVYeE=;
-	b=gwLIEl3qhp1vCUnO5dzy1L2S3p9jLXPFjc7T2ARYJMU3MSMYoBup16Kv56U0uwwlR7qmnV
-	4l8+FPG5VeKwPLEA4zkB36fgB7c8niHcuNDhpzWH9tKF2nHyzVQmGohT84T9BzOScjrtns
-	0I1ApR2M4/5QQWw6krRCsZOvsjG1Qb8tAX2X9ois75FX0opbW3jTIdSX0iCoMMfbC5aots
-	dl7dGoUgd4AjI1Oyrjx/MW1upKAyysrPwvlMukDyzIMHWdt9bKTvYzE1hOND2D2NPup8K8
-	Ns6d9scVKG4Ri7On4l+5qGz6GE8d+1DdHvNX0ThRsY5ZTdHMDhRKkEhCB+AIuQ==
+	bh=WHT5aJzkY83/xR8KEjHxLalZD9CDZAzX9GTwaJs76KY=;
+	b=aTatl4/DUeZ/ETOVmVGskT4/f2W3KOfEAEio9LxG/85xfrnhggo5grwLZrkKOKa3H56O2x
+	flx0cJcUmaE1gm5peOVfCwkzdX1vIIGuSdYGU6B049QSqm4MPSOwsGtXbCiPHze1yIDZPG
+	wKzAzDlG+0MJ2rYOuEKLNyMxTiD3sLitBVDf4lNYokqUtJQA2xDE1TTGRxcaLArQSH1K/B
+	ZOUi8WGyauTiS91D/N6OVP5KCdYtWH/9M3SWbbbTEH2TRnXtUd0u0/EHgeHQX5Xy2tLA74
+	e3MeeeJkAMb6Rw6sP9l1CUTTXsgIr5zQg0ubBmnCcP8TRzBHOxrTyYoqVyqETA==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -65,9 +65,9 @@ Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v4 08/16] mtd: rawnand: sunxi: add has_ecc_block_512 capability
-Date: Tue, 28 Oct 2025 08:35:01 +0100
-Message-ID: <20251028073534.526992-9-richard.genoud@bootlin.com>
+Subject: [PATCH v4 09/16] mtd: rawnand: sunxi: introduce ecc_mode_mask in sunxi_nfc_caps
+Date: Tue, 28 Oct 2025 08:35:02 +0100
+Message-ID: <20251028073534.526992-10-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251028073534.526992-1-richard.genoud@bootlin.com>
 References: <20251028073534.526992-1-richard.genoud@bootlin.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_003619_993949_5AADD3ED 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20251028_003622_677131_C82AC164 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,73 +91,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 controller can't handle 512 bytes ECC block size. The
-NFC_ECC_BLOCK_512 bit disappeared in H6, and NDFC_RANDOM_EN took its
-place.
+The H6/H616 ECC_MODE field is not at the same offset, and has not the
+same size.
+So move the mask into sunxi_nfc_caps.
 
-So, add has_ecc_block_512 capability to only set this bit on SoC having
-it.
+Also, introduce a non compile-time field_prep() because FIELD_PREP()
+doesn't work with non compile-time constant.
+https://lore.kernel.org/all/cover.1761588465.git.geert+renesas@glider.be
 
 No functional change.
 
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 021034a761b7..7976cd862b1b 100644
+index 7976cd862b1b..a16d50a01751 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -233,6 +233,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
-  *
-  * @has_mdma:		Use mbus dma mode, otherwise general dma
-  *			through MBUS on A23/A33 needs extra configuration.
-+ * @has_ecc_block_512:	If the ECC can handle 512B or only 1024B chuncks
-  * @reg_io_data:	I/O data register
+@@ -29,8 +29,9 @@
+ #include <linux/iopoll.h>
+ #include <linux/reset.h>
+ 
+-/* non compile-time field get */
++/* non compile-time field get/prep */
+ #define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
++#define field_prep(_mask, _val) (((_val) << (ffs(_mask) - 1)) & (_mask))
+ 
+ #define NFC_REG_CTL		0x0000
+ #define NFC_REG_ST		0x0004
+@@ -145,8 +146,8 @@
+ #define NFC_ECC_BLOCK_512	BIT(5)
+ #define NFC_RANDOM_EN		BIT(9)
+ #define NFC_RANDOM_DIRECTION	BIT(10)
+-#define NFC_ECC_MODE_MSK	GENMASK(15, 12)
+-#define NFC_ECC_MODE(x)		((x) << 12)
++#define NFC_ECC_MODE_MSK(nfc)	(nfc->caps->ecc_mode_mask)
++#define NFC_ECC_MODE(nfc, x)	field_prep(NFC_ECC_MODE_MSK(nfc), (x))
+ #define NFC_RANDOM_SEED_MSK	GENMASK(30, 16)
+ #define NFC_RANDOM_SEED(x)	((x) << 16)
+ 
+@@ -238,6 +239,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
   * @reg_ecc_err_cnt:	ECC error counter register
   * @reg_user_data:	User data register
-@@ -244,6 +245,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
-  */
- struct sunxi_nfc_caps {
- 	bool has_mdma;
-+	bool has_ecc_block_512;
- 	unsigned int reg_io_data;
+  * @reg_pat_found:	Data Pattern Status Register
++ * @ecc_mode_mask:	ECC_MODE mask in NFC_ECC_CTL register
+  * @pat_found_mask:	ECC_PAT_FOUND mask in NFC_REG_PAT_FOUND register
+  * @dma_maxburst:	DMA maxburst
+  * @ecc_strengths:	Available ECC strengths array
+@@ -250,6 +252,7 @@ struct sunxi_nfc_caps {
  	unsigned int reg_ecc_err_cnt;
  	unsigned int reg_user_data;
-@@ -1758,8 +1760,14 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
- 	sunxi_nand->ecc.ecc_ctl = NFC_ECC_MODE(i) | NFC_ECC_EXCEPTION |
+ 	unsigned int reg_pat_found;
++	unsigned int ecc_mode_mask;
+ 	unsigned int pat_found_mask;
+ 	unsigned int dma_maxburst;
+ 	const u8 *ecc_strengths;
+@@ -1757,7 +1760,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
+ 	ecc->read_oob_raw = nand_read_oob_std;
+ 	ecc->write_oob_raw = nand_write_oob_std;
+ 
+-	sunxi_nand->ecc.ecc_ctl = NFC_ECC_MODE(i) | NFC_ECC_EXCEPTION |
++	sunxi_nand->ecc.ecc_ctl = NFC_ECC_MODE(nfc, i) | NFC_ECC_EXCEPTION |
  				  NFC_ECC_PIPELINE | NFC_ECC_EN;
  
--	if (ecc->size == 512)
--		sunxi_nand->ecc.ecc_ctl |= NFC_ECC_BLOCK_512;
-+	if (ecc->size == 512) {
-+		if (nfc->caps->has_ecc_block_512) {
-+			sunxi_nand->ecc.ecc_ctl |= NFC_ECC_BLOCK_512;
-+		} else {
-+			dev_err(nfc->dev, "512B ECC block not supported\n");
-+			return -EOPNOTSUPP;
-+		}
-+	}
- 
- 	return 0;
- }
-@@ -2214,6 +2222,7 @@ static const u8 sunxi_ecc_strengths_a10[] = {
- };
- 
- static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
-+	.has_ecc_block_512 = true,
- 	.reg_io_data = NFC_REG_A10_IO_DATA,
+ 	if (ecc->size == 512) {
+@@ -2227,6 +2230,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
  	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
  	.reg_user_data = NFC_REG_A10_USER_DATA,
-@@ -2226,6 +2235,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
- 
- static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
- 	.has_mdma = true,
-+	.has_ecc_block_512 = true,
- 	.reg_io_data = NFC_REG_A23_IO_DATA,
+ 	.reg_pat_found = NFC_REG_ECC_ST,
++	.ecc_mode_mask = GENMASK(15, 12),
+ 	.pat_found_mask = GENMASK(31, 16),
+ 	.dma_maxburst = 4,
+ 	.ecc_strengths = sunxi_ecc_strengths_a10,
+@@ -2240,6 +2244,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
  	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
  	.reg_user_data = NFC_REG_A10_USER_DATA,
+ 	.reg_pat_found = NFC_REG_ECC_ST,
++	.ecc_mode_mask = GENMASK(15, 12),
+ 	.pat_found_mask = GENMASK(31, 16),
+ 	.dma_maxburst = 8,
+ 	.ecc_strengths = sunxi_ecc_strengths_a10,
 -- 
 2.47.3
 
