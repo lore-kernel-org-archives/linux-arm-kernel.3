@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE4ECCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 00:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64673CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 00:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IOVvQiJpGvp6+xA294rJerEG3dTHQnXxn46jZXjb5wY=; b=uddWgK4iB5s/+4Aqi9FS7k3d8N
-	961qKPiOUIvd0xh1pODwT0t01cI0cIfiZU9AyQC1RFfRfNPjYNBcvhTSsboG9PGlBZxBGULgN/Xy8
-	f1Jq+qJHPFbiNQzQHYQljaHLfMPECRriixUPF6Av1jZLZUOx7Wrupc3eeAOc9qTgXRiybIzX5xUDZ
-	Fd6pt47JqlSjfZ0BzFZj0MmwPiLibp77XNc54+RrH1pt3M8u3U0G6iMHJzcMPJ9Kkx1T5iAgQHDs0
-	cmRfkCbKG+uICCPxaeDDv+11Ju7OTv+o+hG8o49kzxy1HgeK34V/GhcotwSQU1BaNaqvF7WE/YCcF
-	1exswAGg==;
+	bh=J3mxOKer4OGfyDxlfqvGDsZ/A3KYgtdet3LczK0ONqE=; b=S/U0rgpYIHjjuYLbamnHjLoPWo
+	sU85K9G/CT+KlNRM9u+i1NPS/JySQL01NnmYkF/8osctcdhDqy2pji7fkA+8iqlG861eI2Pl8rwXg
+	AKp3P3bC904ntCTj+4rhFLHQhc3sFF/0TKkHc3UBT0GgqTp8mYLH31mp32P/1767GOrSu379bwssd
+	YSk4CYHPD/LUt4ScBWVxPGbvNYyJlMqCquQOVziJBAeUNTeg4H1q+nK5tek37DOHgnotOGbG8Z+Re
+	cRAGLvw/6Ls/QNWoZSLw94B8TW10jHsbEo94cCFOE7a+EJIBUc5R/6YISugk01+JXjLq+bgYfq/W5
+	M9xFLmvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDXhk-0000000EzvQ-16q8;
-	Tue, 28 Oct 2025 00:36:52 +0000
-Received: from pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.83.148.184])
+	id 1vDXi0-0000000Ezyq-3mAj;
+	Tue, 28 Oct 2025 00:37:08 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDXhh-0000000Ezuw-329s
+	id 1vDXhz-0000000EzxV-06kI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 00:36:51 +0000
+	Tue, 28 Oct 2025 00:37:08 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33da21394adso5095042a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 17:37:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1761611809; x=1793147809;
-  h=from:to:cc:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version:subject;
-  bh=IOVvQiJpGvp6+xA294rJerEG3dTHQnXxn46jZXjb5wY=;
-  b=D4FhpE5sI9ROyhZoj7LTzwcE9rhkGuTZ9z6/Gx3X2zPhPEvRGkUcfCsG
-   Fda7VBLhJpuJ/ZJhVqzpNduLxSIR98bUkgiStqzhS6wccvYxpnrhMhay2
-   rWVKJ+vzUt06QWD27l2DjeJJtLrpt3/xOZv+nfn0twY4QwNh2ht+SQ4pI
-   RegUnQn2l+nDg6Op39rvwLSXEvIVEjLY+qRTNq3e64T59x8D2EyCdmWCt
-   psO9iBdpjMXi3Snw9r79uTn9kVco96qGd6BOCeIo+ViOm+snnwSMtS18k
-   4i4KNLbKlHCor+aA9wRukcSbOmPktC2OEC3QjqjPr76bDtZh2EtqVNEyk
-   A==;
-X-CSE-ConnectionGUID: 26SJ8qqZRE+FNdoNM3ro3g==
-X-CSE-MsgGUID: YiTQtjjxR1CtkjkcG+NhGw==
-X-IronPort-AV: E=Sophos;i="6.19,260,1754956800"; 
-   d="scan'208";a="5635122"
-Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
-Thread-Topic: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2025 00:36:45 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:26105]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.58.51:2525] with esmtp (Farcaster)
- id 9f41d556-68c3-4916-acdf-260b786a1eb9; Tue, 28 Oct 2025 00:36:45 +0000 (UTC)
-X-Farcaster-Flow-ID: 9f41d556-68c3-4916-acdf-260b786a1eb9
-Received: from EX19D032UWA004.ant.amazon.com (10.13.139.56) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Tue, 28 Oct 2025 00:36:37 +0000
-Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
- EX19D032UWA004.ant.amazon.com (10.13.139.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Tue, 28 Oct 2025 00:36:37 +0000
-Received: from EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497]) by
- EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497%5]) with mapi id
- 15.02.2562.029; Tue, 28 Oct 2025 00:36:37 +0000
-From: "Bandi, Ravi Kumar" <ravib@amazon.com>
-To: Bjorn Helgaas <helgaas@kernel.org>, Manivannan Sadhasivam
-	<mani@kernel.org>
-CC: "thippeswamy.havalige@amd.com" <thippeswamy.havalige@amd.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "kwilczynski@kernel.org"
-	<kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>, Stefan Roese <stefan.roese@mailbox.org>, "Musham,
- Sai Krishna" <sai.krishna.musham@amd.com>, Sean Anderson
-	<sean.anderson@linux.dev>, "Yeleswarapu, Nagaradhesh"
-	<nagaradhesh.yeleswarapu@amd.com>
-Thread-Index: AQHcKoFWBnk90o/gZUOv7QYU+iHxwrTJOZeAgA2kSICAABLnAA==
-Date: Tue, 28 Oct 2025 00:36:36 +0000
-Message-ID: <C863FB65-E6B8-48B8-A2FF-779330D9BE5A@amazon.com>
-References: <20251027232847.GA1488235@bhelgaas>
-In-Reply-To: <20251027232847.GA1488235@bhelgaas>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.187.171.62]
+        d=google.com; s=20230601; t=1761611825; x=1762216625; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=J3mxOKer4OGfyDxlfqvGDsZ/A3KYgtdet3LczK0ONqE=;
+        b=x0J9Gv7No9QFvSn5UWnIJcTpz4HiL74KpiW9aD2Wxt0SncFIg2C97hW0RxJXqaJe1k
+         RHo0dDok6A51buDGSwcoVuCXSuHR06i4y/devu6jOJ0tBD3IAVtJdWB8ZP33QZrq2BiA
+         Yn88a/TeP/MwECU3EtwYMS3sfGRJaG1wgqu2iOYDJ3IIj0kJvZXSRCdfBz0t3ZofeFmy
+         ZSf5NZ9jH7DpE0efEwEikKBan3W2ecq34yOplfeIQEPbQ8CTkllKqTIHc8G5yI/OjgvO
+         RjS4ob9TfEKCdeqwWxKC79qzcDcAC/Hk3xKPnBgXMSmPpO8b5bB3X/X0Urmv7Ta8TMOF
+         zYrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761611825; x=1762216625;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=J3mxOKer4OGfyDxlfqvGDsZ/A3KYgtdet3LczK0ONqE=;
+        b=cNll1mEnBFfTBdL/NcC/9lYCOr5VLiyUGAWT7Uh7kE0P5uaWtDjhZEQUr/TG1btGKj
+         cFjZIX2zvxPNcMYt0OXvlxGCCrjQvof62lm17Ai6y6OPNR2VDDyZrjLSuOGFIhIrXTpm
+         wZkNHsYW9S3wSW8be2Uu2eXdwyJswfoiHO+QCriLKpHPPbpXk66A3A835AdGmiVWIbHH
+         8BWIU5Sy94C2u/RCaBNNTKPv6Kt8mu/hedJMwcj2j8/oSpP+FSZTbjUxsi52REtSrZmR
+         hJyaxKTB3sW+x4dYMwJEfv4bQ2fXy8BV+qKW2YTTaAcjBETJov8zqUumMRisuaP0SgsJ
+         ek8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW2rPlZi47rq/WVoNo6am+vvqGQMfz4XWm0PSTHNIf8jCZpeYJ+mBCbTOk5GkhuSmEH7Uqy+KGbKyv3Y7gRE/9b@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVghI5g69D/VmKE5bz0u53Ov4BWDNM+BwKd855LlMKhR9bL1/E
+	zJXS7Yll5PO6xXN+vzhlQU5j/p7HAecT0VtHqndQ50qKcW59KrhbH2Ju+l75SKi7Vi1qAszrblg
+	BrTfwqA==
+X-Google-Smtp-Source: AGHT+IGoxyiEdJHjsguM4HhfYAa3a3WGl9IwGzua+OMwKu3+3dxnKcX9NeqRP2yYPcwFhiCcHGTefjSDvqI=
+X-Received: from pjcc13.prod.google.com ([2002:a17:90b:574d:b0:33d:813f:6829])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5241:b0:329:cb75:fef2
+ with SMTP id 98e67ed59e1d1-340279e5c84mr1590788a91.3.1761611825209; Mon, 27
+ Oct 2025 17:37:05 -0700 (PDT)
+Date: Mon, 27 Oct 2025 17:37:03 -0700
+In-Reply-To: <55461c549803e08db97528127c29e092c597adc5.camel@intel.com>
+Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-25-seanjc@google.com>
+ <55461c549803e08db97528127c29e092c597adc5.camel@intel.com>
+Message-ID: <aQAQLzxyGFooGtNV@google.com>
+Subject: Re: [PATCH v3 24/25] KVM: TDX: Guard VM state transitions with "all"
+ the locks
+From: Sean Christopherson <seanjc@google.com>
+To: Kai Huang <kai.huang@intel.com>
+Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
+	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
+	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
+	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Yan Y Zhao <yan.y.zhao@intel.com>, 
+	"michael.roth@amd.com" <michael.roth@amd.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
+	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
+	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, Vishal Annapurve <vannapurve@google.com>, 
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
 Content-Type: text/plain; charset="utf-8"
-Content-ID: <34DBB2AF1B6DC649B354F3E881A47C26@amazon.com>
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_173649_822063_77520B86 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20251027_173707_081063_7D01B5C4 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +111,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gT24gT2N0IDI3LCAyMDI1LCBhdCA0OjI44oCvUE0sIEJqb3JuIEhlbGdhYXMgPGhlbGdh
-YXNAa2VybmVsLm9yZz4gd3JvdGU6DQo+IA0KPiBDQVVUSU9OOiBUaGlzIGVtYWlsIG9yaWdpbmF0
-ZWQgZnJvbSBvdXRzaWRlIG9mIHRoZSBvcmdhbml6YXRpb24uIERvIG5vdCBjbGljayBsaW5rcyBv
-ciBvcGVuIGF0dGFjaG1lbnRzIHVubGVzcyB5b3UgY2FuIGNvbmZpcm0gdGhlIHNlbmRlciBhbmQg
-a25vdyB0aGUgY29udGVudCBpcyBzYWZlLg0KPiANCj4gDQo+IA0KPiBbK2NjIFN0ZWZhbiBldCBh
-bF0NCj4gDQo+IE9uIFN1biwgT2N0IDE5LCAyMDI1IGF0IDEyOjM5OjI1UE0gKzA1MzAsIE1hbml2
-YW5uYW4gU2FkaGFzaXZhbSB3cm90ZToNCj4+IE9uIFNhdCwgMjAgU2VwIDIwMjUgMjI6NTI6MzIg
-KzAwMDAsIFJhdmkgS3VtYXIgQmFuZGkgd3JvdGU6DQo+Pj4gVGhlIHBjaWUteGlsaW54LWRtYS1w
-bCBkcml2ZXIgZG9lcyBub3QgZW5hYmxlIElOVHggaW50ZXJydXB0cw0KPj4+IGFmdGVyIGluaXRp
-YWxpemluZyB0aGUgcG9ydCwgcHJldmVudGluZyBJTlR4IGludGVycnVwdHMgZnJvbQ0KPj4+IFBD
-SWUgZW5kcG9pbnRzIGZyb20gZmxvd2luZyB0aHJvdWdoIHRoZSBYaWxpbnggWERNQSByb290IHBv
-cnQNCj4+PiBicmlkZ2UuIFRoaXMgaXNzdWUgYWZmZWN0cyBrZXJuZWwgNi42LjAgYW5kIGxhdGVy
-IHZlcnNpb25zLg0KPj4+IA0KPj4+IFRoaXMgcGF0Y2ggYWxsb3dzIElOVHggaW50ZXJydXB0cyBn
-ZW5lcmF0ZWQgYnkgUENJZSBlbmRwb2ludHMNCj4+PiB0byBmbG93IHRocm91Z2ggdGhlIHJvb3Qg
-cG9ydC4gVGVzdGVkIHRoZSBmaXggb24gYSBib2FyZCB3aXRoDQo+Pj4gdHdvIGVuZHBvaW50cyBn
-ZW5lcmF0aW5nIElOVHggaW50ZXJydXB0cy4gSW50ZXJydXB0cyBhcmUNCj4+PiBwcm9wZXJseSBk
-ZXRlY3RlZCBhbmQgc2VydmljZWQuIFRoZSAvcHJvYy9pbnRlcnJ1cHRzIG91dHB1dA0KPj4+IHNo
-b3dzOg0KPj4+IA0KPj4+IFsuLi5dDQo+PiANCj4+IEFwcGxpZWQsIHRoYW5rcyENCj4+IA0KPj4g
-WzEvMV0gUENJOiB4aWxpbngteGRtYTogRW5hYmxlIElOVHggaW50ZXJydXB0cw0KPj4gICAgICBj
-b21taXQ6IGMwOThjMTNmNDM2NWU2NzUwMDA5YmU0ZDkwZGJhMzZmYTRhMTliNGUNCj4gDQo+IFBy
-ZXR0eSBzdXJlIHdlIGhhdmUgY29uZmlybWF0aW9uIHRoYXQgd2UgZG9uJ3QgbmVlZCBlaXRoZXIg
-dGhpcyBwYXRjaA0KPiBvciBTdGVmYW4ncyBwYXRjaCwgc28gSSByZW1vdmVkIHRoZSBwY2kvY29u
-dHJvbGxlci94aWxpbngtZG1hIGJyYW5jaC4NCj4gDQo+IEl0IHdhcyBhdCAyMDAyNDc4ZTUwMzQg
-KCJQQ0k6IHhpbGlueC14ZG1hOiBFbmFibGUgSU5UeCBpbnRlcnJ1cHRzIikgaW4NCj4gY2FzZSB3
-ZSBuZWVkIHRvIHJlc3VycmVjdCBpdC4NCj4gDQo+IElJVUMsIFN0ZWZhbiBjb25maXJtZWQgdGhh
-dCBoZSBkaWRuJ3QgbmVlZCB0aGlzIHBhdGNoIChSYXZpJ3MpIFsxXSwNCj4gYW5kIHRoYXQgYWZ0
-ZXIgVml2YWRvIGlzIGZpeGVkIHRvIGdlbmVyYXRlIHRoZSBjb3JyZWN0IGludGVycnVwdC1tYXAs
-DQo+IGhpcyBwYXRjaCAoU3RlZmFuJ3MpIHdvbid0IGJlIG5lZWRlZCBlaXRoZXIgWzJdLg0KPiAN
-Cj4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjliYzVlOTItMDRjOS00NzVhLWJhM2Qt
-YTVlYTI2ZjFjOTVhQG1haWxib3gub3JnDQo+IFsyXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9y
-LzljN2U0M2MzLTI0ZTktNGIwOC1hNmNlLTIwMzViNTAyMjZmNEBtYWlsYm94Lm9yZw0KDQpIZWxs
-byBCam9ybiwgYW5kIE1hbmkgZXQgYWwuLA0KDQpUaGFuayB5b3UgZm9yIHRha2luZyB0aGUgdGlt
-ZSB0byByZXZpZXcgdGhlIHBhdGNoIGFuZCBleHBsYWluIHRoZSByZWFzb25pbmcuDQoNClNpbmNl
-cmx5LA0KUmF2aQ0KDQo=
+On Tue, Oct 28, 2025, Kai Huang wrote:
+> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
+> > @@ -2781,8 +2827,6 @@ int tdx_vm_ioctl(struct kvm *kvm, void __user *ar=
+gp)
+> > =C2=A0	if (r)
+> > =C2=A0		return r;
+> > =C2=A0
+> > -	guard(mutex)(&kvm->lock);
+> > -
+> > =C2=A0	switch (tdx_cmd.id) {
+> > =C2=A0	case KVM_TDX_CAPABILITIES:
+> > =C2=A0		r =3D tdx_get_capabilities(&tdx_cmd);
+>=20
+> IIRC, this patch removes grabbing the kvm->lock in tdx_vm_ioctl() but onl=
+y
+> adds the "big hammer" to tdx_td_init() and tdx_td_finalize(), so the
+> tdx_get_capabilities() lost holding the kvm->lock.
+
+Ooh, yeah, nice catch, that is indeed silly and unnecessary churn.
+
+> As replied earlier, I think we can just hold the "big hammer" in
+> tdx_vm_ioctl()?
+
+Actually, I think we can have our cake and eat it too.  With this slotted i=
+n as
+a prep patch, the big hammer can land directly in tdx_vm_ioctl(), without a=
+ny
+change in functionality for KVM_TDX_CAPABILITIES.
+
+--
+From: Sean Christopherson <seanjc@google.com>
+Date: Mon, 27 Oct 2025 17:32:34 -0700
+Subject: [PATCH] KVM: TDX: Don't copy "cmd" back to userspace for
+ KVM_TDX_CAPABILITIES
+
+Don't copy the kvm_tdx_cmd structure back to userspace when handling
+KVM_TDX_CAPABILITIES, as tdx_get_capabilities() doesn't modify hw_error or
+any other fields.
+
+Opportunistically hoist the call to tdx_get_capabilities() outside of the
+kvm->lock critical section, as getting the capabilities doesn't touch the
+VM in any way, e.g. doesn't even take @kvm.
+
+Suggested-by: Kai Huang <kai.huang@intel.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/vmx/tdx.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+index 1642da9c1fa9..43c0c3f6a8c0 100644
+--- a/arch/x86/kvm/vmx/tdx.c
++++ b/arch/x86/kvm/vmx/tdx.c
+@@ -2807,12 +2807,12 @@ int tdx_vm_ioctl(struct kvm *kvm, void __user *argp=
+)
+ 	if (r)
+ 		return r;
+=20
++	if (tdx_cmd.id =3D=3D KVM_TDX_CAPABILITIES)
++		return tdx_get_capabilities(&tdx_cmd);
++
+ 	guard(mutex)(&kvm->lock);
+=20
+ 	switch (tdx_cmd.id) {
+-	case KVM_TDX_CAPABILITIES:
+-		r =3D tdx_get_capabilities(&tdx_cmd);
+-		break;
+ 	case KVM_TDX_INIT_VM:
+ 		r =3D tdx_td_init(kvm, &tdx_cmd);
+ 		break;
+
+base-commit: 672537233b8da2c29dca7154bf3a3211af7f6128
+--
 
