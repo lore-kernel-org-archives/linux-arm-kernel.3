@@ -4,102 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B20CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63872CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 17:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2dc0g/PPsN9pIaKjPWHbYZ5oM9jT1rQwz1YwGMpT7w=; b=Z81Lgtu0ZpOlf3yXRuulaqpQ6G
-	1KAp6mgWwAMq7s5aSs8SA0wh2RE+ywH4vRnXeEtoRHR9UrIQi8NCX3YuN9eDIsPDUKHdszvm/uQzj
-	ayrERyiUM6Kjl8iczpObAPlPip6acMfPa62+Lp1nlsum4CfSdsHLy91mLRRqbFy9hJDyHEyqgd88j
-	PX0gNhOsxPX1hKW63kGWgzKtBh26VNFK41uNskd3OPDSrSIqvs8k30ykGs6PMBzwiLSI4vaMBXa0C
-	ROe+V3bbcRf1MLyOFFb1OQw59wUVV7zuIq5jIrWcoy+vO9iPqNH+FGTLOCFvMRpBnvkz++4Qp+nNp
-	mvL+Plkw==;
+	bh=pOzc7xIWO2p+WR3VIGi7nTgvTnzL1L1uYDvVNto7C1I=; b=vK0UPToxcjRCbvVTQo92rdNhOt
+	wzbgA64/76cLcYR5Kwe0g6HPfPivjV99oMSYZuwi/dqAEHqG4Mq+YyyPNFHZsAxscGIQQVHojhm5a
+	MKQgu/Ef9CrJte4bkbc1djjFqNAOtwfr1e9lDW5S6HpYvuMaoexl3cqeo1AigUI1GF4EciZNuux83
+	6iPLBYNGYq1ovPMk4UE4zDdDhR/SQz9c1Ta+27dy6zNX9GahWzLSd6CrBVA147SwhQ7YuKlj5lpN6
+	EvbFYu5gmWzJk4siFtZ5zNQ3/7Mbs3Z49DVFbD5BS5tidohord+AaOcBmOIIeHEn4PXQQ1Sy7csqe
+	xlqGXDAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDn2V-0000000GMam-3vlD;
-	Tue, 28 Oct 2025 16:59:19 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1vDn3y-0000000GMr9-1nWu;
+	Tue, 28 Oct 2025 17:00:50 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDn2U-0000000GMaB-1FWn
+	id 1vDn3v-0000000GMpx-3Skl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 16:59:19 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b6d402422c2so1447989466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 09:59:17 -0700 (PDT)
+	Tue, 28 Oct 2025 17:00:49 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-637e9f9f9fbso11403108a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:00:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1761670756; x=1762275556; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761670846; x=1762275646; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=K2dc0g/PPsN9pIaKjPWHbYZ5oM9jT1rQwz1YwGMpT7w=;
-        b=cVR0ONbmjvf52Uro0+sO7OcxvTa/y1qdCs7lynaWiuhlrK8BKEWUZ4c+lYfnRqqtbX
-         MaLYa4scupKLSJS4pUQNwnawa9D5JauGankKxErDHxgbpaVSRr6EyPZnEmXK4IpdEGzC
-         CAE/2LOCOzPWEDDCOrKaAMASKNPsMxy0DGpq8=
+        bh=pOzc7xIWO2p+WR3VIGi7nTgvTnzL1L1uYDvVNto7C1I=;
+        b=ROD87WLxy2E/gXE1qgiIVb2rY6+UpXpdbUGD47qh0XrrOujHsgMjml5XXfKoBVa8By
+         dkapIkQbtW/Ue+5PRSYuxttpBxXuLKSlbHr2WWcxr/YYBADxfy4V3iwzDq1WuFRvg4/8
+         dYzdnMX9TSgpnL9KA+ysigRrtdW051Eh9SwJtyD9uWzcIFoPb8D5LBmLl5enzPEMdx0g
+         67aliDI+pV0i3QO/dwA0tB8v9EwIbJlusyTIRmYt8KdVUwIHKQCS+I5VxZUKoKT/d/y7
+         zXfnN5nBDV88PDoSPj4YiqiZYatfY68kM96XUiZ9ZUj8mcFcDJamS88ENgTP+Ugr8i3d
+         8oDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761670756; x=1762275556;
+        d=1e100.net; s=20230601; t=1761670846; x=1762275646;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=K2dc0g/PPsN9pIaKjPWHbYZ5oM9jT1rQwz1YwGMpT7w=;
-        b=pH6GnG2fRsKTyDMJBOsvLrobYd3wFHKyRp/T+iclvL990jJt0KIXbjGSJwJ4eXQ/XI
-         W1p7bvD0ZbMFTSRkN4X7AQdAZsVeVbEXe8zGuxa0WuAEFhnaKq1INY0eC5fs9mhsNPEg
-         H9tpqUUqMRHkdMLEWNvz0SpdUOZEkSDKSTGpbVOWgjmXW4HZhqDOsYTocFFc6c54Ckhg
-         Kf7DBNp8NUiRRMyNclSYhJtv/SuX7Ba7EIbhUkOqkE1+MeFn6LdgT7d/8ftV45BubqA2
-         WSVcqLg50y471t1iz/B/JyoZecHWNq9piKPIN4w2klsGow832afboP8pC83vSMbF787h
-         +JJw==
-X-Forwarded-Encrypted: i=1; AJvYcCXQzGbn2OjkfAFayVbCg2Tue22XjyVZLIKJPpQHtvlvufUS6f4Pbe1nkViGzNxAlNpEuvclko+v9iq0npAf4SzO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwTOgv//opVJ4bQDIFnW2p8Riz2xLd1Z2Bh/aX2KbZaqH3WTNh
-	XSZFU818G5+NWibLOukKsC4FQioGLukqZVOmXdw7uS6PbXYDrgGMRU/4+QpWpEzeH0a1j5DmDDV
-	MU64QYYLjCw==
-X-Gm-Gg: ASbGnctTQehUmB42QLa4tLtzAqGkBZ4Y752KQKDRx/J7S8xJkGUNgwMHeZTTjIeJzf8
-	owVbRwXFVyd4LXX34IylCn7eDapc6X95tu5O5rFsjzQ5uLweek2uFMjEIeJg9wJDaAk+9kHHbkr
-	Oa6zTidoV8/o7G/Xlr0EgP58gXGnsPlT0CI/tHmxcqV72xVkrWjAnGQVe4yd2BM80OLDgh9M1Xh
-	elLbrwCiDEM9C+JeR7oIxa3Jmo8RjgIiEqbjwwmVauwSf7U8bdkjIbwSiZqIwInAhJonpQaeg4j
-	mOX4ZCGjH/fWXPGoQNJrPXNHbktK/M0lltcQ9OvnejkD+vbGL96BtU8oaOmF6nBUKkUxkvk7JDC
-	t8QLkodnx+NjCUE933+x8jTw1ftlAhwJfnIcyMczEUdR1LOhguWbMg0Nz0cTSnFVAs2fVkkI8W5
-	5rkBg6lJG/sRrEQeBapHvChccTioOr4HhHkcVYgzbxXqpkcYsc0w==
-X-Google-Smtp-Source: AGHT+IHBVSnCO9kVR+oF/eQ59FrhDKmprKRvcYCXv0rpK2GMRs56nJp7XgCbutmtiRrpCqtKrF2lJw==
-X-Received: by 2002:a17:907:3f93:b0:b3f:cc6d:e0a8 with SMTP id a640c23a62f3a-b6dba487a67mr495195166b.17.1761670756110;
-        Tue, 28 Oct 2025 09:59:16 -0700 (PDT)
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d85372e5asm1138028766b.32.2025.10.28.09.59.15
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Oct 2025 09:59:15 -0700 (PDT)
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b6d5b756284so1329947366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 09:59:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUH+oIFsBKS1mqRTEDHjH1wzuaxz7gJyo/Lu9d/Hjs/tfizfeRBS6k9mrn+OKisKFf1EiET4Q3R9kgE5ZDx5dru@lists.infradead.org
-X-Received: by 2002:a05:6402:5244:b0:637:8faa:9df7 with SMTP id
- 4fb4d7f45d1cf-63ed8cc16aamr3779861a12.29.1761670755473; Tue, 28 Oct 2025
- 09:59:15 -0700 (PDT)
+        bh=pOzc7xIWO2p+WR3VIGi7nTgvTnzL1L1uYDvVNto7C1I=;
+        b=XEi4sRxA3A+O8H6sgS8X7Hfd/p59aVTcJ0iBg4Xmgr1+BFktaznn9NRPalxIlIvtaX
+         OSO2aKF+G2JRoyIXrvdBui4avaOhyNHme0QNTfQi+7uVRcaw1BOB/yNrfo6AySsJdfwA
+         ewEqFg/4E4HU0INmBQOqpDkTRLrpQBr4Xs0SywXVWCnwhUpmxlimHioNyqELgGt7EVqE
+         /I3LyTWBIJRxIMuYtvqwVuoAJRSWFWIh1nCF/AgE1WKNzjejfMob/sUuac+b+XtXpje5
+         nRScASM8D5SyF/+mhyQPhrmD3vSwfIMCMbGomWKxeWDN5T15uNl/rhypYD2MntDFLG/I
+         XTmg==
+X-Forwarded-Encrypted: i=1; AJvYcCU2vxX7jjyw8vB4Z9KhqF2CFoPoK5vbJoJdDEfgyPOwrUKm3gXP9qqBtyQpv9sCRErNpqc1NX5nz6aoJ6GGpiWh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaFO4i6pmqcFm6c1BNtrL7yoaY2ELp7e+uPtBwSRfBXaMdcLt6
+	QIufCcKpu7KRV0mnfzbB8C9HRjbRrCqS1u/Bk2yziri2ZKbFmQcX9DCn9CY6KmgFByumNUIRAos
+	Xb0bL4OL72Hojox+TFTsWve/ouMWMDdw=
+X-Gm-Gg: ASbGncvrow2Q1EquCJZFDGlLxw//Gv15kZjYKu7i/kqn8IBvVupqHIuCfO02MrkG4u3
+	s0A3xnLrnBg149Qv/7lf23nTfZpkqNz5ZjNHnZgRjSKKoaww+9wmP1tUaCt5VX6UUyJiLT+Wbh3
+	ZZraZfFYboSOI0mirxeImujcQwDGD12m2Ed5DQKOgzC/4dQWgx9x6E5hQOQG2Yj/b/8uxpKDH4R
+	lYCfbG8nMGUBvaLk3uYEZ4tz6fxHcT3y7y045hmwyXMz4hjkF9Xii3s0lMJ9IY5pOD8Jw==
+X-Google-Smtp-Source: AGHT+IG4YfmqHGe2pINyHg2K6LgJOKPpNmL7zajrt/SLmYhcYlyZRe1+iAEJYBHgTq7bsXU1Dyysoqylc7EnkaBl0VA=
+X-Received: by 2002:a05:6402:d0b:b0:62f:337b:beed with SMTP id
+ 4fb4d7f45d1cf-63ed84b5cd2mr3624305a12.30.1761670845665; Tue, 28 Oct 2025
+ 10:00:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
- <20251028053330.2391078-1-kuniyu@google.com> <20251028095407.2bb53f85@pumpkin>
- <CAAVpQUARk-XeMdTeGy_s65sdwuLY2RzocGyJ=2_WkhsrFN-bUw@mail.gmail.com>
-In-Reply-To: <CAAVpQUARk-XeMdTeGy_s65sdwuLY2RzocGyJ=2_WkhsrFN-bUw@mail.gmail.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 28 Oct 2025 09:58:59 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wiTN=1Sm5DVnXDtQ-tSiPuz-7QVpgP2vt6LgaEnhbubfw@mail.gmail.com>
-X-Gm-Features: AWmQ_blBlp8rG7EHRLe1uP1FYCp4LO5ZZWflvlu1_iOk9v8s-pHpb1shOoMSUXA
-Message-ID: <CAHk-=wiTN=1Sm5DVnXDtQ-tSiPuz-7QVpgP2vt6LgaEnhbubfw@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
- unsafe_put_user() in epoll_put_uevent().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: David Laight <david.laight.linux@gmail.com>, dave.hansen@intel.com, alex@ghiti.fr, 
-	aou@eecs.berkeley.edu, axboe@kernel.dk, bp@alien8.de, brauner@kernel.org, 
-	catalin.marinas@arm.com, christophe.leroy@csgroup.eu, 
-	dave.hansen@linux.intel.com, edumazet@google.com, hpa@zytor.com, 
-	kuni1840@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mingo@redhat.com, 
-	mpe@ellerman.id.au, npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org, 
-	tglx@linutronix.de, will@kernel.org, x86@kernel.org
+References: <20251028154229.6774-1-linux.amoon@gmail.com>
+In-Reply-To: <20251028154229.6774-1-linux.amoon@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Tue, 28 Oct 2025 22:30:28 +0530
+X-Gm-Features: AWmQ_bnnegLAH410rfGGE5Iq-GfVFIwFAd46rVhhltc96obVUpLwKbSOptU59bY
+Message-ID: <CANAwSgTZOK9tdfQgVn6kZsxd6KdEuPn8ZH5-yrLqS4Np295dXw@mail.gmail.com>
+Subject: Re: [PATCH v3 0/2] PCI: j721e: A couple of cleanups
+To: Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>, 
+	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>, 
+	"moderated list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Cc: Markus Elfring <Markus.Elfring@web.de>, Dan Carpenter <dan.carpenter@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_095918_357711_4D3276A5 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20251028_100047_877712_BF0A06F7 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,19 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Oct 2025 at 09:42, Kuniyuki Iwashima <kuniyu@google.com> wrote:
+Hi All,
+
+On Tue, 28 Oct 2025 at 21:12, Anand Moon <linux.amoon@gmail.com> wrote:
 >
-> This is the Zen 2 platform, so probably the stac/clac cost will be
-> more expensive than you expect on Zen 5.
+> Refactor the J721e probe function to use devres helpers for resource
+> management. This replaces manual clock handling with
+> devm_clk_get_optional_enabled() and assigns the reset GPIO directly
+> to the struct members, eliminating unnecessary local variables.
+>
+> These patches have been compile-tested only, as I do not have access
+> to the hardware for runtime verification.
+>
+These changes are v4 revision. This got messed up in the format output folder
+Sorry for the inconvenience.
 
-Yeah, clac/stac are horrenously expensive on Zen 2. I think they are
-microcoded - and not the fast kind - so effectively serializing.
-
-They got enormously faster and pipelined in later Zen microarchitectures.
-
-Sadly, Agner Fog doesn't do timings on those instructions, and I
-haven't found any other place that has some overview of the
-performance on different microarchitectures.
-
-                Linus
+Thanks
+-Anand
+> v3  : https://lore.kernel.org/all/20251027090310.38999-1-linux.amoon@gmail.com/
+> v2  : https://lore.kernel.org/all/20251025074336.26743-1-linux.amoon@gmail.com/
+> v1  : https://lore.kernel.org/all/20251014113234.44418-1-linux.amoon@gmail.com/
+> RFC : https://lore.kernel.org/all/20251013101727.129260-1-linux.amoon@gmail.com/
+>
+> Changes
+> v4  : Improve the commit message.
+>
+> v2  Drop the dev_err_probe return patch.
+>     Fix small issue address issue by Dan and Markus.
+> v1:
+>    Add new patch for dev_err_probe return.
+>    dropped unsesary clk_disable_unprepare as its handle by
+>    devm_clk_get_optional_enabled.
+>
+> Thanks
+> -Anand
+>
+> Anand Moon (2):
+>   PCI: j721e: Use devm_clk_get_optional_enabled() to get the clock
+>   PCI: j721e: Use inline reset GPIO assignment and drop local variable
+>
+>  drivers/pci/controller/cadence/pci-j721e.c | 33 ++++++++--------------
+>  1 file changed, 11 insertions(+), 22 deletions(-)
+>
+>
+> base-commit: fd57572253bc356330dbe5b233c2e1d8426c66fd
+> --
+> 2.50.1
+>
 
