@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF26CCF9EA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5CACCD1BF
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,80 +12,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKE09VxaVzUpPLetM83B2Xv7yChLQ7TS6ugh7H6buVQ=; b=vOdOlylnAjhYHK+NiX1X23egI3
-	ux1ifoMDdvqJyTCkPyFSSswAkqsMHroog7moHqTItBMb3ZU6v8S5tTKUS2D3/7rwFHWDBv6Ss/ODo
-	aGxgcZYpTcIuTMKh4+/qHMQuBXtTQh2qT6du6qeNk6ywvOgLZT6zf9brRU8y1J/X/Ejtj8/TedP3s
-	XKELJlIMvVC8Ad6NTR0CGvJwKIZfLensfXNuU2I3pUm+KCdc2JV/nIdkHlQqUgwsZBf0wv1ftNqsY
-	Oh1AL9oORjQVQV8hZ5vcFtnLUhiEVhGS0IWhnnMnTn+J+2iM+O3+Cvdb22yMztmNdfBbG5hGkSjvp
-	MNlbS0AQ==;
+	bh=t3PKgoQRhDz3xj/TTAw6S8lRYEfHhvbc362HXPhuaQc=; b=t1HyQn0nmf1rjEo4I4l61FvJ+l
+	v0wefp3TQsUKhmaQ9rubijgau0lNd84yQAeMiZO6FwpYh/4gL6u45zlNUbR7xsV/3+CHcffjx5okk
+	8YR+itv45Ha/Ax+MNuCyJG9ZmwqVVGmvB1+RbG/mMX6AAVghcm+3bj3ma3bZfTcJA3AC5r/3d0KxM
+	Uhmgt3tnMsklkROsWG0GHyts2pt8p2tQR8mJxDAyqGErc8sBK8NPEPvpeT7t5G6NGVp9HaaOvgIBc
+	dN2oCUIzVTZFRorRKOarRIVFIhNI8OsANaQoAab+PgXimXzyBng50xUzs27yKgfLytNFuUzPxs9AM
+	PB5baTxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdCA-0000000FL9W-4C82;
-	Tue, 28 Oct 2025 06:28:40 +0000
+	id 1vDdCD-0000000FLC7-3Gdl;
+	Tue, 28 Oct 2025 06:28:41 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdC0-0000000FL1K-1NU9
+	id 1vDdC2-0000000FL2M-0M6m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 06:28:29 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59RJtqF82546726
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:27 GMT
+	Tue, 28 Oct 2025 06:28:31 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59S4ot7T589641
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:29 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sKE09VxaVzUpPLetM83B2Xv7yChLQ7TS6ugh7H6buVQ=; b=WQZeDMtMbiGVxxY1
-	/XzGpBISC+cWQt0mhnva6VFP/wyiTsh5Sqr6dFf3/GCZP8iAXYAArH69O3WEXXRe
-	entSM9RVeKU3ojexm5Rwvsc3eg5iatb5dCYlDlDr5zSQbCmXVZQu7flGtBAeRjgw
-	18hrly0WTXXJv5t7a80UhS8TUn29vIFjCEENp2zZXgpQXSUPKYO8nJppfdssTSpg
-	RMKM8ufB8WGAfVUBPitICaYI96OkL/CunWcKkle4sXcTv8h63cMyNhvg/QqpwYCd
-	/youMc/2m//s9m3Ii1k59OVkwi2Bt/2cjmTYoSoLnOta4apxOPTmv02qBHYIXKOe
-	L56rew==
+	t3PKgoQRhDz3xj/TTAw6S8lRYEfHhvbc362HXPhuaQc=; b=KIEPuW91mEx74jag
+	wKfkedfFkzluRgMpb7OwPeHyMBXMhmXWVeC66Hks2fLtKgHvrFD00m1NMgOK6K4s
+	DKI2JZ0n8l4XjCG3Sh8guMOoshwhegTKMjCyQuE+4gQP6cAmlHShVKSHlhxuVnWe
+	Anbl+YYqXdPYK56OlFGLW68Er0PwJzLk1l+ceIIAPQizdrcWmZw6fdX9WuhTh3GQ
+	NSBck71nsnxGTzTe3LNV487iATTHyOYfX4I2tCbrmd5c/EcTKPfGxl8n1gJTMha5
+	sJmn1Bpz6sM9hsK2bfDRnPAggz1uvA2OURqbFa/frFDy+Ih/plE3DsPdydPSbGOA
+	jmmyzQ==
 Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a27s2k1w8-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a2q5u87h9-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:27 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2904e9e0ef9so104654915ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 23:28:27 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 06:28:28 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-290c9724deeso49639925ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 23:28:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761632906; x=1762237706;
+        d=1e100.net; s=20230601; t=1761632908; x=1762237708;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=sKE09VxaVzUpPLetM83B2Xv7yChLQ7TS6ugh7H6buVQ=;
-        b=Mo8XBJWpsv1u+8PsliiZbFmhTiWZ1OWANgzuiSeLodIow1qXtoWoYrDNmUh1+bEQ5U
-         kg1DXC5d/tKmk4NVJY6+TqQbmHDa6xZ/uzvXUxHOTkkvCqNiHJQGntwQgx+JCfiQzCa7
-         f1CATvxtkkZNRELAsPn+HDC4rusnUWD8JQDQMlcmnLaHDMjnUJgiKfVLDLrONPTTjNAg
-         cpaEFHN178LYVFFMbDzWfYG3f8Kcf14/XWssXByI4YxHiUh6E65+8a4FfU5L8/+RCCRt
-         jsmszWsUZSzd5DfvPg1ZYevZMHVDdCsx15m8xsQHuJr679IhPRvZ1xaxTZUkZ8fdcgjy
-         Y/xw==
-X-Forwarded-Encrypted: i=1; AJvYcCUapCYn88mkQUg1445B2hftpzpJaGgbigLSASn5/R/072kqOnlOxztqnYvipQCtBp8P9Go5p4eOwbScZljqZheC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQpuV7arnhaJxVty17LVE0u8KzjEVEyMO6bT8c6K2HOUdX5F8a
-	apEwmjJ7Yso/My33ubIcqEuarE3dElQYCASdCUEhCotrFwJsBVsNnqJ47jgkN8Y6AHWJ9Fl5VvM
-	d3F4beyMcwhkbHfH14Kx9rmxga7D/6n/4HUvUyJxqHst5vG4/gCnwZmef6simCgHtJhx98zCXwr
-	1ihg==
-X-Gm-Gg: ASbGncuCaSX8iKAFU6kj0AbEc7Kp+eEoxptH4iGAwxaMZ0x0UYkr2gbOcHjUdKtRj8J
-	UUMqg4SBkIiB0nDoM2eI313Nw2v/DE6qwuPkBELYHabHEi6zRNNQDHH6rpZXAkVh9QLnJ+cb73d
-	2dUjdA0lJEuqAR0LiXzEciUdznv6dCy/7FwQd2kJ1k1oZK9otvUTwCzq6zcWqWW9zV3a19+0PKG
-	7E/8ypC6wgfa5KoCz+ug08DPuzoiLICIH+nXJHcnXx/tjVh9h9kGsVaC4NeEwt4btCvLRm8xEl/
-	68ljqJSEt11vLwzUIFrLEVpCYxbbJK/Y5sVaa/WeFxCj9UgS1U+r0jcYlkFoKqmTa2Ts8gRVXbu
-	dGOvtmsdQxaJ1ZRowX3KJQraaMEyBYzkPr9RgcIPYdG4XPX8Gtf1820MV
-X-Received: by 2002:a17:903:244e:b0:26d:353c:75d4 with SMTP id d9443c01a7336-294cac912dcmr33759835ad.0.1761632906356;
-        Mon, 27 Oct 2025 23:28:26 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFe4aQxpIrO/1B82cuCX52JRehi2pSlkgcn2SqnpQ0dnCLRo8Jx6elBnucY+48SF3Le8+WI+Q==
-X-Received: by 2002:a17:903:244e:b0:26d:353c:75d4 with SMTP id d9443c01a7336-294cac912dcmr33759385ad.0.1761632905772;
-        Mon, 27 Oct 2025 23:28:25 -0700 (PDT)
+        bh=t3PKgoQRhDz3xj/TTAw6S8lRYEfHhvbc362HXPhuaQc=;
+        b=F+UkmNn83sgwlPFZFjhgEGnJcMzWmPhkhuvDPhJcHLJx1l7vM9NZbOJdcZ3e2c0qTg
+         Xuzl8Uj9p+XziyOXlAYQXoQEDuixoUrkKaMW5CS5DqpeIYyfrKlqlb8Tx9xqdlokjoiK
+         qfWQDez79pBnQxYKbKdDiQN6ccHzcBiDTbmB4KtZmeTVEOCFAlRTyPjOKbFBrIA3Kp1a
+         HCe4xZ5uEho435FCqSH+qNEe/FaiRHlABx6h3fz0WJfYmyApdSUPtBrEvSYK96C5LIn6
+         a5isalsIELkFYnKTvyZaYx4s489vlBFjOAZc267eJN6Ide/8ofQbsN0dvfFSV2m6asuD
+         69LA==
+X-Forwarded-Encrypted: i=1; AJvYcCUBCNHymuHotDvbZTDqZ7M8GlTFfcKaPx3HAtUc8WNKlY5Tw6Lsk+6z6g/zxhazNtCH/zxSUBjZVd9EJdbQk0e5@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywtn2yRicQDA29C8J3zo0gH4J/2VIuTSYxwJxJRheFziLxI8oDD
+	y6IAZ/01yQaXyph6VTS4otexA0ZsaQ2bNq//ZOEwjDPdjafaJT97BawYT/3S/Ge9S1SIUZzR7Mt
+	TyxNh2+xATbL8V2B/j+7sn5yjK7zjuJiAZ4SUkWh9D9hbCMTjN62xCJ4khjljd1qmyV1BZ5mu/Y
+	4h1w==
+X-Gm-Gg: ASbGncsQbX312aHj7ToVTiXYC6pTkH0M8TzKyCjcgAJFDOUwIaH2h8/ZKM9PeBP30r6
+	Ur4KTHjFgJAdDBoIQrqnnsEjWM+T+iNsv/ccThUz5QufzLlwqyF0GHHwNgyay8jp41l8+hlih7T
+	UbZbgnWweo5vnFoXV+feC7QHYoCOjrTScG0iLxb0EslkXqV3m1e78Knry9sYicFdwZWDiRCliuu
+	g5LG4OpVLyx2OcHrCWK+qsQuLqRA4DWuvaQkc+2ZuHVcYTjbdGSAIlsmjBK/Hnz2aWtJnmMjciJ
+	iUaik8AAgyJDPqpDKZNHGYC/UQdSiek+e0glftbCB4uI/ApC8GT5Z1A4ONf3Vode5zqADByXmqi
+	FTK00R8+bpg9V7YFNniX6MrI3g3OepgVXqQGvs6CEWUIWWOqMPfOMe/7x
+X-Received: by 2002:a17:902:cecc:b0:276:842a:f9a7 with SMTP id d9443c01a7336-294cb523d54mr34137325ad.57.1761632907821;
+        Mon, 27 Oct 2025 23:28:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEbF6VkJ5hNQYX9ifMUJ2BxNPDyPg/K3YdJ3vJi56Pq5avhHEfGcHnz4I2DTdPfdjFODVgmNA==
+X-Received: by 2002:a17:902:cecc:b0:276:842a:f9a7 with SMTP id d9443c01a7336-294cb523d54mr34136965ad.57.1761632907337;
+        Mon, 27 Oct 2025 23:28:27 -0700 (PDT)
 Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf359asm102503265ad.12.2025.10.27.23.28.24
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf359asm102503265ad.12.2025.10.27.23.28.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 23:28:25 -0700 (PDT)
+        Mon, 27 Oct 2025 23:28:26 -0700 (PDT)
 From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Date: Mon, 27 Oct 2025 23:28:10 -0700
-Subject: [PATCH 08/12] coresight-tmc-etf: Refactor enable function for CPU
- cluster ETF support
+Date: Mon, 27 Oct 2025 23:28:11 -0700
+Subject: [PATCH 09/12] coresight-tmc: Update tmc_mgmt_attrs for CPU cluster
+ TMC compatibility
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251027-cpu_cluster_component_pm-v1-8-31355ac588c2@oss.qualcomm.com>
+Message-Id: <20251027-cpu_cluster_component_pm-v1-9-31355ac588c2@oss.qualcomm.com>
 References: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
 In-Reply-To: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -103,39 +103,38 @@ Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761632890; l=4804;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761632890; l=4826;
  i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=bsUoTDGB8Bei1YOrLoXxgoY5Y6GaCFBJ2zNDknL+Cf4=;
- b=+K6bkm1CFS5i3Hih/msZzJgWwLlKyW09rlA+eXyrLAa9Vv3XSZIp/7+PFqpHE3ux7LAVrf2tn
- aV+xKD9W3XEACIDgZcXolFAEPZ2eS0mF8crJa/eAgpdt57LlWr2ae17
+ bh=4+85nU8xoAz0ySe0tncInYyQsGyUu39pardgvBh8hvk=;
+ b=wxyUwqrzqepTBHvSNDoVG1J5TCtBtVofgulY7h8uIIFRx6LVPZ2z4HU6ZzJRzpZURhWASLs00
+ 86cQ1kU7FdkDaS9taTrSS7RKGeoMl1joGb6OwLlagIPIOgezuc2XZQ/
 X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
  pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
-X-Proofpoint-ORIG-GUID: Q4CZYrh-eb30l9i-VM0h0NlyZS5JWWE9
-X-Proofpoint-GUID: Q4CZYrh-eb30l9i-VM0h0NlyZS5JWWE9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA1NCBTYWx0ZWRfX1gI2Vov/1JrE
- yHBl+1HKGjn23O+4xJ2fjG5gzcSnDNEZWbongPcuhNByInmz+IWDN6vWQEawk7I/C14XaKXAeeB
- 5y3E+AtjFZl83FoDUhkcOZqjPj/NgDs1FYGXk7/CzKyoAzBQSHr80jpCApKp+pGSlqy9RxYblhb
- wfcpcc7CPyYpLNYRh4AgxsyBhzgBaDzC8EFksJhr/xJWWdHaDKoSvDJzCYVMM1XjFSbF0q0G2R9
- 6CJ7HAgAJfzU/9FKQS4YwCqYhNfVA52xjPhg4Ie0mXpa9Q+GomdcCEHKPBnQUGONqj/3WU1Ei/p
- +FH1iWdLZiDv1V+iRxQFRSolT77NjG2SgSPhnM+IHMxQlSBYBQKYaE1N95sLyBLyqaJzxc/6MNb
- 0Ua+BZvwMVUtQGENiWJXflGZ6bvQDw==
-X-Authority-Analysis: v=2.4 cv=R60O2NRX c=1 sm=1 tr=0 ts=6900628b cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA1NCBTYWx0ZWRfXy60u6h3fhWBt
+ M/ummxEoKUmjP4sg+w+hI/bbuCk3nGm8hoAwqj8WBNmK1dZvDDdRu3zEdFZhYL7LPIwCoXdo7Lr
+ 2ImT7NtBsFdoZSn0K5RkVfUMI3E+MEWe9rezCkMC7Gpt6a9t8KiVGlb2ObX2ShBOU+7iyXF6Chr
+ 3LmbrzUXH2fQ70KVYWtIENwgU40xCVulNPM4OgTe2J48kKqKOY35jYqG5nZbA7oM4il+KLRAImg
+ 2GIhc6RNgviU/fUR25Xyn2TEGIMAUVpuldcRT+jmhvyMU3jHyuy1a+mZ8+IViqpjdza6KePolHJ
+ VWyMayNrZNEeNbfFcKBeKovMDsyGmDErF7LgqQAUrMRmCDUgNw3q/qHWoDbdbeGL1/mtCyU8K/s
+ Loe4RQDvTYfF09wBEOSfuWFDnLpwgg==
+X-Proofpoint-ORIG-GUID: Bn4deJdyodApQYNz71D91tW3Kepf-WpB
+X-Proofpoint-GUID: Bn4deJdyodApQYNz71D91tW3Kepf-WpB
+X-Authority-Analysis: v=2.4 cv=c9CmgB9l c=1 sm=1 tr=0 ts=6900628c cx=c_pps
  a=cmESyDAEBpBGqyK7t0alAg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=Kblxg2WO1sEH5cuAf_YA:9 a=QEXdDO2ut3YA:10
+ a=EUspDBNiAAAA:8 a=C6fT43XAjLT6VXuj5BkA:9 a=QEXdDO2ut3YA:10
  a=1OuFwYUASf3TG4hYMiVC:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-28_03,2025-10-22_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 phishscore=0 bulkscore=0
- impostorscore=0 clxscore=1015 spamscore=0 adultscore=0 malwarescore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510020000
- definitions=main-2510280054
+ malwarescore=0 suspectscore=0 spamscore=0 priorityscore=1501 adultscore=0
+ clxscore=1015 lowpriorityscore=0 impostorscore=0 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510280054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_232828_502158_E2B8F3E4 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20251027_232830_254127_0D238884 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,169 +149,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CPU cluster TMC instances share the cluster's power domain, so register
-access must occur on a CPU that keeps the domain powered. To ensure safe
-ETF enable sequences on such devices, split tmc_etf/etb_enable_hw function
-into two variants:
-
- - tmc_etf/etb_enable_hw_local: replaces the old tmc_etf/etb_enable_hw for
-   normal ETF cases
- - tmc_etf/etb_enable_hw_smp_call: executes CPU cluster ETF enable on a CPU
-   within the cluster via smp_call_function_single
-
-Also add a check to ensure the current CPU belongs to the cluster before
-calling tmc_etb_enable_hw_local for CPU cluster ETF.
+This patch refactors the sysfs interfaces to ensure compatibility with
+CPU cluster TMC. When operating on a CPU cluster TMC, register reads
+are performed via `smp_call_function_single()`.
 
 Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-tmc-etf.c | 86 ++++++++++++++++++++++---
- 1 file changed, 76 insertions(+), 10 deletions(-)
+ drivers/hwtracing/coresight/coresight-tmc-core.c | 137 ++++++++++++++++++++---
+ 1 file changed, 123 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-index 0f45ab5e5249933ce7059dfee7fe7376ab33ed2d..b8a1c10d4b4c49144449b33f26710cf11713b338 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-@@ -47,7 +47,7 @@ static int __tmc_etb_enable_hw(struct tmc_drvdata *drvdata)
- 	return rc;
- }
- 
--static int tmc_etb_enable_hw(struct tmc_drvdata *drvdata)
-+static int tmc_etb_enable_hw_local(struct tmc_drvdata *drvdata)
- {
- 	int rc = coresight_claim_device(drvdata->csdev);
- 
-@@ -60,6 +60,36 @@ static int tmc_etb_enable_hw(struct tmc_drvdata *drvdata)
- 	return rc;
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index d00f23f9a479ee9d4bdb4e051ed895d266bcc116..685a64d8ba1b5df4cff91694eee45c6d6a147bc1 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -458,21 +458,130 @@ static enum tmc_mem_intf_width tmc_get_memwidth(u32 devid)
+ 	return memwidth;
  }
  
 +struct tmc_smp_arg {
 +	struct tmc_drvdata *drvdata;
++	u32 offset;
 +	int rc;
 +};
 +
-+static void tmc_etb_enable_hw_smp_call(void *info)
++static void tmc_read_reg_smp_call(void *info)
 +{
 +	struct tmc_smp_arg *arg = info;
 +
-+	arg->rc = tmc_etb_enable_hw_local(arg->drvdata);
++	arg->rc = readl_relaxed(arg->drvdata->base + arg->offset);
 +}
 +
-+static int tmc_etb_enable_hw(struct tmc_drvdata *drvdata)
++static u32 cpu_tmc_read_reg(struct tmc_drvdata *drvdata, u32 offset)
 +{
-+	int cpu, ret;
-+	struct tmc_smp_arg arg = { 0 };
-+
-+	if (!drvdata->cpumask)
-+		return tmc_etb_enable_hw_local(drvdata);
-+
-+	arg.drvdata = drvdata;
-+	for_each_cpu(cpu, drvdata->cpumask) {
-+		ret = smp_call_function_single(cpu,
-+					       tmc_etb_enable_hw_smp_call, &arg, 1);
-+		if (!ret)
-+			return arg.rc;
-+	}
-+	return ret;
-+}
-+
- static void tmc_etb_dump_hw(struct tmc_drvdata *drvdata)
- {
- 	char *bufp;
-@@ -130,7 +160,7 @@ static int __tmc_etf_enable_hw(struct tmc_drvdata *drvdata)
- 	return rc;
- }
- 
--static int tmc_etf_enable_hw(struct tmc_drvdata *drvdata)
-+static int tmc_etf_enable_hw_local(struct tmc_drvdata *drvdata)
- {
- 	int rc = coresight_claim_device(drvdata->csdev);
- 
-@@ -143,6 +173,32 @@ static int tmc_etf_enable_hw(struct tmc_drvdata *drvdata)
- 	return rc;
- }
- 
-+static void tmc_etf_enable_hw_smp_call(void *info)
-+{
-+	struct tmc_smp_arg *arg = info;
-+
-+	arg->rc = tmc_etf_enable_hw_local(arg->drvdata);
-+}
-+
-+static int tmc_etf_enable_hw(struct tmc_drvdata *drvdata)
-+{
-+	int cpu, ret;
-+	struct tmc_smp_arg arg = { 0 };
-+
-+	if (!drvdata->cpumask)
-+		return tmc_etf_enable_hw_local(drvdata);
-+
-+	arg.drvdata = drvdata;
++	struct tmc_smp_arg arg = {
++		.drvdata = drvdata,
++		.offset = offset,
++	};
++	int cpu, ret = 0;
 +
 +	for_each_cpu(cpu, drvdata->cpumask) {
 +		ret = smp_call_function_single(cpu,
-+					       tmc_etf_enable_hw_smp_call, &arg, 1);
++					       tmc_read_reg_smp_call, &arg, 1);
 +		if (!ret)
 +			return arg.rc;
 +	}
++
 +	return ret;
 +}
 +
- static void tmc_etf_disable_hw(struct tmc_drvdata *drvdata)
- {
- 	struct coresight_device *csdev = drvdata->csdev;
-@@ -228,7 +284,11 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
- 		used = true;
- 		drvdata->buf = buf;
- 	}
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
++static ssize_t coresight_tmc_reg32_show(struct device *dev,
++					struct device_attribute *attr,
++					char *buf)
++{
++	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct cs_off_attribute *cs_attr = container_of(attr, struct cs_off_attribute, attr);
++	int ret;
++	u32 val;
 +
- 	ret = tmc_etb_enable_hw(drvdata);
++	ret = pm_runtime_resume_and_get(dev->parent);
++	if (ret < 0)
++		return ret;
 +
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (!ret) {
- 		coresight_set_mode(csdev, CS_MODE_SYSFS);
- 		csdev->refcnt++;
-@@ -290,7 +350,10 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev, void *data)
- 			break;
- 		}
- 
--		ret  = tmc_etb_enable_hw(drvdata);
-+		if (drvdata->cpumask && !cpumask_test_cpu(smp_processor_id(), drvdata->cpumask))
-+			break;
++	if (!drvdata->cpumask)
++		val = readl_relaxed(drvdata->base + cs_attr->off);
++	else
++		val = cpu_tmc_read_reg(drvdata, cs_attr->off);
 +
-+		ret  = tmc_etb_enable_hw_local(drvdata);
- 		if (!ret) {
- 			/* Associate with monitored process. */
- 			drvdata->pid = pid;
-@@ -374,19 +437,22 @@ static int tmc_enable_etf_link(struct coresight_device *csdev,
- 		return -EBUSY;
- 	}
- 
--	if (csdev->refcnt == 0) {
-+	if (csdev->refcnt == 0)
-+		first_enable = true;
++	pm_runtime_put(dev->parent);
 +
-+	if (!first_enable)
-+		csdev->refcnt++;
++	if (ret < 0)
++		return ret;
++	else
++		return sysfs_emit(buf, "0x%x\n", val);
++}
 +
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	if (first_enable) {
- 		ret = tmc_etf_enable_hw(drvdata);
- 		if (!ret) {
- 			coresight_set_mode(csdev, CS_MODE_SYSFS);
--			first_enable = true;
-+			csdev->refcnt++;
-+			dev_dbg(&csdev->dev, "TMC-ETF enabled\n");
- 		}
- 	}
--	if (!ret)
--		csdev->refcnt++;
--	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
--	if (first_enable)
--		dev_dbg(&csdev->dev, "TMC-ETF enabled\n");
- 	return ret;
- }
++static ssize_t coresight_tmc_reg64_show(struct device *dev,
++					struct device_attribute *attr,
++					char *buf)
++{
++	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct cs_pair_attribute *cs_attr = container_of(attr, struct cs_pair_attribute, attr);
++	int ret;
++	u64 val;
++
++	ret = pm_runtime_resume_and_get(dev->parent);
++	if (ret < 0)
++		return ret;
++	if (!drvdata->cpumask) {
++		val = readl_relaxed(drvdata->base + cs_attr->lo_off) |
++			((u64)readl_relaxed(drvdata->base + cs_attr->hi_off) << 32);
++	} else {
++		ret = cpu_tmc_read_reg(drvdata, cs_attr->lo_off);
++
++		if (ret < 0)
++			goto out;
++
++		val = ret;
++
++		ret = cpu_tmc_read_reg(drvdata, cs_attr->hi_off);
++		if (ret < 0)
++			goto out;
++
++		val |= ((u64)ret << 32);
++	}
++
++out:
++	pm_runtime_put_sync(dev->parent);
++	if (ret < 0)
++		return ret;
++	else
++		return sysfs_emit(buf, "0x%llx\n", val);
++}
++
++#define coresight_tmc_reg32(name, offset)				\
++	(&((struct cs_off_attribute[]) {				\
++	   {								\
++		__ATTR(name, 0444, coresight_tmc_reg32_show, NULL),	\
++		offset							\
++	   }								\
++	})[0].attr.attr)
++#define coresight_tmc_reg64(name, lo_off, hi_off)			\
++	(&((struct cs_pair_attribute[]) {				\
++	   {								\
++		__ATTR(name, 0444, coresight_tmc_reg64_show, NULL),	\
++		lo_off, hi_off						\
++	   }								\
++	})[0].attr.attr)
+ static struct attribute *coresight_tmc_mgmt_attrs[] = {
+-	coresight_simple_reg32(rsz, TMC_RSZ),
+-	coresight_simple_reg32(sts, TMC_STS),
+-	coresight_simple_reg64(rrp, TMC_RRP, TMC_RRPHI),
+-	coresight_simple_reg64(rwp, TMC_RWP, TMC_RWPHI),
+-	coresight_simple_reg32(trg, TMC_TRG),
+-	coresight_simple_reg32(ctl, TMC_CTL),
+-	coresight_simple_reg32(ffsr, TMC_FFSR),
+-	coresight_simple_reg32(ffcr, TMC_FFCR),
+-	coresight_simple_reg32(mode, TMC_MODE),
+-	coresight_simple_reg32(pscr, TMC_PSCR),
+-	coresight_simple_reg32(devid, CORESIGHT_DEVID),
+-	coresight_simple_reg64(dba, TMC_DBALO, TMC_DBAHI),
+-	coresight_simple_reg32(axictl, TMC_AXICTL),
+-	coresight_simple_reg32(authstatus, TMC_AUTHSTATUS),
++	coresight_tmc_reg32(rsz, TMC_RSZ),
++	coresight_tmc_reg32(sts, TMC_STS),
++	coresight_tmc_reg64(rrp, TMC_RRP, TMC_RRPHI),
++	coresight_tmc_reg64(rwp, TMC_RWP, TMC_RWPHI),
++	coresight_tmc_reg32(trg, TMC_TRG),
++	coresight_tmc_reg32(ctl, TMC_CTL),
++	coresight_tmc_reg32(ffsr, TMC_FFSR),
++	coresight_tmc_reg32(ffcr, TMC_FFCR),
++	coresight_tmc_reg32(mode, TMC_MODE),
++	coresight_tmc_reg32(pscr, TMC_PSCR),
++	coresight_tmc_reg32(devid, CORESIGHT_DEVID),
++	coresight_tmc_reg64(dba, TMC_DBALO, TMC_DBAHI),
++	coresight_tmc_reg32(axictl, TMC_AXICTL),
++	coresight_tmc_reg32(authstatus, TMC_AUTHSTATUS),
+ 	NULL,
+ };
  
 
 -- 
