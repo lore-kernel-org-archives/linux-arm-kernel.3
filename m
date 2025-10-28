@@ -4,122 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34BA7CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:24:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086AFCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ozOwTgXAigrd5oHT9vBIbGfOq75N06JnpNcxCeXcBQQ=; b=feKzUJMgh2hoIe0xovLMekypLj
-	0x07m4Y86R18w54F+41HcOQZVSCnmNAVUC2gg9QOWKjKC25x5VUg4u6vh0XujarRcZi2X7y3WQH4q
-	KkjPFsvxdy8SBDYTZGYVbMdCXIk2zfDpkBxKrVrtS6J4UXfkr2cT6mZwQkIfE7B+is8LoljV48tgf
-	p2osM5YZWWJcvm8t/KKWGIHvM4DWfDBPEQsVst1vOuA2mCbjA7q+1BVZKWBmHmPtEDwnDzvUC8Adw
-	PZztvzwAEpT/FkVR33UfGTTYiqaXecXp/pPH/gMDE+HBAX/F7B+kNn9PRR/VrKMku9rmQEsaesX14
-	vqsV9ipQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=isLSBLoTw3QiOQIgpYrVdL6cIlwf0KcsUonLPy1B8DQ=; b=orGo//s1CkvM2ciHJhASkA3K4M
+	0Kswlu3/cRKQ2bBQqZy798nQl1FBxOuLnRlLpnOl2q1qpS2HJa89bHh/AdVwFAmEVafMQB7CxZTkg
+	/R5xgvMaoYNJMxlRqn5k/Jt+zNopglFJpALSSPV1eqExvSCOmm+ofTLBpFpXVGwfGUSDXExfeC2IF
+	2JEiFHVyKUa+k5egOdDyv9GgvSmlrZ3tmTYRhegoslj6HcNX8KstP2M6cFo+Egg3RGl+crwDUQv0y
+	aTjNHE8ZGdXJojtV4jeiBjASN8lV9X92W90deoRRmipS1mba8VjS8pspzo/6AqRa9kvMVIflRHB0F
+	eLhlyd3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDmUF-0000000GJcv-2uHL;
-	Tue, 28 Oct 2025 16:23:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vDmVV-0000000GJpN-0NEe;
+	Tue, 28 Oct 2025 16:25:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDmUE-0000000GJc7-1iNo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 16:23:54 +0000
+	id 1vDmVS-0000000GJoW-3NK2;
+	Tue, 28 Oct 2025 16:25:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A1B46023B;
-	Tue, 28 Oct 2025 16:23:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B33A0C4CEE7;
-	Tue, 28 Oct 2025 16:23:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 74A0945A9D;
+	Tue, 28 Oct 2025 16:25:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDDAFC4CEE7;
+	Tue, 28 Oct 2025 16:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761668633;
-	bh=W/FEnj9VxOYcqmIZ+DDA0xkXzU5i3PtKbUPkgrRzNI8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C6SeNnSGD+55bP4czAwMBmIYvjYQ74bgJnrP9sHnJv0CRjRUam9OxVbozOQNMHsKb
-	 yi4GWSQkQYH2ts4476SpOCGYSWzempXK5e3MzQ+hKeXVvhH19dgGyLguAr1Ojb8AYF
-	 aQYH+xzUQC0UbrzsJ/kxgLHUIUuZQaEshgsZTkXSj+80rGfs3AeEApLfJ0Y6n1h4KE
-	 UYNXqyTUNXwM2qooCEw5TaIMp/IkErey4/tknYAlAGPsYS8eQqAHTY94b6T2nACAB7
-	 TWrzUiUGhzw2pGN0qxChVTjvboBtIrPb5CX9XQiw4NTCvOe3HeiIGk4dlpppqmINVp
-	 e2yQtNQdVodcA==
-Message-ID: <a5e9f1ec-69f0-4f91-9dd1-387b3e4ace5b@kernel.org>
-Date: Tue, 28 Oct 2025 17:23:45 +0100
+	s=k20201202; t=1761668710;
+	bh=g+HYr74fOIJBF8//IeX1u6hGkpfR/MyO8jpC8AyplAs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gT6/ILOPpDox4LIC0P6mrQkn27cKKS8sqA59JphgtIkj6muwgaA3Fo1qkj+3hwr0x
+	 Lec8ctwO62yUgf5b+f8NOys9+imyW63Awoi+zjDc6vUMX7ItNvFhAbXVixsle20+AM
+	 DCYjg9wWsW+BmN8WmVOnXKeoK7KRXl7UfDuM55FDXrP20wubQGruqEIuyl7uN1vem3
+	 z1RjIXGmQ+jItDnSIQZ94NMGu9r4D1Cc2Yx7w4rRGmNHf87sUEhnNQJTnZxj1eJJBt
+	 Bp2v2DXxUkTbIAPy+fj+FmsmIlW78U0n3bUpKvn+IC4BArPQhxPUJb7TwK5EWFOiU5
+	 OFSj9z0ZySqFA==
+Date: Tue, 28 Oct 2025 17:25:07 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>, Phil Auld <pauld@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+Message-ID: <aQDuY3rgOK-L8D04@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/10] dt-bindings: display: panel: ronbo,rb070d30: add
- port property
-To: Josua Mayer <josua@solid-run.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Jon Nettleton <jon@solid-run.com>,
- Mikhail Anikin <mikhail.anikin@solid-run.com>,
- Yazan Shhady <yazan.shhady@solid-run.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-input@vger.kernel.org" <linux-input@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20251027-imx8mp-hb-iiot-v1-0-683f86357818@solid-run.com>
- <20251027-imx8mp-hb-iiot-v1-2-683f86357818@solid-run.com>
- <20251028-premium-sunfish-of-feminism-2bc6ab@kuoka>
- <5e055ce8-e30c-45b7-993a-3ea8f8a796d2@solid-run.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <5e055ce8-e30c-45b7-993a-3ea8f8a796d2@solid-run.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251010153839.151763-1-vschneid@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251028_092510_883674_0F8F51EB 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,89 +105,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2025 13:01, Josua Mayer wrote:
-> Am 28.10.25 um 10:03 schrieb Krzysztof Kozlowski:
->> On Mon, Oct 27, 2025 at 06:48:11PM +0100, Josua Mayer wrote:
->>> port property is used for linking dsi ports with dsi panels.
->>> Add port property to ronbo dsi panel binding.
->>>
->>> Signed-off-by: Josua Mayer <josua@solid-run.com>
->>> ---
->>>  Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.yaml | 1 +
->>>  1 file changed, 1 insertion(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.yaml b/Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.yaml
->>> index 04f86e0cbac91..a2dc67a87fa3b 100644
->>> --- a/Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.yaml
->>> +++ b/Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.yaml
->>> @@ -13,6 +13,7 @@ properties:
->>>    compatible:
->>>      const: ronbo,rb070d30
->>>  
->>> +  port: true
->> Port is never the second property. Please look at other bindings.
++Cc Phil Auld
+
+Le Fri, Oct 10, 2025 at 05:38:10PM +0200, Valentin Schneider a �crit :
+> Patches
+> =======
 > 
-> Some places did that ...., e.g.:
+> o Patches 1-2 are standalone objtool cleanups.
 
-Yes, finding few outliers is not a good argument. Especially binding
-from 2020 where many conventions did not exist.
+Would be nice to get these merged.
 
-Look at the most of the bindings or the recently reviewed.
+> o Patches 3-4 add an RCU testing feature.
+
+I'm taking this one.
 
 > 
-> Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml-  compatible:
-> Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml-    enum:
-> Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml-      - mantix,mlaf057we51-x
-> Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml-      - ys,ys57pss36bh5gq
-> Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml-
-> Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml:  port: true
-> Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml-  reg:
+> o Patches 5-6 add infrastructure for annotating static keys and static calls
+>   that may be used in noinstr code (courtesy of Josh).
+> o Patches 7-20 use said annotations on relevant keys / calls.
+> o Patch 21 enforces proper usage of said annotations (courtesy of Josh).
 > 
->>
->> Also, missing blank line
-> Okay
->>  and missing top-level ref for panel-common.
-> 
-> Does this impact which properties are considered required / valid?
-> 
-> Ronbo panel has different gpios / names from panel-common:
-> 
-> power-gpios: similar to panel-common enable-gpios
-> reset-gpios: common to panel-common
-> shlr-gpios: special to ronbo
-> updn-gpios: special to ronbo
-> vcc-lcd-supply: similar to panel-common power-supply
-> backlight: common to panel-common
-> 
-> There are some other gpios in panel-common that ronbo panel does not use.
+> o Patch 22 deals with detecting NOINSTR text in modules
 
-Just use the properties from the common schema where applicable.
+Not sure how to route those. If we wait for each individual subsystem,
+this may take a while.
 
-> 
-> Is the above relevant?
-> Would it be correct adding the below?:
-> 
->  maintainers:
->    - Maxime Ripard <mripard@kernel.org>
->  
-> +allOf:
-> +  - $ref: panel-common.yaml#
-> +
->  properties:
->    compatible:
->      const: ronbo,rb070d30
-> 
-> @@ -48,5 +50,6 @@ required:
->    - shlr-gpios
->    - updn-gpios
->    - vcc-lcd-supply
-> +  - port
->  
->  additionalProperties: false
+> o Patches 23-24 deal with kernel text sync IPIs
 
-unevaluatedProperties:false now.
+I would be fine taking those (the concerns I had are just details)
+but they depend on all the annotations. Alternatively I can take the whole
+thing but then we'll need some acks.
+ 
+> o Patches 25-29 deal with kernel range TLB flush IPIs
 
+I'll leave these more time for now ;o)
+And if they ever go somewhere, it should be through x86 tree.
 
-Best regards,
-Krzysztof
+Also, here is another candidate usecase for this deferral thing.
+I remember Phil Auld complaining that stop_machine() on CPU offlining was
+a big problem for nohz_full. Especially while we are working on
+a cpuset interface to toggle nohz_full but this will require the CPUs
+to be offline.
+
+So my point is that when a CPU goes offline, stop_machine() puts all
+CPUs into a loop with IRQs disabled. CPUs in userspace could possibly
+escape that since they don't touch the kernel anyway. But as soon as
+they enter the kernel, they should either acquire the final state of
+stop_machine if completed or join the global loop if in the middle.
+
+Thanks.
+
+-- 
+Frederic Weisbecker
+SUSE Labs
 
