@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF2CCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 17:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B004CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 17:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C43Q3YBXi+t2Vk4E/E5I2wTUl/T4dq5/Lacl/dvHcyE=; b=Ej1qeplfhxBJmJx6/TvkF7ouMG
-	CjCY74segWM62UVpklDZSRYWOg/t77C72jVHKwFu8Hufn5tPK0BIK02DFBMwPC78/Bsze9x6j6ZP7
-	yMephVCOcnsC91vzqfGLgoye8BdORvm6baIYfDBH/gK1+KKXRItFNZ5/Mgl7vrJrXbddN+yqkV0bq
-	u2kKGqSgsR79fJ20p2x1r1JemezAJb+LZU8LlX/Gbagsq8x8RIQ/iHKGkZNGnZqUj7bjsuigZAb9t
-	p3O38ku98BrJEtqwh/xQYQTFMZ7FhGv+MgRQlaX1yAeD6Nq7HkwuCTo4w3taIbMQmwc0SGJRIkUli
-	n94dc9VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=CdJ+7CGRqx2pwaR7nFsvxokq6e2hsboYVcp35XvnspA=; b=Oe+/QHccB4lWNq
+	Vw3m7nABP3eXvZz9yceV2Qje3LPsjMD1XIz8VC1eMOAInz4qbgMMAM+yMnSFvXeti5wvlMtOZwL2b
+	m/JlwV3RUotlYXX/l/ggLxq3swcEdxmkIu315dP2MmDk+UThHUKwd0dPZSvVBfbjrBxIRQOYUmXOt
+	sXWxZigL0RDzy2MtS1Sf+nE61ys2UIUI6kZ7UiT0+8ptCeiqPIiJmx1AL1EFfHj5443AKwrYkdSao
+	p0NOg/ttL6EZWHOM5CLReoN1Mz9HpXk6otOjctJr65l1rB+T26bJ+Gc2vOP0mLfU7CkhvnDs0pOjZ
+	wbZkBWPzojeunUiJs4+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDnFr-0000000GOCD-0weg;
-	Tue, 28 Oct 2025 17:13:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDnFo-0000000GOAr-3eJb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 17:13:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B10526AC
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:12:54 -0700 (PDT)
-Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 011443F673
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:13:01 -0700 (PDT)
-Date: Tue, 28 Oct 2025 17:12:35 +0000
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	Steven Price <steven.price@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v8 1/5] dt-bindings: gpu: mali-valhall-csf: add
- mediatek,mt8196-mali variant
-Message-ID: <aQD5gwByEmX6GQK9@e110455-lin.cambridge.arm.com>
-References: <20251017-mt8196-gpufreq-v8-0-98fc1cc566a1@collabora.com>
- <20251017-mt8196-gpufreq-v8-1-98fc1cc566a1@collabora.com>
+	id 1vDnGI-0000000GOI2-3X66;
+	Tue, 28 Oct 2025 17:13:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDnGH-0000000GOHY-0Ypu;
+	Tue, 28 Oct 2025 17:13:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B9306124B;
+	Tue, 28 Oct 2025 17:13:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B658BC4CEE7;
+	Tue, 28 Oct 2025 17:13:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761671611;
+	bh=+cenkb0yL5U6fkb9PXEJLOZBBfbIw/K5JcCnxUVgehI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=GHWgETQ1RNiG4NgBjVLnhJH9atMiVJdloWNMv11jPg99tyK+rmBwAzqK9hTb4gVhT
+	 2ZtFnJKwxLI4s2Q1P8yhoci5coU0j5l4vn2zCzKepsIfscxlIj7Zu5fXo/n3/KWGIz
+	 hHMqKbrGfsuMHEa9JXdVniJNLDuD3aTag4FRYpY8MZC7Tdt+1tj5Isr/dt42Ncc8NJ
+	 sH4jdipg5MKIr6H7mirxdjLBByUiKYKRocaUoLgV9TRC+GCZAmUas2q83NjwZJ561i
+	 7CYd2BuJMIACVxarC+376c/AlA60uR1HFbp6n2bx39j1c/IyYibnP+f7s04InfotSN
+	 hUMwQm5MxpCww==
+Date: Tue, 28 Oct 2025 12:13:30 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+	vkoul@kernel.org, kishon@kernel.org, linus.walleij@linaro.org,
+	p.zabel@pengutronix.de, linux-aspeed@lists.ozlabs.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v4 8/9] PCI: aspeed: Add ASPEED PCIe RC driver
+Message-ID: <20251028171330.GA1506282@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251017-mt8196-gpufreq-v8-1-98fc1cc566a1@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_101305_020072_A18FAD4D 
-X-CRM114-Status: GOOD (  24.24  )
+In-Reply-To: <20251027095825.181161-9-jacky_chou@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,105 +73,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 05:31:08PM +0200, Nicolas Frattaroli wrote:
-> The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
-> control the power and frequency of the GPU. This is modelled as a power
-> domain and clock provider.
-> 
-> It lets us omit the OPP tables from the device tree, as those can now be
-> enumerated at runtime from the MCU.
-> 
-> Add the necessary schema logic to handle what this SoC expects in terms
-> of clocks and power-domains.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 37 +++++++++++++++++++++-
->  1 file changed, 36 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> index 613040fdb444..860691ce985e 100644
-> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> @@ -45,7 +45,9 @@ properties:
->      minItems: 1
->      items:
->        - const: core
-> -      - const: coregroup
-> +      - enum:
-> +          - coregroup
-> +          - stacks
->        - const: stacks
+On Mon, Oct 27, 2025 at 05:58:24PM +0800, Jacky Chou wrote:
+> Introduce PCIe Root Complex driver for ASPEED SoCs. Support RC
+> initialization, reset, clock, IRQ domain, and MSI domain setup.
+> Implement platform-specific setup and register configuration for
+> ASPEED. And provide PCI config space read/write and INTx/MSI
+> interrupt handling.
 
-I'm not sure how to parse this part of the change. We're overwriting the property
-for mt8196-mali anyway so why do we need this? And if we do, should 'stacks'
-still remain as a const?
+> +config PCIE_ASPEED
+> +	bool "ASPEED PCIe controller"
+> +	depends on ARCH_ASPEED || COMPILE_TEST
+> +	depends on OF
+> +	depends on PCI_MSI
+> +	select IRQ_MSI_LIB
+> +	help
+> +	  Enable this option to support the PCIe controller found on ASPEED
+> +	  SoCs.
+> +
+> +	  This driver provides initialization and management for PCIe
+> +	  Root Complex functionality, including interrupt and MSI support.
 
-Best regards,
-Liviu
+Maybe "INTx and MSI support", since MSI is an interrupt?
 
->  
->    mali-supply: true
-> @@ -110,6 +112,27 @@ allOf:
->          power-domain-names: false
->        required:
->          - mali-supply
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: mediatek,mt8196-mali
-> +    then:
-> +      properties:
-> +        mali-supply: false
-> +        sram-supply: false
-> +        operating-points-v2: false
-> +        power-domains:
-> +          maxItems: 1
-> +        power-domain-names: false
-> +        clocks:
-> +          maxItems: 2
-> +        clock-names:
-> +          items:
-> +            - const: core
-> +            - const: stacks
-> +      required:
-> +        - power-domains
->  
->  examples:
->    - |
-> @@ -145,5 +168,17 @@ examples:
->              };
->          };
->      };
-> +  - |
-> +    gpu@48000000 {
-> +        compatible = "mediatek,mt8196-mali", "arm,mali-valhall-csf";
-> +        reg = <0x48000000 0x480000>;
-> +        clocks = <&gpufreq 0>, <&gpufreq 1>;
-> +        clock-names = "core", "stacks";
-> +        interrupts = <GIC_SPI 606 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                     <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                     <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH 0>;
-> +        interrupt-names = "job", "mmu", "gpu";
-> +        power-domains = <&gpufreq>;
-> +    };
->  
->  ...
-> 
-> -- 
-> 2.51.0
-> 
+> +/* Complete status */
 
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+"Completion"
+
+> +static int aspeed_ast2700_ahb_remap_to_bar(struct aspeed_pcie *pcie)
+> +{
+> +	struct resource_entry *win, *tmp;
+> +	struct pci_host_bridge *bridge = pcie->host;
+> +
+> +	/* Configure AHB remapping to BAR on AST27x0.
+> +	 * The BAR region is HW-fixed in AST27x0, these BARs will be filled
+> +	 * in the ranges of pcie node in DT.
+> +	 */
+
+I don't understand what "HW-fixed" means here.  It looks like you're
+writing host bridge window addresses (that came from DT) to the
+hardware.  That sounds like they're not actually "fixed" but
+programmable.
+
+Host bridge windows are not BARs themselves.  Mem space for devices
+below the host bridge is allocated from the windows, and the addresses
+are programmed into BARs of those downstream devices.
+
+Multi-line comment style:
+
+  /*
+   * Configure ...
+   */
+
+Wrap to fill 78 columns, or add blank lines between paragraphs.
+
+> +	resource_list_for_each_entry_safe(win, tmp, &bridge->windows) {
+> +		struct resource *res = win->res;
+> +
+> +		if (resource_type(res) == IORESOURCE_MEM &&
+> +		    !(res->flags & IORESOURCE_MEM_64)) {
+> +			writel(ASPEED_REMAP_BAR_BASE(res->start),
+> +			       pcie->reg + ASPEED_H2X_REMAP_DIRECT_ADDR);
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -ENODEV;
+> +}
+> +
+> +static int aspeed_ast2700_setup(struct platform_device *pdev)
+> +{
+> +	struct aspeed_pcie *pcie = platform_get_drvdata(pdev);
+> +	struct device *dev = pcie->dev;
+> +	int ret;
+> +
+> +	pcie->cfg = syscon_regmap_lookup_by_phandle(dev->of_node,
+> +						    "aspeed,pciecfg");
+> +	if (IS_ERR(pcie->cfg))
+> +		return dev_err_probe(dev, PTR_ERR(pcie->cfg),
+> +				     "failed to map pciecfg base\n");
+> +
+> +	regmap_update_bits(pcie->cfg, ASPEED_SCU_60,
+> +			   ASPEED_RC_E2M_PATH_EN | ASPEED_RC_H2XS_PATH_EN |
+> +			   ASPEED_RC_H2XD_PATH_EN | ASPEED_RC_H2XX_PATH_EN |
+> +			   ASPEED_RC_UPSTREAM_MEM_EN,
+> +			   ASPEED_RC_E2M_PATH_EN | ASPEED_RC_H2XS_PATH_EN |
+> +			   ASPEED_RC_H2XD_PATH_EN | ASPEED_RC_H2XX_PATH_EN |
+> +			   ASPEED_RC_UPSTREAM_MEM_EN);
+> +	regmap_write(pcie->cfg, ASPEED_SCU_64,
+> +		     ASPEED_RC0_DECODE_DMA_BASE(0) |
+> +		     ASPEED_RC0_DECODE_DMA_LIMIT(0xff) |
+> +		     ASPEED_RC1_DECODE_DMA_BASE(0) |
+> +		     ASPEED_RC1_DECODE_DMA_LIMIT(0xff));
+> +	regmap_write(pcie->cfg, ASPEED_SCU_70, ASPEED_DISABLE_EP_FUNC);
+> +
+> +	aspeed_host_reset(pcie);
+> +
+> +	writel(0, pcie->reg + ASPEED_H2X_CTRL);
+> +	writel(ASPEED_H2X_BRIDGE_EN | ASPEED_H2X_BRIDGE_DIRECT_EN,
+> +	       pcie->reg + ASPEED_H2X_CTRL);
+> +
+> +	ret = aspeed_ast2700_ahb_remap_to_bar(pcie);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to assign BAR\n");
+
+This is not assigning *BARs*.  A host bridge doesn't have BARs in the
+PCI spec sense.  It might have programmable address ranges, but the
+host bridge is not itself a PCI device, so its programmability is
+device specific.
 
