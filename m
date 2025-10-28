@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A637DCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7597CCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60xh9Ohl/uRMIqkpz1M8SfLdCotH1+jJz5M285yYGwo=; b=3HL7/i1za3tERdLfWJ50ypAF70
-	PRTdmEKomLCqNeY4oapo92Y9PDM2A5tyl3pKuiaGVoREUC99hC61BlTlSFX0Q6NHs5JzHTdADEZ55
-	LuHXF4dVU6UheLkjceSntX9aDhUti44Bko95K3pCFc2QeiKA6RFXEeNtC6API0TZkRZs6oCv8fYAJ
-	hKqoKCMlu4TDLNwTCHx/rAE0SyuiG8dbRJpGwNZaRsaPyOk/CiItqYwHkzfoXnSfyd/KBeK03eumt
-	mWgc+JSbY8Fo79YosdZdpYjeXOv+vbm4O9lNzRs7FyKHbzAG8Xtc3gZxKsWyZprQ11E22nMBZbIFb
-	Mv8U6NGw==;
+	bh=fWYmcjhvg9y3N/u/OOKx04aj1aGuI0a8sXoAGDiMrKs=; b=vIwvQbokmG2m633B82YXjtbwmt
+	yvjzRmMbVxeYaU3XzUNFG3a1luESUVgGRvXX/WQQ+CYDh3ZSLPvX3YNjMC6z6dC5w+QjYoBt/AyyY
+	6Xv3JkwuuUq+FMT9J0kK2eToZeEHnvg92GifEIr0iVIfq2SWhjhF/sH0bCXXy2v+S/igxi99FpCEA
+	5vZzyMPAmHKoFcvE1wwQKuLCCMZXrcNKy1SCbqDgBhXbIpr4DpTPinBhc5FULhv29nLJ5lrx1zLIV
+	xO2jO+jaXqvaeog3L0YshVhwOCEZWTxeC2QYe2oVsSQ1YicGpmksIuKQec73zsPpRAdtg/oTZYFYs
+	8u3gugVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgNb-0000000Fg2K-0jW9;
-	Tue, 28 Oct 2025 09:52:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vDgNh-0000000Fg5g-3Pri;
+	Tue, 28 Oct 2025 09:52:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgNY-0000000Ffzr-2Lv1;
-	Tue, 28 Oct 2025 09:52:36 +0000
+	id 1vDgNY-0000000Ffzt-3pW2;
+	Tue, 28 Oct 2025 09:52:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB5EB61EAA;
+	by tor.source.kernel.org (Postfix) with ESMTP id ED87D61EE3;
 	Tue, 28 Oct 2025 09:52:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 61DFDC4CEFF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BC6E1C2BC87;
 	Tue, 28 Oct 2025 09:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1761645155;
-	bh=VfRvfxHkNp+Sx+cA5Lh/JvVKeKMC87cBbA7bDyKqd3Y=;
+	bh=X2LgKGxvc+yiUAPkHyPMwzAGhXvItiDTlNdNw6TQWqo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=r4MBzcHOfN4fHMAjBgnHdHtQGntVBrCrN1y/hjO2Gagl2OlIYbVYDVZz0D2z6Clla
-	 ANM96AMBm3TMv2aV01XyCVEg0mpjXZR5Fy55Kc9lp3kpZIg6CbeB9xu+Wz6eaRMD38
-	 lEbr7EE+N54F24tzWGa05p1Dw5YbfzFbr29yeCBxX1c6BwNg1cdr6mz/mZ9f17sCmb
-	 mzOUinZ4sxd5hBedPnmTkqzI+dVyW4FqXgsIb8+W9zzM8kWKh7IC/XXiLgmMtkbpTf
-	 jnvBpKCqEhjeZ0F2Qzr8Tqq+9UyVU8wc3nwleuB/HqdwLHWygeo9H8wjlaxRBA68vw
-	 c1Bw7M/Nk/9Ow==
+	b=t4JFRL1LHezh+pDEOavRzpciy6ukDQRspmubAEvFpihyHageE4WYTV8JKVXzDWVpI
+	 wTed7pttMW895m7ygAsnBk5WeVdn3+s4soHmOL33s1kTnMPjTE07D0XofQeGmz9dGX
+	 CAL97CfJvWV1tvAEF5njYYhr8qCUw3DJBe35LqG3gcowwcsdPTTqs7dBI5DDoAZVC7
+	 8gf850h6XS2M8kpmI2KC8q4yj/JHE6IgEltVTbGgg23smsXjoPSUHv3In2CvGT7/Ob
+	 fck8qQQtxS2PVsoTuwL0zMPRDWnbCjiuVDek+Ya5ePJfMg2SpTMdzM5HjbxMEEP5LS
+	 fCeGSjWyyKK7A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52F92CCF9EC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B248CCCF9E0;
 	Tue, 28 Oct 2025 09:52:35 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Tue, 28 Oct 2025 17:52:27 +0800
-Subject: [PATCH v4 1/8] dt-bindings: clock: Add Amlogic A5 SCMI clock
- controller support
+Date: Tue, 28 Oct 2025 17:52:33 +0800
+Subject: [PATCH v4 7/8] arm64: dts: amlogic: A5: Add PLL controller node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251028-a5-clk-v4-1-e62ca0aae243@amlogic.com>
+Message-Id: <20251028-a5-clk-v4-7-e62ca0aae243@amlogic.com>
 References: <20251028-a5-clk-v4-0-e62ca0aae243@amlogic.com>
 In-Reply-To: <20251028-a5-clk-v4-0-e62ca0aae243@amlogic.com>
 To: Chuan Liu <chuan.liu@amlogic.com>, 
@@ -68,11 +67,11 @@ Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761645153; l=1990;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761645153; l=1163;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=/evrNULktsLWoHm1La7NcTjiKAzAj7ZoYCN/eHSFMb0=;
- b=x0fJIqnE6UIZ1KQ+DPirABxLtqiE+c1UpAv+g5p/TLsd1Ne0UQWD5L7rzaLzDHb0WI61uWdWk
- +jZnMER5OZ+A1aCZTDmL8PeG0OY1vt/32+V8Qn4vwiYQ+KFXAihoZL7
+ bh=W8yE0gYMnw2TeYIsOkbQZ2yJTdvcybUThyiQBa5vAa4=;
+ b=aEsMXHrLZog7rahKISm0rdVZl/eWN5ue3go4FB7W+uwpAjdcEEr35iq9s+5Qb3lzPijMXPAVv
+ RuPggJTaf4gANchCoZf33G9GtybQvpexOciXvyTsMogxEMMOSgA+pQ9
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
@@ -95,66 +94,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-Add the SCMI clock controller dt-bindings for the Amlogic A5 SoC
-family.
+Add PLL controller node for A5 SoC family.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- include/dt-bindings/clock/amlogic,a5-scmi-clkc.h | 44 ++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/include/dt-bindings/clock/amlogic,a5-scmi-clkc.h b/include/dt-bindings/clock/amlogic,a5-scmi-clkc.h
-new file mode 100644
-index 000000000000..1bf027d0110a
---- /dev/null
-+++ b/include/dt-bindings/clock/amlogic,a5-scmi-clkc.h
-@@ -0,0 +1,44 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+/*
-+ * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-+ * Author: Chuan Liu <chuan.liu@amlogic.com>
-+ */
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
+index a6625508893d..70deeab220e0 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
+@@ -8,6 +8,7 @@
+ #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+ #include <dt-bindings/power/amlogic,a5-pwrc.h>
+ #include <dt-bindings/clock/amlogic,a5-scmi-clkc.h>
++#include <dt-bindings/clock/amlogic,a5-pll-clkc.h>
+ 
+ / {
+ 	cpus {
+@@ -187,4 +188,16 @@ gpio_intc: interrupt-controller@4080 {
+ 		amlogic,channel-interrupts =
+ 			<10 11 12 13 14 15 16 17 18 19 20 21>;
+ 	};
 +
-+#ifndef __AMLOGIC_A5_SCMI_CLKC_H
-+#define __AMLOGIC_A5_SCMI_CLKC_H
-+
-+#define CLKID_OSC				0
-+#define CLKID_SYS_CLK				1
-+#define CLKID_AXI_CLK				2
-+#define CLKID_CPU_CLK				3
-+#define CLKID_DSU_CLK				4
-+#define CLKID_GP1_PLL				5
-+#define CLKID_FIXED_PLL_DCO			6
-+#define CLKID_FIXED_PLL				7
-+#define CLKID_ACLKM				8
-+#define CLKID_SYS_PLL_DIV16			9
-+#define CLKID_CPU_CLK_DIV16			10
-+#define CLKID_FCLK_50M_PREDIV			11
-+#define CLKID_FCLK_50M_DIV			12
-+#define CLKID_FCLK_50M				13
-+#define CLKID_FCLK_DIV2_DIV			14
-+#define CLKID_FCLK_DIV2				15
-+#define CLKID_FCLK_DIV2P5_DIV			16
-+#define CLKID_FCLK_DIV2P5			17
-+#define CLKID_FCLK_DIV3_DIV			18
-+#define CLKID_FCLK_DIV3				19
-+#define CLKID_FCLK_DIV4_DIV			20
-+#define CLKID_FCLK_DIV4				21
-+#define CLKID_FCLK_DIV5_DIV			22
-+#define CLKID_FCLK_DIV5				23
-+#define CLKID_FCLK_DIV7_DIV			24
-+#define CLKID_FCLK_DIV7				25
-+#define CLKID_SYS_MMC_PCLK			26
-+#define CLKID_SYS_CPU_CTRL			27
-+#define CLKID_SYS_IRQ_CTRL			28
-+#define CLKID_SYS_GIC				29
-+#define CLKID_SYS_BIG_NIC			30
-+#define CLKID_AXI_SYS_NIC			31
-+#define CLKID_AXI_CPU_DMC			32
-+
-+#endif /* __AMLOGIC_A5_SCMI_CLKC_H */
++	clkc_pll: clock-controller@8000 {
++		compatible = "amlogic,a5-pll-clkc";
++		reg = <0x0 0x8000 0x0 0x1a4>;
++		#clock-cells = <1>;
++		clocks = <&xtal>,
++			 <&scmi_clk CLKID_FIXED_PLL_DCO>,
++			 <&scmi_clk CLKID_FIXED_PLL>;
++		clock-names = "xtal",
++			      "fix_dco",
++			      "fix";
++	};
+ };
 
 -- 
 2.42.0
