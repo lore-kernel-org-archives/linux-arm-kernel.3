@@ -4,97 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9486ECCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530BDCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ciiMP+aVPTGP01jthAKSkaUntJMAjHCa/1wZcaGOww=; b=24DJpR89vbtionJ1HT7oWc2TgX
-	R+u5vUPwcCCnd78w+9DlT4aIG0AfqPBegSb2FWgItMTRz4GcDPwuRkhp6OFARCHt06t6kqGoEpOxV
-	FUb8/NzUuLtCM97BJwIUWIXbmk2V4KecHUNTtH+P+trEG6esVWI0C6eSowMiJywhIuIDXUEeOQjr3
-	kowDfXB+1EYKK0lyYxBZNozlem6o/8ee1j4KMxZr6huecHTknB2uumR6MPG3DBQXnZt10zVNN7LN1
-	uYH/Vl/8bpZLsIXQLr6UPuPXkqObGTLqxxsyV48xfRCNpvXfK/kIblnJ7ABpVo2tUboG8YSWJxEpv
-	6mQdANXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ss7g9OPGrAkY9kUcGCclPiLcw52MVKuR0CuNg2oTpdY=; b=nrW2hUGqp9q7X7nI1yR1hFPM6s
+	4aQlwcM+UntodqgyagbDmzuXoboQhK6Gx/Ok2VaRjFDtFPsr43SSbxXqHUmJufrmiPGwKW2RZYNrD
+	gEST/pGj9QbAgRkGPIJbJtQgsQJItwEUIotlT/2wEpgS6aBZE60FfOA+bpfZFq5Vh43RgOOlfny1A
+	zEXd2z9buGwGnMnyuLRdqCMqESXh20SNATxYcbuUi8qub+YyLDKBdWKIb2hJEeJ960xEXgWO9RrjB
+	IG84jHbcB3adgfJUUn4r9k/oQkhlre5A8ZnQ34QF27De3V1PvRdin/y7INWyrUKfECUPsZq1PyEGI
+	4dXvGS1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhKs-0000000Fnip-157O;
-	Tue, 28 Oct 2025 10:53:54 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vDhOp-0000000Fo2O-3aVb;
+	Tue, 28 Oct 2025 10:57:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhKq-0000000FniL-0nMt
+	id 1vDhOm-0000000Fo1Y-2lI8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:53:53 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4285169c005so2676626f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 03:53:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761648830; x=1762253630; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5ciiMP+aVPTGP01jthAKSkaUntJMAjHCa/1wZcaGOww=;
-        b=gtQ+kaI7kcgn8JxWboDiWB8WX+JWjq+nabMoJyOmSlmelmPQ2vtQ1tGGWdoAyfTlUw
-         lnQX2ZHOsC5AiBid4aIC9HUiPXj//irJxEADBbnSr+1qNAJ2JIvZZciFX0Q1Wjf6e0zw
-         6JfTWw4YYw0SXRtlDTOsziG+8c1GC78P8v4/pMmhf4ErVVydM0gtuZ6JfEEiNkGrJ1f7
-         L/kKkmixclOGtYx09MuyUgK/4v46jU0TKSMxMf4Q6kDdKc1S4yKEcyneUq8lP4AYJVOB
-         8D02XspzRPAzLZZ5QkiKYx9S9KPh89QZtjSILlgTNPBQfrvGoJx91V1Hyqo1Rp03FynK
-         wYsw==
+	Tue, 28 Oct 2025 10:57:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761649074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ss7g9OPGrAkY9kUcGCclPiLcw52MVKuR0CuNg2oTpdY=;
+	b=V/rwW+GYupNQnEUEF+UQdK99K+xWqvSST3cYLpdiJ56RaB5Zobn+wfg3O7ghR46t9kfiLA
+	XfjKCaS4bgo/v9FH9sOQawa6THDxBFXXrNm/ruimB9iVa57rmNJdCWPjr+I6PAab1p3Wkk
+	TcxIztfiV7mrFMmg1DaJ/h6Dd6JtoXQ=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-482-qLJ0R-DPO1KjgCCfQYWLdg-1; Tue, 28 Oct 2025 06:57:52 -0400
+X-MC-Unique: qLJ0R-DPO1KjgCCfQYWLdg-1
+X-Mimecast-MFC-AGG-ID: qLJ0R-DPO1KjgCCfQYWLdg_1761649071
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-475dc22db7eso30619315e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 03:57:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761648830; x=1762253630;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5ciiMP+aVPTGP01jthAKSkaUntJMAjHCa/1wZcaGOww=;
-        b=GrRnSVAu7FeK/FHecbhJY1C2tMFZ3kr1UBszJcOvz+ZTukuRwDPPu7bLQqoNugsxlM
-         NmVNEPr6LE+4D1HFBUpVopPR6z8j6Nn7FVISxw/C/sQ71jrnnag5riLE32VsmpVfnLn9
-         K0h8XFPnaIIDUKHpP5qVCYnGeFQbO4aOVRW22apFfrd++YhIEDQ2X5EyQJsPIxHBU9gJ
-         RD1nfJIiisF2Sy00KnAlz3RHQRN6atHyAGfvX/TUXlfehfapjJ2t2S+qWWdz0jfeJetJ
-         SaLS0umQ2Zue3J9szirVLlsN29PVBWx6EJBTWuGH1sC2qz23G8S1XZojwJ/Cl4UZsZBK
-         8bGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUCseFEcTekQOsUNmvGjc3d8yd+fh02FtA43sbaOBLmog75rU0O92nQ+1btaywh3yDlug8uqPaHwgUixWGQfGeC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRpAmCdIMwK9pW9lSn3zCKgMnjKkhsqT7WcYlGZj9VfvPKfcb7
-	4a4ctvdJ8ppHB6EeYR9tVCDdiNzhnfLYocSW9+BXMfDKgnYlJezrd+RZi5YU/l7WHsw=
-X-Gm-Gg: ASbGncsEJuTg7c0LDOe5PeLeZd8IZj9AkjER54bQRDVMTN7PyCDAwn7cnI4tR9+QFjd
-	b5/o11b1YcEaJ0DBimUeG7CvOyenvul++Iy+FUn18znWRSbLqc2kLhkouo3sEgwqM1E9lExbdvg
-	3obU0npcXM4Jbb+cOjNu9K/CdVUmz5zLw8bV/l4AsRCSucg0Fcxq0InHnEynUmQTT4BUmKq0lGe
-	kun6LJWcf4EVPFMe25jne38y0faJ/jOPefsy7yVoNdQoesn9YuEyjoKn7h4Ik4TuIwMrNAaNqKB
-	x2XpSHJPWhdp9l+FmToKwfusMgy9gxdTQ/IcTAsRKUdL3wsF/f9tfpO7G9lGkl/NGNtSW9UTLoK
-	prMoz8oZoyPHlr95trSLaWp0StmAnNlmafjJ3cto2AMm7A6VXj63EvyN9ouGRw/JNIxVsWVkEOC
-	4CmGiiUsUIi2puylKgk+kA
-X-Google-Smtp-Source: AGHT+IGNt3x1+qvnQdvPMrB8YbMOh25mEuFQD2Py5L6FbHFNPHpPfAZVVrBrzGdO5MKQniNEUyPgGA==
-X-Received: by 2002:a05:6000:26d1:b0:3eb:9447:b97a with SMTP id ffacd0b85a97d-429a7e8e222mr2559278f8f.54.1761648829920;
-        Tue, 28 Oct 2025 03:53:49 -0700 (PDT)
-Received: from linaro.org ([2a02:2454:ff21:30:7f41:186a:1d61:ae59])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd374e21sm191479545e9.9.2025.10.28.03.53.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 03:53:49 -0700 (PDT)
-Date: Tue, 28 Oct 2025 11:53:44 +0100
-From: Stephan Gerhold <stephan.gerhold@linaro.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Johan Hovold <johan@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Enable use of all SMR groups when
- running bare-metal
-Message-ID: <aQCguL11h6oa5Y4C@linaro.org>
-References: <20250821-arm-smmu-qcom-all-smr-v1-1-7f5cbbceac3e@linaro.org>
- <aMAkJ7CfPQuhvhfm@willie-the-truck>
- <aMBJNzXpQTMg4Ncs@linaro.org>
- <d73e5026-ccb0-4a19-9742-099a0443f878@arm.com>
- <aMsJHheI6Y1V5q74@linaro.org>
- <aM0LZVudBKjWuVrT@willie-the-truck>
+        d=1e100.net; s=20230601; t=1761649071; x=1762253871;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ss7g9OPGrAkY9kUcGCclPiLcw52MVKuR0CuNg2oTpdY=;
+        b=G4Raev53sRZ47LDpjadCevd5BgOUkmV9IwkrL9VY2mkF7Y7qnK3RsFX4KqZdGqxPBd
+         arJtoY1SxV31+rmvs+tUlMi/CQWRmlu8kgR8opkzNWTKgTU2uzgd0Tzltll6A/2OEXrF
+         N7IcouPRIf+mTMcOK9Wmwr1A0ovrnoyrLgGteifGSdzabM+zF/rxrjT2hE9YfC12wNlA
+         JVtD5EFRDgdMvvly3LldTjJeMb6hLhS8ygPs5Z0dtyJRPNAlUmqeDcHcf2cmyuzdKiyU
+         hReXub2eaWnj4SwKCQ4i+x+i2eid1Fko4rQDaqQuEHFqiYgKluDgxDRQ0raJ92MaZSVB
+         pktg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbTWjsMesYqy09nYLBgGqvimOEA6/uEYkAwLbxPgIvtRnDPUxKqwLeVW0jE/FPbUtMhQNcUdKh8TeGG2xWF0l1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuebMeEMuQjj1mw+cZx0ruPe1kf9NCof+DBhZf5MjlFvM98EXT
+	Xg+lhxB2J+81kVfdO/jpYIJDde9UENr93RaDv2RA4AXc7qWlsCB7hnqgJ7jz3zYAbyutYJ5gPax
+	Ox8AIfYLEEbLKVluTWWH68XYW1P7MvdFsUuN+ZlxkWiGpMz/YzGc93VzCJDkzdI24ZudwJIW3ng
+	8v
+X-Gm-Gg: ASbGncuNkSBqUwa0/fKTfLZuW85kuUdzLQiB0m/qVl7zw4hGnXPoL6XemAghLHkUaMo
+	fVvQlm8cOaaAIPudNnA8izPfdpTdtBjijaYz8Sep9BK9zQPzY6ljxRcmrg/nrYpM0ZB77dl7opx
+	nzjc2eKIdOfU1hbzS+/s2N6rtT2pG23R27tXfPL3VrFFPXcCDRrP5NDqw++0SdagTATDpavBw2Y
+	RfegYs8vaBd3YXzyPV+sRBBoeDLNXK70YDXxOuWh/uk7vo/sGdYdORfEkSTXgz0UPmeHOdP2jsl
+	Ny4l7DfrkeiXYpUa5Zm2kEWbOJTHnS1yrP6swk9KOtxS9EFKg1AFgvyKG665TH66htg4bf4/MqS
+	g/a3kvU000AQ3cpvRBhqyoSSwf/znJuNpyaPKH5rFr9Q/Z30=
+X-Received: by 2002:a05:600c:34c7:b0:475:e067:f23d with SMTP id 5b1f17b1804b1-47717e30340mr24822455e9.25.1761649071067;
+        Tue, 28 Oct 2025 03:57:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IErU20c2eSasDdwQZzdlRNWvVKDbbva3lmpIExHrHtMT8SPwj/9JiHFRH8lMSjet+8CB83SCA==
+X-Received: by 2002:a05:600c:34c7:b0:475:e067:f23d with SMTP id 5b1f17b1804b1-47717e30340mr24821915e9.25.1761649070539;
+        Tue, 28 Oct 2025 03:57:50 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:2712:7e10:4d59:d956:544f:d65c? ([2a0d:3344:2712:7e10:4d59:d956:544f:d65c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475dd47853csm191118005e9.13.2025.10.28.03.57.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Oct 2025 03:57:50 -0700 (PDT)
+Message-ID: <05efdc9a-8704-476e-8179-1a9fc0ada749@redhat.com>
+Date: Tue, 28 Oct 2025 11:57:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aM0LZVudBKjWuVrT@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 2/6] net: ti: icssg-prueth: Add XSK pool
+ helpers
+To: Meghana Malladi <m-malladi@ti.com>, horms@kernel.org,
+ namcao@linutronix.de, vadim.fedorenko@linux.dev, jacob.e.keller@intel.com,
+ christian.koenig@amd.com, sumit.semwal@linaro.org, sdf@fomichev.me,
+ john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
+ ast@kernel.org, kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+ andrew+netdev@lunn.ch
+Cc: linaro-mm-sig@lists.linaro.org, dri-devel@lists.freedesktop.org,
+ linux-media@vger.kernel.org, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com,
+ Vignesh Raghavendra <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>,
+ danishanwar@ti.com
+References: <20251023093927.1878411-1-m-malladi@ti.com>
+ <20251023093927.1878411-3-m-malladi@ti.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20251023093927.1878411-3-m-malladi@ti.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 8foZ-g3vByXHP2l-LSVfcwU1TIybtfFor6T-3Yp6v7I_1761649071
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_035352_247840_14B557F7 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20251028_035756_798444_EFF13F0C 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,37 +122,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin,
+On 10/23/25 11:39 AM, Meghana Malladi wrote:
+> @@ -1200,6 +1218,109 @@ static int emac_xdp_setup(struct prueth_emac *emac, struct netdev_bpf *bpf)
+>  	return 0;
+>  }
+>  
+> +static int prueth_xsk_pool_enable(struct prueth_emac *emac,
+> +				  struct xsk_buff_pool *pool, u16 queue_id)
+> +{
+> +	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
+> +	u32 frame_size;
+> +	int ret;
+> +
+> +	if (queue_id >= PRUETH_MAX_RX_FLOWS ||
+> +	    queue_id >= emac->tx_ch_num) {
+> +		netdev_err(emac->ndev, "Invalid XSK queue ID %d\n", queue_id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	frame_size = xsk_pool_get_rx_frame_size(pool);
+> +	if (frame_size < PRUETH_MAX_PKT_SIZE)
+> +		return -EOPNOTSUPP;
+> +
+> +	ret = xsk_pool_dma_map(pool, rx_chn->dma_dev, PRUETH_RX_DMA_ATTR);
+> +	if (ret) {
+> +		netdev_err(emac->ndev, "Failed to map XSK pool: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	if (netif_running(emac->ndev)) {
+> +		/* stop packets from wire for graceful teardown */
+> +		ret = icssg_set_port_state(emac, ICSSG_EMAC_PORT_DISABLE);
+> +		if (ret)
+> +			return ret;
+> +		prueth_destroy_rxq(emac);
+> +	}
+> +
+> +	emac->xsk_qid = queue_id;
+> +	prueth_set_xsk_pool(emac, queue_id);
+> +
+> +	if (netif_running(emac->ndev)) {
+> +		ret = prueth_create_rxq(emac);
 
-On Fri, Sep 19, 2025 at 08:51:01AM +0100, Will Deacon wrote:
-> On Wed, Sep 17, 2025 at 09:16:46PM +0200, Stephan Gerhold wrote:
-> > I realize it is weird to allow non-architectural features like this, but
-> > I haven't found any indication that the additional SMRs work any
-> > different from the standard ones. The SMMU spec seems to reserve space
-> > for up to 256 SMRs in the address space and the register bits, as if it
-> > was intended to be extended like this later. That's also why it works
-> > correctly without any changes in arm-smmu.c: the bit masks used there
-> > already allow up to 256 SMRs.
-> > 
-> > What do you think?
-> 
-> Although it's all pretty ugly, I think we really only have two choices:
-> 
->   - Teach the core driver code about all this and use an rmr-like scheme
->     to leave the upper SMRs in bypass
-> 
->   - Hack it in the impl code as per your patch
-> 
-> The latter option is probably the most pragmatic (especially considering
-> the need to handle the virtualised case differently) but I'd like to see
-> what Robin thinks.
+It looks like this falls short of Jakub's request on v2:
 
-Do you have any thoughts for this?
+https://lore.kernel.org/netdev/20250903174847.5d8d1c9f@kernel.org/
 
-The stream match conflicts that happen without this patch still exist,
-I've been testing this patch for quite some time now and have never
-noticed any issues.
+about not freeing the rx queue for reconfig.
 
-Thanks,
-Stephan
+I think you should:
+- stop the H/W from processing incoming packets,
+- spool all the pending packets
+- attach/detach the xsk_pool
+- refill the ring
+- re-enable the H/W
+
+/P
+
 
