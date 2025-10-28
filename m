@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6699CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 10:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66195CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 11:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JEqPjVbdveLZ8o7uW0qH4hEXeMOigT5s38XJXvic7So=; b=aXoRD6RMn2Bv42whB/1ariVh7n
-	OcVFc+vCpBkiLtbkh3eSp5d89AhRi1W/BMSedYtr63CsHtWmxjwvSxCH7k3tgJCAp15D9Vaw3cwDf
-	XsUPW8MGB8sQ0O3zT9T2PBNpD6f1qIxYPwml17w/5wcx3X8QQZdEQxSg4vikpZMaW1q2xcn3BrSPS
-	GjJ2mt6rV45ukomOa8rV6XttHdck48DhNZsbbGlOW9+HfY5nu3fEpddeZ/z2eQJ4rR24ORR/XWxN6
-	9q8XMi+j/E2NwN1uSNvdA4aS8j3K6x7GqfjmMxZorU/qduS0ZCoM4YVj14R8FMFkkarFhCJoSo5E/
-	z4KrBcbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K2mscf8leSzJwhOu2M/nnAE9gaYBbj3LyHdaS1gioCE=; b=OvwDlXoPtPctQzaEfCFbIh+bt1
+	y2U/blY9xCjlbhAhXJTIkwMalZhbeKmmGJw03p9hA5alLZZ7wFs5lGC696iLdla2Hys5V22WQZXED
+	owteuvFs3qrMDV84uTHvuvM1No+5rlEgIvnvWFtrdH/sGJWFIN5w4lRE3WxKX2Cqkop3yj4mqqVVy
+	TrB1uKe1xCO5x9ujVulJhX8gml90mm5OKIofRJoK1VYJj+1wA7Fgv3A9lExddQ6R5k1jGNwGB8ovq
+	9oocKLBUEmIe0kSwbsvxZXBYFzZtP24phGMqTWcB1GEFU6Tb3LNAR2f+RMvCbhCBPg+Dg2mGBiZuN
+	BxWDtmMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhPy-0000000FoBu-3OLh;
-	Tue, 28 Oct 2025 10:59:10 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1vDhWY-0000000Fodn-3XB2;
+	Tue, 28 Oct 2025 11:06:00 +0000
+Received: from mail-m32122.qiye.163.com ([220.197.32.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhPw-0000000FoBT-1Aco
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 10:59:09 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4eccff716f4so283011cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 03:59:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761649147; x=1762253947; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=JEqPjVbdveLZ8o7uW0qH4hEXeMOigT5s38XJXvic7So=;
-        b=sc+pltRX38DYNMja798xLS+AvxzTBwAEk+4kwaKStHO3rFn9zYN4IUOIuYb+Pl3i/Y
-         gPchlpKqh2yI4UiJs4bBd8lyDc59VE19EwWCDDY1T2iGp2JuE7NpvSFrYD7EnAmi9GA5
-         Jlej/pDVIZ0kMSo2RZ7W3DP4adklueRIxEpQkwjrhWmQnWWNIq9zUJR/gvYcpNbP6TxX
-         l1k0U2fZ3ZemujZxp+t2+gmzRE6ETWzOvc69SShjwHA+toVjpx1gQ5luZjcTVmUBW92S
-         zwgHWAy2mWf2yEPihATQLlhsoF0QoWuzQ++OaG/QAY8Ze+XTGbYH+i79g/lRP2egfytQ
-         ecDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761649147; x=1762253947;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JEqPjVbdveLZ8o7uW0qH4hEXeMOigT5s38XJXvic7So=;
-        b=hLP3QD06e+upVJ5t5yclbumvixASQtC1KtmFU9sJH3nNLw+UQf1+g5k5b35qc/wl+2
-         fHvSSgv8iFizjkGXoh9Bd7KEZ+tL0SgXi1pZHg4AXlym38U5gsaXXumVNvthIJi37C41
-         SFT5DlHksU3zthno4oFvfoHICHLEhBkHsk63UZiIz0k9Sq0P7PTBkwyeXazpYLiXCqNm
-         kMH78ynlrJHxoPmUBOL0sOdhTClTgYBJJr5TBYt2FHeTCyLJbAlrd3SVID3DaC88yO0i
-         aclZhTt7IprhRFIW360R14rLX4ba9c8P7DBWXh90mauZd6t5qyhsDSNayV50+AuNR/WJ
-         eWsw==
-X-Forwarded-Encrypted: i=1; AJvYcCW8A+fc1osdV7fvgG0jINfTF20UHC5iwAAak3GM+iEF8J1jCyO/0DqyWLvGS1LTrCi9LBWvciYwoPyNeYKEPql0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGBEmf/J+y9sUB19H8RNzYgyN9iSN0NVqTXngvl49maX1bEevb
-	hrGhb39C0otXMIGfxuEOzrsqb0ksbxEWEHoQi10fATtMkwweTEewVXc+zrhb5/EdOxXptsBy8PM
-	6NnIz2sMvxgSkRxFf6WoTGuTIhrmOohC3ca2Ons+wPUyUUfFOuxWPZjOW
-X-Gm-Gg: ASbGnculhaEKL31v/nj9Rvu3OU+Je0a5pjYFSHkj9qak+e8TbAg/EY13HSo/oJYfr2A
-	CJVNEMO+kadHSQylGVM2LYGhoxIiZMfuA5ZRKNakZAublM4jkgSN1ERYmjlqSQPhtoV6yr3RLqc
-	MSfncQXHO/YXyS0KJe2gv7ROpkVX/zaIQzBycqhMMZYlOjNBNhfQRr83r5c5hnt7rHsX47EVf4j
-	YV3Y54FYoVOKU3A0NJydK8r8ybGUN0w0xToKygtQM/Hb07OAaGy9r7+MCRzMYAk0wCEN0dxmIVj
-	9Yff9uy3HguN6hayUHE5WgdA
-X-Google-Smtp-Source: AGHT+IFHqYCE78TNCCMrXfr6A36S/h3QtPnycbrepNYJr6lpAgID88x9FnBFPz3KCjZjq2mVE1Xb5wC6U7UKqfxuBfk=
-X-Received: by 2002:a05:622a:54d:b0:4b7:9617:4b51 with SMTP id
- d75a77b69052e-4ed09f6d3bdmr4540441cf.15.1761649146690; Tue, 28 Oct 2025
- 03:59:06 -0700 (PDT)
+	id 1vDhWV-0000000Fod6-2tmh;
+	Tue, 28 Oct 2025 11:05:57 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 277c22857;
+	Tue, 28 Oct 2025 19:05:48 +0800 (GMT+08:00)
+Message-ID: <2822bc51-2c3c-423c-8777-af52c5f0da95@rock-chips.com>
+Date: Tue, 28 Oct 2025 19:05:47 +0800
 MIME-Version: 1.0
-References: <20251027113943.1282568-1-tabba@google.com> <20251027113943.1282568-3-tabba@google.com>
- <86y0ovuwn8.wl-maz@kernel.org>
-In-Reply-To: <86y0ovuwn8.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 28 Oct 2025 10:58:29 +0000
-X-Gm-Features: AWmQ_bn-zmvoqhq8rPby2a5mkqXXoPChZUgrdpYa3ieKRdaSKeedfSF9oO-HcTA
-Message-ID: <CA+EHjTwOPKbv9ifz8+jvXGwEqHVdrn9+mZwrmP1divVDYSRmrA@mail.gmail.com>
-Subject: Re: [PATCH v1 2/4] KVM: arm64: Add compile-time type check for
- register in __vcpu_assign_sys_reg()
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/5] counter: Add rockchip-pwm-capture driver
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>
+Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
+ <20251027-rk3576-pwm-v3-4-654a5cb1e3f8@collabora.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <20251027-rk3576-pwm-v3-4-654a5cb1e3f8@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9a2a7edc5f03a3kunmddd3695f160f5d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx5MSFZLSxhPSUoeTEtCSR9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=bEruiZnB71xueUYJgaoCvzPxOfhsvA5KMVFq3QVee2vR0a5M2oLjHIWURnA/KnjEX9jELibw9sz3H5zs3QUAKS3dU3FwLNfzzqsk82FV+DOfPAz3rdWepdDZtXXg60FUw2P43lkXid+u9eveq7Kj7mQl/CrSQs3xG3yIg/CtrBw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=K2mscf8leSzJwhOu2M/nnAE9gaYBbj3LyHdaS1gioCE=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_035908_345739_F15CE043 
-X-CRM114-Status: GOOD (  29.52  )
+X-CRM114-CacheID: sfid-20251028_040556_210736_5EC535D2 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,71 +78,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi Nicolas,
 
-On Tue, 28 Oct 2025 at 10:51, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Mon, 27 Oct 2025 11:39:41 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > The 'r' (register) and 'val' (value) parameters in
-> > __vcpu_assign_sys_reg() can be easily transposed. The register ID is an
-> > enum, whereas the value is a u64. This has led to bugs in the past, and
-> > the risk was increased by the historically inconsistent parameter
-> > ordering of the vcpu_write_sys_reg() function.
-> >
-> > To prevent this class of bugs, add a compile-time type compatibility check
-> > to prevent the 'r' parameter from having a 'u64' type.
-> >
-> > This directly catches the erroneous transposition (passing the 'u64'
-> > value as 'r') while remaining flexible, as it does not force 'r' to
-> > be a specific enum type.
->
-> I don't think that's enough. It is too easy to pass a u32 and
-> accidentally bypass this check. I really think we should redefine the
-> register identifiers to be a fixed value structure, something like
-> this:
->
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 7501a2ee4dd44..18f65dbff2379 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -624,6 +624,12 @@ enum vcpu_sysreg {
->         NR_SYS_REGS     /* Nothing after this line! */
->  };
->
-> +struct vcpu_sys_reg {
-> +       enum vcpu_sysreg reg;
+On 10/28/2025 1:11 AM, Nicolas Frattaroli wrote:
+> Among many other things, Rockchip's new PWMv4 IP in the RK3576 supports
+> PWM capture functionality.
+> 
+> Add a basic driver for this that works to expose HPC/LPC counts and
+> state change events to userspace through the counter framework. It's
+> quite basic, but works well enough to demonstrate the device function
+> exclusion stuff that mfpwm does, in order to eventually support all the
+> functions of this device in drivers within their appropriate subsystems,
+> without them interfering with each other.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+
+......
+
+> +
+> +/*
+> + * Channel 0 receives a state changed notification whenever the LPC interrupt
+> + * fires.
+> + *
+> + * Channel 1 receives a state changed notification whenever the HPC interrupt
+> + * fires.
+> + */
+> +static struct counter_signal rkpwmc_signals[] = {
+> +	{
+> +		.id = 0,
+> +		.name = "Channel 0"
+> +	},
+> +	{
+> +		.id = 1,
+> +		.name = "Channel 1"
+> +	},
 > +};
 > +
-> +static const struct vcpu_sys_reg vcpu_sys_reg_SCTLR_EL1 = { SCTLR_EL1 };
+> +static const enum counter_synapse_action rkpwmc_hpc_lpc_actions[] = {
+> +	COUNTER_SYNAPSE_ACTION_BOTH_EDGES,
 > +
->  struct kvm_sysreg_masks {
->         struct {
->                 u64     res0;
->
-> and then enforce that whatever is interpreted as a system register is
-> actually one of these structures (with some creative cpp wrapping to
-> make it less awkward).
->
-> In a way, this is similar to what we are doing for page table
-> manipulation, where pte_t is a structure wrapping a u64.
->
-> If we move to such construct, it becomes impossible to swap value and
-> register, and we can stop worrying about that.
->
-> Thoughts?
 
-I considered that, but then went with the approach I have here to
-reduce code churn. I do prefer wrapping it in a struct, so I'll do
-that when I respin.
+Redundant blank line. ;-)
 
-Thanks,
-/fuad
+If the dclk cycle is regarded as the 'input signal', then the HPC/LPC 
+counters should be COUNTER_SYNAPSE_ACTION_BOTH_EDGES.
 
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+If to deal with the interrupt for HPC or LPC, the LPC interrupt occurs 
+in several pclk cycles after the rising edge while the HPC interrupt is 
+generated similarly after the falling edge. Shall we distinguish the 
+synapses between LPC and HPC? LPC is COUNTER_SYNAPSE_ACTION_RISING_EDGE 
+and HPC is COUNTER_SYNAPSE_ACTION_FALLING_EDGE.
+
+> +};
+> +
+> +static struct counter_synapse rkpwmc_pwm_synapses[] = {
+> +	{
+> +		.actions_list = rkpwmc_hpc_lpc_actions,
+> +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
+> +		.signal = &rkpwmc_signals[0]
+> +	},
+> +	{
+> +		.actions_list = rkpwmc_hpc_lpc_actions,
+> +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
+> +		.signal = &rkpwmc_signals[1]
+> +	},
+> +};
+> +
+> +static const enum counter_function rkpwmc_functions[] = {
+> +	COUNTER_FUNCTION_INCREASE,
+> +};
+> +
+
+......
+
+> +
+> +static struct counter_comp rkpwmc_ext[] = {
+> +	COUNTER_COMP_ENABLE(rkpwmc_enable_read, rkpwmc_enable_write),
+> +};
+> +
+> +enum rkpwmc_count_id {
+> +	COUNT_LPC = 0,
+> +	COUNT_HPC = 1,
+> +};
+> +
+> +static struct counter_count rkpwmc_counts[] = {
+> +	{
+> +		.id = COUNT_LPC,
+> +		.name = "PWM core clock cycles during which the signal was low",
+> +		.functions_list = rkpwmc_functions,
+> +		.num_functions = ARRAY_SIZE(rkpwmc_functions),
+> +		.synapses = rkpwmc_pwm_synapses,
+> +		.num_synapses = ARRAY_SIZE(rkpwmc_pwm_synapses),
+> +		.ext = rkpwmc_ext,
+> +		.num_ext = ARRAY_SIZE(rkpwmc_ext),
+> +	},
+> +	{
+> +		.id = COUNT_HPC,
+> +		.name = "PWM core clock cycles during which the signal was high",
+> +		.functions_list = rkpwmc_functions,
+> +		.num_functions = ARRAY_SIZE(rkpwmc_functions),
+> +		.synapses = rkpwmc_pwm_synapses,
+> +		.num_synapses = ARRAY_SIZE(rkpwmc_pwm_synapses),
+> +		.ext = rkpwmc_ext,
+> +		.num_ext = ARRAY_SIZE(rkpwmc_ext),
+> +	},
+> +};
+> +
+> 
+
+Additionally, I test the capture by connecting pwm0_ch0 and pwm2_ch0, 
+and the capture results are correct.
+
+I think the counter/frequency meter/biphasic counter functions can also 
+be adapted to the counter framework. And they will be available soon in 
+the future. :-)
+
+Best regards,
+Damon
+
 
