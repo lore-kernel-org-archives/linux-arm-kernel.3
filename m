@@ -4,85 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1E3CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 05:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00773CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 05:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=978k93bL9MxlYRkaTWrSvPo0X/ixK1lZJ0FCxsOFego=; b=w58GAggTizaXGTZ9rDVicfCH6l
-	RnrEEl7zmkwFAjerQvDHKLMI3QweDOCbC4PioCl7u6dv4O3mRYy2yRDYy0X1+dr9JKB7bSdR8fH7x
-	aW7KDEywuaDzJtRaTK5bFJ1rjKVIx6ktxG7QzIbgUfZvShqoBRBQX1VMxohvIQdrjHKdzizGL1YyT
-	TX9ZG0C49GpuYYnb3upaRoS2KJF7aci5H8U6ZMgB+OJWhR9MfsJlGrJkxJLcS3kTo9SLjDekGIYM2
-	MSbT2HkKlz2Sf3XFGcl8itE4phZDv6QMrb//6p5rxpySgAO72aGJg39C7X2mj+2cdEUi1Yl5xOfbs
-	KwD1z8vQ==;
+	bh=h8k4brh66KBVcQ4GqmzGfZSKzMa7On53kGYgaWRMQgc=; b=o0vfoXbTRxkuilNwgKS5TquSja
+	qIanQolfFtoZ6Cwk3/OQeLknJ7JNmXBnKuAxWFUv8397MnGay2zVoSkw+hbMbpskj0yn1E48hWLcE
+	MjCZK40qIHjCV4+6eTxWAKmouFjs4XWBg0oMRw6085oObbcH/pLH7EI2DMTeqayQ6dKic+x1Rh3O4
+	kZVVzSIoK+bty2h1QcmFGq8ibO/B5g5JYhOtQNgLy9/+rDlWI8CK2CC9MmTlAClqsvW/ExKLpFnjZ
+	DRYx4umSaWBkT7LS4FcldGywnzWx6KXoBLtBfqGaw8AX1X1uHIVI9h8RemtDJI1go3JKtJki6c4ly
+	gtCbvgLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDcKu-0000000FGpH-20yB;
-	Tue, 28 Oct 2025 05:33:36 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vDcQT-0000000FHL3-41y3;
+	Tue, 28 Oct 2025 05:39:21 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDcKr-0000000FGnb-3BOP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 05:33:35 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33d75897745so13025641a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 22:33:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761629612; x=1762234412; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=978k93bL9MxlYRkaTWrSvPo0X/ixK1lZJ0FCxsOFego=;
-        b=A47tz3i//SGCwR/+cn4MJsiMi6DCjluk4i/88FJ/DhF731qpUeW6PAejde6gw8fb/h
-         rCbsXah7q5N7HMoalTcgXbYl4jiLKTlLn380//eDQ3CCgTlOzRBWW9M0xCR1Oxg1mttb
-         EqHe9galdFygNKrLyYPeuTJJyUKWKL/goT58iFO3iKjSpeXiZkaTODEbWANh8h6QAZ6U
-         AhVVChJNDkBKwf+rackHjMxiLXLNfohKqZ3hBwi2JlYxfImE7n6PgjcM92W4DY2FalHZ
-         +GXz+U5XicCcPVIQFZaVLFRuDRCMYGkgAuAXebVFXxdyXD2m/h7ELhJrk/9XlfbsFuaR
-         pI9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761629612; x=1762234412;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=978k93bL9MxlYRkaTWrSvPo0X/ixK1lZJ0FCxsOFego=;
-        b=nxqiZfymeknTILsUxcicWS4g/MKn6tlZWJjuzqfyM0bjVC2xrikSkxbD0fUQfzO1sz
-         BlJ5Wofp1AZD2kubxim+Xff5Sp3UupWn0TIIZJHkRDI7SS+K70ZNvcIQmzlud6GVrScB
-         4urbNVa//nDVzKtGI8twfipyEmkTb2z0HI6SCsxHlhdOfqW3g/u86n78lYdlN8KIolTA
-         kyEz1FntLUhA4zptrmr4VlSDb0UkvzRj6CHW80NYsW/+83mIO7OqiJJjx2CPDOoWad0w
-         ff0JoCTY3JaWy+TcxE4dLxW2ET29bJiOjLjOOgLTa0JRCd8rEk43Vv/MNzmWjJa1O9XI
-         f7gg==
-X-Forwarded-Encrypted: i=1; AJvYcCX43BKMe2c7QVkWLlpU5q4dQ2ljAMNk+Twfkqfg/HzbbYDCZzJx2C2Me6JnieF6GEZzFrLSweLFU1LMzMcC+iUt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyR+PYanUaHhRywQz2pTgGR2ZeyX0bPxzWMOEL+DSEJClM1lWJy
-	B+7t5FVCvVqBn8FstAg4CZERfnLndfMKvV7V67YRjAqMHjzBHvEYgezcNWAZNvZYQbp2e394b7P
-	CFssZMA==
-X-Google-Smtp-Source: AGHT+IEgPd1Vro8jar4YuvbY14ALahZ9RGAW96D7MCTDGrIDbCO1GDP/qete02Qehy0msaJmFvHad1jiwWY=
-X-Received: from pjxx4.prod.google.com ([2002:a17:90b:58c4:b0:33d:98cb:883b])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2290:b0:273:ab5f:a507
- with SMTP id d9443c01a7336-294cb394740mr35360685ad.21.1761629612502; Mon, 27
- Oct 2025 22:33:32 -0700 (PDT)
-Date: Tue, 28 Oct 2025 05:32:13 +0000
-In-Reply-To: <ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
-Mime-Version: 1.0
-References: <ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
-X-Mailer: git-send-email 2.51.1.838.g19442a804e-goog
-Message-ID: <20251028053330.2391078-1-kuniyu@google.com>
-Subject: Re: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
- unsafe_put_user() in epoll_put_uevent().
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: dave.hansen@intel.com
-Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, axboe@kernel.dk, bp@alien8.de, 
-	brauner@kernel.org, catalin.marinas@arm.com, christophe.leroy@csgroup.eu, 
-	dave.hansen@linux.intel.com, edumazet@google.com, hpa@zytor.com, 
-	kuni1840@gmail.com, kuniyu@google.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mingo@redhat.com, 
-	mpe@ellerman.id.au, npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org, 
-	tglx@linutronix.de, torvalds@linux-foundation.org, will@kernel.org, 
-	x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1vDcQQ-0000000FHKU-22EX;
+	Tue, 28 Oct 2025 05:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761629959; x=1793165959;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=TX3QK2a4KxJiOLoyJON9pbkXOOjZQpC0j8rV/ox9yQg=;
+  b=UUc4uY0GxW5F9PkMTs4cIAOYjhc63cgjbzbdK4OZEAAv/S2pexAxrmfX
+   jWk1W0Z9s+CNFTDhK71ILuh4k6yW9YN2boxa2rFlbwPzesksdjutpkutd
+   cCupxxI+OQ5aYhknL8nmcHqd+SX6jASwOiNwj1lW0o4sQFKDKzgzf1Har
+   dVXCZioSz49psK/A7eLt+GepyxbcbPGar5UzrKEYZsHpZ62iyaXjcx8QQ
+   72XXoEXAYyQvztsUY+j/NKyl3c8yOGe5ATspBXHkrXtib1Nf6RBRz5Njh
+   iqtkxqVZd8caaMO14uipmKeIZvrTv/mdSFI9I4jJhR3znZ/7wVf2yW1On
+   A==;
+X-CSE-ConnectionGUID: hgaUgKcnRRqYssdSoyqxMw==
+X-CSE-MsgGUID: NgITpturRBaW4EuHtnBwNA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="81143224"
+X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
+   d="scan'208";a="81143224"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 22:39:18 -0700
+X-CSE-ConnectionGUID: cwtsJ5AdQUe6zIJiqiC+Rg==
+X-CSE-MsgGUID: F/fE7unJS42gMzKo41M/gA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
+   d="scan'208";a="208849223"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 22:39:14 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 27 Oct 2025 22:39:13 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Mon, 27 Oct 2025 22:39:13 -0700
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.34) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 27 Oct 2025 22:39:13 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZKHSJHYVQPzPtiYZYijelR9CKjR2FZJGwtTccJzesHwoLk21YcgQx57TxCWPhky0nec4X+eHo9pWSbDSqAizGYZ/Fx+I7dqQcfqFaHFdzjIrZ80+WkUtFnOUIx5VsZ/X/3qV/NjsDpL8FcxrSVZxmdiYmbyCXXrMSYDEmGM1khv1vATrXxL/9w6KxJWUaOpFCva+isPFRjmcJpJ+Zj1rqvvyDcqz1rkYzrP1iFX2IxOj2RHD4tMUisqH/4Kh5tPnwYQN70jDFiVzc2MClqLS9nnkAamQm/UY8zAkFvDdceKPDyxwF2YKdCtidvIo7Sm6WVC95TYClVLNww8F+v7bqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=h8k4brh66KBVcQ4GqmzGfZSKzMa7On53kGYgaWRMQgc=;
+ b=Qpmn/MqlPcgz55QblR8Hz+yXrKCqQAkGi5ORCyH/iIk39Zh0TB2fE1uuclTB3tLBEpis4zJ+EqwWK/yOiADOO4eXgzXk0XS7bpMQMU2JLZoGSbiwJ7d8hfFrY6OgOy7cfSxbSfL9+L0290Yfe1GuBX4eXW71dkPlShU25CQVXR2XJeJRHj0yMj9CHZvrvd6Aarc37MukZ17M7RHWgIt0TdI+KnMx0XLreb3PTtFEvcJK2kkrxivlFNAcQpsGl0cTAUQRbYcd04gFhWc8+Z4SWr8o3a4obKwTEBAN6ae9ZOCZ/FJ1V+Dpey2hpTYEnw0ZU8NyxTLURQJ+QVVZ3i4stQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ DM3PPF0644BB20C.namprd11.prod.outlook.com (2603:10b6:f:fc00::f06) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Tue, 28 Oct
+ 2025 05:39:11 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9253.017; Tue, 28 Oct 2025
+ 05:39:11 +0000
+Date: Tue, 28 Oct 2025 13:37:11 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Rick Edgecombe <rick.p.edgecombe@intel.com>
+CC: <seanjc@google.com>, <ackerleytng@google.com>, <anup@brainfault.org>,
+	<aou@eecs.berkeley.edu>, <binbin.wu@linux.intel.com>,
+	<borntraeger@linux.ibm.com>, <chenhuacai@kernel.org>,
+	<frankja@linux.ibm.com>, <imbrenda@linux.ibm.com>, <ira.weiny@intel.com>,
+	<kai.huang@intel.com>, <kas@kernel.org>, <kvm-riscv@lists.infradead.org>,
+	<kvm@vger.kernel.org>, <kvmarm@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-coco@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-mips@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<loongarch@lists.linux.dev>, <maddy@linux.ibm.com>, <maobibo@loongson.cn>,
+	<maz@kernel.org>, <michael.roth@amd.com>, <oliver.upton@linux.dev>,
+	<palmer@dabbelt.com>, <pbonzini@redhat.com>, <pjw@kernel.org>,
+	<vannapurve@google.com>, <x86@kernel.org>, <zhaotianrui@loongson.cn>
+Subject: Re: [PATCH] KVM: TDX: Take MMU lock around tdh_vp_init()
+Message-ID: <aQBWh/eG0BcC1boo@yzhao56-desk.sh.intel.com>
+References: <aP-1qlTkmFUgTld-@google.com>
+ <20251028002824.1470939-1-rick.p.edgecombe@intel.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251028002824.1470939-1-rick.p.edgecombe@intel.com>
+X-ClientProxiedBy: SI2P153CA0022.APCP153.PROD.OUTLOOK.COM (2603:1096:4:190::8)
+ To DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|DM3PPF0644BB20C:EE_
+X-MS-Office365-Filtering-Correlation-Id: 672f7153-663e-45d3-a8c3-08de15e45266
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ESl9wnng1ee3WkuCxFdde7fAJTm0lzLL+oZMrNgtdJF1zOGpQiDyB5b627+B?=
+ =?us-ascii?Q?L6bqYyGGztCSQsjtb6Rwc9kGLpcPRUntzDozrXv04Cq5nCSQweBJshL7N7u5?=
+ =?us-ascii?Q?Wy3JRGcy9NRtFWzxVk4E+OJtSyUuBhABWt3wcoqX8qnbk/d6dgCm8dAtdWkY?=
+ =?us-ascii?Q?X48wU7Qae6AZ8XbxHGMSnNCP5rqo+fPSUXdwec15PmRXwG2bFRpm8iLQh2Ce?=
+ =?us-ascii?Q?sD0VsMh2ofvlmrHG5WeF8Pux/59K6HXFlTqDP2pnAQR5lJFB3I8watpG+xf9?=
+ =?us-ascii?Q?RF0rsVJyOEWu53Qw/lx0R0YsG8eMlf2ZiTl/sZK6FJyhoJiQOFLnuCtJ/cxl?=
+ =?us-ascii?Q?sRzQ1bJnPTXssHFZpteQcRsBkLO2hYHfPOVwrZ5s0BA8X0XktYmSNLbnsj65?=
+ =?us-ascii?Q?U8ejtPLLZEy8sT2yUfbJundeYgfuPw5iCMmLzdC4VGVCTYlDz/aMai7BOyEJ?=
+ =?us-ascii?Q?QYFd8Omv/3997KpP9ELMPE22205aeobuRjUlIbs4cetA5TAo54npFBKfdNSu?=
+ =?us-ascii?Q?uqXLgu0axO/amjmFt48lr68Fsm23GafdVj9W/vj586NiiyVA9D2U68PweTf3?=
+ =?us-ascii?Q?P8SvEn8d51DCnx2ZvytWhzykQryRY1JafUpP2V7fBgG7W5oQuSVqJayrB85i?=
+ =?us-ascii?Q?QhqKVEFs7myOWaofzMEpRXkPiDG/0hn5xt+RIRxXgasGbTwj6cQVe/G7KwkQ?=
+ =?us-ascii?Q?vs+vnG4HyshYntdD6lTWFXRhqF+vz+9VrcOgtfAsIq/jZwKb6P8nmeoJTPof?=
+ =?us-ascii?Q?LVFPa2kTfeQusnMyd3fvjnUnJojYgcPepRgS0pAjx/RrH5zRNR8MUgV8t8tp?=
+ =?us-ascii?Q?wAhs8Xdv/LGl2vAZB5/roEVCfMa/oZqGzCOlg0Wie15hRqZaqXNtHjrtULwe?=
+ =?us-ascii?Q?cvxdRHq3SX6eo6n3sMZ3rS7PNxYRNhiBH5ciH2WWGdVAzBeF5m/sXHmpdUMg?=
+ =?us-ascii?Q?Vykb9DjzTdJT+lSFYM19R7dnamiJf4JrNqzS/lVVNmTkH927U43l7xn3yaXO?=
+ =?us-ascii?Q?jFScQaANFjyCUzTrwDCWcuNAlaoDTFuqgGU4FJiR9l6zkPq7FQBVeiK8xiCv?=
+ =?us-ascii?Q?dn6vJ0dbton928sFhoQgrpUj0xIwPfhIhsxsikn4JoYOcEnbiHtAJKmy/a5B?=
+ =?us-ascii?Q?wfqni7wrgJYaM7xntJL33ouv8Bf/QpRg2URorz3F7vNg4EFR9BVKaJbv2yr6?=
+ =?us-ascii?Q?sh8WMi2Gqsv3yW6knXAzr74cQEFaqiOJY8dq2WL/M83nnN3bPJcLXbwyg60y?=
+ =?us-ascii?Q?uA+J5DAW332BrPlieS+4EjPvNfG/JuYGhvV0k4APIfcxkhgFp1nYxcfCtck3?=
+ =?us-ascii?Q?//G8egmqUudSa9oO8qWxT1+yW2m2ieCSNfiUKWWEQX8yZJ7HDKO31uLcJ3Q4?=
+ =?us-ascii?Q?Ihc2248ZfZG/Un8eWUI72+ZZXnIEk/y6snPnnAbdTWSINHXLdfhNVXQonJ+E?=
+ =?us-ascii?Q?LDOQEJc0dtk21TpoxKC/cYbraXlnTt3s?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GQP9ks88jnsRer/ownZiyqRKgCyQLCd0FFqoJouUqDtcYye9d+DuZUHw/6Ur?=
+ =?us-ascii?Q?gU3Er+zRE69VG/yLjoXelA7slKxlx9KEPMndnNMtXffYQ7+Gy+WAQ7guJ8H4?=
+ =?us-ascii?Q?apqRHpLfJYLtpU1KILhufxBDPUzMW8GCOS+Zq+hdB1HphtJapWSEahZHTLdu?=
+ =?us-ascii?Q?6a/J8Qd+32Cd6zwPpIlmUQFD0jpRYhgHrZakwV8cITusse/7rU1Ot7j9bCGR?=
+ =?us-ascii?Q?iJdEQpH9z3bPbeLB16AFQqXaEIAZCYBoGjDiHkp8uz0vQiP43iEoo2b2TMfu?=
+ =?us-ascii?Q?dbRRFQT8coUJZLf6Xig5aWzl4e/1z6eIUbwBfz8nExWRXlksqVVXvZ5EC98H?=
+ =?us-ascii?Q?T7Cr84kJvR3kY9sEcuIPwYZE0yqz168UaN1rbm6OGTwOk/igtuK9lVVh4Cdu?=
+ =?us-ascii?Q?ihxsqc9v54rA5vMmT0/MhT5G2Ro+tTslseMjjp01/PARYbpU8+cQsJLHEFpk?=
+ =?us-ascii?Q?QSv3wPc4QXuJybsIDcubW1cuPeR9zy4kVcp78xLBkbg7wpOBzGNAuMR3GQun?=
+ =?us-ascii?Q?CiAYlmLgdOoVwrQqY5Z+dSGd9ib59+0mGcMpJMb2LEhDNWlG8pgPlENoGK0L?=
+ =?us-ascii?Q?QkfC+oiMCYSTfNaZmYSaVST373mLQY3ldc7YNhKm4BWAgRA6td6vjDKYIMH4?=
+ =?us-ascii?Q?L/JVt0jRwbdnPg4tz1Oc/Y/lwS9U7iGv/CXIW0w/Y9at6cGrmxV00xCcFFHO?=
+ =?us-ascii?Q?CdfbxoSL7Eietre8WmcfwjrT8wStsGcSCpo+J5R4oWqNL6lzbp+v9amKBw3P?=
+ =?us-ascii?Q?cT2FgQniQIIyYZqybJNnJvkgQd1NDZsuMkFYDWksnyUnKRG0C70dVhcvbBet?=
+ =?us-ascii?Q?BpuoRzz7TKl5FgkPZ4SlGljtmYB4YnGzK/5tQNcvMdYpr2xF7GrrL7cnnf66?=
+ =?us-ascii?Q?WeDPjxgyGQfJzDsQu2yWcNX5wBizSJzWJOSnot6bB9tv+MwiiU2cotWC7ai8?=
+ =?us-ascii?Q?jMP9aSMC6t7J0CB9bRh70N67ZhUFT00sgcasVQp4FyTA7GtuWjZvWf6ZWuMW?=
+ =?us-ascii?Q?PY+PXVDzRtlweABdvdMS6SZJ9mWLdjMNObpbPkVpEzQ6YzWOKCKaixvXptaj?=
+ =?us-ascii?Q?nzSMec+1vJt1HuwT7k4x//qUihJVbognu1y/D7x78UiI7oyPs8D/WyFd53I4?=
+ =?us-ascii?Q?Bv0XHtlWfaB2IdE7osm1ZwPMegxffLvgTA+NT0x3dDu9pCmDycgTvnDZPBj1?=
+ =?us-ascii?Q?4ZpZTPJAOH1ztQ/LMVOLtszI2SkVssfPGO3CzXh7twQRvhO/KoBJoyVBR5+z?=
+ =?us-ascii?Q?/vc1GHBDh32c1NipblRGgNAg5R/yrQODDxEOhjwJHZODYv2QIdBoGi56I6o9?=
+ =?us-ascii?Q?tCkqrinSoOHLq4SimSRsqvPs+bFnAMhxH+YcKSVYUrrr+puTPpxPth2mMat+?=
+ =?us-ascii?Q?8V0VYk0cSPcR5iRoRbbXTrgrIHkRxZKGKVqzoNjSBsNN41QLIlniEKi8rm4t?=
+ =?us-ascii?Q?T1TKjAgV00TDjKO6jxZwpKXO3AZDi80z47qODwIjsnVlEVFwAugQ6X9phT/a?=
+ =?us-ascii?Q?FAITi7eF9QeFtS1NXnjD/D6kg6KrDxEUdnUEyBwEJfdL8FwWfOrSRBpprSXs?=
+ =?us-ascii?Q?8ASv09E3Bdnw2ymFZe4QIHFBw2kYH492OK/a/n+j?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 672f7153-663e-45d3-a8c3-08de15e45266
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 05:39:11.4779
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sgODYJ8S03JEGl+Tm7dfz1AGSzecmX92cYRQnZm0iNerHT2TJa/y6Nc83dv01fGw5dXoMd1ymfTOlcMYXaSF7Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF0644BB20C
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_223333_825351_B6E27A4A 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20251027_223919_070853_F257BE6E 
+X-CRM114-Status: GOOD (  32.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,139 +198,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Hansen <dave.hansen@intel.com>
-Date: Fri, 24 Oct 2025 07:05:50 -0700
-> On 10/23/25 22:16, Kuniyuki Iwashima wrote:
-> >> This makes me nervous. The access_ok() check is quite a distance away.
-> >> I'd kinda want to see some performance numbers before doing this. Is
-> >> removing a single access_ok() even measurable?
-> > I noticed I made a typo in commit message, s/tcp_rr/udp_rr/.
-> > 
-> > epoll_put_uevent() can be called multiple times in a single
-> > epoll_wait(), and we can see 1.7% more pps on UDP even when
-> > 1 thread has 1000 sockets only:
-> > 
-> > server: $ udp_rr --nolog -6 -F 1000 -T 1 -l 3600
-> > client: $ udp_rr --nolog -6 -F 1000 -T 256 -l 3600 -c -H $SERVER
-> > server: $ nstat > /dev/null; sleep 10; nstat | grep -i udp
-> > 
-> > Without patch (2 stac/clac):
-> > Udp6InDatagrams                 2205209            0.0
-> > 
-> > With patch (1 stac/clac):
-> > Udp6InDatagrams                 2242602            0.0
+On Mon, Oct 27, 2025 at 05:28:24PM -0700, Rick Edgecombe wrote:
+> Take MMU lock around tdh_vp_init() in KVM_TDX_INIT_VCPU to prevent
+> meeting contention during retries in some no-fail MMU paths.
 > 
-> I'm totally with you about removing a stac/clac:
+> The TDX module takes various try-locks internally, which can cause
+> SEAMCALLs to return an error code when contention is met. Dealing with
+> an error in some of the MMU paths that make SEAMCALLs is not straight
+> forward, so KVM takes steps to ensure that these will meet no contention
+> during a single BUSY error retry. The whole scheme relies on KVM to take
+> appropriate steps to avoid making any SEAMCALLs that could contend while
+> the retry is happening.
 > 
-> 	https://lore.kernel.org/lkml/20250228203722.CAEB63AC@davehans-spike.ostc.intel.com/
+> Unfortunately, there is a case where contention could be met if userspace
+> does something unusual. Specifically, hole punching a gmem fd while
+> initializing the TD vCPU. The impact would be triggering a KVM_BUG_ON().
 > 
-> The thing I'm worried about is having the access_ok() so distant
-> from the unsafe_put_user(). I'm wondering if this:
+> The resource being contended is called the "TDR resource" in TDX docs 
+> parlance. The tdh_vp_init() can take this resource as exclusive if the 
+> 'version' passed is 1, which happens to be version the kernel passes. The 
+> various MMU operations (tdh_mem_range_block(), tdh_mem_track() and 
+> tdh_mem_page_remove()) take it as shared.
 > 
-> -	__user_write_access_begin(uevent, sizeof(*uevent));
-> +	if (!user_write_access_begin(uevent, sizeof(*uevent))
-> +		return NULL;
-> 	unsafe_put_user(revents, &uevent->events, efault);
-> 	unsafe_put_user(data, &uevent->data, efault);
-> 	user_access_end();
+> There isn't a KVM lock that maps conceptually and in a lock order friendly 
+> way to the TDR lock. So to minimize infrastructure, just take MMU lock 
+> around tdh_vp_init(). This makes the operations we care about mutually 
+> exclusive. Since the other operations are under a write mmu_lock, the code 
+> could just take the lock for read, however this is weirdly inverted from 
+> the actual underlying resource being contended. Since this is covering an 
+> edge case that shouldn't be hit in normal usage, be a little less weird 
+> and take the mmu_lock for write around the call.
 > 
-> is measurably slower than what was in your series. If it is
-> not measurably slower, then the series gets simpler because it
-> does not need to refactor user_write_access_begin(). It also ends
-> up more obviously correct because the access check is closer to
-> the unsafe_put_user() calls.
+> Fixes: 02ab57707bdb ("KVM: TDX: Implement hooks to propagate changes of TDP MMU mirror page table")
+> Reported-by: Yan Zhao <yan.y.zhao@intel.com>
+> Suggested-by: Yan Zhao <yan.y.zhao@intel.com>
+> Signed-off-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> ---
+> Hi,
 > 
-> Also, the extra access_ok() is *much* cheaper than stac/clac.
+> It was indeed awkward, as Sean must have sniffed. But seems ok enough to
+> close the issue.
+> 
+> Yan, can you give it a look?
+It passed my local tests. LGTM. Thanks!
 
-Sorry for the late!
-
-I rebased on 19ab0a22efbd and tested 4 versions on
-AMD EPYC 7B12 machine:
-
- 1) Base 19ab0a22efbd
-
- 2) masked_user_access_begin()
-    -> 97% pps and 96% calls of ep_try_send_events()
-
- 3) user_write_access_begin() (Dave's diff above) (NEW)
-    -> 102.2% pps and 103% calls of ep_try_send_events()
-
- 4) __user_write_access_begin() (This patch)
-    -> 102.4% pps and 103% calls of ep_try_send_events().
-
-Interestingly user_write_access_begin() was as fast as
-__user_write_access_begin() !
-
-Also, as with the previous result, masked_user_access_begin()
-was the worst somehow.
-
-So, I'll drop patch 1 and post v2 with user_write_access_begin().
-
-Thank you!
-
-
-1) Base (19ab0a22efbd)
-
-# nstat > /dev/null; sleep 10; nstat | grep -i udp
-Udp6InDatagrams                 2184011            0.0
-
-@ep_try_send_events_ns:
-[256, 512)       2796601 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
-[512, 1K)         627863 |@@@@@@@@@@@                                         |
-[1K, 2K)          166403 |@@@                                                 |
-[2K, 4K)           10437 |                                                    |
-[4K, 8K)            1396 |                                                    |
-[8K, 16K)            116 |                                                    |
-
-
-2) masked_user_access_begin() + masked_user_access_begin()
-97% pps compared to 1).
-96% calls of ep_try_send_events().
-
-# nstat > /dev/null; sleep 10; nstat | grep -i udp
-Udp6InDatagrams                 2120498            0.0
-
-@ep_try_send_events_ns:
-[256, 512)       2690803 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
-[512, 1K)         533750 |@@@@@@@@@@                                          |
-[1K, 2K)          225969 |@@@@                                                |
-[2K, 4K)           35176 |                                                    |
-[4K, 8K)            2428 |                                                    |
-[8K, 16K)            199 |                                                    |
-
-
-3) user_write_access_begin()
-102.2% pps compared to 1).
-103% calls of ep_try_send_events().
-
-# nstat > /dev/null; sleep 10; nstat | grep -i udp
-Udp6InDatagrams                 2232730            0.0
-
-@ep_try_send_events_ns:
-[256, 512)       2900655 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
-[512, 1K)         622045 |@@@@@@@@@@@                                         |
-[1K, 2K)          172831 |@@@                                                 |
-[2K, 4K)           17687 |                                                    |
-[4K, 8K)            1103 |                                                    |
-[8K, 16K)            174 |                                                    |
-
-
-4) __user_write_access_begin()
-102.4% pps compared to 1).
-103% calls of ep_try_send_events().
-
-# nstat > /dev/null; sleep 10; nstat | grep -i udp
-Udp6InDatagrams                 2238524            0.0
-
-@ep_try_send_events_ns:
-[256, 512)       2906752 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
-[512, 1K)         630199 |@@@@@@@@@@@                                         |
-[1K, 2K)          161741 |@@                                                  |
-[2K, 4K)           17141 |                                                    |
-[4K, 8K)            1041 |                                                    |
-[8K, 16K)             61 |                                                    |
-
+> Posted here, but applies on top of this series.
+> 
+> Thanks,
+> 
+> Rick
+> ---
+>  arch/x86/kvm/vmx/tdx.c | 15 ++++++++++++---
+>  1 file changed, 12 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+> index daec88d4b88d..8bf5d2624152 100644
+> --- a/arch/x86/kvm/vmx/tdx.c
+> +++ b/arch/x86/kvm/vmx/tdx.c
+> @@ -2938,9 +2938,18 @@ static int tdx_td_vcpu_init(struct kvm_vcpu *vcpu, u64 vcpu_rcx)
+>  		}
+>  	}
+>  
+> -	err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
+> -	if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
+> -		return -EIO;
+> +	/*
+> +	 * tdh_vp_init() can take a exclusive lock of the TDR resource inside
+> +	 * the TDX module. This resource is also taken as shared in several
+> +	 * no-fail MMU paths, which could return TDX_OPERAND_BUSY on contention.
+> +	 * A read lock here would be enough to exclude the contention, but take
+> +	 * a write lock to avoid the weird inversion.
+> +	 */
+> +	scoped_guard(write_lock, &vcpu->kvm->mmu_lock) {
+> +		err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
+> +		if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
+> +			return -EIO;
+> +	}
+>  
+>  	vcpu->arch.mp_state = KVM_MP_STATE_RUNNABLE;
+>  
+> -- 
+> 2.51.1
+> 
 
