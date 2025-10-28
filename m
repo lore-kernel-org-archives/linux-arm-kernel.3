@@ -4,97 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A416CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40293CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3rER/cj499mXACNSk+6J53aPnWJLF10EoyWFEaSt4oo=; b=HVegTD+V437DaAYE1OehO1rWpm
-	Q3U0pZCsRPgvA8Q4PFEsFA70xW5CST+fCHdmU6PCEYMMavUl+NWXmWgCdpjTPBtNB10NOf6xmOOZa
-	E7tGYZ+icknGHU/zxl716IhkkRz2jDSoo0D+uBCMKdV1nG7qjoWA+5VXj4UWY2cKlxjeUgHthQVRX
-	prGw9DVEJNswOXSbgd8dHz6pVI3b3x9xaDQlTzCVOK4JfyunTg4rZvSM9yfUskc+DbQ3ZJ4IlKagg
-	JxgQ8uNqQ3af7ujZGIs3KyivI392g17GU6pIhE/5ammLVOu9vtNgnV0RN2oySzVDKrgfGbB3jAeLq
-	LGvsN1Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=padiHrIhpJH3LjeK8yDivxE5Lt6NfOacxMpIG0XUyV0=; b=cfJFbA08kn21qJ5Y2JBu7cydZ+
+	A2FJcGyp4Fvml8Og38AvO+goGzGxdB8kPez501wzRiCtJh8zB++1w83pT9qZpTebPTjCJGh4kQceB
+	YRboMBsYO8sDz+5jHmHrB8iMQx7gjCNYk5YOiId+rNzk4JMnDrjXPzO0nQANFIF1BRhSYTosvpgKc
+	AlPgTw/lZ0oCVKuWnNPms3b2Ph7AeZl5gERQhHT8JqLfRreGWCPCD8AjCCVNSyfGAe4onwSqoni/y
+	Z9TePYYp+U+FbjH4mltjQiRwT6xtw/NClgyAPxlbDrIJrtiqqyxc+/bJzL+LQ+CCHzDWgRFvs8lXX
+	Ov60+4eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlpc-0000000GCZ7-0VqP;
-	Tue, 28 Oct 2025 15:41:56 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vDlq9-0000000GCnS-3EYa;
+	Tue, 28 Oct 2025 15:42:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlpY-0000000GCY8-45rZ
+	id 1vDlq6-0000000GClr-4BMG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 15:41:54 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47117f92e32so56074995e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:41:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761666111; x=1762270911; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3rER/cj499mXACNSk+6J53aPnWJLF10EoyWFEaSt4oo=;
-        b=ZeFURdne/Bf7kxezQ4r4LY20JRI7OzoEYTRFDp+Un2HgW98b2Ijq/4KDpxUwweCybU
-         AWT4rRKyZQXFf4LiAMeUyXVEUcJ0VtVfEBgJc3koddVF5/ZbhYmmKpjFxlubL1Tc2cle
-         5uOmVvHAUy6wZrc3pPexuHsDIk7BQ0I031WEFJFRnpYSb2Ds6uiL/rAvyNpxgJ87PHrl
-         6R0hoA+VThZqk/OhubWvcf8Ji50j59U6H0tdrCJlzni6f8W5r7nYzIq19yOkzQp0hgh6
-         +6ny5AlLr7RJN+cgwU5vEqiRx2LrUvdBVk19CcPWUSk1aCYQLDErRvh//A3JnvwmBlsC
-         4nzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761666111; x=1762270911;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3rER/cj499mXACNSk+6J53aPnWJLF10EoyWFEaSt4oo=;
-        b=Ea0Io5ScBV20mx/y2v9mLrAw/lKcSBZY8yC5yRQkUFqU/T2U79Up/USUn1v6xnWPri
-         2UeBWMpVUvfKtHfmBqGh0pmQmV3fX2VUIpgy4vpVDsapCwDUo5zaIfbLfk/XVcJmtVB0
-         S56mVOm2lIZezuJE/RutT+onWImNkLgTywAfPZGZNX/gAJA3S0IQz+zM2ke/l1stCsqI
-         ymu4zcgCuEWVWA1bcrjogq2b2LCOGihxtT8dSfXGk8zflzSx++upedun8nJ/CrU0O4ve
-         d4URWz5zVqrV30JmmnfTWmOueBn+6NkIyHV9uwKYPlokvrhOaP5R1HfBKDFB/n3G1z07
-         tX9w==
-X-Forwarded-Encrypted: i=1; AJvYcCX9e8/Yovb93lOOEi9xEJ0whA9HJysPL4tLJS+fOuadvlolLkJFd3l5OVZbNJL29HWkoAxLP4WbMdIpiDEHZE/1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqBi8mLbzsaVy85MCSAxkQLnDpyvOxwrwij8Cxxb8gsecXCrz6
-	CRlFl+ubi+VKd5c4a4JP+wpOhsgfgv8HrHlv/eiEWeWsGesfyPMTmvub
-X-Gm-Gg: ASbGnct+wl58qctwmlWaPzXCPi9x7f5Bi5LqOs+UTBBzXfTiGGmoxOHFsvyd7Z0NPQD
-	5n3i4OeNgtJEJTbt3IW7NJZq41CmvPmpYXfFw8K8OMbQgpqxraIp/oE0w90jpVp9R6IWSuQ9AYi
-	kQgjZLCxkAk7HnRd9wJC3VHpY0TVLZj/5gaFKh9BO13JN3UzzHcTOB3s1BWgFLY72Gj4yp2C5OQ
-	Id0S+0/nGvgLKbbdvQDBc99tFsV61jT0PRK2VuVeYpEs4j4hucGSDoqzZ9rNQM9xodSU1xHmyhb
-	qv4TuE+8StP99f9nGMtNkkHfhxLxZ2mmRI8b2UUfzcmYMorj6+hkErQee8xV8pAffB5nFTaTBJH
-	SxDahUfKgM8ShyV6GzQspfgElJddugwmij0MTRpz+auovaUaaVZzX7aU75QvOfPWep7prTE/H4G
-	iCb8w4+6Eom1LKqWFxxy158qcVQ3o1uRu0U4juaILmpgQBhJdHKZRMEEduyA==
-X-Google-Smtp-Source: AGHT+IHebAO0DlmEIORl7j8QOrOeKPGgCfKBhqbrcWGKnJH7ybidW69hal8hNOSPewAyQmQdvtJXuA==
-X-Received: by 2002:a05:600c:1d1e:b0:46e:6a6a:5cec with SMTP id 5b1f17b1804b1-47717def7b5mr42201915e9.2.1761666110720;
-        Tue, 28 Oct 2025 08:41:50 -0700 (PDT)
-Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4771843eabfsm23130265e9.2.2025.10.28.08.41.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 08:41:50 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- Richard Genoud <richard.genoud@bootlin.com>
-Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
- Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
- Maxime Ripard <mripard@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@bootlin.com>
-Subject: Re: [PATCH v4 07/16] mtd: rawnand: sunxi: rework pattern found registers
-Date: Tue, 28 Oct 2025 16:41:48 +0100
-Message-ID: <6097267.MhkbZ0Pkbq@jernej-laptop>
-In-Reply-To: <20251028073534.526992-8-richard.genoud@bootlin.com>
-References: <20251028073534.526992-1-richard.genoud@bootlin.com>
- <20251028073534.526992-8-richard.genoud@bootlin.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+	Tue, 28 Oct 2025 15:42:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C59A43610;
+	Tue, 28 Oct 2025 15:42:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E1BFC4CEE7;
+	Tue, 28 Oct 2025 15:42:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761666146;
+	bh=cTwXXNk/yazHQqObZ+jp4ZVZEgnfPcH4tyN7EE1hfbc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CBSqhqpiDvSVCBoorZfiWuqmKKOLf3RbBbvI/0ey2715+0aQIozCPcM6PtfsgkyUC
+	 Eo09m6w1VxzOLe4xj6zyETxQdPM8ZjHmRvDpPwUHN9yg6sbpY4qArB5Lvn/r02sE/5
+	 bwtxn6So0kb4uRlvXWbR5ar7ByHanVxjiObqLj1b2D2xxZAtxdawfZ739O1lTIYV/R
+	 crboLtqB/j9E9Qzb0OfsmsjDnPUBs+ypg6wiVZ3h0PJuvqSEghkyaXSTQvBkQyJNV+
+	 OFe5JcXnfCD6KoNqOJKDNZk4i2Ityaj6rYLPVQ8z5+MqW97oshY+RUqFZJtuCtp/Vk
+	 IBL5L5rVrfKzw==
+Date: Wed, 29 Oct 2025 00:42:19 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Brown <broonie@kernel.org>, Steven Rostedt
+ <rostedt@goodmis.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
+ <mingo@kernel.org>, x86@kernel.org, Jinchao Wang
+ <wangjinchao600@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v5 6/8] selftests: tracing: Add a basic testcase for
+ wprobe
+Message-Id: <20251029004219.dc9cda0eb56ae46c55855844@kernel.org>
+In-Reply-To: <20251028105549.ae94e8eeb42f4efc183d2807@kernel.org>
+References: <175859019940.374439.7398451124225791618.stgit@devnote2>
+	<175859026716.374439.14852239332989324292.stgit@devnote2>
+	<aPvwGhMBJqMKcC9D@finisterre.sirena.org.uk>
+	<20251027224347.4c887cc956df63602f377550@kernel.org>
+	<20251028084222.a3c1ae97d125d9bd88fc565b@kernel.org>
+	<20251028105549.ae94e8eeb42f4efc183d2807@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_084153_066227_DC466120 
+X-CRM114-CacheID: sfid-20251028_084227_079430_1B34DCCC 
 X-CRM114-Status: GOOD (  24.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,181 +88,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 28. oktober 2025 ob 08:35:00 Srednjeevropski standardni =C4=8Das=
- je Richard Genoud napisal(a):
-> On H6/H616, the register ECC_PAT_FOUND is at its own address, and not
-> part of ECC status register.
-> So, introduce the pattern found register offset in sunxi_nfc_caps, along
-> with its mask.
->=20
-> Also, introduce a non compile-time field_get() because FIELD_GET() and
-> u32_get_bits() don't work with non compile-time constant.
-> https://lore.kernel.org/all/cover.1761588465.git.geert+renesas@glider.be
+On Tue, 28 Oct 2025 10:55:49 +0900
+Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
 
-Urls should use Link: tag and be placed at the bottom.
+> On Tue, 28 Oct 2025 08:42:22 +0900
+> Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+> 
+> > ~ # cd /sys/kernel/tracing/
+> > /sys/kernel/tracing # echo 'w:my_wprobe w@jiffies' >> dynamic_events 
+> > /sys/kernel/tracing # echo 1 > events/wprobes/my_wprobe/enable 
+> > [   54.942288] trace_wprobe: enable_trace_wprobe called
+> > [   54.945306] trace_wprobe: trying to register wprobes
+> > [   54.947367] trace_wprobe: __register_trace_wprobe called
+> > [   54.949586] trace_wprobe: registering wprobe at addr: 0xffffb6ce429fb200, len: 4, type: 2
+> > [   54.951639] Creating wide hw breakpoint on CPU 0
+> > [   54.966390] Creating kernel counter on CPU 0 for event type 5
+> > [   54.967758] perf_install_in_context: event 00000000736da1d9 ctx 000000005d4db900 cpu 0
+> > [   54.972015] perf_install_in_context2: event 00000000736da1d9 ctx set to 000000005d4db900
+> > [   54.976697] cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2c8
+> > 
+> > What happen if the cpu calls function on itself by
+> > smp_call_function_single() on arm64?
+> > 
+> >   smp_call_function_single(this_cpu, remote_function, &data, 1);
+> 
+> Sorry, that was printk buffering issue. I used trace_printk() instead
+> and persistent ring buffer[1] to trace it.
+> 
+> [1] https://docs.kernel.org/trace/debugging.html#persistent-buffers-across-boots
+> 
+> ~ # echo 1 > /sys/kernel/tracing/instances/boot_map/options/trace_printk_dest
+> ~ # echo 'w:my_wprobe w@jiffies' >> /sys/kernel/tracing/dynamic_events 
+> ~ # echo 1 > /sys/kernel/tracing/events/wprobes/my_wprobe/enable 
+> QEMU 8.2.2 monitor - type 'help' for more information
+> (qemu) system_reset
+> ...
+> 
+> ~ # cat /sys/kernel/tracing/instances/boot_map/trace 
+> # tracer: nop
+> #
+> # entries-in-buffer/entries-written: 16/16   #P:1
+> #
+> #                                _-----=> irqs-off/BH-disabled
+> #                               / _----=> need-resched
+> #                              | / _---=> hardirq/softirq
+> #                              || / _--=> preempt-depth
+> #                              ||| / _-=> migrate-disable
+> #                              |||| /     delay
+> #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+> #              | |         |   |||||     |         |
+>            <...>-63      [000] .....    21.065038: register_wide_hw_breakpoint: Creating wide hw breakpoint on CPU 0
+>            <...>-63      [000] .....    21.079678: perf_event_create_kernel_counter: Creating kernel counter on CPU 0 for event type 5
+>            <...>-63      [000] .....    21.080051: perf_install_in_context: perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337 cpu 0
+>            <...>-63      [000] .....    21.080140: perf_install_in_context: perf_install_in_context2: event 000000000b3ac4d3 ctx set to 00000000097d6337
+>            <...>-63      [000] .....    21.080939: cpu_function_call: cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2f0
+>            <...>-63      [000] .....    21.080966: smp_call_function_single: smp_call_function_single: calling function on CPU 0, func: remote_function+0x0/0x78, wait=1
+>            <...>-63      [000] ...1.    21.080973: smp_call_function_single: smp_call_function_single: running on CPU 0, call CPU 0
+>            <...>-63      [000] ...1.    21.081099: smp_call_function_single: smp_call_function_single: checking for potential deadlock conditions
+>            <...>-63      [000] ...1.    21.081259: generic_exec_single: generic_exec_single: preparing to call function on CPU 0, func: remote_function+0x0/0x78
+>            <...>-63      [000] ...1.    21.081269: generic_exec_single: Executing smp_call_function_single on self CPU 0, func: remote_function+0x0/0x78
+>            <...>-63      [000] d..1.    21.081289: csd_do_func: csd_do_func: CPU 0 executing func remote_function+0x0/0x78
+>            <...>-63      [000] d..1.    21.081429: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337
+>            <...>-63      [000] d..2.    21.083211: hw_breakpoint_control: hw_breakpoint_control: ops=0
+>            <...>-63      [000] d..1.    21.084191: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 done, ret=0
+>            <...>-63      [000] d..1.    21.084237: csd_do_func: csd_do_func: CPU 0 finished func remote_function+0x0/0x78
+>            <...>-63      [000] d..1.    21.084243: generic_exec_single: Finished csd_lock_record(NULL)
+> ~ # 
+> 
+> 
+> So the last message is right before the local_irq_restore() in
+> generic_exec_single().
+> 
+> static int generic_exec_single(int cpu, call_single_data_t *csd)
+> {
+> 	...
+> 		csd_lock_record(csd);
+> 		csd_unlock(csd);
+> 		local_irq_save(flags);
+> 		csd_do_func(func, info, NULL);
+> 		csd_lock_record(NULL);
+> 		trace_printk("Finished csd_lock_record(NULL)\n"); <- 
+> 		local_irq_restore(flags);
+> 		return 0;
+> 
+> Actually, I added another trace_printk() right after generic_exec_single().
+> 
+> 	err = generic_exec_single(cpu, csd);
+> 	trace_printk("generic_exec_single returned %d for CPU %d, func: %pS\n",
+> 		err, cpu, func);
+> 
+> This means after setting the hw_breakpoint, when enabing the IRQ,
+> the machine is frozen - but qemu is running busy.
+> 
+> Can we specify the kernel memory address to HW breakpoint on arm64?
 
-Code itself looks fine.
+Hmm, it seems that jiffies related things are updated frequently
+and it may cause interrupt storm or infinit recursive call.
 
-Best regards,
-Jernej
+Basically, I think it should be temporarily disabled so that the
+interrupt does not occur during the extension of the HWBP interrupt,
+but I wonder how this works in arm64?
 
->=20
-> No functional change.
->=20
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-> ---
->  drivers/mtd/nand/raw/sunxi_nand.c | 36 ++++++++++++++++++++++++++-----
->  1 file changed, 31 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sun=
-xi_nand.c
-> index 89495d786293..021034a761b7 100644
-> --- a/drivers/mtd/nand/raw/sunxi_nand.c
-> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-> @@ -29,6 +29,9 @@
->  #include <linux/iopoll.h>
->  #include <linux/reset.h>
-> =20
-> +/* non compile-time field get */
-> +#define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
-> +
->  #define NFC_REG_CTL		0x0000
->  #define NFC_REG_ST		0x0004
->  #define NFC_REG_INT		0x0008
-> @@ -150,7 +153,13 @@
->  /* define bit use in NFC_ECC_ST */
->  #define NFC_ECC_ERR(x)		BIT(x)
->  #define NFC_ECC_ERR_MSK		GENMASK(15, 0)
-> -#define NFC_ECC_PAT_FOUND(x)	BIT(x + 16)
-> +
-> +/*
-> + * define bit use in NFC_REG_PAT_FOUND
-> + * For A10/A23, NFC_REG_PAT_FOUND =3D=3D NFC_ECC_ST register
-> + */
-> +#define NFC_ECC_PAT_FOUND_MSK(nfc) (nfc->caps->pat_found_mask)
-> +
->  #define NFC_ECC_ERR_CNT(b, x)	(((x) >> (((b) % 4) * 8)) & 0xff)
-> =20
->  #define NFC_DEFAULT_TIMEOUT_MS	1000
-> @@ -227,6 +236,8 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(s=
-truct nand_chip *nand)
->   * @reg_io_data:	I/O data register
->   * @reg_ecc_err_cnt:	ECC error counter register
->   * @reg_user_data:	User data register
-> + * @reg_pat_found:	Data Pattern Status Register
-> + * @pat_found_mask:	ECC_PAT_FOUND mask in NFC_REG_PAT_FOUND register
->   * @dma_maxburst:	DMA maxburst
->   * @ecc_strengths:	Available ECC strengths array
->   * @nstrengths:		Size of @ecc_strengths
-> @@ -236,6 +247,8 @@ struct sunxi_nfc_caps {
->  	unsigned int reg_io_data;
->  	unsigned int reg_ecc_err_cnt;
->  	unsigned int reg_user_data;
-> +	unsigned int reg_pat_found;
-> +	unsigned int pat_found_mask;
->  	unsigned int dma_maxburst;
->  	const u8 *ecc_strengths;
->  	unsigned int nstrengths;
-> @@ -776,7 +789,8 @@ static void sunxi_nfc_hw_ecc_update_stats(struct nand=
-_chip *nand,
->  }
-> =20
->  static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8=
- *oob,
-> -				    int step, u32 status, bool *erased)
-> +				    int step, u32 status, u32 pattern_found,
-> +				    bool *erased)
->  {
->  	struct sunxi_nfc *nfc =3D to_sunxi_nfc(nand->controller);
->  	struct nand_ecc_ctrl *ecc =3D &nand->ecc;
-> @@ -787,7 +801,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip =
-*nand, u8 *data, u8 *oob,
->  	if (status & NFC_ECC_ERR(step))
->  		return -EBADMSG;
-> =20
-> -	if (status & NFC_ECC_PAT_FOUND(step)) {
-> +	if (pattern_found & BIT(step)) {
->  		u8 pattern;
-> =20
->  		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID) & 0x1))) {
-> @@ -821,6 +835,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_ch=
-ip *nand,
->  	struct sunxi_nfc *nfc =3D to_sunxi_nfc(nand->controller);
->  	struct nand_ecc_ctrl *ecc =3D &nand->ecc;
->  	int raw_mode =3D 0;
-> +	u32 pattern_found;
->  	bool erased;
->  	int ret;
-> =20
-> @@ -848,8 +863,12 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_c=
-hip *nand,
-> =20
->  	*cur_off =3D oob_off + ecc->bytes + USER_DATA_SZ;
-> =20
-> +	pattern_found =3D readl(nfc->regs + nfc->caps->reg_pat_found);
-> +	pattern_found =3D field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
-> +
->  	ret =3D sunxi_nfc_hw_ecc_correct(nand, data, oob_required ? oob : NULL,=
- 0,
->  				       readl(nfc->regs + NFC_REG_ECC_ST),
-> +				       pattern_found,
->  				       &erased);
->  	if (erased)
->  		return 1;
-> @@ -930,7 +949,7 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct na=
-nd_chip *nand, uint8_t *buf
->  	unsigned int max_bitflips =3D 0;
->  	int ret, i, raw_mode =3D 0;
->  	struct scatterlist sg;
-> -	u32 status, wait;
-> +	u32 status, pattern_found, wait;
-> =20
->  	ret =3D sunxi_nfc_wait_cmd_fifo_empty(nfc);
->  	if (ret)
-> @@ -971,6 +990,8 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct na=
-nd_chip *nand, uint8_t *buf
->  		return ret;
-> =20
->  	status =3D readl(nfc->regs + NFC_REG_ECC_ST);
-> +	pattern_found =3D readl(nfc->regs + nfc->caps->reg_pat_found);
-> +	pattern_found =3D field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
-> =20
->  	for (i =3D 0; i < nchunks; i++) {
->  		int data_off =3D i * ecc->size;
-> @@ -981,7 +1002,8 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct n=
-and_chip *nand, uint8_t *buf
-> =20
->  		ret =3D sunxi_nfc_hw_ecc_correct(nand, randomized ? data : NULL,
->  					       oob_required ? oob : NULL,
-> -					       i, status, &erased);
-> +					       i, status, pattern_found,
-> +					       &erased);
-> =20
->  		/* ECC errors are handled in the second loop. */
->  		if (ret < 0)
-> @@ -2195,6 +2217,8 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_ca=
-ps =3D {
->  	.reg_io_data =3D NFC_REG_A10_IO_DATA,
->  	.reg_ecc_err_cnt =3D NFC_REG_A10_ECC_ERR_CNT,
->  	.reg_user_data =3D NFC_REG_A10_USER_DATA,
-> +	.reg_pat_found =3D NFC_REG_ECC_ST,
-> +	.pat_found_mask =3D GENMASK(31, 16),
->  	.dma_maxburst =3D 4,
->  	.ecc_strengths =3D sunxi_ecc_strengths_a10,
->  	.nstrengths =3D ARRAY_SIZE(sunxi_ecc_strengths_a10),
-> @@ -2205,6 +2229,8 @@ static const struct sunxi_nfc_caps sunxi_nfc_a23_ca=
-ps =3D {
->  	.reg_io_data =3D NFC_REG_A23_IO_DATA,
->  	.reg_ecc_err_cnt =3D NFC_REG_A10_ECC_ERR_CNT,
->  	.reg_user_data =3D NFC_REG_A10_USER_DATA,
-> +	.reg_pat_found =3D NFC_REG_ECC_ST,
-> +	.pat_found_mask =3D GENMASK(31, 16),
->  	.dma_maxburst =3D 8,
->  	.ecc_strengths =3D sunxi_ecc_strengths_a10,
->  	.nstrengths =3D ARRAY_SIZE(sunxi_ecc_strengths_a10),
->=20
+If you know the path, you may be able to prohibit access to the
+related variables. But that maybe more difficult than SWBP like
+kprobes. Maybe this should add at least taint flag.
+
+Thank you,
+
+> 
+> Thank you,
+> -- 
+> Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
 
-
-
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
