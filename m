@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7750FCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 17:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AEACCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 17:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bf2z3SV0EQFH+NyJBVxm2kYHrg6mEHvbE757ZmlP2HM=; b=jC4rzaWrvtdKq6eHc31P7GafDJ
-	BW5+wc699xgf9iaWKrJ0k54kecVvANzqaMLjv7O+Zbg9o3bMFfpPL2+R/38f62GpUhNJtXJDPDEB8
-	YBZl2Fo8jgnBgbpd6mV/ZNyRR69yPlD7g36Fx4+reJp2qmz72REYTjPTnKVZBlGT2k45XnK+bNVdW
-	hw7ZmlE/dcFgQ4PYHp1h6Gf8Mj7pbP97qJngia5glddlgcIqbtDvwnJ3DDvuGTWSxF/LVdc0z/cJs
-	VGUM54o6FnU1GGXA9J+YcETSuT4Tacqh4ebeEePFem0U2X6cZz1GWCCGlFbGB5nItNkjtoOAb+JNT
-	R0IizpJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bsFGdcGHWsIjU0ZjZns7J8dDiN7/XGaIzSulkmNJ754=; b=ymXvBpS/8aWJD0ZePcpwVseP0S
+	K8QgFQ+wqeGVplQ8ZMY7W8WnWMinJUnxDbYxiGlNGsKG1rklIR116FSQi0VY8pSJOnPUtJVquvU4E
+	zQQjGGtdCkmUGFtzoCunHBOcsfTOrOibLwFIzoS/7vitPv3H8wZh7tCubXKsTHfUWhEPefoDCxHdO
+	vGSvaO8Kj+R1g2iu8IFZ0zEqpEDMJYxLH6KU9PH88MqJZqsZvd/m3naG0V/vor5kS/l+nT36uttSD
+	BqeHemKb3g16ppc5LzbY6bcqNtJgoQD8WWLeTp4YXHPQ/r440KYcI3HSXFoRQEAeiQlZCUuHBGSxb
+	whl4tGYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDn8o-0000000GNO3-1pLh;
-	Tue, 28 Oct 2025 17:05:50 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1vDnBN-0000000GNhK-0fdm;
+	Tue, 28 Oct 2025 17:08:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDn8m-0000000GNN6-0skR
+	id 1vDnBL-0000000GNh9-2lbG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 17:05:49 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4ed0c8e4dbcso15741cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 10:05:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761671147; x=1762275947; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bf2z3SV0EQFH+NyJBVxm2kYHrg6mEHvbE757ZmlP2HM=;
-        b=H6axk1N8OE3jEfYfg6gXkAaaCuw81nmQLGcy2zhLTbGaykA+V8TsQm4QQNUXvyhpGT
-         rShSxB20Pm9fp+kBCU40gV6hAeYPs9KjPKBB1bwIyo5hC/RVU+Z/ZbQ5tnO8SuV0SCAa
-         5VALSetV5kwGFqjLK6lM++9yyilwYanCuFLbTV1WngWuwdEoV9A3RtszejGgom5RNXYW
-         RoTnrDYpZYCkHeWJY5XVPZuShmhaOAnvt9MIu50Im2Ik1wHiXrAc+JB8lSrOI0T0MDky
-         tsDn54f0eCIf5H0422l18u0ndOg7f1+Sae3a3QRJK35p7at1CwUTrfdH7DEZ+pMXkMek
-         KrHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761671147; x=1762275947;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bf2z3SV0EQFH+NyJBVxm2kYHrg6mEHvbE757ZmlP2HM=;
-        b=d+mY10jQJVOpkSNn71N7MDOn1zW90HdVj875kvo2tvEvF6AZiHnftjUkZsnPK4848v
-         230bK1eJhZs8MRTBgh1DRxIjyAUzJjXVW4wyf+9NG+5YydBPetYyWn4A0u82/Ood0DyA
-         NhDFiEGoTznN0+bclp686Q+VJsJ0uxmL6T4qrlSo+0xJP0vvc9T67/Fc2toCdTK/TD7G
-         njyoxONUDwKFfvDLFgRLvVJ0K4wmfG3az1bxRIBFMp5iWJmxnVUSchw8M7pcrbCaXNsA
-         voH4pP2GZACZ9Ixs1ir+nlFL1Mpw1DhiiQHo7i1YGf3D6aBTpc6gKo4Ud0clhrnhNR5h
-         iOjg==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ5zDc2ErBVlQapuW0agp+g3qetp56pRRrWCvNccYnkV5FW5z6fMzTa5mQuyK2lnFcyXHZX436sDQTtXSKAy+s@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFFsgXKWQKcqEq9hQ7+PLiSDslbnOolEfL1slyHildPcqUzu+j
-	mM+pav1qo9X/mk1msDIwPK0Vs556CNIAyUip3CAw6xmNtiHFgXt2RSl5q3oHQ7D6WKQ1L3vXVWK
-	rUlcM4cnUs4ELCvfsGegQVc0UVB994U9I2N3WTiGl
-X-Gm-Gg: ASbGncvMHJS7A8gEyKAY7gSsYP4LAtW+XSBCdq+w8bMrBg2M4qQiBZdw76Fn2zgoNvE
-	HSyT9V1HOOtju6gnuMfbOXSVRhXVRg83UaVmXDQBkCLUjL6GUUAcHFwWfH6xMJE3Uz/TWZVNpxk
-	yeeT91zUKqJ127Ez3QddLVTqH7EUlzR9pnRyhRqdl5WchyAqZfsiK8XyROLCat9Btyl6Haow0kG
-	YvfKlaYhSgX9obsOcDCpzh46tiZqPqc4UdW8HHWhdITdfZmHoi//5MZnhWcUw==
-X-Google-Smtp-Source: AGHT+IGnY2q/qW4n//fPnWZOK39ysZoDAJatQaFWpDai28muI3fakRyU9rfMXBXhQMs1gaa0OISkshUNrKoqf5k61r0=
-X-Received: by 2002:a05:622a:1b26:b0:4b3:1617:e617 with SMTP id
- d75a77b69052e-4ed09f6156dmr6051941cf.11.1761671146391; Tue, 28 Oct 2025
- 10:05:46 -0700 (PDT)
+	Tue, 28 Oct 2025 17:08:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B8EFA602B3;
+	Tue, 28 Oct 2025 17:08:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 416F7C4CEE7;
+	Tue, 28 Oct 2025 17:08:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761671306;
+	bh=9eUztxr0c5bs9J7IDIf5az3dpnFzy5BKhJ7flVcVeA4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=G3aAavwgwh9gFQLPVh9gLVrbNzRS7vPP3F+iQSp8h7oFGi/a7/yqzJfeel5KMYXsZ
+	 KpuDQ0bMz3eRPrsH5hF8bxUgyVuWDZNiuBNnncLYHSskrhU59hpxcbMAs+U/ORnhX4
+	 cFViZ0VLpddZJri4lwfTgaoaq4GFjJGin85kOhI0KI7y7XOJdonF9+NA3m+S/rmAR2
+	 epCaae+HjNGigmqsb/lLq2jpIbwTzqpg6XVZFmtN6cCesFNPM5hi66tA7KMBQTlYmr
+	 iYkt5jKvntMutcqKZt55xBvRKamuIEdVWHAWSULx5ePb6CUpiIn24DYPseHSvXgE53
+	 v8MIH7c1UBflA==
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id 7E3F25F863;
+	Wed, 29 Oct 2025 01:08:23 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Jernej Skrabec <jernej@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Mark Brown <broonie@kernel.org>, 
+ Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-sunxi@lists.linux.dev, 
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20251027125655.793277-1-wens@kernel.org>
+References: <20251027125655.793277-1-wens@kernel.org>
+Subject: Re: (subset) [PATCH v2 00/10] allwinner: a523: Enable I2S and
+ SPDIF TX
+Message-Id: <176167130349.1161173.2622009044232312995.b4-ty@kernel.org>
+Date: Wed, 29 Oct 2025 01:08:23 +0800
 MIME-Version: 1.0
-References: <20251027113943.1282568-1-tabba@google.com> <20251027113943.1282568-3-tabba@google.com>
- <86y0ovuwn8.wl-maz@kernel.org>
-In-Reply-To: <86y0ovuwn8.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 28 Oct 2025 17:05:09 +0000
-X-Gm-Features: AWmQ_bncQG7II35IK71jUNPHsUYcvYPp771U9qg-aPTyfjBogXSI_xu2S7Lw39E
-Message-ID: <CA+EHjTzQBfqyxtzp+4UHyCFxoEfKG4RXLfLLz==Y6t6omfckfw@mail.gmail.com>
-Subject: Re: [PATCH v1 2/4] KVM: arm64: Add compile-time type check for
- register in __vcpu_assign_sys_reg()
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_100548_258518_EBC8DC45 
-X-CRM114-Status: GOOD (  33.29  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,86 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Mon, 27 Oct 2025 20:56:41 +0800, Chen-Yu Tsai wrote:
+> This is v2 of my Allwinner A523 family I2S and SPDIF enablement series.
+> 
+> Changes since v1:
+> - Collected tags
+> - Dropped clk patches that were merged
+> - Added patch for SPDIF pinmux settings that was missing in v1
+> - Dropped bogus change to DAI name in SPDIF driver
+> - Dropped clk rate message in SPDIF driver
+> - Switched my email to kernel.org one
+> 
+> [...]
 
-On Tue, 28 Oct 2025 at 10:51, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Mon, 27 Oct 2025 11:39:41 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > The 'r' (register) and 'val' (value) parameters in
-> > __vcpu_assign_sys_reg() can be easily transposed. The register ID is an
-> > enum, whereas the value is a u64. This has led to bugs in the past, and
-> > the risk was increased by the historically inconsistent parameter
-> > ordering of the vcpu_write_sys_reg() function.
-> >
-> > To prevent this class of bugs, add a compile-time type compatibility check
-> > to prevent the 'r' parameter from having a 'u64' type.
-> >
-> > This directly catches the erroneous transposition (passing the 'u64'
-> > value as 'r') while remaining flexible, as it does not force 'r' to
-> > be a specific enum type.
->
-> I don't think that's enough. It is too easy to pass a u32 and
-> accidentally bypass this check. I really think we should redefine the
-> register identifiers to be a fixed value structure, something like
-> this:
->
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 7501a2ee4dd44..18f65dbff2379 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -624,6 +624,12 @@ enum vcpu_sysreg {
->         NR_SYS_REGS     /* Nothing after this line! */
->  };
->
-> +struct vcpu_sys_reg {
-> +       enum vcpu_sysreg reg;
-> +};
-> +
-> +static const struct vcpu_sys_reg vcpu_sys_reg_SCTLR_EL1 = { SCTLR_EL1 };
-> +
->  struct kvm_sysreg_masks {
->         struct {
->                 u64     res0;
->
-> and then enforce that whatever is interpreted as a system register is
-> actually one of these structures (with some creative cpp wrapping to
-> make it less awkward).
->
-> In a way, this is similar to what we are doing for page table
-> manipulation, where pte_t is a structure wrapping a u64.
->
-> If we move to such construct, it becomes impossible to swap value and
-> register, and we can stop worrying about that.
->
-> Thoughts?
+Applied to sunxi/dt-for-6.19 in local tree, thanks!
 
-I looked into this some more, and the issue is that the number of
-callers who refer to members of `enum vcpu_sysreg` is really big, as
-well as the functions that access its value (in if or switch
-statements). It can be done, but the amount of code churn would be
-huge, that in practice I don't think would be practical.
+[01/10] dt-bindings: dma: allwinner,sun50i-a64-dma: Add compatibles for A523
+        commit: 697fbb43aba6dae48cbe5e1fa0d3023a0b12ab73
+[05/10] arm64: dts: allwinner: a523: Add DMA controller device nodes
+        commit: 55d43ef77712e3b7fd4c3db5715be1f405afe31e
+[06/10] arm64: dts: allwinner: a523: Add device node for SPDIF block
+        commit: e51b773798ea1dece229b44854256ec38d35cc41
+[07/10] arm64: dts: allwinner: a523: Add device nodes for I2S controllers
+        commit: 1fe1e9b67166e304e8c3e46bdd1104519d6d1bd7
+[08/10] arm64: dts: allwinner: a523: Add I2S2 pins on PI pin group
+        commit: a9050236f81c43fc2eaa2e13098c7fb53c3aba34
+[09/10] arm64: dts: allwinner: a523: Add SPDIF TX pin on PB and PI pins
+        commit: ae0d3f1e6dd2c6404db2fbd7556b93eddd6c87b8
 
-Another check I thought of, which is more robust and would catch all
-cases we have encountered in practice is something along the lines of:
+Best regards,
+-- 
+Chen-Yu Tsai <wens@kernel.org>
 
-BUILD_BUG_ON(!__builtin_types_compatible_p(typeof(reg), enum vcpu_sysreg) &&
-    !__builtin_types_compatible_p(typeof(reg), int));
-
-This ensures that you cannot pass anything other than an enum value,
-or an int, as a sysreg. U32 and U64 would trigger a build error. I
-tested this, no callers needed to be changed and it did catch the bug
-I am trying to avoid. It's not as robust as wrapping in a struct, but
-it doesn't result in any churn.
-
-What do you think?
-/fuad
-
-
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
 
