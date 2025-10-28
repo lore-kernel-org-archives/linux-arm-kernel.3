@@ -4,91 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB406CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 05:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C432CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 05:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMKDfhFuWhQebRAxT9YejjbQsAd2wDwWly97EhWdZpM=; b=MsFOI4Shn8bJNQ3XaT563ReFtZ
-	6bPFH7dUGTTC4LlILlLLcLeLY3ajaJ8bouPLEZZLgbKxg6Tw69QGkaFJEByXirAeNPChCvLCmZeJj
-	S1Yos9jBxT3AcUaPuqTRNoIj+D5d2X2dlAPQMcFhkpG4Wf/ZrEBGhgQMJOer7gPpblLG7mxBykr1R
-	OKGhIxkIKOFZXqOiS/7k+j346twMXrJcdoikBcO4laiambNHMJcY6R8zBf0ktShvH2fe6f7FsY7SD
-	dxSW61052CgG/rnPJmG0UEPfxNkCaD7LCp3ucHu/3/Ezix19FshnR91ALrfre/TYnY9uwFRf1BKiw
-	NIJotdVw==;
+	bh=Sb2UT1JLVqMHy+d+E6WBx/L9orjuX+ro85Bk2nGrjRA=; b=DKHmkiprgkDVsIYVOCxryRfyvP
+	3kgsF/vIJTqzK0xFdQw8cUvXmkAQFY3S5ssPwef2BdK/Tn+Nhh9lpYISKcwyEfc468IxQ2wOsCz3y
+	OTqQbF2x5Dg0SVVxh2/0T+bxGrWWN/AKv1FbfraobjE33ojEOHid0qtNR44BlWQ3Lj2gYHQ5nZr8r
+	Cxwl3zENfmAuG7v9kXFKpjrdZ27XypRSsB/6H0ENsqWqGwu//Nut36Z7DGwUa/cvjyP7VNVCS9eLw
+	MSMrhSXj8g9a4NAHbQaSHl+Cmm+CbpboTikgdnks18jmmbHzAPwFYBPWTYq2UTNN/m9D8kpxHXdaa
+	px1+lxCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDc1n-0000000FEsH-2rgQ;
-	Tue, 28 Oct 2025 05:13:51 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vDc5Z-0000000FF3r-1QJ0;
+	Tue, 28 Oct 2025 05:17:45 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDc1l-0000000FErv-18Fb
+	id 1vDc5W-0000000FF3R-2Wt4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 05:13:50 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-292fd52d527so55756815ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Oct 2025 22:13:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761628428; x=1762233228; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QMKDfhFuWhQebRAxT9YejjbQsAd2wDwWly97EhWdZpM=;
-        b=DynfbZpM/e8mypGozda3S76VsYnqeHP6x2RBVMJ4L5FsqlQlaU0rUJLmWSKHC6N/sI
-         5nxCqTSoBKxeSOTGHTSWjZPqJ6CCkpdkuSOUNiMiR8aUNWmGB9Ckv/lyhRoQCtjEZCYT
-         +FtnDjY57UEPMvGyTKhDhoi5t6kwV1HXKvzE1dE1tDiO89ehgBJtZo4Z85qgjXedZ/sX
-         PubRuSVA7KtVgXIBmVEyKgoKV+MlF47zf7Cw9nu6ItTHmquMwgSL19k0tILKE7Ts0G/j
-         Ch/bKuurrBEF5aODXO5Aaa6g+LWaZY0QuIX3PPHbark+SHJPQ77ue2xj3sR0DkQKk5Oa
-         lCqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761628428; x=1762233228;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QMKDfhFuWhQebRAxT9YejjbQsAd2wDwWly97EhWdZpM=;
-        b=ghh02dZUupCYtYQBrF1Xc5gBkSYZp9AWkz+aQyebOKPP9SU06l3zUztTSaGqzHWkzw
-         IP1Q9ka8/z3meLbgCt0dEAOH9n47/w0xSBTsIFaqEvZIaLmdmVgkh9rgxevaWiICBvO4
-         eUIQW6qd7j6m8AUBJW67rtwXdNnjog1jFm64yqTQYy9T0zFmbhwEh8ofpy45nvfo+Zm5
-         OzXXI28NRYb48+07qzkYky4pjdPMvjC+TORwIGQuojAKOW5q2oVXPqJ5m3tiHY+7gVG7
-         wFofiaO/3NLyM4/S6GYN2R79b4yMAlW3cRNidrLMJNzbtJJnlPpYkKIhlSoNZdOHxv15
-         SluQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWpjLt5Xbk5OX5Sz18zWOegZ3dnIC8oJ/No7HANy/qIca9F8gO1bYBK6eq4lHhQGooGoLQyINgs1GN2tBAaVs5b@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9Iq3ZCxAETFBErAHkx1S+U4HuXXINav7ndqRZdjiRQQquWizo
-	V0/a7OjpbDhtaCCR7gIclJ2fkbm4Qxizd9dwpl6kjZgZMaoMhllGWIVB4MHH7Skey/g=
-X-Gm-Gg: ASbGncs3vT1NVOOEoKj7PCiu6HwET+y5YhqepOdjEvbgE9oEmKI5zWxDlukCFTQFzq9
-	q2hPZ9fGduVSnFsdMWCBXSyXBax35eLuaAj9C1V7QoloH199zSFeSlRj1Jvr8LVRoc2gJVW+bQg
-	2FnOxRIptocNEhJ60pMa3sNV+tDoi79jJOwWstXTJ0gl2HgwlL+pM8kn/G60Sdg1RWepx4BffVT
-	1sRL3oZ0scmqRIADyhXOEIGWgn3JO+O4sui2/qxctAm2QF107jmxXDuTIs5ILlC58W/SruVNiV+
-	dY9wS2rcYzfGqoscOV+/6wnTjBF52Uimleh+/vVJQQZ143vSyTyWWVhDaRgdC25C7D5bV1N9ECX
-	idV/YMPXX+XRKOkVwGIU0/7eg3Riz9C0lDHZ4A2Z2+SfwK1sSznx24yt5LKIoNT2AOEqFqR8J+h
-	RPgw==
-X-Google-Smtp-Source: AGHT+IFv8BScqO2z2oq9pmjixKfhhFY8KhLHypHI2fFhnUIb23B+PdR7UKWT6j7I/gfPQdC79UF8/A==
-X-Received: by 2002:a17:902:f682:b0:27e:eb98:9a13 with SMTP id d9443c01a7336-294cb3d7202mr25628145ad.22.1761628428297;
-        Mon, 27 Oct 2025 22:13:48 -0700 (PDT)
-Received: from localhost ([122.172.87.183])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498e42ea7sm100637885ad.101.2025.10.27.22.13.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 22:13:47 -0700 (PDT)
-Date: Tue, 28 Oct 2025 10:43:45 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Jie Zhan <zhanjie9@hisilicon.com>, ionela.voinescu@arm.com, 
-	beata.michalska@arm.com, Sumit Gupta <sumitg@nvidia.com>, 
-	Prashant Malani <pmalani@google.com>
-Cc: rafael@kernel.org, zhenglifeng1@huawei.com, linux-pm@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com, 
-	jonathan.cameron@huawei.com
-Subject: Re: [PATCH v2 2/2] cpufreq: CPPC: Update FIE arch_freq_scale in
- ticks for non-PCC regs
-Message-ID: <xpktefok4c5vsno5fkizsjirbygsict2or2biphj3ugqbdvdq5@f67kdijo66y3>
-References: <20250828110212.2108653-1-zhanjie9@hisilicon.com>
- <20250828110212.2108653-3-zhanjie9@hisilicon.com>
+	Tue, 28 Oct 2025 05:17:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761628662; x=1793164662;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=BquHcMPOdeFpO3XLosSHxBMMorL2wfhIw9Q3zbeqwMw=;
+  b=YLT8nCsFND7f/C7Qf0oYdqwWewop9sUmmjXsjinVmeEit9q+VrTM5wYS
+   179yXZ3c+/4CbCVJK2ogqtwlikT6v30ZCjHzgSJLbv1uNlNJyqCbsgKob
+   HYRQMS6V3vwWN8jQSewCTYYunOxKM4SfLeFq3VTg0QjuQsdNNLo+jMHdm
+   fJbgC4uTfmdB+cOAG1WUI0YSxDaMQ+I4Kc12xSVOJGDDge81w1Syk6NhD
+   kjjp/+mNco+6q6iwZlVGlwlfg/Vy0Vm4hJiS7qoBMdJdeWps4ROQWH2vu
+   fI6ya05nSMBL3l9gdHLz30YoJJi0qT/Jxh16lCOw1TGF/ALJTfcrH5hvO
+   w==;
+X-CSE-ConnectionGUID: MxXt5t0STpGdjtpHf2dY9A==
+X-CSE-MsgGUID: KSV46qhQSASrBLyJfOw9Kw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="75164642"
+X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
+   d="scan'208";a="75164642"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 22:17:41 -0700
+X-CSE-ConnectionGUID: nvswi4nZTmuvGPTMP+MbVw==
+X-CSE-MsgGUID: LGL47t2sQGeZSdnHfQULrQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
+   d="scan'208";a="190370440"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa005.jf.intel.com with ESMTP; 27 Oct 2025 22:17:38 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vDc5P-000ImH-2T;
+	Tue, 28 Oct 2025 05:17:35 +0000
+Date: Tue, 28 Oct 2025 13:16:53 +0800
+From: kernel test robot <lkp@intel.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, unicorn_wang@outlook.com, kishon@kernel.org,
+	18255117159@163.com
+Cc: oe-kbuild-all@lists.linux.dev, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com, s-vadapalli@ti.com
+Subject: Re: [PATCH] PCI: cadence: Enable support for applying lane
+ equalization presets
+Message-ID: <202510281329.racaZPSI-lkp@intel.com>
+References: <20251027133013.2589119-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250828110212.2108653-3-zhanjie9@hisilicon.com>
+In-Reply-To: <20251027133013.2589119-1-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_221349_331066_6608AB85 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20251027_221742_692048_7A5FFDA8 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +92,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28-08-25, 19:02, Jie Zhan wrote:
-> Currently, the CPPC Frequency Invariance Engine (FIE) is invoked from the
-> scheduler tick but defers the update of arch_freq_scale to a separate
-> thread because cppc_get_perf_ctrs() would sleep if the CPC regs are in PCC.
-> 
-> However, this deferred update mechanism is unnecessary and introduces extra
-> overhead for non-PCC register spaces (e.g. System Memory or FFH), where
-> accessing the regs won't sleep and can be safely performed from the tick
-> context.  Also, reading perf counters of a remote CPU may return 0 if it's
-> in a low-power idle state, e.g. power down or reset.
-> 
-> Update arch_freq_scale directly in ticks for non-PCC regs and keep the
-> deferred update mechanism for PCC regs.
-> 
-> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
-> ---
->  drivers/cpufreq/cppc_cpufreq.c | 52 +++++++++++++++++++++++-----------
->  1 file changed, 36 insertions(+), 16 deletions(-)
+Hi Siddharth,
 
-Ionela, Beata, and others.
+kernel test robot noticed the following build warnings:
 
-Can someone please review this one ? This has waiting for a long time already.
+[auto build test WARNING on pci/next]
+[also build test WARNING on pci/for-linus linus/master v6.18-rc3 next-20251027]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Siddharth-Vadapalli/PCI-cadence-Enable-support-for-applying-lane-equalization-presets/20251027-213657
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
+patch link:    https://lore.kernel.org/r/20251027133013.2589119-1-s-vadapalli%40ti.com
+patch subject: [PATCH] PCI: cadence: Enable support for applying lane equalization presets
+config: x86_64-buildonly-randconfig-002-20251028 (https://download.01.org/0day-ci/archive/20251028/202510281329.racaZPSI-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251028/202510281329.racaZPSI-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510281329.racaZPSI-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/pci/controller/cadence/pcie-cadence-host.c: In function 'cdns_pcie_setup_lane_equalization_presets':
+>> drivers/pci/controller/cadence/pcie-cadence-host.c:205:20: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     205 |                 if (presets_ngts[0] != PCI_EQ_RESV) {
+         |                    ^
+   drivers/pci/controller/cadence/pcie-cadence-host.c:225:9: note: here
+     225 |         case PCIE_SPEED_8_0GT:
+         |         ^~~~
+
+
+vim +205 drivers/pci/controller/cadence/pcie-cadence-host.c
+
+   170	
+   171	static void cdns_pcie_setup_lane_equalization_presets(struct cdns_pcie_rc *rc)
+   172	{
+   173		struct cdns_pcie *pcie = &rc->pcie;
+   174		struct device *dev = pcie->dev;
+   175		struct device_node *np = dev->of_node;
+   176		int max_link_speed, max_lanes, ret;
+   177		u32 lane_eq_ctrl_reg;
+   178		u16 cap;
+   179		u16 *presets_8gts;
+   180		u8 *presets_ngts;
+   181		u8 i, j;
+   182	
+   183		ret = of_property_read_u32(np, "num-lanes", &max_lanes);
+   184		if (ret)
+   185			return;
+   186	
+   187		/* Lane Equalization presets are optional, so error message is not necessary */
+   188		ret = of_pci_get_equalization_presets(dev, &rc->eq_presets, max_lanes);
+   189		if (ret)
+   190			return;
+   191	
+   192		max_link_speed = of_pci_get_max_link_speed(np);
+   193		if (max_link_speed < 0) {
+   194			dev_err(dev, "%s: link-speed unknown, skipping preset setup\n", __func__);
+   195			return;
+   196		}
+   197	
+   198		/*
+   199		 * Setup presets for data rates including and upward of 8.0 GT/s until the
+   200		 * maximum supported data rate.
+   201		 */
+   202		switch (pcie_link_speed[max_link_speed]) {
+   203		case PCIE_SPEED_16_0GT:
+   204			presets_ngts = (u8 *)rc->eq_presets.eq_presets_Ngts[EQ_PRESET_TYPE_16GTS - 1];
+ > 205			if (presets_ngts[0] != PCI_EQ_RESV) {
+   206				cap = cdns_pcie_find_ext_capability(pcie, PCI_EXT_CAP_ID_PL_16GT);
+   207				if (!cap)
+   208					break;
+   209				lane_eq_ctrl_reg = cap + PCI_PL_16GT_LE_CTRL;
+   210				/*
+   211				 * For Link Speeds including and upward of 16.0 GT/s, the Lane Equalization
+   212				 * Control register has the following layout per Lane:
+   213				 * Bits 0-3: Downstream Port Transmitter Preset
+   214				 * Bits 4-7: Upstream Port Transmitter Preset
+   215				 *
+   216				 * 'eq_presets_Ngts' is an array of u8 (byte).
+   217				 * Therefore, we need to write to the Lane Equalization Control
+   218				 * register in units of bytes per-Lane.
+   219				 */
+   220				for (i = 0; i < max_lanes; i++)
+   221					cdns_pcie_rp_writeb(pcie, lane_eq_ctrl_reg + i, presets_ngts[i]);
+   222	
+   223				dev_info(dev, "Link Equalization presets applied for 16.0 GT/s\n");
+   224			}
+   225		case PCIE_SPEED_8_0GT:
+   226			presets_8gts = (u16 *)rc->eq_presets.eq_presets_8gts;
+   227			if ((presets_8gts[0] & PCI_EQ_RESV) != PCI_EQ_RESV) {
+   228				cap = cdns_pcie_find_ext_capability(pcie, PCI_EXT_CAP_ID_SECPCI);
+   229				if (!cap)
+   230					break;
+   231				lane_eq_ctrl_reg = cap + PCI_SECPCI_LE_CTRL;
+   232				/*
+   233				 * For a Link Speed of 8.0 GT/s, the Lane Equalization Control register has
+   234				 * the following layout per Lane:
+   235				 * Bits   0-3:  Downstream Port Transmitter Preset
+   236				 * Bits   4-6:  Downstream Port Receiver Preset Hint
+   237				 * Bit      7:  Reserved
+   238				 * Bits  8-11:  Upstream Port Transmitter Preset
+   239				 * Bits 12-14:  Upstream Port Receiver Preset Hint
+   240				 * Bit     15:  Reserved
+   241				 *
+   242				 * 'eq_presets_8gts' is an array of u16 (word).
+   243				 * Therefore, we need to write to the Lane Equalization Control
+   244				 * register in units of words per-Lane.
+   245				 */
+   246				for (i = 0, j = 0; i < max_lanes; i++, j += 2)
+   247					cdns_pcie_rp_writew(pcie, lane_eq_ctrl_reg + j, presets_8gts[i]);
+   248	
+   249				dev_info(dev, "Link Equalization presets applied for 8.0 GT/s\n");
+   250			}
+   251		}
+   252	}
+   253	
 
 -- 
-viresh
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
