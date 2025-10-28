@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC47CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 07:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B0DCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 08:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCeW08scrr2ACBo1vbxVy1YcULpnUDlueJqIMQ2qt7E=; b=mUfxJPC9gn5EOPtIblQbxlvEX3
-	ISqfeoP186lNmkIW8Kvd0YKtj981ejwNxZPZ1HNakyYnSiEcmZH105qwKPXgYJ3FWbf/oUwDGSWyj
-	z9B4QpJR9zPBYbwFzz4lXREoBhhMHpsiNqEMMB9yUUj6GBIZZwNw/O6VVz0resWt9Zu9gY2o0G2r6
-	OT5fOUUsbI9b7r/tE6f54hriUGRPLSncxkYSaHJlnDsgzC4M3CsX/EQfX1uk53jkCcWEmpEiGaqHq
-	zoYaT5sD/bDtiDyAwygrhb40NUZ82dleCJZCl1Lj5LouyKHkuXNRggHeyj6YNIcyhknJQjP1xVq76
-	cJFsozcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LrxlUs2OqGoFivRioLfSV6E3w/z5dRGbYVpsuMtAJNA=; b=zyaWu/IwGZb7pK
+	U0it944ReOT57jtQ2d+x7dapK0fTeJnICfkaqLVk+EvQVb7Lq+XahdSdseQLu7IIvSF+OBhbbQ5PK
+	TexyyqUgXOaCNSlVzDJmoHiNXuQIEoewEVFiIHhcIkfpLJHL3RlX84FagqIKNrGSdOSvKmGJJLJI5
+	Tx/krYxDFRMHgW/c1EeNWB6PVnFejGmV8FZvOBPtFdRYyTjldbksyDq1H0h5oO/7DeMvisKVVam5g
+	Wwxw9WDlUckJHKN3Dy+aBD/3il6OdsXOTB+BxPKdt+e2s8l7TJf49Pa01ZFZQOCTNMlFHumod/Cvr
+	cXPJavx+np7jUdKffs+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeVv-0000000FTyv-3eLa;
-	Tue, 28 Oct 2025 07:53:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDeeg-0000000FUvp-48EN;
+	Tue, 28 Oct 2025 08:02:10 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDeVt-0000000FTyS-1VfD;
-	Tue, 28 Oct 2025 07:53:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 980F145037;
-	Tue, 28 Oct 2025 07:53:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEAB9C113D0;
-	Tue, 28 Oct 2025 07:53:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761637984;
-	bh=yCeW08scrr2ACBo1vbxVy1YcULpnUDlueJqIMQ2qt7E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KJ9GAhwGQiUOpcjuOp1NuWsZ3BZtwb4Eri9cttZxeRuZUm14FV9fzvpPkqAD/YJ4R
-	 2YsxmfjFSooPJ8j/dKdWTQp9CEysFOjZruputzlsYvAdBjwOi+lJWEIiz+GI8fTmze
-	 T8gOxlLywka3cT/6t1L/5aAu3EL+FsjmPEVXF80Y2eZcEdZYK9bTI+UgQmBRwe/RSC
-	 p3Sm/0khowvPb07B5bgjZSydbQnzzhWG252l2CkCmzXu6NXTv814h5FfLwhF7lZXbv
-	 e0zs3EsjocEpcO7ND3rFjhfG51I/1I7EgOtDRN3NbM4QPCNbT4BTKGaLmISZHWak+p
-	 XhqHrydapfx2g==
-Date: Tue, 28 Oct 2025 08:53:01 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
-	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joel@jms.id.au, andrew@codeconstruct.com.au, vkoul@kernel.org, kishon@kernel.org, 
-	linus.walleij@linaro.org, p.zabel@pengutronix.de, linux-aspeed@lists.ozlabs.org, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v4 4/9] ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST#
-Message-ID: <20251028-witty-nickel-pig-5bd4bc@kuoka>
-References: <20251027095825.181161-1-jacky_chou@aspeedtech.com>
- <20251027095825.181161-5-jacky_chou@aspeedtech.com>
+	id 1vDeed-0000000FUte-1fEh;
+	Tue, 28 Oct 2025 08:02:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761638524;
+	bh=w0hVbt0p8X5uVDG3kntIZUMpWvl4mJzdXMzRwu8Mtys=;
+	h=From:Subject:Date:To:Cc:From;
+	b=qxFBeKT1dUgT/LlBYTUYbJTMz57nWxhv6fGkB6yT9D3gkdCNLpPOLQrluXu2gAijV
+	 U9Lxjp+UrbuxDGO4nE2YHX24L2h1fwvG/tAJBIUdCzyeSwk+w4EjKCsRaMPqaXXYxE
+	 Ffs972t/IRjbof0BhdXGsNJSTMmkdn8tk95domcYJbexhCD2gNXSWySC3+ZDL2YbqA
+	 TM8cGV5AO7HRLL4MREEVPX/h2M6uz/p/N8ALwDZ5WhQCrkDbmVHIofTCvW2NHwadsS
+	 Xvv8OYD4uhbt4pwdyCMjJGxSP2wjhRz5cfx+vbNPBHYX+yIhE3lUEqd/1kV970RC0u
+	 bI0Xju0TiOWrA==
+Received: from localhost (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id BCBDC17E1278;
+	Tue, 28 Oct 2025 09:02:03 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH RESEND 0/3] Fixes for phy-rockchip-samsung-hdptx
+Date: Tue, 28 Oct 2025 10:00:53 +0200
+Message-Id: <20251028-phy-hdptx-fixes-v1-0-ecc642a59d94@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251027095825.181161-5-jacky_chou@aspeedtech.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Algea Cao <algea.cao@rock-chips.com>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Andy Yan <andy.yan@rock-chips.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_005305_414178_C669C138 
-X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-CacheID: sfid-20251028_010207_607112_5E17171F 
+X-CRM114-Status: UNSURE (   6.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,12 +76,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 05:58:20PM +0800, Jacky Chou wrote:
-> Add pinctrl support for PCIe RC PERST#.
+These patches were initially part of the HDMI 2.1 FRL support series [1]
+aiming to provide a few fixes for the Samsung HDMI/eDP Transmitter Combo
+PHY.
 
-This is part of PCI commit. Makes no sense on its own.
+I'm sending this as a distinct series right now, since the FRL part
+might require additional time for review.
 
-Best regards,
-Krzysztof
+[1] https://lore.kernel.org/r/20250818-phy-hdptx-frl-v3-0-c79997d8bb2b@collabora.com
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Cristian Ciocaltea (3):
+      phy: rockchip: samsung-hdptx: Fix reported clock rate in high bpc mode
+      phy: rockchip: samsung-hdptx: Reduce ROPLL loop bandwidth
+      phy: rockchip: samsung-hdptx: Prevent Inter-Pair Skew from exceeding the limits
+
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 27 +++++++++++++----------
+ 1 file changed, 15 insertions(+), 12 deletions(-)
+---
+base-commit: 33bcf93b9a6b028758105680f8b538a31bc563cf
+change-id: 20250902-phy-hdptx-fixes-7308ffea4c6a
+-- 
+Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
 
