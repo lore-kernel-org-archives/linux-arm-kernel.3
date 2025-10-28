@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DE5CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 19:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB732CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 19:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:References:In-Reply-To:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=62vvDBBB/rOaWpDgtEM9Rt/abCOhovCwo7YMTy41U/A=; b=iwEfGQ1dXeLhJBJuSXPxz6E1hG
-	9lS+79MxhwCx+hxSOm0hTS0xjaODnprNP74xZPoW9CG5WahEPpwdX5838thfve3F98xk3vhWQfn4H
-	CBTsbow8mZ6Rtv7ljDzv0TVZI0AXh2ZSJRJHT0K6LN4cHCNdsVM94e6FcVGDhOKUAgaWh/aGyK5v1
-	Z2LHhOmH6E/yeHdXHgBAIzY+fMACj/6pBnZYYr/36zEcJu41l6b54Rdmxls5Y5d/h/Lw8/oWCk2vB
-	+6wMwh6qwo3VDv6pP/fEP86taVsreM6sYIHRrtviC9NqSnGHPOY0E7KT8UgmsdFKQN0rfIHTgNlQJ
-	lQGbYa2g==;
+	bh=KRj2ZMjLQ9MiV/+cNr6hXbMzB4RDW9flfgaJjhzFxlg=; b=wIRinxADd6n8BZkxKrx1r0jJi0
+	spsCf7hurUMri3EYIHowpjrRIESMTAkQcX47J9kX8yrxdILFfcfWXfeDWzDkuMT39ZhJ8re34Z1dw
+	iQec9Zf5y9kwDd/1b5Gq1TP4xBjIqSNYxB09YLLPGy0sJ5EYE2eoH3gNX2ydqXpSM1Yx7VyTVMJW1
+	SyCWjr2B4HDfuDgPyw/8I9U/HHtVc1cHBTvNciPYHn3yrKyn3PD8KYgmaUdqHN89w7idb/tPyTzrl
+	gQzQ2MaNUPZaP5Ml8LPZIdjHgr41AnVE76lV4BTrmApMw8WTnZMkd5h+NSALd2vEP/73XiWzynQqU
+	SrOwi/HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDpad-0000000GZ8u-3leM;
-	Tue, 28 Oct 2025 19:42:43 +0000
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
+	id 1vDpe3-0000000GZNo-3xh9;
+	Tue, 28 Oct 2025 19:46:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDpaa-0000000GZ8C-2cd7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 19:42:41 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-b3e7cc84b82so1031245066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 12:42:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761680559; x=1762285359; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=62vvDBBB/rOaWpDgtEM9Rt/abCOhovCwo7YMTy41U/A=;
-        b=C/QCUoveBmwpmT4jWH1cV4Xgua6B4zEWONvmyN6hoO6VdWCCRTjNgOHkfmDiUQnNre
-         L0ZtENtHu57JvrloITuXPDtc2GxEmXLFPslccr0R1obidIFH6LyQ/iZlHY01AAwARupL
-         yyFiQuRIuobUQdbe+nQOx0rPcN5D7eSVf5daxdO9hptCCxoVQueld0Xtkpqe/SEYC5Gm
-         /tUFKtdq2+h30dDvU91PwtcD4tGr0lYpfdSYPiIEtXldlH33yCxA6P5Bsf248cJFZLYW
-         alg+3aLrTJzATjnw61MC+zPp7q8zdcBoZCr2hMDFV2eyRnIvkKy5729GcSJpe+t/gRMm
-         19wg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761680559; x=1762285359;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=62vvDBBB/rOaWpDgtEM9Rt/abCOhovCwo7YMTy41U/A=;
-        b=uhzi/iJrSqKX5VMJTAnXCMSmd8go6b2Q2aylrdfldohLbjNCnaNKRXD1S/kWcrKTBe
-         JO0Fek7y4F4ZiR3zaC9kQjFj9PHRx5v9ZbWJjO6XDBCv0myRVmooh5rCw5z+uRQQDYhl
-         LPkNDVaOnxgwCfy769kDz4PszoRNpY5u+4wdiaWUV3nBNJxCD1Zs9d5hxqKCoWwZNI1D
-         DKCuVGbgVhDx8Qn67AEJosl0dxkC0EoGtHaJnEySRjszV4LzIuiWc7ZesGWJUQcv7AZ7
-         PFXiFRdljjWkuVD0Aw0nZ9KipYWbky4N6Y1tLkGLIitkujPlt6rUgnyEI2DLgAGrM28X
-         KXKw==
-X-Forwarded-Encrypted: i=1; AJvYcCXuQSgTntfy2aAhFZNGwFYinN5RyATRoSVt1i8Uetpj3psCYxxJxM5lZb4sWOeCTgEUhjyhrslZPONIzKScclOo@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo1Df6LR+3F/3zAHmQHyVl5ryDwH8JcLCRm+Yp5NnxI/DLaPNB
-	BA0REUj06UYH7ipZttXQyq4075z6VxtMrtiaUgqabNr9/A5aPTZeYe7wb1XOfD4Vwra5l0sSTtx
-	6briox6eB7vp1+1ArOpHAJ3KqVJn5omI=
-X-Gm-Gg: ASbGnct9erxvV6bxI+j56Fj0b4pvA4WI2vodE9cbIuYiM8Ea1c1sbKIW4YK5fT49yNM
-	6IVypg4rnB5fFvF5iNpE9rDGBzb/PJx5zNhozqOx8jMJFsYi6Dmktz9czgZlOn8d+i5SHRuSXVD
-	clWHeqINT/5H0QnbfyD4dehhdO3KpLz0Uug+iuJG0HNoJgfIjZ86HgNiR3dz5OrNOjLDfj9wpux
-	RNgYrqYnOLf0aAMmJ8LXl25ajwNQfhhxAG3mDJbKjwy4ZXbkIy/JBmRrZs=
-X-Google-Smtp-Source: AGHT+IGuyzMZMoSUBcdluhWJ8z2U2NKreqWEsNAWWKSsPdZyGxxSF7LB6m8ffRoMaRK71OGRlbTX0MthE+/GR0ExXdY=
-X-Received: by 2002:a17:907:9448:b0:b6d:4cdd:e375 with SMTP id
- a640c23a62f3a-b703d2dac74mr22693866b.11.1761680558394; Tue, 28 Oct 2025
- 12:42:38 -0700 (PDT)
-Received: from 724652696919 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 28 Oct 2025 12:42:36 -0700
-Received: from 724652696919 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 28 Oct 2025 12:42:35 -0700
-Mime-Version: 1.0
-In-Reply-To: <20251028-haste-amusing-78c28e834b5b@spud>
-References: <20251028-haste-amusing-78c28e834b5b@spud>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Tue, 28 Oct 2025 12:42:36 -0700
-X-Gm-Features: AWmQ_blTfxgti-krwDFdX4C-MNUtu-qJWXUIoxjGku4ymfFwik-GWE6bubjvmIA
-Message-ID: <CALj3r0haeTdNt7=cMqRa0i3j29P8e2oQ-TzsgZfCCG6cB0q=3A@mail.gmail.com>
+	id 1vDpdx-0000000GZNL-2R2s;
+	Tue, 28 Oct 2025 19:46:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D7A5941A1E;
+	Tue, 28 Oct 2025 19:46:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77482C4CEE7;
+	Tue, 28 Oct 2025 19:46:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761680768;
+	bh=w3VcIMFNncYev6xyyHdkUM5LCBO6snPWm/1dFj2oeDk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GHQwPYXmFh/OqSYeZ9teA5Cb8sxABO+O8gpxByZTt2tr8hEVS7m4Kx7nRp3O0dpR2
+	 Wf5h41rCJpWbeni650Xz72zX0gfMhAFipd/8DlXFwhk1L+HWu1+15i+rLieZkj8cqp
+	 f1zkHB3tL8lZ25qC7Tew3nGK0HceXRQJpmo47FWO3p40DBi3i8tPcQfMezW7rNyg2N
+	 qnaHWVldSVRtOON2ncmO1upjl5nq+PagisYIQ7Lf1Ui7impHNFgqCSsj40HrCjkh0/
+	 M8zZSgcF6fSHyvnCfyRYeIbTN3Hq4dBzATbHMd1Cd5J5Fxr/3bc9SMmPHMFIu6xDRm
+	 6nGik2Ue5rHjQ==
+Date: Tue, 28 Oct 2025 19:46:04 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v3 1/3] dt-bindings: vendor-prefixes: Add NineTripod
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>, 
-	Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Message-ID: <20251028-semicolon-audacity-dd5bdd418207@spud>
+References: <20251028-haste-amusing-78c28e834b5b@spud>
+ <CALj3r0jQ-Y3wt=iyykrFVWDXyA+2feCtYy+budYzqOaVY6WqnQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="niplE5DXJ5xnJ+ih"
+Content-Disposition: inline
+In-Reply-To: <CALj3r0jQ-Y3wt=iyykrFVWDXyA+2feCtYy+budYzqOaVY6WqnQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_124240_692504_DA8135A4 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20251028_124609_662470_ECCFDDA4 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One more thing:
-I sent the v4 series of patches.
-v3 is now outdated, although [1/3] of the patches are the same as v4 (
 
-https://lore.kernel.org/all/20251026150358.1078453-1-coiaprant@gmail.com/
+--niplE5DXJ5xnJ+ih
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks :)
+On Tue, Oct 28, 2025 at 12:38:10PM -0700, Coia Prant wrote:
+> At first, it was to avoid problems with the beginning of numbers.
 
-2025-10-28 19:35 (GMT+00:00), Conor Dooley <conor@kernel.org> said:
-> On Sun, Oct 26, 2025 at 10:36:44PM +0800, Coia Prant wrote:
-> Add NineTripod to the vendor prefixes.
->
-> Signed-off-by: Coia Prant
-> ---
-> Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-> 1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index f1d188200..37687737e 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1124,6 +1124,8 @@ patternProperties:
-> description: National Instruments
-> "^nicera,.*":
-> description: Nippon Ceramic Co., Ltd.
-> +  "^ninetripod,.*":
-> Why ninetripod instead of 9tripod? That's what the company uses and in
-> the marketing fluff for the boards.
-> +    description: Shenzhen 9Tripod Innovation and Development CO., LTD.
-> "^nintendo,.*":
-> description: Nintendo
-> "^nlt,.*":
-> --
-> 2.47.3
->
+What problems does starting with a number produce?
+
+> Given that it is already used by downstream projects, we have retained
+> this to ensure that users can seamlessly migrate to the mainline
+> version.
+
+What's the actual impact of changing it from "nine" to "9" for
+downstream users? This is a board vendor, probably nothing is even
+interacting with the board-level compatible at all programmatically?
+
+Please don't top post.
+
+> Thanks.
+>=20
+> 2025-10-28 19:35 (GMT+00:00), Conor Dooley <conor@kernel.org> said:
+> > On Sun, Oct 26, 2025 at 10:36:44PM +0800, Coia Prant wrote:
+> > Add NineTripod to the vendor prefixes.
+> >
+> > Signed-off-by: Coia Prant
+> > ---
+> > Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+> > 1 file changed, 2 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > index f1d188200..37687737e 100644
+> > --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > @@ -1124,6 +1124,8 @@ patternProperties:
+> > description: National Instruments
+> > "^nicera,.*":
+> > description: Nippon Ceramic Co., Ltd.
+> > +  "^ninetripod,.*":
+> > Why ninetripod instead of 9tripod? That's what the company uses and in
+> > the marketing fluff for the boards.
+> > +    description: Shenzhen 9Tripod Innovation and Development CO., LTD.
+> > "^nintendo,.*":
+> > description: Nintendo
+> > "^nlt,.*":
+> > --
+> > 2.47.3
+> >
+
+--niplE5DXJ5xnJ+ih
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQEdfAAKCRB4tDGHoIJi
+0t0JAPwMQxn3n3NWEpsiImdiPhus3HKlzVvj5qA2XdW1fRX9ZAEAv2NYiwS8iLK3
+cRoKFl4agYz9hNMDop3M98ItwQtM7wE=
+=VZvn
+-----END PGP SIGNATURE-----
+
+--niplE5DXJ5xnJ+ih--
 
