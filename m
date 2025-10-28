@@ -4,95 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1E7CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 14:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E17CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 14:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMhlL+awlNfW9A5jmBo0UeSJ8e6xIZTWAHrMjd5ojNE=; b=xCR/nPBqn9HvH7F9kipj9fy9jZ
-	UwrXlap34MQq9jDslrAraxutAUfSoC6FpkMsVDuNcqVvRNMYE3Yc1lmC8epHpmGv2wFZKjknx5L2R
-	+DolomTe3/z/7k6NT8o1kb7jm07egef+vd9H2tOin+KQ/LCfxtWZkJh2F5/vipiDsd/42O0w0jOLo
-	BqgbzMYDryNW+EsWol437CGJy+By4Y4K/k36PTnhTIlmb678gOODOQDY2YXCMhwY76yfdSwQq/nTk
-	3oL+zb/MnhuDeDyYNwXCS/PuIpLZ6iQjTc0/T4xm9JpQgtCy99Fc99uP88JwD8rLvr4V/afPsDBeT
-	BGbgTDRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vqNJkX+oLmSDqn/Deo0E8XhguIEMPvKuet/LF7u3Eos=; b=3J6PU4QEFY/3z5bpzXE+nuSUSt
+	fY7UZMbntkT3+SUzhSz7sBSyKHU2wqFyQVxAKfAbrSehHFBspDJXmvbHNUOg7WMhBppZjAQRbjZlm
+	RkGMi6XZujxHo23IRwDJMhCKs/mOc0LwfgPH35GungbfGhasI1S8idNz2zIK6CNNedI4Ljv+0EPdD
+	1ng6Y2C1unqLKSjt/T/lDiaBpcy9zF3QpyDBuXTvgTNfzp/hE04y9rgkaulWZKqvHZeKJin0vJj70
+	hcR7JdhU8YoiIylE4opRsyUOgKlTLjmDE0dHEY7Pi1svICxL/x2jX1sd1Kl/CLQfu8+2xRO0uw4D0
+	tCe57Blg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDl0i-0000000G71A-0KmZ;
-	Tue, 28 Oct 2025 14:49:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vDl1v-0000000G7Ka-2vvm;
+	Tue, 28 Oct 2025 14:50:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDl0f-0000000G70i-3TlB;
-	Tue, 28 Oct 2025 14:49:18 +0000
+	id 1vDl1u-0000000G7KI-1M1e
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 14:50:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0969A45F05;
-	Tue, 28 Oct 2025 14:49:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64951C4CEE7;
-	Tue, 28 Oct 2025 14:49:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5997B61412;
+	Tue, 28 Oct 2025 14:50:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2944C4CEE7;
+	Tue, 28 Oct 2025 14:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761662956;
-	bh=/YcbY6Xd39AsABVLZZYIvhdW8ivhFU4lURFGb2RCZr8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=huHQXCvp0W/S5F1ENdurMkw2WwJZbMBNDXAh91iSKf/vrNDl1NLBkoXJdUx/C19Qv
-	 Z4qNcGgTCDjqG04Q8z3Gw4n7Ol2Hs4TiC0IGtfV35bwyLcbAG4VH3lZOOkEdiJR4uv
-	 98GKb95kopcHzMuvU3H2025SulpKC226+6+rZMUmhwVvLSkelVU5+Fv/hfF6vOYswZ
-	 XcZScHHzyBVq+mz32oPgQ0NUDZQKpY6cLjssBtvUS7RZby1k7TivV6VhaUkRZyqa69
-	 4+Ez+WRvhuVyLYG73RXpS/ughenkh3oUdmNmmth4K/glGp+Eu28p8jOe+6mgl5gPer
-	 pCdjOFhzrTR8g==
-Date: Tue, 28 Oct 2025 15:49:14 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 24/29] context_tracking,x86: Defer kernel text
- patching IPIs
-Message-ID: <aQDX6hHV3b1-_wuF@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-25-vschneid@redhat.com>
+	s=k20201202; t=1761663033;
+	bh=6K/S8d0IVvVTkkQFbLMvHUlIli4SloaGEMV2HIrhuwM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=eM3+yCt18RfkfiycnlMD+IvDLDucmNxUByaJkwdlM7uZYjsJ8fBZwFjTAzV0RB5lL
+	 sFPDBmjn86sWiCRf+aR1aShxtEs70ohGhHYM0uMFfNlX2oR8FE/OwHVPS3YBnJiuUa
+	 UJuD2VaKLrJjcttYbLX9gAqgYAx9KvOAsHAeZmxGY9PXzYGrrFQJf6kZMLF03R764c
+	 xPthxPygltd4liezV6i2XVnOkOwImZNv7ws4EOyWJnJbOpUFe7/RmHElLefFyY4a5e
+	 evRh8bFWhCOLbQFsclRhijStG53G74u9aTqhOgA4dpVlbd4a3ehw7FztfGk/TrwtAW
+	 YnZmkl9H7GdRQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB21C39EFA55;
+	Tue, 28 Oct 2025 14:50:11 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251010153839.151763-25-vschneid@redhat.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_074917_907187_792895DE 
-X-CRM114-Status: GOOD (  21.37  )
+Subject: Re: [PATCH net-next v2 0/2] net: stmmac: Add support for coarse
+ timestamping
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176166301074.2258992.15898542633680780702.git-patchwork-notify@kernel.org>
+Date: Tue, 28 Oct 2025 14:50:10 +0000
+References: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+In-Reply-To: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, richardcochran@gmail.com, linux@armlinux.org.uk,
+ kory.maincent@bootlin.com, vadim.fedorenko@linux.dev,
+ alexis.lothore@bootlin.com, thomas.petazzoni@bootlin.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,56 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Oct 10, 2025 at 05:38:34PM +0200, Valentin Schneider a écrit :
-> text_poke_bp_batch() sends IPIs to all online CPUs to synchronize
-> them vs the newly patched instruction. CPUs that are executing in userspace
-> do not need this synchronization to happen immediately, and this is
-> actually harmful interference for NOHZ_FULL CPUs.
-> 
-> As the synchronization IPIs are sent using a blocking call, returning from
-> text_poke_bp_batch() implies all CPUs will observe the patched
-> instruction(s), and this should be preserved even if the IPI is deferred.
-> In other words, to safely defer this synchronization, any kernel
-> instruction leading to the execution of the deferred instruction
-> sync (ct_work_flush()) must *not* be mutable (patchable) at runtime.
-> 
-> This means we must pay attention to mutable instructions in the early entry
-> code:
-> - alternatives
-> - static keys
-> - static calls
-> - all sorts of probes (kprobes/ftrace/bpf/???)
-> 
-> The early entry code leading to ct_work_flush() is noinstr, which gets rid
-> of the probes.
-> 
-> Alternatives are safe, because it's boot-time patching (before SMP is
-> even brought up) which is before any IPI deferral can happen.
-> 
-> This leaves us with static keys and static calls.
-> 
-> Any static key used in early entry code should be only forever-enabled at
-> boot time, IOW __ro_after_init (pretty much like alternatives). Exceptions
-> are explicitly marked as allowed in .noinstr and will always generate an
-> IPI when flipped.
-> 
-> The same applies to static calls - they should be only updated at boot
-> time, or manually marked as an exception.
-> 
-> Objtool is now able to point at static keys/calls that don't respect this,
-> and all static keys/calls used in early entry code have now been verified
-> as behaving appropriately.
-> 
-> Leverage the new context_tracking infrastructure to defer sync_core() IPIs
-> to a target CPU's next kernel entry.
-> 
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Signed-off-by: Nicolas Saenz Julienne <nsaenzju@redhat.com>
-> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+Hello:
 
-Acked-by: Frederic Weisbecker <frederic@kernel.org>
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
+On Fri, 24 Oct 2025 09:07:16 +0200 you wrote:
+> Hello everyone,
+> 
+> This is V2 for coarse timetamping support in stmmac. This version uses a
+> dedicated devlink param "ts_coarse" to control this mode.
+> 
+> This doesn't conflict with Russell's cleanup of hwif.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v2,1/2] net: stmmac: Move subsecond increment configuration in dedicated helper
+    https://git.kernel.org/netdev/net-next/c/792000fbcd0c
+  - [net-next,v2,2/2] net: stmmac: Add a devlink attribute to control timestamping mode
+    https://git.kernel.org/netdev/net-next/c/6920fa0c764d
+
+You are awesome, thank you!
 -- 
-Frederic Weisbecker
-SUSE Labs
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
