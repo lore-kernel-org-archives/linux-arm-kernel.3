@@ -4,117 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50302CCF9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED00ECCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6R82CPYt/trwZwdJVbkGNN3GySFpmpbKddDWCQfqcFo=; b=pIr8MzMzGbkEiBfSQaP+obIWDt
-	ltX2YEUTOcB5BsY5CHbYMoL7CWtWreBX8msAPFd2bZ0XKh0L2UEme71di2pN1NRS4shnAlgUh0ns6
-	5vZQpZPrnO2sxfkQhNOGLMvW4Vyc05sdjKJ7DsOtFFIRrBr1r6ZT1Geq+oAjivVkpxnK293FrXnU5
-	BzXJ6cwa+Su4n2AOZGKR+536cPcDj3VlDKCXUidKDvCZRqB5TbNtCLCiy54pm19DYJXc0ljjY0qdW
-	80vAAvCALA3WogjA7PSOLU8NOouHbi6+rZEw6gGqdYZHQVXf6aoaTTcOfgSz13DIqIjbJTtzLcDIg
-	UVMkYLKg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fRUxnw6pXvyE394udsJX6ncRbZWsnmFjns+RRxM9PM4=; b=mXqK8SBrpwWl8JaqiO+N2f8EBZ
+	eWRYz3e6HXKij2XSi3ihQ1nBsjb7ayi+O1LZyR0oD1Ei6l2d+SerCDd/qTLGGMJ923Va8e2/+pGUg
+	I9XF6OD0D0mF6983JT5NsKi85wEGR0z2gpyn+dalnbT8jpyFZRIZ1446pJkH0at3jInW1lppu/jZa
+	UWDtPca2/MTk2tYU7RBbBsNN0VJFCBc4/ZChLXq7Es9wqv2SJyTSmrFfzQoV7Unkw0tcQWAR+suBU
+	ftz+/f3QGE9qdnFeEqF3If1LJDxDv4xhNXigBSrTXq/KQSvtuqQamHVCpIUGusFN8nALJxiCegzo+
+	p67oYXUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgEY-0000000Ff2r-0SiK;
-	Tue, 28 Oct 2025 09:43:18 +0000
-Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
+	id 1vDgJm-0000000FfQ1-1B0X;
+	Tue, 28 Oct 2025 09:48:42 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDgEU-0000000Ff1p-3oyF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 09:43:16 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id DC06C1400312;
-	Tue, 28 Oct 2025 05:43:12 -0400 (EDT)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Tue, 28 Oct 2025 05:43:12 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1761644592;
-	 x=1761730992; bh=6R82CPYt/trwZwdJVbkGNN3GySFpmpbKddDWCQfqcFo=; b=
-	hZ3Zu+2c8VXu+fb3s7a4V6sVyr6Dkmgp4waxkIifbc1vZkIdkfwhhYjHFhNiQH7u
-	iD3Fb5MHRe4LHk+JLFnGP6N9lk9gHCy6jwSfrTr9y8tHQvYBXZfQMusoMyjUdFBS
-	2lQFogp/OgiY72SRE6lQ/40zdHYxhj4GhK37lvKZ6dvLWzIPFdEJqbCA6O9H1CHl
-	TnYwMBaK04oGqKLcvppXhgXf0yyQVgeIi1XdexRTb8zzjBOywni1wM6ZmptvLV94
-	O9VImnZmAIxlq3jjov/lbR9uYxW3KNHHB5qXSKxw7XYWVG4iOlRSVwiuSCaj/8Hb
-	EwbeHF4RhCi6fiUpRVF7Hg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1761644592; x=
-	1761730992; bh=6R82CPYt/trwZwdJVbkGNN3GySFpmpbKddDWCQfqcFo=; b=q
-	I2XE+kWL9O2Whx5kWRXiy7vupMuCpcBYU6gds3UU4lfCD1P55It2vTCmEDBTNQsz
-	Hg5C607peIZLudzQA3ottt3RGXq23BUXq8odSLdKNL5vRndkry/OBXSvWg3bXT/E
-	cyYe2GbqZAu4ssV2/JAYvSh+MIciqGKtfSuxzChqSYsR1wWV92cnnPZhv3lMJM7J
-	CfvK9CD+k7gU6QbyDk1wRxHIuxrWb67RZLC9khyxoRFmr3UP1eYQfd+Mzopdw2wV
-	W2Mtpi3T3y+NnTzuzpu65dJ0v8MuuHmI92tiJP3YgVT6mIjGN2iNc6VRLo45ERu3
-	oBLPI6ESDu9EmU4RbKP4A==
-X-ME-Sender: <xms:L5AAaepgVhI_--biGubsM3Nr3M8wlN6VDYKz6TPmJjGVCeEFru0K4A>
-    <xme:L5AAaXdTIIlkvOHjYT5jjJlI_2GO-8IJJ77k0gE69fz-3yB0TInq81plJ8-oTuaKR
-    QM9o_PLUt9-GsrcqqpUyHFii8QTUNg891YZ1-T1tOm0zWxtREnIQQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduiedthedvucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddvpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehhrghrihhsohhknhesrghmrgiiohhnrdgtohhmpdhrtghpthhtoh
-    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghr
-    khdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopegtlhesghgvnhhtfihord
-    horhhgpdhrtghpthhtohepmhgvmhigohhrsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
-    iihhvghnghhlihhfvghnghdusehhuhgrfigvihdrtghomhdprhgtphhtthhopehpvghtvg
-    hriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshhtsehkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:L5AAaQkEZbpjcMrnp2cBz3cCrzlBjlNPk_WjmqKFkTj3wM9E1zbjGQ>
-    <xmx:L5AAabZ0AGvD9DnKHfkLINOX7_s4yUcHdFAYIRKxXSJDYy73vNlamQ>
-    <xmx:L5AAaerRzzEh0ex-jpkrwDUeiZ33DGeLCXgCoL8uzZGYltOx0Kr1_g>
-    <xmx:L5AAaRiQHV7UBgJPQtk5tVYmq_rsY9kiIv6monQX0FSBIB5oa-NYNg>
-    <xmx:MJAAaRmcloNIn3dV-9w2KbccA11-XAcB3f44646tPJd_EK2pjxru_KiP>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1CD9EC40054; Tue, 28 Oct 2025 05:43:11 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vDgJi-0000000FfPC-20rZ;
+	Tue, 28 Oct 2025 09:48:41 +0000
+Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
+	by APP-01 (Coremail) with SMTP id qwCowACHZrlukQBpRIpCBA--.6967S2;
+	Tue, 28 Oct 2025 17:48:32 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com,
+	vz@mleia.com,
+	piotr.wojtaszczyk@timesys.com
+Cc: dmitry.torokhov@gmail.com,
+	linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haotian Zhang <vulab@iscas.ac.cn>
+Subject: [PATCH] mtd: rawnand: lpc32xx_slc: fix GPIO descriptor leak on probe error and remove
+Date: Tue, 28 Oct 2025 17:47:47 +0800
+Message-ID: <20251028094747.1089-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
-X-ThreadId: ArFVEkIwmB-N
-Date: Tue, 28 Oct 2025 10:42:49 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ankur Arora" <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
- Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- bpf@vger.kernel.org
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Haris Okanovic" <harisokn@amazon.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>,
- "Alexei Starovoitov" <ast@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, zhenglifeng1@huawei.com,
- xueshuai@linux.alibaba.com, "Joao Martins" <joao.m.martins@oracle.com>,
- "Boris Ostrovsky" <boris.ostrovsky@oracle.com>,
- "Konrad Rzeszutek Wilk" <konrad.wilk@oracle.com>
-Message-Id: <4c87bbf8-00a3-4666-b844-916edd678305@app.fastmail.com>
-In-Reply-To: <20251028053136.692462-2-ankur.a.arora@oracle.com>
-References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
- <20251028053136.692462-2-ankur.a.arora@oracle.com>
-Subject: Re: [RESEND PATCH v7 1/7] asm-generic: barrier: Add
- smp_cond_load_relaxed_timeout()
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowACHZrlukQBpRIpCBA--.6967S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AFWfZw1xXrW5tryDCF47XFb_yoW8Gr45pa
+	18ArWjkr4UCr47Kan2ka18AF1Fyw40yrWYqr92k34F93Z8AryUXF95XayYvF4DKFWrGF4a
+	vFs7tF1rAr1DZr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjFfO7UUUUU==
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAgJA2kAjysG1gAAsT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_024315_359225_15EA38AE 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20251028_024838_885683_42569C3C 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,77 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025, at 06:31, Ankur Arora wrote:
+The driver calls gpiod_get_optional() in the probe function but
+never calls gpiod_put() in the remove function or in the probe
+error path. This leads to a GPIO descriptor resource leak.
+The lpc32xx_mlc.c driver in the same directory handles this
+correctly by calling gpiod_put() on both paths.
 
-> + */
-> +#ifndef smp_cond_load_relaxed_timeout
-> +#define smp_cond_load_relaxed_timeout(ptr, cond_expr, time_check_expr)	\
-> +({									\
-> +	typeof(ptr) __PTR = (ptr);					\
-> +	__unqual_scalar_typeof(*ptr) VAL;				\
-> +	u32 __n = 0, __spin = SMP_TIMEOUT_POLL_COUNT;			\
-> +									\
-> +	for (;;) {							\
-> +		VAL = READ_ONCE(*__PTR);				\
-> +		if (cond_expr)						\
-> +			break;						\
-> +		cpu_poll_relax(__PTR, VAL);				\
-> +		if (++__n < __spin)					\
-> +			continue;					\
-> +		if (time_check_expr) {					\
-> +			VAL = READ_ONCE(*__PTR);			\
-> +			break;						\
-> +		}							\
-> +		__n = 0;						\
-> +	}								\
-> +	(typeof(*ptr))VAL;						\
-> +})
-> +#endif
+Add gpiod_put() in the remove function and in the probe error path
+to fix the resource leak.
 
-I'm trying to think of ideas for how this would done on arm64
-with FEAT_FWXT in a way that doesn't hurt other architectures.
+Fixes: 6b923db2867c ("mtd: rawnand: lpc32xx_slc: switch to using gpiod API")
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ drivers/mtd/nand/raw/lpc32xx_slc.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The best idea I've come up with is to change that inner loop
-to combine the cpu_poll_relax() with the timecheck and then
-define the 'time_check_expr' so it has to return an approximate
-(ceiling) number of nanoseconds of remaining time or zero if
-expired.
+diff --git a/drivers/mtd/nand/raw/lpc32xx_slc.c b/drivers/mtd/nand/raw/lpc32xx_slc.c
+index b54d76547ffb..fea3705a2138 100644
+--- a/drivers/mtd/nand/raw/lpc32xx_slc.c
++++ b/drivers/mtd/nand/raw/lpc32xx_slc.c
+@@ -937,6 +937,7 @@ static int lpc32xx_nand_probe(struct platform_device *pdev)
+ 	dma_release_channel(host->dma_chan);
+ enable_wp:
+ 	lpc32xx_wp_enable(host);
++	gpiod_put(host->wp_gpio);
+ 
+ 	return res;
+ }
+@@ -962,6 +963,7 @@ static void lpc32xx_nand_remove(struct platform_device *pdev)
+ 	writel(tmp, SLC_CTRL(host->io_base));
+ 
+ 	lpc32xx_wp_enable(host);
++	gpiod_put(host->wp_gpio);
+ }
+ 
+ static int lpc32xx_nand_resume(struct platform_device *pdev)
+-- 
+2.50.1.windows.1
 
-The FEAT_WFXT version would then look something like
-
-static inline void __cmpwait_u64_timeout(volatile u64 *ptr, unsigned long val, __u64 ns)
-{
-   unsigned long tmp;
-   asm volatile ("sev; wfe; ldxr; eor; cbnz; wfet; 1:"
-        : "=&r" (tmp), "+Q" (*ptr)
-        : "r" (val), "r" (ns));
-}
-#define cpu_poll_relax_timeout_wfet(__PTR, VAL, TIMECHECK) \
-({                                                    \
-       u64 __t = TIMECHECK;
-       if (__t)
-            __cmpwait_u64_timeout(__PTR, VAL, __t);
-})
-
-while the 'wfe' version would continue to do the timecheck after the
-wait.
-
-I have two lesser concerns with the generic definition here:
-
-- having both a timeout and a spin counter in the same loop
-  feels redundant and error-prone, as the behavior in practice
-  would likely depend a lot on the platform. What is the reason
-  for keeping the counter if we already have a fixed timeout
-  condition?
-
-- I generally dislike the type-agnostic macros like this one,
-  it adds a lot of extra complexity here that I feel can be
-  completely avoided if we make explicitly 32-bit and 64-bit
-  wide versions of these macros. We probably won't be able
-  to resolve this as part of your series, but ideally I'd like
-  have explicitly-typed versions of cmpxchg(), smp_load_acquire()
-  and all the related ones, the same way we do for atomic_*()
-  and atomic64_*().
-
-       Arnd
 
