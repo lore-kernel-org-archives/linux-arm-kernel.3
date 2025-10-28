@@ -4,182 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD2BCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:03:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD6BACCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KflPJSI06ozZXGwEo9egUsnOpuyP9kTPOh5JB4mEeSg=; b=r8nLPFvq1+/of6dSj9vTZ7hGQH
-	WWK+qZVSXy1Eaf+cFpYjDwbHKqivtpEWxuPaW1AmeJR/w4XQImsgj6R7Jo0J2Crb0oLy+QQyH4XBQ
-	xXFz7hzOnPwCcPllnDBvmj4rerfMaZQCMN2RsRZX73zMBg5dN1c4WjI6KCgMaScvlVfizH/9Otpwm
-	g7sWM1p2/XQTg0h201cCb96womWaP8p5eTJKy4T4760tqylrJ8Hd0wzH4x99gtzZqevzghxpgQ65b
-	T7rafmY2qg31jh5t2xxbuw1GEIjkjEbW4UMTj5KfKP1M2oOHWQPe7dhXhtAO3Wer7xSRGwsLK1Dvn
-	FfuKhzWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IeKGjbRdQ6RWZHkTCpuQrGG1EsotQAyYeLqXuo9rIPk=; b=ZANblneDGjbiRXM951VRA/9EZ5
+	a99kFosWpGBJWMCZJoSSPGJcptjby2FEzGtm5LC6zNQJZ6goYgQtNUKlvZ3qjey6ivu6emh0P1H0f
+	9cFFAxulk+MQkWIzMGef2SLMi5g/+ekohKMADoDltRu+aV2+gc0Y5mF9ccf9gOQXCzNj8YzHMK8EP
+	qPz5fAx5CwdocJ1XmgCT2yr/WeNz3SX0EeTCG7zOONLM33GVVs+EonRr29+Qj5dCbl0K9ULN3yXvy
+	jMg2G6p19VN2zrUiixEEhys2WVvpqBqMmz7pBRMpYOfSlwRZNwVkzALGQoyQjJiFIoinJ7FRhFOW1
+	lQ07LJZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDm9w-0000000GH1w-3xRZ;
-	Tue, 28 Oct 2025 16:02:56 +0000
-Received: from mail-canadacentralazon11021126.outbound.protection.outlook.com ([40.107.192.126] helo=YT5PR01CU002.outbound.protection.outlook.com)
+	id 1vDmGo-0000000GHZB-0ugg;
+	Tue, 28 Oct 2025 16:10:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDm9t-0000000GH0t-3NYA;
-	Tue, 28 Oct 2025 16:02:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r82Od/cErI0pHqtnZHeaNnb8aL95Vz3/se5QUigkSNS4hdPLMqlJ+VtXtlNzlAXrB2MfN5JUi6ppx5cSmOfq6gh8pL3xxCSxOINBUMNN2HwQZcPgaH7gsk/xUQURQsMVJ+7jj4XWqgAzNXnnjUXb9uPth/1W+ZXlqAIAIU/14qw3MTg9WMUAc88YRQhSnlOAHvczUwyZn7N19IdgVQoXSKzR3ayy633XtQ/lM119x27SLyLlvEso1CBsMIotxBobO6v6qno9MH+ktKtcKg4w6iHXicvmSbbPf4WxygTL9aNufzstpnIb+ZhE/NyqE/OgK+19fQ5ZJVG+OPSr59O1bg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KflPJSI06ozZXGwEo9egUsnOpuyP9kTPOh5JB4mEeSg=;
- b=KQA6BPxMF/v3G079w/JTO/Osxmcwpye7vtp0wsO6Vh2q+ZxevgT5D4Kxf7kiY59zvi03KZDo8OMhaH7NymeZcZVnV+YQxaA6mOlElrerAvaRzPBH+5dK2foOGX4vUE26myv6ObhlEnnejiwQsM7eiFOfH7xcaZPRg1hrRwdg9nPjdGqRSYsY3J3RoIyUxe98bJRuwEUwOFsnQxjuzYeah9qQLnyGXKX0znqaIFs/MXN4Szz11wzJQRnx7h5Oq4LgLdkESoFV7Nlq5zS5IYZvtfaKkASFJ8g25oHXvlHuSdtwP4J47ujMppcV7bWTbxQ0gU64uZD+D/rwaVOFJZJEAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KflPJSI06ozZXGwEo9egUsnOpuyP9kTPOh5JB4mEeSg=;
- b=M47S5qYCUeNu9zAEEEGxe3TUf2qe75XDnFR8oChGw00D70OvdWBxteGMyKoiEb5glkdO4v7HSw3eYUswweilNpXdVCZNPfVz3jxb0dLPwPtn8VyI+I41D+VKsVUdQzgklS5J6lYMhhZhUeNVg/KGxVbKi3X4neKVJS5A2PtvAwOAJPV6wmsa/yV+rTuFag0sF9dlGiFIbYLvsRSjPIB2tDHwMZva7w/iVSSXhxar1tgF1NLMUPfJbEpvWgcMn/K7eQDK9rYHN8HQ1LOAGGUifOpRSuuK8Xe9JoyME5T/lghSpW0TjZNKwroBMnVvIKrNBbNAwo31ASszlelihI82rg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YQBPR01MB10579.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:75::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.19; Tue, 28 Oct
- 2025 16:02:42 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4%2]) with mapi id 15.20.9275.013; Tue, 28 Oct 2025
- 16:02:41 +0000
-Message-ID: <76b1c0f3-6117-4554-9b9a-cf49df1b5791@efficios.com>
-Date: Tue, 28 Oct 2025 12:02:40 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V5 10/12] futex: Convert to get/put_user_inline()
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Darren Hart
- <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
- kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- David Laight <david.laight.linux@gmail.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-References: <20251027083700.573016505@linutronix.de>
- <20251027083745.736737934@linutronix.de>
- <0c979fe0-ee55-48be-bd0f-9bff71b88a1d@efficios.com> <87frb3uijw.ffs@tglx>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <87frb3uijw.ffs@tglx>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YT4PR01CA0319.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10a::22) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
+	id 1vDmGl-0000000GHYU-29mT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 16:10:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CBD1948FA2;
+	Tue, 28 Oct 2025 16:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 713ECC113D0;
+	Tue, 28 Oct 2025 16:09:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761667798;
+	bh=yS9M85o0R1tVxIA9C9jEiGOV1H8VwCUJawV1LHO0FmI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Klvoy4DM0bfRyYdMUJy+zBkWNEL+Q2goNadja/TnrTf4DM91nNMBozc1k89jNw1Of
+	 pC7+YdVRhVKTlzhIA5Y38VSaMSCqAJX3RU1Dx9ltV548c6zTJ+UhdQejy919N8WQX2
+	 x86YaAuQDf99auJcSlOv9y7wAtAmwKiXSVkTg2mAFOkAiLdcQ5Yfeuctn4bSwtVL2n
+	 bL/iCAd35vlxMFBvU1MPX34VzDWiqB9KEde1exDoHxv35O1dF5BBoKNdwWcXuPm4wE
+	 Gg7tJ8EZ3KIOFONRcW03HRdTmdN/z8oMvto6rRoIQrdmHD1/LKdQCUUgORlsTIuXkE
+	 bhbVwN8bkHmOQ==
+From: Mark Brown <broonie@kernel.org>
+To: Jernej Skrabec <jernej@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>, 
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-sunxi@lists.linux.dev, 
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20251027125655.793277-1-wens@kernel.org>
+References: <20251027125655.793277-1-wens@kernel.org>
+Subject: Re: (subset) [PATCH v2 00/10] allwinner: a523: Enable I2S and
+ SPDIF TX
+Message-Id: <176166779616.143847.10303188319180115816.b4-ty@kernel.org>
+Date: Tue, 28 Oct 2025 16:09:56 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YQBPR01MB10579:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70471867-f80a-4c27-4eda-08de163b6c73
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?a3ZMNmQrV0lQQlF0TmpPcjZuZlFsWlNac0F5MWpIbGpMelkvQVl0V1M2dmhI?=
- =?utf-8?B?ZTJwWUh3c1dUMzRZaHYzK2tKNDYvRUZQanExeFdzODVHblhMVE9LS0xEWFdJ?=
- =?utf-8?B?VXM3TTIrOE1uYUIwcExFdHpJQm5uT2tHbU83RmtOQUNucm5ZYkxVQmluNGU2?=
- =?utf-8?B?aWFhUFBGeHdmeE1vZzE2VFpBbWZXaWpSWXhwaCtBcjJqREc4N2RIV3BnWVN6?=
- =?utf-8?B?REpQSlNiS0ZNUS9GMHRQbG5rUUk5RVhld1VONHJwZHhBSDNYNFVqRWUycWRh?=
- =?utf-8?B?S1UxODA0RUk0YVpwZlJYa0J6aTlQT1k1Y045RmgyZGRpa1pORVJhWjR5WmRr?=
- =?utf-8?B?N0RyWStXd1JaZG4ydjhiTUtrWVBGclpJVUpGME9wdTBETE1rM2RSMnM1cVVv?=
- =?utf-8?B?dmY3TUE0YlQrdzdhRjNTY1hTM3J1bFpSMk9BL1hqUGVqYittS3JMSEpRcWhU?=
- =?utf-8?B?WDBZckdvSlhzb1NIOVFYRTJnYUZ5SjBVWmRpWjZLb0JRMkpHenNBb1hMYzYz?=
- =?utf-8?B?VTJHV2Y0Y3VBeDYycVFNUzUxMkpYMkdjY01rYVhTemtRdURSc2RQaTJDOHVB?=
- =?utf-8?B?ZXFjaDhTeXRqNml0RUR0OUJLN1hjc0RCRUxLNU11SmVIckJNWWxQdXIyWE1a?=
- =?utf-8?B?c25hUHRhU0JpZXFjK0VjZlBEcUNYaUc2ZlVRbHNCZjlZS1FTbVd3TVUwZVJh?=
- =?utf-8?B?VSsxQWJUd3dmVWpONkVIZVRDTEhMUnp1eFZUQk5DbHpvcHJscVdEYmdQQmJO?=
- =?utf-8?B?NXlHUzNMRDRqYW5rck00aHBsY0txUithbjlUdy9uVjFXN3oxTmNqQ0RONUhG?=
- =?utf-8?B?bDdRMW9YbENlM09BbFZxaC9oM1NFZExuZDdmTndBdHZiYWlwc2h3NzRlUHNW?=
- =?utf-8?B?ZjE5VE1sNjZNUUtCRm5aWldFYjFUbzBGUFhJb1dWQmtza0UxaDlwaldFMTNs?=
- =?utf-8?B?aDdQeUk5TVNCenA5R3Q5N3Q3MkxUVWVWTkRNSm01aHpDMHpGS2lRS1N3L0RQ?=
- =?utf-8?B?VG1aakJVb1E5UDRPdzhPVXRuby9CN2RMangrR2Y4UFJwRTVDc1ptRkdDOFgx?=
- =?utf-8?B?d0o1c05GdDlNblJFdkM5anB2SUZleWx0WWthaExzeE4yVkR5Z3JMZitPcmdW?=
- =?utf-8?B?Y1Z2c09mR2E0MjJGMG9GUVMvN1grbjd5a2tmS0hIeXF2UVBhQ2dQdmd6cDNY?=
- =?utf-8?B?TSs5RS9odXVFWnhCcWNjUUhjTGk1S3lXQ2ZhdjVnM1hMK2g5bGJNNVpUS0g0?=
- =?utf-8?B?U2h5cEhrZEQzWk9qMEROTXMzOEREOElHcVRtaXErL0h3TTg0NjRFcXBnYmk3?=
- =?utf-8?B?ZTNoZWpQZEp4Wms3SlJvWUo2bGI1ZzVIWXhUK1FvT0xzY3dRa1VDOG9MYzd5?=
- =?utf-8?B?S0JjUmtlNTM0YktvZHczdFdXUjNBb2dCTGZpWDQ5eHdYZnB0Zk9WNVVZejNW?=
- =?utf-8?B?L0srV1M0UnVFcUNjb0ozdHZGM3UxTy91amFsczlyY1hueEM2aW5PVlFzM3lq?=
- =?utf-8?B?ck5yWUw0ZmNZNm9HeEc3QkViMk5mVDBtMlZldHd2UHZFUysraUpkTzNQT3ZL?=
- =?utf-8?B?Y0VFcGVwMEcxbHFRTWxmWGVQeGN0djMvMklTdXB1TGdiVnorbTFBeStjR3JM?=
- =?utf-8?B?N2NiMkFrSUhyMkUydytOODBLNUdBbWY0eWROMDBlOWFSK0g0RmVqc2ZaYXVG?=
- =?utf-8?B?RlNqTlBVQ3Y0ZUFaSzg3Ni9DNW4vM0k4L3dOc1J3QTZsMThKQVBxMjZvMFFa?=
- =?utf-8?B?L25ZdFFsc1dTSVRNNk9EYmluU0JUTW02Wm90b1BhMTlEcmhhYm1UeDFhOHJE?=
- =?utf-8?B?QzVwVEYxOTlBUlFwRVZLeElPcDhDVXRmNjQrNVlKWWUrN3FZcTZTTnlUbFRq?=
- =?utf-8?B?cnp0NWZpWTdnYkE2eXcwV0t3a3ZKV1gzL0RLMGNNeVhqVlE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RXBsdGxuSUxid3M3UXljMm5pKzEwcW9HcDJZdzVibkFiVklHUVc5c1NHTDlq?=
- =?utf-8?B?TWUwMUlSWUlrM0dsRjgvclZxc0NzNlY4UTlBYkV5S0xIcGR3MWVrbDA2N0Ux?=
- =?utf-8?B?VkFTSlhvY3I2WGV1MzhkQVJydVB0Z2ZPQTd0elFwZVlPYzhJY2h1aExsdkEy?=
- =?utf-8?B?S0lhakNnRjNnRnZPSkFhdDljaGEyZzFXbGtpY3oyQTBpU25HV1JiRVpCSTZi?=
- =?utf-8?B?SGw5Y3VyMnZiOUZDZ0dCTUxBWi9wdDlKYnhXc3R5RVI2d2Y5bWFweVJxSVlk?=
- =?utf-8?B?Z1orcndjMEtqVzVrT0w2dnZFL1ZMTUtTZGt4c052cExINFFBYkp3cWc4WTd5?=
- =?utf-8?B?dlpIeHhzODM1UkpLWWkyR3BPSGx3RFNtZTl5SC92UUxnUzc1MXdaSks0TkxZ?=
- =?utf-8?B?UVFqM0phQ0YvcGtTRTQxc0FvVXJIclluelY4NzA2SEIwVUdjUCt5VlJSYUl4?=
- =?utf-8?B?aDE5STdvaFl0cndubWhwdVhDL1ZpazQ0b2VOdHdPTlpPcGlxWUoxSzJqcFI4?=
- =?utf-8?B?VFJ1SmdBR2RkWVVrUjFzK2pXeEN1L3ROdHgrM3VZK0ErTENaeUhzUitiMkt2?=
- =?utf-8?B?QnVyUXprWDkrc2FTYzR5Skh5RHRPaHpJSlpRTnFHKzBQNE5FYkpaUVVSaUdm?=
- =?utf-8?B?alJNbFZEM1VWWlc1enNGZGxSZmRkY3pWVVRzSE44aGh2Mm9pOEpBQlF5d240?=
- =?utf-8?B?RUh0ZXA1S1B3VGp6SllPd0xoVUo3bjNtU1V4dWlkQWVVOFA0cnJXcDY0cyt0?=
- =?utf-8?B?Tzd5V2tmMFM3b3FnQmlzRVd3bXduMC84RVd4eGF1eTZBTm9Xb3VqVnZaak9z?=
- =?utf-8?B?YjlJTG8veHNaK2JoYVViREVRdlJYSWdraVN2YWQra1kvc3hPWUJqUGlCTE5i?=
- =?utf-8?B?N0h0eExVVjhxYm1QSkFjWURTbWdXMmpDYnIxVWJObWdOZS9za1FNVVBLVHA0?=
- =?utf-8?B?UTNlQkN5YWxTbE8wN2tkV1k0L0daNGw2QlhPeElDTEVid1JQdHJoRno0eHRm?=
- =?utf-8?B?VWZsUGt0MHFUc2o0OGFTY0pQdml4S3dtQk5SdCt2TGZUN2R4bkZYeWN5NTNY?=
- =?utf-8?B?ajEzcnhCVTBmNjRDVEhYVk5VVU95dWF5TVllVlo3NE9nRXlpdlRBMVlNUTdz?=
- =?utf-8?B?M3FNYzBNbWZsbWNkMFN4SjRPVlBIRnF4SzVwcWI3Kys1TElVZ0JFb09vdkNB?=
- =?utf-8?B?cnRVYUxHUEhBVVBZQmtNTExIZVp5cUUwSWMzNTNvUjVKdCs0Y1QrSWRhd2E5?=
- =?utf-8?B?NWlhS3J2enFNNnpBNWU0NklnZnRkY3RGTVVoL1lnUWcvRzVaeVZkVVJVUm44?=
- =?utf-8?B?QjVEbjVXQjVVclVSREoxQnptUExuMDIwYmRyNUx4NEZDcG4zRzVlNWg0SGVU?=
- =?utf-8?B?MHRBSXFRVjJsaUNySllKTURZS0lOdmJvZGxTTzJKTTBUOEsyVWU0Y0ZCM3c0?=
- =?utf-8?B?dTZueURpQkRTTVdkRmRWYWdjYVA4T3A3SUZRS2ZqVGtYRUVTU2RyRlZJVXdE?=
- =?utf-8?B?dGlTLzJGWUh3b3ZRSWNOdHZJOTJDTExBRHV5aWNkNEl2YlVvYlQ5UUpteVls?=
- =?utf-8?B?T3kxNlpQVGJHUEl3N2QzaFptNTFhRWVjYkpjeUJmWk1UQWdHYTdVT0tERVFK?=
- =?utf-8?B?VjdDOFZGS1lZNEVtSTlkeDhFWEk5anpTNkJuS2crM2YyRUpBZ0lENkE4ZWto?=
- =?utf-8?B?bzBLaHdYRXg3UkZjMzhraytvNUUxU1hiOWsrQ21COXJMRnIwWnlBS0xZenY4?=
- =?utf-8?B?c1NLc2VPSVAvaWFYMlJ2SXZOTHpYeEw1Y3pQeDFWMEhkU2NLU092WU9tUWVy?=
- =?utf-8?B?czFRMzRrRHNOR3UzVDdxUitVZVcySlE4MkZtUGRtL0JydkJiZ0MvNzZYTFRs?=
- =?utf-8?B?Y1RyK0tzVmttbXI5bHJGRWZPd1pnNGQwd1BuNjRyK0Y1ckZhQzZDSEtPYXpR?=
- =?utf-8?B?RThJTUFKQ0VvblRyU25iZFg0elpLWVJPS0RCN1VPbnhoSXhhNFF4NDVubUtB?=
- =?utf-8?B?ODZmQTVDd2lld2I2REJFT1JVTVZldjBNOERyL2tHdlllZGtjeHRucFBiWUY0?=
- =?utf-8?B?WXRFRmtlZ1d4ejBadzNUcHl2TFRYS1pyUXBvZWpFblZWQnlabUpvZlBuUmMz?=
- =?utf-8?B?WGxkVFNlbkFlRmh3eVFGcmNFS3o2VjVsRE8zWVRvZkN3RGNXbWk4TXFVSVdM?=
- =?utf-8?Q?D+mjQXQy4hEy9pTzSKUB/Kc=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70471867-f80a-4c27-4eda-08de163b6c73
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 16:02:41.4684
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VwIbzlylTKdf5zRwvZlXTR8+EU298XHO5Wz00BI0Qr92221DY9bip90oxWjT4MWK1c6w9WqFvEPQnPpzl3KGA5Xd3GeIPtd5I1AkC4kjlvM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR01MB10579
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-88d78
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_090253_852303_15B864D4 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20251028_090959_582461_3E22079C 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,42 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-28 11:56, Thomas Gleixner wrote:
-> On Tue, Oct 28 2025 at 10:24, Mathieu Desnoyers wrote:
->> On 2025-10-27 04:44, Thomas Gleixner wrote:
->>> From: Thomas Gleixner <tglx@linutronix.de>
->>>
->>> Replace the open coded implementation with the new get/put_user_inline()
->>> helpers. This might be replaced by a regular get/put_user(), but that needs
->>> a proper performance evaluation.
->>
->> I understand that this is aiming to keep the same underlying code,
->> but I find it surprising that the first user of the "inline" get/put
->> user puts the burden of the proof on moving this to regular
->> get/put_user() rather than on using the inlined version.
->>
->> The comment above the inline API clearly states that performance
->> numbers are needed to justify the use of inline, not the opposite.
->>
->> I am concerned that this creates a precedent that may be used by future
->> users of the inline API to use it without performance numbers
->> justification.
+On Mon, 27 Oct 2025 20:56:41 +0800, Chen-Yu Tsai wrote:
+> This is v2 of my Allwinner A523 family I2S and SPDIF enablement series.
 > 
-> There was not justification for the open coded inline either and
-> converting it to get/put must be a completely seperate change.
+> Changes since v1:
+> - Collected tags
+> - Dropped clk patches that were merged
+> - Added patch for SPDIF pinmux settings that was missing in v1
+> - Dropped bogus change to DAI name in SPDIF driver
+> - Dropped clk rate message in SPDIF driver
+> - Switched my email to kernel.org one
+> 
+> [...]
 
-AFAIU there was justification from Linus in
-commit 43a43faf5376 ("futex: improve user space accesses").
+Applied to
 
-Perhaps it's good enough to refer to that prior justification
-in the commit message.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[02/10] ASoC: dt-bindings: allwinner,sun4i-a10-i2s: Add compatible for A523
+        commit: 67e4b0dfcc6702a31fbb6a3015c0dc867e295eb4
+[03/10] ASoC: dt-bindings: allwinner,sun4i-a10-spdif: Add compatible for A523
+        commit: 6ddcd78aa7f85e1d94ab7f90c72d1ad0c0c7b6ea
+[04/10] ASoC: sun4i-spdif: Support SPDIF output on A523 family
+        commit: 4a5ac6cd05a7e54f1585d7779464d6ed6272c134
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
+Mark
 
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
 
