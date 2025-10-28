@@ -4,78 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90FD4CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 11:26:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F26CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 11:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uLE0eTiI6TFyVoJFE00DU2l+ZzaA7D7Dyj0PBL3xFBY=; b=h2r+vXL7gZB7Vj8xTUTJI4H53R
-	hb33DT1K2uQk1uXTTt5/wyo7thWIUKWtjvma1EOUEoBGM8MCAm6V/TTaLBwV8Hn9jUPx2G4do4x0X
-	sUoabJ5/sdouiYwvG9IGr0S3pGvFPC9kVOezPDdIDPOOA6Q0ado2H7VIT3NsovrD7yce70NaTJnVq
-	PzMNSJvb1Rt9I1lpqAa47UVZq5MJaS3R0Ep4RujlcXsSwyc2t/SQ0ijWwzqsmcmLIrXeoTMh62Vig
-	urJRjlakUBGdkuX2tvdNG2wYa4tXfq7HAOPb4HwCO1s0dpjPGMveaPSfs+kUTbbd1eG04uJ7hN/cZ
-	K7B+fIYQ==;
+	bh=VOwKTwaBRm/toxwRanTdI9ve5h/CaN/MV6e7jhh7Qhk=; b=uCMd5L+O0wHgkXn2DlVLjdC2Q9
+	m1xBqfa/uGPJgnokzZXemkO+0VMpL9DBoqGIxTj5ZGgG/WRVGb7caMCzNPmyB70jYFnptHaFkYnLC
+	GBdPsKCOVY9/7Z2n/rVrHUwU2zNCeONYJ6VNHhnUTSgveqT4g5dhekIwEWrJ3wfF14S83udRo5GED
+	HfPo9KXAriPLHX3roBP1ZMTdNxwjfHKjF8aJ704bP2G1c5VMi4n+MoN0jug0l58Qut0+UpLtAT3kt
+	cJ7GT58pM8lMAB1TjWhep0XFELWUyHjaSrlUt+JIxEndA+q5YCs43Doc/O3O5E/C0SjkTizPs4l8M
+	MQ9PrZnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhqq-0000000FqG4-1L70;
-	Tue, 28 Oct 2025 11:26:56 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vDhx8-0000000FqiF-2y0G;
+	Tue, 28 Oct 2025 11:33:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhqm-0000000FqFd-1ojz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 11:26:54 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 9FA591A16F6;
-	Tue, 28 Oct 2025 11:26:49 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 702EE606AB;
-	Tue, 28 Oct 2025 11:26:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EA45E102F23B7;
-	Tue, 28 Oct 2025 12:26:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761650808; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=uLE0eTiI6TFyVoJFE00DU2l+ZzaA7D7Dyj0PBL3xFBY=;
-	b=yYdtv9h5uVkWuAPwLtXjyYlPWVrzUpwiuyAJcIxNZS3FnWiI8ct9+zIZaKSdyGWZdZP7Zq
-	6Dy6UfGWkGAJ6vFf6UrdpipfXfA+/6y0JZjGcBXy1n08RfqyODVLfzUarGcsQWBSNy6Eq6
-	ShVX2TJDnIWddhfA0wJRrTJmaZNtRt7CbZRMqp+pBfjTC+obK/NtCiqbCJwfebKY6zOXzG
-	8a1/owtEn59F7gvrHb+ZdptxURxJG459LLZXNevh9GK7QhH5hFvT4z5jM8IQmEt2I1K6d0
-	QT1GSDByFzGwmPhP8J2WgmRwdnFbGX8WtLq8Fn5+PYxER96BAEyr833Ax30ZIA==
-Message-ID: <c2686441-7201-470f-b1b5-063c347bea2e@bootlin.com>
-Date: Tue, 28 Oct 2025 12:26:26 +0100
+	id 1vDhx7-0000000Fqhd-1jOR;
+	Tue, 28 Oct 2025 11:33:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C61360275;
+	Tue, 28 Oct 2025 11:33:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DFA2C4CEE7;
+	Tue, 28 Oct 2025 11:33:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761651204;
+	bh=sNNc/PHl1tyQsKyadLH0fpHete1J310HQC59/CNChbM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hsZdRJQ2/IPzeYvqYwKrtn77TozRrUO/RBs4r/VIN35LGS39wITO6iByWVsnvnupe
+	 9HG8OO1KOvmHusNpX1efrHCYs7fCI8LXSGoBUX7xRSz4cbDcWdmBMfDGpPdXsff9A5
+	 Y/dHtJVTKAFSaYrjjmwTwczfyIG0lU4h/b6tPjeZZG/oOnlM0VDcxsmcLxti5Ss7aO
+	 WC2hs0sh09eyMz3s6mkhZBTpLHL1jpjDeMAz2b30hvSlIn6TSFn8erU69ch8JZcbdt
+	 bzIIyqFZXCmpin5iJK/sh5FlkIFulcDGl+z1D8p/dtHat3Mn5HkxYuhRnxAh7h+HrF
+	 D8wDbkO3ZHBqQ==
+Message-ID: <606da3b1-f042-4cc1-89d0-4feb257f032f@kernel.org>
+Date: Tue, 28 Oct 2025 12:33:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: stmmac: add support specifying PCS
- supported interfaces
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexis Lothor__ <alexis.lothore@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Boon Khai Ng <boon.khai.ng@altera.com>,
- Daniel Machon <daniel.machon@microchip.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Furong Xu <0x1207@gmail.com>, Jacob Keller <jacob.e.keller@intel.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Yu-Chun Lin <eleanor15x@gmail.com>
-References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
- <E1vClC5-0000000Bcbb-1WUk@rmk-PC.armlinux.org.uk>
- <604b68ce-595f-4d50-92ad-3d1d5a1b4989@bootlin.com>
- <aQCcVOYV15SeHAMU@shell.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH 1/3] dt-bindings: vdec: Add binding document of Amlogic
+ decoder accelerator
+To: Zhentao Guo <zhentao.guo@amlogic.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com>
+ <20251027-b4-s4-vdec-upstream-v1-1-620401813b5d@amlogic.com>
+ <b989fba3-223d-498a-8efe-7a60e26cf0db@kernel.org>
+ <40830266-692a-4731-8957-4462d4993746@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <aQCcVOYV15SeHAMU@shell.armlinux.org.uk>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <40830266-692a-4731-8957-4462d4993746@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_042652_632066_78CB0423 
-X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +122,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/2025 11:35, Russell King (Oracle) wrote:
-> On Tue, Oct 28, 2025 at 11:16:00AM +0100, Maxime Chevallier wrote:
->> Hello Russell,
+On 28/10/2025 12:14, Zhentao Guo wrote:
+>>> +properties:
+>>> +  compatible:
+>>> +    const: amlogic,s4-vcodec-dec
+>>> +
+>>> +  reg:
+>>> +    maxItems: 2
+>>> +
+>>> +  reg-names:
+>>> +    items:
+>>> +      - const: dosbus
+>>> +      - const: dmcbus
+>> Is "bus" really name of this in datasheet?
+> No, it is not from the datasheet, in fact it was inherited from the
+> older SOCs. Do you have any suggestions about this?
+
+dos, dmc
+
+>>> +
+>>> +  interrupts:
+>>> +    maxItems: 3
+>>> +
+>>> +  interrupt-names:
+>>> +    items:
+>>> +      - const: mailbox_0
+>>> +      - const: mailbox_1
+>>> +      - const: mailbox_2
+>> Useless names, so just drop interrupt-names property.
+> Yes, we don't need the interrupt names. I'll drop them.
 >>
->> On 25/10/2025 22:48, Russell King (Oracle) wrote:
->>> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+>>> +
+>>> +  clocks:
+>>> +    maxItems: 3
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: vdec
+>>> +      - const: clk_vdec_mux
+>>> +      - const: clk_hevcf_mux
+>>> +
+>>> +  power-domains:
+>>> +    maxItems: 2
+>>> +
+>>> +  power-domain-names:
+>>> +    items:
+>>> +      - const: pwrc-vdec
+>> Drop pwrc
 >>
->> Maybe this needs a commit log, even a small one ? :(
+>>> +      - const: pwrc-hevc
+>> Drop pwrc
+> Ok, I'll drop the two pwrc(s) above.
+>>
+>> Missing iommus. I really doubt hardware works without IOMMU.
 > 
-> Thanks for giving Jakub a reason to mark this "changes required." :D
-> I'm not really expecting this to be merged as-is. So why didn't I
-> post it as RFC? Too many people see "RFC" as a sign to ignore the
-> patch series. Some people claim that "RFC" means it isn't ready and
-> thus isn't worth reviewing/testing/etc. I say to those people... I
-> can learn their game and work around their behaviour.
+> IOMMU is not supported by Amlogic SOCs, the decoder hardware needs to 
+> use contiguous memory.
 
-Yeah this series needs to be tested and discussed, I am rounding up all
-my stmmac platforms in my ever-growing pile of HW as I'm building my
-own test farm, but all the glue stmmac boards I have are the ones that
-are fairly well maintained (imx-dwmac, dwmac-stm32, sdwmac-socfpga...).
-I don't have any stmmac that use the integrated PCS :(
+I assume you speak about hardware, not drivers, so it is fine.
 
-> 
-> Yes, it will need a better commit log, but what I'm much much more
-> interested in is having people who are using the integrated PCS (in
-> SGMII mode as that's all we support) to test this, especially
-> dwmac-qcom-ethqos folk.
-
-Let's hope we can get some test indeed :/ 
-
-Maxime
-
-> The 2.5G support was submitted by Sneh Shah, and my attempts to make
-> contact have resulted in no response.
-> 
-
+Best regards,
+Krzysztof
 
