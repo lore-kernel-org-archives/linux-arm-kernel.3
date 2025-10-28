@@ -4,182 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C732DCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 05:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72600CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 06:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OvqwhkA+BsASdm4ZReAAMf6Dqei8afHq7ogOnJFzus4=; b=pjnTFarJr8PWlK2J+Y5/f6We8p
-	YacssLsWrFJ13NMjDpyEd+Bk0r2SaCOisFcR2AA/lhzFTCPBObz5gQmUEL7NwxrMtrIqNV/5emc3o
-	Rto9Ncr19IDt/W3lOjepWB3c8bWyYxZNOZuJEPLZXC/K2w58Czk824ZwkUJ0T/Gs+tjhrJjRHxEGC
-	Mr6kbGUoldhVG/1w7j9ltJ4V3o9i+wFakQJQeYNTI0prHzeqvite1hjpw6x1penn710SnI03cov+D
-	+8mcop7AKptwFouwMaLhqY8kbxVguLE0Zkev3d+TlbWqLnXTcWL54fKWVb+84hifY1pef3bc1pZJQ
-	bdAcCXvQ==;
+	bh=ers8kR9eRPCvZsN30kgyxdxdh3V0IJ72AtdW7sjKxTQ=; b=PCFkMnuHqNYLeJD1yVHAJ6gVRR
+	3jQMenKjTJQRK783BFNMwjoNLIwZtrlvMOo2zRtNi/UnzTSYItAkOOSndP1zJqQsSFLIoxuO8FGPY
+	KTiciubDSjXfVN87wSknWcqjboccdxyrWhbM3CaLjamwm/gkvmbtyXBuACTICpGW6C2I1n4O6krd9
+	XCPF7VXNmMRkG59/AYsMdo6fvPx9ZvSsW8gp7rNLjIcJdTnudxtaSK9jgLcsPVJ+gqr0czCFYOh2t
+	DaEvuIfKEyomklKhRQzytlANuJDnf2jo1Z5Ya2jKcz9Qipx5GMbj29DOnc/frr7HWQf1Nk+8lJA3A
+	wlorbiWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDchW-0000000FIe8-3e5S;
-	Tue, 28 Oct 2025 05:56:58 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vDcms-0000000FJ2h-1Szh;
+	Tue, 28 Oct 2025 06:02:30 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDchU-0000000FIdi-3vNu
+	id 1vDcmq-0000000FJ2H-23OY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 05:56:58 +0000
+	Tue, 28 Oct 2025 06:02:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m4rKmu7t46klVUNZjbQMv2rUADOyc6ujD09VEoPNVfPSXXqoWsz9qCrN8265+eeqXhaGQWIhwqhyzsXc9eETBYLRl0BrOkpZfjPD76f1SFjm3MQLU2gjp66AVfTXR5rAcjH17cH4NkWpBsHpmDz6q971VN8RlTx/idUgeLJ6yPrxehFBhmbkg5Z6kSzR+JKVOo17YkXKoEtM4PSgWv1F1A4NfQrquWdkAXyqbq5Xl6aoAiCG+PY0/LCx5ej5f8poK/tXJzWQ5xO5k48iKNJCOpGYpQKJOUnVUqM5pGwVef5szMDLAl/iok50MtoDWktYyPolggOOwLXjJ4uztBV8kw==
+ b=I4b1TomGAfLRcgQcKNpJGc35cdpeFVcD989nKnzr+Jyt4f3jVMax/vOqEz2Y+jiXCkMWXTpso1gkZMM9+NVSpfbQCHiLZx9roOyF1CQqFtw2qQ8yxD0Z13sNeQ4dZ7cr4YSatKCcFaO35EIEZ751Ef+7mAJOpWYQV4L4Us+fk7XEu+DX/dM3SpyODNRKCASJ4aZNceBJfAAcqLq572Tw+BpAJfM0XlAfHlaAs/Ds6MCEVeucFHEnBmP29EJL7vrP/sQ+RAjOeTD9ZsfpvhIzyhACa4I4C7H1shnme15wj165hgTlGrRGCBtylvp2YJyjXXQpWo9Z9uDWADmcywIQIA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OvqwhkA+BsASdm4ZReAAMf6Dqei8afHq7ogOnJFzus4=;
- b=gfQM3932pLYe2r8RA19zW0saWrTs7ffwbKCIPh8wSywNmWORqgNjEaNLNWrVim+0ic4VrC0qvVTjRqn87RygXYZX0wBQ4wdUhIdsB6PkmqMg+ny+f7wZQdnV5+tOMYl/8/pVHw9PajmGaRL0wT7+6a4PrdrAmcGQKlAvpI3VDyinwt4iiUcOB8rrrP7SId/vnLGipcR4qWfmjlrCavXTqADhMrFunSEklvkoTXfdGMn5LvQ0EsnYpNkcn93foVzY7UFG+/zNB/9OOoIAyRlrV2ejrTphDadQdxcpVF10xl49ThF3GgUtNcAtTMWrizcgIticcOLdNkEDVsdCyFud1g==
+ bh=ers8kR9eRPCvZsN30kgyxdxdh3V0IJ72AtdW7sjKxTQ=;
+ b=ahh4IScS/cp29WNNH5udwW/It3LsHeaIHC3LW+RTOc014kUKh0rFXFBscIDQP3n/KW6+E0Q1/uoPHO779UUtkEJXiBu8wCz0rVHLPVk/Xyi5WfCeNOjh9dQ3t4ZdTo1D0dNqkfmNkQhAR+Qhza8vkWQnYUz41ZfZ02566MuBTp9hVyxE1PZGcDeXmfKvXV/AmjWXvvWK8WYl4jcQWvMNMRWj5Ag9dUjHYgTqkca30ItL2oNxySdja6s1ViLVAJxyqJEIO0oqNWDFAsLSh8VG7v+eIcakWPlAl8LA9vTuNsmri2hM03rVSm3F931TVMUR/STi83JLGdRBmYl6fkOLbQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OvqwhkA+BsASdm4ZReAAMf6Dqei8afHq7ogOnJFzus4=;
- b=Z8movcFxZhxp4RALIKLo9CHOLQF8yBrpZrWIepY2kexptXYUiDDaBmGQTOxKztQUPSHxZLKP7tH6yTh55oSzjPyFjPxNtepqABGFZF6ifGCb0eR5yrS+KoEF1wZFpZxQM7oGjWQRCQ1VWZa308MFYB9nUFO9Dtg2GH1Z64et9053UCYflNElCOlEbH9dMN51SL0e9AODrkDqVwW1GmWfm3tLuD1j473fo7fpb6Mi+CUtcJD4JxYyLpW8ZR/wIPYl/4qlyCd+oarCzVOazQYZdwo1cGk08efGsHN5fLqqMqbuJkxT8hem94hYRA0EWFU7FRhwUlPNJ2XeNVUdwMPOaA==
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by DU4PR04MB11315.eurprd04.prod.outlook.com (2603:10a6:10:5d8::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 28 Oct
- 2025 05:56:52 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%7]) with mapi id 15.20.9253.017; Tue, 28 Oct 2025
- 05:56:51 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Conor Dooley <conor@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, Frank Li <frank.li@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v8 2/3] dt-bindings: PCI: pci-imx6: Add external reference
- clock input
-Thread-Topic: [PATCH v8 2/3] dt-bindings: PCI: pci-imx6: Add external
- reference clock input
-Thread-Index: AQHcRI+sdyu3yOSCC0+q89YO6Fq+57TRiAWAgAP/8bCAALbngIAA0q7w
-Date: Tue, 28 Oct 2025 05:56:51 +0000
-Message-ID: <AS8PR04MB88339961A776546B78E7267A8CFDA@AS8PR04MB8833.eurprd04.prod.outlook.com>
-References: <20251024024013.775836-1-hongxing.zhu@nxp.com>
- <20251024024013.775836-3-hongxing.zhu@nxp.com>
- <20251024-unburned-lip-6f142d83ed76@spud>
- <AS8PR04MB8833DEEA9CB4CE4968B2B5F18CFCA@AS8PR04MB8833.eurprd04.prod.outlook.com>
- <20251027-marbles-tarot-92533cb36e1b@spud>
-In-Reply-To: <20251027-marbles-tarot-92533cb36e1b@spud>
-Accept-Language: en-US
+ bh=ers8kR9eRPCvZsN30kgyxdxdh3V0IJ72AtdW7sjKxTQ=;
+ b=ZAbOiItdgIu/BBVxno4cIWJ+ZC3Od7IInODgeaCEsxLPgwl2V4M4g+5SnnBFetYVKGUw0UEf2ZWih1KG8Qqer6jwu0+oa6VEZ6vXsGLX4uRRNEuP9e6mo5lMJfCuWIg4bT1tFVL9f8lsZg+fhAZKsFUtn+f3SX2f1p4hdySo8jQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ BY3PR01MB6722.prod.exchangelabs.com (2603:10b6:a03:367::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.18; Tue, 28 Oct 2025 06:02:21 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%4]) with mapi id 15.20.9275.011; Tue, 28 Oct 2025
+ 06:02:21 +0000
+Message-ID: <060fe820-85b8-4476-be95-a0d37e53fa12@os.amperecomputing.com>
+Date: Tue, 28 Oct 2025 11:32:03 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] KVM: arm64: nv: Optimize unmapping of shadow S2-MMU
+ tables
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, oliver.upton@linux.dev, will@kernel.org,
+ catalin.marinas@arm.com, suzuki.poulose@arm.com, joey.gouly@arm.com,
+ yuzenghui@huawei.com, darren@os.amperecomputing.com, cl@gentwo.org,
+ scott@os.amperecomputing.com, gklkml16@gmail.com
+References: <20251013065125.767779-1-gankulkarni@os.amperecomputing.com>
+ <0345c510-5db4-462f-95fb-591e71468aca@os.amperecomputing.com>
+ <87v7k53cud.wl-maz@kernel.org>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|DU4PR04MB11315:EE_
-x-ms-office365-filtering-correlation-id: 85f2c104-6da3-4717-ea02-08de15e6ca94
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?ZDhjcVlsRDc4WGZJZU83VDg0RlRpSGgzeXBLMGtCdGwwZXgxUW5icDRqZWZm?=
- =?utf-8?B?b281bW84MmVzbERIVGczdWdFMTJLVDZwUkkxQWVNczQxS3ZEMks2L3R0eERh?=
- =?utf-8?B?RjdVVlhLMHJqWkxGaU8vZUJwYTM1cjZOUFRhRUxxSnFVQmN3dHBMNEtIaE9v?=
- =?utf-8?B?ZU9jSGt2WXBmeGpHZXROcmZVWW5DLy9kUGZ1NlBZWXBLTjdCTDlsTWFKbXlU?=
- =?utf-8?B?TG1Kc2l0Mkt4T2tuYWY4T3BuLzZLd05Cb3JRSXMzV2FhdjVzVExxV0ljOGJY?=
- =?utf-8?B?aDYvMzl4cVRXb0FoMC9vakR2Zlg4YTZMUEVEbUJSWlQvQ3ptRE54WllXVjJE?=
- =?utf-8?B?K0RsNG5HN2VNWlVIVVdtUytXWEVrUWEvQU9KTGlrRXhJQW12eTlRclRVSW11?=
- =?utf-8?B?VWVvWnlVMzZUZ2xHZFVNbFNTeHRkMXVHUmJqVm04TXpHUUVMSHZua2NvVG9P?=
- =?utf-8?B?enNGaHBwVE1zUktYaWp5b09yekFLNGJqaGF0YmdiR0Y4OXV3NDZqbmZ6Slcw?=
- =?utf-8?B?ZXBYOXJjR1FROVhTRGxjMkp4TFROR3dPa2FueThLT21HZTFFYTN3YU00c0dT?=
- =?utf-8?B?QS8yNmhEWmpkK0gzakNvZ2NXTGREYUdTTkUxZHYxZU11S0V0QmlZa0NnNEZv?=
- =?utf-8?B?dDYxQVc5cTV5eHVzeU5hMWErRmVLbTRQVURGbUdmKzdMZ0xPSnVaNG54WnB1?=
- =?utf-8?B?SWZ0bWt4QVgzU1pFM0VJRldSVWV3TkxxaHJRTWduM0JCWFFLb2srTENpRnF2?=
- =?utf-8?B?TEVMMUowRUp6R0xnc2JDYXhpdTJoV2RKaGs2azU3WVk4RERGUkRwaHBhT2Vq?=
- =?utf-8?B?ZllrVHdwV2xvY1hPbmU2cXNkWnlhSVF0MXhIelp1T2tIZzl2eTJ6ZFRYTUlq?=
- =?utf-8?B?d3dhb09OMHhIRVpzY3Z4ZTRQeDlZR2RPTG1NeU1PcWlwWlBkd2NDVGxHMHZl?=
- =?utf-8?B?ek5mTzhjQjcralNSTnh1QlV3T0V5a1lnTjNuejdRRzdYZGhhc2FidjhoT1Mv?=
- =?utf-8?B?cVBFcnBWRUMrR3dVVW5SRjk3RW11eG9JTjVlcTBkNEMvQVRGKy90S2ZQYmsx?=
- =?utf-8?B?Tmh0NkNyRE8xejRrMkJMUWhuZWFhS0xON1o3SUpOVDFGNjJ3L3pCN1ZBaXVS?=
- =?utf-8?B?blNDUjAzLzVkcmt2dThRb0FpZzFrS2lmbEhZd0lGNzlkdE56UmlCdHdLYW9R?=
- =?utf-8?B?WCtxUm95dzFQRFhnNHdUc3Z2WGpJK05BUXpXeGlZaVFtdXNJRUFaKytaM0Nr?=
- =?utf-8?B?M1R0dTJxSGtJTkkxWExtL1o4S3V6U3ZjVkh6SUhueCt3ZHgyMlJZSnM3UldU?=
- =?utf-8?B?VFVmZVJNRFp0T3NEMk9kN0VLdkFCRU1UdktPZ1hTSEdGN3I2KzhvWTdPMGNN?=
- =?utf-8?B?RFhmNTd1SjlDTTg0TzVPUklva0hpUVc4U2FiS1hKa3pYVWlIT1kxOUJyNTlq?=
- =?utf-8?B?S0F5UktDVjRkUVVVZ1BNTHZJZ3hmcXAvS1N4Ui9YUGtKR3NsVFN6bXVxUlNR?=
- =?utf-8?B?ay9pYVNITzNLM1lIZU91Vm5pR1FuZklLTDdDZVFtN3lHakpsYjFJY3hpVFBL?=
- =?utf-8?B?K1dmbnlWK2dBOGg1N1VKMm1yRGNWMWxNTkZBeklKQ2VVZGFVUlJ0ZzIwVSta?=
- =?utf-8?B?WnRoZWtMaDU4OTBWOWhqeDhBcGY2dmRrQTRTVkFPMjBJUUJHQmlYQW1XTCtp?=
- =?utf-8?B?ZzF4SzQzSlJCZlVZclA1MzNnT2RpK2k1Zjh3OXBJcENkUmtYVHJzQmhqRFc3?=
- =?utf-8?B?ZVVPUTJIckhneHRsd2NkMkN6Y3dUYWhXcXVkaFZzOFk4TkZvWnA2d29NaldC?=
- =?utf-8?B?NkFxeXJTYzAzSjBodTBTM1hBcEo1ZmRxQ3dZaEdrWVpUWkxmQU5PVXFIT1E5?=
- =?utf-8?B?M2djNCs0YnhwYk1TQnhvOHpZcTBwT01ILzBDNGlUVmZNaVd4QXgxekcwdThR?=
- =?utf-8?B?UTNZc1E5Qjlva2RGTE55OE5McDlRbElnYWF3RVhibFpEd0JMK0pJRlJFeFRt?=
- =?utf-8?B?WVhpQTRUTmI4TUlBalQ2NnNNeVRYSlk4OE96b1ZaaUtXbDg4TlFpQlN0amd6?=
- =?utf-8?Q?9inrG3?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QzNzYnBoM0RLc3JKeE9kQllRQTNsM3MzZHlKRldaUDl1OEFsK0RKMFlCL3F1?=
- =?utf-8?B?bFR6ajkreWd2ZGFCbFZCS0VmdmRiM0t5dlc4MGVyUGJQUURFR3B1VG1YUmJ3?=
- =?utf-8?B?dDBYMlNGTUl6ZldOclkrRTRxRkQrTytsbEFBek1jbjRYMkkrOU8rdDZqQ290?=
- =?utf-8?B?WEMwZ3BKZnEvdzI3dklSRjBsUlhvQ2pjazR2cXlHaXVwMWhkd3ZPQ3MraE16?=
- =?utf-8?B?akY4Zis4WEFsZU1LMkFDRlhpVTdGQkgwMmdYd1ltbG41ZHlOaDI3TDlURWxT?=
- =?utf-8?B?d1p5UTBnNkV4RWdqaXVNNVhqNDgya0hGSWc2OVlNeTFIWjFzeGFIR2VIVHRk?=
- =?utf-8?B?ZUNzMm1GK1BnYkJUT0UzZnNZMnRhRTlCaWJRb3pEdCs3eHBwcE9Rc2xrNmdo?=
- =?utf-8?B?blpZYmVpdHoyOUEzK2RVYU00NTcrUndjaE05Z0tYU01iUy81Si8rWjJJeC9T?=
- =?utf-8?B?Nm5BbHkra29ZNEtPQWc0bXQvZ1UzaXhaLysyYXU4WHBkdFBMS1Zhc0UxZlIy?=
- =?utf-8?B?R1hoVndoWjRnQ3QxZUd0TVZtSHUyNDZXS0d5K1gwaDhleVREdHVOMnMrQ29o?=
- =?utf-8?B?am9qQ3U1NEorU1hybkpUZW1rRlBobnVmMElscTlKY1RLaUExWG9tOGpuekly?=
- =?utf-8?B?MTgyeHBweVJNcmY2TlBQS2lrSUxtMDZKT0VpcmlFbzZ0T29pZm5vdTdqV2VR?=
- =?utf-8?B?Z0FPazFyWU5uUzZiSDFhWjdJaHZxb1RhZTVHMkxIYWVFRnlDdml1MUQyZWZs?=
- =?utf-8?B?WWdiaFZSZG9aZCtLQmQ2TG1hS2s4cjR2a08zTjdNZEsvR2dKeER5UG9KYkQ5?=
- =?utf-8?B?RFc3OE5Hc0ZvaVR3OHZ5MzBKTXlIbmszWnB4d012aStvWU53aGcxczQ2WW5i?=
- =?utf-8?B?WWNReVZFaHJ6NENUOUgzUndWZXJMdWRQT2N1MXJtc2hoaVR5OU83dTN0K29l?=
- =?utf-8?B?NS9TVnlBZXFQY2g4dzlZWVRjY1kwWDlub2h1LzZzVU1PeTMyNFN2bzh1U2F3?=
- =?utf-8?B?NlB3OGpNck5yWlE2S2RsbndlUm9kZFFHZERVT29YbDdaa3hjZGVjRWxCdjM0?=
- =?utf-8?B?c25OK0lMT3BjcmhtMmFLNC9Pc2hOZHIrdnROTFlDZjA2dzZwMm45RWRITWtv?=
- =?utf-8?B?M0RlMnVTYjRXak1MOVZ4bXJNUlhKQUI3cVpEaE5XYUFwcXhLRWI5VEs4aGk4?=
- =?utf-8?B?NktvbmNxUkUwa3lGc09KOTUzK05QbGpIUEsxalV5anpjMnY2UXJUV2VTUTNR?=
- =?utf-8?B?N2JIQW94R0sxNExCTlYzZnp2ZzRzbXpiRXBMVzFZWEp4Nk9vZTN5NmZZa2Mv?=
- =?utf-8?B?eExsYkJxWGRRTTVwTmpLdVJ1b0hFTXkvRmtUN3RiRWorZ21tOTNqdk5ra21X?=
- =?utf-8?B?SzhscEwrdUQ4Q1RNQVEyTkM0aS9MRlQzdTViMVlHeEFJOVEvT2MyNUU1MVdm?=
- =?utf-8?B?SHZ6bk9ibGpZNGhpZzhwdEc5VnJnazV2b1A0cEEvOGE1TkpxMzhzaU9pTURp?=
- =?utf-8?B?VEZDcmNLKzBxNkREYkhyWlNIK21uTE54WFVnQWM0S21uU3lwWmlmc1p3SVJi?=
- =?utf-8?B?OVU1WHhucm9tK2lWMjNtRE12VDZMU0Jyb0F2aDBDUVd6Yzd2S2hVR2RFZFFW?=
- =?utf-8?B?WFcwWlkxSEVpc05UY2Fsd3pRNHlFcWhpMFc1YWZWaWRDeDMvdkYzek1KL0l4?=
- =?utf-8?B?SkxiK24zY1NobHpXenRNeGxuWUZyQ2ZZNHJJL1k1Vy9sYWhqTmt0dU5sUDEz?=
- =?utf-8?B?QVBkL0tMTkphTWtBQjRUYTV0QnhGRVEvRmZTVFkyc2p4azhqdC9JTFE4WkZU?=
- =?utf-8?B?aTc2Z1hvRFdnSmhkbXBxcTBHR3lVbVRtQUlueGNuWG9tZ0psaVFHWG00bzQ1?=
- =?utf-8?B?aGIzMU9QTlFaVnhKRTBHUnV6dUdpNFNjUDBSZjQzcjJ5MXZiTUd2U1pPNVVV?=
- =?utf-8?B?YzM5bGJWSzJ4d3JVMnJrVENLbGVhdHFmeHRKRDlQL3g4V0g0aHFCMUJEL1NP?=
- =?utf-8?B?bUpjK2xXNXRGcjZFVnJPOURXRlJvbGtRZ2JMM2ZMSUVtam1PbnMyUVNmbk5W?=
- =?utf-8?B?anhrS0JvY3lrc012Y3l0Q1VQMFE5QkRDL0o0SjdxM3AvN0IzS1MxWFRoRFFT?=
- =?utf-8?Q?omG0=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <87v7k53cud.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5P287CA0174.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1af::8) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|BY3PR01MB6722:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02c66939-2482-4a29-4da7-08de15e78ee3
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YXJZRnpGT3VreDEzWXlGY2xZVCtPQjJHZ01ZTHM3NTYxdzhQRWhwUjZQdUt3?=
+ =?utf-8?B?SjA5YlV6a3loZnJJTlFrYzZINXM3TVFDQTVWdGc4YVpISm80ZnhPeVcxbDQ5?=
+ =?utf-8?B?Mkh0Z3pNUE13S0dGVHlXbEZnTGR2QmRaTHduMlc2cXV2K09VR0w1V0ttS1Rv?=
+ =?utf-8?B?b1g4OHIvSnhLVm1ObExSK0Q4czdZdVJQdS9BcFoyZVFQeWduMitXRXdOWjBC?=
+ =?utf-8?B?ckFzUlJvb254VTBxYkhXT2gwcWxadldXdWN0KzBWOHZJNFpiTzZLWWxyRDZ4?=
+ =?utf-8?B?eVh1UmhjY21RRlk1VFkxV21kNjNld2FCdXE0ZzJBRWV0dmhkalJjRVkvTVFB?=
+ =?utf-8?B?V05VdXVMNFFHWUtuNGZ6S05taVJKUmpmR1E1blhoU2x6T01FZTkvWmFxRUJr?=
+ =?utf-8?B?d3BOcWpFeVBmOGFIVWV1VnJyRmNZaTQvdmpzSVFXa3NnM0VwQlc4c25BNm9u?=
+ =?utf-8?B?ajhiWWU5VHBCNjJhVll2VFFZN0lQNHptN0NJTkJuZTdJRHNVbERva1NDWjR2?=
+ =?utf-8?B?UTFKOWZPZG9jdngyMDl4amd4ZmUvRWFrTXRHNUhCYURDQlVWNjdvTmVxZFNH?=
+ =?utf-8?B?VXJlajRXMG5DVmF0ZjMvMUQzWWNyNm9NZFN6ZXBiTThhVkVqVUNIK3NOUnU0?=
+ =?utf-8?B?ZVVvcXBtcER1Z2wwTzVvVGE0M2NhR2FSWkkyY1NhUUVRQzVNMDJTeTR3a2tZ?=
+ =?utf-8?B?dHljS1NwSmhJeGp2OHY3ZnhCNG50WFpxa0x3dU9GeTZGb2FIbFdoUzRrelNx?=
+ =?utf-8?B?cXNERk1sSVY4M3hOdTI5RWhGVmFmZWpPaGt6UEpmNmlmK0l0TEtKOTNYY0Zo?=
+ =?utf-8?B?VFhaa1c5Q3RTN2k5UXRpRkt2MC92czA1VU4zUlg0TktMb2w3cHFkUE9HN3Ir?=
+ =?utf-8?B?QTFWM1RSOW93c3VQcit1aWNYcnJjbzdscEFSWXFrWVY5RUduNEVLYTVwNjJY?=
+ =?utf-8?B?dEVIdFpLNDB3UlpsMWgweWEwSmRINXNxUXo3WGZVUFlCcktUZzZiWVk1Vnly?=
+ =?utf-8?B?Z29xb1ZWUWwveDlrbFRJcml0MjVmRzdWRE5UZ245Ry9SWm1xSU43SkkxRm10?=
+ =?utf-8?B?MHozV3A5R1Rkb3ArcFJGeCtwTEcvRWtHVmZKWW90cG1naUtQcjF5T2VUQzVh?=
+ =?utf-8?B?M1JVcDJ0NlZ6YWNsSjlDeHdZYi9tZVJUWUliSzBnNzA3QVZ2L0d2anpWek5o?=
+ =?utf-8?B?M2pkQTdyenNHWGFSUkUySDcvOHBtall3YkMyOHZWMmdwYlVNYnJEd0JuR2hI?=
+ =?utf-8?B?MVVjTnNwaVN0aVRRU2xsN1RiVmNSbHFwMmZDaWptNXJHQkZpbFpTdGJUbjgy?=
+ =?utf-8?B?MHRVbHpCaU85M0s3akRoY2M5d1FabVhIdFA4cm9xTjZuRy9KM2xPWkY4bE8v?=
+ =?utf-8?B?NGltY2FTWTU1b05CZ3NheEppdkdITjJOOE9uLzF4ZFNySW9SQmprZndlY1lY?=
+ =?utf-8?B?RG9pdk5mMm9haU5qTldCd1ErbUl3V2NycGhiQXZvcmxUemtLMTlNYWhvSStq?=
+ =?utf-8?B?YWJtMnZaSXBDMXUzT0Zsakh3YUhJYjRtYWpwT2J6S0MxeGVtZ2xSRFFzYlZ6?=
+ =?utf-8?B?OU96bDFFRTVGN0F6MGE4RGUxVGNGalc0V1dOSkdJaFZvR0NUbmYzV3NWR0xo?=
+ =?utf-8?B?L3ZxdndJVmNmamFzdEJGRnBiSS9vWjNLM0U5alp3VnIvVkZoQXVPT05LRTV6?=
+ =?utf-8?B?bGhhWmQvOGp4Sk9NRVBPejl4UnduLzREeW5DcFMvMkVzOXRsVmRKRUZvMGlT?=
+ =?utf-8?B?VDBhWHJHZUtjUU00UVliOVZEMnBVTTNQNVNyT0pXczAwYmJSY2l6aFFsN3lM?=
+ =?utf-8?B?dXpXcFkxMS9ZaTlkWnhMS2JsbmUxdzE4VlJORWd2cU00eTdtR1JlV3ZaSjhw?=
+ =?utf-8?B?OHd4ZjBQOVZBYVlibnpSSEFrUWV5SGJ6Uklyb2Uwamc4MHc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDJMSEpnNEVBLys5NEZrQmltSW5hTGdvNkt2UU9JL2duN1BxVmhEY0tQLzhw?=
+ =?utf-8?B?VXo5UEI5VjlkODdtcGt5RnRXRVhHSHZnSStQSGVJY1ZBL29xYTc4aFhVNkFj?=
+ =?utf-8?B?UXlYd0FPKy8xYVRuZ2lnN29qVW5SMWYwN0RkbDRhWnZEekNrTTdzQW5uL0NZ?=
+ =?utf-8?B?TllxVEk5dE5nb1c5VkJDZk5VVHRUYnBoaHNRV1A3RHRudmJUZ2N6VVMxTVl6?=
+ =?utf-8?B?T0IrU0tKV0hMaUVVSDZnQVpESm1nYmN5R0VjRk1HZ2RJWG5xdXpLL0hPRjd1?=
+ =?utf-8?B?Z0Vlb1NDZkFzM2N4SE1MZXg0OFEwNlQwMENINytSTFVwODBRWklTZ1MzdHBJ?=
+ =?utf-8?B?OUZWcEEzYVhlckJGU1lZV2k0N3FTVFI0OGlyWlMxcmlkZzFCRlZZZGJOTU03?=
+ =?utf-8?B?OU5sQ0FZSFhkdm1XT2dmbVVpYnFpWEtPWHFTQ2NkRGFFbHVHejJWU1R2cmJp?=
+ =?utf-8?B?cXQvdThoMjc3V2JjT3ZxdHNSd2p5TW5OKzA0NUREK1NEazBUTmh6bDBOenZ1?=
+ =?utf-8?B?TUdoME04cFowSW5jbnl4ajBCVlJ0bG9nS2FWY2VLMGJjZFlPN2krcWtKVjhW?=
+ =?utf-8?B?bG5NUm02Znh2NFBtejF5RUlCN0pmQUlCd2ZPNG01VmZEWkxLUFcrTkhhdktC?=
+ =?utf-8?B?dzY1VDUvdWJ2VVBJaG9mYkdjT2JLNmNVR1F1K1QwRStZalFpekVITDVFUHZH?=
+ =?utf-8?B?NnZtajFBeDVYMGRyeEJNTXo4angwTkdySC9sY2tCUEJCOHY1bWtOZERaUWM5?=
+ =?utf-8?B?WW5jc09vTWNNOW56cHk4M3lIK0VZTlFhUUgvakw0S2N3aHNLUy9YTWtaWm01?=
+ =?utf-8?B?cGJwbWR6MWxiVWtKQ1pMRDdTQm9IcFZNQUNBaHZtUGJnN2Y5WGxXNGxZUXBq?=
+ =?utf-8?B?Nkd5WHJWWjltRGJESStuSFhYV1FKdlZDcVdUcXArV05wL2UwMDhlMlhSVVYz?=
+ =?utf-8?B?VWp2UlBVbGtZbVA1MUhEemNOaXE4eUZTd0Fxb1FQdHplZzZReTZ3cExQeHFV?=
+ =?utf-8?B?Ym9vdURzbmtTUjNkZ2IwbkhoZFF2QUMzcllMTkNTdmJwR3RSNnNNSXkrUGpr?=
+ =?utf-8?B?Z21CVjV0blZ1RHJLRGhDUFdCTXViRFZaOWVmcTQ2bm45RFYyWUNkelFCSnhw?=
+ =?utf-8?B?K2VldjJtWDdtNm1GSmhudTh4VFdzYjZYWEVMUXdOR2hmUWRYTXRQU0JEMUZC?=
+ =?utf-8?B?Mkt1aDNaSkU1RkYyZXlzTXRXM2JONkVJaDJZTWFKbWd1TlRLeW93OEd0ZlRv?=
+ =?utf-8?B?VG9yODkyWEt1M0Nja3UxTnk1R1JJdWxjejljL2puQnhVdG1qcXJGNDA3RVlI?=
+ =?utf-8?B?V3N0RU9LWWpvRmhHc1NYVTl5SUZqeWZjaS9KY09jS3d1Ui9yWGVEVFRlbGVj?=
+ =?utf-8?B?eUkvelY4ek0yZXJxazJDaW9MaTlYWTJWSlFLQkR0VFkzTlJtUEltdTBZU2Qw?=
+ =?utf-8?B?bDBSdmVBOUpkZWFraDZLTHZhM0pxd3V0L20yMU5SK0VsWHVnQ1JuVVFVc0Fn?=
+ =?utf-8?B?bmpxZzBWTkh1Nm5OaXpJTlhLNTlJSDR1dFEwMG5PRkNDVGpLbWlkWXk2L1Rv?=
+ =?utf-8?B?dUJ0UDk0WXBDNHBpelZBdjgzb2hTRFlHQ091NGVIQjRlSUxLb2RaVmEwT1dF?=
+ =?utf-8?B?Wm1FSUl0dm5uODJYaW9qVVFuc01lUWV1QkJQRXZUL1lvY3NmNkZDQnZQVDZa?=
+ =?utf-8?B?VWx0bkJjSVBKZXhaSmNyU2w1QkVFMkxZMlROSmdlNUVHKzBJSktrUFcrNkFy?=
+ =?utf-8?B?NzY2Sk9ocGRsQkoyOHM1dlpRUHc4WG1iMTg3N0tOaVJZRmZwRVVJVGl4UkRK?=
+ =?utf-8?B?WDR6dlVFa2c3bCtIUFBaTmRIVEFGZ1JuWVVmZVcrd0lRdmpSUUN5UzNtSGhu?=
+ =?utf-8?B?dTVkQnpvUXZaUkF5SHd2Vjd1Um5BZUtkMHloajZybGFQTG1vY3BjRHhvMHQr?=
+ =?utf-8?B?WGlPVklRVzRQRGg5NWxvMkNacmxPc1kwWFhPSExwcnYxdEdPRFFZVng0V1lG?=
+ =?utf-8?B?NDY3V09QZFI1aXQyV3p3NHFlVHdFQlBoZHpkdldjQmZrd0RyUWhZaVBiVWFL?=
+ =?utf-8?B?M21JelE0ckU1WEZkNkowUGg3bTUvWTF2eEZzUHdKaVlBVEx3YVp4dUFCWVZ6?=
+ =?utf-8?B?N0k2aHhwZjBBZHV6WGt2QUZMbzFsdHBmTm94WkZ6bjh4NVNqYUZsRThVN245?=
+ =?utf-8?Q?2Gp1ae33nHces7maUeib5JU=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02c66939-2482-4a29-4da7-08de15e78ee3
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 85f2c104-6da3-4717-ea02-08de15e6ca94
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Oct 2025 05:56:51.7762
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 06:02:21.3454
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: u6DlfcZWxXTefTdLnpwv6CoH9RgUefrxMj+eFSDGKDk2mGKy0pH87YKOyWsbo4r1r1bK/8BVEiTNKWgNJyyQWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11315
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vgKU8hydRv2/MVTwfzEs69CCLpCo1znIO7XE+lghHFL14fvUaO2KZK1aPcAhvZqV+7xdOzDXqEYmLBsWITC0AsgeCj2/9Vj/SLdt1cFyxBIurxJBmoAoYQPE6gnCYv2B
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR01MB6722
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_225657_163906_32030AB4 
-X-CRM114-Status: GOOD (  21.96  )
+X-CRM114-CacheID: sfid-20251027_230228_582641_2FEC746C 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,99 +182,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9y
-QGtlcm5lbC5vcmc+DQo+IFNlbnQ6IDIwMjXlubQxMOaciDI45pelIDE6MDYNCj4gVG86IEhvbmd4
-aW5nIFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+DQo+IENjOiByb2JoQGtlcm5lbC5vcmc7IGty
-emsrZHRAa2VybmVsLm9yZzsgY29ub3IrZHRAa2VybmVsLm9yZzsNCj4gYmhlbGdhYXNAZ29vZ2xl
-LmNvbTsgRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5jb20+OyBsLnN0YWNoQHBlbmd1dHJvbml4LmRl
-Ow0KPiBscGllcmFsaXNpQGtlcm5lbC5vcmc7IGt3aWxjenluc2tpQGtlcm5lbC5vcmc7IG1hbmlA
-a2VybmVsLm9yZzsNCj4gc2hhd25ndW9Aa2VybmVsLm9yZzsgcy5oYXVlckBwZW5ndXRyb25peC5k
-ZTsga2VybmVsQHBlbmd1dHJvbml4LmRlOw0KPiBmZXN0ZXZhbUBnbWFpbC5jb207IGxpbnV4LXBj
-aUB2Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9y
-ZzsgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7DQo+IGlteEBsaXN0cy5saW51eC5kZXY7IGxp
-bnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2OCAyLzNd
-IGR0LWJpbmRpbmdzOiBQQ0k6IHBjaS1pbXg2OiBBZGQgZXh0ZXJuYWwgcmVmZXJlbmNlDQo+IGNs
-b2NrIGlucHV0DQo+IA0KPiBPbiBNb24sIE9jdCAyNywgMjAyNSBhdCAwNjozNjozMkFNICswMDAw
-LCBIb25neGluZyBaaHUgd3JvdGU6DQo+ID4gPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0K
-PiA+ID4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPg0KPiA+ID4gU2VudDog
-MjAyNeW5tDEw5pyIMjXml6UgMTowNw0KPiA+ID4gVG86IEhvbmd4aW5nIFpodSA8aG9uZ3hpbmcu
-emh1QG54cC5jb20+DQo+ID4gPiBDYzogcm9iaEBrZXJuZWwub3JnOyBrcnprK2R0QGtlcm5lbC5v
-cmc7IGNvbm9yK2R0QGtlcm5lbC5vcmc7DQo+ID4gPiBiaGVsZ2Fhc0Bnb29nbGUuY29tOyBGcmFu
-ayBMaSA8ZnJhbmsubGlAbnhwLmNvbT47DQo+ID4gPiBsLnN0YWNoQHBlbmd1dHJvbml4LmRlOyBs
-cGllcmFsaXNpQGtlcm5lbC5vcmc7DQo+ID4gPiBrd2lsY3p5bnNraUBrZXJuZWwub3JnOyBtYW5p
-QGtlcm5lbC5vcmc7IHNoYXduZ3VvQGtlcm5lbC5vcmc7DQo+ID4gPiBzLmhhdWVyQHBlbmd1dHJv
-bml4LmRlOyBrZXJuZWxAcGVuZ3V0cm9uaXguZGU7IGZlc3RldmFtQGdtYWlsLmNvbTsNCj4gPiA+
-IGxpbnV4LXBjaUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFk
-ZWFkLm9yZzsNCj4gPiA+IGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnOyBpbXhAbGlzdHMubGlu
-dXguZGV2Ow0KPiA+ID4gbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0KPiA+ID4gU3ViamVj
-dDogUmU6IFtQQVRDSCB2OCAyLzNdIGR0LWJpbmRpbmdzOiBQQ0k6IHBjaS1pbXg2OiBBZGQgZXh0
-ZXJuYWwNCj4gPiA+IHJlZmVyZW5jZSBjbG9jayBpbnB1dA0KPiA+ID4NCj4gPiA+IE9uIEZyaSwg
-T2N0IDI0LCAyMDI1IGF0IDEwOjQwOjEyQU0gKzA4MDAsIFJpY2hhcmQgWmh1IHdyb3RlOg0KPiA+
-ID4gPiBpLk1YOTUgUENJZXMgaGF2ZSB0d28gcmVmZXJlbmNlIGNsb2NrIGlucHV0czogb25lIGZy
-b20gaW50ZXJuYWwNCj4gPiA+ID4gUExMLCB0aGUgb3RoZXIgZnJvbSBvZmYgY2hpcCBjcnlzdGFs
-IG9zY2lsbGF0b3IuIFRoZSAiZXh0cmVmIg0KPiA+ID4gPiBjbG9jayByZWZlcnMgdG8gYSByZWZl
-cmVuY2UgY2xvY2sgZnJvbSBhbiBleHRlcm5hbCBjcnlzdGFsIG9zY2lsbGF0b3IuDQo+ID4gPiA+
-DQo+ID4gPiA+IEFkZCBleHRlcm5hbCByZWZlcmVuY2UgY2xvY2sgaW5wdXQgZm9yIGkuTVg5NSBQ
-Q0llcy4NCj4gPiA+ID4NCj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogUmljaGFyZCBaaHUgPGhvbmd4
-aW5nLnpodUBueHAuY29tPg0KPiA+ID4gPiBSZXZpZXdlZC1ieTogRnJhbmsgTGkgPEZyYW5rLkxp
-QG54cC5jb20+DQo+ID4gPiA+IC0tLQ0KPiA+ID4gPiAgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVl
-L2JpbmRpbmdzL3BjaS9mc2wsaW14NnEtcGNpZS55YW1sIHwgMyArKysNCj4gPiA+ID4gIDEgZmls
-ZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykNCj4gPiA+ID4NCj4gPiA+ID4gZGlmZiAtLWdpdA0K
-PiA+ID4gPiBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wY2kvZnNsLGlteDZx
-LXBjaWUueWFtbA0KPiA+ID4gPiBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9w
-Y2kvZnNsLGlteDZxLXBjaWUueWFtbA0KPiA+ID4gPiBpbmRleCBjYTVmMjk3MGYyMTdjLi5iNGM0
-MGQwNTczZGNlIDEwMDY0NA0KPiA+ID4gPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
-YmluZGluZ3MvcGNpL2ZzbCxpbXg2cS1wY2llLnlhbWwNCj4gPiA+ID4gKysrIGIvRG9jdW1lbnRh
-dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9mc2wsaW14NnEtcGNpZS55YW1sDQo+ID4gPiA+
-IEBAIC0yMTIsMTQgKzIxMiwxNyBAQCBhbGxPZjoNCj4gPiA+ID4gICAgICB0aGVuOg0KPiA+ID4g
-PiAgICAgICAgcHJvcGVydGllczoNCj4gPiA+ID4gICAgICAgICAgY2xvY2tzOg0KPiA+ID4gPiAr
-ICAgICAgICAgIG1pbkl0ZW1zOiA0DQo+ID4gPiA+ICAgICAgICAgICAgbWF4SXRlbXM6IDUNCj4g
-PiA+ID4gICAgICAgICAgY2xvY2stbmFtZXM6DQo+ID4gPiA+ICsgICAgICAgICAgbWluSXRlbXM6
-IDQNCj4gPiA+ID4gICAgICAgICAgICBpdGVtczoNCj4gPiA+ID4gICAgICAgICAgICAgIC0gY29u
-c3Q6IHBjaWUNCj4gPiA+DQo+ID4gPiAxDQo+ID4gPg0KPiA+ID4gPiAgICAgICAgICAgICAgLSBj
-b25zdDogcGNpZV9idXMNCj4gPiA+DQo+ID4gPiAyDQo+ID4gPg0KPiA+ID4gPiAgICAgICAgICAg
-ICAgLSBjb25zdDogcGNpZV9waHkNCj4gPiA+DQo+ID4gPiAzDQo+ID4gPg0KPiA+ID4gPiAgICAg
-ICAgICAgICAgLSBjb25zdDogcGNpZV9hdXgNCj4gPiA+DQo+ID4gPiA0DQo+ID4gPg0KPiA+ID4g
-PiAgICAgICAgICAgICAgLSBjb25zdDogcmVmDQo+ID4gPg0KPiA+ID4gNQ0KPiA+ID4NCj4gPiA+
-ID4gKyAgICAgICAgICAgIC0gY29uc3Q6IGV4dHJlZiAgIyBPcHRpb25hbA0KPiA+ID4NCj4gPiA+
-IDYNCj4gPiA+DQo+ID4gPiBUaGVyZSBhcmUgNiBjbG9ja3MgaGVyZSwgYnV0IGNsb2NrcyBhbmQg
-Y2xvY2stbmFtZXMgaW4gdGhpcyBiaW5kaW5nDQo+ID4gPiBkbyBub3QgcGVybWl0IDY6DQo+ID4g
-PiB8ICBjbG9ja3M6DQo+ID4gPiB8ICAgIG1pbkl0ZW1zOiAzDQo+ID4gPiB8ICAgIGl0ZW1zOg0K
-PiA+ID4gfCAgICAgIC0gZGVzY3JpcHRpb246IFBDSWUgYnJpZGdlIGNsb2NrLg0KPiA+ID4gfCAg
-ICAgIC0gZGVzY3JpcHRpb246IFBDSWUgYnVzIGNsb2NrLg0KPiA+ID4gfCAgICAgIC0gZGVzY3Jp
-cHRpb246IFBDSWUgUEhZIGNsb2NrLg0KPiA+ID4gfCAgICAgIC0gZGVzY3JpcHRpb246IEFkZGl0
-aW9uYWwgcmVxdWlyZWQgY2xvY2sgZW50cnkgZm9yIGlteDZzeC1wY2llLA0KPiA+ID4gfCAgICAg
-ICAgICAgaW14NnN4LXBjaWUtZXAsIGlteDhtcS1wY2llLCBpbXg4bXEtcGNpZS1lcC4NCj4gPiA+
-IHwgICAgICAtIGRlc2NyaXB0aW9uOiBQQ0llIHJlZmVyZW5jZSBjbG9jay4NCj4gPiA+IHwNCj4g
-PiA+IHwgIGNsb2NrLW5hbWVzOg0KPiA+ID4gfCAgICBtaW5JdGVtczogMw0KPiA+ID4gfCAgICBt
-YXhJdGVtczogNQ0KPiA+ID4NCj4gPiA+IEFGQUlDVCwgd2hhdCB0aGlzIHBhdGNoIGFjdHVhbGx5
-IGRpZCBpcyBtYWtlICJyZWYiIGFuIG9wdGlvbmFsDQo+ID4gPiBjbG9jaywgYnV0IHRoZSBjbGFp
-bSBpbiB0aGUgcGF0Y2ggaXMgdGhhdCBleHRyZWYgaXMgb3B0aW9uYWwuIFdpdGgNCj4gPiA+IHRo
-aXMgcGF0Y2ggYXBwbGllZCwgeW91IGNhbiBoYXZlIGEpIG5vIHJlZmVyZW5jZSBjbG9ja3Mgb3Ig
-Yikgb25seSAicmVmIi4NCj4gImV4dHJlZiINCj4gPiA+IGlzIG5ldmVyIGFsbG93ZWQuDQo+ID4g
-SGkgQ29ub3I6DQo+ID4gVGhhbmtzIGZvciB5b3VyIHJldmlldyBjb21tZW50cy4NCj4gPiBKdXN0
-IHNhbWUgdG8gImV4dHJlZiIsIHRoZSAicmVmIiBzaG91bGQgYmUgbWFya2VkIGFzIG9wdGlvbmFs
-IGNsb2NrIHRvby4NCj4gDQo+IFJpZ2h0LCB5b3VyIGNvbW1pdCBtZXNzYWdlIHNob3VsZCB0aGVu
-IG1lbnRpb24gdGhhdC4NCj4gDQpIaSBDb25vcjoNCkl0J3MgbXkgbWlzdGFrZS4gTXkgcHJldmlv
-dXMgdW5kZXJzdGFuZGluZyBpcyB3cm9uZy4NCk9ubHkgImV4dHJlZiIgaXMgYW4gb3B0aW9uYWwg
-Y2xvY2suDQoNCj4gPiA+IElzIGl0IHN1cHBvc2VkIHRvIGJlIHBvc3NpYmxlIHRvIGhhdmUgInJl
-ZiIgYW5kICJleHRyZWYiPw0KPiA+ID4gT3IgImV4dHJlZiIgd2l0aG91dCAicmVmIj8NCj4gPiA+
-IE5laXRoZXIgInJlZiIgb3IgImV4dHJlZiI/DQo+ID4gInJlZiIgYW5kICJleHRyZWYiIGhhdmUg
-YW4gZXhjbHVzaXZlIHJlbGF0aW9uc2hpcCBvZiBjaG9vc2luZyBvbmUgb2YNCj4gPiB0aGUgdHdv
-LCAgYW5kIHRoZXkgY2Fubm90IGFsbCBleGlzdCBzaW11bHRhbmVvdXNseS4NCj4gDQo+IFJpZ2h0
-LCBwbGVhc2UgZ28gdGVzdCB3aGF0IHlvdSd2ZSBwcm9kdWNlZCwgYmVjYXVzZSBleHRyZWYgaXMg
-bmV2ZXINCj4gcGVybWl0dGVkIGJ5IHRoaXMgYmluZGluZy4NCiJyZWYiIGFuZCAiZXh0cmVmIiBk
-b2Vzbid0IGhhdmUgYW4gZXhjbHVzaXZlIHJlbGF0aW9uc2hpcC4gVGhlcmUgYXJlIHR3bw0KIG9w
-dGlvbnMuIG9uZSBpcyAicmVmIiwgdGhlIG90aGVyIG9uZSBpcyAicmVmLCBleHRyZWYiLg0KDQpJ
-ZiAicmVmIiBwcmVzZW50LCB0aGUgaW50ZXJuYWwgc3lzdGVtIFBMTCBjbG9jayBpcyB1c2VkIGFz
-IFBDSWUgcmVmZXJlbmNlDQogY2xvY2sgc291cmNlLiBJZiBib3RoIG9mIHRoZW0gcHJlc2VudCwg
-dGhlIFBDSWUgcmVmZXJlbmNlIGNsb2NrIHdvdWxkIGNvbWUNCiBmcm9tIGFuIG9mZi1jaGlwIGNy
-eXN0YWwgb3NjaWxsYXRvci4NCg0KSW4gdGhlIGVuZCwgdGhlIG1heEl0ZW0gb2YgY2xvY2tzIHNo
-b3VsZCBiZSAnNicuIEkgd291bGQgcG9zdCB0aGUgYW5vdGhlcg0KIHBhdGNoLXNldCBhZnRlciBj
-b3JyZWN0IHRoZSBtYXhJdGVtIG9mIGNsb2NrcyBmcm9tICc1JyB0byAnNicuDQoNClNvcnJ5IGFn
-YWluIHRvIG15IG1pc2xlYWRpbmcuDQoNCkJlc3QgUmVnYXJkcw0KUmljaGFyZCBaaHUNCj4gDQo+
-ID4gPiBJIGRvbid0IGtub3cgdGhlIGFuc3dlciB0byB0aGF0IHF1ZXN0aW9uIGJlY2F1c2UgeW91
-J3JlIGRvaW5nIHRoaW5ncw0KPiA+ID4gdGhhdCBhcmUgY29udHJhZGljdG9yeSBpbiB5b3VyIHBh
-dGNoIGFuZCB0aGUgY29tbWl0IG1lc3NhZ2UgaXNuJ3QgY2xlYXIuDQo+ID4gPg0KPiA+IFNvcnJ5
-IGZvciBjYXVzaW5nIHlvdSBjb25mdXNpb24uDQoNCg==
+On 10/23/2025 8:05 PM, Marc Zyngier wrote:
+> On Thu, 23 Oct 2025 12:11:42 +0100,
+> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+>>
+>>
+>> Hi Marc, Oliver,
+>>
+>> On 10/13/2025 12:21 PM, Ganapatrao Kulkarni wrote:
+>>> As of commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow
+>>> stage 2 page tables"), an unmap of a canonical IPA range mapped at L1
+>>> triggers invalidation in L1 S2-MMU and in all active shadow (L2) S2-MMU
+>>> tables. Because there is no direct mapping to locate the corresponding
+>>> shadow IPAs, the code falls back to a full S2-MMU page-table walk and
+>>> invalidation across the entire L1 address space.
+>>>
+>>> For 4K pages this causes roughly 256K loop iterations (about 8M for
+>>> 64K pages) per unmap, which can severely impact performance on large
+>>> systems and even cause soft lockups during NV (L1/L2) boots with many
+>>> CPUs and large memory. It also causes long delays during L1 reboot.
+>>>
+>>> This patch adds a maple-tree-based lookup that records canonical-IPA to
+>>> shadow-IPA mappings whenever a page is mapped into any shadow (L2)
+>>> table. On unmap, the lookup is used to target only those shadow IPAs
+>>> which are fully or partially mapped in shadow S2-MMU tables, avoiding
+>>> a full-address-space walk and unnecessary unmap/flush operations.
+>>>
+>>> The lookup is updated on map/unmap operations so entries remain
+>>> consistent with shadow table state. Use it during unmap to invalidate
+>>> only affected shadow IPAs, avoiding unnecessary CPU work and reducing
+>>> latency when shadow mappings are sparse.
+>>>
+>>> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+>>> Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+>>> ---
+>>>
+>>> Changes since v1:
+>>> 		Rebased to 6.18-rc1.
+>>> 		Fixed alignment issue while adding the shadow ipa range
+>>> 		to lookup.	
+>>>
+>>> Changes since RFC v1:
+>>> 		Added maple tree based lookup and updated with review
+>>> 		comments from [1].
+>>>
+>>> [1] https://lkml.indiana.edu/2403.0/03801.html
+>>>
+>>>    arch/arm64/include/asm/kvm_host.h   |   3 +
+>>>    arch/arm64/include/asm/kvm_nested.h |   9 +++
+>>>    arch/arm64/kvm/mmu.c                |  17 ++--
+>>>    arch/arm64/kvm/nested.c             | 120 ++++++++++++++++++++++++++--
+>>>    4 files changed, 138 insertions(+), 11 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>>> index b763293281c8..e774681c6ba4 100644
+>>> --- a/arch/arm64/include/asm/kvm_host.h
+>>> +++ b/arch/arm64/include/asm/kvm_host.h
+>>> @@ -227,6 +227,9 @@ struct kvm_s2_mmu {
+>>>    	 * >0: Somebody is actively using this.
+>>>    	 */
+>>>    	atomic_t refcnt;
+>>> +
+>>> +	/* For IPA to shadow IPA lookup */
+>>> +	struct maple_tree nested_mmu_mt;
+>>>    };
+>>>      struct kvm_arch_memory_slot {
+>>> diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+>>> index f7c06a840963..5b7c4e7ed18f 100644
+>>> --- a/arch/arm64/include/asm/kvm_nested.h
+>>> +++ b/arch/arm64/include/asm/kvm_nested.h
+>>> @@ -69,6 +69,8 @@ extern void kvm_init_nested(struct kvm *kvm);
+>>>    extern int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu);
+>>>    extern void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu);
+>>>    extern struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu);
+>>> +extern int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa, u64 ipa,
+>>> +		u64 size);
+>>>      union tlbi_info;
+>>>    @@ -95,6 +97,12 @@ struct kvm_s2_trans {
+>>>    	u64 desc;
+>>>    };
+>>>    +struct shadow_ipa_map {
+>>> +	u64 shadow_ipa;
+>>> +	u64 ipa;
+>>> +	u64 size;
+>>> +};
+>>> +
+>>>    static inline phys_addr_t kvm_s2_trans_output(struct kvm_s2_trans *trans)
+>>>    {
+>>>    	return trans->output;
+>>> @@ -132,6 +140,7 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
+>>>    extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
+>>>    extern void kvm_nested_s2_wp(struct kvm *kvm);
+>>>    extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
+>>> +extern void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size, bool may_block);
+>>>    extern void kvm_nested_s2_flush(struct kvm *kvm);
+>>>      unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu,
+>>> u64 val);
+>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>>> index 7cc964af8d30..27c120556e1b 100644
+>>> --- a/arch/arm64/kvm/mmu.c
+>>> +++ b/arch/arm64/kvm/mmu.c
+>>> @@ -1872,6 +1872,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>>>    		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
+>>>    					     __pfn_to_phys(pfn), prot,
+>>>    					     memcache, flags);
+>>> +
+>>> +		/* Add to lookup, if canonical IPA range mapped to shadow mmu */
+>>> +		if (nested)
+>>> +			add_to_shadow_ipa_lookup(pgt, fault_ipa, ipa, vma_pagesize);
+>>>    	}
+>>>      out_unlock:
+>>> @@ -2094,14 +2098,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>>>      bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range
+>>> *range)
+>>>    {
+>>> +	gpa_t start = range->start << PAGE_SHIFT;
+>>> +	gpa_t end = (range->end - range->start) << PAGE_SHIFT;
+>>> +	bool may_block = range->may_block;
+>>> +
+>>>    	if (!kvm->arch.mmu.pgt)
+>>>    		return false;
+>>>    -	__unmap_stage2_range(&kvm->arch.mmu, range->start <<
+>>> PAGE_SHIFT,
+>>> -			     (range->end - range->start) << PAGE_SHIFT,
+>>> -			     range->may_block);
+>>> -
+>>> -	kvm_nested_s2_unmap(kvm, range->may_block);
+>>> +	__unmap_stage2_range(&kvm->arch.mmu, start, end, may_block);
+>>> +	kvm_nested_s2_unmap_range(kvm, start, end, may_block);
+>>>    	return false;
+>>>    }
+>>>    @@ -2386,7 +2391,7 @@ void kvm_arch_flush_shadow_memslot(struct
+>>> kvm *kvm,
+>>>      	write_lock(&kvm->mmu_lock);
+>>>    	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
+>>> -	kvm_nested_s2_unmap(kvm, true);
+>>> +	kvm_nested_s2_unmap_range(kvm, gpa, size, true);
+>>>    	write_unlock(&kvm->mmu_lock);
+>>>    }
+>>>    diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+>>> index 7a045cad6bdf..3a7035e7526a 100644
+>>> --- a/arch/arm64/kvm/nested.c
+>>> +++ b/arch/arm64/kvm/nested.c
+>>> @@ -7,6 +7,7 @@
+>>>    #include <linux/bitfield.h>
+>>>    #include <linux/kvm.h>
+>>>    #include <linux/kvm_host.h>
+>>> +#include <linux/maple_tree.h>
+>>>      #include <asm/fixmap.h>
+>>>    #include <asm/kvm_arm.h>
+>>> @@ -725,6 +726,7 @@ void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+>>>    	mmu->tlb_vttbr = VTTBR_CNP_BIT;
+>>>    	mmu->nested_stage2_enabled = false;
+>>>    	atomic_set(&mmu->refcnt, 0);
+>>> +	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
+>>>    }
+>>>      void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
+>>> @@ -1067,6 +1069,99 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+>>>    	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+>>>    }
+>>>    +/*
+>>> + * Store range of canonical IPA mapped to a nested stage 2 mmu table.
+>>> + * Canonical IPA used as pivot in maple tree for the lookup later
+>>> + * while IPA unmap/flush.
+>>> + */
+>>> +int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa,
+>>> +		u64 ipa, u64 size)
+>>> +{
+>>> +	struct kvm_s2_mmu *mmu;
+>>> +	struct shadow_ipa_map *entry;
+>>> +	unsigned long start, end;
+>>> +	int ret;
+>>> +
+>>> +	start = ALIGN_DOWN(ipa, size);
+>>> +	end = start + size;
+>>> +	mmu = pgt->mmu;
+>>> +
+>>> +	entry = kzalloc(sizeof(struct shadow_ipa_map), GFP_KERNEL_ACCOUNT);
+>>> +
+>>> +	if (!entry)
+>>> +		return -ENOMEM;
+>>> +
+>>> +	entry->ipa = start;
+>>> +	entry->shadow_ipa = ALIGN_DOWN(shadow_ipa, size);
+>>> +	entry->size = size;
+>>> +	ret = mtree_store_range(&mmu->nested_mmu_mt, start, end - 1, entry,
+>>> +			  GFP_KERNEL_ACCOUNT);
+>>> +	if (ret) {
+>>> +		kfree(entry);
+>>> +		WARN_ON(ret);
+>>> +	}
+>>> +
+>>> +	return ret;
+>>> +}
+>>> +
+>>> +static void nested_mtree_erase(struct maple_tree *mt, unsigned long start,
+>>> +		unsigned long size)
+>>> +{
+>>> +	void *entry = NULL;
+>>> +
+>>> +	MA_STATE(mas, mt, start, start + size - 1);
+>>> +
+>>> +	mtree_lock(mt);
+>>> +	entry = mas_erase(&mas);
+>>> +	mtree_unlock(mt);
+>>> +	kfree(entry);
+>>> +}
+>>> +
+>>> +static void nested_mtree_erase_and_unmap_all(struct kvm_s2_mmu *mmu,
+>>> +		unsigned long start, unsigned long end, bool may_block)
+>>> +{
+>>> +	struct shadow_ipa_map *entry;
+>>> +
+>>> +	mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu)) {
+>>> +		kvm_stage2_unmap_range(mmu, entry->shadow_ipa, entry->size,
+>>> +				may_block);
+>>> +		kfree(entry);
+>>> +	}
+>>> +
+>>> +	mtree_destroy(&mmu->nested_mmu_mt);
+>>> +	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
+>>> +}
+>>> +
+>>> +void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size,
+>>> +		bool may_block)
+>>> +{
+>>> +	int i;
+>>> +	struct shadow_ipa_map *entry;
+>>> +
+>>> +	lockdep_assert_held_write(&kvm->mmu_lock);
+>>> +
+>>> +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+>>> +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+>>> +		unsigned long start = ipa;
+>>> +		unsigned long end = ipa + size;
+>>> +
+>>> +		if (!kvm_s2_mmu_valid(mmu))
+>>> +			continue;
+>>> +
+>>> +		do {
+>>> +			entry = mt_find(&mmu->nested_mmu_mt, &start, end - 1);
+>>> +			if (!entry)
+>>> +				break;
+>>> +
+>>> +			kvm_stage2_unmap_range(mmu, entry->shadow_ipa,
+>>> +							entry->size, may_block);
+>>> +			start = entry->ipa + entry->size;
+>>> +			nested_mtree_erase(&mmu->nested_mmu_mt, entry->ipa,
+>>> +							entry->size);
+>>> +		} while (start < end);
+>>> +	}
+>>> +}
+>>> +
+>>>    void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+>>>    {
+>>>    	int i;
+>>> @@ -1076,8 +1171,10 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+>>>    	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+>>>    		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+>>>    -		if (kvm_s2_mmu_valid(mmu))
+>>> -			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+>>> +		if (!kvm_s2_mmu_valid(mmu))
+>>> +			continue;
+>>> +
+>>> +		nested_mtree_erase_and_unmap_all(mmu, 0, kvm_phys_size(mmu), may_block);
+>>>    	}
+>>>      	kvm_invalidate_vncr_ipa(kvm, 0,
+>>> BIT(kvm->arch.mmu.pgt->ia_bits));
+>>> @@ -1091,9 +1188,14 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+>>>      	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+>>>    		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+>>> +		struct shadow_ipa_map *entry;
+>>> +		unsigned long start = 0;
+>>>    -		if (kvm_s2_mmu_valid(mmu))
+>>> -			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
+>>> +		if (!kvm_s2_mmu_valid(mmu))
+>>> +			continue;
+>>> +
+>>> +		mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
+>>> +			kvm_stage2_flush_range(mmu, entry->shadow_ipa, entry->size);
+>>>    	}
+>>>    }
+>>>    @@ -1104,8 +1206,16 @@ void kvm_arch_flush_shadow_all(struct kvm
+>>> *kvm)
+>>>    	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+>>>    		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+>>>    -		if (!WARN_ON(atomic_read(&mmu->refcnt)))
+>>> +		if (!WARN_ON(atomic_read(&mmu->refcnt))) {
+>>> +			struct shadow_ipa_map *entry;
+>>> +			unsigned long start = 0;
+>>> +
+>>>    			kvm_free_stage2_pgd(mmu);
+>>> +
+>>> +			mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
+>>> +				kfree(entry);
+>>> +			mtree_destroy(&mmu->nested_mmu_mt);
+>>> +		}
+>>>    	}
+>>>    	kvfree(kvm->arch.nested_mmus);
+>>>    	kvm->arch.nested_mmus = NULL;
+>>
+>> Any review comments or suggestions for this patch?
+> 
+> None. This patch is obviously lacking the basic requirements that such
+> an "optimisation" should handle, such as dealing with multiple
+> mappings to the same IPA in the shadow S2, hence will happily fail to
+> correctly unmap stuff. There is no documentation, and no test.
+> 
+Thanks for the comment.
+How about adding list of multiple mappings ranges to the maple tree entry/node while adding to the lookup and later unmapping every range present in that list?
+
+I tested this patch on an AmpereOne system (2 NUMA nodes, 96 CPUs per node, numa balance enabled) with large vCPU counts and large memory to L1 and L2.
+The current full-address-space walk caused very large unmap/flush work and significant delays (exacerbated by NUMA balancing / page migration activity).
+The targeted unmap using the list per node removes only the affected mappings and reduces the unmap latency substantially in our workloads.
+
+I booted multiple L1s, each hosting several L2s, and observed no panics or failures related to missing support for multiple‑IPA mappings.
+If you have any test cases or scenarios that would validate support for multiple IPA mappings, could you please share them?
+
+
+-- 
+Thanks,
+Gk
 
