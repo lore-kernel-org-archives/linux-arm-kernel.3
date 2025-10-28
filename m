@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC9ACCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C83CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 16:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sRwSaMd6UTVG+EXoPh3Z8r1dIb+gecAn5V193KEwsVs=; b=C/D1vXF0dKl9xJNa4N+zdRTqgZ
-	c/suZxuy3U6dGtlSIhSeEevEdStT5MmkoFIFF78v2HYDC68aQMsU+hWh0ok/3b8pIPSfF8Mu/xdk2
-	5nzU6PZfP2/y7tlQFXGtah1plm9G1IXTXTrIbtK8HBUnVfYoT8xmixgG/zdJXa9uG9Rc++oQljG+L
-	JU3RZCIg8i3nnzvK386EppT9PSBzKpW5M0XMs+YbWSPPgrg59lwwxdIRiUI22kxnm7BPnmXuYCp17
-	uIihvC9CToAybCVRt3mpXVs5TkaWQmfdrr/BRgAx7NeJMQ5NKAeLfTJqGhYSf24Xra/v+EldUo5b4
-	NXPV/1+w==;
+	bh=+MsWkgdt901TeYkNpBCxPY+X+MQaFAu2IrvuYax8zkU=; b=gIglVT4oznF/9bVSR3scOPUIcG
+	AzzhXft0W35fAB/F0/iHd04p4WETXgOJjwy0L9dnRE5NK51P9g+G3YppkUJ4I1sWZRpshuj4XypOF
+	roUvlNqE6KXsfoNTJvymlMdRN2b5SA7py6JNe2Jf+ykTborM3T/9FWPrr7f8oeYP8rEL6C5ZEKwbi
+	m8bJum32qKAhBNR0CMp6oSjrSnrdHJD1in/Tsy7IE/nstL9wOqG7cih+ja4LAjXbwpX8qeslG/YCo
+	Q5CZCa9qhtNQ9WUIUl9GI6WDImHqSXdgUl4fJibmL6UHY2WhtKaZ+IuLaNXNEgbTQA9P4gU13PXZ8
+	EsUvWNgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDm6i-0000000GGI9-2RgJ;
-	Tue, 28 Oct 2025 15:59:36 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDm6d-0000000GGCr-2mjc;
-	Tue, 28 Oct 2025 15:59:32 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id A4A15C0BEA2;
-	Tue, 28 Oct 2025 15:59:09 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E7BC0606AB;
-	Tue, 28 Oct 2025 15:59:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5F035117A9A2D;
-	Tue, 28 Oct 2025 16:59:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761667169; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=sRwSaMd6UTVG+EXoPh3Z8r1dIb+gecAn5V193KEwsVs=;
-	b=HrmDt3SE5MmeHDTAqfZrtU1OFQxz5le9h51hbFOyA77E8pT2lM5ABQcXcmBrXzBGWWsZjr
-	qz294AoULNlkROm1CBXEygfYPbfQKZhcuVml+XA3ir6CR4/iY26/JF8ZiF+7gB3t5PpLLV
-	/moxL2+JjjVGIacBpJd3Tk5WdT/MA6Mtvz8PD3V7oO6IRdieXPL8wwpzCA2ZDpFSfm5dCI
-	8obFEJlTjENM0EpoeG1hzGJkOLBV3pZe6TBTw3rTKRGgk3UaLDliRpb8RiMefaidoSFOL2
-	IvMBv5ba7tuP5+o5bf7laBrxbrBp4udCeU7gpwZ1fDxbmjw2yE71F3O2NNfwxg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: richard@nod.at, vigneshr@ti.com, vz@mleia.com, 
- piotr.wojtaszczyk@timesys.com, Haotian Zhang <vulab@iscas.ac.cn>
-Cc: dmitry.torokhov@gmail.com, linux-mtd@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20251028094747.1089-1-vulab@iscas.ac.cn>
-References: <20251028094747.1089-1-vulab@iscas.ac.cn>
-Subject: Re: [PATCH] mtd: rawnand: lpc32xx_slc: fix GPIO descriptor leak on
- probe error and remove
-Message-Id: <176166716607.365556.10097701376798389137.b4-ty@bootlin.com>
-Date: Tue, 28 Oct 2025 16:59:26 +0100
+	id 1vDm8y-0000000GGub-17aG;
+	Tue, 28 Oct 2025 16:01:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vDm8w-0000000GGuF-1fWt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Oct 2025 16:01:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E1F4E168F;
+	Tue, 28 Oct 2025 09:01:44 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BECC53F63F;
+	Tue, 28 Oct 2025 09:01:47 -0700 (PDT)
+Message-ID: <56f7f2df-fd94-48c8-aaa0-97a71b3108cf@arm.com>
+Date: Tue, 28 Oct 2025 16:01:46 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mpam mpam/snapshot/v6.14-rc1] arm64/mpam: Fix MBWU monitor
+ overflow handling
+To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jeremy.linton@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, lpieralisi@kernel.org, peternewman@google.com,
+ quic_jiles@quicinc.com, rafael@kernel.org, robh@kernel.org,
+ rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
+ xhao@linux.alibaba.com, wangkefeng.wang@huawei.com, sunnanyong@huawei.com
+References: <20251017185645.26604-25-james.morse@arm.com>
+ <20251022133913.629859-1-zengheng4@huawei.com>
+ <8e22c81e-5e78-41e0-a81e-0f9826e5edf0@arm.com>
+ <1c037f72-485a-567b-bf8f-489255330de8@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <1c037f72-485a-567b-bf8f-489255330de8@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.2
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_085931_875521_96873429 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_090154_479050_50455175 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +79,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Oct 2025 17:47:47 +0800, Haotian Zhang wrote:
-> The driver calls gpiod_get_optional() in the probe function but
-> never calls gpiod_put() in the remove function or in the probe
-> error path. This leads to a GPIO descriptor resource leak.
-> The lpc32xx_mlc.c driver in the same directory handles this
-> correctly by calling gpiod_put() on both paths.
+Hi Zeng,
+
+On 10/25/25 10:01, Zeng Heng wrote:
+> Hi Ben,
 > 
-> Add gpiod_put() in the remove function and in the probe error path
-> to fix the resource leak.
+> On 2025/10/23 0:17, Ben Horgan wrote:
 > 
-> [...]
+>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>>> ---
+>>>   drivers/resctrl/mpam_devices.c | 8 +++++---
+>>>   1 file changed, 5 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>>> mpam_devices.c
+>>> index 0dd048279e02..06f3ec9887d2 100644
+>>> --- a/drivers/resctrl/mpam_devices.c
+>>> +++ b/drivers/resctrl/mpam_devices.c
+>>> @@ -1101,7 +1101,8 @@ static void __ris_msmon_read(void *arg)
+>>>       clean_msmon_ctl_val(&cur_ctl);
+>>>       gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
+>>>       config_mismatch = cur_flt != flt_val ||
+>>> -              cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+>>> +             (cur_ctl & ~MSMON_CFG_x_CTL_OFLOW_STATUS) !=
+>>> +             (ctl_val | MSMON_CFG_x_CTL_EN);
+>>
+>> This only considers 31 bit counters. I would expect any change here to
+>> consider all lengths of counter.
+> 
+> Sorry, regardless of whether the counter is 32-bit or 64-bit, the
+> config_mismatch logic should be handled the same way here. Am I
+> wrong?
 
-Applied to nand/next, thanks!
+Yes, they should be handled the same way. However, the overflow status
+bit for long counters is MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L.
 
-[1/1] mtd: rawnand: lpc32xx_slc: fix GPIO descriptor leak on probe error and remove
-      commit: 3ae23f77b6a0cd53b557ac69c98312f7be22f081
+I now see that the existing code in the series has this covered.
+Both the overflow bits are masked out in clean_msmon_ctl_val(). No need
+for any additional masking.
 
-Patche(s) should be available on mtd/linux.git and will be
-part of the next PR (provided that no robot complains by then).
+> 
+> Best Regards,
+> Zeng Heng
+> 
+> 
 
-Kind regards,
-Miquèl
+Thanks,
+
+Ben
 
 
