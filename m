@@ -4,139 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DACCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 02:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFEBCCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 03:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrKIs+MLrp3fK072nYRHc2NnwJhU4CFeuVXvOhDyNd4=; b=CiCmFnk/U91CHFr+icp89kgdhY
-	/8GaLOhvew08NQ2BJAPBJvFNkaH5INVNQfw10meJzfEUTKLYF/80YlFJpNPxMUm9eFoAYIflbSZg+
-	6xNL2HMCtGXwCcRB7CcaBrv13cGR0f8cKeYwEslIQ2E8f6zlsTd3eBS8msGRSxbr30jXgu92UJNTd
-	Q1jBzJx0+AsEn00xc5zfeCubfZLXmYbkKXYv0vANRlBc5VlRqVglhQ6ezWetrgMVhEE9WVf/544C6
-	LlDMGiYiIh+3KsHtYeIeDcuVqcfvnN/MXX9SPEXXQZFhCozDWWP609PN2ChwFoE7wgeJNrWXIKHuI
-	Av2whqqQ==;
+	bh=nNMTKt7YjJq48T2Pcq2cArq/vrX7B1+Cr2MDe+JTEgw=; b=yn1I1OoUWUPgPkiyiWClLBZFsy
+	cQLy/Pf2XXCmoeam3ZQYS9NPkK7m4zpMOfFYN7co8e1OscmccUTbMxokCZMQA3JATfYAG1/7pDsTO
+	oqBgQAinHE3OsUnD9vSWkwZ9KhKi4CVJ47sEtxazqTqzDS0OjMmgOEtMpqM6jqGTvce271m9VtwAU
+	SjDVgoSvXF38JRNl4e2urRb6BWPWjD3qvgQN5wvofaN1qSEO7WS4Lb7nB3rUXY8BDXEOd2DX5K5Co
+	I8roScoTFuZGAJ7piReQDslgeAiEuwcfzu3NTibKs1wnF4wPpRQYkyuNVlq3DWojbCQZxIJf/xP6M
+	jDu1ovUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDZrQ-0000000F8XE-1sm1;
-	Tue, 28 Oct 2025 02:55:00 +0000
-Received: from mail-japanwestazon11022123.outbound.protection.outlook.com ([40.107.75.123] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vDa2Y-0000000F8yb-1f8m;
+	Tue, 28 Oct 2025 03:06:30 +0000
+Received: from mail-m49251.qiye.163.com ([45.254.49.251])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDZrN-0000000F8WS-33G5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 02:54:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CLjrNOlSbNVxlwCLuZA7IKzA6y3lx+AF2ZPkNDi4KU48uL4g2TSFJ7wt22eFzE6SKi7M1spn6w8kEToITiJoWqWB0c6rOHqPlOdPTUfpTao2uX5TjG2eCuAQye9jG7bLjDB5SFNFaLzExsOIH/mLgh5We5PUPSEIoFQ4qyxcF8Ojg9CyVHwfPkdHFDx6BgB9oRQY1cjU+wDcJF/daqKqxgaWLRZpOApzBSTByAomyom71OAxGjN3mW/cKo4YxEvBrIb4ewQK3bMseG7ms3Nhd+nhm6J46hWnfH6qclbw0w06CQ/5/Zfo5Oh1PdKNZNZh5gF5c6qwDqV81bxkCB97+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lrKIs+MLrp3fK072nYRHc2NnwJhU4CFeuVXvOhDyNd4=;
- b=YTzZQJC4HVrjtC1uVKx8CfH0ydn+ZpDQQxn0QHXjBTrVcOOvLch5UqMKKFUw5Ny0V/OOgSp8AlyH63F187c6ZZ3sekrYiyO0d3QTYIl2tMaXiJw6ms29FKFd4ItFU0rc2o0QDPR0rDmw7ojCG7q+v8y7y/5+z96QuTmOVsB92Ia47r7fGA1lMIagyzC8IFrjFCTYtnWbZOwCUx/YLWpfLdAaDZsgbRXgowxfWryU+e+UymImrhukAnDT9aGTYESPBdI1dCj18+OX3e1yFCjv7MpU+Pwriy1Kg3ZdCwQZth06ZkIthrkR/zQv1PpLWvGCcHruYBNIc8z9aex+hpbX9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=amd.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2P153CA0040.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::9) by
- KL1PR06MB6519.apcprd06.prod.outlook.com (2603:1096:820:f3::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.18; Tue, 28 Oct 2025 02:54:48 +0000
-Received: from SG1PEPF000082E7.apcprd02.prod.outlook.com
- (2603:1096:4:c6:cafe::9c) by SG2P153CA0040.outlook.office365.com
- (2603:1096:4:c6::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.4 via Frontend Transport; Tue,
- 28 Oct 2025 02:54:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E7.mail.protection.outlook.com (10.167.240.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Tue, 28 Oct 2025 02:54:48 +0000
-Received: from [172.20.96.41] (unknown [172.20.96.41])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id EC1FC41604E0;
-	Tue, 28 Oct 2025 10:54:46 +0800 (CST)
-Message-ID: <f9f43492-859a-4369-b660-7fa138c86e86@cixtech.com>
-Date: Tue, 28 Oct 2025 10:54:46 +0800
+	id 1vDa2U-0000000F8xu-2Khp;
+	Tue, 28 Oct 2025 03:06:28 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 276a7504d;
+	Tue, 28 Oct 2025 11:06:16 +0800 (GMT+08:00)
+Message-ID: <ff9631f5-8fff-4be8-8b6f-807c29943ef6@rock-chips.com>
+Date: Tue, 28 Oct 2025 11:06:15 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: spi: spi-cadence: update DT binding
- docs to support cix sky1 SoC
-To: Conor Dooley <conor@kernel.org>
-Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, broonie@kernel.org,
- linux-spi@vger.kernel.org, michal.simek@amd.com,
- cix-kernel-upstream@cixtech.com, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20251027084239.2610141-1-jun.guo@cixtech.com>
- <20251027084239.2610141-3-jun.guo@cixtech.com>
- <20251027-strangely-reverence-6f47d87efca5@spud>
+Subject: Re: [PATCH v3 1/5] dt-bindings: pwm: Add a new binding for
+ rockchip,rk3576-pwm
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>
+Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
+ <20251027-rk3576-pwm-v3-1-654a5cb1e3f8@collabora.com>
 Content-Language: en-US
-From: Jun Guo <jun.guo@cixtech.com>
-In-Reply-To: <20251027-strangely-reverence-6f47d87efca5@spud>
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <20251027-rk3576-pwm-v3-1-654a5cb1e3f8@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E7:EE_|KL1PR06MB6519:EE_
-X-MS-Office365-Filtering-Correlation-Id: 15b4be6f-a8eb-434e-b4b3-08de15cd5ba1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?THhLTHAzUDA1RytnSVE3eHZkL09NajdLZDA2ekhYUXh0dHQwMFFtcjlXZ1U0?=
- =?utf-8?B?ay9CalVJV3pLSGFrR0hUU3hFR2ZRUE11VS9Mb2t0QVJOenpEdVhzdnlnZFBi?=
- =?utf-8?B?SHI3QjM0ZHpjK2Q3OUliNkFCUUNKME9uQVJkTTdUdGJmbHNkOU0wOG4yV0RY?=
- =?utf-8?B?WTI0UVVXYUMyMmZRakYyNVZ2dlFZODZ2cHc1MnF4WHhSRFVDejVydUdwaTd0?=
- =?utf-8?B?R1p0L2Y4Uk02UVg5VHBwRjRYcmFPajRCUTU5NWhnUFhRYnU2K0pQQll2RThQ?=
- =?utf-8?B?cmdVOHlrdCtPQUc2dStiZGdWKzg5Wk83eDU1WW1USE1UVGFPVGtqejhWZnlD?=
- =?utf-8?B?VzJ4TUh5TFhIcVRsdkg0QVhHaFVMWGZVaFp4WHNCclBIaUJublVHWElyMTdS?=
- =?utf-8?B?NnRsRFhKQkZVWDV1Vk83aThGWXIrZWUwdGM1c3NZdVZQUGlicWx4SXZrSEZ3?=
- =?utf-8?B?V2YxbG53eUxVMDlub3Fpb05YbFB2TWc2S29KV1J0d3l0eXJxcjRDTmJlZ0JB?=
- =?utf-8?B?RENERGdJTDU2NW1QNmZoUW9xWEVhNC9jRlNvUGtvR2I0Y08xN0R4MVF4NEVa?=
- =?utf-8?B?OW1UMnpYd3pLVmdYOFRXS3dJN0FkTEpwOTl6cmM1ZVdQVlJ4a2NzT0FvdWFj?=
- =?utf-8?B?ZDI2SUtWL0hLdWpCUXlxTWVQamVSQmJhSVFwREFFamhPMHpuckdpMWQ5enh1?=
- =?utf-8?B?ZzBpaWgvUlVlb09FeTl4Qko4ZE05NGdZQjlrM05lT1F3aVlIelhwRVhCckhW?=
- =?utf-8?B?dUpXNDIzbFFYWmNIZkxxWlNRcCtINkxMU1FQaGtqSHpqZnNIcmtJUHFKTkM3?=
- =?utf-8?B?Y3l1ZmdQeWlRQW9xa3k3bG5UM1NCZU5XejNPcHlXVnNobFlkckc2d3ZvQUlq?=
- =?utf-8?B?cDE4eUhEZHA3Wjl6MU1aeW1Udm1ZS1F6UE9ucC9KUEdvMUtnOThlWHpnQ0lS?=
- =?utf-8?B?dU1pWEM0U0F1M3hKNy9WVmgweDhmS3BkcUpPSXZSYUV3MHdNOHV0dEx0cHlP?=
- =?utf-8?B?TVROYU1RLzJDZVJGdHluZkNUK2RMMG4xUWJGTGltNkNBQ09QNEdCS2d4QzN6?=
- =?utf-8?B?SHI0SnYzcXo4NStMZk1CMWZmcmk1dWRhMENnRVNsSVY1SmY1YjZERzlZNTlX?=
- =?utf-8?B?MnZ1QVdkT1g1VkZUOVlWWWJWK2VTdlE4RkxjWTl4Q2NWQVpUOW5DN2hYQ3Bs?=
- =?utf-8?B?MGduY3RJMjY5UlRvTU5MTDJEelNGL3l0Kzg0SHNpeHd0MXNDQ0NULzR6OHpC?=
- =?utf-8?B?L2thcWtVT1pZUW5DeFNmT2RZMWpHY0dSeXVqK3R3ZGxEUzdJUllsWVA4VHFT?=
- =?utf-8?B?UE9UTzBnUS9xUW1GMlZVN1UvbFdvQlROY1djR3phRFdtOGxlQjZyTU5CVGhu?=
- =?utf-8?B?Rk5Pa1UyZ2hvZGJqazkzaUtuVXFITmdSeFRUQ25CbXBDRW94RlJYZy9mVGUx?=
- =?utf-8?B?WG9Ga3NNS01pWEkzcnhPRzZMTmYvc0VMUUQ1MzRTOXpmejFURWlqUENYd0Vu?=
- =?utf-8?B?dk1wbFM2VXAxRVRkRHVSUUhBeThFa2xtNDlRT21tdzFXMUpPRWFFbmRyeWdR?=
- =?utf-8?B?bGQvb3NoWGwxcnE3MThRSFg3L0pTYzFzMzVZdXVDcGdpZzZWNVpES0JDR2Vt?=
- =?utf-8?B?MXJzMXFwcmdlbzZyL3JvOVppcnJVNHZXeGk3Ti9sMlgvMTQyM1NFYUlNMVE5?=
- =?utf-8?B?WlFhM084MzFVcUNBR2FJT1YraFpYcjd1c2U4Q0x6SXhyYXVPem9XVHBZTHNF?=
- =?utf-8?B?elFIVjZXS1R5TUlVZGhpSlc3TWdQVCtmTXd0Z1lkM09sNmdaSlE4Tzh3RGM4?=
- =?utf-8?B?RUw0ZXFxWWpJMnpjVURqRHBVUWVHb213MEhFdERSeXlXcjdNQ1RMeG5zNVg0?=
- =?utf-8?B?UUMwMVZtaDljNnc3OUpwbkpveEhhc1gyNlVhcnhBbGRMYSs0TGI2M2J4dUF4?=
- =?utf-8?B?bTBkaUxZY2UwQXhkQmtmR1Y3NnB3REZRRU4xdWtLcW1OYjU0NGtTb01BTUNW?=
- =?utf-8?B?UTNBaTc0cTFjZXFHT1EwUC8rd21vakhWdUlvTWFuRE9lOVM3Y2ZEamxDcGJL?=
- =?utf-8?B?eHo1S0Ryem9UK240a1ZVdlMvVG1iN2ROZjhJb2k5MjJEQk1USUgvd0J1Q3pF?=
- =?utf-8?Q?tTlE=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 02:54:48.1398
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15b4be6f-a8eb-434e-b4b3-08de15cd5ba1
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E7.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6519
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9a28c7d7a403a3kunm3d7a8e9cae638
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR1NH1ZPQh5OGEpITh1MTR9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=GnW4Aw/dYogb45ppMn1qSoJSL2pNnFjBY0b/PtiQx/TSoajxTtANAPZYI2US7qTJxIytb8x03LMsWpn+ewbLYxi7VKk8//rVLAHcgXAfWEQR2cipDN5G90peVYads7hG4fsu94iGsxFccwarJeK+jGAhcKRDXCFx5toNeGHGRYQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=nNMTKt7YjJq48T2Pcq2cArq/vrX7B1+Cr2MDe+JTEgw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_195457_786072_54150F23 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20251027_200627_126634_35C9F34B 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,51 +79,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Hi Nicolas,
 
-​Thank you for your prompt feedback.​​
-
-On 10/28/2025 12:51 AM, Conor Dooley wrote:
-> On Mon, Oct 27, 2025 at 04:42:38PM +0800, Jun Guo wrote:
->> - Add new compatible strings to the DT binding documents to support
->>   cix sky1 SoC;
->> - Adjust the configuration of the compatible property to support both
->>   single-item and two-items cases.​​
->>
->> Signed-off-by: Jun Guo<jun.guo@cixtech.com>
->> ---
->>   .../devicetree/bindings/spi/spi-cadence.yaml          | 11 ++++++++---
->>   1 file changed, 8 insertions(+), 3 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/spi/spi-cadence.yaml b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
->> index 8de96abe9da1..e75b142a1368 100644
->> --- a/Documentation/devicetree/bindings/spi/spi-cadence.yaml
->> +++ b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
->> @@ -14,9 +14,14 @@ allOf:
->>   
->>   properties:
->>     compatible:
->> -    enum:
->> -      - cdns,spi-r1p6
->> -      - xlnx,zynq-spi-r1p6
->> +    oneOf:
->> +      - enum:
->> +          - cdns,spi-r1p6
->> +          - xlnx,zynq-spi-r1p6
->> +      - items:
->> +          - enum:
->> +              - cix,sky1-spi-r1p6
->> +          - const: cdns,spi-r1p6
-> This doesn't apply, probably needs a rebase on spi/for-next?
-> Approach is correct though, but it'll be a more minimal patch when
-> rebased.
-> pw-bot: changes-requested
+On 10/28/2025 1:11 AM, Nicolas Frattaroli wrote:
+> The Rockchip RK3576 SoC has a newer PWM controller IP revision than
+> previous Rockchip SoCs. This IP, called "PWMv4" by Rockchip, introduces
+> several new features, and consequently differs in its bindings.
 > 
-Thank you for the heads-up. I've just seen your patch, and I will base 
-my PATCH v3 on top of it.>>
->>     reg:
->>       maxItems: 1
->> -- 
->> 2.34.1
+> Instead of expanding the ever-growing rockchip-pwm binding that already
+> has an if-condition, add an entirely new binding to handle this.
+> 
+> There are two additional clocks, "osc" and "rc". These are available for
+> every PWM instance, and the PWM hardware can switch between the "pwm",
+> "osc" and "rc" clock at runtime.
+> 
+> The PWM controller also comes with an interrupt now. This interrupt is
+> used to signal various conditions.
+> 
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>   .../bindings/pwm/rockchip,rk3576-pwm.yaml          | 77 ++++++++++++++++++++++
+>   MAINTAINERS                                        |  7 ++
+>   2 files changed, 84 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml b/Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
+> new file mode 100644
+> index 000000000000..48d5055c8b06
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pwm/rockchip,rk3576-pwm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip PWMv4 controller
+> +
+> +maintainers:
+> +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> +
+> +description: |
+> +  The Rockchip PWMv4 controller is a PWM controller found on several Rockchip
+> +  SoCs, such as the RK3576.
+> +
+> +  It supports both generating and capturing PWM signals.
+> +
+> +allOf:
+> +  - $ref: pwm.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: rockchip,rk3576-pwm
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Used to derive the PWM signal.
+> +      - description: Used as the APB bus clock.
+> +      - description: Used as an alternative to derive the PWM signal.
+> +      - description: Used as another alternative to derive the PWM signal.
+> +
+> +  clock-names:
+> +    items:
+> +      - const: pwm
+> +      - const: pclk
+> +      - const: osc
+> +      - const: rc
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  "#pwm-cells":
+> +    const: 3
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3576-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pwm@2add0000 {
+> +            compatible = "rockchip,rk3576-pwm";
+> +            reg = <0x0 0x2add0000 0x0 0x1000>;
+> +            clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>, <&cru CLK_OSC_PWM1>,
+> +                     <&cru CLK_RC_PWM1>;
+> +            clock-names = "pwm", "pclk", "osc", "rc";
+> +            interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+> +            #pwm-cells = <3>;
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 252b06d4240c..baecabab35a2 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22366,6 +22366,13 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
+>   F:	drivers/media/platform/rockchip/rkisp1
+>   F:	include/uapi/linux/rkisp1-config.h
+>   
+> +ROCKCHIP MFPWM
+> +M:	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> +L:	linux-rockchip@lists.infradead.org
+> +L:	linux-pwm@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
+> +
+>   ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+>   M:	Daniel Golle <daniel@makrotopia.org>
+>   M:	Aurelien Jarno <aurelien@aurel32.net>
+> 
+
+The RK3506 and RV1126B platforms that are about to be upstream also use 
+this PWM IP. Would it be better to name the yaml file 
+"pwm-rockchip-v4.yaml"? Then subsequent platforms only need to expand 
+the compatible property.
+
+Best regards,
+Damon
 
 
