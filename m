@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783C0CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424B4CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 15:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YIWLk8it8FdUh5OPoc3YMgGMjFwqnKcGsN70DXgD85k=; b=U19+IyBKTx/uraAiGr+JyYxixj
-	65z8d/hbAsX3gMSEvwYO2+Xc8SuRA6bQHNjzH+DG7DWV+ec8A9Z+mLN6dP1BemDXx9dpZH/NMBLDk
-	f4SZlmleB00Ey4BwAaFD1Mlb5GS1ZYa8N+24hOdPg+7tXAj3im9uS8XICvAFwx0xiWSqCONsGzEsx
-	zYmybBgSTZacdMu2ty17fbvIHLGqQEL8jw+5ugiA5l6FkdwFczzZCkmefEjS/pSf9mzKYhu/9V01u
-	OgZaPJ5475f+9FX59A0JrEcZhu3pzkapbfPglMnrgfZSxmsCF2n62s4OF1GEvoWpptIc0VcWYx07R
-	qm0T7N1A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i1h+qVaCt4OHAgdENi+z8d2YGtEphNjqfMPnxu0iyxY=; b=2SAvraclk3sHNUJYI8diZc5ezz
+	OTVDPCqi1L/gr1aLD8evjdJtgfJVF4yX1rfIUw0m1G4eJ1cPlmDnHyoXbdjtDqMylh2JT3nJLhBB7
+	XVkwWeCRGElayMjqXncatEIRZojqsx+IqVIuUfuUEX+RJwefi/p36tbb9lJ9NucARrAhBg37CCFZD
+	8p8SDFJrPuKpeppbhsIcKPXZ9j2iI+xjM9P3qvVGVIO9ToLkLplMwRHpC4xV+dYsFtxfR209gnTsk
+	oG9udFWrWrO/u7cNfmOa/sKWQBZetoQ2n2fqHvFHuN2KunthWcFfp2NfKbCwI8JstwSiXqbMSGVAb
+	Z7ZMhEzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlV8-0000000GA9e-3OLm;
-	Tue, 28 Oct 2025 15:20:46 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	id 1vDlZ4-0000000GAP3-2tgW;
+	Tue, 28 Oct 2025 15:24:50 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDlV5-0000000GA8k-47M3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 15:20:45 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b6d731278e2so547948366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 08:20:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761664841; x=1762269641; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YIWLk8it8FdUh5OPoc3YMgGMjFwqnKcGsN70DXgD85k=;
-        b=wTK4/HhrU3p5PhOVdLfD2QN3dIq44fBzFtsty0Y75D3ra4JWa2jFYF+PsKk4n92YRx
-         gtnA8W+1xNNBu3w/Zx3d2zOvpq1sF76p1R39SuyRxVCFwg0TwqFz1P6CNc+MRao2TBO3
-         HywqZZfmlsN5fyUVvQYCRP7m72w22is5Egpxbtf5yXNFelvbUbK5vdUt/ow0fJHSLirf
-         PxgryQd7CI8o3yuee24bHzuV8HA2Y2+X5/cnYs5F52G0ba6ZXrkIJgHGp4D/9tRuVo3L
-         WTtXRSITd3G9f6Ve6lxwBr1zLcT/baMqxzTvZz9rAGVt62oyr5YI8CHWf8LuX4J5/25K
-         LCRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761664841; x=1762269641;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YIWLk8it8FdUh5OPoc3YMgGMjFwqnKcGsN70DXgD85k=;
-        b=gwfoHi2Zf7x9+kvNNAf4N1l0U6l3PP6B6tI2LQWTsScl3n6pQJMGnCnDPc7ROUQQvy
-         iD0ZaGkZNecGBzouzR0HubQALS7R8qbhQBy78LlsOPLmTKZu8OtGVcL16WIlXnu5GQ48
-         DtDSbHx77f/Ct54ObuA6EUbdO47J50UXBwNdOBe7BTNTnLmX/OuaHn4hhGbZTzPyqo+9
-         1LCRZeV4JeWbBpuA055sw8lDOlUK/M8/ul+XRuvpvTb8aR4mpcE/bkXTWZBMcE1A3gSG
-         I21bHD14q12xw+ksRv/o85+HZYr/+jgcJCueoesevvik8OVlOOTkSsKNk3rC/sVCXXT2
-         zo/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVKWUIhm9kqBo6ZJLBbKbHoDj4kqqaQoMNW+tvnokyTuFvfvdvKsA0g4oUkpuJoMiu3c1kTCmqmyUPW4DawNcRj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq7YDIi02qRHPhaok+SD1LRYt5FIKmzoSQfK04d3JXaSaSECki
-	7Hg0OIWjI4VUqIj0cvM30+tSqmtrZpIuTR8294Jgsj7uw/8tJlmWcxZbyEeXfclppwbLHbTc57f
-	zTL8dpddN3Q==
-X-Google-Smtp-Source: AGHT+IHRlIi7iumEViisCh02GxfRIyDe0dn87sMKGGtppytiH5B8AxwzXZp4+VsLTJGi7NohMhbpMoyrXtUf
-X-Received: from ejcyr4.prod.google.com ([2002:a17:907:db04:b0:b37:d295:d0b8])
- (user=abarnas job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:7f0b:b0:b42:f820:b7c
- with SMTP id a640c23a62f3a-b6dba56fe4amr441451666b.41.1761664839110; Tue, 28
- Oct 2025 08:20:39 -0700 (PDT)
-Date: Tue, 28 Oct 2025 15:20:11 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.51.1.851.g4ebd6896fd-goog
-Message-ID: <20251028152013.1697585-1-abarnas@google.com>
-Subject: [PATCH] clk: actions: Fix discarding const qualifier by
- 'container_of' macro
-From: "=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>
-To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	"=?UTF-8?q?Andreas=20F=C3=A4rber?=" <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	id 1vDlZ0-0000000GAOG-3FUW;
+	Tue, 28 Oct 2025 15:24:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761665083;
+	bh=aNk99UalTGwijupNSbWQmEeAIhQV4fyxuz2lZ6raB8U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KE1qR1mcIPBMQqUvCOe8SKBlL6lza7JasYZqvvO4b+yB5WfVxZOIEO/mfAoOLAkU/
+	 +RdF+PDdbqoUsbewOURnFmifJabsAdpv2em5BVXV+7q97zlFiE7Qyg9Z4VjslvysT7
+	 Qjy0WeaDD08lo7onj8AJir70MxZEiGUjJ7PBZ8jkrEJpTEMqhRY7+miWxygdy3tN8j
+	 uOWGKfL60s9uklDgn18/ZE67xH8i1BS1nVY/+74evb3NgbGB7WdMrcRbqgY7nMK0KF
+	 UsO/4bdwBjeMeZRbXZH4qq/TOcI5xi9Gu8nVSG+AHDwb7Rci94DZ/7rIIa1saxcz5h
+	 89AyVnQGBJXxQ==
+Received: from [192.168.1.90] (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BF23917E055D;
+	Tue, 28 Oct 2025 16:24:42 +0100 (CET)
+Message-ID: <13c3810b-8197-4a42-9089-d20a78b8126f@collabora.com>
+Date: Tue, 28 Oct 2025 17:24:42 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576
+ SoCs
+To: Mark Brown <broonie@kernel.org>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>,
+ Derek Foreman <derek.foreman@collabora.com>,
+ Daniel Stone <daniels@collabora.com>, Aishwarya.TCV@arm.com
+References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
+ <6f3f126d-72c1-48cb-a9c8-8d354af2a3d5@sirena.org.uk>
+ <410fa913-e86b-4ffd-9d79-ce804f0271ff@collabora.com>
+ <63003a7e-8d3d-433a-8a44-54fe8740bc3a@collabora.com>
+ <5678895e-2647-42db-b3f0-86a21b9bc225@sirena.org.uk>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <5678895e-2647-42db-b3f0-86a21b9bc225@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_082044_028556_37142966 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20251028_082446_985429_CA6FDD98 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,120 +93,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove const qualifier from functions parameter because it was discarded
-when container_of was called. Received pointer had mutable access to
-it through received container.
+On 10/28/25 5:08 PM, Mark Brown wrote:
+> On Tue, Oct 28, 2025 at 04:57:03PM +0200, Cristian Ciocaltea wrote:
+> 
+>> This seems to have been already addressed:
+> 
+>> https://lore.kernel.org/all/20251017-drm-bridge-alloc-getput-bridge-connector-fix-hdmi_cec-v2-0-667abf6d47c0@bootlin.com/
+> 
+> Ah, good.  Hopefully that lands soon, do you have any idea what's
+> holding it up?
 
-Signed-off-by: Adrian Barna=C5=9B <abarnas@google.com>
----
- drivers/clk/actions/owl-common.h    | 2 +-
- drivers/clk/actions/owl-composite.h | 2 +-
- drivers/clk/actions/owl-divider.h   | 2 +-
- drivers/clk/actions/owl-factor.h    | 2 +-
- drivers/clk/actions/owl-gate.h      | 2 +-
- drivers/clk/actions/owl-mux.h       | 2 +-
- drivers/clk/actions/owl-pll.h       | 2 +-
- 7 files changed, 7 insertions(+), 7 deletions(-)
+I guess it's just the complexity, since that is part of a larger work concerning DRM bridges:
 
-diff --git a/drivers/clk/actions/owl-common.h b/drivers/clk/actions/owl-com=
-mon.h
-index 8fb65f3e82d7..5768a2e0f6a0 100644
---- a/drivers/clk/actions/owl-common.h
-+++ b/drivers/clk/actions/owl-common.h
-@@ -32,7 +32,7 @@ struct owl_clk_desc {
- };
-=20
- static inline struct owl_clk_common *
--	hw_to_owl_clk_common(const struct clk_hw *hw)
-+	hw_to_owl_clk_common(struct clk_hw *hw)
- {
- 	return container_of(hw, struct owl_clk_common, hw);
- }
-diff --git a/drivers/clk/actions/owl-composite.h b/drivers/clk/actions/owl-=
-composite.h
-index bca38bf8f218..6d7c6f0c47c8 100644
---- a/drivers/clk/actions/owl-composite.h
-+++ b/drivers/clk/actions/owl-composite.h
-@@ -108,7 +108,7 @@ struct owl_composite {
- 		},							\
- 	}
-=20
--static inline struct owl_composite *hw_to_owl_comp(const struct clk_hw *hw=
-)
-+static inline struct owl_composite *hw_to_owl_comp(struct clk_hw *hw)
- {
- 	struct owl_clk_common *common =3D hw_to_owl_clk_common(hw);
-=20
-diff --git a/drivers/clk/actions/owl-divider.h b/drivers/clk/actions/owl-di=
-vider.h
-index 083be6d80954..d76f58782c52 100644
---- a/drivers/clk/actions/owl-divider.h
-+++ b/drivers/clk/actions/owl-divider.h
-@@ -49,7 +49,7 @@ struct owl_divider {
- 		},							\
- 	}
-=20
--static inline struct owl_divider *hw_to_owl_divider(const struct clk_hw *h=
-w)
-+static inline struct owl_divider *hw_to_owl_divider(struct clk_hw *hw)
- {
- 	struct owl_clk_common *common =3D hw_to_owl_clk_common(hw);
-=20
-diff --git a/drivers/clk/actions/owl-factor.h b/drivers/clk/actions/owl-fac=
-tor.h
-index 04b89cbfdccb..24c704d40925 100644
---- a/drivers/clk/actions/owl-factor.h
-+++ b/drivers/clk/actions/owl-factor.h
-@@ -57,7 +57,7 @@ struct owl_factor {
-=20
- #define div_mask(d) ((1 << ((d)->width)) - 1)
-=20
--static inline struct owl_factor *hw_to_owl_factor(const struct clk_hw *hw)
-+static inline struct owl_factor *hw_to_owl_factor(struct clk_hw *hw)
- {
- 	struct owl_clk_common *common =3D hw_to_owl_clk_common(hw);
-=20
-diff --git a/drivers/clk/actions/owl-gate.h b/drivers/clk/actions/owl-gate.=
-h
-index c2f161c93fda..ac458d4385ee 100644
---- a/drivers/clk/actions/owl-gate.h
-+++ b/drivers/clk/actions/owl-gate.h
-@@ -56,7 +56,7 @@ struct owl_gate {
- 		},							\
- 	}								\
-=20
--static inline struct owl_gate *hw_to_owl_gate(const struct clk_hw *hw)
-+static inline struct owl_gate *hw_to_owl_gate(struct clk_hw *hw)
- {
- 	struct owl_clk_common *common =3D hw_to_owl_clk_common(hw);
-=20
-diff --git a/drivers/clk/actions/owl-mux.h b/drivers/clk/actions/owl-mux.h
-index 53b9ab665294..dc0ecc2d5e10 100644
---- a/drivers/clk/actions/owl-mux.h
-+++ b/drivers/clk/actions/owl-mux.h
-@@ -44,7 +44,7 @@ struct owl_mux {
- 		},							\
- 	}
-=20
--static inline struct owl_mux *hw_to_owl_mux(const struct clk_hw *hw)
-+static inline struct owl_mux *hw_to_owl_mux(struct clk_hw *hw)
- {
- 	struct owl_clk_common *common =3D hw_to_owl_clk_common(hw);
-=20
-diff --git a/drivers/clk/actions/owl-pll.h b/drivers/clk/actions/owl-pll.h
-index 78e5fc360b03..58e19f1ade43 100644
---- a/drivers/clk/actions/owl-pll.h
-+++ b/drivers/clk/actions/owl-pll.h
-@@ -98,7 +98,7 @@ struct owl_pll {
-=20
- #define mul_mask(m)		((1 << ((m)->width)) - 1)
-=20
--static inline struct owl_pll *hw_to_owl_pll(const struct clk_hw *hw)
-+static inline struct owl_pll *hw_to_owl_pll(struct clk_hw *hw)
- {
- 	struct owl_clk_common *common =3D hw_to_owl_clk_common(hw);
-=20
---=20
-2.51.1.821.gb6fe4d2222-goog
-
+https://lore.kernel.org/all/20250926-drm-bridge-alloc-getput-bridge-connector-v2-1-138b4bb70576@bootlin.com/
 
