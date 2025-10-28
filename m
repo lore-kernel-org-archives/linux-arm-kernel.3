@@ -4,107 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8433CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB6A9CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Oct 2025 09:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fmSiJochkIHxmmPnWIdCnfE69r0nouu5mCKBjNvnml0=; b=nYxcR/y1Y41M0OCRgmetQyxVLn
-	8AAqN7gIhGBlzehqZ5wfzV0Jq3YffcBeR2K6R7C1FsDlEzb18YzBNUtBFTzj6brhkvIVrzReiC1CO
-	HPTQmMhM9MTKuLBa+JcyBfezlN5mmFU56kuEs8j4iMKu9oQ2zM2ke8nEZh1pOte4M+TGFyxFZyH0O
-	kErfw+4WITn0A/j6p+4OIIDQ8MEWENARLjHmv6vWwrh0WnrQq6kheCPno2H2vPVlFuzDweMMMUfUz
-	sRu9Ufj6sPlBvUSAnEbcMYFB5SrKK4CtwXls8qaTHBXOGVAmjSPOY49REKNyIL5JuBY9AdUsA1E7B
-	AnmPjeCg==;
+	bh=e58+fNddGzKAOXNx1q0z8A5H8OAdJV64gGeZoQGGH1A=; b=iJUPrAq0WuNVByRm0cap6Ok0PC
+	7Hr8O6RdY/xGrHAGRwZ/nx09q9rgyt/J6XzpyLEeD1zRMyJKulkZrBVYCMIyPNWp5ISsHH8EHwSwL
+	nbGhBK8N26vsWCdkeY8KFswANCMtJetfuR5AGgMnYQsHDD88aFen2CZttvdKH3XioxBx3oYuRGd+T
+	zSVQvU3+Gvx9x2sMysMpx1P0h9BmSJhFQ1T0OKfH0iRztYMv2SgJSP1Pu9UVKs33iI6TbFlrTWKhf
+	dRETC7ow9maACSFJn7bwbdXlmvG2QoYQtR5ZG0wrZ7q2xAkfV67gHVdKjmO/SK3yDh47FeI77WHJz
+	8szpfQpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDfkY-0000000FcVa-2qTS;
-	Tue, 28 Oct 2025 09:12:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vDg0j-0000000FdgG-0n9I;
+	Tue, 28 Oct 2025 09:29:01 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDfkW-0000000FcUn-1gYE
+	id 1vDg0g-0000000Fdfj-09dE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Oct 2025 09:12:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761642735;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fmSiJochkIHxmmPnWIdCnfE69r0nouu5mCKBjNvnml0=;
-	b=R8aYLF5AVAOhF0UNJGY23UERWExOgOw8VrtB3uN7xq02jHYRVsZfP73oMiH1bI6Fe6zzpL
-	FLk5ASTAraCUlKv2vZWErTlvXAdMrPxJPNtVeMrSK8wqD8uNYlUNJNGvXOMHm8EZsFWOh4
-	EI6tMPua7w8jLUnZSCoh/o174KVXqf0=
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-458-HRTbh0GYN6K3LeHZOgFo2Q-1; Tue, 28 Oct 2025 05:10:43 -0400
-X-MC-Unique: HRTbh0GYN6K3LeHZOgFo2Q-1
-X-Mimecast-MFC-AGG-ID: HRTbh0GYN6K3LeHZOgFo2Q_1761642642
-Received: by mail-ed1-f70.google.com with SMTP id 4fb4d7f45d1cf-634cdb5d528so7703644a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:10:43 -0700 (PDT)
+	Tue, 28 Oct 2025 09:28:59 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59S7daru1033044
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 09:28:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	e58+fNddGzKAOXNx1q0z8A5H8OAdJV64gGeZoQGGH1A=; b=OuRNaO/ZXOk9q3hp
+	t5iigTW7+TOM94JNxgV3pm3jVgA98LE6rTno2SuetfrUkraWTzsiDFu/KrnI7exB
+	Fu4AyuWD90KGYZqKuVkGHfKiS8vd9uKMVUbssUIpUgIFz7GvNGGj5SPmyAbdkmjI
+	A21YYDQbmLeHWgNBW/1p6heoODB9TWKp23+mNKo8WxKofNQBHjfOA7r13Oumi6BM
+	TpITRsJMNAcvw2lqzAyBmp3MIEGLKhL8LJzVWQBA/3gERZAl0QnzEp04Cok9Buy9
+	LylIGaf9aq5cGVUAglp7Fh6ASTR5mHNX/dtQ/fLXFVkoY5xQEb84yjOR4qvZQjlf
+	1jvNpw==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a2smurbd7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 09:28:55 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4e8a35e1923so13829711cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 02:28:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761642642; x=1762247442;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2jISGdCb1GJlrcq0k79tPP36lvaZ1ZSwf/Nio4tsSv8=;
-        b=P/xh6e/8KnWASu5rNn9wIqf+/PjSsJ1LjyE155y+nxY0len9GSZfBWEFSlM/psRB3s
-         GX1WY6AUf48j5zskyeZC7on+a0x2SsldfEe4FiYftIzYyjsyPje427JWJ3wa8likiPoY
-         Pd1cbW9l4OeXraJEtbfQLZQ6xsgnU/0xXfICCaM8KRDO/wsVfHsS1aRBrmkPvVsWU+i2
-         3gF3qwFOgHNpys4CJ5DjTTee+913QI4rUG24LhbDty4rJQAlORsJdigiUaIWY85US3ii
-         VvVHtsU2Nslu9zkJaMWEStFhPDca9GZwirgsardLjacC8NxERnomg8Xyopjz68AjQvxH
-         g1vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWGLi9mbCJvNHFvfrQW2KhFze0MnOCcrMVhlJ4prn1/1nJSYPQWzMgk9tt5xjGMSmhXevMjaEWlipkyN6ciSzVg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYMIVGCTF1IrenmWaBuMcLw2AqWNFvCDLvLBIverGevcMG6nQG
-	dskHDr8EFvLMwaf2K9MdOT7dBbJPgLGf3hFx3FbD/aoJUq6OAvoXVYfoQjRPk5tdLK9jPiucaX6
-	XGVAgDpwCko9FATSIQkc1t9QI8vsGrunoGYEe9fRcQot6XSMWoBi8ySh1DYxbSSLoBZVLn8e2qW
-	ql
-X-Gm-Gg: ASbGncsgkGEHwpU72ITQI/yOdZceaNTrx/iyQIjlm2zCaBT5fBr7b6BJbIuMsQTkn/Y
-	4HH9kZgausRwcQguS3JzxzLEvuCzXC+s/l2f9jtFOctRlz4GBbjmsWXSmkhW6/IfTDVUciSaOqO
-	9M4aXm+3efTjqsnZVNItB95+LjdnphpXx7lt/MqQd0Z1VkpISy1FXVKuIpE15ddfAifsWDz2jGk
-	O2pzq2KpyVklz8K4LonGF2DZtokAZzWqiFkDKe/vtqud66sRh/pvoeBXut8iThEYvK9g/9AiJnI
-	4luTyvGfuLiI0o6qwsMy2K4DhXCu6SDDi9EcURLdNWasmB3piJpEky41Aqv3AJhv99M4nCv3iGI
-	XNs71ctmnevaEt0Kys06Y8IA=
-X-Received: by 2002:a05:6402:3551:b0:63b:f48d:cf46 with SMTP id 4fb4d7f45d1cf-63f4bcb889dmr2198781a12.8.1761642642409;
-        Tue, 28 Oct 2025 02:10:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGYL1I7iYELO1BGl1eN/tsiGHTTVmgI6PfKI6Bfdq9lP4t6LQVqj/exevSCIOYmz6JDfKXGcg==
-X-Received: by 2002:a05:6402:3551:b0:63b:f48d:cf46 with SMTP id 4fb4d7f45d1cf-63f4bcb889dmr2198759a12.8.1761642641927;
-        Tue, 28 Oct 2025 02:10:41 -0700 (PDT)
-Received: from alrua-x1.borgediget.toke.dk ([45.145.92.2])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6402a6be2eesm1007717a12.16.2025.10.28.02.10.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 02:10:41 -0700 (PDT)
-Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
-	id 9DF882EAC76; Tue, 28 Oct 2025 10:10:40 +0100 (CET)
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
-To: Jesper Dangaard Brouer <hawk@kernel.org>, netdev@vger.kernel.org
-Cc: Jesper Dangaard Brouer <hawk@kernel.org>, Eric Dumazet
- <eric.dumazet@gmail.com>, "David S. Miller" <davem@davemloft.net>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- ihor.solodrai@linux.dev, "Michael S. Tsirkin" <mst@redhat.com>,
- makita.toshiaki@lab.ntt.co.jp, toshiaki.makita1@gmail.com,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com
-Subject: Re: [PATCH net V2 2/2] veth: more robust handing of race to avoid
- txq getting stuck
-In-Reply-To: <176159553930.5396.4492315010562655785.stgit@firesoul>
-References: <176159549627.5396.15971398227283515867.stgit@firesoul>
- <176159553930.5396.4492315010562655785.stgit@firesoul>
-X-Clacks-Overhead: GNU Terry Pratchett
-Date: Tue, 28 Oct 2025 10:10:40 +0100
-Message-ID: <87bjlre6i7.fsf@toke.dk>
+        d=1e100.net; s=20230601; t=1761643735; x=1762248535;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=e58+fNddGzKAOXNx1q0z8A5H8OAdJV64gGeZoQGGH1A=;
+        b=mwfZz21HX3cqcU3exV4Cu9ctOqEYfJNgw4q4kzEZ1rDN03wPZf1a7UScihNpbfRc1R
+         ZGwivZxj/WkIYMj9rlmTSaEdWCJGf8GJJLMZ0O/IPvZHRteBF49s7o2UODEDkOylrfXr
+         ZWpOYJHn/EpsizRMVFmJYrwTtU5JcfuGwFr/rRHO8dBFY5KFB6n0eeWgF1Qb7JYX2VvF
+         qBLhhz4m5Bnb27/02D7H2LLaF52pechBQ4pd1xjdjCUis9+0/9swPectWuY/KDfiFOea
+         qFo6zix7SaPgEGWh71iYXXRZSrSr+aR61E1j/5qFie9I/jPJkmvkTQrU4TIagmYi3P42
+         Kq9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUkZuVxNR40oAwpnRShwNffVuYGVi0oEIR6LvidXxC5UJ+mD8tGphCejcnpwt7XQ49yofjiXMdwDIbzeKsK49a1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw08mxmkKjgP1/BdEpg6cYqO8kyY49tfRmPbm5r2Wr2Buel20JU
+	A3xfpIUoEKl9bAAa7pf9ExK/Vz4H0XoCxsgLzGLHfUxB+NK2MDS1Lg0ehbr6e4Nlj48rZqUSZXH
+	hAJOddIsvQQVMyQiR2R/SYoqLh0hQIMRCxC95DIVEw/pdRcrNyEp5wjkjYiK9xcwQf6R4ZtC4SE
+	MyKhdQDe7g1A==
+X-Gm-Gg: ASbGncuHUBJO2lYLLnVPVRl2lZW3scB+HN2XzOxON9jP8B8IDNQ25nS8mDHB9FNHzfj
+	JhmgWp3zpOr/oibao2B5iHqzPN3QK4/oTEbhCjuLyTddz8CxHkEt7HZo1XOWwcp8GCIbhE60q/7
+	q+CcTAcfT7JnXfHm1wNvUf9HAPo/GfWUUiEEXixdsO+c3vw8PDoAJQxWFMUMSm5FhmCGWcr2Yiu
+	Sw+vaOaHccbQtbtaV07f7WoP/CS+xMzULI+R75/mt0shMrzcRTR/KLvcIovIJMPYQb6LRurhjO2
+	ILM6FPcD7I/GKTkhsJLG6wO65/A9bYT4aEfOV0wlPkpfzLWUVm/uVRj6EeQD6p6qw0+MfNQ5xw6
+	IvwUAM57y31u2BxK1U4RJe8JdMDLtXni/g1GDnYVoAfGIKp9OPXeqROOG
+X-Received: by 2002:ac8:7fc4:0:b0:4b7:94f1:7722 with SMTP id d75a77b69052e-4ed07300584mr24794441cf.0.1761643734628;
+        Tue, 28 Oct 2025 02:28:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH1y09EzKeIgKo6FSlPS4BPv76TL/fj50gN3CY3VRT9ZqcFngZTXBYoyq9XTVLAJGTrU+4UEg==
+X-Received: by 2002:ac8:7fc4:0:b0:4b7:94f1:7722 with SMTP id d75a77b69052e-4ed07300584mr24794321cf.0.1761643734082;
+        Tue, 28 Oct 2025 02:28:54 -0700 (PDT)
+Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d853386casm1023836866b.15.2025.10.28.02.28.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Oct 2025 02:28:53 -0700 (PDT)
+Message-ID: <38628ff7-8080-4ab2-a9a7-78b51f3f699b@oss.qualcomm.com>
+Date: Tue, 28 Oct 2025 10:28:51 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: R0KFr0voLpVeoVhpHNQtUd8HILoSSqEcbB5aQbnXHJY_1761642642
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/12] arm64: dts: qcom: x1e80100: add Coresight nodes for
+ APSS debug block
+To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan <leo.yan@linux.dev>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Jie Gan <jie.gan@oss.qualcomm.com>, Johan Hovold <johan@kernel.org>
+References: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
+ <20251027-cpu_cluster_component_pm-v1-12-31355ac588c2@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20251027-cpu_cluster_component_pm-v1-12-31355ac588c2@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: d6yWQFYaPFNOQ57GLkHnDG73KeQcIzn3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDA4MCBTYWx0ZWRfXz/fzoPiM4J0X
+ ovoVl3heU6WqhH9wOlsc/eJEw2rH9q4crcgTTZPdZiyI7EfLHX04Px8RRK00wXXKZTegD0YtZWN
+ RRrLCRsQh1uftWRHJfk7ZHx+a1q6nfRGbQ3X9n9KLP+G4SFJL+VOUkqaZJ2qrAQxIhKH/gqq/Du
+ bEEHFhXnGT28kjeYgQMuVmNHHbhMdCadTUSFy+nUVs38D/PcNZyxg1Bec1IXuGhZlO2lCBiF528
+ bl0owaQVa9k8ZxctT6E6cA9BexS/T0K0K3cSdodilpXtiL6sqjHy74dzr9hLsOD+fIhslkmTBbY
+ B11/Bqz8AsPgKG/nx8pr8qUp7JknmXk0/aSXJ7RjfKutA3O+rj5oi3CAojGzlFW12YKb8kOmGV3
+ HcAw41LQ9r05SQ9LcrHqMJqp2a3LQA==
+X-Authority-Analysis: v=2.4 cv=IcCKmGqa c=1 sm=1 tr=0 ts=69008cd7 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=zitRP-D0AAAA:8 a=H2ti3IRskaQp3tPIb7kA:9 a=QEXdDO2ut3YA:10
+ a=zZCYzV9kfG8A:10 a=uxP6HrT_eTzRwkO_Te1X:22 a=xwnAI6pc5liRhupp6brZ:22
+X-Proofpoint-GUID: d6yWQFYaPFNOQ57GLkHnDG73KeQcIzn3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-28_03,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 suspectscore=0 impostorscore=0 spamscore=0
+ priorityscore=1501 adultscore=0 malwarescore=0 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510020000 definitions=main-2510280080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_021216_517157_EADF2FEF 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20251028_022858_205592_ADB999A8 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,75 +146,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jesper Dangaard Brouer <hawk@kernel.org> writes:
+On 10/28/25 7:28 AM, Yuanfang Zhang wrote:
+> Add below Coresight devices for APSS debug block:
+> -ETM
+> -TMC ETF
+> -Funnel
+> -Replicator
 
-> Commit dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to
-> reduce TX drops") introduced a race condition that can lead to a permanen=
-tly
-> stalled TXQ. This was observed in production on ARM64 systems (Ampere Alt=
-ra
-> Max).
->
-> The race occurs in veth_xmit(). The producer observes a full ptr_ring and
-> stops the queue (netif_tx_stop_queue()). The subsequent conditional logic=
-,
-> intended to re-wake the queue if the consumer had just emptied it (if
-> (__ptr_ring_empty(...)) netif_tx_wake_queue()), can fail. This leads to a
-> "lost wakeup" where the TXQ remains stopped (QUEUE_STATE_DRV_XOFF) and
-> traffic halts.
->
-> This failure is caused by an incorrect use of the __ptr_ring_empty() API
-> from the producer side. As noted in kernel comments, this check is not
-> guaranteed to be correct if a consumer is operating on another CPU. The
-> empty test is based on ptr_ring->consumer_head, making it reliable only f=
-or
-> the consumer. Using this check from the producer side is fundamentally ra=
-cy.
->
-> This patch fixes the race by adopting the more robust logic from an earli=
-er
-> version V4 of the patchset, which always flushed the peer:
->
-> (1) In veth_xmit(), the racy conditional wake-up logic and its memory bar=
-rier
-> are removed. Instead, after stopping the queue, we unconditionally call
-> __veth_xdp_flush(rq). This guarantees that the NAPI consumer is scheduled=
-,
-> making it solely responsible for re-waking the TXQ.
->
-> (2) On the consumer side, the logic for waking the peer TXQ is moved out =
-of
-> veth_xdp_rcv() and placed at the end of the veth_poll() function. This
-> placement is part of fixing the race, as the netif_tx_queue_stopped() che=
-ck
-> must occur after rx_notify_masked is potentially set to false during NAPI
-> completion.
->  This handles the race where veth_poll() consumes all packets and complet=
-es
-> NAPI before veth_xmit() on the producer side has called netif_tx_stop_que=
-ue().
-> In this state, the producer's __veth_xdp_flush(rq) call will see
-> rx_notify_masked is false and reschedule NAPI. This new NAPI poll, even i=
-f it
-> processes no packets, is now guaranteed to run the netif_tx_queue_stopped=
-()
-> check, see the stopped queue, and wake it up, allowing veth_xmit() to pro=
-ceed.
->
-> (3) Finally, the NAPI completion check in veth_poll() is updated. If NAPI=
- is
-> about to complete (napi_complete_done), it now also checks if the peer TX=
-Q
-> is stopped. If the ring is empty but the peer TXQ is stopped, NAPI will
-> reschedule itself. This prevents a new race where the producer stops the
-> queue just as the consumer is finishing its poll, ensuring the wakeup is =
-not
-> missed.
->
-> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to =
-reduce TX drops")
-> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
+This is a really crude commit message.. please take the opportunity
+to describe the topology, any updates/quirks/exciting new features
 
-Reviewed-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+[...]
 
+> +			out-ports {
+> +				port {
+> +					apss_funnel_out: endpoint {
+> +						remote-endpoint =
+> +						<&funnel1_in4>;
+> +					};
+
+Unbreak this line
+
+The X1P part doesn't apply on on next-20251027.. I see that your base
+is some coresight branch - is it part of linux-next? If so, you can
+just base your series on that.
+
+I can confirm an unfused X1E80100 still boots up with this change
+
+Although the problem that was originally brought up here:
+
+https://lore.kernel.org/linux-arm-msm/Z6t45aOGDkotqM4Z@hovoldconsulting.com/
+
+still exists..
+
+$ dmesg | grep replicator | wc -l
+128
+
+otherwise lgtm
+
+Konrad
 
