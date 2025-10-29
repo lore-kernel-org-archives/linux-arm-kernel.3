@@ -4,99 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5872CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA02CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZt9veOJgl0wOLmOliuOI1yn5RVAFzcWQ0L6Svq3AkU=; b=FqF3MSHDDZIHyPllDzIqeHqPEy
-	SnwftOH49e6A02AATeu/UpeuzXKDlZ+jQBDj2jINuI/IFumqXww2VjhHsgeSAEyI66SFRvcqV8hbg
-	EpRm87r5+RHbVZVvjv2026quHUNYPEBrhyTcchN3rzmcLVROioLuGfR5iKZ7NyrOlgKZKDgoLAOsz
-	S0ImC1nbY0kvq0GV6G2/ztmbU1yK5GnQRr7wIqhrCjcBEnfWRiFh/rbK3czodzI9ShDKc6iVL4jD3
-	dux8439ng5yUmPQqIdf2/A9pmYttFw7UIe6UBoTg+qrTAEGanj5wduQlBVO96O5P7BmdoiE1OtYh6
-	K8naIt+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tU9QxlqVuGegESr+I2jUpPCIHQMHB3pTOdd+wNW4O98=; b=DP81Z3Fw6+qQHtt/Q1B6PtWY9O
+	g9yQIot+j1ToAUqbamdx1F1o6cGau+qbW38Fk9reZIGbwoDP9tkezwprWkhS6Mo/jes6GCBWwZAu0
+	hA03nIL/OMhk97FBdWPEGeZajHebDkXPXMYfcO1uIRaUPfM9xncFVZ11Rp2n0cVvgf9w8voomo1ps
+	D1xZKzW6oZUazUE9fnrlfwYcANWjVt6kengFba0eZkKnOnPGqANGfpeb5bSsnMBqFi5inS/CV1Otj
+	1Va1VP8CHfzr3xRjV/ycm9gMm6DZu0HJL95a22A7jg9fwHA5m2RTdxIn2D/mhMIRCZvEQuPfje+3g
+	v1sHUyKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4bx-000000012O6-1UzH;
-	Wed, 29 Oct 2025 11:45:05 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1vE4cx-000000012cP-31iD;
+	Wed, 29 Oct 2025 11:46:07 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4bu-000000012N8-3Ztj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 11:45:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761738303; x=1793274303;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6XSaKopHyy8KU2O32dbHyC4KZpWAHo6sZdtoZmPCYlE=;
-  b=QLmtwfscwSthUV14rIhll3wzlhxtOa4H6GAiYzYyZ8+caOg88swyH0yf
-   MNpQlc+ABkFRLaJVWzNaV+ShhDw0ojL0rOoFlCkJ3/gF3lsfvDXxHWApF
-   NnZRRdU1fiMz/xdegsMH4ujdJ8vPxomlG//HAPFDh5eSJeo0y4cU0Raoy
-   uth+pRt7GhhDOmcdWb7FMSarylS0MBxPc83abvGKetDOA/r4X4szjem8Q
-   e1C5gvyS+DIue1oKc5A7u7iQYx5v4W6AaTRAfLD8ZSr9xsvMMd/oo0Dpt
-   XhwzVRdtwVJwfxKLk4iZfk8/BZ2Rmh6vnaII4zzVUwZ/ae8bjugFyg2uW
-   A==;
-X-CSE-ConnectionGUID: +3hmH6DWTzG8zZPGYJpt7g==
-X-CSE-MsgGUID: dA5aSntkRTawSZGAgu+wSA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11596"; a="74146044"
-X-IronPort-AV: E=Sophos;i="6.19,263,1754982000"; 
-   d="scan'208";a="74146044"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 04:45:02 -0700
-X-CSE-ConnectionGUID: h7d57gFvQ465lpC0qpJFAQ==
-X-CSE-MsgGUID: BntByR5dSrqcItPn9r5Fsg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,263,1754982000"; 
-   d="scan'208";a="186093336"
-Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.244.248])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 04:44:56 -0700
-Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1vE4bl-00000003bE5-1ZTo;
-	Wed, 29 Oct 2025 13:44:53 +0200
-Date: Wed, 29 Oct 2025 13:44:53 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Alexey Klimov <alexey.klimov@linaro.org>,
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v3 03/10] gpiolib: implement low-level, shared GPIO
- support
-Message-ID: <aQH-NcXry6_IlqXQ@smile.fi.intel.com>
-References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
- <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
+	id 1vE4cr-000000012a7-3cql;
+	Wed, 29 Oct 2025 11:46:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761738358;
+	bh=u/aqBEyYqByF3ozze0YJu0YuHgdtvDeMsN7BUsRpv4I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k5eTs6SB4dsbkVyUNcd9fYQehBXkTJfOxaoXGZvg2Z9A6HDT/zT2B+tOywLOi3HPv
+	 crSXwSOgcszVNsAOGmdUjBtWpKhRFFtQWHTxU+zXG92on59XquPpceq2MRCYObAATQ
+	 kXNxX9rXfa78NDNGgLNAZKlpNnPdJh3QpKSLgT2kXCZ/FENkPFHWeNvCSSo9Peo/lf
+	 SHCbAdxQCF+mz9PbAZWIL0kbAzlQVT/8rMt9E4y/bYnajxn7vtbWQ1VPk/5wSQ+ox2
+	 hHA8vcVleTiBPHJVwrbxxpasbf3tqim8SxZRL+VPqemrWJNPQGmE4MvJODRm2vujko
+	 iaVO3l2E0yP1Q==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 76E9B17E013C;
+	Wed, 29 Oct 2025 12:45:58 +0100 (CET)
+Message-ID: <dcb66482-bd62-41d7-88d2-c1e271abe90c@collabora.com>
+Date: Wed, 29 Oct 2025 12:45:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: memory-controllers: mtk-smi: Add
+ support for mt8189
+To: Zhengnan Chen <zhengnan.chen@mediatek.com>, Yong Wu
+ <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20251027121443.16783-1-zhengnan.chen@mediatek.com>
+ <20251027121443.16783-2-zhengnan.chen@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251027121443.16783-2-zhengnan.chen@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_044502_991862_0D66201E 
-X-CRM114-Status: GOOD (  34.69  )
+X-CRM114-CacheID: sfid-20251029_044602_097723_4040093B 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,164 +80,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 12:20:39PM +0100, Bartosz Golaszewski wrote:
+Il 27/10/25 13:14, Zhengnan Chen ha scritto:
+> Add binding description for mt8189.
 > 
-> This module scans the device tree (for now only OF nodes are supported
-> but care is taken to make other fwnode implementations easy to
-> integrate) and determines which GPIO lines are shared by multiple users.
-> It stores that information in memory. When the GPIO chip exposing shared
-> lines is registered, the shared GPIO descriptors it exposes are marked
-> as shared and virtual "proxy" devices that mediate access to the shared
-> lines are created. When a consumer of a shared GPIO looks it up, its
-> fwnode lookup is redirected to a just-in-time machine lookup that points
-> to this proxy device.
+> The clocks number of mt8189 smi-sub common has a bit difference.
+> Its clock count is 2, while mt8195 has 3. Therefore, the minimum
+> number of clocks is changed to 2, with the third one being optional.
 > 
-> This code can be compiled out on platforms which don't use shared GPIOs.
+> About what smi-sub-common is, please check the below diagram,
+> we add it in mediatek,smi-common.yaml file.
+> 
+> Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
+> ---
+> Hi Angelo,
+> We add a diagram in the smi-common yaml, We are not sure if you agree
+> with this. thus I remove your R-b.
 
-Besides strcmp_suffix() that already exists in OF core, there are also some
-existing pieces that seems being repeated here (again). Can we reduce amount
-of duplication?
+I agree with that, and the diagram looks good.
 
-...
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-> +#if IS_ENABLED(CONFIG_OF)
-> +static int gpio_shared_of_traverse(struct device_node *curr)
-> +{
-
-I believe parts of this code may be resided somewhere in drivers/of/property.c
-or nearby as it has the similar parsing routines.
-
-> +	struct gpio_shared_entry *entry;
-> +	size_t con_id_len, suffix_len;
-> +	struct fwnode_handle *fwnode;
-> +	struct of_phandle_args args;
-> +	struct property *prop;
-> +	unsigned int offset;
-> +	const char *suffix;
-> +	int ret, count, i;
+> 
+> Thanks.
+> ---
+> ---
+>   .../mediatek,smi-common.yaml                  | 25 +++++++++++++++++--
+>   .../memory-controllers/mediatek,smi-larb.yaml |  3 +++
+>   2 files changed, 26 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+> index 0762e0ff66ef..454d11a83973 100644
+> --- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+> +++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+> @@ -25,6 +25,21 @@ description: |
+>     SMI generation 1 to transform the smi clock into emi clock domain, but that is
+>     not needed for SMI generation 2.
+>   
+> +  The smi-common connects with smi-larb and IOMMU. The maximum inputs number of
+> +  a smi-common is 8. In SMI generation 2, the engines number may be over 8.
+> +  In this case, we use a smi-sub-common to merge some larbs.
+> +  The block diagram something is like:
 > +
-> +	for_each_property_of_node(curr, prop) {
-> +		/*
-> +		 * The standard name for a GPIO property is "foo-gpios"
-> +		 * or "foo-gpio". Some bindings also use "gpios" or "gpio".
-> +		 * There are some legacy device-trees which have a different
-> +		 * naming convention and for which we have rename quirks in
-> +		 * place in gpiolib-of.c. I don't think any of them require
-> +		 * support for shared GPIOs so for now let's just ignore
-> +		 * them. We can always just export the quirk list and
-> +		 * iterate over it here.
-> +		 */
-> +		if (!strends(prop->name, "-gpios") &&
-> +		    !strends(prop->name, "-gpio") &&
-> +		    strcmp(prop->name, "gpios") != 0 &&
-> +		    strcmp(prop->name, "gpio") != 0)
-> +			continue;
+> +                          IOMMU
+> +                           | |
+> +                       smi-common
+> +              ---------------------------
+> +               |          |           ...
+> +              larb0   sub-common      ...  <-max number is 8
+> +                   ----------------
+> +                    |     |    ...
+> +                  larb1 larbX  ...  <-max number is 8
 > +
-> +		count = of_count_phandle_with_args(curr, prop->name,
-> +						   "#gpio-cells");
-> +		if (count <= 0)
-> +			continue;
-> +
-> +		for (i = 0; i < count; i++) {
-> +			struct device_node *np __free(device_node) = NULL;
-> +
-> +			ret = of_parse_phandle_with_args(curr, prop->name,
-> +							 "#gpio-cells", i,
-> +							 &args);
-> +			if (ret)
-> +				continue;
-> +
-> +			np = args.np;
-> +
-> +			if (!of_property_present(np, "gpio-controller"))
-> +				continue;
-> +
-> +			/*
-> +			 * We support 1, 2 and 3 cell GPIO bindings in the
-> +			 * kernel currently. There's only one old MIPS dts that
-> +			 * has a one-cell binding but there's no associated
-> +			 * consumer so it may as well be an error. There don't
-> +			 * seem to be any 3-cell users of non-exclusive GPIOs,
-> +			 * so we can skip this as well. Let's occupy ourselves
-> +			 * with the predominant 2-cell binding with the first
-> +			 * cell indicating the hardware offset of the GPIO and
-> +			 * the second defining the GPIO flags of the request.
-> +			 */
-> +			if (args.args_count != 2)
-> +				continue;
-> +
-> +			fwnode = of_fwnode_handle(args.np);
-> +			offset = args.args[0];
-> +
-> +			entry = gpio_shared_find_entry(fwnode, offset);
-> +			if (!entry) {
-> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
-> +				if (!entry)
-> +					return -ENOMEM;
-> +
-> +				entry->fwnode = fwnode_handle_get(fwnode);
-> +				entry->offset = offset;
-> +				entry->index = count;
-> +				INIT_LIST_HEAD(&entry->refs);
-> +
-> +				list_add_tail(&entry->list, &gpio_shared_list);
-> +			}
-> +
-> +			struct gpio_shared_ref *ref __free(kfree) =
-> +					kzalloc(sizeof(*ref), GFP_KERNEL);
-> +			if (!ref)
-> +				return -ENOMEM;
-> +
-> +			ref->fwnode = fwnode_handle_get(of_fwnode_handle(curr));
-> +			ref->flags = args.args[1];
-> +
-> +			if (strends(prop->name, "gpios"))
-> +				suffix = "-gpios";
-> +			else if (strends(prop->name, "gpio"))
-> +				suffix = "-gpio";
-> +			else
-> +				suffix = NULL;
-> +			if (!suffix)
-> +				continue;
-> +
-> +			/* We only set con_id if there's actually one. */
-> +			if (strcmp(prop->name, "gpios") && strcmp(prop->name, "gpio")) {
-> +				ref->con_id = kstrdup(prop->name, GFP_KERNEL);
-> +				if (!ref->con_id)
-> +					return -ENOMEM;
-> +
-> +				con_id_len = strlen(ref->con_id);
-> +				suffix_len = strlen(suffix);
-> +
-> +				ref->con_id[con_id_len - suffix_len] = '\0';
-> +			}
-> +
-> +			ref->dev_id = ida_alloc(&gpio_shared_ida, GFP_KERNEL);
-> +			if (ref->dev_id < 0) {
-> +				kfree(ref->con_id);
-> +				return -ENOMEM;
-> +			}
-> +
-> +			if (!list_empty(&entry->refs))
-> +				pr_debug("GPIO %u at %s is shared by multiple firmware nodes\n",
-> +					 entry->offset, fwnode_get_name(entry->fwnode));
-> +
-> +			list_add_tail(&no_free_ptr(ref)->list, &entry->refs);
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_scoped(curr, child) {
-> +		ret = gpio_shared_of_traverse(child);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+>   properties:
+>     compatible:
+>       oneOf:
+> @@ -40,6 +55,8 @@ properties:
+>             - mediatek,mt8186-smi-common
+>             - mediatek,mt8188-smi-common-vdo
+>             - mediatek,mt8188-smi-common-vpp
+> +          - mediatek,mt8189-smi-common
+> +          - mediatek,mt8189-smi-sub-common
+>             - mediatek,mt8192-smi-common
+>             - mediatek,mt8195-smi-common-vdo
+>             - mediatek,mt8195-smi-common-vpp
+> @@ -108,19 +125,23 @@ allOf:
+>           compatible:
+>             contains:
+>               enum:
+> +              - mediatek,mt8189-smi-sub-common
+>                 - mediatek,mt8195-smi-sub-common
+>       then:
+>         required:
+>           - mediatek,smi
+>         properties:
+>           clocks:
+> -          minItems: 3
+> +          minItems: 2
+>             maxItems: 3
+>           clock-names:
+> +          minItems: 2
+> +          maxItems: 3
+>             items:
+>               - const: apb
+>               - const: smi
+> -            - const: gals0
+> +          additionalItems:
+> +            const: gals0
+>       else:
+>         properties:
+>           mediatek,smi: false
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
+> index 2e7fac4b5094..9a5dafd7c07e 100644
+> --- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
+> +++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
+> @@ -27,6 +27,7 @@ properties:
+>             - mediatek,mt8183-smi-larb
+>             - mediatek,mt8186-smi-larb
+>             - mediatek,mt8188-smi-larb
+> +          - mediatek,mt8189-smi-larb
+>             - mediatek,mt8192-smi-larb
+>             - mediatek,mt8195-smi-larb
+>   
+> @@ -85,6 +86,7 @@ allOf:
+>               - mediatek,mt8183-smi-larb
+>               - mediatek,mt8186-smi-larb
+>               - mediatek,mt8188-smi-larb
+> +            - mediatek,mt8189-smi-larb
+>               - mediatek,mt8195-smi-larb
+>   
+>       then:
+> @@ -119,6 +121,7 @@ allOf:
+>                 - mediatek,mt6779-smi-larb
+>                 - mediatek,mt8186-smi-larb
+>                 - mediatek,mt8188-smi-larb
+> +              - mediatek,mt8189-smi-larb
+>                 - mediatek,mt8192-smi-larb
+>                 - mediatek,mt8195-smi-larb
+>   
 
 
