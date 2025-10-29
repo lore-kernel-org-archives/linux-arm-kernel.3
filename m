@@ -4,58 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AADCCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF89CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5HYqJAGRraLFN5sLmyn+XtcVpQ/LwzssB9uLVutPrw=; b=wmE9TXKzYLAQhvl/q66FXfN+Ys
-	sui9lFPg7vxSQIEk7eO3DQ7nVbxODXK+wuJe63TjX5TGfDMLfSu3v2AoCK4n69SycGRR1IwNWsLbT
-	DX5KUCypSJf1oGqQLELtPh59bStAbjeH5bjnx6A7VlZZ75Rqo4+S+a9kC8zmkWhozzHtX/UGYo8LX
-	/4NhRbsfetYRzYnN3qQBlxYfURxvib3qtj4UM842rtz26Lxfb3uM0v8fSys83KHSR9QARiJaoLOkA
-	yaKI8OMik55J9JQSyUSC1AKdgUDG9GQLviO10inCW5PCJ9bp6ylKuvWka/zMWqAGwI+S3qrtAxx9c
-	e3odEx4A==;
+	bh=ffvMx9Xrnyzj6RAmTrfM1i/MRLo2nSL9gwAfvf/qa2U=; b=hHVpyuWAkSGieDHrkEll4hq0VI
+	mzMqKlthmw2C/nHx4L97zj71dKWIus2CUvlkAvUCJs39OFe11ycfhwpiN/fUgFjqdsHgZpsyJ/SSp
+	zI8WFYSr1urV+8IsEQyrzs/MDXxFI2E/DQhseLt3AD1aBzBA7pZe/AW5Pvsgxq0XBZ4MYEv9+Yzn2
+	Ega3E2ubY988OR0JW5cNYAxlfybQOS7R9VNXsjua4DYkFZ9M7ONNXJAElENqgCSj9ZAs8cdUq4cN2
+	D5sghvHdzKQgPEX/RfGhtpWQkLumH+JThAsoC4YbI5oH5K+OgCX2amlA19j7w46YI3VyoGokM9uo4
+	APQzLOfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE6jM-00000001UMk-2ZS3;
-	Wed, 29 Oct 2025 14:00:52 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1vE6oz-00000001VQE-467L;
+	Wed, 29 Oct 2025 14:06:42 +0000
+Received: from mail-westus3azon11011036.outbound.protection.outlook.com ([40.107.208.36] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE6jI-00000001UJg-0SMT;
-	Wed, 29 Oct 2025 14:00:50 +0000
-Received: from localhost.localdomain (unknown [58.61.140.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 27a69f6db;
-	Wed, 29 Oct 2025 22:00:37 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: i@chainsx.cn
-Cc: conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: add DTs for 100ASK DShanPi A1
-Date: Wed, 29 Oct 2025 22:00:26 +0800
-Message-Id: <20251029140026.867458-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <77BB123A1F1E3D11+20251014021623.286121-3-i@chainsx.cn>
-References: <77BB123A1F1E3D11+20251014021623.286121-3-i@chainsx.cn>
+	id 1vE6ox-00000001VPj-11Lw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 14:06:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G41lUaWDmzB1VDyqeWi6AudITH3YUUJFn1UUDpdTdAXI7pM54xdlQjS77Q7yDN4JY4bX+EyBQI/FicXxgnvGQVX8qcsqlbEh8V5zm8ocDtKNvN8Niggp/vEmZe3f0kg9SQ80S+ES3ifUIUgBVPTYwnkTq1e9wjKKLEYf3OuqReex4cz0kqJ+eZTnlxVWHd2sBGw/2Wd+THgHu1dIDQoLy1qqlwQxvOmh+zzTbyJg+bOD3cKWciXAzc+TWXEJiOdzRC7cBkJjdChlXETobDlJWecqS6SB71FYoIXZgBPH6HfXi38xo/vK6t8rJxItoODSM2rOC5dRKxiO1JScs1WBCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ffvMx9Xrnyzj6RAmTrfM1i/MRLo2nSL9gwAfvf/qa2U=;
+ b=We6W2jBc48MiQ5sn/A8iu0LX4fc4lq32S/9aTRr7IOHdfkTwhskDFUt76xFDwSjBmjwSDn3abYY+/E3nzRxEw5PTXhLIeunjseVN4dCqrTs5fQBAehkdZdy0cFDnFy8SR6uucm7qEqa4Wm5ZGY9ggri7vVy4bZSSCybhIK69Vhg19YwYleNWt8ZzhglraqPLiWO/5JSmadFV3PuPveGsmoMzQdwiRzyVROybuDWJp5cjuKKvVJOGZiIMYv+sao9lSZlcIJj0sOUsWILSpdOuLNMln7ok2nMKXHfCL4Bs5Fe01ptGxtnupE3KNgZNr8frXnX7KdpMMVl/0w7rIIGOlg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ffvMx9Xrnyzj6RAmTrfM1i/MRLo2nSL9gwAfvf/qa2U=;
+ b=LMv4+Qhr6V3CZ5p950N/rdR5uU0cToZJk3uAhMzoTQ8MRriLosuXZHjpNRjc0DKVhexDnxdYk+9BrRDVSL366yVlRVBu3PQqRsD1Z3C99NyWsYFOS4vtwXDKdYXibkRBtTzwEK9jI0EqMfuc/lLKyAn5C83zsQsJh+qsTid8MRk=
+Received: from DS7P222CA0002.NAMP222.PROD.OUTLOOK.COM (2603:10b6:8:2e::30) by
+ IA1PR10MB6712.namprd10.prod.outlook.com (2603:10b6:208:42f::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.13; Wed, 29 Oct 2025 14:06:32 +0000
+Received: from DS1PEPF00017090.namprd03.prod.outlook.com
+ (2603:10b6:8:2e:cafe::c1) by DS7P222CA0002.outlook.office365.com
+ (2603:10b6:8:2e::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.18 via Frontend Transport; Wed,
+ 29 Oct 2025 14:06:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ DS1PEPF00017090.mail.protection.outlook.com (10.167.17.132) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.10 via Frontend Transport; Wed, 29 Oct 2025 14:06:32 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Oct
+ 2025 09:06:27 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Oct
+ 2025 09:06:26 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 29 Oct 2025 09:06:26 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59TE6Q174110028;
+	Wed, 29 Oct 2025 09:06:26 -0500
+Message-ID: <19b8774a-86a3-4948-98f2-093df99a2a77@ti.com>
+Date: Wed, 29 Oct 2025 09:06:26 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a304543c703a2kunm624f917d129bff
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCGkJJVkpIHRhIGUkaSBhOSFYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlOQ1VNSlVKT0tVSkhPWVdZFhoPEhUdFFlBWU9LSFVKS0lCTUtKVUpLS1VLWQ
-	Y+
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62d2-evm: Remove unused ospi0 chip
+ select pins
+To: Paresh Bhagat <p-bhagat@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+	<praneeth@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<khasim@ti.com>, <v-singh1@ti.com>, <bb@ti.com>, <s-k6@ti.com>
+References: <20251029032144.502603-1-p-bhagat@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20251029032144.502603-1-p-bhagat@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017090:EE_|IA1PR10MB6712:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a5ccbc3-2e41-4a69-74ab-08de16f45d0e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013|34020700016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SVp4YkJmOHJEM0VnSEg0Z0JQTnl4T1Z5dEtad3BBWFF6VU1jU3dHRXNqTEFM?=
+ =?utf-8?B?di8yZGl2ZDJmTVNvSU43Vjl1RGF4UmdONVVmS2FZdWJFWmpjVXh1TmR5MXpP?=
+ =?utf-8?B?YlNLOUtpcWRaRGlSUG9mVG1QWk04TUtiMnMydGpKUFVRZHBWTm5MTzNRNEZp?=
+ =?utf-8?B?dzgxUWNTQWlIRnNWeUN6cUE0TmQ4MkY0TUNpNWNMTjJZUndYa0U5d0FpdzRS?=
+ =?utf-8?B?MnZDaWN4bldibGdISlh6V2htTWd4OEJKSUtrTWhZVGpreXdoNGo3N3NjN0xS?=
+ =?utf-8?B?LzRuQWxEcjcwK1RSMWM3N3pQVUN2cU1rWi9xYm5OZ3YwOEdNR2ZiaWNRL3Nr?=
+ =?utf-8?B?MXh6RFpBMitFd3lEclBkMTZ2RXVJaHJkN2pZcTVjNGtKd1ZwNGF1R0IveUNS?=
+ =?utf-8?B?TW5pZno4cncvNy92TFMrakZOSnBvZC9LbW1tdk5Bc3UrNTJXRHlUQVBuSW9M?=
+ =?utf-8?B?aVZQVCtrSENaU3RJU2Y2eEJxL04zeHZ3MFY2N2lxck81UTZKWHZsZWNNeGJy?=
+ =?utf-8?B?RWIvNGk1cDI4K0IzRS9nc3h0Z2xiU0szNG02dGpXcEdkYzBuUjBXL3hLOW9H?=
+ =?utf-8?B?VU9MT1FKckFrZHh6dmszdzVmSkRQTHoveENXOCszNitBNzlpVS9pUjFQMTcy?=
+ =?utf-8?B?K0VTZ1ZvNy9DY2NVd1BMNGxlbDdBK0VhWitwcmVmN2E2d0cwNHlDK2cvTHln?=
+ =?utf-8?B?YzZ4MkUzK0lYREZRQ2RkeTVBaFk3WG4vVzNJT1JyYVN3NDlITzJ6QytOU3NZ?=
+ =?utf-8?B?NmpteGdYMXNxVGZJOG90SWlFaWN1UTJteHV6TVdCRHhpclpEUHV3MGNZT3Ny?=
+ =?utf-8?B?V3VYdEhLR3RTSjEzQkdnNGhXNzJjQkM2L3c0REJ6Y3Z6R0FUV0dQZzZubGhW?=
+ =?utf-8?B?Nkd4M3VtYzZQM01mNmIvWEozZFBoSERIalJrbEIrMFNNUDhDNjkvQ25oczly?=
+ =?utf-8?B?RDNkNFlSN1ZXSGlIRnhTOGphKzUrUzl4a0hxWjBNU0dJY2ZwcVdqb2RmRkdE?=
+ =?utf-8?B?ZXZ2bHFnbUVqUGU3dEE1NUtMK0I5Z09VUy9Qc3pMTzZKdkNMWlpNeFpPWFBR?=
+ =?utf-8?B?SnhHMEtqRGI1NEJGaWJaQ0tMTEYxd0xPYjVtVW1RQy9XczJQeFJ5MDRNVHBu?=
+ =?utf-8?B?V3FzMHpHcWtvZHNKZWxZR0NsNkhwUDVzS2RFZHoyMVFqRldRV2dGYjlNRjZX?=
+ =?utf-8?B?ME9MUmF4a3ZWTE1rQlhHYlFKUVo0WGhUcDJyUlE4NzNGaUpxRjVmWVZKYW91?=
+ =?utf-8?B?d0htTi9LMGZ2VWhJTGwydldUUGNxa2Njcmw4MkhNYWlYZTBFVktQM0x0QU04?=
+ =?utf-8?B?b1NyZG9QS0l0OGNSUVVNdy9kaUxvRVRWS01kam92TXJFQ3VKd0NobC92RUpJ?=
+ =?utf-8?B?S1B0alVHajBoOFpaYTViTm4vcUV6VS9NMlJSTWlsU0FQc1Frdm9ORWlTdmJ0?=
+ =?utf-8?B?MmVEN1VYQkErblphcFdTTXJ1N2lTczlITjJXMjNTaEY1TEJ1QlF0MU93NXFa?=
+ =?utf-8?B?SGtzOTZxdjg0REc3Skw3QWZXOWUxc2NRclJWbXhXTHpQWWg0dU1aRTNXY05M?=
+ =?utf-8?B?ZVQrS0dSRE84Z3R5Mno0NFVtcjJuR3BVc1VGWU1zSGdqWU85MVRqbU9qbEVK?=
+ =?utf-8?B?MUpqN1RoKy9OMmhTTFJBaUlpeHR5VlNCdzA1Y1ZTSW82bFNiZFNabEdPd1Ry?=
+ =?utf-8?B?dkFSdGRnOTR0Nm1wZys4bmRPU2t3c3RSdFp5bEI0aEFCb2I0Z1htdnR1VE9M?=
+ =?utf-8?B?SThEdnRJWGo0cVRzeWdmUjRUQlI0UE5oM1lidC83UUNHSTVGeHZRcHJxeGZL?=
+ =?utf-8?B?UlVueEFmUlAza0piaC9zOHdNcjZqYUJ2SUp4N1ptcTdxVzFRcXl0NFdZd3NS?=
+ =?utf-8?B?RlpoMFVaNmFwVG00TklFUlZiTmZwY0o4aUZOUktjZnJLaGRwZFd0NWxBRk9r?=
+ =?utf-8?B?UDZqbFZSd2NqdlBKcHJQYjFZRXpObldEQzIzd1RzdFozL3NjcEhNNFZhN29Y?=
+ =?utf-8?Q?5+GLu/V4BDvLlbgaQJQQyeC/yh8cpg=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013)(34020700016);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 14:06:32.1485
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a5ccbc3-2e41-4a69-74ab-08de16f45d0e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017090.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6712
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_070048_308717_275B45D2 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20251029_070639_310822_9588C9A3 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,120 +164,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 10/28/25 10:21 PM, Paresh Bhagat wrote:
+> Since only a single flash device is connected to ospi0 retain only the
+> OSPI0_CSn0 pin configuration and remove the unused CSn1-CSn3 pins from
+> the default pinctrl. This simplifies the ospi0 pin configuration without
+> affecting functionality.
+> 
+> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+> ---
 
-From the schematic, DT still has some things wrong:
-https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/DshanPi-A1-RK3576-SCH_V1.1.pdf
+Reviewed-by: Andrew Davis <afd@ti.com>
 
-Do you want to resend the whole patch or I send some patches fixing them?
+> Boot logs
+> https://gist.github.com/paresh-bhagat12/ac3b7e8a39f6f35004d9c51c6384f0c4
+> 
+> Datasheet - https://www.ti.com/lit/ug/sprujd4/sprujd4.pdf
+> Schematics - https://www.ti.com/lit/zip/sprcal5
+> 
+>   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 3 ---
+>   1 file changed, 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> index 83af889e790a..bb5af52ae8b7 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> @@ -355,9 +355,6 @@ ospi0_pins_default: ospi0-default-pins {
+>   		pinctrl-single,pins = <
+>   			AM62DX_IOPAD(0x0000, PIN_OUTPUT, 0) /* (L22) OSPI0_CLK */
+>   			AM62DX_IOPAD(0x002c, PIN_OUTPUT, 0) /* (H21) OSPI0_CSn0 */
+> -			AM62DX_IOPAD(0x0030, PIN_OUTPUT, 0) /* (G19) OSPI0_CSn1 */
+> -			AM62DX_IOPAD(0x0034, PIN_OUTPUT, 0) /* (K20) OSPI0_CSn2 */
+> -			AM62DX_IOPAD(0x0038, PIN_OUTPUT, 0) /* (G20) OSPI0_CSn3 */
+>   			AM62DX_IOPAD(0x000c, PIN_INPUT, 0) /* (J21) OSPI0_D0 */
+>   			AM62DX_IOPAD(0x0010, PIN_INPUT, 0) /* (J18) OSPI0_D1 */
+>   			AM62DX_IOPAD(0x0014, PIN_INPUT, 0) /* (J19) OSPI0_D2 */
 
-> +	vcc_1v2_ufs_vccq_s0: regulator-vcc-1v2-ufs-vccq-s0 {
-> +	vcc_1v8_ufs_vccq2_s0: regulator-vcc-1v8-ufs-vccq2-s0 {
-> +	vcc_3v3_rtc_s5: regulator-vcc-3v3-rtc-s5 {
-> +	vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
-
-These ufs and rtc regulators do not actually exist.
-
-> +	vcc_5v0_typec0: regulator-vcc-5v0-typec0 {
-> +		regulator-name = "vcc_5v0_typec0";
-
-The name on the schematic is vbus5v0_typec.
-
-> +&gmac1 {
-> +	clock_in_out = "output";
-> +	phy-mode = "rgmii-id";
-> +	phy-handle = <&rgmii_phy1>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&eth1m0_miim
-> +		     &eth1m0_tx_bus2
-> +		     &eth1m0_rx_bus2
-> +		     &eth1m0_rgmii_clk
-> +		     &eth1m0_rgmii_bus
-> +		     &ethm0_clk1_25m_out>;
-
-This should be ethm1_clk0_25m_out.
-It seems that the 25m clock is not used.
-
-> +&i2c4 {
-> +	status = "okay";
-> +
-> +	es8388: audio-codec@10 {
-> +		compatible = "everest,es8388", "everest,es8328";
-> +		reg = <0x10>;
-
-i2cdetect reports that its address is 0x11
-
-> +		clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
-> +		AVDD-supply = <&vcca_3v3_s0>;
-> +		DVDD-supply = <&vcc_3v3_s0>;
-> +		HPVDD-supply = <&vcca_3v3_s0>;
-> +		PVDD-supply = <&vcc_3v3_s0>;
-
-These are all from VCC3P3 (VCC3V3_S0).
-
-> +		assigned-clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
-> +		assigned-clock-rates = <12288000>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&sai1m0_mclk>;
-
-In fact, this is connected to sai2.
-The schematic is quite misleading here:
-RK3576 - SAI2_xxx - SAI1_xxx - ES8388
-
-> +		#sound-dai-cells = <0>;
-> +	};
-> +};
-
-> +&mdio0 {
-> +	rgmii_phy0: phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-
-The phy address configured in the schematic is 0,
-which is also the case in practice.
-
-> +		clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-
-This 25m clock is not used.
-
-> +&mdio1 {
-> +	rgmii_phy1: phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-
-The phy address is 0.
-
-> +		clocks = <&cru REFCLKO25M_GMAC1_OUT>;
-
-This 25m clock is not used.
-
-> +	headphone {
-> +		hp_det: hp-det {
-> +			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-
-According to the schematic, this should be GPIO0_A2?
-
-> +		};
-> +	};
-
-> +&sdhci {
-> +	bus-width = <8>;
-> +	full-pwr-cycle-in-suspend;
-> +	max-frequency = <200000000>;
-
-max-frequency is already defined in dtsi
-
-> +&sdmmc {
-> +	bus-width = <4>;
-> +	cap-mmc-highspeed;
-> +	cap-sd-highspeed;
-> +	disable-wp;
-> +	max-frequency = <200000000>;
-
-max-frequency is already defined in dtsi
-
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&vcc_3v3_s3>;
-
-This comes from VCC3P3 (VCC3V3_S0).
 
