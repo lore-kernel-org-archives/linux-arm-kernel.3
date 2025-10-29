@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC76CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 23:07:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B050CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 23:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=2xOVsosPW2QSJ1k/pN1LTA29nOXkFHvDRxHu7Yn0l08=; b=ppz2ZseqjQYWC3
-	fo6gv/+H1TiEPb1Y80kYEnnjrLgh0JdFkQr62PpHtnrQ00x8uagZpmb7S3qKf7saJSmz+h49jS1Kf
-	6PRr91s3R9+d8oeV0SIKlBWD6boXHs1cWW6TQkjA5I/qVhGI0gabzPqZgFXpPJhkofyAKKmjGQHjt
-	2J6tnUB6iEYCDhG0pJi8Uxabq0kGHnpXffEilttuaBJlZYwr+QRE6lTrzUu5QYO/GHMuxfyFWfvGB
-	suhBzUOz+inZr5nIggjMoCFcYsYIu+R/3UxnbxTEuVTIMcOWnx83G850vbV3XGYwszJwAlR11fL9d
-	x2YZKSgMEaOg0bW4/LHA==;
+	List-Owner; bh=QiIGSbexaAA+CmlhronKLWB3qTL5OB3HlpsKNFOwIow=; b=4NQgdhmT0JtrVM
+	Nowtce5QwPXHlLEeetpet7oXsgq5FTGYK02L204kwjjMNrLu0z+cO3s+RKfN8uvn1xraqEB/tV6R/
+	vmFMG5QhfTCgRLzzBLa6Swk6U4JGJdNDADLH44biGd/Q4axtWulIDRJFBHp42s9HUBkoCmLbwMUzl
+	EO9Mdlu76rT9Mj5DtAXYSwhgFIK1+C+SZl0hwn1rE+RFJqP8wAdo/bBHHSjKf7WrH0BbIqwX8lTIb
+	Qx6mZu6f9QLnAWq397ifZfDVV3L5ux+gPpQ49H095f5b9v6JaWq6Ori+x8P0/11wF2J5WxmxDC35s
+	QWKZNDkKhkx/s50N784Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEFFx-00000003DRY-0rDp;
-	Wed, 29 Oct 2025 23:07:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vEFJv-00000003E9x-0776;
+	Wed, 29 Oct 2025 23:11:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEFFw-00000003DQl-0IaJ;
-	Wed, 29 Oct 2025 23:07:04 +0000
+	id 1vEFJt-00000003E9j-0QtF;
+	Wed, 29 Oct 2025 23:11:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 33918604F7;
-	Wed, 29 Oct 2025 23:07:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC80AC4CEF7;
-	Wed, 29 Oct 2025 23:07:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 281F36029F;
+	Wed, 29 Oct 2025 23:11:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812A4C4CEF7;
+	Wed, 29 Oct 2025 23:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761779222;
-	bh=6vtKfxLVHTckjyhMiXXMCWIG6JF1eGfVHEoUuMCzogg=;
+	s=k20201202; t=1761779466;
+	bh=eHlQ2ZALLjGdsa88lWgTESQ22heSRABB6bxl7CsGUww=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=gUI24iy4PvwhwVEtAqpZpflxITkrGPyFwTkQHs8g6/9gVrcq2yrVfmYPolTzeIwAc
-	 Alt/9YmvQPr43cYuqfYYWIYkVq8bzThVJ67NmhMgrsfcEuK2m9bUbQGNIsFkZQdIKI
-	 Y6Lm/jo35rqeVCt7nbxEwZ1a/PPbLpD4ofCmMIvH5tm8jYSPnCUYpOg9u3gkB+bQ5T
-	 DgwHHVmB8IQChz8wVvM/Os3oKQDpT32d7F3AYDwwIKUd1sJ7itSwvvVFIy85aT5eFM
-	 X2PDbbGo0ImSP4Q6L+BpIfgnnhjPel1z9WfQT+GSNHuXVLwRSpTgpjwUtg2OsrcIZI
-	 4lKsTfPql6oKw==
-Date: Wed, 29 Oct 2025 18:07:01 -0500
+	b=C1tmLb7mh4BjAht6SYKF9rf3E5ABcFVOINxHcK7CjmzQ398z2SAAuitNQkhsyWAXj
+	 xNUGo9R6um8sdlaF7tTnnwcjylb6Hy3x27qfCnai9SSW+zaGEJgH3XKB+dQ6C/55S1
+	 OFxBaFVfIatdHz/gy4117dT7Poo4G8Y/r2EhXEhkWAnsS+Yqc6khm0mYqPooQ7Suty
+	 FhaKMD+sNsPy+SSSkymX+V87/ohpuYei2+8/fXbMXpzUfm8I+INFt4tzLxDde8+MJX
+	 dKLQmQSgYmapfYnzafjIm3AeV5zzL85G2Ix8P6DA+Dl5Ae+lCFtvFxvbjqXwYpzAXC
+	 BMr89O3kAt/hg==
+Date: Wed, 29 Oct 2025 18:11:05 -0500
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -55,13 +55,13 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: Re: [PATCH v4 1/9] PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm
- function
-Message-ID: <20251029230701.GA1601620@bhelgaas>
+Subject: Re: [PATCH v4 4/9] PCI: dw-rockchip: Add helper function for
+ enhanced LTSSM control mode
+Message-ID: <20251029231105.GA1601725@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251029-rockchip-pcie-system-suspend-v4-1-ce2e1b0692d2@collabora.com>
+In-Reply-To: <20251029-rockchip-pcie-system-suspend-v4-4-ce2e1b0692d2@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,12 +76,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 06:56:40PM +0100, Sebastian Reichel wrote:
-> Rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg
-> to avoid confusion after introducing the .get_ltssm operation support,
-> which requires further processing of the register.
+On Wed, Oct 29, 2025 at 06:56:43PM +0100, Sebastian Reichel wrote:
+> Remove code duplocation and improve readability by introducing a new
+> function to setup the enhanced LTSSM mode.
 
-If you repost for other reasons, please add "()" after function names,
-including .get_ltssm().  Then you can drop "function" from the
-subject.
+s/duplocation/duplication/
+s/setup/set up/
+
+Maybe also include the actual function name instead of just "a new
+function".  "rockchip_pcie_enable_enhanced_ltssm_control_mode()" is
+pretty long; I wouldn't object to a shorter version :)
 
