@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE83CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 13:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77919CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 13:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Rg447nv4jG7ZTaZ3yR+37uySv7fYSYGLbahg4p5atw=; b=i8hbECy4EVldLQjgLeDQOtUjub
-	V5C1csjtNVRq4Zp964/p7Tw2Ju1Dw1J4jxSCLqNC1+HwNeEmTPAoaqdjHvmO8UumWaki/NaLo40FK
-	Wd/+tUJmDlSNK189NFIJiIED2zDvGVev880OCWyxm2areqrGBGHLGJnQV7uEEwWFvKeDE/R5HkDDX
-	tI8m9aN2cZDZxGgBEtHEkG3R9krcwECm0GApr7RxqfgCO6iInPyfm0esn9YM0nS7IFV2Syn+N/mTL
-	eJrCfeCT35TXQ6oKEt3Ct55DOXVGYvvRt3BGTymhyzwflnTu6U4r7oWAXQ7L+FlBeKQd4FTBzIYFB
-	eVlRIUVA==;
+	bh=o2lBNs6d1r5DAskFoHYjdv4uWk6sHeps7y9ddGwbxtk=; b=DU0EI+wrCNJ1JUD+exbKeDYioe
+	56RWmxwThfD8qhdXyPASgIUg/tLAZVGAUOa90ozk6RKfeP4VLHGEnq8yE85f7igAuLEr8la75I/xA
+	KygPVjo3wwTqSxLuCqM7qLKNQirdDv9Anhopj8Y1dK+J4IwrhDLjj5SfxG+shyC1s7Hw2cmN/J7Gt
+	ymkLRFsVdKGcu5HLFYh3obyUif0FZLP2ru79e1VYgNXON2OYMZ+m6sBVY04YYe4sf2RXXl+qLXmPp
+	VsRzh4lpPN3by8JbOTDcG9bEC+yycn1APrG5puasyKbFuskan7CsFF7OwWg0OYSTrZi+Mt7mt1cSR
+	k7G40Weg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5un-00000001I2q-3QJn;
-	Wed, 29 Oct 2025 13:08:37 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1vE5v4-00000001IA6-36kX;
+	Wed, 29 Oct 2025 13:08:54 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5uk-00000001I0r-2tgQ
+	id 1vE5v2-00000001I8F-2C1u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 13:08:36 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20251029130829epoutp0134898e0af64eeac80577e3ad100b6e35~y_DSrVYJu0423304233epoutp01j
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 13:08:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20251029130829epoutp0134898e0af64eeac80577e3ad100b6e35~y_DSrVYJu0423304233epoutp01j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761743309;
-	bh=/Rg447nv4jG7ZTaZ3yR+37uySv7fYSYGLbahg4p5atw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gNlwAXO21Tv76nAJcEgkXtf4nxEmbl5bMfF8FVDBtF/IzE8WZzbH20lacfxINQFc0
-	 OnfPufDhfV+YOVTD4nmQwW/h9qm6OSyFSJdlsjUq87SWC/HBW3FbsVOTsuULutz5MX
-	 toIka3mX3mwQTFVvrGidJqSrKgG8MTVfs/QBw7hI=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20251029130828epcas5p3638987da72547fe4cb1540bbaa8f76a0~y_DR9iJwK3082630826epcas5p3b;
-	Wed, 29 Oct 2025 13:08:28 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4cxSGz4Vxjz3hhT7; Wed, 29 Oct
-	2025 13:08:27 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251029130826epcas5p180506ff38fb57ecca0e33b2f5c57ed6c~y_DQd1H1S2691926919epcas5p1H;
-	Wed, 29 Oct 2025 13:08:26 +0000 (GMT)
-Received: from Jaguar.samsungds.net (unknown [107.109.115.6]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251029130810epsmtip25debfffa4791be8b8177c983a8e6d90e~y_DBSwy0Q0628906289epsmtip2Y;
-	Wed, 29 Oct 2025 13:08:10 +0000 (GMT)
-From: Ravi Patel <ravi.patel@samsung.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	jesper.nilsson@axis.com, lars.persson@axis.com, mturquette@baylibre.com,
-	sboyd@kernel.org, alim.akhtar@samsung.com, s.nawrocki@samsung.com,
-	cw00.choi@samsung.com
-Cc: ravi.patel@samsung.com, ksk4725@coasia.com, smn1196@coasia.com,
-	linux-arm-kernel@axis.com, krzk@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	pjsin865@coasia.com, gwk1013@coasia.com, bread@coasia.com,
-	jspark@coasia.com, limjh0823@coasia.com, lightwise@coasia.com,
-	hgkim05@coasia.com, mingyoungbo@coasia.com, shradha.t@samsung.com,
-	swathi.ks@samsung.com, kenkim@coasia.com
-Subject: [PATCH v3 1/4] dt-bindings: clock: Add ARTPEC-9 clock controller
-Date: Wed, 29 Oct 2025 18:37:28 +0530
-Message-Id: <20251029130731.51305-2-ravi.patel@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20251029130731.51305-1-ravi.patel@samsung.com>
-X-CMS-MailID: 20251029130826epcas5p180506ff38fb57ecca0e33b2f5c57ed6c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251029130826epcas5p180506ff38fb57ecca0e33b2f5c57ed6c
-References: <20251029130731.51305-1-ravi.patel@samsung.com>
-	<CGME20251029130826epcas5p180506ff38fb57ecca0e33b2f5c57ed6c@epcas5p1.samsung.com>
+	Wed, 29 Oct 2025 13:08:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761743332; x=1793279332;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=Ol+VkDQkvKUx2fMe5qpVOKNuPNFpknlP8x3RhhyMb5Q=;
+  b=AVkaSFQMUp1yOv4nQIBF1FZndcd8Hphzq2TPWLVlwOyiC+k1xANVBEeY
+   GBjkhu6j9oOAD8ZvruHbwgAqLvGs++TV0ctftLu63PyRJAzKKoIoa6CA8
+   3XUOk/aS2VceFh945C4ptG5eTeiAvl8i96BueU4yufi1F0ew/gJIhR8Ln
+   WkoWjJwY97FKzipHFLBcICXkYz/+GisMSpYdGuJAxteZpLAuXMfJPRru7
+   oVbBVaEFgu9wQjuDZf2ycRWy6NrYaSX5nAf5uoJFxsUm7gKfaU7a88ehq
+   iFPl3yR0NjUqpnIAp729UJNU7nN/yeKRI7JhGPWiebwRfAqrgRWMuwz8P
+   Q==;
+X-CSE-ConnectionGUID: zGS+eXB/S1ul2C1VIiQV2g==
+X-CSE-MsgGUID: XeSqx49HRSicXm3F3tqI5w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11596"; a="51437318"
+X-IronPort-AV: E=Sophos;i="6.19,264,1754982000"; 
+   d="scan'208";a="51437318"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 06:08:50 -0700
+X-CSE-ConnectionGUID: m081fLv4R0ubmw+1yOsPUQ==
+X-CSE-MsgGUID: BNW/DvpZQumlhfWsHbt0tA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,264,1754982000"; 
+   d="scan'208";a="190794097"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.68])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 06:08:42 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Wed, 29 Oct 2025 15:08:38 +0200 (EET)
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+cc: Bjorn Helgaas <bhelgaas@google.com>, 
+    Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, 
+    chaitanya chundru <quic_krichai@quicinc.com>, 
+    Bjorn Andersson <andersson@kernel.org>, 
+    Konrad Dybcio <konradybcio@kernel.org>, 
+    cros-qcom-dts-watchers@chromium.org, Jingoo Han <jingoohan1@gmail.com>, 
+    Bartosz Golaszewski <brgl@bgdev.pl>, 
+    =?ISO-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kwilczynski@kernel.org>, 
+    Manivannan Sadhasivam <mani@kernel.org>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    =?ISO-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kwilczynski@kernel.org>, 
+    Manivannan Sadhasivam <mani@kernel.org>, quic_vbadigan@quicnic.com, 
+    amitk@kernel.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, linux-arm-msm@vger.kernel.org, 
+    jorge.ramirez@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, 
+    Dmitry Baryshkov <lumag@kernel.org>, 
+    Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v7 8/8] PCI: pwrctrl: Add power control driver for
+ tc9563
+In-Reply-To: <20251029-qps615_v4_1-v7-8-68426de5844a@oss.qualcomm.com>
+Message-ID: <80a8060d-7b8a-ab4d-f4e9-dceeed6b650d@linux.intel.com>
+References: <20251029-qps615_v4_1-v7-0-68426de5844a@oss.qualcomm.com> <20251029-qps615_v4_1-v7-8-68426de5844a@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_060835_070274_551E8665 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20251029_060852_587102_89EEDB88 
+X-CRM114-Status: GOOD (  37.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,474 +100,798 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: GyoungBo Min <mingyoungbo@coasia.com>
+On Wed, 29 Oct 2025, Krishna Chaitanya Chundru wrote:
 
-Add dt-schema for Axis ARTPEC-9 SoC clock controller.
+> TC9563 is a PCIe switch which has one upstream and three downstream
+> ports. To one of the downstream ports integrated ethernet MAC is connected
+> as endpoint device. Other two downstream ports are supposed to connect to
+> external device. One Host can connect to TC9563 by upstream port. TC9563
+> switch needs to be configured after powering on and before the PCIe link
+> was up.
+> 
+> The PCIe controller driver already enables link training at the host side
+> even before this driver probe happens, due to this when driver enables
+> power to the switch it participates in the link training and PCIe link
+> may come up before configuring the switch through I2C. Once the link is
+> up the configuration done through I2C will not have any effect. To prevent
+> the host from participating in link training, disable link training on the
+> host side to ensure the link does not come up before the switch is
+> configured via I2C.
+> 
+> Based on dt property and type of the port, tc9563 is configured through
+> I2C.
+> 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+>  drivers/pci/pwrctrl/Kconfig              |  13 +
+>  drivers/pci/pwrctrl/Makefile             |   2 +
+>  drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c | 639 +++++++++++++++++++++++++++++++
+>  3 files changed, 654 insertions(+)
+> 
+> diff --git a/drivers/pci/pwrctrl/Kconfig b/drivers/pci/pwrctrl/Kconfig
+> index 6956c18548114ce12247b560f1ef159eb7e90b10..de8632549f88d5171fcad9879dfeb6250180b060 100644
+> --- a/drivers/pci/pwrctrl/Kconfig
+> +++ b/drivers/pci/pwrctrl/Kconfig
+> @@ -22,6 +22,19 @@ config PCI_PWRCTRL_SLOT
+>  	  PCI slots. The voltage regulators powering the rails of the PCI slots
+>  	  are expected to be defined in the devicetree node of the PCI bridge.
+>  
+> +config PCI_PWRCTRL_TC9563
+> +	tristate "PCI Power Control driver for TC9563 PCIe switch"
+> +	select PCI_PWRCTRL
+> +	help
+> +	  Say Y here to enable the PCI Power Control driver of TC9563 PCIe
+> +	  switch.
+> +
+> +	  This driver enables power and configures the TC9563 PCIe switch
+> +	  through i2c. TC9563 is a PCIe switch which has one upstream and three
+> +	  downstream ports. To one of the downstream ports integrated ethernet
+> +	  MAC is connected as endpoint device. Other two downstream ports are
+> +	  supposed to connect to external device.
+> +
+>  # deprecated
+>  config HAVE_PWRCTL
+>  	bool
+> diff --git a/drivers/pci/pwrctrl/Makefile b/drivers/pci/pwrctrl/Makefile
+> index a4e5808d7850ceb0ca272731e5539e1dfc564e43..13b02282106c2bdbf884f487534f7466047c7fcf 100644
+> --- a/drivers/pci/pwrctrl/Makefile
+> +++ b/drivers/pci/pwrctrl/Makefile
+> @@ -7,3 +7,5 @@ obj-$(CONFIG_PCI_PWRCTRL_PWRSEQ)	+= pci-pwrctrl-pwrseq.o
+>  
+>  obj-$(CONFIG_PCI_PWRCTRL_SLOT)		+= pci-pwrctrl-slot.o
+>  pci-pwrctrl-slot-y			:= slot.o
+> +
+> +obj-$(CONFIG_PCI_PWRCTRL_TC9563)	+= pci-pwrctrl-tc9563.o
+> diff --git a/drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c b/drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..2f09931ae671eac16c33a78dfd541fba5dfa446b
+> --- /dev/null
+> +++ b/drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c
+> @@ -0,0 +1,639 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/delay.h>
+> +#include <linux/device.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/i2c.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/pci.h>
+> +#include <linux/pci-pwrctrl.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/string.h>
+> +#include <linux/types.h>
+> +#include <linux/unaligned.h>
+> +
+> +#include "../pci.h"
+> +
+> +#define TC9563_GPIO_CONFIG		0x801208
+> +#define TC9563_RESET_GPIO		0x801210
+> +
+> +#define TC9563_PORT_L0S_DELAY		0x82496c
+> +#define TC9563_PORT_L1_DELAY		0x824970
+> +
+> +#define TC9563_EMBEDDED_ETH_DELAY	0x8200d8
+> +#define TC9563_ETH_L1_DELAY_MASK	GENMASK(27, 18)
 
-The Clock Management Unit (CMU) has a top-level block CMU_CMU
-which generates clocks for other blocks.
+Add include.
 
-Add device-tree binding definitions for following CMU blocks:
-- CMU_CMU
-- CMU_BUS
-- CMU_CORE
-- CMU_CPUCL
-- CMU_FSYS0
-- CMU_FSYS1
-- CMU_IMEM
-- CMU_PERI
+> +#define TC9563_ETH_L1_DELAY_VALUE(x)	FIELD_PREP(TC9563_ETH_L1_DELAY_MASK, x)
+> +#define TC9563_ETH_L0S_DELAY_MASK	GENMASK(17, 13)
+> +#define TC9563_ETH_L0S_DELAY_VALUE(x)	FIELD_PREP(TC9563_ETH_L0S_DELAY_MASK, x)
+> +
+> +#define TC9563_NFTS_2_5_GT		0x824978
+> +#define TC9563_NFTS_5_GT		0x82497c
+> +
+> +#define TC9563_PORT_LANE_ACCESS_ENABLE	0x828000
+> +
+> +#define TC9563_PHY_RATE_CHANGE_OVERRIDE	0x828040
+> +#define TC9563_PHY_RATE_CHANGE		0x828050
+> +
+> +#define TC9563_TX_MARGIN		0x828234
+> +
+> +#define TC9563_DFE_ENABLE		0x828a04
+> +#define TC9563_DFE_EQ0_MODE		0x828a08
+> +#define TC9563_DFE_EQ1_MODE		0x828a0c
+> +#define TC9563_DFE_EQ2_MODE		0x828a14
+> +#define TC9563_DFE_PD_MASK		0x828254
+> +
+> +#define TC9563_PORT_SELECT		0x82c02c
+> +#define TC9563_PORT_ACCESS_ENABLE	0x82c030
+> +
+> +#define TC9563_POWER_CONTROL		0x82b09c
+> +#define TC9563_POWER_CONTROL_OVREN	0x82b2c8
+> +
+> +#define TC9563_GPIO_MASK		0xfffffff3
+> +
+> +#define TC9563_TX_MARGIN_MIN_VAL	400000
 
-Signed-off-by: GyoungBo Min <mingyoungbo@coasia.com>
-Reviewed-by: Kyunghwan Kim <kenkim@coasia.com>
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/clock/axis,artpec9-clock.yaml    | 232 ++++++++++++++++++
- include/dt-bindings/clock/axis,artpec9-clk.h  | 195 +++++++++++++++
- 2 files changed, 427 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml
- create mode 100644 include/dt-bindings/clock/axis,artpec9-clk.h
+If this is time related, add unit into the name.
 
-diff --git a/Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml b/Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml
-new file mode 100644
-index 000000000000..63442b91e7ac
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml
-@@ -0,0 +1,232 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/axis,artpec9-clock.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Axis ARTPEC-9 SoC clock controller
-+
-+maintainers:
-+  - Jesper Nilsson <jesper.nilsson@axis.com>
-+
-+description: |
-+  ARTPEC-9 clock controller is comprised of several CMU (Clock Management Unit)
-+  units, generating clocks for different domains. Those CMU units are modeled
-+  as separate device tree nodes, and might depend on each other.
-+  The root clock in that root tree is an external clock: OSCCLK (25 MHz).
-+  This external clock must be defined as a fixed-rate clock in dts.
-+
-+  CMU_CMU is a top-level CMU, where all base clocks are prepared using PLLs and
-+  dividers, all other clocks of function blocks (other CMUs) are usually
-+  derived from CMU_CMU.
-+
-+  Each clock is assigned an identifier and client nodes can use this identifier
-+  to specify the clock which they consume. All clocks available for usage
-+  in clock consumer nodes are defined as preprocessor macros in
-+  'include/dt-bindings/clock/axis,artpec9-clk.h' header.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - axis,artpec9-cmu-cmu
-+      - axis,artpec9-cmu-bus
-+      - axis,artpec9-cmu-core
-+      - axis,artpec9-cmu-cpucl
-+      - axis,artpec9-cmu-fsys0
-+      - axis,artpec9-cmu-fsys1
-+      - axis,artpec9-cmu-imem
-+      - axis,artpec9-cmu-peri
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 5
-+
-+  clock-names:
-+    minItems: 1
-+    maxItems: 5
-+
-+  "#clock-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - "#clock-cells"
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-cmu
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-bus
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+            - description: CMU_BUS bus clock (from CMU_CMU)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+            - const: bus
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-core
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+            - description: CMU_CORE main clock (from CMU_CMU)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+            - const: main
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-cpucl
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+            - description: CMU_CPUCL switch clock (from CMU_CMU)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+            - const: switch
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-fsys0
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+            - description: CMU_FSYS0 bus clock (from CMU_CMU)
-+            - description: CMU_FSYS0 IP clock (from CMU_CMU)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+            - const: bus
-+            - const: ip
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-fsys1
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+            - description: CMU_FSYS1 scan0 clock (from CMU_CMU)
-+            - description: CMU_FSYS1 scan1 clock (from CMU_CMU)
-+            - description: CMU_FSYS1 bus clock (from CMU_CMU)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+            - const: scan0
-+            - const: scan1
-+            - const: bus
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-imem
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+            - description: CMU_IMEM ACLK clock (from CMU_CMU)
-+            - description: CMU_IMEM CA5 clock (from CMU_CMU)
-+            - description: CMU_IMEM JPEG clock (from CMU_CMU)
-+            - description: CMU_IMEM SSS clock (from CMU_CMU)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+            - const: aclk
-+            - const: ca5
-+            - const: jpeg
-+            - const: sss
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: axis,artpec9-cmu-peri
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (25 MHz)
-+            - description: CMU_PERI IP clock (from CMU_CMU)
-+            - description: CMU_PERI DISP clock (from CMU_CMU)
-+
-+        clock-names:
-+          items:
-+            - const: fin_pll
-+            - const: ip
-+            - const: disp
-+
-+additionalProperties: false
-+
-+examples:
-+  # Clock controller node for CMU_FSYS1
-+  - |
-+    #include <dt-bindings/clock/axis,artpec9-clk.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        cmu_fsys1: clock-controller@14c10000 {
-+            compatible = "axis,artpec9-cmu-fsys1";
-+            reg = <0x0 0x14c10000 0x0 0x4000>;
-+            #clock-cells = <1>;
-+            clocks = <&fin_pll>,
-+                     <&cmu_cmu CLK_DOUT_CMU_FSYS1_SCAN0>,
-+                     <&cmu_cmu CLK_DOUT_CMU_FSYS1_SCAN1>,
-+                     <&cmu_cmu CLK_DOUT_CMU_FSYS1_BUS>;
-+            clock-names = "fin_pll", "scan0", "scan1", "bus";
-+        };
-+    };
-+...
-diff --git a/include/dt-bindings/clock/axis,artpec9-clk.h b/include/dt-bindings/clock/axis,artpec9-clk.h
-new file mode 100644
-index 000000000000..c6787be8d686
---- /dev/null
-+++ b/include/dt-bindings/clock/axis,artpec9-clk.h
-@@ -0,0 +1,195 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
-+ *             https://www.samsung.com
-+ * Copyright (c) 2025  Axis Communications AB.
-+ *             https://www.axis.com
-+ *
-+ * Device Tree binding constants for ARTPEC-9 clock controller.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_ARTPEC9_H
-+#define _DT_BINDINGS_CLOCK_ARTPEC9_H
-+
-+/* CMU_CMU */
-+#define CLK_FOUT_SHARED0_PLL						1
-+#define CLK_DOUT_SHARED0_DIV2						2
-+#define CLK_DOUT_SHARED0_DIV3						3
-+#define CLK_DOUT_SHARED0_DIV4						4
-+#define CLK_FOUT_SHARED1_PLL						5
-+#define CLK_DOUT_SHARED1_DIV2						6
-+#define CLK_DOUT_SHARED1_DIV3						7
-+#define CLK_DOUT_SHARED1_DIV4						8
-+#define CLK_FOUT_AUDIO_PLL						9
-+#define CLK_DOUT_CMU_ADD						10
-+#define CLK_DOUT_CMU_BUS						11
-+#define CLK_DOUT_CMU_CDC_CORE						12
-+#define CLK_DOUT_CMU_CORE_MAIN						13
-+#define CLK_DOUT_CMU_CPUCL_SWITCH					14
-+#define CLK_DOUT_CMU_DLP_CORE						15
-+#define CLK_DOUT_CMU_FSYS0_BUS						16
-+#define CLK_DOUT_CMU_FSYS0_IP						17
-+#define CLK_DOUT_CMU_FSYS1_BUS						18
-+#define CLK_DOUT_CMU_FSYS1_SCAN0					19
-+#define CLK_DOUT_CMU_FSYS1_SCAN1					20
-+#define CLK_DOUT_CMU_GPU_3D						21
-+#define CLK_DOUT_CMU_GPU_2D						22
-+#define CLK_DOUT_CMU_IMEM_ACLK						23
-+#define CLK_DOUT_CMU_IMEM_CA5						24
-+#define CLK_DOUT_CMU_IMEM_JPEG						25
-+#define CLK_DOUT_CMU_IMEM_SSS						26
-+#define CLK_DOUT_CMU_IPA_CORE						27
-+#define CLK_DOUT_CMU_LCPU						28
-+#define CLK_DOUT_CMU_MIF_SWITCH						29
-+#define CLK_DOUT_CMU_MIF_BUSP						30
-+#define CLK_DOUT_CMU_PERI_DISP						31
-+#define CLK_DOUT_CMU_PERI_IP						32
-+#define CLK_DOUT_CMU_RSP_CORE						33
-+#define CLK_DOUT_CMU_TRFM						34
-+#define CLK_DOUT_CMU_VIO_CORE_L						35
-+#define CLK_DOUT_CMU_VIO_CORE						36
-+#define CLK_DOUT_CMU_VIP0						37
-+#define CLK_DOUT_CMU_VIP1						38
-+#define CLK_DOUT_CMU_VPP_CORE						39
-+#define CLK_DOUT_CMU_VIO_AUDIO						40
-+
-+/* CMU_BUS */
-+#define CLK_MOUT_BUS_ACLK_USER						1
-+
-+/* CMU_CORE */
-+#define CLK_MOUT_CORE_ACLK_USER						1
-+
-+/* CMU_CPUCL */
-+#define CLK_FOUT_CPUCL_PLL0						1
-+#define CLK_MOUT_CPUCL_PLL0						2
-+#define CLK_FOUT_CPUCL_PLL1						3
-+#define CLK_MOUT_CPUCL_PLL_SCU						4
-+#define CLK_MOUT_CPUCL_SWITCH_SCU_USER					5
-+#define CLK_MOUT_CPUCL_SWITCH_USER					6
-+#define CLK_DOUT_CPUCL_CPU						7
-+#define CLK_DOUT_CPUCL_CLUSTER_PERIPHCLK				8
-+#define CLK_DOUT_CPUCL_CLUSTER_GICCLK					9
-+#define CLK_DOUT_CPUCL_CLUSTER_PCLK					10
-+#define CLK_DOUT_CPUCL_CMUREF						11
-+#define CLK_DOUT_CPUCL_CLUSTER_ATCLK					12
-+#define CLK_DOUT_CPUCL_CLUSTER_SCU					13
-+#define CLK_DOUT_CPUCL_DBG						14
-+#define CLK_GOUT_CPUCL_SHORTSTOP					15
-+#define CLK_GOUT_CPUCL_CLUSTER_CPU					16
-+#define CLK_GOUT_CPUCL_CSSYS_IPCLKPORT_ATCLK				17
-+#define CLK_GOUT_CPUCL_CSSYS_IPCLKPORT_PCLKDBG				18
-+
-+/* CMU_FSYS0 */
-+#define CLK_MOUT_FSYS0_BUS_USER						1
-+#define CLK_MOUT_FSYS0_IP_USER						2
-+#define CLK_MOUT_FSYS0_MAIN_USER					3
-+#define CLK_DOUT_FSYS0_125						4
-+#define CLK_DOUT_FSYS0_ADC						5
-+#define CLK_DOUT_FSYS0_BUS_300						6
-+#define CLK_DOUT_FSYS0_EQOS0						7
-+#define CLK_DOUT_FSYS0_EQOS1						8
-+#define CLK_DOUT_FSYS0_MMC_CARD0					9
-+#define CLK_DOUT_FSYS0_MMC_CARD1					10
-+#define CLK_DOUT_FSYS0_MMC_CARD2					11
-+#define CLK_DOUT_FSYS0_QSPI						12
-+#define CLK_DOUT_FSYS0_SFMC_NAND					13
-+#define CLK_GOUT_FSYS0_EQOS_TOP0_IPCLKPORT_ACLK_I			14
-+#define CLK_GOUT_FSYS0_EQOS_TOP0_IPCLKPORT_CLK_CSR_I			15
-+#define CLK_GOUT_FSYS0_EQOS_TOP0_IPCLKPORT_I_RGMII_PHASE_CLK_250	16
-+#define CLK_GOUT_FSYS0_EQOS_TOP0_IPCLKPORT_I_RGMII_TXCLK		17
-+#define CLK_GOUT_FSYS0_EQOS_TOP1_IPCLKPORT_I_RGMII_PHASE_CLK_250	18
-+#define CLK_GOUT_FSYS0_EQOS_TOP1_IPCLKPORT_I_RGMII_TXCLK		19
-+#define CLK_GOUT_FSYS0_EQOS_TOP1_IPCLKPORT_ACLK_I			20
-+#define CLK_GOUT_FSYS0_EQOS_TOP1_IPCLKPORT_CLK_CSR_I			21
-+#define CLK_GOUT_FSYS0_I3C0_IPCLKPORT_I_APB_S_PCLK			22
-+#define CLK_GOUT_FSYS0_I3C0_IPCLKPORT_I_CORE_CLK			23
-+#define CLK_GOUT_FSYS0_I3C0_IPCLKPORT_I_DMA_CLK				24
-+#define CLK_GOUT_FSYS0_I3C0_IPCLKPORT_I_HDR_TX_CLK			25
-+#define CLK_GOUT_FSYS0_I3C1_IPCLKPORT_I_APB_S_PCLK			26
-+#define CLK_GOUT_FSYS0_I3C1_IPCLKPORT_I_CORE_CLK			27
-+#define CLK_GOUT_FSYS0_I3C1_IPCLKPORT_I_DMA_CLK				28
-+#define CLK_GOUT_FSYS0_I3C1_IPCLKPORT_I_HDR_TX_CLK			29
-+#define CLK_GOUT_FSYS0_MMC0_IPCLKPORT_SDCLKIN				30
-+#define CLK_GOUT_FSYS0_MMC1_IPCLKPORT_SDCLKIN				31
-+#define CLK_GOUT_FSYS0_MMC2_IPCLKPORT_SDCLKIN				32
-+#define CLK_GOUT_FSYS0_QSPI_IPCLKPORT_HCLK				33
-+#define CLK_GOUT_FSYS0_QSPI_IPCLKPORT_SSI_CLK				34
-+#define CLK_GOUT_FSYS0_SFMC_IPCLKPORT_I_ACLK_NAND			35
-+#define CLK_GOUT_FSYS0_I2C0_IPCLKPORT_I_PCLK				36
-+#define CLK_GOUT_FSYS0_I2C1_IPCLKPORT_I_PCLK				37
-+#define CLK_GOUT_FSYS0_MMC0_IPCLKPORT_I_ACLK				38
-+#define CLK_GOUT_FSYS0_MMC1_IPCLKPORT_I_ACLK				39
-+#define CLK_GOUT_FSYS0_MMC2_IPCLKPORT_I_ACLK				40
-+#define CLK_GOUT_FSYS0_PWM_IPCLKPORT_I_PCLK_S0				41
-+
-+/* CMU_FSYS1 */
-+#define CLK_FOUT_FSYS1_PLL						1
-+#define CLK_MOUT_FSYS1_SCAN0_USER					2
-+#define CLK_MOUT_FSYS1_SCAN1_USER					3
-+#define CLK_MOUT_FSYS1_BUS_USER						4
-+#define CLK_DOUT_FSYS1_200						5
-+#define CLK_DOUT_FSYS1_BUS_300						6
-+#define CLK_DOUT_FSYS1_OTP_MEM						7
-+#define CLK_DOUT_FSYS1_PCIE_PHY_REFCLK_SYSPLL				8
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_PHY_APB2CR_PCLK_100		9
-+#define CLK_GOUT_FSYS1_UART0_PCLK					10
-+#define CLK_GOUT_FSYS1_UART0_SCLK_UART					11
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_PHY_APB2CR_PCLK_300		12
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_SUB_CON_X1_DBI_ACLK_SOC		13
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_SUB_CON_X1_MSTR_ACLK_SOC		14
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_SUB_CON_X1_SLV_ACLK_SOC		15
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_SUB_CON_X2_DBI_ACLK_SOC		16
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_SUB_CON_X2_MSTR_ACLK_SOC		17
-+#define CLK_GOUT_FSYS1_IPCLKPORT_PCIE_SUB_CON_X2_SLV_ACLK_SOC		18
-+#define CLK_GOUT_FSYS1_USB20DRD_IPCLKPORT_ACLK_PHYCTRL_20		19
-+#define CLK_GOUT_FSYS1_USB20DRD_IPCLKPORT_BUS_CLK_EARLY			20
-+#define CLK_GOUT_FSYS1_XHB_AHBBR_FSYS1_IPCLKPORT_CLK			21
-+#define CLK_GOUT_FSYS1_XHB_USB_IPCLKPORT_CLK				22
-+
-+/* CMU_IMEM */
-+#define CLK_MOUT_IMEM_ACLK_USER						1
-+#define CLK_MOUT_IMEM_CA5_USER						2
-+#define CLK_MOUT_IMEM_SSS_USER						3
-+#define CLK_MOUT_IMEM_JPEG_USER						4
-+#define CLK_DOUT_IMEM_PCLK						5
-+#define CLK_GOUT_IMEM_CA5_0_IPCLKPORT_ATCLK				6
-+#define CLK_GOUT_IMEM_CA5_0_IPCLKPORT_CLKIN				7
-+#define CLK_GOUT_IMEM_CA5_0_IPCLKPORT_PCLK_DBG				8
-+#define CLK_GOUT_IMEM_CA5_1_IPCLKPORT_ATCLK				9
-+#define CLK_GOUT_IMEM_CA5_1_IPCLKPORT_CLKIN				10
-+#define CLK_GOUT_IMEM_CA5_1_IPCLKPORT_PCLK_DBG				11
-+#define CLK_GOUT_IMEM_MCT0_PCLK						12
-+#define CLK_GOUT_IMEM_MCT1_PCLK						13
-+#define CLK_GOUT_IMEM_MCT2_PCLK						14
-+#define CLK_GOUT_IMEM_MCT3_PCLK						15
-+#define CLK_GOUT_IMEM_PCLK_TMU0_APBIF					16
-+
-+/* CMU_PERI */
-+#define CLK_MOUT_PERI_IP_USER						1
-+#define CLK_MOUT_PERI_DISP_USER						2
-+#define CLK_DOUT_PERI_125						3
-+#define CLK_DOUT_PERI_PCLK						4
-+#define CLK_DOUT_PERI_SPI						5
-+#define CLK_DOUT_PERI_UART1						6
-+#define CLK_DOUT_PERI_UART2						7
-+#define CLK_GOUT_PERI_DMA4DSIM_IPCLKPORT_CLK_APB_CLK			8
-+#define CLK_GOUT_PERI_DMA4DSIM_IPCLKPORT_CLK_AXI_CLK			9
-+#define CLK_GOUT_PERI_I3C2_IPCLKPORT_I_APB_S_PCLK			10
-+#define CLK_GOUT_PERI_I3C2_IPCLKPORT_I_CORE_CLK				11
-+#define CLK_GOUT_PERI_I3C2_IPCLKPORT_I_DMA_CLK				12
-+#define CLK_GOUT_PERI_I3C2_IPCLKPORT_I_HDR_TX_CLK			13
-+#define CLK_GOUT_PERI_I3C3_IPCLKPORT_I_APB_S_PCLK			14
-+#define CLK_GOUT_PERI_I3C3_IPCLKPORT_I_CORE_CLK				15
-+#define CLK_GOUT_PERI_I3C3_IPCLKPORT_I_DMA_CLK				16
-+#define CLK_GOUT_PERI_I3C3_IPCLKPORT_I_HDR_TX_CLK			17
-+#define CLK_GOUT_PERI_APB_ASYNC_DSIM_IPCLKPORT_PCLKS			18
-+#define CLK_GOUT_PERI_I2C2_IPCLKPORT_I_PCLK				19
-+#define CLK_GOUT_PERI_I2C3_IPCLKPORT_I_PCLK				20
-+#define CLK_GOUT_PERI_SPI0_PCLK						21
-+#define CLK_GOUT_PERI_SPI0_SCLK_SPI					22
-+#define CLK_GOUT_PERI_UART1_PCLK					23
-+#define CLK_GOUT_PERI_UART1_SCLK_UART					24
-+#define CLK_GOUT_PERI_UART2_PCLK					25
-+#define CLK_GOUT_PERI_UART2_SCLK_UART					26
-+
-+#endif /* _DT_BINDINGS_CLOCK_ARTPEC9_H */
---
-2.17.1
+> +struct tc9563_pwrctrl_reg_setting {
+> +	unsigned int offset;
+> +	unsigned int val;
+> +};
+> +
+> +enum tc9563_pwrctrl_ports {
+> +	TC9563_USP,
+> +	TC9563_DSP1,
+> +	TC9563_DSP2,
+> +	TC9563_DSP3,
+> +	TC9563_ETHERNET,
+> +	TC9563_MAX
+> +};
+> +
+> +struct tc9563_pwrctrl_cfg {
+> +	u32 l0s_delay;
+> +	u32 l1_delay;
+> +	u32 tx_amp;
+> +	u8 nfts[2]; /* GEN1 & GEN2 */
+> +	bool disable_dfe;
+> +	bool disable_port;
+> +};
+> +
+> +#define TC9563_PWRCTL_MAX_SUPPLY	6
+> +
+> +static const char *const tc9563_supply_names[TC9563_PWRCTL_MAX_SUPPLY] = {
+> +	"vddc",
+> +	"vdd18",
+> +	"vdd09",
+> +	"vddio1",
+> +	"vddio2",
+> +	"vddio18",
+> +};
+> +
+> +struct tc9563_pwrctrl_ctx {
+> +	struct regulator_bulk_data supplies[TC9563_PWRCTL_MAX_SUPPLY];
+> +	struct tc9563_pwrctrl_cfg cfg[TC9563_MAX];
+> +	struct gpio_desc *reset_gpio;
+> +	struct i2c_adapter *adapter;
+> +	struct i2c_client *client;
+> +	struct pci_pwrctrl pwrctrl;
+> +};
+> +
+> +/*
+> + * downstream port power off sequence, hardcoding the address
+> + * as we don't know register names for these register offsets.
+> + */
+> +static const struct tc9563_pwrctrl_reg_setting common_pwroff_seq[] = {
+> +	{0x82900c, 0x1},
+> +	{0x829010, 0x1},
+> +	{0x829018, 0x0},
+> +	{0x829020, 0x1},
+> +	{0x82902c, 0x1},
+> +	{0x829030, 0x1},
+> +	{0x82903c, 0x1},
+> +	{0x829058, 0x0},
+> +	{0x82905c, 0x1},
+> +	{0x829060, 0x1},
+> +	{0x8290cc, 0x1},
+> +	{0x8290d0, 0x1},
+> +	{0x8290d8, 0x1},
+> +	{0x8290e0, 0x1},
+> +	{0x8290e8, 0x1},
+> +	{0x8290ec, 0x1},
+> +	{0x8290f4, 0x1},
+> +	{0x82910c, 0x1},
+> +	{0x829110, 0x1},
+> +	{0x829114, 0x1},
+> +};
+> +
+> +static const struct tc9563_pwrctrl_reg_setting dsp1_pwroff_seq[] = {
+> +	{TC9563_PORT_ACCESS_ENABLE, 0x2},
+> +	{TC9563_PORT_LANE_ACCESS_ENABLE, 0x3},
+> +	{TC9563_POWER_CONTROL, 0x014f4804},
+> +	{TC9563_POWER_CONTROL_OVREN, 0x1},
+> +	{TC9563_PORT_ACCESS_ENABLE, 0x4},
+> +};
+> +
+> +static const struct tc9563_pwrctrl_reg_setting dsp2_pwroff_seq[] = {
+> +	{TC9563_PORT_ACCESS_ENABLE, 0x8},
+> +	{TC9563_PORT_LANE_ACCESS_ENABLE, 0x1},
+> +	{TC9563_POWER_CONTROL, 0x014f4804},
+> +	{TC9563_POWER_CONTROL_OVREN, 0x1},
+> +	{TC9563_PORT_ACCESS_ENABLE, 0x8},
+> +};
+> +
+> +/*
+> + * Since all transfers are initiated by the probe, no locks are necessary,
+> + * as there are no concurrent calls.
+> + */
+> +static int tc9563_pwrctrl_i2c_write(struct i2c_client *client,
+> +				    u32 reg_addr, u32 reg_val)
+> +{
+> +	struct i2c_msg msg;
+> +	u8 msg_buf[7];
+> +	int ret;
+> +
+> +	msg.addr = client->addr;
+> +	msg.len = 7;
+> +	msg.flags = 0;
+> +
+> +	/* Big Endian for reg addr */
+> +	put_unaligned_be24(reg_addr, &msg_buf[0]);
+> +
+> +	/* Little Endian for reg val */
+> +	put_unaligned_le32(reg_val, &msg_buf[3]);
+> +
+> +	msg.buf = msg_buf;
+> +	ret = i2c_transfer(client->adapter, &msg, 1);
+> +	return ret == 1 ? 0 : ret;
+> +}
+> +
+> +static int tc9563_pwrctrl_i2c_read(struct i2c_client *client,
+> +				   u32 reg_addr, u32 *reg_val)
+> +{
+> +	struct i2c_msg msg[2];
+> +	u8 wr_data[3];
+> +	u32 rd_data;
+> +	int ret;
+> +
+> +	msg[0].addr = client->addr;
+> +	msg[0].len = 3;
+> +	msg[0].flags = 0;
+> +
+> +	/* Big Endian for reg addr */
+> +	put_unaligned_be24(reg_addr, &wr_data[0]);
+> +
+> +	msg[0].buf = wr_data;
+> +
+> +	msg[1].addr = client->addr;
+> +	msg[1].len = 4;
+> +	msg[1].flags = I2C_M_RD;
+> +
+> +	msg[1].buf = (u8 *)&rd_data;
+> +
+> +	ret = i2c_transfer(client->adapter, &msg[0], 2);
+> +	if (ret == 2) {
+> +		*reg_val = get_unaligned_le32(&rd_data);
+> +		return 0;
+> +	}
+> +
+> +	/* If only one message successfully completed, return -EIO */
+> +	return ret == 1 ? -EIO : ret;
+> +}
+> +
+> +static int tc9563_pwrctrl_i2c_bulk_write(struct i2c_client *client,
+> +					 const struct tc9563_pwrctrl_reg_setting *seq, int len)
+> +{
+> +	int ret, i;
+> +
+> +	for (i = 0; i < len; i++) {
+> +		ret = tc9563_pwrctrl_i2c_write(client, seq[i].offset, seq[i].val);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int tc9563_pwrctrl_disable_port(struct tc9563_pwrctrl_ctx *ctx,
+> +				       enum tc9563_pwrctrl_ports port)
+> +{
+> +	struct tc9563_pwrctrl_cfg *cfg  = &ctx->cfg[port];
+
+Extra space.
+
+> +	const struct tc9563_pwrctrl_reg_setting *seq;
+> +	int ret, len;
+> +
+> +	if (!cfg->disable_port)
+> +		return 0;
+> +
+> +	if (port == TC9563_DSP1) {
+> +		seq = dsp1_pwroff_seq;
+> +		len = ARRAY_SIZE(dsp1_pwroff_seq);
+> +	} else {
+> +		seq = dsp2_pwroff_seq;
+> +		len = ARRAY_SIZE(dsp2_pwroff_seq);
+> +	}
+> +
+> +	ret = tc9563_pwrctrl_i2c_bulk_write(ctx->client, seq, len);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return tc9563_pwrctrl_i2c_bulk_write(ctx->client,
+> +					    common_pwroff_seq, ARRAY_SIZE(common_pwroff_seq));
+> +}
+> +
+> +static int tc9563_pwrctrl_set_l0s_l1_entry_delay(struct tc9563_pwrctrl_ctx *ctx,
+> +						 enum tc9563_pwrctrl_ports port, bool is_l1, u32 ns)
+> +{
+> +	u32 rd_val, units;
+> +	int ret;
+> +
+> +	if (ns < 256)
+> +		return 0;
+> +
+> +	/* convert to units of 256ns */
+> +	units = ns / 256;
+
+Name this 256 with a define.
+
+> +
+> +	if (port == TC9563_ETHERNET) {
+> +		ret = tc9563_pwrctrl_i2c_read(ctx->client, TC9563_EMBEDDED_ETH_DELAY, &rd_val);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (is_l1)
+> +			rd_val = u32_replace_bits(rd_val, units, TC9563_ETH_L1_DELAY_MASK);
+> +		else
+> +			rd_val = u32_replace_bits(rd_val, units, TC9563_ETH_L0S_DELAY_MASK);
+
+Move the if into the last parameter using ? : operator like you seem to 
+already do below when writing.
+
+> +
+> +		return tc9563_pwrctrl_i2c_write(ctx->client, TC9563_EMBEDDED_ETH_DELAY, rd_val);
+> +	}
+> +
+> +	ret = tc9563_pwrctrl_i2c_write(ctx->client, TC9563_PORT_SELECT, BIT(port));
+> +	if (ret)
+> +		return ret;
+> +
+> +	return tc9563_pwrctrl_i2c_write(ctx->client,
+> +				       is_l1 ? TC9563_PORT_L1_DELAY : TC9563_PORT_L0S_DELAY, units);
+> +}
+> +
+> +static int tc9563_pwrctrl_set_tx_amplitude(struct tc9563_pwrctrl_ctx *ctx,
+> +					   enum tc9563_pwrctrl_ports port, u32 amp)
+> +{
+> +	int port_access;
+> +
+> +	if (amp < TC9563_TX_MARGIN_MIN_VAL)
+> +		return 0;
+> +
+> +	/* txmargin = (Amp(uV) - 400000) / 3125 */
+> +	amp = (amp - TC9563_TX_MARGIN_MIN_VAL) / 3125;
+> +
+> +	switch (port) {
+> +	case TC9563_USP:
+> +		port_access = 0x1;
+> +		break;
+> +	case TC9563_DSP1:
+> +		port_access = 0x2;
+> +		break;
+> +	case TC9563_DSP2:
+> +		port_access = 0x8;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	};
+> +
+> +	struct tc9563_pwrctrl_reg_setting tx_amp_seq[] = {
+> +		{TC9563_PORT_ACCESS_ENABLE, port_access},
+> +		{TC9563_PORT_LANE_ACCESS_ENABLE, 0x3},
+> +		{TC9563_TX_MARGIN, amp},
+> +	};
+> +
+> +	return tc9563_pwrctrl_i2c_bulk_write(ctx->client, tx_amp_seq, ARRAY_SIZE(tx_amp_seq));
+
+Include for ARRAY_SIZE().
+
+> +}
+> +
+> +static int tc9563_pwrctrl_disable_dfe(struct tc9563_pwrctrl_ctx *ctx,
+> +				      enum tc9563_pwrctrl_ports port)
+> +{
+> +	struct tc9563_pwrctrl_cfg *cfg  = &ctx->cfg[port];
+
+Extra space.
+
+> +	int port_access, lane_access = 0x3;
+> +	u32 phy_rate = 0x21;
+> +
+> +	if (!cfg->disable_dfe)
+> +		return 0;
+> +
+> +	switch (port) {
+> +	case TC9563_USP:
+> +		phy_rate = 0x1;
+> +		port_access = 0x1;
+> +		break;
+> +	case TC9563_DSP1:
+> +		port_access = 0x2;
+> +		break;
+> +	case TC9563_DSP2:
+> +		port_access = 0x8;
+> +		lane_access = 0x1;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	};
+
+You seem to have these kind of switches in a few places and some similar 
+if statements, maybe move all this hw info data into an array of structs 
+so you don't need to do switch/case everywhere.
+
+> +	struct tc9563_pwrctrl_reg_setting disable_dfe_seq[] = {
+> +		{TC9563_PORT_ACCESS_ENABLE, port_access},
+> +		{TC9563_PORT_LANE_ACCESS_ENABLE, lane_access},
+> +		{TC9563_DFE_ENABLE, 0x0},
+> +		{TC9563_DFE_EQ0_MODE, 0x411},
+> +		{TC9563_DFE_EQ1_MODE, 0x11},
+> +		{TC9563_DFE_EQ2_MODE, 0x11},
+> +		{TC9563_DFE_PD_MASK, 0x7},
+> +		{TC9563_PHY_RATE_CHANGE_OVERRIDE, 0x10},
+> +		{TC9563_PHY_RATE_CHANGE, phy_rate},
+> +		{TC9563_PHY_RATE_CHANGE, 0x0},
+> +		{TC9563_PHY_RATE_CHANGE_OVERRIDE, 0x0},
+> +	};
+> +
+> +	return tc9563_pwrctrl_i2c_bulk_write(ctx->client,
+> +					    disable_dfe_seq, ARRAY_SIZE(disable_dfe_seq));
+> +}
+> +
+> +static int tc9563_pwrctrl_set_nfts(struct tc9563_pwrctrl_ctx *ctx,
+> +				   enum tc9563_pwrctrl_ports port, u8 *nfts)
+> +{
+> +	struct tc9563_pwrctrl_reg_setting nfts_seq[] = {
+> +		{TC9563_NFTS_2_5_GT, nfts[0]},
+> +		{TC9563_NFTS_5_GT, nfts[1]},
+> +	};
+> +	int ret;
+> +
+> +	if (!nfts[0])
+> +		return 0;
+> +
+> +	ret =  tc9563_pwrctrl_i2c_write(ctx->client, TC9563_PORT_SELECT, BIT(port));
+> +	if (ret)
+> +		return ret;
+> +
+> +	return tc9563_pwrctrl_i2c_bulk_write(ctx->client, nfts_seq, ARRAY_SIZE(nfts_seq));
+> +}
+> +
+> +static int tc9563_pwrctrl_assert_deassert_reset(struct tc9563_pwrctrl_ctx *ctx, bool deassert)
+> +{
+> +	int ret, val;
+> +
+> +	ret = tc9563_pwrctrl_i2c_write(ctx->client, TC9563_GPIO_CONFIG, TC9563_GPIO_MASK);
+> +	if (ret)
+> +		return ret;
+> +
+> +	val = deassert ? 0xc : 0;
+
+Can this 0xc be named?
+
+Perhaps TC9563_GPIO_MASK could be constructed as inverse of it? (I'm not 
+sure if these those are connected but it looks suspiciously so).
+
+> +
+> +	return tc9563_pwrctrl_i2c_write(ctx->client, TC9563_RESET_GPIO, val);
+> +}
+> +
+> +static int tc9563_pwrctrl_parse_device_dt(struct tc9563_pwrctrl_ctx *ctx, struct device_node *node,
+> +					  enum tc9563_pwrctrl_ports port)
+> +{
+> +	struct tc9563_pwrctrl_cfg *cfg;
+> +	int ret;
+> +
+> +	cfg = &ctx->cfg[port];
+
+This is boilerplace, do it when declaring the variable.
+
+> +
+> +	/* Disable port if the status of the port is disabled. */
+> +	if (!of_device_is_available(node)) {
+> +		cfg->disable_port = true;
+> +		return 0;
+> +	};
+> +
+> +	ret = of_property_read_u32(node, "aspm-l0s-entry-delay-ns", &cfg->l0s_delay);
+> +	if (ret && ret != -EINVAL)
+> +		return ret;
+> +
+> +	ret = of_property_read_u32(node, "aspm-l1-entry-delay-ns", &cfg->l1_delay);
+> +	if (ret && ret != -EINVAL)
+> +		return ret;
+> +
+> +	ret = of_property_read_u32(node, "qcom,tx-amplitude-microvolt", &cfg->tx_amp);
+> +	if (ret && ret != -EINVAL)
+> +		return ret;
+> +
+> +	ret = of_property_read_u8_array(node, "n-fts", cfg->nfts, 2);
+
+2 -> ARRAY_SIZE().
+
+> +	if (ret && ret != -EINVAL)
+> +		return ret;
+> +
+> +	cfg->disable_dfe = of_property_read_bool(node, "qcom,no-dfe-support");
+> +
+> +	return 0;
+> +}
+> +
+> +static void tc9563_pwrctrl_power_off(struct tc9563_pwrctrl_ctx *ctx)
+> +{
+> +	gpiod_set_value(ctx->reset_gpio, 1);
+> +
+> +	regulator_bulk_disable(ARRAY_SIZE(ctx->supplies), ctx->supplies);
+> +}
+> +
+> +static int tc9563_pwrctrl_bring_up(struct tc9563_pwrctrl_ctx *ctx)
+> +{
+> +	struct tc9563_pwrctrl_cfg *cfg;
+> +	int ret, i;
+> +
+> +	ret = regulator_bulk_enable(ARRAY_SIZE(ctx->supplies), ctx->supplies);
+> +	if (ret < 0)
+> +		return dev_err_probe(ctx->pwrctrl.dev, ret, "cannot enable regulators\n");
+> +
+> +	gpiod_set_value(ctx->reset_gpio, 0);
+> +
+> +	 /*
+> +	  * From TC9563 PORSYS rev 0.2, figure 1.1 POR boot sequence
+> +	  * wait for 10ms for the internal osc frequency to stabilize.
+> +	  */
+> +	fsleep(10000);
+
+Add define for it (with the unit in the name) and put comment next to that 
+define.
+
+
+(10 * USEC_PER_MSEC)
+
+> +
+> +	ret = tc9563_pwrctrl_assert_deassert_reset(ctx, false);
+> +	if (ret)
+> +		goto power_off;
+> +
+> +	for (i = 0; i < TC9563_MAX; i++) {
+> +		cfg = &ctx->cfg[i];
+> +		ret = tc9563_pwrctrl_disable_port(ctx, i);
+> +		if (ret) {
+> +			dev_err(ctx->pwrctrl.dev, "Disabling port failed\n");
+> +			goto power_off;
+> +		}
+> +
+> +		ret = tc9563_pwrctrl_set_l0s_l1_entry_delay(ctx, i, false, cfg->l0s_delay);
+> +		if (ret) {
+> +			dev_err(ctx->pwrctrl.dev, "Setting L0s entry delay failed\n");
+> +			goto power_off;
+> +		}
+> +
+> +		ret = tc9563_pwrctrl_set_l0s_l1_entry_delay(ctx, i, true, cfg->l1_delay);
+> +		if (ret) {
+> +			dev_err(ctx->pwrctrl.dev, "Setting L1 entry delay failed\n");
+> +			goto power_off;
+> +		}
+> +
+> +		ret = tc9563_pwrctrl_set_tx_amplitude(ctx, i, cfg->tx_amp);
+> +		if (ret) {
+> +			dev_err(ctx->pwrctrl.dev, "Setting Tx amplitude failed\n");
+> +			goto power_off;
+> +		}
+> +
+> +		ret = tc9563_pwrctrl_set_nfts(ctx, i, cfg->nfts);
+
+I wonder why you need to pass cfg-> variables to these functions (except 
+for the l0s/l1 variation) as the values is available through 
+ctx->cfg[port]->ntfs in the function itself.
+
+> +		if (ret) {
+> +			dev_err(ctx->pwrctrl.dev, "Setting N_FTS failed\n");
+> +			goto power_off;
+> +		}
+> +
+> +		ret = tc9563_pwrctrl_disable_dfe(ctx, i);
+> +		if (ret) {
+> +			dev_err(ctx->pwrctrl.dev, "Disabling DFE failed\n");
+> +			goto power_off;
+> +		}
+> +	}
+> +
+> +	ret = tc9563_pwrctrl_assert_deassert_reset(ctx, true);
+> +	if (!ret)
+> +		return 0;
+> +
+> +power_off:
+> +	tc9563_pwrctrl_power_off(ctx);
+> +	return ret;
+> +}
+> +
+> +static int tc9563_pwrctrl_probe(struct platform_device *pdev)
+> +{
+> +	struct pci_host_bridge *bridge = to_pci_host_bridge(pdev->dev.parent);
+> +	struct pci_bus *bus = bridge->bus;
+> +	struct device *dev = &pdev->dev;
+> +	enum tc9563_pwrctrl_ports port;
+> +	struct tc9563_pwrctrl_ctx *ctx;
+> +	struct device_node *i2c_node;
+> +	int ret, addr;
+> +
+> +	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
+> +	if (!ctx)
+> +		return -ENOMEM;
+> +
+> +	ret = of_property_read_u32_index(pdev->dev.of_node, "i2c-parent", 1, &addr);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to read i2c-parent property\n");
+> +
+> +	i2c_node = of_parse_phandle(dev->of_node, "i2c-parent", 0);
+> +	ctx->adapter = of_find_i2c_adapter_by_node(i2c_node);
+> +	of_node_put(i2c_node);
+> +	if (!ctx->adapter)
+> +		return dev_err_probe(dev, -EPROBE_DEFER, "Failed to find I2C adapter\n");
+> +
+> +	ctx->client = i2c_new_dummy_device(ctx->adapter, addr);
+> +	if (IS_ERR(ctx->client)) {
+> +		dev_err(dev, "Failed to create I2C client\n");
+> +		i2c_put_adapter(ctx->adapter);
+> +		return PTR_ERR(ctx->client);
+> +	}
+> +
+> +	for (int i = 0; i < TC9563_PWRCTL_MAX_SUPPLY; i++)
+
+I'd prefer using ARRAY_SIZE() as you're iterating over an array here.
+
+> +		ctx->supplies[i].supply = tc9563_supply_names[i];
+> +
+> +	ret = devm_regulator_bulk_get(dev, TC9563_PWRCTL_MAX_SUPPLY, ctx->supplies);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret,
+> +			      "failed to get supply regulator\n");
+
+Fits to one line.
+
+> +		goto remove_i2c;
+> +	}
+> +
+> +	ctx->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(ctx->reset_gpio)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(ctx->reset_gpio), "failed to get reset GPIO\n");
+> +		goto remove_i2c;
+> +	}
+> +
+> +	pci_pwrctrl_init(&ctx->pwrctrl, dev);
+> +
+> +	port = TC9563_USP;
+> +	ret = tc9563_pwrctrl_parse_device_dt(ctx, pdev->dev.of_node, port);
+> +	if (ret) {
+> +		dev_err(dev, "failed to parse device tree properties: %d\n", ret);
+> +		goto remove_i2c;
+> +	}
+> +
+> +	/*
+> +	 * Downstream ports are always children of the upstream port.
+> +	 * The first node represents DSP1, the second node represents DSP2, and so on.
+> +	 */
+> +	for_each_child_of_node_scoped(pdev->dev.of_node, child) {
+> +		ret = tc9563_pwrctrl_parse_device_dt(ctx, child, port++);
+> +		if (ret)
+> +			break;
+> +		/* Embedded ethernet device are under DSP3 */
+> +		if (port == TC9563_DSP3)
+
+Add braces.
+
+I assume this check okay with the port being post-incremented? I'd prefer 
+doing this code like this:
+
+		port++;
+		/*
+		 * Downstream ports are always children of the upstream port.
+		 * The first node represents DSP1, the second node represents 
+		 * DSP2, and so on.
+		 */
+		ret = tc9563_pwrctrl_parse_device_dt(ctx, child, port - 1);
+		if (ret)
+			break;
+		/* Embedded ethernet device are under DSP3 */
+		if (port == TC9563_DSP3) {
+
+While this is functionally same as yours, the explicit "port - 1" makes 
+the difference between tc9563_pwrctrl_ports and DT indexing more obvious
+(the code doesn't look buggy on the first sight like it does with the 
+post-incrementing. I was sure the indexing is buggy until I read that 
+comment that was too far away from the line it was relevant to).
+
+> +			for_each_child_of_node_scoped(child, child1) {
+> +				ret = tc9563_pwrctrl_parse_device_dt(ctx, child1, port++);
+> +				if (ret)
+> +					break;
+> +			}
+> +	}
+> +	if (ret) {
+> +		dev_err(dev, "failed to parse device tree properties: %d\n", ret);
+> +		goto remove_i2c;
+> +	}
+> +
+> +	if (bridge->ops->assert_perst) {
+> +		ret = bridge->ops->assert_perst(bus, true);
+> +		if (ret)
+> +			goto remove_i2c;
+> +	}
+> +
+> +	ret = tc9563_pwrctrl_bring_up(ctx);
+> +	if (ret)
+> +		goto remove_i2c;
+> +
+> +	if (bridge->ops->assert_perst) {
+> +		ret = bridge->ops->assert_perst(bus, false);
+> +		if (ret)
+> +			goto power_off;
+> +	}
+> +
+> +	ret = devm_pci_pwrctrl_device_set_ready(dev, &ctx->pwrctrl);
+> +	if (ret)
+> +		goto power_off;
+> +
+> +	platform_set_drvdata(pdev, ctx);
+> +
+> +	return 0;
+> +
+> +power_off:
+> +	tc9563_pwrctrl_power_off(ctx);
+> +remove_i2c:
+> +	i2c_unregister_device(ctx->client);
+> +	i2c_put_adapter(ctx->adapter);
+> +	return ret;
+> +}
+> +
+> +static void tc9563_pwrctrl_remove(struct platform_device *pdev)
+> +{
+> +	struct tc9563_pwrctrl_ctx *ctx = platform_get_drvdata(pdev);
+> +
+> +	tc9563_pwrctrl_power_off(ctx);
+> +	i2c_unregister_device(ctx->client);
+> +	i2c_put_adapter(ctx->adapter);
+> +}
+> +
+> +static const struct of_device_id tc9563_pwrctrl_of_match[] = {
+> +	{ .compatible = "pci1179,0623"},
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, tc9563_pwrctrl_of_match);
+> +
+> +static struct platform_driver tc9563_pwrctrl_driver = {
+> +	.driver = {
+> +		.name = "pwrctrl-tc9563",
+> +		.of_match_table = tc9563_pwrctrl_of_match,
+> +		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
+> +	},
+> +	.probe = tc9563_pwrctrl_probe,
+> +	.remove = tc9563_pwrctrl_remove,
+> +};
+> +module_platform_driver(tc9563_pwrctrl_driver);
+> +
+> +MODULE_AUTHOR("Krishna chaitanya chundru <quic_krichai@quicinc.com>");
+> +MODULE_DESCRIPTION("TC956x power control driver");
+> +MODULE_LICENSE("GPL");
+> 
+> 
+
+-- 
+ i.
 
 
