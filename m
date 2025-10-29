@@ -4,82 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DC2CCF9F2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 08:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF51CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 08:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+WnE3mQA440Xctn7bc03JpZPLq7SEpiyuUBQHp57Vao=; b=Yrf1nKbdO38bcxyqRtYGpxiUMm
-	nm0Q78YOlAQFYWBj2raF+IrVjL6YkTQG85rOX0rzG4UGDAqmIXOj/pIaNHwTGHQvrtV8KBEiqy+DY
-	CdCqjWri8kH4E0laORacng0ORDBw6kBKU7cv3Uy/dMriN8M4HWUlO6VAEKRrCwk60bIItg8zVu4XZ
-	KLYL+c6RQF3cBFnju9l8yCpRINhyvTIkyh1mJ+rT4wWhRYi095u2SQhvCJU3eIQILyJBj4c64dlfS
-	MgfsSKa5szw/muPirFGrRzk9julWPFEarCh+jVJoQKJtM5vpKc6GzD9e+ipaZJ2FVtLqKYvdDdkQL
-	TydAKeoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P0nNdsan3HfIMaLFLhxSQOiUMqti5s39VuswGMNfayY=; b=A6vPm3j2DeNVMBVNaBL5m9gx+n
+	jtLceKMMGalNChr7a5EKvn2PeX2PUe8uKryIKeyRhTB7K7in8iXX4GQiTjA2Pqf0zCk4HHwgqnbQo
+	a3nLbuR0HFmVHojNdEHlUL2x1m998NE7U/p6Jwvpuhwwmev5YddylHwrqn/EhZ+IlHEtDHxeAVqBL
+	Kd33aXarKGSjFFSJiWFz45Co4q3D5S2aX4jLX1yWvEH2xoI20HNcF33lGktjkHqpNsoOhA2z/IxIL
+	jHCPZi6OYhHoaq23JvJh13YCciL34L8BJt1y0iFyPOICDJCTbEuaWfIAtDs5z8VGXIuoq+/uxJQMq
+	I8Ys6edw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE1CT-00000000CmO-0G2r;
-	Wed, 29 Oct 2025 08:06:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vE1Hm-00000000EMg-0KJc;
+	Wed, 29 Oct 2025 08:12:02 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE1CM-00000000Ces-1Weh
+	id 1vE1Hj-00000000ELf-36GB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 08:06:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E9ED4925C;
-	Wed, 29 Oct 2025 08:06:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 02A62C19421;
-	Wed, 29 Oct 2025 08:06:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761725185;
-	bh=h6Poh04xfjup8bHK1NHe1ZEcNsz2wld/VP/Vdn6DDTQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=HVY7K9p9MOH1ueZGbZafRkY7ixs02cP3wBU3IT4TKvkuAXYT8idv9p7FC8YDih0vh
-	 KkB0O1wkxIXMxknUz6y8+pI2wL2m7PZF+wpTVaLbSl5nGB9NTjMgrADaHeWuJFfQCK
-	 535lm9CpwCvsJbf4H5Wxk9lqLCaKQmgPwJAgkbgT4jSwzw03NtqzO/CD42llR2cXKb
-	 jaHWEwHNx3eDvdV6vh0Q5lngVoofHS+7ZAQ3TK7gm7FBeHEwICZmy1BB/2mXOEe9cF
-	 pJwsEDdaxUB/2M0mVaVgfYiwfLumsMDEsvFWyFEWjW/iuUdWe6fV4oFr3sWYj08iCH
-	 lf2Ltn5pX92iQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA253CCF9EE;
-	Wed, 29 Oct 2025 08:06:24 +0000 (UTC)
-From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Wed, 29 Oct 2025 16:06:16 +0800
-Subject: [PATCH net-next 4/4] net: stmmac: socfpga: Add hardware supported
- cross-timestamp
+	Wed, 29 Oct 2025 08:12:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QVyPk2a4XTvFsqEXyNeKpVAw0vodz/yRxIt0wB4E1CN6z3dh2GZGP9flbiAEYI4EdEKC5PMyl74Y9OT37m7qBgtjeW8t5qyl9BPkf82P9TtEQjSn+/OzflkiEJ88/SuYMxDxb0QL6XWQohacYQgD5Q5hUlwXw3rs4tcj0aaphzl8D7C3f23gUFnNjkZL0Gs/EWUgYr90f4LeBrzU6mU43kutWIfrTu+8NuWGjZQF7NgtqVsoL+bkY8sNTti+797/BFn6njv3Pt3/ocyVct2jFTdIG520RujWCdUCfvssP1DMPorGWrmSd7wImLCoaPAv324ZIbGEcRJN/BLme4Onqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P0nNdsan3HfIMaLFLhxSQOiUMqti5s39VuswGMNfayY=;
+ b=tZOwWiTfZznMugSQ0O6l9gkkiLgGSD3a0VPqO7LI2ku53Od6MLNH2kfDf6cC53q9OHIpDIO59ywjbZZyQK6TrFZHEcToq8fgFu9KG37hoFIyrsE73v3XL9bLML+dzcpilWsLXs1zYEqB/Lqq/H0//5JQrK86UVNqzr9nRqyzzFH1KeVUFZ0YWnqInJ/W/KUdALLeX/JswLuPdwSgyeelfo2e5joCfV1WJx5y2H/dnsI5J73rRF1f4KnIk3eCKSUsrNI/bdwPMoVE4pjQOh9uObz4NiBDtVMr/9b/wL73Wb7iBynjlD8ybmj35ZvkuVnsQO/TUTx4CD6q/QNzEGPAAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P0nNdsan3HfIMaLFLhxSQOiUMqti5s39VuswGMNfayY=;
+ b=qBR64tPO2E2FUsWQ5u3qwc+tP8noks5Gx6sjtz7A9gN2oW/M64C7Xm1CQ6sc1vWh1qIfA1+vTY/fQJQYygD7+39n1tv6g7Sd0gkXua7A7gCgjdDTVCgL2NypOgLmTiDU26wmRCNVh4XwbQtulG/R1S/gKFbPAIg8swVxsusYfoMMJmUpkPQD1o9mFVXfgeY9hKyLpIMbi+gBNIiLjCpujHslCOw+Qf1R+0/5wk3u+yJqNco5MQQVPCZJTLpKsT6mlMZ14o0MO2F0fzI5oK2QOigDgOvlgwpeLi39I26mCNkdiYawqHvH5fK3WeYp9JqQFQ9wnrrK+fR6XcqajmA++w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
+ by CO1PR03MB5809.namprd03.prod.outlook.com (2603:10b6:303:6e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
+ 2025 08:11:53 +0000
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076%4]) with mapi id 15.20.9275.013; Wed, 29 Oct 2025
+ 08:11:53 +0000
+Message-ID: <d3d2f4cc-c0ad-47fa-a356-2e8aaa24e9bc@altera.com>
+Date: Wed, 29 Oct 2025 13:41:42 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/10] net: stmmac: dwmac-socfpga: don't set has_gmac
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Matthew Gerlach <matthew.gerlach@altera.com>, kernel@pengutronix.de,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
+ <20251024-v6-12-topic-socfpga-agilex5-v5-1-4c4a51159eeb@pengutronix.de>
+ <92e953b8-4581-4647-8173-6c7fa05a7895@bootlin.com>
+ <87tszo7a7y.fsf@pengutronix.de>
+Content-Language: en-US
+From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+In-Reply-To: <87tszo7a7y.fsf@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5PR01CA0098.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a8::10) To DM6PR03MB5371.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251029-agilex5_ext-v1-4-1931132d77d6@altera.com>
-References: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
-In-Reply-To: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rohan G Thomas <rohan.g.thomas@altera.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761725182; l=7260;
- i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=tUV/L7I6pOGEG38MdWI+75TwNmBVsKyEDIuFz1TUCgU=;
- b=/smYeDjK8rwqYcgfEOpvuMUFqL6IEZpzQmRyCLPGablCq+W4zvn+KYPaTwBit++QgjOUr83wd
- rfffrHawDlaCV0cK2KiOjCLsdGsKnFSX58w84U23PMwor8COayGh/+U
-X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
- pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
-X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
- with auth_id=494
-X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|CO1PR03MB5809:EE_
+X-MS-Office365-Filtering-Correlation-Id: af024228-3d1b-43f7-073e-08de16c2d169
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T0lCZlBIak9kVG4wZ2l1RkhaUDB1dk93aUpMby96NEhpQUNXa0RoTGh3emZ1?=
+ =?utf-8?B?UThlQUVMSDZQZzZtd1VET2k0dXhYL2Erd2taWGNyUXZSVTBQdFNwZDdjSEZj?=
+ =?utf-8?B?bHZwR2hNMDFEQkp2SzdaZDZIamxybjJsR1ZVZGs3REV2L1oyU1k3ZStkWG1T?=
+ =?utf-8?B?djlqdG54MlZ4WndqMGg1YXQ1Mkg3aVIwd2VreWxUT1lvZnFuek40T3k2SG1i?=
+ =?utf-8?B?Qk5LVzRGVDRST2JiVDg1L1BianhRRGNyY0tDeHZIc1VidWhhNEVUaVlLbG9i?=
+ =?utf-8?B?OHV3RjdQNWxuYkZXdEFQS2hwRXArRi9ndEFiVUV4VWNkODNRZnhzT0lTcTND?=
+ =?utf-8?B?bi9VcnAvNURuUnJ3WHYrU21BL1Y1SlZGZms0akhQcmFHS1g0RVJhRmpzL3hF?=
+ =?utf-8?B?T2Z1L3lEMXB2SndYamtINGZjZll1TDRqeUVkM2FacktKTGtzUEU5RkJyRE5C?=
+ =?utf-8?B?N253dlUreVl1d01qYkFuMmpteGl4akpPNlV0ZHRvaEgzSlpsdGl2S1lON0NB?=
+ =?utf-8?B?VTVrMWE1Q2FNMnFPY1hOd3hnbjdSR2hocGVpTnh5UnNiM1d2YnJtSUVnVTFK?=
+ =?utf-8?B?eldybzA5bEhOWEM5SkN5bjdhSi9xZTMrdzBXU1VlZEkrTnFKVXlmYlQxeWFJ?=
+ =?utf-8?B?M24wVk1pT1hESzJ2WE43dC9LQnhOTHRoeEVGWnd3MHlRZ3V1TlpSTjdLcGVs?=
+ =?utf-8?B?aEF3TlROeVBtVys5eURhSHdlanBUamtMZFU2WWxISDBWaE8wa1pMS1loVm5E?=
+ =?utf-8?B?aitRQ0U4QWtLakp6QWp5VXJrZnkwMGgxSE9ZWUc2S0p1L1lSS29sRWV2ckdt?=
+ =?utf-8?B?N2Z1YVJub09UV3gyRWU2TFA3eFBCNG9rZngwb2ZBcEpXcGoxUVhJeWNQVDFk?=
+ =?utf-8?B?YkxVWkM3L2huT2tqTHZiNVpsd3kyUFNBbUQrTFVxVTJzYkd5MFNUSUtjNk04?=
+ =?utf-8?B?WittNzk4RytuQ2tGR0c1bHFqVkFMWHJIWFFSUTNPQm4rYloreDA2YkdvbDFI?=
+ =?utf-8?B?M2ZqTWxrbDdKd3pYendsNlVTQzF1SnF0SmlDL3ZUWHhncm5uZWZYQkw3TG9z?=
+ =?utf-8?B?aS9ldjVobnhNcnFKYkxvY3RDZG9pNTZnc3lFek9XT1lJWDdiVU1rT3JUWC9M?=
+ =?utf-8?B?cXNJWHlDS0NIQnVzY25xbDViS3lhVFRWbURLcjMzS1NROWFuV1c5K3RCOXhl?=
+ =?utf-8?B?R1ptZWtoK3JBeXg2dm1MTVZEOS9uZldKVDJFTzRmWGErSnlFNjVGbjlMaXJB?=
+ =?utf-8?B?eTZOMDdlOXpYVzVsMFZaV0E0NWRtWXR5cUh5bXZzSUZocW9sMUFsaVE4MTRk?=
+ =?utf-8?B?cUdhcUMzUDVDQ3FhU1lITllUd0YvY0wvazJBV1RVUDRPdmZEKzlPQzFybXdz?=
+ =?utf-8?B?dlZzM0Y0OEJlcmJPV1YrSlpsY09MUFlOVkRSWnNnQjdncVBlVktCdzY1ZEps?=
+ =?utf-8?B?Q2wvSFJmK2RNSkc4eTVheHdaYi9VNG9jNk1BcFN0VUVqZmNOcHU0VHYyTHFs?=
+ =?utf-8?B?V1ZYd0toVGxzb0tXOG96ckduQVNhbWl5VE1xWGhqRnZqSXZPTnVMZXhkMHdB?=
+ =?utf-8?B?NnhvQ2l0WWtOa21ZQkY3eUFZZlVXUFhCYXQ5Ky8rWDh1L3VyTFF0UVNBZ2lL?=
+ =?utf-8?B?bVVFUjJSaS9COUdxbGZJd3pVZ0xkNmMzTHZYb3hINDE1Q0RoS2Jud2RHVnV2?=
+ =?utf-8?B?Q2MrbFNaSkg4cGp4ZVpJNFdpakoyRVlpYnhKSWJnc0J6UGoxNTc2dU5iTmdL?=
+ =?utf-8?B?NUNBTk5jeW5vNU8vcUR4bFQzN3IzVkpVWHY5OU1vL2lyUjJoT2Vsck1aYUNo?=
+ =?utf-8?B?dEZxakMzR29sMldkKy9iMWpRVjRDSWxDMjJzQThxQVlNdU1KamVmNDYyblk0?=
+ =?utf-8?B?L3ZoTCtvL1hRcHNDaGNrcFNhY0tKZ3FkaG9CUTRVS3doVFR4VnRLTFZTNmJE?=
+ =?utf-8?Q?kO8JkHAxtm0KAfWuSHEGM1HN1ZH3g7AD?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R3ZvOG01VE1KSXdDWDhzRjByYkxDTXRpb05idzdZeldnYlFoZHRqRUI1Y0ti?=
+ =?utf-8?B?SUMrcW1lTjZBbkpHcDAzbnZIMzNyZ0huZWVWbmdLRVBEZDhsL2RySUJXSmp3?=
+ =?utf-8?B?VFo0M0pUM0xpMmV4YytpMWFiTnNUWnR2cldBdVVtSWdHY1NlWlpRM0ZiaExN?=
+ =?utf-8?B?YXdNckdldUdKazZ6Nm5pUDB4YjdMQUJTeEJiRXROS2ZiMG4wUS9ITkxJV1k0?=
+ =?utf-8?B?eU9WWGpSbFk1L0c3cHcwV2J0NVduYzdJSUpHMEc0eEEram44bmZVT2RyYWhR?=
+ =?utf-8?B?RWpGbi9uWjErUC81SnI2Q0xmK3N6a3htWWYvMkZ3S0tkdzZZNFJxSVdOR1RN?=
+ =?utf-8?B?RzE5Y3pEV1VtM3g3T0pDQlZpVW5ZTFc5VUVhT0tJZnBFN2c2R3pvRzhSNTBp?=
+ =?utf-8?B?S1l3Vkl2MGhFS1ZGNUx4SXpFVkRuaVlGZ1VmZmR0TytqaHNHZGFuU25oL1JO?=
+ =?utf-8?B?Q2ZwMXZKMTVLZEhzWGhSc2VxSTFSbTRURG5SSi9lbHppM0tJSW5IL0YxSU5i?=
+ =?utf-8?B?Qm1BaHFLQ0xtcU4zb1JOeHlVZUdra1psOXlLY2JmT1ZuM1NkcFNPRWhSSm9Y?=
+ =?utf-8?B?bFY2bkNqL0dnN1kyWlRuY3Z2T3lvVmwvTHZ6azRmeDlqaW1tM1MvbU94ZmVG?=
+ =?utf-8?B?TGxNMWI3RmZxZmg3TnlEblk5N1RGMW5wSlZXUmlMUVFSaEQ1ckUxSGJlZGtN?=
+ =?utf-8?B?K1U5dUluRGlxZER0Tk1VSEZQOEx1a2Jtd1dkNlRLUnRaUUdkVkN5d2txbmp2?=
+ =?utf-8?B?dnFBd2FvN1A4djZrRlk3YWV2enUwNjhsMDVaRmhDMEZoOERTVXJ6Sms3RGJn?=
+ =?utf-8?B?akEvSWRnbXpCUmxMeXFJVTREYmxCY29kd0x6QWhaZVhiUXF3OTNKZk5YSUQv?=
+ =?utf-8?B?b0ZhcUMzbHFDV1ZUNlhscE9DVzh4YmdLSnRXL1RpQmptZG1KZm5lQktmc2JR?=
+ =?utf-8?B?WEp3VDhNSi95RENQS29WOWh4RmcyeThHS3hjOEhVU3R2ays1alVmbW41UUxK?=
+ =?utf-8?B?cWpKYTJBd2NPUmRyVHE4MnAxL3B2MFNYMWJTUTJCRWlhb3ZRN2VqNHpUYjN2?=
+ =?utf-8?B?dFpUTUg0K0xPa1NNZmZpMlJPelFqTExXRW5VNXFFd3huekx1bUkya0RFbC9M?=
+ =?utf-8?B?RngvN1pldHcyM2R6OWhkRGo4cWcrSmI5SithbG1KWm1EaDlNbFNsdWVBRUZJ?=
+ =?utf-8?B?Rmd1Q0hIakVJZGExYkdUaFFNNjdpTEd4Mm0reXFkdXNvWnUzbVovbWIxTGF6?=
+ =?utf-8?B?Z05YU3JObzZJNDdYckxZNmRDTGVvUGMzbGJvcDhTbmJRK1BNUkg5UUhVYWYv?=
+ =?utf-8?B?dUpTUlh5cU5nQXlaNWJqS01IeFFDR2FKNjU2cS9LM0JvWXpkREw4d2pvK2w4?=
+ =?utf-8?B?ZnpwRjJsRytMSC9YWEVzT0Z1d0FSSUtrS2hpZElKSEg5SXhnNm5rMDhPRjRj?=
+ =?utf-8?B?Q0RsWHNLSncrSHk0QytURElBWU9CN25aQmVRUWwvUURRZ0tVRlhOcklIMVFO?=
+ =?utf-8?B?dGJodmw2azBncnVzMGswQzlRTEhSN2xIa1UrUFlYcVE5eUlkMUFwbHozUktW?=
+ =?utf-8?B?d2R5aXNlTUMyZ1QvSUhkZldJWFJmVkcrZksxWHFyK09HalVGK21VL2JnZ1BO?=
+ =?utf-8?B?eEJkWGJaNjFXd2tNQ01mSVVONGVtN1hzb25VWXEyVmJqWmlXTEtNS0FDUVph?=
+ =?utf-8?B?S005bDZFMzFQMndMMHB6OCtmUCtJWFZxL3pQMHpMbTlLKzZWQTJiVjlnOHFp?=
+ =?utf-8?B?US9aNnlZWTlTZ29HNmlRaVV0TjRBU2laZ0dhVEtMZzJ2MXpDNFVHNnhzRml5?=
+ =?utf-8?B?V1k4UnRjemhEWFQ2OThMMzRWZmtTa3p4T1JEZk1YYmFWSUFET3E5MlVqZSs2?=
+ =?utf-8?B?VW1tNS8xWko3Z29ETE5TL0FBVVVzSnhmZm9HbkpINjhwWXRwcmtVOGI4NEdX?=
+ =?utf-8?B?eHQwTjJTckd6aWpZRnVDY1V1Y0NIeDlhMHBqWGFNRjFYSmpGc0J1OWRiaW9Z?=
+ =?utf-8?B?TDBCNFVlckpoL2dlTFFlWGczNXZOWmtZQytGaFIyZGJYUS8vcm45Yjl2U1h6?=
+ =?utf-8?B?VHhjQTI2bVlTTVJGRWtRMkgyWmE2VnZPKzdJVVFrdVNRNmRFL2pONE5VMW5S?=
+ =?utf-8?B?ek13Z01GVStDbjk5V2ZrQ2JRYUJiSllBaU5Pd2ZmSTBiS0NHV3JLL1lKS3hU?=
+ =?utf-8?B?QVE9PQ==?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: af024228-3d1b-43f7-073e-08de16c2d169
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 08:11:52.9950
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EvnwjUCoIi+O1lx8UgsPC99jZn0p9chb9Dy79zPhGVH82ljORUp377j/8Bq+/wGRm4YZFodeyJZSODxdbTgtDOwvaHgGZBdc0qtmfI9v/p8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR03MB5809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_010626_468486_8FA2C071 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20251029_011159_811830_EA2488BD 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,229 +187,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+Hi Steffen,
 
-Cross timestamping is supported on Agilex5 platform with Synchronized
-Multidrop Timestamp Gathering(SMTG) IP. The hardware cross-timestamp
-result is made available the applications through the ioctl call
-PTP_SYS_OFFSET_PRECISE, which inturn calls stmmac_getcrosststamp().
+On 10/24/2025 6:00 PM, Steffen Trumtrar wrote:
+> 
+> Hi Maxime,
+> 
+> On 2025-10-24 at 14:11 +02, Maxime Chevallier 
+> <maxime.chevallier@bootlin.com> wrote:
+> 
+>> Hi Steffen
+>>
+>> On 24/10/2025 13:49, Steffen Trumtrar wrote:
+>> > Instead of setting the has_gmac or has_xgmac fields, let
+>> > stmmac_probe_config_dt()) fill these fields according to the more
+>> > generic compatibles.
+>> > > Without setting the has_xgmac/has_gmac field correctly, even basic
+>> > functions will fail, because the register offsets are different.
+>> > > Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+>> > ---
+>> >  drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 1 -
+>> >  1 file changed, 1 deletion(-)
+>> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c 
+>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+>> > index 354f01184e6cc..7ed125dcc73ea 100644
+>> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+>> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+>> > @@ -497,7 +497,6 @@ static int socfpga_dwmac_probe(struct 
+>> platform_device *pdev)
+>> >      plat_dat->pcs_init = socfpga_dwmac_pcs_init;
+>> >      plat_dat->pcs_exit = socfpga_dwmac_pcs_exit;
+>> >      plat_dat->select_pcs = socfpga_dwmac_select_pcs;
+>> > -    plat_dat->has_gmac = true;
 
-Device time is stored in the MAC Auxiliary register. The 64-bit System
-time (ARM_ARCH_COUNTER) is stored in SMTG IP. SMTG IP is an MDIO device
-with 0xC - 0xF MDIO register space holds 64-bit system time.
+I was preparing a patch-set to enable additional features in Agilex5.
+Since Agilex5 HPS EMAC has different configurations from the previous
+platforms adding a separate platform setup callback for Agilex5 and
+other platforms. Here is the link to this patch-set:
+https://lore.kernel.org/all/20251029-agilex5_ext-v1-0-1931132d77d6@altera.com/
 
-This commit is similar to following commit for Intel platforms:
-Commit 341f67e424e5 ("net: stmmac: Add hardware supported cross-timestamp")
+Could you please confirm if this patch set aligns with your commit?
 
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
----
- .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 125 +++++++++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     |   5 +
- 2 files changed, 130 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 37fcf272a46920d1d97a4b651a469767609373b4..d36c9b77003ef4ad3ac598929fee3f7a8b94b9bc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <linux/mfd/altera-sysmgr.h>
-+#include <linux/clocksource_ids.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_net.h>
-@@ -15,8 +16,10 @@
- #include <linux/reset.h>
- #include <linux/stmmac.h>
- 
-+#include "dwxgmac2.h"
- #include "stmmac.h"
- #include "stmmac_platform.h"
-+#include "stmmac_ptp.h"
- 
- #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII 0x0
- #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RGMII 0x1
-@@ -41,6 +44,13 @@
- #define SGMII_ADAPTER_ENABLE		0x0000
- #define SGMII_ADAPTER_DISABLE		0x0001
- 
-+#define SMTG_MDIO_ADDR		0x15
-+#define SMTG_TSC_WORD0		0xC
-+#define SMTG_TSC_WORD1		0xD
-+#define SMTG_TSC_WORD2		0xE
-+#define SMTG_TSC_WORD3		0xF
-+#define SMTG_TSC_SHIFT		16
-+
- struct socfpga_dwmac;
- struct socfpga_dwmac_ops {
- 	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv);
-@@ -269,6 +279,117 @@ static int socfpga_set_phy_mode_common(int phymode, u32 *val)
- 	return 0;
- }
- 
-+static void get_smtgtime(struct mii_bus *mii, int smtg_addr, u64 *smtg_time)
-+{
-+	u64 ns;
-+
-+	ns = mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD3);
-+	ns <<= SMTG_TSC_SHIFT;
-+	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD2);
-+	ns <<= SMTG_TSC_SHIFT;
-+	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD1);
-+	ns <<= SMTG_TSC_SHIFT;
-+	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD0);
-+
-+	*smtg_time = ns;
-+}
-+
-+static int dwxgmac_cross_ts_isr(struct stmmac_priv *priv)
-+{
-+	return (readl(priv->ioaddr + XGMAC_INT_STATUS) & XGMAC_INT_TSIS);
-+}
-+
-+static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
-+			    void *ctx)
-+{
-+	struct stmmac_priv *priv = (struct stmmac_priv *)ctx;
-+	u32 num_snapshot, gpio_value, acr_value;
-+	void __iomem *ptpaddr = priv->ptpaddr;
-+	void __iomem *ioaddr = priv->hw->pcsr;
-+	unsigned long flags;
-+	u64 smtg_time = 0;
-+	u64 ptp_time = 0;
-+	int i, ret;
-+
-+	/* Both internal crosstimestamping and external triggered event
-+	 * timestamping cannot be run concurrently.
-+	 */
-+	if (priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN)
-+		return -EBUSY;
-+
-+	mutex_lock(&priv->aux_ts_lock);
-+	/* Enable Internal snapshot trigger */
-+	acr_value = readl(ptpaddr + PTP_ACR);
-+	acr_value &= ~PTP_ACR_MASK;
-+	switch (priv->plat->int_snapshot_num) {
-+	case AUX_SNAPSHOT0:
-+		acr_value |= PTP_ACR_ATSEN0;
-+		break;
-+	case AUX_SNAPSHOT1:
-+		acr_value |= PTP_ACR_ATSEN1;
-+		break;
-+	case AUX_SNAPSHOT2:
-+		acr_value |= PTP_ACR_ATSEN2;
-+		break;
-+	case AUX_SNAPSHOT3:
-+		acr_value |= PTP_ACR_ATSEN3;
-+		break;
-+	default:
-+		mutex_unlock(&priv->aux_ts_lock);
-+		return -EINVAL;
-+	}
-+	writel(acr_value, ptpaddr + PTP_ACR);
-+
-+	/* Clear FIFO */
-+	acr_value = readl(ptpaddr + PTP_ACR);
-+	acr_value |= PTP_ACR_ATSFC;
-+	writel(acr_value, ptpaddr + PTP_ACR);
-+	/* Release the mutex */
-+	mutex_unlock(&priv->aux_ts_lock);
-+
-+	/* Trigger Internal snapshot signal. Create a rising edge by just toggle
-+	 * the GPO0 to low and back to high.
-+	 */
-+	gpio_value = readl(ioaddr + XGMAC_GPIO_STATUS);
-+	gpio_value &= ~XGMAC_GPIO_GPO0;
-+	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
-+	gpio_value |= XGMAC_GPIO_GPO0;
-+	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
-+
-+	/* Time sync done Indication - Interrupt method */
-+	if (!wait_event_interruptible_timeout(priv->tstamp_busy_wait,
-+					      dwxgmac_cross_ts_isr(priv),
-+					      HZ / 100)) {
-+		priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
-+		return -ETIMEDOUT;
-+	}
-+
-+	*system = (struct system_counterval_t) {
-+		.cycles = 0,
-+		.cs_id = CSID_ARM_ARCH_COUNTER,
-+		.use_nsecs = true,
-+	};
-+
-+	num_snapshot = (readl(ioaddr + XGMAC_TIMESTAMP_STATUS) &
-+			XGMAC_TIMESTAMP_ATSNS_MASK) >>
-+			XGMAC_TIMESTAMP_ATSNS_SHIFT;
-+
-+	/* Repeat until the timestamps are from the FIFO last segment */
-+	for (i = 0; i < num_snapshot; i++) {
-+		read_lock_irqsave(&priv->ptp_lock, flags);
-+		stmmac_get_ptptime(priv, ptpaddr, &ptp_time);
-+		*device = ns_to_ktime(ptp_time);
-+		read_unlock_irqrestore(&priv->ptp_lock, flags);
-+	}
-+
-+	get_smtgtime(priv->mii, SMTG_MDIO_ADDR, &smtg_time);
-+	system->cycles = smtg_time;
-+
-+	priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
-+
-+	return ret;
-+}
-+
- static int socfpga_gen5_set_phy_mode(struct socfpga_dwmac *dwmac)
- {
- 	struct regmap *sys_mgr_base_addr = dwmac->sys_mgr_base_addr;
-@@ -489,6 +610,10 @@ static void socfpga_agilex5_setup_plat_dat(struct socfpga_dwmac *dwmac)
- 		/* Tx Queues 0 - 5 doesn't support TBS on Agilex5 */
- 		break;
- 	}
-+
-+	/* Hw supported cross-timestamp */
-+	plat_dat->int_snapshot_num = AUX_SNAPSHOT0;
-+	plat_dat->crosststamp = smtg_crosststamp;
- }
- 
- static int socfpga_dwmac_probe(struct platform_device *pdev)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index 0d408ee17f337851502cbcba8e82d2b839b9db02..e48cfa05000c07ed9194de786efa530a61a9dbfa 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -79,6 +79,7 @@
- #define XGMAC_PSRQ(x)			GENMASK((x) * 8 + 7, (x) * 8)
- #define XGMAC_PSRQ_SHIFT(x)		((x) * 8)
- #define XGMAC_INT_STATUS		0x000000b0
-+#define XGMAC_INT_TSIS			BIT(12)
- #define XGMAC_LPIIS			BIT(5)
- #define XGMAC_PMTIS			BIT(4)
- #define XGMAC_INT_EN			0x000000b4
-@@ -173,6 +174,8 @@
- #define XGMAC_MDIO_ADDR			0x00000200
- #define XGMAC_MDIO_DATA			0x00000204
- #define XGMAC_MDIO_C22P			0x00000220
-+#define XGMAC_GPIO_STATUS		0x0000027c
-+#define XGMAC_GPIO_GPO0			BIT(16)
- #define XGMAC_ADDRx_HIGH(x)		(0x00000300 + (x) * 0x8)
- #define XGMAC_ADDR_MAX			32
- #define XGMAC_AE			BIT(31)
-@@ -220,6 +223,8 @@
- #define XGMAC_OB			BIT(0)
- #define XGMAC_RSS_DATA			0x00000c8c
- #define XGMAC_TIMESTAMP_STATUS		0x00000d20
-+#define XGMAC_TIMESTAMP_ATSNS_MASK	GENMASK(29, 25)
-+#define XGMAC_TIMESTAMP_ATSNS_SHIFT	25
- #define XGMAC_TXTSC			BIT(15)
- #define XGMAC_TXTIMESTAMP_NSEC		0x00000d30
- #define XGMAC_TXTSSTSLO			GENMASK(30, 0)
-
--- 
-2.43.7
-
+>>
+>> Note that this field is now gone as per :
+>>
+>>   26ab9830beab ("net: stmmac: replace has_xxxx with core_type")
+>>
+>> You'll need to rebase the series :)
+>>
+> 
+> I see, bad timing, but luckily an easy patch :)
+> 
+> 
+> Best regards,
+> Steffen
+> 
+Best Regards,
+Rohan
 
 
