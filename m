@@ -4,46 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3655CCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 03:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C64ECCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 03:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dY008MPWSsuWGEdFdj3lmBKy6+4tXxccW7r2CevLYzA=; b=w7Q5XHIIpOYMB3Ogl69PzArXLX
-	bQ7BvHw9DojxIrvgC4sAhzVFPfAxxxM4O9MxJ/sjg8jAB9+uDZ7nwN9gEQe5YndRgjzFaugK4b++K
-	FHoBX2sHXYFPeDB4J5GT1RiI/ImAk76zfbv4QKY0isFlq+UiJWrHT+swTQuZBsamgzoqbUCaH3nuH
-	IrrE57o9X9ppehVBDD6rA1pb/dM4Xfc9j04GZV6k5j2q0SH0SuZjkSFj04x55QJdpYawo6XcJh2iQ
-	n0Ns6VH5iOJvPGSfcLWdfc4eoPiUVnPjkmOSN4HyAOalWdoWFXs3jHabuPU4NZpVtRrD5gsiO2GCz
-	YuKed81A==;
+	bh=XHVQBOgfMJzCCeFhdkC/b3sv/nMI28GluLmG2pV5wk0=; b=p9ThzhRsamEbxY/9E6FgTtp2Vr
+	KrGTnEOUAtj4XECJLN9U03btGZT4TU8xsIRSgdxQfu96qVzDr7Dh5fL/N0DFuKR6Sen1NmEXyrYgW
+	+KaMSqKJ572HQK1TOJ8mheBBsywZu58WbTFyI6BfOaCbZRYezF+AkScmDD4cxaZSU2n0ZLULPqqK5
+	30Jz/RIT2rrS2f5XezTwX4gqJAxmUUpZ9oAbJtitv4U1MYI2b6fPjQ2fOnIFRCBZ1MqukVLjl/imh
+	bNy3bdoksgNeBmSoPDVsXzKcZuGjfPZpLKJfWNgWHAKCGOfetX48guM4UIwUEJNjZLAVn3pZ2EYCN
+	OEMBan0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDx8h-0000000H471-3S9y;
-	Wed, 29 Oct 2025 03:46:23 +0000
-Received: from wxsgout04.xfusion.com ([36.139.87.180])
+	id 1vDx91-0000000H4Bz-0ZAF;
+	Wed, 29 Oct 2025 03:46:43 +0000
+Received: from wxsgout03.xfusion.com ([36.139.52.80] helo=wxsgout04.xfusion.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDx8e-0000000H43L-419r
+	id 1vDx8y-0000000H49P-2LQ4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 03:46:23 +0000
+	Wed, 29 Oct 2025 03:46:42 +0000
 Received: from wuxpheds03048.xfusion.com (unknown [10.32.143.30])
-	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cxClK0Jz4zBCLfh;
-	Wed, 29 Oct 2025 11:43:41 +0800 (CST)
+	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cxCnv6KrhzB661H;
+	Wed, 29 Oct 2025 11:45:55 +0800 (CST)
 Received: from DESKTOP-Q8I2N5U.xfusion.com (10.82.130.100) by
  wuxpheds03048.xfusion.com (10.32.143.30) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20;
- Wed, 29 Oct 2025 11:46:01 +0800
+ Wed, 29 Oct 2025 11:46:30 +0800
 From: shechenglong <shechenglong@xfusion.com>
 To: <mark.rutland@arm.com>, <catalin.marinas@arm.com>, <will@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stone.xulei@xfusion.com>, <chenjialong@xfusion.com>, <yuxiating@xfusion.com>
-Subject: [RESEND v2 0/2] arm64: spectre: Fix hard lockup and cleanup mitigation messages
-Date: Wed, 29 Oct 2025 11:45:52 +0800
-Message-ID: <20251029034554.1839-1-shechenglong@xfusion.com>
+	<stone.xulei@xfusion.com>, <chenjialong@xfusion.com>,
+	<yuxiating@xfusion.com>, shechenglong <shechenglong@xfusion.com>
+Subject: [PATCH v2 1/2] cpu:Remove the print when the
+  CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY Kconfig option is disabled.
+Date: Wed, 29 Oct 2025 11:45:53 +0800
+Message-ID: <20251029034554.1839-2-shechenglong@xfusion.com>
 X-Mailer: git-send-email 2.37.1.windows.1
-In-Reply-To: <20250918064907.1832-1-shechenglong@xfusion.com>
+In-Reply-To: <20251029034554.1839-1-shechenglong@xfusion.com>
 References: <20250918064907.1832-1-shechenglong@xfusion.com>
+ <20251029034554.1839-1-shechenglong@xfusion.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
@@ -51,8 +54,8 @@ X-Originating-IP: [10.82.130.100]
 X-ClientProxiedBy: wuxpheds03046.xfusion.com (10.32.128.186) To
  wuxpheds03048.xfusion.com (10.32.143.30)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_204621_245929_5BB2476B 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20251028_204640_797981_96D32D6A 
+X-CRM114-Status: UNSURE (   6.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,52 +71,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 08:32:47PM +0800, shechenglong wrote:=0D
-> relocate the printk() calls from spectre_v4_mitigations_off() and=0D
-> spectre_v2_mitigations_off() into setup_system_capabilities() =0D
-> function, preventing hard lockups that occur when printk() is invoked fro=
-m scheduler context.=0D
-> =0D
-> Link: =0D
-> https://patchwork.kernel.org/project/linux-arm-kernel/patch/2025091806=0D
-> 4907.1832-1-shechenglong@xfusion.com/=0D
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>=0D
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>=0D
-> Signed-off-by: shechenglong <shechenglong@xfusion.com>=0D
+Following the pattern established with other Spectre mitigations,=0D
+do not prints a message when the CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY=0D
+Kconfig option is disabled.=0D
 =0D
-Thanks for the review and suggestions, Will!=0D
+Link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/202509180=
+64907.1832-1-shechenglong@xfusion.com/=0D
+Suggested-by: Will Deacon <will@kernel.org>=0D
+Signed-off-by: shechenglong <shechenglong@xfusion.com>=0D
+---=0D
+ arch/arm64/kernel/proton-pack.c | 2 --=0D
+ 1 file changed, 2 deletions(-)=0D
 =0D
-This v2 series addresses your comments:=0D
-- Fixed the message to use "command-line" consistently=0D
-- Created spectre_print_disabled_mitigations() function to handle all spect=
-re mitigation messages=0D
-- Added a separate patch to remove the CONFIG_MITIGATE_SPECTRE_BHB option=0D
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pac=
+k.c=0D
+index f9a32dfde006..d833b7c1bba8 100644=0D
+--- a/arch/arm64/kernel/proton-pack.c=0D
++++ b/arch/arm64/kernel/proton-pack.c=0D
+@@ -1042,8 +1042,6 @@ void spectre_bhb_enable_mitigation(const struct arm64=
+_cpu_capabilities *entry)=0D
 =0D
-The series includes two patches:=0D
-=0D
-Patch 1: "fix hard lockup triggered by printk calls within scheduling conte=
-xt"=0D
-- Moves printk calls from scheduler context to setup_system_capabilities()=
-=0D
-- Prevents hard lockups by avoiding printk in unsafe contexts=0D
-- Consolidates spectre mitigation status reporting=0D
-=0D
-Patch 2: "Remove the print when the CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY =
-Kconfig option is disabled"=0D
-- Removes the obsolete CONFIG_MITIGATE_SPECTRE_BHB Kconfig option=0D
-- Cleans up the spectre mitigation code as suggested=0D
-=0D
-shechenglong (2):=0D
-  arm64: spectre: fix hard lockup triggered by printk calls within scheduli=
-ng context=0D
-  arm64: spectre: Remove the print when the CONFIG_MITIGATE_SPECTRE_BRANCH_=
-HISTORY Kconfig option is disabled=0D
-=0D
- arch/arm64/include/asm/spectre.h |  2 ++=0D
- arch/arm64/kernel/cpufeature.c   |  7 ++++++-=0D
- arch/arm64/kernel/proton-pack.c  | 28 ++++++++++++++--------------=0D
- 3 files changed, 22 insertions(+), 17 deletions(-)=0D
-=0D
--- =0D
-2.25.1=
+        if (arm64_get_spectre_v2_state() =3D=3D SPECTRE_VULNERABLE) {=0D
+                /* No point mitigating Spectre-BHB alone. */=0D
+-       } else if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY)) {=0D
+-               pr_info_once("spectre-bhb mitigation disabled by compile ti=
+me option\n");=0D
+        } else if (cpu_mitigations_off() || __nospectre_bhb) {=0D
+                pr_info_once("spectre-bhb mitigation disabled by command li=
+ne option\n");=0D
+        } else if (supports_ecbhb(SCOPE_LOCAL_CPU)) {=0D
+--=0D
+2.33.0=0D
 
