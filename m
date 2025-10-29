@@ -4,99 +4,225 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B0D0CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 20:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C582ECCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 21:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUleLLa8ND574xXra2RGEF6RaI7Xj9xpL5ZJVlCE2lI=; b=p8GWGN8xba7XzDssovIemk+q1G
-	yWvQfIGJhDsJU1ZTUVSqFYZ8im6aA7kXJ1QomAb0BWMS0HeLC/H3JbGN92JTX2WR6t1MqgrbwUA01
-	KOJU17evdOAUL3xizs8APxU3qUTii6VOE7Iu5/YGwWydVmwYNf41cxUCN2NYfElvbh9Grrhd84I1G
-	iK2JICNg/Ghk1HNItBFI1hHaGkOMNY9rJDbX6sCH9Z/3+CDI98pvhj59HeW78A37LlG/6yEFIsgBG
-	mK6mD10g3ZaGu88TjVNeF+NUL7ZDZ2EfoccS6eVPytSXwdq6tPLmEXvajrDiylYlhau6TdteSqXY5
-	qpn7/edA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:In-reply-to:Subject:Cc
+	:To:From:References:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=928d9Jcd/2D3K7btesbCJ67UpixpF0yq7s9kc52+0yY=; b=fGqv+8JCz1JrOPYPJTd2FdjZiw
+	6fBnx4EXSX/P13ltV19v3N+1x1JF6SoARUDIWBCe0ujspz6xmO9SMRW79xdfgTo78356B/qs2ijEl
+	L9R5ZJt0HNqpQz7g8+tjsfn7KgBWeMvo795//SyTSIVuhLe7BQz82BkH7TOEiPo3zbDfoRFtWUVnj
+	izux8TtPqGh1ZTbmmwSLTuoBf7LxMcl6BPooBNueWsUDMOLF9BU/IOhQ61MsyEEfMzGupA2YhyBcj
+	f6bvTBlGtp7f8xIIaE3spDHUmE74wToL8COt+Wnamnxivi8saIWCw9AHUsV/DuksAEqbhc7TiX/TO
+	Uflgdr3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vED8e-00000002rPc-2aNw;
-	Wed, 29 Oct 2025 20:51:24 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vEDIl-00000002tDO-2vY9;
+	Wed, 29 Oct 2025 21:01:51 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vED8b-00000002rOZ-47Ue
+	id 1vEDIj-00000002tCk-0rhs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 20:51:23 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3ecde0be34eso995869f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 13:51:21 -0700 (PDT)
+	Wed, 29 Oct 2025 21:01:50 +0000
+Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59TKKwKJ016059;
+	Wed, 29 Oct 2025 21:01:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=928d9Jcd/2D3K7btesbCJ67UpixpF0yq7s9kc52+0yY=; b=
+	Rn6ljm5A14iXaU1E7L48U2CevFZ/6OOZveYdR2kyjmSZQgT1RMH02dr835qorwHi
+	yZYuE5kxiFBBuuB//GP/e53Y87ivZRKguHukUYYzS8qFxHjPaO5PgoJfNZCQr7PW
+	k0P44pJc68gNFM1jspUrJzrkL4/efwkj1GMwSdk5xao7ENUO6TMe96dcND3p5mAX
+	GVeEuhAlp1enmThV1gS5bwj3FyUUSysLRATGQA0MoM8a16GDg8a+4xLlnM20/TtB
+	WsIl1Xk1b+YVE4q8B+qMQAB6qKdVn6NmgLiAsioN7Pb8TaryCbThqjw5P3KgNv7G
+	9A4YfW/YnMYTWiaqArwvZw==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4a33vxk0mp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 29 Oct 2025 21:01:25 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59TInw5x007704;
+	Wed, 29 Oct 2025 21:01:24 GMT
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012013.outbound.protection.outlook.com [52.101.43.13])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4a33wkrjr9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 29 Oct 2025 21:01:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z43QEIAUQ37qNyshsOUkGssyM6YhJYYjqkJt+8lHsl93xa3Ocy193Da11ThCCdl0mXdK+w+FbaAYQ2/0uoEj3Y5caOMJ8+l2TPtbGrVdIIQlTq/cyUcGa4GCQgXhLgCTF3oiMExBBKIrQDp3XuMvJTXWiTUfoFUxyVWcwdznhf86NYRQD45aciKpFHP/mIQpgy6toNHdiWwrZVDg9HMFW3IYCnqYSZ5KPwsNpxqi5Kn36mygPu5KI7//cnNddzAGw0iEmRz2Pk9FuPY2QKmechCpXqmqzxd/TuQB/gXijVVGDXJOcK2t5EMGjAtKEWgIVOiq+DD2s81hXbunfRiuDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=928d9Jcd/2D3K7btesbCJ67UpixpF0yq7s9kc52+0yY=;
+ b=FSeCdwCVTiGFJoKulNk70OF0F2q6sBjqoK0IBrz/bqXNx1roGBzfrbilj7uG0avK0C2TZ8j73hR1GjRIiHDUldZ4frgHP7tYhVak4lTwd0AgFTWhI5Yea+x1xdi0puPLSDfRfdQUd1E/CaeF6yrheh2Ru7H/yy1KY7YvKM2JfbCa9yT+u7sSRniqm5FA87WuXwWHZ9b2MrI0/P3TX4wHLYwGnd5BS5Ci5WsYxIq0WKtOUGPKkBxdk0ulDmlHvwkditmZmsINjrMZx5REzaUcBhQChYnSDiX60M2qxohrRfZwBbLsTk8Gw9si8aZl76d7D6IB/aygK90XMRThyxlPjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761771080; x=1762375880; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HUleLLa8ND574xXra2RGEF6RaI7Xj9xpL5ZJVlCE2lI=;
-        b=PiKxOEzsHMo/9xx+0bhzp71cOoUskO/bbvnezF8RoMhLcrfouxLp4Ovu2UBFuhh4Hn
-         o3FjKAB7I411rXIx4mY376JFGfCkdKdY83T7sDrpLM/ifj2odhTI5XuOVHLm71wKs4z5
-         /5UWdcNMENPm7spJQvLkilrymUqb3NOL1oFV+rhEPq8IQvrgeDe9zwxR5nV+AC+9IKNR
-         iRAWyq9aH2/e1JI6r2SZUnvI9NpQh7ipFuEwLqi2wEuEcldCtMKfobCHP8qYJPuwalI6
-         td3OufflwQTzyYF4GvT6DTgDC7HbnS0OR77eqK1WLXkVcXKnXWEy/kaE+SbKgbenuNis
-         /G7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761771080; x=1762375880;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HUleLLa8ND574xXra2RGEF6RaI7Xj9xpL5ZJVlCE2lI=;
-        b=BAdBwYns9iZt1S6BlOxX7w3JQC/TNxk+z7UycKEHChVsvTMIhyfO4XZncFh6sQZnzr
-         EC57MpGhEA1b1q0zOtkCXVr2IYeubb+E9xqdj9PsBIaORahZbOk6UplEKTg/OVMAFyC8
-         nMNJ2FVXQ/iNs+woHu+sPLfIzkHJcTuRQTIkOvaZraar6xrXExXBlIDp7g335UCZzOiM
-         od4cCrs8v4geFzv3dOQMQ81kz7JmpWp4vorAVTwlLwqvpg+hdhqtwnc65K0BrigFImsj
-         WRX/o6PznpsxCIKSoGmpvdB2ZWPGm7xjcmwmQ7sJJiG6OcBSgLoiUFj61fD+SIeCOumO
-         rbVw==
-X-Forwarded-Encrypted: i=1; AJvYcCVZtWl8xjA1QwCXGYFD/09M51xjcy/+pvUYwLDc60b3WxHeT0fvkQC/OIqt/1mxqoudU5+olTefsS4yeougb9uH@lists.infradead.org
-X-Gm-Message-State: AOJu0YytJoZfHu7uYfLC6zwr1mDLHnmfgfcK1m7PzlsUkiI+LEatnVyy
-	I19E08ixsIKVZfBMSAjNkO8GkJjIsaET6jnBNtgxJC+6bIYc9EeJsAPe
-X-Gm-Gg: ASbGncsKfYpokTcplrMAK2ctqwAptWeN3IWCcsv405j+5eQP6Pf3tDPIZWkZP9+LmUc
-	qxgl5HdmzT6AE5JDcmWKEtRObagd6mi5yyO9qQn8HWiLEKzJIInEAS4CrqboxXnNk7y7gqgxrsG
-	R1AifNvFtfzOiKUR9iOpk0OU3jfHYlmCnf+hEj+1bv0GzLB60gJaTkqcofuCsyB2TVSEPGQPl9m
-	NeCbBOCf9NAjQBTZ2/evAoZ/0ak1vVXb4yKMA7dbjRUnN0I5ue5QgaMNBeEqrWW5l5euk5HBu9D
-	MI/SXDke9bEVcwPyoDHxOv+nEgZjLZL/pdTo47RP7GR++LspJHBUgOCF9VAGP31RjSSfqazE7X3
-	70m4aqQhKpDCBfNlUhwfH0hkshoBjt+7GoMz8DTHQJRSdvjhP6TDqmL8NGSFRSilQSOMdVYKf9v
-	bD3xrfZLwoLG65pv4N0JTW/MirwO0Rs1s=
-X-Google-Smtp-Source: AGHT+IFeQbHeDjZUFHA43UkkMBSaS+cIVCuepwH/xR58asrUxhv9+gT0KhY234gaLSA+Vobfb3QPkw==
-X-Received: by 2002:a05:6000:3110:b0:426:ff91:2f25 with SMTP id ffacd0b85a97d-429b4c81d13mr953533f8f.21.1761771079656;
-        Wed, 29 Oct 2025 13:51:19 -0700 (PDT)
-Received: from [192.168.1.129] ([82.79.237.20])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477289b3956sm2680805e9.10.2025.10.29.13.51.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Oct 2025 13:51:19 -0700 (PDT)
-Message-ID: <c8fdbb57-d152-4c85-be06-cfbc7e0b1550@gmail.com>
-Date: Wed, 29 Oct 2025 22:51:17 +0200
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=928d9Jcd/2D3K7btesbCJ67UpixpF0yq7s9kc52+0yY=;
+ b=lU86XwHdnhJSbfcrybHUl3FO13dmudvJ4fGsbfJLZyK8/2ok1+Ik+/ot0P8RVXalQMiMcBtzfTuNIjjYHWMWcPCvZE1OfZSyJTZO0bRE0zQCOUWmVwCcLdZeX9z4rd+Q5EW6IAH6v7mKu5YPNXGQvDXLccM2zhXF4dW4PyjjaTU=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by PH7PR10MB6507.namprd10.prod.outlook.com (2603:10b6:510:202::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
+ 2025 21:01:20 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
+ 21:01:20 +0000
+References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
+ <20251028053136.692462-8-ankur.a.arora@oracle.com>
+ <CAJZ5v0hSvzHfsE4nrEW-Ey0dnJ+m=dSU-f1RywGNU0Xyi3jXtQ@mail.gmail.com>
+ <87ms5ajp4c.fsf@oracle.com>
+ <CAJZ5v0hQ7G9jvOv9VtRmsCKahBpUcPJMMOe07k_2mqsvggWcWg@mail.gmail.com>
+ <874irhjzcf.fsf@oracle.com>
+ <CAJZ5v0i5-8eO6T_-Sr-K=3Up89+_qtJW7NSjDknJSkk3Nhu8BQ@mail.gmail.com>
+User-agent: mu4e 1.4.10; emacs 27.2
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
+        catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org,
+        akpm@linux-foundation.org, mark.rutland@arm.com, harisokn@amazon.com,
+        cl@gentwo.org, ast@kernel.org, daniel.lezcano@linaro.org,
+        memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+        konrad.wilk@oracle.com
+Subject: Re: [RESEND PATCH v7 7/7] cpuidle/poll_state: Poll via
+ smp_cond_load_relaxed_timeout()
+In-reply-to: <CAJZ5v0i5-8eO6T_-Sr-K=3Up89+_qtJW7NSjDknJSkk3Nhu8BQ@mail.gmail.com>
+Date: Wed, 29 Oct 2025 14:01:19 -0700
+Message-ID: <875xbxifs0.fsf@oracle.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: MW4PR03CA0141.namprd03.prod.outlook.com
+ (2603:10b6:303:8c::26) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/8] reset: imx8mp-audiomix: Switch to using regmap API
-To: Frank Li <Frank.li@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
- <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20251029135229.890-1-laurentiumihalcea111@gmail.com>
- <20251029135229.890-6-laurentiumihalcea111@gmail.com>
- <aQJCtZjAGiQdzfDz@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <aQJCtZjAGiQdzfDz@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|PH7PR10MB6507:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8dce0d5-acc1-48af-4686-08de172e4f68
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NXJnR3IrM1lqaDZ3SVRUQnZqMHhnZjBDSHhKR0NUQVlicXFIeHUwZ01Cc1E1?=
+ =?utf-8?B?bFV1MTNhK1oyUHc2WDRaOGN6dFJydnVwbVpBdjFBZW45Mld6YTZEYWhUYVYv?=
+ =?utf-8?B?cUdqRXZLK0h1THFXckxTRDR0cXprSzVDZU1zUUkrSklnTmt1S1lyOEUzVUpo?=
+ =?utf-8?B?RGxkRkI0c1V2eFRJR3o1T2ZXR3Y2ZjltMFd4QVZMSlhXcHZJWE5heCtlUHdp?=
+ =?utf-8?B?REg4Q3pJaEVTVWlVVU53NUxrYmJ4ZUNvOVI0dDBBMklySWxOZFVEUEZNVDB3?=
+ =?utf-8?B?cEx6VTNVeU93ajdVRmJJODFKZ0FQaDR3cno4V0U1QWhrSmtyRnVMLzN6UVBS?=
+ =?utf-8?B?S082eSt2YWdEY2ZBMXJJTGNEaTNHek5jVFdTN09WZEVXdFJRbDRBYjFzaUI2?=
+ =?utf-8?B?NzlXcVA4S0ZvMjBDN0FuanZPSG9SenZBSjdubHdtTHpTUkYyc013OXpNN0xK?=
+ =?utf-8?B?WjNONnFmZkhIRjl3VFFNUnFaZjI3OHZyTzNCUzVDVzN2ZFNZOWFFZEdHUExC?=
+ =?utf-8?B?VFZDZnlaZmNOVEJzK2p0NHo5VTFHenRvcU9UdnpneTJsTVpzNFRpNDNXNjZ4?=
+ =?utf-8?B?YXEzRXg2QUNob0xubEhNTXNEWHhpM29BZ2xsa2RZQnRVM3g1Z014bHlna2w3?=
+ =?utf-8?B?M0FZVG1iSUZ2enZsODdrUWdsbXBadmhYMFMwckFxS1MrNUtvSFZ1S3dhRW5H?=
+ =?utf-8?B?NWtvZDJIVFNEY1pQd3J1N2R1L2pOek1aclhTcFg0ZGpjUUozRDkwMTdnT1lo?=
+ =?utf-8?B?YzNaaUxGNnJSVTNyV0dOODU0NGNXMldEbFRiT0hnQ1phaU5wMnVsRkRmNkcw?=
+ =?utf-8?B?SlRiWklBV2F2UW5BUisvM1RHZnJtMVJ0bjdua2lsMTZ1M1JVTVhBand3S1Rq?=
+ =?utf-8?B?eTZIbC9QcVIvbG55RDFGU05WUDh3aERxREZnSVlGbmdIQ2hkLzRDV2Nqd3o4?=
+ =?utf-8?B?NGx1K3VJWnkrVU5sV0lMUkM1QXovbDJ4YkZHMWV6NmRzQzdVckMwSlBReWQy?=
+ =?utf-8?B?U1ZSU0FxUFZhMWxLWnNRdWdtbUZEbjhydS9ySWFYL1J4dWtpaHJmSE0wU2t3?=
+ =?utf-8?B?OUZ2dU5IMWk1OWFsVFVDQmZwSk5WS29ic2JTRDJPRTJPMWRjRlBGZ0MzUzNI?=
+ =?utf-8?B?aTFhNEdBRzZIVjFOVnFHOTZRNFNFR2hGbkN5N3hKTzMxMUVRM1FiUzVYZ2pP?=
+ =?utf-8?B?WFdNSXpMbkh6T0FoQXNTQ2pwbjYxenMyNkZyd1djMllBYm80bE51aUw5RjNw?=
+ =?utf-8?B?eG1EU0dhVjRxNmdUVEZYWmxRT2hKQkxyVjdLd0lRMVFud1lmT2NxSHIzV2xC?=
+ =?utf-8?B?eGs0Mms4dEk2ZWNpZGxabWkyVEhWTDU4Z1lUcHl3NXo4TW1pVktxWlpZL1VI?=
+ =?utf-8?B?ZE5jSnNrbXJqYnpXdjg5RFd5YjlOeG1iakwyS2dlUWY0bDZnNFhFZXNrL09L?=
+ =?utf-8?B?M3dIckZPMGx2cXY5M2FNS01DWWtqUGY4RHFIOU5XbE1xNitaUU94ZWZMYWpM?=
+ =?utf-8?B?R2Q2dDJ1NFFnS1hCK1dNa3M4UzFzNDVGY1JMWWVhYlk2S2pva1BDYWprcXdP?=
+ =?utf-8?B?VVBySDhMcFlzZ1JVSlVjVUNTWDN6MlROSnZlNHlnaGZGUytqYWxOVXhqcW9F?=
+ =?utf-8?B?QnNiakNjTDJJM0dtQWRDRC8yNDZpL2NuSTQxdkFuelp6c29MOUxWZU1oam0w?=
+ =?utf-8?B?S0RIaC9FR1AyRVgrYk43QUMrazZzQ1Q3bkdhWmxTd0tFZmM4dUNIZ1JBekNF?=
+ =?utf-8?B?ZEJGWnE2cFlWMUVJNHErS1hjR1IyTG84cWI3Y05XUERMMVNBNWs0N0cxN2hH?=
+ =?utf-8?B?a3laMmc0RTUyNEtUWmdZOTRsQWZVdWhKM0E1alRYNnVONFVZeUpaSEZvaDlF?=
+ =?utf-8?B?VExHU1gzcWdPKzZ6R3FTMGtyWElMN0FlenhMWFZUS1VJVytzMFhOSXJDZTF0?=
+ =?utf-8?B?UHRjV1JDaUV5WVhUeWhwd2pKR3NHOUhMY0JUbTNZREhXM2VENXJtRVdLVCtJ?=
+ =?utf-8?B?dW1mbURZM0pBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aXhVM2MvZnZHaUd0VTBpMFplV3lkQjBOWXVFc0JiRmhGZUdmRjRWS3hwbDUx?=
+ =?utf-8?B?Y2tzTkZkYjhpN2ZLRkVEM1FxSC9rZlM4MEc2MFJyNWh3NUs1NHExOWw0YitP?=
+ =?utf-8?B?ZGMrTVBtb1hrQzVvYWdDWG5qS1UwSTJ6OVpHNFhGNm9pYVlDVjNSMkx5ZEl1?=
+ =?utf-8?B?STJYaExzS3ZNVXhtcjFqazY1Z0NMM1Nqc2RMemtqUWNicWVJTDhDS1B2QnAz?=
+ =?utf-8?B?aHpZc3IwUUh5Z2tIVmJoa1ZqS2RFdDVEUHRaa05rSXY2dWJNb1dXTzRFbjVT?=
+ =?utf-8?B?cCtIUldybXhjR3R0S3pheE4xY2o4RmpYMG5FU2N1WHJmVDdYdDZhbVNOaDZp?=
+ =?utf-8?B?VzlZNmZCQUF3UkVPRFRaYXZqa3UwZVdhMVZXUmFtSTkrcUk5QXlCUGdQNUs3?=
+ =?utf-8?B?aGY2QXE5RXN3Z3hQZDNoN0ppMUlyQlVEb1MxOGEzNHFHRFFZUmJheHRPOGEx?=
+ =?utf-8?B?SGNHSVlwVndlbGdiM3Ixakh1S1JpZ1d3Z2NvdDltTHJBbmFmSEpjUGRjQUdY?=
+ =?utf-8?B?M2VHQVA5cVZaNm15cUhxTDliTW1Cd3BuMHpHNzJ4eWdCTFRRbHJpRDdQNVVi?=
+ =?utf-8?B?UW9rNUZiRUVCTzM2Qmk0REE3M2hIYy9MSVJNZmYwc0xUVXFsK0xUWWhBd1Jp?=
+ =?utf-8?B?dStCNEpkNGVmVHRrZnJGdmNKVTNJNm9NdE94MC8vcCtPRnFaYnkyMnZxWUk1?=
+ =?utf-8?B?Y2N5MTFyWi9jckJFdW9rZVdRKzlBVjNwZmdRU2ZZUy8vNHEyY0NwcXB6SWtt?=
+ =?utf-8?B?dmxFWkRqTTVqT1VpVCtuTjFvQzZKS2Nuc2lqVW9Ga1E0R2hhNVBBc2V6WlVO?=
+ =?utf-8?B?Z1gzeTNwemY1WFJYajhNaGNiNk9oR0VQRExIZllWZUVpeWxUQmZhelJjVkhB?=
+ =?utf-8?B?QnFLdVJvM0VGQXFkblpESU5SbmpUTDN5ZVk3RVpvckprUDBWUnM0VlUyRDl3?=
+ =?utf-8?B?SmpJbXBFQno1ZXN0K3NDMTFVMkpsU0tFcjk3c3dXTDBzMGFnMkZyUUo1clRP?=
+ =?utf-8?B?emJrM2FWUTUvanRYL1YxU3RGNTZ6U0xtdmZQaXcyZk1lR05yRmR6Skk2TzJO?=
+ =?utf-8?B?SnhDTS93WXl6bStSU05pUkVtblR4cVdyUjRtNklMRWlzMFMxcVVGeEt4WHBF?=
+ =?utf-8?B?TFluVG5KWEp5dW94UEw1K3BxS3NRRTFTWElzRnZTZXloSVB2MlhWYW02RXZq?=
+ =?utf-8?B?TkM2aW1YYUlVVFhZYitJMzRzS0kzb3hzeDNtTS9xNlFYUktrZ1doU1hmWmpI?=
+ =?utf-8?B?RllCeGRnZS8weXdmdnU3eVNhaHppYk1aTjVOMVBmYkxxUXAxWTh1c2M1M2FE?=
+ =?utf-8?B?cDJ0WmphK3JjcTV4bmNKTzJpek1XaVBOOU5wR3NpSFJETmVta2Y4cWExSWhF?=
+ =?utf-8?B?a0x2MVRZL2psenV0RHdZUUgvamkycVdzM1hYWnhhOW9XOGFhUVRZc0p3Y2Zq?=
+ =?utf-8?B?ajAxZml3NzV6TWdhc08rY004OEhCUTdVYTkxelord041emR2cUx2dkFHVm1K?=
+ =?utf-8?B?T1d6b0lsVlF1Skd1Q0ZmdFNJbld5MUp2RDI2MUp6aFpuRURMQWpPd002S2U3?=
+ =?utf-8?B?RWpTWkYwc2lleGY0dGxMa2RIOUNVd1VUWVFmT010Qy9vekFhZGNwd0I2RnhS?=
+ =?utf-8?B?TXdiQnd4UTVqc3RpK0ZxVzNneXRRSHE2NUliMWRvd25IZ01URjJhdTRNMHho?=
+ =?utf-8?B?Z05lZHZqYU5DcmlEYm85aVRQYXZuYlMzN3dMWFNjZE1xdjY3NGJTZzhqQkRS?=
+ =?utf-8?B?SFZLYWNnNi9QOWVEYUs0WlJhRmNPQmJ4YkJLUVpuSGtnS0R4eFlqNGVmTTIy?=
+ =?utf-8?B?cGxtSEZKY0R4aDRlZXBRc3V3SkduVy9iRElUUU5yancvYUV1ZEplY0dQTGJC?=
+ =?utf-8?B?bVNIcmwvN0E1bjcwcjlTeXE0Rys5dU54bGNtWWV5bUdEL1h0blFvV05vODdv?=
+ =?utf-8?B?OUx5WExWbHVFNzRUZGFFL2RwcUs5WDFRTVFaMmNrVHBoN0NWeHJvelMwMDlN?=
+ =?utf-8?B?TURnZ1pKMzJPcDJGNEM0K1ZFQ3FaS3lNVUZRR3ZMenp0RGJTMGVObUxMVzFl?=
+ =?utf-8?B?TXBMZHRFMUpJSW91b0NjUG9RVG0yTUc1MUJxUENwZDRBczRBdjkrVEZ2OXBD?=
+ =?utf-8?B?Q3JOUExnOFlSUVVUMVZjbU1uVStaYUZaTEhsYkh6TXgrQnZFUzg4UnlEUm1W?=
+ =?utf-8?B?dEE9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: QyWJN2B8P9mGL1RdFE21s9KjHYP5UtbzjmqVpfluxdpqpkxHnAK85IbBwkX4jAqYXLrLcraFNm1LmREgsHRLgqPNpPG6qf8HLcTHFRXcR+RzoSJIZtmfVzI3/wq/0CWkyLHQBWxg/C8CphCXRz5iPibxyeQRqWdFWhFBnOHElgpKoG9bWLmcC/6qlwJOQxT1cPj24qkUwxbvC9kAzvDQyUK6DwNAwK8dzxVjD4kFLXVKrQEtrMCDwOeaXkET1trzZ9SxDX3MQY+IcQgVL0Ue+EohZ184+/r/m+14iH2URpT2uqeXpnHf658L0Sh56ipxXLrc7UWK20G/qX9tZSuSREU5FhEdGcROxqvonWJKEt/LovY48KA2og3Ig+oNaOR5qJEMkEAqivCR02lq75APF0hemwcOT/MN2RuY+NX9aG9+Rb6G9wkGgvHdjxQ3IK59tfKkT0kk1nrDM1jDhVTf88HvXxuoVBuJe+bXlWf570jKo+w6jONUoKqeQzd1tYXIjxQfAy6AjTNXqiEAnKFllYXOAgIXWKGYRO/JKhsXfjsO5//iSGURw+lzHJnnEPTUWqec9cZdglesI2vTvbuS+9VldJwWYiHvZW5mz0GCgKs=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8dce0d5-acc1-48af-4686-08de172e4f68
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 21:01:20.3621
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pEwNI2/k6TENNK8ZYuPvG8wIIUbjz+UaJCVNxpV41VbOHLN8rjInjPakf4EPky+yN2n7KusPR5XeaaB2y/MQK62a/ZxGqNFld9ZnqsNAYpo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6507
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-10-29_08,2025-10-29_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 bulkscore=0 suspectscore=0
+ malwarescore=0 mlxlogscore=999 adultscore=0 mlxscore=0 phishscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510240000
+ definitions=main-2510290168
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDE2MiBTYWx0ZWRfXy6UXgOWfxhwI
+ pjVs5DHYWDNJH5v5Q0W0M65enVYfNburL0uoNllSCYk049vnSdUrWXYuDwpGtRK2u9cUBPkKZwu
+ Nz1URCkf3rJKmTg+ZeVzfA0j5ledN4Ee/0zs8UgzeGTTDTwjX8/8JS/YMcxpdqlvAmUtBUjsn/w
+ w4yTxwpnCVBewqETLyUs/SWY1JHgfT0Iak1WcSfs7jc4SICvS1HZap0vD/ZgAINpXEx1BfQo9cg
+ V4/1yoO620KXKKZxchHFvzr8TkRcJssEsJ7IDJ7FsOoRo9o4vli61rO7h39YC2JPJCaqRu7G7zw
+ wGKJzEaF9fwZHAG3ckIFpQc0HVeyeOqqJsddDP5/U1qtEvQm8t9y34Ko8Azk/lcM9RAWRmBFvtm
+ Ek6uQLpEm6qYckMgnJOxOQ0OBZhydQ==
+X-Authority-Analysis: v=2.4 cv=M/9A6iws c=1 sm=1 tr=0 ts=690280a5 cx=c_pps
+ a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=x6icFKpwvdMA:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=yPCof4ZbAAAA:8 a=KKAkSRfTAAAA:8 a=eYBpZcj7JWe93EdAm2EA:9
+ a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-ORIG-GUID: MhiuZn1p_HKgppU0JuTjSMRQVAXouJ0N
+X-Proofpoint-GUID: MhiuZn1p_HKgppU0JuTjSMRQVAXouJ0N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_135122_102826_40C005FC 
-X-CRM114-Status: GOOD (  32.99  )
+X-CRM114-CacheID: sfid-20251029_140149_297432_EB976F02 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,236 +238,192 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 10/29/2025 6:37 PM, Frank Li wrote:
-> On Wed, Oct 29, 2025 at 06:52:26AM -0700, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Rafael J. Wysocki <rafael@kernel.org> writes:
+
+> On Wed, Oct 29, 2025 at 8:13=E2=80=AFPM Ankur Arora <ankur.a.arora@oracle=
+.com> wrote:
 >>
->> As far as the Linux kernel is concerned, block devices such as i.MX8MP's
->> AUDIOMIX block control or i.MX8ULP's SIM LPAV can simultaneously act as
->> clock controllers, reset controllers or mux controllers. Since these IPs
->> offer different functionalities through different subsystem APIs, it's
->> important to make sure that the register R-M-W cycles are performed under
->> the same lock across all subsystem APIs. This will ensure that registers
->> will not end up with the wrong values because of race conditions (e.g.
->> clock consumer tries to update block control register A, while, at the
->> same time, reset consumer tries to update the same block control register).
 >>
->> However, the aforementioned race conditions will only impact block control
->> IPs which use the same register for multiple functionalities. For example,
->> i.MX8MP's AUDIOMIX block control IP provides clock gating functionalities
->> and reset control functionalities through different registers. This is why
->> the current approach (i.e. clock control and reset control work using
->> different locks) has worked well so far.
+>> Rafael J. Wysocki <rafael@kernel.org> writes:
 >>
->> Since we want to extend this driver to be usable for i.MX8ULP's SIM LPAV
->> block control IP, we need to make sure that clock control, reset control,
->> and mux control APIs use the same lock since all of these functionalities
->> are performed using the SYSCTRL0 register.
+>> > On Wed, Oct 29, 2025 at 5:42=E2=80=AFAM Ankur Arora <ankur.a.arora@ora=
+cle.com> wrote:
+>> >>
+>> >>
+>> >> Rafael J. Wysocki <rafael@kernel.org> writes:
+>> >>
+>> >> > On Tue, Oct 28, 2025 at 6:32=E2=80=AFAM Ankur Arora <ankur.a.arora@=
+oracle.com> wrote:
+>> >> >>
+>> >> >> The inner loop in poll_idle() polls over the thread_info flags,
+>> >> >> waiting to see if the thread has TIF_NEED_RESCHED set. The loop
+>> >> >> exits once the condition is met, or if the poll time limit has
+>> >> >> been exceeded.
+>> >> >>
+>> >> >> To minimize the number of instructions executed in each iteration,
+>> >> >> the time check is done only intermittently (once every
+>> >> >> POLL_IDLE_RELAX_COUNT iterations). In addition, each loop iteratio=
+n
+>> >> >> executes cpu_relax() which on certain platforms provides a hint to
+>> >> >> the pipeline that the loop busy-waits, allowing the processor to
+>> >> >> reduce power consumption.
+>> >> >>
+>> >> >> This is close to what smp_cond_load_relaxed_timeout() provides. So=
+,
+>> >> >> restructure the loop and fold the loop condition and the timeout c=
+heck
+>> >> >> in smp_cond_load_relaxed_timeout().
+>> >> >
+>> >> > Well, it is close, but is it close enough?
+>> >>
+>> >> I guess that's the question.
+>> >>
+>> >> >> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+>> >> >> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+>> >> >> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+>> >> >> ---
+>> >> >>  drivers/cpuidle/poll_state.c | 29 ++++++++---------------------
+>> >> >>  1 file changed, 8 insertions(+), 21 deletions(-)
+>> >> >>
+>> >> >> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_s=
+tate.c
+>> >> >> index 9b6d90a72601..dc7f4b424fec 100644
+>> >> >> --- a/drivers/cpuidle/poll_state.c
+>> >> >> +++ b/drivers/cpuidle/poll_state.c
+>> >> >> @@ -8,35 +8,22 @@
+>> >> >>  #include <linux/sched/clock.h>
+>> >> >>  #include <linux/sched/idle.h>
+>> >> >>
+>> >> >> -#define POLL_IDLE_RELAX_COUNT  200
+>> >> >> -
+>> >> >>  static int __cpuidle poll_idle(struct cpuidle_device *dev,
+>> >> >>                                struct cpuidle_driver *drv, int ind=
+ex)
+>> >> >>  {
+>> >> >> -       u64 time_start;
+>> >> >> -
+>> >> >> -       time_start =3D local_clock_noinstr();
+>> >> >> +       u64 time_end;
+>> >> >> +       u32 flags =3D 0;
+>> >> >>
+>> >> >>         dev->poll_time_limit =3D false;
+>> >> >>
+>> >> >> +       time_end =3D local_clock_noinstr() + cpuidle_poll_time(drv=
+, dev);
+>> >> >
+>> >> > Is there any particular reason for doing this unconditionally?  If
+>> >> > not, then it looks like an arbitrary unrelated change to me.
+>> >>
+>> >> Agreed. Will fix.
+>> >>
+>> >> >> +
+>> >> >>         raw_local_irq_enable();
+>> >> >>         if (!current_set_polling_and_test()) {
+>> >> >> -               unsigned int loop_count =3D 0;
+>> >> >> -               u64 limit;
+>> >> >> -
+>> >> >> -               limit =3D cpuidle_poll_time(drv, dev);
+>> >> >> -
+>> >> >> -               while (!need_resched()) {
+>> >> >> -                       cpu_relax();
+>> >> >> -                       if (loop_count++ < POLL_IDLE_RELAX_COUNT)
+>> >> >> -                               continue;
+>> >> >> -
+>> >> >> -                       loop_count =3D 0;
+>> >> >> -                       if (local_clock_noinstr() - time_start > l=
+imit) {
+>> >> >> -                               dev->poll_time_limit =3D true;
+>> >> >> -                               break;
+>> >> >> -                       }
+>> >> >> -               }
+>> >> >> +               flags =3D smp_cond_load_relaxed_timeout(&current_t=
+hread_info()->flags,
+>> >> >> +                                                     (VAL & _TIF_=
+NEED_RESCHED),
+>> >> >> +                                                     (local_clock=
+_noinstr() >=3D time_end));
+>> >> >
+>> >> > So my understanding of this is that it reduces duplication with som=
+e
+>> >> > other places doing similar things.  Fair enough.
+>> >> >
+>> >> > However, since there is "timeout" in the name, I'd expect it to tak=
+e
+>> >> > the timeout as an argument.
+>> >>
+>> >> The early versions did have a timeout but that complicated the
+>> >> implementation significantly. And the current users poll_idle(),
+>> >> rqspinlock don't need a precise timeout.
+>> >>
+>> >> smp_cond_load_relaxed_timed(), smp_cond_load_relaxed_timecheck()?
+>> >>
+>> >> The problem with all suffixes I can think of is that it makes the
+>> >> interface itself nonobvious.
+>> >>
+>> >> Possibly something with the sense of bail out might work.
+>> >
+>> > It basically has two conditions, one of which is checked in every step
+>> > of the internal loop and the other one is checked every
+>> > SMP_TIMEOUT_POLL_COUNT steps of it.  That isn't particularly
+>> > straightforward IMV.
 >>
->> To do so, we need to switch to the regmap API and, if possible, use the
->> parent device's regmap, which, in the case of i.MX8ULP, will be the clock
->> controller. This way, we can make sure that the clock gates and the reset
->> controller will use the same lock to perform the register R-M-W cycles.
->>
->> This change will also work fine for cases where we don't really need to
->> share the lock across multiple APIs (e.g. i.MX8MP's AUDIOMIX block
->> control) since regmap will take care of the locking we were previously
->> explicitly performing in the driver.
->>
->> The transition to the regmap API also involves some cleanup. Specifically,
->> we can make use of devres to unmap the device's memory and get rid of the
->> memory mapping-related error paths and the remove() function altogether.
-> Can you simpifly commit message? The key points are 1: lock, 2: nice API.
-> like regmap_update_bits().
+>> Right. And that's similar to what poll_idle().
 >
-> Switch to using the regmap API to simplify register access. The regmap
-> infrastructure provides synchronized register access and richer helpers
-> such as regmap_update_bits().
-
-
-this change isn't about simplifying the register access, nor is it about synchronizing
-
-the register access. Previous version was already doing that.
-
-
-the key takeaway here is we want to have the SAME lock used across different APIs.
-
-regmap is a way to do that.
-
-
+> My point is that the macro in its current form is not particularly
+> straightforward.
 >
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->>  drivers/reset/reset-imx8mp-audiomix.c | 91 +++++++++++++++++----------
->>  1 file changed, 57 insertions(+), 34 deletions(-)
->>
->> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
->> index e9643365a62c..3f6d11270918 100644
->> --- a/drivers/reset/reset-imx8mp-audiomix.c
->> +++ b/drivers/reset/reset-imx8mp-audiomix.c
->> @@ -11,6 +11,7 @@
->>  #include <linux/module.h>
->>  #include <linux/of.h>
->>  #include <linux/of_address.h>
->> +#include <linux/regmap.h>
->>  #include <linux/reset-controller.h>
->>
->>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
->> @@ -42,8 +43,8 @@ static const struct imx8mp_reset_map reset_map[] = {
->>
->>  struct imx8mp_audiomix_reset {
->>  	struct reset_controller_dev rcdev;
->> -	spinlock_t lock; /* protect register read-modify-write cycle */
->>  	void __iomem *base;
->> +	struct regmap *regmap;
->>  };
->>
->>  static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_controller_dev *rcdev)
->> @@ -55,26 +56,15 @@ static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
->>  				  unsigned long id, bool assert)
->>  {
->>  	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
->> -	void __iomem *reg_addr = priv->base;
->> -	unsigned int mask, offset, active_low;
->> -	unsigned long reg, flags;
->> +	unsigned int mask, offset, active_low, shift, val;
->>
->>  	mask = reset_map[id].mask;
->>  	offset = reset_map[id].offset;
->>  	active_low = reset_map[id].active_low;
->> +	shift = ffs(mask) - 1;
->> +	val = (active_low ^ assert) << shift;
->>
->> -	spin_lock_irqsave(&priv->lock, flags);
->> -
->> -	reg = readl(reg_addr + offset);
->> -	if (active_low ^ assert)
->> -		reg |= mask;
->> -	else
->> -		reg &= ~mask;
->> -	writel(reg, reg_addr + offset);
->> -
->> -	spin_unlock_irqrestore(&priv->lock, flags);
->> -
->> -	return 0;
->> +	return regmap_update_bits(priv->regmap, offset, mask, val);
->>  }
->>
->>  static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
->> @@ -94,6 +84,50 @@ static const struct reset_control_ops imx8mp_audiomix_reset_ops = {
->>  	.deassert = imx8mp_audiomix_reset_deassert,
->>  };
->>
->> +static const struct regmap_config regmap_config = {
->> +	.reg_bits = 32,
->> +	.val_bits = 32,
->> +	.reg_stride = 4,
->> +};
->> +
->> +/* assumption: registered only if not using parent regmap */
->> +static void imx8mp_audiomix_reset_iounmap(void *data)
->> +{
->> +	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(data);
->> +
->> +	iounmap(priv->base);
->> +}
->> +
->> +/* assumption: dev_set_drvdata() is called before this */
->> +static int imx8mp_audiomix_reset_get_regmap(struct device *dev)
->> +{
->> +	struct imx8mp_audiomix_reset *priv;
->> +	int ret;
->> +
->> +	priv = dev_get_drvdata(dev);
->> +
->> +	/* try to use the parent's regmap */
->> +	priv->regmap = dev_get_regmap(dev->parent, NULL);
->> +	if (priv->regmap)
->> +		return 0;
->> +
->> +	/* ... if that's not possible then initialize the regmap right now */
->> +	priv->base = of_iomap(dev->parent->of_node, 0);
-> Not sure why need map parent devices's ioresource here. You'd better use
-> regmap_attach_dev() at parent devices, so dev_get_regmap() will get it.
-
-
-why would we want to force the parent device to use regmap if it doesn't need to?
-
-
+> The code in poll_idle() does what it needs to do.
 >
-> Frank
+>> > Honestly, I prefer the existing code.  It is much easier to follow and
+>> > I don't see why the new code would be better.  Sorry.
+>>
+>> I don't think there's any problem with the current code. However, I'd li=
+ke
+>> to add support for poll_idle() on arm64 (and maybe other platforms) wher=
+e
+>> instead of spinning in a cpu_relax() loop, you wait on a cacheline.
 >
->> +	if (!priv->base)
->> +		return dev_err_probe(dev, -ENOMEM, "failed to iomap address space\n");
->> +
->> +	ret = devm_add_action_or_reset(dev, imx8mp_audiomix_reset_iounmap, dev);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "failed to register action\n");
->> +
->> +	priv->regmap = devm_regmap_init_mmio(dev, priv->base, &regmap_config);
->> +	if (IS_ERR(priv->regmap))
->> +		return dev_err_probe(dev, PTR_ERR(priv->regmap),
->> +				     "failed to initialize regmap\n");
->> +
->> +	return 0;
->> +}
->> +
->>  static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->>  				       const struct auxiliary_device_id *id)
->>  {
->> @@ -105,36 +139,26 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->>  	if (!priv)
->>  		return -ENOMEM;
+> Well, there is MWAIT on x86, but it is not used here.  It just takes
+> too much time to wake up from.  There are "fast" variants of that too,
+> but they have been designed with user space in mind, so somewhat
+> cumbersome for kernel use.
+>
+>> And that's what using something like smp_cond_load_relaxed_timeout()
+>> would enable.
 >>
->> -	spin_lock_init(&priv->lock);
->> -
->>  	priv->rcdev.owner     = THIS_MODULE;
->>  	priv->rcdev.nr_resets = ARRAY_SIZE(reset_map);
->>  	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
->>  	priv->rcdev.of_node   = dev->parent->of_node;
->>  	priv->rcdev.dev	      = dev;
->>  	priv->rcdev.of_reset_n_cells = 1;
->> -	priv->base            = of_iomap(dev->parent->of_node, 0);
->> -	if (!priv->base)
->> -		return -ENOMEM;
+>> Something like the series here:
+>>   https://lore.kernel.org/lkml/87wmaljd81.fsf@oracle.com/
 >>
->> +	/* keep before call to imx8mp_audiomix_reset_init_regmap() */
->>  	dev_set_drvdata(dev, priv);
->>
->> +	ret = imx8mp_audiomix_reset_get_regmap(dev);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "failed to get regmap\n");
->> +
->>  	ret = devm_reset_controller_register(dev, &priv->rcdev);
->>  	if (ret)
->> -		goto out_unmap;
->> +		return dev_err_probe(dev, ret,
->> +				     "failed to register reset controller\n");
->>
->>  	return 0;
->> -
->> -out_unmap:
->> -	iounmap(priv->base);
->> -	return ret;
->> -}
->> -
->> -static void imx8mp_audiomix_reset_remove(struct auxiliary_device *adev)
->> -{
->> -	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(&adev->dev);
->> -
->> -	iounmap(priv->base);
->>  }
->>
->>  static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
->> @@ -147,7 +171,6 @@ MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
->>
->>  static struct auxiliary_driver imx8mp_audiomix_reset_driver = {
->>  	.probe		= imx8mp_audiomix_reset_probe,
->> -	.remove		= imx8mp_audiomix_reset_remove,
->>  	.id_table	= imx8mp_audiomix_reset_ids,
->>  };
->>
->> --
->> 2.43.0
->>
+>> (Sorry, should have mentioned this in the commit message.)
+>
+> I'm not sure how you can combine that with a proper timeout.
+
+Would taking the timeout as a separate argument work?
+
+  flags =3D smp_cond_load_relaxed_timeout(&current_thread_info()->flags,
+                                         (VAL & _TIF_NEED_RESCHED),
+                                         local_clock_noinstr(), time_end);
+
+Or you are thinking of something on different lines from the smp_cond_load
+kind of interface?
+
+> The
+> timeout is needed because you want to break out of this when it starts
+> to take too much time, so you can go back to the idle loop and maybe
+> select a better idle state.
+
+Agreed. And that will happen with the version in the patch:
+
+     flags =3D smp_cond_load_relaxed_timeout(&current_thread_info()->flags,
+                                            (VAL & _TIF_NEED_RESCHED),
+                                            (local_clock_noinstr() >=3D tim=
+e_end));
+
+Just that with waited mode on arm64 the timeout might be delayed depending
+on granularity of the event stream.
+
+
+Thanks
+--
+ankur
 
