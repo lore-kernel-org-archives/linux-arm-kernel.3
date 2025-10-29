@@ -4,67 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 192D9CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 18:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE12CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 18:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nv8d7FS6/Fth0lRTdLCpRismMzU9nDUaFxeHZOzY3fk=; b=tTcePE6sYmfegoCU7zYUK2wSlz
-	KQx95RKHVRQTFNVgbNT09VPD0KS32DkLNDCrLCaHdPCz+Nu54DXrt5H4RSm2+u1EbqpVCInDQw3uj
-	jxYeHzwTGYvDdHqT9udjVYynB2sswYdeUJpHTcceNHNCQgslX2hbsP7XOSy2B/PN2sz+n4iVtSM0d
-	U8mU/yDgiYXFLbNLroeW5/Twl1Jx8uVy165LPVRBAUUO6I5nM99nuJcUF0spQOhadT6UVAwaGed+v
-	Cm9Py6YvDQU6EOxRy/HcS831oG2n0I9tQbDaPiQc5FcO7flwCnjQUUCiQtg8RXbFg+7ewtwyE5q6X
-	vk8WGwDw==;
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lNxXxUzXoqQQT9w5Yf9S20ddLNixsnFzdxWTN/CN8Uk=; b=ilCgtbZVMSyFa0XTOC/3fhJ8St
+	7EI/Z1gLGXO2UUpaihDpVuvcVLtYgByGcClrR7k8T9fcAEg1DCFsvvJ5C2QgRUqs1kOcHncxxt6jr
+	Cl14dyTaGp46tiMW8DpkGAllfNOaARnW+NZUjYpfFu9QEOUlTEDhNJY4YbEvxxSUstJnG9DAXJ0Ve
+	wN49+hBR+pMw+S39NRouHGcQIVpylsfASYOZ68pDyzguFFRcEDRfepUcVIAlgJV4T5S3aAWLH7Vde
+	pqtAtFrzWcm17CpY3pJzC7nbtTE1RCVm0Nt1J/ARYBvgbeKKMH5hqqa3gEOwPfBbKD2xInKVUf5H3
+	6LzOVoiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEAWf-00000002Kr6-30Yu;
-	Wed, 29 Oct 2025 18:04:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vEAY4-00000002LNN-0lkP;
+	Wed, 29 Oct 2025 18:05:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEAWV-00000002Kmr-1axV
+	id 1vEAY0-00000002LLw-0O2E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 18:03:52 +0000
-Received: from isaac-ThinkPad-T16-Gen-2.infra.iob (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 107884E53;
-	Wed, 29 Oct 2025 19:02:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761760920;
-	bh=PlXU6jKiiXna7dvuaZgrh1DWHRm2LRbE5QQUIXHQgb0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QsvL08kYhF71izk4rGh/o1zPw2Js3NIrTaNJ0FMCUooGVvWV+bGgBIbXHYxFqhlTm
-	 9GK5VT/aTYknKIV9jMMJAQdAH+hMTNB3EnviaC4ZXR8xdlB8aDtI88p5ENJqqhA0Ru
-	 WcO/SCBmFV0H9Bvea7GeeRUSSUmiKVtH8i0GMeRA=
-From: Isaac Scott <isaac.scott@ideasonboard.com>
-To: mchehab@kernel.org
-Cc: rmfrfs@gmail.com,
-	laurent.pinchart@ideasonboard.com,
-	martink@posteo.de,
-	kernel@puri.sm,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	sakari.ailus@linux.intel.com,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Frank.Li@nxp.com,
-	Isaac Scott <isaac.scott@ideasonboard.com>
-Subject: [PATCH v6 3/4] media: imx-mipi-csis: Add num_data_lanes to mipi_csis_device
-Date: Wed, 29 Oct 2025 18:03:20 +0000
-Message-ID: <20251029180321.153680-4-isaac.scott@ideasonboard.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251029180321.153680-1-isaac.scott@ideasonboard.com>
-References: <20251029180321.153680-1-isaac.scott@ideasonboard.com>
+	Wed, 29 Oct 2025 18:05:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761761122;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lNxXxUzXoqQQT9w5Yf9S20ddLNixsnFzdxWTN/CN8Uk=;
+	b=CzK6rvVXkHLPs7sH+Hs7gaX+eOZgHfh505gYz7jLU19UnA6WTL5TNrE/vVDQwDy+Gg3b+w
+	o+RaIoH53mI6VMFQfViqwYhri6xex71+J3fg2vyXMdasWSkM4QVvk0avDOzjcliKUeeadE
+	OOLOTjlM3EoGxJBgSowNNFQtBRMBYOc=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-492-K6huvsJKMhC-uCWDhQrOSg-1; Wed, 29 Oct 2025 14:05:21 -0400
+X-MC-Unique: K6huvsJKMhC-uCWDhQrOSg-1
+X-Mimecast-MFC-AGG-ID: K6huvsJKMhC-uCWDhQrOSg_1761761121
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8a6fc271d46so28655485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 11:05:21 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761761120; x=1762365920;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lNxXxUzXoqQQT9w5Yf9S20ddLNixsnFzdxWTN/CN8Uk=;
+        b=ZhND5ap1FNJ409sA2AiFQmcSCBuhGQ7yjjfOoJlxBv673zWHaGshV0mHnXZAuwNiZI
+         wvgp764NVTgs9GN/MPVJur9dvw/xLTZAQDNdUCS6y3PTDwNeMMPe53uMFrpFho+i6K3u
+         Scp3Q9/1PDrxa7A4AU/ih/5YiT8np3CzHdVP9O4T+QWjBEK1CjP9hzkw9Pu8+wDG5ece
+         0HjLQvdrI+Ol6FHqnqY0BQ7/dDLdSAPxk0k5Oyh+jZ/6etCz57nBWVdVDHrd0itpYLcd
+         cQvi+JovJvTNQT9H7bZnfgm6n3UEevU4TCTQ3lgP0NrS+KAzydh+r/Szgimrny1LUCO+
+         KHTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUrDPl6YnzIPw1teTOkLIZ/2HTlD94wPxbw9gvndeZym7VAVjv5yCd7hbBDXH1HubmPS2mj5uhRk3p+cOS1GNoe@lists.infradead.org
+X-Gm-Message-State: AOJu0YxryoeJmk13GVBPiP0Qefwo5t3lr/zs9/WMuYR6CKmnJ+RysICU
+	ghfitWA3iyoPxCPugQ3jsMwAOKIh6YI9r+FQn9/NV/5hQBeqMd4AjaLBs6Od+L9PtMHEkzpnhhh
+	pZNV/jfuKh9wxGWStX40caFcJAPtMfvTYpEDJoShJI03Qqt7fiMqG2HS/PG5gaEWgvXOmNfLkdv
+	tq
+X-Gm-Gg: ASbGncsR+zt7WMW4UMtkdeYQxQqLHP8sUvXOEbYD4wad8NZDBLxX4kk7mLPQmcERrf/
+	YvF1uOAzo+o1IJ/8qZHkVbR93Uu67Hy2ZDpg5Nzwtpal/B6xv+XSUSNjOqKIoJUgXJqsSqaoBA5
+	q7Xsm3Tx1nGvXB0cWBV50Zx2RYstOoE2OkePxgE+gWaNABpJz6nTKnez/cSuBJBPhdi8prKgwau
+	6j6Do03mPfV4o30ukuz5b3z/w8/2dAqgCCzTXYkB1sCRFVYRxK/6WReLjKu9H1oKOyoUtBHbrAQ
+	LSg8m0Zd/St03BEcCn4R5pimOr7QrbL8hmfYYQ4ZkogznstNmf5UP2WHlGGLIXRF4klbI2ktuEi
+	I+88pwWvKiQcCVUr05BVPzjUbacIM3Cbj6UNme7MCOypZcQ==
+X-Received: by 2002:a05:620a:29cd:b0:8a6:92d1:2db5 with SMTP id af79cd13be357-8a8e473a6e6mr573645385a.24.1761761120510;
+        Wed, 29 Oct 2025 11:05:20 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEE6iTF4BqCkm725oJpB//2W/KjYfs5LBPrMdbtexGrXjP/dhJ17Z6sn/BKCKYXRH3K32fmkA==
+X-Received: by 2002:a05:620a:29cd:b0:8a6:92d1:2db5 with SMTP id af79cd13be357-8a8e473a6e6mr573635985a.24.1761761119960;
+        Wed, 29 Oct 2025 11:05:19 -0700 (PDT)
+Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-89f2421f6a5sm1111574885a.5.2025.10.29.11.05.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Oct 2025 11:05:19 -0700 (PDT)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <7821fb40-5082-4d11-b539-4c5abc2e572c@redhat.com>
+Date: Wed, 29 Oct 2025 14:05:17 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 18/33] cpuset: Remove cpuset_cpu_is_isolated()
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-19-frederic@kernel.org>
+In-Reply-To: <20251013203146.10162-19-frederic@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Hu-pq_w-eYaFe-Oaq2z5qgLlb2a_OjbosGe0f42D7nM_1761761121
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_110351_556725_7A79ED23 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20251029_110524_234826_BF787D9B 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,72 +133,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the num_data_lanes field to the mipi_csis_device struct, and set it
-equal to csis->bus.num_data_lanes. This is in preparation to support
-cases when the data lanes actively used differs from the maximum
-supported data lanes.
+On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
+> The set of cpuset isolated CPUs is now included in HK_TYPE_DOMAIN
+> housekeeping cpumask. There is no usecase left interested in just
+> checking what is isolated by cpuset and not by the isolcpus= kernel
+> boot parameter.
+>
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> ---
+>   include/linux/cpuset.h          |  6 ------
+>   include/linux/sched/isolation.h |  3 +--
+>   kernel/cgroup/cpuset.c          | 12 ------------
+>   3 files changed, 1 insertion(+), 20 deletions(-)
+>
+> diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+> index 051d36fec578..a10775a4f702 100644
+> --- a/include/linux/cpuset.h
+> +++ b/include/linux/cpuset.h
+> @@ -78,7 +78,6 @@ extern void cpuset_lock(void);
+>   extern void cpuset_unlock(void);
+>   extern void cpuset_cpus_allowed(struct task_struct *p, struct cpumask *mask);
+>   extern bool cpuset_cpus_allowed_fallback(struct task_struct *p);
+> -extern bool cpuset_cpu_is_isolated(int cpu);
+>   extern nodemask_t cpuset_mems_allowed(struct task_struct *p);
+>   #define cpuset_current_mems_allowed (current->mems_allowed)
+>   void cpuset_init_current_mems_allowed(void);
+> @@ -208,11 +207,6 @@ static inline bool cpuset_cpus_allowed_fallback(struct task_struct *p)
+>   	return false;
+>   }
+>   
+> -static inline bool cpuset_cpu_is_isolated(int cpu)
+> -{
+> -	return false;
+> -}
+> -
+>   static inline nodemask_t cpuset_mems_allowed(struct task_struct *p)
+>   {
+>   	return node_possible_map;
+> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+> index 94d5c835121b..0f50c152cf68 100644
+> --- a/include/linux/sched/isolation.h
+> +++ b/include/linux/sched/isolation.h
+> @@ -76,8 +76,7 @@ static inline bool housekeeping_cpu(int cpu, enum hk_type type)
+>   static inline bool cpu_is_isolated(int cpu)
+>   {
+>   	return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN) ||
+> -	       !housekeeping_test_cpu(cpu, HK_TYPE_TICK) ||
+> -	       cpuset_cpu_is_isolated(cpu);
+> +	       !housekeeping_test_cpu(cpu, HK_TYPE_TICK);
+>   }
+>   
 
-No functional changes intended by this commit.
+You can also remove the "<linux/cpuset.h>" include from isolation.h 
+which was added by commit 3232e7aad11e5 ("cgroup/cpuset: Include 
+isolated cpuset CPUs in cpu_is_isolated() check") which introduces 
+cpuset_cpu_is_isolated().
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
----
- drivers/media/platform/nxp/imx-mipi-csis.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+Cheers,
+Longman
 
-diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index 7c2a679dca2e..838a1ad123b5 100644
---- a/drivers/media/platform/nxp/imx-mipi-csis.c
-+++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -351,6 +351,8 @@ struct mipi_csis_device {
- 	u32 hs_settle;
- 	u32 clk_settle;
- 
-+	unsigned int num_data_lanes;
-+
- 	spinlock_t slock;	/* Protect events */
- 	struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
- 	struct dentry *debugfs_root;
-@@ -573,7 +575,7 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
- 	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
- 	val &= ~MIPI_CSIS_DPHY_CMN_CTRL_ENABLE;
- 	if (on) {
--		mask = (1 << (csis->bus.num_data_lanes + 1)) - 1;
-+		mask = (1 << (csis->num_data_lanes + 1)) - 1;
- 		val |= (mask & MIPI_CSIS_DPHY_CMN_CTRL_ENABLE);
- 	}
- 	mipi_csis_write(csis, MIPI_CSIS_DPHY_CMN_CTRL, val);
-@@ -623,7 +625,7 @@ static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
- 
- 	/* Calculate the line rate from the pixel rate. */
- 	link_freq = v4l2_get_link_freq(csis->source.pad, csis_fmt->width,
--				       csis->bus.num_data_lanes * 2);
-+				       csis->num_data_lanes * 2);
- 	if (link_freq < 0) {
- 		dev_err(csis->dev, "Unable to obtain link frequency: %d\n",
- 			(int)link_freq);
-@@ -668,7 +670,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
- 				 const struct v4l2_mbus_framefmt *format,
- 				 const struct csis_pix_format *csis_fmt)
- {
--	int lanes = csis->bus.num_data_lanes;
-+	int lanes = csis->num_data_lanes;
- 	u32 val;
- 
- 	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-@@ -1366,8 +1368,9 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
- 	}
- 
- 	csis->bus = vep.bus.mipi_csi2;
-+	csis->num_data_lanes = csis->bus.num_data_lanes;
- 
--	dev_dbg(csis->dev, "data lanes: %d\n", csis->bus.num_data_lanes);
-+	dev_dbg(csis->dev, "max data lanes: %d\n", csis->bus.num_data_lanes);
- 	dev_dbg(csis->dev, "flags: 0x%08x\n", csis->bus.flags);
- 
- 	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
--- 
-2.43.0
 
 
