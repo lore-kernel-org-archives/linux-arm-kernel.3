@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B050CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 23:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9148CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 23:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=QiIGSbexaAA+CmlhronKLWB3qTL5OB3HlpsKNFOwIow=; b=4NQgdhmT0JtrVM
-	Nowtce5QwPXHlLEeetpet7oXsgq5FTGYK02L204kwjjMNrLu0z+cO3s+RKfN8uvn1xraqEB/tV6R/
-	vmFMG5QhfTCgRLzzBLa6Swk6U4JGJdNDADLH44biGd/Q4axtWulIDRJFBHp42s9HUBkoCmLbwMUzl
-	EO9Mdlu76rT9Mj5DtAXYSwhgFIK1+C+SZl0hwn1rE+RFJqP8wAdo/bBHHSjKf7WrH0BbIqwX8lTIb
-	Qx6mZu6f9QLnAWq397ifZfDVV3L5ux+gPpQ49H095f5b9v6JaWq6Ori+x8P0/11wF2J5WxmxDC35s
-	QWKZNDkKhkx/s50N784Q==;
+	List-Owner; bh=p566VH11WOTEQM+KlajmaQW9QYXXQNM1rv++dhPkvo0=; b=s6iavzJYhP7T+7
+	gPRFddGFVG3zNYZwXuLYMBq59GWnTSA8JMOenxP8CbIth4uAHMCK8RNGfL6L4mvFjnOT4sWbvhZQh
+	zZ82al5rYWAt5ZbfYQ/HFP4j9S9QkoYSFEiQuGaTRiKGxMmCfwzJd6yblAY6j1emt7E3qBfvwXc9z
+	uCktdqG3pOiNuJLZWCHDhrbvPVvGiDyHyvA+ww/zquzTBhsid9bTAWU7sevKysPa/VAZBl0vsCndd
+	McAzgEA6t6Gn1OBDkAXm0B9t4Dw7xuNgSiVwDig352wN1S1CzS2u7XgNPjWKkwEotdmbwOVxc7YmA
+	60aoFWAKJTa55wnVcMGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEFJv-00000003E9x-0776;
-	Wed, 29 Oct 2025 23:11:11 +0000
+	id 1vEFQF-00000003EYu-1AMw;
+	Wed, 29 Oct 2025 23:17:43 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEFJt-00000003E9j-0QtF;
-	Wed, 29 Oct 2025 23:11:09 +0000
+	id 1vEFQE-00000003EY6-1EJA;
+	Wed, 29 Oct 2025 23:17:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 281F36029F;
-	Wed, 29 Oct 2025 23:11:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812A4C4CEF7;
-	Wed, 29 Oct 2025 23:11:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 811AC603B5;
+	Wed, 29 Oct 2025 23:17:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 126F7C4CEF7;
+	Wed, 29 Oct 2025 23:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761779466;
-	bh=eHlQ2ZALLjGdsa88lWgTESQ22heSRABB6bxl7CsGUww=;
+	s=k20201202; t=1761779860;
+	bh=aFz6dNrVlKIsZLpN20nJ2pqC29DlAbSGUScdk1UfEz8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=C1tmLb7mh4BjAht6SYKF9rf3E5ABcFVOINxHcK7CjmzQ398z2SAAuitNQkhsyWAXj
-	 xNUGo9R6um8sdlaF7tTnnwcjylb6Hy3x27qfCnai9SSW+zaGEJgH3XKB+dQ6C/55S1
-	 OFxBaFVfIatdHz/gy4117dT7Poo4G8Y/r2EhXEhkWAnsS+Yqc6khm0mYqPooQ7Suty
-	 FhaKMD+sNsPy+SSSkymX+V87/ohpuYei2+8/fXbMXpzUfm8I+INFt4tzLxDde8+MJX
-	 dKLQmQSgYmapfYnzafjIm3AeV5zzL85G2Ix8P6DA+Dl5Ae+lCFtvFxvbjqXwYpzAXC
-	 BMr89O3kAt/hg==
-Date: Wed, 29 Oct 2025 18:11:05 -0500
+	b=bFPw5cOcCeFltvMCeaFuRH9GwUMurde5R12RYt+oJg3qbctMpxuK5FXdcZ6ygBwLS
+	 9VDIdDWrNlpnvsTL+FeMImz7l6LF3AGWv9MC2RM7YeV3NyuTmVaYowz2oFdvIAa6Q0
+	 Gqqnm60U7PCSxtUKbus8yFgeae/L7bVwy2gs+dPXFROrxO9dHFZW4dYvhI9GacMf4d
+	 4YGszKJGMSs6hWZHUNq9qFaYSsAfKWnRiWMTAlHIy0NksgYmzmchkRna1ba62HWwqE
+	 b3lUz9uzLuOYisZfBFpOSuGv48ZaQTEUOy7ZGVyJ5dhWiIFMi6HZS23JUd9eyyrROP
+	 I9Ui74I1Y8SCg==
+Date: Wed, 29 Oct 2025 18:17:38 -0500
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -55,13 +55,12 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: Re: [PATCH v4 4/9] PCI: dw-rockchip: Add helper function for
- enhanced LTSSM control mode
-Message-ID: <20251029231105.GA1601725@bhelgaas>
+Subject: Re: [PATCH v4 9/9] PCI: dwc: support missing PCIe device on resume
+Message-ID: <20251029231738.GA1601908@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251029-rockchip-pcie-system-suspend-v4-4-ce2e1b0692d2@collabora.com>
+In-Reply-To: <20251029-rockchip-pcie-system-suspend-v4-9-ce2e1b0692d2@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,14 +75,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 06:56:43PM +0100, Sebastian Reichel wrote:
-> Remove code duplocation and improve readability by introducing a new
-> function to setup the enhanced LTSSM mode.
+On Wed, Oct 29, 2025 at 06:56:48PM +0100, Sebastian Reichel wrote:
+> When dw_pcie_resume_noirq() is called for a PCIe root complex for a PCIe
+> slot with no device plugged on Rockchip RK3576, dw_pcie_wait_for_link()
+> will return -ETIMEDOUT. During probe time this does not happen, since
+> the platform sets 'use_linkup_irq'.
+> 
+> This adds the same logic from dw_pcie_host_init() to the PM resume
+> function to avoid the problem.
 
-s/duplocation/duplication/
-s/setup/set up/
+s/PCI: dwc: support/PCI: dwc: Support/  (in subject; capitalize first word)
+s/This adds/Add/
 
-Maybe also include the actual function name instead of just "a new
-function".  "rockchip_pcie_enable_enhanced_ltssm_control_mode()" is
-pretty long; I wouldn't object to a shorter version :)
+Can you mention 8d3bf19f1b58 ("PCI: dwc: Don't wait for link up if
+driver can detect Link Up event") here?  I think that's what added the
+similar probe-time code.
+
+I see you did copy the comment from 8d3bf19f1b58, thanks for that!
+
+Maybe also word your subject and commit log along the same lines so
+the two commits are easier to connect to each other.
+
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index e92513c5bda5..f25f1c136900 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1215,9 +1215,16 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
+>  	if (ret)
+>  		return ret;
+>  
+> -	ret = dw_pcie_wait_for_link(pci);
+> -	if (ret)
+> -		return ret;
+> +	/*
+> +	 * Note: Skip the link up delay only when a Link Up IRQ is present.
+> +	 * If there is no Link Up IRQ, we should not bypass the delay
+> +	 * because that would require users to manually rescan for devices.
+> +	 */
+> +	if (!pci->pp.use_linkup_irq) {
+> +		ret = dw_pcie_wait_for_link(pci);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	return ret;
+>  }
+> 
+> -- 
+> 2.51.0
+> 
 
