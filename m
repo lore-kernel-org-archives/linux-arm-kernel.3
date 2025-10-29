@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0059CCF9F1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00EFCCF9EB
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 16:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,79 +12,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkaU4JsM1D+JY4wiuorXEjJy2zEEfje0oExQGt/PLrU=; b=RN8cqU18NyEH5c9RZuSkPwaIDK
-	06l8JP9ZNdRLknec/jNhdMU7EcnUBPN1I3aSaYbzluqgEDRQycme4Duxjau+FstgUkrpzSjBiY8SM
-	Up/pSO5Zh6KNAFWUays5lKxZrL8n28qGhkNpXBqWCcf9JL331zsNq/eUyWkebxBA4MVtIeGKLAHZD
-	eSDhZ/2tgzc94UcV4OTi8q6XwC8+sDxKHAIE6V3RT9NKE14cJWID0NkHZXnJPRBldh8GR/MG8Kd+K
-	qhu2J4RXouDKxqYT0lwSt+3X+kP4cT9kzxcbcomNW+Tgt2imJvroNsIwdNuuufdC0MnVH957n5qCZ
-	7YhzCQPg==;
+	bh=JhxpRTp1uOQ7/yJc+0xNuSmcJdpaGHV/pw/kDcH2Yfg=; b=aZkSdRYfuBINt/nZNoPPCZv0/r
+	VPQqP/q24pUPTFquBRq6OLJ4AjQTSQrXzitHAB+9PdAWmGgYEma3TAepPl0BRAK5NOXOs+7JmIkPN
+	d2ROxolWfTmxKidFNsRrzDwu2wNODzwi8BhWmKAL9Mof8FpFh2jXEBe+5r393VRAafR1ooKfTgydI
+	i2G1QGd0J8HsBAurQb91QKKlQhZPZSbLH/wB+LHV/8h9gjJqvXnWgt/BG0HGqOWfWRoCeCQM+Hq/S
+	yn2ElBgkGWRxBqrVQVeebv1bWxVOxFd3U9Cj19z4dlhw22vBnmhKFhfXluASVKsj2tWQIq1QKT6mB
+	DyEt64KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE97p-000000021st-3fVx;
+	id 1vE97p-000000021s7-2It1;
 	Wed, 29 Oct 2025 16:34:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE97b-000000021aA-1mTG
+	id 1vE97Z-000000021Y8-2wS2
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Oct 2025 16:34:03 +0000
+	Wed, 29 Oct 2025 16:34:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=MkaU4JsM1D+JY4wiuorXEjJy2zEEfje0oExQGt/PLrU=; b=JcVLwnqWc0PJZy0mCU5ST6TWDY
-	71SIjBLXNcZlB+zte8nDwHUuA3deiY4Ttc4uopZyR3zH0NINLsa5U4CMAh4X9RDdWfiM9iPGxewVN
-	SlVMj+ppAT2QIzpf+hoDte0g8eZfIttx9xuTl1FQ5vQuVrb9wMiU4N6R5ZTtsri1wF1slmaN4azMA
-	ECzM49hraDgg9eZZeMwiDnyTIrPTsPWP4cmYIOrTTmelxg8OndVnX4rcBgOHpYKN59MkizJlmL7cX
-	bvMrcG560HSQN1mz5Onm51HWr53fENNfUefpj52FUqo2FemGTwSbS/buqtSBkbWnbWkM81oPBmNRl
-	h8K41NzQ==;
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	bh=JhxpRTp1uOQ7/yJc+0xNuSmcJdpaGHV/pw/kDcH2Yfg=; b=m7fFwIFzT7NGS+PSabzABo83Rs
+	5zMoDKnw0nkCpZGHLqPG0DGloCwL7Tb7c0hI2Q/VVjZqZ8mxcFW1vvpKRNZ1BE5x7Z5+Wao5A1ibQ
+	OFfxIm1HKgphji8xSNcXGBJmXibvZqkRb4BBNpqHQItL52PsCHWDBr03QTxA7euUAPqTRk7JbqiDE
+	DV2NmH8SoVZ8oQ9cXW3dX/tWlLW2N9LK64PdJiyf03lB/p6ofoNlO/yJjyBowNr3ZuA04a5wmrU9s
+	HrJcS+83spp7K6YfOyGv420m+rNdDszq1GqXM+Eomk7V35+wsx6dFQCZI3btT4z2Kawcp/fMcNbLM
+	g6boOGhQ==;
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8Fo-00000007JgH-37Bt
+	id 1vE8Fm-00000007Jf9-2PNK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 15:38:30 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-63d6ee383bdso16036944a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 09:33:59 -0700 (PDT)
+	Wed, 29 Oct 2025 15:38:28 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-62fc0b7bf62so4799796a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 09:33:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761755638; x=1762360438; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761755636; x=1762360436; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MkaU4JsM1D+JY4wiuorXEjJy2zEEfje0oExQGt/PLrU=;
-        b=S7CERXMdcsEqJPa4CvbWVp4nRU2TMR8d29XvrDPGFSk6oDNX2Dh0La5pefAuEJuiRk
-         Mv12cScIxl8uu+iPkC1DqCYr24wD0CRaOSRBgIsmzvNddaCxbeapTaXqmrv/XCxx/QAn
-         8VmMkPKllYCtUeH7AzsmRFg7/4Nv6KqjyLWlCvr1IFy0xOZ1tUdrat+2ePytF23nh7Fl
-         pFTjvy9JEK2KwH98g69g79eoXTS+mOfE7+ZbItg2RgozpbNNn4tn7u/VldXrBovAHYcW
-         MnHPXAgszg9EBM9BO0ncvXkhS1Jfwc/0otFi5t/ylG1OT04zVvkN49xq60ZdCrUHHg4d
-         Y6aQ==
+        bh=JhxpRTp1uOQ7/yJc+0xNuSmcJdpaGHV/pw/kDcH2Yfg=;
+        b=J9PHRKQx20ZLK6/NgN2ZZvMQRPVlUI/zmsLLiojgnoDdbHEU5rJ9fpeyoES2jb39P7
+         fYya4x6iKsNgSaCRfmV9ZPSrvzyFasNe04UdZRQR+X18sRBPGEkWDJEGGptnacYC9m7S
+         SZNLYPFXSLDOpC2ps21hdU45coMYZTwf1J95nLapsA+BP4GclZ0WrAzfuhuJp6ZhDs63
+         KHebPrwMRLfFOS/vZNeZrb/4ugFslPwxHRbHgVcpNZeaY27TLgudEouC9oIe1UV85/+o
+         qCobiLxKGTjRX+JicVbjBy7AulXEZv3k/39d/vGvp+gbR+swnHuiRibZ+GoXtzC5C2ax
+         Y7yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761755638; x=1762360438;
+        d=1e100.net; s=20230601; t=1761755636; x=1762360436;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MkaU4JsM1D+JY4wiuorXEjJy2zEEfje0oExQGt/PLrU=;
-        b=mIwU9tF3yFlE5Kj/hUr1cBGXO53atJ4Gi1IdkEj3o0gpoW/77R9JRz2emF7BXElD3K
-         QKYm6MhTLPsCfPganQoG30yCmD8fFubXNysOroxSSEvr6u5hGNcdw2hnHV+o8OFgKXvL
-         ukEs4PUFQon7QWo1BllRRr/I+f0huo/w4wN/G3SZxSPZyp8x58eXtQpMYqOsygno8eGd
-         4jKfhiT10/v4OWrsESKVtVwqSdiaBNs0M9GkzM+HryTtQ1jxWESu6y9qyV1nj/l2c4E/
-         al39L0cJkk0BdMoxBmBQ1J58ZTz1ckp7VuZdfYysabB7I0oiN19ii18jjGj++Q/82BOZ
-         3zQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxEOQ7Z4eQmq/SN10rRvAHiYF6xOryBvjh4mxOVmTkqN50fk9Hm35Lgm1IZRD81JPyMXEu30Fwpvh36FZOJI9j@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNuBVkHPH8rSzBNZtmVvYUNmCUX170AtPgy3sbpP7FDpj0oYH2
-	c1jiNGvbMY+PC5Vx7yg09QwyGdI2/6iNdyOSS+B1Yq56PkTzLmjg7q7w
-X-Gm-Gg: ASbGnct5arxqYIcWePlBiwLwJmcxoFcGxMXpiSF5So5cwtCVWXaihQX1wJc4CCG+OeJ
-	yFyZdnzDVnzEmVu17Eb9f30vZ5CuRgK1XO2gNwxpubwBtysDHeS6YPeQrX586OTFMAu4ja7WLw2
-	n5bKbmhOrKZ8z3PXz/MRm1YeeLON5oZ2pCFoLJZxa50GqN9rWVhY2yVDsuc+doeNwm3UTEqbk7I
-	yOLh9+KBK0bNxSvYdrwHFdDpu6ZOpzdJ8kl8lOmXqKzDGgBjwvGieFbOWjux59UBdG7QaSLRGKk
-	ssJ4ae1FaBMAIAZoUFxcyf2GWi6jwTzGtD8kLRYpoPQQ3lf8Sx6t41Mqn1QKtoJ2XSE7A0rLUaZ
-	GiIs7wqz2aYL8+Y1TWD+EKv/0paCO8oSPAMhrxDGSWNFXKWyn3gtqp8SCAz1QkG/x42LcZSTHmH
-	ef9zRUFBl52p1zWYvA0HpHpG1gFQamC41oYFhzp5KqDZSMcQWhJXeqIQJq2E2eQyL3NKhT
-X-Google-Smtp-Source: AGHT+IHnWRqBehOWBCyuY7cscNzDJLcQ8Q1/xskpkrSKjJiOMcliraM9J9uBI/ZGi7u/t3zd09QFLA==
-X-Received: by 2002:a05:6402:e9b:b0:634:544b:a740 with SMTP id 4fb4d7f45d1cf-64044255cf2mr2554809a12.22.1761755638150;
-        Wed, 29 Oct 2025 09:33:58 -0700 (PDT)
-Received: from localhost (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-63e86c6d7d3sm12474615a12.27.2025.10.29.09.33.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=JhxpRTp1uOQ7/yJc+0xNuSmcJdpaGHV/pw/kDcH2Yfg=;
+        b=LjgeH2hfXsVHP/61UgUzVgZJVVGIu/9bUwfhPf0dLEZ50pKX3AKsxfRnukI+NgD+4Q
+         jPSm36uqRrQbyS0efNYQhFFwfnWma4mBT3ec4PhhrdxRrcOlzYZmO4njbGV8eJXc5dlh
+         20dAiFfqF/9m/5nyFKXooc671rOwnqCxKscUiDgrKCJnpwXFQzmMsRq168VTOeWyiZu4
+         /TCa8eyfl+szmRlYxrFYw8uu9UdGZtqBO5lvtJbILRcyJU+FymCtJ+JPa3E7zC2pdetK
+         8RlJYh2A5dnErcaqoX8gWuVSfAmMvyJu7yAEFpI56XYlW3TT5nTJSsjZKn20ZVZzLkqp
+         c3hw==
+X-Forwarded-Encrypted: i=1; AJvYcCUyVgXD8EIF0yXwRhBBsHgu94kcEIOxuL2qlJJVCEicQSxRtsTA9npJLJzkwsKTqNKmxUgE4LoPlkY4Mji285UG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIGi8mo8emtTXAJu3w/ww+wpFgWuCfrqmGj/6llb+gbGalg4Kf
+	FZuEydgSGax/+qtfKYSPBqoUFDRW9x5IYqxF5rVXN5dGTsj5qlHq2jnD
+X-Gm-Gg: ASbGncuYU5zcMGkkb7U6GrBZrIfbhsR6CDSxZIvJiCpZngWTe7OD3CWfFF1pACb1cCx
+	Uj+EINHMSJAWI6fi/3ks4PdY75MGNAN8/oRtkLU2J4cJMf8PXM+HcnX7rUJ+rWtZaS3w6bZwfJS
+	HKuYg+zmF0D16+QNRagJ6l42zb7QdUNWmnsT4Gp7YkkKvljxpOU2de6SqDiPDQ911GMgGhwMdc3
+	iwwEqxA2uRpfUGGknsWKCmjq2MCrk3c+nVLqzN1xbMFmJ87Y0oqb4GfLv94dzabnUdvGywirbRC
+	TtMGxi5ZFWvtxSVVwVFAqyBlT2tEIyb0tG1eVhdWZ5uS4o6i0QqO4wXp4TgIivaJB7+Rsx1Q/J9
+	atYuddU3A/k+8/mCq2HDg01okcxUbx1I7eXLkgwwpHPgIep3LVr1UygSMdEyyChPNJ8AFfgJcTr
+	Q425YXFhByc1yokGLQoZi8PBYgHJg4UUO82GjqyMz2ERUvcFfYPyexbmayqp08MnUw4mmJ
+X-Google-Smtp-Source: AGHT+IEBhKyqSuQzRg5+jPbNr1lJJJfXBtMjYTViFyDgVE4pc7ia4Gu9caVkoUUyuihmK5MM+ILYDA==
+X-Received: by 2002:a05:6402:5c9:b0:62f:50ff:b675 with SMTP id 4fb4d7f45d1cf-6404437f5a7mr2656312a12.33.1761755636037;
         Wed, 29 Oct 2025 09:33:56 -0700 (PDT)
+Received: from localhost (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-6404de640fcsm1695354a12.8.2025.10.29.09.33.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 09:33:54 -0700 (PDT)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>
@@ -98,17 +98,17 @@ Cc: x86@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 7/7] soc/tegra: pmc: Use contextual data instead of global variable
-Date: Wed, 29 Oct 2025 17:33:36 +0100
-Message-ID: <20251029163336.2785270-8-thierry.reding@gmail.com>
+Subject: [PATCH v3 6/7] irqchip/irq-imx-gpcv2: Use contextual data instead of global variable
+Date: Wed, 29 Oct 2025 17:33:35 +0100
+Message-ID: <20251029163336.2785270-7-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251029163336.2785270-1-thierry.reding@gmail.com>
 References: <20251029163336.2785270-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_153829_426968_A024A4CB 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20251029_153826_675533_8B5D4CD3 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,39 +132,86 @@ Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
 Changes in v3:
 - adjust for API changes and update commit message
+- remove unused global variable
 
- drivers/soc/tegra/pmc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/irqchip/irq-imx-gpcv2.c | 24 ++++++------------------
+ 1 file changed, 6 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
-index f57e5a4b4d96..6e0ae0ede263 100644
---- a/drivers/soc/tegra/pmc.c
-+++ b/drivers/soc/tegra/pmc.c
-@@ -3150,6 +3150,7 @@ static void tegra186_pmc_process_wake_events(struct tegra_pmc *pmc, unsigned int
+diff --git a/drivers/irqchip/irq-imx-gpcv2.c b/drivers/irqchip/irq-imx-gpcv2.c
+index 04f7ba0657be..ebfc659af385 100644
+--- a/drivers/irqchip/irq-imx-gpcv2.c
++++ b/drivers/irqchip/irq-imx-gpcv2.c
+@@ -19,6 +19,7 @@
  
- static void tegra186_pmc_wake_syscore_resume(void *data)
+ 
+ struct gpcv2_irqchip_data {
++	struct syscore		syscore;
+ 	struct raw_spinlock	rlock;
+ 	void __iomem		*gpc_base;
+ 	u32			wakeup_sources[IMR_NUM];
+@@ -26,8 +27,6 @@ struct gpcv2_irqchip_data {
+ 	u32			cpu2wakeup;
+ };
+ 
+-static struct gpcv2_irqchip_data *imx_gpcv2_instance __ro_after_init;
+-
+ static void __iomem *gpcv2_idx_to_reg(struct gpcv2_irqchip_data *cd, int i)
  {
-+	struct tegra_pmc *pmc = data;
- 	u32 status, mask;
- 	unsigned int i;
+ 	return cd->gpc_base + cd->cpu2wakeup + i * 4;
+@@ -35,14 +34,10 @@ static void __iomem *gpcv2_idx_to_reg(struct gpcv2_irqchip_data *cd, int i)
  
-@@ -3163,6 +3164,8 @@ static void tegra186_pmc_wake_syscore_resume(void *data)
- 
- static int tegra186_pmc_wake_syscore_suspend(void *data)
+ static int gpcv2_wakeup_source_save(void *data)
  {
-+	struct tegra_pmc *pmc = data;
-+
- 	wke_read_sw_wake_status(pmc);
+-	struct gpcv2_irqchip_data *cd;
++	struct gpcv2_irqchip_data *cd = data;
+ 	void __iomem *reg;
+ 	int i;
  
- 	/* flip the wakeup trigger for dual-edge triggered pads
-@@ -3836,6 +3839,7 @@ static const struct tegra_pmc_regs tegra186_pmc_regs = {
- static void tegra186_pmc_init(struct tegra_pmc *pmc)
+-	cd = imx_gpcv2_instance;
+-	if (!cd)
+-		return 0;
+-
+ 	for (i = 0; i < IMR_NUM; i++) {
+ 		reg = gpcv2_idx_to_reg(cd, i);
+ 		cd->saved_irq_mask[i] = readl_relaxed(reg);
+@@ -54,13 +49,9 @@ static int gpcv2_wakeup_source_save(void *data)
+ 
+ static void gpcv2_wakeup_source_restore(void *data)
  {
- 	pmc->syscore.ops = &tegra186_pmc_wake_syscore_ops;
-+	pmc->syscore.data = pmc;
- 	register_syscore(&pmc->syscore);
+-	struct gpcv2_irqchip_data *cd;
++	struct gpcv2_irqchip_data *cd = data;
+ 	int i;
+ 
+-	cd = imx_gpcv2_instance;
+-	if (!cd)
+-		return;
+-
+ 	for (i = 0; i < IMR_NUM; i++)
+ 		writel_relaxed(cd->saved_irq_mask[i], gpcv2_idx_to_reg(cd, i));
  }
+@@ -70,10 +61,6 @@ static const struct syscore_ops gpcv2_syscore_ops = {
+ 	.resume = gpcv2_wakeup_source_restore,
+ };
  
+-static struct syscore gpcv2_syscore = {
+-	.ops = &gpcv2_syscore_ops,
+-};
+-
+ static int imx_gpcv2_irq_set_wake(struct irq_data *d, unsigned int on)
+ {
+ 	struct gpcv2_irqchip_data *cd = d->chip_data;
+@@ -279,8 +266,9 @@ static int __init imx_gpcv2_irqchip_init(struct device_node *node,
+ 	 */
+ 	writel_relaxed(~0x1, cd->gpc_base + cd->cpu2wakeup);
+ 
+-	imx_gpcv2_instance = cd;
+-	register_syscore(&gpcv2_syscore);
++	cd->syscore.ops = &gpcv2_syscore_ops;
++	cd->syscore.data = cd;
++	register_syscore(&cd->syscore);
+ 
+ 	/*
+ 	 * Clear the OF_POPULATED flag set in of_irq_init so that
 -- 
 2.51.0
 
