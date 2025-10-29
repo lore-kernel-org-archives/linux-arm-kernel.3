@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A65CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB03BCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8y7IaEKl9ZSpE7jjzq1dSeS8kFbTxAEVZQkW1AF3jcE=; b=htpDx7Q4cDCU4+0aVCCiSYQv6t
-	mMMvSorAMv7Uj+aMurASdQVkg02fkU21JO/M6OnPLxhPrLW0xxubd7J6io4nANIA+lacS4AKkK16t
-	M4BLN9KzTSFtzPrNUWQkgQQEfySSodrC29h1k5/soj2/N9UkNA1KP7YgQ4tn9TBmzZpoNK0HN3lw6
-	S9NsghWK5uGbewDmPViR5wnvosFRj18wNbV/aHMiFWN6L1jqpomB9tg+lKOLZb78Wta9apy0LcSLk
-	ZX7/oanv8DWeTM6+nZvvScEd6vhs4yiUXnqXf0pJUJ1T25ZP5xp5Krvr9K87jDuES6LTAdcfKcJ5+
-	4nrdhQuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z4c969Ew16GaJeZGLcqILIvlzS8wxu70yq5/8cQrC1U=; b=Lu1VCt+t69ax3Zsk6ypO68G9rC
+	E5rvK8/9i0uCkS8tBpXm/FRO2nDQ/++bFjU0E8JVUqifdsBJNIbkjwPWv0yozNHNwP6qs0nrSm+UN
+	0hDt8RPvWvwJPQIMPVmw0SmtLa5BQciBImCHwQB0A23mC6H4qW6UDtz+7iOt+EvtvFCY/FHcfcYNn
+	px2gY80mehR3MMEkooY+ZED+T9AnNs6/ZUBN/ryebqDTZL+a9u9uONAaZOg7XKSm2ZYCEI20Dq6tm
+	XQ9eiUvagf6pxrFFP0sHIK7vxXsex7dStR1RXNXDKhvmtTIgjeNANHWAi/p9lWrvKyozci3jqAoeg
+	lg+oTq4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7ST-00000001eCw-12Ax;
-	Wed, 29 Oct 2025 14:47:29 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vE7U5-00000001eat-2jhb;
+	Wed, 29 Oct 2025 14:49:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7SN-00000001eAx-1ZZ5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 14:47:27 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-62fc0b7bf62so4603616a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:47:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761749241; x=1762354041; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8y7IaEKl9ZSpE7jjzq1dSeS8kFbTxAEVZQkW1AF3jcE=;
-        b=a9R60LO7/OtlO1VAJl39K/OUfcq1XaonMgKrVQdQwiupYbSmDTdDXIi8u2jo85kcjj
-         2Qp3dHRSoTEXg9H2T7rwnupVoSjSU6XdCPSZ8+C89fYT2VxbM3277vyTFei/7KSb57Yl
-         h+nnmpeLp8zMXxSAQH2aSj8Wa2f6N2orxMOWIhUSthlGE3e6A90AQOBQ+OGYWgjab5UE
-         8RzOoPJ2sppjAuXgt4LclAAeRihnyYTwiQeZe6HHN9ZtHDlad1q07E/98/Q69TU9tiKc
-         WxQs47CbTYBC/68OrSKY0bS7bpuVpdjh7PtrbjN7etQqWUpf3pBdtNC8832GAAh1YZs/
-         jsKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761749241; x=1762354041;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8y7IaEKl9ZSpE7jjzq1dSeS8kFbTxAEVZQkW1AF3jcE=;
-        b=ve2mhXsenvTgy5KSDTajilSpR+gUIsj2N2Hlz7rW+3sQigJfY2OB9R7hM6aYl2WVyz
-         lq7/yRtcDhyuZy4SewlJtiwyGTZnyzWj+fDAJea+W3noUiE8qYLa5pvr64rgvSDs60hm
-         FSyTyWWIrvY3/Ab9oyxYKk6xSr5q4mD1NEMKuaoJbEm/tsZ7vZC6NLp9bIF2YxGCn6kg
-         laX/InYY7DAVQpxb1HFllxo8yQTI9JpLfbcvhaoP4OibHJrPIt4TlfkDhjChNdnGEqdp
-         HLH+RpZH3avOzQiwkON7QarkAQCK7xX2GAbuLVvA/SqY6QxeXOIQHM1TolCp0OST7jai
-         SuJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUKTNrgIAk3GOkkzPssNV/1yFLWm3OfEVq556AT29JofIXLUoRATOtScLlIBAWUml5Yzj1jq9I0g6MMOkObl0hr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYNMwJAmTzNGRpmaTpRk7KZK1Lz+0eeLBdZ+jweWYc/btFYQUy
-	vpr+g6XGvB2Mcv1TsYGDAVyi7j+JyGypaRW2OMnb/FUUDCwTHUW9hLCo
-X-Gm-Gg: ASbGncufSO+8rPzn5YNFmeV5AxwdJN3rJ6Sp+UNcbPiQBvclji5b5sVP6YdEb1pOjWl
-	qx9avy43p+dY4akL6gt4tG46I/6JZy+zcZfcKSaonjVSqeYC9U5cYUxI0WwrICu8nhCM19yiplv
-	gE5ka4RvuLq/Y4O8tMgMFEhsGIDxNCrjBiq2L/KNF9FuxtFF9DGzAE6CoeOp9nwf7xVtZIgbN8T
-	/r5+pBOLw0lKT1L8OzgyggTVuiyfNxeDlqTQE5qrgdTZQefiEbXVdbscVUQf05oOBA2t5tJ46Xl
-	6AdIzf1Dqfj6WjK7PbRvq3psHAGeCOi1glZ71nzQpVOj40OjQseWEOd8ZVaIh474bdnORuYekMo
-	sJ4tOALp1hIPncGe/KOJW2Q86mkMsYom9lcnPoNwGtpK2TMW+44x16sdDW4ngYHN/91NUbPG5df
-	5icBakcapf+smAIrS9Ifz38D4e8VpN4c3T
-X-Google-Smtp-Source: AGHT+IHgORKDGPw+ITEWuAutZRKq+hGzvmS0B08lzp6+SYDYojWyhecKTsUlp7KruwEoQhiFvx9elA==
-X-Received: by 2002:a05:6402:5207:b0:639:c9c2:3956 with SMTP id 4fb4d7f45d1cf-640442692d9mr2330509a12.28.1761749241215;
-        Wed, 29 Oct 2025 07:47:21 -0700 (PDT)
-Received: from [10.25.210.164] ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef9a5cbsm12168527a12.23.2025.10.29.07.47.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 07:47:20 -0700 (PDT)
-Message-ID: <20a3325e-d8be-4a1d-890d-bf112d170bcc@gmail.com>
-Date: Wed, 29 Oct 2025 07:47:18 -0700
+	id 1vE7U3-00000001eaT-3TYb;
+	Wed, 29 Oct 2025 14:49:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A44E661E65;
+	Wed, 29 Oct 2025 14:49:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA588C4CEF7;
+	Wed, 29 Oct 2025 14:49:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761749346;
+	bh=HxTqJgI/0X/CEmspyZav8h3FXPWX3qB1qsKFzsoN4as=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tlja5Mq4eRWp697QA/xQ+7a9KJbcnrMdob9cxsXt9OIQA755+bFzbNzRv16bZ4K7i
+	 B9LDftZXKO7gStpMqGdXCVrWsVQ+ROKQ4K+QvkxPz38VTj++u90ce6yRHNCsPSi5pD
+	 v/JhE3LMKbYoWFWsQEzSVXb3Hm7XB2z8+8xOj7ZC7Xvnlx4rEDqU8ejlyTgLe/T9R2
+	 3vUJArOhgOLb46RZqe+pCWQx7olKyL6EJb+OqaocNuhbMh3d/KGFm/ek9z7wlrO99H
+	 rF7V3yVMeDSwqgzEw1be+gsJR70/J/KwRrqpNcrj62az9WVQF5F5bIT1qWPQ84EK24
+	 yw1IH2IxbPQpw==
+Date: Wed, 29 Oct 2025 15:49:03 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
+ immediately after a switch to kernel CR3
+Message-ID: <aQIpXyX-z8ltB1i5@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-28-vschneid@redhat.com>
+ <aQDoVAs5UZwQo-ds@localhost.localdomain>
+ <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <aQHtBudA4aw4a3gT@localhost.localdomain>
+ <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250821105634.1893-1-laurentiumihalcea111@gmail.com>
- <20250821105634.1893-3-laurentiumihalcea111@gmail.com>
- <e25494da-9d27-4416-ac79-317c8b9a6653@kernel.org>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <e25494da-9d27-4416-ac79-317c8b9a6653@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_074723_432532_248AE0DA 
-X-CRM114-Status: GOOD (  24.34  )
+In-Reply-To: <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,79 +107,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Le Wed, Oct 29, 2025 at 03:13:59PM +0100, Valentin Schneider a écrit :
+> On 29/10/25 11:31, Frederic Weisbecker wrote:
+> > Le Wed, Oct 29, 2025 at 11:16:23AM +0100, Valentin Schneider a écrit :
+> >> On 28/10/25 16:59, Frederic Weisbecker wrote:
+> >> > Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a écrit :
+> >> >> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions - kernel is built with
+> >> >>      andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
+> >> >>  .endm
+> >> >>
+> >> >> -.macro COALESCE_TLBI
+> >> >> +.macro COALESCE_TLBI scratch_reg:req
+> >> >>  #ifdef CONFIG_COALESCE_TLBI
+> >> >> +	/* No point in doing this for housekeeping CPUs */
+> >> >> +	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
+> >> >> +	bt	\scratch_reg, tick_nohz_full_mask(%rip)
+> >> >> +	jnc	.Lend_tlbi_\@
+> >> >
+> >> > I assume it's not possible to have a static call/branch to
+> >> > take care of all this ?
+> >> >
+> >>
+> >> I think technically yes, but that would have to be a per-cpu patchable
+> >> location, which would mean something like each CPU having its own copy of
+> >> that text page... Unless there's some existing way to statically optimize
+> >>
+> >>   if (cpumask_test_cpu(smp_processor_id(), mask))
+> >>
+> >> where @mask is a boot-time constant (i.e. the nohz_full mask).
+> >
+> > Or just check housekeeping_overriden static key before everything. This one is
+> > enabled only if either nohz_full, isolcpus or cpuset isolated partition (well,
+> > it's on the way for the last one) are running, but those are all niche, which
+> > means you spare 99.999% kernel usecases.
+> >
+> 
+> Oh right, if NOHZ_FULL is actually in use.
+> 
+> Yeah that housekeeping key could do since, at least for the cmdline
+> approach, it's set during start_kernel(). I need to have a think about the
+> runtime cpuset case.
 
-On 8/24/2025 4:29 AM, Krzysztof Kozlowski wrote:
-> On 21/08/2025 12:56, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> AIPS5 is actually AIPSTZ5 as it offers some security-related
->> configurations. Since these configurations need to be applied before
->> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
->> be their parent instead of keeping AIPS5 and adding a child node for
->> AIPSTZ5. Also, because of the security configurations, the address space
->> of the bus has to be changed to that of the configuration registers.
->>
->> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
->> missing 'power-domains' property. The domain needs to be powered on before
->> attempting to configure the security-related registers.
->>
->> The DT node name is not changed to avoid potential issues with DTs in
->> which this node is referenced.
->>
->> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
->> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Where did it happen?
+You can ignore the runtime thing and simply check the static key before reading
+the housekeeping mask. For now nohz_full is only enabled by cmdline.
 
+> Given we have ALTERNATIVE's in there I assume something like a
+> boot-time-driven static key could do, but I haven't found out yet if and
+> how that can be shoved in an ASM file.
 
-https://lore.kernel.org/lkml/Z+xY4wZ8ZFSOJhGS@lizhi-Precision-Tower-5810/ <https://lore.kernel.org/lkml/Z+xY4wZ8ZFSOJhGS@lizhi-Precision-Tower-5810/>
+Right, I thought I had seen static keys in ASM already but I can't find it
+anymore. arch/x86/include/asm/jump_label.h is full of reusable magic
+though.
 
+Thanks.
 
->
->> ---
->>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 10 ++++++----
->>  1 file changed, 6 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
->> index bb24dba7338e..b62bb821cf61 100644
->> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
->> @@ -1396,12 +1396,14 @@ eqos: ethernet@30bf0000 {
->>  			};
->>  		};
->>  
->> -		aips5: bus@30c00000 {
->> -			compatible = "fsl,aips-bus", "simple-bus";
->
-> This breaks all the users. I understood explanation as "it is better",
-> no real reasons.
-
-
-sorry, a rather poor choice of wording on my part....
-
-
-the reason we're doing this change is because we need to configure the bridge's
-
-security-related registers. If we don't, masters such as the DSP core won't be able to
-
-access the peripherals connected to this bridge after the AUDIOMIX PD is turned off
-
-and then on. The configuration needs to be done before any of the masters attempt to
-
-perform transactions to the peripherals.
-
-
-yes, this change is not ideal and we've had problems caused by this
-
-(seeÂ https://lore.kernel.org/lkml/20250707234628.164151-2-laurentiumihalcea111@gmail.com/ <https://lore.kernel.org/lkml/20250707234628.164151-2-laurentiumihalcea111@gmail.com/>)
-
-so if you have any suggestions that would be much appreciated.
-
-
->
-> No, you cannot do that.
->
-> Best regards,
-> Krzysztof
+-- 
+Frederic Weisbecker
+SUSE Labs
 
