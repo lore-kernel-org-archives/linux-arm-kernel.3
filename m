@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2041CCF9EE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD23CCF9EB
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RupdZ5pvXnQsJngiFi+4yGVrGtuuLJuPIbUjjHdOmRI=; b=P9vAHT5ywWRvtps9QkJZWoxRZL
-	79HMHzP03h+naUliOe/0JqMxbNdeaTkFMwAyfQBING8QIVgJLHClk5qqx4++plV2J7p0P2B7emyuS
-	+jnA+H2pWYhSJ3X4tNit4n6ovF5cd9WcHylXqJ6HBli3N7iRVkg/KdFnXQd9ypPnhEKsANGzf7q/P
-	h1kcQiMfQAWX3tEAuWSeHbhQ0B07wZFjNX7e0NO5skG+8Ecqjb3TwxFwmgJbQYW9FzSgYHfzJyFEN
-	Pkm+DrGGXJ4/+DZ2i+yL/mK/kQni1sQ4kMUc25aQVP01mvnKCfNdoxfFX9ouGd/DMYhiXxsBBdWza
-	lwyhygBw==;
+	bh=/y8kFwCNNHl45KqVXdIeL0iT2jIDPF24sdPuSdr0ckk=; b=yahvofVXAWiR/iUSJkEJxvKHkG
+	R7y8TnF95NA++XxDu4XO6CWgChSWQINktqiqxeSj+7h/87WXWkLSwNL/U8HM+MZiSMKO9n2/HAGtN
+	89RZWlKE+wsEctvOGLsP8TCaoHQLwY9W4BpdlVYDBIgmH7WDt8HbNz2FtEn2zsQ9VlCnlePpYlm3i
+	srjGEXHGbTvptYB1x/G+UHO95+Cbc6yurwhhsVJi0r2u8zj/fWPuIBP/jQRUgrdSja60Aj04yfnrY
+	cadVKw/faoSphT6nCe8l03DAbdhcQnvFPMlPimvj0vcbxufNbOJddCwE46szzxNOD3IwRi/DYb2BV
+	MZg6jH+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3Ka-00000000iw3-0FQJ;
-	Wed, 29 Oct 2025 10:23:04 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vE3KZ-00000000ivY-365X;
+	Wed, 29 Oct 2025 10:23:03 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3KW-00000000is9-38di
+	id 1vE3KS-00000000in7-1JUF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:23:02 +0000
+	Wed, 29 Oct 2025 10:22:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TadgGa2o2yWqwb7d36ngGtUjdBKpySeztO2lEb+zEyAGXDjCoyI/I0xKNeoxFQT4KLHYof341zGAIeHXcH/MYypiv5XOwHPm/U5yFtfk9lmsqBkU0aWUpZxgWQWK/EriGprJxSjv8pgFWMJdDFmtl/woJ8keybIlJVHPMaOvYdqw5CEm+T8D28ySWMv0j+lwaUzKnmQYRkWybCkfe346vpxRnmhNJ6MoWkjNyMtOzhwARR3onkbqmh1riXh/Fmca+jpkVYpWGttHBNlxyAD7ylhAvsgoHR3LiVGUF14qI2OrrQGUIlLBuoChjKQ9CCyPjyhhIneIlEuVyEu0S213Gw==
+ b=ht8SLOyNGex8qavusxSZcHTGEXUi+mTskiDhJdXtllUhkf59mmKSVfjmJPy301I8Qn+acBZHjfJ2G1Y8xXd69ZwNzLZ9wIJP34mrkAhZIcqM5guG8FJSSogbnL6AF6/jINPcgJWxFqzv9w8aXPbNbqMEXWU3tSRQ4vJL5VXeaSbxIjziAmrZroLyZz2caFDow8lVm/X/k1fbUGdE1RnWVqMOp7JlPR0foCeEprPiJwbsgwVcD4yQgHqPNiJcvE+of+HkOeeHvpnAS74b+nX/i4UHIViDjDBtjwA0eOQgRyjUJqbt1F42tfNYeIkoksDLeXdTsGzAma8YhK4Rz3Y1lg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RupdZ5pvXnQsJngiFi+4yGVrGtuuLJuPIbUjjHdOmRI=;
- b=N0tH8DbO6Pkpkck3w3nSOrhqWB0N/FtrAahlaC6I63FJnzdPvuzVKsoVvR8F8ui2sBrg1qwAmEtSbVLONeEUv5VjeH9TZ+wyXGsFSCHMyQEScXHCGFr4WpTN75DbU8nyiQ1BsYAn01gEU88rH7rgplyqS7b0hoFjpa6wdWo7ymESDS1cM3ChocOiyO0ywyI0cPCR1CKR9MvPoCoiTWue4nMnLI+xjOt2Ffv0vAn2sb1XOSp1nGGDaVsC2ISY8doRld73OLHMh0GJolsgh/+0ChTCQlrG6e802MjHSAcExHWJTFHOvR+/SakgyVEudOkFPuu+628YwPPZPXVKnP2PxQ==
+ bh=/y8kFwCNNHl45KqVXdIeL0iT2jIDPF24sdPuSdr0ckk=;
+ b=Iv97o7k2f3Q4qPRw4fsgPQSZXWnuraCYMv457QaI9dSF45yqf4qqffCYMR39cFe91lQpykRR41CDAXuyKu61HT+gKjJCsgXQyAKb7OqDSY8piIQbS5abcMc93q7VQ0qP59+NOn+CvbOT4eOsbxZpnvGlM/bLmKV82umoQgtVZRy7HjsQrnDRQ53JPXGfGbXDxP2V0ic5AdEzhoZOLK/WlCXZl06rAqRsWE4Mdil6Eam5Gt3JFOGL5Az21Y+XyMn7owQ2sZ6ONEF1yQdYy5DLeUOD5wzwYJY1RI4DQiX4Bewua/Zd2DmmArcd4grO6ZUtTLaai34tDspWiMnqL4EIXA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=gondor.apana.org.au smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RupdZ5pvXnQsJngiFi+4yGVrGtuuLJuPIbUjjHdOmRI=;
- b=xVyw8Z2R0pUO7k/B6JlTV+pmPn3qcD6baHY36MZ6LvkfTzYfB2HJnf4Dn3Xy5uWq7Q3D62XXeY0vWOeBk2RpGKBEWtqDmwrHc3D/KelViXfasygE+9dW4+53ur+48vQUdGRq9ynEEzF4SCd8nX7nJBwicD/XtgUknxqU/08WfLc=
-Received: from MW4PR02CA0028.namprd02.prod.outlook.com (2603:10b6:303:16d::7)
- by DM6PR12MB4156.namprd12.prod.outlook.com (2603:10b6:5:218::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Wed, 29 Oct
- 2025 10:22:54 +0000
-Received: from CO1PEPF000044F2.namprd05.prod.outlook.com
- (2603:10b6:303:16d:cafe::b5) by MW4PR02CA0028.outlook.office365.com
- (2603:10b6:303:16d::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.12 via Frontend Transport; Wed,
- 29 Oct 2025 10:22:48 +0000
+ bh=/y8kFwCNNHl45KqVXdIeL0iT2jIDPF24sdPuSdr0ckk=;
+ b=U6uHaOdxVOnzpoO1zqQkpCTRT0miusp0vbZMexO4ydKahDOzuz6yth3YOgSJnD44UXk4YAdvZvnfy7pWGJkASN6b7huCMvrkXuhaXhZ1md4CDOgpFiy5yBpCfkRRjwjW9u5L2crw8SZH4/xzNeyeIf0iTx8UKrsDgvyv9WgrCBU=
+Received: from MW4PR04CA0162.namprd04.prod.outlook.com (2603:10b6:303:85::17)
+ by DM4PR12MB6544.namprd12.prod.outlook.com (2603:10b6:8:8d::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.12; Wed, 29 Oct 2025 10:22:51 +0000
+Received: from CO1PEPF000044EF.namprd05.prod.outlook.com
+ (2603:10b6:303:85:cafe::10) by MW4PR04CA0162.outlook.office365.com
+ (2603:10b6:303:85::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.14 via Frontend Transport; Wed,
+ 29 Oct 2025 10:22:50 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,20 +58,20 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- CO1PEPF000044F2.mail.protection.outlook.com (10.167.241.72) with Microsoft
+ CO1PEPF000044EF.mail.protection.outlook.com (10.167.241.69) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Wed, 29 Oct 2025 10:22:53 +0000
+ 15.20.9275.10 via Frontend Transport; Wed, 29 Oct 2025 10:22:50 +0000
 Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 29 Oct
- 2025 03:22:52 -0700
+ 2025 03:22:45 -0700
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
  (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 29 Oct
- 2025 03:22:52 -0700
+ 2025 03:22:45 -0700
 Received: from xhdharshj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Wed, 29 Oct 2025 03:22:49 -0700
+ Transport; Wed, 29 Oct 2025 03:22:42 -0700
 From: Harsh Jain <h.jain@amd.com>
 To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>,
 	<linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
@@ -81,9 +80,9 @@ To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>,
 	<michal.simek@amd.com>, <linux-arm-kernel@lists.infradead.org>,
 	<jay.buddhabhatti@amd.com>
 CC: Harsh Jain <h.jain@amd.com>
-Subject: [PATCH 11/15] firmware: xilinx: Add firmware API's to support aes-gcm in Versal device
-Date: Wed, 29 Oct 2025 15:51:54 +0530
-Message-ID: <20251029102158.3190743-12-h.jain@amd.com>
+Subject: [PATCH 09/15] crypto: zynqmp-aes-gcm: Fix setkey operation to select HW keys
+Date: Wed, 29 Oct 2025 15:51:52 +0530
+Message-ID: <20251029102158.3190743-10-h.jain@amd.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20251029102158.3190743-1-h.jain@amd.com>
 References: <20251029102158.3190743-1-h.jain@amd.com>
@@ -92,52 +91,52 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000044F2:EE_|DM6PR12MB4156:EE_
-X-MS-Office365-Filtering-Correlation-Id: 996a49c7-72a3-4e43-a243-08de16d51f00
+X-MS-TrafficTypeDiagnostic: CO1PEPF000044EF:EE_|DM4PR12MB6544:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb7fef65-9f3a-49d2-dfad-08de16d51d03
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QQf21XJJ92LQDbj7tAEplWx0EsH/fOub4fRGrN6Dkjx04eCESDzGl3QaGDQn?=
- =?us-ascii?Q?kv+BEgWR0FR38xqP/rj+LnAeah5dtWakv86kl+dG7wV+E8wKyCk44pWit/Nd?=
- =?us-ascii?Q?8qoHlDy2t3fdPlO0oZzyXDvJWZu0PkuVPkW0I+6F5ty2yFSpuQEqbsIm2aEz?=
- =?us-ascii?Q?+XKWAefvF9Pbuh4Z79v8rbxO4vE6MOKAYO8xU1bW4js9es1GiQrf1geBvhpb?=
- =?us-ascii?Q?S6IW+BN+Mgfg7O/OHOgQs/T00lyPpwPGAfTLnRdh1zKN1fKulND9zPLI0+w2?=
- =?us-ascii?Q?N4dQ475s2o6Bn59BbvrVvIRmYTQ5MGGfXQwHY8DILm8Ux2sRpMjjqHL36Uct?=
- =?us-ascii?Q?lUrIWb5mPNxhE3q3ivWIVnaUgYe266CWqn2xdIZsd54Vg9S/EuK42gJQORk+?=
- =?us-ascii?Q?Vut6hDjNogEZ6uV87ovKPsJa8i6B5kCLkhYHax+vrj6mSD/g7Y0kxAn136VV?=
- =?us-ascii?Q?3bH0t9HsnX+jB7lyDk1FvmwWrtg7eeo89THNapH0ZccyeUEUZY0XJ+tGmCgZ?=
- =?us-ascii?Q?00OFcYz3ClW4UZ1W678BoRG5raNnX3fFCyJN10zynsqWIsDH7kPo5E+pDtXl?=
- =?us-ascii?Q?htXOsWJ9BkdAXt+bG9j1xayCutAjHdu4UZmcKaOcWZanH4ayWNbQM0znSppV?=
- =?us-ascii?Q?HEPo7+Gl7Hm4T1RGJjbNZIWDbu4c+ZzQ04eaKCoS7I6iGGy18maLL7pFml6r?=
- =?us-ascii?Q?15flZoMtYPATROCIqWtJ9eI/f0LVQxJ5Cp5k8M5u25h4KZHKlgCBqWDNtJrI?=
- =?us-ascii?Q?8MIGLRIFVfx482fn2oRvDTOgmX+Z1iSt/11Iz6UXnFw6XscqqhEdA1yjP4Mp?=
- =?us-ascii?Q?4tZlhQoC1TAn1/z+MiSD9BzN+SfpSYiFq6k1c7jOWe2axR8dYt6mDwxRJQjR?=
- =?us-ascii?Q?g3D9rVy40qxEWz8no0u79U1Bo9AzS/YqRKALA/WPv4BIdkFbN/Z7vCd85NJJ?=
- =?us-ascii?Q?+vTZTZrNKCeF4RYvr28H47yZMJfOQ/+0JjXHFQJZi9LnqeZ3/oLsvhghta+I?=
- =?us-ascii?Q?5BQJQF5dQl8X+NbSYL08+DmdaDHGUSjPEPkoFSzYqatg6ItSVRuKtXwFAy6l?=
- =?us-ascii?Q?xO1NfQAse4s/EB3tAF+9txD4xQXkeUCMQQigvHha/6+cEkX7hpPMED/H/GEf?=
- =?us-ascii?Q?IvHncAjLOSKv8IM/I7yPTtTcGCdfwprNs3UNT3FMC1x/8BVVmftMiMmXQjrB?=
- =?us-ascii?Q?IYUizvvFZZydseo1romBLbePdN/C0Lgboir3Sb25r14v0lGOgMk08Gv5wUw0?=
- =?us-ascii?Q?hljydlzPJ+3PZp0/0E5+l+xboh0MPUWpJaIu/d39dWze86xekp8ce9rwHxCG?=
- =?us-ascii?Q?1DH01gqOePfCjxvU+DSV34h86P1RdOGCjUqYxDQsIU+7R/BzE6+BhxzjVMp7?=
- =?us-ascii?Q?22csy5lizCCvLn7iCoViiUsH9tm/MgO3gdIXQC4zrubdJ/xHSBYeTZgRUSHL?=
- =?us-ascii?Q?8T3jRH+zZpeYjyWkWy4WykqlnkK4P8UtNp45Z9PLxfd3RMKJ7VikG4bfZzIh?=
- =?us-ascii?Q?lX1wXWqUiNLiuusNLT2OEk2+lpzVfip4FdcNpQaPYmA7W7NH3TSi2S0HSvEa?=
- =?us-ascii?Q?1zM9IIGxE4O1VF465xML89fAgM2AMSIeGnOKr0uq?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tdO8v6CZaO6vWkbgRtMjggWcp7SYnGboXJt/K50MF1rEAQ2jxqMHexExz3rR?=
+ =?us-ascii?Q?DtRMaeCPQxWCPaLiZEn9bOGxvUL0IOHRg1g48Y2u3mN3DH1iYAf6KO/WnV2n?=
+ =?us-ascii?Q?UuuLzdi5ahMNsWzW2KnAutUyvaJ7aQCFUeaZpVcomiGrw1kf4Fng72GUjATI?=
+ =?us-ascii?Q?QklikCdTYjKdrtrZ3rCDRawp6h7c8IZsk2tbBO6AiVuNE2F0E+xbZ7td2K5J?=
+ =?us-ascii?Q?FRjOvi3b6Jlj0gQx1jI2gJyRcou7EfypvA0uP6yhKOs/swERZFkThM4Kcwap?=
+ =?us-ascii?Q?eaofLJXB5FO9LcZMIqdZoFv5y5DJBigei+epfCS5RbywIpQoljYglgsKKiVC?=
+ =?us-ascii?Q?DktcPgAQd9IK18NbHWpNjwB5J7MhtIC95v214qHZaKPZ5/pbDJ/rEWljAG0N?=
+ =?us-ascii?Q?mJsjzI5tcDkneTR+wkTHYB/sm4lamWFibP/r6zhGwXjcA3Y20Bf9Io08rots?=
+ =?us-ascii?Q?w5ptd224p1lmLfmcrS0dTrS4JHeI4YjmteivgxsCe4siLJAeY400QM6gK6ef?=
+ =?us-ascii?Q?L70Jynqm46OA9u21Lhx/XENfaavHAFgS+8tSKdAaNdJQFwJaBcOdUMA0V9PV?=
+ =?us-ascii?Q?qQtLO2mN+0sahC6xSOzJnipqtoa/U8Lt5zwyB3YB0lS97nT/xTbMspmT2s84?=
+ =?us-ascii?Q?NQtNCBfWglnhRPJ8tmB0ttl3jD1NJT7kTeSiWT7IgyEHhpRrfM2e82n5UnHm?=
+ =?us-ascii?Q?IIfxeZUJG7zF6XcTZTJm4i/3f7py6rjKMemkhaD3opi7ef43KEqac2hOTIog?=
+ =?us-ascii?Q?bZNATAYJd756dQzQPC6d1FN4gJCUOyqjhq8yAVOjdbqjRaQlo3oUM2KogQmj?=
+ =?us-ascii?Q?jdtPbDpSATKN0yZkw8sGlKfhYOE/mF+zlcj3rSQMRngW9HIRbriiGlCgMEWt?=
+ =?us-ascii?Q?RmaxwfNvQHSQVEj+tjBSecBPoTqy7De1gDXwxGZQRZ6Nbz3YLhOl7bDWh5NK?=
+ =?us-ascii?Q?kwFQM3wgTfeCnXkAqkamjjHQDPC44rFyr804YKftgLXCycDRwVIEJTI/1NxL?=
+ =?us-ascii?Q?PDPFZSXMGjUMvUIMMMyy9b1bAXlyhmkoKhtS76RNqQkwK7mRDHr+WW/GnDx8?=
+ =?us-ascii?Q?3pjvvSrAI0AijHAzvMJBSm9LC2V6hAspZN3j1mM0FZGmKP3RgFtS8oY/VbUt?=
+ =?us-ascii?Q?KK8ES5wNWulKB/sblKqVIjyghxjQmhxpItL9BgwuL/bT0Dh0ZDzQgv5tUlVZ?=
+ =?us-ascii?Q?w9Q2UPvp6bB4Yd3jD5zuYzzEQvgHm1F2XgOBIJj3oPqlb39bJlScEJXfNlyf?=
+ =?us-ascii?Q?e+MhH/CZl+OWd8oEorNn2372NNj4+CggJXSkEJqpgBOVEXsMH6YOgGcUVM1b?=
+ =?us-ascii?Q?jW/mYVfrIxncEfXsDdz+eReha635zWRfeaq41G/IE3a2/s1EoFBQtT/6GrLM?=
+ =?us-ascii?Q?mGbNoF4bnC6uNaHP20po0ttOVlW55vDmOROjCoEJUVjb5z9yFg9ZVMHMppxB?=
+ =?us-ascii?Q?hr/V2Lp6ZXa7TEr/AtLMTuUg21Hp9VMkJDkutS5NvpBfrUZw3acS4AbJqktv?=
+ =?us-ascii?Q?lTrmpJl7+9kaoG3WQOLg5uz2FHOYCQZnr4isZPCLbpleZxks+P9OpQ4ejRXY?=
+ =?us-ascii?Q?s9ZlSf8VW+xP8YhP9M/ezL5TagEWLJfxZncT2ZSd?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(921020);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 10:22:53.5817
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 10:22:50.2493
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 996a49c7-72a3-4e43-a243-08de16d51f00
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb7fef65-9f3a-49d2-dfad-08de16d51d03
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044F2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044EF.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4156
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6544
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_032300_858386_D3726B93 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20251029_032256_815251_BD614A56 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,285 +151,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add aes-gcm crypto API's for AMD/Xilinx Versal device.
+Currently keylen 1 is used to select hw key. There are -ve self test
+which can fail for setkey length 1. Update driver to use 4 bytes
+with magic number to select H/W key type.
 
 Signed-off-by: Harsh Jain <h.jain@amd.com>
 ---
- drivers/firmware/xilinx/zynqmp-crypto.c     | 151 +++++++++++++++++++-
- include/linux/firmware/xlnx-zynqmp-crypto.h |  76 +++++++++-
- 2 files changed, 224 insertions(+), 3 deletions(-)
+ drivers/crypto/xilinx/zynqmp-aes-gcm.c | 94 ++++++++++++++++----------
+ 1 file changed, 60 insertions(+), 34 deletions(-)
 
-diff --git a/drivers/firmware/xilinx/zynqmp-crypto.c b/drivers/firmware/xilinx/zynqmp-crypto.c
-index 6d17cb8b27b3..4260d6fa2536 100644
---- a/drivers/firmware/xilinx/zynqmp-crypto.c
-+++ b/drivers/firmware/xilinx/zynqmp-crypto.c
-@@ -60,7 +60,7 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_sha_hash);
+diff --git a/drivers/crypto/xilinx/zynqmp-aes-gcm.c b/drivers/crypto/xilinx/zynqmp-aes-gcm.c
+index 9be1305b79d2..bc12340487be 100644
+--- a/drivers/crypto/xilinx/zynqmp-aes-gcm.c
++++ b/drivers/crypto/xilinx/zynqmp-aes-gcm.c
+@@ -22,14 +22,14 @@
  
- /**
-  * xlnx_get_crypto_dev_data() - Get crypto dev data of platform
-- * @feature_map:       List of available feature map of all platform
-+ * @feature_map:	List of available feature map of all platform
-  *
-  * Return: Returns crypto dev data, either address crypto dev or ERR PTR
-  */
-@@ -88,3 +88,152 @@ void *xlnx_get_crypto_dev_data(struct xlnx_feature *feature_map)
- 	return ERR_PTR(-ENODEV);
- }
- EXPORT_SYMBOL_GPL(xlnx_get_crypto_dev_data);
-+
-+/**
-+ * versal_pm_aes_key_write - Write AES key registers
-+ * @keylen:	Size of the input key to be written
-+ * @keysrc:	Key Source to be selected to which provided
-+ *		key should be updated
-+ * @keyaddr:	Address of a buffer which should contain the key
-+ *		to be written
-+ *
-+ * This function provides support to write AES volatile user keys.
-+ *
-+ * Return: Returns status, either success or error+reason
-+ */
-+int versal_pm_aes_key_write(const u32 keylen,
-+			    const u32 keysrc, const u64 keyaddr)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_WRITE_KEY, NULL, 4,
-+				   keylen, keysrc,
-+				   lower_32_bits(keyaddr),
-+				   upper_32_bits(keyaddr));
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_key_write);
-+
-+/**
-+ * versal_pm_aes_key_zero - Zeroise AES User key registers
-+ * @keysrc:	Key Source to be selected to which provided
-+ *		key should be updated
-+ *
-+ * This function provides support to zeroise AES volatile user keys.
-+ *
-+ * Return: Returns status, either success or error+reason
-+ */
-+int versal_pm_aes_key_zero(const u32 keysrc)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_KEY_ZERO, NULL, 1, keysrc);
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_key_zero);
-+
-+/**
-+ * versal_pm_aes_op_init - Init AES operation
-+ * @hw_req:	AES op init structure address
-+ *
-+ * This function provides support to init AES operation.
-+ *
-+ * Return: Returns status, either success or error+reason
-+ */
-+int versal_pm_aes_op_init(const u64 hw_req)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_OP_INIT, NULL, 2,
-+				   lower_32_bits(hw_req),
-+				   upper_32_bits(hw_req));
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_op_init);
-+
-+/**
-+ * versal_pm_aes_update_aad - AES update aad
-+ * @aad_addr:	AES aad address
-+ * @aad_len:	AES aad data length
-+ *
-+ * This function provides support to update AAD data.
-+ *
-+ * Return: Returns status, either success or error+reason
-+ */
-+int versal_pm_aes_update_aad(const u64 aad_addr, const u32 aad_len)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_UPDATE_AAD, NULL, 3,
-+				   lower_32_bits(aad_addr),
-+				   upper_32_bits(aad_addr),
-+				   aad_len);
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_update_aad);
-+
-+/**
-+ * versal_pm_aes_enc_update - Access AES hardware to encrypt the data using
-+ * AES-GCM core.
-+ * @in_params:	Address of the AesParams structure
-+ * @in_addr:	Address of input buffer
-+ *
-+ * Return:	Returns status, either success or error code.
-+ */
-+int versal_pm_aes_enc_update(const u64 in_params, const u64 in_addr)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_ENCRYPT_UPDATE, NULL, 4,
-+				   lower_32_bits(in_params),
-+				   upper_32_bits(in_params),
-+				   lower_32_bits(in_addr),
-+				   upper_32_bits(in_addr));
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_enc_update);
-+
-+/**
-+ * versal_pm_aes_enc_final - Access AES hardware to store the GCM tag
-+ * @gcm_addr:	Address of the gcm tag
-+ *
-+ * Return:	Returns status, either success or error code.
-+ */
-+int versal_pm_aes_enc_final(const u64 gcm_addr)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_ENCRYPT_FINAL, NULL, 2,
-+				   lower_32_bits(gcm_addr),
-+				   upper_32_bits(gcm_addr));
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_enc_final);
-+
-+/**
-+ * versal_pm_aes_dec_update - Access AES hardware to decrypt the data using
-+ * AES-GCM core.
-+ * @in_params:	Address of the AesParams structure
-+ * @in_addr:	Address of input buffer
-+ *
-+ * Return:	Returns status, either success or error code.
-+ */
-+int versal_pm_aes_dec_update(const u64 in_params, const u64 in_addr)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_DECRYPT_UPDATE, NULL, 4,
-+				   lower_32_bits(in_params),
-+				   upper_32_bits(in_params),
-+				   lower_32_bits(in_addr),
-+				   upper_32_bits(in_addr));
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_dec_update);
-+
-+/**
-+ * versal_pm_aes_dec_final - Access AES hardware to get the GCM tag
-+ * @gcm_addr:	Address of the gcm tag
-+ *
-+ * Return:	Returns status, either success or error code.
-+ */
-+int versal_pm_aes_dec_final(const u64 gcm_addr)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_DECRYPT_FINAL, NULL, 2,
-+				   lower_32_bits(gcm_addr),
-+				   upper_32_bits(gcm_addr));
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_dec_final);
-+
-+/**
-+ * versal_pm_aes_init - Init AES block
-+ *
-+ * This function initialise AES block.
-+ *
-+ * Return: Returns status, either success or error+reason
-+ */
-+int versal_pm_aes_init(void)
-+{
-+	return zynqmp_pm_invoke_fn(XSECURE_API_AES_INIT, NULL, 0);
-+}
-+EXPORT_SYMBOL_GPL(versal_pm_aes_init);
-+
-diff --git a/include/linux/firmware/xlnx-zynqmp-crypto.h b/include/linux/firmware/xlnx-zynqmp-crypto.h
-index cb08f412e931..56595ab37c43 100644
---- a/include/linux/firmware/xlnx-zynqmp-crypto.h
-+++ b/include/linux/firmware/xlnx-zynqmp-crypto.h
-@@ -2,8 +2,8 @@
- /*
-  * Firmware layer for XilSECURE APIs.
-  *
-- *  Copyright (C) 2014-2022 Xilinx, Inc.
-- *  Copyright (C) 2022-2025 Advanced Micro Devices, Inc.
-+ * Copyright (C) 2014-2022 Xilinx, Inc.
-+ * Copyright (C) 2022-2025 Advanced Micro Devices, Inc.
-  */
+ #define ZYNQMP_AES_KEY_SIZE		AES_KEYSIZE_256
+ #define ZYNQMP_AES_AUTH_SIZE		16U
+-#define ZYNQMP_KEY_SRC_SEL_KEY_LEN	1U
+ #define ZYNQMP_AES_BLK_SIZE		1U
+ #define ZYNQMP_AES_MIN_INPUT_BLK_SIZE	4U
+ #define ZYNQMP_AES_WORD_LEN		4U
  
- #ifndef __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__
-@@ -22,10 +22,32 @@ struct xlnx_feature {
- 	void *data;
+-#define ZYNQMP_AES_GCM_TAG_MISMATCH_ERR		0x01
+-#define ZYNQMP_AES_WRONG_KEY_SRC_ERR		0x13
+-#define ZYNQMP_AES_PUF_NOT_PROGRAMMED		0xE300
++#define ZYNQMP_AES_GCM_TAG_MISMATCH_ERR	0x01
++#define ZYNQMP_AES_WRONG_KEY_SRC_ERR	0x13
++#define ZYNQMP_AES_PUF_NOT_PROGRAMMED	0xE300
++#define XILINX_KEY_MAGIC		0x3EA0
+ 
+ enum zynqmp_aead_op {
+ 	ZYNQMP_AES_DECRYPT = 0,
+@@ -48,6 +48,11 @@ struct zynqmp_aead_drv_ctx {
+ 	struct crypto_engine *engine;
  };
  
-+/* xilSecure API commands module id + api id */
-+#define XSECURE_API_AES_INIT		0x509
-+#define XSECURE_API_AES_OP_INIT		0x50a
-+#define XSECURE_API_AES_UPDATE_AAD	0x50b
-+#define XSECURE_API_AES_ENCRYPT_UPDATE	0x50c
-+#define XSECURE_API_AES_ENCRYPT_FINAL	0x50d
-+#define XSECURE_API_AES_DECRYPT_UPDATE	0x50e
-+#define XSECURE_API_AES_DECRYPT_FINAL	0x50f
-+#define XSECURE_API_AES_KEY_ZERO	0x510
-+#define XSECURE_API_AES_WRITE_KEY	0x511
++struct xilinx_hwkey_info {
++	u16 magic;
++	u16 type;
++} __packed;
 +
- #if IS_REACHABLE(CONFIG_ZYNQMP_FIRMWARE)
- int zynqmp_pm_aes_engine(const u64 address, u32 *out);
- int zynqmp_pm_sha_hash(const u64 address, const u32 size, const u32 flags);
- void *xlnx_get_crypto_dev_data(struct xlnx_feature *feature_map);
-+int versal_pm_aes_key_write(const u32 keylen,
-+			    const u32 keysrc, const u64 keyaddr);
-+int versal_pm_aes_key_zero(const u32 keysrc);
-+int versal_pm_aes_op_init(const u64 hw_req);
-+int versal_pm_aes_update_aad(const u64 aad_addr, const u32 aad_len);
-+int versal_pm_aes_enc_update(const u64 in_params, const u64 in_addr);
-+int versal_pm_aes_dec_update(const u64 in_params, const u64 in_addr);
-+int versal_pm_aes_dec_final(const u64 gcm_addr);
-+int versal_pm_aes_enc_final(const u64 gcm_addr);
-+int versal_pm_aes_init(void);
-+
- #else
- static inline int zynqmp_pm_aes_engine(const u64 address, u32 *out)
- {
-@@ -42,6 +64,56 @@ static inline void *xlnx_get_crypto_dev_data(struct xlnx_feature *feature_map)
- {
- 	return ERR_PTR(-ENODEV);
- }
-+
-+static inline int versal_pm_aes_key_write(const u32 keylen,
-+					  const u32 keysrc, const u64 keyaddr)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_key_zero(const u32 keysrc)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_op_init(const u64 hw_req)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_update_aad(const u64 aad_addr,
-+					   const u32 aad_len)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_enc_update(const u64 in_params,
-+					   const u64 in_addr)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_dec_update(const u64 in_params,
-+					   const u64 in_addr)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_enc_final(const u64 gcm_addr)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_dec_final(const u64 gcm_addr)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int versal_pm_aes_init(void)
-+{
-+	return -ENODEV;
-+}
-+
- #endif
+ struct zynqmp_aead_hw_req {
+ 	u64 src;
+ 	u64 iv;
+@@ -64,7 +69,7 @@ struct zynqmp_aead_tfm_ctx {
+ 	u8 *iv;
+ 	u32 keylen;
+ 	u32 authsize;
+-	enum zynqmp_aead_keysrc keysrc;
++	u8 keysrc;
+ 	struct crypto_aead *fbk_cipher;
+ };
  
- #endif /* __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__ */
+@@ -175,32 +180,29 @@ static int zynqmp_aes_aead_cipher(struct aead_request *req)
+ static int zynqmp_fallback_check(struct zynqmp_aead_tfm_ctx *tfm_ctx,
+ 				 struct aead_request *req)
+ {
+-	int need_fallback = 0;
+ 	struct zynqmp_aead_req_ctx *rq_ctx = aead_request_ctx(req);
+ 
+ 	if (tfm_ctx->authsize != ZYNQMP_AES_AUTH_SIZE && rq_ctx->op == ZYNQMP_AES_DECRYPT)
+ 		return 1;
+ 
+-	if (tfm_ctx->keysrc == ZYNQMP_AES_KUP_KEY &&
+-	    tfm_ctx->keylen != ZYNQMP_AES_KEY_SIZE) {
+-		need_fallback = 1;
+-	}
+ 	if (req->assoclen != 0 ||
+-	    req->cryptlen < ZYNQMP_AES_MIN_INPUT_BLK_SIZE) {
+-		need_fallback = 1;
+-	}
++	    req->cryptlen < ZYNQMP_AES_MIN_INPUT_BLK_SIZE)
++		return 1;
++	if (tfm_ctx->keylen == AES_KEYSIZE_128 ||
++	    tfm_ctx->keylen == AES_KEYSIZE_192)
++		return 1;
++
+ 	if ((req->cryptlen % ZYNQMP_AES_WORD_LEN) != 0)
+-		need_fallback = 1;
++		return 1;
+ 
+ 	if (rq_ctx->op == ZYNQMP_AES_DECRYPT &&
+-	    req->cryptlen <= ZYNQMP_AES_AUTH_SIZE) {
+-		need_fallback = 1;
+-	}
+-	return need_fallback;
++	    req->cryptlen <= ZYNQMP_AES_AUTH_SIZE)
++		return 1;
++
++	return 0;
+ }
+ 
+-static int zynqmp_handle_aes_req(struct crypto_engine *engine,
+-				 void *req)
++static int zynqmp_handle_aes_req(struct crypto_engine *engine, void *req)
+ {
+ 	struct aead_request *areq =
+ 				container_of(req, struct aead_request, base);
+@@ -218,32 +220,42 @@ static int zynqmp_aes_aead_setkey(struct crypto_aead *aead, const u8 *key,
+ 				  unsigned int keylen)
+ {
+ 	struct crypto_tfm *tfm = crypto_aead_tfm(aead);
+-	struct zynqmp_aead_tfm_ctx *tfm_ctx =
+-			(struct zynqmp_aead_tfm_ctx *)crypto_tfm_ctx(tfm);
++	struct zynqmp_aead_tfm_ctx *tfm_ctx = crypto_tfm_ctx(tfm);
++	struct xilinx_hwkey_info hwkey;
+ 	unsigned char keysrc;
++	int err;
+ 
+-	if (keylen == ZYNQMP_KEY_SRC_SEL_KEY_LEN) {
+-		keysrc = *key;
++	if (keylen == sizeof(struct xilinx_hwkey_info)) {
++		memcpy(&hwkey, key, sizeof(struct xilinx_hwkey_info));
++		if (hwkey.magic != XILINX_KEY_MAGIC)
++			return -EINVAL;
++		keysrc = hwkey.type;
+ 		if (keysrc == ZYNQMP_AES_KUP_KEY ||
+ 		    keysrc == ZYNQMP_AES_DEV_KEY ||
+ 		    keysrc == ZYNQMP_AES_PUF_KEY) {
+-			tfm_ctx->keysrc = (enum zynqmp_aead_keysrc)keysrc;
+-		} else {
+-			tfm_ctx->keylen = keylen;
++			tfm_ctx->keysrc = keysrc;
++			tfm_ctx->keylen = sizeof(struct xilinx_hwkey_info);
++			return 0;
+ 		}
+-	} else {
++		return -EINVAL;
++	}
++
++	if (keylen == ZYNQMP_AES_KEY_SIZE && tfm_ctx->keysrc == ZYNQMP_AES_KUP_KEY) {
+ 		tfm_ctx->keylen = keylen;
+-		if (keylen == ZYNQMP_AES_KEY_SIZE) {
+-			tfm_ctx->keysrc = ZYNQMP_AES_KUP_KEY;
+-			memcpy(tfm_ctx->key, key, keylen);
+-		}
++		memcpy(tfm_ctx->key, key, keylen);
++	} else if (tfm_ctx->keysrc != ZYNQMP_AES_KUP_KEY) {
++		return -EINVAL;
+ 	}
+ 
+ 	tfm_ctx->fbk_cipher->base.crt_flags &= ~CRYPTO_TFM_REQ_MASK;
+ 	tfm_ctx->fbk_cipher->base.crt_flags |= (aead->base.crt_flags &
+ 					CRYPTO_TFM_REQ_MASK);
+ 
+-	return crypto_aead_setkey(tfm_ctx->fbk_cipher, key, keylen);
++	err = crypto_aead_setkey(tfm_ctx->fbk_cipher, key, keylen);
++	if (!err)
++		tfm_ctx->keylen = keylen;
++
++	return err;
+ }
+ 
+ static int zynqmp_aes_aead_setauthsize(struct crypto_aead *aead,
+@@ -267,9 +279,16 @@ static int zynqmp_aes_aead_encrypt(struct aead_request *req)
+ 	struct zynqmp_aead_drv_ctx *drv_ctx;
+ 	int err;
+ 
+-	rq_ctx->op = ZYNQMP_AES_ENCRYPT;
+ 	drv_ctx = container_of(alg, struct zynqmp_aead_drv_ctx, aead.base);
++	if (tfm_ctx->keysrc == ZYNQMP_AES_KUP_KEY &&
++	    tfm_ctx->keylen == sizeof(struct xilinx_hwkey_info))
++		return -EINVAL;
++
++	rq_ctx->op = ZYNQMP_AES_ENCRYPT;
+ 	err = zynqmp_fallback_check(tfm_ctx, req);
++	if (err && tfm_ctx->keysrc != ZYNQMP_AES_KUP_KEY)
++		return -EOPNOTSUPP;
++
+ 	if (err) {
+ 		aead_request_set_tfm(subreq, tfm_ctx->fbk_cipher);
+ 		aead_request_set_callback(subreq, req->base.flags,
+@@ -297,7 +316,12 @@ static int zynqmp_aes_aead_decrypt(struct aead_request *req)
+ 
+ 	rq_ctx->op = ZYNQMP_AES_DECRYPT;
+ 	drv_ctx = container_of(alg, struct zynqmp_aead_drv_ctx, aead.base);
++	if (tfm_ctx->keysrc == ZYNQMP_AES_KUP_KEY &&
++	    tfm_ctx->keylen == sizeof(struct xilinx_hwkey_info))
++		return -EINVAL;
+ 	err = zynqmp_fallback_check(tfm_ctx, req);
++	if (err && tfm_ctx->keysrc != ZYNQMP_AES_KUP_KEY)
++		return -EOPNOTSUPP;
+ 	if (err) {
+ 		aead_request_set_tfm(subreq, tfm_ctx->fbk_cipher);
+ 		aead_request_set_callback(subreq, req->base.flags,
+@@ -323,6 +347,8 @@ static int zynqmp_aes_aead_init(struct crypto_aead *aead)
+ 
+ 	drv_ctx = container_of(alg, struct zynqmp_aead_drv_ctx, aead.base);
+ 	tfm_ctx->dev = drv_ctx->dev;
++	tfm_ctx->keylen = 0;
++	tfm_ctx->keysrc = ZYNQMP_AES_KUP_KEY;
+ 
+ 	tfm_ctx->fbk_cipher = crypto_alloc_aead(drv_ctx->aead.base.base.cra_name,
+ 						0,
 -- 
 2.49.1
 
