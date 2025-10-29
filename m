@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DCBCCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 00:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A71CCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 00:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7E9UCKOGhnfa2ypmdjOo3R2weofKULZMGq7rFUzr9E8=; b=jyPjzO3bH5sImHoM/PfLguILSu
-	iSyosUSj15RLHhoT9Yk/H6Iftk3QW/1svMvqFDKVPgSEaFtVO7pecbQUEs7MDnWz1ZRCJLhUHaOhE
-	SSPzMzH9iVh3HRvz1wSN/Cu3HqOlHz/EHv7TwI2N533l5FM/zjlKpUmIP9j3MqBILsrn9nQQs0ONG
-	hoxyhS0NSq16GhpHCAkNQ7Ryb9HT847TEbb05qqo+aDjoSZq4soxKn7df6Y49aFQSb2YpG47zzfvQ
-	kRSX+lhOKlTL6ZfZ7LrH+tG96YLXCcuqJXnb3ePjCaegEOgavIZJHCVwhbrw7kdsqBqOY8pk8AH1L
-	e2Giue+A==;
+	bh=w8qaGiSq8vOSodTV9ZqArOMgGtWwjBiwAMF3IEA5ym8=; b=GNcSnjI3H7sORAx4RY+YIaawtS
+	xgZN8kUFCAJJVjh88PNdVZY4DOwsvMpHGFA6oB69Mp+A42nY4Y8Dmr92THjNEWzKawSfh7bBffOW7
+	bAN11ORWNKXtBDcFa0zm58Fegg5dES4HljkhUkxCvLfu07T++G4Fgg6akwMaj1Ks8eKqu8+3RogR9
+	VeEw9TjP+9Yr9WLT7a1jyZkbGmG7S9NgCnhl69bWw1x7A3pOVrMwdBL4rap96KG3A/rvkqDQx8U/u
+	iYyF8mIbItWErQ7/q14hzW1tieL08mDV59qolVxhJkARG4XW9jCeW3Vbvw8c99aEWzz//xU57naz2
+	dIKz8O4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDtfV-0000000GpYC-3K4z;
-	Wed, 29 Oct 2025 00:04:01 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vDtlt-0000000Gq9L-3uH8;
+	Wed, 29 Oct 2025 00:10:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDtfO-0000000GpSQ-2510
+	id 1vDtls-0000000Gq92-0RXD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 00:03:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7E9UCKOGhnfa2ypmdjOo3R2weofKULZMGq7rFUzr9E8=; b=qNo6HxckVlgt8I514NMy1fgbU7
-	l96+ieXUMOOuek7us2R4Y4G/K0nyci+qhf9FHpRUjEQIjPo7eQocE7VTb1Qvgakvk/EJ4rSFe9gtj
-	T2GROr/rVio0jHrd6bay7vWyo7FhPshwgnpPBGMlZOnTbuo3Jqf7SWEBi/xj/HeVxvti8FmE0wLP2
-	V2WKH1rLZTRlhbf9RECYI2paoTz0rXwyy/SpnTk9xiQ4a1MTwuJuflUyVYVLyvYcJoSFPvyWUkcKX
-	tTnAoZEZp768vpsE2Npl5b5CumQhEek4n+eQeRqs6bOWzAHKSzkO9/j3fZIEhvFrrkvx5mokFtnnf
-	GmvRmDiQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44822 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vDtfI-000000003ic-0LZW;
-	Wed, 29 Oct 2025 00:03:48 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vDtfG-0000000CCCX-2YwQ;
-	Wed, 29 Oct 2025 00:03:46 +0000
-In-Reply-To: <aQFZVSGJuv8-_DIo@shell.armlinux.org.uk>
-References: <aQFZVSGJuv8-_DIo@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>
-Subject: [PATCH net-next v3 8/8] net: stmmac: reorganise stmmac_hwif_init()
+	Wed, 29 Oct 2025 00:10:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F33DB44530;
+	Wed, 29 Oct 2025 00:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A4AFC4CEE7;
+	Wed, 29 Oct 2025 00:10:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761696634;
+	bh=fWgybk4zJ8v4uHqTzhcQSKCfyRk/m+NFcuLw6/SBDzM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Zn4kwfwOegS/wt629E7r632Ghchk7SkSaKzoVi1YnCYk5rAH7oe/FBdM6821dOQNb
+	 LxlB0YKKva0KpERflFyEiCVobvKbcUoS9FLzTzFFHVt/rKuhWuVdCTpyKWCMtPOu/K
+	 SuABN8f5i/32fGANHjargfgjvpLSLLFZP2+f6Zki5YZ8Ks/JqsYRFBBPkwUMUSBpUF
+	 uD396HYImedHwG3FC7MjQjs+DvWPk9KLbnn9BChud1S8EXO5icOTSfdZlWbwiTU1EU
+	 Q5GG7HQPCNuYcJvJJlNyTORq25lJU7Dao3ne591kyt68s7dACakMq53gyk9kUlcC+E
+	 LeRdbWgc4Ebzg==
+Date: Tue, 28 Oct 2025 17:10:33 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
+ <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>
+Subject: Re: [PATCH net-next 0/8] net: stmmac: hwif.c cleanups
+Message-ID: <20251028171033.0a9a5a63@kernel.org>
+In-Reply-To: <aQFYdRZV9CQVuqFu@shell.armlinux.org.uk>
+References: <aPt1l6ocBCg4YlyS@shell.armlinux.org.uk>
+	<20251028164257.067bdbcd@kernel.org>
+	<aQFYdRZV9CQVuqFu@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vDtfG-0000000CCCX-2YwQ@rmk-PC.armlinux.org.uk>
-Date: Wed, 29 Oct 2025 00:03:46 +0000
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_170354_537914_979CF253 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20251028_171036_211068_AA97BF81 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,103 +79,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reorganise stmmac_hwif_init() to handle the error case of
-stmmac_hwif_find() in the indented block, which follows normal
-programming pattern.
+On Tue, 28 Oct 2025 23:57:41 +0000 Russell King (Oracle) wrote:
+> > This one needs a respin (patch 6 vs your IRQ masking changes?).  
+> 
+> Ah, I see it, rebase can cope with that, but not application. Bah.
+> Another week of waiting for it to be applied. :(
+> 
+> I'm going to start sending larger patch series...
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Tested-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/hwif.c | 72 ++++++++++++----------
- 1 file changed, 38 insertions(+), 34 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-index e1f99b9d9d7f..8212441f9826 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-@@ -366,41 +366,45 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
- 
- 	/* Use synopsys_id var because some setups can override this */
- 	entry = stmmac_hwif_find(core_type, priv->synopsys_id, version.dev_id);
--	if (entry) {
--		/* Only use generic HW helpers if needed */
--		mac->desc = mac->desc ? : entry->desc;
--		mac->dma = mac->dma ? : entry->dma;
--		mac->mac = mac->mac ? : entry->mac;
--		mac->ptp = mac->ptp ? : entry->hwtimestamp;
--		mac->mode = mac->mode ? : entry->mode;
--		mac->tc = mac->tc ? : entry->tc;
--		mac->mmc = mac->mmc ? : entry->mmc;
--		mac->est = mac->est ? : entry->est;
--		mac->vlan = mac->vlan ? : entry->vlan;
--
--		priv->hw = mac;
--		priv->fpe_cfg.reg = entry->regs.fpe_reg;
--		priv->ptpaddr = priv->ioaddr + entry->regs.ptp_off;
--		priv->mmcaddr = priv->ioaddr + entry->regs.mmc_off;
--		memcpy(&priv->ptp_clock_ops, entry->ptp,
--		       sizeof(struct ptp_clock_info));
--		if (entry->est)
--			priv->estaddr = priv->ioaddr + entry->regs.est_off;
--
--		/* Entry found */
--		if (needs_setup) {
--			ret = entry->setup(priv);
--			if (ret)
--				return ret;
--		}
-+	if (!entry) {
-+		dev_err(priv->device,
-+			"Failed to find HW IF (id=0x%x, gmac=%d/%d)\n",
-+			version.snpsver, core_type == DWMAC_CORE_GMAC,
-+			core_type == DWMAC_CORE_GMAC4);
-+
-+		return -EINVAL;
-+	}
- 
--		/* Save quirks, if needed for posterior use */
--		priv->hwif_quirks = entry->quirks;
--		return 0;
-+	/* Only use generic HW helpers if needed */
-+	mac->desc = mac->desc ? : entry->desc;
-+	mac->dma = mac->dma ? : entry->dma;
-+	mac->mac = mac->mac ? : entry->mac;
-+	mac->ptp = mac->ptp ? : entry->hwtimestamp;
-+	mac->mode = mac->mode ? : entry->mode;
-+	mac->tc = mac->tc ? : entry->tc;
-+	mac->mmc = mac->mmc ? : entry->mmc;
-+	mac->est = mac->est ? : entry->est;
-+	mac->vlan = mac->vlan ? : entry->vlan;
-+
-+	priv->hw = mac;
-+	priv->fpe_cfg.reg = entry->regs.fpe_reg;
-+	priv->ptpaddr = priv->ioaddr + entry->regs.ptp_off;
-+	priv->mmcaddr = priv->ioaddr + entry->regs.mmc_off;
-+	memcpy(&priv->ptp_clock_ops, entry->ptp,
-+	       sizeof(struct ptp_clock_info));
-+
-+	if (entry->est)
-+		priv->estaddr = priv->ioaddr + entry->regs.est_off;
-+
-+	/* Entry found */
-+	if (needs_setup) {
-+		ret = entry->setup(priv);
-+		if (ret)
-+			return ret;
- 	}
- 
--	dev_err(priv->device, "Failed to find HW IF (id=0x%x, gmac=%d/%d)\n",
--		version.snpsver, core_type == DWMAC_CORE_GMAC,
--		core_type == DWMAC_CORE_GMAC4);
--	return -EINVAL;
-+	/* Save quirks, if needed for posterior use */
-+	priv->hwif_quirks = entry->quirks;
-+
-+	return 0;
- }
--- 
-2.47.3
-
+I could have told you earlier, too. I assumed it's conflicting with
+Maxime's patches and I didn't get to those yesterday :(
 
