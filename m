@@ -4,79 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1DDCCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 23:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFED5CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 23:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=lsMHm2mZ5mYnp9tVkHEF9uvJZldQAv+OaokRJZBEw0U=; b=bhqSkR8MKRa9vc
-	E9y0xHAOA0gK4UbAhIdoKxZ+PudfYqLrmpWJ9eDJMTT+qXTodi9yaZDJaG4olikZYGgtZBgVU4HcI
-	wrsjrThtpE1AvTdXs65Y22svBOfkWkR057WAXXPXqAYYmSnZc5VIcommY/H0A3E+a321XD5uRW/PZ
-	1Us4vLwhOEuuxWk6H0vkwrqWLqg4igDUgvuvPfOa81AhTacxn4xHu/SuQMDSOKgyjfOIEbArP+HPP
-	7Facy0oWOOA0RPzu6l/2Zh05y3e1sqewkzbu+J61I1CeSosw0DAEV5DsPzr+qaxyR1DhBLgOkL/Cg
-	rJdVWVBbYHpcJLxfubiQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GzWG1yzDjfDGssww40CpSvgG5RZD37kvajnBuiu886w=; b=D6A3+yS6a+rMTrHy34V36X6ehz
+	M47rGg1QPkSQMeS0lwp1JZ+f8wV5B4jy1iBLG2XF3QOOZ//r9p233IBm+qWSQmJhP4lAV3KxJ7KQq
+	pHIxiSeFNsPiRpBgOCsJjC7wo0pMMsLv56fZqe/34bQlRGXeN4wXR471eSR207lgvckxi0eOaU3Wc
+	OlZaCN5mm2p1vNj2Sju3vKwzms9FOVJaQZDh6OwiceTjMQt+zutUJ+NZslizmUcTvKEn/YYFQ2ExW
+	nzfrQ1uLwOLWERw6vFvI7idsMWO9fjhP3kazTGCN4t0JhjGIRKxroq6gfmmWKY442U3Uf0C+21GIv
+	JzpRHjgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEFVn-00000003F8m-3NGQ;
-	Wed, 29 Oct 2025 23:23:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEFzO-00000003GTC-3sDu;
+	Wed, 29 Oct 2025 23:54:02 +0000
+Received: from mx0b-00082601.pphosted.com ([67.231.153.30] helo=mx0a-00082601.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEFVl-00000003F7n-37KB
+	id 1vEFzL-00000003GSD-1leW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 23:23:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B235841B5A;
-	Wed, 29 Oct 2025 23:23:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63756C4CEF7;
-	Wed, 29 Oct 2025 23:23:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761780204;
-	bh=c/sTjrq+R9ZaCsBuwnVAqRM5QZJaaojvFV/fjYuoNGs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=n2objD2qH1724Re0HCcuSPzk1/aNZVzfB4rKes83yRy/4rJohBGae/kHc+PLNJvjV
-	 QBTxxd59XiSacPcC9e9vKkErhlnbtauqS0N72jpQVM/VTIQbEF86KdpGEJYHZISUP6
-	 QISwHziNuIX/hA89l85FIfTqm1eWnehJzN1rzajfoPG7iX03hdyVfyBH52teHRldKR
-	 3CLD4dsQxbEJYCAP5ZRHxB0s26dczjgfbkc8nTvRX6bM4f26UEmZa/dMolb6gd5qGi
-	 fV1nyrJC/Yz/7LmuZaZHktINivzgbUlnPppJMuO6jWq2S6DNM1DvCn8k5jdM/8gcje
-	 JgPdL1iICbtxA==
-Date: Wed, 29 Oct 2025 18:23:23 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	chaitanya chundru <quic_krichai@quicinc.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	cros-qcom-dts-watchers@chromium.org,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com,
-	amitk@kernel.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v7 0/8] PCI: Enable Power and configure the TC9563 PCIe
- switch
-Message-ID: <20251029232323.GA1602660@bhelgaas>
+	Wed, 29 Oct 2025 23:54:01 +0000
+Received: from pps.filterd (m0089730.ppops.net [127.0.0.1])
+	by m0089730.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 59TIdemY4017403
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 16:53:56 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=s2048-2025-q2; bh=GzWG1yzDjfDGssww40Cp
+	SvgG5RZD37kvajnBuiu886w=; b=iaNJQk6YqHC3aNB9x6ZrrdcTVl+U1bUCa63G
+	IpoPx/IlhxGQiHIraT1/ynGP6a7Xxk7IIt0OcK/lE27c11U+jInIoxTlusURYUEc
+	v3obZK4rga2lGveSKO+v6QyDEfZ6+BFUuRr03NtfNLMg7xGwRPZYy1uhVP2EqK+T
+	QMnZqXXC6Fa0nWVcluN+AZG1vVTPgm8S5+UemONHSHcdTG8vbKH+U1xQQueRfhiR
+	hsnFWU0FpFF6Trk3fq6vrWMSyJA331xIC5euk2h8fdAIcW2cRSulCWo9BIxl9zcV
+	s2LHUHX6Qtfje8gFWyc9A1Jw9sMFBsJOF1madzrrkDDeFUpK/A==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by m0089730.ppops.net (PPS) with ESMTPS id 4a3rdaa9bt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 16:53:56 -0700 (PDT)
+Received: from twshared37925.29.prn2.facebook.com (2620:10d:c085:208::f) by
+ mail.thefacebook.com (2620:10d:c08b:78::c78f) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.20; Wed, 29 Oct 2025 23:53:55 +0000
+Received: by devbig071.cco5.facebook.com (Postfix, from userid 704538)
+	id C60037B21250; Wed, 29 Oct 2025 16:53:48 -0700 (PDT)
+Date: Wed, 29 Oct 2025 16:53:48 -0700
+From: Ben Niu <BenNiu@meta.com>
+To: Mark Rutland <mark.rutland@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <tytso@mit.edu>,
+        <Jason@zx2c4.com>, <linux-arm-kernel@lists.infradead.org>,
+        <niuben003@gmail.com>, <linux-kernel@vger.kernel.org>,
+        <benniu@meta.com>
+Subject: Re: [PATCH] tracing: Enable kprobe tracing for Arm64 asm functions
+Message-ID: <aQKpDIYwO9VTP7qM@meta.com>
+References: <20251027181749.240466-1-benniu@meta.com>
+ <aQIltqoIVDwh4A6p@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20251029-qps615_v4_1-v7-0-68426de5844a@oss.qualcomm.com>
+In-Reply-To: <aQIltqoIVDwh4A6p@J2N7QTR9R3>
+X-FB-Internal: Safe
+X-Authority-Analysis: v=2.4 cv=XuP3+FF9 c=1 sm=1 tr=0 ts=6902a914 cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VabnemYjAAAA:8 a=O3O2meFQri2gVlhMVFEA:9 a=CjuIK1q_8ugA:10
+ a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-ORIG-GUID: kjLfqymnflPOjrhYV4HatvlDgycyeSGf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI5MDE5MyBTYWx0ZWRfX7UYHDEszAlDr
+ viIhDKICTQYbqwfH6QT3H61n94KfqXwtnmkC1yfs5aTaoJ0AkDYWVtS8Em0BTPTXlI0mKTyNtq9
+ O49aYC2Qyi1AzOZ4h08U1W+ixNFUeVIY0I8J9S/pacKaw7H7/+iw02zLVAPjhwEAKL1QXemDx2h
+ NZtshuspmcAT/As/nxAkbM55Y1okUG21Pmz5GVXT6cuKdc2AlbJBQYYr8imLyeLCXjgThQ3702r
+ wibacUxN9PnmcWaKJ+PmkehNj+Og2nkwFVnZ1KgWwIpteX2UZs3kV0YaUBaVbATw6YguYBIyCgb
+ nEGxQV9raXKHlg98Vcp4JJgHZe4+S0iZjaK7NtDhcut6FPDUBtxwH514MxzMBOwqJtbxB/oVzGn
+ CsJUqWOr7J7CIsfVPcYCYpFAmvx/7g==
+X-Proofpoint-GUID: kjLfqymnflPOjrhYV4HatvlDgycyeSGf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-10-29_08,2025-10-29_03,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_162325_824761_A2F02615 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20251029_165359_664638_D09666D0 
+X-CRM114-Status: GOOD (  42.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,34 +99,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 04:59:53PM +0530, Krishna Chaitanya Chundru wrote:
-> TC9563 is the PCIe switch which has one upstream and three downstream
-> ports. To one of the downstream ports ethernet MAC is connected as endpoint
-> device. Other two downstream ports are supposed to connect to external
-> device. One Host can connect to TC956x by upstream port.
+On Wed, Oct 29, 2025 at 02:33:26PM +0000, Mark Rutland wrote:
+> On Mon, Oct 27, 2025 at 11:17:49AM -0700, Ben Niu wrote:
+> > Currently, Arm64 assembly functions always have a bti c
+> > instruction inserted before the prologue. When ftrace is enabled,
+> > no padding nops are inserted at all.
+> > 
+> > This breaks kprobe tracing for asm functions, which assumes that
+> > proper nops are added before and within functions (when ftrace is
+> > enabled) and bti c is only present when CONFIG_ARM64_BTI_KERNEL is
+> > defined.
 > 
-> TC9563 switch power is controlled by the GPIO's. After powering on
-> the switch will immediately participate in the link training. if the
-> host is also ready by that time PCIe link will established. 
+> What exactly do you mean by "breaks kprobe tracing"?
 > 
-> The TC9563 needs to configured certain parameters like de-emphasis,
-> disable unused port etc before link is established.
+> The kprobes code knows NOTHING about those ftrace NOPs, so I cannot see
+> how those are relevant.
 > 
-> As the controller starts link training before the probe of pwrctl driver,
-> the PCIe link may come up as soon as we power on the switch. Due to this
-> configuring the switch itself through i2c will not have any effect as
-> this configuration needs to done before link training. To avoid this
-> introduce two functions in pci_ops to start_link() & stop_link() which
-> will disable the link training if the PCIe link is not up yet.
-> 
-> This series depends on the https://lore.kernel.org/all/20250124101038.3871768-3-krishna.chundru@oss.qualcomm.com/
+> The patch adds entries to __patchable_function_entries, which is owned
+> by ftrace, and has NOTHING to do with kprobes.
 
-What does this series apply to?  It doesn't apply cleanly to v6.18-rc1
-(the normal base for topic branches) or v6.18-rc3 or pci/next.
+Thanks for reviewing my patch, Mark. This is the second ever Linux kernel patch
+I've sent out so I'm still learning how much detail I should put in a patch for
+reviewers. Clearly, not enough details were added for this patch, and sorry
+about that.
 
-I tried first applying the patches from
-https://lore.kernel.org/all/20250124101038.3871768-3-krishna.chundru@oss.qualcomm.com/,
-but those don't apply to -rc1 or -rc3 either.
+kprobe and ftrace seem two seprate things, but kprobe actually checks if a
+function is notrace based off whether the function is padded with proper nops
+for ftrace when ftrace is enabled. See the following call stack for more
+details (obtained by debugging centos 10 arm64 linux kernel):
 
-Bjorn
+#0  lookup_rec (start=18446603338384966592, end=18446603338384967175) at kernel/trace/ftrace.c:1591
+#1  ftrace_location_range (start=18446603338384966592, end=18446603338384967175) at kernel/trace/ftrace.c:1626
+#2  0xffff8000802bd070 [PAC] in __within_notrace_func (addr=<optimized out>, addr@entry=18446603338384966592) at kernel/trace/trace_kprobe.c:456
+#3  0xffff8000802bd13c [PAC] in within_notrace_func (tk=0xffff0000cb5b0400) at kernel/trace/trace_kprobe.c:464
+#4  0xffff8000802bd534 [PAC] in __register_trace_kprobe (tk=tk@entry=0xffff0000cb5b0400) at kernel/trace/trace_kprobe.c:496
+#5  0xffff8000802bf7a0 [PAC] in __register_trace_kprobe (tk=0xffff0000cb5b0400) at kernel/trace/trace_kprobe.c:490
+#6  create_local_trace_kprobe (func=func@entry=0xffff0000cabb19c0 "__arch_copy_to_user", addr=<optimized out>, offs=<optimized out>, is_return=is_return@entry=false)
+    at kernel/trace/trace_kprobe.c:1935
+#7  0xffff80008029ef8c [PAC] in perf_kprobe_init (p_event=p_event@entry=0xffff0000c6d89a40, is_retprobe=false) at kernel/trace/trace_event_perf.c:267
+#8  0xffff800080364ec4 [PAC] in perf_kprobe_event_init (event=0xffff0000c6d89a40) at kernel/events/core.c:11102
+#9  0xffff800080369740 [PAC] in perf_try_init_event (pmu=0xffff8000829347a8 <perf_kprobe>, event=0xffff0000c6d89a40) at kernel/events/core.c:12595
+#10 0xffff8000803699dc [PAC] in perf_init_event (event=event@entry=0xffff0000c6d89a40) at kernel/events/core.c:12693
+#11 0xffff80008036d91c [PAC] in perf_event_alloc (attr=attr@entry=0xffff80008785b970, cpu=cpu@entry=0, task=task@entry=0x0, group_leader=0xffff0000c6d89a40, 
+    group_leader@entry=0x0, parent_event=parent_event@entry=0x0, overflow_handler=<optimized out>, overflow_handler@entry=0x0, context=<optimized out>, context@entry=0x0, 
+    cgroup_fd=cgroup_fd@entry=-1) at kernel/events/core.c:12968
+#12 0xffff800080373244 [PAC] in __do_sys_perf_event_open (attr_uptr=<optimized out>, pid=<optimized out>, cpu=0, group_fd=<optimized out>, flags=<optimized out>)
+    at kernel/events/core.c:13485
+#13 0xffff800080379aa0 [PAC] in __se_sys_perf_event_open (attr_uptr=<optimized out>, pid=<optimized out>, cpu=<optimized out>, group_fd=<optimized out>, flags=<optimized out>)
+    at kernel/events/core.c:13367
+#14 __arm64_sys_perf_event_open (regs=<optimized out>) at kernel/events/core.c:13367
+#15 0xffff80008004997c [PAC] in __invoke_syscall (regs=0xffff80008785beb0, syscall_fn=<optimized out>) at arch/arm64/kernel/syscall.c:35
+#16 invoke_syscall (regs=regs@entry=0xffff80008785beb0, scno=<optimized out>, sc_nr=sc_nr@entry=463, syscall_table=<optimized out>) at arch/arm64/kernel/syscall.c:49
+#17 0xffff800080049a88 [PAC] in el0_svc_common (sc_nr=463, syscall_table=<optimized out>, regs=0xffff80008785beb0, scno=<optimized out>) at arch/arm64/kernel/syscall.c:132
+#18 do_el0_svc (regs=regs@entry=0xffff80008785beb0) at arch/arm64/kernel/syscall.c:151
+#19 0xffff800080fba654 [PAC] in el0_svc (regs=0xffff80008785beb0) at arch/arm64/kernel/entry-common.c:875
+#20 0xffff800080fbab10 [PAC] in el0t_64_sync_handler (regs=<optimized out>) at arch/arm64/kernel/entry-common.c:894
+#21 0xffff800080011684 [PAC] in el0t_64_sync () at arch/arm64/kernel/entry.S:600
+
+within_notrace_func is only defined if defined(CONFIG_DYNAMIC_FTRACE) && \
+!defined(CONFIG_KPROBE_EVENTS_ON_NOTRACE), which searches a list of records
+about whether a function is ftrace-able or not. The list of records is built
+by ftrace_init at boot time.
+ 
+> > The patch fixes the bug by inserting nops and bti c in Arm64 asm
+> > in the same way as compiled C code.
+
+That's correct. I added __patchable_function_entries in assemblies so that
+their addresses are added between __start_mcount_loc and __stop_mcount_loc
+at link time, which is then picked up by ftrace_init. Proper nop and bti c
+instructions are added to assemblies in the way as if the assemblies are
+compiled from C code. This is crucial to satisfy ftrace requirements and nop
+patching at boot time. Otherwise, ftrace_bug will be hit and the assembly
+function won't be ftrace-able and also kprobe-traceable.
+
+> As it stands, NAK to this change.
+> 
+> I'm not averse to making (some) assembly functions traceable by ftrace,
+> and hence giving those NOPs. However, that's not safe generally (e.g.
+> due to noinstr requirements), and so special care will need to be taken.
+
+Assemblies that are not traceable should use SYM_CODE_START or the new macro
+SYM_FUNC_START_NOTRACE. If an assembly function starts with SYM_FUNC_START,
+by default, it's assumed to be traceable. I dumped all assemblies under
+arch/arm64, and majority of the assemblies are utility functions (e.g., crypto,
+memset/memcpy, etc.), which seemed safe to trace. There are a few functions
+in the following (and maybe others) that might not be traceable, so please
+advise.
+./kernel/entry-ftrace.S
+./kernel/entry.S
+./mm/proc.S
+./kernel/head.S
+
+We can either have SYM_FUNC_START be traceable by default, or flip the polarity
+and introduce SYM_FUNC_START_TRACEABLE to explicitly mark those functions
+deemed safe to trace.
+
+> The rationale above does not make sense; it conflates distinct things,
+> and I think a more complete explanation is necessary.
+
+Please see my explanation above. If you have any questions, please let me know.
+
+> Mark.
+> 
+> > Note: although this patch unblocks kprobe tracing, fentry is still
+> > broken because no BTF info gets generated from assembly files. A
+> > separate patch is needed to fix that.
+> > 
+> > I built this patch with different combos of the following features
+> > and confirmed kprobe tracing for asm function __arch_copy_to_user
+> > worked in all cases:
+> > 
+> > CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> > CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+> > CONFIG_ARM64_BTI_KERNEL
+> > 
+> > Signed-off-by: Ben Niu <benniu@meta.com>
+> > ---
+> >  arch/arm64/include/asm/linkage.h           | 103 ++++++++++++++++-----
+> >  arch/arm64/kernel/vdso/vgetrandom-chacha.S |   2 +-
+> >  2 files changed, 81 insertions(+), 24 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/linkage.h
+> > index d3acd9c87509..f3f3bc168162 100644
+> > --- a/arch/arm64/include/asm/linkage.h
+> > +++ b/arch/arm64/include/asm/linkage.h
+> > @@ -5,8 +5,47 @@
+> >  #include <asm/assembler.h>
+> >  #endif
+> >  
+> > -#define __ALIGN		.balign CONFIG_FUNCTION_ALIGNMENT
+> > -#define __ALIGN_STR	".balign " #CONFIG_FUNCTION_ALIGNMENT
+> > +#define __ALIGN .balign CONFIG_FUNCTION_ALIGNMENT
+> > +#define __ALIGN_STR ".balign " #CONFIG_FUNCTION_ALIGNMENT
+> > +
+> > +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> > +
+> > +#define PRE_FUNCTION_NOPS                                                   \
+> > +	ALIGN;                                                              \
+> > +	nops CONFIG_FUNCTION_ALIGNMENT / 4 - 2;                             \
+> > +	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
+> > +	.p2align 3;                                                         \
+> > +	.8byte 1f;                                                          \
+> > +	.popsection;                                                        \
+> > +	1 :;                                                                \
+> > +	nops 2;
+> > +
+> > +#define PRE_PROLOGUE_NOPS nops 2;
+> > +
+> > +#elif defined(CONFIG_DYNAMIC_FTRACE_WITH_ARGS)
+> > +
+> > +#define PRE_FUNCTION_NOPS
+> > +
+> > +#define PRE_PROLOGUE_NOPS                                                   \
+> > +	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
+> > +	.p2align 3;                                                         \
+> > +	.8byte 1f;                                                          \
+> > +	.popsection;                                                        \
+> > +	1 :;                                                                \
+> > +	nops 2;
+> > +
+> > +#else
+> > +
+> > +#define PRE_FUNCTION_NOPS
+> > +#define PRE_PROLOGUE_NOPS
+> > +
+> > +#endif
+> > +
+> > +#ifdef CONFIG_ARM64_BTI_KERNEL
+> > +#define BTI_C bti c;
+> > +#else
+> > +#define BTI_C
+> > +#endif
+> >  
+> >  /*
+> >   * When using in-kernel BTI we need to ensure that PCS-conformant
+> > @@ -15,32 +54,50 @@
+> >   * everything, the override is done unconditionally so we're more
+> >   * likely to notice any drift from the overridden definitions.
+> >   */
+> > -#define SYM_FUNC_START(name)				\
+> > -	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+> > -	bti c ;
+> > +#define SYM_FUNC_START(name)                       \
+> > +	PRE_FUNCTION_NOPS                          \
+> > +	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
+> > +	BTI_C                                      \
+> > +	PRE_PROLOGUE_NOPS
+> > +
+> > +#define SYM_FUNC_START_NOTRACE(name)               \
+> > +	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
+> > +	BTI_C
+> >  
+> > -#define SYM_FUNC_START_NOALIGN(name)			\
+> > -	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE)	\
+> > -	bti c ;
+> > +#define SYM_FUNC_START_NOALIGN(name)              \
+> > +	PRE_FUNCTION_NOPS                         \
+> > +	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE) \
+> > +	BTI_C                                     \
+> > +	PRE_PROLOGUE_NOPS
+> >  
+> > -#define SYM_FUNC_START_LOCAL(name)			\
+> > -	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN)	\
+> > -	bti c ;
+> > +#define SYM_FUNC_START_LOCAL(name)                \
+> > +	PRE_FUNCTION_NOPS                         \
+> > +	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN) \
+> > +	BTI_C                                     \
+> > +	PRE_PROLOGUE_NOPS
+> >  
+> > -#define SYM_FUNC_START_LOCAL_NOALIGN(name)		\
+> > -	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE)	\
+> > -	bti c ;
+> > +#define SYM_FUNC_START_LOCAL_NOALIGN(name)       \
+> > +	PRE_FUNCTION_NOPS                        \
+> > +	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE) \
+> > +	BTI_C                                    \
+> > +	PRE_PROLOGUE_NOPS
+> >  
+> > -#define SYM_FUNC_START_WEAK(name)			\
+> > -	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN)	\
+> > -	bti c ;
+> > +#define SYM_FUNC_START_WEAK(name)                \
+> > +	PRE_FUNCTION_NOPS                        \
+> > +	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN) \
+> > +	BTI_C                                    \
+> > +	PRE_PROLOGUE_NOPS
+> >  
+> > -#define SYM_FUNC_START_WEAK_NOALIGN(name)		\
+> > -	SYM_START(name, SYM_L_WEAK, SYM_A_NONE)		\
+> > -	bti c ;
+> > +#define SYM_FUNC_START_WEAK_NOALIGN(name)       \
+> > +	PRE_FUNCTION_NOPS                       \
+> > +	SYM_START(name, SYM_L_WEAK, SYM_A_NONE) \
+> > +	BTI_C                                   \
+> > +	PRE_PROLOGUE_NOPS
+> >  
+> > -#define SYM_TYPED_FUNC_START(name)				\
+> > -	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+> > -	bti c ;
+> > +#define SYM_TYPED_FUNC_START(name)                       \
+> > +	PRE_FUNCTION_NOPS                                \
+> > +	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
+> > +	BTI_C                                            \
+> > +	PRE_PROLOGUE_NOPS
+> >  
+> >  #endif
+> > diff --git a/arch/arm64/kernel/vdso/vgetrandom-chacha.S b/arch/arm64/kernel/vdso/vgetrandom-chacha.S
+> > index 67890b445309..21c27b64cf9f 100644
+> > --- a/arch/arm64/kernel/vdso/vgetrandom-chacha.S
+> > +++ b/arch/arm64/kernel/vdso/vgetrandom-chacha.S
+> > @@ -40,7 +40,7 @@
+> >   *	x2: 8-byte counter input/output
+> >   *	x3: number of 64-byte block to write to output
+> >   */
+> > -SYM_FUNC_START(__arch_chacha20_blocks_nostack)
+> > +SYM_FUNC_START_NOTRACE(__arch_chacha20_blocks_nostack)
+> >  
+> >  	/* copy0 = "expand 32-byte k" */
+> >  	mov_q		x8, 0x3320646e61707865
+> > -- 
+> > 2.47.3
+> > 
+> > 
 
