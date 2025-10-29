@@ -4,146 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 085EFCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 08:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89A5CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 08:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6cfeFEwvP97w5VwKIXsqz1yzfF7xnqTbAvPZSTTJstQ=; b=Z6rQDU5bCqC5W/gZQa01CCEGnB
-	N9xx2jv0wOyAT8YpZcyH1d+1AgZDM+M4wuHIn1/zTosX9tnjryOc9qpPSLWehXhE1eh11BxeLWPfP
-	t7sTKCLdhtLE9b6a0rf4v54PiWYBLxYdQ1nhw1gjkyqKNgnzOwvt4oSOz4UixyQ2PKJcjIPL+O45E
-	J2qk14NOfk+64csucMa45AJzHHzA7GqI6LrSauw6CVughthkEJrqcKw13UxQ/yA9kfQt9rZBxkYBt
-	wDShVcNpI8XgCEfct6tym+ZUNZfcEWzg3Og0foNfmejnmczAJVGNlixBK1RcQvWssCa6Zul8k953C
-	Hl5ARq6A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=itp4T0fjHEDDM2dlqv9s/gA3AHHshzbJbZM86G+a4G8=; b=asnPokcqgq5AfKB8rJSEftL+mD
+	KDt+0D2oRDUv47p8ZeVUW2k5FNG/d6Qp2nv5sRiU/5HFNjOaDmm4PV4DHl2f3NB5BsUG6AzgjmMKS
+	KyaI43dTTm6C1gfsz6IKQMRPmxs4hCl4uReRUWL5UBsMDE6/5oq4BDJWxblPRQYuA+HNZjKwCbOxG
+	kDhjzU7Nz4C2FV6SFYOIsYyTa02PIGPyO1w272VSZcN7YlSZX1B7SfdhHTgwOH7Bgc9Wzcfz2P4uZ
+	axr3rA0/eQGL55O9uKQIeU6i7Oxm2sXO/artLKlwkZOVCYkqqnU+WHFUbLUjcXd3c8mAU3bZgmQ8L
+	mlAxHa7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE1CJ-00000000CdI-025g;
-	Wed, 29 Oct 2025 08:06:23 +0000
-Received: from mail-westus2azhn15010052.outbound.protection.outlook.com ([52.102.136.52] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1vE1CN-00000000ChN-3ZPi;
+	Wed, 29 Oct 2025 08:06:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE1CB-00000000CYf-38oc
+	id 1vE1CM-00000000Ceu-0GJT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 08:06:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fV6AedWLqwfniXig+fQkbd9b6KH8PJDTICZXoU/o4PgXFB/2E+cP1V4ub8wf1epGRrd/BrbeoWxNsF1p/BaLB2Wr4fYuB8n+KzsH+oRS5rOgIEn4+Djc1iyTpiBCaEauJ1TbO321Rr8LXRzBvkcFL0rg88aT0rMAAA+11+0gvbaD89BOvQiv8Ivbi480YnSi264S5ZrBmvcPRxeUiJUwfHjELbkwIXtBKFmaA91pyJzneriCanoian6LyfdHnZTOMXyR9L79quwBeLpmyBaOvylq7t29bf+Kc1clQ34ZltkIS5X8zD/rRnecE5m7ZqV7BCMPOtnPN5vQUk6ifSc9EA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6cfeFEwvP97w5VwKIXsqz1yzfF7xnqTbAvPZSTTJstQ=;
- b=EPVhfKt75iZW0ThL1kITBkjJRXpKW3kKP1+OsJg9ovdrDcxy3F5vYT6J7ThFJmNNfswqHZhIwycq+JWUP2UcnWfr/0DIT1RqqYiYKRO7jHBC3RWkS9tqYvBsOO3tswCOPXkQLXoM977Uq+v9nV+8uS/r61I1qk75V/WuO9jcjDhCAclLVwolGcsL1/PHKpsyHc4zY0P7fJXt5pcDCn3lwu1dgu7sfH0jGwy9TJTY+wcvvzXPp9QodhkAVxZptyagJccNDxB4nX35f9blPBQEiMNo1hiFvq/Y6LC5LPTPTS1/9BZS1+jOXMV8MDsZhw3pkRKL0rEs3WlW/jaEhbvU3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6cfeFEwvP97w5VwKIXsqz1yzfF7xnqTbAvPZSTTJstQ=;
- b=dxPgKMqVq6Abejj3afThhIBb6OrGFHyq3iTv3YV2ZZzgADit+2o9Ra7YeR8iy8UV+dSdgzub2cjqcLfsS2RMmHyS8HdRokqpY26igO+D67FwpJZIAI3+wmbeVNFLEvuFASc3BnGjIk2SbtItjFJPyv9MdqpIgJ5JSc9CAstaEL0=
-Received: from CH2PR05CA0057.namprd05.prod.outlook.com (2603:10b6:610:38::34)
- by MW4PR10MB6369.namprd10.prod.outlook.com (2603:10b6:303:1ec::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.19; Wed, 29 Oct
- 2025 08:06:12 +0000
-Received: from CH1PEPF0000A346.namprd04.prod.outlook.com
- (2603:10b6:610:38:cafe::29) by CH2PR05CA0057.outlook.office365.com
- (2603:10b6:610:38::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.12 via Frontend Transport; Wed,
- 29 Oct 2025 08:06:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CH1PEPF0000A346.mail.protection.outlook.com (10.167.244.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Wed, 29 Oct 2025 08:06:10 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Oct
- 2025 03:06:07 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Oct
- 2025 03:06:06 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 29 Oct 2025 03:06:06 -0500
-Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59T85aXi3704660;
-	Wed, 29 Oct 2025 03:06:01 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
-	<christian.bruel@foss.st.com>, <krishna.chundru@oss.qualcomm.com>,
-	<qiang.yu@oss.qualcomm.com>, <shradha.t@samsung.com>,
-	<thippeswamy.havalige@amd.com>, <inochiama@gmail.com>, <fan.ni@samsung.com>,
-	<cassel@kernel.org>, <kishon@kernel.org>, <18255117159@163.com>,
-	<rongqianfeng@vivo.com>, <jirislaby@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH v5 4/4] PCI: keystone: Add support to build as a loadable module
-Date: Wed, 29 Oct 2025 13:34:52 +0530
-Message-ID: <20251029080547.1253757-5-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251029080547.1253757-1-s-vadapalli@ti.com>
-References: <20251029080547.1253757-1-s-vadapalli@ti.com>
+	Wed, 29 Oct 2025 08:06:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E7D661FA5;
+	Wed, 29 Oct 2025 08:06:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CB132C116B1;
+	Wed, 29 Oct 2025 08:06:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761725184;
+	bh=/oVMgoN0d3ixwVotycgrVVjswd5DG6nEvx4SH9if1No=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=ZsaO2cFji1crgWSeRKwYEYPtaAyrNGg2KkSsQbSog66qVsns1ISiARgeHk9cMNtbM
+	 /uFFf5LBnetXjXQDgJJRLZDjptJqNVnjU9vxXMq8b1hlA1qzHO2iEuyuaTIiQr9qwD
+	 6HnTUdCc090XoWit4TBk5nf5sP8TLMolwO99C8Yd+ek4evLsiEaJQcasWB+sgsPRPb
+	 IUsLp7aC7f8N/XVsTtJoMCZd+DV+6zMI/ghfnQbP2vjPsn3HyVjMlJ87w7p3psbi7O
+	 UJOOmJeQUD7Nn/XKIEEjUSbs/x4dEWvm3CLWb9tXXVUoG201S7vtgsNJWVgGvu9dfk
+	 Ho6jPrCK4IvOg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B929DCCF9E9;
+	Wed, 29 Oct 2025 08:06:24 +0000 (UTC)
+From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
+Date: Wed, 29 Oct 2025 16:06:13 +0800
+Subject: [PATCH net-next 1/4] net: stmmac: socfpga: Agilex5 EMAC platform
+ configuration
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000A346:EE_|MW4PR10MB6369:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78747c45-e70d-449c-3f2c-08de16c2055e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|34020700016|1800799024|36860700013|376014|82310400026|7416014|921020|12100799066;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?U/CcA40PsCoa2Q3Q2rIsXs2JhPTMIXbMxlU/TcM2kxN8znHbIbf33pmcAs8k?=
- =?us-ascii?Q?ckw7rt8hWTCHJoa+UI14QxeoEJp8/n+d4r6uiBPSSyS9k6DWlfj4B4kCavXM?=
- =?us-ascii?Q?BiHoz+VXub64ohbh4IF3cMgT+hvS5wX1xGIYAB6Xt6a95iPzT8lEPgcJkL9u?=
- =?us-ascii?Q?cnUzylQUBt+llOaFJrBRRXX3t4GT8Gu44Tdnze2e6hhDkwn1C6zy4vGJYxio?=
- =?us-ascii?Q?r9zA9LIaaY9z2ZwlN8ol7WaXKyNgfpT6GC2rjTSO3FgTPV0XFl3Av5sNHrBT?=
- =?us-ascii?Q?wnQSQqq/gqrvTj/NyJYNenf/stUZR35SlzxRWcdoPBAd50CZUwVP+1kxEcYa?=
- =?us-ascii?Q?bxkAAVIMikg2PsogYm7spH2GfOl+1g/PjQA4w8g8TDkaUtTk35makAVAkWv+?=
- =?us-ascii?Q?8/jGxyiK4cDjTp2lnVN/gEj3n3m3fIky6JhUynjPIJjbwCD+w9Z4lV1E+z7O?=
- =?us-ascii?Q?VK/9M/BlVmMUrba9XouH1PjzwX4aWQaPyfHNTP3pWK1pfr5S2vvyHFHbJavc?=
- =?us-ascii?Q?cki+nZ3nSwCmJujQJTb2zEjcKHnjzSbnX58kAPxIsN7VlCLEnPKzmrjzg6YV?=
- =?us-ascii?Q?bAA7WJWVAwInZpH7OcRghk4jk66fPyvqADtfpDmTYMBdlQ0TnDY8zcQ+v2Bu?=
- =?us-ascii?Q?RbR/UZahQNupgCxgTHouMbFEN74qsNptSDsB3W7H0iy1IfKai3pGDoLFnwgz?=
- =?us-ascii?Q?y8bizNQaUn1QDVhZEt1QWzCpdxFBEwcm6RhfoNvwtG7X5BfUjts6in2oO+Mx?=
- =?us-ascii?Q?XheF2zD9d8OHR2Bz1zBgT1fG7wXMlABcQZQPLVXd74XMHpiCiS/rCONP3itA?=
- =?us-ascii?Q?CKfw6bUACXO70LDIxDMX5PukWig2s/lJ6B/vXSx+PwGY2YVReoA7gFGrJBCF?=
- =?us-ascii?Q?8W8adZxWD5i9EsUqoyZmpnV2JAkj5T5V1vacUAax872A0AGuk53HbHu5Nhbg?=
- =?us-ascii?Q?CHW2Sy7X+RYPIErPYLo+D/C2OPEBrxRsPGdCcevvsxcbckGA9S3KFQJlzgGD?=
- =?us-ascii?Q?kvKK060Sol4lvdrn1bziHGrhr5Cz826LphGfKUiRCbLM/d/Ubcyi6UURgUAm?=
- =?us-ascii?Q?v/CbqkoionXZdJbZLuwXdYDZDN2zm3YOVTy4ZM5QgjM/wL2YJzPWTLci4jmj?=
- =?us-ascii?Q?OM+yR2FrYnuVjr1JwO11C3Zp0p8/bjeKPiCIMAST1dk3i9wOTa45pPHINlD5?=
- =?us-ascii?Q?4mxarD3IVJ9EAnJIGeRoAEns5V6dmneUo57Li4A2WNORY3WhFZ/04sQ0NUZE?=
- =?us-ascii?Q?5nBuFKPyNDLM+Q4/RATrwtjBlk7YV7kWCjwr5BCvj2bGKoRi97EpqxZWnrU3?=
- =?us-ascii?Q?KZcyJ+KI0kDHUT4jM/qmGwZHho/88erLD1BElXcL6e3+ChXIeePrqvhDctnp?=
- =?us-ascii?Q?tSNhbSUVfFVHzU9z3Iccil+ssrjZj35pEZXh+CVk9HdfMFWqCnln0WzhDa6O?=
- =?us-ascii?Q?i4V90fdxa5IZQfpjZI+eQKm0Zj29sOFIe32FIV4y1niPpwfEF6urCVjdqHwr?=
- =?us-ascii?Q?mPZ42aRNB0BzM/4UEtC+hUlufck4ChYLApnh?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(34020700016)(1800799024)(36860700013)(376014)(82310400026)(7416014)(921020)(12100799066);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 08:06:10.1464
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78747c45-e70d-449c-3f2c-08de16c2055e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000A346.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6369
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_010615_857381_C9EB95FA 
-X-CRM114-Status: GOOD (  24.84  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251029-agilex5_ext-v1-1-1931132d77d6@altera.com>
+References: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
+In-Reply-To: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Rohan G Thomas <rohan.g.thomas@altera.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761725182; l=4008;
+ i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
+ bh=fqpheFKts6+7OsBqsj9xRO/POu9s39bQIp1U3z6E4Sk=;
+ b=YohBBb/PJcQ7AlroGARqRd4AYmGE4QmSVQzy2BMDhtBTSq+CR5nGjCP4j5YphFG2mIhAp7T9/
+ qCSWpLuHYEDAORQd7rU9kKLKkHWQhfhPffjsdxoTfsCfP7J9wp1rmSS
+X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
+ pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
+X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
+ with auth_id=494
+X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,247 +88,123 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'pci-keystone.c' driver is the application/glue/wrapper driver for the
-Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
-that the 'pci-keystone.c' driver depends upon have been exported for use,
-enable support to build the driver as a loadable module.
+From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-Additionally, the functions marked by the '__init' keyword may be invoked:
-a) After a probe deferral
-OR
-b) During a delayed probe - Delay attributed to driver being built as a
-   loadable module
+Agilex5 HPS EMAC uses the dwxgmac-3.10a IP, unlike previous socfpga
+platforms which use dwmac1000 IP. Due to differences in platform
+configuration, Agilex5 requires a distinct setup.
 
-In both of the cases mentioned above, the '__init' memory will be freed
-before the functions are invoked. This results in an exception of the form:
+Introduce a setup_plat_dat() callback in socfpga_dwmac_ops to handle
+platform-specific setup. This callback is invoked before
+stmmac_dvr_probe() to ensure the platform data is correctly
+configured. Also, implemented separate setup_plat_dat() callback for
+current socfpga platforms and Agilex5.
 
-	Unable to handle kernel paging request at virtual address ...
-	Mem abort info:
-	...
-	pc : ks_pcie_host_init+0x0/0x540
-	lr : dw_pcie_host_init+0x170/0x498
-	...
-	ks_pcie_host_init+0x0/0x540 (P)
-	ks_pcie_probe+0x728/0x84c
-	platform_probe+0x5c/0x98
-	really_probe+0xbc/0x29c
-	__driver_probe_device+0x78/0x12c
-	driver_probe_device+0xd8/0x15c
-	...
-
-To address this, introduce a new function namely 'ks_pcie_init()' to
-register the 'fault handler' while removing the '__init' keyword from
-existing functions.
-
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
 ---
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 53 ++++++++++++++++++----
+ 1 file changed, 43 insertions(+), 10 deletions(-)
 
-v4:
-https://lore.kernel.org/r/20251022095724.997218-5-s-vadapalli@ti.com/
-Changes since v4:
-- To fix the build error on ARM32 platforms as reported at:
-  https://lore.kernel.org/r/202510281008.jw19XuyP-lkp@intel.com/
-  patch 4 in the series has been updated by introducing a new config
-  named "PCI_KEYSTONE_TRISTATE" which allows building the driver as
-  a loadable module. Additionally, this newly introduced config can
-  be enabled only for non-ARM32 platforms. As a result, ARM32 platforms
-  continue using the existing PCI_KEYSTONE config which is a bool, while
-  ARM64 platforms can use PCI_KEYSTONE_TRISTATE which is a tristate, and
-  can optionally enabled loadable module support being enabled by this
-  series.
-
-Regards,
-Siddharth.
-
- drivers/pci/controller/dwc/Kconfig        | 15 +++--
- drivers/pci/controller/dwc/Makefile       |  3 +
- drivers/pci/controller/dwc/pci-keystone.c | 78 +++++++++++++----------
- 3 files changed, 59 insertions(+), 37 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index 349d4657393c..c5bc2f0b1f39 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -482,15 +482,21 @@ config PCI_DRA7XX_EP
- 	  to enable device-specific features PCI_DRA7XX_EP must be selected.
- 	  This uses the DesignWare core.
- 
-+# ARM32 platforms use hook_fault_code() and cannot support loadable module.
- config PCI_KEYSTONE
- 	bool
- 
-+# On non-ARM32 platforms, loadable module can be supported.
-+config PCI_KEYSTONE_TRISTATE
-+	tristate
-+
- config PCI_KEYSTONE_HOST
--	bool "TI Keystone PCIe controller (host mode)"
-+	tristate "TI Keystone PCIe controller (host mode)"
- 	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
- 	depends on PCI_MSI
- 	select PCIE_DW_HOST
--	select PCI_KEYSTONE
-+	select PCI_KEYSTONE if ARM
-+	select PCI_KEYSTONE_TRISTATE if !ARM
- 	help
- 	  Enables support for the PCIe controller in the Keystone SoC to
- 	  work in host mode. The PCI controller on Keystone is based on
-@@ -498,11 +504,12 @@ config PCI_KEYSTONE_HOST
- 	  DesignWare core functions to implement the driver.
- 
- config PCI_KEYSTONE_EP
--	bool "TI Keystone PCIe controller (endpoint mode)"
-+	tristate "TI Keystone PCIe controller (endpoint mode)"
- 	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
- 	depends on PCI_ENDPOINT
- 	select PCIE_DW_EP
--	select PCI_KEYSTONE
-+	select PCI_KEYSTONE if ARM
-+	select PCI_KEYSTONE_TRISTATE if !ARM
- 	help
- 	  Enables support for the PCIe controller in the Keystone SoC to
- 	  work in endpoint mode. The PCI controller on Keystone is based
-diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-index 7ae28f3b0fb3..7c8de0067612 100644
---- a/drivers/pci/controller/dwc/Makefile
-+++ b/drivers/pci/controller/dwc/Makefile
-@@ -11,7 +11,10 @@ obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
- obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
- obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
- obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
-+# ARM32 platforms use hook_fault_code() and cannot support loadable module.
- obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
-+# On non-ARM32 platforms, loadable module can be supported.
-+obj-$(CONFIG_PCI_KEYSTONE_TRISTATE) += pci-keystone.o
- obj-$(CONFIG_PCI_LAYERSCAPE) += pci-layerscape.o
- obj-$(CONFIG_PCI_LAYERSCAPE_EP) += pci-layerscape-ep.o
- obj-$(CONFIG_PCIE_QCOM_COMMON) += pcie-qcom-common.o
-diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-index 25b8193ffbcf..53f88b31ad43 100644
---- a/drivers/pci/controller/dwc/pci-keystone.c
-+++ b/drivers/pci/controller/dwc/pci-keystone.c
-@@ -17,6 +17,7 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of.h>
- #include <linux/of_irq.h>
-@@ -777,29 +778,7 @@ static int ks_pcie_config_intx_irq(struct keystone_pcie *ks_pcie)
- 	return ret;
- }
- 
--#ifdef CONFIG_ARM
--/*
-- * When a PCI device does not exist during config cycles, keystone host
-- * gets a bus error instead of returning 0xffffffff (PCI_ERROR_RESPONSE).
-- * This handler always returns 0 for this kind of fault.
-- */
--static int ks_pcie_fault(unsigned long addr, unsigned int fsr,
--			 struct pt_regs *regs)
--{
--	unsigned long instr = *(unsigned long *) instruction_pointer(regs);
--
--	if ((instr & 0x0e100090) == 0x00100090) {
--		int reg = (instr >> 12) & 15;
--
--		regs->uregs[reg] = -1;
--		regs->ARM_pc += 4;
--	}
--
--	return 0;
--}
--#endif
--
--static int __init ks_pcie_init_id(struct keystone_pcie *ks_pcie)
-+static int ks_pcie_init_id(struct keystone_pcie *ks_pcie)
- {
- 	int ret;
- 	unsigned int id;
-@@ -831,7 +810,7 @@ static int __init ks_pcie_init_id(struct keystone_pcie *ks_pcie)
- 	return 0;
- }
- 
--static int __init ks_pcie_host_init(struct dw_pcie_rp *pp)
-+static int ks_pcie_host_init(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct keystone_pcie *ks_pcie = to_keystone_pcie(pci);
-@@ -861,15 +840,6 @@ static int __init ks_pcie_host_init(struct dw_pcie_rp *pp)
- 	if (ret < 0)
- 		return ret;
- 
--#ifdef CONFIG_ARM
--	/*
--	 * PCIe access errors that result into OCP errors are caught by ARM as
--	 * "External aborts"
--	 */
--	hook_fault_code(17, ks_pcie_fault, SIGBUS, 0,
--			"Asynchronous external abort");
--#endif
--
- 	return 0;
- }
- 
-@@ -1134,6 +1104,7 @@ static const struct of_device_id ks_pcie_of_match[] = {
- 	},
- 	{ },
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+index 2ff5db6d41ca08a1652d57f3eb73923b9a9558bf..3dae4f3c103802ed1c2cd390634bd5473192d4ee 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+@@ -44,6 +44,7 @@
+ struct socfpga_dwmac;
+ struct socfpga_dwmac_ops {
+ 	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv);
++	void (*setup_plat_dat)(struct socfpga_dwmac *dwmac_priv);
  };
-+MODULE_DEVICE_TABLE(of, ks_pcie_of_match);
  
- static int ks_pcie_probe(struct platform_device *pdev)
- {
-@@ -1381,4 +1352,45 @@ static struct platform_driver ks_pcie_driver = {
- 		.of_match_table = ks_pcie_of_match,
- 	},
- };
-+
-+#ifdef CONFIG_ARM
-+/*
-+ * When a PCI device does not exist during config cycles, keystone host
-+ * gets a bus error instead of returning 0xffffffff (PCI_ERROR_RESPONSE).
-+ * This handler always returns 0 for this kind of fault.
-+ */
-+static int ks_pcie_fault(unsigned long addr, unsigned int fsr,
-+			 struct pt_regs *regs)
+ struct socfpga_dwmac {
+@@ -441,6 +442,39 @@ static int socfpga_dwmac_init(struct platform_device *pdev, void *bsp_priv)
+ 	return dwmac->ops->set_phy_mode(dwmac);
+ }
+ 
++static void socfpga_common_plat_dat(struct socfpga_dwmac *dwmac)
 +{
-+	unsigned long instr = *(unsigned long *)instruction_pointer(regs);
++	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
 +
-+	if ((instr & 0x0e100090) == 0x00100090) {
-+		int reg = (instr >> 12) & 15;
-+
-+		regs->uregs[reg] = -1;
-+		regs->ARM_pc += 4;
-+	}
-+
-+	return 0;
++	plat_dat->bsp_priv = dwmac;
++	plat_dat->fix_mac_speed = socfpga_dwmac_fix_mac_speed;
++	plat_dat->init = socfpga_dwmac_init;
++	plat_dat->pcs_init = socfpga_dwmac_pcs_init;
++	plat_dat->pcs_exit = socfpga_dwmac_pcs_exit;
++	plat_dat->select_pcs = socfpga_dwmac_select_pcs;
 +}
 +
-+static int __init ks_pcie_init(void)
++static void socfpga_gen5_setup_plat_dat(struct socfpga_dwmac *dwmac)
 +{
-+	/*
-+	 * PCIe access errors that result into OCP errors are caught by ARM as
-+	 * "External aborts"
-+	 */
-+	if (of_find_matching_node(NULL, ks_pcie_of_match))
-+		hook_fault_code(17, ks_pcie_fault, SIGBUS, 0,
-+				"Asynchronous external abort");
++	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
 +
-+	return platform_driver_register(&ks_pcie_driver);
++	socfpga_common_plat_dat(dwmac);
++
++	plat_dat->core_type = DWMAC_CORE_GMAC;
++
++	/* Rx watchdog timer in dwmac is buggy in this hw */
++	plat_dat->riwt_off = 1;
 +}
-+device_initcall(ks_pcie_init);
-+#else
- builtin_platform_driver(ks_pcie_driver);
-+#endif
 +
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("PCIe controller driver for Texas Instruments Keystone SoCs");
-+MODULE_AUTHOR("Murali Karicheri <m-karicheri2@ti.com>");
++static void socfpga_agilex5_setup_plat_dat(struct socfpga_dwmac *dwmac)
++{
++	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
++
++	socfpga_common_plat_dat(dwmac);
++
++	plat_dat->core_type = DWMAC_CORE_XGMAC;
++}
++
+ static int socfpga_dwmac_probe(struct platform_device *pdev)
+ {
+ 	struct plat_stmmacenet_data *plat_dat;
+@@ -491,31 +525,30 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
+ 	dwmac->ops = ops;
+ 	dwmac->plat_dat = plat_dat;
+ 
+-	plat_dat->bsp_priv = dwmac;
+-	plat_dat->fix_mac_speed = socfpga_dwmac_fix_mac_speed;
+-	plat_dat->init = socfpga_dwmac_init;
+-	plat_dat->pcs_init = socfpga_dwmac_pcs_init;
+-	plat_dat->pcs_exit = socfpga_dwmac_pcs_exit;
+-	plat_dat->select_pcs = socfpga_dwmac_select_pcs;
+-	plat_dat->core_type = DWMAC_CORE_GMAC;
+-
+-	plat_dat->riwt_off = 1;
++	ops->setup_plat_dat(dwmac);
+ 
+ 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+ }
+ 
+ static const struct socfpga_dwmac_ops socfpga_gen5_ops = {
+ 	.set_phy_mode = socfpga_gen5_set_phy_mode,
++	.setup_plat_dat = socfpga_gen5_setup_plat_dat,
+ };
+ 
+ static const struct socfpga_dwmac_ops socfpga_gen10_ops = {
+ 	.set_phy_mode = socfpga_gen10_set_phy_mode,
++	.setup_plat_dat = socfpga_gen5_setup_plat_dat,
++};
++
++static const struct socfpga_dwmac_ops socfpga_agilex5_ops = {
++	.set_phy_mode = socfpga_gen10_set_phy_mode,
++	.setup_plat_dat = socfpga_agilex5_setup_plat_dat,
+ };
+ 
+ static const struct of_device_id socfpga_dwmac_match[] = {
+ 	{ .compatible = "altr,socfpga-stmmac", .data = &socfpga_gen5_ops },
+ 	{ .compatible = "altr,socfpga-stmmac-a10-s10", .data = &socfpga_gen10_ops },
+-	{ .compatible = "altr,socfpga-stmmac-agilex5", .data = &socfpga_gen10_ops },
++	{ .compatible = "altr,socfpga-stmmac-agilex5", .data = &socfpga_agilex5_ops },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, socfpga_dwmac_match);
+
 -- 
-2.51.0
+2.43.7
+
 
 
