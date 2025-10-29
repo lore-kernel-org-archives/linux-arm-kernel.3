@@ -4,110 +4,219 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50275CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D135CCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rXOxw9abppVW72r2G9mcK4qfD31cJctAqW5UU4vUmMg=; b=5BD8Vva8Ecbfb+0JPzUHQBNm25
-	ZUpdSzPkdClMWVa3Cq37MD+rG5zbqi9y1HcuUBwZLQLiDCO5xyHSIL791tVi+ECg5DE2dIaCwU+HX
-	rjXeHWlJNHQ8LoE67DJKaVUC+tnSsquO5f7yyp2QqZ4V6ibpi7nFkIQ/QmnQUQ4PvPTp/YqIs1JX4
-	z2TFJfR6Nah8sbTT8FBFUzhdyi5UnveVFSe8cfdSfTGLlSPNqn0bqAZsFoLMyowmHMf5GVR4tu+/X
-	IzaTfrLaUFIJTuFgqwm17Xu6UGfRg+aDw6854bQ3AJSp2kDlX5JAsvYOznigIZPil7f/qotKz/mzl
-	oHrBRKLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=; b=VxSTdCMI4bFB7KvQ31GfHJeGr5
+	x5LrayOpUA7otA88u8XppK/7RFy7JEKHc93/yevf5SH40XPKNht8c1j8xcaaL6tslXpGpd34aa6fT
+	4R9gtp46P8D3I7/w9ei+z23NsVGdB5vofUI8e/12WAta5Ts8stm51cYAujNKzGRgMWt8mKW2cn/ze
+	ncztOWPxr3SpiCGwyM3ECXP6ljKJmJLDVnUaHg0EcMMZm3i/xIzKyj0YoRotKi9mOoWtjV87B5uuA
+	DjKS+DWu8dGXATWu7J7iQASxL8AA6ILbSq5X0HORhBUn4OKJMkrxcZy87G0peA9621GooobZRq0ub
+	MVscMCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzpd-0000000HVh9-1G93;
-	Wed, 29 Oct 2025 06:38:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vE04J-0000000HY0k-262S;
+	Wed, 29 Oct 2025 06:54:03 +0000
+Received: from esa14.fujitsucc.c3s2.iphmx.com ([68.232.156.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzpa-0000000HVg5-3gBZ
+	id 1vE04G-0000000HXzL-0Seu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 06:38:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36C4243F69;
-	Wed, 29 Oct 2025 06:38:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 613EEC4CEF7;
-	Wed, 29 Oct 2025 06:38:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761719930;
-	bh=fX3TRzUQYUf1han5LmQiXqOpSD9A4DO71dz9uUOS4is=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HJXMi3Hgw+/3aMPfeEVJnKtQaiwt7w/n22xHs8HAVtqgIX0YWbxbwQSFMgZ77MDpI
-	 A75tr5v27T2AjaUGzR/6wv3rP9884/uQyNRj46ptNA2AlauzZ4+UzMY1d5458XqvWz
-	 LpGM0AmxnA4GxSlIQ8kbDzdZrtCuKbuyU+N+ijx/zGlPgcNCwSJUo/klIeEoJV85cS
-	 9/xeKQq9K1QC8LFvt+OxUCjjqg0Uln6NyNGriRZ7PjvmrC2BW6PdGYbeBxBCmBPy6/
-	 GNAkj0DqdGTrS2evq1oNBTklF8B3iTkDz6Purl1IU7AZ4mfSPt+J5IBLyvpw4JqSp2
-	 Znims/ChXSgwQ==
-Message-ID: <068e8e8e-2968-44e8-8769-be0dfe1409c2@kernel.org>
-Date: Wed, 29 Oct 2025 07:38:45 +0100
+	Wed, 29 Oct 2025 06:54:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
+  t=1761720840; x=1793256840;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=;
+  b=WBDuVGchTMW2vQ/CIV6l+m8yw2cl/FeXTw4BcbiRzPANsZm0x34IYisa
+   nX9KE24kGpEbmv9HGWFvVZDyQbYKn4PP1nEGIsymrJ4DL0zleXlzq4noY
+   Y+OtI1nPzPRJP53uM+CM2FstXUriM84suAIR4d7y26vsYgvng+O3GcDBZ
+   geVGLhY9uEY5aWgAm9k/4/kjUl2XIe1O8+r4lIKhZVzM6DzU7+SpTi9JD
+   q2Ajmy8cS37xciIwnxMMUBjqFERyTW4qwiIfpQjg+YF7I3NEqxE9TUY6m
+   ot6QWYHUdLXYDxgfMhtZen99eAsSoC8mITthq6Dm38vkI5D/HiX/YXCAt
+   g==;
+X-CSE-ConnectionGUID: pLjTaFR8Q8a6IHScSToukw==
+X-CSE-MsgGUID: IGirdZniSyGKlIsJwNBfIA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="171971169"
+X-IronPort-AV: E=Sophos;i="6.19,263,1754924400"; 
+   d="scan'208";a="171971169"
+Received: from mail-japaneastazon11010015.outbound.protection.outlook.com (HELO TY3P286CU002.outbound.protection.outlook.com) ([52.101.229.15])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 15:53:40 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kg38csqfZW4/wf4r/IKIrIn21pYSkj34565TT3ps2pS94J1nRBCnHVhpvcLm6ezCeTPpMIcVwKn7/h35XvpWayt9RUwVuJ00G6/WY7YwE1isRILthiDKyxwUlmYDfNiyO/oNVrA4Z7sH0f1yBH/LXBkCq3Rw5SQAe4l0KKX1fYdrpLmJBzf6FpaBATqQxsJj6duv93qBoOC5odRvqT1vdhbUKue9SHG0oaYNE8yuwlyOL1YeoxX6RQVDUyfPOnxmY8AvCXxDxXxlaUXhypggzKPjMHlLiLNjn6Ds7/syKjLEAVsqSKHh+jSfwhGEKQlOTAk7Q2p8xWYOmJOQApXhiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=;
+ b=cEqXax4fh42Q3EOnbzM9b6hd36h5wK+mVCTpK9TF7JXm1Eo1vu3IrZ0g+SdIh4mS9ECPTk5/CdVMkHtmwwH4/HBwXr5wEMUCPlJFs4KVDYdwbZr60NXgGDyx0gAzZg3SeqMB1QzegMhrLLDce2hI9kGAYfTfo3FBFh9KKWjuwqHF5L/svlwa+8SqKHSDMqw+QMLMzawkOQVtrGv/urz6zHiGH/uHzSZw/7uE0C3GtDa4JzVxqiE7eFLM4IkJqVxjuR1rtSMfs//z1c7apsvB/4/OUIcsR8TewNXKlIartrf7LKv50telstbEWiRm/gYnXSqN/+Cc2wqLTgYriUhLSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=;
+ b=PcXxrfGRxXwrn2PHhUV9RPFpTtY3iMDx//fgxOIvjntshHsRjAZCrqrMSR+0RsDWx0OndqFnwtt1PDnSxUmHYCSzaYP5OGqtGttYHkp5IfCGDVBuy/y4Mk+SGrQBSfED89oaW3beSOFrRkGKGoLnT9Nz4iN5pgjTty+JC90GnXf8PsmK1CENj2UPb9hzxUSU6dT/obWIVMP5eeufj0kqWrTKRjFCEN1D0JeEKoULfT4yz3RdfVLMfIVpxW5OJ3LuMRGFyqFZ74ysjREUOgKmCoYPNWmUTTEy9EYO6MvrxGII1/3YKIkbHPO8bLkGrciCwm1cw1my85jW+Gm4RWQgtg==
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
+ by TYCPR01MB11069.jpnprd01.prod.outlook.com (2603:1096:400:3ac::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
+ 2025 06:53:37 +0000
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9275.013; Wed, 29 Oct 2025
+ 06:53:37 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: 'James Morse' <james.morse@arm.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>
+CC: D Scott Phillips OS <scott@os.amperecomputing.com>,
+	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+	"lcherian@marvell.com" <lcherian@marvell.com>, "bobo.shaobowang@huawei.com"
+	<bobo.shaobowang@huawei.com>, "baolin.wang@linux.alibaba.com"
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
+	<xhao@linux.alibaba.com>, "peternewman@google.com" <peternewman@google.com>,
+	"dfustini@baylibre.com" <dfustini@baylibre.com>, "amitsinght@marvell.com"
+	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Dave Martin
+	<dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>, Shanker Donthineni
+	<sdonthineni@nvidia.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>, Jonathan Cameron
+	<jonathan.cameron@huawei.com>, Rob Herring <robh@kernel.org>, Rohit Mathew
+	<rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Jeremy
+ Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>, Rohit Mathew
+	<Rohit.Mathew@arm.com>
+Subject: RE: [PATCH v3 15/29] arm_mpam: Reset MSC controls from cpuhp
+ callbacks
+Thread-Topic: [PATCH v3 15/29] arm_mpam: Reset MSC controls from cpuhp
+ callbacks
+Thread-Index: AQHcP5gJxNlR2hUQP0GH9e5axTQbTbTYwhKw
+Date: Wed, 29 Oct 2025 06:53:37 +0000
+Message-ID: <OSZPR01MB879824B522CCDDE98F30972E8BFAA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-16-james.morse@arm.com>
+In-Reply-To: <20251017185645.26604-16-james.morse@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=203738a3-f7b7-400a-b517-c0ad00bc7062;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-10-29T06:52:45Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYCPR01MB11069:EE_
+x-ms-office365-filtering-correlation-id: d04aa85b-0b02-4061-dc5a-08de16b7e2cc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|1580799027|38070700021;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?MXg3QmdOck9iWXdnVjRRNjdTTGJIaXB1UEZSVEdta0FZUVBOZzk2MGha?=
+ =?iso-2022-jp?B?blJyb2k0bHh1cXRaSk1vWXpxa2d4bmpVczdHSkhZaW13bzRpYy9WZmlw?=
+ =?iso-2022-jp?B?NDl6R2xIS21oaElnR3pJYlFzMVEvck5wOEN5Y2ExRzQyem1WQnIwOHpM?=
+ =?iso-2022-jp?B?YnMzWTNFY3QwTVZRaXNmU296TzVicTR0aExjR1djQTFBTlE2WWpCQmsw?=
+ =?iso-2022-jp?B?ZVVGSDE4MTZMcG9nRVVBaVA2cjE1NVdoYnB1NDBKTlV1R3lZNG5sYjB4?=
+ =?iso-2022-jp?B?NDlSbjdwVGM3bXE0UWw1cUxORjdGRUZ4UlFYR1NaMzB5TTNUcStXUGRS?=
+ =?iso-2022-jp?B?KzRWMlhGZjZWOWpwaDR1a2ord0tCTFpLcWVJektVd0hDaVFTRjhJWEt1?=
+ =?iso-2022-jp?B?ZUQ2dTVET0d4d09IRWJjUW9jamEvZjNsaHA5WGtjVUhjbXFTeVdTM21Y?=
+ =?iso-2022-jp?B?SWZFZTB2bUZRVnR6eFYwaTg3L2t0SWZPWUV3TUg0b2F6UmMycEVDQndE?=
+ =?iso-2022-jp?B?SEpTc0tUUnR5cERzQjd5WXJzMW5FaVFJTEo1MHk1MFNxZDN1V0pPbGhI?=
+ =?iso-2022-jp?B?aWE2NEVJc3A4MTE4eDNxemF6eTZSMFMzcUdGbGZqWVplM1kwN3pCRzFk?=
+ =?iso-2022-jp?B?V0QwaXBSazlvUkpad0Y2TjdteUgzUEovblBvQlByYWF2dVFVS2MwL2pV?=
+ =?iso-2022-jp?B?bGFjRkl1WE1iM29HTjJqSWhvTGNpNHVvcmkwY0EwWlZJd1BGVjJTaXFM?=
+ =?iso-2022-jp?B?UVE1OUlLakpaYkFoYm9lOGUzS01VTkV6c0JmazdhZWtHR3FpT094VTR4?=
+ =?iso-2022-jp?B?aG9aYmhGSHFpUFk1Q2paNjBOKzY1T2tidjk5RVpLeVlPbzdScUN6Q25i?=
+ =?iso-2022-jp?B?UThWQTNTRkFUaVYvRGt5S0JmSjRsZXE3Y3JHUStEZjc1QlhUQ0JJdnA4?=
+ =?iso-2022-jp?B?SU1PQXNLbS83aGlxQm1PNWg4Tnlia2F1ei9oZk5tZEdxclZDODJ4NkhP?=
+ =?iso-2022-jp?B?V21SakE5TGc2Qktoc3RpYkhOc01xTTJDMUVLT1FFR09BVXJ0TFQwMXRl?=
+ =?iso-2022-jp?B?SmNVdnFTdVg1ejB4YUJEeVVqWnNSTWNKMCtNTHpBMG5acWk4c0lFWFNJ?=
+ =?iso-2022-jp?B?YnQyV1dzdzlYM3Z2MGdCOHMzZy9tcHdwYlhvZHdsM2dVUWdlM1g3ZXBK?=
+ =?iso-2022-jp?B?Q2hNSEk1RGdPSmV1OUJXSzhOeXhLYlJsSDF2NHg4MnFicVFRTjl4Vklj?=
+ =?iso-2022-jp?B?dWF0cmx5R3JubWVyWStzOWVLT2p6WS9ITjlvRmhnQnJlK3BKL1Z2OGZY?=
+ =?iso-2022-jp?B?VjNEY0hvbmIvY01tMS9RcGZXcHB0cTlKQnNRMWdsUXlKY0hmakd1S2Jx?=
+ =?iso-2022-jp?B?TllweE1DVjBBSWZ1NnREVXhENWxlVTVFN3MrNkZKeVRWS2psWG5iZmhy?=
+ =?iso-2022-jp?B?UnIwcmhpeXBMMmI5d2pNU1R5eWFyN3RsTmk1eXE5VXpkdmU1L1I5NVI2?=
+ =?iso-2022-jp?B?TEVXcVpsaWt1RUp6RWVTZUlNNW1BTC85NllKYVJkQitzVWRzeXoxNURL?=
+ =?iso-2022-jp?B?Y1VSVEVpWDczRUdCQWU4YWd2RnZOY0JpcE1DdG95YzNQRkRpQmhyd2pU?=
+ =?iso-2022-jp?B?WDlJOEh1dk4wYjk2T3JmNHV0czZHMTBHM0owZ3RUOGVvMlpQQ2JIeS8v?=
+ =?iso-2022-jp?B?OTRKQkFLS0lLVVAwWFh5cEQyUzUyQ3VENlVnbWljazdqUm5zYlVsQTRq?=
+ =?iso-2022-jp?B?MEEvNFRwcHc2c0dRZUlKSC9uMS9UdlZMMVRxSzRYOXRuZUV0cm1iQmpo?=
+ =?iso-2022-jp?B?bVlPRjhJWTRLUDFOa3RqOURtNUNFNWVZWEljSytzTmZiU3hWQWVvbXUv?=
+ =?iso-2022-jp?B?a3MvN1lGVUF2bnMraFJ5MlU0VEFFTU5WY2c0TGh3c0lRT0UrWnBrWkoy?=
+ =?iso-2022-jp?B?Q2tIR0U2UWV5RnRaWFJ2M05xdkVOWU85b0pZNmVaQkJ2Z1BDT1c2QWh3?=
+ =?iso-2022-jp?B?MFpFdXR0c2RRcUR1Q1JoOEFDeUVEWWZaSEwzZm9QdEVMNGFvMkdZOHda?=
+ =?iso-2022-jp?B?cGROa1J0WkRRdDRJcXB0RVhXMFFrSE5QZEFzUFZpUE9idDBLOE8vR09W?=
+ =?iso-2022-jp?B?eGJXQ3ZuWWIvOERvdzhnZ2F5SHpWbjIvUWZFcHV3MnkyMjR6S0xNWHJP?=
+ =?iso-2022-jp?B?WlE4SW85R1dKeDgrQTFXS0J6TzFITTY5eThhUkR6Q3daOCtRQmFBK3Fo?=
+ =?iso-2022-jp?B?SEVmUT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(1580799027)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?L2dCM0d1bGx5dEtFbHJTbVR0NGRtUWhLT0xKdHpPYlF6R25kYmxqU0d4?=
+ =?iso-2022-jp?B?UWtIcy9qUHFaNDNYUlE5VUZTZGV3WFRXbU8yOXBHL20xOTBzd0ZaaHM1?=
+ =?iso-2022-jp?B?UklrcEFWTEE3STM2VEpFNkFSazkwWkZpc1NBSTJMazBzYkVZclptZ0wy?=
+ =?iso-2022-jp?B?ZmdMRm8rTmxrWE42VmkzSENpSDVJNGNiZmxSQ2M0ZmU5R1JqeTFma0VN?=
+ =?iso-2022-jp?B?YlY5UGVwclVtUmRhUFRDYzlQU0JUL0I3ZmkvWlpHeFVPbDJ5dFJxUEhq?=
+ =?iso-2022-jp?B?R05xVEJXOTV4c3NwYXNjY0VZYU1oTzdPdUV5YmVUR25yWGZKeGZud2tN?=
+ =?iso-2022-jp?B?MHFnVnAzUkY4VGZZc2c4Q3NHSTFuTEV2cC95di9OZHc1MTZEUEFDMnV4?=
+ =?iso-2022-jp?B?VnNZcnhUSVkxelo5STdrOVlyWWU1aUs5OHZzelFzSG0rOFB3T0RGQTUr?=
+ =?iso-2022-jp?B?RHJHU2VqcG1ZQmxFbE91bWFrOUZJcmcxWWRPSGpzKytqNVVxREovcFVF?=
+ =?iso-2022-jp?B?N3ovODlDNlZxZTYxdTJFa3c1Qi93UjVnczFiNTZKT2IzeXFWcHhFVld4?=
+ =?iso-2022-jp?B?aVpqM1U2OE1ZMUQxN0c1R3lsZnhZWkxEcTkwZ0RFVVRtSFJvR1NMY3Iz?=
+ =?iso-2022-jp?B?QzNnTlovWENmUzQvb1ZDOFJzRGxDYktLYjhQQ0lKZlBUTW9LR3g3OWw4?=
+ =?iso-2022-jp?B?RE9BR2l4TmFnZTN5cGljT2VtdkNzeHQrS3A4K0dXRkJaOVcrQnN5ejJo?=
+ =?iso-2022-jp?B?YlNwa1ppQWZhRW5FMXRhLzlLZCtveXAvZzUyQlJQYjBENEZFekZhdU12?=
+ =?iso-2022-jp?B?UGpvODN3SEtYcnFCdE5NVFlYTUJWT1RVcEh3ZDlyd25CeDArRE1zVmdl?=
+ =?iso-2022-jp?B?K29EZHQ2WFF4ZlM0NXNEZkk1bmNIaUJ3OHVzNGM1ckRucE1ncHFxVmxv?=
+ =?iso-2022-jp?B?Rm1UZVhPNkU1WHVwdVlDeC96Q1M5R1BvdlhCOFFpVVdwY2plcFJJKy9M?=
+ =?iso-2022-jp?B?UTlyb3RBYlFmTkgzaHMyUWtISjludUFJWXRhZllyQ09HZmk3RVpTazBG?=
+ =?iso-2022-jp?B?R3FKaGtRRklaYkMzQjZlMkRMVmFLRDJMU2lVN2pJL2RBRzJUZU50T2lR?=
+ =?iso-2022-jp?B?N1lCR3BCNDcraHFKK2JkZ05oVndTcVhBdUdNa29yWTVtMEp6MVFwcVN0?=
+ =?iso-2022-jp?B?eFJ5eWEyR2NHTlp1SFo1QjhuakpCaXNGTHBKeGxjRTN5WHNtazBQQzhs?=
+ =?iso-2022-jp?B?bUFsa2xXb0V4bVRNMVVFSEJ6UHhYSldVbFNONmJjeXJWZ3F2S0Q0U3hW?=
+ =?iso-2022-jp?B?Uk5VRWZtelI3clFIYytZZ2ZDV3dOb0NpMTVnNC9vTjFvZTB6WlEydzdt?=
+ =?iso-2022-jp?B?b053RzFza0NmeGhtK0tnZzFqbVlYK0J1SmpqbGh4K2prRXJyQS94SHFB?=
+ =?iso-2022-jp?B?Zmdmc3ZIYjlwNU0zVHIvVFd1NWVYVzlHTFlFbkZ5NkNVWHFOaXoycm9y?=
+ =?iso-2022-jp?B?Nnd2azQyQnpRZXhsd3RWU0dSeTROMFpmR09nSHp3RGl6RGY5bTJEcENG?=
+ =?iso-2022-jp?B?QlBhR2NjUmZibW1NV1lKeUFoSDV2Q1BJZllMYzNrTHpNN0k1Z2hhSXU4?=
+ =?iso-2022-jp?B?NE5oeHY4M3lGSTdpOWNlUlc2ZXA1azVMUU95WFI1TnVQMWZZMjd2ZnFK?=
+ =?iso-2022-jp?B?eGk5cUNBVVBtNXdKSVZqc2NrMVg3WTg4bzZZblpMbC94bmNwbll3SS93?=
+ =?iso-2022-jp?B?SVg2R3NUeFMrZTVGVHVZREU0d292ZlpqbWJCaktPYlZ4NlpNd0JhUW9u?=
+ =?iso-2022-jp?B?bGR2Ti91bmZIUU91L3ZhSElscXFvbWwwb0pqZGE5MmxzTEdmWkgvVWNT?=
+ =?iso-2022-jp?B?Mzh6WHh0VXVSN1dwNnFWQVJsd0s4SlFKaWZsWGxoT2d5UVJFTnM1UkRp?=
+ =?iso-2022-jp?B?dGREbmUrWTlWOFdmeWo0QjI1bnRYOEVHU3hnQWk1bnJJdG93OStKTHU4?=
+ =?iso-2022-jp?B?aEJoSFdvWTc2UTArdVZFZ0JjY3UvNnhVSmwybk9tVFdMUm5HL2laS2Vr?=
+ =?iso-2022-jp?B?ZmFlcTJ6M1FJdThVTzVheE10bDNhanRGU08wU1haMi9pZTBweHEwbTUy?=
+ =?iso-2022-jp?B?WHNrd2I1MXQySGNyUUhmS3l6RGF0Q1c1WEZDdk92cjZSSGdKbVA4KzFG?=
+ =?iso-2022-jp?B?UGc0REFtNzJaMFFMY1RCNTB3dmRvN1NmRDZ5R2tVMDI1ZW9NdW1SRlFv?=
+ =?iso-2022-jp?B?MzQ1YVBzZVZOYm9zSjZMM1VxbDN6SUp3YnhzcGlEOThMSytycTl5MnZB?=
+ =?iso-2022-jp?B?WnhtSVQvQTh3dG1XRWJSdnQ5ek42azkwN0E9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: clock: Add identifiers for VIIF on
- Toshiba Visconti TMPV770x SoC
-To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
- <20251029061344.451222-2-yuji2.ishikawa@toshiba.co.jp>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251029061344.451222-2-yuji2.ishikawa@toshiba.co.jp>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: +OjBRr00IXzUQZUu2PzeMTWWcm54BvkEcSosTn985k8IBgTTxOC1XRIi8BbOVWxNQ7yCjcKE15pZJP7P6MK+aJyvvZbyeoLwMp5fAtjC71/X8XSECnA1kL/HHGerthNWhrLrgmXXHI8ITtpJxyQuPjlitsyZL+nCx9m/ZAqNVbDhmuks2M+Xv02kI7DHMvg02S0vYFhSiweoKp/xcUAagPVa3OGm0yq2WMGiatqu2VVSC6PuycneoSu/6ONsFwTaSiyh/sXcHnFuXY7YT6S72cuG1ZgPPm1a2kHDim3td4Ibrl9pbnIYrDWfi2AVCKouVvgQCpAABq4ZOUYvu8GTzS8pKTIk3MfmaBhJikLKN2mFCAV8+Jb+A81E1pnrmY06/aobOcZoE9Y9QVUxDRc8siU8cVbYKLcXX3MYyH4YX0GJqZCsY/pN0Ihs+Sb4jkpl53DpKdBVtGqV27eHPhdFjPZ4OoyUxXTTNUaQmi46JcOx0noR9UJlH7jYsuSsYl+hPvlJG8/X01o99b6AK85ZOg5X7Cc+t6Q+zE4FbOZqcW7dBg7qWFlXL3paOhXQMHA4Aitbfx7wGaH1mfa9gD3I7IR7LbOrYujGIs/1HeF5IkC3M4NlgRA426tb7nngQnDU
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d04aa85b-0b02-4061-dc5a-08de16b7e2cc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2025 06:53:37.1981
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jjU/dCseQPZPT5gFQQCM35uSeJRJ09YQcEU6ZL59HZQMtZ4/GsTLSNlt/XzUadjYhTi/KuXv3dF4f5gNLKJDU1oh7c02d9jC9WGoBceWJE0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB11069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_233850_960333_F9A22050 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20251028_235400_587096_0588C65C 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,35 +231,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/10/2025 07:13, Yuji Ishikawa wrote:
-> Add clock and reset identifiers for the Video Input Interface.
-> These identifiers support two instances: VIIF0 and VIIF1.
-> 
-> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-> ---
-> Changelog v2:
-> - Do not modify existing identifiers to avoid breaking ABI.
->   Keep existing identfiers for VIIF0.
->   Introduce new idenfifiers for VIIF1, following the same naming conventions.
-> ---
->  include/dt-bindings/clock/toshiba,tmpv770x.h | 15 +++++++++++++--
->  include/dt-bindings/reset/toshiba,tmpv770x.h | 10 +++++++++-
->  2 files changed, 22 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/dt-bindings/clock/toshiba,tmpv770x.h b/include/dt-bindings/clock/toshiba,tmpv770x.h
-> index 5fce71300..ff4ef1be5 100644
-> --- a/include/dt-bindings/clock/toshiba,tmpv770x.h
-> +++ b/include/dt-bindings/clock/toshiba,tmpv770x.h
-> @@ -141,7 +141,10 @@
->  #define TMPV770X_CLK_PIREFCLK		124
->  #define TMPV770X_CLK_SBUS		125
->  #define TMPV770X_CLK_BUSLCK		126
-> -#define TMPV770X_NR_CLK			127
+=20
+> When a CPU comes online, it may bring a newly accessible MSC with it. Onl=
+y
+> the default partid has its value reset by hardware, and even then the MSC=
+ might
+> not have been reset since its config was previously dirtied. e.g. Kexec.
+>=20
+> Any in-use partid must have its configuration restored, or reset.
+> In-use partids may be held in caches and evicted later.
+>=20
+> MSC are also reset when CPUs are taken offline to cover cases where firmw=
+are
+> doesn't reset the MSC over reboot using UEFI, or kexec where there is no
+> firmware involvement.
+>=20
+> If the configuration for a RIS has not been touched since it was brought =
+online,
+> it does not need resetting again.
+>=20
+> To reset, write the maximum values for all discovered controls.
+>=20
+> CC: Rohit Mathew <Rohit.Mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 
-You cannot change it, as explained last time. If this is not an ABI,
-then in separate patch drop it (see examples in the history for Samsung,
-NXP and probably many more SoCs).
 
-Best regards,
-Krzysztof
+Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 
