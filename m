@@ -4,97 +4,219 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F36CCCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 07:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE1ECCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 07:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w7WzjBbcIkMp9vE4EpjCxo/Q8IBE8WxTrpS4XkHUl5o=; b=JWdNAtA66elJinrgJCJlB1PPOt
-	65jXFFIima44gVj9xGsOXXHSWSvQHLYxb5kExz85G/fQc3SeJeWn/oRMa8RaXL0IFCUNyz1qXFScR
-	FNIJZNGH6TVPHhEHfSnEkip2bVpz8Wg4z+w2eWs8OmRldSmC9zosL69xmU8JaO+2VLV3o3rsnO8K3
-	0bFITSbKeHfK5o46n1PxIl7nPA5TXQM6qEWnTtlY4h6a2/gD+hYN45O9TrFOP7mdMY2HWCUAvpqVA
-	EtdYMbPoUVIBWXIf6DE5eBPvGw+iZnweX/CGRmdcFhoH6DAIt+tkdX99fxXUB6JM0mdhPqi8JFdBL
-	ft5ca7fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nMNjL1LLbp3shUgElMFttHTPhCLXpivJX797As2fbeY=; b=omHNZJmtuAoT+d1b+PRKt2FmOt
+	EY3Ud2u7FBL5fnSRvA3y1F1B15VsxxtypO21DXwBSy/wX514Cbd1WOpoPuuOLQO1nkbK8MncJ2hL/
+	8XMmCUBKO28/vz5j3jS1fQ3KocA4yNaMUhV7r2yoAgVBIh29tdmDaSZQakCVERsvB5peWLXYPt26R
+	Zo+BA4KSnMhvi3oRsK8U1RJk5rCHn7pWwTLUy2RzHL30sFuE9PwZLfPGa82hUf/amdZuMWD3AWtoB
+	dhT5/x8G1lWtjk/CZA9KdO1qlHc1wqdkrNDxLoPKwCMa70Wi5XJwPt6/lS6MY4JMpWqQydcUkD3GA
+	7nt44tOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0Wm-00000000524-0dXK;
-	Wed, 29 Oct 2025 07:23:28 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1vE0Xv-000000005PR-3EOh;
+	Wed, 29 Oct 2025 07:24:39 +0000
+Received: from esa13.fujitsucc.c3s2.iphmx.com ([68.232.156.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0Wj-0000000050g-0HDG
+	id 1vE0Xs-000000005Ng-2Jj3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 07:23:26 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7811a02316bso5095672b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 00:23:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761722604; x=1762327404; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=w7WzjBbcIkMp9vE4EpjCxo/Q8IBE8WxTrpS4XkHUl5o=;
-        b=D9JwBumHmP+uXHswieDa6HDMsC6YKmkBH13GDgXwdQG/pc9vJx3eY3DPAnXVNLX3KL
-         z0h66BdnpqI/VSf3iOwQ0HMaRTkwV3frvm/6GpOefNHO016YW5RAnTOADLjmIItHJrgL
-         ydQ5I9w/N6fqy7MdEVy0TDyAMfbTQuqn5cm/YLH1fVfQdYX/3sswCfybPdEfI689sEKE
-         846fOBYByNxKyp7Y24guWVQ3F5u8LDQDR3tnAvx97H5QQWWpqodA+5+iD6C4wXV53Q8R
-         yKaYHwaX4RPGPR9DztmxebymYc8RO+ARI2pDb+1Ck+2ARqKUlu80o/p9luA6nqHCHO/+
-         O0qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761722604; x=1762327404;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=w7WzjBbcIkMp9vE4EpjCxo/Q8IBE8WxTrpS4XkHUl5o=;
-        b=eqbh6F5O+ufw+y6ljw62+l8ltyXIWlfaGZG647gwNOeJN5eS+AxFlnI4HzT6CYTjZz
-         XRqhuj71o2ynfWP6K9McfaYfvyxS4jApKoqA3UEA03BSooEvF1vTgvmwXwPAQu1KHb/W
-         nBKfiCFNIRknQQRaJBkZvIBYfWqv2Ca8xQSCsu73bBgFNY4iXyzOkYU7hqRaw+Qod5Ot
-         h7Ar5nMlEZEI3BaUqTXjoDasPL4U+8+rF0xb2juiJGdXDmJj5TbnisatY8HAJK2j86Re
-         ZzYepK6/b6Oq3uGKrWM1h6qjIGTJUiZzbfYH5qlAxc1fDBikIqDZ9jvlawLGu/Gqe3gO
-         NeFg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQbSfx6quhoTADnJAta1eUTUtqU8ENJ+wJw6/C8hNDE9Xe8KxFUtUfdoD1xQqZwnqBoMiThe2sZVOM2zsKgrGh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyd/220E4d8lE4q2vUhJYgvSKQj/JAl3D9pJf8U4wfQSKWXNIjp
-	swTpuNFaOo6k32oVP8neZtKiz5e1mLlcaD7WL8OEz3vS58Iny3g0P5OD
-X-Gm-Gg: ASbGnctBVA9H8SauKT+za4ThbCzoaXACxmEMeB2msnaRHvuv6DSDoyLELyiBGMT7hIt
-	m/NeJ0jheDjvDa3hrDUHpBJd/p0w9CFfjwlOiSAm2llrQI4HtO0oaDXtEWj01KyZTd85vGEdzx6
-	80xB4d8DS1KmIc06ukYDTZYob59UkpoyoVNh6LmYKtrnH0NoEaGdl66pNp8yAcE/pfUutj4oVTJ
-	QlfhWLjF/NbQcdWc1VIou8GwvB08ZmkH+1RyYyQ5IMa/jcpKEU625w3u1atVsYsZsfKGjAEnejy
-	z6LpotKtd/3ptT/Wkqd3yYjBKT+fBaDm7/HF1r4bGts5QRftqAcEbTNH7IBi69mnXS9E1UhwVk8
-	K+g9g3P/oMLPX6t4yhMQO8uML1oK8Ohrh0nIvGu4bs4Tw8af3XLa9NB3MA5DtjKlkQvhGrq3dfZ
-	YcAIOrLhkP5suBm/skXhylUw==
-X-Google-Smtp-Source: AGHT+IFyoTqxEaHdHcYwG2j5PoXFVoRtIyJkYmXJKSPfYslsy5ZMiSdta/UGyBhYN4fJfCWD+fCbVA==
-X-Received: by 2002:a05:6300:218c:b0:341:6c8a:5218 with SMTP id adf61e73a8af0-34655401460mr2197446637.56.1761722603774;
-        Wed, 29 Oct 2025 00:23:23 -0700 (PDT)
-Received: from localhost.localdomain ([124.77.218.104])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-b71268bdb2dsm13021005a12.5.2025.10.29.00.23.20
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 29 Oct 2025 00:23:23 -0700 (PDT)
-From: Miaoqian Lin <linmq006@gmail.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	Dmitry Osipenko <dmitry.osipenko@collabora.com>,
-	Guillaume Ranquet <granquet@baylibre.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: linmq006@gmail.com,
-	stable@vger.kernel.org
-Subject: [PATCH] drm/mediatek: Fix device node reference leak in mtk_dp_dt_parse()
-Date: Wed, 29 Oct 2025 15:23:06 +0800
-Message-Id: <20251029072307.10955-1-linmq006@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Wed, 29 Oct 2025 07:24:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
+  t=1761722677; x=1793258677;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=p9coGN6pOnR+VLLxOi20k7hlVVaJHihD6BeKmvoJzvM=;
+  b=KNXTtIOYsvd95VUe8BAVsjTudrV3Q/NmrPPX4I4UXvygQKJXsFIQ68lI
+   OKoOOlygachLfubzgXN8biZF5QZUvr/vfg9PGFfhxwYN9lR0UPqv1SJrO
+   pQRM6WvQqmIBMWO7xCsRMqbRU8LtdBRpbDHDzkVJaTdZ09qx3E9cWn2oL
+   oeYP2ZaoL8ASuJUhuejK5rfYHeP4PfxY01hfpttrfrDOWQarlDeyrE4nf
+   PKR1sFcWxIcx1mMEVqEAv4voi/IprB/jt99CbhBs/CUNaTw5kePeFQ4gt
+   tvPOjg6Vtgs/y7uRYIol4dkFB1m2+I8+ARDV3L6C5OxjwBMr1bUVkFK1l
+   Q==;
+X-CSE-ConnectionGUID: uFkatHXLSpyT9Cd9W6udBQ==
+X-CSE-MsgGUID: dT8uuIx/TC+fpDNUEfS1KA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="171924083"
+X-IronPort-AV: E=Sophos;i="6.19,263,1754924400"; 
+   d="scan'208";a="171924083"
+Received: from mail-japanwestazon11011045.outbound.protection.outlook.com (HELO OS0P286CU010.outbound.protection.outlook.com) ([40.107.74.45])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 16:24:24 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hqfU6JVWK87YFtZP8k/WdfasfG8weI8STT04rTvmdU0/Im+D4CrijD399ao+Yo76Mjd2jtncxHOXlu9hW6REOLDxyUd4rNLktgEqiZgfWsExRv/VOIfoIsfWFKxLv0xbM1RebPhrOZrYOCkYevWUA6QPdyvsIk8vbtyu/u2/EG+2YdoA1pjUP4fkFG+xl6QsYYlxyqgOO5CQOs8OlVDGC5ZnbumzCM0qb4Zd4bt4iAhQ9KTQV5zv1AjV5etpfgzQ8AEEO3FTtMaWrLhM9gRiPpzUEcUonVaUmbFEjqKwVJ9/OlospoOqOPAF2QSKozWmZ4o2WjxtgVXIi5yvZTum6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nMNjL1LLbp3shUgElMFttHTPhCLXpivJX797As2fbeY=;
+ b=LGFemNTIOyoW7pH8Ed6UwDjUxbzMElM9mqN0qiuCS6lWcCQ4pjOuHdqJJ2dzFVn2lxsSVMY0pXe2vLeL/cs3zN/cE9DuM2LBs66zvO/pUR+gfvClpxQiGnp2iTrJHcOfk5vhGIr33JL9uTnWt+CStdsJkmts0aSSzxy07rkgFBAi5u/yaL4Wr29WWyZvnw75ugfPIBlU0WpZSL3fO6Z9G8RQOaLoTVWSfJcKEyT2Bm/heN4U/2fSOMYGgtUubaEtSr46uqFJbN+JKCyh30uybHvfpLPT4bUyDWa/ftuZemN0hh91k1fODCF8tFXmVEjdNykJzm2VNws5BG3tWtrzLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nMNjL1LLbp3shUgElMFttHTPhCLXpivJX797As2fbeY=;
+ b=TCJlTfKXCdJra3kIC/eIUvfAaZsRj5P5Y06TOfK9nQubQtFhQVyjtk7iNFsoUPu7UakqL7xkHdM341pthENbr6qEpiKM7h4t51gGcidkLfan8Cxkh1ZaNyWsouDShDm2oM79WnTcpqUMO3ELS9ftFcolENSd5XzktdptW3nq8bf4NwqAAKimX89DIq+tJKLSsWziXbePI4j2wemHB38BANgJHlAc1Mvsavbr4zTQoza0j4/+rrMHbAQg85XvKhGSbi+N19nE8vyRO8A6RYMNX8dwMvMeqDy/hlxZjEPZFHFka7GzOrIZWnys9vQ70rDsUm0aQIsUWos7t6yoUmdl/w==
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
+ by OS9PR01MB14270.jpnprd01.prod.outlook.com (2603:1096:604:360::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
+ 2025 07:24:20 +0000
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9275.013; Wed, 29 Oct 2025
+ 07:24:20 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: 'James Morse' <james.morse@arm.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>
+CC: D Scott Phillips OS <scott@os.amperecomputing.com>,
+	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+	"lcherian@marvell.com" <lcherian@marvell.com>, "bobo.shaobowang@huawei.com"
+	<bobo.shaobowang@huawei.com>, "baolin.wang@linux.alibaba.com"
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
+	<xhao@linux.alibaba.com>, "peternewman@google.com" <peternewman@google.com>,
+	"dfustini@baylibre.com" <dfustini@baylibre.com>, "amitsinght@marvell.com"
+	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Dave Martin
+	<dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>, Shanker Donthineni
+	<sdonthineni@nvidia.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>, Jonathan Cameron
+	<jonathan.cameron@huawei.com>, Rob Herring <robh@kernel.org>, Rohit Mathew
+	<rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Jeremy
+ Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>, Lecopzer Chen
+	<lecopzerc@nvidia.com>, Ben Horgan <ben.horgan@arm.com>
+Subject: RE: [PATCH v3 10/29] arm_mpam: Add cpuhp callbacks to probe MSC
+ hardware
+Thread-Topic: [PATCH v3 10/29] arm_mpam: Add cpuhp callbacks to probe MSC
+ hardware
+Thread-Index: AQHcP5f45PPQxKcOh0GOW5Sghg6mmbTYyqRg
+Date: Wed, 29 Oct 2025 07:24:20 +0000
+Message-ID: <OSZPR01MB87982433DCC67E55C90297F28BFAA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-11-james.morse@arm.com>
+In-Reply-To: <20251017185645.26604-11-james.morse@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=33f60ece-9bf0-4dc2-ba9e-d0967a870547;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-10-29T07:23:25Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|OS9PR01MB14270:EE_
+x-ms-office365-filtering-correlation-id: b8a0e5f7-8a39-47a1-d017-08de16bc2d44
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|1580799027|38070700021;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?MUVlbTlNb1BPQ0F0aVdub3lXZWU1cWJ4SUxMRWk0b010QnJySDF2VU9Z?=
+ =?iso-2022-jp?B?YkxaREdmNzJRTG9EQ2JYOXlkYlBWSDhUaFdIbTNPTkxUSGk1YWNhUUp6?=
+ =?iso-2022-jp?B?N0drTTdNVVRvOGdSVkQyUTIxdEpLK21iamRVSGtLL3NleGs0YlY1ekEv?=
+ =?iso-2022-jp?B?MTZsUk85aHJuVWFGVFlMQ21LaVVQTGQzZ1RkQzBGejUvZmE3cTFPTE5k?=
+ =?iso-2022-jp?B?dlNQdjhsbUx3WXd4ZFU0TmpvNndqdytlL1I0WmN0LzNZaVJCb2xPLzhl?=
+ =?iso-2022-jp?B?UG1IS3NDR2VjUnNHWVJzSjNDT203ZWRZMU1Ia2NsYk50aTFBQ1pScVFL?=
+ =?iso-2022-jp?B?eXBLekZuOXEvOU9TZC9vSjgxRHpCcTZaRzNIYXV6d0ltbmlsQUhaQVEz?=
+ =?iso-2022-jp?B?NXF4b1Q2aUkycWRPZDFzdG00SVMzWGN4dUtzSk42aGs5bkYvTU9VdGNN?=
+ =?iso-2022-jp?B?TVJGT0I1dEpQZVFPaDBDV3BTazZLU09VM2Q4YktReUFYRkNCVjBoMlY0?=
+ =?iso-2022-jp?B?QmRDS3hIbXdDRTlZVXJLVG50dDN6UmpyK0J3TFFleXM0VFZlOGpyUmdX?=
+ =?iso-2022-jp?B?KzVMK3RTZkFCcUt4UFR4YnN6a0ZXS3FFT0ZqVzM2bWVRM3Vycmk3a2xx?=
+ =?iso-2022-jp?B?ZzZablRpbGllNWF5MFRhKzkwK2FYR2pRdUdneXdiMzZWNWJ5KzdxelUz?=
+ =?iso-2022-jp?B?aG1oZE8yWHo2eXZzbVdBQk0zdmViTXlycnZxeWt0Z2FVbFhMRU5Pbjlr?=
+ =?iso-2022-jp?B?MVphMURiYkswQ29VZUFMM2YzeEN2eHljZkR6cW4vZ2tLdGxaUEhXUGta?=
+ =?iso-2022-jp?B?OTlnWjBPYUsyVmdab0hCUys0NFBBbWpoZTFCUnM4TFFjTWo4enNGeG5s?=
+ =?iso-2022-jp?B?ZG9BQk90dFhVdTBSS1lXdEJUN2RFNGFjK0syaEd5RGI5cDYwRUNEblY3?=
+ =?iso-2022-jp?B?a1NrMzVmUHBhZlNIY1I0NVltYjJXYm9tOTdNSUorc2RFbVVpRVFwMTJj?=
+ =?iso-2022-jp?B?OE1hZUJycWdCQlNVU0ZTQTJVVnFPWnA0QkNFaUplOFlyd21tMzkrcWRF?=
+ =?iso-2022-jp?B?UEVTZm9QclpNSmlpMm45cDgzcXFBc1BCQTNwU1JIU09YZWFFOEZwMTJT?=
+ =?iso-2022-jp?B?RXBLeEZ4amg5b3BBczN0N3JaTG15UHhVV0VMVEZHdDJQM3BDTTExWk9D?=
+ =?iso-2022-jp?B?eDZzMTBvTlRGbURtd3lvK01DYlh4Ly9sMlVCLzZ4cTd4cmtFK1lQVWow?=
+ =?iso-2022-jp?B?RVFZTDcwTmI3VnRKdUY2YnNLUGh6RWNOemZOUWxPUjFWUGlrenhWWUV3?=
+ =?iso-2022-jp?B?UmN6SGttSzc3SWR2TDNyeGdMQnBLSW1FS1JXWU9jd21ZSDEyTEU3U0hG?=
+ =?iso-2022-jp?B?TGx6RDQ4bkJRd3VFcmdPRnRxaUZBWi9WTG83eFdWSTdIRm9pYlhZQ2hi?=
+ =?iso-2022-jp?B?WDUybEJKRFY2UzVMb0hFbm5sMHlMUmU1SWZFOHBRajRUSG9McEU0Wms0?=
+ =?iso-2022-jp?B?R2d0RFI2TDFYOHExRm5tZjlJT21uaFoxa0JFeGNUeVZkTlNQUjJEUXc2?=
+ =?iso-2022-jp?B?d29tMCsvZnh0ZFR4UmhKaHR6d1JuZ3V1eUlqWk5PaURzTHdNT1hzcVlV?=
+ =?iso-2022-jp?B?WEpoNFZDRW5LQ2lDMm54VUxCM2FnR2NXK3E0Q3NWMkdvQkVwRzBJU2w2?=
+ =?iso-2022-jp?B?eFp0TU9GS1BkbnNXbWNOSElJTTI5V2UyVzh2R09FbXRVdi9vUXVlUVhk?=
+ =?iso-2022-jp?B?OW9qOEdRcW10N0lyS1BVL3RYdk41dHRlcFkyb1E5ZmNPLzZHTGlJSUg2?=
+ =?iso-2022-jp?B?ZFhEaU9oTndnZDI1UjhGWUdrcUl6SHErRzU1NTZZZ0FVZmE2aVZaNGxU?=
+ =?iso-2022-jp?B?Nmg5ZVhMUURHUDVodWpWL2UvMWtBeGF3TUMzZTdBd1hXMVhmOFM3MUxj?=
+ =?iso-2022-jp?B?UDlHaktTZlE0WHd6UjY2U0R5L2VKdmF5MzNvNW90VUs3UUZ0M3M5ZTgw?=
+ =?iso-2022-jp?B?NWxSckk5Y2ZKNEFIYUNxZTBwOVRIZFhwYWFneXZreWRpZjlyZnVzaTMz?=
+ =?iso-2022-jp?B?WHE4S2RiNVdCL2FSTVdqUkRBM044eGtOdFFQRXBFRE5jcTRmZGZxckRu?=
+ =?iso-2022-jp?B?aGFvaEpxcmxrQytyWmUzcUp6K0c1SHQzcllEWHJTVmVuZzFHd0VaMS9S?=
+ =?iso-2022-jp?B?U0htMzZrTDdST1V5NWVndjNteWZzamZ4RzZ5K3QrWmJCd09mc2tjcWpB?=
+ =?iso-2022-jp?B?a0NhQT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(1580799027)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?bkdDWUU4ZWhWcmoxbmdHQjJubExMZitZL2JZaFFHQ0V6akFFUHUzelJz?=
+ =?iso-2022-jp?B?OFBuOGc4SFB1UXVLbjRRLzNtOTlYc1NmRlAyZFBYTGRmVUpjOHFqb2Jt?=
+ =?iso-2022-jp?B?ZG9Oa0hPWVZhenN4bG8zcllKYWdPaTNqTmdxU3BxYlNRVGhMU1JodVpy?=
+ =?iso-2022-jp?B?R29ZSDlSODlaWGlTNmZodnFXSUdFY2RSdUZuUWNSYWRLcjNwM0dCWElo?=
+ =?iso-2022-jp?B?M1NnaU50TXlCV1JMMjhjcWhyb1ZFSUpEcU5GQWRUSityMHl1bi9hMUlM?=
+ =?iso-2022-jp?B?MHZFOFpUVjhNL1VManVhbHRsTm9seStRYzVwVDNjMFNjeE1rczlIZHdC?=
+ =?iso-2022-jp?B?WFF1UUtwMVFTNW4vTmtQS0ZoZVdMZG8xNStxNzBPMitYYTlaQW52WjRR?=
+ =?iso-2022-jp?B?ZGI0WDRQdmhGTHRrTzRFTDBDSGkyekFRQnRxZWh6ZGh4NTBITXlHS3lZ?=
+ =?iso-2022-jp?B?YzVRMlA2WWJmRlhUUE9sYW5JRjc1TVBMOTIwWjl4VlpMSWNUZHBxWUNI?=
+ =?iso-2022-jp?B?SFN2V2ErTHpFM3ltU0NWQ3g2TGRKMjc1M2lkLzllZGp1am0zS21DNWdV?=
+ =?iso-2022-jp?B?NFdaMnRkRTdicXhkRUpMcGgvZURFKzRxUitkbDl1ZGEraE9lajdrTk40?=
+ =?iso-2022-jp?B?RWdNU1l2RXRiVVNzRWVsbnlwU043Uzd3TUFndUp3cGtoZFJ1b2phVEVT?=
+ =?iso-2022-jp?B?RENDWDU3LzN0d0FmVmNjU0lNbWhSZCtqL1R3ZStQNHQ0ZTd3WjRVaWtq?=
+ =?iso-2022-jp?B?NmxhZW9qUDFQeEVYQXd2cHc0TlU4QW5WRFhjM1ZTV1JPUnozNWIwdnB0?=
+ =?iso-2022-jp?B?NUpFYlpKTmVQck9HRm0vL2ZLMFFmNTJob1BzR2NpMktkV3VNRW0rQStV?=
+ =?iso-2022-jp?B?eUtPcHpJaXZEN3BMUnplNXBwV0REZ2hIeFNwb214dFFkQlJiaDRkMUZL?=
+ =?iso-2022-jp?B?K2xaZVN3VDRQb0RiNkhIbXliekkyaGdFTFZKRWJiVDZFTUYwY2tKMUU1?=
+ =?iso-2022-jp?B?K3ZXY3B2aVRYYmJlVU11V1lORWJzKzhVd3NOd1ZCY1VVRFRhTnlNb0tn?=
+ =?iso-2022-jp?B?Mnh6cFlpdXNBcGhTSTJ4TXBoMDNqaFJOKzRlL29IR2dGT0RabHltMGN3?=
+ =?iso-2022-jp?B?NUZ4ZXljaS9SdTZBaExaSGxkUSs4Z3ZWYlJPQVd3cWd0UWIvNkdOZEor?=
+ =?iso-2022-jp?B?emkvVG1oSTlKaDhyMmxMekNXeUxaREVkK3paUW0rTWxnMXpwMGwyRzlp?=
+ =?iso-2022-jp?B?ZEgzL0Nxa1JIb1dkYjBnVk52U29kWUY3TmFKcjNrVHJPTmd0aXg5Vnp5?=
+ =?iso-2022-jp?B?SVVPNnc1cU1oT0dFT254YzJrUWtVMFRvbEJ0R2xQZ2syZWVvcnh1L1hu?=
+ =?iso-2022-jp?B?WTBrQlptOU13SlowaVM5RWQxRzNVaU9HcDcwa3NCZHBhSmRxZ0tzZmk5?=
+ =?iso-2022-jp?B?bTdjL3YxcWI3NU1aTTNQNXBIbUY4dVU3VStJeCtzZG5PK2JHR05IRUZz?=
+ =?iso-2022-jp?B?RzFEc2hndWZCaUlPcHVqSzgyejZDM1o0dVV2b2FieGhRaGgzZUpmT09h?=
+ =?iso-2022-jp?B?eGtVS1JCM3FwQkFva2V4WGd5Rk1pMFNIVmNmaWNoQ1pscTdTN1cyNDAz?=
+ =?iso-2022-jp?B?SDlONGVlSmU5TzIzakY2Nmt2aUV1UlZ1TjR4M09LUzU4bUpwYWdDQTh4?=
+ =?iso-2022-jp?B?eHFyWjBjSVd6VFN0MngwWDduSWJCazZwVzF2eUtXNlpYV2RaN3ZlUHdC?=
+ =?iso-2022-jp?B?RzE0VDJQZUZvbkNRaTJzUHdNdElpTjRNblkxZW9ROUVxN284Y3BvTWcv?=
+ =?iso-2022-jp?B?Y1hIZU40aDZZR1A5MlVVdnpsRUxWTkVXSTlYTWxOTXFHRFB5YjZDb2hI?=
+ =?iso-2022-jp?B?bkJmbjZDa2RRd09PeHpKQ1V0SHlZZWFmeFJHQW1mZ1dESEJBWkNQMjd0?=
+ =?iso-2022-jp?B?aVVNazEzSUloZUhmdTBmdVZ3elJmKzlzbmRNQmFOSDkxWXZBWG02dHVa?=
+ =?iso-2022-jp?B?cHZvNVFaZitpdDFKdm0xSVk5dGNkVkN5aG8xMEsxSEpGYXpqNEJ5UEdj?=
+ =?iso-2022-jp?B?UjFTMzZJRHgyc1NQZ2JNMHlHMGVYTmJrWks3TUhaTTc3a2RzQU43OGxa?=
+ =?iso-2022-jp?B?dG8vTXFLcDRyYzJrL3pUQ2xqc1g5VkZjQkMxS0VzUURJVk81ZHhTQm1j?=
+ =?iso-2022-jp?B?Ni92Zm5zajhlc0xDZVlDSVRYUEJkNldGQWN1cXdQZjdHVHg2dUVCUWFs?=
+ =?iso-2022-jp?B?cnZXbnA0b2Y2anRBdGRLSUljWDNPV3g2d1FlMnJ6MFp2U1ZVeThYTEhB?=
+ =?iso-2022-jp?B?L2NxYTZER0J1V2dJQ2pZdmdZMHJ0QzRMZ3c9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: xIFO9sMzASA6aTzU1IbB7CioZtRmJ2iRLXAiVewPVar8zVDWNNs1CYHNEFHV8eVz2DbOUkwoY52n4isZRZs4gLDXGjENwcEj/fhBIfXGDdHQvMqgWaWk8PWYVggNnh/fSNI9UuDJdHJ0xarK9LWvvS4/aheQZJ13HGRcJpDzkNsPjZER5AelPD/jv7XUX9deIypD6Ne/FkMlpW3dzx5hwh6/FJyosRzZAPUNhbKHrL0qxFJCITLlrHIrcPfWsf0MgNrjla+QNsbxe27Z5IcQ5b2GcEhWUNGDWHHkuNTgj0QEQSgRcYsZKiNB0uHkZaJWS5lrLmJMdDKv+UM3nnlQc2vSLB6H+CbDezWvFbGjlvmd5k+nLAEop9fJCThHKqn3pu0pEsm8bs9mU8TPBmBM96uckXnacIy/bvFCWxfML1YneGx/0YQ7Xu/n560R0gNd+KiYkf7oqwQnR2QmlnbJvNYHIX2u0ppcxYNUcY6CZ/NK9B3/stTLxv95pmOvYpCO+h2KO7EwB1UVyoqTlZxPe7wd/L2ZZBbtwMD00529yhEI1ovm/0uobe3Ws0Y9UNz1Va9VlbhTSy+MFPO2OnAw4WhK1/f3aYSXbMictP8+YmwRJoaBtnfebEHVssVfBiRx
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b8a0e5f7-8a39-47a1-d017-08de16bc2d44
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2025 07:24:20.1615
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: q1nuZ7Loml60XlzFN0gPufHtRx6InCPQEztdwEDDx5YFEm+fI4M7or8/zXN0duby9kR1a94t6UIpEG6oq56QhVBNpTTqdu6dNM4OrA93vdM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB14270
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_002325_107608_C69A4268 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20251029_002437_003072_2609E8E5 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +231,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function mtk_dp_dt_parse() calls of_graph_get_endpoint_by_regs()
-to get the endpoint device node, but fails to call of_node_put() to release
-the reference when the function returns. This results in a device node
-reference leak.
+> Because an MSC can only by accessed from the CPUs in its cpu-affinity set=
+ we
+> need to be running on one of those CPUs to probe the MSC hardware.
+>=20
+> Do this work in the cpuhp callback. Probing the hardware will only happen
+> before MPAM is enabled, walk all the MSCs and probe those we can reach th=
+at
+> haven't already been probed as each CPU's online call is made.
+>=20
+> This adds the low-level MSC register accessors.
+>=20
+> Once all MSCs reported by the firmware have been probed from a CPU in the=
+ir
+> respective cpu-affinity set, the probe-time cpuhp callbacks are replaced.=
+  The
+> replacement callbacks will ultimately need to handle save/restore of the
+> runtime MSC state across power transitions, but for now there is nothing =
+to do
+> in them: so do nothing.
+>=20
+> The architecture's context switch code will be enabled by a static-key, t=
+his can
+> be set by mpam_enable(), but must be done from process context, not a cpu=
+hp
+> callback because both take the cpuhp lock.
+> Whenever a new MSC has been probed, the mpam_enable() work is scheduled
+> to test if all the MSCs have been probed. If probing fails, mpam_disable(=
+) is
+> scheduled to unregister the cpuhp callbacks and free memory.
+>=20
+> CC: Lecopzer Chen <lecopzerc@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 
-Fix this by adding the missing of_node_put() call before returning from
-the function.
-
-Found via static analysis and code review.
-
-Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index bef6eeb30d3e..b0b1e158600f 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -2087,6 +2087,7 @@ static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
- 	endpoint = of_graph_get_endpoint_by_regs(pdev->dev.of_node, 1, -1);
- 	len = of_property_count_elems_of_size(endpoint,
- 					      "data-lanes", sizeof(u32));
-+	of_node_put(endpoint);
- 	if (len < 0 || len > 4 || len == 3) {
- 		dev_err(dev, "invalid data lane size: %d\n", len);
- 		return -EINVAL;
--- 
-2.39.5 (Apple Git-154)
-
+Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 
