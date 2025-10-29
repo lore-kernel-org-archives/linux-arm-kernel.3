@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FF0CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 17:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201FCCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 17:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzfQKL/P74birS3vfbaJ1tu9wIsMCQCjuGD1SWeA7uE=; b=ed6MCajdc5Ai8pAyrqTBVCJHoF
-	JAB7CRYsX/nxI6LqW/7fUaXuCoN/08f27EiXDM3PWd50ADh6ijw4aff8l9CqGxgU5cyfhckrJDMVy
-	/V0pVOPBQgezO4WwcJv+dejfZ+qX+zMFvr/udLYd/b/5j7uDnE5MiSe85rzGHkT+HC8Rj8yxQ278w
-	cMYhDCFdJEqpFZqnnqm1Uakkn2d7br6/lbCvvjYCRuhs4YgakwvT/O/xKRIkx2IgavVxbGce9fXdq
-	fo40zYZulpakzdDDoeqODh5mLxcma9t4ip63qvN7FIiA+ZF9F9+bWvNSJTsMidD8WMdH52PqB4vhP
-	2TrIA0Ow==;
+	bh=9VduldurJ6yueqRi+j1LwKyCAER+MpiJCGhM98uQ5wU=; b=JO5v/ziwy3tb9bV5smtTzAxpLj
+	VLTCANjVQHhEqXbBFyiwwUB7GxqtEqCMOlKSuCnR6O0PSrYJbwAhrdvjc/bA9H32wMp8h3UrLvMlN
+	/4tzDafiiDSrs2jKlKVRI4rwAxqbC5NCfX5wzx6NSu6DJS+3dd2BDedEIOh7EBHIQyRtnhP55Fdm+
+	z5kk00e2xgYj8XHJXfRjGASDU3OmvgrSKZtIPzxk46hY3lbEXyBiSQ/aH2ZmoMdGqDdGWmJxPyT0m
+	YRTaJQe7vAGe+Lek4zVFYNSH7qpvQdgeq4wwelmQNfbW64/PRrgN34s3t3WWUm6blwTY2zA4/YNej
+	fzHruSQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE9lb-00000002A9i-3Cit;
-	Wed, 29 Oct 2025 17:15:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vE9uw-00000002BwL-34r7;
+	Wed, 29 Oct 2025 17:25:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE9la-00000002A9M-1QI7;
-	Wed, 29 Oct 2025 17:15:22 +0000
+	id 1vE9uu-00000002BvA-18jC;
+	Wed, 29 Oct 2025 17:25:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 374136149D;
-	Wed, 29 Oct 2025 17:15:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E0DC4CEF7;
-	Wed, 29 Oct 2025 17:15:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9940043F46;
+	Wed, 29 Oct 2025 17:24:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 560EFC4CEF7;
+	Wed, 29 Oct 2025 17:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761758120;
-	bh=t3ByI2ggpnXN7fpU/j1XfFuDuzjdaTgYJk3bPpbYU5w=;
+	s=k20201202; t=1761758699;
+	bh=Y9eg+bqtuiBvhj27qPsEMgI3sW1YPbmbNenD0mtafaU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mCctPaF/s4Ej/qaUy9NBWjZ4tFp0QCR0mZ6Q58I4iogldTOoS12UFHS0vHbG0DSph
-	 227Cm4eZbmJrh0L/NPvh44Kt43N6IyuWC/KldVbmCoiLr50mqPOn4lsXsfukXT9u+K
-	 SBwatwsBkUUf9NSOFWQllmDLp942vZS35JrPpXugYhl3MQY2Z3swCE0Lc1cVMzrOLm
-	 q+hyKGuAJkkwhVPyyL8Zd0mjnzZC9T1HST0yNNQxlFzyBGHCKafdtiPPmxzYYRh5+I
-	 K8ivV6rg0eGcNpXKcdo4UXxI0eBtAIghhVlnwJJpy2Ww7H0rESJJHmDQURxNbt0Hv7
-	 4WzSv5OBoFaLQ==
-Date: Wed, 29 Oct 2025 18:15:17 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: Phil Auld <pauld@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-Message-ID: <aQJLpSYz3jdazzdb@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <aQDuY3rgOK-L8D04@localhost.localdomain>
- <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	b=EaCvJ3fiHxDt543+sjeDB8LsZ82ttPD7FQK0tI8+cvxbDcPE7liNpVCjbI6Bd3T5Y
+	 x+w4+dvepmDJXwiWd50kB95RLAM9dQRLbW3k60fPkivDBZVeYqxun0qWyark9akkKn
+	 MhL7NBjfLVhfH1d0eQY9xoeY68/dNDYU95kQuI9PURJVhVHno8mZ4PSGbBHoyAz4b6
+	 wQ3yxMXqOcUO/G7tU740cLgruD5pAF4FAaN+v+nqe/9gO7LDQaXab1TKVs8NJWeAZx
+	 qb3CCXhg5Fm7q365p30Cx5ETU4bXovasTXW64WcHN4Y0X5sqnBhh15ZCxj3k5vVek3
+	 vSWVve+SE470Q==
+Date: Wed, 29 Oct 2025 17:24:55 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: vendor-prefixes: Add NineTripod
+Message-ID: <20251029-reseller-unsavory-5461fe7f6cce@spud>
+References: <20251028-semicolon-audacity-dd5bdd418207@spud>
+ <CALj3r0hWzH+pmkbJe7DdqEzwqcpSQdkfPFtv3S7m-H8gZp0A6w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bqqsbG4ObdDSRjQO"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+In-Reply-To: <CALj3r0hWzH+pmkbJe7DdqEzwqcpSQdkfPFtv3S7m-H8gZp0A6w@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251029_102500_352007_85F56753 
+X-CRM114-Status: GOOD (  34.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,185 +76,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Oct 29, 2025 at 11:32:58AM +0100, Valentin Schneider a écrit :
-> I need to have a think about that one; one pain point I see is the context
-> tracking work has to be NMI safe since e.g. an NMI can take us out of
-> userspace. Another is that NOHZ-full CPUs need to be special cased in the
-> stop machine queueing / completion.
-> 
-> /me goes fetch a new notebook
 
-Something like the below (untested) ?
+--bqqsbG4ObdDSRjQO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/x86/include/asm/context_tracking_work.h b/arch/x86/include/asm/context_tracking_work.h
-index 485b32881fde..2940e28ecea6 100644
---- a/arch/x86/include/asm/context_tracking_work.h
-+++ b/arch/x86/include/asm/context_tracking_work.h
-@@ -3,6 +3,7 @@
- #define _ASM_X86_CONTEXT_TRACKING_WORK_H
- 
- #include <asm/sync_core.h>
-+#include <linux/stop_machine.h>
- 
- static __always_inline void arch_context_tracking_work(enum ct_work work)
- {
-@@ -10,6 +11,9 @@ static __always_inline void arch_context_tracking_work(enum ct_work work)
- 	case CT_WORK_SYNC:
- 		sync_core();
- 		break;
-+	case CT_WORK_STOP_MACHINE:
-+		stop_machine_poll_wait();
-+		break;
- 	case CT_WORK_MAX:
- 		WARN_ON_ONCE(true);
- 	}
-diff --git a/include/linux/context_tracking_work.h b/include/linux/context_tracking_work.h
-index 2facc621be06..b63200bd73d6 100644
---- a/include/linux/context_tracking_work.h
-+++ b/include/linux/context_tracking_work.h
-@@ -6,12 +6,14 @@
- 
- enum {
- 	CT_WORK_SYNC_OFFSET,
-+	CT_WORK_STOP_MACHINE_OFFSET,
- 	CT_WORK_MAX_OFFSET
- };
- 
- enum ct_work {
--	CT_WORK_SYNC     = BIT(CT_WORK_SYNC_OFFSET),
--	CT_WORK_MAX      = BIT(CT_WORK_MAX_OFFSET)
-+	CT_WORK_SYNC         = BIT(CT_WORK_SYNC_OFFSET),
-+	CT_WORK_STOP_MACHINE = BIT(CT_WORK_STOP_MACHINE_OFFSET),
-+	CT_WORK_MAX          = BIT(CT_WORK_MAX_OFFSET)
- };
- 
- #include <asm/context_tracking_work.h>
-diff --git a/include/linux/stop_machine.h b/include/linux/stop_machine.h
-index 72820503514c..0efe88e84b8a 100644
---- a/include/linux/stop_machine.h
-+++ b/include/linux/stop_machine.h
-@@ -36,6 +36,7 @@ bool stop_one_cpu_nowait(unsigned int cpu, cpu_stop_fn_t fn, void *arg,
- void stop_machine_park(int cpu);
- void stop_machine_unpark(int cpu);
- void stop_machine_yield(const struct cpumask *cpumask);
-+void stop_machine_poll_wait(void);
- 
- extern void print_stop_info(const char *log_lvl, struct task_struct *task);
- 
-diff --git a/kernel/stop_machine.c b/kernel/stop_machine.c
-index 3fe6b0c99f3d..8f0281b0db64 100644
---- a/kernel/stop_machine.c
-+++ b/kernel/stop_machine.c
-@@ -22,6 +22,7 @@
- #include <linux/atomic.h>
- #include <linux/nmi.h>
- #include <linux/sched/wake_q.h>
-+#include <linux/sched/isolation.h>
- 
- /*
-  * Structure to determine completion condition and record errors.  May
-@@ -176,6 +177,68 @@ struct multi_stop_data {
- 	atomic_t		thread_ack;
- };
- 
-+static DEFINE_PER_CPU(int, stop_machine_poll);
-+
-+void stop_machine_poll_wait(void)
-+{
-+	int *poll = this_cpu_ptr(&stop_machine_poll);
-+
-+	while (*poll)
-+		cpu_relax();
-+	/* Enforce the work in stop machine to be visible */
-+	smp_mb();
-+}
-+
-+static void stop_machine_poll_start(struct multi_stop_data *msdata)
-+{
-+	int cpu;
-+
-+	if (housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
-+		return;
-+
-+	/* Random target can't be known in advance */
-+	if (!msdata->active_cpus)
-+		return;
-+		
-+	for_each_cpu_andnot(cpu, cpu_online_mask, housekeeping_cpumask(HK_TYPE_KERNEL_NOISE)) {
-+		int *poll = per_cpu_ptr(&stop_machine_poll, cpu);
-+
-+		if (cpumask_test_cpu(cpu, msdata->active_cpus))
-+			continue;
-+
-+		*poll = 1;
-+
-+		/*
-+		 * Act as a full barrier so that if the work is queued, polling is
-+		 * visible.
-+		 */
-+		if (ct_set_cpu_work(cpu, CT_WORK_STOP_MACHINE))
-+			msdata->num_threads--;
-+		else
-+			*poll = 0;
-+	}
-+}
-+
-+static void stop_machine_poll_complete(struct multi_stop_data *msdata)
-+{
-+	int cpu;
-+
-+	if (housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
-+		return;
-+
-+	for_each_cpu_andnot(cpu, cpu_online_mask, housekeeping_cpumask(HK_TYPE_KERNEL_NOISE)) {
-+		int *poll = per_cpu_ptr(&stop_machine_poll, cpu);
-+
-+		if (cpumask_test_cpu(cpu, msdata->active_cpus))
-+			continue;
-+		/*
-+		 * The RmW in ack_state() fully orders the work performed in stop_machine()
-+		 * with polling.
-+		 */
-+		*poll = 0;
-+	}
-+}
-+
- static void set_state(struct multi_stop_data *msdata,
- 		      enum multi_stop_state newstate)
- {
-@@ -186,10 +249,13 @@ static void set_state(struct multi_stop_data *msdata,
- }
- 
- /* Last one to ack a state moves to the next state. */
--static void ack_state(struct multi_stop_data *msdata)
-+static bool ack_state(struct multi_stop_data *msdata)
- {
--	if (atomic_dec_and_test(&msdata->thread_ack))
-+	if (atomic_dec_and_test(&msdata->thread_ack)) {
- 		set_state(msdata, msdata->state + 1);
-+		return true;
-+	}
-+	return false;
- }
- 
- notrace void __weak stop_machine_yield(const struct cpumask *cpumask)
-@@ -240,7 +306,8 @@ static int multi_cpu_stop(void *data)
- 			default:
- 				break;
- 			}
--			ack_state(msdata);
-+			if (ack_state(msdata) && msdata->state == MULTI_STOP_EXIT)
-+				stop_machine_poll_complete(msdata);
- 		} else if (curstate > MULTI_STOP_PREPARE) {
- 			/*
- 			 * At this stage all other CPUs we depend on must spin
-@@ -615,6 +682,8 @@ int stop_machine_cpuslocked(cpu_stop_fn_t fn, void *data,
- 		return ret;
- 	}
- 
-+	stop_machine_poll_start(&msdata);
-+
- 	/* Set the initial state and stop all online cpus. */
- 	set_state(&msdata, MULTI_STOP_PREPARE);
- 	return stop_cpus(cpu_online_mask, multi_cpu_stop, &msdata);
+On Tue, Oct 28, 2025 at 01:04:32PM -0700, Coia Prant wrote:
+> There won't be any problems at the moment.
+
+Please stop top posting.
+
+> Just out of habit (because when writing code, variable names cannot
+> begin with a number)
+> There may be some misimplemented parsers that cannot do this.
+>=20
+> As a practical matter, the branch of openwrt has added support for
+> this board in advance, and openwrt uses the DTS name to initialize
+> some default settings such as LEDs and bridge
+
+That sounds like a problem with the WRT development process. This is a
+trivial change, there could be more disruptive things required to
+satisfy reviewers. Why was it submitted there in advance anyway?
+
+> I'm not sure if he will affect the version that has been released.
+> But maybe it's not a big problem.
+>=20
+> If you feel that there is no problem, I can send a new set of patches
+> to fix this problem.
+
+Please do.
+
+> 2025-10-28 19:46 (GMT+00:00), Conor Dooley <conor@kernel.org> said:
+> > On Tue, Oct 28, 2025 at 12:38:10PM -0700, Coia Prant wrote:
+> > At first, it was to avoid problems with the beginning of numbers.
+> > What problems does starting with a number produce?
+> > Given that it is already used by downstream projects, we have retained
+> > this to ensure that users can seamlessly migrate to the mainline
+> > version.
+> > What's the actual impact of changing it from "nine" to "9" for
+> > downstream users? This is a board vendor, probably nothing is even
+> > interacting with the board-level compatible at all programmatically?
+> > Please don't top post.
+> > Thanks.
+> >
+> > 2025-10-28 19:35 (GMT+00:00), Conor Dooley  said:
+> > On Sun, Oct 26, 2025 at 10:36:44PM +0800, Coia Prant wrote:
+> > Add NineTripod to the vendor prefixes.
+> >
+> > Signed-off-by: Coia Prant
+> > ---
+> > Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+> > 1 file changed, 2 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > index f1d188200..37687737e 100644
+> > --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> > @@ -1124,6 +1124,8 @@ patternProperties:
+> > description: National Instruments
+> > "^nicera,.*":
+> > description: Nippon Ceramic Co., Ltd.
+> > +  "^ninetripod,.*":
+> > Why ninetripod instead of 9tripod? That's what the company uses and in
+> > the marketing fluff for the boards.
+> > +    description: Shenzhen 9Tripod Innovation and Development CO., LTD.
+> > "^nintendo,.*":
+> > description: Nintendo
+> > "^nlt,.*":
+> > --
+> > 2.47.3
+> >
+
+--bqqsbG4ObdDSRjQO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQJN5gAKCRB4tDGHoIJi
+0jDdAPoClQkD6kyF0W8zdSBg6g+HBjeLj8bAkhQPXRv5HmS7DAD7B0sWK1QT34S4
+iTErDKBUfPq7GGimNUNj0cY2Mjo7tgI=
+=2YvP
+-----END PGP SIGNATURE-----
+
+--bqqsbG4ObdDSRjQO--
 
