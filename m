@@ -4,120 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B43CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766C0CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnTgtvKdtHrhMOVirx9l8voTajx/RI49/oZD27VCamo=; b=fdNGvnrGkGBcpQ7O3U4tYqpP8A
-	A0QxxHEI4F3ZU8nIieUx/3auE3Mex739kKHPBnK3z2udxC39R7vYCpjElijZZ8jUQnzoR6WAa/Y2a
-	JKzeNZW97m45thijPd9o50XZSJG3ilR1PAP+TqlMrXLbFSbAYzUmHSJ+DiW9K/fYvQAUWPZyRHsIz
-	R6C4q2J+mzyx8+Qt46ZR6F5H4Be5tA4IBqbGP7zFh1K+bECmAOZb9F7oJvro9aUiwN4xBBvRpmg8p
-	WuNm0WmLchloynfQQ3DFDZ6KlVyE2Bqc+PGKFp7tF/7Pir+rTQ/8Ixn233GSpMVqHQaBhCTlqTCM0
-	dLrMgs1A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qIdKn81zlWfA1LXvqyEi8MTV3mMbEs/lsyZYJVoVjZ0=; b=IgGkEx41MjbYrvwy+1AX5Obl8K
+	p0RoFJjMHXm0EPcVFHJ5fXz3/O1ndiQxvJz2BppyKYSsTK43Zh+ywV9Kqgbukz2ZGLQVh+liS28Bz
+	w79PXD7ixdWltBXNxs+67ovPTSZpFQ6FaX8CmjDkmphLrb/fL9X0KV3chy5y5pZWO2sV61avuP2J0
+	xiuoCb2Rua1crdrLewSsCdkLMOmp2b6bgfqThkdXd6aGqQt5pbDJVUWW8H0rg7mVkI9wyNHbxMmKq
+	c2dbrJB3GK381mvKl9BiN8bBn0a0c486fa6glkh8lZgPjT2BHKccOPD9d8Mu7nwpxbeLV7eUccOjM
+	JHvE/eQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3nF-00000000qs3-2Q6P;
-	Wed, 29 Oct 2025 10:52:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vE3qt-00000000rYp-17a8;
+	Wed, 29 Oct 2025 10:56:27 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3nD-00000000qre-44sw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:52:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1543A601CF;
-	Wed, 29 Oct 2025 10:52:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0C67C4CEF7;
-	Wed, 29 Oct 2025 10:52:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761735158;
-	bh=WJY9uVEvm/AtqJJTYDny4vNI0huLEu00IUv36RYkrzI=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=U5aAB87NxdYRSvJ4zuumX21WQyFgrvfPbSMf6qeueMNII2yP+89+Jp6NGNmurIoae
-	 HsjjnzobGOs4V9FdjnsA9yQLyS12UbTCJF/jKXNhBcheBgSuIfJfPxOV/eFlzieS7p
-	 CIjwqnRG+NzY1IQCbn136Q8qrRjCcbtJeO4f+K8zZSBVR46xAKSrEds04SPZZq4jBJ
-	 QLOTF/dcDRTx9qrlP1gKwnOXpkqUm6fEkdYq6TkcEx6lJyEKYPEerEvA10XjrWOoHZ
-	 DKzHE7q0EsGAyI/igrqBRCMpV1sLCay+tCm+OXU4f0lpy6/ieVRZm047xrQin9bwly
-	 5pl4UleGJaH8w==
-Message-ID: <3c3287f6-1c5c-4c4d-9349-32665a5e1585@kernel.org>
-Date: Wed, 29 Oct 2025 11:52:32 +0100
+	id 1vE3qr-00000000rXd-09Yh;
+	Wed, 29 Oct 2025 10:56:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761735382;
+	bh=OTOHySwJe6r6YYDtowd4j3NiPv+2ssam78yCEgppdVo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RwnSt7HVUCjaxf67VSYhbu/C1B86w2NwjHjei7n435b5I6NWt4mRo+aa7JhaDuXH9
+	 SyUVbxl9VqICpOUIgSwLFOhcZXdodbYJsKcpWXa4s7Ki1ukAen2Xf4cZypNXdh3C3X
+	 ixhlLCvJz53QxZELnn0343aY5Jlf1siKYnc1CMut6/dMwCSgUJkc1ONbjAGveIz57A
+	 9Yq34SBcpQmm0N3BZaA05vPcDCkTC4ReHrq9bgcqByUCTyImeQ4gqNVK2VPn1Nrp8V
+	 zF2aqn0N/sgxCrdz+6Sc4xZBsQGwxuj06BJfxcWUCW9i9SAvZbj+pR4yQfLZxcSSI2
+	 JfrjGolwiS6JA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3879D17E0FC7;
+	Wed, 29 Oct 2025 11:56:21 +0100 (CET)
+Message-ID: <21f51f37-787b-48a5-a871-d61810adff42@collabora.com>
+Date: Wed, 29 Oct 2025 11:56:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
- new YAML
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
- "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
- "jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- "naresh.solanki@9elements.com" <naresh.solanki@9elements.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+Subject: Re: [PATCH v3 04/10] pmdomain: mediatek: Refactor bus protection
+ regmaps retrieval
+To: =?UTF-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?= <Macpaul.Lin@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Sjoerd Simons <sjoerd@collabora.com>
+Cc: =?UTF-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?= <pablo.sun@mediatek.com>,
+ "lihongbo22@huawei.com" <lihongbo22@huawei.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+ =?UTF-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?= <Moudy.Ho@mediatek.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?= <bear.wang@mediatek.com>,
+ "mbrugger@suse.com" <mbrugger@suse.com>,
  "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ Nicolas Prado <nfraprado@collabora.com>,
+ "macpaul@gmail.com" <macpaul@gmail.com>,
+ "wenst@chromium.org" <wenst@chromium.org>,
  "linux-arm-kernel@lists.infradead.org"
  <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
- <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
- <0b76f196-f642-4991-ad5c-717c23938421@kernel.org>
- <TY2PPF5CB9A1BE6597ECD46BD4CB7C5F09FF2FAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ "y.oudjana@protonmail.com" <y.oudjana@protonmail.com>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?TWFuZHlKSCBMaXUgKOWKieS6uuWDlik=?= <MandyJH.Liu@mediatek.com>
+References: <20250805074746.29457-1-angelogioacchino.delregno@collabora.com>
+ <20250805074746.29457-5-angelogioacchino.delregno@collabora.com>
+ <a2eae87efe46ebf397bcec3580eb9bc152b80846.camel@collabora.com>
+ <be3a2d50-044b-429a-820c-5260c6ce730c@collabora.com>
+ <0d8da30aaec2a5dc4bda6d67b640081dcc320f37.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <TY2PPF5CB9A1BE6597ECD46BD4CB7C5F09FF2FAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <0d8da30aaec2a5dc4bda6d67b640081dcc320f37.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251029_035625_258095_5C074FFC 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,128 +100,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/10/2025 09:29, Ryan Chen wrote:
->> Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a new
->> YAML
+Il 29/10/25 05:11, Macpaul Lin (林智斌) ha scritto:
+> On Tue, 2025-10-14 at 11:59 +0200, AngeloGioacchino Del Regno wrote:
 >>
->> On 21/10/2025 03:35, Ryan Chen wrote:
->>> The AST2600 I2C controller is a new hardware design compared to the
->>> I2C controllers in previous ASPEED SoCs (e.g., AST2400, AST2500).
->>>
->>> It introduces new features such as:
->>>  - A redesigned register layout
->>>  - Separation between controller and target mode registers
->>>  - Transfer mode selection (byte, buffer, DMA)
->>>  - Support for a shared global register block for configuration
->>>
->>> Due to these fundamental differences, maintaining a separate
->>> devicetree binding file for AST2600 helps to clearly distinguish the
->>> hardware capabilities and configuration options from the older
->>> controllers.
->>>
->>> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
->>> ---
->>>  .../devicetree/bindings/i2c/aspeed,i2c.yaml   |  3 +-
->>>  .../devicetree/bindings/i2c/ast2600-i2c.yaml  | 66
->>> +++++++++++++++++++
->>>  2 files changed, 67 insertions(+), 2 deletions(-)  create mode 100644
->>> Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
->>> b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
->>> index 5b9bd2feda3b..d4e4f412feba 100644
->>> --- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
->>> +++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
->>> @@ -4,7 +4,7 @@
->>>  $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
->>>  $schema: http://devicetree.org/meta-schemas/core.yaml#
->>>
->>> -title: ASPEED I2C on the AST24XX, AST25XX, and AST26XX SoCs
->>> +title: ASPEED I2C on the AST24XX, AST25XX SoCs
->>>
->>>  maintainers:
->>>    - Rayn Chen <rayn_chen@aspeedtech.com> @@ -17,7 +17,6 @@
->>> properties:
->>>      enum:
->>>        - aspeed,ast2400-i2c-bus
->>>        - aspeed,ast2500-i2c-bus
->>> -      - aspeed,ast2600-i2c-bus
->>>
->>>    reg:
->>>      minItems: 1
->>> diff --git a/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
->>> b/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
->> Why completely breaking naming? Please follow writing bindings carefully.
+>>
+>> Il 13/10/25 15:41, Sjoerd Simons ha scritto:
+>>> Hey,
+>>>
+>>> On Tue, 2025-08-05 at 09:47 +0200, AngeloGioacchino Del Regno
+>>> wrote:
+>>>> In preparation to add support for new generation SoCs like
+>>>> MT8196,
+>>>> MT6991 and other variants, which require to set bus protection on
+>>>> different busses than the ones found on legacy chips, and to also
+>>>> simplify and reduce memory footprint of this driver, refactor the
+>>>> mechanism to retrieve and use the bus protection regmaps.
+>>>>
+>>>> This is done by removing the three pointers to struct regmap from
+>>>> struct scpsys_domain (allocated for each power domain) and moving
+>>>> them to the main struct scpsys (allocated per driver instance) as
+>>>> an array of pointers to regmap named **bus_prot.
+>>>
+>>> Trying to boot v6.18.0-rc1 on a Genio 700 EVK using the arm64
+>>> defconfig,
+>>> ends up hanging at boot (seemingly when probing MTU3 and/or mmc,
+>>> but that
+>>> might be a red herring).
+>>>
+>>> Either reverting this patch *or* having CONFIG_MTK_MMSYS builtin
+>>> rather
+>>> then a module seems to solve that.
+>>>
+>>
+>> Thanks for the report.
+>>
+>> This is not a problem with this patch specifically, but surely some
+>> race condition
+>> that was already present before and that does get uncovered with this
+>> one in some
+>> conditions.
+>>
+>> Without the devicetree updates (which are not upstream yet) this
+>> patch is
+>> fully retaining the legacy functionality 1-to-1.
+>>
+>> I'll check what's going on ASAP.
+>>
+>> Cheers,
+>> Angelo
+>>
 > 
-> Will update 
-> $id: "http://devicetree.org/schemas/i2c/aspeed,ast2600-i2c.yaml#"
->>
->>> new file mode 100644
->>> index 000000000000..6ddcec5decdc
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
->>> @@ -0,0 +1,66 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/i2c/ast2600-i2c.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: ASPEED I2C on the AST26XX SoCs
->>> +
->>> +maintainers:
->>> +  - Ryan Chen <ryan_chen@aspeedtech.com>
->>> +
->>> +allOf:
->>> +  - $ref: /schemas/i2c/i2c-controller.yaml#
->>> +
->>> +properties:
->>> +  compatible:
->>> +    enum:
->>> +      - aspeed,ast2600-i2c-bus
->>> +
->>> +  reg:
->>> +    minItems: 1
->>
->> Why?
+
+Hello Macpaul,
+
+> I did a git bisect on linux-next master branch and
+> the result shows c29345fa5f66bea0790cf2219f57b974d4fc177b is the first
+> bad commit. This change also affect MT8195.
 > 
-> Will update as following.
+> This patch couldn't be simply reverted because there are some dependent
+> commits follows this change.
+> I'm not sure it this refactor causes API or flag not synced with the
+> SCP firmware.
+
+There's no interaction with the SCP on this patch.
+
+> Just a remind that it is hard for MediaTek to update scp firmware for
+> an already in mass production state chip.
+> Each scp firmware and the pm-domain interface are designed specifically
+> for 'that' chip only. So it is difficult to adopt pm-domain refactor
+> by only reviewing the patch.
+
+There's no need to update the SCP firmware at all - the pmdomain driver
+does not communicate with that - infact, you can keep using all of the
+pmdomains without ever loading any SCP firmware from the kernel.
+
 > 
-> reg:
->   minItems: 1
->   maxItems: 2
-
-
-No. You changed nothing. Instead explain why this is flexible.
-
-See writing bindings.
-
-
-...
-
-
->>> +  bus-frequency:
->>> +    minimum: 500
->>> +    maximum: 4000000
->>> +    default: 100000
->>> +    description: frequency of the bus clock in Hz defaults to 100 kHz when
->> not
->>> +      specified
->>
->> Don't repeat constraints in free form text.
+> Here are the error logs with latest linux-next master on mt8395-genio-
+> 1200-evk. Hope this could help on futher debugging.
 > 
-> Will update
-> clock-frequency:
->     description: Desired I2C bus frequency in Hz
->     default: 100000
 
-Heh? You are making random set of changes like did not really read the
-feedback. I not to repeat something. What is repeated? Constraints.
-Where are the repeated "in free form text". What did you do? Dropped
-constraints.
+Thanks for the logs! Getting issues on MSDC is really odd because the MSDC
+controller does *not* use nor have any power domain...
 
-I don't know what to say.
+I'll take a look at this as soon as I can, anyway.
 
-Best regards,
-Krzysztof
+Thanks again,
+Angelo
+
+> [    1.291055] mtk-msdc 11240000.mmc: msdc_track_cmd_data: cmd=8
+> arg=000001AA; host->error=0x00000002
+> [    1.292775] mtk-msdc 11240000.mmc: msdc_track_cmd_data: cmd=55
+> arg=00000000; host->error=0x00000002
+> [    1.294539] mtk-msdc 11240000.mmc: msdc_track_cmd_data: cmd=55
+> arg=00000000; host->error=0x00000002
+> [    1.296293] mtk-msdc 11240000.mmc: msdc_track_cmd_data: cmd=55
+> arg=00000000; host->error=0x00000002
+> ...
+> [    1.430408] mtk-msdc 11240000.mmc: msdc_track_cmd_data: cmd=55
+> arg=00000000; host->error=0x00000002
+> [    1.433766] mmc0: Failed to initialize a non-removable card
+> [   22.297240] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+> [   22.298723] rcu:     6-...0: (2 ticks this GP)
+> idle=104c/1/0x4000000000000000 softirq=45/45 fqs=37
+> [   22.299827] rcu:     (detected by 2, t=5256 jiffies, g=-1051, q=200
+> ncpus=8)
+> [   22.300689] Sending NMI from CPU 2 to CPUs 6:
+> 
+> Best regards,
+> Macpaul Lin
+
+
 
