@@ -4,94 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4402ECCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 16:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF095CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 16:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjbKfgzHn5tyeA0m3V5JJ3BLODA9JPFCp9Sk+QT8tK8=; b=g0M9esPlJPOCfiu6trm4Hw36yt
-	sZgtz5rrYU/P1IvMMpZkMknJ7QladsKwhWucbsBSwz43MvT3RAtd8EUjR46zYfaJDgOPT6WVaRquQ
-	KfR8YjMhD2+Dti+y6776RWxjuWeIPRBgI8kydPmEc+PMYZt9g+ilWG4miI+ZSqEYnsypZvGF3x9U/
-	E03hzaqnK0Sp6/1WNg/wCs49wVBpSSHfdBfJgP37VfukC5qu+LnlUPBBI/GGnoUWzDYYAFG6F+hao
-	2Q6t6hPmUVgCHBg8OSffcPGgMA48/TD64KVydo3VhsZyTpyoN3kJYU7WLAaz+3MTuN1bGlwDbbjeT
-	tyrNcccg==;
+	bh=W1uta8p/W5QNqzGp1HZ4zz99/QdMe5/qSC/Dn+nw3nE=; b=HkuUG6k+2NHbSCIyLCuFy/5Z8p
+	1ecH4ezqc6pbQaI3m2dACh865/sQvC305J6CHEXN4A/+SSyJ5K0Isml9doSTQcq7Vwty22o+Onw6d
+	gViHH4GLQTL9O5OBC4j1t83rZZfzW6y8CzslMqAfXr1rTqalNfZSq/Ix7GdYOhdKbudda02eJG/gu
+	oKks5xEroHPb+DwPXRlf30YSB52Ftf30z8VVcqQUkBNkrq8GMPCOLGAkzu2r4iw1QLGgBGA8sJb4/
+	4aeT6S+93PB+kNpnbi66h1j9yk5E0sDmhnCEWDlnlpwEWRCcx2A4r6zfDr/QXS5qm7zj7OtR/Y7tL
+	ynoKO6VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8bA-00000001uLj-48A9;
-	Wed, 29 Oct 2025 16:00:32 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vE8pE-00000001xxB-2DvO;
+	Wed, 29 Oct 2025 16:15:04 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8b9-00000001uL0-19Qv
+	id 1vE8pB-00000001xvZ-3dFf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 16:00:32 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47710acf715so20329735e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 09:00:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761753629; x=1762358429; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QjbKfgzHn5tyeA0m3V5JJ3BLODA9JPFCp9Sk+QT8tK8=;
-        b=NIArlrotaLd6zyHMkDTY+iHYgrm7jYr0KtTqbsMIMh0PlKq4fXMWHzui5es9gbwLqc
-         owSc7IybewYAmsycA0U0MH/KG+wDVCVxrikcgyj7ozfR61R4zDdbvIe+KYH0J6Tj8IoF
-         jYhQVT4hAQWlBY4TCA3wG3YJMDQfqAAurOm0NXZT9MEL+UyIoRc7wYiIc8nBdgWxE43S
-         5ApPhWj1QZnFSoveIT40KZuN5HIZnyKLiGuxHjDF3u9Yj98Wr7oC2LdUFTu9zcNB5Awh
-         NLx8IVC+M2n1O+N3EiRFBfhrkUduERDDR+Px9C7IHhEI5kEt6dpB/CgzPgVA6hZLe6Og
-         CqRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761753629; x=1762358429;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QjbKfgzHn5tyeA0m3V5JJ3BLODA9JPFCp9Sk+QT8tK8=;
-        b=CYIbttLPcP8QGHCiRa05XALXRFPJ+lOHtqF3ftUERe9/WZ5JQS6vPkL0bzizAEvZFD
-         K1zhTsn+pPlpOXvh8LvLBp6B6hsP5bQn+dJ040rpD0Nf3r7f2wvXMH39q0v4c58DNAR1
-         MqN61QS4FV7UXYX+9XswPfM0M1mI82l6eAnxLwY4R0QibXtdSvcbVSKV+u6Ug4i4DYHC
-         3Q4fm447jDeFU22uXq7xmC5bgBJFQhpSddzn8Qzk6oz3iwSFzGuubI1P4hM5ThdtpzlP
-         X5g7hJlByZzSdwVMlgueXzedxyZ5VmH/fwuVQ346u11r1mjuuxhqro/hCEi7fZ1kYJr1
-         7CRg==
-X-Forwarded-Encrypted: i=1; AJvYcCUhgOVZDvXzKXimHxj68078wVMC4xxho1/p4tIbsfyDoq+r9fu4L6dNsQp5ZARroQJGdI/12nEuXcxUqq7K+rOr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzrg+NsJy4ishAnkmJh9LdZ3X2WNRtcyUG7zmtIafLPay51bl6X
-	JzuUkzMCudMvFfkcel/ccM1MricEvMhm5/rq3ONMVZL/6x4nxklOAgA2
-X-Gm-Gg: ASbGncu2bnZ4mq0QGM+J2928snjNNYG1ezkJPEmI2eJJhPcq6EPk6QLN6EUXiO1Xk7K
-	VEv1A/udK/hvm6w4+xSD8iAZSbpB17qOXbyHblE41nR84i+NMbytoyw0tna6fRjIwJBcswYSt3u
-	xohJPRcMdDirVoK4JLtOuxdMuvTYU34LULtaLiFIMcZBX1JpfBsuaPjj5GhC/TvMcpymNt2sccA
-	akZLrEXhsmlFEc3lJhVgbVlTezxmuPaQsTfNN7r5AmTZSP/qRVdLjQS0YhzX4rtTec2oqB83Jat
-	YhjcmjbPm3dG88/Ghr3Z2O0BXFSfgRHcVV1KfBBVwtSj5SsA7UeHkOay51B5bnEGswWiFU2gLNX
-	cEOS51MWjRKRT3eaRUxtjfiVUOpRt7ofV4V+CA/JWymLf5POdKEKU/L14gI+BgTDs6F2X/T/vfU
-	nfd9t08Tnu5mHY939nfPx73CE3zDccm89r2zAZIDeu+7Mwu8dT0y2ufbVsoxNT3yi8AqPF
-X-Google-Smtp-Source: AGHT+IELwKkyoHZcEXoDh+ODYAhJc1PkQChXNnF/56yRmyxyp0iQGf8PAy40wU0hq97LrnXaNPX15Q==
-X-Received: by 2002:a05:600c:848a:b0:45d:d97c:236c with SMTP id 5b1f17b1804b1-4771e21c484mr25812165e9.21.1761753628706;
-        Wed, 29 Oct 2025 09:00:28 -0700 (PDT)
-Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4771e3a8209sm54097015e9.11.2025.10.29.09.00.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 09:00:28 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- Miaoqian Lin <linmq006@gmail.com>
-Cc: linmq006@gmail.com, stable@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Fix device node reference leak in
- sun4i_tcon_of_get_id_from_port
-Date: Wed, 29 Oct 2025 17:00:26 +0100
-Message-ID: <3848160.MHq7AAxBmi@jernej-laptop>
-In-Reply-To: <20251029074911.19265-1-linmq006@gmail.com>
-References: <20251029074911.19265-1-linmq006@gmail.com>
+	Wed, 29 Oct 2025 16:15:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=W1uta8p/W5QNqzGp1HZ4zz99/QdMe5/qSC/Dn+nw3nE=; b=EMxl0AuB+F5NhLkZJJB1QEOz6d
+	izBrPIejNaEZTbx1kB9++36hpSVq4VrbjowPsYx+wxYn1n6hWtIB2p5LFEgSEk/losPNx3B0CY8ye
+	sCxHCGOBRk+cYdYfJk9L4R3/NETijwSnOr9s4M4h5TtLy+Q3wdwNr7yeJrRKRN49SHAvUE3t2UPDS
+	2/uJDN6FCVpX5sQz5b799RklPXywAZOGOzW9PGUHHsIavoD61BRVcRTFi4dwPW6ed0PjSnx/V2gXm
+	rQMmufWZRvlV+4WEHLOYcFA5nixNaF4W/UirLbd+QGwTPGcino/bth4BxE6Ag7pzYPwpD0ZV5ryvT
+	ZeBJ7pZw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56504)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vE8ow-000000004ci-1h3W;
+	Wed, 29 Oct 2025 16:14:46 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vE8os-000000007eD-12kw;
+	Wed, 29 Oct 2025 16:14:42 +0000
+Date: Wed, 29 Oct 2025 16:14:42 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: rohan.g.thomas@altera.com
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Steffen Trumtrar <s.trumtrar@pengutronix.de>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/4] net: stmmac: socfpga: Agilex5 EMAC platform
+ configuration
+Message-ID: <aQI9ckiHEybp3c_y@shell.armlinux.org.uk>
+References: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
+ <20251029-agilex5_ext-v1-1-1931132d77d6@altera.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029-agilex5_ext-v1-1-1931132d77d6@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_090031_314504_936E3EED 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251029_091502_179432_6D2155B7 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,22 +89,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 29. oktober 2025 ob 08:49:10 Srednjeevropski standardni =C4=8Das=
- je Miaoqian Lin napisal(a):
-> Fix a device node reference leak where the remote endpoint node obtained
-> by of_graph_get_remote_endpoint() was not being properly released.
->=20
-> Add of_node_put() calls after of_property_read_u32() to fix this.
->=20
-> Fixes: e8d5bbf7f4c4 ("drm/sun4i: tcon: get TCON ID and matching engine wi=
-th remote endpoint ID")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
+On Wed, Oct 29, 2025 at 04:06:13PM +0800, Rohan G Thomas via B4 Relay wrote:
+> +static void socfpga_common_plat_dat(struct socfpga_dwmac *dwmac)
+> +{
+> +	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
+> +
+> +	plat_dat->bsp_priv = dwmac;
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Surely this is something which is always done? What's the point in
+moving this to a function that always needs to be called from the
+implementation specific setup_plat_dat() method?
 
-Best regards,
-Jernej
+> +	plat_dat->fix_mac_speed = socfpga_dwmac_fix_mac_speed;
+> +	plat_dat->init = socfpga_dwmac_init;
+> +	plat_dat->pcs_init = socfpga_dwmac_pcs_init;
+> +	plat_dat->pcs_exit = socfpga_dwmac_pcs_exit;
+> +	plat_dat->select_pcs = socfpga_dwmac_select_pcs;
 
+From what I can see in your patch series, these are never changed.
+So, I question the value of having this "common_plat_dat"
+initialisation function. Why not leave this code in
+socfpga_dwmac_probe(), and just move the initialisation of
+plat_dat->core_type and plat_dat->riwt_off ?
 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
