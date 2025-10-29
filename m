@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AF5CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 00:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806D3CCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 00:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXeB1XRi1t4+hav00/PO85fUCGM4DHZek+mbIiPUEtA=; b=GjwRBb2C6O+MhpPLp0f+M7hJSk
-	Ay1GRlh7vTh/TYK/XmZhGr4QQ7BObVZqvorbkGkGABx0APh5BfxqKnmaNLCtOMvm1x2lL+TiT+q/v
-	r5AeVNK/wssgCxBy7k8IBIFna0izyvvkLBqtgllccmOJAAnQaNz5/dhmT1Z9PCw9VCU3MbRcwjobH
-	/+98XBnLgdorXRMSXr56lN528wSf8NWueTUT60LS3MQGaD4+a/Wadu8l6FsQESXk+i+B7r/KI07g4
-	21j+dc6wbpjnetrqfbvN6zKv0jT8r9DCc1ozvEgpiqM9AX1DbSEZYGPIG64IYLRCEixLb0mSDwOgR
-	nQNOT4Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pezF2VK8RuTzI7DSs1mIZQ9VJH2IBGxZMtiOZQj+jXY=; b=Rvqi2Trx0uI3RXDBcxgwOhxBNX
+	uyTTcVc4jjVWY3oQ0/JkObynWvpKstaVa2mvAuY5GgRptc+uQGmIt50KwZKr2WkkzbMjqDOs4VOcB
+	CUjdsLdYI5lXqLgaRCk90hSiChkZRlYSOwghkJrZvLtn7EHkVuSbMh6HzwQb1Us6DpSoUDbfVwKuj
+	CzH3FU97P5DSyq1l9aHKJw/OTLXI1frAv8llPXzWARz7a8OMrWs7Mf98ZpAcQcARkRit6vyuyIpaS
+	UjAsdEmaVlokqgjIjCKhEG7r71zwWjCnaMffD+KV+D32KBiDITgyMpesmCzq4iOQwPZjDQiUVpVu6
+	tG08kR0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDu37-0000000Grbj-0SlF;
-	Wed, 29 Oct 2025 00:28:25 +0000
-Received: from mail-m1973177.qiye.163.com ([220.197.31.77])
+	id 1vDuU9-0000000Gt3X-1tlA;
+	Wed, 29 Oct 2025 00:56:21 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDu33-0000000GrbC-3tL5;
-	Wed, 29 Oct 2025 00:28:23 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 278abcfb1;
-	Wed, 29 Oct 2025 08:28:13 +0800 (GMT+08:00)
-Message-ID: <3fcd5562-a367-41e9-8bff-51e5990145e2@rock-chips.com>
-Date: Wed, 29 Oct 2025 08:28:10 +0800
+	id 1vDuU6-0000000Gt3A-1JYU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 00:56:20 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b6cf30e5bbcso318627a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 17:56:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761699377; x=1762304177; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pezF2VK8RuTzI7DSs1mIZQ9VJH2IBGxZMtiOZQj+jXY=;
+        b=FKWcr1KNZzr99G66AXdectpaylTg9PBE48c1loIl+knotNhL+jr8McDsQ7BMoAQrji
+         wwU9BN2volahBK2CQNOeKL+i2CTO3//WFxtRkN4MG4tFGMnE7iEya1xNE+tdXEvatpZY
+         nT2S1xRVtfbl9d0kfaDo3zZa952yE+Z978pzamVpcByDsvzNDB6+WYL9DSk/h9uBFgzi
+         bINYDIQxBCnJeqEPoK+axKL7iacz6qsSgnr8xt7mcQdOXkuWfk4tzNxN9wiadPGlLod2
+         6clAvTa3zqSczaBWzHH96tKGAdOXsn2pjHxiMklebTq62sX0pXXT4QPGJ1hJoBvjvXJg
+         7l+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761699377; x=1762304177;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pezF2VK8RuTzI7DSs1mIZQ9VJH2IBGxZMtiOZQj+jXY=;
+        b=ElsDHj69dXVmC5J5UyaK2VFkANaSGNWcqnA1DO/FSM92I5dMFMjubH/I7z8A+FFptq
+         nhkmM2YhwkcEZcUnlX50PJCRGxPIj3wxc/e0MK7ng0H55SCmS+7DOQIfApBqbQBRDi7m
+         uaUHbuyab6pvgRmcFd3GQw4ehsDrQjXD/41XybXZbcQLKf2Ukp4IP2tXrvb58lBY4e6N
+         SipG8Zb0QkEX1C8mDAZlyOBf+3J/BUOVHB5bZqdj7ceSPG+2eiTnJJthf6riYEqmSLXx
+         yh8O9Bue6aLFN4PFutkqFc513tLdY3LZvRx7J9BYY4curSBpUBIw+oKMiCut0k6YC0mY
+         2KuA==
+X-Forwarded-Encrypted: i=1; AJvYcCWCmoVQzb7QX5uHQgagSATrOy2eOMXW0IgKdyFQx3gYy5fZEodVIXSYk8W/3TUlIpLmae5Mqd0m4vlD1Tnv0aKn@lists.infradead.org
+X-Gm-Message-State: AOJu0YySNzqjwv1srhxik8Qgkxry1FWt21T6AoghiTMYbHglBcXvcwjO
+	g+S0ovSMAV2sPpBnb2doid98PlICY+KL46hhT4B86BluJad4bysRpwff
+X-Gm-Gg: ASbGncv1P1FZrluS//Hz+/Zg76bNWuDkpzFbKDyXEHDGM8xqUsRBB1LM8oKxp3yjvJo
+	M+fvisGfyCySD+eUf0MKeWFOWZCna3ugA/JmOYET/DIJ+l0xd7PzdfGbQjUKmBg/ghodHYQTNFM
+	S+C0vURtotVQTlWYNYioLPbbV3YxeSPJJpQGGxS6I1SqNxtkyThFdiEae9Rb7N3nO1hdoGl8usm
+	wWczV1UO3K4M+eFxUWZdm9c5NcA1/IsNaPEGuROzTsOhvAwyKAeEwmDyH2pumAuoA8otY3Wn6AT
+	07Qpk4b4wd68otRI7FT71TxP0kDkz1Jw5wyvDn1592qJd1LmE/FLYgmnkdsNRvTkB4zUWtrxKy0
+	H7ywL3O9tbhZWuiH1mUbHjJq7IZWRnKt2wZpf5onf3urqHDaBP/IQuGGjtJ8TfgSU7er8TDWeYr
+	E=
+X-Google-Smtp-Source: AGHT+IHOlz4wCJmTj/zx16kQtcK3MAOTVFHMVAoc2+es1wdMlMVDqBf6QFztVnrfW0sWZY15JATnUg==
+X-Received: by 2002:a17:903:41c2:b0:26c:4085:e3ef with SMTP id d9443c01a7336-294de9f7ae3mr12621045ad.21.1761699377445;
+        Tue, 28 Oct 2025 17:56:17 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d230c5sm130960935ad.47.2025.10.28.17.56.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Oct 2025 17:56:17 -0700 (PDT)
+Date: Wed, 29 Oct 2025 08:56:09 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, 
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: net: sophgo,sg2044-dwmac: add phy
+ mode restriction
+Message-ID: <rclupbdjyk67fee2lgf74k6tkf7mnjcxzwcjvyk2bohgpetqt5@toxvy3m5orm2>
+References: <20251028003858.267040-1-inochiama@gmail.com>
+ <20251028003858.267040-2-inochiama@gmail.com>
+ <20251028-parka-proud-265e5b342b8e@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Niklas Cassel <cassel@kernel.org>, Hans Zhang <18255117159@163.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- "open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
- <linux-pci@vger.kernel.org>,
- "moderated list:ARM/Rockchip SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource
- cleanup
-To: Anand Moon <linux.amoon@gmail.com>
-References: <20251027145602.199154-1-linux.amoon@gmail.com>
- <20251027145602.199154-2-linux.amoon@gmail.com>
- <4fe0ccf9-8866-443a-8083-4a2af7035ee6@rock-chips.com>
- <CANAwSgRXcg4tO00SNu77EKdp6Ay6X7+_f-ZoHxgkv1himxdi0Q@mail.gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <CANAwSgRXcg4tO00SNu77EKdp6Ay6X7+_f-ZoHxgkv1himxdi0Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a2d5d7fa609cckunm42001d6025423a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUJKGlYdHRlOTRlIQ0MYQkxWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=EnhdmNK7UPDdSC1XgqbfxEnNOjTCjGjaaUnxh2iZtaj5IhIedJTIvIhcCv8kSzJCibxayqMndZwLbtjWAa0MSChiyaL9qn1PrpBiqijpLzyLMPj9MTV4tpwSc+SzHZbhlLbls67xsUtwKxdbSWyM9FPC6TLvQ0aYkJ2sb7BHuXI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=VXeB1XRi1t4+hav00/PO85fUCGM4DHZek+mbIiPUEtA=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251028-parka-proud-265e5b342b8e@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_172822_149320_32685223 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20251028_175619_668024_8629770D 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,118 +110,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 28, 2025 at 07:22:37PM +0000, Conor Dooley wrote:
+> On Tue, Oct 28, 2025 at 08:38:56AM +0800, Inochi Amaoto wrote:
+> > As the ethernet controller of SG2044 and SG2042 only supports
+> > RGMII phy. Add phy-mode property to restrict the value.
+> > 
+> > Also, since SG2042 has internal rx delay in its mac, make
+> > only "rgmii-txid" and "rgmii-id" valid for phy-mode.
+> 
+> Should this have a fixes tag?
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> 
 
-在 2025/10/28 星期二 17:34, Anand Moon 写道:
-> Hi Shawn,
-> 
-> Thanks for your review comments.
-> 
-> On Tue, 28 Oct 2025 at 05:56, Shawn Lin <shawn.lin@rock-chips.com> wrote:
->>
->> 在 2025/10/27 星期一 22:55, Anand Moon 写道:
->>> Introduce a .remove() callback to the Rockchip DesignWare PCIe
->>> controller driver to ensure proper resource deinitialization during
->>> device removal. This includes disabling clocks and deinitializing the
->>> PCIe PHY.
->>>
->>> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
->>> ---
->>>    drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
->>>    1 file changed, 11 insertions(+)
->>>
->>> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->>> index 87dd2dd188b4..b878ae8e2b3e 100644
->>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->>> @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->>>        return ret;
->>>    }
->>>
->>> +static void rockchip_pcie_remove(struct platform_device *pdev)
->>> +{
->>> +     struct device *dev = &pdev->dev;
->>> +     struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
->>> +
->>> +     /* Perform other cleanups as necessary */
->>> +     clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
->>> +     rockchip_pcie_phy_deinit(rockchip);
->>> +}
->>
->> Thanks for the patch.
->>
->> Dou you need to call dw_pcie_host_deinit()?
-> I feel the rockchip_pcie_phy_deinit will power off the phy
->> And I think you should also try to mask PCIE_CLIENT_INTR_MASK_MISC and
->> remove the irq domain as well.
->>
->> if (rockchip->irq_domain) {
->>          int virq, j;
->>          for (j = 0; j < PCI_NUM_INTX; j++) {
->>                  virq = irq_find_mapping(rockchip->irq_domain, j);
->>                  if (virq > 0)
->>                          irq_dispose_mapping(virq);
->>           }
->>          irq_set_chained_handler_and_data(rockchip->irq, NULL, NULL);
->>          irq_domain_remove(rockchip->irq_domain);
->> }
->>
-> I have implemented resource cleanup in rockchip_pcie_remove,
-> which is invoked when the system is shutting down.
-> Your feedback on the updated code is welcome.
-> 
-> static void rockchip_pcie_remove(struct platform_device *pdev)
-> {
->          struct device *dev = &pdev->dev;
->          struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
->          int irq;
-> 
->          irq = of_irq_get_byname(dev->of_node, "legacy");
->          if (irq < 0)
->                  return;
-> 
->          /* Perform other cleanups as necessary */
->          /* clear up INTR staatus register */
->          rockchip_pcie_writel_apb(rockchip, 0xffffffff,
->                                   PCIE_CLIENT_INTR_STATUS_MISC);
->          if (rockchip->irq_domain) {
->                  int virq, j;
->                  for (j = 0; j < PCI_NUM_INTX; j++) {
->                          virq = irq_find_mapping(rockchip->irq_domain, j);
->                          if (virq > 0)
->                                  irq_dispose_mapping(virq);
->                  }
->                  irq_set_chained_handler_and_data(irq, NULL, NULL);
->                  irq_domain_remove(rockchip->irq_domain);
->          }
-> 
->          clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
->          /* poweroff the phy */
->          rockchip_pcie_phy_deinit(rockchip);
->          /* release the reset */
+Although I add a fixes tag to the driver, I am not sure whether the
+binding requires it. But if it is required, I think it should be
 
-release? Or "reset the controller"?
+Fixes: e281c48a7336 ("dt-bindings: net: sophgo,sg2044-dwmac: Add support for Sophgo SG2042 dwmac")
 
->          reset_control_assert(rockchip->rst);
->          pm_runtime_put_sync(dev);
->          pm_runtime_disable(dev);
->          pm_runtime_no_callbacks(dev);
-> }
-> 
->> Another thin I noticed is should we call pm_runtime_* here for hope that
->> genpd could be powered donw once removed?
->>
-> I could not find 'genpd' (power domain) used in the PCIe driver
-> If we have an example to use genpd I will update this.
- > > I am also looking into adding NOIRQ_SYSTEM_SLEEP_PM_OPS
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 20 +++++++++++++++++++
+> >  1 file changed, 20 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > index ce21979a2d9a..916ef8f4838a 100644
+> > --- a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > @@ -70,6 +70,26 @@ required:
+> >  
+> >  allOf:
+> >    - $ref: snps,dwmac.yaml#
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: sophgo,sg2042-dwmac
+> > +    then:
+> > +      properties:
+> > +        phy-mode:
+> > +          enum:
+> > +            - rgmii-txid
+> > +            - rgmii-id
+> > +    else:
+> > +      properties:
+> > +        phy-mode:
+> > +          enum:
+> > +            - rgmii
+> > +            - rgmii-rxid
+> > +            - rgmii-txid
+> > +            - rgmii-id
+> > +
+> >  
+> >  unevaluatedProperties: false
+> >  
+> > -- 
+> > 2.51.1
+> > 
 
-That sounds good, you can pick up my patch[1] if you'd like to continue
-addressing the comments that I haven't had time to think more.
-
-[1] https://www.spinics.net/lists/linux-pci/msg171846.html
-
-> 
-> Thanks
-> -Anand
-> 
 
 
