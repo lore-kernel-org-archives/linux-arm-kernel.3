@@ -4,59 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BF5CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 03:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87EE6CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 03:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8M+85N7vxPlT6EdfKNMF7iLZL6P7LA7QnBJfg2pIwHw=; b=OPVAx9Jz920wIEW41ZcWwbk3L6
-	/JglK1HI51oRxI8sM67+0nvGdpzpsRhoHHJXwyk3HFjhKQx7n7hOhfixaSLrppymKSZYacuvFDiWw
-	i90JRRIiwBkyUsQMnMcjSD4btZjFYowypGoobYeKEd1dtJ7iHIEwvjdB5YUSdvbEP23EZ/8d9aKj9
-	XfIDWbL7oHaLQN3fstgXVlRB+YbJEYLErV2bAdc5CGFn/vHc0BzbdQqJ9q8NuEKjG2TyzdLzRgazO
-	wvBqWgWPhmcrS9z0MufegipqG9yOD8vhcEcsywfunAFE9PyWDPOVCtGG3bQEbQ9/QbYtpjIKH0kAP
-	kwgXafyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YZ+v2V2HXO6fEBeqBbs+msJfMB5CADuyB6hkvZ2bvZY=; b=w4u81bAQrYp6lFrIXsdywphG6E
+	4jwKhyMXCvX02cuGu1vekLvsNtc1VYu5IgJTniRXymGVSit7p7ynTgd0wShG5aQGf6p8EYpKROXQi
+	nhOWrbZlk3+a3bnHwPWzVPZHu4GihBIfMBousgCO5IhX0O4S/8kTiiHR/YTKRmj1KCOefRi78WmbB
+	aXIqh5uFI8kIyy3iXWumpG0RR30OsE5Vcw9Tbz7YHJyPLftyyd+aseaQtjF51pwZ5nOMEoPxfqK2n
+	IWWXI1PwwTFGmG+J5NujdI9zjAear3KqsNOIML/sVLrAvCzS/rl28SPP16rQ+i/68ht/C41AXJYYM
+	AvpzqGWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDx97-0000000H4Ea-1pV9;
-	Wed, 29 Oct 2025 03:46:49 +0000
-Received: from wxsgout03.xfusion.com ([36.139.52.80] helo=wxsgout04.xfusion.com)
+	id 1vDxLE-0000000H6PU-0ico;
+	Wed, 29 Oct 2025 03:59:20 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDx8z-0000000H49g-1Wks
+	id 1vDxLA-0000000H6NV-3INi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 03:46:43 +0000
-Received: from wuxpheds03048.xfusion.com (unknown [10.32.143.30])
-	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cxCny5MCSzB90fq;
-	Wed, 29 Oct 2025 11:45:58 +0800 (CST)
-Received: from DESKTOP-Q8I2N5U.xfusion.com (10.82.130.100) by
- wuxpheds03048.xfusion.com (10.32.143.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20;
- Wed, 29 Oct 2025 11:46:32 +0800
-From: shechenglong <shechenglong@xfusion.com>
-To: <mark.rutland@arm.com>, <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stone.xulei@xfusion.com>, <chenjialong@xfusion.com>,
-	<yuxiating@xfusion.com>, shechenglong <shechenglong@xfusion.com>
-Subject: [PATCH v2 2/2] cpu: fix hard lockup triggered by printk calls within
-  scheduling context
-Date: Wed, 29 Oct 2025 11:45:54 +0800
-Message-ID: <20251029034554.1839-3-shechenglong@xfusion.com>
-X-Mailer: git-send-email 2.37.1.windows.1
-In-Reply-To: <20251029034554.1839-1-shechenglong@xfusion.com>
-References: <20250918064907.1832-1-shechenglong@xfusion.com>
- <20251029034554.1839-1-shechenglong@xfusion.com>
+	Wed, 29 Oct 2025 03:59:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=YZ+v2V2HXO6fEBeqBbs+msJfMB5CADuyB6hkvZ2bvZY=;
+	b=eCUKUI6/NwtRM/E7RQR1yQobi7ENuTPHsrj3A3FPHcQn8L15fPvRu5QG5s02vQFZIrhbnP8NK
+	GHj8jBBRlpNGJCJ9BEfD26rbz7PUiQME3JulKOlKSWuCjzYDEPQlTGeE5kyz7IwYG4A8fOs0msq
+	vQd8oEKetNi+ne/lVOlKb7E=
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4cxD3d2KzbzpStg;
+	Wed, 29 Oct 2025 11:57:49 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 840941402CD;
+	Wed, 29 Oct 2025 11:59:07 +0800 (CST)
+Received: from [10.174.178.24] (10.174.178.24) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 29 Oct 2025 11:59:05 +0800
+Message-ID: <8134b0ec-1c0a-1a3a-b3df-3c620490fa9b@huawei.com>
+Date: Wed, 29 Oct 2025 11:59:04 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain
-X-Originating-IP: [10.82.130.100]
-X-ClientProxiedBy: wuxpheds03046.xfusion.com (10.32.128.186) To
- wuxpheds03048.xfusion.com (10.32.143.30)
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH mpam mpam/snapshot/v6.14-rc1] arm64/mpam: Fix MBWU monitor
+ overflow handling
+Content-Language: en-US
+From: Zeng Heng <zengheng4@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
+	<guohanjun@huawei.com>, <jeremy.linton@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>, <wangkefeng.wang@huawei.com>,
+	<sunnanyong@huawei.com>
+References: <20251017185645.26604-25-james.morse@arm.com>
+ <20251022133913.629859-1-zengheng4@huawei.com>
+ <8e22c81e-5e78-41e0-a81e-0f9826e5edf0@arm.com>
+ <1c037f72-485a-567b-bf8f-489255330de8@huawei.com>
+ <56f7f2df-fd94-48c8-aaa0-97a71b3108cf@arm.com>
+ <d2aa99f8-dbdc-dc13-1ba3-0e273913221f@huawei.com>
+In-Reply-To: <d2aa99f8-dbdc-dc13-1ba3-0e273913221f@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.178.24]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_204641_955407_8A842142 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_205917_490907_3F1B6D48 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,133 +98,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-relocate the printk() calls from spectre_v4_mitigations_off() and=0D
-spectre_v2_mitigations_off() into setup_system_capabilities() function,=0D
-preventing hard lockups that occur when printk() is invoked from scheduler =
-context.=0D
-=0D
-Link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/202509180=
-64907.1832-1-shechenglong@xfusion.com/=0D
-Suggested-by: Mark Rutland <mark.rutland@arm.com>=0D
-Suggested-by: Catalin Marinas <catalin.marinas@arm.com>=0D
-Suggested-by: Will Deacon <will@kernel.org>=0D
-Signed-off-by: shechenglong <shechenglong@xfusion.com>=0D
----=0D
- arch/arm64/include/asm/spectre.h |  2 ++=0D
- arch/arm64/kernel/cpufeature.c   |  7 ++++++-=0D
- arch/arm64/kernel/proton-pack.c  | 28 ++++++++++++++--------------=0D
- 3 files changed, 22 insertions(+), 15 deletions(-)=0D
-=0D
-diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spec=
-tre.h=0D
-index 8fef12626090..f244b52fb123 100644=0D
---- a/arch/arm64/include/asm/spectre.h=0D
-+++ b/arch/arm64/include/asm/spectre.h=0D
-@@ -118,5 +118,7 @@ void spectre_bhb_patch_wa3(struct alt_instr *alt,=0D
- void spectre_bhb_patch_clearbhb(struct alt_instr *alt,=0D
-                                __le32 *origptr, __le32 *updptr, int nr_ins=
-t);=0D
-=0D
-+void spectre_print_disabled_mitigations(void);=0D
-+=0D
- #endif /* __ASSEMBLY__ */=0D
- #endif /* __ASM_SPECTRE_H */=0D
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.=
-c=0D
-index 5ed401ff79e3..6836e314fd30 100644=0D
---- a/arch/arm64/kernel/cpufeature.c=0D
-+++ b/arch/arm64/kernel/cpufeature.c=0D
-@@ -94,7 +94,7 @@=0D
- #include <asm/traps.h>=0D
- #include <asm/vectors.h>=0D
- #include <asm/virt.h>=0D
--=0D
-+#include <asm/spectre.h>=0D
- /* Kernel representation of AT_HWCAP and AT_HWCAP2 */=0D
- static DECLARE_BITMAP(elf_hwcap, MAX_CPU_FEATURES) __read_mostly;=0D
-=0D
-@@ -3875,6 +3875,11 @@ static void __init setup_system_capabilities(void)=0D
-         */=0D
-        if (system_uses_ttbr0_pan())=0D
-                pr_info("emulated: Privileged Access Never (PAN) using TTBR=
-0_EL1 switching\n");=0D
-+=0D
-+       /*=0D
-+        * Report Spectre mitigations status.=0D
-+        */=0D
-+       spectre_print_disabled_mitigations();=0D
- }=0D
-=0D
- void __init setup_system_features(void)=0D
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pac=
-k.c=0D
-index d833b7c1bba8..386f986e6b5d 100644=0D
---- a/arch/arm64/kernel/proton-pack.c=0D
-+++ b/arch/arm64/kernel/proton-pack.c=0D
-@@ -91,12 +91,7 @@ early_param("nospectre_v2", parse_spectre_v2_param);=0D
-=0D
- static bool spectre_v2_mitigations_off(void)=0D
- {=0D
--       bool ret =3D __nospectre_v2 || cpu_mitigations_off();=0D
--=0D
--       if (ret)=0D
--               pr_info_once("spectre-v2 mitigation disabled by command lin=
-e option\n");=0D
--=0D
--       return ret;=0D
-+       return __nospectre_v2 || cpu_mitigations_off();=0D
- }=0D
-=0D
- static const char *get_bhb_affected_string(enum mitigation_state bhb_state=
-)=0D
-@@ -421,13 +416,8 @@ early_param("ssbd", parse_spectre_v4_param);=0D
-  */=0D
- static bool spectre_v4_mitigations_off(void)=0D
- {=0D
--       bool ret =3D cpu_mitigations_off() ||=0D
-+       return cpu_mitigations_off() ||=0D
-                   __spectre_v4_policy =3D=3D SPECTRE_V4_POLICY_MITIGATION_=
-DISABLED;=0D
--=0D
--       if (ret)=0D
--               pr_info_once("spectre-v4 mitigation disabled by command-lin=
-e option\n");=0D
--=0D
--       return ret;=0D
- }=0D
-=0D
- /* Do we need to toggle the mitigation state on entry to/exit from the ker=
-nel? */=0D
-@@ -1042,8 +1032,6 @@ void spectre_bhb_enable_mitigation(const struct arm64=
-_cpu_capabilities *entry)=0D
-=0D
-        if (arm64_get_spectre_v2_state() =3D=3D SPECTRE_VULNERABLE) {=0D
-                /* No point mitigating Spectre-BHB alone. */=0D
--       } else if (cpu_mitigations_off() || __nospectre_bhb) {=0D
--               pr_info_once("spectre-bhb mitigation disabled by command li=
-ne option\n");=0D
-        } else if (supports_ecbhb(SCOPE_LOCAL_CPU)) {=0D
-                state =3D SPECTRE_MITIGATED;=0D
-                set_bit(BHB_HW, &system_bhb_mitigations);=0D
-@@ -1197,3 +1185,15 @@ void unpriv_ebpf_notify(int new_state)=0D
-                pr_err("WARNING: %s", EBPF_WARN);=0D
- }=0D
- #endif=0D
-+=0D
-+void spectre_print_disabled_mitigations(void)=0D
-+{=0D
-+       if (spectre_v2_mitigations_off())=0D
-+               pr_info("spectre-v2 mitigation disabled by command-line opt=
-ion\n");=0D
-+=0D
-+       if (spectre_v4_mitigations_off())=0D
-+               pr_info("spectre-v4 mitigation disabled by command-line opt=
-ion\n");=0D
-+=0D
-+       if (__nospectre_bhb || cpu_mitigations_off())=0D
-+               pr_info("spectre-bhb mitigation disabled by command-line op=
-tion\n");=0D
-+}=0D
---=0D
-2.33.0=0D
+Hi Ben,
+
+On 2025/10/29 10:49, Zeng Heng wrote:
+> Hi Ben,
+> 
+> On 2025/10/29 0:01, Ben Horgan wrote:
+>> Hi Zeng,
+>>
+>> On 10/25/25 10:01, Zeng Heng wrote:
+>>> Hi Ben,
+>>>
+>>> On 2025/10/23 0:17, Ben Horgan wrote:
+>>>
+>>>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>>>>> ---
+>>>>>    drivers/resctrl/mpam_devices.c | 8 +++++---
+>>>>>    1 file changed, 5 insertions(+), 3 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>>>>> mpam_devices.c
+>>>>> index 0dd048279e02..06f3ec9887d2 100644
+>>>>> --- a/drivers/resctrl/mpam_devices.c
+>>>>> +++ b/drivers/resctrl/mpam_devices.c
+>>>>> @@ -1101,7 +1101,8 @@ static void __ris_msmon_read(void *arg)
+>>>>>        clean_msmon_ctl_val(&cur_ctl);
+>>>>>        gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
+>>>>>        config_mismatch = cur_flt != flt_val ||
+>>>>> -              cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+>>>>> +             (cur_ctl & ~MSMON_CFG_x_CTL_OFLOW_STATUS) !=
+>>>>> +             (ctl_val | MSMON_CFG_x_CTL_EN);
+>>>>
+>>>> This only considers 31 bit counters. I would expect any change here to
+>>>> consider all lengths of counter.
+>>>
+>>> Sorry, regardless of whether the counter is 32-bit or 64-bit, the
+>>> config_mismatch logic should be handled the same way here. Am I
+>>> wrong?
+>>
+>> Yes, they should be handled the same way. However, the overflow status
+>> bit for long counters is MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L.
+>>
+>> I now see that the existing code in the series has this covered.
+>> Both the overflow bits are masked out in clean_msmon_ctl_val(). No need
+>> for any additional masking.
+>>
+> 
+> Yes, I’ve seen the usage, except that clearing the overflow bit in the
+> register is missing.
+> 
+
+Please disregard my previous mail... :)
+
+Exactly, thanks for the review. I'll fold the fixes into v2 of the
+patch.
+
+
+Best Regards,
+Zeng Heng
 
