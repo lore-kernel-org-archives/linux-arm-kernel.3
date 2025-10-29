@@ -4,83 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C391CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED32CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x8PMAjpUzEpEObt1dire31F5Js78fV2X3/gBASmc8NM=; b=sZFZeuNw+G3iPitT1gEk+wyWG4
-	lvEK2uH16E41RM8b9CVrdr8YXxN+ullUGDsfOvh5J/GqQ7RxsjoItXINJt4mLga1hkpQSEGSIrlaU
-	NjkFX6CHkTBdJO4a1JuPe14GqK4opFOO6hPP8EbyVfeYTios22JSjLguuLDthULTJ8+SEjvS3DtSM
-	CsIMVOrkwhn3P8MqJ6lGVN58H4LSa/cs4UeJR/x3WeQUOlFiUs4T3RIuogaWmBaHF2bytc38QePvf
-	nMhdjAxh69XMzlS+3L/3k0yHrvoiDh4CR8DDxbqdYaj1WowtnlseLrdYHQRSQGNL7e2JYELrpMxCT
-	RHcNHNig==;
+	bh=8TDebEJmKrapkTDm2SQS84/R7MOsdaEIy1zvcb82V9E=; b=nQcuG2g9Ya6O6eydc2P/s5gnj1
+	enBp8dPNxrh5nMMBu1X4XvH/z716wPdX72KdpZaHHI5lYG5O3x5kSi+VvZwn+oTM1cml0KOjs2RZz
+	tWxTcTXsjFKgvWIs75DZFF1u6zstNcKpOwd28ovZzfwcNrATcZ84gXjwHU+95p1L2wHi1q/2U8Uuj
+	kmbQM+mIlWUQxbkoXZHPiZsqDhWL0Eb3jJy18fXNhZ6Zy6/OJj17yRoixLGlbD1r300MNsUWehB0E
+	wR7faBSezEP4S9grOiVxBefj8sNMrSJ/zpIG2xi5FVVpgeTPmH7aXiOinUmGaCqpM/LBve/be5YBg
+	zG0JHUPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3TQ-00000000mZk-1D06;
-	Wed, 29 Oct 2025 10:32:12 +0000
-Received: from mail-m49204.qiye.163.com ([45.254.49.204])
+	id 1vE3UJ-00000000n4z-3YOs;
+	Wed, 29 Oct 2025 10:33:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3TJ-00000000mS2-1dWo;
-	Wed, 29 Oct 2025 10:32:09 +0000
-Received: from [172.16.12.149] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 27a23665c;
-	Wed, 29 Oct 2025 18:31:58 +0800 (GMT+08:00)
-Message-ID: <e0c5bda3-7428-49e0-9955-fa23f1e4f35d@rock-chips.com>
-Date: Wed, 29 Oct 2025 18:31:57 +0800
+	id 1vE3UH-00000000n3I-2tDg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 10:33:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761733984;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8TDebEJmKrapkTDm2SQS84/R7MOsdaEIy1zvcb82V9E=;
+	b=FFiJQXx5PfWuPprnhmzWir21K12qti6sHPIY8QYkvhwcdPZDv6JJQxt8jCshbUcM5/Wmew
+	grZztX7evju1Asny/s6S1ERW0kPfP/LyBr+m+JSgA1j41aH2OzYF378etmU2xKUs8MItj5
+	mm2saDAxq/Xy5li7r4NYwhhjGNxuvJA=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-439-4xo2kM6TM7OE1CCT-OGVIA-1; Wed, 29 Oct 2025 06:33:03 -0400
+X-MC-Unique: 4xo2kM6TM7OE1CCT-OGVIA-1
+X-Mimecast-MFC-AGG-ID: 4xo2kM6TM7OE1CCT-OGVIA_1761733982
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-47106720618so50965145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 03:33:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761733982; x=1762338782;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rJM20FESPr5Q3wolT/mFDxUYnwba82V6xz3P+wmiM7o=;
+        b=LyVMAugP1hOqEr0IplNEjH8vosuESK4nelTC4P3h2GiftKmV9C0ObaQUgYZQhJnjUX
+         N75IZjG21h2g/at6aDmL1a3Esbbxl5I5K5jkmv5KO6uqLgW0kLQO0L48a0+SsjJMVTiW
+         N3Kk7uamgyyhl2X6OMRNmwn4DYrjkrCaQJwcSAREPA3bwVy7T/jAcEwF9jgHZhMqRbi8
+         a6V7udPmRyqTU6zB+DIqif/DMB3PQg4cRConb75oU/DYQZNbuMipwRmkXQLU5totrN+f
+         /0FpgYszbplEiIj0yfIEnhdmlqlW/FuZZUGcUBDAJQ3Cfs0Id5J9IOADHyshkCoMJt/o
+         jGYg==
+X-Forwarded-Encrypted: i=1; AJvYcCUa1SG9gaQyKqg7cZR6ydB9qFLYySIJXdPgR+Mik9oYxyeKqh/7ga0BNSKpMoLYjuftzXv4N9qahZsjyBWOnuZJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEF8NnArPjhpkY0Nd9DO05TT2kWjzhXbp3rmCWh7sKYzeh9GaY
+	raBti4Fac9epp6bH7YC6eaHvfbgFxYFz7xlGHeUMl7YXN2nr22voFYfNxoUgcJyG9C0oZwzj9VR
+	ByH8vn7Fy0W3RZw6ilxGtQ9ON31XvElXsOd/eJMFx7kFD9ISlfyXxdjBZlaSp/7rKkMMPwbS6au
+	AN
+X-Gm-Gg: ASbGnct64nUwwv5+q5IStRrjg4TP4++8iMJACvd/gBu3YODriczY1d5eGQlvNXZlNqp
+	aWg/sfafK/3Bdyf7yP3u+Yu5XU1d+eZ+TVV+8+5EYrpxV/0BgK2rUMN8JQAhaIkXAa/JkbWQC5f
+	tvUZmt1fPZJoO/cpZ6+MILd+1rusNBnCpOPZzSRVkStyXDD9BNWBV3ggucnggw47GJpzWPmS0ND
+	LYdkNllTIdho7f/ARJZZYwIO01993PDUj+PtZELIVaF8fkQeBPzlsxUNgaP0wKg4WzoIQokW3D2
+	TG4GxWsCrS0BqWOxiiAISythZ5oREqBafuPvwjiM3KQrkBsy37Tj/vpIewTpjDYCA72Ut9FcRjm
+	xpZAMh42/W5eJ0a9ByUoQMAiK+8etCdmKJBSKAnZRRzpxXXZxWYLqTQPlaS5t
+X-Received: by 2002:a05:600c:64c4:b0:477:bb0:7528 with SMTP id 5b1f17b1804b1-4771e1da0c8mr21409745e9.22.1761733982213;
+        Wed, 29 Oct 2025 03:33:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGxlh/PGW1+wNXuO1RQYN4fEeAqw5AdQXtt4ynjbr63hSK8Qg5GeiiDecSDqHTa53KxpVgVKg==
+X-Received: by 2002:a05:600c:64c4:b0:477:bb0:7528 with SMTP id 5b1f17b1804b1-4771e1da0c8mr21408835e9.22.1761733981314;
+        Wed, 29 Oct 2025 03:33:01 -0700 (PDT)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952b79cbsm25638297f8f.4.2025.10.29.03.32.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 03:33:00 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Frederic Weisbecker <frederic@kernel.org>, Phil Auld <pauld@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
+ Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
+ <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, "Paul E. McKenney"
+ <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen
+ <samitolvanen@google.com>, "David S. Miller" <davem@davemloft.net>, Neeraj
+ Upadhyay <neeraj.upadhyay@kernel.org>, Joel Fernandes
+ <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, Boqun Feng
+ <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, Mathieu
+ Desnoyers <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
+ <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
+ Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+In-Reply-To: <aQDuY3rgOK-L8D04@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <aQDuY3rgOK-L8D04@localhost.localdomain>
+Date: Wed, 29 Oct 2025 11:32:58 +0100
+Message-ID: <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 10/10] arm64: dts: rockchip: rk3399-evb-ind: Add
- support for DisplayPort
-To: Peter Chen <hzpeterchen@gmail.com>, Chaoyi Chen <kernel@airkyi.com>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20251029071435.88-1-kernel@airkyi.com>
- <20251029071435.88-11-kernel@airkyi.com>
- <CAL411-o6mF71oBeRsJ-OPZNbLegn4iJ_ELN9xVdppTM3ssUPOw@mail.gmail.com>
- <cc8b583a-77ec-4a7f-97cc-2d148f7fee9f@rock-chips.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <cc8b583a-77ec-4a7f-97cc-2d148f7fee9f@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a2f863f0e03abkunm89a9d527348c30
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU4eGlZKTh9OSx9CGk1PSBpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=GmeuiUAxP7J2yuWygBp95hV/mCOru5SA8EQF6k8V2qpQmRXW7S/ggyYk6FWN6PZ5seE3nppmtySOiZU0C0yx32P3CLk2gGfF+2QjP0ShL16frucKFSI9rXy8+y7T7ReuyXgssIptoyeDmznafg59sMOyB5abKFMpN1vtCMAK/P8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=x8PMAjpUzEpEObt1dire31F5Js78fV2X3/gBASmc8NM=;
-	h=date:mime-version:subject:message-id:from;
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: UOvJRCv7Uhngtofe_0JJtVxmAf705D84NImzc2DgA7M_1761733982
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_033206_035780_CDE64237 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20251029_033305_800497_F304E04D 
+X-CRM114-Status: GOOD (  27.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,115 +133,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/29/2025 6:21 PM, Chaoyi Chen wrote:
-
-> Hi Peter,
+On 28/10/25 17:25, Frederic Weisbecker wrote:
+> +Cc Phil Auld
 >
-> On 10/29/2025 5:45 PM, Peter Chen wrote:
->>> +&i2c4 {
->>> +       i2c-scl-rising-time-ns = <475>;
->>> +       i2c-scl-falling-time-ns = <26>;
->>> +       status = "okay";
->>> +
->>> +       usbc0: typec-portc@22 {
->>> +               compatible = "fcs,fusb302";
->>> +               reg = <0x22>;
->>> +               interrupt-parent = <&gpio1>;
->>> +               interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
->>> +               pinctrl-names = "default";
->>> +               pinctrl-0 = <&usbc0_int>;
->>> +               vbus-supply = <&vbus_typec>;
->>> +
->>> +               usb_con: connector {
->>> +                       compatible = "usb-c-connector";
->>> +                       label = "USB-C";
->>> +                       data-role = "dual";
->>> +                       power-role = "dual";
->>> +                       try-power-role = "sink";
->>> +                       op-sink-microwatt = <1000000>;
->>> +                       sink-pdos =
->>> +                               <PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
->>> +                       source-pdos =
->>> +                               <PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
->>> +
->>> +                       altmodes {
->>> +                               displayport {
->>> +                                       svid = /bits/ 16 <0xff01>;
->>> +                                       vdo = <0x00001c46>;
->>> +                               };
->>> +                       };
->>> +
->>> +                       ports {
->>> +                               #address-cells = <1>;
->>> +                               #size-cells = <0>;
->>> +
->>> +                               port@0 {
->>> +                                       reg = <0>;
->>> +
->>> +                                       usbc_hs: endpoint {
->>> + remote-endpoint = <&u2phy0_typec_hs>;
->>> +                                       };
->>> +                               };
->>> +
->> Why USB2 PHY needs to be notified for Type-C connection?
->
-> I think the USB-connector binding require a port@0 for High Speed.  So I filled in USB2 PHY here. And I have looked up boards with the same usage, and some of the results are as follows:
->
-> - rk3399-firefly.dts
->
-> - rk3399-pinebook-pro.dts
->
-> - rk3399-eaidk-610.dts
->
->
+> Le Fri, Oct 10, 2025 at 05:38:10PM +0200, Valentin Schneider a =C3=A9crit=
+ :
+>> Patches
+>> =3D=3D=3D=3D=3D=3D=3D
 >>
->>> +                               port@1 {
->>> +                                       reg = <1>;
->>> +
->>> +                                       usbc_ss: endpoint {
->>> + remote-endpoint = <&tcphy0_typec_ss>;
->>> +                                       };
->>> +                               };
->>> +
->>> +                               port@2 {
->>> +                                       reg = <2>;
->>> +
->>> +                                       usbc_dp: endpoint {
->>> + remote-endpoint = <&tcphy0_typec_dp>;
->>> +                                       };
->>> +                               };
->>> +                       };
->>> +               };
->>> +       };
->>> +};
->>> +
->> .....
->>>   &u2phy0 {
->>>          status = "okay";
->>> +
->>> +       port {
->>> +               u2phy0_typec_hs: endpoint {
->>> +                       remote-endpoint = <&usbc_hs>;
->>> +               };
->>> +       };
->>>   };
->>>
->> There is no switch and mux, how to co-work with Type-C?
+>> o Patches 1-2 are standalone objtool cleanups.
 >
-> I checked the phy-rockchip-inno-usb2.c but did not find any switch or mux. Does this mean that we need to implement them? Thank you.
-
-Wait a minute, actually we have multiple hardware interfaces, one of which is Type-C, eventually connected to USBDPPHY, and the other is micro-usb connected to U2PHY.
-
-
+> Would be nice to get these merged.
 >
+>> o Patches 3-4 add an RCU testing feature.
 >
+> I'm taking this one.
+>
+
+Thanks!
+
 >>
->> Best regards,
->> Peter
+>> o Patches 5-6 add infrastructure for annotating static keys and static c=
+alls
+>>   that may be used in noinstr code (courtesy of Josh).
+>> o Patches 7-20 use said annotations on relevant keys / calls.
+>> o Patch 21 enforces proper usage of said annotations (courtesy of Josh).
 >>
->>
--- 
-Best,
-Chaoyi
+>> o Patch 22 deals with detecting NOINSTR text in modules
+>
+> Not sure how to route those. If we wait for each individual subsystem,
+> this may take a while.
+>
+
+At least the __ro_after_init ones could go as their own thing since they're
+standalone, but yeah they're the ones touching all sorts of subsystems :/
+
+>> o Patches 23-24 deal with kernel text sync IPIs
+>
+> I would be fine taking those (the concerns I had are just details)
+> but they depend on all the annotations. Alternatively I can take the whol=
+e
+> thing but then we'll need some acks.
+>
+>> o Patches 25-29 deal with kernel range TLB flush IPIs
+>
+> I'll leave these more time for now ;o)
+> And if they ever go somewhere, it should be through x86 tree.
+>
+> Also, here is another candidate usecase for this deferral thing.
+> I remember Phil Auld complaining that stop_machine() on CPU offlining was
+> a big problem for nohz_full. Especially while we are working on
+> a cpuset interface to toggle nohz_full but this will require the CPUs
+> to be offline.
+>
+
+Yeah that does ring a bell...
+
+> So my point is that when a CPU goes offline, stop_machine() puts all
+> CPUs into a loop with IRQs disabled. CPUs in userspace could possibly
+> escape that since they don't touch the kernel anyway. But as soon as
+> they enter the kernel, they should either acquire the final state of
+> stop_machine if completed or join the global loop if in the middle.
+>
+
+I need to have a think about that one; one pain point I see is the context
+tracking work has to be NMI safe since e.g. an NMI can take us out of
+userspace. Another is that NOHZ-full CPUs need to be special cased in the
+stop machine queueing / completion.
+
+/me goes fetch a new notebook
+
+> Thanks.
+>
+> --
+> Frederic Weisbecker
+> SUSE Labs
 
 
