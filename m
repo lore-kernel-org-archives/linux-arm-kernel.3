@@ -4,105 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51755CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9052ECCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oOeCj7atBm+jp74qXquxytnJSCplsW/eyoN4u7SHchg=; b=LclYetSc/THzgQGoznpUJMbDNO
-	vDGifmD/qgU2jQRwIx9vquDaDALfXhCuH9eCsYnupqITy/syr0L9p/BJesIue2CX552ncI7jrbKA3
-	9JP2fvHOmTAzpfIIMhjPgL/siNTnS4SvEqEBQ7/96/MFOXLNZpW+6Q/KHOtIVybcYCC/zIqpbYljU
-	P7GT6T+B8lgqVvMmmmB0wK7kgbA8I8ibJdT8wraW3e2xR3mZNAbGe+8DRziRASXfFcN4jCTtW3jim
-	5UxvE4Mn5OZFN1Lk2Me3uscudbSwOj4p4Q7eZfVj/Riz4wMUkAWEnFw8AT/wzqR97mYI5lcJwO1JW
-	UM/9ywFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kyBzuS5uu50decQRlhVuBsPB9Un8V1UaO7gxw+OVEYo=; b=pwZ7eI+bKEuObI6b4i+QRFq4b2
+	M5zJp1Q4g1aM8UBZ0MDWXixrfmslo2I6gqSe4hUCGEhGB0qtI5n7WYjZ4pD2UQAM7x71p/G6XKV4F
+	92qLkf+a0wrPMCvgqpqsUEVpq1bZ+dufhYP6jYicxYJpTNTZ5Z2jjzSeq/EdEm765JTqV3LEbLSeU
+	e8gszTPWMknDw9uPoTUVhOdgp/wlEXqn27JRKAPfG4/hjfT1ZMa39DMaYeewr0xoaSlS6MB7+/aI/
+	8XleC3juMGIJ2yqwqDZKcSVbLDv2Y6047R3MSUvPoLC3wOX27StpjUssDgk1lvAifVAxluAYOHeDm
+	aX3KtFTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE71u-00000001Y47-2uXk;
-	Wed, 29 Oct 2025 14:20:02 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vE73H-00000001YPx-2Sd5;
+	Wed, 29 Oct 2025 14:21:27 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE71s-00000001Y2f-1tRn
+	id 1vE73F-00000001YP0-0qjA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 14:20:01 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-591ec7af7a1so7346544e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:19:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761747598; x=1762352398; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oOeCj7atBm+jp74qXquxytnJSCplsW/eyoN4u7SHchg=;
-        b=xgNonF0Jki8kh5rWKohF9g146BOOM61PxC5aHZYdidiSZLsild1MXP4lbBr+6/h9eo
-         4op0KbEPP5BNp7UNRhA7wli7iO894Wo601rJ7Bc1yaRoWxOjK94QT8WWFaHSj3H+Yb9x
-         EryUKGOKRUggyveBmiZ2E/SlfB+xls5YEMiqal3EtigEqkICYM4YIQXeXns/RBOcyGel
-         /a3Zmn3BN25BRyLKQdyYIGm9eVcDnzjkwSU7WJHtiIAObHINo4LnvcGl4QVMx41ANYyB
-         tmx27mjuqiVwW19QqeZe2DWv3drE5zoJPnuwUuZuCiCWSbNm/3M3fIDajJ5s51sAA03o
-         kQgA==
+	Wed, 29 Oct 2025 14:21:26 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-54aa4b86b09so3020891e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:21:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761747598; x=1762352398;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oOeCj7atBm+jp74qXquxytnJSCplsW/eyoN4u7SHchg=;
-        b=XGx4rbUlDmWlRFsyOENAZnzCXpD4HIU4r7rJ3j5AMJYG4wwNqC2G5gKC7ZYo5IEG2p
-         LTTt7OTOhAK257Kb8jRAcmqNZ/HGQX0T2Dy2IokvM4uDDnCuuAjjueRMVExhDD3JzbBz
-         l49h/Nnwl6PoRzk2Qun2r42WrZSJGvPd2elSTyM6yH6N4EWIniJ53U/xxS2QAAaGpwc8
-         ti7YlKUhoWS/Tr2Ld3ayKzctXIbP6Z4XW3bQcVh0GRYHv0QuICtnQlvNGQeR0A+RtOWz
-         R4w/n0qzuB9od37kU82ay+zYoR6bh40xibA5cIJM7nuS7Ge567YMXmhl3x/+mFll2rp3
-         GkQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV8nTPcWR33K2G17lVYhc2PmAO4NmC5KhunevLi/hSEimof+GSWzNZrAPfp0Ea9rI62DQObmKwElpqBd2EPKdC0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTQ2Kor0vmqglEJZxGIMg2krjipgluChUtrfDSVQgKmXqJWbuI
-	tDsfbjXvAjBIRfEzu1LaLUzEQYqKd38a1CSUohTQAdTRpgni6i0FKumT3l4GY6fFUaq4UKtz1y+
-	KnHHW1M7amhY5nl5gFb7bOkQKP8b+UtLBS0YXAEebNw==
-X-Gm-Gg: ASbGncvbWuu9gx5GblGy2VdruL+PMK+8vukxZKubZ6EzOgH8S64MJSV0PB+zgVtfKBu
-	Xalnj4VtsoYCWVsqmmwY7JMz6tsRFs80nyclieABok5EpkM+keX2li+EaHW9GCSx/CSAkqSzucB
-	as8CITFcPVNP4di+OZKVOJ54ustenD0xuNyFbUeFlDrG9YXKYHXzmdsNcHgOodYJ/yNAqjPue31
-	N9ua+nl5VVApXJPgnV9cuE9yeP1jboPcH/hAyXY0HdZiU8gP4htbvg9xLS4/D89AuHoMmrIcHuq
-	zJnSIw==
-X-Google-Smtp-Source: AGHT+IG59+bQUerf6uihfCFWCYSjQICr8Xo4ZbiwSS1E65/x2rl3ls+2t5ioYCJKzMBcQXa5Sk43LYjN69G8TJb8SWg=
-X-Received: by 2002:a05:6512:3055:b0:592:fc68:5b9d with SMTP id
- 2adb3069b0e04-594128623cfmr1174582e87.10.1761747597543; Wed, 29 Oct 2025
- 07:19:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761747683; x=1762352483;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kyBzuS5uu50decQRlhVuBsPB9Un8V1UaO7gxw+OVEYo=;
+        b=p2owblJdYoFCU+XxurHdFjaPP23dfmqurbDfhmR0kDsGN1EtyA2ArZrRrzQvHyhHk3
+         00/R9Fy+UZC9piigmigKh08OkIZWHpWh+GWgRzVJBTAI+DKhA099j31BgJKgSHTF51c1
+         FUILGZw96mwFC7YwZtk6hP8cJItPMzAnmRcO9xLEyF6cM+Kqr5QtTwleCkodTZ0GEJwa
+         odPywBYNSwEfX+NmepR5y4NzinjdJHibN57v81T+WJCYrX+cMBewuuDT/wav2iRB3EG0
+         ZzI778ajyJLqgRBeauX6GUcqJDr77IvhVMxL5uAAzeZxbOQyfe+BTeKKgeqUqoqaJwgW
+         PLVQ==
+X-Gm-Message-State: AOJu0YyXAphKIGRdKes9YZVRlYI3K0pKJ/7Bw6e37UFUeYvwwMyd8dsk
+	JMsI9YTzyxMsy92DUNZOZ24/5yzyRRSao3kluubIqW8CIgcKZaeurWmLFIa7WOvk
+X-Gm-Gg: ASbGnctghdsbTmEEH9wUZ/PYe83KMGBmD5lZ+wl6pLP+ZB3zJyEDf8c5Hi4bc93TVKO
+	QOSAxn2iS6jKlMzOwqb5/w7IehCPpMGE2jb8cwjL0zB+OGkOc29me7NuBIh7rw604fzl8Ewu7yL
+	smyFvQ4ybbGbbiYttEJC519sfDet9PCFIvvQ0siCgfzhxLKvENgCXSWMBtCQ7uZRR2tn7Ik+9O+
+	u5wzp3/EjqgoE18gCqG6Xnxo2VAigZbMckU+cabthXBtMbDPXRo50C1GhAewlE2+BgyfoKaVKMS
+	DRdQR3r2PC47u4TKrhQkYKJhre5pA9QMKj/payXiSh1lOmDwjyfbBGajkYrzLeUieCNYTEAchEp
+	yF6kH1b0BYxeCdPqRZvxAYkpQ09m/oPuTjtsC6FfcWoIjr/teIIshp+f2wvUE4LtuHBXeomMJJy
+	xlaZqRiivhY4ToQJ8nQsdx6A+9BJup57nHG2APKWJpZZy118+NfeFn
+X-Google-Smtp-Source: AGHT+IGFBftyyO0MTIaFULb4KSddAnMiaHcRyTuOb0goOND16STtf3zWJl/WLzXfVhOnx3QQEwG9hg==
+X-Received: by 2002:a05:6122:1314:b0:544:6d4a:f52b with SMTP id 71dfb90a1353d-5581410c0b5mr818714e0c.3.1761747683154;
+        Wed, 29 Oct 2025 07:21:23 -0700 (PDT)
+Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-557ddb5f493sm5487602e0c.17.2025.10.29.07.21.21
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Oct 2025 07:21:22 -0700 (PDT)
+Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-932b7831827so2328005241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:21:21 -0700 (PDT)
+X-Received: by 2002:a05:6102:2926:b0:5db:33f9:adce with SMTP id
+ ada2fe7eead31-5db9069da51mr902689137.41.1761747681523; Wed, 29 Oct 2025
+ 07:21:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1761588465.git.geert+renesas@glider.be> <03a492c8af84a41e47b33c9a974559805d070d8d.1761588465.git.geert+renesas@glider.be>
-In-Reply-To: <03a492c8af84a41e47b33c9a974559805d070d8d.1761588465.git.geert+renesas@glider.be>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 29 Oct 2025 15:19:45 +0100
-X-Gm-Features: AWmQ_bk2MMp0FQz04qrj-8hmhOAMRkHeQZjiqCVvFpO75M_-67m5zTnOfqmkGUQ
-Message-ID: <CACRpkda6ykSZ0k9q4ChBW5NuPZvmjVjH2LPxyp3RB-=fJLBPFg@mail.gmail.com>
-Subject: Re: [PATCH v5 07/23] pinctrl: ma35: #undef field_{get,prep}() before
- local definition
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	David Miller <davem@davemloft.net>, Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, 
-	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, 
-	Shan-Chun Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>, 
-	David Laight <david.laight.linux@gmail.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, 
-	Michael Hennerich <Michael.Hennerich@analog.com>, Kim Seer Paller <kimseer.paller@analog.com>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Cosmin Tanislav <demonsingur@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Jianping Shen <Jianping.Shen@de.bosch.com>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-edac@vger.kernel.org, qat-linux@intel.com, 
-	linux-gpio@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
-	linux-iio@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20251027184604.34550-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20251027184604.34550-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 29 Oct 2025 15:21:09 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdW2sn09MQoV6ktBwd+JF-5M_c7jdW_e68xEGYsovqOr+A@mail.gmail.com>
+X-Gm-Features: AWmQ_blJcp5ae8kH23TjMg-NYbqTJRrYgHltFldOLdMifDYWeLy3Gz7jK56UcE0
+Message-ID: <CAMuHMdW2sn09MQoV6ktBwd+JF-5M_c7jdW_e68xEGYsovqOr+A@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Fix full-size DP
+ connector node name and labels
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_072000_514162_9E7934FE 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20251029_072125_245872_1B8285F0 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,24 +96,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
-
-thanks for your patch!
-
-On Mon, Oct 27, 2025 at 7:43=E2=80=AFPM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
-
-> Prepare for the advent of globally available common field_get() and
-> field_prep() macros by undefining the symbols before defining local
-> variants.  This prevents redefinition warnings from the C preprocessor
-> when introducing the common macros later.
+On Mon, 27 Oct 2025 at 19:46, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> The DisplayPort connector on Retronix R-Car V4H Sparrow Hawk board
+> is a full-size DisplayPort connector. Fix the copy-paste error and
+> update the DT node name and labels accordingly. No functional change.
 >
-> Suggested-by: Yury Norov <yury.norov@gmail.com>
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Fixes: a719915e76f2 ("arm64: dts: renesas: r8a779g3: Add Retronix R-Car V4H Sparrow Hawk board support")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Do you want me to just merge this patch to the pinctrl tree or do
-you have other plans?
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.19.
 
-Yours,
-Linus Walleij
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
