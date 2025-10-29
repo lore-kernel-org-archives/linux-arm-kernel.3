@@ -4,223 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83963CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E0CCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:In-reply-to:Subject:Cc
-	:To:From:References:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=; b=QLeaf1jzBpeXWr0/1wjQtN2Ank
-	uSNwIz3TdwfppyL/v/ph+nOJucbot02Aui6UZOHDBwjYvvcVPUP+n91LgGIrr1Z5g7tBjAPlV43YB
-	e9Ll2qX+gbt2NAFGggmuckhgSm/mCdzmKdRqlfj4t2u5jR2IbAGz1dZWdnVW+Z5a+Nz8rfdfpuXH/
-	CqIJCs/xt9npUYSbI4Ij1i4VR28qEm2hO1cMNGRB7yHhdIcd75SJF35yPF1aWL0cwtBDL7xk6TqY4
-	3/JvwmeVwpN7NgDhsE6sXqIlDv9HqH/qI5lEIkVOLQ9Ec4uG7bsNAft4Pj7NnsHwdmYOSjC9tOoa4
-	YWfno1xA==;
+	bh=jem23dYJdFRhHLUSEWq8tu+ibq6sWJqXQQzANvsStpY=; b=JJ16N2WKJNoTKITLny3niLLM7G
+	21rr+knB2XASAy+R32fAW3fdboEiJaTe+lo5XX1z2tTMyCVADut75oI/JjKVnRn2qaQ7tduhWTCAW
+	YzCfKMUZg1A/s0Jybiz6PbfkFWRkChVwA5EZWd+suz7/ZRWARvssO1RaKZVOJ4tfz0OJ02MIWYffg
+	9lzS9jlst3wssrhFCo5bx4mrFpaU/9XcDQFweDx9Z6S6yUWDp+KgBbFw5kjQ3XY2aNeghiXw25UgC
+	QuOklNJu9dUjOSOsnH8l0Qss4Coz/OXyhuCMR4oBXpCIzqF4Qhf5h0OhVlhEJJN9ImJjj0wYc2QMP
+	EdYYafGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBcS-00000002XvH-22PT;
-	Wed, 29 Oct 2025 19:14:04 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1vEBjP-00000002Z1C-1qI6;
+	Wed, 29 Oct 2025 19:21:15 +0000
+Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBcO-00000002Xuk-49ai
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 19:14:02 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59TIp4ux021838;
-	Wed, 29 Oct 2025 19:13:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=; b=
-	ns++xhuzRiYL9OQMhBgPyH6ZPRmVptbeRlzGsm7e0jvntwDogdTwY2z5tHDP7wYS
-	dsDvx7f6pl7g+OnZT65yI0cjIdcJcwVFWMG0N8LqIrKzdwkl1XIblvaGIKQGfwks
-	olB/Q8Zdir+kbUQ75BKgz+ztljzmiE6YUcUjrGnS1GJlnzPpKyfdbLXFjKjZVdN0
-	1S5XbxTAiU16Y1FR0II6swqVb+WtfnvgiWexHVnoSqh1AJetWB0cPN4qmMO6iQvH
-	s1whj50zgWnMwDwpA8nI+99Q0swtOkSQBVScZ01vFaI6VLwpNqyRrpXOm3cdWwfl
-	Di03wOhKJUHphE9aYGjWCw==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4a33vwat51-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 29 Oct 2025 19:13:37 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59TIlJCT032251;
-	Wed, 29 Oct 2025 19:13:37 GMT
-Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11010037.outbound.protection.outlook.com [52.101.61.37])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4a34eccd13-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 29 Oct 2025 19:13:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UeStzZAngW2ZOSq8VgM4CtYuRu2oLCyVaKpPfH/mXNISfxP5gYPtmpzWtQJLe5XhgFqNpRVU3SLsA3gzkj/3gjlihc+ZD3ptowPQ7iBuZfJwdX7IYOqLkyQ5ba2+T6/4c4fLG3oDLpMfyEgK/SighlZ4iUPVKNT8X8YWCM/9+6dbdnA4vOKImoNhVurzGa5lYS4pUlCJSDX3UrS3h+gfYladzOcE9cRN8PaleE1MVg0l1kXxE8wJ3Z66B7yPJoWasVN1/ulepE3KqOheiMSJVyKIPF4jS5qXULItY80UIjZUO7JvGd5QU5iLkeAMh7LFM5DqnpPtQCGrqQJQLcI7TA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=;
- b=GPt+EVFdRy7Vm5BrZyHFr3xVeHHBE/HGuanDLGKnGqWI3fcp2/57ilSuQIRm55xjxKfKelt+um8h7LazHXuNKJf9VCAEpihxli5pQqXj9y+OQ8Hpg5rEWWyLfEtYYYLHSLxlFtJYrjmvD5BO6EJxdY+SOqRGR0qPjDVGbERwNoViEGbXSHvKEZqNtJfnEsShSkAazNQm+DGQddVHvOmOkkUGdw7y21RB6uLBPyAKdUxIYOVqg5SfBMOyDuFY6LqSfXBHoyfATN9j5IsU0to9nsNcnssxSRQacmlHkShAYSEM96RM58a20Rf7cWRfB8s185o4CfuFusoMUp8tY5usFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=;
- b=vqqHgJwDStZx8PPq31NKIvpd9Ak8pqkWit8bVDUSSyxL0VWiC/Ruj2tDRphAaR5B3uusPSNoNAiSosxv0+oMMezH7czrUH0f0AoSeD/Vy6r2wyLJF0rkhB19TA23JRk5AmEn7clGUWnzZFwJvl6C8atOXjV9Fay3CBGhlP/8iLY=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by IA3PR10MB8044.namprd10.prod.outlook.com (2603:10b6:208:515::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
- 2025 19:13:21 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
- 19:13:21 +0000
-References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
- <20251028053136.692462-8-ankur.a.arora@oracle.com>
- <CAJZ5v0hSvzHfsE4nrEW-Ey0dnJ+m=dSU-f1RywGNU0Xyi3jXtQ@mail.gmail.com>
- <87ms5ajp4c.fsf@oracle.com>
- <CAJZ5v0hQ7G9jvOv9VtRmsCKahBpUcPJMMOe07k_2mqsvggWcWg@mail.gmail.com>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
-        catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org,
-        akpm@linux-foundation.org, mark.rutland@arm.com, harisokn@amazon.com,
-        cl@gentwo.org, ast@kernel.org, daniel.lezcano@linaro.org,
-        memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Subject: Re: [RESEND PATCH v7 7/7] cpuidle/poll_state: Poll via
- smp_cond_load_relaxed_timeout()
-In-reply-to: <CAJZ5v0hQ7G9jvOv9VtRmsCKahBpUcPJMMOe07k_2mqsvggWcWg@mail.gmail.com>
-Date: Wed, 29 Oct 2025 12:13:20 -0700
-Message-ID: <874irhjzcf.fsf@oracle.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: MW4PR03CA0048.namprd03.prod.outlook.com
- (2603:10b6:303:8e::23) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+	id 1vEBjJ-00000002Yyn-13Rw;
+	Wed, 29 Oct 2025 19:21:14 +0000
+Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
+	by mailfout.phl.internal (Postfix) with ESMTP id BAE7BEC0216;
+	Wed, 29 Oct 2025 15:21:04 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-12.internal (MEProxy); Wed, 29 Oct 2025 15:21:04 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1761765664; x=1761852064; bh=jem23dYJdF
+	RhHLUSEWq8tu+ibq6sWJqXQQzANvsStpY=; b=OYMw0sCHij1zJaRlTY4YrR4JL+
+	aekjErUkcj4MYndWo86jBl5sr3A4VGbafACxivi3A77xvglutrG3himNHGHsM/cJ
+	h63Jz/C0wvMrNiN8eNXfiWPdQa2O8seVGMMqsK8Opq4/5DxWv7FsNSs3d8MBOtf1
+	LQJxO/1fJUIpN5eLwBHNeJp0qbmUSBdRVGz2emWzbKDx2esVqLy0BdT664W9jn0z
+	jic9fuDw7ThInXUkyw7B8lVqJNBE3kvIZpEPSoI4B5D1sX5p3rzW3fqT+U44XiLD
+	h1PJWTjCvxF4wwVNDzNhkfdRdrgzrLdY3FNPeIvDWQBJu6Oa7F3uLItIcmWA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1761765664; x=1761852064; bh=jem23dYJdFRhHLUSEWq8tu+ibq6sWJqXQQz
+	ANvsStpY=; b=PW6/T/BobTSrujnjEzRH2re4C+q8SOtvPVnXWrJm3MOpWtEMHTc
+	pHq08V22b8fO/IFhpodR6NScUdy4/6T4Y/Tjm53tUDobp8nAfcEtSm9xsv0i+Jy6
+	MMDtsUMTYIIE29YZyLQZTLDaVlgsDYjhWvUwHePKaFE/o1riq55Z4zLbhEbgYY/I
+	zUTB8MKlqyzhU1pmUwCBLOke1mohnVkkew4fStOaSDoRljOi62Mlk64I02OP8sXC
+	jeoIl+mlNO4pWayZwMKuDmCl3wtgZP06R5YahGSy85OD7JlvWCB2YdbSXSWvLgaP
+	2zE7R9pYmMKBNWQJS2VU3Cufiub9l0JPmXg==
+X-ME-Sender: <xms:H2kCaTdvuR0Quaz_Wa7neXmxc2yCbsoUhbUEpKuVZPBN3rxfVXE0bQ>
+    <xme:H2kCaTnZyAG8DvX8Pu6MD5IAIUT8hkNaaMAip_s4V5mBLwHA0Js4GunpHLHeI8b7t
+    Q7e8sAO1Ks3kmRb9U0Mry2St9hi9kB3LLITQTCeSy9y2S2NUY2RwCQ>
+X-ME-Received: <xmr:H2kCaSpTAJF-us1M4W0Zzv-w8F7V5BdN3nB0GeSuh-v-TdKPp_dtSTGaSDSzpbHHPgNo5Zbd4zIcFxIqif-DlBpAuI_3UAt2LwY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduieegheehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
+    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
+    drnhgvthdpnhgspghrtghpthhtohepudegpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgvrghlsehgohhmph
+    grrdguvghvpdhrtghpthhtohepvhhkohhulheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    ohepkhhishhhohhnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrh
+    hnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhr
+    tghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprd
+    iirggsvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopegrshgrhhhisehl
+    ihhsthhsrdhlihhnuhigrdguvghv
+X-ME-Proxy: <xmx:H2kCaQFJ-jlPTf321gWn7Ew0QtFozD-QEP9H0RpWgKVsxbJjB4_uhQ>
+    <xmx:H2kCaYQAP0zaeNvQOkcDooS1okPvh1ZolGl5OpviAFEGdPPVicVwhA>
+    <xmx:H2kCaWNDpDaB4ehDJBvCjoycEcXE51rVm0JvXlYD5S1OZah-b9h2lg>
+    <xmx:H2kCaVkTozJx0mtR3rat_6VW88AtmdNYGQ_pvk5Fmb12aYWjq8c_ww>
+    <xmx:IGkCaXHxT7V8XajSIX1xktYOLXAnFQiuscZ5xiV8m9ksndsw1qA8lfb0>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 29 Oct 2025 15:21:02 -0400 (EDT)
+Date: Wed, 29 Oct 2025 20:21:01 +0100
+From: Janne Grunau <j@jannau.net>
+To: Sven Peter <sven@kernel.org>
+Cc: Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Subject: Re: [PATCH 1/3] soc: apple: Add hardware tunable support
+Message-ID: <20251029192101.GA458701@robin.jannau.net>
+References: <20251026-b4-atcphy-v1-0-f81b1225f9c6@kernel.org>
+ <20251026-b4-atcphy-v1-1-f81b1225f9c6@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|IA3PR10MB8044:EE_
-X-MS-Office365-Filtering-Correlation-Id: 66077c47-26ea-4927-e81c-08de171f399d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dTk5ZDRRRFRMNGp5SHUzOWN5VC8zMGI3cVBJcXpLUm9HNU5GY1dOWHEwaGk5?=
- =?utf-8?B?MnM2OWh4QlJpUEtYbXliaHBkODMxVFBUSlU2YXRnYjhncGpVQ1E4Qnk0Mng2?=
- =?utf-8?B?T2FlNU0zMUhHM3cxSUlwYlkyNW43RldmekE5b2dDY2dlSXkzSUJTZEE5eHhI?=
- =?utf-8?B?cjVPdEkwTGVJWXFHenZHQzRBaFZoWEo2eG1rS0pKRysrbGFmY0JsbXUyTmtV?=
- =?utf-8?B?WmxIcG1LbDdkZnZkZVJLN1lRV0YvRFVJZzh2Vm9QanJ0c0VZSUFOMnQzUFdu?=
- =?utf-8?B?T1crOEpOTnJSd0trZ29XeG5WaVRDNnYyRm42WkJNSThoYUs3MFoySmlDWWdz?=
- =?utf-8?B?M3M2LzN2WnFJZHdwdVVibjZtQkpwMmpnMlR3azA5Ym5ScnhBYm5aTkx1dmVK?=
- =?utf-8?B?QUxPR1B2dTRzSlVNaUxWcmVaWDM5ZFhzQmZXNFk3eXg0Y3dwRzUvTFRDckJn?=
- =?utf-8?B?RnF2dW4zRzhDZkFrbnpBUFZPU1Rkci9aOVN6WVg1bVdma3l0RFVlKyt2YkFN?=
- =?utf-8?B?TnZKVDFueGdNRHlNNlFSaHNCZVVjTWViUFIxN1pVNUgzWTlvYWEyQ3RaWm4v?=
- =?utf-8?B?YTRNN1lCVTJyRWJhMEVLalcvNUhxWVQ5RUxCVXZldURtUjJwdmFiaVQ1K3NX?=
- =?utf-8?B?a3ZiOU1RTnFOS0ViaVVmdGxDWUJFeXZTd0dmd0FnZW9YM3Q3d2VJUjJqaktU?=
- =?utf-8?B?RDd2MEswSytqeUZkcHV2N0RrdHNUQ1E4Zkt0NFhtK3YyRVZXdFhQUWdET3NW?=
- =?utf-8?B?cFVaR3ovc2xvRDBUYmwwT1lpdjUyZ0dWTXFVcmZLbTVWTytMRVdnV281a0Rj?=
- =?utf-8?B?UGVGUGdUZlFkY1doVGw5UDlVVWdxMnZ4T0JUNFEyRk8yd1RZV2NlWHNPRXhm?=
- =?utf-8?B?NGt6anJtMDRIc295SUJOMlB4SzllaTdveWRjZVFkWTBYc2dmTnF1T1k5TEk4?=
- =?utf-8?B?ZnlJa3p3ZGpUMi90Yzc3WjFKWXlzQW9tVUlweFMrajRnUXljcCtBc3NuTTlo?=
- =?utf-8?B?aHBnTlcyM1Q1MEhacCtrb283S2ZWMlhRVVdiU3lTVWM3TWJrV2dBQUFsOFls?=
- =?utf-8?B?WUtCT0ZKd3V6dFkzN1BWdWl3WkdydmJRUktqWm4vYlZhMWNPUEQxS3ZDYTBw?=
- =?utf-8?B?Mll2Q1R2UWJDVXkrbVU2eDZVRUdNYzV6bTVkWWYrVHFodVZ5ZDNOalpiRDM2?=
- =?utf-8?B?YkxoSGRiUmZyVmc5eHZjR2VZNWZNSHljbm54M3BLaFRCcUltTkhQTncrY0M0?=
- =?utf-8?B?ek1JTGh1RXU5UmNZODFLRCtWazRNQXVaOFlGVFY5Nkp4ckJ3OWNqVjhIR1Jk?=
- =?utf-8?B?TXgxUE4zY1o4NFBMUHBOMG9EemxRaG1IcWFQOWphZnl0M0tIYjBVQVRDMmxE?=
- =?utf-8?B?S3ZtUTR6bEd5Rit4OTZtMUJlb3NrZlN6QkxjZkpPRWRpek5zYmJ6Q3pORHF2?=
- =?utf-8?B?a0x2dWxQbllwaC9wQjdIS1FGNkc0c0VveGVvMmxTbGIvNFIwSkVRdXEwYWJJ?=
- =?utf-8?B?cmN1TVE5TUZCYVBYcUNscmQ0SlUvaE1sRmM0RldDMWozd0Rpc3kyYkl1b1FP?=
- =?utf-8?B?elJaL0pHd3dkejhiN2U3TTBaLzAzekVxM0x1WDhRNVlVK0paMFNqU2xBd1F6?=
- =?utf-8?B?RzJCZEkzU0twbkFmejBvREhpNUdWVDIzRGdvWkJia0hMeWFLMXN5eG9rYkl0?=
- =?utf-8?B?eW9LeUlWSDQ2OW9RdDVlblh5WXpvc2dKbkxVMDlZajFuQ1owQktrbGtVcUZ4?=
- =?utf-8?B?Rmo1OVo0T25LY3o2akNud2dpZlp1bEs5VzRrd3BvOWh2TUtuVjFQMUhkMkdI?=
- =?utf-8?B?c0N6VGd5Q3lKeTRyVGh4YjdKeHpHc2FOanNEUitQK1VvRU4zL1JoYVA5OEFp?=
- =?utf-8?B?T0NTY3R4ZnpzUGdabVVadUtMT1RzZ0tObFVVK2k3cGRCeCtDTTRTakNVM1ll?=
- =?utf-8?B?a1FRWWc3cUJFSGpEd243ZGNvdHF3UWczaGV6cHBGcnVwakd5bThhMHlNVldU?=
- =?utf-8?B?ajN1ZVdwc2RnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?enB5ZGhiUXM2ckJjeGlBUW1CYnM1YjlQcWlpYUk5UDJaZklJUnAwSDRlNUJH?=
- =?utf-8?B?cHZxbEtxdmRGK2RPQzNPb0h4SkFObGk3ZTlPUVNtQ3pHS3AxTGFST0dFTm5K?=
- =?utf-8?B?aGo0QVB2SW9vMTBLUXRBVnVaQkt0c210T0hUOHlBanJ0bzRtOFp2UmJ5MDdB?=
- =?utf-8?B?YVkzQmVkU0pMUlBZbjg3K2sweGM3Zm1HZ1JmVDZocHJnZkJlby9VRVRLbCts?=
- =?utf-8?B?Y0Y5Q0JicjV6ZWpSMkl6NldNSVlIYzVsNmNGNVZiZjVqNDQrMFNqUVhpVFB4?=
- =?utf-8?B?NE54d1FjaUJWK1d6UElGZDlLTmtXSUZlVDM0NkV2akNGbUZKdzdGODYwYll6?=
- =?utf-8?B?dFVsUHF5SU8rU3UzTkFDb2prdHRrWDBVb1p4eHUrUTQySjlKRWVJRWlZcEM2?=
- =?utf-8?B?MkF6WEJ5MVdjWG5KZmJ4NTNKUjA4djBER0x1bWQvdTJiWlNpR3UwdHVkVUEz?=
- =?utf-8?B?V0ZJYmZaY2FHa3N2OEIrNTVmWkIrZW9VK3BFdEhkVWg5YnlRRUp5OXpMdXJv?=
- =?utf-8?B?dlE1OW5xNmVzaU9mdUZqS2U4MkQzRHAvVWZNTWVQSVNkeXdKaXlPbE9Db2FK?=
- =?utf-8?B?OFpNSElXSFZ2d2FnRFZjR0J4MnRtTHRvOFdlUVgyZ01HRU9wenZ3ZTBJWWpW?=
- =?utf-8?B?NDlwTS85Ukp6VlFGZDZWSlo2TUtwbzFKUWhOaWxXdHpSS25hMVhYNXFJdnpy?=
- =?utf-8?B?eGFSVmg5a1BhS2pRcUlSY1RUaUNFOXJ1VnJYaHJTTXIrRFBadndGbldqSFFp?=
- =?utf-8?B?eXIrTVIxQy9VRzl6eEREL24zUTlpaG1SK1ZTZmFWN2FkMmtueDAxVVd2RC9s?=
- =?utf-8?B?b3NlSEpUN1IxMUNnaTNFQ0k5azRraUQvS2FmRU9iYnhKNHcwRkhQV0p1Sm5m?=
- =?utf-8?B?b0k1R1J5N0NQWmk4SlZGTkxnSFkrRUhZOFd0YWZqOWxrZ2FuaW40OHlhRkc1?=
- =?utf-8?B?ZzZrTWppTURXeXhjNHNycnZTNnkyUE02QVc3NFRIZnpBQ1FIclJUdlFUMG4x?=
- =?utf-8?B?cmEvZWJ4NGhMd1F3L25BMzgzYlgyMTJCa0VBQXphU3dMeUJFVzh0ZkZCWTA3?=
- =?utf-8?B?bk1ST1V2azFQM3gxYWVOMk13ZjZVZ25sekVKekpaQm9rWGJaNjArSUltc1RT?=
- =?utf-8?B?aG1mMWNOL3ZPOG5vUi9RcGZFRGo1NlBINkxyQ2F0eEVzTnp5dzRjN2RzUzFp?=
- =?utf-8?B?ZnBuSnBmZFJSNG56TktaczUvSjdqWW1DZjdCOE0rNVE5OHMwd1IwQkNsMDRj?=
- =?utf-8?B?VjVuL2lFSW9aNDlYRm5ZODVVZDJhdFdOUUJIU2gySndOeUNQTDZOSE15Z0lH?=
- =?utf-8?B?T3FYYjVHc3o1SC9sSmhkd3hZVnpPZUlkVi82RHpUS1Jod0t3WGlrTUU4OHZs?=
- =?utf-8?B?dmNtN3RTZzNWTWt0VW81L0cva2RkWXpFdy9HaVZ5WDlmWnhJNjNaWDRlZmxy?=
- =?utf-8?B?WnN6VFduYjluOHRWN3ZIUEhKWEtrV0d5dlhmRFlPZEcvNnM4SDJONnVXT21h?=
- =?utf-8?B?c29teUwvSzBwSVpTQVNRSEdaTFpEUkpZU0hLbzN5TTNueGVwWEIrTFFQeHlv?=
- =?utf-8?B?U0MzVWZBUTJsWWdPcE9VNGtTRW9pN0JxWkNqdnA3NXlCbXdsL0tjL0Q2dExs?=
- =?utf-8?B?WmtRdDVEcnlwN3duN09TenhneERzWi9KSHhEUHBnLzFDYmNpVHd6NVU1N3Iw?=
- =?utf-8?B?dUhzcGh6Z2QrU3FDSjgvanU2TDdESW9rRCtZNXRzRndDTG9IUTA1SU5ZTWQw?=
- =?utf-8?B?MzFUTGZKWDlBVkk5VmJmdmhIejg4aS9vSlFFZ2UyaTRBS2dYb05yTzdNYjZE?=
- =?utf-8?B?NUVuaVhYTG01b0xNT2ZQc1UyWVA3YW5tSHJuOHRIVGl1bFdHZmFKa1J3VUdG?=
- =?utf-8?B?eGxuOW9lajF6Qm95ajhmdE4rNmltVG1tMy96QnhaMS9QRTk1NkFvMGwyUzF3?=
- =?utf-8?B?RXpBS01hVXNzUi90eWs4YXc5cXd1VlRYYU52SDhxUWpsWkpPUjJ6OXFtT2wz?=
- =?utf-8?B?OU4yMnpNSTMydHNKMkQ3c2ZpK3VHT3IrWHp0MjB1TVhIWnMvdWtiT25MMWxI?=
- =?utf-8?B?Szl0S2NORGRBWkxKM0FoSExGT3hlNTRXZmhLWStZSkdWdGF5VXpxN2U2dFZP?=
- =?utf-8?B?amdpZ0pueHg0bS9BMzlObUhDWC81Q0xqQUwxQkVkWEQvZlBFMFRJOXRmMmJD?=
- =?utf-8?B?NVE9PQ==?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: qe6OfwaBFumiLE2j7azdXRyw93m07h4NuMNn3MjzHHH3nQu1HRN4Of7kip4WhdPVgOTWsXtns7obsqAQp0yjX7bOrRoYW/aNfz+UcnFwWYR+Tvh98IlwG5D6gH5T5BuvXBMXBZV4VgiLQuQuSYBuduh4RzMlmLHJhQtlJFXqpZU1PQtRMc+qUDMQBsBWZpIc4P5QnKZ5lVcl5YEJplTChra/2UCTKZ6LWddHOpRRHcpkXidYa6wLqihkETzTJizghp6wjcYLRShNUTpymBbIcYBd3XNPPRcSK8Rl4HIBDem1CTE57FGVbhLmzRuEROVh5WOaipMZAuPn7AhCT6imIDykQ2+5O7HvMCE1ky3JZEw7KUMny3iibIYL0E+RN3LRmJ0dC6/NTNuJplJGEm0oq4EUv0fLiw1jKddPbbQpmjQ49IQd5Mri9lPiFr3mtjDiqi3JsJfKmKLubhEBSmdF4H8yvRjTgA95XwE0xG8B03/nptOfRy+4Wv45+GVke+8SlKPlAYIVLS9klbyoJ8PXVr2rBb2hhalOjJjPAQy+t47TvCx94woNfN+TDfmZXJWEVcOhKD46RvAaufGH5Xx2LWcKfTpvB5ZX+uVo9z9FRpU=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 66077c47-26ea-4927-e81c-08de171f399d
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 19:13:21.3451
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LZ1LlL31Xx7vLu3Nf0XJa9g0t+1PTDxhDxt9Lqq0rNfTlq6ze3JKQjd5Rv9UVO+XC9auVAqqCsMvthjj15SjcxAWe8a6b7CMhdi0c8HQYj0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8044
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-10-29_07,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 adultscore=0 malwarescore=0
- mlxscore=0 phishscore=0 mlxlogscore=999 spamscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510240000
- definitions=main-2510290154
-X-Proofpoint-GUID: W7xr1FAUcGn91iq4uXj4sf2R9h4SYv8b
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDE2MiBTYWx0ZWRfX3sW5SwnG5XIA
- c/Qb/e60JNzNjZ+YsAhELWy/yRcDQzHM3MD259Hu+6AHeeKBuTdJsrnpbsDvjH5rFRAmwqVhaYT
- 6PEJ1jYOjOhUlaSZT+PmEix8f5+3Cz5YXlXqkc7B45ysEpvwB2Uv5NgVLC3Xq1JbSPmckj9v082
- xF4WRmAwHFlgCtHNPAe62nKuP4BrocfcgLlnB4SsGzSoy9QTllI0gh5Moy3EA5AfQrnYYGc5S4x
- ukrC2ITOU7jKuVqzqvrKMdkHF8TcGV38xmrLfyYOrtuvYYoCh2I0DAREmubQ2nDzRBmLU1ExZ10
- PQGP+0ft5FN5TtgSgBK0aA0fBZW8DSmLK8i5YD3X8qRuJVybiEBbGnJ3v9bQWD3UeDfGOYAVOIi
- aXszYvem0G54efiXI1/ZrXI3dAGRBhBnZ6SGANdLEgrHQgpYgKs=
-X-Authority-Analysis: v=2.4 cv=Uslu9uwB c=1 sm=1 tr=0 ts=69026761 b=1 cx=c_pps
- a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=x6icFKpwvdMA:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=yPCof4ZbAAAA:8 a=KKAkSRfTAAAA:8 a=mtOkqmUE-bh76MT0fEgA:9
- a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 cc=ntf awl=host:13657
-X-Proofpoint-ORIG-GUID: W7xr1FAUcGn91iq4uXj4sf2R9h4SYv8b
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251026-b4-atcphy-v1-1-f81b1225f9c6@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_121401_146047_9465307E 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20251029_122109_677848_217088A9 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -235,142 +117,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hej,
 
-Rafael J. Wysocki <rafael@kernel.org> writes:
+On Sun, Oct 26, 2025 at 01:52:01PM +0000, Sven Peter wrote:
+> Various hardware, like the Type-C PHY or the Thunderbolt/USB4 NHI,
+> present on Apple SoCs need machine-specific tunables passed from our
+> bootloader m1n1 to the device tree. Add generic helpers so that we
+> don't have to duplicate this across multiple drivers.
+> 
+> Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>  drivers/soc/apple/Kconfig         |  4 +++
+>  drivers/soc/apple/Makefile        |  3 ++
+>  drivers/soc/apple/tunable.c       | 71 +++++++++++++++++++++++++++++++++++++++
+>  include/linux/soc/apple/tunable.h | 60 +++++++++++++++++++++++++++++++++
+>  4 files changed, 138 insertions(+)
+> 
+> diff --git a/drivers/soc/apple/Kconfig b/drivers/soc/apple/Kconfig
+> index ad67368892311bed5a94d358288390a6fb8b3b4a..d0ff32182a2b4a10c98cb96c70a03bea8c650f84 100644
+> --- a/drivers/soc/apple/Kconfig
+> +++ b/drivers/soc/apple/Kconfig
+> @@ -38,6 +38,10 @@ config APPLE_SART
+>  
+>  	  Say 'y' here if you have an Apple SoC.
+>  
+> +config APPLE_TUNABLE
+> +	tristate
+> +	depends on ARCH_APPLE || COMPILE_TEST
+> +
+>  endmenu
+>  
+>  endif
+> diff --git a/drivers/soc/apple/Makefile b/drivers/soc/apple/Makefile
+> index 4d9ab8f3037b7159771d8817fa507ba29f99ae10..0b85ab61aefe131349a67d0aa80204edd8e89925 100644
+> --- a/drivers/soc/apple/Makefile
+> +++ b/drivers/soc/apple/Makefile
+> @@ -8,3 +8,6 @@ apple-rtkit-y = rtkit.o rtkit-crashlog.o
+>  
+>  obj-$(CONFIG_APPLE_SART) += apple-sart.o
+>  apple-sart-y = sart.o
+> +
+> +obj-$(CONFIG_APPLE_TUNABLE) += apple-tunable.o
+> +apple-tunable-y = tunable.o
+> diff --git a/drivers/soc/apple/tunable.c b/drivers/soc/apple/tunable.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c54da8ef28cef16118c518c761f95e8dd9f78002
+> --- /dev/null
+> +++ b/drivers/soc/apple/tunable.c
+> @@ -0,0 +1,71 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Apple Silicon hardware tunable support
+> + *
+> + * Each tunable is a list with each entry containing a offset into the MMIO
+> + * region, a mask of bits to be cleared and a set of bits to be set. These
+> + * tunables are passed along by the previous boot stages and vary from device
+> + * to device such that they cannot be hardcoded in the individual drivers.
+> + *
+> + * Copyright (C) The Asahi Linux Contributors
+> + */
+> +
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/soc/apple/tunable.h>
+> +
+> +struct apple_tunable *devm_apple_tunable_parse(struct device *dev,
+> +					       struct device_node *np,
+> +					       const char *name)
+> +{
+> +	struct apple_tunable *tunable;
+> +	struct property *prop;
+> +	const __be32 *p;
+> +	size_t sz;
+> +	int i;
+> +
+> +	prop = of_find_property(np, name, NULL);
+> +	if (!prop)
+> +		return ERR_PTR(-ENOENT);
+> +
+> +	if (prop->length % (3 * sizeof(u32)))
+> +		return ERR_PTR(-EINVAL);
+> +	sz = prop->length / (3 * sizeof(u32));
+> +
+> +	tunable = devm_kzalloc(dev,
+> +			       sizeof(*tunable) + sz * sizeof(*tunable->values),
 
-> On Wed, Oct 29, 2025 at 5:42=E2=80=AFAM Ankur Arora <ankur.a.arora@oracle=
-.com> wrote:
->>
->>
->> Rafael J. Wysocki <rafael@kernel.org> writes:
->>
->> > On Tue, Oct 28, 2025 at 6:32=E2=80=AFAM Ankur Arora <ankur.a.arora@ora=
-cle.com> wrote:
->> >>
->> >> The inner loop in poll_idle() polls over the thread_info flags,
->> >> waiting to see if the thread has TIF_NEED_RESCHED set. The loop
->> >> exits once the condition is met, or if the poll time limit has
->> >> been exceeded.
->> >>
->> >> To minimize the number of instructions executed in each iteration,
->> >> the time check is done only intermittently (once every
->> >> POLL_IDLE_RELAX_COUNT iterations). In addition, each loop iteration
->> >> executes cpu_relax() which on certain platforms provides a hint to
->> >> the pipeline that the loop busy-waits, allowing the processor to
->> >> reduce power consumption.
->> >>
->> >> This is close to what smp_cond_load_relaxed_timeout() provides. So,
->> >> restructure the loop and fold the loop condition and the timeout chec=
-k
->> >> in smp_cond_load_relaxed_timeout().
->> >
->> > Well, it is close, but is it close enough?
->>
->> I guess that's the question.
->>
->> >> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
->> >> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
->> >> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
->> >> ---
->> >>  drivers/cpuidle/poll_state.c | 29 ++++++++---------------------
->> >>  1 file changed, 8 insertions(+), 21 deletions(-)
->> >>
->> >> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_stat=
-e.c
->> >> index 9b6d90a72601..dc7f4b424fec 100644
->> >> --- a/drivers/cpuidle/poll_state.c
->> >> +++ b/drivers/cpuidle/poll_state.c
->> >> @@ -8,35 +8,22 @@
->> >>  #include <linux/sched/clock.h>
->> >>  #include <linux/sched/idle.h>
->> >>
->> >> -#define POLL_IDLE_RELAX_COUNT  200
->> >> -
->> >>  static int __cpuidle poll_idle(struct cpuidle_device *dev,
->> >>                                struct cpuidle_driver *drv, int index)
->> >>  {
->> >> -       u64 time_start;
->> >> -
->> >> -       time_start =3D local_clock_noinstr();
->> >> +       u64 time_end;
->> >> +       u32 flags =3D 0;
->> >>
->> >>         dev->poll_time_limit =3D false;
->> >>
->> >> +       time_end =3D local_clock_noinstr() + cpuidle_poll_time(drv, d=
-ev);
->> >
->> > Is there any particular reason for doing this unconditionally?  If
->> > not, then it looks like an arbitrary unrelated change to me.
->>
->> Agreed. Will fix.
->>
->> >> +
->> >>         raw_local_irq_enable();
->> >>         if (!current_set_polling_and_test()) {
->> >> -               unsigned int loop_count =3D 0;
->> >> -               u64 limit;
->> >> -
->> >> -               limit =3D cpuidle_poll_time(drv, dev);
->> >> -
->> >> -               while (!need_resched()) {
->> >> -                       cpu_relax();
->> >> -                       if (loop_count++ < POLL_IDLE_RELAX_COUNT)
->> >> -                               continue;
->> >> -
->> >> -                       loop_count =3D 0;
->> >> -                       if (local_clock_noinstr() - time_start > limi=
-t) {
->> >> -                               dev->poll_time_limit =3D true;
->> >> -                               break;
->> >> -                       }
->> >> -               }
->> >> +               flags =3D smp_cond_load_relaxed_timeout(&current_thre=
-ad_info()->flags,
->> >> +                                                     (VAL & _TIF_NEE=
-D_RESCHED),
->> >> +                                                     (local_clock_no=
-instr() >=3D time_end));
->> >
->> > So my understanding of this is that it reduces duplication with some
->> > other places doing similar things.  Fair enough.
->> >
->> > However, since there is "timeout" in the name, I'd expect it to take
->> > the timeout as an argument.
->>
->> The early versions did have a timeout but that complicated the
->> implementation significantly. And the current users poll_idle(),
->> rqspinlock don't need a precise timeout.
->>
->> smp_cond_load_relaxed_timed(), smp_cond_load_relaxed_timecheck()?
->>
->> The problem with all suffixes I can think of is that it makes the
->> interface itself nonobvious.
->>
->> Possibly something with the sense of bail out might work.
->
-> It basically has two conditions, one of which is checked in every step
-> of the internal loop and the other one is checked every
-> SMP_TIMEOUT_POLL_COUNT steps of it.  That isn't particularly
-> straightforward IMV.
+There is a struct_size macro in linux/overflow.h for this calculation.
+We do not have to care about overflows as as struct property.length
+remains (signed) int. I would expect there is a much smaller limit for of
+properties in place anyway. The macro looks nicer though:
 
-Right. And that's similar to what poll_idle().
+struct_size(tunable, values, sz)
 
-> Honestly, I prefer the existing code.  It is much easier to follow and
-> I don't see why the new code would be better.  Sorry.
+> +			       GFP_KERNEL);
+> +	if (!tunable)
+> +		return ERR_PTR(-ENOMEM);
+> +	tunable->sz = sz;
+> +
+> +	for (i = 0, p = NULL; i < tunable->sz; ++i) {
+> +		p = of_prop_next_u32(prop, p, &tunable->values[i].offset);
 
-I don't think there's any problem with the current code. However, I'd like
-to add support for poll_idle() on arm64 (and maybe other platforms) where
-instead of spinning in a cpu_relax() loop, you wait on a cacheline.
+Does it make sense to add an size argument either here or in
+apple_tunable_apply() to check that the offset is within the expect MMIO
+region? Not really important but might catch a bug someday.
 
-And that's what using something like smp_cond_load_relaxed_timeout()
-would enable.
+> +		p = of_prop_next_u32(prop, p, &tunable->values[i].mask);
+> +		p = of_prop_next_u32(prop, p, &tunable->values[i].value);
+> +	}
+> +
+> +	return tunable;
+> +}
+> +EXPORT_SYMBOL(devm_apple_tunable_parse);
+> +
+> +void apple_tunable_apply(void __iomem *regs, struct apple_tunable *tunable)
+> +{
+> +	size_t i;
+> +
+> +	for (i = 0; i < tunable->sz; ++i) {
+> +		u32 val, old_val;
+> +
+> +		val = old_val = readl_relaxed(regs + tunable->values[i].offset);
+> +		val &= ~tunable->values[i].mask;
+> +		val |= tunable->values[i].value;
+> +		if (val != old_val)
+> +			writel_relaxed(val, regs + tunable->values[i].offset);
+> +	}
+> +}
+> +EXPORT_SYMBOL(apple_tunable_apply);
+> +
+> +MODULE_LICENSE("Dual MIT/GPL");
+> +MODULE_AUTHOR("Sven Peter <sven@kernel.org>");
+> +MODULE_DESCRIPTION("Apple Silicon hardware tunable support");
+> diff --git a/include/linux/soc/apple/tunable.h b/include/linux/soc/apple/tunable.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..7e74e81b32e56c9a8ce94cb64bb340b007bac8da
+> --- /dev/null
+> +++ b/include/linux/soc/apple/tunable.h
+> @@ -0,0 +1,60 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
+> +/*
+> + * Apple Silicon hardware tunable support
+> + *
+> + * Each tunable is a list with each entry containing a offset into the MMIO
+> + * region, a mask of bits to be cleared and a set of bits to be set. These
+> + * tunables are passed along by the previous boot stages and vary from device
+> + * to device such that they cannot be hardcoded in the individual drivers.
+> + *
+> + * Copyright (C) The Asahi Linux Contributors
+> + */
+> +
+> +#ifndef _LINUX_SOC_APPLE_TUNABLE_H_
+> +#define _LINUX_SOC_APPLE_TUNABLE_H_
+> +
+> +#include <linux/device.h>
+> +#include <linux/types.h>
+> +
+> +/**
+> + * Struct to store an Apple Silicon hardware tunable.
+> + *
+> + * Each tunable is a list with each entry containing a offset into the MMIO
+> + * region, a mask of bits to be cleared and a set of bits to be set. These
+> + * tunables are passed along by the previous boot stages and vary from device
+> + * to device such that they cannot be hardcoded in the individual drivers.
+> + *
+> + * @param sz Number of [offset, mask, value] tuples stored in values.
+> + * @param values [offset, mask, value] array.
+> + */
+> +struct apple_tunable {
+> +	size_t sz;
+> +	struct {
+> +		u32 offset;
+> +		u32 mask;
+> +		u32 value;
+> +	} values[] __counted_by(sz);
+> +};
+> +
+> +/**
+> + * Parse an array of hardware tunables from the device tree.
+> + *
+> + * @dev: Device node used for devm_kzalloc internally.
+> + * @np: Device node which contains the tunable array.
+> + * @name: Name of the device tree property which contains the tunables.
+> + *
+> + * @return: devres allocated struct on success or PTR_ERR on failure.
+> + */
+> +struct apple_tunable *devm_apple_tunable_parse(struct device *dev,
+> +					       struct device_node *np,
+> +					       const char *name);
+> +
+> +/**
+> + * Apply a previously loaded hardware tunable.
+> + *
+> + * @param regs: MMIO to which the tunable will be applied.
+> + * @param tunable: Pointer to the tunable.
+> + */
+> +void apple_tunable_apply(void __iomem *regs, struct apple_tunable *tunable);
+> +
+> +#endif
 
-Something like the series here:
-  https://lore.kernel.org/lkml/87wmaljd81.fsf@oracle.com/
+Reviewed-by: Janne Grunau <j@jannau.net>
 
-(Sorry, should have mentioned this in the commit message.)
-
---
-ankur
+Janne
 
