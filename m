@@ -4,99 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F6DCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 15:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF64CCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 15:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GnnlHMFRbVrpcnyBkNDcSZjt6llB0RXl0xQOlvsDe5c=; b=E6pBLIpcnbPKkdUK14bDfMtKd9
-	MJGIr9XUUeDqFDGFgRcwtJLk5AunHJF/8oZgAeJLmbF4s42qoLswVV21QwZl3dHHbD18b9r54KyCQ
-	v03hSdRuxGEifj9kXcqe/PsmBW1mnjjZ1h/4gJvkSXp6h2oILRgI+ueG9eBaMcrP4Zh7rWT2cbwC3
-	nhGaLcOPRkk9WPTVVeQC6mLNjEbYkafaPiru26Ig5zNujvsAA37+LfrC4hxdYoBJeQNxsuo0hqrW+
-	Dt/K2+q/hCv/fsdaQFH7/SXo+jMqtnbjb65ey0Y3Y7NcC3SA9UweGI0dJMm9aD27ZsGod1T32vPpn
-	dJOlQQvg==;
+	bh=+ofRlSsFnhj/Eeu/sD0PofisXJqQ/KuD7u+eEwaLVpo=; b=WLU2BLEYYEBNPAcgXq8a/IFGCl
+	VQCjcXME2/WSvn0Kg0XcwwYtxh2yA/dLkmQSfRZHxYJ/Naf0AyaJvdHgGV1ZnX5vj+c0LPPkesjXS
+	TUEfMnE5bECiA6dg//XTa5sdr4vOBm/+SyfR5NfQUtPHaxUozH327+TQQpzLjzx6sUeHidRnp65Xj
+	qcdM5b6qcmEz48FCzd0IKbELREAEJJv9mcJ2KzgCEbz5k54sSmcjzckErHkobS18BZJHFuSKrlqv/
+	Kf+RSbl4AgM7X3a5IbGVNTlyGAgzRCSTJjN9A6ntMGhAT1VJEsw6gFu6AGIno6id0Npsx/ObnUWW6
+	h+Giwr2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE81j-00000001mIT-00LH;
-	Wed, 29 Oct 2025 15:23:55 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vE88I-00000001nYK-0xie;
+	Wed, 29 Oct 2025 15:30:42 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE81g-00000001mHS-1Zaf
+	id 1vE88F-00000001nX1-0fnG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 15:23:53 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-4298b49f103so2647171f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 08:23:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761751430; x=1762356230; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GnnlHMFRbVrpcnyBkNDcSZjt6llB0RXl0xQOlvsDe5c=;
-        b=Did7JH2jKM8I2Q/woXRM1wU0fHqKYofvIFZZ4utetUvvpF8MmWcflVBT2aSS9uK7L7
-         UI5NuZ3oiK84bvcAAOZOuryvDsnsEQGRsw6whfqsQ34EnxILB2FltQ7OlU7r+FNJRG4g
-         lpa3tQyCPgGYIYWJujpz9osegYUrMNGvozGAOtYLaFCN8v1J6W7HfTcmbukDwX5oeALD
-         OPuk9YgZeOMupsTsnUcbWt6+0y6jIXfdQfSPcXQ9MkrP8i8M9/9RVPjt6xOnN8bgscS3
-         0JCs3usNaYuHJ9+682/DDw94AGwuethSJJx9Ox1MDm74bvKcC5En2pIBrBftwoMQ74+i
-         4yNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761751430; x=1762356230;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GnnlHMFRbVrpcnyBkNDcSZjt6llB0RXl0xQOlvsDe5c=;
-        b=EAuauYgEg4tiec1MXUyvnkM+yqUcMe+uBZeuuwo92HL3lHvIcq1EkfCe3TIkfsjzlZ
-         agN/kfPgDOMAEL5hxA3QqphyXTO/g5IJOVtYV89jeXMrw9JpsTiL3Ydtn5r9N3goHi/I
-         LmYJkegmhDmLaL0dudcoadExGLvTHHdPwN8Ur4hYNxfgOJ4CJCcLGoSqr5yiVwm+rJOl
-         V6Yhpzpf9imXQHFRkya5DDegAaDz+VidmaURcRjjD9DMiBDERDfU4ga0etrfbT83nl6H
-         RZ50JRudRfpiVGCEjsnhuHI0IN1FVF7uKiDiozXRyatsWGJ+ttNqBBwiU7pFW7Lhr4Lk
-         I38w==
-X-Forwarded-Encrypted: i=1; AJvYcCVj1l+7KWjm83ZyeZDZuwPWOZ+kPuXPKWc3YzaGsnjLcwjjO/I+McSdnww0aWh6OAKU5obKqEY6AULmvoRWNVdx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXcs8dU0i18gRXzwbTPmuH6yQrE/S+aV0s+g1qZ8febcvUD9IO
-	aa+uya4dIWuBMh9reXVr6tM+VMpvuNMrLMO54rv99xpMLeczNLhb7WPuL5rfUrLkWR8=
-X-Gm-Gg: ASbGncsYSxDkwEn8tjP0kJ5cw639aYjEvhB670sSksNu4UG0QUfYsxe33cnaoFY1CIa
-	o22XrSroJEdvHN8Sx7I2SxxPecyEXxrVy8b9Glo1gZ2UwiWUPp75qnHqmnuzCvtB6OJNoB3zLC7
-	LGtgEqitgl6i1KsqNvQMPd3aYfALVVc00oQY5PevKJbWreJ2fgA1xhMJ6uPq7XeT9wOsJv2HW7D
-	tH8UarM9/z2TqPlvQTnxZrMFN13Jd9nVecWvYErLly+e+BJeoQMRc3vOnB01ycbM3UYGgfIhFU2
-	vN7jK53zDrV0DGZ3JbpnPEIYun31Vy2ILqn9IwdtA60IbSqaVAkoR4gGnQSuplxq3CKph1s/udY
-	2uzATsGXiZ2xH2h/1jDIemJKTv/iy7Yox1lEL2uCwbY/TmsBvwiSdxO2fnP2x2nZulqPbrWwmWJ
-	RHmeH57j31J11FPtM=
-X-Google-Smtp-Source: AGHT+IF3kypRXz+lbNGUUJZxGE/9fLgsZ6x2lXzXuM2CaCBPkYTwY5pskZrBjx2J28zmiWA3+gROqw==
-X-Received: by 2002:a05:6000:2308:b0:426:d54d:224d with SMTP id ffacd0b85a97d-429aef8b88bmr2958293f8f.27.1761751425212;
-        Wed, 29 Oct 2025 08:23:45 -0700 (PDT)
-Received: from e125016.powerhub ([2a0a:ef40:e8d:4a01:29a9:3ab3:ba86:f8fc])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952e3201sm26823811f8f.47.2025.10.29.08.23.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 08:23:44 -0700 (PDT)
-From: David Spickett <david.spickett@linaro.org>
-To: broonie@kernel.org
-Cc: catalin.marinas@arm.com,
-	corbet@lwn.net,
-	david.spickett@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	luis.machado.foss@gmail.com,
-	mark.rutland@arm.com,
-	oleg@redhat.com,
-	shuah@kernel.org,
-	thiago.bauermann@linaro.org,
-	will@kernel.org,
-	David Spickett <david.spickett@linaro.org>
-Subject: Re: [PATCH v2 1/3] arm64/sme: Support disabling streaming mode via ptrace on SME only systems
-Date: Wed, 29 Oct 2025 15:23:30 +0000
-Message-Id: <20251029152330.155394-1-david.spickett@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251015-arm64-sme-ptrace-sme-only-v2-1-33c7b2f27cbf@kernel.org>
-References: <20251015-arm64-sme-ptrace-sme-only-v2-1-33c7b2f27cbf@kernel.org>
+	Wed, 29 Oct 2025 15:30:41 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id AC402C0DA85;
+	Wed, 29 Oct 2025 15:30:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F1C7F606E8;
+	Wed, 29 Oct 2025 15:30:35 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AEB67117F828E;
+	Wed, 29 Oct 2025 16:30:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761751835; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=+ofRlSsFnhj/Eeu/sD0PofisXJqQ/KuD7u+eEwaLVpo=;
+	b=eB6wzXTCe/N3Q7dnaf6E9dD6yIWqSPDSn9o8vSlwVuWiOke9KspcmyR3CG1QVsw+HezX0y
+	1X3jvFHAgVvLW7k+aUOuDRVmTgLNHUEO3Jb3BuAhw8b9nT00u7344feagp5jWlgxn+6ShB
+	uFOtaX+PLP3cVmuPojb2e71INjODRojB3xvSIxQjBymXckqYskJBKFpCrtS8SsVpnVDBTJ
+	n2W65bWJ73uXwf92pagwrmpkPIHj9zHjYnhiqecpGzL/r9vScHejb19tGlB2XiXcXEvJhA
+	ZB7DFlblrUEZSB76ilrkkTxXfu2APGPgSKtbo+H5ODgnR9r6xURX9SY93+4I3Q==
+Message-ID: <a58f9a1c-a2f7-4c61-838e-7808e157ae25@bootlin.com>
+Date: Wed, 29 Oct 2025 16:30:28 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/4] net: stmmac: socfpga: Agilex5 EMAC platform
+ configuration
+To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
+ <20251029-agilex5_ext-v1-1-1931132d77d6@altera.com>
+ <a871daac-364e-4c2c-8343-d458b373e1fd@bootlin.com>
+ <db213912-2250-4d3e-9b2c-a4e36e92e1cb@altera.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <db213912-2250-4d3e-9b2c-a4e36e92e1cb@altera.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_082352_438260_3904DBB7 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20251029_083039_525151_6121B45A 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,31 +87,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I have put the LLDB changes for this into review.
-We are tracking SME only support in this issue:
-https://github.com/llvm/llvm-project/issues/138717
+Hi,
 
-The PRs that relate to these kernel changes are
-listed in this comment:
-https://github.com/llvm/llvm-project/issues/138717#issuecomment-3456979166
+On 29/10/2025 15:53, G Thomas, Rohan wrote:
+> Hi Maxime,
+> 
+> On 10/29/2025 7:04 PM, Maxime Chevallier wrote:
+>> Hi Rohan,
+>>
+>> On 29/10/2025 09:06, Rohan G Thomas via B4 Relay wrote:
+>>> From: Rohan G Thomas <rohan.g.thomas@altera.com>
+>>>
+>>> Agilex5 HPS EMAC uses the dwxgmac-3.10a IP, unlike previous socfpga
+>>> platforms which use dwmac1000 IP. Due to differences in platform
+>>> configuration, Agilex5 requires a distinct setup.
+>>>
+>>> Introduce a setup_plat_dat() callback in socfpga_dwmac_ops to handle
+>>> platform-specific setup. This callback is invoked before
+>>> stmmac_dvr_probe() to ensure the platform data is correctly
+>>> configured. Also, implemented separate setup_plat_dat() callback for
+>>> current socfpga platforms and Agilex5.
+>>>
+>>> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+>>> ---
+>>>   .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 53 ++++++++++++++++++----
+>>>   1 file changed, 43 insertions(+), 10 deletions(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+>>> index 2ff5db6d41ca08a1652d57f3eb73923b9a9558bf..3dae4f3c103802ed1c2cd390634bd5473192d4ee 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+>>> @@ -44,6 +44,7 @@
+>>>   struct socfpga_dwmac;
+>>>   struct socfpga_dwmac_ops {
+>>>   	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv);
+>>> +	void (*setup_plat_dat)(struct socfpga_dwmac *dwmac_priv);
+>>>   };
+>>>   
+>>>   struct socfpga_dwmac {
+>>> @@ -441,6 +442,39 @@ static int socfpga_dwmac_init(struct platform_device *pdev, void *bsp_priv)
+>>>   	return dwmac->ops->set_phy_mode(dwmac);
+>>>   }
+>>>   
+>>> +static void socfpga_common_plat_dat(struct socfpga_dwmac *dwmac)
+>>> +{
+>>> +	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
+>>> +
+>>> +	plat_dat->bsp_priv = dwmac;
+>>> +	plat_dat->fix_mac_speed = socfpga_dwmac_fix_mac_speed;
+>>> +	plat_dat->init = socfpga_dwmac_init;
+>>> +	plat_dat->pcs_init = socfpga_dwmac_pcs_init;
+>>> +	plat_dat->pcs_exit = socfpga_dwmac_pcs_exit;
+>>> +	plat_dat->select_pcs = socfpga_dwmac_select_pcs;
+>>> +}
+>>> +
+>>> +static void socfpga_gen5_setup_plat_dat(struct socfpga_dwmac *dwmac)
+>>> +{
+>>> +	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
+>>> +
+>>> +	socfpga_common_plat_dat(dwmac);
+>>> +
+>>> +	plat_dat->core_type = DWMAC_CORE_GMAC;
+>>> +
+>>> +	/* Rx watchdog timer in dwmac is buggy in this hw */
+>>> +	plat_dat->riwt_off = 1;
+>>> +}
+>>> +
+>>> +static void socfpga_agilex5_setup_plat_dat(struct socfpga_dwmac *dwmac)
+>>> +{
+>>> +	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
+>>> +
+>>> +	socfpga_common_plat_dat(dwmac);
+>>
+>> I"m not familiar with this device (I only have a Cyclone V on hand), does
+>> it still make sense to try to instantiate a Lynx (i.e. Altera TSE) PCS
+>> for that IP ?
+> 
+> AFAIK, yes it is supported by Agilex V device family also.
+> https://www.altera.com/products/ip/a1jui0000049uuomam/triple-speed-ethernet-fpga-ip
 
-LLDB's use case for this new ptrace feature is to restore
-process state after expression evaluation takes a process
-from non-streaming to streaming mode. We have a specific
-code path to handle that restoration, and it was not a
-problem to integrate this new ptrace feature.
+Ah nice to know, thanks !
 
-I have proven with testcases that LLDB can restore
-any streaming mode/ZA/streaming vector length
-combination, starting from any other combination.
+this looks correct then :)
 
-The LLDB changes will remain in review until if/when
-these kernel changes are accepted. I expect LLDB
-reviewers will be ok approving changes on the condition
-that I wait for the kernel side before merging.
+Maxime
 
-I expect LLDB review to take some time, likely a month,
-due to the availability of reviewers at this time.
+> 
+>>
+>> Maxime
+>>
+> 
+> Best Regards,
+> Rohan
+> 
 
-Reviewed-by: David Spickett <david.spickett@linaro.org>
 
