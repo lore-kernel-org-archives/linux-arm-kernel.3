@@ -4,219 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D135CCCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707DCCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=; b=VxSTdCMI4bFB7KvQ31GfHJeGr5
-	x5LrayOpUA7otA88u8XppK/7RFy7JEKHc93/yevf5SH40XPKNht8c1j8xcaaL6tslXpGpd34aa6fT
-	4R9gtp46P8D3I7/w9ei+z23NsVGdB5vofUI8e/12WAta5Ts8stm51cYAujNKzGRgMWt8mKW2cn/ze
-	ncztOWPxr3SpiCGwyM3ECXP6ljKJmJLDVnUaHg0EcMMZm3i/xIzKyj0YoRotKi9mOoWtjV87B5uuA
-	DjKS+DWu8dGXATWu7J7iQASxL8AA6ILbSq5X0HORhBUn4OKJMkrxcZy87G0peA9621GooobZRq0ub
-	MVscMCVg==;
+	bh=J9lgi4iASLQbPZH+IlakQQS3ZNaMCSi4cb/VmwHm048=; b=vRY8JG0uANXA3GdJ3P8aE3zWsM
+	Yt8Ak0b3TcsLwby8wfEtGdbFgFKzsQdBasjamyZNKGsCQY7q+EIaQka7x7BJe0MWIYKyYLggybTAG
+	gfgxsc+KUXvY0HAwHcOE+gKUJR4OtmADZ3NlG2hGLtAq4FP1FGZECcC44bNtJ6K1D80oo6fLW0nOJ
+	TAhw5f66p7HZRMXgaHzk4QHbxajNLiuMf7Arh1LE00nTkNSM6YEUnxDIdHJjX0Da/ZPqcsmm2kkWL
+	17L02MWIXLQAZtubEWiCto/U3669FtQmqicaCl8lhGPRHISuI7QM6p88+4/h+sqHE1nKaFkk6M+Dx
+	vPloLbkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE04J-0000000HY0k-262S;
-	Wed, 29 Oct 2025 06:54:03 +0000
-Received: from esa14.fujitsucc.c3s2.iphmx.com ([68.232.156.101])
+	id 1vE04V-0000000HY9f-0vjV;
+	Wed, 29 Oct 2025 06:54:15 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE04G-0000000HXzL-0Seu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 06:54:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
-  t=1761720840; x=1793256840;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=;
-  b=WBDuVGchTMW2vQ/CIV6l+m8yw2cl/FeXTw4BcbiRzPANsZm0x34IYisa
-   nX9KE24kGpEbmv9HGWFvVZDyQbYKn4PP1nEGIsymrJ4DL0zleXlzq4noY
-   Y+OtI1nPzPRJP53uM+CM2FstXUriM84suAIR4d7y26vsYgvng+O3GcDBZ
-   geVGLhY9uEY5aWgAm9k/4/kjUl2XIe1O8+r4lIKhZVzM6DzU7+SpTi9JD
-   q2Ajmy8cS37xciIwnxMMUBjqFERyTW4qwiIfpQjg+YF7I3NEqxE9TUY6m
-   ot6QWYHUdLXYDxgfMhtZen99eAsSoC8mITthq6Dm38vkI5D/HiX/YXCAt
-   g==;
-X-CSE-ConnectionGUID: pLjTaFR8Q8a6IHScSToukw==
-X-CSE-MsgGUID: IGirdZniSyGKlIsJwNBfIA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="171971169"
-X-IronPort-AV: E=Sophos;i="6.19,263,1754924400"; 
-   d="scan'208";a="171971169"
-Received: from mail-japaneastazon11010015.outbound.protection.outlook.com (HELO TY3P286CU002.outbound.protection.outlook.com) ([52.101.229.15])
-  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 15:53:40 +0900
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kg38csqfZW4/wf4r/IKIrIn21pYSkj34565TT3ps2pS94J1nRBCnHVhpvcLm6ezCeTPpMIcVwKn7/h35XvpWayt9RUwVuJ00G6/WY7YwE1isRILthiDKyxwUlmYDfNiyO/oNVrA4Z7sH0f1yBH/LXBkCq3Rw5SQAe4l0KKX1fYdrpLmJBzf6FpaBATqQxsJj6duv93qBoOC5odRvqT1vdhbUKue9SHG0oaYNE8yuwlyOL1YeoxX6RQVDUyfPOnxmY8AvCXxDxXxlaUXhypggzKPjMHlLiLNjn6Ds7/syKjLEAVsqSKHh+jSfwhGEKQlOTAk7Q2p8xWYOmJOQApXhiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=;
- b=cEqXax4fh42Q3EOnbzM9b6hd36h5wK+mVCTpK9TF7JXm1Eo1vu3IrZ0g+SdIh4mS9ECPTk5/CdVMkHtmwwH4/HBwXr5wEMUCPlJFs4KVDYdwbZr60NXgGDyx0gAzZg3SeqMB1QzegMhrLLDce2hI9kGAYfTfo3FBFh9KKWjuwqHF5L/svlwa+8SqKHSDMqw+QMLMzawkOQVtrGv/urz6zHiGH/uHzSZw/7uE0C3GtDa4JzVxqiE7eFLM4IkJqVxjuR1rtSMfs//z1c7apsvB/4/OUIcsR8TewNXKlIartrf7LKv50telstbEWiRm/gYnXSqN/+Cc2wqLTgYriUhLSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pRSge27cV4FvJsVaDN+iiKt8llAAZFV0QK+zgTAIYdw=;
- b=PcXxrfGRxXwrn2PHhUV9RPFpTtY3iMDx//fgxOIvjntshHsRjAZCrqrMSR+0RsDWx0OndqFnwtt1PDnSxUmHYCSzaYP5OGqtGttYHkp5IfCGDVBuy/y4Mk+SGrQBSfED89oaW3beSOFrRkGKGoLnT9Nz4iN5pgjTty+JC90GnXf8PsmK1CENj2UPb9hzxUSU6dT/obWIVMP5eeufj0kqWrTKRjFCEN1D0JeEKoULfT4yz3RdfVLMfIVpxW5OJ3LuMRGFyqFZ74ysjREUOgKmCoYPNWmUTTEy9EYO6MvrxGII1/3YKIkbHPO8bLkGrciCwm1cw1my85jW+Gm4RWQgtg==
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
- by TYCPR01MB11069.jpnprd01.prod.outlook.com (2603:1096:400:3ac::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
- 2025 06:53:37 +0000
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9275.013; Wed, 29 Oct 2025
- 06:53:37 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: 'James Morse' <james.morse@arm.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>
-CC: D Scott Phillips OS <scott@os.amperecomputing.com>,
-	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
-	"lcherian@marvell.com" <lcherian@marvell.com>, "bobo.shaobowang@huawei.com"
-	<bobo.shaobowang@huawei.com>, "baolin.wang@linux.alibaba.com"
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
-	<xhao@linux.alibaba.com>, "peternewman@google.com" <peternewman@google.com>,
-	"dfustini@baylibre.com" <dfustini@baylibre.com>, "amitsinght@marvell.com"
-	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Dave Martin
-	<dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>, Shanker Donthineni
-	<sdonthineni@nvidia.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
-	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>, Rob Herring <robh@kernel.org>, Rohit Mathew
-	<rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown
-	<lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
-	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Jeremy
- Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>, Rohit Mathew
-	<Rohit.Mathew@arm.com>
-Subject: RE: [PATCH v3 15/29] arm_mpam: Reset MSC controls from cpuhp
- callbacks
-Thread-Topic: [PATCH v3 15/29] arm_mpam: Reset MSC controls from cpuhp
- callbacks
-Thread-Index: AQHcP5gJxNlR2hUQP0GH9e5axTQbTbTYwhKw
-Date: Wed, 29 Oct 2025 06:53:37 +0000
-Message-ID: <OSZPR01MB879824B522CCDDE98F30972E8BFAA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-16-james.morse@arm.com>
-In-Reply-To: <20251017185645.26604-16-james.morse@arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=203738a3-f7b7-400a-b517-c0ad00bc7062;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-10-29T06:52:45Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYCPR01MB11069:EE_
-x-ms-office365-filtering-correlation-id: d04aa85b-0b02-4061-dc5a-08de16b7e2cc
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|1580799027|38070700021;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?MXg3QmdOck9iWXdnVjRRNjdTTGJIaXB1UEZSVEdta0FZUVBOZzk2MGha?=
- =?iso-2022-jp?B?blJyb2k0bHh1cXRaSk1vWXpxa2d4bmpVczdHSkhZaW13bzRpYy9WZmlw?=
- =?iso-2022-jp?B?NDl6R2xIS21oaElnR3pJYlFzMVEvck5wOEN5Y2ExRzQyem1WQnIwOHpM?=
- =?iso-2022-jp?B?YnMzWTNFY3QwTVZRaXNmU296TzVicTR0aExjR1djQTFBTlE2WWpCQmsw?=
- =?iso-2022-jp?B?ZVVGSDE4MTZMcG9nRVVBaVA2cjE1NVdoYnB1NDBKTlV1R3lZNG5sYjB4?=
- =?iso-2022-jp?B?NDlSbjdwVGM3bXE0UWw1cUxORjdGRUZ4UlFYR1NaMzB5TTNUcStXUGRS?=
- =?iso-2022-jp?B?KzRWMlhGZjZWOWpwaDR1a2ord0tCTFpLcWVJektVd0hDaVFTRjhJWEt1?=
- =?iso-2022-jp?B?ZUQ2dTVET0d4d09IRWJjUW9jamEvZjNsaHA5WGtjVUhjbXFTeVdTM21Y?=
- =?iso-2022-jp?B?SWZFZTB2bUZRVnR6eFYwaTg3L2t0SWZPWUV3TUg0b2F6UmMycEVDQndE?=
- =?iso-2022-jp?B?SEpTc0tUUnR5cERzQjd5WXJzMW5FaVFJTEo1MHk1MFNxZDN1V0pPbGhI?=
- =?iso-2022-jp?B?aWE2NEVJc3A4MTE4eDNxemF6eTZSMFMzcUdGbGZqWVplM1kwN3pCRzFk?=
- =?iso-2022-jp?B?V0QwaXBSazlvUkpad0Y2TjdteUgzUEovblBvQlByYWF2dVFVS2MwL2pV?=
- =?iso-2022-jp?B?bGFjRkl1WE1iM29HTjJqSWhvTGNpNHVvcmkwY0EwWlZJd1BGVjJTaXFM?=
- =?iso-2022-jp?B?UVE1OUlLakpaYkFoYm9lOGUzS01VTkV6c0JmazdhZWtHR3FpT094VTR4?=
- =?iso-2022-jp?B?aG9aYmhGSHFpUFk1Q2paNjBOKzY1T2tidjk5RVpLeVlPbzdScUN6Q25i?=
- =?iso-2022-jp?B?UThWQTNTRkFUaVYvRGt5S0JmSjRsZXE3Y3JHUStEZjc1QlhUQ0JJdnA4?=
- =?iso-2022-jp?B?SU1PQXNLbS83aGlxQm1PNWg4Tnlia2F1ei9oZk5tZEdxclZDODJ4NkhP?=
- =?iso-2022-jp?B?V21SakE5TGc2Qktoc3RpYkhOc01xTTJDMUVLT1FFR09BVXJ0TFQwMXRl?=
- =?iso-2022-jp?B?SmNVdnFTdVg1ejB4YUJEeVVqWnNSTWNKMCtNTHpBMG5acWk4c0lFWFNJ?=
- =?iso-2022-jp?B?YnQyV1dzdzlYM3Z2MGdCOHMzZy9tcHdwYlhvZHdsM2dVUWdlM1g3ZXBK?=
- =?iso-2022-jp?B?Q2hNSEk1RGdPSmV1OUJXSzhOeXhLYlJsSDF2NHg4MnFicVFRTjl4Vklj?=
- =?iso-2022-jp?B?dWF0cmx5R3JubWVyWStzOWVLT2p6WS9ITjlvRmhnQnJlK3BKL1Z2OGZY?=
- =?iso-2022-jp?B?VjNEY0hvbmIvY01tMS9RcGZXcHB0cTlKQnNRMWdsUXlKY0hmakd1S2Jx?=
- =?iso-2022-jp?B?TllweE1DVjBBSWZ1NnREVXhENWxlVTVFN3MrNkZKeVRWS2psWG5iZmhy?=
- =?iso-2022-jp?B?UnIwcmhpeXBMMmI5d2pNU1R5eWFyN3RsTmk1eXE5VXpkdmU1L1I5NVI2?=
- =?iso-2022-jp?B?TEVXcVpsaWt1RUp6RWVTZUlNNW1BTC85NllKYVJkQitzVWRzeXoxNURL?=
- =?iso-2022-jp?B?Y1VSVEVpWDczRUdCQWU4YWd2RnZOY0JpcE1DdG95YzNQRkRpQmhyd2pU?=
- =?iso-2022-jp?B?WDlJOEh1dk4wYjk2T3JmNHV0czZHMTBHM0owZ3RUOGVvMlpQQ2JIeS8v?=
- =?iso-2022-jp?B?OTRKQkFLS0lLVVAwWFh5cEQyUzUyQ3VENlVnbWljazdqUm5zYlVsQTRq?=
- =?iso-2022-jp?B?MEEvNFRwcHc2c0dRZUlKSC9uMS9UdlZMMVRxSzRYOXRuZUV0cm1iQmpo?=
- =?iso-2022-jp?B?bVlPRjhJWTRLUDFOa3RqOURtNUNFNWVZWEljSytzTmZiU3hWQWVvbXUv?=
- =?iso-2022-jp?B?a3MvN1lGVUF2bnMraFJ5MlU0VEFFTU5WY2c0TGh3c0lRT0UrWnBrWkoy?=
- =?iso-2022-jp?B?Q2tIR0U2UWV5RnRaWFJ2M05xdkVOWU85b0pZNmVaQkJ2Z1BDT1c2QWh3?=
- =?iso-2022-jp?B?MFpFdXR0c2RRcUR1Q1JoOEFDeUVEWWZaSEwzZm9QdEVMNGFvMkdZOHda?=
- =?iso-2022-jp?B?cGROa1J0WkRRdDRJcXB0RVhXMFFrSE5QZEFzUFZpUE9idDBLOE8vR09W?=
- =?iso-2022-jp?B?eGJXQ3ZuWWIvOERvdzhnZ2F5SHpWbjIvUWZFcHV3MnkyMjR6S0xNWHJP?=
- =?iso-2022-jp?B?WlE4SW85R1dKeDgrQTFXS0J6TzFITTY5eThhUkR6Q3daOCtRQmFBK3Fo?=
- =?iso-2022-jp?B?SEVmUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(1580799027)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?L2dCM0d1bGx5dEtFbHJTbVR0NGRtUWhLT0xKdHpPYlF6R25kYmxqU0d4?=
- =?iso-2022-jp?B?UWtIcy9qUHFaNDNYUlE5VUZTZGV3WFRXbU8yOXBHL20xOTBzd0ZaaHM1?=
- =?iso-2022-jp?B?UklrcEFWTEE3STM2VEpFNkFSazkwWkZpc1NBSTJMazBzYkVZclptZ0wy?=
- =?iso-2022-jp?B?ZmdMRm8rTmxrWE42VmkzSENpSDVJNGNiZmxSQ2M0ZmU5R1JqeTFma0VN?=
- =?iso-2022-jp?B?YlY5UGVwclVtUmRhUFRDYzlQU0JUL0I3ZmkvWlpHeFVPbDJ5dFJxUEhq?=
- =?iso-2022-jp?B?R05xVEJXOTV4c3NwYXNjY0VZYU1oTzdPdUV5YmVUR25yWGZKeGZud2tN?=
- =?iso-2022-jp?B?MHFnVnAzUkY4VGZZc2c4Q3NHSTFuTEV2cC95di9OZHc1MTZEUEFDMnV4?=
- =?iso-2022-jp?B?VnNZcnhUSVkxelo5STdrOVlyWWU1aUs5OHZzelFzSG0rOFB3T0RGQTUr?=
- =?iso-2022-jp?B?RHJHU2VqcG1ZQmxFbE91bWFrOUZJcmcxWWRPSGpzKytqNVVxREovcFVF?=
- =?iso-2022-jp?B?N3ovODlDNlZxZTYxdTJFa3c1Qi93UjVnczFiNTZKT2IzeXFWcHhFVld4?=
- =?iso-2022-jp?B?aVpqM1U2OE1ZMUQxN0c1R3lsZnhZWkxEcTkwZ0RFVVRtSFJvR1NMY3Iz?=
- =?iso-2022-jp?B?QzNnTlovWENmUzQvb1ZDOFJzRGxDYktLYjhQQ0lKZlBUTW9LR3g3OWw4?=
- =?iso-2022-jp?B?RE9BR2l4TmFnZTN5cGljT2VtdkNzeHQrS3A4K0dXRkJaOVcrQnN5ejJo?=
- =?iso-2022-jp?B?YlNwa1ppQWZhRW5FMXRhLzlLZCtveXAvZzUyQlJQYjBENEZFekZhdU12?=
- =?iso-2022-jp?B?UGpvODN3SEtYcnFCdE5NVFlYTUJWT1RVcEh3ZDlyd25CeDArRE1zVmdl?=
- =?iso-2022-jp?B?K29EZHQ2WFF4ZlM0NXNEZkk1bmNIaUJ3OHVzNGM1ckRucE1ncHFxVmxv?=
- =?iso-2022-jp?B?Rm1UZVhPNkU1WHVwdVlDeC96Q1M5R1BvdlhCOFFpVVdwY2plcFJJKy9M?=
- =?iso-2022-jp?B?UTlyb3RBYlFmTkgzaHMyUWtISjludUFJWXRhZllyQ09HZmk3RVpTazBG?=
- =?iso-2022-jp?B?R3FKaGtRRklaYkMzQjZlMkRMVmFLRDJMU2lVN2pJL2RBRzJUZU50T2lR?=
- =?iso-2022-jp?B?N1lCR3BCNDcraHFKK2JkZ05oVndTcVhBdUdNa29yWTVtMEp6MVFwcVN0?=
- =?iso-2022-jp?B?eFJ5eWEyR2NHTlp1SFo1QjhuakpCaXNGTHBKeGxjRTN5WHNtazBQQzhs?=
- =?iso-2022-jp?B?bUFsa2xXb0V4bVRNMVVFSEJ6UHhYSldVbFNONmJjeXJWZ3F2S0Q0U3hW?=
- =?iso-2022-jp?B?Uk5VRWZtelI3clFIYytZZ2ZDV3dOb0NpMTVnNC9vTjFvZTB6WlEydzdt?=
- =?iso-2022-jp?B?b053RzFza0NmeGhtK0tnZzFqbVlYK0J1SmpqbGh4K2prRXJyQS94SHFB?=
- =?iso-2022-jp?B?Zmdmc3ZIYjlwNU0zVHIvVFd1NWVYVzlHTFlFbkZ5NkNVWHFOaXoycm9y?=
- =?iso-2022-jp?B?Nnd2azQyQnpRZXhsd3RWU0dSeTROMFpmR09nSHp3RGl6RGY5bTJEcENG?=
- =?iso-2022-jp?B?QlBhR2NjUmZibW1NV1lKeUFoSDV2Q1BJZllMYzNrTHpNN0k1Z2hhSXU4?=
- =?iso-2022-jp?B?NE5oeHY4M3lGSTdpOWNlUlc2ZXA1azVMUU95WFI1TnVQMWZZMjd2ZnFK?=
- =?iso-2022-jp?B?eGk5cUNBVVBtNXdKSVZqc2NrMVg3WTg4bzZZblpMbC94bmNwbll3SS93?=
- =?iso-2022-jp?B?SVg2R3NUeFMrZTVGVHVZREU0d292ZlpqbWJCaktPYlZ4NlpNd0JhUW9u?=
- =?iso-2022-jp?B?bGR2Ti91bmZIUU91L3ZhSElscXFvbWwwb0pqZGE5MmxzTEdmWkgvVWNT?=
- =?iso-2022-jp?B?Mzh6WHh0VXVSN1dwNnFWQVJsd0s4SlFKaWZsWGxoT2d5UVJFTnM1UkRp?=
- =?iso-2022-jp?B?dGREbmUrWTlWOFdmeWo0QjI1bnRYOEVHU3hnQWk1bnJJdG93OStKTHU4?=
- =?iso-2022-jp?B?aEJoSFdvWTc2UTArdVZFZ0JjY3UvNnhVSmwybk9tVFdMUm5HL2laS2Vr?=
- =?iso-2022-jp?B?ZmFlcTJ6M1FJdThVTzVheE10bDNhanRGU08wU1haMi9pZTBweHEwbTUy?=
- =?iso-2022-jp?B?WHNrd2I1MXQySGNyUUhmS3l6RGF0Q1c1WEZDdk92cjZSSGdKbVA4KzFG?=
- =?iso-2022-jp?B?UGc0REFtNzJaMFFMY1RCNTB3dmRvN1NmRDZ5R2tVMDI1ZW9NdW1SRlFv?=
- =?iso-2022-jp?B?MzQ1YVBzZVZOYm9zSjZMM1VxbDN6SUp3YnhzcGlEOThMSytycTl5MnZB?=
- =?iso-2022-jp?B?WnhtSVQvQTh3dG1XRWJSdnQ5ek42azkwN0E9PQ==?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	id 1vE04N-0000000HY2b-1koo;
+	Wed, 29 Oct 2025 06:54:08 +0000
+X-UUID: 0e4d1482b49411f0a52f393f94899d25-20251028
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=J9lgi4iASLQbPZH+IlakQQS3ZNaMCSi4cb/VmwHm048=;
+	b=DfR+ry1QCegAVF4nKL58dZ8uBvSnbzCpmjMBPSEo6UiuvHcSpjz5nl1pLTcf8b8HStMLCLpECj+7atQdBFBKa4tD69f/FUZaqQNduvQVsbGjOA7z7F2bbLFXFbIqsbeXPQZVpb67C4DIussgGq/LMS7scBjDA2cDx9EhxWZV0RE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:9ed0b9b3-73fe-4db1-8f8d-484fc4c729b6,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:4676f13a-b16f-49fc-bb37-560773c432f7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 0e4d1482b49411f0a52f393f94899d25-20251028
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 144857982; Tue, 28 Oct 2025 23:54:03 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Wed, 29 Oct 2025 14:54:00 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Wed, 29 Oct 2025 14:53:59 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH v10 04/12] media: mediatek: jpeg: fix stop streaming flow for multi-core
+Date: Wed, 29 Oct 2025 14:53:45 +0800
+Message-ID: <20251029065354.22257-5-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20251029065354.22257-1-kyrie.wu@mediatek.com>
+References: <20251029065354.22257-1-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: +OjBRr00IXzUQZUu2PzeMTWWcm54BvkEcSosTn985k8IBgTTxOC1XRIi8BbOVWxNQ7yCjcKE15pZJP7P6MK+aJyvvZbyeoLwMp5fAtjC71/X8XSECnA1kL/HHGerthNWhrLrgmXXHI8ITtpJxyQuPjlitsyZL+nCx9m/ZAqNVbDhmuks2M+Xv02kI7DHMvg02S0vYFhSiweoKp/xcUAagPVa3OGm0yq2WMGiatqu2VVSC6PuycneoSu/6ONsFwTaSiyh/sXcHnFuXY7YT6S72cuG1ZgPPm1a2kHDim3td4Ibrl9pbnIYrDWfi2AVCKouVvgQCpAABq4ZOUYvu8GTzS8pKTIk3MfmaBhJikLKN2mFCAV8+Jb+A81E1pnrmY06/aobOcZoE9Y9QVUxDRc8siU8cVbYKLcXX3MYyH4YX0GJqZCsY/pN0Ihs+Sb4jkpl53DpKdBVtGqV27eHPhdFjPZ4OoyUxXTTNUaQmi46JcOx0noR9UJlH7jYsuSsYl+hPvlJG8/X01o99b6AK85ZOg5X7Cc+t6Q+zE4FbOZqcW7dBg7qWFlXL3paOhXQMHA4Aitbfx7wGaH1mfa9gD3I7IR7LbOrYujGIs/1HeF5IkC3M4NlgRA426tb7nngQnDU
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d04aa85b-0b02-4061-dc5a-08de16b7e2cc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2025 06:53:37.1981
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: jjU/dCseQPZPT5gFQQCM35uSeJRJ09YQcEU6ZL59HZQMtZ4/GsTLSNlt/XzUadjYhTi/KuXv3dF4f5gNLKJDU1oh7c02d9jC9WGoBceWJE0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB11069
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_235400_587096_0588C65C 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20251028_235407_464494_99D5F395 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -231,32 +90,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=20
-> When a CPU comes online, it may bring a newly accessible MSC with it. Onl=
-y
-> the default partid has its value reset by hardware, and even then the MSC=
- might
-> not have been reset since its config was previously dirtied. e.g. Kexec.
->=20
-> Any in-use partid must have its configuration restored, or reset.
-> In-use partids may be held in caches and evicted later.
->=20
-> MSC are also reset when CPUs are taken offline to cover cases where firmw=
-are
-> doesn't reset the MSC over reboot using UEFI, or kexec where there is no
-> firmware involvement.
->=20
-> If the configuration for a RIS has not been touched since it was brought =
-online,
-> it does not need resetting again.
->=20
-> To reset, write the maximum values for all discovered controls.
->=20
-> CC: Rohit Mathew <Rohit.Mathew@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+For jpeg multi-core architecture, if all hardware run at the
+same time, some input and output buffers are occupied.
+If one hardware is completed firstly, while other hardwares are
+still running. The decoding completion signal calls
+mtk_jpeg_dec_stop_streaming, and the function of v4l2_m2m_buf_done
+is called in mtk_jpeg_dec_stop_streaming to complete all
+input/output buffers. However, some buffers are occupied by other
+hardwares, resulting in errors. It needs to add a counter to
+calculate the used decoding buffer counts, it will increase 1 when
+the buffer set to hardware and decrease to 0 until the all buffers
+decoded and the function could continue to be executed.
 
+Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware")
+Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interface")
+Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
+Fixes: 5fb1c2361e56 ("mtk-jpegenc: add jpeg encode worker interface")
 
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+
+---
+ .../media/platform/mediatek/jpeg/mtk_jpeg_core.c | 16 ++++++++++++++++
+ .../media/platform/mediatek/jpeg/mtk_jpeg_core.h |  2 ++
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c     |  9 +++++++++
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c     |  9 +++++++++
+ 4 files changed, 36 insertions(+)
+
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index b83b43141e80..dc88ec13f1dd 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -850,8 +850,12 @@ static struct vb2_v4l2_buffer *mtk_jpeg_buf_remove(struct mtk_jpeg_ctx *ctx,
+ static void mtk_jpeg_enc_stop_streaming(struct vb2_queue *q)
+ {
+ 	struct mtk_jpeg_ctx *ctx = vb2_get_drv_priv(q);
++	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
+ 	struct vb2_v4l2_buffer *vb;
+ 
++	if (jpeg->variant->multi_core)
++		wait_event(jpeg->hw_wq, (atomic_read(&ctx->buf_list_cnt) == 0));
++
+ 	while ((vb = mtk_jpeg_buf_remove(ctx, q->type)))
+ 		v4l2_m2m_buf_done(vb, VB2_BUF_STATE_ERROR);
+ }
+@@ -859,6 +863,7 @@ static void mtk_jpeg_enc_stop_streaming(struct vb2_queue *q)
+ static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
+ {
+ 	struct mtk_jpeg_ctx *ctx = vb2_get_drv_priv(q);
++	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
+ 	struct vb2_v4l2_buffer *vb;
+ 
+ 	/*
+@@ -866,6 +871,9 @@ static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
+ 	 * Before STREAMOFF, we still have to return the old resolution and
+ 	 * subsampling. Update capture queue when the stream is off.
+ 	 */
++	if (jpeg->variant->multi_core)
++		wait_event(jpeg->hw_wq, (atomic_read(&ctx->buf_list_cnt) == 0));
++
+ 	if (ctx->state == MTK_JPEG_SOURCE_CHANGE &&
+ 	    V4L2_TYPE_IS_CAPTURE(q->type)) {
+ 		struct mtk_jpeg_src_buf *src_buf;
+@@ -1174,6 +1182,7 @@ static int mtk_jpeg_open(struct file *file)
+ 	spin_lock_init(&ctx->done_queue_lock);
+ 	v4l2_fh_init(&ctx->fh, vfd);
+ 	v4l2_fh_add(&ctx->fh, file);
++	atomic_set(&ctx->buf_list_cnt, 0);
+ 
+ 	ctx->jpeg = jpeg;
+ 	ctx->fh.m2m_ctx = v4l2_m2m_ctx_init(jpeg->m2m_dev, ctx,
+@@ -1556,6 +1565,11 @@ static int mtk_jpegdec_set_hw_param(struct mtk_jpeg_ctx *ctx,
+ 	return 0;
+ }
+ 
++static void jpeg_buf_queue_inc(struct mtk_jpeg_ctx *ctx)
++{
++	atomic_inc(&ctx->buf_list_cnt);
++}
++
+ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
+ {
+ 	struct mtk_jpeg_ctx *ctx;
+@@ -1664,6 +1678,7 @@ static void mtk_jpegenc_worker(struct work_struct *work)
+ 			     &src_buf->vb2_buf);
+ 	mtk_jpeg_set_enc_params(ctx, comp_jpeg[hw_id]->reg_base);
+ 	mtk_jpeg_enc_start(comp_jpeg[hw_id]->reg_base);
++	jpeg_buf_queue_inc(ctx);
+ 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+ 	spin_unlock_irqrestore(&comp_jpeg[hw_id]->hw_lock, flags);
+ 
+@@ -1779,6 +1794,7 @@ static void mtk_jpegdec_worker(struct work_struct *work)
+ 				&bs,
+ 				&fb);
+ 	mtk_jpeg_dec_start(comp_jpeg[hw_id]->reg_base);
++	jpeg_buf_queue_inc(ctx);
+ 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+ 	spin_unlock_irqrestore(&comp_jpeg[hw_id]->hw_lock, flags);
+ 
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+index 148fd41759b7..33f7fbc4ca5e 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+@@ -288,6 +288,7 @@ struct mtk_jpeg_q_data {
+  * @dst_done_queue:		encoded frame buffer queue
+  * @done_queue_lock:		encoded frame operation spinlock
+  * @last_done_frame_num:	the last encoded frame number
++ * @buf_list_cnt:		the frame buffer count own by jpeg driver
+  */
+ struct mtk_jpeg_ctx {
+ 	struct mtk_jpeg_dev		*jpeg;
+@@ -306,6 +307,7 @@ struct mtk_jpeg_ctx {
+ 	/* spinlock protecting the encode done buffer */
+ 	spinlock_t done_queue_lock;
+ 	u32 last_done_frame_num;
++	atomic_t buf_list_cnt;
+ };
+ 
+ #endif /* _MTK_JPEG_CORE_H */
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+index 4534caeb104f..6f4288d0915d 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+@@ -519,6 +519,11 @@ static void mtk_jpegdec_put_buf(struct mtk_jpegdec_comp_dev *jpeg)
+ 	spin_unlock_irqrestore(&ctx->done_queue_lock, flags);
+ }
+ 
++static void jpeg_buf_queue_dec(struct mtk_jpeg_ctx *ctx)
++{
++	atomic_dec(&ctx->buf_list_cnt);
++}
++
+ static void mtk_jpegdec_timeout_work(struct work_struct *work)
+ {
+ 	enum vb2_buffer_state buf_state = VB2_BUF_STATE_ERROR;
+@@ -527,9 +532,11 @@ static void mtk_jpegdec_timeout_work(struct work_struct *work)
+ 			     job_timeout_work.work);
+ 	struct mtk_jpeg_dev *master_jpeg = cjpeg->master_dev;
+ 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
++	struct mtk_jpeg_ctx *ctx;
+ 
+ 	src_buf = cjpeg->hw_param.src_buffer;
+ 	dst_buf = cjpeg->hw_param.dst_buffer;
++	ctx = cjpeg->hw_param.curr_ctx;
+ 	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+ 
+ 	mtk_jpeg_dec_reset(cjpeg->reg_base);
+@@ -540,6 +547,7 @@ static void mtk_jpegdec_timeout_work(struct work_struct *work)
+ 	wake_up(&master_jpeg->hw_wq);
+ 	v4l2_m2m_buf_done(src_buf, buf_state);
+ 	mtk_jpegdec_put_buf(cjpeg);
++	jpeg_buf_queue_dec(ctx);
+ }
+ 
+ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
+@@ -580,6 +588,7 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
+ 	buf_state = VB2_BUF_STATE_DONE;
+ 	v4l2_m2m_buf_done(src_buf, buf_state);
+ 	mtk_jpegdec_put_buf(jpeg);
++	jpeg_buf_queue_dec(ctx);
+ 	pm_runtime_put(ctx->jpeg->dev);
+ 	clk_disable_unprepare(jpeg->jdec_clk.clks->clk);
+ 
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+index 2765dafab4ad..dd5a78c3c006 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+@@ -248,6 +248,11 @@ static void mtk_jpegenc_put_buf(struct mtk_jpegenc_comp_dev *jpeg)
+ 	spin_unlock_irqrestore(&ctx->done_queue_lock, flags);
+ }
+ 
++static void jpeg_buf_queue_enc(struct mtk_jpeg_ctx *ctx)
++{
++	atomic_dec(&ctx->buf_list_cnt);
++}
++
+ static void mtk_jpegenc_timeout_work(struct work_struct *work)
+ {
+ 	struct delayed_work *dly_work = to_delayed_work(work);
+@@ -258,9 +263,11 @@ static void mtk_jpegenc_timeout_work(struct work_struct *work)
+ 	struct mtk_jpeg_dev *master_jpeg = cjpeg->master_dev;
+ 	enum vb2_buffer_state buf_state = VB2_BUF_STATE_ERROR;
+ 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
++	struct mtk_jpeg_ctx *ctx;
+ 
+ 	src_buf = cjpeg->hw_param.src_buffer;
+ 	dst_buf = cjpeg->hw_param.dst_buffer;
++	ctx = cjpeg->hw_param.curr_ctx;
+ 	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+ 
+ 	mtk_jpeg_enc_reset(cjpeg->reg_base);
+@@ -271,6 +278,7 @@ static void mtk_jpegenc_timeout_work(struct work_struct *work)
+ 	wake_up(&master_jpeg->hw_wq);
+ 	v4l2_m2m_buf_done(src_buf, buf_state);
+ 	mtk_jpegenc_put_buf(cjpeg);
++	jpeg_buf_queue_enc(ctx);
+ }
+ 
+ static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
+@@ -304,6 +312,7 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
+ 	buf_state = VB2_BUF_STATE_DONE;
+ 	v4l2_m2m_buf_done(src_buf, buf_state);
+ 	mtk_jpegenc_put_buf(jpeg);
++	jpeg_buf_queue_enc(ctx);
+ 	pm_runtime_put(ctx->jpeg->dev);
+ 	clk_disable_unprepare(jpeg->venc_clk.clks->clk);
+ 
+-- 
+2.45.2
+
 
