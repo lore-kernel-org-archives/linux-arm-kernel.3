@@ -4,128 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54F5CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A65CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YCEuo11ZBMvPKplSQXGviQNPwjkOhxFZqewnhvYiFAE=; b=0X0FA4vSP/qHJY7DWZnrYRUU9t
-	zpolXvByhOJfK5ouClY162FABRkyz8mc0uuwcsvhdIT/W1mV1gMc8xCthiQeWPl7cKfTqZFmoHXWe
-	UJjvuDxKp7QhzL2pIXfBAfv3LxszkvHxy3m4r6mGoV1X30ZYeBNLsnr5I0/h3CKMmHXKSyBBG6Eql
-	hGaLK8mpnUGzO+rai/XwKB6pFzJIkAUalxdedBWmyQ9/fYsv/Gxf41wGWKCSzlaLkHkUlvZsRutQy
-	2Q8hegBZEmwa1l7K+celkfdQC9VrgHIFfsKz9VG4xcT/OzhXfyaRQITSpRAxCWqZ0ELzRsrLVQYNn
-	pmMpP3qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8y7IaEKl9ZSpE7jjzq1dSeS8kFbTxAEVZQkW1AF3jcE=; b=htpDx7Q4cDCU4+0aVCCiSYQv6t
+	mMMvSorAMv7Uj+aMurASdQVkg02fkU21JO/M6OnPLxhPrLW0xxubd7J6io4nANIA+lacS4AKkK16t
+	M4BLN9KzTSFtzPrNUWQkgQQEfySSodrC29h1k5/soj2/N9UkNA1KP7YgQ4tn9TBmzZpoNK0HN3lw6
+	S9NsghWK5uGbewDmPViR5wnvosFRj18wNbV/aHMiFWN6L1jqpomB9tg+lKOLZb78Wta9apy0LcSLk
+	ZX7/oanv8DWeTM6+nZvvScEd6vhs4yiUXnqXf0pJUJ1T25ZP5xp5Krvr9K87jDuES6LTAdcfKcJ5+
+	4nrdhQuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7Oo-00000001dVe-15uj;
-	Wed, 29 Oct 2025 14:43:42 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1vE7ST-00000001eCw-12Ax;
+	Wed, 29 Oct 2025 14:47:29 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7Ol-00000001dUr-3EuO
+	id 1vE7SN-00000001eAx-1ZZ5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 14:43:40 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-890521c116fso719152685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:43:39 -0700 (PDT)
+	Wed, 29 Oct 2025 14:47:27 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-62fc0b7bf62so4603616a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:47:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761749018; x=1762353818; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=YCEuo11ZBMvPKplSQXGviQNPwjkOhxFZqewnhvYiFAE=;
-        b=iixH89LNaa0fIF/4vOL5Sso676iLU32My1D50JVo0+MSEkXsD8M+/xw2U5YuLjw3xB
-         Ez0GPpzxzJTTMrYPvkSdXylNipLfsZMBYDUqoOl76A7Iu1I4/StXKmYLJ2y3qyFYs3rx
-         oU6x6SWzwwMabQZADCvRKIHrTsj2FUbph7Yat2WwVt+jUl9hzuXgeb91kvQQurP9s8Ze
-         ax3abOSvAvjLOmMhoGsKkPemCBF0CZM92GkyU4hk9IZy+h5VBFs+YrCaY3FCZ2r5sr81
-         vWfLD7VmscJOofZF0wbR7EBboq0pgr9KDEJfqPu1QzVBRkXJ7/q0POdX4Q/cH8hQfRNz
-         uPnQ==
+        d=gmail.com; s=20230601; t=1761749241; x=1762354041; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8y7IaEKl9ZSpE7jjzq1dSeS8kFbTxAEVZQkW1AF3jcE=;
+        b=a9R60LO7/OtlO1VAJl39K/OUfcq1XaonMgKrVQdQwiupYbSmDTdDXIi8u2jo85kcjj
+         2Qp3dHRSoTEXg9H2T7rwnupVoSjSU6XdCPSZ8+C89fYT2VxbM3277vyTFei/7KSb57Yl
+         h+nnmpeLp8zMXxSAQH2aSj8Wa2f6N2orxMOWIhUSthlGE3e6A90AQOBQ+OGYWgjab5UE
+         8RzOoPJ2sppjAuXgt4LclAAeRihnyYTwiQeZe6HHN9ZtHDlad1q07E/98/Q69TU9tiKc
+         WxQs47CbTYBC/68OrSKY0bS7bpuVpdjh7PtrbjN7etQqWUpf3pBdtNC8832GAAh1YZs/
+         jsKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761749018; x=1762353818;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1761749241; x=1762354041;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YCEuo11ZBMvPKplSQXGviQNPwjkOhxFZqewnhvYiFAE=;
-        b=two/IZCRejtA3uQs1Bba6FxQKXipupdLTLrGO3UoMLyw84kzMbDK9pBXyksOAH26nz
-         1UsCA2jyzAM0lSEq38jL6LWro+oDdxomUiYBLbOH3thysLKuCjfzmb4fiQZc5gXY2AWP
-         qXbT4fnhmGU5iV0uJzJ8moZfztuC5OJqxtr7VOcICTorms63aIeMnjnas4Yl2TPLUJv+
-         o5XTllXqedFhL5ZqptkS9QY15o991NxgD9OmNCfiN0pOp5/XpvGRqt71GCM5EuUOMpiJ
-         U2lAONeHOsjwUqErxscKfzWMZbCDrCYGvT1Vy29/xC0OQGH9D9LRLNFP8N0oaWLv7zjN
-         vPeA==
-X-Forwarded-Encrypted: i=1; AJvYcCUU6jlltP3wCSZHyUe7mKkSHWGWNZhivlMLrZMMn8/WmhcOsguT4kXc1yUQdPWxJAihR4Gr3XCZbpaPnSP8I81n@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxeo38zUQftnbGnWESmzGEqIuzzf4DUN7fZDungfdxwLccOutoW
-	dd8ij7vsIJH/6Ma59+0aFDC1T4qsKhTFdJITq4n3uruIHN/Po8HUuMaP
-X-Gm-Gg: ASbGncvL7cNO/5nI8o6/hN1RRjIzWn+NaI+JT7pzd1m8JQUhCHrhiMPzwQkfuwx+rUW
-	eA2ZmZi5fFogtrORY3KEKp8kHaxT2KWjlYD3V+VWO7ZHE/mVtPtISpsIj6bU6/2HWU01ywXzexy
-	TP0vc0A6txIMV77w7g2pJLV507PImGLlFea2AX2khh+MtAaH5MYDltik92gv2uvF1dkpKWunnnW
-	A5Av0VYxHWFYWS0A4+TebyxJQgeJwTk7yUOJSw1L6CATJYJb0ajvUrFNhnVnG8Ah7x2MAFoPuLA
-	A6+0kA9a1pWwQiowgTuIcV/935WCDjjAZhRMDzYJu/LOKT9PfZwJgE6vWuyKZU2FCt7CWlPcYET
-	/3B+dGotkAL07vwcZKvDfctIwQ15KGIW1ZOzzaaIFORaML73sEVTvC3aa0sqfJK+zRgKWXIS4
-X-Google-Smtp-Source: AGHT+IHRIj9y57LgRm08PCQ5ag8nDTxAHjyPqcFEyJpmfMgUHtOJ1iinv/hiv9ZRE6XSrJXIT+Ycrw==
-X-Received: by 2002:a05:620a:710c:b0:89f:5a59:bf30 with SMTP id af79cd13be357-8a8e58b5164mr388519285a.78.1761749017372;
-        Wed, 29 Oct 2025 07:43:37 -0700 (PDT)
-Received: from localhost ([12.22.141.131])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8a8179460fasm337345285a.57.2025.10.29.07.43.36
+        bh=8y7IaEKl9ZSpE7jjzq1dSeS8kFbTxAEVZQkW1AF3jcE=;
+        b=ve2mhXsenvTgy5KSDTajilSpR+gUIsj2N2Hlz7rW+3sQigJfY2OB9R7hM6aYl2WVyz
+         lq7/yRtcDhyuZy4SewlJtiwyGTZnyzWj+fDAJea+W3noUiE8qYLa5pvr64rgvSDs60hm
+         FSyTyWWIrvY3/Ab9oyxYKk6xSr5q4mD1NEMKuaoJbEm/tsZ7vZC6NLp9bIF2YxGCn6kg
+         laX/InYY7DAVQpxb1HFllxo8yQTI9JpLfbcvhaoP4OibHJrPIt4TlfkDhjChNdnGEqdp
+         HLH+RpZH3avOzQiwkON7QarkAQCK7xX2GAbuLVvA/SqY6QxeXOIQHM1TolCp0OST7jai
+         SuJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUKTNrgIAk3GOkkzPssNV/1yFLWm3OfEVq556AT29JofIXLUoRATOtScLlIBAWUml5Yzj1jq9I0g6MMOkObl0hr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYNMwJAmTzNGRpmaTpRk7KZK1Lz+0eeLBdZ+jweWYc/btFYQUy
+	vpr+g6XGvB2Mcv1TsYGDAVyi7j+JyGypaRW2OMnb/FUUDCwTHUW9hLCo
+X-Gm-Gg: ASbGncufSO+8rPzn5YNFmeV5AxwdJN3rJ6Sp+UNcbPiQBvclji5b5sVP6YdEb1pOjWl
+	qx9avy43p+dY4akL6gt4tG46I/6JZy+zcZfcKSaonjVSqeYC9U5cYUxI0WwrICu8nhCM19yiplv
+	gE5ka4RvuLq/Y4O8tMgMFEhsGIDxNCrjBiq2L/KNF9FuxtFF9DGzAE6CoeOp9nwf7xVtZIgbN8T
+	/r5+pBOLw0lKT1L8OzgyggTVuiyfNxeDlqTQE5qrgdTZQefiEbXVdbscVUQf05oOBA2t5tJ46Xl
+	6AdIzf1Dqfj6WjK7PbRvq3psHAGeCOi1glZ71nzQpVOj40OjQseWEOd8ZVaIh474bdnORuYekMo
+	sJ4tOALp1hIPncGe/KOJW2Q86mkMsYom9lcnPoNwGtpK2TMW+44x16sdDW4ngYHN/91NUbPG5df
+	5icBakcapf+smAIrS9Ifz38D4e8VpN4c3T
+X-Google-Smtp-Source: AGHT+IHgORKDGPw+ITEWuAutZRKq+hGzvmS0B08lzp6+SYDYojWyhecKTsUlp7KruwEoQhiFvx9elA==
+X-Received: by 2002:a05:6402:5207:b0:639:c9c2:3956 with SMTP id 4fb4d7f45d1cf-640442692d9mr2330509a12.28.1761749241215;
+        Wed, 29 Oct 2025 07:47:21 -0700 (PDT)
+Received: from [10.25.210.164] ([128.77.115.157])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7ef9a5cbsm12168527a12.23.2025.10.29.07.47.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 07:43:36 -0700 (PDT)
-Date: Wed, 29 Oct 2025 10:43:35 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	David Miller <davem@davemloft.net>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Crt Mori <cmo@melexis.com>, Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-	Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Kim Seer Paller <kimseer.paller@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Cosmin Tanislav <demonsingur@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Jianping Shen <Jianping.Shen@de.bosch.com>,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-edac@vger.kernel.org, qat-linux@intel.com,
-	linux-gpio@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
-	linux-iio@vger.kernel.org, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 07/23] pinctrl: ma35: #undef field_{get,prep}() before
- local definition
-Message-ID: <aQIoF_TPNq13Hc3O@yury>
-References: <cover.1761588465.git.geert+renesas@glider.be>
- <03a492c8af84a41e47b33c9a974559805d070d8d.1761588465.git.geert+renesas@glider.be>
- <CACRpkda6ykSZ0k9q4ChBW5NuPZvmjVjH2LPxyp3RB-=fJLBPFg@mail.gmail.com>
- <aQIlB8KLhVuSqQvt@yury>
- <CAMuHMdUTR2VnQ++j_ccUN3-GzKmSzS3H3QNyYqZNacfOBXD50Q@mail.gmail.com>
+        Wed, 29 Oct 2025 07:47:20 -0700 (PDT)
+Message-ID: <20a3325e-d8be-4a1d-890d-bf112d170bcc@gmail.com>
+Date: Wed, 29 Oct 2025 07:47:18 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250821105634.1893-1-laurentiumihalcea111@gmail.com>
+ <20250821105634.1893-3-laurentiumihalcea111@gmail.com>
+ <e25494da-9d27-4416-ac79-317c8b9a6653@kernel.org>
+Content-Language: en-US
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <e25494da-9d27-4416-ac79-317c8b9a6653@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMuHMdUTR2VnQ++j_ccUN3-GzKmSzS3H3QNyYqZNacfOBXD50Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_074339_823245_907FB7BF 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20251029_074723_432532_248AE0DA 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,44 +108,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 03:33:49PM +0100, Geert Uytterhoeven wrote:
-> Hi Yury,
-> 
-> On Wed, 29 Oct 2025 at 15:30, Yury Norov <yury.norov@gmail.com> wrote:
-> > On Wed, Oct 29, 2025 at 03:19:45PM +0100, Linus Walleij wrote:
-> > > On Mon, Oct 27, 2025 at 7:43 PM Geert Uytterhoeven
-> > > <geert+renesas@glider.be> wrote:
-> > > > Prepare for the advent of globally available common field_get() and
-> > > > field_prep() macros by undefining the symbols before defining local
-> > > > variants.  This prevents redefinition warnings from the C preprocessor
-> > > > when introducing the common macros later.
-> > > >
-> > > > Suggested-by: Yury Norov <yury.norov@gmail.com>
-> > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > >
-> > > Do you want me to just merge this patch to the pinctrl tree or do
-> > > you have other plans?
-> >
-> > There's a couple nits from Andy, and also a clang W=1 warning to
-> > address. So I think, v6 is needed.
-> 
-> Indeed....
-> 
-> > But overlall, the series is OK, and I'd like to take it in bitmaps
-> > branch as it's more related to bits rather than a particular
-> > subsystem.
-> 
-> OK, fine for me (if I can still get an immutable branch ;-)
-> 
-> Note that as of today there are two more to fix in next:
-> commit d21b4338159ff7d7 ("mtd: rawnand: sunxi: introduce ecc_mode_mask
-> in sunxi_nfc_caps") in next-20251029
-> commit 6fc2619af1eb6f59 ("mtd: rawnand: sunxi: rework pattern found
-> registers") in next-20251029
 
-Oh, OK. Didn't actually want to undercut you. :) So, at your
-discretion. Just let me know what you'd prefer.
+On 8/24/2025 4:29 AM, Krzysztof Kozlowski wrote:
+> On 21/08/2025 12:56, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>
+>> AIPS5 is actually AIPSTZ5 as it offers some security-related
+>> configurations. Since these configurations need to be applied before
+>> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
+>> be their parent instead of keeping AIPS5 and adding a child node for
+>> AIPSTZ5. Also, because of the security configurations, the address space
+>> of the bus has to be changed to that of the configuration registers.
+>>
+>> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
+>> missing 'power-domains' property. The domain needs to be powered on before
+>> attempting to configure the security-related registers.
+>>
+>> The DT node name is not changed to avoid potential issues with DTs in
+>> which this node is referenced.
+>>
+>> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
+>> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Where did it happen?
 
-Thanks,
-Yury
+
+https://lore.kernel.org/lkml/Z+xY4wZ8ZFSOJhGS@lizhi-Precision-Tower-5810/ <https://lore.kernel.org/lkml/Z+xY4wZ8ZFSOJhGS@lizhi-Precision-Tower-5810/>
+
+
+>
+>> ---
+>>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 10 ++++++----
+>>  1 file changed, 6 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> index bb24dba7338e..b62bb821cf61 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> @@ -1396,12 +1396,14 @@ eqos: ethernet@30bf0000 {
+>>  			};
+>>  		};
+>>  
+>> -		aips5: bus@30c00000 {
+>> -			compatible = "fsl,aips-bus", "simple-bus";
+>
+> This breaks all the users. I understood explanation as "it is better",
+> no real reasons.
+
+
+sorry, a rather poor choice of wording on my part....
+
+
+the reason we're doing this change is because we need to configure the bridge's
+
+security-related registers. If we don't, masters such as the DSP core won't be able to
+
+access the peripherals connected to this bridge after the AUDIOMIX PD is turned off
+
+and then on. The configuration needs to be done before any of the masters attempt to
+
+perform transactions to the peripherals.
+
+
+yes, this change is not ideal and we've had problems caused by this
+
+(see https://lore.kernel.org/lkml/20250707234628.164151-2-laurentiumihalcea111@gmail.com/ <https://lore.kernel.org/lkml/20250707234628.164151-2-laurentiumihalcea111@gmail.com/>)
+
+so if you have any suggestions that would be much appreciated.
+
+
+>
+> No, you cannot do that.
+>
+> Best regards,
+> Krzysztof
 
