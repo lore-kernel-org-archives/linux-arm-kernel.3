@@ -4,121 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED32CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 027B5CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8TDebEJmKrapkTDm2SQS84/R7MOsdaEIy1zvcb82V9E=; b=nQcuG2g9Ya6O6eydc2P/s5gnj1
-	enBp8dPNxrh5nMMBu1X4XvH/z716wPdX72KdpZaHHI5lYG5O3x5kSi+VvZwn+oTM1cml0KOjs2RZz
-	tWxTcTXsjFKgvWIs75DZFF1u6zstNcKpOwd28ovZzfwcNrATcZ84gXjwHU+95p1L2wHi1q/2U8Uuj
-	kmbQM+mIlWUQxbkoXZHPiZsqDhWL0Eb3jJy18fXNhZ6Zy6/OJj17yRoixLGlbD1r300MNsUWehB0E
-	wR7faBSezEP4S9grOiVxBefj8sNMrSJ/zpIG2xi5FVVpgeTPmH7aXiOinUmGaCqpM/LBve/be5YBg
-	zG0JHUPw==;
+	bh=2WcE3Y4XkfclPcZV/02bANFD9Yub0YoIQsGcCdAiZwU=; b=TbVCdCU5RpyzXLUhb7XT9faLSH
+	3hEoqUZgdZvc5qWBt4qwlUVGiQXvkeepbRR4S1BQBmmB/YviAlWmXUpxVZ29v8cPloBqYsMi9iacD
+	o14umMY0Cud+5Os9bItmuT2weE7NkTpkQQSYDYO/0l3oYzEwgBNIagYNbDvbP/vetO2sNpWhvzQeK
+	IPAnTqvrWmdzUve0v7tqcA75u16EyUM/U9ktrCoImAVF1ucjmmv/Yj4ehljShQkZr2l4EFf60T1zt
+	bWV2R8YknVWf3XLhPVehiUzGvFm65101jjbOBY1fyZEjuS0lXmv6p1cx6jRRzGwrwY5p4l5sa1N4X
+	IlSogA2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3UJ-00000000n4z-3YOs;
-	Wed, 29 Oct 2025 10:33:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vE3Uh-00000000nFZ-2Doj;
+	Wed, 29 Oct 2025 10:33:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3UH-00000000n3I-2tDg
+	id 1vE3Uf-00000000nDp-0IPP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:33:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761733984;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8TDebEJmKrapkTDm2SQS84/R7MOsdaEIy1zvcb82V9E=;
-	b=FFiJQXx5PfWuPprnhmzWir21K12qti6sHPIY8QYkvhwcdPZDv6JJQxt8jCshbUcM5/Wmew
-	grZztX7evju1Asny/s6S1ERW0kPfP/LyBr+m+JSgA1j41aH2OzYF378etmU2xKUs8MItj5
-	mm2saDAxq/Xy5li7r4NYwhhjGNxuvJA=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-439-4xo2kM6TM7OE1CCT-OGVIA-1; Wed, 29 Oct 2025 06:33:03 -0400
-X-MC-Unique: 4xo2kM6TM7OE1CCT-OGVIA-1
-X-Mimecast-MFC-AGG-ID: 4xo2kM6TM7OE1CCT-OGVIA_1761733982
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-47106720618so50965145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 03:33:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761733982; x=1762338782;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rJM20FESPr5Q3wolT/mFDxUYnwba82V6xz3P+wmiM7o=;
-        b=LyVMAugP1hOqEr0IplNEjH8vosuESK4nelTC4P3h2GiftKmV9C0ObaQUgYZQhJnjUX
-         N75IZjG21h2g/at6aDmL1a3Esbbxl5I5K5jkmv5KO6uqLgW0kLQO0L48a0+SsjJMVTiW
-         N3Kk7uamgyyhl2X6OMRNmwn4DYrjkrCaQJwcSAREPA3bwVy7T/jAcEwF9jgHZhMqRbi8
-         a6V7udPmRyqTU6zB+DIqif/DMB3PQg4cRConb75oU/DYQZNbuMipwRmkXQLU5totrN+f
-         /0FpgYszbplEiIj0yfIEnhdmlqlW/FuZZUGcUBDAJQ3Cfs0Id5J9IOADHyshkCoMJt/o
-         jGYg==
-X-Forwarded-Encrypted: i=1; AJvYcCUa1SG9gaQyKqg7cZR6ydB9qFLYySIJXdPgR+Mik9oYxyeKqh/7ga0BNSKpMoLYjuftzXv4N9qahZsjyBWOnuZJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEF8NnArPjhpkY0Nd9DO05TT2kWjzhXbp3rmCWh7sKYzeh9GaY
-	raBti4Fac9epp6bH7YC6eaHvfbgFxYFz7xlGHeUMl7YXN2nr22voFYfNxoUgcJyG9C0oZwzj9VR
-	ByH8vn7Fy0W3RZw6ilxGtQ9ON31XvElXsOd/eJMFx7kFD9ISlfyXxdjBZlaSp/7rKkMMPwbS6au
-	AN
-X-Gm-Gg: ASbGnct64nUwwv5+q5IStRrjg4TP4++8iMJACvd/gBu3YODriczY1d5eGQlvNXZlNqp
-	aWg/sfafK/3Bdyf7yP3u+Yu5XU1d+eZ+TVV+8+5EYrpxV/0BgK2rUMN8JQAhaIkXAa/JkbWQC5f
-	tvUZmt1fPZJoO/cpZ6+MILd+1rusNBnCpOPZzSRVkStyXDD9BNWBV3ggucnggw47GJpzWPmS0ND
-	LYdkNllTIdho7f/ARJZZYwIO01993PDUj+PtZELIVaF8fkQeBPzlsxUNgaP0wKg4WzoIQokW3D2
-	TG4GxWsCrS0BqWOxiiAISythZ5oREqBafuPvwjiM3KQrkBsy37Tj/vpIewTpjDYCA72Ut9FcRjm
-	xpZAMh42/W5eJ0a9ByUoQMAiK+8etCdmKJBSKAnZRRzpxXXZxWYLqTQPlaS5t
-X-Received: by 2002:a05:600c:64c4:b0:477:bb0:7528 with SMTP id 5b1f17b1804b1-4771e1da0c8mr21409745e9.22.1761733982213;
-        Wed, 29 Oct 2025 03:33:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGxlh/PGW1+wNXuO1RQYN4fEeAqw5AdQXtt4ynjbr63hSK8Qg5GeiiDecSDqHTa53KxpVgVKg==
-X-Received: by 2002:a05:600c:64c4:b0:477:bb0:7528 with SMTP id 5b1f17b1804b1-4771e1da0c8mr21408835e9.22.1761733981314;
-        Wed, 29 Oct 2025 03:33:01 -0700 (PDT)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952b79cbsm25638297f8f.4.2025.10.29.03.32.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 03:33:00 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Frederic Weisbecker <frederic@kernel.org>, Phil Auld <pauld@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
- Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, "Paul E. McKenney"
- <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven Rostedt
- <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen
- <samitolvanen@google.com>, "David S. Miller" <davem@davemloft.net>, Neeraj
- Upadhyay <neeraj.upadhyay@kernel.org>, Joel Fernandes
- <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, Boqun Feng
- <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada
- <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
- <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
- <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
- <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
- Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
- Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-In-Reply-To: <aQDuY3rgOK-L8D04@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <aQDuY3rgOK-L8D04@localhost.localdomain>
-Date: Wed, 29 Oct 2025 11:32:58 +0100
-Message-ID: <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Wed, 29 Oct 2025 10:33:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 562FD41E4B;
+	Wed, 29 Oct 2025 10:33:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C7FDC4CEF7;
+	Wed, 29 Oct 2025 10:33:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761734008;
+	bh=jW3t4Dky05lPY8vwEMeUV64HgYZv3cbkpNkYWRVtEJE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lYsynUJxVZiUiCsmJM0jypLVG7AcY0ZwK0hhpZtHLY6Gb1fUIUoP24nwcWYogF0rs
+	 KotIuWsLPWMrJuCRUnf/UHrSc6uHEHm1jaOrWH3j38g7KeogP0z1LexU8fo4uqXQ37
+	 qRJOTW0tRn5kpA0fclgSw3dolaQMxr9fPJR9kKBXDUrQ5AW9BfykY2Mky+tVwWLfpe
+	 MseGeTQuouCXLWoRc5ZBeXf6ltgs5io7YwrEocfyMEX+pOjnCCy0EAQANYLGBsk47T
+	 BkVKgzR9DB8sJfzHKO822WiHkLJPoRCZLm9f78e9vfGtWmOYu2F3OZwWkmOli3aS5m
+	 e7AYebJxPTesA==
+Message-ID: <27e74aeb-89f5-4547-8ecc-232570e2644c@kernel.org>
+Date: Wed, 29 Oct 2025 11:33:23 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UOvJRCv7Uhngtofe_0JJtVxmAf705D84NImzc2DgA7M_1761733982
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net V2 2/2] veth: more robust handing of race to avoid txq
+ getting stuck
+To: Toshiaki Makita <toshiaki.makita1@gmail.com>
+Cc: Eric Dumazet <eric.dumazet@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, ihor.solodrai@linux.dev,
+ "Michael S. Tsirkin" <mst@redhat.com>, makita.toshiaki@lab.ntt.co.jp,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com,
+ netdev@vger.kernel.org, =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?=
+ <toke@toke.dk>
+References: <176159549627.5396.15971398227283515867.stgit@firesoul>
+ <176159553930.5396.4492315010562655785.stgit@firesoul>
+ <aacc9c56-bea9-44eb-90fd-726d41b418dd@gmail.com>
+Content-Language: en-US
+From: Jesper Dangaard Brouer <hawk@kernel.org>
+In-Reply-To: <aacc9c56-bea9-44eb-90fd-726d41b418dd@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_033305_800497_F304E04D 
-X-CRM114-Status: GOOD (  27.14  )
+X-CRM114-CacheID: sfid-20251029_033329_147121_906628E8 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,80 +82,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/10/25 17:25, Frederic Weisbecker wrote:
-> +Cc Phil Auld
->
-> Le Fri, Oct 10, 2025 at 05:38:10PM +0200, Valentin Schneider a =C3=A9crit=
- :
->> Patches
->> =3D=3D=3D=3D=3D=3D=3D
->>
->> o Patches 1-2 are standalone objtool cleanups.
->
-> Would be nice to get these merged.
->
->> o Patches 3-4 add an RCU testing feature.
->
-> I'm taking this one.
->
 
-Thanks!
 
->>
->> o Patches 5-6 add infrastructure for annotating static keys and static c=
-alls
->>   that may be used in noinstr code (courtesy of Josh).
->> o Patches 7-20 use said annotations on relevant keys / calls.
->> o Patch 21 enforces proper usage of said annotations (courtesy of Josh).
->>
->> o Patch 22 deals with detecting NOINSTR text in modules
->
-> Not sure how to route those. If we wait for each individual subsystem,
-> this may take a while.
->
 
-At least the __ro_after_init ones could go as their own thing since they're
-standalone, but yeah they're the ones touching all sorts of subsystems :/
+On 28/10/2025 15.56, Toshiaki Makita wrote:
+> On 2025/10/28 5:05, Jesper Dangaard Brouer wrote:
+> 
+>> (1) In veth_xmit(), the racy conditional wake-up logic and its memory 
+>> barrier
+>> are removed. Instead, after stopping the queue, we unconditionally call
+>> __veth_xdp_flush(rq). This guarantees that the NAPI consumer is 
+>> scheduled,
+>> making it solely responsible for re-waking the TXQ.
+> 
+> Maybe another option is to use !ptr_ring_full() instead of 
+> ptr_ring_empty()?
 
->> o Patches 23-24 deal with kernel text sync IPIs
->
-> I would be fine taking those (the concerns I had are just details)
-> but they depend on all the annotations. Alternatively I can take the whol=
-e
-> thing but then we'll need some acks.
->
->> o Patches 25-29 deal with kernel range TLB flush IPIs
->
-> I'll leave these more time for now ;o)
-> And if they ever go somewhere, it should be through x86 tree.
->
-> Also, here is another candidate usecase for this deferral thing.
-> I remember Phil Auld complaining that stop_machine() on CPU offlining was
-> a big problem for nohz_full. Especially while we are working on
-> a cpuset interface to toggle nohz_full but this will require the CPUs
-> to be offline.
->
+Nope, that will not work.
+I think MST will agree.
 
-Yeah that does ring a bell...
+> I'm not sure which is better. Anyway I'm ok with your approach.
+> 
+> ...
+> 
+>> (3) Finally, the NAPI completion check in veth_poll() is updated. If NAPI is
+>> about to complete (napi_complete_done), it now also checks if the peer TXQ
+>> is stopped. If the ring is empty but the peer TXQ is stopped, NAPI will
+>> reschedule itself. This prevents a new race where the producer stops the
+>> queue just as the consumer is finishing its poll, ensuring the wakeup 
+>> is not missed.
+> ...
+> 
+>> @@ -986,7 +979,8 @@ static int veth_poll(struct napi_struct *napi, int 
+>> budget)
+>>       if (done < budget && napi_complete_done(napi, done)) {
+>>           /* Write rx_notify_masked before reading ptr_ring */
+>>           smp_store_mb(rq->rx_notify_masked, false);
+>> -        if (unlikely(!__ptr_ring_empty(&rq->xdp_ring))) {
+>> +        if (unlikely(!__ptr_ring_empty(&rq->xdp_ring) ||
+>> +                 (peer_txq && netif_tx_queue_stopped(peer_txq)))) {
+> 
+> Not sure if this is necessary.
 
-> So my point is that when a CPU goes offline, stop_machine() puts all
-> CPUs into a loop with IRQs disabled. CPUs in userspace could possibly
-> escape that since they don't touch the kernel anyway. But as soon as
-> they enter the kernel, they should either acquire the final state of
-> stop_machine if completed or join the global loop if in the middle.
->
+How sure are you that this isn't necessary?
 
-I need to have a think about that one; one pain point I see is the context
-tracking work has to be NMI safe since e.g. an NMI can take us out of
-userspace. Another is that NOHZ-full CPUs need to be special cased in the
-stop machine queueing / completion.
+>  From commitlog, your intention seems to be making sure to wake up the 
+> queue,
+> but you wake up the queue immediately after this hunk in the same function,
+> so isn't it guaranteed without scheduling another napi?
+> 
 
-/me goes fetch a new notebook
+The above code catches the case, where the ptr_ring is empty and the
+tx_queue is stopped.  It feels wrong not to reach in this case, but you
+*might* be right that it isn't strictly necessary, because below code
+will also call netif_tx_wake_queue() which *should* have a SKB stored
+that will *indirectly* trigger a restart of the NAPI.
 
-> Thanks.
->
-> --
-> Frederic Weisbecker
-> SUSE Labs
+I will stare some more at the code to see if I can convince myself that
+we don't have to catch this case.
+
+Please, also provide "How sure are you that this isn't necessary?"
+
+
+>>               if (napi_schedule_prep(&rq->xdp_napi)) {
+>>                   WRITE_ONCE(rq->rx_notify_masked, true);
+>>                   __napi_schedule(&rq->xdp_napi);
+>> @@ -998,6 +992,13 @@ static int veth_poll(struct napi_struct *napi, 
+>> int budget)
+>>           veth_xdp_flush(rq, &bq);
+>>       xdp_clear_return_frame_no_direct();
+>> +    /* Release backpressure per NAPI poll */
+>> +    smp_rmb(); /* Paired with netif_tx_stop_queue set_bit */
+>> +    if (peer_txq && netif_tx_queue_stopped(peer_txq)) {
+>> +        txq_trans_cond_update(peer_txq);
+>> +        netif_tx_wake_queue(peer_txq);
+>> +    }
+>> +
+>>       return done;
+>>   }
+> 
+> -- 
+> Toshiaki Makita
 
 
