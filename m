@@ -4,84 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583CECCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50275CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:38:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8wTYakyYYGv8DE9O4+d7bWqzisPOemtKRNIS4+cn20=; b=o0gov9UPoWqP32UWEN9qIYIk7B
-	KKtncRz4upgLTdC9W4izKVsTtb80QZI9Crs8Jn/T4/eIre7n0Kcg+UxC/hAGdIX7aMPNLwUTV7eFC
-	COLYAy9qv6a/FP49OEc4QibVhP1sg3IxLt9lpLHbbrwu4qgsnI9ba/g7RCWK8Enh6aC99qHzj3vg0
-	XwlyqbZRpgAsbZGHUcsxyurDnrAhC0vq9y2Ez0Dxj7gOqvg0d6pqLAe2YCCjeyHFwKgtQYPk6cXxI
-	zwifd1ll5+VxFiRnxom63xFbDjcBZLmmM5tLtBnSi6GTPNOW6Xq3gympygSsXce/EVKl1xVtN2TMA
-	sYwO52/g==;
+	bh=rXOxw9abppVW72r2G9mcK4qfD31cJctAqW5UU4vUmMg=; b=5BD8Vva8Ecbfb+0JPzUHQBNm25
+	ZUpdSzPkdClMWVa3Cq37MD+rG5zbqi9y1HcuUBwZLQLiDCO5xyHSIL791tVi+ECg5DE2dIaCwU+HX
+	rjXeHWlJNHQ8LoE67DJKaVUC+tnSsquO5f7yyp2QqZ4V6ibpi7nFkIQ/QmnQUQ4PvPTp/YqIs1JX4
+	z2TFJfR6Nah8sbTT8FBFUzhdyi5UnveVFSe8cfdSfTGLlSPNqn0bqAZsFoLMyowmHMf5GVR4tu+/X
+	IzaTfrLaUFIJTuFgqwm17Xu6UGfRg+aDw6854bQ3AJSp2kDlX5JAsvYOznigIZPil7f/qotKz/mzl
+	oHrBRKLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzow-0000000HVPl-2d2x;
-	Wed, 29 Oct 2025 06:38:10 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1vDzpd-0000000HVh9-1G93;
+	Wed, 29 Oct 2025 06:38:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzou-0000000HVOd-2W5q;
-	Wed, 29 Oct 2025 06:38:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761719888; x=1793255888;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=GQBcTt3q3jYhlQdBtZfxngxuplRCCGIsPQTXwR3o7QE=;
-  b=VutCnYb16ShCw0/WazHyKZT7AWhVGxvnYP4qm0V/GYgXxX829JEh7m5U
-   RlUtIR6TEJrT/nIB5z3HDvy6hWA58RbUn/7periIfJXEkMxE0GuDRQqsG
-   cwZ/br2MumbG/CnNYbIGf3OtZwDCgxtvq3YCPKe2jz8JXIzkBzUeD7XAE
-   TAFVOq7jeglQTf5+JwXFmhNDLIUU+zGix1lt1U/RJQxj6UHbiWGvr81/j
-   u2DaaE/2yeHEYvEtYAkjXm1rO/KrzCg6TSNLGzpcJMyp8NC6xbDehnZnj
-   VP68/fWwAuDnGLSoaZJ5Tz7L9+vP5ZQN4JTAHBPs65yspdzXWF1KLUZfG
-   w==;
-X-CSE-ConnectionGUID: LGJTmKf1QtOrn1TabjqaMQ==
-X-CSE-MsgGUID: neVnEXLJRUyLKD7R1I4wSg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="75176263"
-X-IronPort-AV: E=Sophos;i="6.19,263,1754982000"; 
-   d="scan'208";a="75176263"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2025 23:38:04 -0700
-X-CSE-ConnectionGUID: 8nQPxS3sQHujSGq7kBId9A==
-X-CSE-MsgGUID: W9e750ZQTU6M5dFb3BxcwQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,263,1754982000"; 
-   d="scan'208";a="190701774"
-Received: from yinghaoj-desk.ccr.corp.intel.com (HELO [10.238.1.225]) ([10.238.1.225])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2025 23:37:57 -0700
-Message-ID: <71006f78-7afa-4821-8bd1-9cd5b8d62a33@linux.intel.com>
-Date: Wed, 29 Oct 2025 14:37:55 +0800
+	id 1vDzpa-0000000HVg5-3gBZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 06:38:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 36C4243F69;
+	Wed, 29 Oct 2025 06:38:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 613EEC4CEF7;
+	Wed, 29 Oct 2025 06:38:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761719930;
+	bh=fX3TRzUQYUf1han5LmQiXqOpSD9A4DO71dz9uUOS4is=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HJXMi3Hgw+/3aMPfeEVJnKtQaiwt7w/n22xHs8HAVtqgIX0YWbxbwQSFMgZ77MDpI
+	 A75tr5v27T2AjaUGzR/6wv3rP9884/uQyNRj46ptNA2AlauzZ4+UzMY1d5458XqvWz
+	 LpGM0AmxnA4GxSlIQ8kbDzdZrtCuKbuyU+N+ijx/zGlPgcNCwSJUo/klIeEoJV85cS
+	 9/xeKQq9K1QC8LFvt+OxUCjjqg0Uln6NyNGriRZ7PjvmrC2BW6PdGYbeBxBCmBPy6/
+	 GNAkj0DqdGTrS2evq1oNBTklF8B3iTkDz6Purl1IU7AZ4mfSPt+J5IBLyvpw4JqSp2
+	 Znims/ChXSgwQ==
+Message-ID: <068e8e8e-2968-44e8-8769-be0dfe1409c2@kernel.org>
+Date: Wed, 29 Oct 2025 07:38:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: TDX: Take MMU lock around tdh_vp_init()
-To: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Cc: seanjc@google.com, ackerleytng@google.com, anup@brainfault.org,
- aou@eecs.berkeley.edu, borntraeger@linux.ibm.com, chenhuacai@kernel.org,
- frankja@linux.ibm.com, imbrenda@linux.ibm.com, ira.weiny@intel.com,
- kai.huang@intel.com, kas@kernel.org, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, maddy@linux.ibm.com, maobibo@loongson.cn,
- maz@kernel.org, michael.roth@amd.com, oliver.upton@linux.dev,
- palmer@dabbelt.com, pbonzini@redhat.com, pjw@kernel.org,
- vannapurve@google.com, x86@kernel.org, yan.y.zhao@intel.com,
- zhaotianrui@loongson.cn
-References: <aP-1qlTkmFUgTld-@google.com>
- <20251028002824.1470939-1-rick.p.edgecombe@intel.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: clock: Add identifiers for VIIF on
+ Toshiba Visconti TMPV770x SoC
+To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
+ <20251029061344.451222-2-yuji2.ishikawa@toshiba.co.jp>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251028002824.1470939-1-rick.p.edgecombe@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251029061344.451222-2-yuji2.ishikawa@toshiba.co.jp>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_233808_677325_F3A69F19 
-X-CRM114-Status: GOOD (  32.47  )
+X-CRM114-CacheID: sfid-20251028_233850_960333_F9A22050 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,91 +122,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/28/2025 8:28 AM, Rick Edgecombe wrote:
-> Take MMU lock around tdh_vp_init() in KVM_TDX_INIT_VCPU to prevent
-> meeting contention during retries in some no-fail MMU paths.
->
-> The TDX module takes various try-locks internally, which can cause
-> SEAMCALLs to return an error code when contention is met. Dealing with
-> an error in some of the MMU paths that make SEAMCALLs is not straight
-> forward, so KVM takes steps to ensure that these will meet no contention
-> during a single BUSY error retry. The whole scheme relies on KVM to take
-> appropriate steps to avoid making any SEAMCALLs that could contend while
-> the retry is happening.
->
-> Unfortunately, there is a case where contention could be met if userspace
-> does something unusual. Specifically, hole punching a gmem fd while
-> initializing the TD vCPU. The impact would be triggering a KVM_BUG_ON().
->
-> The resource being contended is called the "TDR resource" in TDX docs
-> parlance. The tdh_vp_init() can take this resource as exclusive if the
-> 'version' passed is 1, which happens to be version the kernel passes. The
-> various MMU operations (tdh_mem_range_block(), tdh_mem_track() and
-> tdh_mem_page_remove()) take it as shared.
->
-> There isn't a KVM lock that maps conceptually and in a lock order friendly
-> way to the TDR lock. So to minimize infrastructure, just take MMU lock
-> around tdh_vp_init(). This makes the operations we care about mutually
-> exclusive. Since the other operations are under a write mmu_lock, the code
-> could just take the lock for read, however this is weirdly inverted from
-> the actual underlying resource being contended. Since this is covering an
-> edge case that shouldn't be hit in normal usage, be a little less weird
-> and take the mmu_lock for write around the call.
->
-> Fixes: 02ab57707bdb ("KVM: TDX: Implement hooks to propagate changes of TDP MMU mirror page table")
-> Reported-by: Yan Zhao <yan.y.zhao@intel.com>
-> Suggested-by: Yan Zhao <yan.y.zhao@intel.com>
-> Signed-off-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+On 29/10/2025 07:13, Yuji Ishikawa wrote:
+> Add clock and reset identifiers for the Video Input Interface.
+> These identifiers support two instances: VIIF0 and VIIF1.
+> 
+> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
 > ---
-> Hi,
->
-> It was indeed awkward, as Sean must have sniffed. But seems ok enough to
-> close the issue.
->
-> Yan, can you give it a look?
->
-> Posted here, but applies on top of this series.
->
-> Thanks,
->
-> Rick
+> Changelog v2:
+> - Do not modify existing identifiers to avoid breaking ABI.
+>   Keep existing identfiers for VIIF0.
+>   Introduce new idenfifiers for VIIF1, following the same naming conventions.
 > ---
->   arch/x86/kvm/vmx/tdx.c | 15 ++++++++++++---
->   1 file changed, 12 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-> index daec88d4b88d..8bf5d2624152 100644
-> --- a/arch/x86/kvm/vmx/tdx.c
-> +++ b/arch/x86/kvm/vmx/tdx.c
-> @@ -2938,9 +2938,18 @@ static int tdx_td_vcpu_init(struct kvm_vcpu *vcpu, u64 vcpu_rcx)
->   		}
->   	}
->   
-> -	err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
-> -	if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
-> -		return -EIO;
-> +	/*
-> +	 * tdh_vp_init() can take a exclusive lock of the TDR resource inside
-                                   ^
-                                   an
+>  include/dt-bindings/clock/toshiba,tmpv770x.h | 15 +++++++++++++--
+>  include/dt-bindings/reset/toshiba,tmpv770x.h | 10 +++++++++-
+>  2 files changed, 22 insertions(+), 3 deletions(-)
+> 
+> diff --git a/include/dt-bindings/clock/toshiba,tmpv770x.h b/include/dt-bindings/clock/toshiba,tmpv770x.h
+> index 5fce71300..ff4ef1be5 100644
+> --- a/include/dt-bindings/clock/toshiba,tmpv770x.h
+> +++ b/include/dt-bindings/clock/toshiba,tmpv770x.h
+> @@ -141,7 +141,10 @@
+>  #define TMPV770X_CLK_PIREFCLK		124
+>  #define TMPV770X_CLK_SBUS		125
+>  #define TMPV770X_CLK_BUSLCK		126
+> -#define TMPV770X_NR_CLK			127
 
-> +	 * the TDX module. This resource is also taken as shared in several
-> +	 * no-fail MMU paths, which could return TDX_OPERAND_BUSY on contention.
-> +	 * A read lock here would be enough to exclude the contention, but take
-> +	 * a write lock to avoid the weird inversion.
-Can we also add the description that the lock is trying to prevent an edge case
-as in the change log if not too wordy?
+You cannot change it, as explained last time. If this is not an ABI,
+then in separate patch drop it (see examples in the history for Samsung,
+NXP and probably many more SoCs).
 
-> +	 */
-> +	scoped_guard(write_lock, &vcpu->kvm->mmu_lock) {
-> +		err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
-> +		if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
-> +			return -EIO;
-> +	}
->   
->   	vcpu->arch.mp_state = KVM_MP_STATE_RUNNABLE;
->   
-
+Best regards,
+Krzysztof
 
