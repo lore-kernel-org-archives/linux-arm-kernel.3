@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F272CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5872CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VdtYvebGhP8pWLWcHJ8Gx9a9ZCcvroHCTEl3W85fQA=; b=pkZ9LIka62zAQDx+YisZm/nR0/
-	UB4WbFY+3ctNZ6/WzNfwDtb2WDd3NTNmzhLPMN62JFDYfYMOBwG/Oh9hB87Qlm/3tTK7X7PYhyxwy
-	NZ1iNTkEAXIdZ1QGHA8AWeiUw2QDnY6Mhs7NQguxHSfH4IpZOoA0XX8lne3XW0R3FRMuQ8bB7Dj9/
-	PozWDewXY9aIjkFxRePGLOkrPo4nAJdpx01/A/AIplz/EQmCP2dDZbCj93T9eoxEKz7cxPgHEeqMc
-	eNNVB2KTlYrvaSeK11gLIaZ9dgvf5DqAnoYgsZnV25XULeEioqTWyv7l5QAsv344ZiRhPxsW2TOzX
-	9W0LgN9g==;
+	bh=PZt9veOJgl0wOLmOliuOI1yn5RVAFzcWQ0L6Svq3AkU=; b=FqF3MSHDDZIHyPllDzIqeHqPEy
+	SnwftOH49e6A02AATeu/UpeuzXKDlZ+jQBDj2jINuI/IFumqXww2VjhHsgeSAEyI66SFRvcqV8hbg
+	EpRm87r5+RHbVZVvjv2026quHUNYPEBrhyTcchN3rzmcLVROioLuGfR5iKZ7NyrOlgKZKDgoLAOsz
+	S0ImC1nbY0kvq0GV6G2/ztmbU1yK5GnQRr7wIqhrCjcBEnfWRiFh/rbK3czodzI9ShDKc6iVL4jD3
+	dux8439ng5yUmPQqIdf2/A9pmYttFw7UIe6UBoTg+qrTAEGanj5wduQlBVO96O5P7BmdoiE1OtYh6
+	K8naIt+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4Z3-000000011sg-2zZr;
-	Wed, 29 Oct 2025 11:42:05 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vE4bx-000000012O6-1UzH;
+	Wed, 29 Oct 2025 11:45:05 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4Z1-000000011sG-1gxt
+	id 1vE4bu-000000012N8-3Ztj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 11:42:04 +0000
+	Wed, 29 Oct 2025 11:45:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761738123; x=1793274123;
+  t=1761738303; x=1793274303;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=CWuanT4v89ELYuCd8YftnASQ94vUasO0QCGZu7kMtN0=;
-  b=i3iHezbNQzMWxvLEaFTK+GAWyMoLXvCici0LsbgU6y3rL5F2m5sghavu
-   wnivl1wVXtpX6gGupNw526ZYaRdjcbtAlObIdQfODzxMz8YSFGbE7XXcy
-   9byZpWmJRol9CE6ICG+REqd8lVUro2efiiiUnuPQq/ymUdB6kOyD74wxX
-   MprO/uqA+FBWbGOQ0Df1XW9n+kAfFk4WsaB5ew13M7FtYwmYmrImG8fCu
-   xfPp1cwD64BCigR2Ztbc0adKZLT+UwD8bRDd0t6nFkHU3eWj4rY1mSYFR
-   LkakjVSmrwoMuB8QKoBnrt1xZ8RCXfO4FaNMXDnyXG7yfGGoQRc4LSD1c
-   w==;
-X-CSE-ConnectionGUID: oqk5vHY0ROqL01xpdaN1zg==
-X-CSE-MsgGUID: q5j1ebDtRWSBP+6ZHf0Tdw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11596"; a="74532699"
+  bh=6XSaKopHyy8KU2O32dbHyC4KZpWAHo6sZdtoZmPCYlE=;
+  b=QLmtwfscwSthUV14rIhll3wzlhxtOa4H6GAiYzYyZ8+caOg88swyH0yf
+   MNpQlc+ABkFRLaJVWzNaV+ShhDw0ojL0rOoFlCkJ3/gF3lsfvDXxHWApF
+   NnZRRdU1fiMz/xdegsMH4ujdJ8vPxomlG//HAPFDh5eSJeo0y4cU0Raoy
+   uth+pRt7GhhDOmcdWb7FMSarylS0MBxPc83abvGKetDOA/r4X4szjem8Q
+   e1C5gvyS+DIue1oKc5A7u7iQYx5v4W6AaTRAfLD8ZSr9xsvMMd/oo0Dpt
+   XhwzVRdtwVJwfxKLk4iZfk8/BZ2Rmh6vnaII4zzVUwZ/ae8bjugFyg2uW
+   A==;
+X-CSE-ConnectionGUID: +3hmH6DWTzG8zZPGYJpt7g==
+X-CSE-MsgGUID: dA5aSntkRTawSZGAgu+wSA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11596"; a="74146044"
 X-IronPort-AV: E=Sophos;i="6.19,263,1754982000"; 
-   d="scan'208";a="74532699"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 04:42:02 -0700
-X-CSE-ConnectionGUID: 4nHoIBj6QnSvV/LLtgGNBQ==
-X-CSE-MsgGUID: Tm0xW4g9SaCREL+ybcXZHw==
+   d="scan'208";a="74146044"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 04:45:02 -0700
+X-CSE-ConnectionGUID: h7d57gFvQ465lpC0qpJFAQ==
+X-CSE-MsgGUID: BntByR5dSrqcItPn9r5Fsg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,263,1754982000"; 
-   d="scan'208";a="189702787"
+   d="scan'208";a="186093336"
 Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.244.248])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 04:41:55 -0700
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 04:44:56 -0700
 Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
 	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1vE4Yq-00000003bB9-1kAi;
-	Wed, 29 Oct 2025 13:41:52 +0200
-Date: Wed, 29 Oct 2025 13:41:52 +0200
+	id 1vE4bl-00000003bE5-1ZTo;
+	Wed, 29 Oct 2025 13:44:53 +0200
+Date: Wed, 29 Oct 2025 13:44:53 +0200
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: Bartosz Golaszewski <brgl@bgdev.pl>
 Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
@@ -83,19 +83,20 @@ Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
 	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v3 01/10] string: provide strends()
-Message-ID: <aQH9gE_fB119CW3l@smile.fi.intel.com>
+Subject: Re: [PATCH v3 03/10] gpiolib: implement low-level, shared GPIO
+ support
+Message-ID: <aQH-NcXry6_IlqXQ@smile.fi.intel.com>
 References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
- <20251029-gpio-shared-v3-1-71c568acf47c@linaro.org>
+ <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251029-gpio-shared-v3-1-71c568acf47c@linaro.org>
+In-Reply-To: <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_044203_455339_AA74B0DB 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20251029_044502_991862_0D66201E 
+X-CRM114-Status: GOOD (  34.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,32 +111,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 12:20:37PM +0100, Bartosz Golaszewski wrote:
+On Wed, Oct 29, 2025 at 12:20:39PM +0100, Bartosz Golaszewski wrote:
 > 
-> Implement a function for checking if a string ends with a different
-> string and add its kunit test cases.
+> This module scans the device tree (for now only OF nodes are supported
+> but care is taken to make other fwnode implementations easy to
+> integrate) and determines which GPIO lines are shared by multiple users.
+> It stores that information in memory. When the GPIO chip exposing shared
+> lines is registered, the shared GPIO descriptors it exposes are marked
+> as shared and virtual "proxy" devices that mediate access to the shared
+> lines are created. When a consumer of a shared GPIO looks it up, its
+> fwnode lookup is redirected to a just-in-time machine lookup that points
+> to this proxy device.
+> 
+> This code can be compiled out on platforms which don't use shared GPIOs.
+
+Besides strcmp_suffix() that already exists in OF core, there are also some
+existing pieces that seems being repeated here (again). Can we reduce amount
+of duplication?
 
 ...
 
-> +/**
-> + * strends - Check if a string ends with another string.
-> + * @str - NULL-terminated string to check against @suffix
-> + * @suffix - NULL-terminated string defining the suffix to look for in @str
-> + *
-> + * Returns:
-> + * True if @str ends with @suffix. False in all other cases.
-> + */
-> +static inline bool strends(const char *str, const char *suffix)
+> +#if IS_ENABLED(CONFIG_OF)
+> +static int gpio_shared_of_traverse(struct device_node *curr)
 > +{
-> +	unsigned int str_len = strlen(str), suffix_len = strlen(suffix);
-> +
-> +	if (str_len < suffix_len)
-> +		return false;
-> +
-> +	return !(strcmp(str + str_len - suffix_len, suffix));
-> +}
 
-Can you rather re-use strcmp_suffix() from drivers/of/property.c?
+I believe parts of this code may be resided somewhere in drivers/of/property.c
+or nearby as it has the similar parsing routines.
+
+> +	struct gpio_shared_entry *entry;
+> +	size_t con_id_len, suffix_len;
+> +	struct fwnode_handle *fwnode;
+> +	struct of_phandle_args args;
+> +	struct property *prop;
+> +	unsigned int offset;
+> +	const char *suffix;
+> +	int ret, count, i;
+> +
+> +	for_each_property_of_node(curr, prop) {
+> +		/*
+> +		 * The standard name for a GPIO property is "foo-gpios"
+> +		 * or "foo-gpio". Some bindings also use "gpios" or "gpio".
+> +		 * There are some legacy device-trees which have a different
+> +		 * naming convention and for which we have rename quirks in
+> +		 * place in gpiolib-of.c. I don't think any of them require
+> +		 * support for shared GPIOs so for now let's just ignore
+> +		 * them. We can always just export the quirk list and
+> +		 * iterate over it here.
+> +		 */
+> +		if (!strends(prop->name, "-gpios") &&
+> +		    !strends(prop->name, "-gpio") &&
+> +		    strcmp(prop->name, "gpios") != 0 &&
+> +		    strcmp(prop->name, "gpio") != 0)
+> +			continue;
+> +
+> +		count = of_count_phandle_with_args(curr, prop->name,
+> +						   "#gpio-cells");
+> +		if (count <= 0)
+> +			continue;
+> +
+> +		for (i = 0; i < count; i++) {
+> +			struct device_node *np __free(device_node) = NULL;
+> +
+> +			ret = of_parse_phandle_with_args(curr, prop->name,
+> +							 "#gpio-cells", i,
+> +							 &args);
+> +			if (ret)
+> +				continue;
+> +
+> +			np = args.np;
+> +
+> +			if (!of_property_present(np, "gpio-controller"))
+> +				continue;
+> +
+> +			/*
+> +			 * We support 1, 2 and 3 cell GPIO bindings in the
+> +			 * kernel currently. There's only one old MIPS dts that
+> +			 * has a one-cell binding but there's no associated
+> +			 * consumer so it may as well be an error. There don't
+> +			 * seem to be any 3-cell users of non-exclusive GPIOs,
+> +			 * so we can skip this as well. Let's occupy ourselves
+> +			 * with the predominant 2-cell binding with the first
+> +			 * cell indicating the hardware offset of the GPIO and
+> +			 * the second defining the GPIO flags of the request.
+> +			 */
+> +			if (args.args_count != 2)
+> +				continue;
+> +
+> +			fwnode = of_fwnode_handle(args.np);
+> +			offset = args.args[0];
+> +
+> +			entry = gpio_shared_find_entry(fwnode, offset);
+> +			if (!entry) {
+> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
+> +				if (!entry)
+> +					return -ENOMEM;
+> +
+> +				entry->fwnode = fwnode_handle_get(fwnode);
+> +				entry->offset = offset;
+> +				entry->index = count;
+> +				INIT_LIST_HEAD(&entry->refs);
+> +
+> +				list_add_tail(&entry->list, &gpio_shared_list);
+> +			}
+> +
+> +			struct gpio_shared_ref *ref __free(kfree) =
+> +					kzalloc(sizeof(*ref), GFP_KERNEL);
+> +			if (!ref)
+> +				return -ENOMEM;
+> +
+> +			ref->fwnode = fwnode_handle_get(of_fwnode_handle(curr));
+> +			ref->flags = args.args[1];
+> +
+> +			if (strends(prop->name, "gpios"))
+> +				suffix = "-gpios";
+> +			else if (strends(prop->name, "gpio"))
+> +				suffix = "-gpio";
+> +			else
+> +				suffix = NULL;
+> +			if (!suffix)
+> +				continue;
+> +
+> +			/* We only set con_id if there's actually one. */
+> +			if (strcmp(prop->name, "gpios") && strcmp(prop->name, "gpio")) {
+> +				ref->con_id = kstrdup(prop->name, GFP_KERNEL);
+> +				if (!ref->con_id)
+> +					return -ENOMEM;
+> +
+> +				con_id_len = strlen(ref->con_id);
+> +				suffix_len = strlen(suffix);
+> +
+> +				ref->con_id[con_id_len - suffix_len] = '\0';
+> +			}
+> +
+> +			ref->dev_id = ida_alloc(&gpio_shared_ida, GFP_KERNEL);
+> +			if (ref->dev_id < 0) {
+> +				kfree(ref->con_id);
+> +				return -ENOMEM;
+> +			}
+> +
+> +			if (!list_empty(&entry->refs))
+> +				pr_debug("GPIO %u at %s is shared by multiple firmware nodes\n",
+> +					 entry->offset, fwnode_get_name(entry->fwnode));
+> +
+> +			list_add_tail(&no_free_ptr(ref)->list, &entry->refs);
+> +		}
+> +	}
+> +
+> +	for_each_child_of_node_scoped(curr, child) {
+> +		ret = gpio_shared_of_traverse(child);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
 
 -- 
 With Best Regards,
