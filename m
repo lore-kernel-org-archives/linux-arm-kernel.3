@@ -4,176 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDF0CCF9F7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77F6CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 20:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3YEgxZY4UJZS+W3f9za5gzeWr9pMSUjlHh/csajZ05s=; b=4Uz5F0wwA52/FohGCyi/iT83xA
-	C1Vp0RjlYVv7UFrtwWo2ghxWS57jv/9NR2/Zz5wFPSfWecpQENNBgURmvRcFnIvtaughSoOEwJPvy
-	z8ZmkhRwCXJcaL3+ypX01gIRkFQduN6tmh3smzsjc0LV8H+fD6zX3Tifx1iyW3/66gVm6S1gBd7xw
-	e73RB/JUqILmR5Upnfhn1Eczju6OC6awz/nPLSd/uZn3jVxj7M+9k+N88J9qXHNZCzae03IsFZ7F1
-	zP39j9Fgi04LrSeuhgfNdGVychpWztESBF62bN7blr/b4f+0Jz1fkub6bImmdQBOvA1a/iIpN2R6f
-	vO4yrLOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:In-Reply-To:Date:MIME-Version:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=s9g2Js5R08cAxeOIEvq9143t2u9EB2ub+jMhK2A6O7M=; b=erI6i2x28Ltq0Q
+	QPFa1f2fcSz+CRMoHXAP1UPZER+qWjwyO/ytz0FOFwVSw8vUJkYkHnM4lUswKsVn+Nso5OlYlujSl
+	aLCjZlcBQJPNxCYVegBLZkRfsozY7sWP3/T9tjM0hqhWgBv6KG5plV1B6VzoRbcaX6PkIFNQ5sICw
+	3Jq7+xVyBJzLZIz+oSQzPxnvnof+cBs/TwIcYeZlf/DB1iDtV9RIlQWIiu1AekTgkxvIWQ6U54Nif
+	7Jp/KTQxntjFs3xgx44kN/TGAXBkc/d2iGtoAxT2DMcdNsz1uY9l1P0sXFa6RK/nVsXU/IPXbEGZZ
+	X2KB2SahmCA+qiTP8n1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vECGz-00000002ghr-3wG0;
-	Wed, 29 Oct 2025 19:55:57 +0000
-Received: from mail-westeuropeazon11011035.outbound.protection.outlook.com ([52.101.70.35] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vECPG-00000002iV0-2Unk;
+	Wed, 29 Oct 2025 20:04:30 +0000
+Received: from mail-il1-f207.google.com ([209.85.166.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vECGc-00000002gFX-0mzf
+	id 1vECPE-00000002iUC-3v9f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 19:55:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u5Sa2C4jnBbdfZFLJp/MGRd2aY++KcO3S5kRI5UsrwUyuTn/YQR3efAgI+nieUTcua28czT+CAt3DwQhkNoKY1CvRC3w1Oz2KiuMlV39CFKTTAFBHmPQMLUc/cV/nj1TO6VQUL4kSoDvAHpGVKKJPxdMgjf4mREV3nDRhoVGtklED55rWA2+dlNPxU60vze4NOgUwIB6MnEOT0qtIZLdxmg94SjpkQRcbHzY9iarumTONHvISlDU+OI+YSf0Lc82GYeMxdr7RmXqzFHPAGTxyIqtSUk72PM+ci5cWtwgRFQW/BLzDS5EnQKCJwUpbGRCgmtmkFVIe2y72PsLR75kfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3YEgxZY4UJZS+W3f9za5gzeWr9pMSUjlHh/csajZ05s=;
- b=M3nTPX4llTXfWfOgvDKf3i9gnT/9l13hVo+xE+tdFj/OGFTcEEOahD505pU0FI83jj+a3UpBoL6nFtd7LQp3+/D2/g2y1p3q4zjkAz4Epd7F2cFzwU7XgZuiael+/s9c3E4D2UYLGnL2Xnkife1xCkTuVLhwv2cGJvDzG2AxjtEYGlEhs92kh5Ywbxf8a3GyBOaBcVygT/p4Br6T6QBEh1kpsFhLTCmXncIgZa87EQbxfVSE2l5gzZTPmHdZwgJMvqA8Zl3Aiva14fYsnKJyA/7qttn5nM1q3Gx0bJXvTWaSfUG9LSMaUldLYsJm9bc2QojzKXO/9+DvWCRxHbHoIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3YEgxZY4UJZS+W3f9za5gzeWr9pMSUjlHh/csajZ05s=;
- b=EOIfkWGjPN4fD4xI7GxJRnJLjMJMwE9Fc48pR7996wWiujAgzYRbc38fNWvCfi96lWG2LNmrbK+NmKBUfmbPVCZc04NM9egoXwSNUapF5Mb3rSMc7KUKUE8lW0yx5lvJVOip3diqVxi4QlAI6uQ9EwyK2xJ2wa2TFqR2j3QuCfR9Fz67dDfWoVBvNsQ50TO0rHmRkRhWt+lJEqGsTSTS7lyYSAcmA14gg1ZpioL3/UsCoB31kkHDb4h4Pan30QzTpiAGYfxw9SOxAMkzYNYY2yIuhexlvtRzo/QCIQkXyqOXp4MLsnYa+oeJr3zEnohgX8Ib0pWndnoMXsh8GOUO3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AS1PR04MB9682.eurprd04.prod.outlook.com (2603:10a6:20b:472::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.20; Wed, 29 Oct
- 2025 19:55:23 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
- 19:55:23 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 29 Oct 2025 15:54:46 -0400
-Subject: [PATCH 10/12] arm64: dts: imx8qxp-mek: Add supports-clkreq
- property to PCIe M.2 port
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251029-8qxp_dts-v1-10-cf61b7e5fc78@nxp.com>
-References: <20251029-8qxp_dts-v1-0-cf61b7e5fc78@nxp.com>
-In-Reply-To: <20251029-8qxp_dts-v1-0-cf61b7e5fc78@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>, Richard Zhu <hongxing.zhu@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761767689; l=1140;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=5zQcx8+FRNBwOSM5nzlEhw4OhJJBvBLd+2m5btJbRH4=;
- b=Yw8mI7Ip9LdJJmpyqVHZqWq8c7hI5Y8CSzLCohymnfcnwThSxEaNJzCgPc+CU7bh0YJG2l/5B
- PD42dRPIQBSB71ViptepkBYbwfZIYdQOuL9SYx8qiPns4MsJxILTrst
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH7P220CA0018.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:326::24) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 29 Oct 2025 20:04:30 +0000
+Received: by mail-il1-f207.google.com with SMTP id e9e14a558f8ab-430da49fcbbso3456375ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 13:04:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761768267; x=1762373067;
+        h=to:from:subject:message-id:in-reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=s9g2Js5R08cAxeOIEvq9143t2u9EB2ub+jMhK2A6O7M=;
+        b=h7Ek6RzEHWHgUVGT5OYxU7YhpW8KxM/9LmzXyycWs5AR3n78q3/JiGof1tTpU8kJkL
+         GxRGqGBHJwijlrviYMMvZtwZNQNgCzjWTaBI7K/G9WH+xvcACyayaCXVf+kgzKPGdunf
+         VxB9LXwTNQekfg3+1VZ2/QfgKIIheSHViZb3leANLeYF/VnUByRSYDsSBxxQ/HBQDu6J
+         VhW5CnKa5Rc8mViOBh/RUFBbomfPr7g8r+3dTe0m4I+HiNBRbtE/WCgqr3dCHCWaTIMo
+         XEWAlM9tPd7Yzx8CUhRoXykSbgFct9JLclGw2UVdER0yd+sHvJpmc4yCxtkRBG+nlek5
+         7EHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV0QL7pC9RjylGqe9imktClsIGRs/x5MOS26ZnBTrHukHPlW2pCrtY8QJwcHu/CvVrwqOwo8VwDX7LNIMNfFsW/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxje1Xtd4AkZx+xT9uHxadI3hQtPTz7P523lzrVf+8S6dk1Aade
+	VU8cWI+4wySX6xU9rTD8D1Bqnab0phgA+CK2x0Nw//9VubuMyVziKUPxsHHr2FaHrIC3R+4CL+W
+	4HTvh8y6gHBGWnJmXz9G/bwszMGMAcNVMzoftdG+Ngr7ibKNfrz5sZDC/wps=
+X-Google-Smtp-Source: AGHT+IHIYFLsAiBCqojPIt2QDWa9d/yLxjivS9JM+BHMWwChpQQKGmD61OncOVmQEwUwcLFJDz83jDyr5DBAP7ALsrxrwXOp6FZQ
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS1PR04MB9682:EE_
-X-MS-Office365-Filtering-Correlation-Id: b6bc1671-743b-40a4-6e4c-08de172518f1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZmJIaWRFeTRndC82TmZ2Q282eDZRb3VuS2xlQnljL1VRZUdpcGlPTGpuZmdU?=
- =?utf-8?B?RHhoVkV6cU1hKzVhNjR4bm5lS1cyd2JtemRVTE5EaWp0SGNHUEJQOS9KQk5m?=
- =?utf-8?B?NHVJWUdSL1VqZWNyc25qaWpaYzFWKzYxY2xYNHRHZmhoNWJDY0xmQ2FhYzRX?=
- =?utf-8?B?NW1uZlRxblVodklQdXRrdHZkb0F5THQrb0NiNlc2TURpYnBrODN3NkpnVksy?=
- =?utf-8?B?akFxZmJwamx3N0k3dG5MSVYxaHNvVXR5clpYc2F3L0dJci9TVTJmaDJUaStW?=
- =?utf-8?B?Z0FIdDZjT0hmZloyMnpVbXVJb1czb0VpMDBZMUJwRzFuOEZuc3lDL2ljeFZ1?=
- =?utf-8?B?UmxISTFobngxZ0hyRVE4SXRXWXJHV2RRbGNpZy9rVGI4Nk5WWUhkTWJwYkNL?=
- =?utf-8?B?UVcrWm5oK05mN2JMR1F3THF6TXZLdHVUNjFoZ3dnTHU4OVkzZVZHTnprUVBN?=
- =?utf-8?B?Z29iSmo2YmhzQ01OOWFVK0VIdnpCN1NuL3g2SW5uN3dJcXlkU01GQmNCbGZN?=
- =?utf-8?B?UmtjUkVWcXEwQXJRaUxmOG5CaCtmd0hIc2ZjK3FNYzcxUWxhclpZSm5COG9O?=
- =?utf-8?B?dXZ5ZEpNaVU5WW9FVEJTVzRUYXhjRUFoR3ZwSVBvaC9RV0pmT0RNeUJnQ2pQ?=
- =?utf-8?B?R2ZDdjBVbUJHTWZ0QnA4MDMxSWZTZi8weDgzck5HTktNMUJOdjdGekhoSlM4?=
- =?utf-8?B?QzlBVHFHdW0zSUVCZXhCdEVSTE9ERi82R0hDaUdtVVluTG4vTS9WRnk5NUY3?=
- =?utf-8?B?d0wzb0VTSC9QS1ZDLzllSnNZc0V3RC96R2laRlFvampvcHdBNHJmVTNtZTg1?=
- =?utf-8?B?c2l2Rk9DSGttd3R2SUxSS0tTK3kyTkxuWU15UG1RdFZzR0tyZG8zazlRYkla?=
- =?utf-8?B?VVBTZ1J6aDhHOFZwZmdiRFl3eDNSN3paSEZoUnZ6YzMxUmcwVFhadXpxSHJT?=
- =?utf-8?B?cWNNOExwSlFUblhWbmVZVzFBUFZvZ1daQWNUdUcyNWhiL21RdGZ6WkVlSUpY?=
- =?utf-8?B?blRlc3RaS0EwR05vZnFMMDB1N3pISzFJSHNhczdCZVQwdkIwZzFpUUI3aEFR?=
- =?utf-8?B?TTVRMTVSN0o2RzZsYUN2VkhueXl1dHZrUUw4ZUtOTHEybzRUemc4dXRrc2gr?=
- =?utf-8?B?OTR3djZjTjROZHM0eHJVOXF1Vkx4RDlRT0dZOGxobElESk8vS2o0d3V6VTJZ?=
- =?utf-8?B?MlpEbEJrSG9NK1pBamRuZE9NWHBDbjNsTWZxNTFYSWFTNUhNRFQvRGlkeWJK?=
- =?utf-8?B?OThVeFFkaEhNRC9MSTBXckx1czJvOFVtOEQ3c0dEVitXOUI2azhUSSsrOGdU?=
- =?utf-8?B?RS9WQXJCbCtreCsvenNxUFBVSC9EVHZzZHMrbElyUHNiVTQwbVRqOTZzWnlz?=
- =?utf-8?B?WUFBbkNXZ24yTzBMWW9BdUhZRW03VTNkMDNJZ0J3VnYzYW5CWHRFc1BXV0Vq?=
- =?utf-8?B?WnBuN3QxUWZ0cGF6QVBtUXNpYVNHaWZnUlBnYlNsWTRyQ3RNTnhzZDJlMGRk?=
- =?utf-8?B?Z0g1SWhMZitMME9OMjBUMVJQZDl1RDJZWXBiMCtINTdhbFpYb0tvS1diWXZV?=
- =?utf-8?B?UHNEYmtudnA4Mnl1cWpSZHlnNU1ZVmd1bU1YNTZTUzFJNk1iY1AxVmttaXZC?=
- =?utf-8?B?Rk1KdEJnUmpsdGZuZ0tSWGJqekdpSEtFNVoyMSs2a1QxZEF1VVVHR0Foc2dp?=
- =?utf-8?B?Tkl6MktlUHZiMTlYSE8wSzRCY3B1M00vK0ZNRHhsMHd5RDRGemRGODd3WmR6?=
- =?utf-8?B?TEw4d01CTDRUcnJycE1FQXU2Z1BSbU1iVDZ3RGVwUmZxcVgyc1pYTHFQZU5w?=
- =?utf-8?B?NXZmMm9sU2JZdHd0VVhYakNEejFSTVI4RlhxZkJzV3ZFR2krY3BXQkpFbTBP?=
- =?utf-8?B?WEFwMGc0NFlRdWp0bGNBZk45TTMvTU4rWTN0MENFT3pQbm1BaGZTYjM3QTR5?=
- =?utf-8?B?aVVUQXNwWkdQLzBKYytKS2xGYmo4cjBwcSsvUkY1YjlsU1VDbW93RnZmNGlr?=
- =?utf-8?B?SzF2bFhvcE1xYXl1dit4SUxMeDVESzFzNmlqZHB6Vi9aNGQwVGdCVWJWSmxu?=
- =?utf-8?Q?bfNcuQ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WjNuV01HU1lqbGhCcTNQeklyR29yMTZ0UkZlZi9nbG1pYXR4OXlsRHRTQ1Ir?=
- =?utf-8?B?ZUxXdlR0Y21HNktRcnBkR2VYeFAwY0VJQXFTeWpaUE9aUm9FR2tsb3RZcFc5?=
- =?utf-8?B?MzdCM3k2Y0V5OGJhR0J4bjc3djVYZVBUeTduc2lEU2hnTWpyUFIvZWdWblYx?=
- =?utf-8?B?elRqY1lRUExtL09qUkFEYUo4aHBLbmg1RXhLb1ZZc25hbU1wbytFaElKbUpT?=
- =?utf-8?B?OHRWLzloM01DWk9XVlF1M3Nsc3lCdTFzZHNtNWhTbUw1cThCUis5QVJQRHRT?=
- =?utf-8?B?dkRwOXZkMjNDTXIzQm9oNXkvMGY1czFBV2t4V3Q1UDgzNWcxdVN0WEtOZERi?=
- =?utf-8?B?WThDaXd1UUtNSkF2U211WHZQdWtIZEZXMHRTRUV0S09mYjRCUWNZZmg2SDNJ?=
- =?utf-8?B?S0NCV2V6ajdpSXgxc1hZTXljekViYndsQlF5aUk5Ym0yS3hRcVlRVmF2NWh6?=
- =?utf-8?B?WWVvSGpNdytKSlp3SUVBNDA5QmFyMk4va1B4T3U1am1NSlVWejRYdHY5Tlph?=
- =?utf-8?B?UWFIWWZEdC9Fb3cvUDd3SWIwc0pYUXFxNitHVDVoU2hCWTZNdjNmSkkrbG9E?=
- =?utf-8?B?WWJqUnR0UkUxZjl0QjhZUEhta09wRVA1VTRqUFU1M0JhdDQ2S0xoSDdhald2?=
- =?utf-8?B?MHJRWDVoQ1hSSlVTbXV3WjNFNlVHcUY0S2VxT1kzL3k0cnpvR002eTZsUkMw?=
- =?utf-8?B?aUp5NHN2WFJnRC9iRWVFVnlIbERkS2MxMmxIYVJMZkJseFRSelVvcGY1Z3VH?=
- =?utf-8?B?aThCWFBJRDFDSXJ1V2tkbzZ3MVJSZmVBT2hwcTN2c2E5SWVrN2hTejkrUkVX?=
- =?utf-8?B?L1BBM0VkVEE2MHkzekp0Z2l1OCtETGs1OCtpNGo0ZkdMdFVLOC9rN3NPVzRZ?=
- =?utf-8?B?NThSOWRtYUVMSHNyaE9RV0cvMjM0WFVrb3lWbjlSRGprV0JnY0pCUjl0RE42?=
- =?utf-8?B?Zmc2OGw3cjlGWXRObVRlMDJYQ2djTTBkcFBSOE00TmtlUGV6MDV5U0pia1VP?=
- =?utf-8?B?ZkJzdXJPNnJlYWRZSDhBeXFjZWlTdmxLQnVzRjZNTThjMWQvZE5YbVdaRVYw?=
- =?utf-8?B?Q1JIb2dadG4xYk9FUzkvK3Ewd3BWK2kvbnVkSzIwaXlNUzdRR3l3M2RYVS84?=
- =?utf-8?B?aU9UdEZCM3FpdUFmRWNDUW9jdkdSbURYNCsvQjN4VFBrY1IxdVoxUXpqNDBK?=
- =?utf-8?B?TzJ1ckNoenVYWll3dExMYWZWUDloZHZMbXpJWDN3MjNNVy9LbHNlNWR5d1Y4?=
- =?utf-8?B?T3VLbXREanJwYzh3c3VqZFFnaDU1eEVxang0YW9aamtOR1Q1T3B1Njg5R1Nq?=
- =?utf-8?B?NEx4ZHpyazgzSUZHdkIwc1daRUZhRjVadlBXNWpNVDE1cjkxVytDbG9oSDVw?=
- =?utf-8?B?eUdXck52NWxxTktTcHJqa0lFNnJuenk4a3ZNZ1pqVkRPWDFhblJIMFJPS05H?=
- =?utf-8?B?MFVaWlcvdVh4WENmYmJHT0FRVjZUYm5TbGF3U0J5TG9MNmRRSzI1dXg3L2lK?=
- =?utf-8?B?OEZPdjZrRHZVSllxR1NCWWpkazFYMjFVamxwbGhGaWh5aVpSSHdnSjFtcE55?=
- =?utf-8?B?Mnl1cWNrVDAyK05lZDFnNUx6M2ZlbUtPQzlCNmY3WkhKd0t4dmlJNEI2TnI0?=
- =?utf-8?B?K3l4Y2FxMlhKcGhlbDhzeFhtdlRZNHMvMU1EVDZVMmRpR2M3dGduVm05TFIz?=
- =?utf-8?B?aUxKYkpjaTAyUHVlSW5HYU5oMVpMMGRuN3ZZOGpQU1p2bGwwVkNhSW10Y29C?=
- =?utf-8?B?emgwMGtXeW53NmlSYXVuTjhGU0ZxenlRUFhub21SWkVjcG9uUXFod1hDbDYr?=
- =?utf-8?B?RHdWSmhzcXY1anp1dTNYVExkUXoxN2gzbGYzMW85OFJHQjZaRU5QY1JmNHUy?=
- =?utf-8?B?VDg4eVpWOVp6WHBCUjQ2VktSemhNL3Q0QUY1MHJEa1FTaVZZSHBrNytPdHdM?=
- =?utf-8?B?RVl1dTIwL3BSdTRZTVNwcHFNZHljZythRUFVQUt3b2o1TURnTThpaWZ1MTNM?=
- =?utf-8?B?Y1JleVZJdHFSMGJHMUN3bWduVFcxMkNqNWVWUFFqd3l3bEx3TmlyN2JIZHly?=
- =?utf-8?B?emNodzAvZURBMXQ5UlQvSi9DbklyK3NBZzVzaEk5VitYeEN5UFFTa29GNitJ?=
- =?utf-8?Q?xfQONL+IkADEe9Fo3gXAZsxpO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b6bc1671-743b-40a4-6e4c-08de172518f1
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 19:55:23.5365
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9/vqaGMFrYEQxMcj7uNameUXF7CvHK5S4ae8PWCSWH841cGiYN5N6S4Q3Aip9nwQfPB1JaFVutJJOTinuIzcUA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9682
+X-Received: by 2002:a05:6e02:1f13:b0:42e:7589:6290 with SMTP id
+ e9e14a558f8ab-432f8fbe8b4mr61708075ab.12.1761768267270; Wed, 29 Oct 2025
+ 13:04:27 -0700 (PDT)
+Date: Wed, 29 Oct 2025 13:04:27 -0700
+In-Reply-To: <68cd66b0.050a0220.139b6.000f.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6902734b.050a0220.3344a1.0430.GAE@google.com>
+Subject: Re: [syzbot] [kvmarm?] kernel BUG in kvm_s2_put_page
+From: syzbot <syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com>
+To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
+	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_125534_244627_EECFD469 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20251029_130428_978116_EDD4B612 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,40 +79,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+syzbot has found a reproducer for the following issue on:
 
-According to PCIe r6.1, sec 5.5.1.
+HEAD commit:    10fd0285305d Merge branch kvm-arm64/selftests-6.18 into kv..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
+console output: https://syzkaller.appspot.com/x/log.txt?x=173e4fe2580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=a4522b3a704e0394
+dashboard link: https://syzkaller.appspot.com/bug?extid=c41f3ddb8299a30a98b5
+compiler:       Debian clang version 20.1.8 (++20250708123704+0de59a293f7a-1~exp1~20250708003721.134), Debian LLD 20.1.8
+userspace arch: arm64
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=13559c92580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=12963fe2580000
 
-The following rules define how the L1.1 and L1.2 substates are entered:
-Both the Upstream and Downstream Ports must monitor the logical state of
-the CLKREQ# signal.
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-10fd0285.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/65e2ebd050e3/vmlinux-10fd0285.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/9d47fc3df12e/Image-10fd0285.gz.xz
 
-Typical implement is using open drain, which connect RC's clkreq# to
-EP's clkreq# together and pull up clkreq#.
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com
 
-imx8qxp-mek matches this requirement, so add supports-clkreq to allow
-PCIe device enter ASPM L1 Sub-State.
+raw: 01fff1c000000000 ffffc1ffc08742c8 ffffc1ffc07b2488 0000000000000000
+raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: VM_BUG_ON_PAGE(page_ref_count(page) == 0)
+------------[ cut here ]------------
+kernel BUG at ./include/linux/mm.h:1036!
+Internal error: Oops - BUG: 00000000f2000800 [#1]  SMP
+Modules linked in:
+CPU: 0 UID: 0 PID: 3630 Comm: syz.2.17 Not tainted syzkaller #0 PREEMPT 
+Hardware name: linux,dummy-virt (DT)
+pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+pc : put_page_testzero include/linux/mm.h:1036 [inline]
+pc : folio_put_testzero include/linux/mm.h:1042 [inline]
+pc : folio_put include/linux/mm.h:1359 [inline]
+pc : put_page include/linux/mm.h:1429 [inline]
+pc : kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264
+lr : put_page_testzero include/linux/mm.h:1036 [inline]
+lr : folio_put_testzero include/linux/mm.h:1042 [inline]
+lr : folio_put include/linux/mm.h:1359 [inline]
+lr : put_page include/linux/mm.h:1429 [inline]
+lr : kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264
+sp : ffff80008e717450
+x29: ffff80008e717450 x28: bff000001ec92000 x27: bff000001ec92000
+x26: 00000000000000ff x25: ffff800087396000 x24: ffffc1ffc0000000
+x23: ffffc1ffc0874288 x22: 0000000000000000 x21: ffffc1ffc08742b4
+x20: 0000000000000000 x19: ffffc1ffc0874280 x18: 00000000fb20c077
+x17: 00000000057d7f34 x16: 00000000fb1a5197 x15: 00000000866b9677
+x14: ffffffffffffffff x13: fff0000015a39d88 x12: 0000000000000001
+x11: 0000000000000000 x10: 0000000000ff0100 x9 : a6a806ed1668b300
+x8 : a6a806ed1668b300 x7 : ffff80008039fbc8 x6 : 0000000000000000
+x5 : 0000000000000001 x4 : 0000000000000001 x3 : ffff80008074aff8
+x2 : 0000000000000001 x1 : 0000000100000000 x0 : 000000000000003e
+Call trace:
+ put_page_testzero include/linux/mm.h:1036 [inline] (P)
+ folio_put_testzero include/linux/mm.h:1042 [inline] (P)
+ folio_put include/linux/mm.h:1359 [inline] (P)
+ put_page include/linux/mm.h:1429 [inline] (P)
+ kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264 (P)
+ stage2_free_walker+0x1b0/0x264 arch/arm64/kvm/hyp/pgtable.c:1549
+ kvm_pgtable_visitor_cb arch/arm64/kvm/hyp/pgtable.c:130 [inline]
+ __kvm_pgtable_visit arch/arm64/kvm/hyp/pgtable.c:212 [inline]
+ __kvm_pgtable_walk+0x7d8/0xa68 arch/arm64/kvm/hyp/pgtable.c:237
+ _kvm_pgtable_walk arch/arm64/kvm/hyp/pgtable.c:260 [inline]
+ kvm_pgtable_walk+0x294/0x468 arch/arm64/kvm/hyp/pgtable.c:283
+ kvm_pgtable_stage2_destroy_range+0x60/0xb4 arch/arm64/kvm/hyp/pgtable.c:1563
+ stage2_destroy_range arch/arm64/kvm/mmu.c:924 [inline]
+ kvm_stage2_destroy arch/arm64/kvm/mmu.c:935 [inline]
+ kvm_free_stage2_pgd+0x198/0x28c arch/arm64/kvm/mmu.c:1112
+ kvm_uninit_stage2_mmu+0x20/0x38 arch/arm64/kvm/mmu.c:1023
+ kvm_arch_flush_shadow_all+0x1a8/0x1e0 arch/arm64/kvm/nested.c:1113
+ kvm_flush_shadow_all virt/kvm/kvm_main.c:343 [inline]
+ kvm_mmu_notifier_release+0x48/0xa8 virt/kvm/kvm_main.c:884
+ mn_hlist_release mm/mmu_notifier.c:321 [inline]
+ __mmu_notifier_release+0x310/0x614 mm/mmu_notifier.c:359
+ mmu_notifier_release include/linux/mmu_notifier.h:402 [inline]
+ exit_mmap+0xb8/0xbb8 mm/mmap.c:1263
+ __mmput+0x10c/0x528 kernel/fork.c:1130
+ mmput+0x70/0xac kernel/fork.c:1152
+ exit_mm+0x158/0x258 kernel/exit.c:582
+ do_exit+0x788/0x2378 kernel/exit.c:949
+ do_group_exit+0x1d4/0x2ac kernel/exit.c:1102
+ get_signal+0x1440/0x1554 kernel/signal.c:3034
+ do_signal+0x23c/0x4dd0 arch/arm64/kernel/signal.c:1618
+ do_notify_resume+0xb0/0x270 arch/arm64/kernel/entry-common.c:152
+ exit_to_user_mode_prepare arch/arm64/kernel/entry-common.c:173 [inline]
+ exit_to_user_mode arch/arm64/kernel/entry-common.c:182 [inline]
+ el0_svc+0xb8/0x164 arch/arm64/kernel/entry-common.c:880
+ el0t_64_sync_handler+0x84/0x12c arch/arm64/kernel/entry-common.c:898
+ el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:596
+Code: 900377c1 910e9421 aa1303e0 97f9c9f2 (d4210000) 
+---[ end trace 0000000000000000 ]---
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+
 ---
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index 13c308d007fc0f991a5714d13a9162bdb499db2c..fc10710e4ca3e8472f32ba0beaadd27382ba756c 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -673,6 +673,7 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
- 	vpcie-supply = <&reg_pcieb>;
-+	supports-clkreq;
- 	status = "okay";
- };
- 
-
--- 
-2.34.1
-
+If you want syzbot to run the reproducer, reply with:
+#syz test: git://repo/address.git branch-or-commit-hash
+If you attach or paste a git patch, syzbot will apply it before testing.
 
