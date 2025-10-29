@@ -4,84 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC78CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:58:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C984CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 15:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fd/ArEYxAAEUYhnoA0Oh/vNlB/6p6wwqYSN+YEbBwcA=; b=gqfSjyNma6DQlxOW1vW5TMC5rP
-	mGD/pLaugoMuetwfAZT4wpgj91onRLSEKmbk6mb4PU67N4sUqEglC8s/5ZOeMd/1sWkOq8PeVytVC
-	K3wjmsQ1GeUik3uRC7DSN05bZRrliKJNCuNnUfFnFm853nPQ8IaGWJ8ETxs49ljhIMA6NvgYY0Qnv
-	zeuPWmJzd0FhFxdL3hZH7A6byAgqBTdcsN8WRaaTTVoxhJkH7wjnH14PlMyqhiFFzzHtj6A9QeIYV
-	/DV4gcAPXMW74OiHQhLIlgYlAIsIBzTQ7vEfPNlWfC6YxrcE25kWGsMDhE+Rhc4zwXLrLzCIHbTMi
-	uW5d1dZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bT40LJu6oxRypwozP+xYaDg978cHnaPf0JK9Yp1+9Sw=; b=TXDfb/DaCX1YZLCmx9bGMWUuy/
+	boGVuk2bmekff6W6SlJqs8K6+oIaB2/QLWp2TfN6zYu5LtBlkFaUnqYPbHTAvW1HV40+TreDGimO9
+	d/RqZCjJrDEbP3YWsdRMcxr3bFMtDrIiJy0NAGetjG/bvFESEsfRhAImr0FasUBZvQ+3Jldys+V5O
+	DQlqlGo8KvkMTHZzs/t1V+D88Hb/kY4OzJSC1wHsgXTpSCXJxbnPMNE9VsKF4Hw0GNtQJNwGrHfYz
+	phKfHh84yTuhFoRVtnhy7qSgrFzcxzS2rWrdsi9Ju3p5pZm2dDpQ6eg8FrO0PdcCqbNjbFbBRDVYB
+	/gp46lOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7d8-00000001hAX-1M2Z;
-	Wed, 29 Oct 2025 14:58:30 +0000
-Received: from mail-ua1-f41.google.com ([209.85.222.41])
+	id 1vE7fF-00000001hwX-0bSD;
+	Wed, 29 Oct 2025 15:00:41 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7d5-00000001h92-3A8d
+	id 1vE7fC-00000001hvz-3mFO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 14:58:29 +0000
-Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-934ad40c2c2so2820014241.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:58:26 -0700 (PDT)
+	Wed, 29 Oct 2025 15:00:40 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-340299e56fbso7260a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 08:00:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761750037; x=1762354837; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bT40LJu6oxRypwozP+xYaDg978cHnaPf0JK9Yp1+9Sw=;
+        b=OGwYQpY8bgrSmboYljv0qQqOu69hgg7SsTEyQBR2hnMX3RcUPnKvk8rRHx4VjCBC9k
+         Xmsz++H6X7ezTskGHxyAVCdjJS/QgTpg6v1E7vZYTyovMcyV656LI/0PPleyCGmlJuEp
+         g9ZpTbNwzz5jTXjDlabje+5hWcgrPlAMKDcPo0Rk0J1L9K1rNHg/yB1O9D8ERRrpoqE7
+         VQJ5UMwNcPu7EigXssmCoxVSm5qlm+OuX6acAEDlEQ3h2HV7E1DgWIT1YaeRfNIaSE8c
+         YIkIhif3+behcSHaNffxzcFN+IBdUuOj8L1z9HgygvoKB1lHI5febLSWgKRPg3zDKPXW
+         u6hQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761749905; x=1762354705;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fd/ArEYxAAEUYhnoA0Oh/vNlB/6p6wwqYSN+YEbBwcA=;
-        b=uWVlAgujTqxPUZCjldyFibkwPmuIYXNMKaGAwCkvD5aNb5zzw6T/R0vOZ9ghr54IkF
-         Mj+Ibg+OLLxGw1eMMGzMGbvCaG/1iR5ulZdokPoDh/0NUSLBA+7H5DFPrxVyhEQ0wO14
-         4rWAUiRRZ4Hm8N59r5HDZLKWgrBZTRuslVDC735nEc2Q+P2fG1x2l4CCe8qS3gRRbTau
-         sHRyN8KEblMksFDsu2guCeiUcMFcV50VeL5/V2HSBXpy1LpBiTrBqdkvFCn/RNEXUnQS
-         N6Bj7ORicJZ362jhCYX0eDk/ne6lsEfFaAeWmDCQdItbB0UEl1sx6xCtWglLSkJSqrMz
-         eihQ==
-X-Gm-Message-State: AOJu0Yw4YaYEYUH2qw+ZRMApuabrsixzESLo7bXL6eKlVH0Na8WHa3qt
-	+HrZVACAh1fWosxz39WvBMmufAMoMQDqcFNfLE27XIooYNPHLlTQlUJw6tdD1f3X
-X-Gm-Gg: ASbGncu664Y6JJwEea0hI+as4LE6hq+LyJardaVBIbdhqPWqk8hX9EyQMmyRqIouo7K
-	3YlaQ1gQ3tyhR9aVHKJIUF7+UsvsDRMELIRdSf0Jvrc7pQ0XLA7g7S7g7qDu6DqgR62HLd9Q3fk
-	6NLHb2ETbQYEvwS/21hYXXMDVgnMOS0/x+5zP/Utbg8h3w478CUKLyCiY/HQcYQQFojCEcBOZLp
-	d6ud/PliFi34KFt0eVSVSVzKGXuMW9mJud07NByUYGt9i5kHKJPEhVvX7HA+P8sZaRKqP7/HmSC
-	UZanrMnyGWY3ZQU4tz4Q3zbgjP3GKYIw8EwQCZ8YUX9RjHr3V61LldC7SKZGGAHkIy3w5T4O3HE
-	NRuMLsM3k+FLeMQ1uvdJF/D3sveH8LVwHVy9WWQnwGCHao8dOdGY7WwdM+BPzOLBqf4wfihnAUb
-	+6GYEKauQfegTOAjLY7RQIbNx8QxbMUQ2v5YH3NZMEs7DVAbth5FNj
-X-Google-Smtp-Source: AGHT+IGUXNCwo6nzbe5QYIX9Tu0bnZG8HMaV9+2Y8Fwt/Ch6SIxldiLzM0dtWWjWki7aT1pBnqCkjQ==
-X-Received: by 2002:a05:6122:45a7:b0:54b:d7b6:2eee with SMTP id 71dfb90a1353d-55814244be0mr958624e0c.11.1761749905175;
-        Wed, 29 Oct 2025 07:58:25 -0700 (PDT)
-Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-557ddac18dbsm5533616e0c.2.2025.10.29.07.58.24
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1761750037; x=1762354837;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bT40LJu6oxRypwozP+xYaDg978cHnaPf0JK9Yp1+9Sw=;
+        b=nvHSej+v6GLKYPK31CNMeZ3UakoXHV/OWfD2kP78eNdfX2OQ5p/rflP3Y2uvgJ+qjy
+         Qr4eT8iHEjLdF8VAPfoKMIvna9IEenMfA3xdVaUxn2K3YPFvyVB+VHTJcN2S4e4gGeQC
+         xHjNJGpeTlTfoILBZSHSaTbvmzmS6l9th03HDl1JKxCs9dYoPC4G5fH81qliX5kTYVL7
+         /ZLp0bQGQK2oZbDu21v2qrvu1Ol5cIoPaTgegMCZO12qZKMVXIMqUIytl2DM792eS1cc
+         c15OjHBZvl34LlcoEM+Q6/5reB83BfbNDdVQKG7bfnbw/M8Wqb3gU8YSMjcn7MlkYDdk
+         /Gow==
+X-Forwarded-Encrypted: i=1; AJvYcCWuKaEXmNaX/qoqJaO4pMHgKy6OWZGtCsfS6ZDYQ4CQYsGbBa/zttU4XofisNILqCx5cfN1Q2rGOuzFYhJMqRAA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRcZ0eM1BujgXKRYevK+7ZPnPng72nOqh1nJTAGXYo1kMsePJ8
+	G4CHyT84ouBL31NFPz3F80E5b1HBfL87bU2W4Hes93hvurb1i+qOcs+w
+X-Gm-Gg: ASbGncvCznAGf64aBGCUK0ZpC1b24ioApsD2l+nxftAfCHZkrfnZtB4Iei5cFht8yvc
+	PatKmaIuBVVOsBPbXOKKnpXvuGNZSA1R+f747AbDNnXcyoL50GuM7RxrW8OgixtH8wUrUcxAQ1L
+	WCBmpehZLs7yd4a+MiIUyMYx0hxznAvUPkmbw+0UbhijzoJwhZEZKMc8HHGJR+pK0qpGUIa1VDG
+	FDQzejurZOs+cPsGZzgzM31ZPDtFzkClnzwopRWOamOV3IT9RSuWRu22nLuVQH2JKYZMVuJR2gq
+	lzfSkZsPGMEGm9aALe39hBp68EhoYpeHv9DMti495P1kJHDVP/21r1wClQ5Oq0NVAHto5TVM2uh
+	If+R3STR2LkKZvTW1s05/fSBORFfuOkK9Krra2FVq9ph6G6dNZz7EdWqAoSBFjpV3MfTCgUJMTz
+	Xy3EEnJj2g9CT9IwMZOHuscb/Vn/CeGlPXUdow8afFbdiDkGze1ifhuMIVXtAgADGJ0GYZoPQOJ
+	rw=
+X-Google-Smtp-Source: AGHT+IHTkNofjDYYCSUvcwrFzhudLkajYIpTI8Ehsx/uXD1wcmUENfXD8vGHxIX5mKjdzFiMwoBquQ==
+X-Received: by 2002:a17:90b:3d0b:b0:335:2b15:7f46 with SMTP id 98e67ed59e1d1-3403a2a68dcmr3998093a91.21.1761750036781;
+        Wed, 29 Oct 2025 08:00:36 -0700 (PDT)
+Received: from [192.168.99.24] (i223-218-244-253.s42.a013.ap.plala.or.jp. [223.218.244.253])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3402a5540absm3353475a91.5.2025.10.29.08.00.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Oct 2025 07:58:24 -0700 (PDT)
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-5d6266f1a33so4638936137.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:58:24 -0700 (PDT)
-X-Received: by 2002:a05:6102:290d:b0:4f7:d553:3cfa with SMTP id
- ada2fe7eead31-5db90606601mr813077137.12.1761749904411; Wed, 29 Oct 2025
- 07:58:24 -0700 (PDT)
+        Wed, 29 Oct 2025 08:00:36 -0700 (PDT)
+Message-ID: <4aa74767-082c-4407-8677-70508eb53a5d@gmail.com>
+Date: Thu, 30 Oct 2025 00:00:28 +0900
 MIME-Version: 1.0
-References: <20251027211249.95826-1-marek.vasut+renesas@mailbox.org>
- <20251027211249.95826-2-marek.vasut+renesas@mailbox.org> <CAMuHMdV2Kr4WcYRERHCYR1zGAh0n2N3D=LYbRSYLJnRTYDB4+w@mail.gmail.com>
-In-Reply-To: <CAMuHMdV2Kr4WcYRERHCYR1zGAh0n2N3D=LYbRSYLJnRTYDB4+w@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 29 Oct 2025 15:58:13 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWyKeQq31GEK+-y4BoaZFcCxJNac63S7NoocMj1cYKniw@mail.gmail.com>
-X-Gm-Features: AWmQ_bkK_riw2DJ8GdGhH8UFTwbp-0GBHO60gLWdbse1YNVgueoQrpv6rrq65Pk
-Message-ID: <CAMuHMdWyKeQq31GEK+-y4BoaZFcCxJNac63S7NoocMj1cYKniw@mail.gmail.com>
-Subject: Re: [PATCH 2/5] arm64: dts: renesas: r8a77960-salvator-x: Enable GPU support
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net V2 2/2] veth: more robust handing of race to avoid txq
+ getting stuck
+To: Jesper Dangaard Brouer <hawk@kernel.org>
+Cc: Eric Dumazet <eric.dumazet@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, ihor.solodrai@linux.dev,
+ "Michael S. Tsirkin" <mst@redhat.com>, makita.toshiaki@lab.ntt.co.jp,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com,
+ netdev@vger.kernel.org, =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?=
+ <toke@toke.dk>
+References: <176159549627.5396.15971398227283515867.stgit@firesoul>
+ <176159553930.5396.4492315010562655785.stgit@firesoul>
+ <aacc9c56-bea9-44eb-90fd-726d41b418dd@gmail.com>
+ <27e74aeb-89f5-4547-8ecc-232570e2644c@kernel.org>
+Content-Language: en-US
+From: Toshiaki Makita <toshiaki.makita1@gmail.com>
+In-Reply-To: <27e74aeb-89f5-4547-8ecc-232570e2644c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_075827_938048_4A1621C8 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20251029_080038_964516_1C3F10BC 
+X-CRM114-Status: GOOD (  23.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,55 +112,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On 2025/10/29 19:33, Jesper Dangaard Brouer wrote:
+> On 28/10/2025 15.56, Toshiaki Makita wrote:
+>> On 2025/10/28 5:05, Jesper Dangaard Brouer wrote:
+>>> (3) Finally, the NAPI completion check in veth_poll() is updated. If NAPI is
+>>> about to complete (napi_complete_done), it now also checks if the peer TXQ
+>>> is stopped. If the ring is empty but the peer TXQ is stopped, NAPI will
+>>> reschedule itself. This prevents a new race where the producer stops the
+>>> queue just as the consumer is finishing its poll, ensuring the wakeup is not missed.
+>> ...
+>>
+>>> @@ -986,7 +979,8 @@ static int veth_poll(struct napi_struct *napi, int budget)
+>>>       if (done < budget && napi_complete_done(napi, done)) {
+>>>           /* Write rx_notify_masked before reading ptr_ring */
+>>>           smp_store_mb(rq->rx_notify_masked, false);
+>>> -        if (unlikely(!__ptr_ring_empty(&rq->xdp_ring))) {
+>>> +        if (unlikely(!__ptr_ring_empty(&rq->xdp_ring) ||
+>>> +                 (peer_txq && netif_tx_queue_stopped(peer_txq)))) {
+>>
+>> Not sure if this is necessary.
+> 
+> How sure are you that this isn't necessary?
+> 
+>>  From commitlog, your intention seems to be making sure to wake up the queue,
+>> but you wake up the queue immediately after this hunk in the same function,
+>> so isn't it guaranteed without scheduling another napi?
+>>
+> 
+> The above code catches the case, where the ptr_ring is empty and the
+> tx_queue is stopped.  It feels wrong not to reach in this case, but you
+> *might* be right that it isn't strictly necessary, because below code
+> will also call netif_tx_wake_queue() which *should* have a SKB stored
+> that will *indirectly* trigger a restart of the NAPI.
 
-On Wed, 29 Oct 2025 at 15:52, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> On Mon, 27 Oct 2025 at 22:13, Marek Vasut
-> <marek.vasut+renesas@mailbox.org> wrote:
-> > Enable GPU on Salvator-X with R-Car M3-W.
-> >
-> > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
->
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+I'm a bit confused.
+Wrt (3), what you want is waking up the queue, right?
+Or, what you want is actually NAPI reschedule itself?
 
-(no cover letter, so just replying here)
+My understanding was the former (wake up the queue).
+If it's correct, (3) seems not necessary because you have already woken up the queue 
+in the same function.
 
-I am a bit reluctant to queue this, as apparently there is a bug/race
-condition in the PowerVR driver: if the firmware is not available,
-the kernel may crash during boot due to a NULL pointer dereference.
-I could trigger this on Salvator-X with R-Car M3-W after applying your
-series to renesas-drivers-2025-10-28, and adding two debug prints:
+First NAPI
+  veth_poll()
+    // ptr_ring_empty() and queue_stopped()
+   __napi_schedule() ... schedule second NAPI
+   netif_tx_wake_queue() ... wake up the queue if queue_stopped()
 
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -256,12 +256,14 @@ struct device *dev_to_genpd_dev(struct device *dev)
- static int genpd_stop_dev(const struct generic_pm_domain *genpd,
-                          struct device *dev)
- {
-+pr_info("==== %s/%s: stop\n", genpd->name, dev_name(dev));
-        return GENPD_DEV_CALLBACK(genpd, int, stop, dev);
- }
+Second NAPI
+  veth_poll()
+   netif_tx_wake_queue() ... this is what you want,
+                             but the queue has been woken up in the first NAPI
+                             What's the point?
 
- static int genpd_start_dev(const struct generic_pm_domain *genpd,
-                           struct device *dev)
- {
-+pr_info("==== %s/%s: start\n", genpd->name, dev_name(dev));
-        return GENPD_DEV_CALLBACK(genpd, int, start, dev);
- }
+> I will stare some more at the code to see if I can convince myself that
+> we don't have to catch this case.
+> 
+> Please, also provide "How sure are you that this isn't necessary?"
 
-See also my original report "drm/imagination: genpd_runtime_suspend()
-crash"[1] on Gray Hawk Single.
+I could not find the case we need (3) as I explained above.
 
-[1] https://lore.kernel.org/all/CAMuHMdWapT40hV3c+CSBqFOW05aWcV1a6v_NiJYgoYi0i9_PDQ@mail.gmail.com
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+--
+Toshiaki Makita
 
