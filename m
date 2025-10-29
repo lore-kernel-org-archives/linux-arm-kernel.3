@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CABCCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 12:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00066CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 12:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9+YREs/dwvkAURlYBalhERi7T5HA8/ejvJOwTN6088=; b=jSPbSr0xoKf/tOG6eTT8Je2bGV
-	+J7oQmWTUFTAfyeLUwCcT4R0OnOW8BKJaoYcbiwEZEL/ZbxHvnIVL+221ScwpwyOKab6ou0GMsZVD
-	okOX0kKtPbVrUbXGRvzQPabJUtPOfhn6X08vEsvPaZyZYVcEMOuXk2t+Y8VUn9UMrLbtoxOiwNgF3
-	UZUYIN9otvtSWGz5NxVhJM0aw95KsAzd0D/uwnkAmOnFILrjln5TPGQdUpPqrvlSYyjYjtSIbkZlS
-	l/zSWw6ly47jgJyG/b9mzpDTqO43WFP70iMbTQzH6GVk3VpjocJCHMAAtbdZRBGqGYCEebBDFgDdY
-	MFSLByCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e7av6/+8iNuXmmgvTwlUka4Y7XmkOmuVd9YoxH52DeM=; b=q+jwVbBjCbiiPIBa0+D2uXKLUD
+	PN5Kc6TsmIKwOQM+kjS7to+BLEZtcgOTLRvR9VIng6ZrXnkaAGxgjiqEBIxhqSShUiCBnROTfxB9M
+	g65ZdRTVfpmjymcjxd0MmY6dXqXS+XooMyMUUUtxEtLrZM3n65OWZwLk222SAmYWgzEVxDBiaQe7E
+	XqOV1z+pl9DDlRDuhiteRnkNBu3UiGu7KH3ytoK+Ev9tbiZBdzS5V1yhfX1FFTi2Y2Ma36doZiOI1
+	VMNNVIjOgkJbjAtqvSnYFl8LvO3VtK7CxbRV0jr26b7b/eSULyntA30/gTrCwLNM/GrTyrvcJJcU0
+	bTlSleiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE50j-000000016al-2gNO;
-	Wed, 29 Oct 2025 12:10:41 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vE5QN-00000001BCP-1kei;
+	Wed, 29 Oct 2025 12:37:11 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE50h-000000016ZD-2YyG
+	id 1vE5QL-00000001BBU-2BVI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 12:10:40 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47117f92e32so66382625e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 05:10:38 -0700 (PDT)
+	Wed, 29 Oct 2025 12:37:10 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-57e8e67aa3eso1500957e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 05:37:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761739837; x=1762344637; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d9+YREs/dwvkAURlYBalhERi7T5HA8/ejvJOwTN6088=;
-        b=CTtRQPim1KHmp5AR+O7GcFZdmJD0GG3cc7ioEjWjTkjqulaVHgBmT/iEQmUa9IbHuS
-         RhZnu1l5CvaXN3xEGeOImBmV31f8+ThU0gAI0Z6jdzgwErNd+/DKkfAjrPNRoLHS4ola
-         xnrYMZ6Jd3tDGWBxWraCSL1unv3I83UnoSawa3+AAISEX1nWMn32fxL40FyUYI2bG8r4
-         Vfhy4MmEkyduXXi0Yzsl4OapiXr7+7czJCsnm4YSfZhCVgKpiYEYM88+bVfgUZel6rKV
-         wU3hSbbtFxdAM3lOUCCSc3v409mHnvimkOqE+kd/43agA7QK3RuTTwEgIOnEwTEOflbj
-         DWIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761739837; x=1762344637;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761741427; x=1762346227; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=d9+YREs/dwvkAURlYBalhERi7T5HA8/ejvJOwTN6088=;
-        b=QoZ/e57LFmBklUw489S4/hN+4L+bcvT6T5/JLOPL0I1srgp3RRB+7kNKSmM4Izb61g
-         KGBYBd5tLxTkSyHU679W/OXlgrYbVNFOIVa+r3a3bBou3GJio0Ei12mnZbGfj0l2CzJr
-         +AIBzOjjOimYZ6n371cXDdwx9FMkmAaedjxwNrRipsdirfen48e9Wot0iKaf9Ugtic7x
-         /kBhhMIRQu/rY6Iqut0R0UMUkjcDHKR4zuVu/v//xL2eUC3o5Se36DyscnsNnXUm76iY
-         +fFUTYctE6b7q1NCrjv1XLl4tYzoRYegB27LX/wmpZDtWiA1R+xSa3LuvDluVi7bg4fL
-         b/Jg==
-X-Forwarded-Encrypted: i=1; AJvYcCUuuQTUhg6wIzF9pJ0nmS6CwpnA/VwrhA2PO+h8QCFxAqkaKDyjDFbZCq2QAhZ8Lqn/FJi1cWgCPofv+OPgkN4O@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxqr8zVLNZXFGnbHD5nYhhPfq5XZuyi7l1VPRoH3f+PaXHvM82q
-	A9oO6HWh7xegSc3K6lmRTx0aGpKr/vaq9TZnRLCK8789g3g7e1hOV4dltXf6tJCyYYk=
-X-Gm-Gg: ASbGnctK06vZnQTJCxs3O28NOGZboUqLaCd02hKD4NSLG/QNkDaRobvs9P3aXDGfr8M
-	C8qETavg1tokbiWJY//Fa56WCjajkn104CqhTiy4WFGGfDJT5eW9co6s532ML9Qxmdn5EPnchMj
-	ZqeERvem0uNwXPc41/o5M15BZsMLWlUGrAhCV5kd3Um9NtJWOivA/EQBR2AS9qu7VCUDfhmJR4w
-	6b+ilCje0gXAZx1zeOlNzllNW9KvNTjd5fH7TXOm1++rod7TUjY96tThXvSmbvGyhDTFGPVsVol
-	tuPMkJxuPiGWiOykHbzeKSG7/EC4wEPjiIVE6Fbueu5XkkvLAHj1Nf6c+7Yd6WYRHbRLlBwa7OH
-	AqHHi0LHrkc7/UzY11d8TSirXj8y+oS3/r00qxI9kbjvKz4AQPuoxIGkpzlD6CUEj+OdMDrYk9a
-	m9siXwvKvMz8Qx5str
-X-Google-Smtp-Source: AGHT+IGIDloDBN8XL8rmy10flsio+t482MTy1ZQ7mnd0IkV1PLp8bTgCqmolXedNqKzaaInabxjXJw==
-X-Received: by 2002:a05:600c:528b:b0:456:1b6f:c888 with SMTP id 5b1f17b1804b1-4771e3937a8mr26462945e9.23.1761739837097;
-        Wed, 29 Oct 2025 05:10:37 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4771e3b68fesm44788135e9.13.2025.10.29.05.10.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 05:10:36 -0700 (PDT)
-Date: Wed, 29 Oct 2025 15:10:32 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Phil Elwell <phil@raspberrypi.com>, Umang Jain <uajain@igalia.com>
-Subject: Re: [PATCH v3 0/7] staging: Destage VCHIQ interface and MMAL
-Message-ID: <aQIEOJUHdVMriz7S@stanley.mountain>
-References: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com>
+        bh=e7av6/+8iNuXmmgvTwlUka4Y7XmkOmuVd9YoxH52DeM=;
+        b=1TwEjPutJJccmtDR2T0cfPTATSrk+QN1Mbp+Qghp66kADoV+zNjYiALeZbzjjbwgak
+         QJDGWjp2dACAja04SXNnXsfd/RVUeXL/jyk80Vt/GPXsL7wVPG5PvJFFyMRXsVLLPnel
+         qtVhhOmJ5uNTaoizePoeRLTDjLrMcqghwHkqyv4s7W8DJqii+Wp3ChFzafBPPG4URQ5E
+         TI60ILsvuKe+XJKB1H6j4pf06Mj+ZKSI6/a9ykbZI19KtiFs3acYO/9ema/5T6DhdDnJ
+         DlQzm863bsdfM7evqO4NVCIfEzMD0A+4qNnEZXTTVKalkdnJAEHAGMnwj96r0UnHJVlm
+         VrpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761741427; x=1762346227;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=e7av6/+8iNuXmmgvTwlUka4Y7XmkOmuVd9YoxH52DeM=;
+        b=VAN9UYzkevMu4Lu0fU9qo8unSfONsEPHklYD8r7Da1ajv5JaxKvl4YNf6IT3/8S9wd
+         cLNUpGVr4d/1M1n6DKMAkULCcrmxJOMrMFFNNuWtyhXKl+oPrVXuEuMq80PgUmEjhUy9
+         zf4ux2BVZVXGakx+tqTmY6tBFpGKEacwk9KU4Qfzz//120fTH7t84WaEDdmh1MZ0v8x6
+         cZoc1+mzEZZGmKp6vRPLUZRydvxBklfJqaE2GOjBcbvokf0pq80RIMeVtci/deUl/B0q
+         y7g+uuWbjWXY9RnWG/mA9YSXit/SetMvUgxsx0u3zYC4XoNH0eZmGpn80nHKJo1/0fGu
+         W20Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU9S8a1fPLZdhDLXNSHYNvV6gbpyGfsrO9rLEkR0yatPIleayGDpc8DXwSiu8maM4010hY7m6Xm3khapSPc7Mt7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXz6Zwp2Tv4HtItL+N6MTRDhEOGnXobpnM9/j2rDpxDjqMklEs
+	xv8FNzfUH64t4pKkCTzRM0R98fd+xhHr9oW5lB2zB0D+ZiLxcSaKy0gwvZdRtiolEZls62S5XWM
+	45UcwvOs+D8SbwRXJ/5oYIfh1AEu0r1qzbEGzykHl0g==
+X-Gm-Gg: ASbGnctMaWbg8a5vYIHHfFhaZ7I4KU/qfdkL56RreXnTPVtG+xtHJQ0wDzQReJADhEc
+	G+DsNXhtijLWs/4MngCe60SG4oVzQUoTF1P+DBzMeptjEDgJcDZu2ISu56J/yjuH76kEZ0JPr/s
+	k5Tc1f2gnwSJQFf0DGW2T7OOIC5yJRViHq5jkU/21bJZoPn2DX6q56bo7kANWU2t9H/D9NYIqc5
+	Vhsz7Jvev5sGAOSuBfUXJMGwHWw+faEki90bQEJCIgOwHZBhhwJNOAOtV6I7bcsc6zb9JsIwzoW
+	yWSS76e1WLbVI7JWCLUvTcOxLjk=
+X-Google-Smtp-Source: AGHT+IEUmGu04036ormM4pltNB2Am321w2VXbEnKTAs3EJCIFCtIkYSiyRchfH1o5wZ/LZR6U90hsv4wZnUUYh2RdrI=
+X-Received: by 2002:a05:6512:31d5:b0:591:c763:78e5 with SMTP id
+ 2adb3069b0e04-5930ee00135mr2032537e87.23.1761741427164; Wed, 29 Oct 2025
+ 05:37:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com>
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
+ <20251029-gpio-shared-v3-1-71c568acf47c@linaro.org> <aQH9gE_fB119CW3l@smile.fi.intel.com>
+In-Reply-To: <aQH9gE_fB119CW3l@smile.fi.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 29 Oct 2025 13:36:55 +0100
+X-Gm-Features: AWmQ_blmOzETrnBiOxNQNAG3OMw6fz-E4Nx4SOD4Wgu8a41SpvuD7mJ9RHyBeG8
+Message-ID: <CAMRc=MdKfXJx-cxNr1uOCkifD6YVE2t5w4hkuYy7jcnidiid2Q@mail.gmail.com>
+Subject: Re: [PATCH v3 01/10] string: provide strends()
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_051039_762143_00A50E92 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20251029_053709_578164_BB0AF265 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +108,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I did a review of some Smatch warnings.  These aren't published because
-they generate too many false positives.  Only number 3 and number 7
-are actual issues the rest are style nit-picks.
+On Wed, Oct 29, 2025 at 12:42=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Wed, Oct 29, 2025 at 12:20:37PM +0100, Bartosz Golaszewski wrote:
+> >
+> > Implement a function for checking if a string ends with a different
+> > string and add its kunit test cases.
+>
+> ...
+>
+> > +/**
+> > + * strends - Check if a string ends with another string.
+> > + * @str - NULL-terminated string to check against @suffix
+> > + * @suffix - NULL-terminated string defining the suffix to look for in=
+ @str
+> > + *
+> > + * Returns:
+> > + * True if @str ends with @suffix. False in all other cases.
+> > + */
+> > +static inline bool strends(const char *str, const char *suffix)
+> > +{
+> > +     unsigned int str_len =3D strlen(str), suffix_len =3D strlen(suffi=
+x);
+> > +
+> > +     if (str_len < suffix_len)
+> > +             return false;
+> > +
+> > +     return !(strcmp(str + str_len - suffix_len, suffix));
+> > +}
+>
+> Can you rather re-use strcmp_suffix() from drivers/of/property.c?
+>
 
-1. drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c:2728 vchiq_add_service_internal() info: returning a literal zero is cleaner
-s/return service;/return NULL;/
+I think that strends() and its boolean return value are a bit more
+intuitive to use than strcmp_suffix() and its integer return value,
+the meaning of which you typically have to look-up to figure out. If
+there are no objections, I'd like to keep it and - when it's upstream
+- convert property.c to using it instead. Also: the name
+strcmp_suffix() could use some improvement, seeing how I wasn't able
+to find it, even though I looked hard across the kernel source, while
+I easily stumbled upon a similar implementation of strends() already
+existing in dtc sources.
 
-2. drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c:408 vchiq_shutdown() info: returning a literal zero is cleaner
-Delete the "ret" variable.
-
-3. drivers/staging/vc04_services/bcm2835-camera/controls.c:198 ctrl_set_iso() warn: array off by one? 'iso_values[ctrl->val]'
-There seems to be a mixup between iso_qmenu[] and iso_values[].  The one
-is only used for ARRAY_SIZE() and the other is never checked for
-ARRAY_SIZE().
-
-4. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:337 buffer_cb() warn: can 'buf' even be NULL?
-Delete the NULL check.
-
-5. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:513 start_streaming() pedantic: propagate return from 'enable_camera' instead of returning '-EINVAL'
--       if (enable_camera(dev) < 0) {
-+       ret = enable_camera(dev);
-+       if (ret) {
-                v4l2_err(&dev->v4l2_dev, "Failed to enable camera\n");
--               return -EINVAL;
-+               return ret;
-        }
-6. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:576 start_streaming() pedantic: propagate return from 'disable_camera' instead of returning '-EINVAL'
-Same.
-
-7. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:881 vidioc_querycap() error: uninitialized symbol 'major'.
-   drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:881 vidioc_querycap() error: uninitialized symbol 'minor'.
-No error checking on vchiq_mmal_version()
-
-8. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:1276 mmal_setup_components() info: returning a literal zero is cleaner
-s/return ret;/return 0;/
-
-regards,
-dan carpenter
+Bart
 
