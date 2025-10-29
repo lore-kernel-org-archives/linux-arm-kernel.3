@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B63CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 21:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E72CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 21:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iqao3OAOLCFcHU/rHJrP0WoCHPf0PW0UwACU02JLSpY=; b=eYYtJEikj6fui0RcvmBa2Ftshz
-	DQL6fTUD85Yp43OoEYtQbGRPCJBKZjX+JR8jGPjHlniUBS+yhbm6wEILXGmD3jDoQyc7D0UYyALUE
-	UMSJEHuNHgPbRisDXakMWzyN3CiaV5GdZNLopxjBSadalk9m/7S8TI5Fp0/TAkudJvx0SVAg1sRkT
-	zHPHtrbHgFQNvFGqFqZPKr5qJ1tpj0zewJDvYjKmEpR/mYQGD1K9DAn8VgLYKXlo9VYf4MWcThpD5
-	+o0Ho6uv5k1MpP849nlt2rbMu9omvCd1py7trCe6C8413qkcwmr3Y1DLZ56Otv3U3MCEZQw6bHhFw
-	iRYlowZQ==;
+	bh=ZFhpMv0TS5z8Ka1Q09jnxxHQC5OXHmjo9VvdfZH94aA=; b=HGpWdlZm0F2Nbfh/bpNkYUiXoj
+	xpsFSHjk8xKGx+0GRcYt+Y+dkQpz9K4nyBz69cJO2zk0r1is+zAhr3nEplcdxoLT0BvmNgwoiCeJT
+	SgoP9ZBx8SFO5LPLwCUAckTf6VOM/9nbCvG09YcLxWDlJ77XYuhf7BzSXi+AChevsFPvYlDJwGkkF
+	uAHW8Q9Iz0pcxTFybNz/s30qQ0I4a6ZWwBcmSXCX+7B9WugO2472R1ogHYpfKvS7yZ2QBgRoUQIW7
+	dOICcuE9BfSB5jhSJOqkRQB4f9zDP36fl0KzwHUVoOkAO16uUt1GYK273tKgxcI581BVmZu7ABEOp
+	VEzN42Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEDkl-00000002xyu-230B;
-	Wed, 29 Oct 2025 21:30:47 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vEDkm-00000002xzj-1iWY;
+	Wed, 29 Oct 2025 21:30:48 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEDkd-00000002xwU-2AFE
+	id 1vEDki-00000002xxv-3nGD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 21:30:40 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4770c2cd96fso2278595e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 14:30:39 -0700 (PDT)
+	Wed, 29 Oct 2025 21:30:46 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4270a3464bcso239867f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 14:30:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761773438; x=1762378238; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761773443; x=1762378243; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iqao3OAOLCFcHU/rHJrP0WoCHPf0PW0UwACU02JLSpY=;
-        b=d9cqJ2E4Myh7FoMlDweXJsMYCYP1CPJyrgyKlD8yXGByAAH19i772NDAWguRWNDs+4
-         HLkFvW0kz+bi/ICF1q99TzK0+JVOyfFhcdefBNTxn9iL9SgaFOwr7JOe2M81Nm94NI3p
-         oDr8hVRba16I6x/wGft2HECBtRwNB2ZuWu4fKKHpExvTtRM8luebgZFIaDMhDwLC3n1n
-         s+uppAhZXhZtXOywTrhiHcn5ZYdVv4ZpAAKE/e1m/80aYiv/Dw4mtbV3X/r0KvXJsN/Y
-         2X6B6k1piuAQpLkWMaJdBOWfPb4KXU5nr3ia/VSYg89zD8lIrLKTCjOzBVG6tfaZe6mf
-         oS2A==
+        bh=ZFhpMv0TS5z8Ka1Q09jnxxHQC5OXHmjo9VvdfZH94aA=;
+        b=sHDwiVrKOgiHaRD7YJcUEK0NA9R315BiJ7e3Z59rMlbDVQTZWat9eTRBPsmqj/WJXO
+         rfjOPD630LH5iiif9J2x5lRG1J8Y5SD7RshkNJga2q425F/VhASV660L/hsGVKb0ngr/
+         GY/b9j7kM2u7n5bdWlVPh969Qou6Bq0qcKk4mB5gwPBnilM0zHsy9gaz3BjAp4wGyMPP
+         i8HSxMVLSuXdw9hBzH7n8zz6Ot3AQJw0qjelNLpiflsXrUYqY164PypVCLX2/X80LNEZ
+         RTI35zm6CvxUf5HcxPTMl7o6CPcUMXCrwTT2fQI1T6WzX+xZuAv+pGMlWJYszlSBUyGR
+         MN2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761773438; x=1762378238;
+        d=1e100.net; s=20230601; t=1761773443; x=1762378243;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iqao3OAOLCFcHU/rHJrP0WoCHPf0PW0UwACU02JLSpY=;
-        b=uEURcvgrHz+R/+H5AiN9z9i5chQQlzFpAYyb1s0WZ92/kxMp8IKFJBGy+jrJ1E9QR5
-         IZYtXRoGe4AbY5JIhWWbi8N/j+L698xP5+am/2o0q2erqhCMm6qjdSpUpk8zTYT+TX06
-         keByCeysCc1Nfafa19E04r7fWlo4LIpikt8lGNAMsrNSuZMuLxcmHFQ7UrJfZWSqYR64
-         nrGpeGFU9sctKgbjkmt1BAk5dfhI8gTZMBAGF1E/gS5AxjRNVLI5ETiJFQIr9OT2CpZt
-         ZVtb3BhMkXpx7+/pj8JaoPf/bOB6kMQYnBchH+GDpVs3Pw730Wy55g1c2DoG+Ipz0uAt
-         d/Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCWokmF1h0bIgNsKoFU0REyuQzC5ALtLaPrzrCN1qdJP8xiB54uo9z1oZ3jjaFRUGEKQhwTCMAjrOWllzs2yBrVI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPx6u3n0eLCkHCf7eq+viujWVi93E2Zt69rhxBA3SnxIkjZw8v
-	5uKLxFe7cjenYPLUU6k4+rM8kyQlGE4JLpnVoRMT/rn7nBTEyy4MnTWr6SNS5KOdAmg=
-X-Gm-Gg: ASbGncsZ7UZ3oqh4JYe3aIeoV7yhwlvtxD2m5YUERfm6B+Kc3NsS4fuxm1PZjnNBBfO
-	vm5uMyDiCIWErVALA1Ou7jAvwGs0SLHbvjiwXbX6940dCv1knSN8Sg+RYsEtJtzPf5rzHbatb8y
-	2CGRKUx3OlubaLFzwZuZI2lPLYCspCpN4y24L4SocS8LoDsxSZvqDEB+KeFk9NEd4GojaZTdIeV
-	regBDE2RsOiWAiuawV6d7qa5vgX1jD2oaNLd0U9e3HUq8udWmL2bAC+gw3jN9EYdEfTCunVgLby
-	s5+To84uaZloL9koYWVQKz72+U/DaHmUq74clIu7FnENxbtXyoPC2PEWQy9gKoC929VUM6JOXYl
-	T2jJ31++jOQAK8KsHy0E40E89jPJf/iQ0DJ7tjnLBfx1DhoCn7U12m4er1G1Dv1kLWdgfAjaxeO
-	dvtbwYYlelX0d3Nkgepot8YmIopL7Wsg==
-X-Google-Smtp-Source: AGHT+IGp/EK/XdKFzXP6oeVl2/r7JHS0fvkT2KmtT02FgLGepcMP0rkpaLkN8Wts6sL/irg9mBZrSw==
-X-Received: by 2002:a05:6000:1ace:b0:427:9d7:86f9 with SMTP id ffacd0b85a97d-429aefca833mr3622435f8f.47.1761773437650;
-        Wed, 29 Oct 2025 14:30:37 -0700 (PDT)
+        bh=ZFhpMv0TS5z8Ka1Q09jnxxHQC5OXHmjo9VvdfZH94aA=;
+        b=dRIYFf4kfuASclgD7D9z6o+VMxyQUTZLHtuWTHpjbW8RYIA1vQofHWc4mxuad+LLbf
+         cPnv4BTrdnoh+ceow+Tx6JAPbTkb4Os+T4JUh0Fxa43Re3Aink7igHae67qGHOxd8j8Q
+         5uBlTXNZx0lb/Hx49LTLz8LEMxLhKwdd+qXcH4aUQ7ikCic17s3qH8QLu4mY5lE6xrYc
+         OBy0bxpG6YURoEL6V3MdMSyH7wkpqjI8Opun38f2LKXmqpj1sToOvrccgWfLt4YnouJz
+         X3A6W46L8/43RLXFz7DrIGWmO1A9wPc437tb0F1H238Gknrdh6yqWfUOqMuURkcdk/oD
+         UX5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUjnvmlj5H+B4HWkpGLWBBFMMKTWHCsPob1IyKEV9xaegvaHdmTM00XuZHqqhnKIRG+nYPu3c3DOk33HwgetVHo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRLe2TIIqRjTOTFdzmTE/HRQ1owosmRAolQ2591JiPjlRIA83u
+	KP/etu5jRcZIOPsDoodzy9nwuGi2xqfuhD5B8YobAddiRWRwWvLQxsOemSad2hMMkKU=
+X-Gm-Gg: ASbGncsClUbdxXoQfWXWXFDKoHICvbZXJXTIqfWw3wYwvZDIrSccSTfUom6EilPrVI8
+	qzb3Yp+hqWF4X41E1XXAECaf+BdmDgu7oJi0D8tdW7jj4Dkp6o5JMT688W5FzCNJPedr6YMd/7D
+	1HVUiMBov9h9CQHgZT3qmnjF9Slrk5Q6kaQ4UknOsKbzb2CcU1pBcvW0YYRdasLaCr4p6whvV2k
+	t5KqDyyTpHFAz7F20sQxTM9UZOFTJo8+AwB6Rkym914iyyliyJvUUfqMShezCNqqQZWzeeyx3i0
+	gNZbV/BjicTCEq4yqqFs4VN0XtdPN983/wn5HpYjkLpJd7o7ADUWWtJ6tBj0JJRDcrH2Nrs+1Pj
+	5LaIEoQh0E/PH4ZCNMU86wkNxeINN2nv1/MpJJheGOmEi1J6UN6kFKGyFlNXw/yNE0i3LWTj0nS
+	T1Nn0L99f70C6dqFKcd84RcyGXYO1/Ng==
+X-Google-Smtp-Source: AGHT+IHVKBgjvBcg1f/6q88hadZlvNZkx1IaeehmFQmwK/82FK+KqLJA2Oi5GwkBpiXwwokUglXnGg==
+X-Received: by 2002:a05:6000:2006:b0:427:847:9d59 with SMTP id ffacd0b85a97d-429b4c9ee68mr1094202f8f.45.1761773443210;
+        Wed, 29 Oct 2025 14:30:43 -0700 (PDT)
 Received: from gpeter-l.roam.corp.google.com ([145.224.90.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952b7b43sm28573457f8f.6.2025.10.29.14.30.34
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952b7b43sm28573457f8f.6.2025.10.29.14.30.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 14:30:36 -0700 (PDT)
+        Wed, 29 Oct 2025 14:30:42 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 29 Oct 2025 21:29:22 +0000
-Subject: [PATCH v2 1/4] dt-bindings: clock: google,gs101-clock: add
- samsung,sysreg property as required
+Date: Wed, 29 Oct 2025 21:29:25 +0000
+Subject: [PATCH v2 4/4] clk: samsung: gs101: Enable auto_clock_gate mode
+ for each gs101 CMU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251029-automatic-clocks-v2-1-f8edd3a2d82b@linaro.org>
+Message-Id: <20251029-automatic-clocks-v2-4-f8edd3a2d82b@linaro.org>
 References: <20251029-automatic-clocks-v2-0-f8edd3a2d82b@linaro.org>
 In-Reply-To: <20251029-automatic-clocks-v2-0-f8edd3a2d82b@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -95,26 +95,26 @@ Cc: Will McVicker <willmcvicker@google.com>,
  kernel-team@android.com, Peter Griffin <peter.griffin@linaro.org>, 
  Krzysztof Kozlowski <krzk@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2314;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6237;
  i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=LZlI+SfH2hRW7IEmiRIC6Wm5gYA1XEvv2huR7APCMnc=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpAod3/hjW6JkpLI91/1F2pv5Yk5g8WxPvDM225
- Z9qWHYzybqJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaQKHdwAKCRDO6LjWAjRy
- uraFD/9gcT510rus+j0Qwf85erYOI8NExBts88NnHeq2TsV5BroIjNQqqB2b5LnQjEQM4oylJHT
- CMTJAIIfJ5z/6bCamCq/NuCVjLI3vLJnKVTNaByO2kcvUpHz1Fg71I8XzEAdqkhECDZYqFEPeAT
- atVq5LQi9DRfjH3PzTrhQROICxcEoWSKQFPlrT85bdS6zHWUHAkW8jM0KWemy8JUuV0ke3GLVxS
- a4bkBgM/xXJ4fFD3IbOkQ/vH6wvYgBt/zL72tuVuJHUmIjT1cqp11Wp578oudpLnLDC/9FxO/7V
- LLYWtXfSFIe35m9Mmh4J3TASKoAULUI5QPuR3vS6ZwxaNU0iPXvIZWCoLtvTKzN3Q+m57DIEO4p
- JkfMCqM2OCEyFBJLxAmlCaWGSLE11l2GnT/+/cUHlBaywJoQPzK0A0dSeExxJDqFYlfPcF5ikjq
- iH+yft53TkF8/aizlyA8g16Odgx/399UY2axj3STLfmVly2dfwREuR06g59h3qO1Q+/I31KuYDJ
- TuEmdjq8/LnUXgJ6ud6PMmztXP2w2DnjKyBfd4JrQhsETlpkN0YuXDFdcOBcGjylQMIPJIYbafn
- BeHWnCY9dXPAqGSnLKz/uJDSCkFLfukdTxqagbWd0wikEDoT58tKiVQFhCWr1DXLnzrqgo6WZTa
- PrVYt8q/hJjDlHw==
+ bh=oM4kL/PXCK2EPatzGpk867zg8TyU+43TUg05bDgKThA=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpAod4kOXb2zATBSZi/XvWQU+uUmKxKhl+dduVU
+ SSmHS8LRxaJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaQKHeAAKCRDO6LjWAjRy
+ uvt4D/9OY4nx/ssfdyJfQsLWXa4i/pTsHM7F9uszUzRBnrjQQ8G6kzTI0gS4k5L+My4tHiYMzIg
+ IB9D9hhN9dLM4lhsnR+cQDd6A8yFp5izu78n0pVC93sJe0ESdXmVI/0eEkHB9oCTcvhyPp8smOl
+ j/tgdTiLclBB7KnLoe6bBRZTfy2Y6b91xIoyaDLuE1jRdln8b2h5zlE2XubIUqitTFSXlNacfI0
+ r7PoQY646CnLo51RpsRpPsKDXqwEqegI0o7/0St4GPkXiKq532mUyegf89RZJe3SdfPUJFqZfN2
+ 5hRgje4cyWgXU1UDlbhUW4rkToPhpQODp4Aqp+CSa+yY+lutEFmNMpuYGMyLPHLzwzTY8Ek98it
+ lE7IfuKN2+nKIiGyWsNjvSGHlLj8qNEQoBezUGShZBcecEHf+lddPfohia2mYmgka0LH6guH/c5
+ J0wiZvDPJkGkPK7f2T87KG/8UEqYxpKbQJhWQOm3nlC7/SS+fbLcmalHoP2t0pAOTLr3+gA+w4B
+ nNyBRayv7yVqytIVVDpX1FMkL2OR+FKX3BaW3eDS5saHqVp1ReNDyuaN4vEGi9E9rNANrqZ4xiB
+ NgV+ZVB+k4exZjd6D4sJQyZJcavHSJhcLX7jjaHLTs67kilnRJh9Iu/ksj7enAiNZ6igT/vA4v6
+ bTu4W3eS7BVVodw==
 X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
  fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_143039_588989_389B8373 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20251029_143044_987752_9EE9234E 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,73 +129,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Each CMU (with the exception of cmu_top) has a corresponding sysreg bank
-that contains the BUSCOMPONENT_DRCG_EN and MEMCLK registers.
+Enable auto clock mode, and define the additional fields which are used
+when this mode is enabled.
 
-If present these registers need to be initialised in the clock driver.
-Update the bindings documentation so that all CMUs (with the exception of
-gs101-cmu-top) have samsung,sysreg as a required property.
-
-Additionally update the DT example to included the correct CMU size as
-registers in that region are used for auto clock mode.
+/sys/kernel/debug/clk/clk_summary now reports approximately 308 running
+clocks and 298 disabled clocks. Prior to this commit 586 clocks were
+running and 17 disabled.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
-v2:
-* Update commit description as to why the sysreg is required (Krzysztof)
-* Update commit description regarding updated example (Andre)
----
- .../bindings/clock/google,gs101-clock.yaml         | 23 +++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+ drivers/clk/samsung/clk-gs101.c | 56 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml b/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-index 31e106ef913dead9a038b3b6d8b43b950587f6aa..5ce5ba523110af3a2a7740b8ba28e2271c76bddb 100644
---- a/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-@@ -52,6 +52,11 @@ properties:
-   reg:
-     maxItems: 1
+diff --git a/drivers/clk/samsung/clk-gs101.c b/drivers/clk/samsung/clk-gs101.c
+index 70b26db9b95ad0b376d23f637c7683fbc8c8c600..68c5ed8f0fe1cac5169313b6ec705f9eec44ff53 100644
+--- a/drivers/clk/samsung/clk-gs101.c
++++ b/drivers/clk/samsung/clk-gs101.c
+@@ -9,6 +9,7 @@
+ #include <linux/clk-provider.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/of.h>
++#include <linux/of_address.h>
+ #include <linux/platform_device.h>
  
-+  samsung,sysreg:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to system registers interface.
+ #include <dt-bindings/clock/google,gs101.h>
+@@ -26,6 +27,10 @@
+ #define CLKS_NR_PERIC0	(CLK_GOUT_PERIC0_SYSREG_PERIC0_PCLK + 1)
+ #define CLKS_NR_PERIC1	(CLK_GOUT_PERIC1_SYSREG_PERIC1_PCLK + 1)
+ 
++#define GS101_GATE_DBG_OFFSET 0x4000
++#define GS101_DRCG_EN_OFFSET  0x104
++#define GS101_MEMCLK_OFFSET   0x108
 +
- required:
-   - compatible
-   - "#clock-cells"
-@@ -166,6 +171,22 @@ allOf:
-             - const: bus
-             - const: ip
+ /* ---- CMU_TOP ------------------------------------------------------------- */
  
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - google,gs101-cmu-apm
-+              - google,gs101-cmu-misc
-+              - google,gs101-hsi0
-+              - google,gs101-cmu-hsi2
-+              - google,gs101-cmu-peric0
-+              - google,gs101-cmu-peric1
+ /* Register Offset definitions for CMU_TOP (0x1e080000) */
+@@ -1433,6 +1438,9 @@ static const struct samsung_cmu_info top_cmu_info __initconst = {
+ 	.nr_clk_ids		= CLKS_NR_TOP,
+ 	.clk_regs		= cmu_top_clk_regs,
+ 	.nr_clk_regs		= ARRAY_SIZE(cmu_top_clk_regs),
++	.auto_clock_gate	= true,
++	.gate_dbg_offset	= GS101_GATE_DBG_OFFSET,
++	.option_offset		= CMU_CMU_TOP_CONTROLLER_OPTION,
+ };
+ 
+ static void __init gs101_cmu_top_init(struct device_node *np)
+@@ -1900,6 +1908,11 @@ static const struct samsung_gate_clock apm_gate_clks[] __initconst = {
+ 	     CLK_CON_GAT_GOUT_BLK_APM_UID_XIU_DP_APM_IPCLKPORT_ACLK, 21, CLK_IS_CRITICAL, 0),
+ };
+ 
++static const unsigned long dcrg_memclk_sysreg[] __initconst = {
++	GS101_DRCG_EN_OFFSET,
++	GS101_MEMCLK_OFFSET,
++};
 +
-+    then:
-+      required:
-+        - samsung,sysreg
+ static const struct samsung_cmu_info apm_cmu_info __initconst = {
+ 	.mux_clks		= apm_mux_clks,
+ 	.nr_mux_clks		= ARRAY_SIZE(apm_mux_clks),
+@@ -1912,6 +1925,12 @@ static const struct samsung_cmu_info apm_cmu_info __initconst = {
+ 	.nr_clk_ids		= CLKS_NR_APM,
+ 	.clk_regs		= apm_clk_regs,
+ 	.nr_clk_regs		= ARRAY_SIZE(apm_clk_regs),
++	.sysreg_clk_regs	= dcrg_memclk_sysreg,
++	.nr_sysreg_clk_regs	= ARRAY_SIZE(dcrg_memclk_sysreg),
++	.auto_clock_gate	= true,
++	.gate_dbg_offset	= GS101_GATE_DBG_OFFSET,
++	.drcg_offset		= GS101_DRCG_EN_OFFSET,
++	.memclk_offset		= GS101_MEMCLK_OFFSET,
+ };
+ 
+ /* ---- CMU_HSI0 ------------------------------------------------------------ */
+@@ -2375,7 +2394,14 @@ static const struct samsung_cmu_info hsi0_cmu_info __initconst = {
+ 	.nr_clk_ids		= CLKS_NR_HSI0,
+ 	.clk_regs		= hsi0_clk_regs,
+ 	.nr_clk_regs		= ARRAY_SIZE(hsi0_clk_regs),
++	.sysreg_clk_regs	= dcrg_memclk_sysreg,
++	.nr_sysreg_clk_regs	= ARRAY_SIZE(dcrg_memclk_sysreg),
+ 	.clk_name		= "bus",
++	.auto_clock_gate        = true,
++	.gate_dbg_offset        = GS101_GATE_DBG_OFFSET,
++	.option_offset		= HSI0_CMU_HSI0_CONTROLLER_OPTION,
++	.drcg_offset		= GS101_DRCG_EN_OFFSET,
++	.memclk_offset		= GS101_MEMCLK_OFFSET,
+ };
+ 
+ /* ---- CMU_HSI2 ------------------------------------------------------------ */
+@@ -2863,7 +2889,14 @@ static const struct samsung_cmu_info hsi2_cmu_info __initconst = {
+ 	.nr_clk_ids		= CLKS_NR_HSI2,
+ 	.clk_regs		= cmu_hsi2_clk_regs,
+ 	.nr_clk_regs		= ARRAY_SIZE(cmu_hsi2_clk_regs),
++	.sysreg_clk_regs	= dcrg_memclk_sysreg,
++	.nr_sysreg_clk_regs	= ARRAY_SIZE(dcrg_memclk_sysreg),
+ 	.clk_name		= "bus",
++	.auto_clock_gate        = true,
++	.gate_dbg_offset        = GS101_GATE_DBG_OFFSET,
++	.option_offset		= HSI2_CMU_HSI2_CONTROLLER_OPTION,
++	.drcg_offset		= GS101_DRCG_EN_OFFSET,
++	.memclk_offset		= GS101_MEMCLK_OFFSET,
+ };
+ 
+ /* ---- CMU_MISC ------------------------------------------------------------ */
+@@ -3423,7 +3456,14 @@ static const struct samsung_cmu_info misc_cmu_info __initconst = {
+ 	.nr_clk_ids		= CLKS_NR_MISC,
+ 	.clk_regs		= misc_clk_regs,
+ 	.nr_clk_regs		= ARRAY_SIZE(misc_clk_regs),
++	.sysreg_clk_regs	= dcrg_memclk_sysreg,
++	.nr_sysreg_clk_regs	= ARRAY_SIZE(dcrg_memclk_sysreg),
+ 	.clk_name		= "bus",
++	.auto_clock_gate	= true,
++	.gate_dbg_offset	= GS101_GATE_DBG_OFFSET,
++	.option_offset		= MISC_CMU_MISC_CONTROLLER_OPTION,
++	.drcg_offset		= GS101_DRCG_EN_OFFSET,
++	.memclk_offset		= GS101_MEMCLK_OFFSET,
+ };
+ 
+ static void __init gs101_cmu_misc_init(struct device_node *np)
+@@ -4010,6 +4050,10 @@ static const struct samsung_gate_clock peric0_gate_clks[] __initconst = {
+ 	     21, 0, 0),
+ };
+ 
++static const unsigned long dcrg_sysreg[] __initconst = {
++	GS101_DRCG_EN_OFFSET,
++};
 +
- additionalProperties: false
+ static const struct samsung_cmu_info peric0_cmu_info __initconst = {
+ 	.mux_clks		= peric0_mux_clks,
+ 	.nr_mux_clks		= ARRAY_SIZE(peric0_mux_clks),
+@@ -4020,7 +4064,13 @@ static const struct samsung_cmu_info peric0_cmu_info __initconst = {
+ 	.nr_clk_ids		= CLKS_NR_PERIC0,
+ 	.clk_regs		= peric0_clk_regs,
+ 	.nr_clk_regs		= ARRAY_SIZE(peric0_clk_regs),
++	.sysreg_clk_regs	= dcrg_sysreg,
++	.nr_sysreg_clk_regs	= ARRAY_SIZE(dcrg_sysreg),
+ 	.clk_name		= "bus",
++	.auto_clock_gate        = true,
++	.gate_dbg_offset        = GS101_GATE_DBG_OFFSET,
++	.option_offset		= PERIC0_CMU_PERIC0_CONTROLLER_OPTION,
++	.drcg_offset		= GS101_DRCG_EN_OFFSET,
+ };
  
- examples:
-@@ -175,7 +196,7 @@ examples:
+ /* ---- CMU_PERIC1 ---------------------------------------------------------- */
+@@ -4368,7 +4418,13 @@ static const struct samsung_cmu_info peric1_cmu_info __initconst = {
+ 	.nr_clk_ids		= CLKS_NR_PERIC1,
+ 	.clk_regs		= peric1_clk_regs,
+ 	.nr_clk_regs		= ARRAY_SIZE(peric1_clk_regs),
++	.sysreg_clk_regs	= dcrg_sysreg,
++	.nr_sysreg_clk_regs	= ARRAY_SIZE(dcrg_sysreg),
+ 	.clk_name		= "bus",
++	.auto_clock_gate        = true,
++	.gate_dbg_offset        = GS101_GATE_DBG_OFFSET,
++	.option_offset		= PERIC1_CMU_PERIC1_CONTROLLER_OPTION,
++	.drcg_offset		= GS101_DRCG_EN_OFFSET,
+ };
  
-     cmu_top: clock-controller@1e080000 {
-         compatible = "google,gs101-cmu-top";
--        reg = <0x1e080000 0x8000>;
-+        reg = <0x1e080000 0x10000>;
-         #clock-cells = <1>;
-         clocks = <&ext_24_5m>;
-         clock-names = "oscclk";
+ /* ---- platform_driver ----------------------------------------------------- */
 
 -- 
 2.51.1.851.g4ebd6896fd-goog
