@@ -4,67 +4,215 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77F6CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 20:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E07CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 20:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:In-Reply-To:Date:MIME-Version:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:From:References:CC:To:Subject:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=s9g2Js5R08cAxeOIEvq9143t2u9EB2ub+jMhK2A6O7M=; b=erI6i2x28Ltq0Q
-	QPFa1f2fcSz+CRMoHXAP1UPZER+qWjwyO/ytz0FOFwVSw8vUJkYkHnM4lUswKsVn+Nso5OlYlujSl
-	aLCjZlcBQJPNxCYVegBLZkRfsozY7sWP3/T9tjM0hqhWgBv6KG5plV1B6VzoRbcaX6PkIFNQ5sICw
-	3Jq7+xVyBJzLZIz+oSQzPxnvnof+cBs/TwIcYeZlf/DB1iDtV9RIlQWIiu1AekTgkxvIWQ6U54Nif
-	7Jp/KTQxntjFs3xgx44kN/TGAXBkc/d2iGtoAxT2DMcdNsz1uY9l1P0sXFa6RK/nVsXU/IPXbEGZZ
-	X2KB2SahmCA+qiTP8n1A==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H2mstesM+TRJK5mM98hN5QEjIBA5DzXoBoeSW+aoILc=; b=FCn9Xtk3ztkzMDUddo0XlOA0EK
+	Gr3BriPirM+NOqUPKzW11zCYdsQeiZHqJ+rKKVG9qwQll00bYkcFKBzIUMYEnh/oo+vKHpeGVKZbC
+	D+JbMrdFuyyEqgS8TKevv+3i9T/7veIKZiszvS06pefC72hnnFZ0wRXbge3R6eE55HCgRPtstn72l
+	Ny93degKeCnDes9Of15anfVFfkshUjBb0G1DfKlxMFmvDbbj84oFcYLTNycQrN1UI1ayP0Afc17TT
+	TBPJYzdw4baKGDFHvYPVBnZ+dgzcuJpHjEhDHVlN3nzp1asqXbOAr1F0f1JORAsoc/DZXaXVHQwpx
+	2caXtxPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vECPG-00000002iV0-2Unk;
-	Wed, 29 Oct 2025 20:04:30 +0000
-Received: from mail-il1-f207.google.com ([209.85.166.207])
+	id 1vECRw-00000002j2b-0NQ1;
+	Wed, 29 Oct 2025 20:07:16 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vECPE-00000002iUC-3v9f
+	id 1vECRt-00000002j1J-0bUe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 20:04:30 +0000
-Received: by mail-il1-f207.google.com with SMTP id e9e14a558f8ab-430da49fcbbso3456375ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 13:04:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761768267; x=1762373067;
-        h=to:from:subject:message-id:in-reply-to:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s9g2Js5R08cAxeOIEvq9143t2u9EB2ub+jMhK2A6O7M=;
-        b=h7Ek6RzEHWHgUVGT5OYxU7YhpW8KxM/9LmzXyycWs5AR3n78q3/JiGof1tTpU8kJkL
-         GxRGqGBHJwijlrviYMMvZtwZNQNgCzjWTaBI7K/G9WH+xvcACyayaCXVf+kgzKPGdunf
-         VxB9LXwTNQekfg3+1VZ2/QfgKIIheSHViZb3leANLeYF/VnUByRSYDsSBxxQ/HBQDu6J
-         VhW5CnKa5Rc8mViOBh/RUFBbomfPr7g8r+3dTe0m4I+HiNBRbtE/WCgqr3dCHCWaTIMo
-         XEWAlM9tPd7Yzx8CUhRoXykSbgFct9JLclGw2UVdER0yd+sHvJpmc4yCxtkRBG+nlek5
-         7EHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV0QL7pC9RjylGqe9imktClsIGRs/x5MOS26ZnBTrHukHPlW2pCrtY8QJwcHu/CvVrwqOwo8VwDX7LNIMNfFsW/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxje1Xtd4AkZx+xT9uHxadI3hQtPTz7P523lzrVf+8S6dk1Aade
-	VU8cWI+4wySX6xU9rTD8D1Bqnab0phgA+CK2x0Nw//9VubuMyVziKUPxsHHr2FaHrIC3R+4CL+W
-	4HTvh8y6gHBGWnJmXz9G/bwszMGMAcNVMzoftdG+Ngr7ibKNfrz5sZDC/wps=
-X-Google-Smtp-Source: AGHT+IHIYFLsAiBCqojPIt2QDWa9d/yLxjivS9JM+BHMWwChpQQKGmD61OncOVmQEwUwcLFJDz83jDyr5DBAP7ALsrxrwXOp6FZQ
+	Wed, 29 Oct 2025 20:07:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761768433; x=1793304433;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:mime-version;
+  bh=bwWxWYtOtMP8dUnyaAqbI1p3e3xpdz4NiUlxU1HUXJo=;
+  b=hHpcCw52LihwT7Cr7erOoyHB/Rq2Rs46M6pfLqEQMdM8VGD8AQ6fwc49
+   kbC4TONmYY+dxTagZQ2CWakRdPr8obiu4d7yHXUTcItXdha2g4DZQyYv+
+   cTe+Z14yrGPSNAUq5hqEldsU5Jvk4PLmNGjz0gnwqrN69uvtAUhKVfIoy
+   TxPKKIFess0oD0/dDsPBpmFEgr/2z8JaWvOr8fO1BD1dy7Ztadbu9JyDg
+   kJXphAN2plle8HSQfYMwPOQCPfNXpmcpiBTKfbwPJ/6s5bWv45q1Hjeka
+   fJgckpYaGnxxzIqStqcvmU2vTkKOhHmpB4s2eAxJ+oAmM84GBxpQMDV7E
+   w==;
+X-CSE-ConnectionGUID: rOdKv+AEQq6SQ3fbrnFm6A==
+X-CSE-MsgGUID: kaMbBnaNRBC0074QDRrTBQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11597"; a="63998434"
+X-IronPort-AV: E=Sophos;i="6.19,264,1754982000"; 
+   d="asc'?scan'208";a="63998434"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 13:07:11 -0700
+X-CSE-ConnectionGUID: XkpmzJwERJW6GhquVZqS4w==
+X-CSE-MsgGUID: l3DQZX1CQbS6FvzcvGlYcw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,264,1754982000"; 
+   d="asc'?scan'208";a="222977523"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 13:07:11 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Wed, 29 Oct 2025 13:07:10 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Wed, 29 Oct 2025 13:07:10 -0700
+Received: from CO1PR03CU002.outbound.protection.outlook.com (52.101.46.1) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Wed, 29 Oct 2025 13:07:09 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KrG7AwwqyIICmMAgQAHHa7S+zq6bSA1dAe97MCupGmf0neEe6NSatKZY6iiqPDD54Qxcw0YosHjuTu85YKF837bBcsmyjHHT+vybxfnlSjgi2+MOaQ8MnKamIBpfPFomiY3MlNJo4wE3Oj2sedEzXhQAgM3qbVwzgARpTROJeNxhr9+cQPiBn9AhmRBZbNBnD7djSdcNk7KIsfXjEDOlODE2VrpwhQlCNECftStJ4YFxjyKWGuWVnptDoZqxEvNWkalsKdRHZh3+3hcysKk2mbsKi7nqc9IY+uMGdUURqt5I3E2SiJewYbZw8sjVxhd8ss5ACJI0x8K1sFpFMFIjug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H2mstesM+TRJK5mM98hN5QEjIBA5DzXoBoeSW+aoILc=;
+ b=NwYKytIq5S+hRMaHlJOp4TjJ0+swWZ1LwVkHNhe1qh59qYb28HWmrl/CLLNmeyudzMcapMxaJBx22ii8L9oHHGx8RDjGv9RLLv3fgzym9ukWyqowcJhwAZ7Ulyhd/h1yu9DVqd2Xq2IDX47q/Xawsr4ASEqUZK3EIjGYOauUuLzvVekLEpqAAoNwGcoAZvrNlWBezBG2rbr5f0WFQtrD8MEdGBoWoxXSR7FJgf7orIYe5tQKQRgNyP3bTbpKXt8DQmPjVWMxVSsijnfAhrdBFkdUHlD3YJIDMqqLzCRJqOK6JBMUgpqEYgpRMAgadJufVWQjcFtAeBIaqesk8waShQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
+ by CYXPR11MB8712.namprd11.prod.outlook.com (2603:10b6:930:df::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Wed, 29 Oct
+ 2025 20:07:07 +0000
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::81f7:c6c0:ca43:11c3]) by CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::81f7:c6c0:ca43:11c3%3]) with mapi id 15.20.9253.017; Wed, 29 Oct 2025
+ 20:07:07 +0000
+Message-ID: <959d8329-bb9d-457e-a4a9-f7d60fbf83a8@intel.com>
+Date: Wed, 29 Oct 2025 13:07:06 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3] net: ethernet: ti: netcp: Standardize
+ knav_dma_open_channel to return NULL on error
+To: Nishanth Menon <nm@ti.com>, Jakub Kicinski <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "David S. Miller"
+	<davem@davemloft.net>
+CC: Simon Horman <horms@kernel.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>, Eric Dumazet <edumazet@google.com>, "Andrew
+ Lunn" <andrew+netdev@lunn.ch>, Santosh Shilimkar <ssantosh@kernel.org>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>
+References: <20251029132310.3087247-1-nm@ti.com>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+Autocrypt: addr=jacob.e.keller@intel.com; keydata=
+ xjMEaFx9ShYJKwYBBAHaRw8BAQdAE+TQsi9s60VNWijGeBIKU6hsXLwMt/JY9ni1wnsVd7nN
+ J0phY29iIEtlbGxlciA8amFjb2IuZS5rZWxsZXJAaW50ZWwuY29tPsKTBBMWCgA7FiEEIEBU
+ qdczkFYq7EMeapZdPm8PKOgFAmhcfUoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AA
+ CgkQapZdPm8PKOiZAAEA4UV0uM2PhFAw+tlK81gP+fgRqBVYlhmMyroXadv0lH4BAIf4jLxI
+ UPEL4+zzp4ekaw8IyFz+mRMUBaS2l+cpoBUBzjgEaFx9ShIKKwYBBAGXVQEFAQEHQF386lYe
+ MPZBiQHGXwjbBWS5OMBems5rgajcBMKc4W4aAwEIB8J4BBgWCgAgFiEEIEBUqdczkFYq7EMe
+ apZdPm8PKOgFAmhcfUoCGwwACgkQapZdPm8PKOjbUQD+MsPBANqBUiNt+7w0dC73R6UcQzbg
+ cFx4Yvms6cJjeD4BAKf193xbq7W3T7r9BdfTw6HRFYDiHXgkyoc/2Q4/T+8H
+In-Reply-To: <20251029132310.3087247-1-nm@ti.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------kbNJ2hWyIe7VXIVcNzELK8rv"
+X-ClientProxiedBy: MW4PR03CA0026.namprd03.prod.outlook.com
+ (2603:10b6:303:8f::31) To CO1PR11MB5089.namprd11.prod.outlook.com
+ (2603:10b6:303:9b::16)
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:1f13:b0:42e:7589:6290 with SMTP id
- e9e14a558f8ab-432f8fbe8b4mr61708075ab.12.1761768267270; Wed, 29 Oct 2025
- 13:04:27 -0700 (PDT)
-Date: Wed, 29 Oct 2025 13:04:27 -0700
-In-Reply-To: <68cd66b0.050a0220.139b6.000f.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6902734b.050a0220.3344a1.0430.GAE@google.com>
-Subject: Re: [syzbot] [kvmarm?] kernel BUG in kvm_s2_put_page
-From: syzbot <syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
-	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|CYXPR11MB8712:EE_
+X-MS-Office365-Filtering-Correlation-Id: e4e66ca8-f1b2-45f6-708b-08de1726bcb0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Vk9GSTc1NUNFVWh6ZGVZRStTY2tvd2trVndzMmpVUHZUd1F2RTdnaE9zallF?=
+ =?utf-8?B?Um9xMUJOS1k5emYrNzEzSEVMKzV1RUZGREpnRnl0ZWlLdHJOTXVpR2kzWUEz?=
+ =?utf-8?B?SEd0NVAreE42L1dCM2ZUS0dCeGtiWUdXWW9UeEdoenFDWDNOSzhYRjliWWw2?=
+ =?utf-8?B?REJxUlhvUlc0amRUMlJVKzNQaWFZQWZJT3lWUWhPeVNWeVNxTk9zODFGTGdz?=
+ =?utf-8?B?RC9qelhUM1lSVjhrajVwN3NIVWtwT1hCcmNjeERLOS9zbmNJTUgxTWoreTFW?=
+ =?utf-8?B?RUp6cHUvL0c5aVoyQWRoeEJaUHFSK3IzVlpDZzdFa25odU5DN1JDMDhvZWV0?=
+ =?utf-8?B?V2JUS29PK1oydnZxb0VRQXlVYkpRV2hVS25VVUJWaWpXNGthK2RSUVM1MTdR?=
+ =?utf-8?B?Zk9WMG9vU3hLYnNxV1h4QlhmUDVVa3VZWWVla0tZNmJWWnpyUE5neGp5Rmhh?=
+ =?utf-8?B?TUh2NitEcGdZVjJVOEJZNXdSS0xnalZPSXJtWDY4K1NBeDNqRHg2Ny8wM0Q2?=
+ =?utf-8?B?SUUxNFBWek94VDVPU2ZvcWJRME52U3VBWkZZbGU5cnExVk15M2VrZTJCSlFW?=
+ =?utf-8?B?L1N1d28zWVhjSU1INzF0U0tRbzM4MjF3c3FlY0VRdmRLTEdUOVhnWG8yaHJ4?=
+ =?utf-8?B?L3Yvdi9yOG1wSEVLRFBMVGVpd2FsQ095Q21GbkxsTmNjbVo0MmIvd1J3WlBE?=
+ =?utf-8?B?WTFUTkZPMkhRM1ZrZHk1QUsyZmxqeXF0VG0zOHdDV2k1VzlxOGM1Uk5MRHA3?=
+ =?utf-8?B?SjhjeUpmbG1McXNtakUzT3Vka1QwdHVMZmo5WkptdG43YWhIbktOV2p4VEVy?=
+ =?utf-8?B?M1N0N0xuUVFTZklWOG1lZGFOTjduS0R2QTlFTTBuSTkrRTZmVkliallnZExE?=
+ =?utf-8?B?eUxibVdaK05nSmMxNzdMaUEvTGVYWnIycjNjSjlwemdBUzM0Q3ZQUlpWeEZT?=
+ =?utf-8?B?czRPZXd0a0dZU0l4QkNZZzd2aHRjRzBZa3R6VnNlYkQ5OG5IQ2JpZENIbWM4?=
+ =?utf-8?B?VHI2UStoMEYycFhxWlh3VzVaRFowdEcyVDRXbGw0bXRvTEZ3NVJoc0MxVklC?=
+ =?utf-8?B?TGdKYzZnL1padTVZdDEzV1p0TnQ5TUxRV1JjTG1yQTlFZU1PWGpGOFFoZnFu?=
+ =?utf-8?B?Rm1XSmhUeWdxNnlQZlI1MFRyajQ4VXRHUnIybG1UZTI2UU1LVmVFSVFOcHFv?=
+ =?utf-8?B?UkowMUdUYTVJekp4L1RHNkNYNUliaGJSWSsyTGw0R3kyR0s0MDVPQk1pR1lo?=
+ =?utf-8?B?QzE4L2NrQ05GY2dvQjNaci85dHpnM1l4bGN2UUVFOHNhWjE3KzBOWEFxMVJh?=
+ =?utf-8?B?RkEzaFVHNTFUcXFtYXVsS0t6eTF3ZnpQSEt0Qi9Ma1VhbllSaGNhY0FpT0Ux?=
+ =?utf-8?B?em1XSzZJSlovNk1HSmMrKzJmMUxxRG80RG5JMXcwakJWT1lnT1ZsbmtyOG8w?=
+ =?utf-8?B?NitlMXRrbnZNWjhaVEkwUTJZeFBLWnJuVTFIbFlISm1ibTJyaThZdjBvanR4?=
+ =?utf-8?B?aWYwcjNhN2hHOTc4cmZQRG5kZVBVU01lOUVhdGlTM0E0bzRXTGYxVjFudCs3?=
+ =?utf-8?B?ZnFyWFRIWlBMY2hqbG5abk4yTlBOSTRnekwzSVEyR1RJWjVqYTZKODRRdFpt?=
+ =?utf-8?B?WkorTEdKaGpWQklUc2hZcGV6V1VWaEdnQ093OFRCVTEzS3NnTlpzRFZCZngw?=
+ =?utf-8?B?SDFINEYyb2txVXNzYzd4ZC9xSjJ5NjNLWlZ5dHJBekxMQzR0NkZOQ3NDU2Rs?=
+ =?utf-8?B?V3U5eGlPbDNKaDJzQ3pOcloxTDE2dFhnRlp1SGVLVVd4RGZjNFpxeFJ1QnB0?=
+ =?utf-8?B?bEdnV1lZcEwwTkZhM1Eyd2FCSG51bi9CZGVMaUdqZmkwNWdIWERJWWdiRy9q?=
+ =?utf-8?B?OEsxcHk3Yk1kVXE3eFNYa2swd1NsYWdNYk9iTlNlZnJUUjdqU1h1YVJwRDdV?=
+ =?utf-8?Q?z+eAJDVZQt1RyZO/oXgaqg+D+FCPK7m5?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZnBKVmlpcUZla3U2bWtQMEJkMmpxMDhOUVI2UGx2aEZQRmpRU2NjUEpaNlZO?=
+ =?utf-8?B?V2MyMjd3Sm9mWS9hTkI1WWRDSTJTcUszU0RNY2I1Z2RuZFJuMy9rVWN6ZWNY?=
+ =?utf-8?B?dHV2dThxUkdndiswdGVyMGxaeDRiK2ZIcElVT1RkbUdLNTA0N2V1b1RiOWtN?=
+ =?utf-8?B?bFBLQ0pvaFNETGpIaVV5UTNsY2tuKzFrOUs4WnlBbUlMOU9pSzlFRHdEZW01?=
+ =?utf-8?B?TEZWbUpkZW5nM2lxOVcza0xYS2JPVnJWdDdjVHF1Tzk5aG1PTjNEaUVOTUZQ?=
+ =?utf-8?B?akhkNnR3SE83VDJ5Rk5mNW1LN2k0cGo0VUNoZzFzTGR2NDFSajlYVjJ2SU1H?=
+ =?utf-8?B?aHFab1l6eDNZaFJtK2MzUENNNWlWUW1xMUtIMWdvQkZ5cVdOQ3N6ejV2ZzEz?=
+ =?utf-8?B?aVVJcEhvRTFUem5KYjc5S0ZqUitzUTRnMGNsaXl5ZWxGbE5NT3VSUzFnYmVa?=
+ =?utf-8?B?cFFPVHloZ0pWUlkyUkpOR2pWcUV4UXR2WFplTWIrQWphamlvOGVZVE9BelRH?=
+ =?utf-8?B?bHAzcW9NWmZidk5QSHMrajA5d1l4YWZnT2hNMnNWMXFJMGRUM1V1YkhnQ0po?=
+ =?utf-8?B?RG5FcHQ3MDVLVTBDTzVTMkxvME1DVUNYZFY1OVcxSmxzM2FwZHlWN0xUQS9P?=
+ =?utf-8?B?dklXcE5tWFIxZW5uaW5hWXRPMHdwdHFrM29HNTNYYjBYTzRHd1luNHlJbmlT?=
+ =?utf-8?B?Nk4wdEQ1VlhtL0FoSkVkN01KaDNoR2F5RCs5U2g4Qy9yTlp3WTY0K2YvMmZu?=
+ =?utf-8?B?d0VEN1lJbHNOMm9kRFJaZFBpcEJpL21CWGMvcmxzbDVZUGRtVTdBMDI2ajdn?=
+ =?utf-8?B?dURvN3M5Tlh3SU94aGdSNVR4SFRWTWFPTmJ4YTB1MFhndi92c1dXN1plWnRx?=
+ =?utf-8?B?dDRrMTdwenZ6c2JzQldvK2Y1aFFHTE03aWtNMXlzRVg3UzVvQmhLMTBtY0VN?=
+ =?utf-8?B?elNBc0lsYzdYQnQ2SnpuYW43SUljelUyREw0dTBOc2RKUThCNGtJUWhUaHEz?=
+ =?utf-8?B?RnJEQkdSYlBqb0lIeEpRdzdLTjhNWGZlTERocTZEdzN6cjRIRExwQXJXZzNJ?=
+ =?utf-8?B?YzIxSFRDQXZVd0Z4bTgyekdINUFMeFd1aUVRZjN4bnIwclVaWmlGYk91bmpL?=
+ =?utf-8?B?aEY2Q1BaelpwdzBINERQb0o4Vy9COFcvTDJOdVp5QTNSZUFwN1ErOHFNNy9J?=
+ =?utf-8?B?RmdwSlowU3oydzVkZFJwR3drWEdKNGkrbFFjWlZPWjNOMGJnU2lsdWZYdnBL?=
+ =?utf-8?B?VytNWEZ5T2NVWFdzNlFObG40SW1DV0JicUVLTVFHY0wyTmZ4RTBBQkNDdkV6?=
+ =?utf-8?B?ekJiMVJvaU9adUVFNWFFaDN3Y3ZndVI1dGk2STBpYkhmamc0eWNrYzMyWm5N?=
+ =?utf-8?B?UUdBTnl3QnliUHFRMU9KajkxaU5rOXFacEVaUTlOQ1FPTWcvOCs1aERiZDhp?=
+ =?utf-8?B?aVFWK3d1NVhvT09TTzBXQUNZYmpaVkdtSW0yVTNicXM5ajZUOVBXUm44K21F?=
+ =?utf-8?B?OU1CeXUzb1ZWQUtiRE5WOXM0anpPSDY4emFyZU5KOFowaUV4ekN2Q1J1MWNw?=
+ =?utf-8?B?WFhiUzUvakhaUTVVZUZNaXRIbGtRbmlkOHdJU2ZMQ1dkd1Q3UDRZQldvYUtN?=
+ =?utf-8?B?QWFPQUlxVUVtS0l1WjI4YVhyYkZ0VzRqdytLajVwVTh1ZTBVOUpvdS8rdlJ4?=
+ =?utf-8?B?RE9RTS9DeENNYTBJUVozTGhSa3lNdDM3MlNoU0hPSnlobUJPYWtzcFFKdFp4?=
+ =?utf-8?B?YlJKVWswd0hqQUwvcXdUWm1mNkhDa3FKNGJkQWJRSnJYR2xEZTRwY282K2RG?=
+ =?utf-8?B?bkkwdFBsSXVMVy81V1ZxTjViL0l1ZEdwZU1jQ0pZOTBXSGJKQ1VZbldLODN6?=
+ =?utf-8?B?cHIrRDZSOXl4cWlvbGNhUjRzUE5XMHpmcmhDd213bk5taW5NU1Vyb1VzRUha?=
+ =?utf-8?B?OFR6SXloTm82TkFuUHc5L3RNZWVoWVZlMmJKNlBJVmxrMkVoaC82aUZhdWwr?=
+ =?utf-8?B?QXdNdUttbGdodGwzUXhURTBqYktvd3Q1dDhaTndtL2d6UzF3MS93K0tiM1FC?=
+ =?utf-8?B?djdxWnV1UGJtS2w5emJZbUxlbHAxcVFkUWRsSzRzdi9Na0N2M2p0aU9CWVFi?=
+ =?utf-8?B?R0RESFpXV3hhWlJrb3QwME53ZzZGTmxhVTBCT052cUlUZlNRcWR6d2dteXAx?=
+ =?utf-8?B?UFE9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4e66ca8-f1b2-45f6-708b-08de1726bcb0
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 20:07:07.6683
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: caWh84JfJHWkl03gcTWyNainmbaklC0il3ch7jxUIqz55Gi2p+nS3R08q6IfUrVQPrp7PN4y/1Q/cpK3GsMNBNHhtTMz1zuFAY9hETmtjsg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR11MB8712
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_130428_978116_EDD4B612 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251029_130713_286512_98990CDF 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,100 +227,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-syzbot has found a reproducer for the following issue on:
+--------------kbNJ2hWyIe7VXIVcNzELK8rv
+Content-Type: multipart/mixed; boundary="------------lS4tKbndktWChwofJ0oAXlmM";
+ protected-headers="v1"
+Message-ID: <959d8329-bb9d-457e-a4a9-f7d60fbf83a8@intel.com>
+Date: Wed, 29 Oct 2025 13:07:06 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3] net: ethernet: ti: netcp: Standardize
+ knav_dma_open_channel to return NULL on error
+To: Nishanth Menon <nm@ti.com>, Jakub Kicinski <kuba@kernel.org>,
+ "pabeni@redhat.com" <pabeni@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>
+Cc: Simon Horman <horms@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Eric Dumazet <edumazet@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251029132310.3087247-1-nm@ti.com>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+Autocrypt: addr=jacob.e.keller@intel.com; keydata=
+ xjMEaFx9ShYJKwYBBAHaRw8BAQdAE+TQsi9s60VNWijGeBIKU6hsXLwMt/JY9ni1wnsVd7nN
+ J0phY29iIEtlbGxlciA8amFjb2IuZS5rZWxsZXJAaW50ZWwuY29tPsKTBBMWCgA7FiEEIEBU
+ qdczkFYq7EMeapZdPm8PKOgFAmhcfUoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AA
+ CgkQapZdPm8PKOiZAAEA4UV0uM2PhFAw+tlK81gP+fgRqBVYlhmMyroXadv0lH4BAIf4jLxI
+ UPEL4+zzp4ekaw8IyFz+mRMUBaS2l+cpoBUBzjgEaFx9ShIKKwYBBAGXVQEFAQEHQF386lYe
+ MPZBiQHGXwjbBWS5OMBems5rgajcBMKc4W4aAwEIB8J4BBgWCgAgFiEEIEBUqdczkFYq7EMe
+ apZdPm8PKOgFAmhcfUoCGwwACgkQapZdPm8PKOjbUQD+MsPBANqBUiNt+7w0dC73R6UcQzbg
+ cFx4Yvms6cJjeD4BAKf193xbq7W3T7r9BdfTw6HRFYDiHXgkyoc/2Q4/T+8H
+In-Reply-To: <20251029132310.3087247-1-nm@ti.com>
 
-HEAD commit:    10fd0285305d Merge branch kvm-arm64/selftests-6.18 into kv..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
-console output: https://syzkaller.appspot.com/x/log.txt?x=173e4fe2580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=a4522b3a704e0394
-dashboard link: https://syzkaller.appspot.com/bug?extid=c41f3ddb8299a30a98b5
-compiler:       Debian clang version 20.1.8 (++20250708123704+0de59a293f7a-1~exp1~20250708003721.134), Debian LLD 20.1.8
-userspace arch: arm64
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=13559c92580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=12963fe2580000
-
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-10fd0285.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/65e2ebd050e3/vmlinux-10fd0285.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/9d47fc3df12e/Image-10fd0285.gz.xz
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com
-
-raw: 01fff1c000000000 ffffc1ffc08742c8 ffffc1ffc07b2488 0000000000000000
-raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
-page dumped because: VM_BUG_ON_PAGE(page_ref_count(page) == 0)
-------------[ cut here ]------------
-kernel BUG at ./include/linux/mm.h:1036!
-Internal error: Oops - BUG: 00000000f2000800 [#1]  SMP
-Modules linked in:
-CPU: 0 UID: 0 PID: 3630 Comm: syz.2.17 Not tainted syzkaller #0 PREEMPT 
-Hardware name: linux,dummy-virt (DT)
-pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-pc : put_page_testzero include/linux/mm.h:1036 [inline]
-pc : folio_put_testzero include/linux/mm.h:1042 [inline]
-pc : folio_put include/linux/mm.h:1359 [inline]
-pc : put_page include/linux/mm.h:1429 [inline]
-pc : kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264
-lr : put_page_testzero include/linux/mm.h:1036 [inline]
-lr : folio_put_testzero include/linux/mm.h:1042 [inline]
-lr : folio_put include/linux/mm.h:1359 [inline]
-lr : put_page include/linux/mm.h:1429 [inline]
-lr : kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264
-sp : ffff80008e717450
-x29: ffff80008e717450 x28: bff000001ec92000 x27: bff000001ec92000
-x26: 00000000000000ff x25: ffff800087396000 x24: ffffc1ffc0000000
-x23: ffffc1ffc0874288 x22: 0000000000000000 x21: ffffc1ffc08742b4
-x20: 0000000000000000 x19: ffffc1ffc0874280 x18: 00000000fb20c077
-x17: 00000000057d7f34 x16: 00000000fb1a5197 x15: 00000000866b9677
-x14: ffffffffffffffff x13: fff0000015a39d88 x12: 0000000000000001
-x11: 0000000000000000 x10: 0000000000ff0100 x9 : a6a806ed1668b300
-x8 : a6a806ed1668b300 x7 : ffff80008039fbc8 x6 : 0000000000000000
-x5 : 0000000000000001 x4 : 0000000000000001 x3 : ffff80008074aff8
-x2 : 0000000000000001 x1 : 0000000100000000 x0 : 000000000000003e
-Call trace:
- put_page_testzero include/linux/mm.h:1036 [inline] (P)
- folio_put_testzero include/linux/mm.h:1042 [inline] (P)
- folio_put include/linux/mm.h:1359 [inline] (P)
- put_page include/linux/mm.h:1429 [inline] (P)
- kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264 (P)
- stage2_free_walker+0x1b0/0x264 arch/arm64/kvm/hyp/pgtable.c:1549
- kvm_pgtable_visitor_cb arch/arm64/kvm/hyp/pgtable.c:130 [inline]
- __kvm_pgtable_visit arch/arm64/kvm/hyp/pgtable.c:212 [inline]
- __kvm_pgtable_walk+0x7d8/0xa68 arch/arm64/kvm/hyp/pgtable.c:237
- _kvm_pgtable_walk arch/arm64/kvm/hyp/pgtable.c:260 [inline]
- kvm_pgtable_walk+0x294/0x468 arch/arm64/kvm/hyp/pgtable.c:283
- kvm_pgtable_stage2_destroy_range+0x60/0xb4 arch/arm64/kvm/hyp/pgtable.c:1563
- stage2_destroy_range arch/arm64/kvm/mmu.c:924 [inline]
- kvm_stage2_destroy arch/arm64/kvm/mmu.c:935 [inline]
- kvm_free_stage2_pgd+0x198/0x28c arch/arm64/kvm/mmu.c:1112
- kvm_uninit_stage2_mmu+0x20/0x38 arch/arm64/kvm/mmu.c:1023
- kvm_arch_flush_shadow_all+0x1a8/0x1e0 arch/arm64/kvm/nested.c:1113
- kvm_flush_shadow_all virt/kvm/kvm_main.c:343 [inline]
- kvm_mmu_notifier_release+0x48/0xa8 virt/kvm/kvm_main.c:884
- mn_hlist_release mm/mmu_notifier.c:321 [inline]
- __mmu_notifier_release+0x310/0x614 mm/mmu_notifier.c:359
- mmu_notifier_release include/linux/mmu_notifier.h:402 [inline]
- exit_mmap+0xb8/0xbb8 mm/mmap.c:1263
- __mmput+0x10c/0x528 kernel/fork.c:1130
- mmput+0x70/0xac kernel/fork.c:1152
- exit_mm+0x158/0x258 kernel/exit.c:582
- do_exit+0x788/0x2378 kernel/exit.c:949
- do_group_exit+0x1d4/0x2ac kernel/exit.c:1102
- get_signal+0x1440/0x1554 kernel/signal.c:3034
- do_signal+0x23c/0x4dd0 arch/arm64/kernel/signal.c:1618
- do_notify_resume+0xb0/0x270 arch/arm64/kernel/entry-common.c:152
- exit_to_user_mode_prepare arch/arm64/kernel/entry-common.c:173 [inline]
- exit_to_user_mode arch/arm64/kernel/entry-common.c:182 [inline]
- el0_svc+0xb8/0x164 arch/arm64/kernel/entry-common.c:880
- el0t_64_sync_handler+0x84/0x12c arch/arm64/kernel/entry-common.c:898
- el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:596
-Code: 900377c1 910e9421 aa1303e0 97f9c9f2 (d4210000) 
----[ end trace 0000000000000000 ]---
+--------------lS4tKbndktWChwofJ0oAXlmM
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
 
----
-If you want syzbot to run the reproducer, reply with:
-#syz test: git://repo/address.git branch-or-commit-hash
-If you attach or paste a git patch, syzbot will apply it before testing.
+
+On 10/29/2025 6:23 AM, Nishanth Menon wrote:
+> diff --git a/drivers/soc/ti/knav_dma.c b/drivers/soc/ti/knav_dma.c
+> index a25ebe6cd503..e69f0946de29 100644
+> --- a/drivers/soc/ti/knav_dma.c
+> +++ b/drivers/soc/ti/knav_dma.c
+> @@ -402,7 +402,7 @@ static int of_channel_match_helper(struct device_no=
+de *np, const char *name,
+>   * @name:	slave channel name
+>   * @config:	dma configuration parameters
+>   *
+> - * Returns pointer to appropriate DMA channel on success or error.
+> + * Returns pointer to appropriate DMA channel on success or NULL on er=
+ror.
+>   */
+>  void *knav_dma_open_channel(struct device *dev, const char *name,
+>  					struct knav_dma_cfg *config)
+> @@ -414,13 +414,13 @@ void *knav_dma_open_channel(struct device *dev, c=
+onst char *name,
+> =20
+>  	if (!kdev) {
+>  		pr_err("keystone-navigator-dma driver not registered\n");
+> -		return (void *)-EINVAL;
+> +		return NULL;
+>  	}
+> =20
+>  	chan_num =3D of_channel_match_helper(dev->of_node, name, &instance);
+>  	if (chan_num < 0) {
+>  		dev_err(kdev->dev, "No DMA instance with name %s\n", name);
+> -		return (void *)-EINVAL;
+> +		return NULL;
+>  	}
+> =20
+>  	dev_dbg(kdev->dev, "initializing %s channel %d from DMA %s\n",
+> @@ -431,7 +431,7 @@ void *knav_dma_open_channel(struct device *dev, con=
+st char *name,
+>  	if (config->direction !=3D DMA_MEM_TO_DEV &&
+>  	    config->direction !=3D DMA_DEV_TO_MEM) {
+>  		dev_err(kdev->dev, "bad direction\n");
+> -		return (void *)-EINVAL;
+> +		return NULL;
+>  	}
+> =20
+>  	/* Look for correct dma instance */
+> @@ -443,7 +443,7 @@ void *knav_dma_open_channel(struct device *dev, con=
+st char *name,
+>  	}
+>  	if (!dma) {
+>  		dev_err(kdev->dev, "No DMA instance with name %s\n", instance);
+> -		return (void *)-EINVAL;
+> +		return NULL;
+>  	}
+> =20
+>  	/* Look for correct dma channel from dma instance */
+> @@ -463,14 +463,14 @@ void *knav_dma_open_channel(struct device *dev, c=
+onst char *name,
+>  	if (!chan) {
+>  		dev_err(kdev->dev, "channel %d is not in DMA %s\n",
+>  				chan_num, instance);
+> -		return (void *)-EINVAL;
+> +		return NULL;
+>  	}
+> =20
+>  	if (atomic_read(&chan->ref_count) >=3D 1) {
+>  		if (!check_config(chan, config)) {
+>  			dev_err(kdev->dev, "channel %d config miss-match\n",
+>  				chan_num);
+> -			return (void *)-EINVAL;
+> +			return NULL;
+>  		}
+>  	}
+> =20
+
+Since we were basically always returning -EINVAL that seems reasonable
+to just switch to NULL instead.
+
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+
+Thanks,
+Jake
+
+--------------lS4tKbndktWChwofJ0oAXlmM--
+
+--------------kbNJ2hWyIe7VXIVcNzELK8rv
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQQgQFSp1zOQVirsQx5qll0+bw8o6AUCaQJz6gUDAAAAAAAKCRBqll0+bw8o6Dia
+AQCJYRDjkwflH0Klr4r/yj/IJhgqAdBEJ/mA4B2brgS/BgD+IKMDaE1gaOSr+BBfc44MmUmbyUBr
+wfJFsChrfojufA0=
+=VXXf
+-----END PGP SIGNATURE-----
+
+--------------kbNJ2hWyIe7VXIVcNzELK8rv--
 
