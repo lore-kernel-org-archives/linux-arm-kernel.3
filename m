@@ -4,60 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AA1BCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 20:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51EFCCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 20:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UTcYzXZPrniWZCkwHLSm2V6Hq8R2XKza/pCFwi3PJs0=; b=kV1MWYfH83pfqU548dihHCLBn6
-	NjRkvy1uWQx+nyDmHBSd3s6XlO4xJgXCTHemQEkZjGf/qx9S9mqaATpno+RW4u3M5QXxoNf7rs5qf
-	aPyOtwPyHfY+aHwVeEbUXq7xIH31bnAOy30F2mjj9hTW/YKZqGB9LzOxEbDHQ5xfqJPXUKAPdTrCA
-	akSk5jzd4LWllNNtNRqdD8hVVelqd2uKQAkPwpSn58F723wNmqyzXftMICrEcuUy6L9OfarEhYhC+
-	NRRF44Zy0/ez7nBNU3dy6IVlg2/ebB03/gtEuoVdctb78oNXz+2nweyXc32hjXw09AH8JS49j52vX
-	or5UMKKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+XS0sQBC7VyhoDsZv2+ASr+FG58mhsyzFnFLhYsLFOw=; b=jmbKOge2fMR9a0RiWkjE4bm/eH
+	CHagMvpU4nbKOJIPhQr9Nay3KG8rXQUwF9N9YxqtS8KFUAO6YSVXVqW8m7LmWapYt+/dhpi+IKkVX
+	K3RPG+Hmv4SHuGGjdyHG3+O8YmMtbGhAcE38DiRZGaMXhzjkU0MU9ZQFhylVIqO/rj9fHAD2isD2X
+	6oOv94P9dncGm6r8YS9B7tgJ4i9W2Syl4Qtc1oKHu6arBxcLnP+k/ePzBub1gkANHNM7z7lWlBrR0
+	Nz7nAx+l3irZh0fMO0gefdq9ODUZtMgzZwmiRab0mOwfCYplT8ibvLz7tjzC9vnJUT+hUbKRzrgDs
+	d16gF7iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vECmJ-00000002mtF-2dca;
-	Wed, 29 Oct 2025 20:28:19 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1vECmP-00000002mvM-3x8k;
+	Wed, 29 Oct 2025 20:28:25 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vECmG-00000002mmx-3qWn
+	id 1vECmO-00000002muL-0n8p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 20:28:18 +0000
-Date: Wed, 29 Oct 2025 13:27:33 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1761769663;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UTcYzXZPrniWZCkwHLSm2V6Hq8R2XKza/pCFwi3PJs0=;
-	b=SvOSZpMZW3/p9h7JBDkzya4FoDoQEO9J+Px2YZf5sVJIhqCyP98bAFnuLqMr0hrcj4PUw1
-	qkoyJaEFkwISobw8SIX80cnkrsphzxEfEb6YMSZKL0aTCp/jZZchjpNzYL46QSL/9dyIhn
-	wOuyeVhVz2OK3K1f5wkDbsFQ9D0sxx8=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: syzbot <syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maz@kernel.org, suzuki.poulose@arm.com,
-	syzkaller-bugs@googlegroups.com, will@kernel.org,
-	yuzenghui@huawei.com
-Subject: Re: [syzbot] [kvmarm?] kernel BUG in kvm_s2_put_page
-Message-ID: <aQJ4tQJPiGF6M9Wb@linux.dev>
-References: <68cd66b0.050a0220.139b6.000f.GAE@google.com>
- <6902734b.050a0220.3344a1.0430.GAE@google.com>
+	Wed, 29 Oct 2025 20:28:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RaZAcb2D7dsQLdwfZEBwWUxU4FnVcTy+elt/kCHjHmMB13kLPUDvyhH0pWGI+CK7N9Y9b4Q9i22JbGNnUPfsvWq6uRgXDc7gTdLxBZ//1fikr3u2UhbMFntPrThUyELYQpxDIAIn+sylOr6OkMDD8Qz9VQVWtoZ8r5wjUU3rjaRpedEweeFgELKD9P2DnOLZMFTdTVK3KK4a2dqyxooMakpFBzbvEiZKhDt59uizDMu5NGHQqbs8FM+aSUMV5YNeezepbZadx963znALzYckhnuEvGvHWDSDnPM6fNfeGW4YOq8H88UyikEvQjBid2nDLEd7QvQb1GEokPK/cwL3Ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+XS0sQBC7VyhoDsZv2+ASr+FG58mhsyzFnFLhYsLFOw=;
+ b=oEn38wmc35V366qXTF4/d58kGxm/ci5TvnyxGc1evu6bv/Yl1ghO9D1azEeD1U/HSUO+Alq+1c7428mgRFkW4JcfCvan8PF4KKK0uImND9b9qzILdYveiU3jS+XCDAmkbJ9jt2XDvLqiyxRylWV9nhfxSqyJOLqETJ7i1WSuCe69PxIaa665kO7wFm54Nsof92cHtsO7lZedA8tkTkd11528DUg4KyWKbGBLbDE5RM7+G3QyjcVrcTYc76c5JFIcSyYuAFI+9bd839HrfAwMJHcFZL/lHuVJA9IQo73fCGHFsL99shng3uG1KQCYowC30vayMyOMCpbCI1ea8IJbWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+XS0sQBC7VyhoDsZv2+ASr+FG58mhsyzFnFLhYsLFOw=;
+ b=cAzL1ysJLqifuVHTS0cgUoRmWwFDT/hNv01VKRtxdFc4ZdUl3ww8dNe0i5reuqT2dLmtq+2i78QO0JPR3Vnl2aF2dSreYY30CCBjEbXtV9SX8jPaiJwUK+BMymW0r19i3aHgjSwjXaEMEJahIGfuLM7mx+HpvKH9j5zGU98j/EufuDdQowJxehW8y5J0PqxrRPe/ugSnW2QhQFKJsS5Zii07j8J5L+UgJ6VZ2mBH6kFBD6KGUAvD52eMZe2DpCG/Q/A0mMshgYuuweYFbQ/eABP1BR326A2I6c1g01zu+ps2cDz/elUFPma40lDlInEzAYIZQJvVx77+f47QdVpxRA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by PA4PR04MB7870.eurprd04.prod.outlook.com (2603:10a6:102:b8::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Wed, 29 Oct
+ 2025 20:28:19 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
+ 20:28:19 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/5] ARM: dts: lpc32xx: add bus surfix for simple-bus
+Date: Wed, 29 Oct 2025 16:27:57 -0400
+Message-Id: <20251029202801.3963952-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BY3PR04CA0020.namprd04.prod.outlook.com
+ (2603:10b6:a03:217::25) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6902734b.050a0220.3344a1.0430.GAE@google.com>
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA4PR04MB7870:EE_
+X-MS-Office365-Filtering-Correlation-Id: 77c6c652-baad-4244-9d89-08de1729b264
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0/+0uWH+VhazZPw3gWVwPCPBrUAGwYcAIiIzddODcOccDIH1zVI3wWRn525N?=
+ =?us-ascii?Q?jtPtoUlsOj7wrAh+nmx4u2PYTdE+cAEKiTLTTEkP6g//CSbKWvhNcds0fx8k?=
+ =?us-ascii?Q?pynWW/KwBNeSLkKE+clH2EtCCNqQiDWI064zHmMkiIOw6gdizccum9RWAGSK?=
+ =?us-ascii?Q?1qykqOMqr6YPyXsrqe5g0uDj4rOTSwSO6vebG91qNeHh4cyAoTVsL2fYouaI?=
+ =?us-ascii?Q?zv0lxXSBYWxWqYvXT40Twkor6C7xMVDJxKa3SPkMJNl0eNOjmj9Hgx2X473p?=
+ =?us-ascii?Q?jRtU3orb03jrV1zn09grUoVvsqFmZf0DhIXz0FpmSxD8iZgmVrBepR761sGL?=
+ =?us-ascii?Q?9VI8cAEwIXu4tjTntuVoreVU8+8ZjCRaT++W5GFUM9I2uSD/3IbaADp/7/GR?=
+ =?us-ascii?Q?CN2S60DHPIBmiu3w3J56579Co17aJTz5TQQWNya4tEprKCKOFS5v3nuT2E58?=
+ =?us-ascii?Q?UBntx0/jIqQlNmzX6a7e68qb41R+qlgYE2YpqKurGLG+TbeupQF3WbT0efBa?=
+ =?us-ascii?Q?uKpgA5nRdEeWjH2Ps7yvSls0akFeBibj3xWmkjfThBkleF/glNaqf4RpRyVe?=
+ =?us-ascii?Q?AzTuJqnpB3yIfIsJFu1hxsQYn635GqyAdCkI9VCth0g3EVqJPcgPw8vZ8qgr?=
+ =?us-ascii?Q?v8ZuvnrQhjMF7Eo5tLS1D2R3XVdTDPYIWi0dilF5JBIN7X0NTGKUHqOe4lLh?=
+ =?us-ascii?Q?aobBjvk768zZdGQRIufxAJxGtbOLY+V5JS1ITd7U6CMuvT7BkrNWSWNOVkxq?=
+ =?us-ascii?Q?BIbxJX18BiWTYpOs7MmALJCsfrrxPFkVduDS2nCzpAyaf1k6YJu0jXXY/Q1w?=
+ =?us-ascii?Q?hVPqCh2EbFeniN4566CGr8szZaQgx09568cC1M8BIMAwHmrl7a7etB7au8/M?=
+ =?us-ascii?Q?GP04coevJuFnaQmfuCylHoe+XrNQc1PIuTHEgAJWVQUvzsRNO8ODTJZiTrYn?=
+ =?us-ascii?Q?Wan0R6R6rVhJNgocXlPGHbfpkhJeUHfZKFdImFamBOx9fs4m+jK0C/xqCAjs?=
+ =?us-ascii?Q?pXiUCYGs0iKT7SfppkIvPzk6VBOMWPePF0UEqBt13cNeuHNOUVjOxX9UYSEw?=
+ =?us-ascii?Q?ucAS/66k1RwadijD8zHq7jZqcdlz7Jv5L7+xuSvsy1KjV/SauWaoowwHUjJq?=
+ =?us-ascii?Q?O1Nh//Rp0/ntNfE6t4O7u6SJ/0zWXN+WJ5EpBLpcAgGwIMNOSj/QwD65pfp0?=
+ =?us-ascii?Q?BOqRrbTludJ/m4qE56PuISf2EY77PIbjzQnZKm2zctq+970iVMNaDNJY4HBY?=
+ =?us-ascii?Q?R9d+P6yTpUJFb0BKDtP4Jzt4iTKmyS5ThDZbtCnlk+wGMfSa5Bjk+iE7QeUe?=
+ =?us-ascii?Q?DRPdxkG4UhLaffB3e7Dz98L1JfR57Ifjuate5GClVoMUUji+h7swPN1JEpXf?=
+ =?us-ascii?Q?wg5VNif5CLwKSKFz23O+J97GHF6Q21/zJN7UAEl/bUGJoJw4btil9SpJdP8v?=
+ =?us-ascii?Q?nroXGedTQZ0zvBFaYXXJYPj4myQL1xRuyACe36PGKF0r/THmEti5JA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2IyaJjURX/B6RfukH+5WG7dub0MqFans7jiKc17+Jtdwc2CGXk7qSU0fP0as?=
+ =?us-ascii?Q?KbOIevxi6Vnqn95lE5JGQ+xQgJj4HK6zxvcS+YKOmiaB9NlxLNMgExmXKBSD?=
+ =?us-ascii?Q?8PXoZVEsdp5/OUjtrtww1cCwTJylnCa+ESlfbDX26HHm2gHzRaTI80zqmb71?=
+ =?us-ascii?Q?0xuwon+ErDRXIrCQNx3wGrXVjddICgJJISoRDa9ebONew/OyFC6ohnjSA+EO?=
+ =?us-ascii?Q?wxwsHSRqiKKnVo6PDBlj8KXZ+OdAxswVdt4mk85hAlYs3HxheYnbjO/ElJH+?=
+ =?us-ascii?Q?0A0uQsr3c8vwUxzy1pvp3T6qP+LwPEXYU26OSb4f+qD/3LSjVg3fXXusOsqf?=
+ =?us-ascii?Q?ikJh6Q1tdAk09M6nVXvB2+FvARZQ0y72kZgs8f7OJMpiCdFlfOYv/FuadXmt?=
+ =?us-ascii?Q?YyKmPH5utZVHHYOd4cVOcs8DfKkVj3vyekKN1EoSNLSvIAUc/5hXd7svz02O?=
+ =?us-ascii?Q?YUZmzs1QqhUvxPHMjGhk1f1k0v23XEZp/zwn0lMFFqhdS/cd6ksdlF3hIG4l?=
+ =?us-ascii?Q?1FSD8juKrUNpSuODlJC1cRXEv0Z8hKFGtosn60PeG1YpygGixDkssNNKBkGn?=
+ =?us-ascii?Q?0B/vSnhrDSutCET+Na1cdR/j6xc/JzYNtos1ALeGjAelp36VCEtJlhqV2G8g?=
+ =?us-ascii?Q?bwRDM2h0H1jWpFEsPONdovyYBko/W64iJLLDw27VLzrxZUqox29IZxvRl51j?=
+ =?us-ascii?Q?Jf4NP9I4GS/e64d6sj21/PaU64+EUpsVQtMMLiSoSDjXODXef8DnxBT8wic4?=
+ =?us-ascii?Q?MjcJHiqNgu4eLaSh6qdM68qQTxsDb0P5beM8n4RKAH0a7ilrwaNA5s8SLn53?=
+ =?us-ascii?Q?WbWo3Bs8fUNx/XW5JlIyVkTQbA7GQ0JzmlQnM/kSyDYSt4usPQARgqjQN0f0?=
+ =?us-ascii?Q?dRF71rZRBaI57ofP+CxNmacw1Qzv1w7lc6f1XEkJnkQPpIAsvk/r3vC+SF+r?=
+ =?us-ascii?Q?AzHgS6YA9Frj7O/FzR8usIkU0ovF6xUSDG/T9kM2jXCjup2pGuA5mt4Em6R0?=
+ =?us-ascii?Q?/8vgEpADcCRAEmyRNMnCaW3myiCWWj4wBx7ZW+pJDJHuR4qeBM+qlM5y/peX?=
+ =?us-ascii?Q?vgWIDbxRg/2FBp0gqTWXn6lyo/RjLFXZSSc/+5KzT/pbpq1JR265iAxjtBkF?=
+ =?us-ascii?Q?NCJa4vWs1WhOpOk8l1v7HslayrGZHDDs1d0ZywXspuwvARY4gH5wMM1yyKPR?=
+ =?us-ascii?Q?2wPWWaZ6NhR1o+q/9dusR/iec2ta4gEeeKNyJk7U/TduSF1AuHWQiOhAuVzI?=
+ =?us-ascii?Q?eogRmS3VBz38ortfdczoZnvo+DFUoVo+wdgrai9DXOXyP2IN7TEctnsuLM1W?=
+ =?us-ascii?Q?P1lN91agVlv8AAjyjg2iR3Oja+r6EIuchL0qqFAXVYcy8azjL4uXh7aM5lEe?=
+ =?us-ascii?Q?NuJngPhutorSsB1WVVTCkDITsRLn6Gskdq814aZbEd7MpBbYZKevyRQjwe4D?=
+ =?us-ascii?Q?UwQXeJsZtgC1h2kPMnX9+3w63ONBwdS5HBhyUJJ0E3udHsNolnsxUwzqg62E?=
+ =?us-ascii?Q?+2ArmEuW7JWjAEKuY8spThTfIuUv4icG24LY1IYn3aqw2Sn+iv21c1qcBcAX?=
+ =?us-ascii?Q?x/+qRNsmqhNT5RqzTNc=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 77c6c652-baad-4244-9d89-08de1729b264
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 20:28:19.1480
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MWHso73ZDn0qUd5xGaK48CWC7FImgsAVJgrSkt7s4pErpkwUnWQFaxKW2xbUhivlJHu+OCeC0AzliKOByWNjSQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7870
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_132817_101550_227BF7CF 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251029_132824_232209_E348B69E 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +160,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 01:04:27PM -0700, syzbot wrote:
-> syzbot has found a reproducer for the following issue on:
-> 
-> HEAD commit:    10fd0285305d Merge branch kvm-arm64/selftests-6.18 into kv..
-> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
-> console output: https://syzkaller.appspot.com/x/log.txt?x=173e4fe2580000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=a4522b3a704e0394
-> dashboard link: https://syzkaller.appspot.com/bug?extid=c41f3ddb8299a30a98b5
-> compiler:       Debian clang version 20.1.8 (++20250708123704+0de59a293f7a-1~exp1~20250708003721.134), Debian LLD 20.1.8
-> userspace arch: arm64
-> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=13559c92580000
-> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=12963fe2580000
-> 
-> Downloadable assets:
-> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-10fd0285.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/65e2ebd050e3/vmlinux-10fd0285.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/9d47fc3df12e/Image-10fd0285.gz.xz
-> 
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com
+add bus surfix for simple-bus to fix below CHECK_DTBS warnings:
+arm/boot/dts/nxp/lpc/lpc3250-ea3250.dtb: usb (simple-bus): $nodename:0: 'usb' does not match '^([a-z][a-z0-9\\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+        from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
 
-#syz fix: Revert "KVM: arm64: Reschedule as needed when destroying the stage-2 page-tables"
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Just fast-forwarded kvmarm/next to 6.18-rc3 which has the fix.
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+index 2236901a00313..9790b0a1d6537 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
++++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+@@ -86,7 +86,7 @@ dma: dma-controller@31000000 {
+ 			#dma-cells = <2>;
+ 		};
+ 
+-		usb {
++		usb-bus {
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+ 			compatible = "simple-bus";
+@@ -307,14 +307,14 @@ mpwm: pwm@400e8000 {
+ 			};
+ 		};
+ 
+-		fab {
++		fab-bus {
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+ 			compatible = "simple-bus";
+ 			ranges = <0x20000000 0x20000000 0x30000000>;
+ 
+ 			/* System Control Block */
+-			scb {
++			scb-bus {
+ 				compatible = "simple-bus";
+ 				ranges = <0x0 0x40004000 0x00001000>;
+ 				#address-cells = <1>;
+-- 
+2.34.1
 
-Thanks,
-Oliver
 
