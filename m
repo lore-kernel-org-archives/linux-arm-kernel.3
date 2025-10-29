@@ -4,134 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6B6CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59513CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wq8ujO9Dpm/7YPTf3iw45Jy/+tYmVu6IfrY/4dh0q7w=; b=g5Lurh8UpOIo16nPnwZ5cqNUaM
-	ei9qADQQLhL+p3iNUoWq4I3+aU7JC1hZmqyj81pDTW9AHJyf4b65OvIMJJfcynlOxSlgbo+Svcxlo
-	P548FFqMYgu5dL/KwbM0Lh2kCIG1/BPWon0EtechDAH59xL2aHozDWFu5E567mLxkNR3gD9aNDlnk
-	ICaxMQ5tKdOOErGR8XPo0DCy7cu+5v37HbH8dTp/Wjkq0gY69/mKA26MQcGe7q6+KNPBXQgbKCsKO
-	5b5oieSCr/i2yykc8VIox4/jEfymqu72YoB7lKKGY+vyNhNAOmpVOw0RfDWoMUVSlqvtslw1je6DE
-	pftoO4YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SONRaOttlMp8OIyY9jiVESbcAKRSgkO2lpj4SVPyv+M=; b=ap6A1PSFfTolBn7JYL7cOHvMhD
+	z2fg7gDSVb883ZH30gLiOJK201a2C4YiCGev6ofBf469lO6UHQaG05nBvCIwsOc3gDNua9FOc81ep
+	pjQflLlo9+AaKig49+vHkzoFypxeKB3zGjl3DwjcYmPvSXUvVIh/5/wTIBS6VWOp2putNqn1hfZmG
+	PzBf26F634yj0Q3LQXtPwiBzcjJj49PXW6i1cAcgAcJiiBRnwVF8cRJajRVltP8IFagFQ6lGpf0JI
+	2YF5J9p+bK4ajTtK4StAHPnMJ9bSmJl5Ann4B50Mp1+qcOIVdvJg2hI+z5ZoK6NxAEQTMNwhKXncX
+	YwWW8EKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE40z-00000000tNz-47yS;
-	Wed, 29 Oct 2025 11:06:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vE46q-00000000uQM-3vbP;
+	Wed, 29 Oct 2025 11:12:56 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE40z-00000000tNe-0S6A
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Oct 2025 11:06:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=wq8ujO9Dpm/7YPTf3iw45Jy/+tYmVu6IfrY/4dh0q7w=; b=kdpZvdKHy168RFuxgkdRe5tadY
-	U2/WI+r1WwhrddylSg/fQkvmersia5eoY8YDoMdRXkOrTEBrS2h10G9QXi9JnspFcCEx/2gShMx2t
-	tn7qLmLbkxLOPX/6E+9syKyUmD++X+VnlZXxZNM2mEcnJ89C3JHDQu0XtkjRqCy602lojAhyTkRs1
-	ydH5zrrJs+qJvvWV3MyTQT5G1pIh/0XTU3iwrJWESlHkSmLrWFJXgaJVbQQuryFLntGUT/pu8R0T2
-	VzyVj5RwigbYQ0j+7OlYlhFMpi77Ir6wAp2JFzDjMQr19sDi87n5QmmnmcbouW4HY2yTmZYZM1UNI
-	SI4VMg/g==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE395-00000006XRe-3t4Y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:11:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761735990;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=wq8ujO9Dpm/7YPTf3iw45Jy/+tYmVu6IfrY/4dh0q7w=;
-	b=JVuaWFH9VkpA2IHJhG3/4iPhsCYCRrgaucb2b/lwliWLKAipVpioOmSbVVHyE3PWrYWnMp
-	t0FoY9uogDQw96HQr/Ye+fFiXCEXK8OLwPz+zY79AgLmxdU+Dou05KB1Tm69A/bdrMfIie
-	2cz7mIDnQlwOgElAZcZx/TrallhhirY=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761735998;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=wq8ujO9Dpm/7YPTf3iw45Jy/+tYmVu6IfrY/4dh0q7w=;
-	b=Fi6yB/xQqh/k3LnDBpKIzuEW45mvxppzw4oXZ+id67X4gN0WRrKG1i4hIHIbPzF3IkHdSI
-	G0uBW3JVbQ53KEQOmWXoSdsULlvVuNOp1b5EUBtUtJMmwDBrDOxS5uzgrhriHhY7PLKoh+
-	q57gTH0s0CFjOwbiVZDgO1+RQQ+LRZA=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-244-6yAUS-QLNT6qps3k7hh7JA-1; Wed, 29 Oct 2025 07:06:29 -0400
-X-MC-Unique: 6yAUS-QLNT6qps3k7hh7JA-1
-X-Mimecast-MFC-AGG-ID: 6yAUS-QLNT6qps3k7hh7JA_1761735988
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4298da9fc21so2382039f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 04:06:29 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761735988; x=1762340788;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wq8ujO9Dpm/7YPTf3iw45Jy/+tYmVu6IfrY/4dh0q7w=;
-        b=i+o71DtgX+igmn1rlDbMgV208+2AjOOhTcPiiUZfr4PG2Ux92FV+0tY6Dxc4FB0PDu
-         8Kz8YkC2HhQ0UC6k2VcKHJQnSed/Ek5wtnqqJdk5v4D2YDvOWaswMZ37vkJJBbBWxIbk
-         w/P8320kN52DC1D4xTGEMcyPqJjm/JPu/IDOuIzcFwBMlmyYfMRc1WWtOACZmdpPmGyv
-         y5Kv3G0q06y+zK2+obFSy/4SKfy4juv19cHS83COVuHFj2IWveJkN1BYWAJ2xyF79US5
-         APnLywq/90NemAbJUdZJlGRDrv+h7HE/wy9ut7sbqr5O6ofFUIcxsxkIc5QcqQ3t067k
-         Awyw==
-X-Forwarded-Encrypted: i=1; AJvYcCWsUhiIAIHJ4HZ79itZqQlSD2z6AxgL6BNecJuez2xW3kER6NtZOPKXhjP08hmNeLg3zh5+Ev9ZsFyZE6yq/Aq9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzsia5bbAx8nVNRU8YwQh8X1R1p79DvJ+kSOs6WFCaf5ul4LM4T
-	K6BHj89VoKqAv1OCyo42YE/A6rJFwwWkFeAywgvu/7CZNAe4qwhegwkJbud0G6rjXg9AxiJ4sbT
-	PZPsFw9Da4P7glOAlXkpWelNxRGqtVVDeWMpdMa9tK2eTGmo6ZDwMB+fMXkOaYo2h9ofBeCHvNI
-	PK
-X-Gm-Gg: ASbGncv29O1ekBC2AwM7LpuPI8CGzxaSVpf+fWE6DKjbnOWZ50smc+T15JFDB1zTqj/
-	zYBQhXGRnZr3tIrhykZUswsMJRCmEQFkWSyB/pZpynDn9rHfatFgPVXNnbAoEe4SQg++TbjeeT7
-	B3U+8WmvASArAL3wPeZ6gXI7UsJ+qlhIIXAd4AHP3R4adPPIjK/GLL7m+QsHQsiIT3FqtU1oXMO
-	RwPVLRtGeicTyj+2l1JHSSgtml+kIc1Ne3pxl/wAhjnczmTkd6PIBIG2qZw2zFWjdDz13HBrl+5
-	T0JgQyAoSgclw722uJwn3yTaagNx3tBk8Zw4nu84FKeZuTYkBxAMX0U0W00FUdqU7feznEClhJN
-	EOFbSTlQxOLpkRUtWCb71Q+hAeyQpVBvq/9oXLbJAUnd7ML5G
-X-Received: by 2002:a05:6000:2882:b0:427:e1bf:13db with SMTP id ffacd0b85a97d-429aefd0840mr1957014f8f.54.1761735987808;
-        Wed, 29 Oct 2025 04:06:27 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHB8RsWZ0SjBkvUi9VbRgSefrwznyNGIlSzLxxkHxgmXUspqFq3z5NvztJjJO8HtqyDc5C8pg==
-X-Received: by 2002:a05:6000:2882:b0:427:e1bf:13db with SMTP id ffacd0b85a97d-429aefd0840mr1956977f8f.54.1761735987352;
-        Wed, 29 Oct 2025 04:06:27 -0700 (PDT)
-Received: from lbulwahn-thinkpadx1carbongen12.rmtde.csb ([2a02:810d:7e01:ef00:ff56:9b88:c93b:ed43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952ca979sm26665735f8f.14.2025.10.29.04.06.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 04:06:26 -0700 (PDT)
-From: Lukas Bulwahn <lbulwahn@redhat.com>
-X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
-	Houlong Wei <houlong.wei@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: [PATCH] MAINTAINERS: adjust file entry in MEDIATEK MDP DRIVER
-Date: Wed, 29 Oct 2025 12:06:23 +0100
-Message-ID: <20251029110623.96661-1-lukas.bulwahn@redhat.com>
-X-Mailer: git-send-email 2.51.0
+	id 1vE46o-00000000uPJ-1dUC;
+	Wed, 29 Oct 2025 11:12:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761736371;
+	bh=s35qvMWiPZye3mUq5eDEkpYwlGbij9U1I7wTMhBYFyI=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=ancwp3/XUPKjTQvDhJuUU/IpaBlsnpvEiPhZsSTX2lmXUrROvRFfktCfKVyYdFuAk
+	 57F0XzYcMuB8hr40V6pD7NAbiOjIkUwf4r0b6Yd2ucGNYhWyfU5SbKxLifyscl8a/W
+	 a9S2E1f4CwNWV/ufrd7uWNuyVY2JQALxqu5ND4GIsgRpwQRW8Fbu5cZb83+K2tkk/S
+	 rlUMaBiaVCpgAS6+ocypqSOcomhDaBQnEqKJm6YPbtOMfmIFjl9hWVXrL4OlfGfn61
+	 pDmZ5eVgmCKit0O2HtSRPEkOh4OI+Fbfq7vGTFKgFFMquuqfdavABm3t6QUrF957fk
+	 BlMl0l1gxsUpA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D41B317E00A6;
+	Wed, 29 Oct 2025 12:12:50 +0100 (CET)
+Message-ID: <0ddae136-3c25-4d70-9bc2-4e423873cd43@collabora.com>
+Date: Wed, 29 Oct 2025 12:12:50 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: uJ8nn8ca8dzZ12gPnUuMtfGKzUrnO0AAGYTOfQ_vJSU_1761735988
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 01/12] media: mediatek: jpeg: fix jpeg hw count
+ setting
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20251029065354.22257-1-kyrie.wu@mediatek.com>
+ <20251029065354.22257-2-kyrie.wu@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251029065354.22257-2-kyrie.wu@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_101114_314095_9DC66A32 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20251029_041254_643250_1051C477 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,34 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Il 29/10/25 07:53, Kyrie Wu ha scritto:
+> Different ICs have different amounts of hardware,
+> use a variable to set the amount of hardware.
+> 
+> Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
+> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware")
+> 
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 
-Commit 169ac4bc5bc4 ("dt-bindings: media: Convert MediaTek mt8173-mdp
-bindings to DT schema") renames mediatek-mdp.txt to
-mediatek,mt8173-mdp.yaml as part of this dt-binding conversion, but misses
-to adjust the file entry in MEDIATEK MDP DRIVER.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Adjust the file entry after the conversion.
-
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
----
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e428ec79dd24..c094b2fef0fc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15881,7 +15881,7 @@ M:	Minghsiu Tsai <minghsiu.tsai@mediatek.com>
- M:	Houlong Wei <houlong.wei@mediatek.com>
- M:	Andrew-CT Chen <andrew-ct.chen@mediatek.com>
- S:	Supported
--F:	Documentation/devicetree/bindings/media/mediatek-mdp.txt
-+F:	Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
- F:	drivers/media/platform/mediatek/mdp/
- F:	drivers/media/platform/mediatek/vpu/
- 
--- 
-2.51.0
-
+> 
+> ---
+>   drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c   | 8 ++++----
+>   drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h   | 2 ++
+>   drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 1 +
+>   drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 1 +
+>   4 files changed, 8 insertions(+), 4 deletions(-)
+> 
 
