@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24AA4CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F215DCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ivQTAJdjlNQXx4yqMKe2TxxnGOw9c8SxcOdTDcKyyJs=; b=scwY0rFvKHkZhVoPug6QLl9rAP
-	yW7rIfVK1cgGjhd+VwiTP5qHfLTphJ19YgTk3GeJg/snB7bsLQfaz0t/BGMGd5sC3CUmpUB0K4d1o
-	1yt8mTT7MrqjmjTmSaQKZ5acSyswscLW55fa0dlFLiPpVCXc8OdUKdsKcDfKlzN2UgKnRNhVRDmph
-	aK1Ih8ilWvHGrjhsKC3qgYZWiHx7OOVC2C+38o+LXTGKMDe8GEYhfNa6MDpfaG5yZ4daFmf4gKzHN
-	XphvcB78asiV0arVKb6YHKMX7yALPgH/bitp68xHn0AXLdnF2Mb67rCMW+YEw5p4dGhiNYbAUPKzz
-	tPjWjWNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2y//5yz0cKqyDq/eGQvh7lZNErNDwqj5oCuOmDJhx+0=; b=XqGTRRJvL31ajJpnqvmHRc0Aws
+	9uEMy+SJv11cORwTGpBvx/cFfL9oANrsNe1ejkG73IchuY9YjrO9gYNSpxo3UbAFfZRzDOM/a7f08
+	u34hdd6VOxfpxxTdKxJDn4/R0DCTMOLnefOBYNIwzhyWlyw7j5EmNjOGDQ57MlQNmDIDFXjvClTk0
+	8nIElfSXMX7/TJ9KVQ9rmCnXaZB6+/Ni8jXdM8t1HMZ/L5BH7m1w0F8d9UrvAnK57S3YFbcU9MB3k
+	AYLHM1O6nqAZMXNsnaX4MjVrXT/nPSj6S2Ml0HyljEcpnUmZizkn9lkdYLMW4aldmPYoINVYBpkn4
+	FnjS0QEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3GP-00000000h6O-3Y5R;
-	Wed, 29 Oct 2025 10:18:45 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vE3Iw-00000000hlO-1fZI;
+	Wed, 29 Oct 2025 10:21:22 +0000
+Received: from mail-m49195.qiye.163.com ([45.254.49.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3GN-00000000h5I-3w9t
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:18:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ivQTAJdjlNQXx4yqMKe2TxxnGOw9c8SxcOdTDcKyyJs=; b=0h1FDTdvpBf4x5YCrBkBRPjtkH
-	JUbCMdPlvzMwk1811mKWU9YA9beSs0SmZKGNUftBy88sS4gidOFnFQagnQCBkEfAsuIpm1lR0evXX
-	H0ASISuF2HYuFHwZUaH7vj8WU87gO8WQLr/l5tr+Pp5phBgxnKRh9AbeYzq+5ciiDyyNY7TjHd+Fz
-	xg5U/94BNh+y6jyp9IWhL8SO8kCQz/1hr6dJkgxCzJng8miO+r8f5yzWs2w8WHNE2y7aYiJo3Vwo3
-	HpHXhh8b3zhH0tfeUBx8faUlSZrNw4nDvufdxyDKiFDyomH9irdoaNzshXzrEXhXVvOU7KIyzCWXr
-	wX8WJf8A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39186 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vE3GG-000000004EQ-3nmA;
-	Wed, 29 Oct 2025 10:18:36 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vE3GG-0000000CCuC-0ac9;
-	Wed, 29 Oct 2025 10:18:36 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH net-next] net: stmmac: qcom-ethqos: remove MAC_CTRL_REG
- modification
+	id 1vE3Is-00000000hgv-3YTI;
+	Wed, 29 Oct 2025 10:21:20 +0000
+Received: from [172.16.12.149] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 27a20e337;
+	Wed, 29 Oct 2025 18:21:09 +0800 (GMT+08:00)
+Message-ID: <cc8b583a-77ec-4a7f-97cc-2d148f7fee9f@rock-chips.com>
+Date: Wed, 29 Oct 2025 18:21:08 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 10/10] arm64: dts: rockchip: rk3399-evb-ind: Add
+ support for DisplayPort
+To: Peter Chen <hzpeterchen@gmail.com>, Chaoyi Chen <kernel@airkyi.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251029071435.88-1-kernel@airkyi.com>
+ <20251029071435.88-11-kernel@airkyi.com>
+ <CAL411-o6mF71oBeRsJ-OPZNbLegn4iJ_ELN9xVdppTM3ssUPOw@mail.gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <CAL411-o6mF71oBeRsJ-OPZNbLegn4iJ_ELN9xVdppTM3ssUPOw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
-Date: Wed, 29 Oct 2025 10:18:36 +0000
+X-HM-Tid: 0a9a2f7c571703abkunmeb663c22345d26
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhkeGlYYQh9NGEtMSx4dQhlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=LdvT8yD55DgQk4sSKILpIpTMXTznVSncF63l6VkUkbyLicwzodkCBt91xnRXJAz6qAqJzyDEiy1ZOtqF1gWvG+5YfYbEXIgUeJHQ1NXAoz4QIXjvKBF5G6COWnbG0/O9NjxQJZ7SzaH6qSjtRb0zw7ZkPku5KSQcFgmMTSj/5MY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=2y//5yz0cKqyDq/eGQvh7lZNErNDwqj5oCuOmDJhx+0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_031843_976688_B355F4C1 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20251029_032119_389848_22080BD8 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,126 +94,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When operating in "SGMII" mode (Cisco SGMII or 2500BASE-X), qcom-ethqos
-modifies the MAC control register in its ethqos_configure_sgmii()
-function, which is only called from one path:
+Hi Peter,
 
-stmmac_mac_link_up()
-+- reads MAC_CTRL_REG
-+- masks out priv->hw->link.speed_mask
-+- sets bits according to speed (2500, 1000, 100, 10) from priv->hw.link.speed*
-+- ethqos_fix_mac_speed()
-|  +- qcom_ethqos_set_sgmii_loopback(false)
-|  +- ethqos_update_link_clk(speed)
-|  `- ethqos_configure(speed)
-|     `- ethqos_configure_sgmii(speed)
-|        +- reads MAC_CTRL_REG,
-|        +- configures PS/FES bits according to speed
-|        `- writes MAC_CTRL_REG as the last operation
-+- sets duplex bit(s)
-+- stmmac_mac_flow_ctrl()
-+- writes MAC_CTRL_REG if changed from original read
-...
+On 10/29/2025 5:45 PM, Peter Chen wrote:
+>> +&i2c4 {
+>> +       i2c-scl-rising-time-ns = <475>;
+>> +       i2c-scl-falling-time-ns = <26>;
+>> +       status = "okay";
+>> +
+>> +       usbc0: typec-portc@22 {
+>> +               compatible = "fcs,fusb302";
+>> +               reg = <0x22>;
+>> +               interrupt-parent = <&gpio1>;
+>> +               interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
+>> +               pinctrl-names = "default";
+>> +               pinctrl-0 = <&usbc0_int>;
+>> +               vbus-supply = <&vbus_typec>;
+>> +
+>> +               usb_con: connector {
+>> +                       compatible = "usb-c-connector";
+>> +                       label = "USB-C";
+>> +                       data-role = "dual";
+>> +                       power-role = "dual";
+>> +                       try-power-role = "sink";
+>> +                       op-sink-microwatt = <1000000>;
+>> +                       sink-pdos =
+>> +                               <PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
+>> +                       source-pdos =
+>> +                               <PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
+>> +
+>> +                       altmodes {
+>> +                               displayport {
+>> +                                       svid = /bits/ 16 <0xff01>;
+>> +                                       vdo = <0x00001c46>;
+>> +                               };
+>> +                       };
+>> +
+>> +                       ports {
+>> +                               #address-cells = <1>;
+>> +                               #size-cells = <0>;
+>> +
+>> +                               port@0 {
+>> +                                       reg = <0>;
+>> +
+>> +                                       usbc_hs: endpoint {
+>> +                                               remote-endpoint = <&u2phy0_typec_hs>;
+>> +                                       };
+>> +                               };
+>> +
+> Why USB2 PHY needs to be notified for Type-C connection?
 
-As can be seen, the modification of the control register that
-stmmac_mac_link_up() overwrites the changes that ethqos_fix_mac_speed()
-does to the register. This makes ethqos_configure_sgmii()'s
-modification questionable at best.
+I think the USB-connector binding require a port@0 for High Speed.  So I filled in USB2 PHY here. And I have looked up boards with the same usage, and some of the results are as follows:
 
-Analysing the values written, GMAC4 sets the speed bits as:
-speed_mask = GMAC_CONFIG_FES | GMAC_CONFIG_PS
-speed2500 = GMAC_CONFIG_FES                     B14=1 B15=0
-speed1000 = 0                                   B14=0 B15=0
-speed100 = GMAC_CONFIG_FES | GMAC_CONFIG_PS     B14=1 B15=1
-speed10 = GMAC_CONFIG_PS                        B14=0 B15=1
+- rk3399-firefly.dts
 
-Whereas ethqos_configure_sgmii():
-2500: clears ETHQOS_MAC_CTRL_PORT_SEL           B14=X B15=0
-1000: clears ETHQOS_MAC_CTRL_PORT_SEL           B14=X B15=0
-100: sets ETHQOS_MAC_CTRL_PORT_SEL |            B14=1 B15=1
-          ETHQOS_MAC_CTRL_SPEED_MODE
-10: sets ETHQOS_MAC_CTRL_PORT_SEL               B14=0 B15=1
-    clears ETHQOS_MAC_CTRL_SPEED_MODE
+- rk3399-pinebook-pro.dts
 
-Thus, they appear to be doing very similar, with the exception of the
-FES bit (bit 14) for 1G and 2.5G speeds.
+- rk3399-eaidk-610.dts
 
-Given that stmmac_mac_link_up() will write the MAC_CTRL_REG after
-ethqos_configure_sgmii(), remove the unnecessary update in the
-glue driver's ethqos_configure_sgmii() method, simplifying the code.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
-Ayaan, please can you also test this patch? I believe that this
-code is unnecessary as per the analysis in the commit message.
-Thanks.
+>
+>> +                               port@1 {
+>> +                                       reg = <1>;
+>> +
+>> +                                       usbc_ss: endpoint {
+>> +                                               remote-endpoint = <&tcphy0_typec_ss>;
+>> +                                       };
+>> +                               };
+>> +
+>> +                               port@2 {
+>> +                                       reg = <2>;
+>> +
+>> +                                       usbc_dp: endpoint {
+>> +                                               remote-endpoint = <&tcphy0_typec_dp>;
+>> +                                       };
+>> +                               };
+>> +                       };
+>> +               };
+>> +       };
+>> +};
+>> +
+> .....
+>>   &u2phy0 {
+>>          status = "okay";
+>> +
+>> +       port {
+>> +               u2phy0_typec_hs: endpoint {
+>> +                       remote-endpoint = <&usbc_hs>;
+>> +               };
+>> +       };
+>>   };
+>>
+> There is no switch and mux, how to co-work with Type-C?
 
- .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c  | 16 +---------------
- 1 file changed, 1 insertion(+), 15 deletions(-)
+I checked the phy-rockchip-inno-usb2.c but did not find any switch or mux. Does this mean that we need to implement them? Thank you.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index d1e48b524d7a..1a616a71c36a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -76,10 +76,6 @@
- #define RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL	BIT(6)
- #define RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN	BIT(5)
- 
--/* MAC_CTRL_REG bits */
--#define ETHQOS_MAC_CTRL_SPEED_MODE		BIT(14)
--#define ETHQOS_MAC_CTRL_PORT_SEL		BIT(15)
--
- /* EMAC_WRAPPER_SGMII_PHY_CNTRL1 bits */
- #define SGMII_PHY_CNTRL1_SGMII_TX_TO_RX_LOOPBACK_EN	BIT(3)
- 
-@@ -632,13 +628,9 @@ static int ethqos_configure_sgmii(struct qcom_ethqos *ethqos, int speed)
- {
- 	struct net_device *dev = platform_get_drvdata(ethqos->pdev);
- 	struct stmmac_priv *priv = netdev_priv(dev);
--	int val;
--
--	val = readl(ethqos->mac_base + MAC_CTRL_REG);
- 
- 	switch (speed) {
- 	case SPEED_2500:
--		val &= ~ETHQOS_MAC_CTRL_PORT_SEL;
- 		rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
- 			      RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
- 			      RGMII_IO_MACRO_CONFIG2);
-@@ -646,7 +638,6 @@ static int ethqos_configure_sgmii(struct qcom_ethqos *ethqos, int speed)
- 		ethqos_pcs_set_inband(priv, false);
- 		break;
- 	case SPEED_1000:
--		val &= ~ETHQOS_MAC_CTRL_PORT_SEL;
- 		rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
- 			      RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
- 			      RGMII_IO_MACRO_CONFIG2);
-@@ -654,13 +645,10 @@ static int ethqos_configure_sgmii(struct qcom_ethqos *ethqos, int speed)
- 		ethqos_pcs_set_inband(priv, true);
- 		break;
- 	case SPEED_100:
--		val |= ETHQOS_MAC_CTRL_PORT_SEL | ETHQOS_MAC_CTRL_SPEED_MODE;
- 		ethqos_set_serdes_speed(ethqos, SPEED_1000);
- 		ethqos_pcs_set_inband(priv, true);
- 		break;
- 	case SPEED_10:
--		val |= ETHQOS_MAC_CTRL_PORT_SEL;
--		val &= ~ETHQOS_MAC_CTRL_SPEED_MODE;
- 		rgmii_updatel(ethqos, RGMII_CONFIG_SGMII_CLK_DVDR,
- 			      FIELD_PREP(RGMII_CONFIG_SGMII_CLK_DVDR,
- 					 SGMII_10M_RX_CLK_DVDR),
-@@ -670,9 +658,7 @@ static int ethqos_configure_sgmii(struct qcom_ethqos *ethqos, int speed)
- 		break;
- 	}
- 
--	writel(val, ethqos->mac_base + MAC_CTRL_REG);
--
--	return val;
-+	return 0;
- }
- 
- static int ethqos_configure(struct qcom_ethqos *ethqos, int speed)
+
+>
+> Best regards,
+> Peter
+>
+>
 -- 
-2.47.3
+Best,
+Chaoyi
 
 
