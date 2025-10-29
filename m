@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2787CCF9F7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE63CCF9EE
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2rTEU/R4flNUm5DKfIw19dyA8fnd0V3L0Lxu0SXKBI=; b=0frcAUFIvPm6K5BmSHjyxoMq2f
-	oeFE18m5+EAd9UUa99jiGu8L+o/FqA2L8D6/GM/C59wJSRWWQ5aNt+FllTQW2GTJrkMq6Ll6gMsQZ
-	+KSFrdnn7eCfFWLAD5/kymqxMMGJ96gZ5fsLG+Qrdum6UnWHjDqAOxqBU7munPdSSg2lShzR7ofcx
-	DFljB9p/5WsVpnuNLoA3W7uwvpZ+/YYlwidfy0nFUoqlfpnypSTmj0948cNyiJbCGVeTNMQHhkGcj
-	gIFSbNbEeGuI8v8I2MUIZsNU4+nQVlBJOS93f4txJdCnHJKq5eFNZTwTDKrS8QwgWFyu3DLQgmudt
-	SUhZzJNA==;
+	bh=ibo0NSWbl5C+bQQFmoxlAmjW8oHbuGgT0ysyiGqJH04=; b=KmMKYHFpXO2Vh8Bszo3AVF1pvf
+	fHOt5AUxwFfnlFFGFCBTPJolOpyJddgQxPshtMovh1ta2JUlFunwapG2RoTgt95Xg0zG6AsXJzvJy
+	A7/cwMoLg+6+swYP0xhyZ3HoK5gFbkyOlr5WhTvbpI4hEiCMX5XHAVZWRLEOBrSlDHjIb84bYXy1n
+	7fVOjeIvJ3QSh7cClGqyjLF2FQYMEkv3J/+sifTk+UJwCPbmDkgA3G4V4lh7On/Ll/lYpIqxDPcXP
+	Fi5sMhhmL228GUQ581WnfhE8P/pZzzQBub1p4Bp4RjfIVwLUpgWpLEQh6UweEbhdYbmbo3O9ik3Hu
+	fCspzWbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4FA-00000000wET-0Nkx;
-	Wed, 29 Oct 2025 11:21:32 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vE4F7-00000000wAX-0OIP;
+	Wed, 29 Oct 2025 11:21:29 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4Ev-00000000vzN-0Tdu
+	id 1vE4Ep-00000000vtU-0hPt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 11:21:18 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47112edf9f7so46680955e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 04:21:16 -0700 (PDT)
+	Wed, 29 Oct 2025 11:21:12 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4298a028de6so564389f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 04:21:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761736875; x=1762341675; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761736869; x=1762341669; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=B2rTEU/R4flNUm5DKfIw19dyA8fnd0V3L0Lxu0SXKBI=;
-        b=BLMNht378mn6TwV+rph6UCjmNhrzTnT4X0J0HeUYwLnSNFC4klnzsgy9zSmMl6HE0n
-         hcY0kWavjkcTPGrVjZ+kAtS3I2CzE12BuArSGeEBjwfnCo1EpyHIlRbRtlwh0MRjrA2R
-         gKF171x24e0oNcvRt8xtD51mN7UW2I59QQECGAN2mqnJo6H1Bw7V2gXlz1meCcBFFU+F
-         Q/AV/A707TmMGTB8pdMKSFUt8I94GUNZnTLln0YG5eRDsh26qxA2OWma65dWgJr1Qpkc
-         xu1LvA4o2ubbU3VkTGkLyk5P8yz03tzmBG9C5tUJxk/tJfbdSp9RcgvYuc1/gRx7LwWw
-         dQQQ==
+        bh=ibo0NSWbl5C+bQQFmoxlAmjW8oHbuGgT0ysyiGqJH04=;
+        b=sFhhiKs4a7vLw2Qbr51YrovqyWhUUhBmu9zaG+VFG8PtK5nlzWZ0vB8GpRRUuM92x3
+         3sXzj/CAAp1RzezgJ1LW8BAzW+n1+MJsVnTj8fic26ELC+KZSDyJxzJvucckjzZfDNKj
+         IcV7VwLWjCTFW8Ihf+ZQDfmh9F6II7acymMHG6xRCmRzfEfwKwF7JDjNYUU9ZTLaPs49
+         r2N9HjsW4zKrHBlUOJAvWGeircHJL9ka5k5feZm8j75kU59xyJRw823EFMX/mTyAUOty
+         SK4BWr/H/DyI0bvXsQdrZrojB9qU43EycjlVivjFZrD0l4wrRVqT/9xLpmm3V09U2y9V
+         mcag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761736875; x=1762341675;
+        d=1e100.net; s=20230601; t=1761736869; x=1762341669;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=B2rTEU/R4flNUm5DKfIw19dyA8fnd0V3L0Lxu0SXKBI=;
-        b=stiWQgJgj70SEevQ62N4ckrNuXKrNd8mftOLO+JP5gBlVypuusXAN1WDpgXX0E3w1t
-         r6kdYEZwVWCwM9prFCbg7uCnWhFnmQ6mJ84t3tvYhfrAUS351CMAIEgQ0uDlNCg/zSuR
-         LvIsYX+7bAVteGWr53pTRwoXKt2hwyL+PviCXnzpXDnmqHbGZyQC/7c+aJmdle+OSyCY
-         y4rKp9X5rqL4NME6+gBPPKVIKHhxvK9z2IUp9IEwb8135CVCnR8C4G9bs0IPvsbTJP3X
-         ugFvYK4LKzLBcKg5ZEmaB4B9OWOzy3gY6rfe1RaTf7FPwXw5KWWaiDfw+zTHlyAWbDwg
-         VQDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUa/uUhMgxoFTbapQk3B50wGzMYvc3yKIW7wE+Gds1Kh60dkq4IbJFlS+rHXa64aQEg/yAiMPNoWxkWlIcoxMR1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFi8wZPP6d+L95UWJ5ApTLQDXetdm/IqSAwSI3nCH7RrdOJkgN
-	HGpHxySisguoIW5trKMFl17Myb+JN4OJYJIHbUyHNR4l0Oc6ig2ylGyMqZ3MXFlkQgg=
-X-Gm-Gg: ASbGncsNQ3k2NE7gL7Y7Gk53OnkJbPUbFOUdecnja6iKMTvqKvx07cDzpjuFVQ4d5wg
-	+Leb3D01hlKQ2PePa0h2eMc2YwMkFxB0dunY2LtYA/KIIH15Po2egUDxXd0hY0J1no4n2zXYjog
-	KIw8te219dHBc8IwV6PgEsQ5V3ePK4a48CcaAFP4AdZPsH2cDh1hSsxWYhi9l+zhqAbTVLBlaIU
-	eMA1B7YpRlyc7B3As7tOl+7vM9QXM8LgX7jlp6pL2Shn0YfmBsZ7Lmem3kN9SxfRQ/Bz+N/OY1H
-	l4h12HNnNgxsE9XhfM835LliNqhW3bGUy7e58470U2VPDVDBOVODriaO95xzlmqRkNOgrI6AQW+
-	9gaIQ9c6RmCP0V8TrW76bbdH1929PzRAI9PNjb9GXY0oIWM4CYa4JI/8AZdZlBMSlusmSBg==
-X-Google-Smtp-Source: AGHT+IGR7PwU0mQOpYzSCMCZbMwDSmhLvLVnDgvEOcrKX+beh3H3tKQBd4cE2sGECLQ4LCyzu99rrQ==
-X-Received: by 2002:a05:600c:c48e:b0:477:942:7515 with SMTP id 5b1f17b1804b1-4771e17e177mr21559155e9.11.1761736875026;
-        Wed, 29 Oct 2025 04:21:15 -0700 (PDT)
+        bh=ibo0NSWbl5C+bQQFmoxlAmjW8oHbuGgT0ysyiGqJH04=;
+        b=gmJTVeCuyyD+pvOFoB89HaXXAnrOC1/d/ZKDX0r7h++poR7IKYSwL7bl/JoifOIaXo
+         g2De/N3WWAiAS/Baln2Y0ob8qiMnVqB/Z5aB0en+HZJljzxrbGrbmiFi7qmUfhbPOJlb
+         x24pgESnJt2sJtMIeYlZBgbuyBhWkcXhTtDUi8MIG+O4orkJIkQYAwVSP3VbnForr2Fq
+         K49qFeyFcFLc/pDYms5hhDU4YazpftoqoSkgWktgJZSq8gMzMiCfE4J+tLuCZ/DdOXWN
+         mUd/PVuHtH8kAr5yBS2Ga9msmenk1153CaxiTGV5jvlAKXjfk4KbMsszz7XjpAw+O90H
+         dPBg==
+X-Forwarded-Encrypted: i=1; AJvYcCXUs5WYNaa1MbI2jxjC6Ln8/hKYhuM5ob/YWY3kF9EmAUsyrHw9yYEz1aqSKLJm9sFPngIFUbM5F3LgbZHUzExY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBBcCgCTge7PyGgWdY/N5U87Xkxdq3Fm5dM/mx/kNSEkOGXSgO
+	eQPXcaT1v9GeiR/z+FGyLh7EK8P8nGjnMznDkfy8s/5tzoS9ASUgJWfxbG+PuViN7fE=
+X-Gm-Gg: ASbGncu3IOiUSkbrx7HZiDuemOiwMzsJHymMKR0qhhu/okwbnkUIvOOsn5qGHSsMuOy
+	HONOrtyAmxNsVitxZv/fKu2RFlqHnGbm7cVgO768e7DBf4uPagDaLsDaJZzzKhDaRaql75gYxmo
+	DJOPK/9or1sCWdCJx1wG/lvgEWtb03emyea7CiU7hQeQ6c2oUwLZUyD8xDOvFACBR5j1zJVLlIx
+	evdz8l4lNejtjyHJJJipR7oBBn5AEnz32oO4GS6F6sycOBwTP952HJQugp88QDX46vptqQlhKAh
+	HmvohGNg9jT7+TTkSefauGkEMiRhgam1uu39dzQt1oSSY/QKgO4NtrN68MiZO9M9gaf2/JEY/Gn
+	kv1h/dgNhCXzN9Wa8MYY1+LHYhaJuq9TuyATsQ5MIvvBuCfMUSrI0rvVIEfxQBoP0mc/DZg==
+X-Google-Smtp-Source: AGHT+IEH6NN9LOg6FLsVrk8zgYabLR8BtA7vsvA+Q2uvBWc5oO4/7h3wh8g96410ssV5WtlYeIfHGQ==
+X-Received: by 2002:a05:6000:611:b0:426:dac0:8ee8 with SMTP id ffacd0b85a97d-429ae8edeedmr1897555f8f.10.1761736869351;
+        Wed, 29 Oct 2025 04:21:09 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:69f2:5f2d:9ffc:a805])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952df682sm25657486f8f.43.2025.10.29.04.21.13
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952df682sm25657486f8f.43.2025.10.29.04.21.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 04:21:14 -0700 (PDT)
+        Wed, 29 Oct 2025 04:21:08 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 29 Oct 2025 12:20:46 +0100
-Subject: [PATCH v3 10/10] regulator: make the subsystem aware of shared
- GPIOs
+Date: Wed, 29 Oct 2025 12:20:43 +0100
+Subject: [PATCH v3 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251029-gpio-shared-v3-10-71c568acf47c@linaro.org>
+Message-Id: <20251029-gpio-shared-v3-7-71c568acf47c@linaro.org>
 References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
 In-Reply-To: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
 To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
@@ -97,26 +96,26 @@ Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1401;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=735;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=GIqAeLMClqYJzQksRPUzaJ9e76p5dkwgt728MWTS1+0=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBpAfiXYH7uSZSvv2U/L5oE1AwbmsCdQLfg+BT6I
- BexNof4UFKJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaQH4lwAKCRARpy6gFHHX
- cjuVD/9pKMy9xOMmFOqySa84qtPZZ//MaWg8zuKJKEL2j3t/Hf1aiGZpWMx1/YNjCFZIAGQ3H0A
- NmjnygexP/IQFMGnRRSzA3mCgF/IU11qJSprjKr4evOZYIqoMxfFlWR6eDpuSncPQmqpCSV9MDl
- YZ35OCglMwmVOaFaPRnjzfhvhbGZkpo03RrPkeI7EQ+v4h4S2bpY2UveAKe71Br5o57eAmvik8v
- rwnRwpIvS1cmm/zK02sGg0go1c/tbdKbFrwoGdJ1OZhEtTxv+iiB2PXpc22/MJlDUi0mQBhS07m
- b8LPIoT6scWDQHlLr1K5qWSPfJt7u5OhjUfhXNa8Q/GdP6ViFr8EzemKdsBjUeJxwkOVS0zWc77
- V4kkjWa2olMwV/ZgOY313FoUVqBxBu2lCJuEE5C3F34WDSVzP80gsG9VlL8yznE6JhH6MaGf5ZA
- 0zh3q323KhY+vaQ2Nb6MbS1C7sKA09nuBUZEOQ7HoD2oTY9Pp6krNOpSDNkJnT3jdyQrIfTvRlL
- fwpPx0GQfTYfxGonj6ayd0vZO/elG2eQSjCgUUcsdVvYgrasgibmrH6S7kxSo8/teNU4ptvP8H0
- fjA+DVAvFqG6lY5ipB1BVRVcoaywy+RgkCu5Kqk4zWOBT7yMzLZzxgNtsDabMykXPK8ciXibwvJ
- zSkCr/gfsw52I2Q==
+ bh=LQ6GmHpD/iWFySPYiWNs4nA4WFevXV0FDAv5KxrY5e0=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBpAfiXPD1vu8+WNIIVkn145b8DPfphfMN9ZAQUf
+ MgZmrowGRSJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaQH4lwAKCRARpy6gFHHX
+ cj+mEACXXeZt45Hp/bebUUP9FRIuCOwBltkwhyGWvMMx9PTg/virvsZSWrsbCDKwVHowTsugvBo
+ ojQt+rBZx4fjXjEfaPniWVCRzIZBwM5eYEiyARKHMY5e8mRvLiwdRsDQFE1P/9IHy14ZVveXK9F
+ dUGwyeOmdmwcXT65FhiDhn9+GIvNQ5BxaVKUqvfpeN6WThs0dx130XdGjauQ3kIhUdVyXmBpKnw
+ L6jROZWZ3HD97GiGvKPDkUW+7DY3DMnl9Zt5F4ttq5ABoz1gUpfpo4VCb9E35lERHQkhJfIL9cI
+ YyOMKGpPyeZ+MD3y9yb71MS4rRM+nKqK3oo/G4iYMZjaqjeDM2SgUI6QlOLfpDn5w6cabuHYD4O
+ C2EiSXMl+dAzgifvoBldvNEZx1WtgR/sT3kTyxA01JX08FpSCP9pSbhJteuinINVnQALoyg10/f
+ aho6Yi47ZdyDhExR8O7KyiLsjZkxPcDpP8ZymCQbRCn98lEVrYoVodLR9uBZE6ZB9yaijXt0m9f
+ WkipfJMeZToVjn4CZRYcOkQ49nDv4C2+sgpy1+G6xu6Aee84B4Sb2fqa8WEKntpKBqBiLkQWT0o
+ wLWY9t5n/E2aWM8d4UQ5uLNXLRj1PgYGAiX3df6Vv0NdL722eiMaLZj+DdSEmMK4s4zG2rQFsi6
+ IakNBGvF+FN3/9w==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_042117_187417_464557F3 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20251029_042111_235830_3914E95F 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,44 +132,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-GPIOLIB is now aware of shared GPIOs and - for platforms where access to
-such pins is managed internally - we don't need to keep track of the
-enable count.
+Some qualcomm platforms use shared GPIOs. Enable support for them by
+selecting the Kconfig switch provided by GPIOLIB.
 
-Once all users in the kernel switch to using the new mechanism, we'll be
-able to drop the internal counting of users from the regulator code.
-
-Acked-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/regulator/core.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/Kconfig.platforms | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/regulator/core.c b/drivers/regulator/core.c
-index 84bc38911dba308539a25dd3af30a5c24802b890..e13cf5e120466cebc4d3f8400b89be07d3303338 100644
---- a/drivers/regulator/core.c
-+++ b/drivers/regulator/core.c
-@@ -2737,6 +2737,13 @@ static int regulator_ena_gpio_request(struct regulator_dev *rdev,
- 
- 	mutex_lock(&regulator_list_mutex);
- 
-+	if (gpiod_is_shared(gpiod))
-+		/*
-+		 * The sharing of this GPIO pin is managed internally by
-+		 * GPIOLIB. We don't need to keep track of its enable count.
-+		 */
-+		goto skip_compare;
-+
- 	list_for_each_entry(pin, &regulator_ena_gpio_list, list) {
- 		if (gpiod_is_equal(pin->gpiod, gpiod)) {
- 			rdev_dbg(rdev, "GPIO is already used\n");
-@@ -2749,6 +2756,7 @@ static int regulator_ena_gpio_request(struct regulator_dev *rdev,
- 		return -ENOMEM;
- 	}
- 
-+skip_compare:
- 	pin = new_pin;
- 	new_pin = NULL;
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 13173795c43d4f28e2d47acc700f80a165d44671..3dbff0261f0add0516d8cb3fd0f29e277af94f20 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -316,6 +316,7 @@ config ARCH_QCOM
+ 	select GPIOLIB
+ 	select PINCTRL
+ 	select HAVE_PWRCTRL if PCI
++	select HAVE_SHARED_GPIOS
+ 	help
+ 	  This enables support for the ARMv8 based Qualcomm chipsets.
  
 
 -- 
