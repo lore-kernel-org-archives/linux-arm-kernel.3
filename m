@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3626FCCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8528FCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04PcYjGelANUAIc65GQpYCVFC3ej9UoaMVRsOSXvgHc=; b=P5KG6Bb61wte6iqNUOMohVEbMT
-	wxI+TgrrO2zKXYJOsWnRXl48YoBADkGmMwLz8MAX1SCRmhztaKrbGNSK9S15PImStZpKdAwLHRuMB
-	QknvJbaOLPOmb+0SyTkGVu/OksieiprThadysdrM9veZgu3K+7xrdeLVAffRutngX2rM8amHeb6Bn
-	Jtgdz/TYIWCm8w44EuSeFVB8S/lOhNNta9RzLQeQuPzbjXgd5X1KPOqOi6KLguk8UYSm0fQb8pdDl
-	qpdcoIipHy5N4dz03GdeKcvmYGmsr10TL7WMP5yyGgdBiZ0aBKbs6m1Xf5+FntenGbkjbdS3hvU8Q
-	mAohlgSg==;
+	bh=rdHFlC8nvve3L+DygO7m6zYboTHN2Cj0QppHtISzmsw=; b=ZMqKjjLrAI3vtoITZiS5wVfnj8
+	dNqR8Z64NgKdMPEFhX5nzmzuN5epnOL8uhgy9KfLXsNFrNpvucmrIG3yHL5yIjlh/YHaJl8DCMPul
+	7w9noftXAdDjhizctqB7EqqxwwaWFrJTlitOj5B90cczlxX14RRIIup79O9YujFOvp67xLxoVdmWX
+	YuQXZCe0VPJXOXz0GJNbSwc9HV9YgxRFbUQz1NZLwNc4a0a5uCMEddHjCdPKJtAS884QfyNAc1INt
+	snN3xaOYyXZ4NnfWxVdUfuZDoFXWjVyzj3YDB90krRIWtuiwspESWiQnOPzAETLy/cOOiuYb6gS6k
+	5j+pIR+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2nc-00000000ZHv-0Sq4;
-	Wed, 29 Oct 2025 09:49:00 +0000
-Received: from dd54918.kasserver.com ([85.13.167.58])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2nY-00000000ZH7-1N99
+	id 1vE2np-00000000ZM6-1kLJ;
+	Wed, 29 Oct 2025 09:49:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vE2nl-00000000ZL1-2Xao
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 09:48:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=karo-electronics.de;
-	s=kas202509031142; t=1761731319;
-	bh=04PcYjGelANUAIc65GQpYCVFC3ej9UoaMVRsOSXvgHc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=TDtzJGR86gROx3Pc4Z2qYEJ32hS8ZvtuFzlUGHL57qkvnbaQzRfu6RmoW6ogL08lb
-	 AWZMvIYcbK1500vunWsfatyVMYzSWVi+D8brEp+su26RUqgYpl5RMLhKtxIwxE+6ue
-	 53GjmTbvpBDVlIktDcjnXme6rfTwJNoVErVKHoEta+XjNxlv4JHe/19m1CBbSp3tDB
-	 EbwpeGj7KA3yUvDdKCN5NXYhyImyMYafQbKM3zOOljzxl1SafL1kgf3Krinncnvdyp
-	 lO7US+ZMjxNPW4h7YOSxJyAcq/W051Jz9QTgo4AUSOQqRPLgGuyRPjJB7SZmsr6ZNJ
-	 Lib7yMYp/ccsg==
-Received: from karo-electronics.de (unknown [89.1.81.74])
-	by dd54918.kasserver.com (Postfix) with ESMTPSA id 55BA9772C365;
-	Wed, 29 Oct 2025 10:48:39 +0100 (CET)
-Date: Wed, 29 Oct 2025 10:48:38 +0100
-From: Lothar =?UTF-8?B?V2HDn21hbm4=?= <LW@KARO-electronics.de>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Maud Spierings <maudspierings@gocontroll.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/5] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
-Message-ID: <20251029104838.44c5adcf@karo-electronics.de>
-In-Reply-To: <4a47b9b5-f482-41b6-a441-7728572c5a0c@gmail.com>
-References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
-	<20251022-mini_iv-v2-3-20af8f9aac14@gocontroll.com>
-	<a7012995-c2a8-48a3-abe1-5c227272f21c@gmail.com>
-	<65202d1f-6c4f-4d4e-9fef-85cfb74ec768@gocontroll.com>
-	<938f85b0-4c9b-463a-960a-f5f4e4092480@gocontroll.com>
-	<20251029081138.2161a92a@karo-electronics.de>
-	<4a47b9b5-f482-41b6-a441-7728572c5a0c@gmail.com>
-Organization: Ka-Ro electronics GmbH
+	Wed, 29 Oct 2025 09:49:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20F561AC1;
+	Wed, 29 Oct 2025 02:49:00 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E22E53F673;
+	Wed, 29 Oct 2025 02:49:05 -0700 (PDT)
+Message-ID: <61e923d6-388b-4cc6-8c26-5581a1e1cc10@arm.com>
+Date: Wed, 29 Oct 2025 09:49:04 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] KVM: arm64: support optional calls of FF-A v1.2
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
+ will@kernel.org, perlarsen@google.com, ayrton@google.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251027191729.1704744-1-yeoreum.yun@arm.com>
+ <20251027191729.1704744-3-yeoreum.yun@arm.com>
+ <f5aa3c19-fdea-4f62-9541-530e59b20a87@arm.com>
+ <aQEwVe8+okm/Nmso@e129823.arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <aQEwVe8+okm/Nmso@e129823.arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Spamd-Bar: +
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_024857_738922_D72BC0C0 
-X-CRM114-Status: GOOD (  42.53  )
+X-CRM114-CacheID: sfid-20251029_024909_738306_B3C515FE 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,182 +70,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Levi,
 
-On Wed, 29 Oct 2025 10:42:17 +0200 Matti Vaittinen wrote:
-> On 29/10/2025 09:11, Lothar Wa=C3=9Fmann wrote:
-> > Hi,
-> >=20
-> > On Tue, 28 Oct 2025 14:10:04 +0100 Maud Spierings wrote: =20
-> >> On 10/28/25 13:42, Maud Spierings wrote: =20
-> >>> On 10/28/25 13:15, Matti Vaittinen wrote: =20
-> > [...] =20
-> >>>> Could/Should this be described using the:
-> >>>> 'rohm,feedback-pull-up-r1-ohms' and
-> >>>> 'rohm,feedback-pull-up-r2-ohms'? If I understand the comment
-> >>>> correctly, that might allow the driver to be able to use correctly
-> >>>> scaled voltages.
-> >>>>
-> >>>> https://elixir.bootlin.com/linux/v6.18-rc1/source/Documentation/
-> >>>> devicetree/bindings/regulator/rohm,bd71837-regulator.yaml#L108
-> >>>>    =20
-> >>>
-> >>> Ah I didn't know those existed, should've checked the bindings in more
-> >>> detail, thanks for the hint!
-> >>>
-> >>> I will have to investigate this carefully, since I don't have access =
-to
-> >>> the actual design of the COM, so I don't know exactly what is there.
-> >>>     =20
-> >>
-> >> So I am not yet entirely sure if this works out, I used the calculation
-> >> in the driver:
-> >>
-> >> /*
-> >>    * Setups where regulator (especially the buck8) output voltage is s=
-caled
-> >>    * by adding external connection where some other regulator output is
-> >> connected
-> >>    * to feedback-pin (over suitable resistors) is getting popular amon=
-gst
-> >> users
-> >>    * of BD71837. (This allows for example scaling down the buck8 volta=
-ges
-> >> to suit
-> >>    * lover GPU voltages for projects where buck8 is (ab)used to supply=
- power
-> >>    * for GPU. Additionally some setups do allow DVS for buck8 but as t=
-his do
-> >>    * produce voltage spikes the HW must be evaluated to be able to
-> >> survive this
-> >>    * - hence I keep the DVS disabled for non DVS bucks by default. I
-> >> don't want
-> >>    * to help you burn your proto board)
-> >>    *
-> >>    * So we allow describing this external connection from DT and scale=
- the
-> >>    * voltages accordingly. This is what the connection should look lik=
-e:
-> >>    *
-> >>    * |------------|
-> >>    * |	buck 8  |-------+----->Vout
-> >>    * |		|	|
-> >>    * |------------|	|
-> >>    *	| FB pin	|
-> >>    *	|		|
-> >>    *	+-------+--R2---+
-> >>    *		|
-> >>    *		R1
-> >>    *		|
-> >>    *	V FB-pull-up
-> >>    *
-> >>    *	Here the buck output is sifted according to formula:
-> >>    *
-> >>    * Vout_o =3D Vo - (Vpu - Vo)*R2/R1
-> >>    * Linear_step =3D step_orig*(R1+R2)/R1
-> >>    *
-> >>    * where:
-> >>    * Vout_o is adjusted voltage output at vsel reg value 0
-> >>    * Vo is original voltage output at vsel reg value 0
-> >>    * Vpu is the pull-up voltage V FB-pull-up in the picture
-> >>    * R1 and R2 are resistor values.
-> >>    *
-> >>    * As a real world example for buck8 and a specific GPU:
-> >>    * VLDO =3D 1.6V (used as FB-pull-up)
-> >>    * R1 =3D 1000ohms
-> >>    * R2 =3D 150ohms
-> >>    * VSEL 0x0 =3D> 0.8V =E2=80=93 (VLDO =E2=80=93 0.8) * R2 / R1 =3D 0=
-.68V
-> >>    * Linear Step =3D 10mV * (R1 + R2) / R1 =3D 11.5mV
-> >>    */
-> >>
-> >> Because I do not know the pull up voltage, and I am not sure if it is a
-> >> pull up.
-> >>
-> >> So:
-> >> Vout_o =3D 1.35V
-> >> Vo =3D 1.1V
-> >> Vpu =3D unknown
-> >> R2 =3D 499 Ohm
-> >> R1 =3D 2200 Ohm
-> >> Gives:
-> >> Vpu =3D ~0V
-> >>
-> >> And:
-> >> Vout_o =3D 1.35V
-> >> Vo =3D 1.1V
-> >> Vpu =3D unknown
-> >> R2 =3D 2200 Ohm
-> >> R1 =3D 499 Ohm
-> >> Gives:
-> >> Vpu =3D ~1.04V
-> >>
-> >> I am not quite sure which resistor is R1 and which is R2 but having
-> >> there be a pull down to 0V seems the most logical answer?
-> >>
-> >> I am adding Lothar from Ka-Ro to the CC maybe he can shed some light on
-> >> this setup.
-> >> =20
-> > R2 is connected to GND, so Vpu =3D 0.
-> > With:
-> > 	regulator-min-microvolt =3D <1350000>;
-> > 	regulator-max-microvolt =3D <1350000>;
-> > 	rohm,fb-pull-up-microvolt =3D <0>;
-> > 	rohm,feedback-pull-up-r1-ohms =3D <2200>;
-> > 	rohm,feedback-pull-up-r2-ohms =3D <499>;
-> > the correct voltage should be produced on the BUCK8 output, but a quick
-> > test with these parameters led to:
-> > |failed to get the current voltage: -EINVAL
-> > |bd718xx-pmic bd71847-pmic.3.auto: error -EINVAL: failed to register bu=
-ck6 regulator
-> > |bd718xx-pmic: probe of bd71847-pmic.3.auto failed with error -22
-> >=20
-> > Apparently noone has ever tested this feature in real life. =20
->=20
-> Thanks for trying it out Lothar. I am positive this was tested - but=20
-> probably the use-case has been using a pull-up. I assume having the zero=
-=20
-> pull-up voltage causes the driver to calculate some bogus values. I=20
-> think fixing the computation in the driver might not be that big of a=20
-> task(?) The benefit of doing it would be that the correct voltages would=
-=20
-> be calculated by the driver.
->=20
-> If real voltages aren't matching what is calculated by the driver, then=20
-> the voltages requested by regulator consumers will cause wrong voltages=20
-> to be applied. Debug interfaces will also show wrong voltages, and the=20
-> safety limits set in the device-tree will not be really respected.
->=20
-> I think this would be well worth fixing.
->=20
-Before doing the real-life test I did the same calculation that's done
-in the driver to be sure that it will generate the correct values:
-bc 1.07.1
-Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017 Free Sof=
-tware Foundation, Inc.
-This is free software with ABSOLUTELY NO WARRANTY.
-For details type `warranty'.=20
-fb_uv=3D0
-r1=3D2200
-r2=3D499
-min=3D800000
-step=3D10000
-# default voltage without divider
-min+30*step
-1100000
-min=3Dmin-(fb_uv-min)*r2/r1
-step=3Dstep*(r1+r2)/r1
-min
-981454
-step
-12268
-# default voltage with divider
-min+30*step
-1349494
+On 10/28/25 21:06, Yeoreum Yun wrote:
+> Hi Ben,
+> 
+>>> To use TPM drvier which uses CRB over FF-A with FFA_DIRECT_REQ2,
+>>> support the FF-A v1.2's optinal calls by querying whether
+>>> SPMC supports those.
+>>>
+>>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>>> ---
+>>>  arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
+>>>  1 file changed, 18 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+>>> index 0ae87ff61758..9ded1c6369b9 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+>>> @@ -646,6 +646,22 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+>>>  		ffa_to_smccc_res(res, ret);
+>>>  }
+>>>
+>>> +static bool ffa_1_2_optional_calls_supported(u64 func_id)
+>>> +{
+>>> +	struct arm_smccc_1_2_regs res;
+>>> +
+>>> +	if (!smp_load_acquire(&has_version_negotiated) ||
+>>> +		(FFA_MINOR_VERSION(FFA_VERSION_1_2) < 2))
+>>> +		return false;
+>>> +
+>>> +	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
+>>> +		.a0 = FFA_FEATURES,
+>>> +		.a1 = func_id,
+>>> +	}, &res);
+>>> +
+>>> +	return res.a0 == FFA_SUCCESS;
+>>> +}
+>>> +
+>>>  /*
+>>>   * Is a given FFA function supported, either by forwarding on directly
+>>>   * or by handling at EL2?
+>>> @@ -678,12 +694,13 @@ static bool ffa_call_supported(u64 func_id)
+>>>  	case FFA_NOTIFICATION_SET:
+>>>  	case FFA_NOTIFICATION_GET:
+>>>  	case FFA_NOTIFICATION_INFO_GET:
+>>> +		return false;
+>>>  	/* Optional interfaces added in FF-A 1.2 */
+>>>  	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
+>>>  	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+>>>  	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
+>>
+>> Looking at table 13.54 in the FF-A 1.2 spec FFA_CONSOLE_LOG is only supported in secure FF-A
+>> instances and not from the normal world.
+> 
+> Thanks. in that case, we can return false for FFA_CONSOLE_LOG
+> unconditionally.
+> 
+>>
+>>>  	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
+>>> -		return false;
+>>> +		return ffa_1_2_optional_calls_supported(func_id);
+>>>  	}
+>>
+>> I don't think that an smc call here is the right thing to do. This changes this from a light
+>> weight deny list to an extra smc call for each ffa_msg_send_direct_req2 from the driver.
+>>
+>> Instead, I would expect this patch just to remove FFA_MSG_SEND_DIRECT_REQ2 from the deny list
+>> and rely on the TPM driver to use FFA_FEATURES to check whether it's supported.
+>>
+>> So, just this change:
+>>
+>> @@ -679,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
+>>         case FFA_NOTIFICATION_GET:
+>>         case FFA_NOTIFICATION_INFO_GET:
+>>         /* Optional interfaces added in FF-A 1.2 */
+>> -       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
+>>         case FFA_MSG_SEND_DIRECT_RESP2:         /* Optional per 7.5.1 */
+>>         case FFA_CONSOLE_LOG:                   /* Optional per 13.1: not in Table 13.1 */
+>>         case FFA_PARTITION_INFO_GET_REGS:       /* Optional for virtual instances per 13.1 */
+>>
+>> Am I missing something?
+> 
+> Nope. I think you don't think you miss anything and
+> I also think about it.
+> 
+> But, I'm not sure about "support" means in the pkvm about FF-A.
+> Anyway unless the SPMC doesn't support the specific FF-A ABI,
+> I don't know that's meaningful to return "TRUE" in here.
+> IOW, suppose pkvm returns supports of  FFA_MSG_SEND_DIRECT_REQ2
+> but user receive when it calls FFA_MSG_SEND_DIRECT_REQ2 with NOT SUPPORTED.
 
-Probably we need to use this value rather than the nominal 135000 as
-the target voltage in the DTB.
+As I understand it, the ffa_call_supported() is used in two places:
+1. To return NOT SUPPORTED to an FFA_FEATURE call for ffa calls that are
+on the deny list.
+2. To block ffa calls if they are on the deny list.
 
+For both your patch and just removing FFA_MSG_SEND_DIRECT_REQ2 from the
+denylist I think the behaviour is the same.
 
-Lothar Wa=C3=9Fmann
+If FFA_MSG_SEND_DIRECT_REQ2 is not supported at the spmc then:
+a) an FFA_FEATURE call will return not supported
+b) an FFA_MSG_SEND_DIRECT_REQ2 will return not supported
+
+> 
+> I'm not sure this inconsistency is allowed or not so as a defensive
+> perspective.
+> 
+> If that allows, I don't have a any special comment for this.
+> 
+> Thanks!
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
+
+-- 
+Thanks,
+
+Ben
+
 
