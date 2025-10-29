@@ -4,83 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A365CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D4DCCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFO/V4h4fszx7JmKEX4+pQ6W25t5QSCTuaQ3p7c5bTk=; b=cmdxEzSXk8pv1fK29lnD43J03Q
-	iJhVayNVz1bogeb7gSUCo5KGrJeOmV+9bU59NppiioFwWmA/ty+8zSmkf4L1359tigpABVqhP+ZDo
-	eNqS/2ZsC12v224ayGwvZE7C8dFSNhY6oOa0XWbll/zp0STaQbWwNazpCFkARa2jYwHadxZbnaNPD
-	H05K+QG4Y+ImYsT4Xi6ud6EBANOgVsCl5P1/61xLm+Fhi23ljiSZ2t5UuWVLu1ycyRWFNeLoJsusi
-	7BfAxN4yQEU1ZqE93+WGZzCR8Q/1ZJlVDJueWjpvs28+HNC6A6ltKNxi5GIHENTI7YK3MZ2/yTH/o
-	Qq4go32g==;
+	bh=T+0dV49Z0hZQvL1JwoyFgg+j9v/HxeFYx2d1Gt9wCQ4=; b=C/0EMMMxGDi+ghMJq+GpNrIc/0
+	1UhtLcdyjJBlPcQLrDh6enGGpqook90JBXpn8xKKO3ks1TYUjZMPG3nFEHdlOaZnJkobsQfPR2gus
+	4CpwSWPfdB9icMJ/D8h46COWI4pa1NPWuZL0tqU/MgfYzGEG5GV/AfXLqN+Hy6wXsYz/v/1aMqQPi
+	pf9/zsOifemvOPdNDkHCc74nhyxgjT5Sc6bXg6wucRi7GJxuEVZJvJ6fFT4Iuv5wEnCcJvSd5m2WH
+	B2JfcfIaQSXrEaLUcwfPi982FppJ3iH47IqJisD2RWgZlCAuduhr4LkLN/W/D5dLRX9CmsENyG2mn
+	ANNr385Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2fr-00000000XHb-0k1y;
-	Wed, 29 Oct 2025 09:40:59 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vE2kj-00000000YQW-0F3t;
+	Wed, 29 Oct 2025 09:46:01 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2fp-00000000XFj-0RoC;
-	Wed, 29 Oct 2025 09:40:58 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761730853;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EFO/V4h4fszx7JmKEX4+pQ6W25t5QSCTuaQ3p7c5bTk=;
-	b=3sTXMxsIKprUjnsDC66p+RBYJd9y6TZ1M3AyJLTlStJ+fElxuoiyQSYqwAmRVPl9VCYYPv
-	e8LoYCTUGlmJz3YFZqzz44NvoEOGiy/HMpmKljmKvp24Xo/prnzqfa7/3zvwo9yekzvhre
-	yYozK/wb82vBfLPgjnmd5TLh17uFgGvr/0Gqkf1SgjaUWdbprblGt269I+L1TvWs7Gayln
-	Iwd81TagqU8MwWufrGABN3adYripPGFZF4G9Zur3J4UTbrqOMQwefmFc0M5wmTe/7FOd9B
-	W/+bAHiStdDK9PNOl3peIdUp5EXACfesjCznurUapyJ3iIjnSjUcdIuZbtYeNg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761730853;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EFO/V4h4fszx7JmKEX4+pQ6W25t5QSCTuaQ3p7c5bTk=;
-	b=Qu2A8dkhT2JhVGdB5ITQtPpq5eKRqmyaPGfzBMENu1kheISQNRLH52GqMZHNnXGu4rwWXY
-	EQqPF2Atk1+ec1Dg==
-To: Yann Ylavic <ylavic.dev@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, Linus Torvalds
- <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>,
- Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
- linuxppc-dev@lists.ozlabs.org, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, David Laight <david.laight.linux@gmail.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix
- <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>, Darren
- Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?utf-8?Q?Andr=C3=A9?=
- Almeida <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: [patch V6 02/12] uaccess: Provide ASM GOTO safe wrappers for
- unsafe_*_user()
-In-Reply-To: <87jz0fuinj.ffs@tglx>
-References: <20251027083700.573016505@linutronix.de>
- <20251027083745.231716098@linutronix.de>
- <CAKQ1sVO9YmWqo2uzk7NbssgWuwnQ-o4Yf2+bCP8UmHAU3u8KmQ@mail.gmail.com>
- <87jz0fuinj.ffs@tglx>
-Date: Wed, 29 Oct 2025 10:40:52 +0100
-Message-ID: <877bweujtn.ffs@tglx>
+	id 1vE2kg-00000000YNk-0QIE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 09:45:59 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-780fe76f457so70725367b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 02:45:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761731156; x=1762335956; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=T+0dV49Z0hZQvL1JwoyFgg+j9v/HxeFYx2d1Gt9wCQ4=;
+        b=a+peMUuGxCoOvXz6HsNOPn78cLSWdz7CQzNVVx9ieT+qqaWW0UTsKDO2CAX9phlyZY
+         DMjv/vgJTO582mXirCldoXVbraQXg2IcZFvpy/lL/bihElzUYqFKODhaDHNgZzxStdrj
+         TlhfknfEd8nUy7MsJ6CmQ6KgQNYuO7tIpTKikbjAQuDu8aLoC1qmeR/CrpUf8jXpeQlI
+         w07oQdqyLcILxk7wAMIMT7OVH6CmAE17m/RL1TyIMCuz95jVJ++A+NKFOyQV9PcJd08n
+         yVtHdA69noI9y0k1qOCQFTcXqeg1vxCxXELquXwHDwvHg1JVu7B1e0805T32Tc+Q5IuX
+         SoAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761731156; x=1762335956;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T+0dV49Z0hZQvL1JwoyFgg+j9v/HxeFYx2d1Gt9wCQ4=;
+        b=rLsRofAaDEfMJIwDP33LjiKZzb63VSBO7fRBQA/l4Vdpehkcx2911TL3IoWUpYl3RF
+         w8xBZgTS0RNE9m7ortJCT/Akjfm1OP3Gbiz4+ywKTAZmj60bLHHZHvLfwdZGwnjIzRdF
+         /fQLoymt4M7czKI53ICQn6Eb/fbCafyTaARCJBANB4ywIE3ohraDDbXzOq0SPnmjyOk3
+         1VpPsKkTcvcekmZqpWiaElxvW4WLCXFTc8uR1bmwLa/4BFBHSaYqz/M4b5W1IV9IIa6L
+         GFNlpGjmYqq2Nyt7Ewa9Q2m0+DDJhVmEHhJgTXryAFD1pJFxvc42vgb7eWE8BmdmqFbX
+         A65w==
+X-Forwarded-Encrypted: i=1; AJvYcCU0S0EQizcah08vAItLupVQOk/gM0ZhW5lCJLUsXMGulPbvU/UENWdPbJqB+9880/07it2H3sLzuHKsixT+63bW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDvgly6AxZyC7tRaW3g6UyB5VlaMNL0ut0OP028t5htHgTbI1y
+	6CdtRBuxmnFV52NyuMeRXGpW7sZWHm6It0OdJuOd6OJuIvwlrfJeeViCAQXD9OJM3jAyvyc09AG
+	g7B53BJwJeSLHnwjyRE9rHL/vpC7qsoA=
+X-Gm-Gg: ASbGncvIbVGOgxQU0Kk/z0iWN08gkOHkibYG27rr1H4UfJel4yShZGw20YlAnhL+jHa
+	3nmYH9HzRN9JXi6vgklfPtLJdgZxNUCw3rMNvQOzkZ/d+fzpeeK+KZPP7bB9Abh78HWweLqu23h
+	oyJTEh1QOrA/eWBaC0mcuC2pW4ppgsfaL1UWa/HS3w8+kaw4B41HV7Z3efqT1/CYBf9atez1rCr
+	fUsunOrUw5ps+mmEVk7yMzS2+Zz81GHX8wYrKWhCpgescPKiHOWnRxRe5lhlh3N0v0aYQ==
+X-Google-Smtp-Source: AGHT+IFXTGFBQZQCvoFTcD2XW69zJNvRv2jA1skYdjLaN3X9V8WOQAc0sJLs73yBIhsOL2y0JL1ybcsga9Zkjczkf4s=
+X-Received: by 2002:a05:690c:680d:b0:785:bfd8:c4ad with SMTP id
+ 00721157ae682-78629298707mr36580707b3.3.1761731156514; Wed, 29 Oct 2025
+ 02:45:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20251029071435.88-1-kernel@airkyi.com> <20251029071435.88-11-kernel@airkyi.com>
+In-Reply-To: <20251029071435.88-11-kernel@airkyi.com>
+From: Peter Chen <hzpeterchen@gmail.com>
+Date: Wed, 29 Oct 2025 17:45:45 +0800
+X-Gm-Features: AWmQ_blYmsodv_vg4uKolYRe0NzpqIhwJ3rq0FrOe8J4voY-HqIG6eRi0roVBPc
+Message-ID: <CAL411-o6mF71oBeRsJ-OPZNbLegn4iJ_ELN9xVdppTM3ssUPOw@mail.gmail.com>
+Subject: Re: [PATCH v8 10/10] arm64: dts: rockchip: rk3399-evb-ind: Add
+ support for DisplayPort
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
+	Frank Wang <frank.wang@rock-chips.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Amit Sunil Dhamne <amitsd@google.com>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>, 
+	Diederik de Haas <didi.debian@cknow.org>, Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_024057_432255_167BF2D1 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20251029_024558_149632_151DA941 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,188 +110,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ASM GOTO is miscompiled by GCC when it is used inside a auto cleanup scope:
+> +&i2c4 {
+> +       i2c-scl-rising-time-ns = <475>;
+> +       i2c-scl-falling-time-ns = <26>;
+> +       status = "okay";
+> +
+> +       usbc0: typec-portc@22 {
+> +               compatible = "fcs,fusb302";
+> +               reg = <0x22>;
+> +               interrupt-parent = <&gpio1>;
+> +               interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
+> +               pinctrl-names = "default";
+> +               pinctrl-0 = <&usbc0_int>;
+> +               vbus-supply = <&vbus_typec>;
+> +
+> +               usb_con: connector {
+> +                       compatible = "usb-c-connector";
+> +                       label = "USB-C";
+> +                       data-role = "dual";
+> +                       power-role = "dual";
+> +                       try-power-role = "sink";
+> +                       op-sink-microwatt = <1000000>;
+> +                       sink-pdos =
+> +                               <PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
+> +                       source-pdos =
+> +                               <PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
+> +
+> +                       altmodes {
+> +                               displayport {
+> +                                       svid = /bits/ 16 <0xff01>;
+> +                                       vdo = <0x00001c46>;
+> +                               };
+> +                       };
+> +
+> +                       ports {
+> +                               #address-cells = <1>;
+> +                               #size-cells = <0>;
+> +
+> +                               port@0 {
+> +                                       reg = <0>;
+> +
+> +                                       usbc_hs: endpoint {
+> +                                               remote-endpoint = <&u2phy0_typec_hs>;
+> +                                       };
+> +                               };
+> +
 
-bool foo(u32 __user *p, u32 val)
-{
-	scoped_guard(pagefault)
-		unsafe_put_user(val, p, efault);
-	return true;
-efault:
-	return false;
-}
+Why USB2 PHY needs to be notified for Type-C connection?
 
- e80:	e8 00 00 00 00       	call   e85 <foo+0x5>
- e85:	65 48 8b 05 00 00 00 00 mov    %gs:0x0(%rip),%rax
- e8d:	83 80 04 14 00 00 01 	addl   $0x1,0x1404(%rax)   // pf_disable++
- e94:	89 37                	mov    %esi,(%rdi)
- e96:	83 a8 04 14 00 00 01 	subl   $0x1,0x1404(%rax)   // pf_disable--
- e9d:	b8 01 00 00 00       	mov    $0x1,%eax           // success
- ea2:	e9 00 00 00 00       	jmp    ea7 <foo+0x27>      // ret
- ea7:	31 c0                	xor    %eax,%eax           // fail
- ea9:	e9 00 00 00 00       	jmp    eae <foo+0x2e>      // ret
+> +                               port@1 {
+> +                                       reg = <1>;
+> +
+> +                                       usbc_ss: endpoint {
+> +                                               remote-endpoint = <&tcphy0_typec_ss>;
+> +                                       };
+> +                               };
+> +
+> +                               port@2 {
+> +                                       reg = <2>;
+> +
+> +                                       usbc_dp: endpoint {
+> +                                               remote-endpoint = <&tcphy0_typec_dp>;
+> +                                       };
+> +                               };
+> +                       };
+> +               };
+> +       };
+> +};
+> +
 
-which is broken as it leaks the pagefault disable counter on failure.
+.....
+>
+>  &u2phy0 {
+>         status = "okay";
+> +
+> +       port {
+> +               u2phy0_typec_hs: endpoint {
+> +                       remote-endpoint = <&usbc_hs>;
+> +               };
+> +       };
+>  };
+>
 
-Clang at least fails the build.
+There is no switch and mux, how to co-work with Type-C?
 
-Linus suggested to add a local label into the macro scope and let that
-jump to the actual caller supplied error label.
-
-       	__label__ local_label;                                  \
-        arch_unsafe_get_user(x, ptr, local_label);              \
-	if (0) {                                                \
-	local_label:                                            \
-		goto label;                                     \
-
-That works for both GCC and clang.
-
-clang:
-
- c80:	0f 1f 44 00 00       	   nopl   0x0(%rax,%rax,1)	
- c85:	65 48 8b 0c 25 00 00 00 00 mov    %gs:0x0,%rcx
- c8e:	ff 81 04 14 00 00    	   incl   0x1404(%rcx)	   // pf_disable++
- c94:	31 c0                	   xor    %eax,%eax        // set retval to false
- c96:	89 37                      mov    %esi,(%rdi)      // write
- c98:	b0 01                	   mov    $0x1,%al         // set retval to true
- c9a:	ff 89 04 14 00 00    	   decl   0x1404(%rcx)     // pf_disable--
- ca0:	2e e9 00 00 00 00    	   cs jmp ca6 <foo+0x26>   // ret
-
-The exception table entry points correctly to c9a
-
-GCC:
-
- f70:   e8 00 00 00 00          call   f75 <baz+0x5>
- f75:   65 48 8b 05 00 00 00 00 mov    %gs:0x0(%rip),%rax
- f7d:   83 80 04 14 00 00 01    addl   $0x1,0x1404(%rax)  // pf_disable++
- f84:   8b 17                   mov    (%rdi),%edx
- f86:   89 16                   mov    %edx,(%rsi)
- f88:   83 a8 04 14 00 00 01    subl   $0x1,0x1404(%rax) // pf_disable--
- f8f:   b8 01 00 00 00          mov    $0x1,%eax         // success
- f94:   e9 00 00 00 00          jmp    f99 <baz+0x29>    // ret
- f99:   83 a8 04 14 00 00 01    subl   $0x1,0x1404(%rax) // pf_disable--
- fa0:   31 c0                   xor    %eax,%eax         // fail
- fa2:   e9 00 00 00 00          jmp    fa7 <baz+0x37>    // ret
-
-The exception table entry points correctly to f99
-
-So both compilers optimize out the extra goto and emit correct and
-efficient code.
-
-Provide a generic wrapper to do that to avoid modifying all the affected
-architecture specific implementation with that workaround.
-
-The only change required for architectures is to rename unsafe_*_user() to
-arch_unsafe_*_user(). That's done in subsequent changes.
-
-Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
----
-V5a: Use put in __put_kernel_nofault() - Yann
----
- include/linux/uaccess.h |   72 +++++++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 68 insertions(+), 4 deletions(-)
-
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -518,7 +518,34 @@ long strncpy_from_user_nofault(char *dst
- 		long count);
- long strnlen_user_nofault(const void __user *unsafe_addr, long count);
- 
--#ifndef __get_kernel_nofault
-+#ifdef arch_get_kernel_nofault
-+/*
-+ * Wrap the architecture implementation so that @label can be outside of a
-+ * cleanup() scope. A regular C goto works correctly, but ASM goto does
-+ * not. Clang rejects such an attempt, but GCC silently emits buggy code.
-+ */
-+#define __get_kernel_nofault(dst, src, type, label)		\
-+do {								\
-+	__label__ local_label;					\
-+	arch_get_kernel_nofault(dst, src, type, local_label);	\
-+	if (0) {						\
-+	local_label:						\
-+		goto label;					\
-+	}							\
-+} while (0)
-+
-+#define __put_kernel_nofault(dst, src, type, label)		\
-+do {								\
-+	__label__ local_label;					\
-+	arch_put_kernel_nofault(dst, src, type, local_label);	\
-+	if (0) {						\
-+	local_label:						\
-+		goto label;					\
-+	}							\
-+} while (0)
-+
-+#elif !defined(__get_kernel_nofault) /* arch_get_kernel_nofault */
-+
- #define __get_kernel_nofault(dst, src, type, label)	\
- do {							\
- 	type __user *p = (type __force __user *)(src);	\
-@@ -535,7 +562,8 @@ do {							\
- 	if (__put_user(data, p))			\
- 		goto label;				\
- } while (0)
--#endif
-+
-+#endif  /* !__get_kernel_nofault */
- 
- /**
-  * get_kernel_nofault(): safely attempt to read from a location
-@@ -549,7 +577,42 @@ do {							\
- 	copy_from_kernel_nofault(&(val), __gk_ptr, sizeof(val));\
- })
- 
--#ifndef user_access_begin
-+#ifdef user_access_begin
-+
-+#ifdef arch_unsafe_get_user
-+/*
-+ * Wrap the architecture implementation so that @label can be outside of a
-+ * cleanup() scope. A regular C goto works correctly, but ASM goto does
-+ * not. Clang rejects such an attempt, but GCC silently emits buggy code.
-+ *
-+ * Some architectures use internal local labels already, but this extra
-+ * indirection here is harmless because the compiler optimizes it out
-+ * completely in any case. This construct just ensures that the ASM GOTO
-+ * target is always in the local scope. The C goto 'label' works correct
-+ * when leaving a cleanup() scope.
-+ */
-+#define unsafe_get_user(x, ptr, label)			\
-+do {							\
-+	__label__ local_label;				\
-+	arch_unsafe_get_user(x, ptr, local_label);	\
-+	if (0) {					\
-+	local_label:					\
-+		goto label;				\
-+	}						\
-+} while (0)
-+
-+#define unsafe_put_user(x, ptr, label)			\
-+do {							\
-+	__label__ local_label;				\
-+	arch_unsafe_put_user(x, ptr, local_label);	\
-+	if (0) {					\
-+	local_label:					\
-+		goto label;				\
-+	}						\
-+} while (0)
-+#endif /* arch_unsafe_get_user */
-+
-+#else /* user_access_begin */
- #define user_access_begin(ptr,len) access_ok(ptr, len)
- #define user_access_end() do { } while (0)
- #define unsafe_op_wrap(op, err) do { if (unlikely(op)) goto err; } while (0)
-@@ -559,7 +622,8 @@ do {							\
- #define unsafe_copy_from_user(d,s,l,e) unsafe_op_wrap(__copy_from_user(d,s,l),e)
- static inline unsigned long user_access_save(void) { return 0UL; }
- static inline void user_access_restore(unsigned long flags) { }
--#endif
-+#endif /* !user_access_begin */
-+
- #ifndef user_write_access_begin
- #define user_write_access_begin user_access_begin
- #define user_write_access_end user_access_end
+Best regards,
+Peter
 
