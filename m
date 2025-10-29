@@ -4,115 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC96FCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757DDCCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qs94W/XWkVsQM8QXT0wY5HKWqWEfFFstbFkTTTBpc24=; b=DOFCfi5KEsqp1BMaV2xtswM6wR
-	PMGhHKAN2Cbwwm1jg0Hvy4M/i974o2iakmU6REKkJPT69Cq3uTxuLykTYku0qtTSlmuWu32kyzAfI
-	X5sw+G6G0/Mbg+JJPWzLY4FVfHGNccDzJy+JxipZMtQ9NoqjT6E8CrDjpukPz/EdM6Spq4VS3vc2G
-	zgeIcji9JuQIBLnKmZGSQkNGCmudHFR4TGoiZYH3gaTybjN6Jsw+tmeiK0kH1cOqsVU3RUwU5m7PG
-	C0fp0K0bMWQNlQluvhMnzDuWI9TN7BImNOv39MNWo+4t2Yah2W9DVrrrxwB2oKGsGGv/ss+4n17wT
-	XSILbMuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L6ps1X2/bbX2B4eu5+SHKE4iXF5sg5cVX9paDaM+9XY=; b=Va3cIRluru9bPJX4VP40MH8bvJ
+	8t6kO1D4ZjAnmW0cEldNKRiUNhWuWReIe7tgWyO+kzabbkQUshdZyXVIeDX+L+TQvjDgNve46e07s
+	DSQD7C83IPbr7tEIdvqYntxuJ7GW6sTE/BqhLyWm2CR9dTfi7JDiTpjM5GIX5HpUsbHWjCnSHmoMi
+	kfS+b/Zq2aFRxTVQku6GOTsD3klmkRQ2iOgAkvdl8TlOUIF3h9n/GNKVa6HEd5OPCqyJmH3QOlgb7
+	GK/dLOACU826CzoUS6EY9Rp4UnomXFCblEMMV37uJ4xiD2zLytMGXtZE81M9moOCd1KCIvf9/76mC
+	oldbp3lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEByK-00000002cvI-0Nto;
-	Wed, 29 Oct 2025 19:36:40 +0000
-Received: from mail-qv1-xf61.google.com ([2607:f8b0:4864:20::f61])
+	id 1vEC7T-00000002eT5-2Wov;
+	Wed, 29 Oct 2025 19:46:08 +0000
+Received: from mail-westeuropeazon11013005.outbound.protection.outlook.com ([52.101.72.5] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBy9-00000002csu-0jp4
+	id 1vEC7O-00000002eRH-0UyP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 19:36:30 +0000
-Received: by mail-qv1-xf61.google.com with SMTP id 6a1803df08f44-87c1f607e72so3819316d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 12:36:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761766588; x=1762371388;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qs94W/XWkVsQM8QXT0wY5HKWqWEfFFstbFkTTTBpc24=;
-        b=xPIKMIFUjxifSBNeDkJDJcJePN3MyPQXSJL1Ba30Dvl8pOw5nj55PEhLbYVeBYoKoF
-         sXHm8todCCu1zQwsHs4MXSLjANUqQLJC7NAXXzUKQmMSHe4n+Yi79BXTjR3pKQNnsfau
-         9ic9Yg1NdVb4s4TICy38jeLOeIgIOHr87WjMR2oh3vgsz03evHs8ezRxZZBF+mSwJ4PX
-         8xEGn0nBM++JK+BMl0FwU9BvdwwECp20ZlYfkj4hWudKhStbHBT9MYGpVCwqiPDz8Uub
-         pd8HBS51IcLGd8PciXMHJyBD6UHryqWLMPFUaWhm9bXC+acCqvV/ihN5UB+aoQ523W7T
-         O4WA==
-X-Forwarded-Encrypted: i=1; AJvYcCU6Rx3oEBo6ROtJCas12LrRL+zUXXYKvULeUvlGhJyERCwNS/v0CTdwHtZCQxl7/oaOHXfUEeYHJWatbEesl2QR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLf2K83wgNtcxYIm+KpFnt53YyB3tCge56XELov5HlHKKNLRtY
-	or08DlL+XuQs/ic5kkVmN3qQJLZJgJn0/odew53PD+IUDHsneN3I3RKt7n+f6AeeyymAOeMkDvq
-	Gbf5hb6HMHAGQQsFnR81GJl+tUStRnhMA3GQvjm8OxTPJdNAzD27zqfnoW019U632RvgLeCH/Lj
-	qLJZT0D1MHJI0kXmhxpDdEOBqO6g1UmonfD1FpGkRj8lwdbMARIv8EiMG/3m2yK9rUpeniWFnGs
-	2ZkCF6jW2aA5/QsxIXIw1Y+z8rlNhc=
-X-Gm-Gg: ASbGnctm/V3QshCw03dP3dvOmiG9FS7i/4x3JnAzpLrvwmennN6VzCK6RHlYOSsyZKx
-	kRyGMZjn/0vvjy7tKdXLMDRyXm43dwZ8BhT1lUsFNMlolVcp99+AqGeZCSuXJWI9FL1AwuVTlJc
-	vHkBi0CPKCG7Lwp/Baajf6L6zMaW7BFz9gRVLHuHNOMWOhOj9gFU1A2ytudDo0+toH9yyXG03yk
-	N+Wk0aPGXdOFWWMaT6I5LVdtGbsyQd88vlNYZtc0OsdLttFu2DA5kU3D5ahx4YstkZpwXfUIjGk
-	DE3fn+sMtqe0nHT+Fd9QicWUpZPROi+k7YLuhp2Ptg0HIc9CKMA8gepMFAqEcVP+6U6WPB7hLi6
-	p7BG9qaSCVKJCGeT84Oh+1oDA9PoPvNoxznlVOer6U0k1NywL4/rruWBILKjIEuF3c+E159l7Qd
-	4mtjU3v1oqWllmgiLBcLiVOb+p0doVLsqTtCMeWA==
-X-Google-Smtp-Source: AGHT+IGJe3cDhDOjLY8bRXHLtLxk9TE0iilAUVPtsAkA/ZEM6pdvWUOPQY0fvBuvkQEM50XjVGtbSUn/F/h0
-X-Received: by 2002:a05:6214:4608:b0:87f:fffb:b7af with SMTP id 6a1803df08f44-8801ac16b19mr12350346d6.1.1761766587944;
-        Wed, 29 Oct 2025 12:36:27 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-102.dlp.protect.broadcom.com. [144.49.247.102])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-87fc497578csm14388656d6.21.2025.10.29.12.36.27
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 29 Oct 2025 12:36:27 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-78108268ea3so1147438b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 12:36:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1761766587; x=1762371387; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Qs94W/XWkVsQM8QXT0wY5HKWqWEfFFstbFkTTTBpc24=;
-        b=EQEZGDQvWgFRpUwbXlykNMo/N/n38ttInbFVLzu/DkY7vBzmz61morh5px2PjYgCe4
-         9aGhe/ebuI1VqO17Ge8fo0/dy5p2BQ0fqTDmeBqqKqFh314YpZnkViF6Igl6XhDRq42X
-         g7+kce19JpWfhhmUOdJfcSG5JVKpXSOlfJhrg=
-X-Forwarded-Encrypted: i=1; AJvYcCVRcTABhCz3DuwLJGPUVJoSkdkolhTFzjZ6tD9EjXPtfnrQPFnpGkJE0atkWipBDobb0V3RuhqC1pTJNRg+C4u/@lists.infradead.org
-X-Received: by 2002:a05:6a00:12d0:b0:77d:98ee:e1c5 with SMTP id d2e1a72fcca58-7a615f6d321mr755385b3a.15.1761766586602;
-        Wed, 29 Oct 2025 12:36:26 -0700 (PDT)
-X-Received: by 2002:a05:6a00:12d0:b0:77d:98ee:e1c5 with SMTP id d2e1a72fcca58-7a615f6d321mr755353b3a.15.1761766586139;
-        Wed, 29 Oct 2025 12:36:26 -0700 (PDT)
-Received: from stband-bld-1.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a4140a0d47sm15895260b3a.73.2025.10.29.12.36.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 12:36:25 -0700 (PDT)
-From: Jim Quinlan <james.quinlan@broadcom.com>
-To: linux-pci@vger.kernel.org,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	bcm-kernel-feedback-list@broadcom.com,
-	jim2101024@gmail.com,
-	james.quinlan@broadcom.com
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
+	Wed, 29 Oct 2025 19:46:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WscqvqwEqGep7fuvu6YXOrxGSTqbWM4xmjUqC6gdvFOVxUG5VCKnToMoJu1Js4qQwRdCRiguPcx/n/Vm37N2YGn9JGJdM++hrydrdfenniewKD7ts6G4P9QCZbxqn5dJTnsjIH34tktN3AlaFD9dwNJdaxA70sXgtiDdV/8StJN0koDLR7i0j9vlU3535FDrcZ/tKzu+Mw31oOro23CYoNjwnm79DfFr9Vm+cartXdGLYsztf+g6edQsj6urxtok7WgDp5mz8kePV6J0F9hGfCDKsEpaf9KSPpi6xHDEYcwjRZH5Qrh8NTZdm/1/tiWAq1MPAsbeJ0G2Z0R6cNVMFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L6ps1X2/bbX2B4eu5+SHKE4iXF5sg5cVX9paDaM+9XY=;
+ b=QRCmEIzEK33rZ7zM/OUL53IpU7KZKO9QJr6vDBcDx1XuXK9tP6TZtt5oCyhqQm5hzE4TMossHbNoXb40HP9EoFCmYIHqHQMm+V/+Gq1xwZp0+OGuINIvkWheDwDNJ4GNw4RGE0AxFqD9D1fs0d+pOXM9xGROoXoqcI820AdEuTUDnUVSm080R4dnDjj6bkJ13ZzN7mH4I1elXCqZh0lFJEwQ/7F1+c5zTyjcFDnTbrGSU/WEWpUQmOUun7ynAQ82l3vLN6nN60tFhNroQFsp9E1Oq5ovl2rENu+dlsN2Y4vlII+tp2C1KmdxnHkb1vKuZrRzbxa6acv8fM3S2unYRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L6ps1X2/bbX2B4eu5+SHKE4iXF5sg5cVX9paDaM+9XY=;
+ b=kDSPlLpPn5g7RM/B9qg2eOL/ODgf40MNHCwf1KY7F/MlbUFDvzE29tfkQatYA9HBLvL945AiY23kmlO8caU/UV4B2NdYuP9DQoQ7ZFGzETAUb3IXTX48bkD772VlGhf45CPf5/KZjZCShyOLQX5ETgDX9HoDyzhxh/JF1pWwEat0zAK5Px+j+MpCmrRdltXZcutMzTPfuz5lQQvE7ALcU9eNq3d91o7q+P5RNjA03ByrUg4p4gELl5oe25qu9VSSJEnCPBvaJx9KgmjJQwOTFVOttFd/UlkOVBQrC2NaklhxjMDu+7HS8MwZDRe47m6x8z5TwiSlr1pkxle7RcnyWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by GV4PR04MB11903.eurprd04.prod.outlook.com (2603:10a6:150:2ea::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Wed, 29 Oct
+ 2025 19:45:56 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
+ 19:45:56 +0000
+Date: Wed, 29 Oct 2025 15:45:48 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Rob Herring <robh@kernel.org>,
-	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v4 2/2] PCI: brcmstb: Add panic/die handler to driver
-Date: Wed, 29 Oct 2025 15:36:15 -0400
-Message-Id: <20251029193616.3670003-3-james.quinlan@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251029193616.3670003-1-james.quinlan@broadcom.com>
-References: <20251029193616.3670003-1-james.quinlan@broadcom.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 1/4] arm64: dts: freescale: imx93-var-som: Add WiFi
+ and Bluetooth support
+Message-ID: <aQJu7Czj8zsq+yMO@lizhi-Precision-Tower-5810>
+References: <20251029192852.656806-1-stefano.radaelli21@gmail.com>
+ <20251029192852.656806-2-stefano.radaelli21@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029192852.656806-2-stefano.radaelli21@gmail.com>
+X-ClientProxiedBy: PH8P220CA0008.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:345::14) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GV4PR04MB11903:EE_
+X-MS-Office365-Filtering-Correlation-Id: 00e02b9b-ac37-4d60-f86e-08de1723c6cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|52116014|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5N+KJdqwGiePQCiDcb0KDYzNWdnGkgkPb++5pbwIZdUJCL9/P6rUNHar14R1?=
+ =?us-ascii?Q?vizNbecn/6APQUBxE74ZVq//s9YzeZcEmOMuBvyE6bkZ20HboWeBRDV8ZFqr?=
+ =?us-ascii?Q?85gEqHY1oR/vJJgqqwSLAJao2BMQwbVnfJ6g7YGtTHes751E9kkGVItWMMQI?=
+ =?us-ascii?Q?XVzvTyAqnhcaaznHm8ZQb/MaOcHo5UgxEYkjAwRAVphAtFlkNbAgaVaKTbqq?=
+ =?us-ascii?Q?g2zMXadjVW8xc5fOnzaHYsaR9HFWi+xu2Z5yzi3lBh7B7HtzAs2r1T0Greg8?=
+ =?us-ascii?Q?Cc6ckr7AzN7nOB9HGKZ67NhV27tAFDJE6C0Xhs46cAiJPbCYJVL3gcZ37IcT?=
+ =?us-ascii?Q?Or6KKTSNvaVY+LDb0G9551h6/GwPhqiKQq3A0ShSslY5gWYt+9/ExmV/sZW6?=
+ =?us-ascii?Q?fpUP86Fy5xA9xXOgoQzhquRjdZZyJXcV+hK9RkJyulbK0PCsq3op8zDYPBA+?=
+ =?us-ascii?Q?TDYJxmIlC2CPVwh3npYqmYO0Leo7iH13QnLsCu87K+5fLQF2zfvDh2XrXD3n?=
+ =?us-ascii?Q?S4TCS7Qh8ouuulQ20e4kxLmJHS3ICti54DtBoq7+IYB9T5x4Bq5NXZQo7lap?=
+ =?us-ascii?Q?VWKaxHr5k4PR+yLt5Ih/IR9+gfByFpffv/JaZrxkhkgzdXeZaEl/OZd0J1g3?=
+ =?us-ascii?Q?gXiRq2H9WQgGG7Pkme5pRH4MhdUVWjr1snfobEBxL4D4KvD5bg7I9p763qBJ?=
+ =?us-ascii?Q?zJBTJqj1t+CWlADvEH8QyCmiBdRZW20scfd0H2dm73L2SUEklon6vmVjhRux?=
+ =?us-ascii?Q?fl6hWCSkRu08LXl0h0a19ezGlqV2eAVShojG+4opLmT0/tBARCwy7Xdw8DZI?=
+ =?us-ascii?Q?ptXL838tCmu7AD43PJhV6r6TsOzuYzNygBcHkzY962EWiSfI1ZuOA031hAtZ?=
+ =?us-ascii?Q?JV/IyBrEzHqMdLPz8KYkbFWSujoUCaHcY5f1xjlQaOn1pnuF3eBlL69le0wn?=
+ =?us-ascii?Q?kFQh24j4vezbPL0WqlQipz70fweNbCffB/IlkL1pEKWq+YSVvTxzYF2aAEx/?=
+ =?us-ascii?Q?8yg9M+I13GgW3eQLvYU49o15fmDhxrmAC+ZJe1qWIfix8H0O697kRnmkwT8n?=
+ =?us-ascii?Q?OH6gH/d944uY/3cofKPfmqz85SyiiL72gUTPjdnlNZP1fPQp9RJgJ4ba3bbl?=
+ =?us-ascii?Q?y6WBUyhti31IPvu1C9i7GCE/WoaSvxZJ0wNDfDp0u3YD9a9ckD8oXxcdZao3?=
+ =?us-ascii?Q?72uFnaWK4IPdtn8OMTLBz3WxjTXB7NhUEnKqhtwl5OPUYdumKeOyqE/QO0dn?=
+ =?us-ascii?Q?KOQrACffBuERWpVS+1GW/yTJkAZif2MK4Q6wuKAc6nRwvUnZfIrLVvSB5NHF?=
+ =?us-ascii?Q?n3WB53WoDgyO+uTX7mXGIwfc4MXxkTjProKayqUnsi6xsh/oOXoYb/43hsZY?=
+ =?us-ascii?Q?7r+R1sv1RJctmRt2ob+oX3m0tlOJUVkYyLvF8+fgoPxVa291CphC08fgvhgs?=
+ =?us-ascii?Q?3ShEZsjAKHjOMuMck2hMuSv+UZhS4zF8rtGHHoh2Ciql8Baq1QN4jbsFQwMk?=
+ =?us-ascii?Q?Y7FVoYW0nuerc878ahvKajm6l0jPAiSy2H5S?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(52116014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gFfLJAHkRTNdHya0uzOEVPGgWtvMcbKyhcKA6l7fCOsza8RxP7tlgXtBl5Vt?=
+ =?us-ascii?Q?oehuAEgrcm+ytwaOEYPFrLnF8XZXhif9EJH9aHaT0NIKXcNQZ9y+0ouIDmxG?=
+ =?us-ascii?Q?YdIW2nE/l/8LlRotBH+1WtogSFmM+Ims5rFwyLSWQINyi220J57hP9WhZmzS?=
+ =?us-ascii?Q?m2GY9wBosCVy+RLPP+At9EltaBG5e+ZcTd7EGQa6v3ZoiHvSLgCN4IuhilI0?=
+ =?us-ascii?Q?dgwzwAscVc8HS7uvqmbnx0bwtIz+QadXPX7Zdv/R7AxsI6/LBphk1xZl7hYm?=
+ =?us-ascii?Q?nxX1/y8DcrsKCDGYGe0IWwmKETRM6PgHsGLlt3f9YMMX9Tsxfs2sI0QUZAwH?=
+ =?us-ascii?Q?f1shJAeVlK9hrT3uNomO9VH/Il+jF2UXlGfWmN0ugOSvL+jG6uuq8ciDAo3P?=
+ =?us-ascii?Q?NcyN7Z59My4AqMDjrQC7E0p1xyn5O56MUhBdJBQu6ckMaijNV0MzYAfv6IEA?=
+ =?us-ascii?Q?J2FqS/J3pc8xrxWWSE+vCjDqeMzBUnEBKFOf757SaU8VideDFeJJTQLNlhb3?=
+ =?us-ascii?Q?Bx+7sCBp36QFPCc4/C1LcPQMIZZ+1nAtY1rl6t/CoYxk54tjH5F71ZWUSjeP?=
+ =?us-ascii?Q?Y6Ql/COUgNx3Tw0oX3ri9rpaArpr/IHl1wWilpglDxuHXBre7JqjyJ3Xc05O?=
+ =?us-ascii?Q?Eyf29iS4BKwccuLoWeKaq49y7s5lL/7LUVbanU4B8JzsUOWvpgcLssE9HJ7E?=
+ =?us-ascii?Q?q25+n2Hp6CicrOf/vRh7adIg+bCwpLGJqGP+WN0UO2EL2GRwjzGw03HjYfxa?=
+ =?us-ascii?Q?TUnvvOhbsiB4G76MDh6ER9t/EL10bP7hHbqu59x93h7+gT3QBUDQFkDCUlv8?=
+ =?us-ascii?Q?lPtoSTET/wdaWULLtOFfTJDbsUkCGmKJf//6Gy6shSWm+YRO2vtes8zbKG3l?=
+ =?us-ascii?Q?oX3ROX0SbkYD44t6nVPt8YT0g1Haa6MPLk8cZZ7a4G09b3oi9v9+4niB7s0F?=
+ =?us-ascii?Q?M8YqjVMDkh0iinzX5294ZY/1xmrZIhiqsaK/geB08gmP72F60d/LIr/Ync+L?=
+ =?us-ascii?Q?l1EqQI4kcE1TCW1fyca+/vbPLnxUuuhOjEH8EuSAmCL8EczaBroyJIVQOY3x?=
+ =?us-ascii?Q?PcnIdpawvoRgaWJtx0kXtagmThY9fBeuncTYs9ucyH8d05UGUJEVieX6OQE2?=
+ =?us-ascii?Q?4G/NwQLNlXSwCduDVqoTuRJGhgnSe4do3r+kDy/bMuMx3z6X0CXhS1F7IfJM?=
+ =?us-ascii?Q?1clEqPPOV1h7LDqXM5lRp1Q7wngWfOWKpJrVwylq4JpHSBrKoHCD96Yxty+Z?=
+ =?us-ascii?Q?iqP7hIvzbqU8EDrGPKw/nIpaRaSy7Y6JKF1/jjvgqZxJ34onEq6P+i5v5pDT?=
+ =?us-ascii?Q?gT2aYfiMjXu8jYundm3k+JubEYI+Xab3JFxyjcd9rhqUrzJ+vzvC/vqrzXsW?=
+ =?us-ascii?Q?0lDUQ0CHikB1naeC7XvxgVHEC+vaJfxe67tIXA++LLr+YjlorC+2vvAZM6Xe?=
+ =?us-ascii?Q?gFWDSBsW/8k+Q7XthMVxmoriQzYWosLLjkt87fpXNVQ6B4+ldUnH7FbLc3zz?=
+ =?us-ascii?Q?/rpJFsLeOPNwToROsl+7+Vj81MJEg5ngP5sRC05jURIFB4WmqXxjarG45GBV?=
+ =?us-ascii?Q?y02RoZESZkL37HfC10hqxz+mbxKT1stFG/qSdaIP?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00e02b9b-ac37-4d60-f86e-08de1723c6cc
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 19:45:56.0986
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: li9SoTd/l0V66FARrg3zljrebIKDBGtBqAu7L3TZXdS5pX1frW8yqenVKbfqB9FMy9XQbsGDFQM+rkqf1ajHsg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11903
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_123629_241813_1470D803 
-X-CRM114-Status: GOOD (  23.96  )
+X-CRM114-CacheID: sfid-20251029_124602_186852_3EF05A8D 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,260 +164,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
-by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
-7216 and its descendants -- have new HW that identifies error details.
+On Wed, Oct 29, 2025 at 08:28:46PM +0100, Stefano Radaelli wrote:
+> Add device tree nodes for the WiFi and Bluetooth module mounted on the
+> VAR-SOM-MX93. The module can be based on either the NXP IW612 or IW611
+> chipset, depending on the configuration chosen by the customer.
+>
+> Regardless of the chipset used, WiFi communicates over SDIO and Bluetooth
+> over UART.
+>
+> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+> ---
+>  .../boot/dts/freescale/imx93-var-som.dtsi     | 94 ++++++++++++++++++-
+>  1 file changed, 93 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+> index a5f09487d803..97198007b545 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+> @@ -12,7 +12,7 @@ /{
+>  	model = "Variscite VAR-SOM-MX93 module";
+>  	compatible = "variscite,var-som-mx93", "fsl,imx93";
+>
+> -	mmc_pwrseq: mmc-pwrseq {
+> +	usdhc3_pwrseq: mmc-pwrseq {
+>  		compatible = "mmc-pwrseq-simple";
+>  		post-power-on-delay-ms = <100>;
+>  		power-off-delay-us = <10000>;
+> @@ -70,6 +70,18 @@ led@1 {
+>  	};
+>  };
+>
+> +/* BT module */
+> +&lpuart5 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_lpuart5>, <&pinctrl_bluetooth>;
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +
+> +	bluetooth {
+> +		compatible = "nxp,88w8987-bt";
+> +	};
+> +};
+> +
+>  /* eMMC */
+>  &usdhc1 {
+>  	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+> @@ -81,7 +93,27 @@ &usdhc1 {
+>  	status = "okay";
+>  };
+>
+> +/* WiFi */
+> +&usdhc3 {
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> +	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_wlan>;
+> +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>, <&pinctrl_usdhc3_wlan>;
+> +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>, <&pinctrl_usdhc3_wlan>;
+> +	pinctrl-3 = <&pinctrl_usdhc3_sleep>, <&pinctrl_usdhc3_wlan>;
+> +	bus-width = <4>;
+> +	mmc-pwrseq = <&usdhc3_pwrseq>;
+> +	non-removable;
+> +	wakeup-source;
+> +	status = "okay";
+> +};
+> +
+>  &iomuxc {
+> +	pinctrl_bluetooth: bluetoothgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_ENET2_MDIO__GPIO4_IO15                         0x51e
+> +		>;
+> +	};
+> +
+>  	pinctrl_eqos: eqosgrp {
+>  		fsl,pins = <
+>  			MX93_PAD_ENET1_MDC__ENET_QOS_MDC			0x57e
+> @@ -108,6 +140,15 @@ MX93_PAD_UART2_TXD__GPIO1_IO07			0x51e
+>  		>;
+>  	};
+>
+> +	pinctrl_lpuart5: lpuart5grp {
+> +		fsl,pins = <
+> +			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX   0x31e
+> +			MX93_PAD_DAP_TDI__LPUART5_RX            0x31e
+> +			MX93_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B   0x31e
+> +			MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B  0x31e
+> +		>;
+> +	};
+> +
+>  	pinctrl_usdhc1: usdhc1grp {
+>  		fsl,pins = <
+>  			MX93_PAD_SD1_CLK__USDHC1_CLK		0x15fe
+> @@ -123,4 +164,55 @@ MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x13fe
+>  			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x15fe
+>  		>;
+>  	};
+> +
+> +	pinctrl_usdhc3: usdhc3grp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD3_CLK__USDHC3_CLK                    0x1582 /* SDIO_B_CLK */
+> +			MX93_PAD_SD3_CMD__USDHC3_CMD                    0x40001382 /* SDIO_B_CMD */
+> +			MX93_PAD_SD3_DATA0__USDHC3_DATA0                0x40001382 /* SDIO_B_D0 */
+> +			MX93_PAD_SD3_DATA1__USDHC3_DATA1                0x40001382 /* SDIO_B_D1 */
+> +			MX93_PAD_SD3_DATA2__USDHC3_DATA2                0x40001382 /* SDIO_B_D2 */
+> +			MX93_PAD_SD3_DATA3__USDHC3_DATA3                0x40001382 /* SDIO_B_D3 */
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD3_CLK__USDHC3_CLK                    0x158e /* SDIO_B_CLK */
+> +			MX93_PAD_SD3_CMD__USDHC3_CMD                    0x4000138e /* SDIO_B_CMD */
+> +			MX93_PAD_SD3_DATA0__USDHC3_DATA0                0x4000138e /* SDIO_B_D0 */
+> +			MX93_PAD_SD3_DATA1__USDHC3_DATA1                0x4000138e /* SDIO_B_D1 */
+> +			MX93_PAD_SD3_DATA2__USDHC3_DATA2                0x4000138e /* SDIO_B_D2 */
+> +			MX93_PAD_SD3_DATA3__USDHC3_DATA3                0x4000138e /* SDIO_B_D3 */
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD3_CLK__USDHC3_CLK                    0x15fe /* SDIO_B_CLK */
+> +			MX93_PAD_SD3_CMD__USDHC3_CMD                    0x400013fe /* SDIO_B_CMD */
+> +			MX93_PAD_SD3_DATA0__USDHC3_DATA0                0x400013fe /* SDIO_B_D0 */
+> +			MX93_PAD_SD3_DATA1__USDHC3_DATA1                0x400013fe /* SDIO_B_D1 */
+> +			MX93_PAD_SD3_DATA2__USDHC3_DATA2                0x400013fe /* SDIO_B_D2 */
+> +			MX93_PAD_SD3_DATA3__USDHC3_DATA3                0x400013fe /* SDIO_B_D3 */
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_sleep: usdhc3-sleepgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD3_CLK__GPIO3_IO20            0x400
+> +			MX93_PAD_SD3_CMD__GPIO3_IO21            0x400
+> +			MX93_PAD_SD3_DATA0__GPIO3_IO22          0x400
+> +			MX93_PAD_SD3_DATA1__GPIO3_IO23          0x400
+> +			MX93_PAD_SD3_DATA2__GPIO3_IO24          0x400
+> +			MX93_PAD_SD3_DATA3__GPIO3_IO25          0x400
 
-This simple handler determines if the PCIe controller was the cause of the
-abort and if so, prints out diagnostic info.  Unfortunately, an abort still
-occurs.
+Can you align these number to one column with usdhc3-200mhzgrp? at least
+it should be same at this patch.
 
-Care is taken to read the error registers only when the PCIe bridge is
-active and the PCIe registers are acceptable.  Otherwise, a "die" event
-caused by something other than the PCIe could cause an abort if the PCIe
-"die" handler tried to access registers when the bridge is off.
-
-Example error output:
-  brcm-pcie 8b20000.pcie: Error: Mem Acc: 32bit, read, @0x38000000
-  brcm-pcie 8b20000.pcie:  Type: TO=0 Abt=0 UnspReq=1 AccDsble=0 BadAddr=0
-
-Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
----
- drivers/pci/controller/pcie-brcmstb.c | 160 +++++++++++++++++++++++++-
- 1 file changed, 158 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index 9f1f746091be..67e73607f0ed 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -14,15 +14,18 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqchip/irq-msi-lib.h>
- #include <linux/irqdomain.h>
-+#include <linux/kdebug.h>
- #include <linux/kernel.h>
- #include <linux/list.h>
- #include <linux/log2.h>
- #include <linux/module.h>
- #include <linux/msi.h>
-+#include <linux/notifier.h>
- #include <linux/of_address.h>
- #include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/of_platform.h>
-+#include <linux/panic_notifier.h>
- #include <linux/pci.h>
- #include <linux/pci-ecam.h>
- #include <linux/printk.h>
-@@ -32,6 +35,7 @@
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/string.h>
-+#include <linux/string_choices.h>
- #include <linux/types.h>
- 
- #include "../pci.h"
-@@ -156,8 +160,40 @@
- #define  MSI_INT_MASK_SET		0x10
- #define  MSI_INT_MASK_CLR		0x14
- 
-+/* Error report registers */
-+#define PCIE_OUTB_ERR_TREAT				0x6000
-+#define  PCIE_OUTB_ERR_TREAT_CONFIG		0x1
-+#define  PCIE_OUTB_ERR_TREAT_MEM			0x2
-+#define PCIE_OUTB_ERR_VALID				0x6004
-+#define PCIE_OUTB_ERR_CLEAR				0x6008
-+#define PCIE_OUTB_ERR_ACC_INFO				0x600c
-+#define  PCIE_OUTB_ERR_ACC_INFO_CFG_ERR			BIT(0)
-+#define  PCIE_OUTB_ERR_ACC_INFO_MEM_ERR			BIT(1)
-+#define  PCIE_OUTB_ERR_ACC_INFO_TYPE_64			BIT(2)
-+#define  PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE		BIT(4)
-+#define  PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES		0xff00
-+#define PCIE_OUTB_ERR_ACC_ADDR				0x6010
-+#define PCIE_OUTB_ERR_ACC_ADDR_BUS			0xff00000
-+#define PCIE_OUTB_ERR_ACC_ADDR_DEV			0xf8000
-+#define PCIE_OUTB_ERR_ACC_ADDR_FUNC			0x7000
-+#define PCIE_OUTB_ERR_ACC_ADDR_REG			0xfff
-+#define PCIE_OUTB_ERR_CFG_CAUSE				0x6014
-+#define  PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT		BIT(6)
-+#define  PCIE_OUTB_ERR_CFG_CAUSE_ABORT			BIT(5)
-+#define  PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ		BIT(4)
-+#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT		BIT(2)
-+#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED		BIT(1)
-+#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT		BIT(0)
-+#define PCIE_OUTB_ERR_MEM_ADDR_LO			0x6018
-+#define PCIE_OUTB_ERR_MEM_ADDR_HI			0x601c
-+#define PCIE_OUTB_ERR_MEM_CAUSE				0x6020
-+#define  PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT		BIT(6)
-+#define  PCIE_OUTB_ERR_MEM_CAUSE_ABORT			BIT(5)
-+#define  PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ		BIT(4)
-+#define  PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED		BIT(1)
-+#define  PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR		BIT(0)
-+
- #define  PCIE_RGR1_SW_INIT_1_PERST_MASK			0x1
--#define  PCIE_RGR1_SW_INIT_1_PERST_SHIFT		0x0
- 
- #define RGR1_SW_INIT_1_INIT_GENERIC_MASK		0x2
- #define RGR1_SW_INIT_1_INIT_GENERIC_SHIFT		0x1
-@@ -306,6 +342,8 @@ struct brcm_pcie {
- 	bool			ep_wakeup_capable;
- 	const struct pcie_cfg_data	*cfg;
- 	bool			bridge_in_reset;
-+	struct notifier_block	die_notifier;
-+	struct notifier_block	panic_notifier;
- 	spinlock_t		bridge_lock;
- };
- 
-@@ -1731,6 +1769,118 @@ static int brcm_pcie_resume_noirq(struct device *dev)
- 	return ret;
- }
- 
-+/* Dump out PCIe errors on die or panic */
-+static int brcm_pcie_dump_err(struct brcm_pcie *pcie,
-+			       const char *type)
-+{
-+	void __iomem *base = pcie->base;
-+	int i, is_cfg_err, is_mem_err, lanes;
-+	const char *width_str, *direction_str;
-+	u32 info, cfg_addr, cfg_cause, mem_cause, lo, hi;
-+	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(pcie);
-+	unsigned long flags;
-+	char lanes_str[9];
-+
-+	spin_lock_irqsave(&pcie->bridge_lock, flags);
-+	/* Don't access registers when the bridge is off */
-+	if (pcie->bridge_in_reset || readl(base + PCIE_OUTB_ERR_VALID) == 0) {
-+		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
-+		return NOTIFY_DONE;
-+	}
-+
-+	/* Read all necessary registers so we can release the spinlock ASAP */
-+	info = readl(base + PCIE_OUTB_ERR_ACC_INFO);
-+	is_cfg_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_CFG_ERR);
-+	is_mem_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_MEM_ERR);
-+	if (is_cfg_err) {
-+		cfg_addr = readl(base + PCIE_OUTB_ERR_ACC_ADDR);
-+		cfg_cause = readl(base + PCIE_OUTB_ERR_CFG_CAUSE);
-+	}
-+	if (is_mem_err) {
-+		mem_cause = readl(base + PCIE_OUTB_ERR_MEM_CAUSE);
-+		lo = readl(base + PCIE_OUTB_ERR_MEM_ADDR_LO);
-+		hi = readl(base + PCIE_OUTB_ERR_MEM_ADDR_HI);
-+	}
-+	/* We've got all of the info, clear the error */
-+	writel(1, base + PCIE_OUTB_ERR_CLEAR);
-+	spin_unlock_irqrestore(&pcie->bridge_lock, flags);
-+
-+	dev_err(pcie->dev, "reporting PCIe info which may be related to %s error\n", type);
-+	width_str = (info & PCIE_OUTB_ERR_ACC_INFO_TYPE_64) ? "64bit" : "32bit";
-+	direction_str = str_read_write(!(info & PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE));
-+	lanes = FIELD_GET(PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES, info);
-+	for (i = 0, lanes_str[8] = 0; i < 8; i++)
-+		lanes_str[i] = (lanes & (1 << i)) ? '1' : '0';
-+
-+	if (is_cfg_err) {
-+		int bus = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_BUS, cfg_addr);
-+		int dev = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_DEV, cfg_addr);
-+		int func = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_FUNC, cfg_addr);
-+		int reg = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_REG, cfg_addr);
-+
-+		dev_err(pcie->dev, "Error: CFG Acc, %s, %s (%04x:%02x:%02x.%d) reg=0x%x, lanes=%s\n",
-+			width_str, direction_str, bridge->domain_nr, bus, dev, func,
-+			reg, lanes_str);
-+		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccTO=%d AccDsbld=%d Acc64bit=%d\n",
-+			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT),
-+			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ABORT),
-+			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ),
-+			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT),
-+			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED),
-+			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT));
-+	}
-+
-+	if (is_mem_err) {
-+		u64 addr = ((u64)hi << 32) | (u64)lo;
-+
-+		dev_err(pcie->dev, "Error: Mem Acc, %s, %s, @0x%llx, lanes=%s\n",
-+			width_str, direction_str, addr, lanes_str);
-+		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccDsble=%d BadAddr=%d\n",
-+			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT),
-+			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ABORT),
-+			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ),
-+			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED),
-+			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR));
-+	}
-+
-+	return NOTIFY_DONE;
-+}
-+
-+static int brcm_pcie_die_notify_cb(struct notifier_block *self,
-+				   unsigned long v, void *p)
-+{
-+	struct brcm_pcie *pcie =
-+		container_of(self, struct brcm_pcie, die_notifier);
-+
-+	return brcm_pcie_dump_err(pcie, "Die");
-+}
-+
-+static int brcm_pcie_panic_notify_cb(struct notifier_block *self,
-+				     unsigned long v, void *p)
-+{
-+	struct brcm_pcie *pcie =
-+		container_of(self, struct brcm_pcie, panic_notifier);
-+
-+	return brcm_pcie_dump_err(pcie, "Panic");
-+}
-+
-+static void brcm_register_die_notifiers(struct brcm_pcie *pcie)
-+{
-+	pcie->panic_notifier.notifier_call = brcm_pcie_panic_notify_cb;
-+	atomic_notifier_chain_register(&panic_notifier_list,
-+				       &pcie->panic_notifier);
-+
-+	pcie->die_notifier.notifier_call = brcm_pcie_die_notify_cb;
-+	register_die_notifier(&pcie->die_notifier);
-+}
-+
-+static void brcm_unregister_die_notifiers(struct brcm_pcie *pcie)
-+{
-+	unregister_die_notifier(&pcie->die_notifier);
-+	atomic_notifier_chain_unregister(&panic_notifier_list,
-+					 &pcie->panic_notifier);
-+}
-+
- static void __brcm_pcie_remove(struct brcm_pcie *pcie)
- {
- 	brcm_msi_remove(pcie);
-@@ -1749,6 +1899,9 @@ static void brcm_pcie_remove(struct platform_device *pdev)
- 
- 	pci_stop_root_bus(bridge->bus);
- 	pci_remove_root_bus(bridge->bus);
-+	if (pcie->cfg->has_err_report)
-+		brcm_unregister_die_notifiers(pcie);
-+
- 	__brcm_pcie_remove(pcie);
- }
- 
-@@ -1849,6 +2002,7 @@ static const struct pcie_cfg_data bcm7216_cfg = {
- 	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_7278,
- 	.has_phy	= true,
- 	.num_inbound_wins = 3,
-+	.has_err_report = true,
- };
- 
- static const struct pcie_cfg_data bcm7712_cfg = {
-@@ -2023,8 +2177,10 @@ static int brcm_pcie_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	if (pcie->cfg->has_err_report)
-+	if (pcie->cfg->has_err_report) {
- 		spin_lock_init(&pcie->bridge_lock);
-+		brcm_register_die_notifiers(pcie);
-+	}
- 
- 	return 0;
- 
--- 
-2.34.1
-
+Frank
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_wlan: usdhc3-wlangrp {
+> +		fsl,pins = <
+> +			MX93_PAD_ENET2_MDC__GPIO4_IO14                  0x51e /* WIFI_REG_ON     */
+> +			MX93_PAD_SD2_RESET_B__GPIO3_IO07                0x51e /* WIFI_PWR_EN     */
+> +		>;
+> +	};
+>  };
+> --
+> 2.43.0
+>
 
