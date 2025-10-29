@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67365CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 13:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79AECCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 13:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vfb6plEPmJbn3amdLgPlEfqVWUsm/4wMJ+J8r4Y6MtU=; b=gTAMb8qodJfA1jmku7WOx6v/K1
-	Ug4MDM2WvtEVRvhEejAiz3fhnWFuhfuamVnPP/qAdB392NRdgSZl+eJa1hHiCRSK+dyhOCEbXG8WY
-	WMoY/hpiyyxYctnY31OeyzSrxFqUuJtxZ9NJVOdJaA2QKBhYwarHii96wcNgxe6Vz3XEWp/A4EDd+
-	xZcJ1m2p5NrvAokbqK5X4l3y7LvKqgRm5tTROKntNgJgfY7y3aO+ydkE3XaHAcoo1f8G5lL9/r1+L
-	QMc/ZvPbCQNg+E1AoiylTi6K4BO7iCWLwfhkxNt+H6F6VvuNGGIiVzUYOw9XZrKR/0HenUsYRNQMz
-	WD5xGbPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fuIsZJAikyEekZcQ72lnOaH5lxPiOYkA7xu56IYCNWg=; b=Cx3y8p2a1tFbnUb/kAKdyKjM8R
+	SUGbW/w+NcJYfJtQO9NBU5qs76tCm57y0uj2I4th2ykczPbRC9myGuy46Pi4zIxWv+2sSHX/HvmQa
+	ARcqkbRzxVWGqOp04s+k6l7sGijdWWxzDj1KbzEASkVay9/kuONAraZj7ZB/2DSvyZKwg8uF3UWSL
+	ur0X57yp89RPLMeB/mD/Y3x28SAPOVjluI38VQhNXxCdUCL5CNRHp1pqqGIUqmhj8D64BizaSQVdS
+	LLakE4TqQtEmRQxOll2lxtiKJAkFV/FsuD8k8h/6NTShnJZmkoObYaOr41rku6MD2+WcI6ExarxH4
+	zvktfmzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5yS-00000001JMX-2QkA;
-	Wed, 29 Oct 2025 13:12:24 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vE5zO-00000001JUw-0kxa;
+	Wed, 29 Oct 2025 13:13:22 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5yP-00000001JLG-0GeM;
-	Wed, 29 Oct 2025 13:12:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761743536;
-	bh=HTF8B+gVcGSI+m7SBYfVfnrEJZHVBlnzm9rsfsDX+Nc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=W//xex0QgbWA6pRlnueMAZLqXGd260REuvWPfQKBV1OMlEYzwHahXbAo9QClnsHTV
-	 V7ofaA80uJFkz76vh+IWoNcS4OONVqJbEooCCwHCaVfCkFgCxoDq3+YrWnbptnJ3oN
-	 XFfrs0hWjCz8qj6mV/GI2mC9MbLd6mKuIb1nCayL/GNqxvgTrFXCS1c4+oe8Xvgatg
-	 lYdKr4fH5LzG2hCJ+ahDs9DKV29ziyqDQlaGLRBEeNzN3lfBxrhodaFS3Gwem+8e7E
-	 lP4ksJjWJU8/nrOs7rFGkVuGijg8P5W6hxQwPm6YLxe/xVj1qb8mNp83vxZeVbx6eS
-	 HTIGxkdAOp1ww==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B5A1617E1315;
-	Wed, 29 Oct 2025 14:12:15 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- Sean Wang <sean.wang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>
-Cc: wenst@chromium.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, jh.hsu@mediatek.com
-In-Reply-To: <20251029130842.32633-1-sirius.wang@mediatek.com>
-References: <20251029130842.32633-1-sirius.wang@mediatek.com>
-Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Add extra entry for MT8189
-Message-Id: <176174353568.31020.16855973534724867360.b4-ty@collabora.com>
-Date: Wed, 29 Oct 2025 14:12:15 +0100
+	id 1vE5zL-00000001JTt-1dp9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 13:13:21 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42966ce6dbdso5238794f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 06:13:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761743597; x=1762348397; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fuIsZJAikyEekZcQ72lnOaH5lxPiOYkA7xu56IYCNWg=;
+        b=OzYKXz7C5cyiHXEjHNg9JuwKITQUVtY01+dm3i147GcHkFrArcBk8bxoTfx1H2/pOm
+         3Gb/lze4Gn1Y9nfmUUBU+OPSvKjusoZ3GAr34IvS1gQgCQ0J7iriG6AqTGf1KeLi1g0M
+         oFD28MJHqeO5aG7ZIWl1IOQ2q4lYttXiZ2JHwUu13w4+HEzMqxRE9u2l6khIkil8GuWD
+         ZXMKaIbyzjWLjY5cutzD2m6NfP5fPgPhSoMNnI0JXL5du7lzkoJYLnbEN1Qs5qmfLnXR
+         WfcnxnkPIVGn4nXadh4kksDmaHDlLzpbEwpilJiA2aIxRP3rbmRZY4k2ocTv9N3xpWtI
+         FuBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761743597; x=1762348397;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fuIsZJAikyEekZcQ72lnOaH5lxPiOYkA7xu56IYCNWg=;
+        b=tlv5NKN/+rjmbE9+l4OskmED/lbwO+xOjU+GcNrDoAD2QhQTwuiriBkuK0RVlvu8jJ
+         0i1UKSkf6fk5MAV1IyUguV/i+q3T4ypDFXR+tD0irT6Tn/1jQCBcDWS144VEWcJAyQpK
+         IlXTCYXMsTSDUSnDKqBvq/L7ziRICh2lLjxIMUXihG8hzBGZ7x0BKYPdaI7Aom1MiUIK
+         WkL66xj3q0g+5sTKGEIurOUWOVnJ9L8xMcQazUjcSCbfli15ighDSORssA2+LE5wC3a6
+         4jdcmQ8d++wvBUN1E4wCQ7ETYrdcsP86hUthyTcuAbm5bH8bztWOF50fBOIff16ZF5fw
+         VIVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVXeErPXUdwCW1XyzeHMSf8+Gtm407O+gIsHkQrYLdyJsa6N9+rJZGkG15IJ0G8NxtorKFqk51Rzij0Y4+SHEN2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8vEz+h0xBOiXVeZhElD0u89NA/olQemBJe04uM0eLKSvdesbu
+	oX3k+Zjhsxrvw3tF1Yqs2BkzSWvweLND6qLr9/qFok6v9xYful9fkbA6h1MmFyM3VmI=
+X-Gm-Gg: ASbGncsnUGNfltDxR/Y3X2OraLuSJq0SeOHyUBQB2JI+6oTB4f6X5r5LoosCbbgSjhD
+	qJVdZLB8kQOZCs0p8BmeWG8dZqIKng9YV/TaQ1C+fmg7nvZSp84I8FHmXBxs5VEJ95MPeZYO/qs
+	C0d3LR7JAj9BQErmvdzsZfGKxFVRJlG4lKau2xCSzaU/NjYTYmhIgZRvA5DM7vah9tLQ352k8bY
+	CO+g/JpAEMlSFaU/AShaVL26slLjChjUVS69uiIt1BWedjL7WaT2ONEY7Mk6Hj/PoGYYvVlkv6e
+	geqrS9FRm/0msR1/CrIdSNlBmdTVIFE+gxx/rVHDuydJM7Rg/ytDubVEvgsgqtU7HVP4ukQFNXu
+	m5u3WLRJn++OT7l5nyYCI6+KFANyqO7D4ZdZvI4zoc05N8NCRlulAIw6pi29SY/ZDUxg0/HrwEt
+	ceDBHo2lcb1FKzDu7K
+X-Google-Smtp-Source: AGHT+IHWVrau2m4RaNjTyO72rP9dhKVo76M6sAXBvO9VLZ1VFeKc3lw8F8BaYPpaPHfy3t8Vo31Ixw==
+X-Received: by 2002:a05:6000:238a:b0:425:76e3:81c5 with SMTP id ffacd0b85a97d-429aef795fcmr2632000f8f.17.1761743597111;
+        Wed, 29 Oct 2025 06:13:17 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429952df5c9sm26362401f8f.41.2025.10.29.06.13.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 06:13:16 -0700 (PDT)
+Date: Wed, 29 Oct 2025 16:13:13 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Umang Jain <uajain@igalia.com>, Stefan Wahren <wahrenst@gmx.net>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
+	Rohit Chavan <roheetchavan@gmail.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH] staging: vchiq_arm: delete unnecessary check
+Message-ID: <aQIS6Q73Ss8xyJTD@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_061221_303180_749E1D3B 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251029_061319_490854_EC1614E2 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Oct 2025 21:08:34 +0800, Sirius Wang wrote:
-> The MT8189 has a different socinfo match for MT8189 SoC
-> (commercial name Kompanio 540), so add it the driver.
-> 
-> 
+Both sides of this if else statement print exactly the same thing.
+Delete the unnecessary if statement.
 
-Applied to v6.18-next/soc, thanks!
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_core.c   | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-[1/1] soc: mediatek: mtk-socinfo: Add extra entry for MT8189
-      commit: dd1d7af420e5a085e08c33220425caad35289bea
-
-Cheers,
-Angelo
-
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+index e2cac0898b8f..130be2f58342 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+@@ -4001,10 +4001,7 @@ void vchiq_log_dump_mem(struct device *dev, const char *label, u32 addr,
+ 		}
+ 		*s++ = '\0';
+ 
+-		if (label && (*label != '\0'))
+-			dev_dbg(dev, "core: %s: %08x: %s\n", label, addr, line_buf);
+-		else
+-			dev_dbg(dev, "core: %s: %08x: %s\n", label, addr, line_buf);
++		dev_dbg(dev, "core: %s: %08x: %s\n", label, addr, line_buf);
+ 
+ 		addr += 16;
+ 		mem += 16;
+-- 
+2.51.0
 
 
