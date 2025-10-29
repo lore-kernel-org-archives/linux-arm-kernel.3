@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D66CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF8DCCF9F7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QiFp/LdLdfHAJfOJPJO9VTxDlMuNiD8Zbuk8ezHLYs=; b=l+hsiskvRxK6leQ5ASBZGfnutj
-	5HRuUUDC1O5C2Zc63IhNv9wjp+pdAHVZ01oPXb7yb8otNVPN0BmJwH8i0An/MHKZbHFxMDkVzPWYM
-	RlpZxnXuUkQUEmI5dHSCZCLsXcEUJ0Xoi11bNuEW/6IGGmJKKl1KEdfuApcsigsK9XaII9F0/WlAq
-	vV3ivJD1p8pTkJSAd7uGQzHxww9V3ki3AKfvvutfKAaiufk0Gq/2inMvzP9SHghCZwaNQ8RAMqVYb
-	ni9vYitLfzNDfMWgBFxODydt7iq7gXtGS2acRm3ZGSbyxpmjL4LiKsUIrgRy3AMZVVbzthCkxCYxt
-	uiu+/V7Q==;
+	bh=drvlRfVB/NoPKWYb6A7Zkbz4VYcKiU0cQ5EAHKwC8TU=; b=sBJkIJpuphQYVQPTPUXUYVkLeX
+	KCDRAt6JwE65LjDPpakijBXdJaQNrI2IQvtH2u64Gx7+arcRbD8r27joBwH3tK85UxWzBiB3uw3u0
+	AIjE+/8v6CdZ9XbwAB/j4bmFWdz9D1tX7Q525v3EE4d14iCo2knLDm6k33u6KAgdnFlEZgzVwGf0X
+	x7suSJoYoxqMR+sUYUYWpCpGCxuxpuE343u8YEe7Fv7Z25HW9ur54erBPGB3yj1dPBt8JSrfDY0vl
+	0hAPrurAFEb8Fm5xh/5TE7fKfbnoouIURAcjN+TJ38AK+ffS+eP3tgBidpt9QJSZMvQ4Xi9th7i/U
+	IXws1t8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBrH-00000002bX2-0ZWq;
+	id 1vEBrH-00000002bXe-1qQH;
 	Wed, 29 Oct 2025 19:29:23 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBr8-00000002bRk-2SrY
+	id 1vEBrA-00000002bSk-0V7H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 19:29:15 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b3b3a6f4dd4so47333766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 12:29:14 -0700 (PDT)
+	Wed, 29 Oct 2025 19:29:17 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b6d5e04e0d3so48694666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 12:29:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761766153; x=1762370953; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761766154; x=1762370954; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+QiFp/LdLdfHAJfOJPJO9VTxDlMuNiD8Zbuk8ezHLYs=;
-        b=BMLeeaB6OP/MbABdhkUCHwp83zM/+Q+YFc39YX0Y+0ZqI2xTcO/+Yw7GQOaYihzW1w
-         6rNEudM61PYBNufSABhCsGw/rsfftf7ZhALnQ3GN/pHh9cZhqBbYPtR2N09R60snLf4K
-         OMLHvD9oPADfoBFSrUdcJGldeYHTFzIYPfG4TaJa02A++1EJnQnPLeZPZGcrRwLDN7iP
-         sWzmu5VT1Zk7DLzgWtUAsRPGx5OOgdPzq9SMRghT7Y97VtJVviMP8pK3NpcMtpF6QM7c
-         P7XnS1x538zO52UECkek1F/tEIDz75iou+wJ7ef+gtY/tT262j+0696gWFLRari0VHbi
-         ZudQ==
+        bh=drvlRfVB/NoPKWYb6A7Zkbz4VYcKiU0cQ5EAHKwC8TU=;
+        b=QSEUHb3g87+oUWZ/jYGSBmdSqdoLZocUHt1hmHsEFJhfnX+Qs1jFS8ymh1OxMpXRVI
+         o2BoG5lvWMttohdUIXdeDbSAH9KsUR9rkwGXyMPoXYe0cctkBTUmQLzSmzZRzNpDUVRK
+         qo57woml7N8EVID+JgUGp+SpRa+rash8y3HJwCHMqk2C1UYf6VjulizORhamr5y7BwnH
+         19tkm/A935hEGDpc89u7KE8Cvqf8HKOBvABppzx50k27shJiKbFhh9A5+ER5qsgckCYy
+         ENj69Wmf9qip3at1fkh6efFpZlevioEFcu7ikoXtAZzxhKli7gbzGQo/pKpN7Q5k65yX
+         ytBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761766153; x=1762370953;
+        d=1e100.net; s=20230601; t=1761766154; x=1762370954;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+QiFp/LdLdfHAJfOJPJO9VTxDlMuNiD8Zbuk8ezHLYs=;
-        b=FFyJKmXo+Qk/10N8gCPuBJb5E8kJmGN8V++odMhqRPfv7w39hUs7hluqc0Zb48MznA
-         T4zpiHODnbWqKLIQWTQ4g5fWLs3wgautJi5OSgKfnEfkbd5W7MMwPnxzymN629d48iBF
-         X9pgb7RoEV/wEnte7hC75+/gDkuafvd4x2zUIM32XuH+pr8/OLaAZ6ZlINETmNv5UtvH
-         nKRvbDxXFrqI4zlkx2+zZiAvl/m/RPX6Xu8R50gYtW+ZAHPv+UaMWn8bzZv7tCLRfUR6
-         bLWRhiUjSjz/41iL3Cu8TAuEthj6xrGEkXWPadIfft2y4rhcXpObACopgHOuwoKgJqLe
-         5DPg==
-X-Forwarded-Encrypted: i=1; AJvYcCVuWf37w18PV8O1KK6vO4hdjccJPfuGQas7xmCA1GCkKPgXyagqeGbO2g988YUKEHU7PwXVh68lc05gsU2IWeI3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm0AAy+3Eq6S2SWoRE6cmRyrXToZ0M+Djn0NGu5KxALoSIZPUM
-	DsOMdtHds8XsxbuECVn6C8Ue253Mfk+YKpxOUCdvS4jZyxXri+O8Sf3I
-X-Gm-Gg: ASbGncuZveuDeSjPVC1pnU15gyk5prKmsA49xDOlqbGZZOiBrWekrIOQYOnwNbAUvGl
-	aM/v76mag2fUboB8xnhiCjgq7R4+3rurGzX2WMOdu0VXkjSCRV3nXzSbUs8h+dyUh48Z3SymNr/
-	6nsHOnbG8KRDBjbw1IUcib23PWxpXO/e3op4PgrqHAes+5tezSuuLb+S2iMbxHHcDBbKLZrU+1u
-	zRKJx44dgWS+eyEIB7nCy9y66XJP9+1xAF6R1mxNOSl/pmYw85iE+vKCm/tAL1SCMSlFx9todRP
-	nqhGGSBbKWNclXGp3Rahvu+RjHESHEIPBYzp7r3h6dif775gPHlakQHWcQByo2Z226KoWGvO/1/
-	BOh3a6JoUykDJGSDWdiP7H7n0jeQgOqWVYpo1tkqV7XGXeze75gGqJkXho6lFjR5wOxok8AD9kk
-	TOZrZK0K7kVfJgdeo+f+4QwMCYxrptcfwD9GrwKVJKk+3FNWd1xXK0WAIrkfeW2Q==
-X-Google-Smtp-Source: AGHT+IFMO9AToKhALDtmsrq81s5iqoQxzOiv7HbkBgHJatpEZpryGrj89HkqN9nJYwlK5nQZ6d5XOA==
-X-Received: by 2002:a17:907:c0f:b0:b6f:9da9:4b46 with SMTP id a640c23a62f3a-b703d5333b1mr421529766b.43.1761766152587;
-        Wed, 29 Oct 2025 12:29:12 -0700 (PDT)
+        bh=drvlRfVB/NoPKWYb6A7Zkbz4VYcKiU0cQ5EAHKwC8TU=;
+        b=jmHyzoBzVJqaRJzKUazdRgzP1kJuUV47PD2Ajyuxe89OYOerr96u/3n+CJcAQj47rI
+         2REYFpPVs0+qmRkFMsXdvrFguk7qE6SgWXjUnO3/Ft4Xda/R5bULGoCHx6MwqJH0pWGv
+         13vnXkQCwIwyFdvb7BsFG39XOGdUx+LsSil5edENmsU8aLHigtIbEbxF+Uye3dLuztEL
+         KbKpNNYNh74Y7imyCAvk7Z8CvKRRFsO8HIzcyBTMG9RpttBVI87nCv3QZv2BHM66rRzK
+         wB68PDsxi4nQt4MhvXg9D/Md3aOhgYDTVHWQ/HLOmPon/tU+D6muOw5vxMplafG2JV/r
+         +wfg==
+X-Forwarded-Encrypted: i=1; AJvYcCXClQEuRzTznry3fzvNj725gakiMzs5fXnrg2S4CgUFeL0giqiHr2VQmUNrhtKHLoDPvgumsRkz1abMTVBaedo1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyfx8tsbYQkdPQrSUCuvo+Fpb18M4i7YQ4lTmTDIx9W5dcAyTK0
+	lBc1ydk0ikW9E91C2qcQAcwEU04M1OJvmcbDL3XSY92yQ6qDQDJzfVJo
+X-Gm-Gg: ASbGnctdRKeAKNIEFOC9MKyoFtj0mSk1KE7NPaa4+zHRiaWX8Ibdro2627oek558CJM
+	TqLpRehuWWemKmXjD22mCtmCHKfXyfzBkzX1OxJ37ejF5C2/EkrdlhWHvszA1XjN+r6fYgl6EIU
+	xLB49Qbm5ay0omHslxiXenMf4UVOuGjnIoPp7c3gXm4DlZdK5a6Vf0BDaxwoV8W7lkRywQym28n
+	11PDUp1HFEMcrInhkr7fSttPNX5OhFmxz83RkzrXvrFOPGcbAyModjbiPNgAJjprMu2UTDZDxc3
+	kEGDu6hAdZkq5XA7vK18snscYfI+ou8pNf1JMau7vAboxXwKPNJvWd9acvJFzrojB/gQ0I4T9JT
+	7viwmdcFPMvNjkNGCnPMIiJCASrAAM5PlkfyZoKz6NNu45H4v2KAaQID4q5YGhNQrkdKL6BwI5T
+	D0/x/4w1ojNLuUeltt5F2QSmBfbL6ALGIHInme0LNefnmzGtZvevR12ePk/bnMBA==
+X-Google-Smtp-Source: AGHT+IHVJORke3FbLcazCdqb6IzzPmDXwSbtp/S5D/AcSmwvYP+0vUHCAfCC9o5lV9yehDEJzSKsyQ==
+X-Received: by 2002:a17:907:9342:b0:b4a:ac1e:7866 with SMTP id a640c23a62f3a-b703d52573cmr367554666b.45.1761766154134;
+        Wed, 29 Oct 2025 12:29:14 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-146-98-100.cust.vodafonedsl.it. [93.146.98.100])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d8548eda6sm1496673266b.75.2025.10.29.12.29.11
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d8548eda6sm1496673266b.75.2025.10.29.12.29.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 12:29:12 -0700 (PDT)
+        Wed, 29 Oct 2025 12:29:13 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 To: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -83,17 +83,17 @@ Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
 	Fabio Estevam <festevam@gmail.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 3/4] arm64: dts: freescale: imx93-var-som: Add support for WM8904 audio codec
-Date: Wed, 29 Oct 2025 20:28:48 +0100
-Message-ID: <20251029192852.656806-4-stefano.radaelli21@gmail.com>
+Subject: [PATCH v1 4/4] arm64: dts: freescale: imx93-var-som: Add support for ADS7846 touchscreen
+Date: Wed, 29 Oct 2025 20:28:49 +0100
+Message-ID: <20251029192852.656806-5-stefano.radaelli21@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251029192852.656806-1-stefano.radaelli21@gmail.com>
 References: <20251029192852.656806-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_122914_687031_1B3F18D6 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20251029_122916_176929_0DB19F23 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,143 +108,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VAR-SOM-MX93 can integrate the WM8904, a high-performance
-ultra-low-power stereo codec optimized for portable audio applications.
+The VAR-SOM-MX93 integrates an ADS7846 resistive touchscreen controller.
+The controller is physically located on the SOM, and its signals are
+routed to the SOM pins, allowing carrier boards to make use of it.
 
-This patch adds the WM8904 device to the appropriate I2C bus, enables
-the SAI peripheral, and introduces the sound node to expose the
-sound card to the system.
+This patch adds the ADS7846 node and the appropriate SPI controller.
 
 Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
 ---
- .../boot/dts/freescale/imx93-var-som.dtsi     | 93 +++++++++++++++++++
- 1 file changed, 93 insertions(+)
+ .../boot/dts/freescale/imx93-var-som.dtsi     | 47 +++++++++++++++++++
+ 1 file changed, 47 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-index 368530f5831f..d94b40d1d804 100644
+index d94b40d1d804..01adf7b5ac12 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-@@ -12,6 +12,34 @@ /{
- 	model = "Variscite VAR-SOM-MX93 module";
- 	compatible = "variscite,var-som-mx93", "fsl,imx93";
- 
-+	sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,bitclock-master = <&codec_dai>;
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,frame-master = <&codec_dai>;
-+		simple-audio-card,name = "wm8904-audio";
-+		simple-audio-card,routing =
-+			"Headphone Jack", "HPOUTL",
-+			"Headphone Jack", "HPOUTR",
-+			"IN2L", "Line In Jack",
-+			"IN2R", "Line In Jack",
-+			"IN1L", "Microphone Jack",
-+			"IN1R", "Microphone Jack";
-+		simple-audio-card,widgets =
-+			"Microphone", "Microphone Jack",
-+			"Headphone", "Headphone Jack",
-+			"Line", "Line In Jack";
-+		simple-audio-card,mclk-fs = <256>;
-+
-+		codec_dai: simple-audio-card,codec {
-+			sound-dai = <&wm8904>;
-+		};
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&sai1>;
-+		};
-+	};
-+
- 	usdhc3_pwrseq: mmc-pwrseq {
- 		compatible = "mmc-pwrseq-simple";
- 		post-power-on-delay-ms = <100>;
-@@ -152,6 +180,36 @@ ldo5: LDO5 {
- 			};
- 		};
- 	};
-+
-+	wm8904: audio-codec@1a {
-+		compatible = "wlf,wm8904";
-+		reg = <0x1a>;
-+		#sound-dai-cells = <0>;
-+		clocks = <&clk IMX93_CLK_SAI1_GATE>;
-+		clock-names = "mclk";
-+		AVDD-supply = <&buck5>;
-+		CPVDD-supply = <&buck5>;
-+		DBVDD-supply = <&buck4>;
-+		DCVDD-supply = <&buck5>;
-+		MICVDD-supply = <&buck5>;
-+		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
-+				    "soft", "music";
-+		/*
-+		 * Config registers per name, respectively:
-+		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
-+		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
-+		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
-+		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
-+		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
-+		 */
-+		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
-+				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
-+				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
-+		/* GPIO1 = DMIC_CLK, don't touch others */
-+		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
-+	};
- };
- 
- /* BT module */
-@@ -166,6 +224,17 @@ bluetooth {
+@@ -212,6 +212,38 @@ wm8904: audio-codec@1a {
  	};
  };
  
-+&sai1 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_sai1>;
-+	pinctrl-1 = <&pinctrl_sai1_sleep>;
-+	assigned-clocks = <&clk IMX93_CLK_SAI1>;
-+	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>;
-+	assigned-clock-rates = <12288000>;
-+	fsl,sai-mclk-direction-output;
++&lpspi8 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpspi8>;
++	cs-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
 +	status = "okay";
++
++	/* Resistive touch controller */
++	ads7846: touchscreen@0 {
++		compatible = "ti,ads7846";
++		reg = <0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_restouch>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
++		spi-max-frequency = <1000000>;
++		pendown-gpio = <&gpio4 29 0>;
++		vcc-supply = <&buck5>;
++		ti,x-min = /bits/ 16 <125>;
++		ti,x-max = /bits/ 16 <4008>;
++		ti,y-min = /bits/ 16 <282>;
++		ti,y-max = /bits/ 16 <3864>;
++		ti,x-plate-ohms = /bits/ 16 <180>;
++		ti,pressure-max = /bits/ 16 <255>;
++		ti,debounce-max = /bits/ 16 <10>;
++		ti,debounce-tol = /bits/ 16 <3>;
++		ti,debounce-rep = /bits/ 16 <1>;
++		ti,settle-delay-usec = /bits/ 16 <150>;
++		ti,keep-vref-on;
++		wakeup-source;
++	};
 +};
 +
- /* eMMC */
- &usdhc1 {
- 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-@@ -247,6 +316,30 @@ MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B  0x31e
+ /* BT module */
+ &lpuart5 {
+ 	pinctrl-names = "default";
+@@ -307,6 +339,15 @@ MX93_PAD_GPIO_IO29__GPIO2_IO29                  0x40000b9e
  		>;
  	};
  
-+	pinctrl_sai1: sai1grp {
++	pinctrl_lpspi8: lpspi8grp {
 +		fsl,pins = <
-+			MX93_PAD_SAI1_TXC__SAI1_TX_BCLK                 0x31e
-+			MX93_PAD_SAI1_TXFS__SAI1_TX_SYNC                0x31e
-+			MX93_PAD_SAI1_TXD0__SAI1_TX_DATA00              0x31e
-+			MX93_PAD_SAI1_RXD0__SAI1_RX_DATA00              0x31e
-+			MX93_PAD_I2C2_SDA__SAI1_RX_BCLK                 0x31e
-+			MX93_PAD_I2C2_SCL__SAI1_RX_SYNC                 0x31e
-+			MX93_PAD_UART2_RXD__SAI1_MCLK                   0x31e
++			MX93_PAD_GPIO_IO12__GPIO2_IO12                  0x31e
++			MX93_PAD_GPIO_IO13__LPSPI8_SIN                  0x31e
++			MX93_PAD_GPIO_IO14__LPSPI8_SOUT                 0x31e
++			MX93_PAD_GPIO_IO15__LPSPI8_SCK                  0x31e
 +		>;
 +	};
 +
-+	pinctrl_sai1_sleep: sai1-sleepgrp {
-+		fsl,pins = <
-+			MX93_PAD_SAI1_TXC__GPIO1_IO12           0x31e
-+			MX93_PAD_SAI1_TXFS__GPIO1_IO11          0x31e
-+			MX93_PAD_SAI1_TXD0__GPIO1_IO13          0x31e
-+			MX93_PAD_SAI1_RXD0__GPIO1_IO14          0x31e
-+			MX93_PAD_UART2_RXD__GPIO1_IO06          0x31e
-+			MX93_PAD_I2C2_SDA__GPIO1_IO03           0x31e
-+			MX93_PAD_I2C2_SCL__GPIO1_IO02           0x31e
-+		>;
-+	};
-+
- 	pinctrl_usdhc1: usdhc1grp {
+ 	pinctrl_lpuart5: lpuart5grp {
  		fsl,pins = <
- 			MX93_PAD_SD1_CLK__USDHC1_CLK		0x15fe
+ 			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX   0x31e
+@@ -316,6 +357,12 @@ MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B  0x31e
+ 		>;
+ 	};
+ 
++	pinctrl_restouch: restouchgrp {
++		fsl,pins = <
++			MX93_PAD_CCM_CLKO4__GPIO4_IO29                  0x31e
++		>;
++	};
++
+ 	pinctrl_sai1: sai1grp {
+ 		fsl,pins = <
+ 			MX93_PAD_SAI1_TXC__SAI1_TX_BCLK                 0x31e
 -- 
 2.43.0
 
