@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55FECCF9F3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C348CCF9E9
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 07:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2j9WA1trqT3vAVw/jd1rQawmJe4KSEvtc97hT+jsmc=; b=zP18a+lhGMLhfxCblBEnjXtRKh
-	ifkJxkW6nag4TF/qlwD5Xekc33UgcEto8WLrZa9Ks1aPEgtNPQVjXRGa/HpBArruOhjrn+GxonDpV
-	b80vKzrmedZSHJeRj8LdWPoss9dg/Ah2XKqf+gqv0FgLCSEeQp5PU0OW13HNYUeCk6yZA/RDJxZsB
-	Ll4pr8d+9EIAqBZCbRJjRX7P1d1E6xHNSdxWX6KEF8OATRGFolDnDI4EtDLC0Y26pb6ApfMAt9/g+
-	VbqB21HEnRr5W9SfAIKGMbLsQgfTnoFRwoY7ynR5nx3b4/2QCugVz65t17UJboNiG88oF5JEkHAaB
-	4YYseOyQ==;
+	bh=5KS6qDGs3DgFeS16auSi0pL5JfRWGjMinEXlOe5PpTI=; b=o3JhVL6gFjGdYydBemoQvQh5V6
+	SIcOZ9Bi5LzEpY+wjMcMxv8f/OAQxbZg2CYKjmLxcbZGYIhJ4HtqjNN6N0fXAENEwr8HVsLcsq4yh
+	uZRhrP7ud+MYC+P7931eP9fDRf80gvaKHMyZD/g6gdQ05VZ2puGLKYKaM0/DL9Kjh8yby5X6UqG3d
+	imzDYxUBL0TbHkX/yvMRuPcVS3cIVV46jhRGhLN9Ide0GJfG1Ng3ZB0q8Ga+zHV35mN0OiGX7zIMQ
+	t9+pN7Xft9bYlt7wY2pCYNdfIiI+BD15veBEys37ubVROpU4ZkhYY/X1CBLJ//TLJ8gJ2d607+Ww0
+	SAGz1G1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0Pc-000000002nA-0w75;
-	Wed, 29 Oct 2025 07:16:04 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1vE0Pb-000000002lF-0XHN;
+	Wed, 29 Oct 2025 07:16:03 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0PM-000000002Hg-2bP7;
-	Wed, 29 Oct 2025 07:15:51 +0000
+	id 1vE0PJ-000000002GN-2Qua;
+	Wed, 29 Oct 2025 07:15:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1761722091;
-	bh=j2j9WA1trqT3vAVw/jd1rQawmJe4KSEvtc97hT+jsmc=;
+	s=altu2504; t=1761722109;
+	bh=5KS6qDGs3DgFeS16auSi0pL5JfRWGjMinEXlOe5PpTI=;
 	h=From:To:Subject:Date:Message-Id;
-	b=axDSjnoMzuC5X6IKwC9o8L+YT8jloY/jdQraAGDAwFUMaGnjlNLYOJirtVl6qZZMj
-	 KneCijyldkDE7fIj9+2B5ZIO+YkhaGeOAIMhQqG3eo8f3ddXdiIzVbfcZnKqBQRTEj
-	 9dpvZ6nagLyzIzSQCBE/WfKsv90ZVTNJhy0lwi0g=
-X-QQ-mid: zesmtpsz6t1761722089t7ff69d0c
-X-QQ-Originating-IP: 7bQdVQ9oUX34jRxfdd7Wtzl35M8B8aqczAbGIlIcToY=
+	b=ndPthHnyOa4hsOs1cD53zuucJwks+C227WWFnG8armne6GpsebHxdIfYyzftvPLUp
+	 Uru/Q0oxyMgnhGk/m2gwbYJBwUKVMKI4+DzwyXV8tIeDlg2fCjz65eZ3rWoiCRdLEO
+	 Pt+1oNk/OChxHJZXJ66WIguf43TL8P4o4Ow0jIK8=
+X-QQ-mid: zesmtpsz6t1761722107t906d9810
+X-QQ-Originating-IP: 7Iqys5e5mtuaeL8hJ/Qw7mtU+uxrjoQBEiCzFJ3YJqw=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 29 Oct 2025 15:14:45 +0800 (CST)
+	id ; Wed, 29 Oct 2025 15:15:05 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 376849328953314141
+X-BIZMAIL-ID: 15925501631327247557
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -79,34 +79,34 @@ Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH v8 01/10] usb: typec: Add notifier functions
-Date: Wed, 29 Oct 2025 15:14:26 +0800
-Message-Id: <20251029071435.88-2-kernel@airkyi.com>
+Subject: [PATCH v8 05/10] phy: rockchip: phy-rockchip-typec: Add typec_mux/typec_switch support
+Date: Wed, 29 Oct 2025 15:14:30 +0800
+Message-Id: <20251029071435.88-6-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20251029071435.88-1-kernel@airkyi.com>
 References: <20251029071435.88-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: MjqaYNLY8QZGIpmhSyWql8me1d5OxWxLDL4l4EY/xytzQsP2bDcsJWMt
-	49n8ST3h+nN0tPnp1cxviRfuOfbgBmdWy+/hy5YZ3jSgKY3dsUAR3393FgGroGshRWi+nSD
-	+OcO90YAQWoOhyV3VuW6G9femXmqzYHnKNQytoLtnQwlvl2TiUy/xPwH44PcrgFWMnT3rXz
-	bVWEqUmBcKXUDbo7nMaYbjWqgXDXeM01N6xqbxHaQ3v3p28kWEDyHEDLVjkGcf8/DnlxhqI
-	PH68mbUb1+mhy0mgVYxTwcqA7Qtwx9Tni5dTDIf2LrZ50lCjcas7THoR2tJfiZ5UwpjICJ+
-	tnZduuYp7U1yaSzw3ZDY5ZRKgcwGj4/jnblrjELDykEdh+mOtQO5DkWzFc05+lnTRh+Bbp6
-	J2LAKv98Seg6CSCuMvZv6yWkZXlJ++csPj1YivMvL2tVu1jhfOwjtyqecPGx7LJ1lH6z4i1
-	YOKjECb8140Ugw/c8eqCu1onEupANpLfjiZa0ULJ8aRAuz+kA+kkLgYn8l92bYnWe9J93EN
-	tLD6RC8+t1Y6mT0z9LeJ4V5qg34LDHODStS28IEefDVda4tX+NWbOkaCykv9LaNkCTj54Hr
-	GZi671WHSuRneXDpZuqUh6I3cTOwsYSj2L5MiixFYuTm1HbFbm1UVTrvMOpqywjFp389geM
-	n1VaiuGgqmeO/k7fHx4F0Sc6OAC407IhzI/389SOsaNuJ+02KllOEWwJAW/fA2Mr7AYTE07
-	Oog5lplwnUlfrBqCGIsfV/45LFLKxBYckhWcmnmbkqEod6oVNgyQD279QKxJ6Ga9blkWEl9
-	GAYeeZc5+etZAY9KwWsGaX3Oyf0C/YDoV6gcgHsQdWHZMURiRO+cJJw5Y6zeJSpA0puJxZA
-	/+S7w0Bd8hE6g2kfBoyjWUODYCZHGmjmZXqMF21N9q67X3r/zTAs7n5d56MNYTtIIfHtud/
-	U86yulE2M359yC5hhMBPrUJrRru3RbeXeROxvtwJjfYbgcSjLZfrsJIdtdHQXkHCV4d4=
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-XMAILINFO: NOIkHYnr7Vzd/tMyFT2j8ch1LAjAQnnQDx5VbT+TIFa0fjSe1tTbiG94
+	ubiO1oJ4+Bum3yzx1rZmuyovA7PYS1EMWhzEnRs85H/Hgwr/sMEG8dvAI1UIbdSDLVdlexR
+	Mqw+rjNRDCGoRYMzuaPVuDwkteINzMppYdDHkgGrWJAj2Y8jCtMjN6g4L0ze4QksB4q83PC
+	MtQLnkq6D5Zi8Psd6NFuUjLOg/8JqFhUkx40SA3NLSb0wErEN1ANaDYG8hS1o+/GQ4rQq0d
+	CM9n/87nxRAnnTDvZBhr5DIT2j4CTM8PkUhgZKDsOnsyWCXxFvqJbvhfpgvAJxNK4DYPFoj
+	QKPGAuKjuXSwnZwbP3eUoDHtSJGb9j2lre0pWjtWl/99JvkGwVs95Zc9LjELFs8NKHjyp/m
+	Asp8LBf8FLuWg+Lkf1aB1YDTB/UUu81VZSSxIrvjUO2+Pd5a9DgS49Tki43fbSgf6nDUpOk
+	RMudmqbWXpWTCwIWPy2JrnzJWkMrJyN7YGwtdi3OVqm7OdUMe9zDVWd+M7YtnvLNHaxpwxS
+	7lZcZGAPx/DLHyOAboqJ1fJIC1szG+v/VAZhF3I5N2duRRjaYujY1oTI3m3fqQuXIaa5PxV
+	Zqhjz//ZerDcmMNPv+hbJPhi9JqoqkkdB+7eeILEAbFAabfOC0wK6vKEOjT9d6TBNj9RtI5
+	ES93Fk2sxS40RO+z5dCbuPRK22VIzmkIiNR/TIORUksSKNVMdMPOEYvYeHrELg5MEj0XrsX
+	yf4hO2ohYWBPm7hrhv4tK9T021Ws3R8aw/HVDAMmbQKfnkzU1EtY5yrQ4qrfB410IYkxeHB
+	7ju+nphxDIjsC4/lnWAXA+wRRuH3ZPP42XYEWLSO6T8PG8pt/wW54Vxrc0TtY7p196mxH+Y
+	dUv5doa3miP0yrsOLtrWXMLI22brMLOiRj/wkupr/J7ruhIpE3Ax3Ck983BKah1zIjiXL7F
+	A3VA8qNx4snjFHGtmFMj+V6KrisqgnVMUTOzCxnUSKm1ezVworHcopbW9Do6v8G61mJc=
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_001549_507648_59862324 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20251029_001547_324512_48EDC094 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,123 +123,579 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Some other part of kernel may want to know the event of typec bus.
+This patch add support for Type-C Port Controller Manager. Each PHY
+will register typec_mux and typec_switch when external Type-C
+controller is present. Type-C events are handled by TCPM without
+extcon.
 
-This patch add common notifier function to notify these event.
+The extcon device should still be supported.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 ---
 
-Changes in v8:
-- Fix coding style.
+(no changes since v7)
 
- drivers/usb/typec/Makefile       |  2 +-
- drivers/usb/typec/bus.h          |  2 ++
- drivers/usb/typec/class.c        |  3 +++
- drivers/usb/typec/notify.c       | 24 ++++++++++++++++++++++++
- include/linux/usb/typec_notify.h | 16 ++++++++++++++++
- 5 files changed, 46 insertions(+), 1 deletion(-)
- create mode 100644 drivers/usb/typec/notify.c
- create mode 100644 include/linux/usb/typec_notify.h
+Changes in v6:
+- Fix depend in Kconfig.
+- Check DP svid in tcphy_typec_mux_set().
+- Remove mode setting in tcphy_orien_sw_set().
 
-diff --git a/drivers/usb/typec/Makefile b/drivers/usb/typec/Makefile
-index 7a368fea61bc..20d09c5314d7 100644
---- a/drivers/usb/typec/Makefile
-+++ b/drivers/usb/typec/Makefile
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- obj-$(CONFIG_TYPEC)		+= typec.o
--typec-y				:= class.o mux.o bus.o pd.o retimer.o
-+typec-y				:= class.o mux.o notify.o bus.o pd.o retimer.o
- typec-$(CONFIG_ACPI)		+= port-mapper.o
- obj-$(CONFIG_TYPEC)		+= altmodes/
- obj-$(CONFIG_TYPEC_TCPM)	+= tcpm/
-diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
-index 643b8c81786d..820b59b6d434 100644
---- a/drivers/usb/typec/bus.h
-+++ b/drivers/usb/typec/bus.h
-@@ -26,6 +26,8 @@ struct altmode {
- 	struct altmode			*plug[2];
- };
+(no changes since v5)
+
+Changes in v4:
+- Remove notify DP HPD state by USB/DP PHY.
+
+(no changes since v3)
+
+Changes in v2:
+- Fix compile error when CONFIG_TYPEC is not enabled.
+- Notify DP HPD state by USB/DP PHY.
+
+ drivers/phy/rockchip/Kconfig              |   1 +
+ drivers/phy/rockchip/phy-rockchip-typec.c | 368 +++++++++++++++++++++-
+ 2 files changed, 353 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+index 14698571b607..db4adc7c53da 100644
+--- a/drivers/phy/rockchip/Kconfig
++++ b/drivers/phy/rockchip/Kconfig
+@@ -119,6 +119,7 @@ config PHY_ROCKCHIP_SNPS_PCIE3
+ config PHY_ROCKCHIP_TYPEC
+ 	tristate "Rockchip TYPEC PHY Driver"
+ 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
++	depends on TYPEC || TYPEC=n
+ 	select EXTCON
+ 	select GENERIC_PHY
+ 	select RESET_CONTROLLER
+diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
+index d9701b6106d5..1f5b4142cbe4 100644
+--- a/drivers/phy/rockchip/phy-rockchip-typec.c
++++ b/drivers/phy/rockchip/phy-rockchip-typec.c
+@@ -54,6 +54,8 @@
  
-+void typec_notify_event(unsigned long event, void *data);
-+
- #define to_altmode(d) container_of(d, struct altmode, adev)
+ #include <linux/mfd/syscon.h>
+ #include <linux/phy/phy.h>
++#include <linux/usb/typec_dp.h>
++#include <linux/usb/typec_mux.h>
  
- extern const struct bus_type typec_bus;
-diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
-index 9b2647cb199b..51e971bc68d1 100644
---- a/drivers/usb/typec/class.c
-+++ b/drivers/usb/typec/class.c
-@@ -13,6 +13,7 @@
- #include <linux/string_choices.h>
- #include <linux/usb/pd_vdo.h>
- #include <linux/usb/typec_mux.h>
-+#include <linux/usb/typec_notify.h>
- #include <linux/usb/typec_retimer.h>
- #include <linux/usb.h>
+ #define CMN_SSM_BANDGAP			(0x21 << 2)
+ #define CMN_SSM_BIAS			(0x22 << 2)
+@@ -286,12 +288,23 @@
+ #define RX_DIAG_SC2C_DELAY		(0x81e1 << 2)
  
-@@ -600,6 +601,8 @@ typec_register_altmode(struct device *parent,
- 		return ERR_PTR(ret);
- 	}
+ #define PMA_LANE_CFG			(0xc000 << 2)
++#define PMA_LANE3_DP_LANE_SEL(x)	(((x) & 0x3) << 14)
++#define PMA_LANE3_INTERFACE_SEL(x)	(((x) & 0x1) << 12)
++#define PMA_LANE2_DP_LANE_SEL(x)	(((x) & 0x3) << 10)
++#define PMA_LANE2_INTERFACE_SEL(x)	(((x) & 0x1) << 8)
++#define PMA_LANE1_DP_LANE_SEL(x)	(((x) & 0x3) << 6)
++#define PMA_LANE1_INTERFACE_SEL(x)	(((x) & 0x1) << 4)
++#define PMA_LANE0_DP_LANE_SEL(x)	(((x) & 0x3) << 2)
++#define PMA_LANE0_INTERFACE_SEL(x)	(((x) & 0x1) << 0)
+ #define PIPE_CMN_CTRL1			(0xc001 << 2)
+ #define PIPE_CMN_CTRL2			(0xc002 << 2)
+ #define PIPE_COM_LOCK_CFG1		(0xc003 << 2)
+ #define PIPE_COM_LOCK_CFG2		(0xc004 << 2)
+ #define PIPE_RCV_DET_INH		(0xc005 << 2)
+ #define DP_MODE_CTL			(0xc008 << 2)
++#define PHY_DP_POWER_STATE_ACK_MASK	GENMASK(7, 4)
++#define PHY_DP_POWER_STATE_ACK_SHIFT	4
++#define PHY_DP_POWER_STATE_MASK		GENMASK(3, 0)
+ #define DP_CLK_CTL			(0xc009 << 2)
+ #define STS				(0xc00F << 2)
+ #define PHY_ISO_CMN_CTRL		(0xc010 << 2)
+@@ -327,8 +340,15 @@
  
-+	typec_notify_event(TYPEC_ALTMODE_REGISTERED, &alt->adev);
+ #define DP_MODE_A0			BIT(4)
+ #define DP_MODE_A2			BIT(6)
+-#define DP_MODE_ENTER_A0		0xc101
+-#define DP_MODE_ENTER_A2		0xc104
 +
- 	return &alt->adev;
- }
++#define DP_MODE_MASK			0xf
++#define DP_MODE_ENTER_A0		BIT(0)
++#define DP_MODE_ENTER_A2		BIT(2)
++#define DP_MODE_ENTER_A3		BIT(3)
++#define DP_MODE_A0_ACK			BIT(4)
++#define DP_MODE_A2_ACK			BIT(6)
++#define DP_MODE_A3_ACK			BIT(7)
++#define DP_LINK_RESET_DEASSERTED	BIT(8)
  
-diff --git a/drivers/usb/typec/notify.c b/drivers/usb/typec/notify.c
-new file mode 100644
-index 000000000000..0a14d3ae224e
---- /dev/null
-+++ b/drivers/usb/typec/notify.c
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/notifier.h>
-+#include <linux/usb/typec_notify.h>
-+
-+#include "bus.h"
-+
-+static BLOCKING_NOTIFIER_HEAD(typec_notifier_list);
-+
-+int typec_altmode_register_notify(struct notifier_block *nb)
-+{
-+	return blocking_notifier_chain_register(&typec_notifier_list, nb);
-+}
-+EXPORT_SYMBOL_GPL(typec_altmode_register_notify);
-+
-+int typec_altmode_unregister_notify(struct notifier_block *nb)
-+{
-+	return blocking_notifier_chain_unregister(&typec_notifier_list, nb);
-+}
-+EXPORT_SYMBOL_GPL(typec_altmode_unregister_notify);
-+
-+void typec_notify_event(unsigned long event, void *data)
-+{
-+	blocking_notifier_call_chain(&typec_notifier_list, event, data);
-+}
-diff --git a/include/linux/usb/typec_notify.h b/include/linux/usb/typec_notify.h
-new file mode 100644
-index 000000000000..f3a7b5f5b05b
---- /dev/null
-+++ b/include/linux/usb/typec_notify.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __USB_TYPEC_NOTIFY
-+#define __USB_TYPEC_NOTIFY
-+
-+#include <linux/notifier.h>
-+
-+enum usb_typec_event {
-+	TYPEC_ALTMODE_REGISTERED,
-+	TYPEC_ALTMODE_UNREGISTERED,
+ #define PHY_MODE_SET_TIMEOUT		100000
+ 
+@@ -340,6 +360,31 @@
+ #define MODE_DFP_USB			BIT(1)
+ #define MODE_DFP_DP			BIT(2)
+ 
++enum phy_dp_lane_num {
++	PHY_DP_LANE_0 = 0,
++	PHY_DP_LANE_1,
++	PHY_DP_LANE_2,
++	PHY_DP_LANE_3,
 +};
 +
-+int typec_altmode_register_notify(struct notifier_block *nb);
-+int typec_altmode_unregister_notify(struct notifier_block *nb);
++enum phy_pma_if {
++	PMA_IF_PIPE_PCS = 0,
++	PMA_IF_PHY_DP,
++};
 +
-+#endif /* __USB_TYPEC_NOTIFY */
++enum phy_typec_role {
++	TYPEC_PHY_USB = 0,
++	TYPEC_PHY_DP,
++	TYPEC_PHY_MAX,
++};
++
++enum phy_dp_power_state {
++	PHY_DP_POWER_STATE_A0 = 0,
++	PHY_DP_POWER_STATE_A1,
++	PHY_DP_POWER_STATE_A2,
++	PHY_DP_POWER_STATE_A3,
++};
++
+ struct usb3phy_reg {
+ 	u32 offset;
+ 	u32 enable_bit;
+@@ -372,18 +417,22 @@ struct rockchip_typec_phy {
+ 	struct device *dev;
+ 	void __iomem *base;
+ 	struct extcon_dev *extcon;
++	struct typec_mux_dev *mux;
++	struct typec_switch_dev *sw;
+ 	struct regmap *grf_regs;
+ 	struct clk *clk_core;
+ 	struct clk *clk_ref;
+ 	struct reset_control *uphy_rst;
+ 	struct reset_control *pipe_rst;
+ 	struct reset_control *tcphy_rst;
++	struct phy *phys[TYPEC_PHY_MAX];
+ 	const struct rockchip_usb3phy_port_cfg *port_cfgs;
+ 	/* mutex to protect access to individual PHYs */
+ 	struct mutex lock;
+ 
+ 	bool flip;
+ 	u8 mode;
++	u8 new_mode;
+ };
+ 
+ struct phy_reg {
+@@ -454,6 +503,99 @@ static const struct rockchip_usb3phy_port_cfg rk3399_usb3phy_port_cfgs[] = {
+ 	{ /* sentinel */ }
+ };
+ 
++static int tcphy_cfg_usb3_to_usb2_only(struct rockchip_typec_phy *tcphy,
++				       bool value);
++
++static int tcphy_dp_set_power_state(struct rockchip_typec_phy *tcphy,
++				    enum phy_dp_power_state state)
++{
++	u32 ack, reg, sts = BIT(state);
++	int ret;
++
++	/*
++	 * Power state changes must not be requested until after the cmn_ready
++	 * signal has gone active.
++	 */
++	reg = readl(tcphy->base + PMA_CMN_CTRL1);
++	if (!(reg & CMN_READY)) {
++		dev_err(tcphy->dev, "cmn_ready in the inactive state\n");
++		return -EINVAL;
++	}
++
++	reg = readl(tcphy->base + DP_MODE_CTL);
++	reg &= ~PHY_DP_POWER_STATE_MASK;
++	reg |= sts;
++	writel(reg, tcphy->base + DP_MODE_CTL);
++
++	ret = readl_poll_timeout(tcphy->base + DP_MODE_CTL,
++				 ack, (((ack & PHY_DP_POWER_STATE_ACK_MASK) >>
++				 PHY_DP_POWER_STATE_ACK_SHIFT) == sts), 10,
++				 PHY_MODE_SET_TIMEOUT);
++	if (ret < 0) {
++		dev_err(tcphy->dev, "failed to enter power state %d\n", state);
++		return ret;
++	}
++
++	return 0;
++}
++
++/*
++ * For the TypeC PHY, the 4 lanes are mapping to the USB TypeC receptacle pins
++ * as follows:
++ *   -------------------------------------------------------------------
++ *	PHY Lanes/Module Pins			TypeC Receptacle Pins
++ *   -------------------------------------------------------------------
++ *	Lane0 (tx_p/m_ln_0)			TX1+/TX1- (pins A2/A3)
++ *	Lane1 (tx_rx_p/m_ln_1)			RX1+/RX1- (pins B11/B10)
++ *	Lane2 (tx_rx_p/m_ln_2)			RX2+/RX2- (pins A11/A10)
++ *	Lane3 (tx_p/m_ln_3)			TX2+/TX2- (pins B2/B3)
++ *   -------------------------------------------------------------------
++ *
++ * USB and DP lanes mapping to TypeC PHY lanes for each of pin assignment
++ * options (normal connector orientation) described in the VESA DisplayPort
++ * Alt Mode on USB TypeC Standard as follows:
++ *
++ * ----------------------------------------------------------------------
++ *	PHY Lanes	A	B	C	D	E	F
++ * ----------------------------------------------------------------------
++ *	  0	       ML1     SSTX    ML2     SSTX    ML2     SSTX
++ *	  1	       ML3     SSRX    ML3     SSRX    ML3     SSRX
++ *	  2	       ML2     ML1     ML0     ML0     ML0     ML0
++ *	  3	       ML0     ML0     ML1     ML1     ML1     ML1
++ * ----------------------------------------------------------------------
++ */
++static void tcphy_set_lane_mapping(struct rockchip_typec_phy *tcphy, u8 mode)
++{
++	/*
++	 * The PMA_LANE_CFG register is used to select whether a PMA lane
++	 * is mapped for USB or PHY DP. The PMA_LANE_CFG register is
++	 * configured based on a normal connector orientation. Logic in the
++	 * PHY automatically handles the flipped connector case based on the
++	 * setting of orientation of TypeC PHY.
++	 */
++	if (mode == MODE_DFP_DP) {
++		/* This maps to VESA DP Alt Mode pin assignments C and E. */
++		writel(PMA_LANE3_DP_LANE_SEL(PHY_DP_LANE_1) |
++		       PMA_LANE3_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE2_DP_LANE_SEL(PHY_DP_LANE_0) |
++		       PMA_LANE2_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE1_DP_LANE_SEL(PHY_DP_LANE_3) |
++		       PMA_LANE1_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE0_DP_LANE_SEL(PHY_DP_LANE_2) |
++		       PMA_LANE0_INTERFACE_SEL(PMA_IF_PHY_DP),
++		       tcphy->base + PMA_LANE_CFG);
++	} else {
++		/* This maps to VESA DP Alt Mode pin assignments D and F. */
++		writel(PMA_LANE3_DP_LANE_SEL(PHY_DP_LANE_1) |
++		       PMA_LANE3_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE2_DP_LANE_SEL(PHY_DP_LANE_0) |
++		       PMA_LANE2_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE1_INTERFACE_SEL(PMA_IF_PIPE_PCS) |
++		       PMA_LANE0_INTERFACE_SEL(PMA_IF_PIPE_PCS),
++		       tcphy->base + PMA_LANE_CFG);
++	}
++}
++
+ static void tcphy_cfg_24m(struct rockchip_typec_phy *tcphy)
+ {
+ 	u32 i, rdata;
+@@ -743,8 +885,10 @@ static int tcphy_phy_init(struct rockchip_typec_phy *tcphy, u8 mode)
+ 	tcphy_dp_aux_set_flip(tcphy);
+ 
+ 	tcphy_cfg_24m(tcphy);
++	tcphy_set_lane_mapping(tcphy, mode);
+ 
+ 	if (mode == MODE_DFP_DP) {
++		tcphy_cfg_usb3_to_usb2_only(tcphy, true);
+ 		tcphy_cfg_dp_pll(tcphy);
+ 		for (i = 0; i < 4; i++)
+ 			tcphy_dp_cfg_lane(tcphy, i);
+@@ -768,7 +912,10 @@ static int tcphy_phy_init(struct rockchip_typec_phy *tcphy, u8 mode)
+ 		writel(PIN_ASSIGN_D_F, tcphy->base + PMA_LANE_CFG);
+ 	}
+ 
+-	writel(DP_MODE_ENTER_A2, tcphy->base + DP_MODE_CTL);
++	val = readl(tcphy->base + DP_MODE_CTL);
++	val &= ~DP_MODE_MASK;
++	val |= DP_MODE_ENTER_A2 | DP_LINK_RESET_DEASSERTED;
++	writel(val, tcphy->base + DP_MODE_CTL);
+ 
+ 	reset_control_deassert(tcphy->uphy_rst);
+ 
+@@ -811,8 +958,9 @@ static int tcphy_get_mode(struct rockchip_typec_phy *tcphy)
+ 	u8 mode;
+ 	int ret, ufp, dp;
+ 
++	/* If extcon not exist, try to use tcpm mode */
+ 	if (!edev)
+-		return MODE_DFP_USB;
++		return tcphy->new_mode;
+ 
+ 	ufp = extcon_get_state(edev, EXTCON_USB);
+ 	dp = extcon_get_state(edev, EXTCON_DISP_DP);
+@@ -850,6 +998,71 @@ static int tcphy_get_mode(struct rockchip_typec_phy *tcphy)
+ 	return mode;
+ }
+ 
++#if IS_ENABLED(CONFIG_TYPEC)
++static int tcphy_orien_sw_set(struct typec_switch_dev *sw,
++			      enum typec_orientation orien)
++{
++	struct rockchip_typec_phy *tcphy = typec_switch_get_drvdata(sw);
++
++	mutex_lock(&tcphy->lock);
++
++	if (orien == TYPEC_ORIENTATION_NONE) {
++		tcphy->new_mode = MODE_DISCONNECT;
++		goto unlock_ret;
++	}
++
++	tcphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
++
++unlock_ret:
++	mutex_unlock(&tcphy->lock);
++	return 0;
++}
++
++static void udphy_orien_switch_unregister(void *data)
++{
++	struct rockchip_typec_phy *tcphy = data;
++
++	typec_switch_unregister(tcphy->sw);
++}
++
++static int tcphy_setup_orien_switch(struct rockchip_typec_phy *tcphy)
++{
++	struct typec_switch_desc sw_desc = { };
++	struct device_node *np;
++	int ret = 0;
++
++	np = of_get_child_by_name(tcphy->dev->of_node, "usb3-port");
++	if (!np)
++		return 0;
++
++	if (!of_property_read_bool(np, "orientation-switch"))
++		goto put_np;
++
++	sw_desc.drvdata = tcphy;
++	sw_desc.fwnode = device_get_named_child_node(tcphy->dev, "usb3-port");
++	sw_desc.set = tcphy_orien_sw_set;
++
++	tcphy->sw = typec_switch_register(tcphy->dev, &sw_desc);
++	if (IS_ERR(tcphy->sw)) {
++		dev_err(tcphy->dev, "Error register typec orientation switch: %ld\n",
++			PTR_ERR(tcphy->sw));
++		ret = PTR_ERR(tcphy->sw);
++		goto put_np;
++	}
++
++	ret = devm_add_action_or_reset(tcphy->dev, udphy_orien_switch_unregister, tcphy);
++
++put_np:
++	of_node_put(np);
++	return ret;
++}
++#else
++static int tcphy_setup_orien_switch(struct rockchip_typec_phy *tcphy)
++{
++	return 0;
++}
++#endif
++
+ static int tcphy_cfg_usb3_to_usb2_only(struct rockchip_typec_phy *tcphy,
+ 				       bool value)
+ {
+@@ -989,14 +1202,9 @@ static int rockchip_dp_phy_power_on(struct phy *phy)
+ 
+ 	tcphy_dp_aux_calibration(tcphy);
+ 
+-	writel(DP_MODE_ENTER_A0, tcphy->base + DP_MODE_CTL);
+-
+-	ret = readx_poll_timeout(readl, tcphy->base + DP_MODE_CTL,
+-				 val, val & DP_MODE_A0, 1000,
+-				 PHY_MODE_SET_TIMEOUT);
+-	if (ret < 0) {
+-		writel(DP_MODE_ENTER_A2, tcphy->base + DP_MODE_CTL);
+-		dev_err(tcphy->dev, "failed to wait TCPHY enter A0\n");
++	ret = tcphy_dp_set_power_state(tcphy, PHY_DP_POWER_STATE_A0);
++	if (ret) {
++		dev_err(tcphy->dev, "failed to enter A0 power state\n");
+ 		goto power_on_finish;
+ 	}
+ 
+@@ -1013,6 +1221,7 @@ static int rockchip_dp_phy_power_on(struct phy *phy)
+ static int rockchip_dp_phy_power_off(struct phy *phy)
+ {
+ 	struct rockchip_typec_phy *tcphy = phy_get_drvdata(phy);
++	int ret;
+ 
+ 	mutex_lock(&tcphy->lock);
+ 
+@@ -1021,7 +1230,11 @@ static int rockchip_dp_phy_power_off(struct phy *phy)
+ 
+ 	tcphy->mode &= ~MODE_DFP_DP;
+ 
+-	writel(DP_MODE_ENTER_A2, tcphy->base + DP_MODE_CTL);
++	ret = tcphy_dp_set_power_state(tcphy, PHY_DP_POWER_STATE_A2);
++	if (ret) {
++		dev_err(tcphy->dev, "failed to enter A2 power state\n");
++		goto unlock;
++	}
+ 
+ 	if (tcphy->mode == MODE_DISCONNECT)
+ 		tcphy_phy_deinit(tcphy);
+@@ -1037,6 +1250,93 @@ static const struct phy_ops rockchip_dp_phy_ops = {
+ 	.owner		= THIS_MODULE,
+ };
+ 
++#if IS_ENABLED(CONFIG_TYPEC)
++static int tcphy_typec_mux_set(struct typec_mux_dev *mux, struct typec_mux_state *state)
++{
++	struct rockchip_typec_phy *tcphy = typec_mux_get_drvdata(mux);
++	struct typec_displayport_data *data;
++	int hpd = 0;
++
++	mutex_lock(&tcphy->lock);
++
++	switch (state->mode) {
++	case TYPEC_STATE_SAFE:
++		fallthrough;
++	case TYPEC_STATE_USB:
++		tcphy->new_mode = MODE_DFP_USB;
++		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], 0);
++		break;
++	case TYPEC_DP_STATE_C:
++	case TYPEC_DP_STATE_E:
++		if (state->alt->svid != USB_TYPEC_DP_SID)
++			break;
++		tcphy->new_mode = MODE_DFP_DP;
++		data = state->data;
++		hpd = !!(data->status & DP_STATUS_HPD_STATE);
++		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 4 : 0);
++		break;
++	case TYPEC_DP_STATE_D:
++		if (state->alt->svid != USB_TYPEC_DP_SID)
++			break;
++		tcphy->new_mode = MODE_DFP_DP | MODE_DFP_USB;
++		data = state->data;
++		hpd = !!(data->status & DP_STATUS_HPD_STATE);
++		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 2 : 0);
++		break;
++	default:
++		break;
++	}
++
++	mutex_unlock(&tcphy->lock);
++
++	return 0;
++}
++
++static void tcphy_typec_mux_unregister(void *data)
++{
++	struct rockchip_typec_phy *tcphy = data;
++
++	typec_mux_unregister(tcphy->mux);
++}
++
++static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
++{
++	struct typec_mux_desc mux_desc = {};
++	struct device_node *np;
++	int ret = 0;
++
++	np = of_get_child_by_name(tcphy->dev->of_node, "dp-port");
++	if (!np)
++		return 0;
++
++	if (!of_property_read_bool(np, "mode-switch"))
++		goto put_np;
++
++	mux_desc.drvdata = tcphy;
++	mux_desc.fwnode = device_get_named_child_node(tcphy->dev, "dp-port");
++	mux_desc.set = tcphy_typec_mux_set;
++
++	tcphy->mux = typec_mux_register(tcphy->dev, &mux_desc);
++	if (IS_ERR(tcphy->mux)) {
++		dev_err(tcphy->dev, "Error register typec mux: %ld\n",
++			PTR_ERR(tcphy->mux));
++		ret = PTR_ERR(tcphy->mux);
++		goto put_np;
++	}
++
++	ret = devm_add_action_or_reset(tcphy->dev, tcphy_typec_mux_unregister, tcphy);
++
++put_np:
++	of_node_put(np);
++	return ret;
++}
++#else
++static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
++{
++	return 0;
++}
++#endif
++
+ static int tcphy_parse_dt(struct rockchip_typec_phy *tcphy,
+ 			  struct device *dev)
+ {
+@@ -1095,6 +1395,25 @@ static void typec_phy_pre_init(struct rockchip_typec_phy *tcphy)
+ 	tcphy->mode = MODE_DISCONNECT;
+ }
+ 
++static int typec_dp_lane_get(struct rockchip_typec_phy *tcphy)
++{
++	int dp_lanes;
++
++	switch (tcphy->new_mode) {
++	case MODE_DFP_DP:
++		dp_lanes = 4;
++		break;
++	case MODE_DFP_DP | MODE_DFP_USB:
++		dp_lanes = 2;
++		break;
++	default:
++		dp_lanes = 0;
++		break;
++	}
++
++	return dp_lanes;
++}
++
+ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -1142,6 +1461,7 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	tcphy->dev = dev;
++	tcphy->new_mode = MODE_DFP_USB;
+ 	platform_set_drvdata(pdev, tcphy);
+ 	mutex_init(&tcphy->lock);
+ 
+@@ -1151,6 +1471,7 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ 	if (IS_ERR(tcphy->extcon)) {
+ 		if (PTR_ERR(tcphy->extcon) == -ENODEV) {
+ 			tcphy->extcon = NULL;
++			dev_info(dev, "extcon not exist, try to use typec mux\n");
+ 		} else {
+ 			if (PTR_ERR(tcphy->extcon) != -EPROBE_DEFER)
+ 				dev_err(dev, "Invalid or missing extcon\n");
+@@ -1158,19 +1479,34 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
++	ret = tcphy_setup_orien_switch(tcphy);
++	if (ret)
++		return ret;
++
++	ret = tcphy_setup_typec_mux(tcphy);
++	if (ret)
++		return ret;
++
+ 	pm_runtime_enable(dev);
+ 
+ 	for_each_available_child_of_node(np, child_np) {
+ 		struct phy *phy;
+ 
+-		if (of_node_name_eq(child_np, "dp-port"))
++		if (of_node_name_eq(child_np, "dp-port")) {
+ 			phy = devm_phy_create(dev, child_np,
+ 					      &rockchip_dp_phy_ops);
+-		else if (of_node_name_eq(child_np, "usb3-port"))
++			if (!IS_ERR(phy)) {
++				tcphy->phys[TYPEC_PHY_DP] = phy;
++				phy_set_bus_width(phy, typec_dp_lane_get(tcphy));
++			}
++		} else if (of_node_name_eq(child_np, "usb3-port")) {
+ 			phy = devm_phy_create(dev, child_np,
+ 					      &rockchip_usb3_phy_ops);
+-		else
++			if (!IS_ERR(phy))
++				tcphy->phys[TYPEC_PHY_USB] = phy;
++		} else {
+ 			continue;
++		}
+ 
+ 		if (IS_ERR(phy)) {
+ 			dev_err(dev, "failed to create phy: %pOFn\n",
 -- 
 2.49.0
 
