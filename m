@@ -4,181 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A56A1CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 15:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA29DCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 15:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=23omEI33LQmqAPuHRtcc50v/dPcsMMG+rZYLlfFYoWU=; b=hvJzePjLiL2vokv/HdVGg+PAPG
-	glf37zzB3Q4MgiqC/V68+2tOXHw/Xd9t1ttOjgrGN6kwFxkLEztpBHNDpnkl+qJ7/Ccps8Iohdojp
-	P8BTJKLUrZfIJLimVChjxyxkWKluWxwKUxAMaVq60LN6iwfKipaauOLg1NCOeo1vIfnQvO3t5ExWV
-	CVpFkHXaoj6mGFVfD8lZgRLk6tPbRYdOqvYOKSHL4UKhQIQWRNnqQGPj9HBo4HdcKXp07SDsHULTC
-	bCrjaj4HCyeA/laHkODPbu0p9HuXsAW2ee+uItslfFlTrKrl2AK7btHWQHmZGLQjORmEYB047eRZ3
-	96mMaTpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YwDgrJ1PHv1+Z/jYYOmoTTQu/BLRyS0iXW4M5TIKQkY=; b=bJW64mQgWOUWiAgrJb7Kq3QKDh
+	iwJycKm5GvDQh5fol9XUZHP/l7nEGAhQPU8m8PGfHYULvg4GjZreRcCukJmGI+1jNYGcJfLuxz0yx
+	53G74U9jc8QuukLpG3uxPtxnVaxPbFxofaJO3uHoSjYNYSQtm/m1wrx3FaDjhm7MxteHpS4REwGIw
+	F0dC3v455/gxspriQscjdfMOF6moHLvZNMjClV2DtPycF4NOF7mxo+TugeeEy9upJo80m3FKcJlE8
+	Ief2vVubx39vfB97ipIoqLDY1yVZNUj/fKzAizwsCrP0g3LRn2ImidKdBMVEs4Q4d7XQlsDBBfplX
+	ETrlPpQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8Tl-00000001sWx-0arZ;
-	Wed, 29 Oct 2025 15:52:53 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vE8Y2-00000001tKE-2nDW;
+	Wed, 29 Oct 2025 15:57:18 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8Ti-00000001sVf-15WY
+	id 1vE8Y0-00000001tIL-1c0T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 15:52:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qUi+WYg7BZ5QSstya0vOyIO1bYWJ3bydCGWvkc8IcieCmgMQ7WDylYatAzwqRdo2zPJHomkgOs9+l9AN3nMKCm4gIh1BNbu3fwHemL83dGT9Cfa84qa6uMu06itE3yQZmlpm2SVAAqm8tffwbPD8GtEiYoZQhat2MM53oG7foZZiuLYlR1sR+oL6Kow18xXEPVH00NRiKqkwQdIQBUbCGUfD5tiX11goSG4JIpwm1AbXBsk6WFp/ayt1xQyEHITEuQKUdgQchghTGPWGLZO4VCHPEEBginqDPIvN/6TvMQuU0LeFEBObGFaKieLtUtxo1tZY1jxYmTRr2ygLcYM12w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=23omEI33LQmqAPuHRtcc50v/dPcsMMG+rZYLlfFYoWU=;
- b=SUQ9yv2XZAptfb6LZIjnJWyxwrCFf8q0GGJJx9L437ugk+XA+OruJ3x3L3WA8bYH32Zk7yf0SeUCCTXFzb2ya/W5u7d4/b0W8tA5FPoncw5F+R1GsqCMnS3zwyeGiFv+B/QHfVsQsPEsfjRy86pvKVF6Qh00VCNzP0MYIyHLTstEcEZl36AO9r11bcxW006DM6XpxHioF6fFpKSwcCQ8ULcaSePwNCdBGJNP2yRAaM4WMKY/23ozmVgs0UUhgj74RWnb4qfNeGB+WL2F8TqWArBqmy9s0pbY7e6vtyQLOJz7sG3p1WgYPol8UuSUcdtyFZhL+EkvX3jWGgXoEsB/VA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=gocontroll.com; dmarc=pass action=none
- header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
+	Wed, 29 Oct 2025 15:57:17 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-378f010bf18so12088741fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 08:57:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=23omEI33LQmqAPuHRtcc50v/dPcsMMG+rZYLlfFYoWU=;
- b=rOhdlRZguQ3fOt2al9IbpgeaK1jgNdwEpuL/waNvJLL+HCESkwv3GuLklVE3l0NlQHIbaPsXLVi4G8XplUYNaEy3Sun5pItHwunK7dHiTiODZ0sOgNWzb1KPqtohaDrXtcPgawAzONycOt1ebwIZRnbKKjdfA3l1kBXZeyQ0RVo2EM14QAp2B9V9ckmaDnyXG5+7QDEJFl7gyIvZIX+XyZUllm7018gGkuANm6baKULFdSvFKVfMGNc0u9LbxXhwlkO1e0drSnzodAKHeGHBgKsC3RBQ/P7+rwc2VnVd++Vx0LlIWwRjunFcGNUKeeV8Jj1lhc2LuwoUjs12sjLolw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=gocontroll.com;
-Received: from PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16)
- by PA2PR04MB10447.eurprd04.prod.outlook.com (2603:10a6:102:413::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.13; Wed, 29 Oct
- 2025 15:52:41 +0000
-Received: from PA4PR04MB7630.eurprd04.prod.outlook.com
- ([fe80::311b:ad3a:4a62:7b5f]) by PA4PR04MB7630.eurprd04.prod.outlook.com
- ([fe80::311b:ad3a:4a62:7b5f%6]) with mapi id 15.20.9275.013; Wed, 29 Oct 2025
- 15:52:41 +0000
-Message-ID: <7aaa736c-2390-44b6-913c-0ecb63393ee5@gocontroll.com>
-Date: Wed, 29 Oct 2025 16:51:53 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
-From: Maud Spierings <maudspierings@gocontroll.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
- =?UTF-8?Q?Lothar_Wa=C3=9Fmann?= <LW@KARO-electronics.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
- <20251022-mini_iv-v2-3-20af8f9aac14@gocontroll.com>
- <a7012995-c2a8-48a3-abe1-5c227272f21c@gmail.com>
- <65202d1f-6c4f-4d4e-9fef-85cfb74ec768@gocontroll.com>
- <938f85b0-4c9b-463a-960a-f5f4e4092480@gocontroll.com>
- <20251029081138.2161a92a@karo-electronics.de>
- <4a47b9b5-f482-41b6-a441-7728572c5a0c@gmail.com>
- <20251029104838.44c5adcf@karo-electronics.de>
- <d05c62c9-7ed7-46e4-aa4d-27172741b5ee@gmail.com>
- <0667e026-99f3-4233-b3f6-e38273961d49@gocontroll.com>
-Content-Language: en-US
-In-Reply-To: <0667e026-99f3-4233-b3f6-e38273961d49@gocontroll.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM8P190CA0005.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:219::10) To PA4PR04MB7630.eurprd04.prod.outlook.com
- (2603:10a6:102:ec::16)
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761753434; x=1762358234; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YwDgrJ1PHv1+Z/jYYOmoTTQu/BLRyS0iXW4M5TIKQkY=;
+        b=aCr8jpAOmWZimAycj+jti8yfQkpiUuJh/lLLD4lyfri+RIM8o9i33vLbeTzfTdw82j
+         gUgDwd/x6sunbigAUfEO3ZXEXZKolqbNzA+SfTnZQwKXzbjkHrrPWIAASyQE8JkEk2MQ
+         h+9CKDkvLicNGApac3ndQXnyuoKpoqpVW/F7VHCj783mG0ehhGrKaRqTc+SiE9bYaFxM
+         EyVmkhMXqPWGV8dKcBVMe35M1KG/l1rgGqOH0vqFX6wLUcAlES3gvyDguXhWycMOrexF
+         tMIoTh27iJa/nQ95MgOZd2RJ0TIYof7UmwcRk1A2z3zTbTxteJUMYDTMB0IjjfLGb5lq
+         DQxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761753434; x=1762358234;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YwDgrJ1PHv1+Z/jYYOmoTTQu/BLRyS0iXW4M5TIKQkY=;
+        b=fcfxjPMUxkfcW9SHScgWe3yED1aeeaUVuBlNQLs1Uqtr7WaOZrYRgnVWMKcEukM9qg
+         knOGc0+0jEIdzrlKICVuSmsWrtymMmjGf2f2ea0uDcIZEB9Slz6owLWWkookmMBOTpaY
+         e2Sk96jeaJ56pol6FMt2E6r7Es1jMnp98/8Zv5557p3hniB70+6bBax6yHTdap/bYcyK
+         K/u0yhu5Rg7gbms/Ix1Joe+6gDnOnjTDCyQIwmAxuYTGBncenFd+p4pmZ5Nk58mO83a8
+         8UKV2h7wBx8Wk5TC8Py/T4ijG+4WRv5VconCXTau5DwWGAzuL8h3APvE0/aaLit83NgJ
+         8Usg==
+X-Forwarded-Encrypted: i=1; AJvYcCWOIvgin/SLVSIkbSiptxeHaP+rGIoiyWsxxX3+WIPKlPoAvlE8OXf+WOZUxa4n0i8B3HmknOopJegyR050Gjcn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpkgJgPs0pffIVRTxUTR39o9zd0TF7UjMsU4/iCoRkHXmw5nBp
+	ChfHLBNkiF1gIaPoLGBLRq9iqKMKdti6w1nRDPaf3ZZv3ssJXYOg6YvgpLEcWyvsRSxxPz3iOSn
+	8R85d8q0fn/iNBr4HGKfdTVSTYbW3Y6Yz+Lr+LzP/FQ==
+X-Gm-Gg: ASbGncsMiXPd8JObzmQ878nwq8hWfnAwKJiobGT0QJG3mH1DYORM5dK3usN38sTsRSP
+	PeeckYPn2dABSJaox4gYBoTqPEyP2G1X7chSfXzup2gGTaJSIaRvWy0/f6vc66rtVnQXnj4YMwN
+	ATift52YwYi9x/7sP+9LVuHj+xp4z20BrCh5rg42eRFeOw5dEp2VbnlQHmZt3xt65PkWqGQfzHh
+	KMtPPO+XDrLvZf/id8eN1ZO2GWMj+xyA8rfUAPVi7I1T05rIjy5/y4N3Y0uCQN02G66/C6MIq7D
+	82G0+lwzn7qzS3qLYfCIBhyRUxw=
+X-Google-Smtp-Source: AGHT+IFY1i/xx25cv6Ui/VCi3uSKIAy54H7ItoaBFtAYqTtPocNBBoyPi6yJvvk6xxRW45U/aC0bt+x56RpHt48kapg=
+X-Received: by 2002:a05:6512:3a8f:b0:592:f912:c890 with SMTP id
+ 2adb3069b0e04-59416d1b67bmr30458e87.7.1761753433905; Wed, 29 Oct 2025
+ 08:57:13 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB7630:EE_|PA2PR04MB10447:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81adf083-849e-43e2-52ac-08de17033178
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|10070799003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SC85UGJVSVl5UjZqbW9aYy9FRlp0a3BWWnJ2Zi9USGUrSHNwQ3VjUVhDV1c1?=
- =?utf-8?B?U1ZLWUVpcllKQzZ1S2s3RlNZMElBTDUyZW01Z3B3UktzMERyZHBuSWtjcHQw?=
- =?utf-8?B?aEN6aGQvUnpHT1ZJWjN0MnJuNVVGdUNhbnpwMy91SEx0RUUzRFNqeDJPRXJM?=
- =?utf-8?B?RFovK0IraGxieEkzRTBuS2grTGdPUXhwWlBJYTFTNm52UXFzYVNpdVNZTElo?=
- =?utf-8?B?RHpiRFhzREk4WEZjVXlEVkI4R1N6QUlyNGR1Z1RNL3dRcTlkQW53KzJOMGp1?=
- =?utf-8?B?cXBwYVVEOUs0MEVRSlVFZE9MK25xTW9uWkQzazltL0lmZVZsVWxZWEFUOXFD?=
- =?utf-8?B?c2VsUlFjMFpWN1NYWjNRcXdjQ2V5c1VvOFR2d2dwRERjM0o4T3djY0tFdjNL?=
- =?utf-8?B?YnNoYzh6M2NyemhjV2JUZFpiNW5JUFkrVU4wa2JETEdRKzNhTlN4Y0pTWklU?=
- =?utf-8?B?bTh1V2JObmxaeE1ncUNyS2ZWVEc5OVBUdHcrbEczVUVJQWUyOFF1aExxYktW?=
- =?utf-8?B?NUptem5lNHpESGRnU3A4Vm5EaExrZjZRcWQwQXFxVTY5S2oxRnE4OHVPOU4v?=
- =?utf-8?B?Z1huSUttNjNOcCtxU3ZyYnZvZEM3RmZkKzFsTmJObm5sVWRJYmpKY3RPT2Zj?=
- =?utf-8?B?bk4xUXBJODRTcDYrWHRFdUFMMHZvYkIzOFFWOVlveHVaTzFaR2VGWHJ1ZUs0?=
- =?utf-8?B?cDlLNTFIbVNiVFc3VmVEUG5ISjI5Umo5RzJvZmM3YmUra0I5TFZBZnNVbmNL?=
- =?utf-8?B?RjJIN3BxOU5iOHFwd1hMd2ZOU3pDUks0NVRiSXppOVZsUTc0a3lWamdTaG5O?=
- =?utf-8?B?UHBkc1VYV2FiNjMxVG9OSkxjUEtDUWNnWERDMEhWWTZjYVkrWGdyNmhZbGV3?=
- =?utf-8?B?MVhNSWpva01rV3lVYUV6azZCaXN4VUpqMHpvM2dLUXo1dW0ySUVYTzBBbFdL?=
- =?utf-8?B?eHhZWnhDdTdJLzZzVTc3SlIyUzIzZzdGYzJVVmF4enN2dlRuODFZQUR6TVdn?=
- =?utf-8?B?SDdwZSsxWnJ0TWo3Tm14c2FoTjF3NWV0bG4zYWpDdzYvTi9Za1B2T2lFd0xU?=
- =?utf-8?B?UVNLVjR1TUZoVWRMVU5JdzlmL0dkNHh0SjEyTUpuTE9rTGk3WmNHQUFIWVdX?=
- =?utf-8?B?UFA0T0dCMXhhcHpudEVWY2FXYlpZbFdDeVVOR0s0YUZpZ1Jzc3BFSXlOS0Fj?=
- =?utf-8?B?c3RqQmdNTUVrVlBYVXcyT0t2c1NYUmVGcEFwUEx0QlhoRnFDdXd0allzc3Ry?=
- =?utf-8?B?c2VqbWVKcUNtcGtXbDZMZkZMOE42SGJlZ1h2TFNuWkZoem5KOFFHZEZqVkM1?=
- =?utf-8?B?Rm5MUmF3RHJWTEt1Vkh5R0k5SjVQU1VJQWdVZEEzajhzdVF2bXFRRlZucDR2?=
- =?utf-8?B?ckJ1ZU4zdnM3aFlWMUszVTN1UlBXR1JqaWx4bWE1eldmeG5YTkpZU0szd0JP?=
- =?utf-8?B?Y0NYMUJpR2FwWVMyNzRZTUhlNzFTN29LNzc4d3lzb1phK2VuL3Y4WWZ4MFph?=
- =?utf-8?B?UWlTNUp0ZGt2YzE0eHprM1Zidklod0g0K2NlbXFER0k2UTRrOUZCbG1oSGRL?=
- =?utf-8?B?a29yTE9oZ3d4dklFa0JnWExqMWtzSnJtVEh5dGl4YmlpK1hweVRYb040Vm9B?=
- =?utf-8?B?UUtCQVU3Nno1UnRjQ3RVL2dzSHluSlpXMFNRRkREWFp2TFJKWFFFUE5WakxH?=
- =?utf-8?B?SlkvR1hGTHVrSC95cVNPdkNnTk80Q204eWo5STJpVDM4T0dGaGdteHVHcklL?=
- =?utf-8?B?ZVBRTU9pMkxEK3ZhR3d0cTFaNTRWYjAxS0F3WjdOKy9XRUVyakNua0VCTHBE?=
- =?utf-8?B?aVVORG5BaWtRcGx0cWZtUTRZellCdnhqa2VuT0FrcDQ0VnhDVXgwY05yREY5?=
- =?utf-8?B?UHFFdDNlODdrL1JDYjl0ODVuS3Noc1BhOTNXblZ0M1B5WVptWDNYQ0x2NEg5?=
- =?utf-8?Q?hEIvemNMPzxj8SU1quDoB6jjZc4S7ct5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7630.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(10070799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eEZ2TUxEaG56Tkw3Q3V6L2ZoaFhuMGlTcWl0SmFIQSt1TitGMzRiRjkyQzd5?=
- =?utf-8?B?S2dydUhieVZCR1EwM1hhTlBCVDZ6c3hmTWp2bCthOW5kSXZTbDlFcE5Rc1Ax?=
- =?utf-8?B?UUE1cTJVN3ZmcDRaL282OU5GMTBIU0syekx6ZWJLNHRLY1FGaEMyWUpDbnEx?=
- =?utf-8?B?dlFVczNQZDVrenpaZEplTi9ENXlTd3hzSndmczRNZENReDRCVTBmUW9hT2NI?=
- =?utf-8?B?NnNFTGJJY1NNZzE4dFFWME5XcHMveFkxOXE5MytBbzNEM3U4SXU0VzJCTDFE?=
- =?utf-8?B?MGM0aExMc3J1QUZ5ZXE0UUdpK1NEVXdCcEpyM3lZOGxqeVJxNXVVWm9yYnZO?=
- =?utf-8?B?RXcwRlVTVzcrM0pnMHlXSFBIcmlraktsb0pGencrK1NlMkdxcWE2WXpDamww?=
- =?utf-8?B?ZVNIVmVsTmJKdEdweU5vajJMeXJxbUxmeDdrNGdCVDZReHlTYnppTkhxc01t?=
- =?utf-8?B?TUF4aU8rb1R0cTdDSWQweFFERW5oYlRTZE5FbFBDeTRnSUwzb2VFSEJyMHFu?=
- =?utf-8?B?YUR6MjVITHVueHBSa2NGbjlIYWJhNndQcVZscmV1YnVLQXJRQWtiWXcwc1dG?=
- =?utf-8?B?MFQvYUMzelhSMnR3ZnUwbnY0QmxxVWxuMTNVbytwOVdjSVhSUDFNTUIvTm5O?=
- =?utf-8?B?dVhVdkRPVXpVWHgxbFVIejB3dUdKWHo3bFk1S2I1My91VzZrQ2VmOEUrNTQ4?=
- =?utf-8?B?d1NiZGc5N0ZLZGhPS1dXSHlYcXYvWk9MOWl1SFF5VDU5ZkFtL1M3QlY2TTdD?=
- =?utf-8?B?dVNOY0w1Q0hMWkUyck1yNXFyMWFCNUQrMUZmOWN1ZUR2YjBIdEdKZHl2bGdn?=
- =?utf-8?B?VmZINjdYYjJIQUJ0YXFUa1hkUHBGL3M2Z3c1WVJscHNUSjFMQThCN01RUzli?=
- =?utf-8?B?ZG1Qd2g0cThBRkZEZ0hjNnhzNFJmV0NNOHY1VWE0VW5qV29aWE1QOXJNQTRY?=
- =?utf-8?B?a09PNk9DU2dxc1h6cVVJQ0V2MzJTaDdzY2djZDF5ZEdFVThWbmdFajRPdm04?=
- =?utf-8?B?eEFTTUxibDRUZHdkdXRnZ2dHMlJmY0l0R2N6c1hKNFdPUTUxRW5DOENyM2JH?=
- =?utf-8?B?Uzk1aHpJdnltWFZ1VFZyelZqajFlWUdYaDVJb2s5NjZZTXgzaG5QUGJpY1hY?=
- =?utf-8?B?VzlsRGdqY20rUGpxVlpla2NSY3dMMzhDOXExZU82MHBUMWEwcTFMcWJwTkdP?=
- =?utf-8?B?eTY1UWlEcTZxeVl1NzRDOWl5c0sxRlhVQUwvc28rT2N5ejRTa1ZwN2xpQmdm?=
- =?utf-8?B?RVNwZ1gxSnZOS1RoT1hiZ0hjbUpuQUdTQkpXcHI3TEY4NXdPS1RNWXkxMGVT?=
- =?utf-8?B?ejNUWWRmeWVkRU90bnZZbnZ0aWZRRlR5aXA4cnZNRXpJNFFmeXdlOE50eXRn?=
- =?utf-8?B?bVVqV3NNTk1wQ0JrRHZpOGhvNE54QTRDcXRLLzlNbnVpYW1KUmo3Zmo1alZy?=
- =?utf-8?B?aWIwL0ZlWERoQXY3cU82SU1Icm9haU1KQXdocVV3S050eFF4TWNqUHd5bXNy?=
- =?utf-8?B?cDFOZHhTY2ltRmNXS1NwUXdJcEhlNFBBS2tvbFpUa3c0RThDV0Q3a1RFUjIw?=
- =?utf-8?B?QnZTdXZjMDdyL2c0Rm1WdmdpaHlwaVROWjJaQlRyVHFyUUptQ2I1RVVCNXZW?=
- =?utf-8?B?WU12MTJHUmZyUFR6UHBOamU3Yml0eTVQTlYzWjhDNWsvVnh5VlpESzUwWXR3?=
- =?utf-8?B?YnMybzhkNHFqbDFXV2FWcFI1VjJscmlUNVpIU3FkWjN0ME5NeENBa3FQZWJu?=
- =?utf-8?B?M2p5eUtHNW9YZXc1NlF2T0diYTlmeGkxMHFwTWpxbHRGWGc2djlucG5XNUZT?=
- =?utf-8?B?QVd1RHFlKzBod3ZVZ2lWMWdDUTdoQzlxV2I4c1VKRVJlN245ZkxmUFVQK3Y0?=
- =?utf-8?B?SktjNGdRcVZSZGx4RjFzQzVTUVFLN240K2U3OGtGcFI4VWc5SkhieFczVkcy?=
- =?utf-8?B?S3IwejZvUGZ6SlFBdHNpeUJPTSsvbHNhcDFYaFZtVGpCdTlWVHhaL0tNUm1j?=
- =?utf-8?B?Y0VVUlllOXdhOVhWbi9BUERKbFU1alpiYnRHNlV2dk5QVGNvOEpFM0l1cW9E?=
- =?utf-8?B?dHBPaVpyd1VadE1sdys5VnFNUHJtY1BXbnVZeThLTUZhUU00SHo1WlpUOUdW?=
- =?utf-8?B?TC91bExVL2FKWXVNZG00UHU5b08wOS91alQzckxsYStMM1lLV241ZklSallj?=
- =?utf-8?B?QzFTQjh3ZjU5QkRqY0E1STI3UkdVSjNIRU1mUDFsMndhanEyTWZWby9tbm5H?=
- =?utf-8?B?NzdrcmMyeHc2bTJBejAxQmhUYzN3PT0=?=
-X-OriginatorOrg: gocontroll.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81adf083-849e-43e2-52ac-08de17033178
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7630.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 15:52:41.6755
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m0YwqKbqXtoCC0K7xRswqqH4OQiACLEk1BkdoV0IwKWJ9LpDTWsGudYQ5IL3vJM7K3/Eq05oExuxhhlMX3NIheEkakRu0fhA43qlB/0sV7c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10447
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
+ <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org> <aQH-NcXry6_IlqXQ@smile.fi.intel.com>
+ <CAMRc=Me5qPS2PhLK5hpK8BbTS8b9q3T-+86mq6rVDpyKZZUfoA@mail.gmail.com> <aQIwWXM8BfjQs7kv@smile.fi.intel.com>
+In-Reply-To: <aQIwWXM8BfjQs7kv@smile.fi.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 29 Oct 2025 16:57:02 +0100
+X-Gm-Features: AWmQ_blmdCXVfDmCuctOcWac3U7ocspMQ35GR3eCIvgTpPWEqk3le8O9ZO4wqZM
+Message-ID: <CAMRc=Mfz+Se0Wq4cXjgP=DBOMkTqSBdoV-CcC-+Ma0hfELARzA@mail.gmail.com>
+Subject: Re: [PATCH v3 03/10] gpiolib: implement low-level, shared GPIO support
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_085250_468493_04985596 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20251029_085716_534255_2297CA72 
+X-CRM114-Status: GOOD (  36.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,240 +109,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 29, 2025 at 4:19=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Wed, Oct 29, 2025 at 01:39:34PM +0100, Bartosz Golaszewski wrote:
+> > On Wed, Oct 29, 2025 at 12:45=E2=80=AFPM Andy Shevchenko
+> > <andriy.shevchenko@intel.com> wrote:
+> > > On Wed, Oct 29, 2025 at 12:20:39PM +0100, Bartosz Golaszewski wrote:
+> > > >
+> > > > This module scans the device tree (for now only OF nodes are suppor=
+ted
+> > > > but care is taken to make other fwnode implementations easy to
+> > > > integrate) and determines which GPIO lines are shared by multiple u=
+sers.
+> > > > It stores that information in memory. When the GPIO chip exposing s=
+hared
+> > > > lines is registered, the shared GPIO descriptors it exposes are mar=
+ked
+> > > > as shared and virtual "proxy" devices that mediate access to the sh=
+ared
+> > > > lines are created. When a consumer of a shared GPIO looks it up, it=
+s
+> > > > fwnode lookup is redirected to a just-in-time machine lookup that p=
+oints
+> > > > to this proxy device.
+> > > >
+> > > > This code can be compiled out on platforms which don't use shared G=
+PIOs.
+> > >
+> > > Besides strcmp_suffix() that already exists in OF core, there are als=
+o some
+> > > existing pieces that seems being repeated here (again). Can we reduce=
+ amount
+> > > of duplication?
+> >
+> > I'm afraid you need to be more specific here.
+>
+> You can simply browse the file, it's not long to find and think about it.
+> I'm _thinking_ that it's possible to improve the situation overall by
+> try our best of deduplicating (or rather not duplicating) things.
+>
 
+Sorry, but this is not how reviewing works. You can't just say: "I
+think this can be improved, go figure out what can and fix it, you can
+browse this file for reference". You need to specifically point out
+issues in code and propose alternatives.
 
-On 10/29/25 16:35, Maud Spierings wrote:
-> Hi Matti,
-> 
-> On 10/29/25 11:05, Matti Vaittinen wrote:
->> On 29/10/2025 11:48, Lothar Waßmann wrote:
->>> Hi,
->>>
->>> On Wed, 29 Oct 2025 10:42:17 +0200 Matti Vaittinen wrote:
->>>> On 29/10/2025 09:11, Lothar Waßmann wrote:
->>>>> Hi,
->>>>>
->>>>> On Tue, 28 Oct 2025 14:10:04 +0100 Maud Spierings wrote:
->>>>>> On 10/28/25 13:42, Maud Spierings wrote:
->>>>>>> On 10/28/25 13:15, Matti Vaittinen wrote:
->>>>> [...]
->>>>>>>> Could/Should this be described using the:
->>>>>>>> 'rohm,feedback-pull-up-r1-ohms' and
->>>>>>>> 'rohm,feedback-pull-up-r2-ohms'? If I understand the comment
->>>>>>>> correctly, that might allow the driver to be able to use correctly
->>>>>>>> scaled voltages.
->>>>>>>>
->>>>>>>> https://elixir.bootlin.com/linux/v6.18-rc1/source/Documentation/
->>>>>>>> devicetree/bindings/regulator/rohm,bd71837-regulator.yaml#L108
->>>>>>>
->>>>>>> Ah I didn't know those existed, should've checked the bindings in 
->>>>>>> more
->>>>>>> detail, thanks for the hint!
->>>>>>>
->>>>>>> I will have to investigate this carefully, since I don't have 
->>>>>>> access to
->>>>>>> the actual design of the COM, so I don't know exactly what is there.
->>>>>>
->>>>>> So I am not yet entirely sure if this works out, I used the 
->>>>>> calculation
->>>>>> in the driver:
->>>>>>
->>>>>> /*
->>>>>>     * Setups where regulator (especially the buck8) output voltage 
->>>>>> is scaled
->>>>>>     * by adding external connection where some other regulator 
->>>>>> output is
->>>>>> connected
->>>>>>     * to feedback-pin (over suitable resistors) is getting popular 
->>>>>> amongst
->>>>>> users
->>>>>>     * of BD71837. (This allows for example scaling down the buck8 
->>>>>> voltages
->>>>>> to suit
->>>>>>     * lover GPU voltages for projects where buck8 is (ab)used to 
->>>>>> supply power
->>>>>>     * for GPU. Additionally some setups do allow DVS for buck8 but 
->>>>>> as this do
->>>>>>     * produce voltage spikes the HW must be evaluated to be able to
->>>>>> survive this
->>>>>>     * - hence I keep the DVS disabled for non DVS bucks by default. I
->>>>>> don't want
->>>>>>     * to help you burn your proto board)
->>>>>>     *
->>>>>>     * So we allow describing this external connection from DT and 
->>>>>> scale the
->>>>>>     * voltages accordingly. This is what the connection should 
->>>>>> look like:
->>>>>>     *
->>>>>>     * |------------|
->>>>>>     * |    buck 8  |-------+----->Vout
->>>>>>     * |        |    |
->>>>>>     * |------------|    |
->>>>>>     *    | FB pin    |
->>>>>>     *    |        |
->>>>>>     *    +-------+--R2---+
->>>>>>     *        |
->>>>>>     *        R1
->>>>>>     *        |
->>>>>>     *    V FB-pull-up
->>>>>>     *
->>>>>>     *    Here the buck output is sifted according to formula:
->>>>>>     *
->>>>>>     * Vout_o = Vo - (Vpu - Vo)*R2/R1
->>>>>>     * Linear_step = step_orig*(R1+R2)/R1
->>>>>>     *
->>>>>>     * where:
->>>>>>     * Vout_o is adjusted voltage output at vsel reg value 0
->>>>>>     * Vo is original voltage output at vsel reg value 0
->>>>>>     * Vpu is the pull-up voltage V FB-pull-up in the picture
->>>>>>     * R1 and R2 are resistor values.
->>>>>>     *
->>>>>>     * As a real world example for buck8 and a specific GPU:
->>>>>>     * VLDO = 1.6V (used as FB-pull-up)
->>>>>>     * R1 = 1000ohms
->>>>>>     * R2 = 150ohms
->>>>>>     * VSEL 0x0 => 0.8V – (VLDO – 0.8) * R2 / R1 = 0.68V
->>>>>>     * Linear Step = 10mV * (R1 + R2) / R1 = 11.5mV
->>>>>>     */
->>>>>>
->>>>>> Because I do not know the pull up voltage, and I am not sure if it 
->>>>>> is a
->>>>>> pull up.
->>>>>>
->>>>>> So:
->>>>>> Vout_o = 1.35V
->>>>>> Vo = 1.1V
->>>>>> Vpu = unknown
->>>>>> R2 = 499 Ohm
->>>>>> R1 = 2200 Ohm
->>>>>> Gives:
->>>>>> Vpu = ~0V
->>>>>>
->>>>>> And:
->>>>>> Vout_o = 1.35V
->>>>>> Vo = 1.1V
->>>>>> Vpu = unknown
->>>>>> R2 = 2200 Ohm
->>>>>> R1 = 499 Ohm
->>>>>> Gives:
->>>>>> Vpu = ~1.04V
->>>>>>
->>>>>> I am not quite sure which resistor is R1 and which is R2 but having
->>>>>> there be a pull down to 0V seems the most logical answer?
->>>>>>
->>>>>> I am adding Lothar from Ka-Ro to the CC maybe he can shed some 
->>>>>> light on
->>>>>> this setup.
->>>>> R2 is connected to GND, so Vpu = 0.
->>>>> With:
->>>>>     regulator-min-microvolt = <1350000>;
->>>>>     regulator-max-microvolt = <1350000>;
->>>>>     rohm,fb-pull-up-microvolt = <0>;
->>>>>     rohm,feedback-pull-up-r1-ohms = <2200>;
->>>>>     rohm,feedback-pull-up-r2-ohms = <499>;
->>>>> the correct voltage should be produced on the BUCK8 output, but a 
->>>>> quick
->>>>> test with these parameters led to:
->>>>> |failed to get the current voltage: -EINVAL
->>>>> |bd718xx-pmic bd71847-pmic.3.auto: error -EINVAL: failed to 
->>>>> register buck6 regulator
->>>>> |bd718xx-pmic: probe of bd71847-pmic.3.auto failed with error -22
->>>>>
->>>>> Apparently noone has ever tested this feature in real life.
->>>>
->>>> Thanks for trying it out Lothar. I am positive this was tested - but
->>>> probably the use-case has been using a pull-up. I assume having the 
->>>> zero
->>>> pull-up voltage causes the driver to calculate some bogus values. I
->>>> think fixing the computation in the driver might not be that big of a
->>>> task(?) The benefit of doing it would be that the correct voltages 
->>>> would
->>>> be calculated by the driver.
->>>>
->>>> If real voltages aren't matching what is calculated by the driver, then
->>>> the voltages requested by regulator consumers will cause wrong voltages
->>>> to be applied. Debug interfaces will also show wrong voltages, and the
->>>> safety limits set in the device-tree will not be really respected.
->>>>
->>>> I think this would be well worth fixing.
->>>>
->>> Before doing the real-life test I did the same calculation that's done
->>> in the driver to be sure that it will generate the correct values:
->>> bc 1.07.1
->>> Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017 
->>> Free Software Foundation, Inc.
->>> This is free software with ABSOLUTELY NO WARRANTY.
->>> For details type `warranty'.
->>> fb_uv=0
->>> r1=2200
->>> r2=499
->>> min=800000
->>> step=10000
->>> # default voltage without divider
->>> min+30*step
->>> 1100000
->>> min=min-(fb_uv-min)*r2/r1
->>> step=step*(r1+r2)/r1
->>> min
->>> 981454
->>> step
->>> 12268
->>> # default voltage with divider
->>> min+30*step
->>> 1349494
->>>
->>> Probably we need to use this value rather than the nominal 135000 as
->>> the target voltage in the DTB.
->>
->> Yes. When the driver calculates the voltages which match the actual 
->> voltages, then you should also use the actual voltages in the device- 
->> tree.
->>
-> 
-> Think I've got it:
-> 
-> diff --git a/drivers/regulator/bd718x7-regulator.c b/drivers/regulator/ 
-> bd718x7-regulator.c
-> index 022d98f3c32a2..ea9c4058ee6a5 100644
-> --- a/drivers/regulator/bd718x7-regulator.c
-> +++ b/drivers/regulator/bd718x7-regulator.c
-> @@ -1613,6 +1613,8 @@ static int setup_feedback_loop(struct device *dev, 
-> struct device_node *np,
->                                  step /= r1;
-> 
->                                  new[j].min = min;
-> +                               new[j].min_sel = desc- 
->  >linear_ranges[j].min_sel;
-> +                               new[j].max_sel = desc- 
->  >linear_ranges[j].max_sel;
->                                  new[j].step = step;
-> 
->                                  dev_dbg(dev, "%s: old range min %d, 
-> step %d\n",
-> 
-> 
-> the min_sel and max_sel fields were uninitialized in the new 
-> linear_range, copying them over from the old one (they refer to the 
-> register range if I understand correctly so they should not change) 
-> initializes them.
-> 
-> Then setting 1349494 as the actual voltage makes it fully work. 
-> Otherwise it complains:
-> buck6: failed to apply 1350000-1350000uV constraint: -EINVAL
-> 
-> Final debug output now:
-> [    0.327807] rohm-bd718x7 0-004b: buck6: old range min 800000, step 10000
-> [    0.327813] rohm-bd718x7 0-004b: new range min 981454, step 12268
-> [    0.327819] rohm-bd718x7 0-004b: regulator 'buck6' has FB pull-up 
-> configured
-> 
-> I will add this fix to the next version of this patchset and include 
-> your requested change in the dts.
+> ...
+>
+> > > > +#if IS_ENABLED(CONFIG_OF)
+> > > > +static int gpio_shared_of_traverse(struct device_node *curr)
+> > > > +{
+> > >
+> > > I believe parts of this code may be resided somewhere in drivers/of/p=
+roperty.c
+> > > or nearby as it has the similar parsing routines.
+> >
+> > I don't think this is a good idea, I want to keep it within the
+> > confines of drivers/gpio/ and the use-case is so specific, there's
+> > really no point in putting parts of it under drivers/of/.
+> >
+> > If I could only iterate over all properties of an fwnode, I'd have
+> > skipped using OF-specific routines altogether.
+>
+> The problem is that every subsystem considers "it's not a good idea" or
+> "historical reasons" or other excuses. Since you are adding OF-specific
+> stuff that has something already done inside OF specific code, why to
+> spread it over the kernel by duplicating in another place(s)?
+>
 
-New idea, why don't we just change the values of the original 
-linear_range? Do away with the allocation there entirely.
+Well, point me to the things that have been done already and I'll see
+about reusing them.
 
-Kind regards,
-Maud
-
+Bartosz
 
