@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52394CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567E4CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8WHCaovUK1tAmmBOna7zcDZNEBmhR0O3PHJco7p6IsI=; b=elASKoIFum20M3Tij1zo7+brs6
-	sCiMdv4jTJM7+yN7YoidpY27dsh5gHDsysn386vqsvPFzzq41WWiNlR9ElXJnTPoXzn7fX6wGo0gv
-	ascWSZGDEufMSoRGxuMo6woVPebdBOuNO90Nh8MYCFD1QBjDfsY5VrD29+9gjvTNSJjKZ5jiwxJzc
-	Es8vq/CBVphah+P4KuxQG9YiyLNq2wXPlougtq9lSt/MIEGD8cwcJIp0Y/7p2OWP3Gf860cRznP+q
-	k+wbIs3KSAV7mU+9pfvypBXgxbfMKTjMKCVbUdSTLSjuj1UtoGtWMsxNupvo/OWNJTQVc1ykIuE8Y
-	oBhJgXgQ==;
+	bh=qTnV0i06/09SpCKqB8E7ZEL3p/dD9TNWu4Sk0kLJbY0=; b=wpPG46FT5dei9HEuQ+SjXM82+4
+	1f20f0kPwBNTTOg3N6r7WnhReRVwZkNXR1LKroN/AV7wefVgAXbwfeMhKy2eXc2mk8Dh8n3IYxUno
+	Z9jPJsttDGPjyeNOKG47Fbjk6qaEoBa5k70Td38XSpM6DH9ut+Ube+UGsVnj/JAvKHtITYLP1JKHG
+	HPVVGHQApVi9Q22stz30cBHYElElzYxA/0wPhzIEpwzduJnDXVksHC+KLVgmpr4Wkfv8iI6Krfiip
+	Tmf8YRLvvXp/8EZp8cmjXMtKo0hYQCejHFp49NA9wLyVI9/6sfQOBmwN0/oEdtvu5bNatLd4E3q8q
+	QKlJTRlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE37x-00000000dl5-2Qe6;
-	Wed, 29 Oct 2025 10:10:01 +0000
+	id 1vE383-00000000dpZ-0pR1;
+	Wed, 29 Oct 2025 10:10:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE37t-00000000djO-2qEh
+	id 1vE37y-00000000dld-2Yni
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:09:58 +0000
+	Wed, 29 Oct 2025 10:10:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12B101C2B;
-	Wed, 29 Oct 2025 03:09:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4895F2BCB;
+	Wed, 29 Oct 2025 03:09:54 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 012083F66E;
-	Wed, 29 Oct 2025 03:09:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 369DF3F66E;
+	Wed, 29 Oct 2025 03:09:57 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -71,17 +71,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	xen-devel@lists.xenproject.org,
 	x86@kernel.org
-Subject: [PATCH v4 01/12] powerpc/64s: Do not re-activate batched TLB flush
-Date: Wed, 29 Oct 2025 10:08:58 +0000
-Message-ID: <20251029100909.3381140-2-kevin.brodsky@arm.com>
+Subject: [PATCH v4 02/12] x86/xen: simplify flush_lazy_mmu()
+Date: Wed, 29 Oct 2025 10:08:59 +0000
+Message-ID: <20251029100909.3381140-3-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20251029100909.3381140-1-kevin.brodsky@arm.com>
 References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_030957_860480_9F51701F 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20251029_031004_068179_67F52BA7 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,86 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Gordeev <agordeev@linux.ibm.com>
+arch_flush_lazy_mmu_mode() is called when outstanding batched
+pgtable operations must be completed immediately. There should
+however be no need to leave and re-enter lazy MMU completely. The
+only part of that sequence that we really need is xen_mc_flush();
+call it directly.
 
-Since commit b9ef323ea168 ("powerpc/64s: Disable preemption in hash
-lazy mmu mode") a task can not be preempted while in lazy MMU mode.
-Therefore, the batch re-activation code is never called, so remove it.
-
-Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/powerpc/include/asm/thread_info.h |  2 --
- arch/powerpc/kernel/process.c          | 25 -------------------------
- 2 files changed, 27 deletions(-)
+ arch/x86/xen/mmu_pv.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/powerpc/include/asm/thread_info.h b/arch/powerpc/include/asm/thread_info.h
-index b0f200aba2b3..97f35f9b1a96 100644
---- a/arch/powerpc/include/asm/thread_info.h
-+++ b/arch/powerpc/include/asm/thread_info.h
-@@ -154,12 +154,10 @@ void arch_setup_new_exec(void);
- /* Don't move TLF_NAPPING without adjusting the code in entry_32.S */
- #define TLF_NAPPING		0	/* idle thread enabled NAP mode */
- #define TLF_SLEEPING		1	/* suspend code enabled SLEEP mode */
--#define TLF_LAZY_MMU		3	/* tlb_batch is active */
- #define TLF_RUNLATCH		4	/* Is the runlatch enabled? */
- 
- #define _TLF_NAPPING		(1 << TLF_NAPPING)
- #define _TLF_SLEEPING		(1 << TLF_SLEEPING)
--#define _TLF_LAZY_MMU		(1 << TLF_LAZY_MMU)
- #define _TLF_RUNLATCH		(1 << TLF_RUNLATCH)
- 
- #ifndef __ASSEMBLER__
-diff --git a/arch/powerpc/kernel/process.c b/arch/powerpc/kernel/process.c
-index eb23966ac0a9..9237dcbeee4a 100644
---- a/arch/powerpc/kernel/process.c
-+++ b/arch/powerpc/kernel/process.c
-@@ -1281,9 +1281,6 @@ struct task_struct *__switch_to(struct task_struct *prev,
+diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
+index 2a4a8deaf612..7a35c3393df4 100644
+--- a/arch/x86/xen/mmu_pv.c
++++ b/arch/x86/xen/mmu_pv.c
+@@ -2139,10 +2139,8 @@ static void xen_flush_lazy_mmu(void)
  {
- 	struct thread_struct *new_thread, *old_thread;
- 	struct task_struct *last;
--#ifdef CONFIG_PPC_64S_HASH_MMU
--	struct ppc64_tlb_batch *batch;
--#endif
+ 	preempt_disable();
  
- 	new_thread = &new->thread;
- 	old_thread = &current->thread;
-@@ -1291,14 +1288,6 @@ struct task_struct *__switch_to(struct task_struct *prev,
- 	WARN_ON(!irqs_disabled());
- 
- #ifdef CONFIG_PPC_64S_HASH_MMU
--	batch = this_cpu_ptr(&ppc64_tlb_batch);
--	if (batch->active) {
--		current_thread_info()->local_flags |= _TLF_LAZY_MMU;
--		if (batch->index)
--			__flush_tlb_pending(batch);
--		batch->active = 0;
+-	if (xen_get_lazy_mode() == XEN_LAZY_MMU) {
+-		arch_leave_lazy_mmu_mode();
+-		arch_enter_lazy_mmu_mode();
 -	}
--
- 	/*
- 	 * On POWER9 the copy-paste buffer can only paste into
- 	 * foreign real addresses, so unprivileged processes can not
-@@ -1369,20 +1358,6 @@ struct task_struct *__switch_to(struct task_struct *prev,
- 	 */
++	if (xen_get_lazy_mode() == XEN_LAZY_MMU)
++		xen_mc_flush();
  
- #ifdef CONFIG_PPC_BOOK3S_64
--#ifdef CONFIG_PPC_64S_HASH_MMU
--	/*
--	 * This applies to a process that was context switched while inside
--	 * arch_enter_lazy_mmu_mode(), to re-activate the batch that was
--	 * deactivated above, before _switch(). This will never be the case
--	 * for new tasks.
--	 */
--	if (current_thread_info()->local_flags & _TLF_LAZY_MMU) {
--		current_thread_info()->local_flags &= ~_TLF_LAZY_MMU;
--		batch = this_cpu_ptr(&ppc64_tlb_batch);
--		batch->active = 1;
--	}
--#endif
--
- 	/*
- 	 * Math facilities are masked out of the child MSR in copy_thread.
- 	 * A new task does not need to restore_math because it will
+ 	preempt_enable();
+ }
 -- 
 2.47.0
 
