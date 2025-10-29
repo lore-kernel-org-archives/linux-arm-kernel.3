@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD8ECCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35CF7CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cmRCy5lFrhDYzLBn9PahtHt2FiadEKGkFtvKIX1UXu8=; b=yYW3FoKS9zxW+T2eloAuchkL3z
-	BRrvV0Pkkcwymahux+eI+TOXycIOqUGrxahQzb9ReP2wmWtXsBCVfkVPwoogMhhnMW4PdzLjN6tFL
-	8Hg0ps8LZvsK3+rkZmnqp0VSo6GhBCO1DwlpgDbQL3Z1ZsHifid6IT9DP2t0huPM1XFwvpiqzmsQ5
-	RApeqEhNLi4781h+euskXTuqMln7+nFITVTeVRjbGY6TmE5PzZ0DSWTjElWwXxSZJIhCadbJnthZ8
-	jQkr5UxaBsCximzuoYRjp+ZcB1bV6iU6F5pk5Fj9TS6K1rBIQBCbOqr+oy/FpnYs4Lo3c6xyL0cjy
-	jgT7qi+g==;
+	bh=br982OtNpb98PdeBYhrJLVyrR7luvRLBafDbJi6d/xo=; b=OUBWlghmX9EyU0/FNzPwmXUuzc
+	W5TR/zubPIB7440/G6A1Thyd82zsi3znpASqZ2wPmTU9ZKdUKOnCUkkoa6f96x2EroPBj/VrXHxYF
+	ImcrbYJQ+pvbyYBJCW/BP8FFDaDB8pigJsg2+26+40FVE8gNHEDhmGf8l+EpK41c/1e9PAh1ldY8Q
+	dNgUQVN1lbnvnJOYU171/7gk15XYF0ZhOHc1mgqDSTJYhoBUMNv4oGDYie6i/K3JliHvu+ltcgAEV
+	HxvnD3vMS6XffnV4dQZNOT1DxuAfZYjhPbuLrjq/VE4FEF2yGQv1g3F25wTRN4dV6l+3je1ppYGsP
+	+cIFfDzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzWw-0000000HRx0-1UZF;
-	Wed, 29 Oct 2025 06:19:34 +0000
-Received: from mo-csw1800.securemx.jp ([210.130.202.134] helo=mo-csw.securemx.jp)
+	id 1vDzbq-0000000HSxM-1KHp;
+	Wed, 29 Oct 2025 06:24:38 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzWt-0000000HRvK-2Y7w
+	id 1vDzbm-0000000HSwT-2yMv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 06:19:33 +0000
-DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
-	:Subject:Date:Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding;i=yuji2.ishikawa@toshiba.co.jp;s=key1.smx;t=
-	1761718755;x=1762928355;bh=XQbm9gT0FmsvNn/DCDwiVeIZ+/JgLi9QBanOXYYx3M4=;b=NkA
-	aHME4WgdZ7HUujpiLX+NIB4iI1nTVQSXiXv/6MO5bBDcP4r+mZH19HjpSCi6LjbF+7zyLVFINqLIp
-	DIXVVdxsucADivJDWH4yEavDpaAQ/Uzcqmc8aqnHf1q8V4xIesR1I9rrukTPJC76psKbPw5OLKppT
-	kyGI/ZzpZqDqNl/gxZJOQjEYjlbDe9xTZDT2jH3xrSCleFSGo9G5FjIoN6AhPoe4jAuyWYHILVRoC
-	plYvTl1okMVlqSdqEVb82TpmICTfYpdMhLvLuHGuIq0pgschGYdJq6P2WelqDg7TvBXtGjls8pY5s
-	Eq5pcM4a1kUvbwmnRGfyZ1AuGP8YpDg==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1800) id 59T6JEMD1316549; Wed, 29 Oct 2025 15:19:14 +0900
-X-Iguazu-Qid: 2yAbDoX6mRH41gehdo
-X-Iguazu-QSIG: v=2; s=0; t=1761718753; q=2yAbDoX6mRH41gehdo; m=pclAYtZ7pBrHZt8LYmpYud/jNnTsExEG04RaG1tDPQk=
-Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	 id 4cxHBm4wzRz1xnc; Wed, 29 Oct 2025 15:19:12 +0900 (JST)
-X-SA-MID: 53851528
-From: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-To: Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-Subject: [PATCH v2 2/2] clk: visconti: Add definition of VIIF on Toshiba Visconti TMPV770x SoC
-Date: Wed, 29 Oct 2025 15:13:44 +0900
-X-TSB-HOP2: ON
-Message-Id: <20251029061344.451222-3-yuji2.ishikawa@toshiba.co.jp>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
-References: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
+	Wed, 29 Oct 2025 06:24:36 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b70406feed3so97953366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Oct 2025 23:24:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761719073; x=1762323873; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=br982OtNpb98PdeBYhrJLVyrR7luvRLBafDbJi6d/xo=;
+        b=OPuPuRyvRRrwaGiSNSwgVSP2e3Lo4Q8X6j6gaNC6Kk4L6ycFmWASBMnuk215H2cSYF
+         01FymQUtkMLV1eStLvzsTolf239WUH9MNJfEq8M0gmApe+jtpC6cQgbPFEi4nB1AJafG
+         eUeeeXPIZ9Nda1uA0UXa5HZLcW5C6KgF1Hg5kVWXkPgEMmssKQaVE/SOGypr2YyQV7Rv
+         b0oHDi3GQ2Y4KjcJoh6g62sKQHTdy0Q3eYFjWEjabRoqVznHUwAzKLmtXE3fMfIgdv6X
+         hEUSC6MjnfGi9XQv4kc9gk3tBB8oX3YjUfpA6eF+s5KvHel8D0P3YwyW4duy3PFP4SiZ
+         JmuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761719073; x=1762323873;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=br982OtNpb98PdeBYhrJLVyrR7luvRLBafDbJi6d/xo=;
+        b=cNkf2g+7xbuPS4wZ8w0msxPQ31/HXSYwjgCgmtxjJNOyD9crAxQcKR46aSoaHVGQwI
+         OjYnPPhkTU3hafsRYnDAxepdcMkL2vt4VDHO2malR49ifvSmVU+3ItxYacBu37+i7+Z7
+         FYg9tbWheF1UkaoneoWkvWibH0fQgINvOgCWzPsIp/cTzbnobfTNA6HdamgS6Qw6s+aR
+         t6YsAsBKhHdjXE5lb5iHdcxh+0jDK6eRM2IGiHxiM8rwUvIW/HJso1FbKGHIuXdlbrTS
+         tq23brdY7JhfbAwoIja480IWSG6/4FkYKxe3UohUhRvYqIzVvQ55jod0twdLj4LAr9vq
+         Qx7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUq36wnsmv8W+NNHVjZtHN7TUDa9nGnix/GfRSfwFGnT+LdBxglX6flzhyu5xSEGpRsPvixvpJf4u3m9M5VxwG+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAX8FVxL6XGfjvF5cv4mmeZ5LjKQ+jE4v5qzihwLO4hJJVP91u
+	JYS4HokSMJc2sgDffPlVgGzgzhFlIWpLGNXujo0GP2C+TEHMqxuJGQL5eo5v/RPntpAtXDHcDBI
+	fN3wjQAe0ya43QEIBSjVXJ63ldQuFyCI=
+X-Gm-Gg: ASbGncvv8sxXPR3ShWPAMXhpxvARTmc4S5yBqivyTQ+YJKHAuxwez+1GjQHTSi+fsCt
+	j21U4dzinqORBw27hnzpNlAQONb9O0w53YtlbPVH4mS4lu1TXym4wYsx+1h8CxcdGgT2iysM1WN
+	eTo6GwpmMsHNkQQt/EirWDLvCRIqH3Ch1unO6CfT+fxEqkdd74PwtpV1vbadcQcAkyOc4A6S0SF
+	pJcBHcRqsGq2HU+/0paEXXJwEBo5AF3HM7RdYtuKxev/fXc3a6lWcXP08s=
+X-Google-Smtp-Source: AGHT+IHyfp+TmtXxz/OYls2Ipv0mWC+Ecb2/8nvbOahETXIdxr4t72mAdvqkoOAyhDhf4ehMvRZYQA65me6ij1Ptm9w=
+X-Received: by 2002:a17:907:3c96:b0:b40:8954:a8bf with SMTP id
+ a640c23a62f3a-b703d2ccb40mr176983466b.2.1761719072619; Tue, 28 Oct 2025
+ 23:24:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251027145602.199154-1-linux.amoon@gmail.com>
+ <20251027145602.199154-2-linux.amoon@gmail.com> <4fe0ccf9-8866-443a-8083-4a2af7035ee6@rock-chips.com>
+ <CANAwSgRXcg4tO00SNu77EKdp6Ay6X7+_f-ZoHxgkv1himxdi0Q@mail.gmail.com> <3fcd5562-a367-41e9-8bff-51e5990145e2@rock-chips.com>
+In-Reply-To: <3fcd5562-a367-41e9-8bff-51e5990145e2@rock-chips.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Wed, 29 Oct 2025 11:54:16 +0530
+X-Gm-Features: AWmQ_bkHYm5QH-5Y_pmEaKy-mXRgDSlraZJjP-ybL_6P_hostigu_T7ZdM_pHso
+Message-ID: <CANAwSgQ4HH=16Gn45XP3+jr+V+PrDhh8fC1Ek0jzrbMnhXo9fw@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for resource cleanup
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, Hans Zhang <18255117159@163.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_231931_985874_E5081B4C 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20251028_232434_778781_287D1B72 
+X-CRM114-Status: GOOD (  36.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,129 +103,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the control sequence of register bits to handle the clocks and the
-resets of Video Input Interface.
+Hi Shawn,
 
-Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
----
-Changelog v2:
-- Update clk_gate_tables to reflect changes in bindings identifiers.
----
- drivers/clk/visconti/clkc-tmpv770x.c | 71 ++++++++++++++++++++++++++++
- 1 file changed, 71 insertions(+)
+On Wed, 29 Oct 2025 at 05:58, Shawn Lin <shawn.lin@rock-chips.com> wrote:
+>
+>
+> =E5=9C=A8 2025/10/28 =E6=98=9F=E6=9C=9F=E4=BA=8C 17:34, Anand Moon =E5=86=
+=99=E9=81=93:
+> > Hi Shawn,
+> >
+> > Thanks for your review comments.
+> >
+> > On Tue, 28 Oct 2025 at 05:56, Shawn Lin <shawn.lin@rock-chips.com> wrot=
+e:
+> >>
+> >> =E5=9C=A8 2025/10/27 =E6=98=9F=E6=9C=9F=E4=B8=80 22:55, Anand Moon =E5=
+=86=99=E9=81=93:
+> >>> Introduce a .remove() callback to the Rockchip DesignWare PCIe
+> >>> controller driver to ensure proper resource deinitialization during
+> >>> device removal. This includes disabling clocks and deinitializing the
+> >>> PCIe PHY.
+> >>>
+> >>> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> >>> ---
+> >>>    drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
+> >>>    1 file changed, 11 insertions(+)
+> >>>
+> >>> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/=
+pci/controller/dwc/pcie-dw-rockchip.c
+> >>> index 87dd2dd188b4..b878ae8e2b3e 100644
+> >>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> >>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> >>> @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_d=
+evice *pdev)
+> >>>        return ret;
+> >>>    }
+> >>>
+> >>> +static void rockchip_pcie_remove(struct platform_device *pdev)
+> >>> +{
+> >>> +     struct device *dev =3D &pdev->dev;
+> >>> +     struct rockchip_pcie *rockchip =3D dev_get_drvdata(dev);
+> >>> +
+> >>> +     /* Perform other cleanups as necessary */
+> >>> +     clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> >>> +     rockchip_pcie_phy_deinit(rockchip);
+> >>> +}
+> >>
+> >> Thanks for the patch.
+> >>
+> >> Dou you need to call dw_pcie_host_deinit()?
+> > I feel the rockchip_pcie_phy_deinit will power off the phy
+> >> And I think you should also try to mask PCIE_CLIENT_INTR_MASK_MISC and
+> >> remove the irq domain as well.
+> >>
+> >> if (rockchip->irq_domain) {
+> >>          int virq, j;
+> >>          for (j =3D 0; j < PCI_NUM_INTX; j++) {
+> >>                  virq =3D irq_find_mapping(rockchip->irq_domain, j);
+> >>                  if (virq > 0)
+> >>                          irq_dispose_mapping(virq);
+> >>           }
+> >>          irq_set_chained_handler_and_data(rockchip->irq, NULL, NULL);
+> >>          irq_domain_remove(rockchip->irq_domain);
+> >> }
+> >>
+> > I have implemented resource cleanup in rockchip_pcie_remove,
+> > which is invoked when the system is shutting down.
+> > Your feedback on the updated code is welcome.
+> >
+> > static void rockchip_pcie_remove(struct platform_device *pdev)
+> > {
+> >          struct device *dev =3D &pdev->dev;
+> >          struct rockchip_pcie *rockchip =3D dev_get_drvdata(dev);
+> >          int irq;
+> >
+> >          irq =3D of_irq_get_byname(dev->of_node, "legacy");
+> >          if (irq < 0)
+> >                  return;
+> >
+> >          /* Perform other cleanups as necessary */
+> >          /* clear up INTR staatus register */
+> >          rockchip_pcie_writel_apb(rockchip, 0xffffffff,
+> >                                   PCIE_CLIENT_INTR_STATUS_MISC);
+> >          if (rockchip->irq_domain) {
+> >                  int virq, j;
+> >                  for (j =3D 0; j < PCI_NUM_INTX; j++) {
+> >                          virq =3D irq_find_mapping(rockchip->irq_domain=
+, j);
+> >                          if (virq > 0)
+> >                                  irq_dispose_mapping(virq);
+> >                  }
+> >                  irq_set_chained_handler_and_data(irq, NULL, NULL);
+> >                  irq_domain_remove(rockchip->irq_domain);
+> >          }
+> >
+> >          clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> >          /* poweroff the phy */
+> >          rockchip_pcie_phy_deinit(rockchip);
+> >          /* release the reset */
+>
+> release? Or "reset the controller"?
+>
+Ok, I will fix this.
+> >          reset_control_assert(rockchip->rst);
+> >          pm_runtime_put_sync(dev);
+> >          pm_runtime_disable(dev);
+> >          pm_runtime_no_callbacks(dev);
+> > }
+> >
+> >> Another thin I noticed is should we call pm_runtime_* here for hope th=
+at
+> >> genpd could be powered donw once removed?
+> >>
+> > I could not find 'genpd' (power domain) used in the PCIe driver
+> > If we have an example to use genpd I will update this.
+>  > > I am also looking into adding NOIRQ_SYSTEM_SLEEP_PM_OPS
+>
+> That sounds good, you can pick up my patch[1] if you'd like to continue
+> addressing the comments that I haven't had time to think more.
+>
+> [1] https://www.spinics.net/lists/linux-pci/msg171846.html
+>
+Ok, thanks. I will carefully study and address the comments.
 
-diff --git a/drivers/clk/visconti/clkc-tmpv770x.c b/drivers/clk/visconti/clkc-tmpv770x.c
-index 6c753b2cb..b3f4de671 100644
---- a/drivers/clk/visconti/clkc-tmpv770x.c
-+++ b/drivers/clk/visconti/clkc-tmpv770x.c
-@@ -28,6 +28,10 @@ static const struct clk_parent_data pietherplls_parent_data[] = {
- 	{ .fw_name = "pietherpll", .name = "pietherpll", },
- };
- 
-+static const struct clk_parent_data pidnnplls_parent_data[] = {
-+	{ .fw_name = "pidnnpll", .name = "pidnnpll", },
-+};
-+
- static const struct visconti_fixed_clk fixed_clk_tables[] = {
- 	/* PLL1 */
- 	/* PICMPT0/1, PITSC, PIUWDT, PISWDT, PISBUS, PIPMU, PIGPMU, PITMU */
-@@ -64,6 +68,41 @@ static const struct visconti_clk_gate_table pietherpll_clk_gate_tables[] = {
- 		TMPV770X_RESET_PIETHER_125M, },
- };
- 
-+static const struct visconti_clk_gate_table pidnnpll_clk_gate_tables[] = {
-+	{ TMPV770X_CLK_VIIFBS0, "viifbs0",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 1, 1,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIFBS0_PROC, "viifbs0_proc",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 18, 1,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIFBS0_L1ISP, "viifbs0_l1isp",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 17, 1,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIFBS0_L2ISP, "viifbs0_l2isp",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 16, 1,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIFBS1, "viifbs1",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 5, 1,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIFBS1_PROC, "viifbs1_proc",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 22, 1,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIFBS1_L1ISP, "viifbs1_l1isp",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 21, 1,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIFBS1_L2ISP, "viifbs1_l2isp",
-+		pidnnplls_parent_data, ARRAY_SIZE(pidnnplls_parent_data),
-+		0, 0x58, 0x158, 20, 1,
-+		NO_RESET, },
-+};
-+
- static const struct visconti_clk_gate_table clk_gate_tables[] = {
- 	{ TMPV770X_CLK_HOX, "hox",
- 		clks_parent_data, ARRAY_SIZE(clks_parent_data),
-@@ -185,6 +224,22 @@ static const struct visconti_clk_gate_table clk_gate_tables[] = {
- 		clks_parent_data, ARRAY_SIZE(clks_parent_data),
- 		0, 0x14, 0x114, 0, 4,
- 		TMPV770X_RESET_SBUSCLK, },
-+	{ TMPV770X_CLK_VIIF0_CFGCLK, "csi2rx0cfg",
-+		clks_parent_data, ARRAY_SIZE(clks_parent_data),
-+		0, 0x58, 0x158, 0, 24,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIF0_APBCLK, "csi2rx0apb",
-+		clks_parent_data, ARRAY_SIZE(clks_parent_data),
-+		0, 0x58, 0x158, 2, 4,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIF1_CFGCLK, "csi2rx1cfg",
-+		clks_parent_data, ARRAY_SIZE(clks_parent_data),
-+		0, 0x58, 0x158, 4, 24,
-+		NO_RESET, },
-+	{ TMPV770X_CLK_VIIF1_APBCLK, "csi2rx1apb",
-+		clks_parent_data, ARRAY_SIZE(clks_parent_data),
-+		0, 0x58, 0x158, 6, 4,
-+		NO_RESET, },
- };
- 
- static const struct visconti_reset_data clk_reset_data[] = {
-@@ -220,6 +275,14 @@ static const struct visconti_reset_data clk_reset_data[] = {
- 	[TMPV770X_RESET_PIPCMIF]	= { 0x464, 0x564, 0, },
- 	[TMPV770X_RESET_PICKMON]	= { 0x410, 0x510, 8, },
- 	[TMPV770X_RESET_SBUSCLK]	= { 0x414, 0x514, 0, },
-+	[TMPV770X_RESET_VIIFBS0]	= { 0x458, 0x558, 0, },
-+	[TMPV770X_RESET_VIIFBS0_APB]	= { 0x458, 0x558, 1, },
-+	[TMPV770X_RESET_VIIFBS0_L2ISP]	= { 0x458, 0x558, 16, },
-+	[TMPV770X_RESET_VIIFBS0_L1ISP]	= { 0x458, 0x558, 17, },
-+	[TMPV770X_RESET_VIIFBS1]	= { 0x458, 0x558, 4, },
-+	[TMPV770X_RESET_VIIFBS1_APB]	= { 0x458, 0x558, 5, },
-+	[TMPV770X_RESET_VIIFBS1_L2ISP]	= { 0x458, 0x558, 20, },
-+	[TMPV770X_RESET_VIIFBS1_L1ISP]	= { 0x458, 0x558, 21, },
- };
- 
- static int visconti_clk_probe(struct platform_device *pdev)
-@@ -272,6 +335,14 @@ static int visconti_clk_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	ret = visconti_clk_register_gates(ctx, pidnnpll_clk_gate_tables,
-+				    ARRAY_SIZE(pidnnpll_clk_gate_tables),
-+				    clk_reset_data, &tmpv770x_clk_lock);
-+	if (ret) {
-+		dev_err(dev, "Failed to register pidnnpll clock gate: %d\n", ret);
-+		return ret;
-+	}
-+
- 	return of_clk_add_hw_provider(np, of_clk_hw_onecell_get, &ctx->clk_data);
- }
- 
--- 
-2.34.1
-
-
+Thanks
+-Anand
 
