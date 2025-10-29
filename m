@@ -4,152 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF89CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB043CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ffvMx9Xrnyzj6RAmTrfM1i/MRLo2nSL9gwAfvf/qa2U=; b=hHVpyuWAkSGieDHrkEll4hq0VI
-	mzMqKlthmw2C/nHx4L97zj71dKWIus2CUvlkAvUCJs39OFe11ycfhwpiN/fUgFjqdsHgZpsyJ/SSp
-	zI8WFYSr1urV+8IsEQyrzs/MDXxFI2E/DQhseLt3AD1aBzBA7pZe/AW5Pvsgxq0XBZ4MYEv9+Yzn2
-	Ega3E2ubY988OR0JW5cNYAxlfybQOS7R9VNXsjua4DYkFZ9M7ONNXJAElENqgCSj9ZAs8cdUq4cN2
-	D5sghvHdzKQgPEX/RfGhtpWQkLumH+JThAsoC4YbI5oH5K+OgCX2amlA19j7w46YI3VyoGokM9uo4
-	APQzLOfg==;
+	bh=oz02NyUjFvvwgxoacij+FT8GFgL/ftCgtOYuG6E4VVc=; b=xhJnTrniA/IC6/rXifPzrS0fZ6
+	41RWuVUJqLxH0ZfSPXkiHc4uEd+tJeH22zd3tOF3QNuGF4zsBT26UjZ8JSdz8DNqgceP5aLkMehRo
+	2rFgUlMCVvWMN5gB8f8RMq52qTtsz6at/X/ZRqZGhQ6A3SBLVmAK/S0Bsd1HSu/WJAE+WU+z0aoxM
+	CdH3Hvg5CbkGhCV/0/iR1YBWsrZeZrAsg1InLsSMYGn0+RQ50ecLVGJ60kK94MxO6x+6gPfjfdsnm
+	nZY+Hg1uH2D+/bdh0yVZlKqS9jZLZOHvx5Aifl3nPQE8yScTYSKx3HRPQD1uqcUeTnQnEyAE3evRO
+	ifvI494w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE6oz-00000001VQE-467L;
-	Wed, 29 Oct 2025 14:06:42 +0000
-Received: from mail-westus3azon11011036.outbound.protection.outlook.com ([40.107.208.36] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vE6wD-00000001Wbb-0ovz;
+	Wed, 29 Oct 2025 14:14:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE6ox-00000001VPj-11Lw
+	id 1vE6wA-00000001WaY-2O98
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 14:06:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G41lUaWDmzB1VDyqeWi6AudITH3YUUJFn1UUDpdTdAXI7pM54xdlQjS77Q7yDN4JY4bX+EyBQI/FicXxgnvGQVX8qcsqlbEh8V5zm8ocDtKNvN8Niggp/vEmZe3f0kg9SQ80S+ES3ifUIUgBVPTYwnkTq1e9wjKKLEYf3OuqReex4cz0kqJ+eZTnlxVWHd2sBGw/2Wd+THgHu1dIDQoLy1qqlwQxvOmh+zzTbyJg+bOD3cKWciXAzc+TWXEJiOdzRC7cBkJjdChlXETobDlJWecqS6SB71FYoIXZgBPH6HfXi38xo/vK6t8rJxItoODSM2rOC5dRKxiO1JScs1WBCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ffvMx9Xrnyzj6RAmTrfM1i/MRLo2nSL9gwAfvf/qa2U=;
- b=We6W2jBc48MiQ5sn/A8iu0LX4fc4lq32S/9aTRr7IOHdfkTwhskDFUt76xFDwSjBmjwSDn3abYY+/E3nzRxEw5PTXhLIeunjseVN4dCqrTs5fQBAehkdZdy0cFDnFy8SR6uucm7qEqa4Wm5ZGY9ggri7vVy4bZSSCybhIK69Vhg19YwYleNWt8ZzhglraqPLiWO/5JSmadFV3PuPveGsmoMzQdwiRzyVROybuDWJp5cjuKKvVJOGZiIMYv+sao9lSZlcIJj0sOUsWILSpdOuLNMln7ok2nMKXHfCL4Bs5Fe01ptGxtnupE3KNgZNr8frXnX7KdpMMVl/0w7rIIGOlg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ffvMx9Xrnyzj6RAmTrfM1i/MRLo2nSL9gwAfvf/qa2U=;
- b=LMv4+Qhr6V3CZ5p950N/rdR5uU0cToZJk3uAhMzoTQ8MRriLosuXZHjpNRjc0DKVhexDnxdYk+9BrRDVSL366yVlRVBu3PQqRsD1Z3C99NyWsYFOS4vtwXDKdYXibkRBtTzwEK9jI0EqMfuc/lLKyAn5C83zsQsJh+qsTid8MRk=
-Received: from DS7P222CA0002.NAMP222.PROD.OUTLOOK.COM (2603:10b6:8:2e::30) by
- IA1PR10MB6712.namprd10.prod.outlook.com (2603:10b6:208:42f::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.13; Wed, 29 Oct 2025 14:06:32 +0000
-Received: from DS1PEPF00017090.namprd03.prod.outlook.com
- (2603:10b6:8:2e:cafe::c1) by DS7P222CA0002.outlook.office365.com
- (2603:10b6:8:2e::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.18 via Frontend Transport; Wed,
- 29 Oct 2025 14:06:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- DS1PEPF00017090.mail.protection.outlook.com (10.167.17.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Wed, 29 Oct 2025 14:06:32 +0000
-Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Oct
- 2025 09:06:27 -0500
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Oct
- 2025 09:06:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 29 Oct 2025 09:06:26 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59TE6Q174110028;
-	Wed, 29 Oct 2025 09:06:26 -0500
-Message-ID: <19b8774a-86a3-4948-98f2-093df99a2a77@ti.com>
-Date: Wed, 29 Oct 2025 09:06:26 -0500
+	Wed, 29 Oct 2025 14:14:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761747245;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oz02NyUjFvvwgxoacij+FT8GFgL/ftCgtOYuG6E4VVc=;
+	b=YddHdoZg7ox0ohcNCfZvnEneSyOoAHbZodJXNlZQmUQ4JfDaNsk1XwwHL0EidO6WXoXf6T
+	jqw3h3nu3YnSfFFcaIdTpqcn+WqhP11UBWqPSZfPSXRevCK8X3QLp2d/9AV6v89Dc/j4ZB
+	w4cAjoWy5tpl/FnqnOaD8ymnd8W8l+g=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-680-ciBYt5AtPTOHB1QRzwOu6A-1; Wed, 29 Oct 2025 10:14:03 -0400
+X-MC-Unique: ciBYt5AtPTOHB1QRzwOu6A-1
+X-Mimecast-MFC-AGG-ID: ciBYt5AtPTOHB1QRzwOu6A_1761747242
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4298da9effcso5141167f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:14:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761747242; x=1762352042;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HYXy/T5OYgT19DHuKKWwDf9vfL9WSRPLsc+nPGT92ds=;
+        b=VMH2kyT3VT08FjOS6C4v4uoa1hJ5e1M1L+6s31JY1AHCG1LkW0XvLAcv/Qvdlk7wGj
+         sroGH6khbZ0bLx9UkLh6vWpu4JC2M/yJ5f3xMo5YT4Gu8oqiZllq8zHJy0F+59I8AQ9B
+         MQ1wbODKuKFC00JPOIpbjfc9sEIeM0VlIYjTHsv3c7+PndVAvl22yUw99daknwQTntCH
+         XkYvTxZFsHzTC4hGCRftzOVbm4KE1ouhLEo1/AqJT6SVCMRo/03Sd7nqZdxzzJDczF1R
+         5xN1W/YAtBEUxvQHrpUoCrQd5rlboFwuGYlWR3OiU3scdrmpj9KuNYFuWzPajPIEJhds
+         9WJg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwWgzlnDsT2JJ4HfXflu6/XEphg+wp6SlQP1rA0z/ksnBnuNC5kAnUIgyKWRgtD5J7BHTg1gv5iF0lLIIPvI/3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRA4X83kAoVCzxKd/bqi+/5hAZImX9wjFOXTN95QDYA88jE2Ul
+	3J0IKvj5mKrZOHEzDiRsMD5ixRpUkecPafa6u/XB30eewhWjc+8/2k+IgZUiKFlJNucbz7er4Lh
+	L8l5plKTP5GM0gRBBt3WqmpXCYMqEwR5k4EMi+WutDD9FVsFDBZ57fxpGixvbJC6c8MOmoiYU5R
+	Ve
+X-Gm-Gg: ASbGncs/gsw+Ja7P+cHtRAFlxvWGlnx0cMe8zhxJjTnk8SdPlrZaQo4xWHAW6CKcXem
+	QaQCs1ePF0PW679XFHMQq3kYl1j/Zxsx17ZSVRkiPwDtMTmcMZdQa0HYNIncyY3aSeuFAl9k5YY
+	htaxu5juzTeJQS14aOiROBCsqKEjcpO9fli+Es/Orm9/v2w2CwT8uFlrlhdYTpE/mF6TVtCGzpD
+	HR2GUmyoqSAZBTQip8Ac/pIRln3qyYLubpqcjtg+F/wVMmNXGg+HJ+pMbk46G92HmCVwY4uSGpI
+	2Aa/DmK58hkDHtVu0ulLFw9O9oNQARuFAET++LPYWXHI4AI7KVSHpCHCF/q8j5qFAK89hY0VgQA
+	zAjJzNuwSBRRXk9U9huHMZCqA5aVOWYOa3GL6afc6y+cmbTg4rznhQhxW1VOQ
+X-Received: by 2002:a05:600c:b85:b0:476:57b4:72b6 with SMTP id 5b1f17b1804b1-4771e16e83emr30986005e9.8.1761747241996;
+        Wed, 29 Oct 2025 07:14:01 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE2ZXdnOISpERgBiJ9ZdxsqH+M706mFK4IVywCP8xRKb07Mt6iBAhayCrF0GEYoqONAFcNsMA==
+X-Received: by 2002:a05:600c:b85:b0:476:57b4:72b6 with SMTP id 5b1f17b1804b1-4771e16e83emr30985385e9.8.1761747241429;
+        Wed, 29 Oct 2025 07:14:01 -0700 (PDT)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47719004d79sm45516125e9.5.2025.10.29.07.13.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 07:14:00 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
+ Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
+ <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, "Paul E. McKenney"
+ <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen
+ <samitolvanen@google.com>, "David S. Miller" <davem@davemloft.net>, Neeraj
+ Upadhyay <neeraj.upadhyay@kernel.org>, Joel Fernandes
+ <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, Boqun Feng
+ <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, Mathieu
+ Desnoyers <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
+ <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
+ Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
+ immediately after a switch to kernel CR3
+In-Reply-To: <aQHtBudA4aw4a3gT@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-28-vschneid@redhat.com>
+ <aQDoVAs5UZwQo-ds@localhost.localdomain>
+ <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <aQHtBudA4aw4a3gT@localhost.localdomain>
+Date: Wed, 29 Oct 2025 15:13:59 +0100
+Message-ID: <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62d2-evm: Remove unused ospi0 chip
- select pins
-To: Paresh Bhagat <p-bhagat@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-	<praneeth@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<khasim@ti.com>, <v-singh1@ti.com>, <bb@ti.com>, <s-k6@ti.com>
-References: <20251029032144.502603-1-p-bhagat@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20251029032144.502603-1-p-bhagat@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017090:EE_|IA1PR10MB6712:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a5ccbc3-2e41-4a69-74ab-08de16f45d0e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013|34020700016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SVp4YkJmOHJEM0VnSEg0Z0JQTnl4T1Z5dEtad3BBWFF6VU1jU3dHRXNqTEFM?=
- =?utf-8?B?di8yZGl2ZDJmTVNvSU43Vjl1RGF4UmdONVVmS2FZdWJFWmpjVXh1TmR5MXpP?=
- =?utf-8?B?YlNLOUtpcWRaRGlSUG9mVG1QWk04TUtiMnMydGpKUFVRZHBWTm5MTzNRNEZp?=
- =?utf-8?B?dzgxUWNTQWlIRnNWeUN6cUE0TmQ4MkY0TUNpNWNMTjJZUndYa0U5d0FpdzRS?=
- =?utf-8?B?MnZDaWN4bldibGdISlh6V2htTWd4OEJKSUtrTWhZVGpreXdoNGo3N3NjN0xS?=
- =?utf-8?B?LzRuQWxEcjcwK1RSMWM3N3pQVUN2cU1rWi9xYm5OZ3YwOEdNR2ZiaWNRL3Nr?=
- =?utf-8?B?MXh6RFpBMitFd3lEclBkMTZ2RXVJaHJkN2pZcTVjNGtKd1ZwNGF1R0IveUNS?=
- =?utf-8?B?TW5pZno4cncvNy92TFMrakZOSnBvZC9LbW1tdk5Bc3UrNTJXRHlUQVBuSW9M?=
- =?utf-8?B?aVZQVCtrSENaU3RJU2Y2eEJxL04zeHZ3MFY2N2lxck81UTZKWHZsZWNNeGJy?=
- =?utf-8?B?RWIvNGk1cDI4K0IzRS9nc3h0Z2xiU0szNG02dGpXcEdkYzBuUjBXL3hLOW9H?=
- =?utf-8?B?VU9MT1FKckFrZHh6dmszdzVmSkRQTHoveENXOCszNitBNzlpVS9pUjFQMTcy?=
- =?utf-8?B?K0VTZ1ZvNy9DY2NVd1BMNGxlbDdBK0VhWitwcmVmN2E2d0cwNHlDK2cvTHln?=
- =?utf-8?B?YzZ4MkUzK0lYREZRQ2RkeTVBaFk3WG4vVzNJT1JyYVN3NDlITzJ6QytOU3NZ?=
- =?utf-8?B?NmpteGdYMXNxVGZJOG90SWlFaWN1UTJteHV6TVdCRHhpclpEUHV3MGNZT3Ny?=
- =?utf-8?B?V3VYdEhLR3RTSjEzQkdnNGhXNzJjQkM2L3c0REJ6Y3Z6R0FUV0dQZzZubGhW?=
- =?utf-8?B?Nkd4M3VtYzZQM01mNmIvWEozZFBoSERIalJrbEIrMFNNUDhDNjkvQ25oczly?=
- =?utf-8?B?RDNkNFlSN1ZXSGlIRnhTOGphKzUrUzl4a0hxWjBNU0dJY2ZwcVdqb2RmRkdE?=
- =?utf-8?B?ZXZ2bHFnbUVqUGU3dEE1NUtMK0I5Z09VUy9Qc3pMTzZKdkNMWlpNeFpPWFBR?=
- =?utf-8?B?SnhHMEtqRGI1NEJGaWJaQ0tMTEYxd0xPYjVtVW1RQy9XczJQeFJ5MDRNVHBu?=
- =?utf-8?B?V3FzMHpHcWtvZHNKZWxZR0NsNkhwUDVzS2RFZHoyMVFqRldRV2dGYjlNRjZX?=
- =?utf-8?B?ME9MUmF4a3ZWTE1rQlhHYlFKUVo0WGhUcDJyUlE4NzNGaUpxRjVmWVZKYW91?=
- =?utf-8?B?d0htTi9LMGZ2VWhJTGwydldUUGNxa2Njcmw4MkhNYWlYZTBFVktQM0x0QU04?=
- =?utf-8?B?b1NyZG9QS0l0OGNSUVVNdy9kaUxvRVRWS01kam92TXJFQ3VKd0NobC92RUpJ?=
- =?utf-8?B?S1B0alVHajBoOFpaYTViTm4vcUV6VS9NMlJSTWlsU0FQc1Frdm9ORWlTdmJ0?=
- =?utf-8?B?MmVEN1VYQkErblphcFdTTXJ1N2lTczlITjJXMjNTaEY1TEJ1QlF0MU93NXFa?=
- =?utf-8?B?SGtzOTZxdjg0REc3Skw3QWZXOWUxc2NRclJWbXhXTHpQWWg0dU1aRTNXY05M?=
- =?utf-8?B?ZVQrS0dSRE84Z3R5Mno0NFVtcjJuR3BVc1VGWU1zSGdqWU85MVRqbU9qbEVK?=
- =?utf-8?B?MUpqN1RoKy9OMmhTTFJBaUlpeHR5VlNCdzA1Y1ZTSW82bFNiZFNabEdPd1Ry?=
- =?utf-8?B?dkFSdGRnOTR0Nm1wZys4bmRPU2t3c3RSdFp5bEI0aEFCb2I0Z1htdnR1VE9M?=
- =?utf-8?B?SThEdnRJWGo0cVRzeWdmUjRUQlI0UE5oM1lidC83UUNHSTVGeHZRcHJxeGZL?=
- =?utf-8?B?UlVueEFmUlAza0piaC9zOHdNcjZqYUJ2SUp4N1ptcTdxVzFRcXl0NFdZd3NS?=
- =?utf-8?B?RlpoMFVaNmFwVG00TklFUlZiTmZwY0o4aUZOUktjZnJLaGRwZFd0NWxBRk9r?=
- =?utf-8?B?UDZqbFZSd2NqdlBKcHJQYjFZRXpObldEQzIzd1RzdFozL3NjcEhNNFZhN29Y?=
- =?utf-8?Q?5+GLu/V4BDvLlbgaQJQQyeC/yh8cpg=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013)(34020700016);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 14:06:32.1485
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a5ccbc3-2e41-4a69-74ab-08de16f45d0e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017090.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6712
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6nDIM7TEQwcEkWhhxN_kOE0ilvR2zHAUDhrFKreySQo_1761747242
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_070639_310822_9588C9A3 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20251029_071406_704436_4BCD3F07 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,39 +136,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/28/25 10:21 PM, Paresh Bhagat wrote:
-> Since only a single flash device is connected to ospi0 retain only the
-> OSPI0_CSn0 pin configuration and remove the unused CSn1-CSn3 pins from
-> the default pinctrl. This simplifies the ospi0 pin configuration without
-> affecting functionality.
-> 
-> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-> ---
+On 29/10/25 11:31, Frederic Weisbecker wrote:
+> Le Wed, Oct 29, 2025 at 11:16:23AM +0100, Valentin Schneider a =C3=A9crit=
+ :
+>> On 28/10/25 16:59, Frederic Weisbecker wrote:
+>> > Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a =C3=A9c=
+rit :
+>> >> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions - k=
+ernel is built with
+>> >>      andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
+>> >>  .endm
+>> >>
+>> >> -.macro COALESCE_TLBI
+>> >> +.macro COALESCE_TLBI scratch_reg:req
+>> >>  #ifdef CONFIG_COALESCE_TLBI
+>> >> +=09/* No point in doing this for housekeeping CPUs */
+>> >> +=09movslq  PER_CPU_VAR(cpu_number), \scratch_reg
+>> >> +=09bt=09\scratch_reg, tick_nohz_full_mask(%rip)
+>> >> +=09jnc=09.Lend_tlbi_\@
+>> >
+>> > I assume it's not possible to have a static call/branch to
+>> > take care of all this ?
+>> >
+>>
+>> I think technically yes, but that would have to be a per-cpu patchable
+>> location, which would mean something like each CPU having its own copy o=
+f
+>> that text page... Unless there's some existing way to statically optimiz=
+e
+>>
+>>   if (cpumask_test_cpu(smp_processor_id(), mask))
+>>
+>> where @mask is a boot-time constant (i.e. the nohz_full mask).
+>
+> Or just check housekeeping_overriden static key before everything. This o=
+ne is
+> enabled only if either nohz_full, isolcpus or cpuset isolated partition (=
+well,
+> it's on the way for the last one) are running, but those are all niche, w=
+hich
+> means you spare 99.999% kernel usecases.
+>
 
-Reviewed-by: Andrew Davis <afd@ti.com>
+Oh right, if NOHZ_FULL is actually in use.
 
-> Boot logs
-> https://gist.github.com/paresh-bhagat12/ac3b7e8a39f6f35004d9c51c6384f0c4
-> 
-> Datasheet - https://www.ti.com/lit/ug/sprujd4/sprujd4.pdf
-> Schematics - https://www.ti.com/lit/zip/sprcal5
-> 
->   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 3 ---
->   1 file changed, 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> index 83af889e790a..bb5af52ae8b7 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> @@ -355,9 +355,6 @@ ospi0_pins_default: ospi0-default-pins {
->   		pinctrl-single,pins = <
->   			AM62DX_IOPAD(0x0000, PIN_OUTPUT, 0) /* (L22) OSPI0_CLK */
->   			AM62DX_IOPAD(0x002c, PIN_OUTPUT, 0) /* (H21) OSPI0_CSn0 */
-> -			AM62DX_IOPAD(0x0030, PIN_OUTPUT, 0) /* (G19) OSPI0_CSn1 */
-> -			AM62DX_IOPAD(0x0034, PIN_OUTPUT, 0) /* (K20) OSPI0_CSn2 */
-> -			AM62DX_IOPAD(0x0038, PIN_OUTPUT, 0) /* (G20) OSPI0_CSn3 */
->   			AM62DX_IOPAD(0x000c, PIN_INPUT, 0) /* (J21) OSPI0_D0 */
->   			AM62DX_IOPAD(0x0010, PIN_INPUT, 0) /* (J18) OSPI0_D1 */
->   			AM62DX_IOPAD(0x0014, PIN_INPUT, 0) /* (J19) OSPI0_D2 */
+Yeah that housekeeping key could do since, at least for the cmdline
+approach, it's set during start_kernel(). I need to have a think about the
+runtime cpuset case.
+
+Given we have ALTERNATIVE's in there I assume something like a
+boot-time-driven static key could do, but I haven't found out yet if and
+how that can be shoved in an ASM file.
+
+> Thanks.
+>
+>>
+>> > Thanks.
+>> >
+>> > --
+>> > Frederic Weisbecker
+>> > SUSE Labs
+>>
+>>
+>
+> --
+> Frederic Weisbecker
+> SUSE Labs
 
 
