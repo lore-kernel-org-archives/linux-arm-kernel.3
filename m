@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B7BCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C52DCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DYLnsFAK/JsDqa1LaxS8dAV3NlsE5WCqgyaXiTQaeLg=; b=kGXFNXc+oGY2rPM5KBSBW7/Fdm
-	081H87yF8R6i3je40g4yXyjr3kg2oVrmjirdGpJFkmW34NvWqVNexikLaI0NWw92BJXgMyIGu/6OS
-	/Hg1KBftjNhu77AiuEtpnm0N6m7o9qGbsDSsiWKnkZi4s6w/f7XgOtxmdTJViSTEtISIA1wNmdOfR
-	GHNWm/uVGE9k28TMJAxXqgprkMn+L86ypZwAJZZSodIaSc0ENVufrJlcnAJnfajXfVecpowFvoOQr
-	CWAI1Z5+uN1FB73dvNcThSkhCvrkRMSoBExAiY9Cgk4j1nMIeKkJpWhcxcj+KNpDYb6B3UVpWBYVq
-	K8jxBWYw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1RCQVgXuFAYifsS14yTUrIEaXwBFKF1keBWmbj2f9b4=; b=pp4HaltUg9Tl9qciyBQ8Zh5fJD
+	iHbq+9aFKC1Gn/BSZLKraICaku6l/4nRnExFwG2i6MHbBbriwpc67e1FiZdkEbmY3SdFI2kl68IiS
+	OtKLtgIv8etJWeP6B4zODlbB1JtdwUe0YR2z3FMm8sFd6xJaDRg3gNqVMApbYlHqZ2yKYSezfUL+3
+	86DUDceXgdr8YmaXr7t0Db8KnKy7DOLlBTmgctGWdEX76Ci+5UMD00hcrVLX5mUNXFNE2DxszyfaX
+	ZVRL0W+wm1J2pLbUx0zMKBrjhmSmblbbEnNrUtYjftybTS5nUdeqWE6vPy0ewDeaWvLGz3CqdyNq5
+	KVoDKHLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzWw-0000000HRwb-0HQa;
-	Wed, 29 Oct 2025 06:19:34 +0000
-Received: from mo-csw1801.securemx.jp ([210.130.202.135] helo=mo-csw.securemx.jp)
+	id 1vDzWr-0000000HRv3-3Bxv;
+	Wed, 29 Oct 2025 06:19:29 +0000
+Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDzWt-0000000HRv7-1ORc
+	id 1vDzWo-0000000HRu1-2C9e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 06:19:33 +0000
+	Wed, 29 Oct 2025 06:19:28 +0000
 DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
-	:Subject:Date:Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding;i=yuji2.ishikawa@toshiba.co.jp;s=key1.smx;t=
-	1761718755;x=1762928355;bh=RR32p+M9C599dIleJAbw+9d5tlMsoBTx0doNI9BbweY=;b=QCR
-	L6f0yHuItdZpDFLJ0ibR3IBdcPDooG9Uj+kGR0DiPvh1pTDp4nmlY//34a+I7E6uptLKhG3jNcDjg
-	7IWkyUxNkWSKUHuZ66OYF2Rn6CPRybyzwiVOu0/fgIfIWBJLBc3+VEecvy4pRKB6nCRtrEQrCQs3J
-	89xjxnswcrgMv4N6y5EOwu3x+Le6dDX88jFv617KMbjIP7AI3vJPts+vblOPwNVJ/wvCSWPQsjRoF
-	DUTZ2ga0TChUo48g1VMGd6SgftYButAP1q2p33E3KIriJy7ou7NgxAdZATNNjMk0oRcxRfQY+8mDP
-	MekKAXzjQ4fzeK8wo7P/E4WzFX25Ctg==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1801) id 59T6JEwI3507518; Wed, 29 Oct 2025 15:19:14 +0900
-X-Iguazu-Qid: 2yAbrg0HuZq9EQydsG
-X-Iguazu-QSIG: v=2; s=0; t=1761718754; q=2yAbrg0HuZq9EQydsG; m=AgqxK7maNBCk8YpXbPqC12la+75KSurRAdfqNdqMxkA=
+	:Subject:Date:Message-Id:MIME-Version:Content-Transfer-Encoding;i=
+	yuji2.ishikawa@toshiba.co.jp;s=key1.smx;t=1761718745;x=1762928345;bh=7IRI7cKE
+	8uYS1V2bg4Jc9AQa03FWztuEHP3zHwMpPkU=;b=WaevSnEZ3HXfj24etvWDWgKc9lE4EesOCOcvnl
+	CoL6V9wTFkN3HcvOq9YlzcevVL1i4lrukjCarPdlOCTT9jM8EbjFRzaICvhcwZeRIQdCQ0CUa2St4
+	t4lzP4vOs93L6Ea3cZMmBD3q7r2/YYIGSoAMYIah2ASyx4LhP/A8deqYX9/FFm09cMofHJMJC3QLH
+	lco+iFVTMNouV6ubrcYQDqbOHrqn5J5cfmnlZVnYq9xg2VUNpRior0dejle75aFkg/stYarMI1AOK
+	KJhHq5GdzkLNliCsCLqjkP4QNdU+cJRaYqBY85+GJ4v9RpHLlDvJB+cx5sPjgTYLF5muQ5p0Q==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 59T6J33j2256398; Wed, 29 Oct 2025 15:19:04 +0900
+X-Iguazu-Qid: 2rWh3gygZ7fVXby91M
+X-Iguazu-QSIG: v=2; s=0; t=1761718743; q=2rWh3gygZ7fVXby91M; m=wSwLD5HeGHQFTolYcdrp9j4UtZ4oS71nko3BIBDjozc=
 Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	 id 4cxHBm6SXDzyPQ; Wed, 29 Oct 2025 15:19:12 +0900 (JST)
-X-SA-MID: 53851523
+	 id 4cxHBZ5nD0z4vym; Wed, 29 Oct 2025 15:19:02 +0900 (JST)
+X-SA-MID: 53851507
 From: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
 To: Michael Turquette <mturquette@baylibre.com>,
         Stephen Boyd <sboyd@kernel.org>,
@@ -56,18 +55,17 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
         Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-Subject: [PATCH v2 1/2] dt-bindings: clock: Add identifiers for VIIF on Toshiba Visconti TMPV770x SoC
-Date: Wed, 29 Oct 2025 15:13:43 +0900
+Subject: [PATCH v2 0/2] clk: visconti: Add support for VIIF on Toshiba Visconti TMPV770x SoC
+Date: Wed, 29 Oct 2025 15:13:42 +0900
 X-TSB-HOP2: ON
-Message-Id: <20251029061344.451222-2-yuji2.ishikawa@toshiba.co.jp>
+Message-Id: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
-References: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_231931_953305_7EE22889 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20251028_231927_253071_C92B1A8E 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,72 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add clock and reset identifiers for the Video Input Interface.
-These identifiers support two instances: VIIF0 and VIIF1.
+This series adds support for Video Input Interface (VIIF) module to the
+clock and reset driver of Toshiba Visconti TMPV770x SoC. It provides the
+definition of identifiers for clocks and resets, and the control sequence
+of registers.
 
-Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
----
 Changelog v2:
-- Do not modify existing identifiers to avoid breaking ABI.
-  Keep existing identfiers for VIIF0.
-  Introduce new idenfifiers for VIIF1, following the same naming conventions.
----
- include/dt-bindings/clock/toshiba,tmpv770x.h | 15 +++++++++++++--
- include/dt-bindings/reset/toshiba,tmpv770x.h | 10 +++++++++-
- 2 files changed, 22 insertions(+), 3 deletions(-)
+- dt-bindings: Do not modify existing identifiers to avoid breaking ABI.
+- clk: Update clk_gate_tables to reflect changes in bindings identifiers.
 
-diff --git a/include/dt-bindings/clock/toshiba,tmpv770x.h b/include/dt-bindings/clock/toshiba,tmpv770x.h
-index 5fce71300..ff4ef1be5 100644
---- a/include/dt-bindings/clock/toshiba,tmpv770x.h
-+++ b/include/dt-bindings/clock/toshiba,tmpv770x.h
-@@ -141,7 +141,10 @@
- #define TMPV770X_CLK_PIREFCLK		124
- #define TMPV770X_CLK_SBUS		125
- #define TMPV770X_CLK_BUSLCK		126
--#define TMPV770X_NR_CLK			127
-+#define TMPV770X_CLK_VIIFBS1_L2ISP	127
-+#define TMPV770X_CLK_VIIFBS1_L1ISP	128
-+#define TMPV770X_CLK_VIIFBS1_PROC	129
-+#define TMPV770X_NR_CLK			130
- 
- /* Reset */
- #define TMPV770X_RESET_PIETHER_2P5M	0
-@@ -176,6 +179,14 @@
- #define TMPV770X_RESET_PIPCMIF		29
- #define TMPV770X_RESET_PICKMON		30
- #define TMPV770X_RESET_SBUSCLK		31
--#define TMPV770X_NR_RESET		32
-+#define TMPV770X_RESET_VIIFBS0		32
-+#define TMPV770X_RESET_VIIFBS0_APB	33
-+#define TMPV770X_RESET_VIIFBS0_L2ISP	34
-+#define TMPV770X_RESET_VIIFBS0_L1ISP	35
-+#define TMPV770X_RESET_VIIFBS1		36
-+#define TMPV770X_RESET_VIIFBS1_APB	37
-+#define TMPV770X_RESET_VIIFBS1_L2ISP	38
-+#define TMPV770X_RESET_VIIFBS1_L1ISP	39
-+#define TMPV770X_NR_RESET		40
- 
- #endif /*_DT_BINDINGS_CLOCK_TOSHIBA_TMPV770X_H_ */
-diff --git a/include/dt-bindings/reset/toshiba,tmpv770x.h b/include/dt-bindings/reset/toshiba,tmpv770x.h
-index c1007acb1..d711006d6 100644
---- a/include/dt-bindings/reset/toshiba,tmpv770x.h
-+++ b/include/dt-bindings/reset/toshiba,tmpv770x.h
-@@ -36,6 +36,14 @@
- #define TMPV770X_RESET_PIPCMIF		29
- #define TMPV770X_RESET_PICKMON		30
- #define TMPV770X_RESET_SBUSCLK		31
--#define TMPV770X_NR_RESET		32
-+#define TMPV770X_RESET_VIIFBS0		32
-+#define TMPV770X_RESET_VIIFBS0_APB	33
-+#define TMPV770X_RESET_VIIFBS0_L2ISP	34
-+#define TMPV770X_RESET_VIIFBS0_L1ISP	35
-+#define TMPV770X_RESET_VIIFBS1		36
-+#define TMPV770X_RESET_VIIFBS1_APB	37
-+#define TMPV770X_RESET_VIIFBS1_L2ISP	38
-+#define TMPV770X_RESET_VIIFBS1_L1ISP	39
-+#define TMPV770X_NR_RESET		40
- 
- #endif /*_DT_BINDINGS_RESET_TOSHIBA_TMPV770X_H_ */
+Yuji Ishikawa (2):
+  dt-bindings: clock: Add identifiers for VIIF on Toshiba Visconti
+    TMPV770x SoC
+  clk: visconti: Add definition of VIIF on Toshiba Visconti TMPV770x SoC
+
+ drivers/clk/visconti/clkc-tmpv770x.c         | 71 ++++++++++++++++++++
+ include/dt-bindings/clock/toshiba,tmpv770x.h | 15 ++++-
+ include/dt-bindings/reset/toshiba,tmpv770x.h | 10 ++-
+ 3 files changed, 93 insertions(+), 3 deletions(-)
+
 -- 
 2.34.1
 
