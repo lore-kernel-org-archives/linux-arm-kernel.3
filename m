@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B951CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B552DCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5z9Px/CmE3euQwqj264eM5QaujS1CqSLuldWa4xyp7s=; b=WF/sdFr6Zcb5idnKNe5h2kQ6kL
-	eAwFbeX5ilcp/q7PE8bXzBwtNa9OiszOsRDI1WAuLL4GWTzUK0jqwPCqRSk8L1zSdAH0v4pQ6fXZ4
-	yrLesUbsZPrmuy3htOnKT6PjbVeeTZ16vjxEFzfDKzJoGvoCQwppRX0RMOk7XUK4yXzMI1tdOJLY/
-	FykaNIjlanzGjgOh4K+Ey0SlIjQOtHHl2q5MHHVRl4swg5eBGbj8FcA0bt0eicuDDEX9H/42CBDd6
-	B/QwZe9gIchNOwWaLzbdDAGtAdhW4cHWQfPjcIK1kEGKOixhvuRXqcIyzOMwXO8V31d4NAW3IZdmE
-	tS8myQSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CTXnL9UXH/iauUvH958Y5ZTz4Dt6IJaJSNAQ122UEVg=; b=a0H+vr8iUQC0eAtqhWq11FV+c2
+	zZ4yW9RMfbEAh/rFax+SELMnkIFvjurUvUGdya5TU7w8pPY4TSd+pswHAtwXqw/hovephyFWyVVGO
+	DXIdZ0/bEQDYr4U+QdjFM4pJNjMjgGPPdeYT+vamvxIW+QWnu2aORizD0UNad6CaY8zpniAnZgLRm
+	fcCXszUdrifZHkDNYOVD5hM1D0BWmb/R9PJP8ZseVew+wzdkOohKjgxX/KBNyycdsdBINLjgaE3gK
+	DYRLug1r51ekx3g5CQhJ2rDYhcK1lO9Di6N7n5lS75Gyg/PD4Hsh7CMxo/V2wAQZZSfRNQyuH80P5
+	6qPtWuSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3Sx-00000000mAG-3cXx;
+	id 1vE3Sx-00000000m8x-0YdD;
 	Wed, 29 Oct 2025 10:31:43 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3Sr-00000000m3V-17iT;
-	Wed, 29 Oct 2025 10:31:41 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:314e:ee86:ae6e:30:9d13])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 38AED15D2;
-	Wed, 29 Oct 2025 11:29:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761733786;
-	bh=hqk1es6eP0bxoVwg0ZcIdNvxOEpzgiRwNfLQzmPrpnA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ew074Uhh7Ukuu1yRxDplnqtQSq8nVRM8O5rQXT/mbyn3b6ikVvlzccPLJ+O5ZlEng
-	 tf8TQ7KKKrGuOH5DkUXWIjvJw7RsVshvZhkC/tfoS23vgETn5DYRZileLyUJ9e+xUI
-	 0Aah2RV1hckAmJiPKQxSbIOUtnLMsSs+3gp0gD1I=
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Wed, 29 Oct 2025 16:00:10 +0530
-Subject: [PATCH v3 6/7] platform/raspberrypi: Destage VCHIQ interface
+	id 1vE3Sr-00000000m41-3Vec;
+	Wed, 29 Oct 2025 10:31:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 09C6443A44;
+	Wed, 29 Oct 2025 10:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E4DAC116D0;
+	Wed, 29 Oct 2025 10:31:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761733896;
+	bh=Kk/z5xbjPIxTq926BScJO1YbAE6B21A/nQcvL+Stxjo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mQHpiMhHIipyykg71nO9gr0ccOWvAw3jtxADhT6O9/iW0PpIiw/qmz5zVTUW3oo0Y
+	 Yq4gg7lmHuk8qvkB8w7kGP3dJ/Es/yfXH9Z/5NpT3GdhmC3rdV4d9InuM6AE6YDHuy
+	 66y1CBVkVJ47bCQATzwguaNY0rGy4czAnJJf2Xq0+TNv8MsAXP6t2uwOLwNqTFFpSC
+	 b93q4JO88FSbhgGajCQoNTlTc5GzNikQEX4E8U13MGQNOniIiwlNgiHYmZ4xaVekC8
+	 PXMEnG8bUYp8VmovluQl1CaebknBe933wtZ0M/W93tFXssHpX/nRz8xuoWt5VU0UOX
+	 RCaW/NJFhcGtw==
+Date: Wed, 29 Oct 2025 11:31:34 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
+ immediately after a switch to kernel CR3
+Message-ID: <aQHtBudA4aw4a3gT@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-28-vschneid@redhat.com>
+ <aQDoVAs5UZwQo-ds@localhost.localdomain>
+ <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251029-vchiq-destage-v3-6-da8d6c83c2c5@ideasonboard.com>
-References: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com>
-In-Reply-To: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Cc: linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, 
- linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, 
- Stefan Wahren <wahrenst@gmx.net>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Phil Elwell <phil@raspberrypi.com>, Umang Jain <uajain@igalia.com>, 
- Jai Luthra <jai.luthra@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11423;
- i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=hqk1es6eP0bxoVwg0ZcIdNvxOEpzgiRwNfLQzmPrpnA=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpAezep8uSPLbEjLlMETD808XPwzPN0UEtOWCSf
- w5FhZLfJ76JAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaQHs3gAKCRBD3pH5JJpx
- RegqD/9qHBg7KwY157j8JMO2+MpTbjvl1dqVj/LG04ZgHowhXXbrqJ/wEj7D8WYCn874TuZ6RU1
- 8bvkCt/1M2LmyupEvijRkIbkwcNIbtWhkpHJJ+GudapPoWFYAETt3XqLhjq3Zb2wnQSJ7l9htDg
- uP8G1FEdKquy581vNhSoawfyvDidGwmyCLz+gtbYUDa1ym/WmFQPvAlc0JCLx5FCNhbLAdcrVY4
- 6jt9J1sbYqbRl6hmlEvVhkgItrxHvWGCO87sbR/BY0q0e39miNZSYcBnPrDH+YE11IJFLzIlJuh
- CSf2/eYjbDFNoIVdKqQKlPwzEO2xrkZ9J1P+z2fXEIm2jogDRGSIKr1zh7k0P1ih6Y9pOd9wLsH
- G8KMAmljer/K6o+ms63qWPnnTVnMYcTt/40U/7iZJFqe/lM76mOquWohis1THiuh0xtmok1i66E
- WbIrNRy7C5yDGt9dbGxzz+9VDbPKGZ4uFxTgxTmNWEubMK5pyTUWHC3zka58mTR9Sr4HxUBbr3b
- wd2VRg+dVbQanttbcPeNb4Cq4uO8dALGfkQYbDc+kSd9s6eCHqmEx3jER77gg4jMH7eF5/JG3hP
- Mj3GHpm3mt5SL6rAEsgX1C+UjJ8pQOPaDA9zbCH4almhzpVI+MHMSV2LA0m9HTDBL3B0A+1D8dU
- c1zzwTjaMGgOjHA==
-X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
- fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_033138_995950_29E987DB 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20251029_033138_956238_AB2096CF 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,253 +108,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Destage the VCHIQ interface driver to drivers/platform/raspberrypi.
+Le Wed, Oct 29, 2025 at 11:16:23AM +0100, Valentin Schneider a écrit :
+> On 28/10/25 16:59, Frederic Weisbecker wrote:
+> > Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a écrit :
+> >> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions - kernel is built with
+> >>      andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
+> >>  .endm
+> >>
+> >> -.macro COALESCE_TLBI
+> >> +.macro COALESCE_TLBI scratch_reg:req
+> >>  #ifdef CONFIG_COALESCE_TLBI
+> >> +	/* No point in doing this for housekeeping CPUs */
+> >> +	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
+> >> +	bt	\scratch_reg, tick_nohz_full_mask(%rip)
+> >> +	jnc	.Lend_tlbi_\@
+> >
+> > I assume it's not possible to have a static call/branch to
+> > take care of all this ?
+> >
+> 
+> I think technically yes, but that would have to be a per-cpu patchable
+> location, which would mean something like each CPU having its own copy of
+> that text page... Unless there's some existing way to statically optimize
+> 
+>   if (cpumask_test_cpu(smp_processor_id(), mask))
+> 
+> where @mask is a boot-time constant (i.e. the nohz_full mask).
 
-There is still the remaining TODO item of improving the documentation,
-which can be handled post destaging.
+Or just check housekeeping_overriden static key before everything. This one is
+enabled only if either nohz_full, isolcpus or cpuset isolated partition (well,
+it's on the way for the last one) are running, but those are all niche, which
+means you spare 99.999% kernel usecases.
 
-Secondly, multimedia drivers like codec and ISP that rely on this
-interface need to be upstreamed. And lastly, the drivers that facilitate
-the shared memory between VideoCore and Linux, like the vc-sm-cma driver
-and vc_mem char driver also need to be upstreamed.
+Thanks.
 
-Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
----
- MAINTAINERS                                                                                                 |  1 +
- drivers/platform/Kconfig                                                                                    |  2 ++
- drivers/platform/Makefile                                                                                   |  1 +
- drivers/platform/raspberrypi/Kconfig                                                                        | 50 ++++++++++++++++++++++++++++++++++++++++++++++++++
- drivers/platform/raspberrypi/Makefile                                                                       | 14 ++++++++++++++
- drivers/{staging/vc04_services/interface => platform/raspberrypi/vchiq-interface}/TESTING                   |  0
- drivers/{staging/vc04_services/interface => platform/raspberrypi/vchiq-interface}/TODO                      |  0
- drivers/{staging/vc04_services/interface/vchiq_arm => platform/raspberrypi/vchiq-interface}/vchiq_arm.c     |  0
- drivers/{staging/vc04_services/interface/vchiq_arm => platform/raspberrypi/vchiq-interface}/vchiq_bus.c     |  0
- drivers/{staging/vc04_services/interface/vchiq_arm => platform/raspberrypi/vchiq-interface}/vchiq_core.c    |  0
- drivers/{staging/vc04_services/interface/vchiq_arm => platform/raspberrypi/vchiq-interface}/vchiq_debugfs.c |  0
- drivers/{staging/vc04_services/interface/vchiq_arm => platform/raspberrypi/vchiq-interface}/vchiq_dev.c     |  0
- drivers/{staging/vc04_services/interface/vchiq_arm => platform/raspberrypi/vchiq-interface}/vchiq_ioctl.h   |  0
- drivers/staging/vc04_services/Kconfig                                                                       | 45 ---------------------------------------------
- drivers/staging/vc04_services/Makefile                                                                      | 12 ------------
- 15 files changed, 68 insertions(+), 57 deletions(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cd223e119d48ec24ed00119fbc95653fff88cf34..df07d1a3c28d048e14a0f65c9f9ff01cc260013a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4828,6 +4828,7 @@ S:	Maintained
- T:	git https://github.com/broadcom/stblinux.git
- F:	Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
- F:	drivers/pci/controller/pcie-brcmstb.c
-+F:	drivers/platform/raspberrypi/vchiq-*
- F:	drivers/staging/vc04_services
- F:	include/linux/raspberrypi/vchiq*
- N:	bcm2711
-diff --git a/drivers/platform/Kconfig b/drivers/platform/Kconfig
-index 960fd6a82450a4c7b97d51ea3bc29795ee74efd1..324c69c63f76d90643736d00d056382f396adbca 100644
---- a/drivers/platform/Kconfig
-+++ b/drivers/platform/Kconfig
-@@ -18,3 +18,5 @@ source "drivers/platform/surface/Kconfig"
- source "drivers/platform/x86/Kconfig"
- 
- source "drivers/platform/arm64/Kconfig"
-+
-+source "drivers/platform/raspberrypi/Kconfig"
-diff --git a/drivers/platform/Makefile b/drivers/platform/Makefile
-index 19ac54648586eb617af0f8a69e3205bd83e8c35b..b0935c602adaff0d94534f51c7d7592ea9569d1a 100644
---- a/drivers/platform/Makefile
-+++ b/drivers/platform/Makefile
-@@ -13,3 +13,4 @@ obj-$(CONFIG_CHROME_PLATFORMS)	+= chrome/
- obj-$(CONFIG_CZNIC_PLATFORMS)	+= cznic/
- obj-$(CONFIG_SURFACE_PLATFORMS)	+= surface/
- obj-$(CONFIG_ARM64_PLATFORM_DEVICES)	+= arm64/
-+obj-$(CONFIG_BCM2835_VCHIQ)	+= raspberrypi/
-diff --git a/drivers/platform/raspberrypi/Kconfig b/drivers/platform/raspberrypi/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..9085e7464ec348fce5ec9f41a9019ab12eee964b
---- /dev/null
-+++ b/drivers/platform/raspberrypi/Kconfig
-@@ -0,0 +1,50 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+menuconfig BCM_VIDEOCORE
-+	tristate "Broadcom VideoCore support"
-+	depends on OF
-+	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
-+	default y
-+	help
-+		Support for Broadcom VideoCore services including
-+		the BCM2835 family of products which is used
-+		by the Raspberry PI.
-+
-+if BCM_VIDEOCORE
-+
-+config BCM2835_VCHIQ
-+	tristate "BCM2835 VCHIQ"
-+	depends on HAS_DMA
-+	imply VCHIQ_CDEV
-+	help
-+		Broadcom BCM2835 and similar SoCs have a VPU called VideoCore.
-+		This config enables the VCHIQ driver, which implements a
-+		messaging interface between the kernel and the firmware running
-+		on VideoCore. Other drivers use this interface to communicate to
-+		the VPU. More specifically, the VCHIQ driver is used by
-+		audio/video and camera drivers as well as for implementing MMAL
-+		API, which is in turn used by several multimedia services on the
-+		BCM2835 family of SoCs.
-+
-+		Defaults to Y when the Broadcom Videocore services are included
-+		in the build, N otherwise.
-+
-+if BCM2835_VCHIQ
-+
-+config VCHIQ_CDEV
-+	bool "VCHIQ Character Driver"
-+	help
-+		Enable the creation of VCHIQ character driver. The cdev exposes
-+		ioctls used by userspace libraries and testing tools to interact
-+		with VideoCore, via the VCHIQ core driver (Check BCM2835_VCHIQ
-+		for more info).
-+
-+		This can be set to 'N' if the VideoCore communication is not
-+		needed by userspace but only by other kernel modules
-+		(like bcm2835-audio).
-+
-+		If not sure, set this to 'Y'.
-+
-+endif
-+
-+endif
-diff --git a/drivers/platform/raspberrypi/Makefile b/drivers/platform/raspberrypi/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..a807571c59a47bb418cbb1dfcc389219d0d0ff22
---- /dev/null
-+++ b/drivers/platform/raspberrypi/Makefile
-@@ -0,0 +1,14 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+obj-$(CONFIG_BCM2835_VCHIQ)	+= vchiq.o
-+
-+vchiq-objs := \
-+   vchiq-interface/vchiq_core.o  \
-+   vchiq-interface/vchiq_arm.o \
-+   vchiq-interface/vchiq_bus.o \
-+   vchiq-interface/vchiq_debugfs.o \
-+
-+ifdef CONFIG_VCHIQ_CDEV
-+vchiq-objs += vchiq-interface/vchiq_dev.o
-+endif
-+
-diff --git a/drivers/staging/vc04_services/interface/TESTING b/drivers/platform/raspberrypi/vchiq-interface/TESTING
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/TESTING
-rename to drivers/platform/raspberrypi/vchiq-interface/TESTING
-diff --git a/drivers/staging/vc04_services/interface/TODO b/drivers/platform/raspberrypi/vchiq-interface/TODO
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/TODO
-rename to drivers/platform/raspberrypi/vchiq-interface/TODO
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-rename to drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_bus.c
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-rename to drivers/platform/raspberrypi/vchiq-interface/vchiq_bus.c
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-rename to drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_debugfs.c
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c
-rename to drivers/platform/raspberrypi/vchiq-interface/vchiq_debugfs.c
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_dev.c
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
-rename to drivers/platform/raspberrypi/vchiq-interface/vchiq_dev.c
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h b/drivers/platform/raspberrypi/vchiq-interface/vchiq_ioctl.h
-similarity index 100%
-rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
-rename to drivers/platform/raspberrypi/vchiq-interface/vchiq_ioctl.h
-diff --git a/drivers/staging/vc04_services/Kconfig b/drivers/staging/vc04_services/Kconfig
-index c803cb8e4cccefa1740444514e3e4ea0f1742d05..b9e6f369f54c3af6225f181e08ac14e3de044062 100644
---- a/drivers/staging/vc04_services/Kconfig
-+++ b/drivers/staging/vc04_services/Kconfig
-@@ -1,51 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
--menuconfig BCM_VIDEOCORE
--	tristate "Broadcom VideoCore support"
--	depends on OF
--	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
--	default y
--	help
--		Support for Broadcom VideoCore services including
--		the BCM2835 family of products which is used
--		by the Raspberry PI.
--
- if BCM_VIDEOCORE
- 
--config BCM2835_VCHIQ
--	tristate "BCM2835 VCHIQ"
--	depends on HAS_DMA
--	imply VCHIQ_CDEV
--	help
--		Broadcom BCM2835 and similar SoCs have a VPU called VideoCore.
--		This config enables the VCHIQ driver, which implements a
--		messaging interface between the kernel and the firmware running
--		on VideoCore. Other drivers use this interface to communicate to
--		the VPU. More specifically, the VCHIQ driver is used by
--		audio/video and camera drivers as well as for implementing MMAL
--		API, which is in turn used by several multimedia services on the
--		BCM2835 family of SoCs.
--
--		Defaults to Y when the Broadcom Videocore services are included
--		in the build, N otherwise.
--
--if BCM2835_VCHIQ
--
--config VCHIQ_CDEV
--	bool "VCHIQ Character Driver"
--	help
--		Enable the creation of VCHIQ character driver. The cdev exposes
--		ioctls used by userspace libraries and testing tools to interact
--		with VideoCore, via the VCHIQ core driver (Check BCM2835_VCHIQ
--		for more info).
--
--		This can be set to 'N' if the VideoCore communication is not
--		needed by userspace but only by other kernel modules
--		(like bcm2835-audio).
--
--		If not sure, set this to 'Y'.
--
--endif
--
- source "drivers/staging/vc04_services/bcm2835-audio/Kconfig"
- 
- source "drivers/staging/vc04_services/vchiq-mmal/Kconfig"
-diff --git a/drivers/staging/vc04_services/Makefile b/drivers/staging/vc04_services/Makefile
-index c14be508dcddd459f0aff762782b7622d69a5b2b..7a716a5c781530b673027b9f82ec94ebfd615f8a 100644
---- a/drivers/staging/vc04_services/Makefile
-+++ b/drivers/staging/vc04_services/Makefile
-@@ -1,16 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--obj-$(CONFIG_BCM2835_VCHIQ)	+= vchiq.o
--
--vchiq-objs := \
--   interface/vchiq_arm/vchiq_core.o  \
--   interface/vchiq_arm/vchiq_arm.o \
--   interface/vchiq_arm/vchiq_bus.o \
--   interface/vchiq_arm/vchiq_debugfs.o \
--
--ifdef CONFIG_VCHIQ_CDEV
--vchiq-objs += interface/vchiq_arm/vchiq_dev.o
--endif
--
- obj-$(CONFIG_SND_BCM2835)		+= bcm2835-audio/
- obj-$(CONFIG_BCM2835_VCHIQ_MMAL)	+= vchiq-mmal/
- 
+> 
+> > Thanks.
+> >
+> > --
+> > Frederic Weisbecker
+> > SUSE Labs
+> 
+> 
 
 -- 
-2.51.0
-
+Frederic Weisbecker
+SUSE Labs
 
