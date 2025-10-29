@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB03BCCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387AACCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z4c969Ew16GaJeZGLcqILIvlzS8wxu70yq5/8cQrC1U=; b=Lu1VCt+t69ax3Zsk6ypO68G9rC
-	E5rvK8/9i0uCkS8tBpXm/FRO2nDQ/++bFjU0E8JVUqifdsBJNIbkjwPWv0yozNHNwP6qs0nrSm+UN
-	0hDt8RPvWvwJPQIMPVmw0SmtLa5BQciBImCHwQB0A23mC6H4qW6UDtz+7iOt+EvtvFCY/FHcfcYNn
-	px2gY80mehR3MMEkooY+ZED+T9AnNs6/ZUBN/ryebqDTZL+a9u9uONAaZOg7XKSm2ZYCEI20Dq6tm
-	XQ9eiUvagf6pxrFFP0sHIK7vxXsex7dStR1RXNXDKhvmtTIgjeNANHWAi/p9lWrvKyozci3jqAoeg
-	lg+oTq4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1+/I2yfPoWDJTBN37DUOvTovSE+HP8yoku6LrNjmVH0=; b=F/LgS6HByyMFYXmmryRwn7pBRM
+	nPzSzXLX+4dUmMkQFNpPSNxrxwcK+Sa6JwVa6Q35UzJ1mLL0/dxHFTIo6BtVfuOUzM8oE0nLjpk0w
+	p+ZnhYmHKb15rRvOYl7lxG+tRec6XASymHnxDzZLiBxtqi3tNoxHLPPTCHr1hzgjjM+edDNwwqLe7
+	vpuoiLb+4QPuEJmlfFSDxo1oYHnMwIMIQE+uk+8JG/LeSBn8h3ZAeDZMyZnnZSRJcdmyzlE1h7h1m
+	I11phlbQUAW2W1gXxK0n6aNMD+xQ494hS59lXA4EJrRyDdQqRYaLXrZi2xJ3zxb8TiNiHPCJ0ivDJ
+	wRSJymJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7U5-00000001eat-2jhb;
-	Wed, 29 Oct 2025 14:49:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vE7Un-00000001epR-0YL4;
+	Wed, 29 Oct 2025 14:49:53 +0000
+Received: from mail-ej1-f45.google.com ([209.85.218.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7U3-00000001eaT-3TYb;
-	Wed, 29 Oct 2025 14:49:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A44E661E65;
-	Wed, 29 Oct 2025 14:49:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA588C4CEF7;
-	Wed, 29 Oct 2025 14:49:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761749346;
-	bh=HxTqJgI/0X/CEmspyZav8h3FXPWX3qB1qsKFzsoN4as=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tlja5Mq4eRWp697QA/xQ+7a9KJbcnrMdob9cxsXt9OIQA755+bFzbNzRv16bZ4K7i
-	 B9LDftZXKO7gStpMqGdXCVrWsVQ+ROKQ4K+QvkxPz38VTj++u90ce6yRHNCsPSi5pD
-	 v/JhE3LMKbYoWFWsQEzSVXb3Hm7XB2z8+8xOj7ZC7Xvnlx4rEDqU8ejlyTgLe/T9R2
-	 3vUJArOhgOLb46RZqe+pCWQx7olKyL6EJb+OqaocNuhbMh3d/KGFm/ek9z7wlrO99H
-	 rF7V3yVMeDSwqgzEw1be+gsJR70/J/KwRrqpNcrj62az9WVQF5F5bIT1qWPQ84EK24
-	 yw1IH2IxbPQpw==
-Date: Wed, 29 Oct 2025 15:49:03 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
- immediately after a switch to kernel CR3
-Message-ID: <aQIpXyX-z8ltB1i5@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-28-vschneid@redhat.com>
- <aQDoVAs5UZwQo-ds@localhost.localdomain>
- <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <aQHtBudA4aw4a3gT@localhost.localdomain>
- <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	id 1vE7Uk-00000001en2-1lHh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 14:49:51 +0000
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-b70406feed3so98889266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:49:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761749388; x=1762354188; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1+/I2yfPoWDJTBN37DUOvTovSE+HP8yoku6LrNjmVH0=;
+        b=etukufPkiyGaGp0ge9njDHBEFsU1gCHs+c7CazFp5pli9pnlYfMqye5EGs7Brk5hwX
+         KY0QbcGpLdmcvAg2G8xBAMMjHXdDCXOJB0Y/Qw7sffn9c/1vz+obbXOYnDL8fhE9UBS9
+         oyjie0x0kO/qHKMSbwLzy9ond7VjeuCVaTBCyHL9LeNOuNonUsaI8E4A7Phep2587GcI
+         aJi2LTK2ztd2nVcZM8uzqeFhr+s7Y/8iBVgxo4/r+baHF3Aql/GTEBCnPgtfrqW3OEj9
+         Fi9bAGZAPB1TjWhNY1javjVVi/erjUWJu/cQMJJl5X1ixxxSu78RHYi545/eQH4ocTB/
+         rlxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761749388; x=1762354188;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1+/I2yfPoWDJTBN37DUOvTovSE+HP8yoku6LrNjmVH0=;
+        b=Axx04yIrsZg1+GiBYJ8DUMRW2iP9OaRbsXGg1H7T7ZSInuVrq1efWAMu2cmtyb+E2x
+         UK4NhY/0Hp6n0PspngG92Tx7x/Wn89777C7BPXl04jYqrpX6aLqBYhh/SVlKjWz8NKQ6
+         JO65jqGifK9NY685ERs4jjw0GiUUcApO3bng3431744+frDRvtlToJsqMn3HX5KmhrK+
+         1CaaFL+MaxprOp4dYhDams0GlrI165RJSRSpvtUQONx+rwdHIqAWKn+Nie4H8zSWLMo4
+         tdoE8RPuWqGrJZOOpj1hnNGUyJxlbKm8MfVPoeKqbPDfZtP2UoUV2BFmT6nRTHkWrylz
+         M4Kg==
+X-Forwarded-Encrypted: i=1; AJvYcCVfWgZ6gbKd/5W3dkGVYfzs7zsDnfhHuDYtDmzJTS62gi7DifzFyJN1pXWVQqO6jrJWXl0wnbR+Z1FlUFOUvvDb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXt4XKxqeVHb3iM0zXom/p0pmY+G7aV6oWzqAyNngfixNzhfG+
+	N74jFXt1S7QA6jFvQnl2HvOECT0ojxydaaoWdaIoyPAWcc4mBs4lwlnX
+X-Gm-Gg: ASbGncsphfDhqRPQZ1Dh98xhajZai7dYX7LuxIzS6eeeVZQGzwrNWr4rlOSmMnDA31X
+	2mc3ZOcztMbCOsnlhan2WTjl9MKG9+R8El8HcN3RsvwBgtCxpEEu4X2IbBDZR11Y5NnJO7D6hzI
+	ZciA4JnJHhvlrAFg7SJfsp2tHE6jT5woYz0H3/GecJU8gkuC+66hTG8X/q2AcsvWlOdUltEBjEZ
+	pV/728vtCV6Lym0yL66i/cu/FdhgxQMYi80L0fSZNv0O/BQFLuvPFXDhX6UeTF4bGKFxqlvWScN
+	iLw5UmSr+sQVmfrfYhhnepO/HSf9uRhitoCm2kVJssYqawTSI2vRM9gr6K2StzofHKW/CowLjyN
+	zhH9H5TtAzewdp34EwqJjSpgG2WWNTgeTtpJklsNLJvaBQGrzG50Nr6nJG8/03leyfQOGBjxn6+
+	WbkIEwcbr16tno/BEquRGtJDMgoa/MDwKQ
+X-Google-Smtp-Source: AGHT+IH7Dg5hdlveNGeW6IpzIDCcpEZ/tZk4UbIRTBBgmJ7JsmueX6/YbGVE72Hk++yrO2YhhzUdTg==
+X-Received: by 2002:a17:907:7f0f:b0:b6d:95b3:7f11 with SMTP id a640c23a62f3a-b703d555a7amr325167466b.58.1761749387588;
+        Wed, 29 Oct 2025 07:49:47 -0700 (PDT)
+Received: from [10.25.210.164] ([128.77.115.157])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d854395absm1463176966b.62.2025.10.29.07.49.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 07:49:47 -0700 (PDT)
+Message-ID: <b939e7f7-6be6-4f07-97f2-a3146682fbe7@gmail.com>
+Date: Wed, 29 Oct 2025 07:49:44 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: imx8mp: add aipstz-related definitions
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250821105634.1893-1-laurentiumihalcea111@gmail.com>
+ <20250821105634.1893-4-laurentiumihalcea111@gmail.com>
+ <cc465cae-a1b2-4116-82fa-ae42ad0706d3@kernel.org>
+Content-Language: en-US
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <cc465cae-a1b2-4116-82fa-ae42ad0706d3@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251029_074950_469039_7E36EE19 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,61 +108,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Oct 29, 2025 at 03:13:59PM +0100, Valentin Schneider a écrit :
-> On 29/10/25 11:31, Frederic Weisbecker wrote:
-> > Le Wed, Oct 29, 2025 at 11:16:23AM +0100, Valentin Schneider a écrit :
-> >> On 28/10/25 16:59, Frederic Weisbecker wrote:
-> >> > Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a écrit :
-> >> >> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions - kernel is built with
-> >> >>      andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
-> >> >>  .endm
-> >> >>
-> >> >> -.macro COALESCE_TLBI
-> >> >> +.macro COALESCE_TLBI scratch_reg:req
-> >> >>  #ifdef CONFIG_COALESCE_TLBI
-> >> >> +	/* No point in doing this for housekeeping CPUs */
-> >> >> +	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
-> >> >> +	bt	\scratch_reg, tick_nohz_full_mask(%rip)
-> >> >> +	jnc	.Lend_tlbi_\@
-> >> >
-> >> > I assume it's not possible to have a static call/branch to
-> >> > take care of all this ?
-> >> >
-> >>
-> >> I think technically yes, but that would have to be a per-cpu patchable
-> >> location, which would mean something like each CPU having its own copy of
-> >> that text page... Unless there's some existing way to statically optimize
-> >>
-> >>   if (cpumask_test_cpu(smp_processor_id(), mask))
-> >>
-> >> where @mask is a boot-time constant (i.e. the nohz_full mask).
-> >
-> > Or just check housekeeping_overriden static key before everything. This one is
-> > enabled only if either nohz_full, isolcpus or cpuset isolated partition (well,
-> > it's on the way for the last one) are running, but those are all niche, which
-> > means you spare 99.999% kernel usecases.
-> >
-> 
-> Oh right, if NOHZ_FULL is actually in use.
-> 
-> Yeah that housekeeping key could do since, at least for the cmdline
-> approach, it's set during start_kernel(). I need to have a think about the
-> runtime cpuset case.
 
-You can ignore the runtime thing and simply check the static key before reading
-the housekeeping mask. For now nohz_full is only enabled by cmdline.
+On 8/24/2025 4:29 AM, Krzysztof Kozlowski wrote:
+> On 21/08/2025 12:56, Laurentiu Mihalcea wrote:
+>> +#endif /* __IMX8MP_AIPSTZ_H */
+>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> index b62bb821cf61..afcd8c785cfd 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> @@ -13,6 +13,7 @@
+>>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>  #include <dt-bindings/thermal/thermal.h>
+>>  
+>> +#include "imx8mp-aipstz.h"
+> Completely unused define. Your patchset is not organized in logical chunks.
 
-> Given we have ALTERNATIVE's in there I assume something like a
-> boot-time-driven static key could do, but I haven't found out yet if and
-> how that can be shoved in an ASM file.
 
-Right, I thought I had seen static keys in ASM already but I can't find it
-anymore. arch/x86/include/asm/jump_label.h is full of reusable magic
-though.
+ACK, will squash this into patch 4.
 
-Thanks.
 
--- 
-Frederic Weisbecker
-SUSE Labs
+>
+>>  #include "imx8mp-pinfunc.h"
+>>  
+>>  / {
+>
+> Best regards,
+> Krzysztof
 
