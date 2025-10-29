@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79265CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 08:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E77CCF9F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 08:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7nk2K4XMLSHImV3+AWquNILeLFI/ybhozZJgg6ksy8=; b=n+ek1Jg486rVkW5sZ/FIMppUyz
-	nNDlCceXFbMS1e4BBruKLfT6rw2KN0atUkKl5rYrVWezz/8Sbbkb09ODoI9mMlK+lnVwjYCNr0Xqr
-	cL4hO4INitqFTpXb97Cs6GqxEW5K+dYn979oL65LdtU0bw9ohQNAxYYrLvJ/trJ2u+QKy3bmf1wBM
-	R5vGf1HdpbW+Hl+fh7ltCsBkPlgvgxpj6fHSIQtHQVgRctfs4lMs73GvJmZyMcaH+4eA30vvYbIiB
-	oDEpPHtqHdunzCSabHfVlxxJpR23Kdx7aItS154AvthkwCcZ06xTaKSKTKa+GGOywThGuslgKmGHI
-	P7XP8FFw==;
+	bh=hVjgliNjjNY5DTw+H/T+xjNJhzSUjfvXErokGOc680M=; b=2vlTQd4l2s8SBY34fFpXTJGcI/
+	m40BiHiOu27y4rfiCmK9KM8GQPW7hYKJieNeP48sEzOqbgBO7zIWSQwzlwiOl7pwqImTJXmihx2tn
+	FvpzfgWw+C5AVFbtjmAujk/XqJtuSOfln/39LnSGuASNQETgFYJY1Ylj+xepzJPyNF9VjhQx3W2O6
+	vI4n/5ToeMEC5bJZbJIxVCBrpaeXRn32l1t4aXrNOKoKUlbcQYhCttVnBsqrxWr1+eejepPSa0Ctr
+	MVqur1eBIne89ZOmSw2g1wqkzuocxBCWQ26BEgsxaV2IbOcrG3bgGOrxsmUhTbopYB6v3HkqgxEBO
+	yXavF39A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE1NJ-00000000FxT-2mnX;
-	Wed, 29 Oct 2025 08:17:45 +0000
+	id 1vE1NU-00000000GCk-3PdC;
+	Wed, 29 Oct 2025 08:17:56 +0000
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE1N6-00000000FYx-2elD;
+	id 1vE1N8-00000000Faa-2Lil;
 	Wed, 29 Oct 2025 08:17:35 +0000
-X-UUID: b5af7a52b49f11f09f706fa2197c6ceb-20251029
+X-UUID: b7aa22f8b49f11f09f706fa2197c6ceb-20251029
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=I7nk2K4XMLSHImV3+AWquNILeLFI/ybhozZJgg6ksy8=;
-	b=D9FNVZD7ri4xjMhmxLzfGyOcT0FIi/TktrhjGx3e+o2y/IHo9PNg9os2fLRkjLEVD7XR5/VTZx/unyOcL/n5kQrfoDL4XjDJN8gbz6YQw/47o9eBYz454pUEp6vipu386XFxuEOuunQIMJ9bJrBLH/xu0b7jEUzue7Nb+O22rio=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=hVjgliNjjNY5DTw+H/T+xjNJhzSUjfvXErokGOc680M=;
+	b=e69gbQFsUk45ZJwKcPC22bxIcuqefLMQ3/zHTFVEyQqu3aplCleP23vAJhMYjHBnwUic5m0lmVHPhZ96zCymOrL6kdhR5SjO4cVhE0WYkNApiRpiPcbiorvk2ZWJDxMwQ580rNcIID7cD1VkuaAsnBY9gCrHWXlsFMXwwZC65bg=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:def3bef6-9f73-45e6-918d-6b0f6676157b,IP:0,UR
-	L:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-20
-X-CID-META: VersionHash:a9d874c,CLOUDID:6f6ef23a-b16f-49fc-bb37-560773c432f7,B
+X-CID-O-INFO: VERSION:1.3.6,REQID:d9eae02c-f740-4869-b40b-0d968b613e06,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:9f3ef258-98d8-4d0a-b903-bc96efd77f78,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:1,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: b5af7a52b49f11f09f706fa2197c6ceb-20251029
+X-UUID: b7aa22f8b49f11f09f706fa2197c6ceb-20251029
 Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
 	(envelope-from <kyrie.wu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1069979986; Wed, 29 Oct 2025 01:17:28 -0700
+	with ESMTP id 1157848415; Wed, 29 Oct 2025 01:17:32 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Wed, 29 Oct 2025 16:17:25 +0800
+ 15.2.1748.26; Wed, 29 Oct 2025 16:17:28 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Wed, 29 Oct 2025 16:17:24 +0800
+ 15.2.1748.26 via Frontend Transport; Wed, 29 Oct 2025 16:17:28 +0800
 From: Kyrie Wu <kyrie.wu@mediatek.com>
 To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
@@ -63,9 +63,9 @@ To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>
-Subject: [RESEND v10 07/12] media: mediatek: jpeg: fix decoding resolution change operation
-Date: Wed, 29 Oct 2025 16:17:12 +0800
-Message-ID: <20251029081717.29551-8-kyrie.wu@mediatek.com>
+Subject: [RESEND v10 11/12] media: mediatek: jpeg: add jpeg compatible
+Date: Wed, 29 Oct 2025 16:17:16 +0800
+Message-ID: <20251029081717.29551-12-kyrie.wu@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20251029081717.29551-1-kyrie.wu@mediatek.com>
 References: <20251029081717.29551-1-kyrie.wu@mediatek.com>
@@ -74,8 +74,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_011733_404079_E207AAF9 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20251029_011734_605494_5D0D6627 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,56 +90,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1.add a judgement for src buffer to avoid kernel crash
-in the stop streaming function;
-2.When a resolution changing occurs, it needs to set new
-resolution parameter immediately and then report this event.
-Otherwise, if the original software process is maintained,
-the resolution change event is reported firstly, the CPU is
-dispatched to the app to process the event, and the driver
-does not set a new resolution, which will cause parameter errors.
-3.After a resolution change occurred, decoding should not continue,
-needs to wait until new buffers are ready and the state machine
-changed.
-
-Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interface")
+Add jpeg dec and enc compatible for mt8196
 
 Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 ---
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 34 +++++++++++++++++++
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  |  3 ++
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  |  3 ++
+ 3 files changed, 40 insertions(+)
 
 diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 3eff46e4427a..6c0d5eacabf6 100644
+index 485622c87136..f3adc67e62ec 100644
 --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
 +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -880,7 +880,8 @@ static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
+@@ -1925,6 +1925,19 @@ static struct mtk_jpeg_variant mtk8195_jpegenc_drvdata = {
+ 	.jpeg_worker = mtk_jpegenc_worker,
+ };
  
- 		vb = v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
- 		src_buf = mtk_jpeg_vb2_to_srcbuf(&vb->vb2_buf);
--		mtk_jpeg_set_queue_data(ctx, &src_buf->dec_param);
-+		if (!IS_ERR_OR_NULL(src_buf))
-+			mtk_jpeg_set_queue_data(ctx, &src_buf->dec_param);
- 		ctx->state = MTK_JPEG_RUNNING;
- 	} else if (V4L2_TYPE_IS_OUTPUT(q->type)) {
- 		ctx->state = MTK_JPEG_INIT;
-@@ -1742,11 +1743,15 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 
- 	if (mtk_jpeg_check_resolution_change(ctx,
- 					     &jpeg_src_buf->dec_param)) {
--		mtk_jpeg_queue_src_chg_event(ctx);
-+		mtk_jpeg_set_queue_data(ctx, &jpeg_src_buf->dec_param);
- 		ctx->state = MTK_JPEG_SOURCE_CHANGE;
-+		mtk_jpeg_queue_src_chg_event(ctx);
- 		goto getbuf_fail;
- 	}
- 
-+	if (ctx->state == MTK_JPEG_SOURCE_CHANGE)
-+		goto getbuf_fail;
++static struct mtk_jpeg_variant mtk8196_jpegenc_drvdata = {
++	.formats = mtk_jpeg_enc_formats,
++	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
++	.qops = &mtk_jpeg_enc_qops,
++	.m2m_ops = &mtk_jpeg_multicore_enc_m2m_ops,
++	.dev_name = "mtk-jpeg-enc",
++	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.multi_core = true,
++	.jpeg_worker = mtk_jpegenc_worker,
++};
 +
- 	mtk_jpegdec_set_hw_param(ctx, hw_id, src_buf, dst_buf);
- 	ret = pm_runtime_resume_and_get(comp_jpeg[hw_id]->dev);
- 	if (ret < 0) {
+ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
+ 	.formats = mtk_jpeg_dec_formats,
+ 	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
+@@ -1938,6 +1951,19 @@ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
+ 	.jpeg_worker = mtk_jpegdec_worker,
+ };
+ 
++static const struct mtk_jpeg_variant mtk8196_jpegdec_drvdata = {
++	.formats = mtk_jpeg_dec_formats,
++	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
++	.qops = &mtk_jpeg_dec_qops,
++	.m2m_ops = &mtk_jpeg_multicore_dec_m2m_ops,
++	.dev_name = "mtk-jpeg-dec",
++	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
++	.multi_core = true,
++	.jpeg_worker = mtk_jpegdec_worker,
++};
++
+ static const struct of_device_id mtk_jpeg_match[] = {
+ 	{
+ 		.compatible = "mediatek,mt8173-jpgdec",
+@@ -1959,6 +1985,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
+ 		.compatible = "mediatek,mt8195-jpgdec",
+ 		.data = &mtk8195_jpegdec_drvdata,
+ 	},
++	{
++		.compatible = "mediatek,mt8196-jpgenc",
++		.data = &mtk8196_jpegenc_drvdata,
++	},
++	{
++		.compatible = "mediatek,mt8196-jpgdec",
++		.data = &mtk8196_jpegdec_drvdata,
++	},
+ 	{},
+ };
+ 
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+index 31765e897d57..b5d7304c73ac 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+@@ -45,6 +45,9 @@ static const struct of_device_id mtk_jpegdec_hw_ids[] = {
+ 	{
+ 		.compatible = "mediatek,mt8195-jpgdec-hw",
+ 	},
++	{
++		.compatible = "mediatek,mt8196-jpgdec-hw",
++	},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, mtk_jpegdec_hw_ids);
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+index cae03ba6e88d..6bce80f649b2 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+@@ -52,6 +52,9 @@ static const struct of_device_id mtk_jpegenc_drv_ids[] = {
+ 	{
+ 		.compatible = "mediatek,mt8195-jpgenc-hw",
+ 	},
++	{
++		.compatible = "mediatek,mt8196-jpgenc-hw",
++	},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, mtk_jpegenc_drv_ids);
 -- 
 2.45.2
 
