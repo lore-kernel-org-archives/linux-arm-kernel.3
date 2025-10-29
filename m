@@ -4,72 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31960CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D35CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:51:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v7pPSxVjfFnZqAxMJ+sGIAdHaQdsCPSzUAxM2mL0tpI=; b=eunpEK6vRKKU0q9fkSVHN66WEG
-	XyECP1uB91FwjKuX+V62PAu+3rcRuCnfuhEUuBrgNu2jw90YF4Et6YjQYaEpl7so9lZhEkoCPHebZ
-	J5aYU4zKFBKVZeRNbZDeKL6//CHxxHGeRI721N5fDYVy5uDqtsTUvGeRdpDsTH3GACWBZfeqQ0c6H
-	jThuI5sF+K2oIpC6ajZ7S+sxRDzxWQbWs8KVThJquIuYg6ZCx76DzHxRnkU6wmeO5G/twA6o5vRto
-	gRsnWB/kDNbg8l7AebzYe49iU9kTKz9Ye8GqBuHSqqbdjuo1IzKVmD8uSCu18QT9FsmE2Ktk/r0t6
-	BAMX/wUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tdMmTEVXmrdUQVal1cKnxdF6jTyKX4No0foVL6qsIc0=; b=QYsSgkiwnUP6+QIO5zq47wWa2e
+	VDEMwviU4rJ03+8lIkbSn/0+YrDbNu0XV8B2LhsqVwm0z6xyVqV1gnuD4HFdyErZQIIGe1ROcmcEq
+	1E2J5HcEEZ1KHFhBPipI5E7tpALxZ2GVjKdWqlZJYFO8iFvG2z0aeAMxTr1Q4utpsPt7165Ye3tOy
+	Sw0PqLXA0sBZffoHWhXytC9IoGL4JIx9rmuuffbxMXZNvQY2ytDVzl5HGsdlTGLW9al8DNVvwOt9e
+	VOLtDragGmmhEp9dJ479Q0tsD+ynEOmmPa8zjLN/DZpT/g6KmkjcM1IG6OYT1zcDJlNyH1/RuQebV
+	jhS1RyHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2pW-00000000ZpX-3mMd;
-	Wed, 29 Oct 2025 09:50:58 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vE2pc-00000000Zsu-3BcQ;
+	Wed, 29 Oct 2025 09:51:04 +0000
+Received: from mail-ua1-f52.google.com ([209.85.222.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2pU-00000000Znm-1nli
+	id 1vE2pV-00000000Zog-3pQO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 09:50:58 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C49AC1A1730;
-	Wed, 29 Oct 2025 09:50:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 90DAD606E8;
-	Wed, 29 Oct 2025 09:50:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BB9BC117F1CA5;
-	Wed, 29 Oct 2025 10:50:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761731451; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=v7pPSxVjfFnZqAxMJ+sGIAdHaQdsCPSzUAxM2mL0tpI=;
-	b=C+PZLcyx1AOma7VJkAQZZamM3jX0cbRO4grqIhfRtY0kvo5ln8ZWYiWvTgboKjYp9RMqfg
-	poaMjO7bu0CGfHkOk38U8B7R4yUd22FZ8AmaZ9I2fX//KKHxZCWPmbBN/+vWw0dQjNj+uj
-	ILvXecH/0NwNl6DlXhTRJ9wQLgH+V6wpOMOF4Svro3oi7qO9xgFYQtn2Sk+7cIomj6kH12
-	Ug/luwRNYTG5xGpnE+dCfPieMpaEh63NLKN7Jwk8kq1hyf/Szizz5tZc/daHaF/UOb0CMB
-	n38t5nT3aFmSgS0VPfmm9S0POfEqGfCLqQPi/sN8/Xr8+rM7tEmtm/2gyrzT/A==
-Message-ID: <07589613-8567-4e14-b17a-a8dd04f3098c@bootlin.com>
-Date: Wed, 29 Oct 2025 10:50:44 +0100
+	Wed, 29 Oct 2025 09:50:59 +0000
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-932c42aaf14so5536962241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 02:50:57 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761731456; x=1762336256;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tdMmTEVXmrdUQVal1cKnxdF6jTyKX4No0foVL6qsIc0=;
+        b=snXyE1V30xye7xNya4jCjbkhQOuGbRHCGFQBV/xDagpmOg1cxVXnkO8h6i772Fi0CC
+         uG0q3JAQiZ9BsgObT9UWcs/t+Ix6Iv4SHAAm2VVW5lqZAUC06u6NH+PIZbboRGl6jqHK
+         GdaUHGEW66IOwV2ArXH+DysbsDdnTdP4BEnTn2ss1cY0Wi4yVa1hpcz+FlCjn+/A5iYq
+         Ah3lsSBkcDH9Gga7Ct0yGWcohx/QkKSYwLEtQvIh7xOvS5LD1COvQX4TRIICdyployp8
+         hvKiTEzvFeYEXmIqjkXvTKMRrPYiMXHp0kVYHWLc0jeNJ97DKIKDx2DynbyhtI+KAdnR
+         yHKw==
+X-Forwarded-Encrypted: i=1; AJvYcCX7E7tGqnP3G11LBzGLM3VkKpx3rmPRM0ouN5FnyJIcXG0LXSEPepZT0p+dO9VZvYdNcyvD5B207uY07C7WQlb6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU88dvwp5faEoWaNZjDEoYsvoDrZFhToItZdezSd173J7pqTn+
+	vUJUmBFe0dBsPGgj/3cohsiwXEVD6Gs6FKYM9aVtOCRKciKeLTMnt8EuDj37GYYr
+X-Gm-Gg: ASbGncunPdR3JA07rW+LaLCSio4qfKijS+3LHitS9Bmgr8SZJuu9xoEAPSp1KlwVZ9k
+	jbS/JxAIdqpi80nvl0kwjBvHeD0TZ5E/t8EvXuirCLhwL+U8NNzBMo1WZsqRSVU9VFEhIYcJ3gk
+	5P7m5XgDnYMvyUsF3+M5qhHMDohp7Qk6iHovcertgCYHf+Ego/+fPcHdvjkuUiaqgGECAyBbSH3
+	l5vD3bad3xYY68GyoXTRBSgRjtyvYfAOPalTVkcOzjOJgE6qrvLGLnuWXWzRYxGdgxiJFNvRlYG
+	IWO94X6okHvA5ci7KFrDNhgG2VyCL1aLG7996ZXNu0GNGkJDjy9saUvNY/VghtrMeS675anQvKG
+	cMwhbVzbCyeX3i+ujh2Eiw2uh3ytWHAgpNws6bnD6GWWyrHeu8SKsDfAkDqCvTXpflE7UmhGJQY
+	Z8Rq2XkIQUKlXopXRDPibwyew0mo7I+RhK1U+BYQ==
+X-Google-Smtp-Source: AGHT+IEBGowKZ5zds6QLLB8DhHWZXzEV0vztzDKf20sKkeTJez+wNOdkx21SC4ntggi50ioE0ayWhw==
+X-Received: by 2002:a05:6123:2e6:b0:542:d782:2522 with SMTP id 71dfb90a1353d-5581420df03mr712471e0c.14.1761731455627;
+        Wed, 29 Oct 2025 02:50:55 -0700 (PDT)
+Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com. [209.85.217.46])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-557ddb08b9bsm5277806e0c.6.2025.10.29.02.50.54
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Oct 2025 02:50:54 -0700 (PDT)
+Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-5db7dcab01bso1728299137.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 02:50:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWVEEbg/LiS10bXYGG/aEAmEh+x/YYB3RQxmPoA6Oex7nYEyx1PHfAUDm/h0PELi4pWdyZwMF4L0QBDPlEyAavp@lists.infradead.org
+X-Received: by 2002:a05:6102:d87:b0:5d5:f6ae:390a with SMTP id
+ ada2fe7eead31-5db906e1ea2mr632557137.40.1761731454123; Wed, 29 Oct 2025
+ 02:50:54 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 4/4] net: stmmac: socfpga: Add hardware supported
- cross-timestamp
-To: rohan.g.thomas@altera.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
- <20251029-agilex5_ext-v1-4-1931132d77d6@altera.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20251029-agilex5_ext-v1-4-1931132d77d6@altera.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
+ <20251022070543.1169173-5-ryan_chen@aspeedtech.com> <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
+ <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com> <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <71df9bdf-53b2-45e2-a9e3-5b00a556f957@lunn.ch> <TY2PPF5CB9A1BE6F3E95C7FD61CF4F90ECAF2FEA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <fdbc471f-514e-4521-b7a1-dcf6127d64ff@lunn.ch> <TY2PPF5CB9A1BE6DD93D0F397C961D5CB5AF2FCA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <01573262-69a8-44cf-ae02-2e9842c59dde@lunn.ch> <TY2PPF5CB9A1BE665D988A413B8BCD5CA27F2FAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <7c0c966b-c45f-47ad-9243-b945036a9bd2@app.fastmail.com>
+In-Reply-To: <7c0c966b-c45f-47ad-9243-b945036a9bd2@app.fastmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 29 Oct 2025 10:50:43 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVueyxmATwS_EnqBBPtX-O0bw6Ubnj-Dey8wN=pEvo_zA@mail.gmail.com>
+X-Gm-Features: AWmQ_blS6idckwhpIjkOWHP0NGDWxrc7vZpSwkjlsFZQOSpuaInPPIOtTjyVPpU
+Message-ID: <CAMuHMdVueyxmATwS_EnqBBPtX-O0bw6Ubnj-Dey8wN=pEvo_zA@mail.gmail.com>
+Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device tree
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>, Andrew Lunn <andrew@lunn.ch>, 
+	BMC-SW <BMC-SW@aspeedtech.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Jeremy Kerr <jk@codeconstruct.com.au>, 
+	Lee Jones <lee@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Nishanth Menon <nm@ti.com>, 
+	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	Taniya Das <quic_tdas@quicinc.com>, 
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_025056_627148_CC8BA811 
-X-CRM114-Status: GOOD (  25.90  )
+X-CRM114-CacheID: sfid-20251029_025057_964151_9D0F8794 
+X-CRM114-Status: GOOD (  40.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,185 +114,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rohan,
+Hi Arnd,
 
-On 29/10/2025 09:06, Rohan G Thomas via B4 Relay wrote:
-> From: Rohan G Thomas <rohan.g.thomas@altera.com>
-> 
-> Cross timestamping is supported on Agilex5 platform with Synchronized
-> Multidrop Timestamp Gathering(SMTG) IP. The hardware cross-timestamp
-> result is made available the applications through the ioctl call
-> PTP_SYS_OFFSET_PRECISE, which inturn calls stmmac_getcrosststamp().
-> 
-> Device time is stored in the MAC Auxiliary register. The 64-bit System
-> time (ARM_ARCH_COUNTER) is stored in SMTG IP. SMTG IP is an MDIO device
-> with 0xC - 0xF MDIO register space holds 64-bit system time.
-> 
-> This commit is similar to following commit for Intel platforms:
-> Commit 341f67e424e5 ("net: stmmac: Add hardware supported cross-timestamp")
-> 
-> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> ---
->  .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 125 +++++++++++++++++++++
->  drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     |   5 +
->  2 files changed, 130 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> index 37fcf272a46920d1d97a4b651a469767609373b4..d36c9b77003ef4ad3ac598929fee3f7a8b94b9bc 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> @@ -5,6 +5,7 @@
->   */
->  
->  #include <linux/mfd/altera-sysmgr.h>
-> +#include <linux/clocksource_ids.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
->  #include <linux/of_net.h>
-> @@ -15,8 +16,10 @@
->  #include <linux/reset.h>
->  #include <linux/stmmac.h>
->  
-> +#include "dwxgmac2.h"
->  #include "stmmac.h"
->  #include "stmmac_platform.h"
-> +#include "stmmac_ptp.h"
->  
->  #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII 0x0
->  #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RGMII 0x1
-> @@ -41,6 +44,13 @@
->  #define SGMII_ADAPTER_ENABLE		0x0000
->  #define SGMII_ADAPTER_DISABLE		0x0001
->  
-> +#define SMTG_MDIO_ADDR		0x15
-> +#define SMTG_TSC_WORD0		0xC
-> +#define SMTG_TSC_WORD1		0xD
-> +#define SMTG_TSC_WORD2		0xE
-> +#define SMTG_TSC_WORD3		0xF
-> +#define SMTG_TSC_SHIFT		16
-> +
->  struct socfpga_dwmac;
->  struct socfpga_dwmac_ops {
->  	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv);
-> @@ -269,6 +279,117 @@ static int socfpga_set_phy_mode_common(int phymode, u32 *val)
->  	return 0;
->  }
->  
-> +static void get_smtgtime(struct mii_bus *mii, int smtg_addr, u64 *smtg_time)
-> +{
-> +	u64 ns;
-> +
-> +	ns = mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD3);
-> +	ns <<= SMTG_TSC_SHIFT;
-> +	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD2);
-> +	ns <<= SMTG_TSC_SHIFT;
-> +	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD1);
-> +	ns <<= SMTG_TSC_SHIFT;
-> +	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD0);
-> +
-> +	*smtg_time = ns;
-> +}
-> +
-> +static int dwxgmac_cross_ts_isr(struct stmmac_priv *priv)
-> +{
-> +	return (readl(priv->ioaddr + XGMAC_INT_STATUS) & XGMAC_INT_TSIS);
-> +}
-> +
-> +static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
-> +			    void *ctx)
-> +{
-> +	struct stmmac_priv *priv = (struct stmmac_priv *)ctx;
-> +	u32 num_snapshot, gpio_value, acr_value;
-> +	void __iomem *ptpaddr = priv->ptpaddr;
-> +	void __iomem *ioaddr = priv->hw->pcsr;
-> +	unsigned long flags;
-> +	u64 smtg_time = 0;
-> +	u64 ptp_time = 0;
-> +	int i, ret;
-> +
-> +	/* Both internal crosstimestamping and external triggered event
-> +	 * timestamping cannot be run concurrently.
-> +	 */
-> +	if (priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN)
-> +		return -EBUSY;
-> +
-> +	mutex_lock(&priv->aux_ts_lock);
-> +	/* Enable Internal snapshot trigger */
-> +	acr_value = readl(ptpaddr + PTP_ACR);
-> +	acr_value &= ~PTP_ACR_MASK;
-> +	switch (priv->plat->int_snapshot_num) {
-> +	case AUX_SNAPSHOT0:
-> +		acr_value |= PTP_ACR_ATSEN0;
-> +		break;
-> +	case AUX_SNAPSHOT1:
-> +		acr_value |= PTP_ACR_ATSEN1;
-> +		break;
-> +	case AUX_SNAPSHOT2:
-> +		acr_value |= PTP_ACR_ATSEN2;
-> +		break;
-> +	case AUX_SNAPSHOT3:
-> +		acr_value |= PTP_ACR_ATSEN3;
-> +		break;
-> +	default:
-> +		mutex_unlock(&priv->aux_ts_lock);
-> +		return -EINVAL;
-> +	}
-> +	writel(acr_value, ptpaddr + PTP_ACR);
-> +
-> +	/* Clear FIFO */
-> +	acr_value = readl(ptpaddr + PTP_ACR);
-> +	acr_value |= PTP_ACR_ATSFC;
-> +	writel(acr_value, ptpaddr + PTP_ACR);
-> +	/* Release the mutex */
-> +	mutex_unlock(&priv->aux_ts_lock);
-> +
-> +	/* Trigger Internal snapshot signal. Create a rising edge by just toggle
-> +	 * the GPO0 to low and back to high.
-> +	 */
-> +	gpio_value = readl(ioaddr + XGMAC_GPIO_STATUS);
-> +	gpio_value &= ~XGMAC_GPIO_GPO0;
-> +	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
-> +	gpio_value |= XGMAC_GPIO_GPO0;
-> +	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
-> +
-> +	/* Time sync done Indication - Interrupt method */
-> +	if (!wait_event_interruptible_timeout(priv->tstamp_busy_wait,
-> +					      dwxgmac_cross_ts_isr(priv),
-> +					      HZ / 100)) {
-> +		priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
-> +		return -ETIMEDOUT;
+On Wed, 29 Oct 2025 at 08:26, Arnd Bergmann <arnd@arndb.de> wrote:
+> On Wed, Oct 29, 2025, at 03:31, Ryan Chen wrote:
+> >> Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device
+> >> tree
+> >>
+> >> On Mon, Oct 27, 2025 at 02:42:01AM +0000, Ryan Chen wrote:
+> >> > > Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700
+> >> > > SoC device tree
+> >> > >
+> >> > > > SoC0, referred to as the CPU die, contains a dual-core Cortex-A35
+> >> > > > cluster and two Cortex-M4 cores, along with its own clock/reset
+> >> > > > domains and high-speed peripheral set.
+> >> > >
+> >> > > > SoC1, referred to as the I/O die, contains the Boot MCU and its
+> >> > > > own clock/reset domains and low-speed peripheral set, and is
+> >> > > > responsible for system boot and control functions.
+> >> > >
+> >> > > So is the same .dtsi file shared by both systems?
+> >> >
+> >> > This .dtsi represents the Cortex-A35 view only and is not shared with
+> >> > the Cortex-M4 or the Boot MCU side, since they are separate 32-bit and
+> >> > 64-bit systems running independent firmware.
+> >>
+> >> DT describes the hardware. The .dtsi file could be shared, you just need
+> >> different status = <>; lines in the dtb blob.
+> >
+> > Could you please share an example of a .dtsi that is shared between
+> > different CPU architectures?
+>
+> I can think of three that are shared between arm and riscv, with both
+> able to boot Linux using a variation of the same device tree, with
+> the .dtsi file being included from the respective other side:
+>
+> arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+> arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
+> arch/arm64/boot/dts/sophgo/sg2000.dtsi
+>
+> All of these however use the same basic physical address layout
+> as seen from the two CPUs, with only the set of on-chip devices
+> being slightly different, such as using the native irqchip
+> instance per CPU.
 
-Don't you need to set priv->plat->flags |= STMMAC_FLAG_INT_SNAPSHOT_EN first?
-Otherwise, timestamp_interrupt() in stmmac_hwtstamp() won't call wake_up()
-on the wait_queue.
+I can't speak for the last two ones, but the first one is not what Ryan
+is looking for, as r9a07g043 has either an ARM (r9a07g043u) or a
+RISC-V (r9a07g043f) CPU core, not both.
 
-> +	}
-> +
-> +	*system = (struct system_counterval_t) {
-> +		.cycles = 0,
-> +		.cs_id = CSID_ARM_ARCH_COUNTER,
-> +		.use_nsecs = true,
-> +	};
-> +
-> +	num_snapshot = (readl(ioaddr + XGMAC_TIMESTAMP_STATUS) &
-> +			XGMAC_TIMESTAMP_ATSNS_MASK) >>
-> +			XGMAC_TIMESTAMP_ATSNS_SHIFT;
-> +
-> +	/* Repeat until the timestamps are from the FIFO last segment */
-> +	for (i = 0; i < num_snapshot; i++) {
-> +		read_lock_irqsave(&priv->ptp_lock, flags);
-> +		stmmac_get_ptptime(priv, ptpaddr, &ptp_time);
-> +		*device = ns_to_ktime(ptp_time);
-> +		read_unlock_irqrestore(&priv->ptp_lock, flags);
-> +	}
-> +
-> +	get_smtgtime(priv->mii, SMTG_MDIO_ADDR, &smtg_time);
-> +	system->cycles = smtg_time;
-> +
-> +	priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
-> +
-> +	return ret;
-> +}
+> In the AST2700 design, even though we have both Cortex-A35 (64-bit)
+> > and Cortex-M4 (32-bit) cores, each runs in a distinct address space
+> > and sees a different memory map.
+>
+> This is similar to the Cortex-M4 on i.MX7D. This is supported by
+> the Linux code, but I don't see the corresponding dts file for it now,
+> it may have never been merged.
 
-Maxime
+The keyword here is "System DT", where you have a single file describing
+the whole SoC. From this, separate DTS files are generated that
+describe the view for the application CPU core, real-time CPU core,
+control CPU core, etc...
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
