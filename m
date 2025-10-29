@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A98ECCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 13:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B60CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 13:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oOUisOdkXU0bOduvB/ByBLb4wJp/5x2Vdu+Ct3A15wo=; b=vZcjC2kgQLl9InknP0ZBK+1Jzt
-	zvuXa5CAkrMkZjStJq7WXJrqoW34QzmaxzoKC8Hf1hq7PxFZvX7gz03alIz/GvtJwnhJRHcjN0lSw
-	rBJTxT9sUjgF95Zgp49IjT7VH5+0TTdW+VD2LrG2CVlL0j5fMsaip1pvD+TXSPiP1Qher9oEA/gyW
-	sCfhF1sBe240Z9GmJXHSyk3P6yux0TWW3IZ9KjBueHtlPrT61IPGKd32G4bL4V4JmKO/YwBBxVHZ7
-	GsbxUU3TzMOI7Ur87g702Wpt0m2H+sdw4O9SjrioESXc1XaFuOg5ud1M/77JRiGC8dlFkDWYVNMxd
-	yaxUFHkw==;
+	bh=gTY+fh4/ukja1oSr3pfFFJ7ZbrQGeiX8cxOtmfsJPd4=; b=i/ood1Ck0DkBvKsCXlzJA1UlRn
+	5Pp/6orfTOmgXZ05p9QoFHzRb4+iCA9N/6KCdJTssBT4GkAI/ozCYXtHTws99TlnI9lc5hMEEzG61
+	si/k3nSOuhMhckbkTJ9FhRBL5kLx+d8yt3ZAtk8V0LrHjTJDhiYPt+NPP1FrED1Ie62b75Ls8QjYQ
+	dG0qOtHQdDx7olJDuVFelX4iNHsGaFRT81YPDpZFmKh3W/Dr3/UZb0syg9NlqDzZcPVlYACpr6TQ7
+	37KsfQNdVmbZ4E5hdURf75yxe8YHtqgyezKPYN7siC9aJpO54tUzSU8kE2ZJt4rBpCGsqqSlkCF/e
+	1VjfvXuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE61r-00000001K3i-29gQ;
-	Wed, 29 Oct 2025 13:15:55 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vE653-00000001Kgm-1V0j;
+	Wed, 29 Oct 2025 13:19:13 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE61p-00000001K2f-144j
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 13:15:54 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-591c74fd958so7971234e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 06:15:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761743751; x=1762348551; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oOUisOdkXU0bOduvB/ByBLb4wJp/5x2Vdu+Ct3A15wo=;
-        b=hU1eBVRsiPn9NvjDajjIe6nFV815St/7p4K0G/DI0aZ8E64oZD8B5aVnIv9AJrq4l7
-         WSE+4GPyUsMRgGsEZ9Stmk8PlPGuYYfZZZY7ZcSxfkZW+gs2TympasgHK+yd0ykdJTXW
-         fXYxlwkNgbf6MFndkbB7escEZq22DO2UM80NywhJi1/TVueuJudCoHBAGyz2qYw4nFuI
-         Sqyub1poXxiLOeQo6srxy7+zZMDQcZzD2xMiwAxdZIurN6kOScdaQNq3Wt9hf3mJl1+K
-         w7auBH4swHrIJHNrmjmPldBA62RV9mqvLkZmnzKBj1dbldIMQHTMwVCaTqIZmgMOW4MB
-         eN8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761743751; x=1762348551;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oOUisOdkXU0bOduvB/ByBLb4wJp/5x2Vdu+Ct3A15wo=;
-        b=Eij7hkWilGguFdUcF3YKryVskqEU+nZOdh2bQ4QcHZbNsIxyo+Y70CMZh98XCwKHr2
-         wBh7tppIQbQCnmXOxqqd/BQj0m4dYVNMDW0AsCV5G74zv/RKHpoZhlxOccQTKGNRuyPV
-         k+WMO0/j8IfTb2kos2w1HMGv9T2kewrgHRE4KcihvjgPYZq/HNzYZI9TKoZjgjTW+1mM
-         PYreBFVZTE4ehKJMNUnhhPf4mZxLyC5KcN2MCIicva/NHpmxH02czJSn1NhKjIFA03t9
-         H9Vc+YJqbddCpGo+gK+N46qFffgPSBRgr4M2d2vCyeWcd4/aYcTpl+WVQkOKSGty216N
-         vsFg==
-X-Forwarded-Encrypted: i=1; AJvYcCX5gN/Ye2qpgEKZ1f9p8S8LCpXEk3qZROPECw08ctpkvnYrGNuUmuoOmUNB3Ga/kItCo5Pn9zE8VjJwTprgghX7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmFagVc7sM3l1rYczBMEvZZF8sSFhMyf++A7z5MEeeqHXVvP8v
-	KqdQyuFfHGaQ8HiD4bVvFbNegpOa9lh7sAK7iUKug4g02cwCDsdreTdlGkKWtBQzm4IzrSipr7g
-	PH5Cmhe0sMJeq6gm79iGbO1PKu0z0HHY7rCc1Mas9mQ==
-X-Gm-Gg: ASbGnculF9PFsefnacOmKkP2ThpUs+ZRV2SE0f9Vmmpjb0eaPzuOYwGueV47A1CnvFj
-	ePHyIeGgmhNBVn15ChuyY8huFZZY1/lSgOx1fB4eQ0Z+PpnN0FYCcR+p+mV5YOl9lWxVoG7HRi6
-	p7D58t/HFAw0VYxMLbubE+qSVBHAEytsH5iZt7pVMqfbQS2anfs+ab+Fv9oxXDzTicjTzBEmcgZ
-	+7uwexzBj/wGUtUUlOxkBrsxgqxYxoV24TKJAMiGlW3lEdczsGUr9ROp4yo0jY1Tar4wmFfnHpJ
-	PJj36yBKqZuDvJQc5biTEpcxzj0=
-X-Google-Smtp-Source: AGHT+IERc+XWdsch1n0sjpOQOzD+cW2IjfHO0Rpz1QeHwY2DnN9gsWkr3+lO2lQRgACmeZoFB2eG85VNyJBLdF9v7Qc=
-X-Received: by 2002:a05:6512:e84:b0:593:5066:8e35 with SMTP id
- 2adb3069b0e04-59412878b7emr1119097e87.13.1761743750670; Wed, 29 Oct 2025
- 06:15:50 -0700 (PDT)
+	id 1vE650-00000001KeZ-2TGy;
+	Wed, 29 Oct 2025 13:19:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:Message-ID:References:
+	In-Reply-To:Subject:Cc:To:From:Date:MIME-Version:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=gTY+fh4/ukja1oSr3pfFFJ7ZbrQGeiX8cxOtmfsJPd4=; b=HviZ1Y9fNLqZQLJBsqf+T5iiuZ
+	VHg4Qq5Zbf3kkn2oBIkKV32E56t/jxmh8kAkCTNx9/v8IaqTbsLd+707COElupQAfkzwVm5wQgb8H
+	9vS5w/DArwM4rgQaoPTo6VLw39iDXuSmLjOhmxEtWY09lHZQAm1yLZxI08zaRKWSx3iT9JK3ymeAy
+	iGxc31YFFgFE2WUgao8mFzvkW/5+Facdw7ONRSCrnISwRzm4JnspiG2hfvEVANaK4j4VTYJCdBgqY
+	G4qLMhiMLJeNisDW5gWdspBpX1Df8MIxpwt36HgsNBe+DEiWwYcVszxCttm4TJa6jdn6rshAHaCdd
+	YRxbJP3g==;
+Received: from maestria.local.igalia.com ([192.168.10.14] helo=mail.igalia.com)
+	by fanzine2.igalia.com with esmtps 
+	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1vE64q-00Gcm4-7S; Wed, 29 Oct 2025 14:19:00 +0100
+Received: from webmail.service.igalia.com ([192.168.21.45])
+	by mail.igalia.com with esmtp (Exim)
+	id 1vE64o-000l86-63; Wed, 29 Oct 2025 14:19:00 +0100
+Received: from localhost ([127.0.0.1] helo=webmail.igalia.com)
+	by webmail with esmtp (Exim 4.96)
+	(envelope-from <uajain@igalia.com>)
+	id 1vE64n-001UFh-1y;
+	Wed, 29 Oct 2025 14:18:58 +0100
 MIME-Version: 1.0
-References: <20251029-qps615_v4_1-v7-0-68426de5844a@oss.qualcomm.com> <20251029-qps615_v4_1-v7-7-68426de5844a@oss.qualcomm.com>
-In-Reply-To: <20251029-qps615_v4_1-v7-7-68426de5844a@oss.qualcomm.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 29 Oct 2025 14:15:37 +0100
-X-Gm-Features: AWmQ_bnxen2afRHV8wd2ApkjxBH0TleB__nu5t1NsDGu_HDLvXbdqDWBWRF_WWQ
-Message-ID: <CAMRc=McWw6tAjjaa6wst6y3+Dw=JT8446wwvQ0_c5LHHm=1Y-Q@mail.gmail.com>
-Subject: Re: [PATCH v7 7/8] arm64: defconfig: Enable TC9563 PWRCTL driver
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	chaitanya chundru <quic_krichai@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
-	Jingoo Han <jingoohan1@gmail.com>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	quic_vbadigan@quicnic.com, amitk@kernel.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com, 
-	linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov <lumag@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Wed, 29 Oct 2025 13:18:57 +0000
+From: uajain <uajain@igalia.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Broadcom internal
+ kernel review list <bcm-kernel-feedback-list@broadcom.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Stefan Wahren
+ <wahrenst@gmx.net>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
+ <thomas.weissschuh@linutronix.de>, Rohit Chavan <roheetchavan@gmail.com>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH] staging: vchiq_arm: delete unnecessary check
+In-Reply-To: <aQIS6Q73Ss8xyJTD@stanley.mountain>
+References: <aQIS6Q73Ss8xyJTD@stanley.mountain>
+Message-ID: <86db61cb04863e9799eb20962a47ecdc@igalia.com>
+X-Sender: uajain@igalia.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_061553_314702_E8C85602 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20251029_061910_921147_E4F7ACBA 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 12:30=E2=80=AFPM Krishna Chaitanya Chundru
-<krishna.chundru@oss.qualcomm.com> wrote:
->
-> Enable TC9563 PCIe switch pwrctl driver by default. This is needed
-> to power the PCIe switch which is present in Qualcomm RB3gen2 platform.
-> Without this the switch will not powered up and we can't use the
-> endpoints connected to the switch.
->
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.co=
-m>
+On 2025-10-29 13:13, Dan Carpenter wrote:
+> Both sides of this if else statement print exactly the same thing.
+> Delete the unnecessary if statement.
+> 
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+
+LGTM,
+Reviewed-by: Umang Jain <uajain@igalia.com>
+
 > ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..fe5c9951c437a67ac76bf939a=
-9e436eafa3820bf 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -249,6 +249,7 @@ CONFIG_PCIE_LAYERSCAPE_GEN4=3Dy
->  CONFIG_PCI_ENDPOINT=3Dy
->  CONFIG_PCI_ENDPOINT_CONFIGFS=3Dy
->  CONFIG_PCI_EPF_TEST=3Dm
-> +CONFIG_PCI_PWRCTRL_TC9563=3Dm
->  CONFIG_DEVTMPFS=3Dy
->  CONFIG_DEVTMPFS_MOUNT=3Dy
->  CONFIG_FW_LOADER_USER_HELPER=3Dy
->
-> --
-> 2.34.1
->
-
-Can't we just do the following in the respective Kconfig entry?
-
-config PCI_PWRCTRL_TC9563
-    tristate ...
-    default m if ARCH_QCOM
-
-Bart
+>  .../staging/vc04_services/interface/vchiq_arm/vchiq_core.c   | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
+> 
+> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> index e2cac0898b8f..130be2f58342 100644
+> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> @@ -4001,10 +4001,7 @@ void vchiq_log_dump_mem(struct device *dev, const char *label, u32 addr,
+>  		}
+>  		*s++ = '\0';
+>  
+> -		if (label && (*label != '\0'))
+> -			dev_dbg(dev, "core: %s: %08x: %s\n", label, addr, line_buf);
+> -		else
+> -			dev_dbg(dev, "core: %s: %08x: %s\n", label, addr, line_buf);
+> +		dev_dbg(dev, "core: %s: %08x: %s\n", label, addr, line_buf);
+>  
+>  		addr += 16;
+>  		mem += 16;
 
