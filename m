@@ -4,164 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2B8CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 05:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B7BCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 06:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ynwy00dR/tsKfVhRmey69t5AYaR9MoKn+r8JSOb5jhg=; b=AgnO3nWUYWSKZayFg01pW6fDxI
-	V6Xg9VB2e2R539DlzRIvkcLXqDak5zi0sgRbSrWYdavGPSN9ZNTSkkIyTICwmA7uBId7dKKVZTqxi
-	hbgRWQOAUcbGnHBhaZyJyAdEGibjQHeohPYwanJugjdXX/fw9VYzf+MasYS3C+hHJ5v2reUosdiRy
-	6GZ/tl27BmtzAvI+eFgeoR7hJSaJiIWWl0K8tZQItRDKx5PTFMvK1VMnZGAWAb2MSlUSBoULDXnFV
-	2hgL+beoB9sudw61F/OSmxx0qQMDP/PSv20zxe5o+SgP46ljGCqj3IiRsmM4OUByEyZluoVH7LWi4
-	jymJwUDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DYLnsFAK/JsDqa1LaxS8dAV3NlsE5WCqgyaXiTQaeLg=; b=kGXFNXc+oGY2rPM5KBSBW7/Fdm
+	081H87yF8R6i3je40g4yXyjr3kg2oVrmjirdGpJFkmW34NvWqVNexikLaI0NWw92BJXgMyIGu/6OS
+	/Hg1KBftjNhu77AiuEtpnm0N6m7o9qGbsDSsiWKnkZi4s6w/f7XgOtxmdTJViSTEtISIA1wNmdOfR
+	GHNWm/uVGE9k28TMJAxXqgprkMn+L86ypZwAJZZSodIaSc0ENVufrJlcnAJnfajXfVecpowFvoOQr
+	CWAI1Z5+uN1FB73dvNcThSkhCvrkRMSoBExAiY9Cgk4j1nMIeKkJpWhcxcj+KNpDYb6B3UVpWBYVq
+	K8jxBWYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDyxs-0000000HLyv-0Ku6;
-	Wed, 29 Oct 2025 05:43:20 +0000
-Received: from mail-japanwestazon11022110.outbound.protection.outlook.com ([40.107.75.110] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vDzWw-0000000HRwb-0HQa;
+	Wed, 29 Oct 2025 06:19:34 +0000
+Received: from mo-csw1801.securemx.jp ([210.130.202.135] helo=mo-csw.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDyxp-0000000HLy1-42XF;
-	Wed, 29 Oct 2025 05:43:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BC2Nvdp0VdFecHVOI2SPeGSCiGinhQRIItAYe7BsBC1d+/x1oPTHJcGF3L65np4NA5oCOkvRyzf9BNlpaqycU1Rvb3Kux3YASyuDmcmhejIHr7xPi5YWjDFsVSdQuIQHEGaTWclqLJMOubN3rrYEZAZ9nP06BD77NSO1AWFYRhO3WjiOb6l3tNFJQ/FV/W+pEY18IRxBMBCTDLleHO223r9ntU1D51AuEWHUuRUnIxQL86SDByQZuKeVThQ0IeMSxdz17l5VqpiSIzUjhaKyERjU8RJlNpAtplApg3Q2L1kTRuSVmKI6Dnov3U3XDNy+rtW4lIJcZ5ttMnjEaTn0rg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ynwy00dR/tsKfVhRmey69t5AYaR9MoKn+r8JSOb5jhg=;
- b=aR7SWAeC2esso5XqRiI4naCjBzzHKIPtcZsj+VTPsKiRUuevLlMWTUPoPeZZIUiaXGYH0LeuBajMX0xjQqE4qDVHfQLVSVv/AzrO8haIqrfCb8KtF1S0K20yGevgRlZxra3Jcc3dr0IstGEFKSvmPBtZ8WTttP97Eb7lFnIuHW+6nB1exG3jEwfVZetP55AejW9znghezXJGrJrSq3k3aVmAA/JEoXVl2C+bPOw/NczRcdGhRogFkPTWD+44t27YN0/Uy0Hpb/3iU3SOoltvtzrWGIQuMfVqe7nkVcMglMhDPR2WT+WDlGjniAq9JPM6gw/Rp3ENox7jNzOeaBWzqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ynwy00dR/tsKfVhRmey69t5AYaR9MoKn+r8JSOb5jhg=;
- b=NtvJaptQw4dNmEMrqtwFnhgToSTZaETwufEtfln8fCKIo27QoQXa/NHhGzP59QJ2YfcABxS9zDwOHSktCIV+kqk79vL3uuvxI43E7WXFLQWCBMP0APxSqcspzsTLCC8sAiXVRC4dXSgOg1M8eSdY5bqECxFr1zrIZXzTuVjv8XnTwLvAlInQk1kCq1cqXbmrgNsB+hJZHUKMoqpbuqA10xzGMZJrfLkuL0eE46YGoI32USW8GhSBuZYUnyYcqeIrxelSxR2kjUqRtrjaU9qC3PadXVBL1ew9tqValrmECx+87KcFZFq+PYngZUlulPphPpQj3pD/eqOPADqR5lrhQw==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by PUZPR06MB5537.apcprd06.prod.outlook.com (2603:1096:301:ed::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
- 2025 05:43:08 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9253.018; Wed, 29 Oct 2025
- 05:43:08 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
-	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "joel@jms.id.au"
-	<joel@jms.id.au>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "vkoul@kernel.org" <vkoul@kernel.org>,
-	"kishon@kernel.org" <kishon@kernel.org>, "linus.walleij@linaro.org"
-	<linus.walleij@linaro.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-phy@lists.infradead.org"
-	<linux-phy@lists.infradead.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>
-Subject: [PATCH v4 2/9] dt-bindings: PCI: Add ASPEED PCIe RC support
-Thread-Topic: [PATCH v4 2/9] dt-bindings: PCI: Add ASPEED PCIe RC support
-Thread-Index: AQHcRyhADj69zSmEtEeIJduMtT9i4LTXlEcAgAEKe+A=
-Date: Wed, 29 Oct 2025 05:43:08 +0000
-Message-ID: <SEYPR06MB5134A2E62C79EE4008D2A3979DFAA@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <20251027095825.181161-3-jacky_chou@aspeedtech.com>
- <20251028134644.GA1506590@bhelgaas>
-In-Reply-To: <20251028134644.GA1506590@bhelgaas>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|PUZPR06MB5537:EE_
-x-ms-office365-filtering-correlation-id: e1f961f0-20d5-4214-67e5-08de16ae0a3c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?piXnuStdWKRM1Jw/PNG14VE4J49l7asCtZosyXN4euXN41l9L0QLtizAZClJ?=
- =?us-ascii?Q?El9J24C2HaGkQBT00SPN2Tf+pZ2vvv4ARofqf4gfuNIxfag29mGwm6FLZgUf?=
- =?us-ascii?Q?fTP4HtdiQffgaaZRIczg+MjVYDH9Kl7CgGGFORSMlMJAl9kK7tcaZM0+SDUj?=
- =?us-ascii?Q?iqOElClVUsHuUbs2n42AUC2JbxAqNLLuosMxXlzo4aSw472WTUGwXRSVtmLZ?=
- =?us-ascii?Q?1AMKE/Q2lcQWyq9888Uh1Mpv1E4J2t9eY5t9iHl9GeBW6pjguo5fezEuAh9h?=
- =?us-ascii?Q?sYdoKIjTw0U2mJttLXsgg1WnA21gKje7O0JGk/nhEy2U7uNY35Gn/TlwBWj+?=
- =?us-ascii?Q?lnInffa+GuHsSyDjmnmNC+ClnIdUE/Dk/5y/LdzygluU2uSK/QjR0OfHdhiJ?=
- =?us-ascii?Q?vxsmS0vfgABrp1VwIWMMZpqlax0DlCnylAX7Nrxo43UnqvIBqUKfgH4y+BFp?=
- =?us-ascii?Q?VLMF3nFzf5JQH2TR2Y4rU5Hn9h/ImQloBaNLua8LAQitzYVPPUgUMlMdQRqz?=
- =?us-ascii?Q?4gcONhd4FFLuHNcVBO1LBkdzthSgysseUx7LpAQ3hPjepnr9cMxgk8icSBZq?=
- =?us-ascii?Q?yyCIEULjgj130lepc9OAlimQNceHP4bn0QpeDbHjhAFJEUvL4zc99dgsUl7w?=
- =?us-ascii?Q?7VxDb7rZxWPBmNv7+v0EHVsVqwhbQxSw+MBNZ7+WD1jXS29eZk+Ic0/+2YkA?=
- =?us-ascii?Q?PRWKh/2FS6AuezdLSUUzabbFWpb5wJxbLrpug0EyzFMyyzbOvS5TiWBkQ8o/?=
- =?us-ascii?Q?KnxrS7A6y3E+ze/sQc+wJ0rrV3Ddn8hNHpZP9TtsCe4H+94wZ3gEGwnn95mI?=
- =?us-ascii?Q?2QBuFcBRO44ykux8mH9YbDUS/opT3UhXZ7GjeTJGQAG195RXDUPbNcKSsd3j?=
- =?us-ascii?Q?vIN/a2fYU4aQPpXWwLB/nhd5gC3UtmpJHmt4vFArXgdiVHGa8HAld+uAMWtl?=
- =?us-ascii?Q?r2+aef3nii3wI2vVS6UH2IsYyLCMM8GmkULv/ng/tH71bQ4ewbciQPZ4l8xO?=
- =?us-ascii?Q?qsaSbrZhIWiyl5fBG2MTOXgGOpPoBL+NgYrr179ke2WHOvh/AhSdGaUqPQvq?=
- =?us-ascii?Q?5h4y2ZLlfA3IaBJYWLcxrqBHOr9/kZpvl2Jlu6UNA11RKoiVz2+3TNU2L4Qo?=
- =?us-ascii?Q?ETLZu3KNtfSL6s3OabZ+kcnOLsGRotytYciw08LkchFGpBePWGE/u0WFyLEY?=
- =?us-ascii?Q?vSR2Wsl+rYZ0aI+x9um4Y7XX2Fwpp/+eipMFckq1tCG0zlfC7heOSxrSxesp?=
- =?us-ascii?Q?UU7eSMaIN7Dqv5Pi+YnWN8pxEtzrn9WhALqZHmkCwCfkG7ckE9OFqZE7Rwkh?=
- =?us-ascii?Q?c/ed6cfSvWRF938imMhenn2zx37bJ+yRvk4mFO+pxo4FETVU0zfZdmCxpsN+?=
- =?us-ascii?Q?fyR06KacBZ+xKXBNwNbFpV94gGbi/C2etLjgM0oDzYcSu09xhXabSZxW5Bge?=
- =?us-ascii?Q?aWE8+e4NFQUGQdk3h0XO6j/WmBAVMN1BkIkFGtsP6T3YkeiRD+Ate4TA1V53?=
- =?us-ascii?Q?21HwruAefb5UHxIQO2gDUUdoSkqPU6YSJM9s?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?N/lImsa1pqvHnQ8nC4tcnfqhpYrHS4paUr4mh/wXQSPbP02Vu8nxoPIgxVuX?=
- =?us-ascii?Q?nSfQWte8Ms2JRbYURjkhOBdeGXrqig9m1pHvXKC6xriEANiJRJr7Oabt5Ehp?=
- =?us-ascii?Q?zPMVg72p3yiqAQPiwMFK7Bhzxt/lmXSI+TPN32HaIJuKzO7yVsWhyb86t9ti?=
- =?us-ascii?Q?dwur7aup6jGNFH+slN7FOujsPAXL4OLyC2jhDsYbts3P9FMyy0J+nksM9UJa?=
- =?us-ascii?Q?YMBmSw1EfzTWixtvpKgLn3+6mm+cTPSuuphjhQhQYzo9PEYFKXbDbrKH4hxG?=
- =?us-ascii?Q?lZJnbZPlLhvaY5zXodVg0lVUnGXCpeVMMSt0yJE9VX2jqD8p2bqO5J6vKO7C?=
- =?us-ascii?Q?1AxECp7bj2Uq+OdVPkkrizqqzhic4cQNn+UxAzbrM7cqj7YZLgx0nCEhSnIU?=
- =?us-ascii?Q?h/BnQe9teQtGgN/0FeTsKS/KfFabKtZCidFbNRYTPSxDhxgDrpNurwnEllEQ?=
- =?us-ascii?Q?nJflsZc+VBkrekECJi/WlWRXI/qDCEzm0F8O3klpXkI4SHC3O5kjCiF2Rm0U?=
- =?us-ascii?Q?z/XOx/bFYhANWMEwa5TeqiqnORSwcct3doh520Mq9oVx3VYg5WAIN4RQ3iCC?=
- =?us-ascii?Q?fw9f/MG6qC8dy1f/gDDGTs5oFWJQcIKdZlvknLRLNagiDvY2XLnoLUtVHEMP?=
- =?us-ascii?Q?x+eub/Nwum1/Q+vFYao1ePea5OvwkHfKhdgJTnJDy9VAF1WpKUl2athCIDH1?=
- =?us-ascii?Q?qK/i3FtJMFDrtiIzyQknBWr6hrPOvPJ3NEDHVmPl544u2BHadpVKKwiQ+qdg?=
- =?us-ascii?Q?v6AXuxW+kjje2mGMDXzxqtumqmSN6yfBONEhKSX/kDAK3hvabiPELim8Aa1d?=
- =?us-ascii?Q?Zxsz2iAn0I8JYeE/dlslhWOyKyBX0DhBitJY9xcxeotEeKKn3zNU+GtlUtGk?=
- =?us-ascii?Q?F/Q2TZJnf+b02/HVo1EaPWuhllX/FScq6M0yNuGIswzz72oRWNFy8RWYFEbH?=
- =?us-ascii?Q?qd8DhU5z70WTAhKnMBJLtYDxOWL0HcxTWgWBa97Dou46b9imjcB1RlhJ/W4X?=
- =?us-ascii?Q?WJ5nEHGDXgMDfwITz4FQFwrMSW55xN/r6hjD+yu6fm2byERxhsc5tawL1+tJ?=
- =?us-ascii?Q?ob/FUEEQNEpgEBYq0wGt7cru3p/scGZFhiK2euYSoKcH67colUBH8zj5YD7H?=
- =?us-ascii?Q?BXDIycR8RGIobSYNFz0t1IMq4/7ulLndeLljvHwcynMUqyJw0FqEzWTt2iqY?=
- =?us-ascii?Q?0BJ1w7+NeMzz+XC1/2O2vrynmG9qdECOA1VHSW9Lu4RdT9x9qZv2H2LWUXtS?=
- =?us-ascii?Q?RmOCKRw373vQonRlj9UiUumI++QrBpvXvG+EJCfeWA2eUWKMkz9QVTzZvf0y?=
- =?us-ascii?Q?4mfSKgQR6m8XRwAUao7wCUyrG91X2HXbMnF9qonv3aGsdZt3WW1bNI28DUIr?=
- =?us-ascii?Q?WXbjOiL4NHh3pch4toG2AjrasXMlwkEp5TgkFCUtoJ6XdkTcWs3y45zuDxOC?=
- =?us-ascii?Q?+N1QQq0vE54YcPNYHYaC3p4bhIcirQN72/8FMhiOUdrf9M9/ZV4bFKhyWIBB?=
- =?us-ascii?Q?zSWaShDMr7C2IH62iZtARpeLzOgL8gqSJPqfIuuLp4sX332tJ1rn2a69wmvF?=
- =?us-ascii?Q?ExlQOOReWCdMFy6VReXPxLwqjYFOy1wo7i8ksGKK?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vDzWt-0000000HRv7-1ORc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Oct 2025 06:19:33 +0000
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
+	:Subject:Date:Message-Id:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding;i=yuji2.ishikawa@toshiba.co.jp;s=key1.smx;t=
+	1761718755;x=1762928355;bh=RR32p+M9C599dIleJAbw+9d5tlMsoBTx0doNI9BbweY=;b=QCR
+	L6f0yHuItdZpDFLJ0ibR3IBdcPDooG9Uj+kGR0DiPvh1pTDp4nmlY//34a+I7E6uptLKhG3jNcDjg
+	7IWkyUxNkWSKUHuZ66OYF2Rn6CPRybyzwiVOu0/fgIfIWBJLBc3+VEecvy4pRKB6nCRtrEQrCQs3J
+	89xjxnswcrgMv4N6y5EOwu3x+Le6dDX88jFv617KMbjIP7AI3vJPts+vblOPwNVJ/wvCSWPQsjRoF
+	DUTZ2ga0TChUo48g1VMGd6SgftYButAP1q2p33E3KIriJy7ou7NgxAdZATNNjMk0oRcxRfQY+8mDP
+	MekKAXzjQ4fzeK8wo7P/E4WzFX25Ctg==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1801) id 59T6JEwI3507518; Wed, 29 Oct 2025 15:19:14 +0900
+X-Iguazu-Qid: 2yAbrg0HuZq9EQydsG
+X-Iguazu-QSIG: v=2; s=0; t=1761718754; q=2yAbrg0HuZq9EQydsG; m=AgqxK7maNBCk8YpXbPqC12la+75KSurRAdfqNdqMxkA=
+Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	 id 4cxHBm6SXDzyPQ; Wed, 29 Oct 2025 15:19:12 +0900 (JST)
+X-SA-MID: 53851523
+From: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+To: Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+Subject: [PATCH v2 1/2] dt-bindings: clock: Add identifiers for VIIF on Toshiba Visconti TMPV770x SoC
+Date: Wed, 29 Oct 2025 15:13:43 +0900
+X-TSB-HOP2: ON
+Message-Id: <20251029061344.451222-2-yuji2.ishikawa@toshiba.co.jp>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
+References: <20251029061344.451222-1-yuji2.ishikawa@toshiba.co.jp>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1f961f0-20d5-4214-67e5-08de16ae0a3c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2025 05:43:08.3440
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4EqfczJVOqO7zlHLmbuzA0s0NFa8GTQZCEaeWkP+27nmEdG2hGSTxiUhXSXo9iKoRXT2zOEZSx1T09CG2xKWHEfIZiM1hIL29fS/k/NIirw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5537
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_224318_046771_27FD8FAB 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20251028_231931_953305_7EE22889 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,112 +82,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your reply.
+Add clock and reset identifiers for the Video Input Interface.
+These identifiers support two instances: VIIF0 and VIIF1.
 
-> > +  The ASPEED PCIe Root Complex controller provides PCI Express Root
-> > +Complex
-> > +  functionality for ASPEED SoCs, such as the AST2600 and AST2700.
-> > +  This controller enables connectivity to PCIe endpoint devices,
-> > +supporting
-> > +  memory and I/O windows, MSI and legacy interrupts, and integration
-> > +with
-> > +  the SoC's clock, reset, and pinctrl subsystems. On AST2600, the
-> > +PCIe Root
-> > +  Port device number is always 8.
->=20
-> s/legacy/INTx/
->=20
+Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+---
+Changelog v2:
+- Do not modify existing identifiers to avoid breaking ABI.
+  Keep existing identfiers for VIIF0.
+  Introduce new idenfifiers for VIIF1, following the same naming conventions.
+---
+ include/dt-bindings/clock/toshiba,tmpv770x.h | 15 +++++++++++++--
+ include/dt-bindings/reset/toshiba,tmpv770x.h | 10 +++++++++-
+ 2 files changed, 22 insertions(+), 3 deletions(-)
 
-Agreed.
+diff --git a/include/dt-bindings/clock/toshiba,tmpv770x.h b/include/dt-bindings/clock/toshiba,tmpv770x.h
+index 5fce71300..ff4ef1be5 100644
+--- a/include/dt-bindings/clock/toshiba,tmpv770x.h
++++ b/include/dt-bindings/clock/toshiba,tmpv770x.h
+@@ -141,7 +141,10 @@
+ #define TMPV770X_CLK_PIREFCLK		124
+ #define TMPV770X_CLK_SBUS		125
+ #define TMPV770X_CLK_BUSLCK		126
+-#define TMPV770X_NR_CLK			127
++#define TMPV770X_CLK_VIIFBS1_L2ISP	127
++#define TMPV770X_CLK_VIIFBS1_L1ISP	128
++#define TMPV770X_CLK_VIIFBS1_PROC	129
++#define TMPV770X_NR_CLK			130
+ 
+ /* Reset */
+ #define TMPV770X_RESET_PIETHER_2P5M	0
+@@ -176,6 +179,14 @@
+ #define TMPV770X_RESET_PIPCMIF		29
+ #define TMPV770X_RESET_PICKMON		30
+ #define TMPV770X_RESET_SBUSCLK		31
+-#define TMPV770X_NR_RESET		32
++#define TMPV770X_RESET_VIIFBS0		32
++#define TMPV770X_RESET_VIIFBS0_APB	33
++#define TMPV770X_RESET_VIIFBS0_L2ISP	34
++#define TMPV770X_RESET_VIIFBS0_L1ISP	35
++#define TMPV770X_RESET_VIIFBS1		36
++#define TMPV770X_RESET_VIIFBS1_APB	37
++#define TMPV770X_RESET_VIIFBS1_L2ISP	38
++#define TMPV770X_RESET_VIIFBS1_L1ISP	39
++#define TMPV770X_NR_RESET		40
+ 
+ #endif /*_DT_BINDINGS_CLOCK_TOSHIBA_TMPV770X_H_ */
+diff --git a/include/dt-bindings/reset/toshiba,tmpv770x.h b/include/dt-bindings/reset/toshiba,tmpv770x.h
+index c1007acb1..d711006d6 100644
+--- a/include/dt-bindings/reset/toshiba,tmpv770x.h
++++ b/include/dt-bindings/reset/toshiba,tmpv770x.h
+@@ -36,6 +36,14 @@
+ #define TMPV770X_RESET_PIPCMIF		29
+ #define TMPV770X_RESET_PICKMON		30
+ #define TMPV770X_RESET_SBUSCLK		31
+-#define TMPV770X_NR_RESET		32
++#define TMPV770X_RESET_VIIFBS0		32
++#define TMPV770X_RESET_VIIFBS0_APB	33
++#define TMPV770X_RESET_VIIFBS0_L2ISP	34
++#define TMPV770X_RESET_VIIFBS0_L1ISP	35
++#define TMPV770X_RESET_VIIFBS1		36
++#define TMPV770X_RESET_VIIFBS1_APB	37
++#define TMPV770X_RESET_VIIFBS1_L2ISP	38
++#define TMPV770X_RESET_VIIFBS1_L1ISP	39
++#define TMPV770X_NR_RESET		40
+ 
+ #endif /*_DT_BINDINGS_RESET_TOSHIBA_TMPV770X_H_ */
+-- 
+2.34.1
 
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - aspeed,ast2600-pcie
-> > +      - aspeed,ast2700-pcie
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  ranges:
-> > +    minItems: 2
-> > +    maxItems: 2
-> > +
-> > +  interrupts:
-> > +    maxItems: 1
-> > +    description: IntX and MSI interrupt
->=20
-> s/IntX/INTx/
->=20
-
-Agreed.
-
-> > +    pcie0: pcie@1e770000 {
-> > +      compatible =3D "aspeed,ast2600-pcie";
-> > +      device_type =3D "pci";
-> > +      reg =3D <0x1e770000 0x100>;
-> > +      #address-cells =3D <3>;
-> > +      #size-cells =3D <2>;
-> > +      interrupts =3D <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-> > +      bus-range =3D <0x00 0xff>;
-> > +
-> > +      ranges =3D <0x01000000 0x0 0x00018000 0x00018000 0x0
-> 0x00008000
-> > +                0x02000000 0x0 0x60000000 0x60000000 0x0
-> 0x20000000>;
-> > +
-> > +      resets =3D <&syscon ASPEED_RESET_H2X>;
-> > +      reset-names =3D "h2x";
-> > +      pinctrl-0 =3D <&pinctrl_pcierc1_default>;
-> > +      pinctrl-names =3D "default";
-> > +
-> > +      #interrupt-cells =3D <1>;
-> > +      msi-controller;
-> > +
-> > +      aspeed,ahbc =3D <&ahbc>;
-> > +
-> > +      interrupt-map-mask =3D <0 0 0 7>;
-> > +      interrupt-map =3D <0 0 0 1 &pcie_intc0 0>,
-> > +                      <0 0 0 2 &pcie_intc0 1>,
-> > +                      <0 0 0 3 &pcie_intc0 2>,
-> > +                      <0 0 0 4 &pcie_intc0 3>;
-> > +      legacy-interrupt-controller {
-> > +        interrupt-controller;
-> > +        #address-cells =3D <0>;
-> > +        #interrupt-cells =3D <1>;
-> > +      };
->=20
-> IIUC, Rob says there's no need for a separate interrupt-controller stanza=
- and it
-> can be directly in the host bridge [1].
->=20
-> I think that does make interrupt-map a little more verbose because the pa=
-rent
-> unit address will use the host bridge #address-cells (3) instead of the i=
-nterrupt
-> controller #address-cells (0), e.g., this from [2]:
->=20
->   pcie@10e40000 {
->       compatible =3D "renesas,r9a08g045-pcie";
->       #address-cells =3D <3>;
->       #interrupt-cells =3D <1>;
->       interrupt-map =3D <0 0 0 1 &pcie 0 0 0 0>, /* INTA */
->                       <0 0 0 2 &pcie 0 0 0 1>, /* INTB */
->                       <0 0 0 3 &pcie 0 0 0 2>, /* INTC */
->                       <0 0 0 4 &pcie 0 0 0 3>; /* INTD */
->=20
-> [1]
-> https://lore.kernel.org/linux-pci/20250509204905.GA4080349-robh@kernel.or
-> g/
-> [2]
-> https://lore.kernel.org/linux-pci/20251007133657.390523-2-claudiu.beznea.=
-uj
-> @bp.renesas.com/
-
-Thank you for your information.
-I will modify this part in next version.
-
-Thanks,
-Jacky
 
 
