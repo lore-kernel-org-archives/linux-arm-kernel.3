@@ -4,86 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF3ECCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51755CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frTWN0cj1Au3rEU4gpiwgwDW+TjseVAAzDE0208pNEM=; b=rFEI9fI5N4eyfY7u1YnLftEX7D
-	tVgYfLYd9ClqG9lDP5pmPKrom4qbyko1DDD/vVddJLrsVNhw5Y19Z2i8ZuugdEo4oyXlfmG2iq5eL
-	Z1THffSo+7I1XILFUArq8ReqeCm831YX5Bd3CECa6RFWN6P1KWN+k36uHcRhQ0JXlwa2VRgfTbdAC
-	LUhuS8K2xis9SWT8lxC8JqapTbAq7GkJSeTxCIGrA+2eanvyJnS6qr62ZxPw6k4AgzcI5w4rq30Cm
-	N4qorfJOKJm9bxj2+FCy0HalhGXIc0V97fwoHAESsNBJwVHUYCgE1OFvDEOTUyHa5eozJmhv7Vath
-	NF4kUipQ==;
+	bh=oOeCj7atBm+jp74qXquxytnJSCplsW/eyoN4u7SHchg=; b=LclYetSc/THzgQGoznpUJMbDNO
+	vDGifmD/qgU2jQRwIx9vquDaDALfXhCuH9eCsYnupqITy/syr0L9p/BJesIue2CX552ncI7jrbKA3
+	9JP2fvHOmTAzpfIIMhjPgL/siNTnS4SvEqEBQ7/96/MFOXLNZpW+6Q/KHOtIVybcYCC/zIqpbYljU
+	P7GT6T+B8lgqVvMmmmB0wK7kgbA8I8ibJdT8wraW3e2xR3mZNAbGe+8DRziRASXfFcN4jCTtW3jim
+	5UxvE4Mn5OZFN1Lk2Me3uscudbSwOj4p4Q7eZfVj/Riz4wMUkAWEnFw8AT/wzqR97mYI5lcJwO1JW
+	UM/9ywFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE707-00000001Xid-0Qbn;
-	Wed, 29 Oct 2025 14:18:11 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vE71u-00000001Y47-2uXk;
+	Wed, 29 Oct 2025 14:20:02 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE703-00000001Xhi-3iRe
+	id 1vE71s-00000001Y2f-1tRn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 14:18:09 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-362e291924aso60255661fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:18:07 -0700 (PDT)
+	Wed, 29 Oct 2025 14:20:01 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-591ec7af7a1so7346544e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 07:19:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761747486; x=1762352286; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761747598; x=1762352398; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=frTWN0cj1Au3rEU4gpiwgwDW+TjseVAAzDE0208pNEM=;
-        b=pl2Y1WL6293TuQVQWQOEo3kd94FTryfq7aV1KJQOQefJtzJx/sf+607EJVLVwOZGw/
-         MnjPOjwQYULQMLQYe9yBEmkh2LIWFJSyPzEU5Jpc8f77h+4m8xylEAYAFNrsA8jofWwd
-         /nMF7GR7S49DdQwCQMJOnC37CBI+duXmkYgZ7Iorx0GhPd+VxBUbL17PiH6l9zAPqeTp
-         MA9RcFd7pZD/Y19qiIKIXGWo1bGpfc8y8vI+w5P5TPwg6lF85To29Qks4NstvJDkURjq
-         ms3lng0UbJAtGqTfviEpih+R5W4ZLOD4tI1O25eVF51p6wfG6kTEsAwDwmVXeMFTWrBp
-         Zb6w==
+        bh=oOeCj7atBm+jp74qXquxytnJSCplsW/eyoN4u7SHchg=;
+        b=xgNonF0Jki8kh5rWKohF9g146BOOM61PxC5aHZYdidiSZLsild1MXP4lbBr+6/h9eo
+         4op0KbEPP5BNp7UNRhA7wli7iO894Wo601rJ7Bc1yaRoWxOjK94QT8WWFaHSj3H+Yb9x
+         EryUKGOKRUggyveBmiZ2E/SlfB+xls5YEMiqal3EtigEqkICYM4YIQXeXns/RBOcyGel
+         /a3Zmn3BN25BRyLKQdyYIGm9eVcDnzjkwSU7WJHtiIAObHINo4LnvcGl4QVMx41ANYyB
+         tmx27mjuqiVwW19QqeZe2DWv3drE5zoJPnuwUuZuCiCWSbNm/3M3fIDajJ5s51sAA03o
+         kQgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761747486; x=1762352286;
+        d=1e100.net; s=20230601; t=1761747598; x=1762352398;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=frTWN0cj1Au3rEU4gpiwgwDW+TjseVAAzDE0208pNEM=;
-        b=IF94Z9Lmu0cpZ93v0wtNcaTK6y0e4nFf+/FITEVgdNoAtkEK7AW8Ug5XZmZ7B6Sm+Q
-         UENLm0FXp3U2R3WjJf/3arkl52z7UuOKK91+yW5SQlmR1bqFa3j72h/FBnlHsV9lpZcZ
-         FRKimNSYz3EiGuroJhJctysYbS4jzsH06VpzUnT9NWRkj2oVtxsuid66h5NAzN3jGuhD
-         HcemE1WFQWna88JSLbL9W5ukVrbgWMOEkUYC7s0MFDnTNacUuqiJgJXjuir2Yd258Caj
-         XAS9kXRSAfLmMgKwpfRAQnoP/1qyLU8aLVCvcT+ByY7Z5I/XGKDiC6QPYP+zUNzeK6f1
-         CVpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWiAVCgQSjw2rpT73JY+62+/9HZG8kAwSWTbjkhnWin93EJDezgiEdpq65xs+602AEgC3X9t+r3YC8k5Xb7YqMf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd4ps1itAf6ZGeidsLrzG+5Heo6CH1KDBRNcYZBGh+l/KAaF9Z
-	t/8FVjFlZqiagdD0LXrKPfJn2NYa6m8f2Uj7MBbOJUqJLrFLid11Yr191C+s5cqKo13ZAnA/Hts
-	F8ILLZMZDBiXfKVKGkSRPM2jWIFMLnXfbt+TPNwO1Fw==
-X-Gm-Gg: ASbGncvIKRlL5lHhmDrFicq5ZHf9pz8FI2aF3V9UIJdFPBTvVoxU4q2JUjj+ABdQe/f
-	TxzUapUZ/ND5louNOHWqLFA5aq08wzfC+cXV8mR+nH15bkvDdyEGJ2Hgj/bkTK8GxK0j9BIKT+x
-	Jm5TiPcYjT4RsefX9Hn5G6jflasAHX/0YffXZcq0JOzI0wkbyi8fH6Pvk9NcisV/YHYVDYZYh0K
-	HPP5aXydRWy+iA4qv0aSgCf3nzFgD8USI7anS0T0FwoQ1ajaR7M/PdKaNgwxDpS5EOWsvOhQ35R
-	5OYXsg==
-X-Google-Smtp-Source: AGHT+IEZ48qPNDXi/VZK0viwyJMlNZCVVeDAAKNtz0dWhXoCt8yrbWYQfSCBbIwkB65d0mwMlwxIaale+Ln0IHl2XVM=
-X-Received: by 2002:a05:6512:1253:b0:55f:4efe:42df with SMTP id
- 2adb3069b0e04-59412c47659mr1221054e87.40.1761747485600; Wed, 29 Oct 2025
- 07:18:05 -0700 (PDT)
+        bh=oOeCj7atBm+jp74qXquxytnJSCplsW/eyoN4u7SHchg=;
+        b=XGx4rbUlDmWlRFsyOENAZnzCXpD4HIU4r7rJ3j5AMJYG4wwNqC2G5gKC7ZYo5IEG2p
+         LTTt7OTOhAK257Kb8jRAcmqNZ/HGQX0T2Dy2IokvM4uDDnCuuAjjueRMVExhDD3JzbBz
+         l49h/Nnwl6PoRzk2Qun2r42WrZSJGvPd2elSTyM6yH6N4EWIniJ53U/xxS2QAAaGpwc8
+         ti7YlKUhoWS/Tr2Ld3ayKzctXIbP6Z4XW3bQcVh0GRYHv0QuICtnQlvNGQeR0A+RtOWz
+         R4w/n0qzuB9od37kU82ay+zYoR6bh40xibA5cIJM7nuS7Ge567YMXmhl3x/+mFll2rp3
+         GkQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV8nTPcWR33K2G17lVYhc2PmAO4NmC5KhunevLi/hSEimof+GSWzNZrAPfp0Ea9rI62DQObmKwElpqBd2EPKdC0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTQ2Kor0vmqglEJZxGIMg2krjipgluChUtrfDSVQgKmXqJWbuI
+	tDsfbjXvAjBIRfEzu1LaLUzEQYqKd38a1CSUohTQAdTRpgni6i0FKumT3l4GY6fFUaq4UKtz1y+
+	KnHHW1M7amhY5nl5gFb7bOkQKP8b+UtLBS0YXAEebNw==
+X-Gm-Gg: ASbGncvbWuu9gx5GblGy2VdruL+PMK+8vukxZKubZ6EzOgH8S64MJSV0PB+zgVtfKBu
+	Xalnj4VtsoYCWVsqmmwY7JMz6tsRFs80nyclieABok5EpkM+keX2li+EaHW9GCSx/CSAkqSzucB
+	as8CITFcPVNP4di+OZKVOJ54ustenD0xuNyFbUeFlDrG9YXKYHXzmdsNcHgOodYJ/yNAqjPue31
+	N9ua+nl5VVApXJPgnV9cuE9yeP1jboPcH/hAyXY0HdZiU8gP4htbvg9xLS4/D89AuHoMmrIcHuq
+	zJnSIw==
+X-Google-Smtp-Source: AGHT+IG59+bQUerf6uihfCFWCYSjQICr8Xo4ZbiwSS1E65/x2rl3ls+2t5ioYCJKzMBcQXa5Sk43LYjN69G8TJb8SWg=
+X-Received: by 2002:a05:6512:3055:b0:592:fc68:5b9d with SMTP id
+ 2adb3069b0e04-594128623cfmr1174582e87.10.1761747597543; Wed, 29 Oct 2025
+ 07:19:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1761576798.git.dan.carpenter@linaro.org> <82a8a4b206ec02dd27a119d7f05d2bd6c8d2d3fe.1761576798.git.dan.carpenter@linaro.org>
-In-Reply-To: <82a8a4b206ec02dd27a119d7f05d2bd6c8d2d3fe.1761576798.git.dan.carpenter@linaro.org>
+References: <cover.1761588465.git.geert+renesas@glider.be> <03a492c8af84a41e47b33c9a974559805d070d8d.1761588465.git.geert+renesas@glider.be>
+In-Reply-To: <03a492c8af84a41e47b33c9a974559805d070d8d.1761588465.git.geert+renesas@glider.be>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 29 Oct 2025 15:17:53 +0100
-X-Gm-Features: AWmQ_bkpWoC7MJl6ilguYr2pkMyaF1lhvihQmCr9qcCK8P7laPbsgsH7ZdH72KA
-Message-ID: <CACRpkdZMQh2ozd_YTjRgUvVwdAwHpDz9G+ZYYHBQ456GLjPZZg@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl-scmi: remove unused struct members
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Wed, 29 Oct 2025 15:19:45 +0100
+X-Gm-Features: AWmQ_bk2MMp0FQz04qrj-8hmhOAMRkHeQZjiqCVvFpO75M_-67m5zTnOfqmkGUQ
+Message-ID: <CACRpkda6ykSZ0k9q4ChBW5NuPZvmjVjH2LPxyp3RB-=fJLBPFg@mail.gmail.com>
+Subject: Re: [PATCH v5 07/23] pinctrl: ma35: #undef field_{get,prep}() before
+ local definition
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	David Miller <davem@davemloft.net>, Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, 
+	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, 
+	Shan-Chun Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>, 
+	David Laight <david.laight.linux@gmail.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+	Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, 
+	Michael Hennerich <Michael.Hennerich@analog.com>, Kim Seer Paller <kimseer.paller@analog.com>, 
+	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Cosmin Tanislav <demonsingur@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Jianping Shen <Jianping.Shen@de.bosch.com>, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-edac@vger.kernel.org, qat-linux@intel.com, 
+	linux-gpio@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	linux-iio@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_071808_684156_0636A14A 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251029_072000_514162_9E7934FE 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,14 +117,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 4:18=E2=80=AFPM Dan Carpenter <dan.carpenter@linaro=
-.org> wrote:
+Hi Geert,
 
-> The ->pins and ->nr_pins members are not used so delete them.
+thanks for your patch!
+
+On Mon, Oct 27, 2025 at 7:43=E2=80=AFPM Geert Uytterhoeven
+<geert+renesas@glider.be> wrote:
+
+> Prepare for the advent of globally available common field_get() and
+> field_prep() macros by undefining the symbols before defining local
+> variants.  This prevents redefinition warnings from the C preprocessor
+> when introducing the common macros later.
 >
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Suggested-by: Yury Norov <yury.norov@gmail.com>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Patch applied!
+Do you want me to just merge this patch to the pinctrl tree or do
+you have other plans?
 
 Yours,
 Linus Walleij
