@@ -4,75 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A0ACCF9F7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 15:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED51DCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 15:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Nw6Y6Sr0yR7McdjN8jB2CldXstC1tCci1tzXd/HAvg=; b=b4z8hxGl6hwVUQ50IpHB6efMI8
-	jJcqeVJVo/0xWUCX358S8zI63oT3Gkl3f2vNHfcTCN+HwOftw4Q1SMrdq7Wx9D0M910MR9AvuzQvE
-	WQrQHPRun2igp0S1b3qdm2S4OpKKuBKLEIUamLk4jsSKeKFs/6T7Seiu96kUZmbylZp0bLR/Nzfku
-	w2x2DVvEtMTilMh6VgdBZjuArSVl/vg3HTh2/MI7k6E8Jxd/uuRAZuXQYMINmSBn1jmqkBuGzHdo7
-	WjYXpjfw6AngS1gvb362GehSxOiWo6P8bF86y/i26u/JMfFLcqodwMfsOCccSXXcJpgq44IOF1oI0
-	KAXmZa4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1nw2OofHpblVcdJ2j4tuRfgOcs1fPbWOJnXy8DzdEw8=; b=wqwz7734ZeG6tsTunojYNGQTOo
+	phNeaQn4DyMRj8tm3nuHBOejHtOW9TXd+zk0KnhXV1DwKla00rbUfjV05549Xi6n7DZXcIHUjy+Ev
+	T3KdO+OIg7jM+Tf14fWgoeTfHLEJNaBDqEH+l1wuXRKLRuTOipkk4HPj70YSZFz6/vAZY1HGQEgwe
+	qgz5bEy/03q2P/7itPvlFoXJSnnEoeSPAN+t0MEBmarxLmMB6AwM0acSy4DvPh523i12k3FkcqUg4
+	sJMQvvG31QNzbCok2C/zvWpHLaBTzBTmT5CsjFrGSD70/4TWcANd29DvNQk9N8WhjywPJiyDaOT0p
+	9EtQVS5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7lL-00000001j54-1lsT;
-	Wed, 29 Oct 2025 15:06:59 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vE7x0-00000001lJJ-0RNq;
+	Wed, 29 Oct 2025 15:19:02 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7lH-00000001j4c-3CGb
+	id 1vE7wx-00000001lIe-2gD0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 15:06:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EFE9CC0DA83;
-	Wed, 29 Oct 2025 15:06:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 49CAA606E8;
-	Wed, 29 Oct 2025 15:06:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 301DF117F8229;
-	Wed, 29 Oct 2025 16:06:45 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761750411; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=/Nw6Y6Sr0yR7McdjN8jB2CldXstC1tCci1tzXd/HAvg=;
-	b=D8FpEFXmjMF4R+aWYMbORindagatYBKwV/YIrHsuRMZ8cek3j1pjCNLb9U2Sf67BGYvyJ6
-	/EoLZqLjt2+v74Au2HsINS06LScrLZlo/dV/MblC1t1KCPQt8l6qQrdPPm+Mm1pU4fmDgs
-	P3ibVon21ooaDqIxYi/vNhy+KdtvBMlxUybFEa9l3dKYojcO8g2wfPthhgGN2+8VcOWjYl
-	VM83huEwodh6AgYJDFP870reTD9JKQ6dncAtSv/87ZF6LkjLvz/yeGfXdy11i5A337JEFY
-	OEHl2e3gDtAfG1RYv/LMdJPw+qgZurNkvESt5wOlCl9lybM0srT8577QXB+QhQ==
-Message-ID: <d4b1c65d-17d2-4f41-b559-9cae55993f6e@bootlin.com>
-Date: Wed, 29 Oct 2025 16:06:44 +0100
+	Wed, 29 Oct 2025 15:19:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761751139; x=1793287139;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=EpzLFVZD5xI2UDK/Ftwn8JnCSoKvTCCWS6Wjlz1OKXY=;
+  b=dfDQMlpCqSu2VHXgFtbtHcOAc2LfXaLrrBKWf6gBa2dE3hYTyZ1WURgj
+   6L46+Z/c9JU55d883uorOh9sF/QepKM989yfrLc5cT+vGjkathpJpIffp
+   r92BAB/oj0et9K89P9oRbKSebltxU6Bh+CIkBpjM4V8IUPigmtTz3oS5B
+   v9HSIPLWLNvZx2nPX9UgIt+W1nc+YXTvp7y10fH48FaMxZHqbjTAtXtkr
+   YsjVctVKfm4R10AeeV3b/JdaPsk37aWQ3akB5vkTK5PRZ1mQXuSysXQLL
+   OAVNVvuFUjvLUfIBUj6oNOpR2+XAXnMD/3vw6X92j6P46kHPgOILbpkex
+   g==;
+X-CSE-ConnectionGUID: oPj93bs5RTyaKglUJxHmgA==
+X-CSE-MsgGUID: TcVmBqF1R5m1NFotcTX4Dg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11597"; a="51449588"
+X-IronPort-AV: E=Sophos;i="6.19,264,1754982000"; 
+   d="scan'208";a="51449588"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 08:18:59 -0700
+X-CSE-ConnectionGUID: KJvar1HiTFalTC2etZtyxQ==
+X-CSE-MsgGUID: 0IvhDGTqSICuASuA8EuEOg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,264,1754982000"; 
+   d="scan'208";a="185391702"
+Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.244.248])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2025 08:18:52 -0700
+Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1vE7wn-00000003eOA-15u8;
+	Wed, 29 Oct 2025 17:18:49 +0200
+Date: Wed, 29 Oct 2025 17:18:49 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v3 03/10] gpiolib: implement low-level, shared GPIO
+ support
+Message-ID: <aQIwWXM8BfjQs7kv@smile.fi.intel.com>
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
+ <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
+ <aQH-NcXry6_IlqXQ@smile.fi.intel.com>
+ <CAMRc=Me5qPS2PhLK5hpK8BbTS8b9q3T-+86mq6rVDpyKZZUfoA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 4/4] net: stmmac: socfpga: Add hardware supported
- cross-timestamp
-To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251029-agilex5_ext-v1-0-1931132d77d6@altera.com>
- <20251029-agilex5_ext-v1-4-1931132d77d6@altera.com>
- <07589613-8567-4e14-b17a-a8dd04f3098c@bootlin.com>
- <ed9e4ffb-3386-4a22-8d4c-38058885845a@altera.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <ed9e4ffb-3386-4a22-8d4c-38058885845a@altera.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Me5qPS2PhLK5hpK8BbTS8b9q3T-+86mq6rVDpyKZZUfoA@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_080655_959921_A4DB7866 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20251029_081859_690518_F1852A59 
+X-CRM114-Status: GOOD (  30.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +114,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rohan,
-
-On 29/10/2025 15:41, G Thomas, Rohan wrote:
-> Hi Maxime,
+On Wed, Oct 29, 2025 at 01:39:34PM +0100, Bartosz Golaszewski wrote:
+> On Wed, Oct 29, 2025 at 12:45 PM Andy Shevchenko
+> <andriy.shevchenko@intel.com> wrote:
+> > On Wed, Oct 29, 2025 at 12:20:39PM +0100, Bartosz Golaszewski wrote:
+> > >
+> > > This module scans the device tree (for now only OF nodes are supported
+> > > but care is taken to make other fwnode implementations easy to
+> > > integrate) and determines which GPIO lines are shared by multiple users.
+> > > It stores that information in memory. When the GPIO chip exposing shared
+> > > lines is registered, the shared GPIO descriptors it exposes are marked
+> > > as shared and virtual "proxy" devices that mediate access to the shared
+> > > lines are created. When a consumer of a shared GPIO looks it up, its
+> > > fwnode lookup is redirected to a just-in-time machine lookup that points
+> > > to this proxy device.
+> > >
+> > > This code can be compiled out on platforms which don't use shared GPIOs.
+> >
+> > Besides strcmp_suffix() that already exists in OF core, there are also some
+> > existing pieces that seems being repeated here (again). Can we reduce amount
+> > of duplication?
 > 
-> On 10/29/2025 3:20 PM, Maxime Chevallier wrote:
->> Hi Rohan,
->>
->> On 29/10/2025 09:06, Rohan G Thomas via B4 Relay wrote:
->>> From: Rohan G Thomas <rohan.g.thomas@altera.com>
->>>
->>> Cross timestamping is supported on Agilex5 platform with Synchronized
->>> Multidrop Timestamp Gathering(SMTG) IP. The hardware cross-timestamp
->>> result is made available the applications through the ioctl call
->>> PTP_SYS_OFFSET_PRECISE, which inturn calls stmmac_getcrosststamp().
->>>
->>> Device time is stored in the MAC Auxiliary register. The 64-bit System
->>> time (ARM_ARCH_COUNTER) is stored in SMTG IP. SMTG IP is an MDIO device
->>> with 0xC - 0xF MDIO register space holds 64-bit system time.
->>>
->>> This commit is similar to following commit for Intel platforms:
->>> Commit 341f67e424e5 ("net: stmmac: Add hardware supported cross-timestamp")
->>>
->>> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> I'm afraid you need to be more specific here.
 
-[...]
+You can simply browse the file, it's not long to find and think about it.
+I'm _thinking_ that it's possible to improve the situation overall by
+try our best of deduplicating (or rather not duplicating) things.
 
->>> +	/* Time sync done Indication - Interrupt method */
->>> +	if (!wait_event_interruptible_timeout(priv->tstamp_busy_wait,
->>> +					      dwxgmac_cross_ts_isr(priv),
->>> +					      HZ / 100)) {
->>> +		priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
->>> +		return -ETIMEDOUT;
->>
->> Don't you need to set priv->plat->flags |= STMMAC_FLAG_INT_SNAPSHOT_EN first?
->> Otherwise, timestamp_interrupt() in stmmac_hwtstamp() won't call wake_up()
->> on the wait_queue.
->>
+...
+
+> > > +#if IS_ENABLED(CONFIG_OF)
+> > > +static int gpio_shared_of_traverse(struct device_node *curr)
+> > > +{
+> >
+> > I believe parts of this code may be resided somewhere in drivers/of/property.c
+> > or nearby as it has the similar parsing routines.
 > 
-> Thanks for pointing this out. My intention was to use the polling
-> method, but I accidentally left behind some code from experimenting with
-> the interrupt method. While reverting those changes, I missed updating
-> this part of the code. Will fix this in the next revision. Sorry for the
-> error. Currently not seeing any timeout issues with polling method on
-> XGMAC IP. Also some spurios interrupts causing stall when using
-> the interrupt method in XGMAC.
+> I don't think this is a good idea, I want to keep it within the
+> confines of drivers/gpio/ and the use-case is so specific, there's
+> really no point in putting parts of it under drivers/of/.
+> 
+> If I could only iterate over all properties of an fwnode, I'd have
+> skipped using OF-specific routines altogether.
 
-So, if you use the polling method, this will likely bring this code
-even closer to what's implemented in the intel dwmac wrapper. Is this
-the same IP ?
+The problem is that every subsystem considers "it's not a good idea" or
+"historical reasons" or other excuses. Since you are adding OF-specific
+stuff that has something already done inside OF specific code, why to
+spread it over the kernel by duplicating in another place(s)?
 
-To me it looks like the only difference will be a few
-register offsets (XGMAC vs GMAC), some clock id and the mdio accesses,
-maybe it could be worth considering re-using what's been done on the
-Intel side and avoid duplication...
+-- 
+With Best Regards,
+Andy Shevchenko
 
-That could be all moved to stmmac_ptp for instance, using some flag
-in the plat data to indicate if cross timestamping is supported, and
-use the core type (xgmac, gmac, etc.) for the offsets ?
 
-Of course with the risk of regressing dwmac-intel.c :(
-
-Maxime
 
