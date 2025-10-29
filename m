@@ -4,169 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51636CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E47CCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 09:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edK9UoOKp5WWr6qKOcwoZxfbzDdcsriijGzUVgwLFWo=; b=EK8DuZ0v7mjasvg846rx+cyCKB
-	aXiVUkHiSPCklRXDpUx+pT4g+cJMeZea8efX00hkUl1+XC0RSHwL5kBLjnsGwMF7vMLX/AlHaFeji
-	eJOVb1Zb5JDvs2/he435kWFdAjcwb4Vnws9fahG9ytRztoSeD6slnO3fwIvyPyQesYS+UhbH2/9S0
-	zp4z10vVlA/nNLoz0hMFW4EOUqIDP+IiBDWAVXZ0S6MTpY/choeGDS0WbtcLEBI41wcLKZ9I43T2N
-	MsyUbFCtTQpAWAw6iq/BMXvm0qk2RWS1GFq7Terhfqtx+PCF8qNwWtHqISq166Z1MJFmTShTqofJr
-	0RnYyEIg==;
+	bh=46RQrnXqiBA0cxZyrVc9FkASOa/aXQGVTHVdiJHXrhs=; b=o9PGNTsB8W2c1p2rLb9fSJX2oF
+	Llb+2Nedc+ECx8SNQTYx0ftiqtvdZe89XdeJZde222hMcC/bLwjDVvwTGz9q0+NqTOHQDQZn8EzZp
+	HSDeyhqLLwkTkoRtUA0OaX2c4TUp5X3SkR2650f4NCabkB1caHbhL5IJy3Fcs0fv0fO7B3p9kWVC4
+	lL24TIp0BnBE8B9CxMxgI7nynCkMEchF53E2eEuIUaIf08u/OLI3C1WN+G22wGdgJk/uNxMLOPvTm
+	Jl9i1fkZakm5Z/6T5w29Th1FXuLP6mfLBfz5jkfAjUU4IxvdET4TqmPhUYWsEy5wPrNYkLaXI6DRg
+	khldqnfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2M7-00000000T3X-45Cj;
-	Wed, 29 Oct 2025 09:20:35 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vE2Od-00000000TUh-1vBF;
+	Wed, 29 Oct 2025 09:23:11 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE2M0-00000000Szx-2qRc
+	id 1vE2Ob-00000000TTk-0yxa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 09:20:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I4gFhjq2BTOdCKzA8sBW+A4CGMaHSTuBj7UU42vf+A47hzlA9o6J759xbG303vBQRxcNkUpEHALKYDoZHNQt0AbAbtfuSQsQ4wWUJRcSHOGL1+K874r9i/8cwpfpfM9V330vIc2KtbanMm2sWM1VTcK38A9fWuXMqh1RC3uo3/xcdzOJARZElVavLrgp21ZqUeCGjiuBgYks+79cXldP9i9fkNDHSksge5dcWyNMTdsxiAt9nrCMfDrLFfI7S6pzwXqOtCIvf0OjQ+IDuZGr/i5X0ViaTErriRSVwv+qcUMDxtyD7M6GdQEGscL8SN/cS9KqkhVD2dUmKrIuUOm3eg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=edK9UoOKp5WWr6qKOcwoZxfbzDdcsriijGzUVgwLFWo=;
- b=n1wsCdFsUOoBB8DSJ5Re5YdsTPN4dqSpiDnPAn6kIWtDas7q/xJlQeLRowDGwHHYz8O0SigqkXVO0Gm67p7Dn+mAWMmH2l1IWrrl3JB8Pde6/ilMMboaBnG/FIaGUCBHSYaGacoPolTGT3zfkiYhTquHEdf9qOOZPtTLkTXUeyTMY43oxPMf/AChjfid6XaP1y+ysVD1i7DsU6ltPtJ+vXCosVU/YwidrbSTyjIOSzSTsKtEXUQENXOqAlWUr551dgKrYLDJAFhvElySkz9R6DRjgwQurNRgsMKFGDTTPgoHx6F/vwYjKvyVf6mcDxN1CHVc2nnRdfhOdfjWtrzppw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=edK9UoOKp5WWr6qKOcwoZxfbzDdcsriijGzUVgwLFWo=;
- b=uK4PN7gzFsO6vOl0hhzqIERoGECgNn1HGSTeoNgLyIEwSO5Z8Jrsp7Fb1baQecujGmMfwHg7YLrGUeJNuU+imgIyIWW7e4/6p6t8681d87JeDNDhZICPGNgL1ABYrWrmZCHDkU7McjIAAJQTKzy3MUSXdmZFTx+x1MA1QctzT1Hx6Eu4G+320yT3hMYZ9GzvB98X/50pNtJIsPLYAXgd0CMr8oMIqkwIwSjgq+byto7KxXPANfJIK9hPOPkCE5XgZzOJlngcoN/wjcGpKflPxfTUdY6JsOoGtzxpXCvWRCDHuoxNiliOR7rqjaFeXduIcfv2iNrGHuCW/mWjIJQECw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by SA3PR12MB8764.namprd12.prod.outlook.com (2603:10b6:806:317::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Wed, 29 Oct
- 2025 09:20:21 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%4]) with mapi id 15.20.9275.013; Wed, 29 Oct 2025
- 09:20:21 +0000
-Message-ID: <0aae5643-9276-4280-8b1e-27b8fe73fe99@nvidia.com>
-Date: Wed, 29 Oct 2025 09:20:17 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] rtc: tps6586x: Fix initial enable_irq/disable_irq
- balance
-To: Esben Haabendal <esben@geanix.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20250516-rtc-uie-irq-fixes-v2-0-3de8e530a39e@geanix.com>
- <20250516-rtc-uie-irq-fixes-v2-4-3de8e530a39e@geanix.com>
-Content-Language: en-US
-From: Jon Hunter <jonathanh@nvidia.com>
-In-Reply-To: <20250516-rtc-uie-irq-fixes-v2-4-3de8e530a39e@geanix.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO0P123CA0014.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:354::18) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Wed, 29 Oct 2025 09:23:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=46RQrnXqiBA0cxZyrVc9FkASOa/aXQGVTHVdiJHXrhs=; b=zWmoctBOmF/zzqo/gbH4OFCRzX
+	nF5KLTDWnIOmli1Xxf/JKCnDOnUNVlg5QFanKYAwA5l0bQn9N3eI+XdfXULM8xgA4nS3bVLazVxC+
+	mlKGKzSAdWEnLQCytZwHoNlBscrn/H4td/UalPv5ei6xon5xuHZQDH3bS8UgGff4IssWJUzj91HOD
+	papJefxLxlyERmphp2Uppp0GDDOlcKO0Mr40mE/W+I1cPxHcv76jkEi6XM01FMblP1Lq3MTWfK0Ye
+	pTPZjlCwWkM1tRJOBIXU054Tkp16+abE0X17VT+6S3xfuwFV+NUHmFJG/4F/bVEyz4IyWEsymx9dz
+	j5mGQYsA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52914)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vE2OM-0000000049a-0LSK;
+	Wed, 29 Oct 2025 09:22:54 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vE2OH-000000007PZ-41sq;
+	Wed, 29 Oct 2025 09:22:49 +0000
+Date: Wed, 29 Oct 2025 09:22:49 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: Re: [PATCH net-next 0/3] net: stmmac: phylink PCS conversion part 3
+ (dodgy stuff)
+Message-ID: <aQHc6SowbWsIA1A5@shell.armlinux.org.uk>
+References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
+ <aQExx0zXT5SvFxAk@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|SA3PR12MB8764:EE_
-X-MS-Office365-Filtering-Correlation-Id: d0577079-797f-4586-2d9b-08de16cc626e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|10070799003|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Yk50UEtvSWVNVXlPK1RpUFlTNHVXNEFJd0FOenhLSHUwRjZRcklxQjV5NVZL?=
- =?utf-8?B?VXBjM1ZiZ1Y4ZVYrZldOQ3Q4dWRtUzJKS0E5WFZVZTNUWCt1RzBJYTF4U3dt?=
- =?utf-8?B?WTZQZk5KSTJZMWRuY1FEdGtUbXZWQ29yMHRnd1I3TzJNbUYxN0d6R05kcHEw?=
- =?utf-8?B?d0dYTkk0dFFpVDhXNDk3MzdydDlVZE45cHZwbTQ2MVZ2R1A2ajBoVi92cU55?=
- =?utf-8?B?c3M3elVxL0lxWVdCWmZFVHIvTW1ndkpseTRSRjFZcmovakZsTVF5S1o4Q2Vp?=
- =?utf-8?B?L3F2WDMrWUg4TXEvbDFFdDRBdy9nUnhueDcrRCtINGh1UmllakZva1k5dFgv?=
- =?utf-8?B?NC8xTzF5U2R3RzY1VFIwaUViRU1yKzZuNVJ2eWJ5SVhCdnNHeGliY0Z4SG54?=
- =?utf-8?B?MzlzUENNRUNwTDRLK1dHYStHVWlzOXNLYjd6S2RLbkdadUlDQlBxVjNXd0E3?=
- =?utf-8?B?ajhjTUU1RDlRL241Q3J0OW5DQkpsZC9sSWRBS1Arby9NdFVDVDBIdkNHYWk5?=
- =?utf-8?B?ZCtzV2ZnanRmM3JxRTQxN2VaZ3NZWklzaCsxZTh6WDFQTkRQcS9yTlBremtP?=
- =?utf-8?B?Y3lBNzR0MG1BZVQ3aEhabG1nYlAvNU1qTHdhTlZGSGVoM2M4cU5Vbmc2aUlF?=
- =?utf-8?B?eGtOS0ZQWmgydHJZclFzTU1KYkYvcVFFeFNVUFIzMzdlUFlWVnVTZDdQNTdn?=
- =?utf-8?B?U0VKcE5RbVhCTG5pYlF6MEVaUUFMMmc5MVIyVHVRcXBWWVlMbXBGQ3JvVjNo?=
- =?utf-8?B?K041WjZCWE56ak1ZU1poSFpxcTFGN2RGc2ZNSVJCQVJmZ25ZakNQaEk1a2RH?=
- =?utf-8?B?Umw3UGZWaFlGNittSEN5VDlkK003V2Y4TTJZc2p3UVRTbC9zNUIyZlBtdm1R?=
- =?utf-8?B?U2o2bklSNTVZZ295bUVmQ0IwWFJVRmJKMVl6bklHMDBVRnJSdHB0dGRlUjZL?=
- =?utf-8?B?OC9MVXN5U2pQYjVhVTczQ2hsNVkybEUyNjJ6L29ueURtNWpYcEV2K0N0ZFlj?=
- =?utf-8?B?R0d2amlGbEhuZXhkb1hENUVSdGVZNHc5OThJelJLUUlnb2liWTdIcEZrbVB1?=
- =?utf-8?B?TkxCZm9iWmZSdldQb2dkaEo0M2ZJMVlBQ0x2RDdOZm9aVjFpQS9VM0lMT3c5?=
- =?utf-8?B?ZU0vdU5VUlVTY3Fwb2ZqdGtKdkpUZTVTMVhhZDFrSmVOWkJmTHoydVpWYXY4?=
- =?utf-8?B?ZWtWbW9HR0ZQdjU4eVVzQ3NlNDFWN3RpeHhmTTJObW9qZ3pTazNFdnpWRDNY?=
- =?utf-8?B?aTdzN0Z1ZVNYTWpUQ05pN05Md2tyOFhVZFNpeWxVZUpvcm4xeGxFMHRWaUJu?=
- =?utf-8?B?THNhWHF6R2RSRHlRVXpGTlBrM1RUaWtWR1JIQWZvN0RURDExQU5YOXNOWk5G?=
- =?utf-8?B?aHpOVVBxQnR6Ymg0NlNvdE9RbkxHTVhoRjd6a1QwQ0dXaWNZa0plMGdnK1BE?=
- =?utf-8?B?alJyaXNCMEdqbGpDZzhoNFZvNzBZRlN6SzFLak92bVFYODY2RlhPQTYrSldm?=
- =?utf-8?B?Y1QwbE5COHlrTkR0RDR2TVBOWUZ5MEk0cUJTZThVZnZyenR6UTNzNHVJbzhK?=
- =?utf-8?B?TWdXUks2UTIrSE9KRzY0emVibDE2UWFNM1BrelVMS2pqSHRvT3JSWWRqS1BW?=
- =?utf-8?B?ZUl2T2NzNk1yaHR3bWxObTZxcmpZYmNZZ1Rqd20yYWpOVEN5MkwxRmp5STlq?=
- =?utf-8?B?SkF2bmpqMGFXcld5eGlyQnFCVGdqWUhrWHZIbWhzeEczNFJNT1lBb2VqczU3?=
- =?utf-8?B?dTgxZDVwS2VYWHQ0amxybU5KT01UOHIvQmlYV0lMQ2ZWODU5eGZYOU54L2xa?=
- =?utf-8?B?M2xLZWdKZVgrZGZjTUVndWdzUm1UVkM0b214U0hyK05nbnozNzIxU25SU09C?=
- =?utf-8?B?S3BXOThGYnlhSUQ5TFRZeGRGYWhydUFPRTVTSXdERGJWUTBmdDhRS3hXM1BE?=
- =?utf-8?Q?MoJTiH34Xi2jcli1KLdNN7TwvGPJvLGw?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(10070799003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dENWcDhEZSs4NlRpR0srakovV2c0U0R0aExmdVEyRWV1QnlQazFYN3JuVVNF?=
- =?utf-8?B?YUlrSHdLRCtTalpvcHBVSExXN2hqMGRHY2htcWptejVUdHIyMDJaQithbWRI?=
- =?utf-8?B?Q0VxLytQNnRLemsyeGJZeDRKZ2Y3dkxPY2R6UEMwUGVaVVJreEJscllSeU1T?=
- =?utf-8?B?YU9tL0xqcU1FZ0ZZU0x5TURtZzlFaWlMMHdPSEE1SGliRlRiNU9senJHanBl?=
- =?utf-8?B?dkQzTEdXMkh2ZVpha2NKMWY5a0x4M2hGellaeHRmRnViM3d1ajhuMkdlVDE0?=
- =?utf-8?B?eWNKa0VOL1RJQ1B3emQvNDJLVnlibDVHZ3N6VkdMejI0Y0lHWGYxV0RKTko1?=
- =?utf-8?B?V1kxb1VlaUg2SU1BU1NoSUdIeUZlUnptajVHTFRwaGVGaGF4NTlKQ2xSVmRW?=
- =?utf-8?B?YmdLNGgxTHczMlJzbkRsYVR0U1hOZWYreW96cEx3UzVCM3IvRE5iMUswZndz?=
- =?utf-8?B?NWlJUHFvb0hiMUZyVVZ2UFI3V0pzczdpWHVTQVQrYmVkQW5nVC9oYWo1eVlS?=
- =?utf-8?B?ZUdtaVZqMnBsMlhqWjZNb2lGYnRPbDJXVFBkbENrUCtjN2tWelR5akx2amZF?=
- =?utf-8?B?V2hUejNjemUvV2RORWtNeTBFSEpNREFCZDJscnY0L3Y0UzljNnIrK1VFMVhS?=
- =?utf-8?B?dFdtejl6TUpkenhtYXM4Y2VNRkRZV0tPYk1oSUhMcmQvaERXa09hMU5IdUlo?=
- =?utf-8?B?VXFPT0xRV3VBOEdQakFLemR1ZVNobWhJdXNoWDlCczkwLzlQNXZXeEpnUWRM?=
- =?utf-8?B?WWRWb3F6T1FWUHdvQXE0MVg5ay9hQ1BtT2htY3JSZjZUNFYzTGJKbWx5b0NT?=
- =?utf-8?B?eXp1VFpGczl4Y3lzMXBRdjR6VHdYREpIR3pIS294N2V4eGFxUmd0VUQ5TW16?=
- =?utf-8?B?Sk5mMVVNMFJNd3YxSmsyUlp3UUFZampJb2xqaFV4ZTBVY0lkZm1yUGxLcFQw?=
- =?utf-8?B?WVhTQmQ4b3dWbktOMnhkYXRLMEg2Qm5CRW9pdUVQcCs2OG5CbkJ3VWlFdEFh?=
- =?utf-8?B?ckRhbERNTTR1clByK0F4bFZQRXJ0S2x1L1FjNGlOWEtHb0F5VkQxemdFb0ZY?=
- =?utf-8?B?SXdoaUtwelJXaFhFcktHRzRYdU1JODkxN3psV01EMnVhdnhoUFZLb2FXQkZs?=
- =?utf-8?B?V29EVnRIWUgrdGVOZTNncEkvTlR5OEc1Z0NDZ0h1dFcwNDdSMlJiTDlnN3FD?=
- =?utf-8?B?VEpiSDNmamM5ZTd1UjUrV2tJYkZRZDQ5SXFoVVV5R1FWMHVxVmsrdnlEc3lD?=
- =?utf-8?B?ejNnbXNRa21OMVZRbWtFVmt2cEdBM3FUOTdFY2tic1gvQXZjMGJrRU9wZndE?=
- =?utf-8?B?SU96LytCbTd5LzVYRTlySUsxY1NlVTkvUzZUU0NSRGZUSHFjeVJkMXk5L214?=
- =?utf-8?B?a24zWm41NnBIRGM5N2ZoUGV5QTFQWUlaWWZoVVBaaDhFZThJcGxTd1dwWTBy?=
- =?utf-8?B?Qmg4WXIrWGVJM0tCdkRHeG5aNWtTL2h3SE9ZZzFTVlRqeXNpOU5iem1KLzF4?=
- =?utf-8?B?enA0ZjVhWlBkZkgwNG15MDRYMk5UaGZmaUMrKzFZQUFEbGtTdExHdEk3QStJ?=
- =?utf-8?B?QWVVcHZXejFqTkpDVG1JQkZUSWlJTEtzUlY1YWwreDU1eHJvN1JteXZCVkZn?=
- =?utf-8?B?QWUxMTJxRUNsdGh5OE5FMlhNTmVDWEJ3NklwM2pRbFRrbGh6UVBnV1FYdDZz?=
- =?utf-8?B?ZHlsUFE4bTVwTitMMDFBV25TL1lXNjhaWEhTYUcwYmdIZzlvZjlSODdvbTdy?=
- =?utf-8?B?VDdoamplQkFIQVNBQnhZWlVkUnVqTVozM3V5WGtTcjRRdUtBRC95UDhUbTNk?=
- =?utf-8?B?dStLR0UzVzM0RUpMa2FiT3FHS1cxb2E5d2RQd29VeVF3Ry82b1pNMmRmZ011?=
- =?utf-8?B?a3BmaVJaMUI1OWYzVFpTQmQ3RldUUElnOUpyTm11MTBwT2I0Tnc3U2hiUFFJ?=
- =?utf-8?B?RGF5cTFjRkphWFdnZmhybEhkeW5yZWI0RHYydEJCZDVjdE5YUUN1eTIxZm54?=
- =?utf-8?B?SWY3T2Y2dlNJQ1psSHdYV0ZxSUM0VVRPZWdyaGcvNitLQ0lSc1NsY1pGWDZL?=
- =?utf-8?B?M242dytnOXJ0OVgyZ29ETVlLR3lCcms3eFZwK21CYUFKenAwaG9zREsxcDFu?=
- =?utf-8?B?VThWRHBPWTZYZHNscE50OU14bytpcXU3SU84RXhybm5VWkNnVUFDOWo1WnAw?=
- =?utf-8?B?Tm4yQnlpZ2N3UVB1UlZBd3hXN3ZGUDJNU2pod2NXS28rb2ZHM21aQllWYWZH?=
- =?utf-8?B?YUpLOTNDYzdvdXdjUFpMak5LY21nPT0=?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0577079-797f-4586-2d9b-08de16cc626e
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 09:20:21.6525
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PN6hZRb5MHMT5xPGIs1AT47DRYbJhtwIqULh5fz3jdZX0l2tPETa9vpOwejyEfrca3szC89ITGXWMpolJX1Znw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB8764
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aQExx0zXT5SvFxAk@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_022028_747691_3F316276 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20251029_022309_275509_16FB7433 
+X-CRM114-Status: GOOD (  38.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,49 +96,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Esben,
-
-On 16/05/2025 08:23, Esben Haabendal wrote:
-> Interrupts are automatically enabled when requested, so we need to
-> initialize irq_en accordingly to avoid causing an unbalanced enable
-> warning.
+On Wed, Oct 29, 2025 at 02:42:39AM +0530, Mohd Ayaan Anwar wrote:
+> Hi Russell,
 > 
-> Signed-off-by: Esben Haabendal <esben@geanix.com>
-> ---
->   drivers/rtc/rtc-tps6586x.c | 1 +
->   1 file changed, 1 insertion(+)
+> On Sat, Oct 25, 2025 at 09:47:37PM +0100, Russell King (Oracle) wrote:
+> > Hi,
+> > 
+> > This series is currently the last of the phylink PCS conversion for
+> > stmmac. This series contains changes that will cause potential breakage,
+> > so I suggest to netdev maintainers that it is only applied if there is
+> > a significant response from testers using the PCS.
+> > 
+> > Paritcularly, dwmac-qcom-ethqos.c users need to test this, since this
+> > platform glue driver manipulates the PCS state. Patch 2 is designed to
+> > print a warning to the kernel log if this glue driver calls
+> > stmmac_pcs_ctrl_ane() to set the AN state differently to how phylink
+> > has set it. If this happens, we need to do some pre-work to prevent
+> > these prints.
+> > 
+> >  .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   |  7 +++++-
+> >  drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |  7 +++++-
+> >  drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c   | 29 +++++++++++++++++++---
+> >  drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h   |  8 +++++-
+> >  4 files changed, 44 insertions(+), 7 deletions(-)
+> > 
 > 
-> diff --git a/drivers/rtc/rtc-tps6586x.c b/drivers/rtc/rtc-tps6586x.c
-> index 54c8429b16bfcc692b1f4d5404f0c42f720e93b4..76ecf7b798f0de22aa89a552a263b473ab3065ef 100644
-> --- a/drivers/rtc/rtc-tps6586x.c
-> +++ b/drivers/rtc/rtc-tps6586x.c
-> @@ -258,6 +258,7 @@ static int tps6586x_rtc_probe(struct platform_device *pdev)
->   
->   	irq_set_status_flags(rtc->irq, IRQ_NOAUTOEN);
->   
-> +	rtc->irq_en = true;
->   	ret = devm_request_threaded_irq(&pdev->dev, rtc->irq, NULL,
->   				tps6586x_rtc_irq,
->   				IRQF_ONESHOT,
+> Thank you for the recent stmmac cleanup patches. I apologize for the
+> late reply. I had limited time to test due to some urgent tasks at work.
+> This is a long email, please bear with me.
+
+Thanks for the feedback.
+
+> I have the following devices on which I try to test whatever I can (both
+> of them have the same GMAC core with an integrated PCS, both use
+> phy-mode="2500base-x"):
+>   - Qualcomm QCS9100 Ride R3 (2xAQR115C PHYs)
+>   - Qualcomm IQ8 EVK (QCA808X PHY) - this is the same board for which I
+>     had posted [1] to resolve its issue with advertising only 2.5G
 > 
+> # Patch Series: net: stmmac: phylink PCS conversion
+> I tested this series soon after it got merged to net-next, probably when
+> I tested out the hwif.c cleanups. A summary:
+>   - QCS9100 Ride R3 - no issues found.
+>   - IQ8 EVK - same behavior as without this patch, i.e. 2.5G was working
+>     fine, other speeds aren't advertised.
 
-I have bisected a suspend regression on one of our Tegra20 boards (that 
-uses this driver) and bisect is pointing to this commit. Reverting this 
-commit fixes the problem.
+Great.
 
-Looking at the above I see that the flag IRQ_NOAUTOEN is being set and 
-so now with your change we never enable the interrupt. Hence, the 
-wake-ups are now broken and suspend testing fails. So it would seem best 
-to revert this.
+> However, this might have been expected as both boards are using
+> 2500Base-X whereas the integrated PCS changes are limited to SGMII.
+> *Sidenote*: I was able to get 2.5G and lower speeds to work on the IQ8
+> EVK after adding an additional case for 2500Base-X on top of your patch.
+> 
+> # Patch Series (current): net: stmmac: phylink PCS conversion part 3
+> (dodgy stuff)
+>   - QCS9100 Ride R3 - functionality seems to be fine (again, probably
+>     due to the changes only affecting SGMII mode). However, the warning
+>     added in patch 2 comes up whenever there's a speed change (I added
+>     an additional WARN_ON to check the sequence):
+>   	[   61.663685] qcom-ethqos 23000000.ethernet eth0: Link is Down
+> 	[   66.235461] dwmac: PCS configuration changed from phylink by glue, please report: 0x00001000 -> 0x00000000
 
-BTW, I looked at the change to the CPCAP driver and that driver actively 
-disables the IRQ after requesting it and so I am wondering if that will 
-also have alarm issues? I don't have a board with CPCAP to test.
+That's clearing ANE, turning off AN. This will be because we're not
+using the PCS code for 2500base-X.
 
-Thanks
-Jon
+Can you try:
+
+1. in stmmac_check_pcs_mode(), as a hack, add:
+
+	if (priv->dma_cap.pcs && interface == PHY_INTERFACE_MODE_2500BASEX)
+		priv->hw->pcs = STMMAC_PCS_SGMII;
+
+2. with part 3 added, please change dwmac4_pcs_init() to:
+
+	phy_interface_t modes[] = {
+		PHY_INTERFACE_MODE_SGMII,
+		PHY_INTERFACE_MODE_2500BASEX,
+	};
+	...
+	return stmmac_integrated_pcs_init(priv, GMAC_PCS_BASE,
+					  GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE,
+					  modes, ARRAY_SIZE(modes));
+
+This will cause the integrated PCS to also be used for 2500BASE-X.
+
+3. modify dwmac_integrated_pcs_inband_caps() to return
+   LINK_INBAND_DISABLE for PHY_INTERFACE_MODE_2500BASEX.
+
+This should result in the warning going away for you.
+
+I'm not suggesting that this is a final solution.
+
+Please note, however, that the stmmac driver does not support on-the-fly
+reconfiguration of the PHY-side interface as it stands (and questionable
+whether it ever will do.) The hardware samples phy_intf_sel inputs to
+the core at reset (including, I believe, software reset) which
+configures the core to use the appropriate PHY interface. Performing
+any kind of reset is very disruptive to the core - likely even causes
+the PTP timekeeping block to be reset. In my opinion, PHYs that switch
+their host-side interface were not considered when this IP was
+designed.
+
+To get stmmac's driver to a state where it _can_ do this if desired is
+going to take a massive amount of work due to all these glue drivers.
+
+I do have patches which introduce a new callback into platform drivers
+to set the phy_intf_sel inputs from the core code... but that's some
+way off before it can be merged (too many other patches I need to get
+in first.)
+
+I haven't noticed qcom-ethqos using a register field that corresponds
+with the phy_intf_sel inputs, so even in that series, this driver
+doesn't get converted.
+
+Thanks.
 
 -- 
-nvpublic
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
