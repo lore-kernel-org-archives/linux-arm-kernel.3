@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE78CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30987CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 11:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lIU4oOnd9wxauWH3/Fw9rcysB+ICjm9HLPuh90L95A=; b=Is9210YsuKwRjWlsUlpFaQZXK+
-	Nrfgf0sz+7EAUr9xG4T/VZX2bWt4GVfXu5i881eald2wsPC0ew6awCg1NYmgdra8mzZVvLsR9Xm7s
-	8AHGge7sLaBLfMie/xX1FSYBQ30m2JHPiJja8FazH7hhg6eGFiNS/9QfDO6xXjleYK2xojzQH9Asd
-	UnoLe92TJ6MHzPZHEjRkb4C864inoG93Piafmeq9RWeIZyIuAOyXCd5Y7FNFVowW46eHsPdfJuumL
-	4zgu6KrINFbs8EnpErTv/aBlJKkmzt56QBQok1tKuU/EvPrAP4MZp50NrNoP8UhVpyrlG/G0VC93/
-	oIpeiPXw==;
+	bh=bzAD0cYTYlmz/0N8KICWQ9Nbs5w1QtlOIL1Twm9Y/FE=; b=Oyu46x8M1aV79K3mSOwpUqWaTv
+	ciiRMrHW2iNnTNspYRg9LnELeEnsItuHmimZq2u9dUiP6zZNNg7HGUpwc6b4tvxMDfDGvwSQQjKRl
+	WfwMoMfBy0jWTcvvFYt1gpu5V0PWLju3ttoOp4htTm4iO/lEiqDJXsz/9EOcIw0OlhW7SSNxMR67V
+	8g995CDIrMdGDFS266n3zo/s2e7Yil+DKm0C8LCB/fh2FvtnGbAmrarhFM4Rff70EDRgBQitSIWAM
+	xaCQyZn8u9isLvQTJsqAl9fqHGixFpPwX3o6AAp/YBXr5pRImYZ1BQ/b1gpSU13rXfhSNEmqHLr2V
+	6x3RPwAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4Em-00000000vr5-2rvL;
-	Wed, 29 Oct 2025 11:21:08 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vE4En-00000000vsE-2U59;
+	Wed, 29 Oct 2025 11:21:09 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4Eg-00000000vmh-3AZy
+	id 1vE4Ek-00000000voT-1foK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 11:21:03 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-426fc536b5dso4923087f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 04:21:02 -0700 (PDT)
+	Wed, 29 Oct 2025 11:21:07 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-47719ad0c7dso18035175e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 04:21:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761736861; x=1762341661; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761736864; x=1762341664; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1lIU4oOnd9wxauWH3/Fw9rcysB+ICjm9HLPuh90L95A=;
-        b=0UvNqI8EaAv2lOC5LTNpC7ObzfRyvhW4b8s7eRtl4UcyjI9oMvLElopkMSqJlVY6yK
-         c1iSt1gCtmYUYUZ87kGV2TxDniSIQWQKm9wqKSWz3Tnb5a3plh7fxVSBBE1uGgm+zjgb
-         /5s1RGvhNX74FDZsY19qqEo310Da9ju5H9X02m+yxzPPtv6lubvX3+BTZ0/CQdoxwwRK
-         M1jMoEpqPMcmKYCPAnqnCiN06XJ5XBpFhBoqThj+JIX0E2lCMe8Oh9N9bPndR/zOHgis
-         N0LMvnOkDYLgaP9RVAH5oD7WJvy3F0H0wOSbCSx/Jkl65lAoMlqWirVpf7CYML6/rW95
-         3UTA==
+        bh=bzAD0cYTYlmz/0N8KICWQ9Nbs5w1QtlOIL1Twm9Y/FE=;
+        b=wy1tnW3j28hnuv0hJEm1PmKgrAFuYEdn/4BdphThBAlKQPFjKBugfAr4jFAwNOOPa0
+         Y5E4ebuHHMwoUUsL/fdiGCYZVG8uJc958M0qewxDE/VW20bk2wZ+bSwp/Lj6yWjSQu2N
+         C7iKJgTs0wR4hs8t0Pt//SOiz1h66to5zPStT1KiSwRETU8rm1pbwCFUXJFQhqPcKQZ3
+         K3acBwf4ZQVdDgN1K+dh9wb9RY1VGw7XDo6bV9h9eq5WeU9VJzOKKYpayH+C8TaKMcod
+         /jzyX2bB65XUEwgTvxauqn/pVmh9eby5viroAOj1LNr2R8uTP66HuHCNDeRCTOPaX/A1
+         4uzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761736861; x=1762341661;
+        d=1e100.net; s=20230601; t=1761736864; x=1762341664;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1lIU4oOnd9wxauWH3/Fw9rcysB+ICjm9HLPuh90L95A=;
-        b=MyceWxwWW4YsHrQVAS51IilxzIu5jXDgkZ0sE7i8twBXv2S14el+8KGP14NJOaRTqM
-         klWnpN1oSQAS+2mrtaUJkneqKYon4L7f9OaQxpimEGVsO79wMquzWJeguEyij9YRTq6d
-         kB62zDeR1jWyV+KD2lJKX5x7Yy3eGt3QgBP3RiMJUjnD+eSRK+6n8C3Yk6q1Qp6z2KUm
-         uz4MxMxC7CWBd8VWKOzfcune1Kz4ZdvV37SuVBVoRx0XODlXnEoHbqWPIW2kO95UZI+8
-         5ZmgpDxb07z+B1IRqIAMdIRSRLl3Z4o8nDnuH3gUYosNnn02gn/ByPY40yghs/I8ssVI
-         RMSg==
-X-Forwarded-Encrypted: i=1; AJvYcCVF5BuGwKEok3FqGiRCyxDk2JO7wjJoJ2mm1zk0O8aHSC0HlDuMBAQ61oZ1sKuGYe16nj25tDwjxrcgGKuNrQUm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQOgFFq2Jzh4kP2aVXzaIMEzOqwugvUQVLSMWeUHH+eNVaWEid
-	+rVS3Si4Dd0P3ufVKw/CAf/xuxH6/DttQ+ehbm/AE2S6UbKCEnhO4rKVlYTjyyDPd8c=
-X-Gm-Gg: ASbGncvG12PLqBKcmSYzAiTUkyEBMO/W5Gh8jL33t99mHJPW9ngjXqv+Kb7+OvtvxIg
-	nXeJ1GL2gkfKqidfJtofsUYApAzInzYcPjHOedH+LgTDAoIjdUOEfI6S5wHk0HOhuPfC4nxBCy/
-	XCREszb5Qzxreq2sJG84Uhsr8bePqSPORnTVssL9WUbro7UllFxqHI1WUVnMzXhkf53lw8SiQtL
-	FsXES0AkekBzCnCrq/wDLChIB6/IM/anHNEmDsdJHC0RUBYEcB0wo103eeSHeUtEnrlR+IGLKUu
-	d6EelOhRvi5bNsUl7hP7lPJYcC6nUeT7nYHVI0tmzOBrzgLr1QbllhLTlfgp9RS8K8g6IiVwl8a
-	1nhg4Mp+U3aYiYMV8U57w0O5ibfUwkwoI2ZWTX8djhEIAG+Lz8FZIcBa+UwoxAMtZJU8K+SWOlR
-	1DVi/A
-X-Google-Smtp-Source: AGHT+IELysTe56E+mhoHZ7NXstUIW6f3UKmtjVO8ghC70j+DW/TkQAucQOrY5XE0HuDLOQMR9DoHNw==
-X-Received: by 2002:a05:6000:1867:b0:428:476e:e0ad with SMTP id ffacd0b85a97d-429aef81bbcmr1726436f8f.18.1761736860830;
-        Wed, 29 Oct 2025 04:21:00 -0700 (PDT)
+        bh=bzAD0cYTYlmz/0N8KICWQ9Nbs5w1QtlOIL1Twm9Y/FE=;
+        b=CWvnyxyd8/mzjA2szzoHor4fpgxcTb+z8J8epdvYEEB6iYpawV4RR4jm+waMBSqujc
+         LG+t7WO8rYinqcZ8mLFJoVF79wibcgDso7R6SPOJvO7WApgT6wEO5MGwOlsEasH8TFVo
+         I/hUGb665XVv37cg+WKhYMZKmj5TZOGYSM2QwL0WTAG/rKv9uIv20TkrNHlpCNg6lB/C
+         j3jaAM4837Isp8y5nbZO2Ddj6WB7JsRmU5llgxXic46TQAfyQk0oSYpnPCRk80InI3mV
+         46hQeteyedcOOu+xbjSpcZUE3r2JDp3IU2jwW7OfdAXdq3btkPK5TUI0HjsE/ogVkArZ
+         XO/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXLlj7gKVP8Q318idQOqCt9ehdBp0Wk+ex6vJGbZths9j9YSmGCrDZHGmY9Chyi4JqBWELkdz3yi0VALMxnycAw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6z5+5s7YLHsReLTvL1pgmhWWrgQm8CmTdzpV4I3ejMKuHs5w5
+	Y7rhLpNcGgl7U3uCHE3oXidghzfSVBw1rWsNoW8a30VN9HigFxG2N0IRVxatRbdxHiw=
+X-Gm-Gg: ASbGncssJp9cPtdxkoROqEvtbR33ryVxi6lCtw6ZB5SgBtBEyE9RaomO2kzJAT0fzBa
+	WDhnq0fTX+YWV1n6eBHBf4PcLZrhyASu4zQNyvRnUANp8Fp9NoofFEi4HSW7vq7FwWpz358SK/Y
+	iFmuGmZ1MzT3HohNt8TbGpXAPoRtrdnQE9NlInJYGYsgqlHyamn7JQwQv6JJd1U07FJPJxv4/Ed
+	vrOB4zGPi4uBieSt+2SGJ5Ry3kwB3UtRwrCRZ2YaWCgWuyo6HVolNUTg2PnEwULCdekyFiVQ7cL
+	8YiiSbcmx9Pa+DGdpsZcmYMtoFah6mxSvbOzzHcdCT63IrdkRfED73IdG90bB74O4/f+5hAIeLj
+	uGSwZQNOvqihPxfMvQWzntuNZTtBTdZvhpJkjdsHtYfP2zmw2uR4wBMSjGfMF41yruzY4eA==
+X-Google-Smtp-Source: AGHT+IFepT/g0mGDDZu27qox151T4Ope3H6XWzZKOv8YtbmF843M3u2gByG79k7r47GrguQ+Zcr7oA==
+X-Received: by 2002:a05:600c:64c4:b0:471:15df:9fc7 with SMTP id 5b1f17b1804b1-4771e1e008dmr21333525e9.26.1761736864339;
+        Wed, 29 Oct 2025 04:21:04 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:69f2:5f2d:9ffc:a805])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952df682sm25657486f8f.43.2025.10.29.04.20.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952df682sm25657486f8f.43.2025.10.29.04.21.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 04:21:00 -0700 (PDT)
+        Wed, 29 Oct 2025 04:21:03 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 29 Oct 2025 12:20:38 +0100
-Subject: [PATCH v3 02/10] gpiolib: define GPIOD_FLAG_SHARED
+Date: Wed, 29 Oct 2025 12:20:40 +0100
+Subject: [PATCH v3 04/10] gpio: shared-proxy: implement the shared GPIO
+ proxy driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251029-gpio-shared-v3-2-71c568acf47c@linaro.org>
+Message-Id: <20251029-gpio-shared-v3-4-71c568acf47c@linaro.org>
 References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
 In-Reply-To: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
 To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
@@ -97,26 +97,26 @@ Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1034;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12071;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=e8Z3nS5BNhORSph6UaHIgaZHRcPU9qQgBhb27hulPU4=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBpAfiW4FA7llKfwCZoWb8G15eTM+Wy2jJjYF2bu
- 3ooeffD6huJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaQH4lgAKCRARpy6gFHHX
- cjYuEACaqpLISq4p8HrYrIb2+Rq8Nb5ILjV+P0hFXGHSWmJC1wjp0nJB2q+9ru0xbOxMWwtW/Rp
- HW4WVkKe+RFWNbdMb9jzaXp39XJvoXW2bNC8pMJcqH12jbX3+gYpHmUe5uVwilYz9qwxIhRbMip
- bQSbDMYxRxK/k/jsxUIxGDKzgFiD5nFCRDva0xP4oHly9vkeMQGzgkQwE3v7lxjzBWTo8KNCOMW
- 2R6Y/Z+eGc+qU2hHrAa60nnOkwBkaS/yEgpiLp+gnBwYURCkMcZMR6CfJ5kLuNvaX6F6aNRbUV5
- 0E5E3mPawJcF9EpW7UmjFRA240Pq5qs4LbmQy+24bqeZoF3AFFGyGb4F5pISWqsTARmjXJKrVJl
- mAzN6nRo8z1fPDRxUpZTCxr16WdZO5jvvjYltdIQ7rzduTGR3xiK0JPSK6XjzKGxMQNtbnP8sLt
- XK1LJZxGOEtEHQitBbf476R8P+DpKmTJz5uqIzYDk3Z+hIceObbngk687GDaaPmO7bjz9mDcsnK
- yDvbBQKeDs5NoDC1jn/oGqAsKdjei8JS/3auZOUaPGcueQVKL34E6xR6gjhNRjdNhSC3b2zxOor
- CLMRY0amk8PsuF1e5VnsqJ+aoPTLJT/y3r9XLgmvgGUMsqjFHidM8y6QyR+euKXB9P0jPGp8Msa
- dnvUq4A/hNw30qg==
+ bh=nMwEBRFh4XOPjHIiaJPyL/IGQRbGQ5r+fPXFOtJIq4M=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBpAfiWkyxmed080sYivuvosfShdCG2eUvNdzlvu
+ 35d2InUDMeJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaQH4lgAKCRARpy6gFHHX
+ cixfD/9jv6RbhPw0wFQ1c1KsGtJnSyyUFcV2FyPivD/wcVtheWR8AE0GIB/Ojrhp2XRqFxYYPd6
+ ESdFp8m2TALnvNpPIzFIyqJmp7qxmAHfATffBPy1EFbm7p9ZgSMIlpdXQSVgHsvgfF/PyhNNwT/
+ g3umY2WWtU909Zg9zQgTEfsvqzTEolxe/DC+tTot5v1CNZ+tWzxOCHm8GSqPKggzMG9BWc93HLe
+ gM9kLf6MxqjLrSXvRG1t5j5XcC8TyVWVS3+2w9pFTxW5vbfROLkZJPsJRXoO7tccdjONaUQcMWt
+ LbXbFzXVa0ddSnJcwyn5HNFgc0vHpRMKMMMNbvmTSOtnyhJYU96p2lI7xGTyuiTscYgRLz6MW8y
+ BO+vTg62YhPfvYRSDuHqePUWwnVDmlOyvaACmR7Q476J4t+g+/tlo/VbY8I0bThsn3rpZH/tRJ+
+ ElW3PS72DXaBWDzrZEJtQCYq+bc/PfyH662mHQeL4ym+Jm+jHZj3ULcPKny2xBRvcnehhm7+n1e
+ lptOeSil+3LvecWpU87kIdcApGalrHQfqpNKZ72rBjWJhKYasfZgBqu3L5roeQmt+xAwaE2BpYD
+ 2JVvjmWxwZJ/66LJn7rkiCdgFMQ8d+sl+84g3p3TOuMop4xQkyaDLrLsmY0y+DNHW39zYNZYI6+
+ WzgOPqxRKhq1rcg==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_042102_816026_9166A5F8 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20251029_042106_527743_CFB64836 
+X-CRM114-Status: GOOD (  30.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,27 +133,400 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Define a new GPIO descriptor flag for marking pins that are shared by
-multiple consumer. This flag will be used in several places so we need
-to do it in advance and separately from other changes.
+Add a virtual GPIO proxy driver which arbitrates access to a single
+shared GPIO by multiple users. It works together with the core shared
+GPIO support from GPIOLIB and functions by acquiring a reference to a
+shared GPIO descriptor exposed by gpiolib-shared and making sure that
+the state of the GPIO stays consistent.
+
+In general: if there's only one user at the moment: allow it to do
+anything as if this was a normal GPIO (in essence: just propagate calls
+to the underlying real hardware driver). If there are more users: don't
+allow to change the direction set by the initial user, allow to change
+configuration options but warn about possible conflicts and finally:
+treat the output-high value as a reference counted, logical "GPIO
+enabled" setting, meaning: the GPIO value is set to high when the first
+user requests it to be high and back to low once the last user stops
+"voting" for high.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpiolib.h | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpio/Kconfig             |   9 ++
+ drivers/gpio/Makefile            |   1 +
+ drivers/gpio/gpio-shared-proxy.c | 333 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 343 insertions(+)
 
-diff --git a/drivers/gpio/gpiolib.h b/drivers/gpio/gpiolib.h
-index 14e6a9807a89da6d7c6594a0a2de5f5032c49e0d..c9de4bb10584206f4888c0f28468762a3680aae6 100644
---- a/drivers/gpio/gpiolib.h
-+++ b/drivers/gpio/gpiolib.h
-@@ -204,6 +204,7 @@ struct gpio_desc {
- #define GPIOD_FLAG_EDGE_FALLING		17 /* GPIO CDEV detects falling edge events */
- #define GPIOD_FLAG_EVENT_CLOCK_REALTIME	18 /* GPIO CDEV reports REALTIME timestamps in events */
- #define GPIOD_FLAG_EVENT_CLOCK_HTE	19 /* GPIO CDEV reports hardware timestamps in events */
-+#define GPIOD_FLAG_SHARED		20 /* GPIO is shared by multiple consumers */
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index f90b4d3e77f7cab46525b7adfcf114a21d276678..f910c20f0d5d7771f7f8f3d52ced7bce413d24f1 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -2025,6 +2025,15 @@ config GPIO_SIM
+ 	  This enables the GPIO simulator - a configfs-based GPIO testing
+ 	  driver.
  
- 	/* Connection label */
- 	struct gpio_desc_label __rcu *label;
++config GPIO_SHARED_PROXY
++	tristate "Proxy driver for non-exclusive GPIOs"
++	default m
++	depends on GPIO_SHARED || COMPILE_TEST
++	select AUXILIARY_BUS
++	help
++	  This enables the GPIO shared proxy driver - an abstraction layer
++	  for GPIO pins that are shared by multiple devices.
++
+ endmenu
+ 
+ menu "GPIO Debugging utilities"
+diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
+index 48f309c764e3286c23dbe604be933f7180f0b89a..2421a8fd3733e0b06c2581262aaa9cd629f66c7d 100644
+--- a/drivers/gpio/Makefile
++++ b/drivers/gpio/Makefile
+@@ -161,6 +161,7 @@ obj-$(CONFIG_ARCH_SA1100)		+= gpio-sa1100.o
+ obj-$(CONFIG_GPIO_SAMA5D2_PIOBU)	+= gpio-sama5d2-piobu.o
+ obj-$(CONFIG_GPIO_SCH311X)		+= gpio-sch311x.o
+ obj-$(CONFIG_GPIO_SCH)			+= gpio-sch.o
++obj-$(CONFIG_GPIO_SHARED_PROXY)		+= gpio-shared-proxy.o
+ obj-$(CONFIG_GPIO_SIFIVE)		+= gpio-sifive.o
+ obj-$(CONFIG_GPIO_SIM)			+= gpio-sim.o
+ obj-$(CONFIG_GPIO_SIOX)			+= gpio-siox.o
+diff --git a/drivers/gpio/gpio-shared-proxy.c b/drivers/gpio/gpio-shared-proxy.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..3ef2c40ed15229074052eda93b6ee56f0a2bfb72
+--- /dev/null
++++ b/drivers/gpio/gpio-shared-proxy.c
+@@ -0,0 +1,333 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2025 Linaro Ltd.
++ */
++
++#include <linux/auxiliary_bus.h>
++#include <linux/cleanup.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/gpio/consumer.h>
++#include <linux/gpio/driver.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/string_choices.h>
++#include <linux/types.h>
++
++#include "gpiolib-shared.h"
++
++struct gpio_shared_proxy_data {
++	struct gpio_chip gc;
++	struct gpio_shared_desc *shared_desc;
++	struct device *dev;
++	bool voted_high;
++};
++
++static int
++gpio_shared_proxy_set_unlocked(struct gpio_shared_proxy_data *proxy,
++			       int (*set_func)(struct gpio_desc *desc, int value),
++			       int value)
++{
++	struct gpio_shared_desc *shared_desc = proxy->shared_desc;
++	struct gpio_desc *desc = shared_desc->desc;
++	int ret = 0;
++
++	gpio_shared_lockdep_assert(shared_desc);
++
++	if (value) {
++	       /* User wants to set value to high. */
++		if (proxy->voted_high)
++			/* Already voted for high, nothing to do. */
++			goto out;
++
++		/* Haven't voted for high yet. */
++		if (!shared_desc->highcnt) {
++			/*
++			 * Current value is low, need to actually set value
++			 * to high.
++			 */
++			ret = set_func(desc, 1);
++			if (ret)
++				goto out;
++		}
++
++		shared_desc->highcnt++;
++		proxy->voted_high = true;
++
++		goto out;
++	}
++
++	/* Desired value is low. */
++	if (!proxy->voted_high)
++		/* We didn't vote for high, nothing to do. */
++		goto out;
++
++	/* We previously voted for high. */
++	if (shared_desc->highcnt == 1) {
++		/* This is the last remaining vote for high, set value  to low. */
++		ret = set_func(desc, 0);
++		if (ret)
++			goto out;
++	}
++
++	shared_desc->highcnt--;
++	proxy->voted_high = false;
++
++out:
++	if (shared_desc->highcnt)
++		dev_dbg(proxy->dev,
++			"Voted for value '%s', effective value is 'high', number of votes for 'high': %u\n",
++			str_high_low(value), shared_desc->highcnt);
++	else
++		dev_dbg(proxy->dev, "Voted for value 'low', effective value is 'low'\n");
++
++	return ret;
++}
++
++static int gpio_shared_proxy_request(struct gpio_chip *gc, unsigned int offset)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++	struct gpio_shared_desc *shared_desc = proxy->shared_desc;
++
++	guard(gpio_shared_desc_lock)(shared_desc);
++
++	proxy->shared_desc->usecnt++;
++
++	dev_dbg(proxy->dev, "Shared GPIO requested, number of users: %u\n",
++		proxy->shared_desc->usecnt);
++
++	return 0;
++}
++
++static void gpio_shared_proxy_free(struct gpio_chip *gc, unsigned int offset)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++	struct gpio_shared_desc *shared_desc = proxy->shared_desc;
++
++	guard(gpio_shared_desc_lock)(shared_desc);
++
++	proxy->shared_desc->usecnt--;
++
++	dev_dbg(proxy->dev, "Shared GPIO freed, number of users: %u\n",
++		proxy->shared_desc->usecnt);
++}
++
++static int gpio_shared_proxy_set_config(struct gpio_chip *gc,
++					unsigned int offset, unsigned long cfg)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++	struct gpio_shared_desc *shared_desc = proxy->shared_desc;
++	struct gpio_desc *desc = shared_desc->desc;
++	int ret;
++
++	guard(gpio_shared_desc_lock)(shared_desc);
++
++	if (shared_desc->usecnt > 1) {
++		if (shared_desc->cfg != cfg) {
++			dev_dbg(proxy->dev,
++				"Shared GPIO's configuration already set, accepting changes but users may conflict!!\n");
++		} else {
++			dev_dbg(proxy->dev, "Equal config requested, nothing to do\n");
++			return 0;
++		}
++	}
++
++	ret = gpiod_set_config(desc, cfg);
++	if (ret && ret != -ENOTSUPP)
++		return ret;
++
++	shared_desc->cfg = cfg;
++	return 0;
++}
++
++static int gpio_shared_proxy_direction_input(struct gpio_chip *gc,
++					     unsigned int offset)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++	struct gpio_shared_desc *shared_desc = proxy->shared_desc;
++	struct gpio_desc *desc = shared_desc->desc;
++	int dir;
++
++	guard(gpio_shared_desc_lock)(shared_desc);
++
++	if (shared_desc->usecnt == 1) {
++		dev_dbg(proxy->dev,
++			"Only one user of this shared GPIO, allowing to set direction to input\n");
++
++		return gpiod_direction_input(desc);
++	}
++
++	dir = gpiod_get_direction(desc);
++	if (dir < 0)
++		return dir;
++
++	if (dir == GPIO_LINE_DIRECTION_OUT) {
++		dev_dbg(proxy->dev,
++			"Shared GPIO's direction already set to output, refusing to change\n");
++		return -EPERM;
++	}
++
++	return 0;
++}
++
++static int gpio_shared_proxy_direction_output(struct gpio_chip *gc,
++					      unsigned int offset, int value)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++	struct gpio_shared_desc *shared_desc = proxy->shared_desc;
++	struct gpio_desc *desc = shared_desc->desc;
++	int ret, dir;
++
++	guard(gpio_shared_desc_lock)(shared_desc);
++
++	if (shared_desc->usecnt == 1) {
++		dev_dbg(proxy->dev,
++			"Only one user of this shared GPIO, allowing to set direction to output with value '%s'\n",
++			str_high_low(value));
++
++		ret = gpiod_direction_output(desc, value);
++		if (ret)
++			return ret;
++
++		if (value) {
++			proxy->voted_high = true;
++			shared_desc->highcnt = 1;
++		} else {
++			proxy->voted_high = false;
++			shared_desc->highcnt = 0;
++		}
++
++		return 0;
++	}
++
++	dir = gpiod_get_direction(desc);
++	if (dir < 0)
++		return dir;
++
++	if (dir == GPIO_LINE_DIRECTION_IN) {
++		dev_dbg(proxy->dev,
++			"Shared GPIO's direction already set to input, refusing to change\n");
++		return -EPERM;
++	}
++
++	return gpio_shared_proxy_set_unlocked(proxy, gpiod_direction_output, value);
++}
++
++static int gpio_shared_proxy_get(struct gpio_chip *gc, unsigned int offset)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++
++	return gpiod_get_value(proxy->shared_desc->desc);
++}
++
++static int gpio_shared_proxy_get_cansleep(struct gpio_chip *gc,
++					  unsigned int offset)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++
++	return gpiod_get_value_cansleep(proxy->shared_desc->desc);
++}
++
++static int gpio_shared_proxy_do_set(struct gpio_shared_proxy_data *proxy,
++				    int (*set_func)(struct gpio_desc *desc, int value),
++				    int value)
++{
++	guard(gpio_shared_desc_lock)(proxy->shared_desc);
++
++	return gpio_shared_proxy_set_unlocked(proxy, set_func, value);
++}
++
++static int gpio_shared_proxy_set(struct gpio_chip *gc, unsigned int offset,
++				 int value)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++
++	return gpio_shared_proxy_do_set(proxy, gpiod_set_value, value);
++}
++
++static int gpio_shared_proxy_set_cansleep(struct gpio_chip *gc,
++					  unsigned int offset, int value)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++
++	return gpio_shared_proxy_do_set(proxy, gpiod_set_value_cansleep, value);
++}
++
++static int gpio_shared_proxy_get_direction(struct gpio_chip *gc,
++					   unsigned int offset)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++
++	return gpiod_get_direction(proxy->shared_desc->desc);
++}
++
++static int gpio_shared_proxy_to_irq(struct gpio_chip *gc, unsigned int offset)
++{
++	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
++
++	return gpiod_to_irq(proxy->shared_desc->desc);
++}
++
++static int gpio_shared_proxy_probe(struct auxiliary_device *adev,
++				   const struct auxiliary_device_id *id)
++{
++	struct gpio_shared_proxy_data *proxy;
++	struct gpio_shared_desc *shared_desc;
++	struct device *dev = &adev->dev;
++	struct gpio_chip *gc;
++
++	shared_desc = devm_gpiod_shared_get(dev);
++	if (IS_ERR(shared_desc))
++		return PTR_ERR(shared_desc);
++
++	proxy = devm_kzalloc(dev, sizeof(*proxy), GFP_KERNEL);
++	if (!proxy)
++		return -ENOMEM;
++
++	proxy->shared_desc = shared_desc;
++	proxy->dev = dev;
++
++	gc = &proxy->gc;
++	gc->base = -1;
++	gc->ngpio = 1;
++	gc->label = dev_name(dev);
++	gc->parent = dev;
++	gc->owner = THIS_MODULE;
++	gc->can_sleep = shared_desc->can_sleep;
++
++	gc->request = gpio_shared_proxy_request;
++	gc->free = gpio_shared_proxy_free;
++	gc->set_config = gpio_shared_proxy_set_config;
++	gc->direction_input = gpio_shared_proxy_direction_input;
++	gc->direction_output = gpio_shared_proxy_direction_output;
++	if (gc->can_sleep) {
++		gc->set = gpio_shared_proxy_set_cansleep;
++		gc->get = gpio_shared_proxy_get_cansleep;
++	} else {
++		gc->set = gpio_shared_proxy_set;
++		gc->get = gpio_shared_proxy_get;
++	}
++	gc->get_direction = gpio_shared_proxy_get_direction;
++	gc->to_irq = gpio_shared_proxy_to_irq;
++
++	return devm_gpiochip_add_data(dev, &proxy->gc, proxy);
++}
++
++static const struct auxiliary_device_id gpio_shared_proxy_id_table[] = {
++	{ .name = "gpiolib_shared.proxy" },
++	{},
++};
++MODULE_DEVICE_TABLE(auxiliary, gpio_shared_proxy_id_table);
++
++static struct auxiliary_driver gpio_shared_proxy_driver = {
++	.driver = {
++		.name = "gpio-shared-proxy",
++	},
++	.probe = gpio_shared_proxy_probe,
++	.id_table = gpio_shared_proxy_id_table,
++};
++module_auxiliary_driver(gpio_shared_proxy_driver);
++
++MODULE_AUTHOR("Bartosz Golaszewski <bartosz.golaszewski@linaro.org>");
++MODULE_DESCRIPTION("Shared GPIO mux driver.");
++MODULE_LICENSE("GPL");
 
 -- 
 2.48.1
