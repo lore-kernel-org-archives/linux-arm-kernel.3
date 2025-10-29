@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E00CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DC5CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ScvcTy8ozlqmT8s8gsLtsWpW/tRbjYKzmG+MWRwqsow=; b=yMmXiA7oJyRhhsqIoShMo/x65w
-	v6QAfUDYNVQRlmZpMCXRkVRWkALSO9ZiC3U4edM0NLsSHB6aKeol4CEvevZ9aKI1R9XxYTYtWqDnU
-	jYTHKEA7MnZs5Ww2SG2/Wajc2gg+fnChe67H3cj06HD1U/W32hXyeMlk6sHYkUK3dBUEUHzuD1ujg
-	+3M1gRjeT7lFyD9UcimEmRIl8lXcmU39K/MHFVaUKOVuLqVH+smTTkbIAxHaZ8fVL/xTamlX7XxwF
-	4AzTGnsEOfjBDSdDvFzAPUrfhb1tU/34RmKy6SszLbT/kZt+Fs5BVEIUiG9y2QBDwg4LxgjhiRUJH
-	kCAD1NQw==;
+	bh=5pWDmbZrTdABcUlBNCeOKZzPd6c0px/j6MB6LEuyup4=; b=c+J0uxgf9YuCtaqYHblmRw3dzk
+	hkj1gYeanGScofmbAsF6IgDCSHy3fUajxf+Kk/QvwKrapn7WIGvoHKiwn1F3QN5NW8Tex3CNTDOQi
+	rEG23Qh6N0XFzQf86e6RF3/vdKSIKrUYCUoAXP/mhRyYOteRYOupepOxOiAfLIWO3wtty3ke3pQYl
+	syjG0gN5xZNvc6PtaYYwDD66Flp1A9CIIls1HWOUzf5BHqk2LHpQnccK/Xo24wEzrcoexYU3Wb6jL
+	NTmcpFHQLtpgQOF3s84omuFHScHhxj/FE7GR2gMS2pjBlN9wkTXYmQ5evOMfZYK1Ob7RuMrBWH7G/
+	/4qPh3sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBr6-00000002bQl-3nU8;
-	Wed, 29 Oct 2025 19:29:12 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vEBrG-00000002bWb-3bxC;
+	Wed, 29 Oct 2025 19:29:22 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBr3-00000002bOO-17FT
+	id 1vEBr7-00000002bQW-11vU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 19:29:11 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id D118F4E413D7;
-	Wed, 29 Oct 2025 19:29:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 89565606E8;
-	Wed, 29 Oct 2025 19:29:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B7CC4117FD242;
-	Wed, 29 Oct 2025 20:28:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761766144; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=ScvcTy8ozlqmT8s8gsLtsWpW/tRbjYKzmG+MWRwqsow=;
-	b=er6dy6F0AkewbZOEtLIUH1uP7pet6Cc/msERkGQj89coxq5gPxp79ydF7hrtmMaQwPae2e
-	uKdCy801xdNppwVzk/dnqIlmlEooSk/olx+i977JcRUAOAZsVebEvZLagVUJ0GR5gFCoYj
-	1wG5ZcCJvB5MbkqzdG+DEVfkE9enbz3rcHSu3T8DRrGQ5IEFBbaXpBi2/WIWrY/8uFjC58
-	uDQ6O6z2aTI7krrSv6/9WHoGrx8Gg1HrDd7uxWjdQuLgdxX5Gm0kERnj+x6t7h14gCgG5w
-	xU5A0dKajRosGpPsX+Autsu+EYwon2yf2lb9QOA6VLsOi9U/q565lvcFW9s9fQ==
-Message-ID: <45ebd2eb-9b09-43fa-a451-29299b33f06a@bootlin.com>
-Date: Wed, 29 Oct 2025 20:28:51 +0100
+	Wed, 29 Oct 2025 19:29:14 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b5b823b4f3dso37663166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 12:29:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761766151; x=1762370951; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5pWDmbZrTdABcUlBNCeOKZzPd6c0px/j6MB6LEuyup4=;
+        b=H9aLKzZFHKjw7yYnNXvp2Nkcof+DkoalnRTK+VYlmVdjcfkN6xYB4VK/igdmlLlgez
+         h2nzudZfo0JVAo5Zrj0dzwRWUkf5V4HHdMKLbkFeXdgkxagGcHc+SRF0zlhwWeHIaG9A
+         pc3b+LgF1tXQScvN1Weq9MDIpp7S1UZ2g02jlteA7/4sLbIJLtoc0bTV2/iJ+65LJUWW
+         sP57vNoVzA+X6smt/jOMHGmLLqRPXCAI9wxedg7YHAi7w25hpFLi4SarunS5srYVyMnh
+         /gkB05vamhFcc+jaGa9CsVDYzl1Ybmp0hu1R4h4lOwjtk47Wk+qp24bZn3UVsKF1XRhH
+         rYGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761766151; x=1762370951;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5pWDmbZrTdABcUlBNCeOKZzPd6c0px/j6MB6LEuyup4=;
+        b=IJMLNHbkNJx+EvLMvV4VWhdRHmAgbbCsQST+EKpoxtBbLnFJPWwZumQ7qmF/eDScPO
+         Oq4ltQJAdKN/j6uy8PhUS27orle/oZCvLVmVZplwlX2euTzuaCH2ZfshUF+1s+K/XK9q
+         8KlXUgNtEtU29cZPzW4F4vkh3+Tqc9/5XSxqc53QRB4Qew76Rvd8w7f7YyduZ7TEely3
+         EcP7bLvFYbG0CJ1yWDzxM+W0aUCTYhjanODOmwodnWJWU97Y25rAnSjnuyPPWJwrWDi9
+         OX68LxmSb9eiaBpR3wSVXg6sZyXUUWnWLzmMY5CdsnawhXj28mTl972aL8ql3VNlBxDS
+         /WCw==
+X-Forwarded-Encrypted: i=1; AJvYcCXZHFWxGvN51Zev3INIdJeGKJOFzGDnOA/V7S4/YMXdqKSVwHEvRr5fRwzM0ZF0r6jbr5yowGowHZeJnF6shrcU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx/DNHcRRFGHHTbKTgu/aa8LoQhK5/4+w8xoY6g1ElhhaYzWGQ
+	il4X7OM+am/o240ulnCSQ6KeM6glPkqE8rjNjjKFqz/ZmtC3R8+3Da7D
+X-Gm-Gg: ASbGncsuR59E4P2vhRHBgVe0XoFAjGSqcGyEcVwqHMpawxW3GW2fdMr9KbTnzdkxmo+
+	R9J+0OEM210pfGxxr785b9PAsIFNbews/mxHjriIOvVshSuI7kAEtj6grBkw3/wNQ5Jcmjgptap
+	hz+CazsnJGT8KpMRA/o882NsLn3RllzdWMhb3mEre9gMsS0/lyma4ONRDkIQFsb1Vl8Pv9ihAqq
+	W9f7WKARRb4yqTSyCBaqihno0Ts5mhWukbYLDtms0z+qDIKEWSB909/QC7Eq1XH3S4Z9jiURNCO
+	D6jJ/mpF3/ar0NX6eMq7+DsOfpnG3zvW9mW+u6y12n0x8JbbmZIxo8521KUWAe31wTUXlCPt4QO
+	+J62gzMiec0arr5eyQ0MNRiKeTItVVohQu7bL0oVFgGFnv8+D290O9pA5iIuOdglaXhDMui/I3p
+	i5k1wHeHnYAafZrIh4NYJMuW7EiiJ+A+EsAF3MXyEq0vwOwkikfxO/gR92EoEyEQ==
+X-Google-Smtp-Source: AGHT+IHwJhZkEKqRnVEte1O7I0899f550vGZfsEycCCZE4aJZvfMSJzZMXQacN9shYw9JF12C9LbCw==
+X-Received: by 2002:a17:907:a03:b0:b04:626e:f43d with SMTP id a640c23a62f3a-b703d533318mr342078366b.47.1761766151112;
+        Wed, 29 Oct 2025 12:29:11 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-146-98-100.cust.vodafonedsl.it. [93.146.98.100])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d8548eda6sm1496673266b.75.2025.10.29.12.29.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 12:29:10 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 2/4] arm64: dts: freescale: imx93-var-som: Add PMIC support
+Date: Wed, 29 Oct 2025 20:28:47 +0100
+Message-ID: <20251029192852.656806-3-stefano.radaelli21@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251029192852.656806-1-stefano.radaelli21@gmail.com>
+References: <20251029192852.656806-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] net: phy: Add helper for fixing RGMII PHY mode
- based on internal mac delay
-To: Inochi Amaoto <inochiama@gmail.com>, Han Gao <rabenda.cn@gmail.com>,
- Icenowy Zheng <uwu@icenowy.me>, Vivian Wang <wangruikang@iscas.ac.cn>,
- Yao Zi <ziyao@disroot.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
- Longbin Li <looong.bin@gmail.com>
-References: <20251028003858.267040-1-inochiama@gmail.com>
- <20251028003858.267040-3-inochiama@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20251028003858.267040-3-inochiama@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_122909_443491_34FB93FD 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20251029_122913_326632_8ECEC595 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,100 +108,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The VAR-SOM-MX93 features Dual Freescale/NXP PCA9541 chip as a Power
+Management Integrated circuit (PMIC).
+The PMIC is programmable via the I2C interface and its associated
+register map, and this patch adds its support.
 
-On 28/10/2025 01:38, Inochi Amaoto wrote:
-> The "phy-mode" property of devicetree indicates whether the PCB has
-> delay now, which means the mac needs to modify the PHY mode based
-> on whether there is an internal delay in the mac.
-> 
-> This modification is similar for many ethernet drivers. To simplify
-> code, define the helper phy_fix_phy_mode_for_mac_delays(speed, mac_txid,
-> mac_rxid) to fix PHY mode based on whether mac adds internal delay.
-> 
-> Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+---
+ .../boot/dts/freescale/imx93-var-som.dtsi     | 98 +++++++++++++++++++
+ 1 file changed, 98 insertions(+)
 
-Name may be a bit long, but I'm not the best at naming stuff :)
-
-I agree with the logic of that helper,
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  drivers/net/phy/phy-core.c | 43 ++++++++++++++++++++++++++++++++++++++
->  include/linux/phy.h        |  3 +++
->  2 files changed, 46 insertions(+)
-> 
-> diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
-> index 605ca20ae192..4f258fb409da 100644
-> --- a/drivers/net/phy/phy-core.c
-> +++ b/drivers/net/phy/phy-core.c
-> @@ -101,6 +101,49 @@ const char *phy_rate_matching_to_str(int rate_matching)
->  }
->  EXPORT_SYMBOL_GPL(phy_rate_matching_to_str);
->  
-> +/**
-> + * phy_fix_phy_mode_for_mac_delays - Convenience function for fixing PHY
-> + * mode based on whether mac adds internal delay
-> + *
-> + * @interface: The current interface mode of the port
-> + * @mac_txid: True if the mac adds internal tx delay
-> + * @mac_rxid: True if the mac adds internal rx delay
-> + *
-> + * Return fixed PHY mode, or PHY_INTERFACE_MODE_NA if the interface can
-> + * not apply the internal delay
-> + */
-> +phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
-> +						bool mac_txid, bool mac_rxid)
-> +{
-> +	if (!phy_interface_mode_is_rgmii(interface))
-> +		return interface;
-> +
-> +	if (mac_txid && mac_rxid) {
-> +		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
-> +			return PHY_INTERFACE_MODE_RGMII;
-> +		return PHY_INTERFACE_MODE_NA;
-> +	}
-> +
-> +	if (mac_txid) {
-> +		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
-> +			return PHY_INTERFACE_MODE_RGMII_RXID;
-> +		if (interface == PHY_INTERFACE_MODE_RGMII_TXID)
-> +			return PHY_INTERFACE_MODE_RGMII;
-> +		return PHY_INTERFACE_MODE_NA;
-> +	}
-> +
-> +	if (mac_rxid) {
-> +		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
-> +			return PHY_INTERFACE_MODE_RGMII_TXID;
-> +		if (interface == PHY_INTERFACE_MODE_RGMII_RXID)
-> +			return PHY_INTERFACE_MODE_RGMII;
-> +		return PHY_INTERFACE_MODE_NA;
-> +	}
-> +
-> +	return interface;
-> +}
-> +EXPORT_SYMBOL_GPL(phy_fix_phy_mode_for_mac_delays);
-> +
->  /**
->   * phy_interface_num_ports - Return the number of links that can be carried by
->   *			     a given MAC-PHY physical link. Returns 0 if this is
-> diff --git a/include/linux/phy.h b/include/linux/phy.h
-> index 3c7634482356..0bc00a4cceb2 100644
-> --- a/include/linux/phy.h
-> +++ b/include/linux/phy.h
-> @@ -1813,6 +1813,9 @@ static inline bool phy_is_pseudo_fixed_link(struct phy_device *phydev)
->  	return phydev->is_pseudo_fixed_link;
->  }
->  
-> +phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
-> +						bool mac_txid, bool mac_rxid);
-> +
->  int phy_save_page(struct phy_device *phydev);
->  int phy_select_page(struct phy_device *phydev, int page);
->  int phy_restore_page(struct phy_device *phydev, int oldpage, int ret);
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+index 97198007b545..368530f5831f 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+@@ -70,6 +70,90 @@ led@1 {
+ 	};
+ };
+ 
++&lpi2c3 {
++	clock-frequency = <400000>;
++	pinctrl-names = "default", "sleep", "gpio";
++	pinctrl-0 = <&pinctrl_lpi2c3>;
++	pinctrl-1 = <&pinctrl_lpi2c3_gpio>;
++	pinctrl-2 = <&pinctrl_lpi2c3_gpio>;
++	scl-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
++	sda-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>;
++	status = "okay";
++
++	pmic@25 {
++		compatible = "nxp,pca9451a";
++		reg = <0x25>;
++
++		regulators {
++			buck1: BUCK1 {
++				regulator-name = "BUCK1";
++				regulator-min-microvolt = <650000>;
++				regulator-max-microvolt = <2237500>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck2: BUCK2 {
++				regulator-name = "BUCK2";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <2187500>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck4: BUCK4{
++				regulator-name = "BUCK4";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck5: BUCK5{
++				regulator-name = "BUCK5";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck6: BUCK6 {
++				regulator-name = "BUCK6";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo1: LDO1 {
++				regulator-name = "LDO1";
++				regulator-min-microvolt = <1600000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo4: LDO4 {
++				regulator-name = "LDO4";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo5: LDO5 {
++				regulator-name = "LDO5";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++		};
++	};
++};
++
+ /* BT module */
+ &lpuart5 {
+ 	pinctrl-names = "default";
+@@ -140,6 +224,20 @@ MX93_PAD_UART2_TXD__GPIO1_IO07			0x51e
+ 		>;
+ 	};
+ 
++	pinctrl_lpi2c3: lpi2c3grp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO28__LPI2C3_SDA                  0x40000b9e
++			MX93_PAD_GPIO_IO29__LPI2C3_SCL                  0x40000b9e
++		>;
++	};
++
++	pinctrl_lpi2c3_gpio: lpi2c3-gpiogrp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO28__GPIO2_IO28                  0x40000b9e
++			MX93_PAD_GPIO_IO29__GPIO2_IO29                  0x40000b9e
++		>;
++	};
++
+ 	pinctrl_lpuart5: lpuart5grp {
+ 		fsl,pins = <
+ 			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX   0x31e
+-- 
+2.43.0
 
 
