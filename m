@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2ADFCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 07:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E252CCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 07:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4RLA/DGKm3EXMzePk9BvP8NDtl/YaS8WddbAf4crKqY=; b=bVj/+RuubmaNeBmUXAjArp8c9Q
-	ccu7RmXHa6xCM3S3Nu09jUzH7Gb7cRU6g9VboZ7UL9xMDE3RA2VawSKv54QD9bDr4xIxsLo98UYkH
-	8UC9uOl12mbTGKIiia7oRJ4FluEfcrZU7INsxB6ixmerRZ1Zi0Jkq8PmjECQuGjIASBaFhYRqzxzi
-	YsALTrHo80XbJs1LUykSnqVd7pQBYmrrRnjYRRPc2myyu6duYINgouuvygli+YDhHqjVIjuGJVSH8
-	wOGjb7Jq+3lpQxwxCcnWo81voqKhXPyYmkOOoaHDT215tXOm1kOs5Sm+Y+hS1izuwu5Db3VUrdzgp
-	ijCCJtGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z1vyOpOhp4uD5m84f0sJub6GwUG0B1xwG+9pVCSYuwI=; b=IBMELat6h1IBNVuKagjzIItKak
+	cEN//MZXFAa/qdaayjBoJujAA133O3bfmjippOB2f/ARGTl7paj0NmwgyDeLpsTKdE1qSW2QNDEcy
+	4lt/LWXHD93j70DuKugVw78wF4opbBjREQVejNobvvZzVaZbQmFoQeVrJzsbynqAB3lqV+ofdt37p
+	9/TXVKX2CPjVYYe9Sj7QjASgOr8+I3iNLZCtpnXpZfrVScVPJUfxNLZecdzkFsIjeNMtzk0RrgtNF
+	VA0bpYuBVeRKGPJrSWf7k3dC+SX/LRT8jzMsgT20blPdyeuPlTO51b6ccBnEWjbrUp9YfI+anzxFz
+	DJVMu6pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0vy-000000009Oe-0Mp6;
-	Wed, 29 Oct 2025 07:49:30 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1vE13e-00000000Aww-0g92;
+	Wed, 29 Oct 2025 07:57:26 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0vv-000000009Nw-3zdS
+	id 1vE13Z-00000000AvJ-46g5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 07:49:29 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7a4c202a30aso974897b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 00:49:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761724167; x=1762328967; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4RLA/DGKm3EXMzePk9BvP8NDtl/YaS8WddbAf4crKqY=;
-        b=GbhYSG8/tEueKCGyYJRiKOCaaByguOhclK8ISK+c/E8B4IJgsDucWvjuBAxA5baiXx
-         zLJjbYCiiq0G2HQg/ibAnQhVU9sNPP402v7gKxhpbDx94Z5oYju7hGhL4SeKfCl9CK6q
-         aMwHJiXrR5aLiRCuhesVqPtqNPfzQQAziezsZjowI8PTegUzKHeogbzApBIvTxGUUlnR
-         JaxK0NTw8YpKT2HR9z0K15Sn9pZYxdK+kiuH1Nv9BjcBx2/HbcSJ0G/5c4z/iQIaU5sT
-         7BBmPsnobu98B4q4D8gtokYjrOHr+M+kTRMfpMhjrnc29iqJCpC5SMrViGGqyy9cU6q3
-         Jqag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761724167; x=1762328967;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4RLA/DGKm3EXMzePk9BvP8NDtl/YaS8WddbAf4crKqY=;
-        b=wD2L3EbQG+1krPu4GZNVXZWQwGUw0eD9zHsJNCdV5w7tAn4kamlOb8TWc2IBSGYU6u
-         H5cEwVloAghoxLWi49dN+vo8Fq+24DDEHWdR7yPfPsFtt2QhU9GZf4KYTX1ajiJv9lq3
-         oOF1hqqq8T6ZrOzShrFgN9f8oYZZmUSMNLFm0PNMdMvllVbjdtJMto+ZZMcFUNyEowPF
-         Uzvxek9PIxvdD83IQHuhv7SIfCRh5SIAMjJPj53mwzeIxYcGrjYFeu7+n7AAcpo0RjpU
-         FwV6za34M8h961/5ZapD6i2TpDZiZ+2MANmDMcoluzQPoXryN9kmfFnFuGOqXae9pv2F
-         LbAg==
-X-Forwarded-Encrypted: i=1; AJvYcCXj45hOxlV9X8L+4ydBPB7cPCruPNYE1UDghOFZqHrb57d0IjKwy3zF/6qhzTRCSNUu1HnPapq4rAq3QAllT+8i@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVhieznDFE8dtEHKhYtOv0nGmJnRwjNjs8uVzkYxC7Bd06iNDI
-	E6SLZp/RXEhBa42c06pvRyLVstUIw9GPZFbFH7zeNs1nQlCseFBcl/j9
-X-Gm-Gg: ASbGncsraHdhv41ibTe/9q+BYQ9DLm6+VpY3czj3p1mVqAu/LtlwZv7NuB4KvPbF5Wg
-	jf1WMF7exvqs3N9b2eNUX69tBGPVZEFgIu16j32YCG+LOY8m7r59rmUXF7sMcN4g4v/qgUr0PPk
-	3dMbEB8/qDc0YUxxw16Ep8OMM4jHn9RAqSPAbBE9/qyn9dH44mrMLm/IVEUy5cLQxzhTXaZYIjZ
-	Ayukt6I5psp1Q2b9Sdich97JIxhJ7q9F4oJbn68IHGH+WGt17LEbi7isT2R1UkgHjgXk1QsedQS
-	POJXSmzAjnHzbuDQCKeYBfvtvk4G7Qipu5PGhBI8xqmIUASY08xDoTaKPL2k3eVUOTNn3MorAs1
-	M25PD4dX4QBYrgqfifs/pdY2gs93X4Ii+Ynl7BD9bzOLGPMuwYfAnWz0fgj+XjOK4LDfgTj6oNT
-	8gjFYrHNzXtfLR5mbmFQcsRg==
-X-Google-Smtp-Source: AGHT+IEjGFYHvTA0394tCrKBxDkPiihw2m2Mpe1BSWvzEwpLa5iv/ijoEfCshocB13qZhqbfk34Zvg==
-X-Received: by 2002:a05:6a00:4907:b0:7a4:f552:b524 with SMTP id d2e1a72fcca58-7a4f552b7d3mr1920900b3a.28.1761724166997;
-        Wed, 29 Oct 2025 00:49:26 -0700 (PDT)
-Received: from localhost.localdomain ([124.77.218.104])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7a41404dddcsm14151864b3a.38.2025.10.29.00.49.23
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 29 Oct 2025 00:49:26 -0700 (PDT)
-From: Miaoqian Lin <linmq006@gmail.com>
-To: Maxime Ripard <mripard@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: linmq006@gmail.com,
-	stable@vger.kernel.org
-Subject: [PATCH] drm/sun4i: Fix device node reference leak in sun4i_tcon_of_get_id_from_port
-Date: Wed, 29 Oct 2025 15:49:10 +0800
-Message-Id: <20251029074911.19265-1-linmq006@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Wed, 29 Oct 2025 07:57:24 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=z1vyOpOhp4uD5m84f0sJub6GwUG0B1xwG+9pVCSYuwI=;
+	b=G8u1pPmy1fO2CL371jWqpD3qax41pRC3q692WFthDSvTFEGBGEfdqp93EKbEsFHDco9m7lPEg
+	VIRGQq9RsxpaYg0AhQc1dDuThF4fs/P4Kf98IMGnBf/vGWAgeyDWLMj/U1PJsKTTaHgGIZSaA18
+	4ZiLQs9zEfQLbAb/Y6ubeHs=
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cxKM55ZVvz12LFQ;
+	Wed, 29 Oct 2025 15:56:33 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 073C7180491;
+	Wed, 29 Oct 2025 15:57:11 +0800 (CST)
+Received: from huawei.com (10.50.87.109) by kwepemf100008.china.huawei.com
+ (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 29 Oct
+ 2025 15:57:09 +0800
+From: Zeng Heng <zengheng4@huawei.com>
+To: <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
+	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
+	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
+	<jeremy.linton@arm.com>, <jonathan.cameron@huawei.com>, <kobak@nvidia.com>,
+	<lcherian@marvell.com>, <lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>, <wangkefeng.wang@huawei.com>,
+	<sunnanyong@huawei.com>, <zengheng4@huawei.com>
+Subject: [PATCH v2] arm64/mpam: Clean MBWU monitor overflow bit
+Date: Wed, 29 Oct 2025 15:56:55 +0800
+Message-ID: <20251029075655.3284280-1-zengheng4@huawei.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20251017185645.26604-25-james.morse@arm.com>
+References: <20251017185645.26604-25-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.87.109]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_004928_016079_F040BDBD 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20251029_005722_690594_5AF53235 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +89,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a device node reference leak where the remote endpoint node obtained
-by of_graph_get_remote_endpoint() was not being properly released.
+The MSMON_MBWU register accumulates counts monotonically forward and
+would not automatically cleared to zero on overflow. The overflow portion
+is exactly what mpam_msmon_overflow_val() computes, there is no need to
+additionally subtract mbwu_state->prev_val.
 
-Add of_node_put() calls after of_property_read_u32() to fix this.
+Before invoking write_msmon_ctl_flt_vals(), the overflow bit of the
+MSMON_MBWU register must first be read to prevent it from being
+inadvertently cleared by the write operation.
 
-Fixes: e8d5bbf7f4c4 ("drm/sun4i: tcon: get TCON ID and matching engine with remote endpoint ID")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
+Finally, use the overflow bit instead of relying on counter wrap-around
+to determine whether an overflow has occurred, that avoids the case where
+a wrap-around (now > prev_val) is overlooked. So with this, prev_val no
+longer has any use and remove it.
+
+CC: Ben Horgan <ben.horgan@arm.com>
+Signed-off-by: Zeng Heng <zengheng4@huawei.com>
 ---
- drivers/gpu/drm/sun4i/sun4i_tcon.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/resctrl/mpam_devices.c  | 22 +++++++++++++++++-----
+ drivers/resctrl/mpam_internal.h |  3 ---
+ 2 files changed, 17 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.c b/drivers/gpu/drm/sun4i/sun4i_tcon.c
-index 960e83c8291d..9214769a2857 100644
---- a/drivers/gpu/drm/sun4i/sun4i_tcon.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_tcon.c
-@@ -970,6 +970,7 @@ static int sun4i_tcon_of_get_id_from_port(struct device_node *port)
- 			continue;
- 
- 		ret = of_property_read_u32(remote, "reg", &reg);
-+		of_node_put(remote);
- 		if (ret)
- 			continue;
- 
--- 
-2.39.5 (Apple Git-154)
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 0dd048279e02..db4cec710091 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -1039,7 +1039,6 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+
+ 		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+-		mbwu_state->prev_val = 0;
+
+ 		break;
+ 	default:
+@@ -1062,6 +1061,16 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
+ 	}
+ }
+
++static bool read_msmon_mbwu_is_overflow(struct mpam_msc *msc)
++{
++	u32 ctl;
++
++	ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
++	return ctl & (MSMON_CFG_x_CTL_OFLOW_STATUS |
++		      MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L) ?
++		      true : false;
++}
++
+ /* Call with MSC lock held */
+ static void __ris_msmon_read(void *arg)
+ {
+@@ -1069,6 +1078,7 @@ static void __ris_msmon_read(void *arg)
+ 	bool config_mismatch;
+ 	struct mon_read *m = arg;
+ 	u64 now, overflow_val = 0;
++	bool mbwu_overflow = false;
+ 	struct mon_cfg *ctx = m->ctx;
+ 	bool reset_on_next_read = false;
+ 	struct mpam_msc_ris *ris = m->ris;
+@@ -1091,6 +1101,7 @@ static void __ris_msmon_read(void *arg)
+ 			reset_on_next_read = mbwu_state->reset_on_next_read;
+ 			mbwu_state->reset_on_next_read = false;
+ 		}
++		mbwu_overflow = read_msmon_mbwu_is_overflow(msc);
+ 	}
+
+ 	/*
+@@ -1103,8 +1114,10 @@ static void __ris_msmon_read(void *arg)
+ 	config_mismatch = cur_flt != flt_val ||
+ 			  cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+
+-	if (config_mismatch || reset_on_next_read)
++	if (config_mismatch || reset_on_next_read) {
+ 		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
++		mbwu_overflow = false;
++	}
+
+ 	switch (m->type) {
+ 	case mpam_feat_msmon_csu:
+@@ -1138,10 +1151,9 @@ static void __ris_msmon_read(void *arg)
+ 		mbwu_state = &ris->mbwu_state[ctx->mon];
+
+ 		/* Add any pre-overflow value to the mbwu_state->val */
+-		if (mbwu_state->prev_val > now)
+-			overflow_val = mpam_msmon_overflow_val(m->type) - mbwu_state->prev_val;
++		if (mbwu_overflow)
++			overflow_val = mpam_msmon_overflow_val(m->type);
+
+-		mbwu_state->prev_val = now;
+ 		mbwu_state->correction += overflow_val;
+
+ 		/* Include bandwidth consumed before the last hardware reset */
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 4f25681b56ab..8837c0cd7b0c 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -226,9 +226,6 @@ struct msmon_mbwu_state {
+ 	bool		reset_on_next_read;
+ 	struct mon_cfg	cfg;
+
+-	/* The value last read from the hardware. Used to detect overflow. */
+-	u64		prev_val;
+-
+ 	/*
+ 	 * The value to add to the new reading to account for power management,
+ 	 * and shifts to trigger the overflow interrupt.
+--
+2.25.1
 
 
