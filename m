@@ -4,161 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A8ECCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 02:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803F6CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 02:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UlCPBzYsq+pknKgQ9HE85GjYOETHfPJCU/JX+aBt6Fs=; b=xSN1z7v7pFZYRWCZRLw0SGDje3
-	CQWo6ZwshmJjqQ7qeI3rpWe/OuDe3uCX2Z/262YRPnP8tbeQozWFktUKFbuC5clyN/xNC1+YLgnd/
-	Dor19o0WFhkeWBfN8QQSTUIIfGo7bIFrUJLj6IRxarN0qXPufMUZDbmCDjenhh04wgmLWg9Jflh6X
-	tNj78bk2NNsp+kr8GM9/6+shOlZvR+mTW6do3tuz90+uCN/QHn3wHgDGx5QLQOQmelYvP4clf5QNH
-	RdXPoa+nDgnH5186ycy0RjdkDvHzlLIzLOJrf5cMtG0L/wiRy0nQL3orow/VYfmSx5bKDcPtzBmtD
-	NrUN2iVQ==;
+	bh=FTZjyfw+Xgeed69jhy5PrzVKjkTsZcfK7eV+J3iJrzI=; b=roaBT4zPZbPeQ76urWWIj8A8Er
+	HWHY3is/OsLnavaBe8BKVnkNBH8hWCBu96SpK+r+aLGZdgznKIJ5MHPgBMD9E3rAtNTmomBdrbhKu
+	vyxxuTkUOAFcHp+Ia1e5ydMxUw8tdC1v8oUSp3qnpDrMF7cogX8gMGKHETiTf9e6VsqQOPfvc+m5h
+	oVmAyHFcvzP91nPPJNgalKcGKew9ezK+hxrauZvprj220XoOAMdIx/UGqMY0hh42z88orROB2Uw35
+	bl4e21IFCLMZxpwYFIK2mTRZh5Ti7VogUmgkVaJeU7opR3fH6u9yu3n12+k+SF4+OY1knBxrqGkEQ
+	crXTOaeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDw6b-0000000Gzvs-45jK;
-	Wed, 29 Oct 2025 02:40:10 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vDw8e-0000000H05A-1rVK;
+	Wed, 29 Oct 2025 02:42:16 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDw6Z-0000000GzuV-0hik
+	id 1vDw8Z-0000000H04V-3R9E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 02:40:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KFxJPNMnTXlLlrYkPiHgDCY9nTrVqL/hsB4Q+ICyb78zyUsXbEA8HCbqtekSvlDbRH4umeEu7yY+1Bga1Q+2wfVC4oEj7KBrH1dT9Efrj9aMyGSlSIg8MyxGI3XwGaFING6PrAV3YGEBP0mhUZZkeDkq5XWeKJEZLqA5zts1tCw/Myx7Dn2RprchTh+ryRDy4Xk0bFtOAQcNaZnDLmJqvBvjmTiShsv+Wd7gkJ8hZl1fgsI9qMcb4gP+6j0PShJ3ga5mPU3gIm85H9iZA4Vfx3DdPSBjTy+V5d5JT4TJtzJGz6yxUdIjz/Jvto5sQecOf1oP3q22FbjeTBZZkcW/bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UlCPBzYsq+pknKgQ9HE85GjYOETHfPJCU/JX+aBt6Fs=;
- b=iO9bcCc6hwW/Sx0qXf/sZPy8ImKCqLZ04MylUexuLdzTDJjYCZPeHW2h6RSl/DhW7AXKCiCvI2fXwcNoUYKyX77xPtjrDKG4MGMZqE9togcbQlTrVL4GtpEe56GWlYLrIDOwPY0G48Iz2tirLHlyRaXcdYMhpqEkpWo8KWw3b2oHpDG6Vt4P3CGmtIxUiwNER6KDopj8fTgWVzCUWMlZFEmGaQQ9YjmONrkhtaGCtheqVk8qfq9Q1+Jo4elOdrLl2QZMx+BFiJEg6wS1ErgU92VepBFKNFBVjLUqAi309+JSuBZ+b68qqlxLQAeCFMeO0yCRilcHoBAb97m2uBYT6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UlCPBzYsq+pknKgQ9HE85GjYOETHfPJCU/JX+aBt6Fs=;
- b=eDmJumEQoU2+H6G3Silh5two2E/x1MTTrHRGhvlQ2b64W0B4xjy6jy95q4MhLUG26rBUxG8XMUOCzjj0DpYUzORaDLHqclSnPhWEiUMFZrT2R6SX5IcU0IF2eILuxlXBLB5rLWU3Eb28XnEoPIfClU8uZmcPXkhwN8so0arFFVgDY1zYZu6XJTgS3JUh4Nu/Hdd9xuN2qVLBrbafIbNGAqcyOHWb5NrHgPj43xB7mwkXDdDqGEjvlzE1EvduKxC+Ei2FsVfsd2dx2QO6DuR58LMp3jsETEH2ByHPXWfwhRrY9ujsnFomIxI7eZ6zHOSfi21xOGaMLDvGYYom4vww2Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAXPR04MB8159.eurprd04.prod.outlook.com (2603:10a6:102:1c1::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.20; Wed, 29 Oct
- 2025 02:39:57 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9253.018; Wed, 29 Oct 2025
- 02:39:57 +0000
-Date: Wed, 29 Oct 2025 11:52:21 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] remoteproc: imx_rproc: Add support for System
- Manager API
-Message-ID: <20251029035221.GB7297@nxa18884-linux.ap.freescale.net>
-References: <20251028-imx95-rproc-2025-10-28-v1-0-ce9e7db9edcb@nxp.com>
- <20251028-imx95-rproc-2025-10-28-v1-3-ce9e7db9edcb@nxp.com>
- <aQDseAYDhvZ01NI8@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQDseAYDhvZ01NI8@lizhi-Precision-Tower-5810>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI1PR02CA0004.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Wed, 29 Oct 2025 02:42:15 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=FTZjyfw+Xgeed69jhy5PrzVKjkTsZcfK7eV+J3iJrzI=;
+	b=Aui1rmRQGwtpzaZP4CDWOuHR1qNAPte2+RlcUSnoIYcf56zoatQeM6z9V6wkti3EPR0s9R1tj
+	uzzCcgJXtdjJEcM9+fc7AbbZknSHvt0+rsHgNvJGQF9WSCCkWdqR8Utfmynr9hXZQKN2mDktowX
+	hKih1QtHOmdRXsEH1kqQTbc=
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cxBMM6jl5z12LJn;
+	Wed, 29 Oct 2025 10:41:19 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 518FD180B4A;
+	Wed, 29 Oct 2025 10:41:57 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 29 Oct 2025 10:41:56 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <bigeasy@linutronix.de>
+CC: <akpm@linux-foundation.org>, <arnd@arndb.de>, <brauner@kernel.org>,
+	<kuninori.morimoto.gx@renesas.com>, <liaohua4@huawei.com>,
+	<lilinjie8@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux@armlinux.org.uk>,
+	<lorenzo.stoakes@oracle.com>, <marc.zyngier@arm.com>, <pfalcato@suse.de>,
+	<punitagrawal@gmail.com>, <rjw@rjwysocki.net>, <rmk+kernel@armlinux.org.uk>,
+	<rppt@kernel.org>, <tony@atomide.com>, <vbabka@suse.cz>, <will@kernel.org>,
+	<xieyuanbin1@huawei.com>
+Subject: Re: [PATCH v2 RESEND 1/2] ARM: spectre-v2: Fix potential missing mitigations
+Date: Wed, 29 Oct 2025 10:41:51 +0800
+Message-ID: <20251029024151.6005-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251028182052.nrRad87D@linutronix.de>
+References: <20251028182052.nrRad87D@linutronix.de>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8159:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51412a43-c085-410c-2e85-08de169472e3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|19092799006|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bLsTNH3A3ZOrLXOTbR/hMJkf9bDKKxc2YRUHeH1PjNx3yj+HMTSoP9+jH/1r?=
- =?us-ascii?Q?wpsI2gG4jg0kpeWlbu5FuaSbTdoyfVvY+0hcRkhqZ+C9oaU1Hy2f+qliqJ56?=
- =?us-ascii?Q?zmFsssshfaN6K4jKKblShsJ3n4zRzvXMj9pRGK6pkm79+bO4os9eTfKZkbOw?=
- =?us-ascii?Q?0wuoJRZ1aZG2d2yhDgvXzF/NOdc/vEbgUyzuUphsi5I4GSHBtxhDsOXkcylm?=
- =?us-ascii?Q?xkH6daDr0UH0sYDWZ+Incz01EW2UQ9KtLW4SLdO2Qylxg1FTn9OX2U1I4/KV?=
- =?us-ascii?Q?IgC6fdD88yhw9/nN27wMlqzeH8r8mStmky+RKNH+ziiQacpZEK1Z3d2X2Agz?=
- =?us-ascii?Q?dIEw9zSNqmKe8IVU13rjNzo4A+YTqPo1plf+NGYdf04d5Xa561rvUKJ9sxJp?=
- =?us-ascii?Q?4H3MxxqoOypOwqv0ihHI+f3yad83VUj8b+j0fPeGvqTGgDJvhc+aGIbjG1J+?=
- =?us-ascii?Q?wVOYS5KR1wScGcvKts1FYkEmrnPnkBW5dnlImFW+buRsdpagWxqQA7+u7uWb?=
- =?us-ascii?Q?3nv+FeXwMshJh+4+lTzbUxIaURosguuZi2HuCNJYY2fRoacjuirCt2qaofMg?=
- =?us-ascii?Q?9A4er9KESeznYt/kc6XaLYJRT2aO/AKN0y+ZuK1kD1Xou+XvGnSn7AGxbocf?=
- =?us-ascii?Q?6SCV9xQXQ/uN+tz7aIcTkxfH9CRkNmAK0+xVtZRNtbET+2SsPnCdi93IJ6j5?=
- =?us-ascii?Q?Na19cwQFskYrApyAeZUvkxKjyH/7msAF0VUbzITXZyciTeK/Dutb1trjMw6o?=
- =?us-ascii?Q?lczJ0gt1f0zYdX7awFmYqeoU0mp+YW58penFc+lYsQgZfUMjQA/clJ1a0IZz?=
- =?us-ascii?Q?jLAqJ+9Sg0QOMwxvkwUr8H3cLs0YKnDi3z599zNxG6z/Cw8ZP7eZ6EW2YWKr?=
- =?us-ascii?Q?2k2NROMFsy5auPLAYhIqOo1SAXtMwpeqXwHX2I05G7sM6hJujMoIcEy7CZUD?=
- =?us-ascii?Q?5ss/xAyvQZe2tZEgkIyJ8PN8TKyrkHgYzTA37KnSH61magczWx+cfod5fiJw?=
- =?us-ascii?Q?iU4Yy0IXc+62BkxCUmfaBKxMSxw1Tlpp4y2P6UBaPOlRtwZWEB2kzwlvIrBC?=
- =?us-ascii?Q?XNMFLt15W+Gj9/igbbzpywko93Y/0/zzggaAaVxw0N0qQKhB6WunukLFp0Lw?=
- =?us-ascii?Q?/GAyqIODwsgCpY8mezEen42IgtMX87MYJw/ZbK/c0azdZ1/hvr6+Pmy/2Al9?=
- =?us-ascii?Q?aIzyzwTfi/N3xP/8L1owSUM9lGA9y1isl0pNJB8LYdUop2t71nvFN4nXSD+w?=
- =?us-ascii?Q?DRxF4nWrP2bdN2c6DSULE/nm7oUJHd6Jf/XZZM9GZ8T0XRYFoHAjHaokX0eh?=
- =?us-ascii?Q?p0Id1X98lIrPR4ckISFJjhBrJtTZpj9JdBN4DM7TM/YbA6jGIf7yKp1a3QOV?=
- =?us-ascii?Q?pbXIcSdYY83RXic8xWIkbwqTo4Di4KI8oxHO2dYJLYObt/6eKtDyrNtUqncS?=
- =?us-ascii?Q?pW0uJZRJhsRpyLZjzdgLSNS9DK4HXAN7+DtdGvyHP/UoUnOG+W7tVx8Bo7HL?=
- =?us-ascii?Q?rBJOP1/fD9WvsAi5Vr+OR/g8OvQ9ksfSGUZr?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(19092799006)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?odlczR5s3qnxWzD+f5+pzokdMomCF3aMcoaxyjIMo3RLy5L0LnONOHJXJyje?=
- =?us-ascii?Q?Ikz/pCwJtRunugfzZn9CJjGb1KjWpggiNRumXYBFm43yeB+G2RICZhzXA1ih?=
- =?us-ascii?Q?an8Tx1pE2d1qXplpXdY3oDCBbx4tupmC6bYpEg+28m1VUH0JFe4HLi0enrim?=
- =?us-ascii?Q?pwCw1wOXGgOOfHfFQERkOBc29biK/OJh50T/SZin2yOVEOYQQAfNw7UPxnMq?=
- =?us-ascii?Q?tOlwpfW+ceH/1DgrVRG/VWh0fXqsEGZN3FQcCp6DIH34KL4086SVai2WhwmJ?=
- =?us-ascii?Q?8mjalJzbla65vsENYGy4umF2/qlvwCh51FrjcJU2hjpfZEJAdJqgcDc3VWEc?=
- =?us-ascii?Q?ZWB2HU1zbAL1qxjUgv1SoJyRIIBlmtGY5znOOSezwZl9lR6ZHjNysLujT467?=
- =?us-ascii?Q?So0onwGqYBTjtCpXk54TWDcoFDmRMGvIbdTr/FpUJv2y2wk+insI2w5jZdhl?=
- =?us-ascii?Q?1hSiOotCAHOHBJalfklFC20zwQU2EcwCp17Y4d/7kir0bJ2jF//2CTwf28g7?=
- =?us-ascii?Q?j5fynKno99OhBNbz18cmlc12gfH3zoUEb/CHo7ONpWuBY+KhZhxpyHirfmuG?=
- =?us-ascii?Q?jnKnUW8SDtfxfXl6llInNxmgBO5Qp+1eMQ4NBVJoYtBFXgTk/U1luvyJ89Mj?=
- =?us-ascii?Q?K2WBtqxywdLGXBtUfgNg68/ud3TL2XK+bcuXcl3fkTgTtPxhgGLIO8PioIIU?=
- =?us-ascii?Q?g9YXni+fmRYOVMq/aQrvQCd9RhaVTkowNs/p1rh1LDrFkrHw4RgwihsmpXqM?=
- =?us-ascii?Q?RMFWqZHyagg1DDEGyLGlkNnSZjQ8R9ykr1/h9lqguD8unqYYp5BOqcvWeI+T?=
- =?us-ascii?Q?AL7BUitpjo/J8yl8NzDo9+glRopDQ2QQYmKVnbIzBHsYtmNKHlOSjkJHHgT+?=
- =?us-ascii?Q?X11UkaJoINiDrVu4fEPmAEJOYk+2XStgsXKV0RrwE4VUZPXtAy6ywkDYkxLf?=
- =?us-ascii?Q?wCQMjj7ui3T6P339wzXym+ZNQVYIG2oAeEV3xeQktW4lITgj4xWQF0Y1UCuj?=
- =?us-ascii?Q?y1Klpj5IQ6kJKWPL9KxL/2X+MXvMGqE5C48FRjdPNGoZwCi+sus30GWZ0hRi?=
- =?us-ascii?Q?Yd3u1lBh9O3FVYUQX3/ty++Vg4JV4wOqyoXJrFTMLG9aq++Km1YFAeWEFQ60?=
- =?us-ascii?Q?DqCia+BMR1JDhfbIYdQ+bzTganCrsbqGdglFmvmDyR8tEYxRRDTwMjR1Rzqs?=
- =?us-ascii?Q?5ZE6N3OWNXVeB/mJN8VHaRMjAGsYKiS15GpbvykG/zp8gujcRLL5IfiPNQuQ?=
- =?us-ascii?Q?q2ySN4lZmbUQe8gp/WfL/fWuMiQt9SybyjTUVHZlEthg1+wRC/uRGBcXWUd6?=
- =?us-ascii?Q?C7ZiLji6RXTey8vFnkGa/hzqB3m8NsbgZQxXE/pRy2r+ImLAwuKxURp5jwaF?=
- =?us-ascii?Q?al6gnVrPob8RStDlWfh0MrQydGcRYTLe6vg1y1MHRce6pQEwSIQAVIFuFvzB?=
- =?us-ascii?Q?n/t9W6kU8BCXAHKSB0KlziUdb9Mjim6IXeA9M4Kx8o9kS0ZRpVNzbh9arSIL?=
- =?us-ascii?Q?S80Ozk5xrCXrWFt+tmf3MvoPWWJ2yCOW9Ncx+cjOSGp/YI+7rD6jf2UJIHBG?=
- =?us-ascii?Q?eSkBEtrUFD/iNQGKA0iOvX8PhA2g13JDvAceVy1c?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51412a43-c085-410c-2e85-08de169472e3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 02:39:57.4032
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vmt2ftGMdYxjTz0YH3ODHH2Jx139wqxHSYvAiB0cFXBLrsXr2Ojd7IjTYAgjb0mDNmhYmL9hTOHAcc9dyrrUhA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8159
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_194007_371518_2A2A7C94 
-X-CRM114-Status: GOOD (  24.92  )
+X-CRM114-CacheID: sfid-20251028_194212_561884_6C38ED96 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,189 +83,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Tue, 28 Oct 2025 17:20:05 +0100, Sebastian Andrzej Siewior wrote:
+> If I apply both patches (of yours) then it sends a
+> signal with disabled interrupts which breaks my PREEMPT_RT case.
 
-On Tue, Oct 28, 2025 at 12:16:56PM -0400, Frank Li wrote:
->On Tue, Oct 28, 2025 at 04:18:03PM +0800, Peng Fan wrote:
->> i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
->> one Cortex-M7 core. The System Control Management Interface(SCMI)
->> firmware runs on the M33 core. The i.MX95 SCMI firmware named System
->> Manager(SM) includes vendor extension protocols, Logical Machine
->> Management(LMM) protocol and CPU protocol and etc.
->>
-...
->> +	depends on IMX_SCMI_CPU_DRV || !IMX_SCMI_CPU_DRV
->> +	depends on IMX_SCMI_LMM_DRV || !IMX_SCMI_LMM_DRV
+I am not familiar with PREEMPT_RT yet and do not know that signals cannot
+be sent with disabled interrupts and PREEMPT_RT=y.
+I apologize for this.
+
+On Tue, 28 Oct 2025 19:20:52 +0100, Sebastian Andrzej Siewior wrote:
+> !LPAE does do_bad_area() -> __do_user_fault() and does not trigger the
+> warning in harden_branch_predictor() because the interrupts are off.
+> On PREEMPT_RT this leads to an error due to accessing spinlock_t from
+> force_sig_fault() with disabled interrupts.
+
+This seems to be a more serious bug, and may require another patch to
+fix it. Not only !LPAE is affected, but LAPE=y is also affected:
+do_translation_fault() -> do_bad_area() -> __do_user_fault()
+This code path seems very easy to trigger.
+
+> I guess the requirement is to invoke harden_branch_predictor() on the
+> same CPU that triggered the page_fault, right? Couldn't we then move
+> harden_branch_predictor() a little bit earlier, invoke it in the >=
+> TASK_SIZE case and then enable interrupts if they were enabled?
 >
->what's means IMX_SCMI_LMM_DRV || !IMX_SCMI_LMM_DRV here, which is the same
->config
+> That would make me happy ;)
 
-This is to make sure when IMX_SCMI_CPU_DRV or IMX_SCMI_LMM_DRV is module built,
-imx_rproc should also be built as module.
+This seems to only fix the warning in harden_branch_predictor, but cannot
+fix the issue of sending signals with disabled interrupts mentioned above.
 
->
->>  	select MAILBOX
->>  	help
-...
->> +	 */
->> +	if (priv->flags & IMX_RPROC_FLAGS_SM_CPU_OP)
->> +		return 0;
->
->You already have imx_rproc_sm_lmm_stat[stop](),
->why not use imx_rproc_sm_lmm_prepare();
->
->imx_rproc_sm_cpu_prepare() should be empty. So needn't check
->IMX_RPROC_FLAGS_SM_CPU_OP.
+What about adding:
 
-I will add below in detect_mode(), and no need imx_rproc_sm_cpu_prepare.
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index 09dde89a88ed..b9c9c80db109 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -182,6 +182,12 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+ 		int code, struct pt_regs *regs)
+ {
+ 	struct task_struct *tsk = current;
++	const bool save_irqs_disabled = irqs_disabled();
++
++	if (save_irqs_disabled) {
++		preempt_disable();
++		local_irq_enable();
++	}
 
-priv->ops.prepare = &imx_rproc_sm_lmm_prepare;
+ 	if (addr > TASK_SIZE)
+ 		harden_branch_predictor();
+@@ -207,6 +213,11 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+ 	tsk->thread.error_code = fsr;
+ 	tsk->thread.trap_no = 14;
+ 	force_sig_fault(sig, code, (void __user *)addr);
++
++	if (save_irqs_disabled) {
++		local_irq_disable();
++		preempt_enable_no_resched();
++	}
+ }
 
->
->> +
->> +	/*
->>  static int imx_rproc_prepare(struct rproc *rproc)
->>  {
->>  	struct imx_rproc *priv = rproc->priv;
->> @@ -532,7 +639,10 @@ static int imx_rproc_prepare(struct rproc *rproc)
->>  		rproc_add_carveout(rproc, mem);
->>  	}
->>
->> -	return  0;
->> +	if (priv->ops.detect_mode == imx_rproc_sm_detect_mode)
->> +		return imx_rproc_sm_prepare(rproc);
+and the modification of patch 1 is still retained.
 
-Here I will change to:
-if (priv->ops.prepare)
-    return priv->ops.prepare();
-
->> +
->> +	return 0;
->>  }
->>
->>  static int imx_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
->> @@ -991,6 +1101,83 @@ static int imx_rproc_scu_api_detect_mode(struct rproc *rproc)
->>  	return 0;
->>  }
->>
->> +	 */
->> +	if (dcfg->lmid == info.lmid) {
->> +		priv->ops.start = &imx_rproc_sm_cpu_start;
->> +		priv->ops.stop = &imx_rproc_sm_cpu_stop;
->
->you have switch callback here, also swtich imx_rproc_sm_prepare()
-
-Yes, as above.
-priv->ops.prepare = &imx_rproc_sm_lmm_prepare;
-
->
->> +		priv->flags |= IMX_RPROC_FLAGS_SM_CPU_OP;
->> +		dev_info(dev, "Using CPU Protocol OPS\n");
->> +
->> +		return 0;
->> +	}
->> +
->> +	dev_info(dev, "Using LMM Protocol OPS\n");
->> +	priv->ops.start = &imx_rproc_sm_lmm_start;
->> +	priv->ops.stop = &imx_rproc_sm_lmm_stop;
->> +	priv->flags |= IMX_RPROC_FLAGS_SM_LMM_OP;
->
->Most likely
->
->	bool b = (dcfg->lmid == info.lmid);
->	priv->ops.start = b ? &imx_rproc_sm_cpu_start : &imx_rproc_sm_lmm_start;
->	...
->or
->	if (b)	{
->	} else {
->	}
->
->	to do ops switch.
-
-ok.
-
->
->> +
->> +	/*
->> +	 * Use power on to do permission check. If rproc is in different Logical Machine,
->> +	 * and linux has permission to handle the Logical Machine, set
->> +	 * IMX_RPROC_FLAGS_SM_LMM_AVAIL.
->> +	 */
->> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
->> +	if (ret != 0) {
->> +		if (ret == -EACCES) {
->> +			/* Not under Linux Control, so only do IPC between rproc and Linux */
->> +			dev_info(priv->dev, "lmm(%d) not under Linux Control\n", dcfg->lmid);
->> +			return 0;
->> +		}
->> +
->> +		dev_info(priv->dev, "power on lmm(%d) failed: %d\n", dcfg->lmid, ret);
->> +		return ret;
->> +	}
->> +
->> +	priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
->> +
->> +	/* rproc is started before boot Linux, so do NOT shutdown the LM */
->> +	if (started)
->> +		return 0;
->> +
->> +	/* Permission check finished, shutdown the LM to save power */
->> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
->> +	if (ret) {
->> +		dev_err(priv->dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
->> +		return ret;
->> +	}
->
->look like this block should be in imx_rproc_sm_prepare()?
-
-This should be kept here. permission check flow:
-
-power on m7 lm
-  |
-  | success(indicating linux control rproc LM)
-         -> check m7 booted by U-Boot
-	              |-> If yes, keep power.
-		      |-> If no, shutdown to save power.
-                                                     
-Thanks,
-Peng
-
->
->Frank
->> +
->> +	return 0;
->> +}
->> +
->>  static int imx_rproc_detect_mode(struct imx_rproc *priv)
->>  {
->>  	/*
->> @@ -1166,6 +1353,10 @@ static const struct imx_rproc_plat_ops imx_rproc_ops_scu_api = {
->>  	.detect_mode	= imx_rproc_scu_api_detect_mode,
->>  };
->>
->> +static const struct imx_rproc_plat_ops imx_rproc_ops_sm = {
->> +	.detect_mode	= imx_rproc_sm_detect_mode,
->> +};
->> +
->>  static const struct imx_rproc_dcfg imx_rproc_cfg_imx8mn_mmio = {
->>  	.src_reg	= IMX7D_SRC_SCR,
->>  	.src_mask	= IMX7D_M4_RST_MASK,
->> diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
->> index aeed08bdfb5619c7afd7201589f417cfd6745818..b8a30df92d3bdeb915e33551235d555b947d0b16 100644
->> --- a/drivers/remoteproc/imx_rproc.h
->> +++ b/drivers/remoteproc/imx_rproc.h
->> @@ -51,6 +51,9 @@ struct imx_rproc_dcfg {
->>  	enum imx_rproc_method		method;
->>  	u32				flags;
->>  	const struct imx_rproc_plat_ops	*ops;
->> +	/* For System Manager(SM) based SoCs, the IDs are from SM firmware */
->> +	u32				cpuid;
->> +	u32				lmid;
->>  };
->>
->>  #endif /* _IMX_RPROC_H */
->>
->> --
->> 2.37.1
->>
+Xie Yuanbin
 
