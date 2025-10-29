@@ -4,82 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E55CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 07:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F36CCCF9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 07:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=buE440TyV+p6UVS5Vvu6uKypySRDBKHVw6i9CgF2qQU=; b=DCfvsLOSyIxHNRI/RdIK9bA/Tj
-	WOTgfCKSaxto+J6XDVGaAWlxvIuc7uj05yQRXEPe+j7zpqExPv96bPf7hQlb5dzTnQd0/UpeQpYTt
-	Td53xGp4fcmPfkuV4CeHCRVnuOCVFZ2EkqpCWBuROziI8YFQU3KI/2/r+3GUQ8OMSzaljkd71S0+r
-	tZhW9T2AX5eoYiauxA7AVBq21LF+1H4dJO1lYIYFSoHQAhNWCCal7cJ9ZKcQ9gPfCKrRD4TcMSj1C
-	fRROBJ/LHGTixqs3ERHtpuZj/bQHEVjMViH9XmjVbwg/Br3MbOtjv74FcX55VkUgDTW4wxxB6kNpY
-	keVTS/yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w7WzjBbcIkMp9vE4EpjCxo/Q8IBE8WxTrpS4XkHUl5o=; b=JWdNAtA66elJinrgJCJlB1PPOt
+	65jXFFIima44gVj9xGsOXXHSWSvQHLYxb5kExz85G/fQc3SeJeWn/oRMa8RaXL0IFCUNyz1qXFScR
+	FNIJZNGH6TVPHhEHfSnEkip2bVpz8Wg4z+w2eWs8OmRldSmC9zosL69xmU8JaO+2VLV3o3rsnO8K3
+	0bFITSbKeHfK5o46n1PxIl7nPA5TXQM6qEWnTtlY4h6a2/gD+hYN45O9TrFOP7mdMY2HWCUAvpqVA
+	EtdYMbPoUVIBWXIf6DE5eBPvGw+iZnweX/CGRmdcFhoH6DAIt+tkdX99fxXUB6JM0mdhPqi8JFdBL
+	ft5ca7fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0Ru-00000000455-3uVU;
-	Wed, 29 Oct 2025 07:18:26 +0000
-Received: from ssh248.corpemail.net ([210.51.61.248])
+	id 1vE0Wm-00000000524-0dXK;
+	Wed, 29 Oct 2025 07:23:28 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE0Rs-0000000043F-49JW
+	id 1vE0Wj-0000000050g-0HDG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 07:18:26 +0000
-Received: from jtjnmail201624.home.langchao.com
-        by ssh248.corpemail.net ((D)) with ASMTP (SSL) id 202510291518166893;
-        Wed, 29 Oct 2025 15:18:16 +0800
-Received: from jtjnmailAR02.home.langchao.com (10.100.2.43) by
- jtjnmail201624.home.langchao.com (10.100.2.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 29 Oct 2025 15:18:15 +0800
-Received: from inspur.com (10.100.2.113) by jtjnmailAR02.home.langchao.com
- (10.100.2.43) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Wed, 29 Oct 2025 15:18:15 +0800
-Received: from localhost.localdomain.com (unknown [10.94.19.60])
-	by app9 (Coremail) with SMTP id cQJkCsDwlHi3vwFpiTgHAA--.5618S2;
-	Wed, 29 Oct 2025 15:18:15 +0800 (CST)
-From: Bo Liu <liubo03@inspur.com>
-To: <linux@armlinux.org.uk>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Bo
- Liu <liubo03@inspur.com>
-Subject: [PATCH] arm: Fix double word in comments
-Date: Wed, 29 Oct 2025 15:18:14 +0800
-Message-ID: <20251029071814.17760-1-liubo03@inspur.com>
-X-Mailer: git-send-email 2.43.7
+	Wed, 29 Oct 2025 07:23:26 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7811a02316bso5095672b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 00:23:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761722604; x=1762327404; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=w7WzjBbcIkMp9vE4EpjCxo/Q8IBE8WxTrpS4XkHUl5o=;
+        b=D9JwBumHmP+uXHswieDa6HDMsC6YKmkBH13GDgXwdQG/pc9vJx3eY3DPAnXVNLX3KL
+         z0h66BdnpqI/VSf3iOwQ0HMaRTkwV3frvm/6GpOefNHO016YW5RAnTOADLjmIItHJrgL
+         ydQ5I9w/N6fqy7MdEVy0TDyAMfbTQuqn5cm/YLH1fVfQdYX/3sswCfybPdEfI689sEKE
+         846fOBYByNxKyp7Y24guWVQ3F5u8LDQDR3tnAvx97H5QQWWpqodA+5+iD6C4wXV53Q8R
+         yKaYHwaX4RPGPR9DztmxebymYc8RO+ARI2pDb+1Ck+2ARqKUlu80o/p9luA6nqHCHO/+
+         O0qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761722604; x=1762327404;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=w7WzjBbcIkMp9vE4EpjCxo/Q8IBE8WxTrpS4XkHUl5o=;
+        b=eqbh6F5O+ufw+y6ljw62+l8ltyXIWlfaGZG647gwNOeJN5eS+AxFlnI4HzT6CYTjZz
+         XRqhuj71o2ynfWP6K9McfaYfvyxS4jApKoqA3UEA03BSooEvF1vTgvmwXwPAQu1KHb/W
+         nBKfiCFNIRknQQRaJBkZvIBYfWqv2Ca8xQSCsu73bBgFNY4iXyzOkYU7hqRaw+Qod5Ot
+         h7Ar5nMlEZEI3BaUqTXjoDasPL4U+8+rF0xb2juiJGdXDmJj5TbnisatY8HAJK2j86Re
+         ZzYepK6/b6Oq3uGKrWM1h6qjIGTJUiZzbfYH5qlAxc1fDBikIqDZ9jvlawLGu/Gqe3gO
+         NeFg==
+X-Forwarded-Encrypted: i=1; AJvYcCUQbSfx6quhoTADnJAta1eUTUtqU8ENJ+wJw6/C8hNDE9Xe8KxFUtUfdoD1xQqZwnqBoMiThe2sZVOM2zsKgrGh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyd/220E4d8lE4q2vUhJYgvSKQj/JAl3D9pJf8U4wfQSKWXNIjp
+	swTpuNFaOo6k32oVP8neZtKiz5e1mLlcaD7WL8OEz3vS58Iny3g0P5OD
+X-Gm-Gg: ASbGnctBVA9H8SauKT+za4ThbCzoaXACxmEMeB2msnaRHvuv6DSDoyLELyiBGMT7hIt
+	m/NeJ0jheDjvDa3hrDUHpBJd/p0w9CFfjwlOiSAm2llrQI4HtO0oaDXtEWj01KyZTd85vGEdzx6
+	80xB4d8DS1KmIc06ukYDTZYob59UkpoyoVNh6LmYKtrnH0NoEaGdl66pNp8yAcE/pfUutj4oVTJ
+	QlfhWLjF/NbQcdWc1VIou8GwvB08ZmkH+1RyYyQ5IMa/jcpKEU625w3u1atVsYsZsfKGjAEnejy
+	z6LpotKtd/3ptT/Wkqd3yYjBKT+fBaDm7/HF1r4bGts5QRftqAcEbTNH7IBi69mnXS9E1UhwVk8
+	K+g9g3P/oMLPX6t4yhMQO8uML1oK8Ohrh0nIvGu4bs4Tw8af3XLa9NB3MA5DtjKlkQvhGrq3dfZ
+	YcAIOrLhkP5suBm/skXhylUw==
+X-Google-Smtp-Source: AGHT+IFyoTqxEaHdHcYwG2j5PoXFVoRtIyJkYmXJKSPfYslsy5ZMiSdta/UGyBhYN4fJfCWD+fCbVA==
+X-Received: by 2002:a05:6300:218c:b0:341:6c8a:5218 with SMTP id adf61e73a8af0-34655401460mr2197446637.56.1761722603774;
+        Wed, 29 Oct 2025 00:23:23 -0700 (PDT)
+Received: from localhost.localdomain ([124.77.218.104])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-b71268bdb2dsm13021005a12.5.2025.10.29.00.23.20
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 29 Oct 2025 00:23:23 -0700 (PDT)
+From: Miaoqian Lin <linmq006@gmail.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Markus Schneider-Pargmann <msp@baylibre.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Dmitry Osipenko <dmitry.osipenko@collabora.com>,
+	Guillaume Ranquet <granquet@baylibre.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: linmq006@gmail.com,
+	stable@vger.kernel.org
+Subject: [PATCH] drm/mediatek: Fix device node reference leak in mtk_dp_dt_parse()
+Date: Wed, 29 Oct 2025 15:23:06 +0800
+Message-Id: <20251029072307.10955-1-linmq006@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cQJkCsDwlHi3vwFpiTgHAA--.5618S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJF1rGFWktF13ArWxtr1kXwb_yoW8WF15pa
-	nruws7trn5GFyrt34UJrWDur43Ar1vqa1jqrykKw17Gry5XryvvF1vqFnxC3WDXw4kCa1r
-	WFySkFWq9FnxXaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkl14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26rxl
-	6s0DM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
-	YxC7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
-	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y
-	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
-	W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
-	IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUb7KsUUUUU
-	U==
-X-CM-SenderInfo: xolxu0iqt6x0hvsx2hhfrp/
-X-CM-DELIVERINFO: =?B?nVJfxmLVRuiwy3Lqe5bb/wL3YD0Z3+qys2oM3YyJaJDj+48qHwuUARU7xYOAI0q1Re
-	KIpWCyR62XitOcery6tyBHnWmyvKcnPtkR1dGMHZVwjFacMm5gqyd54n/GdGSdAFvGdO89
-	5naeRSV9yC1d1RJqrS0=
-Content-Type: text/plain
-tUid: 20251029151816fa16ea344ddbe361a716733dd1481dec
-X-Abuse-Reports-To: service@corp-email.com
-Abuse-Reports-To: service@corp-email.com
-X-Complaints-To: service@corp-email.com
-X-Report-Abuse-To: service@corp-email.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_001825_288705_E9B746CC 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20251029_002325_107608_C69A4268 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,50 +109,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the repeated word "the" in comments.
+The function mtk_dp_dt_parse() calls of_graph_get_endpoint_by_regs()
+to get the endpoint device node, but fails to call of_node_put() to release
+the reference when the function returns. This results in a device node
+reference leak.
 
-Signed-off-by: Bo Liu <liubo03@inspur.com>
+Fix this by adding the missing of_node_put() call before returning from
+the function.
+
+Found via static analysis and code review.
+
+Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
 ---
- arch/arm/Kconfig              | 4 ++--
- arch/arm/include/asm/unwind.h | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 9b4024b277d4..33bafc34baa5 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1482,7 +1482,7 @@ config ARM_ATAG_DTB_COMPAT_CMDLINE_EXTEND
- 	bool "Extend with bootloader kernel arguments"
- 	help
- 	  The command-line arguments provided by the boot loader will be
--	  appended to the the device tree bootargs property.
-+	  appended to the device tree bootargs property.
- 
- endchoice
- 
-@@ -1624,7 +1624,7 @@ config DMI
- 	  continue to boot on existing non-UEFI platforms.
- 
- 	  NOTE: This does *NOT* enable or encourage the use of DMI quirks,
--	  i.e., the the practice of identifying the platform via DMI to
-+	  i.e., the practice of identifying the platform via DMI to
- 	  decide whether certain workarounds for buggy hardware and/or
- 	  firmware need to be enabled. This would require the DMI subsystem
- 	  to be enabled much earlier than we do on ARM, which is non-trivial.
-diff --git a/arch/arm/include/asm/unwind.h b/arch/arm/include/asm/unwind.h
-index d60b09a5acfc..a75da9a01f91 100644
---- a/arch/arm/include/asm/unwind.h
-+++ b/arch/arm/include/asm/unwind.h
-@@ -10,7 +10,7 @@
- 
- #ifndef __ASSEMBLY__
- 
--/* Unwind reason code according the the ARM EABI documents */
-+/* Unwind reason code according the ARM EABI documents */
- enum unwind_reason_code {
- 	URC_OK = 0,			/* operation completed successfully */
- 	URC_CONTINUE_UNWIND = 8,
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index bef6eeb30d3e..b0b1e158600f 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -2087,6 +2087,7 @@ static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
+ 	endpoint = of_graph_get_endpoint_by_regs(pdev->dev.of_node, 1, -1);
+ 	len = of_property_count_elems_of_size(endpoint,
+ 					      "data-lanes", sizeof(u32));
++	of_node_put(endpoint);
+ 	if (len < 0 || len > 4 || len == 3) {
+ 		dev_err(dev, "invalid data lane size: %d\n", len);
+ 		return -EINVAL;
 -- 
-2.31.1
+2.39.5 (Apple Git-154)
 
 
