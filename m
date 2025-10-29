@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F55BCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 02:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D4FCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 02:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SX2G+ESsEQ6ciudmHuH4cJ3TGNb86GL8u638dm/hlnM=; b=w9viEDJxgr2umOXJGTzbL2XQPu
-	DChmtO8oLXJJn/hooRUp3unFRCIZACU4fqq5AsJm3DEVaiKwYzcoo2Azl0Q+P8OFlJ0P9XdIyI1Tu
-	POMusSTNiPouSgJX/6e675PRWj1jd4Jnz7ZDyESEKdVUEdVGjyc0suF0buWU2bkqznQMfR0ZC4TOM
-	8BTMke7sSCPpFcS2O/P2phaZXmSuanTwVlBr6MJFTf0ZXtb5PBGzWIH3bqWbeM2xshQtPEknJwSGV
-	s5KohiyZyaithjrTELLvZfs0fcOUxB4IQD2RQYKhEzFsTNbhdVX36Zxv3CfgzR42d2tnZo6dE+Zvj
-	JyBm2U8w==;
+	bh=8mI8RJyZEWdQPWipyhU5oi8LYU908r35UXOl0PDE2pw=; b=laT8O0nVEiFgvwqp0SYFIK2bF8
+	dim6Geuv2JOaY1DX4PXkG5Paqj2OVyt66KDN9FjJ1CyjB0Wa/VvPxSqQ9aUbevvoOkmqnLV3r/cLL
+	JRqLHyTFcY6diT9KNnkNUkwe3SXMRr/UvLQcwGEc/Objttt7eCpigxZ7sSz2EipEAqBFH4gj3XEk5
+	kymvp0eM4BVNE7xuqy/LBPHMQ1ZjYiRbV9i+xyFIAY+FyOmv6/1hFWWXxcH3tUh43FH2h72N8W/uf
+	CT/DEWozjvB2BO1xHOOzs9l6XHn/sjttAlstI20dNzVGX7ixnWN/exOO4ubX2F4CJ9Rb5lf6MwvDa
+	kSEoBhBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDw9n-0000000H0BY-3UpO;
-	Wed, 29 Oct 2025 02:43:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vDwFf-0000000H0VK-2Abf;
+	Wed, 29 Oct 2025 02:49:31 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDw9m-0000000H0BO-2eeD
+	id 1vDwFc-0000000H0Ul-0jpP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 02:43:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29978602FE;
-	Wed, 29 Oct 2025 02:43:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14C86C4CEFD;
-	Wed, 29 Oct 2025 02:43:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761705804;
-	bh=Km83RPcsFyOOaHMC0IXrd8w/TKJKJjJESuj/zLlhIeY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bUez+F0C+mbjixIPs6/hVqz+YUV9Qv8Ide9LxpNZCNtWbDQEsiBKA62iBhXhbzk0g
-	 ODpTKlZqPCDwcv/xiA7X8ZJ0fMnsRlopbFUvy4vq7kNFdqHYPkfuJhy3EmguhCfi6F
-	 XCT04x95a5UA4+NLvTN+Cf8LK9Gc5jkmdsH+GBkHIFuvz8j1KOnBVkwD11+CUTipqC
-	 FsvJFlX6jT/D7ahOc48XZxT6tUKBIhJ/AhPqyr9gPBI/o8LFlQVls1C1YJewS+Gr4P
-	 oadJoD3Fjf/B93KcYjVDaw+vOpMA25ElW1/Hu1mO8bfhnpY5LoHMpuu6gIOhKYhI61
-	 avwMqaX3fP4rg==
-Date: Wed, 29 Oct 2025 11:43:17 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mark Brown <broonie@kernel.org>, Steven Rostedt
- <rostedt@goodmis.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
- <mingo@kernel.org>, x86@kernel.org, Jinchao Wang
- <wangjinchao600@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v5 6/8] selftests: tracing: Add a basic testcase for
- wprobe
-Message-Id: <20251029114317.167b7d908533385c1c9e6782@kernel.org>
-In-Reply-To: <20251029004219.dc9cda0eb56ae46c55855844@kernel.org>
-References: <175859019940.374439.7398451124225791618.stgit@devnote2>
-	<175859026716.374439.14852239332989324292.stgit@devnote2>
-	<aPvwGhMBJqMKcC9D@finisterre.sirena.org.uk>
-	<20251027224347.4c887cc956df63602f377550@kernel.org>
-	<20251028084222.a3c1ae97d125d9bd88fc565b@kernel.org>
-	<20251028105549.ae94e8eeb42f4efc183d2807@kernel.org>
-	<20251029004219.dc9cda0eb56ae46c55855844@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Wed, 29 Oct 2025 02:49:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=8mI8RJyZEWdQPWipyhU5oi8LYU908r35UXOl0PDE2pw=;
+	b=RKXstXVvw/LZpzS0fSWou1gFKYhepNujxLVzFYfqP/hVNROwao9fAijMpqJ7aS2SgivbxlhfV
+	QMGUxARIOAMjVw6Sr30RakvQ7BOQ/KPwPrHSYOQbxXZARvw/4pSVDE9j/AGg6tTvLv6MKiioztN
+	wi2bSSDa1/ZveTTJQE0yqoQ=
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4cxBWw6rCfzLlSH;
+	Wed, 29 Oct 2025 10:48:44 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9F10E180043;
+	Wed, 29 Oct 2025 10:49:13 +0800 (CST)
+Received: from [10.174.178.24] (10.174.178.24) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 29 Oct 2025 10:49:11 +0800
+Message-ID: <d2aa99f8-dbdc-dc13-1ba3-0e273913221f@huawei.com>
+Date: Wed, 29 Oct 2025 10:49:10 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH mpam mpam/snapshot/v6.14-rc1] arm64/mpam: Fix MBWU monitor
+ overflow handling
+Content-Language: en-US
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
+	<guohanjun@huawei.com>, <jeremy.linton@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>, <wangkefeng.wang@huawei.com>,
+	<sunnanyong@huawei.com>
+References: <20251017185645.26604-25-james.morse@arm.com>
+ <20251022133913.629859-1-zengheng4@huawei.com>
+ <8e22c81e-5e78-41e0-a81e-0f9826e5edf0@arm.com>
+ <1c037f72-485a-567b-bf8f-489255330de8@huawei.com>
+ <56f7f2df-fd94-48c8-aaa0-97a71b3108cf@arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <56f7f2df-fd94-48c8-aaa0-97a71b3108cf@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.178.24]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251028_194928_918461_6E852A53 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,135 +97,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Oct 2025 00:42:19 +0900
-Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+Hi Ben,
 
-> On Tue, 28 Oct 2025 10:55:49 +0900
-> Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+On 2025/10/29 0:01, Ben Horgan wrote:
+> Hi Zeng,
 > 
-> > On Tue, 28 Oct 2025 08:42:22 +0900
-> > Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
-> > 
-> > > ~ # cd /sys/kernel/tracing/
-> > > /sys/kernel/tracing # echo 'w:my_wprobe w@jiffies' >> dynamic_events 
-> > > /sys/kernel/tracing # echo 1 > events/wprobes/my_wprobe/enable 
-> > > [   54.942288] trace_wprobe: enable_trace_wprobe called
-> > > [   54.945306] trace_wprobe: trying to register wprobes
-> > > [   54.947367] trace_wprobe: __register_trace_wprobe called
-> > > [   54.949586] trace_wprobe: registering wprobe at addr: 0xffffb6ce429fb200, len: 4, type: 2
-> > > [   54.951639] Creating wide hw breakpoint on CPU 0
-> > > [   54.966390] Creating kernel counter on CPU 0 for event type 5
-> > > [   54.967758] perf_install_in_context: event 00000000736da1d9 ctx 000000005d4db900 cpu 0
-> > > [   54.972015] perf_install_in_context2: event 00000000736da1d9 ctx set to 000000005d4db900
-> > > [   54.976697] cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2c8
-> > > 
-> > > What happen if the cpu calls function on itself by
-> > > smp_call_function_single() on arm64?
-> > > 
-> > >   smp_call_function_single(this_cpu, remote_function, &data, 1);
-> > 
-> > Sorry, that was printk buffering issue. I used trace_printk() instead
-> > and persistent ring buffer[1] to trace it.
-> > 
-> > [1] https://docs.kernel.org/trace/debugging.html#persistent-buffers-across-boots
-> > 
-> > ~ # echo 1 > /sys/kernel/tracing/instances/boot_map/options/trace_printk_dest
-> > ~ # echo 'w:my_wprobe w@jiffies' >> /sys/kernel/tracing/dynamic_events 
-> > ~ # echo 1 > /sys/kernel/tracing/events/wprobes/my_wprobe/enable 
-> > QEMU 8.2.2 monitor - type 'help' for more information
-> > (qemu) system_reset
-> > ...
-> > 
-> > ~ # cat /sys/kernel/tracing/instances/boot_map/trace 
-> > # tracer: nop
-> > #
-> > # entries-in-buffer/entries-written: 16/16   #P:1
-> > #
-> > #                                _-----=> irqs-off/BH-disabled
-> > #                               / _----=> need-resched
-> > #                              | / _---=> hardirq/softirq
-> > #                              || / _--=> preempt-depth
-> > #                              ||| / _-=> migrate-disable
-> > #                              |||| /     delay
-> > #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-> > #              | |         |   |||||     |         |
-> >            <...>-63      [000] .....    21.065038: register_wide_hw_breakpoint: Creating wide hw breakpoint on CPU 0
-> >            <...>-63      [000] .....    21.079678: perf_event_create_kernel_counter: Creating kernel counter on CPU 0 for event type 5
-> >            <...>-63      [000] .....    21.080051: perf_install_in_context: perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337 cpu 0
-> >            <...>-63      [000] .....    21.080140: perf_install_in_context: perf_install_in_context2: event 000000000b3ac4d3 ctx set to 00000000097d6337
-> >            <...>-63      [000] .....    21.080939: cpu_function_call: cpu_function_call: calling function on CPU 0, func: __perf_install_in_context+0x0/0x2f0
-> >            <...>-63      [000] .....    21.080966: smp_call_function_single: smp_call_function_single: calling function on CPU 0, func: remote_function+0x0/0x78, wait=1
-> >            <...>-63      [000] ...1.    21.080973: smp_call_function_single: smp_call_function_single: running on CPU 0, call CPU 0
-> >            <...>-63      [000] ...1.    21.081099: smp_call_function_single: smp_call_function_single: checking for potential deadlock conditions
-> >            <...>-63      [000] ...1.    21.081259: generic_exec_single: generic_exec_single: preparing to call function on CPU 0, func: remote_function+0x0/0x78
-> >            <...>-63      [000] ...1.    21.081269: generic_exec_single: Executing smp_call_function_single on self CPU 0, func: remote_function+0x0/0x78
-> >            <...>-63      [000] d..1.    21.081289: csd_do_func: csd_do_func: CPU 0 executing func remote_function+0x0/0x78
-> >            <...>-63      [000] d..1.    21.081429: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 ctx 00000000097d6337
-> >            <...>-63      [000] d..2.    21.083211: hw_breakpoint_control: hw_breakpoint_control: ops=0
-> >            <...>-63      [000] d..1.    21.084191: __perf_install_in_context: __perf_install_in_context: event 000000000b3ac4d3 done, ret=0
-> >            <...>-63      [000] d..1.    21.084237: csd_do_func: csd_do_func: CPU 0 finished func remote_function+0x0/0x78
-> >            <...>-63      [000] d..1.    21.084243: generic_exec_single: Finished csd_lock_record(NULL)
-> > ~ # 
-> > 
-> > 
-> > So the last message is right before the local_irq_restore() in
-> > generic_exec_single().
-> > 
-> > static int generic_exec_single(int cpu, call_single_data_t *csd)
-> > {
-> > 	...
-> > 		csd_lock_record(csd);
-> > 		csd_unlock(csd);
-> > 		local_irq_save(flags);
-> > 		csd_do_func(func, info, NULL);
-> > 		csd_lock_record(NULL);
-> > 		trace_printk("Finished csd_lock_record(NULL)\n"); <- 
-> > 		local_irq_restore(flags);
-> > 		return 0;
-> > 
-> > Actually, I added another trace_printk() right after generic_exec_single().
-> > 
-> > 	err = generic_exec_single(cpu, csd);
-> > 	trace_printk("generic_exec_single returned %d for CPU %d, func: %pS\n",
-> > 		err, cpu, func);
-> > 
-> > This means after setting the hw_breakpoint, when enabing the IRQ,
-> > the machine is frozen - but qemu is running busy.
-> > 
-> > Can we specify the kernel memory address to HW breakpoint on arm64?
+> On 10/25/25 10:01, Zeng Heng wrote:
+>> Hi Ben,
+>>
+>> On 2025/10/23 0:17, Ben Horgan wrote:
+>>
+>>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>>>> ---
+>>>>    drivers/resctrl/mpam_devices.c | 8 +++++---
+>>>>    1 file changed, 5 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>>>> mpam_devices.c
+>>>> index 0dd048279e02..06f3ec9887d2 100644
+>>>> --- a/drivers/resctrl/mpam_devices.c
+>>>> +++ b/drivers/resctrl/mpam_devices.c
+>>>> @@ -1101,7 +1101,8 @@ static void __ris_msmon_read(void *arg)
+>>>>        clean_msmon_ctl_val(&cur_ctl);
+>>>>        gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
+>>>>        config_mismatch = cur_flt != flt_val ||
+>>>> -              cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+>>>> +             (cur_ctl & ~MSMON_CFG_x_CTL_OFLOW_STATUS) !=
+>>>> +             (ctl_val | MSMON_CFG_x_CTL_EN);
+>>>
+>>> This only considers 31 bit counters. I would expect any change here to
+>>> consider all lengths of counter.
+>>
+>> Sorry, regardless of whether the counter is 32-bit or 64-bit, the
+>> config_mismatch logic should be handled the same way here. Am I
+>> wrong?
 > 
-> Hmm, it seems that jiffies related things are updated frequently
-> and it may cause interrupt storm or infinit recursive call.
+> Yes, they should be handled the same way. However, the overflow status
+> bit for long counters is MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L.
+> 
+> I now see that the existing code in the series has this covered.
+> Both the overflow bits are masked out in clean_msmon_ctl_val(). No need
+> for any additional masking.
+> 
 
-I added another trace_printk() in el1_watchpt(). It seems el1_watchpt()
-takes too long and there is no time to do any other things.
-(Note the interval shown below is only within the el1_watchpt function,
- and in reality various processes (save/restore registers etc) for
- exception handling will be inserted before and after.)
+Yes, I’ve seen the usage, except that clearing the overflow bit in the
+register is missing.
 
-   kworker/u32:3-75      [001] d.h2.    43.216706: el1_watchpt: FAR=0xjiffies+0x0/0x40, ESR=0xd6000062, WP index=0, n
-est=0
-   kworker/u32:3-75      [001] d.h2.    43.216750: el1_watchpt: returning to EL1: nest=0
-   kworker/u32:3-75      [001] d.h2.    43.216816: el1_watchpt: FAR=0xjiffies+0x0/0x40, ESR=0xd6000062, WP index=0, n
-est=0
-   kworker/u32:3-75      [001] d.h2.    43.216860: el1_watchpt: returning to EL1: nest=0
-   kworker/u32:3-75      [001] d.h2.    43.216927: el1_watchpt: FAR=0xjiffies+0x0/0x40, ESR=0xd6000062, WP index=0, n
-est=0
-   kworker/u32:3-75      [001] d.h2.    43.216971: el1_watchpt: returning to EL1: nest=0
-   kworker/u32:3-75      [001] d.h2.    43.217058: el1_watchpt: FAR=0xjiffies+0x0/0x40, ESR=0xd6000062, WP index=0, n
-est=0
-   kworker/u32:3-75      [001] d.h2.    43.217106: el1_watchpt: returning to EL1: nest=0
-   kworker/u32:3-75      [001] d.h2.    43.217175: el1_watchpt: FAR=0xjiffies+0x0/0x40, ESR=0xd6000062, WP index=0, n
-est=0
-   kworker/u32:3-75      [001] d.h2.    43.217219: el1_watchpt: returning to EL1: nest=0
 
-So watching any variables which is frequently updated will
-almost freeze the system. Hmmm, the handler should check the
-interval and if it is too frequently, it should disable the
-wprobe.
-
-Thank you,
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Best Regards,
+Zeng Heng
 
