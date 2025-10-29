@@ -4,97 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A389CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B309CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 14:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVrVIr57b6fMWh3pA4LxJ9hZO8cVb5LaT8DX+ge7ENU=; b=rzkTfqiX6Ry1Lkd07lY4POOUPj
-	tPVQS/Hp0WFyaRNjDF66rcMnepkSVtqN1arw5JnIg5fZ4xDWc96Qiwfm8P7j5cDQwrUKMGXaOEeYh
-	8uvuj3ktYMCAhQxdu6ffyl9hO+azStuECke2lgbTdRgGXKNXELxihTyLVFUDTCT3ts6XgcrpRpEl7
-	yKMquQ2/ttah+LLPl0eJa8785s9Av5UymMS7n6qeODUdPMKlJjX+9jdwwGwFf/z00c/DsC4KFpzTs
-	CpOUQrqYc53ptNDeJ+gmwB5fTP3Dkolc27MmUxF+TCifWCNrATRdpBEFfOkRuwhG0t/pwBSi8nykL
-	os9hE0SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=21icvDkt2X9lcXLIGMKTfpYxoFG2Oa0hCtiRlEJ3Bg0=; b=JBtwXI9QiPghnPb7TY/ESpsVAk
+	QiSnh9IvLk9GIYbNsxhIIdCmwcGhA0rFpKKx4SIrIz+UKRJ/yeXPzxcsmgkaFFx1lJJ7nH55iuFbP
+	jO+6LPN6Cs0iDRPcNLt7xeL6hUG5SqwEaqSRaThdRlCzmMI3L4TljJ647QlFYmdYn4VNUDbcuw2B7
+	AUpcGpdMUVNIjH14P6ysw2HmrnN691bSJX4/ymVgI9qHnT5XdhLCQUE/EMb+tSvgv5TMqygyOTRA0
+	+HFx4x2OML3CP9aVuBOr11MMY+JcEEtnijb54b1/1wC/GVJWFBTr2t2Hwro3J9HFdqO4qMlLY+2pV
+	AWaqqyGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7Xu-00000001fZ9-15zD;
-	Wed, 29 Oct 2025 14:53:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vE7YD-00000001fk1-39zt;
+	Wed, 29 Oct 2025 14:53:25 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7Xr-00000001fXX-1H9F;
-	Wed, 29 Oct 2025 14:53:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12E3741728;
-	Wed, 29 Oct 2025 14:53:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39C64C19423;
-	Wed, 29 Oct 2025 14:53:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761749581;
-	bh=DycaBBkGuqgEIP5677gSgx8QDJGofxkMNPMcP3M730o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NbRDLF5bQ+u4J4hiySQAVpBuc86Gn1rrbceqZEKYNWpKF9yoAhVdLiG/Nu9SRzin5
-	 ddwOS2DAvBL0w6K59co5lqXWGrpHXdyA3+e94n4XKlatrRRprHxYDEy/DFtpqcJYjz
-	 jGBmveuocLom0Tr99M8s/YfJisMETw3u7WfPV8VPmObP73KGTMrcXJF2ZKhuh5kL4K
-	 FNZiQ5jjE+Qy5WcINDDA3sOHLfgNQyF9ljeM8CBlvKWvkNPOMLvSsJkY31UBeqPnRr
-	 epdow2onJrow0Coha3Tk5/8X8R1mpOEWDHWRuB0t8h2sykd3/evOgK+UEPDUs1Kui5
-	 FM7cF5Ys9ZgFA==
-Date: Wed, 29 Oct 2025 15:52:58 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 23/29] context-tracking: Introduce work deferral
- infrastructure
-Message-ID: <aQIqSq2FWyHg0Y3p@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-24-vschneid@redhat.com>
- <aQDMfu0tzecFzoGr@localhost.localdomain>
- <xhsmh5xbyqas1.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	id 1vE7Xx-00000001fZp-0gmc;
+	Wed, 29 Oct 2025 14:53:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761749585;
+	bh=N6uMqjuiISTOWC7xpwd26uYXqqmjP9OurvhshEZsv3s=;
+	h=From:Date:Subject:To:Cc:From;
+	b=MTnCWUVIZZoLoLMUjShhq8WfeteVxk53b8MtdCO/RuaHHHwwbPVsprs3iphiRon9f
+	 i3wnUDQDufMa7SIFA9FnJbbf2pfX8mAROh0/n6jGryZYgPpAoc6Qcb4Uqw924UrMbt
+	 csfoHWmzQPBgHv+oOijFX5uceXKiZxowHYHGA2+cNlgITkSlWeDOUH6pqWPdXHaf82
+	 Yv86sXEv++OHoGIK9G2CEr+sbEN3P3Jjzlbc7GHBdYjnjwuH2ktRVbFTVBrTxVcqgA
+	 9zTQ4wKO3qMTtqVyreZOHoDPTHNvTTIuUETLdBfx9JHsdhVfwjLJIXqjDeV4iv8fHv
+	 kfnRBfbS6VUZw==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 325C517E12D5;
+	Wed, 29 Oct 2025 15:53:05 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Wed, 29 Oct 2025 15:52:53 +0100
+Subject: [PATCH] dt-bindings: iio: adc: Add compatible for MT8189 SoC
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <xhsmh5xbyqas1.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251029-mt8189-dt-bindings-auxadc-v1-1-cd0496527a70@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAEQqAmkC/zWNQQ7CIBBFr0Jm7SSAGqFXMV1QGOssoArUkDS9u
+ 8TG5fvJf2+DQpmpwCA2yPThwkvqoE4C/NOlmZBDZ9BSX5XUFmM1ylgMFSdOgdNc0K3NBY/GumB
+ Jups5X6D/X5ke3H7u+3hwpvfaE/UYYXKF0C8xch1Eolbxn4Fx37+5ZLO9nAAAAA==
+X-Change-ID: 20251029-mt8189-dt-bindings-auxadc-89ad9e0a7834
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Zhiyong Tao <zhiyong.tao@mediatek.com>
+Cc: kernel@collabora.com, linux-iio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761749585; l=1241;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=N6uMqjuiISTOWC7xpwd26uYXqqmjP9OurvhshEZsv3s=;
+ b=Oicll2/zjt262uSpgPWCOKPgyQiMpk6vchlAy9c5/PYkfYrtCokj1Yu4U0np4tZKQMgwvgHA/
+ debgLh2k2e1BoaX6NH9qSgaQZk5VbTgAzovLXnicuABrQR9Dv0xjjYu
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_075303_381542_B1B3DD11 
-X-CRM114-Status: GOOD (  26.87  )
+X-CRM114-CacheID: sfid-20251029_075309_366739_DCF496FA 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,61 +93,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Oct 29, 2025 at 11:09:50AM +0100, Valentin Schneider a écrit :
-> On 28/10/25 15:00, Frederic Weisbecker wrote:
-> > Le Fri, Oct 10, 2025 at 05:38:33PM +0200, Valentin Schneider a écrit :
-> >> +	old = atomic_read(&ct->state);
-> >> +
-> >> +	/*
-> >> +	 * The work bit must only be set if the target CPU is not executing
-> >> +	 * in kernelspace.
-> >> +	 * CT_RCU_WATCHING is used as a proxy for that - if the bit is set, we
-> >> +	 * know for sure the CPU is executing in the kernel whether that be in
-> >> +	 * NMI, IRQ or process context.
-> >> +	 * Set CT_RCU_WATCHING here and let the cmpxchg do the check for us;
-> >> +	 * the state could change between the atomic_read() and the cmpxchg().
-> >> +	 */
-> >> +	old |= CT_RCU_WATCHING;
-> >
-> > Most of the time, the task should be either idle or in userspace. I'm still not
-> > sure why you start with a bet that the CPU is in the kernel with RCU watching.
-> >
-> 
-> Right I think I got that the wrong way around when I switched to using
-> CT_RCU_WATCHING vs CT_STATE_KERNEL. That wants to be
-> 
->   old &= ~CT_RCU_WATCHING;
-> 
-> i.e. bet the CPU is NOHZ-idle, if it's not the cmpxchg fails and we don't
-> store the work bit.
+Add compatible string for MT8189 SoC.
+The AUXADC IP in this chip is fully compatible with the one found in
+MT8173 SoC.
 
-Right.
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> >> +	/*
-> >> +	 * Try setting the work until either
-> >> +	 * - the target CPU has entered kernelspace
-> >> +	 * - the work has been set
-> >> +	 */
-> >> +	do {
-> >> +		ret = atomic_try_cmpxchg(&ct->state, &old, old | (work << CT_WORK_START));
-> >> +	} while (!ret && !(old & CT_RCU_WATCHING));
-> >
-> > So this applies blindly to idle as well, right? It should work but note that
-> > idle entry code before RCU watches is also fragile.
-> >
-> 
-> Yeah I remember losing some hair trying to grok the idle entry situation;
-> we could keep this purely NOHZ_FULL and have the deferral condition be:
-> 
->   (ct->state & CT_STATE_USER) && !(ct->state & CT_RCU_WATCHING)
+diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
+index 14363389f30aef85c596251fca0fe800200e2b41..d9e825e5054fe51c4010fc8a97af05c7639d4753 100644
+--- a/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
++++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
+@@ -42,6 +42,7 @@ properties:
+               - mediatek,mt8183-auxadc
+               - mediatek,mt8186-auxadc
+               - mediatek,mt8188-auxadc
++              - mediatek,mt8189-auxadc
+               - mediatek,mt8195-auxadc
+               - mediatek,mt8516-auxadc
+           - const: mediatek,mt8173-auxadc
 
-Well, after all what works for NOHZ_FULL should also work for idle. It's
-preceded by entry code as well (or rather __cpuidle).
+---
+base-commit: c9a389ffad27e7847c69f4d2b67ba56b77190209
+change-id: 20251029-mt8189-dt-bindings-auxadc-89ad9e0a7834
 
-Thanks.
-
+Best regards,
 -- 
-Frederic Weisbecker
-SUSE Labs
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
