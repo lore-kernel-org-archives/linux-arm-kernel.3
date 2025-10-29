@@ -4,98 +4,223 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD6BCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83963CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:In-reply-to:Subject:Cc
+	:To:From:References:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLgblDIy8bcKRfG2LuAVMDQcQzPf8VrxYqngcQhuaTk=; b=p/UiDLD+hs5e8275Iyj4Gktxhp
-	DfTG4xLmPy+QwZNiNm3IX7xG11Kn4Nd7m9CIFem1e298fNmKluXf90wQ0lsl/03fA3qryVPG/AAQC
-	zux6Ytshxw8INOTvQU2W21ExKvrM9fyo+mJ91Cgthlvc8rx0OzpI0rGuZBUCfOR5DdiTc/+zsD5dP
-	VwCLjr0uTUmiqGvjfnx6jAS6CD96Dw6tjwiL6dwS0GMxjXrqdFIxaabuNk+0ZLcs9rxPfEIElbvk8
-	7R8kPABuWrW6AI0LdOAikn47OHt3kV+8CJbRSe+FnEBaKjV36PpuS63EMF0fVrSbsvLKNWvSIfoyb
-	AEQz0VCw==;
+	bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=; b=QLeaf1jzBpeXWr0/1wjQtN2Ank
+	uSNwIz3TdwfppyL/v/ph+nOJucbot02Aui6UZOHDBwjYvvcVPUP+n91LgGIrr1Z5g7tBjAPlV43YB
+	e9Ll2qX+gbt2NAFGggmuckhgSm/mCdzmKdRqlfj4t2u5jR2IbAGz1dZWdnVW+Z5a+Nz8rfdfpuXH/
+	CqIJCs/xt9npUYSbI4Ij1i4VR28qEm2hO1cMNGRB7yHhdIcd75SJF35yPF1aWL0cwtBDL7xk6TqY4
+	3/JvwmeVwpN7NgDhsE6sXqIlDv9HqH/qI5lEIkVOLQ9Ec4uG7bsNAft4Pj7NnsHwdmYOSjC9tOoa4
+	YWfno1xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBZp-00000002XHi-2uyU;
-	Wed, 29 Oct 2025 19:11:21 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vEBcS-00000002XvH-22PT;
+	Wed, 29 Oct 2025 19:14:04 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBZm-00000002XGS-4A3N
+	id 1vEBcO-00000002Xuk-49ai
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 19:11:20 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-475dc6029b6so2341855e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 12:11:18 -0700 (PDT)
+	Wed, 29 Oct 2025 19:14:02 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59TIp4ux021838;
+	Wed, 29 Oct 2025 19:13:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=; b=
+	ns++xhuzRiYL9OQMhBgPyH6ZPRmVptbeRlzGsm7e0jvntwDogdTwY2z5tHDP7wYS
+	dsDvx7f6pl7g+OnZT65yI0cjIdcJcwVFWMG0N8LqIrKzdwkl1XIblvaGIKQGfwks
+	olB/Q8Zdir+kbUQ75BKgz+ztljzmiE6YUcUjrGnS1GJlnzPpKyfdbLXFjKjZVdN0
+	1S5XbxTAiU16Y1FR0II6swqVb+WtfnvgiWexHVnoSqh1AJetWB0cPN4qmMO6iQvH
+	s1whj50zgWnMwDwpA8nI+99Q0swtOkSQBVScZ01vFaI6VLwpNqyRrpXOm3cdWwfl
+	Di03wOhKJUHphE9aYGjWCw==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4a33vwat51-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 29 Oct 2025 19:13:37 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59TIlJCT032251;
+	Wed, 29 Oct 2025 19:13:37 GMT
+Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11010037.outbound.protection.outlook.com [52.101.61.37])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4a34eccd13-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 29 Oct 2025 19:13:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UeStzZAngW2ZOSq8VgM4CtYuRu2oLCyVaKpPfH/mXNISfxP5gYPtmpzWtQJLe5XhgFqNpRVU3SLsA3gzkj/3gjlihc+ZD3ptowPQ7iBuZfJwdX7IYOqLkyQ5ba2+T6/4c4fLG3oDLpMfyEgK/SighlZ4iUPVKNT8X8YWCM/9+6dbdnA4vOKImoNhVurzGa5lYS4pUlCJSDX3UrS3h+gfYladzOcE9cRN8PaleE1MVg0l1kXxE8wJ3Z66B7yPJoWasVN1/ulepE3KqOheiMSJVyKIPF4jS5qXULItY80UIjZUO7JvGd5QU5iLkeAMh7LFM5DqnpPtQCGrqQJQLcI7TA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=;
+ b=GPt+EVFdRy7Vm5BrZyHFr3xVeHHBE/HGuanDLGKnGqWI3fcp2/57ilSuQIRm55xjxKfKelt+um8h7LazHXuNKJf9VCAEpihxli5pQqXj9y+OQ8Hpg5rEWWyLfEtYYYLHSLxlFtJYrjmvD5BO6EJxdY+SOqRGR0qPjDVGbERwNoViEGbXSHvKEZqNtJfnEsShSkAazNQm+DGQddVHvOmOkkUGdw7y21RB6uLBPyAKdUxIYOVqg5SfBMOyDuFY6LqSfXBHoyfATN9j5IsU0to9nsNcnssxSRQacmlHkShAYSEM96RM58a20Rf7cWRfB8s185o4CfuFusoMUp8tY5usFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761765077; x=1762369877; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=zLgblDIy8bcKRfG2LuAVMDQcQzPf8VrxYqngcQhuaTk=;
-        b=dkFMGPpp1JiOhoHwXCVU7GyFExqCBDHnCpnjTXltmJ429Dg61wj3jfFvx9Uq1D/DzF
-         qVItct294otqaIo7nTv7GQ3qShxN1xPmupz99oj4p1lQZToyotccGS0uuwbYHDJ4C6zl
-         8C0dwS5UeC63iFjlayc20aDu9X1fjdmLL6RFzJ1NLo5fFQ3g1DEj/oddoGMiVs8zV5l8
-         6d0JNCKZx7SJKlHm5h6CD0ArbUedKaHFtc/Io1009hrq8ol//3lFOK4DJNhyr0LuN9Pf
-         rGzkbsBmwSJHxpwhSY/3FApUEiWYNR09xaDpMqXxc/9FMD3LAfwmIeohJCkbOWw6xmD8
-         XFvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761765077; x=1762369877;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zLgblDIy8bcKRfG2LuAVMDQcQzPf8VrxYqngcQhuaTk=;
-        b=I1H3Lf5hF6Xzlx4t0q4rmRuQoAXEU1CmpN820GQVKHkfYhsbHFOYtufxQSe1nfsK3O
-         IDlZrk2SDFDAQkSe8lTcpmNYF0jsOWQ2O0/uvprSiRhAUlKlVa6FUTMnqcDiyvg5QDr0
-         WqQo6OI5UWffSxx4CBxGCFajxZbSLA+roUoN1PKD4xu7C6k8xmfpJy7Us1QUixFF67V+
-         oK/e5s2vsrXK0oj0Egx94Qxzdggw+00i3OLxokCOXpelNBOAT3zug8SNWJ5AlRAtMndR
-         d7qxh/3X+/gJa3Qcgz9m4nmDm6b1heO4/jhS0AI3iMd/oUMbZT/Q0+P+LUPuWyug5o9n
-         F0Iw==
-X-Forwarded-Encrypted: i=1; AJvYcCWjneHgngfbclUmPG8M8Sqyp6rMJjtSNK87yeNswD2cD/ueIWFltTRRP+Sxrwo3WuGr/h5F4i54SAjxCIAXckwH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5PEhO3vZ9MWIoKKtMD0dVwpnNS9g+9qAJii4J2Orqzq42LSqH
-	fv5PCcFW6Q9jFNeLv9YSRM7Mk7iF9qKySTrALsgWoF6SIf5v3ftjYIcd
-X-Gm-Gg: ASbGncu2VAQXNiu40GmkczMhI2oAsyJ9ShB4XBV7v78l1e5jNSg5yYsElcxDSnC8ijb
-	VPYt/RueStPPeWr79ecrP3F5bdINnJyqQsp6WME6ZCuMklA6obH/W6gbclHFu7MCX9vE2uRiRSX
-	nQP3qaaTFSz2DLyGJP7yW6DTZG4+Jjk7TgTgfNvXxfiFrq0bgp2zPkHN3yOH6bCKZ70C6E0m2nQ
-	tna4s39jddXozG1Yqx/QBwAgXZJ5BjNbujFIRnKxhQYIGTrHS1zhPU2yYZJswUbvoMldLKaqGX3
-	apEop/duZywUBLz6FEj/ygWCYJkbtcihtqAybmousptfrEruQeEAvGwaEwa1OLLws907tZsJmfh
-	6MhFsdFo5He369s4Uac8WtGop4l16y8gm4r/MV3lfBqYvck88U1z/KbduqpR+r+jFnxEvCDknnz
-	Anag1esOr/SfVp+ZemFXyDzs1BNXiC
-X-Google-Smtp-Source: AGHT+IHHJ0QFj6Gb9jCEPnxHuuKJVnaNcrJYknPm6OXlzII4o39jZjUz3lv37Wl4zGDlA2OEKu9Xhg==
-X-Received: by 2002:a05:600c:34c4:b0:471:145b:dd0d with SMTP id 5b1f17b1804b1-4771e1ca0b2mr36156105e9.24.1761765076611;
-        Wed, 29 Oct 2025 12:11:16 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-90-37.ip49.fastwebnet.it. [93.34.90.37])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4771832e857sm53183195e9.0.2025.10.29.12.11.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 12:11:16 -0700 (PDT)
-Message-ID: <690266d4.050a0220.3a144c.eef7@mx.google.com>
-X-Google-Original-Message-ID: <aQJmzmMMxJfaZA4h@Ansuel-XPS.>
-Date: Wed, 29 Oct 2025 20:11:10 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/4] dt-bindings: phy: Add documentation for Airoha
- AN7581 USB PHY
-References: <20251029173713.7670-1-ansuelsmth@gmail.com>
- <20251029173713.7670-3-ansuelsmth@gmail.com>
- <20251029-mutual-scotch-7ca52e17da69@spud>
- <69025bc9.5d0a0220.1f0440.deb9@mx.google.com>
- <20251029-henna-easily-227513366e90@spud>
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sAJaZKJ10S5No0grOXbjg0UFHfGqdoao52nGCBSeI64=;
+ b=vqqHgJwDStZx8PPq31NKIvpd9Ak8pqkWit8bVDUSSyxL0VWiC/Ruj2tDRphAaR5B3uusPSNoNAiSosxv0+oMMezH7czrUH0f0AoSeD/Vy6r2wyLJF0rkhB19TA23JRk5AmEn7clGUWnzZFwJvl6C8atOXjV9Fay3CBGhlP/8iLY=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by IA3PR10MB8044.namprd10.prod.outlook.com (2603:10b6:208:515::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
+ 2025 19:13:21 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
+ 19:13:21 +0000
+References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
+ <20251028053136.692462-8-ankur.a.arora@oracle.com>
+ <CAJZ5v0hSvzHfsE4nrEW-Ey0dnJ+m=dSU-f1RywGNU0Xyi3jXtQ@mail.gmail.com>
+ <87ms5ajp4c.fsf@oracle.com>
+ <CAJZ5v0hQ7G9jvOv9VtRmsCKahBpUcPJMMOe07k_2mqsvggWcWg@mail.gmail.com>
+User-agent: mu4e 1.4.10; emacs 27.2
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
+        catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org,
+        akpm@linux-foundation.org, mark.rutland@arm.com, harisokn@amazon.com,
+        cl@gentwo.org, ast@kernel.org, daniel.lezcano@linaro.org,
+        memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+        konrad.wilk@oracle.com
+Subject: Re: [RESEND PATCH v7 7/7] cpuidle/poll_state: Poll via
+ smp_cond_load_relaxed_timeout()
+In-reply-to: <CAJZ5v0hQ7G9jvOv9VtRmsCKahBpUcPJMMOe07k_2mqsvggWcWg@mail.gmail.com>
+Date: Wed, 29 Oct 2025 12:13:20 -0700
+Message-ID: <874irhjzcf.fsf@oracle.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: MW4PR03CA0048.namprd03.prod.outlook.com
+ (2603:10b6:303:8e::23) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029-henna-easily-227513366e90@spud>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|IA3PR10MB8044:EE_
+X-MS-Office365-Filtering-Correlation-Id: 66077c47-26ea-4927-e81c-08de171f399d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dTk5ZDRRRFRMNGp5SHUzOWN5VC8zMGI3cVBJcXpLUm9HNU5GY1dOWHEwaGk5?=
+ =?utf-8?B?MnM2OWh4QlJpUEtYbXliaHBkODMxVFBUSlU2YXRnYjhncGpVQ1E4Qnk0Mng2?=
+ =?utf-8?B?T2FlNU0zMUhHM3cxSUlwYlkyNW43RldmekE5b2dDY2dlSXkzSUJTZEE5eHhI?=
+ =?utf-8?B?cjVPdEkwTGVJWXFHenZHQzRBaFZoWEo2eG1rS0pKRysrbGFmY0JsbXUyTmtV?=
+ =?utf-8?B?WmxIcG1LbDdkZnZkZVJLN1lRV0YvRFVJZzh2Vm9QanJ0c0VZSUFOMnQzUFdu?=
+ =?utf-8?B?T1crOEpOTnJSd0trZ29XeG5WaVRDNnYyRm42WkJNSThoYUs3MFoySmlDWWdz?=
+ =?utf-8?B?M3M2LzN2WnFJZHdwdVVibjZtQkpwMmpnMlR3azA5Ym5ScnhBYm5aTkx1dmVK?=
+ =?utf-8?B?QUxPR1B2dTRzSlVNaUxWcmVaWDM5ZFhzQmZXNFk3eXg0Y3dwRzUvTFRDckJn?=
+ =?utf-8?B?RnF2dW4zRzhDZkFrbnpBUFZPU1Rkci9aOVN6WVg1bVdma3l0RFVlKyt2YkFN?=
+ =?utf-8?B?TnZKVDFueGdNRHlNNlFSaHNCZVVjTWViUFIxN1pVNUgzWTlvYWEyQ3RaWm4v?=
+ =?utf-8?B?YTRNN1lCVTJyRWJhMEVLalcvNUhxWVQ5RUxCVXZldURtUjJwdmFiaVQ1K3NX?=
+ =?utf-8?B?a3ZiOU1RTnFOS0ViaVVmdGxDWUJFeXZTd0dmd0FnZW9YM3Q3d2VJUjJqaktU?=
+ =?utf-8?B?RDd2MEswSytqeUZkcHV2N0RrdHNUQ1E4Zkt0NFhtK3YyRVZXdFhQUWdET3NW?=
+ =?utf-8?B?cFVaR3ovc2xvRDBUYmwwT1lpdjUyZ0dWTXFVcmZLbTVWTytMRVdnV281a0Rj?=
+ =?utf-8?B?UGVGUGdUZlFkY1doVGw5UDlVVWdxMnZ4T0JUNFEyRk8yd1RZV2NlWHNPRXhm?=
+ =?utf-8?B?NGt6anJtMDRIc295SUJOMlB4SzllaTdveWRjZVFkWTBYc2dmTnF1T1k5TEk4?=
+ =?utf-8?B?ZnlJa3p3ZGpUMi90Yzc3WjFKWXlzQW9tVUlweFMrajRnUXljcCtBc3NuTTlo?=
+ =?utf-8?B?aHBnTlcyM1Q1MEhacCtrb283S2ZWMlhRVVdiU3lTVWM3TWJrV2dBQUFsOFls?=
+ =?utf-8?B?WUtCT0ZKd3V6dFkzN1BWdWl3WkdydmJRUktqWm4vYlZhMWNPUEQxS3ZDYTBw?=
+ =?utf-8?B?Mll2Q1R2UWJDVXkrbVU2eDZVRUdNYzV6bTVkWWYrVHFodVZ5ZDNOalpiRDM2?=
+ =?utf-8?B?YkxoSGRiUmZyVmc5eHZjR2VZNWZNSHljbm54M3BLaFRCcUltTkhQTncrY0M0?=
+ =?utf-8?B?ek1JTGh1RXU5UmNZODFLRCtWazRNQXVaOFlGVFY5Nkp4ckJ3OWNqVjhIR1Jk?=
+ =?utf-8?B?TXgxUE4zY1o4NFBMUHBOMG9EemxRaG1IcWFQOWphZnl0M0tIYjBVQVRDMmxE?=
+ =?utf-8?B?S3ZtUTR6bEd5Rit4OTZtMUJlb3NrZlN6QkxjZkpPRWRpek5zYmJ6Q3pORHF2?=
+ =?utf-8?B?a0x2dWxQbllwaC9wQjdIS1FGNkc0c0VveGVvMmxTbGIvNFIwSkVRdXEwYWJJ?=
+ =?utf-8?B?cmN1TVE5TUZCYVBYcUNscmQ0SlUvaE1sRmM0RldDMWozd0Rpc3kyYkl1b1FP?=
+ =?utf-8?B?elJaL0pHd3dkejhiN2U3TTBaLzAzekVxM0x1WDhRNVlVK0paMFNqU2xBd1F6?=
+ =?utf-8?B?RzJCZEkzU0twbkFmejBvREhpNUdWVDIzRGdvWkJia0hMeWFLMXN5eG9rYkl0?=
+ =?utf-8?B?eW9LeUlWSDQ2OW9RdDVlblh5WXpvc2dKbkxVMDlZajFuQ1owQktrbGtVcUZ4?=
+ =?utf-8?B?Rmo1OVo0T25LY3o2akNud2dpZlp1bEs5VzRrd3BvOWh2TUtuVjFQMUhkMkdI?=
+ =?utf-8?B?c0N6VGd5Q3lKeTRyVGh4YjdKeHpHc2FOanNEUitQK1VvRU4zL1JoYVA5OEFp?=
+ =?utf-8?B?T0NTY3R4ZnpzUGdabVVadUtMT1RzZ0tObFVVK2k3cGRCeCtDTTRTakNVM1ll?=
+ =?utf-8?B?a1FRWWc3cUJFSGpEd243ZGNvdHF3UWczaGV6cHBGcnVwakd5bThhMHlNVldU?=
+ =?utf-8?B?ajN1ZVdwc2RnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?enB5ZGhiUXM2ckJjeGlBUW1CYnM1YjlQcWlpYUk5UDJaZklJUnAwSDRlNUJH?=
+ =?utf-8?B?cHZxbEtxdmRGK2RPQzNPb0h4SkFObGk3ZTlPUVNtQ3pHS3AxTGFST0dFTm5K?=
+ =?utf-8?B?aGo0QVB2SW9vMTBLUXRBVnVaQkt0c210T0hUOHlBanJ0bzRtOFp2UmJ5MDdB?=
+ =?utf-8?B?YVkzQmVkU0pMUlBZbjg3K2sweGM3Zm1HZ1JmVDZocHJnZkJlby9VRVRLbCts?=
+ =?utf-8?B?Y0Y5Q0JicjV6ZWpSMkl6NldNSVlIYzVsNmNGNVZiZjVqNDQrMFNqUVhpVFB4?=
+ =?utf-8?B?NE54d1FjaUJWK1d6UElGZDlLTmtXSUZlVDM0NkV2akNGbUZKdzdGODYwYll6?=
+ =?utf-8?B?dFVsUHF5SU8rU3UzTkFDb2prdHRrWDBVb1p4eHUrUTQySjlKRWVJRWlZcEM2?=
+ =?utf-8?B?MkF6WEJ5MVdjWG5KZmJ4NTNKUjA4djBER0x1bWQvdTJiWlNpR3UwdHVkVUEz?=
+ =?utf-8?B?V0ZJYmZaY2FHa3N2OEIrNTVmWkIrZW9VK3BFdEhkVWg5YnlRRUp5OXpMdXJv?=
+ =?utf-8?B?dlE1OW5xNmVzaU9mdUZqS2U4MkQzRHAvVWZNTWVQSVNkeXdKaXlPbE9Db2FK?=
+ =?utf-8?B?OFpNSElXSFZ2d2FnRFZjR0J4MnRtTHRvOFdlUVgyZ01HRU9wenZ3ZTBJWWpW?=
+ =?utf-8?B?NDlwTS85Ukp6VlFGZDZWSlo2TUtwbzFKUWhOaWxXdHpSS25hMVhYNXFJdnpy?=
+ =?utf-8?B?eGFSVmg5a1BhS2pRcUlSY1RUaUNFOXJ1VnJYaHJTTXIrRFBadndGbldqSFFp?=
+ =?utf-8?B?eXIrTVIxQy9VRzl6eEREL24zUTlpaG1SK1ZTZmFWN2FkMmtueDAxVVd2RC9s?=
+ =?utf-8?B?b3NlSEpUN1IxMUNnaTNFQ0k5azRraUQvS2FmRU9iYnhKNHcwRkhQV0p1Sm5m?=
+ =?utf-8?B?b0k1R1J5N0NQWmk4SlZGTkxnSFkrRUhZOFd0YWZqOWxrZ2FuaW40OHlhRkc1?=
+ =?utf-8?B?ZzZrTWppTURXeXhjNHNycnZTNnkyUE02QVc3NFRIZnpBQ1FIclJUdlFUMG4x?=
+ =?utf-8?B?cmEvZWJ4NGhMd1F3L25BMzgzYlgyMTJCa0VBQXphU3dMeUJFVzh0ZkZCWTA3?=
+ =?utf-8?B?bk1ST1V2azFQM3gxYWVOMk13ZjZVZ25sekVKekpaQm9rWGJaNjArSUltc1RT?=
+ =?utf-8?B?aG1mMWNOL3ZPOG5vUi9RcGZFRGo1NlBINkxyQ2F0eEVzTnp5dzRjN2RzUzFp?=
+ =?utf-8?B?ZnBuSnBmZFJSNG56TktaczUvSjdqWW1DZjdCOE0rNVE5OHMwd1IwQkNsMDRj?=
+ =?utf-8?B?VjVuL2lFSW9aNDlYRm5ZODVVZDJhdFdOUUJIU2gySndOeUNQTDZOSE15Z0lH?=
+ =?utf-8?B?T3FYYjVHc3o1SC9sSmhkd3hZVnpPZUlkVi82RHpUS1Jod0t3WGlrTUU4OHZs?=
+ =?utf-8?B?dmNtN3RTZzNWTWt0VW81L0cva2RkWXpFdy9HaVZ5WDlmWnhJNjNaWDRlZmxy?=
+ =?utf-8?B?WnN6VFduYjluOHRWN3ZIUEhKWEtrV0d5dlhmRFlPZEcvNnM4SDJONnVXT21h?=
+ =?utf-8?B?c29teUwvSzBwSVpTQVNRSEdaTFpEUkpZU0hLbzN5TTNueGVwWEIrTFFQeHlv?=
+ =?utf-8?B?U0MzVWZBUTJsWWdPcE9VNGtTRW9pN0JxWkNqdnA3NXlCbXdsL0tjL0Q2dExs?=
+ =?utf-8?B?WmtRdDVEcnlwN3duN09TenhneERzWi9KSHhEUHBnLzFDYmNpVHd6NVU1N3Iw?=
+ =?utf-8?B?dUhzcGh6Z2QrU3FDSjgvanU2TDdESW9rRCtZNXRzRndDTG9IUTA1SU5ZTWQw?=
+ =?utf-8?B?MzFUTGZKWDlBVkk5VmJmdmhIejg4aS9vSlFFZ2UyaTRBS2dYb05yTzdNYjZE?=
+ =?utf-8?B?NUVuaVhYTG01b0xNT2ZQc1UyWVA3YW5tSHJuOHRIVGl1bFdHZmFKa1J3VUdG?=
+ =?utf-8?B?eGxuOW9lajF6Qm95ajhmdE4rNmltVG1tMy96QnhaMS9QRTk1NkFvMGwyUzF3?=
+ =?utf-8?B?RXpBS01hVXNzUi90eWs4YXc5cXd1VlRYYU52SDhxUWpsWkpPUjJ6OXFtT2wz?=
+ =?utf-8?B?OU4yMnpNSTMydHNKMkQ3c2ZpK3VHT3IrWHp0MjB1TVhIWnMvdWtiT25MMWxI?=
+ =?utf-8?B?Szl0S2NORGRBWkxKM0FoSExGT3hlNTRXZmhLWStZSkdWdGF5VXpxN2U2dFZP?=
+ =?utf-8?B?amdpZ0pueHg0bS9BMzlObUhDWC81Q0xqQUwxQkVkWEQvZlBFMFRJOXRmMmJD?=
+ =?utf-8?B?NVE9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: qe6OfwaBFumiLE2j7azdXRyw93m07h4NuMNn3MjzHHH3nQu1HRN4Of7kip4WhdPVgOTWsXtns7obsqAQp0yjX7bOrRoYW/aNfz+UcnFwWYR+Tvh98IlwG5D6gH5T5BuvXBMXBZV4VgiLQuQuSYBuduh4RzMlmLHJhQtlJFXqpZU1PQtRMc+qUDMQBsBWZpIc4P5QnKZ5lVcl5YEJplTChra/2UCTKZ6LWddHOpRRHcpkXidYa6wLqihkETzTJizghp6wjcYLRShNUTpymBbIcYBd3XNPPRcSK8Rl4HIBDem1CTE57FGVbhLmzRuEROVh5WOaipMZAuPn7AhCT6imIDykQ2+5O7HvMCE1ky3JZEw7KUMny3iibIYL0E+RN3LRmJ0dC6/NTNuJplJGEm0oq4EUv0fLiw1jKddPbbQpmjQ49IQd5Mri9lPiFr3mtjDiqi3JsJfKmKLubhEBSmdF4H8yvRjTgA95XwE0xG8B03/nptOfRy+4Wv45+GVke+8SlKPlAYIVLS9klbyoJ8PXVr2rBb2hhalOjJjPAQy+t47TvCx94woNfN+TDfmZXJWEVcOhKD46RvAaufGH5Xx2LWcKfTpvB5ZX+uVo9z9FRpU=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 66077c47-26ea-4927-e81c-08de171f399d
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 19:13:21.3451
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LZ1LlL31Xx7vLu3Nf0XJa9g0t+1PTDxhDxt9Lqq0rNfTlq6ze3JKQjd5Rv9UVO+XC9auVAqqCsMvthjj15SjcxAWe8a6b7CMhdi0c8HQYj0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8044
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-10-29_07,2025-10-29_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 adultscore=0 malwarescore=0
+ mlxscore=0 phishscore=0 mlxlogscore=999 spamscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510240000
+ definitions=main-2510290154
+X-Proofpoint-GUID: W7xr1FAUcGn91iq4uXj4sf2R9h4SYv8b
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDE2MiBTYWx0ZWRfX3sW5SwnG5XIA
+ c/Qb/e60JNzNjZ+YsAhELWy/yRcDQzHM3MD259Hu+6AHeeKBuTdJsrnpbsDvjH5rFRAmwqVhaYT
+ 6PEJ1jYOjOhUlaSZT+PmEix8f5+3Cz5YXlXqkc7B45ysEpvwB2Uv5NgVLC3Xq1JbSPmckj9v082
+ xF4WRmAwHFlgCtHNPAe62nKuP4BrocfcgLlnB4SsGzSoy9QTllI0gh5Moy3EA5AfQrnYYGc5S4x
+ ukrC2ITOU7jKuVqzqvrKMdkHF8TcGV38xmrLfyYOrtuvYYoCh2I0DAREmubQ2nDzRBmLU1ExZ10
+ PQGP+0ft5FN5TtgSgBK0aA0fBZW8DSmLK8i5YD3X8qRuJVybiEBbGnJ3v9bQWD3UeDfGOYAVOIi
+ aXszYvem0G54efiXI1/ZrXI3dAGRBhBnZ6SGANdLEgrHQgpYgKs=
+X-Authority-Analysis: v=2.4 cv=Uslu9uwB c=1 sm=1 tr=0 ts=69026761 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=x6icFKpwvdMA:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=yPCof4ZbAAAA:8 a=KKAkSRfTAAAA:8 a=mtOkqmUE-bh76MT0fEgA:9
+ a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 cc=ntf awl=host:13657
+X-Proofpoint-ORIG-GUID: W7xr1FAUcGn91iq4uXj4sf2R9h4SYv8b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_121119_112474_3B57EE66 
-X-CRM114-Status: GOOD (  66.80  )
+X-CRM114-CacheID: sfid-20251029_121401_146047_9465307E 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,277 +235,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 06:35:51PM +0000, Conor Dooley wrote:
-> On Wed, Oct 29, 2025 at 07:24:04PM +0100, Christian Marangi wrote:
-> > On Wed, Oct 29, 2025 at 06:07:22PM +0000, Conor Dooley wrote:
-> > > On Wed, Oct 29, 2025 at 06:37:10PM +0100, Christian Marangi wrote:
-> > > > Add documentation for Airoha AN7581 USB PHY that describe the USB PHY
-> > > > for the USB controller.
-> > > > 
-> > > > Airoha AN7581 SoC support a maximum of 2 USB port. The USB 2.0 mode is
-> > > > always supported. The USB 3.0 mode is optional and depends on the Serdes
-> > > > mode currently configured on the system for the relevant USB port.
-> > > > 
-> > > > The first USB port on the SoC can be both used for USB 3.0 operation or
-> > > > Ethernet (HSGMII).
-> > > > The second USB port on the SoC can be both used for USB 3.0 operation or
-> > > > for an additional PCIe line.
-> > > > 
-> > > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > > > ---
-> > > > 
-> > > > For DT maintainers, in v2 there were some comments, hope the new
-> > > > description and names of the property better clarify the usage and
-> > > > why they are needed.
-> > > > 
-> > > >  .../bindings/phy/airoha,an7581-usb-phy.yaml   | 76 +++++++++++++++++++
-> > > >  MAINTAINERS                                   |  7 ++
-> > > >  .../dt-bindings/phy/airoha,an7581-usb-phy.h   | 11 +++
-> > > >  3 files changed, 94 insertions(+)
-> > > >  create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
-> > > >  create mode 100644 include/dt-bindings/phy/airoha,an7581-usb-phy.h
-> > > > 
-> > > > diff --git a/Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml b/Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
-> > > > new file mode 100644
-> > > > index 000000000000..5106685c124d
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
-> > > > @@ -0,0 +1,76 @@
-> > > > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/phy/airoha,an7581-usb-phy.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: Airoha AN7581 SoC USB PHY
-> > > > +
-> > > > +maintainers:
-> > > > +  - Christian Marangi <ansuelsmth@gmail.com>
-> > > > +
-> > > > +description: >
-> > > > +  The Airoha AN7581 SoC USB PHY describes the USB PHY for the USB controller.
-> > > > +
-> > > > +  Airoha AN7581 SoC support a maximum of 2 USB port. The USB 2.0 mode is
-> > > > +  always supported. The USB 3.0 mode is optional and depends on the Serdes
-> > > > +  mode currently configured on the system for the relevant USB port.
-> > > > +
-> > > > +  The first USB port on the SoC can be both used for USB 3.0 operation or
-> > > > +  Ethernet (HSGMII).
-> > > > +  The second USB port on the SoC can be both used for USB 3.0 operation or
-> > > > +  for an additional PCIe line.
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    const: airoha,an7581-usb-phy
-> > > > +
-> > > > +  reg:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  airoha,usb2-monitor-clk-sel:
-> > > > +    description: Describe what oscillator across the available 4
-> > > > +      should be selected for USB 2.0 Slew Rate calibration.
-> > > 
-> > > Why's this being set in dt? What actually determines what oscillator
-> > > should be used? Do they have different performance characteristics?
-> > > How is someone meant to know which one to use?
-> > >
-> > 
-> > Hi Conor,
-> > 
-> > thanks a lot for the review.
-> > 
-> > The airoha,usb2-monitor-clk-sel is set in DT because it describe the HW
-> > and to what oscillator the PHY should be connected to.
-> > 
-> > There are 2 PHY at different register space. One PHY needs to calibrate
-> > for oscillator 1 and the other PHY for oscillator 2 or the PHY doesn't
-> > work for USB 2.0 (the calibration fails)
-> 
-> This implies that the oscillator is not part of the phy block, if
-> there's multiple competing for the same one. Why are these oscillators
-> not represented as clocks?
+
+Rafael J. Wysocki <rafael@kernel.org> writes:
+
+> On Wed, Oct 29, 2025 at 5:42=E2=80=AFAM Ankur Arora <ankur.a.arora@oracle=
+.com> wrote:
+>>
+>>
+>> Rafael J. Wysocki <rafael@kernel.org> writes:
+>>
+>> > On Tue, Oct 28, 2025 at 6:32=E2=80=AFAM Ankur Arora <ankur.a.arora@ora=
+cle.com> wrote:
+>> >>
+>> >> The inner loop in poll_idle() polls over the thread_info flags,
+>> >> waiting to see if the thread has TIF_NEED_RESCHED set. The loop
+>> >> exits once the condition is met, or if the poll time limit has
+>> >> been exceeded.
+>> >>
+>> >> To minimize the number of instructions executed in each iteration,
+>> >> the time check is done only intermittently (once every
+>> >> POLL_IDLE_RELAX_COUNT iterations). In addition, each loop iteration
+>> >> executes cpu_relax() which on certain platforms provides a hint to
+>> >> the pipeline that the loop busy-waits, allowing the processor to
+>> >> reduce power consumption.
+>> >>
+>> >> This is close to what smp_cond_load_relaxed_timeout() provides. So,
+>> >> restructure the loop and fold the loop condition and the timeout chec=
+k
+>> >> in smp_cond_load_relaxed_timeout().
+>> >
+>> > Well, it is close, but is it close enough?
+>>
+>> I guess that's the question.
+>>
+>> >> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+>> >> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+>> >> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+>> >> ---
+>> >>  drivers/cpuidle/poll_state.c | 29 ++++++++---------------------
+>> >>  1 file changed, 8 insertions(+), 21 deletions(-)
+>> >>
+>> >> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_stat=
+e.c
+>> >> index 9b6d90a72601..dc7f4b424fec 100644
+>> >> --- a/drivers/cpuidle/poll_state.c
+>> >> +++ b/drivers/cpuidle/poll_state.c
+>> >> @@ -8,35 +8,22 @@
+>> >>  #include <linux/sched/clock.h>
+>> >>  #include <linux/sched/idle.h>
+>> >>
+>> >> -#define POLL_IDLE_RELAX_COUNT  200
+>> >> -
+>> >>  static int __cpuidle poll_idle(struct cpuidle_device *dev,
+>> >>                                struct cpuidle_driver *drv, int index)
+>> >>  {
+>> >> -       u64 time_start;
+>> >> -
+>> >> -       time_start =3D local_clock_noinstr();
+>> >> +       u64 time_end;
+>> >> +       u32 flags =3D 0;
+>> >>
+>> >>         dev->poll_time_limit =3D false;
+>> >>
+>> >> +       time_end =3D local_clock_noinstr() + cpuidle_poll_time(drv, d=
+ev);
+>> >
+>> > Is there any particular reason for doing this unconditionally?  If
+>> > not, then it looks like an arbitrary unrelated change to me.
+>>
+>> Agreed. Will fix.
+>>
+>> >> +
+>> >>         raw_local_irq_enable();
+>> >>         if (!current_set_polling_and_test()) {
+>> >> -               unsigned int loop_count =3D 0;
+>> >> -               u64 limit;
+>> >> -
+>> >> -               limit =3D cpuidle_poll_time(drv, dev);
+>> >> -
+>> >> -               while (!need_resched()) {
+>> >> -                       cpu_relax();
+>> >> -                       if (loop_count++ < POLL_IDLE_RELAX_COUNT)
+>> >> -                               continue;
+>> >> -
+>> >> -                       loop_count =3D 0;
+>> >> -                       if (local_clock_noinstr() - time_start > limi=
+t) {
+>> >> -                               dev->poll_time_limit =3D true;
+>> >> -                               break;
+>> >> -                       }
+>> >> -               }
+>> >> +               flags =3D smp_cond_load_relaxed_timeout(&current_thre=
+ad_info()->flags,
+>> >> +                                                     (VAL & _TIF_NEE=
+D_RESCHED),
+>> >> +                                                     (local_clock_no=
+instr() >=3D time_end));
+>> >
+>> > So my understanding of this is that it reduces duplication with some
+>> > other places doing similar things.  Fair enough.
+>> >
+>> > However, since there is "timeout" in the name, I'd expect it to take
+>> > the timeout as an argument.
+>>
+>> The early versions did have a timeout but that complicated the
+>> implementation significantly. And the current users poll_idle(),
+>> rqspinlock don't need a precise timeout.
+>>
+>> smp_cond_load_relaxed_timed(), smp_cond_load_relaxed_timecheck()?
+>>
+>> The problem with all suffixes I can think of is that it makes the
+>> interface itself nonobvious.
+>>
+>> Possibly something with the sense of bail out might work.
 >
+> It basically has two conditions, one of which is checked in every step
+> of the internal loop and the other one is checked every
+> SMP_TIMEOUT_POLL_COUNT steps of it.  That isn't particularly
+> straightforward IMV.
 
-This was also pointed out in the old revision. The oscillator is
-internal and there isn't a register to read the frequency or to
-enable/disable.
+Right. And that's similar to what poll_idle().
 
-The PHY register block have the same exact bits to select from 0 to 3.
-The HW internally is then connected to 1 or 2 basted on the physical PHY.
+> Honestly, I prefer the existing code.  It is much easier to follow and
+> I don't see why the new code would be better.  Sorry.
 
-So yes they are part of the PHY block, just the register map is too
-""liberal"" on the configuration.
+I don't think there's any problem with the current code. However, I'd like
+to add support for poll_idle() on arm64 (and maybe other platforms) where
+instead of spinning in a cpu_relax() loop, you wait on a cacheline.
 
-I verified if the same oscillator could be used for both but it does end
-up in the port not working as the calibration fails.
+And that's what using something like smp_cond_load_relaxed_timeout()
+would enable.
 
-> > The previous implementation used an index property but that was rejected
-> > as it wasn't descriptive of the HW.
-> > 
-> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > +    enum: [0, 1, 2, 3]
-> > > > +
-> > > > +  airoha,usb3-serdes:
-> > > > +    description: Describe what Serdes line is attached to the USB 3.0 port.
-> > > > +      Can be either Serdes USB1 or Serdes USB2.
-> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > +    enum: [2, 3]
-> > > 
-> > > This is confusing. Why 2 and 3 for usb1 and usb2? What even is the
-> > > mapping? Is it 2:1/3:2 or 2:2/3:1?
-> > > 
-> > 
-> > AFAIK there isn't a way to directly reference dt-bindings.
-> 
-> Usually people put the name of the file in.
-> 
+Something like the series here:
+  https://lore.kernel.org/lkml/87wmaljd81.fsf@oracle.com/
 
-Yes on this I have seen mixed implementation with only the enum and some
-adding the link to it. I will add in the description.
+(Sorry, should have mentioned this in the commit message.)
 
-> > 
-> > 2 and 3 are from include/dt-bindings/soc/airoha,scu-ssr.h
-> > 
-> > #define AIROHA_SCU_SERDES_USB1		2
-> > #define AIROHA_SCU_SERDES_USB2		3
-> 
-> Why overcomplicate like this? Just use 1 and 2. If that corresponds to
-> register settings of 2 and 3, do that conversion in the driver.
-> Properties are not shoving just register settings etc into, what happens,
-> for example, when the next soc comes along and these are actually usb1 is
-> 3 and usb2 is 4 there? All of a sudden, your property has different
-> meanings depending on which device is being used.
-> 
-
-This is really just to identify the serdes line that can have multiple
-usage, they don't refer to a specific register.
-
-The PCIe one are added as they can also be used for PCIe or Ethernet
-usage and in the future this feature will be implemented in the PCIe PHY.
-
-It's ok to change it 1 but then I hope we won't fall in the monclk case
-where we end up with
-
-airoha,usb3-serdes = <1>;
-
-as that will be VERY confusing in DT.
-
-(again I'm using dt-bindings here to give clear indication of the
-hardware since it's already confusing as is with all the double usage of
-the different PHY)
-
-> > > > +
-> > > > +  airoha,scu:
-> > > > +    description: Phandle to the SCU syscon to configure the Serdes line.
-> > > > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > > > +
-> > > > +  '#phy-cells':
-> > > > +    description: Describe if the referred PHY is the USB 2.0 PHY or USB 3.0 PHY.
-> > > > +    const: 1
-> > > 
-> > > Which is which here?
-> > >
-> > 
-> > Mhh I think I didn't understand here. #phy-cells describe the
-> > parameters to be used for phys property in a different node.
-> > 
-> > The current usage would be
-> > 
-> > <&usb0_phy PHY_TYPE_USB2> for USB 2.0
-> > or <&usb0_phy PHY_TYPE_USB3> for USB 3.0
-> > 
-> > This node expose 2 PHY that can be referenced by the single parameters.
-> 
-> Ah, I didn't know that the 1 cell variant here was type not index.
-> 
-
-Yes in the driver I'm maching for type not index as it's very confusing.
-Any hint on better describe it on the schema? Maybe I can reword with
-
-"Describe if the referred PHY is PHY_TYPE_USB2 or PHY_TYPE_USB3"
-
-Should be more direct. I understand now the confusion.
-
-> > > > +required:
-> > > > +  - compatible
-> > > > +  - reg
-> > > > +  - airoha,usb2-monitor-clk-sel
-> > > > +  - airoha,usb3-serdes
-> > > > +  - airoha,scu
-> > > > +  - '#phy-cells'
-> > > > +
-> > > > +additionalProperties: false
-> > > > +
-> > > > +examples:
-> > > > +  - |
-> > > > +    #include <dt-bindings/phy/airoha,an7581-usb-phy.h>
-> > > > +    #include <dt-bindings/soc/airoha,scu-ssr.h>
-> > > > +
-> > > > +    phy@1fac0000 {
-> > > > +        compatible = "airoha,an7581-usb-phy";
-> > > > +        reg = <0x1fac0000 0x10000>;
-> > > > +
-> > > > +        airoha,usb2-monitor-clk-sel = <AIROHA_USB2_MONCLK_SEL1>;
-> > > > +        airoha,usb3-serdes = <AIROHA_SCU_SERDES_USB1>;
-> > > > +        airoha,scu = <&scu>;
-> > > > +
-> > > > +        #phy-cells = <1>;
-> > > > +    };
-> > > > +
-> > > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > > index 8085fdca7bcd..af23c590bbc6 100644
-> > > > --- a/MAINTAINERS
-> > > > +++ b/MAINTAINERS
-> > > > @@ -763,6 +763,13 @@ S:	Maintained
-> > > >  F:	Documentation/devicetree/bindings/spi/airoha,en7581-snand.yaml
-> > > >  F:	drivers/spi/spi-airoha-snfi.c
-> > > >  
-> > > > +AIROHA USB PHY DRIVER
-> > > > +M:	Christian Marangi <ansuelsmth@gmail.com>
-> > > > +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> > > > +S:	Maintained
-> > > > +F:	Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
-> > > > +F:	include/dt-bindings/phy/airoha,an7581-usb-phy.h
-> > > > +
-> > > >  AIRSPY MEDIA DRIVER
-> > > >  L:	linux-media@vger.kernel.org
-> > > >  S:	Orphan
-> > > > diff --git a/include/dt-bindings/phy/airoha,an7581-usb-phy.h b/include/dt-bindings/phy/airoha,an7581-usb-phy.h
-> > > > new file mode 100644
-> > > > index 000000000000..efbb0ae75e3a
-> > > > --- /dev/null
-> > > > +++ b/include/dt-bindings/phy/airoha,an7581-usb-phy.h
-> > > > @@ -0,0 +1,11 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> > > > +
-> > > > +#ifndef _DT_BINDINGS_AIROHA_AN7581_USB_PHY_H_
-> > > > +#define _DT_BINDINGS_AIROHA_AN7581_USB_PHY_H_
-> > > > +
-> > > > +#define AIROHA_USB2_MONCLK_SEL0                 0
-> > > > +#define AIROHA_USB2_MONCLK_SEL1                 1
-> > > > +#define AIROHA_USB2_MONCLK_SEL2                 2
-> > > > +#define AIROHA_USB2_MONCLK_SEL3                 3
-> > > 
-> > > These definitions seem completely pointless. The property is called
-> > > "airoha,usb2-monitor-clk-sel" so any use will look like
-> > > "airoha,usb2-monitor-clk-sel = <3>;"
-> > > That's more informative than the define is, since it doesn't even
-> > > truncate "monitor". I'd just delete this header entirely and use the
-> > > number. If you want the define in the driver to avoid magic numbers,
-> > > just define it in the driver.
-> > > 
-> > 
-> > Well yes the idea here is to not have to use magic numbers in DT and try
-> > to use the naming in the SoC documentation since they are called
-> > monclk_sel0, monclk_sel1 ...
-> 
-> Sometimes the "magic" number just makes sense to use. If something is
-> completely arbitrary, then sure use one to make it readable. If
-> literally the number itself, as it is here, don't bother.
-
-Ok no problem, thanks for hint. More than happy to make this easier and
-have less redundant headers.
-
--- 
-	Ansuel
+--
+ankur
 
