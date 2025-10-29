@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02DDDCCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E00CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NKKJA6fRomltCp481BiLWPXK7LT4XBfRN+VIaJM7fMU=; b=XkR3i5V3jzS8vX9qZODLYK2dOO
-	Xz5g+7UsONltsNzm8Hwkh95GxF3js9VPNEY6Uh12qTHOSMlrT7qqDeo1+ZTN/s/+AydLkIe569945
-	f58zkzV9zvMo+r+7e8g2QytirV9d5QI5I6QP0iLbJm0q/CDgj8fB3kkIXRUU+IZDZu+35tcfMzpkx
-	y73yDBW6KEpFJwr9YVqu9neH6EsDcztk9/mxPM3VrLb2S/Y3TdyXSOlwSfKPlvTYlQu99Zvguet+6
-	yXlpmCSxs9mtT94mJ6T9EUE12SiepxBRvgJMIZep8bEOQ7btmqkuQW56fcIpVT782FN48+3Kxy5Rg
-	mrSQkfaA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ScvcTy8ozlqmT8s8gsLtsWpW/tRbjYKzmG+MWRwqsow=; b=yMmXiA7oJyRhhsqIoShMo/x65w
+	v6QAfUDYNVQRlmZpMCXRkVRWkALSO9ZiC3U4edM0NLsSHB6aKeol4CEvevZ9aKI1R9XxYTYtWqDnU
+	jYTHKEA7MnZs5Ww2SG2/Wajc2gg+fnChe67H3cj06HD1U/W32hXyeMlk6sHYkUK3dBUEUHzuD1ujg
+	+3M1gRjeT7lFyD9UcimEmRIl8lXcmU39K/MHFVaUKOVuLqVH+smTTkbIAxHaZ8fVL/xTamlX7XxwF
+	4AzTGnsEOfjBDSdDvFzAPUrfhb1tU/34RmKy6SszLbT/kZt+Fs5BVEIUiG9y2QBDwg4LxgjhiRUJH
+	kCAD1NQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBr7-00000002bRA-0ryK;
-	Wed, 29 Oct 2025 19:29:13 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1vEBr6-00000002bQl-3nU8;
+	Wed, 29 Oct 2025 19:29:12 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEBr4-00000002bOo-2Php
+	id 1vEBr3-00000002bOO-17FT
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 29 Oct 2025 19:29:11 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b6d402422c2so49206166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 12:29:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761766148; x=1762370948; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NKKJA6fRomltCp481BiLWPXK7LT4XBfRN+VIaJM7fMU=;
-        b=l8thWVW9B7XDqXnt7zqp64xldRDuMee/+M5F/DusgMI/veveLl9Tag54L1S9xoZ5y2
-         MQuwo7IEIBKh1ydXTFfguBIg2jZFxV7fRYZjYkK5RUNFCugQZzxRx5v78StYwa4WLO6R
-         cVf/KgOYc9B8n+1NKh9AanYw6GUiPCMwSymHf9RA4YL4sVA3dZvXPxrMEeijaV9QANhf
-         sktKuc6jOGR7wzFf1lOmmClZ3HvUAZaOq2LL46b/dIaVtoxAd5+gwBE1/6XmNytmcpr6
-         OSCss7uHO8janYWxe6Gqy3sm0SSQNlBbEQjFTxwaB4/mc3O24M0bWCfxhhgaBgWiy3g5
-         cPZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761766148; x=1762370948;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NKKJA6fRomltCp481BiLWPXK7LT4XBfRN+VIaJM7fMU=;
-        b=SHjkZS0ESWsRYfp0Dio4dp0+S35ekMjLEvv+LSQgXcdyG6xxXic/6ZVceiU5MEqluk
-         H6uYMLkWrBD0SclBceaoR/yt8fjI//8w0ZOMlyDd8KWw9wn8ifFVvCYO4tWI1bN4081R
-         8F7w7jc+5aCivXI7Elxj6bR1V+pWFicQDdQG01ZcLT+Ij+gcDHMstCNdRo0rgV0vTJ9F
-         PYuzMtQ7JqiQOPhiyrp4QWWZupzW4aC05is0x7kU/Lj5frK6bzn4BsEmMlvUMPeJjoOg
-         jLGlyDHZUtloQkimaJ7jCnsB3hf2rLl7sq/G9114v0qw6gJ9bHoIuWtc8+3kS0TWvGC0
-         Ztuw==
-X-Forwarded-Encrypted: i=1; AJvYcCUVnntszxF6dLz2+SvYL6yVXTQdcuM/mBcwtR3atlazXyAeZFEGOLiACQi3YhW3RA8QNtQpc9rw3y3pkTcuKUv1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEXH6uohqfT6WwKIYXtl0llGminJ2L4OtFqq/pmny2vdvUbNp3
-	j5Nk5y1Jk/bu8jjdCyBfI5NUFjjua7Q66DpDcx3hG4z7OxPkzvkmtFeG
-X-Gm-Gg: ASbGncsS4+S9GozDvu/iv/7tZEbOyCcoE8yl8VskiRJKYVP9zk++ywmXGoMs1BD2Kq6
-	oaujvWtwIqojpsfZrnEBwxtNUTR1NRf1Gv5CbFyohcq9Qnk0sFLbNPYK2yH33yZAqAsZj12KfQh
-	LxCaIWcMd3r2VTHBsSZ77rMGmjn3bPqaBzDT+8Eim++Z9gCLn0TlJab4UK5IZNPt/LCaiXFpXkN
-	BzfPJg3GvsVmVpXZsV1AzmIQxBMNCeHp4hLZCgy7c8dq+s3kci1yO8cLlsVJo0oOqBwrckmYA6f
-	0jXxH/LOgroF+sDAUsdaEvqsmJEZQk5FFvpu368OgesnKpZE+8MZUIG0v8KXGJ5L4tE4jo4WLyJ
-	3h31rZzQ2osPKN6Qi/4ySGpfy1YYcDfa48ogEPC8feaT0tFnj3zd+M9uWkULfd027LFLqGJGdRG
-	lLK8UXXKut6DKmHpjzKZpSrcHDlNVXjlof3CsRS+CznzcJaCIJfR9BSja57JB7fQ==
-X-Google-Smtp-Source: AGHT+IEDxtG1HkFG0ON1dBWQF24t0hiWuuyPwYA2hBUikGtOaNbTeVCqCxQo2KWiYZfh50Es8IqNeQ==
-X-Received: by 2002:a17:907:9721:b0:b3f:f207:b755 with SMTP id a640c23a62f3a-b7053b2a721mr28389066b.6.1761766148261;
-        Wed, 29 Oct 2025 12:29:08 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-146-98-100.cust.vodafonedsl.it. [93.146.98.100])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d8548eda6sm1496673266b.75.2025.10.29.12.29.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 12:29:07 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 0/4] arm64: dts: freescale: imx93-var-som: Align DTS with hardware revision
-Date: Wed, 29 Oct 2025 20:28:45 +0100
-Message-ID: <20251029192852.656806-1-stefano.radaelli21@gmail.com>
-X-Mailer: git-send-email 2.43.0
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id D118F4E413D7;
+	Wed, 29 Oct 2025 19:29:05 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 89565606E8;
+	Wed, 29 Oct 2025 19:29:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B7CC4117FD242;
+	Wed, 29 Oct 2025 20:28:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761766144; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ScvcTy8ozlqmT8s8gsLtsWpW/tRbjYKzmG+MWRwqsow=;
+	b=er6dy6F0AkewbZOEtLIUH1uP7pet6Cc/msERkGQj89coxq5gPxp79ydF7hrtmMaQwPae2e
+	uKdCy801xdNppwVzk/dnqIlmlEooSk/olx+i977JcRUAOAZsVebEvZLagVUJ0GR5gFCoYj
+	1wG5ZcCJvB5MbkqzdG+DEVfkE9enbz3rcHSu3T8DRrGQ5IEFBbaXpBi2/WIWrY/8uFjC58
+	uDQ6O6z2aTI7krrSv6/9WHoGrx8Gg1HrDd7uxWjdQuLgdxX5Gm0kERnj+x6t7h14gCgG5w
+	xU5A0dKajRosGpPsX+Autsu+EYwon2yf2lb9QOA6VLsOi9U/q565lvcFW9s9fQ==
+Message-ID: <45ebd2eb-9b09-43fa-a451-29299b33f06a@bootlin.com>
+Date: Wed, 29 Oct 2025 20:28:51 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] net: phy: Add helper for fixing RGMII PHY mode
+ based on internal mac delay
+To: Inochi Amaoto <inochiama@gmail.com>, Han Gao <rabenda.cn@gmail.com>,
+ Icenowy Zheng <uwu@icenowy.me>, Vivian Wang <wangruikang@iscas.ac.cn>,
+ Yao Zi <ziyao@disroot.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+ Longbin Li <looong.bin@gmail.com>
+References: <20251028003858.267040-1-inochiama@gmail.com>
+ <20251028003858.267040-3-inochiama@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20251028003858.267040-3-inochiama@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_122910_620462_35037FC8 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251029_122909_443491_34FB93FD 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +91,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series updates the device tree for the VAR-SOM-MX93 to align it
-with the latest hardware revision of the module.
+Hi,
 
-The updates include the addition of missing peripherals and devices present
-on the current SOM version, namely:
- - WiFi and Bluetooth module (NXP IW611/IW612)
- - PMIC (Dual NXP PCA9541)
- - Audio codec (NXP WM8904)
- - Resistive touch controller (TI ADS7846)
+On 28/10/2025 01:38, Inochi Amaoto wrote:
+> The "phy-mode" property of devicetree indicates whether the PCB has
+> delay now, which means the mac needs to modify the PHY mode based
+> on whether there is an internal delay in the mac.
+> 
+> This modification is similar for many ethernet drivers. To simplify
+> code, define the helper phy_fix_phy_mode_for_mac_delays(speed, mac_txid,
+> mac_rxid) to fix PHY mode based on whether mac adds internal delay.
+> 
+> Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 
-These changes ensure the DTS reflects the real hardware configuration and
-enable full support for the mentioned peripherals.
+Name may be a bit long, but I'm not the best at naming stuff :)
 
-Stefano Radaelli (4):
-  arm64: dts: freescale: imx93-var-som: Add WiFi and Bluetooth support
-  arm64: dts: freescale: imx93-var-som: Add PMIC support
-  arm64: dts: freescale: imx93-var-som: Add support for WM8904 audio
-    codec
-  arm64: dts: freescale: imx93-var-som: Add support for ADS7846
-    touchscreen
+I agree with the logic of that helper,
 
- .../boot/dts/freescale/imx93-var-som.dtsi     | 332 +++++++++++++++++-
- 1 file changed, 331 insertions(+), 1 deletion(-)
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
+Maxime
 
-base-commit: e53642b87a4f4b03a8d7e5f8507fc3cd0c595ea6
-prerequisite-patch-id: bfa4df6e3787b415218cd441317fb838824e06c3
--- 
-2.43.0
+> ---
+>  drivers/net/phy/phy-core.c | 43 ++++++++++++++++++++++++++++++++++++++
+>  include/linux/phy.h        |  3 +++
+>  2 files changed, 46 insertions(+)
+> 
+> diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
+> index 605ca20ae192..4f258fb409da 100644
+> --- a/drivers/net/phy/phy-core.c
+> +++ b/drivers/net/phy/phy-core.c
+> @@ -101,6 +101,49 @@ const char *phy_rate_matching_to_str(int rate_matching)
+>  }
+>  EXPORT_SYMBOL_GPL(phy_rate_matching_to_str);
+>  
+> +/**
+> + * phy_fix_phy_mode_for_mac_delays - Convenience function for fixing PHY
+> + * mode based on whether mac adds internal delay
+> + *
+> + * @interface: The current interface mode of the port
+> + * @mac_txid: True if the mac adds internal tx delay
+> + * @mac_rxid: True if the mac adds internal rx delay
+> + *
+> + * Return fixed PHY mode, or PHY_INTERFACE_MODE_NA if the interface can
+> + * not apply the internal delay
+> + */
+> +phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
+> +						bool mac_txid, bool mac_rxid)
+> +{
+> +	if (!phy_interface_mode_is_rgmii(interface))
+> +		return interface;
+> +
+> +	if (mac_txid && mac_rxid) {
+> +		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
+> +			return PHY_INTERFACE_MODE_RGMII;
+> +		return PHY_INTERFACE_MODE_NA;
+> +	}
+> +
+> +	if (mac_txid) {
+> +		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
+> +			return PHY_INTERFACE_MODE_RGMII_RXID;
+> +		if (interface == PHY_INTERFACE_MODE_RGMII_TXID)
+> +			return PHY_INTERFACE_MODE_RGMII;
+> +		return PHY_INTERFACE_MODE_NA;
+> +	}
+> +
+> +	if (mac_rxid) {
+> +		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
+> +			return PHY_INTERFACE_MODE_RGMII_TXID;
+> +		if (interface == PHY_INTERFACE_MODE_RGMII_RXID)
+> +			return PHY_INTERFACE_MODE_RGMII;
+> +		return PHY_INTERFACE_MODE_NA;
+> +	}
+> +
+> +	return interface;
+> +}
+> +EXPORT_SYMBOL_GPL(phy_fix_phy_mode_for_mac_delays);
+> +
+>  /**
+>   * phy_interface_num_ports - Return the number of links that can be carried by
+>   *			     a given MAC-PHY physical link. Returns 0 if this is
+> diff --git a/include/linux/phy.h b/include/linux/phy.h
+> index 3c7634482356..0bc00a4cceb2 100644
+> --- a/include/linux/phy.h
+> +++ b/include/linux/phy.h
+> @@ -1813,6 +1813,9 @@ static inline bool phy_is_pseudo_fixed_link(struct phy_device *phydev)
+>  	return phydev->is_pseudo_fixed_link;
+>  }
+>  
+> +phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
+> +						bool mac_txid, bool mac_rxid);
+> +
+>  int phy_save_page(struct phy_device *phydev);
+>  int phy_select_page(struct phy_device *phydev, int page);
+>  int phy_restore_page(struct phy_device *phydev, int oldpage, int ret);
 
 
