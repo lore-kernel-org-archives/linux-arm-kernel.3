@@ -4,152 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757DDCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923E7CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 19:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6ps1X2/bbX2B4eu5+SHKE4iXF5sg5cVX9paDaM+9XY=; b=Va3cIRluru9bPJX4VP40MH8bvJ
-	8t6kO1D4ZjAnmW0cEldNKRiUNhWuWReIe7tgWyO+kzabbkQUshdZyXVIeDX+L+TQvjDgNve46e07s
-	DSQD7C83IPbr7tEIdvqYntxuJ7GW6sTE/BqhLyWm2CR9dTfi7JDiTpjM5GIX5HpUsbHWjCnSHmoMi
-	kfS+b/Zq2aFRxTVQku6GOTsD3klmkRQ2iOgAkvdl8TlOUIF3h9n/GNKVa6HEd5OPCqyJmH3QOlgb7
-	GK/dLOACU826CzoUS6EY9Rp4UnomXFCblEMMV37uJ4xiD2zLytMGXtZE81M9moOCd1KCIvf9/76mC
-	oldbp3lg==;
+	bh=LPaxln2EBfuYN49brJhOaJT913pHIinxeWLCiPWa9ts=; b=aq0E/tBU8prRXkyw6CRccoozuO
+	dKdN4RJLTeKlq88r7CpUM22UJn3SwXhBdYS+/7V9Ntcz3QGs3Sq9FM1ZFRHvHT2mp/80A72yy5ywb
+	HQPKUeHLmsUNdQPQHj8PBK1mSK8CW4j5fLgO+KyaEEocqxpmddwuTM2GsQQKKEO0lyoZVHzbnx04F
+	XbkdsXXQq6Gf93lBJgnGBw/ujL0txmf2FKrcf3rvbzID4v75woh2kYOTDAiBCKW6SpsXPN9Mvtr4u
+	tRXZJBnblePjzYGumpNw61XBv47aDCIjptGMHSiaNd1zJ8PNKFVPZkIdzfaN6Scg2o+Ja54B7a8qZ
+	H3eWhOlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEC7T-00000002eT5-2Wov;
-	Wed, 29 Oct 2025 19:46:08 +0000
-Received: from mail-westeuropeazon11013005.outbound.protection.outlook.com ([52.101.72.5] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vECAq-00000002f5C-0nN2;
+	Wed, 29 Oct 2025 19:49:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEC7O-00000002eRH-0UyP
+	id 1vECAo-00000002f4I-1duN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 19:46:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WscqvqwEqGep7fuvu6YXOrxGSTqbWM4xmjUqC6gdvFOVxUG5VCKnToMoJu1Js4qQwRdCRiguPcx/n/Vm37N2YGn9JGJdM++hrydrdfenniewKD7ts6G4P9QCZbxqn5dJTnsjIH34tktN3AlaFD9dwNJdaxA70sXgtiDdV/8StJN0koDLR7i0j9vlU3535FDrcZ/tKzu+Mw31oOro23CYoNjwnm79DfFr9Vm+cartXdGLYsztf+g6edQsj6urxtok7WgDp5mz8kePV6J0F9hGfCDKsEpaf9KSPpi6xHDEYcwjRZH5Qrh8NTZdm/1/tiWAq1MPAsbeJ0G2Z0R6cNVMFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L6ps1X2/bbX2B4eu5+SHKE4iXF5sg5cVX9paDaM+9XY=;
- b=QRCmEIzEK33rZ7zM/OUL53IpU7KZKO9QJr6vDBcDx1XuXK9tP6TZtt5oCyhqQm5hzE4TMossHbNoXb40HP9EoFCmYIHqHQMm+V/+Gq1xwZp0+OGuINIvkWheDwDNJ4GNw4RGE0AxFqD9D1fs0d+pOXM9xGROoXoqcI820AdEuTUDnUVSm080R4dnDjj6bkJ13ZzN7mH4I1elXCqZh0lFJEwQ/7F1+c5zTyjcFDnTbrGSU/WEWpUQmOUun7ynAQ82l3vLN6nN60tFhNroQFsp9E1Oq5ovl2rENu+dlsN2Y4vlII+tp2C1KmdxnHkb1vKuZrRzbxa6acv8fM3S2unYRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L6ps1X2/bbX2B4eu5+SHKE4iXF5sg5cVX9paDaM+9XY=;
- b=kDSPlLpPn5g7RM/B9qg2eOL/ODgf40MNHCwf1KY7F/MlbUFDvzE29tfkQatYA9HBLvL945AiY23kmlO8caU/UV4B2NdYuP9DQoQ7ZFGzETAUb3IXTX48bkD772VlGhf45CPf5/KZjZCShyOLQX5ETgDX9HoDyzhxh/JF1pWwEat0zAK5Px+j+MpCmrRdltXZcutMzTPfuz5lQQvE7ALcU9eNq3d91o7q+P5RNjA03ByrUg4p4gELl5oe25qu9VSSJEnCPBvaJx9KgmjJQwOTFVOttFd/UlkOVBQrC2NaklhxjMDu+7HS8MwZDRe47m6x8z5TwiSlr1pkxle7RcnyWA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by GV4PR04MB11903.eurprd04.prod.outlook.com (2603:10a6:150:2ea::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Wed, 29 Oct
- 2025 19:45:56 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
- 19:45:56 +0000
-Date: Wed, 29 Oct 2025 15:45:48 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 1/4] arm64: dts: freescale: imx93-var-som: Add WiFi
- and Bluetooth support
-Message-ID: <aQJu7Czj8zsq+yMO@lizhi-Precision-Tower-5810>
-References: <20251029192852.656806-1-stefano.radaelli21@gmail.com>
- <20251029192852.656806-2-stefano.radaelli21@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029192852.656806-2-stefano.radaelli21@gmail.com>
-X-ClientProxiedBy: PH8P220CA0008.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:345::14) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 29 Oct 2025 19:49:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BA72444198;
+	Wed, 29 Oct 2025 19:49:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 596C6C4CEF7;
+	Wed, 29 Oct 2025 19:49:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761767373;
+	bh=cgW3eaNa1qTxN0mCfqwnT+I4/Tb+epp984COA7HO+0E=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=eBTsrI1yyG/5IEBOvpulu2NhU99j0sEVLtdj8hbSkWDsiMAYCUJg4ULJKi8yRVk2D
+	 wnHzaS7GDiEDzkSeW8qzXfrjrf989UcPqwvuaanih9J1yswudljclqy7geLsKf27bi
+	 YJoEWXmdeqGFcMNpKog7EeL7YdvNghoVk48LDUuX0jg5hFhMVmwz1zfsLtdJwjIiZb
+	 N16/SJNKr+BN3tcnk9I6U1MYcvl+CE5qvdrkf3mIYhNnXNr3OGCUMAJ/qbNU2Xn8rf
+	 zONEsmd/lUy/EASyRwrpv0g5Jk+xl47waAewpAD/v+28gBwn06vC0MiSxxfZymkPl4
+	 p2SzxTBjr8gRg==
+Date: Wed, 29 Oct 2025 14:49:32 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GV4PR04MB11903:EE_
-X-MS-Office365-Filtering-Correlation-Id: 00e02b9b-ac37-4d60-f86e-08de1723c6cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|52116014|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5N+KJdqwGiePQCiDcb0KDYzNWdnGkgkPb++5pbwIZdUJCL9/P6rUNHar14R1?=
- =?us-ascii?Q?vizNbecn/6APQUBxE74ZVq//s9YzeZcEmOMuBvyE6bkZ20HboWeBRDV8ZFqr?=
- =?us-ascii?Q?85gEqHY1oR/vJJgqqwSLAJao2BMQwbVnfJ6g7YGtTHes751E9kkGVItWMMQI?=
- =?us-ascii?Q?XVzvTyAqnhcaaznHm8ZQb/MaOcHo5UgxEYkjAwRAVphAtFlkNbAgaVaKTbqq?=
- =?us-ascii?Q?g2zMXadjVW8xc5fOnzaHYsaR9HFWi+xu2Z5yzi3lBh7B7HtzAs2r1T0Greg8?=
- =?us-ascii?Q?Cc6ckr7AzN7nOB9HGKZ67NhV27tAFDJE6C0Xhs46cAiJPbCYJVL3gcZ37IcT?=
- =?us-ascii?Q?Or6KKTSNvaVY+LDb0G9551h6/GwPhqiKQq3A0ShSslY5gWYt+9/ExmV/sZW6?=
- =?us-ascii?Q?fpUP86Fy5xA9xXOgoQzhquRjdZZyJXcV+hK9RkJyulbK0PCsq3op8zDYPBA+?=
- =?us-ascii?Q?TDYJxmIlC2CPVwh3npYqmYO0Leo7iH13QnLsCu87K+5fLQF2zfvDh2XrXD3n?=
- =?us-ascii?Q?S4TCS7Qh8ouuulQ20e4kxLmJHS3ICti54DtBoq7+IYB9T5x4Bq5NXZQo7lap?=
- =?us-ascii?Q?VWKaxHr5k4PR+yLt5Ih/IR9+gfByFpffv/JaZrxkhkgzdXeZaEl/OZd0J1g3?=
- =?us-ascii?Q?gXiRq2H9WQgGG7Pkme5pRH4MhdUVWjr1snfobEBxL4D4KvD5bg7I9p763qBJ?=
- =?us-ascii?Q?zJBTJqj1t+CWlADvEH8QyCmiBdRZW20scfd0H2dm73L2SUEklon6vmVjhRux?=
- =?us-ascii?Q?fl6hWCSkRu08LXl0h0a19ezGlqV2eAVShojG+4opLmT0/tBARCwy7Xdw8DZI?=
- =?us-ascii?Q?ptXL838tCmu7AD43PJhV6r6TsOzuYzNygBcHkzY962EWiSfI1ZuOA031hAtZ?=
- =?us-ascii?Q?JV/IyBrEzHqMdLPz8KYkbFWSujoUCaHcY5f1xjlQaOn1pnuF3eBlL69le0wn?=
- =?us-ascii?Q?kFQh24j4vezbPL0WqlQipz70fweNbCffB/IlkL1pEKWq+YSVvTxzYF2aAEx/?=
- =?us-ascii?Q?8yg9M+I13GgW3eQLvYU49o15fmDhxrmAC+ZJe1qWIfix8H0O697kRnmkwT8n?=
- =?us-ascii?Q?OH6gH/d944uY/3cofKPfmqz85SyiiL72gUTPjdnlNZP1fPQp9RJgJ4ba3bbl?=
- =?us-ascii?Q?y6WBUyhti31IPvu1C9i7GCE/WoaSvxZJ0wNDfDp0u3YD9a9ckD8oXxcdZao3?=
- =?us-ascii?Q?72uFnaWK4IPdtn8OMTLBz3WxjTXB7NhUEnKqhtwl5OPUYdumKeOyqE/QO0dn?=
- =?us-ascii?Q?KOQrACffBuERWpVS+1GW/yTJkAZif2MK4Q6wuKAc6nRwvUnZfIrLVvSB5NHF?=
- =?us-ascii?Q?n3WB53WoDgyO+uTX7mXGIwfc4MXxkTjProKayqUnsi6xsh/oOXoYb/43hsZY?=
- =?us-ascii?Q?7r+R1sv1RJctmRt2ob+oX3m0tlOJUVkYyLvF8+fgoPxVa291CphC08fgvhgs?=
- =?us-ascii?Q?3ShEZsjAKHjOMuMck2hMuSv+UZhS4zF8rtGHHoh2Ciql8Baq1QN4jbsFQwMk?=
- =?us-ascii?Q?Y7FVoYW0nuerc878ahvKajm6l0jPAiSy2H5S?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(52116014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gFfLJAHkRTNdHya0uzOEVPGgWtvMcbKyhcKA6l7fCOsza8RxP7tlgXtBl5Vt?=
- =?us-ascii?Q?oehuAEgrcm+ytwaOEYPFrLnF8XZXhif9EJH9aHaT0NIKXcNQZ9y+0ouIDmxG?=
- =?us-ascii?Q?YdIW2nE/l/8LlRotBH+1WtogSFmM+Ims5rFwyLSWQINyi220J57hP9WhZmzS?=
- =?us-ascii?Q?m2GY9wBosCVy+RLPP+At9EltaBG5e+ZcTd7EGQa6v3ZoiHvSLgCN4IuhilI0?=
- =?us-ascii?Q?dgwzwAscVc8HS7uvqmbnx0bwtIz+QadXPX7Zdv/R7AxsI6/LBphk1xZl7hYm?=
- =?us-ascii?Q?nxX1/y8DcrsKCDGYGe0IWwmKETRM6PgHsGLlt3f9YMMX9Tsxfs2sI0QUZAwH?=
- =?us-ascii?Q?f1shJAeVlK9hrT3uNomO9VH/Il+jF2UXlGfWmN0ugOSvL+jG6uuq8ciDAo3P?=
- =?us-ascii?Q?NcyN7Z59My4AqMDjrQC7E0p1xyn5O56MUhBdJBQu6ckMaijNV0MzYAfv6IEA?=
- =?us-ascii?Q?J2FqS/J3pc8xrxWWSE+vCjDqeMzBUnEBKFOf757SaU8VideDFeJJTQLNlhb3?=
- =?us-ascii?Q?Bx+7sCBp36QFPCc4/C1LcPQMIZZ+1nAtY1rl6t/CoYxk54tjH5F71ZWUSjeP?=
- =?us-ascii?Q?Y6Ql/COUgNx3Tw0oX3ri9rpaArpr/IHl1wWilpglDxuHXBre7JqjyJ3Xc05O?=
- =?us-ascii?Q?Eyf29iS4BKwccuLoWeKaq49y7s5lL/7LUVbanU4B8JzsUOWvpgcLssE9HJ7E?=
- =?us-ascii?Q?q25+n2Hp6CicrOf/vRh7adIg+bCwpLGJqGP+WN0UO2EL2GRwjzGw03HjYfxa?=
- =?us-ascii?Q?TUnvvOhbsiB4G76MDh6ER9t/EL10bP7hHbqu59x93h7+gT3QBUDQFkDCUlv8?=
- =?us-ascii?Q?lPtoSTET/wdaWULLtOFfTJDbsUkCGmKJf//6Gy6shSWm+YRO2vtes8zbKG3l?=
- =?us-ascii?Q?oX3ROX0SbkYD44t6nVPt8YT0g1Haa6MPLk8cZZ7a4G09b3oi9v9+4niB7s0F?=
- =?us-ascii?Q?M8YqjVMDkh0iinzX5294ZY/1xmrZIhiqsaK/geB08gmP72F60d/LIr/Ync+L?=
- =?us-ascii?Q?l1EqQI4kcE1TCW1fyca+/vbPLnxUuuhOjEH8EuSAmCL8EczaBroyJIVQOY3x?=
- =?us-ascii?Q?PcnIdpawvoRgaWJtx0kXtagmThY9fBeuncTYs9ucyH8d05UGUJEVieX6OQE2?=
- =?us-ascii?Q?4G/NwQLNlXSwCduDVqoTuRJGhgnSe4do3r+kDy/bMuMx3z6X0CXhS1F7IfJM?=
- =?us-ascii?Q?1clEqPPOV1h7LDqXM5lRp1Q7wngWfOWKpJrVwylq4JpHSBrKoHCD96Yxty+Z?=
- =?us-ascii?Q?iqP7hIvzbqU8EDrGPKw/nIpaRaSy7Y6JKF1/jjvgqZxJ34onEq6P+i5v5pDT?=
- =?us-ascii?Q?gT2aYfiMjXu8jYundm3k+JubEYI+Xab3JFxyjcd9rhqUrzJ+vzvC/vqrzXsW?=
- =?us-ascii?Q?0lDUQ0CHikB1naeC7XvxgVHEC+vaJfxe67tIXA++LLr+YjlorC+2vvAZM6Xe?=
- =?us-ascii?Q?gFWDSBsW/8k+Q7XthMVxmoriQzYWosLLjkt87fpXNVQ6B4+ldUnH7FbLc3zz?=
- =?us-ascii?Q?/rpJFsLeOPNwToROsl+7+Vj81MJEg5ngP5sRC05jURIFB4WmqXxjarG45GBV?=
- =?us-ascii?Q?y02RoZESZkL37HfC10hqxz+mbxKT1stFG/qSdaIP?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 00e02b9b-ac37-4d60-f86e-08de1723c6cc
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 19:45:56.0986
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: li9SoTd/l0V66FARrg3zljrebIKDBGtBqAu7L3TZXdS5pX1frW8yqenVKbfqB9FMy9XQbsGDFQM+rkqf1ajHsg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11903
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ linux-arm-kernel@lists.infradead.org, Guenter Roeck <linux@roeck-us.net>, 
+ linux-aspeed@lists.ozlabs.org, devicetree@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-hwmon@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Joel Stanley <joel@jms.id.au>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+In-Reply-To: <20251029185448.2121857-1-robh@kernel.org>
+References: <20251029185448.2121857-1-robh@kernel.org>
+Message-Id: <176176737216.2539117.14470144508390937372.robh@kernel.org>
+Subject: Re: [PATCH] dt-bindings: hwmon: Convert aspeed,ast2400-pwm-tacho
+ to DT schema
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_124602_186852_3EF05A8D 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20251029_124934_452783_88CF501E 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,157 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 08:28:46PM +0100, Stefano Radaelli wrote:
-> Add device tree nodes for the WiFi and Bluetooth module mounted on the
-> VAR-SOM-MX93. The module can be based on either the NXP IW612 or IW611
-> chipset, depending on the configuration chosen by the customer.
->
-> Regardless of the chipset used, WiFi communicates over SDIO and Bluetooth
-> over UART.
->
-> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+
+On Wed, 29 Oct 2025 13:54:47 -0500, Rob Herring (Arm) wrote:
+> Convert the ASpeed fan controller binding to DT schema format.
+> 
+> The '#cooling-cells' value used is 1 rather than 2. '#size-cells' is 0
+> rather 1.
+> 
+> Some users define more that 8 fan nodes where 2 fans share a PWM. The
+> driver seems to let the 2nd fan just overwrite the 1st one. That also
+> creates some addressing errors in the DT (duplicate addresses and wrong
+> unit-addresses).
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->  .../boot/dts/freescale/imx93-var-som.dtsi     | 94 ++++++++++++++++++-
->  1 file changed, 93 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-> index a5f09487d803..97198007b545 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-> @@ -12,7 +12,7 @@ /{
->  	model = "Variscite VAR-SOM-MX93 module";
->  	compatible = "variscite,var-som-mx93", "fsl,imx93";
->
-> -	mmc_pwrseq: mmc-pwrseq {
-> +	usdhc3_pwrseq: mmc-pwrseq {
->  		compatible = "mmc-pwrseq-simple";
->  		post-power-on-delay-ms = <100>;
->  		power-off-delay-us = <10000>;
-> @@ -70,6 +70,18 @@ led@1 {
->  	};
->  };
->
-> +/* BT module */
-> +&lpuart5 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_lpuart5>, <&pinctrl_bluetooth>;
-> +	uart-has-rtscts;
-> +	status = "okay";
-> +
-> +	bluetooth {
-> +		compatible = "nxp,88w8987-bt";
-> +	};
-> +};
-> +
->  /* eMMC */
->  &usdhc1 {
->  	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-> @@ -81,7 +93,27 @@ &usdhc1 {
->  	status = "okay";
->  };
->
-> +/* WiFi */
-> +&usdhc3 {
-> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-> +	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_wlan>;
-> +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>, <&pinctrl_usdhc3_wlan>;
-> +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>, <&pinctrl_usdhc3_wlan>;
-> +	pinctrl-3 = <&pinctrl_usdhc3_sleep>, <&pinctrl_usdhc3_wlan>;
-> +	bus-width = <4>;
-> +	mmc-pwrseq = <&usdhc3_pwrseq>;
-> +	non-removable;
-> +	wakeup-source;
-> +	status = "okay";
-> +};
-> +
->  &iomuxc {
-> +	pinctrl_bluetooth: bluetoothgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_ENET2_MDIO__GPIO4_IO15                         0x51e
-> +		>;
-> +	};
-> +
->  	pinctrl_eqos: eqosgrp {
->  		fsl,pins = <
->  			MX93_PAD_ENET1_MDC__ENET_QOS_MDC			0x57e
-> @@ -108,6 +140,15 @@ MX93_PAD_UART2_TXD__GPIO1_IO07			0x51e
->  		>;
->  	};
->
-> +	pinctrl_lpuart5: lpuart5grp {
-> +		fsl,pins = <
-> +			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX   0x31e
-> +			MX93_PAD_DAP_TDI__LPUART5_RX            0x31e
-> +			MX93_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B   0x31e
-> +			MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B  0x31e
-> +		>;
-> +	};
-> +
->  	pinctrl_usdhc1: usdhc1grp {
->  		fsl,pins = <
->  			MX93_PAD_SD1_CLK__USDHC1_CLK		0x15fe
-> @@ -123,4 +164,55 @@ MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x13fe
->  			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x15fe
->  		>;
->  	};
-> +
-> +	pinctrl_usdhc3: usdhc3grp {
-> +		fsl,pins = <
-> +			MX93_PAD_SD3_CLK__USDHC3_CLK                    0x1582 /* SDIO_B_CLK */
-> +			MX93_PAD_SD3_CMD__USDHC3_CMD                    0x40001382 /* SDIO_B_CMD */
-> +			MX93_PAD_SD3_DATA0__USDHC3_DATA0                0x40001382 /* SDIO_B_D0 */
-> +			MX93_PAD_SD3_DATA1__USDHC3_DATA1                0x40001382 /* SDIO_B_D1 */
-> +			MX93_PAD_SD3_DATA2__USDHC3_DATA2                0x40001382 /* SDIO_B_D2 */
-> +			MX93_PAD_SD3_DATA3__USDHC3_DATA3                0x40001382 /* SDIO_B_D3 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_SD3_CLK__USDHC3_CLK                    0x158e /* SDIO_B_CLK */
-> +			MX93_PAD_SD3_CMD__USDHC3_CMD                    0x4000138e /* SDIO_B_CMD */
-> +			MX93_PAD_SD3_DATA0__USDHC3_DATA0                0x4000138e /* SDIO_B_D0 */
-> +			MX93_PAD_SD3_DATA1__USDHC3_DATA1                0x4000138e /* SDIO_B_D1 */
-> +			MX93_PAD_SD3_DATA2__USDHC3_DATA2                0x4000138e /* SDIO_B_D2 */
-> +			MX93_PAD_SD3_DATA3__USDHC3_DATA3                0x4000138e /* SDIO_B_D3 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_SD3_CLK__USDHC3_CLK                    0x15fe /* SDIO_B_CLK */
-> +			MX93_PAD_SD3_CMD__USDHC3_CMD                    0x400013fe /* SDIO_B_CMD */
-> +			MX93_PAD_SD3_DATA0__USDHC3_DATA0                0x400013fe /* SDIO_B_D0 */
-> +			MX93_PAD_SD3_DATA1__USDHC3_DATA1                0x400013fe /* SDIO_B_D1 */
-> +			MX93_PAD_SD3_DATA2__USDHC3_DATA2                0x400013fe /* SDIO_B_D2 */
-> +			MX93_PAD_SD3_DATA3__USDHC3_DATA3                0x400013fe /* SDIO_B_D3 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_sleep: usdhc3-sleepgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_SD3_CLK__GPIO3_IO20            0x400
-> +			MX93_PAD_SD3_CMD__GPIO3_IO21            0x400
-> +			MX93_PAD_SD3_DATA0__GPIO3_IO22          0x400
-> +			MX93_PAD_SD3_DATA1__GPIO3_IO23          0x400
-> +			MX93_PAD_SD3_DATA2__GPIO3_IO24          0x400
-> +			MX93_PAD_SD3_DATA3__GPIO3_IO25          0x400
+>  .../hwmon/aspeed,ast2400-pwm-tacho.yaml       | 105 ++++++++++++++++++
+>  .../bindings/hwmon/aspeed-pwm-tacho.txt       |  73 ------------
+>  2 files changed, 105 insertions(+), 73 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
+> 
 
-Can you align these number to one column with usdhc3-200mhzgrp? at least
-it should be same at this patch.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Frank
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_wlan: usdhc3-wlangrp {
-> +		fsl,pins = <
-> +			MX93_PAD_ENET2_MDC__GPIO4_IO14                  0x51e /* WIFI_REG_ON     */
-> +			MX93_PAD_SD2_RESET_B__GPIO3_IO07                0x51e /* WIFI_PWR_EN     */
-> +		>;
-> +	};
->  };
-> --
-> 2.43.0
->
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.example.dtb: fan-controller@1e786000 (aspeed,ast2500-pwm-tacho): #cooling-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/thermal/thermal-cooling-devices.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251029185448.2121857-1-robh@kernel.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
