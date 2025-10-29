@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E94DCCF9F9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:10:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86EF7CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwEra26/A0yijkE7baZGrCpY+n3zbLof6zuXP73UfSY=; b=BcAIs97MYs6+IEduCNZqNA5o4o
-	qwjaW/G2WFACq+I7koYsI9frSC3pSghfpEEJpcc0JQKbW7k/8dFGkJUsGR3721VSCIc3/eDVAFdWT
-	Y3FLL95VRF2qBNvR1MwKRiiKyNxyje0RYzV4af7Tua/7oUQ9LOgeDJcH6ZhegKCgF8VInCQgdbA1E
-	7Le2KipERUIqzZN8ilY00IVXKrbOfx4SB8pcOiMg3LSJVBZXmIuN6EHJkU593CFtGjEZ/vdTxcdU4
-	xTeAABsgPQPHVUALkbMRGjG6cjff7YArhdEYUH43TVmo18HJUzoPsI+80EVdYijwbVUWp0Ht1ouuv
-	oWq4zC4w==;
+	bh=IqHWQKh8fSo1EOdm7+rkOzH3g4Kxqn/5utktqElJNns=; b=sCHZ7cM1DuiTDKRkE6qePYbIcC
+	JJjpviY56qAiNpeQQ0/CYMZ0kci4f/8icgDjjpqKO7cSp8SpKzWSOTCHXUd4O7URhEIK3K/2P9Uon
+	MNSl9GI1Yp3Syv/CFs7Hi8MPEaha0TxLMCK2s8kH389X4whf2ssrMB7ANBGjJy2EaG31O2yrFEH05
+	ML2rTgOPOdnW5Jx1wWxCkpAlsXYTE2FcWuFsnPz9SMRH59CX0n7h8vpQnNHEOEsIyEfgwqNVmQKYC
+	VoSM6qDRjB/OY8tFrdN48fY627LsCSHN/Ngza5Enct5qZiobHcjdXtLF/e/CcZ3Uyv+SJKybLbC2u
+	hqrGDlXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE38k-00000000eT3-04Bh;
-	Wed, 29 Oct 2025 10:10:50 +0000
+	id 1vE392-00000000en7-1zAC;
+	Wed, 29 Oct 2025 10:11:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE38e-00000000eM9-26qJ
+	id 1vE38j-00000000eRv-2xXP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:10:46 +0000
+	Wed, 29 Oct 2025 10:10:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 310A22BF7;
-	Wed, 29 Oct 2025 03:10:36 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66BA32C1C;
+	Wed, 29 Oct 2025 03:10:41 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CBC73F66E;
-	Wed, 29 Oct 2025 03:10:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5459E3F66E;
+	Wed, 29 Oct 2025 03:10:44 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -71,17 +71,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	xen-devel@lists.xenproject.org,
 	x86@kernel.org
-Subject: [PATCH v4 10/12] sparc/mm: replace batch->active with in_lazy_mmu_mode()
-Date: Wed, 29 Oct 2025 10:09:07 +0000
-Message-ID: <20251029100909.3381140-11-kevin.brodsky@arm.com>
+Subject: [PATCH v4 11/12] x86/xen: use lazy_mmu_state when context-switching
+Date: Wed, 29 Oct 2025 10:09:08 +0000
+Message-ID: <20251029100909.3381140-12-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20251029100909.3381140-1-kevin.brodsky@arm.com>
 References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_031044_708343_DF013AD3 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20251029_031049_897377_6E949EC8 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +96,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A per-CPU batch struct is activated when entering lazy MMU mode; its
-lifetime is the same as the lazy MMU section (it is deactivated when
-leaving the mode). Preemption is disabled in that interval to ensure
-that the per-CPU reference remains valid.
+We currently set a TIF flag when scheduling out a task that is in
+lazy MMU mode, in order to restore it when the task is scheduled
+again.
 
 The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-mode. We can therefore use the generic helper in_lazy_mmu_mode()
-to tell whether a batch struct is active instead of tracking it
-explicitly.
+mode in task_struct::lazy_mmu_state. We can therefore check that
+state when switching to the new task, instead of using a separate
+TIF flag.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/sparc/include/asm/tlbflush_64.h | 1 -
- arch/sparc/mm/tlb.c                  | 9 +--------
- 2 files changed, 1 insertion(+), 9 deletions(-)
+ arch/x86/include/asm/thread_info.h | 4 +---
+ arch/x86/xen/enlighten_pv.c        | 3 +--
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
-index 4e1036728e2f..6133306ba59a 100644
---- a/arch/sparc/include/asm/tlbflush_64.h
-+++ b/arch/sparc/include/asm/tlbflush_64.h
-@@ -12,7 +12,6 @@ struct tlb_batch {
- 	unsigned int hugepage_shift;
- 	struct mm_struct *mm;
- 	unsigned long tlb_nr;
--	unsigned long active;
- 	unsigned long vaddrs[TLB_BATCH_NR];
- };
+diff --git a/arch/x86/include/asm/thread_info.h b/arch/x86/include/asm/thread_info.h
+index e71e0e8362ed..0067684afb5b 100644
+--- a/arch/x86/include/asm/thread_info.h
++++ b/arch/x86/include/asm/thread_info.h
+@@ -100,8 +100,7 @@ struct thread_info {
+ #define TIF_FORCED_TF		24	/* true if TF in eflags artificially */
+ #define TIF_SINGLESTEP		25	/* reenable singlestep on user return*/
+ #define TIF_BLOCKSTEP		26	/* set when we want DEBUGCTLMSR_BTF */
+-#define TIF_LAZY_MMU_UPDATES	27	/* task is updating the mmu lazily */
+-#define TIF_ADDR32		28	/* 32-bit address space on 64 bits */
++#define TIF_ADDR32		27	/* 32-bit address space on 64 bits */
  
-diff --git a/arch/sparc/mm/tlb.c b/arch/sparc/mm/tlb.c
-index 7b5dfcdb1243..879e22c86e5c 100644
---- a/arch/sparc/mm/tlb.c
-+++ b/arch/sparc/mm/tlb.c
-@@ -52,11 +52,7 @@ void flush_tlb_pending(void)
+ #define _TIF_SSBD		BIT(TIF_SSBD)
+ #define _TIF_SPEC_IB		BIT(TIF_SPEC_IB)
+@@ -114,7 +113,6 @@ struct thread_info {
+ #define _TIF_FORCED_TF		BIT(TIF_FORCED_TF)
+ #define _TIF_BLOCKSTEP		BIT(TIF_BLOCKSTEP)
+ #define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
+-#define _TIF_LAZY_MMU_UPDATES	BIT(TIF_LAZY_MMU_UPDATES)
+ #define _TIF_ADDR32		BIT(TIF_ADDR32)
  
- void arch_enter_lazy_mmu_mode(void)
- {
--	struct tlb_batch *tb;
--
- 	preempt_disable();
--	tb = this_cpu_ptr(&tlb_batch);
--	tb->active = 1;
- }
+ /* flags to check in __switch_to() */
+diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
+index 4806cc28d7ca..f40f5999352e 100644
+--- a/arch/x86/xen/enlighten_pv.c
++++ b/arch/x86/xen/enlighten_pv.c
+@@ -426,7 +426,6 @@ static void xen_start_context_switch(struct task_struct *prev)
  
- void arch_flush_lazy_mmu_mode(void)
-@@ -69,10 +65,7 @@ void arch_flush_lazy_mmu_mode(void)
- 
- void arch_leave_lazy_mmu_mode(void)
- {
--	struct tlb_batch *tb = this_cpu_ptr(&tlb_batch);
--
- 	arch_flush_lazy_mmu_mode();
--	tb->active = 0;
- 	preempt_enable();
- }
- 
-@@ -93,7 +86,7 @@ static void tlb_batch_add_one(struct mm_struct *mm, unsigned long vaddr,
- 		nr = 0;
+ 	if (this_cpu_read(xen_lazy_mode) == XEN_LAZY_MMU) {
+ 		arch_leave_lazy_mmu_mode();
+-		set_ti_thread_flag(task_thread_info(prev), TIF_LAZY_MMU_UPDATES);
  	}
+ 	enter_lazy(XEN_LAZY_CPU);
+ }
+@@ -437,7 +436,7 @@ static void xen_end_context_switch(struct task_struct *next)
  
--	if (!tb->active) {
-+	if (!in_lazy_mmu_mode()) {
- 		flush_tsb_user_page(mm, vaddr, hugepage_shift);
- 		global_flush_tlb_page(mm, vaddr);
- 		goto out;
+ 	xen_mc_flush();
+ 	leave_lazy(XEN_LAZY_CPU);
+-	if (test_and_clear_ti_thread_flag(task_thread_info(next), TIF_LAZY_MMU_UPDATES))
++	if (next->lazy_mmu_state.active)
+ 		arch_enter_lazy_mmu_mode();
+ }
+ 
 -- 
 2.47.0
 
