@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660C2CCF9F6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E94DCCF9F9
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Oct 2025 10:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Oz9bK9va0e3cWWbhG2FVaoboM8OD5aI5ldZtnGq+94=; b=VOYEqh0d/5JzLTh+sdNJtBIH+1
-	Mf4bhz+gDw81pJ2F5nZ7ULQapUMWEDT+OsuIQq8NYffkwYC426B8TMfqugEB8YPNw+9DwzK1miYfG
-	B68wHwrDS2WB9VzFeHGs5iscsQlJPLeTyIODjSKRRAVHoJZc3u1Xuz5uO3HjsMecJpekw0ic6SlMG
-	c19EmYJ0llcieVA/fiTY+tJDA1kXEzvjLnU3Vtb4zNKE/HZ0uf6UnUmVc2STdk1n6QiaK1Wxt95+y
-	56LTFY4Rr4SUccTN/L+1SqjM3CrCuxQ2/BkH5xNOqwLa/U1dVKa3aKVUpknr9GiYc5b7hstzr61df
-	SiSHIx1w==;
+	bh=fwEra26/A0yijkE7baZGrCpY+n3zbLof6zuXP73UfSY=; b=BcAIs97MYs6+IEduCNZqNA5o4o
+	qwjaW/G2WFACq+I7koYsI9frSC3pSghfpEEJpcc0JQKbW7k/8dFGkJUsGR3721VSCIc3/eDVAFdWT
+	Y3FLL95VRF2qBNvR1MwKRiiKyNxyje0RYzV4af7Tua/7oUQ9LOgeDJcH6ZhegKCgF8VInCQgdbA1E
+	7Le2KipERUIqzZN8ilY00IVXKrbOfx4SB8pcOiMg3LSJVBZXmIuN6EHJkU593CFtGjEZ/vdTxcdU4
+	xTeAABsgPQPHVUALkbMRGjG6cjff7YArhdEYUH43TVmo18HJUzoPsI+80EVdYijwbVUWp0Ht1ouuv
+	oWq4zC4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE38i-00000000eR7-42dI;
-	Wed, 29 Oct 2025 10:10:48 +0000
+	id 1vE38k-00000000eT3-04Bh;
+	Wed, 29 Oct 2025 10:10:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE38U-00000000eCY-092G
+	id 1vE38e-00000000eM9-26qJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Oct 2025 10:10:35 +0000
+	Wed, 29 Oct 2025 10:10:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9DC51C2B;
-	Wed, 29 Oct 2025 03:10:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 310A22BF7;
+	Wed, 29 Oct 2025 03:10:36 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A671B3F66E;
-	Wed, 29 Oct 2025 03:10:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CBC73F66E;
+	Wed, 29 Oct 2025 03:10:38 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -71,17 +71,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	xen-devel@lists.xenproject.org,
 	x86@kernel.org
-Subject: [PATCH v4 08/12] arm64: mm: replace TIF_LAZY_MMU with in_lazy_mmu_mode()
-Date: Wed, 29 Oct 2025 10:09:05 +0000
-Message-ID: <20251029100909.3381140-9-kevin.brodsky@arm.com>
+Subject: [PATCH v4 10/12] sparc/mm: replace batch->active with in_lazy_mmu_mode()
+Date: Wed, 29 Oct 2025 10:09:07 +0000
+Message-ID: <20251029100909.3381140-11-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20251029100909.3381140-1-kevin.brodsky@arm.com>
 References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_031034_196113_31240787 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20251029_031044_708343_DF013AD3 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,76 +96,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+A per-CPU batch struct is activated when entering lazy MMU mode; its
+lifetime is the same as the lazy MMU section (it is deactivated when
+leaving the mode). Preemption is disabled in that interval to ensure
+that the per-CPU reference remains valid.
+
 The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-mode. As a result we no longer need a TIF flag for that purpose -
-let's use the new in_lazy_mmu_mode() helper instead.
+mode. We can therefore use the generic helper in_lazy_mmu_mode()
+to tell whether a batch struct is active instead of tracking it
+explicitly.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h     | 16 +++-------------
- arch/arm64/include/asm/thread_info.h |  3 +--
- 2 files changed, 4 insertions(+), 15 deletions(-)
+ arch/sparc/include/asm/tlbflush_64.h | 1 -
+ arch/sparc/mm/tlb.c                  | 9 +--------
+ 2 files changed, 1 insertion(+), 9 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 535435248923..61ca88f94551 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -62,30 +62,21 @@ static inline void emit_pte_barriers(void)
+diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
+index 4e1036728e2f..6133306ba59a 100644
+--- a/arch/sparc/include/asm/tlbflush_64.h
++++ b/arch/sparc/include/asm/tlbflush_64.h
+@@ -12,7 +12,6 @@ struct tlb_batch {
+ 	unsigned int hugepage_shift;
+ 	struct mm_struct *mm;
+ 	unsigned long tlb_nr;
+-	unsigned long active;
+ 	unsigned long vaddrs[TLB_BATCH_NR];
+ };
  
- static inline void queue_pte_barriers(void)
+diff --git a/arch/sparc/mm/tlb.c b/arch/sparc/mm/tlb.c
+index 7b5dfcdb1243..879e22c86e5c 100644
+--- a/arch/sparc/mm/tlb.c
++++ b/arch/sparc/mm/tlb.c
+@@ -52,11 +52,7 @@ void flush_tlb_pending(void)
+ 
+ void arch_enter_lazy_mmu_mode(void)
  {
--	unsigned long flags;
+-	struct tlb_batch *tb;
 -
- 	if (in_interrupt()) {
- 		emit_pte_barriers();
- 		return;
+ 	preempt_disable();
+-	tb = this_cpu_ptr(&tlb_batch);
+-	tb->active = 1;
+ }
+ 
+ void arch_flush_lazy_mmu_mode(void)
+@@ -69,10 +65,7 @@ void arch_flush_lazy_mmu_mode(void)
+ 
+ void arch_leave_lazy_mmu_mode(void)
+ {
+-	struct tlb_batch *tb = this_cpu_ptr(&tlb_batch);
+-
+ 	arch_flush_lazy_mmu_mode();
+-	tb->active = 0;
+ 	preempt_enable();
+ }
+ 
+@@ -93,7 +86,7 @@ static void tlb_batch_add_one(struct mm_struct *mm, unsigned long vaddr,
+ 		nr = 0;
  	}
  
--	flags = read_thread_flags();
--
--	if (flags & BIT(TIF_LAZY_MMU)) {
--		/* Avoid the atomic op if already set. */
--		if (!(flags & BIT(TIF_LAZY_MMU_PENDING)))
--			set_thread_flag(TIF_LAZY_MMU_PENDING);
--	} else {
-+	if (in_lazy_mmu_mode())
-+		test_and_set_thread_flag(TIF_LAZY_MMU_PENDING);
-+	else
- 		emit_pte_barriers();
--	}
- }
- 
- static inline void arch_enter_lazy_mmu_mode(void)
- {
- 	if (in_interrupt())
- 		return;
--
--	set_thread_flag(TIF_LAZY_MMU);
- }
- 
- static inline void arch_flush_lazy_mmu_mode(void)
-@@ -103,7 +94,6 @@ static inline void arch_leave_lazy_mmu_mode(void)
- 		return;
- 
- 	arch_flush_lazy_mmu_mode();
--	clear_thread_flag(TIF_LAZY_MMU);
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index f241b8601ebd..4ff8da0767d9 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -84,8 +84,7 @@ void arch_setup_new_exec(void);
- #define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
- #define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
- #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
--#define TIF_LAZY_MMU		31	/* Task in lazy mmu mode */
--#define TIF_LAZY_MMU_PENDING	32	/* Ops pending for lazy mmu mode exit */
-+#define TIF_LAZY_MMU_PENDING	31	/* Ops pending for lazy mmu mode exit */
- 
- #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
- #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
+-	if (!tb->active) {
++	if (!in_lazy_mmu_mode()) {
+ 		flush_tsb_user_page(mm, vaddr, hugepage_shift);
+ 		global_flush_tlb_page(mm, vaddr);
+ 		goto out;
 -- 
 2.47.0
 
