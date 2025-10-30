@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B6FCCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEEBCCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eahf1US0Vntav9eB/jJjGf+ncS6bWMSnIpiA6yHnIVE=; b=hTesd8G3NW5RVlPKBvTboUIY3z
-	uD2dqFibD3nJT/Ba5+MsMap6WopQcZOjEZdqpY9Wygc8DC5RA+kaNNslYPrAHajatkwk5m1M5sCCl
-	UAVitG6AVAjDgratDtM74gBCfj2j72jzIv+wDgdikMQRAWsLMj3p7rM2vyXMgbsD300JWNkGJ4z0T
-	4b+Y5Uv/s266h2PNlSPKSBWZfXwUMcraDuJzNnc4IfaNGbCmALSO3EUHsW+JU1Bbc6i+4xZbBAX+9
-	yXnZV0fCf1v4BUaBvSJBYVDqGW9lD0Mn+iJ0qcecX3bEPnb4ewrzHMdtdaeRfSJm5WSeM+OBYrG5r
-	5wkW6rFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DRSdQR7HLl7IR75mtgzcnNEBFsG59tEp36QZrxhfCFA=; b=PGpJ3h/9r9noSqjH95c0r18jl3
+	1uHfOFpev3M8fWU2fcij2zj67/c5STPMeiwDBjO8hPGkyg0dyL3EgHl9v+hwT4W+wO4ee3IWIR341
+	uIs+NC7HLLVl7uv561t1QFZ3Q/A247lISTZ+NNlXMuuXSfJDxM0PoA1xSrEBbJjbDFnmlmPSHEmJo
+	Db6Cafa/KpNnC1UVoN5fYDV8w9AzbpbPnbCQT/bHJc76A6lW9IYxeQcpiYvHCwPw4RIFZVL0Txf/D
+	VlP7uVMmWXtoYkaV7EpkgUuKYCHe02xfqps227zFPiNzjZGIoDTPpPZvekobB/56ABY+lRGclJqF0
+	0qEERPpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENVr-00000003erN-3TaR;
-	Thu, 30 Oct 2025 07:56:03 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vENWc-00000003evP-0g1G;
+	Thu, 30 Oct 2025 07:56:50 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENVq-00000003er0-14Qf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 07:56:03 +0000
-Date: Thu, 30 Oct 2025 08:55:58 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761810960;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eahf1US0Vntav9eB/jJjGf+ncS6bWMSnIpiA6yHnIVE=;
-	b=iHxDhWwr8tfyEM3ulmakmguUXZBwIg/kemtFHgwoFBLGpMLI/7Z6ED7qKaF7UqqZH0ZkoD
-	oWPCOStkvVjB6dvt22nKbab7NX3D96DHVYHBb6Hn6u8J4idaK5je4v4IYX5rKDEQgcqIIA
-	r8+Jnwnfc+s4zlETRehtmFq9VdS59XtWTsdYZSjk3XXl0O13t3EzZLq8XioNkO4bKf9/Ii
-	R+ir8X/mgyOCXTkNcNb3aHuFx84RpzCz3jzouUm6FwMAQWh2HBIhovgcY8lMBlPGQLivAU
-	QIKdkcT3znvFJ5WEZCWykKW37a8NkIDe9x4+NNIpkrHKghI+bnu4iGn4P1FYvw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761810960;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eahf1US0Vntav9eB/jJjGf+ncS6bWMSnIpiA6yHnIVE=;
-	b=1nhxrKtBG0GhyZ4c447tMnpRUoOiHappmF3/WgKwVSj3lH+f0rAU6zZ4BtmyxXWbp/vEdW
-	U8BqudBHO8w6IqDg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Xie Yuanbin <xieyuanbin1@huawei.com>
-Cc: arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev, linux@armlinux.org.uk,
-	tglx@linutronix.de
-Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
-Message-ID: <20251030075558.sUBj8_6U@linutronix.de>
-References: <20251030072339.63vdFNo3@linutronix.de>
- <20251030074507.33863-1-xieyuanbin1@huawei.com>
+	id 1vENWa-00000003eum-0Ykh;
+	Thu, 30 Oct 2025 07:56:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761811004;
+	bh=IiJIHtx4LNQ3qF/KRvZQ+MHK5HTeIwkOeW1dOjSZDFs=;
+	h=From:Date:Subject:To:Cc:From;
+	b=pBsx3SMjSEC7MviEGO95wmcJHfj/QHCzMV5mPbg2jTiLtL3KTJMqot4SkEM95Nucu
+	 nzqrx6dmA10b9IV7XzYc5Z3YuRdvcOdn761vEoxBfEZ76m4XxuuOwd+qs2piGTBj+B
+	 MBcMHBUERxTAYltU/EgekrkEY/C1Tvn+daLNFvgSNhZ/nvXX1CRYWPiKamWeE3YXdk
+	 fKFAyQGquPfQEzCatN9BlBSWxVblZ6ZvdKrRa9EHkE4gprzEMBfmlj7E/wLCZeEe5t
+	 omEWFcI61+gXYPj+S2U1YKFMXmq5ipY2Q+eOVv9SvsYCBNef+NRb9V0FzmYxFWJCTf
+	 xFafOHvGCw5kg==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 250C517E0CF8;
+	Thu, 30 Oct 2025 08:56:44 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 30 Oct 2025 08:56:29 +0100
+Subject: [PATCH] dt-bindings: i2c: i2c-mt65xx: Add compatible for MT8189
+ SoC
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251030074507.33863-1-xieyuanbin1@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251030-mt8189-dt-bindings-i2c-v1-1-5b60914c6453@collabora.com>
+X-B4-Tracking: v=1; b=H4sIACwaA2kC/yWNQQ7CIBBFr0Jm7SRAbYRexXRBYayzgCqgadL07
+ hJZvpf89w8olJkKTOKATF8uvKUG6iLAP11aCTk0Bi31qKS2GKtRxmKouHAKnNaCrD3egjFXGmw
+ YXYA2fmV68P4P3+fOmd6f1q9dwuIKod9i5DqJRHvF/jFImM/zB9YNynCZAAAA
+X-Change-ID: 20251029-mt8189-dt-bindings-i2c-7d884e39d5ad
+To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, linux-i2c@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761811004; l=1109;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=IiJIHtx4LNQ3qF/KRvZQ+MHK5HTeIwkOeW1dOjSZDFs=;
+ b=XbTvX83Kx4NFoKuoYVDYvyO2jrZ+6lSryjDVRAiL9yZSEGCjOm1sh87rkoRpIj55MypbtBG07
+ wXWsB68KKBTBx2/9vta16iPk7IiYriiM8xfF5JWu81zhBvdx+jOC9xn
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_005602_432604_9E900C8B 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20251030_005648_345187_AC29670A 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +90,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-30 15:45:07 [+0800], Xie Yuanbin wrote:
-> On Thu, 30 Oct 2025 08:23:39 +0100, Sebastian Andrzej Siewior wrote:
-> > It is not a performance issue, it is a latency issue. If the scheduling
-> > latency increases by 300us because of this then the PREEMPT_RT system
-> > becomes worthless.
-> 
-> I understand what you mean. But this delay only occurs when the static
-> key is enabled/disabled, right? For users, we can control when to
-> enable/disable the static key, but it's a real shame if jump labels
-> aren't available.
-> Therefore, my personal opinion is that informing users that JUMP_LABEL
-> might cause unexpected delays, rather than disabling it, would be more
-> appropriate. ;)
+Add compatible string for MT8189 SoC.
+Its multiple I2C controller instances are compatible with the ones
+found in the MT8188 SoC.
 
-You can't really control when jump labels are enabled/ disabled. For
-instance this happens if you enable/ disable trace points.
-Arm64 and X86 replaced the stop_machine() logic with something else that
-does not affect latency in that magnitude. If Arm could something
-similar then fine but until then I don't see a way around it.
-There are other things that are disabled on PREEMPT_RT due to latency
-reasons such as transparent huge pages or expedited RCU.
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> Xie Yuanbin
+diff --git a/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml b/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml
+index 3562ce0c0f7e4889d34410a9d32e1c8e6ddaae0a..ecd5783f001b3e1c2a29aa6575141093ead4e6a2 100644
+--- a/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml
++++ b/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml
+@@ -54,6 +54,7 @@ properties:
+           - enum:
+               - mediatek,mt6878-i2c
+               - mediatek,mt6991-i2c
++              - mediatek,mt8189-i2c
+               - mediatek,mt8196-i2c
+           - const: mediatek,mt8188-i2c
+       - items:
 
-Sebastian
+---
+base-commit: d78b0fee454c25d292fb6343253eca06d7634fd9
+change-id: 20251029-mt8189-dt-bindings-i2c-7d884e39d5ad
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
