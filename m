@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B07CCF9F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11FAACCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=etITqC8jMduEZk9ztensAl81JNZKmJfNvh2+zyGxRok=; b=Mb9TLhM1Mn9HJC5vWZA+iQvqxF
-	9mStLL//tn3Pj77v9l9EiE4lCG/lMStUePfiATb5TOo/ZKOAEiFJLcNy59oDM5sW+l6DIzH9Poayt
-	idHaFW8NkxuoNG2AyxD+VBdcDYXoVNyE5EFugQiwZPGjXdIsliJ/0zwQP34tILpDT+uckViTqptHC
-	nlHJEzm3drssboY5ovAoUb+SkCYR3Ah7lyGk5fYEQW0c58POuPia1kbTi/2ODt055e0vTFQTVDcOr
-	hgGX8XpFw6GifRcOogbBlC2TSqhapHEWvtsLC0UIePBBWV+jS0qJEqfBELpT9cFNZXxQkKoKT9gfF
-	zq58eP+A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zdVtCVfiDUJY2QRSa6ubd540pBgj+UbwTkasKdXjGc8=; b=WAyrsof8+cgAzqtUR5H/Yny80+
+	hDYTYI+Dyp3yNLD0ngGASfAqAQjQPXaldo42NlCY0uxeDK4NxVNn+oFe9grDkUMkfz5y10KTENjkg
+	7ZSmQKPKFy21qUrGfjodiMnRorWYdQJsqNyKz5taz9vu9oHOZvaVMLeAEe/KMXTzQQJ6FeSkZhaP/
+	0lrqdj1Dzp1ciaYeo3B2X5wm7/efikY/BQr+nH7ns4xZPkEV/Pbex7GcBYjEdHvrnpCD3jGCQDi55
+	nAiIkxCn/e5cLc4Bhyf1Np6h8bCdcxiRFvZ14mhfnQVO7j2tgpDe697bRVC/H4djc/I5YZDJKxjoL
+	tN1SxGng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPpX-00000003yKD-1i3M;
+	id 1vEPpX-00000003yJu-0VwY;
 	Thu, 30 Oct 2025 10:24:31 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPpU-00000003yIQ-0RfE
+	id 1vEPpT-00000003yID-3gkd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:24:30 +0000
+	Thu, 30 Oct 2025 10:24:29 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B0EB71A1778;
-	Thu, 30 Oct 2025 10:24:26 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id F1A6F1A1777;
+	Thu, 30 Oct 2025 10:24:24 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 86C9F6068C;
-	Thu, 30 Oct 2025 10:24:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6F29C102F2500;
-	Thu, 30 Oct 2025 11:24:24 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C6AB36068C;
+	Thu, 30 Oct 2025 10:24:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 944B711808821;
+	Thu, 30 Oct 2025 11:24:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761819865; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=etITqC8jMduEZk9ztensAl81JNZKmJfNvh2+zyGxRok=;
-	b=Owwl7WWybvrT1Z8Yo3fx2q4sNl0TlauRyJQiLrYVmeIGttEKzq33li3cuSW0SuI1hwWscT
-	MIKA1eId/jlI1o4zrLrgRKBj3pO5ms9JRHFOmMvogAOlXZFw5r8LFhTL24ij6WIjZlv1Cw
-	7YPSUCIvfaYBJK/yWcR7zcLpKe0R6SJ+v597rH0IAr65DFD8DnTh2N5S8ZGR9kSDrrq1BV
-	YHCJxP2q4NfzrQSJn5Q0cRBp/C853ssipiERIpAgz5S7RTDI6KEcPgmmBSeK2gt/sG7B2/
-	Fr0XeScLi2VeJzON8sd2OygTUrN2rNpbBKmo6XlzPPLDNAj65o0oDPcdyem5dQ==
+	t=1761819864; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=zdVtCVfiDUJY2QRSa6ubd540pBgj+UbwTkasKdXjGc8=;
+	b=S21umYqAgjNff5fVFSM/v0k2+VI/p7qqt8SqvBrP5KdXmvpQGUEwmAtuPBbsu5r+Sq0a1e
+	3cxNaDteFBBQPzfDirBNcPSRuBZuZYv7CQ6EqAKkvN97YulSQqvBEnCS/JNH1eeY49Qm1h
+	GNvP6azosIBNgJUi/IIUwwuBD248G9koy3EIJ9jp1ohGjVuZqDTZlNUvm8El+VL2la6I7n
+	66wCdKhH5D7SS6oATjBhyWUeQf/QkYdFVld/tr4n82dCx+4TZe38i2X9UkMB4EuChDVm4I
+	/Y+BnL3kfrnTY++CJQjAdDyVSq9thL1Uo+Jjzd5eYABIPe5ztSVjr9s6IX2G/A==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -59,18 +58,17 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 1/4] net: altera-tse: Set platform drvdata before registering netdev
-Date: Thu, 30 Oct 2025 11:24:14 +0100
-Message-ID: <20251030102418.114518-2-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 0/4] net: altera-tse: Cleanup init sequence
+Date: Thu, 30 Oct 2025 11:24:13 +0100
+Message-ID: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
-References: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_032428_275279_1708B8A6 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20251030_032428_048398_FB1CFA37 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We don't have to wait until netdev is registered before setting it as the
-pdev's drvdata. Move it at netdev alloc time.
+When Altera TSE was converted to phylink, the PCS and phylink creation
+were added after register_netdev(), which is wrong as this may race
+with .ndo_open() once the netdev is registered.
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/altera/altera_tse_main.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+This series makes so that we register the netdev once all resources are
+cleanly initialised, that includes PCS and phylink creation as well as a
+few other operations such as reading the IP version.
 
-diff --git a/drivers/net/ethernet/altera/altera_tse_main.c b/drivers/net/ethernet/altera/altera_tse_main.c
-index 3f6204de9e6b..6ba1249f027d 100644
---- a/drivers/net/ethernet/altera/altera_tse_main.c
-+++ b/drivers/net/ethernet/altera/altera_tse_main.c
-@@ -1150,6 +1150,7 @@ static int altera_tse_probe(struct platform_device *pdev)
- 	}
- 
- 	SET_NETDEV_DEV(ndev, &pdev->dev);
-+	platform_set_drvdata(pdev, ndev);
- 
- 	priv = netdev_priv(ndev);
- 	priv->device = &pdev->dev;
-@@ -1394,8 +1395,6 @@ static int altera_tse_probe(struct platform_device *pdev)
- 		goto err_register_netdev;
- 	}
- 
--	platform_set_drvdata(pdev, ndev);
--
- 	priv->revision = ioread32(&priv->mac_dev->megacore_revision);
- 
- 	if (netif_msg_probe(priv))
+No errors were found in the wild, so this series doesn't target net, but
+given that we fix some racy-ness, a point could be made to send that to
+net.
+
+This series doesn't introduce functional changes, however the internal
+mii_bus for PCS configuration is renamed.
+
+Maxime Chevallier (4):
+  net: altera-tse: Set platform drvdata before registering netdev
+  net: altera-tse: Read core revision before registering netdev
+  net: altera-tse: Don't use netdev name for the PCS mdio bus
+  net: altera-tse: Init PCS and phylink before registering netdev
+
+ drivers/net/ethernet/altera/altera_tse_main.c | 37 +++++++++----------
+ 1 file changed, 18 insertions(+), 19 deletions(-)
+
 -- 
 2.49.0
 
