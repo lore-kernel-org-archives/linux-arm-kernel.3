@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B0BCCF9FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 14:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3CDECCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 14:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2OmzrOMSFDIHt90ET3ZkdRLGAdOyNAqOFwhfGMiqaV0=; b=BAEkoazpcGWPY3HbUINWBEoPDP
-	JQOO6feulFDrsL+ThUbCcM+aMdeoe/moXyZP01xIzuy3JHXLJGHCtAs2PrDI49l0KEbeRArpOmIUv
-	E91MzS0pNQk1OQGfM7B2Vvv6Y7WBz6soOSXLTXUAmohyoEWL6FUb1ORF2igZmgvWpJ5RZ8JLmYD9I
-	ZlNFPFJYLx4LXBg9EEuYGJhB35LdLS3XbTvvpS6RVLGSCjZhtuYF09hybxuV8ju6seciWERGDrJox
-	A0K3dDHAvUscqkXvco/q4pk7gOiNhNEsYlJSh3EDwrUWqrbTsDarojvsnfn/x/AdfzbwZkrY7t0UN
-	eV02u7Fg==;
+	bh=B8XX4fAQ2rQ41LdmiplqCGNPtKF5fG7zFv/qhlXOVaM=; b=3st0grA/0IPB5ieEbW/xhU1Jeo
+	CxJ/ZAL9A8hITGv3B/p5mvbnh/8tCFrhE2/Xn1x83oWwrpqwPGt64gC6fYrt2cePGNBpNNjvvKKf2
+	Lxjlg5R4wHELYNNiJ+lrWSUn1Dq/LLW6H7SsrKkqzhyKu0O3kCz0gsAHb6BPhu2xLYS+wqBNoKb2T
+	u4+JcdzVXt1N6VL32xhyvC78lVDdVE7CBFZR7iQKTnvddjMKFIRrcTnigU2D5q6aDKu0Jne6q6Loc
+	6RRcNjkVpVx7nbjplTBdC7iYNe0bN821GiEWnlpSCvu6p4EJ8wNOhss7pklqorQAco4U6da9SUjsD
+	5qgcIEuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vETHT-00000004H3x-0rdF;
-	Thu, 30 Oct 2025 14:05:37 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vETKk-00000004HLW-2FBc;
+	Thu, 30 Oct 2025 14:08:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vETHQ-00000004H3L-17Zk
+	id 1vETKj-00000004HL0-0U0Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 14:05:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2OmzrOMSFDIHt90ET3ZkdRLGAdOyNAqOFwhfGMiqaV0=; b=Ptv1sTB1FvN4w3/AmTE+DHKcdJ
-	9qbzUW9AZpfAEjAhGR4B7Mxo9VbsMsZZeU/g+Xopioag7LPZJW6zswEvZT7LL5b0M3HyeRwWOd2Kx
-	VeT1LS1G6e9VtdAPVcxMn7UkX2ieaKKDvpyLYpEaB12LbmzqzX3fbD2Xo8BON616ymRPlZOnEwbux
-	11G8K7GphKFonIV/DkS3TTKurtbfQtheo02WpqSVL5PIuAMDk7DyWsG0icfUk7qh/a8LxNzuo4FNs
-	XIF//3ZZp5K5koXa+KtQTmd3nwuylHZ8Gn0K2yDwC/iSgQz8s8rtpHKaX33627Br6a50akKi03bsE
-	nqwjJVcg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55264)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vETHH-000000005mZ-3F8U;
-	Thu, 30 Oct 2025 14:05:23 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vETHE-000000008Vm-0rdp;
-	Thu, 30 Oct 2025 14:05:20 +0000
-Date: Thu, 30 Oct 2025 14:05:20 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: remove MAC_CTRL_REG
- modification
-Message-ID: <aQNwoC6aMPMMk4M1@shell.armlinux.org.uk>
-References: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
- <7a774a6d-3f8f-4f77-9752-571eadd599bf@oss.qualcomm.com>
- <aQNXTscqFcucETEW@shell.armlinux.org.uk>
- <bb2865b6-6c17-49e4-b18f-b9baad771830@oss.qualcomm.com>
+	Thu, 30 Oct 2025 14:08:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3DF5D61DD1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 14:08:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2044C113D0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 14:08:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761833335;
+	bh=rGp1JBYK1mL0otpAztrc7nUrgT5FS8nLHRGVxjQo6Uk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=g2VzhgQuAetX4UqLApCRMz10hkDQCEIqCvlkYoYReeBjGRLeD5LLhTCz4nvy6JhuP
+	 IMMTQCRsf2xT2ePf9bu/3HjjzfGHqYoetvgd+Dn/Mvb2X2V7ShlaKElXqLihuUmfeK
+	 5dxszIYQMptoJHSlFziZ6/zKLZuPugn81vj9uI/Yj32oDqEJY2Q9K1iDKhwUT+3X5u
+	 TKuyVKZ/6d0AhcGcbdu9HvgBT2oGZsid4YszYACOGNqR2Gk/VoVlogmYZARr5aQJEz
+	 VmWKfsVWuWj5z43aCi9oDkcwih0Y1BTW0NoBsytI6RG7fnz2O0krWZDuM45Kxn/GrS
+	 IHpxlAo5+Ilrg==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-592f3630b69so1317811e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 07:08:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXeAXfkXkB3EKKu4kZgZ3G/CC+bbPRmZcq8zCeOqWa81rNM0VvrZW3brQaEpuR47sabmo7Io1ZtE0bW11rbe/a4@lists.infradead.org
+X-Gm-Message-State: AOJu0YytXsCRYa9rEfbrApOg711vFxU4rPQLWlydZjZwfHRYzVHPtvU2
+	b4Uy7ZmMunXVl0cac0RQSODcZV5w25GeeHIw0iDnqvjYJU8fzWh9hYQsyAjyfDutxuiWrxx03Lx
+	M1cpiIY5WNYlV33rpgMfRF2+x0hTL0rk=
+X-Google-Smtp-Source: AGHT+IHHbF/WjBxeq1E6VyXB5fSpfqArMxEc2iIkFLjyxdwV0+rh9GbWGUYmuc+y1VNP2dUtRDQQdQyMkTV5CrGpyPw=
+X-Received: by 2002:a05:6512:15a0:b0:592:f40f:a39b with SMTP id
+ 2adb3069b0e04-594128cdef0mr2510717e87.47.1761833334300; Thu, 30 Oct 2025
+ 07:08:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bb2865b6-6c17-49e4-b18f-b9baad771830@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_070532_584098_F7448277 
-X-CRM114-Status: GOOD (  21.51  )
+References: <20251026055032.1413733-1-ebiggers@kernel.org>
+In-Reply-To: <20251026055032.1413733-1-ebiggers@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 30 Oct 2025 15:08:42 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXEi7FMANDmdXhL5w5HFs_Kbf--BvOn1D1QU1axFTrHn3w@mail.gmail.com>
+X-Gm-Features: AWmQ_bkg3z1jPhxoXgHvPJUcxMYHgojNY5flDtxcrxvUxkgwYwbnfThirTljmPc
+Message-ID: <CAMj1kXEi7FMANDmdXhL5w5HFs_Kbf--BvOn1D1QU1axFTrHn3w@mail.gmail.com>
+Subject: Re: [PATCH v2 00/15] SHA-3 library
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, David Howells <dhowells@redhat.com>, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, Holger Dengler <dengler@linux.ibm.com>, 
+	Harald Freudenberger <freude@linux.ibm.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,82 +82,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 02:08:41PM +0100, Konrad Dybcio wrote:
-> On 10/30/25 1:17 PM, Russell King (Oracle) wrote:
-> > Konrad, Ayaan,
-> > 
-> > Can you shed any light on the manipulation of the RGMII_IO_MACRO_CONFIG
-> > and RGMII_IO_MACRO_CONFIG2 registers in ethqos_configure_sgmii()?
-> > 
-> > Specifically:
-> > - why would RGMII_CONFIG2_RGMII_CLK_SEL_CFG be set for 2.5G and 1G
-> >   speeds, but never be cleared for any other speed?
-> 
-> BIT(16) - "enable to transmit delayed clock in RGMII 100/10 ID Mode"
+On Sun, 26 Oct 2025 at 06:53, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> This series is targeting libcrypto-next.  It can also be retrieved from:
+>
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha3-lib-v2
+>
+> This series adds SHA-3 support to lib/crypto/.  This includes support
+> for the digest algorithms SHA3-224, SHA3-256, SHA3-384, and SHA3-512,
+> and also support for the extendable-output functions SHAKE128 and
+> SHAKE256.  The SHAKE128 and SHAKE256 support will be needed by ML-DSA.
+>
+> The architecture-optimized SHA-3 code for arm64 and s390 is migrated
+> into lib/crypto/.  (The existing s390 code couldn't really be reused, so
+> really I rewrote it from scratch.)  This makes the SHA-3 library
+> functions be accelerated on these architectures.
+>
+> Finally, the sha3-224, sha3-256, sha3-384, and sha3-512 crypto_shash
+> algorithms are reimplemented on top of the library API.
+>
+> If the s390 folks could re-test the s390 optimized SHA-3 code (by
+> enabling CRYPTO_LIB_SHA3_KUNIT_TEST and CRYPTO_LIB_BENCHMARK), that
+> would be helpful.  QEMU doesn't support the instructions it uses.  Also,
+> it would be helpful to provide the benchmark output from just before
+> "lib/crypto: s390/sha3: Add optimized Keccak function", just after it,
+> and after "lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest
+> functions".  Then we can verify that each change is useful.
+>
+> Changed in v2:
+>   - Added missing selection of CRYPTO_LIB_SHA3 from CRYPTO_SHA3.
+>   - Fixed a bug where incorrect SHAKE output was produced if a
+>     zero-length squeeze was followed by a nonzero-length squeeze.
+>   - Improved the SHAKE tests.
+>   - Utilized the one-shot SHA-3 digest instructions on s390.
+>   - Split the s390 changes into several patches.
+>   - Folded some of my patches into David's.
+>   - Dropped some unnecessary changes from the first 2 patches.
+>   - Lots more cleanups, mainly to "lib/crypto: sha3: Add SHA-3 support".
+>
+> Changed in v1 (vs. first 5 patches of David's v6 patchset):
+>   - Migrated the arm64 and s390 code into lib/crypto/
+>   - Simplified the library API
+>   - Added FIPS test
+>   - Many other fixes and improvements
+>
+> The first 5 patches are derived from David's v6 patchset
+> (https://lore.kernel.org/linux-crypto/20251017144311.817771-1-dhowells@redhat.com/).
+> Earlier changelogs can be found there.
+>
+> David Howells (5):
+>   crypto: s390/sha3 - Rename conflicting functions
+>   crypto: arm64/sha3 - Rename conflicting function
+>   lib/crypto: sha3: Add SHA-3 support
+>   lib/crypto: sha3: Move SHA3 Iota step mapping into round function
+>   lib/crypto: tests: Add SHA3 kunit tests
+>
+> Eric Biggers (10):
+>   lib/crypto: tests: Add additional SHAKE tests
+>   lib/crypto: sha3: Add FIPS cryptographic algorithm self-test
+>   crypto: arm64/sha3 - Update sha3_ce_transform() to prepare for library
+>   lib/crypto: arm64/sha3: Migrate optimized code into library
+>   lib/crypto: s390/sha3: Add optimized Keccak functions
+>   lib/crypto: sha3: Support arch overrides of one-shot digest functions
+>   lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest functions
+>   crypto: jitterentropy - Use default sha3 implementation
+>   crypto: sha3 - Reimplement using library API
+>   crypto: s390/sha3 - Remove superseded SHA-3 code
+>
 
-I guess that means that changing this bit is not relevant for the SGMII
-path, and thus can be removed:
-
-        switch (speed) {
-        case SPEED_2500:
--               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
--                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
--                             RGMII_IO_MACRO_CONFIG2);
-                ethqos_set_serdes_speed(ethqos, SPEED_2500);
-                ethqos_pcs_set_inband(priv, false);
-                break;
-        case SPEED_1000:
--               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
--                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
--                             RGMII_IO_MACRO_CONFIG2);
-                ethqos_set_serdes_speed(ethqos, SPEED_1000);
-                ethqos_pcs_set_inband(priv, true);
-
-> > - why is RGMII_CONFIG_SGMII_CLK_DVDR set to SGMII_10M_RX_CLK_DVDR
-> >   for 10M, but never set to any other value for other speeds?
-> 
-> [18:10] - In short, it configures a divider. The expected value is 0x13
-> for 10 Mbps / RMII mode
-
-This gets confusing. Is the "/" meaning "10Mbps in RMII mode" or "10Mbps
-or RMII mode".
-
-> which seems to have been problematic given:
-> 
-> https://lore.kernel.org/all/20231212092208.22393-1-quic_snehshah@quicinc.com/
-> 
-> But it didn't say what hardware had this issue.. whether it concerns a
-> specific SoC or all of them..
-> 
-> A programming guide mentions the new 0x31 value for 10 Mbps in a
-> SoC-common paragraph so I suppose it's indeed better-er.. Perhaps issues
-> could arise if you switch back to a faster mode?
-
-Could the 0x13 be a typo? Its suspicious that the two values are 0x13
-vs 0x31. 0x13 = 19 vs 0x31 = 49. 0x31 makes more sense than 19.
-
-The platform glue is required to supply clk_rx_i to the dwmac's MAC
-receive path, deriving it from the 125MHz SGMII rx link clock divided
-by 1, 5 or 50. Normally, this would be done by hardware signals output
-from the dwmac.
-
-This suggests that the value programmed is one less than the actual
-divisor.
-
-There's two possibilities why this value needs to be programmed:
-
-1. the hardware doesn't divide the SGMII rx link clock according to
-the hardware signals output from the dwmac, and needs the divisor to
-be manually programmed. This would require the divisor to also be
-programmed to 4 for 100M (but the driver doesn't do this.)
-
-2. the hardware selects the clk_rx_i depending on the hardware
-signals, and while 1G and 100M use a fixed divisor of 1 and 5, the
-10M divisor needs to be manually programmed.
-
-Any ideas what's really going on here?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 
