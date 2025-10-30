@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7CCCCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CB6CCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qu8nOseerJIwiaKexI9V+78CH5dDbgipqtlgAiyDwbk=; b=PVBlIIty2einBIVg9lHlAEwAtI
-	7QNphoUwhr98yUVs++luVOtZXu6ei1gM+hfe1sl4EzLRhLkjdUTIlEuje3VUvuPLjHgqy9vk53HB/
-	cOzZLU9/7Zyb1Y/wVfdFm3SMBmX+vMT92WHoCD2A/WhS9JEJ+VsRFCNILBCIqSMTKFz1LJjqetLin
-	OplOHKyErEA4u6Y2P6UXlwvu/v/fuluUH6ZyAIgpQ5f/MEaOem7CVfR3zFzpjzCgyIP1cRqLgmuiM
-	lhBPZ1bLpNN3BSgSXmKAchcjG99ptW1+t0OCVhosN5UcDNvie6or0nzIjn049zxLFl8J8rpPXU85H
-	j9swAC6g==;
+	bh=w0Gg9WxbBnDApYx2wA2XYYZNGGyZ5yPAvBIm0lYjykc=; b=LVT6pRXwc8uipPShyKcihCG7WQ
+	Y3G+V0AU/3bJzLI291nz6C9f+LXfousgmnyqE/5LHJKYwlnJGMreLQFuEjRix7APmz5cagVRinmZo
+	iDHekWBS5OExcVEM3H7bVdPr5/V2AHPQqQUChbdb7W2zE9rnxXbuQdwEdIV90PQcuHg/FRmO903fR
+	e4A8eQ7RE3WLvE/vH53zo9fPiJozWMam6p4sLDSs1NNCAyRbFfJ/vYv7/e37v08K9ZJ0mJGM4+sFm
+	R9DhnQvZR4e4dm036WSAtVjRnnLSvE0RZzwvZX2snOmpTRcOOI4Mg05zISHy4L63uf291rC6ym+hV
+	MDPS6iBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERMl-000000045E9-0dhY;
-	Thu, 30 Oct 2025 12:02:55 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1vERMk-000000045Dj-3bHa;
+	Thu, 30 Oct 2025 12:02:54 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERMh-000000045Ay-3lka
+	id 1vERMg-000000045Ac-2FtU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 12:02:53 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3f2cf786abeso673853f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 05:02:51 -0700 (PDT)
+	Thu, 30 Oct 2025 12:02:51 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3ed20bdfdffso894439f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 05:02:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761825770; x=1762430570; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761825768; x=1762430568; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Qu8nOseerJIwiaKexI9V+78CH5dDbgipqtlgAiyDwbk=;
-        b=EIRUecnuIYZGDc8HM0i2vbzydfe+WLZ8XBLAD0+e6Lo19oiNvBkqKv0YBnaIdhT0nO
-         GgFWpNUXPvpZubNYhpYJ6gxmfOfOmwD2N3Ogaf6Fe4iSGTuy6Nb2TwDuc++QxR2djn1O
-         6eEqWLxomffNJjJgWzxqcJxDOWsSIG25Kp3TcakPeToZgAuQk1YdgANUaH60at5Jc9ER
-         HNPl+93jotOyFp/7EfSMXXPq8yWC5h78ClhsYo4M7pGf5vw2M54sDc7Oz4RSffDQKfdc
-         XGeVAMGvmH4v0us1fiNXtEFCCtBptZBzUR1x1DsEVpcgDbaYITZEsjI4D+hDjZwG/Azx
-         0wog==
+        bh=w0Gg9WxbBnDApYx2wA2XYYZNGGyZ5yPAvBIm0lYjykc=;
+        b=m8KKnX/XnqM2IshqM/k6ctVUSsOSy+vj9ZLDES9AzAeEbqO60amvfUw6eetayWTA2E
+         5Uic2GtVC46aeFQbHnEtXX98PI3t1E/wK47qf8RJsiGNK7WjmqHalyaaVV6YD0M+hnSn
+         DXtyDjsLuVXMGb7bLSkPnWnzb+K5w3O7gvM0U/QFYmut3602qaZsWv3y/wY40B96sI9a
+         etSyrl+FVc8XRYIwN4MCZE5Oi7sW44MHt8awxBnA9p55W77LCmqeyNOj4Kw1wSddc2Kf
+         WyOkc21VM5PhRDw2N7xpWVpWY4fPOcw3kQMgzXDwr1dz0ukwdi2zou1llDQ+UGHJVVRH
+         w4Lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761825770; x=1762430570;
+        d=1e100.net; s=20230601; t=1761825768; x=1762430568;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Qu8nOseerJIwiaKexI9V+78CH5dDbgipqtlgAiyDwbk=;
-        b=vI9ggbY7h7oyYNP4cNtem4Rgvtc98xD++mf3JO4AG0Lu2QJrcdnfwZmdEcGEy3dkt0
-         L5fo4k6iTr+AXTgEsZ+gT9Xb4Nc8dF8XLcIDmaBqeF1+nzYsbFA2v4WZXibQRUfBrolI
-         bCpoe2JDKXjzlMOkEkcqUsAbjRNnddm6ueXZv3DKAriz5ZvudU/S5iggr5KXGbZgJxXF
-         yYHCoiivWFXyIPJHmyo9mF2F1IhjDBSBCWylWgIQLGznLBG34ZF40OnmsiINLJeSoIlQ
-         gHUDy67WXoNKTQDAEec9ejpDN5hQdKDkRnIm1OIYNkuI7lvk0Bp4IofJU7curZXReX9g
-         IydQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVjrhubT5ggcCmu8Bw1xsHOJsc7Ukq2HU1YSCsQ9uBqsZWcRO7lueCOY+yJGYDIXFDGkt89zn6XnlhG9VwHAW6X@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUKMbYDi7sH3EkYfteHgH1BNplZKkV5zAJAxmRgJChUpNfXZKj
-	TYd3ANkT/VFG+S+2+LvmwW8Yzdd6EEjPZq/0Vwh5NNgtHWvy/wsAEMPi
-X-Gm-Gg: ASbGncs8nb2SOdSXpt3p/AOmVhFtcH/ufQUgscwFpObJJyXqIRZle51YTeg2AjLylmJ
-	dtJvSo3ZTIaHtkBrvhPXpH/TVttgX4JhnGNJ+0NbiOpxI3fMP51jCW5NcsFWzHYb7u3w9xDo5fL
-	g07wC8dV9Ay51jd1pPWK/FXMlJpYqCpHhGUWChNqeWpTcsmyI9FyVnXxR2IQ6hoGLHkEfrdUzaR
-	oO/u8EOgtPgH9f5yLfmrrjg1JQMFbLsESxf5HlGWuW+/EY0kkBVf8tOrRTrs5rtvJx9U3tCwmWI
-	jkA0Qcjxye1l1+To29oBzQxt+f89A9FiNOD9G0GGIUcLzdbuSC3rzpLWbxE9pfBaFt/bYnQfXzo
-	0fz+axkdM+Zrsneh1USe4uFiQeR6/VbIOPlKshCO6bas8FJhAiMJyeqI65tEc2B7nFt5FgHIcBz
-	1ebTG7TyXM8gP+pcJpznd43JLNHo5dR52oQ99HDok7RrvbbxCQyCfgglL+or/nswJZJxNO23fo
-X-Google-Smtp-Source: AGHT+IHFni13l9ewEcMuX6++qZosCb8kSPle7LBBV+o9CF/LKnPDmcWv4Piuhrw/JZlMYaZ2eGkiDw==
-X-Received: by 2002:a05:6000:1a87:b0:3e9:3b91:e846 with SMTP id ffacd0b85a97d-429b4c73527mr2728446f8f.10.1761825769830;
-        Thu, 30 Oct 2025 05:02:49 -0700 (PDT)
+        bh=w0Gg9WxbBnDApYx2wA2XYYZNGGyZ5yPAvBIm0lYjykc=;
+        b=SjPGcYLPWgnUd3kNaWY+R6IBcA682nG6M4Vk46sLVyzFjLMyD7dVXTAL70CKwYhHmn
+         83cfVHLAukD46FmpyNC1tE5Jr9+jKJj52Jd314tLjfIidmowxu1ZIOQu0r6F03xCPB45
+         fTEFqrHKL/UNSQjgDG7wVaWQSKSeZFJRNpXH21rY4ylQVmHDWjjD7cwil2R1E08y+7nC
+         lnNwebH9QALuiacOfv3DWvhqs5O3nI9sKWmunO7hoKM2JCFZz9Ta9A42n06OvavZ7MDH
+         pnNy7ojMkpHOgVY1iqdW0jyvVZYIoElxdb1V59HaL4i9CvThJ+3T+Z4Dw0mpa0WPBOCz
+         X+1g==
+X-Forwarded-Encrypted: i=1; AJvYcCUYeW2nh0X7+MKIIlLcbS7IjNY0W70To6LHuM+JXom6QVAtU8jFTbnXrXpCxkBqMv69eDxjSwdGmpCYjRfrB2YY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcShI3EASnIwmdLzroayVMyQ4zZf7YRqSDJDZhQ6wEPUsorcUa
+	SzmYvqWoUY+33AgKKagJO2asAbrBTRwovEcCX3XnbneShV9gk5Ykko6w
+X-Gm-Gg: ASbGnctNMl9lQGzZO3krJ/0iPj2cqCAUfvVRsrmaWyxMTrCxVBM9CAidKD6h7ToA2B4
+	DN2YzGXpotuFVtnnzTephNQ0aR7RckV/HEqZiFUc9/mXEIzWb1OPcftsgn92lK+43+tH2szOR6a
+	KnOf2GJ93tk3bxv/hWypwBoz6kaf2KZvI1o+7WCeNwtKoxvKGDwFWSuToS8QDl4JwOqZYVDPxWJ
+	/mI4QX6TfaOhVjNRaucQ2Vif4ISb+H4dNgHNlyvWuM0B3lP+s9xma31tQn0hHoLVw4/5InSp0+m
+	wQ1uZuitq3G+oBDm42xB5RK8RJueTyo7QWqOBh7FsQMZ4l9/Y6oiRoUAkDV8wnZ4K6E1vSlFqE5
+	W6dca1gtCohWQp8g8yE5F3juft/91Dy6AtO5J/m2vhX0YsPl5TBs7G8suEg8Q/c970ZSg8phzN8
+	685HyE8lLBrSz3hmupd0VdHi6dfUelDfAuw9T1JFrLaFFjyQpbLY3rGW6b5B1TcUuWkeScFLMI
+X-Google-Smtp-Source: AGHT+IFNDmrRczFVqxNz09m/FdcF3/tfoq2Go7JkbHb4AzzakE1Qcbn3maTYKR1GTJB3egHOnF+nBA==
+X-Received: by 2002:a05:6000:1887:b0:3fb:9950:b9eb with SMTP id ffacd0b85a97d-429aef9515fmr5266977f8f.28.1761825768348;
+        Thu, 30 Oct 2025 05:02:48 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-146-98-100.cust.vodafonedsl.it. [93.146.98.100])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429b9b436efsm2399848f8f.23.2025.10.30.05.02.48
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429b9b436efsm2399848f8f.23.2025.10.30.05.02.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 05:02:49 -0700 (PDT)
+        Thu, 30 Oct 2025 05:02:48 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 To: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -83,17 +83,17 @@ Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
 	Fabio Estevam <festevam@gmail.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 4/4] arm64: dts: freescale: imx93-var-som: Add support for ADS7846 touchscreen
-Date: Thu, 30 Oct 2025 13:01:24 +0100
-Message-ID: <20251030120127.509933-5-stefano.radaelli21@gmail.com>
+Subject: [PATCH v2 3/4] arm64: dts: freescale: imx93-var-som: Add support for WM8904 audio codec
+Date: Thu, 30 Oct 2025 13:01:23 +0100
+Message-ID: <20251030120127.509933-4-stefano.radaelli21@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251030120127.509933-1-stefano.radaelli21@gmail.com>
 References: <20251030120127.509933-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_050251_954033_34105AB8 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20251030_050250_621716_A10697A1 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,92 +108,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VAR-SOM-MX93 integrates an ADS7846 resistive touchscreen controller.
-The controller is physically located on the SOM, and its signals are
-routed to the SOM pins, allowing carrier boards to make use of it.
+The VAR-SOM-MX93 can integrate the WM8904, a high-performance
+ultra-low-power stereo codec optimized for portable audio applications.
 
-This patch adds the ADS7846 node and the appropriate SPI controller.
+This patch adds the WM8904 device to the appropriate I2C bus, enables
+the SAI peripheral, and introduces the sound node to expose the
+sound card to the system.
 
 Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
 ---
 v2:
  - Fix pinctrl alignment
 
- .../boot/dts/freescale/imx93-var-som.dtsi     | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ .../boot/dts/freescale/imx93-var-som.dtsi     | 93 +++++++++++++++++++
+ 1 file changed, 93 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-index 0b7f6740e5ad..2dc8b18ae91e 100644
+index 85fd9c9c9372..0b7f6740e5ad 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-@@ -212,6 +212,38 @@ wm8904: audio-codec@1a {
+@@ -12,6 +12,34 @@ /{
+ 	model = "Variscite VAR-SOM-MX93 module";
+ 	compatible = "variscite,var-som-mx93", "fsl,imx93";
+ 
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,bitclock-master = <&codec_dai>;
++		simple-audio-card,format = "i2s";
++		simple-audio-card,frame-master = <&codec_dai>;
++		simple-audio-card,name = "wm8904-audio";
++		simple-audio-card,routing =
++			"Headphone Jack", "HPOUTL",
++			"Headphone Jack", "HPOUTR",
++			"IN2L", "Line In Jack",
++			"IN2R", "Line In Jack",
++			"IN1L", "Microphone Jack",
++			"IN1R", "Microphone Jack";
++		simple-audio-card,widgets =
++			"Microphone", "Microphone Jack",
++			"Headphone", "Headphone Jack",
++			"Line", "Line In Jack";
++		simple-audio-card,mclk-fs = <256>;
++
++		codec_dai: simple-audio-card,codec {
++			sound-dai = <&wm8904>;
++		};
++
++		simple-audio-card,cpu {
++			sound-dai = <&sai1>;
++		};
++	};
++
+ 	usdhc3_pwrseq: mmc-pwrseq {
+ 		compatible = "mmc-pwrseq-simple";
+ 		post-power-on-delay-ms = <100>;
+@@ -152,6 +180,36 @@ ldo5: LDO5 {
+ 			};
+ 		};
+ 	};
++
++	wm8904: audio-codec@1a {
++		compatible = "wlf,wm8904";
++		reg = <0x1a>;
++		#sound-dai-cells = <0>;
++		clocks = <&clk IMX93_CLK_SAI1_GATE>;
++		clock-names = "mclk";
++		AVDD-supply = <&buck5>;
++		CPVDD-supply = <&buck5>;
++		DBVDD-supply = <&buck4>;
++		DCVDD-supply = <&buck5>;
++		MICVDD-supply = <&buck5>;
++		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
++				    "soft", "music";
++		/*
++		 * Config registers per name, respectively:
++		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
++		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
++		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
++		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
++		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
++		 */
++		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
++				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
++				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
++				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
++				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
++		/* GPIO1 = DMIC_CLK, don't touch others */
++		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
++	};
+ };
+ 
+ /* BT module */
+@@ -166,6 +224,17 @@ bluetooth {
  	};
  };
  
-+&lpspi8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpspi8>;
-+	cs-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
++&sai1 {
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&pinctrl_sai1>;
++	pinctrl-1 = <&pinctrl_sai1_sleep>;
++	assigned-clocks = <&clk IMX93_CLK_SAI1>;
++	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>;
++	assigned-clock-rates = <12288000>;
++	fsl,sai-mclk-direction-output;
 +	status = "okay";
-+
-+	/* Resistive touch controller */
-+	ads7846: touchscreen@0 {
-+		compatible = "ti,ads7846";
-+		reg = <0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_restouch>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
-+		spi-max-frequency = <1000000>;
-+		pendown-gpio = <&gpio4 29 0>;
-+		vcc-supply = <&buck5>;
-+		ti,x-min = /bits/ 16 <125>;
-+		ti,x-max = /bits/ 16 <4008>;
-+		ti,y-min = /bits/ 16 <282>;
-+		ti,y-max = /bits/ 16 <3864>;
-+		ti,x-plate-ohms = /bits/ 16 <180>;
-+		ti,pressure-max = /bits/ 16 <255>;
-+		ti,debounce-max = /bits/ 16 <10>;
-+		ti,debounce-tol = /bits/ 16 <3>;
-+		ti,debounce-rep = /bits/ 16 <1>;
-+		ti,settle-delay-usec = /bits/ 16 <150>;
-+		ti,keep-vref-on;
-+		wakeup-source;
-+	};
 +};
 +
- /* BT module */
- &lpuart5 {
- 	pinctrl-names = "default";
-@@ -307,6 +339,15 @@ MX93_PAD_GPIO_IO29__GPIO2_IO29		0x40000b9e
+ /* eMMC */
+ &usdhc1 {
+ 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+@@ -247,6 +316,30 @@ MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B  0x31e
  		>;
  	};
  
-+	pinctrl_lpspi8: lpspi8grp {
++	pinctrl_sai1: sai1grp {
 +		fsl,pins = <
-+			MX93_PAD_GPIO_IO12__GPIO2_IO12		0x31e
-+			MX93_PAD_GPIO_IO13__LPSPI8_SIN		0x31e
-+			MX93_PAD_GPIO_IO14__LPSPI8_SOUT		0x31e
-+			MX93_PAD_GPIO_IO15__LPSPI8_SCK		0x31e
++			MX93_PAD_SAI1_TXC__SAI1_TX_BCLK		0x31e
++			MX93_PAD_SAI1_TXFS__SAI1_TX_SYNC	0x31e
++			MX93_PAD_SAI1_TXD0__SAI1_TX_DATA00	0x31e
++			MX93_PAD_SAI1_RXD0__SAI1_RX_DATA00	0x31e
++			MX93_PAD_I2C2_SDA__SAI1_RX_BCLK		0x31e
++			MX93_PAD_I2C2_SCL__SAI1_RX_SYNC		0x31e
++			MX93_PAD_UART2_RXD__SAI1_MCLK		0x31e
 +		>;
 +	};
 +
- 	pinctrl_lpuart5: lpuart5grp {
- 		fsl,pins = <
- 			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX   0x31e
-@@ -316,6 +357,12 @@ MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B  0x31e
- 		>;
- 	};
- 
-+	pinctrl_restouch: restouchgrp {
++	pinctrl_sai1_sleep: sai1-sleepgrp {
 +		fsl,pins = <
-+			MX93_PAD_CCM_CLKO4__GPIO4_IO29		0x31e
++			MX93_PAD_SAI1_TXC__GPIO1_IO12		0x31e
++			MX93_PAD_SAI1_TXFS__GPIO1_IO11		0x31e
++			MX93_PAD_SAI1_TXD0__GPIO1_IO13		0x31e
++			MX93_PAD_SAI1_RXD0__GPIO1_IO14		0x31e
++			MX93_PAD_UART2_RXD__GPIO1_IO06		0x31e
++			MX93_PAD_I2C2_SDA__GPIO1_IO03		0x31e
++			MX93_PAD_I2C2_SCL__GPIO1_IO02		0x31e
 +		>;
 +	};
 +
- 	pinctrl_sai1: sai1grp {
+ 	pinctrl_usdhc1: usdhc1grp {
  		fsl,pins = <
- 			MX93_PAD_SAI1_TXC__SAI1_TX_BCLK		0x31e
+ 			MX93_PAD_SD1_CLK__USDHC1_CLK		0x15fe
 -- 
 2.43.0
 
