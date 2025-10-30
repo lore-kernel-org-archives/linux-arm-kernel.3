@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA168CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACEA0CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mJmJ1sTcXgh78rOnaJYA3r2/BriNIHQV/JH9059Y9C4=; b=MxYO160359Qjnza9v1++sjCt2V
-	o+O5rVkDIYGftM7JXNf2JW2Py+f6H11ATMQTLxrYCjsBrA4KXXZQEtjlhnuncZ9pxRRRCUUksbthy
-	u8XYnNAQ4hjwEcRcYgoTKP+drH9ZxNBGG7TAPd1nkoDhcvpH+CWAUFsnpHh8iMwRMzr5Tkp/DocmH
-	pUuwDRg+2C41D2DkxrFFy28oX+zcssM0n3vXeEOxH5jC+ooLEMa7D8EqUayFn7KhjDu5cSj/1F8A2
-	nnvI3Ar7LdN5ZllSxlVNOVi5j7ig7ZdweYsyjio1bJsTdXdvFcQhDHjMK7hobyHyn/L8nZaz5Y9fl
-	mHpRKG5w==;
+	bh=yfLLZBTiJIir2SGIzNH3lvGApHKfTpgP74PXYxMtQPc=; b=NIulh9S+29kkzCSK19DD8I9r2H
+	4ZyZSheu8Vm/H82h+AvuwLWMpMQjRKfLXezmM7vPLEqNG1KNWpBm90sbYJ9n1m+7MyVag39VPV4Pp
+	sWJzm7LfNooxVSNKPAdjYNn7WWHhYfme9Ddgq2SJhlY4oscxT0Er2/F/IMUuuCon7TmgL+3JnSQuM
+	hl+2tu80tzFClAB1s/ysRabgDT7qbguzAlKcHjPZr8FSrzNgSx34W2ZnziHWs5JSbRUpXrGmUzvKv
+	SuROxCIil430PZpEA1VRoH8yF/5UyGMMUb/vrD8GesLEnvL6Z46I7dXUuTTRof85gyVvPs0s7SGJU
+	gW8jacdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUsB-00000004PPX-2Qt4;
-	Thu, 30 Oct 2025 15:47:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vEUu0-00000004Pmm-0EeM;
+	Thu, 30 Oct 2025 15:49:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUs7-00000004POO-2dYz
+	id 1vEUty-00000004Pm8-3D5D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:47:32 +0000
+	Thu, 30 Oct 2025 15:49:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E747E45BE5;
-	Thu, 30 Oct 2025 15:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D954C4CEF8;
-	Thu, 30 Oct 2025 15:47:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 27D24621EC;
+	Thu, 30 Oct 2025 15:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C2210C4CEFB;
+	Thu, 30 Oct 2025 15:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761839250;
-	bh=OOWNdlvS0e5zsqxUjtF1fvoktLBbLPB8K99I3mro3t0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Z462vBn/RLoPlxhd7s73he8E4WGDucxQzqbALxMU6rdKxBYIkwJNgRoA9SxAgMF+m
-	 UTzeMswMREfTIsCmp9OkeBrR4QypyN8MLnUB90lRznZcUbjNIjODbtV4sv1DXRROOn
-	 YVGYuMoxvtPDX8plp7gH8rAenc64CyRl1To8ybkCC6nBOb7ilPufyuOKBsIS8pCgO4
-	 xYZADFOfTZQiHPPPVS6Nj7lCt3kf3oupx0OjH8n9npAoqGVdog9r9AC7Hl7L7dN6L7
-	 rqawx5pL3oMAR8E2zUcohw+NEUTzTfLrPW/Y+MQa0aTC+xrKYR8H878NhFL+Fpk77z
-	 cnJ+uyFJJYTRg==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 30 Oct 2025 15:42:49 +0000
-Subject: [PATCH 3/3] KVM: selftests: arm64: Make set_id_regs bitfield
- validatity checks non-fatal
+	s=k20201202; t=1761839365;
+	bh=6VTZriykcZHnTH6rfuXOTxqsQqszWH20OmuuGXfj3bI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=IEY1+hS+f3/WSLl1N4RfDsSMOedND8SWchXioRQ46n+P+4rZR90PNVP2pAhu91XxN
+	 sIXl28oIksTFT/KrJYHGm7lYMF0QIUTWvkS5KiWnoq2M2NJCtvYQwHb5fubO69Um8h
+	 b1cOiiCNdoJXtlyvY9ejGeRfvIT00tAgwxsJfaE3V94gQcirCXboEUUvCpeyhVetLI
+	 YJYL6Q3p/+OaC3T4HCMYdl/Gy72lSD7eR+m3NYMSoA1vZcS73Odgy2B/4iCVo9CzGc
+	 L3BMhfq3Pr2T3tDjnupkpm1wsbLaZjouISpgg5ozuNpJjECKoFlMf069GdzwPlVCqz
+	 jxEPlQxVJYCgA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B526CCCF9FE;
+	Thu, 30 Oct 2025 15:49:25 +0000 (UTC)
+From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
+Date: Thu, 30 Oct 2025 15:49:17 +0000
+Subject: [PATCH v2 2/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
+ host handler
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251030-kvm-arm64-set-id-regs-aarch64-v1-3-96fe0d2b178e@kernel.org>
-References: <20251030-kvm-arm64-set-id-regs-aarch64-v1-0-96fe0d2b178e@kernel.org>
-In-Reply-To: <20251030-kvm-arm64-set-id-regs-aarch64-v1-0-96fe0d2b178e@kernel.org>
+Message-Id: <20251030-host-direct-messages-v2-2-9f27cef36730@google.com>
+References: <20251030-host-direct-messages-v2-0-9f27cef36730@google.com>
+In-Reply-To: <20251030-host-direct-messages-v2-0-9f27cef36730@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-88d78
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3523; i=broonie@kernel.org;
- h=from:subject:message-id; bh=OOWNdlvS0e5zsqxUjtF1fvoktLBbLPB8K99I3mro3t0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpA4iH5fN2/5Tff1LcMsCzge14FRk/8Ks3KBfZ4
- yt+NPnAH4aJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaQOIhwAKCRAk1otyXVSH
- 0PTUB/4uSDubuCl1B4f68EVzEGnKq9mBneLwADJ3ffqD+fWz9cNQwtlSfdhONTTGLA6vlTJIkRO
- NhxPI1sfzazP7CZaiMWuR9Wsl9UqVQsbWSdMq+Y1ymue32Jca4wobaBqpeLeTa0p6RdE6jkk3Zf
- Tsjp2uMVnyGk9nyHiwdMhK4NRO6J6eGgV0SCVy8Fs+PcfQOLPOKFy4Dylfz5rmALisoY+95hYpA
- 1uzMJLbMjtGCi9ycAiTcOvmFyCfFYzidA82BZuntLsz8v9pRIkYu3xON8eNYPsSqoZXUt/m1Y9o
- qsFdhrAf/UEkl/Wj7Ke39z4xTo/zZ2vTHVJWbUI08/KO9+Qa
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_084731_710466_5A5A8AF0 
-X-CRM114-Status: GOOD (  12.54  )
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>
+Cc: Armelle Laine <armellel@google.com>, 
+ Sebastien Ene <sebastianene@google.com>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Per Larsen <perlarsen@google.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761839365; l=1929;
+ i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
+ bh=9bdBd6zR/vrzbrRhnFCq/xFlDZJ4V6WRjWnGzzMGAW0=;
+ b=fG8i5Y3uwvHySl80k0XI5clMqz5JSg7rKU3ajXxZfswA/pf/+18oowHhiWp9GDxpEj81j2R12
+ FXSlsvmovVXBV1SqfaJrQPEUeDiy1M2myGl0aMx/64ORRnQZPWX/1fG
+X-Developer-Key: i=perlarsen@google.com; a=ed25519;
+ pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
+X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
+ auth_id=402
+X-Original-From: Per Larsen <perlarsen@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,101 +86,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently when set_id_regs encounters a problem checking validation of
-writes to feature registers it uses an immediately fatal assert to report
-the problem. This is not idiomatic for kselftest, and it is also not great
-for usability. The affected bitfield is not clearly reported and further
-tests do not have their results reported.
+From: Per Larsen <perlarsen@google.com>
 
-Switch to using standard kselftest result reporting for the two asserts
-we do, these are non-fatal asserts so allow the program to continue and the
-test names include the affected field.
+FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
+the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions and can use the
+existing handler function. Add support for FFA_MSG_SEND_DIRECT_REQ2 in
+the host ffa handler.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Per Larsen <perlarsen@google.com>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 22 ++++++++++++++++------
- 1 file changed, 16 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 1a53f3a4be8d..abe97f9293c9 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -405,6 +405,7 @@ static uint64_t test_reg_set_success(struct kvm_vcpu *vcpu, uint64_t reg,
- 	uint8_t shift = ftr_bits->shift;
- 	uint64_t mask = ftr_bits->mask;
- 	uint64_t val, new_val, ftr;
-+	bool match;
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index bb38ee7c86bad1646c16c562127eb3bef6297a84..956c408bdae45b087286d9d35348ef599b83e392 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -678,8 +678,10 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_NOTIFICATION_SET:
+ 	case FFA_NOTIFICATION_GET:
+ 	case FFA_NOTIFICATION_INFO_GET:
++		return false;
+ 	/* Optional interfaces added in FF-A 1.2 */
+ 	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
++		return hyp_ffa_version >= FFA_VERSION_1_2;
+ 	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+ 	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
+ 	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
+@@ -924,6 +926,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_PARTITION_INFO_GET:
+ 		do_ffa_part_get(&res, host_ctxt);
+ 		goto out_handled;
++	case FFA_MSG_SEND_DIRECT_REQ2:
++		if (!ffa_call_supported(func_id))
++			goto out_not_supported;
++		fallthrough;
+ 	case FFA_MSG_SEND_DIRECT_REQ:
+ 	case FFA_FN64_MSG_SEND_DIRECT_REQ:
+ 		do_ffa_direct_msg(&res, host_ctxt, HOST_FFA_ID);
+@@ -933,6 +939,7 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	if (ffa_call_supported(func_id))
+ 		return false; /* Pass through */
  
- 	val = vcpu_get_reg(vcpu, reg);
- 	ftr = (val & mask) >> shift;
-@@ -417,7 +418,10 @@ static uint64_t test_reg_set_success(struct kvm_vcpu *vcpu, uint64_t reg,
- 
- 	vcpu_set_reg(vcpu, reg, val);
- 	new_val = vcpu_get_reg(vcpu, reg);
--	TEST_ASSERT_EQ(new_val, val);
-+	match = new_val == val;
-+	if (!match)
-+		ksft_print_msg("%lx != %lx\n", new_val, val);
-+	ksft_test_result(match, "%s valid write succeeded\n", ftr_bits->name);
- 
- 	return new_val;
- }
-@@ -429,6 +433,7 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, uint64_t reg,
- 	uint64_t mask = ftr_bits->mask;
- 	uint64_t val, old_val, ftr;
- 	int r;
-+	bool match;
- 
- 	val = vcpu_get_reg(vcpu, reg);
- 	ftr = (val & mask) >> shift;
-@@ -445,7 +450,10 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, uint64_t reg,
- 		    "Unexpected KVM_SET_ONE_REG error: r=%d, errno=%d", r, errno);
- 
- 	val = vcpu_get_reg(vcpu, reg);
--	TEST_ASSERT_EQ(val, old_val);
-+	match = val == old_val;
-+	if (!match)
-+		ksft_print_msg("%lx != %lx\n", val, old_val);
-+	ksft_test_result(match, "%s invalid write rejected\n", ftr_bits->name);
- }
- 
- static uint64_t test_reg_vals[KVM_ARM_FEATURE_ID_RANGE_SIZE];
-@@ -485,7 +493,11 @@ static void test_vm_ftr_id_regs(struct kvm_vcpu *vcpu, bool aarch64_only)
- 		for (int j = 0;  ftr_bits[j].type != FTR_END; j++) {
- 			/* Skip aarch32 reg on aarch64 only system, since they are RAZ/WI. */
- 			if (aarch64_only && sys_reg_CRm(reg_id) < 4) {
--				ksft_test_result_skip("%s on AARCH64 only system\n",
-+				ksft_print_msg("%s on AARCH64 only system\n",
-+					       ftr_bits[j].name);
-+				ksft_test_result_skip("%s invalid write rejected\n",
-+						      ftr_bits[j].name);
-+				ksft_test_result_skip("%s valid write succeeded\n",
- 						      ftr_bits[j].name);
- 				continue;
- 			}
-@@ -497,8 +509,6 @@ static void test_vm_ftr_id_regs(struct kvm_vcpu *vcpu, bool aarch64_only)
- 
- 			test_reg_vals[idx] = test_reg_set_success(vcpu, reg,
- 								  &ftr_bits[j]);
--
--			ksft_test_result_pass("%s\n", ftr_bits[j].name);
- 		}
- 	}
- }
-@@ -835,7 +845,7 @@ int main(void)
- 		ID_REG_RESET_UNCHANGED_TEST;
- 	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
- 		for (j = 0; test_regs[i].ftr_bits[j].type != FTR_END; j++)
--			test_cnt++;
-+			test_cnt += 2;
- 
- 	ksft_set_plan(test_cnt);
- 
++out_not_supported:
+ 	ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
+ out_handled:
+ 	ffa_set_retval(host_ctxt, &res);
 
 -- 
-2.47.2
+2.51.1.851.g4ebd6896fd-goog
+
 
 
