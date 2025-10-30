@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402B7CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A564CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CEDXVoec8wgc5r2G05gXNhADvg0k7pAjCJbkzmWMlA=; b=LEZbTbYFDz98gZ7/AaZ8+nU1eu
-	BqknH4kKNuDttFQgaBOyAysQz3W9jM7n4M/9Uqat+Uux7VKnoTq5mNNorRRfeAFtVTsLYwxLSGk1c
-	8IJmCVynJoXWqN3SBW407QFSK7EZLy99Dw9/ySVJ+K2CkTktUBueeWnIhFwGVGJXsoEf6tUUobi2l
-	jopPW4SqdGgmGFZvN587mZsNIJRyWkVttc96kq0X3y2t8WIF+qlkXJB4IvJpk7m9fshybdhN6zT2W
-	+nulJ9phB75g+hN+/kSpP1ETk03ViNJhU1FRM3NldN0SoGviriSy6+WkPcf7s4J9LJwJ4+53BMAo1
-	1HmI9OMA==;
+	bh=DdJzl4arHjM9hwJvJN/SY7j9/5VeDcBvthoBwvujmhw=; b=tUJHFYkGnMkYF1ySVn6nNBoCF9
+	BAWHYlDlkV5cIKmIsr+Zxwvbw+QKc1hfmUlco1fUChVWdKfu7zkPQlC5QfsJVlpTQJ7P0V9NkUvUu
+	bb0mBjHfCjgdk4hdAQfbSd5jCUFOlDY7dXpZrrUicYTQMDZB5e2AW47+NSJiXLAX3WUgsAswx2USh
+	IytMTYgZzxFIxdu55W/LIO/1jLGy6/ZGDBJPxBAbApsnBjEaHu3Qq7OlW6Ox3/tmoDCOwSz1uhhrj
+	pByoDpCAWhyONF8G2UaxKmE3P1MVlepebU32sFvNCbw0CwDmSorhYTV8hu1MwgEsgp2go8Yvehwk1
+	b101AQ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUeq-00000004OPD-2h0z;
-	Thu, 30 Oct 2025 15:33:48 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vEUfY-00000004OYI-3qa2;
+	Thu, 30 Oct 2025 15:34:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUeo-00000004OOY-1h2G
+	id 1vEUfW-00000004OXX-3KSs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:33:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=3CEDXVoec8wgc5r2G05gXNhADvg0k7pAjCJbkzmWMlA=; b=ovu6xwBmi6bbWyq6A8FW+QrVkd
-	Eb+1PnSyeh713Skmfl6rcJR1qspA/xanxl31WsekKebS1S8V8v16pYytvmELyn6IXIma8cARUviHU
-	xAa1j73OqMptSya4dNwgvfgzLPS26sqAJCQhWpNzQq3AbdWudOvwwZinVKTylZkWaB7M=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vEUei-00CWVh-V7; Thu, 30 Oct 2025 16:33:40 +0100
-Date: Thu, 30 Oct 2025 16:33:40 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Josua Mayer <josua@solid-run.com>
-Cc: Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rabeeh Khoury <rabeeh@solid-run.com>,
-	Yazan Shhady <yazan.shhady@solid-run.com>,
-	Mikhail Anikin <mikhail.anikin@solid-run.com>,
-	Jon Nettleton <jon@solid-run.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH 2/2] clk: mvebu: cp110 add CLK_IGNORE_UNUSED to pcie_x10,
- pcie_x11 & pcie_x4
-Message-ID: <05d450d8-8df9-490f-ac53-3f45544f1c29@lunn.ch>
-References: <20251030-cn913x-pci-clk-v1-0-e034d5903df1@solid-run.com>
- <20251030-cn913x-pci-clk-v1-2-e034d5903df1@solid-run.com>
+	Thu, 30 Oct 2025 15:34:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 28D6145421;
+	Thu, 30 Oct 2025 15:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 536E2C113D0;
+	Thu, 30 Oct 2025 15:34:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761838468;
+	bh=OyXHR6XYNNU2ifnDb9UD0UTobJRP1sqkacwAo98BRNs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=twvq8vx/XZXuAMBTIzzJHsaV+h/kYq+kvXbpoiihP98R6Ef3S/7UMtQTidm+I0lti
+	 7WT22sMXhwOXvVgT+simou2SOrA4ZMPV6MDBhssJ+dW1XBjCbLBUpobsa0Rxq/t+t7
+	 4VRcVSh6//l8igqtIbUqA1ZJuJ55ik1tx1cDV4HyDM+J0hJK3Pfg8AEgtm5HRnqGGg
+	 Scfcl9pIu+VUtkT/Hy0sp2MILeV9LJHec8vTfio4hf8LRnzGwUEF2/y4Z16LtB90ub
+	 EgeeACkPTFtk26l+PA/uZe9HnGqriXZ2d4SlG6QN49NyPP77dsYaR8h/4qaJHj5F49
+	 XYTuK5dOY872A==
+Date: Thu, 30 Oct 2025 16:34:21 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Faraz Ata <faraz.ata@samsung.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	alim.akhtar@samsung.com, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	rosa.pila@samsung.com, dev.tailor@samsung.com, pritam.sutar@samsung.com
+Subject: Re: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
+ ports
+Message-ID: <2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
+References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
+ <20251014112338.2023223-1-faraz.ata@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251030-cn913x-pci-clk-v1-2-e034d5903df1@solid-run.com>
+In-Reply-To: <20251014112338.2023223-1-faraz.ata@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_083346_458129_4F268885 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20251030_083430_847761_40615BED 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 04:16:26PM +0100, Josua Mayer wrote:
-> CP110 based platforms rely on the bootloader for pci port
-> initialization.
-> TF-A actively prevents non-uboot re-configuration of pci lanes, and many
-> boards do not have software control over the pci card reset.
-> 
-> If a pci port had link at boot-time and the clock is stopped at a later
-> point, the link fails and can not be recovered.
-> 
-> PCI controller driver probe - and by extension ownership of a driver for
-> the pci clocks - may be delayed especially on large modular kernels,
-> causing the clock core to start disabling unused clocks.
-> 
-> Add the CLK_IGNORE_UNUSED flag to the three pci port's clocks to ensure
-> they are not stopped before the pci controller driver has taken
-> ownership and tested for an existing link.
-> 
-> This fixes failed pci link detection when controller driver probes late,
-> e.g. with arm64 defconfig and CONFIG_PHY_MVEBU_CP110_COMPHY=m.
+Hi Faraz,
 
-Seems like a reasonable compromise, given that TF-A could be classed
-as broken. This must also prevent suspend/resume powering off PCI
-devices, and then reconnecting them on resume.
+On Tue, Oct 14, 2025 at 04:53:38PM +0530, Faraz Ata wrote:
+> Universal Serial Interface (USI) supports three serial protocol
+> like uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
+> Add i2c nodes for all the instances.
+> 
+> Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+what happened to patch 1/1?
 
-    Andrew
+Andi
 
