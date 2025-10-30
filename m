@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2393ECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BACC5CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XcZmBDUJk7yw41e2osOtFQYA59+nZfoqavQZwKrx8SU=; b=kUqt1Hns2VfMzXG5fnzuZgCJq+
-	xZKlLwsmdFw7iLHQm5sP14x1g77q5Xj/hG5wjJcuJKNj3J4HB5X5v+2DslFuQwhmLxe3oF0WbWIDn
-	BZiUEYUF6tLEotESfihXNTNkI9eEH0jakYrg83ans4gD8cXzfMhS+dXnpuybFisD0LyWVyTaASlwD
-	t7qGKOh31B9PeDC6WuWVhoSqzLsftviSMXthtb5bfPU/CaOCooRPXvaRiWVokOl3EES5uDsCAodRN
-	uoiTVyg9oxMI472Ux+hj2dkNBdfQ9ubGrtTlAUNp7OlzWz9F1pKKAczI1HVI01DjJvq3rQnkVWWvc
-	YNo4Olyw==;
+	bh=2ycPp8pZgEFoeQMpyGYzVQ4IFRsCoJ2aRuKd6SDWpxA=; b=StvG0CJLHh/USEczh4PWNlYHid
+	8zMaNRv3so4Bx80go48EneXDAYpVBVlAl3eQKF4b7bPK7Lb5gr40OePMG2BSj4rUPu+sRa05/UAzI
+	e7Z69yuMtXJbJANm9kII4ozOXio2HWzpEyQEgppgyhNJlIexYQyy7J/1P3EwAiQrJW4WWJ37KCxfI
+	Jl2CcwFAXT+FUzTzWNi0YwRBv3yx9fXOfnNQh6I/4nGUb8iQuU9KCn0MY5Kn3d7QSSx3rdJL6u/gD
+	vpUGExRXy34EMf6BjMzc4cTw9d+sk4YGOKlQdb/Ey+WnntWZgC2NwZNOrC//bDYIKBXAW8ThycfAH
+	IP/JFNEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUZK-00000004NmI-3JWM;
-	Thu, 30 Oct 2025 15:28:06 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vEUZQ-00000004Nnp-0QPs;
+	Thu, 30 Oct 2025 15:28:12 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUZH-00000004Nlr-3zMu
+	id 1vEUZM-00000004NmM-00rl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:28:05 +0000
-Date: Thu, 30 Oct 2025 16:28:00 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761838082;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XcZmBDUJk7yw41e2osOtFQYA59+nZfoqavQZwKrx8SU=;
-	b=mUWdCq7c+05S92Z6e3ycQap5GG7kv30irDPESS3zUYv5LZGe7HhqHaUMNrlwONd33psUke
-	D5+1VvUj8ejnw9gyvQ+qOWQZvr0WbTRysFttiLkBTWMRczshO0ubWTEMrQgs0hKlagMPKU
-	cPM8AYLlwviqdfPTYH1gHK7sOptPMkuIBRYojp4P5uKhpK1gE+S6KlyXrlK4Y+Ar1eueO0
-	8qXcCGD/hrVeABPAXazUN398ZtWm5LbCdHLHe/jQu+YuxppyfA+yKuVzCfoDLriiDMz4S6
-	Rqu8PxIB8v9CVRzPTCbvPTGEzl4D1ohGAN58AuP+9ks+ssgfkx0KJ47WnFvUFA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761838082;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XcZmBDUJk7yw41e2osOtFQYA59+nZfoqavQZwKrx8SU=;
-	b=zb46iSxJzjaqi0J3/h4ZeZvlpftP3P6uGPFVE+TMicvvCPwsPjZkdtL4z1LgsFzylToKqK
-	ooHg9L9VKk6q9LBA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Russell King <linux@armlinux.org.uk>,
-	Xie Yuanbin <xieyuanbin1@huawei.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
-Message-ID: <20251030152800.9LD5D2GP@linutronix.de>
-References: <20251029155918.503060-1-bigeasy@linutronix.de>
- <20251029155918.503060-5-bigeasy@linutronix.de>
- <a86e9827-9b8b-4313-8d46-5fb2af5b8826@app.fastmail.com>
+	Thu, 30 Oct 2025 15:28:09 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-7849c889ac8so43449807b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 08:28:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761838086; x=1762442886; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=2ycPp8pZgEFoeQMpyGYzVQ4IFRsCoJ2aRuKd6SDWpxA=;
+        b=X6Xup6sZIPJpdVMErA82XSQx475/wQAPpvohQ1HzkUtpublPSi86IKhPq3B4K4omun
+         XOirF5Nz7yWUMDRwcMdZHBf9Tt/Vf4AdhVz1LmeirKorPZ0hnp+kK+yaYUlV4Z+jSl2v
+         WhyZZCS2CtUiVV1agGbONF0GUmGvrSkMIw2xGtOlXuvGQikGkIaK0b8MXgUFruQR5imc
+         mYjo1qcTrDMjW6Mudmkf/UWN4AOEsy4etux+0pCZuN4ozKSpWQ/3OdVwfbV5VQaQrTdT
+         JbpF3uyyUVDO/6j/+CutUHMxtglChdSxel+x3Hi9D4peOaLL9Sh2rMs97S4lPvZ1FZmM
+         zUkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761838086; x=1762442886;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2ycPp8pZgEFoeQMpyGYzVQ4IFRsCoJ2aRuKd6SDWpxA=;
+        b=d5i974URsHyC9fC9iEJ2mG3I2PMivpDwKx9bPmKN4zEnMpNNkHEEG4Qo4dfL5DPeLX
+         K4aLbKThIlZ8ZDImCmISviADRK9FkXTSM73i/PVwuIpkpmmXBH4Xv8DhpkG5K8/Hxf49
+         Fp6NAI4nkddLFAeDzQZC77YU5xrwHV6IxnZJh9IqffprV8PZPIPAB91bsZhNRLzHgq66
+         PxUa2VEd0VJosmwxi6FfZmRAXHAdRqRpAVvnbPoorSbrJTPS8q8PixAhDc+L3W5CsJ8k
+         lDva1WjEZwM9VjlbUr4PiiiF4QjMVC84Nh15//uNVUcJtLGuD0UFKqHMvyLlPXKaTXNT
+         Mp4w==
+X-Forwarded-Encrypted: i=1; AJvYcCVtZo2Gzbf7/CuNlowzFVNpidNV28JjxatBbsxPOCBVDNlDK1zyA6JFeQFi8wKVuT3fbRh2M8WlfhWu49mRT0NN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxofByji6t1TM6riUCzPd3q0VGQ4Yv1VMEFRajbGCuA7HyqYXqd
+	RRcFwH6uGAh8eEBJ0YXKo4RrVywTIG3W9f3r6xpxRijFypMCpvXeCjtw/4uq8CbbRjGOBwC5xF/
+	m4feFyXClhBuHcdTVbU4qg4xzXB8tEZiWOSr+HBwKoA==
+X-Gm-Gg: ASbGnctC5Q5La10vbSa1hAchqeieLoLBXNn9kmYO3MazPTqx7FxIc488NC9dEQpP2ql
+	T1ZzYPcM4S+whyMU7/FLHm1Uo4NxXPilO6SPvSCZ7AMqzOUUs+T7pxhrSaCKvr7EaRMO009lCL4
+	K7LdPoOoRRdj5qZo6Fv+hkLKhKWpN6mybB3Fq0tHTg7eQXAlu5mKGoPl2NtjpsuLSR0pooVgCMR
+	uqoTnf6STZUyD5Zcmx1zYGDVeYlv+CcKjpp+BjKEVFW+bLHzr/O8GPT+jsoaA==
+X-Google-Smtp-Source: AGHT+IE7cHjINSkLMQTgzs6w+5tGJD0Nm4hSDWwJhVubSFRkYHz6tUwfvq/JjfaEUpptZLodo7e/iRO8bn4zeLZcNk8=
+X-Received: by 2002:a05:690c:c34a:b0:730:8858:827 with SMTP id
+ 00721157ae682-78638e15c6cmr28491297b3.19.1761838086224; Thu, 30 Oct 2025
+ 08:28:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <a86e9827-9b8b-4313-8d46-5fb2af5b8826@app.fastmail.com>
+References: <20250917063233.1270-1-svarbanov@suse.de> <CAPDyKFpus05RAkYAoG7zjyvgAJiuXwRt3=z-JB5Kb7mo0AK4vw@mail.gmail.com>
+ <c379087c-1702-44b7-a890-beb5b77d794b@broadcom.com>
+In-Reply-To: <c379087c-1702-44b7-a890-beb5b77d794b@broadcom.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 30 Oct 2025 16:27:30 +0100
+X-Gm-Features: AWmQ_bnaXJddKoSJGHltKVC2FCgxq7fO5V7a69ZXCIkr6_3dvFmm3LKqD_YY314
+Message-ID: <CAPDyKFowo7+-C4YLLw4XoWz4fU3ykEP1UVEEneCJXBuDjGTStw@mail.gmail.com>
+Subject: Re: [PATCH 0/4] Add watchdog support for bcm2712
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-pm@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Lee Jones <lee@kernel.org>, 
+	Willow Cunningham <willow.e.cunningham@gmail.com>, Stefan Wahren <wahrenst@gmx.net>, 
+	Saenz Julienne <nsaenz@kernel.org>, Andrea della Porta <andrea.porta@suse.com>, 
+	Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_082804_150244_75DEAF94 
-X-CRM114-Status: GOOD (  23.17  )
+X-CRM114-CacheID: sfid-20251030_082808_042142_7269E08D 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +102,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-30 16:24:16 [+0100], Arnd Bergmann wrote:
-> On Wed, Oct 29, 2025, at 16:59, Sebastian Andrzej Siewior wrote:
-> > From: Thomas Gleixner <tglx@linutronix.de>
+On Sun, 26 Oct 2025 at 21:23, Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+>
+>
+>
+> On 10/13/2025 4:08 AM, Ulf Hansson wrote:
+> > On Wed, 17 Sept 2025 at 08:33, Stanimir Varbanov <svarbanov@suse.de> wrote:
+> >>
+> >> Hello,
+> >>
+> >> The following patch-set aims to:
+> >>
+> >>   * allow probe of bcm2835-wdt watchdog driver for bcm2712.
+> >>   * prepare bcm2835-power driver for enabling of v3d for bcm2712.
+> >>
+> >>   - patch 1/4 is preparing bcm2835-power driver to be able to
+> >> control GRAFX_V3D pm-domain. This is a prerequisite for the follow-up
+> >> patch-set which will add a v3d DT node for bcm2712 (RPi5).
+> >>
+> >>   - patches 2/4 and 3/4 are adding bcm2712-pm compatible in MFD driver
+> >> and update the dt-bindings accordingly.
+> >>
+> >>   - patch 4/4 is adding a watchdog DT node for bcm2712.
+> >>
+> >> Comments are welcome!
 > >
-> > jump-labels are used to efficiently switch between two possible code
-> > paths. To achieve this, stop_machine() is used to keep the CPU in a
-> > known state while the opcode is modified. The usage of stop_machine()
-> > here leads to large latency spikes which can be observed on PREEMPT_RT.
-> >
-> > Jump labels may change the target during runtime and are not restricted
-> > to debug or "configuration/ setup" part of a PREEMPT_RT system where
-> > high latencies could be defined as acceptable.
-> >
-> > Disable jump-label support on a PREEMPT_RT system.
-> >
-> > [bigeasy: Patch description.]
-> >
-> > Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > ---
-> >  arch/arm/Kconfig | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> > index 864a14a434b08..99c9b1c320af8 100644
-> > --- a/arch/arm/Kconfig
-> > +++ b/arch/arm/Kconfig
-> > @@ -80,7 +80,7 @@ config ARM
-> >  	select HAS_IOPORT
-> >  	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
-> >  	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
-> > -	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
-> > +	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU 
-> > && !PREEMPT_RT
-> 
-> I posted a slightly different version last year, which optimizes
-> the uniprocessor version and has a little more information
-> in the changelog:
-> 
-> https://lore.kernel.org/all/20241210160556.2341497-2-arnd@kernel.org/
+> > This looks good to me!
+>
+> How do you want to proceed with merging those patches? I would assume
+> you would take patches 1-3 and I would take patch 4.
 
-This actually slipped my mind but I was fine with it according the link.
-So let me replace this, too.
+Yep, that works for me. Awaiting a new version of the series to get
+the comments on DT patch addressed.
 
->      Arnd
-
-Sebastian
+Kind regards
+Uffe
 
