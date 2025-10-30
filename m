@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC79CCF9FE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E17ACCF9F0
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,61 +12,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcGBUMDBt4QrK3gZ63mWxwFVf8xhoPzw9YjzqkGrLic=; b=ItMOwdo6dtDU+Hk8s6q47/ji/J
-	k7Ou8M/xyavLyrRedB5QFH4whnd1UIcunYDMNePkpVLdzv4rNzzJzfqWQPGxnv09QrbF7xIBgeH4g
-	1bmgf1DzRtqNb3gmu2FNmVklPFVcBkz9WhY43PPIO7+7UQQxU5GMhixLW+oyU+4Y4doZDYFoyfM8j
-	xA5upYXtqb1jXBiSEDRfGy4VRtklNTMRWvtuHodSq4gB/jpHfRPOz/BJmpyJ0jZkRh9HUfDMG8Yn9
-	XBl3ocYFqfFFzU4T9n6bUbuLJAFqYDkJpRXJtKj8XTJO6M2Y7Qb8KWF/LcMtjxqoy0AzQ3JpdZgR6
-	wGAUiZwA==;
+	bh=8YASmmQaw2bp6ARedML0HqNnGQNivMGsg1DfU0cvX6Q=; b=CZNOxphw1ulskPFP9ArWXvfmrM
+	t3DPvnDqn1MzP6Jrg4JVQhKiPDC5OOi15CT1yVQMcgYKNtiS/HAQFjLClcpr9VKmQT9nZQOzD7wt0
+	nBPJuQfy/ibD7YrTwjXdbueAOPxD7nrPZfnCxXAGfy7DBXDtdZN2fxCjnRvwjuvcHXwXFTQiwXGVG
+	5QSYhNucrePhv80aqMkjBsiS0hjVH5859nH+lUwRwbOhmEEAuqnwgJAyjZkSPj7DHyIuEFac/PXr9
+	cvcg3qE/U63SOcz1O76bMM0PIPfvobSZSVnjUTVPUi0aiCWC9HmWWG/NNb8v92hoQJryNEePmb3ZQ
+	rK3xDnsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZ1J-00000004n1t-0kTy;
-	Thu, 30 Oct 2025 20:13:17 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1vEZ1L-00000004n4s-0hcv;
+	Thu, 30 Oct 2025 20:13:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYz9-00000004kOd-2g8z
+	id 1vEYz9-00000004kO7-08li
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 30 Oct 2025 20:11:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=8YASmmQaw2bp6ARedML0HqNnGQNivMGsg1DfU0cvX6Q=; b=ZD8HWy4yIMkge8tRav4rCYJXnQ
+	Mdi9gQsV1oqTSL3AWvi38CPjSD3vdMqHWcCl4t1gAV8QiKds0X7CdGyqrEbiAxd5G7poprEMUMkNq
+	dz/kBVybk/H7U0HqcOLNQvO9o8acn7L2ykWVnrBzrHejlmaOOLjsNrnw/zDkcGbQKjSEZj3SgK7si
+	ESWBnueO0lDepGmswonA5bWCH3v+tjoWYjdzSR5hMzMZetLLSbZ9SfagpGEMxffpHGgxqG1FiW/va
+	nKesb5I9Onhlfo8ConLcMdRWM5qTsCzYXK+j5Cmgetd7mreLxglPZJB25APaP2Qs0pdOuISPZktRc
+	L/rHfEVw==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEY7M-00000009u0l-1SUY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 20:11:05 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-294df925293so13425445ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:11:02 -0700 (PDT)
+	Thu, 30 Oct 2025 19:15:30 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-34029b3dbfeso1711095a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:10:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855062; x=1762459862; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855057; x=1762459857; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=pcGBUMDBt4QrK3gZ63mWxwFVf8xhoPzw9YjzqkGrLic=;
-        b=RFdCrUeTt4Nb82GrPeLAJeN3m20VXEv3x1T3MPFJU2RGIlY+enRUz+EmiWOS2iLOrS
-         9dJyX7rBiapHaWg5Bu79UKGD8oK9TWGnLJw6+nfZq5qUSSoJeAIL1ZaLvdY8ZhLPy6XO
-         0xtdUAQJzFf9+bAtzDXAi6MQbE/B0xPzBHiH4uzd4X6vam5IYodx844goxY1rl5fE8yP
-         qVrlMRqNwyHL4IQBJnD3bk5UzT+n7GdMmSo7eauzQ4WVAWTwu8WRIa0AQgQU1uQO1TU4
-         ynxttJ6dA8jtuUbaMBDmoEdLRV3WjsQA9aG1uqDDmGgdeUf7Ru3BVKy8F0X/R0haUqzZ
-         QouQ==
+        bh=8YASmmQaw2bp6ARedML0HqNnGQNivMGsg1DfU0cvX6Q=;
+        b=mh847462RfBR/H4nqm1NHDPIEMXIJcSL3LVm0UVR/miBdg3BZa6/6z7mm96M/9eTak
+         RYQvH+GIaBQVFBnr8HMukrcCHcd/Mtq1NeLxVR43C+SDOAHUD3c6xzk61kREbuD5VJhZ
+         n0jkGDqXrbPXK6FXOMpx8WD1Rmm16CbssNw+xHkyZK/5NtakBpF5LtpRvJluKtrseP4o
+         bg4dqCGT8lt91GB5LSU5IsbgBikveNEQ2InGcBCUKOFKhX4lwbzAr2odELG0OZ2qwyPG
+         Ajvudhh5uCoFOriCKzGfhghJzysE1Q2/0IPHRhKENlf1Pdn8Vp+I25h19dQZGOJYrCWR
+         lhug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855062; x=1762459862;
+        d=1e100.net; s=20230601; t=1761855057; x=1762459857;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=pcGBUMDBt4QrK3gZ63mWxwFVf8xhoPzw9YjzqkGrLic=;
-        b=gyj20nB71Kf8Vs6HXurC+kNXmc0YAVgFdwWilHNiKppoq13uCQKfvBiTYJJ/4/Whmw
-         GXCUca3IROKelC0b3Y8KFHdWE/agGKQl/2sz5p7outMANBc4xrOrhUZkrqz1eVMBSUi2
-         Eai2kgMqsWvLhNTo8NbliXn8lj998y2NYFMLNSfvYiJ4WkPYmT18Tzd1lJMAnXtE3AN9
-         paiK199sl5Mx7pdJnkybRmLXmI1qRTm/tMkcHnZQC3MpHa4YfT9nebHbWRIb4O7r0/A8
-         lS6RcuSoY/mwBB0vX8FSUlJK28lNt5RWjhK2YjLA3RfzsKedJZp/47Sd+y+olXfCl5/q
-         hClQ==
-X-Gm-Message-State: AOJu0YziDIOCjEETVsv5AY+agU/dtK4cpUYs7vbncLIfkvGGcPgDIux0
-	4Pog1nuzZ/cjF1QGHTm1vBuB/NMV9L3lHaFDjuLynNgfECEXhqYvu6oFg3uj40NO7HfRphUdx2N
-	fS+QOYA==
-X-Google-Smtp-Source: AGHT+IE/OfQCQRYqXElzN+OeKvwnTKdqn8Aa5qkU15JwMNXReTeV5Yh/81ZcfUEIC9p/s1OTRodzv1oDE/0=
-X-Received: from pjbms9.prod.google.com ([2002:a17:90b:2349:b0:33d:69cf:1f82])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:c401:b0:295:21ac:3540
- with SMTP id d9443c01a7336-29521ac3a29mr3509295ad.33.1761855061339; Thu, 30
- Oct 2025 13:11:01 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:48 -0700
+        bh=8YASmmQaw2bp6ARedML0HqNnGQNivMGsg1DfU0cvX6Q=;
+        b=DvpkLCQ+uWyotbpF+FhvLZQzqnfJ5fr27FllLvF58Be/DRqbQ9bD0f1pZifYj/vcPq
+         1CVI+CzoddWK3vw8ybFeCgzZWy6vzViaahDs41s414+hNzRFqnJy3YnrOgBWhXSUJdMa
+         nhxvDmk94kpX2CDjsqMbKGHLGHuzXaEmzTOwF+rzuBgrXmo4T3J0L4zo7nfGoV+ic8w5
+         gY6yXWXHi+a8p0ujbHmNZbl12h0DjegdBdKXNP0U0VcsoyQPZsiAHuB9YGayv55Hc4lq
+         G2nCVX2Y/YJ9KjnQXteObv7GNuTrCX61VtjaXCxYbXHzMskrnyzVuoOGLjTWziR5pDZ0
+         0GCA==
+X-Gm-Message-State: AOJu0YxkIjNW6uXlTEigilhfoDimEzKYwOdybt9Jfmh040qIFzHEyrko
+	6+nPkyWbPk/27uJBKsXWra9patJHFSQUX2WaWxVQ6zJlhSuTuBk2Y1D1ZuQ5EFtd8Up4E5pUTgC
+	atFcdkA==
+X-Google-Smtp-Source: AGHT+IEJ7RyLZ+kuNy3gvYryYSQgpwzE5exie7vcyQeCPqNyLi6NBzIMgPjXgsonnZ1/wfIIShZ4miOVTHA=
+X-Received: from pjsf3.prod.google.com ([2002:a17:90a:6543:b0:33b:51fe:1a97])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:120c:b0:294:fc1d:9e0
+ with SMTP id d9443c01a7336-2951a54d0afmr12621765ad.54.1761855056839; Thu, 30
+ Oct 2025 13:10:56 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:46 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-26-seanjc@google.com>
-Subject: [PATCH v4 25/28] KVM: TDX: Don't copy "cmd" back to userspace for KVM_TDX_CAPABILITIES
+Message-ID: <20251030200951.3402865-24-seanjc@google.com>
+Subject: [PATCH v4 23/28] KVM: TDX: Convert INIT_MEM_REGION and INIT_VCPU to
+ "unlocked" vCPU ioctl
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -87,8 +103,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Ackerley Tng <ackerleytng@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_131103_802592_F07E04E9 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20251030_191528_663068_A8BA3993 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,40 +120,167 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don't copy the kvm_tdx_cmd structure back to userspace when handling
-KVM_TDX_CAPABILITIES, as tdx_get_capabilities() doesn't modify hw_error or
-any other fields.
+Handle the KVM_TDX_INIT_MEM_REGION and KVM_TDX_INIT_VCPU vCPU sub-ioctls
+in the unlocked variant, i.e. outside of vcpu->mutex, in anticipation of
+taking kvm->lock along with all other vCPU mutexes, at which point the
+sub-ioctls _must_ start without vcpu->mutex held.
 
-Opportunistically hoist the call to tdx_get_capabilities() outside of the
-kvm->lock critical section, as getting the capabilities doesn't touch the
-VM in any way, e.g. doesn't even take @kvm.
+No functional change intended.
 
-Suggested-by: Kai Huang <kai.huang@intel.com>
+Reviewed-by: Kai Huang <kai.huang@intel.com>
+Co-developed-by: Yan Zhao <yan.y.zhao@intel.com>
+Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/x86/include/asm/kvm-x86-ops.h |  1 +
+ arch/x86/include/asm/kvm_host.h    |  1 +
+ arch/x86/kvm/vmx/main.c            |  9 +++++++
+ arch/x86/kvm/vmx/tdx.c             | 42 +++++++++++++++++++++++++-----
+ arch/x86/kvm/vmx/x86_ops.h         |  1 +
+ arch/x86/kvm/x86.c                 |  7 +++++
+ 6 files changed, 55 insertions(+), 6 deletions(-)
 
+diff --git a/arch/x86/include/asm/kvm-x86-ops.h b/arch/x86/include/asm/kvm-x86-ops.h
+index fdf178443f85..de709fb5bd76 100644
+--- a/arch/x86/include/asm/kvm-x86-ops.h
++++ b/arch/x86/include/asm/kvm-x86-ops.h
+@@ -128,6 +128,7 @@ KVM_X86_OP(enable_smi_window)
+ KVM_X86_OP_OPTIONAL(dev_get_attr)
+ KVM_X86_OP_OPTIONAL(mem_enc_ioctl)
+ KVM_X86_OP_OPTIONAL(vcpu_mem_enc_ioctl)
++KVM_X86_OP_OPTIONAL(vcpu_mem_enc_unlocked_ioctl)
+ KVM_X86_OP_OPTIONAL(mem_enc_register_region)
+ KVM_X86_OP_OPTIONAL(mem_enc_unregister_region)
+ KVM_X86_OP_OPTIONAL(vm_copy_enc_context_from)
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 87a5f5100b1d..2bfae1cfa514 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -1914,6 +1914,7 @@ struct kvm_x86_ops {
+ 	int (*dev_get_attr)(u32 group, u64 attr, u64 *val);
+ 	int (*mem_enc_ioctl)(struct kvm *kvm, void __user *argp);
+ 	int (*vcpu_mem_enc_ioctl)(struct kvm_vcpu *vcpu, void __user *argp);
++	int (*vcpu_mem_enc_unlocked_ioctl)(struct kvm_vcpu *vcpu, void __user *argp);
+ 	int (*mem_enc_register_region)(struct kvm *kvm, struct kvm_enc_region *argp);
+ 	int (*mem_enc_unregister_region)(struct kvm *kvm, struct kvm_enc_region *argp);
+ 	int (*vm_copy_enc_context_from)(struct kvm *kvm, unsigned int source_fd);
+diff --git a/arch/x86/kvm/vmx/main.c b/arch/x86/kvm/vmx/main.c
+index 0eb2773b2ae2..a46ccd670785 100644
+--- a/arch/x86/kvm/vmx/main.c
++++ b/arch/x86/kvm/vmx/main.c
+@@ -831,6 +831,14 @@ static int vt_vcpu_mem_enc_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ 	return tdx_vcpu_ioctl(vcpu, argp);
+ }
+ 
++static int vt_vcpu_mem_enc_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
++{
++	if (!is_td_vcpu(vcpu))
++		return -EINVAL;
++
++	return tdx_vcpu_unlocked_ioctl(vcpu, argp);
++}
++
+ static int vt_gmem_max_mapping_level(struct kvm *kvm, kvm_pfn_t pfn,
+ 				     bool is_private)
+ {
+@@ -1005,6 +1013,7 @@ struct kvm_x86_ops vt_x86_ops __initdata = {
+ 
+ 	.mem_enc_ioctl = vt_op_tdx_only(mem_enc_ioctl),
+ 	.vcpu_mem_enc_ioctl = vt_op_tdx_only(vcpu_mem_enc_ioctl),
++	.vcpu_mem_enc_unlocked_ioctl = vt_op_tdx_only(vcpu_mem_enc_unlocked_ioctl),
+ 
+ 	.gmem_max_mapping_level = vt_op_tdx_only(gmem_max_mapping_level)
+ };
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 037429964fd7..57dfddd2a6cf 100644
+index 390c934562c1..d6f40a481487 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -2806,12 +2806,12 @@ int tdx_vm_ioctl(struct kvm *kvm, void __user *argp)
- 	if (r)
- 		return r;
+@@ -3171,6 +3171,42 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
+ 	return ret;
+ }
  
-+	if (tdx_cmd.id == KVM_TDX_CAPABILITIES)
-+		return tdx_get_capabilities(&tdx_cmd);
++int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
++{
++	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
++	struct kvm_tdx_cmd cmd;
++	int r;
 +
- 	guard(mutex)(&kvm->lock);
++	r = tdx_get_cmd(argp, &cmd);
++	if (r)
++		return r;
++
++	if (!is_hkid_assigned(kvm_tdx) || kvm_tdx->state == TD_STATE_RUNNABLE)
++		return -EINVAL;
++
++	if (mutex_lock_killable(&vcpu->mutex))
++		return -EINTR;
++
++	vcpu_load(vcpu);
++
++	switch (cmd.id) {
++	case KVM_TDX_INIT_MEM_REGION:
++		r = tdx_vcpu_init_mem_region(vcpu, &cmd);
++		break;
++	case KVM_TDX_INIT_VCPU:
++		r = tdx_vcpu_init(vcpu, &cmd);
++		break;
++	default:
++		r = -ENOIOCTLCMD;
++		break;
++	}
++
++	vcpu_put(vcpu);
++
++	mutex_unlock(&vcpu->mutex);
++	return r;
++}
++
+ int tdx_vcpu_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ {
+ 	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
+@@ -3185,12 +3221,6 @@ int tdx_vcpu_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ 		return ret;
  
- 	switch (tdx_cmd.id) {
--	case KVM_TDX_CAPABILITIES:
--		r = tdx_get_capabilities(&tdx_cmd);
+ 	switch (cmd.id) {
+-	case KVM_TDX_INIT_VCPU:
+-		ret = tdx_vcpu_init(vcpu, &cmd);
 -		break;
- 	case KVM_TDX_INIT_VM:
- 		r = tdx_td_init(kvm, &tdx_cmd);
+-	case KVM_TDX_INIT_MEM_REGION:
+-		ret = tdx_vcpu_init_mem_region(vcpu, &cmd);
+-		break;
+ 	case KVM_TDX_GET_CPUID:
+ 		ret = tdx_vcpu_get_cpuid(vcpu, &cmd);
  		break;
+diff --git a/arch/x86/kvm/vmx/x86_ops.h b/arch/x86/kvm/vmx/x86_ops.h
+index 77613a44cebf..d09abeac2b56 100644
+--- a/arch/x86/kvm/vmx/x86_ops.h
++++ b/arch/x86/kvm/vmx/x86_ops.h
+@@ -148,6 +148,7 @@ int tdx_get_msr(struct kvm_vcpu *vcpu, struct msr_data *msr);
+ int tdx_set_msr(struct kvm_vcpu *vcpu, struct msr_data *msr);
+ 
+ int tdx_vcpu_ioctl(struct kvm_vcpu *vcpu, void __user *argp);
++int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp);
+ 
+ void tdx_flush_tlb_current(struct kvm_vcpu *vcpu);
+ void tdx_flush_tlb_all(struct kvm_vcpu *vcpu);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index b85cb213a336..593fccc9cf1c 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -7243,6 +7243,13 @@ static int kvm_vm_ioctl_set_clock(struct kvm *kvm, void __user *argp)
+ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+ 				  unsigned long arg)
+ {
++	struct kvm_vcpu *vcpu = filp->private_data;
++	void __user *argp = (void __user *)arg;
++
++	if (ioctl == KVM_MEMORY_ENCRYPT_OP &&
++	    kvm_x86_ops.vcpu_mem_enc_unlocked_ioctl)
++		return kvm_x86_call(vcpu_mem_enc_unlocked_ioctl)(vcpu, argp);
++
+ 	return -ENOIOCTLCMD;
+ }
+ 
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
