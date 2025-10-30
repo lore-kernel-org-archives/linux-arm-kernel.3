@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252D3CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91EAECCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tKXZFQPIY9huKKDzHI/adxrAQNVvBOC19OL+GKwqRc4=; b=CcdY0ANSw/VMgtsOrU5HdcfDkB
-	V3v4DJMYvE9TyzJajNLLU4U/IepHAKv1XzIdoZeMXq1Y7lLeSN9PNzehbWeUqSZCHgFwo/fXXygjS
-	Tu1MDKN2rIc+0BMklkWR3Iv+DmueaZIVxAQJvrPglw86A4QRvyH+bXSY7xY7XVeAc4Rx88+UPySi+
-	hz2+iM1QQ6kiT6AGAbFVmCMgEP1/uH9FF1b/NOycveHruIbe5YpP+iM5Cu8KdtMaeR0wFkFs/GMin
-	1ynGOmI6UcTpZhcTzFpJ+7gZGonqjmS4R0xg2C4HhYzkpImdqPcQY0uCBQdJKMSZpzuQDweFdrbcm
-	uoedAEUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zrcNX0WZe6UQQAW+Y1acRpaDavildHCqqfp5zf8UBT8=; b=g3ao9AO3fDrtIGsEinZsUZN9q/
+	UYf8FQpeKcLcvOQ8Mng4OJbWWDIwMSjW5xWS3shdNQELo+sGsEmnHazouk1RRLzL5qOm+xSemz2b6
+	YgTmChEDOpYt5HWvMU7DJp4jIuFUg2O24+KPfVXC5Sr3nf8C5PnTtH9JvkjNBnXcdpsJKhoLvBhfR
+	qeFDUpkW1rETu+wJZJvItkipgaaZ1q+IkDF8edGvsxQpMg3oKXuIesz8wRu9ONkiDOsOTshoAjYCR
+	wcRyEpGNPBpCxIxSfV6Q7o3K57n13/B1rMHlhYMURMDZ4Fe5IntYq5V+IqKGBI7i0S5VwSWucSEqI
+	Omxv2M0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYga-00000004iE8-2f4t;
-	Thu, 30 Oct 2025 19:51:52 +0000
-Received: from vs10.datenmanufaktur-hosting.net ([213.160.73.65] helo=vs81.iboxed.net)
+	id 1vEYyB-00000004jFy-1qhU;
+	Thu, 30 Oct 2025 20:10:03 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYgN-00000004i74-3yTp
+	id 1vEYy8-00000004jDv-3KMO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 19:51:43 +0000
-Received: from blala.de (localhost [127.0.0.1])
-	by vs81.iboxed.net (8.15.2/8.15.2/Debian-14~deb10u1) with ESMTP id 59UJvBgc020223;
-	Thu, 30 Oct 2025 19:57:11 GMT
-Received: (from akurz@localhost)
-	by blala.de (8.15.2/8.15.2/Submit) id 59UJvBET020219;
-	Thu, 30 Oct 2025 19:57:11 GMT
-From: Alexander Kurz <akurz@blala.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-        Lee Jones <lee@kernel.org>, Dzmitry Sankouski <dsankouski@gmail.com>,
-        Griffin Kroah-Hartman <griffin.kroah@fairphone.com>,
-        Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>,
-        Heiko Stuebner <heiko@sntech.de>,
-        "Dr . David Alan Gilbert" <linux@treblig.org>,
-        Job Sava <jsava@criticallink.com>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-input@vger.kernel.org, Alexander Kurz <akurz@blala.de>
-Subject: [PATCH v6 4/6] Input: mc13783-pwrbutton: enable other mc13xxx PMIC
-Date: Thu, 30 Oct 2025 19:56:52 +0000
-Message-Id: <20251030195654.20142-5-akurz@blala.de>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20251030195654.20142-1-akurz@blala.de>
-References: <20251030195654.20142-1-akurz@blala.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 30 Oct 2025 20:10:02 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-340871b5d89so129406a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:09:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761854999; x=1762459799; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zrcNX0WZe6UQQAW+Y1acRpaDavildHCqqfp5zf8UBT8=;
+        b=ROEitbmqZvKrgoi28PyzImVpNWXgZXBr4mE7r3J0uE2UG4esOKY4GFfoa9tTpNhhu4
+         Oi/T8x/Sl26uRPnrZkhvICHNqhVTJFHYJgUQxpuOURClNMtXyY9hCZUUpV7l01B8XgR3
+         Pu/4zMYiASE45Qqgs5rrRxizDet+V8+c0KmOmcJCxBwU6xICu5+6Ii1YLCg6gvJQcQlt
+         7/YFQpRO4cET+M5CEK54x6wsm45HCtFkB4qo6KsU91jdEW9g4dooxnjpi1GJNV8+qPF5
+         Cz65ZaV2y17rJIZblgrhGT40zJ6Pdz2VFb//SQC9Dz7oiBFHyGHqERsOsdnsBM/ZAaqe
+         QftQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761854999; x=1762459799;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zrcNX0WZe6UQQAW+Y1acRpaDavildHCqqfp5zf8UBT8=;
+        b=tvaEY8aCSH9ZneCTULrKJMrz0ZQHZLWkUVI2PaB0J5hHsVp2kbF4JQqzJFIVilrUl2
+         4opZ3OTYbR0Jx3sbqeBnKhUVrQPvZK1ibYcqbfs8pRV80QZmSFR70JALP6PiKRfb/q3P
+         MMKJKF+FNQwSZymGIAsYsn+3roVGo5i8oilXfImKqxJl7GifGATP0rnwl81uvmbx1JnX
+         GBTf7j1ACKIU5FQQvOhalEw4Fj4F7/umtP91ncVqG8ybib4tUjygkU7HpRBvkXHqPIlk
+         zqm10O/CKxZnQDlFS2uLe6p0NA0RJurh8EN+h4c2YcemagySvqnm0Wq9rvs+ifelfbbX
+         2P1g==
+X-Gm-Message-State: AOJu0YzlruPlacR/ZUqqW0EOX6t0o8Jl2mnOoKFzCcSt0OUut0yMHBdG
+	AlLn0joDoAa8m5r4r2CUYk7E/643dD/BQGYvne45SUnM6OOcTgaSiE4kjYg+rsufTw9D0e8M3+n
+	sVuUA+g==
+X-Google-Smtp-Source: AGHT+IHHZpNGbgjLGw+ZYpoCrFPTV304XH1EL6WE9wIH48O/1tSukWUG1dLDd7KIv/LOoUL3Sr92aGNZzYE=
+X-Received: from pjvp23.prod.google.com ([2002:a17:90a:df97:b0:339:e59f:e26])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:d40c:b0:33b:b020:5968
+ with SMTP id 98e67ed59e1d1-34083071b1emr1223925a91.21.1761854998946; Thu, 30
+ Oct 2025 13:09:58 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:23 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
+Message-ID: <20251030200951.3402865-1-seanjc@google.com>
+Subject: [PATCH v4 00/28] KVM: x86/mmu: TDX post-populate cleanups
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>, 
+	Kai Huang <kai.huang@intel.com>, Binbin Wu <binbin.wu@linux.intel.com>, 
+	Michael Roth <michael.roth@amd.com>, Yan Zhao <yan.y.zhao@intel.com>, 
+	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
+	Ackerley Tng <ackerleytng@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_125140_279967_6C6C1D79 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20251030_131000_833788_03AC6AE3 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,348 +97,138 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All three mc13xxx types feature two common power buttons referred in
-the datasheets as ONOFD[12] (mc13783) and PWRON[12] (mc13892/mc34708).
-A third button is available on the mc13783 and mc13892 models, which
-however uses distinct interrupt register bits.
+Non-x86 folks, as with v3, patches 1 and 2 are likely the only thing of
+interest here.  They make kvm_arch_vcpu_async_ioctl() mandatory and then
+rename it to kvm_arch_vcpu_unlocked_ioctl().
 
-Add support for mc13892/mc34708 to support all available power buttons
-in the mc13xxx series.
+As for the x86 side...
 
-Signed-off-by: Alexander Kurz <akurz@blala.de>
----
- drivers/input/misc/Kconfig             |   4 +-
- drivers/input/misc/mc13783-pwrbutton.c | 131 +++++++++++--------------
- drivers/mfd/mc13xxx-core.c             |  22 ++++-
- include/linux/mfd/mc13783.h            |   4 +-
- include/linux/mfd/mc13892.h            |   1 +
- include/linux/mfd/mc13xxx.h            |   2 +
- 6 files changed, 84 insertions(+), 80 deletions(-)
+Clean up the TDX post-populate paths (and many tangentially related paths) to
+address locking issues between gmem and TDX's post-populate hook[*], and
+within KVM itself (KVM doesn't ensure full mutual exclusivity between paths
+that for all intents and purposes the TDX-Module requires to be serialized).
 
-diff --git a/drivers/input/misc/Kconfig b/drivers/input/misc/Kconfig
-index cc2558630797..c967daa0388a 100644
---- a/drivers/input/misc/Kconfig
-+++ b/drivers/input/misc/Kconfig
-@@ -297,8 +297,8 @@ config INPUT_MC13783_PWRBUTTON
- 	tristate "MC13783 ON buttons"
- 	depends on MFD_MC13XXX
- 	help
--	  Support the ON buttons of MC13783 PMIC as an input device
--	  reporting power button status.
-+	  Support the ON buttons of MC13783/MC13892/MC34708 PMIC as an input
-+	  device reporting power button status.
- 
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called mc13783-pwrbutton.
-diff --git a/drivers/input/misc/mc13783-pwrbutton.c b/drivers/input/misc/mc13783-pwrbutton.c
-index 2ee115d77b1c..08618c59197f 100644
---- a/drivers/input/misc/mc13783-pwrbutton.c
-+++ b/drivers/input/misc/mc13783-pwrbutton.c
-@@ -30,9 +30,16 @@
- #include <linux/sched.h>
- #include <linux/slab.h>
- 
-+struct mc13xxx_button_devtype {
-+	int button_id_max;
-+	const char *irq_name[3];
-+	int irq_sense_reg[3];
-+};
-+
- struct mc13783_pwrb {
- 	struct input_dev *pwr;
- 	struct mc13xxx *mc13783;
-+	const struct mc13xxx_button_devtype *devtype;
- 	int flags;
- 	unsigned short keymap[3];
- 	int irq[3];
-@@ -43,9 +50,6 @@ struct mc13783_pwrb {
- #define MC13783_PWRB_B3_POL_INVERT	(1 << 2)
- 
- #define MC13783_REG_INTERRUPT_SENSE_1		5
--#define MC13783_IRQSENSE1_ONOFD1S		(1 << 3)
--#define MC13783_IRQSENSE1_ONOFD2S		(1 << 4)
--#define MC13783_IRQSENSE1_ONOFD3S		(1 << 5)
- 
- #define MC13783_REG_POWER_CONTROL_2		15
- #define MC13783_POWER_CONTROL_2_ON1BDBNC	4
-@@ -63,17 +67,17 @@ static irqreturn_t button_irq(int irq, void *_priv)
- 	mc13xxx_reg_read(priv->mc13783, MC13783_REG_INTERRUPT_SENSE_1, &val);
- 
- 	if (irq == priv->irq[0]) {
--		val = val & MC13783_IRQSENSE1_ONOFD1S ? 1 : 0;
-+		val = val & (1 << priv->devtype->irq_sense_reg[0]) ? 1 : 0;
- 		if (priv->flags & MC13783_PWRB_B1_POL_INVERT)
- 			val ^= 1;
- 		input_report_key(priv->pwr, priv->keymap[0], val);
- 	} else if (irq == priv->irq[1]) {
--		val = val & MC13783_IRQSENSE1_ONOFD2S ? 1 : 0;
-+		val = val & (1 << priv->devtype->irq_sense_reg[1]) ? 1 : 0;
- 		if (priv->flags & MC13783_PWRB_B2_POL_INVERT)
- 			val ^= 1;
- 		input_report_key(priv->pwr, priv->keymap[1], val);
--	} else if (irq == priv->irq[2]) {
--		val = val & MC13783_IRQSENSE1_ONOFD3S ? 1 : 0;
-+	} else if (irq == priv->irq[2] && priv->devtype->button_id_max >= 2) {
-+		val = val & (1 << priv->devtype->irq_sense_reg[2]) ? 1 : 0;
- 		if (priv->flags & MC13783_PWRB_B3_POL_INVERT)
- 			val ^= 1;
- 		input_report_key(priv->pwr, priv->keymap[2], val);
-@@ -88,6 +92,8 @@ static int mc13783_pwrbutton_probe(struct platform_device *pdev)
- {
- 	const struct mc13xxx_buttons_platform_data *pdata;
- 	struct mc13xxx *mc13783 = dev_get_drvdata(pdev->dev.parent);
-+	struct mc13xxx_button_devtype *devtype =
-+		(struct mc13xxx_button_devtype *)pdev->id_entry->driver_data;
- 	struct input_dev *pwr;
- 	struct mc13783_pwrb *priv;
- 	int err = 0;
-@@ -108,54 +114,36 @@ static int mc13783_pwrbutton_probe(struct platform_device *pdev)
- 	if (!priv)
- 		return -ENOMEM;
- 
-+	if (devtype->button_id_max < 2 && pdata->b_on_flags[2] & 0x3) {
-+		dev_err(&pdev->dev, "button not supported\n");
-+		return -ENODEV;
-+	}
-+
- 	reg |= (pdata->b_on_flags[0] & 0x3) << MC13783_POWER_CONTROL_2_ON1BDBNC;
- 	reg |= (pdata->b_on_flags[1] & 0x3) << MC13783_POWER_CONTROL_2_ON2BDBNC;
- 	reg |= (pdata->b_on_flags[2] & 0x3) << MC13783_POWER_CONTROL_2_ON3BDBNC;
- 
- 	priv->pwr = pwr;
- 	priv->mc13783 = mc13783;
-+	priv->devtype = devtype;
- 
- 	mc13xxx_lock(mc13783);
- 
--	if (pdata->b_on_flags[0] & MC13783_BUTTON_ENABLE) {
--		priv->keymap[0] = pdata->b_on_key[0];
--		if (pdata->b_on_key[0] != KEY_RESERVED)
--			__set_bit(pdata->b_on_key[0], pwr->keybit);
-+	for (int i = 0; i < devtype->button_id_max; i++) {
-+		if ((pdata->b_on_flags[i] & MC13783_BUTTON_ENABLE) == 0)
-+			continue;
- 
--		if (pdata->b_on_flags[0] & MC13783_BUTTON_POL_INVERT)
--			priv->flags |= MC13783_PWRB_B1_POL_INVERT;
-+		priv->keymap[i] = pdata->b_on_key[i];
-+		if (pdata->b_on_key[i] != KEY_RESERVED)
-+			__set_bit(pdata->b_on_key[i], pwr->keybit);
- 
--		if (pdata->b_on_flags[0] & MC13783_BUTTON_RESET_EN)
--			reg |= MC13783_POWER_CONTROL_2_ON1BRSTEN;
-+		if (pdata->b_on_flags[i] & MC13783_BUTTON_POL_INVERT)
-+			priv->flags |= (MC13783_PWRB_B1_POL_INVERT << i);
- 
--		irq = platform_get_irq_byname(pdev, "b1on");
-+		if (pdata->b_on_flags[i] & MC13783_BUTTON_RESET_EN)
-+			reg |= (MC13783_POWER_CONTROL_2_ON1BRSTEN << i);
- 
--		if (irq < 0) {
--			dev_dbg(&pdev->dev, "Can't request irq\n");
--			goto free_mc13xxx_lock;
--		}
--
--		err = devm_request_any_context_irq(&pdev->dev, irq, button_irq,
--						   IRQF_ONESHOT, "b1on",
--						   priv);
--		if (err < 0)
--			goto free_mc13xxx_lock;
--
--		priv->irq[0] = irq;
--	}
--
--	if (pdata->b_on_flags[1] & MC13783_BUTTON_ENABLE) {
--		priv->keymap[1] = pdata->b_on_key[1];
--		if (pdata->b_on_key[1] != KEY_RESERVED)
--			__set_bit(pdata->b_on_key[1], pwr->keybit);
--
--		if (pdata->b_on_flags[1] & MC13783_BUTTON_POL_INVERT)
--			priv->flags |= MC13783_PWRB_B2_POL_INVERT;
--
--		if (pdata->b_on_flags[1] & MC13783_BUTTON_RESET_EN)
--			reg |= MC13783_POWER_CONTROL_2_ON2BRSTEN;
--
--		irq = platform_get_irq_byname(pdev, "b2on");
-+		irq = platform_get_irq_byname(pdev, devtype->irq_name[i]);
- 
- 		if (irq < 0) {
- 			dev_dbg(&pdev->dev, "Can't request irq\n");
-@@ -163,39 +151,12 @@ static int mc13783_pwrbutton_probe(struct platform_device *pdev)
- 		}
- 
- 		err = devm_request_any_context_irq(&pdev->dev, irq, button_irq,
--						   IRQF_ONESHOT, "b2on",
--						   priv);
-+					   IRQF_ONESHOT, devtype->irq_name[i],
-+					   priv);
- 		if (err < 0)
- 			goto free_mc13xxx_lock;
- 
--		priv->irq[1] = irq;
--	}
--
--	if (pdata->b_on_flags[2] & MC13783_BUTTON_ENABLE) {
--		priv->keymap[2] = pdata->b_on_key[2];
--		if (pdata->b_on_key[2] != KEY_RESERVED)
--			__set_bit(pdata->b_on_key[2], pwr->keybit);
--
--		if (pdata->b_on_flags[2] & MC13783_BUTTON_POL_INVERT)
--			priv->flags |= MC13783_PWRB_B3_POL_INVERT;
--
--		if (pdata->b_on_flags[2] & MC13783_BUTTON_RESET_EN)
--			reg |= MC13783_POWER_CONTROL_2_ON3BRSTEN;
--
--		irq = platform_get_irq_byname(pdev, "b3on");
--
--		if (irq < 0) {
--			dev_dbg(&pdev->dev, "Can't request irq: %d\n", err);
--			goto free_mc13xxx_lock;
--		}
--
--		err = devm_request_any_context_irq(&pdev->dev, irq, button_irq,
--						   IRQF_ONESHOT, "b3on",
--						   priv);
--		if (err < 0)
--			goto free_mc13xxx_lock;
--
--		priv->irq[2] = irq;
-+		priv->irq[i] = irq;
- 	}
- 
- 	mc13xxx_reg_rmw(mc13783, MC13783_REG_POWER_CONTROL_2, 0x3FE, reg);
-@@ -226,7 +187,33 @@ static int mc13783_pwrbutton_probe(struct platform_device *pdev)
- 	return err;
- }
- 
-+static const struct mc13xxx_button_devtype mc13783_button_devtype = {
-+	.button_id_max	= 2,
-+	.irq_name = { "b1on", "b2on", "b3on" },
-+	.irq_sense_reg = { 3, 4, 5 },
-+};
-+
-+static const struct mc13xxx_button_devtype mc13892_button_devtype = {
-+	.button_id_max	= 2,
-+	.irq_name = { "b1on", "b2on", "b3on" },
-+	.irq_sense_reg = { 3, 4, 2 },
-+};
-+
-+static const struct mc13xxx_button_devtype mc34708_button_devtype = {
-+	.button_id_max	= 1,
-+	.irq_name = { "b1on", "b2on" },
-+	.irq_sense_reg = { 3, 4 },
-+};
-+
-+static const struct platform_device_id mc13xxx_pwrbutton_idtable[] = {
-+	{ "mc13783-pwrbutton", (kernel_ulong_t)&mc13783_button_devtype },
-+	{ "mc13892-pwrbutton", (kernel_ulong_t)&mc13892_button_devtype },
-+	{ "mc34708-pwrbutton", (kernel_ulong_t)&mc34708_button_devtype },
-+	{ /* sentinel */ }
-+};
-+
- static struct platform_driver mc13783_pwrbutton_driver = {
-+	.id_table	= mc13xxx_pwrbutton_idtable,
- 	.probe		= mc13783_pwrbutton_probe,
- 	.driver		= {
- 		.name	= "mc13783-pwrbutton",
-diff --git a/drivers/mfd/mc13xxx-core.c b/drivers/mfd/mc13xxx-core.c
-index 1756c8d47d5e..c29974722704 100644
---- a/drivers/mfd/mc13xxx-core.c
-+++ b/drivers/mfd/mc13xxx-core.c
-@@ -14,6 +14,7 @@
- #include <linux/platform_device.h>
- #include <linux/mfd/core.h>
- #include <linux/mfd/mc13783.h>
-+#include <linux/mfd/mc13892.h>
- 
- #include "mc13xxx.h"
- 
-@@ -48,11 +49,22 @@
- #define MC13XXX_ADC2		45
- 
- static const struct resource mc13783_button_resources[] = {
--	DEFINE_RES_IRQ_NAMED(MC13783_IRQ_ONOFD1, "b1on"),
--	DEFINE_RES_IRQ_NAMED(MC13783_IRQ_ONOFD2, "b2on"),
-+	DEFINE_RES_IRQ_NAMED(MC13XXX_IRQ_PWRON1, "b1on"),
-+	DEFINE_RES_IRQ_NAMED(MC13XXX_IRQ_PWRON2, "b2on"),
- 	DEFINE_RES_IRQ_NAMED(MC13783_IRQ_ONOFD3, "b3on"),
- };
- 
-+static const struct resource mc13892_button_resources[] = {
-+	DEFINE_RES_IRQ_NAMED(MC13XXX_IRQ_PWRON1, "b1on"),
-+	DEFINE_RES_IRQ_NAMED(MC13XXX_IRQ_PWRON2, "b2on"),
-+	DEFINE_RES_IRQ_NAMED(MC13892_IRQ_PWRON3, "b3on"),
-+};
-+
-+static const struct resource mc34708_button_resources[] = {
-+	DEFINE_RES_IRQ_NAMED(MC13XXX_IRQ_PWRON1, "b1on"),
-+	DEFINE_RES_IRQ_NAMED(MC13XXX_IRQ_PWRON2, "b2on"),
-+};
-+
- void mc13xxx_lock(struct mc13xxx *mc13xxx)
- {
- 	if (!mutex_trylock(&mc13xxx->lock)) {
-@@ -216,14 +228,16 @@ EXPORT_SYMBOL_GPL(mc13xxx_variant_mc13783);
- 
- struct mc13xxx_variant mc13xxx_variant_mc13892 = {
- 	.name = "mc13892",
--	.button_resources_size = 0,
-+	.button_resources = mc13892_button_resources,
-+	.button_resources_size = ARRAY_SIZE(mc13892_button_resources),
- 	.print_revision = mc13xxx_print_revision,
- };
- EXPORT_SYMBOL_GPL(mc13xxx_variant_mc13892);
- 
- struct mc13xxx_variant mc13xxx_variant_mc34708 = {
- 	.name = "mc34708",
--	.button_resources_size = 0,
-+	.button_resources = mc34708_button_resources,
-+	.button_resources_size = ARRAY_SIZE(mc34708_button_resources),
- 	.print_revision = mc34708_print_revision,
- };
- EXPORT_SYMBOL_GPL(mc13xxx_variant_mc34708);
-diff --git a/include/linux/mfd/mc13783.h b/include/linux/mfd/mc13783.h
-index c25b1676741b..ab6db774e1fa 100644
---- a/include/linux/mfd/mc13783.h
-+++ b/include/linux/mfd/mc13783.h
-@@ -65,8 +65,8 @@
- #define MC13783_IRQ_UDM		23
- #define MC13783_IRQ_1HZ		MC13XXX_IRQ_1HZ
- #define MC13783_IRQ_TODA	MC13XXX_IRQ_TODA
--#define MC13783_IRQ_ONOFD1	27
--#define MC13783_IRQ_ONOFD2	28
-+#define MC13783_IRQ_ONOFD1	MC13XXX_IRQ_PWRON1
-+#define MC13783_IRQ_ONOFD2	MC13XXX_IRQ_PWRON2
- #define MC13783_IRQ_ONOFD3	29
- #define MC13783_IRQ_SYSRST	MC13XXX_IRQ_SYSRST
- #define MC13783_IRQ_RTCRST	MC13XXX_IRQ_RTCRST
-diff --git a/include/linux/mfd/mc13892.h b/include/linux/mfd/mc13892.h
-index 880cd949d12a..567d527825df 100644
---- a/include/linux/mfd/mc13892.h
-+++ b/include/linux/mfd/mc13892.h
-@@ -33,4 +33,5 @@
- #define MC13892_PWGT2SPI	22
- #define MC13892_VCOINCELL	23
- 
-+#define MC13892_IRQ_PWRON3	26
- #endif
-diff --git a/include/linux/mfd/mc13xxx.h b/include/linux/mfd/mc13xxx.h
-index 4437ab80fcf8..71c7d3614d4c 100644
---- a/include/linux/mfd/mc13xxx.h
-+++ b/include/linux/mfd/mc13xxx.h
-@@ -61,6 +61,8 @@ int mc13xxx_irq_unmask(struct mc13xxx *mc13xxx, int irq);
- #define MC13XXX_IRQ_LOBATH	14
- #define MC13XXX_IRQ_1HZ		24
- #define MC13XXX_IRQ_TODA	25
-+#define MC13XXX_IRQ_PWRON1	27
-+#define MC13XXX_IRQ_PWRON2	28
- #define MC13XXX_IRQ_SYSRST	30
- #define MC13XXX_IRQ_RTCRST	31
- #define MC13XXX_IRQ_PC		32
+I apologize if I missed any trailers or feedback, I think I got everything...
+
+[*] http://lore.kernel.org/all/aG_pLUlHdYIZ2luh@google.com
+
+v4:
+ - Collect reviews/acks.
+ - Add a lockdep assertion in kvm_tdp_mmu_map_private_pfn(). [Yan]
+ - Wrap kvm_tdp_mmu_map_private_pfn() with CONFIG_KVM_GUEST_MEMFD=y. [test bot]
+ - Improve (or add) comments. [Kai, and probably others]
+ - s/spte/mirror_spte to make it clear what's being passed in
+ - Update set_external_spte() to take @mirror_spte as well. [Yan]
+ - Move the KVM_BUG_ON() on tdh_mr_extend() failure to the end. [Rick]
+ - Take "all" the locks in tdx_vm_ioctl(). [Kai]
+ - WARN if KVM attempts to map SPTEs into an invalid root. [Yan]
+ - Use tdx_flush_vp_on_cpu() instead of tdx_disassociate_vp() when freeing
+   a vCPU in VCPU_TD_STATE_UNINITIALIZED state. [Yan]
+
+v3:
+ - https://lore.kernel.org/all/20251017003244.186495-1-seanjc@google.com
+ - Collect more reviews.
+ - Add the async_ioctl() => unlocked_ioctl() patches, and use the "unlocked"
+   variant in the TDX vCPU sub-ioctls so they can take kvm->lock outside of
+   vcpu->mutex.
+ - Add a patch to document that vcpu->mutex is taken *outside* kvm->slots_lock.
+ - Add the tdx_vm_state_guard CLASS() to take kvm->lock, all vcpu->mutex locks,
+   and kvm->slots_lock, in order to make tdx_td_init(), tdx_td_finalize(),
+   tdx_vcpu_init_mem_region(), and tdx_vcpu_init() mutually exclusive with
+   each other, and mutually exclusvie with basically anything that can result
+   in contending one of the TDX-Module locks (can't remember which one).
+ - Refine the changelog for the "Drop PROVE_MMU=y" patch. [Binbin]
+
+v2:
+ - Collect a few reviews (and ignore some because the patches went away).
+   [Rick, Kai, Ira]
+ - Move TDH_MEM_PAGE_ADD under mmu_lock and drop nr_premapped. [Yan, Rick]
+ - Force max_level = PG_LEVEL_4K straightaway. [Yan]
+ - s/kvm_tdp_prefault_page/kvm_tdp_page_prefault. [Rick]
+ - Use Yan's version of "Say no to pinning!".  [Yan, Rick]
+ - Tidy up helpers and macros to reduce boilerplate and copy+pate code, and
+   to eliminate redundant/dead code (e.g. KVM_BUG_ON() the same error
+   multiple times).
+ - KVM_BUG_ON() if TDH_MR_EXTEND fails (I convinced myself it can't).
+
+v1: https://lore.kernel.org/all/20250827000522.4022426-1-seanjc@google.com
+
+
+Sean Christopherson (26):
+  KVM: Make support for kvm_arch_vcpu_async_ioctl() mandatory
+  KVM: Rename kvm_arch_vcpu_async_ioctl() to
+    kvm_arch_vcpu_unlocked_ioctl()
+  KVM: TDX: Drop PROVE_MMU=y sanity check on to-be-populated mappings
+  KVM: x86/mmu: Add dedicated API to map guest_memfd pfn into TDP MMU
+  KVM: x86/mmu: WARN if KVM attempts to map into an invalid TDP MMU root
+  Revert "KVM: x86/tdp_mmu: Add a helper function to walk down the TDP
+    MMU"
+  KVM: x86/mmu: Rename kvm_tdp_map_page() to kvm_tdp_page_prefault()
+  KVM: TDX: Return -EIO, not -EINVAL, on a KVM_BUG_ON() condition
+  KVM: TDX: Fold tdx_sept_drop_private_spte() into
+    tdx_sept_remove_private_spte()
+  KVM: x86/mmu: Drop the return code from
+    kvm_x86_ops.remove_external_spte()
+  KVM: TDX: WARN if mirror SPTE doesn't have full RWX when creating
+    S-EPT mapping
+  KVM: TDX: Avoid a double-KVM_BUG_ON() in tdx_sept_zap_private_spte()
+  KVM: TDX: Use atomic64_dec_return() instead of a poor equivalent
+  KVM: TDX: Fold tdx_mem_page_record_premap_cnt() into its sole caller
+  KVM: TDX: ADD pages to the TD image while populating mirror EPT
+    entries
+  KVM: TDX: Fold tdx_sept_zap_private_spte() into
+    tdx_sept_remove_private_spte()
+  KVM: TDX: Combine KVM_BUG_ON + pr_tdx_error() into TDX_BUG_ON()
+  KVM: TDX: Derive error argument names from the local variable names
+  KVM: TDX: Assert that mmu_lock is held for write when removing S-EPT
+    entries
+  KVM: TDX: Add macro to retry SEAMCALLs when forcing vCPUs out of guest
+  KVM: TDX: Add tdx_get_cmd() helper to get and validate sub-ioctl
+    command
+  KVM: TDX: Convert INIT_MEM_REGION and INIT_VCPU to "unlocked" vCPU
+    ioctl
+  KVM: TDX: Use guard() to acquire kvm->lock in tdx_vm_ioctl()
+  KVM: TDX: Don't copy "cmd" back to userspace for KVM_TDX_CAPABILITIES
+  KVM: TDX: Guard VM state transitions with "all" the locks
+  KVM: TDX: Bug the VM if extending the initial measurement fails
+
+Yan Zhao (2):
+  KVM: TDX: Drop superfluous page pinning in S-EPT management
+  KVM: TDX: Fix list_add corruption during vcpu_load()
+
+ arch/arm64/kvm/arm.c               |   6 +
+ arch/loongarch/kvm/Kconfig         |   1 -
+ arch/loongarch/kvm/vcpu.c          |   4 +-
+ arch/mips/kvm/Kconfig              |   1 -
+ arch/mips/kvm/mips.c               |   4 +-
+ arch/powerpc/kvm/Kconfig           |   1 -
+ arch/powerpc/kvm/powerpc.c         |   4 +-
+ arch/riscv/kvm/Kconfig             |   1 -
+ arch/riscv/kvm/vcpu.c              |   4 +-
+ arch/s390/kvm/Kconfig              |   1 -
+ arch/s390/kvm/kvm-s390.c           |   4 +-
+ arch/x86/include/asm/kvm-x86-ops.h |   1 +
+ arch/x86/include/asm/kvm_host.h    |   7 +-
+ arch/x86/kvm/mmu.h                 |   3 +-
+ arch/x86/kvm/mmu/mmu.c             |  87 +++-
+ arch/x86/kvm/mmu/tdp_mmu.c         |  50 +--
+ arch/x86/kvm/vmx/main.c            |   9 +
+ arch/x86/kvm/vmx/tdx.c             | 659 ++++++++++++++---------------
+ arch/x86/kvm/vmx/tdx.h             |   8 +-
+ arch/x86/kvm/vmx/x86_ops.h         |   1 +
+ arch/x86/kvm/x86.c                 |  13 +
+ include/linux/kvm_host.h           |  14 +-
+ virt/kvm/Kconfig                   |   3 -
+ virt/kvm/kvm_main.c                |   6 +-
+ 24 files changed, 468 insertions(+), 424 deletions(-)
+
+
+base-commit: 4cc167c50eb19d44ac7e204938724e685e3d8057
 -- 
-2.39.5
+2.51.1.930.gacf6e81ea2-goog
 
 
