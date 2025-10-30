@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A564CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813F7CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DdJzl4arHjM9hwJvJN/SY7j9/5VeDcBvthoBwvujmhw=; b=tUJHFYkGnMkYF1ySVn6nNBoCF9
-	BAWHYlDlkV5cIKmIsr+Zxwvbw+QKc1hfmUlco1fUChVWdKfu7zkPQlC5QfsJVlpTQJ7P0V9NkUvUu
-	bb0mBjHfCjgdk4hdAQfbSd5jCUFOlDY7dXpZrrUicYTQMDZB5e2AW47+NSJiXLAX3WUgsAswx2USh
-	IytMTYgZzxFIxdu55W/LIO/1jLGy6/ZGDBJPxBAbApsnBjEaHu3Qq7OlW6Ox3/tmoDCOwSz1uhhrj
-	pByoDpCAWhyONF8G2UaxKmE3P1MVlepebU32sFvNCbw0CwDmSorhYTV8hu1MwgEsgp2go8Yvehwk1
-	b101AQ4A==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Psazla5+eYAufNiiwI3yXjwC/wZ2Y95axZ2CKkrlGsc=; b=soWGfpvIVE/cfF
+	idqnXmfZzTwQj+5E4kw84Qqm5qChjRfzwebxyLXOI8Wpe5WLBqcJLlmN7NhDPIjip65zPyB52tT3d
+	AEy0+sXYO9TIoAZhmzrENnXKzJ6c+XWVY2nAU9lwEdJZkk/kh1fc5HPJb2iPISzFD/MTDBsDGnza3
+	AEDkhAjW9p2+UejwqstZsq/OFFa0AjAuy1i6S5I6Z73vy0qw4th69dNPy+GYxgOFW2fdjboGreylS
+	BXsi8KCTXJ1XNDu6dcVDO3e1eli9GKUZjBGpttwznNjPo5pavdur2JDbY8DqQ7kq3rZXexQhabIse
+	nNrmtwz9fO/EphANo9sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUfY-00000004OYI-3qa2;
-	Thu, 30 Oct 2025 15:34:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEUkA-00000004OqP-2YwI;
+	Thu, 30 Oct 2025 15:39:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUfW-00000004OXX-3KSs
+	id 1vEUk9-00000004OqD-1eJ3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:34:31 +0000
+	Thu, 30 Oct 2025 15:39:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28D6145421;
-	Thu, 30 Oct 2025 15:34:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 536E2C113D0;
-	Thu, 30 Oct 2025 15:34:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8AACE601EA;
+	Thu, 30 Oct 2025 15:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C7E4C4CEF1;
+	Thu, 30 Oct 2025 15:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761838468;
-	bh=OyXHR6XYNNU2ifnDb9UD0UTobJRP1sqkacwAo98BRNs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=twvq8vx/XZXuAMBTIzzJHsaV+h/kYq+kvXbpoiihP98R6Ef3S/7UMtQTidm+I0lti
-	 7WT22sMXhwOXvVgT+simou2SOrA4ZMPV6MDBhssJ+dW1XBjCbLBUpobsa0Rxq/t+t7
-	 4VRcVSh6//l8igqtIbUqA1ZJuJ55ik1tx1cDV4HyDM+J0hJK3Pfg8AEgtm5HRnqGGg
-	 Scfcl9pIu+VUtkT/Hy0sp2MILeV9LJHec8vTfio4hf8LRnzGwUEF2/y4Z16LtB90ub
-	 EgeeACkPTFtk26l+PA/uZe9HnGqriXZ2d4SlG6QN49NyPP77dsYaR8h/4qaJHj5F49
-	 XYTuK5dOY872A==
-Date: Thu, 30 Oct 2025 16:34:21 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Faraz Ata <faraz.ata@samsung.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	alim.akhtar@samsung.com, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rosa.pila@samsung.com, dev.tailor@samsung.com, pritam.sutar@samsung.com
-Subject: Re: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
- ports
-Message-ID: <2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
-References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
- <20251014112338.2023223-1-faraz.ata@samsung.com>
+	s=k20201202; t=1761838756;
+	bh=ek0IzzttXXx97qNT2h1xklMaf1xglphbe0kKLIhYhN4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=nleKMoCV/yk0BtnlIzx2I86cr3HqnGJCU2jCbp9S0N/Q/Sb8AY040g42QhifNtB8Z
+	 udiMRHAA0R8lBIhjvOVioR2YzQFLaGzXZ5dBAAhrCBor4d9fALEU1V4A4qV8rnRdEq
+	 hP0KMwy8FhR5ib1gdGtUvhOpN+eHx9fT0K9XJtrFhb+fVmFC8Elq8IuEFMvQzBKIew
+	 QKFOZ3tVdkiCBLZ6ZaLIOd7pOt6K+mygmbGAtJ7KwZ3oBH8c24H2QJBS45eYZMwFyC
+	 0zolbfs49T4uyRqBOcIkUj/9tq1+KJte6+ls+ftCku+3nWF1ALDRaetliGcVLmOyYm
+	 WYCCxgN+u+CRQ==
+Date: Thu, 30 Oct 2025 10:39:14 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	chaitanya chundru <quic_krichai@quicinc.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, amitk@kernel.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	jorge.ramirez@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v7 0/8] PCI: Enable Power and configure the TC9563 PCIe
+ switch
+Message-ID: <20251030153914.GA1632785@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251014112338.2023223-1-faraz.ata@samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_083430_847761_40615BED 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <3dccca2d-272f-451a-9e38-901a6fa3a24c@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Faraz,
+On Thu, Oct 30, 2025 at 09:13:29AM +0530, Krishna Chaitanya Chundru wrote:
+> On 10/30/2025 4:53 AM, Bjorn Helgaas wrote:
+> > On Wed, Oct 29, 2025 at 04:59:53PM +0530, Krishna Chaitanya Chundru wrote:
+> > > TC9563 is the PCIe switch which has one upstream and three downstream
+> > > ports. To one of the downstream ports ethernet MAC is connected as endpoint
+> > > device. Other two downstream ports are supposed to connect to external
+> > > device. One Host can connect to TC956x by upstream port.
+> > > 
+> > > TC9563 switch power is controlled by the GPIO's. After powering on
+> > > the switch will immediately participate in the link training. if the
+> > > host is also ready by that time PCIe link will established.
+> > > 
+> > > The TC9563 needs to configured certain parameters like de-emphasis,
+> > > disable unused port etc before link is established.
+> > > 
+> > > As the controller starts link training before the probe of pwrctl driver,
+> > > the PCIe link may come up as soon as we power on the switch. Due to this
+> > > configuring the switch itself through i2c will not have any effect as
+> > > this configuration needs to done before link training. To avoid this
+> > > introduce two functions in pci_ops to start_link() & stop_link() which
+> > > will disable the link training if the PCIe link is not up yet.
+> > > 
+> > > This series depends on the https://lore.kernel.org/all/20250124101038.3871768-3-krishna.chundru@oss.qualcomm.com/
+> > What does this series apply to?  It doesn't apply cleanly to v6.18-rc1
+> > (the normal base for topic branches) or v6.18-rc3 or pci/next.
+>
+> I sent this on top of rc3 as we have some dependencies with latest changes
+> i.e ecam changes in dwc driver.
 
-On Tue, Oct 14, 2025 at 04:53:38PM +0530, Faraz Ata wrote:
-> Universal Serial Interface (USI) supports three serial protocol
-> like uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
-> Add i2c nodes for all the instances.
-> 
-> Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
+Oops, sorry, my fault.  I must have been trying to apply the v6 series
+(not this v7) on -rc3.  This v7 *does* apply cleanly to -rc3.
 
-what happened to patch 1/1?
+But all the other topic branches are based on -rc1, so I think the
+best thing is to make this one apply on -rc1 as well, and I will deal
+with the resulting conflicts when merging into pci/next and ultimately
+into Linus's tree.
 
-Andi
+Bjorn
 
