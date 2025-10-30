@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF69CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E8FCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ez+rWdlJxXvTuZxuonAYjxuORLmLCaLwGK3tecXKsxw=; b=EMf+sknN7okE22S3qdbK5MQee/
-	45PrEXlxTdDUgVtswTmMMjeExRufrsxhoUtXGH8xgBs/nZz0rBh4IaMpHBLZUFEVY1w7IsTfmFWzv
-	MMLS5oouPvfCzd/+vJQrphcc9jZKftx9m9rl1kJrnxfiptEltZ+G/+8jURZ6RKJA8Ve52ob5TgSyB
-	m7ICVhp4626XFUR7Z/ucsIQegx4K/Wx/kKza4TJ7LhaIc7hLKbJUw+lIeqCBe31mOyQ6kcoSKcGe9
-	Yg1Ssakq/pznq6p1++OlORZxHcTdgC1g1Tc5DJegbzQvzT/kUDxCoJuclq1LVrfi2pjQfcn7QvfAG
-	g4q+aTVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VenRYvm6J8ztbgoSdPBRwnjlKjkK1fib+pjsZ23tyPI=; b=EBhwce4IOVcRCDF0G3z7zZqJJo
+	HeEDEHAYraJL63VkRjYQIqlHEOslSHnHoGciQmUDnBpjKcz541024Fnyuh7T3w7kwN7bpgXPz8r4C
+	+OkeFhBHx+FsCzM9Uv7eDNKB8Ll0GrKheZIvoXYUNs0zylpechF+0trm3ubhet1v8orS23CCg/qjD
+	Ryvy/b77QdgIfQ19nckUCdXCuKLxgOgBaXId36um7AlR/Uuh4Eq413tzpSfyaLNX7tlKne1y19MvH
+	JgI3ONyvXSToqa8/5nY209471INOq1QO4tvJOxu6pBoSdHSO6XDW5lJ4h8scwIFCY8BiqrU1H+DFW
+	HyUHltoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYCp-00000004fBW-1KSC;
-	Thu, 30 Oct 2025 19:21:07 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1vEYCv-00000004fFc-0aBa;
+	Thu, 30 Oct 2025 19:21:13 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYCh-00000004f6o-3bOK
+	id 1vEYCn-00000004fA1-3PYu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 19:21:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1761852011; x=1762456811; i=markus.elfring@web.de;
-	bh=Ez+rWdlJxXvTuZxuonAYjxuORLmLCaLwGK3tecXKsxw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=dw6mKfdjEOw1ZBcAhjaD1/ldWN2xZIbrYmXT6LMACL+z8LebrKcobmXSlggPzLVb
-	 rVCfeOS1XIIDDrmPLDxCJb6I6U9k9cvNkhLtY47M3Wv/pDdqdhdcgSICZbGJYI0XH
-	 O7eZdqInWQCQmUbNqyp/ewBccPeACgd4eE2p/o1rg5HgtlRaFpjcC8BnPnjIQx6QQ
-	 nddNqne3bonZucwm4Dj8iFlb/5aJNVhdrfxzwdwFm6mwEXPaEtTonFBFKHmO03kaB
-	 80VJw6cPY/Ke4pImJrg+q7Q+axOdxr/Wsvx68Wjwu6eNjIyLHzYn7+dwuxz5lsayC
-	 0dxRHjE5qIGnA0PseQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.248]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Ma0Pm-1vkTB10Qjc-00MF2u; Thu, 30
- Oct 2025 20:20:11 +0100
-Message-ID: <a87dd5ae-2143-4de6-a3e2-9c1f16a001b1@web.de>
-Date: Thu, 30 Oct 2025 20:20:07 +0100
+	Thu, 30 Oct 2025 19:21:07 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 1726125CE1;
+	Thu, 30 Oct 2025 20:21:04 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id PPcBtd3wO5oj; Thu, 30 Oct 2025 20:21:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1761852063; bh=gCZC2hfr3oNwXsihsbr7So/902BJGZg/qBfw2mGaraY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=jSmiYUcRMVvbeMGHiL1iiLoDF8cBo2SJqZzk5XYUUuVbSZR+91g0ELKGk+daUhJ8V
+	 MRAMRoAUiEdlU/mbPnAx2U/AequTnRCdE+E1IuzAa/es1/OwUZRxm94fb7nexcPN/j
+	 oyk9qVTB58sTGovmg3hZqfge930jaXTbFjNiQAwDHlS4x0jztjv/mtSM54UpgoIpmj
+	 pbw++bV78ErF7bwRVBpXSiP477iQ+oqPAOncA1imNV2cubl/2dydQoAU8te4bUjTDp
+	 tSNxuz2rKN4sfD1j2YXHe7SEu78dfOKdAxwwhkYBnnxSTn92AfLDDszZH8E/5zST6h
+	 eFaW6hyr9CR+A==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Fri, 31 Oct 2025 00:50:18 +0530
+Subject: [PATCH v4 4/5] arm64: dts: exynos7870-a2corelte: enable display
+ panel support
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: linux-arm-kernel@lists.infradead.org, Abbott Liu
- <liuwenliang@huawei.com>, Andrew Morton <akpm@linux-foundation.org>,
- Andrey Ryabinin <aryabinin@virtuozzo.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Qi Zheng <zhengqi.arch@bytedance.com>, Russell King <linux@armlinux.org.uk>
-Content-Language: en-GB, de-DE
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- kasan-dev@googlegroups.com, Ahmad Fatoum <a.fatoum@pengutronix.de>,
- Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- Miaoqian Lin <linmq006@gmail.com>, Mike Rapoport <rppt@linux.ibm.com>
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] ARM: mm: Use pointer from memcpy() call for assignment in
- pgd_alloc()
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:V5RoG/ey68k2qK2kiaYUN5TMTUEk17nuNumKA1tewu3PWEXMDdr
- jAkFMlPire2Kstbv+BzAxfw+ehgbWiQ4HOxUiaSAaRX2BoOcoJ8UrEBejqlusCsEQZvj0gg
- lUdK9YIvBQq/mNmI1sX0GU0iySPG3EXJn2MSDvwT2cci2ietk4GijBuW3zGWBQEdB77NawD
- pKLGCYU9UO2qcuyv8WQTg==
-UI-OutboundReport: notjunk:1;M01:P0:11VWYgs1VrI=;eCqQuk++6n11VUOPwjS3vVNuXb0 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
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251031-exynos7870-drm-dts-v4-4-c1f77fb16b87@disroot.org>
+References: <20251031-exynos7870-drm-dts-v4-0-c1f77fb16b87@disroot.org>
+In-Reply-To: <20251031-exynos7870-drm-dts-v4-0-c1f77fb16b87@disroot.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761852020; l=2281;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=gCZC2hfr3oNwXsihsbr7So/902BJGZg/qBfw2mGaraY=;
+ b=O4+V9VOCvcV6kL/33xJ9HqNwn/B3q3l+lxMdfIRV5RATyKeuCbegysgtjkKqIQbU16khyJw4O
+ Bw7A2/M9TubBP661CRiRsE9K9uWUXqcTu0931F+Fk2QpTVZXU8ZikYO
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_122101_203575_BDEFC576 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20251030_122105_994288_47926028 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,40 +83,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Thu, 30 Oct 2025 20:08:04 +0100
+Enable DECON and DSI nodes, and add the compatible display panel and
+appropriate panel timings for this device. Also, remove the
+simple-framebuffer node in favor of the panel.
 
-A pointer was assigned to a variable. The same pointer was used for
-the destination parameter of a memcpy() call.
-This function is documented in the way that the same value is returned.
-Thus convert two separate statements into a direct variable assignment for
-the return value from a memory copy action.
+This device has a 540x960 Synaptics TD4101 display panel.
 
-The source code was transformed by using the Coccinelle software.
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+ .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 57 ++++++++++++++++------
+ 1 file changed, 43 insertions(+), 14 deletions(-)
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
- arch/arm/mm/pgd.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+diff --git a/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
+index 07467158ee6a37e17402fb50554184c4c93f77d5..6f40ca4350ed72b57e511165e53f00e77f8978f3 100644
+--- a/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
++++ b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
+@@ -27,20 +27,7 @@ aliases {
+ 	};
+ 
+ 	chosen {
+-		#address-cells = <2>;
+-		#size-cells = <1>;
+-		ranges;
+-
+ 		stdout-path = &serial2;
+-
+-		framebuffer@67000000 {
+-			compatible = "simple-framebuffer";
+-			reg = <0x0 0x67000000 (540 * 960 * 4)>;
+-			width = <540>;
+-			height = <960>;
+-			stride = <(540 * 4)>;
+-			format = "a8r8g8b8";
+-		};
+ 	};
+ 
+ 	gpio-keys {
+@@ -110,8 +97,9 @@ ramoops@46800000 {
+ 			pmsg-size = <0x4000>;
+ 		};
+ 
+-		framebuffer@67000000 {
++		cont_splash_mem: framebuffer@67000000 {
+ 			reg = <0x0 0x67000000 (540 * 960 * 4)>;
++			iommu-addresses = <&decon 0x67000000 (540 * 960 * 4)>;
+ 			no-map;
+ 		};
+ 	};
+@@ -124,6 +112,47 @@ vibrator {
+ 	};
+ };
+ 
++&decon {
++	memory-region = <&cont_splash_mem>;
++
++	status = "okay";
++};
++
++&dsi {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	samsung,burst-clock-frequency = <836000000>;
++	samsung,esc-clock-frequency = <16000000>;
++	samsung,pll-clock-frequency = <26000000>;
++
++	status = "okay";
++
++	panel@0 {
++		compatible = "syna,td4101-panel";
++		reg = <0>;
++
++		backlight-gpios = <&gpd3 7 GPIO_ACTIVE_LOW>;
++
++		width-mm = <62>;
++		height-mm = <110>;
++
++		panel-timing {
++			clock-frequency = <69336720>;
++
++			hactive = <540>;
++			hsync-len = <4>;
++			hfront-porch = <364>;
++			hback-porch = <40>;
++
++			vactive = <960>;
++			vsync-len = <2>;
++			vfront-porch = <244>;
++			vback-porch = <13>;
++		};
++	};
++};
++
+ &gpu {
+ 	status = "okay";
+ };
 
-diff --git a/arch/arm/mm/pgd.c b/arch/arm/mm/pgd.c
-index 4eb81b7ed03a..5e90faaa4934 100644
-=2D-- a/arch/arm/mm/pgd.c
-+++ b/arch/arm/mm/pgd.c
-@@ -72,10 +72,8 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- 	init_p4d =3D p4d_offset(init_pgd, TASK_SIZE);
- 	init_pud =3D pud_offset(init_p4d, TASK_SIZE);
- 	init_pmd =3D pmd_offset(init_pud, TASK_SIZE);
--	new_pmd =3D pmd_offset(new_pud, TASK_SIZE);
--	memcpy(new_pmd, init_pmd,
--	       (pmd_index(MODULES_VADDR) - pmd_index(TASK_SIZE))
--	       * sizeof(pmd_t));
-+	new_pmd =3D memcpy(pmd_offset(new_pud, TASK_SIZE), init_pmd,
-+			 (pmd_index(MODULES_VADDR) - pmd_index(TASK_SIZE)) * sizeof(pmd_t));
- 	clean_dcache_area(new_pmd, PTRS_PER_PMD * sizeof(pmd_t));
- #endif /* CONFIG_KASAN */
- #endif /* CONFIG_LPAE */
-=2D-=20
-2.51.1
+-- 
+2.51.0
 
 
