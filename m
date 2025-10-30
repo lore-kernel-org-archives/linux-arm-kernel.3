@@ -4,111 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CEC7CCF9F5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB56CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tb0V2rWF8eK5noQCPf0SL+1neAJPUMgNFsms4dB+ol0=; b=otEK3oGnbhDsBV28gyH7FPGn3B
-	RFiq0/bG+z9hYsqAt7sEtgpZkuk6HuVmxaPZl87oSH99EXWbqOZL7cGYgE1xWVumvJy/z7R22RpxG
-	cDKM6xrl+LKwml9r0OEgam1rQDvIxYx+55pVmIwHowWadlV7zhONUWWjHlGk4rjxV1kLcueNyxK2I
-	S4uNhpKzvu1zx1p+i5szRiyKxybQGSd1/4IuHdtHQd0n7cbjurq3cTB34sLngt0Bw/0CT0TLxdoMI
-	yTm4HqnxVZV47ZAN2t61Kxp5x2604tiPUOtwva+V2IkpJCu/jWOUKCeH1DsZllmLiIlwJ6d5Jq6Hb
-	c2+/lJfw==;
+	bh=4wC+BX5JHJh22xFyFCaf9pTUQBzIskjW9y1mFyt4bCA=; b=qIVIR56DRmjM+/uJQqxqSvp3Sa
+	AcSfNVCXxFvhpmCq7HUpyyvjRqxluusr3Tfgf8i8cVZYYybiGrwEI5kMTQI+3QFBWwe5YX79MU5n2
+	cjkR0rvGstl3OmQUlxnf6H1ZWjh6elji8qEWCnISO8mQKHLBf/czhJ/Scyl5la2rM/U3mnZQcD5fw
+	bGI0X5bNBf7AqE7Vst2M2ZR6bSR+FxVTg4QKrepFqEKw3aW0hCfJcPlUkqfco+TBZeHNL6Z1BQJKM
+	zbVjpzUnY54x0m2rlJ6SFnav+YvUvUCyqlDfYSmDy0Yk4J2BO4U3Ejl1VPV5GQLtYzUXo9SrnVoi5
+	qjSyt/6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOgV-00000003pAR-2GXP;
-	Thu, 30 Oct 2025 09:11:07 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1vEOhg-00000003pKi-22ar;
+	Thu, 30 Oct 2025 09:12:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOgQ-00000003p9U-0UF5;
-	Thu, 30 Oct 2025 09:11:06 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id CA3CE14001B2;
-	Thu, 30 Oct 2025 05:10:57 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 30 Oct 2025 05:10:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1761815457;
-	 x=1761901857; bh=tb0V2rWF8eK5noQCPf0SL+1neAJPUMgNFsms4dB+ol0=; b=
-	G2IQJO95adkPHgL2RfFliPL7gFRAaAg5OtYxLBIfNxL6pb8jgmaQw5iHi+PTwB/1
-	Vi0uKCr977vPjTQ5eQ4qqW1gQlZBDUAtKVlJEu/CdokvPpZxyMRbp5ohwnR6J3bN
-	lCwwR1em5n16nPrx89XEHmqlYZTjfjwyeOZfFrSnaf2XZ4lkfFgTqIESaXbVP6iL
-	lZnkQEdOYgwEmOtRp6M3EK+XQpl76EOw1wFbyqQoxVGkXl9QdnRZveW0R2NGkxVS
-	oxTWMXsysOGEFS6PyZytYeuzEo/9QolWjNItIF+d7Q7XJNbcTLHN3Pzqbftn+b1e
-	qqg+I7u0ra2vaQPawxyx0A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1761815457; x=
-	1761901857; bh=tb0V2rWF8eK5noQCPf0SL+1neAJPUMgNFsms4dB+ol0=; b=L
-	3ey6p+1i2RRBrNpVwE/AI9rUWRHZasfr2ezQxr6UwMWVWrMlmyMjPCvGSTsAWo+W
-	1/b09Ug3Z7mEfj50zKmxvpGFyPXF3B8+t8Rwj1gsZ+M6kGB/DP4aJKcxur3PgyIp
-	fWE29kr1BMADTO1SxOe0gxbI+V+812cQ7CxzXgKYwDIKdFrmgDMON3TqFf3qVM5p
-	QI2Vb94WY+I35hMl9LS7EfI81Ak9i3VSFKKTStL2YrXEYYggb6mGjWumNMo/OUTm
-	7dZl/pBOF3XZGSb2uq2pK7RgMNCqATH3ujTezCWXvykz7EZhgmeoGmu1v76MvcWi
-	wV0awuTuES7+yi0gxgtDw==
-X-ME-Sender: <xms:oSsDabVPrIrTAdK_m5JigryzDqTJVooQbuI_XrkyLlusjclGGdAepg>
-    <xme:oSsDaeZhZSc4TnJ35k38hvg0zJnRQMaRNOPI2tBhQ2gjO25sWUwvzMLKtYjcFNNys
-    8Gk9nD9s6HFSZq-_vHpiXqbotvqiOS29gvLA40TiakvO9T5cdnVIveb>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduieeivddvucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopeifvghnshhtsegthhhrohhmihhumhdrohhrghdprhgtphhtthhope
-    grnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgr
-    rdgtohhmpdhrtghpthhtohepkhgvrhhnvghlsegtohhllhgrsghorhgrrdgtohhmpdhrtg
-    hpthhtohepmhgrthhthhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
-    rghnuggvrhhsshhonheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrthhhihgvuh
-    drphhoihhrihgvrheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidqrghr
-    mhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
-    eplhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-    pdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorh
-    hg
-X-ME-Proxy: <xmx:oSsDaWB9qRfihMri8moXwHla_MkZk0GCsxLCxQ2gXBbQ0Mr5TvNOIA>
-    <xmx:oSsDaewnx5C0FXH3B4xhDmLLOfzFlFDuMJ6zbBvYV-nIzWbxsiOXqw>
-    <xmx:oSsDaS5LiP9Tuuc7OO14BJkDjhsLQyWVBzY56kbZ6v3vKgNerK1j3w>
-    <xmx:oSsDaXwp4GkDZ5eFt32DUXgSKHuva78C0j57vuM2rhTuQ06fUCQ97g>
-    <xmx:oSsDaSnin9clfra-86r2dbBeGWJnhtq8OAB7muA_mrNh8B9qgws6CvnM>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 65CD5700054; Thu, 30 Oct 2025 05:10:57 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vEOhd-00000003pK2-2oyS;
+	Thu, 30 Oct 2025 09:12:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761815535;
+	bh=pmnmnwp8/m2ORAIlHAGqy0ONXoHyVhsFhWbawbgS1bE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=NEYTi3eaTKnDHama9LO6XQp1uZO/PAA5LyfYvmJ7PdrszOaepTIN0jD1LoDtfXCYg
+	 CQxphSawKF9v3X5EpQMXhZQ6T9dMDNH51bpfeT+pN+1NM8QN2jTlKQNmtuxJmx1CY8
+	 iTbu82LMkEz3U3/4fG5w0CD8zeFqeUaJWwe93gvD1eG/L+SoPOXJaiyDxEehEjk9Vb
+	 CH7yW80R2ASFzdC5TJOXe5/TGxJCHWDfNKXwm+btbiKw4329ZsrumiBpHdiF6bmogp
+	 GaNlVj2QHuYNhpey/pRXHjiyoumEPUmUD/++ndHWBgtmI2W03tCiz4h1h2jVW8YkqT
+	 ZsyAE8yU+bH8g==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 36C0517E139C;
+	Thu, 30 Oct 2025 10:12:15 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20251029-mtk-socinfo-mt8391-v1-1-61412dcd9938@collabora.com>
+References: <20251029-mtk-socinfo-mt8391-v1-1-61412dcd9938@collabora.com>
+Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Add entry for MT8391AV/AZA
+ Genio 720
+Message-Id: <176181553515.11821.362759210116954859.b4-ty@collabora.com>
+Date: Thu, 30 Oct 2025 10:12:15 +0100
 MIME-Version: 1.0
-X-ThreadId: A1uT7sOefpDB
-Date: Thu, 30 Oct 2025 10:10:37 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Chen-Yu Tsai" <wenst@chromium.org>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>
-Cc: "Mathieu Poirier" <mathieu.poirier@linaro.org>,
- linux-remoteproc@vger.kernel.org, "Bjorn Andersson" <andersson@kernel.org>,
- "Matthias Brugger" <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-Message-Id: <f434165f-1717-41ff-93e4-9be5b7fca929@app.fastmail.com>
-In-Reply-To: <CAGXv+5Ge-uZHKATOvqQF25DRTcHFJkopUk-JUXDtpEen=BwCiA@mail.gmail.com>
-References: <20251015084103.10737-1-angelogioacchino.delregno@collabora.com>
- <CAGXv+5Gs5_j5L3+HT7K-XYwVG6S8ZGhHZkEcS0HpdkcjRQq2oQ@mail.gmail.com>
- <9f5a3dc5-d0f8-4172-a4b4-867919612a2d@collabora.com>
- <CAGXv+5Ge-uZHKATOvqQF25DRTcHFJkopUk-JUXDtpEen=BwCiA@mail.gmail.com>
-Subject: Re: [PATCH v2] remoteproc: mtk_scp: Construct FW path if firmware-name not
- present
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_021102_226686_A7E437B4 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20251030_021217_879103_07268BAB 
+X-CRM114-Status: UNSURE (   5.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025, at 09:21, Chen-Yu Tsai wrote:
-> On Wed, Oct 29, 2025 at 7:05=E2=80=AFPM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> >
->> > I guess I can send a followup patch?
->>
->> The only followup patch that I deem to be necessary is one adding a s=
-ymlink
->> or renaming for MT8188's SCP and nothing else.
->
-> The firmware was uploaded in March of 2025, and is packaged in Debian
-> Trixie, and was also backported to Bookworm. Either adding a symlink or
-> renaming it won't trickle down to users for some time. So this seems
-> like a possible ABI break, where the ABI is the file name.
->
-> Or maybe you don't consider it as such because SCP hasn't been enabled
-> in the kernel in any release yet?
+On Wed, 29 Oct 2025 14:46:43 +0100, Louis-Alexis Eyraud wrote:
+> Add an entry for the MT8391 SoC with commercial name Genio 720.
+> 
+> 
 
-It's normally up to the kernel driver to know about the firmware
-file names and the order of trying the possible fallbacks, which
-is exactly why I originally asked to not rely on the property
-from dtb.
+Applied to v6.18-next/soc, thanks!
 
-If you want a symlink in linux-firmware, that would go the other
-way, pointing the old filename to the new location.
+[1/1] soc: mediatek: mtk-socinfo: Add entry for MT8391AV/AZA Genio 720
+      commit: 781bb149dae361eab5c8c1ece4d4c8ea953ecbf9
 
-    Arnd
+Cheers,
+Angelo
+
+
 
