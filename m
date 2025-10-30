@@ -4,102 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD13CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F8BCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEZFS4oLzG/srptDoN54vEJHXHS1Iew+xlKYXMZp3q0=; b=iHHWfOU3piltcebQYaiZs1LpgO
-	LmL/Ra884peL4Dofx+yS/y4LebWGY/w4xWxVxPbl3S4rIL6KC+PNSICMzWKRH+2ZVI2NR5tM7dYYT
-	EQ0+5xUKZUEDHHSQiafABZf98zZt45Zc2DjONqMZOCjwly4jLpfRafsZN0bUZwSjk4NZThx9YLB59
-	zuUER52c17D0zNdUF1nSVYigsmJksd+QpEIluN+rdbNOuhH4HA6HiINEUWQYpla7b0kc/PUETz56M
-	nvnT7XJ3SMz7StH9uV91NNTkPAogdjinlmC1ooGmFzEgrvUAUxrdWnbRS+oCT3f7RS8M2MtXfYC6U
-	mJ5L8FtA==;
+	bh=11fSyszQtR3jkoioIebSh0k83RLr07LvekxLFqOoF38=; b=WAhydI1lBcx5OVq/3QG/ubgEKI
+	RdRK33TlrVn/L77WhbyD+WTm2wc8nmdTcGt8wF7GLfwDW43w4d5my0puoEwJwOpYJzXcdvu9PSyia
+	PQuwJcfUs0YvjA75uKaaU7kqckwBuft4urq0cKf6VtPvgQX3fRBG2RoADC4vWEmNTj3vjlMTYHf0B
+	eoBvgwEh+oeLsoFl9fo+STDpRpC28kNcJeoaFsDRzpH04Fo1LxStLfzf+qSk4YuniFsoNsmtzqFkh
+	4hjcgLZhbiwRGxmAq8rgniPZQe37Wew31VUzOOP16z+3I+Qz00/5YhcWjntdWBPj3QFQkAdyroCl6
+	Saqm0/+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vET6a-00000004FUc-1p8A;
-	Thu, 30 Oct 2025 13:54:20 +0000
-Received: from mx-relay100-hz2.antispameurope.com ([94.100.136.201])
+	id 1vET7s-00000004Fzw-1QKE;
+	Thu, 30 Oct 2025 13:55:42 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vET6E-00000004FGb-0zDl
+	id 1vET7p-00000004Fz0-30He
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 13:53:59 +0000
-ARC-Authentication-Results: i=1; mx-gate100-hz2.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=KEZFS4oLzG/srptDoN54vEJHXHS1Iew+xlKYXMZp3q0=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1761832426;
- b=W69+/q1ONlmEJL3KQ7Ec5eH64Qx6ctPVw+X9AawQNaMtSH2kNgeyCLIKyPosmwADfpe41QWi
- +d0dSb8xkzNs9v6LELHl84QrS4+tyyJXio4pHSB4CGbRA3Ada3zwK5ttFtm8xAe04EVOMIfCQyh
- WztxKErV3f9S4GU1cmhlqv6aiJ0Sv3SVYu4dtpC7Vvl5nbZnaGZXdENA6HyWb7yrHplWhbj7Eh8
- yXnsXzhThkX88XP2dujwrbqV7P1mgvcxKK1rv2X6bOXriHZgFZmkb5C3LI7HVE846jWqGF+ehFZ
- IF4RlN4W+SqNjNsNWy8yqBJHdkNLRDgR+vW57765NS9XA==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1761832426;
- b=Wkesm/KVtbYtBgxlp/GiLspCn6P68P7nLyii2vFS6jXn9Jg1wxD1pcKUfP2pmK3JwdqfW5uM
- GBHakIFndxgnIKUGdB16H5mZScuip+WnbdGFik3TOxVUCkgat0W+iCyzPvNgMPV/VL+QLF6+kf3
- QkTkegJJmx/Q8HaklOls9SXRqB3aGWRppnVcXTbg3HRau2Zi2fjj1Y2Cv7lJzDjmSZryc5c0+L6
- UseHtbPldwhi7RVQwtw7sfFOg4MJdBzWWsHGy77p8acy1E3jsOtHIOjQuN8IuE6iPFSZY7ttWGn
- pKEir9nevAvPmhlf3PukEAecMBWwJwJwLW4NKpt3hcE5A==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay100-hz2.antispameurope.com;
- Thu, 30 Oct 2025 14:53:46 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 5CA0B5A0E73;
-	Thu, 30 Oct 2025 14:53:20 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 19/19] arm64: dts: imx95-tqma9596sa-mb-smarc-2: add aliases for SPI
-Date: Thu, 30 Oct 2025 14:53:01 +0100
-Message-ID: <20251030135306.1421154-9-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251030135306.1421154-1-alexander.stein@ew.tq-group.com>
-References: <20251030124936.1408152-1-alexander.stein@ew.tq-group.com>
- <20251030135306.1421154-1-alexander.stein@ew.tq-group.com>
+	Thu, 30 Oct 2025 13:55:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1761832535;
+ bh=11fSyszQtR3jkoioIebSh0k83RLr07LvekxLFqOoF38=;
+ b=sBgRnRYrk2oKseVnJ4UzP52fTOQi5GyvgUilCQouBBvBKMm4+yUYkwnJszGSst7/WvSLbchQq
+ u5VzeTFr5nKBlu/M9Qus8BhCyEjJNxoxBC3P63IzgDUdo1dhRxHOjiP0L6tV/3y5M624iiXBWrD
+ nsuUaUWAxi2tir6rnlaFgRbsMsVBxetWE5dwJPmx5PJNNeQ+t3Hl1dBiTvQJDkVJSdL8gjXrncJ
+ +ZRyR8FYWrjQu57KY01NwHH6uDYgioVhiFj35yWksQdY+3YNiZFxzk3oxYTOxuteKOvceGi3qH3
+ qKQYNEipIhyc+iYErQgRvcOo6mFz9aM7ZeWJIi/vVLoQ==
+X-Forward-Email-ID: 69036e450fa9097cfdeb6e32
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.4.1
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <241e4a1d-039c-4738-b492-6325ad354b2e@kwiboo.se>
+Date: Thu, 30 Oct 2025 14:55:12 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay100-hz2.antispameurope.com with 4cy5DW3sFkz3PJ21
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: a7bf318555c57f949278cf3d40d2a7cb
-X-cloud-security: scantime:2.336
-DKIM-Signature: a=rsa-sha256;
- bh=KEZFS4oLzG/srptDoN54vEJHXHS1Iew+xlKYXMZp3q0=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1761832425; v=1;
- b=ZzHG8vr3U+Ed2MJPkqW/Jp52UntTXVRNVew3HEIvSn9mrmcbzULMpeCGxGPjYyaWmk2Q9PJo
- y+GUw19F/zT0xEVio2V8rCo/A9fLR3LpRwtiQ9ftQf3DTArimGf1yQTgsay0uGwRiUq2cdOaSTx
- VBD6Qgt8B0wxgMGLfkm3Kl7Vcx/l7r5yg+t3vUqsuLVkcFWAA6T4fuUvT29P2b2Z8wFA40rcKtG
- OcbCOlgxI8FX0MFLqgKbscauwHBw/BerwICbIw+zeNLVifpca50dDWVGbSSugXOQFKmzoQFfe9f
- SD+YgSScFMguRlydsVmDY7VT/0v8D/T/di93rgmqDAkFQ==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 6/7] dt-bindings: clock: rockchip: Add RK3506 clock and
+ reset unit
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
+ heiko@sntech.de, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ huangtao@rock-chips.com, finley.xiao@rock-chips.com
+References: <20251027084147.4148739-1-zhangqing@rock-chips.com>
+ <20251027084147.4148739-7-zhangqing@rock-chips.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20251027084147.4148739-7-zhangqing@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_065358_446053_91333613 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20251030_065538_097020_3AFAA2EA 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,30 +82,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+Hi Elaine,
 
-Add missing alias for SPI controllers.
+On 10/27/2025 9:41 AM, Elaine Zhang wrote:
+> From: Finley Xiao <finley.xiao@rock-chips.com>
+> 
+> Add device tree bindings for clock and reset unit on RK3506 SoC.
+> Add clock and reset IDs for RK3506 SoC.
+> 
+> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> ---
+>  .../bindings/clock/rockchip,rk3506-cru.yaml   |  51 ++++
+>  .../dt-bindings/clock/rockchip,rk3506-cru.h   | 285 ++++++++++++++++++
+>  .../dt-bindings/reset/rockchip,rk3506-cru.h   | 211 +++++++++++++
+>  3 files changed, 547 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+>  create mode 100644 include/dt-bindings/clock/rockchip,rk3506-cru.h
+>  create mode 100644 include/dt-bindings/reset/rockchip,rk3506-cru.h
 
-Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts | 2 ++
- 1 file changed, 2 insertions(+)
+[snip]
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-index d3a9360b8c548..97726eded0f86 100644
---- a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-@@ -39,6 +39,8 @@ aliases {
- 		serial5 = &lpuart6;
- 		serial6 = &lpuart7;
- 		serial7 = &lpuart8;
-+		spi0 = &flexspi1;
-+		spi1 = &lpspi3;
- 	};
- 
- 	chosen {
--- 
-2.43.0
+> diff --git a/include/dt-bindings/reset/rockchip,rk3506-cru.h b/include/dt-bindings/reset/rockchip,rk3506-cru.h
+> new file mode 100644
+> index 000000000000..f38cc066009b
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/rockchip,rk3506-cru.h
+> @@ -0,0 +1,211 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) 2023-2025 Rockchip Electronics Co., Ltd.
+> + * Author: Finley Xiao <finley.xiao@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +#define _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +
+> +/* CRU-->SOFTRST_CON00 */
+> +#define SRST_NCOREPORESET0_AC		0
+> +#define SRST_NCOREPORESET1_AC		1
+> +#define SRST_NCOREPORESET2_AC		2
+> +#define SRST_NCORESET0_AC		3
+> +#define SRST_NCORESET1_AC		4
+> +#define SRST_NCORESET2_AC		5
+> +#define SRST_NL2RESET_AC		6
+> +#define SRST_ARESETN_CORE_BIU_AC	7
+> +#define SRST_HRESETN_M0_AC		8
+> +
+> +/* CRU-->SOFTRST_CON02 */
+> +#define SRST_NDBGRESET			9
+> +#define SRST_PRESETN_CORE_BIU		10
+> +#define SRST_RESETN_PMU			11
+> +
+> +/* CRU-->SOFTRST_CON03 */
+> +#define SRST_PRESETN_DBG		12
+> +#define SRST_POTRESETN_DBG		13
+> +#define SRST_PRESETN_CORE_GRF		14
+> +#define SRST_RESETN_CORE_EMA_DETECT	15
+> +#define SRST_RESETN_REF_PVTPLL_CORE	16
+> +#define SRST_PRESETN_GPIO1		17
+> +#define SRST_DBRESETN_GPIO1		18
+> +
+> +/* CRU-->SOFTRST_CON04 */
+> +#define SRST_ARESETN_CORE_PERI_BIU	19
+> +#define SRST_ARESETN_DSMC		20
+> +#define SRST_PRESETN_DSMC		21
+> +#define SRST_RESETN_FLEXBUS		22
+> +#define SRST_ARESETN_FLEXBUS		23
+> +#define SRST_HRESETN_FLEXBUS		24
+> +#define SRST_ARESETN_DSMC_SLV		25
+> +#define SRST_HRESETN_DSMC_SLV		26
+> +#define SRST_RESETN_DSMC_SLV		27
+> +
+> +/* CRU-->SOFTRST_CON05 */
+> +#define SRST_ARESETN_BUS_BIU		28
+> +#define SRST_HRESETN_BUS_BIU		29
+> +#define SRST_PRESETN_BUS_BIU		30
+> +#define SRST_ARESETN_SYSRAM		31
+> +#define SRST_HRESETN_SYSRAM		32
+> +#define SRST_ARESETN_DMAC0		33
+> +#define SRST_ARESETN_DMAC1		34
+> +#define SRST_HRESETN_M0			35
+> +#define SRST_RESETN_M0_JTAG		36
+> +#define SRST_HRESETN_CRYPTO		37
 
+Is there a reason why this (and the RV1126B) reset names now include the
+RESETN name in all reset constant?
+
+For RK3528 and prior mainline SoCs the RESETN part of the name has been
+striped from the constant, suggest we also strip the RESETN part for
+RK3506 and RV1126B for consistency with other RK SoCs.
+
+Regards,
+Jonas
+
+[snip]
 
