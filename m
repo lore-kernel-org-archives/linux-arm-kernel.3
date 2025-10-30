@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00F8CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2393ECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HutlRlAmarm4unWdhm/gDtaCXWn1GhN3+MlaZtBoyWI=; b=0+MS7LkXFF50vhWhrap3A1S70C
-	k2XCC1v/GpAPYvYHOuiWz5sM8oOyM2AM0aZffUO5QxWx6SADddctTKLf7n8QI/U1ZDR1O4TWMwaoE
-	15bzCPCX79LRvUPi/+tjHPFjup4WrY8PXR5QA48U4md0yxhdkUK1Fx4EPCnYrPrpxvpNqhLZdeQof
-	RL44HYV/ctjnDwzxvy+pKAt1DBmngjlo/Y7FXTLJ6qcgb04dGj2lT26/wV37GuWsBeAE9v6uOSQ0C
-	lyKhtyDXZhKVdLE7CA9T/144SLKkDT5sh8Qi4U1wVk0KV5E94ZM8clY057YvMK/ee8owYBmZD+/pm
-	SryelZdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XcZmBDUJk7yw41e2osOtFQYA59+nZfoqavQZwKrx8SU=; b=kUqt1Hns2VfMzXG5fnzuZgCJq+
+	xZKlLwsmdFw7iLHQm5sP14x1g77q5Xj/hG5wjJcuJKNj3J4HB5X5v+2DslFuQwhmLxe3oF0WbWIDn
+	BZiUEYUF6tLEotESfihXNTNkI9eEH0jakYrg83ans4gD8cXzfMhS+dXnpuybFisD0LyWVyTaASlwD
+	t7qGKOh31B9PeDC6WuWVhoSqzLsftviSMXthtb5bfPU/CaOCooRPXvaRiWVokOl3EES5uDsCAodRN
+	uoiTVyg9oxMI472Ux+hj2dkNBdfQ9ubGrtTlAUNp7OlzWz9F1pKKAczI1HVI01DjJvq3rQnkVWWvc
+	YNo4Olyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUW2-00000004NVE-2hko;
-	Thu, 30 Oct 2025 15:24:42 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	id 1vEUZK-00000004NmI-3JWM;
+	Thu, 30 Oct 2025 15:28:06 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUW0-00000004NUd-0Ea9
+	id 1vEUZH-00000004Nlr-3zMu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:24:41 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 9B0987A0196;
-	Thu, 30 Oct 2025 11:24:38 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 30 Oct 2025 11:24:38 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1761837878;
-	 x=1761924278; bh=HutlRlAmarm4unWdhm/gDtaCXWn1GhN3+MlaZtBoyWI=; b=
-	T0oDgNTHOlDgQ6flqHJZjNNqtS1yb/zCmZaj8SlMcaK3xFSwLKkPjjNyojVygb4o
-	LQeuOlQXEmF834OhKiwvWWmYDKeveY7N9qwh+fhK7DSFMMEIt4JXR4UyBU0Qh7g6
-	Ym95NkeUNoUUErm0fN8E48jhbDXadBXmpzqm+456izpFMl9xODYQfdOaN7lixqjO
-	oAfx8SoEjgQW1z284GsYNqJ7EiUtOveY/c4e8+fWRoC7dzKG6J23A91JM4YLYD8Y
-	Y+mJGk6vM8zJ2vyJQVWYHKfGmJN9t30ttK4bYpGb8inKklEQeNuvR5RZkApv2aVa
-	S3phK+YfK3Aa/KohAGzvjQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1761837878; x=
-	1761924278; bh=HutlRlAmarm4unWdhm/gDtaCXWn1GhN3+MlaZtBoyWI=; b=m
-	ZLm+pBjvWg2UY94Sbd7BAu5h/yXxiiP4pSllbjntCYB1chH0YTw1xNQYYFA/z0Ii
-	HEG8un3EevpKFLUVbhku/X1AOb1oSmmxjVbOez9MB+eszDcjk1/gM8bUIQtPSRIX
-	ROOxpLgi6QpVef4okYNJP2L93w6aRUEl4Y6KtCSIci5Gi/9Hdtv5s7O6XpwA95T4
-	/WoXwKhgIDSoEuin3M5ZqKmgrIpGjD6Na72CPOaSPoG6s+PjqFQYp5l5ecCkTvfd
-	/JCh6Jqr5pKC0C43gXYZ1CVSawZy+Ren/tWJt4ucQxpGHZKm+rjGO4M0ypHA2BK3
-	+1qTyWsAqmWkMCHG5GJYQ==
-X-ME-Sender: <xms:NYMDaQjioTXrVIZPTpqnL0I9YhtIIImnmGTXRf1QtFMdIFciSkqnzw>
-    <xme:NYMDaT1B73GMrchXz7XWWex9zmBOfzyO9hUrjlXpynZNwKeuK3eK9r52uKo1lBCAe
-    zNtB7cMCKhOz8I1lmW6PZzgYHU0_LUneTwbPxFA5NeP-NzxAC-HXg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduieeileeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
-    phhtthhopeeipdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrh
-    hmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepgihivgihuhgrnhgsihhnudeshhhu
-    rgifvghirdgtohhmpdhrtghpthhtohepsghighgvrghshieslhhinhhuthhrohhnihigrd
-    guvgdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthho
-    pehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdroh
-    hrghdprhgtphhtthhopehlihhnuhigqdhrthdquggvvhgvlheslhhishhtshdrlhhinhhu
-    gidruggvvh
-X-ME-Proxy: <xmx:NYMDaRH4NUgWrAJZP5B9cZ3POHXW22RAOKe190FhYYLY89NQv755uA>
-    <xmx:NYMDaYnpU6he7zMXEbxaSFzKeRHWwCepI6MrK4xQMIhg6vX0WiD4Mw>
-    <xmx:NYMDaVZhGxNykfuqqkEc7CplPct1Y9g2GmijXPpsCjXobVhU7JbjMA>
-    <xmx:NYMDadEjE5q2jMCC2r_v7G1i2qvaxVmaOhwZMAt1YAW3FT147kvkcQ>
-    <xmx:NoMDaaNLPS1Tizk2zGq-u1wg_MXWgg0o4QrN2fnnbdwHlkyhW9PpvjHk>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D65EF700054; Thu, 30 Oct 2025 11:24:37 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: AnkmHEGtRmkZ
-Date: Thu, 30 Oct 2025 16:24:16 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Cc: "Russell King" <linux@armlinux.org.uk>,
- "Xie Yuanbin" <xieyuanbin1@huawei.com>,
- "Thomas Gleixner" <tglx@linutronix.de>
-Message-Id: <a86e9827-9b8b-4313-8d46-5fb2af5b8826@app.fastmail.com>
-In-Reply-To: <20251029155918.503060-5-bigeasy@linutronix.de>
+	Thu, 30 Oct 2025 15:28:05 +0000
+Date: Thu, 30 Oct 2025 16:28:00 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1761838082;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XcZmBDUJk7yw41e2osOtFQYA59+nZfoqavQZwKrx8SU=;
+	b=mUWdCq7c+05S92Z6e3ycQap5GG7kv30irDPESS3zUYv5LZGe7HhqHaUMNrlwONd33psUke
+	D5+1VvUj8ejnw9gyvQ+qOWQZvr0WbTRysFttiLkBTWMRczshO0ubWTEMrQgs0hKlagMPKU
+	cPM8AYLlwviqdfPTYH1gHK7sOptPMkuIBRYojp4P5uKhpK1gE+S6KlyXrlK4Y+Ar1eueO0
+	8qXcCGD/hrVeABPAXazUN398ZtWm5LbCdHLHe/jQu+YuxppyfA+yKuVzCfoDLriiDMz4S6
+	Rqu8PxIB8v9CVRzPTCbvPTGEzl4D1ohGAN58AuP+9ks+ssgfkx0KJ47WnFvUFA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1761838082;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XcZmBDUJk7yw41e2osOtFQYA59+nZfoqavQZwKrx8SU=;
+	b=zb46iSxJzjaqi0J3/h4ZeZvlpftP3P6uGPFVE+TMicvvCPwsPjZkdtL4z1LgsFzylToKqK
+	ooHg9L9VKk6q9LBA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+	Russell King <linux@armlinux.org.uk>,
+	Xie Yuanbin <xieyuanbin1@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
+Message-ID: <20251030152800.9LD5D2GP@linutronix.de>
 References: <20251029155918.503060-1-bigeasy@linutronix.de>
  <20251029155918.503060-5-bigeasy@linutronix.de>
-Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+ <a86e9827-9b8b-4313-8d46-5fb2af5b8826@app.fastmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <a86e9827-9b8b-4313-8d46-5fb2af5b8826@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_082440_151978_3300E227 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20251030_082804_150244_75DEAF94 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,45 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025, at 16:59, Sebastian Andrzej Siewior wrote:
-> From: Thomas Gleixner <tglx@linutronix.de>
->
-> jump-labels are used to efficiently switch between two possible code
-> paths. To achieve this, stop_machine() is used to keep the CPU in a
-> known state while the opcode is modified. The usage of stop_machine()
-> here leads to large latency spikes which can be observed on PREEMPT_RT.
->
-> Jump labels may change the target during runtime and are not restricted
-> to debug or "configuration/ setup" part of a PREEMPT_RT system where
-> high latencies could be defined as acceptable.
->
-> Disable jump-label support on a PREEMPT_RT system.
->
-> [bigeasy: Patch description.]
->
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> ---
->  arch/arm/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 864a14a434b08..99c9b1c320af8 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -80,7 +80,7 @@ config ARM
->  	select HAS_IOPORT
->  	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
->  	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
-> -	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
-> +	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU 
-> && !PREEMPT_RT
+On 2025-10-30 16:24:16 [+0100], Arnd Bergmann wrote:
+> On Wed, Oct 29, 2025, at 16:59, Sebastian Andrzej Siewior wrote:
+> > From: Thomas Gleixner <tglx@linutronix.de>
+> >
+> > jump-labels are used to efficiently switch between two possible code
+> > paths. To achieve this, stop_machine() is used to keep the CPU in a
+> > known state while the opcode is modified. The usage of stop_machine()
+> > here leads to large latency spikes which can be observed on PREEMPT_RT.
+> >
+> > Jump labels may change the target during runtime and are not restricted
+> > to debug or "configuration/ setup" part of a PREEMPT_RT system where
+> > high latencies could be defined as acceptable.
+> >
+> > Disable jump-label support on a PREEMPT_RT system.
+> >
+> > [bigeasy: Patch description.]
+> >
+> > Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> > ---
+> >  arch/arm/Kconfig | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> > index 864a14a434b08..99c9b1c320af8 100644
+> > --- a/arch/arm/Kconfig
+> > +++ b/arch/arm/Kconfig
+> > @@ -80,7 +80,7 @@ config ARM
+> >  	select HAS_IOPORT
+> >  	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
+> >  	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
+> > -	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
+> > +	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU 
+> > && !PREEMPT_RT
+> 
+> I posted a slightly different version last year, which optimizes
+> the uniprocessor version and has a little more information
+> in the changelog:
+> 
+> https://lore.kernel.org/all/20241210160556.2341497-2-arnd@kernel.org/
 
-I posted a slightly different version last year, which optimizes
-the uniprocessor version and has a little more information
-in the changelog:
+This actually slipped my mind but I was fine with it according the link.
+So let me replace this, too.
 
-https://lore.kernel.org/all/20241210160556.2341497-2-arnd@kernel.org/
+>      Arnd
 
-     Arnd
+Sebastian
 
