@@ -4,107 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C68FCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4412ACCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wo8etmAx0sTAh5tGJIn1KufdODdBphubxDoO64AD/U8=; b=v3+Pp/F12VTiJs8YT4t1uFBNY5
-	eErsctDf0LJMvTEfWzaF26N6WZRGnJ69xILPOwVg6tiJMmux08iCfyuvhjmqJUmDCs2V44Cilqkxb
-	JZtsvL4gWv7eyLLX9yYD5zQCxUaIc8wmXUoVbzgrni0npFHN1RcV/fydhZrA0J9nh1huAH/+L7GK+
-	H+ghiLX4TjJmRPQpstOqDEDxW+Z2Qy9mS0iPmjdNNZ8kjGRkeIaP6TKl8R82IDWv5ulMLAANKT1+4
-	Co10/WJE4oGQBn201Zc2pNk7ksgty+CkFkMqtXmcXUllXEyaw/rSMUjqxZnDjcSUnfWKHbnhoV6AQ
-	ts47IATw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ndy5f5iXLygAktyMJBu7gDkXxI7rvNnRYgFdYkcYKx8=; b=zDggUCWr3eHNnM
+	oTDMMBQWnRVxQLpzaFNn562x2dTq7EwZXak9tClQGcFRC1jlHq3rBrtvueus1nxzqxiqlFD+XbX0p
+	6Gju8aTNIwZa3WI4jlLt/NwtGxFx1UfwCuIzYkP5e7HVaA/9Exvh1n5tGcfNwH3qow8QKr3NYTDRH
+	W1gfOonE3/6KUjMC8bxlKVJ7TD6aQWsifiYAk4lOorZSSkpCBryv7tGNB4ZwAV8jdIZTMH7aF0vpr
+	q9Nmxmy60sjzclyOEPiKVLNPLWEeOydgUxxg8LLkgPxvbfq6wsr6M8AJoxoix+gdKAHu9oHLN8uO0
+	4q88zrMCZejnm/pxjsFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUmC-00000004P1P-2xUu;
-	Thu, 30 Oct 2025 15:41:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vEUs0-00000004PMT-25Nr;
+	Thu, 30 Oct 2025 15:47:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUmA-00000004P1I-3K1D
+	id 1vEUrz-00000004PMI-46Uk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:41:22 +0000
+	Thu, 30 Oct 2025 15:47:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CF106051F;
-	Thu, 30 Oct 2025 15:41:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4AC8C4CEF8;
-	Thu, 30 Oct 2025 15:41:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1D9D060191;
+	Thu, 30 Oct 2025 15:47:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6F12C4CEF8;
+	Thu, 30 Oct 2025 15:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761838881;
-	bh=REa6rLFUOK4tARlvRCn8GPHyYKDH1x/AKOrK8aK7Yd0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=F8APZMnxkes1X5pY8SMXKM3NKqjEs+QdyZ6mAcXWtwj+diKB78xZL2kHcXK5G9MY4
-	 reDjMbgMDzXMm5ZKJLBrrL8vFtvRAheqwGLIFGfpGz6nL4TMMUHqS6ujG4c6L4v1WE
-	 Ni0zmqhdBPZp6Ge/jgOwRBXMoaqaWLKGEgqZSqB3Z5rCi+ekF/Eax3lfXtL7m+MYXv
-	 Oml4W390S5qNQXGN4PNuL3zcSu/3/yYJjxgtNoatyJNzwSOv3siiLeOhmoI7JvW5w8
-	 kNSr40s/T+C/DU7ak4y7o4p8MeUBAANLclXkIdlL1J1+9hQQ6cF7torGq8Dpsa5Af1
-	 azXbL3Im3supQ==
-Message-ID: <7ba31fb7-8f1b-4277-a3cf-649a76c7dda5@kernel.org>
-Date: Thu, 30 Oct 2025 16:41:16 +0100
+	s=k20201202; t=1761839242;
+	bh=+700ZoH9beBUCGWPdpdtRrHrZpBqINFzjki0JlY+WIM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=kSCvkpnWAFvxXim34lW/0VaSlUE+r7nA0g/2z6xu6EtrFLL2Vxbht1Nc94nIfPg6m
+	 NyciTW/5MsbXMhB3A7mZMnwA1M9GMswJqHnSt6XRBMqzD0R5QdHMaP1pIjbYVEWpTj
+	 SJDTOCYT8XrpFDTaHV9/BtROFkuBVIf3HKrlj/GpRm9vkH54ivvWSv2X0YQNlhtt8q
+	 /Wo6Tzoa1TMzPNJyJQBnjNfILkKvE5wYcyzFUEvR+nnLsSjMvmeyEt90HbJjQTbg3a
+	 nG61vRJaWR/jsQ1FlIDwoOyeA134/gRjPDZrS9jdMYQJQy8gTM12t7sPWYlTRkY+Vp
+	 Ox4Pc/WR4heZg==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH 0/3] KVM: selftests: arm64: Improve diagnostics from
+ set_id_regs
+Date: Thu, 30 Oct 2025 15:42:46 +0000
+Message-Id: <20251030-kvm-arm64-set-id-regs-aarch64-v1-0-96fe0d2b178e@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
- ports
-To: Andi Shyti <andi.shyti@kernel.org>, Faraz Ata <faraz.ata@samsung.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- alim.akhtar@samsung.com, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- rosa.pila@samsung.com, dev.tailor@samsung.com, pritam.sutar@samsung.com
-References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
- <20251014112338.2023223-1-faraz.ata@samsung.com>
- <2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHaHA2kC/x2M0QqDMAwAf0XybKAtrs79iuyh1kyDqCMRGUj/f
+ cHHu4O7QEmYFF7VBUInK++bga8ryHPaJkIejSG48PAuPHE5V0yyxgaVDosoNCmmJHk2R8PQtl3
+ sGucz2OMr9OHf/e/fpfwBox+vQW8AAAA=
+X-Change-ID: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-88d78
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1252; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=+700ZoH9beBUCGWPdpdtRrHrZpBqINFzjki0JlY+WIM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpA4iFRz9aKzGShuvRtfEbfX3NhTm+GpE7qdJVU
+ 9mLWnT7HAiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaQOIhQAKCRAk1otyXVSH
+ 0MiEB/4gsZLaeP176xWNHCFoMI210dAWo/OxnDFWqQuSDbWvV74qEFThEfGIMWBjS79ZkCwZ9Hb
+ +nG4LaTF85FPUVWs262tIEV/DtYiltFySzXW3sINV83pWZYijjNBr5x9jOtJZ9NCPJBObvWzC8g
+ +e+8Odemr4DbLuKbuWcYZHgA9Ff/36CmqLOlzKXhxPaJgEj17A6wxRkY+ICqWTAAFScujFVyqHu
+ CWKPM8IB5HlWx2qv6sHeJfRXun2NVXW91pxyiQTWBkhiuslmMvFhHGOptK/rGqf3DhK9f7cA28Q
+ 8Fr/NqxlzjWe7J8/TJsLN2MwKuu0TyPvvcVJcJ3vAB6rDh5c
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,20 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/10/2025 16:34, Andi Shyti wrote:
-> Hi Faraz,
-> 
-> On Tue, Oct 14, 2025 at 04:53:38PM +0530, Faraz Ata wrote:
->> Universal Serial Interface (USI) supports three serial protocol
->> like uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
->> Add i2c nodes for all the instances.
->>
->> Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
-> 
-> what happened to patch 1/1?
+While debugging issues related to aarch64 only systems I ran into
+speedbumps due to the lack of detail in the results reported when the
+guest register read and reset value preservation tests were run, they
+generated an immediately fatal assert without indicating which register
+was being tested. Update these tests to report a result per register,
+making it much easier to see what the problem being reported is.
 
-Different patchset, no?
+A similar, though less severe, issue exists with the validation of the
+individual bitfields in registers due to the use of immediately fatal
+asserts. Update those asserts to be standard kselftest reports.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Mark Brown (3):
+      KVM: selftests: arm64: Report set_id_reg reads of test registers as tests
+      KVM: selftests: arm64: Report register reset tests individually
+      KVM: selftests: arm64: Make set_id_regs bitfield validatity checks non-fatal
+
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 108 ++++++++++++++++++------
+ 1 file changed, 82 insertions(+), 26 deletions(-)
+---
+base-commit: 211ddde0823f1442e4ad052a2f30f050145ccada
+change-id: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
 
 Best regards,
-Krzysztof
+--  
+Mark Brown <broonie@kernel.org>
+
 
