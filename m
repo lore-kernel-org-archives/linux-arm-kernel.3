@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E27CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:14:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F382FCCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJtCncfCK9X54oXx991KGpYhmmpTyjjcLT5mmtOhZeY=; b=aKM+MZdJS4gXNyZUpzP31IykqT
-	HrwJ1+0R0u6EUXVdLQtq6LV+aWho9L3UaykuRmqZaTwHB6c3IWhEnZaWQBfg/WBqUbRINjMfTuXA8
-	cT2Cx7o2o07iJPGgoCR08L/vVFXqpGRAQG9kGtsXofTyrv6fd1lqJMgiQQIz8HOlBdT+axeVd1liE
-	tqkuaV8+4bAmE+vyOlSdcUy/pydO/+I3E+RUbf50QZvga1kT1u7LOeLUP3V2teWqUgymoJ1T+xs/1
-	f839H32ct59ktxI7bQsh1McvkAEpuv67wc6aNVOwl9Jo0feXxg62YIAOxPWYmnDDsf0cVbfKLFSce
-	JwOcb5TA==;
+	bh=ixX9GQx535IvklNL5bVhTvm5cxC1bAxRsqCoHbh8pSg=; b=z0VUQXgRj3Ds+u05NpBMHpxAlm
+	OgtevDYS+YbLPLgOu3zUUqGfKBqqSpujS3OnKQhPcxidiYvaDgNW8YYEEGHwB1ItdniQbMIoxJE7w
+	vl4NwTJ0VvO9f6v2Zltx8Fdk943FRdw4TVSQ/fjq7oOZMW6EkSuAeE5EZDscZaooSYKETNAA2P1aC
+	VNrz7F6+iSdBoTwLzJDwdoEE5q/QgiYX0/5a+HBvMGP50IamTK4kEWYWEkRhaZ8nMSiME3wBssnq7
+	LVJwtK0akNzu+ULoHperfeCqnqS1n7x4hinmhWu7XiPNYH8526bPD+Kr/Rg7R+DtapUoSye/k4YAr
+	0FhCf1wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZ1e-00000004nSB-36Ja;
-	Thu, 30 Oct 2025 20:13:38 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vEZ1h-00000004nVy-0SbC;
+	Thu, 30 Oct 2025 20:13:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYzD-00000004kTm-3IsF
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vEYzG-00000004kXv-0r3j
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 30 Oct 2025 20:11:13 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-340299fd99dso1343277a91.0
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ixX9GQx535IvklNL5bVhTvm5cxC1bAxRsqCoHbh8pSg=; b=Zu/BNVgcuNti8pWGzGc/vflQ1L
+	28C0p3HmigyzkXFEhoexW/3QgLdLaezVAYZyHxX8ULKG9RuHNvPFkVOD8W39YD3Dz+/2icFF3MDDw
+	vxuWLsRcUkzG5U1BKchFvIzuZGHqdGuCVurAdJ002F8bMC3n/BY+WCeclJTVRNpO/GJQ/PusXZ7mY
+	RUC6oV0Fwgj4NuNSlJ2GqoPSXQOGzCK/d4M9RdVwpPqHuJpPqsowAydWPEX0o1soSEi5s3LutBTEH
+	lSabD4hl/IgCXbolxDIWqCfmjwwygAmleZOHEDdyKOlT1hKuxWMhpTEDkTDVkegWgcXWpEYrqEYZi
+	zVmwo13g==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEY7T-00000009u5Y-2506
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 19:15:37 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-34029b3dbfeso1711191a91.3
         for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:11:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855065; x=1762459865; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855064; x=1762459864; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=gJtCncfCK9X54oXx991KGpYhmmpTyjjcLT5mmtOhZeY=;
-        b=KVcSia2MIbjphOdVN9G57u1A7kfG1lD9E79WfByl7EsJ2oxmkoMUM7BzajShsJKQAQ
-         +KcEUbFNxAFL33w0C/MtHUt1WadBBnJS3fci2+MBA2glHlwaZFsm12i/DhX5tci7zAMD
-         vRlQvQmY4hXmUZjYbRKKrFEt/gTxzRBwIyCfexOWY6kZMNT62kwYbCurq038HhsW4mum
-         TYe+Kacqt0nKB4ma/z3tK+ly5H7uj8W36dQdMCxuWr9MBm2vlUf8mZXpbqMCIOHe7yfG
-         ej2jsBbnfqgjoeRx70rn9WBLNQQq6voLFv5zuljdPnVSXaF2GR2Ku/7vmx6+zlWD6M1M
-         QE8g==
+        bh=ixX9GQx535IvklNL5bVhTvm5cxC1bAxRsqCoHbh8pSg=;
+        b=jr/MEnfADqmCDay4Llkc/aSq7i8q+5jgd0DOUloyJxR2xY3ePjkUOBnpBtBWfXJxRV
+         4D7ZDfzmZ9LqBzPi9fizrBxtw3DJuXy4ij6K51kvWxbE6GB91NbLid4Y6Gfclzy3fKX5
+         ZMCYbSe25IZoqrQBJbnrotcIlcu6eRzE1D/wRFhiaf/hvlI1kn3enxTNJO2H9PLw9t24
+         ce0Fsir7AFx6T4s1qDl6jpKBUAQj2tBLIq/wIcI2k8eUxqoAL1ucqBHMjZLRPpFAiODY
+         KoWKU2puQfWyFlk0MQxUT7VuPQ2pNLmbtIJI+PRm4CiyY/ROKlvUTNQt6xxlSkh+o/ha
+         HW9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855065; x=1762459865;
+        d=1e100.net; s=20230601; t=1761855064; x=1762459864;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gJtCncfCK9X54oXx991KGpYhmmpTyjjcLT5mmtOhZeY=;
-        b=oYUvRFqnItQuDMlAFcg6e7/8kRaCvIdcEnYg00kftTvdd+2+eQ5S7yQiXG7gjw6jxh
-         B4tmefxjrg6eSFyyKn6DgyOkHd4Z0Q4N8pqcRgEwgmHCigAj+PO9odkSY29mFoBpute2
-         vS1hZwwvCEVPL43rVkkSsDyUaof7nSgREKyCD3am2xAl5df3Bs9sI6Ga02OFind+xgj0
-         sx5SfscpXLWhRPk/G0S5Ka9x6wBV8RRSKmQjCpz2jZZZnzhskujfBqNFkfnm7enP+Zgc
-         FxSxwn/Jo/zu2BxGIDlUC2xswx6JTwXtr4ps0nEuXBSlsrmGoTX4pdsucC9IsqluWfIr
-         kwaw==
-X-Gm-Message-State: AOJu0Yz46CLl15GCfgPBWFoGgsbZ971dAdBl+xKcmWc1kGKU9eTGRy8o
-	7J7o3dFRlhoBNZFRkZ7/+8pG21C5t3qQ9lAmVqBRrbQriocsuiZ9aLHy1isW61e1VKqiB2UN/4O
-	gNaItRg==
-X-Google-Smtp-Source: AGHT+IGHOQLpfyFznvDWNUH7H5RRwumwXl+ad4M1fU9LKzyWdjNf4lBkOJxqkb3vWAdXWhUIZ0D4LKjuEDo=
-X-Received: from pjd14.prod.google.com ([2002:a17:90b:54ce:b0:339:ee20:f620])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3e4d:b0:32e:528c:60ee
- with SMTP id 98e67ed59e1d1-34083055b02mr1449393a91.24.1761855065570; Thu, 30
- Oct 2025 13:11:05 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:50 -0700
+        bh=ixX9GQx535IvklNL5bVhTvm5cxC1bAxRsqCoHbh8pSg=;
+        b=ZSfidIt5e7CsJv3+TZ8H7VdQjAK/ZdPFOdJRXpstlS+E77EUWZr8hFVwos3toA0kzv
+         BDIOcnV+ST8QmVQCKD3OxHlrxIkP9j9waiuU2iY9LkViARdZMytfkHrOrrv53SQYOgBp
+         +vKJXwEZkbnJ34jAvnj6e62CEMJcvJo+MWLV7TDkLmoxe6PCoV28SpEexR7jfK26rN5D
+         ci1mkp4yf1UbyE3rCXfJIhMQVLRi5qWWu/kjxJBBWDzRUmsJ+LueDdFxl0UCbQAmIIlf
+         VPZyW4ceZrCAJ3tJQUJM3WS64QGLDFDg4uq0VyIw4uQBxLGTIpsDyzprlgGe0Fdq/neM
+         wI8g==
+X-Gm-Message-State: AOJu0Yw/CqGhYQCs8+vVkSveJ5Blx/iwEu4Fme3YPGW4VGimubvifo95
+	TjYNn1LBcvR1fIlRX4gqR5j81fBSmmT7KcQCKJxd4oUsunptgfszcIGkAblm5oecIgwHTfWUdlc
+	MA1mPzw==
+X-Google-Smtp-Source: AGHT+IFyAaLKG8h2LJ84hJgHQ75wx3G0tk8Vj+W9kFkkyUvmGPkijC+6POH5qOYkAqbj7Ex/aKtYOd6js0k=
+X-Received: from pjbcq19.prod.google.com ([2002:a17:90a:f993:b0:339:ee5f:ec32])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4b10:b0:340:2a16:94be
+ with SMTP id 98e67ed59e1d1-34082fab1e6mr1328002a91.4.1761855063621; Thu, 30
+ Oct 2025 13:11:03 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:49 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-28-seanjc@google.com>
-Subject: [PATCH v4 27/28] KVM: TDX: Bug the VM if extending the initial
- measurement fails
+Message-ID: <20251030200951.3402865-27-seanjc@google.com>
+Subject: [PATCH v4 26/28] KVM: TDX: Guard VM state transitions with "all" the locks
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -88,8 +102,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Ackerley Tng <ackerleytng@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_131108_072642_E453CE96 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20251030_191535_825154_71431616 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,77 +119,164 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
-measurement should fail if and only if there is a KVM bug, or if the S-EPT
-mapping is invalid.  Now that KVM makes all state transitions mutually
-exclusive via tdx_vm_state_guard, it should be impossible for S-EPT
-mappings to be removed between kvm_tdp_mmu_map_private_pfn() and
-tdh_mr_extend().
+Acquire kvm->lock, kvm->slots_lock, and all vcpu->mutex locks when
+servicing ioctls that (a) transition the TD to a new state, i.e. when
+doing INIT or FINALIZE or (b) are only valid if the TD is in a specific
+state, i.e. when initializing a vCPU or memory region.  Acquiring "all"
+the locks fixes several KVM_BUG_ON() situations where a SEAMCALL can fail
+due to racing actions, e.g. if tdh_vp_create() contends with either
+tdh_mr_extend() or tdh_mr_finalize().
 
-Holding slots_lock prevents zaps due to memslot updates,
-filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
-vcpu->mutex locks prevents updates from other vCPUs, kvm->lock prevents
-VM-scoped ioctls from creating havoc (e.g. by creating new vCPUs), and all
-usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT entries that
-can be used for the initial image.
+For all intents and purposes, the paths in question are fully serialized,
+i.e. there's no reason to try and allow anything remotely interesting to
+happen.  Smack 'em with a big hammer instead of trying to be "nice".
 
-For kvm_zap_gfn_range(), the call from sev.c is obviously mutually
-exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_PAT so the same goes
-for kvm_noncoherent_dma_assignment_start_or_stop(), and
-__kvm_set_or_clear_apicv_inhibit() is blocked by virtue of holding all
-VM and vCPU mutexes (and the APIC page has its own non-guest_memfd memslot
-and so can't be used for the initial image, which means that too is
-mutually exclusive irrespective of locking).
+Acquire kvm->lock to prevent VM-wide things from happening, slots_lock to
+prevent kvm_mmu_zap_all_fast(), and _all_ vCPU mutexes to prevent vCPUs
+from interefering.  Use the recently-renamed kvm_arch_vcpu_unlocked_ioctl()
+to service the vCPU-scoped ioctls to avoid a lock inversion problem, e.g.
+due to taking vcpu->mutex outside kvm->lock.
 
-Opportunistically return early if the region doesn't need to be measured
-in order to reduce line lengths and avoid wraps.  Similarly, immediately
-and explicitly return if TDH_MR_EXTEND fails to make it clear that KVM
-needs to bail entirely if extending the measurement fails.
+See also commit ecf371f8b02d ("KVM: SVM: Reject SEV{-ES} intra host
+migration if vCPU creation is in-flight"), which fixed a similar bug with
+SEV intra-host migration where an in-flight vCPU creation could race with
+a VM-wide state transition.
 
+Define a fancy new CLASS to handle the lock+check => unlock logic with
+guard()-like syntax:
+
+        CLASS(tdx_vm_state_guard, guard)(kvm);
+        if (IS_ERR(guard))
+                return PTR_ERR(guard);
+
+to simplify juggling the many locks.
+
+Note!  Take kvm->slots_lock *after* all vcpu->mutex locks, as per KVM's
+soon-to-be-documented lock ordering rules[1].
+
+Link: https://lore.kernel.org/all/20251016235538.171962-1-seanjc@google.com [1]
+Reported-by: Yan Zhao <yan.y.zhao@intel.com>
+Closes: https://lore.kernel.org/all/aLFiPq1smdzN3Ary@yzhao56-desk.sh.intel.com
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 59 +++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 49 insertions(+), 10 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 8bcdec049ac6..762f2896547f 100644
+index 57dfddd2a6cf..8bcdec049ac6 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -3123,21 +3123,23 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
- 
- 	put_page(src_page);
- 
--	if (ret)
-+	if (ret || !(arg->flags & KVM_TDX_MEASURE_MEMORY_REGION))
- 		return ret;
- 
--	if (arg->flags & KVM_TDX_MEASURE_MEMORY_REGION) {
--		for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
--			err = tdh_mr_extend(&kvm_tdx->td, gpa + i, &entry,
--					    &level_state);
--			if (err) {
--				ret = -EIO;
--				break;
--			}
--		}
-+	/*
-+	 * Note, MR.EXTEND can fail if the S-EPT mapping is somehow removed
-+	 * between mapping the pfn and now, but slots_lock prevents memslot
-+	 * updates, filemap_invalidate_lock() prevents guest_memfd updates,
-+	 * mmu_notifier events can't reach S-EPT entries, and KVM's internal
-+	 * zapping flows are mutually exclusive with S-EPT mappings.
-+	 */
-+	for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
-+		err = tdh_mr_extend(&kvm_tdx->td, gpa + i, &entry, &level_state);
-+		if (TDX_BUG_ON_2(err, TDH_MR_EXTEND, entry, level_state, kvm))
-+			return -EIO;
- 	}
- 
--	return ret;
-+	return 0;
+@@ -2653,6 +2653,46 @@ static int tdx_read_cpuid(struct kvm_vcpu *vcpu, u32 leaf, u32 sub_leaf,
+ 	return -EIO;
  }
  
- static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *cmd)
++typedef void *tdx_vm_state_guard_t;
++
++static tdx_vm_state_guard_t tdx_acquire_vm_state_locks(struct kvm *kvm)
++{
++	int r;
++
++	mutex_lock(&kvm->lock);
++
++	if (kvm->created_vcpus != atomic_read(&kvm->online_vcpus)) {
++		r = -EBUSY;
++		goto out_err;
++	}
++
++	r = kvm_lock_all_vcpus(kvm);
++	if (r)
++		goto out_err;
++
++	/*
++	 * Note the unintuitive ordering!  vcpu->mutex must be taken outside
++	 * kvm->slots_lock!
++	 */
++	mutex_lock(&kvm->slots_lock);
++	return kvm;
++
++out_err:
++	mutex_unlock(&kvm->lock);
++	return ERR_PTR(r);
++}
++
++static void tdx_release_vm_state_locks(struct kvm *kvm)
++{
++	mutex_unlock(&kvm->slots_lock);
++	kvm_unlock_all_vcpus(kvm);
++	mutex_unlock(&kvm->lock);
++}
++
++DEFINE_CLASS(tdx_vm_state_guard, tdx_vm_state_guard_t,
++	     if (!IS_ERR(_T)) tdx_release_vm_state_locks(_T),
++	     tdx_acquire_vm_state_locks(kvm), struct kvm *kvm);
++
+ static int tdx_td_init(struct kvm *kvm, struct kvm_tdx_cmd *cmd)
+ {
+ 	struct kvm_tdx_init_vm __user *user_data = u64_to_user_ptr(cmd->data);
+@@ -2764,8 +2804,6 @@ static int tdx_td_finalize(struct kvm *kvm, struct kvm_tdx_cmd *cmd)
+ {
+ 	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
+ 
+-	guard(mutex)(&kvm->slots_lock);
+-
+ 	if (!is_hkid_assigned(kvm_tdx) || kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
+ 
+@@ -2809,7 +2847,9 @@ int tdx_vm_ioctl(struct kvm *kvm, void __user *argp)
+ 	if (tdx_cmd.id == KVM_TDX_CAPABILITIES)
+ 		return tdx_get_capabilities(&tdx_cmd);
+ 
+-	guard(mutex)(&kvm->lock);
++	CLASS(tdx_vm_state_guard, guard)(kvm);
++	if (IS_ERR(guard))
++		return PTR_ERR(guard);
+ 
+ 	switch (tdx_cmd.id) {
+ 	case KVM_TDX_INIT_VM:
+@@ -3113,8 +3153,6 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
+ 	if (tdx->state != VCPU_TD_STATE_INITIALIZED)
+ 		return -EINVAL;
+ 
+-	guard(mutex)(&kvm->slots_lock);
+-
+ 	/* Once TD is finalized, the initial guest memory is fixed. */
+ 	if (kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
+@@ -3170,7 +3208,8 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
+ 
+ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ {
+-	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
+ 	struct kvm_tdx_cmd cmd;
+ 	int r;
+ 
+@@ -3178,12 +3217,13 @@ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ 	if (r)
+ 		return r;
+ 
++	CLASS(tdx_vm_state_guard, guard)(kvm);
++	if (IS_ERR(guard))
++		return PTR_ERR(guard);
++
+ 	if (!is_hkid_assigned(kvm_tdx) || kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
+ 
+-	if (mutex_lock_killable(&vcpu->mutex))
+-		return -EINTR;
+-
+ 	vcpu_load(vcpu);
+ 
+ 	switch (cmd.id) {
+@@ -3200,7 +3240,6 @@ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ 
+ 	vcpu_put(vcpu);
+ 
+-	mutex_unlock(&vcpu->mutex);
+ 	return r;
+ }
+ 
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
