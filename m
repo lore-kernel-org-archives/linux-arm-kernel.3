@@ -4,100 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8C8CCF9F5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139BCCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SJU/7pOy6k5Otq6sscIBJ2rwBspnn6iIa72yddH68yU=; b=nIubCMaga19QhzoR3Q7P6Uc8vN
-	gODtyWVINHQo8mFBLAdKf/Llh7gV3rdpQP521T5SSiRUTkTTe7c+Fma6AlmnxZGi8M+RcLE/UyO9j
-	bZJMQWRquDlZxeilHj8oaf1ckzweW9cgBVbsuAM2U3qFJbaazV5bZsfkQIIP/vERk3UW1dMULlxeK
-	T73bHkUv3FTNXLPVDl9WDiu6YmRhSEOt7/3S/e99dVb3OrZiwV0vFYtf8pcK/NO6WyrtL6kbglwCQ
-	1D9nX3MjpD1am9NKy7DPkoPxsKUKlWJmUPcN706vt6NnXFdEZIgITDuajujPoPMf+BdYmw8yUyZbC
-	g63V2d9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ki+QqNF0G/FkEzCU35+YAKUyGzHz/X5qArb2X9sfW2E=; b=kOr9MgaFzVJiSEoOkZSEtPMH75
+	qSPY0CNFoE795zJ33TQ1awJOhFMxzRJBEb7FyI09K3RQ4Wd0brVdz4hRRfMh97VD+7B+Cnyb2pu7z
+	3xVBAMZy4/lxv7E10IPcbr1cGuAR/oFd3FHUD7By0R97AjltIoovhBl6wtLbPmCkBHdJzEoyAS+gW
+	URrlFNlVKkS04dg5S/DG+7Oel/B0GYfuOFiIFnafhM4/GHPvpuHSLqgFFF+DKuUU7bEoM/SZYVmUm
+	uT2RNCwJHYewOYx7AfVGGLplFmgB++FV7JDt5obKUU9C42h+yQpJ0OxarVMwhscMRhrHoBoY9t+6I
+	8M6gZszA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOw7-00000003rQd-2njx;
-	Thu, 30 Oct 2025 09:27:15 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vEOx5-00000003rgL-3U6w;
+	Thu, 30 Oct 2025 09:28:15 +0000
+Received: from mail-japaneastazon11022081.outbound.protection.outlook.com ([52.101.126.81] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOvy-00000003rN4-12cK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 09:27:07 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47721743fd0so4289365e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 02:27:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761816424; x=1762421224; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SJU/7pOy6k5Otq6sscIBJ2rwBspnn6iIa72yddH68yU=;
-        b=Is2MjhAOXFMX6WQo47Xjs4ISASoBa7SRtGehzkldP87DjlCITBo3LTmIaVf6/htvw4
-         7zcSLT5RV6aaKHdXJ3qjwXjtNQIS3Na6mHmgjGzmLOekCDC4sa4dh7vNaqdjRtP3Z/g4
-         h7PgSBB4CsmWO6QQNAWstaO7zMlDQiZEYmE5MjYAGKO+w3arlYWx5kgEyWuPoIZNvc/3
-         G5E4HQrXK0aAV1I03U9jejc2H7xV7nSr+87eG9jPQbsIg6Fmee3iXjuj1BtYEaqWb4AX
-         DOdFlMIODm0V6yUSwxOe2h7qnhC0ahg72wqDwKGRfPm4zUkbwEpEaap/zwrTb1x7hJEk
-         qafg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761816424; x=1762421224;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SJU/7pOy6k5Otq6sscIBJ2rwBspnn6iIa72yddH68yU=;
-        b=uBTEfNIU9OPJ48CbdJdSmjAYJC9KjEWLKOkaLOD1Zt2mFDRybwN3IGn3PfBa2G0zoo
-         hgvbL6bC/xjDAHcA9GXcxjSePMUAJ0arvbY7IKOxAIthwit2e2oRl7K3BZ8VyuOjSpLu
-         k0iGtGg7o0y+pLlPBmT9kpfaY3U/XMT3pZSKBvb3kAILCBpnRGrdm1tGhhPx7RiIavUO
-         7yzuBVIUagQdQmTjOs/Vil4GOAmgwakHhpE2JmCertuOP5D/A3VxEuiYMFtnNiBKW8jh
-         qeny1D1+PNDNC7E9NE6dRWZKhr1GUHmfjJd+PnB4nxB2Pvg/hIuxRdYPn5O8rEV15xD1
-         9SGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXbhnB3GwLYB/99gVWAueL84xc+OdV2kJngT4BAeM7CMV9k6nlyGpjEPkG7DeeZ2+GvCjX6AiRfEJBmgLtnkP9u@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrfNPwErO73zbJ+W5lazWWqCXV3NjEUg5cO+y8UZ/euQYxWGPi
-	kuDkYqAjbQyPkiVP9yCpOlxcXBiUmrSvcdf1b9v1Dc0QiLocqifzRhsJphA9HEcVc7g=
-X-Gm-Gg: ASbGncu1Dtko9WwEzhpywug3wR9QrGUG2hUyf9MRWEPbTqqPsFw986Rby72jFNZyMEJ
-	fVrKD8v5d5Rq71Bv+4vgLJEEeqvdvIZK9co5Zs15mQteGd8HrMVx0CyhzDUaqnU6+k7Th1k6YIK
-	IsTuiw3znE9T9fG3yfd+G7CnOTkjTKccseMDTxOuSjyGLeFi4QBLMZEWnQ3t3yAov47HW7JDX/j
-	AKkWcbEPRJ5BLnNPPzPVBp88RQCyOKWiTJuXembPvnzcuolkXT4d8o//fJM45/AvvZXXdocf5Uj
-	rMi1OqXKF8lvOSz3vV7qs4KDIV1RBI97eGkrcWk3wiktIP8jlzC4ozIt0puAsFnWEt32SEu9Ros
-	Hh+YJNerSXPiAuqsQo1L774AGVCL1JOI7BVBvsDK0yb+cqDiVKKtt+PPu/FI07O35090BWj68OA
-	==
-X-Google-Smtp-Source: AGHT+IGiKMp7FmmJWvCzcPKsR4nFMCkOPRvUXCQdoKXYcyEIZ/3Nl23pSGaG1drR1Wm1x82x0LhDRQ==
-X-Received: by 2002:a05:600c:6303:b0:46e:4329:a4d1 with SMTP id 5b1f17b1804b1-4772675fffdmr19910835e9.4.1761816424323;
-        Thu, 30 Oct 2025 02:27:04 -0700 (PDT)
-Received: from localhost ([2001:4090:a245:8496:49da:2c07:5e9a:7fb9])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429952b79cbsm31002262f8f.4.2025.10.30.02.27.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 02:27:03 -0700 (PDT)
-From: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
-Date: Thu, 30 Oct 2025 10:26:10 +0100
-Subject: [PATCH v9 3/3] firmware: ti_sci: Partial-IO support
+	id 1vEOx3-00000003rfR-24Lu;
+	Thu, 30 Oct 2025 09:28:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=naA/e2/vgqzQGVcdZL59n7CQBVzkJzUuxoZIxWTaJ/98fte2nTGhe6uyrnEpgSWdX8jiarV3U2GOhvPha3wjup0Pt7HjLyJrMagztNsE+/l4riY6MIXb8obfQKWr3E+B6PhThpMD+qifXBDAURocyxQKLqTV+ILtWm+SZWejcI4C1PbU1UxU73KmRH+a6Bzd2VCqUsZwUGH0unUAVpVF4lAN9O2UakpA7sZJWBgx+UWFNhlpiISFwC4Omw7E6mNJmx4ZTozei+kDSv8T8TwO/tZjPd00nevhV0lt3zMMUWZRocA+gbmC9GjkMepiEQZW31MXSB8sEuWHDrI/E+l7Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ki+QqNF0G/FkEzCU35+YAKUyGzHz/X5qArb2X9sfW2E=;
+ b=HlLTXgaRrw0V/R/ZAJJIxMrhtWFAwzRdVOU+zgvUZamBgkiLqx8oTKAhcYX2AEBEFXHiqSxeezoJylNhlU5ISvui9qtIfJU2VxRJM0vWVvM2qQcShjUg2WnzdIEUYSEAHcsugkTsiJvubLr6xfKmefoc2Gx7sW1arZUdn2Lr1jS7mKb5OIkBsRU2QPpsDwaEIOeIhDS9TJXKFprtKybg9DqNWji52ZkTFms9c2E2898e/qLyQ69Yp2OVhI/Gw2jcjn9Ba3CXvZXKPiIz6kG5t4oMfclZ8rhZ6HD2aL/FTJROD2RmQ0gkiN1sONpcGpW9LGQN3rEGyI6+jc9vDmA/WQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ki+QqNF0G/FkEzCU35+YAKUyGzHz/X5qArb2X9sfW2E=;
+ b=QEEGR4ukqFYurykUYRgMtXs3GIFIAN300TObrtZ/f4goig5SijTwRiLaNXs5JbMWNg+/zCJ0phvCQN7Mn7Q/19B2r/0yNGzXLLr82kRjWAOUdbWlu7HYrwfTAACsrwwmEocDRmYyMQtJByWTOKNCLFTxB5s2ZY4fzKsaUWL+VqtTzPAfKfwONdzVkUl6sJaqHoky+bSHo33aq9i5RGGpozVQzuvLZOqa7HJCGVc8pK5dKeB9DKM/y8dZ6dxx+81jt8vw4Luu/LsFhEI8/+93385OBQ5KFI/z+J2e93c9YE2coIocPhHkRRyZaMchQ7BI6GfMbrc0jqMlojWzPEsYeQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by SEZPR03MB8830.apcprd03.prod.outlook.com (2603:1096:101:255::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Thu, 30 Oct
+ 2025 09:28:03 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e%5]) with mapi id 15.20.9275.013; Thu, 30 Oct 2025
+ 09:28:03 +0000
+Message-ID: <7e95df48-8f27-47ab-a5e8-5bc0777d41b9@amlogic.com>
+Date: Thu, 30 Oct 2025 17:27:32 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/5] clk: amlogic: Change the active level of l_detect
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ da@libre.computer
+References: <20251030-optimize_pll_driver-v2-0-37273f5b25ab@amlogic.com>
+ <20251030-optimize_pll_driver-v2-5-37273f5b25ab@amlogic.com>
+ <1j4irgzss4.fsf@starbuckisacylon.baylibre.com>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <1j4irgzss4.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR04CA0017.apcprd04.prod.outlook.com
+ (2603:1096:4:197::15) To KL1PR03MB5778.apcprd03.prod.outlook.com
+ (2603:1096:820:6d::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251030-topic-am62-partialio-v6-12-b4-v9-3-074f55d9c16b@baylibre.com>
-References: <20251030-topic-am62-partialio-v6-12-b4-v9-0-074f55d9c16b@baylibre.com>
-In-Reply-To: <20251030-topic-am62-partialio-v6-12-b4-v9-0-074f55d9c16b@baylibre.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Santosh Shilimkar <ssantosh@kernel.org>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, 
- Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7001; i=msp@baylibre.com;
- h=from:subject:message-id; bh=26F0Bvu56G754C2jeroEex8fImMoz0+Y7BY0qxomFcU=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhkxmfR/5LunG1oM/Zvep7WJM4vz1fIqe7/y9kefYt956N
- FNosdrcjlIWBjEuBlkxRZbOxNC0//I7jyUvWrYZZg4rE8gQBi5OAZjI/m6Gf8Y/D854mCh9wMBS
- NOW4C+e5u6Km5uEtPfl8L5t7FsQ0BTMydMRfOZx8Pm5NlLbHIk/VQ4L6C8+vzzcOO2P5+oX7h6M
- r2QA=
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEZPR03MB8830:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ee806e4-0984-4217-817e-08de1796a04b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RmIyZnZjRkY4SlNXaUlNT2RWS2tsZHF6K1NMbStPTTBlUzQzaUFnVlQrVTR3?=
+ =?utf-8?B?SHVvc242Ui9jVlpSaWEzQjhqVmZ0dENFbHdjTnVrY1p4THFtanBkdmVrYXgx?=
+ =?utf-8?B?SnNCcVhYcEh2cnlOMFBnZHY3UFlnZFBvTUoxTk44N0xhRlNNQmwvS1NWNGZR?=
+ =?utf-8?B?MzZhRjltajE4RERLMFZXcTlRQWVOYnovRCtNWXlDa09RbS9lNkI3NXpXYWxO?=
+ =?utf-8?B?dHk3Qnc4Ky9tUUFJS2txdlNCWG1YblpuVTdmdEdPaFgwQ2RHM1FrZGpFT2Nx?=
+ =?utf-8?B?aVltV0h2RC9qc0Zla2pXcVI0MENqeXFXNGdWVE13SnFMd3V3OWUyZUk3WEVE?=
+ =?utf-8?B?d3p1NDdUaWFQWFBlckFGZEZnd1ZYS0xMdTU3SnB4UytNS0MycnRvOC9rKzlY?=
+ =?utf-8?B?dVVjRnhxeUwzT3pDamgzamNGeFRKeGU1Z3RBeTRyMjBaNDAxd0VCSkJzcnEv?=
+ =?utf-8?B?b3pvOE5EVC9HRjd2SlMrcm1Vc013eE9ZemZNNWJSUFZTeDFtQk92ZUdWR2w5?=
+ =?utf-8?B?eTF5c1JWblBUWjJpRW95dEJsVGlkQ2xnWnpYZTA2Zmlxbjd1OXVJTnN0ZGhW?=
+ =?utf-8?B?SUQ2SnVNNllzb1RGZVZBR3F6TTRTYjJ5cGNnUlNUa1VIUnJIaVpxTTlwdENv?=
+ =?utf-8?B?WEdIMkZHWVRRU210eTk0ektkU0tHdmFSYnlnRU1QOVJrdUVmL2FMaENpcVBr?=
+ =?utf-8?B?K2dxSUNtRk9WUnQycVdRVVJnMmo2eHltbnd0S3h6TVRqclFxMnoveGRzZ1ZP?=
+ =?utf-8?B?SlAwRk5GOUV1MDNwMlBuVnE4cFdiSFNmZ21sbVkrQmd3V3BYN2QvY3dkUjVG?=
+ =?utf-8?B?ejlHdzZqS2k4a3FIc1E3Nk9WK1FXRkgwR1FpSkhkOFpQcDQ2dElDY21EMkZj?=
+ =?utf-8?B?ekM0MDcwcDlKZGQrTndRTXpwVERHb2tJYUJ1V3p5MTBhcWFtZ0VXekJEdXpt?=
+ =?utf-8?B?ZWthZ0o4SVpWQnlhMmVuMnJPTnhyYjdrdEcxYlJhRTluTmNHOE14TUFBOHVl?=
+ =?utf-8?B?WlZZaFVuaEZ0YktTNHBUbFdsT1hWcjljRytqQS9XemZnNnNVWTNFNmFSdTcx?=
+ =?utf-8?B?aUVoTC96R3lzNStYVFBlMDFyUTY1Q0FWa2ZFTkRMamFoWFVBYVh5N1FFU3h1?=
+ =?utf-8?B?ZnlPMkpKcENpcXRBU0NnMERMaC94WlpySWluTUlWRkVtbkpuT1hjTGZHYWJC?=
+ =?utf-8?B?My9ua1lkUTcxY003Zi93ZmFJMUd6S0wzWU0zRC85ekpzQ3NjSVZUam44QUYx?=
+ =?utf-8?B?K25uVE1HM2lUcUNKUFJFKzVJa3hWMVFiTmVtZEpBU3A2alNFREYwWkdYVWVF?=
+ =?utf-8?B?MHgwemdNTDBHSDJGaEQ1dncweFkraStvbFE1b2pObHp3SFZYUlNBOEduM2N5?=
+ =?utf-8?B?UWQyaDlWK3AwdVQvUWhlRTVWbTF3ZHJqaFdSdGxmaUVaTW5oYXdJTTlKdVFl?=
+ =?utf-8?B?YVY2YVNQcmkwYmp3SnhPaGsvTWkrLzNsdks3QnRXZCtyTU14L2V5akI4Szl0?=
+ =?utf-8?B?NmdRazBtL1hKQWdnWnluNVFqYlBHRXZpY1czWGNOWXBYOG5YYzVTVlZaNWFQ?=
+ =?utf-8?B?emgwWDY2bElRa3VuVTQ1VWhPZkZIVHhHaWdiS1EvSU91RUFlTldEdkpyRW44?=
+ =?utf-8?B?cUVoU00zY0pBK3JocFBORld5MDd0NHJoeXM5Ymp4Nzc2VzlKYjZXTDF3WWpH?=
+ =?utf-8?B?aXExY2Y4Q3RZWE9YMk9IWGU5NTRWNDhwaGRsaWYzQmwyc1hldHdhZ0tHM0ZY?=
+ =?utf-8?B?aVF4UWtjL3RpSVRrQVEyQmN2S0RHVTVBemxXckx6MWZPSmVxR0M0V1pacHYr?=
+ =?utf-8?B?Ym5YVklFa2NGOTdZNHhBNEp3aW01SjFBdUIwbEFaL1dWN3FXYVpPTHUzMjhE?=
+ =?utf-8?B?TUttRUVJREUvelpwcXFUellqeWh3VCtEUWNsTGtKUzlCL2NrYUhXSjBleFBu?=
+ =?utf-8?Q?5yEVK66usaensZh42Ip9JYXoWnyKLPho?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N0hDdmRKb0h2ZHNKZ3pxcnlqMzJlaUZWMVdWa0Z0NGZxcHFGWVo2MlIrWDRp?=
+ =?utf-8?B?YmRhMHMzaVkwd0Q0dWdyODZEeS9UYlEzVlBsOUhhMlE3bGIwRVVrRFAvblVX?=
+ =?utf-8?B?cFQ2T1Z6N1o5Zi8xSVNDUmJSbm5RTVBKdC9TeDdJREk4alpONDhIQ2hteHZo?=
+ =?utf-8?B?ZFZad1ZKTU1ZcG9Ma2dLWmVwbnhhZ3FJUFZtM001NzJsNzZmdjFaQ1VEZU5R?=
+ =?utf-8?B?QkowQ1lFYUtKODZqb2UrN0JDK3M3VWpCcjcrb2JyNUZmZy9aUmMvczRUUGRm?=
+ =?utf-8?B?bHBUS3dOQm9Lc1g4UzRQd01QZTZtdGtxOU9nejNhdDc1RkpRemV6ckFaZ1BS?=
+ =?utf-8?B?anJiV1lveitZL1BralJwdHNNZlpDUDVOUW8yS1hGMDF4Vm9mS01oWEFFcEp4?=
+ =?utf-8?B?N2JpWmxnUGNFaG8xWFU5Mnl6elRiZzRkRXU0RmNKalBTck5Jd1puU2EvOEUx?=
+ =?utf-8?B?NG5GY2RycVQ3ZjJSY0t2WGVyRTJRMXhhYzRIQ0JDYXNUUXJBM0NtaFdpQlgv?=
+ =?utf-8?B?NnkvZVNpMkxZdE4xeFVsZGx0TEhIdEUvWlhHNzRJTnBvQ1dTL1hLM1dtdXRD?=
+ =?utf-8?B?eHpYQ2x0dXlUSEl4V3gxTVFLMFNNTGhweXk1WlN4MnpLbUlWSERpOW4zUFND?=
+ =?utf-8?B?RzkrT2F4eTMwanVvT2VxWC9QWmM0WmlIY1VTVmh0UTNNc0swUytxZ29xVWlv?=
+ =?utf-8?B?SGRVL1ptU09aMnlLcysxaXh0NS91bWlwV1RDWU9BUEJ0K0JJNGR5WUN2TEVz?=
+ =?utf-8?B?SVpseGE1SFl0ZVUwTUJjN0lKMmVKRUR5SFVHZUhkWVZNUFhxUjU4Ny96Q3pZ?=
+ =?utf-8?B?R0kyMUFsaWRJNmJ0YnRVSzVOK295ZDQ4SkZrVjZ3c1BDRnRRak5QUzVkTzNo?=
+ =?utf-8?B?cnRDSEkzU0RhVjQ2bGttOGdQZTRSRUpKdkoxOFJzUGMvclhVTnlybjFqRFhn?=
+ =?utf-8?B?cEtGcVpXSUZjOFRJLys4bWdqZjJmMzRpdlNaZ2R4d2d4ckZvZW01UkFlaEFu?=
+ =?utf-8?B?ZjJra2poQ3RuYm5qMzNhTFpTQ3oyWTY2UmNsZStJVjY5bldJemtRRWtwYVht?=
+ =?utf-8?B?VkVPNzRWcmJtLy9zSG1mMnFHdTB1T2lKNjFkVFBIaUlYM0tLSXNDSUVxRERa?=
+ =?utf-8?B?QjBxaGRGZDdkY1Z6UTZDQnQxU3M3MVdlZy9DNWo0MW1ZSENia3J5QnZNSUJI?=
+ =?utf-8?B?dittbU9DUEhTZWNGUmxrVllTY3I4YWhRWENMUUt6R3pUYVFXck1JYUF5Yjl0?=
+ =?utf-8?B?MUtqK1BOUExBa3lXUHYxRFdEa2VGQXlGMjl3VlAvem5lKzA3SmU1eWVtWVZ1?=
+ =?utf-8?B?U0Y5RXJTaGhnbmFHNmU0T0RJd2xYZWJVL0FaR015YmgzSVVsVEhSd01UZTV6?=
+ =?utf-8?B?UHgzZzBOMHZ1TWhZK2QzL2QwQlRROVdwM0haKzl2SDhLck84Y09XSTZsa1BM?=
+ =?utf-8?B?NG5wY3BhWjc4VFlRRnFrNWM2bys2aWVqazdKelRXbWlBU1piN3VOcDJ2WWNI?=
+ =?utf-8?B?TzNsMTZWYmplbTJQbWljMVBJMXVYRWNtLyswdFZhaHdLa3cyQm5vcHJ0SXlq?=
+ =?utf-8?B?SmI2Uno2TlFDTURVdG5VM0dmcXdYTTl3VzVmd09JcEFVck1sRVFGeVVDTGpr?=
+ =?utf-8?B?bFh4U3lrZ1BRS0J2YTd4RXBIZFBKYVF2WlZnVWRBeFo1VHd1eEhqYmFmK2s2?=
+ =?utf-8?B?WVhvbkRKK09PcDk0bXo3M2xaVW5QY2thL2N6Zi9yV3N2b1dScHVZRHNiTy9s?=
+ =?utf-8?B?SWh0VGJobjRmNUlXdjVCUWFvck94UjV5bEdvenE0L3VLVVdKNmpJamdDTWdn?=
+ =?utf-8?B?RmNvOU9pNXpoR1lmaDRIZzJJditDb3QvV25QbldnYlg2WkFhYmxuSnJsWHVL?=
+ =?utf-8?B?TmhHVjJnU1p1emFOTURKamJzcmJzb1I0QzNCYzdpMDZPelZVN3ZhczNWUWlK?=
+ =?utf-8?B?cEt4ZVZwUmdjc0FqbWNJSmpHOVlKUFVVN25OYUlHdTBkMG56d3M5WTNRelNT?=
+ =?utf-8?B?dnZmREIrakFISXAzSzZERVRuTlR0bEFZVm45RTdoeTRnajdkM0J5R0FaNzBH?=
+ =?utf-8?B?dUozbHg0NXZpK3p5b0hlajhrUlJINkxSMDJ6VGhZclNsUm5hUzUxVTlYWlFn?=
+ =?utf-8?Q?hc+aPNDECYSa2NqE2ecRGIoIw?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ee806e4-0984-4217-817e-08de1796a04b
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2025 09:28:03.7385
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YN+SbX8EoWZAWbf2BD2UjNcBAyDniYloNfRhEcpKXSHu7cBuqpx/4yH5JhhbIfUKyz5cUK3/5qviHiz9PM/xvg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8830
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_022706_355655_9F230FE0 
-X-CRM114-Status: GOOD (  27.07  )
+X-CRM114-CacheID: sfid-20251030_022813_536824_A7B35E23 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,220 +181,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Partial-IO poweroff. In Partial-IO pins of a few
-hardware units can generate system wakeups while DDR memory is not
-powered resulting in a fresh boot of the system. These hardware units in
-the SoC are always powered so that some logic can detect pin activity.
+Hi Jerome,
 
-If the system supports Partial-IO as described in the fw capabilities, a
-sys_off handler is added. This sys_off handler decides if the poweroff
-is executed by entering normal poweroff or Partial-IO instead. The
-decision is made by checking if wakeup is enabled on all devices that
-may wake up the SoC from Partial-IO.
+On 10/30/2025 4:40 PM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+> 
+> On Thu 30 Oct 2025 at 13:24, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+> 
+>> From: Chuan Liu <chuan.liu@amlogic.com>
+>>
+>> l_detect controls the enable/disable of the PLL lock-detect module.
+>>
+>> The enable signal is normally active-high. This design ensures that
+>> the module remains disabled during the power-on process, preventing
+>> power fluctuations from affecting its operating state.
+>>
+>> For A1, the l_detect signal is active-low:
+>> 0 -> Enable lock-detect module;
+>> 1 -> Disable lock-detect module.
+>>
+>> Here, a flag CLK_MESON_PLL_L_DETECT_N is added to handle cases like
+>> A1, where the signal is active-low.
+> 
+> Given that A1 is the only ship supporting l_detect, this change is not
+> necessary.
+> 
+> Not now at least.
+> 
 
-The possible wakeup devices are found by checking which devices
-reference a "Partial-IO" system state in the list of wakeup-source
-system states. Only devices that are actually enabled by the user will
-be considered as an active wakeup source. If none of the wakeup sources
-is enabled the system will do a normal poweroff. If at least one wakeup
-source is enabled it will instead send a TI_SCI_MSG_PREPARE_SLEEP
-message from the sys_off handler. Sending this message will result in an
-immediate shutdown of the system. No execution is expected after this
-point. The code will wait for 5s and do an emergency_restart afterwards
-if Partial-IO wasn't entered at that point.
+The SoCs queued for upstreaming later will depend on this patch, so I
+included it in this patchset.
 
-A short documentation about Partial-IO can be found in section 6.2.4.5
-of the TRM at
-  https://www.ti.com/lit/pdf/spruiv7
+If that’s not appropriate, would it be acceptable for me to include
+it in the A4 submission instead?
 
-Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
----
- drivers/firmware/ti_sci.c | 132 +++++++++++++++++++++++++++++++++++++++++++++-
- drivers/firmware/ti_sci.h |   5 ++
- 2 files changed, 136 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 4db84a92a517b0aa7bb8d47e809d9848a16e2cc4..f2922fccfbe748a436cb9aa0a8c8e5f48db02ef9 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -6,6 +6,7 @@
-  *	Nishanth Menon
-  */
- 
-+#include "linux/dev_printk.h"
- #define pr_fmt(fmt) "%s: " fmt, __func__
- 
- #include <linux/bitmap.h>
-@@ -3663,6 +3664,116 @@ devm_ti_sci_get_resource(const struct ti_sci_handle *handle, struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_ti_sci_get_resource);
- 
-+/*
-+ * Enter Partial-IO, which disables everything including DDR with only a small
-+ * logic being active for wakeup.
-+ */
-+static int ti_sci_enter_partial_io(struct ti_sci_info *info)
-+{
-+	struct ti_sci_msg_req_prepare_sleep *req;
-+	struct ti_sci_xfer *xfer;
-+	struct device *dev = info->dev;
-+	int ret = 0;
-+
-+	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
-+				   TI_SCI_FLAG_REQ_GENERIC_NORESPONSE,
-+				   sizeof(*req), sizeof(struct ti_sci_msg_hdr));
-+	if (IS_ERR(xfer)) {
-+		ret = PTR_ERR(xfer);
-+		dev_err(dev, "Message alloc failed(%d)\n", ret);
-+		return ret;
-+	}
-+
-+	req = (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
-+	req->mode = TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO;
-+	req->ctx_lo = 0;
-+	req->ctx_hi = 0;
-+	req->debug_flags = 0;
-+
-+	ret = ti_sci_do_xfer(info, xfer);
-+	if (ret) {
-+		dev_err(dev, "Mbox send fail %d\n", ret);
-+		goto fail;
-+	}
-+
-+fail:
-+	ti_sci_put_one_xfer(&info->minfo, xfer);
-+
-+	return ret;
-+}
-+
-+/*
-+ * Iterate all device nodes that have a wakeup-source property and check if one
-+ * of the possible phandles points to a Partial-IO system state. If it
-+ * does resolve the device node to an actual device and check if wakeup is
-+ * enabled.
-+ */
-+static bool ti_sci_partial_io_wakeup_enabled(struct ti_sci_info *info)
-+{
-+	struct device_node *wakeup_node = NULL;
-+
-+	for_each_node_with_property(wakeup_node, "wakeup-source") {
-+		struct of_phandle_iterator it;
-+		int err;
-+
-+		of_for_each_phandle(&it, err, wakeup_node, "wakeup-source", NULL, 0) {
-+			struct platform_device *pdev;
-+			bool may_wakeup;
-+
-+			/*
-+			 * Continue if idle-state-name is not off-wake. Return
-+			 * value is the index of the string which should be 0 if
-+			 * off-wake is present.
-+			 */
-+			if (of_property_match_string(it.node, "idle-state-name", "off-wake"))
-+				continue;
-+
-+			pdev = of_find_device_by_node(wakeup_node);
-+			if (!pdev)
-+				continue;
-+
-+			may_wakeup = device_may_wakeup(&pdev->dev);
-+			put_device(&pdev->dev);
-+
-+			if (may_wakeup) {
-+				dev_dbg(info->dev, "%pOF identified as wakeup source for Partial-IO\n",
-+					wakeup_node);
-+				of_node_put(it.node);
-+				of_node_put(wakeup_node);
-+				return true;
-+			}
-+		}
-+	}
-+
-+	return false;
-+}
-+
-+static int ti_sci_sys_off_handler(struct sys_off_data *data)
-+{
-+	struct ti_sci_info *info = data->cb_data;
-+	bool enter_partial_io = ti_sci_partial_io_wakeup_enabled(info);
-+	int ret;
-+
-+	if (!enter_partial_io)
-+		return NOTIFY_DONE;
-+
-+	dev_info(info->dev, "Entering Partial-IO because a powered wakeup-enabled device was found.\n");
-+
-+	ret = ti_sci_enter_partial_io(info);
-+
-+	if (ret) {
-+		dev_err(info->dev,
-+			"Failed to enter Partial-IO %pe, trying to do an emergency restart\n",
-+			ERR_PTR(ret));
-+		emergency_restart();
-+	}
-+
-+	mdelay(5000);
-+	emergency_restart();
-+
-+	return NOTIFY_DONE;
-+}
-+
- static int tisci_reboot_handler(struct sys_off_data *data)
- {
- 	struct ti_sci_info *info = data->cb_data;
-@@ -3941,6 +4052,19 @@ static int ti_sci_probe(struct platform_device *pdev)
- 		goto out;
- 	}
- 
-+	if (info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO) {
-+		ret = devm_register_sys_off_handler(dev,
-+						    SYS_OFF_MODE_POWER_OFF,
-+						    SYS_OFF_PRIO_FIRMWARE,
-+						    ti_sci_sys_off_handler,
-+						    info);
-+		if (ret) {
-+			dev_err(dev, "Failed to register sys_off_handler %pe\n",
-+				ERR_PTR(ret));
-+			goto out;
-+		}
-+	}
-+
- 	dev_info(dev, "ABI: %d.%d (firmware rev 0x%04x '%s')\n",
- 		 info->handle.version.abi_major, info->handle.version.abi_minor,
- 		 info->handle.version.firmware_revision,
-@@ -3950,7 +4074,13 @@ static int ti_sci_probe(struct platform_device *pdev)
- 	list_add_tail(&info->node, &ti_sci_list);
- 	mutex_unlock(&ti_sci_list_mutex);
- 
--	return of_platform_populate(dev->of_node, NULL, NULL, dev);
-+	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
-+	if (ret) {
-+		dev_err(dev, "platform_populate failed %pe\n", ERR_PTR(ret));
-+		goto out;
-+	}
-+	return 0;
-+
- out:
- 	if (!IS_ERR(info->chan_tx))
- 		mbox_free_channel(info->chan_tx);
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 701c416b2e78f8ef20ce6741a88ffa6fd4853b2d..09eaea54dd5cabce72dd1652c9603e3ab446b60c 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -595,6 +595,11 @@ struct ti_sci_msg_resp_get_clock_freq {
- struct ti_sci_msg_req_prepare_sleep {
- 	struct ti_sci_msg_hdr	hdr;
- 
-+/*
-+ * When sending prepare_sleep with MODE_PARTIAL_IO no response will be sent,
-+ * no further steps are required.
-+ */
-+#define TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO				0x03
- #define TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED				0xfd
- 	u8			mode;
- 	u32			ctx_lo;
-
--- 
-2.51.0
+>>
+>> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+>> ---
+>>   drivers/clk/meson/a1-pll.c  |  1 +
+>>   drivers/clk/meson/clk-pll.c | 16 ++++++++++++----
+>>   drivers/clk/meson/clk-pll.h |  2 ++
+>>   3 files changed, 15 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/clk/meson/a1-pll.c b/drivers/clk/meson/a1-pll.c
+>> index 1f82e9c7c14e..bfe559c71402 100644
+>> --- a/drivers/clk/meson/a1-pll.c
+>> +++ b/drivers/clk/meson/a1-pll.c
+>> @@ -137,6 +137,7 @@ static struct clk_regmap a1_hifi_pll = {
+>>                .range = &a1_hifi_pll_range,
+>>                .init_regs = a1_hifi_pll_init_regs,
+>>                .init_count = ARRAY_SIZE(a1_hifi_pll_init_regs),
+>> +             .flags = CLK_MESON_PLL_L_DETECT_N
+>>        },
+>>        .hw.init = &(struct clk_init_data){
+>>                .name = "hifi_pll",
+>> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+>> index c6eebde1f516..d729e933aa1c 100644
+>> --- a/drivers/clk/meson/clk-pll.c
+>> +++ b/drivers/clk/meson/clk-pll.c
+>> @@ -384,8 +384,12 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+>>                meson_parm_write(clk->map, &pll->rst, 1);
+>>
+>>        /* Disable the PLL lock-detect module */
+>> -     if (MESON_PARM_APPLICABLE(&pll->l_detect))
+>> -             meson_parm_write(clk->map, &pll->l_detect, 1);
+>> +     if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
+>> +             if (pll->flags & CLK_MESON_PLL_L_DETECT_N)
+>> +                     meson_parm_write(clk->map, &pll->l_detect, 1);
+>> +             else
+>> +                     meson_parm_write(clk->map, &pll->l_detect, 0);
+>> +     }
+>>
+>>        /* Enable the pll */
+>>        meson_parm_write(clk->map, &pll->en, 1);
+>> @@ -413,8 +417,12 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+>>        udelay(20);
+>>
+>>        /* Enable the lock-detect module */
+>> -     if (MESON_PARM_APPLICABLE(&pll->l_detect))
+>> -             meson_parm_write(clk->map, &pll->l_detect, 0);
+>> +     if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
+>> +             if (pll->flags & CLK_MESON_PLL_L_DETECT_N)
+>> +                     meson_parm_write(clk->map, &pll->l_detect, 0);
+>> +             else
+>> +                     meson_parm_write(clk->map, &pll->l_detect, 1);
+>> +     }
+>>
+>>        if (meson_clk_pll_wait_lock(hw)) {
+>>                /* disable PLL when PLL lock failed. */
+>> diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
+>> index 949157fb7bf5..83295a24721f 100644
+>> --- a/drivers/clk/meson/clk-pll.h
+>> +++ b/drivers/clk/meson/clk-pll.h
+>> @@ -29,6 +29,8 @@ struct pll_mult_range {
+>>
+>>   #define CLK_MESON_PLL_ROUND_CLOSEST  BIT(0)
+>>   #define CLK_MESON_PLL_NOINIT_ENABLED BIT(1)
+>> +/* l_detect signal is active-low */
+>> +#define CLK_MESON_PLL_L_DETECT_N     BIT(2)
+>>
+>>   struct meson_clk_pll_data {
+>>        struct parm en;
+> 
+> --
+> Jerome
 
 
