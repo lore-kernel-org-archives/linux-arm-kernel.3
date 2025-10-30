@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982BDCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 17:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD0CCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 17:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qX9jT0WVKNVZVkQFVvnvBU4twJtmXIXrEgsmm350dtE=; b=YFAf8ROs4JRcxz2ZM1HYaiHYok
-	kNLOWVoET6BVHOHPbbRIOc5bONjgV147iQkk/imJQvC9D9gMovW9saExDgZlDTH9l9uDWq2pjaJdW
-	w33au+OfcOu9RE9RzukIeg/duKuZIE3qDqGcooCdISuEpqA1D5VfvOWnEJRG3j8JWy4eiJA5N/6Ht
-	h2u5FSVhO7UB8K8YmUJWRXQk3M4lwPEZ/CU/tS/pBlQpHjDqacBFURjJBBMMS4Tjoz0t8qQkaQL59
-	IS0ALEP0j45yjJCj5dqSWJE7Si/WlnuAnAkEPX//6pHmZXdWeSyRxDh2RmTrqLfrkqwgBKcygIlpi
-	2CtDBlDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yPOSS4Xvr2ZiLCE2TTrws+3Tl9nUc/vBnF2uUi2Fj0A=; b=bCb97bmnWbrA/ESp1mA13yWIuU
+	6/Rzm1IRyXb72CJ+OhiTSA2k3AWwwvMBEq/AE/Yz2HKKHsp/uGQ2Z6330bennIg/XCtY9KFG5dw6e
+	di9UaL3bdHBht0fBxwb1uArZFywCdyq2/P1hex7KIEPL7WzjKdYZIUk9LaA4NFHk+w/nQWuM1roCp
+	0MUU8551F7n8Z16bY54pyKkVdBCjfJdS3MmWGFFR018m6DLVILPv7oBDAz10PRhvaGnPPXVYXbXZ7
+	GzxRw+jNKuJPVofb7naBdct89AFvOlBleXmkgu/BbIbU9F/M6xO39zWLlMvoiNXrCgTz0XZGNK4Dz
+	Z9D6USHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEWBN-00000004WFS-3IId;
-	Thu, 30 Oct 2025 17:11:29 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1vEWDd-00000004WRy-1KkN;
+	Thu, 30 Oct 2025 17:13:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEWBL-00000004WEw-0TQp
+	id 1vEWDb-00000004WRo-17e7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 17:11:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1761844266; x=1762449066; i=markus.elfring@web.de;
-	bh=qX9jT0WVKNVZVkQFVvnvBU4twJtmXIXrEgsmm350dtE=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=ikzeDLtH8pSRBCH0hWG+C1Le3omfx0clVgdtTO203jLvQlx+eAfwBYu8Bc1oVS34
-	 0hktkE5p86DAfbQ2V/5+Jo5Z3pD2jXssGBOVJQwL+l9NPERT6J1RZK8hmi40dj9dm
-	 4GzL12PZUB/5GInBxbX9lWDALe2cnyzyCT2G6IwF++vTu8vz4eGjmE+KnscJuoKQz
-	 3auugnlKUC/7Siy+3dS3N2s5F9psYvbRCPFPjS2E8nvHJpdxj0odfLnB3CUzphIiR
-	 9rDDA6DD0GM4lRV7LROIwTOJ1Zjmsyz1fRLUKA1jsUeAyn42EVVTKMgNF/STh4JFK
-	 zNdzXfLYo2PcavIICg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.248]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mcpqq-1vn1yt3hKM-00jfVS; Thu, 30
- Oct 2025 18:11:05 +0100
-Message-ID: <6e962260-5069-490a-89fb-908a4342ccd9@web.de>
-Date: Thu, 30 Oct 2025 18:11:03 +0100
+	Thu, 30 Oct 2025 17:13:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 44A13602F4;
+	Thu, 30 Oct 2025 17:13:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73BBCC4CEF8;
+	Thu, 30 Oct 2025 17:13:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761844424;
+	bh=Ga2UaOapRGo+y9uUOsUqRMoBHpskEFYaGzTydEs8NIQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pof1RBvX5cRsFJAezLFcWBGDW7rsV1c4M1J99/r3DGwmimwg3GbksGk7NgCOg0FBk
+	 iIjzXjj2IJqkdeh2yPQXViNw4vKw3zw5lR44jG429gASfmNYXq+TSE5znGPRdwy0YY
+	 ddmqdSyr+vgV/cyHD1fNoSjy59FI9zxVlYyKL5146W0qonhiNsUFCRLS9l/JiJTsdu
+	 /d4rzHomrmqMJY85laR34wIR4qKUP2WJ444aShGkavHd2HyGHCPs9YzvnXD3qcoztv
+	 Cq2vtvl4aFD2escxUpJ8WYFVlQC9MwZG2UmwTd5GRN6cftyQ6ufd71f2QyDXhZKD7B
+	 2meEhwL/lg2eQ==
+Date: Thu, 30 Oct 2025 18:13:41 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: "Krebs, Olaf" <Olaf.Krebs@emh-metering.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	"open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] Fix IMX PWM period setting
+Message-ID: <qsc5hl22l4bxs6jzqbc43r4wxvmbwz6rpcfsiv4hcp2uzrsscy@ogjzgesvy2wl>
+References: <20251030114641.4109598-1-user@jenkins>
+ <548dfa909f984868a62e04efc0c51bdf@emh-metering.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- David Brazdil <dbrazdil@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki Poulouse <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
- Zenghui Yu <yuzenghui@huawei.com>
-Content-Language: en-GB, de-DE
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Miaoqian Lin <linmq006@gmail.com>
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] KVM: arm64: Use pointer from memcpy() call for assignment in
- init_hyp_mode()
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:rK4JBHFEyHfa/6DyQX45RUvGECOdzSihIRe+9DLkEhLkLcTSO9E
- 4ZhRHSVas5MJjtsEsmpa8myg+USRJayiWVGBntVwPbXEg9XHbzfOdQMehiM8tJCmNe/VBBu
- fwaOrY2d8hOzMztUtFxy5wInOeyd+TS8CgBDoQ9PwIgRjLbBAaWWtjcV83owIOQ7mPjvuRb
- vFVv+nP5M/RAtuCTj1JyQ==
-UI-OutboundReport: notjunk:1;M01:P0:Tk+C6iJsU0c=;tAwdVkpjT2CkaeumDL0GzshrToX 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
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_101127_674657_963B1DA1 
-X-CRM114-Status: GOOD (  10.76  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="34swrrw2zoqfjyya"
+Content-Disposition: inline
+In-Reply-To: <548dfa909f984868a62e04efc0c51bdf@emh-metering.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +73,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Thu, 30 Oct 2025 18:01:41 +0100
 
-A pointer was assigned to a variable. The same pointer was used for
-the destination parameter of a memcpy() call.
-This function is documented in the way that the same value is returned.
-Thus convert two separate statements into a direct variable assignment for
-the return value from a memory copy action.
+--34swrrw2zoqfjyya
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] Fix IMX PWM period setting
+MIME-Version: 1.0
 
-The source code was transformed by using the Coccinelle software.
+Hello,
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
- arch/arm64/kvm/arm.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+please version your patch revision, i.e. you should have put "v2" in the
+subject. The easiest way to achieve that is by passing -v2 to `git
+format-patch` (or `git send-email` if you use that directly). So for the
+next revision use -v3.
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 870953b4a8a7..feab88c31703 100644
-=2D-- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2600,8 +2600,8 @@ static int __init init_hyp_mode(void)
- 			goto out_err;
- 		}
-=20
--		page_addr =3D page_address(page);
--		memcpy(page_addr, CHOOSE_NVHE_SYM(__per_cpu_start), nvhe_percpu_size())=
-;
-+		page_addr =3D memcpy(page_address(page), CHOOSE_NVHE_SYM(__per_cpu_star=
-t),
-+				   nvhe_percpu_size());
- 		kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu] =3D (unsigned long)page_addr=
-;
- 	}
-=20
-=2D-=20
-2.51.1
+On Thu, Oct 30, 2025 at 11:53:27AM +0000, Krebs, Olaf wrote:
+> From: Olaf Krebs <okr@smgw.emh-meter.de>
+>=20
+> We use 3 PWM channels to control an RGB LED. Without this patch, an BUSY-=
+error message is generated during initialization.
+>=20
+> [    7.395326] leds_pwm_multicolor led-controller: error -EBUSY: failed t=
+o set led PWM value for (null)
+> [    7.405167] leds_pwm_multicolor led-controller: probe with driver leds=
+_pwm_multicolor failed with error -16
+>=20
+> Our DTS-Config for an imx93-Board:
+> 	...
+> 	led-controller {
+> 		compatible =3D "pwm-leds-multicolor";
+> 		multi-led {
+> 			label =3D "RGBled";
+> 			color =3D <LED_COLOR_ID_RGB>;
+> 			function =3D LED_FUNCTION_INDICATOR;
+> 			max-brightness =3D <255>;
+> 			led-red {
+> 				pwms =3D <&tpm5 0 1000000 PWM_POLARITY_INVERTED>;
+> 				color =3D <LED_COLOR_ID_RED>;
+> 			};
+> 			led-green {
+> 				pwms =3D <&tpm6 2 1000000 PWM_POLARITY_INVERTED>;
+> 				color =3D <LED_COLOR_ID_GREEN>;
+> 			};
+> 			led-blue {
+> 				pwms =3D <&tpm5 1 1000000 PWM_POLARITY_INVERTED>;
+> 				color =3D <LED_COLOR_ID_BLUE>;
+> 			};
+> 		};
+> 	};
+> 	...
 
+I would prefer something like the following text here:
+
+	If a second PWM is requested by a driver before the first is
+	configured, trying to configure any of these results in
+	.user_count > 1 and thus the configuration fails.=20
+	Fix that by only erroring out by additionally checking if the
+	period is actually configured.
+
+> Signed-off-by: Olaf krebs <olaf.krebs@emh-metering.com>
+
+S-o-b missmatch. Do you know checkpatch? That one also wails:
+WARNING: Prefer a maximum 75 chars per line (possible unwrapped commit desc=
+ription?)
+
+> ---
+>  drivers/pwm/pwm-imx-tpm.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c index =
+5b399de16d60..411daa7711f1 100644
+> --- a/drivers/pwm/pwm-imx-tpm.c
+> +++ b/drivers/pwm/pwm-imx-tpm.c
+> @@ -190,7 +190,7 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
+>  		 * there are multiple channels in use with different
+>  		 * period settings.
+>  		 */
+> -		if (tpm->user_count > 1)
+> +		if ((tpm->user_count > 1) && (tpm->real_period !=3D 0))
+>  			return -EBUSY;
+
+Please drop the added parenthesis.
+
+Thinking about the error here, I wonder if a saner check would involve
+enable_count instead of user_count.
+
+>  		val =3D readl(tpm->base + PWM_IMX_TPM_SC);
+
+Best regards
+Uwe
+
+--34swrrw2zoqfjyya
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkDnMMACgkQj4D7WH0S
+/k75IwgApdc2XPIDEyp+ZQcUeA+W1RUlQqraSjno8l3UnToMwlCt+ChVq19ThmyM
+EdsIvUZnM0/5QjS856KJzxLKsFHa+KCYEi2I8Y7El/rEUU1BZkH0/HXR/QZ/SLc5
++Sal0xhUXIfxtSPWVH2BU1BX/h4yXmuysgSqfgbyuhxjiLPd6BNq03rNVP0uQJd/
++DhPiRYWxtVJJf8uxLYFu55POjiLDzlHWaJLz6x+umtjlrX5I3wdvr7MxvYk4Gjp
+dPkrAqdKCXHkc+cr9CceupLqqPShhTmd0njU2kdKkYsLccd1chdfTBS7UXF9Ydkb
+JM68cr+6yiYfx/cbCPLXx+xsDk2idA==
+=2+ej
+-----END PGP SIGNATURE-----
+
+--34swrrw2zoqfjyya--
 
