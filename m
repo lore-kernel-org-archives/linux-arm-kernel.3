@@ -4,77 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D46BCCF9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA41CCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=thk0PQbRrW+pj3uhPzs3mJl7gd/VqI0YzTcec+xXZo8=; b=bJmQcud7yyAl7vYNdq6NcInqg8
-	j+PpiJ693+RTBIT9kVzJh92d63zm8VI4VdiruyblfYwFAS2TyPGFPCPDfF5RuZU8fcql5no69w9cZ
-	KcNt+vghri3r67Wntjva5d5eeudBZrAdUoKjcbgDSXIxzLvh0RIqIantcrQLtr+XTsBZPwY6/859i
-	MphkYvktJIbWZjN45Qh2G6gS7fO1MGLq/TxCLsK6bl123+UduHuhsEDZXwvWwBP48uH9s4aKACXq4
-	4eEHGh9Gprk+xCUQwRMyTMhASlSUXG8Bp+e2rupQ7vi/Ggtghd7PFL/jSUvJg99YLHwQ9JnihoNbv
-	/+dsiyBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3EjE/Ehdd38s+ZDibKEzYuYp58XZ2FHtbELrnlb9RaY=; b=bnSmddFd24JaMze4vZu1LKCbnT
+	XJYrrf0+Yyf3fDsr6PjUMeU9uBsLkQM4WU4lpGumBDXWJb8bXI8r8pVsPQ1hDmRBjw8275M8sc8X0
+	fISquI8cplz6Hcpc7k2j6XM4zAFRcg84y7/uuQhVhFLRMg19gNR9BQrG6pZX55vOqpqJwv/8lMqtH
+	/r2IHHCCo4ordSPG4OKZZpzhlo31YOfGNZ00MI5IQPcKGvjTSvbV84qB/6WOoo24JPQo5313q+SNL
+	1SDepzIde9vT1RkNxeq7e5Nedx2QgFF0qvk+KPtXJduY2RGzzwl0rBXdbJBrLKL3C4a3iWqDjb2Cs
+	lDwXzFyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERmr-000000047lL-2SfX;
-	Thu, 30 Oct 2025 12:29:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERmq-000000047kU-1WYt
+	id 1vERsS-000000048R9-0A76;
+	Thu, 30 Oct 2025 12:35:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vERsO-000000048Qd-2Vnx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 12:29:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C99462093;
-	Thu, 30 Oct 2025 12:29:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D6A4BC4CEFF;
-	Thu, 30 Oct 2025 12:29:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761827390;
-	bh=Q+GOMdkG1FB3jSW88g07UsTgUWJQy2XQNljlWue4uuo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=csODDuDkn4xwKryMvn8GkT3ztdiBKr1W9e34IZ2RuCWPzBBEK/W7ZYZklmn/pPi9U
-	 ftz7pyTqWZ4MKhFLS2cY+Z/IRUedQVqs+CVlbGU/4ZR6Lky2F7dknipx37vK4j3c4X
-	 PK8PyCsQbHYFy2QBXKyew37nV87ow96rU2LJNIjXUaV9MsOsxwOadmXPFz9oJtioQS
-	 GeBCGraveLRHeXDNNjsdFxMOfg98NCItOFaDZtNp2iDjnqShrkUMs0DeVIP9e0OMix
-	 J20yY5zOhcjDvhZMKBUAVDGWXbiHKC9x9za72eT/Qb7S7DjoElTHp4hdG9b7KtzYVr
-	 mdhFhllJHfsQQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C5ECECCF9F0;
-	Thu, 30 Oct 2025 12:29:50 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Thu, 30 Oct 2025 12:29:39 +0000
-Subject: [PATCH 1/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in host
- handler
+	Thu, 30 Oct 2025 12:35:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B6792C42;
+	Thu, 30 Oct 2025 05:35:27 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB56D3F66E;
+	Thu, 30 Oct 2025 05:35:33 -0700 (PDT)
+Date: Thu, 30 Oct 2025 12:35:25 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ben Niu <BenNiu@meta.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, tytso@mit.edu,
+	Jason@zx2c4.com, linux-arm-kernel@lists.infradead.org,
+	niuben003@gmail.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tracing: Enable kprobe tracing for Arm64 asm functions
+Message-ID: <aQNbjap69C6inZwb@J2N7QTR9R3>
+References: <20251027181749.240466-1-benniu@meta.com>
+ <aQIltqoIVDwh4A6p@J2N7QTR9R3>
+ <aQKpDIYwO9VTP7qM@meta.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251030-host-direct-messages-v1-1-463e57871c8f@google.com>
-References: <20251030-host-direct-messages-v1-0-463e57871c8f@google.com>
-In-Reply-To: <20251030-host-direct-messages-v1-0-463e57871c8f@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>
-Cc: Armelle Laine <armellel@google.com>, 
- Sebastien Ene <sebastianene@google.com>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761827390; l=1511;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=BppMAkhVkyzCH/xZJ6azsBbY51/loFYz2Cn3TqCanQA=;
- b=AI5KD/hIn/k7xCivnA6GNaEoDO7W4H6pgzXhONdZ2MNgVT/57rQhIb/m43ttB8XKzxYgDa7iC
- WZU6vWuApYfCKlaHl+bg35iFoBh0WB3ipZm5MeYLxpBSmgEZkY6xfPN
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aQKpDIYwO9VTP7qM@meta.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251030_053536_735418_C3B0008C 
+X-CRM114-Status: GOOD (  58.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,57 +62,323 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Ene <sebastianene@google.com>
+On Wed, Oct 29, 2025 at 04:53:48PM -0700, Ben Niu wrote:
+> On Wed, Oct 29, 2025 at 02:33:26PM +0000, Mark Rutland wrote:
+> > On Mon, Oct 27, 2025 at 11:17:49AM -0700, Ben Niu wrote:
+> > > Currently, Arm64 assembly functions always have a bti c
+> > > instruction inserted before the prologue. When ftrace is enabled,
+> > > no padding nops are inserted at all.
+> > > 
+> > > This breaks kprobe tracing for asm functions, which assumes that
+> > > proper nops are added before and within functions (when ftrace is
+> > > enabled) and bti c is only present when CONFIG_ARM64_BTI_KERNEL is
+> > > defined.
+> > 
+> > What exactly do you mean by "breaks kprobe tracing"?
+> > 
+> > The kprobes code knows NOTHING about those ftrace NOPs, so I cannot see
+> > how those are relevant.
+> > 
+> > The patch adds entries to __patchable_function_entries, which is owned
+> > by ftrace, and has NOTHING to do with kprobes.
+> 
+> Thanks for reviewing my patch, Mark. This is the second ever Linux kernel patch
+> I've sent out so I'm still learning how much detail I should put in a patch for
+> reviewers. Clearly, not enough details were added for this patch, and sorry
+> about that.
 
-Allow direct messages to be forwarded from the host.
+Hi Ben,
 
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
-Signed-off-by: Per Larsen <perlarsen@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+Thanks, and sorry for the overly strong tone of my initial reply.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 4e16f9b96f637599873b16148c6e40cf1210aa3e..191dcb301cca3986758fb6a49f15f1799de9f1d1 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -857,6 +857,15 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 	hyp_spin_unlock(&host_buffers.lock);
- }
- 
-+static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
-+			      struct kvm_cpu_context *ctxt,
-+			      u64 vm_handle)
-+{
-+	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-+
-+	arm_smccc_1_2_smc(args, res);
-+}
-+
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
- 	struct arm_smccc_1_2_regs res;
-@@ -915,6 +924,13 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_PARTITION_INFO_GET:
- 		do_ffa_part_get(&res, host_ctxt);
- 		goto out_handled;
-+	case FFA_ID_GET:
-+		ffa_to_smccc_res_prop(&res, FFA_RET_SUCCESS, HOST_FFA_ID);
-+		goto out_handled;
-+	case FFA_MSG_SEND_DIRECT_REQ:
-+	case FFA_FN64_MSG_SEND_DIRECT_REQ:
-+		do_ffa_direct_msg(&res, host_ctxt, HOST_FFA_ID);
-+		goto out_handled;
- 	}
- 
- 	if (ffa_call_supported(func_id))
+My key concern above was that "breaks kprobe tracing" sounds like
+something is seriously wrong, whereas IIUC the problem you're trying to
+address is "it isn't currently possible to place a trace kprobe on an
+assembly function" (i.e. there's a limitation, not a bug).
 
--- 
-2.51.1.851.g4ebd6896fd-goog
+> kprobe and ftrace seem two seprate things, but kprobe actually checks if a
+> function is notrace based off whether the function is padded with proper nops
+> for ftrace when ftrace is enabled. See the following call stack for more
+> details (obtained by debugging centos 10 arm64 linux kernel):
+> 
+> #0  lookup_rec (start=18446603338384966592, end=18446603338384967175) at kernel/trace/ftrace.c:1591
+> #1  ftrace_location_range (start=18446603338384966592, end=18446603338384967175) at kernel/trace/ftrace.c:1626
+> #2  0xffff8000802bd070 [PAC] in __within_notrace_func (addr=<optimized out>, addr@entry=18446603338384966592) at kernel/trace/trace_kprobe.c:456
+> #3  0xffff8000802bd13c [PAC] in within_notrace_func (tk=0xffff0000cb5b0400) at kernel/trace/trace_kprobe.c:464
+> #4  0xffff8000802bd534 [PAC] in __register_trace_kprobe (tk=tk@entry=0xffff0000cb5b0400) at kernel/trace/trace_kprobe.c:496
+> #5  0xffff8000802bf7a0 [PAC] in __register_trace_kprobe (tk=0xffff0000cb5b0400) at kernel/trace/trace_kprobe.c:490
+> #6  create_local_trace_kprobe (func=func@entry=0xffff0000cabb19c0 "__arch_copy_to_user", addr=<optimized out>, offs=<optimized out>, is_return=is_return@entry=false)
+>     at kernel/trace/trace_kprobe.c:1935
+> #7  0xffff80008029ef8c [PAC] in perf_kprobe_init (p_event=p_event@entry=0xffff0000c6d89a40, is_retprobe=false) at kernel/trace/trace_event_perf.c:267
+> #8  0xffff800080364ec4 [PAC] in perf_kprobe_event_init (event=0xffff0000c6d89a40) at kernel/events/core.c:11102
+> #9  0xffff800080369740 [PAC] in perf_try_init_event (pmu=0xffff8000829347a8 <perf_kprobe>, event=0xffff0000c6d89a40) at kernel/events/core.c:12595
+> #10 0xffff8000803699dc [PAC] in perf_init_event (event=event@entry=0xffff0000c6d89a40) at kernel/events/core.c:12693
+> #11 0xffff80008036d91c [PAC] in perf_event_alloc (attr=attr@entry=0xffff80008785b970, cpu=cpu@entry=0, task=task@entry=0x0, group_leader=0xffff0000c6d89a40, 
+>     group_leader@entry=0x0, parent_event=parent_event@entry=0x0, overflow_handler=<optimized out>, overflow_handler@entry=0x0, context=<optimized out>, context@entry=0x0, 
+>     cgroup_fd=cgroup_fd@entry=-1) at kernel/events/core.c:12968
+> #12 0xffff800080373244 [PAC] in __do_sys_perf_event_open (attr_uptr=<optimized out>, pid=<optimized out>, cpu=0, group_fd=<optimized out>, flags=<optimized out>)
+>     at kernel/events/core.c:13485
+> #13 0xffff800080379aa0 [PAC] in __se_sys_perf_event_open (attr_uptr=<optimized out>, pid=<optimized out>, cpu=<optimized out>, group_fd=<optimized out>, flags=<optimized out>)
+>     at kernel/events/core.c:13367
+> #14 __arm64_sys_perf_event_open (regs=<optimized out>) at kernel/events/core.c:13367
+> #15 0xffff80008004997c [PAC] in __invoke_syscall (regs=0xffff80008785beb0, syscall_fn=<optimized out>) at arch/arm64/kernel/syscall.c:35
+> #16 invoke_syscall (regs=regs@entry=0xffff80008785beb0, scno=<optimized out>, sc_nr=sc_nr@entry=463, syscall_table=<optimized out>) at arch/arm64/kernel/syscall.c:49
+> #17 0xffff800080049a88 [PAC] in el0_svc_common (sc_nr=463, syscall_table=<optimized out>, regs=0xffff80008785beb0, scno=<optimized out>) at arch/arm64/kernel/syscall.c:132
+> #18 do_el0_svc (regs=regs@entry=0xffff80008785beb0) at arch/arm64/kernel/syscall.c:151
+> #19 0xffff800080fba654 [PAC] in el0_svc (regs=0xffff80008785beb0) at arch/arm64/kernel/entry-common.c:875
+> #20 0xffff800080fbab10 [PAC] in el0t_64_sync_handler (regs=<optimized out>) at arch/arm64/kernel/entry-common.c:894
+> #21 0xffff800080011684 [PAC] in el0t_64_sync () at arch/arm64/kernel/entry.S:600
 
+Sorry, I had forgotten that trace kprobes do apply this restriction;
+thanks for explaining this.
 
+Please note that basic kprobes (i.e. those opened directly by
+register_kprobe()) aren't subject to this restriction; the checks in
+check_kprobe_address_safe() do not include !within_notrace_func(). This
+restriction only applies to trace kprobes (which use the tracing
+infrastructure).
+
+> within_notrace_func is only defined if defined(CONFIG_DYNAMIC_FTRACE) && \
+> !defined(CONFIG_KPROBE_EVENTS_ON_NOTRACE), which searches a list of records
+> about whether a function is ftrace-able or not. The list of records is built
+> by ftrace_init at boot time.
+>  
+> > > The patch fixes the bug by inserting nops and bti c in Arm64 asm
+> > > in the same way as compiled C code.
+> 
+> That's correct. I added __patchable_function_entries in assemblies so that
+> their addresses are added between __start_mcount_loc and __stop_mcount_loc
+> at link time, which is then picked up by ftrace_init. Proper nop and bti c
+> instructions are added to assemblies in the way as if the assemblies are
+> compiled from C code. This is crucial to satisfy ftrace requirements and nop
+> patching at boot time. Otherwise, ftrace_bug will be hit and the assembly
+> function won't be ftrace-able and also kprobe-traceable.
+
+Do you actually need these functions to be ftrace traceable, or do you
+just care that they can be traced via trace kprobes?
+
+Why does this matter specifically for arm64, and not for other
+architectures? AFAICT x86 doesn't do anything to make assembly functions
+traceable by ftrace either.
+
+Is there something specific you want to trace, but cannot currently
+trace (on arm64)?
+
+> > As it stands, NAK to this change.
+> > 
+> > I'm not averse to making (some) assembly functions traceable by ftrace,
+> > and hence giving those NOPs. However, that's not safe generally (e.g.
+> > due to noinstr requirements), and so special care will need to be taken.
+> 
+> Assemblies that are not traceable should use SYM_CODE_START or the new macro
+> SYM_FUNC_START_NOTRACE. If an assembly function starts with SYM_FUNC_START,
+> by default, it's assumed to be traceable. I dumped all assemblies under
+> arch/arm64, and majority of the assemblies are utility functions (e.g., crypto,
+> memset/memcpy, etc.), which seemed safe to trace. 
+
+For better or worse, that is not the case. For example, it is not safe
+to trace memset() or memcpy(), because those can be used by noinstr
+code. Similarly those can be used early during handling of a kprobe,
+resulting in a recursive exception (which will cause a fatal stack
+overflow).
+
+> There are a few functions
+> in the following (and maybe others) that might not be traceable, so please
+> advise.
+> ./kernel/entry-ftrace.S
+> ./kernel/entry.S
+> ./mm/proc.S
+> ./kernel/head.S
+
+Practically nothing in those files is safe to trace.
+
+There are plenty of other assembly which must not be traced, e.g.
+anything with a "__pi_" prefix.
+
+> We can either have SYM_FUNC_START be traceable by default, or flip the polarity
+> and introduce SYM_FUNC_START_TRACEABLE to explicitly mark those functions
+> deemed safe to trace.
+
+I would be much happier with the latter (or something to that effect).
+However, as with my question about x86 above, I'd like a better
+explanation as to why you need to trace assembly functions in the first
+place.
+
+The existing restrictions could do with some cleanup, and we might be
+able to make it possible use a kprobe tracepoint on functions/code
+*without* requiring that it's possible to place an ftrace tracepoint.
+
+Mark.
+
+> > The rationale above does not make sense; it conflates distinct things,
+> > and I think a more complete explanation is necessary.
+> 
+> Please see my explanation above. If you have any questions, please let me know.
+> 
+> > Mark.
+> > 
+> > > Note: although this patch unblocks kprobe tracing, fentry is still
+> > > broken because no BTF info gets generated from assembly files. A
+> > > separate patch is needed to fix that.
+> > > 
+> > > I built this patch with different combos of the following features
+> > > and confirmed kprobe tracing for asm function __arch_copy_to_user
+> > > worked in all cases:
+> > > 
+> > > CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> > > CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+> > > CONFIG_ARM64_BTI_KERNEL
+> > > 
+> > > Signed-off-by: Ben Niu <benniu@meta.com>
+> > > ---
+> > >  arch/arm64/include/asm/linkage.h           | 103 ++++++++++++++++-----
+> > >  arch/arm64/kernel/vdso/vgetrandom-chacha.S |   2 +-
+> > >  2 files changed, 81 insertions(+), 24 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/linkage.h
+> > > index d3acd9c87509..f3f3bc168162 100644
+> > > --- a/arch/arm64/include/asm/linkage.h
+> > > +++ b/arch/arm64/include/asm/linkage.h
+> > > @@ -5,8 +5,47 @@
+> > >  #include <asm/assembler.h>
+> > >  #endif
+> > >  
+> > > -#define __ALIGN		.balign CONFIG_FUNCTION_ALIGNMENT
+> > > -#define __ALIGN_STR	".balign " #CONFIG_FUNCTION_ALIGNMENT
+> > > +#define __ALIGN .balign CONFIG_FUNCTION_ALIGNMENT
+> > > +#define __ALIGN_STR ".balign " #CONFIG_FUNCTION_ALIGNMENT
+> > > +
+> > > +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> > > +
+> > > +#define PRE_FUNCTION_NOPS                                                   \
+> > > +	ALIGN;                                                              \
+> > > +	nops CONFIG_FUNCTION_ALIGNMENT / 4 - 2;                             \
+> > > +	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
+> > > +	.p2align 3;                                                         \
+> > > +	.8byte 1f;                                                          \
+> > > +	.popsection;                                                        \
+> > > +	1 :;                                                                \
+> > > +	nops 2;
+> > > +
+> > > +#define PRE_PROLOGUE_NOPS nops 2;
+> > > +
+> > > +#elif defined(CONFIG_DYNAMIC_FTRACE_WITH_ARGS)
+> > > +
+> > > +#define PRE_FUNCTION_NOPS
+> > > +
+> > > +#define PRE_PROLOGUE_NOPS                                                   \
+> > > +	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
+> > > +	.p2align 3;                                                         \
+> > > +	.8byte 1f;                                                          \
+> > > +	.popsection;                                                        \
+> > > +	1 :;                                                                \
+> > > +	nops 2;
+> > > +
+> > > +#else
+> > > +
+> > > +#define PRE_FUNCTION_NOPS
+> > > +#define PRE_PROLOGUE_NOPS
+> > > +
+> > > +#endif
+> > > +
+> > > +#ifdef CONFIG_ARM64_BTI_KERNEL
+> > > +#define BTI_C bti c;
+> > > +#else
+> > > +#define BTI_C
+> > > +#endif
+> > >  
+> > >  /*
+> > >   * When using in-kernel BTI we need to ensure that PCS-conformant
+> > > @@ -15,32 +54,50 @@
+> > >   * everything, the override is done unconditionally so we're more
+> > >   * likely to notice any drift from the overridden definitions.
+> > >   */
+> > > -#define SYM_FUNC_START(name)				\
+> > > -	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+> > > -	bti c ;
+> > > +#define SYM_FUNC_START(name)                       \
+> > > +	PRE_FUNCTION_NOPS                          \
+> > > +	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
+> > > +	BTI_C                                      \
+> > > +	PRE_PROLOGUE_NOPS
+> > > +
+> > > +#define SYM_FUNC_START_NOTRACE(name)               \
+> > > +	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
+> > > +	BTI_C
+> > >  
+> > > -#define SYM_FUNC_START_NOALIGN(name)			\
+> > > -	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE)	\
+> > > -	bti c ;
+> > > +#define SYM_FUNC_START_NOALIGN(name)              \
+> > > +	PRE_FUNCTION_NOPS                         \
+> > > +	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE) \
+> > > +	BTI_C                                     \
+> > > +	PRE_PROLOGUE_NOPS
+> > >  
+> > > -#define SYM_FUNC_START_LOCAL(name)			\
+> > > -	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN)	\
+> > > -	bti c ;
+> > > +#define SYM_FUNC_START_LOCAL(name)                \
+> > > +	PRE_FUNCTION_NOPS                         \
+> > > +	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN) \
+> > > +	BTI_C                                     \
+> > > +	PRE_PROLOGUE_NOPS
+> > >  
+> > > -#define SYM_FUNC_START_LOCAL_NOALIGN(name)		\
+> > > -	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE)	\
+> > > -	bti c ;
+> > > +#define SYM_FUNC_START_LOCAL_NOALIGN(name)       \
+> > > +	PRE_FUNCTION_NOPS                        \
+> > > +	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE) \
+> > > +	BTI_C                                    \
+> > > +	PRE_PROLOGUE_NOPS
+> > >  
+> > > -#define SYM_FUNC_START_WEAK(name)			\
+> > > -	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN)	\
+> > > -	bti c ;
+> > > +#define SYM_FUNC_START_WEAK(name)                \
+> > > +	PRE_FUNCTION_NOPS                        \
+> > > +	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN) \
+> > > +	BTI_C                                    \
+> > > +	PRE_PROLOGUE_NOPS
+> > >  
+> > > -#define SYM_FUNC_START_WEAK_NOALIGN(name)		\
+> > > -	SYM_START(name, SYM_L_WEAK, SYM_A_NONE)		\
+> > > -	bti c ;
+> > > +#define SYM_FUNC_START_WEAK_NOALIGN(name)       \
+> > > +	PRE_FUNCTION_NOPS                       \
+> > > +	SYM_START(name, SYM_L_WEAK, SYM_A_NONE) \
+> > > +	BTI_C                                   \
+> > > +	PRE_PROLOGUE_NOPS
+> > >  
+> > > -#define SYM_TYPED_FUNC_START(name)				\
+> > > -	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+> > > -	bti c ;
+> > > +#define SYM_TYPED_FUNC_START(name)                       \
+> > > +	PRE_FUNCTION_NOPS                                \
+> > > +	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
+> > > +	BTI_C                                            \
+> > > +	PRE_PROLOGUE_NOPS
+> > >  
+> > >  #endif
+> > > diff --git a/arch/arm64/kernel/vdso/vgetrandom-chacha.S b/arch/arm64/kernel/vdso/vgetrandom-chacha.S
+> > > index 67890b445309..21c27b64cf9f 100644
+> > > --- a/arch/arm64/kernel/vdso/vgetrandom-chacha.S
+> > > +++ b/arch/arm64/kernel/vdso/vgetrandom-chacha.S
+> > > @@ -40,7 +40,7 @@
+> > >   *	x2: 8-byte counter input/output
+> > >   *	x3: number of 64-byte block to write to output
+> > >   */
+> > > -SYM_FUNC_START(__arch_chacha20_blocks_nostack)
+> > > +SYM_FUNC_START_NOTRACE(__arch_chacha20_blocks_nostack)
+> > >  
+> > >  	/* copy0 = "expand 32-byte k" */
+> > >  	mov_q		x8, 0x3320646e61707865
+> > > -- 
+> > > 2.47.3
+> > > 
+> > > 
 
