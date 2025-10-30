@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05757CCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054B0CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZp2u0B67QsAETphUXyRmOTAga0TDFm7uEB1RHsxask=; b=pCt08RDqqlvSz3yTdjBAABRjsB
-	shDT2rK+I74l8p8oJiJF4mGYq0LrxTe57fVC+VMIoTnpiuTaUChd+63Ccay+f6nVCRRzU+gqoBRsH
-	qA6qgR5CdRzLHzsYVFhMdFSGz+xG9qpxtQlgKERdo+ug5OnI7IdPSkD6Noz2cZcyrBnZWLrWsPgfj
-	vKsjFkIv+oHXNZq3tJMfcmnN0vH/vVq31zKY6/2bIhweT/B7rpVUe/psTze5LdLbnddRSc8UbihqV
-	Rq8TiUaBMm67YLEVfAdI8MqF+2USeeL5A82hso3i1sghuJwRmW7ReaQSdVWw9ZvxFhwpJ+h8HgEDr
-	CYObeyig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1uuuCBDSw8a+MUtqAmuKGWwMG/BX8hLINv9CQ7kRW6Q=; b=gGcn0J6KVWV0xLqTUst/a2Dmzw
+	dLZDE4aHD6K1tD1+Mg6HnIy2MgoIIPdNITYuEtF4rgvXO33TF1WPFueXvaztJJQJpQX8WAdQ5UMr0
+	UYRo9/v0QIz7RTvs0/6RcoHgXKdPuYMY6tJBMCT6WghttLQ7eZxAiUrXou7i2tJow/+Pg+epRAOGn
+	hS2m4+ueU3EyorQcQ1WbR7/fVg7hLMvbZIJNoSxD0k6ZeX8dVviZhgWtrm5/BqjyFO0zOMhRt399U
+	uFexEbGW+2MSLlX4hEtuC9n8XjHzltJDzpGYiraBL3/rLt9SHesiwrBAQwMY2G1szWROj8xKcasiI
+	ROEX7Kww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENEH-00000003dWF-2OSl;
-	Thu, 30 Oct 2025 07:37:53 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1vENEQ-00000003dXM-3eAZ;
+	Thu, 30 Oct 2025 07:38:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENEE-00000003dU3-43EO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 07:37:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1761809788;
-	bh=oZp2u0B67QsAETphUXyRmOTAga0TDFm7uEB1RHsxask=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=ZVpsHK9AZfcg4dvlIsbuPMJkZqb6I5D5+OMbNKWAOAIxTESE/b4QfCBr58MtQl56J
-	 EMEgwNV4LaGLdIu+iTIWP9IYsuz054eTxM8iIKuFRtHb9zIgMcyWSCE7b4+4I8OAKw
-	 YbwBuqOQH+BAeIOrAZYn6+r91V+luxN185o+tKM4=
-X-QQ-mid: esmtpsz18t1761809778t3d9bdc78
-X-QQ-Originating-IP: A5pFw7+bvHf6LNPL2Gm+8xBIcV9Yxvpvjn5Fl5DM/QE=
-Received: from [10.10.74.117] ( [123.114.60.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 30 Oct 2025 15:36:16 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 1780263289059606745
-Message-ID: <BD93A8DBE27154B0+22bf4a83-a850-4f78-8e0d-84cc93fe2715@uniontech.com>
-Date: Thu, 30 Oct 2025 15:36:16 +0800
+	id 1vENEF-00000003dVU-3Zlr;
+	Thu, 30 Oct 2025 07:37:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3553A44591;
+	Thu, 30 Oct 2025 07:37:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E2C8C4CEF1;
+	Thu, 30 Oct 2025 07:37:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761809871;
+	bh=p5DHJywARmB6vgwsW87ali+itZaEbJODsI/RAOXtFCU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BTu0b8qNGle6R+nWGmP4sNLndzagsCvdS/cbADesFxlULifaO76DGm7ScTcoqCjfZ
+	 fP5A7qc+k+GR7FJ13+GWv4Rw59IycUpgKVZ6ZJiGv3Plx/qxok01KYRsRvBcKe9+G1
+	 Dv9ssTxAPwWBqV6erVoEaiFEvLsGTUDvIT1icXMUvwlJRE8dHDlaHEnUWomt04+sOz
+	 yRTLDWvk0P2VxTjrQpx02G5OaH0kGK3OMmpm3i7lekjMcE1Df15k5rOgRrgWje0dln
+	 yGJDcg4EEc5LXOxsc3ty2JeUUHgFecigDQ0w58W0Y0Q30kw1Lh9pkcdXgj3Z2P/PD6
+	 iLjEuL9hL0tNg==
+Date: Thu, 30 Oct 2025 08:37:48 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Roy Luo <royluo@google.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Doug Anderson <dianders@google.com>, Joy Chakraborty <joychakr@google.com>, 
+	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] dt-bindings: phy: google: Add Google Tensor G5
+ USB PHY
+Message-ID: <20251030-cunning-copper-jellyfish-1b5f3b@kuoka>
+References: <20251029214032.3175261-1-royluo@google.com>
+ <20251029214032.3175261-2-royluo@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux@armlinux.org.uk, linux-efi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20251023082129.75612-1-maqianga@uniontech.com>
- <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
- <10D9A93B0633E6BE+75720e07-b39d-452c-952e-41f8ab6aad94@uniontech.com>
- <CAMj1kXHQ6WQWfbkMP4JUk=nKwSt7CovY25RC4JA0ZM7vRWu6dA@mail.gmail.com>
- <9F7F632B7963434F+abad2548-a90d-4448-ae79-dd4bf637ee6e@uniontech.com>
- <CAMj1kXHu5ABgxKsc_gg1j=pWMz6DbWoqv=qAAjx-5CiSF2PAiQ@mail.gmail.com>
-Content-Language: en-US
-From: Qiang Ma <maqianga@uniontech.com>
-In-Reply-To: <CAMj1kXHu5ABgxKsc_gg1j=pWMz6DbWoqv=qAAjx-5CiSF2PAiQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: NU4e3V92LJuQkE+CV323mLOZVEj/xEptM+EfU2jLOShEY8x54WnR3bSX
-	TQHVJXl6jTPsPmcAowT08Mz6YDVPYgqBXnwcZ91lmi0k8HsFMgbWhxi5hKl1b/hfluBvQK5
-	4uY+DT0nKG5UXoVxLouSbgYoewIgFP+YYby2/CijCAUX7ygcHrA1dQi+D58u4EZDlSF5lTH
-	7iNs2tFSrjgsEob7wbevxMDE2tZH8wE7BPb20pcNHkbLEkcK5OrsOAC0hIo96+HqtUh9ql7
-	k+icoLZCsQLkdYVChLsyo5+r7zV+aSxjp3i9WriUkYUBvNdAhTyvOwZCLwDlQrCvMm9OySl
-	O0XtJaYs/SX8tpfhZ0PztVRVb/PcaptFx8uHOV9dFku3vp58Ga25kWIRZH4y9dEN0PZ49hN
-	2ixpnH++7ySdIb3IFx2eRaHKVeqhvixiZbCQpdoOVTvGWzCEBqXdgxeTZZxwv0iPKjEkrjK
-	E4ZDGb5JgoyB4FkU2GEbLN1aCkBpGuI1pDVc8gxVsZdMbFAn2GrD3mvqAlG14fCYODRPt3C
-	Nn+HUJIGT6ATO0cqVrpSy0jVO0toY6ToH2dpMHaidpMt7RxkXpRNv2EhmAJ8HP/ZoNM9sM8
-	7xR/fpNqrL3DTmaB0//HTisxDu1U9BozaUXi9cyrQqisDqymHC0I3W6yjr2aq2szONX9Yu2
-	bV8S1T95eob/l/4KLxBMRZq1Jv62hvMEXRf1DniykyhM0A/hgXoMKB6+42QaD0JdNALNFwz
-	+RCn0zTp4LdD70SBqLinw7xWlqSZdSzH0CqNiZLUw2C3Fvjz8F/vQeEPtR6zU4AnT8Z4AVA
-	RkftDGardTFkkcVUWlNfbbWjIlcEd8cpVhMN/snPbWArGlmK5v6cpkll/Th7T/GubKyy2CT
-	rAtz8ncjeO2pIbj0C0kPKV86zGpMJkkls9Vi8iAXFiHUnzox10J8fN0Ysaq1OUzzDgq8qyN
-	Z3EaQwDhz0NCRbTkSlq3Ffv2aKZqCwlqCpJSyOkF2aUoPwFisrj3uk3WFkpkX1bqYvliC/C
-	FeLjPnDmTkLPPBGMox
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251029214032.3175261-2-royluo@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_003751_897220_3B6E4346 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20251030_003751_927787_A0074E72 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,79 +79,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 29, 2025 at 09:40:31PM +0000, Roy Luo wrote:
+> Document the device tree bindings for the USB PHY interfaces integrated
+> with the DWC3 controller on Google Tensor SoCs, starting with G5
+> generation. The USB PHY on Tensor G5 includes two integrated Synopsys
+> PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP.
+> 
+> Due to a complete architectural overhaul in the Google Tensor G5, the
+> existing Samsung/Exynos USB PHY binding for older generations of Google
+> silicons such as gs101 are no longer compatible, necessitating this new
+> device tree binding.
+> 
+> Signed-off-by: Roy Luo <royluo@google.com>
+> ---
+>  .../bindings/phy/google,gs5-usb-phy.yaml      | 127 ++++++++++++++++++
+>  1 file changed, 127 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+> new file mode 100644
+> index 000000000000..8a590036fbac
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+> @@ -0,0 +1,127 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2025, Google LLC
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/google,gs5-usb-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google Tensor Series (G5+) USB PHY
+> +
+> +maintainers:
+> +  - Roy Luo <royluo@google.com>
+> +
+> +description: |
+> +  Describes the USB PHY interfaces integrated with the DWC3 USB controller on
+> +  Google Tensor SoCs, starting with the G5 generation.
+> +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.0 PHY IP
+> +  and USB 3.2/DisplayPort combo PHY IP.
+> +
+> +properties:
+> +  compatible:
+> +    const: google,gs5-usb-phy
+> +
+> +  reg:
+> +    items:
+> +      - description: USB3.2/DisplayPort combo PHY core registers.
+> +      - description: USB3.2/DisplayPort combo PHY Type-C Assist registers.
+> +      - description: USB2 PHY configuration registers.
+> +      - description: USB3.2/DisplayPort combo PHY top-level registers.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: usb3_core
+> +      - const: usb3_tca
+> +      - const: usb2_cfg
+> +      - const: usb3_top
 
-在 2025/10/29 22:15, Ard Biesheuvel 写道:
-> On Wed, 29 Oct 2025 at 10:55, Qiang Ma <maqianga@uniontech.com> wrote:
->>
->> 在 2025/10/28 21:42, Ard Biesheuvel 写道:
->>> On Mon, 27 Oct 2025 at 04:46, Qiang Ma <maqianga@uniontech.com> wrote:
->>>> 在 2025/10/23 16:30, Ard Biesheuvel 写道:
->>>>> On Thu, 23 Oct 2025 at 10:22, Qiang Ma <maqianga@uniontech.com> wrote:
->>>>>> In the efi_virtmap_init(), permission settings have been applied:
->>>>>>
->>>>>> static bool __init efi_virtmap_init(void)
->>>>>> {
->>>>>>            ...
->>>>>>            for_each_efi_memory_desc(md)
->>>>>>                    ...
->>>>>>                    efi_create_mapping(&efi_mm, md);
->>>>>>            ...
->>>>>>            efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions);
->>>>>>            ...
->>>>>> }
->>>>>>
->>>>>> Therefore, there is no need to apply it again in the efi_create_mapping().
->>>>>>
->>>>>> Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI Runtime Services regions")
->>>>>>
->>>>>> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
->>>>> No, efi_memattr_apply_permissions() uses the /optional/ memory
->>>>> attributes table, whereas efi_create_mapping() uses the permission
->>>>> attributes in the EFI memory map. The memory attributes table is
->>>>> optional, in which case any RO/XP attributes from the memory map
->>>>> should be used.
->>>>>
->>>> I see.
->>>>
->>>> Then, can it be modified like this?
->>> No
->>>
->>>> --- a/arch/arm/kernel/efi.c
->>>> +++ b/arch/arm/kernel/efi.c
->>>> @@ -65,16 +65,13 @@ int __init efi_create_mapping(struct mm_struct *mm,
->>>> efi_memory_desc_t *md)
->>>>                    desc.type = MT_MEMORY_RWX_NONCACHED;
->>>>            else if (md->attribute & EFI_MEMORY_WC)
->>>>                    desc.type = MT_DEVICE_WC;
->>>> +       else if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
->>> This will be true for RO, XP or RO+XP.
->>>
->>>> +               desc.type = MT_MEMORY_RO;
->>> This will apply RO permissions even to XP regions, which need to be writable.
->>>
->> Thanks for your review.
->> I see.
->>
->> I can introduce a new type MT_MEMORY_RO_XP, to describe RO+XP,
->> and then we can use the RO+XP attribute to implement memory mapping.
->>
-> Why? The current code is working fine, no?
->
-Yes, the current code is running normally.
+These prefixes are redundant. Also, you are still referencing here
+completely different devices. MMIO of IP blocks do not have size of 0xc
+and they do not span over other blocks (0x0c410000 and then next one is
+0x0c637000).
 
-The reasons for the modification are as follows:
-I noticed that the arm64/RISC-V efi_create_mapping() always return 0,
-but in the code where efi_virtmap_init() calls it, it is as follows:
 
-ret = efi_create_mapping(&efi_mm, md);
-if (ret) {
-     pr_warn("  EFI remap %pa: failed to create mapping (%d)\n",
-         &phys, ret);
-     return false;
-}
+> +            reg = <0 0x0c410000 0 0x20000>,
+> +                  <0 0x0c430000 0 0x1000>,
+> +                  <0 0x0c450014 0 0xc>,
+> +                  <0 0x0c637000 0 0xa0>;
+> +
+> +  "#phy-cells":
+> +    description: |
+> +      The phandle's argument in the PHY specifier selects one of the three
+> +      following PHY interfaces.
+> +      - 0 for USB high-speed.
+> +      - 1 for USB super-speed.
+> +      - 2 for DisplayPort.
+> +    const: 1
+> +
+> +  clocks:
+> +    minItems: 2
+> +    items:
+> +      - description: USB2 PHY clock.
+> +      - description: USB2 PHY APB clock.
+> +      - description: USB3.2/DisplayPort combo PHY clock.
+> +      - description: USB3.2/DisplayPort combo PHY firmware clock.
+> +    description:
+> +      USB3 clocks are optional if the device is intended for USB2-only
+> +      operation.
 
-This return error print is unnecessary, so I want to remove it.
-But, the return value of efi_create_mapping() in the arm doesn't
-always return 0, so I'm trying to modify it.
+No, they are not. SoCs are not made that internal wires are being
+disconnected when you solder it to a different board.
+
+I stopped reviewing here.
+
+You are making unusual, unexpected big changes after v4. At v4 you
+received only few nits because the review process was about to finish.
+
+Now you rewrite everything so you ask me to re-review from scratch.
+
+> +
+> +  clock-names:
+> +    minItems: 2
+> +    items:
+> +      - const: usb2
+> +      - const: usb2_apb
+> +      - const: usb3
+> +      - const: usb3_fw
+
+Again, what's with the prefixes? apb is bus clock, so how you could have
+bus clock for usb2 and usb3? This means you have two busses, so two
+devices.
+
+> +
+> +  resets:
+> +    minItems: 2
+> +    items:
+> +      - description: USB2 PHY reset.
+> +      - description: USB2 PHY APB reset.
+> +      - description: USB3.2/DisplayPort combo PHY reset.
+> +    description:
+> +      USB3 clocks are optional if the device is intended for USB2-only
+> +      operation.
+> +
+> +  reset-names:
+> +    minItems: 2
+> +    items:
+> +      - const: usb2
+> +      - const: usb2_apb
+> +      - const: usb3
+
+And here?
+
+This all looks like downstream code.
+
+Best regards,
+Krzysztof
 
 
