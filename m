@@ -4,149 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F20CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 00:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27767CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 00:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X+yVsydLnIIHWGZobrur1ZEJjdp8Ys9U5JrzQcVNRyo=; b=NYFtABvCLtiJ6DpSoWT1oIjgci
-	zbxg8yFJbQCKyLEw7YXuvjMYA52P0AS2wjvYNzWCGV5MBrvy+ghLPHvn7ndi4RY9aJA3pATMJ6Sxo
-	fHCyhoSEavK+4a1Y0JwxI6nHW/DY1in4fMdbgGnLiQ9n4u4/0JfanWLqhi2LPMTJ0hzvWpgZ+deXs
-	5kH+qWq6YwiNeKppp9QUElNkypRRIJzORDaG3/3w5fx+MvcSUxG2x22PSUgHoDa3+KYdNWqpjkP5h
-	Pup1CmyOzbSI9Kc2tsz5o++nHnstJQJ0Xld3ekVUunxzVqJVIceRFo3rCHwAFBXRU54oymtxbb7bX
-	KyDm4lJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bwwiKmWYxoxYPefRWPFy29i8u7SbNSc1aIu3IZKTM/g=; b=m+x+o1MbtE3GcnZyfjbMlJmMd3
+	huZFAOAx4vh8sNqHskMigFEdCvWOki026BQNYEkBAApH9Su4Yz1R6YnmqZeDgpGwgMjtTDgjETIQx
+	UmVJh4NqAX0ubhQFW8AWSD6N/4TLSfqnjNYFXmeNXNHIudkFZR7fW79vF0XZbRmdGg9B5q3m8FyBk
+	kXvKKs/XZ+clmtAiuBATn+6sjWzdqIJcYmO08Dc6yrH3/9WXH4JEGBmRH7FAMurd2l7bv3ZRuAVO2
+	C2GNL0D9SXv22DO2mwpOkv/yQhrlXA4WY9E95wer+ZBHrKfYo7S0mKFO3s90mIX49VaPT4epxFeel
+	413HPVMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEGCv-00000003H37-0LhC;
-	Thu, 30 Oct 2025 00:08:01 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vEGEs-00000003HCY-2STi;
+	Thu, 30 Oct 2025 00:10:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEGCr-00000003H2k-00Mg
+	id 1vEGEq-00000003HBl-3JqR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 00:07:59 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59TM2pxt1699843
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 00:07:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=X+yVsydLnIIHWGZobrur1ZEJ
-	jdp8Ys9U5JrzQcVNRyo=; b=SkF5x2/rAGjr9OGmuCb1OIyJ8rwlSMDamA2dYYxn
-	C/+GgCTLf63v69b6ZErBCihG1e9PGHMn4wU2sX94bWPba2ysjELX0YBNLFKjagJb
-	rIgyEJbaHEF4udqAP/2XIVdtn1LQ4w8wc52yhAcfTYROIfcDd5/fuTXe9u/dr5Wd
-	6ZH/HFCRIP+9YvSOonagH5cy5WbE2WoO9fZWPj0VSamQX1IwZJ8zMpFCVXpmPz5J
-	ycLXFMvBSKGHCsLez4fVD+QATmeXh1/quRQ4yCdPtBUn9hdT7IwdGKVeqCNG2Aic
-	JSnYNQKy32xhsxuOvIVkEgmR6XBVpL/uCd75833MaxbGOQ==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a3ucj89q1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 00:07:55 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8a24116e89eso58171885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 17:07:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1761782875; x=1762387675; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=X+yVsydLnIIHWGZobrur1ZEJjdp8Ys9U5JrzQcVNRyo=;
-        b=RGa/BYOm2S9hrAmIy2+3T8JqRyqiq0xN7a9C7O70e8uVv6oCLjLkhLD3fxhvXLn5ui
-         RA8v+2hhkw70YoqCA8SFw81hqYUUgJ7xO8yKqvcW1A/7G5QtCf8DxVsnmEocB3SWSAAl
-         BN/LhN6YibdRuMjJnFNyTWqPmG8aulSNlYxWxeQaEDIUPtpPzWUIuRnwD2HWW7Gt6VlY
-         tBZVolWqD3TVbd6knYSgk0ezvXf7u71zl8U87AwX9v7UyBLn3vI5lGcyKaRx/yQpjyPH
-         CmWG5SKcEjkngFendosakfDbHxvpLk4sAm0Zvo1LxJMGgTgCalF3F/yw7cph1jgw2UCU
-         KH0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761782875; x=1762387675;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X+yVsydLnIIHWGZobrur1ZEJjdp8Ys9U5JrzQcVNRyo=;
-        b=CB3FaSQHyxbmcP+CrlkkphYm97zJJeLyeqi8TTvU5vqne9DrGfmAG/b95caSzDqCxe
-         suoaGpXGsgvdNTdGIIOtvhfgxvpPfqB0eZiagVUZ80aC/KJVMYrC2BVXVeziSlHQRcYp
-         GcXU43WWmFPna/Zp6uXEEfnYs385RviRa9HUCQMUpYZVNoMT8kOV+dml/xc7cEIwRqEQ
-         rJk6JGaZDiadY9cea2zk75X7VBOPgMiJKMxPCdG3e5Bwray8CFK+CzLiPROn5ul5ic8l
-         2LRQjsdOCAqqfo2zkFEsLj6rQjaodJFhyBYYJhDNKE++q8Z+dHcn9mbeSYbWFrQgTob8
-         ucjg==
-X-Forwarded-Encrypted: i=1; AJvYcCWtiUf7/T6LrBwxZtL9LUVijmb7i+N3FPITWOKRoHYpl4d7FZkcULWZzZ3zFQo+ccd2SAuU3l9+KKgwRzATDE9h@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdWFlH5O3zh2XDp5t8UGT+SROmAfSYXi+axQFY/pOlwU+HoI6g
-	UiZVD2+1KEg/PL9reQ4Dwg5POTe50eB9Ch5oGDHUxPcsFCXMGvVbynMoPP+BWA+pyTc0wnYNkJj
-	d51sBjZ7+pJAfPYMbFQZr5SFH+XvwtF/oa+EFxKUq9PnGnLiu+GVIhmpvJEwJUyidDRqDc1GmuB
-	LsIg==
-X-Gm-Gg: ASbGnctFPH6DfRvWQQhvII+Xea6I8HdJKtYxZL8RUXq0XzlvDmtVjfc6l/eRMfVW65U
-	5Ue1dEqRyaBGn8IRCCdfLxLv/0aBw43437qf6TKh5sTRwHWhde5oFBKVTFeJIB2no8ylg52dN50
-	BHP5sD9+E6z8yaVyISRhIf7c5TurCaVCLXNiAVXuGd8BoBjbnyEmutqwg9+2CEVyfBezFy79mPT
-	L+uj+H2Nvm5r2p+WRo8ah8ZjxrZFX21JKV0+bTdoYsPJk37SOYiyYK/EqQd5/vXwI7U4WyVdwd8
-	iaOu10gg2LB4P7/Qh8+ISFFyBZynJIP2r626nISiWNbg8XMPoTvPdt/ypH+XYg/4opQ7iSTLsGC
-	+i6dZtm46BREa7kk0yCLcWSCkMmx7c3kBGplJ9TDq+SAgF8OvztGkN7A3ZgmiJe0jMTTa9Cf1JI
-	9svQ+rCNlpvh1p
-X-Received: by 2002:a05:620a:190a:b0:85e:24c3:a607 with SMTP id af79cd13be357-8aa2c658c8dmr184602185a.29.1761782875048;
-        Wed, 29 Oct 2025 17:07:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEpq1Z785daIgWtET+m4a3vPVtJCGVXN2ghxTcstoNKd4N7NLjFntKsQd9dRnSm1JqYmFTcFw==
-X-Received: by 2002:a05:620a:190a:b0:85e:24c3:a607 with SMTP id af79cd13be357-8aa2c658c8dmr184598385a.29.1761782874559;
-        Wed, 29 Oct 2025 17:07:54 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-378ee0d3d6dsm37248641fa.38.2025.10.29.17.07.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 17:07:52 -0700 (PDT)
-Date: Thu, 30 Oct 2025 02:07:49 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        Bjorn Helgaas <bhelgaas@google.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        chaitanya chundru <quic_krichai@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Jingoo Han <jingoohan1@gmail.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>,
-        Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com,
-        amitk@kernel.org, linux-pci@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
-        linux-arm-kernel@lists.infradead.org,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v7 0/8] PCI: Enable Power and configure the TC9563 PCIe
- switch
-Message-ID: <ocmd7hcplxd66xsy7brg66v5htagv5x34hcmq5seirnjobvkbv@3i6niot5sufo>
-References: <20251029-qps615_v4_1-v7-0-68426de5844a@oss.qualcomm.com>
- <20251029232323.GA1602660@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029232323.GA1602660@bhelgaas>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI5MDE5NSBTYWx0ZWRfX2pqEAKZazOwa
- fPzUmqGrCEZNFomuMGsC7OoQND59a0PgG/RFXcx5A15AXDq9dL23aKNejUSCaUXcLkpwcT9sYBW
- zfbQ5p+9ta6rOk+vsMoTKC/H8cwmYDHwIyeVRhM4TYTa9S7PwWWqNe/6SH78/hSc7WUY70MReAk
- o7uLiXORzCQLLthYAZ1L8iEyrjM5jaySo0++90soo8J8vLjSTsuzT9rZ9ZdDhmL3c5MhdtenYyt
- Wl1MNjK8gI+yAZDtMX3KXJ1QTJt2FfPlPfty7uh3KnLnD1BpjrTTScNEP1YViVtsVzhd5BexPJW
- gwohfUQ4BZZequQoyj2qppMKWM6q2q1kScCgnT0795zEMkgBqdutvYEaHPiTXE3inrJKTFGqQuF
- bGjRPpqkuhXVuCCwpGtE6ZmwQ3oDVw==
-X-Proofpoint-ORIG-GUID: XZkOWbNviymj9u_jEciWT9lGdpDE5r0Z
-X-Authority-Analysis: v=2.4 cv=V+RwEOni c=1 sm=1 tr=0 ts=6902ac5b cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=hGzw-44bAAAA:8 a=YSw-D0X56moLfQO0M-gA:9
- a=CjuIK1q_8ugA:10 a=bTQJ7kPSJx9SKPbeHEYW:22 a=HvKuF1_PTVFglORKqfwH:22
-X-Proofpoint-GUID: XZkOWbNviymj9u_jEciWT9lGdpDE5r0Z
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-10-29_08,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 malwarescore=0 bulkscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2510290195
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_170758_173691_8DF239CC 
-X-CRM114-Status: GOOD (  26.70  )
+	Thu, 30 Oct 2025 00:10:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DB9036021B;
+	Thu, 30 Oct 2025 00:09:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BF33C4CEFD;
+	Thu, 30 Oct 2025 00:09:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761782999;
+	bh=AceE3gCsdl1DA5X4XGmZcEf7H6HBtxryjxL7lc5Pcck=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SbRGlLY+9om9klZoA9dwo0WYQHobN4e/PU1/Y8xveEi/7ZI2WDhT5chQdEcNm1QSX
+	 U8hGhrLPNXFnMwwB3ACZxo2YQNKuLaIiHTcQhYxHMqxt4JoujiphZ5LBZBBhelmbUd
+	 G7An3QlOisuhVQ1yrhtLK35Yq0yrOIahqOORflXgp+X4SR+NKCLqkK3hWBQanEbb2c
+	 X+wCNdVumjh3z/wYYIwZCKTGlnosCMgUaPWVk/qfexbcUkj4JSOE1F2zDqdo/adp1H
+	 GFrCHO9OVd0GlFFJnZxrokMcF8fueJmg23t7c2ZO327wRVhEZFzq6Ts8DIb1GBMyn6
+	 r18V3ftUKJGjQ==
+Date: Thu, 30 Oct 2025 09:09:52 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Brown <broonie@kernel.org>, Masami Hiramatsu
+ (Google) <mhiramat@kernel.org>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Peter Zijlstra
+ <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, x86@kernel.org,
+ Jinchao Wang <wangjinchao600@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v5 6/8] selftests: tracing: Add a basic testcase for
+ wprobe
+Message-Id: <20251030090952.befea7f0cecd5518c7fda02c@kernel.org>
+In-Reply-To: <20251029172004.a0aca144735f20a6a59d2aa6@kernel.org>
+References: <175859019940.374439.7398451124225791618.stgit@devnote2>
+	<175859026716.374439.14852239332989324292.stgit@devnote2>
+	<aPvwGhMBJqMKcC9D@finisterre.sirena.org.uk>
+	<20251027224347.4c887cc956df63602f377550@kernel.org>
+	<20251028084222.a3c1ae97d125d9bd88fc565b@kernel.org>
+	<20251028105549.ae94e8eeb42f4efc183d2807@kernel.org>
+	<20251029004219.dc9cda0eb56ae46c55855844@kernel.org>
+	<20251029114317.167b7d908533385c1c9e6782@kernel.org>
+	<20251029172004.a0aca144735f20a6a59d2aa6@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,50 +88,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 06:23:23PM -0500, Bjorn Helgaas wrote:
-> On Wed, Oct 29, 2025 at 04:59:53PM +0530, Krishna Chaitanya Chundru wrote:
-> > TC9563 is the PCIe switch which has one upstream and three downstream
-> > ports. To one of the downstream ports ethernet MAC is connected as endpoint
-> > device. Other two downstream ports are supposed to connect to external
-> > device. One Host can connect to TC956x by upstream port.
-> > 
-> > TC9563 switch power is controlled by the GPIO's. After powering on
-> > the switch will immediately participate in the link training. if the
-> > host is also ready by that time PCIe link will established. 
-> > 
-> > The TC9563 needs to configured certain parameters like de-emphasis,
-> > disable unused port etc before link is established.
-> > 
-> > As the controller starts link training before the probe of pwrctl driver,
-> > the PCIe link may come up as soon as we power on the switch. Due to this
-> > configuring the switch itself through i2c will not have any effect as
-> > this configuration needs to done before link training. To avoid this
-> > introduce two functions in pci_ops to start_link() & stop_link() which
-> > will disable the link training if the PCIe link is not up yet.
-> > 
-> > This series depends on the https://lore.kernel.org/all/20250124101038.3871768-3-krishna.chundru@oss.qualcomm.com/
+On Wed, 29 Oct 2025 17:20:04 +0900
+Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+
+> On Wed, 29 Oct 2025 11:43:17 +0900
+> Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
 > 
-> What does this series apply to?  It doesn't apply cleanly to v6.18-rc1
-> (the normal base for topic branches) or v6.18-rc3 or pci/next.
-
-Juding by the base-commit in the cover letter, it is the following tree:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=e53642b87a4f4b03a8d7e5f8507fc3cd0c595ea6
-
-Merge tag 'v6.18-rc3-smb-server-fixes' of git://git.samba.org/ksmbd
-
-Not that I have an idea, _why_ that tree was used, was it really used or
-why there are no dependencies mentioned in the footer of the cover
-letter.
-
+> > > Hmm, it seems that jiffies related things are updated frequently
+> > > and it may cause interrupt storm or infinit recursive call.
+> > 
+> > I added another trace_printk() in el1_watchpt(). It seems el1_watchpt()
+> > takes too long and there is no time to do any other things.
+> > (Note the interval shown below is only within the el1_watchpt function,
+> >  and in reality various processes (save/restore registers etc) for
+> >  exception handling will be inserted before and after.)
 > 
-> I tried first applying the patches from
-> https://lore.kernel.org/all/20250124101038.3871768-3-krishna.chundru@oss.qualcomm.com/,
-> but those don't apply to -rc1 or -rc3 either.
+> Forget about this. I found the root cause. The x86 watchpoint exception
+> happens after the instruction is executed, the arm64 happens before.
 > 
-> Bjorn
+> Thus what we need is to emulate or do single step the hooked instruction
+> and restart from the next instruction from the watchpoint exception on
+> arm64. I thought hw_breakpoint does that, but doesn't. Should we do this
+> in do_watchpoint() or in user_handler?
+
+There is a single step execution code but only for default overflow_handlers.
+This is a bit strange becuase other users can not set it up outside of
+the arch dependent code. Even if it can, it is simply redundant.
+
+So I made changes below which allow users to set its own custom handler is
+compatible with perf default overflow handlers.
+I confirmed this works on both arm and arm64.
+
+diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
+index ab76b36dce82..e12ec95b471e 100644
+--- a/arch/arm64/kernel/hw_breakpoint.c
++++ b/arch/arm64/kernel/hw_breakpoint.c
+@@ -632,6 +632,7 @@ void do_breakpoint(unsigned long esr, struct pt_regs *regs)
+ 	addr = instruction_pointer(regs);
+ 	debug_info = &current->thread.debug;
+ 
++	trace_printk("breakpoint exception at address: 0x%lx\n", addr);
+ 	for (i = 0; i < core_num_brps; ++i) {
+ 		rcu_read_lock();
+ 
+@@ -661,6 +662,7 @@ void do_breakpoint(unsigned long esr, struct pt_regs *regs)
+ 		rcu_read_unlock();
+ 	}
+ 
++	trace_printk("breakpoint handling complete, step=%d\n", step);
+ 	if (!step)
+ 		return;
+ 
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index fd1d91017b99..40dd897e26b0 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -902,6 +902,7 @@ struct perf_event {
+ 	u64				(*clock)(void);
+ 	perf_overflow_handler_t		overflow_handler;
+ 	void				*overflow_handler_context;
++	bool				default_overflow_compatible;
+ 	struct bpf_prog			*prog;
+ 	u64				bpf_cookie;
+ 
+@@ -1505,13 +1506,7 @@ extern int perf_event_output(struct perf_event *event,
+ static inline bool
+ is_default_overflow_handler(struct perf_event *event)
+ {
+-	perf_overflow_handler_t overflow_handler = event->overflow_handler;
+-
+-	if (likely(overflow_handler == perf_event_output_forward))
+-		return true;
+-	if (unlikely(overflow_handler == perf_event_output_backward))
+-		return true;
+-	return false;
++	return event->default_overflow_compatible;
+ }
+ 
+ extern void
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index 177e57c1a362..6bbbde82cb21 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -12946,9 +12946,11 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
+ 	} else if (is_write_backward(event)){
+ 		event->overflow_handler = perf_event_output_backward;
+ 		event->overflow_handler_context = NULL;
++		event->default_overflow_compatible = true;
+ 	} else {
+ 		event->overflow_handler = perf_event_output_forward;
+ 		event->overflow_handler_context = NULL;
++		event->default_overflow_compatible = true;
+ 	}
+ 
+ 	perf_event__state_init(event);
+diff --git a/kernel/trace/trace_wprobe.c b/kernel/trace/trace_wprobe.c
+index 98605b207f43..f2c2f26fd668 100644
+--- a/kernel/trace/trace_wprobe.c
++++ b/kernel/trace/trace_wprobe.c
+@@ -163,6 +163,8 @@ static void wprobe_perf_handler(struct perf_event *bp,
+ static int __register_trace_wprobe(struct trace_wprobe *tw)
+ {
+ 	struct perf_event_attr attr;
++	struct perf_event *bp;
++	int cpu;
+ 
+ 	if (tw->bp_event)
+ 		return -EINVAL;
+@@ -179,6 +181,11 @@ static int __register_trace_wprobe(struct trace_wprobe *tw)
+ 		tw->bp_event = NULL;
+ 		return ret;
+ 	}
++	/* Mark wprobe_perf_handler is compatible with default one. */
++	for_each_online_cpu(cpu) {
++		bp = per_cpu(*tw->bp_event, cpu);
++		bp->default_overflow_compatible = true;
++	}
+ 
+ 	return 0;
+ }
 
 -- 
-With best wishes
-Dmitry
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
