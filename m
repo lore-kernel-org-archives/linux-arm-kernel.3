@@ -4,53 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0AA6CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 05:00:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCD6CCF9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 05:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDnQizkjTdSItd+1RAonQx+cYT8w6lPwyJgHe/DCHvs=; b=OaY1VKm9OVO96YdmHh9NjckqsO
-	gWveAh4BC6hN2NcWVks34+9BzoexQcEYi/CHiderfutaWDNgBklUpJr9bzHlosRzJrvs7Dv7uh29Q
-	fCZK8b/NgCnD41szhLfKJzlg8s6ftQc2tpHZpOP6fRaWiXemzFOA0/M5Hw0A6zfY3ZIC5FJA35Jzt
-	JA8M+jjBkXFr972WS1DFdbrz3gO1BGv6PmKU2uMC0u/yqPZVZlH+v/2guy3oPOQjAXbIDHd24tYus
-	uztUdH1dmEubQNs1LW8TF+8BLmsBd7vGWqX0ZKx8lnVsf15xvJNFh+hA5fPuaKJ47s3gb3Shx2tp5
-	+huXV0hQ==;
+	bh=5tq0yxGv6yRvwde5HLaH1HkY7PXCLMaOxQayqcCSGMU=; b=xWKOQBD6s2JlOhkYMX7k2fENOW
+	3briUHHygrHtR3X1X85g20hWCmSIlrijZKxnpS0Cq57pmrNXeTWtBmvxXdUNLRxnCB21VSvR1nLnE
+	Y8fZ/o0MRaXoFQDXcW8ls0yVvPpkR4GK/0/0cnX7V8PnvDkZKUVQTi4C2x1Mn2P088Uvdc97EhC5f
+	NeFcwG/jybXlRki0Lgz2i4LKrTaMutdqV0FUts5z/1Vxjy7NQc4j11LFXf6OfHMt9+qJEIKDX4Soc
+	Dr18uXFYC/9jmHm0jsNa4FgYNVaCHUYvYVwmGvttC7Jk5CeeUHjFazCs3aTimzFP/Soi0lMJbXRcX
+	C9mAKUAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEKm2-00000003U0A-1ENo;
-	Thu, 30 Oct 2025 05:00:34 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vEKzK-00000003UX3-1ECy;
+	Thu, 30 Oct 2025 05:14:18 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEKlz-00000003Tzb-3l7L;
-	Thu, 30 Oct 2025 05:00:33 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:314e:ee86:ae6e:30:9d13])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8765B6DF;
-	Thu, 30 Oct 2025 05:58:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761800316;
-	bh=aIIDMY3AHK5dw1R7m3doBiBvTy/DW6Af897s/1Y0FmM=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=fcyCZgxF4TpjFmwHBuC4i48DKDr4kJjvw70dSw9AgEwoEjzO8tnC/CvDyArO0N7Ar
-	 yzi8VhGp38/iGMgzZIld8SGzlLgZlse3SMyA52aoZ08v6zImE4FWA+atzoXveV6lIV
-	 R2Nd8Jf3wXg6+EnhYwU99ZdvYJ4nFlq+ibaYeSTg=
-Content-Type: text/plain; charset="utf-8"
+	id 1vEKzI-00000003UWY-3GYr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 05:14:17 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-63bad3cd668so1083047a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 22:14:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761801254; x=1762406054; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5tq0yxGv6yRvwde5HLaH1HkY7PXCLMaOxQayqcCSGMU=;
+        b=baAL80u28zeiAkchcb5kO6fS4SJOtRfuRccfTz5cTLuOHamt0qVT2QkuX7IzNO+VtG
+         eQ2ARgf9muuOhJoFYclxF+4GfZxhNffBV+NTwsMTvHfADvLqGkM7y2d4tU/+5TP0C1yL
+         K3Zu6YwjCnBFOtKkCokwb3aMR8wOydW6K76RqLuGDaTWZiNdlQnVnazT3w0MyDvskCxm
+         hEwz6LslpzPFny0FMPpM6twe0hs8TJEOTnSnd+arkW16zrDXgySfhFnYKNVqylmhXKJo
+         ISbFkxaceVXm3dk0krSMkeE9sobE2P5rDm7z4lcs4gGsyM5xZZ83rue4MwvvITDmNOcD
+         huYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761801254; x=1762406054;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5tq0yxGv6yRvwde5HLaH1HkY7PXCLMaOxQayqcCSGMU=;
+        b=j8D9yF55nGwDAx8K2evVZceGuhUjRDTMLE/JIM4LjAtH0m8iSgwXNlyyGd15XfTwV6
+         HWRnC7OhkCGmBJ13XanUC0v/k4tpF7M7Zdq+ewYm/mouVc742op6HDoCBe60tQeC9aJW
+         GcI2cZyg9vsOmtIcqr2DW204d2JUpim5ypVsYMqPjtoLv3Ak3JUfLMQBmfUF2qyoeGAI
+         aPCSPa0x7wVH71nDw5iOvJfycY88fvd2MgAQogv3gSvlIGIvEGnKGqjuzqJX77b60PVn
+         WXAhnmG2j+/jwD9gbWy7Gpy9hF1o313fyWe+vIRaOpd2Cy8tuGcesXmC6JLjXCWbqFPg
+         BUbw==
+X-Forwarded-Encrypted: i=1; AJvYcCUpa707NsvcGWiXjYL8O0hGESV32YOYCHXhvytVVbOfyQBg/ggSg23oj3B9+/LKgUf+OY1pFWMfb78ET9wJHD7s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzldb+Eyy+885R3QaUknKhPXlI+E9u7rAWtmx0to7uhqhyeADwR
+	oHlA2Bwaml4jNpFcRJv0XW7jlv+30VirfnAJuWCCCeCpaZSuMRP1G3H9x9rF3ticFP4MuIfbGl0
+	p+0IUMHAFBf65k3bzCY3g9x03PoFdec8=
+X-Gm-Gg: ASbGncv8DzFhyu5H8MQtPgl+En428WazUu1zsq2yKVcNBWNDKIBUI6/JSlDMp7jY+bM
+	d1Z6kysbV0yB1GNZfrGIB7uGf5sBTSt6zIM/2yyaIEI05bCWyojh8lqTxOB1+L+oDQOwzKEfX9X
+	IyPQNprUmd8N2roKTGU399qNIkjGm3K6tiracJtaZ+yK2dJKXpZ39FPO3XfSCM/qZ3VbbV/3aRf
+	62DQpvuMwco6zJ/5MvV/Amltor81P24kDaVt3I1J/ookL1L3iChCPqs+hY=
+X-Google-Smtp-Source: AGHT+IFDCMfSXrIL3bjIKZw2IhpHFG1U5RsQXDbZl1lPFfpuAvA594DxUOaln1JvXCqNQSfMK0dolS63NIEWPJif8rE=
+X-Received: by 2002:a05:6402:50c8:b0:63b:f3a9:f5f1 with SMTP id
+ 4fb4d7f45d1cf-640441c2092mr4444447a12.14.1761801254315; Wed, 29 Oct 2025
+ 22:14:14 -0700 (PDT)
 MIME-Version: 1.0
+References: <20251028154229.6774-1-linux.amoon@gmail.com> <24319a9a-ccf8-48a9-8b5d-3a846976afcd@web.de>
+In-Reply-To: <24319a9a-ccf8-48a9-8b5d-3a846976afcd@web.de>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Thu, 30 Oct 2025 10:43:56 +0530
+X-Gm-Features: AWmQ_bl9cBL27Bidm95xNfiwXFieCJ3byhHw0tTbL2X_4Wmj8VImOI2xhqIIeMc
+Message-ID: <CANAwSgTO2s8LA=e5CVYnpJ95_DLdkiot5Zbz1hFaejV=kTK2_w@mail.gmail.com>
+Subject: Re: [PATCH v? 0/2] PCI: j721e: A couple of cleanups
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-omap@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Bjorn Helgaas <bhelgaas@google.com>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Siddharth Vadapalli <s-vadapalli@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	LKML <linux-kernel@vger.kernel.org>, Dan Carpenter <dan.carpenter@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aQIEOJUHdVMriz7S@stanley.mountain>
-References: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com> <aQIEOJUHdVMriz7S@stanley.mountain>
-Subject: Re: [PATCH v3 0/7] staging: Destage VCHIQ interface and MMAL
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, Stefan Wahren <wahrenst@gmx.net>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, Phil Elwell <phil@raspberrypi.com>, Umang Jain <uajain@igalia.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Date: Thu, 30 Oct 2025 10:30:22 +0530
-Message-ID: <176180042213.8690.16888216388545206511@freya>
-User-Agent: alot/0.12.dev28+gd2c823fe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_220032_097023_5D1446E9 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20251029_221416_845275_87C3C05F 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,65 +99,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+Hi Markus,
 
-Thanks for the review.
 
-Quoting Dan Carpenter (2025-10-29 17:40:32)
-> I did a review of some Smatch warnings.  These aren't published because
-> they generate too many false positives.  Only number 3 and number 7
-> are actual issues the rest are style nit-picks.
-
-3 - 8 are for bcm2835-camera, which is altogether dropped from staging in
-PATCH 1/7.
-
->=20
-> 1. drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c:2728 vc=
-hiq_add_service_internal() info: returning a literal zero is cleaner
-> s/return service;/return NULL;/
->=20
-> 2. drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c:408 vchi=
-q_shutdown() info: returning a literal zero is cleaner
-> Delete the "ret" variable.
->=20
-> 3. drivers/staging/vc04_services/bcm2835-camera/controls.c:198 ctrl_set_i=
-so() warn: array off by one? 'iso_values[ctrl->val]'
-> There seems to be a mixup between iso_qmenu[] and iso_values[].  The one
-> is only used for ARRAY_SIZE() and the other is never checked for
-> ARRAY_SIZE().
->=20
-> 4. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:337 buff=
-er_cb() warn: can 'buf' even be NULL?
-> Delete the NULL check.
->=20
-> 5. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:513 star=
-t_streaming() pedantic: propagate return from 'enable_camera' instead of re=
-turning '-EINVAL'
-> -       if (enable_camera(dev) < 0) {
-> +       ret =3D enable_camera(dev);
-> +       if (ret) {
->                 v4l2_err(&dev->v4l2_dev, "Failed to enable camera\n");
-> -               return -EINVAL;
-> +               return ret;
->         }
-> 6. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:576 star=
-t_streaming() pedantic: propagate return from 'disable_camera' instead of r=
-eturning '-EINVAL'
-> Same.
->=20
-> 7. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:881 vidi=
-oc_querycap() error: uninitialized symbol 'major'.
->    drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:881 vidi=
-oc_querycap() error: uninitialized symbol 'minor'.
-> No error checking on vchiq_mmal_version()
->=20
-> 8. drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c:1276 mma=
-l_setup_components() info: returning a literal zero is cleaner
-> s/return ret;/return 0;/
->=20
-> regards,
-> dan carpenter
-
-Thanks,
-Jai
+On Wed, 29 Oct 2025 at 01:21, Markus Elfring <Markus.Elfring@web.de> wrote:
+>
+> =E2=80=A6> Changes
+> > v4  : Improve the commit message.
+>
+> Would an other version number be more appropriate for the subject prefixe=
+s
+> of this patch series?
+>
+Yes, if there are some more review comments on these patches,
+Or they get lost in emails.
+>
+> =E2=80=A6> v1:
+> =E2=80=A6>    dropped unsesary clk_disable_unprepare as its handle by
+> =E2=80=A6
+>
+>              unnecessary?
+>
+> Regards,
+> Markus
+>
+Thanks
+-Anand
 
