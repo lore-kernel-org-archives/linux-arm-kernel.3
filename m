@@ -4,97 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91BDCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE8FCCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dauqN1FImNWy4rwXPKxul6Sk7/dfHFTeFablnNaeE7s=; b=M0EnFjbDQxnEocjhVLbnZ4zlaI
-	H6c2tItCwy8pnKSvlDWRDvCvVTRCwxahPHigj2wGatO28JeXihxJx7Xb/rCz2z4AmZL+ZYl67WQT0
-	NUDpwMV4UW0CYNNwg51taINdDROUwAsFRIUqe6ls5aIY+fSK4N8FCbKcDuxEc0RKBdfQLASOiU5kh
-	2sQQ6gyAQXIVUw/aVEQ3I0XZBxr/ZvjBfsxj6qsHkkRUzaTGCcnA6M+MglZbCBbHnx2L1sFwzT9+A
-	/FoKX62s8Oew4hndspAZx6vQwTWvqT31kndGbr8FdZcsJWHnjYWqLsb8RIpmVWPruhQ2rCoTJ7BBY
-	X/vtb2pg==;
+	bh=SbR73pzFZ1oGN9Mnahj63+fWkfMMCnpWzNCW1Tl6/6U=; b=BLbRpZfRKoYOkvYoV7MXNb/Czz
+	wyU7IWwAGwN/ctADUK5p9yZpigB/8xVFsorj30qZdyjlFlPHnNsniYlPzhqxS5g84F8piaomb7qHg
+	mG/NfCb1rsz9NJ6n/Nj1dr+p3so6S+tLZj95zHeJX7R0bQmm7a+Jc93XXARXOPukAJMPg5pz6QCKP
+	sjyhFYWO+399M63OzLaVZhc7EWDwfOXxcGJ9HXW+cBt+zie/Yqgo8r9NECR5iwN0Ll5iSwGEkJuDm
+	3ppq2xPsqU0/QdQijR2fSKW6cFzsMgGsta0QIWLpU5Vu+wkPrmHmt4VTv1mMhNpSkJuNEhtzEO1O7
+	Pl4XQn0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPVq-00000003vs3-19ZU;
-	Thu, 30 Oct 2025 10:04:10 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1vEPWb-00000003vyo-2gE9;
+	Thu, 30 Oct 2025 10:04:57 +0000
+Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPVo-00000003vre-01nT
+	id 1vEPWY-00000003vxo-2XPj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:04:09 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-37902f130e1so8196341fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 03:04:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761818646; x=1762423446; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dauqN1FImNWy4rwXPKxul6Sk7/dfHFTeFablnNaeE7s=;
-        b=H5ffkeWaX+vaJ9MISwZSUGRA2nvKFnEPPcInLrPpFZY2xFV24dpxINh/jlhA7rrzcw
-         LlcQKJXh8HjhIQaNIPcwTGhQ8s6nXVjx3MT5BCFHD6MjVbJSoSibt0NIhZMSWA9Vtw32
-         WEqLriNAb6w7vrUC4h8qHGIoiQIWxJ7xwYmJyOCuhnhCkXhOADhb5rsjx2mQN+q/uOby
-         IL5lxBPUbeJBHAb9PmxsVXDhQm9rTuEeTPD9ClklFgAVrmRWcchmx5GvG3RcaahIPVCW
-         Tj/QT9uG0kcKqOGkvFr1/blllGFSn3Bcga2CLrq4zttkE1OBe5AzugSnqz/SwWqqCKs6
-         DOBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761818646; x=1762423446;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dauqN1FImNWy4rwXPKxul6Sk7/dfHFTeFablnNaeE7s=;
-        b=JoY4wRRMCDWQ0neM/RrzxTYBq4rW3PqOGd4iHtWy5kQ9N8zF0B8br+NH4AOxY1A9JM
-         QpaVKy5hv9fnJAPvbfoIV0azT4cZfrwAXh3ThIVhwRgl8ChcG7rAC2FBZUDCEHzJ9ciy
-         3NHZYKa+H/fsM/VTNX3EcJfYbPl0w66fY3SQEKwSTWn+6lY3GSCiO41hblQdgIlJl5M5
-         pBbDm+OTYNmkC/UYkwsp6NwgUq3xwU8YTlY5f9vDrQ18+dl3nl9yumOZXVMWxeA3mlZu
-         z+VgTusuIcr1tZknl1OFrELuKmmM6P781mFscEVdQv9K7Scs0BITJJucJjxROiaUDHmb
-         FktA==
-X-Forwarded-Encrypted: i=1; AJvYcCW/0su8Z+4Rt6roe1g5YQUw3pAN17zayzLQxc18UW/gDgIeZ/ZKlsvY4FJlacsomMCRXEM3zqqZXNAPxbK5M/bv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOks0iaEYFY4Dy6vBKIIkfLFGk2Hgm5H0n1iDfoAOz9zevhXKd
-	mYYe612XPaCowHnSev166QIvBcVIKB1FPyb1fTxu5n02tmKg57esrU7S
-X-Gm-Gg: ASbGncvS7P/XalXukDqRkeEglniJH8YZPieBiBNuCpPHoL2oe7/XBfA/QlYEaXkYbOK
-	IoFfEZs4/922fJI/hoh+FtCS5zOpTaG/jYQZIHvAevV7jUnXBEg8V7SCqDd3VOzkJLJoLNZ9/oN
-	g4ZTY0AMZ3F4LiHFOPT3l+TqFQLlIai23ndeSPNXiqqQOzAcp1U1mfNohtPNeZEPcsPZr30sfVt
-	JS1XrXBYQAm3cOQ3woP+Nivt2qw8U7Oln2CnflBl/b+zXI/oCUySCaTYF2G02PYkXUnVRhU5Q/V
-	Bx1GXpY1zHwuRZATFrEbS1QoYqqE4dOIRNfR+ikyWU2uHx+cJVh8c1DzLdFWQGmbSYRbfUIXpSP
-	83L+NPsF7oDSwGLRowQ20FIgeI0UZnH93pHa63yl2gZiO5JYzYHRCV8juVxBSVpAX+KBs/00O7A
-	rG7F1fq3DqboKXZXzWxKciuXT77jNoPlgGpKQCdL3c7V8E+y4Nr9+5ReLKdg==
-X-Google-Smtp-Source: AGHT+IGyCpQSfbBRdEYvu2lNdOmyrZXNNZuheExnuJl6d4xQSCtQI8cyPqqgwbNtC67LbnCVinYQhw==
-X-Received: by 2002:a2e:a9ac:0:b0:373:a3e2:b907 with SMTP id 38308e7fff4ca-37a023b0b88mr20842611fa.10.1761818645333;
-        Thu, 30 Oct 2025 03:04:05 -0700 (PDT)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-378ee0bc2aasm39339011fa.24.2025.10.30.03.04.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Oct 2025 03:04:04 -0700 (PDT)
-Message-ID: <bd938b24-59ee-4a61-87bc-4416b1a0e55a@gmail.com>
-Date: Thu, 30 Oct 2025 12:04:03 +0200
+	Thu, 30 Oct 2025 10:04:55 +0000
+Received: from omf06.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay05.hostedemail.com (Postfix) with ESMTP id 81F9C5C43A;
+	Thu, 30 Oct 2025 10:04:51 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf06.hostedemail.com (Postfix) with ESMTPA id 824162000E;
+	Thu, 30 Oct 2025 10:04:49 +0000 (UTC)
+Date: Thu, 30 Oct 2025 06:05:31 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, arnd@arndb.de,
+ linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+ linux@armlinux.org.uk, tglx@linutronix.de
+Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
+Message-ID: <20251030060531.505d7127@gandalf.local.home>
+In-Reply-To: <20251030095615.ae7bck5m@linutronix.de>
+References: <20251030072339.63vdFNo3@linutronix.de>
+	<20251030074507.33863-1-xieyuanbin1@huawei.com>
+	<20251030075558.sUBj8_6U@linutronix.de>
+	<20251030054626.7a897b29@gandalf.local.home>
+	<20251030095615.ae7bck5m@linutronix.de>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
-To: maudspierings@gocontroll.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20251030-mini_iv-v3-0-ef56c4d9f219@gocontroll.com>
- <20251030-mini_iv-v3-4-ef56c4d9f219@gocontroll.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20251030-mini_iv-v3-4-ef56c4d9f219@gocontroll.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 824162000E
+X-Stat-Signature: 4tct77647hn1ouygiy1cqijmkym88pg7
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18xIVP8FdiENPwAdW2uZaQx4Hxlw9FUnNI=
+X-HE-Tag: 1761818689-72234
+X-HE-Meta: U2FsdGVkX18fud/O/dYe6YxVvNIhorpVgtqv6mOR4YADnRseWGVNwbjKe16X1uEPx0Lqjwaa6pGPMORofpmI5QdXygEaFdHMZPlRlGG4SQOxQASEgOpjE59aFU0G6roTb0lSMr2VPfwCexIfZj/cmz9dYNFA/tjtTAyua3jEhLWIgPU+OorOcPt6c8Vrk4hDWPHVHpJpH0Mn7jc2wGUftm+1TbeblI7jgZRMy+VBl9fkI6z8Xvp92cHW7Tpf+L1keh+TjK0vzCZADKWKT076sCSrynHqvoUWhxN39pTfEya2voktzvfamey8coPSyzeg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_030408_055873_0A864959 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20251030_030454_723387_6E3CC437 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,21 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/10/2025 08:35, Maud Spierings via B4 Relay wrote:
-> From: Maud Spierings <maudspierings@gocontroll.com>
-> 
-> The Ka-Ro Electronics tx8m-1610 is a COM based on the imx8mm SOC. It has
-> 1 GB of ram and 4 GB of eMMC storage on board.
-> 
-> Add it to enable boards based on this module
-> 
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-FWIW: Looks good to me.
+On Thu, 30 Oct 2025 10:56:15 +0100
+Sebastian Andrzej Siewior <bigeasy@linutronix.de> wrote:
 
--- 
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
+> trace events were an example and this is used to enable tracing in
+> production or development to gather information if something is not
+> working right _or_ on the edge to investigate. A latency spike at this
+> point would be a timing violation forcing the system into a safe state
+> an so not allowing further investigations.
+> 
+> I hope I made it clear that using jump-labels at this point is not
+> doable at this point and a warning does not improve things. Improving
+> the implementation on ARM as it has been done on ARM64 or X86 is how I
+> would compare the situation to printk. Not adding a warning at boot
+> time.
 
-~~ When things go utterly wrong vim users can always type :help! ~~
+I wasn't talking about the print being at boot time. But when it gets
+enabled (like when RT throttling happened). I wouldn't even do it the first
+time it gets enabled, but print a waring when it is activated if the last
+time it printed a warning was over a minute ago. Thus, even if it was
+already printed, but it didn't cause any noticeable latency, it would print
+again when it does.
+
+Thus, if the system goes into a "safe state", it is obvious from the logs
+it was caused by a user interaction.
+
+-- Steve
 
