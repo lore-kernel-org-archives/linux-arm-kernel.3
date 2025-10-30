@@ -4,100 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C46CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 02:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0A5CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 02:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0iJfSZcYi4d+4cBtPvkDIcUkSGuJygcNQUXASJtpao=; b=fFreefYttZ+73kfDfrsyBhooou
-	E2h75jCy/E4WXR0R6le9k69QL3fOAJIDL+tYw3VnwkSefm08yQd6f2bGAPL+K0zakrBwRQn2ThKHl
-	HiF00qSSau7wP9W1M6HipVfEj7UaaH00/Z8PMpbm7Zcz/EYSvgtfAQ2sCOAQ/ZcGZnk0gtIhW8aqF
-	Ic7kbfZhgWp5AmigBk4eJaammI7ZKVITd3rBVXtKMAFWnu586CC8kDH0FwHiBNfwVUQsKDk5OywoX
-	JzucpFGHD8o/M/fg4VrGA1FgjML4CiwS1h/qVMUqOilGKk1dBmbsfDpyBk/dvO/rwBB9JvvBhnn3V
-	Ijl1Aw3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dRHxWofqNvre4c7gYW9pSN8OyvpdSlasaGgbf/HjiS0=; b=VqnCE/XjOD41txWYrr+cCscR80
+	A8Xg5UNtWXfNhJ/XG8CKzBV++HnfjD5kgJQlQVUNOeSKzC6eo2eT0zFANay/hrGsd/kL99JZna+Cm
+	fTWwaGEdAqg0wq3xHESOqy6c5NgvZcttNuFmYEu4gVgOZgQv/PAzcJ3tldGIf7y2AcgXB0kwpmLMD
+	Gmbip3MkQmhMhMi+2AZv+Y327EM5bW9MLOK+96Y41VZbgRFh1HP0por0Yg6lgrtCHIbzegNX+skUC
+	V52/nAB1dCEOB0jbB/KkLNlA9wJh8MFwUA9B2pH34Lc6zectrHMDUH/Rw2ig5kl1Aekc9Z9T2Frlo
+	eOMQ5Wqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEIED-00000003Mph-0U2p;
-	Thu, 30 Oct 2025 02:17:29 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vEIEV-00000003Mtt-403C;
+	Thu, 30 Oct 2025 02:17:48 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEIEB-00000003MpI-19NT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 02:17:28 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7a683385ad8so92366b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 19:17:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761790646; x=1762395446; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=e0iJfSZcYi4d+4cBtPvkDIcUkSGuJygcNQUXASJtpao=;
-        b=nbOJrqQ0AwV09NG8DgRYgabehH5bFk2LmpDzXKglEXwqTya26QRIntmgcbKTpKCVfX
-         XYK0G1fk+AzfNBvJ/folHlGw2A5iTDGuo3+CQuJDokbEPsXnVJa+W3NPnv/fmT8njbYB
-         Yvk6oOv0To4PpZQuRP4FRaWvYIIubdwo8bT6yh42MAkw195/cpUKiTAKXScOyBZvKAzX
-         VlvtQ1dQAXKdhG8oljsDCfo7WHEjPhm/0I3CV22TnKfGwjvArHA+N7AUZl3PQLmcV0bw
-         WHmw8qOy24UIxpMyCDWxAcIGTGtrlpaxXqVZFpAQY1pedVNgghe4xTu3MTp4aH/u7hCJ
-         +apg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761790646; x=1762395446;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e0iJfSZcYi4d+4cBtPvkDIcUkSGuJygcNQUXASJtpao=;
-        b=wxkpUbTU8U3iG/xzXorPeeM1nKGELjA+S+7UeX84MplbdMW4pi1sDFQ1X6aCTyUcsZ
-         oZlv41RTZZA8UtgwbF9mDmJ9XKm91qHdNTZdnD+xVoNuYBbqm+Cza8mBRv3XVFZfHbaJ
-         ZlwOBz0el9AngbO0W/QWMqeY3dB/Icj4u/1vDqH/5R4aVjokvgWWog1MxXsRALY84aDC
-         L9dIuBARlABksGNQ7cs09P1lfs8t/4gGv4XLcqg+dKehi3NijXgPiQ+jh7qlmPzqzJqY
-         k7K1B6CwCrTHcRUXmoih6Es3lKpeNEmfcRfCne6XvSanFEB2z7cdfb5LBATeVXHIOdfW
-         VKwg==
-X-Forwarded-Encrypted: i=1; AJvYcCV6B/KmrHxbHWv/RI8h31DNm8N74sMGzivpHGCske72Z/jN1kbqcr7ctvgjuFxPXwT+rA9C43/UFdxlC3spTXPC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzQkfUHezRWmWyKFuoXZ1csp5lSCZIdlCnGBVQqXYlyenzW+Gh
-	P05IYtKeevsjCiGqXhEvWFhrT4nen6sqyooo10x+MmuwFk5c4KPalPB1
-X-Gm-Gg: ASbGncsh08lL9TQDxvpSc7pxeYVkVwqAy6ea0SdpFlr349036mRM+Abe9FHeN1Ash0a
-	I1xfzFSbDTtj9zEKaMn0jFcqaSFpiRu2VDaRRiqqNr8+b77Mks+xUwaYvznajQF0LjvX5jsFbeb
-	ozuKnVpnQ/6tDOrNrJwXmYGETahi74TBzoH60kHugJsaGE8LYDrpSkBQbDmtgII82Zxa/4IGUd2
-	IU32v6QFjJPok3nLO19PSNo83nct6zKVwqjXKyw/iMf9/6X4cgMNr1KYyjrohTwodYwoU8YXK3D
-	sKrUypq6TlNRci/Ncwufkybkxc/IDC3h04ai+OZ3OhVexJ28kPhtJXLVNiw9mKEzq+qDtcjmavl
-	yQmICUMrWI8x0QbngLmlBBv0FaRwmFbK1XR19Xqt9GpogXWcw+HVVzjnIAKkWEMtF3i8EnIrc/T
-	U12N5l758pxg==
-X-Google-Smtp-Source: AGHT+IGZqbW0+/S17J6RDbXZnRIU8hSK1Dmm2Um3L8P8CRvPomF8j94cwh/RTW/K/MdMyX0p0nhaJA==
-X-Received: by 2002:a05:6a20:734a:b0:334:97a7:8357 with SMTP id adf61e73a8af0-34787d7d88amr2092916637.60.1761790646348;
-        Wed, 29 Oct 2025 19:17:26 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b712791576dsm14913433a12.12.2025.10.29.19.17.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 19:17:26 -0700 (PDT)
-Date: Thu, 30 Oct 2025 10:17:17 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, 
-	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 1/3] dt-bindings: net: sophgo,sg2044-dwmac: add phy
- mode restriction
-Message-ID: <td7eseq6rmc3s2ecvcjyyyn5feawjmugzb4ihjyviquro7dv44@3dosfqam6h7h>
-References: <20251028003858.267040-1-inochiama@gmail.com>
- <20251028003858.267040-2-inochiama@gmail.com>
- <20251028-parka-proud-265e5b342b8e@spud>
- <rclupbdjyk67fee2lgf74k6tkf7mnjcxzwcjvyk2bohgpetqt5@toxvy3m5orm2>
- <20251029-fading-expulsion-f0911c28d23d@spud>
+	id 1vEIER-00000003Mog-2etj;
+	Thu, 30 Oct 2025 02:17:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1761790620;
+	bh=dRHxWofqNvre4c7gYW9pSN8OyvpdSlasaGgbf/HjiS0=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=vH0+LccfeOAwAVbnBaALWmAmLCQEj0I8XtZdc7sGZoSzAxN3Fkuqu1qQiaiYL326u
+	 w0G0xVRL7RYAxor0SPxfERiDUdrioBntr8160rWJi2xG/AFwy9X8HWMz1E9UWok7HM
+	 1qh5KwrbjQzrpGbwTxZuXiZy/uF4UY+A9kIw3+QM=
+X-QQ-mid: esmtpsz21t1761790610t2286961f
+X-QQ-Originating-IP: FCJSyEhyWxQkXT6SGDOtofz4EUe9Cd81eY6Os229Qyg=
+Received: from [172.16.12.149] ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 30 Oct 2025 10:16:47 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1275723360735953640
+Message-ID: <C6253E8254C80B0F+839b71d0-1bd8-40b7-9515-7ce4a1eb8673@airkyi.com>
+Date: Thu, 30 Oct 2025 10:16:45 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029-fading-expulsion-f0911c28d23d@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 10/10] arm64: dts: rockchip: rk3399-evb-ind: Add
+ support for DisplayPort
+To: Peter Chen <hzpeterchen@gmail.com>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251029071435.88-1-kernel@airkyi.com>
+ <20251029071435.88-11-kernel@airkyi.com>
+ <CAL411-o6mF71oBeRsJ-OPZNbLegn4iJ_ELN9xVdppTM3ssUPOw@mail.gmail.com>
+ <cc8b583a-77ec-4a7f-97cc-2d148f7fee9f@rock-chips.com>
+ <e0c5bda3-7428-49e0-9955-fa23f1e4f35d@rock-chips.com>
+ <CAL411-oXfvp-iqN+uRmFHijdmW=1omKwozKOoZ2shxukMHmwPg@mail.gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <CAL411-oXfvp-iqN+uRmFHijdmW=1omKwozKOoZ2shxukMHmwPg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: OPdvjVtisQSKcRlL75dFsNIHBIAyQERADWxFjoYDC99KDjawoBPtVKHI
+	LCrYqtLsiWfOlaL2LG+wsIWqBljK30GyvyuzT3MUap7nfmPo5CVKWNebzd0+Blijy9gkM4k
+	g9Xt0X0E4A9gNOkoeOsXSnA9ixZmvdJlhrS8hCWTXMH36UKzQFppq7xhDxnodqE1sXNCI2q
+	fov8SDOyWn/+BepodydDTDV+/W7bYIrhxgC5rOsToxhS8EtRU3p7Oq24IcPf3HQhtayBGrv
+	Ye1UOksVbmfPArt88xVNNb+yFwzngM7eZM93fjAGUxdi/g9byknI3BmQg3rbOTKvrI+4YH2
+	mPHpcgIxbAHgDGgDYtFk6OBqZZiYA1H687er9fqyAAzRaXktqAz0flyrcnZGIMoSXE8CQ07
+	xagvXTqO2yLqHetA05BnikFrYoWCpe/SFF45ZhCIY0FkpYjA2eXhPgWks+EnEOmNa8k1Iw9
+	GAptxxlL4PpGfPOAgUcdKrFXIZYvLkjHwwxjyNpvtVOl3kLw3xAwswxlSStDPbWdrXQebsb
+	xA/6MBwqjFBWotvEK7UZRm0rEWaFev3xYYDiEBrdjMwI8ri4++//9kMcRJqrXwVSx5iCm+d
+	UymplYqdMbjUrFpr97zU+Wpoxj67Z6vpQ/YJfAevp5d3yVs06MNJWvt7ywVmjkKtOmZBIO/
+	OP4lHYxmWmLCxwHY7uWu8i7yv1d7uoAshWDOIeUXvBYP1U49z/p5CSxzafxfgo5B9TfeclG
+	nQnSIwQlAsCqJyorHNNpignubeM6WLap0U6tDfrjBJzX5DTIW+KpF04g6lcHdClWqFTmIBU
+	7QVhn7rloaA1T+lzlioy+2xl0un3jVBXvCtGoqSdoRr99hoYC0fKCPElBterF8knaQzdT9e
+	zUj0j4oDJnxxyfVwbcJTE/sUCLIp8yzBrgQRAuzdiF9KGzK404/J02udjNaIcsMLDhcp8Vm
+	gq/+5Ry0Udy2MxFVYKgVyy6TmUCBV6cEtwplF2D46IhMfOHFAAWxLk7JP4IpEJpJTFqaxYo
+	tOSBEthA==
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_191727_311944_88A2280B 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20251029_191744_236500_0AA46FC4 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +120,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 05:54:49PM +0000, Conor Dooley wrote:
-> On Wed, Oct 29, 2025 at 08:56:09AM +0800, Inochi Amaoto wrote:
-> > On Tue, Oct 28, 2025 at 07:22:37PM +0000, Conor Dooley wrote:
-> > > On Tue, Oct 28, 2025 at 08:38:56AM +0800, Inochi Amaoto wrote:
-> > > > As the ethernet controller of SG2044 and SG2042 only supports
-> > > > RGMII phy. Add phy-mode property to restrict the value.
-> > > > 
-> > > > Also, since SG2042 has internal rx delay in its mac, make
-> > > > only "rgmii-txid" and "rgmii-id" valid for phy-mode.
-> > > 
-> > > Should this have a fixes tag?
-> > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > > 
-> > 
-> > Although I add a fixes tag to the driver, I am not sure whether the
-> > binding requires it. But if it is required, I think it should be
-> 
-> Kinda depends for bindings, amending a binding for completeness probably
-> doesn't need one but amending it to actually permit a functional
-> configuration does. This is somewhere in-between I suppose. If a driver
-> change is coming along with it which is likely to be backported, that'd
-> be a vote in favour of a fixes tag here too, so that the binding and
-> driver match in stable.
-> 
+Hi Peter,
 
-Thank you. It is helpful for me. And in this case, it is suitable
-to add this fixes tag.
+On 10/30/2025 9:34 AM, Peter Chen wrote:
+> On Wed, Oct 29, 2025 at 6:32 PM Chaoyi Chen <chaoyi.chen@rock-chips.com> wrote:
+>> On 10/29/2025 6:21 PM, Chaoyi Chen wrote:
+>>
+>>> Hi Peter,
+>>>
+>>> On 10/29/2025 5:45 PM, Peter Chen wrote:
+>>>>> +&i2c4 {
+>>>>> +       i2c-scl-rising-time-ns = <475>;
+>>>>> +       i2c-scl-falling-time-ns = <26>;
+>>>>> +       status = "okay";
+>>>>> +
+>>>>> +       usbc0: typec-portc@22 {
+>>>>> +               compatible = "fcs,fusb302";
+>>>>> +               reg = <0x22>;
+>>>>> +               interrupt-parent = <&gpio1>;
+>>>>> +               interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
+>>>>> +               pinctrl-names = "default";
+>>>>> +               pinctrl-0 = <&usbc0_int>;
+>>>>> +               vbus-supply = <&vbus_typec>;
+>>>>> +
+>>>>> +               usb_con: connector {
+>>>>> +                       compatible = "usb-c-connector";
+>>>>> +                       label = "USB-C";
+>>>>> +                       data-role = "dual";
+>>>>> +                       power-role = "dual";
+>>>>> +                       try-power-role = "sink";
+>>>>> +                       op-sink-microwatt = <1000000>;
+>>>>> +                       sink-pdos =
+>>>>> +                               <PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
+>>>>> +                       source-pdos =
+>>>>> +                               <PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
+>>>>> +
+>>>>> +                       altmodes {
+>>>>> +                               displayport {
+>>>>> +                                       svid = /bits/ 16 <0xff01>;
+>>>>> +                                       vdo = <0x00001c46>;
+>>>>> +                               };
+>>>>> +                       };
+>>>>> +
+>>>>> +                       ports {
+>>>>> +                               #address-cells = <1>;
+>>>>> +                               #size-cells = <0>;
+>>>>> +
+>>>>> +                               port@0 {
+>>>>> +                                       reg = <0>;
+>>>>> +
+>>>>> +                                       usbc_hs: endpoint {
+>>>>> + remote-endpoint = <&u2phy0_typec_hs>;
+>>>>> +                                       };
+>>>>> +                               };
+>>>>> +
+>>>> Why USB2 PHY needs to be notified for Type-C connection?
+>>> I think the USB-connector binding require a port@0 for High Speed.  So I filled in USB2 PHY here. And I have looked up boards with the same usage, and some of the results are as follows:
+>>>
+>>> - rk3399-firefly.dts
+>>>
+>>> - rk3399-pinebook-pro.dts
+>>>
+>>> - rk3399-eaidk-610.dts
+>>>
+> Okay.  My question is basic: USB2 PHY supplies DP/DM, and the DP/DM is
+> short for Type-C connector,
+> and no control is needed for Type-C application.
+> Why is there a remote-endpoint connection between USB2 PHY and Type-C connector?
 
-Regards,
-Inochi
+ From the perspective of Type-C, this should not be added.  Is the approach in v2 correct [0] ?
+
+[0]: https://lore.kernel.org/all/20250715112456.101-6-kernel@airkyi.com/
+
+Or is the following approach correct?
+
+
+port@0 {
+     reg = <0>;
+
+     usbc_hs: endpoint {
+         remote-endpoint = <&tcphy0>;
+     };
+};
+
+port@1 {
+     reg = <1>;
+
+     usbc_ss: endpoint {
+         remote-endpoint = <&tcphy0>;
+     };
+};
+
+port@2 {
+     reg = <2>;
+
+     usbc_dp: endpoint {
+         remote-endpoint = <&tcphy0_typec_dp>;
+     };
+};
+
+
+>
+>>>>> +                               port@1 {
+>>>>> +                                       reg = <1>;
+>>>>> +
+>>>>> +                                       usbc_ss: endpoint {
+>>>>> + remote-endpoint = <&tcphy0_typec_ss>;
+>>>>> +                                       };
+>>>>> +                               };
+>>>>> +
+>>>>> +                               port@2 {
+>>>>> +                                       reg = <2>;
+>>>>> +
+>>>>> +                                       usbc_dp: endpoint {
+>>>>> + remote-endpoint = <&tcphy0_typec_dp>;
+>>>>> +                                       };
+>>>>> +                               };
+>>>>> +                       };
+>>>>> +               };
+>>>>> +       };
+>>>>> +};
+>>>>> +
+>>>> .....
+>>>>>    &u2phy0 {
+>>>>>           status = "okay";
+>>>>> +
+>>>>> +       port {
+>>>>> +               u2phy0_typec_hs: endpoint {
+>>>>> +                       remote-endpoint = <&usbc_hs>;
+>>>>> +               };
+>>>>> +       };
+>>>>>    };
+>>>>>
+>>>> There is no switch and mux, how to co-work with Type-C?
+>>> I checked the phy-rockchip-inno-usb2.c but did not find any switch or mux. Does this mean that we need to implement them? Thank you.
+>> Wait a minute, actually we have multiple hardware interfaces, one of which is Type-C, eventually connected to USBDPPHY, and the other is micro-usb connected to U2PHY.
+> I assume the Micro-USB connector does not use Type-C/PD IC, is it
+> right? Does it relate to this patch?
+>
+> Best regards,
+> Peter
+>
+
 
