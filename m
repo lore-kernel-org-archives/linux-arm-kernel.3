@@ -4,91 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3D4CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB01CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g0DZj43Z67Ng4V8dccak1Ym5loj+qmLakJ+LCALP9kg=; b=uKnMESCRc7BYH+U46HNVorbKOg
-	60tIRuWn3OxNl1kAA/KFXikPgQpInZIsiUMnHXi8HqyjR7cSJQ/kZ5c9K8M+6j0TjU4T8NTS+mqOw
-	4n8BTgZlIphxizIV+V/0akFhhcVYvdrmW96Oa2XAMDHCSSLEWDSbFBSKsLE0PQBGDqZf+Dzo4zDIR
-	bXhNnGNi2AFAIK3JQEJFrTGGQX3AB+E6OqlQxc4HQ+T4WCh+8nhV6rl3f01s+JJpoAN5LOoGgcilX
-	EpNp1UuqQciIPIA6lSBDdRpg4UL8REFj+Td2AKZefJJSt6jI+cbJu3vxph3mMkpFy+sjeFD6BaR76
-	8brIy8eg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aPKYrhN0h9lZ7e4uINlVO3+rklZ2bskVk9BKkD02NWo=; b=dhiQP3neEFiBxANmCz0cSqtPgY
+	B7ezNzPxZ3OnMMY7XAlSmV71RRwO085o0NtjDsNTlE8fEuBkTztfdzTK5p2GmzLQ8ZLtlT7lImlxN
+	+M1Rjd+4/9YYWo3ym2ELja+D2hhvMHESeefkSAIbzpBG9vqgAVS6drVhyh5d4B8Lw2/onbagpnHm6
+	KeM1h/SxLCZA50krXZe2QTQP7RsnqH8NBd2P/4hKliDWPvv5+nRUW+Wre0sg/qNNUTRF8tLvH9UPF
+	sP9PNSm2bZDTFI/mJj0RMx9NUTlyJO7tUlaiqirY/aRkkxip9bPQcohtYvRYUslj9Btc+BE5cEvxi
+	CN1vyMzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZ1v-00000004ncp-37Zu;
-	Thu, 30 Oct 2025 20:13:56 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vEZ2i-00000004oHK-3PcZ;
+	Thu, 30 Oct 2025 20:14:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYzJ-00000004kXQ-27yx
+	id 1vEZ1E-00000004mrc-1oiD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 30 Oct 2025 20:13:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
+	bh=aPKYrhN0h9lZ7e4uINlVO3+rklZ2bskVk9BKkD02NWo=; b=IOB6a21fTq44KWRfXZAFZx9uhb
+	2XITinC6vKj1DGjMSDSAEhZknJf+M2O1etiayP+JWJQQba6Vi7DvMC95cX3CjX6vW+In5YBNgYZ2/
+	38zu2smHY7Fewl2tq+0+fIVH96YtmOwcUB8Y+GLudXjvjgicmDlg1fKCYWjjl3+Lvoi2keRhMMlrW
+	Ro+0nm+zTICijYR8iaOuteNcOnKcd9mayGbMmCSEOVcr0fBjYALty2FtpGv64q3znj4av9jGbae0+
+	d89FGNrFVQ/EZIqo5VQHXpeTgoiyp7DreIoMTt4+2RQ+ndudwKU2eunKmu3HMbyr0qesL0RHbX8Q+
+	lktUAPsQ==;
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEY9R-00000009upX-2tAA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 20:11:15 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33dadf7c5beso1398968a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:11:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855068; x=1762459868; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=g0DZj43Z67Ng4V8dccak1Ym5loj+qmLakJ+LCALP9kg=;
-        b=nip8grCKemtUhz5jL3YSTKznAGx6ZWp4v9kpXLt9d8tGgxugyLyPwq4ZjELYDk70Bc
-         WMnYx4nCeplnayJ5uh1aDphNlwiQ1NeZzz6W83Y5jJzPbSJ9ZAtpP0cDTIbXIkNzO51x
-         wYVxjw9wjwz+RGPPodUYsGdj/36bMk2PNuLTbpTQMnOQo/e31mFQGYCit1yYw/bT3Alo
-         lZsONqkod5pMGt4dcWwkXOW4O/4d8GayulHwhD7BkrwxT04T0zbPX+0Y+DKivmhSxheB
-         m4jAxcG77tf9sMrgx8GSPUd5orAUyKYeOVKxlVowyRvmqQDmCKj+2M1Fh9gwotI8EPe/
-         tZiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855068; x=1762459868;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=g0DZj43Z67Ng4V8dccak1Ym5loj+qmLakJ+LCALP9kg=;
-        b=FYFHmeNgIuc89bYwAbmM7ZMtzSxKDjcQNbJ6F/B/9E0EEsWL7QsoPBTLmCwyWluygW
-         TOn1S2yXhNux52sf3D2WyBZ4x47POw6o2UDN+A51YbO1aerE3sEw+kExWfsj5AKxAJ5R
-         okVy/fAPa2VV6W3wIv2pLDbGMhTCtZjjxHb26s72zUXj2YMbxcC0ICr/pw15fQTipON4
-         +B5Ft3QJ1iX5bvGk0AJUHeqzexq0w4SHjWAYQCmu0x6MNNEG/dHBoKijGsEh6olfuCkz
-         xNVvdH97jjdvWz8jvX93/9Gxag5snp3IRrMx9SmsbFbVHfGYIhBnuMKWDSQCWTEB88+r
-         xNuA==
-X-Gm-Message-State: AOJu0Yyrok4H4vi1RJzO0f+jqQwHZpataCAn/X4Jaz6ExHRZrUIve16I
-	q77UO3p+CGyG9u2du1D4KW4mJGDXUGAGIYIysHSz0ibBxqPLkGfksCjpscS1XWDat67xdh1/zOX
-	JpSXO5g==
-X-Google-Smtp-Source: AGHT+IHFPEZaejYJvfIle9tc1ZXyDJfCQsJh2BXbTmXv+Mn/KvdDlX4yHPVD4nKwk0+goI6XnN1tnx5wN9U=
-X-Received: from pjbgp21.prod.google.com ([2002:a17:90a:df15:b0:33b:51fe:1a7b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c12:b0:32e:7340:a7f7
- with SMTP id 98e67ed59e1d1-34082fc8525mr1267842a91.2.1761855067459; Thu, 30
- Oct 2025 13:11:07 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:51 -0700
-In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251030200951.3402865-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-29-seanjc@google.com>
-Subject: [PATCH v4 28/28] KVM: TDX: Fix list_add corruption during vcpu_load()
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>, 
-	Kai Huang <kai.huang@intel.com>, Binbin Wu <binbin.wu@linux.intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Yan Zhao <yan.y.zhao@intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
-	Ackerley Tng <ackerleytng@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 30 Oct 2025 19:17:39 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251030201300euoutp01a69db70cce4ddf1affb8ef0adddaaf93~zXfOlW-tI2318923189euoutp01g
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 20:13:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251030201300euoutp01a69db70cce4ddf1affb8ef0adddaaf93~zXfOlW-tI2318923189euoutp01g
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1761855180;
+	bh=aPKYrhN0h9lZ7e4uINlVO3+rklZ2bskVk9BKkD02NWo=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=mHx5IcZ2ASo5hCahLWuk0hvToLtzwBoq1hrH3bY3DTMVfZtBM7ySQ/1dpgjkzTsl0
+	 ACEsC4K+DBrY8xb+NOrlgtfUJdsaHJZupv9M1+nk2TvR67bXf717+XALoqqorNCHui
+	 /KLFB/5iBfm3DRv9yPEiukG0yIG7jhsj3g6qRKhw=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251030201259eucas1p159917c525b575ccecaab2cc5f32b2285~zXfOMIINF1012410124eucas1p1i;
+	Thu, 30 Oct 2025 20:12:59 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251030201258eusmtip2dda38e291c0a0eea3c42de8a3556ba08~zXfMpWucU2934129341eusmtip2e;
+	Thu, 30 Oct 2025 20:12:58 +0000 (GMT)
+Message-ID: <b02c8890-4568-4afe-8628-10b77e79bf44@samsung.com>
+Date: Thu, 30 Oct 2025 21:12:57 +0100
+MIME-Version: 1.0
+User-Agent: Betterbird (Windows)
+Subject: Re: RPi 4 deferred probe timeout of V3D PM domain
+To: Stefan Wahren <wahrenst@gmx.net>, Mark Brown <broonie@kernel.org>, Ulf
+	Hansson <ulf.hansson@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, bcm-kernel-feedback-list@broadcom.com, Ray
+	Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Melissa Wen
+	<mwen@igalia.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, Maxime
+	Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	kernel-dev@igalia.com, kernel-list@raspberrypi.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "open
+ list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <043f1702-52fc-4a83-82f7-683a26851623@gmx.net>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20251030201259eucas1p159917c525b575ccecaab2cc5f32b2285
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c
+X-EPHeader: CA
+X-CMS-RootMailID: 20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c
+References: <20251005113816.6721-1-wahrenst@gmx.net>
+	<9ebda74e-e700-4fbe-bca5-382f92417a9c@sirena.org.uk>
+	<a5e1e279-7e20-458d-a75f-787e0adbc9fe@gmx.net>
+	<ad07546f-0c2d-4bc2-b794-755b892c7328@sirena.org.uk>
+	<a016e7e1-09f7-4056-a855-6cfaa8d51962@gmx.net>
+	<10a4ef77-0e70-4ef2-b1df-535b476d256d@sirena.org.uk>
+	<ecd75fd5-3131-4d10-ae3d-b6f608d9622a@gmx.net>
+	<25e500c2-3dc1-476c-b6c1-ac4098a0501d@sirena.org.uk>
+	<d6b14388-e0ab-44f0-b4d9-78adf74c2a7f@gmx.net>
+	<d88f6420-5013-4856-99d6-da28f79bd7a5@sirena.org.uk>
+	<CGME20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c@eucas1p2.samsung.com>
+	<043f1702-52fc-4a83-82f7-683a26851623@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_131113_888496_3724942B 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20251030_191737_882400_99C0858A 
+X-CRM114-Status: GOOD (  27.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,117 +113,141 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yan Zhao <yan.y.zhao@intel.com>
+On 30.10.2025 20:13, Stefan Wahren wrote:
+>
+> Am 30.10.25 um 13:59 schrieb Mark Brown:
+>> On Wed, Oct 29, 2025 at 08:51:38PM +0100, Stefan Wahren wrote:
+>>> Am 28.10.25 um 19:47 schrieb Mark Brown:
+>>> Okay, here is my theory. The difference is about (boot) time. In my 
+>>> setup
+>>> the whole device boot from SD card and in your case the kernel 
+>>> modules are
+>>> stored via NFS.
+>>> V3D requires two resources, a clock and a PM domain. Additionally 
+>>> the PM
+>>> domain itself depends on the very same clock. In arm64/defconfig the
+>>> relevant clock driver is build as module, but the PM domain driver is
+>>> builtin.
+>>> During boot "driver_deferred_probe_timeout" (10 s) expires before 
+>>> the clock
+>>> driver could be loaded via NFS. So the PM domain core gave up:
+>>> [   16.936547] v3d fec00000.gpu: deferred probe timeout, ignoring 
+>>> dependency
+>>> So this breaks probing of V3D driver in this case.
+>> That seems buggy on the part of the core, particularly since userspace
+>> isn't there yet so we might be missing some filesystems - I would have
+>> expected the device to probe once the supply becomes available. But I
+>> do agree with your analysis, it doesn't look like an issue with this
+>> driver.
+> recent changes to the Raspberry Pi 4 device tree revealed the issue 
+> for the following corner case:
+> V3D requires two resources, a clock and a PM domain. Additionally the 
+> PM domain itself depends on the very same clock. In arm64/defconfig 
+> the relevant clock driver clk-raspberrypi is build as module, but the 
+> PM domain driver bcm2835-pmdomain is builtin.
+>
+> During boot "driver_deferred_probe_timeout" (10 s) expires before the 
+> clock driver could be loaded via NFS. So the PM domain core gave up:
+> [   16.936547] v3d fec00000.gpu: deferred probe timeout, ignoring 
+> dependency
+>
+> Expected behavior would be that the pmdomain defers probing until the 
+> clk-driver is loaded from NFS.
+>
+> I simulated Marks setup and replaced the dev_warn above with a 
+> dev_WARN and got the following result:
+>
+> [   22.516225] v3d fec00000.gpu: __genpd_dev_pm_attach() failed to 
+> find PM domain: -2
+> [   22.516260] ------------[ cut here ]------------
+> [   22.516268] v3d fec00000.gpu: deferred probe timeout, ignoring 
+> dependency
+> [   22.516355] WARNING: CPU: 0 PID: 75 at drivers/base/dd.c:297 
+> driver_deferred_probe_check_state+0x64/0x80
+> [   22.516401] Modules linked in: aes_neon_blk af_alg brcmfmac_wcc 
+> qrtr vc4 brcmfmac snd_soc_hdmi_codec snd_soc_core brcmutil 
+> snd_compress snd_pcm_dmaengine sha256 snd_bcm2835(C) cfg80211 drm_exec 
+> hci_uart snd_pcm btqca snd_timer btbcm snd bluetooth soundcore 
+> drm_display_helper ecdh_generic broadcom v3d ecc bcm_phy_lib cec 
+> drm_shmem_helper drm_client_lib pcie_brcmstb gpu_sched drm_dma_helper 
+> genet raspberrypi_hwmon rfkill bcm2711_thermal drm_kms_helper 
+> irq_bcm2712_mip pwrseq_core i2c_bcm2835 nvmem_rmem vchiq(C) 
+> pwm_bcm2835 i2c_mux_pinctrl reset_gpio drm fuse backlight dm_mod ipv6
+> [   22.516721] CPU: 0 UID: 0 PID: 75 Comm: kworker/u16:3 Tainted: G   
+>      C          6.18.0-rc3-dirty #7 PREEMPT
+> [   22.516743] Tainted: [C]=CRAP
+> [   22.516751] Hardware name: Raspberry Pi 4 Model B Rev 1.4 (DT)
+> [   22.516763] Workqueue: events_unbound deferred_probe_work_func
+> [   22.516792] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS 
+> BTYPE=--)
+> [   22.516806] pc : driver_deferred_probe_check_state+0x64/0x80
+> [   22.516828] lr : driver_deferred_probe_check_state+0x64/0x80
+> [   22.516847] sp : ffff800080c7ba90
+> [   22.516856] x29: ffff800080c7ba90 x28: 0000000000000000 x27: 
+> 0000000000000000
+> [   22.516884] x26: ffff00010001c028 x25: 0000000000000001 x24: 
+> ffff000100136c10
+> [   22.516910] x23: 0000000000000001 x22: fffffffffffffffe x21: 
+> 0000000000000000
+> [   22.516935] x20: ffff000100136c10 x19: ffff000100136c10 x18: 
+> fffffffffffe71c8
+> [   22.516958] x17: 616d6f64204d5020 x16: 646e6966206f7420 x15: 
+> ffffb4b9255d6c70
+> [   22.516982] x14: 0000000000000000 x13: ffffb4b9255d6cf8 x12: 
+> 00000000000004c5
+> [   22.517005] x11: 0000000000000197 x10: ffffb4b92562ecf8 x9 : 
+> ffffb4b9255d6cf8
+> [   22.517029] x8 : 00000000ffffefff x7 : ffffb4b92562ecf8 x6 : 
+> 80000000fffff000
+> [   22.517053] x5 : ffff0001fef97408 x4 : 0000000000000000 x3 : 
+> 0000000000000027
+> [   22.517076] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 
+> ffff000100806900
+> [   22.517100] Call trace:
+> [   22.517111]  driver_deferred_probe_check_state+0x64/0x80 (P)
+> [   22.517135]  __genpd_dev_pm_attach+0x270/0x2c4
+> [   22.517159]  genpd_dev_pm_attach+0x64/0x74
+> [   22.517178]  dev_pm_domain_attach+0x78/0x7c
+> [   22.517200]  platform_probe+0x48/0x98
+> [   22.517215]  really_probe+0xbc/0x29c
+> [   22.517228]  __driver_probe_device+0x78/0x12c
+> [   22.517241]  driver_probe_device+0xd8/0x15c
+> [   22.517254]  __device_attach_driver+0xb8/0x134
+> [   22.517267]  bus_for_each_drv+0x88/0xe8
+> [   22.517286]  __device_attach+0xa0/0x190
+> [   22.517299]  device_initial_probe+0x14/0x20
+> [   22.517312]  bus_probe_device+0xac/0xb0
+> [   22.517331]  deferred_probe_work_func+0x88/0xc0
+> [   22.517351]  process_one_work+0x148/0x28c
+> [   22.517375]  worker_thread+0x2d0/0x3d8
+> [   22.517394]  kthread+0x12c/0x204
+> [   22.517413]  ret_from_fork+0x10/0x20
+> [   22.517433] ---[ end trace 0000000000000000 ]---
+> [   22.517450] v3d fec00000.gpu: probe with driver v3d failed with 
+> error -110
+> [   22.523164] platform fef05700.hdmi: deferred probe pending: (reason 
+> unknown)
+> [   22.523197] platform bcm2835-power: deferred probe pending: 
+> bcm2835-power: Failed to get clock v3d
+>
+> Do you think issue is in bcm2835-pmdomain or in the pmdomain core?
+> Any ideas how to solve this?
 
-During vCPU creation, a vCPU may be destroyed immediately after
-kvm_arch_vcpu_create() (e.g., due to vCPU id confiliction). However, the
-vcpu_load() inside kvm_arch_vcpu_create() may have associate the vCPU to
-pCPU via "list_add(&tdx->cpu_list, &per_cpu(associated_tdvcpus, cpu))"
-before invoking tdx_vcpu_free().
+As I mentioned in the other thread, this is imho a configuration issue. 
+If core modules are distributed on NFS rootfs, then one should increase 
+deferred probe timeout by adding deferred_probe_timeout=60 to cmdline. 
+On the other hand drivers built into the kernel should not depend on the 
+resources provided by the drivers built as modules, so maybe it would 
+make sense to change CONFIG_CLK_RASPBERRYPI from 'm' to 'y' in 
+arch/arm64/configs/defconfig.
 
-Though there's no need to invoke tdh_vp_flush() on the vCPU, failing to
-dissociate the vCPU from pCPU (i.e., "list_del(&to_tdx(vcpu)->cpu_list)")
-will cause list corruption of the per-pCPU list associated_tdvcpus.
 
-Then, a later list_add() during vcpu_load() would detect list corruption
-and print calltrace as shown below.
-
-Dissociate a vCPU from its associated pCPU in tdx_vcpu_free() for the vCPUs
-destroyed immediately after creation which must be in
-VCPU_TD_STATE_UNINITIALIZED state.
-
-kernel BUG at lib/list_debug.c:29!
-Oops: invalid opcode: 0000 [#2] SMP NOPTI
-RIP: 0010:__list_add_valid_or_report+0x82/0xd0
-
-Call Trace:
- <TASK>
- tdx_vcpu_load+0xa8/0x120
- vt_vcpu_load+0x25/0x30
- kvm_arch_vcpu_load+0x81/0x300
- vcpu_load+0x55/0x90
- kvm_arch_vcpu_create+0x24f/0x330
- kvm_vm_ioctl_create_vcpu+0x1b1/0x53
- kvm_vm_ioctl+0xc2/0xa60
-  __x64_sys_ioctl+0x9a/0xf0
- x64_sys_call+0x10ee/0x20d0
- do_syscall_64+0xc3/0x470
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-Fixes: d789fa6efac9 ("KVM: TDX: Handle vCPU dissociation")
-Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/x86/kvm/vmx/tdx.c | 43 +++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 38 insertions(+), 5 deletions(-)
-
-diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 762f2896547f..db7ac7955ca1 100644
---- a/arch/x86/kvm/vmx/tdx.c
-+++ b/arch/x86/kvm/vmx/tdx.c
-@@ -843,19 +843,52 @@ void tdx_vcpu_put(struct kvm_vcpu *vcpu)
- 	tdx_prepare_switch_to_host(vcpu);
- }
- 
-+/*
-+ * Life cycles for a TD and a vCPU:
-+ * 1. KVM_CREATE_VM ioctl.
-+ *    TD state is TD_STATE_UNINITIALIZED.
-+ *    hkid is not assigned at this stage.
-+ * 2. KVM_TDX_INIT_VM ioctl.
-+ *    TD transitions to TD_STATE_INITIALIZED.
-+ *    hkid is assigned after this stage.
-+ * 3. KVM_CREATE_VCPU ioctl. (only when TD is TD_STATE_INITIALIZED).
-+ *    3.1 tdx_vcpu_create() transitions vCPU state to VCPU_TD_STATE_UNINITIALIZED.
-+ *    3.2 vcpu_load() and vcpu_put() in kvm_arch_vcpu_create().
-+ *    3.3 (conditional) if any error encountered after kvm_arch_vcpu_create()
-+ *        kvm_arch_vcpu_destroy() --> tdx_vcpu_free().
-+ * 4. KVM_TDX_INIT_VCPU ioctl.
-+ *    tdx_vcpu_init() transitions vCPU state to VCPU_TD_STATE_INITIALIZED.
-+ *    vCPU control structures are allocated at this stage.
-+ * 5. kvm_destroy_vm().
-+ *    5.1 tdx_mmu_release_hkid(): (1) tdh_vp_flush(), disassociates all vCPUs.
-+ *                                (2) puts hkid to !assigned state.
-+ *    5.2 kvm_destroy_vcpus() --> tdx_vcpu_free():
-+ *        transitions vCPU to VCPU_TD_STATE_UNINITIALIZED state.
-+ *    5.3 tdx_vm_destroy()
-+ *        transitions TD to TD_STATE_UNINITIALIZED state.
-+ *
-+ * tdx_vcpu_free() can be invoked only at 3.3 or 5.2.
-+ * - If at 3.3, hkid is still assigned, but the vCPU must be in
-+ *   VCPU_TD_STATE_UNINITIALIZED state.
-+ * - if at 5.2, hkid must be !assigned and all vCPUs must be in
-+ *   VCPU_TD_STATE_INITIALIZED state and have been dissociated.
-+ */
- void tdx_vcpu_free(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
- 	struct vcpu_tdx *tdx = to_tdx(vcpu);
- 	int i;
- 
-+	if (vcpu->cpu != -1) {
-+		KVM_BUG_ON(tdx->state == VCPU_TD_STATE_INITIALIZED, vcpu->kvm);
-+		tdx_flush_vp_on_cpu(vcpu);
-+		return;
-+	}
-+
- 	/*
- 	 * It is not possible to reclaim pages while hkid is assigned. It might
--	 * be assigned if:
--	 * 1. the TD VM is being destroyed but freeing hkid failed, in which
--	 * case the pages are leaked
--	 * 2. TD VCPU creation failed and this on the error path, in which case
--	 * there is nothing to do anyway
-+	 * be assigned if the TD VM is being destroyed but freeing hkid failed,
-+	 * in which case the pages are leaked.
- 	 */
- 	if (is_hkid_assigned(kvm_tdx))
- 		return;
+Best regards
 -- 
-2.51.1.930.gacf6e81ea2-goog
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
