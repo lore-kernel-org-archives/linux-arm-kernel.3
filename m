@@ -4,96 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920F7CCF9F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC2CCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zOErGZpwLMOb7PwfNc34LT3iVngAjXuP7cLtNkH6Fno=; b=f6HbYJ8OMYMDKDaA/Ipas7WtP3
-	pLAvNHmsj0B7qBMaVD9qB1ccQSI9CvsEsbHP333LO2EYOTWns52kKLyYSME/x5rLlB+yjtwGkptGv
-	u7ZWRW8ohLttLxo1ACDRemxNjoOAjRBXX+BSsydlT2WXUQemumS51J2FyDNZt19+iG7uxx0y352NN
-	B9Tm9ej6K0OVoNUI462CKk5/z/4i2HSTrHFgxyANmQ4RBh1X+Tf6v6psYxdZYa/10j5+OghjupsRa
-	1+tRNcRSeXyIL0EPTk9zgunxdKVNTgwTcEatXsJ28wnlKXhWJ5JFa86FPtGGUoA0K77gUeSZPZyD7
-	vsipgOHA==;
+	bh=MRXsreiGcYdw08vCAm+5uQvjPGAu2tcntKPNgaJ66zc=; b=TdH/W7v4qFewj2gstY1q0vVXRL
+	32c+sDqg8LV44mpFoFiTQxvfK69ccdpfmzVzXV7jP/LTWRFSMX06wejcOPYthqLrwNCMSajDS1Fo1
+	cMURo4JPYCMN64u1OOv9iOyMtWZAngFP+1eU8QQEjjl9tTl6lAR/CX/GqaH2ZEzqzgh57quCKHy5X
+	xRdh9MZ8dqFZdlRnqdnQ3eRiSlVEg2PPuEaJZrTMue490BST9KbiRG9MPVcdtaM7m//2cU7ygH6FO
+	QtVGsZB3Rb2Ch/+KBqCHJ9l0DE78lCZtcm71sezrPGArOGgFdpTu8LVDEaAh6cMtYsiQ32gjBSX8z
+	QzdrH2EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEQ8m-000000040wy-2Vtb;
-	Thu, 30 Oct 2025 10:44:24 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vEQAh-000000041EE-2JyB;
+	Thu, 30 Oct 2025 10:46:23 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEQ8k-000000040wP-2AIL
+	id 1vEQAd-000000041BT-48T6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:44:23 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b6d3340dc2aso245843566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 03:44:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761821060; x=1762425860; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zOErGZpwLMOb7PwfNc34LT3iVngAjXuP7cLtNkH6Fno=;
-        b=yFZnjknTXaqy0ezSPekeCLhWFZ96Ryj4KIBMH8Vdp+prh7vXoLLuC7lOVJsSCeT3Rl
-         ZlekJQ+FZPyewmm+8XqCUy7ORb3h/ru4qmLCxZRZi9rU1plej+rDf5gEESsAn1xkiMpR
-         dgsy3Og9JyA8QI7oSDyXr+kwBlxg2/t6MyUd+feF6qQg5caFfuT54d5YiRqeSj7e0xB8
-         CpTjIOPkBU3buP7dEthsoBZw2hTn29jo8DeZaNO+cSkuXKGPeVVM5MzLGxAAIXvU7wiN
-         r2fU6E0AtBI4FsIL4/NpqnMeo2SF1vpYOYfz1YaBwE8PMOPh2i/amkhCsxZ5461hfJWF
-         p0uA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761821060; x=1762425860;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zOErGZpwLMOb7PwfNc34LT3iVngAjXuP7cLtNkH6Fno=;
-        b=HAgOVw4jDORLOssrL6KiZH0W64O9SxbwcVbfbf6R8QVHjRhdngWJzhi9BcJ9sC4bGe
-         Dqlx+hA33Ig1FB6o0Dg5S87cwUkI6Zo9w15UitfAhU37YqmDVnc2GbxLJcnu4//sGvLq
-         Voi8xqwzIsIaS+EDzrPhRwl/UceNQXrk1/LfWcgADxv2qs4+/oTnIrRe3s+2Txk8aXM1
-         b9xvrfAivFA4RpbhUbvsr8eyz8Er9p/oxpqJetD9r262iaANmldnk7pqDvhM8NMGKLcM
-         XkFI8TaBNe+zoFLEyTU3qSIU/icNHGywGKuzMSQf4y2NxTNAULEIL0rCejAlFaKW2Gi0
-         LJQQ==
-X-Gm-Message-State: AOJu0Yw4O4e65r6yIwpg2PO9blJUaDEf4ItMS02OlbOVn5tSoVAH4Yd9
-	21gK4mhfb/kLk5liuKnCHw31BYGEjO4rRQRbfloBLeN+3AkY3JV35VdNmt4cm9b7O+E=
-X-Gm-Gg: ASbGncvGas7i8l40txg7HvP5ZMOxNBURBmaR3OCxQIGtICdpFSd74nd4VhDIwcwgPFY
-	WCfCeO2Z6n22JAisWETNvnEJ1KFGcmLpKHfER+nZScwAsOb6RIkrlMHZj0pOHnl9HLDjrxeJeSy
-	Mn1hzqYgjAtDoTRgP5iojzZk/aI8nvD1ceIALt/OeMysYlurqSwHc/HEBWrdExCagj2DAdER2CE
-	JnVmtrnCewJk24HC7oWNCFNRJh2jEaNar3FAhpnxaOu2myXDnJOIVpJLO7b5LQURUMSD7nM3PGT
-	aiDR1piDYV/pieI4zVI7YwzLsGw5AUTCro7fm8k+8NSKnkm6uS3GIoFEn09TUFe8VdJ6jm2soud
-	aDKZvrMcqfIsKhvEmE4DhkI4N+nyi1Aqj8jt/8lpZU0XOjFsprMxHiZp1I4F/Gol12RnzFcsWb9
-	Dlwuusfnf4+OZWdRLRIxzH1eYeAVnhofmD/5+3DZNNRkfs8mBUPwiuSqqt7Mi+Rdo=
-X-Google-Smtp-Source: AGHT+IGtYVJD/Y/pHf4k9CBt97P94Orn8JwMiP/b+9frzwAxKr8mPjQLaIEcIupT/9ucSIpkO3DApA==
-X-Received: by 2002:a17:907:d1a:b0:b70:4f7d:24f8 with SMTP id a640c23a62f3a-b70520e4069mr289801566b.22.1761821060521;
-        Thu, 30 Oct 2025 03:44:20 -0700 (PDT)
-Received: from [192.168.0.21] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d85445e81sm1710205466b.64.2025.10.30.03.44.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Oct 2025 03:44:20 -0700 (PDT)
-Message-ID: <9b6b1427-9712-4934-8b0c-ab0a8ae97b4a@linaro.org>
-Date: Thu, 30 Oct 2025 10:44:18 +0000
+	Thu, 30 Oct 2025 10:46:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1761821107;
+	bh=MRXsreiGcYdw08vCAm+5uQvjPGAu2tcntKPNgaJ66zc=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=WciZT9NTTavKJD4xEBfHtvqtfUTkDRYy1HaSt5lqdDanOLBS75+1ptFcKHykA6yPt
+	 LSw99FeQ+yyzQ3gWAb/KsRUj42c/6oMAmlzVBojy6XUq547ooWaLAPWChewddJYneq
+	 825uudRAS+ZACEd8gm8lpn8zhmwoPb+g8WQmuLN0=
+X-QQ-mid: esmtpsz18t1761821100td57587fb
+X-QQ-Originating-IP: UOM9KTHY+8oO5A1ca7+4BxY32mxy5LGe7L23reGSeDQ=
+Received: from [10.10.74.117] ( [123.114.60.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 30 Oct 2025 18:44:58 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 9726592726005352863
+Message-ID: <006327B65B574934+440b408c-499d-4ec9-837e-703991ad51fc@uniontech.com>
+Date: Thu, 30 Oct 2025 18:44:58 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] arm64: dts: qcom: monaco-evk-camera: Add DT
- overlay
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- quic_nihalkum@quicinc.com, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Ravi Shankar <quic_rshankar@quicinc.com>,
- Vishal Verma <quic_vishverm@quicinc.com>
-References: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
- <20251015131303.2797800-4-quic_vikramsa@quicinc.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Subject: Re: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux@armlinux.org.uk, linux-efi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20251023082129.75612-1-maqianga@uniontech.com>
+ <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
+ <10D9A93B0633E6BE+75720e07-b39d-452c-952e-41f8ab6aad94@uniontech.com>
+ <CAMj1kXHQ6WQWfbkMP4JUk=nKwSt7CovY25RC4JA0ZM7vRWu6dA@mail.gmail.com>
+ <9F7F632B7963434F+abad2548-a90d-4448-ae79-dd4bf637ee6e@uniontech.com>
+ <CAMj1kXHu5ABgxKsc_gg1j=pWMz6DbWoqv=qAAjx-5CiSF2PAiQ@mail.gmail.com>
+ <BD93A8DBE27154B0+22bf4a83-a850-4f78-8e0d-84cc93fe2715@uniontech.com>
+ <CAMj1kXFUUCoE=gZ0kTMKx87qnJMU9J9skT75STTKjjakXb8kmw@mail.gmail.com>
+ <89364700AD0CD6E1+dd8d745f-5a72-4b0a-80db-eaa1d00c4e64@uniontech.com>
+ <CAMj1kXHpJ3gz=+Keswx0MZ8v6YQENR2pjeS_CE6g4cXML2LQhA@mail.gmail.com>
 Content-Language: en-US
-In-Reply-To: <20251015131303.2797800-4-quic_vikramsa@quicinc.com>
+From: Qiang Ma <maqianga@uniontech.com>
+In-Reply-To: <CAMj1kXHpJ3gz=+Keswx0MZ8v6YQENR2pjeS_CE6g4cXML2LQhA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: OBUAsW88a6arDPrmg2LFOEkCMx36cxdHU5WDQFVw6br3icDZtXGxdrYl
+	XfJtZVIHhjIaMTrP5a8E/S+qyskYsGsYOUkn0N2GurLKaecxQTF8wVlCaSncR10cgsOE6MU
+	YZJ62JWZjkdQ8mhfRr5HxiKHlswvvt3NuoEt2S/Zzw3TSJ/PXp2xBQ1OPm8UjNoG8ReVUAk
+	3iAdOk0V9yE0OiGGyJW1pMhWQh7HJjPmNtHQsesWggWilLxc00DaMzWXKl/5NCBaex0vUsp
+	H1+E2KXpeM/W/MWaa//csGPnv+sBJj3VN6aMXT21aQYLGekbu55WLI9zSSk5YmRB8szIViT
+	6wa+NQRBIrABd6nAMAia8wTP8nHmRGjJbCjyTaKX11vxeKWJdKkjn9BRlWy2qULfqzK+VIE
+	fAgAZeceiq3xU27ljqJlda+moFKqenhWz12O0DWecGHJpd+H7xfzx3iJuDnvfQ9DyqnWxcz
+	paeulYyylUHDgyaf9sJM+59M3HKmNtsIAwYoArcH0mE3OVw+OC1FvPnRHku7EABx3xG5f5l
+	1AKTOZDpm+k0rSoIXYeHXRdFKVRpax8IABQSfd7zxR+1Z5fqvqhYsZEMdf0+gdzQXpUdJzP
+	tRnxCixOamV2G4PASSp86lz0U4SyypHNg7Ot+vamGP2PeOPSBIuA7c2qDuqNwj2aH+Kmx8o
+	LNczh0k0/ZRq02KAiPzkiR+cr4KbDo6w/q256QXvPnLwqGhNx9adv8V4ZH3Kj9JFv79eKIU
+	K/ACjzBVSE2ExcbSklfZESaZ+jAmJGJkOCFW6bkHq0YX7wmOGDw1D1GUqrw86Sda2fmcUpS
+	o4HcyvgpOP+99ExvNwLe4jPGlHaYqdq/7K1WjnaSEBxsWoCux621U+l9bto2xGJjQ91w8UY
+	kQk4mxEx5H00HzW7Xrjlc3XNr06qcMk2obLwaOysw6rWW9Qubc1AyUKMG46/kO+/ZyFt74D
+	tdkSY7JxOs//+T7heip9pn89yw0pVlwj5LGOoNMw4Ed9dpEM5qBxBDZHXKfZDPHQ3Sb9VKH
+	WZ6LsR/mf4uxRN0e9qWmEiUDlThKBODsrTKA5HGg==
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_034422_591256_61869ADF 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20251030_034620_399144_7FEB2F49 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,155 +102,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/10/2025 14:13, Vikram Sharma wrote:
-> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> 
-> Monaco EVK board does not include a camera sensor in its default hardware
-> configuration. Introducing a device tree overlay to support optional
-> integration of the IMX577 sensor via CSIPHY1.
-> 
-> Camera reset is handled through an I2C expander, and power is enabled
-> via TLMM GPIO74.
-> 
-> An example media-ctl pipeline for the imx577 is:
-> 
-> media-ctl --reset
-> media-ctl -V '"imx577 3-001a":0[fmt:SRGGB10/4056x3040 field:none]'
-> media-ctl -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -l '"msm_csiphy1":1->"msm_csid0":0[1]'
-> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video1
-> 
-> Co-developed-by: Ravi Shankar <quic_rshankar@quicinc.com>
-> Signed-off-by: Ravi Shankar <quic_rshankar@quicinc.com>
-> Co-developed-by: Vishal Verma <quic_vishverm@quicinc.com>
-> Signed-off-by: Vishal Verma <quic_vishverm@quicinc.com>
-> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->   arch/arm64/boot/dts/qcom/Makefile             |  4 +
->   .../dts/qcom/monaco-evk-camera-imx577.dtso    | 96 +++++++++++++++++++
->   2 files changed, 100 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-> index 296688f7cb26..4df3044639a4 100644
-> --- a/arch/arm64/boot/dts/qcom/Makefile
-> +++ b/arch/arm64/boot/dts/qcom/Makefile
-> @@ -36,6 +36,10 @@ lemans-evk-camera-csi1-imx577-dtbs	:= lemans-evk.dtb lemans-evk-camera-csi1-imx5
->   
->   dtb-$(CONFIG_ARCH_QCOM)	+= lemans-evk-camera-csi1-imx577.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk.dtb
-> +
-> +monaco-evk-camera-imx577-dtbs	:= monaco-evk.dtb monaco-evk-camera-imx577.dtbo
-> +dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk-camera-imx577.dtb
-> +
->   dtb-$(CONFIG_ARCH_QCOM)	+= msm8216-samsung-fortuna3g.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-acer-a1-724.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-alcatel-idol347.dtb
-> diff --git a/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-> new file mode 100644
-> index 000000000000..2237f0fc4a14
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-> @@ -0,0 +1,96 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +&{/} {
-> +	vreg_cam1_2p8: vreg-cam1-2p8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vreg_cam1_2p8";
-> +		startup-delay-us = <10000>;
-> +		enable-active-high;
-> +		gpio = <&tlmm 74 GPIO_ACTIVE_HIGH>;
-> +	};
-> +};
-> +
-> +&camss {
-> +	vdda-phy-supply = <&vreg_l4a>;
-> +	vdda-pll-supply = <&vreg_l5a>;
-> +
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +
-> +			csiphy1_ep: endpoint {
-> +				clock-lanes = <7>;
-> +				data-lanes = <0 1 2 3>;
-> +				remote-endpoint = <&imx577_ep1>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&cci1 {
-> +	pinctrl-0 = <&cci1_i2c0_default>;
-> +	pinctrl-1 = <&cci1_i2c0_sleep>;
-> +
-> +	status = "okay";
-> +};
-> +
-> +&cci1_i2c0 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	camera@1a {
-> +		compatible = "sony,imx577";
-> +		reg = <0x1a>;
-> +
-> +		reset-gpios = <&expander2 1 GPIO_ACTIVE_LOW>;
-> +		pinctrl-0 = <&cam1_default>;
-> +		pinctrl-names = "default";
-> +
-> +		clocks = <&camcc CAM_CC_MCLK1_CLK>;
-> +		assigned-clocks = <&camcc CAM_CC_MCLK1_CLK>;
-> +		assigned-clock-rates = <24000000>;
-> +
-> +		avdd-supply = <&vreg_cam1_2p8>;
-> +
-> +		port {
-> +			imx577_ep1: endpoint {
-> +				clock-lanes = <7>;
-> +				link-frequencies = /bits/ 64 <600000000>;
-> +				data-lanes = <0 1 2 3>;
-> +				remote-endpoint = <&csiphy1_ep>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&tlmm {
-> +	cam1_default: cam1-default-state {
-> +		mclk-pins {
-> +			pins = "gpio68";
-> +			function = "cam_mclk";
-> +			drive-strength = <2>;
-> +			bias-disable;
-> +		};
-> +
-> +		ldo-avdd-pins {
-> +			pins = "gpio74";
-> +			function = "gpio";
-> +			drive-strength = <2>;
-> +			bias-disable;
-> +		};
-> +	};
-> +};
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+
+在 2025/10/30 18:36, Ard Biesheuvel 写道:
+> On Thu, 30 Oct 2025 at 11:25, Qiang Ma <maqianga@uniontech.com> wrote:
+>>
+>> 在 2025/10/30 18:02, Ard Biesheuvel 写道:
+>>> On Thu, 30 Oct 2025 at 08:37, Qiang Ma <maqianga@uniontech.com> wrote:
+>>>> 在 2025/10/29 22:15, Ard Biesheuvel 写道:
+>>>>> On Wed, 29 Oct 2025 at 10:55, Qiang Ma <maqianga@uniontech.com> wrote:
+>>>>>> 在 2025/10/28 21:42, Ard Biesheuvel 写道:
+>>>>>>> On Mon, 27 Oct 2025 at 04:46, Qiang Ma <maqianga@uniontech.com> wrote:
+>>>>>>>> 在 2025/10/23 16:30, Ard Biesheuvel 写道:
+>>>>>>>>> On Thu, 23 Oct 2025 at 10:22, Qiang Ma <maqianga@uniontech.com> wrote:
+>>>>>>>>>> In the efi_virtmap_init(), permission settings have been applied:
+>>>>>>>>>>
+>>>>>>>>>> static bool __init efi_virtmap_init(void)
+>>>>>>>>>> {
+>>>>>>>>>>              ...
+>>>>>>>>>>              for_each_efi_memory_desc(md)
+>>>>>>>>>>                      ...
+>>>>>>>>>>                      efi_create_mapping(&efi_mm, md);
+>>>>>>>>>>              ...
+>>>>>>>>>>              efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions);
+>>>>>>>>>>              ...
+>>>>>>>>>> }
+>>>>>>>>>>
+>>>>>>>>>> Therefore, there is no need to apply it again in the efi_create_mapping().
+>>>>>>>>>>
+>>>>>>>>>> Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI Runtime Services regions")
+>>>>>>>>>>
+>>>>>>>>>> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+>>>>>>>>> No, efi_memattr_apply_permissions() uses the /optional/ memory
+>>>>>>>>> attributes table, whereas efi_create_mapping() uses the permission
+>>>>>>>>> attributes in the EFI memory map. The memory attributes table is
+>>>>>>>>> optional, in which case any RO/XP attributes from the memory map
+>>>>>>>>> should be used.
+>>>>>>>>>
+>>>>>>>> I see.
+>>>>>>>>
+>>>>>>>> Then, can it be modified like this?
+>>>>>>> No
+>>>>>>>
+>>>>>>>> --- a/arch/arm/kernel/efi.c
+>>>>>>>> +++ b/arch/arm/kernel/efi.c
+>>>>>>>> @@ -65,16 +65,13 @@ int __init efi_create_mapping(struct mm_struct *mm,
+>>>>>>>> efi_memory_desc_t *md)
+>>>>>>>>                      desc.type = MT_MEMORY_RWX_NONCACHED;
+>>>>>>>>              else if (md->attribute & EFI_MEMORY_WC)
+>>>>>>>>                      desc.type = MT_DEVICE_WC;
+>>>>>>>> +       else if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
+>>>>>>> This will be true for RO, XP or RO+XP.
+>>>>>>>
+>>>>>>>> +               desc.type = MT_MEMORY_RO;
+>>>>>>> This will apply RO permissions even to XP regions, which need to be writable.
+>>>>>>>
+>>>>>> Thanks for your review.
+>>>>>> I see.
+>>>>>>
+>>>>>> I can introduce a new type MT_MEMORY_RO_XP, to describe RO+XP,
+>>>>>> and then we can use the RO+XP attribute to implement memory mapping.
+>>>>>>
+>>>>> Why? The current code is working fine, no?
+>>>>>
+>>>> Yes, the current code is running normally.
+>>>>
+>>>> The reasons for the modification are as follows:
+>>>> I noticed that the arm64/RISC-V efi_create_mapping() always return 0,
+>>>> but in the code where efi_virtmap_init() calls it, it is as follows:
+>>>>
+>>>> ret = efi_create_mapping(&efi_mm, md);
+>>>> if (ret) {
+>>>>        pr_warn("  EFI remap %pa: failed to create mapping (%d)\n",
+>>>>            &phys, ret);
+>>>>        return false;
+>>>> }
+>>>>
+>>>> This return error print is unnecessary, so I want to remove it.
+>>> So what is preventing you from removing this from the RISC-V version?
+>>>
+>> The current idea is to first remove the unnecessary return print from
+>> arm/arm64,
+> Please leave the ARM code alone.
+I see.
+>> and then remove RISC-V later, as this RISC-V code is also adapted based
+>> on arm64.
+>>
+> RISC-V copied the ARM code and used it as a starting point. That does
+> not mean it has to remain that way.
+I can propose a patch specifically for RISC-V.
+
 
