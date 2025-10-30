@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00DBCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 06:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05E1CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 06:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Yn5a2IstU4FuflZuyHFZqfWgVOJGYQHa0deNOR6x0Ps=; b=AR1R7j4/UgEPZPOT0vYCXSeGON
-	i471Tg0SeiHHYz/Jww8tlupdvw++gueUhioI3JOcNVRoZHw83I6dkXQ0k8e2NkKppDypt6Wl2Asam
-	dPS0nClkL2wYiVZ0ypwFOQKIj/TAPSzP4QRce766t/nrgA7i/t81l8ZBWxmfTHYL+nbLA1ZFMegqH
-	e9jnwyrxtXELuydb/2CgqNrVsujZosyb0LoE1KxUW0tkd30b39Q9hfzzRO5VPY9nG+HdUB5d2bbqV
-	KGVCMfjV7lwO/cgVADvVSxYbyy46G7we9S1admzS+vi1bYRpdHOs0gx+N3P4IdZ+CRNgZse2dMNwL
-	stG5uGaQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6OT+lWbpjiP7WhjX1J+Is8daVQ/4Eb/5c09JvCaYkW4=; b=eZJKabeYHGHONc8B8/ZeMXLfJY
+	U0AyAXGPDRPaFo5ZqToTjAigYpiwv4gwOflLrxfpfJ5MyaJeoJpZh7dGAgDsRNhDgx7Af5yKupj2k
+	ECpUNVdgWZ0IuKhTcYf1y8HBLzA0E1wmiqhWWW+InAq49+at8jveOv2JWVK4B6y/qKeZHauCHyWri
+	4nxF/+uKW7o2xOSysgwlUsNGJ3EZoJkr+FtOkrqmfDZLKFj9Z77F5uLUU0Eg6C6YpDaAng8I72I7P
+	mn74Y5UGcWw6Mv6jqRhIGcDb4tiisHBmU3J5iIwI2/JNH1m2gXc6WvpesP31INcEMeXOIswp8lrsc
+	mBDY99lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEMG8-00000003ZDq-0tYK;
+	id 1vEMG8-00000003ZDv-2AGh;
 	Thu, 30 Oct 2025 06:35:44 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEMG7-00000003ZCQ-0bB5
+	id 1vEMG7-00000003ZCV-17X0
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 30 Oct 2025 06:35:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 37AF9602A2;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F6C861236;
 	Thu, 30 Oct 2025 06:35:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CE418C4CEF1;
-	Thu, 30 Oct 2025 06:35:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3EDA5C116D0;
+	Thu, 30 Oct 2025 06:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761806141;
-	bh=U7srSnWzfH6yj+mfSTGf2OP0Gg/vZlzbpPNFl8Dk7XQ=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=NlDL1fkOcAvWdTiWh1qtupEVkylVn1RCIvJ+Ecjz5Oz1PDX6y8bXubduJuudCf07i
-	 LCmJxNofOQoRyt3bMHI4qEr0Xt6n0oJjHCMpCeBX+V/6+tuQiSNkTdXeow1yIUTSv2
-	 PgbOCoRVkPwNfrZhWtr7vHionZGSVsLxEOCG/zMN9XufSTj5LKgLOLuY37HeBY3ICr
-	 /vrSwoXJjPpPMwxIeoHAcfNWaRJDtgnbgl63QX53xtCfVIxVSFyODmSwVCxPURc+x5
-	 fC9+x1NZOa5BOfCtR6HyoEO2sTjD+y2GBdkiZXtsuHBQaEc9TShNMEoWnywD8BB2Kr
-	 1coGiCDQUhPDg==
+	s=k20201202; t=1761806142;
+	bh=pKRFX8L+lf5Nl1kxUW4q1OqIM4A5ZoN8Ej0z5TNMIRA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=rP+G3ucgXar4LJRRMENZfTGPatYM7SNjMLP7jPnU7CyHSPdoa1O+tdUoZXLKXp94k
+	 iQiyGAI0dCis+3cWLr7NAq3/E2rZGQbiIQwhlUlQZzUTuhYE0KauyB7uj3EP9bbHtS
+	 VIfdZHpnI+7p9afXMy3x36SlMn4d7VvJls/zfOhml+esI3ABQZI1zK+Y92IJZc/PKa
+	 7Qu2JwV9+GqFfLMaVBzs2HT8ZGVGOoHiWu8ra8yfW2yRFc9h/zR3z0votZ4ZCc4zsc
+	 Xm5MtB7NYfq5VbdNA+ZhujKZ5/Wzxg6Sm1RlUbMUXhPj1jDNTssm7x/S6XpjRFH0ks
+	 nJ8u5WDyWjgZw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B982CCCF9F0;
-	Thu, 30 Oct 2025 06:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 36AF2CCF9F8;
+	Thu, 30 Oct 2025 06:35:42 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Subject: [PATCH v3 0/6] arm64: dts: freescale: add support for the
- GOcontroll Moduline IV/Mini
-Date: Thu, 30 Oct 2025 07:35:36 +0100
-Message-Id: <20251030-mini_iv-v3-0-ef56c4d9f219@gocontroll.com>
+Date: Thu, 30 Oct 2025 07:35:42 +0100
+Subject: [PATCH v3 6/6] arm64: dts: freescale: Add the GOcontroll Moduline
+ Mini
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADgHA2kC/2WMwQqDMBAFf0X23JRkNdT01P8opYQ00QVNJJHQI
- v57o5cWPM7jzSyQbCSb4FotEG2mRMEXqE8VmF77zjJ6FQbkKAXnio3k6UmZaS6tNGgEYg3lPUX
- r6L2X7o/CPaU5xM8ezmJbj40sGGeubltlGoWNvNy6YIKfYxiGswkjbKGMfzLiT8YiI9eudUprI
- 5qDvK7rF7GCyXHgAAAA
-X-Change-ID: 20251009-mini_iv-a05e5c2c1223
+Message-Id: <20251030-mini_iv-v3-6-ef56c4d9f219@gocontroll.com>
+References: <20251030-mini_iv-v3-0-ef56c4d9f219@gocontroll.com>
+In-Reply-To: <20251030-mini_iv-v3-0-ef56c4d9f219@gocontroll.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -69,11 +66,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761806140; l=2171;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761806140; l=18231;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=U7srSnWzfH6yj+mfSTGf2OP0Gg/vZlzbpPNFl8Dk7XQ=;
- b=dUk+8sCZB3oHVtlOsJveFBg7XJlVdMloMj3tLjhulGXp3ipCK3pKsZ3y9+/ItK5lwGpdeSH5w
- w8ba6dfY5LSB1w1EJjYBMGOe9hQZkJEhiH4z1nI3D8f52VgHf6f8MpU
+ bh=ef1OSb1C1wE1iHOzW7FGqaSt5I9yrhaRRUey9Gei/8Y=;
+ b=aKhfOI2RaY3pYvCBbd/m1cU2f6tyd1FO8RMhAIASrhLHUJpPAWgp2xiF8N1yQc927xvCCg6io
+ RNFZc3Muu4NCchTrBOBa9jxe86733SUMcPpsMgG6Sf5eDBpo3plt1P2
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
@@ -94,56 +91,736 @@ Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the Moduline IV and Moduline Mini embedded
-controllers.
+From: Maud Spierings <maudspierings@gocontroll.com>
 
-These systems are powered by the Ka-Ro Electronics tx8m-1610 COM, which
-features an imx8mm SoC.
+The Moduline Mini is a part of the wider GOcontroll Moduline ecosystem. These
+are embedded controllers that focus on modularity with their swappable IO
+modules.
+
+Features:
+- up to 4 Moduline IO modules
+- 2 CAN busses
+- 1 Ethernet
+- 4 RGB leds
+- 1 3D accelerometer
+- optional Wi-Fi/Bluetooth
+- optional 4G/GPS
 
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
-Changes in v3:
-- Add patch fixing the pmic driver
-- Use the proper feedback properties for BUCK6
-- Slightly rework the compatibles, acked by conor dropped
-- Add missing CAN interface supplies, remove the leftover comment
-- Add missing vled-supply
-- Add missing ethernet phy interrupt (doesn't work)
-- Fix the cs-gpios properties in all spi interfaces
-- Fix the order of properties in all spi interfaces
-- Remove unused labels for regulators of the PMIC
-- Link to v2: https://lore.kernel.org/r/20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com
+ arch/arm64/boot/dts/freescale/Makefile             |   1 +
+ .../imx8mm-tx8m-1610-moduline-mini-111.dts         | 688 +++++++++++++++++++++
+ 2 files changed, 689 insertions(+)
 
-Changes in v2:
-- Fix allignment issue in imx8mm-tx8m-1610.dtsi (fec1)
-- Move phy-reset into fec (works better in barebox)
-- Make the gpio-line-names groups of four on every line
-- Link to v1: https://lore.kernel.org/r/20251009-mini_iv-v1-0-f3889c492457@gocontroll.com
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index b2fef44e0a370..0a84c7dc89e39 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -125,6 +125,7 @@ imx8mm-evkb-pcie-ep-dtbs += imx8mm-evkb.dtb imx-pcie0-ep.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-evk-pcie-ep.dtb imx8mm-evkb-pcie-ep.dtb
+ 
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-iv-306-d.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-mini-111.dtb
+ 
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-ctouch2.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-edimm2.2.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
+new file mode 100644
+index 0000000000000..0091196a27d22
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
+@@ -0,0 +1,688 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Maud Spierings <maudspierings@gocontroll.com>
++ */
++
++/dts-v1/;
++
++#include "imx8mm-tx8m-1610.dtsi"
++#include <dt-bindings/leds/common.h>
++
++/ {
++	chassis-type = "embedded";
++	compatible = "gocontroll,moduline-mini-111", "karo,imx8mm-tx8m-1610", "fsl,imx8mm";
++	hardware = "Moduline Mini V1.11";
++	model = "GOcontroll Moduline Mini";
++
++	aliases {
++		usb-host = &usbotg2;
++		usbotg = &usbotg1;
++		spi0 = &ecspi2; /* spidev number compatibility */
++		spi1 = &ecspi3; /* spidev number compatibility */
++		spi2 = &ecspi1; /* spidev number compatibility */
++	};
++
++	chosen {
++		stdout-path = "serial2:115200n8";
++	};
++
++	mcp_clock: mcp-clock {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <20000000>;
++	};
++
++	reg_3v3_comm: regulator-3v3-communication {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio1 11 GPIO_ACTIVE_HIGH>;
++		pinctrl-0 = <&pinctrl_reg_comm>;
++		pinctrl-names = "default";
++		power-supply = <&reg_6v4>;
++		/* also powers the cellular modem which can't vote on the regulator */
++		regulator-always-on;
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "3v3_comm";
++	};
++
++	reg_5v0: regulator-5v0 {
++		compatible = "regulator-fixed";
++		power-supply = <&reg_6v4>;
++		regulator-always-on;
++		regulator-max-microvolt = <5000000>;
++		regulator-min-microvolt = <5000000>;
++		regulator-name = "5v0";
++	};
++
++	reg_6v4: regulator-6v4 {
++		compatible = "regulator-fixed";
++		regulator-always-on;
++		regulator-max-microvolt = <6400000>;
++		regulator-min-microvolt = <6400000>;
++		regulator-name = "6v4";
++	};
++
++	reg_can1_stby: regulator-can1-stby {
++		compatible = "regulator-fixed";
++		gpio = <&gpio2 12 GPIO_ACTIVE_LOW>;
++		pinctrl-0 = <&pinctrl_can1_reg>;
++		pinctrl-names = "default";
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "can1-stby";
++	};
++
++	reg_can2_stby: regulator-can2-stby {
++		compatible = "regulator-fixed";
++		gpio = <&gpio3 15 GPIO_ACTIVE_LOW>;
++		pinctrl-0 = <&pinctrl_can2_reg>;
++		pinctrl-names = "default";
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "can2-stby";
++	};
++
++	wifi_pwrseq: wifi-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-0 = <&pinctrl_wl_reg>;
++		pinctrl-names = "default";
++		post-power-on-delay-ms = <100>;
++		power-off-delay-us = <500000>;
++		reset-gpios = <&gpio5 28 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&ecspi1 {
++	cs-gpios = <&gpio4 27 GPIO_ACTIVE_LOW>,
++		   <&gpio3 23 GPIO_ACTIVE_LOW>,
++		   <&gpio3 1 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&pinctrl_ecspi1>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	connector@0 {
++		compatible = "gocontroll,moduline-module-slot";
++		reg = <0>;
++		i2c-bus = <&i2c2>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
++		reset-gpios = <&gpio4 28 GPIO_ACTIVE_LOW>;
++		slot-number = <3>;
++		spi-max-frequency = <54000000>;
++		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
++		vddhpp-supply = <&reg_6v4>;
++		vddp-supply = <&reg_5v0>;
++		vdd-supply = <&reg_vdd_3v3>;
++	};
++
++	connector@1 {
++		compatible = "gocontroll,moduline-module-slot";
++		reg = <1>;
++		i2c-bus = <&i2c2>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <19 IRQ_TYPE_EDGE_FALLING>;
++		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
++		slot-number = <4>;
++		spi-max-frequency = <54000000>;
++		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
++		vddhpp-supply = <&reg_6v4>;
++		vddp-supply = <&reg_5v0>;
++		vdd-supply = <&reg_vdd_3v3>;
++	};
++
++	adc@2 {
++		compatible = "microchip,mcp3004";
++		reg = <2>;
++		spi-max-frequency = <2300000>;
++		vref-supply = <&reg_vdd_3v3>;
++	};
++};
++
++&ecspi2 {
++	cs-gpios = <&gpio3 24 GPIO_ACTIVE_LOW>,
++		   <&gpio3 9 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&pinctrl_ecspi2>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	can@0 {
++		compatible = "microchip,mcp25625";
++		reg = <0>;
++		clocks = <&mcp_clock>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&pinctrl_can1>;
++		pinctrl-names = "default";
++		spi-max-frequency = <10000000>;
++		vdd-supply = <&reg_vdd_3v3>;
++		xceiver-supply = <&reg_can1_stby>;
++	};
++
++	can@1 {
++		compatible = "microchip,mcp25625";
++		reg = <1>;
++		clocks = <&mcp_clock>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&pinctrl_can2>;
++		pinctrl-names = "default";
++		spi-max-frequency = <10000000>;
++		vdd-supply = <&reg_vdd_3v3>;
++		xceiver-supply = <&reg_can2_stby>;
++	};
++};
++
++&ecspi3 {
++	cs-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>,
++		   <&gpio1 2 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&pinctrl_ecspi3>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	connector@0 {
++		compatible = "gocontroll,moduline-module-slot";
++		reg = <0>;
++		i2c-bus = <&i2c2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
++		reset-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
++		slot-number = <1>;
++		spi-max-frequency = <54000000>;
++		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
++		vddhpp-supply = <&reg_6v4>;
++		vddp-supply = <&reg_5v0>;
++		vdd-supply = <&reg_vdd_3v3>;
++	};
++
++	connector@1 {
++		compatible = "gocontroll,moduline-module-slot";
++		reg = <1>;
++		i2c-bus = <&i2c2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
++		reset-gpios = <&gpio5 21 GPIO_ACTIVE_LOW>;
++		slot-number = <2>;
++		spi-max-frequency = <54000000>;
++		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
++		vddhpp-supply = <&reg_6v4>;
++		vddp-supply = <&reg_5v0>;
++		vdd-supply = <&reg_vdd_3v3>;
++	};
++};
++
++&gpu_2d {
++	status = "disabled";
++};
++
++&gpu_3d {
++	status = "disabled";
++};
++
++&i2c2 {
++	clock-frequency = <400000>;
++	pinctrl-0 = <&pinctrl_i2c2>;
++	pinctrl-1 = <&pinctrl_i2c2_gpio>;
++	pinctrl-names = "default", "gpio";
++	scl-gpios = <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	sda-gpios = <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	status = "okay";
++};
++
++&i2c3 {
++	clock-frequency = <400000>;
++	pinctrl-0 = <&pinctrl_i2c3>;
++	pinctrl-1 = <&pinctrl_i2c3_gpio>;
++	pinctrl-names = "default", "gpio";
++	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	status = "okay";
++
++	lp5012@14 {
++		compatible = "ti,lp5012";
++		reg = <0x14>;
++		vled-supply = <&reg_6v4>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		multi-led@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++			color = <LED_COLOR_ID_RGB>;
++			label = "case-led1";
++
++			led@0 {
++				reg = <0>;
++				color = <LED_COLOR_ID_RED>;
++			};
++
++			led@1 {
++				reg = <1>;
++				color = <LED_COLOR_ID_GREEN>;
++			};
++
++			led@2 {
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++			};
++		};
++
++		multi-led@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++			color = <LED_COLOR_ID_RGB>;
++			label = "case-led2";
++
++			led@0 {
++				reg = <0>;
++				color = <LED_COLOR_ID_RED>;
++			};
++
++			led@1 {
++				reg = <1>;
++				color = <LED_COLOR_ID_GREEN>;
++			};
++
++			led@2 {
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++			};
++		};
++
++		multi-led@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++			color = <LED_COLOR_ID_RGB>;
++			label = "case-led3";
++
++			led@0 {
++				reg = <0>;
++				color = <LED_COLOR_ID_RED>;
++			};
++
++			led@1 {
++				reg = <1>;
++				color = <LED_COLOR_ID_GREEN>;
++			};
++
++			led@2 {
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++			};
++		};
++
++		multi-led@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++			color = <LED_COLOR_ID_RGB>;
++			label = "case-led4";
++
++			led@0 {
++				reg = <0>;
++				color = <LED_COLOR_ID_RED>;
++			};
++
++			led@1 {
++				reg = <1>;
++				color = <LED_COLOR_ID_GREEN>;
++			};
++
++			led@2 {
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++			};
++		};
++	};
++
++	accelerometer@18 {
++		compatible = "st,lis2dw12";
++		reg = <0x18>;
++		interrupt-parent = <&gpio5>;
++		interrupts = <3 IRQ_TYPE_EDGE_RISING>, <5 IRQ_TYPE_EDGE_RISING>;
++		pinctrl-0 = <&pinctrl_lis_int>;
++		pinctrl-names = "default";
++		vddio-supply = <&reg_vdd_3v3>;
++		vdd-supply = <&reg_vdd_3v3>;
++	};
++
++	humidity-sensor@5f {
++		compatible = "st,hts221";
++		reg = <0x5f>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <10 IRQ_TYPE_EDGE_RISING>;
++		pinctrl-0 = <&pinctrl_hts_int>;
++		pinctrl-names = "default";
++		vdd-supply = <&reg_vdd_3v3>;
++	};
++};
++
++&iomuxc {
++	pinctrl_bt: btgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_SAI5_MCLK_GPIO3_IO25
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
++			MX8MM_IOMUXC_ECSPI2_SS0_GPIO5_IO13
++				MX8MM_DSE_X1
++		>;
++	};
++
++	pinctrl_can1: can1grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SAI5_RXD1_GPIO3_IO22
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
++		>;
++	};
++
++	pinctrl_can1_reg: can1reggrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12
++				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_can2: can2grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_NAND_CLE_GPIO3_IO5
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_NAND_DATA00_GPIO3_IO6
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
++		>;
++	};
++
++	pinctrl_can2_reg: can2reggrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_NAND_RE_B_GPIO3_IO15
++				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_ecspi1: ecspi1grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_ECSPI1_MOSI_ECSPI1_MOSI
++				MX8MM_DSE_X4
++			MX8MM_IOMUXC_ECSPI1_MISO_ECSPI1_MISO
++				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
++			MX8MM_IOMUXC_ECSPI1_SCLK_ECSPI1_SCLK
++				MX8MM_DSE_X4
++			MX8MM_IOMUXC_SAI2_MCLK_GPIO4_IO27
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_SAI5_RXD2_GPIO3_IO23
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_NAND_CE0_B_GPIO3_IO1
++				MX8MM_DSE_X1
++		>;
++	};
++
++	pinctrl_ecspi2: ecspi2grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_ECSPI2_MOSI_ECSPI2_MOSI
++				MX8MM_DSE_X4
++			MX8MM_IOMUXC_ECSPI2_MISO_ECSPI2_MISO
++				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
++			MX8MM_IOMUXC_ECSPI2_SCLK_ECSPI2_SCLK
++				MX8MM_DSE_X4
++			MX8MM_IOMUXC_SAI5_RXD3_GPIO3_IO24
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_NAND_DATA03_GPIO3_IO9
++				MX8MM_DSE_X1
++		>;
++	};
++
++	pinctrl_ecspi3: ecspi3grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_UART1_TXD_ECSPI3_MOSI
++				MX8MM_DSE_X4
++			MX8MM_IOMUXC_UART2_RXD_ECSPI3_MISO
++				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
++			MX8MM_IOMUXC_UART1_RXD_ECSPI3_SCLK
++				MX8MM_DSE_X4
++			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_GPIO1_IO02_GPIO1_IO2
++				MX8MM_DSE_X1
++		>;
++	};
++
++	pinctrl_hts_int: htsintgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_NAND_DATA04_GPIO3_IO10
++				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
++		>;
++	};
++
++	pinctrl_i2c2: i2c2grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_I2C2_SCL_I2C2_SCL
++				MX8MM_I2C_DEFAULT
++			MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA
++				MX8MM_I2C_DEFAULT
++		>;
++	};
++
++	pinctrl_i2c2_gpio: i2c2-gpiogrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_I2C2_SCL_GPIO5_IO16
++				MX8MM_I2C_DEFAULT
++			MX8MM_IOMUXC_I2C2_SDA_GPIO5_IO17
++				MX8MM_I2C_DEFAULT
++		>;
++	};
++
++	pinctrl_i2c3: i2c3grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_I2C3_SCL_I2C3_SCL
++				MX8MM_I2C_DEFAULT
++			MX8MM_IOMUXC_I2C3_SDA_I2C3_SDA
++				MX8MM_I2C_DEFAULT
++		>;
++	};
++
++	pinctrl_i2c3_gpio: i2c3-gpiogrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_I2C3_SCL_GPIO5_IO18
++				MX8MM_I2C_DEFAULT
++			MX8MM_IOMUXC_I2C3_SDA_GPIO5_IO19
++				MX8MM_I2C_DEFAULT
++		>;
++	};
++
++	pinctrl_lis_int: lisintgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SPDIF_TX_GPIO5_IO3
++				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
++			MX8MM_IOMUXC_SPDIF_EXT_CLK_GPIO5_IO5
++				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
++		>;
++	};
++
++	pinctrl_reg_comm: reg_commgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11
++				MX8MM_DSE_X1
++		>;
++	};
++
++	pinctrl_sysfs_gpios: sysfsgpiogrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO07_GPIO1_IO7
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_I2C4_SDA_GPIO5_IO21
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_SAI5_RXD0_GPIO3_IO21
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_SD2_WP_GPIO2_IO20
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_GPIO1_IO00_GPIO1_IO0
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_GPIO1_IO04_GPIO1_IO4
++				MX8MM_DSE_X1
++			MX8MM_IOMUXC_GPIO1_IO06_GPIO1_IO6
++				MX8MM_DSE_X1
++		>;
++	};
++
++	pinctrl_uart1: uart1grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_uart2: uart2grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SAI3_TXFS_UART2_DCE_RX
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SAI3_TXC_UART2_DCE_TX
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SAI3_RXC_UART2_DCE_CTS_B
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_uart3: uart3grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_usdhc2: pinctrlusdhc2grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK
++				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++		>;
++	};
++
++	pinctrl_wl_int: wlintgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SAI5_RXC_GPIO3_IO20
++				(MX8MM_PULL_UP | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_wl_reg: wlreggrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_UART4_RXD_GPIO5_IO28
++				MX8MM_DSE_X1
++		>;
++	};
++};
++
++&uart1 {
++	pinctrl-0 = <&pinctrl_uart1>;
++	pinctrl-names = "default";
++	uart-has-rtscts;
++	status = "okay";
++
++	bluetooth {
++		compatible = "infineon,cyw43439-bt", "brcm,bcm4329-bt";
++		device-wakeup-gpios = <&gpio5 13 GPIO_ACTIVE_HIGH>;
++		interrupt-names = "host-wakeup";
++		interrupt-parent = <&gpio3>;
++		interrupts = <25 IRQ_TYPE_EDGE_FALLING>;
++		max-speed = <921600>;
++		pinctrl-0 = <&pinctrl_bt>;
++		pinctrl-names = "default";
++		shutdown-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
++		vbat-supply = <&reg_3v3_comm>;
++		vddio-supply = <&reg_3v3_comm>;
++	};
++};
++
++&uart2 {
++	pinctrl-0 = <&pinctrl_uart2>;
++	pinctrl-names = "default";
++	uart-has-rtscts;
++	status = "okay";
++};
++
++&uart3 {
++	pinctrl-0 = <&pinctrl_uart3>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&usbotg1 {
++	disable-over-current;
++	dr_mode = "peripheral";
++	status = "okay";
++};
++
++&usbotg2 {
++	disable-over-current;
++	dr_mode = "host";
++	vbus-supply = <&reg_5v0>;
++	status = "okay";
++};
++
++&usdhc2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	cap-power-off-card;
++	keep-power-in-suspend;
++	max-frequency = <50000000>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	non-removable;
++	pinctrl-0 = <&pinctrl_usdhc2>;
++	pinctrl-names = "default";
++	sd-uhs-sdr25;
++	vmmc-supply = <&reg_3v3_comm>;
++	status = "okay";
++
++	wifi@1 {
++		compatible = "infineon,cyw43439-fmac", "brcm,bcm4329-fmac";
++		reg = <1>;
++		pinctrl-0 = <&pinctrl_wl_int>;
++		pinctrl-names = "default";
++		interrupt-names = "host-wake";
++		interrupt-parent = <&gpio3>;
++		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
++		brcm,board-type = "GOcontroll,moduline";
++	};
++};
++
++&vpu_blk_ctrl {
++	status = "disabled";
++};
++
++&vpu_g1 {
++	status = "disabled";
++};
++
++&vpu_g2 {
++	status = "disabled";
++};
++
++&wdog1 {
++	status = "okay";
++};
 
----
-Maud Spierings (6):
-      dt-bindings: arm: fsl: Add GOcontroll Moduline IV/Mini
-      regulator: bd718x7: Fix voltages scaled by resistor divider
-      arm64: dts: imx8mm: Add pinctrl config definitions
-      arm64: dts: freescale: add Ka-Ro Electronics tx8m-1610 COM
-      arm64: dts: freescale: Add the GOcontroll Moduline IV
-      arm64: dts: freescale: Add the GOcontroll Moduline Mini
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |   8 +
- arch/arm64/boot/dts/freescale/Makefile             |   3 +
- arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h     |  33 +
- .../imx8mm-tx8m-1610-moduline-iv-306-d.dts         | 800 +++++++++++++++++++++
- .../imx8mm-tx8m-1610-moduline-mini-111.dts         | 688 ++++++++++++++++++
- .../arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi | 444 ++++++++++++
- drivers/regulator/bd718x7-regulator.c              |   2 +
- 7 files changed, 1978 insertions(+)
----
-base-commit: 7c3ba4249a3604477ea9c077e10089ba7ddcaa03
-change-id: 20251009-mini_iv-a05e5c2c1223
-
-Best regards,
 -- 
-Maud Spierings <maudspierings@gocontroll.com>
+2.51.2
 
 
 
