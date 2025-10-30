@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE8BCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 02:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E150CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 02:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Nhm8a9L6L8z1QzmhIhiwdE2dxkqZgaqZmmH7pyf0Rc=; b=dvu6AtA+bVJm1JIoQz4BIlkKDZ
-	vH0Efp2jjaqhhHBrIWRqSx9EV8poLlW+NWTqWoPchqr9YAkIiomUKEgvmeweq3bUkpr2OMUiwV2qO
-	rl0xAk2m6IgmnmFWMIZ8DT91USA23+OJjXd/KKQ1WVkwbbwJgaFk5JbQGq8wqjY2mF9gCr4YH2bxe
-	1hfmocUr+oYZgw7GgmIg/LU+ArnX/nwpDTK6PYIcX1Fxjk2B0vqDRuI9FH9JfhvV56+eYSWci0Xxe
-	6J1gNJfO+/Imk7FuERifRdxC89xIIxTFQMgbLt2yYi6CWp3Db0BZKsZFlj2DY/xf522pCRd0NOh4l
-	OYnRa6ug==;
+	bh=JGk6FxzWwchXcv08k2ZskC7/Oc9f/Luk20tMjKG58+A=; b=FiaDB4PKp8i3dVFni8oaoKYGyc
+	dkVYm4hLEIYEyzuibLY1eJBrAVvSrqzx+8XfG89seHbFB6qtpttSdUHqB5l28NvrQCpAa/gIcCvFY
+	F5gJpm77yf0vExIqBjAY79ADzr8RT3Tkgo5zLHrCFVpV8d1VhJ2EQwvTa5iw+sOgaQuu5KUX+n8Zv
+	uTRB5OvAtCOuOVqtIldpMIeZUa6VZdomEjj30qnRa5gwZqs1ivZV1mRq/pxRbemZqXh9SR8BQNFh/
+	4gMvIGdrWqnR+So45HAAGIRyqAhUqC0bMuZhjpnvCMnIYvvIrybOM+OLuUy/mQhekuFb7N99kM//0
+	jBCUZ4Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEHxu-00000003M1o-0ph3;
-	Thu, 30 Oct 2025 02:00:38 +0000
+	id 1vEHy0-00000003M3V-43bC;
+	Thu, 30 Oct 2025 02:00:44 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEHxs-00000003M1S-1oTF
+	id 1vEHxx-00000003M2T-061O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 02:00:37 +0000
+	Thu, 30 Oct 2025 02:00:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2CD7E404C7;
-	Thu, 30 Oct 2025 02:00:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AF0EC4CEFD;
-	Thu, 30 Oct 2025 02:00:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B8490404C7;
+	Thu, 30 Oct 2025 02:00:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9743BC4CEFD;
+	Thu, 30 Oct 2025 02:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761789634;
-	bh=adIWWp6JkooxcKkGWYYawGCvhKj6QLF1nHLdmWN8kTU=;
+	s=k20201202; t=1761789640;
+	bh=TF+xR6KkE5OxIUkvy+8hHfKZ6+KB/cpOjzBZ3NfVqqU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=DvgD0crXsz2KIHnfdi2gFAs+PUXtkzVqXmU0p99CXOjMOalyelax+Vt3tajwrE6X+
-	 pLi7P2vQso326M5CXCD369G0Y/kUzkwJeIq/3WmqLYV9OmVRlfqC4bcxH94Ors1RCe
-	 g5sACvH+KPESlK0/hcbU2jOKBJB6SW5X7Z1GWiRzfyncxOddGTimHShWe1HhHhPc3J
-	 TLvq89M2lJ4wXUSGW8/4Tmx44Yx0w6Fdkj+2F78x2POLBShSO3YUdkEsIf0GgpBgpq
-	 +2q8fzLAL8eM7lcXln+LKoQTc4cIV7C6cgv+3fydUpIDsDAdB/nS0DuRnPu1AYHL04
-	 EjEUP9E3qnzhg==
+	b=IRTOC1bpzA0kKLl18DqZ2dgnna/3cQnn4+WjtiR4iC1LuGUru3GrZx9p8l8KGMkZ+
+	 q5A2hgO6cs8ZuchhZNhelEp5cceJPktfnyn/p1MskQDcVFnt8NDh+TR4jpgA82kHLV
+	 a44FDRqic4yuZZbwVTcTJzh1hwstNCOFjJ9m16p9GsiGvnJclrPEIXxktoNbY12EcC
+	 a/lGzfZ7Xka8HlEbGNsXBjdp1ZF39BwjhFficNpwajotUCJwMA01UA//eePWi1tVHu
+	 NFlogkCIy53t9ZMe25+8MNhX89gz6g44JAKASaSS8Nf0CzI8Q9PYiHVAEosoAUoF+1
+	 xT6250KQsYmUg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C123A55ED9;
-	Thu, 30 Oct 2025 02:00:12 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id CBAC43A55ED9;
+	Thu, 30 Oct 2025 02:00:18 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v4 0/3] net: stmmac: Fixes for stmmac Tx VLAN insert
- and EST
+Subject: Re: [PATCH v2 net-next] net: stmmac: mdio: fix incorrect phy address
+ check
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176178961100.3282477.1158388762703076399.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Oct 2025 02:00:11 +0000
-References: <20251028-qbv-fixes-v4-0-26481c7634e3@altera.com>
-In-Reply-To: <20251028-qbv-fixes-v4-0-26481c7634e3@altera.com>
-To: G@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	Thomas@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	Rohan <rohan.g.thomas@altera.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, Jose.Abreu@synopsys.com,
- rohan.g.thomas@intel.com, boon.khai.ng@altera.com, netdev@vger.kernel.org,
+Message-Id: <176178961774.3282477.10436173337048887248.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Oct 2025 02:00:17 +0000
+References: <e869999b-2d4b-4dc1-9890-c2d3d1e8d0f8@gmail.com>
+In-Reply-To: <e869999b-2d4b-4dc1-9890-c2d3d1e8d0f8@gmail.com>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+Cc: mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, pabeni@redhat.com, edumazet@google.com,
+ kuba@kernel.org, davem@davemloft.net,
  linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- matthew.gerlach@altera.com
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux@armlinux.org.uk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_190036_494918_971F8D6E 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20251029_190041_080933_1EB2D9B4 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,29 +81,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 28 Oct 2025 11:18:42 +0800 you wrote:
-> This patchset includes following fixes for stmmac Tx VLAN insert and
-> EST implementations:
->    1. Disable STAG insertion offloading, as DWMAC IPs doesn't support
->       offload of STAG for double VLAN packets and CTAG for single VLAN
->       packets when using the same register configuration. The current
->       configuration in the driver is undocumented and is adding an
->       additional 802.1Q tag with VLAN ID 0 for double VLAN packets.
->    2. Consider Tx VLAN offload tag length for maxSDU estimation.
->    3. Fix GCL bounds check
+On Sat, 25 Oct 2025 20:35:47 +0200 you wrote:
+> max_addr is the max number of addresses, not the highest possible address,
+> therefore check phydev->mdio.addr > max_addr isn't correct.
+> To fix this change the semantics of max_addr, so that it represents
+> the highest possible address. IMO this is also a little bit more intuitive
+> wrt name max_addr.
+> 
+> Fixes: 4a107a0e8361 ("net: stmmac: mdio: use phy_find_first to simplify stmmac_mdio_register")
+> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Reported-by: Simon Horman <horms@kernel.org>
+> Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v4,1/3] net: stmmac: vlan: Disable 802.1AD tag insertion offload
-    https://git.kernel.org/netdev/net/c/c657f86106c8
-  - [net,v4,2/3] net: stmmac: Consider Tx VLAN offload tag length for maxSDU
-    https://git.kernel.org/netdev/net/c/ded9813d17d3
-  - [net,v4,3/3] net: stmmac: est: Fix GCL bounds checks
-    https://git.kernel.org/netdev/net/c/48b2e323c018
+  - [v2,net-next] net: stmmac: mdio: fix incorrect phy address check
+    https://git.kernel.org/netdev/net-next/c/cf35f4347ddd
 
 You are awesome, thank you!
 -- 
