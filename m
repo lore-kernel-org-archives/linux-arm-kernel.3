@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCD6CCF9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 05:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F750CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 05:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5tq0yxGv6yRvwde5HLaH1HkY7PXCLMaOxQayqcCSGMU=; b=xWKOQBD6s2JlOhkYMX7k2fENOW
-	3briUHHygrHtR3X1X85g20hWCmSIlrijZKxnpS0Cq57pmrNXeTWtBmvxXdUNLRxnCB21VSvR1nLnE
-	Y8fZ/o0MRaXoFQDXcW8ls0yVvPpkR4GK/0/0cnX7V8PnvDkZKUVQTi4C2x1Mn2P088Uvdc97EhC5f
-	NeFcwG/jybXlRki0Lgz2i4LKrTaMutdqV0FUts5z/1Vxjy7NQc4j11LFXf6OfHMt9+qJEIKDX4Soc
-	Dr18uXFYC/9jmHm0jsNa4FgYNVaCHUYvYVwmGvttC7Jk5CeeUHjFazCs3aTimzFP/Soi0lMJbXRcX
-	C9mAKUAA==;
+	bh=R2Nk5QrjNr+jjajVbJ7Hj+cR1ECK0znPdvqkIZaAEBU=; b=E3Ic3/Q8UWebKWmfOn0Y8eNlj3
+	oebALxES7aErnYOg2XItVvfogSVsH2EuK9DWBiFROouvkt1p6YXWhqIuG2fMBfuB/zVi/ziCg+Fqk
+	FrilNzjUsj3vois5V9MxijGz9aM3VSCpKOxxdaLmlBtBm/LFNV1AyuitEF8+gaTIeqVq4507Uuy0J
+	W0pr2iQKGiYJVqsNsc6Volw7JH5cA17NWCgNcvDZFxItC1y4jTKL2eKx6EX689rr5qMkcc2V90P0m
+	yK+sN+/SjraFWGPGtshBkussGFEyqQ/feOA5uYWXdPpi4skkWuJ2Cv6rfGkNsg3c/9DVSvMRwUXUA
+	mV5ON7Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEKzK-00000003UX3-1ECy;
-	Thu, 30 Oct 2025 05:14:18 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1vEL96-00000003Uxc-10l6;
+	Thu, 30 Oct 2025 05:24:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEKzI-00000003UWY-3GYr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 05:14:17 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-63bad3cd668so1083047a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Oct 2025 22:14:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761801254; x=1762406054; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5tq0yxGv6yRvwde5HLaH1HkY7PXCLMaOxQayqcCSGMU=;
-        b=baAL80u28zeiAkchcb5kO6fS4SJOtRfuRccfTz5cTLuOHamt0qVT2QkuX7IzNO+VtG
-         eQ2ARgf9muuOhJoFYclxF+4GfZxhNffBV+NTwsMTvHfADvLqGkM7y2d4tU/+5TP0C1yL
-         K3Zu6YwjCnBFOtKkCokwb3aMR8wOydW6K76RqLuGDaTWZiNdlQnVnazT3w0MyDvskCxm
-         hEwz6LslpzPFny0FMPpM6twe0hs8TJEOTnSnd+arkW16zrDXgySfhFnYKNVqylmhXKJo
-         ISbFkxaceVXm3dk0krSMkeE9sobE2P5rDm7z4lcs4gGsyM5xZZ83rue4MwvvITDmNOcD
-         huYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761801254; x=1762406054;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5tq0yxGv6yRvwde5HLaH1HkY7PXCLMaOxQayqcCSGMU=;
-        b=j8D9yF55nGwDAx8K2evVZceGuhUjRDTMLE/JIM4LjAtH0m8iSgwXNlyyGd15XfTwV6
-         HWRnC7OhkCGmBJ13XanUC0v/k4tpF7M7Zdq+ewYm/mouVc742op6HDoCBe60tQeC9aJW
-         GcI2cZyg9vsOmtIcqr2DW204d2JUpim5ypVsYMqPjtoLv3Ak3JUfLMQBmfUF2qyoeGAI
-         aPCSPa0x7wVH71nDw5iOvJfycY88fvd2MgAQogv3gSvlIGIvEGnKGqjuzqJX77b60PVn
-         WXAhnmG2j+/jwD9gbWy7Gpy9hF1o313fyWe+vIRaOpd2Cy8tuGcesXmC6JLjXCWbqFPg
-         BUbw==
-X-Forwarded-Encrypted: i=1; AJvYcCUpa707NsvcGWiXjYL8O0hGESV32YOYCHXhvytVVbOfyQBg/ggSg23oj3B9+/LKgUf+OY1pFWMfb78ET9wJHD7s@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzldb+Eyy+885R3QaUknKhPXlI+E9u7rAWtmx0to7uhqhyeADwR
-	oHlA2Bwaml4jNpFcRJv0XW7jlv+30VirfnAJuWCCCeCpaZSuMRP1G3H9x9rF3ticFP4MuIfbGl0
-	p+0IUMHAFBf65k3bzCY3g9x03PoFdec8=
-X-Gm-Gg: ASbGncv8DzFhyu5H8MQtPgl+En428WazUu1zsq2yKVcNBWNDKIBUI6/JSlDMp7jY+bM
-	d1Z6kysbV0yB1GNZfrGIB7uGf5sBTSt6zIM/2yyaIEI05bCWyojh8lqTxOB1+L+oDQOwzKEfX9X
-	IyPQNprUmd8N2roKTGU399qNIkjGm3K6tiracJtaZ+yK2dJKXpZ39FPO3XfSCM/qZ3VbbV/3aRf
-	62DQpvuMwco6zJ/5MvV/Amltor81P24kDaVt3I1J/ookL1L3iChCPqs+hY=
-X-Google-Smtp-Source: AGHT+IFDCMfSXrIL3bjIKZw2IhpHFG1U5RsQXDbZl1lPFfpuAvA594DxUOaln1JvXCqNQSfMK0dolS63NIEWPJif8rE=
-X-Received: by 2002:a05:6402:50c8:b0:63b:f3a9:f5f1 with SMTP id
- 4fb4d7f45d1cf-640441c2092mr4444447a12.14.1761801254315; Wed, 29 Oct 2025
- 22:14:14 -0700 (PDT)
+	id 1vEL91-00000003Uve-11Uw;
+	Thu, 30 Oct 2025 05:24:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A14F601F8;
+	Thu, 30 Oct 2025 05:24:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B4D78C4CEFF;
+	Thu, 30 Oct 2025 05:24:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761801857;
+	bh=5tLSRE6BInQejsiPR/fc5RiDlVZ9iOn8Or4TkaTc/g4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=d91xdU3DbJl+qQa6lgSQtM7avaR4NNy5V/BBKTRM7wJ+HAfoxiT8FRJTX63UPixo1
+	 AJFPG8ySkx0ZyRFxWRRXEbyG1SbzTXHnG+eRluzSORyzg/u/MN4tousMEBE1uNEIGO
+	 fsWmpwSrtd4YoejlXGH5+fGOPz42aara+mOHhVrTFrMT2m5yhlVevAPQFW53tHWriK
+	 S/DSuVjw1oDxtzGp0BiREnjg9KKiV78RRYc9KYGbcvdDhdBBl89GuHNoCMWsAOw7B0
+	 OrTDqQo3r6XJPKOvys5HzBP5VjGlBbAqPMhYGZVKMhiERNLgFa4V58oqDQa3cbVOIR
+	 oaazgjXuWGsTw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9EE23CCF9EA;
+	Thu, 30 Oct 2025 05:24:17 +0000 (UTC)
+From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Date: Thu, 30 Oct 2025 13:24:11 +0800
+Subject: [PATCH v2 1/5] clk: amlogic: Fix out-of-range PLL frequency
+ setting
 MIME-Version: 1.0
-References: <20251028154229.6774-1-linux.amoon@gmail.com> <24319a9a-ccf8-48a9-8b5d-3a846976afcd@web.de>
-In-Reply-To: <24319a9a-ccf8-48a9-8b5d-3a846976afcd@web.de>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 30 Oct 2025 10:43:56 +0530
-X-Gm-Features: AWmQ_bl9cBL27Bidm95xNfiwXFieCJ3byhHw0tTbL2X_4Wmj8VImOI2xhqIIeMc
-Message-ID: <CANAwSgTO2s8LA=e5CVYnpJ95_DLdkiot5Zbz1hFaejV=kTK2_w@mail.gmail.com>
-Subject: Re: [PATCH v? 0/2] PCI: j721e: A couple of cleanups
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-omap@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Bjorn Helgaas <bhelgaas@google.com>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Siddharth Vadapalli <s-vadapalli@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	LKML <linux-kernel@vger.kernel.org>, Dan Carpenter <dan.carpenter@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_221416_845275_87C3C05F 
-X-CRM114-Status: GOOD (  12.21  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251030-optimize_pll_driver-v2-1-37273f5b25ab@amlogic.com>
+References: <20251030-optimize_pll_driver-v2-0-37273f5b25ab@amlogic.com>
+In-Reply-To: <20251030-optimize_pll_driver-v2-0-37273f5b25ab@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chuan Liu <chuan.liu@amlogic.com>, da@libre.computer
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761801855; l=991;
+ i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
+ bh=6onhzW3ODDG4bFoHZLKVZ14BJkN4o2IaabjNVGrsFP0=;
+ b=1KGZg2CEt0fhJufxEmdvITvTntwRDyum3Rdl62EXQsiDSKUog/TKBEitbhD1QajWng+8BLt18
+ T+rrPWVi0uQBAvwQMD9AjZ6uyKVd2rP99mLY1neIEaParGQ9LNvQWUW
+X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
+ pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
+X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
+ auth_id=203
+X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +84,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+From: Chuan Liu <chuan.liu@amlogic.com>
+
+If the calculated 'm' falls into the range:
+
+    pll->range->max < m < (1 << pll->m.width)
+
+Here an incorrect 'm' value could be obtained, so an additional
+condition is added to ensure that the calculated 'm' stays within a
+valid range.
+
+Fixes: 8eed1db1adec6 ("clk: meson: pll: update driver for the g12a")
+Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+---
+ drivers/clk/meson/clk-pll.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+index 1ea6579a760f..629f6af18ea1 100644
+--- a/drivers/clk/meson/clk-pll.c
++++ b/drivers/clk/meson/clk-pll.c
+@@ -191,7 +191,7 @@ static int meson_clk_get_pll_range_index(unsigned long rate,
+ 	*m = meson_clk_get_pll_range_m(rate, parent_rate, *n, pll);
+ 
+ 	/* the pre-divider gives a multiplier too big - stop */
+-	if (*m >= (1 << pll->m.width))
++	if (*m > pll->range->max || *m >= (1 << pll->m.width))
+ 		return -EINVAL;
+ 
+ 	return 0;
+
+-- 
+2.42.0
 
 
-On Wed, 29 Oct 2025 at 01:21, Markus Elfring <Markus.Elfring@web.de> wrote:
->
-> =E2=80=A6> Changes
-> > v4  : Improve the commit message.
->
-> Would an other version number be more appropriate for the subject prefixe=
-s
-> of this patch series?
->
-Yes, if there are some more review comments on these patches,
-Or they get lost in emails.
->
-> =E2=80=A6> v1:
-> =E2=80=A6>    dropped unsesary clk_disable_unprepare as its handle by
-> =E2=80=A6
->
->              unnecessary?
->
-> Regards,
-> Markus
->
-Thanks
--Anand
 
