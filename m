@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5D1CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 06:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DC5CCF9F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 06:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=alhH5QaYTWa/mI8EEvA4Rm0NZmF52xRpzaz5Q8pj900=; b=SdxrPPHVjkJeljUMI7K4MALIUr
-	+aKeMe3yMquNcOczTE2eZqOYNpkAuRrMl1G9iXOLVbXOgLs9wLI5EA2KC81Xbx/P0nAfPC5/7xdVn
-	L+6bT1C14RWrnPPY9ZII0THEcUNoMDfaf7ZqZ0dnbBUOiDM788pbOQEpDMPnhgVM4ohn1gZPgcKOG
-	ChWkPczZlYpwjP4qeuiPqiyZcLfmUMv81HIGWmN+i5vP20HWYb05FjdjJZxHRE9xK6mmZL78c+YFN
-	XCiYqKC6L7WhIFUbzpeNx+gh0HZg0cuxjmt0I7xYCsR7EjoG2cZMk8dgADqx1xXQdrDx0wU1kCeSN
-	cJ9a2Pdw==;
+	bh=FUv49txHvrAzjdgWs80ani5/jiFVnH1I1J/VQnA/JbY=; b=XIBvI++Bx8aq5qvkrpTEujW2rB
+	4/Vm6SHbU/8eAYQnp/04YrG7F6CjWObJ3DiT47BQMSpIQArni+IVKYiNdBHdlOIbGQoBS4ubVOkaQ
+	lsgT1Sv9lMOcDECSnJwIznCkdXngqx12qn7jpCrf1MydUjAFectkpXBlH4odcNeu49erzysgEdvRR
+	ML0IrFTr6uVjhyr300+5KOhy6Phz8zszkxyZddMSbUyhKUBEanNflGrbEBT/MrWhJnl9wBZPPlxNd
+	tL05DlVSoK0+xYFtRVKPHpTTRwyrm9q2YR7l0ejVumOVty2XsQzwMi2hcdJ6HYVCjojC3Nocs2L+S
+	AsrmyOLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vELjj-00000003XKH-0GxK;
-	Thu, 30 Oct 2025 06:02:15 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vELlv-00000003XeT-0kd6;
+	Thu, 30 Oct 2025 06:04:31 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vELjc-00000003XHU-1qIX
+	id 1vELlq-00000003Xdl-0YZW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 06:02:09 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 30 Oct
- 2025 14:01:55 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 30 Oct 2025 14:01:55 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
-	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	<jk@codeconstruct.com.au>, Kevin Chen <kevin_chen@aspeedtech.com>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>
-Subject: [PATCH v6 1/1] dt-bindings: interrupt-controller: aspeed,ast2700: correct #interrupt-cells and interrupts count
-Date: Thu, 30 Oct 2025 14:01:55 +0800
-Message-ID: <20251030060155.2342604-2-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251030060155.2342604-1-ryan_chen@aspeedtech.com>
-References: <20251030060155.2342604-1-ryan_chen@aspeedtech.com>
+	Thu, 30 Oct 2025 06:04:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1761804259;
+	bh=FUv49txHvrAzjdgWs80ani5/jiFVnH1I1J/VQnA/JbY=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=VNcTJt4cIN2/f4WEgxABC6Id7AAblH/HICBg+PaRPVG+ji+iJv43te7VZKyYtZMc0
+	 pAo0haH4Uqg1V7ki/IASKd0f6fTmhAjTQPBaRdNvvhiPp4SKWK2/Wtef+/9tCi/bpu
+	 SAuz5YgVaLZUs8McGlWx9QY8lGAcCZbEKXtiJgFs9kLQx8d91MOSSTe20kKbNvG8Gz
+	 ORlORw1Rl+GSloNCrshWXebTlQd4lb6hWFM8dpxutMHVJivq0uBOvyemIq2DTUI/wy
+	 c14EsHCY/aQmvBRPlJ1UqMfYHPCxTPgn3AR9FUKjEKg8TdbuHO+GEtWmqQTIUeidhm
+	 IMbhNU3/dSQYQ==
+Received: from pecola.lan (unknown [159.196.93.152])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 59CA379118;
+	Thu, 30 Oct 2025 14:04:18 +0800 (AWST)
+Message-ID: <0b9abd87b877595c13011a3d8b4e80e05488effc.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v21 1/4] dt-bindings: i2c: Split AST2600 binding into a
+ new YAML
+From: Jeremy Kerr <jk@codeconstruct.com.au>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Ryan Chen
+ <ryan_chen@aspeedtech.com>,  bmc-sw@aspeedtech.com,
+ benh@kernel.crashing.org, joel@jms.id.au,  andi.shyti@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ andrew@codeconstruct.com.au, p.zabel@pengutronix.de, 
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com, 
+ linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
+ devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org,  linux-kernel@vger.kernel.org
+Date: Thu, 30 Oct 2025 14:04:18 +0800
+In-Reply-To: <59d4d107-4f35-4906-8524-f45b9b85f0ff@kernel.org>
+References: <20251027061240.3427875-1-ryan_chen@aspeedtech.com>
+	 <20251027061240.3427875-2-ryan_chen@aspeedtech.com>
+	 <59d4d107-4f35-4906-8524-f45b9b85f0ff@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_230208_479732_C1FD4398 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20251029_230426_387565_56766ADF 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,67 +79,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the AST2700 interrupt controller binding to match the actual
-hardware and the irq-aspeed-intc driver behavior.
+Hi Kyzysztof,
 
-- Interrupts:
-  First-level INTC banks request multiple interrupt lines to the root
-  GIC, with a maximum of 10 per bank. Second-level INTC banks request
-  only one interrupt line to their parent INTC-IC. Therefore, set the
-  interrupts property to allow a minimum of 1 and a maximum of 10
-  entries.
+> > +++ b/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
+> > @@ -0,0 +1,66 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/i2c/ast2600-i2c.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: ASPEED I2C on the AST26XX SoCs
+> > +
+> > +maintainers:
+> > +=C2=A0 - Ryan Chen <ryan_chen@aspeedtech.com>
+> > +
+> > +allOf:
+> > +=C2=A0 - $ref: /schemas/i2c/i2c-controller.yaml#
+> > +
+> > +properties:
+> > +=C2=A0 compatible:
+> > +=C2=A0=C2=A0=C2=A0 enum:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - aspeed,ast2600-i2c-bus
+> > +
+> > +=C2=A0 reg:
+> > +=C2=A0=C2=A0=C2=A0 minItems: 1
+>=20
+> <form letter>
+> This is a friendly reminder during the review process.
+>=20
+> It seems my or other reviewer's previous comments were not fully
+> addressed. Maybe the feedback got lost between the quotes, maybe you
+> just forgot to apply it. Please go back to the previous discussion
+> and
+> either implement all requested changes or keep discussing them.
+>=20
+> Thank you.
+> </form letter>
+>=20
+> > +=C2=A0=C2=A0=C2=A0 items:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: address offset and range=
+ of bus
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: address offset and range=
+ of bus buffer
+> > +
+> > +=C2=A0 interrupts:
+> > +=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > +
+> > +=C2=A0 clocks:
+> > +=C2=A0=C2=A0=C2=A0 maxItems: 1
+>=20
+> Nothing improved
 
-- #interrupt-cells:
-  Set '#interrupt-cells' to <1> since the irq-aspeed-intc.c driver does
-  not support specifying a trigger type; only the interrupt index is used.
+That was mostly the point - this first patch just splits out the 2600
+definitions to the new file, with zero change.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- .../interrupt-controller/aspeed,ast2700-intc.yaml   | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+That means the *actual* changes to the binding are visible via the diff
+in 2/4, and not hidden by the copy.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-index 55636d06a674..999df5b905c5 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-@@ -25,13 +25,14 @@ properties:
-   interrupt-controller: true
- 
-   '#interrupt-cells':
--    const: 2
-+    const: 1
-     description:
-       The first cell is the IRQ number, the second cell is the trigger
-       type as defined in interrupt.txt in this directory.
- 
-   interrupts:
--    maxItems: 6
-+    minItems: 1
-+    maxItems: 10
-     description: |
-       Depend to which INTC0 or INTC1 used.
-       INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
-@@ -74,13 +75,17 @@ examples:
-         interrupt-controller@12101b00 {
-             compatible = "aspeed,ast2700-intc-ic";
-             reg = <0 0x12101b00 0 0x10>;
--            #interrupt-cells = <2>;
-+            #interrupt-cells = <1>;
-             interrupt-controller;
-             interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
-                          <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
-                          <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
-                          <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
-                          <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
-+                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
-+                         <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
-+                         <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
-+                         <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>,
-+                         <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>;
-         };
-     };
--- 
-2.34.1
+This was mentioned on v20, and you replied saying it was irrelevant to
+the separate discussion around the rationale for the change, but didn't
+object to the split-patches approach.
 
+If your preference is to *not* do this via a verbatim copy as an initial
+step (and essentially squash with 2/4), that's also fine, but I'm sure
+that knowing your preference would help Ryan out here.
+
+Cheers,
+
+
+Jeremy
 
