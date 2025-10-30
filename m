@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4421CCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 16:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13B9CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 16:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=asHTuwHQMlsaIwxd7fRvxE9E6RLII85FGsjE8sF6u2s=; b=HIYZotWTPpRWsaim25KEmo2LMo
-	QRS1Syb+DAt4DIOCaCB8dMxUqmV/SPUgUweh9xbs5o6UEHCwlMNRim+Rbl9YYud4NNu80L5i136ZZ
-	WL3bZGgr8lgs7ZpMDrFF1SDfQ4/wSp3+GUOWeLk9Jvcuxe8xptjlkNG3WMwO+IRxxd9FSKYXuAH+2
-	Aa7YDbPb+JNSx3U7VRZSzFHKkH3oDgq0J5AzmbvCODgozwoKZEIR9LNu88VI/IstmX+H5xQX9Rjuj
-	YaNQ02bKDEblSy7NPf2v4jiV2DCEO1XK39Spuert6KfDWMg5zU+QHvfAItpAF0WVuCH+BKuYy1Y2t
-	neg96TrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0FHu3rUGS+9JuTB7VJw93CwR+3Meki8I2Z3EaOdfkbw=; b=Z4uS23FX/r+7JGlPoHEzXB2PaU
+	OXIpqauAEitL4//l+ogEkbViG2+C0UopfL0m+U7xXNx+4qpmk+/wR0UE7480gb9LQqORiuIZU2yS+
+	U29otuNwXqQ/0biviJuuEtNbjD55HKU0eeJF672F1kbiYBAYI4VBKJdC3kOnqAl9BQ3DbNEEoZzsF
+	khLjwy3aAZbUONbXFidKC1WwJ3z+vzqnRfIneUgDfctWMsgb8niMwM3BKaQkS4FFLyqnK8dJS2aYp
+	W2M3I267JA1V2CkT3icXvTy28QISfYDzOQBPIWql22gZmlPz1Hsf/qlqirMu1wXj1G6Gioj3oqTTp
+	DhwIgszw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEVyR-00000004VKd-3vlM;
-	Thu, 30 Oct 2025 16:58:07 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vEVyp-00000004VQ8-2OcM;
+	Thu, 30 Oct 2025 16:58:31 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEVyO-00000004VJT-1B9y
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 16:58:07 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-4283be7df63so668935f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 09:58:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761843482; x=1762448282; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=asHTuwHQMlsaIwxd7fRvxE9E6RLII85FGsjE8sF6u2s=;
-        b=vm5XvT9xQ3HzbfuQebNvuhNQ/4kI4qMITwM3/wACW3UOu+3Kkz0JObvsd9jWN+PNo4
-         DRMbk286g9B/7ZMk0+5sw5ZlupB4CrX1k6DvOeGRXWJBshLAgG+6jH2bJu1pU2Ywzwf5
-         4+mwfXgJnQ+49V0RdRBhrJA83YtAUjFq1tVabjhLwAFinpziRwYGcU4EP6C55PbDCWtX
-         Rtd1WGrTBNi1De7w82xkwKe6hVHbqw5rJCKOhfB1pAYxrFd52VU8kiXe8fh+x5C8sT4T
-         PSY4s+03PDmhgzkbPGy/1xXw4cY+jKo/CxoOv36vFXgReXZL128TdXzJiV/Et9f8aBEe
-         krgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761843482; x=1762448282;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=asHTuwHQMlsaIwxd7fRvxE9E6RLII85FGsjE8sF6u2s=;
-        b=rNdZaPRjXHLQqyAKElo8clF44Uuj+ESLjDoWX8glComlc2UToutasztF311GKKwybX
-         hl1vXUw9rjPsayzqrbUXDw4KYKB7wRtQNioM8Ed0BfdGg23NDNBgd/7MFRfl8yf0EjTO
-         /qDrvU+m+68hkHnSS70jQRoaF7IOsbXQ5lKJkPdkfs6qdqO3Bb+yvMt4DgRIxn08HfVU
-         G5di/F9e8a+v9+8vTnPo9IUO+6WJ3w9PK7bsXbmjjfwhLMPNZP/spQOqdGw8hH36v7ZF
-         XpSvMSD2FBzbGx3kGjP+hI7vEc3KT2ge/n3NhfZDCUb4AHLv6nQddAcFp7bYRJC9/m45
-         2O6w==
-X-Forwarded-Encrypted: i=1; AJvYcCVcaiGrO035lg/H1DeNU00UgpvHjRtehr3FoQuOBC/92i1hK8HyaVhvSCds+RfKtQVNzvKMhW8ZWXWbiahoXhVD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6/Zr/OERhwgiloj/02zpRJ3Sk8zU/keY7iu5w/iX5Z5gjcPDK
-	CWvxevRB6qQwqRyS84R6Q+uIegKAyzhOR6HqdvC9OfTMyT8quYwB5TKOfH1SZjSx4M0=
-X-Gm-Gg: ASbGnctQE6CvUkC1czTwTRAldTQ+HP6SE2Q5s/86wl9tW7i0iguuemuuLjm/GXWu7Uy
-	3M1TdoRv4G4nEPepQFD8pYCpylDRWgt3x7I8Jwh2n8nlX1VcGnHW1qJHeIz86AczK38PYdGurRK
-	qaN47wUz/1+OPAe01VYXTIGdKJbQUEhLrzb93l51bc0+ObT3RZ5z+0esostEMx7144Gqs7Bukye
-	qCy8F2L0nAV6dYl5dVuSEICJ1+QQdl86QYdmWkJNp+zUaqcusiqHdpUV3F/n7VfKz92YSzjOMTE
-	0N6C8oyi2FZYjBuvQ4zC1YIrTZvgqWq8Xigsrjk/SAOTuR6bamj8yeyXPTbQCt8XEsFP680AeY+
-	1/mtJInpDO7GLGEqCenN+htyZtQkWwEVZhPJlyWXGsNVrt2RjdUWTW7HFzTzsqWn9aP6a9cOX4i
-	PN1Ko=
-X-Google-Smtp-Source: AGHT+IFqi7Xpp7w622mR0rNuKijgJ6z8TIArkNB6daVO26Go88Si98M7vPyCpKED2icvujDHVbXEhw==
-X-Received: by 2002:a05:6000:26c3:b0:427:690:1d84 with SMTP id ffacd0b85a97d-429bd69e14bmr268308f8f.32.1761843482254;
-        Thu, 30 Oct 2025 09:58:02 -0700 (PDT)
-Received: from localhost ([195.52.63.148])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952df682sm32814036f8f.43.2025.10.30.09.58.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 09:58:01 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=752930e6c5b8c7be54d7a69ae03bc5b16c5525c23708b9d108f2a94d97cf;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 30 Oct 2025 17:57:53 +0100
-Message-Id: <DDVTDY4T9I21.2MG05Z8984M5T@baylibre.com>
-Cc: "Vishal Mahaveer" <vishalm@ti.com>, "Kevin Hilman"
- <khilman@baylibre.com>, "Dhruva Gole" <d-gole@ti.com>, "Sebin Francis"
- <sebin.francis@ti.com>, "Kendall Willis" <k-willis@ti.com>, "Akashdeep
- Kaur" <a-kaur@ti.com>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v9 1/3] firmware: ti_sci: Remove constant 0 function
- arguments
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Andrew Davis" <afd@ti.com>, "Markus Schneider-Pargmann (TI.com)"
- <msp@baylibre.com>, "Nishanth Menon" <nm@ti.com>, "Tero Kristo"
- <kristo@kernel.org>, "Santosh Shilimkar" <ssantosh@kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20251030-topic-am62-partialio-v6-12-b4-v9-0-074f55d9c16b@baylibre.com> <20251030-topic-am62-partialio-v6-12-b4-v9-1-074f55d9c16b@baylibre.com> <1b3f183f-3923-4183-a237-861e4f886958@ti.com>
-In-Reply-To: <1b3f183f-3923-4183-a237-861e4f886958@ti.com>
+	id 1vEVym-00000004VOs-1CP6;
+	Thu, 30 Oct 2025 16:58:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1761843493; x=1762448293; i=wahrenst@gmx.net;
+	bh=0FHu3rUGS+9JuTB7VJw93CwR+3Meki8I2Z3EaOdfkbw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=d679HxKfZ3mC/oMh5xQ7KawuoYVpd6bgm4off6YMgsGgOdRJvEqjWteU2gARjBpl
+	 l19Q7x0S/rBTVaXSRJhKY1uqzFRPYy9rSQMQVLY9ntvlzMrQ6B3mtvc2MFnr+RjX+
+	 QVR0CH8VC3T1jcguVLsOkNEZt6im9A2hPY9RVUKtRbGmpj5PhbysMJMn7FED5QKhF
+	 T2GgSBVsX4t3dls9RkYb0bJDnVXkN0/+m4HVmzhCWin6oU1m75kG2As/Whgj7I0x+
+	 HJgAhZmsERze1qcUuRJ+OzJGbWun0Cq06pq0BRo797qT4054z4P8XcUpPY/XDyZKT
+	 qj65ZWwPMPQf9zeSeg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.156] ([91.41.217.223]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MYvY2-1vjOnF2BM0-00QFMu; Thu, 30
+ Oct 2025 17:58:13 +0100
+Message-ID: <4491fde3-5b20-4ba5-bb18-5a44fd566f50@gmx.net>
+Date: Thu, 30 Oct 2025 17:58:12 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/7] staging: vchiq_arm: Remove bcm2835_camera from
+ vchiq
+To: Jai Luthra <jai.luthra@ideasonboard.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
+Cc: linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+ linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Phil Elwell <phil@raspberrypi.com>, Umang Jain <uajain@igalia.com>
+References: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com>
+ <20251029-vchiq-destage-v3-2-da8d6c83c2c5@ideasonboard.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20251029-vchiq-destage-v3-2-da8d6c83c2c5@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:MGbK03mLnp+rlfoCX2thsI3NDziMJq+uMJ5rMxSoJFj4LnaPBu+
+ RnfpVjzupb8sfaR3kr3LVXc3JjRN5KPJMndjmVJqyH75U9mkTmFdc4uK9bY0xOMHpJv9KlX
+ FOTtJFp0cslgSa6f6gTJyb8TcDDPoFuLSIEaJNcq4uJaSNMherNBpnX6Bdutxj6HARcnR4P
+ Jn9dzOfq8JIkg0Tmfk66g==
+UI-OutboundReport: notjunk:1;M01:P0:neHq8X1Wu64=;uWTOl/CRe1Sj6ysDi7exSylktSf 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_095805_388330_EECDF2D1 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20251030_095828_606931_35EBD8FA 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,114 +103,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---752930e6c5b8c7be54d7a69ae03bc5b16c5525c23708b9d108f2a94d97cf
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi Andrew,
-
-On Thu Oct 30, 2025 at 3:13 PM CET, Andrew Davis wrote:
-> On 10/30/25 4:26 AM, Markus Schneider-Pargmann (TI.com) wrote:
->> ti_sci_cmd_prepare_sleep takes three arguments ctx_lo, ctx_hi and
->> debug_flags which are always 0 for the caller. Remove these arguments as
->> they are basically unused.
->>=20
+Am 29.10.25 um 11:30 schrieb Jai Luthra:
+> As bcm2835_camera driver is dropped, also drop the loading/unloading
+> support for it in vchiq.
 >
-> They might not be used today, but the TI-SCI command does support
-> passing them, so why remove that ability from the wrapper function?
-
-Thank you. I removed the arguments as I prefer something like
-
-  return ti_sci_cmd_prepare_sleep(&info->handle,
-                                  TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED);
-
-over
-
-  return ti_sci_cmd_prepare_sleep(&info->handle,
-                                  TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
-                                  0, 0, 0);
-
-As this function is not part of any API and only used by
-ti_sci_prepare_system_suspend I didn't see a problem in removing it.
-Also I don't know of any code that will be using these arguments.
-
-If you prefer I can drop this patch.
-
-Best
-Markus
-
->
-> Andrew
->
->> Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
->> ---
->>   drivers/firmware/ti_sci.c | 15 +++++----------
->>   1 file changed, 5 insertions(+), 10 deletions(-)
->>=20
->> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
->> index 49fd2ae01055d0f425062147422471f0fd49e4bd..24ab392b4a5d0460153de76f=
-e382371e319d8f2e 100644
->> --- a/drivers/firmware/ti_sci.c
->> +++ b/drivers/firmware/ti_sci.c
->> @@ -1661,14 +1661,10 @@ static int ti_sci_cmd_clk_get_freq(const struct =
-ti_sci_handle *handle,
->>    * ti_sci_cmd_prepare_sleep() - Prepare system for system suspend
->>    * @handle:		pointer to TI SCI handle
->>    * @mode:		Device identifier
->> - * @ctx_lo:		Low part of address for context save
->> - * @ctx_hi:		High part of address for context save
->> - * @debug_flags:	Debug flags to pass to firmware
->>    *
->>    * Return: 0 if all went well, else returns appropriate error value.
->>    */
->> -static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle,=
- u8 mode,
->> -				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
->> +static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle,=
- u8 mode)
->>   {
->>   	struct ti_sci_info *info;
->>   	struct ti_sci_msg_req_prepare_sleep *req;
->> @@ -1696,9 +1692,9 @@ static int ti_sci_cmd_prepare_sleep(const struct t=
-i_sci_handle *handle, u8 mode,
->>  =20
->>   	req =3D (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
->>   	req->mode =3D mode;
->> -	req->ctx_lo =3D ctx_lo;
->> -	req->ctx_hi =3D ctx_hi;
->> -	req->debug_flags =3D debug_flags;
->> +	req->ctx_lo =3D 0;
->> +	req->ctx_hi =3D 0;
->> +	req->debug_flags =3D 0;
->>  =20
->>   	ret =3D ti_sci_do_xfer(info, xfer);
->>   	if (ret) {
->> @@ -3689,8 +3685,7 @@ static int ti_sci_prepare_system_suspend(struct ti=
-_sci_info *info)
->>   			 * internal use and can be 0
->>   			 */
->>   			return ti_sci_cmd_prepare_sleep(&info->handle,
->> -							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
->> -							0, 0, 0);
->> +							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED);
->>   		} else {
->>   			/* DM Managed is not supported by the firmware. */
->>   			dev_err(info->dev, "Suspend to memory is not supported by the firmw=
-are\n");
->>=20
-
-
---752930e6c5b8c7be54d7a69ae03bc5b16c5525c23708b9d108f2a94d97cf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaQOZERsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMSwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlOM
-vgD/bew27FQMEeji6OeLZOJJgA8vPqrL/NU4DrIdV/zVC98A/iLGQiDwd2GnsjGV
-gXIBqqIameTAi7bsnPw9wg9lVhcN
-=fkwa
------END PGP SIGNATURE-----
-
---752930e6c5b8c7be54d7a69ae03bc5b16c5525c23708b9d108f2a94d97cf--
+> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+> ---
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 
