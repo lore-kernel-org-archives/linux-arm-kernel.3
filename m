@@ -4,72 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB57CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CA0CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AtEaYa1iUbHYZuiFjyNStW0JpT1u+frmT5PffaQMrbQ=; b=ebtloDKALXjpAjGOIgWyhwMv+c
-	d9Xy3rUYwjswTlUTk7pWeg6ee3HjtC2G39HtX+VroNefKySFbNLG3k4nyHR5QgKBXj2t3RHYhGyIn
-	pi2BW8KxS1ymubkbbgi/TWzHBk6NoSWvHabxaZd3woCI5669F3QOLhu6mEevXH2A1keYdCHx9FGsD
-	tFF/TO1ka+XugyRD5OrKEBKzZWG+wTxgSQIwTJ0bbgFFig24FWARxuDhayNnqeKFx7QNaeXANiwDX
-	JuFni9SJt1YGe1v+w8EguJ5/uJbPCurapCFX7ommgQHVZ5FGBMbP0wjf8+puwt4pZw0A7RkmVuBjD
-	tRiZhThQ==;
+	bh=LvqEx1G2ygyvTN3lLDG32I0dvexEIahM9G3t/0OYeS8=; b=2vWWQjX4LZEYJ2RXf94JRO1eoX
+	PBd8maeJS+UjvGkTL1C3tKRBDS0MceAnyRLTNKdds4W0bIiLz3fArYYB20sNIWz4PShIUgt4sGYqR
+	a1lkzClMn/UES6y2Ha0to618PB7ImXV8OqI+SRk8H9288IQTC6enWHBGj0/hafJf7UhGZ8PVH8b5h
+	JG3HBuPWkIYu9hPWinEEIWhuA2mimRpY+9IxgvGw0Xv0oNBrBNVo8joi3/99MjRi2+k8ljBgkKNsT
+	rCkj7b2bAHDTj8yuAXBsbIwV7V9uaPEKgPZF4mb5CfDrmcCwBfIXRRQkJV2L5Fsxwxnd7l+JgHeP0
+	oRRdICAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYSV-00000004gxy-0Sf9;
-	Thu, 30 Oct 2025 19:37:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vEYZW-00000004hO3-0Bs5;
+	Thu, 30 Oct 2025 19:44:34 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYSH-00000004gw4-0aRT;
-	Thu, 30 Oct 2025 19:37:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 107AC602CB;
-	Thu, 30 Oct 2025 19:37:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F201EC4CEF8;
-	Thu, 30 Oct 2025 19:36:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761853023;
-	bh=cpZ1I3+S5/XVwqUT6dgPylr0jeq60xgFoi1myi53Tiw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b+pDSTItJF6/3r8htJ72319bDfdj0sbb6VzZL2M2S3fwN4Jlf52FgKJrt9+og5zB+
-	 uwqx969gR4VBPP5s2oyyqdfaxcxMki/NiaKZuLzYcu/3PJMrodmbZaPKhs92Qn0ft7
-	 TkMzFOa0nUS0shQDeb7nTCV52ULHGSCQLOEcPTWZfapvhk6flxqXeDbw3oh3camP+q
-	 zVT5ZmqKaWJcvWR6UkQ82ZyIlBFjS8JKhcLMDMymVpC9DeW8WxbEG/I51oMxmGrGdn
-	 reXRFb8eJUtYX3RpVmYOiyCwp7n7Hj9PdPEfxcQDx7eN+n98+7JxoFc9G02pDx1wJ7
-	 94GJ+82cn8YyA==
-Date: Thu, 30 Oct 2025 19:36:55 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jack Hsu <jh.hsu@mediatek.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
-	andy@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, srini@kernel.org,
-	ukleinek@kernel.org, gregkh@linuxfoundation.org,
-	jirislaby@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
-	chunfeng.yun@mediatek.com, wim@linux-watchdog.org,
-	linux@roeck-us.net, sean.wang@mediatek.com,
-	zhiyong.tao@mediatek.com, andrew-ct.chen@mediatek.com,
-	lala.lin@mediatek.com, jitao.shi@mediatek.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pwm@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v6 04/11] dt-bindings: pwm: Support MediaTek MT8189 evb
- board disp-pwm
-Message-ID: <20251030-astrology-handcraft-f5dbd0d7447d@spud>
-References: <20251030134541.784011-1-jh.hsu@mediatek.com>
- <20251030134541.784011-5-jh.hsu@mediatek.com>
+	id 1vEYZR-00000004hN2-3Nag;
+	Thu, 30 Oct 2025 19:44:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tIt9Al490i85L/oS8knO96IcmdOLqGL6rKZpVgdB3eYlm3PO01plIwtpJB/974p69qzQ6OFV+E/i8oQGd1AqtUJxSNUk4RIlcWIlamGj+5ez+jsynQrLvS2YFbTB4FMuqNFOMau4VsWXD/jtvEshD8cBHvWYcqEQcvXS4WL0Nm0VMNdm6uTUJuMT7r+jc3cR2N72Z8DSs9UtD70bBcc8Vbes+Fo997dMo4Q1W1xT1S/MXY2zynGJbsTyX7n55c6m2Xf0NoGkpzCbpqsida021exIo9KvHtHHq+Ym49m6P9u3UyyeEaqijqUDD5+5E4yBReFYkewa+anhf4YyErvA2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LvqEx1G2ygyvTN3lLDG32I0dvexEIahM9G3t/0OYeS8=;
+ b=FawP3FyzvIxNVh/0d5o5G7gK5f0eAL+L45k6jMGLpYVyBCVwaocmr9C5ry+hNVfmUZldU2SPY5nlqdZwkM3PjOTEuMfjx2DfYsz0GItDSj6rQWGUoSElynzdk5pNwLvk18A0GulLjJqXKrv/+/KOAn2OYsyZ2FKz7R2M9yaDKf16xO8GWLrMzl7ZxtPsx+mwh710e3sybSU7dIBXtL7HiOVYDo1ReVJECn8SOmVd2X8+3MW2XsJpYloFkxgLqw1MI4/z+kc6I6lplg61dQGrt+RjtfSE30FfI2PB9p0y5qf3D4zXfpQ4L0V3xcOuE7kqb6gBJwgj6TVs+UklWq2HGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LvqEx1G2ygyvTN3lLDG32I0dvexEIahM9G3t/0OYeS8=;
+ b=n636A038RwCuAU+b0PzE9Od2AG9Ue5KZ+Q6m2/9T5vbIjK543e/0nboc3Vo0EpB3Dhp3qfSfO2j1o0in8PaY9iI3xLC80AvDeks/2iweUpRVgXDezvqexfhOfis3Z5tvdahDGjqOLnxAlK/HrB5vrqpdur9Y6zPiO/+E82Zi6jkAsimFm9nV01k4GJjePTWB29EBf21QQxgigtCVsgHCCuiXYzWQuzz2z4vwBaWeMco6S2hwQ37upYP2L7VKgdXRMd8mDjxxOoKjUVDd69jvUTPv1PKRzwmq2LIiPDmOyUyx+TkkaYXCcnreHlq1OrciN9lG161pNe4QnNzSMuTsZA==
+Received: from BN9PR03CA0769.namprd03.prod.outlook.com (2603:10b6:408:13a::24)
+ by SJ0PR12MB6968.namprd12.prod.outlook.com (2603:10b6:a03:47b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Thu, 30 Oct
+ 2025 19:44:21 +0000
+Received: from BN2PEPF0000449E.namprd02.prod.outlook.com
+ (2603:10b6:408:13a:cafe::85) by BN9PR03CA0769.outlook.office365.com
+ (2603:10b6:408:13a::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.14 via Frontend Transport; Thu,
+ 30 Oct 2025 19:44:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF0000449E.mail.protection.outlook.com (10.167.243.149) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.7 via Frontend Transport; Thu, 30 Oct 2025 19:44:21 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
+ 2025 12:44:03 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
+ 2025 12:44:03 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 30 Oct 2025 12:44:01 -0700
+Date: Thu, 30 Oct 2025 12:43:59 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
+	<j@jannau.net>, "jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
+	"dwmw2@infradead.org" <dwmw2@infradead.org>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>, "yong.wu@mediatek.com" <yong.wu@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "tjeznach@rivosinc.com"
+	<tjeznach@rivosinc.com>, "pjw@kernel.org" <pjw@kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "heiko@sntech.de" <heiko@sntech.de>,
+	"schnelle@linux.ibm.com" <schnelle@linux.ibm.com>, "mjrosato@linux.ibm.com"
+	<mjrosato@linux.ibm.com>, "wens@csie.org" <wens@csie.org>,
+	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, "samuel@sholland.org"
+	<samuel@sholland.org>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
+	<asahi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
+	<linux-sunxi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "virtualization@lists.linux.dev"
+	<virtualization@lists.linux.dev>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 02/20] iommu: Introduce a test_dev domain op and an
+ internal helper
+Message-ID: <aQO//+6/B/WbdK2h@Asurada-Nvidia>
+References: <cover.1760312725.git.nicolinc@nvidia.com>
+ <32ce256a2ece5d63e99d5858f953586859818ffc.1760312725.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1MS9yLIDP8XDYgds"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20251030134541.784011-5-jh.hsu@mediatek.com>
+In-Reply-To: <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF0000449E:EE_|SJ0PR12MB6968:EE_
+X-MS-Office365-Filtering-Correlation-Id: fc59e19b-660d-4245-4f39-08de17ecb8cd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?coK9pFakNqZRASNqG9fe3/gaEPZb8DlHiclo4EwaWEkWZAKKl8GlJNWz4wrR?=
+ =?us-ascii?Q?zr6ViIzANRUVty7P99UfaFiscK6nLpr28ZYfvN+3ieH8u5EU0PlZdzTG/Afy?=
+ =?us-ascii?Q?9HtkE76k8HFPo2wEF7vzBuNyCHWwLVui7AE1MCsT0DFS+ERvONEuzQyaJKeu?=
+ =?us-ascii?Q?9lsMlb89vAivBHTVROLFdkCFPOvoUSk3ulS9U8LWkKCQNQbw9FCgoB/Dps5M?=
+ =?us-ascii?Q?aSc0meAcs1ZuPZyhpdcD/2P/yGkpqUSNKm7timTw822b4HHBlezHDD6xtKBO?=
+ =?us-ascii?Q?d9cVxKl88MNbGNqrOGCyV9o9GhJHxC7ldYqicslM9TQpw6gpM2ugh5z/IST4?=
+ =?us-ascii?Q?S69EL6HnJjEztdEhfXopBiRbSVZT0m3aCX9Vj1f6D8iHzlroOvHMCmwJ+QSz?=
+ =?us-ascii?Q?DmBPTmC6NuhTH38HAsU54abx43pd1jp1VM5AOtne09fvdzKaghdvuPkAkCPM?=
+ =?us-ascii?Q?XO4yeMOTS21GC4MSKdXnteGNrh9SHqFFSPzkgGoK3qlAap8V6VzLD7FfUTvd?=
+ =?us-ascii?Q?wGukH/5GQqklCtNw2se3iLpyJKq+yhh/p7x1Oh7DAaUwQLwQjjhn9VveSwuH?=
+ =?us-ascii?Q?1857KxQeN3PTGK5vwLoSrc36xZnaKV4Y1NGZGq/RjhokDp3qKYTmVDAsvgrQ?=
+ =?us-ascii?Q?F9JiGn9dj0FwWNOA1FmjZ6CaW5rwKM3RmtGlxJRwyjQi0/hVnrPvDiAqanBy?=
+ =?us-ascii?Q?IXO0TNdS7RqvcbpeG2KKyNlC7QAI6CzO02EXM7dKamonTcYhzhYuzDcQtKEh?=
+ =?us-ascii?Q?MM8FIwAQOnhXCNkPS+hEANX/WJ5fjurKBYbHr8dv6l9WzKD2cEEuByaP2FNP?=
+ =?us-ascii?Q?s2HH/3fYRVASoag9C6ZsoJ+XquGxFVd5/qX7dnt3t0fECWt1C+Ei616YPRLr?=
+ =?us-ascii?Q?tCdTAEMsMQaTW3hQnA2bqdbA7OoKoPNeXlogC4psRj66SNa+kAm5zqbHVlAi?=
+ =?us-ascii?Q?0HRRGi1rUlrR6/yNkXFnD2xOcaNv4yJBvpab7GMpJovLEyDLQYKREvxpVTWU?=
+ =?us-ascii?Q?siryXShKBvANj84uEopBeG28/O+oT0AkYNFwm0l7ALhI5ybfgQ2jk51pSONe?=
+ =?us-ascii?Q?3gZQR/E3Ztarm+j92prFSIn/R5b4n3BN4OmlQyyhuQcEkNKv1sN9oebOlAmx?=
+ =?us-ascii?Q?loHctz0qkAx71sLMMkvs95YDc5KPTmYQnJ762Jq+UMRFjAFT4iT82Jri1FTv?=
+ =?us-ascii?Q?XA2/NI6euISdRqATCUafc/tZMdbnkVUEAF65vDqv9wJJpu99o6lC975E2Wp+?=
+ =?us-ascii?Q?vGXluXdS0JBIshFii2XnCUAHDPFAC021nPCiN1b4AcYRo6YMdx2qysYqlich?=
+ =?us-ascii?Q?8jvJHA1MxtV9ktf1E3pTn4J1eyHyjAp/nOAEUN2xHLRpyz7/sXAgrvbyYWfz?=
+ =?us-ascii?Q?dRHUAURlBpSrw+12M00B+tqMj30axKiQHXpCE1E3y5CHcMF0TbXep0yd55ee?=
+ =?us-ascii?Q?r86P+evwtILnuGLvonMgKy7l9L06kp/9dmgrUZKiE3jjzuQiGM/md/q6pG3G?=
+ =?us-ascii?Q?PiXfZGRB1lHNUfpK3AQPB7bmpLA7+uqbGm9u7Q32CqbsvkZb8YdYUUhFXKpH?=
+ =?us-ascii?Q?lcz3iGBIFP3flMEcEyQ=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2025 19:44:21.1890
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc59e19b-660d-4245-4f39-08de17ecb8cd
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6968
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251030_124429_875573_22D3D7B8 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +182,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 30, 2025 at 08:47:18AM +0000, Tian, Kevin wrote:
+> It might need more work to meet this requirement. e.g. after patch4
+> I could still spot other errors easily in the attach path:
+> 
+> intel_iommu_attach_device()
+>   iopf_for_domain_set()
+>     intel_iommu_enable_iopf():
+> 
+>         if (!info->pri_enabled)
+>                 return -ENODEV;
 
---1MS9yLIDP8XDYgds
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yea, I missed that.
 
-On Thu, Oct 30, 2025 at 09:44:36PM +0800, Jack Hsu wrote:
-> add compatible string for mt8189 evb board dts node of disp-pwm
->=20
+> intel_iommu_attach_device()
+>   dmar_domain_attach_device()
+>     domain_attach_iommu():
+>       
+>        curr = xa_cmpxchg(&domain->iommu_array, iommu->seq_id,
+>                           NULL, info, GFP_KERNEL);
+>         if (curr) {
+>                 ret = xa_err(curr) ? : -EBUSY;
+>                 goto err_clear;
+>         }
 
-This commit message isn't accurate, and that makes me wonder if the
-others are. This has nothing to do with the "evb board", this compatible
-is for the mt8189, on whatever board it happens to be on. Please drop
-all mention of the evb board from commit messages.
-With it gone,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: changes-requested
+There is actually an xa_load() in this function:
 
-> Signed-off-by: Jack Hsu <jh.hsu@mediatek.com>
-> ---
->  Documentation/devicetree/bindings/pwm/mediatek,pwm-disp.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/pwm/mediatek,pwm-disp.yaml=
- b/Documentation/devicetree/bindings/pwm/mediatek,pwm-disp.yaml
-> index 68ef30414325..22712769518b 100644
-> --- a/Documentation/devicetree/bindings/pwm/mediatek,pwm-disp.yaml
-> +++ b/Documentation/devicetree/bindings/pwm/mediatek,pwm-disp.yaml
-> @@ -30,6 +30,7 @@ properties:
->                - mediatek,mt6893-disp-pwm
->                - mediatek,mt8186-disp-pwm
->                - mediatek,mt8188-disp-pwm
-> +              - mediatek,mt8189-disp-pwm
->                - mediatek,mt8192-disp-pwm
->                - mediatek,mt8195-disp-pwm
->                - mediatek,mt8365-disp-pwm
-> --=20
-> 2.45.2
->=20
+	curr = xa_load(&domain->iommu_array, iommu->seq_id);
+	if (curr) {
+		curr->refcnt++;
+		kfree(info);
+		return 0;
+	}
 
---1MS9yLIDP8XDYgds
-Content-Type: application/pgp-signature; name="signature.asc"
+	[...]
 
------BEGIN PGP SIGNATURE-----
+	info->refcnt	= 1;
+	info->did	= num;
+	info->iommu	= iommu;
+	curr = xa_cmpxchg(&domain->iommu_array, iommu->seq_id,
+			  NULL, info, GFP_KERNEL);
+	if (curr) {
+		ret = xa_err(curr) ? : -EBUSY;
+		goto err_clear;
+	}
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQO+VwAKCRB4tDGHoIJi
-0iaeAP0d36mjcuHToJU3ymuF4OSb07S7VjuxPoFWiBn9oj3bUAD+Pu38NPa1oQI+
-XbASB7XJkhq3c/nA1t7oZLhX6+1YtAY=
-=Hxxe
------END PGP SIGNATURE-----
+It seems that this xa_cmpxchg could be just xa_store()?
 
---1MS9yLIDP8XDYgds--
+> intel_iommu_attach_device()
+>   dmar_domain_attach_device()
+>     domain_setup_first_level()
+>       __domain_setup_first_level()
+>         intel_pasid_setup_first_level():
+
+Yea. There are a few others in the track also..
+
+>         pte = intel_pasid_get_entry(dev, pasid);
+>         if (!pte) {
+>                 spin_unlock(&iommu->lock);
+>                 return -ENODEV;
+>         }
+> 
+>         if (pasid_pte_is_present(pte)) {
+>                 spin_unlock(&iommu->lock);
+>                 return -EBUSY;
+>         }
+
+Hmm, this is fenced by iommu->lock and can race with !attach_dev
+callbacks. It might be difficult to shift these to test_dev..
+
+> On the other hand, how do we communicate whatever errors returned
+> by attach_dev in the reset_done path back to userspace? As noted above
+> resource allocation failures could still occur in attach_dev, but userspace
+> may think the requested attach in middle of a reset has succeeded as
+> long as it passes the test_dev check.
+
+That's a legit point. Jason pointed out that we would end up with
+some inconsistency between driver and core as well, at the SMMUv3
+patch. So, this test_dev doesn't seemingly solve our problem very
+well..
+
+> Does it work better to block the attaching process upon ongoing reset
+> and wake it up later upon reset_done to resume attach?
+
+Yea, I think returning -EBUSY would be the simplest solution like
+we did in the previous version.
+
+But the concern is that VF might not be aware of a PF reset, so it
+can still race an attachment, which would be -EBUSY as well. Then,
+if its driver doesn't retry/defer the attach, this might break it?
+
+FWIW, I am thinking of another design based on Jason's remarks:
+https://lore.kernel.org/linux-iommu/aQBopHFub8wyQh5C@Asurada-Nvidia/
+
+So, instead of core initiating the round trip between the blocking
+domain and group->domain, it forwards dev_reset_prepare/done to the
+driver where it does a low-level attachment that wouldn't fail:
+  For SMMUv3, it's an STE update.
+  For intel_iommu, it seems to be the context table update?
+
+Then, any concurrent would be allowed to carry on to go through all
+the compatibility/sanity checks as usual, but it would bypass the
+final step: STE or context table update.
+
+Thanks
+Nicolin
 
