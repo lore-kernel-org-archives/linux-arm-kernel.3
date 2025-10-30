@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D89CCF9FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122B3CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=No66cNLUicbMmk4yWzYnf+xkWOSrPxLslCLwe5XBnm4=; b=0YmSClTjd2dOc+TkbqsrO+w3gP
-	a51LXT5aTx1QcoI/jd5HaronjAWSNkIgGfMDn5h62DhGvKe9CANdkCAXDo/FTFBY6okS0MKxUlk1d
-	FzW5fG443q0rVvad/TJ9pc/84lQuF4AUe/z6fuRYuNu7UnLS9rIwxn1ubCWjp+UHK1n/4CI16lqZk
-	R+wGfprMIJWmsjH+CCdMInPeItExr62pZE1rR0kMeRGoBDf1jcNbLimZ6VI//LbAYGLnCXILmD1xb
-	EE8M0nLQoFa0lnmYQPlMuFvaal6hjEkwZ+ZMAOKpk5QqhIj/9TWkAfqr8AZ/oPYcuarhRQ9J+DAcI
-	ESBxczpQ==;
+	bh=tD+ajNxptu2k73Oepl6KZlA3PKs0QXwWaX/tcX3eJ2g=; b=pW6KfeoNDsdchbvRB2Z9/vVOAF
+	26Dvw/c7cnoXh3pD0FO2ehiVTu1So9gUhHjWcN59pqxrzCr3uOAfnlZTPDPOPubi+aBbQEPK7N9Gw
+	g/4EiEzEgK273ILl18tv9pfaEfb7t/5llEXtwADBh2iFKQoa5iRlE7z84O2kjoGjri3FSoOVB0bAB
+	lYxogIxE6zP9toVChXPBdh7297zf+dwlpr0rTTZW7XXu1GeYm7hgJy3tRvvfsQAFoMXtEWzrhpSmb
+	u+cXWDcxWFJeZ7cVI1+4x3hPFTM85zlpaIKlOtBhzzZrT8M7OGX3G0C1VkSzmHdw7nffTbdXHYA8p
+	GdMrgjpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vET5w-00000004FB2-2LUZ;
+	id 1vET5w-00000004FBI-3WHk;
 	Thu, 30 Oct 2025 13:53:40 +0000
-Received: from mx-relay73-hz1.antispameurope.com ([94.100.132.237])
+Received: from mx-relay144-hz1.antispameurope.com ([94.100.132.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vET5r-00000004F9c-1EuC
+	id 1vET5s-00000004F9w-1fF0
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 30 Oct 2025 13:53:39 +0000
-ARC-Authentication-Results: i=1; mx-gate73-hz1.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ARC-Authentication-Results: i=1; mx-gate144-hz1.hornetsecurity.com 1;
+ spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
  dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=No66cNLUicbMmk4yWzYnf+xkWOSrPxLslCLwe5XBnm4=; c=relaxed/relaxed;
+ bh=tD+ajNxptu2k73Oepl6KZlA3PKs0QXwWaX/tcX3eJ2g=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1761832404;
- b=nXcmdEdXEIkctf30hbexwQvL4QBtnZf40Kz//B6W9qqtQZ4qpdqloTpyOacfRZ5mMsHLJYUy
- osumX/ATUPVRKfPKVEHLxslc8gEhNujChPQA1iohVtECl3d3x03aYFw/kLJtJnOUnFqhHuDKBP4
- IfLC9Yq2XOv4ZFk+I08VTRaJ0O6F09sY9tKCYP0IPCsB/XX7IJiAxm02HSWeSRiDq9DM44XW7yA
- dtn60rd/QiXK6RWcNltab7B0W414F1V55RaKVK+nRwjoTBYsykD0+7qXCGCKNsfnRAC2apfSGxU
- C2uTCxZ4krk+szUVjfTt9R99GAB+c8wkkjhUlmmrOuicQ==
+ t=1761832406;
+ b=eKlNENyiAJ2mFBS/xmvLNz/qXkOK1tWj8OyzIwU3lKbN2SZHR/3EC+zv/1yHOMvS7FT32FIC
+ D3fAyR45wyYHKiq5HJsiuQMj/CoTiu7+hGCZftDABAVrMHSZ3hgzxVHJjSVsjyvgvwP6k/E/nII
+ eSHM2wqI+GXGYVSKPj94XSnrgQdYrY5peUaA7lfpGkgoNgp2dorHK5qbTXtaq7HHTs9+f21qpch
+ 2J+JYt0wCBD0wfR7eH8/VN9d8Wk0QaHKdQuTY8mmDx/kIO9IPOtBA5jRum25D6NAQkD69NLe6rH
+ jjNB/4BKqjsbXpSYis5p/pOIldM0wkZBSibNOBXTN1S2Q==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1761832404;
- b=RqMQcP1yLkBaICHqgL6GxJBGo8KS3kTJp5sX3TXVCg08GygB+tWNcoN2pBIEjQDMySLyOIB6
- eQDQ7/+DcBoFcxcLnAZov8tYPrNimRaxi5mlp2w6oT/NXXnQDaBBdUs7dOec6/8AbVB5NnvvU5v
- vcS9b4TsZ2iAtJuFGD3RSdpyeNCBLmYA+QVBkRSQEfAG4Zk/DFmdUvn7GCsFpQ9/tFMmE5J7Thm
- TOrEHFh0YTRZcwpZ90BW6U5nj2TQywk18DLFVtVvHCl4KioMSyP/89KEvbfmmukkWclsF9/dPv+
- dlBSimJOy1jqbUVC22pRfB0Rv6kCPn8HTObJ0uIVc2gXw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay73-hz1.antispameurope.com;
- Thu, 30 Oct 2025 14:53:23 +0100
+ t=1761832406;
+ b=hIwbjeCgr7UQ0kibWY2PxERCenLDPinKppiNQvaH/ZyE/mSKfqttFdgkeC/WkpLvWChokiyb
+ uEGustsZEOdhcWiew3S8kSkfUmKmZdbpDFeh6JvmickLVsUE7aFtQ+DMbYZSH9nYDWau2gx0Zll
+ KaQv78IwOMLU29gVy9YhCeqjlZa4BLJeZXMk4eJdwDjCsdP3y6hRaayhE/ZoAsRER1y75LFORDS
+ eRYK1W6FD5rN8btoOyqNSROOCCGb8YYMYHkQBrlkUTfL3JftHDXe/lWtLxNmxnyEGbXEZOGA0Ry
+ bkTczRUJAbiBySsZJ5fDHUsfbUVCojSyg1G74IRhUTocA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay144-hz1.antispameurope.com;
+ Thu, 30 Oct 2025 14:53:26 +0100
 Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 8E76A5A04B4;
-	Thu, 30 Oct 2025 14:53:11 +0100 (CET)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 3E3895A048B;
+	Thu, 30 Oct 2025 14:53:10 +0100 (CET)
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -67,13 +67,12 @@ Cc: linux@ew.tq-group.com,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 12/19] arm64: dts: imx95-tqma9596sa: remove superfluous pinmux for usdhci
-Date: Thu, 30 Oct 2025 14:52:54 +0100
-Message-ID: <20251030135306.1421154-2-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 11/19] arm64: dts: imx95-tqma9596sa: remove superfluous pinmux for i2c
+Date: Thu, 30 Oct 2025 14:52:53 +0100
+Message-ID: <20251030135306.1421154-1-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251030135306.1421154-1-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20251030124936.1408152-1-alexander.stein@ew.tq-group.com>
 References: <20251030124936.1408152-1-alexander.stein@ew.tq-group.com>
- <20251030135306.1421154-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-cloud-security-sender: alexander.stein@ew.tq-group.com
@@ -82,23 +81,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay73-hz1.antispameurope.com with 4cy5D82Hd3z14Sd1
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay144-hz1.antispameurope.com with 4cy5D70PDbz40bjJ
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 4ada1ca96b2637bf43c610ce9808313e
-X-cloud-security: scantime:1.655
+X-cloud-security-Digest: 1f356f726ad2319c426137b927962cc3
+X-cloud-security: scantime:2.049
 DKIM-Signature: a=rsa-sha256;
- bh=No66cNLUicbMmk4yWzYnf+xkWOSrPxLslCLwe5XBnm4=; c=relaxed/relaxed;
+ bh=tD+ajNxptu2k73Oepl6KZlA3PKs0QXwWaX/tcX3eJ2g=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1761832403; v=1;
- b=P6umpohZcxCBfnCIn4cL3K7VbryLBuEERtX7cEAPR+FUVnDA7J7vKYyN5JB1ytIciw3I6R5r
- Ar7hV0nR9kRE0poZuUQOFE8t9jkXs3AiZOMt+vCxrQ9KrCJ2/g/kv0BaR3mnzXW8v4oOQWsXz+/
- R31UBX9ye+DDAjX1cm3aPspIiPt8O/7HKzWN5nMqQUvlBrB7jyBzxhXy9uP9zwmJ3WpcsMM7g6s
- k9GCo3DmLyVLLKKUhKw5TJHCP9hlDcg0/64K5lkyqYFaAS2OPJ2HYBgOCnnxaHNQOpIrIg30MzA
- vvYEaeluJ/sgzh8ARqthZr1wJXPriiXfqUDowOiSgY9gA==
+ t=1761832405; v=1;
+ b=f0CB97x/lAHokBHiJ63uTAJcj3mp7d1Es86DvbAB4OZE8ipytIUCQH2WaOD70BrJd2K6HVGa
+ QZf6aIJr0COQsNid5Arb+ety8Ew50Wj+TGRn9UicNHP1HiHhwonnGOm2yrynQX/9lBBmKgVd7Sf
+ rv4aDNul+SRdvxuUNrmSybENBrNKyLXQg/6+YSjowimD3NYUG4AkNqUtFkI81O8jSclrQryxgCv
+ UKoW+Z+CPddnnKpT8fcXtj72VY8EyCezmwrc/Jp1L2ZvwmKGCjedsmvSMCEunxoDamjbV3910no
+ nzW747DYEt8Gz0WGqlEvecTPMGYccmPD5VE9BX9cA01JQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_065336_928619_6F4953D9 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20251030_065336_929782_F5A4B4A6 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,26 +116,56 @@ A sleep pin mux is not useful if it is the same as the normal pin mux.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
-index a6ab94208028a..cc251505f6280 100644
+index b7136982700a9..a6ab94208028a 100644
 --- a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
-@@ -493,11 +493,10 @@ &usb3_phy {
+@@ -165,9 +165,8 @@ &gpio2 {
+ 
+ &lpi2c1 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default", "sleep";
++	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_lpi2c1>;
+-	pinctrl-1 = <&pinctrl_lpi2c1>;
+ 	status = "okay";
+ 
+ 	tmp1075: temperature-sensor@4a {
+@@ -264,9 +263,8 @@ expander1: gpio@75 {
+ /* I2C_CAM0 */
+ &lpi2c3 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default", "sleep";
++	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_lpi2c3>;
+-	pinctrl-1 = <&pinctrl_lpi2c3>;
+ 	status = "okay";
+ 
+ 	dp_bridge: dp-bridge@f {
+@@ -301,18 +299,16 @@ dp_dsi_in: endpoint {
+ /* I2C_CAM1 */
+ &lpi2c4 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default", "sleep";
++	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_lpi2c4>;
+-	pinctrl-1 = <&pinctrl_lpi2c4>;
+ 	status = "okay";
  };
  
- &usdhc1 {
--	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
- 	pinctrl-0 = <&pinctrl_usdhc1>;
- 	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
- 	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
--	pinctrl-3 = <&pinctrl_usdhc1>;
- 	bus-width = <8>;
- 	non-removable;
- 	no-sdio;
+ /* I2C_LCD */
+ &lpi2c6 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default", "sleep";
++	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_lpi2c6>;
+-	pinctrl-1 = <&pinctrl_lpi2c6>;
+ 	status = "okay";
+ };
+ 
 -- 
 2.43.0
 
