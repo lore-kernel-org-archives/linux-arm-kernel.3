@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36F8CCF9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936DFCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxEywalnC5f9ZCIbNUte4Hzv1A03goTu5tJbvzMlI10=; b=DqbZCZAcK5VqwmRmgEZhu9KPkU
-	JR3q2M9m4BWRVZbs5FZRPOPeeyDBn/uYD7r1Ck3netvOFqdmCrbxTEIy4eNyjDczGJYouxj9rQwhz
-	9MSMc0TVCYsssyvPDpfK4ImdPfr8xGweAL8iRbqdzrRgZn/IoVyWVViwo8r1guhWZPBvbUpx026O3
-	rZt/kTSdLtpQimuNgiiR+P0v4V88MHRSxDKP0clDrgM6EUkPreymg/Xg+NdQe7xgLzf/WIb08N8B+
-	pK+5nN80fUmwQ0328uxFF7DSEKYZqrNlPkEal8Ec001n8MSfs6ymg4+tborOtYO9psuVMQAk6Ytzl
-	fHTypx/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4faCkAArvXRFWP/BvJT3qCkXJoGOkTL/9xvSBBThwwA=; b=hDJzknwV+AaMEWt3LW1rmdT10v
+	nDJzY/AkBponYQ2VXV/+wouJEc32eTuG++Seq1q6I1IVaAcCTN8Uh4ekAgZq9b61fLUYyE74aEm9Q
+	1z4eKedBCYymdjOetI22AYldahsOAxbYGpUhO3eE/x8tAtZQYinR3Mr7tNVsZ81NDDnYRvyJpdNzW
+	dp7Y2ZS3FjnGnSyVCubF7P3cClfaOSp3nzuFPl5/E7Xanfa+rQqskH0+FacKFios0mx0kc5Gg2Pv2
+	iu5UYguj3NXbRyasSrSuYYbCAM7GMuw9AlHrwh/IvG4jMxVW3fjKfcAN2tX3ltg6Mdri9NkugVczs
+	D/h14aZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERkO-0000000473e-3acY;
-	Thu, 30 Oct 2025 12:27:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vERlE-000000047Lj-2LBv;
+	Thu, 30 Oct 2025 12:28:12 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERkH-0000000470A-0HAh
+	id 1vERlC-000000047Ke-0Mot
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 12:27:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C00DE44EF2;
-	Thu, 30 Oct 2025 12:27:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF14C113D0;
-	Thu, 30 Oct 2025 12:27:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761827232;
-	bh=quI+MXewqLox811sEJGEWZFPLVZMqZcSPVJ2hRZJyH8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SIXIKIPU7h2OGS1tFMdWRUfqDtUh/Y4zJ7xdpUNlaRq2yS0lH0T+7NJmImbJzolV3
-	 5BkMdzqRnx/bO33JR/RO7eTpi3UFJnSv0R4off5W4MGMpJukA4O0HTMMDd6Od2LqUV
-	 1WXPui8nomFYPnVQGmpAA1PUGYZ++/aVxziER5qPtfrQZ6yZATMERAxoP54myJfih6
-	 jD7bZOYkCe0hIeJJ03nZk6SSbpKPvoqAp44CDgIEfmpq6zgHURYgBsrV0FKzQ5kwG3
-	 CDojk4gKvgyR+c1ZF8XR3QnIRfTSbkCKKfGqXXbyfKSHmMZ4SiT4MacQ6/Bm35hRa2
-	 UjA8tRlMHQWnA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vERkE-00000000yNP-39fN;
-	Thu, 30 Oct 2025 12:27:10 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Maydell <peter.maydell@linaro.org>
-Subject: [PATCH v2 3/3] KVM: arm64: Limit clearing of ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
-Date: Thu, 30 Oct 2025 12:27:07 +0000
-Message-ID: <20251030122707.2033690-4-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251030122707.2033690-1-maz@kernel.org>
-References: <20251030122707.2033690-1-maz@kernel.org>
+	Thu, 30 Oct 2025 12:28:11 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-42421b1514fso612401f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 05:28:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761827288; x=1762432088; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4faCkAArvXRFWP/BvJT3qCkXJoGOkTL/9xvSBBThwwA=;
+        b=j7D/M6xWUEPfU8IefZ8rhyGsbG70Qul+ZBNtYVkeGGB7SfnP1zKxnqfj+AHWEytLEX
+         jbXfYuklnYtpA9nhSFaCGrD/UGd+Ph2Wg/Em2EDY+YeM4ItLV7Eya/LVsdUcRJ9f4Nz2
+         U9IdF7+1gBuIRgSi/Kq8aQC7h1kGDgL5UaxA2B4Lz7RCKvHMojJiOtgo1lQrn4QKsUoi
+         2m8LkgG0gfgrvmOLFWXwndp56Mb33lxW1YgRqcRZmtRNtIzr4X9QA97LJV6G2PvY5GyX
+         makHInk73+MdYjKtJCxFCmnW0AgyaKtcMQ8vFyOinmW6sOIaPcn0i/NpDYENhON4DnMj
+         trHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761827288; x=1762432088;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4faCkAArvXRFWP/BvJT3qCkXJoGOkTL/9xvSBBThwwA=;
+        b=iG+K1JInAjNbu9ak5pnb/w0aGhxynl0wxTp4PGiGkYWlLVWCh53i+Uqx0y+jeGtqTA
+         LR1GrKkfG7JLGj1sL9tt89GyutBACKAcG1KpKHiOH4k2rkgnLsMkiV0z0Tp9tZNVooCc
+         dvelg/deqhxwy4FSjFmaG0rRT2/CYy03jCVGNkY1hoX53YxNsG5jcBWvYIT+p7Rzj8Hj
+         6JDZbWF4uXvvzmZ/wBIx+aQU7KzrMU/pQWME4lCFqTtXr4vAbiSnRuRFox7N4qwyi7Bt
+         RLOxQ6b6rKuC/g+kwIO0Sy4idujswE3maHC3panE7iy2FMfmvjQU1xzyn4SVm+Wc45Ol
+         D94w==
+X-Forwarded-Encrypted: i=1; AJvYcCUxI3HBwB0Ecze80FQiN+l2VmAaCpFpWDklYo4wVym+vGcFObkx9eGUO3++sgIk8WIj9bpWc8N55uRGjnfyeuMa@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+ZVPrx3O/MddsnixHo8QXAszlLklbgJbEziuaZBuyeobThGlq
+	XykB4h4dYJ4saw9NwzX9io0cl6jCcJLgo+7rf4TYvmfH/66IqQ9WCiRH
+X-Gm-Gg: ASbGnctavFctGPa/GNyKmGklwvIG756xyHOIKbivI+573Ros1Uj1U+gQO6mrm/30d4I
+	QoKII54CLf0ZR0+Pi22YsBXSxxhZ3qU0ugRKFcHI6O9ISI45xTVfDS8Y2HAqObitebak6P6/ZeC
+	hpd3ivV2fc1BtGz0Sv28oxn288fF5BZWgpmWKQKs6HqUCc6p34R+FikpyEVDjCOBaIURGyYDez3
+	ySw4sfMFKuSgCLqQTxa7VvPc30ZPvBGczZuayY9fW/Ayz8bnJMKj/7eg0Y4M7tQ9R+YAUDDrp0K
+	9B2wRo55okPYzkTcagQRuxccqn3XFalitkvJA0IjlgFadELLLpk7RoP2FWTEKraTz1eGYlY4PNi
+	nkUzpzuuaYIB1/HDbj43Th80zjUMPy3Xcn0xnNDYXr3sGq8glxU/HxU3diH9FP4/unaNddd7m8P
+	snPym/MmEtnAEKYOKborkDa8Oz3pIC8Db1c1ZT3bS/bVFaiYSoJZeXT0B+0flMG7O/vAQke6WNR
+	Q==
+X-Google-Smtp-Source: AGHT+IFohGfPrMB+gEC0PPjeDu6wKsKn5Xw4tnoTnVq6JsR15gq4re74GuIZTwiApDmgxJjGG1cQpQ==
+X-Received: by 2002:a5d:5d06:0:b0:3ec:d78d:8fcc with SMTP id ffacd0b85a97d-429aef82ae4mr6294449f8f.14.1761827288007;
+        Thu, 30 Oct 2025 05:28:08 -0700 (PDT)
+Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429ba445463sm2028625f8f.10.2025.10.30.05.28.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Oct 2025 05:28:06 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:28:04 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 4/7] clk: ingenic: tcu: Use contextual data instead of
+ global variable
+Message-ID: <5psq67p7ozmfz6mbi626q2uixqtbtfpejkhud5fv6wqr66xasz@ksiokkf5qsgr>
+References: <20251029163336.2785270-5-thierry.reding@gmail.com>
+ <20251029175647.GA1572736@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, peter.maydell@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6ob5xm6zi76m7ppm"
+Content-Disposition: inline
+In-Reply-To: <20251029175647.GA1572736@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_052713_126690_441AF757 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20251030_052810_141935_04D32340 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +105,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the idreg's GIC field is in sync with the irqchip, limit
-the runtime clearing of these fields to the pathological case where
-we do not have an in-kernel GIC.
 
-While we're at it, use the existing API instead of open-coded
-accessors to access the ID regs.
+--6ob5xm6zi76m7ppm
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 4/7] clk: ingenic: tcu: Use contextual data instead of
+ global variable
+MIME-Version: 1.0
 
-Fixes: 5cb57a1aff755 ("KVM: arm64: Zero ID_AA64PFR0_EL1.GIC when no GICv3 is presented to the guest")
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/sys_regs.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+On Wed, Oct 29, 2025 at 12:56:47PM -0500, Bjorn Helgaas wrote:
+> On Wed, Oct 29, 2025 at 05:33:33PM +0100, Thierry Reding wrote:
+> > From: Thierry Reding <treding@nvidia.com>
+> >=20
+> > Pass the driver-specific data via the syscore struct and use it in the
+> > syscore ops.
+>=20
+> Some of these things in drivers/clk/ are also platform_device drivers
+> (though not this one) and use generic power management, e.g.,
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/drivers/clk/qcom/q6sstop-qcs404.c?id=3Dv6.17#n209
+>=20
+> I have no idea if that's desirable or practical here, but using the
+> platform_device model instead of syscore could have advantages in
+> terms of modeling device dependencies and ordering.
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index ad82264c6cbe1..8ae2bca816148 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -5609,11 +5609,13 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
- 
- 	guard(mutex)(&kvm->arch.config_lock);
- 
--	if (!(static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif) &&
--	      irqchip_in_kernel(kvm) &&
--	      kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3)) {
--		kvm->arch.id_regs[IDREG_IDX(SYS_ID_AA64PFR0_EL1)] &= ~ID_AA64PFR0_EL1_GIC_MASK;
--		kvm->arch.id_regs[IDREG_IDX(SYS_ID_PFR1_EL1)] &= ~ID_PFR1_EL1_GIC_MASK;
-+	if (!irqchip_in_kernel(kvm)) {
-+		u64 val;
-+
-+		val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_GIC;
-+		kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, val);
-+		val = kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
-+		kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, val);
- 	}
- 
- 	if (vcpu_has_nv(vcpu)) {
--- 
-2.47.3
+Similar to the MIPS/Alchemy PCI driver, although there's no git log
+reference in this case, I suspect this was not in driver PM on purpose.
+The pattern I've seen quite often is very low-level device driver code
+doing this using syscore_ops because they run very late/early during
+suspend/resume, respectively, so the driver PM callbacks often aren't
+sufficient.
 
+In recent years, some of the issues have been alleviated by things such
+as device links, so a conversion may work now.
+
+However, often these are also exotic and/or old devices that are
+difficult to find testers for, so I've been trying to keep the changes
+in this series as minimal as possible, so that we can be reasonably sure
+things will continue to work just by reviewing the code.
+
+The most important bit in the series is patch 1, which lays the
+groundwork for avoiding these global variables for new code. Also, in
+particular I have a concrete case where the global variable approach
+doesn't work because an IP block that used to be a guaranteed singleton
+now no longer is.
+
+I have looked at various drivers that I ended up not converting because
+they use a global variable not only for syscore but also for other
+things and fixing that up would've been way out of scope of this series.
+
+Thierry
+
+--6ob5xm6zi76m7ppm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkDWcwACgkQ3SOs138+
+s6Hg1w//bfwZK2UyWYgH0DjUdLRkw/JLbu/3memPliSQO+SxPOEf7uwnD1QnAiQ3
+AaL3UiueXsnj30IkhBnqYoPaFQRz3G5Ag/PFIKX3kireFrAExwZP/9AKWiJflD1I
+gh+QOfqgZ1HpJr3QSmmjosBmkm5T7a/J5dUNuCcZoRcya8QmACQqg3sWy8gj4BdT
+Hy/aq2/JWEEJs1pLE5SvCexBqTP5gxTj8MTuNgqm3hRDtZc4TQnKNZIcJwgOruMX
+Wy4rrgBPQiASKxxP7ksI7iXCTOYM61AlEm39RUFNcGKI9iOw1YxFn2LuVIPoFJc6
+H92dgYcRmcEgy/oWPc8yTs9iX2POH5p/40/nb53U3sj6iQVhEMoVIGmIuxEX9RHL
+VHkn3RNfYCZlwqDtwCCoN6DWBW2PNUAX3dsD1ng3ZZHuDH2lbQaQudKRi7MGhAxm
+ADqiAfq1HO8Fk6uo5BFMtpieue14jJFHaQs21TkOlurf/LH9GT2qO52/8KtcxYx8
+F8pXjAM4Ps+sj+Er6h1Tb6PpXrpJ1lvGqagYTEJpWQuWyjXLGeseMpif2ucjdzjp
+4qfcE13QtePpLlbO8kklfDMdo6+uClFAMgWMM0jWWFtczIaUWmwRYcDGUbW4RbHt
+H6TJJVsDtuaQNx9wfo+vq3oMZviuttJPzFqYefIOL7oACIZD6sk=
+=0K07
+-----END PGP SIGNATURE-----
+
+--6ob5xm6zi76m7ppm--
 
