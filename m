@@ -4,152 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910EDCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 14:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B0BCCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 14:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQyeMtemgCoOzTzlwykczyRlEpZ0QjYCHYEqGRqhGag=; b=uF2oslDiQ96P8aS3NfEG7+k6LE
-	uyU4pdp89jDqWQKJOGNJjbgf47NkotuBVKex+5Eh0sTX5NK4+jeLXp34SMS9JF0Ub9eJwSadG2fKq
-	Nbp2lRlmxEx7LwTpR4g4rSl4qgyoVOlqe+lOAv/BKvDeWGOCl0unMCgHw67NARzg+MlgMSNaovmVx
-	TRhQj30xtIyElURluf68Ab+5btd0pZy1dlX8PMQNGTQ1cpwDGV2823yd2oJOeqovt6vGTdt058N1D
-	P2Pvo8FtNDX4mwQP4HpOCSa2/JuPAy9etJZHnjIYvBmA8Ga1/Vpn9496C7FZrEdiIK2HvfvVgbU6j
-	xuQ7BrUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2OmzrOMSFDIHt90ET3ZkdRLGAdOyNAqOFwhfGMiqaV0=; b=BAEkoazpcGWPY3HbUINWBEoPDP
+	JQOO6feulFDrsL+ThUbCcM+aMdeoe/moXyZP01xIzuy3JHXLJGHCtAs2PrDI49l0KEbeRArpOmIUv
+	E91MzS0pNQk1OQGfM7B2Vvv6Y7WBz6soOSXLTXUAmohyoEWL6FUb1ORF2igZmgvWpJ5RZ8JLmYD9I
+	ZlNFPFJYLx4LXBg9EEuYGJhB35LdLS3XbTvvpS6RVLGSCjZhtuYF09hybxuV8ju6seciWERGDrJox
+	A0K3dDHAvUscqkXvco/q4pk7gOiNhNEsYlJSh3EDwrUWqrbTsDarojvsnfn/x/AdfzbwZkrY7t0UN
+	eV02u7Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vETGX-00000004Gx2-3bgt;
-	Thu, 30 Oct 2025 14:04:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vETHT-00000004H3x-0rdF;
+	Thu, 30 Oct 2025 14:05:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vETGV-00000004Gwe-1j2n
+	id 1vETHQ-00000004H3L-17Zk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 14:04:36 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59U9MUKB3115499
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 14:04:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aQyeMtemgCoOzTzlwykczyRlEpZ0QjYCHYEqGRqhGag=; b=AWuor9Yxkz6K2wy3
-	IiPbM7oYI158WOrYLTN7eMPnu70Uu3AuuCOcn+C2w4weR3T6rH0AVFAd8haAFv/H
-	pNOTpocnKQbzDT9i+zu+/tXr0ZhoFM9AL3KPw8cFanSHVtw7MGl/3zpSrFwgl/q2
-	0znrD3KNsyRnHMYKTFNSXUOSvUj7qrbSCBsPrJd28y8iFdv9h5hgmwvolEKYfvyW
-	KmBmsjWOrA6rN7696+mrUhXbV7d89iJz9P3oZmHddxBMxy08Kh/Pcxii9D+xnwb2
-	+Mlze/ikiy/UbwTVNSOmrQ0jJVssydVZuXIblCFlRmYMGdkiJ7zrRwy7oAp1LC8y
-	R045iw==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a45b40rug-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 14:04:33 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-78117b8e49fso2380540b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 07:04:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1761833072; x=1762437872; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aQyeMtemgCoOzTzlwykczyRlEpZ0QjYCHYEqGRqhGag=;
-        b=h0q/w5grVTr0VKQCwXDzJIlzx7AbM4GjwXMDqAvzK8EbFvGJu9I2d2pBDxtI/NWixI
-         utjLs200r80kYiLd6GykvXv23qkdE3bdq4dGig22fg8SxH6fF11KC7f9wPJHR2ImBsZI
-         DGjpizdtzhRiqUJSMpOmR+bcVJupGXKVAJtgKYMUTwwx1oEheNLWBongOd+s4nptmeOx
-         4k5dECa1YGdXZ1kFrNrXte2dK/DBYA8KJrJ7CaGkmiAHlAq+MO90qGIMu1yQ/wwhaQ5n
-         zyT1kKB/PHxudvTiK3tBJhkciELESZjdyekBDam+pTcXYo7TbqdJBn4n6S8sBalXjfNs
-         d92g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761833072; x=1762437872;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aQyeMtemgCoOzTzlwykczyRlEpZ0QjYCHYEqGRqhGag=;
-        b=BewWNHdHfGjW54W4CkdTucOwBeNr+3HQ+TO8VThUdveRBZ0L9gRHneiSoHUPJxGol6
-         seX+xQEdBqaVXa3TJjS5gGAWuJZmvuoHVO1XutMMgQtkhfqCS+6GtJvFYBGFvC0BixRc
-         hu4L0PZIMwgY5kZdNZ006QIfVYBNLPSf7kL+jSyemSp/1dl5UH2i8tcrFfs1mtmQ/JT2
-         zWBNNjUJLZn3pGhVA9VWV44WSb7GCFieMRH1zXVMPNqTbxnutdwaEOjGeUFgSQUMWmv1
-         zmX3mg2UdJczuK5ntyRLxzRyLFrrrLOp1FOXB/ibhK7mV0hBinAJpLrHUhqvFaYwZAog
-         aCGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUS0ENEJuLUykFMeLS26ApjPnUU77oFKn01HkpIUrc6VG4X1RSkBgLag5HJ9YAAo3glt9xYOTGRTG1oFHp2lfKD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4PKFJ0np8QLeeqCI8af6iRz97PZaJsU5YT/9cFxnRpHwMrVm/
-	xQm2WqN43fPRt7vQZ7d7gNZXre4L4kaKcVRWIP8LF2ebM3bcbrFsyGvfSMxnjmnuE5VwqFEq7U7
-	++7av0C8i0CB1AOeAO7fe26VLPkjB/8olBCrScR6A0NtsiuP3LekuXjWJuefT7zK2kLU3vdTuHB
-	Jvfw==
-X-Gm-Gg: ASbGncubWXJJPv/jPURM5Lwj3oqKdXblJqzbraAnmS1v0RKcWt/CkV3HHuCjOfEoOk8
-	WMN72yk/Pdl7p/+KuV5ICaQXGPIA28HXHRJMXmyTf0a7JzrCKXpatje22KWG83ajK2hNAHDtS/c
-	7f0NKuFB1p+xdHRPPQWmflF4LCmEKZPYpbYQGcnnHgoEgkLv/oYV5XmCJk20CtPb1OpNLrl9Fxi
-	thYBCAeoIjG5UmLfz1D0QqTpuv71akQh8geMmmgSSxh+Pm87PdI+jPCxfpOJWVnihF46W2t0j4z
-	T3fsRV0KjmVwP9ZhJ/jAfTrEWfuyHb7ZlaXYkVL6C6UrFcTo2xUy/3z28k0+hYjAcKUdTnCSnxo
-	AyaGwifikh5uAbHE8wia7OA==
-X-Received: by 2002:a05:6a00:1786:b0:7a2:8649:5ab7 with SMTP id d2e1a72fcca58-7a4e2fe7764mr9513750b3a.14.1761833071963;
-        Thu, 30 Oct 2025 07:04:31 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHOsm+Sq4JNvFojnAbXxBbvyUiQ9n1HBmXRQ7fcHIwRyOXUnsy9UNUn/WOnPgjzpqXGKHxy5w==
-X-Received: by 2002:a05:6a00:1786:b0:7a2:8649:5ab7 with SMTP id d2e1a72fcca58-7a4e2fe7764mr9512694b3a.14.1761833062850;
-        Thu, 30 Oct 2025 07:04:22 -0700 (PDT)
-Received: from [10.204.104.20] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a41409c703sm18826520b3a.70.2025.10.30.07.04.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Oct 2025 07:04:22 -0700 (PDT)
-Message-ID: <4b41cb16-858b-4fc2-8ee1-3a7171712808@oss.qualcomm.com>
-Date: Thu, 30 Oct 2025 19:34:13 +0530
+	Thu, 30 Oct 2025 14:05:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=2OmzrOMSFDIHt90ET3ZkdRLGAdOyNAqOFwhfGMiqaV0=; b=Ptv1sTB1FvN4w3/AmTE+DHKcdJ
+	9qbzUW9AZpfAEjAhGR4B7Mxo9VbsMsZZeU/g+Xopioag7LPZJW6zswEvZT7LL5b0M3HyeRwWOd2Kx
+	VeT1LS1G6e9VtdAPVcxMn7UkX2ieaKKDvpyLYpEaB12LbmzqzX3fbD2Xo8BON616ymRPlZOnEwbux
+	11G8K7GphKFonIV/DkS3TTKurtbfQtheo02WpqSVL5PIuAMDk7DyWsG0icfUk7qh/a8LxNzuo4FNs
+	XIF//3ZZp5K5koXa+KtQTmd3nwuylHZ8Gn0K2yDwC/iSgQz8s8rtpHKaX33627Br6a50akKi03bsE
+	nqwjJVcg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55264)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vETHH-000000005mZ-3F8U;
+	Thu, 30 Oct 2025 14:05:23 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vETHE-000000008Vm-0rdp;
+	Thu, 30 Oct 2025 14:05:20 +0000
+Date: Thu, 30 Oct 2025 14:05:20 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: remove MAC_CTRL_REG
+ modification
+Message-ID: <aQNwoC6aMPMMk4M1@shell.armlinux.org.uk>
+References: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
+ <7a774a6d-3f8f-4f77-9752-571eadd599bf@oss.qualcomm.com>
+ <aQNXTscqFcucETEW@shell.armlinux.org.uk>
+ <bb2865b6-6c17-49e4-b18f-b9baad771830@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/17] drm/msm/adreno: Introduce A8x GPU Support
-To: rob.clark@oss.qualcomm.com
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse
- <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, devicetree@vger.kernel.org
-References: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com>
- <20250930-kaana-gpu-support-v1-12-73530b0700ed@oss.qualcomm.com>
- <CACSVV03HaKAvfDa5A5LqRZM4_o8g-haVU3A6GgWqfTO0QNcK2w@mail.gmail.com>
-Content-Language: en-US
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-In-Reply-To: <CACSVV03HaKAvfDa5A5LqRZM4_o8g-haVU3A6GgWqfTO0QNcK2w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDMwMDExNCBTYWx0ZWRfX50Z0lfukq7gy
- ct4Fjsif/AT7EAmaA2x6TvBbudPUAHK1fZhx3nJKTQ2TuJ/uwKLYzCpnNtDDeNaTBKXIcORUpuI
- oj676qxreLeGtrVCgiR7hN2NdusUAR7dUQfaCuIFstnCWQvKxa/agy2cY/HZwQHSFw8ftnSV8E+
- 60bu5+4JERVshm96YlkS6SALcjT+tnR2qc5WU4+r9xXQqZ20bOUJUPrDzZ4j+J9UyR2D31HjgMv
- sAzDeVUG4ovyEWWipc+GHAo9y8LPgNLBglVrouyf2dJmRjZnClWSoSpY54FGGNaxVZE1FVopYIy
- 8mZo1M+VS8vZjwo1aNxqxEzZ9CWCaGP54tiHteZVRGE+wrJEXZ+2mTbyfVbAJiyVTbOSfKy5Ljx
- ZH0TacdWf7ySz+v74PInK7ThqWX1Aw==
-X-Authority-Analysis: v=2.4 cv=KePfcAYD c=1 sm=1 tr=0 ts=69037071 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=ktRuAwBfdPNgXckAlmEA:9 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-ORIG-GUID: uzxueApCL9s1jmoz6_FmdHiyMfRf_9qS
-X-Proofpoint-GUID: uzxueApCL9s1jmoz6_FmdHiyMfRf_9qS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-10-30_04,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 impostorscore=0 priorityscore=1501 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1015 phishscore=0 spamscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2510300114
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bb2865b6-6c17-49e4-b18f-b9baad771830@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_070435_591789_A21F9822 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20251030_070532_584098_F7448277 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,41 +90,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-<< snip >>
-
->> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
->> index 0b17d36c36a9567e6afa4269ae7783ed3578e40e..18300b12bf2a8bcd5601797df0fcc7afa8943863 100644
->> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
->> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
->> @@ -46,6 +46,7 @@ struct a6xx_info {
->>         const struct adreno_protect *protect;
->>         const struct adreno_reglist_list *pwrup_reglist;
->>         const struct adreno_reglist_list *ifpc_reglist;
->> +       const struct adreno_reglist_pipe *nonctxt_reglist;
->>         u32 gmu_chipid;
->>         u32 gmu_cgc_mode;
->>         u32 prim_fifo_threshold;
->> @@ -101,6 +102,11 @@ struct a6xx_gpu {
->>         void *htw_llc_slice;
->>         bool have_mmu500;
->>         bool hung;
->> +
->> +       u32 cached_aperture;
->> +       spinlock_t aperture_lock;
+On Thu, Oct 30, 2025 at 02:08:41PM +0100, Konrad Dybcio wrote:
+> On 10/30/25 1:17 PM, Russell King (Oracle) wrote:
+> > Konrad, Ayaan,
+> > 
+> > Can you shed any light on the manipulation of the RGMII_IO_MACRO_CONFIG
+> > and RGMII_IO_MACRO_CONFIG2 registers in ethqos_configure_sgmii()?
+> > 
+> > Specifically:
+> > - why would RGMII_CONFIG2_RGMII_CLK_SEL_CFG be set for 2.5G and 1G
+> >   speeds, but never be cleared for any other speed?
 > 
-> I don't see aperture_lock used.. but seems like maybe a good idea if
-> a8xx_aperture_slice_set() acquired the lock and we had an
-> corresponding _release() which dropped the lock, so that we couldn't
-> have race conditions between the users of the aperture.
+> BIT(16) - "enable to transmit delayed clock in RGMII 100/10 ID Mode"
+
+I guess that means that changing this bit is not relevant for the SGMII
+path, and thus can be removed:
+
+        switch (speed) {
+        case SPEED_2500:
+-               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+-                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+-                             RGMII_IO_MACRO_CONFIG2);
+                ethqos_set_serdes_speed(ethqos, SPEED_2500);
+                ethqos_pcs_set_inband(priv, false);
+                break;
+        case SPEED_1000:
+-               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+-                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+-                             RGMII_IO_MACRO_CONFIG2);
+                ethqos_set_serdes_speed(ethqos, SPEED_1000);
+                ethqos_pcs_set_inband(priv, true);
+
+> > - why is RGMII_CONFIG_SGMII_CLK_DVDR set to SGMII_10M_RX_CLK_DVDR
+> >   for 10M, but never set to any other value for other speeds?
 > 
+> [18:10] - In short, it configures a divider. The expected value is 0x13
+> for 10 Mbps / RMII mode
 
-Yeah, I guess we should add a lock because the pagefault-coredump path
-and gpu irq are not serialized. And both of them are users of aperture.
-The other users are serialized already with gpu lock.
+This gets confusing. Is the "/" meaning "10Mbps in RMII mode" or "10Mbps
+or RMII mode".
 
--Akhil
-
-> BR,
-> -R
+> which seems to have been problematic given:
 > 
+> https://lore.kernel.org/all/20231212092208.22393-1-quic_snehshah@quicinc.com/
+> 
+> But it didn't say what hardware had this issue.. whether it concerns a
+> specific SoC or all of them..
+> 
+> A programming guide mentions the new 0x31 value for 10 Mbps in a
+> SoC-common paragraph so I suppose it's indeed better-er.. Perhaps issues
+> could arise if you switch back to a faster mode?
+
+Could the 0x13 be a typo? Its suspicious that the two values are 0x13
+vs 0x31. 0x13 = 19 vs 0x31 = 49. 0x31 makes more sense than 19.
+
+The platform glue is required to supply clk_rx_i to the dwmac's MAC
+receive path, deriving it from the 125MHz SGMII rx link clock divided
+by 1, 5 or 50. Normally, this would be done by hardware signals output
+from the dwmac.
+
+This suggests that the value programmed is one less than the actual
+divisor.
+
+There's two possibilities why this value needs to be programmed:
+
+1. the hardware doesn't divide the SGMII rx link clock according to
+the hardware signals output from the dwmac, and needs the divisor to
+be manually programmed. This would require the divisor to also be
+programmed to 4 for 100M (but the driver doesn't do this.)
+
+2. the hardware selects the clk_rx_i depending on the hardware
+signals, and while 1G and 100M use a fixed divisor of 1 and 5, the
+10M divisor needs to be manually programmed.
+
+Any ideas what's really going on here?
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
