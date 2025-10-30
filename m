@@ -4,141 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE90ACCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD85CCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=32h5K3ewwycqfrD/0JMWOprkDGOg3ozbJGj35ETznY0=; b=lvUEkT5AWf90+jIL6zyonbm+99
-	kF2mT7nOg3+z3Rz+bfoWvXfC8/vOidBpKyc9w2PDPso3amEu25d1LqANyu3DtKrUy2EtmeHKM7aOE
-	RngrFjKmFBUKOVr9JdXaARCFGbnaKQMus9s+IjOdagoqriGemHWygGlP83kNkHzbDE89y6TeRjjSS
-	3xKxPzCCHXlyNTyYO7HpWcCH46uf42HMB03sYKoD2k74UzpzRaW3p6H8NBiUY9dF5tuceaPYVTtSw
-	qarzPIxYefj3VC1myxnCiXywEIFeJoccA8HOAJJvy9hoLrRbQ6OZNVJSBoJlC8bT8jFiNRcC+u/QQ
-	iH8midcQ==;
+	bh=M4+l/kBzBrNkC5aEiK5Wkm6XphdChKEXaRLubUFLjrg=; b=Oc87xdxgXWnuzPm//Eed3z2vsM
+	dapEjvFOLsn5+G/HCTNxByOSiAjSdB3COeY755TLeqXRvPqNpllc4tZhzEGtN5TXMHUWsi37Nd4Dg
+	SmPx9ihVPTyxaYnP3h/rco3b5A24e0Q16EP0+5mIitijqKpH/5MW8WbkZ6gJKs7hc5YwIFDhEmreu
+	06VEVDI2nGwmfcnDpcdMv9XV658V6Jv2WwFrW83wu2l6sGbCVEjwGBetoJuBLSnO6dw+erpiz1sKR
+	CofiBGDDs4ee9spS/+5nmPpS9n3lfg4l9GisNt0YYiNaGytdm/41+APPtiT+Z9Ukrn+teUUJW5W66
+	fd6H0i+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPTh-00000003vcQ-27LJ;
-	Thu, 30 Oct 2025 10:01:57 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vEPUZ-00000003vjM-3hJy;
+	Thu, 30 Oct 2025 10:02:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPTe-00000003vbz-3hXU
+	id 1vEPUX-00000003vih-2Y1A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:01:56 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59U50RS62624094
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:01:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	32h5K3ewwycqfrD/0JMWOprkDGOg3ozbJGj35ETznY0=; b=RCRCoZgA56ns6yDd
-	+yKBRhyBmEiRgH/A3pfEKSzWFhIR04h7Iz2FBrAGKfLc8PNTcxkcTOvIzbApPQnO
-	zDTib+W4cS1qTj+QOlhY2vSJ3etZp+sTAEwLusnkHsPrzHDq4O1Z/pYMi79ythDq
-	HtT/tGGuL+gK8LCKQW8g0luvCNoG+3ZxzKX1JCixIYksRw0511e+nmCkoUINzVe0
-	fj/cqmy6hR+2cS7ZV1/an2juZI/oX1duW9iPspKJtHEbpHz18dmNN87yFf3SzUw2
-	784rl2kTyWAGr9bq6ouvOMZgCqbnb8Kt/QF1esQkIyl0JK3hzK5uh+va+rxWJjwA
-	qDOypA==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a41fxgvbp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:01:52 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4eced2a52ceso2537331cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 03:01:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1761818512; x=1762423312; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=32h5K3ewwycqfrD/0JMWOprkDGOg3ozbJGj35ETznY0=;
-        b=ZYM8+Dxsi7oGEUZ6QjaQGJuEJC7/bLjfpXt+1BXU/yquJKJBOY259YnxepGRBkiw9l
-         wcVRiR6Klrk7gn+2n+obHjNV20YHgVSXjd1Yn8dZdsdREtkKCJFFL9CwDlXoZBdMSuOl
-         FLQShkDfqgJyctRDRiq2nhDPHJxzL7dpBCpTjbNMPHd9LeowzseL8uxpUcRyZspwXeUs
-         DU22zUa7eqoxfOw1ieyN0WUeJOPWoy2ckjn/I6Wu6bVtMAMaKmZzuAPjE7AoM2WvGaXc
-         eB+GSFMoXuEKb+u0Kv1xqY3+9XVbUZqsMBDPtPorYQZc6r/qlIYCwdqs4XDM7eRG76TC
-         Sg4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761818512; x=1762423312;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=32h5K3ewwycqfrD/0JMWOprkDGOg3ozbJGj35ETznY0=;
-        b=BGHh7Ldjn3U85QWWMthgb2YM1VxYNmwHCGPYuw0hy1yBXDA34sgt37eMrc984XwinD
-         ijpTmx50uq8dzLfYn2W9hsZtxgU6N4DqaiZp/vGagoP4lxFQCIHZxhbrL7myaDAApwC0
-         /po9+WLe5AP8d5sd7tLR//a8ebcBXQ0WjwLPtsTA8hFy8CmWlSBhya6CC075S7I3ZmlH
-         zLYwGOOkbz6C5QTkODcpfaMGIRQA4LYF9k944cJYnVSPquLPE2o0Qd7l86MwscQ+OJVI
-         WFFpac4g90ko383FDCVY2L35k6FljpoKAKqlmRhx8Ah1lHZ5ksE4JRIifVHbn8xzkQcv
-         DwcA==
-X-Forwarded-Encrypted: i=1; AJvYcCU4odI2F/hd9sMHAqXGOFaf7sypMCABacet1PzHENtiTn3CBFye3nhscjAZAt+XnX6T5bV/L8/ybVJOgdDTuyvg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEzVouHEw+lix6yEI9API5W10/FGNTa5GSjzjWqCV+ZJPQJNs4
-	WOr7rduDID1pj0GSVx0vzU25MAOaUNWSX1BJyo5Iy2SYKUHImxJob5zbiokF0oXJnL8q43rb8ZV
-	mrrURoNx8De/2A8aJtGWTORnbG6gu4wodWf0j9ZcD9ahJbG4zSd7k89HrNH/biob0fEmMPke214
-	KeuA==
-X-Gm-Gg: ASbGncsnAUedf9I+cW0rXDqph5kekrl+JA6G5raJc3H7RrfBUs6yauPwpx1/EOna8Vu
-	1+GrWBjVQg55BY3JH0zmpIDwUEcddHWRAOnep74n30oUdxIRkQxE0pAgylAkrau9Wx6Eiu16wgg
-	kRIB9ObI1BLRc7nkkoWALwkRE5wU5zuXy3RZXOSnD9njuRyCVvtJZ7qLLhe9ci5iHyLusaci/JX
-	ymUUQKOB+Est5nKbsuBsVMuE3bM/5emDIYfXvGLSKO2mY9K5V7Czhck3I0yRfksYF+k4bsb6rY9
-	HJjs11M3QTyxdbTDzbc0rLlVbmkAOd/gh7h6UnSkFtsc3OBIkeUgQFRK3eJtkQp59/UCRBQ9EPv
-	J8pfEfBsH1LxIQM8cUyiXV74J8zwfZVSlZv+OPq/vhSBHU9A0u3yEh8GB
-X-Received: by 2002:ac8:5f0e:0:b0:4ec:ed46:ab6d with SMTP id d75a77b69052e-4ed15c0e8f8mr55333741cf.9.1761818512206;
-        Thu, 30 Oct 2025 03:01:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFRkwzCLPCxSVHJgMpfb+sSifTWDoxG9G5XDKheZ5CxBk6Vcn9HesLaF6FBOsZzqqrVE4rY6g==
-X-Received: by 2002:ac8:5f0e:0:b0:4ec:ed46:ab6d with SMTP id d75a77b69052e-4ed15c0e8f8mr55333381cf.9.1761818511580;
-        Thu, 30 Oct 2025 03:01:51 -0700 (PDT)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7058770e28sm164872366b.13.2025.10.30.03.01.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Oct 2025 03:01:51 -0700 (PDT)
-Message-ID: <7a774a6d-3f8f-4f77-9752-571eadd599bf@oss.qualcomm.com>
-Date: Thu, 30 Oct 2025 11:01:48 +0100
+	Thu, 30 Oct 2025 10:02:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E545D43D1F
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:02:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1B52C4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:02:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761818568;
+	bh=r5xiql/CWLoKOljyLg2/QtrdaB9yqJsCMTZbhNIakUo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EIcPugs30KHp2oN6mGnWO5R5GzlIB6xW5eoCAJ4MOPlPLrSXwaLhXrJblMRprR9aE
+	 QdVaoLFBWMtbOfqcgqdvWKf714XGEVo52AwmfsAF/XLBJRU1X0qCcgQLyB741xpYst
+	 Bvb0sp/uiUa2FyqNtgKl+1uM/aw66NPNI7tTLaVi6UCZMGnqsqcqYKZfG//A479eCx
+	 xWiWqbzK3qhlm1MghWY9R1/rlr6NwA0tOvxWWfqRQQ1hVhNWo+xtiT0HWLXUqvR2zd
+	 BSTrIsQzM84Wior5sP8wqfA9xR4THb9jhUAzjW40ierljUBJaeh5lqS+llpF+9VwgS
+	 VcDUrTyhMoS8Q==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3696f1d5102so6436461fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 03:02:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXKYVELRU9M45KgOcUwTC0JI8nO7Supcg1XqsijqNFXLV+UUDwMFA3IkOSFhSg3SHCG4yohA5D/UCwveFfB8Fqs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTLTy5ENPWe9YEAicitDH1aF/j+fj1M9ras/WJSynDdAgD+Um7
+	KDlcGvytY5ARZPGrQtSIpKsNdeTnDCGyYSy7GNCwxjZ+FIweij2MZdG24i49ljEtGHSilIme576
+	9Z7S0Wa5UW5qe9B3rnWSEHQL0/ZBPHBo=
+X-Google-Smtp-Source: AGHT+IEWtHRJgfzesZIicoiwBsGNiijy1Cz9bSwYEQl6Xwgwlj+lutUH1oxJWo6qzPvnRFAwdMfybG0k46nq2737U4E=
+X-Received: by 2002:a05:651c:12c8:b0:372:9505:7256 with SMTP id
+ 38308e7fff4ca-37a05316e43mr17170601fa.30.1761818567165; Thu, 30 Oct 2025
+ 03:02:47 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: remove MAC_CTRL_REG
- modification
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-References: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: OQlzn6VsiNsNkfV3rYgzoUAs4wtfDs58
-X-Authority-Analysis: v=2.4 cv=UJrQ3Sfy c=1 sm=1 tr=0 ts=69033791 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=YjBZYspd3xVaAZo-ivoA:9
- a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: OQlzn6VsiNsNkfV3rYgzoUAs4wtfDs58
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDMwMDA4MSBTYWx0ZWRfX3FUBiCgEmNLA
- ADfU86dKMiJwq1n9v9R2s4gF/8gFdxq8JwBzD/QdLRpX9gwB9jPhP9xDJp9aIjbECbKVOqHJia1
- YAEeT6GL+MfXy57hju767RRdHj0Dx0+/zqJbSlWhaSnnVgAjA34HzoTZ+5K/FxGe4o3VxN9wfJ7
- g6qGy1g1+YmeWlzS8Q6P29QbvH8rZMhFiocqyPXcLYOk2yRBQ+aJvMJHLf9CsGNwc8lp4SeQd9V
- Ad/clgfhvWF883+oT6Yr15CbiASy3eRzwjnRT5xgwyajZIeMzkbo3BaeGONhQ7v4Ebw3vOL+VFo
- Y/EZhaVjj9KiobkVKU9AS5fxXQjA26xHax1gIhidPZnaABvd0mbTOf1z6+DG1u7AM0rFHPF2oQb
- dSUUR3pOT6JGt2rDUS2LJPGBgS9AMg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-10-30_02,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 lowpriorityscore=0 impostorscore=0 phishscore=0
- priorityscore=1501 malwarescore=0 bulkscore=0 spamscore=0 suspectscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2510300081
+References: <20251023082129.75612-1-maqianga@uniontech.com>
+ <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
+ <10D9A93B0633E6BE+75720e07-b39d-452c-952e-41f8ab6aad94@uniontech.com>
+ <CAMj1kXHQ6WQWfbkMP4JUk=nKwSt7CovY25RC4JA0ZM7vRWu6dA@mail.gmail.com>
+ <9F7F632B7963434F+abad2548-a90d-4448-ae79-dd4bf637ee6e@uniontech.com>
+ <CAMj1kXHu5ABgxKsc_gg1j=pWMz6DbWoqv=qAAjx-5CiSF2PAiQ@mail.gmail.com> <BD93A8DBE27154B0+22bf4a83-a850-4f78-8e0d-84cc93fe2715@uniontech.com>
+In-Reply-To: <BD93A8DBE27154B0+22bf4a83-a850-4f78-8e0d-84cc93fe2715@uniontech.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 30 Oct 2025 11:02:34 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFUUCoE=gZ0kTMKx87qnJMU9J9skT75STTKjjakXb8kmw@mail.gmail.com>
+X-Gm-Features: AWmQ_bmbipMpTfTSvyFPuGPK5qsmoZKz2m5xvqfsOsmZI7s9lak8SdW6KJRsPRA
+Message-ID: <CAMj1kXFUUCoE=gZ0kTMKx87qnJMU9J9skT75STTKjjakXb8kmw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
+To: Qiang Ma <maqianga@uniontech.com>
+Cc: linux@armlinux.org.uk, linux-efi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_030155_046149_28A7322F 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20251030_030249_685589_9CDA83A8 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,63 +88,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/29/25 11:18 AM, Russell King (Oracle) wrote:
-> When operating in "SGMII" mode (Cisco SGMII or 2500BASE-X), qcom-ethqos
-> modifies the MAC control register in its ethqos_configure_sgmii()
-> function, which is only called from one path:
-> 
-> stmmac_mac_link_up()
-> +- reads MAC_CTRL_REG
-> +- masks out priv->hw->link.speed_mask
-> +- sets bits according to speed (2500, 1000, 100, 10) from priv->hw.link.speed*
-> +- ethqos_fix_mac_speed()
-> |  +- qcom_ethqos_set_sgmii_loopback(false)
-> |  +- ethqos_update_link_clk(speed)
-> |  `- ethqos_configure(speed)
-> |     `- ethqos_configure_sgmii(speed)
-> |        +- reads MAC_CTRL_REG,
-> |        +- configures PS/FES bits according to speed
-> |        `- writes MAC_CTRL_REG as the last operation
-> +- sets duplex bit(s)
-> +- stmmac_mac_flow_ctrl()
-> +- writes MAC_CTRL_REG if changed from original read
-> ...
-> 
-> As can be seen, the modification of the control register that
-> stmmac_mac_link_up() overwrites the changes that ethqos_fix_mac_speed()
-> does to the register. This makes ethqos_configure_sgmii()'s
-> modification questionable at best.
-> 
-> Analysing the values written, GMAC4 sets the speed bits as:
-> speed_mask = GMAC_CONFIG_FES | GMAC_CONFIG_PS
-> speed2500 = GMAC_CONFIG_FES                     B14=1 B15=0
-> speed1000 = 0                                   B14=0 B15=0
-> speed100 = GMAC_CONFIG_FES | GMAC_CONFIG_PS     B14=1 B15=1
-> speed10 = GMAC_CONFIG_PS                        B14=0 B15=1
-> 
-> Whereas ethqos_configure_sgmii():
-> 2500: clears ETHQOS_MAC_CTRL_PORT_SEL           B14=X B15=0
-> 1000: clears ETHQOS_MAC_CTRL_PORT_SEL           B14=X B15=0
-> 100: sets ETHQOS_MAC_CTRL_PORT_SEL |            B14=1 B15=1
->           ETHQOS_MAC_CTRL_SPEED_MODE
-> 10: sets ETHQOS_MAC_CTRL_PORT_SEL               B14=0 B15=1
->     clears ETHQOS_MAC_CTRL_SPEED_MODE
-> 
-> Thus, they appear to be doing very similar, with the exception of the
-> FES bit (bit 14) for 1G and 2.5G speeds.
+On Thu, 30 Oct 2025 at 08:37, Qiang Ma <maqianga@uniontech.com> wrote:
+>
+>
+> =E5=9C=A8 2025/10/29 22:15, Ard Biesheuvel =E5=86=99=E9=81=93:
+> > On Wed, 29 Oct 2025 at 10:55, Qiang Ma <maqianga@uniontech.com> wrote:
+> >>
+> >> =E5=9C=A8 2025/10/28 21:42, Ard Biesheuvel =E5=86=99=E9=81=93:
+> >>> On Mon, 27 Oct 2025 at 04:46, Qiang Ma <maqianga@uniontech.com> wrote=
+:
+> >>>> =E5=9C=A8 2025/10/23 16:30, Ard Biesheuvel =E5=86=99=E9=81=93:
+> >>>>> On Thu, 23 Oct 2025 at 10:22, Qiang Ma <maqianga@uniontech.com> wro=
+te:
+> >>>>>> In the efi_virtmap_init(), permission settings have been applied:
+> >>>>>>
+> >>>>>> static bool __init efi_virtmap_init(void)
+> >>>>>> {
+> >>>>>>            ...
+> >>>>>>            for_each_efi_memory_desc(md)
+> >>>>>>                    ...
+> >>>>>>                    efi_create_mapping(&efi_mm, md);
+> >>>>>>            ...
+> >>>>>>            efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_=
+permissions);
+> >>>>>>            ...
+> >>>>>> }
+> >>>>>>
+> >>>>>> Therefore, there is no need to apply it again in the efi_create_ma=
+pping().
+> >>>>>>
+> >>>>>> Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI R=
+untime Services regions")
+> >>>>>>
+> >>>>>> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+> >>>>> No, efi_memattr_apply_permissions() uses the /optional/ memory
+> >>>>> attributes table, whereas efi_create_mapping() uses the permission
+> >>>>> attributes in the EFI memory map. The memory attributes table is
+> >>>>> optional, in which case any RO/XP attributes from the memory map
+> >>>>> should be used.
+> >>>>>
+> >>>> I see.
+> >>>>
+> >>>> Then, can it be modified like this?
+> >>> No
+> >>>
+> >>>> --- a/arch/arm/kernel/efi.c
+> >>>> +++ b/arch/arm/kernel/efi.c
+> >>>> @@ -65,16 +65,13 @@ int __init efi_create_mapping(struct mm_struct *=
+mm,
+> >>>> efi_memory_desc_t *md)
+> >>>>                    desc.type =3D MT_MEMORY_RWX_NONCACHED;
+> >>>>            else if (md->attribute & EFI_MEMORY_WC)
+> >>>>                    desc.type =3D MT_DEVICE_WC;
+> >>>> +       else if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
+> >>> This will be true for RO, XP or RO+XP.
+> >>>
+> >>>> +               desc.type =3D MT_MEMORY_RO;
+> >>> This will apply RO permissions even to XP regions, which need to be w=
+ritable.
+> >>>
+> >> Thanks for your review.
+> >> I see.
+> >>
+> >> I can introduce a new type MT_MEMORY_RO_XP, to describe RO+XP,
+> >> and then we can use the RO+XP attribute to implement memory mapping.
+> >>
+> > Why? The current code is working fine, no?
+> >
+> Yes, the current code is running normally.
+>
+> The reasons for the modification are as follows:
+> I noticed that the arm64/RISC-V efi_create_mapping() always return 0,
+> but in the code where efi_virtmap_init() calls it, it is as follows:
+>
+> ret =3D efi_create_mapping(&efi_mm, md);
+> if (ret) {
+>      pr_warn("  EFI remap %pa: failed to create mapping (%d)\n",
+>          &phys, ret);
+>      return false;
+> }
+>
+> This return error print is unnecessary, so I want to remove it.
 
-Without any additional knowledge, the register description says:
-
-2500: B14=1 B15=0
-1000: B14=0 B15=0
- 100: B14=1 B15=1
-  10: B14=0 B15=1
-
-(so the current state of this driver)
-
-and it indeed seems to match the values set in dwmac4_setup()
-
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-
-Konrad
+So what is preventing you from removing this from the RISC-V version?
 
