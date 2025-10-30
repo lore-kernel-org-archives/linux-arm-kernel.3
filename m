@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C21DCCF9F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25B5CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VWayaQmqCnxcOTdYBQlHejZM4hZuBCXWYqv+/vQINBU=; b=JvhbxbZUGQxXoYNju0eMAuRieH
-	7RsMj9w5wkPgILfJ4htx3IoDijESC6lZ2+y4eNollBZlE5TbiyYdj6lMwIUZQiGAgom9KJ46AeEvd
-	0LHz+ynN9/AvwzuWkKxT9F6onCBOIJiWC5ZkeYc+OBllZioYiAn/yXJJFU2faMFCe8n9kadicuMUP
-	V+tyY2Q8maLmSkIsgcoit8jJtOSBj/zCq3JMdNwm0oTe/UixIpGb72bqoqkassW0GzQ2LAuAwHa7M
-	dHnVW2722px0GSZB6hsPoxapVHkGEqNcVjr6YT7xC4MmmafDEqJYvj4nrsSO+aWvJMBKM9/gtJ1lq
-	Jirtgj2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WGsanynM+bveV70EQ4nqT1sLG5kUc3lKFttAynF/olU=; b=2cfTUETQfDHCB0a04bkZ2ffi/c
+	TCGU3QGgMh+dZpQb6Ub2BFUckH7Wk/1LbzPOpq31O3m5bRT1xM6tUoZY+TDnq3ItbmYlrONeo9KaQ
+	WykC5qvBDut9onWFnjNY5aybBNCsYFmlRWrBoH8Xy00ylIHSWP8yLA+dHZ6l1oy9E7kGneyCDDY28
+	LlksXXZdw7DA0oJZ6hlIg9zIKjF5/WckVtVVdIp3i5U3a4eQevfhozB5qSkyNd1b3FCRMvcSBoVu0
+	X5XQSWHHFXuT7wLWo26l8tHTl8K4xI6rvezwmjPqxg9+jm6anGntbTx99I7he9goJzCShyLRGMdtF
+	PEiQW2bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPrW-00000003z1r-2Gmc;
-	Thu, 30 Oct 2025 10:26:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPrM-00000003yyd-12CJ;
-	Thu, 30 Oct 2025 10:26:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761819981;
-	bh=JCjlJekAh4Wl54nl2fNdsos6xlZi3Ti+2PaJybspVHE=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ff3p6CqXhg/E2ZGHMuLGnCLnmA6o/02JheqtBCBqkxrF4LfK+ezmX022fEN+Kimnw
-	 3LG+2fcZRH/rly3oH4seH7AP4Vu8qJ+gQ4Eb6FoAIC5ED9tVrHkzrsvXlBfTlIZMD5
-	 wUCCU6XuQ72bj19eLHe+Cbgiic2thbMMqFMTn76aHmLS4y6Xjci2hwhG0cjCbZSUtY
-	 uLeHsAVmQA5/ZTT2IMdzcWgOn4pKYGxt+CSsklXvXiXQRMFuHHC+LD2tBMCH0rjElk
-	 Y1K7lMv1iOerjiYC8TTkQaTDjiF8L3Wv1RClTemV1hWQ4Jz9K4D37u+ygTN2LBi33z
-	 wgjy1BJT70eRw==
-Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFDC017E1324;
-	Thu, 30 Oct 2025 11:26:20 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 30 Oct 2025 11:26:10 +0100
-Subject: [PATCH] dt-bindings: nvmem: mediatek: efuse: Add compatible for
- MT8189 SoC
+	id 1vEPu3-00000003zJP-0FTG;
+	Thu, 30 Oct 2025 10:29:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEPtz-00000003zIZ-2X4i
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 10:29:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E08BE1EDB;
+	Thu, 30 Oct 2025 03:28:56 -0700 (PDT)
+Received: from [10.57.69.77] (unknown [10.57.69.77])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8D363F66E;
+	Thu, 30 Oct 2025 03:28:56 -0700 (PDT)
+Message-ID: <d0767b70-5686-4f6e-8ca4-10b3f3ff3991@arm.com>
+Date: Thu, 30 Oct 2025 11:28:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-8-kevin.brodsky@arm.com>
+ <ef0cd4bc-1a37-4755-8957-d8a7e5c4564e-agordeev@linux.ibm.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <ef0cd4bc-1a37-4755-8957-d8a7e5c4564e-agordeev@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251030-mt8189-dt-bindings-efuse-v1-1-1148e474a9f5@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAEE9A2kC/yWNQQ6DIBBFr2Jm3UmAhipepXGhMNhZgC1gY2K8e
- 0lZvp+8/07IlJgyjN0Jib6ceYsV5K0D+5rjSsiuMiihtBTKYCiDHAy6ggtHx3HNSH7PhFpK2wt
- vHr0WUPV3Is/H//o5NU702WuhtBGWuWp2C4HL2EU6CrbKXcB0XT8DKplWmwAAAA==
-X-Change-ID: 20251029-mt8189-dt-bindings-efuse-511c70f96750
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Lala Lin <lala.lin@mediatek.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761819980; l=1163;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=JCjlJekAh4Wl54nl2fNdsos6xlZi3Ti+2PaJybspVHE=;
- b=v5rnldqSZgYyHEVeUCdz6Z+hlMMe2Wac0DVshUTNWz0qfFdHi/XPksJZ40GguyKyR3S7YcmNm
- bSvbpvDu3KRAOcVWD1jst2/UdUR6KfYYjY7BWpZwm74z9ufwvOTdnbp
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_032624_455047_E559537F 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_032907_951736_53F35E56 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,36 +86,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for the eFuse layout on MT8189 SoC, that is
-compatible with MT8186.
+On 29/10/2025 17:41, Alexander Gordeev wrote:
+> On Wed, Oct 29, 2025 at 10:09:04AM +0000, Kevin Brodsky wrote:
+>
+> Hi Kevin,
+>
+>> +#ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>> +static inline bool in_lazy_mmu_mode(void)
+>> +{
+>> +	return current->lazy_mmu_state.active;
+> Whether (nesting_level > 0) is more correct check?
+> Otherwise, it returns false while in paused mode.
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+That's exactly the intention. Lazy MMU is disabled while paused. The
+users of that helper want to know if lazy MMU is currently enabled (to
+decide whether to batch updates for instance); whether this is because
+we are paused or not in any lazy_mmu section (nesting_level == 0) makes
+no difference.
 
-diff --git a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
-index 4dc0d42df3e6c3bf066a7109bd72b577ff7220f1..577295fafb9b1fb91d175d085c0beb3918c35e4f 100644
---- a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
-+++ b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
-@@ -25,7 +25,9 @@ properties:
-   compatible:
-     oneOf:
-       - items:
--          - const: mediatek,mt8188-efuse
-+          - enum:
-+              - mediatek,mt8188-efuse
-+              - mediatek,mt8189-efuse
-           - const: mediatek,mt8186-efuse
-       - const: mediatek,mt8186-efuse
- 
+> May be check both nesting_level and active and also introduce
+> in_lazy_mmu_paused_mode() right away to avoid any confusion?
 
----
-base-commit: d78b0fee454c25d292fb6343253eca06d7634fd9
-change-id: 20251029-mt8189-dt-bindings-efuse-511c70f96750
+Can you think of any situation where a caller would specifically want to
+know that lazy MMU is paused?
 
-Best regards,
--- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-
+- Kevin
 
