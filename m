@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64200CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9E0CCF9F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dA1CYvQDGRn1/ZdhJBrhCBYPIdLgWWLwobxHE73JqQ4=; b=Cyzm+gQjB13TGXt5jrX5IquQ7k
-	pUisPN4txrOfCJOSHLZWsTOopCnRD5qOzPA1qZu+ZGW/8Ako4x1E82I9PG4VcohI2ht1wxPe38iOH
-	oNKJYdKevumqEREPhGKJUHi7H3RU2ynlTIe8/ZyYHbWIvtrfV79rzdWzWS6WX6BIWgDJaH/HtkVvT
-	Uz62jxxwElXXK8cvxDI0DRisbcST8EXgueMUhtPhXPbWp3aQpjgndBvds5W21FoFO9OVOWB5meuHk
-	Pf10vgUIy3V48dbKI1eWl8NJSNlOPHWnB3nIDPsDfLpsVp960g2f4d0ydz49AmaVXcgWLG4zbPsou
-	ZY7D/kvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5b/+/mkouW76nc7fPhFgrG/ENZ8PlhIsp4pHwFuI8oY=; b=YgUV5kulcHxlOoImrFQJWIryQ3
+	ABcv7Fc4SSoASROL2V5VvFdEXeOyxz50g8LBN1D7vB4pqrAg3+XT7/K11L+HIFez1/jgZjKBfVEF9
+	WsEDbNKsPptCybkLe+mqVth2b4oHkhfdizLa+ehKYgZ46C7Se10cSQAdmSs5dcO4oJTuD8HyrbLa/
+	hewIGrRdb22nKp1Y8yGplyvJDhYmsLzYHT0UbFf6nLxkIgOnuY8Lf2Cl3P8zK7oYx1QgeyhoRzIyb
+	KjletDsIxvTYMGfYLMuxxKoPX15XtHSKkZ1nvgufN2O5wezBlUwG3EklYTs+V6jcCdwo/zuUmCu3g
+	aJovTvpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEMl2-00000003bwV-0wdi;
-	Thu, 30 Oct 2025 07:07:40 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1vEMqr-00000003cVm-2b3T;
+	Thu, 30 Oct 2025 07:13:41 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEMkn-00000003bre-2LlF
+	id 1vEMqn-00000003cVE-3quF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 07:07:29 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251030070718epoutp03c4a777e25fe49584d83415c075f62679~zMxOZ8oQG2563425634epoutp03E
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 07:07:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251030070718epoutp03c4a777e25fe49584d83415c075f62679~zMxOZ8oQG2563425634epoutp03E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761808038;
-	bh=dA1CYvQDGRn1/ZdhJBrhCBYPIdLgWWLwobxHE73JqQ4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c3VMpyjwoXlsNpSQZb1QQpVNjywoR0w40nr0b4yLXhE6NIv7lNlI7FQ9FI2cQfTGL
-	 3XIZ2dqVBI6nCxkiKiWsfZXtIGTyxa4j255kf9mLeYvbXB9s3kk+mZBn6oSs6XN4Fz
-	 GFSwTYbx7cEkzpVo5c1N24cR2EbDDIGr7UFD2cg0=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20251030070718epcas2p3a345db419596f03d0329c79cc2ebcddc~zMxN9oSUr2559825598epcas2p3E;
-	Thu, 30 Oct 2025 07:07:18 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.38.203]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cxwCn3lFrz6B9m6; Thu, 30 Oct
-	2025 07:07:17 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251030070716epcas2p2d51319c14272c316bd6b581a3fdcb512~zMxM5J20_2274322743epcas2p2C;
-	Thu, 30 Oct 2025 07:07:16 +0000 (GMT)
-Received: from asswp60 (unknown [10.229.9.60]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251030070716epsmtip2788f29000018b14a767d17fb39d4aa10~zMxMyNbP61224812248epsmtip2P;
-	Thu, 30 Oct 2025 07:07:16 +0000 (GMT)
-From: Shin Son <shin.son@samsung.com>
-To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
-	<krzk@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
-	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Henrik Grimler
-	<henrik@grimler.se>
-Cc: Shin Son <shin.son@samsung.com>, linux-pm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware and
- update TMU interface
-Date: Thu, 30 Oct 2025 16:07:11 +0900
-Message-ID: <20251030070712.248065-3-shin.son@samsung.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251030070712.248065-1-shin.son@samsung.com>
+	Thu, 30 Oct 2025 07:13:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=5b/+/mkouW76nc7fPhFgrG/ENZ8PlhIsp4pHwFuI8oY=;
+	b=p7g4CpNsL/rTvnTI1YEgszYjLsvZoeJup8WVTd/W2bLNKLjxNDhSetYvOvtKPdj4nmNoYVNsh
+	lr7AZTX96HINjeOqv8OPWDkiVqHxMZhsZijHTRIXd1kWYqEBW5s5UvRVdGSk8YTAXgIce7Mr7bM
+	s/sznaJJz6W69XEkUqKj6yg=
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4cxwKZ05g4z1T4FV;
+	Thu, 30 Oct 2025 15:12:18 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 22565180237;
+	Thu, 30 Oct 2025 15:13:23 +0800 (CST)
+Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 30 Oct 2025 15:13:22 +0800
+Received: from localhost.localdomain (10.50.163.32) by
+ kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 30 Oct 2025 15:13:22 +0800
+From: Junhao He <hejunhao3@h-partners.com>
+To: <rafael@kernel.org>, <tony.luck@intel.com>, <bp@alien8.de>,
+	<guohanjun@huawei.com>, <mchehab@kernel.org>, <xueshuai@linux.alibaba.com>,
+	<jarkko@kernel.org>, <yazen.ghannam@amd.com>, <jane.chu@oracle.com>,
+	<lenb@kernel.org>, <Jonathan.Cameron@Huawei.com>
+CC: <linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-edac@vger.kernel.org>,
+	<shiju.jose@huawei.com>, <tanxiaofei@huawei.com>, <linuxarm@huawei.com>,
+	<hejunhao3@h-partners.com>
+Subject: [PATCH] ACPI: APEI: Handle repeated SEA error interrupts storm scenarios
+Date: Thu, 30 Oct 2025 15:13:21 +0800
+Message-ID: <20251030071321.2763224-1-hejunhao3@h-partners.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251030070716epcas2p2d51319c14272c316bd6b581a3fdcb512
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251030070716epcas2p2d51319c14272c316bd6b581a3fdcb512
-References: <20251030070712.248065-1-shin.son@samsung.com>
-	<CGME20251030070716epcas2p2d51319c14272c316bd6b581a3fdcb512@epcas2p2.samsung.com>
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemn500004.china.huawei.com (7.202.194.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_000726_096650_1BDB8F5F 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20251030_001338_710436_E70AD40A 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,554 +84,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Exynos tmu driver's private data structure has been extended
-to support the exynosautov920 hardware, which requires per-sensor interrupt
-enablement and multiple-zone handling:
+The do_sea() function defaults to using firmware-first mode, if supported.
+It invoke acpi/apei/ghes ghes_notify_sea() to report and handling the SEA
+error, The GHES uses a buffer to cache the most recent 4 kinds of SEA
+errors. If the same kind SEA error continues to occur, GHES will skip to
+reporting this SEA error and will not add it to the "ghes_estatus_llist"
+list until the cache times out after 10 seconds, at which point the SEA
+error will be reprocessed.
 
-- Add 'slope_comp' : compensation parameter below 25 degrees.
-- Add 'calib_temp' : stores the fused calibaration temperature.
-- Add 'sensor_count' : reflects the maximum sensor numbers.
-- Rename 'tzd' -> 'tzd_array' to register multiple thermal zones.
+The GHES invoke ghes_proc_in_irq() to handle the SEA error, which
+ultimately executes memory_failure() to process the page with hardware
+memory corruption. If the same SEA error appears multiple times
+consecutively, it indicates that the previous handling was incomplete or
+unable to resolve the fault. In such cases, it is more appropriate to
+return a failure when encountering the same error again, and then proceed
+to arm64_do_kernel_sea for further processing.
 
-Since splitting this patch causes runtime errors during temperature
-emulation or problems where the read temperature feature fails to
-retrieve values, I have submitted it as a single commit. To add support
-for the exynosautov920 to the exisiting TMU interface, the following
-changes are included:
+When hardware memory corruption occurs, a memory error interrupt is
+triggered. If the kernel accesses this erroneous data, it will trigger
+the SEA error exception handler. All such handlers will call
+memory_failure() to handle the faulty page.
 
-1. Simplify "temp_to_code" and "code_to_temp" to one computation path
-   by normalizing calib_temp.
-2. Loop over 'sensor_count' in critical-point setup.
-3. Introduce 'update_con_reg' for exynosautov920 control-register updates.
-4. Add exynosautov920-specific branch in 'exynos_tmu_update_temp' function.
-5. Skip high & low temperature threshold setup in exynosautov920.
-6. Enable interrupts via sensor_count in exynosautov920.
-7. Initialize all new members during 'exynosautov920_tmu_initialize'.
-8. Clear IRQs by iterating the sensor_count in exynosautov920.
-9. Register each zone with 'devm_thermal_of_zone_register()'
-   based on 'sensor_count'.
+If a memory error interrupt occurs first, followed by an SEA error
+interrupt, the faulty page is first marked as poisoned by the memory error
+interrupt process, and then the SEA error interrupt handling process will
+send a SIGBUS signal to the process accessing the poisoned page.
 
-Reviewed-by: Henrik Grimler <henrik@grimler.se>
-Signed-off-by: Shin Son <shin.son@samsung.com>
+However, if the SEA interrupt is reported first, the following exceptional
+scenario occurs:
+
+When a user process directly requests and accesses a page with hardware
+memory corruption via mmap (such as with devmem), the page containing this
+address may still be in a free buddy state in the kernel. At this point,
+the page is marked as "poisoned" during the SEA claim memory_failure().
+However, since the process does not request the page through the kernel's
+MMU, the kernel cannot send SIGBUS signal to the processes. And the memory
+error interrupt handling process not support send SIGBUS signal. As a
+result, these processes continues to access the faulty page, causing
+repeated entries into the SEA exception handler. At this time, it lead to
+an SEA error interrupt storm.
+
+Fixes this by returning a failure when encountering the same error again.
+
+The following error logs is explained using the devmem process:
+  NOTICE:  SEA Handle
+  NOTICE:  SpsrEl3 = 0x60001000, ELR_EL3 = 0xffffc6ab42671400
+  NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
+  NOTICE:  EsrEl3 = 0x92000410
+  NOTICE:  PA is valid: 0x1000093c00
+  NOTICE:  Hest Set GenericError Data
+  [ 1419.542401][    C1] {57}[Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+  [ 1419.551435][    C1] {57}[Hardware Error]: event severity: recoverable
+  [ 1419.557865][    C1] {57}[Hardware Error]:  Error 0, type: recoverable
+  [ 1419.564295][    C1] {57}[Hardware Error]:   section_type: ARM processor error
+  [ 1419.571421][    C1] {57}[Hardware Error]:   MIDR: 0x0000000000000000
+  [ 1419.571434][    C1] {57}[Hardware Error]:   Multiprocessor Affinity Register (MPIDR): 0x0000000081000100
+  [ 1419.586813][    C1] {57}[Hardware Error]:   error affinity level: 0
+  [ 1419.586821][    C1] {57}[Hardware Error]:   running state: 0x1
+  [ 1419.602714][    C1] {57}[Hardware Error]:   Power State Coordination Interface state: 0
+  [ 1419.602724][    C1] {57}[Hardware Error]:   Error info structure 0:
+  [ 1419.614797][    C1] {57}[Hardware Error]:   num errors: 1
+  [ 1419.614804][    C1] {57}[Hardware Error]:    error_type: 0, cache error
+  [ 1419.629226][    C1] {57}[Hardware Error]:    error_info: 0x0000000020400014
+  [ 1419.629234][    C1] {57}[Hardware Error]:     cache level: 1
+  [ 1419.642006][    C1] {57}[Hardware Error]:     the error has not been corrected
+  [ 1419.642013][    C1] {57}[Hardware Error]:    physical fault address: 0x0000001000093c00
+  [ 1419.654001][    C1] {57}[Hardware Error]:   Vendor specific error info has 48 bytes:
+  [ 1419.654014][    C1] {57}[Hardware Error]:    00000000: 00000000 00000000 00000000 00000000  ................
+  [ 1419.670685][    C1] {57}[Hardware Error]:    00000010: 00000000 00000000 00000000 00000000  ................
+  [ 1419.670692][    C1] {57}[Hardware Error]:    00000020: 00000000 00000000 00000000 00000000  ................
+  [ 1419.783606][T54990] Memory failure: 0x1000093: recovery action for free buddy page: Recovered
+  [ 1419.919580][ T9955] EDAC MC0: 1 UE Multi-bit ECC on unknown memory (node:0 card:1 module:71 bank:7 row:0 col:0 page:0x1000093 offset:0xc00 grain:1 - APEI location: node:0 card:257 module:71 bank:7 row:0 col:0)
+  NOTICE:  SEA Handle
+  NOTICE:  SpsrEl3 = 0x60001000, ELR_EL3 = 0xffffc6ab42671400
+  NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
+  NOTICE:  EsrEl3 = 0x92000410
+  NOTICE:  PA is valid: 0x1000093c00
+  NOTICE:  Hest Set GenericError Data
+  NOTICE:  SEA Handle
+  NOTICE:  SpsrEl3 = 0x60001000, ELR_EL3 = 0xffffc6ab42671400
+  NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
+  NOTICE:  EsrEl3 = 0x92000410
+  NOTICE:  PA is valid: 0x1000093c00
+  NOTICE:  Hest Set GenericError Data
+  ...
+  ...        ---> Hapend SEA error interrupt storm
+  ...
+  NOTICE:  SEA Handle
+  NOTICE:  SpsrEl3 = 0x60001000, ELR_EL3 = 0xffffc6ab42671400
+  NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
+  NOTICE:  EsrEl3 = 0x92000410
+  NOTICE:  PA is valid: 0x1000093c00
+  NOTICE:  Hest Set GenericError Data
+  [ 1429.818080][ T9955] Memory failure: 0x1000093: already hardware poisoned
+  [ 1429.825760][    C1] ghes_print_estatus: 1 callbacks suppressed
+  [ 1429.825763][    C1] {59}[Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+  [ 1429.843731][    C1] {59}[Hardware Error]: event severity: recoverable
+  [ 1429.861800][    C1] {59}[Hardware Error]:  Error 0, type: recoverable
+  [ 1429.874658][    C1] {59}[Hardware Error]:   section_type: ARM processor error
+  [ 1429.887516][    C1] {59}[Hardware Error]:   MIDR: 0x0000000000000000
+  [ 1429.901159][    C1] {59}[Hardware Error]:   Multiprocessor Affinity Register (MPIDR): 0x0000000081000100
+  [ 1429.901166][    C1] {59}[Hardware Error]:   error affinity level: 0
+  [ 1429.914896][    C1] {59}[Hardware Error]:   running state: 0x1
+  [ 1429.914903][    C1] {59}[Hardware Error]:   Power State Coordination Interface state: 0
+  [ 1429.933319][    C1] {59}[Hardware Error]:   Error info structure 0:
+  [ 1429.946261][    C1] {59}[Hardware Error]:   num errors: 1
+  [ 1429.946269][    C1] {59}[Hardware Error]:    error_type: 0, cache error
+  [ 1429.970847][    C1] {59}[Hardware Error]:    error_info: 0x0000000020400014
+  [ 1429.970854][    C1] {59}[Hardware Error]:     cache level: 1
+  [ 1429.988406][    C1] {59}[Hardware Error]:     the error has not been corrected
+  [ 1430.013419][    C1] {59}[Hardware Error]:    physical fault address: 0x0000001000093c00
+  [ 1430.013425][    C1] {59}[Hardware Error]:   Vendor specific error info has 48 bytes:
+  [ 1430.025424][    C1] {59}[Hardware Error]:    00000000: 00000000 00000000 00000000 00000000  ................
+  [ 1430.053736][    C1] {59}[Hardware Error]:    00000010: 00000000 00000000 00000000 00000000  ................
+  [ 1430.066341][    C1] {59}[Hardware Error]:    00000020: 00000000 00000000 00000000 00000000  ................
+  [ 1430.294255][T54990] Memory failure: 0x1000093: already hardware poisoned
+  [ 1430.305518][T54990] 0x1000093: Sending SIGBUS to devmem:54990 due to hardware memory corruption
+
+Signed-off-by: Junhao He <hejunhao3@h-partners.com>
 ---
- drivers/thermal/samsung/exynos_tmu.c | 322 ++++++++++++++++++++++++---
- 1 file changed, 285 insertions(+), 37 deletions(-)
+ drivers/acpi/apei/ghes.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index 47a99b3c5395..8fa188928b79 100644
---- a/drivers/thermal/samsung/exynos_tmu.c
-+++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -121,8 +121,51 @@
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index 005de10d80c3..eebda39bfc30 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -1343,8 +1343,10 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
+ 	ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
  
- #define EXYNOS_NOISE_CANCEL_MODE		4
- 
-+/* ExynosAutov920 specific registers */
-+#define EXYNOSAUTOV920_SLOPE_COMP		25
-+#define EXYNOSAUTOV920_SLOPE_COMP_MASK		0xf
-+#define EXYNOSAUTOV920_CALIB_SEL_TEMP		30
-+#define EXYNOSAUTOV920_CALIB_SEL_TEMP_MASK	0x2
-+
-+#define EXYNOSAUTOV920_SENSOR0_TRIM_INFO	0x10
-+#define EXYNOSAUTOV920_TRIM_MASK		0x1ff
-+#define EXYNOSAUTOV920_TRIMINFO_25_SHIFT	0
-+#define EXYNOSAUTOV920_TRIMINFO_85_SHIFT	9
-+
-+#define EXYNOSAUTOV920_TMU_REG_TRIMINFO2	0x04
-+
-+#define EXYNOSAUTOV920_TMU_REG_THRESHOLD(p)	(((p)) * 0x50 + 0x00d0)
-+#define EXYNOSAUTOV920_TMU_REG_INTEN(p)		(((p)) * 0x50 + 0x00f0)
-+#define EXYNOSAUTOV920_TMU_REG_INT_PEND(p)	(((p)) * 0x50 + 0x00f8)
-+
-+#define EXYNOSAUTOV920_CURRENT_TEMP_P1_P0	0x084
-+#define EXYNOSAUTOV920_TMU_REG_EMUL_CON		0x0b0
-+
-+#define EXYNOSAUTOV920_TMU_REG_CONTROL		0x50
-+#define EXYNOSAUTOV920_TMU_REG_CONTROL1		0x54
-+#define EXYNOSAUTOV920_TMU_REG_AVG_CONTROL	0x58
-+#define EXYNOSAUTOV920_TMU_SAMPLING_INTERVAL	0x70
-+#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE0	0x74
-+#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE1	0x78
-+
-+#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_SHIFT		8
-+#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_MASK		0x1f
-+#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_SHIFT	3
-+#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_MASK		0xf
-+#define EXYNOSAUTOV920_TMU_NUM_PROBE_MASK		0xf
-+#define EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT		16
-+#define EXYNOSAUTOV920_TMU_LPI_MODE_MASK		1
-+#define EXYNOSAUTOV920_TMU_LPI_MODE_SHIFT		10
-+
-+#define EXYNOSAUTOV920_TMU_AVG_CON_UPDATE		0x0008011a
-+#define EXYNOSAUTOV920_TMU_COUNTER_VALUE0_UPDATE	0x030003c0
-+#define EXYNOSAUTOV920_TMU_COUNTER_VALUE1_UPDATE	0x03c0004d
-+
- #define MCELSIUS	1000
- 
-+#define EXYNOS_DEFAULT_SENSOR_COUNT			1
-+#define EXYNOS_MAX_SENSOR_COUNT				15
-+
- enum soc_type {
- 	SOC_ARCH_EXYNOS3250 = 1,
- 	SOC_ARCH_EXYNOS4210,
-@@ -133,6 +176,7 @@ enum soc_type {
- 	SOC_ARCH_EXYNOS5420_TRIMINFO,
- 	SOC_ARCH_EXYNOS5433,
- 	SOC_ARCH_EXYNOS7,
-+	SOC_ARCH_EXYNOSAUTOV920,
- };
- 
- /**
-@@ -150,6 +194,8 @@ enum soc_type {
-  * @efuse_value: SoC defined fuse value
-  * @min_efuse_value: minimum valid trimming data
-  * @max_efuse_value: maximum valid trimming data
-+ * @slope_comp: allocated value of the slope compensation.
-+ * @calib_temp: calibration temperature of the TMU.
-  * @temp_error1: fused value of the first point trim.
-  * @temp_error2: fused value of the second point trim.
-  * @gain: gain of amplifier in the positive-TC generator block
-@@ -157,7 +203,8 @@ enum soc_type {
-  * @reference_voltage: reference voltage of amplifier
-  *	in the positive-TC generator block
-  *	0 < reference_voltage <= 31
-- * @tzd: pointer to thermal_zone_device structure
-+ * @sensor_count: The maximum number of the sensors
-+ * @tzd_array: pointer array of thermal_zone_device structure
-  * @enabled: current status of TMU device
-  * @tmu_set_low_temp: SoC specific method to set trip (falling threshold)
-  * @tmu_set_high_temp: SoC specific method to set trip (rising threshold)
-@@ -174,6 +221,7 @@ struct exynos_tmu_data {
- 	void __iomem *base;
- 	void __iomem *base_second;
- 	int irq;
-+	int sensor_count;
- 	enum soc_type soc;
- 	struct mutex lock;
- 	struct clk *clk, *clk_sec, *sclk;
-@@ -181,10 +229,12 @@ struct exynos_tmu_data {
- 	u32 efuse_value;
- 	u32 min_efuse_value;
- 	u32 max_efuse_value;
-+	u16 slope_comp;
-+	u16 calib_temp;
- 	u16 temp_error1, temp_error2;
- 	u8 gain;
- 	u8 reference_voltage;
--	struct thermal_zone_device *tzd;
-+	struct thermal_zone_device *tzd_array[EXYNOS_MAX_SENSOR_COUNT];
- 	bool enabled;
- 
- 	void (*tmu_set_low_temp)(struct exynos_tmu_data *data, u8 temp);
-@@ -205,13 +255,20 @@ struct exynos_tmu_data {
-  */
- static int temp_to_code(struct exynos_tmu_data *data, u8 temp)
- {
-+	s32 temp_diff, code;
-+
- 	if (data->cal_type == TYPE_ONE_POINT_TRIMMING)
- 		return temp + data->temp_error1 - EXYNOS_FIRST_POINT_TRIM;
- 
--	return (temp - EXYNOS_FIRST_POINT_TRIM) *
--		(data->temp_error2 - data->temp_error1) /
--		(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) +
--		data->temp_error1;
-+	temp_diff = temp - EXYNOS_FIRST_POINT_TRIM;
-+
-+	code = temp_diff * (data->temp_error2 - data->temp_error1) * MCELSIUS /
-+	       (data->calib_temp - EXYNOS_FIRST_POINT_TRIM);
-+
-+	if (data->soc == SOC_ARCH_EXYNOSAUTOV920 && temp_diff < 0)
-+		code = code * (57 + data->slope_comp) / 65;
-+
-+	return code / MCELSIUS + data->temp_error1;
- }
- 
- /*
-@@ -220,13 +277,20 @@ static int temp_to_code(struct exynos_tmu_data *data, u8 temp)
-  */
- static int code_to_temp(struct exynos_tmu_data *data, u16 temp_code)
- {
-+	s32 code_diff, temp;
-+
- 	if (data->cal_type == TYPE_ONE_POINT_TRIMMING)
- 		return temp_code - data->temp_error1 + EXYNOS_FIRST_POINT_TRIM;
- 
--	return (temp_code - data->temp_error1) *
--		(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) /
--		(data->temp_error2 - data->temp_error1) +
--		EXYNOS_FIRST_POINT_TRIM;
-+	code_diff = temp_code - data->temp_error1;
-+
-+	temp = code_diff * (data->calib_temp - EXYNOS_FIRST_POINT_TRIM) * MCELSIUS /
-+	       (data->temp_error2 - data->temp_error1);
-+
-+	if (data->soc == SOC_ARCH_EXYNOSAUTOV920 && code_diff < 0)
-+		temp = temp * 65 / (57 + data->slope_comp);
-+
-+	return temp / MCELSIUS + EXYNOS_FIRST_POINT_TRIM;
- }
- 
- static void sanitize_temp_error(struct exynos_tmu_data *data, u32 trim_info)
-@@ -262,6 +326,9 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 		clk_enable(data->clk_sec);
- 
- 	status = readb(data->base + EXYNOS_TMU_REG_STATUS);
-+	if (data->soc == SOC_ARCH_EXYNOSAUTOV920)
-+		status = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
-+
- 	if (!status) {
- 		ret = -EBUSY;
- 	} else {
-@@ -280,27 +347,34 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- static int exynos_thermal_zone_configure(struct platform_device *pdev)
- {
- 	struct exynos_tmu_data *data = platform_get_drvdata(pdev);
--	struct thermal_zone_device *tzd = data->tzd;
--	int ret, temp;
-+	struct thermal_zone_device *tzd;
-+	int ret, temp, idx;
- 
--	ret = thermal_zone_get_crit_temp(tzd, &temp);
--	if (ret) {
--		/* FIXME: Remove this special case */
--		if (data->soc == SOC_ARCH_EXYNOS5433)
--			return 0;
-+	for (idx = 0; idx < data->sensor_count; idx++) {
-+		tzd = data->tzd_array[idx];
- 
--		dev_err(&pdev->dev,
--			"No CRITICAL trip point defined in device tree!\n");
--		return ret;
--	}
-+		if (!tzd)
-+			continue;
- 
--	mutex_lock(&data->lock);
--	clk_enable(data->clk);
-+		ret = thermal_zone_get_crit_temp(tzd, &temp);
-+		if (ret) {
-+			/* FIXME: Remove this special case */
-+			if (data->soc == SOC_ARCH_EXYNOS5433)
-+				return 0;
- 
--	data->tmu_set_crit_temp(data, temp / MCELSIUS);
-+			dev_err(&pdev->dev,
-+				"No CRITICAL trip point defined in device tree!\n");
-+			return ret;
-+		}
- 
--	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
-+		mutex_lock(&data->lock);
-+		clk_enable(data->clk);
-+
-+		data->tmu_set_crit_temp(data, temp / MCELSIUS);
-+
-+		clk_disable(data->clk);
-+		mutex_unlock(&data->lock);
+ 	/* This error has been reported before, don't process it again. */
+-	if (ghes_estatus_cached(estatus))
++	if (ghes_estatus_cached(estatus)) {
++		rc = -ECANCELED;
+ 		goto no_work;
 +	}
  
- 	return 0;
- }
-@@ -323,6 +397,37 @@ static u32 get_con_reg(struct exynos_tmu_data *data, u32 con)
- 	return con;
- }
+ 	llist_add(&estatus_node->llnode, &ghes_estatus_llist);
  
-+static void update_con_reg(struct exynos_tmu_data *data)
-+{
-+	u32 val, t_buf_vref_sel, t_buf_slope_sel;
-+
-+	val = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
-+	t_buf_vref_sel = (val >> EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_SHIFT)
-+				& EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_MASK;
-+	t_buf_slope_sel = (val >> EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_SHIFT)
-+				& EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_MASK;
-+
-+	val = readl(data->base +  EXYNOSAUTOV920_TMU_REG_CONTROL);
-+	val &= ~(EXYNOS_TMU_REF_VOLTAGE_MASK << EXYNOS_TMU_REF_VOLTAGE_SHIFT);
-+	val |= (t_buf_vref_sel << EXYNOS_TMU_REF_VOLTAGE_SHIFT);
-+	val &= ~(EXYNOS_TMU_BUF_SLOPE_SEL_MASK << EXYNOS_TMU_BUF_SLOPE_SEL_SHIFT);
-+	val |= (t_buf_slope_sel << EXYNOS_TMU_BUF_SLOPE_SEL_SHIFT);
-+	writel(val, data->base + EXYNOSAUTOV920_TMU_REG_CONTROL);
-+
-+	val = readl(data->base + EXYNOSAUTOV920_TMU_REG_CONTROL1);
-+	val &= ~(EXYNOSAUTOV920_TMU_NUM_PROBE_MASK << EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT);
-+	val &= ~(EXYNOSAUTOV920_TMU_LPI_MODE_MASK << EXYNOSAUTOV920_TMU_LPI_MODE_SHIFT);
-+	val |= (data->sensor_count << EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT);
-+	writel(val, data->base + EXYNOSAUTOV920_TMU_REG_CONTROL1);
-+
-+	writel(1, data->base + EXYNOSAUTOV920_TMU_SAMPLING_INTERVAL);
-+	writel(EXYNOSAUTOV920_TMU_AVG_CON_UPDATE, data->base + EXYNOSAUTOV920_TMU_REG_AVG_CONTROL);
-+	writel(EXYNOSAUTOV920_TMU_COUNTER_VALUE0_UPDATE,
-+	       data->base + EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE0);
-+	writel(EXYNOSAUTOV920_TMU_COUNTER_VALUE1_UPDATE,
-+	       data->base + EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE1);
-+}
-+
- static void exynos_tmu_control(struct platform_device *pdev, bool on)
- {
- 	struct exynos_tmu_data *data = platform_get_drvdata(pdev);
-@@ -354,9 +459,8 @@ static void exynos_tmu_update_temp(struct exynos_tmu_data *data, int reg_off,
- 	u16 tmu_temp_mask;
- 	u32 th;
- 
--	tmu_temp_mask =
--		(data->soc == SOC_ARCH_EXYNOS7) ? EXYNOS7_TMU_TEMP_MASK
--						: EXYNOS_TMU_TEMP_MASK;
-+	tmu_temp_mask = (data->soc == SOC_ARCH_EXYNOS7 || data->soc == SOC_ARCH_EXYNOSAUTOV920)
-+		? EXYNOS7_TMU_TEMP_MASK	: EXYNOS_TMU_TEMP_MASK;
- 
- 	th = readl(data->base + reg_off);
- 	th &= ~(tmu_temp_mask << bit_off);
-@@ -582,6 +686,68 @@ static void exynos7_tmu_initialize(struct platform_device *pdev)
- 	sanitize_temp_error(data, trim_info);
- }
- 
-+static void exynosautov920_tmu_set_low_temp(struct exynos_tmu_data *data, u8 temp)
-+{
-+	/*
-+	 * Failing thresholds are not supported on Exynosautov920.
-+	 * We use polling instead.
-+	 */
-+}
-+
-+static void exynosautov920_tmu_set_high_temp(struct exynos_tmu_data *data, u8 temp)
-+{
-+	/*
-+	 * Rising thresholds are not supported on Exynosautov920.
-+	 * We use polling instead.
-+	 */
-+}
-+
-+static void exynosautov920_tmu_disable_low(struct exynos_tmu_data *data)
-+{
-+	/* Again, this is handled by polling. */
-+}
-+
-+static void exynosautov920_tmu_disable_high(struct exynos_tmu_data *data)
-+{
-+	/* Again, this is handled by polling. */
-+}
-+
-+static void exynosautov920_tmu_set_crit_temp(struct exynos_tmu_data *data, u8 temp)
-+{
-+	unsigned int idx;
-+
-+	for (idx = 0; idx < data->sensor_count; idx++) {
-+		if (!data->tzd_array[idx])
-+			continue;
-+
-+		exynos_tmu_update_temp(data, EXYNOSAUTOV920_TMU_REG_THRESHOLD(idx), 16, temp);
-+		exynos_tmu_update_bit(data, EXYNOSAUTOV920_TMU_REG_INTEN(idx), 7, true);
-+	}
-+}
-+
-+static void exynosautov920_tmu_initialize(struct platform_device *pdev)
-+{
-+	struct exynos_tmu_data *data = platform_get_drvdata(pdev);
-+	unsigned int val;
-+
-+	data->tmu_control(pdev, false);
-+
-+	update_con_reg(data);
-+
-+	val = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
-+	data->cal_type = TYPE_TWO_POINT_TRIMMING;
-+	data->slope_comp = (val >> EXYNOSAUTOV920_SLOPE_COMP) & EXYNOSAUTOV920_SLOPE_COMP_MASK;
-+
-+	val = readl(data->base + EXYNOSAUTOV920_SENSOR0_TRIM_INFO);
-+	data->temp_error1 = (val >> EXYNOSAUTOV920_TRIMINFO_25_SHIFT) & EXYNOSAUTOV920_TRIM_MASK;
-+	data->temp_error2 = (val >> EXYNOSAUTOV920_TRIMINFO_85_SHIFT) & EXYNOSAUTOV920_TRIM_MASK;
-+
-+	val = readl(data->base + EXYNOSAUTOV920_TMU_REG_TRIMINFO2);
-+	val = (val >> EXYNOSAUTOV920_CALIB_SEL_TEMP) & EXYNOSAUTOV920_CALIB_SEL_TEMP_MASK;
-+
-+	data->calib_temp = (EXYNOS_SECOND_POINT_TRIM + (20 * val));
-+}
-+
- static void exynos4210_tmu_control(struct platform_device *pdev, bool on)
- {
- 	struct exynos_tmu_data *data = platform_get_drvdata(pdev);
-@@ -633,6 +799,24 @@ static void exynos7_tmu_control(struct platform_device *pdev, bool on)
- 	writel(con, data->base + EXYNOS_TMU_REG_CONTROL);
- }
- 
-+static void exynosautov920_tmu_control(struct platform_device *pdev, bool on)
-+{
-+	struct exynos_tmu_data *data = platform_get_drvdata(pdev);
-+	unsigned int con;
-+
-+	con = readl(data->base + EXYNOSAUTOV920_TMU_REG_CONTROL);
-+
-+	if (on) {
-+		con |= BIT(EXYNOS_TMU_THERM_TRIP_EN_SHIFT);
-+		con |= BIT(EXYNOS_TMU_CORE_EN_SHIFT);
-+	} else {
-+		con &= ~BIT(EXYNOS_TMU_THERM_TRIP_EN_SHIFT);
-+		con &= ~BIT(EXYNOS_TMU_CORE_EN_SHIFT);
-+	}
-+
-+	writel(con, data->base + EXYNOSAUTOV920_TMU_REG_CONTROL);
-+}
-+
- static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
- {
- 	struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
-@@ -671,7 +855,7 @@ static u32 get_emul_con_reg(struct exynos_tmu_data *data, unsigned int val,
- 
- 		val &= ~(EXYNOS_EMUL_TIME_MASK << EXYNOS_EMUL_TIME_SHIFT);
- 		val |= (EXYNOS_EMUL_TIME << EXYNOS_EMUL_TIME_SHIFT);
--		if (data->soc == SOC_ARCH_EXYNOS7) {
-+		if (data->soc == SOC_ARCH_EXYNOS7 || data->soc == SOC_ARCH_EXYNOSAUTOV920) {
- 			val &= ~(EXYNOS7_EMUL_DATA_MASK <<
- 				EXYNOS7_EMUL_DATA_SHIFT);
- 			val |= (temp_to_code(data, temp) <<
-@@ -703,6 +887,8 @@ static void exynos4412_tmu_set_emulation(struct exynos_tmu_data *data,
- 		emul_con = EXYNOS5433_TMU_EMUL_CON;
- 	else if (data->soc == SOC_ARCH_EXYNOS7)
- 		emul_con = EXYNOS7_TMU_REG_EMUL_CON;
-+	else if (data->soc == SOC_ARCH_EXYNOSAUTOV920)
-+		emul_con = EXYNOSAUTOV920_TMU_REG_EMUL_CON;
- 	else
- 		emul_con = EXYNOS_EMUL_CON;
- 
-@@ -756,11 +942,23 @@ static int exynos7_tmu_read(struct exynos_tmu_data *data)
- 		EXYNOS7_TMU_TEMP_MASK;
- }
- 
-+static int exynosautov920_tmu_read(struct exynos_tmu_data *data)
-+{
-+	return readw(data->base + EXYNOSAUTOV920_CURRENT_TEMP_P1_P0) &
-+		EXYNOS7_TMU_TEMP_MASK;
-+}
-+
- static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
- {
- 	struct exynos_tmu_data *data = id;
-+	int idx;
- 
--	thermal_zone_device_update(data->tzd, THERMAL_EVENT_UNSPECIFIED);
-+	for (idx = 0; idx < data->sensor_count; idx++) {
-+		if (!data->tzd_array[idx])
-+			continue;
-+
-+		thermal_zone_device_update(data->tzd_array[idx], THERMAL_EVENT_UNSPECIFIED);
-+	}
- 
- 	mutex_lock(&data->lock);
- 	clk_enable(data->clk);
-@@ -805,6 +1003,19 @@ static void exynos4210_tmu_clear_irqs(struct exynos_tmu_data *data)
- 	writel(val_irq, data->base + tmu_intclear);
- }
- 
-+static void exynosautov920_tmu_clear_irqs(struct exynos_tmu_data *data)
-+{
-+	unsigned int idx, val_irq;
-+
-+	for (idx = 0; idx < data->sensor_count; idx++) {
-+		if (!data->tzd_array[idx])
-+			continue;
-+
-+		val_irq = readl(data->base + EXYNOSAUTOV920_TMU_REG_INT_PEND(idx));
-+		writel(val_irq, data->base + EXYNOSAUTOV920_TMU_REG_INT_PEND(idx));
-+	}
-+}
-+
- static const struct of_device_id exynos_tmu_match[] = {
- 	{
- 		.compatible = "samsung,exynos3250-tmu",
-@@ -833,6 +1044,9 @@ static const struct of_device_id exynos_tmu_match[] = {
- 	}, {
- 		.compatible = "samsung,exynos7-tmu",
- 		.data = (const void *)SOC_ARCH_EXYNOS7,
-+	}, {
-+		.compatible = "samsung,exynosautov920-tmu",
-+		.data = (const void *)SOC_ARCH_EXYNOSAUTOV920,
- 	},
- 	{ },
- };
-@@ -865,6 +1079,10 @@ static int exynos_map_dt_data(struct platform_device *pdev)
- 
- 	data->soc = (uintptr_t)of_device_get_match_data(&pdev->dev);
- 
-+	data->sensor_count = EXYNOS_DEFAULT_SENSOR_COUNT;
-+
-+	data->calib_temp = EXYNOS_SECOND_POINT_TRIM;
-+
- 	switch (data->soc) {
- 	case SOC_ARCH_EXYNOS4210:
- 		data->tmu_set_low_temp = exynos4210_tmu_set_low_temp;
-@@ -945,6 +1163,19 @@ static int exynos_map_dt_data(struct platform_device *pdev)
- 		data->min_efuse_value = 15;
- 		data->max_efuse_value = 100;
- 		break;
-+	case SOC_ARCH_EXYNOSAUTOV920:
-+		data->tmu_set_low_temp = exynosautov920_tmu_set_low_temp;
-+		data->tmu_set_high_temp = exynosautov920_tmu_set_high_temp;
-+		data->tmu_disable_low = exynosautov920_tmu_disable_low;
-+		data->tmu_disable_high = exynosautov920_tmu_disable_high;
-+		data->tmu_set_crit_temp = exynosautov920_tmu_set_crit_temp;
-+		data->tmu_initialize = exynosautov920_tmu_initialize;
-+		data->tmu_control = exynosautov920_tmu_control;
-+		data->tmu_read = exynosautov920_tmu_read;
-+		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
-+		data->tmu_clear_irqs = exynosautov920_tmu_clear_irqs;
-+		data->sensor_count = EXYNOS_MAX_SENSOR_COUNT;
-+		break;
- 	default:
- 		dev_err(&pdev->dev, "Platform not supported\n");
- 		return -EINVAL;
-@@ -952,6 +1183,14 @@ static int exynos_map_dt_data(struct platform_device *pdev)
- 
- 	data->cal_type = TYPE_ONE_POINT_TRIMMING;
- 
-+	if (data->soc == SOC_ARCH_EXYNOSAUTOV920) {
-+		if (of_property_read_u32(pdev->dev.of_node, "samsung,sensors",
-+					 &data->sensor_count)) {
-+			dev_err(&pdev->dev, "failed to get sensor count\n");
-+			return -ENODEV;
-+		}
-+	}
-+
- 	/*
- 	 * Check if the TMU shares some registers and then try to map the
- 	 * memory of common registers.
-@@ -1006,7 +1245,8 @@ static int exynos_tmu_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct exynos_tmu_data *data;
--	int ret;
-+	struct thermal_zone_device *tzd;
-+	int ret, idx;
- 
- 	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
- 	if (!data)
-@@ -1084,11 +1324,19 @@ static int exynos_tmu_probe(struct platform_device *pdev)
- 		goto err_sclk;
- 	}
- 
--	data->tzd = devm_thermal_of_zone_register(dev, 0, data,
--						  &exynos_sensor_ops);
--	if (IS_ERR(data->tzd)) {
--		ret = dev_err_probe(dev, PTR_ERR(data->tzd), "Failed to register sensor\n");
--		goto err_sclk;
-+	for (idx = 0; idx < data->sensor_count; idx++) {
-+		tzd = devm_thermal_of_zone_register(dev, idx, data, &exynos_sensor_ops);
-+
-+		if (IS_ERR(tzd)) {
-+			if (PTR_ERR(tzd) == -ENODEV)
-+				continue;
-+
-+			ret = dev_err_probe(dev, PTR_ERR(data->tzd_array[idx]),
-+					    "Failed to register sensor\n");
-+			goto err_sclk;
-+		}
-+
-+		data->tzd_array[idx] = tzd;
- 	}
- 
- 	ret = exynos_thermal_zone_configure(pdev);
 -- 
-2.50.1
+2.33.0
 
 
