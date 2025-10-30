@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11FAACCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9F1CCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zdVtCVfiDUJY2QRSa6ubd540pBgj+UbwTkasKdXjGc8=; b=WAyrsof8+cgAzqtUR5H/Yny80+
-	hDYTYI+Dyp3yNLD0ngGASfAqAQjQPXaldo42NlCY0uxeDK4NxVNn+oFe9grDkUMkfz5y10KTENjkg
-	7ZSmQKPKFy21qUrGfjodiMnRorWYdQJsqNyKz5taz9vu9oHOZvaVMLeAEe/KMXTzQQJ6FeSkZhaP/
-	0lrqdj1Dzp1ciaYeo3B2X5wm7/efikY/BQr+nH7ns4xZPkEV/Pbex7GcBYjEdHvrnpCD3jGCQDi55
-	nAiIkxCn/e5cLc4Bhyf1Np6h8bCdcxiRFvZ14mhfnQVO7j2tgpDe697bRVC/H4djc/I5YZDJKxjoL
-	tN1SxGng==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RoyBPsQbxCeIyoPQ2zrzEdmuX54xkmjv6HtTh7tX2pE=; b=HnkYZc1ZnnrUQ9aT/Ev+vvO4h7
+	A3QVyLIQYo4bnyip7Vd+wsfCqfaDZ59o0rqJoovvXriFoUQ9mJY6FhYSbhft59feQteRSmzIh4Q6x
+	XnLkADxnQrfTQ374B7/ysEqP0lCFXNNg3rRqq7LF0oNQBbCqK3t78KO3uDRc8TxrP9C6r8OiAMCPc
+	KjnMPjFQIr4nl1jkY183H0i8Zi1btq+KZ3SyNjySzVbU1QnGnJLFWNljkGjmDIG9+YG7bHwOtUDga
+	UQ3criLml9zOjyZ01IEFX2Cv++wOS4nIRqmHhIJAfRG+01v0xtFGkapcFteUAxvuyLpSvda+1G7SQ
+	VHKPiyAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPpX-00000003yJu-0VwY;
-	Thu, 30 Oct 2025 10:24:31 +0000
+	id 1vEPpi-00000003yNv-0BjC;
+	Thu, 30 Oct 2025 10:24:42 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPpT-00000003yID-3gkd
+	id 1vEPpW-00000003yJK-2ui2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:24:29 +0000
+	Thu, 30 Oct 2025 10:24:31 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id F1A6F1A1777;
-	Thu, 30 Oct 2025 10:24:24 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 51D581A177B;
+	Thu, 30 Oct 2025 10:24:29 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C6AB36068C;
-	Thu, 30 Oct 2025 10:24:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 944B711808821;
-	Thu, 30 Oct 2025 11:24:20 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 284156068C;
+	Thu, 30 Oct 2025 10:24:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3D81911808821;
+	Thu, 30 Oct 2025 11:24:27 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761819864; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=zdVtCVfiDUJY2QRSa6ubd540pBgj+UbwTkasKdXjGc8=;
-	b=S21umYqAgjNff5fVFSM/v0k2+VI/p7qqt8SqvBrP5KdXmvpQGUEwmAtuPBbsu5r+Sq0a1e
-	3cxNaDteFBBQPzfDirBNcPSRuBZuZYv7CQ6EqAKkvN97YulSQqvBEnCS/JNH1eeY49Qm1h
-	GNvP6azosIBNgJUi/IIUwwuBD248G9koy3EIJ9jp1ohGjVuZqDTZlNUvm8El+VL2la6I7n
-	66wCdKhH5D7SS6oATjBhyWUeQf/QkYdFVld/tr4n82dCx+4TZe38i2X9UkMB4EuChDVm4I
-	/Y+BnL3kfrnTY++CJQjAdDyVSq9thL1Uo+Jjzd5eYABIPe5ztSVjr9s6IX2G/A==
+	t=1761819868; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=RoyBPsQbxCeIyoPQ2zrzEdmuX54xkmjv6HtTh7tX2pE=;
+	b=cuKxX9meA+bNJDneTgaqLKGwAeRY7C04U2PFcPPzTSTA9uWBDYQ0LRTaKNwIBFSD3I7Bzi
+	ObVIj158RqAaCWrwRf9txLznrlOKryzaZB4nwF/0oqyKVx6pQk4raE090zw2mci+BK9iQT
+	IibgK5D/5bmfhh3kOoQ/0WCrv+mWKZ6GYTSxggeieViKa0kDvlnHHMpZgXhRGX83uf6qMn
+	LMz1d22VP5UDc72kb0mtMhlR5Nbd7K9ZX/GJJuets1I14b0pBELKf/wU/HCy6VqQjljV8h
+	fEl0yPKiC2m8yS8kVIGzr9BoMaobqKdZWONokoR5helRQmT8GiWYVCRPXvtaUA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -58,17 +59,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 0/4] net: altera-tse: Cleanup init sequence
-Date: Thu, 30 Oct 2025 11:24:13 +0100
-Message-ID: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 3/4] net: altera-tse: Don't use netdev name for the PCS mdio bus
+Date: Thu, 30 Oct 2025 11:24:16 +0100
+Message-ID: <20251030102418.114518-4-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
+References: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_032428_048398_FB1CFA37 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_032430_871941_DFE78BAE 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When Altera TSE was converted to phylink, the PCS and phylink creation
-were added after register_netdev(), which is wrong as this may race
-with .ndo_open() once the netdev is registered.
+The PCS mdio bus must be created before registering the net_device. To
+do that, we musn't depend on the netdev name to create the mdio bus
+name. Let's use the device's name instead.
 
-This series makes so that we register the netdev once all resources are
-cleanly initialised, that includes PCS and phylink creation as well as a
-few other operations such as reading the IP version.
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/ethernet/altera/altera_tse_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-No errors were found in the wild, so this series doesn't target net, but
-given that we fix some racy-ness, a point could be made to send that to
-net.
-
-This series doesn't introduce functional changes, however the internal
-mii_bus for PCS configuration is renamed.
-
-Maxime Chevallier (4):
-  net: altera-tse: Set platform drvdata before registering netdev
-  net: altera-tse: Read core revision before registering netdev
-  net: altera-tse: Don't use netdev name for the PCS mdio bus
-  net: altera-tse: Init PCS and phylink before registering netdev
-
- drivers/net/ethernet/altera/altera_tse_main.c | 37 +++++++++----------
- 1 file changed, 18 insertions(+), 19 deletions(-)
-
+diff --git a/drivers/net/ethernet/altera/altera_tse_main.c b/drivers/net/ethernet/altera/altera_tse_main.c
+index c74b1c11d759..a601ba57190e 100644
+--- a/drivers/net/ethernet/altera/altera_tse_main.c
++++ b/drivers/net/ethernet/altera/altera_tse_main.c
+@@ -1404,7 +1404,7 @@ static int altera_tse_probe(struct platform_device *pdev)
+ 			 (unsigned long) control_port->start, priv->rx_irq,
+ 			 priv->tx_irq);
+ 
+-	snprintf(mrc.name, MII_BUS_ID_SIZE, "%s-pcs-mii", ndev->name);
++	snprintf(mrc.name, MII_BUS_ID_SIZE, "%s-pcs-mii", dev_name(&pdev->dev));
+ 	pcs_bus = devm_mdio_regmap_register(&pdev->dev, &mrc);
+ 	if (IS_ERR(pcs_bus)) {
+ 		ret = PTR_ERR(pcs_bus);
 -- 
 2.49.0
 
