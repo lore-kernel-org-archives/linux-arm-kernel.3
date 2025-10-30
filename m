@@ -4,94 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B68CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A33CCCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2FvrWgtYM1o1H3GtR4yRdUrofDJ3VZExWe4rEvgf3XU=; b=qKln/1sfPZ/F7RqSiNB3AoPIko
-	ug5Xwzuk7yvQ0AVDmuhjTUrplUVNElxxsA1sjDKeV83LoGX9Fv0j643OUa5S3sJ/44XtSjbFGndTA
-	4SXAGztemxn87lc4mwnNcys+SYNvQRWOBqJJJeCgbPB90nf++HuWaJQ45yVo5Qepc5/B3q+9xMPIY
-	iXVAf9U2HmVVnytZhU4tN3EyyR34V0iIXGZnSjOaJZINqWM7R7coWAGkIPIfnfBoW3dv3OPsk9aXV
-	KaVzc0iHFTmxh9YPKgh0WOpx0+fTLh9D9eQ2ULcPPq5G9iv7p2BszFCdeJeo1X9z/72A4wZfVwPJV
-	2f9eaxbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EV83WM6/jrqF5vDr8Ml3Shmm4SJDHQ5N0i6FQeqV0c8=; b=E1Hk1X3MQgdoWnrYOZH30T48YQ
+	iYSIYM5Y5QlUSvCn0qSvotjignr2ELE0GNYYdLifEO2vbWrDW7A8vW/FDRx/iRJgF0LJXC3GgGzog
+	qyN0ri4O2EAyCitzQjcZmtj/anYX7IPfVGsVmukmwHFguwT7ydjJnmZN4/jAkTYFWumSkYV26SOo0
+	0GzN9RSBLPN7rM4qQMMIax2gtKNXFDKFitQl7jpzwMw8qaTcsOyUORkiaWg9pmudOMtSCSBxA35um
+	vztwvcdkaNG/bDliFYonf0u0mE3WrpkZBv1v3pciEuwY0vOvAfm+afwHJrjV/YEryP3VpSXUbZGxf
+	pcbynd1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESPR-00000004BIR-3XTq;
-	Thu, 30 Oct 2025 13:09:46 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vESWS-00000004Bhg-3BbU;
+	Thu, 30 Oct 2025 13:17:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESPP-00000004BHg-2ZCI
+	id 1vESWR-00000004BhY-465D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 13:09:44 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3ee64bc6b85so1018628f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 06:09:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761829781; x=1762434581; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2FvrWgtYM1o1H3GtR4yRdUrofDJ3VZExWe4rEvgf3XU=;
-        b=jGx5lstS8GWO+41DW5QVEs2+n8lU8iZf2fXsEHmmBRLPfJdIfxh3gwcaNKKvZSdXoV
-         g+Ik4Oa1rsecyBjIF+JFDVNBmicFEPWYMruU/R98Vu4z4LXzcCek83rBEQRf7GAY+dqq
-         Jix0CtiCBNQoOevWXnsoVciANTXU4/EYlKaaZgjqvh9SY6ISaHaqaU+UjlOcLEUkq9en
-         9zJZXHPCFuLvddT4jt34WiGQ08xxYgCYtTDSSVUASXtaDcIK4xStj2sx4M8WzqW49TtX
-         z7XT0ple7gndKuoqS3E0+P14E5k0tm8m/y2gHge3OKBJ6xNdq1eKbDsoICXRMXeQzCIs
-         SvlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761829781; x=1762434581;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2FvrWgtYM1o1H3GtR4yRdUrofDJ3VZExWe4rEvgf3XU=;
-        b=ukQQHWNDWp36dDklv8nbLnlHYg5GVfA8gVeQluPnLquE2nkn9pxiDM2TB3gwTdFR3c
-         6Kn3zJYQVSOBVQNev68cp85GFUt+O9oApBnR4pja1nE5fMgZtPOm7+HLVFXlvgFYlxO2
-         +VcP4Dh97gRafviOyaB1e8r1mGmoVDdTct9Xp+gxuKVpdqtbkzyVrdhTzvCHFFbQCUz5
-         Bxr5dJH4q+SAGXruzqs/SKURVo3AVQ2hEhhfbb/osIPKOgI6Fm5w9hds68VI+lX1fLy8
-         61bRqFLMGrqruEw0dvH7Kkgbt+IkCXuUl2MsB5wO1sP9xW+WALDvbvmclGYxlfuZa9AY
-         qObQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZn1yXrc95y0Bc5ma4KEqdbCV7GC5TwN+MYtNFA/2UzZ4fX8wqysun67xghpI+Ii2+VCITCUzRHxvt4M5Ex6fi@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywz0Elbba0tDL0PgA8QHi/YOG8cGGWOX4RHZwl+7D61xC8mE5TI
-	6UTYiGH4OAcLmkPApsHR+w77ZDSLmmnseyTsOA6FYmHGtWH/GPtqMbCh
-X-Gm-Gg: ASbGncsUhNVWdjphBkitfoQSXrV3n6SJD7ycns7Mye/3N1O22DBikcYVD5wYbWW/o3W
-	ETLZrZ/bf6/WDs2YvsbSwgUNAB4pwTSgnm9Wkm4h4DVYGIOTHSqGB78kSS9MVEib3wNFP44LBRW
-	kmr9g7TznFPf0tpLwQcpbOmP/abDVTrbE7iwoK6Wrne0++MJV3fN5/q9zAUPjf3lO0bWb3nNmCZ
-	dksihxYkUlxQpy+u4E/46yFhaywxoISL9RPJwQyky7nEhl/ymOX8pm+nendVKjoDP/t7ts7C1tb
-	LtdouHEzYDmBu87izq2SUm0FjEwThSH53mNqIXWFzksLZ4aq5dVXktU4c25cymHs98vZ69UNF0h
-	aXyvHaV/PoeefKqRa9rA5TooNlQuHFWuW9qlnVS1GwIzUd2h/eD6hev276NJGxR070IIlP7xfy1
-	CFfbbygssmLgVM4xqj7PgzC4fa1zUDFwU9SSJKVEkm5PI8+37I4vI1odUCWw0jjtHtraYbb+ZNP
-	c92lQcmsd9lLrv3m/iXySAQzBnhpUvBXe0ibugABWGn7W0=
-X-Google-Smtp-Source: AGHT+IHt0qZj97JBfhSm3bU2Z3jejv68CgVJx0PCPzKZeY8wdWN+4MGQv4dUD3at1v6e8mwpzpu6rQ==
-X-Received: by 2002:a5d:5f96:0:b0:429:8d0a:8108 with SMTP id ffacd0b85a97d-429b4c8a0acmr2867282f8f.24.1761829780332;
-        Thu, 30 Oct 2025 06:09:40 -0700 (PDT)
-Received: from ?IPV6:2a02:8440:750a:26fd:c3f7:5627:ab4b:232f? (2a02-8440-750a-26fd-c3f7-5627-ab4b-232f.rev.sfr.net. [2a02:8440:750a:26fd:c3f7:5627:ab4b:232f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952ca979sm33491156f8f.14.2025.10.30.06.09.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Oct 2025 06:09:39 -0700 (PDT)
-Message-ID: <287da4e3-0a28-42a3-8f59-7e41dde4d20c@gmail.com>
-Date: Thu, 30 Oct 2025 14:09:38 +0100
+	Thu, 30 Oct 2025 13:17:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 076B4603F5;
+	Thu, 30 Oct 2025 13:16:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3475FC4CEF1;
+	Thu, 30 Oct 2025 13:16:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761830218;
+	bh=p1oi9eqzR7XLk7EvgwixRFUvSNC+OJwVHhPFU4hofwE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h4Ddn9+Q6AGK4KmNZwJ9aj81oxsP7hNNhC8a1UPNcHaLH3tl3AYaG3cntuDB68B0a
+	 hXhqX+9JB96h9/dJ36IFsv8YkblVSlmro2LVPBSqCT2dMi47gx3sjCwO2UiQ+fj6i9
+	 XO4iecQ8IRf4p5CepuShE1LCi3G6pgC3QzdgH9jeDLiGr7LhtBtrTYzhSA0DaCeWOo
+	 8YImVqW/ahkjVEqDr5ngaVRXljvOgDR9mQ+MY4/tZ37vQcf+UUinVhUGxGeMC5qmCS
+	 SOSXPy1bVbr145CJ+8SXRy9dKn9BMReyPiuRDsTbd4AmsedIJxYZ5+aw5zNPL4ts5F
+	 blkM0FjlZeOBA==
+Date: Thu, 30 Oct 2025 13:16:53 +0000
+From: Will Deacon <will@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Yang Shi <yang@os.amperecomputing.com>, ryan.roberts@arm.com,
+	cl@gentwo.org, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: mm: relax VM_ALLOW_HUGE_VMAP if BBML2_NOABORT
+ is supported
+Message-ID: <aQNlRQO7oXUcR84A@willie-the-truck>
+References: <20251013232803.3065100-1-yang@os.amperecomputing.com>
+ <20251013232803.3065100-3-yang@os.amperecomputing.com>
+ <eaa67b0d-e256-4db6-82e7-c4d56df70c09@arm.com>
+ <05331884-9723-48ff-a3ce-c2ea023bbabd@os.amperecomputing.com>
+ <ceae80d4-ae63-4bf7-bf97-1d6b5b090aad@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: stm32-mdma: initialize m2m_hw_period and ccr
- to fix warnings
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>,
- Vinod Koul <vkoul@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: dmaengine@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-References: <20251030-mdma_warnings_fix-v1-1-987f67c75794@foss.st.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-In-Reply-To: <20251030-mdma_warnings_fix-v1-1-987f67c75794@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_060943_664105_CF319B6E 
-X-CRM114-Status: GOOD (  20.76  )
+In-Reply-To: <ceae80d4-ae63-4bf7-bf97-1d6b5b090aad@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,54 +75,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/30/25 13:26, Amelie Delaunay wrote:
-> From: Cl√©ment Le Goffic <clement.legoffic@foss.st.com>
+On Fri, Oct 17, 2025 at 09:20:10PM +0530, Dev Jain wrote:
+> On 17/10/25 12:20 am, Yang Shi wrote:
+> > On 10/14/25 11:50 PM, Dev Jain wrote:
+> > > On 14/10/25 4:57 am, Yang Shi wrote:
+> > > > When changing permissions for vmalloc area, VM_ALLOW_HUGE_VMAP area is
+> > > > exclueded because kernel can't split the va mapping if it is called on
+> > > > partial range.
+> > > > It is no longer true if the machines support BBML2_NOABORT after commit
+> > > > a166563e7ec3 ("arm64: mm: support large block mapping when
+> > > > rodata=full").
+> > > > So we can relax this restriction and update the comments accordingly.
+> > > > 
+> > > > Fixes: a166563e7ec3 ("arm64: mm: support large block mapping
+> > > > when rodata=full")
+> > > > Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> > > > ---
+> > > > † arch/arm64/mm/pageattr.c | 13 +++++++------
+> > > > † 1 file changed, 7 insertions(+), 6 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> > > > index c21a2c319028..b4dcae6273a8 100644
+> > > > --- a/arch/arm64/mm/pageattr.c
+> > > > +++ b/arch/arm64/mm/pageattr.c
+> > > > @@ -157,13 +157,13 @@ static int change_memory_common(unsigned
+> > > > long addr, int numpages,
+> > > > † ††††† /*
+> > > > †††††† * Kernel VA mappings are always live, and splitting live section
+> > > > -†††† * mappings into page mappings may cause TLB conflicts. This means
+> > > > -†††† * we have to ensure that changing the permission bits of
+> > > > the range
+> > > > -†††† * we are operating on does not result in such splitting.
+> > > > +†††† * mappings into page mappings may cause TLB conflicts on
+> > > > the machines
+> > > > +†††† * which don't support BBML2_NOABORT.
+> > > > †††††† *
+> > > > †††††† * Let's restrict ourselves to mappings created by vmalloc
+> > > > (or vmap).
+> > > > -†††† * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that
+> > > > only page
+> > > > -†††† * mappings are updated and splitting is never needed.
+> > > > +†††† * Disallow VM_ALLOW_HUGE_VMAP mappings if the systems
+> > > > don't support
+> > > > +†††† * BBML2_NOABORT to guarantee that only page mappings are
+> > > > updated and
+> > > > +†††† * splitting is never needed on those machines.
+> > > > †††††† *
+> > > > †††††† * So check whether the [addr, addr + size) interval is entirely
+> > > > †††††† * covered by precisely one VM area that has the VM_ALLOC
+> > > > flag set.
+> > > > @@ -171,7 +171,8 @@ static int change_memory_common(unsigned
+> > > > long addr, int numpages,
+> > > > ††††† area = find_vm_area((void *)addr);
+> > > > ††††† if (!area ||
+> > > > ††††††††† end > (unsigned long)kasan_reset_tag(area->addr) +
+> > > > area->size ||
+> > > > -††††††† ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+> > > > +††††††† !(area->flags & VM_ALLOC) || ((area->flags &
+> > > > VM_ALLOW_HUGE_VMAP) &&
+> > > > +††††††† !system_supports_bbml2_noabort()))
+> > > > ††††††††† return -EINVAL;
+> > > > † ††††† if (!numpages)
+> > > 
+> > > This will conflict with my upcoming vmalloc-huge series, so best to
+> > > leave it to me,
+> > > I already have this included :)
+> > 
+> > My point is that I hope this can be merged as a hotfix for 6.18. I have
+> > no strong opinion on either the maintainers take this one or from your
+> > series. But if this will go into 6.18 as a hotfix, it should be also a
+> > prerequisite patch (standalone)† in your series, and the rest of your
+> > series should be based on top of it. Of course this argument will not
+> > stand if we don't care to have it fixed for 6.18.
 > 
-> m2m_hw_period is initialized only when chan_config->m2m_hw is true. This
-> triggers a warning:
-> ‚Äòm2m_hw_period‚Äô may be used uninitialized [-Wmaybe-uninitialized]
-> Although m2m_hw_period is only used when chan_config->m2m_hw is true and
-> ignored otherwise, initialize it unconditionally to 0.
+> I see what you mean, but I don't think this patch should be treated as a
+> hotfix. We forgot to relax a
 > 
-> ccr is initialized by stm32_mdma_set_xfer_param() when the sg list is not
-> empty. This triggers a warning:
-> ‚Äòccr‚Äô may be used uninitialized [-Wmaybe-uninitialized]
-> Indeed, it could be used uninitialized if the sg list is empty. Initialize
-> it to 0.
+> restriction - that's fine. That is not an incorrectness in the linear map
+> series. A fix usually
 > 
-> Signed-off-by: Cl√©ment Le Goffic <clement.legoffic@foss.st.com>
-> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-> ---
->   drivers/dma/stm32/stm32-mdma.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/dma/stm32/stm32-mdma.c b/drivers/dma/stm32/stm32-mdma.c
-> index 080c1c725216..b87d41b234df 100644
-> --- a/drivers/dma/stm32/stm32-mdma.c
-> +++ b/drivers/dma/stm32/stm32-mdma.c
-> @@ -731,7 +731,7 @@ static int stm32_mdma_setup_xfer(struct stm32_mdma_chan *chan,
->   	struct stm32_mdma_chan_config *chan_config = &chan->chan_config;
->   	struct scatterlist *sg;
->   	dma_addr_t src_addr, dst_addr;
-> -	u32 m2m_hw_period, ccr, ctcr, ctbr;
-> +	u32 m2m_hw_period = 0, ccr = 0, ctcr, ctbr;
->   	int i, ret = 0;
->   
->   	if (chan_config->m2m_hw)
-> 
-> ---
-> base-commit: 398035178503bf662281bbffb4bebce1460a4bc5
-> change-id: 20251030-mdma_warnings_fix-df4b3d1405ed
-> 
-> Best regards,
+> fixes an incorrectness.
 
-Hi Am√©lie,
+Right, unless there's a real functional issue that is affecting people
+then I don't see the need to take any of this for 6.18.
 
-Thank you for upstreaming this patch.
-You can add my reviewed-by tag:
-
-Reviewed-by: Cl√©ment Le Goffic <legoffic.clement@gmail.com>
-
-Best regards,
-Cl√©ment
+Will
 
