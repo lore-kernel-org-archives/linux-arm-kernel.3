@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05649CCF9F5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD13CCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZsPngKrFqfEFSGok7TSQm60g/euZJ7JcyyRZuGnNgBg=; b=Wd+uw2334XhkCrXFfAiHKMPElr
-	HRMbfEfGn7c40L/BdmqpkJl91w9DtbuFAnyOZ+4eO1DMwacbENUSQmfh1nUoPH4fjBb32FV0/Jd3k
-	nHTzH7+c/RbxuPGsZgXSIvhydvI/UbwW6xUBedUvkaAX3SbZzs8nEcJaePjYiLcFC5jhqGCH4xMF1
-	ai2+lKPnPf3JIaup/BX5m+9ebRIiqKyPVojQypdLI/vNb0gm9PfeyxOFAu/jKed+bXhsLTrUgL+28
-	4uo0pES5wwYHKYdXMpJQ6/p3cjwpJpC7gU1urH0lquj/lzJSQPoJvJmpaws6arEieIaJ0sE03TtWO
-	yqtxkSsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pOUI6cxSed1WQfo70/VQEmJ4lXItbqCOETPLTFUe/AY=; b=T98QqkhUbCSyPP/9/wPJwPpUMH
+	9ckGG9sp0wJK6Ga/2sYv5poaz6IZAWvTqpcCrh/NiNmIJ2TrPL17TcTCiJdaULYLC7hEfsMjH8A0g
+	8/if2FyBk0B2EbpOLaoTvS1XJ8Pj9Yg5wGP1HaS0+oU75gpvC7gVJWRFGVBPhqwLsm5MN6kBIrLdo
+	AD/vDUuQ3jc3La4lwy82LD/1BXmNbW+tEjblCVa/ehVAth6qULwWM2AWCu7okSwh3Q1NehZBD2Fh6
+	bYhFzf1Wmkl7f3ATLBkfZ8ASSTcA1m2eZMxpjEVnMe/F/SAJx63MyCVPuq6XL1FupJjS3L+/+3yiG
+	qJKRwgqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPzs-00000003zzX-1ELM;
-	Thu, 30 Oct 2025 10:35:12 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vEQ18-000000040Bm-2QI5;
+	Thu, 30 Oct 2025 10:36:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPzo-00000003zyL-2jeS
+	id 1vEQ14-000000040Ap-2gND
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:35:10 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3ee64bc6b85so883964f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 03:35:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761820507; x=1762425307; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZsPngKrFqfEFSGok7TSQm60g/euZJ7JcyyRZuGnNgBg=;
-        b=eLqfI6/NejaTxmSkjks4JpqHE0xayZ+6GEWyG5OXmUEghiMnEqv/9uyzXLBX4is/ZU
-         yTKxyCWdGLxlKV8t0h2ykyDQzcwkNAGSWOBAoqBh2021MPDfqXwcC1AylaxdOSCO0H79
-         EMgoiqkC4u75r/lOZFHxOH1gMKmsrukQF9eC1H3fx4SaRy80mzW8Xtl+VybvXyiCOREF
-         KkfFZ+vrP/R+4qjmWYE6/j12Jia0BlczBy7Xyq5fQrN4JdmdCbrx9w6WrRZlxSmQNef4
-         icSV0VzvZrPP80TM0GUpIdo/bmOIV5uev7hmgrZHe/ax5PKlbpX4Rt2eV0pvARAKkdPJ
-         9LTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761820507; x=1762425307;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZsPngKrFqfEFSGok7TSQm60g/euZJ7JcyyRZuGnNgBg=;
-        b=pV2vrTo4lzk6DefiSXe2gAHcbmp79Dm0adTt+sPW5di46aOaI7R7aRX4XoaudXxhuv
-         kT3FxfFcX5jcNR8W16RLfZXHwxdVg29WwTWe5rRZKfC1O3BDhyTl+0pVlw+sgNIQZzl7
-         pgvYpv2H60e4vt1DgWNXlBfmulcYc30QjLBmt6me9rs8+dZXWQZYLbsBgDSP0OwmCWJP
-         gIG8A7R/lQJ+C57O0mXs180k4it0CFOph602taQth0lCcbjED4Z1/trBQ8QEJrv1IrSY
-         na1dAKyGBqtA3MZ4NYsAZWXYGRZEZJMh+dSRqBE1UuFV+/IkfqHpsCviOYo41Of0R2Nx
-         GLYw==
-X-Forwarded-Encrypted: i=1; AJvYcCVa5PEFM2tOHElCUxozF39apEmC+woM2M8hz1+3lrg0uIHcnnue8ZJ2WNHi22PYwjlBlJq1rtxWcF6CAwCinZgS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwINAcaNqzQhMIcWfh5ZdSY1nV08Bog3dEIs5bpEmNbSUCi5R6F
-	Efbrtd15y2d2pmqSu02YwTz6hv23/PsXBQ4i6vqeEN+xSKGijygAaL5b
-X-Gm-Gg: ASbGncvDEMa6L82DR5Cd/Em9bc+bAi9UW+RjiQVfQJYZ4I6rHnzZJoRn7+1v6R42ltX
-	SGQhmy7YYC5C4I0HSdofMMlIkllppyNE/HvZAti2pKA6e9kszGpvdaFPEjVFgDPRU6dxaC1Pp4x
-	dvqjRSjY9WQpHY6ei8lIjNLV3rAjwuiA/m/6PBBvdHbGO5t310lqZYv2FhxgspjsBEIzeRXsCVg
-	IfUpY7ATp96z42jyQfPBSZJ8bNnq0zonwIKNKPZFtalZlfmqSJIL3XVWz6uyMunaKr5WPIww3QL
-	nAerpjWpJ59zeXi1blvpxZR+TYtSDlQemYpRcf3hBBnI5snlKzkguBP0zNq+lhWxgbE9GribtSK
-	wjRXMDdLUC71CRRix1fFeg2C71WbDHrPdvi2zaHPUIIJK7KN1TSLL6DE5Ih1tWZlsZzHMtftbBQ
-	4ZVIvOQaI5KlqDU+htTTWuiZkB5f9X
-X-Google-Smtp-Source: AGHT+IESaUzzzN97jkFB4AyHPl8jIeK4DpYfr+xMeimLxz4XvTZuV9U4wyHB6rScPa52l5uDwp+EVw==
-X-Received: by 2002:a05:6000:2c05:b0:428:3e7f:88c3 with SMTP id ffacd0b85a97d-429b4c9ee77mr2317234f8f.50.1761820506460;
-        Thu, 30 Oct 2025 03:35:06 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-90-37.ip49.fastwebnet.it. [93.34.90.37])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952d4494sm31832354f8f.21.2025.10.30.03.35.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 03:35:06 -0700 (PDT)
-Message-ID: <69033f5a.df0a0220.25fede.548f@mx.google.com>
-X-Google-Original-Message-ID: <aQM_WCsuEDykB4e1@Ansuel-XPS.>
-Date: Thu, 30 Oct 2025 11:35:04 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v2 2/2] net: airoha: add phylink support for GDM1
-References: <20251023145850.28459-1-ansuelsmth@gmail.com>
- <20251023145850.28459-3-ansuelsmth@gmail.com>
- <aP00w4CQdeX9GIJA@shell.armlinux.org.uk>
+	Thu, 30 Oct 2025 10:36:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BF7C45897
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0927CC113D0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:36:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761820586;
+	bh=EWFesmgztVELijrKVyAIw58RaW5qiWVySUAVHUAu/+U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=dSGT/15Kfa4OjyCbAC3SF32XVKb7iNe5i2e4rxYDvK+/9ZzBSpT0ZAMJfDHB1bcP2
+	 hp5kUsmaBwE0hUemzCE8xVONjhfFtAVrRoKKP13YBZa7NSi8axpICuho4I7H7pyOXn
+	 jdM+sxNM2/bMtwb/8zTeW1KCgChee/4k78ddKWL5YKaucYtJvcIMlwzOhYUO7mPGey
+	 9i/5Nf9FD59c14UP/zd1Kar2xylXV8dSZNyLvDNGacgpUNIjWv8EmRHggYRoep7d3a
+	 cC2Z6yFL0DTwcMRBC0hqJqNbd74O1SUUL2lp4zC10zY5eFpCTEe1YISaoNMaN+mcRb
+	 csZ/MUE3SsF4Q==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-57f0aa38aadso1288988e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 03:36:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX+ebrnaBG2RFPhRMCHGvVIenR57qmYzPE8oYPvpv+JvTGaBUrseXj6qbitG1OJMETaRCllTD8nCw81yzs4sctM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKVWeJWdDkzLjlhwmLSG14RR7wTtnXukgbf8YmAifLiVSijgH7
+	MG9ZAPoFJDv+Oi4bDjg5Phreu7bfX5DU4hEePpfJYTSy0mgYxW22iHJ9Wz0TzP/+1e9qvjEh/1C
+	nDvN+JQj09ojhctqz3yKbsDz+Wm9NvbE=
+X-Google-Smtp-Source: AGHT+IHR/19RmctxNKLqKlIM6A9WMpVSviX3cRXYR7NP88oXpyxxA4MhRkufffXBTnPae5fME9y34v1H81TPMSh2mxo=
+X-Received: by 2002:a05:6512:39c5:b0:592:fa97:e167 with SMTP id
+ 2adb3069b0e04-59412a07650mr2713264e87.51.1761820584347; Thu, 30 Oct 2025
+ 03:36:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aP00w4CQdeX9GIJA@shell.armlinux.org.uk>
+References: <20251023082129.75612-1-maqianga@uniontech.com>
+ <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
+ <10D9A93B0633E6BE+75720e07-b39d-452c-952e-41f8ab6aad94@uniontech.com>
+ <CAMj1kXHQ6WQWfbkMP4JUk=nKwSt7CovY25RC4JA0ZM7vRWu6dA@mail.gmail.com>
+ <9F7F632B7963434F+abad2548-a90d-4448-ae79-dd4bf637ee6e@uniontech.com>
+ <CAMj1kXHu5ABgxKsc_gg1j=pWMz6DbWoqv=qAAjx-5CiSF2PAiQ@mail.gmail.com>
+ <BD93A8DBE27154B0+22bf4a83-a850-4f78-8e0d-84cc93fe2715@uniontech.com>
+ <CAMj1kXFUUCoE=gZ0kTMKx87qnJMU9J9skT75STTKjjakXb8kmw@mail.gmail.com> <89364700AD0CD6E1+dd8d745f-5a72-4b0a-80db-eaa1d00c4e64@uniontech.com>
+In-Reply-To: <89364700AD0CD6E1+dd8d745f-5a72-4b0a-80db-eaa1d00c4e64@uniontech.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 30 Oct 2025 11:36:13 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHpJ3gz=+Keswx0MZ8v6YQENR2pjeS_CE6g4cXML2LQhA@mail.gmail.com>
+X-Gm-Features: AWmQ_bmO2T77I4AkXqTFCl7Na2UIDeYUBNoQV7BXje2VupPA54kyxqhBixnA39k
+Message-ID: <CAMj1kXHpJ3gz=+Keswx0MZ8v6YQENR2pjeS_CE6g4cXML2LQhA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
+To: Qiang Ma <maqianga@uniontech.com>
+Cc: linux@armlinux.org.uk, linux-efi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_033508_724134_FC3DE0BA 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20251030_033627_696036_05AF8A5F 
+X-CRM114-Status: GOOD (  29.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,140 +90,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 25, 2025 at 09:36:19PM +0100, Russell King (Oracle) wrote:
-> On Thu, Oct 23, 2025 at 04:58:49PM +0200, Christian Marangi wrote:
-> > In preparation for support of GDM2+ port, fill in phylink OPs for GDM1
-> > that is an INTERNAL port for the Embedded Switch.
-> > 
-> > Add all the phylink start/stop and fill in the MAC capabilities and the
-> > internal interface as the supported interface.
-> > 
-> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > ---
-> >  drivers/net/ethernet/airoha/Kconfig      |  1 +
-> >  drivers/net/ethernet/airoha/airoha_eth.c | 77 +++++++++++++++++++++++-
-> >  drivers/net/ethernet/airoha/airoha_eth.h |  3 +
-> >  3 files changed, 80 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-> > index ad3ce501e7a5..3c74438bc8a0 100644
-> > --- a/drivers/net/ethernet/airoha/Kconfig
-> > +++ b/drivers/net/ethernet/airoha/Kconfig
-> > @@ -2,6 +2,7 @@
-> >  config NET_VENDOR_AIROHA
-> >  	bool "Airoha devices"
-> >  	depends on ARCH_AIROHA || COMPILE_TEST
-> > +	select PHYLIB
-> 
-> This looks wrong if you're using phylink.
-> 
-> >  	help
-> >  	  If you have a Airoha SoC with ethernet, say Y.
-> >  
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> > index ce6d13b10e27..deba909104bb 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -1613,6 +1613,8 @@ static int airoha_dev_open(struct net_device *dev)
-> >  	struct airoha_gdm_port *port = netdev_priv(dev);
-> >  	struct airoha_qdma *qdma = port->qdma;
-> >  
-> > +	phylink_start(port->phylink);
-> > +
-> >  	netif_tx_start_all_queues(dev);
-> >  	err = airoha_set_vip_for_gdm_port(port, true);
-> >  	if (err)
-> 
-> phylink_start() _can_ bring the carrier up immediately. Is the netdev
-> ready to start operating at the point phylink_start() has been called?
-> This error handling suggests the answer is "no", and the lack of
-> phylink_stop() in the error path is also a red flag.
+On Thu, 30 Oct 2025 at 11:25, Qiang Ma <maqianga@uniontech.com> wrote:
+>
+>
+> =E5=9C=A8 2025/10/30 18:02, Ard Biesheuvel =E5=86=99=E9=81=93:
+> > On Thu, 30 Oct 2025 at 08:37, Qiang Ma <maqianga@uniontech.com> wrote:
+> >>
+> >> =E5=9C=A8 2025/10/29 22:15, Ard Biesheuvel =E5=86=99=E9=81=93:
+> >>> On Wed, 29 Oct 2025 at 10:55, Qiang Ma <maqianga@uniontech.com> wrote=
+:
+> >>>> =E5=9C=A8 2025/10/28 21:42, Ard Biesheuvel =E5=86=99=E9=81=93:
+> >>>>> On Mon, 27 Oct 2025 at 04:46, Qiang Ma <maqianga@uniontech.com> wro=
+te:
+> >>>>>> =E5=9C=A8 2025/10/23 16:30, Ard Biesheuvel =E5=86=99=E9=81=93:
+> >>>>>>> On Thu, 23 Oct 2025 at 10:22, Qiang Ma <maqianga@uniontech.com> w=
+rote:
+> >>>>>>>> In the efi_virtmap_init(), permission settings have been applied=
+:
+> >>>>>>>>
+> >>>>>>>> static bool __init efi_virtmap_init(void)
+> >>>>>>>> {
+> >>>>>>>>             ...
+> >>>>>>>>             for_each_efi_memory_desc(md)
+> >>>>>>>>                     ...
+> >>>>>>>>                     efi_create_mapping(&efi_mm, md);
+> >>>>>>>>             ...
+> >>>>>>>>             efi_memattr_apply_permissions(&efi_mm, efi_set_mappi=
+ng_permissions);
+> >>>>>>>>             ...
+> >>>>>>>> }
+> >>>>>>>>
+> >>>>>>>> Therefore, there is no need to apply it again in the efi_create_=
+mapping().
+> >>>>>>>>
+> >>>>>>>> Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI=
+ Runtime Services regions")
+> >>>>>>>>
+> >>>>>>>> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+> >>>>>>> No, efi_memattr_apply_permissions() uses the /optional/ memory
+> >>>>>>> attributes table, whereas efi_create_mapping() uses the permissio=
+n
+> >>>>>>> attributes in the EFI memory map. The memory attributes table is
+> >>>>>>> optional, in which case any RO/XP attributes from the memory map
+> >>>>>>> should be used.
+> >>>>>>>
+> >>>>>> I see.
+> >>>>>>
+> >>>>>> Then, can it be modified like this?
+> >>>>> No
+> >>>>>
+> >>>>>> --- a/arch/arm/kernel/efi.c
+> >>>>>> +++ b/arch/arm/kernel/efi.c
+> >>>>>> @@ -65,16 +65,13 @@ int __init efi_create_mapping(struct mm_struct=
+ *mm,
+> >>>>>> efi_memory_desc_t *md)
+> >>>>>>                     desc.type =3D MT_MEMORY_RWX_NONCACHED;
+> >>>>>>             else if (md->attribute & EFI_MEMORY_WC)
+> >>>>>>                     desc.type =3D MT_DEVICE_WC;
+> >>>>>> +       else if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
+> >>>>> This will be true for RO, XP or RO+XP.
+> >>>>>
+> >>>>>> +               desc.type =3D MT_MEMORY_RO;
+> >>>>> This will apply RO permissions even to XP regions, which need to be=
+ writable.
+> >>>>>
+> >>>> Thanks for your review.
+> >>>> I see.
+> >>>>
+> >>>> I can introduce a new type MT_MEMORY_RO_XP, to describe RO+XP,
+> >>>> and then we can use the RO+XP attribute to implement memory mapping.
+> >>>>
+> >>> Why? The current code is working fine, no?
+> >>>
+> >> Yes, the current code is running normally.
+> >>
+> >> The reasons for the modification are as follows:
+> >> I noticed that the arm64/RISC-V efi_create_mapping() always return 0,
+> >> but in the code where efi_virtmap_init() calls it, it is as follows:
+> >>
+> >> ret =3D efi_create_mapping(&efi_mm, md);
+> >> if (ret) {
+> >>       pr_warn("  EFI remap %pa: failed to create mapping (%d)\n",
+> >>           &phys, ret);
+> >>       return false;
+> >> }
+> >>
+> >> This return error print is unnecessary, so I want to remove it.
+> > So what is preventing you from removing this from the RISC-V version?
+> >
+> The current idea is to first remove the unnecessary return print from
+> arm/arm64,
+
+Please leave the ARM code alone.
+
+> and then remove RISC-V later, as this RISC-V code is also adapted based
+> on arm64.
 >
 
-So I guess the correct way is to move start at the very end of dev_open.
-
-> > @@ -1665,6 +1667,8 @@ static int airoha_dev_stop(struct net_device *dev)
-> >  		}
-> >  	}
-> >  
-> > +	phylink_stop(port->phylink);
-> > +
-> >  	return 0;
-> >  }
-> >  
-> > @@ -2813,6 +2817,18 @@ static const struct ethtool_ops airoha_ethtool_ops = {
-> >  	.get_link		= ethtool_op_get_link,
-> >  };
-> >  
-> > +static struct phylink_pcs *airoha_phylink_mac_select_pcs(struct phylink_config *config,
-> > +			phy_interface_t interface)
-> 
-> I'd write this as:
-> 
-> static struct phylink_pcs *
-> airoha_phylink_mac_select_pcs(struct phylink_config *config,
-> 			      phy_interface_t interface)
-> 
-> but:
-> 
-> > +{
-> > +	return NULL;
-> > +}
-> 
-> Not sure what the point of this is, as this will be the effect if
-> this function is not provided.
-> 
-
-Sorry I was confused with the other OPs that are mandatory or a kernel
-panic is triggered if not defined. (for example the MAC config)
-
-> > +
-> > +static void airoha_mac_config(struct phylink_config *config,
-> > +			      unsigned int mode,
-> > +			      const struct phylink_link_state *state)
-> > +{
-> > +}
-> > +
-> >  static int airoha_metadata_dst_alloc(struct airoha_gdm_port *port)
-> >  {
-> >  	int i;
-> > @@ -2857,6 +2873,57 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
-> >  	return false;
-> >  }
-> >  
-> > +static void airoha_mac_link_up(struct phylink_config *config,
-> > +			       struct phy_device *phy, unsigned int mode,
-> > +			       phy_interface_t interface, int speed,
-> > +			       int duplex, bool tx_pause, bool rx_pause)
-> > +{
-> > +}
-> > +
-> > +static void airoha_mac_link_down(struct phylink_config *config,
-> > +				 unsigned int mode, phy_interface_t interface)
-> > +{
-> > +}
-> > +
-> > +static const struct phylink_mac_ops airoha_phylink_ops = {
-> > +	.mac_select_pcs = airoha_phylink_mac_select_pcs,
-> > +	.mac_config = airoha_mac_config,
-> > +	.mac_link_up = airoha_mac_link_up,
-> > +	.mac_link_down = airoha_mac_link_down,
-> > +};
-> 
-> All the called methods are entirely empty, meaning that anything that
-> phylink reports may not reflect what is going on with the device.
-> 
-> Is there a plan to implement these methods?
-> 
-
-Yes. For the internal port there isn't much to configure but when the
-PCS for the other GDM port will be implemented, those will be filled in.
-This is really to implement the generic part and prevent having a
-massive series later (as it will be already quite big and if not more
-than 10-12 patch)
-
-Hope it's understandable why all these empty functions.
-
--- 
-	Ansuel
+RISC-V copied the ARM code and used it as a starting point. That does
+not mean it has to remain that way.
 
