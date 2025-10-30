@@ -4,152 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5B1CCF9FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A70FCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7I23mlbCEWa6JxjZEYBLPvkSaPBmEz9swJiLToIAUsg=; b=cCF7dDkruJ5JQyb4a9C5uijJPy
-	AAV2fJA4YaXvhJYbEUESk89i2Ty9tTqiZdkrF15n+voy4pCWr3Xvnefvy1RzrJ18CGGSTE8vO+M0o
-	XXGF93mupMRmNILVR/gNTZ53Scd+6UHPCfX9003YfEeMX2bat9Cbp9yAPEsG0wecsufRJVx16fil2
-	97TrbeTQrYI9T5b8f4TTSgQWq5XhIa9CAj4sOSCF6CBSe7ieSK6NhopVskbZ1T/0tpY0VJRK92iJI
-	RNzBeWt8h1F+cehCRSmBjZ+aJebS9av/MqhXgrV1L8Aw+uwPKsqzsu32PPx3jnOumz4kQ/l/OO6tS
-	mCLKIVPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0lCtokeUmk/Y20w1cJ+JPqCnFGgnUXnW8xJaHXfq3Ko=; b=L3dsRMm+dzRGV+1q7M7QEekdN6
+	IYLq4X5M+wJ8rXhILta/5aw3r1PmFLL2C/oZ7+zcgJ0hyMyVneDWqF518lkkpL2A39v5Q9Pp9XsVD
+	/Jpzg9prPYkkdV3rXBgun2Nkb2y0OezbYbfE9Bnvt/Pz4ueaKEFfRB6nQWE4Ru1FdImRNyutcX4wA
+	MlAkwhTQNYVrDk92tkw3ULM+RtgGgNAi27k7odQbmjhdYkBfqkIXDKl5Gu54Rw0WvC3e2+zir5qsR
+	+kGbAqvO5fsFbHLJWj9fecX1xJJvHzfd0IduRbeis0KE9Er/R7uSPczdej9YdNtEJex9sXVLux4Qo
+	hA6FUiKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESrz-00000004Czb-1CbV;
-	Thu, 30 Oct 2025 13:39:15 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESrv-00000004CzD-1mCS
+	id 1vEStu-00000004DEO-2WcV;
+	Thu, 30 Oct 2025 13:41:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEStp-00000004DCS-0U18
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 13:39:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yUqaWgHxwnHz9PTGNcNOeJpVxH3n1w2p6JQKOQYP3/HQA8pmF+jktHpP7tCLQATXzU7wT7tIYXZgAQZcA0Dqho2+hy226ocncj1Ba1kHMjrFQunFL3tXa4Wopbg7UjR1hNoBJlzaidXi9Vpo0z97f0VgZ9HNN/JAh+umQDsnUnHMr5KLGZj9hPsCIS/UjWFAyKoQBWEnEWBaRjrWmsPzT7Csrmcf7rKd7wvCvcDQtV/m9vpx/p/m7R+NjGHceOJsfgWaPo1CkJwkjmg8LEs9Oclz7C+is7vWSpMSxVdTuzhjpZ8RTUjFFY3OS7d2phF+S+6nJyvvuGQNeDHUAvg7dA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7I23mlbCEWa6JxjZEYBLPvkSaPBmEz9swJiLToIAUsg=;
- b=eFCSuHlkUkaDRrj8VZp0Iu8qMxrhZTp2lGrmbd1Jbpqluw6VqoIX2AY88T1nTfnWtmTcUBrn53znICpFqUVFN9xHJGPWRjCkTcf+OmXXGhnvNfHAQpMXtRJ+CDIWODp6b2sUlIRWbtWcTT6NZat82LplN95CnVuJdkwaMVXVDZJu3ichfIj17R5ASbMWsrZMvhh6wfuEuv2Y0sw1UV7IOeYAV0kmPv5NGig8lc2pbDapnPe4jKl+O0dSDOkw+l5+/d7FVCGGqPdOwqunrdI4Vkw0Xn6KIuweY8bV9YVSw0WST33Zk5l4toEJ3PzYktPUGwfdTX8SrhJw62DE7GRuLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7I23mlbCEWa6JxjZEYBLPvkSaPBmEz9swJiLToIAUsg=;
- b=UnYjXgRAnW+fDlzJ/Aq7VkFAS9/uN+9TGrsV0R3Qme6twWNbNdJkAE5swkWvRIwdaN9R8VYIV5nJG6t5xzxK8R9CJ81/XaKFwHJ+pkS1AP/7faTLXtWu6LhTxbrwhaDy2oP3uBtr4dmjPXWNepmVQaKiuAYYUUndX7LaTkBi+Ng=
-Received: from PH0PR07CA0034.namprd07.prod.outlook.com (2603:10b6:510:e::9) by
- PH0PR10MB5846.namprd10.prod.outlook.com (2603:10b6:510:14c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Thu, 30 Oct
- 2025 13:39:01 +0000
-Received: from CY4PEPF0000EE30.namprd05.prod.outlook.com
- (2603:10b6:510:e:cafe::53) by PH0PR07CA0034.outlook.office365.com
- (2603:10b6:510:e::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.12 via Frontend Transport; Thu,
- 30 Oct 2025 13:39:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CY4PEPF0000EE30.mail.protection.outlook.com (10.167.242.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Thu, 30 Oct 2025 13:39:00 +0000
-Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
- 2025 08:38:56 -0500
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
- 2025 08:38:56 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 30 Oct 2025 08:38:56 -0500
-Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59UDcpcM2241222;
-	Thu, 30 Oct 2025 08:38:52 -0500
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: <mwalle@kernel.org>, <afd@ti.com>, <conor+dt@kernel.org>,
-	<frank.binns@imgtec.com>, <kristo@kernel.org>, <krzk+dt@kernel.org>,
-	<matt.coster@imgtec.com>, <nm@ti.com>, <robh@kernel.org>, <rs@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <detheridge@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p: Fix memory ranges for GPU
-Date: Thu, 30 Oct 2025 19:07:18 +0530
-Message-ID: <176183141857.2766610.13135514120305603944.b4-ty@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250919193341.707660-2-rs@ti.com>
-References: <20250919193341.707660-2-rs@ti.com>
+	Thu, 30 Oct 2025 13:41:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A9211EDB;
+	Thu, 30 Oct 2025 06:40:58 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 31F363F673;
+	Thu, 30 Oct 2025 06:41:02 -0700 (PDT)
+Date: Thu, 30 Oct 2025 14:41:02 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Jie Zhan <zhanjie9@hisilicon.com>
+Cc: viresh.kumar@linaro.org, rafael@kernel.org, ionela.voinescu@arm.com,
+	zhenglifeng1@huawei.com, linux-pm@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxarm@huawei.com, jonathan.cameron@huawei.com
+Subject: Re: [PATCH v2 2/2] cpufreq: CPPC: Update FIE arch_freq_scale in
+ ticks for non-PCC regs
+Message-ID: <aQNq7uwVCtFfBDMJ@arm.com>
+References: <20250828110212.2108653-1-zhanjie9@hisilicon.com>
+ <20250828110212.2108653-3-zhanjie9@hisilicon.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE30:EE_|PH0PR10MB5846:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f0506d0-2263-4da7-f37e-08de17b9af4a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|36860700013|34020700016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UEJYNDlrOVFCSVIvalNMbTIxN1R5NGtFbytXZTQ0TDloSVJlYUh1NVZlMWFZ?=
- =?utf-8?B?ZnlEUC8rSy96UmR1aTNYTHU3RnUzUjZqSXRzZnNxRGpBZjFiVDVSdWR6bm1D?=
- =?utf-8?B?N2UxTHhJc2s5Zm9LQmsrQkVTTW5uTHRyeXVtWFVZelpGMGlyK1JsWE1HU2Er?=
- =?utf-8?B?eGlja0hnRnhjaWFsb3ErR21neGp5ZmYyRjY2NnN0cHl1dDR3NmE3Z01EcWVu?=
- =?utf-8?B?WmZmaE5ldzVZWmEwVXZGUXFIMVBpeHcvMUpBMDJSMjVHaHRFcGtzL09LM1JJ?=
- =?utf-8?B?NDUwcm9janRvbTcyYVF5U1U1cHdkMk82OGJ6N0RNalBhZzNiTkJNZjhSNUJo?=
- =?utf-8?B?bXBGM3NZSHpCUmtqaTVaUHozTHFzNkpVem5aaldDRzVOYkJZcGswNUNrZkFa?=
- =?utf-8?B?SnZvVW1rTzE2bzc4dWFMQnZvdTMzS3dMVlFmVmpWaVFTY2tLaE9rTkxUdm1Q?=
- =?utf-8?B?a2dnbXRrZjYxWWl2eDNwdWdDT1FiSytCYy95WnpNcVpNMUxzTDVmYmFldEdv?=
- =?utf-8?B?dFltSnV3WW5QWURzY1hMeEtuMFlwb0tGTjl4TmdJM2R6Ym54bEdnNmJ4NDlq?=
- =?utf-8?B?RUpTWTlYVy9PYzVyMDY0V0Y1aCtpa2NQZ1JzUnJYVXA3akVvS21iT2hFeU16?=
- =?utf-8?B?bXVpVmYxT05GdWdEUnJQMzZWMXk5RHdnZkdEMXNBTU13R2tHc3Vob2VKc0JO?=
- =?utf-8?B?NW8vd2U0K0FJdDd6dWwya3BUS3JSWVhCWW5BMWw0NHFDUjJBY0xQdGZtaG5N?=
- =?utf-8?B?cFFrZVJ3QXFSM0lXN3RrcW5keXBsSlpnSXJ0ZWgzSWZzWkllYTcwWjlPVnUz?=
- =?utf-8?B?UTl3MHE0UGt4RGY4SFlNU2RSQm1HZENVdWs3ejdCK3NhQmJ6TFFoeEl3WGtC?=
- =?utf-8?B?Ry9kbk8wS2M0MGdCYTdtTkg5MHVjeGNNQzU1UXhsRDlvZ0c0c24xTzRHSmdz?=
- =?utf-8?B?U1k0Q1k0SUlzTWt6UDF6RVJIRmh0SSt6cnFMa1NQWFVReG1iR0J2M1M2dTdz?=
- =?utf-8?B?Nlo2dUE2dlBpZkljTGJBR2U3ZVVuRnZTYVhFS3JxSml4bERXakd3am5DT2VO?=
- =?utf-8?B?MGtIWDJPeUZvWUtpZUc3N1hYUjFDNjVrcm5RcDNsaHVBbFpJWmt0RFFFRUgz?=
- =?utf-8?B?UlJxb3BIenZ2ZlJqSzlxSmprRTRBcUxsYTRFTDhSdTdjK01hQytmWXQ1aGEz?=
- =?utf-8?B?UmVSWHk4YVpmV2V1MjRQOSs3QlNPWUdTeTZIekErSjZoNzdlQ2YvV0dnQ25G?=
- =?utf-8?B?aFh6VENuVGZ4MTlqQ3F3Rk1MNURCd2JiQUJvVUV2SGc4ZGdVcWh2U1phZzJr?=
- =?utf-8?B?eS9nQmVvTHRSRmsrazJDYjQ0VnVMa2NzeUgyblhBd21wWjZZaVE2bWN2SVdT?=
- =?utf-8?B?NEZPL0luT2picWZmYzB0eHV3YzQ4K0lVSldpTnhxMTZJb1RQTTYyTnVjaHdK?=
- =?utf-8?B?ckc5YzlxZWdyd1p2ZnRIK0VUNzlsSVYwYXJKaUpRRmN2NHRUOHkvRXFidEpO?=
- =?utf-8?B?dzZpdjhQZnZHVGFnUFJrUFpBZjdlZklhbVlCQkVkbWtkMmFCbmxVT3ZwZE4r?=
- =?utf-8?B?MEpJR1NDY2ljbkdGQWhWemNrOWc4ekJWaWdoam01ekxFTE5ZcXNndUNqNFFn?=
- =?utf-8?B?T3VVR1lEenhJTHpZQ082aC90eUNVNjZONGtFKy9jZ0pXUEMvUlNOMWRybytn?=
- =?utf-8?B?Wk1RNG1TWXZlekhFNE95NE9INHBEN0RPNGw0cUVKeTRIMlUzRmhIZEg5U3M4?=
- =?utf-8?B?cUhURXV1M2tIUlk5MkhQZnNLRmVSOUlnRDRkU2ZrUTlxVnNqTjJaRmFBL2V2?=
- =?utf-8?B?ZmQvTGdIWlVpbjhqQVBGczg3WmZZZnFmaEx1cVBDVE1xSE83Q0Z2dlZzaFlN?=
- =?utf-8?B?TmdOSFBiNmt1Y1pCSjVFT1NzVVZpdnkrT3lVWVN3YjhRQXpDd1lWMU45dmxH?=
- =?utf-8?B?S0RkVW53a3NLU2FkUTEyQVRPSnpCelhYcWpRR1RsWFJtakJueFNGTXFOQkNt?=
- =?utf-8?B?L01QL3BpbWQvTmljV094UjlRdk1ORE80U3cvOSszRElVZG1HWnRQNHRrSzZL?=
- =?utf-8?Q?fR0TLs?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(36860700013)(34020700016)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2025 13:39:00.9753
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f0506d0-2263-4da7-f37e-08de17b9af4a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE30.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB5846
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250828110212.2108653-3-zhanjie9@hisilicon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_063911_677996_59EE657F 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20251030_064109_269529_A1AF5D45 
+X-CRM114-Status: GOOD (  32.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,40 +66,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi rs@ti.com,
-
-On Fri, 19 Sep 2025 14:33:42 -0500, rs@ti.com wrote:
-> Update the memory region listed in the k3-am62p.dtsi for the BXS-4-64
-> GPU to match the Main Memory Map described in the TRM [1].
+Hi Jie,
+On Thu, Aug 28, 2025 at 07:02:12PM +0800, Jie Zhan wrote:
+> Currently, the CPPC Frequency Invariance Engine (FIE) is invoked from the
+> scheduler tick but defers the update of arch_freq_scale to a separate
+> thread because cppc_get_perf_ctrs() would sleep if the CPC regs are in PCC.
 > 
-> [1] https://www.ti.com/lit/ug/spruj83b/spruj83b.pdf
+> However, this deferred update mechanism is unnecessary and introduces extra
+> overhead for non-PCC register spaces (e.g. System Memory or FFH), where
+> accessing the regs won't sleep and can be safely performed from the tick
+> context.  Also, reading perf counters of a remote CPU may return 0 if it's
+> in a low-power idle state, e.g. power down or reset.
+I'm not sure how this is relevant to the changes (?)
 > 
+> Update arch_freq_scale directly in ticks for non-PCC regs and keep the
+> deferred update mechanism for PCC regs.
 > 
+> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+> ---
+>  drivers/cpufreq/cppc_cpufreq.c | 52 +++++++++++++++++++++++-----------
+>  1 file changed, 36 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+> index 7724318b3415..66d74b062ceb 100644
+> --- a/drivers/cpufreq/cppc_cpufreq.c
+> +++ b/drivers/cpufreq/cppc_cpufreq.c
+> @@ -55,31 +55,24 @@ static int cppc_perf_from_fbctrs(struct cppc_cpudata *cpu_data,
+>  				 struct cppc_perf_fb_ctrs *fb_ctrs_t1);
+>  
+>  /**
+> - * cppc_scale_freq_workfn - CPPC arch_freq_scale updater for frequency invariance
+> - * @work: The work item.
+> + * __cppc_scale_freq_tick - CPPC arch_freq_scale updater for frequency invariance
+> + * @cppc_fi: per-cpu CPPC FIE data.
+>   *
+> - * The CPPC driver register itself with the topology core to provide its own
+> + * The CPPC driver registers itself with the topology core to provide its own
+>   * implementation (cppc_scale_freq_tick()) of topology_scale_freq_tick() which
+>   * gets called by the scheduler on every tick.
+>   *
+>   * Note that the arch specific counters have higher priority than CPPC counters,
+>   * if available, though the CPPC driver doesn't need to have any special
+>   * handling for that.
+> - *
+> - * On an invocation of cppc_scale_freq_tick(), we schedule an irq work (since we
+> - * reach here from hard-irq context), which then schedules a normal work item
+> - * and cppc_scale_freq_workfn() updates the per_cpu arch_freq_scale variable
+> - * based on the counter updates since the last tick.
+>   */
+> -static void cppc_scale_freq_workfn(struct kthread_work *work)
+> +static void __cppc_scale_freq_tick(struct cppc_freq_invariance *cppc_fi)
+>  {
+> -	struct cppc_freq_invariance *cppc_fi;
+>  	struct cppc_perf_fb_ctrs fb_ctrs = {0};
+>  	struct cppc_cpudata *cpu_data;
+>  	unsigned long local_freq_scale;
+>  	u64 perf;
+>  
+> -	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
+>  	cpu_data = cppc_fi->cpu_data;
+>  
+>  	if (cppc_get_perf_ctrs(cppc_fi->cpu, &fb_ctrs)) {
+> @@ -104,6 +97,14 @@ static void cppc_scale_freq_workfn(struct kthread_work *work)
+>  	per_cpu(arch_freq_scale, cppc_fi->cpu) = local_freq_scale;
+>  }
+>  
+> +static void cppc_scale_freq_workfn(struct kthread_work *work)
+> +{
+> +	struct cppc_freq_invariance *cppc_fi;
+> +
+> +	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
+> +	__cppc_scale_freq_tick(cppc_fi);
+> +}
+> +
+>  static void cppc_irq_work(struct irq_work *irq_work)
+>  {
+>  	struct cppc_freq_invariance *cppc_fi;
+> @@ -112,7 +113,14 @@ static void cppc_irq_work(struct irq_work *irq_work)
+>  	kthread_queue_work(kworker_fie, &cppc_fi->work);
+>  }
+>  
+> -static void cppc_scale_freq_tick(void)
+> +/*
+> + * Reading perf counters may sleep if the CPC regs are in PCC.  Thus, we
+> + * schedule an irq work in scale_freq_tick (since we reach here from hard-irq
+> + * context), which then schedules a normal work item cppc_scale_freq_workfn()
+> + * that updates the per_cpu arch_freq_scale variable based on the counter
+> + * updates since the last tick.
+> + */
+> +static void cppc_scale_freq_tick_pcc(void)
+>  {
+>  	struct cppc_freq_invariance *cppc_fi = &per_cpu(cppc_freq_inv, smp_processor_id());
+>  
+> @@ -123,6 +131,11 @@ static void cppc_scale_freq_tick(void)
+>  	irq_work_queue(&cppc_fi->irq_work);
+>  }
+>  
+> +static void cppc_scale_freq_tick(void)
+> +{
+> +	__cppc_scale_freq_tick(&per_cpu(cppc_freq_inv, smp_processor_id()));
+> +}
+> +
+>  static struct scale_freq_data cppc_sftd = {
+>  	.source = SCALE_FREQ_SOURCE_CPPC,
+>  	.set_freq_scale = cppc_scale_freq_tick,
+> @@ -140,8 +153,10 @@ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
+>  		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+>  		cppc_fi->cpu = cpu;
+>  		cppc_fi->cpu_data = policy->driver_data;
+> -		kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
+> -		init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
+> +		if (cppc_perf_ctrs_in_pcc()) {
+I'm wondering if we really need to go through all present cpus every time this
+check is needed. Maybe the result of it could be stashed somehow, especially now
+that more invocations are added.
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
-
-[1/1] arm64: dts: ti: k3-am62p: Fix memory ranges for GPU
-      commit: 76546090b1726118cd6fb3db7159fc2a3fdda8a0
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
---
-Vignesh
-
+---
+BR
+Beata
+> +			kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
+> +			init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
+> +		}
+>  
+>  		ret = cppc_get_perf_ctrs(cpu, &cppc_fi->prev_perf_fb_ctrs);
+>  		if (ret && cpu_online(cpu)) {
+> @@ -174,6 +189,9 @@ static void cppc_cpufreq_cpu_fie_exit(struct cpufreq_policy *policy)
+>  	/* policy->cpus will be empty here, use related_cpus instead */
+>  	topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_CPPC, policy->related_cpus);
+>  
+> +	if (!cppc_perf_ctrs_in_pcc())
+> +		return;
+> +
+>  	for_each_cpu(cpu, policy->related_cpus) {
+>  		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+>  		irq_work_sync(&cppc_fi->irq_work);
+> @@ -206,9 +224,11 @@ static void __init cppc_freq_invariance_init(void)
+>  		}
+>  	}
+>  
+> -	if (fie_disabled)
+> +	if (fie_disabled || !cppc_perf_ctrs_in_pcc())
+>  		return;
+>  
+> +	cppc_sftd.set_freq_scale = cppc_scale_freq_tick_pcc;
+> +
+>  	kworker_fie = kthread_run_worker(0, "cppc_fie");
+>  	if (IS_ERR(kworker_fie)) {
+>  		pr_warn("%s: failed to create kworker_fie: %ld\n", __func__,
+> @@ -228,7 +248,7 @@ static void __init cppc_freq_invariance_init(void)
+>  
+>  static void cppc_freq_invariance_exit(void)
+>  {
+> -	if (fie_disabled)
+> +	if (fie_disabled || !cppc_perf_ctrs_in_pcc())
+>  		return;
+>  
+>  	kthread_destroy_worker(kworker_fie);
+> -- 
+> 2.33.0
+> 
 
