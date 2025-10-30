@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751F5CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 02:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06652CCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 02:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=La6nPJ+mBWseLc1/q4pp6q2DuHjzkflifv8qvL4nzX4=; b=O138/ZL8gEICOwdWf8f4zMf21O
-	2TJsu4lHsX0zLr0OseCs7Qvez/DpLKXxxalHgMF7ivG8BHwz56IdcfPcy3//UAAatn9jCIXicuTCA
-	LQKd8YA4txA06VWDQnULKNeex0zdTa0E/wwLUT92ngY3AIYGAevrZLNakAILlHIZ6Cpe5cNn72mox
-	F3HK/Vbl+1FA36FUs0gs7ywohAMBJSlVouLjcW3arhHhgLqgIjDcIL3rK33Gv3maIYjYWFcxdd0X6
-	8r3eYwAUXiQH9GJS8x+AWSNZyLMqOgAhLPRc5u1KUfEyn6Ekk3x3nYW4uThWhKgkVZzQ6T6FvUiww
-	A58dgobw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A5uz61rbwSt5HsnGaxVWjNojcH1LShGKAXFGdI/MgxU=; b=4rmk3Q96jWClPorR7lCqsDfmrO
+	pTuI8Zv388F9HEl2tyiCImi24B3ZOoeTWc5J8p+k48YNiV2Uz167RU3Y3cihfrmcadwSkeQGcQniR
+	gjTzfUfoc7KIaBFxQjVWjwKHVwgAAJ1gXDux/Ksq+9x0iBjhFgrJGB342Tky9JNR+c7kNUL6yEG17
+	vBUw6jNoEdD40I2hFZY/PlVW1ksMKK9NiN6Bpld/4BsEaQg/Xgz9Lnb72KnRJP/Za7As9AXhb1m9d
+	prg5Tyvv19x1H5Q7uTfu1Hv8WiEHzFukiAxqax920uQW6pKOV+1+IrplFNhxvzzAs4RZM2sA47jQP
+	LdoZIdOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEIaH-00000003Nn9-0QB3;
-	Thu, 30 Oct 2025 02:40:17 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEIaE-00000003Nmc-1z88
+	id 1vEIbQ-00000003Ntl-21v7;
+	Thu, 30 Oct 2025 02:41:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEIbN-00000003Nt2-1QPV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 02:40:16 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=La6nPJ+mBWseLc1/q4pp6q2DuHjzkflifv8qvL4nzX4=;
-	b=YY2VUD/FrWicRGdZjmf9rAAXDLpTB+d/eRKZ2rxky/tJM45Sw1unhKMR6wMPUe54TrYRoPChy
-	4zFq0W0Lc0wAZMYrGVntdUPMWN0EFIIUGK/vYes3eOKnA8JRcFJ6r12N15zs4yRpUgPXN4pL16t
-	e/8WgXYlW6dPbySqpKL5oco=
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4cxpGv5HWyz1cyVh;
-	Thu, 30 Oct 2025 10:39:35 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 021511800CE;
-	Thu, 30 Oct 2025 10:40:05 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 30 Oct 2025 10:40:04 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <bigeasy@linutronix.de>
-CC: <arnd@arndb.de>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rt-devel@lists.linux.dev>, <linux@armlinux.org.uk>,
-	<tglx@linutronix.de>, <xieyuanbin1@huawei.com>
-Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
-Date: Thu, 30 Oct 2025 10:39:59 +0800
-Message-ID: <20251030023959.5416-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251029155918.503060-5-bigeasy@linutronix.de>
-References: <20251029155918.503060-5-bigeasy@linutronix.de>
+	Thu, 30 Oct 2025 02:41:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4DE12C42;
+	Wed, 29 Oct 2025 19:41:13 -0700 (PDT)
+Received: from [10.164.18.45] (unknown [10.164.18.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD7E33F66E;
+	Wed, 29 Oct 2025 19:41:18 -0700 (PDT)
+Message-ID: <434eebff-069d-424f-a2b8-d9dae4e2202f@arm.com>
+Date: Thu, 30 Oct 2025 08:11:15 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 2/2] arm64/mm: Add remaining TLBI_XXX_MASK macros
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, ben.horgan@arm.com,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+References: <20251024040207.137480-1-anshuman.khandual@arm.com>
+ <20251024040207.137480-3-anshuman.khandual@arm.com>
+ <20251024120014.000020af@huawei.com>
+ <6e7d0bf3-ddf1-44a0-a0cb-7dc994101878@arm.com>
+ <20251028124334.00001e77@huawei.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251028124334.00001e77@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_194015_022043_10B0AE0B 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20251029_194125_499622_16AF74A3 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +70,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Oct 2025 16:59:17 +0100, Thomas Gleixner wrote:
-> jump-labels are used to efficiently switch between two possible code
-> paths. To achieve this, stop_machine() is used to keep the CPU in a
-> known state while the opcode is modified. The usage of stop_machine()
-> here leads to large latency spikes which can be observed on PREEMPT_RT.
->
-> Jump labels may change the target during runtime and are not restricted
-> to debug or "configuration/ setup" part of a PREEMPT_RT system where
-> high latencies could be defined as acceptable.
->
-> Disable jump-label support on a PREEMPT_RT system.
 
-This sounds like a performance issue rather than a feature issue.
-Banning users from using the jump label because of a performance problem
-seems like throwing the baby out with the bathwater.
-Perhaps we could add a config like CONFIG_ARM_JUMP_LABEL_RT_FORCE that
-allows users to select, and inform users in the description about
-potential latency.
 
-Xie Yuanbin
+On 28/10/25 6:13 PM, Jonathan Cameron wrote:
+> On Mon, 27 Oct 2025 07:06:45 +0530
+> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+> 
+>> On 24/10/25 4:30 PM, Jonathan Cameron wrote:
+>>> On Fri, 24 Oct 2025 05:02:07 +0100
+>>> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+>>>   
+>>>> Add remaining TLBI_XXX_MASK macros and replace current open encoded fields.
+>>>> While here replace hard coded page size based shifts but with derived ones
+>>>> via ilog2() thus adding some required context.
+>>>>
+>>>> TLBI_TTL_MASK has been split into separate TLBI_TTL_MASK and TLBI_TG_MASK
+>>>> as appropriate because currently it simultaneously contains both page size
+>>>> and translation table level information. KVM on arm64 has been updated to
+>>>> accommodate these changes to TLBI_TTL_MASK.
+>>>>
+>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>> Cc: Will Deacon <will@kernel.org>
+>>>> Cc: Marc Zyngier <maz@kernel.org>
+>>>> Cc: Oliver Upton <oliver.upton@linux.dev>
+>>>> Cc: linux-arm-kernel@lists.infradead.org
+>>>> Cc: linux-kernel@vger.kernel.org
+>>>> Cc: kvmarm@lists.linux.dev
+>>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>> ---
+>>>>  arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++++++--------
+>>>>  arch/arm64/kvm/nested.c           |  8 +++++---
+>>>>  2 files changed, 23 insertions(+), 11 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+>>>> index 131096094f5b..cf75fc2a06c3 100644
+>>>> --- a/arch/arm64/include/asm/tlbflush.h
+>>>> +++ b/arch/arm64/include/asm/tlbflush.h
+>>>> @@ -57,9 +57,10 @@
+>>>>  /* This macro creates a properly formatted VA operand for the TLBI */
+>>>>  #define __TLBI_VADDR(addr, asid)				\
+>>>>  	({							\
+>>>> -		unsigned long __ta = (addr) >> 12;		\
+>>>> -		__ta &= GENMASK_ULL(43, 0);			\
+>>>> -		__ta |= (unsigned long)(asid) << 48;		\
+>>>> +		unsigned long __ta = (addr) >> ilog2(SZ_4K);	\
+>>>> +		__ta &= TLBI_BADDR_MASK;			\
+>>>> +		__ta &= ~TLBI_ASID_MASK;			\
+>>>> +		__ta |= FIELD_PREP(TLBI_ASID_MASK, asid);	\  
+>>> I think you can replace the two lines above with
+>>> 		FIELD_MODIFY(TLBI_ASID_MASK, &__ta, asid);
+>>>
+>>> It's a small reduction in code but I don't mind much either way.  
+>>
+>> Right. FIELD_MODIFY() might be appropriate in this scenario but
+>> there will be some additional code churn needed. I don't have a
+>> strong opinion either way.
+>>
+>> --- a/arch/arm64/include/asm/tlbflush.h
+>> +++ b/arch/arm64/include/asm/tlbflush.h
+>> @@ -55,13 +55,12 @@
+>>  } while (0)
+>>
+>>  /* This macro creates a properly formatted VA operand for the TLBI */
+>> -#define __TLBI_VADDR(addr, asid)                               \
+>> -       ({                                                      \
+>> -               unsigned long __ta = (addr) >> ilog2(SZ_4K);    \
+>> -               __ta &= TLBI_BADDR_MASK;                        \
+>> -               __ta &= ~TLBI_ASID_MASK;                        \
+>> -               __ta |= FIELD_PREP(TLBI_ASID_MASK, asid);       \
+>> -               __ta;                                           \
+>> +#define __TLBI_VADDR(addr, asid)                                       \
+>> +       ({                                                              \
+>> +               unsigned long __ta = (addr) >> ilog2(SZ_4K);            \
+>> +               __ta &= TLBI_BADDR_MASK;                                \
+>> +               __ta |= FIELD_MODIFY(TLBI_ASID_MASK, &__ta, asid);      \
+> 		  FIELD_MODIFY(TLBI_ASID_MASK, &__tab, asid);
+> 
+> as it's done in place in the second parameter.
+
+Sorry but could not understand your point above.
 
