@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD13CCF9F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:36:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4975BCCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pOUI6cxSed1WQfo70/VQEmJ4lXItbqCOETPLTFUe/AY=; b=T98QqkhUbCSyPP/9/wPJwPpUMH
-	9ckGG9sp0wJK6Ga/2sYv5poaz6IZAWvTqpcCrh/NiNmIJ2TrPL17TcTCiJdaULYLC7hEfsMjH8A0g
-	8/if2FyBk0B2EbpOLaoTvS1XJ8Pj9Yg5wGP1HaS0+oU75gpvC7gVJWRFGVBPhqwLsm5MN6kBIrLdo
-	AD/vDUuQ3jc3La4lwy82LD/1BXmNbW+tEjblCVa/ehVAth6qULwWM2AWCu7okSwh3Q1NehZBD2Fh6
-	bYhFzf1Wmkl7f3ATLBkfZ8ASSTcA1m2eZMxpjEVnMe/F/SAJx63MyCVPuq6XL1FupJjS3L+/+3yiG
-	qJKRwgqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lEy1pzlBxEDKuz9VSbjEr50+/lWvYrPAgZ9M9/u5gJc=; b=QlZA+fmcYi/XiyPiqJI581bbKt
+	kswKY21SP8qpD/uyAV+y5OVQjbWWLDgoZHmmY8WIz0ozQ7G0snv5Q0l3EaQs4FhkPv/uk8PoFRA/2
+	xW9ShlMq9DZiSxGp8EoT1DpUlqnn/6UeO4JxXYa+PdJfNawCEHP3XCfusNio0NXym6bFxT1yOh5X6
+	uYdtA6EVxd29JZl7xNFhu6JURxpQS/9uRDIzkgkpDwYWraESFQJwY4vI+6yUO+3bYZ/mTSZNlr8v7
+	pn9yC66fJjexWmnZDcxDKCS0/PC0FGCffjDY5c+mUgxd2DrctFXqN+zHbo6s9NDnIKPh/0SOukY/W
+	4XmoBziw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEQ18-000000040Bm-2QI5;
-	Thu, 30 Oct 2025 10:36:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vEQ2s-000000040OE-19sF;
+	Thu, 30 Oct 2025 10:38:18 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEQ14-000000040Ap-2gND
+	id 1vEQ2q-000000040Nl-0iu5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:36:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BF7C45897
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:36:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0927CC113D0
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 10:36:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761820586;
-	bh=EWFesmgztVELijrKVyAIw58RaW5qiWVySUAVHUAu/+U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dSGT/15Kfa4OjyCbAC3SF32XVKb7iNe5i2e4rxYDvK+/9ZzBSpT0ZAMJfDHB1bcP2
-	 hp5kUsmaBwE0hUemzCE8xVONjhfFtAVrRoKKP13YBZa7NSi8axpICuho4I7H7pyOXn
-	 jdM+sxNM2/bMtwb/8zTeW1KCgChee/4k78ddKWL5YKaucYtJvcIMlwzOhYUO7mPGey
-	 9i/5Nf9FD59c14UP/zd1Kar2xylXV8dSZNyLvDNGacgpUNIjWv8EmRHggYRoep7d3a
-	 cC2Z6yFL0DTwcMRBC0hqJqNbd74O1SUUL2lp4zC10zY5eFpCTEe1YISaoNMaN+mcRb
-	 csZ/MUE3SsF4Q==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-57f0aa38aadso1288988e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 03:36:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX+ebrnaBG2RFPhRMCHGvVIenR57qmYzPE8oYPvpv+JvTGaBUrseXj6qbitG1OJMETaRCllTD8nCw81yzs4sctM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKVWeJWdDkzLjlhwmLSG14RR7wTtnXukgbf8YmAifLiVSijgH7
-	MG9ZAPoFJDv+Oi4bDjg5Phreu7bfX5DU4hEePpfJYTSy0mgYxW22iHJ9Wz0TzP/+1e9qvjEh/1C
-	nDvN+JQj09ojhctqz3yKbsDz+Wm9NvbE=
-X-Google-Smtp-Source: AGHT+IHR/19RmctxNKLqKlIM6A9WMpVSviX3cRXYR7NP88oXpyxxA4MhRkufffXBTnPae5fME9y34v1H81TPMSh2mxo=
-X-Received: by 2002:a05:6512:39c5:b0:592:fa97:e167 with SMTP id
- 2adb3069b0e04-59412a07650mr2713264e87.51.1761820584347; Thu, 30 Oct 2025
- 03:36:24 -0700 (PDT)
+	Thu, 30 Oct 2025 10:38:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=lEy1pzlBxEDKuz9VSbjEr50+/lWvYrPAgZ9M9/u5gJc=; b=K2ocgODhGfZUa+rFjoxN6HdHrC
+	fIemRICg6B7cQX4qQQJxPD++XA+tm3szSlSA1QAolcn2cIG9onf3/Tpx7Zce/5ugAQcw19A7InhpZ
+	0DWCbe2BuiIjfF04Z1ptn3vATb5T1mOU/Mt0nBMkDhFFhIs94Nobiu0ct+OojsRS8N3R2zWe1OgUb
+	GMkowlp7mIDcN64hWfKrXWdEDA8c9M02A/Ag8rUHt2N2BM54zIm8EtpjmFhkzzYjy3HrHbgP6S/Bk
+	vVdXzIyXZczWSiletA1uhr0yuo+XXlJSWzKTvrc5PIP2tB6GbIXe2lGhVeRh2TBajV7ZDNo8t0hSy
+	r5Ms6uXA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48466)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vEQ2m-000000005Yv-0in2;
+	Thu, 30 Oct 2025 10:38:12 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vEQ2k-000000008Nf-33Er;
+	Thu, 30 Oct 2025 10:38:10 +0000
+Date: Thu, 30 Oct 2025 10:38:10 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev, tglx@linutronix.de
+Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
+Message-ID: <aQNAEtIoU9sEx3LF@shell.armlinux.org.uk>
+References: <20251030072339.63vdFNo3@linutronix.de>
+ <20251030074507.33863-1-xieyuanbin1@huawei.com>
+ <20251030075558.sUBj8_6U@linutronix.de>
 MIME-Version: 1.0
-References: <20251023082129.75612-1-maqianga@uniontech.com>
- <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
- <10D9A93B0633E6BE+75720e07-b39d-452c-952e-41f8ab6aad94@uniontech.com>
- <CAMj1kXHQ6WQWfbkMP4JUk=nKwSt7CovY25RC4JA0ZM7vRWu6dA@mail.gmail.com>
- <9F7F632B7963434F+abad2548-a90d-4448-ae79-dd4bf637ee6e@uniontech.com>
- <CAMj1kXHu5ABgxKsc_gg1j=pWMz6DbWoqv=qAAjx-5CiSF2PAiQ@mail.gmail.com>
- <BD93A8DBE27154B0+22bf4a83-a850-4f78-8e0d-84cc93fe2715@uniontech.com>
- <CAMj1kXFUUCoE=gZ0kTMKx87qnJMU9J9skT75STTKjjakXb8kmw@mail.gmail.com> <89364700AD0CD6E1+dd8d745f-5a72-4b0a-80db-eaa1d00c4e64@uniontech.com>
-In-Reply-To: <89364700AD0CD6E1+dd8d745f-5a72-4b0a-80db-eaa1d00c4e64@uniontech.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 30 Oct 2025 11:36:13 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHpJ3gz=+Keswx0MZ8v6YQENR2pjeS_CE6g4cXML2LQhA@mail.gmail.com>
-X-Gm-Features: AWmQ_bmO2T77I4AkXqTFCl7Na2UIDeYUBNoQV7BXje2VupPA54kyxqhBixnA39k
-Message-ID: <CAMj1kXHpJ3gz=+Keswx0MZ8v6YQENR2pjeS_CE6g4cXML2LQhA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
-To: Qiang Ma <maqianga@uniontech.com>
-Cc: linux@armlinux.org.uk, linux-efi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251030075558.sUBj8_6U@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_033627_696036_05AF8A5F 
-X-CRM114-Status: GOOD (  29.36  )
+X-CRM114-CacheID: sfid-20251030_033816_207103_7ACBE972 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,103 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Oct 2025 at 11:25, Qiang Ma <maqianga@uniontech.com> wrote:
->
->
-> =E5=9C=A8 2025/10/30 18:02, Ard Biesheuvel =E5=86=99=E9=81=93:
-> > On Thu, 30 Oct 2025 at 08:37, Qiang Ma <maqianga@uniontech.com> wrote:
-> >>
-> >> =E5=9C=A8 2025/10/29 22:15, Ard Biesheuvel =E5=86=99=E9=81=93:
-> >>> On Wed, 29 Oct 2025 at 10:55, Qiang Ma <maqianga@uniontech.com> wrote=
-:
-> >>>> =E5=9C=A8 2025/10/28 21:42, Ard Biesheuvel =E5=86=99=E9=81=93:
-> >>>>> On Mon, 27 Oct 2025 at 04:46, Qiang Ma <maqianga@uniontech.com> wro=
-te:
-> >>>>>> =E5=9C=A8 2025/10/23 16:30, Ard Biesheuvel =E5=86=99=E9=81=93:
-> >>>>>>> On Thu, 23 Oct 2025 at 10:22, Qiang Ma <maqianga@uniontech.com> w=
-rote:
-> >>>>>>>> In the efi_virtmap_init(), permission settings have been applied=
-:
-> >>>>>>>>
-> >>>>>>>> static bool __init efi_virtmap_init(void)
-> >>>>>>>> {
-> >>>>>>>>             ...
-> >>>>>>>>             for_each_efi_memory_desc(md)
-> >>>>>>>>                     ...
-> >>>>>>>>                     efi_create_mapping(&efi_mm, md);
-> >>>>>>>>             ...
-> >>>>>>>>             efi_memattr_apply_permissions(&efi_mm, efi_set_mappi=
-ng_permissions);
-> >>>>>>>>             ...
-> >>>>>>>> }
-> >>>>>>>>
-> >>>>>>>> Therefore, there is no need to apply it again in the efi_create_=
-mapping().
-> >>>>>>>>
-> >>>>>>>> Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI=
- Runtime Services regions")
-> >>>>>>>>
-> >>>>>>>> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
-> >>>>>>> No, efi_memattr_apply_permissions() uses the /optional/ memory
-> >>>>>>> attributes table, whereas efi_create_mapping() uses the permissio=
-n
-> >>>>>>> attributes in the EFI memory map. The memory attributes table is
-> >>>>>>> optional, in which case any RO/XP attributes from the memory map
-> >>>>>>> should be used.
-> >>>>>>>
-> >>>>>> I see.
-> >>>>>>
-> >>>>>> Then, can it be modified like this?
-> >>>>> No
-> >>>>>
-> >>>>>> --- a/arch/arm/kernel/efi.c
-> >>>>>> +++ b/arch/arm/kernel/efi.c
-> >>>>>> @@ -65,16 +65,13 @@ int __init efi_create_mapping(struct mm_struct=
- *mm,
-> >>>>>> efi_memory_desc_t *md)
-> >>>>>>                     desc.type =3D MT_MEMORY_RWX_NONCACHED;
-> >>>>>>             else if (md->attribute & EFI_MEMORY_WC)
-> >>>>>>                     desc.type =3D MT_DEVICE_WC;
-> >>>>>> +       else if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
-> >>>>> This will be true for RO, XP or RO+XP.
-> >>>>>
-> >>>>>> +               desc.type =3D MT_MEMORY_RO;
-> >>>>> This will apply RO permissions even to XP regions, which need to be=
- writable.
-> >>>>>
-> >>>> Thanks for your review.
-> >>>> I see.
-> >>>>
-> >>>> I can introduce a new type MT_MEMORY_RO_XP, to describe RO+XP,
-> >>>> and then we can use the RO+XP attribute to implement memory mapping.
-> >>>>
-> >>> Why? The current code is working fine, no?
-> >>>
-> >> Yes, the current code is running normally.
-> >>
-> >> The reasons for the modification are as follows:
-> >> I noticed that the arm64/RISC-V efi_create_mapping() always return 0,
-> >> but in the code where efi_virtmap_init() calls it, it is as follows:
-> >>
-> >> ret =3D efi_create_mapping(&efi_mm, md);
-> >> if (ret) {
-> >>       pr_warn("  EFI remap %pa: failed to create mapping (%d)\n",
-> >>           &phys, ret);
-> >>       return false;
-> >> }
-> >>
-> >> This return error print is unnecessary, so I want to remove it.
-> > So what is preventing you from removing this from the RISC-V version?
-> >
-> The current idea is to first remove the unnecessary return print from
-> arm/arm64,
+On Thu, Oct 30, 2025 at 08:55:58AM +0100, Sebastian Andrzej Siewior wrote:
+> Arm64 and X86 replaced the stop_machine() logic with something else that
+> does not affect latency in that magnitude. If Arm could something
+> similar then fine but until then I don't see a way around it.
 
-Please leave the ARM code alone.
+"If Arm could". For 32-bit, Arm Ltd isn't going to do anything, it's
+old as far as they're concerned. It's up to those participating in the
+kernel community to maintain and look after the code.
 
-> and then remove RISC-V later, as this RISC-V code is also adapted based
-> on arm64.
->
+Thus, if there is a desire for something other than stop_machine() then
+it is up to those who care about the issue to do something about it,
+rather than expecting someone else to do something for them.
 
-RISC-V copied the ARM code and used it as a starting point. That does
-not mean it has to remain that way.
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
