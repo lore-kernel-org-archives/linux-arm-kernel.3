@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9F1CCF9F1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFE3CCF9F0
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 10:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoyBPsQbxCeIyoPQ2zrzEdmuX54xkmjv6HtTh7tX2pE=; b=HnkYZc1ZnnrUQ9aT/Ev+vvO4h7
-	A3QVyLIQYo4bnyip7Vd+wsfCqfaDZ59o0rqJoovvXriFoUQ9mJY6FhYSbhft59feQteRSmzIh4Q6x
-	XnLkADxnQrfTQ374B7/ysEqP0lCFXNNg3rRqq7LF0oNQBbCqK3t78KO3uDRc8TxrP9C6r8OiAMCPc
-	KjnMPjFQIr4nl1jkY183H0i8Zi1btq+KZ3SyNjySzVbU1QnGnJLFWNljkGjmDIG9+YG7bHwOtUDga
-	UQ3criLml9zOjyZ01IEFX2Cv++wOS4nIRqmHhIJAfRG+01v0xtFGkapcFteUAxvuyLpSvda+1G7SQ
-	VHKPiyAA==;
+	bh=2s4YXZ006r6JZP+ciPRm1kPsUk3RftNVPiuxZBb+ZTw=; b=ujGvwKxs0TayQJ/6Zhe3Ss6FC6
+	6HpftwWTx50F04Hl7QknsLWEakJMi/33LzrRwR9vojBsi/icQToSdyOeUMzy9+tvEn782KlBqJ3HL
+	7Y1BgplFiv2Ckq305f/OWvKn8lII8dZZiiDuXvyWrUWaHa+Yl29wvhLaRa2kiwhZHUQIYCABvD2ld
+	NJmbb5JC7U9lL6LL25r8OaEF8eW+XrmxDQQGs4Pf+7vy28lo+jMwHXpqjqgc7R6ex0ywRZzXnbkIp
+	XhoyMnk5P/bthEIKlDG9qrFoYKgXFiY4tEPrLloOpcfTlf1ycYnuoeENWTAkgp+QGnq7dYTE2HSMG
+	fEIzAouA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPpi-00000003yNv-0BjC;
-	Thu, 30 Oct 2025 10:24:42 +0000
+	id 1vEPph-00000003yNZ-37Hr;
+	Thu, 30 Oct 2025 10:24:41 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPpW-00000003yJK-2ui2
+	id 1vEPpV-00000003yIp-0tQf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 10:24:31 +0000
+	Thu, 30 Oct 2025 10:24:30 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 51D581A177B;
-	Thu, 30 Oct 2025 10:24:29 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CF6F01A177A;
+	Thu, 30 Oct 2025 10:24:27 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 284156068C;
-	Thu, 30 Oct 2025 10:24:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3D81911808821;
-	Thu, 30 Oct 2025 11:24:27 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A43776068C;
+	Thu, 30 Oct 2025 10:24:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E6E6411808822;
+	Thu, 30 Oct 2025 11:24:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761819868; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1761819866; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=RoyBPsQbxCeIyoPQ2zrzEdmuX54xkmjv6HtTh7tX2pE=;
-	b=cuKxX9meA+bNJDneTgaqLKGwAeRY7C04U2PFcPPzTSTA9uWBDYQ0LRTaKNwIBFSD3I7Bzi
-	ObVIj158RqAaCWrwRf9txLznrlOKryzaZB4nwF/0oqyKVx6pQk4raE090zw2mci+BK9iQT
-	IibgK5D/5bmfhh3kOoQ/0WCrv+mWKZ6GYTSxggeieViKa0kDvlnHHMpZgXhRGX83uf6qMn
-	LMz1d22VP5UDc72kb0mtMhlR5Nbd7K9ZX/GJJuets1I14b0pBELKf/wU/HCy6VqQjljV8h
-	fEl0yPKiC2m8yS8kVIGzr9BoMaobqKdZWONokoR5helRQmT8GiWYVCRPXvtaUA==
+	bh=2s4YXZ006r6JZP+ciPRm1kPsUk3RftNVPiuxZBb+ZTw=;
+	b=vAn9a9rmxnbtvZT/vKNskkN65m9GgP+3q8h+3M5x//R56m/gemmelQiAgN6FMK+iR3EDB3
+	btIbRjEhe40kR/XIjhowoBflZXk+RfqSvUrtcw+FQqthYO8xL2TqurCVq71N4Wf4AOyvCt
+	eYbKAeN73cEKSTC4Da/4s0L72RibvqH1zz6jEWnVCEWhuKxyTvhBfrvrdcauaQeHUobGRe
+	EbUwK9rs+70XURh9KN1stUkOr7wkfRiMbIp1bheey9U/ZLTXVhh2l0Lozy40njWDR11Skr
+	VPw5JTiHMNTNpntmQk/035OzYvK4AP8+mUywR9mUAn3610M++Eju2SaUae5mrQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -59,9 +59,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 3/4] net: altera-tse: Don't use netdev name for the PCS mdio bus
-Date: Thu, 30 Oct 2025 11:24:16 +0100
-Message-ID: <20251030102418.114518-4-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 2/4] net: altera-tse: Read core revision before registering netdev
+Date: Thu, 30 Oct 2025 11:24:15 +0100
+Message-ID: <20251030102418.114518-3-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
 References: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
@@ -69,8 +69,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_032430_871941_DFE78BAE 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20251030_032429_381173_FACE7959 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCS mdio bus must be created before registering the net_device. To
-do that, we musn't depend on the netdev name to create the mdio bus
-name. Let's use the device's name instead.
+The core revision is used in .ndo_open(), so we have to populate it
+before regstering the netdev.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/ethernet/altera/altera_tse_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/altera/altera_tse_main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/altera/altera_tse_main.c b/drivers/net/ethernet/altera/altera_tse_main.c
-index c74b1c11d759..a601ba57190e 100644
+index 6ba1249f027d..c74b1c11d759 100644
 --- a/drivers/net/ethernet/altera/altera_tse_main.c
 +++ b/drivers/net/ethernet/altera/altera_tse_main.c
-@@ -1404,7 +1404,7 @@ static int altera_tse_probe(struct platform_device *pdev)
- 			 (unsigned long) control_port->start, priv->rx_irq,
- 			 priv->tx_irq);
+@@ -1388,6 +1388,8 @@ static int altera_tse_probe(struct platform_device *pdev)
+ 	spin_lock_init(&priv->tx_lock);
+ 	spin_lock_init(&priv->rxdma_irq_lock);
  
--	snprintf(mrc.name, MII_BUS_ID_SIZE, "%s-pcs-mii", ndev->name);
-+	snprintf(mrc.name, MII_BUS_ID_SIZE, "%s-pcs-mii", dev_name(&pdev->dev));
- 	pcs_bus = devm_mdio_regmap_register(&pdev->dev, &mrc);
- 	if (IS_ERR(pcs_bus)) {
- 		ret = PTR_ERR(pcs_bus);
++	priv->revision = ioread32(&priv->mac_dev->megacore_revision);
++
+ 	netif_carrier_off(ndev);
+ 	ret = register_netdev(ndev);
+ 	if (ret) {
+@@ -1395,8 +1397,6 @@ static int altera_tse_probe(struct platform_device *pdev)
+ 		goto err_register_netdev;
+ 	}
+ 
+-	priv->revision = ioread32(&priv->mac_dev->megacore_revision);
+-
+ 	if (netif_msg_probe(priv))
+ 		dev_info(&pdev->dev, "Altera TSE MAC version %d.%d at 0x%08lx irq %d/%d\n",
+ 			 (priv->revision >> 8) & 0xff,
 -- 
 2.49.0
 
