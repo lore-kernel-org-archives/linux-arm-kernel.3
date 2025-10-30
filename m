@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A33CCCF9FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C69CCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EV83WM6/jrqF5vDr8Ml3Shmm4SJDHQ5N0i6FQeqV0c8=; b=E1Hk1X3MQgdoWnrYOZH30T48YQ
-	iYSIYM5Y5QlUSvCn0qSvotjignr2ELE0GNYYdLifEO2vbWrDW7A8vW/FDRx/iRJgF0LJXC3GgGzog
-	qyN0ri4O2EAyCitzQjcZmtj/anYX7IPfVGsVmukmwHFguwT7ydjJnmZN4/jAkTYFWumSkYV26SOo0
-	0GzN9RSBLPN7rM4qQMMIax2gtKNXFDKFitQl7jpzwMw8qaTcsOyUORkiaWg9pmudOMtSCSBxA35um
-	vztwvcdkaNG/bDliFYonf0u0mE3WrpkZBv1v3pciEuwY0vOvAfm+afwHJrjV/YEryP3VpSXUbZGxf
-	pcbynd1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X8vmjhEGyAb9Q+g3zprM6UMlHqaEvwlEm446UF+Fb5E=; b=opjfNsxcEvR3x7NfzyhHFcTnwC
+	p6SFQfKTr1PWw3drZlb9hun/tMDjQSZqTJFfCvG6LpuaYHcHQRW/mXuc552eZwRBLoSfHgOnMTasp
+	XUTf0p8oI/wVLMnkYi+NDppEcRhJ4YI0fWYn9nFEoe3xsPxWG16ophXGh6YQwsW2rz2NIvTU9KdDX
+	OgBcH2o3WP1wbLCletQumrdE+Ty3lGZBru3w2PCfcnCz4NOdXtQvJ4qv5YLIqh+9Ia5fBmjbOpeHT
+	XElWtz3Tmjq1iJfa98biNPStt0/2PsG5nPnJptmwfLHwU/Pc9zlesFMY+46uC76OS37Kwe0RbLgIv
+	2svn0O1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESWS-00000004Bhg-3BbU;
-	Thu, 30 Oct 2025 13:17:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vESX6-00000004Bm7-0LYP;
+	Thu, 30 Oct 2025 13:17:40 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESWR-00000004BhY-465D
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 13:17:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 076B4603F5;
-	Thu, 30 Oct 2025 13:16:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3475FC4CEF1;
-	Thu, 30 Oct 2025 13:16:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761830218;
-	bh=p1oi9eqzR7XLk7EvgwixRFUvSNC+OJwVHhPFU4hofwE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h4Ddn9+Q6AGK4KmNZwJ9aj81oxsP7hNNhC8a1UPNcHaLH3tl3AYaG3cntuDB68B0a
-	 hXhqX+9JB96h9/dJ36IFsv8YkblVSlmro2LVPBSqCT2dMi47gx3sjCwO2UiQ+fj6i9
-	 XO4iecQ8IRf4p5CepuShE1LCi3G6pgC3QzdgH9jeDLiGr7LhtBtrTYzhSA0DaCeWOo
-	 8YImVqW/ahkjVEqDr5ngaVRXljvOgDR9mQ+MY4/tZ37vQcf+UUinVhUGxGeMC5qmCS
-	 SOSXPy1bVbr145CJ+8SXRy9dKn9BMReyPiuRDsTbd4AmsedIJxYZ5+aw5zNPL4ts5F
-	 blkM0FjlZeOBA==
-Date: Thu, 30 Oct 2025 13:16:53 +0000
-From: Will Deacon <will@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>, ryan.roberts@arm.com,
-	cl@gentwo.org, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: mm: relax VM_ALLOW_HUGE_VMAP if BBML2_NOABORT
- is supported
-Message-ID: <aQNlRQO7oXUcR84A@willie-the-truck>
-References: <20251013232803.3065100-1-yang@os.amperecomputing.com>
- <20251013232803.3065100-3-yang@os.amperecomputing.com>
- <eaa67b0d-e256-4db6-82e7-c4d56df70c09@arm.com>
- <05331884-9723-48ff-a3ce-c2ea023bbabd@os.amperecomputing.com>
- <ceae80d4-ae63-4bf7-bf97-1d6b5b090aad@arm.com>
+	id 1vESX3-00000004BlM-0rkO;
+	Thu, 30 Oct 2025 13:17:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761830243; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=bykFlocPyOEv6VJ8hGJ+2SlM+xv5ccun8eDeb4CYDlJ4o5ga5Un/K8leZovV9noOiAjw5Uvj5SiLsrRDkQBi3iNgnn4eiiq+NzpPfPBHqfb21Z7TJmCFREStXPu87hZl0wfYt0K/xs8oeUG2So3YXKnoqyPVdnwf3Vle+uJZ74c=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761830243; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=X8vmjhEGyAb9Q+g3zprM6UMlHqaEvwlEm446UF+Fb5E=; 
+	b=TWYhI7IamV4ShVe5DfQv8czH5tnOKVadQeBdwRkjabBS6oV7ddLysULY//VHCn9xurf7/xkOqB+7ABr42PROAjtZ5uLe9LUqvpD80fQFu1054K1+wk0yO61EaWIJBPDlKB8isOH8WQLOOAnVgYjqZ40qc8xoPpjSeAJBIV5QMvk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761830243;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
+	bh=X8vmjhEGyAb9Q+g3zprM6UMlHqaEvwlEm446UF+Fb5E=;
+	b=HC7j2p0ATKIKWHZ46ymqF+vJrTlNWIOnCOOYqQO0MMDfr6lfyrD0Z80kqZhYZVSV
+	lWO+hfdud/gLWlY2kAE83UVYj+aKhjGkSl0yKAtdO49d2EavR4alyJvyx6l1clowSsp
+	A8gD2CwNk2qC14FSAv3NvKOgIVOHYmGIr1uEBE40=
+Received: by mx.zohomail.com with SMTPS id 1761830240160609.6007241076173;
+	Thu, 30 Oct 2025 06:17:20 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Thu, 30 Oct 2025 14:17:10 +0100
+Subject: [PATCH] pmdomain: mediatek: mtk-mfg: select MAILBOX in Kconfig
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ceae80d4-ae63-4bf7-bf97-1d6b5b090aad@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251030-mfg-mailbox-dep-v1-1-8a8c591aff27@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAFVlA2kC/zWMQQrDIBRErxL+uh+MoV3kKiULY8b0Q9VUbRFC7
+ l5p6PLN8N5OGUmQaex2SvhIlhga9JeO7MOEFSxLY9JKX3s1KPZuZW/kOcfKCzaGHTRc+3Az1Kw
+ twUn9Fe/TyQmvdwuXc6TZZLCN3ksZu4Ba+B+n6Ti+3kVVl5IAAAA=
+X-Change-ID: 20251030-mfg-mailbox-dep-ec32ef510e6a
+To: Ulf Hansson <ulf.hansson@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ kernel@collabora.com, kernel test robot <lkp@intel.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251030_061737_532730_B1162F06 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,89 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 09:20:10PM +0530, Dev Jain wrote:
-> On 17/10/25 12:20 am, Yang Shi wrote:
-> > On 10/14/25 11:50 PM, Dev Jain wrote:
-> > > On 14/10/25 4:57 am, Yang Shi wrote:
-> > > > When changing permissions for vmalloc area, VM_ALLOW_HUGE_VMAP area is
-> > > > exclueded because kernel can't split the va mapping if it is called on
-> > > > partial range.
-> > > > It is no longer true if the machines support BBML2_NOABORT after commit
-> > > > a166563e7ec3 ("arm64: mm: support large block mapping when
-> > > > rodata=full").
-> > > > So we can relax this restriction and update the comments accordingly.
-> > > > 
-> > > > Fixes: a166563e7ec3 ("arm64: mm: support large block mapping
-> > > > when rodata=full")
-> > > > Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> > > > ---
-> > > >   arch/arm64/mm/pageattr.c | 13 +++++++------
-> > > >   1 file changed, 7 insertions(+), 6 deletions(-)
-> > > > 
-> > > > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> > > > index c21a2c319028..b4dcae6273a8 100644
-> > > > --- a/arch/arm64/mm/pageattr.c
-> > > > +++ b/arch/arm64/mm/pageattr.c
-> > > > @@ -157,13 +157,13 @@ static int change_memory_common(unsigned
-> > > > long addr, int numpages,
-> > > >         /*
-> > > >        * Kernel VA mappings are always live, and splitting live section
-> > > > -     * mappings into page mappings may cause TLB conflicts. This means
-> > > > -     * we have to ensure that changing the permission bits of
-> > > > the range
-> > > > -     * we are operating on does not result in such splitting.
-> > > > +     * mappings into page mappings may cause TLB conflicts on
-> > > > the machines
-> > > > +     * which don't support BBML2_NOABORT.
-> > > >        *
-> > > >        * Let's restrict ourselves to mappings created by vmalloc
-> > > > (or vmap).
-> > > > -     * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that
-> > > > only page
-> > > > -     * mappings are updated and splitting is never needed.
-> > > > +     * Disallow VM_ALLOW_HUGE_VMAP mappings if the systems
-> > > > don't support
-> > > > +     * BBML2_NOABORT to guarantee that only page mappings are
-> > > > updated and
-> > > > +     * splitting is never needed on those machines.
-> > > >        *
-> > > >        * So check whether the [addr, addr + size) interval is entirely
-> > > >        * covered by precisely one VM area that has the VM_ALLOC
-> > > > flag set.
-> > > > @@ -171,7 +171,8 @@ static int change_memory_common(unsigned
-> > > > long addr, int numpages,
-> > > >       area = find_vm_area((void *)addr);
-> > > >       if (!area ||
-> > > >           end > (unsigned long)kasan_reset_tag(area->addr) +
-> > > > area->size ||
-> > > > -        ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
-> > > > +        !(area->flags & VM_ALLOC) || ((area->flags &
-> > > > VM_ALLOW_HUGE_VMAP) &&
-> > > > +        !system_supports_bbml2_noabort()))
-> > > >           return -EINVAL;
-> > > >         if (!numpages)
-> > > 
-> > > This will conflict with my upcoming vmalloc-huge series, so best to
-> > > leave it to me,
-> > > I already have this included :)
-> > 
-> > My point is that I hope this can be merged as a hotfix for 6.18. I have
-> > no strong opinion on either the maintainers take this one or from your
-> > series. But if this will go into 6.18 as a hotfix, it should be also a
-> > prerequisite patch (standalone)  in your series, and the rest of your
-> > series should be based on top of it. Of course this argument will not
-> > stand if we don't care to have it fixed for 6.18.
-> 
-> I see what you mean, but I don't think this patch should be treated as a
-> hotfix. We forgot to relax a
-> 
-> restriction - that's fine. That is not an incorrectness in the linear map
-> series. A fix usually
-> 
-> fixes an incorrectness.
+The mtk-mfg pmdomain driver calls common mailbox framework functions. If
+the common mailbox framework is not selected in the kernel's
+configuration, the build runs into a linker error, as the symbols are
+absent.
 
-Right, unless there's a real functional issue that is affecting people
-then I don't see the need to take any of this for 6.18.
+The hardware mailbox Kconfig system, MAILBOX, has no dependencies of its
+own. It's therefore safe to "select" it rather than use "depend on".
 
-Will
+Declare this "select" dependency in the Kconfig for the driver.
+
+Fixes: 1ff1f0db6aec ("pmdomain: mediatek: Add support for MFlexGraphics")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202510301311.TcOCnZ1s-lkp@intel.com/
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+I assume this can be squashed into the mtk-mfg driver addition commit of
+the maintainer that merged it.
+---
+ drivers/pmdomain/mediatek/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/pmdomain/mediatek/Kconfig b/drivers/pmdomain/mediatek/Kconfig
+index b06aaa9690f0..8923e6516441 100644
+--- a/drivers/pmdomain/mediatek/Kconfig
++++ b/drivers/pmdomain/mediatek/Kconfig
+@@ -32,6 +32,7 @@ config MTK_MFG_PM_DOMAIN
+ 	depends on PM
+ 	depends on OF
+ 	depends on COMMON_CLK
++	select MAILBOX
+ 	select PM_GENERIC_DOMAINS
+ 	imply MTK_GPUEB_MBOX
+ 	help
+
+---
+base-commit: d78b0fee454c25d292fb6343253eca06d7634fd9
+change-id: 20251030-mfg-mailbox-dep-ec32ef510e6a
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
