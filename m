@@ -4,157 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A83CCF9FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 14:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C034FCCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 14:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WKsaxM2GUd9lvdVEJbVZJt40DtvVXuqRSgyg2lBDz/0=; b=4bNc/QgVssuPmopUocScwRm3z9
-	I4Q5MRPXIids7jtKE0KMWcn/eztvzmCboSFK0ZtBwy4PeuU7DJV6eUrMq2bQd2AU+gwDtuiPbxJEY
-	bXseqDELT++dP27SHH7t4AB1d00uNf+pQ6TjN/ETxIlzPqv+viKDsNS2Zy4TMv3T51DtI/vvpekLC
-	9SlGNRU+63E84UisawyFTxCXtLD7owmQHaSphSA8QMn6tuQc7/8fLusx5bH1rfXQsjH0KQUM0TUh7
-	4QtUP+OulQh6s3r8UgRTz7GSYhigjjbHYBdA0PRIShEGwaeJW1s8/3Awo2wQcfIpyL+qx+SHSJXB6
-	1GaNgqGg==;
+	bh=S/7/GQNWOmWK2zjALUxyCyh+iYwu/qPd0QrBumxb1iw=; b=GCEFZb4VCyctmadTey2Pvoo8Mo
+	DPYqwAr0lgo65LkxcdWJa1BiERS8T1MLUVWa7BFSTYtOCE9JiRLrpIoGcpv19AB9bXaQsXK4/5VvO
+	m1oyorXnTAuc7M+w4E6Lxa3QLYLROYVHSysLzIsJdTzrX++lzj57t6NFyINw0bjrTv1hFygZfKxMS
+	hmGKraFx43j3qA/Z80DLuSgz2sFICkbCNSAEP6mqGIfcRTkXwS3L40tRrOP+iRLQB2qDwydTRFolE
+	OOCFb4j2YC37Dols3uh3txTyU14lMIG5gFwb3Ke5vsFAESFWGTNbON0Xc3e7N9zKYxQbkzL8S6v05
+	M0PXlLFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vETPH-00000004HkK-2HNZ;
-	Thu, 30 Oct 2025 14:13:39 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vETUa-00000004I3h-09OX;
+	Thu, 30 Oct 2025 14:19:08 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vETPF-00000004Hjg-1qZq
+	id 1vETUQ-00000004I32-31u4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 14:13:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c0kdQ7uboS4QSemWete+ZkijtMhFfVKswQC25krKYJQUuPjccYSjBH+VemysaVuiP1pgqq5Xdo7AY8wI0Vx7LhObokE7VaLc6dxINRL/722myd9yOEn+TlJDlNkax0RglMusW++vlBBOGoB/uGCMwcn3VINd9IrVPmbv6xcrph+aPy7ELbBiBUHoKHla9kfzjbAGBcGOQ+H0FJMbdOwwwJNAG09my50s5pBhfIuMeFBE4gN1K12vsvE3NrjZS8uLZU5NgybIJlWIjYwP6uQjZhzQkb5PS2dQg+YcN/A9kPR8OgeR9F4y0siAHZQwJp4Du7X9q9uWV00aMHITzcJXhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WKsaxM2GUd9lvdVEJbVZJt40DtvVXuqRSgyg2lBDz/0=;
- b=xiDxPuoVH3riwmSagvBKLDm0k3rPnleun9WbjD21VP4hW8FKwz3ZP3Am9erWLuJT6U4NP8jsTXe4ERJ1dD528Sef3OFODByDMhE1l1gn2jjPVApD22rI/btEOx5PfiB5vDdtp2kzZZR3UgTyGPMIK+hXOE9fOmg5kJJwoFirv9efkTr0hNk/6xFOqomYei7R4y/ORfrAPC7FShYMXAm5omCLnA/D47qqgsF3rJ+kgCuKLaslqqH81DJrG/4RlGRT1kuayEBxqx8NNqo1RXjSSo0W8epDBI5cssnyVullSXwBGL5yyJunKGKYUvj+dPwqDp+s/zBFh1h8hVkmKd2wcA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WKsaxM2GUd9lvdVEJbVZJt40DtvVXuqRSgyg2lBDz/0=;
- b=DRzlAd3GGncsclt29LVvTz85tuW4qDH8e9EMsv6U8cCYn0ulXHDDLYOS5mN5Jp75ygBUIWHVre5cu4lPpcQTlqHghkE+ddjcKRiB9ooWdYEwXT8nbQK0lzwQI1oCIRuTlBce+LKv8y06b4nWgInnL+UUwo0w6qi1ubrUEef17xQ=
-Received: from SA9P223CA0015.NAMP223.PROD.OUTLOOK.COM (2603:10b6:806:26::20)
- by IA1PR10MB6121.namprd10.prod.outlook.com (2603:10b6:208:3ab::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Thu, 30 Oct
- 2025 14:13:31 +0000
-Received: from SA2PEPF00003F66.namprd04.prod.outlook.com
- (2603:10b6:806:26:cafe::21) by SA9P223CA0015.outlook.office365.com
- (2603:10b6:806:26::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.14 via Frontend Transport; Thu,
- 30 Oct 2025 14:13:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SA2PEPF00003F66.mail.protection.outlook.com (10.167.248.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Thu, 30 Oct 2025 14:13:30 +0000
-Received: from DFLE209.ent.ti.com (10.64.6.67) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
- 2025 09:13:20 -0500
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
- 2025 09:13:19 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 30 Oct 2025 09:13:19 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59UEDJ5M2313837;
-	Thu, 30 Oct 2025 09:13:19 -0500
-Message-ID: <1b3f183f-3923-4183-a237-861e4f886958@ti.com>
-Date: Thu, 30 Oct 2025 09:13:19 -0500
+	Thu, 30 Oct 2025 14:19:06 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 38F28C0DABD;
+	Thu, 30 Oct 2025 14:18:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9C9E96068C;
+	Thu, 30 Oct 2025 14:18:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8C94711808B04;
+	Thu, 30 Oct 2025 15:18:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761833932; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
+	bh=S/7/GQNWOmWK2zjALUxyCyh+iYwu/qPd0QrBumxb1iw=;
+	b=A+3IfahPfgUJ5dXdXkv2FhvEGtSVhtdzl6C+jbw9gCK5kn8FuHjYtQBmrTIcndaki6BoI/
+	me+uzBYlaGTOi3IsGTHfFjNvkIcJ68U2vSCWMqrLwHhosgk6xLGcPHkMeY58x1oQ+brVjl
+	6zuaaEwljCl0Ea2CoToswJcw9uaF2a3V45Vn8VSFu+HhpoPTKrqWOxtuL5G4zBSDs6W7C9
+	scmdKqcCaKHBTVPCITtYOAA+IsecAUi4KjfVti6p+12ieTFBYgmX6r4jzxOTCUXl8eQvPU
+	3SwZYyecaRhuM4dfnDbtpEXElQI7mB2Fda/qM+/DNHnxVnIKADasIdytPwTa7A==
+Message-ID: <ddcf8a8b-84a5-4895-b890-4f236c8094f2@bootlin.com>
+Date: Thu, 30 Oct 2025 15:18:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/3] firmware: ti_sci: Remove constant 0 function
- arguments
-To: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>, Nishanth Menon
-	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
-	<ssantosh@kernel.org>
-CC: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
-	Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, "Kendall
- Willis" <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20251030-topic-am62-partialio-v6-12-b4-v9-0-074f55d9c16b@baylibre.com>
- <20251030-topic-am62-partialio-v6-12-b4-v9-1-074f55d9c16b@baylibre.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20251030-topic-am62-partialio-v6-12-b4-v9-1-074f55d9c16b@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F66:EE_|IA1PR10MB6121:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9c4e0c41-336e-46ba-93f2-08de17be80ce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|34020700016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VmUvSlZrNEtHamdJZThIeHdOTlY2bXhWakhubHNReStNUmZPTm96a1NqR3I2?=
- =?utf-8?B?cmtMbWRIbzVQMERGWkRjUnJVdXFTVFdMWWpqUWwxb2tPZ29hdm5BZmZ2d0do?=
- =?utf-8?B?bHVCbW1tZ3RHMCtBeXBjL053cXFLRnh3LzJlUEs2THpXak0wUVRqVnAreVpF?=
- =?utf-8?B?NzVmMWcxNzE3ODhnYkJ1KzBzS1pjQ1RkZGJlODc5L2RIQ2dtb1FuZTBHZEpB?=
- =?utf-8?B?c0MyelhrSlpVTUU4VHA2UTJTN2lWL3hHOU80cmUyeFdWR0xYelBHMVRoRzAx?=
- =?utf-8?B?NVU5eGhxdWtXdmNOUGtOSnByYWNOcFZmanRzazdTSENsbGtOMGl0MHRPRXk2?=
- =?utf-8?B?Y05sL3Z2K3BVZzg1Yk1TZG95VlYxODczb1ZyZkNCeDQyZUdHc2VYYUFYZy9M?=
- =?utf-8?B?aGt5MEVhQjF3ODVvTkN2bDVGTkF6Z0xvQ3ZHUGRrcU5ZamhJQmhCMWgrRE1R?=
- =?utf-8?B?MzZDR01rZmt4bC8zZnBmNDNielpsREMxTkFZWlJPL24vSXpWL2FHZFI5cUY2?=
- =?utf-8?B?MGp4Mm13NURtZHhSQmZaRzlUVjFvYkZ3K1JpZDJOWllsdktCa2FydE02NUU3?=
- =?utf-8?B?c3pUcEI1Y1ZYVHBnVWd3MStJOFdpb0lWaDNUaW0zeldzYWtRdThKNXlBdkd0?=
- =?utf-8?B?cS9FckIyYmprRGxSUTl6UUU5bVM0eDY3c3JRNXFxTFpHckFia1QwSnZvNHJp?=
- =?utf-8?B?TitJa2dmaEluOHM4RzBKSkdyMjJEZWJnY29yTTB5M0Q0RDZ3R2xCRTN5aFE3?=
- =?utf-8?B?WjBHY1M0ZGI3d0hsK0ZWNW9maXpTdjZNTDFQWW0zOGx2Zmw2akd2OWx4MVBn?=
- =?utf-8?B?dklyc2RRL0ZZajdHTDFyT3NSTTZHbUZ0R3lKSkYvUllvVGxhK3lWMzZLRGto?=
- =?utf-8?B?aUtPYlVZakg2bzl1MTZTTXRYRkMyNlJMeFBBVVZ6WjZWcjdpMURGUTExWDRi?=
- =?utf-8?B?ZC8vcDV5ajE1YlRFUUVmVVQ0djIwUmxMakEwVXBRMUR2UjNYZTM1ZHN1UkRO?=
- =?utf-8?B?Q3R0WUhDTUROZjVuc1FxM05XWWhlL1pjVnJVOG45TzdVMFYzelJabXkzVFAw?=
- =?utf-8?B?V2RtcmRSemZnSzRMZFF4ZUdBd2RCOG5wVU16Q1lWQkg5QSsydGZNYUIvamgw?=
- =?utf-8?B?MHMyNzRDU2Z4QjFhMnI5MnptR1JNTzBkdUxjTVpaM1hqS3ZCa0g0NFczaXRL?=
- =?utf-8?B?eThMNWx2RkZpVWtNWSsvU2d6YnR6R0JtVXlHbjBLV1VFaFkyTi9VcUMxdGZC?=
- =?utf-8?B?M0xJbFJQUlNaMUJieEpVWWZPWTJhRVZpUENTdnNnNDRpYnVxdnJHNlEyQVdz?=
- =?utf-8?B?THp0RThHS2g2TGsrb25ZOEQ0K01XZG43K1pkMS92eFNBU0FHVmJxREJKRjBF?=
- =?utf-8?B?NGtKV0ZTS0J0QVlTZnYzOU1wVk1QUmhTaERrcjdTaWJ4bkNzUE9MWjdLNjFi?=
- =?utf-8?B?QVFHelhqSnp1MDI0UTJVczd1akFkS3FuV2c2aGpQR2FybmZhRDkrU2ZXTElx?=
- =?utf-8?B?QUdRRDRHN2xxUVBvbGV5M24yZHEvcFpXZ2lvNjVPUldLVjBaTDdmYXdOWUUz?=
- =?utf-8?B?WmprQjNKcm1IWG00S0JuZUdTVVY5RWhNK1kxS09mNnZIemgrM1phalpzdklG?=
- =?utf-8?B?Y1NHT1VZMzdqOGQyT25tU1hZVHBmMXZqMStPSElycU9xNC9nRUNaQ2FieGlv?=
- =?utf-8?B?MitiTDE2NkJsOStoVXhyTjRSOWxMM0drdFdwNFlNeUJxOEIxSWMxNDVjbkY2?=
- =?utf-8?B?cVljcysvVnVYcGxaZ01YdCtCRmxTZTVESkpNS2lYdldwYjBGNnZvQkgzVDlW?=
- =?utf-8?B?UjNRVms1cXk1SU1hcU1zOVdnSUZqaGhWa2ZxNTVlSC9HMW9kUmRLTUxjdEVB?=
- =?utf-8?B?NVdhQ0JGZ3hFM2JHZnBLR1l0NzhQYWhIWjRoRnlqYWFkTnRtZlllNlFFMVhT?=
- =?utf-8?B?TWpsUDRtSDl4b0RWQVNheEFlSWlqeFJsTXdCT0dMUG5iWFNzT2NHbElkSmhN?=
- =?utf-8?B?T3QrcHNsd3hkaWorMDl5a3hQbmlaSm5MQlMyOXZFV0RlOHhnMDBDVDVNKy9y?=
- =?utf-8?B?a3cwQTNERkN3bmdFdU84cENwNU55UTJYMTBHTVNOMCtKSWN0TGNSMEpxem9i?=
- =?utf-8?Q?xh/E=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(34020700016)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2025 14:13:30.4711
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c4e0c41-336e-46ba-93f2-08de17be80ce
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F66.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6121
+Subject: Re: [PATCH 1/2] drm/imx: parallel-display: convert to
+ devm_drm_bridge_alloc() API
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251014-drm-bridge-alloc-imx-ipuv3-v1-0-a1bb1dcbff50@bootlin.com>
+ <20251014-drm-bridge-alloc-imx-ipuv3-v1-1-a1bb1dcbff50@bootlin.com>
+Content-Language: en-US, fr
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
+ 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
+In-Reply-To: <20251014-drm-bridge-alloc-imx-ipuv3-v1-1-a1bb1dcbff50@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_071337_485700_DD191D0D 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20251030_071859_062728_1F157D74 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,65 +142,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/30/25 4:26 AM, Markus Schneider-Pargmann (TI.com) wrote:
-> ti_sci_cmd_prepare_sleep takes three arguments ctx_lo, ctx_hi and
-> debug_flags which are always 0 for the caller. Remove these arguments as
-> they are basically unused.
+
+
+Le 14/10/2025 à 13:30, Luca Ceresoli a écrit :
+> This is the new API for allocating DRM bridges.
 > 
+> This conversion was missed during the initial conversion of all bridges to
+> the new API. Thus all kernels with commit 94d50c1a2ca3 ("drm/bridge:
+> get/put the bridge reference in drm_bridge_attach/detach()") and using this
+> driver now warn due to drm_bridge_attach() incrementing the refcount, which
+> is not initialized without using devm_drm_bridge_alloc() for allocation.
+> 
+> To make the conversion simple and straightforward without messing up with
+> the drmm_simple_encoder_alloc(), move the struct drm_bridge from struct
+> imx_parallel_display_encoder to struct imx_parallel_display.
+> 
+> Also remove the 'struct imx_parallel_display *pd' from struct
+> imx_parallel_display_encoder, not needed anymore.
+> 
+> Fixes: 94d50c1a2ca3 ("drm/bridge: get/put the bridge reference in drm_bridge_attach/detach()")
+> Reported-by: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+> Closes: https://lore.kernel.org/all/hlf4wdopapxnh4rekl5s3kvoi6egaga3lrjfbx6r223ar3txri@3ik53xw5idyh/
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-They might not be used today, but the TI-SCI command does support
-passing them, so why remove that ability from the wrapper function?
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 
-Andrew
-
-> Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
 > ---
->   drivers/firmware/ti_sci.c | 15 +++++----------
->   1 file changed, 5 insertions(+), 10 deletions(-)
+>   drivers/gpu/drm/imx/ipuv3/parallel-display.c | 16 +++++++---------
+>   1 file changed, 7 insertions(+), 9 deletions(-)
 > 
-> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-> index 49fd2ae01055d0f425062147422471f0fd49e4bd..24ab392b4a5d0460153de76fe382371e319d8f2e 100644
-> --- a/drivers/firmware/ti_sci.c
-> +++ b/drivers/firmware/ti_sci.c
-> @@ -1661,14 +1661,10 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
->    * ti_sci_cmd_prepare_sleep() - Prepare system for system suspend
->    * @handle:		pointer to TI SCI handle
->    * @mode:		Device identifier
-> - * @ctx_lo:		Low part of address for context save
-> - * @ctx_hi:		High part of address for context save
-> - * @debug_flags:	Debug flags to pass to firmware
->    *
->    * Return: 0 if all went well, else returns appropriate error value.
->    */
-> -static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
-> -				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
-> +static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode)
+> diff --git a/drivers/gpu/drm/imx/ipuv3/parallel-display.c b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
+> index 6d8325c766979aa3ba98970f00806e99c139d3c3..3d0de9c6e925978b7532b6d13caf6909cc343dd7 100644
+> --- a/drivers/gpu/drm/imx/ipuv3/parallel-display.c
+> +++ b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
+> @@ -25,19 +25,18 @@
+>   
+>   struct imx_parallel_display_encoder {
+>   	struct drm_encoder encoder;
+> -	struct drm_bridge bridge;
+> -	struct imx_parallel_display *pd;
+>   };
+>   
+>   struct imx_parallel_display {
+>   	struct device *dev;
+>   	u32 bus_format;
+>   	struct drm_bridge *next_bridge;
+> +	struct drm_bridge bridge;
+>   };
+>   
+>   static inline struct imx_parallel_display *bridge_to_imxpd(struct drm_bridge *b)
 >   {
->   	struct ti_sci_info *info;
->   	struct ti_sci_msg_req_prepare_sleep *req;
-> @@ -1696,9 +1692,9 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+> -	return container_of(b, struct imx_parallel_display_encoder, bridge)->pd;
+> +	return container_of(b, struct imx_parallel_display, bridge);
+>   }
 >   
->   	req = (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
->   	req->mode = mode;
-> -	req->ctx_lo = ctx_lo;
-> -	req->ctx_hi = ctx_hi;
-> -	req->debug_flags = debug_flags;
-> +	req->ctx_lo = 0;
-> +	req->ctx_hi = 0;
-> +	req->debug_flags = 0;
+>   static const u32 imx_pd_bus_fmts[] = {
+> @@ -195,15 +194,13 @@ static int imx_pd_bind(struct device *dev, struct device *master, void *data)
+>   	if (IS_ERR(imxpd_encoder))
+>   		return PTR_ERR(imxpd_encoder);
 >   
->   	ret = ti_sci_do_xfer(info, xfer);
->   	if (ret) {
-> @@ -3689,8 +3685,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
->   			 * internal use and can be 0
->   			 */
->   			return ti_sci_cmd_prepare_sleep(&info->handle,
-> -							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
-> -							0, 0, 0);
-> +							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED);
->   		} else {
->   			/* DM Managed is not supported by the firmware. */
->   			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
+> -	imxpd_encoder->pd = imxpd;
+>   	encoder = &imxpd_encoder->encoder;
+> -	bridge = &imxpd_encoder->bridge;
+> +	bridge = &imxpd->bridge;
+>   
+>   	ret = imx_drm_encoder_parse_of(drm, encoder, imxpd->dev->of_node);
+>   	if (ret)
+>   		return ret;
+>   
+> -	bridge->funcs = &imx_pd_bridge_funcs;
+>   	drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>   
+>   	connector = drm_bridge_connector_init(drm, encoder);
+> @@ -228,9 +225,10 @@ static int imx_pd_probe(struct platform_device *pdev)
+>   	u32 bus_format = 0;
+>   	const char *fmt;
+>   
+> -	imxpd = devm_kzalloc(dev, sizeof(*imxpd), GFP_KERNEL);
+> -	if (!imxpd)
+> -		return -ENOMEM;
+> +	imxpd = devm_drm_bridge_alloc(dev, struct imx_parallel_display, bridge,
+> +				      &imx_pd_bridge_funcs);
+> +	if (IS_ERR(imxpd))
+> +		return PTR_ERR(imxpd);
+>   
+>   	/* port@1 is the output port */
+>   	imxpd->next_bridge = devm_drm_of_get_bridge(dev, np, 1, 0);
 > 
+
+-- 
+--
+Louis Chauvet, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
