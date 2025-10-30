@@ -4,90 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BACC5CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC6CCCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ycPp8pZgEFoeQMpyGYzVQ4IFRsCoJ2aRuKd6SDWpxA=; b=StvG0CJLHh/USEczh4PWNlYHid
-	8zMaNRv3so4Bx80go48EneXDAYpVBVlAl3eQKF4b7bPK7Lb5gr40OePMG2BSj4rUPu+sRa05/UAzI
-	e7Z69yuMtXJbJANm9kII4ozOXio2HWzpEyQEgppgyhNJlIexYQyy7J/1P3EwAiQrJW4WWJ37KCxfI
-	Jl2CcwFAXT+FUzTzWNi0YwRBv3yx9fXOfnNQh6I/4nGUb8iQuU9KCn0MY5Kn3d7QSSx3rdJL6u/gD
-	vpUGExRXy34EMf6BjMzc4cTw9d+sk4YGOKlQdb/Ey+WnntWZgC2NwZNOrC//bDYIKBXAW8ThycfAH
-	IP/JFNEg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=CD28E4Ni2/zlJpqEfYb3JKQaeu2De53kdfWWNi4yDFU=; b=BnaK8blhmA37e4
+	CUgaiEe5wGE9VzELw2aS+ai80Z1AjXBfBDf5+qBgh7DV3gD5nj++Klljws5T1eX04zLzcoU7sN1ru
+	8A2Qxi9731kvH9+YAMuTMFf8Mg2J7ZLzkrF07vAVpjn3x4CXZ2ZFW8FU2Vf12S+ySVvESytCPzvB/
+	l0wDrvTt5It6WKP+BA8Z12t/yRVsqVIJ6LO/oMZLggM5NS9z8ngphkokhVn5hchZpLl/8pL84K+OO
+	z/BwftUmXmhpwxp/2MGhkWFn4tl6pIjPB5wv2m/3+gyahxeOJikc9FiuOarziGc8W6+YY5j8SbW1k
+	XDsTd1pdn98z5Xu/wekA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUZQ-00000004Nnp-0QPs;
-	Thu, 30 Oct 2025 15:28:12 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1vEUcX-00000004O4Z-25Vf;
+	Thu, 30 Oct 2025 15:31:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUZM-00000004NmM-00rl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:28:09 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-7849c889ac8so43449807b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 08:28:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761838086; x=1762442886; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=2ycPp8pZgEFoeQMpyGYzVQ4IFRsCoJ2aRuKd6SDWpxA=;
-        b=X6Xup6sZIPJpdVMErA82XSQx475/wQAPpvohQ1HzkUtpublPSi86IKhPq3B4K4omun
-         XOirF5Nz7yWUMDRwcMdZHBf9Tt/Vf4AdhVz1LmeirKorPZ0hnp+kK+yaYUlV4Z+jSl2v
-         WhyZZCS2CtUiVV1agGbONF0GUmGvrSkMIw2xGtOlXuvGQikGkIaK0b8MXgUFruQR5imc
-         mYjo1qcTrDMjW6Mudmkf/UWN4AOEsy4etux+0pCZuN4ozKSpWQ/3OdVwfbV5VQaQrTdT
-         JbpF3uyyUVDO/6j/+CutUHMxtglChdSxel+x3Hi9D4peOaLL9Sh2rMs97S4lPvZ1FZmM
-         zUkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761838086; x=1762442886;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2ycPp8pZgEFoeQMpyGYzVQ4IFRsCoJ2aRuKd6SDWpxA=;
-        b=d5i974URsHyC9fC9iEJ2mG3I2PMivpDwKx9bPmKN4zEnMpNNkHEEG4Qo4dfL5DPeLX
-         K4aLbKThIlZ8ZDImCmISviADRK9FkXTSM73i/PVwuIpkpmmXBH4Xv8DhpkG5K8/Hxf49
-         Fp6NAI4nkddLFAeDzQZC77YU5xrwHV6IxnZJh9IqffprV8PZPIPAB91bsZhNRLzHgq66
-         PxUa2VEd0VJosmwxi6FfZmRAXHAdRqRpAVvnbPoorSbrJTPS8q8PixAhDc+L3W5CsJ8k
-         lDva1WjEZwM9VjlbUr4PiiiF4QjMVC84Nh15//uNVUcJtLGuD0UFKqHMvyLlPXKaTXNT
-         Mp4w==
-X-Forwarded-Encrypted: i=1; AJvYcCVtZo2Gzbf7/CuNlowzFVNpidNV28JjxatBbsxPOCBVDNlDK1zyA6JFeQFi8wKVuT3fbRh2M8WlfhWu49mRT0NN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxofByji6t1TM6riUCzPd3q0VGQ4Yv1VMEFRajbGCuA7HyqYXqd
-	RRcFwH6uGAh8eEBJ0YXKo4RrVywTIG3W9f3r6xpxRijFypMCpvXeCjtw/4uq8CbbRjGOBwC5xF/
-	m4feFyXClhBuHcdTVbU4qg4xzXB8tEZiWOSr+HBwKoA==
-X-Gm-Gg: ASbGnctC5Q5La10vbSa1hAchqeieLoLBXNn9kmYO3MazPTqx7FxIc488NC9dEQpP2ql
-	T1ZzYPcM4S+whyMU7/FLHm1Uo4NxXPilO6SPvSCZ7AMqzOUUs+T7pxhrSaCKvr7EaRMO009lCL4
-	K7LdPoOoRRdj5qZo6Fv+hkLKhKWpN6mybB3Fq0tHTg7eQXAlu5mKGoPl2NtjpsuLSR0pooVgCMR
-	uqoTnf6STZUyD5Zcmx1zYGDVeYlv+CcKjpp+BjKEVFW+bLHzr/O8GPT+jsoaA==
-X-Google-Smtp-Source: AGHT+IE7cHjINSkLMQTgzs6w+5tGJD0Nm4hSDWwJhVubSFRkYHz6tUwfvq/JjfaEUpptZLodo7e/iRO8bn4zeLZcNk8=
-X-Received: by 2002:a05:690c:c34a:b0:730:8858:827 with SMTP id
- 00721157ae682-78638e15c6cmr28491297b3.19.1761838086224; Thu, 30 Oct 2025
- 08:28:06 -0700 (PDT)
+	id 1vEUcW-00000004O4Q-0xYq;
+	Thu, 30 Oct 2025 15:31:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3EAA660439;
+	Thu, 30 Oct 2025 15:31:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B243BC4CEF1;
+	Thu, 30 Oct 2025 15:31:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761838282;
+	bh=BQKVwpOXmWrg/NEsihgDHlt6ylYYGyKXQx46PtRBNIE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=XFFZtvmLEsNprsgJCGzuegi3fo25BFtbyMKj/vENFC2KNhctUWYTRw+Ob7OEsPprU
+	 6RLUb4R0FtZX5SuSVghhYpA/qbFQ31O0l8MxxjFENM70+PpO+pvJ7y4nJGg6rYCVSF
+	 f1E/lZIO2nysDztmIhGwZgf77f/GEc/qLlGLVyRJ1bhbGEqIZ0izCUKouYbBbxhPwB
+	 o6ini4Cjp8T6XA47GbGqM/Hcb7VA5Nnpya3KjRlz+AgI/l83VQ/ip73xZZJMLHvUY6
+	 PIR6KCA1wLrqDh7IEl3L0xtmv1duKWtzakHljhYnSWSiCzKNnorQ1GlmH1r7EuGObb
+	 Pl+A6RH05shBg==
+Date: Thu, 30 Oct 2025 10:31:21 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/7] MIPS: PCI: Use contextual data instead of global
+ variable
+Message-ID: <20251030153121.GA1624982@bhelgaas>
 MIME-Version: 1.0
-References: <20250917063233.1270-1-svarbanov@suse.de> <CAPDyKFpus05RAkYAoG7zjyvgAJiuXwRt3=z-JB5Kb7mo0AK4vw@mail.gmail.com>
- <c379087c-1702-44b7-a890-beb5b77d794b@broadcom.com>
-In-Reply-To: <c379087c-1702-44b7-a890-beb5b77d794b@broadcom.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 30 Oct 2025 16:27:30 +0100
-X-Gm-Features: AWmQ_bnaXJddKoSJGHltKVC2FCgxq7fO5V7a69ZXCIkr6_3dvFmm3LKqD_YY314
-Message-ID: <CAPDyKFowo7+-C4YLLw4XoWz4fU3ykEP1UVEEneCJXBuDjGTStw@mail.gmail.com>
-Subject: Re: [PATCH 0/4] Add watchdog support for bcm2712
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-pm@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Lee Jones <lee@kernel.org>, 
-	Willow Cunningham <willow.e.cunningham@gmail.com>, Stefan Wahren <wahrenst@gmx.net>, 
-	Saenz Julienne <nsaenz@kernel.org>, Andrea della Porta <andrea.porta@suse.com>, 
-	Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_082808_042142_7269E08D 
-X-CRM114-Status: GOOD (  20.86  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <t3la3jte5tia7rh5ftuv5cchrwdxe4cxa2v3g6lxgoh5u6rmcy@hzw7lbke2vac>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +72,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Oct 2025 at 21:23, Florian Fainelli
-<florian.fainelli@broadcom.com> wrote:
->
->
->
-> On 10/13/2025 4:08 AM, Ulf Hansson wrote:
-> > On Wed, 17 Sept 2025 at 08:33, Stanimir Varbanov <svarbanov@suse.de> wrote:
-> >>
-> >> Hello,
-> >>
-> >> The following patch-set aims to:
-> >>
-> >>   * allow probe of bcm2835-wdt watchdog driver for bcm2712.
-> >>   * prepare bcm2835-power driver for enabling of v3d for bcm2712.
-> >>
-> >>   - patch 1/4 is preparing bcm2835-power driver to be able to
-> >> control GRAFX_V3D pm-domain. This is a prerequisite for the follow-up
-> >> patch-set which will add a v3d DT node for bcm2712 (RPi5).
-> >>
-> >>   - patches 2/4 and 3/4 are adding bcm2712-pm compatible in MFD driver
-> >> and update the dt-bindings accordingly.
-> >>
-> >>   - patch 4/4 is adding a watchdog DT node for bcm2712.
-> >>
-> >> Comments are welcome!
-> >
-> > This looks good to me!
->
-> How do you want to proceed with merging those patches? I would assume
-> you would take patches 1-3 and I would take patch 4.
+On Thu, Oct 30, 2025 at 01:16:12PM +0100, Thierry Reding wrote:
+> On Wed, Oct 29, 2025 at 12:46:54PM -0500, Bjorn Helgaas wrote:
+> > On Wed, Oct 29, 2025 at 05:33:31PM +0100, Thierry Reding wrote:
+> > > From: Thierry Reding <treding@nvidia.com>
+> > > 
+> > > Pass the driver-specific data via the syscore struct and use it in the
+> > > syscore ops.
 
-Yep, that works for me. Awaiting a new version of the series to get
-the comments on DT patch addressed.
+> > > +++ b/arch/mips/pci/pci-alchemy.c
+> > > @@ -33,6 +33,7 @@
+> > >  
+> > >  struct alchemy_pci_context {
+> > >  	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
+> > > +	struct syscore syscore;
+> > >  	void __iomem *regs;			/* ctrl base */
+> > >  	/* tools for wired entry for config space access */
+> > >  	unsigned long last_elo0;
+> > > @@ -46,12 +47,6 @@ struct alchemy_pci_context {
+> > >  	int (*board_pci_idsel)(unsigned int devsel, int assert);
+> > >  };
+> > >  
+> > > -/* for syscore_ops. There's only one PCI controller on Alchemy chips, so this
+> > > - * should suffice for now.
+> > > - */
+> > > -static struct alchemy_pci_context *__alchemy_pci_ctx;
+> > > -
+> > > -
+> > >  /* IO/MEM resources for PCI. Keep the memres in sync with fixup_bigphys_addr
+> > >   * in arch/mips/alchemy/common/setup.c
+> > >   */
+> > > @@ -306,9 +301,7 @@ static int alchemy_pci_def_idsel(unsigned int devsel, int assert)
+> > >  /* save PCI controller register contents. */
+> > >  static int alchemy_pci_suspend(void *data)
+> > >  {
+> > > -	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
+> > > -	if (!ctx)
+> > > -		return 0;
+> > > +	struct alchemy_pci_context *ctx = data;
+> > >  
+> > >  	ctx->pm[0]  = __raw_readl(ctx->regs + PCI_REG_CMEM);
+> > >  	ctx->pm[1]  = __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
+> > > @@ -328,9 +321,7 @@ static int alchemy_pci_suspend(void *data)
+> > >  
+> > >  static void alchemy_pci_resume(void *data)
+> > >  {
+> > > -	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
+> > > -	if (!ctx)
+> > > -		return;
+> > > +	struct alchemy_pci_context *ctx = data;
+> > >  
+> > >  	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
+> > >  	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
+> > > @@ -359,10 +350,6 @@ static const struct syscore_ops alchemy_pci_syscore_ops = {
+> > >  	.resume = alchemy_pci_resume,
+> > >  };
+> > >  
+> > > -static struct syscore alchemy_pci_syscore = {
+> > > -	.ops = &alchemy_pci_syscore_ops,
+> > > -};
+> > > -
+> > >  static int alchemy_pci_probe(struct platform_device *pdev)
+> > >  {
+> > >  	struct alchemy_pci_platdata *pd = pdev->dev.platform_data;
+> > > @@ -480,9 +467,10 @@ static int alchemy_pci_probe(struct platform_device *pdev)
+> > >  	__raw_writel(val, ctx->regs + PCI_REG_CONFIG);
+> > >  	wmb();
+> > >  
+> > > -	__alchemy_pci_ctx = ctx;
+> > >  	platform_set_drvdata(pdev, ctx);
+> > > -	register_syscore(&alchemy_pci_syscore);
+> > > +	ctx->syscore.ops = &alchemy_pci_syscore_ops;
+> > > +	ctx->syscore.data = ctx;
+> > > +	register_syscore(&ctx->syscore);
+> > 
+> > As far as I can tell, the only use of syscore in this driver is for
+> > suspend/resume.
+> > 
+> > This is a regular platform_device driver, so instead of syscore, I
+> > think it should use generic power management like other PCI host
+> > controller drivers do, something like this:
+> > 
+> >   static int alchemy_pci_suspend_noirq(struct device *dev)
+> >   ...
+> > 
+> >   static int alchemy_pci_resume_noirq(struct device *dev)
+> >   ...
+> > 
+> >   static DEFINE_NOIRQ_DEV_PM_OPS(alchemy_pci_pm_ops,
+> >                                  alchemy_pci_suspend_noirq,
+> >                                  alchemy_pci_resume_noirq);
+> > 
+> >   static struct platform_driver alchemy_pcictl_driver = {
+> >           .probe          = alchemy_pci_probe,
+> >           .driver = {
+> >                   .name   = "alchemy-pci",
+> >                   .pm     = pm_sleep_ptr(&alchemy_pci_pm_ops),
+> >           },
+> >   };
+> > 
+> > Here's a sample in another driver:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/cadence/pci-j721e.c?id=v6.17#n663
+> 
+> I thought so too, but then I looked at the history and saw that it was
+> initially regular PM ops and then fixed by using syscore in this commit:
+> 
+>     commit 864c6c22e9a5742b0f43c983b6c405d52817bacd
+>     Author: Manuel Lauss <manuel.lauss@googlemail.com>
+>     Date:   Wed Nov 16 15:42:28 2011 +0100
+>     
+>         MIPS: Alchemy: Fix PCI PM
+>     
+>         Move PCI Controller PM to syscore_ops since the platform_driver PM methods
+>         are called way too late on resume and far too early on suspend (after and
+>         before PCI device resume/suspend).
+>         This also allows to simplify wired entry management a bit.
+>     
+>         Signed-off-by: Manuel Lauss <manuel.lauss@googlemail.com>
+>         Cc: linux-mips@linux-mips.org
+>         Patchwork: https://patchwork.linux-mips.org/patch/3007/
+>         Signed-off-by: Ralf Baechle <ralf@linux-mips.org>
 
-Kind regards
-Uffe
+The alchemy PCI controller is a platform_device, and it must be
+initialized before enumerating the PCI devices below it.  The same
+order should apply for suspend/resume (suspend PCI devices, then PCI
+controller; resume PCI controller, then PCI devices).
+
+So if this didn't work before, I think it means something is messed up
+with the device hierarchy.
+
+But I understand the difficulty of testing changes here, so syscore is
+simplest from that point of view.
+
+It does complicate maintenance though.  I think all of mips ultimately
+uses register_pci_controller() and pcibios_scanbus().  Neither really
+contains anything mips-specific, so they duplicate a lot of the code
+in pci_host_probe().  Oh well, I guess that's part of the burden of
+supporting old platforms forever.
+
+Bjorn
 
