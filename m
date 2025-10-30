@@ -4,76 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE64CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6716CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KoSpIHesXav88BpAbWZAt/l5Rnoii11g5rgxnEXc2kk=; b=4zVGHiV6g1ZN6MD2EkmkopgcoT
-	1gcvX04yeDTwm7g4ttWrBepQGnQNLM+xxZ7/CcWNWBj5rzxlPxgwZPqT0o6HwsBuiUEn7VJwB2Tpf
-	p1OSdno9HPhwzNYdm2DSwY8r2w/Ib+E9d9pxwaZgHfRP8KaylncdyQfMvRwkq8leoxyK5bflaOO8B
-	8lVYNhMmz3Mgf8jqt5aXMo0g05i3NVZX2CHDxvmngOjdO2FHMdmnShtVBaCeGnYFUAzLd9JmCFTnC
-	JJtsROdqFYePLJd1UrcYTMYEI9g/WizU2FookebHBpVHRlYI/gXiiH8nn+Gy4w9l/9xbcO/oY2bHw
-	79i8r/Sg==;
+	bh=z0mFQTcGqmSkiKPfup/qBvNwcKsotJhGPnyj9Bdv5bM=; b=W4Ht+6Ndg0LeH+we2FBsgSYa3Q
+	73kGW8m1Dml8427hlYuscFuWSDgLDYEcUltWXLbKcjxxRJ2a+qdAL5cvloPkxpNPrdJusataZowYU
+	GywaXdY3TEXvDmEt2fkKWuy2d1i04Cdn8g76UlBtzDzcloBB1XboyEAS2J/iP9P7tbxpCNQ/PZsPC
+	fldatn9ECOn0TJiz5jPRnxM2B1IOBoQ4cDTlhIN1CKZ+q7WdyAYvo2tQt5MejE6X1JGunk0hUXRYx
+	m0bSZbEqicxOUSFDiOCBl7JVdPExfldg/1rm+eVo4Jfp00IgUqyV6iiek3B3CgF5ZUmUm51P01RWU
+	cviQ4UWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERKH-000000044yZ-1mN8;
-	Thu, 30 Oct 2025 12:00:21 +0000
-Received: from dd54918.kasserver.com ([85.13.167.58])
+	id 1vERMk-000000045DO-2IV8;
+	Thu, 30 Oct 2025 12:02:54 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERKC-000000044y6-1VhG
+	id 1vERMf-0000000459s-0Hmd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 12:00:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=karo-electronics.de;
-	s=kas202509031142; t=1761825608;
-	bh=KoSpIHesXav88BpAbWZAt/l5Rnoii11g5rgxnEXc2kk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=TJzJ511Kau45mJR/ckFCA6l46qxr2CBDpYPyYYz1OOpWhPc020ANMEuudO8sjC08G
-	 sM9XS3m5lGQ3xQfyCiiGSX5oSe5TQ2vjth86959tI4HZk9+d3HvaVHAx6Hj5nAvK9v
-	 dJX/coXRd4466/s0/mW4KrTYGl/jViyWqeGdJnTUuwM5krD+q8aL3fJWURaOv0Gqsm
-	 gajocVQfdWpacLTtC62WNP0lKarL4Aag6vDPFaQO9gGu+/YiBBBt4aSF9qzX12cgmZ
-	 1L/xK8IMiIbABbkK6L7S/Z9JVT9PjWNR00XTIghNyFX5ruaLOcvtWad1vV6GNF3wJA
-	 ZvTEQs1n8pzXw==
-Received: from karo-electronics.de (unknown [89.1.81.74])
-	by dd54918.kasserver.com (Postfix) with ESMTPSA id E53F9772C542;
-	Thu, 30 Oct 2025 13:00:07 +0100 (CET)
-Date: Thu, 30 Oct 2025 13:00:06 +0100
-From: Lothar =?UTF-8?B?V2HDn21hbm4=?= <LW@KARO-electronics.de>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Maud Spierings <maudspierings@gocontroll.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/5] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
-Message-ID: <20251030130006.0221957a@karo-electronics.de>
-In-Reply-To: <26fc62bb-3484-4812-b576-6640eef72c49@gmail.com>
-References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
-	<20251022-mini_iv-v2-3-20af8f9aac14@gocontroll.com>
-	<a7012995-c2a8-48a3-abe1-5c227272f21c@gmail.com>
-	<65202d1f-6c4f-4d4e-9fef-85cfb74ec768@gocontroll.com>
-	<938f85b0-4c9b-463a-960a-f5f4e4092480@gocontroll.com>
-	<20251029081138.2161a92a@karo-electronics.de>
-	<4a47b9b5-f482-41b6-a441-7728572c5a0c@gmail.com>
-	<20251029104838.44c5adcf@karo-electronics.de>
-	<d05c62c9-7ed7-46e4-aa4d-27172741b5ee@gmail.com>
-	<0667e026-99f3-4233-b3f6-e38273961d49@gocontroll.com>
-	<20251030095434.1dc06df2@karo-electronics.de>
-	<26fc62bb-3484-4812-b576-6640eef72c49@gmail.com>
-Organization: Ka-Ro electronics GmbH
+	Thu, 30 Oct 2025 12:02:50 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47112a73785so7327785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 05:02:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761825767; x=1762430567; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z0mFQTcGqmSkiKPfup/qBvNwcKsotJhGPnyj9Bdv5bM=;
+        b=m683hOB5vq6fQAaPLvQHHsW9geOOnq/4Yd4g+0ilFKQwVYdQXj1y3uCKhcm3Ha+c48
+         fboQlBM5yDNGX7GB0/+m0UJfWwbAvnM/DFAPRpLIMCqgyiIy9mODBHx1mLzCaXvpvlm5
+         3Dn/iZ7bm6/LPj+dKOVpA7bEl93rfqnHurolo/gpf1M5PY7A14E18pQHBwKhlHbMUsZM
+         iNyaJ3ddy/yzahvKkVMfdtkilYjsIEhBrFcTybqLZbaMfOwki031KubyAXp7B9Qzm66D
+         o+wKb9XJgETA6RSXzpbVHJ4wEb+PPKKOdkfHoNzpgHpWIKYy0+siU7JAr+2/hFoc9tEI
+         S2Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761825767; x=1762430567;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=z0mFQTcGqmSkiKPfup/qBvNwcKsotJhGPnyj9Bdv5bM=;
+        b=V5LxSQUm+iK1ym87VEm6g0+q4sBBezktcx5DfzM/XDQLqcY+C2gVnDfvxrMb0LDEHF
+         Rjjc3FgdEh1GE5UqrcB+9lBvGG4cSUvqUPQ88D6nCYVn9RCqZS/iS5jnYkhqCWhU1t3x
+         FRiKZxdlSP9CEtKn+wqKBRRieEE2QoRTSbePICaLthad/BgXWkXSg/7/69cJ/l900xyO
+         0gIFydT/aRLfGyghHxzvP1hO+VEY4ShxbSNpoC5pSdCWv0p2EplX9MiC4uooZRu21bZe
+         r7seXgRfHIo9r1VRGxI6P+Qd4UWIHy2/CuArDye6Kpy+kOKPllGATEXuoQ2TM1l0CL6Q
+         B9Aw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1oZyT+03xN0mHIs2waAIURtNiPemko2+KVmQWC77Lqka6qIPymTCPtHSGJzVYgJq7x9k4knzZz3YxhD9/rgvk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvvUf7VsnTslB8v90u6RIJgNEXFo0KnTfhER6vSL+WHbDnvJCH
+	UQaiMVCUznd3ZPNGvk48tnghXqJqxpwrX6wL93gdXIXP6CfJiWCVJShT
+X-Gm-Gg: ASbGnctbx+5AeN3vxMMhgO/cVqO+fvvrmG9bYLba3fUwTJHdYbPYVY48EgkuXGbhuiR
+	pPKfzOGlj2T8BoQFGdimfb03cP1iSA5fimc9S+IJPuZEJ4JpG2NdY3IkwYWw69pCqpYENwW3fhN
+	OYqyUYcCTqlfDxajs9qeIXg5mVZLSmTh8NiypiXQFnbFUPvSyNmn1/JKo1criUZzAJy3JG+1If9
+	wr6/wkjOzeR5uGPNywrAxahX/t7Gfzk0W0cHf3wZtj2dQD1gRo2cjfRNgbjyf1AjLbqhWyCljjK
+	TOuwuRLM3El8AF1SwRubELfBj2VoRf7jx3Ui5DSyeZV9rqxh3SeXHhkAHeQodf32rdSxYmZ8Dkr
+	y9bPEsJx70Y0PL1LI6bJq4c99PYua4xLToq/7T3MYSv9HKUHiFuAZoJk3cA7FCzJ8Tkg6aKoKzs
+	Piwo0Gr/UAmC6ttdkJW2qeJF6TfgJDcBk2KVlhlR8pKSG59liYwGk1FmR22mUCMD05SjF3YH6O
+X-Google-Smtp-Source: AGHT+IE+1Y1iMggZfF62Rfc9eTffUBllTx25tgqnlq9EBnWiqaF5y6rvo9W+qkPwMxETU1MJsDHwbw==
+X-Received: by 2002:a05:6000:240f:b0:3ec:db87:e8fa with SMTP id ffacd0b85a97d-429aef830bbmr5741010f8f.26.1761825766901;
+        Thu, 30 Oct 2025 05:02:46 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-146-98-100.cust.vodafonedsl.it. [93.146.98.100])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429b9b436efsm2399848f8f.23.2025.10.30.05.02.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Oct 2025 05:02:46 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 2/4] arm64: dts: freescale: imx93-var-som: Add PMIC support
+Date: Thu, 30 Oct 2025 13:01:22 +0100
+Message-ID: <20251030120127.509933-3-stefano.radaelli21@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251030120127.509933-1-stefano.radaelli21@gmail.com>
+References: <20251030120127.509933-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Spamd-Bar: /
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_050016_866565_EB334CCE 
-X-CRM114-Status: GOOD (  31.74  )
+X-CRM114-CacheID: sfid-20251030_050249_130304_EFBE1DF0 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,124 +108,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The VAR-SOM-MX93 features Dual Freescale/NXP PCA9541 chip as a Power
+Management Integrated circuit (PMIC).
+The PMIC is programmable via the I2C interface and its associated
+register map, and this patch adds its support.
 
-On Thu, 30 Oct 2025 13:01:52 +0200 Matti Vaittinen wrote:
-> On 30/10/2025 10:54, Lothar Wa=C3=9Fmann wrote:
-> > Hi,
-> >=20
-> > On Wed, 29 Oct 2025 16:35:25 +0100 Maud Spierings wrote: =20
-> >> Hi Matti,
-> >>
-> >> On 10/29/25 11:05, Matti Vaittinen wrote: =20
-> >>> On 29/10/2025 11:48, Lothar Wa=C3=9Fmann wrote: =20
-> >>>> Hi,
-> >>>>
-> >>>> On Wed, 29 Oct 2025 10:42:17 +0200 Matti Vaittinen wrote: =20
-> >>>>> On 29/10/2025 09:11, Lothar Wa=C3=9Fmann wrote: =20
-> >>>>>> Hi,
-> >>>>>>
-> >>>>>> On Tue, 28 Oct 2025 14:10:04 +0100 Maud Spierings wrote: =20
-> >>>>>>> On 10/28/25 13:42, Maud Spierings wrote: =20
-> >>>>>>>> On 10/28/25 13:15, Matti Vaittinen wrote: =20
-> >>>>>> [...] =20
-> >>>>>>>>> Could/Should this be described using the:
-> >>>>>>>>> 'rohm,feedback-pull-up-r1-ohms' and
-> >>>>>>>>> 'rohm,feedback-pull-up-r2-ohms'? If I understand the comment
-> >>>>>>>>> correctly, that might allow the driver to be able to use correc=
-tly
-> >>>>>>>>> scaled voltages.
-> >>>>>>>>>
-> >>>>>>>>> https://elixir.bootlin.com/linux/v6.18-rc1/source/Documentation/
-> >>>>>>>>> devicetree/bindings/regulator/rohm,bd71837-regulator.yaml#L108 =
-=20
-> >>>>>>>> =20
->=20
-> // snip
->=20
-> >>>>>
-> >>>>> If real voltages aren't matching what is calculated by the driver, =
-then
-> >>>>> the voltages requested by regulator consumers will cause wrong volt=
-ages
-> >>>>> to be applied. Debug interfaces will also show wrong voltages, and =
-the
-> >>>>> safety limits set in the device-tree will not be really respected.
-> >>>>>
-> >>>>> I think this would be well worth fixing.
-> >>>>>    =20
-> >>>> Before doing the real-life test I did the same calculation that's do=
-ne
-> >>>> in the driver to be sure that it will generate the correct values:
-> >>>> bc 1.07.1
-> >>>> Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017
-> >>>> Free Software Foundation, Inc.
-> >>>> This is free software with ABSOLUTELY NO WARRANTY.
-> >>>> For details type `warranty'.
-> >>>> fb_uv=3D0
-> >>>> r1=3D2200
-> >>>> r2=3D499
-> >>>> min=3D800000
-> >>>> step=3D10000
-> >>>> # default voltage without divider
-> >>>> min+30*step
-> >>>> 1100000
-> >>>> min=3Dmin-(fb_uv-min)*r2/r1
-> >>>> step=3Dstep*(r1+r2)/r1
-> >>>> min
-> >>>> 981454
-> >>>> step
-> >>>> 12268
-> >>>> # default voltage with divider
-> >>>> min+30*step
-> >>>> 1349494
-> >>>>
-> >>>> Probably we need to use this value rather than the nominal 135000 as
-> >>>> the target voltage in the DTB. =20
-> >>>
-> >>> Yes. When the driver calculates the voltages which match the actual
-> >>> voltages, then you should also use the actual voltages in the device-=
-tree.
-> >>>     =20
-> >> =20
->=20
-> // snip
->=20
-> >>
-> >> Then setting 1349494 as the actual voltage makes it fully work.
-> >> Otherwise it complains:
-> >> buck6: failed to apply 1350000-1350000uV constraint: -EINVAL
-> >>
-> >> Final debug output now:
-> >> [    0.327807] rohm-bd718x7 0-004b: buck6: old range min 800000, step =
-10000
-> >> [    0.327813] rohm-bd718x7 0-004b: new range min 981454, step 12268
-> >> [    0.327819] rohm-bd718x7 0-004b: regulator 'buck6' has FB pull-up
-> >> configured
-> >>
-> >> I will add this fix to the next version of this patchset and include
-> >> your requested change in the dts.
-> >> =20
-> > Does it also work with min/max settings in the DTS that are taken from
-> > the designated value +/- 5% tolerance margin, so that the DTS contains
-> > reasonable values determined by the HW requirements, rather than some
-> > artificial number that is enforced by the SW behaviour? =20
->=20
-> I am unsure what you mean by "artificial number that is enforced by the=20
-> SW behaviour"?
->=20
-The nominal voltage that is required by the consumer is 1.35 V. That's
-the voltage I would expect to set as target for the regulator.
-If that voltage cannot be achieved exactly, I would prefer to have the
-intended voltage listed explicitly rather than listing a value that
-accidentally can be achieved by the regulator but has nothing to do with
-the requirements of the consumer.
+Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+---
+v2:
+ - Fix pinctrl alignment
 
-> I don't know why there should be two different min values? Assuming the=20
-> latter should be max - I have no problem seeing a range of allowed=20
->
-My copypaste is obviously spoiled... ;)
+ .../boot/dts/freescale/imx93-var-som.dtsi     | 98 +++++++++++++++++++
+ 1 file changed, 98 insertions(+)
 
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+index 37f7837fb5ac..85fd9c9c9372 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+@@ -70,6 +70,90 @@ led@1 {
+ 	};
+ };
+ 
++&lpi2c3 {
++	clock-frequency = <400000>;
++	pinctrl-names = "default", "sleep", "gpio";
++	pinctrl-0 = <&pinctrl_lpi2c3>;
++	pinctrl-1 = <&pinctrl_lpi2c3_gpio>;
++	pinctrl-2 = <&pinctrl_lpi2c3_gpio>;
++	scl-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
++	sda-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>;
++	status = "okay";
++
++	pmic@25 {
++		compatible = "nxp,pca9451a";
++		reg = <0x25>;
++
++		regulators {
++			buck1: BUCK1 {
++				regulator-name = "BUCK1";
++				regulator-min-microvolt = <650000>;
++				regulator-max-microvolt = <2237500>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck2: BUCK2 {
++				regulator-name = "BUCK2";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <2187500>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck4: BUCK4{
++				regulator-name = "BUCK4";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck5: BUCK5{
++				regulator-name = "BUCK5";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck6: BUCK6 {
++				regulator-name = "BUCK6";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo1: LDO1 {
++				regulator-name = "LDO1";
++				regulator-min-microvolt = <1600000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo4: LDO4 {
++				regulator-name = "LDO4";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo5: LDO5 {
++				regulator-name = "LDO5";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++		};
++	};
++};
++
+ /* BT module */
+ &lpuart5 {
+ 	pinctrl-names = "default";
+@@ -140,6 +224,20 @@ MX93_PAD_UART2_TXD__GPIO1_IO07			0x51e
+ 		>;
+ 	};
+ 
++	pinctrl_lpi2c3: lpi2c3grp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO28__LPI2C3_SDA		0x40000b9e
++			MX93_PAD_GPIO_IO29__LPI2C3_SCL		0x40000b9e
++		>;
++	};
++
++	pinctrl_lpi2c3_gpio: lpi2c3-gpiogrp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO28__GPIO2_IO28		0x40000b9e
++			MX93_PAD_GPIO_IO29__GPIO2_IO29		0x40000b9e
++		>;
++	};
++
+ 	pinctrl_lpuart5: lpuart5grp {
+ 		fsl,pins = <
+ 			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX   0x31e
+-- 
+2.43.0
 
-Lothar Wa=C3=9Fmann
 
