@@ -4,97 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA2ACCF9FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5B1CCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 13:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auJLL78IWvyRiv8Z3SkGGwJVdNC/ugwPZHVGdPaUXw4=; b=v/UnriRPsIbLPckqsxx6VY7gAI
-	RlnCcXUNm5+SC8HdTlGKh52ON7wCQTdu1/soiWYgUsUJOizo5QKBqUzQunY1p4BtXNElNTPsZwkdT
-	4vJ6B+5Xu50XmrtyP+qpmHxaXtgEj/2nwAL8L9fqFTT0zW1eF+tn89XcVrkbeJ8EXidk4wgoT8MfF
-	zmxEeWLsvj5wEBl30K7t5vtmW3m8XZGOnlCJ/ADK448mB5g61GrUhuIXkOEYVTn+reZefdji/ubMe
-	Wo7Mvx/Y8EM/4zOj2QAuR6SP/U6sFJUAAd4/eYHjNeFkZNA4Vf6EbUTmW8iFW+5Ifcr8feiWo1LnJ
-	Vld49o2w==;
+	bh=7I23mlbCEWa6JxjZEYBLPvkSaPBmEz9swJiLToIAUsg=; b=cCF7dDkruJ5JQyb4a9C5uijJPy
+	AAV2fJA4YaXvhJYbEUESk89i2Ty9tTqiZdkrF15n+voy4pCWr3Xvnefvy1RzrJ18CGGSTE8vO+M0o
+	XXGF93mupMRmNILVR/gNTZ53Scd+6UHPCfX9003YfEeMX2bat9Cbp9yAPEsG0wecsufRJVx16fil2
+	97TrbeTQrYI9T5b8f4TTSgQWq5XhIa9CAj4sOSCF6CBSe7ieSK6NhopVskbZ1T/0tpY0VJRK92iJI
+	RNzBeWt8h1F+cehCRSmBjZ+aJebS9av/MqhXgrV1L8Aw+uwPKsqzsu32PPx3jnOumz4kQ/l/OO6tS
+	mCLKIVPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESiL-00000004CVj-1jBJ;
-	Thu, 30 Oct 2025 13:29:17 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1vESrz-00000004Czb-1CbV;
+	Thu, 30 Oct 2025 13:39:15 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vESiH-00000004CVM-3Rlz
+	id 1vESrv-00000004CzD-1mCS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 13:29:15 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-59310014b8eso1079841e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 06:29:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=immunant-com.20230601.gappssmtp.com; s=20230601; t=1761830951; x=1762435751; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=auJLL78IWvyRiv8Z3SkGGwJVdNC/ugwPZHVGdPaUXw4=;
-        b=YdGWkF89Nb9jWCtmUX33jdBypTrBBuxtSul3Ta9kc/ZCjDmnOR/TBIir4QmDUKUx7Y
-         yGNe08xPq3DE4s0HLaPo+R4ZD8223qdA+zSkTF/XY2u4bXF7rEgp84S066Qqg1uEHtbZ
-         o0q1e8H0KOUaMVqGSCoYN9liZpknSDXpbwORAfMTGVBprIH1D2RpO1Sk2B35wjp1kx6T
-         SCf4OL0ybR9kvxrhQKcqY9iXUj2lX3KDQjuOyDW79N2LHrIvykRrwdjUzb5pR2vEQ/mg
-         3qQKm8n3yoSGx4MGsirrvv37Eq97YM8weUkEAT94733hQHXJrycnNFbeFKTfNIZaUVts
-         SKmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761830951; x=1762435751;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=auJLL78IWvyRiv8Z3SkGGwJVdNC/ugwPZHVGdPaUXw4=;
-        b=IxQM5qqMXW4ODg8YPThz/zLbqyv+hYuGJRNMgPj9BQO4ePeLtIx7B5WWXW15ikWG5y
-         NH/K38WnNmWNvpNHq2yE2wJSIJVyNZDPQoGcEIaLWSBvgrTLLD1cv3pCg1AlX5qFqQJi
-         xAp0Yzep04G3APC1XZIdDMzTmnMDfBvjwQUEO1S9gK+Mn8qcItyLHDjAWqsnMINaKvWU
-         LL/B+G+jSM8DSIjtsn+8CNRF1EkcWukwhwV8lvd6H8QG2C+nCKO47VmjqkEyJEO93DvC
-         51zRCXJFegZzX2+gVvSvS9fQ+Lly/ydrFw7YR+0teFArPqUk2+IDuf4pCIycmuVr8paJ
-         rymw==
-X-Forwarded-Encrypted: i=1; AJvYcCWoQ2DIzGYDLfM7tK+5e4zKosvC/ysMIb5PoHQPPVcvwaueOesyfXNckyCUP2R4NrS2gfyaVbft0v6+OTaExBkW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDdERLn23Ecidzh5e23tYvq4HIReUNwBWFES6jOTELdqMF4yB7
-	lXM+80sBiHeBnduncEp8QLGFGl+5leH0dZAgnQBK+f3ip3c+DxTbakL2vjTWYU9QNvc=
-X-Gm-Gg: ASbGnctqVGuOQkwMoLRh22PyYzX3W2J6xJcGEZq2fRhMC+Qh7CravEiZMFESsm3ktXk
-	zbf3OZ2jqqq6DmMn8YXhB0Y1KKm4PsL4lwzO7xdZXSIqdnoP9iBX3rfZH14HFySrqqzFhbwGpSn
-	eqhH72ujZVftHVNAh0/ZCbwBjT5SyMeIrq+iJFg6grTdldFH9GSAelYn9vYN4LhHcFZQ39P5TJz
-	lSgGkHtrw52WDD4zXc8QcVspRUcocWdEkTdiVAPLYy+UoYII/rxixhBP9OacPHzcoNApJTYXZea
-	KJAzoe4UXStBIUNSCnn7piwY4FQChn74LFupkWV5rODPVLqA1z2hmf0UG8Pr7YYqSeZ9UPFTvrE
-	sy19nVKb0Wb2MJa+qOqqoG6NuuMSIYAKiabBbz5qZVlNcDUtrN+YQMWsZ5TD1LUDEitWrYopvsM
-	JnRielZpzksMVOS2UZzlAL5tE8JRymYqDJkZ0vmurnq1ceTNYPbsAf+F/74nQXW+53Zg==
-X-Google-Smtp-Source: AGHT+IH+7r03/reqlDO5F/xWopHhAZmJ6AzdE8dl2+vnGjXgF+KVVuZqJNmKyiG5BCz+kU/FitGyxg==
-X-Received: by 2002:a05:6512:2312:b0:591:d903:4384 with SMTP id 2adb3069b0e04-594128df108mr2867146e87.51.1761830950729;
-        Thu, 30 Oct 2025 06:29:10 -0700 (PDT)
-Received: from [192.168.1.11] (0x5da5f0d7.static.cust.fastspeed.dk. [93.165.240.215])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59301f48bc5sm4562968e87.30.2025.10.30.06.29.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Oct 2025 06:29:09 -0700 (PDT)
-Message-ID: <96171283-6f2a-45b5-b889-be1bee91678c@immunant.com>
-Date: Thu, 30 Oct 2025 14:29:07 +0100
+	Thu, 30 Oct 2025 13:39:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yUqaWgHxwnHz9PTGNcNOeJpVxH3n1w2p6JQKOQYP3/HQA8pmF+jktHpP7tCLQATXzU7wT7tIYXZgAQZcA0Dqho2+hy226ocncj1Ba1kHMjrFQunFL3tXa4Wopbg7UjR1hNoBJlzaidXi9Vpo0z97f0VgZ9HNN/JAh+umQDsnUnHMr5KLGZj9hPsCIS/UjWFAyKoQBWEnEWBaRjrWmsPzT7Csrmcf7rKd7wvCvcDQtV/m9vpx/p/m7R+NjGHceOJsfgWaPo1CkJwkjmg8LEs9Oclz7C+is7vWSpMSxVdTuzhjpZ8RTUjFFY3OS7d2phF+S+6nJyvvuGQNeDHUAvg7dA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7I23mlbCEWa6JxjZEYBLPvkSaPBmEz9swJiLToIAUsg=;
+ b=eFCSuHlkUkaDRrj8VZp0Iu8qMxrhZTp2lGrmbd1Jbpqluw6VqoIX2AY88T1nTfnWtmTcUBrn53znICpFqUVFN9xHJGPWRjCkTcf+OmXXGhnvNfHAQpMXtRJ+CDIWODp6b2sUlIRWbtWcTT6NZat82LplN95CnVuJdkwaMVXVDZJu3ichfIj17R5ASbMWsrZMvhh6wfuEuv2Y0sw1UV7IOeYAV0kmPv5NGig8lc2pbDapnPe4jKl+O0dSDOkw+l5+/d7FVCGGqPdOwqunrdI4Vkw0Xn6KIuweY8bV9YVSw0WST33Zk5l4toEJ3PzYktPUGwfdTX8SrhJw62DE7GRuLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7I23mlbCEWa6JxjZEYBLPvkSaPBmEz9swJiLToIAUsg=;
+ b=UnYjXgRAnW+fDlzJ/Aq7VkFAS9/uN+9TGrsV0R3Qme6twWNbNdJkAE5swkWvRIwdaN9R8VYIV5nJG6t5xzxK8R9CJ81/XaKFwHJ+pkS1AP/7faTLXtWu6LhTxbrwhaDy2oP3uBtr4dmjPXWNepmVQaKiuAYYUUndX7LaTkBi+Ng=
+Received: from PH0PR07CA0034.namprd07.prod.outlook.com (2603:10b6:510:e::9) by
+ PH0PR10MB5846.namprd10.prod.outlook.com (2603:10b6:510:14c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Thu, 30 Oct
+ 2025 13:39:01 +0000
+Received: from CY4PEPF0000EE30.namprd05.prod.outlook.com
+ (2603:10b6:510:e:cafe::53) by PH0PR07CA0034.outlook.office365.com
+ (2603:10b6:510:e::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.12 via Frontend Transport; Thu,
+ 30 Oct 2025 13:39:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CY4PEPF0000EE30.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.10 via Frontend Transport; Thu, 30 Oct 2025 13:39:00 +0000
+Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
+ 2025 08:38:56 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
+ 2025 08:38:56 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 30 Oct 2025 08:38:56 -0500
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59UDcpcM2241222;
+	Thu, 30 Oct 2025 08:38:52 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: <mwalle@kernel.org>, <afd@ti.com>, <conor+dt@kernel.org>,
+	<frank.binns@imgtec.com>, <kristo@kernel.org>, <krzk+dt@kernel.org>,
+	<matt.coster@imgtec.com>, <nm@ti.com>, <robh@kernel.org>, <rs@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <detheridge@ti.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62p: Fix memory ranges for GPU
+Date: Thu, 30 Oct 2025 19:07:18 +0530
+Message-ID: <176183141857.2766610.13135514120305603944.b4-ty@ti.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250919193341.707660-2-rs@ti.com>
+References: <20250919193341.707660-2-rs@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] KVM: arm64: support optional calls of FF-A v1.2
-To: Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- will@kernel.org, perlarsen@google.com, ayrton@google.com,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20251027191729.1704744-1-yeoreum.yun@arm.com>
- <20251027191729.1704744-3-yeoreum.yun@arm.com>
- <f5aa3c19-fdea-4f62-9541-530e59b20a87@arm.com>
- <aQEwVe8+okm/Nmso@e129823.arm.com>
- <61e923d6-388b-4cc6-8c26-5581a1e1cc10@arm.com>
- <aQIYZoP5iKcwtXwW@e129823.arm.com>
-Content-Language: en-US
-From: Per Larsen <perl@immunant.com>
-In-Reply-To: <aQIYZoP5iKcwtXwW@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE30:EE_|PH0PR10MB5846:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f0506d0-2263-4da7-f37e-08de17b9af4a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|36860700013|34020700016|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UEJYNDlrOVFCSVIvalNMbTIxN1R5NGtFbytXZTQ0TDloSVJlYUh1NVZlMWFZ?=
+ =?utf-8?B?ZnlEUC8rSy96UmR1aTNYTHU3RnUzUjZqSXRzZnNxRGpBZjFiVDVSdWR6bm1D?=
+ =?utf-8?B?N2UxTHhJc2s5Zm9LQmsrQkVTTW5uTHRyeXVtWFVZelpGMGlyK1JsWE1HU2Er?=
+ =?utf-8?B?eGlja0hnRnhjaWFsb3ErR21neGp5ZmYyRjY2NnN0cHl1dDR3NmE3Z01EcWVu?=
+ =?utf-8?B?WmZmaE5ldzVZWmEwVXZGUXFIMVBpeHcvMUpBMDJSMjVHaHRFcGtzL09LM1JJ?=
+ =?utf-8?B?NDUwcm9janRvbTcyYVF5U1U1cHdkMk82OGJ6N0RNalBhZzNiTkJNZjhSNUJo?=
+ =?utf-8?B?bXBGM3NZSHpCUmtqaTVaUHozTHFzNkpVem5aaldDRzVOYkJZcGswNUNrZkFa?=
+ =?utf-8?B?SnZvVW1rTzE2bzc4dWFMQnZvdTMzS3dMVlFmVmpWaVFTY2tLaE9rTkxUdm1Q?=
+ =?utf-8?B?a2dnbXRrZjYxWWl2eDNwdWdDT1FiSytCYy95WnpNcVpNMUxzTDVmYmFldEdv?=
+ =?utf-8?B?dFltSnV3WW5QWURzY1hMeEtuMFlwb0tGTjl4TmdJM2R6Ym54bEdnNmJ4NDlq?=
+ =?utf-8?B?RUpTWTlYVy9PYzVyMDY0V0Y1aCtpa2NQZ1JzUnJYVXA3akVvS21iT2hFeU16?=
+ =?utf-8?B?bXVpVmYxT05GdWdEUnJQMzZWMXk5RHdnZkdEMXNBTU13R2tHc3Vob2VKc0JO?=
+ =?utf-8?B?NW8vd2U0K0FJdDd6dWwya3BUS3JSWVhCWW5BMWw0NHFDUjJBY0xQdGZtaG5N?=
+ =?utf-8?B?cFFrZVJ3QXFSM0lXN3RrcW5keXBsSlpnSXJ0ZWgzSWZzWkllYTcwWjlPVnUz?=
+ =?utf-8?B?UTl3MHE0UGt4RGY4SFlNU2RSQm1HZENVdWs3ejdCK3NhQmJ6TFFoeEl3WGtC?=
+ =?utf-8?B?Ry9kbk8wS2M0MGdCYTdtTkg5MHVjeGNNQzU1UXhsRDlvZ0c0c24xTzRHSmdz?=
+ =?utf-8?B?U1k0Q1k0SUlzTWt6UDF6RVJIRmh0SSt6cnFMa1NQWFVReG1iR0J2M1M2dTdz?=
+ =?utf-8?B?Nlo2dUE2dlBpZkljTGJBR2U3ZVVuRnZTYVhFS3JxSml4bERXakd3am5DT2VO?=
+ =?utf-8?B?MGtIWDJPeUZvWUtpZUc3N1hYUjFDNjVrcm5RcDNsaHVBbFpJWmt0RFFFRUgz?=
+ =?utf-8?B?UlJxb3BIenZ2ZlJqSzlxSmprRTRBcUxsYTRFTDhSdTdjK01hQytmWXQ1aGEz?=
+ =?utf-8?B?UmVSWHk4YVpmV2V1MjRQOSs3QlNPWUdTeTZIekErSjZoNzdlQ2YvV0dnQ25G?=
+ =?utf-8?B?aFh6VENuVGZ4MTlqQ3F3Rk1MNURCd2JiQUJvVUV2SGc4ZGdVcWh2U1phZzJr?=
+ =?utf-8?B?eS9nQmVvTHRSRmsrazJDYjQ0VnVMa2NzeUgyblhBd21wWjZZaVE2bWN2SVdT?=
+ =?utf-8?B?NEZPL0luT2picWZmYzB0eHV3YzQ4K0lVSldpTnhxMTZJb1RQTTYyTnVjaHdK?=
+ =?utf-8?B?ckc5YzlxZWdyd1p2ZnRIK0VUNzlsSVYwYXJKaUpRRmN2NHRUOHkvRXFidEpO?=
+ =?utf-8?B?dzZpdjhQZnZHVGFnUFJrUFpBZjdlZklhbVlCQkVkbWtkMmFCbmxVT3ZwZE4r?=
+ =?utf-8?B?MEpJR1NDY2ljbkdGQWhWemNrOWc4ekJWaWdoam01ekxFTE5ZcXNndUNqNFFn?=
+ =?utf-8?B?T3VVR1lEenhJTHpZQ082aC90eUNVNjZONGtFKy9jZ0pXUEMvUlNOMWRybytn?=
+ =?utf-8?B?Wk1RNG1TWXZlekhFNE95NE9INHBEN0RPNGw0cUVKeTRIMlUzRmhIZEg5U3M4?=
+ =?utf-8?B?cUhURXV1M2tIUlk5MkhQZnNLRmVSOUlnRDRkU2ZrUTlxVnNqTjJaRmFBL2V2?=
+ =?utf-8?B?ZmQvTGdIWlVpbjhqQVBGczg3WmZZZnFmaEx1cVBDVE1xSE83Q0Z2dlZzaFlN?=
+ =?utf-8?B?TmdOSFBiNmt1Y1pCSjVFT1NzVVZpdnkrT3lVWVN3YjhRQXpDd1lWMU45dmxH?=
+ =?utf-8?B?S0RkVW53a3NLU2FkUTEyQVRPSnpCelhYcWpRR1RsWFJtakJueFNGTXFOQkNt?=
+ =?utf-8?B?L01QL3BpbWQvTmljV094UjlRdk1ORE80U3cvOSszRElVZG1HWnRQNHRrSzZL?=
+ =?utf-8?Q?fR0TLs?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(36860700013)(34020700016)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2025 13:39:00.9753
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f0506d0-2263-4da7-f37e-08de17b9af4a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE30.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB5846
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_062914_136652_6C46501B 
-X-CRM114-Status: GOOD (  26.86  )
+X-CRM114-CacheID: sfid-20251030_063911_677996_59EE657F 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,128 +164,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yeoreum,
+Hi rs@ti.com,
 
-On 10/29/25 2:36 PM, Yeoreum Yun wrote:
-> Hi Ben,
+On Fri, 19 Sep 2025 14:33:42 -0500, rs@ti.com wrote:
+> Update the memory region listed in the k3-am62p.dtsi for the BXS-4-64
+> GPU to match the Main Memory Map described in the TRM [1].
 > 
->>
->> On 10/28/25 21:06, Yeoreum Yun wrote:
->>> Hi Ben,
->>>
->>>>> To use TPM drvier which uses CRB over FF-A with FFA_DIRECT_REQ2,
->>>>> support the FF-A v1.2's optinal calls by querying whether
->>>>> SPMC supports those.
->>>>>
->>>>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->>>>> ---
->>>>>   arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
->>>>>   1 file changed, 18 insertions(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
->>>>> index 0ae87ff61758..9ded1c6369b9 100644
->>>>> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
->>>>> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
->>>>> @@ -646,6 +646,22 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
->>>>>   		ffa_to_smccc_res(res, ret);
->>>>>   }
->>>>>
->>>>> +static bool ffa_1_2_optional_calls_supported(u64 func_id)
->>>>> +{
->>>>> +	struct arm_smccc_1_2_regs res;
->>>>> +
->>>>> +	if (!smp_load_acquire(&has_version_negotiated) ||
->>>>> +		(FFA_MINOR_VERSION(FFA_VERSION_1_2) < 2))
->>>>> +		return false;
->>>>> +
->>>>> +	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
->>>>> +		.a0 = FFA_FEATURES,
->>>>> +		.a1 = func_id,
->>>>> +	}, &res);
->>>>> +
->>>>> +	return res.a0 == FFA_SUCCESS;
->>>>> +}
->>>>> +
->>>>>   /*
->>>>>    * Is a given FFA function supported, either by forwarding on directly
->>>>>    * or by handling at EL2?
->>>>> @@ -678,12 +694,13 @@ static bool ffa_call_supported(u64 func_id)
->>>>>   	case FFA_NOTIFICATION_SET:
->>>>>   	case FFA_NOTIFICATION_GET:
->>>>>   	case FFA_NOTIFICATION_INFO_GET:
->>>>> +		return false;
->>>>>   	/* Optional interfaces added in FF-A 1.2 */
->>>>>   	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
->>>>>   	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
->>>>>   	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
->>>>
->>>> Looking at table 13.54 in the FF-A 1.2 spec FFA_CONSOLE_LOG is only supported in secure FF-A
->>>> instances and not from the normal world.
->>>
->>> Thanks. in that case, we can return false for FFA_CONSOLE_LOG
->>> unconditionally.
->>>
->>>>
->>>>>   	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
->>>>> -		return false;
->>>>> +		return ffa_1_2_optional_calls_supported(func_id);
->>>>>   	}
->>>>
->>>> I don't think that an smc call here is the right thing to do. This changes this from a light
->>>> weight deny list to an extra smc call for each ffa_msg_send_direct_req2 from the driver.
->>>>
->>>> Instead, I would expect this patch just to remove FFA_MSG_SEND_DIRECT_REQ2 from the deny list
->>>> and rely on the TPM driver to use FFA_FEATURES to check whether it's supported.
->>>>
->>>> So, just this change:
->>>>
->>>> @@ -679,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
->>>>          case FFA_NOTIFICATION_GET:
->>>>          case FFA_NOTIFICATION_INFO_GET:
->>>>          /* Optional interfaces added in FF-A 1.2 */
->>>> -       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
->>>>          case FFA_MSG_SEND_DIRECT_RESP2:         /* Optional per 7.5.1 */
->>>>          case FFA_CONSOLE_LOG:                   /* Optional per 13.1: not in Table 13.1 */
->>>>          case FFA_PARTITION_INFO_GET_REGS:       /* Optional for virtual instances per 13.1 */
->>>>
->>>> Am I missing something?
->>>
->>> Nope. I think you don't think you miss anything and
->>> I also think about it.
->>>
->>> But, I'm not sure about "support" means in the pkvm about FF-A.
->>> Anyway unless the SPMC doesn't support the specific FF-A ABI,
->>> I don't know that's meaningful to return "TRUE" in here.
->>> IOW, suppose pkvm returns supports of  FFA_MSG_SEND_DIRECT_REQ2
->>> but user receive when it calls FFA_MSG_SEND_DIRECT_REQ2 with NOT SUPPORTED.
->>
->> As I understand it, the ffa_call_supported() is used in two places:
->> 1. To return NOT SUPPORTED to an FFA_FEATURE call for ffa calls that are
->> on the deny list.
->> 2. To block ffa calls if they are on the deny list.
->>
->> For both your patch and just removing FFA_MSG_SEND_DIRECT_REQ2 from the
->> denylist I think the behaviour is the same.
->>
->> If FFA_MSG_SEND_DIRECT_REQ2 is not supported at the spmc then:
->> a) an FFA_FEATURE call will return not supported
->> b) an FFA_MSG_SEND_DIRECT_REQ2 will return not supported
->>
+> [1] https://www.ti.com/lit/ug/spruj83b/spruj83b.pdf
 > 
-> Right! I've missed the FFA_FEATURE handles via default_host_smc_handler().
-> As you said, it just a deny list.
 > 
-> Thanks. I'll change it.
-Sorry to jump into the discussion very late. I uploaded a patch set 
-which adds support for the FFA_MSG_SEND_DIRECT_REQ2 interface which was 
-originally developed for the Android common kernels:
 
-https://lore.kernel.org/all/20251030-host-direct-messages-v1-0-463e57871c8f@google.com/T/#t 
+I have applied the following to branch ti-k3-dts-next on [1].
+Thank you!
 
+[1/1] arm64: dts: ti: k3-am62p: Fix memory ranges for GPU
+      commit: 76546090b1726118cd6fb3db7159fc2a3fdda8a0
 
-Since there appears to be an upstream use case for this functionality, 
-it might be a good building block for the present patch set.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Thanks,
-Per
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
+
 
