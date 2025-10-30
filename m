@@ -4,101 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705D7CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BFCCCF9FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 12:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LH+QGYOc/zlk9kynHB57i4Jfr2TpVc6CuOpzeWP/q+M=; b=Zw5/voAqog6D33toNBaQ7fcoNn
-	PE2/8HyjIGWUftNPWvhWpYOFMjEKK8KpDZKi91ay0PK9Olb3NknkhFU4JH4DgXe9kmZ1lryOhHgtf
-	n4PwCkiDCNpwaTP1VwM1P9SzYGThg32Je6RlUvs4ahSZ15EFbYlEtC/NhTREl9z/y/hJnAa3I/ek1
-	AiqOSPwT3Y8po7s6EUdcHmfcE1DqITqQr0lIZTyMavCp6387wYbXjs55cOaeCsH7Qr1q2+F04JKAR
-	ev1DQblWdzHirQFz4nj0LS2acPqZUlPTPAifg4egJd1Jid1d3q6LiFKo2qzoSIl558Oejmyrg+1lh
-	qvKnmlCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SYohtfjfI7gDBusXckBe79d4sJhgF5ZWZ9Cpfqff8vI=; b=imgz8JAc0YfwuUol+zsC8PQkvA
+	Cx9MfzEZ4radLouLzQ4lsPxSixBDOdvW1WlxgDtM8VmmdhQLuOb7PWZU/Xr067mmgCYDIVEXDrtLw
+	QvKug4P+4Nb2LLecibGMJCqBFYsRPtb2Dc2VPtrGWsoq+qdwP527Uk4jo2TLphz3rlHj6+Tl+P1iU
+	omx+fBavfqGiBVJzlubbcwVoLeujABHTLC3x4ARpKKouW3BpjeONwGUD/swGf3FoyU7YnIVyyQpSn
+	KLGJfmsUoNRZ10zNcle3G0ooLyZVEdR8FCCbikyZs2pM6noZewZmwQf+goQbFdxyqb1FgbTiVffZY
+	BaYLA6sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vES6u-000000049E2-2Mxd;
-	Thu, 30 Oct 2025 12:50:36 +0000
-Received: from mx-relay164-hz1.antispameurope.com ([94.100.133.57])
+	id 1vESFK-00000004AQg-2f5G;
+	Thu, 30 Oct 2025 12:59:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vES6l-00000004969-0AwR
+	id 1vESFI-00000004AQ5-0vYs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 12:50:28 +0000
-ARC-Authentication-Results: i=1; mx-gate164-hz1.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=LH+QGYOc/zlk9kynHB57i4Jfr2TpVc6CuOpzeWP/q+M=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1761828615;
- b=Ei1591USZf5hYhqCh/0swdvvd1vw9ss+ilfM9bcWiBE7MZg19fPag/z9D0Pt6I2h2+ZBmChU
- C++uy3xk8Dh8L4+1DJVx6VMhkQ/qrmAD8VHHhb0gAWqzQIiJZbyzHHKqLhNvhnzGH9i4N6NEwC3
- HRVhPxcjfVvLh2NG3vmAwq1JjtfIkK7C6HWfXpkXmNciRYEdkcw89XuM13U+g4Ezj/RTAJlf95t
- 1+YodmbAA4mHOZQ6/VqSMCqe7Ziz4tj1vWfMnNYusRi0NRKHmfjTmxfz07+05CDe51lNPIH43LL
- SLgui8HRr0uA6reLG1Y+JJTe4pNMqfPRN4yQBSNS/nMjQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1761828615;
- b=X5V6+qUk9KF61eg/DgsrmQQswHZfDLvPmTNOVBjyUGrXLGQD5TUy8k1dpNwDgdJh6HJ7u3c6
- OztMHT9nlcPGeYlh035OBwuFbQZIlCZ3egVk8cOf2sU14Edx1t4P5TdyNS37ekMgFnFWBD8pMVL
- qYyeWjMUJOOOOH8Rgj2zNFVghmxdg94UkHujfk5YfL4b+7iN5yueFp5Lf3V+cRBDxup4HdrDXDu
- gjO/pI/haKCWL9vZUrZ3khhGddfBamM7U9FqDuE9PXJM+eWUP8VhD6ZeMqHSm2j4LlxQ92UzoGy
- bBh/Ku+xPda4zbxpIqOm0WT/3C8rsM8IwqV767Z/XKRCQ==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay164-hz1.antispameurope.com;
- Thu, 30 Oct 2025 13:50:15 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 35CF1220D35;
-	Thu, 30 Oct 2025 13:49:59 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thu, 30 Oct 2025 12:59:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 24D5E40B43;
+	Thu, 30 Oct 2025 12:59:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F512C4CEF1;
+	Thu, 30 Oct 2025 12:59:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761829155;
+	bh=+1QdoawkvflouOC6qmIDpRPfUBs0v5s5IJB5WvVN5c8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UeB95CGIa0bUoc3nVboyxnGKS3LjLnmt37ePDVdvoQKf83UepOJ121/YnPn3t8SZp
+	 WT9ofgpoHA+oc9DkrYPpAYEVfsYrXgToUHn6AbgONlGAGLm14sIKqWmn7AOe4XvwyX
+	 9W1KRLNKop4Hg5zqDjZ2BBO1jFBC0iWZi7sq7TcSVxpnyXEaD+D78QH/CC3e/e23DU
+	 PQyjht7aXAgAWQZsaI168foVKW8jjKKTBNJ6lvNh5VEuFfa9IE6vXT46jNe0Nevy/x
+	 iDgbEJLjnMM4JUXuQa/SlGEbWZ9WDRtPESL+b9TCPKjxc6EvUwCGmK62ChusB+JGmC
+	 UvAjl58afSMDA==
+Date: Thu, 30 Oct 2025 12:59:08 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 07/19] arm64: dts: imx95-tqma9596sa: move sai config to SOM
-Date: Thu, 30 Oct 2025 13:49:14 +0100
-Message-ID: <20251030124936.1408152-8-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251030124936.1408152-1-alexander.stein@ew.tq-group.com>
-References: <20251030124936.1408152-1-alexander.stein@ew.tq-group.com>
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Melissa Wen <mwen@igalia.com>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Stephen Boyd <sboyd@kernel.org>, kernel-dev@igalia.com,
+	kernel-list@raspberrypi.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] ARM: dts: broadcom: rpi: Switch to V3D firmware clock
+Message-ID: <d88f6420-5013-4856-99d6-da28f79bd7a5@sirena.org.uk>
+References: <20251005113816.6721-1-wahrenst@gmx.net>
+ <9ebda74e-e700-4fbe-bca5-382f92417a9c@sirena.org.uk>
+ <a5e1e279-7e20-458d-a75f-787e0adbc9fe@gmx.net>
+ <ad07546f-0c2d-4bc2-b794-755b892c7328@sirena.org.uk>
+ <a016e7e1-09f7-4056-a855-6cfaa8d51962@gmx.net>
+ <10a4ef77-0e70-4ef2-b1df-535b476d256d@sirena.org.uk>
+ <ecd75fd5-3131-4d10-ae3d-b6f608d9622a@gmx.net>
+ <25e500c2-3dc1-476c-b6c1-ac4098a0501d@sirena.org.uk>
+ <d6b14388-e0ab-44f0-b4d9-78adf74c2a7f@gmx.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay164-hz1.antispameurope.com with 4cy3qC6KJsz3xpSY
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 9ebcda3407cd901d1ba1b6606188f8b0
-X-cloud-security: scantime:2.896
-DKIM-Signature: a=rsa-sha256;
- bh=LH+QGYOc/zlk9kynHB57i4Jfr2TpVc6CuOpzeWP/q+M=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1761828615; v=1;
- b=rnyBJjzyvldIfVNS8QvfwsM6t4lHiaoHkopA8k9YrgY8gpso8TCJMIAdfYXPZcYgCC29y3gg
- dlGSJWwR077bSQ5NgJ+9B9IbkBwqZeheQCSW8SZ3nD6zpBZaHl1It3ZLaUZXkPJ/a0uONfvkVKf
- s5ztWIvehSx7KVLHSwQqfpbXXGZiIunwhQtDwsvN6uXiAViYVI3CLHuDieSe5KboTbQYzXw3C7X
- xdlzC8LiEBS61IRCXQAJEyM7LAealAMLLbsMhe+mkk0TS/aKI4BY+54hgA8zwnkDV9PwRR6rINQ
- 2tsbfDYDcXKxRXVbPGV6McWb/qkij+PLGwK3bjdKRuctA==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DL6fKXW3fR4LoiHa"
+Content-Disposition: inline
+In-Reply-To: <d6b14388-e0ab-44f0-b4d9-78adf74c2a7f@gmx.net>
+X-Cookie: Is there life before breakfast?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_055027_216989_E517DE29 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20251030_055916_301928_C9EEA99F 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,104 +91,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The muxing and other features are mostly determined by SOM, so add it
-at this level.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- .../freescale/imx95-tqma9596sa-mb-smarc-2.dts | 30 -----------------
- .../boot/dts/freescale/imx95-tqma9596sa.dtsi  | 33 +++++++++++++++++++
- 2 files changed, 33 insertions(+), 30 deletions(-)
+--DL6fKXW3fR4LoiHa
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-index 02bbaaf298930..5c94d8cf28c4c 100644
---- a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-@@ -254,39 +254,9 @@ &reg_sdvmmc {
- };
- 
- &sai3 {
--	#sound-dai-cells = <0>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_sai3>;
--	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
--			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
--			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
--			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
--			  <&scmi_clk IMX95_CLK_SAI3>;
--	assigned-clock-parents = <0>, <0>, <0>, <0>,
--				 <&scmi_clk IMX95_CLK_AUDIOPLL1>;
--	assigned-clock-rates = <3932160000>,
--			       <3612672000>, <393216000>,
--			       <361267200>, <12288000>;
--	fsl,sai-mclk-direction-output;
- 	status = "okay";
- };
- 
--&sai5 {
--	#sound-dai-cells = <0>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_sai5>;
--	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
--			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
--			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
--			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
--			  <&scmi_clk IMX95_CLK_SAI5>;
--	assigned-clock-parents = <0>, <0>, <0>, <0>,
--				 <&scmi_clk IMX95_CLK_AUDIOPLL1>;
--	assigned-clock-rates = <3932160000>,
--			       <3612672000>, <393216000>,
--			       <361267200>, <12288000>;
--};
--
- /* X4 */
- &usb2 {
- 	srp-disable;
-diff --git a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
-index 166439e251c53..e7edeec712dcb 100644
---- a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
-@@ -391,6 +391,39 @@ ethphy3: ethernet-phy@3 {
- 	};
- };
- 
-+&sai3 {
-+	#sound-dai-cells = <0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sai3>;
-+	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
-+			  <&scmi_clk IMX95_CLK_SAI3>;
-+	assigned-clock-parents = <0>, <0>, <0>, <0>,
-+				 <&scmi_clk IMX95_CLK_AUDIOPLL1>;
-+	assigned-clock-rates = <3932160000>,
-+			       <3612672000>, <393216000>,
-+			       <361267200>, <12288000>;
-+	fsl,sai-mclk-direction-output;
-+};
-+
-+&sai5 {
-+	#sound-dai-cells = <0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sai5>;
-+	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
-+			  <&scmi_clk IMX95_CLK_SAI5>;
-+	assigned-clock-parents = <0>, <0>, <0>, <0>,
-+				 <&scmi_clk IMX95_CLK_AUDIOPLL1>;
-+	assigned-clock-rates = <3932160000>,
-+			       <3612672000>, <393216000>,
-+			       <361267200>, <12288000>;
-+};
-+
- &scmi_bbm {
- 	linux,code = <KEY_POWER>;
- };
--- 
-2.43.0
+On Wed, Oct 29, 2025 at 08:51:38PM +0100, Stefan Wahren wrote:
+> Am 28.10.25 um 19:47 schrieb Mark Brown:
 
+> Okay, here is my theory. The difference is about (boot) time. In my setup
+> the whole device boot from SD card and in your case the kernel modules are
+> stored via NFS.
+
+> V3D requires two resources, a clock and a PM domain. Additionally the PM
+> domain itself depends on the very same clock. In arm64/defconfig the
+> relevant clock driver is build as module, but the PM domain driver is
+> builtin.
+
+> During boot "driver_deferred_probe_timeout" (10 s) expires before the clo=
+ck
+> driver could be loaded via NFS. So the PM domain core gave up:
+> [=A0 =A016.936547] v3d fec00000.gpu: deferred probe timeout, ignoring dep=
+endency
+
+> So this breaks probing of V3D driver in this case.
+
+That seems buggy on the part of the core, particularly since userspace
+isn't there yet so we might be missing some filesystems - I would have
+expected the device to probe once the supply becomes available.  But I
+do agree with your analysis, it doesn't look like an issue with this
+driver.
+
+--DL6fKXW3fR4LoiHa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkDYRwACgkQJNaLcl1U
+h9AuPAgAhX8oYbIGRTANQ29CvGBBiBWZTt3xEqxSiSYYfyZHAo3wqewY65jMId3v
+iiN98hv86nqd09M4x5o20xrclao8tKqf+hJuOLTAiaTmK6vZ2MP7jcLrSIEKcXj5
+Bz7YUJ8KNIL3greU8KJtZrOYarVY9dLsEfWg8vA5Dn6LVYLRiR9AjcSPotQ8HBYR
+unihXKLZ0FjWnYPNZPh7FwuB+X1uyJpD0Frd7O2QwKshXeimCAfyEas59caUod/C
+gt7bHp31py5xKcfkJnFIRPsaLiR+0VAgQGOJunxK9ALbq2VPKcUQPIvFy8o+g+PP
+N6FBknR19Ga2HdCaymnhijMAVkNMmg==
+=tMof
+-----END PGP SIGNATURE-----
+
+--DL6fKXW3fR4LoiHa--
 
