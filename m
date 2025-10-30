@@ -4,70 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3847CCF9F5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D498FCCF9F5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JhskAMSbPVlSOTNFjzse6L3MehkffYRFL9WqDX3wYY=; b=cn3zmnepmqyZsZ+iJjhu7Icaal
-	N+HulU2tTJIIGJaPC2zZldnb1NFB8BbLgjI6nYAYyeQ7+rk5NkV9NDbyuUrlwnj0Lfk9/qcQNcmRG
-	xWhsNzGZquQuEBE5SC3lOpygIG013Pc8lqUPaSzOqq+rOL9vfXzgSkpNaCxaTl7P+DtrrUVUIIse2
-	wFIQ24Pc9Q9+jkrJsgHt58aBEyoUSEoHCyhYObJorOrO/s0Y62qMRFPSYIZUYvmMnTIEGDe9roCDx
-	OdWtprn8HFENSwUjOrfQkeCbesGkRNoaIqSXKM4NmCF63glfBaZvXlhhZcSRh7berC6xd3QfvvoiX
-	Xi7AYpkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U12Y86th6aBHUAY5zz8sPVVusMIWGLDRxBtI3QYOnnY=; b=fEAY64G5hjlnMsX4JfN+hWr3Le
+	V24EMPJYdk9olwI9KbOgfgm2G9IQFrekbcJt/S2t3P+cPolR1hKYPu9sIN6oSuBIMei0eucyTADBf
+	4zo+kEinJYHcMdynF5rtWXTFY20HNQyqpfHzZAapON/n+TPm5lm7Yj4cTT+R62mN3bApVsVhMeMOH
+	5kQmeHg0+qQ/jsS1+IuCV+BFmie+lrIXYVsZSA4Wu/+1DjjT49y8gjMNDND/YsfbLn5BWHYtTd/ta
+	+EnfzlAGIPh18qAjpWmIMQdHAppH8zIfg7Eu+kZroiV2b1OtgAoOPwm0jxI5DsjGWS0Q6zHrIwrxU
+	BFkC25sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOy9-00000003rsv-3g4Y;
-	Thu, 30 Oct 2025 09:29:21 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vEOzp-00000003s4u-3pGw;
+	Thu, 30 Oct 2025 09:31:06 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOy8-00000003rsA-0BcI;
-	Thu, 30 Oct 2025 09:29:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761816556;
-	bh=YyjGQwr4n5Ubu59xZkUEL74ae/TqjsZuDDm5YLuW3Q8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h+EBRGb1uH174RYx0/bt3F70i7EFNqYF93qQh2fbnEAFwy2dpGvFYenEKMS2c7UU1
-	 ajeipmS2ovXFxr38PeuwYBCW3/8Y2ZAa5waMC+8HcTQUy6q1ThdCCuZairmfVDsPt3
-	 JN7iwVBc2TQ6+gmcscpsp1jWpg7oOMPyv/bT7NIAtELUFab65OzsjNvwfsqjMAIGvx
-	 7XDoageZ3llaz05qDybsO5Sn3wVTYn65Yx/EdCwv6Kua3IBb+mWyEIcCR+CIZE0/Z8
-	 O5Ecwjxdm9yBpI7y0I+7X10LXc22Rlf8IMz+pMgc4HiOC2t0e07Ut1lmhwWE7EuTbo
-	 ctLRWe8Ii8XDw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9203217E1380;
-	Thu, 30 Oct 2025 10:29:16 +0100 (CET)
-Message-ID: <141839e6-1dbe-4e98-8412-d47e853d997b@collabora.com>
-Date: Thu, 30 Oct 2025 10:29:16 +0100
+	id 1vEOzl-00000003s4N-3tnJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 09:31:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761816662; x=1793352662;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=bf2Q132NqZ4zOHvgkziC0uP8Th7d9mOHbt28bTwZI1E=;
+  b=Z5QbBZUZr7U84jOVgwhpDk1FPoXAjq7Zl5GRQyMHUxIlexeMpVZftFUT
+   voFcYMvmKiL8ONZhWAuJytMzsxkc7j873uVdX1RQsGJsFE7z0qfWN7ZyD
+   eU2hTiuW0NobBnZ8CZ34EzaUPFV9nvqx/TzONJ00jhK5mlwnULQ7PKd+0
+   Z0f/733MVhtPMdfGsr/JUTlmG8Oip6z5Tm2Cwe7c7WDq/l9x7KIsebgSI
+   c17MJgKyevnR12W0hCymKcyT9V/XdCbb7U0N05cop2jvtZma0EC+eMMNt
+   PdilvkJvAlJ7JJ3JeVVPGxIUK3Q/RM+83TIVwDRulvbb+HNRagMGFJ77K
+   A==;
+X-CSE-ConnectionGUID: ZdsWYqyiTUyk3fEWWzTuJQ==
+X-CSE-MsgGUID: RQaQue03RHqjUy1j6BAjeA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11597"; a="86578932"
+X-IronPort-AV: E=Sophos;i="6.19,266,1754982000"; 
+   d="scan'208";a="86578932"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2025 02:31:01 -0700
+X-CSE-ConnectionGUID: zSu7nv+DRgqFVKcwQIqyaQ==
+X-CSE-MsgGUID: nPzZm7POSO6Mw90VTnTUtA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,266,1754982000"; 
+   d="scan'208";a="185165359"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.245.174])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2025 02:30:55 -0700
+Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1vEOzb-00000003rIo-3pF9;
+	Thu, 30 Oct 2025 11:30:51 +0200
+Date: Thu, 30 Oct 2025 11:30:51 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v3 03/10] gpiolib: implement low-level, shared GPIO
+ support
+Message-ID: <aQMwS5gyqVwYrGoS@smile.fi.intel.com>
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
+ <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
+ <aQH-NcXry6_IlqXQ@smile.fi.intel.com>
+ <CAMRc=Me5qPS2PhLK5hpK8BbTS8b9q3T-+86mq6rVDpyKZZUfoA@mail.gmail.com>
+ <aQIwWXM8BfjQs7kv@smile.fi.intel.com>
+ <CAMRc=Mfz+Se0Wq4cXjgP=DBOMkTqSBdoV-CcC-+Ma0hfELARzA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] remoteproc: mtk_scp: Construct FW path if
- firmware-name not present
-To: Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
- linux-remoteproc@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-References: <20251015084103.10737-1-angelogioacchino.delregno@collabora.com>
- <CAGXv+5Gs5_j5L3+HT7K-XYwVG6S8ZGhHZkEcS0HpdkcjRQq2oQ@mail.gmail.com>
- <9f5a3dc5-d0f8-4172-a4b4-867919612a2d@collabora.com>
- <CAGXv+5Ge-uZHKATOvqQF25DRTcHFJkopUk-JUXDtpEen=BwCiA@mail.gmail.com>
- <f434165f-1717-41ff-93e4-9be5b7fca929@app.fastmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <f434165f-1717-41ff-93e4-9be5b7fca929@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Mfz+Se0Wq4cXjgP=DBOMkTqSBdoV-CcC-+Ma0hfELARzA@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_022920_248754_350A7F12 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20251030_023102_030939_1A75FC4C 
+X-CRM114-Status: GOOD (  34.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +116,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 30/10/25 10:10, Arnd Bergmann ha scritto:
-> On Thu, Oct 30, 2025, at 09:21, Chen-Yu Tsai wrote:
->> On Wed, Oct 29, 2025 at 7:05 PM AngeloGioacchino Del Regno
->> <angelogioacchino.delregno@collabora.com> wrote:
->>>
->>>>
->>>> I guess I can send a followup patch?
->>>
->>> The only followup patch that I deem to be necessary is one adding a symlink
->>> or renaming for MT8188's SCP and nothing else.
->>
->> The firmware was uploaded in March of 2025, and is packaged in Debian
->> Trixie, and was also backported to Bookworm. Either adding a symlink or
->> renaming it won't trickle down to users for some time. So this seems
->> like a possible ABI break, where the ABI is the file name.
->>
->> Or maybe you don't consider it as such because SCP hasn't been enabled
->> in the kernel in any release yet?
+On Wed, Oct 29, 2025 at 04:57:02PM +0100, Bartosz Golaszewski wrote:
+> On Wed, Oct 29, 2025 at 4:19 PM Andy Shevchenko
+> <andriy.shevchenko@intel.com> wrote:
+> > On Wed, Oct 29, 2025 at 01:39:34PM +0100, Bartosz Golaszewski wrote:
+> > > On Wed, Oct 29, 2025 at 12:45 PM Andy Shevchenko
+> > > <andriy.shevchenko@intel.com> wrote:
+> > > > On Wed, Oct 29, 2025 at 12:20:39PM +0100, Bartosz Golaszewski wrote:
 
-Just as a clarification:
+...
 
-Exactly, SCP hasn't been enabled in the kernel in any release in the specific
-case of MT8188, so this is not breaking anything, and it's not creating any
-regression.
-
+> > > > Besides strcmp_suffix() that already exists in OF core, there are also some
+> > > > existing pieces that seems being repeated here (again). Can we reduce amount
+> > > > of duplication?
+> > >
+> > > I'm afraid you need to be more specific here.
+> >
+> > You can simply browse the file, it's not long to find and think about it.
+> > I'm _thinking_ that it's possible to improve the situation overall by
+> > try our best of deduplicating (or rather not duplicating) things.
 > 
-> It's normally up to the kernel driver to know about the firmware
-> file names and the order of trying the possible fallbacks, which
-> is exactly why I originally asked to not rely on the property
-> from dtb.
-> 
-> If you want a symlink in linux-firmware, that would go the other
-> way, pointing the old filename to the new location.
-> 
->      Arnd
+> Sorry, but this is not how reviewing works. You can't just say: "I
+> think this can be improved, go figure out what can and fix it, you can
+> browse this file for reference". You need to specifically point out
+> issues in code and propose alternatives.
 
-Cheers!
-Angelo
+Then consider this as a hint and not a review.
+
+...
+
+> > > > > +#if IS_ENABLED(CONFIG_OF)
+> > > > > +static int gpio_shared_of_traverse(struct device_node *curr)
+> > > > > +{
+> > > >
+> > > > I believe parts of this code may be resided somewhere in drivers/of/property.c
+> > > > or nearby as it has the similar parsing routines.
+> > >
+> > > I don't think this is a good idea, I want to keep it within the
+> > > confines of drivers/gpio/ and the use-case is so specific, there's
+> > > really no point in putting parts of it under drivers/of/.
+> > >
+> > > If I could only iterate over all properties of an fwnode, I'd have
+> > > skipped using OF-specific routines altogether.
+> >
+> > The problem is that every subsystem considers "it's not a good idea" or
+> > "historical reasons" or other excuses. Since you are adding OF-specific
+> > stuff that has something already done inside OF specific code, why to
+> > spread it over the kernel by duplicating in another place(s)?
+> 
+> Well, point me to the things that have been done already and I'll see
+> about reusing them.
+
+I already gave a direction, but if you think the duplication is okay, up to
+you. It can be addressed later, just a bit more of technical debt.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
