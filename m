@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DBCCCF9F5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDB7CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJeAn8jSSo6/JIcJaohDppo/oGstUTXUuYjdPwTMcs0=; b=tIBtBtATZiELLryxlVltYN7Psb
-	A9BmoFl8Vteh5SA1bBEcKxCMj9WqCeOmZ8l0ku15TKhgeSZf2N1wZAkvSDdN2rFaUI/RbHvd6l9NI
-	g3KlbmVTnnbipGroNKvTiYsQfHsAjq0bd7eRkhlEPnjNY6oHt8R/GUtdrMnrA7T5TgGKCUaFG8TWE
-	3VjkZrsIl9GpSwciOLBFtLYWGo+zfwjhGwFHbONNmPbbhrosGOyF9XByagv8+ndIHv8ZBxrCEE8Pz
-	JTW3HPMoJXHyq+2QHblEwtADV1wedpEUnXV7J47grIGcfxhggsPZDWEWCY3dEIEUSHVGo3zz8xxq4
-	3Ytp/AcQ==;
+	bh=H8YyqJ4Mpj+JrYYcigX07q99vEPrtstJUifgILYXIvc=; b=M3QQ1ETKPfkyDm0aTMzer0K9VP
+	zaypq4pZolS8OOveneAkZjVbCuaCV4BUViubUb0/ohDl3AHOwwgThYIEgr85xQ1zj1mdGl1ITocLe
+	KBQHnGJQC7++MrBHZhkXmtU1OBLRJ85XMJS9a1OD4FEsFrb/IsWFQkJAWHwfsJcxfuh2PSMU5dnam
+	5RTY+bOGdMTaepcj7KgIqjbaOL5RPfXCoFtSXBNaU7Re7EDqJBYpZhzbuF76Z8aJ4komJhF4PnegX
+	tLurGCHAV1tFJyDJ5IVa0qdcgrdQ1rdRCo4XScUD7JDzRO9SWXBmTz28Gu0C2nMVqTKVUc+PGgHUr
+	fywAixrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOoP-00000003pzs-3bf6;
-	Thu, 30 Oct 2025 09:19:17 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vEOoQ-00000003q0Q-0oqB;
+	Thu, 30 Oct 2025 09:19:18 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOoF-00000003pwP-3ZsM
+	id 1vEOoH-00000003pxS-0m0r
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 09:19:08 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42557c5cedcso473015f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 02:19:07 -0700 (PDT)
+	Thu, 30 Oct 2025 09:19:10 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47721293fd3so4916165e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 02:19:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761815946; x=1762420746; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761815947; x=1762420747; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=wJeAn8jSSo6/JIcJaohDppo/oGstUTXUuYjdPwTMcs0=;
-        b=wvF+T52ZkWHucgfJZAo1xHVU2JoHetyEmTkbJh7BBHxedH5s21PDT4luLGPazMRZ/4
-         UwgnQYF5lXvZpUoB1xkGh2C8DL35aRqR44vx/xNIOeKSxR6Vd6Axad/LkzkgiAjlUc9p
-         E9oaMyADuM8rFX5dPxAjNKCCJdlBgSdDsP76/15BHETRHE66mxpKhq4JwZyxFaG44JBd
-         gnlGm/VqiIJjz4P50uMgXCZ+TwCqbCClLbVBUx8WkSGVCgoeeaggEbMQeU7Uxq1bMp3j
-         p6UOWW4ilYRO7y3+xu7CQNv4cqsxooeo3iyXIaH919Kzf8ZbLrKVyiAue6vTZgShUgaW
-         ZcUw==
+        bh=H8YyqJ4Mpj+JrYYcigX07q99vEPrtstJUifgILYXIvc=;
+        b=oEzv83vNutQ3JzRSqtCgmd8kxIygDu0o7IOujSAoYDZh3dNXYRY8tu7k/dJivJkq2o
+         cnwuO9F2JURun4oiyyQ97RB1WrU+HECmo2a4mCunBEXrWGY7LBWVHXjX2fNOT+1EfgHD
+         miOrIXWbYBVbgnuq9R9tih1VLra2CukrTM1z0MkjYlpefmljy7U53jVE0meJ/1NamfU+
+         h9Jnb7564NHIZo1/fcmBFtKc0VbNAJkNjL0QmzwPwb6wldynVESHjUZ5C+2dJsofLaod
+         BW3xKTh/XwjP/rpZAqx+fqnDaaxKaq32peeXBKnd1HgFpU3sZn9hzQGkTFZeioPZeQUC
+         6NOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761815946; x=1762420746;
+        d=1e100.net; s=20230601; t=1761815947; x=1762420747;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wJeAn8jSSo6/JIcJaohDppo/oGstUTXUuYjdPwTMcs0=;
-        b=B42lKITxciDWGRl4pap1RQWLZ8YADUlC6XfsYxKHGVDs3nBdo4ipLBes7kqHHbWVeB
-         SfZfShFOCzD461GkvoXYiOIPW0NeSvIRGyM8BmyBNm8kjQkj+eg2Fc3rbjvxRd6DMkLF
-         rtluueDqJJBL4wDqQG/Ze2sz+PaRxbf+444LbSYwD3EWzh9QVziqJUNm6+2ArpJiZM1z
-         Hj4bo00A9N9PfMULECkVycdxs4TSghmEhIYhOs4/AnWvL5ybTgMgbIHWyFta/MynfFBu
-         XooYgRo7NRtL7wZ7h1Poq6Tj1G7pNm052DNeSKhF17BGNKXUKSO//ONPQK8ZfCX2COXN
-         piNg==
-X-Gm-Message-State: AOJu0YyTXoVYwVuV90l/m8hiTsg/tDlCkAZYJKXMvgGF4e+E3Z/SnS6b
-	vvRuiQ1EgNrg+s3fR5BBQGclFJh+sxLkLj0R3PmX0GFigA1TOJ8jDnNItFehaIQnRZ4=
-X-Gm-Gg: ASbGnctmB01NGvXOKTOAmE1rTm2zJBu3QLU8GheE5RNNCFF8/DrFpYk+H+5sQTf9kfK
-	f5rFXw4PrNfbL2/Qg81t2AmCKi0zxofRzFBCVtewBKkX0NSj3sPRgS81sxBalZ9xaDHdlqfyuz8
-	28fKve4aDtHPC3WBtb1Dq8M3LcjlO2RsUPNnJWjtPfJAgJXkf07+RO337cA2ZxB0hw6xAPKox1s
-	eo6hasB4hqWltyyh80UIJMUAIz+tutj2vYco3mVuMQcAzQnG9OeJFdNtLRTlK4gaO4kiE4L0UZy
-	eNMrhdiTeoYpWjO4uNbsDX73GYg020LsAFjcEF5KpuFhF6qxodwL2RI21a/ERb9lWR3+ja9yfD9
-	y8TngS+VH3ODJ+dWf8gPn7xNdzL4gAKXhpyOaQN32bPEK9v9vl7nD9/E+hERZwxtc9oIUUNyjNW
-	7FQhv20Pfs
-X-Google-Smtp-Source: AGHT+IH1PgB1uMdxkq4IGP5D3051kFV2D7hdhJU7IzYW8jXnJKiozXoXWL4JvU6/d2O0ucUtSXr8nQ==
-X-Received: by 2002:a05:6000:2204:b0:429:9501:c9c1 with SMTP id ffacd0b85a97d-429aefca849mr5070963f8f.46.1761815945792;
-        Thu, 30 Oct 2025 02:19:05 -0700 (PDT)
+        bh=H8YyqJ4Mpj+JrYYcigX07q99vEPrtstJUifgILYXIvc=;
+        b=ZsapXI1xPpHFFAQYRV3xteEZ2UFaHiETaqTv6MFNu5RK6zf5B5woPEuroR4KigWlzn
+         tlN556krjAWvMvraiBn2qreK3LIWtcllAkoAYTkB9ORAr3N6NPMGfuKtjvnn18o/lN99
+         3QISyx2pNQe7fpl+QqLKE0mZmJmuL07Lpbj5Z2N9OsCRiVg0FVs5idxSaGrLaWRwEIH0
+         EuJn9WcHzVRq89Pu6bWPyQrrfJeI1vPMFR501TjDU7p/M6caeY5FFVQ2urcp1iEwIFFt
+         lsll1Un7Ur+it9Yiqx7D1U12ak6ynkwW1ckp4O+wZcRtOBfgznGVzjlSVze+Z/dPaQmW
+         FXUQ==
+X-Gm-Message-State: AOJu0YyBdKT30KUPpyZuOv05wVLIN1UaQjQjmXqE2yLzsFQ5jaOBnACt
+	qCOIG7JOFG9fGYi8uTBt4MxQVMxiXrt+OalrSXWGY+gVxyj2sDRE/jA/WnQ5wIcGDbc=
+X-Gm-Gg: ASbGncu6NKtZmLjdj3j2801rYW7+M8FKAkLEO5WDmb+OezCTARVriJzeoAmmexrBpXY
+	yIrrqtoVjz9/7wVubPRYN4WEBOh7q4C9C7pGiKk0PIfBK7WyNUuBlYZTcmRlN7GGjvVsNj0REC/
+	JQAjXzMbTv0j3+kyLTcRKVbkYVOfGgiabaBmRGk8It7XfU3VJsf9RD++1MctFjYQKUpq/mm5Nit
+	PjSbRpiq7sTeRB+UBxxAQemL+y8EiQTCuTDhdgLDd3+hmVZP8hJfs12k6d5aKjDt6ajMepMYmvU
+	GsfvRCwJ3CdzEjYl9zpBrQgn6Cs6ftvRiwbA5I85qdZZaKGgWce236DDZv6aohZRU6GPrhaSDx2
+	zREzGvCy6zYJ/Dz+AntifRrOvHYICYWtjXcPybFXOHxoaVqerGlulvotnv+3auiA028MtgeQQbV
+	edf0dHGncC
+X-Google-Smtp-Source: AGHT+IEPj3CdqUuwMe/T9kfHnMLT0T0FRQZVC1TZ7tdmbBSLK4nCwkdMUM8n2LwuCMQiZxEn5qcu3A==
+X-Received: by 2002:a05:600c:1554:b0:475:ddad:c3a9 with SMTP id 5b1f17b1804b1-477262ab666mr23564875e9.13.1761815947299;
+        Thu, 30 Oct 2025 02:19:07 -0700 (PDT)
 Received: from localhost ([2001:4090:a245:8496:49da:2c07:5e9a:7fb9])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-477289e7ceasm28861635e9.13.2025.10.30.02.19.05
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429952cb7dcsm31938479f8f.11.2025.10.30.02.19.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 02:19:05 -0700 (PDT)
+        Thu, 30 Oct 2025 02:19:06 -0700 (PDT)
 From: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
-Date: Thu, 30 Oct 2025 10:17:25 +0100
-Subject: [PATCH v4 3/6] arm64: dts: ti: k3-am62p: Define possible system
- states
+Date: Thu, 30 Oct 2025 10:17:26 +0100
+Subject: [PATCH v4 4/6] arm64: dts: ti: k3-am62-lp-sk: Set wakeup-source
+ system-states
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251030-topic-am62-dt-partialio-v6-15-v4-3-6b520dfa8591@baylibre.com>
+Message-Id: <20251030-topic-am62-dt-partialio-v6-15-v4-4-6b520dfa8591@baylibre.com>
 References: <20251030-topic-am62-dt-partialio-v6-15-v4-0-6b520dfa8591@baylibre.com>
 In-Reply-To: <20251030-topic-am62-dt-partialio-v6-15-v4-0-6b520dfa8591@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -90,18 +90,17 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  Akashdeep Kaur <a-kaur@ti.com>, 
  "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1357; i=msp@baylibre.com;
- h=from:subject:message-id; bh=6hGcnBOkrSMQIKieC/McV84XZyXymXT7FDaWvZWNWbs=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhkxm3fS+LRssj0xiOlaZVtNT+GH7qynvDA/MvX3pcO+Mn
- VEWJ74/7ChlYRDjYpAVU2TpTAxN+y+/81jyomWbYeawMoEMYeDiFICJFNUw/LPYq2zlwPRVhP3z
- Ea1PkXfdXtp4VvftW2efsE+F2XTKKVuG/wmaiVMqxDZM1fqs9NFkh5TOh8CWt7F3hKSvOOovWX+
- rhQMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2978; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=My+67m3RKIYhTGgscnRK/PbLhWzY3WuuDDNXstUgd64=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhkxm3Tzz3bOtZvp0+92u2iM5d/Km8811q6LXq29Xyk3ZH
+ 7WSXbi4o5SFQYyLQVZMkaUzMTTtv/zOY8mLlm2GmcPKBDKEgYtTACbSmsLIsOP1d6U7R2Umbjzu
+ 4xXyLt9smZGbxJFJ766vz52ZqqOu/IqR4dJ+zUWNqusndSS+PLtH7aaXQsFLrasuf1ed69vH8rn
+ 4KRsA
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_021907_914550_16029508 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_021909_259919_DDDDE13C 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,51 +115,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the system states that are available on TI AM62P SoCs.
+The CANUART pins of mcu_mcan0, mcu_mcan1, mcu_uart0 and wkup_uart0 are
+powered during Partial-IO and I/O Only + DDR and are capable of waking
+up the system in these states. Specify the states in which these units
+can do a wakeup on this board.
+
+Note that the UARTs are not capable of wakeup in Partial-IO because of
+of a UART mux on the board not being powered during Partial-IO. As I/O
+Only + DDR is not supported on AM62x, the UARTs are not added in this
+patch.
+
+Add pincontrol definitions for mcu_mcan0 and mcu_mcan1 for wakeup from
+Partial-IO. Add these as wakeup pinctrl entries for both devices.
 
 Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62p.dtsi | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts | 60 ++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p.dtsi b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
-index 75a15c368c11b068430362fe0b8d2d9ecc052588..c69e16f16c835489f2bc5cba158235ab955347e3 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
-@@ -44,6 +44,33 @@ pmu: pmu {
- 		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
- 	};
- 
-+	system-idle-states {
-+		system_partial_io: system-partial-io {
-+			compatible = "system-idle-state";
-+			idle-state-name = "off-wake";
-+		};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+index ecfba05fe5c273c671cd0968f3eceaf54d22ac7d..cb63db337b2bc4c83b48dde693b95dd9fd93cd26 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+@@ -276,3 +276,63 @@ &main_gpio1 {
+ &gpmc0 {
+ 	ranges = <0 0 0x00 0x51000000 0x01000000>; /* CS0 space. Min partition = 16MB */
+ };
 +
-+		system_io_ddr: system-io-ddr {
-+			compatible = "system-idle-state";
-+			idle-state-name = "mem-deep";
-+		};
++&mcu_mcan0 {
++	pinctrl-names = "default", "wakeup";
++	pinctrl-0 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_default>;
++	pinctrl-1 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_wakeup>;
++	wakeup-source = <&system_partial_io>,
++			<&system_deep_sleep>,
++			<&system_mcu_only>,
++			<&system_standby>;
++	status = "okay";
++};
 +
-+		system_deep_sleep: system-deep-sleep {
-+			compatible = "system-idle-state";
-+			idle-state-name = "mem";
-+		};
++&mcu_mcan1 {
++	pinctrl-names = "default", "wakeup";
++	pinctrl-0 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_default>;
++	pinctrl-1 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_wakeup>;
++	wakeup-source = <&system_partial_io>,
++			<&system_deep_sleep>,
++			<&system_mcu_only>,
++			<&system_standby>;
++	status = "okay";
++};
 +
-+		system_mcu_only: system-mcu-only {
-+			compatible = "system-idle-state";
-+			idle-state-name = "mem-mcu-active";
-+		};
-+
-+		system_standby: system-standby {
-+			compatible = "system-idle-state";
-+			idle-state-name = "standby";
-+		};
++&mcu_pmx0 {
++	mcu_mcan0_tx_pins_default: mcu-mcan0-tx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x034, PIN_OUTPUT, 0) /* (D6) MCU_MCAN0_TX */
++		>;
 +	};
 +
- 	cbass_main: bus@f0000 {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
++	mcu_mcan0_rx_pins_default: mcu-mcan0-rx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x038, PIN_INPUT, 0) /* (B3) MCU_MCAN0_RX */
++		>;
++	};
++
++	mcu_mcan0_rx_pins_wakeup: mcu-mcan0-rx-wakeup-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x038, PIN_INPUT | PIN_WKUP_EN, 0) /* (B3) MCU_MCAN0_RX */
++		>;
++	};
++
++	mcu_mcan1_tx_pins_default: mcu-mcan1-tx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x03c, PIN_OUTPUT, 0) /* (E5) MCU_MCAN1_TX */
++		>;
++	};
++
++	mcu_mcan1_rx_pins_default: mcu-mcan1-rx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x040, PIN_INPUT, 0) /* (D4) MCU_MCAN1_RX */
++		>;
++	};
++
++	mcu_mcan1_rx_pins_wakeup: mcu-mcan1-rx-wakeup-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x040, PIN_INPUT | PIN_WKUP_EN, 0) /* (D4) MCU_MCAN1_RX */
++		>;
++	};
++};
 
 -- 
 2.51.0
