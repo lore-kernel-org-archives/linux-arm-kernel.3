@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13B9CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 16:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982BDCCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 17:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0FHu3rUGS+9JuTB7VJw93CwR+3Meki8I2Z3EaOdfkbw=; b=Z4uS23FX/r+7JGlPoHEzXB2PaU
-	OXIpqauAEitL4//l+ogEkbViG2+C0UopfL0m+U7xXNx+4qpmk+/wR0UE7480gb9LQqORiuIZU2yS+
-	U29otuNwXqQ/0biviJuuEtNbjD55HKU0eeJF672F1kbiYBAYI4VBKJdC3kOnqAl9BQ3DbNEEoZzsF
-	khLjwy3aAZbUONbXFidKC1WwJ3z+vzqnRfIneUgDfctWMsgb8niMwM3BKaQkS4FFLyqnK8dJS2aYp
-	W2M3I267JA1V2CkT3icXvTy28QISfYDzOQBPIWql22gZmlPz1Hsf/qlqirMu1wXj1G6Gioj3oqTTp
-	DhwIgszw==;
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qX9jT0WVKNVZVkQFVvnvBU4twJtmXIXrEgsmm350dtE=; b=YFAf8ROs4JRcxz2ZM1HYaiHYok
+	kNLOWVoET6BVHOHPbbRIOc5bONjgV147iQkk/imJQvC9D9gMovW9saExDgZlDTH9l9uDWq2pjaJdW
+	w33au+OfcOu9RE9RzukIeg/duKuZIE3qDqGcooCdISuEpqA1D5VfvOWnEJRG3j8JWy4eiJA5N/6Ht
+	h2u5FSVhO7UB8K8YmUJWRXQk3M4lwPEZ/CU/tS/pBlQpHjDqacBFURjJBBMMS4Tjoz0t8qQkaQL59
+	IS0ALEP0j45yjJCj5dqSWJE7Si/WlnuAnAkEPX//6pHmZXdWeSyRxDh2RmTrqLfrkqwgBKcygIlpi
+	2CtDBlDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEVyp-00000004VQ8-2OcM;
-	Thu, 30 Oct 2025 16:58:31 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1vEWBN-00000004WFS-3IId;
+	Thu, 30 Oct 2025 17:11:29 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEVym-00000004VOs-1CP6;
-	Thu, 30 Oct 2025 16:58:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1761843493; x=1762448293; i=wahrenst@gmx.net;
-	bh=0FHu3rUGS+9JuTB7VJw93CwR+3Meki8I2Z3EaOdfkbw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=d679HxKfZ3mC/oMh5xQ7KawuoYVpd6bgm4off6YMgsGgOdRJvEqjWteU2gARjBpl
-	 l19Q7x0S/rBTVaXSRJhKY1uqzFRPYy9rSQMQVLY9ntvlzMrQ6B3mtvc2MFnr+RjX+
-	 QVR0CH8VC3T1jcguVLsOkNEZt6im9A2hPY9RVUKtRbGmpj5PhbysMJMn7FED5QKhF
-	 T2GgSBVsX4t3dls9RkYb0bJDnVXkN0/+m4HVmzhCWin6oU1m75kG2As/Whgj7I0x+
-	 HJgAhZmsERze1qcUuRJ+OzJGbWun0Cq06pq0BRo797qT4054z4P8XcUpPY/XDyZKT
-	 qj65ZWwPMPQf9zeSeg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.156] ([91.41.217.223]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MYvY2-1vjOnF2BM0-00QFMu; Thu, 30
- Oct 2025 17:58:13 +0100
-Message-ID: <4491fde3-5b20-4ba5-bb18-5a44fd566f50@gmx.net>
-Date: Thu, 30 Oct 2025 17:58:12 +0100
+	id 1vEWBL-00000004WEw-0TQp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 17:11:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1761844266; x=1762449066; i=markus.elfring@web.de;
+	bh=qX9jT0WVKNVZVkQFVvnvBU4twJtmXIXrEgsmm350dtE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=ikzeDLtH8pSRBCH0hWG+C1Le3omfx0clVgdtTO203jLvQlx+eAfwBYu8Bc1oVS34
+	 0hktkE5p86DAfbQ2V/5+Jo5Z3pD2jXssGBOVJQwL+l9NPERT6J1RZK8hmi40dj9dm
+	 4GzL12PZUB/5GInBxbX9lWDALe2cnyzyCT2G6IwF++vTu8vz4eGjmE+KnscJuoKQz
+	 3auugnlKUC/7Siy+3dS3N2s5F9psYvbRCPFPjS2E8nvHJpdxj0odfLnB3CUzphIiR
+	 9rDDA6DD0GM4lRV7LROIwTOJ1Zjmsyz1fRLUKA1jsUeAyn42EVVTKMgNF/STh4JFK
+	 zNdzXfLYo2PcavIICg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.248]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mcpqq-1vn1yt3hKM-00jfVS; Thu, 30
+ Oct 2025 18:11:05 +0100
+Message-ID: <6e962260-5069-490a-89fb-908a4342ccd9@web.de>
+Date: Thu, 30 Oct 2025 18:11:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] staging: vchiq_arm: Remove bcm2835_camera from
- vchiq
-To: Jai Luthra <jai.luthra@ideasonboard.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Cc: linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
- linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Phil Elwell <phil@raspberrypi.com>, Umang Jain <uajain@igalia.com>
-References: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com>
- <20251029-vchiq-destage-v3-2-da8d6c83c2c5@ideasonboard.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20251029-vchiq-destage-v3-2-da8d6c83c2c5@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:MGbK03mLnp+rlfoCX2thsI3NDziMJq+uMJ5rMxSoJFj4LnaPBu+
- RnfpVjzupb8sfaR3kr3LVXc3JjRN5KPJMndjmVJqyH75U9mkTmFdc4uK9bY0xOMHpJv9KlX
- FOTtJFp0cslgSa6f6gTJyb8TcDDPoFuLSIEaJNcq4uJaSNMherNBpnX6Bdutxj6HARcnR4P
- Jn9dzOfq8JIkg0Tmfk66g==
-UI-OutboundReport: notjunk:1;M01:P0:neHq8X1Wu64=;uWTOl/CRe1Sj6ysDi7exSylktSf 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
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ David Brazdil <dbrazdil@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki Poulouse <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Miaoqian Lin <linmq006@gmail.com>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] KVM: arm64: Use pointer from memcpy() call for assignment in
+ init_hyp_mode()
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:rK4JBHFEyHfa/6DyQX45RUvGECOdzSihIRe+9DLkEhLkLcTSO9E
+ 4ZhRHSVas5MJjtsEsmpa8myg+USRJayiWVGBntVwPbXEg9XHbzfOdQMehiM8tJCmNe/VBBu
+ fwaOrY2d8hOzMztUtFxy5wInOeyd+TS8CgBDoQ9PwIgRjLbBAaWWtjcV83owIOQ7mPjvuRb
+ vFVv+nP5M/RAtuCTj1JyQ==
+UI-OutboundReport: notjunk:1;M01:P0:Tk+C6iJsU0c=;tAwdVkpjT2CkaeumDL0GzshrToX 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_095828_606931_35EBD8FA 
-X-CRM114-Status: UNSURE (   6.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_101127_674657_963B1DA1 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,11 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 29.10.25 um 11:30 schrieb Jai Luthra:
-> As bcm2835_camera driver is dropped, also drop the loading/unloading
-> support for it in vchiq.
->
-> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> ---
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Thu, 30 Oct 2025 18:01:41 +0100
+
+A pointer was assigned to a variable. The same pointer was used for
+the destination parameter of a memcpy() call.
+This function is documented in the way that the same value is returned.
+Thus convert two separate statements into a direct variable assignment for
+the return value from a memory copy action.
+
+The source code was transformed by using the Coccinelle software.
+
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ arch/arm64/kvm/arm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 870953b4a8a7..feab88c31703 100644
+=2D-- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2600,8 +2600,8 @@ static int __init init_hyp_mode(void)
+ 			goto out_err;
+ 		}
+=20
+-		page_addr =3D page_address(page);
+-		memcpy(page_addr, CHOOSE_NVHE_SYM(__per_cpu_start), nvhe_percpu_size())=
+;
++		page_addr =3D memcpy(page_address(page), CHOOSE_NVHE_SYM(__per_cpu_star=
+t),
++				   nvhe_percpu_size());
+ 		kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu] =3D (unsigned long)page_addr=
+;
+ 	}
+=20
+=2D-=20
+2.51.1
+
 
