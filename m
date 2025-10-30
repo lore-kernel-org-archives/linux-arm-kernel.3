@@ -4,66 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19D6CCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB56CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 07:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7OSpskV0b3Z0Y8Bcg2JJJY4wTw6TjjgMjW58E+iZS7o=; b=so7szAEwfWPXZLwxM4HYL/i+Q2
-	mzhpVW9bK7AvmeKnDfP+NIV7npLBbVRbPNRy4oE+R+e+EIt+QGB4S2lG5EyZXq/Uz5GtS+tujMTcq
-	d+OJO1K20IeQUfe/+PhT2AVsArgZc1wqbTORA6GdA0MPW9M62yGQN1gd18FSpVWC5cqtMedyQa+Cf
-	mCqfbdpuCj8e8azrmBX/Ho77YkyHOCLZpN7bnH7mT2Jpa5SQcel0i0TSEeagq90xIUvoh5vVBM84Z
-	gGZI+sQK2aUWXRiwOLalu73YIQz9QFHNTPq51JvlyBWJl8zS8BoWCQOS3IpXUpFmL1y8MiUl0vh56
-	du2TfQmQ==;
+	bh=L9C9CQwMRuoaLFiOoO9+ZChnDHL3+pLVpPKXLlQtZp0=; b=q1MjfKUmXLmTnvaXKoTaa74B01
+	X/KdZRKjx1zqyr8eOOW6BLinx8L6ofCxs/JeVJr0t3iWPw7vbmIrB9M/7mBxe40W5HhHR+3AfL0Ws
+	ytyG2lxWtTQwXayEb3bJgKoyOewjJyi3Sxttr1YyR4WLwR0nAuXCWqtBamOKIsjysbvlyk7hRmZAH
+	0KgrUQHw/ZdIXaS41j5D6VvHsyu7j/XeY+VwxMHU220j005jAMFC8fRpWN6UR0Euoqa8llaOMRgOZ
+	5zQpyKFLQ6urGSfnT9Aeqtlxz1LlJGXKBwSNGzSCOVZUpRjvdFTeihsj/sWzlBi7OZ7O7eHCmyy2X
+	RilOQw5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENLc-00000003eCG-3U6s;
-	Thu, 30 Oct 2025 07:45:28 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1vENR0-00000003eRv-2B0c;
+	Thu, 30 Oct 2025 07:51:02 +0000
+Received: from mail-southindiaazon11021073.outbound.protection.outlook.com ([40.107.57.73] helo=MA0PR01CU012.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENLZ-00000003eBT-2xAb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 07:45:27 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=7OSpskV0b3Z0Y8Bcg2JJJY4wTw6TjjgMjW58E+iZS7o=;
-	b=kvOYlxtJmCYNMp9WeJIuVCzWorl+2SJZb2XtqxPvXNRCY0nlVMofkQ+a9r5v65P21+M9WhFCD
-	FVRr8qK/4uSz5pYaj0sePRZA8tLa/sMzeo/p58khjgr/V521yOYLwExrg0hJYPoXCA3uKkVbYiA
-	OJaDPY1NjSVK405Mgudpdf8=
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4cxx2z0ZhbzKm6c;
-	Thu, 30 Oct 2025 15:44:43 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 64FB41A016C;
-	Thu, 30 Oct 2025 15:45:12 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 30 Oct 2025 15:45:11 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <bigeasy@linutronix.de>
-CC: <arnd@arndb.de>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rt-devel@lists.linux.dev>, <linux@armlinux.org.uk>,
-	<tglx@linutronix.de>, <xieyuanbin1@huawei.com>
-Subject: Re: [PATCH 4/5] ARM: Disable jump-label on PREEMPT_RT.
-Date: Thu, 30 Oct 2025 15:45:07 +0800
-Message-ID: <20251030074507.33863-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251030072339.63vdFNo3@linutronix.de>
-References: <20251030072339.63vdFNo3@linutronix.de>
+	id 1vENQw-00000003eRM-0jpK;
+	Thu, 30 Oct 2025 07:50:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sWiElrSkOtoGXwU7JMb/0+uAqy2qX8qTOPiXWufX7riMlnPZl9LH0c6NkYcVpSPyHphg3W1vm2elxR4M5RAP5UMd+6/RaTcSXzEWX3+Ovnv2R0Y7s/OGYVZTEGfFQtTwvjjfhQ5r1nh81kpwWNPVPFIvtCPk7X/o/T8Ch8cSGFiOYawdSura/SWyHf3uB8KJpS6Dw2vdeuAL507hbHGQyJRVzKjZaHqEB88vYDQ8tsEKQ5mzG6KBRU0kKhQO7s52pJZoZGN+t3trYIkawYhv4DjXybFaBk4TPA+rmm42zhmexfnTWGjPIcp74bM9o43c1XYC9Rm7qTMP+hDNfMLk7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L9C9CQwMRuoaLFiOoO9+ZChnDHL3+pLVpPKXLlQtZp0=;
+ b=TeIUbUbF/4Wd8Ff/p5HPTZTayIdBGiMs6H16ziuhhXbPWMYyVHqM3q7HPlE8Bf9rluHjfiTsxoxhjOH9VtJESjJ99d6MSsr0yU4hrjW0yDa5kNJKT49qYPc/QSS6D7BI5aDufACCCzEkuc/DJ7t2GUmaTGKX5uLv9oIHVA6lt1PhstEAIc7GkauaoFaYYGox/2lsnVZVFoz0o3DQihRgSpiCamqntDckGqgtqvlP24dlkEfM3lTOOX624jIV16DUrCuX2EpEIVNPSZKPmlipsCTsVhhiR0dfLynU1upBh+lg4dob6s+pkWDxJJvemM8ymes2toJioTCewJR6ila21A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
+ header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
+Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:199::7)
+ by MAUP287MB4554.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:18c::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Thu, 30 Oct
+ 2025 07:50:47 +0000
+Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+ ([fe80::58ec:81a0:9454:689f]) by PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+ ([fe80::58ec:81a0:9454:689f%4]) with mapi id 15.20.9275.013; Thu, 30 Oct 2025
+ 07:50:47 +0000
+From: Tarang Raval <tarang.raval@siliconsignals.io>
+To: "laurent.pinchart@ideasonboard.com" <laurent.pinchart@ideasonboard.com>
+CC: Kieran Bingham <kieran.bingham@ideasonboard.com>, Dafna Hirschfeld
+	<dafna@fastmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] media: rkisp1: Fix enum_framesizes accepting invalid
+ pixel formats
+Thread-Topic: [PATCH] media: rkisp1: Fix enum_framesizes accepting invalid
+ pixel formats
+Thread-Index: AQHcGM29WMPsfr2GPEm67fUHmC8L7bSV4PMAgETN5TM=
+Date: Thu, 30 Oct 2025 07:50:47 +0000
+Message-ID: <PN3P287MB182921C17B4025A0AFBEA3278BFBA@PN3P287MB1829.INDP287.PROD.OUTLOOK.COM>
+References: <20250829101425.95442-1-tarang.raval@siliconsignals.io>
+ <175802737238.1246375.11921455447379092868@ping.linuxembedded.co.uk>
+In-Reply-To: <175802737238.1246375.11921455447379092868@ping.linuxembedded.co.uk>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siliconsignals.io;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PN3P287MB1829:EE_|MAUP287MB4554:EE_
+x-ms-office365-filtering-correlation-id: 2850ec1f-ee2f-4f98-a4be-08de178909c2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?ugIHyp83GXDd6ghe5Z7howdFMQIdQ0YHLXZrQIGoDWb3NIgDRF+s3uZar4?=
+ =?iso-8859-1?Q?sNMIuhhk66fYANSkgSYw2v/YQJ9ohhak+RMxKJyxDbDfasXSHRRyww1ZUd?=
+ =?iso-8859-1?Q?yMbaysHmrI0BiG/b28TWz3z8D110FofEI3i7Q4BDHluSe4X+DEvYZNwLzv?=
+ =?iso-8859-1?Q?29fyHF+p6w2Oxe0Ufdu8S3y2PMgkkNSjaQjHkEdXq3N0I4CtfOXEP92NH/?=
+ =?iso-8859-1?Q?4eXv9yoCutigqmLXEUIw8llKi30HAUNjE/SSOyPx+pZDY1pCts+QSTHnj5?=
+ =?iso-8859-1?Q?BwGNrb0sjHIOU7tlKRAm1Y0bV0YfpHr+JTKxYjMnsB0MRg7Srt8mtCmEj0?=
+ =?iso-8859-1?Q?g42ZhnbD+CJKjnsSdsLJ03jROHmNlEysXTIly6cnIh1Zgj9eo28lC9ameT?=
+ =?iso-8859-1?Q?gXGgVGM1CUhIrvtfUPgjVdP664RTbvMcNbvZqHw+O1w0Ke/8TrmQmKQnxm?=
+ =?iso-8859-1?Q?xWj/SYUxypYJRq5b5Xpg04gOH2Koo/Os2F5FUkqtWI4I/ZirwKcVaU874N?=
+ =?iso-8859-1?Q?s1Um782AeOYjyALeuZSQ6u0V8W8SjFl1sp5j8GCExWp/3qWvSlC7bzUukG?=
+ =?iso-8859-1?Q?xrPtPZ7le/23qWDwqHc6g6LzkBQ+x8ebrrbf1/uwEUIx8GXIgZcfoksA1k?=
+ =?iso-8859-1?Q?5XWLvJdr2wf9QJEp6xp8OI6fzfeajc9zOvbddq0DvzaMzN/HMG+kLqtEsy?=
+ =?iso-8859-1?Q?XKGh1e/CafC395Liq39kmbIqUmvj9ye/tRt1hMyaGF40OVy6qjITe0y3le?=
+ =?iso-8859-1?Q?t1lggDijLckZsL5dyttlvhJnXhnCEuF/t34YROX1NcU14JGY4yeYq9i8Qk?=
+ =?iso-8859-1?Q?HvQzRe7IS5XJPOO+3WGaeBKm8DFuR2Bd2tygiZP6wA/mLse0/o5V8R8voT?=
+ =?iso-8859-1?Q?tjT4RzAv7GLbDEIAw4GGadFXz88AVYKhlDdYUL4yGk9dIs8bjnqYy2VWLV?=
+ =?iso-8859-1?Q?JBvoDFayklzttUft7T0m6cN+EIoy7eiiCwIxBP9zTK/dXeFmvTc57qeGEj?=
+ =?iso-8859-1?Q?9oJV0EK6e/QVWoVDmtguEKIDEFjBlyDKmItvyJzlq9juNwHkjWHbvr+S1k?=
+ =?iso-8859-1?Q?XmdHB7hZ+0oiYAShbgQ8iWTM997NMZnw615CYS46QHgK3VaibSSlokgg4c?=
+ =?iso-8859-1?Q?ZieD5Lt1rMxVhvPsYlqa+tehVvrrihi0bYvbEb6l7ie6etqnboYAZBj6fv?=
+ =?iso-8859-1?Q?ccBs47BBRiOi2YOWzt+UgUZG4nXQfeR5cePPwdY40MWdjILUgX4sml66Zf?=
+ =?iso-8859-1?Q?h2FQF40kg4UWJ6cP3jOTgbIXzXxDtd9qmsJO+PRQl/MswB1tIBB6QPaNrP?=
+ =?iso-8859-1?Q?efORLHrLggXY0Ry/JNHUtoPvWKOo/kPaSrzj/u0KHVDmNL46sxtbN4FOmQ?=
+ =?iso-8859-1?Q?dJikPto1TTXC35y2gKWFXcA5QLKnVqS0TrntAEaHDY+sk+ynChu3YmcZ3Q?=
+ =?iso-8859-1?Q?BNat8HI9CVUZ+GmKAHmgCj70yrUQitR6cYinkz0/u/d1hvSuswbfFRDBsO?=
+ =?iso-8859-1?Q?B39tZN184GQLilFPk0edY+cqvusoOuz6cPxofiumxqgHzfmjuSEqjWgc9B?=
+ =?iso-8859-1?Q?Otb+XM2wsC1aC3VcRLJv9E4w98b0?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1829.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?evgQ9GJgCbxcZv9UCAzshtmuT49Bch8maTLdtyWzb5/dfGHcP/6cBa+znh?=
+ =?iso-8859-1?Q?tGhHBtjcNGx5OuOEu2EQOx5dPCstAIw4GEgYQM1CoM2YpAx74PXccvTeFd?=
+ =?iso-8859-1?Q?TPlbQWOBTwQ29CZ5+VQmYaMNcJwoKFTFHD/2+01Ep4dGj1WIb348pJUyRC?=
+ =?iso-8859-1?Q?wUnzcDJQcFGWKXr0ff6ezkelZ9iHJKjvJsHiXtksHdCJ6RLTKN8nnmP0uP?=
+ =?iso-8859-1?Q?zOuJGFomrrJq7B0D7CjaJJhVYulalOtwb8GKx/UpHoebMOc+uXcfo5n4a4?=
+ =?iso-8859-1?Q?jTR3VBoZpUr9nJlcqGh6a6RVL8qnhVJgLLH73B9aZzQW998NqT9Ds+PJJg?=
+ =?iso-8859-1?Q?S9lBH60cfGTQXH0lxYkZZ6Ksu1EyimmXHdJmfhHfLG4Ii+I85R39zFjf8/?=
+ =?iso-8859-1?Q?ZaEy0XWGsa+8atZ0/BZrrokJ87r2n8fDTG0yTiDx+CDWu8W8xMRVymCNiP?=
+ =?iso-8859-1?Q?ByKiXZjCM0GQ/YOXOgG/Ah8nPaTOCarIufDbXiGsR37cQRKs4jNio4PbcT?=
+ =?iso-8859-1?Q?1gACCyDVZEGZwPHc04XfkkGafvxEFOWdcdG/gPnIeQXAX+V3JiS++oTre+?=
+ =?iso-8859-1?Q?7ox//LioY0KtplucEkACTqsFGqPRKVN6An/PPqD8Db5zprBX7J0GqEN0K2?=
+ =?iso-8859-1?Q?UrXUVjRDzC/gwKrgRal/BLgz3zXjYtNmQMJZVwwCw6n9Sj0BpRbg+4dtgi?=
+ =?iso-8859-1?Q?AakrbLvMzvPAkDj0xbsKf3+HRekJxh+ZVMWAcAixwyFlVlxPwefCHdNOOZ?=
+ =?iso-8859-1?Q?wVSD9Yb2TqnJf3geR6NiAe2y5wClTM+AWcA4Rx0cWtg8BTXtvLQ1n17pWN?=
+ =?iso-8859-1?Q?arDzw33TT6huYw0fake1C5I8YQDU8FISt3ycMWjR/0KJ+6yezw8LAxH0Ua?=
+ =?iso-8859-1?Q?xRo6Q+vfRWGEksXp1YLiIkqQPDqVtMiYOlvGg3xvAPCxx0DHRfMS4oIbzg?=
+ =?iso-8859-1?Q?ek/hQE717tOyTj9fFn6aRULiOzx96SujJX6bmVMY/DcSQMaGFlBqgWPiaO?=
+ =?iso-8859-1?Q?in6vkarqVNujZEgXZh1gx9+1v1RySSn1aOB2E2qnrVvki8Gpn+mUdXIWCS?=
+ =?iso-8859-1?Q?0HLjQlm22m0Ce+x5OusolFaZTDC6pE+6nWmKweErfxbYjqfBOqTKSzqEW2?=
+ =?iso-8859-1?Q?X5O3snUOExZuzBrGHNxDNcof7pCdV72b5LgipwtU0FdosCIUpONFQ/DKLr?=
+ =?iso-8859-1?Q?/82dUVE4+SSYvpO/6Qlb+ySNGRIQM4ccNWR9SGv1SCob1kQTivHbx0+A5j?=
+ =?iso-8859-1?Q?E4sbCGeuKXYp5KCRCE5Qd3ZwUTpn9X+fRY7JLMd0coZzcgO3Jf+g/Aw3J+?=
+ =?iso-8859-1?Q?6LMp8YuV+GsiYFPqg1L5+BM3UOqPxwx/5ngHKD5aicyn3RuUnELmpR1l2o?=
+ =?iso-8859-1?Q?FVhGasXPHEzL3XMKvgy2Rwm/KY8748erOyBPcS6ZQEYGv6FIEsF+b9qiHM?=
+ =?iso-8859-1?Q?3thMKaEKv+DfdERvGspBWpBkPm9nhl+KaQgH/zowsAx3ubJCZHEgPH7/Cl?=
+ =?iso-8859-1?Q?6yl/rT9yfKzpOpsIT8jzkh+/W5fZnn35iBbySFcJiU5HQjh3UEpdF1Jig1?=
+ =?iso-8859-1?Q?zropjWdoUqAAQQyuXKUTuAhaNZJv+MGqNO3BG9esVU1n/KHp2MH5q5xDpY?=
+ =?iso-8859-1?Q?giJmQlLwWRR5K5iAsWbH/h+mb65Xp2iBdQmqoPrMVKAsGxxZhpKG0XQw?=
+ =?iso-8859-1?Q?=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+X-OriginatorOrg: siliconsignals.io
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2850ec1f-ee2f-4f98-a4be-08de178909c2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Oct 2025 07:50:47.4513
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2gjHE5TTWNpe0PxcOR1QYAcCA00V/4k67MBXLwBRVsMhaIYU4SRKUhlGzOaqikAyHvAxYbRNm/Qx5x07OmXILg6R2cuxal27eVdLKHZT/TY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAUP287MB4554
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_004526_260690_794EE808 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20251030_005058_238389_2B973D67 
+X-CRM114-Status: UNSURE (   7.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,18 +167,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Oct 2025 08:23:39 +0100, Sebastian Andrzej Siewior wrote:
-> It is not a performance issue, it is a latency issue. If the scheduling
-> latency increases by 300us because of this then the PREEMPT_RT system
-> becomes worthless.
-
-I understand what you mean. But this delay only occurs when the static
-key is enabled/disabled, right? For users, we can control when to
-enable/disable the static key, but it's a real shame if jump labels
-aren't available.
-Therefore, my personal opinion is that informing users that JUMP_LABEL
-might cause unexpected delays, rather than disabling it, would be more
-appropriate. ;)
-
-Xie Yuanbin
+Hi Laurent, =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=A0=
+=0A=
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0=A0=0A=
+> > Reject unsupported pixel formats in rkisp1_enum_framesizes() to =A0 =A0=
+ =A0 =A0 =A0 =A0=A0=0A=
+> > fix v4l2-compliance failure. =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=0A=
+> > =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0=A0=0A=
+> > v4l2-compliance test failure: =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=A0=0A=
+> > =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0=A0=0A=
+> > fail: ../utils/v4l2-compliance/v4l2-test-formats.cpp(403): Accepted fra=
+mesize for invalid format=0A=
+> > test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: FAIL =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=0A=
+> > =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0=A0=0A=
+> > Tested on: Debix i.MX8MP Model A =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=0A=
+> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0 =A0=A0=0A=
+> Tested here also on a debix board running v4l2-compliance before and =A0 =
+=A0 =A0 =A0 =A0=0A=
+> after. =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0=0A=
+> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0 =A0=A0=0A=
+> Tested-by: Kieran Bingham <kieran.bingham@ideasonboard.com> =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0=A0=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=A0 =A0 =A0 =
+=A0 =A0=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0=0A=
+Could you please pick this patch?=0A=
+ =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=A0=
+=0A=
+Best regards, =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=A0=
+=0A=
+Tarang =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=
+ =A0=
 
