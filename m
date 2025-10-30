@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40635CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5541ACCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TqzdzzYSnHYqd7lgLdiNXL8RderpADhP5hUHZURlmAE=; b=EKbOSJjbqvEhNNCG4Raj1AMx7Y
-	s5dO2mLObnYontPaAmKdzHMvIs5Wu/r3EZ+qcSuozb6n+Q9r7smfWKwr27CE3UCV3Wj8Ge+Ymrnon
-	/yS0EcOjlRu4paXMURyViwTplFCh/NyjNLYsHvUK5u6m1UcMouQvKUvDxRyilv208skavRqjOOqQU
-	OF6sTZRrk5AvxKa4EVrJAN6ucy3HzfFexC6F+mRUfGqGDuHiMQVvRBmhCkt65S4+c8JWAPJSOhRwR
-	r5Yzs9rPhEYIY6rd8pGzMwE1JLSmsJE559c93WGkhRaIOIl5/6w18FZwzveAZoilGK9bzEq/TjiyS
-	cag9lWUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0cBBzExnjk2NDYJtxl4UIBoOwn7f/ao+YK29yiad3aY=; b=umZZdbpHul/HX/jPJcGU++xa6R
+	PEsY8XLNj+C7BpK11zxHRVAqHdi6/T2I70Vpf3bWexj+h2m51rnFQQioqVyiT+X46IC/98witeAk0
+	KWN7zHmtKrfvN885BHBDHFFaX40zWDtOBu3H3Cx3GLQ8nFZaSOEmZ9BSYsVxzNCIcZ+vhAJG6nBFp
+	9APE/dLy/PaQxLiRYz6OsA0K4eAcGgpvAj/OYk+vayF2gx2Qps09JygcqQ9CrjZC2ulPYKMk6hkxK
+	fazdxxRmQMh9TbXBVEBZ6udaXfPEF5wXPjyFxFoALo+zdkTKAykcKbzvaZVH5HTwRxTCyCo93Oxf1
+	0ztkvEug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZOf-00000004qcm-3iqi;
-	Thu, 30 Oct 2025 20:37:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vEZR1-00000004qxC-19Os;
+	Thu, 30 Oct 2025 20:39:51 +0000
+Received: from mail-pf1-f173.google.com ([209.85.210.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZOZ-00000004qaw-3Ry1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Oct 2025 20:37:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=TqzdzzYSnHYqd7lgLdiNXL8RderpADhP5hUHZURlmAE=; b=l2MYDyXWEZ4tpJSlcv1Ig7gZ7u
-	9OLFPM+vMXFPFEkgD9Ffm1mkRpG+sT2qJcQV8sSErR1N2WWalsP0/kqBB0YuzAM1X8i55Yv5HL17/
-	bgz+udLIfcLGRJs8Ykb7wbnbb2WO5a0tGDDPXfrfwxWmKKJRH9I/5eTgosuYLqAh/oJbAi1MXq5bV
-	I+S0SiGBXjIqqXtCefA0EeLcEVoTEyKWN227KBmFnRWIXQf0fW9J2pf/2+NDC8ZNHmEnxe1k2xMAx
-	s+iw2Pu4FMkiOhlyv9lh1SfofZmSb2xNAByxrKS1QEL9L8o2Cju3C0gIFoXUTIXsflV+odnHlplt3
-	tNxmc/GA==;
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYWo-00000009ytU-0XR0
+	id 1vEZQy-00000004qwp-2iuS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 19:41:47 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1761856628;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TqzdzzYSnHYqd7lgLdiNXL8RderpADhP5hUHZURlmAE=;
-	b=tMhNy32r1KcQAFPPDHGfVHcGLodrWtlciZGMt4iRCtbCiiOrRoxH5kwlCrG9GcEP2Fu93W
-	IXKw4S6mthkgxWFegHfsJhApZCJH3/kl6IM6IJIwFTw3mGbi+3HsvgG+f6RNBQFsNei/7X
-	UowFicSOo05cNxL59ZjBr9EabBivbKQ=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org
-Cc: Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Simona Vetter <simona@ffwll.ch>,
-	David Airlie <airlied@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v2 2/3] drm: zynqmp_dp: Use smp_load/store for status
-Date: Thu, 30 Oct 2025 16:36:41 -0400
-Message-Id: <20251030203642.3076656-3-sean.anderson@linux.dev>
-In-Reply-To: <20251030203642.3076656-1-sean.anderson@linux.dev>
-References: <20251030203642.3076656-1-sean.anderson@linux.dev>
+	Thu, 30 Oct 2025 20:39:50 +0000
+Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-7a59ec9bef4so2030239b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:39:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761856787; x=1762461587;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0cBBzExnjk2NDYJtxl4UIBoOwn7f/ao+YK29yiad3aY=;
+        b=DumSU3Fhkll+s13RW5M1BldEfOcQsCl+XRxUgE378cD7mloNjSN47OLpORKVxAb3mt
+         SBhp5FakOydsSaiQts/oBJeddjY4Hj54uRJ5RE9L9hnRD8XjZz4oA6DHgeYG4psEIgyY
+         JdjWfn31j01ly5RNDX1dZlobpZDvA7TwpKozrYpIbMfOBAKTwbr0CNhbQHWjJ3r0tyO9
+         0/THkEsCtKhKVeOuhcY1huAJyABmd6JOaivoP9rHKvToETd9tqdRaRk5cdoroFB+BYib
+         GjkQWBpH9N6H6WBhX7JW6BChlOIWs/oH5DzCj1bUKg/RLVScI7KwTNbpQ8+0NhI6h2kq
+         n8Pg==
+X-Forwarded-Encrypted: i=1; AJvYcCXoyZBiOv1lZJsBc3HfAfZUkVXGUzmzDbEQKsNox0IvUYN6w0TfLRHJCDnMpuRv56DxWIIDMw4mWrWlYwGQSk0v@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywqg61samYogMB5sTVrQyIlMzJh3cakZYlyogkFdrieH1TYJ/T1
+	1C91VJQt2N+ymBTS9ydv6UWaR7D9VHb7wZJHezSViNRlfjZvS+sLiiQ9VYqyXYLqeuQ=
+X-Gm-Gg: ASbGncstDnrWOdMl6uLuozG6HT9a+C9JhG7/Jj2Oc0Tp7reSRHywLsolxtDlzyPiy+D
+	kkGQD5jnSV8gw4heQid5q/XgQQ5E2lrXzMf03HJISqJesiTqlq47wfifkadUibiXzUj/qIj/K6L
+	rHbXYhapdwjQS9o+cDpBObYuDi+QatYuOao0Ph1dVOCVOhwYM5YIPBGTF/mPkb0L5L2tI3iwEQN
+	Ijt/OD+PNwQpbo8nU3zYym3UJV2A3tkHHIbvbeH04MmVB18KxI4cT0XBruzR8VIRWGMS+MDNXuw
+	Tn6iOCOLkQKlv9t+uZhS6ElCAwGQR3ysKxnpum4+/ZDfMrPpmmCodhGY8xIpRIqTladkIPrI7nl
+	MGRH4YBQCrKpCYRBCXb/SBLG6DVNOdZ6iDjr6XmaYeApA8/0ZyvpNnRwjaMEWsygOS+kLb/ekpA
+	==
+X-Google-Smtp-Source: AGHT+IHNUhWGQ9QtbTuE49gdeDk8GHmdw85Ojnz2Oym2D5PVu1wHgl1Z6t3McBnk2N0znORSiSVtlA==
+X-Received: by 2002:a05:6a20:1583:b0:2df:8271:f08d with SMTP id adf61e73a8af0-348ca24f710mr1429132637.2.1761856787576;
+        Thu, 30 Oct 2025 13:39:47 -0700 (PDT)
+Received: from localhost ([71.212.208.158])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414012d02sm20249056b3a.4.2025.10.30.13.39.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Oct 2025 13:39:47 -0700 (PDT)
+From: Kevin Hilman <khilman@kernel.org>
+To: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>, Nishanth Menon
+ <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+ <ssantosh@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Gregory CLEMENT
+ <gregory.clement@bootlin.com>, Richard Genoud
+ <richard.genoud@bootlin.com>, Udit Kumar <u-kumar1@ti.com>, Prasanth
+ Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
+Subject: Re: [PATCH] firmware: ti_sci: set IO Isolation only if the firmware
+ is capable
+In-Reply-To: <20251014-ti-sci-io-isolation-v1-1-67c7ce5d1b63@bootlin.com>
+References: <20251014-ti-sci-io-isolation-v1-1-67c7ce5d1b63@bootlin.com>
+Date: Thu, 30 Oct 2025 13:39:46 -0700
+Message-ID: <7hsef0jf8t.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_194146_248004_459040A0 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20251030_133948_687888_1F642766 
+X-CRM114-Status: UNSURE (   6.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,51 +93,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dp->status is read asynchronously by the AUX bus. Therefore, all reads
-outside of dp->lock must be atomic. Similarly, writes must be atomic as
-well. Reads with dp->lock held do not need to be atomic.
+"Thomas Richard (TI.com)" <thomas.richard@bootlin.com> writes:
 
-Fixes: a7d5eeaa57d7 ("drm: zynqmp_dp: Add locking")
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
----
+> Add the IO_ISOLATION firmware capability, and set IO Isolation during
+> suspend only if the firmware is capable.
+>
+> Fixes: ec24643bdd62 ("firmware: ti_sci: Add system suspend and resume call")
+> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
 
-(no changes since v1)
-
- drivers/gpu/drm/xlnx/zynqmp_dp.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-index f39c78b08e6a..caf2e0ce3644 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-@@ -1111,7 +1111,7 @@ zynqmp_dp_aux_transfer(struct drm_dp_aux *aux, struct drm_dp_aux_msg *msg)
- 			return msg->size;
- 		}
- 
--		if (dp->status == connector_status_disconnected) {
-+		if (READ_ONCE(dp->status) == connector_status_disconnected) {
- 			dev_dbg(dp->dev, "no connected aux device\n");
- 			if (dp->ignore_aux_errors)
- 				goto fake_response;
-@@ -1697,7 +1697,7 @@ static enum drm_connector_status __zynqmp_dp_bridge_detect(struct zynqmp_dp *dp)
- 	}
- 
- 	if (state & ZYNQMP_DP_INTERRUPT_SIGNAL_STATE_HPD) {
--		dp->status = connector_status_connected;
-+		WRITE_ONCE(dp->status, connector_status_connected);
- 		ret = drm_dp_dpcd_read(&dp->aux, 0x0, dp->dpcd,
- 				       sizeof(dp->dpcd));
- 		if (ret < 0) {
-@@ -1716,7 +1716,7 @@ static enum drm_connector_status __zynqmp_dp_bridge_detect(struct zynqmp_dp *dp)
- 	}
- 
- disconnected:
--	dp->status = connector_status_disconnected;
-+	WRITE_ONCE(dp->status, connector_status_disconnected);
- 	return connector_status_disconnected;
- }
- 
--- 
-2.35.1.1320.gc452695387.dirty
+Reviewed-by: Kevin Hilman <khilman@baylibre.com>
 
 
