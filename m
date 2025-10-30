@@ -4,170 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CA0CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63318CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LvqEx1G2ygyvTN3lLDG32I0dvexEIahM9G3t/0OYeS8=; b=2vWWQjX4LZEYJ2RXf94JRO1eoX
-	PBd8maeJS+UjvGkTL1C3tKRBDS0MceAnyRLTNKdds4W0bIiLz3fArYYB20sNIWz4PShIUgt4sGYqR
-	a1lkzClMn/UES6y2Ha0to618PB7ImXV8OqI+SRk8H9288IQTC6enWHBGj0/hafJf7UhGZ8PVH8b5h
-	JG3HBuPWkIYu9hPWinEEIWhuA2mimRpY+9IxgvGw0Xv0oNBrBNVo8joi3/99MjRi2+k8ljBgkKNsT
-	rCkj7b2bAHDTj8yuAXBsbIwV7V9uaPEKgPZF4mb5CfDrmcCwBfIXRRQkJV2L5Fsxwxnd7l+JgHeP0
-	oRRdICAw==;
+	bh=FSZGYbOmCMoLcNoFG9BmYZt4BZZKr4wBKZWgl9N85BI=; b=N/XUt8/u+TudWU908IZj6JgVIs
+	Hid7D+UfMyQDCW2mI6LSrkGnEfn33oVKS2G4f9kHJF5xNK7EDSGX1gJA3I402yiUzs/eCl9gftRJ2
+	Ud5ZhWfk/OVJBSVQ0ohLJu6KNE02QtZ4FDtLbt/0IbsjLcLT3obZUBMmyYZtEv4ppbmxoCa3jGOx3
+	d7mUMR+V+dvYowlK4W8+ZGjyIP6mkPeyveITRQM78weJPjSibdYCkneWfjSnrV5O8oQLWwF/G8KOC
+	Q/CLqZ0QAocXl+54gcjUGLBJLL3yPaFqOhN2ge7WlT7f2clp/YeLR4PxB7L6X4EHyx9iDjKkUrIEC
+	kD6WoZhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYZW-00000004hO3-0Bs5;
-	Thu, 30 Oct 2025 19:44:34 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1vEYbM-00000004hfa-23sZ;
+	Thu, 30 Oct 2025 19:46:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYZR-00000004hN2-3Nag;
-	Thu, 30 Oct 2025 19:44:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tIt9Al490i85L/oS8knO96IcmdOLqGL6rKZpVgdB3eYlm3PO01plIwtpJB/974p69qzQ6OFV+E/i8oQGd1AqtUJxSNUk4RIlcWIlamGj+5ez+jsynQrLvS2YFbTB4FMuqNFOMau4VsWXD/jtvEshD8cBHvWYcqEQcvXS4WL0Nm0VMNdm6uTUJuMT7r+jc3cR2N72Z8DSs9UtD70bBcc8Vbes+Fo997dMo4Q1W1xT1S/MXY2zynGJbsTyX7n55c6m2Xf0NoGkpzCbpqsida021exIo9KvHtHHq+Ym49m6P9u3UyyeEaqijqUDD5+5E4yBReFYkewa+anhf4YyErvA2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LvqEx1G2ygyvTN3lLDG32I0dvexEIahM9G3t/0OYeS8=;
- b=FawP3FyzvIxNVh/0d5o5G7gK5f0eAL+L45k6jMGLpYVyBCVwaocmr9C5ry+hNVfmUZldU2SPY5nlqdZwkM3PjOTEuMfjx2DfYsz0GItDSj6rQWGUoSElynzdk5pNwLvk18A0GulLjJqXKrv/+/KOAn2OYsyZ2FKz7R2M9yaDKf16xO8GWLrMzl7ZxtPsx+mwh710e3sybSU7dIBXtL7HiOVYDo1ReVJECn8SOmVd2X8+3MW2XsJpYloFkxgLqw1MI4/z+kc6I6lplg61dQGrt+RjtfSE30FfI2PB9p0y5qf3D4zXfpQ4L0V3xcOuE7kqb6gBJwgj6TVs+UklWq2HGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LvqEx1G2ygyvTN3lLDG32I0dvexEIahM9G3t/0OYeS8=;
- b=n636A038RwCuAU+b0PzE9Od2AG9Ue5KZ+Q6m2/9T5vbIjK543e/0nboc3Vo0EpB3Dhp3qfSfO2j1o0in8PaY9iI3xLC80AvDeks/2iweUpRVgXDezvqexfhOfis3Z5tvdahDGjqOLnxAlK/HrB5vrqpdur9Y6zPiO/+E82Zi6jkAsimFm9nV01k4GJjePTWB29EBf21QQxgigtCVsgHCCuiXYzWQuzz2z4vwBaWeMco6S2hwQ37upYP2L7VKgdXRMd8mDjxxOoKjUVDd69jvUTPv1PKRzwmq2LIiPDmOyUyx+TkkaYXCcnreHlq1OrciN9lG161pNe4QnNzSMuTsZA==
-Received: from BN9PR03CA0769.namprd03.prod.outlook.com (2603:10b6:408:13a::24)
- by SJ0PR12MB6968.namprd12.prod.outlook.com (2603:10b6:a03:47b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.12; Thu, 30 Oct
- 2025 19:44:21 +0000
-Received: from BN2PEPF0000449E.namprd02.prod.outlook.com
- (2603:10b6:408:13a:cafe::85) by BN9PR03CA0769.outlook.office365.com
- (2603:10b6:408:13a::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.14 via Frontend Transport; Thu,
- 30 Oct 2025 19:44:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN2PEPF0000449E.mail.protection.outlook.com (10.167.243.149) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.7 via Frontend Transport; Thu, 30 Oct 2025 19:44:21 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
- 2025 12:44:03 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
- 2025 12:44:03 -0700
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 30 Oct 2025 12:44:01 -0700
-Date: Thu, 30 Oct 2025 12:43:59 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "joro@8bytes.org" <joro@8bytes.org>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
-	<j@jannau.net>, "jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
-	"dwmw2@infradead.org" <dwmw2@infradead.org>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>, "yong.wu@mediatek.com" <yong.wu@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "tjeznach@rivosinc.com"
-	<tjeznach@rivosinc.com>, "pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "heiko@sntech.de" <heiko@sntech.de>,
-	"schnelle@linux.ibm.com" <schnelle@linux.ibm.com>, "mjrosato@linux.ibm.com"
-	<mjrosato@linux.ibm.com>, "wens@csie.org" <wens@csie.org>,
-	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, "samuel@sholland.org"
-	<samuel@sholland.org>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
-	<asahi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
-	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
-	<linux-rockchip@lists.infradead.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
-	<linux-sunxi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v1 02/20] iommu: Introduce a test_dev domain op and an
- internal helper
-Message-ID: <aQO//+6/B/WbdK2h@Asurada-Nvidia>
-References: <cover.1760312725.git.nicolinc@nvidia.com>
- <32ce256a2ece5d63e99d5858f953586859818ffc.1760312725.git.nicolinc@nvidia.com>
- <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
+	id 1vEYbI-00000004hej-0p0B;
+	Thu, 30 Oct 2025 19:46:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9481041B50;
+	Thu, 30 Oct 2025 19:46:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2C70C4CEF1;
+	Thu, 30 Oct 2025 19:46:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761853583;
+	bh=GV2XRPs93TwYftizCqQPTtAV3OHflrc4UhVM50o3qOI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GYRixxz68G0B3WvSiTR45ogAq1hCd3hip6IbAr/vpLSvMQXPh5bqwKR3fHwvAiato
+	 k9lLxJ9Ol9IrjuTPLH4cv014bh8GtkT3rSxRQSzbQzx7GkYZcsUhrgxsizNlJgfS9i
+	 HssBlKBGGA9AOg0QdRsEjZoWkCmbgCCOZ4gdieHpstJL7HQCGPUCYACe6CBFZz0F4d
+	 6UXn0RZmedORIu4k14ErbNgOuNfJAnYjpVCE+h4NoJ6JbM+yxnmxzHC2wvJucQp0YT
+	 VqQi6/6Mr7HsE+WssAKVJA6F01m+5MK27cfqtX7ZQzSTFWGDgznlUEZqL507BbeBkm
+	 CZB2fDXCDdykg==
+Date: Thu, 30 Oct 2025 19:46:15 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jack Hsu <jh.hsu@mediatek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+	andy@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, srini@kernel.org,
+	ukleinek@kernel.org, gregkh@linuxfoundation.org,
+	jirislaby@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
+	chunfeng.yun@mediatek.com, wim@linux-watchdog.org,
+	linux@roeck-us.net, sean.wang@mediatek.com,
+	zhiyong.tao@mediatek.com, andrew-ct.chen@mediatek.com,
+	lala.lin@mediatek.com, jitao.shi@mediatek.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pwm@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-watchdog@vger.kernel.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v6 10/11] arm64: dts: mediatek: add properties for MT6359
+Message-ID: <20251030-boaster-chewing-61d458aa6c9e@spud>
+References: <20251030134541.784011-1-jh.hsu@mediatek.com>
+ <20251030134541.784011-11-jh.hsu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qjInnEs/qoh/Iqxq"
 Content-Disposition: inline
-In-Reply-To: <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000449E:EE_|SJ0PR12MB6968:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc59e19b-660d-4245-4f39-08de17ecb8cd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?coK9pFakNqZRASNqG9fe3/gaEPZb8DlHiclo4EwaWEkWZAKKl8GlJNWz4wrR?=
- =?us-ascii?Q?zr6ViIzANRUVty7P99UfaFiscK6nLpr28ZYfvN+3ieH8u5EU0PlZdzTG/Afy?=
- =?us-ascii?Q?9HtkE76k8HFPo2wEF7vzBuNyCHWwLVui7AE1MCsT0DFS+ERvONEuzQyaJKeu?=
- =?us-ascii?Q?9lsMlb89vAivBHTVROLFdkCFPOvoUSk3ulS9U8LWkKCQNQbw9FCgoB/Dps5M?=
- =?us-ascii?Q?aSc0meAcs1ZuPZyhpdcD/2P/yGkpqUSNKm7timTw822b4HHBlezHDD6xtKBO?=
- =?us-ascii?Q?d9cVxKl88MNbGNqrOGCyV9o9GhJHxC7ldYqicslM9TQpw6gpM2ugh5z/IST4?=
- =?us-ascii?Q?S69EL6HnJjEztdEhfXopBiRbSVZT0m3aCX9Vj1f6D8iHzlroOvHMCmwJ+QSz?=
- =?us-ascii?Q?DmBPTmC6NuhTH38HAsU54abx43pd1jp1VM5AOtne09fvdzKaghdvuPkAkCPM?=
- =?us-ascii?Q?XO4yeMOTS21GC4MSKdXnteGNrh9SHqFFSPzkgGoK3qlAap8V6VzLD7FfUTvd?=
- =?us-ascii?Q?wGukH/5GQqklCtNw2se3iLpyJKq+yhh/p7x1Oh7DAaUwQLwQjjhn9VveSwuH?=
- =?us-ascii?Q?1857KxQeN3PTGK5vwLoSrc36xZnaKV4Y1NGZGq/RjhokDp3qKYTmVDAsvgrQ?=
- =?us-ascii?Q?F9JiGn9dj0FwWNOA1FmjZ6CaW5rwKM3RmtGlxJRwyjQi0/hVnrPvDiAqanBy?=
- =?us-ascii?Q?IXO0TNdS7RqvcbpeG2KKyNlC7QAI6CzO02EXM7dKamonTcYhzhYuzDcQtKEh?=
- =?us-ascii?Q?MM8FIwAQOnhXCNkPS+hEANX/WJ5fjurKBYbHr8dv6l9WzKD2cEEuByaP2FNP?=
- =?us-ascii?Q?s2HH/3fYRVASoag9C6ZsoJ+XquGxFVd5/qX7dnt3t0fECWt1C+Ei616YPRLr?=
- =?us-ascii?Q?tCdTAEMsMQaTW3hQnA2bqdbA7OoKoPNeXlogC4psRj66SNa+kAm5zqbHVlAi?=
- =?us-ascii?Q?0HRRGi1rUlrR6/yNkXFnD2xOcaNv4yJBvpab7GMpJovLEyDLQYKREvxpVTWU?=
- =?us-ascii?Q?siryXShKBvANj84uEopBeG28/O+oT0AkYNFwm0l7ALhI5ybfgQ2jk51pSONe?=
- =?us-ascii?Q?3gZQR/E3Ztarm+j92prFSIn/R5b4n3BN4OmlQyyhuQcEkNKv1sN9oebOlAmx?=
- =?us-ascii?Q?loHctz0qkAx71sLMMkvs95YDc5KPTmYQnJ762Jq+UMRFjAFT4iT82Jri1FTv?=
- =?us-ascii?Q?XA2/NI6euISdRqATCUafc/tZMdbnkVUEAF65vDqv9wJJpu99o6lC975E2Wp+?=
- =?us-ascii?Q?vGXluXdS0JBIshFii2XnCUAHDPFAC021nPCiN1b4AcYRo6YMdx2qysYqlich?=
- =?us-ascii?Q?8jvJHA1MxtV9ktf1E3pTn4J1eyHyjAp/nOAEUN2xHLRpyz7/sXAgrvbyYWfz?=
- =?us-ascii?Q?dRHUAURlBpSrw+12M00B+tqMj30axKiQHXpCE1E3y5CHcMF0TbXep0yd55ee?=
- =?us-ascii?Q?r86P+evwtILnuGLvonMgKy7l9L06kp/9dmgrUZKiE3jjzuQiGM/md/q6pG3G?=
- =?us-ascii?Q?PiXfZGRB1lHNUfpK3AQPB7bmpLA7+uqbGm9u7Q32CqbsvkZb8YdYUUhFXKpH?=
- =?us-ascii?Q?lcz3iGBIFP3flMEcEyQ=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2025 19:44:21.1890
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc59e19b-660d-4245-4f39-08de17ecb8cd
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449E.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6968
+In-Reply-To: <20251030134541.784011-11-jh.hsu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_124429_875573_22D3D7B8 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20251030_124624_302965_256C7F22 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,109 +86,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 08:47:18AM +0000, Tian, Kevin wrote:
-> It might need more work to meet this requirement. e.g. after patch4
-> I could still spot other errors easily in the attach path:
-> 
-> intel_iommu_attach_device()
->   iopf_for_domain_set()
->     intel_iommu_enable_iopf():
-> 
->         if (!info->pri_enabled)
->                 return -ENODEV;
 
-Yea, I missed that.
+--qjInnEs/qoh/Iqxq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> intel_iommu_attach_device()
->   dmar_domain_attach_device()
->     domain_attach_iommu():
->       
->        curr = xa_cmpxchg(&domain->iommu_array, iommu->seq_id,
->                           NULL, info, GFP_KERNEL);
->         if (curr) {
->                 ret = xa_err(curr) ? : -EBUSY;
->                 goto err_clear;
->         }
+On Thu, Oct 30, 2025 at 09:44:42PM +0800, Jack Hsu wrote:
+> Add properties of rtc fg (Fuel Gauge), external crystal
+> and auxadc definition for mt6359 pmic.
+>=20
+> Signed-off-by: Jack Hsu <jh.hsu@mediatek.com>
+> ---
+>  arch/arm64/boot/dts/mediatek/mt6359.dtsi | 20 ++++++++++
+>  include/dt-bindings/iio/mt635x-auxadc.h  | 50 ++++++++++++++++++++++++
+>  2 files changed, 70 insertions(+)
+>  create mode 100644 include/dt-bindings/iio/mt635x-auxadc.h
+>=20
+> diff --git a/arch/arm64/boot/dts/mediatek/mt6359.dtsi b/arch/arm64/boot/d=
+ts/mediatek/mt6359.dtsi
+> index 467d8a4c2aa7..cc7053bdd292 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt6359.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
+> @@ -3,6 +3,8 @@
+>   * Copyright (C) 2022 MediaTek Inc.
+>   */
+> =20
+> +#include <dt-bindings/iio/mt635x-auxadc.h>
+> +
+>  &pwrap {
+>  	pmic: pmic {
+>  		compatible =3D "mediatek,mt6359";
+> @@ -302,6 +304,24 @@ mt6359_vsram_others_sshub_ldo: ldo_vsram_others_sshu=
+b {
+> =20
+>  		mt6359rtc: rtc {
+>  			compatible =3D "mediatek,mt6358-rtc";
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <1>;
+> +			status =3D "disabled";
+> +
+> +			fginit: fginit {
+> +				reg =3D <0 0x1>;
+> +				bits =3D <0 8>;
+> +			};
 
-There is actually an xa_load() in this function:
+Uhhhh, what on earth is going on here? This is an RTC, what does
+fuelgauge stuff have to do with it? Did you test this at all? What does
+it even do? Very confused.
 
-	curr = xa_load(&domain->iommu_array, iommu->seq_id);
-	if (curr) {
-		curr->refcnt++;
-		kfree(info);
-		return 0;
-	}
+> +
+> +			fgsoc: fgsoc {
+> +				reg =3D <1 0x1>;
+> +				bits =3D <0 8>;
+> +			};
+> +
+> +			ext32k: ext32k {
+> +				reg =3D <2 0x1>;
+> +				bits =3D <6 1>;
+> +			};
+>  		};
+>  	};
+>  };
+> diff --git a/include/dt-bindings/iio/mt635x-auxadc.h b/include/dt-binding=
+s/iio/mt635x-auxadc.h
+> new file mode 100644
+> index 000000000000..69ba13a7b9ec
+> --- /dev/null
+> +++ b/include/dt-bindings/iio/mt635x-auxadc.h
+> @@ -0,0 +1,50 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (c) 2020 MediaTek Inc.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_MT635X_AUXADC_H
+> +#define _DT_BINDINGS_MT635X_AUXADC_H
+> +
+> +/* PMIC MT635x AUXADC channels */
+> +#define AUXADC_BATADC				0x00
+> +#define AUXADC_ISENSE				0x01
+> +#define AUXADC_VCDT	    			0x02
+> +#define AUXADC_BAT_TEMP				0x03
+> +#define AUXADC_BATID				0x04
+> +#define AUXADC_CHIP_TEMP			0x05
+> +#define AUXADC_VCORE_TEMP			0x06
+> +#define AUXADC_VPROC_TEMP			0x07
+> +#define AUXADC_VGPU_TEMP			0x08
+> +#define AUXADC_ACCDET				0x09
+> +#define AUXADC_VDCXO				0x0a
+> +#define AUXADC_TSX_TEMP				0x0b
+> +#define AUXADC_HPOFS_CAL			0x0c
+> +#define AUXADC_DCXO_TEMP			0x0d
+> +#define AUXADC_VBIF		    		0x0e
+> +#define AUXADC_IMP			    	0x0f
+> +#define AUXADC_IMIX_R				0x10
+> +#define AUXADC_VTREF				0x11
+> +#define AUXADC_VSYSSNS				0x12
+> +#define AUXADC_VIN1				    0x13
+> +#define AUXADC_VIN2			    	0x14
+> +#define AUXADC_VIN3			    	0x15
+> +#define AUXADC_VIN4			    	0x16
+> +#define AUXADC_VIN5			    	0x17
+> +#define AUXADC_VIN6			    	0x18
+> +#define AUXADC_VIN7		            0x19
 
-	[...]
+What has this fine got to do with the node you're adding above? I don't
+understand why this is in this patch.
+There's random whitespace problems in it, and half the defines look
+bizarre. This seems like it should be in the same patch as some binding
+changes for an iio device? The mt635x auxadc binding doesn't even permit
+anything that would use any of the properties beyond this point.
 
-	info->refcnt	= 1;
-	info->did	= num;
-	info->iommu	= iommu;
-	curr = xa_cmpxchg(&domain->iommu_array, iommu->seq_id,
-			  NULL, info, GFP_KERNEL);
-	if (curr) {
-		ret = xa_err(curr) ? : -EBUSY;
-		goto err_clear;
-	}
+NAK.
 
-It seems that this xa_cmpxchg could be just xa_store()?
+> +
+> +#define AUXADC_CHAN_MIN				AUXADC_BATADC
+> +#define AUXADC_CHAN_MAX				AUXADC_VIN7
+> +
+> +#define ADC_PURES_100K				(0)
+> +#define ADC_PURES_30K				(1)
+> +#define ADC_PURES_400K				(2)
+> +#define ADC_PURES_OPEN				(3)
+> +
+> +#define ADC_PURES_100K_MASK			(ADC_PURES_100K << 8)
+> +#define ADC_PURES_30K_MASK			(ADC_PURES_30K << 8)
+> +#define ADC_PURES_400K_MASK			(ADC_PURES_400K << 8)
+> +#define ADC_PURES_OPEN_MASK			(ADC_PURES_OPEN << 8)
+> +
+> +#endif /* _DT_BINDINGS_MT635X_AUXADC_H */
+> --=20
+> 2.45.2
+>=20
 
-> intel_iommu_attach_device()
->   dmar_domain_attach_device()
->     domain_setup_first_level()
->       __domain_setup_first_level()
->         intel_pasid_setup_first_level():
+--qjInnEs/qoh/Iqxq
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Yea. There are a few others in the track also..
+-----BEGIN PGP SIGNATURE-----
 
->         pte = intel_pasid_get_entry(dev, pasid);
->         if (!pte) {
->                 spin_unlock(&iommu->lock);
->                 return -ENODEV;
->         }
-> 
->         if (pasid_pte_is_present(pte)) {
->                 spin_unlock(&iommu->lock);
->                 return -EBUSY;
->         }
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQPAhwAKCRB4tDGHoIJi
+0rESAQC+pk8ew/zg9l4Rp9iAnTnoGDOpKly9i4yhdfpXcv5AowEAvBfWYIfZ0eSw
++rZuOzIx3kHSDbDpctohV+Wb6SErqQY=
+=lc/Z
+-----END PGP SIGNATURE-----
 
-Hmm, this is fenced by iommu->lock and can race with !attach_dev
-callbacks. It might be difficult to shift these to test_dev..
-
-> On the other hand, how do we communicate whatever errors returned
-> by attach_dev in the reset_done path back to userspace? As noted above
-> resource allocation failures could still occur in attach_dev, but userspace
-> may think the requested attach in middle of a reset has succeeded as
-> long as it passes the test_dev check.
-
-That's a legit point. Jason pointed out that we would end up with
-some inconsistency between driver and core as well, at the SMMUv3
-patch. So, this test_dev doesn't seemingly solve our problem very
-well..
-
-> Does it work better to block the attaching process upon ongoing reset
-> and wake it up later upon reset_done to resume attach?
-
-Yea, I think returning -EBUSY would be the simplest solution like
-we did in the previous version.
-
-But the concern is that VF might not be aware of a PF reset, so it
-can still race an attachment, which would be -EBUSY as well. Then,
-if its driver doesn't retry/defer the attach, this might break it?
-
-FWIW, I am thinking of another design based on Jason's remarks:
-https://lore.kernel.org/linux-iommu/aQBopHFub8wyQh5C@Asurada-Nvidia/
-
-So, instead of core initiating the round trip between the blocking
-domain and group->domain, it forwards dev_reset_prepare/done to the
-driver where it does a low-level attachment that wouldn't fail:
-  For SMMUv3, it's an STE update.
-  For intel_iommu, it seems to be the context table update?
-
-Then, any concurrent would be allowed to carry on to go through all
-the compatibility/sanity checks as usual, but it would bypass the
-final step: STE or context table update.
-
-Thanks
-Nicolin
+--qjInnEs/qoh/Iqxq--
 
