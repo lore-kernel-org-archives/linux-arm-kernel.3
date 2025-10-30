@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD0CCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 17:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82585CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 17:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPOSS4Xvr2ZiLCE2TTrws+3Tl9nUc/vBnF2uUi2Fj0A=; b=bCb97bmnWbrA/ESp1mA13yWIuU
-	6/Rzm1IRyXb72CJ+OhiTSA2k3AWwwvMBEq/AE/Yz2HKKHsp/uGQ2Z6330bennIg/XCtY9KFG5dw6e
-	di9UaL3bdHBht0fBxwb1uArZFywCdyq2/P1hex7KIEPL7WzjKdYZIUk9LaA4NFHk+w/nQWuM1roCp
-	0MUU8551F7n8Z16bY54pyKkVdBCjfJdS3MmWGFFR018m6DLVILPv7oBDAz10PRhvaGnPPXVYXbXZ7
-	GzxRw+jNKuJPVofb7naBdct89AFvOlBleXmkgu/BbIbU9F/M6xO39zWLlMvoiNXrCgTz0XZGNK4Dz
-	Z9D6USHw==;
+	bh=kVVeH203zAmGRP0DuVWqFAOGfqNL3SAM4RDa6jsxtz4=; b=m5P3ROtAQ47xzTsbUvWMeP94Mh
+	r9Feyok2TK9a3WI4NoLefWqgaXAm0o/0iFhKkIDHZUyV2Ys5PGFdKJQQ8mww7EdmLYn9mwoLTy6uC
+	PXtKVvNUVFkPEVrJIPmg/UVI6KoMdXKqjdbAMl0fVBJh8Qql5O3bxQ21uyaX9sSqdtMopIc6QkYX3
+	rtmV/KglkfQf8CjZfglzVJBamqi3k/agoX324qZIUHFkisPCz0jMIV6VPVirjKGDULE1eOJ4er5st
+	ybnAbw3Yj3piyRQ7m0+HnV7d4bZYmj72CX7kcytlCJFkk+UWBi2KmBkZRiYOOho1xJzOWuRDoOAtU
+	GPxfTg2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEWDd-00000004WRy-1KkN;
-	Thu, 30 Oct 2025 17:13:49 +0000
+	id 1vEWGH-00000004WjT-1Hfw;
+	Thu, 30 Oct 2025 17:16:33 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEWDb-00000004WRo-17e7
+	id 1vEWGG-00000004WjH-0Y2m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 17:13:47 +0000
+	Thu, 30 Oct 2025 17:16:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44A13602F4;
-	Thu, 30 Oct 2025 17:13:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73BBCC4CEF8;
-	Thu, 30 Oct 2025 17:13:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 88D6861DB0;
+	Thu, 30 Oct 2025 17:16:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAFAFC4CEF1;
+	Thu, 30 Oct 2025 17:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761844424;
-	bh=Ga2UaOapRGo+y9uUOsUqRMoBHpskEFYaGzTydEs8NIQ=;
+	s=k20201202; t=1761844591;
+	bh=4W6mLwI645saXzV/fLjJuWsB2SIdukbVmVT6B8Em+80=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pof1RBvX5cRsFJAezLFcWBGDW7rsV1c4M1J99/r3DGwmimwg3GbksGk7NgCOg0FBk
-	 iIjzXjj2IJqkdeh2yPQXViNw4vKw3zw5lR44jG429gASfmNYXq+TSE5znGPRdwy0YY
-	 ddmqdSyr+vgV/cyHD1fNoSjy59FI9zxVlYyKL5146W0qonhiNsUFCRLS9l/JiJTsdu
-	 /d4rzHomrmqMJY85laR34wIR4qKUP2WJ444aShGkavHd2HyGHCPs9YzvnXD3qcoztv
-	 Cq2vtvl4aFD2escxUpJ8WYFVlQC9MwZG2UmwTd5GRN6cftyQ6ufd71f2QyDXhZKD7B
-	 2meEhwL/lg2eQ==
-Date: Thu, 30 Oct 2025 18:13:41 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: "Krebs, Olaf" <Olaf.Krebs@emh-metering.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	"open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>, 
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] Fix IMX PWM period setting
-Message-ID: <qsc5hl22l4bxs6jzqbc43r4wxvmbwz6rpcfsiv4hcp2uzrsscy@ogjzgesvy2wl>
-References: <20251030114641.4109598-1-user@jenkins>
- <548dfa909f984868a62e04efc0c51bdf@emh-metering.com>
+	b=mfF02DO6mfd7mOHj9apVUr1Fz9ikSY9AlhkEJ25UTT0VwD9d8AhNJlMJQ+zplNqzd
+	 L4gpcAiDIKM9uUTFdGYb/A5l2sjUoUND2Uj/HhRSCRxDdznB6FXY553wARR05IMWGq
+	 WHeIaqc5OrQD1mTslH68BLQgzY28pUbAb5bNAbgY9wHJCSjD3UN1Zx8T1Op7D5Se35
+	 4mHK26DWpD42wsvrX3bjGUMOmn9Z53rVhSTdUy17C2UhJGi1Vo1dMMeegZbfAAey0L
+	 ZRu034TWIEZUf8ky6LIe2k/28IcOr664DPVLDQsZvR2xZU+3H0mUuATSYm7dpwNpdo
+	 /xjPOrSMg+DcQ==
+Date: Thu, 30 Oct 2025 10:14:53 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Harald Freudenberger <freude@linux.ibm.com>
+Cc: linux-crypto@vger.kernel.org, David Howells <dhowells@redhat.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/15] SHA-3 library
+Message-ID: <20251030171453.GA1624@sol>
+References: <20251026055032.1413733-1-ebiggers@kernel.org>
+ <ba3ff3d5183ab78b3d02d8db30223def@linux.ibm.com>
+ <20251029163216.GA1603@sol>
+ <fa8bc10f36b1aeb9ffe1abf6350adbc1@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="34swrrw2zoqfjyya"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <548dfa909f984868a62e04efc0c51bdf@emh-metering.com>
+In-Reply-To: <fa8bc10f36b1aeb9ffe1abf6350adbc1@linux.ibm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,111 +76,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 30, 2025 at 11:10:22AM +0100, Harald Freudenberger wrote:
+> On 2025-10-29 17:32, Eric Biggers wrote:
+> > On Wed, Oct 29, 2025 at 10:30:40AM +0100, Harald Freudenberger wrote:
+> > > > If the s390 folks could re-test the s390 optimized SHA-3 code (by
+> > > > enabling CRYPTO_LIB_SHA3_KUNIT_TEST and CRYPTO_LIB_BENCHMARK), that
+> > > > would be helpful.  QEMU doesn't support the instructions it uses.  Also,
+> > > > it would be helpful to provide the benchmark output from just before
+> > > > "lib/crypto: s390/sha3: Add optimized Keccak function", just after it,
+> > > > and after "lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest
+> > > > functions".  Then we can verify that each change is useful.
+> > [...]
+> > > 
+> > > Picked this series from your ebiggers repo branch sha3-lib-v2.
+> > > Build on s390 runs without any complains, no warnings.
+> > > As recommended I enabled the KUNIT option and also
+> > > CRYPTO_SELFTESTS_FULL.
+> > > With an "modprobe tcrypt" I enforced to run the selftests
+> > > and in parallel I checked that the s390 specific CPACF instructions
+> > > are really used (can be done with the pai command and check for
+> > > the KIMD_SHA3_* counters). Also ran some AF-alg tests to verify
+> > > all the the sha3 hashes and check for thread safety.
+> > > All this ran without any findings. However there are NO performance
+> > > related tests involved.
+> > 
+> > Thanks!  Just to confirm, did you actually run the sha3 KUnit test and
+> > verify that all its test cases passed?  That's the most important one.
+> > It also includes a benchmark, if CONFIG_CRYPTO_LIB_BENCHMARK=y is
+> > enabled, and I was hoping to see your results from that after each
+> > change.  The results get printed to the kernel log when the test runs.
+> > 
+> 
+> Here it is - as this is a zVM system the benchmark values may show poor
+> performance.
+> 
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel: KTAP version 1
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel: 1..1
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     KTAP version 1
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # Subtest: sha3
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     1..21
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 1 test_hash_test_vectors
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 2
+> test_hash_all_lens_up_to_4096
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 3
+> test_hash_incremental_updates
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 4
+> test_hash_buffer_overruns
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 6
+> test_hash_alignment_consistency
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 7
+> test_hash_ctx_zeroization
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 8
+> test_hash_interrupt_context_1
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 9
+> test_hash_interrupt_context_2
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 10 test_sha3_224_basic
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 11 test_sha3_256_basic
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 12 test_sha3_384_basic
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 13 test_sha3_512_basic
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 14 test_shake128_basic
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 15 test_shake256_basic
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 16 test_shake128_nist
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 17 test_shake256_nist
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 18
+> test_shake_all_lens_up_to_4096
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 19
+> test_shake_multiple_squeezes
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 20
+> test_shake_with_guarded_bufs
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=1: 14
+> MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=16: 109
+> MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=64: 911
+> MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=127:
+> 1849 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=128:
+> 1872 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=200:
+> 2647 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=256:
+> 3338 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=511:
+> 5484 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=512:
+> 5562 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=1024:
+> 8297 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=3173:
+> 12625 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=4096:
+> 11242 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: len=16384:
+> 12853 MB/s
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 skip:0
+> total:21
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel: # Totals: pass:21 fail:0 skip:0
+> total:21
+> Oct 30 10:46:44 b3545008.lnxne.boe kernel: ok 1 sha3
 
---34swrrw2zoqfjyya
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] Fix IMX PWM period setting
-MIME-Version: 1.0
+Thanks!  Is this with the whole series applied?  Those numbers are
+pretty fast, so probably at least the Keccak acceleration part is
+worthwhile.  But just to reiterate what I asked for:
 
-Hello,
+    Also, it would be helpful to provide the benchmark output from just
+    before "lib/crypto: s390/sha3: Add optimized Keccak function", just
+    after it, and after "lib/crypto: s390/sha3: Add optimized one-shot
+    SHA-3 digest functions".
 
-please version your patch revision, i.e. you should have put "v2" in the
-subject. The easiest way to achieve that is by passing -v2 to `git
-format-patch` (or `git send-email` if you use that directly). So for the
-next revision use -v3.
+So I'd like to see how much each change helped, which isn't clear if you
+show only the result at the end.
 
-On Thu, Oct 30, 2025 at 11:53:27AM +0000, Krebs, Olaf wrote:
-> From: Olaf Krebs <okr@smgw.emh-meter.de>
->=20
-> We use 3 PWM channels to control an RGB LED. Without this patch, an BUSY-=
-error message is generated during initialization.
->=20
-> [    7.395326] leds_pwm_multicolor led-controller: error -EBUSY: failed t=
-o set led PWM value for (null)
-> [    7.405167] leds_pwm_multicolor led-controller: probe with driver leds=
-_pwm_multicolor failed with error -16
->=20
-> Our DTS-Config for an imx93-Board:
-> 	...
-> 	led-controller {
-> 		compatible =3D "pwm-leds-multicolor";
-> 		multi-led {
-> 			label =3D "RGBled";
-> 			color =3D <LED_COLOR_ID_RGB>;
-> 			function =3D LED_FUNCTION_INDICATOR;
-> 			max-brightness =3D <255>;
-> 			led-red {
-> 				pwms =3D <&tpm5 0 1000000 PWM_POLARITY_INVERTED>;
-> 				color =3D <LED_COLOR_ID_RED>;
-> 			};
-> 			led-green {
-> 				pwms =3D <&tpm6 2 1000000 PWM_POLARITY_INVERTED>;
-> 				color =3D <LED_COLOR_ID_GREEN>;
-> 			};
-> 			led-blue {
-> 				pwms =3D <&tpm5 1 1000000 PWM_POLARITY_INVERTED>;
-> 				color =3D <LED_COLOR_ID_BLUE>;
-> 			};
-> 		};
-> 	};
-> 	...
+If there's still no evidence that "lib/crypto: s390/sha3: Add optimized
+one-shot SHA-3 digest functions" actually helps significantly vs. simply
+doing the Keccak acceleration, then we should drop it for simplicity.
 
-I would prefer something like the following text here:
+> > > What's a little bit tricky here is that the sha3 lib is statically
+> > > build into the kernel. So no chance to unload/load this as a module.
+> > > For sha1 and the sha2 stuff I can understand the need to have this
+> > > statically enabled in the kernel. Sha3 is only supposed to be
+> > > available
+> > > as backup in case of sha2 deficiencies. So I can't see why this is
+> > > really statically needed.
+> > 
+> > CONFIG_CRYPTO_LIB_SHA3 is a tristate option.  It can be either built-in
+> > or a loadable module, depending on what other kconfig options select it.
+> > Same as all the other crypto library modules.
+> 
+> I know and see this. However, I am unable to switch this to 'm'. It seems
+> like the root cause is that CRYPTO_SHA3='y' and I can't change this to 'm'.
+> And honestly I am unable to read these dependencies (forgive my ignorance):
+> 
+> CONFIG_CRYPTO_SHA3:
+> SHA-3 secure hash algorithms (FIPS 202, ISO/IEC 10118-3)
+>  Symbol: CRYPTO_SHA3 [=y]
+>   Type  : tristate
+>   Defined at crypto/Kconfig:1006
+>     Prompt: SHA-3
+>     Depends on: CRYPTO [=y]
+>     Location:
+>       -> Cryptographic API (CRYPTO [=y])
+>         -> Hashes, digests, and MACs
+>           -> SHA-3 (CRYPTO_SHA3 [=y])
+>   Selects: CRYPTO_HASH [=y] && CRYPTO_LIB_SHA3 [=y]
+>   Selected by [y]:
+>     - CRYPTO_JITTERENTROPY [=y] && CRYPTO [=y]
 
-	If a second PWM is requested by a driver before the first is
-	configured, trying to configure any of these results in
-	.user_count > 1 and thus the configuration fails.=20
-	Fix that by only erroring out by additionally checking if the
-	period is actually configured.
+Well, all that is saying is that there is a built-in option that selects
+SHA-3, which causes it to be built-in.  So SHA-3 being built-in is
+working as intended in that case.  (And it's also intended that we no
+longer allow the architecture-optimized code to be built as a module
+when the generic code is built-in.  That was always a huge footgun.)  If
+you want to know why something that needs SHA-3 is being built-in, you'd
+need to follow the chain of dependencies up to see how it gets selected.
 
-> Signed-off-by: Olaf krebs <olaf.krebs@emh-metering.com>
-
-S-o-b missmatch. Do you know checkpatch? That one also wails:
-WARNING: Prefer a maximum 75 chars per line (possible unwrapped commit desc=
-ription?)
-
-> ---
->  drivers/pwm/pwm-imx-tpm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c index =
-5b399de16d60..411daa7711f1 100644
-> --- a/drivers/pwm/pwm-imx-tpm.c
-> +++ b/drivers/pwm/pwm-imx-tpm.c
-> @@ -190,7 +190,7 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
->  		 * there are multiple channels in use with different
->  		 * period settings.
->  		 */
-> -		if (tpm->user_count > 1)
-> +		if ((tpm->user_count > 1) && (tpm->real_period !=3D 0))
->  			return -EBUSY;
-
-Please drop the added parenthesis.
-
-Thinking about the error here, I wonder if a saner check would involve
-enable_count instead of user_count.
-
->  		val =3D readl(tpm->base + PWM_IMX_TPM_SC);
-
-Best regards
-Uwe
-
---34swrrw2zoqfjyya
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkDnMMACgkQj4D7WH0S
-/k75IwgApdc2XPIDEyp+ZQcUeA+W1RUlQqraSjno8l3UnToMwlCt+ChVq19ThmyM
-EdsIvUZnM0/5QjS856KJzxLKsFHa+KCYEi2I8Y7El/rEUU1BZkH0/HXR/QZ/SLc5
-+Sal0xhUXIfxtSPWVH2BU1BX/h4yXmuysgSqfgbyuhxjiLPd6BNq03rNVP0uQJd/
-+DhPiRYWxtVJJf8uxLYFu55POjiLDzlHWaJLz6x+umtjlrX5I3wdvr7MxvYk4Gjp
-dPkrAqdKCXHkc+cr9CceupLqqPShhTmd0njU2kdKkYsLccd1chdfTBS7UXF9Ydkb
-JM68cr+6yiYfx/cbCPLXx+xsDk2idA==
-=2+ej
------END PGP SIGNATURE-----
-
---34swrrw2zoqfjyya--
+- Eric
 
