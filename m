@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77379CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A1ACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0cyBTO8M8YFuORRFk75Qrt/oRKDykE19qoN11SVtGXc=; b=KTHq4+4sOOP0TwtL3uzg4UgHTg
-	Msax4K1nmS/DJYsevHcFsR6WoUpCdk5DY2P/9dQtNuY7cVCL4qLpb5lgUGLgYdTqJAiKAL1sDCMB4
-	98OLzSQllVvdGmHBRRa0N963diNfbmxoQl+yqazm1B/aEVaVYm0MEUPQqXKMCepdqZ7p1O7OE70TN
-	dRBTNmKqt8mEyipr60XPj0UTrkDbj9eqfvHjg8r1REXhm3fmJpFTiTmv0vDxIi1TAm6d6ngTwAAUs
-	THXy707o1unbEFomFVaESJBKudt8lw56osqrQg5aoMLqEX29uO5CdjXvOvSmecOrTnwLqvnqztj6+
-	Z4N5/f6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lFtM9W5IZANXUk3rqslmJvdpLsYf0BwN6/pXxkiNynI=; b=ml3vTjrhdhncM9
+	XPkdD2MWlXZx+/3A5WVoN3Qz+UzwaCf9FpjFJP0Y4n8UxroZ6rsLkZq2ZmReHj+7X5lVLwr+XatoB
+	4gO/BelX/UBR4QCcLicWyIW3xPiFwBGBw8dpF02Gk+GOo9wtr7lgkGg9D7y4Q60yII0uXXC5ZnpxI
+	haNkb1wjzrVErs4izK4HdQQzAoP+ct1IoX0jIJFrrkGQkmbEoYl/T12LBr1cquLsVnldiL4AONe6Q
+	ZnZQHz9HCJkdn01s9GekytnZGvXeEQlA8UC6kEl7+Qr+bHy3OVNv6YAPo8nQgw8kZ/3FyrUxN7Wdt
+	JW5sIgaLCYcnxkO/6U8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYC1-00000004exw-03VS;
-	Thu, 30 Oct 2025 19:20:17 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1vEYCO-00000004ezu-1OVO;
+	Thu, 30 Oct 2025 19:20:40 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYBx-00000004exZ-2ioP
+	id 1vEYCK-00000004ezH-22bv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 19:20:14 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-429bb95a238so569359f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 12:20:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761852011; x=1762456811; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0cyBTO8M8YFuORRFk75Qrt/oRKDykE19qoN11SVtGXc=;
-        b=JJ8SfGpTyA71ZvEHKKUzMv8scso4XhaBGUfHiyPMCN77wz8COg8/yoFMp4kwgmC/kK
-         8lqbh2C3KWO+Jb4QjI3SAEtNmr3S02Sb4lZYScfSyWx8f+zz81Ep/ivWSODRxa2ccZRl
-         0pJs/OMwtpP20AXsjx0WO+oeTboR+ZXRicJP04F9z9WQDSBASbR9UyJUzG0wemuKGdeD
-         v+8C9zc6bMf9LJwz2rjei93U9NClZRUFKsDqLv7eP+BTNScRptSrvybTDMvZ9sVgcvQl
-         UPvG5tyNBmeQzPEIO6BDKcLsJZBvAnSx0WJa2HzxPzWXRY6NdnzeYw3iigiS+3YZoTkH
-         mcZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761852011; x=1762456811;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0cyBTO8M8YFuORRFk75Qrt/oRKDykE19qoN11SVtGXc=;
-        b=mggpR4eBa2KiDIQzT7wulbUTuycXOhBnsrTsX2jhaodJo84l7Hoh7UtKhxt0z1BapB
-         mnEzQn3Zf0dj6GlsihMcOaYgkHw7A7iww1/U1+3D89pQn8//xXPlzZXI+yfG2t1ZXAuy
-         CFRnTRyDg1ZRjaJVRyxotHzfQV1jmz4FgPgBNvyqRDwComlzFRQvtvjiBhkCfAi9+DR5
-         8rRhIso4OhtHFcDK6VVrZJpr7HBj5wSomlpvJL0TxQc3qh7SDDPHpVWyv6vvj93p1RV9
-         dK4pyiLGTTEOxuUB+nPcz4v2tHufbXX+kCrgl4Xs+2R6TLqTL3CRHMhYnXRaud6RVd7T
-         BYWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU7+Q7rz3iiuwsyw5YUEr24LaZmVxa1b5rglKJxA1h1gsEgg6KW3ojwPss4pxB+ADEYrpTQOzWd92u7YAcujj26@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8AowX5few7ycMRAADzvOrCfWLWib0VH7wbwrb6aBuktbF4eX0
-	DTg8Rqz+XRAg02/WUhVCfPc0GHYTntIZ6Dlork0DACqYRg6HEJPY7cPA
-X-Gm-Gg: ASbGncvwpg8TzBplafsMHcVQQ7lLyJSXHz/32z7urlvI0p77Ld9utUNvBz0/vWvfIl5
-	ZB6xbkuZd5rujEeKdHQthnIYk9zSMwmYPB5kJhAayQn4OdsBBMFEBBMA6GaqrhdSNOMnWyOhov9
-	uoLPBBw1OFn5aMTAuiXhz09paQhw3bnz5NlyPVoHDushb+cTpfAMlzOtEkn6dHlzlSM0QlCZXmL
-	jFKhdAMzCF9Ik7ng8rUakD4y7zyB/dtMsYChXWMdeWgGrxTaGnjSwdZ49sZXd1UNW1c6cDHVb7T
-	kfa36ZJQg1e5qupqNZQiy0WERtqX3Fb2nxKQpLILUAaZSn2nK/B2vXLor1gCCC01XYINpi3hovP
-	Ne7dSYbkwWG0s8Fx4W+SMHYx4FRQbvi4kWb8PdlZBziOyQnYcw0Yb9BBwfTgmuxX/onanBdy1Nf
-	09KpwZIGeFmmBzq2kzvsk/G2PVhTVbGaZNMV2OMJl/65y59w5YN91bfQ2EoACUJgDI/FbgqFGrS
-	ZvPPbo=
-X-Google-Smtp-Source: AGHT+IEpSsbR8IVq5Rq4mjP5qqKpcNZKCRQg0psZEZaYxRf2iVNkAiJuhW6XE1AiPQEiDp8LTtGU9A==
-X-Received: by 2002:a5d:5f87:0:b0:428:55f2:be4b with SMTP id ffacd0b85a97d-429bd6a4c29mr760402f8f.38.1761852011071;
-        Thu, 30 Oct 2025 12:20:11 -0700 (PDT)
-Received: from localhost (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429952df473sm33477601f8f.42.2025.10.30.12.20.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 12:20:09 -0700 (PDT)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] arm64: tegra: Device tree fixes for v6.18
-Date: Thu, 30 Oct 2025 20:20:02 +0100
-Message-ID: <20251030192007.682116-1-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.51.0
-Content-Type: text/plain; charset="utf-8"
+	Thu, 30 Oct 2025 19:20:39 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 1808B25EA8;
+	Thu, 30 Oct 2025 20:20:31 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id E_NXAww80c-F; Thu, 30 Oct 2025 20:20:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1761852030; bh=IYJOq+ujqd+8XfRFQ0ewJxumqLNJx+CR3RO7H11Z2vs=;
+	h=From:Subject:Date:To:Cc;
+	b=j7ZIfUUWXLaJPjbZzcI6PPj19nKODpBlvokRYps6Tcdy4Gh0BBnSKqW2WFcfFJ55V
+	 VPbzzENQ7uFINwnG9tdibMNjV0y5EwCN0U7iMdMb3FqGsxbYoYAh4XqHZd3GhVErEz
+	 CfPSq8lzQrikjUCihVHHeosOSqqCKH5y5+eJU/sSFcP9KQOTrNGGQd8HyTmZnmABmN
+	 pOW+aP/tSyRWrek50zRYmge1owhJCk5Abl6JUpkJfy1K3GL4w25KAKz9KBHKdbj/qR
+	 9kfY+eS0XEkpQm4kxR6yud05+4wcdL1vfA2/kj0xleAyh6aCUlc+2tiVX3oR6n9s99
+	 YzcNaoBStEzrw==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v4 0/5] Support for Exynos7870's display stack (DECON,
+ MIPIPHY, DSIM, etc.)
+Date: Fri, 31 Oct 2025 00:50:14 +0530
+Message-Id: <20251031-exynos7870-drm-dts-v4-0-c1f77fb16b87@disroot.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG66A2kC/23NTQ6CMBCG4auYrq0ZpsK0rryHcdE/sAupaQmBG
+ O5u1YUaWb5fMs/cWfYp+MwOmztLfgw5xL7Efrth9qL7zvPgSjMErKFGwf009zGTJOAuXbkbMpd
+ krTYkKqMVK4e35NswvdDTufQl5CGm+fVjrJ7rm2sqXOPGigOX0gKR0m1jzdGFnGIcdjF17AmO+
+ IUgrSJYELfXtUIgocD9I+KDKJSriCiIMeSkrwlkA7/IsiwP/HP+lUABAAA=
+X-Change-ID: 20250523-exynos7870-drm-dts-87ccab731ba9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761852020; l=3984;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=IYJOq+ujqd+8XfRFQ0ewJxumqLNJx+CR3RO7H11Z2vs=;
+ b=QXdiWlefBGv5P9zjTJlBxwrKWK/TfGPMG46QTZYDb1x59FEHN+0drQqjxsASVZoQwByKzct9R
+ x+Z6vv4RdynDUSr1dvqinf3+cBxPVUbpCLpdv+5EXZTFS69cYcH6J3p
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_122013_697953_6FD2571C 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_122037_097202_80459383 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,30 +85,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC maintainers,
+Exynos7870 has a IP subsystem in its architecture dedicated to display
+management. Notably, this block includes the Display Enhancement
+Controller (DECON), and the DSI Master (DSIM).
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+The following series and its sub-series implement all components for a
+functioning display pipeline. All vital information which helped shaping
+up the patches have been retrieved from Exynos7870 vendor kernel sources
+as provided by Samsung.
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+Testing has been done on all three devices available upstream, i.e.
+Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2 Core
+(samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte). Regrettably,
+I've only been able to test the functionality on video mode, as none of
+the devices have panels working in command mode.
 
-are available in the Git repository at:
+This series implements changes in the SoC subsystem, which includes
+devicetree additions. It depends on all sub-series listed below:
+(Legend: [R]eviewed, [A]ccepted)
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.18-arm64-dt-fixes
+exynos-sysmmu-resv-regions A https://lore.kernel.org/r/20250712-exynos-sysmmu-resv-regions-v1-1-e79681fcab1a@disroot.org
+exynos7870-mipi-phy        A https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
+exynos7870-mipi-phy-fix    A https://lore.kernel.org/r/20250710-exynos7870-mipi-phy-fix-v2-1-5cf50d69c9d7@disroot.org
+exynos7870-dsim            A https://lore.kernel.org/r/20250706-exynos7870-dsim-v3-0-9879fb9a644d@disroot.org
+exynosdrm-decon            A https://lore.kernel.org/r/20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org
+panel-samsung-s6e8aa5x01   A https://lore.kernel.org/r/20250721-panel-samsung-s6e8aa5x01-v5-0-1a315aba530b@disroot.org
+panel-synaptics-tddi       A https://lore.kernel.org/r/20251009-panel-synaptics-tddi-v5-0-59390997644e@disroot.org
 
-for you to fetch changes up to ce121914f38aaa59504e20a1a625e5988fc6ead4:
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v4:
+- dropped applied [v3 1/6]
+- replaced exynos7-pmu with exynos7870-pmu compatible to the list
+  allowing a MIPI PHY subnode (krzk)
+- Link to v3: https://lore.kernel.org/r/20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org
 
-  arm64: tegra: Mark Jetson Xavier NX's PHY as a wakeup source (2025-10-16 11:49:08 +0200)
+Changes in v3:
+- fixed minor issues with devicetree in regards to compliance
+- added memory-region to framebuffer region for decon device
+- added related patchset to list: exynos-sysmmu-resv-regions
+- replaced exynos7870-pmu with exynos7-pmu compatible to the list
+  allowing a MIPI PHY subnode (krzk)
+- updated compatible string and dt node for j6lte's panel
+- reorder properties: ${x}, followed by ${x}-names (krzk)
+- Link to v2: https://lore.kernel.org/r/20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org
 
-----------------------------------------------------------------
-arm64: tegra: Fixes for v6.18
+Changes in v2:
+- modified compatible hierarchy to use non-deprecated syntax (krzk)
+- fixed subject prefixes of [v1 2/5], [v1 3/5], [v1 4/5], [v1 5/5] (krzk)
+- removed simplefb nodes instead of disabling it (krzk)
+- added dt-bindings patch to allow mipi-phy node under PMU
+- changed clock names of dsim node
+- Link to v1: https://lore.kernel.org/r/20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org
 
-This contains a simple fix to mark the Ethernet PHY on Jetson Xavier NX
-as a wakeup source so the device can support WoL.
+---
+Kaustabh Chakraborty (5):
+      dt-bindings: soc: samsung: exynos-pmu: allow mipi-phy subnode for Exynos7870 PMU
+      arm64: dts: exynos7870: add DSI support
+      arm64: dts: exynos7870-on7xelte: enable display panel support
+      arm64: dts: exynos7870-a2corelte: enable display panel support
+      arm64: dts: exynos7870-j6lte: enable display panel support
 
-----------------------------------------------------------------
-Russell King (Oracle) (1):
-      arm64: tegra: Mark Jetson Xavier NX's PHY as a wakeup source
+ .../bindings/soc/samsung/exynos-pmu.yaml           |  1 +
+ .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 57 +++++++++++----
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    | 38 ++++++----
+ arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 57 +++++++++++----
+ arch/arm64/boot/dts/exynos/exynos7870.dtsi         | 84 ++++++++++++++++++++++
+ 5 files changed, 195 insertions(+), 42 deletions(-)
+---
+base-commit: 131f3d9446a6075192cdd91f197989d98302faa6
+change-id: 20250523-exynos7870-drm-dts-87ccab731ba9
 
- arch/arm64/boot/dts/nvidia/tegra194-p3668.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
+
 
