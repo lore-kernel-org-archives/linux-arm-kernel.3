@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E25CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 17:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F24CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 17:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJQtz8A/+7qRiC5zFJQOdwJCNZuASZgKYF8VCygcGsU=; b=E6/bGRIfmeFYK2LKndY4qylwGG
-	hs13EThLiKot0fvSsgudg8PqoTvrnCtnQeReb81Q+1evOviFnJupO7+WT4eASevz3Rn4GRJpmRh1h
-	o6BXA6tEqtfrgjBqbmPa7zsxUaw1veryxJjhb/qOORuVcYiTmpX2Eq2gzIdQYQeQa0uTI8icv7Qu9
-	ftmdXlykZIM6jTE2Eg0IDcUtfrtpXOBuZ1+FkO+mxFS3eGoow9jOHZExMZ6uPf03dX3PVacrmnDlM
-	WnXtU8NizrylxqP/1+LDY4Ju3BwkKkGoiHbkGuOUqwRn3qsEajQqiJyMEOedUAloOtP3gw6dUQWPu
-	ZCDSB++w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EfEyQRRkKmEPuB2iUtdTbDbVJBbOaxNhqPEa0eVlBt0=; b=gVhEMyq+sOi+Z6Tt/6TOrxDmW3
+	asxvLJBvWlajUW+BFDmy0C5WlAwGK1T6ZVqrlqfz9QPXmKMtlCGB+a63aJ93DeJvSwkZg+CnV9l4U
+	eFBtuUU1nUZgCIeeOj7yPMXK6tTHHFsy94QI8t0PtsBMIJnJcb5Cki9VAqcR5i3g+UUnkPqTl50MM
+	iGE7AE1w9Uvo8GZsj16KljHTA+pUeTJAQyk1PMwucspW+2hBcAerWKMGc0XBvTncvfVqixjm/pvY9
+	XKQvChstEeR5JUXrNnYyXIWspaHGtBSWRHoYMXK2ZBOZcStwKV94300sq0AoPnGIUSKUZnV3fh1tw
+	W7U+pxgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEWQe-00000004XN6-2nJv;
-	Thu, 30 Oct 2025 17:27:17 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vEWeJ-00000004Xz5-2c78;
+	Thu, 30 Oct 2025 17:41:23 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEWQY-00000004XMK-376M;
-	Thu, 30 Oct 2025 17:27:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 95F671A1782;
-	Thu, 30 Oct 2025 17:27:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6A2CB60331;
-	Thu, 30 Oct 2025 17:27:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 35BCC11808D0E;
-	Thu, 30 Oct 2025 18:27:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761845226; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=TJQtz8A/+7qRiC5zFJQOdwJCNZuASZgKYF8VCygcGsU=;
-	b=QNDPuvDEq7WAJGugy+YfOwFyP0FpUgBwHznjkuQN+JLPE8rG+Fojb4KS5+83Ia4N6nP6a1
-	re9cjQk0+yaRNofUvIlgCI3Mb0t4REaZfNFDtUcVRXhZWD4Zbh8ZZabkBbffqM32q8kGNA
-	DiS+J4lmn5Jd9haTAYvJUHLzekv+u1DVZXe+s8FTWE86C5C45Sc/TKpOhvzgTN8/2Ikojl
-	iAF/lM5qcngDriivuvIM1HbFfYShqRl8UYwLmWJSqAHFUxDtPmkgLWYxfvXLeTQNoMRku8
-	aGgvupigCs7WM6JVxrTslRbSHcSfGO2A1KkopZ/zwUG+aGCMRQRW0jXj7hv8fA==
-Date: Thu, 30 Oct 2025 18:27:03 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v1 2/2] rtc: Add support for MT6685 Clock IC's RTC over
- SPMI
-Message-ID: <20251030172703a51e304e@mail.local>
-References: <20251024083318.25890-1-angelogioacchino.delregno@collabora.com>
- <20251024083318.25890-3-angelogioacchino.delregno@collabora.com>
+	id 1vEWeF-00000004XyZ-2jz7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 17:41:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1761846043; x=1762450843; i=markus.elfring@web.de;
+	bh=EfEyQRRkKmEPuB2iUtdTbDbVJBbOaxNhqPEa0eVlBt0=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=bA0l6x/DhVEEMYZ26pGRsjHhVvOUDDf7OVphIroAR8UOkqZutcYBqeeD+4o8b7O+
+	 SzdHALRcSwfJOrGELSuYTKyKO6WjfBY8g4t1SbrkIDZl/CeJ+uE8mur3PhmDuY5H2
+	 2DdG69J3KP/6RNThA6BLO7Q7O0INMIth9ZCjKkAeJaGtYJMQXXQaNyLD40S/ptXAf
+	 I/iD5pNFjLWlRptk9/fOHbarVFaAiTRK9SnhEJbqWCfP2PrtRyDnQGZ0gKkJmysPA
+	 5GUtwrTuVTXyBVBbZk3RKqM9fNhAes1aJRJa2LyDOjSbeB9NH9mCCtZBs2P4k4VJi
+	 +8y9v3ihlH3UZNW2VA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.248]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MtyA2-1w8ZCZ2b1A-010x9N; Thu, 30
+ Oct 2025 18:40:43 +0100
+Message-ID: <cb3bd42f-4fec-4300-8875-b6861716f274@web.de>
+Date: Thu, 30 Oct 2025 18:40:39 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251024083318.25890-3-angelogioacchino.delregno@collabora.com>
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Andrew Walbran <qwandor@google.com>, Ayrton Munoz <ayrton@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Per Larsen <perlarsen@google.com>, Quentin Perret <qperret@google.com>,
+ Suzuki Poulouse <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Miaoqian Lin <linmq006@gmail.com>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] KVM: arm64: FFA: Use pointers from memcpy() calls for
+ assignments in three functions
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:S6gZxxuqFI/YnBJlSJWbqagIGXm2MkPVAXgzQCECJnvhPvPSHbl
+ 8dsy+i2tm+KblFXfuyLfRy/d0eYKxxHe43K4UtbNtoIfjGDX8XCtWtf/rs3nxICk7fxAl+x
+ yy+ZuEK6Ys+ZQs+tp3ENZN075qoI7ypgHIE81H5YE4gKq+dFTnmzYlkcDFkiune3jTbr1GT
+ KDyjRUHhzjvYmPvppj1Kg==
+UI-OutboundReport: notjunk:1;M01:P0:ex01CIpj/tw=;+Y8a1e5ZdzdwNmA1D9YYqAMUHic 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_102710_920276_EBB04E3B 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20251030_104120_568779_23B4CDD0 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,165 +87,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2025 10:33:18+0200, AngeloGioacchino Del Regno wrote:
-> +static irqreturn_t rtc_mt6685_irq_handler_thread(int irq, void *data)
-> +{
-> +	u16 irqsta, irqen = 0, bbpu = RTC_BBPU_WR_UNLOCK_KEY | RTC_BBPU_PWREN;
-> +	struct mt6685_rtc *rtc = data;
-> +	struct device *dev = &rtc->rdev->dev;
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(rtc->mclk);
-> +	if (ret)
-> +		return IRQ_NONE;
-> +
-> +	ret = regmap_bulk_read(rtc->regmap, RTC_REG_IRQ_STA, &irqsta, sizeof(irqsta));
-> +	if (ret)
-> +		goto end;
-> +
-> +	/* Only alarm interrupts are supported for now */
-> +	if (!(irqsta & RTC_IRQ_AL)) {
-> +		ret = -EINVAL;
-> +		goto end;
-> +	}
-> +
-> +	rtc_lock(rtc->rdev);
-> +
-> +	/* Enable BBPU power and clear the interrupt */
-> +	ret = regmap_bulk_write(rtc->regmap, RTC_REG_BBPU, &bbpu, sizeof(bbpu));
-> +	if (ret)
-> +		goto end;
-> +
-> +	ret = regmap_bulk_write(rtc->regmap, RTC_REG_IRQ_EN, &irqen, sizeof(irqen));
-> +	if (ret)
-> +		goto end;
-> +
-> +	/* Trigger reset of the RTC BBPU Alarm */
-> +	bbpu |= RTC_BBPU_RESET_AL;
-> +	ret = regmap_bulk_write(rtc->regmap, RTC_REG_BBPU, &bbpu, sizeof(bbpu));
-> +	if (ret) {
-> +		dev_err(dev, "Cannot reset alarm: %d\n", ret);
-> +		goto end;
-> +	}
-> +
-> +	/* Trigger write synchronization */
-> +	ret = rtc_mt6685_write_trigger(rtc);
-> +	if (ret) {
-> +		dev_err(dev, "Cannot synchronize write to RTC: %d\n", ret);
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Thu, 30 Oct 2025 18:25:55 +0100
 
-I'm not sure those two dev_err are necessary.
+A pointer was assigned to a variable in three function implementations.
+The same pointer was used for the destination parameter of a memcpy() call=
+.
+This function is documented in the way that the same value is returned.
+Thus convert separate statements into direct variable assignments for
+the return values from memory copy actions.
 
-> +		goto end;
-> +	}
-> +	rtc_update_irq(rtc->rdev, 1, RTC_IRQF | RTC_AF);
-> +end:
-> +	rtc_unlock(rtc->rdev);
-> +	clk_disable_unprepare(rtc->mclk);
-> +	return ret ? IRQ_NONE : IRQ_HANDLED;
-> +}
-> +
+The source code was transformed by using the Coccinelle software.
 
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-> +static int rtc_mt6685_read_time_regs(struct mt6685_rtc *rtc, struct rtc_time *tm, u16 reg)
-> +{
-> +	u16 data[RTC_AL_TC_REGIDX_MAX];
-> +	int ret;
-> +
-> +	ret = regmap_bulk_read(rtc->regmap, reg, &data,
-> +			       RTC_AL_TC_REGIDX_MAX * sizeof(data[0]));
-> +	if (ret) {
-> +		dev_err(&rtc->rdev->dev, "Cannot read time regs\n");
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 4e16f9b96f63..4820a9e96f80 100644
+=2D-- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -431,8 +431,7 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_re=
+gs *res,
+ 	if (!host_buffers.tx)
+ 		goto out_unlock;
+=20
+-	buf =3D hyp_buffers.tx;
+-	memcpy(buf, host_buffers.tx, fraglen);
++	buf =3D memcpy(hyp_buffers.tx, host_buffers.tx, fraglen);
+ 	nr_ranges =3D fraglen / sizeof(*buf);
+=20
+ 	ret =3D ffa_host_share_ranges(buf, nr_ranges);
+@@ -505,8 +504,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 		goto out_unlock;
+ 	}
+=20
+-	buf =3D hyp_buffers.tx;
+-	memcpy(buf, host_buffers.tx, fraglen);
++	buf =3D memcpy(hyp_buffers.tx, host_buffers.tx, fraglen);
+=20
+ 	ep_mem_access =3D (void *)buf +
+ 			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
+@@ -615,8 +613,7 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_re=
+gs *res,
+ 		goto out_unlock;
+ 	}
+=20
+-	buf =3D ffa_desc_buf.buf;
+-	memcpy(buf, hyp_buffers.rx, fraglen);
++	buf =3D memcpy(ffa_desc_buf.buf, hyp_buffers.rx, fraglen);
+ 	ffa_rx_release(res);
+=20
+ 	for (fragoff =3D fraglen; fragoff < len; fragoff +=3D fraglen) {
+=2D-=20
+2.51.1
 
-Same here, there is not much the user can do and your are already
-returning an error.
-
-> +		return ret;
-> +	}
-> +
-> +	tm->tm_sec  = FIELD_GET(RTC_AL_TC_SEC_MIN, data[RTC_AL_TC_REGIDX_SEC]);
-> +	tm->tm_min  = FIELD_GET(RTC_AL_TC_SEC_MIN, data[RTC_AL_TC_REGIDX_MIN]);
-> +	tm->tm_hour = FIELD_GET(RTC_AL_TC_HOUR_DOM, data[RTC_AL_TC_REGIDX_HOUR]);
-> +	tm->tm_mday = FIELD_GET(RTC_AL_TC_HOUR_DOM, data[RTC_AL_TC_REGIDX_DOM]);
-> +	tm->tm_wday = FIELD_GET(RTC_AL_TC_DOW, data[RTC_AL_TC_REGIDX_DOW]);
-> +	tm->tm_mon  = FIELD_GET(RTC_AL_TC_MON, data[RTC_AL_TC_REGIDX_MON]);
-> +	tm->tm_year = FIELD_GET(RTC_AL_TC_YEAR, data[RTC_AL_TC_REGIDX_YEAR]);
-> +
-> +	/* HW register start mon/wday from one, but tm_mon/tm_wday start from zero. */
-> +	tm->tm_mon--;
-> +	tm->tm_wday--;
-> +
-> +	return 0;
-> +}
-> +
-
-> +static int rtc_mt6685_probe(struct platform_device *pdev)
-> +{
-> +	struct regmap_config mt6685_rtc_regmap_config = {
-> +		.reg_bits = 16,
-> +		.val_bits = 8,
-> +		.max_register = 0x60,
-> +		.fast_io = true,
-> +		.use_single_read = true,
-> +		.use_single_write = true,
-> +	};
-> +	struct device *dev = &pdev->dev;
-> +	struct spmi_subdevice *sub_sdev;
-> +	struct spmi_device *sparent;
-> +	struct mt6685_rtc *rtc;
-> +	int ret;
-> +
-> +	rtc = devm_kzalloc(dev, sizeof(struct mt6685_rtc), GFP_KERNEL);
-> +	if (!rtc)
-> +		return -ENOMEM;
-> +
-> +	sparent = to_spmi_device(dev->parent);
-> +	sub_sdev = devm_spmi_subdevice_alloc_and_add(dev, sparent);
-> +	if (IS_ERR(sub_sdev))
-> +		return PTR_ERR(sub_sdev);
-> +
-> +	ret = of_property_read_u32(pdev->dev.of_node, "reg",
-> +				   &mt6685_rtc_regmap_config.reg_base);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rtc->irq = platform_get_irq(pdev, 0);
-> +	if (rtc->irq < 0)
-> +		return rtc->irq;
-> +
-> +	rtc->mclk = devm_clk_get(dev, 0);
-> +	if (IS_ERR(rtc->mclk))
-> +		return PTR_ERR(rtc->mclk);
-> +
-> +	rtc->regmap = devm_regmap_init_spmi_ext(&sub_sdev->sdev, &mt6685_rtc_regmap_config);
-> +	if (IS_ERR(rtc->regmap))
-> +		return PTR_ERR(rtc->regmap);
-> +
-> +	rtc->rdev = devm_rtc_allocate_device(dev);
-> +	if (IS_ERR(rtc->rdev))
-> +		return PTR_ERR(rtc->rdev);
-> +
-> +	platform_set_drvdata(pdev, rtc);
-> +
-> +	/* Clock is required to auto-synchronize IRQ enable to RTC */
-> +	ret = clk_prepare_enable(rtc->mclk);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = devm_request_threaded_irq(&pdev->dev, rtc->irq, NULL,
-> +					rtc_mt6685_irq_handler_thread,
-> +					IRQF_ONESHOT | IRQF_TRIGGER_HIGH,
-> +					"mt6685-rtc", rtc);
-> +	clk_disable_unprepare(rtc->mclk);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "Cannot request alarm IRQ");
-> +
-> +	device_init_wakeup(&pdev->dev, true);
-
-devm_device_init_wakeup ?
-
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
