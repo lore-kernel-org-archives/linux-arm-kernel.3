@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C27CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5E6CCF9F5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ReARPUNSeKIo4mFdxTXdOFWz13PTGwK87SRIQryhXfg=; b=T///i7hbz0ocbYCO+xLCWAoqEP
-	Qe9VgnsYU9KVFnVXgWh+noU9LGkMZd+8MI8zubRNstaSMyLczAUwsrSPVrZj5F/00U8Par2MOZSRX
-	XfA8Qi31/4Q3cigK7qFCYzU4SRjJLmTwsfejHv17mumsf8iFGaeqTxWJHVEgOusAhbe951Lj9XlB0
-	uR7NQFxWhh40AmGVoA5pDq2mBTZ0aS5mW1+Ci0iZf3dFLwTZdPSEmUThAPznS8P+83Vt8TjTr2g2j
-	mTQD7uelJ5LV/Z6Mc6AhciiKA2BKG8CM2yBauGHQwClLN0JRPzs5HDdlEK/S3FJvMigFcqvgWmyku
-	eUZKTKiA==;
+	bh=f2nbBjY1ngedAQK32AIlHILlTX4360hWS/5AwjBnjIw=; b=1w5BKcB4rxjm+ST3I6l4fryQ/N
+	SVZ6vCMGRSOuzx+16xRT/CyTyBIvs3AfX6pdMyqQlO7+G3S246HL1VsdKjf7FlM+ii++dxcTmDALR
+	spSAalZAko3ffZOpNv49gXcLFE0yux9xyxGjwCwlpDCh5B5oL+wz5hail2rDApg6fU9kd5pIEfd3r
+	AvubMHQSl3RJ00xNBhDOMjJkhTaDOoM2ycRzAtzdSInI03oF75a3aKYNIA83DUu7xcIXAIgqU4C5J
+	pED8yF77xPs5SvhKU2C/X+KFsfKdGvfU4c6IVLkPQQKh8mUkSeaUQTsRrAY8d/AGJwR0mBWj7HTKr
+	UhiIGaMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOuM-00000003rDH-44Im;
-	Thu, 30 Oct 2025 09:25:26 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vEOvx-00000003rNW-49wn;
+	Thu, 30 Oct 2025 09:27:05 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEOuK-00000003rCi-2W6s;
-	Thu, 30 Oct 2025 09:25:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761816321;
-	bh=oyf7HAZO8RhL2RYtja/zt16B8f/+ajKY5V1IZi5p/7c=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=mebfPC6+ymHZgokou0mpiUmD8p686JTQjEDu75rd+pL+LpKCWjd48Ch2AAA950haV
-	 TWOfzi/K4glYJ1oQ1TvxGNLUaHEOP6QeWjt9ZkB5tw2ovvaa25lx3vuqLtofUWPf3A
-	 P1t4Tbt8yFmDPyTf19i8OeMaljQJRqCYdBCvOIleSmYMCKPFpJg5oh5cSVfTmEha9Y
-	 dje1pBQkscbg8C4IyJuhU/E+jGYq0JZNNiK08nlZsYQCfi/nG4+VU3uYDmq4wq5FeK
-	 SoDpTtPyZl3MujcNxuUZyQVpyiM0U/M6vp827NqrfrawngPW++4gU8CckiSrU0gMtD
-	 7LCpu2jN9Zl+g==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 148AB17E009B;
-	Thu, 30 Oct 2025 10:25:21 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, Flora Fu <flora.fu@mediatek.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20251029-mt8189-dt-bindings-pwrap-v1-1-d52b1aa5f5a4@collabora.com>
-References: <20251029-mt8189-dt-bindings-pwrap-v1-1-d52b1aa5f5a4@collabora.com>
-Subject: Re: [PATCH] dt-bindings: soc: mediatek: pwrap: Add compatible for
- MT8189 SoC
-Message-Id: <176181632103.13078.15754462536677524202.b4-ty@collabora.com>
-Date: Thu, 30 Oct 2025 10:25:21 +0100
+	id 1vEOvv-00000003rMH-2skT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 09:27:04 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47719ad0c7dso7583285e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 02:27:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761816422; x=1762421222; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f2nbBjY1ngedAQK32AIlHILlTX4360hWS/5AwjBnjIw=;
+        b=JRQeC8+a+zOc4XWKwnoAkuowAv8zMFCGNJXBUxEvYRxIJHQH5vz7B7hhEOnWBkrkVg
+         6PECWPxigd8xE71jLnuJewqg1bOC0xjQe2IE+m1gaiPmK+CXGxecFpGeL2iezIIsAGHd
+         /htDZADWElctZn32lpU1skWj8WiMzsTiHPv4YsN66rKixfOSDYwvMB41Eu9zsLobLnOH
+         kOvGzgAzRqpZJrn26iUsHOp78DFA2MyYaKisqxSLi8u/52vus+GF3tUkibXmquOR98C7
+         ot0kijOe1w7hu5AXnhXkAp48Lo8etMkXrrUhPZ+dmKPs+5XMEKD1x+g59a/uOb8mHeQ6
+         9D8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761816422; x=1762421222;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=f2nbBjY1ngedAQK32AIlHILlTX4360hWS/5AwjBnjIw=;
+        b=rnEaiDR7FJB35SPbyqNDuHE7jR+G7EiEDSPbQuceTBqaSK4JJ8T1sVGvZGv8f0p4Ac
+         zUKReDjFFq+wdoW3lScWfVGDIzfdt+b1tn060UBt0BcnftfYj14uFbKt7D4Bp/RviCkN
+         Go78GEugxOynL+srYG57J3cTbR06hhWwRnccZnr73x0KVCBXTdHLWCwfiKX5aVyr/9j8
+         YpsGJN3pO45xYeRItILu7QuaKpJUvZM4+0miiiPPX2QIlY4ettMMdHz1K8KQHJ8MLZS4
+         4XfXKdEJhEchEuXmW+CcOoaW1YdxbmARW1xO4V21eyAhxjmXGrLbI6c9k5d9lvI169K4
+         DrdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyw+Y9lyZgXj3AemEVX0vBQnM94brJvwBUsRScWd9W/kv8hIzaarMwzuLrGOmcPXt5vv7EP9LCQSDakaW74nIY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdrIp+MxxTS+/FhBcUoJSv5hcDXWdDZkcmjDIeCNC4ekuCurRh
+	ul3NfZDuEHUpli8UVBSmutgSnRG9RRbaxx7GuOqgDawGmSbhfCA+13AgmGuarlgJTVw=
+X-Gm-Gg: ASbGnctbyT+S1SBzl6NMD0akrGF76RLq1zXYGES8HZu1JCREF8grAG3BlNQkbM3AlR/
+	331QONG+kzn+sZg+OBpAm1MrLs5FDwmH6alMdmybqbzdOXPn/9cpOnOmLxNKAZcBkPpWRxbXF//
+	z8vkDpKxSk3othps8kKGuxROa60gXk0mREHsEger1NmjqMU+wVOQF4LXNM7M0O72gT7U8o5SAgr
+	L9GM1dBpj3xkEUlWTeKqE5/sPvfUiiWf99f95EVymlna1VZOwb1JYCRjWoOTw1rMV27ta4SAjtf
+	GDLz2apomgbeLJYD6Z4ZRZ5psveM0ZnytkoR7sZiCIw+lSXjSFSnBIdwj+E+hUs0m8sRxck//gv
+	LzYU9xML7bCzHy4ITrJO2LgU2pCsUs6RcGsFCzjircRkETvTBJbIyc4PjEXpaqx6CYHFvE8pABz
+	HdgcV0QDcY
+X-Google-Smtp-Source: AGHT+IGXRhetBmDY0UqanhzjhdwbjEaOqJ9qlQPU7v66jN4giQVF3G2msZickY+kz8JV5cPNKrQRJw==
+X-Received: by 2002:a05:600c:3b85:b0:475:e007:bae0 with SMTP id 5b1f17b1804b1-47726736870mr19689495e9.16.1761816421828;
+        Thu, 30 Oct 2025 02:27:01 -0700 (PDT)
+Received: from localhost ([2001:4090:a245:8496:49da:2c07:5e9a:7fb9])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429952cbb20sm30827543f8f.18.2025.10.30.02.27.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Oct 2025 02:27:01 -0700 (PDT)
+From: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
+Date: Thu, 30 Oct 2025 10:26:08 +0100
+Subject: [PATCH v9 1/3] firmware: ti_sci: Remove constant 0 function
+ arguments
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Message-Id: <20251030-topic-am62-partialio-v6-12-b4-v9-1-074f55d9c16b@baylibre.com>
+References: <20251030-topic-am62-partialio-v6-12-b4-v9-0-074f55d9c16b@baylibre.com>
+In-Reply-To: <20251030-topic-am62-partialio-v6-12-b4-v9-0-074f55d9c16b@baylibre.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>
+Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, 
+ Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2209; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=KhR7mlGuLILLgbABDE8JZr+5vkedHPIY9RgeGmUDVFM=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhkxmfdtWEfXP9w89uvlp5cdTLK/Wv7ogG2Pgev4jq9/HL
+ Reb/n3c01HKwiDGxSArpsjSmRia9l9+57HkRcs2w8xhZQIZwsDFKQATme3GyPCNQ1tN82iyZ73v
+ jWNzbKccmanrVxogL9h9eLajouDzvL8M/wtdOpWEmQSvRqQF7PqkEZG3+rp3+Y2Q5d9SCl+Wzmd
+ KYwQA
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_022524_809633_6BE05F5D 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_022703_747321_66DD24DF 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,19 +113,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Oct 2025 14:25:57 +0100, Louis-Alexis Eyraud wrote:
-> Add compatible string for the PWRAP block on MT8189 SoC, which is
-> compatible with the one used on MT8195.
-> 
-> 
+ti_sci_cmd_prepare_sleep takes three arguments ctx_lo, ctx_hi and
+debug_flags which are always 0 for the caller. Remove these arguments as
+they are basically unused.
 
-Applied to v6.18-next/soc, thanks!
+Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
+---
+ drivers/firmware/ti_sci.c | 15 +++++----------
+ 1 file changed, 5 insertions(+), 10 deletions(-)
 
-[1/1] dt-bindings: soc: mediatek: pwrap: Add compatible for MT8189 SoC
-      commit: 4459d667a3d7001d1c1703dc79c87db1808cdde2
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index 49fd2ae01055d0f425062147422471f0fd49e4bd..24ab392b4a5d0460153de76fe382371e319d8f2e 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -1661,14 +1661,10 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
+  * ti_sci_cmd_prepare_sleep() - Prepare system for system suspend
+  * @handle:		pointer to TI SCI handle
+  * @mode:		Device identifier
+- * @ctx_lo:		Low part of address for context save
+- * @ctx_hi:		High part of address for context save
+- * @debug_flags:	Debug flags to pass to firmware
+  *
+  * Return: 0 if all went well, else returns appropriate error value.
+  */
+-static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+-				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
++static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode)
+ {
+ 	struct ti_sci_info *info;
+ 	struct ti_sci_msg_req_prepare_sleep *req;
+@@ -1696,9 +1692,9 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+ 
+ 	req = (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
+ 	req->mode = mode;
+-	req->ctx_lo = ctx_lo;
+-	req->ctx_hi = ctx_hi;
+-	req->debug_flags = debug_flags;
++	req->ctx_lo = 0;
++	req->ctx_hi = 0;
++	req->debug_flags = 0;
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+ 	if (ret) {
+@@ -3689,8 +3685,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
+ 			 * internal use and can be 0
+ 			 */
+ 			return ti_sci_cmd_prepare_sleep(&info->handle,
+-							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
+-							0, 0, 0);
++							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED);
+ 		} else {
+ 			/* DM Managed is not supported by the firmware. */
+ 			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
 
-Cheers,
-Angelo
-
+-- 
+2.51.0
 
 
