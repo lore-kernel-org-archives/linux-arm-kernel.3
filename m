@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694C8CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402B7CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 15:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=90sKvhv/LxlQSSqjQG+hqX7h6vW6w7D0vD2lEF/vA1s=; b=2pvcE6YqNVY9n3Gt1iyvN1c3Sx
-	0hjdoJrPHod/BiRgYbhsOx86Kib3mpR8fPwT7Rewd3lt1s1RMjcj9UO7We3QXxDPt7gzqS52HtzOG
-	R+fzJXzZwLiagt+Bry7Ft7qw+ANOh5IpFIOi5tnUmkaIRyyggpQekBbGSfEpXy3LkgkQofdSCbH/9
-	5EacYYU0LYugunGxTwWU4eKq3i02+k0jEDdFCDExqO9YzA9Yc9YSEusTgjFeGCe6FfSWVspO6N0Bu
-	5Jasv6xm7FMWi/exU2WGN0dL5IlHVgmU5J/c2HLhh4zvUtQvrjPaSB5HrVs1DMJ+gxUQjri+4AKvq
-	qDvaduxw==;
+	bh=3CEDXVoec8wgc5r2G05gXNhADvg0k7pAjCJbkzmWMlA=; b=LEZbTbYFDz98gZ7/AaZ8+nU1eu
+	BqknH4kKNuDttFQgaBOyAysQz3W9jM7n4M/9Uqat+Uux7VKnoTq5mNNorRRfeAFtVTsLYwxLSGk1c
+	8IJmCVynJoXWqN3SBW407QFSK7EZLy99Dw9/ySVJ+K2CkTktUBueeWnIhFwGVGJXsoEf6tUUobi2l
+	jopPW4SqdGgmGFZvN587mZsNIJRyWkVttc96kq0X3y2t8WIF+qlkXJB4IvJpk7m9fshybdhN6zT2W
+	+nulJ9phB75g+hN+/kSpP1ETk03ViNJhU1FRM3NldN0SoGviriSy6+WkPcf7s4J9LJwJ4+53BMAo1
+	1HmI9OMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUdq-00000004OHA-0t5b;
-	Thu, 30 Oct 2025 15:32:46 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1vEUeq-00000004OPD-2h0z;
+	Thu, 30 Oct 2025 15:33:48 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUdm-00000004OGc-3LnA
+	id 1vEUeo-00000004OOY-1h2G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 15:32:44 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-89e93741839so70786285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 08:32:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761838361; x=1762443161; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=90sKvhv/LxlQSSqjQG+hqX7h6vW6w7D0vD2lEF/vA1s=;
-        b=Xn6Q0QvTNOk/8YSDCg0IFMo/8ifKRb/y5gpqo8nT0ZTtrqWfz86/cNnsr6OQl0SboI
-         +OOzrmvdgmk4kGih6X3WBn26xtDbHsYsuv+h1OneDkR55NlZsnbbWLyF5eZM3iWid3fz
-         ZGYAHxRA69SIX0Ers0kObYIMu1NhTh8370MVHrz5wCVBhINOLvu9+Qu3zKR7Ry/BIBqR
-         twYVg9ZTMYI+BYTtkYC7m5qJZpl5DO4+oWX54LrSgsfdlage3/Us+ugkdNa5e5kjBIjw
-         tgAQrdaC77xJB1qBITYUIQ8dNxDI0Bwac7Sh+YVW+Azv2CIaxT034zwLpe8m7PrrZffZ
-         RMfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761838361; x=1762443161;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=90sKvhv/LxlQSSqjQG+hqX7h6vW6w7D0vD2lEF/vA1s=;
-        b=Vj+1xxT+DVs0Im9H3yoJSfV8jrtVq27UDuOL+BnBvWbusRibVYdBREGc6we5jq3Hjj
-         lnTxZctX5ytQpu09f53BLWBWKtMaxY6JjCuO4fNLhqNaxNxH0+Z5bKrgyLpVTaBIuN0t
-         6qc6n3D7kgbZ0T9A6gqTCKjHAp2VLrUHZX/rfN4RLAbdcl3ahOu9AtxlCj/RMCV0x+mS
-         1LvaXETjZKOrIA/nKWD1VFjscVnyK1EvrkW9CCVRLMej7q/w8JBzjYc56YsKi++1igsL
-         i1wSTHxLFYOyq84r0Yz07F+a0/HhGiw6J/X2mQT6l/61DF6VRPvq1/wqbOl14vYrytBh
-         ePbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUq4GSJvcudUKbctFkHWNR/wX4PVYV37+iveS+CZ1KjEi+UCAZ1LA/CjPGL16BpIthgF/JgOqtPU0pFmeFAhDSP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzY3ed7B4xTrJXYsIxMGbTv39tPKgyZXxNPeP28ATeCIDTREbOu
-	nzXJnp2IKnKQ2TXhwKKpAj6Rdl/pZNgosfAA58XywRXli21M5+tRVH5xH6KZWjPV0gGocjr6b2X
-	/SVFp9aBEsYX7AHvoZA1Zift6xKGMGCEFq3RYYi0OTw==
-X-Gm-Gg: ASbGncsNS14OJJQHArKYALrcrXGzZOmgoj3PpDa5jwtCQ1el9qRHBJPClBtOc8KqcBx
-	ErfrVYsgi/bUL3UBc9UILjzZzhBbEL+gX1tmyS16uv4shep3vjSCUC6/FrASXp2hgEVc5UmDR/S
-	1Jmb8ipRCSWy9+uF7ez3fQi0jHg6oTXqh2ZRGoeFW85sDtrdfRYdsIKrTwjYdqCC34sOxXdAJYw
-	bHmSaSWYS1nmYgonXTpfjFQlgo+nNn+u2ZwrVvavM1Lk6Ue91b8QjB0pG2imwvogvVOp5UQz3G+
-	zWZFPeZdY4rH7Pxlog==
-X-Google-Smtp-Source: AGHT+IEgV93wREdWunbf+FF7vUk4F3W5QN6rnxf/b5n6hCHXmBsC+r6T1L85oyN8vW3LF2cyQS3Ard/bFxRE2AGXrLE=
-X-Received: by 2002:a05:620a:2913:b0:892:7dd2:9f0f with SMTP id
- af79cd13be357-8aa2c563761mr433075985a.19.1761838360928; Thu, 30 Oct 2025
- 08:32:40 -0700 (PDT)
+	Thu, 30 Oct 2025 15:33:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=3CEDXVoec8wgc5r2G05gXNhADvg0k7pAjCJbkzmWMlA=; b=ovu6xwBmi6bbWyq6A8FW+QrVkd
+	Eb+1PnSyeh713Skmfl6rcJR1qspA/xanxl31WsekKebS1S8V8v16pYytvmELyn6IXIma8cARUviHU
+	xAa1j73OqMptSya4dNwgvfgzLPS26sqAJCQhWpNzQq3AbdWudOvwwZinVKTylZkWaB7M=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vEUei-00CWVh-V7; Thu, 30 Oct 2025 16:33:40 +0100
+Date: Thu, 30 Oct 2025 16:33:40 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Josua Mayer <josua@solid-run.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rabeeh Khoury <rabeeh@solid-run.com>,
+	Yazan Shhady <yazan.shhady@solid-run.com>,
+	Mikhail Anikin <mikhail.anikin@solid-run.com>,
+	Jon Nettleton <jon@solid-run.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH 2/2] clk: mvebu: cp110 add CLK_IGNORE_UNUSED to pcie_x10,
+ pcie_x11 & pcie_x4
+Message-ID: <05d450d8-8df9-490f-ac53-3f45544f1c29@lunn.ch>
+References: <20251030-cn913x-pci-clk-v1-0-e034d5903df1@solid-run.com>
+ <20251030-cn913x-pci-clk-v1-2-e034d5903df1@solid-run.com>
 MIME-Version: 1.0
-References: <20251020-extended_cti-v5-0-6f193da2d467@oss.qualcomm.com> <20251020-extended_cti-v5-1-6f193da2d467@oss.qualcomm.com>
-In-Reply-To: <20251020-extended_cti-v5-1-6f193da2d467@oss.qualcomm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 30 Oct 2025 15:32:30 +0000
-X-Gm-Features: AWmQ_bmTZo8Ep2bfi7zMuaSG2pUo8tJvBDHBZCZJODqdh48KYMuAfDMpUBYETyw
-Message-ID: <CAJ9a7VjLmCQ1WKu_FitcPhxksWe+v8gKoZBk20hYQZ_s42Da-w@mail.gmail.com>
-Subject: Re: [PATCH v5 1/2] coresight: cti: Convert trigger usage fields to
- dynamic bitmaps and arrays
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
-	quic_yingdeng@quicinc.com, Jinlong Mao <jinlong.mao@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251030-cn913x-pci-clk-v1-2-e034d5903df1@solid-run.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_083243_222745_60DCDD96 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20251030_083346_458129_4F268885 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,318 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Oct 30, 2025 at 04:16:26PM +0100, Josua Mayer wrote:
+> CP110 based platforms rely on the bootloader for pci port
+> initialization.
+> TF-A actively prevents non-uboot re-configuration of pci lanes, and many
+> boards do not have software control over the pci card reset.
+> 
+> If a pci port had link at boot-time and the clock is stopped at a later
+> point, the link fails and can not be recovered.
+> 
+> PCI controller driver probe - and by extension ownership of a driver for
+> the pci clocks - may be delayed especially on large modular kernels,
+> causing the clock core to start disabling unused clocks.
+> 
+> Add the CLK_IGNORE_UNUSED flag to the three pci port's clocks to ensure
+> they are not stopped before the pci controller driver has taken
+> ownership and tested for an existing link.
+> 
+> This fixes failed pci link detection when controller driver probes late,
+> e.g. with arm64 defconfig and CONFIG_PHY_MVEBU_CP110_COMPHY=m.
 
-On Mon, 20 Oct 2025 at 08:12, Yingchao Deng
-<yingchao.deng@oss.qualcomm.com> wrote:
->
-> Replace the fixed-size u32 fields in the cti_config and cti_trig_grp
-> structure with dynamically allocated bitmaps and arrays. This allows
-> memory to be allocated based on the actual number of triggers during probe
-> time, reducing memory footprint and improving scalability for platforms
-> with varying trigger counts.
-> Additionally, repack struct cti_config to reduce its size from 80 bytes to
-> 72 bytes.
->
-> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-cti-core.c   | 58 ++++++++++++++++------
->  .../hwtracing/coresight/coresight-cti-platform.c   | 16 +++---
->  drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 10 ++--
->  drivers/hwtracing/coresight/coresight-cti.h        | 17 ++++---
->  4 files changed, 65 insertions(+), 36 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-> index 8fb30dd73fd2..8c9cec832898 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-> @@ -214,8 +214,8 @@ void cti_write_intack(struct device *dev, u32 ackval)
->  /* DEVID[19:16] - number of CTM channels */
->  #define CTI_DEVID_CTMCHANNELS(devid_val) ((int) BMVAL(devid_val, 16, 19))
->
-> -static void cti_set_default_config(struct device *dev,
-> -                                  struct cti_drvdata *drvdata)
-> +static int cti_set_default_config(struct device *dev,
-> +                                 struct cti_drvdata *drvdata)
->  {
->         struct cti_config *config = &drvdata->config;
->         u32 devid;
-> @@ -234,12 +234,33 @@ static void cti_set_default_config(struct device *dev,
->                 config->nr_trig_max = CTIINOUTEN_MAX;
->         }
->
-> +       config->trig_in_use = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
-> +       if (!config->trig_in_use)
-> +               return -ENOMEM;
-> +
-> +       config->trig_out_use = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
-> +       if (!config->trig_out_use)
-> +               return -ENOMEM;
-> +
-> +       config->trig_out_filter = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
-> +       if (!config->trig_out_filter)
-> +               return -ENOMEM;
-> +
-> +       config->ctiinen = devm_kcalloc(dev, config->nr_trig_max, sizeof(u32), GFP_KERNEL);
-> +       if (!config->ctiinen)
-> +               return -ENOMEM;
-> +
-> +       config->ctiouten = devm_kcalloc(dev, config->nr_trig_max, sizeof(u32), GFP_KERNEL);
-> +       if (!config->ctiouten)
-> +               return -ENOMEM;
-> +
->         config->nr_ctm_channels = CTI_DEVID_CTMCHANNELS(devid);
->
->         /* Most regs default to 0 as zalloc'ed except...*/
->         config->trig_filter_enable = true;
->         config->ctigate = GENMASK(config->nr_ctm_channels - 1, 0);
->         config->enable_req_count = 0;
-> +       return 0;
->  }
->
->  /*
-> @@ -270,8 +291,10 @@ int cti_add_connection_entry(struct device *dev, struct cti_drvdata *drvdata,
->         cti_dev->nr_trig_con++;
->
->         /* add connection usage bit info to overall info */
-> -       drvdata->config.trig_in_use |= tc->con_in->used_mask;
-> -       drvdata->config.trig_out_use |= tc->con_out->used_mask;
-> +       bitmap_or(drvdata->config.trig_in_use, drvdata->config.trig_in_use,
-> +                 tc->con_in->used_mask, drvdata->config.nr_trig_max);
-> +       bitmap_or(drvdata->config.trig_out_use, drvdata->config.trig_out_use,
-> +                 tc->con_out->used_mask, drvdata->config.nr_trig_max);
->
->         return 0;
->  }
-> @@ -293,12 +316,20 @@ struct cti_trig_con *cti_allocate_trig_con(struct device *dev, int in_sigs,
->         if (!in)
->                 return NULL;
->
-> +       in->used_mask = devm_bitmap_alloc(dev, in_sigs, GFP_KERNEL);
-> +       if (!in->used_mask)
-> +               return NULL;
-> +
->         out = devm_kzalloc(dev,
->                            offsetof(struct cti_trig_grp, sig_types[out_sigs]),
->                            GFP_KERNEL);
->         if (!out)
->                 return NULL;
->
-> +       out->used_mask = devm_bitmap_alloc(dev, out_sigs, GFP_KERNEL);
-> +       if (!out->used_mask)
-> +               return NULL;
-> +
->         tc->con_in = in;
->         tc->con_out = out;
->         tc->con_in->nr_sigs = in_sigs;
-> @@ -314,7 +345,6 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
->  {
->         int ret = 0;
->         int n_trigs = drvdata->config.nr_trig_max;
-> -       u32 n_trig_mask = GENMASK(n_trigs - 1, 0);
->         struct cti_trig_con *tc = NULL;
->
->         /*
-> @@ -325,8 +355,9 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
->         if (!tc)
->                 return -ENOMEM;
->
-> -       tc->con_in->used_mask = n_trig_mask;
-> -       tc->con_out->used_mask = n_trig_mask;
-> +       bitmap_fill(tc->con_in->used_mask, n_trigs);
-> +       bitmap_fill(tc->con_out->used_mask, n_trigs);
-> +
->         ret = cti_add_connection_entry(dev, drvdata, tc, NULL, "default");
->         return ret;
->  }
-> @@ -339,7 +370,6 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
->  {
->         struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->         struct cti_config *config = &drvdata->config;
-> -       u32 trig_bitmask;
->         u32 chan_bitmask;
->         u32 reg_value;
->         int reg_offset;
-> @@ -349,18 +379,16 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
->            (trigger_idx >= config->nr_trig_max))
->                 return -EINVAL;
->
-> -       trig_bitmask = BIT(trigger_idx);
-> -
->         /* ensure registered triggers and not out filtered */
->         if (direction == CTI_TRIG_IN)   {
-> -               if (!(trig_bitmask & config->trig_in_use))
-> +               if (!(test_bit(trigger_idx, config->trig_in_use)))
->                         return -EINVAL;
->         } else {
-> -               if (!(trig_bitmask & config->trig_out_use))
-> +               if (!(test_bit(trigger_idx, config->trig_out_use)))
->                         return -EINVAL;
->
->                 if ((config->trig_filter_enable) &&
-> -                   (config->trig_out_filter & trig_bitmask))
-> +                   test_bit(trigger_idx, config->trig_out_filter))
->                         return -EINVAL;
->         }
->
-> @@ -891,7 +919,9 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->         raw_spin_lock_init(&drvdata->spinlock);
->
->         /* initialise CTI driver config values */
-> -       cti_set_default_config(dev, drvdata);
-> +       ret = cti_set_default_config(dev, drvdata);
-> +       if (ret)
-> +               return ret;
->
->         pdata = coresight_cti_get_platform_data(dev);
->         if (IS_ERR(pdata)) {
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-platform.c b/drivers/hwtracing/coresight/coresight-cti-platform.c
-> index d0ae10bf6128..4bef860a0484 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-platform.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-platform.c
-> @@ -136,8 +136,8 @@ static int cti_plat_create_v8_etm_connection(struct device *dev,
->                 goto create_v8_etm_out;
->
->         /* build connection data */
-> -       tc->con_in->used_mask = 0xF0; /* sigs <4,5,6,7> */
-> -       tc->con_out->used_mask = 0xF0; /* sigs <4,5,6,7> */
-> +       bitmap_set(tc->con_in->used_mask, 4, 4); /* sigs <4,5,6,7> */
-> +       bitmap_set(tc->con_out->used_mask, 4, 4); /* sigs <4,5,6,7> */
->
->         /*
->          * The EXTOUT type signals from the ETM are connected to a set of input
-> @@ -194,10 +194,10 @@ static int cti_plat_create_v8_connections(struct device *dev,
->                 goto of_create_v8_out;
->
->         /* Set the v8 PE CTI connection data */
-> -       tc->con_in->used_mask = 0x3; /* sigs <0 1> */
-> +       bitmap_set(tc->con_in->used_mask, 0, 2); /* sigs <0 1> */
->         tc->con_in->sig_types[0] = PE_DBGTRIGGER;
->         tc->con_in->sig_types[1] = PE_PMUIRQ;
-> -       tc->con_out->used_mask = 0x7; /* sigs <0 1 2 > */
-> +       bitmap_set(tc->con_out->used_mask, 0, 3); /* sigs <0 1 2 > */
->         tc->con_out->sig_types[0] = PE_EDBGREQ;
->         tc->con_out->sig_types[1] = PE_DBGRESTART;
->         tc->con_out->sig_types[2] = PE_CTIIRQ;
-> @@ -213,7 +213,7 @@ static int cti_plat_create_v8_connections(struct device *dev,
->                 goto of_create_v8_out;
->
->         /* filter pe_edbgreq - PE trigout sig <0> */
-> -       drvdata->config.trig_out_filter |= 0x1;
-> +       set_bit(0, drvdata->config.trig_out_filter);
->
->  of_create_v8_out:
->         return ret;
-> @@ -257,7 +257,7 @@ static int cti_plat_read_trig_group(struct cti_trig_grp *tgrp,
->         if (!err) {
->                 /* set the signal usage mask */
->                 for (idx = 0; idx < tgrp->nr_sigs; idx++)
-> -                       tgrp->used_mask |= BIT(values[idx]);
-> +                       set_bit(values[idx], tgrp->used_mask);
->         }
->
->         kfree(values);
-> @@ -331,7 +331,9 @@ static int cti_plat_process_filter_sigs(struct cti_drvdata *drvdata,
->
->         err = cti_plat_read_trig_group(tg, fwnode, CTI_DT_FILTER_OUT_SIGS);
->         if (!err)
-> -               drvdata->config.trig_out_filter |= tg->used_mask;
-> +               bitmap_or(drvdata->config.trig_out_filter,
-> +                         drvdata->config.trig_out_filter,
-> +                         tg->used_mask, drvdata->config.nr_trig_max);
->
->         kfree(tg);
->         return err;
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> index 572b80ee96fb..a9df77215141 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> @@ -711,10 +711,8 @@ static ssize_t trigout_filtered_show(struct device *dev,
->         struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->         struct cti_config *cfg = &drvdata->config;
->         int size = 0, nr_trig_max = cfg->nr_trig_max;
-> -       unsigned long mask = cfg->trig_out_filter;
->
-> -       if (mask)
-> -               size = bitmap_print_to_pagebuf(true, buf, &mask, nr_trig_max);
-> +       size = bitmap_print_to_pagebuf(true, buf, cfg->trig_out_filter, nr_trig_max);
->         return size;
->  }
->  static DEVICE_ATTR_RO(trigout_filtered);
-> @@ -926,9 +924,8 @@ static ssize_t trigin_sig_show(struct device *dev,
->         struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
->         struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->         struct cti_config *cfg = &drvdata->config;
-> -       unsigned long mask = con->con_in->used_mask;
->
-> -       return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
-> +       return bitmap_print_to_pagebuf(true, buf, con->con_in->used_mask, cfg->nr_trig_max);
->  }
->
->  static ssize_t trigout_sig_show(struct device *dev,
-> @@ -940,9 +937,8 @@ static ssize_t trigout_sig_show(struct device *dev,
->         struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
->         struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->         struct cti_config *cfg = &drvdata->config;
-> -       unsigned long mask = con->con_out->used_mask;
->
-> -       return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
-> +       return bitmap_print_to_pagebuf(true, buf, con->con_out->used_mask, cfg->nr_trig_max);
->  }
->
->  /* convert a sig type id to a name */
-> diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
-> index 8362a47c939c..0bd71407ef34 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti.h
-> +++ b/drivers/hwtracing/coresight/coresight-cti.h
-> @@ -68,7 +68,7 @@ struct fwnode_handle;
->   */
->  struct cti_trig_grp {
->         int nr_sigs;
-> -       u32 used_mask;
-> +       unsigned long *used_mask;
->         int sig_types[];
->  };
->
-> @@ -146,20 +146,21 @@ struct cti_config {
->         bool hw_enabled;
->         bool hw_powered;
->
-> -       /* registered triggers and filtering */
-> -       u32 trig_in_use;
-> -       u32 trig_out_use;
-> -       u32 trig_out_filter;
->         bool trig_filter_enable;
->         u8 xtrig_rchan_sel;
->
->         /* cti cross trig programmable regs */
-> -       u32 ctiappset;
->         u8 ctiinout_sel;
-> -       u32 ctiinen[CTIINOUTEN_MAX];
-> -       u32 ctiouten[CTIINOUTEN_MAX];
-> +       u32 ctiappset;
->         u32 ctigate;
->         u32 asicctl;
-> +       u32 *ctiinen;
-> +       u32 *ctiouten;
-> +
-> +       /* registered triggers and filtering */
-> +       unsigned long *trig_in_use;
-> +       unsigned long *trig_out_use;
-> +       unsigned long *trig_out_filter;
->  };
->
->  /**
->
-> --
-> 2.43.0
->
-This all looks good to me. Thanks
+Seems like a reasonable compromise, given that TF-A could be classed
+as broken. This must also prevent suspend/resume powering off PCI
+devices, and then reconnecting them on resume.
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+    Andrew
 
