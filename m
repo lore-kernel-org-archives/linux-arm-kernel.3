@@ -4,82 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4563CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 16:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE14CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 16:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYs14aBXiZWShSI4VzmjOlQav3e6tetAz3KKSYpGQ1U=; b=fvIXpw+W2epw/BmDp03JA2romb
-	y+p8IcEY9CDwOp3biyG21IrpHoSEK04SN3NrSK6A+5we55ByYlWl8ozYUgu0hNLlY2cxSfhtXf4JC
-	0heaL2RosIOethAdj5SX2pR5cGy9MQ6CkU4CV0GewMvwfarSQKfMpzAyd2igtvmh4+MTpZzi5UGjM
-	XiaEo8xLFeqkaQo/q+mlTe1KUFVvYgkKhIH2KspcBiffOuax/BzEpvjjvc3GAbfVTM4LjH0w05ibb
-	9isvBLfPHg8GXnCP66fhLKhKDn4zKZiv9zFFvWsAjPPc94g+jpxQPUEBa8iryc/GBJY6MMJDWW0JE
-	sVL1Vt9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q8xDSEzqv0eO+i7RNgUG5zHxJFTihDqYuVwJgL1tFaw=; b=kFukYj+bdomNqozLkP+tmEHlzh
+	7lfqQe3LfXFCa2nH90/Ovki97rsdYqDkMcqbvULYU2F6mpX9H/51I6wJ4IqJXQIsbQfDEByBsp0tQ
+	pr9gxNFx42DRSRkcqpzJLCJRDBaJ39padjO3DcbjEpA4lmaeqBVDXGPtAiw617zkThPfKEPWzSHEQ
+	TQgY/YugD9AnqqKdAOZmoOZmtdjhahItHcmXwv0wcSyMaMsCw0oX9ZuFn+tA9aq6KbqC/E26J/0xo
+	DaAa9VEhL801ud1wptGWxHaIDfxvxp1TEpUWsPrWFr26kfFRnITfuC4Z1NBNo8bUcbAJvK4+NRHJj
+	Zo4g2Q0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEVRE-00000004S7z-1GP8;
-	Thu, 30 Oct 2025 16:23:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEVbn-00000004T3j-1woF;
+	Thu, 30 Oct 2025 16:34:43 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEVRB-00000004S61-0CYp
+	id 1vEVbl-00000004T3B-2JOZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 16:23:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7248F40053;
-	Thu, 30 Oct 2025 16:23:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51835C4CEF8;
-	Thu, 30 Oct 2025 16:23:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761841424;
-	bh=QWMPQo2xAH0nVjguJgabX/CKiz1G+XFeSJIPZzq2RX4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lC2Qf7z3gzI4hcYBakTotXArYL+2a4IRhcLv37Duop1VcKGrYfMjGqwxyXmKgljIy
-	 T1vvj1uVxs4U2hrwzYFO7yOV5/5NMs8E3JqvxeFdyvn5NRwZ6UvBDpBmg9AGSYk5OC
-	 8U0KBCqTlBQ/cfmYoEh3szJ4u+7MvabgyL2di2MLM/q9Dby9GUu93zKOMvwpHWcpf5
-	 K1MxvgjofTR+PRj5ZQLG3CMUX+QraE4nqGObZQt755y6KFINTsDgQXBZwGKXelZgue
-	 +sRkDbSudpSR0W92FZ2axAUMg2NYSJy5AZwZspVkITKpxUaONsxEzmj30L/favqFzS
-	 CWtuo57c4BZDw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vEVR8-000000013BL-0vbN;
-	Thu, 30 Oct 2025 16:23:42 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: oliver.upton@linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	joey.gouly@arm.com,
-	Sebastian Ene <sebastianene@google.com>
-Cc: ayrton@google.com,
-	yuzenghui@huawei.com,
-	qperret@google.com,
-	vdonnefort@google.com,
-	kernel-team@android.com
-Subject: Re: [PATCH] KVM: arm64: Check the untrusted offset in FF-A memory share
-Date: Thu, 30 Oct 2025 16:23:39 +0000
-Message-ID: <176184141934.2037838.2419455993784869828.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251017075710.2605118-1-sebastianene@google.com>
-References: <20251017075710.2605118-1-sebastianene@google.com>
+	Thu, 30 Oct 2025 16:34:42 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59UDJBKn025673;
+	Thu, 30 Oct 2025 16:34:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=q8xDSEzqv0eO+i7RNgUG5zHxJFTihD
+	qYuVwJgL1tFaw=; b=Br1VD/7YTed3oUT2iUZzltz2mPXnVAxgbDNLxlg7erZO0Q
+	ndcdnpWoXHoUFilySRRpGIi+3NdaYZvtdrCuNelAEGAtrGqT/WKWkRG0++hqoaLl
+	U3DO7TF4/SHlyudz6Ux33YMvs4FeaMwoobkrdswr1iH3NTBoydfGcStuaVfZdbDE
+	P4zDXX/kY8AqU9LgWKdjwtpl3Llgg9/j/U/Of4egne0bsg/u40oDkXOy3QPdZquQ
+	y0CFgu0n6tzgnJiezISNhw7bNixMWitpOdspE2bn/qlvp7I9fj9I5uAhF0vbAX/g
+	Yc4wda7lBmeChb4Nq2HY0X5WFh+YjgYS56JDSgYQ==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a34afhj8k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Oct 2025 16:34:06 +0000 (GMT)
+Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59UGNfcW026454;
+	Thu, 30 Oct 2025 16:34:05 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a34afhj8g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Oct 2025 16:34:05 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59UGGqRH023873;
+	Thu, 30 Oct 2025 16:34:04 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4a33vx9rqq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Oct 2025 16:34:04 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59UGY24U58196474
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 30 Oct 2025 16:34:02 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 510842004B;
+	Thu, 30 Oct 2025 16:34:02 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9ABBB20043;
+	Thu, 30 Oct 2025 16:34:01 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 30 Oct 2025 16:34:01 +0000 (GMT)
+Date: Thu, 30 Oct 2025 17:34:00 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        David Hildenbrand <david@redhat.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        David Woodhouse <dwmw2@infradead.org>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+        x86@kernel.org
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+Message-ID: <46d9bb24-1603-4c75-8723-84a821b3c46c-agordeev@linux.ibm.com>
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-8-kevin.brodsky@arm.com>
+ <ef0cd4bc-1a37-4755-8957-d8a7e5c4564e-agordeev@linux.ibm.com>
+ <d0767b70-5686-4f6e-8ca4-10b3f3ff3991@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, will@kernel.org, catalin.marinas@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, sebastianene@google.com, ayrton@google.com, yuzenghui@huawei.com, qperret@google.com, vdonnefort@google.com, kernel-team@android.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d0767b70-5686-4f6e-8ca4-10b3f3ff3991@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 9WxMyXTitAyuhGu3vYNyzE5CUF2jkm71
+X-Authority-Analysis: v=2.4 cv=WPhyn3sR c=1 sm=1 tr=0 ts=6903937e cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=I6XwYfBBfidvHYRsdD8A:9 a=CjuIK1q_8ugA:10 a=DXsff8QfwkrTrK3sU8N1:22
+ a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDE2NiBTYWx0ZWRfX7zpOZgRsm3FF
+ 8AnOBLOsvxptlWohzuosbbLPCFjAwF3xq2alPUZgZex8RCwqzG9eoZNV4NIOfsWBFJyYD+ygoAE
+ rnoEx4aGNakZqeQ2SGwR0YJxSMuQm2OcteBULwoWnfyU/cMHNt88ZmCD4rU2jE3gxNJmWV7x33E
+ oHSSsHXc4rB3cfyO0+d5kIH2YG18f2CCBQDyLSWgcAzaycIeZ5ROXf5OKaBsuvDDXGa4alxNW1z
+ RdE+6Uxgxxzst1nDzVaufGD9/ZfHUthevkdMD9SntX+m955wZ+COJtAyQIs64arQ+vraDde5COT
+ gqRLVlcqhoG5cbLpwOoCe3250RDdwFTHwZZLlnTZaB4WOK93liI9EHtPlX5NXI4lD6dhjalTaMQ
+ w9GXLDeLcNNdyMoMeG4ROtBVzLwnYQ==
+X-Proofpoint-ORIG-GUID: 98PgicvhjO7U-L0VCM0jVX32GpXzOiLG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-10-30_05,2025-10-29_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 malwarescore=0 suspectscore=0 spamscore=0
+ impostorscore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510240000
+ definitions=main-2510280166
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_092345_106415_E18B4F27 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_093441_610914_4DACFAD9 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,24 +150,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Oct 2025 07:57:10 +0000, Sebastian Ene wrote:
-> Verify the offset to prevent OOB access in the hypervisor
-> FF-A buffer in case an untrusted large enough value
-> [U32_MAX - sizeof(struct ffa_composite_mem_region) + 1, U32_MAX]
-> is set from the host kernel.
+On Thu, Oct 30, 2025 at 11:28:53AM +0100, Kevin Brodsky wrote:
+> On 29/10/2025 17:41, Alexander Gordeev wrote:
+> > On Wed, Oct 29, 2025 at 10:09:04AM +0000, Kevin Brodsky wrote:
+> >
+> > Hi Kevin,
+> >
+> >> +#ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+> >> +static inline bool in_lazy_mmu_mode(void)
+> >> +{
+> >> +	return current->lazy_mmu_state.active;
+> > Whether (nesting_level > 0) is more correct check?
+> > Otherwise, it returns false while in paused mode.
 > 
+> That's exactly the intention. Lazy MMU is disabled while paused. The
+> users of that helper want to know if lazy MMU is currently enabled (to
+> decide whether to batch updates for instance); whether this is because
+> we are paused or not in any lazy_mmu section (nesting_level == 0) makes
+> no difference.
 > 
+> > May be check both nesting_level and active and also introduce
+> > in_lazy_mmu_paused_mode() right away to avoid any confusion?
+> 
+> Can you think of any situation where a caller would specifically want to
+> know that lazy MMU is paused?
 
-Applied to fixes, thanks!
+I thought I do, but in_lazy_mmu_mode() alone works just fine,
+as you described (at least for now).
 
-[1/1] KVM: arm64: Check the untrusted offset in FF-A memory share
-      commit: 103e17aac09cdd358133f9e00998b75d6c1f1518
+> - Kevin
 
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+Thanks!
 
