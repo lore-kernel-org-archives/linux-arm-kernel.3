@@ -4,111 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69974CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 08:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4413ECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 08:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/eQjJmYkYH6SFeE+16nCc7H9e+jNOCRg1nbgStXINRw=; b=malLaCYUA184CJhSu8B56LfFYV
-	jG3NH39CF4/lBZmCPMD0w7KB7M3hdZ7aa10xN/Nk9mJf7c7B9mUwB5N2Z0T2NiHvOLYoFNKYWWa1F
-	Hw6+bF28U9o6rhQVHQbdG4EvA6YhaqrnMOvkrjwXNm/3wmDwI+ssPfDpsfjSXNKFmDzpqdrJJJQCE
-	V9WrFSIsjEx7hMgDdRdGJnoFuMlMIOilVyxy/qLwvyoCDVSWjOlItGqyGKieiYnQILEXzaA6utI9s
-	p1PNhD1eECnToVo+IKTfS5uuXwarMlcvD0KFwHoOy6dYhzCLdJT75DbkMHtKN1LvN6NhE0qIAi15h
-	JnxMst4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+RRQ3mnvpw4ptRfYD4hKfaf3ngNiZ/ZLRKANhoAh4Ck=; b=W6ksGl66M3DOHrALBSI1f0puGG
+	yk9ZKODPpDPS5vjmzmJCGi+Y0If4FlwnWkfcUV4SkuyuxK5tUEYsgNcz2PPIFA5IIRpaYGGuz619V
+	3WZUNlHtei+7rDoiktLlqsAAanuD+V49TI1sLy2CxeD3IkIW7Q5QMTHKlhOtbynFEfVoTn1xkFCnA
+	bywkbg+pYfzAzArXm7XsugibhhLOsS/6vfIfLw2AjH25D/KuMmdFfRnZrn0fk/XaqY9lKe0uRmf8N
+	c2ZJt9TFlXp69f+2lUbhEEH2NTlVyrkx1w92KNo6jy0qb4YB9ihCS7Qr4DoDZruQlx/UH8iFfRX4N
+	2r5GUzRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENkt-00000003fl0-1yED;
-	Thu, 30 Oct 2025 08:11:35 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vENur-00000003gay-0U3V;
+	Thu, 30 Oct 2025 08:21:53 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vENkq-00000003fkK-1Zir
+	id 1vENun-00000003gYP-2b2a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 08:11:33 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59TLn0RC025885;
-	Thu, 30 Oct 2025 08:11:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=/eQjJmYkYH6SFeE+16nCc7H9e+jNOC
-	Rg1nbgStXINRw=; b=cuJG1pZsfaDqquxCGrOzfAhNCTQ2ugViPxgZAEFflsoUC5
-	dRVTCZoXoiNUjAM/QbiZIVkkXwJgCun0g33n8FboORMftxUjhON5UKvbkm9fn+g7
-	4u3Z4rTgmQ75v+Pa9dLJ9AXhXofu7HyTLkZHoDXOKbKc3ghfOfzVcIfu2I4iBR4i
-	hQLTwCE/xVOq5ufKUT84DQFKGICO4vF5uZ+LmljvCX/n6LIX4ukdbMWtIO/bT/+S
-	antjD7qTt3JUxAeWP8tHw+l5ANqrvw5XwYsUO9UjLUNIeYTzVA10B9PjurDwNyOe
-	bhZzp60OECuRQgEhgtCxz5qP6mt+dVQj8MDjWO7g==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a34acq8tw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Oct 2025 08:11:21 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59U5qPIP027495;
-	Thu, 30 Oct 2025 08:11:20 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a33w2qgcn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Oct 2025 08:11:20 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59U8BGfP60686592
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 30 Oct 2025 08:11:16 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9644A2004B;
-	Thu, 30 Oct 2025 08:11:16 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4775F20049;
-	Thu, 30 Oct 2025 08:11:16 +0000 (GMT)
-Received: from osiris (unknown [9.155.211.25])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 30 Oct 2025 08:11:16 +0000 (GMT)
-Date: Thu, 30 Oct 2025 09:11:14 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Harald Freudenberger <freude@linux.ibm.com>, linux-crypto@vger.kernel.org,
-        David Howells <dhowells@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
-        "Jason A . Donenfeld" <Jason@zx2c4.com>,
-        Holger Dengler <dengler@linux.ibm.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 00/15] SHA-3 library
-Message-ID: <20251030081114.16837A86-hca@linux.ibm.com>
-References: <20251026055032.1413733-1-ebiggers@kernel.org>
- <ba3ff3d5183ab78b3d02d8db30223def@linux.ibm.com>
- <20251029163216.GA1603@sol>
- <20251029203345.GA3750798@google.com>
+	Thu, 30 Oct 2025 08:21:51 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-586883eb9fbso912475e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 01:21:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1761812508; x=1762417308; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+RRQ3mnvpw4ptRfYD4hKfaf3ngNiZ/ZLRKANhoAh4Ck=;
+        b=j0C54z0yN6E41IRVObCHh8LsNGXAxkuczNNjudn9qqtaukAsv7cHmxLcmR27czSNWA
+         jdKUI90vssHcYPHZ3+0ovw60Vx9lEZZicBxAlDrKdJNNA0BLotCDxfNsKR4QXbmYd3NB
+         QTFpvtKGxpgP2sjiVtOKCUQwr+nOnfosJ97HY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761812508; x=1762417308;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+RRQ3mnvpw4ptRfYD4hKfaf3ngNiZ/ZLRKANhoAh4Ck=;
+        b=ktVaRTLb9ZVzi8hR0ma91ILSXEgj8Do6FB22t5qbV07vnH5JvkxEoaQFSMBI3+wdnF
+         6ALqVRA3LcrIFxXa3m4ehPjUg071bD3j12k6CShvOy8lIUE7t/sloLrrn9iYOJmVpbcZ
+         hRMVHUKwYovXbJNTytyrB+nLz1DkV2PBeRxEKUMJniIslZKH4u8KJjNLzxMXza/uGZii
+         3QkaCPTl/Q0v72IwRNh6mERfP7B2MfK+pj6GiZyzdXAInCLsTHbinEOEabzi112wLAOd
+         8pBWBtoExyOd1GvqAS1HgszOzH48wB/WoBP9O4ereTSjn/GIk4/BJWac3qI7+DDauSnX
+         0eEw==
+X-Forwarded-Encrypted: i=1; AJvYcCXCxFYHVk31BzOYAeRKPT1EznTLCNSXDNXqdAZHxLBglVfDuwP8agFk+lTB4xKbbTM+Oo2cqB03+/STDbrZtB4E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6euu9cInwbpx7NpMMdIMHYH9Ksd4+3t2MAd3f1b96MPrK1CPu
+	Y5c1gYYh38cOeWIphIWWk2f0CcbTw6nw8mpn0QSngWZoidIMN0mDZ0So7sUMdo+CzO+4E8ss+ng
+	EIh3CT0gS1qxX3lM0Yu7nrTIQFsJQwrJNCwK/9dww
+X-Gm-Gg: ASbGncu6CuAKxvq9E3PKR3x5+eOL9ZZFDZ5WKXCJ4GAMBpjG9oSM7ql7X/xQkW9cnBM
+	MWKjQx7KpB94eosDSX6+O33PuRqmTp7JOVeVeU1Z4N4eGsmuh/v6CVbSolWyPdbVK3eRhPc/5Vj
+	uJFzOLHrCfSlS3GUZMnBpnLqxqfgP1GJe7bWDSOouPY4AFl4y2QfmAYASqAyn1e21B8tFGOhRmk
+	ZBhXfY7MI/7MVbuiJrT6uUv8/cVdQvJHL34RVgSkt1RdsMqzHoCFRI6OY32dPHHJICdGtrTii+7
+	swdQbbbQ71kfmpE=
+X-Google-Smtp-Source: AGHT+IFU82eFD7KyMUajMtRnh3g0OAFBir+9otZR0HYwHlQYMDmXZxQQJ8cv/9zylVMsVzxv/6PO4ARJDSX3YbcKhTo=
+X-Received: by 2002:a05:6512:ad6:b0:592:fe0f:d9e with SMTP id
+ 2adb3069b0e04-594128655a1mr1896419e87.7.1761812507765; Thu, 30 Oct 2025
+ 01:21:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029203345.GA3750798@google.com>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=XbuEDY55 c=1 sm=1 tr=0 ts=69031da9 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=QzQn2ZgXezoNSR50NVEA:9 a=CjuIK1q_8ugA:10 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-ORIG-GUID: YSIgbfw2sRFgOkhpdpHl13KDpANc36eI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDE2NiBTYWx0ZWRfXx99/Np7suF0D
- LdNjxw8CMpQUQfWr5ceWx67gWngQfx6OwZL8VGJyQUoL7dj2TK82msPvqeMbboIBXSRD/hfHP5y
- CoByoCwcC0w3YSttYeDzqxehe1u3h3gypxQ/bh+vdb8OvyC7f72xwj+kNy0PQhdb6RB5Z61j6WL
- PzQwDYALi+yVz1E6maJcezSCOu+Jkm9Gby5uGlnF3vXFD58/R34oNDXwEW6+pSeCLJkvMAVKDqZ
- KiGrmSmTJel7FpX5dAewlh+98nvWv4EDR0ukEPAWQpo5G4zEKBMajDv+T6t//8lvJS7xWoqrIBb
- 9/pg7l5aSGVgAOeLHkApb161ER2khS8yF9xp9nS1tcWdrPlVZ/6peqLtoJV6rpFFLVxvBfUGODB
- 2uMVMMvEQ76KhoyBqJbaS82w/BUk5g==
-X-Proofpoint-GUID: YSIgbfw2sRFgOkhpdpHl13KDpANc36eI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-10-30_02,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 suspectscore=0 bulkscore=0 spamscore=0
- impostorscore=0 phishscore=0 priorityscore=1501 clxscore=1011
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510240000
- definitions=main-2510280166
+References: <20251015084103.10737-1-angelogioacchino.delregno@collabora.com>
+ <CAGXv+5Gs5_j5L3+HT7K-XYwVG6S8ZGhHZkEcS0HpdkcjRQq2oQ@mail.gmail.com> <9f5a3dc5-d0f8-4172-a4b4-867919612a2d@collabora.com>
+In-Reply-To: <9f5a3dc5-d0f8-4172-a4b4-867919612a2d@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 30 Oct 2025 16:21:35 +0800
+X-Gm-Features: AWmQ_bmkpHdrIvgnJ7LYrPcYtpiVGscoJE_DrNSX0WTZVJCZr-WNnyLSiVAsWFM
+Message-ID: <CAGXv+5Ge-uZHKATOvqQF25DRTcHFJkopUk-JUXDtpEen=BwCiA@mail.gmail.com>
+Subject: Re: [PATCH v2] remoteproc: mtk_scp: Construct FW path if
+ firmware-name not present
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: mathieu.poirier@linaro.org, linux-remoteproc@vger.kernel.org, 
+	arnd@arndb.de, andersson@kernel.org, matthias.bgg@gmail.com, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_011132_590754_00DD8C1B 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20251030_012149_697871_3BB1B7FC 
+X-CRM114-Status: GOOD (  35.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +97,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 08:33:45PM +0000, Eric Biggers wrote:
-> (By the way, I recommend defining named constants somewhere in
-> arch/s390/ for the different facilities.  I borrowed the
-> "test_facility(86)" from the existing code, which does not say what 86
-> means.  After doing some research, it looks like it means MSA12.)
+On Wed, Oct 29, 2025 at 7:05=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Il 29/10/25 10:14, Chen-Yu Tsai ha scritto:
+> > On Wed, Oct 15, 2025 at 4:41=E2=80=AFPM AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com> wrote:
+> >>
+> >> After a reply on the mailing lists [1] it emerged that the DT
+> >> property "firmware-name" should not be relied on because of
+> >> possible issues with firmware versions.
+> >> For MediaTek SCP, there has never been any firmware version vs
+> >> driver version desync issue but, regardless, the firmwares are
+> >> always using the same name and they're always located in a path
+> >> with a specific pattern.
+> >>
+> >> Instead of unconditionally always relying on the firmware-name
+> >> devicetree property to get a path to the SCP FW file, drivers
+> >> should construct a name based on what firmware it knows and
+> >> what hardware it is running on.
+> >>
+> >> In order to do that, add a `scp_get_default_fw_path()` function
+> >> that constructs the path and filename based on two of the infos
+> >> that the driver can get:
+> >>   1. The compatible string with the highest priority (so, the
+> >>      first one at index 0); and
+> >>   2. The type of SCP HW - single-core or multi-core.
+> >>
+> >> This means that the default firmware path is generated as:
+> >>   - Single core SCP: mediatek/(soc_model)/scp.img
+> >>     for example:     mediatek/mt8183/scp.img;
+> >>
+> >>   - Multi core SCP:  mediatek/(soc_model)/scp_c(core_number).img
+> >>     for example:     mediatek/mt8188/scp_c0.img for Core 0, and
+> >>                      mediatek/mt8188/scp_c1.img for Core 1.
+> >
+> > I know this patch has been applied, but this scheme doesn't actually
+> > follow what is already in the linux-firmware repository.
+> >
+> > For all the supported platforms, the first core, even for multi core SC=
+P,
+> > already have their firmware uploaded as just "scp.img". Multicore SCP
+> > is seen in MT8195 and MT8188.
+>
+> The only one that is affected is MT8188, which needs a rename or a symlin=
+k in
+> linux-firmware.
+>
+> MT8195 is not affected by this change, because the SCP is used as single-=
+core,
+> hence this code will look for scp.img and not for scp_c0.img.
+>
+> >
+> > I guess I can send a followup patch?
+>
+> The only followup patch that I deem to be necessary is one adding a symli=
+nk
+> or renaming for MT8188's SCP and nothing else.
 
-Not so surpringly this has been discussed several times in the
-past. It would have been easy if each of those bits would represent
-exactly one facility, but then there is e.g. bit 46 which means:
+The firmware was uploaded in March of 2025, and is packaged in Debian
+Trixie, and was also backported to Bookworm. Either adding a symlink or
+renaming it won't trickle down to users for some time. So this seems
+like a possible ABI break, where the ABI is the file name.
 
-the distinct-operands, fast-BCR-serialization, high-word, and
-population-count facilities, the interlocked-access facility 1, and
-the load/store-on- condition facility 1 are installed in the
-z/Architecture architectural mode
+Or maybe you don't consider it as such because SCP hasn't been enabled
+in the kernel in any release yet?
 
-Some proposed to add defines like "FACILITY_MULTI_46", which is of
-course pointless, since there is added benefit for just using plain
-46. Alternatively it would be possible to have a define for each of
-them. But if you need two or three of them for your code, then there
-would be several tests needed - all for the same bit, and each one
-generating a static branch - which also doesn't make too much sense.
+> Please remember that some of those SoCs (including MT8195) allow the SCP =
+to be
+> configured as *either* single-core *or* dual-core - and usually firmwares=
+ for
+> single-core configurations are not compatible with dual-core ones, becaus=
+e of
+> the SRAM carveout/usage.
 
-So in the end we ended up with the conclusion to stick with the plain
-numbers.
+For MT8188, whether the current blob is dual core compatible needs to be
+checked. The blob upstreamed to linux-firmware was built locally by
+MediaTek engineers and is not what we ship with ChromeOS devices.
 
-That said, users are still free to add aliases like e.g. cpu_has_vx(),
-see arch/s390/include/asm/cpufeature.h. It is just not an all or
-nothing approach.
+
+ChenYu
 
