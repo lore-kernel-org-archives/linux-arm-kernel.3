@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1155CCCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4E6CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 20:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vdmNuA/XJs18gaKKFpEA0E3nq9J2Wf2NR2DLPMRdiiE=; b=pzP+Xigem1xoSW1bOUgcsA2tox
-	pcrFluMUVqzbtlIKlnGRh8U3z8/lnfh4Ioe3IUelt4d0KWl0WbDskH0C983JHzendofc6Nt1TmbsN
-	EgIvDdvE9mGxLlqlTR9BiKIPt00Qwu5EMPPgYGmvUX+oaZ/4nj/RpgSbiNWLKAz1Rh9+vgBr1SGip
-	Y9LpiTy4eA89U6sUOsr+XxpQJkTnQY5c1nzllrsUg658tXi3CAYHvmGVeLkzKlOovPfE8Mjb85bmt
-	3zzErKB/f5DcWbNqqPg2D0bBLl5K0bzrlZFViRBdsLwvQVPsEzOXyhbHv1TGUN5jKSmdIIQaDgY3M
-	hYp/XV3Q==;
+	bh=2OA09S1/1skw+FuU1BhzWw9OqqsMWSUfhu0LCFCqROs=; b=UAW163MPnPGYwhnh2UlPOAVUi6
+	REQ0nIH1NE7U/4UeY0NpQXKudneOpzbxKK0rfYYgTBEN5wvNX/9mbI9PnyIqHbyemYF3/x1q7HY22
+	SPuoJFg2yn+6+VpHXcGu56LRGnr7yDgfCgMko51eOyhP1btghA3y/SZiYoVtianHZ//XryMgeFXo1
+	J1ZA03/EUGH1xeIAYF1c1/eBLvTzmgDcZeIqgT8x2lGZvDT5dxEKQ+lsofrCpW+wlQaJX5l4WYgK1
+	D/xTfmJfJrRxRVv5o0LpalXKUWWDMX+wtbTFnN226Jzkn3YzvfhY5Rd5r9yIsnUGGDxv9NpGLxxZV
+	IzUbU0QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYyH-00000004jJu-02tW;
-	Thu, 30 Oct 2025 20:10:09 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vEYyJ-00000004jNC-1NrR;
+	Thu, 30 Oct 2025 20:10:11 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYyA-00000004jF0-2j1P
+	id 1vEYyD-00000004jGM-1KxY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 20:10:03 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3408686190eso460176a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:10:02 -0700 (PDT)
+	Thu, 30 Oct 2025 20:10:07 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-294f59039d6so12295945ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 13:10:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855002; x=1762459802; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855004; x=1762459804; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=vdmNuA/XJs18gaKKFpEA0E3nq9J2Wf2NR2DLPMRdiiE=;
-        b=0lcUD0OKkKCOaFHsMhsx+p40XtSluz8LRHg2D9Ol7czZtWQYT+G7iwqF9Dy4BWBqqQ
-         j6o+UxIxIWxd+Vn7Oy8YFwogkAs1zOij2LuRQaLNNpySOz1OASx9RePyOIbyLvRSmkpN
-         eSDwCOsR3tuNS6qh1arVKv4XzXeLyyxfyBMA9KHnBdQkEYrsqoKg1mTmY4VFXSZVf0b0
-         fSyJX/1obKWYQ7r5aIyFfVf+c69WVs+z/TS45bmAYrK11od3xGAscqlJwllzYQIEhtw8
-         gzY867XNVZ8Fbcm5tzZO+Xd9zlLt8PeDNK8PySHv+LVA8Q2GsZwK3NoFwJyNaqhHmkQ7
-         u2/Q==
+        bh=2OA09S1/1skw+FuU1BhzWw9OqqsMWSUfhu0LCFCqROs=;
+        b=cLRsiEBPXrccy2xOkh+p4Fc5P9R5lEGp6vDQAju8mia2pfDuCQsLWJlCF3OEtwlznp
+         gvGUlYbnxqO6xI57l446ZDc/szEeq4p+OlQf/eTGU+l+uQ2Ca7RvS4emX55glRQGennL
+         zU2wfxZaWeBntEPAz1tQ0NgPBkyTSMAxvaL6+/h6nDmx+dRzf8RPja6WpuGAXqs764OV
+         3JiFtvS18HZfUrPoSzYLbnPdeF4v5PCxTRosiamo7XfQrhkUvKk2+Pymoj+HD2DdI3gA
+         jfWXNPLf9/Kv9KjLzuLnyI0QBzmmtA1sJQeFBYj+w/Dl1trxjl9qIwvJgourap5dwGmD
+         mY9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855002; x=1762459802;
+        d=1e100.net; s=20230601; t=1761855004; x=1762459804;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vdmNuA/XJs18gaKKFpEA0E3nq9J2Wf2NR2DLPMRdiiE=;
-        b=iXvdgHDlJP1O4OZBGiPNvHZGvSLNprrVq0/ZFDYzKFdCKSnax8EST7FP1tPB/EboZp
-         ZIYbh3NIbBuqTObAJP0FonE8lhatgsYIibXrNTE2KaUIvJlgV2KDnoDtR0gmGRMtVcXs
-         CYKyPdZaxMbX0krIlnALdPpaYCgNeDSgqeCxGlcU5eKfchC0I4ntjPexeRH7CTUbCWR8
-         +gmQSbEYhOj5zjQDi/e3cGpNUbizNHYAcVxm38Tfg8CDV6ZvB6HrK2wWUi13kvV9HDrC
-         upNKFHIAEV9PoBRRPHuHyvjkYcistCgA5BqrRuNMXXC9AH6uO2H/ApT5/cOeGm5wCVp/
-         fO6w==
-X-Gm-Message-State: AOJu0Yy/cMqp3IeJm+mDLCiM6xVPktkis7EPsDuja85kVax1GGv5y03x
-	KeB8ewXvt6Ak3yDbKKOg6cP9B4gMr4ILp6cso+gRTsqbNCe2SuD4zJJYRm4fXctROTLm1uy6sLC
-	xQZX5ZQ==
-X-Google-Smtp-Source: AGHT+IHCp67ng7EPL926/aDQ0svpDIsDoj6OeGfyMpf/ofykocac96hQIKqfmRloHmNuNLaZynEjzDSP6Us=
-X-Received: from pjvm17.prod.google.com ([2002:a17:90a:de11:b0:33d:79bb:9fd5])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3b92:b0:334:2a38:2a05
- with SMTP id 98e67ed59e1d1-34082fc64a4mr1360357a91.8.1761855001643; Thu, 30
- Oct 2025 13:10:01 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:24 -0700
+        bh=2OA09S1/1skw+FuU1BhzWw9OqqsMWSUfhu0LCFCqROs=;
+        b=w1qduH2eGldIZvSZhFzg2+kkQ9yDtK5wlAhXdwmpaZ+mIa49gkEa4UQ9pZPjMMXB81
+         eXaYnoOr6TIBw4KT0FXXTaEw2UaUUh2026/Eev5z5YZ4smNCcWUEhDuKiIlGcEZv4d8q
+         b/b92XovSzcL1N3YjkIQWDM/3xZkDLp7W5X9ycpn2ITMiz3pYf/I5bVO8t1deHrGNZye
+         nyrQPVcmMJUaO8bf4/Wywexr2ZFJoE9WDsF+09PmyCpMAt+J4yVK5BzjZ4JES0vmt0n1
+         KEyqXMtLZxHKff0lb1RKryfuxNCBFPc3oh6EVqQDNRNfqe0g30vKgro3FogwpyG1jIvf
+         M+Pw==
+X-Gm-Message-State: AOJu0Yzt2+3hVpY2dTfRUY/fIejtnpQTmFBfkU0QEcfv4W2nCyUC20DB
+	sQhZD+uIh+sZANPjwcd+mY9zG0oOXBCc3srV9cV68L8kK3UlDmfnY+7fJ/vZtuQbDAqLSHqS2Mr
+	nlwTDAQ==
+X-Google-Smtp-Source: AGHT+IFyokACO79MDowezF6ant8GOHayKAjiYuTdimtA+5sS6fpyhP+P+t8J4m0XKxQ1DNOfqANuKqsRbyM=
+X-Received: from pljc8.prod.google.com ([2002:a17:903:3b88:b0:269:a7b6:c668])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2bce:b0:270:e595:a440
+ with SMTP id d9443c01a7336-2951a3b61efmr15533075ad.25.1761855004041; Thu, 30
+ Oct 2025 13:10:04 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:25 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-2-seanjc@google.com>
-Subject: [PATCH v4 01/28] KVM: Make support for kvm_arch_vcpu_async_ioctl() mandatory
+Message-ID: <20251030200951.3402865-3-seanjc@google.com>
+Subject: [PATCH v4 02/28] KVM: Rename kvm_arch_vcpu_async_ioctl() to kvm_arch_vcpu_unlocked_ioctl()
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -87,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Ackerley Tng <ackerleytng@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_131002_694377_CA45FB2B 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20251030_131005_371866_7FDE12EA 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,161 +104,173 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement kvm_arch_vcpu_async_ioctl() "natively" in x86 and arm64 instead
-of relying on an #ifdef'd stub, and drop HAVE_KVM_VCPU_ASYNC_IOCTL in
-anticipation of using the API on x86.  Once x86 uses the API, providing a
-stub for one architecture and having all other architectures opt-in
-requires more code than simply implementing the API in the lone holdout.
-
-Eliminating the Kconfig will also reduce churn if the API is renamed in
-the future (spoiler alert).
+Rename the "async" ioctl API to "unlocked" so that upcoming usage in x86's
+TDX code doesn't result in a massive misnomer.  To avoid having to retry
+SEAMCALLs, TDX needs to acquire kvm->lock *and* all vcpu->mutex locks, and
+acquiring all of those locks after/inside the current vCPU's mutex is a
+non-starter.  However, TDX also needs to acquire the vCPU's mutex and load
+the vCPU, i.e. the handling is very much not async to the vCPU.
 
 No functional change intended.
 
 Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/kvm/arm.c       |  6 ++++++
- arch/loongarch/kvm/Kconfig |  1 -
- arch/mips/kvm/Kconfig      |  1 -
- arch/powerpc/kvm/Kconfig   |  1 -
- arch/riscv/kvm/Kconfig     |  1 -
- arch/s390/kvm/Kconfig      |  1 -
- arch/x86/kvm/x86.c         |  6 ++++++
- include/linux/kvm_host.h   | 10 ----------
- virt/kvm/Kconfig           |  3 ---
- 9 files changed, 12 insertions(+), 18 deletions(-)
+ arch/arm64/kvm/arm.c       | 4 ++--
+ arch/loongarch/kvm/vcpu.c  | 4 ++--
+ arch/mips/kvm/mips.c       | 4 ++--
+ arch/powerpc/kvm/powerpc.c | 4 ++--
+ arch/riscv/kvm/vcpu.c      | 4 ++--
+ arch/s390/kvm/kvm-s390.c   | 4 ++--
+ arch/x86/kvm/x86.c         | 4 ++--
+ include/linux/kvm_host.h   | 4 ++--
+ virt/kvm/kvm_main.c        | 6 +++---
+ 9 files changed, 19 insertions(+), 19 deletions(-)
 
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 870953b4a8a7..ef5bf57f79b7 100644
+index ef5bf57f79b7..cf23f6b07ec7 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -1835,6 +1835,12 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+@@ -1835,8 +1835,8 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
  	return r;
  }
  
-+long kvm_arch_vcpu_async_ioctl(struct file *filp, unsigned int ioctl,
-+			       unsigned long arg)
-+{
-+	return -ENOIOCTLCMD;
-+}
-+
- void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+-long kvm_arch_vcpu_async_ioctl(struct file *filp, unsigned int ioctl,
+-			       unsigned long arg)
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
  {
- 
-diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
-index ae64bbdf83a7..ed4f724db774 100644
---- a/arch/loongarch/kvm/Kconfig
-+++ b/arch/loongarch/kvm/Kconfig
-@@ -25,7 +25,6 @@ config KVM
- 	select HAVE_KVM_IRQCHIP
- 	select HAVE_KVM_MSI
- 	select HAVE_KVM_READONLY_MEM
--	select HAVE_KVM_VCPU_ASYNC_IOCTL
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
-diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
-index ab57221fa4dd..cc13cc35f208 100644
---- a/arch/mips/kvm/Kconfig
-+++ b/arch/mips/kvm/Kconfig
-@@ -22,7 +22,6 @@ config KVM
- 	select EXPORT_UASM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
--	select HAVE_KVM_VCPU_ASYNC_IOCTL
- 	select KVM_MMIO
- 	select KVM_GENERIC_MMU_NOTIFIER
- 	select KVM_GENERIC_HARDWARE_ENABLING
-diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
-index 2f2702c867f7..c9a2d50ff1b0 100644
---- a/arch/powerpc/kvm/Kconfig
-+++ b/arch/powerpc/kvm/Kconfig
-@@ -20,7 +20,6 @@ if VIRTUALIZATION
- config KVM
- 	bool
- 	select KVM_COMMON
--	select HAVE_KVM_VCPU_ASYNC_IOCTL
- 	select KVM_VFIO
- 	select HAVE_KVM_IRQ_BYPASS
- 
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index c50328212917..77379f77840a 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -23,7 +23,6 @@ config KVM
- 	select HAVE_KVM_IRQCHIP
- 	select HAVE_KVM_IRQ_ROUTING
- 	select HAVE_KVM_MSI
--	select HAVE_KVM_VCPU_ASYNC_IOCTL
- 	select HAVE_KVM_READONLY_MEM
- 	select HAVE_KVM_DIRTY_RING_ACQ_REL
- 	select KVM_COMMON
-diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
-index cae908d64550..96d16028e8b7 100644
---- a/arch/s390/kvm/Kconfig
-+++ b/arch/s390/kvm/Kconfig
-@@ -20,7 +20,6 @@ config KVM
- 	def_tristate y
- 	prompt "Kernel-based Virtual Machine (KVM) support"
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
--	select HAVE_KVM_VCPU_ASYNC_IOCTL
- 	select KVM_ASYNC_PF
- 	select KVM_ASYNC_PF_SYNC
- 	select KVM_COMMON
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index b4b5d2d09634..ca5ba2caf314 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -7240,6 +7240,12 @@ static int kvm_vm_ioctl_set_clock(struct kvm *kvm, void __user *argp)
+ 	return -ENOIOCTLCMD;
+ }
+diff --git a/arch/loongarch/kvm/vcpu.c b/arch/loongarch/kvm/vcpu.c
+index 30e3b089a596..9a5844e85fd3 100644
+--- a/arch/loongarch/kvm/vcpu.c
++++ b/arch/loongarch/kvm/vcpu.c
+@@ -1471,8 +1471,8 @@ int kvm_vcpu_ioctl_interrupt(struct kvm_vcpu *vcpu, struct kvm_interrupt *irq)
  	return 0;
  }
  
-+long kvm_arch_vcpu_async_ioctl(struct file *filp, unsigned int ioctl,
-+			       unsigned long arg)
-+{
-+	return -ENOIOCTLCMD;
-+}
-+
- int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+-long kvm_arch_vcpu_async_ioctl(struct file *filp,
+-			       unsigned int ioctl, unsigned long arg)
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
  {
- 	struct kvm *kvm = filp->private_data;
+ 	void __user *argp = (void __user *)arg;
+ 	struct kvm_vcpu *vcpu = filp->private_data;
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index a75587018f44..b0fb92fda4d4 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -895,8 +895,8 @@ static int kvm_vcpu_ioctl_enable_cap(struct kvm_vcpu *vcpu,
+ 	return r;
+ }
+ 
+-long kvm_arch_vcpu_async_ioctl(struct file *filp, unsigned int ioctl,
+-			       unsigned long arg)
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
+ {
+ 	struct kvm_vcpu *vcpu = filp->private_data;
+ 	void __user *argp = (void __user *)arg;
+diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
+index 2ba057171ebe..9a89a6d98f97 100644
+--- a/arch/powerpc/kvm/powerpc.c
++++ b/arch/powerpc/kvm/powerpc.c
+@@ -2028,8 +2028,8 @@ int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
+ 	return -EINVAL;
+ }
+ 
+-long kvm_arch_vcpu_async_ioctl(struct file *filp,
+-			       unsigned int ioctl, unsigned long arg)
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
+ {
+ 	struct kvm_vcpu *vcpu = filp->private_data;
+ 	void __user *argp = (void __user *)arg;
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index bccb919ca615..a4bd6077eecc 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -238,8 +238,8 @@ vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
+ 	return VM_FAULT_SIGBUS;
+ }
+ 
+-long kvm_arch_vcpu_async_ioctl(struct file *filp,
+-			       unsigned int ioctl, unsigned long arg)
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
+ {
+ 	struct kvm_vcpu *vcpu = filp->private_data;
+ 	void __user *argp = (void __user *)arg;
+diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
+index 16ba04062854..8c4caa5f2fcd 100644
+--- a/arch/s390/kvm/kvm-s390.c
++++ b/arch/s390/kvm/kvm-s390.c
+@@ -5730,8 +5730,8 @@ static long kvm_s390_vcpu_memsida_op(struct kvm_vcpu *vcpu,
+ 	return r;
+ }
+ 
+-long kvm_arch_vcpu_async_ioctl(struct file *filp,
+-			       unsigned int ioctl, unsigned long arg)
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
+ {
+ 	struct kvm_vcpu *vcpu = filp->private_data;
+ 	void __user *argp = (void __user *)arg;
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index ca5ba2caf314..b85cb213a336 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -7240,8 +7240,8 @@ static int kvm_vm_ioctl_set_clock(struct kvm *kvm, void __user *argp)
+ 	return 0;
+ }
+ 
+-long kvm_arch_vcpu_async_ioctl(struct file *filp, unsigned int ioctl,
+-			       unsigned long arg)
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
+ {
+ 	return -ENOIOCTLCMD;
+ }
 diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 5bd76cf394fa..7186b2ae4b57 100644
+index 7186b2ae4b57..d93f75b05ae2 100644
 --- a/include/linux/kvm_host.h
 +++ b/include/linux/kvm_host.h
-@@ -2437,18 +2437,8 @@ static inline bool kvm_arch_no_poll(struct kvm_vcpu *vcpu)
+@@ -1557,6 +1557,8 @@ long kvm_arch_dev_ioctl(struct file *filp,
+ 			unsigned int ioctl, unsigned long arg);
+ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 			 unsigned int ioctl, unsigned long arg);
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp,
++				  unsigned int ioctl, unsigned long arg);
+ vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf);
+ 
+ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext);
+@@ -2437,8 +2439,6 @@ static inline bool kvm_arch_no_poll(struct kvm_vcpu *vcpu)
  }
  #endif /* CONFIG_HAVE_KVM_NO_POLL */
  
--#ifdef CONFIG_HAVE_KVM_VCPU_ASYNC_IOCTL
- long kvm_arch_vcpu_async_ioctl(struct file *filp,
- 			       unsigned int ioctl, unsigned long arg);
--#else
--static inline long kvm_arch_vcpu_async_ioctl(struct file *filp,
--					     unsigned int ioctl,
--					     unsigned long arg)
--{
--	return -ENOIOCTLCMD;
--}
--#endif /* CONFIG_HAVE_KVM_VCPU_ASYNC_IOCTL */
--
+-long kvm_arch_vcpu_async_ioctl(struct file *filp,
+-			       unsigned int ioctl, unsigned long arg);
  void kvm_arch_guest_memory_reclaimed(struct kvm *kvm);
  
  #ifdef CONFIG_HAVE_KVM_VCPU_RUN_PID_CHANGE
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 5f0015c5dd95..267c7369c765 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -78,9 +78,6 @@ config HAVE_KVM_IRQ_BYPASS
-        tristate
-        select IRQ_BYPASS_MANAGER
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 4845e5739436..9eca084bdcbe 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4434,10 +4434,10 @@ static long kvm_vcpu_ioctl(struct file *filp,
+ 		return r;
  
--config HAVE_KVM_VCPU_ASYNC_IOCTL
--       bool
--
- config HAVE_KVM_VCPU_RUN_PID_CHANGE
-        bool
+ 	/*
+-	 * Some architectures have vcpu ioctls that are asynchronous to vcpu
+-	 * execution; mutex_lock() would break them.
++	 * Let arch code handle select vCPU ioctls without holding vcpu->mutex,
++	 * e.g. to support ioctls that can run asynchronous to vCPU execution.
+ 	 */
+-	r = kvm_arch_vcpu_async_ioctl(filp, ioctl, arg);
++	r = kvm_arch_vcpu_unlocked_ioctl(filp, ioctl, arg);
+ 	if (r != -ENOIOCTLCMD)
+ 		return r;
  
 -- 
 2.51.1.930.gacf6e81ea2-goog
