@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FD8CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 06:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0818CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 06:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hRtHIMk7bwT8ta5r6KPNb7Mw30EaQXJdn9u/aeVMvo=; b=y1T5qd6Ej+tM3RrGYExcsh+4U1
-	GyYWWpAlkWcmXJaaFyEblE+r310GEiBB3wRZko/cyIjcmMf3sLDogTIHlh7rf4f+sAROb/kYgSR9C
-	9mBe3kLA7LGB9Qa50qAtpywtKRYStvXYlWARt4oi+yiUlrrrRVA00Z/UDZ9lt5pkeBnrYl90iLUDz
-	sWdA7TEPz/PQYqI54y66kJnz4LIuM7MZhi+cZ5wn3US+0ctzMGI3labPZsB46SsCZcfKnZ+6tKh/C
-	yp1eYsQyUGI3cmP0oDwFIERhWKxeo39pYr6CZFmg8/Z109/BvV5uOTfE0vz7xMNHEMZuoWzn9WAwz
-	THy5ZTLg==;
+	bh=sctOfaMCaVQx0TE/izjuKTlWuoHc1phPG68ypDI+DRY=; b=NYB3cFokLlhXzEP4rDpiJTtOe1
+	LkOfL6ND5TmT9MubCNV2U5+pedyMpJ8kPZZiRp9HiFFyM0jm+Vxrwnrp2fbMFVYhNmydRg5TYXMgc
+	1/0VYxIo+0ODg7qmhxPGzj/CtzmyPpXf0NI6eNQiQpXjA1hujdSCQc99OYEzDeSIc1KN1sy1rYm6k
+	lKe9ltX4nDACRy8ZPgAJeszF3/YL4f+52wHjVpbIA1/TMZ73h8Qv7W7o+Ce3f2R5L8kCtFZo5XYwg
+	+KVq48564WOkz1IgCo0XyGdERopb1pmMrjDLlkYGFiJZmJp8gkx54XkXCqpV5oQ5B+JniyN43knGL
+	6Uf8GVgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEMGK-00000003ZHR-1678;
-	Thu, 30 Oct 2025 06:35:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEMUe-00000003afc-3c4t;
+	Thu, 30 Oct 2025 06:50:44 +0000
+Received: from mail-m49206.qiye.163.com ([45.254.49.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEMG7-00000003ZCS-2ZxW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 06:35:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F355456C1;
-	Thu, 30 Oct 2025 06:35:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0AECAC16AAE;
-	Thu, 30 Oct 2025 06:35:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761806142;
-	bh=Ma9S1MiEWHeTP+z84iPAUK6C7dIUoddkYZ0/XXmKMfs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kbCnDEI69CKzeU1AmNh1KE2+wf4gmwB01wcthC3Q3hUYInG9ax2BoKjbCeWdNFF3L
-	 BSfgA5nXcB+Zx8QfdxE9u2BkrRECxuPdPGsp/9XPjpOIKXerAKnVc7h2lux+iRVhuL
-	 +dR7Mt57Jqvqf/jiO5OwUFFf5CAq0Ka4/AOAlT6cPd7EvJnjYG44NLFnoa+FyIyU6m
-	 7IByQH0HAktQ2BPmnXSsHZHe8t6AqupNiFOalON7OcFWzQp6vWtIHwKwokwqPrLEBl
-	 H9dK/T9LXmd204CRZ7UoFzpjBU0tr39+eUBqYay6eTsrjnBAf4tiIGs3C/aMNqZC7R
-	 BSVubPW1+Yifg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 00BD7CCF9FC;
-	Thu, 30 Oct 2025 06:35:42 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Thu, 30 Oct 2025 07:35:40 +0100
-Subject: [PATCH v3 4/6] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
+	id 1vEMUa-00000003aem-0qeL;
+	Thu, 30 Oct 2025 06:50:43 +0000
+Received: from [172.16.12.149] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 27bf20e38;
+	Thu, 30 Oct 2025 14:50:33 +0800 (GMT+08:00)
+Message-ID: <e2fcc437-0650-4fdf-bb75-3463a80299fe@rock-chips.com>
+Date: Thu, 30 Oct 2025 14:50:33 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 10/10] arm64: dts: rockchip: rk3399-evb-ind: Add
+ support for DisplayPort
+To: Peter Chen <hzpeterchen@gmail.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251029071435.88-1-kernel@airkyi.com>
+ <20251029071435.88-11-kernel@airkyi.com>
+ <CAL411-o6mF71oBeRsJ-OPZNbLegn4iJ_ELN9xVdppTM3ssUPOw@mail.gmail.com>
+ <cc8b583a-77ec-4a7f-97cc-2d148f7fee9f@rock-chips.com>
+ <e0c5bda3-7428-49e0-9955-fa23f1e4f35d@rock-chips.com>
+ <CAL411-oXfvp-iqN+uRmFHijdmW=1omKwozKOoZ2shxukMHmwPg@mail.gmail.com>
+ <C6253E8254C80B0F+839b71d0-1bd8-40b7-9515-7ce4a1eb8673@airkyi.com>
+ <CAL411-pULVu4AYybW9oW7kmr4M_kJhdytgBjLPb4y6w_2dj+0w@mail.gmail.com>
+ <7853bbf0-34e5-4880-a2f4-2d73f25cd5e6@rock-chips.com>
+ <CAL411-rFK0o_cxBO_yJFHWurGFKxZGxw6=kpqxRipMetJskTaQ@mail.gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <CAL411-rFK0o_cxBO_yJFHWurGFKxZGxw6=kpqxRipMetJskTaQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251030-mini_iv-v3-4-ef56c4d9f219@gocontroll.com>
-References: <20251030-mini_iv-v3-0-ef56c4d9f219@gocontroll.com>
-In-Reply-To: <20251030-mini_iv-v3-0-ef56c4d9f219@gocontroll.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Matti Vaittinen <mazziesaccount@gmail.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761806140; l=14085;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=mM5zkndvpY3wSFdRNuLQZbA3Bw/wyjuh2hndAkyqoOE=;
- b=+FD0wu3/k5yaUNS9ddmTxxAwfMPSl82Py1Xddc1Ts5qrcVh76aWiJYnyng1pNQfXdiX8qDwlw
- Jc2V2UP9ljuAJHCwmjo00GFoypbBE/V6124+jSSP4dAVGNbhHpTB8OF
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+X-HM-Tid: 0a9a33e1e5d603abkunm4fdeafe247c99d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhoeTlZCTEtOQ0pKTk1CSUNWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	5VSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=aQQwn+vaju0fkVYqlzGfwsD04Z6mA/IUGFwt2/LybJDUI6VkbH4gPP3HejyR9GH2oDyovSq2B+HP/lZguM+2DXuCAwhyjbvdkv8Sy0w8O/SXgQZqRujAaeLAQmJ0w9DPTEMHz7SyhBw9i5kJ4Bq+y9Ft8urfVEBjRCZLvy8wSI0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=sctOfaMCaVQx0TE/izjuKTlWuoHc1phPG68ypDI+DRY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_233543_741178_427E576C 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20251029_235041_638766_A70BB249 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,475 +99,212 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+On 10/30/2025 2:13 PM, Peter Chen wrote:
 
-The Ka-Ro Electronics tx8m-1610 is a COM based on the imx8mm SOC. It has
-1 GB of ram and 4 GB of eMMC storage on board.
+> On Thu, Oct 30, 2025 at 11:14 AM Chaoyi Chen <chaoyi.chen@rock-chips.com> wrote:
+>> On 10/30/2025 10:50 AM, Peter Chen wrote:
+>>
+>>>>> Okay.  My question is basic: USB2 PHY supplies DP/DM, and the DP/DM is
+>>>>> short for Type-C connector,
+>>>>> and no control is needed for Type-C application.
+>>>>> Why is there a remote-endpoint connection between USB2 PHY and Type-C connector?
+>>>>    From the perspective of Type-C, this should not be added.  Is the approach in v2 correct [0] ?
+>>>>
+>>> Have you tried debugging based on upstream code?
+>> Yes, I have tried both the v2 and v8 approaches, and both can work.
+>>
+>>
+>>> v2 is correct, but the dts needs to improve.
+>>> - There is a remote-endpoint connection for USB role switch between
+>>> Type-C connector
+>>> device and USB controller device
+>>> - There is a remote-endpoint connection for orientation and lane configuration
+>>> between Type-C connector device and USB/DP PHY device.
+>> In v8 patch5, we implemented typec_mux and typec_switch in the USB/DP PHY.
+>>
+>> I think the current remote-endpoint connections are all child node of the USB/DP PHY. That is:
+>>
+>>
+>> &tcphy0_dp {
+>>       mode-switch;
+>>       ...
+>> };
+>>
+>>
+>> &tcphy0_usb3 {
+>>       orientation-switch;
+>>       ...
+>> };
+>>
+>>
+>> Does this still need to be improved? Thank you.
+>>
+> Hi Chaoyi,
+>
+> There are two questions I have still not seen the answer to:
+> - Why USB2 PHY is related to your Type-C patch?
 
-Add it to enable boards based on this module
+I was just following other people's approach. Sorry, this should be removed from the dts.
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- .../arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi | 444 +++++++++++++++++++++
- 1 file changed, 444 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
-new file mode 100644
-index 0000000000000..53bf70793ac01
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
-@@ -0,0 +1,444 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2021 Lothar Waßmann <LW@KARO-electronics.de>
-+ * 2025 Maud Spierings <maudspierings@gocontroll.com>
-+ */
-+
-+#include "imx8mm.dtsi"
-+
-+/ {
-+	model = "Ka-Ro Electronics TX8M-1610";
-+	compatible = "karo,imx8mm-tx8m-1610", "fsl,imx8mm";
-+
-+	reg_3v3_etn: regulator-3v3-etn {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio1 23 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&pinctrl_reg_3v3_etn>;
-+		pinctrl-names = "default";
-+		regulator-boot-on;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "3v3-etn";
-+	};
-+};
-+
-+&A53_0 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&A53_1 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&A53_2 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&A53_3 {
-+	cpu-supply = <&reg_vdd_arm>;
-+};
-+
-+&ddrc {
-+	operating-points-v2 = <&ddrc_opp_table>;
-+
-+	ddrc_opp_table: opp-table {
-+		compatible = "operating-points-v2";
-+
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+		};
-+	};
-+};
-+
-+&fec1 {
-+	assigned-clocks = <&clk IMX8MM_CLK_ENET_AXI>,
-+			  <&clk IMX8MM_CLK_ENET_TIMER>,
-+			  <&clk IMX8MM_CLK_ENET_REF>,
-+			  <&clk IMX8MM_CLK_ENET_REF>;
-+	assigned-clock-parents = <&clk IMX8MM_SYS_PLL1_266M>,
-+				 <&clk IMX8MM_SYS_PLL2_100M>,
-+				 <&clk IMX8MM_SYS_PLL2_50M>,
-+				 <&clk IMX8MM_SYS_PLL2_50M>;
-+	assigned-clock-rates = <0>, <100000000>, <50000000>, <50000000>;
-+	clocks = <&clk IMX8MM_CLK_ENET1_ROOT>,
-+		 <&clk IMX8MM_CLK_ENET1_ROOT>,
-+		 <&clk IMX8MM_CLK_ENET_TIMER>,
-+		 <&clk IMX8MM_CLK_ENET_REF>;
-+	phy-handle = <&ethphy0>;
-+	phy-mode = "rmii";
-+	phy-reset-duration = <25>;
-+	phy-reset-gpios = <&gpio1 29 GPIO_ACTIVE_LOW>;
-+	phy-reset-post-delay = <1>;
-+	phy-supply = <&reg_3v3_etn>;
-+	pinctrl-0 = <&pinctrl_fec1>, <&pinctrl_ethphy_rst>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@0 {
-+			reg = <0>;
-+			clocks = <&clk IMX8MM_CLK_ENET_REF>;
-+			interrupt-parent = <&gpio1>;
-+			interrupts = <28 IRQ_TYPE_EDGE_FALLING>;
-+			pinctrl-0 = <&pinctrl_ethphy_int>;
-+			pinctrl-names = "default";
-+			smsc,disable-energy-detect;
-+		};
-+	};
-+};
-+
-+&gpio1 {
-+	gpio-line-names = "SODIMM_152", "SODIMM_42", "SODIMM_153", "PMIC_IRQ_B",
-+			  "SODIMM_154", "SODIMM_155", "SODIMM_156", "SODIMM_157",
-+			  "SODIMM_158", "SODIMM_159", "SODIMM_161", "SODIMM_162",
-+			  "SODIMM_34", "SODIMM_36", "SODIMM_27", "SODIMM_28",
-+			  "", "", "", "",
-+			  "", "", "", "ENET_POWER",
-+			  "", "", "", "",
-+			  "ENET_nINT", "ENET_nRST", "", "";
-+};
-+
-+&gpio2 {
-+	gpio-line-names = "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "SODIMM_51", "SODIMM_57", "SODIMM_56", "SODIMM_52",
-+			  "SODIMM_53", "SODIMM_54", "SODIMM_55", "SODIMM_15",
-+			  "SODIMM_45", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "";
-+};
-+
-+&gpio3 {
-+	gpio-line-names = "SODIMM_103", "SODIMM_104", "SODIMM_105", "SODIMM_106",
-+			  "SODIMM_107", "SODIMM_112", "SODIMM_108", "SODIMM_109",
-+			  "SODIMM_95", "SODIMM_110", "SODIMM_96", "SODIMM_97",
-+			  "SODIMM_98", "SODIMM_99", "SODIMM_113", "SODIMM_114",
-+			  "SODIMM_115", "SODIMM_101", "SODIMM_100", "SODIMM_77",
-+			  "SODIMM_72", "SODIMM_73", "SODIMM_74", "SODIMM_75",
-+			  "SODIMM_76", "SODIMM_43", "", "",
-+			  "", "", "", "";
-+};
-+
-+&gpio4 {
-+	gpio-line-names = "SODIMM_178", "SODIMM_180", "SODIMM_184", "SODIMM_185",
-+			  "SODIMM_186", "SODIMM_187", "SODIMM_188", "SODIMM_189",
-+			  "SODIMM_190", "SODIMM_191", "SODIMM_179", "SODIMM_181",
-+			  "SODIMM_192", "SODIMM_193", "SODIMM_194", "SODIMM_195",
-+			  "SODIMM_196", "SODIMM_197", "SODIMM_198", "SODIMM_199",
-+			  "SODIMM_182", "SODIMM_79", "SODIMM_78", "SODIMM_84",
-+			  "SODIMM_87", "SODIMM_86", "SODIMM_85", "SODIMM_83",
-+			  "SODIMM_81", "SODIMM_80", "SODIMM_90", "SODIMM_93";
-+};
-+
-+&gpio5 {
-+	gpio-line-names = "SODIMM_92", "SODIMM_91", "SODIMM_89", "SODIMM_144",
-+			  "SODIMM_143", "SODIMM_146", "SODIMM_68", "SODIMM_67",
-+			  "SODIMM_70", "SODIMM_69", "SODIMM_48", "SODIMM_46",
-+			  "SODIMM_47", "SODIMM_44", "PMIC_SCL", "PMIC_SDA",
-+			  "SODIMM_41", "SODIMM_40", "SODIMM_148", "SODIMM_149",
-+			  "SODIMM_150", "SODIMM_151", "SODIMM_60", "SODIMM_59",
-+			  "SODIMM_64", "SODIMM_63", "SODIMM_62", "SODIMM_61",
-+			  "SODIMM_66", "SODIMM_65", "", "";
-+};
-+
-+&i2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	pinctrl-1 = <&pinctrl_i2c1_gpio>;
-+	pinctrl-names = "default", "gpio";
-+	scl-gpios = <&gpio5 14 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+
-+	pmic: pmic@4b {
-+		compatible = "rohm,bd71847";
-+		reg = <0x4b>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&pinctrl_pmic>;
-+		pinctrl-names = "default";
-+		rohm,reset-snvs-powered;
-+
-+		regulators {
-+			BUCK1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microvolt = <780000>;
-+				regulator-name = "buck1";
-+				regulator-ramp-delay = <1250>;
-+			};
-+
-+			reg_vdd_arm: BUCK2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <950000>;
-+				regulator-min-microvolt = <805000>;
-+				regulator-name = "buck2";
-+				regulator-ramp-delay = <1250>;
-+				rohm,dvs-run-voltage = <950000>;
-+				rohm,dvs-idle-voltage = <810000>;
-+			};
-+
-+			BUCK3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microvolt = <805000>;
-+				regulator-name = "buck3";
-+			};
-+
-+			reg_vdd_3v3: BUCK4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-name = "buck4";
-+			};
-+
-+			reg_vdd_1v8: BUCK5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1950000>;
-+				regulator-min-microvolt = <1700000>;
-+				regulator-name = "buck5";
-+			};
-+
-+			BUCK6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1349494>;
-+				regulator-max-microvolt = <1349494>;
-+				rohm,fb-pull-up-microvolt = <0>;
-+				rohm,feedback-pull-up-r1-ohms = <2200>;
-+				rohm,feedback-pull-up-r2-ohms = <499>;
-+				regulator-name = "buck6";
-+			};
-+
-+			LDO1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1980000>;
-+				regulator-min-microvolt = <1620000>;
-+				regulator-name = "ldo1";
-+			};
-+
-+			LDO2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microvolt = <760000>;
-+				regulator-name = "ldo2";
-+			};
-+
-+			LDO3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1890000>;
-+				regulator-min-microvolt = <1710000>;
-+				regulator-name = "ldo3";
-+			};
-+
-+			LDO4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-min-microvolt = <855000>;
-+				regulator-name = "ldo4";
-+			};
-+
-+			LDO5 {
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-name = "ldo5";
-+			};
-+
-+			LDO6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <1260000>;
-+				regulator-min-microvolt = <1140000>;
-+				regulator-name = "ldo6";
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_ethphy_int: etnphy-intgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_RD2_GPIO1_IO28
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
-+		>;
-+	};
-+
-+	pinctrl_ethphy_rst: etnphy-rstgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_RD3_GPIO1_IO29
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_fec1: fec1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_MDC_ENET1_MDC
-+				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_ENET_MDIO_ENET1_MDIO
-+				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_ENET_TD2_ENET1_TX_CLK
-+				(MX8MM_FSEL_FAST | MX8MM_SION)
-+			MX8MM_IOMUXC_ENET_TD0_ENET1_RGMII_TD0
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
-+			MX8MM_IOMUXC_ENET_TD1_ENET1_RGMII_TD1
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
-+			MX8MM_IOMUXC_ENET_RD0_ENET1_RGMII_RD0
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_ENET_RD1_ENET1_RGMII_RD1
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_ENET_RXC_ENET1_RX_ER
-+				MX8MM_FSEL_FAST
-+			MX8MM_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL
-+				MX8MM_FSEL_FAST
-+			MX8MM_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
-+		>;
-+	};
-+
-+	pinctrl_i2c1: i2c1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C1_SCL_I2C1_SCL
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C1_SDA_I2C1_SDA
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_i2c1_gpio: i2c1-gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C1_SCL_GPIO5_IO14
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C1_SDA_GPIO5_IO15
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_pmic: pmicgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3
-+				(MX8MM_PULL_UP | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_reg_3v3_etn: reg-3v3-etngrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_TXC_GPIO1_IO23
-+				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
-+				MX8MM_USDHC_DATA_DEFAULT
-+			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
-+				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
-+				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
-+				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
-+				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
-+				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+};
-+
-+&usdhc1 {
-+	assigned-clocks = <&clk IMX8MM_CLK_USDHC1>;
-+	assigned-clock-rates = <400000000>;
-+	bus-width = <8>;
-+	non-removable;
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	vmmc-supply = <&reg_vdd_3v3>;
-+	vqmmc-supply = <&reg_vdd_1v8>;
-+	status = "okay";
-+};
+> - How does the USB role switch event notify the USB controller driver, eg dwc3?
 
+Sorry, I misunderstood what you said before. There is indeed a missing usb-role-switch now. I referred to the approach in rk3588-evb1-v10.dts. Is the following way of writing correct?
+
+&usbc_connector {
+     ports {
+         #address-cells = <1>;
+         #size-cells = <0>;
+
+         port@0 {
+             reg = <0>;
+
+             usbc_orien_sw: endpoint {
+                 remote-endpoint = <&tcphy0_typec_orien_sw>;
+             };
+         };
+
+         port@1 {
+             reg = <1>;
+
+             usbc_role_sw: endpoint {
+                 remote-endpoint = <&dwc3_0_role_switch>;
+             };
+         };
+
+
+         port@2 {
+             reg = <2>;
+
+             usbc_dp: endpoint {
+                 remote-endpoint = <&tcphy0_typec_dp>;
+             };
+         };
+     };
+};
+
+&usbdrd_dwc3_0 {
+     status = "okay";
+     usb-role-switch;
+
+     port {
+         #address-cells = <1>;
+         #size-cells = <0>;
+         dwc3_0_role_switch: endpoint@0 {
+             reg = <0>;
+             remote-endpoint = <&usbc_role_sw>;
+         };
+     };
+};
+
+&tcphy0_usb3 {
+     orientation-switch;
+
+     port {
+         tcphy0_typec_orien_sw: endpoint {
+             remote-endpoint = <&usbc_orien_sw>;
+         };
+     };
+};
+
+&tcphy0_dp {
+     mode-switch;
+
+     port {
+         #address-cells = <1>;
+         #size-cells = <0>;
+
+         tcphy0_typec_dp: endpoint@0 {
+             reg = <0>;
+             remote-endpoint = <&usbc_dp>;
+         };
+     };
+};
+
+
+> Peter
+>>> Peter
+>>>
+>>>> [0]: https://lore.kernel.org/all/20250715112456.101-6-kernel@airkyi.com/
+>>>>
+>>>> Or is the following approach correct?
+>>>>
+>>>>
+>>>> port@0 {
+>>>>        reg = <0>;
+>>>>
+>>>>        usbc_hs: endpoint {
+>>>>            remote-endpoint = <&tcphy0>;
+>>>>        };
+>>>> };
+>>>>
+>>>> port@1 {
+>>>>        reg = <1>;
+>>>>
+>>>>        usbc_ss: endpoint {
+>>>>            remote-endpoint = <&tcphy0>;
+>>>>        };
+>>>> };
+>>>>
+>>>> port@2 {
+>>>>        reg = <2>;
+>>>>
+>>>>        usbc_dp: endpoint {
+>>>>            remote-endpoint = <&tcphy0_typec_dp>;
+>>>>        };
+>>>> };
+>>>>
+>>>>
+>>>>>>>>> +                               port@1 {
+>>>>>>>>> +                                       reg = <1>;
+>>>>>>>>> +
+>>>>>>>>> +                                       usbc_ss: endpoint {
+>>>>>>>>> + remote-endpoint = <&tcphy0_typec_ss>;
+>>>>>>>>> +                                       };
+>>>>>>>>> +                               };
+>>>>>>>>> +
+>>>>>>>>> +                               port@2 {
+>>>>>>>>> +                                       reg = <2>;
+>>>>>>>>> +
+>>>>>>>>> +                                       usbc_dp: endpoint {
+>>>>>>>>> + remote-endpoint = <&tcphy0_typec_dp>;
+>>>>>>>>> +                                       };
+>>>>>>>>> +                               };
+>>>>>>>>> +                       };
+>>>>>>>>> +               };
+>>>>>>>>> +       };
+>>>>>>>>> +};
+>>>>>>>>> +
+>>>>>>>> .....
+>>>>>>>>>      &u2phy0 {
+>>>>>>>>>             status = "okay";
+>>>>>>>>> +
+>>>>>>>>> +       port {
+>>>>>>>>> +               u2phy0_typec_hs: endpoint {
+>>>>>>>>> +                       remote-endpoint = <&usbc_hs>;
+>>>>>>>>> +               };
+>>>>>>>>> +       };
+>>>>>>>>>      };
+>>>>>>>>>
+>>>>>>>> There is no switch and mux, how to co-work with Type-C?
+>>>>>>> I checked the phy-rockchip-inno-usb2.c but did not find any switch or mux. Does this mean that we need to implement them? Thank you.
+>>>>>> Wait a minute, actually we have multiple hardware interfaces, one of which is Type-C, eventually connected to USBDPPHY, and the other is micro-usb connected to U2PHY.
+>>>>> I assume the Micro-USB connector does not use Type-C/PD IC, is it
+>>>>> right? Does it relate to this patch?
+>>>>>
+>>>>> Best regards,
+>>>>> Peter
+>>>>>
+>> --
+>> Best,
+>> Chaoyi
+>>
+>
 -- 
-2.51.2
-
+Best,
+Chaoyi
 
 
