@@ -4,74 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63318CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C83CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 19:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSZGYbOmCMoLcNoFG9BmYZt4BZZKr4wBKZWgl9N85BI=; b=N/XUt8/u+TudWU908IZj6JgVIs
-	Hid7D+UfMyQDCW2mI6LSrkGnEfn33oVKS2G4f9kHJF5xNK7EDSGX1gJA3I402yiUzs/eCl9gftRJ2
-	Ud5ZhWfk/OVJBSVQ0ohLJu6KNE02QtZ4FDtLbt/0IbsjLcLT3obZUBMmyYZtEv4ppbmxoCa3jGOx3
-	d7mUMR+V+dvYowlK4W8+ZGjyIP6mkPeyveITRQM78weJPjSibdYCkneWfjSnrV5O8oQLWwF/G8KOC
-	Q/CLqZ0QAocXl+54gcjUGLBJLL3yPaFqOhN2ge7WlT7f2clp/YeLR4PxB7L6X4EHyx9iDjKkUrIEC
-	kD6WoZhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NyHHMh5+Ig5nWuJhvXvhTG1NXrgVmuFvDzkpLb+CBVo=; b=vHVq6uFEpq9xPjcnWczCusxozb
+	ZttpGJT1pReFxUWRypNgbUe4sOC8+MOmcRutM3XyJF+e1MQxnszAZi6lY81a84jlkTDURGtWRXyCI
+	iWmcXx9kKa0poot5x+OYM9zmybbbt7V04o2L72x4D/0QBhDoxaVyNmE0ddNRg1XZe0AZx5sjLSEfY
+	1gDdBw2/DYGB8q4pc6xiw3hHkJPHjCvPkWlXu9A7RqR6g7nV7rouu9IGadXjHq8M1YmGhl68z67Ij
+	xBfYIQ0O2pYag2NnEfAwidz5ecKR9ANlIKvlKSRjX0nnK0+JZelul18JCGOdOEXsXbAMplpks6/sP
+	cO98LQKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYbM-00000004hfa-23sZ;
-	Thu, 30 Oct 2025 19:46:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vEYcx-00000004hpE-0rNB;
+	Thu, 30 Oct 2025 19:48:07 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYbI-00000004hej-0p0B;
-	Thu, 30 Oct 2025 19:46:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9481041B50;
-	Thu, 30 Oct 2025 19:46:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2C70C4CEF1;
-	Thu, 30 Oct 2025 19:46:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761853583;
-	bh=GV2XRPs93TwYftizCqQPTtAV3OHflrc4UhVM50o3qOI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GYRixxz68G0B3WvSiTR45ogAq1hCd3hip6IbAr/vpLSvMQXPh5bqwKR3fHwvAiato
-	 k9lLxJ9Ol9IrjuTPLH4cv014bh8GtkT3rSxRQSzbQzx7GkYZcsUhrgxsizNlJgfS9i
-	 HssBlKBGGA9AOg0QdRsEjZoWkCmbgCCOZ4gdieHpstJL7HQCGPUCYACe6CBFZz0F4d
-	 6UXn0RZmedORIu4k14ErbNgOuNfJAnYjpVCE+h4NoJ6JbM+yxnmxzHC2wvJucQp0YT
-	 VqQi6/6Mr7HsE+WssAKVJA6F01m+5MK27cfqtX7ZQzSTFWGDgznlUEZqL507BbeBkm
-	 CZB2fDXCDdykg==
-Date: Thu, 30 Oct 2025 19:46:15 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jack Hsu <jh.hsu@mediatek.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
-	andy@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, srini@kernel.org,
-	ukleinek@kernel.org, gregkh@linuxfoundation.org,
-	jirislaby@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
-	chunfeng.yun@mediatek.com, wim@linux-watchdog.org,
-	linux@roeck-us.net, sean.wang@mediatek.com,
-	zhiyong.tao@mediatek.com, andrew-ct.chen@mediatek.com,
-	lala.lin@mediatek.com, jitao.shi@mediatek.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pwm@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v6 10/11] arm64: dts: mediatek: add properties for MT6359
-Message-ID: <20251030-boaster-chewing-61d458aa6c9e@spud>
-References: <20251030134541.784011-1-jh.hsu@mediatek.com>
- <20251030134541.784011-11-jh.hsu@mediatek.com>
+	id 1vEYcu-00000004hok-1p3F
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Oct 2025 19:48:06 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-431da4fa224so12146325ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 12:48:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ieee.org; s=google; t=1761853682; x=1762458482; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NyHHMh5+Ig5nWuJhvXvhTG1NXrgVmuFvDzkpLb+CBVo=;
+        b=UfoWalMtxclaolofHkrcTQA9euwVfq3cfqfmo5hiVr1li9eide3OKyUkATkfh0F4lL
+         rrDr26kZ3gjGWVP+Ln3st/k8I5xUm8dxTUEeChg8CVa3kz88EI/t+O4JBlTTusrqI4Yi
+         WVk0WdjhbIJvN8gcetmwKo4IadunAneX0aiMs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761853682; x=1762458482;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NyHHMh5+Ig5nWuJhvXvhTG1NXrgVmuFvDzkpLb+CBVo=;
+        b=TCeSF/p/+FZQgMDQeN2aOkFpWeYokCksZUBhsSMqvd+ZgUlwXIlsxFatbLvws8ljRo
+         rNRRoD21CX9f8CW5rr0HUJKm63AJgf/FvUvr6mjJry9/boMhlfyyi/SX/DcdyIa+RA2m
+         GDbxMKIWtDtGG6mLAagVQ70bSEj5oFjqcNR+dycjr1vgwIinKCTsDb+P85w0h1Tbl7AG
+         RGgDWljLqCh5xGTTmHkhXVHIj9DjZ1kyDfONjjT79QcgY+j1C2nTy3yaG+VZTR6EJu4X
+         ZCu1uzNC7LA3XsCx7A5dFeaxVouzBTSk+cInFhfKP/yX3limxJNnGerFaAbY6qLxFINd
+         q9Pg==
+X-Forwarded-Encrypted: i=1; AJvYcCUj9ia2WDz99B9H/vJIq++hfiWv2DMS9sjWjGQzsB7T+ULvEG6oBV9PzIHcdAdP7E2iI4Qscs0eF3q4pwxJJAPj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+6Uxbth9gM/MO0PY7lV71aFd19B4lTGi1JIcj4cM8DvvF1unL
+	VN+fGxiqDtDTmgY22lXLifCQla9fM7J3PXim1INpz1tPZj9xCc1pwruroJhnnWGz7A==
+X-Gm-Gg: ASbGncv79mODKs1FtsCqYiuhgr1KNFFq3DJrtMc5iSs8vdytS1upf4rs+ACizPSfQRd
+	x17e8sIyTg+G9YdE/PZEMUj1CYoNrs5+RKLVQJu7EidecaRLmtFBcPS0PGT+ugfupSZ4T1GIZFK
+	rHxuTDuLcM2bN+1SQnK0QUuUH2xUisqABg+xolArF86cLTFhRSbsmBEWVyQsLMVd+G/9ETOpcag
+	PL9MkFxZ3UXo17AHTpZV6g8mv8+o+ah2I0AzhUrq2zSMBnmVBt5cdAz0eagVC07DgAyQlNMu4iw
+	DWkX3yQm1Xd8Kbc9l2InfgGs3FryQqlCDMpc6gImocuc8xyy56PUKVJ/4hX4JtxfD7MYkkF1Waz
+	+A1aJ0uir5nKiI1bgDqxYdwYuE5M2KcVgzNtEUK1RulpbNBMUYiNwZVEPsnpwC8cRNdi36vByxT
+	8QgH09RZpshcoqKsP4OitNSZphnZ4CqTxO8smbJEUcEQqWVQ==
+X-Google-Smtp-Source: AGHT+IF4U576EpcuWMn8dengv2WlARr6njaCWT9h6oVZ6fzg/nO5M7RbgoKh1r0euu415UbWbr61ag==
+X-Received: by 2002:a05:6e02:339d:b0:423:fcd6:5488 with SMTP id e9e14a558f8ab-4330d1435a8mr16944295ab.12.1761853681791;
+        Thu, 30 Oct 2025 12:48:01 -0700 (PDT)
+Received: from [172.22.22.234] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-5aea995e701sm6883943173.49.2025.10.30.12.47.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Oct 2025 12:48:01 -0700 (PDT)
+Message-ID: <6cfe0af8-77f9-4f3d-9494-17f4defe6558@ieee.org>
+Date: Thu, 30 Oct 2025 14:47:56 -0500
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qjInnEs/qoh/Iqxq"
-Content-Disposition: inline
-In-Reply-To: <20251030134541.784011-11-jh.hsu@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND 2/4] net: ipa: Remove redundant
+ pm_runtime_mark_last_busy() calls
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, netdev@vger.kernel.org
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Wei Fang <wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
+ Clark Wang <xiaoning.wang@nxp.com>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ Paul Barker <paul@pbarker.dev>, Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Roger Quadros <rogerq@kernel.org>, Alex Elder <elder@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Stephan Gerhold <stephan@gerhold.net>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
+ Chiranjeevi Rapolu <chiranjeevi.rapolu@linux.intel.com>,
+ Liu Haijun <haijun.liu@mediatek.com>,
+ Ricardo Martinez <ricardo.martinez@linux.intel.com>,
+ "Dr. David Alan Gilbert" <linux@treblig.org>, Ingo Molnar
+ <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Michael Nemanov <michael.nemanov@ti.com>, Kalle Valo <kvalo@kernel.org>,
+ Andreas Kemnade <andreas@kemnade.info>,
+ Roopni Devanathan <quic_rdevanat@quicinc.com>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>, imx@lists.linux.dev,
+ linux-renesas-soc@vger.kernel.org, linux-omap@vger.kernel.org,
+ linux-wireless@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
+References: <20251027115022.390997-1-sakari.ailus@linux.intel.com>
+ <20251027115022.390997-2-sakari.ailus@linux.intel.com>
+Content-Language: en-US
+From: Alex Elder <elder@ieee.org>
+In-Reply-To: <20251027115022.390997-2-sakari.ailus@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_124624_302965_256C7F22 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20251030_124804_621464_C173B9EA 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,149 +130,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/27/25 6:50 AM, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
+> 
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 
---qjInnEs/qoh/Iqxq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Acked-by: Alex Elder <elder@riscstar.com>
 
-On Thu, Oct 30, 2025 at 09:44:42PM +0800, Jack Hsu wrote:
-> Add properties of rtc fg (Fuel Gauge), external crystal
-> and auxadc definition for mt6359 pmic.
->=20
-> Signed-off-by: Jack Hsu <jh.hsu@mediatek.com>
 > ---
->  arch/arm64/boot/dts/mediatek/mt6359.dtsi | 20 ++++++++++
->  include/dt-bindings/iio/mt635x-auxadc.h  | 50 ++++++++++++++++++++++++
->  2 files changed, 70 insertions(+)
->  create mode 100644 include/dt-bindings/iio/mt635x-auxadc.h
->=20
-> diff --git a/arch/arm64/boot/dts/mediatek/mt6359.dtsi b/arch/arm64/boot/d=
-ts/mediatek/mt6359.dtsi
-> index 467d8a4c2aa7..cc7053bdd292 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-> @@ -3,6 +3,8 @@
->   * Copyright (C) 2022 MediaTek Inc.
->   */
-> =20
-> +#include <dt-bindings/iio/mt635x-auxadc.h>
-> +
->  &pwrap {
->  	pmic: pmic {
->  		compatible =3D "mediatek,mt6359";
-> @@ -302,6 +304,24 @@ mt6359_vsram_others_sshub_ldo: ldo_vsram_others_sshu=
-b {
-> =20
->  		mt6359rtc: rtc {
->  			compatible =3D "mediatek,mt6358-rtc";
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <1>;
-> +			status =3D "disabled";
-> +
-> +			fginit: fginit {
-> +				reg =3D <0 0x1>;
-> +				bits =3D <0 8>;
-> +			};
+>   drivers/net/ipa/ipa_interrupt.c | 1 -
+>   drivers/net/ipa/ipa_main.c      | 1 -
+>   drivers/net/ipa/ipa_modem.c     | 4 ----
+>   drivers/net/ipa/ipa_smp2p.c     | 2 --
+>   drivers/net/ipa/ipa_uc.c        | 2 --
+>   5 files changed, 10 deletions(-)
+> 
+> diff --git a/drivers/net/ipa/ipa_interrupt.c b/drivers/net/ipa/ipa_interrupt.c
+> index 245a06997055..8336596b1247 100644
+> --- a/drivers/net/ipa/ipa_interrupt.c
+> +++ b/drivers/net/ipa/ipa_interrupt.c
+> @@ -149,7 +149,6 @@ static irqreturn_t ipa_isr_thread(int irq, void *dev_id)
+>   		iowrite32(pending, ipa->reg_virt + reg_offset(reg));
+>   	}
+>   out_power_put:
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   
+>   	return IRQ_HANDLED;
+> diff --git a/drivers/net/ipa/ipa_main.c b/drivers/net/ipa/ipa_main.c
+> index 25500c5a6928..95a61bae3124 100644
+> --- a/drivers/net/ipa/ipa_main.c
+> +++ b/drivers/net/ipa/ipa_main.c
+> @@ -903,7 +903,6 @@ static int ipa_probe(struct platform_device *pdev)
+>   	if (ret)
+>   		goto err_deconfig;
+>   done:
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   
+>   	return 0;
+> diff --git a/drivers/net/ipa/ipa_modem.c b/drivers/net/ipa/ipa_modem.c
+> index 8fe0d0e1a00f..9b136f6b8b4a 100644
+> --- a/drivers/net/ipa/ipa_modem.c
+> +++ b/drivers/net/ipa/ipa_modem.c
+> @@ -71,7 +71,6 @@ static int ipa_open(struct net_device *netdev)
+>   
+>   	netif_start_queue(netdev);
+>   
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   
+>   	return 0;
+> @@ -102,7 +101,6 @@ static int ipa_stop(struct net_device *netdev)
+>   	ipa_endpoint_disable_one(priv->rx);
+>   	ipa_endpoint_disable_one(priv->tx);
+>   out_power_put:
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   
+>   	return 0;
+> @@ -175,7 +173,6 @@ ipa_start_xmit(struct sk_buff *skb, struct net_device *netdev)
+>   
+>   	ret = ipa_endpoint_skb_tx(endpoint, skb);
+>   
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   
+>   	if (ret) {
+> @@ -432,7 +429,6 @@ static void ipa_modem_crashed(struct ipa *ipa)
+>   		dev_err(dev, "error %d zeroing modem memory regions\n", ret);
+>   
+>   out_power_put:
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   }
+>   
+> diff --git a/drivers/net/ipa/ipa_smp2p.c b/drivers/net/ipa/ipa_smp2p.c
+> index fcaadd111a8a..420098796eec 100644
+> --- a/drivers/net/ipa/ipa_smp2p.c
+> +++ b/drivers/net/ipa/ipa_smp2p.c
+> @@ -171,7 +171,6 @@ static irqreturn_t ipa_smp2p_modem_setup_ready_isr(int irq, void *dev_id)
+>   	WARN(ret != 0, "error %d from ipa_setup()\n", ret);
+>   
+>   out_power_put:
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   
+>   	return IRQ_HANDLED;
+> @@ -213,7 +212,6 @@ static void ipa_smp2p_power_release(struct ipa *ipa)
+>   	if (!ipa->smp2p->power_on)
+>   		return;
+>   
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   	ipa->smp2p->power_on = false;
+>   }
+> diff --git a/drivers/net/ipa/ipa_uc.c b/drivers/net/ipa/ipa_uc.c
+> index 2963db83ab6b..dc7e92f2a4fb 100644
+> --- a/drivers/net/ipa/ipa_uc.c
+> +++ b/drivers/net/ipa/ipa_uc.c
+> @@ -158,7 +158,6 @@ static void ipa_uc_response_hdlr(struct ipa *ipa)
+>   		if (ipa->uc_powered) {
+>   			ipa->uc_loaded = true;
+>   			ipa_power_retention(ipa, true);
+> -			pm_runtime_mark_last_busy(dev);
+>   			(void)pm_runtime_put_autosuspend(dev);
+>   			ipa->uc_powered = false;
+>   		} else {
+> @@ -203,7 +202,6 @@ void ipa_uc_deconfig(struct ipa *ipa)
+>   	if (!ipa->uc_powered)
+>   		return;
+>   
+> -	pm_runtime_mark_last_busy(dev);
+>   	(void)pm_runtime_put_autosuspend(dev);
+>   }
+>   
 
-Uhhhh, what on earth is going on here? This is an RTC, what does
-fuelgauge stuff have to do with it? Did you test this at all? What does
-it even do? Very confused.
-
-> +
-> +			fgsoc: fgsoc {
-> +				reg =3D <1 0x1>;
-> +				bits =3D <0 8>;
-> +			};
-> +
-> +			ext32k: ext32k {
-> +				reg =3D <2 0x1>;
-> +				bits =3D <6 1>;
-> +			};
->  		};
->  	};
->  };
-> diff --git a/include/dt-bindings/iio/mt635x-auxadc.h b/include/dt-binding=
-s/iio/mt635x-auxadc.h
-> new file mode 100644
-> index 000000000000..69ba13a7b9ec
-> --- /dev/null
-> +++ b/include/dt-bindings/iio/mt635x-auxadc.h
-> @@ -0,0 +1,50 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * Copyright (c) 2020 MediaTek Inc.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_MT635X_AUXADC_H
-> +#define _DT_BINDINGS_MT635X_AUXADC_H
-> +
-> +/* PMIC MT635x AUXADC channels */
-> +#define AUXADC_BATADC				0x00
-> +#define AUXADC_ISENSE				0x01
-> +#define AUXADC_VCDT	    			0x02
-> +#define AUXADC_BAT_TEMP				0x03
-> +#define AUXADC_BATID				0x04
-> +#define AUXADC_CHIP_TEMP			0x05
-> +#define AUXADC_VCORE_TEMP			0x06
-> +#define AUXADC_VPROC_TEMP			0x07
-> +#define AUXADC_VGPU_TEMP			0x08
-> +#define AUXADC_ACCDET				0x09
-> +#define AUXADC_VDCXO				0x0a
-> +#define AUXADC_TSX_TEMP				0x0b
-> +#define AUXADC_HPOFS_CAL			0x0c
-> +#define AUXADC_DCXO_TEMP			0x0d
-> +#define AUXADC_VBIF		    		0x0e
-> +#define AUXADC_IMP			    	0x0f
-> +#define AUXADC_IMIX_R				0x10
-> +#define AUXADC_VTREF				0x11
-> +#define AUXADC_VSYSSNS				0x12
-> +#define AUXADC_VIN1				    0x13
-> +#define AUXADC_VIN2			    	0x14
-> +#define AUXADC_VIN3			    	0x15
-> +#define AUXADC_VIN4			    	0x16
-> +#define AUXADC_VIN5			    	0x17
-> +#define AUXADC_VIN6			    	0x18
-> +#define AUXADC_VIN7		            0x19
-
-What has this fine got to do with the node you're adding above? I don't
-understand why this is in this patch.
-There's random whitespace problems in it, and half the defines look
-bizarre. This seems like it should be in the same patch as some binding
-changes for an iio device? The mt635x auxadc binding doesn't even permit
-anything that would use any of the properties beyond this point.
-
-NAK.
-
-> +
-> +#define AUXADC_CHAN_MIN				AUXADC_BATADC
-> +#define AUXADC_CHAN_MAX				AUXADC_VIN7
-> +
-> +#define ADC_PURES_100K				(0)
-> +#define ADC_PURES_30K				(1)
-> +#define ADC_PURES_400K				(2)
-> +#define ADC_PURES_OPEN				(3)
-> +
-> +#define ADC_PURES_100K_MASK			(ADC_PURES_100K << 8)
-> +#define ADC_PURES_30K_MASK			(ADC_PURES_30K << 8)
-> +#define ADC_PURES_400K_MASK			(ADC_PURES_400K << 8)
-> +#define ADC_PURES_OPEN_MASK			(ADC_PURES_OPEN << 8)
-> +
-> +#endif /* _DT_BINDINGS_MT635X_AUXADC_H */
-> --=20
-> 2.45.2
->=20
-
---qjInnEs/qoh/Iqxq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQPAhwAKCRB4tDGHoIJi
-0rESAQC+pk8ew/zg9l4Rp9iAnTnoGDOpKly9i4yhdfpXcv5AowEAvBfWYIfZ0eSw
-+rZuOzIx3kHSDbDpctohV+Wb6SErqQY=
-=lc/Z
------END PGP SIGNATURE-----
-
---qjInnEs/qoh/Iqxq--
 
