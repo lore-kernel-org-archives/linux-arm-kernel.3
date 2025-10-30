@@ -4,135 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC70CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AD5CCF9F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Oct 2025 09:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZB9HUn7Y3yeet14Pr5P9kSObdDDgoJccQktdlZcIJM=; b=uzyz6k7nJ/CHtoOBST5smNbO+d
-	Z2nV5S8BF3lyvNimHgtlCOthrvDCoxlEYz94T9DRRJRAbfitk66EFWkpxunSUU5AkJ7ygV1Emmuak
-	fWqxtgM3RD6ICOIzCMMX2FtsDQtY65MacGJ8JB6y97L5x/pSvPQeU1urfqoEkIXULf7p7qW9pU02T
-	lmXnEVmQWJEFaEz3t4s2KwuNZkEQM9KfRE0Cbkkfer2hAzCEnIJXs+EXzZk2WHeR76TF057rBK6aQ
-	IOpgHh7uE1hPoRnk8RAFX5GA7OQGrl8g8bmv1PTRxJeHjyWaNrMPAfYJj4aogiMJftRl2DFi7XWY1
-	wD/1fNLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=absgbM/LagsR81VTr9YW+eGimVEtdVPICEXyNcDYF+E=; b=UVmnivKnCv1GbqXM8QW3WHK7o6
+	3DrSM+ynbvEHNEAGabtQJ8q9Q7wOt81EJtO3+VnWxr9AXUAc3lUMluvoJlRAsWITawRy/nLZgh4ST
+	qqzC5sIBUH5huXoT7xPiPCNwoos/RspKIENk/Ie0FejQqU3arEunycktCu0AVUhQ96V+0K31isZOi
+	kwVGpv4odWGzZyDnbep4pcEsvVy35kTDbXm2rtpCcU4bIhwXAjwRwty/uVCM9MoJSNWswd3t7kLmb
+	BaUPoAKGh97w2BaFxWLCr/NTPfjq8KqjY56YOotWojgUXvbx8wZIdNjvgDBef413316GFe8q/J09m
+	tTCxczcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPOX-00000003uOj-3mwz;
-	Thu, 30 Oct 2025 09:56:37 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vEPQn-00000003ufj-1iDO;
+	Thu, 30 Oct 2025 09:58:57 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPOV-00000003uNf-0VIS
+	id 1vEPQk-00000003ufE-43Xa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Oct 2025 09:56:36 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59U7atLt1693359
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 09:56:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=eZB9HUn7Y3yeet14Pr5P9kSO
-	bdDDgoJccQktdlZcIJM=; b=lke02PP8ShDcsMh5V8vn/IlY/phnMoSm6DL2feeT
-	L3TmOI+9lyqQT8yp6RcNpAlK5kfv75Y68Cau8Dq3VSNw9/fHa2TL1Ogy2qMIE7eB
-	vPXHkeedoKErqcRUIUnRIYthF++B3fKHK928agAqAzdqnXwCI2xlNNz1zg4Ry7+C
-	j3PDxOdO0IihO4/45QGZ0N8CycxBwyHrNR2+7Xed4M2RFQy1cNd6Ejw28avLCghU
-	JJks/inWACHMOMQoaSPXfjIRYkVNevFw8SFIHrQMhW5g3rjq+GSr/DKXndRpUFOG
-	kb2VUyljVA1UDVJUOp+vpuvsa+gLG/gVwroyJe3ocJGrBw==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a3trv1vq7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 09:56:33 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-277f0ea6fbaso7926995ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 02:56:33 -0700 (PDT)
+	Thu, 30 Oct 2025 09:58:56 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-89f07fee490so100073685a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 02:58:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1761818193; x=1762422993; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eZB9HUn7Y3yeet14Pr5P9kSObdDDgoJccQktdlZcIJM=;
-        b=e0ykTriNDhNPIRbAVvwzPIZ7z1zuqP4PpOg0ChtecL4CX31RG8lR3ETECjyCsvpTWr
-         XLDip06dAYOVKojfHxCz4ggmoviF10nztFgcSBLkO7gTgdORe+u5QfJT9znFoVHK9mm+
-         M6AzkuiJWV2WE7Eh28UENy3Jk3V+V1oGX1Bb591eEfyjKH3XsHJsiwhXuHoNkAJgi4Fn
-         i6vz10+DIYi7a37w5C7nOVg0YtQCTdxRKrUXHYfCNSrSZkDgJLSe0YlFk/V8ZMIWXDBp
-         lUMryIGNOxMds9ZllhuLp7jb+jJVBIpo1dZ8K0VcLQ5HhAcPIiWOjKqMvWnoLUR6fyZ9
-         8mdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761818193; x=1762422993;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1761818333; x=1762423133; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eZB9HUn7Y3yeet14Pr5P9kSObdDDgoJccQktdlZcIJM=;
-        b=UaqnDNoZAinfghMZ4Wvptvu00wG14pXFodKGEhyRZDKVpK27aG+mDVVuNJ9FUMJxQ3
-         AbU/NzeHXgnBeLlPoC4xArl9VcF0CFNjEHDJty5AZ8g8Z2CG4XrY4S/6Q9S01oNse/TJ
-         L/hj2Cjzp6P2G+ag3UW4hLWc8AFFDryKDaAvWp97izp3NeH7PD46+1Oe8LZhDVdeCSBt
-         BbSbx3Y25M/9iJnGZEsfZKETyKl+Wc8qH5zq1Fm3QYHlitZJSl/Y83cYpM55lz/Mt+aZ
-         FgdJr6lhr7sn2oMsyB8xpDwxADdXYtgcMUC+txL/iOmsxxfhvcN03m2aJjeWmRD4B1LY
-         ErvA==
-X-Forwarded-Encrypted: i=1; AJvYcCWNFY2+HtkO6emvV0v0ejQuwvrDlHFyglxDKM59UfMa7LgH+qW/FFhvb8Bf5eKoTheubxDXc9izA5WsR4Eff9pK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0xivBV3rCtgoyMeQ0AIdBE3QBWJRi9NMIg+AlvgsPZBqXB/f8
-	H5Flddb+0HQatZr+fOxI1w45Ayx4O97Yn+9y+rs56v/k2VW4lJ0lDvmtx7FHt75Wo1PGi4KhAZ3
-	ctR430VS7ds5AM4ZfYc65y+QBtjJP79p3VhBUlW1dtIyCeqXHMToR155NU5eMwSrOAzXBcQoH2H
-	xqjA==
-X-Gm-Gg: ASbGncskHKsByLF5x2fORnnTsSYAMvTlr2DUNv5O2XEBiXNYPgiejT/MjllsLXxDfXX
-	YLKS+pEjT/BU30oSNDYysGzl5UgfUXlnqbAGvJFLKtQo47MjFF7yQ3ih58DXxiJecBJA3yzAGRb
-	SOLTQJH2hFyT2HxgMSpiwGpOpeQ64WKTu0ri7Uivc4suQjDl3yUoMLya7KmCZMPc5We0F70xKOH
-	4LNVflCw+K6Hz2HBtC+uCRxiD2+hyr7WE7YXSCq2dtAMcSZ1COzaB/MAdLGkkfMfOxjJG+KWuFh
-	ApCZ0HIdQKky4hYOi8/9ghxjLnbjK8/rKZ4DK45QxQ3WGymAlfPRjeS+ltDAZ9pIiUG0GQ8+yIP
-	JdI+FEF++DPea
-X-Received: by 2002:a17:902:f610:b0:24c:965a:f94d with SMTP id d9443c01a7336-294deee4d1cmr75107165ad.46.1761818192844;
-        Thu, 30 Oct 2025 02:56:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG2pXZ7cZHIBfeTvJZ9UTRYJGapckxL928FafPCFjdaoQizWWG6Hm16UWtFXWraP2nuOKNJTA==
-X-Received: by 2002:a17:902:f610:b0:24c:965a:f94d with SMTP id d9443c01a7336-294deee4d1cmr75106445ad.46.1761818191892;
-        Thu, 30 Oct 2025 02:56:31 -0700 (PDT)
-Received: from oss.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-294eeb94d63sm22841075ad.5.2025.10.30.02.56.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 02:56:31 -0700 (PDT)
-Date: Thu, 30 Oct 2025 15:26:25 +0530
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: remove MAC_CTRL_REG
- modification
-Message-ID: <aQM2Sfdu2NqnEB86@oss.qualcomm.com>
-References: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
+        bh=absgbM/LagsR81VTr9YW+eGimVEtdVPICEXyNcDYF+E=;
+        b=InxvBA54BDCMLg/kNKvkGXv2M8GvHoM3vzE5Bg+NezMf9kVGDxvbIEoUsO4/RXBBVK
+         ZyIGERrAR24waG5BIfR3o8SQ9Lj09LZnWShxBTCG6ULuvLbirC5PUdOLheUbr2jjhKg9
+         Oa83+VNJAlMsdhKpBj1h6PRUoFu69NDVLSUAv5Remh1xXFzlbC0NcJ4fHV4/MEQTzk3p
+         5kzm2LTaHdnZNbG1m4jzBoYGElKB/F5I+DY/xGWt/u/k+7b5Le1b0QPrIqL4Gfxsxwh6
+         UukNouPTRB/bsj46RleUmEfl6k6cfd7YttdeCT2Cg/dxHbuQp5XN9m/0xmmS9yYkQPTx
+         HOtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761818333; x=1762423133;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=absgbM/LagsR81VTr9YW+eGimVEtdVPICEXyNcDYF+E=;
+        b=DRU3UWytbP1ErKC/yY/U+mzeohTSgyWYeyuUZODTBjBKlik60X3ycLYlw1To//ZYe3
+         SbW0O5LN7NAHxmnq8iqUmva+GcEo+ieYig8dNSwh7ICTVAwZL285goa5MBWuyYd3fX7R
+         P3OBSbCotFV70uSSI7/4hFrTTx4Y5z03h5uRh11rcH1w9J5h+UrTg7oKuyVrAcbwy9LI
+         XtKYZubyCaVSoD7125A5J/DVdcNgxXBI8tw/FDxXyWdSWWzYu/lCTzIYJ7OSU4V6L82B
+         NlSJ1F4BezTuaUY7lcBcXLyAzKRh+Lptg/cu9u4XtiR/eeID4wfrY7UKFR7u8/iJiCSu
+         qZaA==
+X-Forwarded-Encrypted: i=1; AJvYcCU5nkYSoqlgnkDmxJdinVfj0Q9XauG1laSE8+1C6BfgQCPKwAn5pvJoUuePzstBtuu0XGaSRLr4tC/LIgFXH/aR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwprvCmk1snIjjqIt+eTR2TuGcr2YSN2X7DFG6wKOdy5aCD9OGx
+	uEYyMM4ZX9pBWh+8Q9S3g78H4bqmd/EIrLyvoLOtMNQIfvGy2IU9ynVUyHIibDeZR8jRMKwWl4F
+	PyuTVof3g/Qb2ZHaNVgK3G/Sv1wwfRIYa8Vr+lVPeBg==
+X-Gm-Gg: ASbGncu0uZMW7iU6KOeb+eSV11nXMfmy77xThq9efJT4g0J50TIUviPWjMxrmjXz372
+	A8DFtdBVG+/vc3iv9OyDuYmTQECbIWNgPOmiQO/90e1qo1lTufsrqe1XQlW8KcxRXtF6pdfXaMK
+	g8vKuPrTQO+3gtXEY6bbDx7T1DKx63PKvk+DmuqHQFoEMKeGd4HLH0zrYYhC986C8WWCFfu++jf
+	RCa4sw3IOYABqxq98+zQzzerazC9YvCpIE7tBH+ZYY1wc16U/u10sR76CK/VjuHmDmJbh6E83AX
+	T/mQEqt/USpdsna23w==
+X-Google-Smtp-Source: AGHT+IFUqnazSY7z2FvEnJeUXVSF4JyDn7tHHUK1IgsgMoaK9NxJ/ZQbLMAQh5fAN6xuof8Hnoac1Yfo6fFL9g5N6Eo=
+X-Received: by 2002:a05:620a:290b:b0:8a3:cd9e:e3f6 with SMTP id
+ af79cd13be357-8a8e30e4888mr842034085a.7.1761818333214; Thu, 30 Oct 2025
+ 02:58:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
-X-Proofpoint-GUID: GCQNzsPooZTjR_aGKhAnfRnIKzaUjYPQ
-X-Authority-Analysis: v=2.4 cv=D+ZK6/Rj c=1 sm=1 tr=0 ts=69033651 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=PHq6YzTAAAAA:8 a=EUspDBNiAAAA:8
- a=YjBZYspd3xVaAZo-ivoA:9 a=CjuIK1q_8ugA:10 a=GvdueXVYPmCkWapjIL-Q:22
- a=ZKzU8r6zoKMcqsNulkmm:22
-X-Proofpoint-ORIG-GUID: GCQNzsPooZTjR_aGKhAnfRnIKzaUjYPQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDMwMDA4MCBTYWx0ZWRfX+m/LFzuqd7MW
- 5wNp0frSR/H0/aam7afTUPxU4I940N4dAnVO5VJ6QBm/ojcj2Mh6OB9558BgsJZS1nmRhO/JJIb
- 89/Sa96kcOtjISmqawFd0MLDnIyrUuDZdbSRCDvmyZRESNIZ3ELpdBBonHsdJ5sgEXoUaktDZJb
- 9I7NUxK4icYhvJFpM2u+wLg8tCZy3GIX0Hg/Doks9z8Fk9iSL0AIfLkOepYzneIcQfGgluhAOtg
- l6VCafNxYeptvBf6oSdh2oGbdPlkQWyEo7CYb3QScK4wyL3rHqxEC4HkXGL3SwBTkIgNWKxBtXC
- sQVLUuMdrVz6TxztFnooZJsQKAdxcCXhs2jXPMof7sYeN9R0eQf0U38tX1QODbiaOP+yQ8V5Rhi
- R1r2k84C3XKS6KjI7o27zM67iTqQkQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-10-30_02,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 malwarescore=0 phishscore=0 lowpriorityscore=0
- priorityscore=1501 adultscore=0 clxscore=1015 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2510300080
+References: <20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com>
+ <CAJ9a7VipQh=y0o+6k=fLMMK408E5eGD6vhY2TKBMm+q63NUiWA@mail.gmail.com> <7451a3ae-2b3f-4e07-b93c-0507436d0f33@oss.qualcomm.com>
+In-Reply-To: <7451a3ae-2b3f-4e07-b93c-0507436d0f33@oss.qualcomm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 30 Oct 2025 09:58:41 +0000
+X-Gm-Features: AWmQ_bl6dSnsH1lqrV1OCHFJI3NpjO7q1p6vQItR60dxg6XPfOvLS9hTosbgaMs
+Message-ID: <CAJ9a7VgxpQ5gTXpaW5pBb+dpZZhXAkrOtxkkiK-KUmvipPm5UQ@mail.gmail.com>
+Subject: Re: [PATCH 00/12] coresight: Add CPU cluster funnel/replicator/tmc support
+To: yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_025635_175096_6EB438B0 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20251030_025855_048958_A7ED24AB 
+X-CRM114-Status: GOOD (  42.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,71 +103,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 10:18:36AM +0000, Russell King (Oracle) wrote:
-> When operating in "SGMII" mode (Cisco SGMII or 2500BASE-X), qcom-ethqos
-> modifies the MAC control register in its ethqos_configure_sgmii()
-> function, which is only called from one path:
-> 
-> stmmac_mac_link_up()
-> +- reads MAC_CTRL_REG
-> +- masks out priv->hw->link.speed_mask
-> +- sets bits according to speed (2500, 1000, 100, 10) from priv->hw.link.speed*
-> +- ethqos_fix_mac_speed()
-> |  +- qcom_ethqos_set_sgmii_loopback(false)
-> |  +- ethqos_update_link_clk(speed)
-> |  `- ethqos_configure(speed)
-> |     `- ethqos_configure_sgmii(speed)
-> |        +- reads MAC_CTRL_REG,
-> |        +- configures PS/FES bits according to speed
-> |        `- writes MAC_CTRL_REG as the last operation
-> +- sets duplex bit(s)
-> +- stmmac_mac_flow_ctrl()
-> +- writes MAC_CTRL_REG if changed from original read
-> ...
-> 
-> As can be seen, the modification of the control register that
-> stmmac_mac_link_up() overwrites the changes that ethqos_fix_mac_speed()
-> does to the register. This makes ethqos_configure_sgmii()'s
-> modification questionable at best.
-> 
-> Analysing the values written, GMAC4 sets the speed bits as:
-> speed_mask = GMAC_CONFIG_FES | GMAC_CONFIG_PS
-> speed2500 = GMAC_CONFIG_FES                     B14=1 B15=0
-> speed1000 = 0                                   B14=0 B15=0
-> speed100 = GMAC_CONFIG_FES | GMAC_CONFIG_PS     B14=1 B15=1
-> speed10 = GMAC_CONFIG_PS                        B14=0 B15=1
-> 
-> Whereas ethqos_configure_sgmii():
-> 2500: clears ETHQOS_MAC_CTRL_PORT_SEL           B14=X B15=0
-> 1000: clears ETHQOS_MAC_CTRL_PORT_SEL           B14=X B15=0
-> 100: sets ETHQOS_MAC_CTRL_PORT_SEL |            B14=1 B15=1
->           ETHQOS_MAC_CTRL_SPEED_MODE
-> 10: sets ETHQOS_MAC_CTRL_PORT_SEL               B14=0 B15=1
->     clears ETHQOS_MAC_CTRL_SPEED_MODE
-> 
-> Thus, they appear to be doing very similar, with the exception of the
-> FES bit (bit 14) for 1G and 2.5G speeds.
+Hi,
 
-Makes sense.
-
-> 
-> Given that stmmac_mac_link_up() will write the MAC_CTRL_REG after
-> ethqos_configure_sgmii(), remove the unnecessary update in the
-> glue driver's ethqos_configure_sgmii() method, simplifying the code.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
-> Ayaan, please can you also test this patch? I believe that this
-> code is unnecessary as per the analysis in the commit message.
-> Thanks.
-> 
->  .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c  | 16 +---------------
->  1 file changed, 1 insertion(+), 15 deletions(-)
+On Thu, 30 Oct 2025 at 07:51, yuanfang zhang
+<yuanfang.zhang@oss.qualcomm.com> wrote:
+>
+>
+>
+> On 10/29/2025 7:01 PM, Mike Leach wrote:
+> > Hi,
+> >
+> > This entire set seems to initially check the generic power domain for
+> > a list of associated CPUs, then check CPU state for all other
+> > operations.
+> >
+> > Why not simply use the generic power domain state itself, along with
+> > the power up / down notifiers to determine if the registers are safe
+> > to access? If the genpd is powered up then the registers must be safe
+> > to access?
+> >
+> > Regards
+> >
+> > Mike
+> >
+>
+> Hi Mike,
+>
+> Hi,
+>
+> yes, when genpd is powered up then register can be accessed. but have blo=
+w problems:
 >
 
-Tested on top of net-next on the Qualcomm QCS9100 Ride R3 board and
-found no issues, so:
+The point I was making is to use genpd / notifications for determine
+if the device is powered so you know if it is safe to use registers.
+This is different from the faults you mention below in your power
+infrastructure.
+You are reading the dev->pm_domain to extract the cpu map then the
+notfiers and state must also be available. If you could use CPUHP
+notifiers then genpd notifiers would also work.
+However, one issue I do see with this is that there is no code added
+to the driver to associate the dev with the pm_domain which would
+normally be there so I am unclear how this actually works.
 
-Tested-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Associating a none CPU device with a bunch of CPUs does not seem
+correct. You are altering a generic coresight driver to solve a
+specific platform problem, when other solutions should be used.
 
+> 1. pm_runtime_sync can trigger cluster power domian power up notifier but=
+ not really
+> power up the cluster, and not able to distinguish whether it is a real po=
+wer up notifier
+> or triggered by pm_runtime_sync.
+> 2. Using the power up/down notifier cannot actively wake up the cluster p=
+ower,
+> which results in the components related to this cluster failing to be ena=
+bled when the cluster
+> power off.
+> 3. Using the power up/down notifier for register access does not guarante=
+e
+> the correct path enablement sequence.
+>
+
+Does all this not simply mean that you need to fix your power
+management drivers / configuration so that it works correctly, rather
+than create a poor workaround in unrelated drivers such as the
+coresight devices?
+
+Thanks and  Regards
+
+
+
+Mike
+
+> thanks,
+> yuanfang
+>
+> > On Tue, 28 Oct 2025 at 06:28, Yuanfang Zhang
+> > <yuanfang.zhang@oss.qualcomm.com> wrote:
+> >>
+> >> This patch series introduces support for CPU cluster local CoreSight c=
+omponents,
+> >> including funnel, replicator, and TMC, which reside inside CPU cluster
+> >> power domains. These components require special handling due to power
+> >> domain constraints.
+> >>
+> >> Unlike system-level CoreSight devices, CPU cluster local components sh=
+are the
+> >> power domain of the CPU cluster. When the cluster enters low-power mod=
+e (LPM),
+> >> the registers of these components become inaccessible. Importantly, `p=
+m_runtime_get`
+> >> calls alone are insufficient to bring the CPU cluster out of LPM, maki=
+ng
+> >> standard register access unreliable in such cases.
+> >>
+> >> To address this, the series introduces:
+> >> - Device tree bindings for CPU cluster local funnel, replicator, and T=
+MC.
+> >> - Introduce a cpumask to record the CPUs belonging to the cluster wher=
+e the
+> >>   cpu cluster local component resides.
+> >> - Safe register access via smp_call_function_single() on CPUs within t=
+he
+> >>   associated cpumask, ensuring the cluster is power-resident during ac=
+cess.
+> >> - Delayed probe support for CPU cluster local components when all CPUs=
+ of
+> >>   this CPU cluster are offline, re-probe the component when any CPU in=
+ the
+> >>   cluster comes online.
+> >> - Introduce `cs_mode` to link enable interfaces to avoid the use
+> >>   smp_call_function_single() under perf mode.
+> >>
+> >> Patch summary:
+> >> Patch 1: Adds device tree bindings for CPU cluster funnel/replicator/T=
+MC devices.
+> >> Patches 2=E2=80=933: Add support for CPU cluster funnel.
+> >> Patches 4-6: Add support for CPU cluster replicator.
+> >> Patches 7-10: Add support for CPU cluster TMC.
+> >> Patch 11: Add 'cs_mode' to link enable functions.
+> >> Patches 12-13: Add Coresight nodes for APSS debug block for x1e80100 a=
+nd
+> >> fix build issue.
+> >>
+> >> Verification:
+> >>
+> >> This series has been verified on sm8750.
+> >>
+> >> Test steps for delay probe:
+> >>
+> >> 1. limit the system to enable at most 6 CPU cores during boot.
+> >> 2. echo 1 >/sys/bus/cpu/devices/cpu6/online.
+> >> 3. check whether ETM6 and ETM7 have been probed.
+> >>
+> >> Test steps for sysfs mode:
+> >>
+> >> echo 1 >/sys/bus/coresight/devices/tmc_etf0/enable_sink
+> >> echo 1 >/sys/bus/coresight/devices/etm0/enable_source
+> >> echo 1 >/sys/bus/coresight/devices/etm6/enable_source
+> >> echo 0 >/sys/bus/coresight/devices/etm0/enable_source
+> >> echo 0 >/sys/bus/coresight/devicse/etm6/enable_source
+> >> echo 0 >/sys/bus/coresight/devices/tmc_etf0/enable_sink
+> >>
+> >> echo 1 >/sys/bus/coresight/devices/tmc_etf1/enable_sink
+> >> echo 1 >/sys/bus/coresight/devcies/etm0/enable_source
+> >> cat /dev/tmc_etf1 >/tmp/etf1.bin
+> >> echo 0 >/sys/bus/coresight/devices/etm0/enable_source
+> >> echo 0 >/sys/bus/coresight/devices/tmc_etf1/enable_sink
+> >>
+> >> echo 1 >/sys/bus/coresight/devices/tmc_etf2/enable_sink
+> >> echo 1 >/sys/bus/coresight/devices/etm6/enable_source
+> >> cat /dev/tmc_etf2 >/tmp/etf2.bin
+> >> echo 0 >/sys/bus/coresight/devices/etm6/enable_source
+> >> echo 0 >/sys/bus/coresight/devices/tmc_etf2/enable_sink
+> >>
+> >> Test steps for sysfs node:
+> >>
+> >> cat /sys/bus/coresight/devices/tmc_etf*/mgmt/*
+> >>
+> >> cat /sys/bus/coresight/devices/funnel*/funnel_ctrl
+> >>
+> >> cat /sys/bus/coresight/devices/replicator*/mgmt/*
+> >>
+> >> Test steps for perf mode:
+> >>
+> >> perf record -a -e cs_etm//k -- sleep 5
+> >>
+> >> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> >> ---
+> >> Yuanfang Zhang (12):
+> >>       dt-bindings: arm: coresight: Add cpu cluster tmc/funnel/replicat=
+or support
+> >>       coresight-funnel: Add support for CPU cluster funnel
+> >>       coresight-funnel: Handle delay probe for CPU cluster funnel
+> >>       coresight-replicator: Add support for CPU cluster replicator
+> >>       coresight-replicator: Handle delayed probe for CPU cluster repli=
+cator
+> >>       coresight-replicator: Update mgmt_attrs for CPU cluster replicat=
+or compatibility
+> >>       coresight-tmc: Add support for CPU cluster ETF and refactor prob=
+e flow
+> >>       coresight-tmc-etf: Refactor enable function for CPU cluster ETF =
+support
+> >>       coresight-tmc: Update tmc_mgmt_attrs for CPU cluster TMC compati=
+bility
+> >>       coresight-tmc: Handle delayed probe for CPU cluster TMC
+> >>       coresight: add 'cs_mode' to link enable functions
+> >>       arm64: dts: qcom: x1e80100: add Coresight nodes for APSS debug b=
+lock
+> >>
+> >>  .../bindings/arm/arm,coresight-dynamic-funnel.yaml |  23 +-
+> >>  .../arm/arm,coresight-dynamic-replicator.yaml      |  22 +-
+> >>  .../devicetree/bindings/arm/arm,coresight-tmc.yaml |  22 +-
+> >>  arch/arm64/boot/dts/qcom/x1e80100.dtsi             | 885 ++++++++++++=
++++++++++
+> >>  arch/arm64/boot/dts/qcom/x1p42100.dtsi             |  12 +
+> >>  drivers/hwtracing/coresight/coresight-core.c       |   7 +-
+> >>  drivers/hwtracing/coresight/coresight-funnel.c     | 260 +++++-
+> >>  drivers/hwtracing/coresight/coresight-replicator.c | 343 +++++++-
+> >>  drivers/hwtracing/coresight/coresight-tmc-core.c   | 396 +++++++--
+> >>  drivers/hwtracing/coresight/coresight-tmc-etf.c    | 105 ++-
+> >>  drivers/hwtracing/coresight/coresight-tmc.h        |  10 +
+> >>  drivers/hwtracing/coresight/coresight-tnoc.c       |   3 +-
+> >>  drivers/hwtracing/coresight/coresight-tpda.c       |   3 +-
+> >>  include/linux/coresight.h                          |   3 +-
+> >>  14 files changed, 1912 insertions(+), 182 deletions(-)
+> >> ---
+> >> base-commit: 01f96b812526a2c8dcd5c0e510dda37e09ec8bcd
+> >> change-id: 20251016-cpu_cluster_component_pm-ce518f510433
+> >>
+> >> Best regards,
+> >> --
+> >> Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> >>
+> >
+> >
+>
+
+
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
