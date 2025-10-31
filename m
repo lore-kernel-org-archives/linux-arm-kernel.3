@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CA2CCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 05:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0997DCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 06:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEOgTP2F1hs/f1FQ+VeLSXN46Rarm6UBX8onQC94+5k=; b=vYvmuvuDig7anMi2f/SBCptB0k
-	Mw1JKEnnppKn/7ZAQvGqZ+o9fQqakBnByXI3AeXmJylspEUCXW+ArJYEyCly4KN9Aydfo9ANfSWX4
-	wdMZWlx5SfMBur+SC0cqw3XwIYf/VAe8mXHQnps9+VoVAK5y0GuyglIlatfLO7coE1k+lUJHTvCRQ
-	3tqu9YLBYWvjyNP/q3eU844AZuPS2TtZoo8geLsLDzoQ/fHGFmROuhdEfGWMO/npRaBf7TITYIRqN
-	h6PfsKOm6WsdjFVmy7KMonMfdkkOe1VaEs7+v/VdWQgL+Z8p8zLeGk93bNmnxnY8hRznpMeQIgLUE
-	ZeTEIIrQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BDqvmW3n1T9w5lyhn4x787JGLJmqcBz+zhocvjVYgF4=; b=dc2qhWDjnVEDlAbeFpvTCgaBLS
+	DMF8oZrU2tJkdSFQB7lAb4MoEj0YGIcvyALevL6o5dDzXucF3i8VdfsAgFTuk4qsFFxSnB2/CuPrP
+	fez6E+Jz+1FG9K6pdgYXIky5odyC/Ah3FREiygDLT63kEXPAqYdIGb+ePGmGlb6xid0za8wYsu+rN
+	aIJIR0f88K7f03OLJV6wbOlqRkFxtIDDOvoTncWFBe2PHu9ALHlqS+9vrzSP9XhdWyL4KEuQQ84U9
+	6JkYFJM2AyFp+zZkrvCza/ksoyxhVfBwmIhCp7NCFi2uo48y8kF4VEtXkwuoPeTY5uW+eRG3NCTRL
+	j1Iqi5ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEhoU-00000005PyQ-3ENU;
-	Fri, 31 Oct 2025 05:36:38 +0000
-Received: from dd54918.kasserver.com ([85.13.167.58])
+	id 1vEiEx-00000005Qfg-48Y0;
+	Fri, 31 Oct 2025 06:03:59 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEhoR-00000005Py1-3T6A
+	id 1vEiEt-00000005QfG-2tug
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 05:36:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=karo-electronics.de;
-	s=kas202509031142; t=1761888991;
-	bh=QEOgTP2F1hs/f1FQ+VeLSXN46Rarm6UBX8onQC94+5k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=m4Ibix9A19d2WoDL0t2sgknFG54TrAnjI2kLOQM63KHnq4poS2cJ3U/xPZgB/lz77
-	 XJYJTbGijsdnFQmQwpbB1noJveQg3ADs0KqIyi3jIFOkkaNhFjDnaLOgFDQdZX6bbZ
-	 yQPy2+G7n9o2FTlhDtYCbEtnE45YPLCC4XZdO4EfCGzHRm9g28n5YPNnQ/8jxzRVCy
-	 eKsfCvwCYnpu4RXGg5IAmZPlJPKDhywIjrYN/HFeJNRu1nJmZJp52sK0WFhAVUvWRC
-	 M4UqGE/nSU0IHxrCJlpRVpRssdCFS7prFeJraSjJZy9VmeU404fk+oMvT3wqntq0CU
-	 LLDUES2v45HNA==
-Received: from karo-electronics.de (unknown [89.1.81.74])
-	by dd54918.kasserver.com (Postfix) with ESMTPSA id 6E27E772C602;
-	Fri, 31 Oct 2025 06:36:31 +0100 (CET)
-Date: Fri, 31 Oct 2025 06:36:31 +0100
-From: Lothar =?UTF-8?B?V2HDn21hbm4=?= <LW@KARO-electronics.de>
-To: Maud Spierings <maudspierings@gocontroll.com>
-Cc: Matti Vaittinen <mazziesaccount@gmail.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/5] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
-Message-ID: <20251031063631.0ea1ec32@karo-electronics.de>
-In-Reply-To: <036a04e1-3cb7-44c3-8836-3640f640b4a4@gocontroll.com>
-References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
-	<20251022-mini_iv-v2-3-20af8f9aac14@gocontroll.com>
-	<a7012995-c2a8-48a3-abe1-5c227272f21c@gmail.com>
-	<65202d1f-6c4f-4d4e-9fef-85cfb74ec768@gocontroll.com>
-	<938f85b0-4c9b-463a-960a-f5f4e4092480@gocontroll.com>
-	<20251029081138.2161a92a@karo-electronics.de>
-	<4a47b9b5-f482-41b6-a441-7728572c5a0c@gmail.com>
-	<20251029104838.44c5adcf@karo-electronics.de>
-	<d05c62c9-7ed7-46e4-aa4d-27172741b5ee@gmail.com>
-	<0667e026-99f3-4233-b3f6-e38273961d49@gocontroll.com>
-	<20251030095434.1dc06df2@karo-electronics.de>
-	<036a04e1-3cb7-44c3-8836-3640f640b4a4@gocontroll.com>
-Organization: Ka-Ro electronics GmbH
+	Fri, 31 Oct 2025 06:03:58 +0000
+Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
+	by APP-01 (Coremail) with SMTP id qwCowADXQGtDUQRp8+G6AA--.2437S2;
+	Fri, 31 Oct 2025 14:03:49 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: patrice.chotard@foss.st.com,
+	sean@mess.org,
+	mchehab@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Haotian Zhang <vulab@iscas.ac.cn>
+Subject: [PATCH] media: rc: st_rc: fix reset control resource leak
+Date: Fri, 31 Oct 2025 14:03:32 +0800
+Message-ID: <20251031060332.1470-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Spamd-Bar: +
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowADXQGtDUQRp8+G6AA--.2437S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtrW5urWfZrWfCF1xZr45trb_yoWkZrX_ur
+	47ZFy29r4xKryYkr1Dtr4IvayakFZ0y3W8XFZ3tFZIgFWqqF4UZryqvryjvr17ur47ur9r
+	CayUXFWS934xAjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb4kFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Jr0_
+	Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
+	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIY
+	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14
+	v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8
+	JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUYCJmUU
+	UUU
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgwMA2kEG5m3wQAAsc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_223636_317651_BE1116C0 
-X-CRM114-Status: GOOD (  51.93  )
+X-CRM114-CacheID: sfid-20251030_230356_317699_79607CEB 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,295 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The driver calls reset_control_get_optional_exclusive() but never calls
+reset_control_put() in error paths or in the remove function. This causes
+a resource leak when probe fails after successfully acquiring the reset
+control, or when the driver is unloaded.
 
-On Thu, 30 Oct 2025 15:45:14 +0100 Maud Spierings wrote:
-> Hi Lothar,
->=20
-> On 10/30/25 09:54, Lothar Wa=C3=9Fmann wrote:
-> > Hi,
-> >=20
-> > On Wed, 29 Oct 2025 16:35:25 +0100 Maud Spierings wrote: =20
-> >> Hi Matti,
-> >>
-> >> On 10/29/25 11:05, Matti Vaittinen wrote: =20
-> >>> On 29/10/2025 11:48, Lothar Wa=C3=9Fmann wrote: =20
-> >>>> Hi,
-> >>>>
-> >>>> On Wed, 29 Oct 2025 10:42:17 +0200 Matti Vaittinen wrote: =20
-> >>>>> On 29/10/2025 09:11, Lothar Wa=C3=9Fmann wrote: =20
-> >>>>>> Hi,
-> >>>>>>
-> >>>>>> On Tue, 28 Oct 2025 14:10:04 +0100 Maud Spierings wrote: =20
-> >>>>>>> On 10/28/25 13:42, Maud Spierings wrote: =20
-> >>>>>>>> On 10/28/25 13:15, Matti Vaittinen wrote: =20
-> >>>>>> [...] =20
-> >>>>>>>>> Could/Should this be described using the:
-> >>>>>>>>> 'rohm,feedback-pull-up-r1-ohms' and
-> >>>>>>>>> 'rohm,feedback-pull-up-r2-ohms'? If I understand the comment
-> >>>>>>>>> correctly, that might allow the driver to be able to use correc=
-tly
-> >>>>>>>>> scaled voltages.
-> >>>>>>>>>
-> >>>>>>>>> https://elixir.bootlin.com/linux/v6.18-rc1/source/Documentation/
-> >>>>>>>>> devicetree/bindings/regulator/rohm,bd71837-regulator.yaml#L108 =
-=20
-> >>>>>>>>
-> >>>>>>>> Ah I didn't know those existed, should've checked the bindings in
-> >>>>>>>> more
-> >>>>>>>> detail, thanks for the hint!
-> >>>>>>>>
-> >>>>>>>> I will have to investigate this carefully, since I don't have
-> >>>>>>>> access to
-> >>>>>>>> the actual design of the COM, so I don't know exactly what is th=
-ere. =20
-> >>>>>>>
-> >>>>>>> So I am not yet entirely sure if this works out, I used the
-> >>>>>>> calculation
-> >>>>>>> in the driver:
-> >>>>>>>
-> >>>>>>> /*
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * Setups where regulator (especially the buck=
-8) output voltage
-> >>>>>>> is scaled
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * by adding external connection where some ot=
-her regulator
-> >>>>>>> output is
-> >>>>>>> connected
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * to feedback-pin (over suitable resistors) i=
-s getting popular
-> >>>>>>> amongst
-> >>>>>>> users
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * of BD71837. (This allows for example scalin=
-g down the buck8
-> >>>>>>> voltages
-> >>>>>>> to suit
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * lover GPU voltages for projects where buck8=
- is (ab)used to
-> >>>>>>> supply power
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * for GPU. Additionally some setups do allow =
-DVS for buck8 but
-> >>>>>>> as this do
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * produce voltage spikes the HW must be evalu=
-ated to be able to
-> >>>>>>> survive this
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * - hence I keep the DVS disabled for non DVS=
- bucks by default. I
-> >>>>>>> don't want
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * to help you burn your proto board)
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * So we allow describing this external connec=
-tion from DT and
-> >>>>>>> scale the
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * voltages accordingly. This is what the conn=
-ection should look
-> >>>>>>> like:
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * |------------|
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * |=C2=A0=C2=A0=C2=A0 buck 8=C2=A0 |-------+-=
----->Vout
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * |=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- |=C2=A0=C2=A0=C2=A0 |
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * |------------|=C2=A0=C2=A0=C2=A0 |
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0 | FB pin=C2=A0=C2=A0=C2=
-=A0 |
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0 +-------+--R2---+
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 R1
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0 V FB-pull-up
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *=C2=A0=C2=A0=C2=A0 Here the buck output is s=
-ifted according to formula:
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * Vout_o =3D Vo - (Vpu - Vo)*R2/R1
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * Linear_step =3D step_orig*(R1+R2)/R1
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * where:
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * Vout_o is adjusted voltage output at vsel r=
-eg value 0
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * Vo is original voltage output at vsel reg v=
-alue 0
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * Vpu is the pull-up voltage V FB-pull-up in =
-the picture
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * R1 and R2 are resistor values.
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 *
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * As a real world example for buck8 and a spe=
-cific GPU:
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * VLDO =3D 1.6V (used as FB-pull-up)
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * R1 =3D 1000ohms
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * R2 =3D 150ohms
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * VSEL 0x0 =3D> 0.8V =E2=80=93 (VLDO =E2=80=
-=93 0.8) * R2 / R1 =3D 0.68V
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 * Linear Step =3D 10mV * (R1 + R2) / R1 =3D 1=
-1.5mV
-> >>>>>>>  =C2=A0=C2=A0=C2=A0 */
-> >>>>>>>
-> >>>>>>> Because I do not know the pull up voltage, and I am not sure if it
-> >>>>>>> is a
-> >>>>>>> pull up.
-> >>>>>>>
-> >>>>>>> So:
-> >>>>>>> Vout_o =3D 1.35V
-> >>>>>>> Vo =3D 1.1V
-> >>>>>>> Vpu =3D unknown
-> >>>>>>> R2 =3D 499 Ohm
-> >>>>>>> R1 =3D 2200 Ohm
-> >>>>>>> Gives:
-> >>>>>>> Vpu =3D ~0V
-> >>>>>>>
-> >>>>>>> And:
-> >>>>>>> Vout_o =3D 1.35V
-> >>>>>>> Vo =3D 1.1V
-> >>>>>>> Vpu =3D unknown
-> >>>>>>> R2 =3D 2200 Ohm
-> >>>>>>> R1 =3D 499 Ohm
-> >>>>>>> Gives:
-> >>>>>>> Vpu =3D ~1.04V
-> >>>>>>>
-> >>>>>>> I am not quite sure which resistor is R1 and which is R2 but havi=
-ng
-> >>>>>>> there be a pull down to 0V seems the most logical answer?
-> >>>>>>>
-> >>>>>>> I am adding Lothar from Ka-Ro to the CC maybe he can shed some
-> >>>>>>> light on
-> >>>>>>> this setup. =20
-> >>>>>> R2 is connected to GND, so Vpu =3D 0.
-> >>>>>> With:
-> >>>>>>  =C2=A0=C2=A0=C2=A0=C2=A0regulator-min-microvolt =3D <1350000>;
-> >>>>>>  =C2=A0=C2=A0=C2=A0=C2=A0regulator-max-microvolt =3D <1350000>;
-> >>>>>>  =C2=A0=C2=A0=C2=A0=C2=A0rohm,fb-pull-up-microvolt =3D <0>;
-> >>>>>>  =C2=A0=C2=A0=C2=A0=C2=A0rohm,feedback-pull-up-r1-ohms =3D <2200>;
-> >>>>>>  =C2=A0=C2=A0=C2=A0=C2=A0rohm,feedback-pull-up-r2-ohms =3D <499>;
-> >>>>>> the correct voltage should be produced on the BUCK8 output, but a =
-quick
-> >>>>>> test with these parameters led to:
-> >>>>>> |failed to get the current voltage: -EINVAL
-> >>>>>> |bd718xx-pmic bd71847-pmic.3.auto: error -EINVAL: failed to regist=
-er
-> >>>>>> buck6 regulator
-> >>>>>> |bd718xx-pmic: probe of bd71847-pmic.3.auto failed with error -22
-> >>>>>>
-> >>>>>> Apparently noone has ever tested this feature in real life. =20
-> >>>>>
-> >>>>> Thanks for trying it out Lothar. I am positive this was tested - but
-> >>>>> probably the use-case has been using a pull-up. I assume having the=
- zero
-> >>>>> pull-up voltage causes the driver to calculate some bogus values. I
-> >>>>> think fixing the computation in the driver might not be that big of=
- a
-> >>>>> task(?) The benefit of doing it would be that the correct voltages =
-would
-> >>>>> be calculated by the driver.
-> >>>>>
-> >>>>> If real voltages aren't matching what is calculated by the driver, =
-then
-> >>>>> the voltages requested by regulator consumers will cause wrong volt=
-ages
-> >>>>> to be applied. Debug interfaces will also show wrong voltages, and =
-the
-> >>>>> safety limits set in the device-tree will not be really respected.
-> >>>>>
-> >>>>> I think this would be well worth fixing.
-> >>>>>    =20
-> >>>> Before doing the real-life test I did the same calculation that's do=
-ne
-> >>>> in the driver to be sure that it will generate the correct values:
-> >>>> bc 1.07.1
-> >>>> Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017
-> >>>> Free Software Foundation, Inc.
-> >>>> This is free software with ABSOLUTELY NO WARRANTY.
-> >>>> For details type `warranty'.
-> >>>> fb_uv=3D0
-> >>>> r1=3D2200
-> >>>> r2=3D499
-> >>>> min=3D800000
-> >>>> step=3D10000
-> >>>> # default voltage without divider
-> >>>> min+30*step
-> >>>> 1100000
-> >>>> min=3Dmin-(fb_uv-min)*r2/r1
-> >>>> step=3Dstep*(r1+r2)/r1
-> >>>> min
-> >>>> 981454
-> >>>> step
-> >>>> 12268
-> >>>> # default voltage with divider
-> >>>> min+30*step
-> >>>> 1349494
-> >>>>
-> >>>> Probably we need to use this value rather than the nominal 135000 as
-> >>>> the target voltage in the DTB. =20
-> >>>
-> >>> Yes. When the driver calculates the voltages which match the actual
-> >>> voltages, then you should also use the actual voltages in the device-=
-tree.
-> >>>     =20
-> >>
-> >> Think I've got it:
-> >>
-> >> diff --git a/drivers/regulator/bd718x7-regulator.c
-> >> b/drivers/regulator/bd718x7-regulator.c
-> >> index 022d98f3c32a2..ea9c4058ee6a5 100644
-> >> --- a/drivers/regulator/bd718x7-regulator.c
-> >> +++ b/drivers/regulator/bd718x7-regulator.c
-> >> @@ -1613,6 +1613,8 @@ static int setup_feedback_loop(struct device *de=
-v,
-> >> struct device_node *np,
-> >>                                   step /=3D r1;
-> >>
-> >>                                   new[j].min =3D min;
-> >> +                               new[j].min_sel =3D
-> >> desc->linear_ranges[j].min_sel;
-> >> +                               new[j].max_sel =3D
-> >> desc->linear_ranges[j].max_sel;
-> >>                                   new[j].step =3D step;
-> >>
-> >>                                   dev_dbg(dev, "%s: old range min %d,
-> >> step %d\n",
-> >>
-> >>
-> >> the min_sel and max_sel fields were uninitialized in the new
-> >> linear_range, copying them over from the old one (they refer to the
-> >> register range if I understand correctly so they should not change)
-> >> initializes them.
-> >>
-> >> Then setting 1349494 as the actual voltage makes it fully work.
-> >> Otherwise it complains:
-> >> buck6: failed to apply 1350000-1350000uV constraint: -EINVAL
-> >>
-> >> Final debug output now:
-> >> [    0.327807] rohm-bd718x7 0-004b: buck6: old range min 800000, step =
-10000
-> >> [    0.327813] rohm-bd718x7 0-004b: new range min 981454, step 12268
-> >> [    0.327819] rohm-bd718x7 0-004b: regulator 'buck6' has FB pull-up
-> >> configured
-> >>
-> >> I will add this fix to the next version of this patchset and include
-> >> your requested change in the dts.
-> >> =20
-> > Does it also work with min/max settings in the DTS that are taken from
-> > the designated value +/- 5% tolerance margin, so that the DTS contains
-> > reasonable values determined by the HW requirements, rather than some
-> > artificial number that is enforced by the SW behaviour?
-> > E.g.:
-> > 	regulator-min-microvolts =3D <(135000 - 6750)>;
-> > 	regulator-min-microvolts =3D <(135000 + 6750)>;
-> > Thus, the nominal value of the voltage is explicitly shown in the DTS
-> > file. =20
->=20
-> Setting that range seems to work:
->=20
-I just checked the datasheet of the DRAM powered by the regulator. The volt=
-age
-tolerance of the 1.35V supply is -.067 V + .1 V.
-I.e. the voltage settings should be:
-	regulator-min-microvolts =3D <(135000 - 6700)>;
-	regulator-max-microvolts =3D <(135000 + 10000)>;
-to match the actual requirements of the consumer for this regulator.
+Switch to devm_reset_control_get_optional_exclusive() to automatically
+manage the reset control resource.
 
+Fixes: a4b80242d046 ("media: st-rc: explicitly request exclusive reset control")
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ drivers/media/rc/st_rc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Lothar Wa=C3=9Fmann
+diff --git a/drivers/media/rc/st_rc.c b/drivers/media/rc/st_rc.c
+index 6539fa0a6e79..6b70bac5f45d 100644
+--- a/drivers/media/rc/st_rc.c
++++ b/drivers/media/rc/st_rc.c
+@@ -284,7 +284,7 @@ static int st_rc_probe(struct platform_device *pdev)
+ 	else
+ 		rc_dev->rx_base = rc_dev->base;
+ 
+-	rc_dev->rstc = reset_control_get_optional_exclusive(dev, NULL);
++	rc_dev->rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
+ 	if (IS_ERR(rc_dev->rstc)) {
+ 		ret = PTR_ERR(rc_dev->rstc);
+ 		goto err;
+-- 
+2.50.1.windows.1
+
 
