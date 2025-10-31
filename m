@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5F6CCF9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0065CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+isSm0tESAECMiu4x/HWPUg/HqD5qUnglPjpGg08t4=; b=CVV/NvGNjw+Ilu74QtZVG1T3V3
-	kbPX6ibJVThNzJaI/cGPFlBoHkIz8l1rdFrjFS+EwJF/wNkArD8yptkU7BoRyzjBx55AQbu8KYigd
-	KWTj+HKd5T1ePKiJYiw4sNrFhbIfKelhxIBFXEobY+FZpwkbEySSlEjuMbA2wtEMJ916kRx5JCjPn
-	qx3WZZw5uuOwk9sio0ee7jQCyMoDT+BCkWy1kiV3qc9MpqHCdhRwJIOsCEYgcM1MRI8Y/hSyHexcH
-	fx/7SdK6plYdyF9sCjNZX3FszALaW/9XLChXP+C8p9He1IprTp5kJb5PZpsg1H6VTASsEOdKvva4Y
-	TblKHGSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XohFlFyfMWtQ7KuNqOBLJ2SoJCgMcgP941hlwwB7xRA=; b=YOp/BjR9Nr1CVMOuuvJAt8WM1P
+	Lc6lBx+/V3J/urRPT9GPMIMn4WriaEtSc6vOrKb3Yw4gov54oNflzZG/DR8BMOTNE2dRc5IaC9/K9
+	PUt1esS46LfT3MjyXMP7zita77dXKWuEaukgOs7rQDcnYJAasiuZG5gWYxNbDwOM8HCa3sugEEMR/
+	eMqz/QlIXjPP45sHgMe6N1I2vmWma49TZBX7Ea8zYz4kmlLEMwQ6e+ClJKPXQUmnA6YE//eMP+WAa
+	TGEWaC1Wrv3dUStVbewcHkGlXRgkz11IiojEX7SW5AsJkh/TP2OWCJYofO3jGFlum8VyoFKYItDfd
+	d1PPrx2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkZf-00000005fBg-0esv;
-	Fri, 31 Oct 2025 08:33:31 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vEkcO-00000005fNE-3CgB;
+	Fri, 31 Oct 2025 08:36:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkZa-00000005fAb-1w03
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 08:33:29 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CE1B24E4142B;
-	Fri, 31 Oct 2025 08:33:21 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 923CD60704;
-	Fri, 31 Oct 2025 08:33:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5A6C11180FE55;
-	Fri, 31 Oct 2025 09:33:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761899600; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=E+isSm0tESAECMiu4x/HWPUg/HqD5qUnglPjpGg08t4=;
-	b=ZrmssfVqvhNe04qAMQHnanzo8UqXJm0eBpIBMo4B0K2KSgv3M6ae422uEQPY5+QOOrARAA
-	DISItDSoi//vNkuJETrUDYbD194s/hTQpA/IYjgNVyil6qZc1zSYJdfr9Bm2IqqlBh+fhg
-	SX7yOxKnR5+pWTZLADqProCI7CKc3bmE3/NywA7fp84frjGE1vgIGe+j3G5Gcacs8AF3xA
-	NfDhvaauNITCEBu5L+cQ0WVygrpC+Fl9D/Y7ux7vH9ZK0Dz5yrTs/u1/rwJ8ie4dfkhmPw
-	P0r33uZ+NWlfSlSLVWHh4LU22t7aJmVjPmhFn3u8uLCrwOdkCc9qp+Y5P0FCrw==
-Message-ID: <da18cd22-9f9e-4166-8a91-d5b19470c693@bootlin.com>
-Date: Fri, 31 Oct 2025 09:33:17 +0100
+	id 1vEkcM-00000005fN3-1n7j;
+	Fri, 31 Oct 2025 08:36:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84B4961483;
+	Fri, 31 Oct 2025 08:36:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1566C4CEF8;
+	Fri, 31 Oct 2025 08:36:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761899777;
+	bh=Nx7zVNS1vjKGvEyYcqY9qSwj4mu6QiBOxd85u7jmiQA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DB+REZMguC0RGfpKJBoX+sOgdcIi5yciIlZIxO5NxQ2mVNyBQW9mXbO1v7xcjyfm/
+	 w8Bg2yVAzmmOEbt+/hkBBkl4ZurTPtxBiqblO+JZoh7dunXkUEpnG/3MQ6BVEDoyTS
+	 PIfxNd0NLxnmLH6IG0YnjgRLCBYbkXlIw9C6bV28AQ8o13ULg0unlpsJOmdlUU72dD
+	 7TTIF/yUIJt1sb628+EWRPk5KwytqYverSAvRnke86/lZPBok1k1Mi4oTgXV/Rxjnc
+	 3QFS9RncRXyshpnHTskdxE6OFbLzimD+B/SshEmJDRd9YD0BzGvdV3QrZhW1iLSQPK
+	 2H2LSV8a7jbrg==
+Date: Fri, 31 Oct 2025 14:06:05 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 1/2] PCI: dw-rockchip: Add remove callback for
+ resource cleanup
+Message-ID: <b2micr4atfax2sgolsublmjk4kwvbmdnqjlk2lb7cflzeycm5i@bi62lg75ilo6>
+References: <20251027145602.199154-1-linux.amoon@gmail.com>
+ <20251027145602.199154-2-linux.amoon@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: ti_sci: replace ifdeffery by pm_sleep_ptr()
- macro
-To: Nishanth Menon <nm@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Gregory CLEMENT <gregory.clement@bootlin.com>,
- Richard Genoud <richard.genoud@bootlin.com>, Udit Kumar <u-kumar1@ti.com>,
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251014-ti-sci-pm-ops-cleanup-v1-1-70b50b73ac85@bootlin.com>
- <20251031041131.3qmqfitiertc7vdp@scotch>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <20251031041131.3qmqfitiertc7vdp@scotch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_013327_410143_2F43EB3C 
-X-CRM114-Status: GOOD (  11.16  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251027145602.199154-2-linux.amoon@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,73 +76,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Nishanth,
-
-On 10/31/25 5:11 AM, Nishanth Menon wrote:
-> On 10:35-20251014, Thomas Richard (TI.com) wrote:
->> Using pm_sleep_ptr() macro allows to remove ifdeffery and '__maybe_unused'
->> annotations.
->>
->> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
->> ---
->>  drivers/firmware/ti_sci.c | 18 ++++++++----------
->>  1 file changed, 8 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
->> index 49fd2ae01055d0f425062147422471f0fd49e4bd..99a2e0e2960f463918950fef8829409ec365ce70 100644
->> --- a/drivers/firmware/ti_sci.c
->> +++ b/drivers/firmware/ti_sci.c
->> @@ -3706,7 +3706,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
->>  	}
->>  }
->>  
->> -static int __maybe_unused ti_sci_suspend(struct device *dev)
->> +static int ti_sci_suspend(struct device *dev)
->>  {
->>  	struct ti_sci_info *info = dev_get_drvdata(dev);
->>  	struct device *cpu_dev, *cpu_dev_max = NULL;
->> @@ -3746,7 +3746,7 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
->>  	return 0;
->>  }
->>  
->> -static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
->> +static int ti_sci_suspend_noirq(struct device *dev)
->>  {
->>  	struct ti_sci_info *info = dev_get_drvdata(dev);
->>  	int ret = 0;
->> @@ -3758,7 +3758,7 @@ static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
->>  	return 0;
->>  }
->>  
->> -static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
->> +static int ti_sci_resume_noirq(struct device *dev)
->>  {
->>  	struct ti_sci_info *info = dev_get_drvdata(dev);
->>  	int ret = 0;
->> @@ -3780,7 +3780,7 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
->>  	return 0;
->>  }
->>  
->> -static void __maybe_unused ti_sci_pm_complete(struct device *dev)
->> +static void ti_sci_pm_complete(struct device *dev)
+On Mon, Oct 27, 2025 at 08:25:29PM +0530, Anand Moon wrote:
+> Introduce a .remove() callback to the Rockchip DesignWare PCIe
+> controller driver to ensure proper resource deinitialization during
+> device removal. This includes disabling clocks and deinitializing the
+> PCIe PHY.
 > 
-> PTR_IF when CONFIG_PM_SLEEP is disabled will result in these static
-> functions unused, no? should we leave __maybe_unused as is?
 
-PTR_IF is ((cond) ? ptr : NULL)
+How can you remove a driver that is only built-in? You are just sending some
+pointless patches that were not tested and does not make sense at all.
 
-If CONFIG_PM_SLEEP is disabled, after preprocessor step you will have
+Please stop wasting others time.
 
-	.suspend = 0 ? ti_sci_suspend : NULL,
+- Mani
 
-So ti_sci_suspend() is still used. But as the condition is always false,
-the compiler can do some optimization by removing ti_sci_suspend().
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 87dd2dd188b4..b878ae8e2b3e 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -717,6 +717,16 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+>  	return ret;
+>  }
+>  
+> +static void rockchip_pcie_remove(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+> +
+> +	/* Perform other cleanups as necessary */
+> +	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> +	rockchip_pcie_phy_deinit(rockchip);
+> +}
+> +
+>  static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
+>  	.mode = DW_PCIE_RC_TYPE,
+>  };
+> @@ -754,5 +764,6 @@ static struct platform_driver rockchip_pcie_driver = {
+>  		.suppress_bind_attrs = true,
+>  	},
+>  	.probe = rockchip_pcie_probe,
+> +	.remove = rockchip_pcie_remove,
+>  };
+>  builtin_platform_driver(rockchip_pcie_driver);
+> -- 
+> 2.50.1
+> 
 
-PTR_IF macro has a great documentation [1] which describes this use case.
-
-[1]
-https://elixir.bootlin.com/linux/v6.17.5/source/include/linux/util_macros.h#L85-L136
-
-Best Regards,
-Thomas
+-- 
+மணிவண்ணன் சதாசிவம்
 
