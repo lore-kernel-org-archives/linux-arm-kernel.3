@@ -4,85 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEA7CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40C3CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=11j5/uZQMAghzgXtuDV4oHV5EN9s9H5WANv/gaAVaNg=; b=i2hh0PPcCSRhy2gY3vmWOuohjG
-	nn90m2hUQ1vTopqPsYfHnEy172e0HwFcewS2iyHPJYkoWL0S5Hk/LEFvIn0usiumIX27wy1ZG2LBr
-	WEJNsF0dZIOSpMEcF3L8rF6PVjzhzxZhb8u/RxMmU6/i16f8tccCtLcdhKV8beDginlJhVYAIrgAZ
-	PW60EQE0ICDNMn1/hst8CT9CZ1it0tZvNPyCIcxVshMt0LfwIDnkAX8EvGQ9Kwd0hDsXtGDiZXUV+
-	ToQRbzYuCisVEX3bg0oz/rFk1n3LatbQ02iKwC3lIsqmnMr5xqYeqTRTcUN2pYhA+gIwveDoD0N9Y
-	FwKvLIjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eRyeAIdNCNVWpBCeP53EIPuNRhQqWF48SYqRwaIlzas=; b=FrwBSAx18GAdKWA+1EimmkHD37
+	3YzVi4NS29gPwLFMhCLyF0VCnBDFEiyUVbd/e4LxRDi4BBOMhvhTIVb7W21FFdRK1Ae2EtkKnTbmt
+	0Ue6rtSnY26uL77/EPXRoQ8HfcjTxiVX6z7pBB3C5/Fig0SBsK0eNno/QmxZ2gvTjV7X4geeRDdJb
+	FpRFz2Ovu9Je/A9/2ZLhaERaYQPIsSp+2VAs67jsYlscWspApFi9MwCW5O6vQYrmQRK1kByRccqOa
+	ro7DAF8dxIpT8NFq/e9moEvQVzZen6Vuw4uY5lRqU+1mayN+ryNkITGh6U9Ccocxqc+fc/Z1FJdEM
+	PyWWhhlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErbW-00000006MT8-1xw8;
-	Fri, 31 Oct 2025 16:03:54 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vEre7-00000006Mvf-3AAG;
+	Fri, 31 Oct 2025 16:06:36 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErb2-00000006MEk-2eM7;
-	Fri, 31 Oct 2025 16:03:25 +0000
-X-UUID: 1e7dcd48b67311f09f706fa2197c6ceb-20251031
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=11j5/uZQMAghzgXtuDV4oHV5EN9s9H5WANv/gaAVaNg=;
-	b=oyNuBwLAitycPiBPwmLCryg2d+rIYnSFk/K0zLp4z6KtqfayJoZ7sRepVx4sX9bAb+Ladw8Sz6pqq69NHaAE3+NJEuNnbu08RsurXK/ZmBam9zv/oqQFqqW71oBsWQ09so/Y6Q1RX23l/b4Sis7MNOKMgFf4/UlNmvvd1g91Bqk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:bd8ab170-6c6c-42c8-a3f6-4e2af2010701,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:30c6fedf-3890-4bb9-a90e-2a6a4ecf6c66,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1e7dcd48b67311f09f706fa2197c6ceb-20251031
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <jason-jh.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1967210828; Fri, 31 Oct 2025 09:03:19 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Sat, 1 Nov 2025 00:03:16 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Sat, 1 Nov 2025 00:03:16 +0800
-From: Jason-JH Lin <jason-jh.lin@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>
-CC: Matthias Brugger <matthias.bgg@gmail.com>, Nicolas Dufresne
-	<nicolas@ndufresne.ca>, Jason-JH Lin <jason-jh.lin@mediatek.com>, Nancy Lin
-	<nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, "Paul-PL
- Chen" <paul-pl.chen@mediatek.com>, Moudy Ho <moudy.ho@mediatek.com>,
-	"Xiandong Wang" <xiandong.wang@mediatek.com>, Sirius Wang
-	<sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu Tsai
-	<wenst@chromium.org>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
-Subject: [PATCH 4/5] media: platform: mtk-mdp3: Refactor CMDQ writes for CMDQ API change
-Date: Sat, 1 Nov 2025 00:01:59 +0800
-Message-ID: <20251031160309.1654761-5-jason-jh.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20251031160309.1654761-1-jason-jh.lin@mediatek.com>
-References: <20251031160309.1654761-1-jason-jh.lin@mediatek.com>
+	id 1vEre3-00000006MvB-3BYq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 16:06:33 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47112edf9f7so19656655e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 09:06:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761926790; x=1762531590; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eRyeAIdNCNVWpBCeP53EIPuNRhQqWF48SYqRwaIlzas=;
+        b=faWELIzVBRozbrLrq20tdDVZSCpQjCPIP9qY2XiaPxwpsObA98GiHsTJrnOmE0Z8jd
+         1XKIm/b+2+1YH5nCwbRTyIE9KJ+RIyF+jUXt0Rj29IBoYtBPtM1AxNQ0CWD9690vpYM/
+         +oSRgq5GbPwOpTpkfK1bVf90uJgd05FY4dqPDbFKdKM8BHspZc8W/WRPBFW1RGtbpPGs
+         rzgx44JyQm9Fhlnh3nMQRvBKIY6aZyxT3QoAXkP0JO1qKCKez1lM4B26DzymWT+e5COH
+         k+BatoMVky3j5wgt23nikSWwSsdELjvS6LGVOelAcUHftI3QbYhthRxCgJf8TJshZ3HA
+         NR3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761926790; x=1762531590;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eRyeAIdNCNVWpBCeP53EIPuNRhQqWF48SYqRwaIlzas=;
+        b=GuBdX4/UYErRuYXYGi8T23pAWfYhFxrltw3ANSPjI1s+dWUHIUoBc8DklJzuPOyo2L
+         yetKA/pvANb8Rjg/qqOw8b+R6d8RRUGOk8WqZId/KCrqAolhsy4zyPJsQdnIRbiy38dR
+         SAubc1pKYI0ofksGZvuOdvJvleC9huDHfGufb8lkPf7eQIA84bhtb8IbZEAGH2jCdb6F
+         8OOGEumeTGJqr3sLttMBh2JU9eUMWJJkTwvmNyphRdaAeJ4mA6MOjCH+YCbMWZKE8DDC
+         bSzmqZlvd+Zu35AaGqDC9V9TyrJZmT7vZSMq8ejXbfj5hmg5JiIBdHDdKLpEQINB33kz
+         7pqA==
+X-Forwarded-Encrypted: i=1; AJvYcCVsZE4pFYlulW8wyTr/UPUtFvhDjYp9peimbqpnSYW93G2zOSjN11biq8aPSvf92KE/TbXv+qZuLe6zVnjBJELc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHY0Z3FX6SYP5V5ZRdTDZW1wNglOB6yU/CVIAiX1S2a+EBrShx
+	m57JwEL8lkUDldOuK1cO5HzBncUGcrkMtJ9bzeTDSXRzqv52KPVa8jdcZ6lre/1K2VA=
+X-Gm-Gg: ASbGnctSYsvimpWVzyv4TPp4/vTNa+i5Mpx41hLcn0HpCSn4X1E30bM39n7ixTCFNJ8
+	ckfGtdpSX31lThG/FWMSPDL+6fUI52gN6Fpk/ucDaWXYmTwpfdWtyG3OgKg9rXCXvI0lUUn89gG
+	0NjQoKPPSPHUF63XIbwThzlLyqvS8zy737aS3juVvoPLT5y8OOwtwDmHwnIrM76rXWw3bqWjjNR
+	xYxdCsoehs16jWLvh3x/fvz1vqfctRdYyVG7njnqHlvJYJhsIIxX4RumJslCN0dykNQXF48dk3Z
+	yBeyn1pc2f/V0VUlLLGu4yarUsDEa8u45Q6yjSVxB7wEWhkgv/+cd0Lk2hMFavNiUZ0OnGgf5uz
+	77+2BGbbFLSLAy0yjGahhIBl8+hMkPFC3m5ivc5CtWyWI6CEV5Yq70FVoN0L8s1izM3Ut8f2Ioo
+	3J39z+F8NdYHAWWl3+eKKphLQy1emh/EA=
+X-Google-Smtp-Source: AGHT+IFCU6WaBZgiF/ZmQ2rOEta9IrMmGJFMsWC5NGLfn/XlBZep1GcrbuAmBW+nOAHJjxzhUAPNvQ==
+X-Received: by 2002:a05:600c:b8a:b0:46f:b42e:e39c with SMTP id 5b1f17b1804b1-477308efe61mr37787825e9.41.1761926789560;
+        Fri, 31 Oct 2025 09:06:29 -0700 (PDT)
+Received: from [192.168.0.252] ([82.76.204.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c13ec105sm4271473f8f.36.2025.10.31.09.06.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 Oct 2025 09:06:28 -0700 (PDT)
+Message-ID: <336b06a7-8772-443e-8716-99e52ac4cc7e@linaro.org>
+Date: Fri, 31 Oct 2025 18:06:27 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: nvmem: add google,gs101-otp
+To: Conor Dooley <conor@kernel.org>, Srinivas Kandagatla <srini@kernel.org>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ semen.protsenko@linaro.org, willmcvicker@google.com,
+ kernel-team@android.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251031-gs101-otp-v1-0-2a54f6c4e7b6@linaro.org>
+ <20251031-gs101-otp-v1-1-2a54f6c4e7b6@linaro.org>
+ <20251031-seltzer-briskness-6f223654c993@spud>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20251031-seltzer-briskness-6f223654c993@spud>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_090324_672308_98CE6D62 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20251031_090631_847930_12520814 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +111,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update CMDQ register writes to use subsys-aware APIs,
-cmdq_pkt_write_subsys() and cmdq_pkt_write_mask_subsys().
-This conforms to recent CMDQ API changes that split access by
-subsys ID support.
 
-Since all current MDP SoCs support subsys ID, and future MDP
-deployments will not run on SoCs without subsys ID, only
-subsys-specific API calls are needed. No logic for non-subsys ID
-hardware is required.
 
-Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c | 4 ++--
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h | 6 +++---
- 2 files changed, 5 insertions(+), 5 deletions(-)
+On 10/31/25 5:02 PM, Conor Dooley wrote:
+> On Fri, Oct 31, 2025 at 12:45:09PM +0000, Tudor Ambarus wrote:
+>> Add binding for the OTP controller found on Google GS101.
+>>
+>> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>> ---
+>>  .../bindings/nvmem/google,gs101-otp.yaml           | 68 ++++++++++++++++++++++
+>>  1 file changed, 68 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml b/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..2144911297beb89337b0389b30fe6609db4156ea
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml
+>> @@ -0,0 +1,68 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/nvmem/google,gs101-otp.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Google GS101 OTP Controller
+>> +
+>> +maintainers:
+>> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
+>> +
+>> +description: |
+>> +  OTP controller drives a NVMEM memory where system or user specific data
+>> +  can be stored. The OTP controller register space if of interest as well
+>> +  because it contains dedicated registers where it stores the Product ID
+>> +  and the Chip ID (apart other things like TMU or ASV info).
+>> +
+>> +allOf:
+>> +  - $ref: nvmem.yaml#
+>> +  - $ref: nvmem-deprecated-cells.yaml
+> 
+> Why are the deprecated cells needed here?
+> |  Before introducing NVMEM layouts all NVMEM (fixed) cells were defined
+> |  as direct device subnodes. That syntax was replaced by "fixed-layout"
+> |  and is deprecated now. No new bindings should use it.
+>
 
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-index e5ccf673e152..d0b0b072f953 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-@@ -321,7 +321,7 @@ static int mdp_path_config_subfrm(struct mdp_cmdq_cmd *cmd,
- 	/* Enable mux settings */
- 	for (index = 0; index < ctrl->num_sets; index++) {
- 		set = &ctrl->sets[index];
--		cmdq_pkt_write(&cmd->pkt, set->subsys_id, set->reg, set->value);
-+		cmdq_pkt_write_subsys(&cmd->pkt, set->subsys_id, set->reg, set->reg, set->value);
- 	}
- 	/* Config sub-frame information */
- 	for (index = (num_comp - 1); index >= 0; index--) {
-@@ -376,7 +376,7 @@ static int mdp_path_config_subfrm(struct mdp_cmdq_cmd *cmd,
- 	/* Disable mux settings */
- 	for (index = 0; index < ctrl->num_sets; index++) {
- 		set = &ctrl->sets[index];
--		cmdq_pkt_write(&cmd->pkt, set->subsys_id, set->reg, 0);
-+		cmdq_pkt_write_subsys(&cmd->pkt, set->subsys_id, set->reg, set->reg, 0);
- 	}
- 
- 	return 0;
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h
-index 681906c16419..c6fc180950f2 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h
-@@ -12,14 +12,14 @@
- #define MM_REG_WRITE_MASK(cmd, id, base, ofst, val, mask)	\
- do {								\
- 	typeof(mask) (m) = (mask);				\
--	cmdq_pkt_write_mask(&((cmd)->pkt), id, (base) + (ofst),	\
--			    (val),				\
-+	cmdq_pkt_write_mask_subsys(&((cmd)->pkt), (id), (base),	\
-+				   (base) + (ofst), (val),	\
- 		(((m) & (ofst##_MASK)) == (ofst##_MASK)) ?	\
- 			(0xffffffff) : (m));			\
- } while (0)
- 
- #define MM_REG_WRITE(cmd, id, base, ofst, val)			\
--	cmdq_pkt_write(&((cmd)->pkt), id, (base) + (ofst), (val))
-+	cmdq_pkt_write_subsys(&((cmd)->pkt), (id), (base), (base) + (ofst), (val))
- 
- #define MM_REG_WAIT(cmd, evt)					\
- do {								\
--- 
-2.43.0
+This OTP controller has an OTP memory space that can be read/program/lock
+using specific OTP commands /register pokes (I'm not adding support for
+this in this patch set).
 
+The OTP controller register space contains dedicated registers for the
+Product ID and Chip ID, which I'd like to expose as nvmem cells so that
+a client can parse them and register as a soc device (see [1]).
+
+Right now I need to expose the OTP controller register space, but I
+expect that the OTP memory space will need to be exposed as nvmem cells
+in the future as well.
+
+Thus I need to be able to expose both the OTP register space and the
+OTP memory space as nvmem cells in DT. I thought of using the deprecated
+(fixed) cells for the OTP register space and the fixed-layout syntax
+for the OTP memory space.
+
+What is the recommended way to expose the OTP register space? I guess
+an alternative is to add empty nodes as direct device subnodes, and
+define and add the cells to the nvmem device from the driver using
+config->cells.
+
+[1] https://lore.kernel.org/linux-samsung-soc/20251031-gs101-chipid-v1-0-d78d1076b210@linaro.org/T/>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - const: google,gs101-otp
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  clock-names:
+>> +    const: pclk
+> 
+> Why bother with clock-names when you only have one clock? Are you
+> anticipating a variant with more?
+> 
+
+Likely, but I'll drop the name. We can add it later on.>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - "#address-cells"
+>> +  - "#size-cells"
+>> +  - clock-names
+>> +  - clocks
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/google,gs101.h>
+>> +
+>> +    otp: efuse@10000000 {
+>> +        compatible = "google,gs101-otp";
+>> +        reg = <0x10000000 0xf084>;
+>> +        #address-cells = <1>;
+>> +        #size-cells = <1>;
+>> +        clocks = <&cmu_misc CLK_GOUT_MISC_OTP_CON_TOP_PCLK>;
+>> +        clock-names = "pclk";
+>> +
+>> +        product_id: product_id@0 {
+> 
+> Why does this node name have an underscore?
+
+I forgot to update, will use product-id for the name> 
+> Additionally, all nodes here should lose their labels.
+
+and drop the labels from the examples.
+
+Thanks!
+ta
 
