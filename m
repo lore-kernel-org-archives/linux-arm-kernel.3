@@ -4,78 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0814FCCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD30CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DUW2HwuVCCP1E1hde9M1EoWIauwT+OPTiC2Rn/96ljA=; b=K0gRWPVWTPUZf/CmZRTFVyp+Ch
-	s7Cv08lw5ENLFIaCh7YYyjCL01fqbhBaXENM8DGTRFWFsgQ0j5F92Duv93tdS0ggKUujm95J6HZfJ
-	1uT/CMTZxCQm+cyFp6BYUJVBGU9q25V8TyTCr1LGDvKvoSIm5O1VUZnX5s2k44kn5uYgrR/lVtA/K
-	wUvBCP9dJs6cAw2OFIEvLGGSZuKQ77QVXbv8s6mmLghWxByy6RwOQ+FIB0WErQuzsfzdUXmffWTZG
-	c4klrAuNo3FDskX+G6lvabEa7XeDZqDdjC5U3nShR+433jNRFEj+aEUc3oOdw+2kQhJ0pLCHEnlkW
-	qOWNJRUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cbj3gKZ0mzSwdkwPXRoDa/eaYfVSxFDtUK1SIosiT1M=; b=A65S3TbN8Ayf2q
+	UzKYJ44inHbT2DenJeboSXtE/O1QSAs2obtodQNcpPEe7Tn81ECEZJjCwQecst4mZ2qLC8d+RWcEz
+	M3YrRJONRawXJtna1xYVn1TLvra5WN/lkp8f1WjlMe9ztUnDPGlDfgHDc7s0e9pv5HgRR4fAnzV6A
+	dX16bO+MQggcQJsWfCZm806YKyuJ8+jK9OWnWVD0E+ZFXlM4kqPmLo0vd6i9iSdLPZwzvH2lx27N0
+	OS8DkeQZwIqFjnD6CO/du2bp/oz1xWjkkmn1C5Rei/ZNpqDWw9YcLXvQgHE8zVLaT7QXFYhrYGGep
+	wezYyUXjSrLt9fJ5qFSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEoPW-000000065Ru-3rf2;
-	Fri, 31 Oct 2025 12:39:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vEoVN-000000065qG-3cuf;
+	Fri, 31 Oct 2025 12:45:23 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEoPV-000000065Rk-28Ay
+	id 1vEoVK-000000065o5-3t6I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 12:39:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E13D661178;
-	Fri, 31 Oct 2025 12:39:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAD88C4CEE7;
-	Fri, 31 Oct 2025 12:39:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761914356;
-	bh=DUW2HwuVCCP1E1hde9M1EoWIauwT+OPTiC2Rn/96ljA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ruyJKIOOtOEEQ+8XOeehhB5S+GDMrNwlnu3aI44VE33hSi1Ioy465llBSJBU4/Luk
-	 4UMoUVh+knOSVCJYWdKaevlOpecb7oKclQv9LDsu6ABuFBIWa/p4RMfL+oHST+6hc5
-	 17lzxbGXPL0L5qJku0v0hThdiu+M2XSGC3GvEj1dfzNx55zGQ6oOtdmXsI6JwYqSNd
-	 szK0Bzgq0m07IQ6Fnad3pRhvoG+nkh8KCzIxurTJCQVpp+aLJS4cmNHfonZHo5VMB/
-	 +ZaW1crRWodnO0gcx+OIVf81QtXMoyeFyXhrpQ3SJUMdCkQZzu7TiT1fW1yJocJr23
-	 rDPdM210bQ7IA==
-Date: Fri, 31 Oct 2025 12:39:09 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com, Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Melissa Wen <mwen@igalia.com>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	kernel-dev@igalia.com, kernel-list@raspberrypi.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	"open list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>
-Subject: Re: RPi 4 deferred probe timeout of V3D PM domain
-Message-ID: <3c171b6b-f8f5-4192-a3a3-da453a900316@sirena.org.uk>
-References: <ad07546f-0c2d-4bc2-b794-755b892c7328@sirena.org.uk>
- <a016e7e1-09f7-4056-a855-6cfaa8d51962@gmx.net>
- <10a4ef77-0e70-4ef2-b1df-535b476d256d@sirena.org.uk>
- <ecd75fd5-3131-4d10-ae3d-b6f608d9622a@gmx.net>
- <25e500c2-3dc1-476c-b6c1-ac4098a0501d@sirena.org.uk>
- <d6b14388-e0ab-44f0-b4d9-78adf74c2a7f@gmx.net>
- <d88f6420-5013-4856-99d6-da28f79bd7a5@sirena.org.uk>
- <CGME20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c@eucas1p2.samsung.com>
- <043f1702-52fc-4a83-82f7-683a26851623@gmx.net>
- <b02c8890-4568-4afe-8628-10b77e79bf44@samsung.com>
+	Fri, 31 Oct 2025 12:45:20 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-474975af41dso16128545e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 05:45:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761914717; x=1762519517; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cbj3gKZ0mzSwdkwPXRoDa/eaYfVSxFDtUK1SIosiT1M=;
+        b=uLGY9KeIr3kkP+jzUeTtHD2WMC4/DeieCiEFRFQ7UbBvmmjVvQ5p4xOp+QWiPVmRNT
+         9pbQMWEZXsWV/TYP9X6rdtI9EEh5G2PerqidSzmqLfU03uAgzeYwbFJpfBlUlcfj17zE
+         yrYPr4S4RLtIo5R6mbwC6c9Y/01mMloV7DPKFWWTaaIqtP4IvuSyjJkYGyZBkA9/3/kr
+         4ev31YUKleBQqsfWjv50oqbzlcT1LKrkYKfNpsyf//Ijj3aG/XQhwgNONFftFZ3iwf1W
+         1J37SbFRj5BBSiEM09nh+cyP9moP16k0OZ5ikAkkjZXu2l/boFEwKPFPPOtprBiYmRGB
+         bjtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761914717; x=1762519517;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cbj3gKZ0mzSwdkwPXRoDa/eaYfVSxFDtUK1SIosiT1M=;
+        b=gpjFXmuIzNKCZXaizy303jZgkApBCqpG/didbEAmhcMI+POEqplulmfkWJt47jlYnf
+         UvPWu4K9WDqtXQ9bPRlj28Wa4BqeA4ld20VuZTszdp2syUMEZN4Mi2q+Kj2UAC8xmZ2b
+         wZ7Q6UCGlq2z9wvJ4sT5zOHetzNsdXow00aZ7Mlpp7Nhy3Jbn/B4aH1oSa2Z2Ju99h81
+         IzgXkv0YArRfl8/7q+gYmPKV6WBbJtdX5qMkR0P/j1kOy8OlmwtRdeycDAq0M41zLUSC
+         jkBm0ooVaGFRn9iqNWoUyj2OCn/jUJO98r5n+7lwWTkQr3wjCE2oVgOmlkDucCy8i/IJ
+         AP/g==
+X-Forwarded-Encrypted: i=1; AJvYcCVnwEld17752E1/DL+Ne0QQtZGqD1YNPT1FDp3fRPt4Y7vehDXZ3fcXk2J3Nr5yofjDAgbQ5VJ2NvJ2tPgk0NJh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN6Ca7htXB+moiAqgOVpfnh62EjkI/goEu6quyyfdrjpxeVmnf
+	6n2IduRpxGnLOhYTb3V10VnBE0IfloWC5t+ALxz6FPFVFOqPX4Kqgq3WdV2YLqosOR4=
+X-Gm-Gg: ASbGncu9uSLnxwCW4EC6pzVHTO6evKTwRy0Iym5N9G9BPqW55OZ4gO+UzaokLYMQV/m
+	+Cg98uBts+orK19JIdFUC4RLxMx2Ur8h5Jif5usj+RkTiqBd7i8YWbGAbY/BlttfsSBmNfhan/k
+	3SsrZy7dG3FCXTm0nfD3hVJOISMgroX9dZ5HflC6PoWJSejOm5mPiv8sy+XMuRXrdZOKy92oOPR
+	bTFlD6chwNSWvpkvsvIo0Q05hbXL+GWyfT/a3N1X2VZl3kXNNHzxkiwogZM2fuFQCzOle80uclE
+	OnQb2Ik8bL1V9ljzLYKsg3SrZmlDAfXkHbQrqc3xMrvITG40WSjnCai68qIUGam3B/cMtXLvO2m
+	cJUhtrv6Y8XUlArSdcwvwJ/nT4hCYVoOFWlWrLwjpEffQ6qs7Yw2HUoFjyrwhRdtz3M7u2eMNmc
+	Hc0AAwu0QZ5ZaRKPM/I2FHYnD84Mu7kx4h3geWLiix3W0QdnfXC8Ml
+X-Google-Smtp-Source: AGHT+IHqy0NvjSEdkC5QA4dlobMBtMSys4ERttR9A7YfgXRw5s+9LrWnpqc3fCglT5Vt6XnCw3B/fA==
+X-Received: by 2002:a05:600c:4687:b0:45b:7d77:b592 with SMTP id 5b1f17b1804b1-477307c1f24mr29666305e9.12.1761914716741;
+        Fri, 31 Oct 2025 05:45:16 -0700 (PDT)
+Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47732ff7fdbsm31077535e9.16.2025.10.31.05.45.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Oct 2025 05:45:16 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH 0/5] nvmem: add Samsung Exynos OTP support
+Date: Fri, 31 Oct 2025 12:45:08 +0000
+Message-Id: <20251031-gs101-otp-v1-0-2a54f6c4e7b6@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="o3fwRCeo9dva3t0m"
-Content-Disposition: inline
-In-Reply-To: <b02c8890-4568-4afe-8628-10b77e79bf44@samsung.com>
-X-Cookie: Byte your tongue.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFSvBGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDA2ND3fRiQwND3fySAl2jNGOLVIskkyRzS2MloPqCotS0zAqwWdGxtbU
+ Av8ZwdFsAAAA=
+X-Change-ID: 20251031-gs101-otp-2f38e8b4b793
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: semen.protsenko@linaro.org, willmcvicker@google.com, 
+ kernel-team@android.com, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761914715; l=1825;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=eShtlJ8Q5lLAIYL5hn7v+uZe4nyW0U4dTV2Vv/o37Is=;
+ b=Cav6xp6EkVef+kR5+xm0NcqzjGfCB8JtxlbVHdTW7e4KMSsgOBlOfS4QS/NSWUZKRyXAq0Ff3
+ 4hPYHB6jVi2BPtPgXa6/b8DGjvet/fG+YJ7cfBVavtwrAhttcx6A8OS
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_054519_030038_9C262BEA 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,49 +116,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The patch set has the typical dependency of the DT patch depending on
+the bindings patch. I propose thus to have the bindings patch taken
+via the Samsung SoC tree, if not all.
 
---o3fwRCeo9dva3t0m
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add support for the Samsung Exynos OTP controller. On the Google GS101
+SoC, this controller provides 32 Kbit of OTP memory space that can be
+read/program/lock using a specific sequence of register accesses.
 
-On Thu, Oct 30, 2025 at 09:12:57PM +0100, Marek Szyprowski wrote:
-> On 30.10.2025 20:13, Stefan Wahren wrote:
+The OTP controller register space is of interest as well because it
+contains dedicated registers for the Product ID and the Chip ID (apart
+from other things like TMU or ASV info). Register the OTP controller
+register space as a nvmem device so that other drivers can access its
+contents using nvmem cells.
 
-> > Any ideas how to solve this?
+Support for the OTP memory space can follow and be modeled as a
+dedicated nvmem device.
 
-> As I mentioned in the other thread, this is imho a configuration issue.=
-=20
-> If core modules are distributed on NFS rootfs, then one should increase=
-=20
-> deferred probe timeout by adding deferred_probe_timeout=3D60 to cmdline.=
-=20
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+Tudor Ambarus (5):
+      dt-bindings: nvmem: add google,gs101-otp
+      nvmem: add Samsung Exynos OTP support
+      arm64: dts: exynos: gs101: add OTP node
+      arm64: defconfig: enable Samsung Exynos OTP controller
+      MAINTAINERS: add entry for the Samsung Exynos OTP controller driver
 
-Like I say I just don't think we should apply timeouts that take things
-out of commision entirely.
+ .../bindings/nvmem/google,gs101-otp.yaml           | 68 +++++++++++++++
+ MAINTAINERS                                        |  8 ++
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       | 17 ++++
+ arch/arm64/configs/defconfig                       |  1 +
+ drivers/nvmem/Kconfig                              | 10 +++
+ drivers/nvmem/Makefile                             |  2 +
+ drivers/nvmem/exynos-otp.c                         | 98 ++++++++++++++++++++++
+ 7 files changed, 204 insertions(+)
+---
+base-commit: 73f7017e663620a616171cc80d62504a624dc4de
+change-id: 20251031-gs101-otp-2f38e8b4b793
 
-> On the other hand drivers built into the kernel should not depend on the=
-=20
-> resources provided by the drivers built as modules, so maybe it would=20
-> make sense to change CONFIG_CLK_RASPBERRYPI from 'm' to 'y' in=20
-> arch/arm64/configs/defconfig.
+Best regards,
+-- 
+Tudor Ambarus <tudor.ambarus@linaro.org>
 
-Or the GPU driver should be moved to a module to match the clock.
-
---o3fwRCeo9dva3t0m
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkErewACgkQJNaLcl1U
-h9CwoAf/TasMrYudnRIfHbZsVEJFG+6aRlxnjE4Ih5HjcUqIsa72WZFNuGACxeR9
-lPgBRD2CZ8qVpdjik03ktb1PP/EnkwGxy/3elXC/YxgpWgyE4SGmiX668YojrLsw
-ZAzcmwOckrGshx2O2N34zF58asnUSdPRbBVKLMNQ02koZ7brVqtQ1fLJdK9kL9qr
-hu2AUeBcAOUuSGvmQKdg6cRf8owTOEv/hUd/lclvZVnZzK2CV5vs/vZG616sF8Mf
-wo7+WQktr1bs38NGV4NYNtHOpCK5XrrmZUF6kRxN8P+3X3DYWEj3a++itNGUJjz5
-rjOllqjvNXZrwXbKl34E5pNJNpNk8A==
-=MfxU
------END PGP SIGNATURE-----
-
---o3fwRCeo9dva3t0m--
 
