@@ -4,87 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3195CCCFA02
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53677CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gd1NRlaG7p73EaWZZGtzoqnB/qnKqpG/Nvm6jBDd4iY=; b=kVgjsN16tGKCX4hcavPabI3dW2
-	Uj62HO1AIQ1AXJvAtRCUFt+LO/7+M3yW+wDAbGGx2CwjwFNO6fRfglpK1jRYtji7wRkHrAEzClBpj
-	l2I9xYCQj0gxSpewArp77J/DRVvJCB8EpeD2DO+KgPbxgL2tUt3IMlOERoyWp67Cs5+ww86a/t1Oz
-	EhPNd2Sjpyf02hF0V2EeVZAtxyDoig+lt2CngpnOVJpE+jt0xAzJT1Q13Bc4Yw5DPqBXs9ZQr3IYV
-	b+k9Fam/j59YklQvvDiRQ5Laoat1+T03+mjhIbrzr6Affp/4SGeOF1GinhkG7rk5TZeKs9SaQWjT6
-	XcCWGrOA==;
+	bh=OhpINTEOlhI6e8I32EuidRR/I2gb7I6ZOwEY3Oe23XM=; b=Zqnio09/jHA0kEDGFNXGXUUZMJ
+	29oOyLNsHcMyQpW0zBTQr8ImxfzP8DUm+mZ6wpjk6Bt+lqdF4K7exj1LhH0Pa6WksWaAnkZ1F2nao
+	CNhAIVYmH3DdMyr2wS/860UYUbJoIbuP2QsV054kX7YyyBIY+Y3eyynmHUVyl2Kp9IX9jZwDeQvRa
+	/mbNW5ncmG8dO2YRXQWAu/bqU3NlTUlK32QzmntXAobbv2SbZzMhaYYonQawn5dzlRcFMVKFE3ehP
+	1ssVRfxj/FViShh0L9F64wPcVK30fkQgQsywYVQJJS264CVbbT0Ucr+l6Wl+ibOnqB3NCJA4f+CQ5
+	mNBDCm7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErfj-00000006NMQ-1YIa;
-	Fri, 31 Oct 2025 16:08:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vErgj-00000006NVt-3npm;
+	Fri, 31 Oct 2025 16:09:18 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErfh-00000006NLT-0Rjc
+	id 1vErgf-00000006NUi-2L7C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 16:08:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7307C43AD6;
-	Fri, 31 Oct 2025 16:08:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA40C4CEE7;
-	Fri, 31 Oct 2025 16:08:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761926892;
-	bh=DBnRWCc9yOikTyJAePQMQXl8JnrzRu+fPN1hD2Ld8qU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lNm3q3FxkqsL5QWMXLypsadCbVDHoS7srbuL3umgOILAgP2CmodbUjbmVgoYLqLve
-	 gqW5tz1EPBizlAZk5MqElD4DQfIHAxzmtN19JFglozpQKcQGBxYMl7yLPgL06f0Alc
-	 Wmr5T7iw805pUJEirQ0gG/+y+Tb8PrWnxbGm6rEfbp7xc7L8cnr1zQFwXjAnhR1hBH
-	 leAVv9GH6W28+5E2FEe+8vxpWiPWLa7dvgRWsbm9oHb0ZrOKO2qaDT1p5UMDci9pYi
-	 2qfoSEzL1lmFVYHaphzP0WGPUKmYmpipLpz2ALLuOYx0tXFwTP1Ngxt7pTzWQPBIkK
-	 d4ltC1wGy9Gzg==
-Date: Fri, 31 Oct 2025 17:08:09 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Chen Ridong <chenridong@huaweicloud.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
+	Fri, 31 Oct 2025 16:09:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=OhpINTEOlhI6e8I32EuidRR/I2gb7I6ZOwEY3Oe23XM=; b=bjFKHRNPE4456OufUO0Yt4bxDC
+	xFZ/viUCQmwKQv3B99Sic6sUuriqRaFNvXGJLpSsJ7gTJ6W/TPxY9NhDXcn5+e2fH8N0bCInOVH8u
+	7pqCOCPfuQ8EXTe5aaH+KKUXUErkyL/7cAiQj2/EqPCgPFAoju57tPKcHBWpqGoWeYu0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vErgP-00Cc1l-Id; Fri, 31 Oct 2025 17:08:57 +0100
+Date: Fri, 31 Oct 2025 17:08:57 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
 	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 11/33] cpuset: Provide lockdep check for cpuset lock held
-Message-ID: <aQTe6X5XXSp8_3z5@localhost.localdomain>
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-12-frederic@kernel.org>
- <b94f6159-a280-4890-a02a-f19ff808de5b@huaweicloud.com>
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/4] net: altera-tse: Set platform drvdata
+ before registering netdev
+Message-ID: <0aa45c73-6896-4788-a3ec-1ab696e32ea5@lunn.ch>
+References: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
+ <20251030102418.114518-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b94f6159-a280-4890-a02a-f19ff808de5b@huaweicloud.com>
+In-Reply-To: <20251030102418.114518-2-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_090813_190239_775DEA10 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20251031_090914_905659_0810BEAA 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,77 +78,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Tue, Oct 14, 2025 at 09:29:25PM +0800, Chen Ridong a écrit :
+On Thu, Oct 30, 2025 at 11:24:14AM +0100, Maxime Chevallier wrote:
+> We don't have to wait until netdev is registered before setting it as the
+> pdev's drvdata. Move it at netdev alloc time.
 > 
-> 
-> On 2025/10/14 4:31, Frederic Weisbecker wrote:
-> > cpuset modifies partitions, including isolated, while holding the cpuset
-> > mutex.
-> > 
-> > This means that holding the cpuset mutex is safe to synchronize against
-> > housekeeping cpumask changes.
-> > 
-> > Provide a lockdep check to validate that.
-> > 
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > ---
-> >  include/linux/cpuset.h | 2 ++
-> >  kernel/cgroup/cpuset.c | 7 +++++++
-> >  2 files changed, 9 insertions(+)
-> > 
-> > diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
-> > index 2ddb256187b5..051d36fec578 100644
-> > --- a/include/linux/cpuset.h
-> > +++ b/include/linux/cpuset.h
-> > @@ -18,6 +18,8 @@
-> >  #include <linux/mmu_context.h>
-> >  #include <linux/jump_label.h>
-> >  
-> > +extern bool lockdep_is_cpuset_held(void);
-> > +
-> >  #ifdef CONFIG_CPUSETS
-> >  
-> >  /*
-> > diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> > index 8595f1eadf23..aa1ac7bcf2ea 100644
-> > --- a/kernel/cgroup/cpuset.c
-> > +++ b/kernel/cgroup/cpuset.c
-> > @@ -279,6 +279,13 @@ void cpuset_full_unlock(void)
-> >  	cpus_read_unlock();
-> >  }
-> >  
-> > +#ifdef CONFIG_LOCKDEP
-> > +bool lockdep_is_cpuset_held(void)
-> > +{
-> > +	return lockdep_is_held(&cpuset_mutex);
-> > +}
-> > +#endif
-> > +
-> >  static DEFINE_SPINLOCK(callback_lock);
-> >  
-> >  void cpuset_callback_lock_irq(void)
-> 
-> Is the lockdep_is_cpuset_held function actually being used?
-> If CONFIG_LOCKDEP is disabled, compilation would fail with an "undefined reference to
-> lockdep_is_cpuset_held" error.
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Although counter-intuitive, this is how the lockdep_is_held() functions family
-do work.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-This allows this kind of trick:
-
-if (IS_ENABLED(CONFIG_LOCKDEP))
-   WARN_ON_ONCE(!lockdep_is_held(&some_lock))
-
-This works during the compilation because the prototype of lockdep_is_held()
-is declared. And since the IS_ENABLED() is resolved during compilation as well,
-the conditional code is wiped out and therefore not linked. As a result the
-linker doesn't even look for the definition of lockdep_is_held() and we don't
-need to define an off case that would return a wrong assumption.
-
-Thanks.
-
--- 
-Frederic Weisbecker
-SUSE Labs
+    Andrew
 
