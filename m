@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E4ACCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB14CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uPf4jH2Xq6YglmJt/Z/1H4uAG3AvOY53HgLQBHEzlps=; b=UTXxHx2r1uTU6blEiBxY1Xp1D0
-	ZMFFCvCEf8t0OCSs5QjBHQ2iMhWRkVF/J7VthW1YiQt7PikBwyk+lFItu9qAe5D6J5dJVkqiOMnh1
-	CWymLJzG1oIc/aPEnfVaqlp+pUgKuRwTVNYQchdByaEoRCAk3oc28yn0c7gbbHNCUr+nT0/joEcil
-	THLZGNvCoNg2Aw1mhiXQ+1ZtRGBYz0z8aLrOhgFkIVV2bL8VjSEK6HiU4yOP3xub1wd6Nv1YnhJRE
-	3E42ZQTBF48Y67VKwMzgkuccRp8eq1mHJDuhTzZDBzKn7rfQgXpDPvKzBsjc086lMxef5UD/KGzEc
-	9TSH+vQw==;
+	bh=fnEn/zNYGpYeH2kzoRoKsGDEwWWCiCH27FEc88gwnrM=; b=pMsUQrc0/2Rbwi6HEN/dUcTGlf
+	pugZj/hcoLAZ8MylEOvsVNzPraJwvXhxrSLgMMpUnC+M5F3eVWLzvgmmujVyEXkHD8WwVqczNOZMz
+	N/v4woOjpYk+Kjl2konCrTuEv3vbK1+fmPSHqrAKcfOvh3XIfXeomjX046aa42ZFMNMzpJIVWKgg8
+	7caR2hq6VSAuPYGTMD5gAhm1TsqelYxCfaXNISXzt8vIsboKaI5NF6P3n9af9T/x6r24zmmKW5kFs
+	Dz/LZHCQQOu8iBq1I3EQiNoesC9+E6+A8DCbphGbS6HnWGtaKyBAGE39OF+/ICb4x88HqSBJCbkOW
+	E806tkvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmZE-00000005vwy-3kOh;
-	Fri, 31 Oct 2025 10:41:12 +0000
+	id 1vEmZ9-00000005vsC-0amm;
+	Fri, 31 Oct 2025 10:41:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmYA-00000005vJ3-3l7k
+	id 1vEmY7-00000005vE0-14km
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 31 Oct 2025 10:40:08 +0000
+	Fri, 31 Oct 2025 10:40:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uPf4jH2Xq6YglmJt/Z/1H4uAG3AvOY53HgLQBHEzlps=; b=eeVFTCFQyzlYoZPMt5jBTECe6H
-	gwsnadGIdgu10Sv4UjOqE3yyPD4pFKQkqG4v0YMg4JHf8TlzApiRpRVjykO01/ZlL8ZarWkv/2pKN
-	KW8WZ9PDCHil20PQNR+miyHn2DwQ1vchhFZsCKZBuy+XrcMTs92GYEXZ4h94YssWzBJ9Aa3maRla1
-	6hxjrfAFc0iQpSAh/7hKUH5eL7CcOw53Wp9U1dgmTKgEA7rDFL9scMEDqoclVfm/tK1Fl+/dL4eda
-	bIl5SwkV53+paoDG1Vj5c9B+4UF04692pJb6EE9Ije92kCbr51w4Vsm58Wgg6zEh7UEOyhpswPQw+
-	E0n6k/4w==;
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	bh=fnEn/zNYGpYeH2kzoRoKsGDEwWWCiCH27FEc88gwnrM=; b=XLUJL+yOo/ceMR+UI/mfk6iVua
+	58ARj46kziEml28c2HVOjk1C6a9Es8DoCRqSPj0oZAMyIa7Bl+MzhBZUFCzGCg+DciWMqgG/wxcLi
+	yW0wTvqm6Ew9ymHsZZXpUUPVc2I/wF7PUtzNmCk2bx0iNN53P2MqeE5Qcl8+7tAFUEVQHB7ktcXBt
+	45yjj5iAV7Dhhh1JeXkNRiziQSflDPjj1L/JfcrkqgNLp3c67zt6uECC6kf1n78gbUwceNVJf0hSS
+	orkDikkSVUcwnIK92pTRAlv8rlPPXGtPDlY9nxEOcpv5ZSHe5L6lPLJ36GNZs1nslcU0SMSesAF6U
+	v0P8d/qA==;
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vElgP-0000000B3BY-1IVZ
+	id 1vElgL-0000000B39o-0dls
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 09:44:35 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-4298da9effcso2007772f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:40:03 -0700 (PDT)
+	Fri, 31 Oct 2025 09:44:31 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-475dc22db7eso17428015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:39:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761907202; x=1762512002; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761907197; x=1762511997; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uPf4jH2Xq6YglmJt/Z/1H4uAG3AvOY53HgLQBHEzlps=;
-        b=P2ylMlmXb5LqFtpR+/vNYwX2Fn6QZyhYU/P64hsMLb8uBKoa4LIscCNVXVOkP1p0e7
-         Ao64127+pyioT1wR1EVgWU13bGHClpOb711rbW0BhY9EnCgolgIOJOHcmripEzXSESer
-         CYjmST0a7++mMT6+Cjjy8gBJd1fvYvTKzbvgWR1bf2hDy7AyCv0/6NJPsqHsQElreLT+
-         pFkGprFKwTi/wMk9DngZ/NyA9L4E/Qm2V2OTz/tM4Y1x5j4ZsTQK974tojxFbld1JYDO
-         fliYcXk/d76LyWm1HgeYnJQ7AjaRlNJR+PbSFC9ZwScc/REbFbRvoMSSnzTTG+wGmFEk
-         3+/w==
+        bh=fnEn/zNYGpYeH2kzoRoKsGDEwWWCiCH27FEc88gwnrM=;
+        b=3noCBoIYEcaVsZBJDqXyRaORYLb80KLRf9JcuE7iB2pcwTgvCX1MSNkxtXlAes1yPk
+         fa2yBJL7igL5TU2oyQoxlAN2xSS3VQQA02sI8BEKi+Mcoqnf9eCISk82RKbYhl10y46z
+         wosEQGzw3vt/COs5a2Qnung7Dw/cTs+s3gqsVrsz11VkbXBec/jpRpiVQOuEOTsPvPLl
+         U7W8hxx0b1ILzGpR1UB+sgGdSWMVzg1CLZVGDomky1ihPSU0MWfZsv6acvW0EhTphCgU
+         CZ15uLfFqandN8p7vIq9uyOUC6MwhrqHfVsxuzq9whdBmkrzQ8oOwpFdecfAmubAunqX
+         yDWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761907202; x=1762512002;
+        d=1e100.net; s=20230601; t=1761907197; x=1762511997;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uPf4jH2Xq6YglmJt/Z/1H4uAG3AvOY53HgLQBHEzlps=;
-        b=paGpdxqFjpmvTcII2eihvrEYrx2L61HslflZwbr1/Zl/8FjM8Bjm0zD/zulRfpTibZ
-         9w0MYJG72o3gdqy2QqYSwC+PkNQ/DCVYPtVvdi2jFis4fB13ToqgXDZxx+olw1M+2+Ff
-         s6DL8dFDX9wtAMy2bUgpyfeyoUMZhIGgN6aDnIZTjSQcwV0URHDOGmP69S/wNcaxh2C/
-         FAG76Uy6d3taFencTCULhVbLyckA4yQrOmcu49YdAwVYZ3IJkipFKO4d94wHZ/+0caow
-         ULNhdw5mkd/br7Sidzj05oUmhaqrQcV1s+JmyjqfY+gYo49LS3Vq8xnp/+3OR7m2Z0/V
-         5LcQ==
-X-Gm-Message-State: AOJu0YzXDTYQRLoMWkz1O0IwWiJYuy251dXEqAzjXXSL4HxZ0PSo9SUF
-	ukvlQQ3dnzasulQHB+QSsvCucx55bCMenqhcXJmWPsZBWL6iRn0u5/nZg+BjI/gVkBLvDt6KsqG
-	1365mAXsUi7OOoHHTMqsC4yLcaKbNsHnMpq4aZE8O93h71YDLagfyj5k5loTq33+NX8MbE/o+pt
-	JBp/VJrURe7TyoyEI8O+p3tbuyz7vqRunHksbanGQTLB5w
-X-Google-Smtp-Source: AGHT+IHBWOfDUYQF0RJYz8tdd5VLz5W14AhZr9qm6OU728YrhW2RvtEkgtdUgRsapicAbOxJrTA/wCjg
-X-Received: from wmcq27.prod.google.com ([2002:a05:600c:c11b:b0:46f:b32b:55f])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:430d:b0:3ea:e0fd:290a
- with SMTP id ffacd0b85a97d-429bd68322dmr2532065f8f.12.1761907202154; Fri, 31
- Oct 2025 03:40:02 -0700 (PDT)
-Date: Fri, 31 Oct 2025 11:39:16 +0100
+        bh=fnEn/zNYGpYeH2kzoRoKsGDEwWWCiCH27FEc88gwnrM=;
+        b=i6x6Mqo7kyO9xNn14JRR3xbrFJ5m0EkoQjkvLuLYts9N0+S/E/i813bkKAQakWp082
+         vjO5Gik9eUck1dq/7mTSnOsQr0LFqi2PSBhNrMXvyl/05GJ4s4kqeOSgwuZHL9DSxxDk
+         SEvCVbIorAta+taf+EqQAGRcWhmTvUBeOmai+/6a5+P1UOVbKi5pIYDyoJnle0so52R9
+         1SCqoyVzTmT/buu4npSkkuC+qoX8rfqPczURMVyCagMI+CPLGvcp3JK8+SWC/7D6IGXG
+         wnrv+UoABDaiTwlTF9j/7KQwkMcT2pPBMB1u1mSIuo3+5BkntoVFPyO4o+5KcLMbmrAY
+         ximA==
+X-Gm-Message-State: AOJu0YxePjRsQSBV5/Gzzr4AMZGrUytWn4ss06/PUFaXGK/w3IlJrYCy
+	dlzMbQzMD+D7zkb7mipJjBZYTQVreFxLnKBc5ieZhyG5idj05pgFanmYAuKXXd8zb7aWs/bciri
+	WfH8/frlUt0p40LodwXXQzX0BSeEE+bJbxwXeLWMOZ6i4bcz/44jxOT1dihxE4b4SEkZIgJwvh6
+	6gAaLdqID2EnShy+N2qioyqTDcdrIrHDZl3CrrWRnZjMno
+X-Google-Smtp-Source: AGHT+IHCyP4IoqlcDxNTDlmIlfwEjZNFju0cobcumYETAExfBlb7/GHCab1JzpZ/nMQ3mxmWwEU6aIlU
+X-Received: from wmbz25.prod.google.com ([2002:a05:600c:c099:b0:477:1449:b093])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4e43:b0:477:e66:406e
+ with SMTP id 5b1f17b1804b1-4773088be60mr32292295e9.29.1761907197646; Fri, 31
+ Oct 2025 03:39:57 -0700 (PDT)
+Date: Fri, 31 Oct 2025 11:39:11 +0100
 In-Reply-To: <20251031103858.529530-23-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251031103858.529530-23-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=17484; i=ardb@kernel.org;
- h=from:subject; bh=ZhZahtwfNc9VdlqtoGJDsIW5NGC9QTCl2puzpufxwjY=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZNl4u3XT5x0PzWdb+7d/Tb09vpLT49919h+/K62M1Op7
- 8NKNafjHaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAiuUGMDHum7S8KXSUqPGHK
- nUdfDm9e0iLT48HaFDtvqpfm7mQOu30M/1SYmJuO33YsY5V0dVDfeT0j/9Gt1Zv0PhadSrn2V4r hEyMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2613; i=ardb@kernel.org;
+ h=from:subject; bh=yue2NgA2zOFgSdHmsGEDM3WvkPWdV3V1tFnMJXN62q8=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZNl4pXDLztqpIo6hLcsd73t7SATYpg2w/73MaM52isPZ
+ 9sdCFrbUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACayZCLD/+hF9jw8SjcfLluw
+ 8djdsI+hFpuVv2Ue7+59fDNvX+yWHa8Z/vvtjXpyx0itOtrFvyVh5VYhrwPVWY/3XEn/972AqXr +Gx4A
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251031103858.529530-40-ardb+git@google.com>
-Subject: [PATCH v4 17/21] crypto/arm64: sm4 - Switch to 'ksimd' scoped guard API
+Message-ID: <20251031103858.529530-35-ardb+git@google.com>
+Subject: [PATCH v4 12/21] crypto/arm64: aes-gcm - Switch to 'ksimd' scoped
+ guard API
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
@@ -95,8 +96,8 @@ Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_094433_491005_81AAE6D4 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20251031_094429_319711_8A9EABD7 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,572 +123,75 @@ bytes to the size of struct task_struct.
 Reviewed-by: Eric Biggers <ebiggers@kernel.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/crypto/sm4-ce-ccm-glue.c    |  38 ++--
- arch/arm64/crypto/sm4-ce-cipher-glue.c |  10 +-
- arch/arm64/crypto/sm4-ce-gcm-glue.c    |  53 +++--
- arch/arm64/crypto/sm4-ce-glue.c        | 214 +++++++++-----------
- arch/arm64/crypto/sm4-neon-glue.c      |  25 +--
- 5 files changed, 149 insertions(+), 191 deletions(-)
+ arch/arm64/crypto/ghash-ce-glue.c | 27 ++++++++++----------
+ 1 file changed, 13 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/crypto/sm4-ce-ccm-glue.c b/arch/arm64/crypto/sm4-ce-ccm-glue.c
-index e92cbdf1aaee..332f02167a96 100644
---- a/arch/arm64/crypto/sm4-ce-ccm-glue.c
-+++ b/arch/arm64/crypto/sm4-ce-ccm-glue.c
-@@ -11,7 +11,7 @@
- #include <linux/crypto.h>
- #include <linux/kernel.h>
- #include <linux/cpufeature.h>
--#include <asm/neon.h>
-+#include <asm/simd.h>
- #include <crypto/scatterwalk.h>
- #include <crypto/internal/aead.h>
- #include <crypto/internal/skcipher.h>
-@@ -35,10 +35,9 @@ static int ccm_setkey(struct crypto_aead *tfm, const u8 *key,
- 	if (key_len != SM4_KEY_SIZE)
- 		return -EINVAL;
- 
--	kernel_neon_begin();
--	sm4_ce_expand_key(key, ctx->rkey_enc, ctx->rkey_dec,
--			  crypto_sm4_fk, crypto_sm4_ck);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		sm4_ce_expand_key(key, ctx->rkey_enc, ctx->rkey_dec,
-+				  crypto_sm4_fk, crypto_sm4_ck);
- 
- 	return 0;
- }
-@@ -167,28 +166,25 @@ static int ccm_crypt(struct aead_request *req, struct skcipher_walk *walk,
- 	memcpy(ctr0, walk->iv, SM4_BLOCK_SIZE);
- 	crypto_inc(walk->iv, SM4_BLOCK_SIZE);
- 
--	kernel_neon_begin();
-+	scoped_ksimd() {
-+		if (req->assoclen)
-+			ccm_calculate_auth_mac(req, mac);
- 
--	if (req->assoclen)
--		ccm_calculate_auth_mac(req, mac);
--
--	while (walk->nbytes) {
--		unsigned int tail = walk->nbytes % SM4_BLOCK_SIZE;
-+		while (walk->nbytes) {
-+			unsigned int tail = walk->nbytes % SM4_BLOCK_SIZE;
- 
--		if (walk->nbytes == walk->total)
--			tail = 0;
-+			if (walk->nbytes == walk->total)
-+				tail = 0;
- 
--		sm4_ce_ccm_crypt(rkey_enc, walk->dst.virt.addr,
--				 walk->src.virt.addr, walk->iv,
--				 walk->nbytes - tail, mac);
-+			sm4_ce_ccm_crypt(rkey_enc, walk->dst.virt.addr,
-+					 walk->src.virt.addr, walk->iv,
-+					 walk->nbytes - tail, mac);
- 
--		err = skcipher_walk_done(walk, tail);
-+			err = skcipher_walk_done(walk, tail);
-+		}
-+		sm4_ce_ccm_final(rkey_enc, ctr0, mac);
- 	}
- 
--	sm4_ce_ccm_final(rkey_enc, ctr0, mac);
--
--	kernel_neon_end();
--
- 	return err;
- }
- 
-diff --git a/arch/arm64/crypto/sm4-ce-cipher-glue.c b/arch/arm64/crypto/sm4-ce-cipher-glue.c
-index c31d76fb5a17..bceec833ef4e 100644
---- a/arch/arm64/crypto/sm4-ce-cipher-glue.c
-+++ b/arch/arm64/crypto/sm4-ce-cipher-glue.c
-@@ -32,9 +32,8 @@ static void sm4_ce_encrypt(struct crypto_tfm *tfm, u8 *out, const u8 *in)
- 	if (!crypto_simd_usable()) {
- 		sm4_crypt_block(ctx->rkey_enc, out, in);
- 	} else {
--		kernel_neon_begin();
--		sm4_ce_do_crypt(ctx->rkey_enc, out, in);
--		kernel_neon_end();
-+		scoped_ksimd()
-+			sm4_ce_do_crypt(ctx->rkey_enc, out, in);
- 	}
- }
- 
-@@ -45,9 +44,8 @@ static void sm4_ce_decrypt(struct crypto_tfm *tfm, u8 *out, const u8 *in)
- 	if (!crypto_simd_usable()) {
- 		sm4_crypt_block(ctx->rkey_dec, out, in);
- 	} else {
--		kernel_neon_begin();
--		sm4_ce_do_crypt(ctx->rkey_dec, out, in);
--		kernel_neon_end();
-+		scoped_ksimd()
-+			sm4_ce_do_crypt(ctx->rkey_dec, out, in);
- 	}
- }
- 
-diff --git a/arch/arm64/crypto/sm4-ce-gcm-glue.c b/arch/arm64/crypto/sm4-ce-gcm-glue.c
-index 8f6fc8c33c3f..ef06f4f768a1 100644
---- a/arch/arm64/crypto/sm4-ce-gcm-glue.c
-+++ b/arch/arm64/crypto/sm4-ce-gcm-glue.c
-@@ -11,7 +11,7 @@
- #include <linux/crypto.h>
- #include <linux/kernel.h>
- #include <linux/cpufeature.h>
--#include <asm/neon.h>
-+#include <asm/simd.h>
- #include <crypto/b128ops.h>
- #include <crypto/scatterwalk.h>
- #include <crypto/internal/aead.h>
-@@ -48,13 +48,11 @@ static int gcm_setkey(struct crypto_aead *tfm, const u8 *key,
- 	if (key_len != SM4_KEY_SIZE)
- 		return -EINVAL;
- 
--	kernel_neon_begin();
--
--	sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
--			  crypto_sm4_fk, crypto_sm4_ck);
--	sm4_ce_pmull_ghash_setup(ctx->key.rkey_enc, ctx->ghash_table);
--
--	kernel_neon_end();
-+	scoped_ksimd() {
-+		sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
-+				crypto_sm4_fk, crypto_sm4_ck);
-+		sm4_ce_pmull_ghash_setup(ctx->key.rkey_enc, ctx->ghash_table);
-+	}
- 	return 0;
- }
- 
-@@ -149,31 +147,28 @@ static int gcm_crypt(struct aead_request *req, struct skcipher_walk *walk,
- 	memcpy(iv, req->iv, GCM_IV_SIZE);
- 	put_unaligned_be32(2, iv + GCM_IV_SIZE);
- 
--	kernel_neon_begin();
-+	scoped_ksimd() {
-+		if (req->assoclen)
-+			gcm_calculate_auth_mac(req, ghash);
- 
--	if (req->assoclen)
--		gcm_calculate_auth_mac(req, ghash);
-+		do {
-+			unsigned int tail = walk->nbytes % SM4_BLOCK_SIZE;
-+			const u8 *src = walk->src.virt.addr;
-+			u8 *dst = walk->dst.virt.addr;
-+			const u8 *l = NULL;
- 
--	do {
--		unsigned int tail = walk->nbytes % SM4_BLOCK_SIZE;
--		const u8 *src = walk->src.virt.addr;
--		u8 *dst = walk->dst.virt.addr;
--		const u8 *l = NULL;
--
--		if (walk->nbytes == walk->total) {
--			l = (const u8 *)&lengths;
--			tail = 0;
--		}
--
--		sm4_ce_pmull_gcm_crypt(ctx->key.rkey_enc, dst, src, iv,
--				       walk->nbytes - tail, ghash,
--				       ctx->ghash_table, l);
--
--		err = skcipher_walk_done(walk, tail);
--	} while (walk->nbytes);
-+			if (walk->nbytes == walk->total) {
-+				l = (const u8 *)&lengths;
-+				tail = 0;
-+			}
- 
--	kernel_neon_end();
-+			sm4_ce_pmull_gcm_crypt(ctx->key.rkey_enc, dst, src, iv,
-+					       walk->nbytes - tail, ghash,
-+					       ctx->ghash_table, l);
- 
-+			err = skcipher_walk_done(walk, tail);
-+		} while (walk->nbytes);
-+	}
- 	return err;
- }
- 
-diff --git a/arch/arm64/crypto/sm4-ce-glue.c b/arch/arm64/crypto/sm4-ce-glue.c
-index 7a60e7b559dc..5569cece5a0b 100644
---- a/arch/arm64/crypto/sm4-ce-glue.c
-+++ b/arch/arm64/crypto/sm4-ce-glue.c
-@@ -8,7 +8,7 @@
-  * Copyright (C) 2022 Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
+diff --git a/arch/arm64/crypto/ghash-ce-glue.c b/arch/arm64/crypto/ghash-ce-glue.c
+index 4995b6e22335..7951557a285a 100644
+--- a/arch/arm64/crypto/ghash-ce-glue.c
++++ b/arch/arm64/crypto/ghash-ce-glue.c
+@@ -5,7 +5,6 @@
+  * Copyright (C) 2014 - 2018 Linaro Ltd. <ard.biesheuvel@linaro.org>
   */
  
 -#include <asm/neon.h>
-+#include <asm/simd.h>
+ #include <crypto/aes.h>
  #include <crypto/b128ops.h>
- #include <crypto/internal/hash.h>
- #include <crypto/internal/skcipher.h>
-@@ -74,10 +74,9 @@ static int sm4_setkey(struct crypto_skcipher *tfm, const u8 *key,
- 	if (key_len != SM4_KEY_SIZE)
- 		return -EINVAL;
+ #include <crypto/gcm.h>
+@@ -22,6 +21,8 @@
+ #include <linux/string.h>
+ #include <linux/unaligned.h>
  
--	kernel_neon_begin();
--	sm4_ce_expand_key(key, ctx->rkey_enc, ctx->rkey_dec,
--			  crypto_sm4_fk, crypto_sm4_ck);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		sm4_ce_expand_key(key, ctx->rkey_enc, ctx->rkey_dec,
-+				  crypto_sm4_fk, crypto_sm4_ck);
- 	return 0;
- }
- 
-@@ -94,12 +93,12 @@ static int sm4_xts_setkey(struct crypto_skcipher *tfm, const u8 *key,
- 	if (ret)
- 		return ret;
- 
--	kernel_neon_begin();
--	sm4_ce_expand_key(key, ctx->key1.rkey_enc,
--			  ctx->key1.rkey_dec, crypto_sm4_fk, crypto_sm4_ck);
--	sm4_ce_expand_key(&key[SM4_KEY_SIZE], ctx->key2.rkey_enc,
--			  ctx->key2.rkey_dec, crypto_sm4_fk, crypto_sm4_ck);
--	kernel_neon_end();
-+	scoped_ksimd() {
-+		sm4_ce_expand_key(key, ctx->key1.rkey_enc,
-+				ctx->key1.rkey_dec, crypto_sm4_fk, crypto_sm4_ck);
-+		sm4_ce_expand_key(&key[SM4_KEY_SIZE], ctx->key2.rkey_enc,
-+				ctx->key2.rkey_dec, crypto_sm4_fk, crypto_sm4_ck);
-+	}
- 
- 	return 0;
- }
-@@ -117,16 +116,14 @@ static int sm4_ecb_do_crypt(struct skcipher_request *req, const u32 *rkey)
- 		u8 *dst = walk.dst.virt.addr;
- 		unsigned int nblks;
- 
--		kernel_neon_begin();
--
--		nblks = BYTES2BLKS(nbytes);
--		if (nblks) {
--			sm4_ce_crypt(rkey, dst, src, nblks);
--			nbytes -= nblks * SM4_BLOCK_SIZE;
-+		scoped_ksimd() {
-+			nblks = BYTES2BLKS(nbytes);
-+			if (nblks) {
-+				sm4_ce_crypt(rkey, dst, src, nblks);
-+				nbytes -= nblks * SM4_BLOCK_SIZE;
-+			}
- 		}
- 
--		kernel_neon_end();
--
- 		err = skcipher_walk_done(&walk, nbytes);
- 	}
- 
-@@ -167,16 +164,14 @@ static int sm4_cbc_crypt(struct skcipher_request *req,
- 
- 		nblocks = nbytes / SM4_BLOCK_SIZE;
- 		if (nblocks) {
--			kernel_neon_begin();
--
--			if (encrypt)
--				sm4_ce_cbc_enc(ctx->rkey_enc, dst, src,
--					       walk.iv, nblocks);
--			else
--				sm4_ce_cbc_dec(ctx->rkey_dec, dst, src,
--					       walk.iv, nblocks);
--
--			kernel_neon_end();
-+			scoped_ksimd() {
-+				if (encrypt)
-+					sm4_ce_cbc_enc(ctx->rkey_enc, dst, src,
-+						       walk.iv, nblocks);
-+				else
-+					sm4_ce_cbc_dec(ctx->rkey_dec, dst, src,
-+						       walk.iv, nblocks);
-+			}
- 		}
- 
- 		err = skcipher_walk_done(&walk, nbytes % SM4_BLOCK_SIZE);
-@@ -249,16 +244,14 @@ static int sm4_cbc_cts_crypt(struct skcipher_request *req, bool encrypt)
- 	if (err)
- 		return err;
- 
--	kernel_neon_begin();
--
--	if (encrypt)
--		sm4_ce_cbc_cts_enc(ctx->rkey_enc, walk.dst.virt.addr,
--				   walk.src.virt.addr, walk.iv, walk.nbytes);
--	else
--		sm4_ce_cbc_cts_dec(ctx->rkey_dec, walk.dst.virt.addr,
--				   walk.src.virt.addr, walk.iv, walk.nbytes);
--
--	kernel_neon_end();
-+	scoped_ksimd() {
-+		if (encrypt)
-+			sm4_ce_cbc_cts_enc(ctx->rkey_enc, walk.dst.virt.addr,
-+					   walk.src.virt.addr, walk.iv, walk.nbytes);
-+		else
-+			sm4_ce_cbc_cts_dec(ctx->rkey_dec, walk.dst.virt.addr,
-+					   walk.src.virt.addr, walk.iv, walk.nbytes);
-+	}
- 
- 	return skcipher_walk_done(&walk, 0);
- }
-@@ -288,28 +281,26 @@ static int sm4_ctr_crypt(struct skcipher_request *req)
- 		u8 *dst = walk.dst.virt.addr;
- 		unsigned int nblks;
- 
--		kernel_neon_begin();
--
--		nblks = BYTES2BLKS(nbytes);
--		if (nblks) {
--			sm4_ce_ctr_enc(ctx->rkey_enc, dst, src, walk.iv, nblks);
--			dst += nblks * SM4_BLOCK_SIZE;
--			src += nblks * SM4_BLOCK_SIZE;
--			nbytes -= nblks * SM4_BLOCK_SIZE;
--		}
--
--		/* tail */
--		if (walk.nbytes == walk.total && nbytes > 0) {
--			u8 keystream[SM4_BLOCK_SIZE];
--
--			sm4_ce_crypt_block(ctx->rkey_enc, keystream, walk.iv);
--			crypto_inc(walk.iv, SM4_BLOCK_SIZE);
--			crypto_xor_cpy(dst, src, keystream, nbytes);
--			nbytes = 0;
-+		scoped_ksimd() {
-+			nblks = BYTES2BLKS(nbytes);
-+			if (nblks) {
-+				sm4_ce_ctr_enc(ctx->rkey_enc, dst, src, walk.iv, nblks);
-+				dst += nblks * SM4_BLOCK_SIZE;
-+				src += nblks * SM4_BLOCK_SIZE;
-+				nbytes -= nblks * SM4_BLOCK_SIZE;
-+			}
++#include <asm/simd.h>
 +
-+			/* tail */
-+			if (walk.nbytes == walk.total && nbytes > 0) {
-+				u8 keystream[SM4_BLOCK_SIZE];
-+
-+				sm4_ce_crypt_block(ctx->rkey_enc, keystream, walk.iv);
-+				crypto_inc(walk.iv, SM4_BLOCK_SIZE);
-+				crypto_xor_cpy(dst, src, keystream, nbytes);
-+				nbytes = 0;
-+			}
+ MODULE_DESCRIPTION("GHASH and AES-GCM using ARMv8 Crypto Extensions");
+ MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+ MODULE_LICENSE("GPL v2");
+@@ -74,9 +75,8 @@ void ghash_do_simd_update(int blocks, u64 dg[], const char *src,
+ 					      u64 const h[][2],
+ 					      const char *head))
+ {
+-	kernel_neon_begin();
+-	simd_update(blocks, dg, src, key->h, head);
+-	kernel_neon_end();
++	scoped_ksimd()
++		simd_update(blocks, dg, src, key->h, head);
+ }
+ 
+ /* avoid hogging the CPU for too long */
+@@ -329,11 +329,10 @@ static int gcm_encrypt(struct aead_request *req, char *iv, int assoclen)
+ 			tag = NULL;
  		}
  
--		kernel_neon_end();
--
- 		err = skcipher_walk_done(&walk, nbytes);
- 	}
- 
-@@ -359,18 +350,16 @@ static int sm4_xts_crypt(struct skcipher_request *req, bool encrypt)
- 		if (nbytes < walk.total)
- 			nbytes &= ~(SM4_BLOCK_SIZE - 1);
- 
 -		kernel_neon_begin();
--
--		if (encrypt)
--			sm4_ce_xts_enc(ctx->key1.rkey_enc, walk.dst.virt.addr,
--				       walk.src.virt.addr, walk.iv, nbytes,
--				       rkey2_enc);
--		else
--			sm4_ce_xts_dec(ctx->key1.rkey_dec, walk.dst.virt.addr,
--				       walk.src.virt.addr, walk.iv, nbytes,
--				       rkey2_enc);
--
--		kernel_neon_end();
-+		scoped_ksimd() {
-+			if (encrypt)
-+				sm4_ce_xts_enc(ctx->key1.rkey_enc, walk.dst.virt.addr,
-+						walk.src.virt.addr, walk.iv, nbytes,
-+						rkey2_enc);
-+			else
-+				sm4_ce_xts_dec(ctx->key1.rkey_dec, walk.dst.virt.addr,
-+						walk.src.virt.addr, walk.iv, nbytes,
-+						rkey2_enc);
-+		}
- 
- 		rkey2_enc = NULL;
- 
-@@ -395,18 +384,16 @@ static int sm4_xts_crypt(struct skcipher_request *req, bool encrypt)
- 	if (err)
- 		return err;
- 
--	kernel_neon_begin();
--
--	if (encrypt)
--		sm4_ce_xts_enc(ctx->key1.rkey_enc, walk.dst.virt.addr,
--			       walk.src.virt.addr, walk.iv, walk.nbytes,
--			       rkey2_enc);
--	else
--		sm4_ce_xts_dec(ctx->key1.rkey_dec, walk.dst.virt.addr,
--			       walk.src.virt.addr, walk.iv, walk.nbytes,
--			       rkey2_enc);
--
--	kernel_neon_end();
-+	scoped_ksimd() {
-+		if (encrypt)
-+			sm4_ce_xts_enc(ctx->key1.rkey_enc, walk.dst.virt.addr,
-+					walk.src.virt.addr, walk.iv, walk.nbytes,
-+					rkey2_enc);
-+		else
-+			sm4_ce_xts_dec(ctx->key1.rkey_dec, walk.dst.virt.addr,
-+					walk.src.virt.addr, walk.iv, walk.nbytes,
-+					rkey2_enc);
-+	}
- 
- 	return skcipher_walk_done(&walk, 0);
- }
-@@ -510,11 +497,9 @@ static int sm4_cbcmac_setkey(struct crypto_shash *tfm, const u8 *key,
- 	if (key_len != SM4_KEY_SIZE)
- 		return -EINVAL;
- 
--	kernel_neon_begin();
--	sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
--			  crypto_sm4_fk, crypto_sm4_ck);
--	kernel_neon_end();
--
-+	scoped_ksimd()
-+		sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
-+				crypto_sm4_fk, crypto_sm4_ck);
- 	return 0;
- }
- 
-@@ -530,15 +515,13 @@ static int sm4_cmac_setkey(struct crypto_shash *tfm, const u8 *key,
- 
- 	memset(consts, 0, SM4_BLOCK_SIZE);
- 
--	kernel_neon_begin();
--
--	sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
--			  crypto_sm4_fk, crypto_sm4_ck);
-+	scoped_ksimd() {
-+		sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
-+				crypto_sm4_fk, crypto_sm4_ck);
- 
--	/* encrypt the zero block */
--	sm4_ce_crypt_block(ctx->key.rkey_enc, (u8 *)consts, (const u8 *)consts);
--
--	kernel_neon_end();
-+		/* encrypt the zero block */
-+		sm4_ce_crypt_block(ctx->key.rkey_enc, (u8 *)consts, (const u8 *)consts);
-+	}
- 
- 	/* gf(2^128) multiply zero-ciphertext with u and u^2 */
- 	a = be64_to_cpu(consts[0].a);
-@@ -568,18 +551,16 @@ static int sm4_xcbc_setkey(struct crypto_shash *tfm, const u8 *key,
- 	if (key_len != SM4_KEY_SIZE)
- 		return -EINVAL;
- 
--	kernel_neon_begin();
--
--	sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
--			  crypto_sm4_fk, crypto_sm4_ck);
-+	scoped_ksimd() {
-+		sm4_ce_expand_key(key, ctx->key.rkey_enc, ctx->key.rkey_dec,
-+				crypto_sm4_fk, crypto_sm4_ck);
- 
--	sm4_ce_crypt_block(ctx->key.rkey_enc, key2, ks[0]);
--	sm4_ce_crypt(ctx->key.rkey_enc, ctx->consts, ks[1], 2);
-+		sm4_ce_crypt_block(ctx->key.rkey_enc, key2, ks[0]);
-+		sm4_ce_crypt(ctx->key.rkey_enc, ctx->consts, ks[1], 2);
- 
--	sm4_ce_expand_key(key2, ctx->key.rkey_enc, ctx->key.rkey_dec,
--			  crypto_sm4_fk, crypto_sm4_ck);
--
--	kernel_neon_end();
-+		sm4_ce_expand_key(key2, ctx->key.rkey_enc, ctx->key.rkey_dec,
-+				crypto_sm4_fk, crypto_sm4_ck);
-+	}
- 
- 	return 0;
- }
-@@ -600,10 +581,9 @@ static int sm4_mac_update(struct shash_desc *desc, const u8 *p,
- 	unsigned int nblocks = len / SM4_BLOCK_SIZE;
- 
- 	len %= SM4_BLOCK_SIZE;
--	kernel_neon_begin();
--	sm4_ce_mac_update(tctx->key.rkey_enc, ctx->digest, p,
--			  nblocks, false, true);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		sm4_ce_mac_update(tctx->key.rkey_enc, ctx->digest, p,
-+				nblocks, false, true);
- 	return len;
- }
- 
-@@ -619,10 +599,9 @@ static int sm4_cmac_finup(struct shash_desc *desc, const u8 *src,
- 		ctx->digest[len] ^= 0x80;
- 		consts += SM4_BLOCK_SIZE;
- 	}
--	kernel_neon_begin();
--	sm4_ce_mac_update(tctx->key.rkey_enc, ctx->digest, consts, 1,
--			  false, true);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		sm4_ce_mac_update(tctx->key.rkey_enc, ctx->digest, consts, 1,
-+				  false, true);
- 	memcpy(out, ctx->digest, SM4_BLOCK_SIZE);
- 	return 0;
- }
-@@ -635,10 +614,9 @@ static int sm4_cbcmac_finup(struct shash_desc *desc, const u8 *src,
- 
- 	if (len) {
- 		crypto_xor(ctx->digest, src, len);
--		kernel_neon_begin();
--		sm4_ce_crypt_block(tctx->key.rkey_enc, ctx->digest,
--				   ctx->digest);
+-		pmull_gcm_encrypt(nbytes, dst, src, ctx->ghash_key.h,
+-				  dg, iv, ctx->aes_key.key_enc, nrounds,
+-				  tag);
 -		kernel_neon_end();
 +		scoped_ksimd()
-+			sm4_ce_crypt_block(tctx->key.rkey_enc, ctx->digest,
-+					   ctx->digest);
- 	}
- 	memcpy(out, ctx->digest, SM4_BLOCK_SIZE);
- 	return 0;
-diff --git a/arch/arm64/crypto/sm4-neon-glue.c b/arch/arm64/crypto/sm4-neon-glue.c
-index e3500aca2d18..e944c2a2efb0 100644
---- a/arch/arm64/crypto/sm4-neon-glue.c
-+++ b/arch/arm64/crypto/sm4-neon-glue.c
-@@ -48,11 +48,8 @@ static int sm4_ecb_do_crypt(struct skcipher_request *req, const u32 *rkey)
++			pmull_gcm_encrypt(nbytes, dst, src, ctx->ghash_key.h,
++					  dg, iv, ctx->aes_key.key_enc, nrounds,
++					  tag);
  
- 		nblocks = nbytes / SM4_BLOCK_SIZE;
- 		if (nblocks) {
--			kernel_neon_begin();
--
--			sm4_neon_crypt(rkey, dst, src, nblocks);
--
--			kernel_neon_end();
-+			scoped_ksimd()
-+				sm4_neon_crypt(rkey, dst, src, nblocks);
+ 		if (unlikely(!nbytes))
+ 			break;
+@@ -399,11 +398,11 @@ static int gcm_decrypt(struct aead_request *req, char *iv, int assoclen)
+ 			tag = NULL;
  		}
  
- 		err = skcipher_walk_done(&walk, nbytes % SM4_BLOCK_SIZE);
-@@ -126,12 +123,9 @@ static int sm4_cbc_decrypt(struct skcipher_request *req)
+-		kernel_neon_begin();
+-		ret = pmull_gcm_decrypt(nbytes, dst, src, ctx->ghash_key.h,
+-					dg, iv, ctx->aes_key.key_enc,
+-					nrounds, tag, otag, authsize);
+-		kernel_neon_end();
++		scoped_ksimd()
++			ret = pmull_gcm_decrypt(nbytes, dst, src,
++						ctx->ghash_key.h,
++						dg, iv, ctx->aes_key.key_enc,
++						nrounds, tag, otag, authsize);
  
- 		nblocks = nbytes / SM4_BLOCK_SIZE;
- 		if (nblocks) {
--			kernel_neon_begin();
--
--			sm4_neon_cbc_dec(ctx->rkey_dec, dst, src,
--					 walk.iv, nblocks);
--
--			kernel_neon_end();
-+			scoped_ksimd()
-+				sm4_neon_cbc_dec(ctx->rkey_dec, dst, src,
-+						 walk.iv, nblocks);
- 		}
- 
- 		err = skcipher_walk_done(&walk, nbytes % SM4_BLOCK_SIZE);
-@@ -157,12 +151,9 @@ static int sm4_ctr_crypt(struct skcipher_request *req)
- 
- 		nblocks = nbytes / SM4_BLOCK_SIZE;
- 		if (nblocks) {
--			kernel_neon_begin();
--
--			sm4_neon_ctr_crypt(ctx->rkey_enc, dst, src,
--					   walk.iv, nblocks);
--
--			kernel_neon_end();
-+			scoped_ksimd()
-+				sm4_neon_ctr_crypt(ctx->rkey_enc, dst, src,
-+						   walk.iv, nblocks);
- 
- 			dst += nblocks * SM4_BLOCK_SIZE;
- 			src += nblocks * SM4_BLOCK_SIZE;
+ 		if (unlikely(!nbytes))
+ 			break;
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
