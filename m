@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80538CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFA8CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W+IN87OBHk6Ei3FAtLm6+B2JCNOaphkm1SdWUT7016s=; b=EGRrqlt1Di6SyROe7xS/N/qOup
-	tocL9Ft0hhg/h93HzjMuhcbHcMZnClO2bJueZXOeiazELKtrII0cHk3GRcHVYsSPPMQ1EzGoyCiFW
-	xcSKiZku1OuX0SQMDRmMf+5Q4OSjXoRNldYVq2UePkiGj3voGgLd7rQUXanK8uaFQTPej0CxzJt18
-	YY2BgHpMJpRTEWEz1SiAc1YiD4G4uTXxxsyWdYtcOLdpW0ltCl3jVRIAxbljWH/xBqkTBpiQQ8Hz9
-	1pqoxOjFWYjTJ9n/l2KzyHkg7X7pZFRtWjCOSYhyzYaPXU7gm4a0Z5rSg+RZCcTonOTW0xMPjjtgj
-	zVVp8esw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b0a87uhexrPVU3gNxHlkt9mKorfh8nMdGhXMgY/Q4W8=; b=0Ch3i6DQE/Q7fP8sXxIpMp2b7q
+	+vagwizUvK2FGplbhGgE78/hp8j0CYM25Y5wLRp21gE8+K/1hOZ5HaITOaokUhtfL1Ueie8UD59be
+	J5XaDvDej+VRuMfvDun24FXh7eUZmLtU/YOzJSK1hxUP1LzvsK+KTAViTd+quHMOyX0A2e7361cut
+	x4zVuNU4yv8tmA4H5RQBDas3awcyXhaLXmHQTQmrnffl2eDaT+uk5i7uQDq5Ho9rdhGhN+KBYl6SU
+	+V8W/keO0WBd3jpQtKlDO0zABfMLQl8ChIGK/vCDDtsVT5qDF6fx+ywNX9/fEFl2XDfi63R+Ew+8A
+	huYn5ZCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsuP-00000006TlN-0LYP;
+	id 1vEsuP-00000006Tm4-1upN;
 	Fri, 31 Oct 2025 17:27:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsuD-00000006ThC-1SKV
+	id 1vEsuD-00000006ThE-1si9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:27:18 +0000
+	Fri, 31 Oct 2025 17:27:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F108432CE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F7BB44248;
 	Fri, 31 Oct 2025 17:27:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E6458C4CEE7;
-	Fri, 31 Oct 2025 17:27:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2BF65C116C6;
+	Fri, 31 Oct 2025 17:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1761931636;
-	bh=t4zIx4Z11X9zS02u+s0yDHEllOpDAKEqSMdLm4SCIRU=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=YezzmReoBglXbbwmuX7vtp2Yo5fWl1KttjMuHVlFK4VMneRMnUbGJrpjNwcAAJWAv
-	 wBBNW2CT8fXIxeK1SdB3sV/vmSNuC1LZ7O04Mk86aAGJHpEQ/jrqWDNUxj5oE4QiWs
-	 exT7DjIq2vEm1+p3quxHp7VZRNfl7+VX+/h/ZOiinzitSJDqSeAjcggvv11zdcJiTn
-	 xv6YMeUrySBTqXgwi892Ivh7Dvv/m0b4+v08+8AoHjzafHbhyId+B6+XsoZGyRj+ri
-	 LC77rKbh7ewjJkAEmFCj6al2UmFsQl2V8TDo1mbaiQsv7d5CH/zBN6NdDmu9UI9AjB
-	 xjNbYqGXrC5Og==
+	bh=5A/kLq8po/AIfsNGO6cLTZ+fIVCQT5AElgJFBCeehsg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Vyi6NX87iJN6ZbeYYAXbf63YVcp/ADMBFRvE1zXks28mK87vEUU6cQd/3z/uLcIHG
+	 aJbbmy+g7ZLdH0W7wm6sJgIEbMjNm0m1ZtC0KgxNjvylyPcC3rlZOza6J7Ay7uWH7l
+	 UwFV9D8XGq61zQ5vK55swVToo0gUX0ICWhykzmT4DBYnmnmlCVjSE97/EQl5KakL3U
+	 VAnwV/j4s5KgbTVAukt09NwqSpb4STcRGbTXtPm2B2mv/3gLOaqqjvm6PAsQcdXJui
+	 UsYz0Qw+KgDKyh8FFJCkXhoRAMAyz4uJg1Ss7zUERlImmPy/MMw/MGmyAtD3tLBshF
+	 kPpp6Alu9hn0A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1D82CCFA02;
-	Fri, 31 Oct 2025 17:27:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 22808CCFA03;
+	Fri, 31 Oct 2025 17:27:16 +0000 (UTC)
 From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Subject: [PATCH net-next v2 0/4] net: stmmac: socfpga: Add Agilex5 platform
- support and enhancements
-Date: Sat, 01 Nov 2025 01:27:06 +0800
-Message-Id: <20251101-agilex5_ext-v2-0-a6b51b4dca4d@altera.com>
+Date: Sat, 01 Nov 2025 01:27:10 +0800
+Subject: [PATCH net-next v2 4/4] net: stmmac: socfpga: Add hardware
+ supported cross-timestamp
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGrxBGkC/22NwQqDMBBEf0X23JRsxEp66n8UKWmy6oKNkgRJk
- fx7g+cehzfz5oBIgSnCvTkg0M6RV1+DujRgZ+MnEuxqBiVVh1JpYSZeKHcvyklY7N+u77V1NEJ
- dbIFGzqftCZ6S8LUFQyUzx7SG73mz48n/GncUUqBuEVtVze72MEuiYK52/cBQSvkBxwC0UbEAA
- AA=
-X-Change-ID: 20251029-agilex5_ext-c17bd779cdef
+Message-Id: <20251101-agilex5_ext-v2-4-a6b51b4dca4d@altera.com>
+References: <20251101-agilex5_ext-v2-0-a6b51b4dca4d@altera.com>
+In-Reply-To: <20251101-agilex5_ext-v2-0-a6b51b4dca4d@altera.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
  Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -70,20 +67,19 @@ Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Rohan G Thomas <rohan.g.thomas@altera.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761931634; l=1421;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761931634; l=7078;
  i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=t4zIx4Z11X9zS02u+s0yDHEllOpDAKEqSMdLm4SCIRU=;
- b=8tiYGEzN7w19aqajaofQRjkGf2F3m3eiOWWkDj28bjUqjQj6UIaO4zBm5kbVZIxDz1VNq8w2i
- dSp1UujxJ92AuHoJwtCC4A5HU1kp3nuDde1lw7H3PS28n7NfeQi3Q6x
+ bh=9EkvKknTEFMhFgiG4guzPV0b/EvK3DNx3dlBmCIhiac=;
+ b=uOn4rWvTDMcdAQ1HyyZkaYCxtJBnVLAs8rfsa590bz7r8rgMCrSuY56YVXV7Ee82E4rG1yhuk
+ 3ix7Ne28jO4Do5xeB7MLMu5HdpyewAFibr4FJBycKZ5nKY1qKwg/Dji
 X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
  pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
 X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
  with auth_id=494
 X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_102717_426968_1392CE37 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_102717_544444_2F6AA642 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,41 +95,220 @@ Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Agilex5 EMAC platform to the
-dwmac-socfpga driver.
+From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-The series includes:
-   - Platform configuration for Agilex5 EMAC
-   - Enabling Time-Based Scheduling (TBS) for Tx queues 6 and 7
-   - Enabling TCP Segmentation Offload(TSO)
-   - Adding hardware-supported cross timestamping using the SMTG IP,
-     allowing precise synchronization between MAC and system time via
-     PTP_SYS_OFFSET_PRECISE.
+Cross timestamping is supported on Agilex5 platform with Synchronized
+Multidrop Timestamp Gathering(SMTG) IP. The hardware cross-timestamp
+result is made available the applications through the ioctl call
+PTP_SYS_OFFSET_PRECISE, which inturn calls stmmac_getcrosststamp().
+
+Device time is stored in the MAC Auxiliary register. The 64-bit System
+time (ARM_ARCH_COUNTER) is stored in SMTG IP. SMTG IP is an MDIO device
+with 0xC - 0xF MDIO register space holds 64-bit system time.
+
+This commit is similar to following commit for Intel platforms:
+Commit 341f67e424e5 ("net: stmmac: Add hardware supported cross-timestamp")
 
 Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
 ---
-Changes in v2:
-- Fixed reduntant leftover tsis irq and use_ns changes from smtg_crosststamp
-- Keep common platform config for socfpga platforms in socfpga_dwmac_probe
-- Link to v1: https://lore.kernel.org/r/20251029-agilex5_ext-v1-0-1931132d77d6@altera.com
-
----
-Rohan G Thomas (4):
-      net: stmmac: socfpga: Agilex5 EMAC platform configuration
-      net: stmmac: socfpga: Enable TBS support for Agilex5
-      net: stmmac: socfpga: Enable TSO for Agilex5 platform
-      net: stmmac: socfpga: Add hardware supported cross-timestamp
-
- .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 166 ++++++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 120 +++++++++++++++++++++
  drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     |   5 +
- 2 files changed, 168 insertions(+), 3 deletions(-)
----
-base-commit: 0d0eb186421d0886ac466008235f6d9eedaf918e
-change-id: 20251029-agilex5_ext-c17bd779cdef
+ 2 files changed, 125 insertions(+)
 
-Best regards,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+index 1837346ca2d438018ae161a233f415fe0181c78d..49d651948e2bd41faeecaebb37121aef757a66a7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/mfd/altera-sysmgr.h>
++#include <linux/clocksource_ids.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/of_net.h>
+@@ -15,8 +16,10 @@
+ #include <linux/reset.h>
+ #include <linux/stmmac.h>
+ 
++#include "dwxgmac2.h"
+ #include "stmmac.h"
+ #include "stmmac_platform.h"
++#include "stmmac_ptp.h"
+ 
+ #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII 0x0
+ #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RGMII 0x1
+@@ -41,6 +44,13 @@
+ #define SGMII_ADAPTER_ENABLE		0x0000
+ #define SGMII_ADAPTER_DISABLE		0x0001
+ 
++#define SMTG_MDIO_ADDR		0x15
++#define SMTG_TSC_WORD0		0xC
++#define SMTG_TSC_WORD1		0xD
++#define SMTG_TSC_WORD2		0xE
++#define SMTG_TSC_WORD3		0xF
++#define SMTG_TSC_SHIFT		16
++
+ struct socfpga_dwmac;
+ struct socfpga_dwmac_ops {
+ 	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv);
+@@ -269,6 +279,112 @@ static int socfpga_set_phy_mode_common(int phymode, u32 *val)
+ 	return 0;
+ }
+ 
++static void get_smtgtime(struct mii_bus *mii, int smtg_addr, u64 *smtg_time)
++{
++	u64 ns;
++
++	ns = mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD3);
++	ns <<= SMTG_TSC_SHIFT;
++	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD2);
++	ns <<= SMTG_TSC_SHIFT;
++	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD1);
++	ns <<= SMTG_TSC_SHIFT;
++	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD0);
++
++	*smtg_time = ns;
++}
++
++static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
++			    void *ctx)
++{
++	struct stmmac_priv *priv = (struct stmmac_priv *)ctx;
++	u32 num_snapshot, gpio_value, acr_value;
++	void __iomem *ptpaddr = priv->ptpaddr;
++	void __iomem *ioaddr = priv->hw->pcsr;
++	unsigned long flags;
++	u64 smtg_time = 0;
++	u64 ptp_time = 0;
++	int i, ret;
++	u32 v;
++
++	/* Both internal crosstimestamping and external triggered event
++	 * timestamping cannot be run concurrently.
++	 */
++	if (priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN)
++		return -EBUSY;
++
++	mutex_lock(&priv->aux_ts_lock);
++	/* Enable Internal snapshot trigger */
++	acr_value = readl(ptpaddr + PTP_ACR);
++	acr_value &= ~PTP_ACR_MASK;
++	switch (priv->plat->int_snapshot_num) {
++	case AUX_SNAPSHOT0:
++		acr_value |= PTP_ACR_ATSEN0;
++		break;
++	case AUX_SNAPSHOT1:
++		acr_value |= PTP_ACR_ATSEN1;
++		break;
++	case AUX_SNAPSHOT2:
++		acr_value |= PTP_ACR_ATSEN2;
++		break;
++	case AUX_SNAPSHOT3:
++		acr_value |= PTP_ACR_ATSEN3;
++		break;
++	default:
++		mutex_unlock(&priv->aux_ts_lock);
++		return -EINVAL;
++	}
++	writel(acr_value, ptpaddr + PTP_ACR);
++
++	/* Clear FIFO */
++	acr_value = readl(ptpaddr + PTP_ACR);
++	acr_value |= PTP_ACR_ATSFC;
++	writel(acr_value, ptpaddr + PTP_ACR);
++	/* Release the mutex */
++	mutex_unlock(&priv->aux_ts_lock);
++
++	/* Trigger Internal snapshot signal. Create a rising edge by just toggle
++	 * the GPO0 to low and back to high.
++	 */
++	gpio_value = readl(ioaddr + XGMAC_GPIO_STATUS);
++	gpio_value &= ~XGMAC_GPIO_GPO0;
++	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
++	gpio_value |= XGMAC_GPIO_GPO0;
++	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
++
++	/* Poll for time sync operation done */
++	ret = readl_poll_timeout(priv->ioaddr + XGMAC_INT_STATUS, v,
++				 (v & XGMAC_INT_TSIS), 100, 10000);
++	if (ret) {
++		netdev_err(priv->dev, "%s: Wait for time sync operation timeout\n",
++			   __func__);
++		return ret;
++	}
++
++	*system = (struct system_counterval_t) {
++		.cycles = 0,
++		.cs_id = CSID_ARM_ARCH_COUNTER,
++		.use_nsecs = false,
++	};
++
++	num_snapshot = (readl(ioaddr + XGMAC_TIMESTAMP_STATUS) &
++			XGMAC_TIMESTAMP_ATSNS_MASK) >>
++			XGMAC_TIMESTAMP_ATSNS_SHIFT;
++
++	/* Repeat until the timestamps are from the FIFO last segment */
++	for (i = 0; i < num_snapshot; i++) {
++		read_lock_irqsave(&priv->ptp_lock, flags);
++		stmmac_get_ptptime(priv, ptpaddr, &ptp_time);
++		*device = ns_to_ktime(ptp_time);
++		read_unlock_irqrestore(&priv->ptp_lock, flags);
++	}
++
++	get_smtgtime(priv->mii, SMTG_MDIO_ADDR, &smtg_time);
++	system->cycles = smtg_time;
++
++	return 0;
++}
++
+ static int socfpga_gen5_set_phy_mode(struct socfpga_dwmac *dwmac)
+ {
+ 	struct regmap *sys_mgr_base_addr = dwmac->sys_mgr_base_addr;
+@@ -473,6 +589,10 @@ static void socfpga_agilex5_setup_plat_dat(struct socfpga_dwmac *dwmac)
+ 		/* Tx Queues 0 - 5 doesn't support TBS on Agilex5 */
+ 		break;
+ 	}
++
++	/* Hw supported cross-timestamp */
++	plat_dat->int_snapshot_num = AUX_SNAPSHOT0;
++	plat_dat->crosststamp = smtg_crosststamp;
+ }
+ 
+ static int socfpga_dwmac_probe(struct platform_device *pdev)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index 0d408ee17f337851502cbcba8e82d2b839b9db02..e48cfa05000c07ed9194de786efa530a61a9dbfa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -79,6 +79,7 @@
+ #define XGMAC_PSRQ(x)			GENMASK((x) * 8 + 7, (x) * 8)
+ #define XGMAC_PSRQ_SHIFT(x)		((x) * 8)
+ #define XGMAC_INT_STATUS		0x000000b0
++#define XGMAC_INT_TSIS			BIT(12)
+ #define XGMAC_LPIIS			BIT(5)
+ #define XGMAC_PMTIS			BIT(4)
+ #define XGMAC_INT_EN			0x000000b4
+@@ -173,6 +174,8 @@
+ #define XGMAC_MDIO_ADDR			0x00000200
+ #define XGMAC_MDIO_DATA			0x00000204
+ #define XGMAC_MDIO_C22P			0x00000220
++#define XGMAC_GPIO_STATUS		0x0000027c
++#define XGMAC_GPIO_GPO0			BIT(16)
+ #define XGMAC_ADDRx_HIGH(x)		(0x00000300 + (x) * 0x8)
+ #define XGMAC_ADDR_MAX			32
+ #define XGMAC_AE			BIT(31)
+@@ -220,6 +223,8 @@
+ #define XGMAC_OB			BIT(0)
+ #define XGMAC_RSS_DATA			0x00000c8c
+ #define XGMAC_TIMESTAMP_STATUS		0x00000d20
++#define XGMAC_TIMESTAMP_ATSNS_MASK	GENMASK(29, 25)
++#define XGMAC_TIMESTAMP_ATSNS_SHIFT	25
+ #define XGMAC_TXTSC			BIT(15)
+ #define XGMAC_TXTIMESTAMP_NSEC		0x00000d30
+ #define XGMAC_TXTSSTSLO			GENMASK(30, 0)
+
 -- 
-Rohan G Thomas <rohan.g.thomas@altera.com>
+2.43.7
 
 
 
