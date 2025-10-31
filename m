@@ -4,82 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03083CCF9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21D4CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTw7iWUX8HaZ6Ol9jn6dxV7QLQ2mYM3zWUSbDbp7Gho=; b=WsuNE47igVY8aWCFQQw9jrzVk2
-	A8S0V+dVvqLZ1qf7cOVpb9sfYlMQlT2J4aILiEmWza0oA1EyIzX4O6bzTbxityIx1mhDRS6cai+gS
-	t9yTmwDU7en/5cPasPp3A49nBfPVYZHbW+LSFfCG4pw/TNdfv8yd77G5NPBqlObk9TjZ5rvs9Dki/
-	iJeJbB9GwoxYvarWfonu5zqRnSoocbvwn5dd7Z2HxZwYY3P+DTJ8LzLRodU5YyRzq1J9uIWSpMJIV
-	jyFoPzGG7w3ZFMRILLnfkX5Sh6PzmMPIIvXHmZcAmdUVM4l+vRfGDugywkKCUpQAVWWZmx39qT2SY
-	XUXNQciw==;
+	bh=dUyPK8JAqWudplR/2LaZrm1ThRmweJDGU1ip12PgpiM=; b=prFDeb0FMZ7MypshS8fom5qT/f
+	/+2cJ+eXgSLq4QhuFtzUb1JFAFv+5Cl93ZWBmjoYqRxxn+b7mJ/3EP+KCGcEW3hPE4yDaJPxiaZ60
+	V+EBAVh4UNYGA5aiK4x6JDptRdUj/yyNLYa8ZukfX4uvZLVbZYMJfoUIMWt+pKI2N/PJrvj39ad3T
+	sMWg1GVt5EjFQ9gofa9KN4rsPgLUa2yrqHgHRau2RKIjI5yE+WDjFt/qHE23805colcAqN6beAlAQ
+	bcyoMTD6YcEvmu6OCCPv+6NRCOnrLMwRUJKV8Uz3XE41L0mhAFbQSZPZ/WsCrWWcO5nepsRIOxUAT
+	31cY6Zbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmJO-00000005tkZ-3oyL;
-	Fri, 31 Oct 2025 10:24:50 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1vEmJY-00000005toL-49tY;
+	Fri, 31 Oct 2025 10:25:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmJK-00000005tiM-3yYD
+	id 1vEmJV-00000005tmd-1ygC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 31 Oct 2025 10:24:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=dUyPK8JAqWudplR/2LaZrm1ThRmweJDGU1ip12PgpiM=; b=fgdgGitYdJE9nKvH7JKzYDls1S
+	Z/j2V5GxpGAo2pIgP6ycd5zOTe/xym8kZzYNPQ6EcVEJkZf+cfk52yJB56kYsR3vKyCLZwiRCQjYV
+	IW5LJLVJSE1ezk5/S4KxymCOJTa3rc1O5b2vUNQ+RYLHK/LRZWndqlQ0O58lrAN2VWEbwEawymnhD
+	7KfvY8FLfbHq3AX2xQ16pucz76n1CANqEKfNo6jI/QKVoW/HDJnlE9EZiSf1IFa5LdmaihS2OUvLM
+	l5Gte21EpCBU1UutFEsUnVzDtAKFu0O+3iKQeyluwuI1v81uiOGT5PZd+SJEbIfiWh/8pTKUYhj+O
+	CJfGKhCQ==;
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vElRj-0000000B1IS-0rqd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 10:24:48 +0000
+	Fri, 31 Oct 2025 09:29:25 +0000
 Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id E5FD922189;
-	Fri, 31 Oct 2025 10:24:32 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 9B08A22003;
+	Fri, 31 Oct 2025 10:24:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1761906274; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dUyPK8JAqWudplR/2LaZrm1ThRmweJDGU1ip12PgpiM=;
+	b=O5UZFdFL24kPXAc/Eq+iDS4umBYxWpRJIe/gFyDCTeCUdax87Wo9Jtg93uIL+lKw8uwFap
+	gJ4IbTe8R4QC5/9TdTkbzq0sUKBCh/zuEXqM3p/B0QgBYmtvNyBGCIfiKJUqqR7y7mhyIG
+	E7hBkOFQrx/yrVci3LwtVVjnytR7OR8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1761906274;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dUyPK8JAqWudplR/2LaZrm1ThRmweJDGU1ip12PgpiM=;
+	b=5CSIKl8PX2d4Q5AAA8ug0fAN9qwgTQD9Is7UbKNCAvqSAXlVZVW6tLli/ruoORsfZW8QnA
+	OJk2a3no8LarumCg==
+Authentication-Results: smtp-out1.suse.de;
+	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1761906273; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=lTw7iWUX8HaZ6Ol9jn6dxV7QLQ2mYM3zWUSbDbp7Gho=;
-	b=1l6bPKMJ5mnte7qYgNr+L80hZeYp8e4Ir9swUnEvr/AoK/CXATYuI35gGxPkorqELturq/
-	+o7Xh1ds60QrKuo5IAlibr7m4D6IHMEDIrLk+TFURRTITHT/BOEuRSHJmF5UbOny5oHVgh
-	NeRKQT8fSKMYU2CpFuuonXHsEW90OWU=
+	bh=dUyPK8JAqWudplR/2LaZrm1ThRmweJDGU1ip12PgpiM=;
+	b=ynmFKMkkkS37BuO1Twi6pN2gXFlZNx1h5pbiUqqQ6La0mdRI10n+qVgbjPMbpAK6AvaXE4
+	v3WYsj0RDbdAa7RBWhA50pmuToKLJbKkCQBfcl3Wv4vii2a23UeX4yKc90KfacZhQDBHTm
+	UJJU0vgUK3YZhpbZShWMAnzRrWAbNmI=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1761906273;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=lTw7iWUX8HaZ6Ol9jn6dxV7QLQ2mYM3zWUSbDbp7Gho=;
-	b=WJISIQqxLiiEq8ENgXUIxb9BuIO+Sci9bhzb1gThE5y1eedssT17rIqO5fW1vhw9YCKFec
-	wnldVzm6O7gJ8wCw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1761906272; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lTw7iWUX8HaZ6Ol9jn6dxV7QLQ2mYM3zWUSbDbp7Gho=;
-	b=cMG9MK0CYwsta5C4uuzEP34dymJKbTzgOXZlkj/ZNlFaMznzSIiLOe9Q2/J4I8eQEE3YSj
-	+uhQRic0sg03psr8Zd/oPdWY8kIpnxMP0T2m9EvY/CdX8iQIgVNAVAwlJ/nzVvZu/z7Url
-	uHQ4IVwOqr1Ch82HOz9E0pO9GbVt084=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1761906272;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lTw7iWUX8HaZ6Ol9jn6dxV7QLQ2mYM3zWUSbDbp7Gho=;
-	b=IWYNU1tZeNkzw6GLBQu10zf+oBZAOqIkoLRccFkSyvCzcKGkMfsdHxG1CJxoc+bWHaraF4
-	FaOz5pfi23XbfZBw==
+	bh=dUyPK8JAqWudplR/2LaZrm1ThRmweJDGU1ip12PgpiM=;
+	b=73hwmyAc76PAoujBSO3iW4vFjcO3FWXXFKdOMFbAcD4qsLk1PQb2+KGiX3H3EDGdIYAail
+	3eYog3EmgRgfKFAw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4437B13B70;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EF41413991;
 	Fri, 31 Oct 2025 10:24:32 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id gC0RD2COBGlqEgAAD6G6ig
+	id WMXbOGCOBGlqEgAAD6G6ig
 	(envelope-from <svarbanov@suse.de>); Fri, 31 Oct 2025 10:24:32 +0000
 From: Stanimir Varbanov <svarbanov@suse.de>
 To: linux-kernel@vger.kernel.org,
@@ -104,9 +119,9 @@ Cc: Rob Herring <robh@kernel.org>,
 	Jonathan Bell <jonathan@raspberrypi.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	Stanimir Varbanov <svarbanov@suse.de>
-Subject: [PATCH v2 3/4] mfd: bcm2835-pm: Add support for BCM2712
-Date: Fri, 31 Oct 2025 12:24:22 +0200
-Message-ID: <20251031102423.1150093-4-svarbanov@suse.de>
+Subject: [PATCH v2 4/4] arm64: dts: broadcom: bcm2712: Add watchdog DT node
+Date: Fri, 31 Oct 2025 12:24:23 +0200
+Message-ID: <20251031102423.1150093-5-svarbanov@suse.de>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20251031102423.1150093-1-svarbanov@suse.de>
 References: <20251031102423.1150093-1-svarbanov@suse.de>
@@ -114,34 +129,34 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Spamd-Result: default: False [-5.30 / 50.00];
 	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[99.99%];
+	BAYES_HAM(-3.00)[100.00%];
 	SUSPICIOUS_RECIPS(1.50)[];
 	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
 	R_MISSING_CHARSET(0.50)[];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	URIBL_BLOCKED(0.00)[broadcom.com:email,suse.de:email,suse.de:mid];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
 	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.net];
-	FREEMAIL_CC(0.00)[kernel.org,broadcom.com,linaro.org,gmail.com,gmx.net,suse.com,raspberrypi.com,suse.de];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
 	TAGGED_RCPT(0.00)[dt];
+	RCVD_TLS_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo];
+	RCVD_COUNT_TWO(0.00)[2];
+	FREEMAIL_CC(0.00)[kernel.org,broadcom.com,linaro.org,gmail.com,gmx.net,suse.com,raspberrypi.com,suse.de];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	R_RATELIMIT(0.00)[to_ip_from(RL7mwea5a3cdyragbzqhrtit3y)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid]
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.net]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_032447_614663_7F443BC6 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20251031_092923_391128_1CE4902A 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,29 +171,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BCM2712 SoC has PM block but lacks the "asb" and "rpivid_asb"
-register spaces, and doesn't need clock(s).  Add a compatible
-string for bcm2712 to allow probe of bcm2835-wdt and
-bcm2835-power drivers.
+Add watchdog device-tree node for bcm2712 SoC.
 
 Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 ---
- drivers/mfd/bcm2835-pm.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/mfd/bcm2835-pm.c b/drivers/mfd/bcm2835-pm.c
-index 3cb2b9423121..8bed59816e82 100644
---- a/drivers/mfd/bcm2835-pm.c
-+++ b/drivers/mfd/bcm2835-pm.c
-@@ -108,6 +108,7 @@ static const struct of_device_id bcm2835_pm_of_match[] = {
- 	{ .compatible = "brcm,bcm2835-pm-wdt", },
- 	{ .compatible = "brcm,bcm2835-pm", },
- 	{ .compatible = "brcm,bcm2711-pm", },
-+	{ .compatible = "brcm,bcm2712-pm", },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, bcm2835_pm_of_match);
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index e77a66adc22a..08905034ffc1 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -250,6 +250,15 @@ uart10: serial@7d001000 {
+ 			status = "disabled";
+ 		};
+ 
++		pm: watchdog@7d200000 {
++			compatible = "brcm,bcm2712-pm", "brcm,bcm2835-pm-wdt";
++			reg = <0x7d200000 0x604>;
++			reg-names = "pm";
++			#power-domain-cells = <1>;
++			#reset-cells = <1>;
++			system-power-controller;
++		};
++
+ 		pinctrl: pinctrl@7d504100 {
+ 			compatible = "brcm,bcm2712c0-pinctrl";
+ 			reg = <0x7d504100 0x30>;
 -- 
 2.47.0
 
