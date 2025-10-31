@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0ED6CCF9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1EE6CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yWeicN1l2mf2js2fMAiSU2E7NZlQ/I1rzR2l36yFu0=; b=qAbG/tAvP0xQ5GEeDie/K3BLMF
-	+NLgG8eyxv/kW4En6jyJsDvFiTkFWl+7Y2hcJ1Fh6IiSk1U5liewAi7lek3s9Aqq2PNVLSlV5/bLH
-	7IKjm8s0M5/hzGG4IdR7Ld+73q0P16NoMjhAM0GxZlPY3PfdgkzdogvQEGoSFrzjanJlNQR5hrcMC
-	RKnBA75pG+bSRpfw6BcEubb043FzslhbXTQ2ipQCpyZEjruuDDq5GxTzkemLLIgbtaJiq1Gk9DUu+
-	r/4dDtBFE9G/DRefxeb03zbAkk/SXjmdaroQrIMDgl/nS4DisHDXKGvj1Lqh0QdXK2r5H2g8oZk0O
-	A5cZ9vSQ==;
+	bh=7SwJrIr6U1+pVeLDI8b/Z90ePApGArR/MfORdKx+bA8=; b=V6VkALV18vYFG5eGRFkQy0ZH2N
+	OkcuxXDJ1Yaubnv5oDlQaf94zmSGEGsUtubiBIDmvLQsqSiN3Sm4F5UCKNsYm2znGFJn8xpXEYt8H
+	A0N9oWvQo66T1eR1cn6Jc07CBymwVgLywnFTFH6Plfqqo0mWmVMX+GFkNC9I3PS1/vsKEa0fAWraQ
+	dC3u4KYg6tCn+Snr8/BptAIKOuH7q9Zhe6N3XqW5nL58EtePJuSZTrfwNZZwZdJ7J0kNaIQE9fIEk
+	mKBjn5cafj6mkv2riuLMYoWtV8C0dB4LStw8p2K/Lx3N57WhwOKN//lNSShJTQa29AsxjbFVojT+y
+	jy90rFbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmZ4-00000005vog-1Ky5;
-	Fri, 31 Oct 2025 10:41:02 +0000
-Received: from mail-wr1-f74.google.com ([209.85.221.74])
+	id 1vEmZ4-00000005vpk-3tEf;
+	Fri, 31 Oct 2025 10:41:05 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmY7-00000005vDS-1mZc
+	id 1vEmY2-00000005v8n-0qR1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 10:40:05 +0000
-Received: by mail-wr1-f74.google.com with SMTP id ffacd0b85a97d-4283bf540ceso1121424f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:40:02 -0700 (PDT)
+	Fri, 31 Oct 2025 10:40:01 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-429b51f3fd8so1002666f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:39:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761907200; x=1762512000; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761907196; x=1762511996; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6yWeicN1l2mf2js2fMAiSU2E7NZlQ/I1rzR2l36yFu0=;
-        b=Y8j9WnvD6WrRnz11sIj+/D+zIeIMWglCMzWvLfY6Okx1J23Wc0N8vt+WXcTRcuCLLZ
-         sMEISEJjkh50fSxqYibK0EE+hk3soDyjh71sI1xTz4yI08yqP7tVY1cYJhKZGSY+2Z6H
-         9XcAZ5+fpNJOUq5x1NPyv+eDn7/YPB8gtPs42pLxa5Pcpj/Vv80NdJRm9i3cUEMikisy
-         G3KuMbAxTKLwdP+VT7zrD0V1P7rm6eMeY6fOm+yrP+Z71qlCarMtrMnxaR8LjF2eK3fF
-         gQyNPNUG+MxtAd4n80RkvUUJhMNV1jjboCK0jjUIdBA/zMKk8xLoghi+lf7/S0UD337H
-         IxtA==
+        bh=7SwJrIr6U1+pVeLDI8b/Z90ePApGArR/MfORdKx+bA8=;
+        b=In3OcAekjwzWSngnveHOeNAsV5SvPjzFW22eHtaH1VjFPgtn+63eBpcfg7BzpaZAm4
+         k6NN5/8U47ubI4KPhmkG6SSi2uDGgkfXzPiJwUWN2JVZPy9nXjCvm+kkVLtDohzAPiaa
+         9o8ziL11qm7iq20RSRKsq7nnlnPA+OYRxpVY50ZE+L1kDTskviGO6rb8gSJYONmmlm1M
+         hFGI58EJMSFFm/Fz1NxtmlM8ttJUUxNqWA6nbUsgpvBEYIG+bH3InLiVWhN3+aqkY+K/
+         Aqn4O6vHbslThuNiHWYMlbYU2GMVZScNg7ZxRj7WK+5Qag9R4x8/if7pp18Sy7Eoq/6n
+         qmGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761907200; x=1762512000;
+        d=1e100.net; s=20230601; t=1761907196; x=1762511996;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6yWeicN1l2mf2js2fMAiSU2E7NZlQ/I1rzR2l36yFu0=;
-        b=PfMH49EMvmTl/+KtJKcM1Z1gBS/Ivm8V8oAYKnkD3pgO6CRqeUPGi/w+K+4QdD3nnB
-         XfAo0yMdKkuOw4sw5MWnX3j6G2wJsWGbqsg9IEj4hVeegEHDZf1QUDdOezsdPAqvZSZA
-         r7ex7qcQjJSlEfjQ71MdGMZmHvIkeTnh0eufIvb3pRieOuFYMVmGMkgC1yiXWMM+OvXB
-         KDRu/ye27m80PxnKlm5BYwqNXQnCNJFGCAXAVHcgFvmFpFEZ+BI8NWlrtbAuAPqvd6d5
-         SCjq3ZunT1YNG7HWKpMY/bap4VEpehx9Quf6ZYwPAA4cl1C5OClDcrC2kvHHGr1vur12
-         JMqA==
-X-Gm-Message-State: AOJu0Ywi2gcEzxDExnUwoS0YvqjOoNp7y7Mxt9howD3SRsNYArZ1pjpN
-	9BEqM0VTEVFp1ZVQI3drnUrY63nny9kEgYlk1mz1rVRfJsG5o205CZtv5UOlJOb8WxRf8auQdqg
-	C57Q0U/yq70kBsduDpu1LlhPgQU2sGlLk/7ueLw7ATQZb6oi4+R3w5+bWgc92+DQK6mnrMk6AD/
-	9eGvThXSJn8HVomlkT2aK/AqMqNXIESsQSTQwJhp0GRsl4
-X-Google-Smtp-Source: AGHT+IGge7CDFO2OF9s+yRivgMJ3E9pJmbYtIoCyI0ADpE92mt1tOKjrtt06Hn0rVZeuCfWm13CM2Kef
-X-Received: from wmbh2.prod.google.com ([2002:a05:600c:a102:b0:477:172a:1020])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:290c:b0:427:9e6:3a76
- with SMTP id ffacd0b85a97d-429bd69910emr2488587f8f.36.1761907200510; Fri, 31
- Oct 2025 03:40:00 -0700 (PDT)
-Date: Fri, 31 Oct 2025 11:39:14 +0100
+        bh=7SwJrIr6U1+pVeLDI8b/Z90ePApGArR/MfORdKx+bA8=;
+        b=eQ0rOEjShwshx16l3idFSIsv6/JPeTgOSsNyizBNPxT4XA8lUQ0j7cp0nlmn2F014a
+         t7JU2BDfy08jh5WCEZX8mAagXrdb5BlGRkiYzP83zw7GWyfJXjvBQ30OPDwO1w5L+BvW
+         vQFzWic3SUp9xRS0DEdLJ2y+SvIUPgzN2xzEAJxtSNjWyZ2uBzN81XKFi3V/fjveYIXl
+         hmKwvTHtMmc8WqVccLQaTqok0Ceje3z8Vvgn3y4oVfKpar282enBsDPSLbRlMh8ICOHK
+         glkfrvntsT4hB6pEeTcsj4IW1TWcCjZJVLgdFEzzRWsfYnwMy9SOaQuKWrmQfxJl0Nk9
+         YgDQ==
+X-Gm-Message-State: AOJu0YwmxK2mlFwl2ExFPxy4S1vo3rXED89z1t7gxHsfDhtcjk4Xh8Of
+	RIVxfQKTF+P5fK0CkOa76zRALZUQF1P/6Nuc2+jspnzIXRA4BoFh+3RiZeK2MIqoWPJgku5lhEn
+	K4eZtr09TACOa6XXnbh8QekvRvhlueLCYEiIaiOY0cWpyePvMdq1ZUtYGCD7WF+hO2sP4NO6KW/
+	BEJJelDc/GtkT4hJO6F5FNd7aYytuhS0NQ3FyE3OtsTvEL
+X-Google-Smtp-Source: AGHT+IFMY96nZKFh7zEZwtP6yze2D7QGtPE/U4QgTFRH0L770EQGt27hCpp9UjR+jUWQd0JcGD6pkpoY
+X-Received: from wrbdz17.prod.google.com ([2002:a05:6000:e91:b0:429:8bd5:a979])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:4382:b0:429:bd09:e7b6
+ with SMTP id ffacd0b85a97d-429bd67245dmr2637319f8f.10.1761907195978; Fri, 31
+ Oct 2025 03:39:55 -0700 (PDT)
+Date: Fri, 31 Oct 2025 11:39:09 +0100
 In-Reply-To: <20251031103858.529530-23-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251031103858.529530-23-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1531; i=ardb@kernel.org;
- h=from:subject; bh=HC3oKa6XX6UzW4T61UkwwEg9itjK9pSOgUvVasKYlBk=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZNl4k3lqGSf0tTW9dM3lu6fuKnZar2H1FFe5v+PezZ0m
- Zeta/vfUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACbytZ3hn21Qzpv8ZRv+Har8
- 9KmtbbbpjscfoguOVrx0LerWOarod5uRYUuDAgP/9kk7Mvbetlm0MWDyzq03jO+IzUisMv9cprf QmxkA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4882; i=ardb@kernel.org;
+ h=from:subject; bh=vWH74Y94585NgOqf0h7A64VGzkAz8Q+4d31ezTbmH+c=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZNl4kWG1Tv6ni+dXPjVf5pkyIGK7c4rL1vsmm+dyxXTa
+ KDjEHyvo5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWwIF6cATOS3MiPDj+roXWqWpraFilwP
+ eON+TMnYP1Hi99MlH6tnMi+cf63/McMfjttR+uu+L2tYHTR989KnLsKr6/tUGZ/2V53O3Xvs7cM v3AA=
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251031103858.529530-38-ardb+git@google.com>
-Subject: [PATCH v4 15/21] crypto/arm64: sha3 - Switch to 'ksimd' scoped guard API
+Message-ID: <20251031103858.529530-33-ardb+git@google.com>
+Subject: [PATCH v4 10/21] crypto/arm64: aes-ccm - Switch to 'ksimd' scoped
+ guard API
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
@@ -80,8 +81,8 @@ Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_034003_522054_C8864EA6 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20251031_033958_422776_ECB5D612 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +108,176 @@ bytes to the size of struct task_struct.
 Reviewed-by: Eric Biggers <ebiggers@kernel.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/crypto/sha3-ce-glue.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ arch/arm64/crypto/aes-ce-ccm-glue.c | 135 ++++++++++----------
+ 1 file changed, 66 insertions(+), 69 deletions(-)
 
-diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
-index b4f1001046c9..22732760edd3 100644
---- a/arch/arm64/crypto/sha3-ce-glue.c
-+++ b/arch/arm64/crypto/sha3-ce-glue.c
-@@ -46,9 +46,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
- 	do {
- 		int rem;
+diff --git a/arch/arm64/crypto/aes-ce-ccm-glue.c b/arch/arm64/crypto/aes-ce-ccm-glue.c
+index 2eb4e76cabc3..c4fd648471f1 100644
+--- a/arch/arm64/crypto/aes-ce-ccm-glue.c
++++ b/arch/arm64/crypto/aes-ce-ccm-glue.c
+@@ -8,7 +8,6 @@
+  * Author: Ard Biesheuvel <ardb@kernel.org>
+  */
  
--		kernel_neon_begin();
--		rem = sha3_ce_transform(sctx->st, data, blocks, ds);
--		kernel_neon_end();
-+		scoped_ksimd()
-+			rem = sha3_ce_transform(sctx->st, data, blocks, ds);
- 		data += (blocks - rem) * bs;
- 		blocks = rem;
- 	} while (blocks);
-@@ -73,9 +72,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
- 	memset(block + len, 0, bs - len);
- 	block[bs - 1] |= 0x80;
+-#include <asm/neon.h>
+ #include <linux/unaligned.h>
+ #include <crypto/aes.h>
+ #include <crypto/scatterwalk.h>
+@@ -16,6 +15,8 @@
+ #include <crypto/internal/skcipher.h>
+ #include <linux/module.h>
+ 
++#include <asm/simd.h>
++
+ #include "aes-ce-setkey.h"
+ 
+ MODULE_IMPORT_NS("CRYPTO_INTERNAL");
+@@ -184,40 +185,38 @@ static int ccm_encrypt(struct aead_request *req)
+ 	if (unlikely(err))
+ 		return err;
  
 -	kernel_neon_begin();
--	sha3_ce_transform(sctx->st, block, 1, ds);
+-
+-	if (req->assoclen)
+-		ccm_calculate_auth_mac(req, mac);
+-
+-	do {
+-		u32 tail = walk.nbytes % AES_BLOCK_SIZE;
+-		const u8 *src = walk.src.virt.addr;
+-		u8 *dst = walk.dst.virt.addr;
+-		u8 buf[AES_BLOCK_SIZE];
+-		u8 *final_iv = NULL;
+-
+-		if (walk.nbytes == walk.total) {
+-			tail = 0;
+-			final_iv = orig_iv;
+-		}
+-
+-		if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
+-			src = dst = memcpy(&buf[sizeof(buf) - walk.nbytes],
+-					   src, walk.nbytes);
+-
+-		ce_aes_ccm_encrypt(dst, src, walk.nbytes - tail,
+-				   ctx->key_enc, num_rounds(ctx),
+-				   mac, walk.iv, final_iv);
+-
+-		if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
+-			memcpy(walk.dst.virt.addr, dst, walk.nbytes);
+-
+-		if (walk.nbytes) {
+-			err = skcipher_walk_done(&walk, tail);
+-		}
+-	} while (walk.nbytes);
+-
 -	kernel_neon_end();
-+	scoped_ksimd()
-+		sha3_ce_transform(sctx->st, block, 1, ds);
- 	memzero_explicit(block , sizeof(block));
++	scoped_ksimd() {
++		if (req->assoclen)
++			ccm_calculate_auth_mac(req, mac);
++
++		do {
++			u32 tail = walk.nbytes % AES_BLOCK_SIZE;
++			const u8 *src = walk.src.virt.addr;
++			u8 *dst = walk.dst.virt.addr;
++			u8 buf[AES_BLOCK_SIZE];
++			u8 *final_iv = NULL;
++
++			if (walk.nbytes == walk.total) {
++				tail = 0;
++				final_iv = orig_iv;
++			}
++
++			if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
++				src = dst = memcpy(&buf[sizeof(buf) - walk.nbytes],
++						   src, walk.nbytes);
++
++			ce_aes_ccm_encrypt(dst, src, walk.nbytes - tail,
++					   ctx->key_enc, num_rounds(ctx),
++					   mac, walk.iv, final_iv);
++
++			if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
++				memcpy(walk.dst.virt.addr, dst, walk.nbytes);
++
++			if (walk.nbytes) {
++				err = skcipher_walk_done(&walk, tail);
++			}
++		} while (walk.nbytes);
++	}
  
- 	for (i = 0; i < ds / 8; i++)
+ 	if (unlikely(err))
+ 		return err;
+@@ -251,40 +250,38 @@ static int ccm_decrypt(struct aead_request *req)
+ 	if (unlikely(err))
+ 		return err;
+ 
+-	kernel_neon_begin();
+-
+-	if (req->assoclen)
+-		ccm_calculate_auth_mac(req, mac);
+-
+-	do {
+-		u32 tail = walk.nbytes % AES_BLOCK_SIZE;
+-		const u8 *src = walk.src.virt.addr;
+-		u8 *dst = walk.dst.virt.addr;
+-		u8 buf[AES_BLOCK_SIZE];
+-		u8 *final_iv = NULL;
+-
+-		if (walk.nbytes == walk.total) {
+-			tail = 0;
+-			final_iv = orig_iv;
+-		}
+-
+-		if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
+-			src = dst = memcpy(&buf[sizeof(buf) - walk.nbytes],
+-					   src, walk.nbytes);
+-
+-		ce_aes_ccm_decrypt(dst, src, walk.nbytes - tail,
+-				   ctx->key_enc, num_rounds(ctx),
+-				   mac, walk.iv, final_iv);
+-
+-		if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
+-			memcpy(walk.dst.virt.addr, dst, walk.nbytes);
+-
+-		if (walk.nbytes) {
+-			err = skcipher_walk_done(&walk, tail);
+-		}
+-	} while (walk.nbytes);
+-
+-	kernel_neon_end();
++	scoped_ksimd() {
++		if (req->assoclen)
++			ccm_calculate_auth_mac(req, mac);
++
++		do {
++			u32 tail = walk.nbytes % AES_BLOCK_SIZE;
++			const u8 *src = walk.src.virt.addr;
++			u8 *dst = walk.dst.virt.addr;
++			u8 buf[AES_BLOCK_SIZE];
++			u8 *final_iv = NULL;
++
++			if (walk.nbytes == walk.total) {
++				tail = 0;
++				final_iv = orig_iv;
++			}
++
++			if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
++				src = dst = memcpy(&buf[sizeof(buf) - walk.nbytes],
++						   src, walk.nbytes);
++
++			ce_aes_ccm_decrypt(dst, src, walk.nbytes - tail,
++					   ctx->key_enc, num_rounds(ctx),
++					   mac, walk.iv, final_iv);
++
++			if (unlikely(walk.nbytes < AES_BLOCK_SIZE))
++				memcpy(walk.dst.virt.addr, dst, walk.nbytes);
++
++			if (walk.nbytes) {
++				err = skcipher_walk_done(&walk, tail);
++			}
++		} while (walk.nbytes);
++	}
+ 
+ 	if (unlikely(err))
+ 		return err;
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
