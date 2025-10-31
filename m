@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61555CCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F95CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCV4syeEnykmP/XWmSr65esd3ge5PBZ99l5kbINMKrQ=; b=T7/PeT3TABwdGcKA6ySMBhBCE+
-	8YJ4iTu9cGWAF5VGmWLoTJ/xn3yu21nyBcZiIg5KRl6e41TCFnbZrUA+sVMtDrZerU9nH2ni4Oh6g
-	CO7XufgnTRbUPUlGV7N9tPkfGOD6e13TEqBv8EF3j75JnridjWXJPMKzQmyDGc5qmQi4eFj948904
-	LT09ICcUNdlJTyxsz9EaOA98aatplCsxNPN+YMU7bDYSuOXccfS4od6CtzRFhnGke7PGRHCzx/of8
-	+zn0HpYIqhhhR54BOsGy6Vd0xTPBW4UlTdzWVo25HHyZlYjhSL51oT1onRytD6HrYJ8QBk+8DWL6R
-	WVy0Q9yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VG2ZXFA5ya8adW1y1VrqLqVg7XoS2peqnveGWzUthrY=; b=0jODlZpCpSgYL9taKsz+5UIMEh
+	8Wql4wt32y3qVC/QjZWRr4c9nleFF6FcC1j77ojQEFSjbYb8lO2PQcJITy6sGEN1euXsjw4zQR536
+	r4UTLUqOsJFU3rCd33uAJIN/PLLR76yzQf0lMyrA4z1BCds5xFHIayPX3iSFvnVn1tG7TnUQMiRgh
+	JRGfNcrkuSD4KRi236chEJlzmSt7671PMm/Zmi7SpjSSMCT9KAhnt3+UE5jQavm5Dk7CyOqOeouE4
+	/WSjBchx0ZJcXQwJbK+bEHnTbHHBNfUIaEiXSkT3xqFZ/fp89MrzzIACOutLTPPYPKQiOV6telLdB
+	FZ+5BkTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEn7F-00000005zxf-0nkS;
-	Fri, 31 Oct 2025 11:16:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vEn8F-0000000605V-2LHc;
+	Fri, 31 Oct 2025 11:17:23 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEn7D-00000005zxC-0QX2
+	id 1vEn8B-0000000603z-1oGh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 11:16:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E9FF44748
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 11:16:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449F5C19421
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 11:16:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761909378;
-	bh=MN2xaDVwCUdlanpNizsByKz0+be9U+2kboQP6A6ka+c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PFIeE/g3Xz3yEobHpJCFwU7z+FC5bcfhAzW88pUAHVRd90Ga8Z++6zBv5gL9XFiRx
-	 YQvG8wuTB9oJJStvqTmj/U9funN9hqtZ1BUapoQeHOLNsf3QgNlVhsnOTHrkT6Vw5B
-	 5HkHVsh89sqc5cGKkhBUDPHrCrJuQd3lIZoN2p67d0p/Ss+gLOd4gf0jSJH9kd1FvZ
-	 6RdJpa6jGWGgrRfANpGazb5v57i9PV5tp4hN1SeuavHjVve9Bo5KW50NRsaTjStjfn
-	 MRGclCdEwtoclnMEEYCAXdXwd4rbgNAmOkhJ8tvNhnpIbF5VWqFcpjMx4xSNSEVYCz
-	 D1gVo2rQgridA==
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-63c556b4e0cso4652751a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 04:16:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUS3R5GyKoGCPnGXkYq+C1k/uaykvfxlIYpA1SKsrt41VtSJkJTTkpwqICxfm0CtqcXtqpmErV5nH7HiZLBySBt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUwXFObX3VX+qnreB/eXpGVof9YqkwHPiJpWXi7SgFgO5YMfna
-	8BBdlungR9KSjWR24bI3vL5CvoQ7FeBnqG42V47Kpnk0VPzQjC8MSIBj4GIxfEn5gfnFbImlJHT
-	BKkJ8bREVzpzS5e3AFJTmwdKMNDQZXg==
-X-Google-Smtp-Source: AGHT+IFy0NbXlcnXpyCvGbtSasVfYk1W9RDOglxfcqh8P6vYA81B6Yle+fdZVj41g52eOJdNAj3qOy2YCWw8vpUheb0=
-X-Received: by 2002:a05:6402:518b:b0:639:dd3f:f265 with SMTP id
- 4fb4d7f45d1cf-640771ceb67mr2656760a12.25.1761909376763; Fri, 31 Oct 2025
- 04:16:16 -0700 (PDT)
+	Fri, 31 Oct 2025 11:17:21 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4cydjQ6cF3zJ46bm;
+	Fri, 31 Oct 2025 19:16:58 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id D0B20140370;
+	Fri, 31 Oct 2025 19:17:11 +0800 (CST)
+Received: from SecurePC-101-06.huawei.com (10.122.19.247) by
+ dubpeml100005.china.huawei.com (7.214.146.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 31 Oct 2025 11:17:10 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Conor Dooley <conor@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
+ Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Andrew Morton
+	<akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, Drew Fustini
+	<fustini@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>
+CC: <james.morse@arm.com>, Will Deacon <will@kernel.org>, Davidlohr Bueso
+	<dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
+	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
+Subject: [PATCH v5 0/6]  Cache coherency management subsystem
+Date: Fri, 31 Oct 2025 11:17:03 +0000
+Message-ID: <20251031111709.1783347-1-Jonathan.Cameron@huawei.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <20251031084101.701159-1-adriana@arista.com> <20251031101009.704759-1-adriana@arista.com>
- <20251031101009.704759-2-adriana@arista.com>
-In-Reply-To: <20251031101009.704759-2-adriana@arista.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 31 Oct 2025 06:15:58 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJn+vG=FJEnBT2rMQ9Jf+JE2u_j-JpEb=mnWPuTsuz_4w@mail.gmail.com>
-X-Gm-Features: AWmQ_bk1oTvQggG1qKqU7kkYKnnYBwVScBkS83XY6BPVibiHe_igBZftju1dB8c
-Message-ID: <CAL_JsqJn+vG=FJEnBT2rMQ9Jf+JE2u_j-JpEb=mnWPuTsuz_4w@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] dt-bindings: firmware: Add binding for SMBIOS
- /chosen properties
-To: adriana <adriana@arista.com>
-Cc: ilias.apalodimas@linaro.org, ardb@kernel.org, trini@konsulko.com, 
-	krzk@kernel.org, jdelvare@suse.com, frowand.list@gmail.com, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, vasilykh@arista.com, 
-	arm.ebbr-discuss@arm.com, boot-architecture@lists.linaro.org, 
-	linux-efi@vger.kernel.org, uefi-discuss@lists.uefi.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.122.19.247]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_041619_183186_E57B034B 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20251031_041719_758035_06E12058 
+X-CRM114-Status: GOOD (  28.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,52 +81,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 5:10=E2=80=AFAM adriana <adriana@arista.com> wrote:
->
-> Signed-off-by: adriana <adriana@arista.com>
-> ---
->  .../firmware/linux,smbios3-entrypoint.yaml    | 25 +++++++++++++++++++
->  1 file changed, 25 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/firmware/linux,smbi=
-os3-entrypoint.yaml
->
-> diff --git a/Documentation/devicetree/bindings/firmware/linux,smbios3-ent=
-rypoint.yaml b/Documentation/devicetree/bindings/firmware/linux,smbios3-ent=
-rypoint.yaml
-> new file mode 100644
-> index 000000000000..4d1521c685ff
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/linux,smbios3-entrypoint=
-.yaml
-> @@ -0,0 +1,25 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright 2025 Arista Networks
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/linux,smbios3-entrypoint.yam=
-l#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Memory location for SMBIOS entry point
-> +
-> +description: |
-> +  This property is used in the /chosen node to pass the physical address
-> +  of SMBIOS (System Management BIOS) or DMI (Desktop Management Interfac=
-e)
-> +  tables from firmware to the kernel. This is typically used on non-EFI.
-> +
-> +maintainers:
-> +  - Adriana Nicolae <adriana@arista.com>
-> +  - Rob Herring <robh+dt@kernel.org>
-> +
-> +properties:
-> +  linux,smbios3-entrypoint:
-> +    $ref: /schemas/types.yaml#/definitions/uint64
-> +    description:
-> +      The 64-bit physical address of the SMBIOSv3 entry point structure.
+Support system level interfaces for cache maintenance as found on some
+ARM64 systems. It is expected that systems using other CPU architectures
+(such as RiscV) that support CXL memory and allow for native OS flows
+will also use this. This is needed for correct functionality during
+various forms of memory hotplug (e.g. CXL). Typical hardware has MMIO
+interface found via ACPI DSDT. A system will often contain multiple
+hardware instances.
 
-This needs to go in the chosen binding instead:
+Includes parameter changes to cpu_cache_invalidate_memregion() but no
+functional changes for architectures that already support this call.
 
-https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/chos=
-en.yaml
+How to merge?
+- Current suggestion would be via Conor's drivers/cache tree which routes
+  through the SoC tree.
+  *  Andrew Morton has expressed he is fine with the MM related changes
+     going via another appropriate tree.
+  *  CXL maintainers expressed that they don't consider it appropriate
+     to go through theit tree.
+  *  The tiny touching of Arm specific code has an ack from Catalin.
+
+v5: Changes called out in individual patches.
+Comment and patch description updates to make the following clearer.
+  - Difference from cache-coherence operations for non-coherent DMA.
+    Longer term it may make sense to share infrastructure but for now
+    we have two parallel systems as there would be near zero overlap
+    in code or functionality.
+  - Why multiple agent handling is necessary and what that means for
+    the HiSilicon HHAs in our systems + the driver inclued in this set.
+ 
+v4: (Small changes called out in each patch)
+- Drop the ACPI driver. It has done it's job as a second implementation
+  to help with generality testing. I have heard zero interest in actually
+  doing the specification work needed to make that official. Easy to bring
+  back if needed in future. I have it locally still as a second test
+  case.
+- Add a cpu_cache_invalidate_all() helper for the 0,-1 case that is used
+  to indicate everything should be flushed as no fine grained range info
+  available.
+- Simplify the necessary symbols to be selected by architectures by
+  making CONFIG_GENERIC_CPU_CACHE_MAINTENANCE select
+  ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+- Avoid naming mentioning devices as there is no struct device.
+- Use a kref so as to have something on which a _put() operation makes
+  sense avoiding rather confusing freeing of an internal structure pointer
+  that was seen in v3.
+- Gather tags given.
+- Various minor things like typos, header tweaks etc.
+Thanks to all who reviewed v3.
+
+On current ARM64 systems (and likely other architectures) the
+implementation of cache flushing need for actions such as CXL memory
+hotplug e.g. cpu_cache_invalidate_memregion(), is performed by system
+components outside of the CPU, controlled via either firmware or MMIO
+interfaces.
+
+These control units run the necessary coherency protocol operations to
+cause the write backs and cache flushes to occur asynchronously. They allow
+filtering by PA range to reduce disruption to the system. Systems
+supporting this interface must be designed to ensure that, when complete,
+all cache lines in the range are in invalid state or clean state
+(prefetches may have raced with the invalidation). This must include
+memory-side caches and other non architectural caches beyond the Point
+of Coherence (ARM terminology) such that writes will reach memory even
+after OS programmable address decoders are modified (for CXL this is
+any HDM decoders that aren't locked). Software will guarantee that no
+writes to these memory ranges race with this operation. Whilst this is
+subtly different from write backs must reach the physical memory that
+difference probably doesn't matter to those reading this series.
+
+The often distributed nature of the relevant coherency management units
+(e.g. due to interleaving) requires the appropriate commands to be issued
+to multiple (potentially heterogeneous) units. To enable this a
+registration framework is provided to which drivers may register a set
+of callbacks. Upon a request for a cache maintenance operation the
+framework iterates over all registered callback sets, calling first a
+command to write back and invalidate, and then optionally a command to wait
+for completion. Filtering on relevance if a give request is left to the
+individual drivers.
+
+In this version only one driver is included. This is the HiSilicon Hydra
+Home Agent driver which controls hardware found on some of our relevant
+server SoCs. Also available (I can post if anyone is interested)
+is an ACPI driver based on a firmware interface that was in a public
+PSCI specification alpha version
+
+QEMU emulation code at
+http://gitlab.com/jic23/qemu cxl-2025-03-20 
+
+Notes:
+- I don't particularly like defining 'generic' infrastructure with so few
+  implementations. If anyone can point me at docs for another one or two,
+  or confirm that they think this is fine that would be great!
+  The converse to this is I don't want to wait longer for those to surface
+  given the necessity to support this one platform that I do know about!
+
+Jonathan Cameron (3):
+  memregion: Drop unused IORES_DESC_* parameter from
+    cpu_cache_invalidate_memregion()
+  arm64: Select GENERIC_CPU_CACHE_MAINTENANCE
+  MAINTAINERS: Add Jonathan Cameron to drivers/cache and add
+    lib/cache_maint.c + header
+
+Yicong Yang (2):
+  memregion: Support fine grained invalidate by
+    cpu_cache_invalidate_memregion()
+  lib: Support ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+
+Yushan Wang (1):
+  cache: Support cache maintenance for HiSilicon SoC Hydra Home Agent
+
+ MAINTAINERS                     |   3 +
+ arch/arm64/Kconfig              |   1 +
+ arch/x86/mm/pat/set_memory.c    |   2 +-
+ drivers/cache/Kconfig           |  15 +++
+ drivers/cache/Makefile          |   2 +
+ drivers/cache/hisi_soc_hha.c    | 194 ++++++++++++++++++++++++++++++++
+ drivers/cxl/core/region.c       |   5 +-
+ drivers/nvdimm/region.c         |   2 +-
+ drivers/nvdimm/region_devs.c    |   2 +-
+ include/linux/cache_coherency.h |  61 ++++++++++
+ include/linux/memregion.h       |  16 ++-
+ lib/Kconfig                     |   4 +
+ lib/Makefile                    |   2 +
+ lib/cache_maint.c               | 138 +++++++++++++++++++++++
+ 14 files changed, 439 insertions(+), 8 deletions(-)
+ create mode 100644 drivers/cache/hisi_soc_hha.c
+ create mode 100644 include/linux/cache_coherency.h
+ create mode 100644 lib/cache_maint.c
+
+-- 
+2.48.1
+
 
