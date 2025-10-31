@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C202CCF9F0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E2ECCF9E3
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 00:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufcm34/fxLSDGGMNv1fcJ1U8/oL1slrMlaZI5947FEg=; b=B+XcbtuXGHLxmjTNUc4Pr5jIfI
-	jkzW1ipcNhNwr306EdGX0a6j8GGKoCL/1noOfsk/rfV3SQIoVh7ePMsoir1NT3FWSJCEPNyuQOxXt
-	PcQg2gHBpl4LrQef7v7lorub5K+Mxt8uzOQGwYTm7taVyhcErAVC26ncctvj7u/GVUabzE8vRkDRp
-	9oktLPd+RTCummAaI/dLErqMJlyS4gB8+qvan4GCpr2D9Pnc9x/SSNzvG6Svi8tQHSWkVIl+gD3tF
-	CDKpJHJvDFrOOfiNxg/CxaMSvcRmgr6HcbcbOf4L7F6mKtlcyfkofuDjOzqgHj+Ff4RX2Gm2wWO9R
-	gKXGreYw==;
+	bh=ORKia34m9UzcQDcY6dhnNJ8ubDoWOjDhIF1aPAJmZJ8=; b=SM7qSMv6ERAdtKXGkfujbXFii/
+	w9oHktG9K+LyZBzsd/pieBcQMCuta2DLsZ2srbvBz/76QNEIB7TDctSP0TB4vu7J2j0YGNOc4XshT
+	2rUliXg2nDeXZktBvMMZc8nQlwQBqnG8I85pEh/Bi9MWvny0zTceTID+eKPr0wvYC1uAAR0Ul+98+
+	cN20aqWluclWu99+zBwcr9Eb08zX00unuB/9okQPwPU3U69Jo5tionZ3BLKJir74aQI6n/0WWgKul
+	bxU4GPfqi64VkFveVZ9ycZ1BnQUmnlo5YFcVbKnIKW7PG4rEStQkdhfZ8SQtEr9/Hq4KH9R8A1FvI
+	0tV4+hPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdI7-00000005C0O-254Q;
-	Fri, 31 Oct 2025 00:46:55 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1vEdI4-00000005Bz2-3Hwp;
+	Fri, 31 Oct 2025 00:46:54 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdHr-00000005Buu-1jZm
+	id 1vEdHi-00000005BsR-3nRJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 00:46:40 +0000
+	Fri, 31 Oct 2025 00:46:33 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1761871596;
+	t=1761871588;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ufcm34/fxLSDGGMNv1fcJ1U8/oL1slrMlaZI5947FEg=;
-	b=IwCMT4FnAeqY0Uk8s3RKkBtVNwWX1gZC4etPU9W02DtQgrwnAbAAvUksph4gke9Ijd3HNQ
-	OejyiKrF4hygY+ndqA7QB6ITZGD5JWaTA5/lV4QUhmNXNaYT/HZ7d41RDDN5NQIBej26U4
-	OmhljL1O0DJWsNLAlGS/vbvce3EBVwI=
+	bh=ORKia34m9UzcQDcY6dhnNJ8ubDoWOjDhIF1aPAJmZJ8=;
+	b=vSTzXgn2zjDkPZK4c+MV3YvDdd89sHVNmzXWVPVpZ7dHWBfJ5S23JT3asplQN9+efr3j1l
+	C5ZgllrIdT8KW4vrmwcGaoXhkeJ1PupswqD5QYCXMseqLlzjZc7fb9GtrDmPNvS1cMzhd6
+	SCbEn3ORYja0difWq/Ha6fVVEcRU504=
 From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 To: Sudarsana Kalluru <skalluru@marvell.com>,
 	Manish Chopra <manishc@marvell.com>,
@@ -57,17 +57,17 @@ Cc: Richard Cochran <richardcochran@gmail.com>,
 	Kory Maincent <kory.maincent@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org
-Subject: [PATCH net-next 5/7] net: thunderx: convert to use ndo_hwtstamp callbacks
-Date: Fri, 31 Oct 2025 00:46:05 +0000
-Message-ID: <20251031004607.1983544-6-vadim.fedorenko@linux.dev>
+Subject: [PATCH net-next 3/7] net: liquidio_vf: convert to use ndo_hwtstamp callbacks
+Date: Fri, 31 Oct 2025 00:46:03 +0000
+Message-ID: <20251031004607.1983544-4-vadim.fedorenko@linux.dev>
 In-Reply-To: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
 References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_174639_618563_85761795 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20251030_174631_273074_DBF7F35D 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,110 +82,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver implemented SIOCSHWTSTAMP ioctl command only, but it also
-stores configuration in private data, so it's possible to report it back
-to users. Implement both ndo_hwtstamp_set and ndo_hwtstamp_get
-callbacks.
+The driver implemented SIOCSHWTSTAMP ioctl command only, but there is a
+way to get configuration back. Implement both ndo_hwtstamp_set and
+ndo_hwtstamp_set callbacks.
 
 Signed-off-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 ---
- .../net/ethernet/cavium/thunder/nicvf_main.c  | 45 ++++++++++---------
- 1 file changed, 25 insertions(+), 20 deletions(-)
+ .../ethernet/cavium/liquidio/lio_vf_main.c    | 48 ++++++++-----------
+ 1 file changed, 19 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/net/ethernet/cavium/thunder/nicvf_main.c b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
-index 1be2dc40a1a6..0b6e30a8feb0 100644
---- a/drivers/net/ethernet/cavium/thunder/nicvf_main.c
-+++ b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
-@@ -1899,18 +1899,18 @@ static int nicvf_xdp(struct net_device *netdev, struct netdev_bpf *xdp)
- 	}
+diff --git a/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c b/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c
+index 3230dff5ba05..e02942dbbcce 100644
+--- a/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c
++++ b/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c
+@@ -1236,20 +1236,13 @@ liquidio_get_stats64(struct net_device *netdev,
+ 		lstats->tx_carrier_errors;
  }
  
--static int nicvf_config_hwtstamp(struct net_device *netdev, struct ifreq *ifr)
-+static int nicvf_hwtstamp_set(struct net_device *netdev,
-+			      struct kernel_hwtstamp_config *config,
-+			      struct netlink_ext_ack *extack)
+-/**
+- * hwtstamp_ioctl - Handler for SIOCSHWTSTAMP ioctl
+- * @netdev: network device
+- * @ifr: interface request
+- */
+-static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr)
++static int liquidio_hwtstamp_set(struct net_device *netdev,
++				 struct kernel_hwtstamp_config *conf,
++				 struct netlink_ext_ack *extack)
  {
--	struct hwtstamp_config config;
- 	struct nicvf *nic = netdev_priv(netdev);
- 
--	if (!nic->ptp_clock)
-+	if (!nic->ptp_clock) {
-+		NL_SET_ERR_MSG_MOD(extack, "HW timestamping is not supported");
- 		return -ENODEV;
-+	}
- 
--	if (copy_from_user(&config, ifr->ifr_data, sizeof(config)))
--		return -EFAULT;
+ 	struct lio *lio = GET_LIO(netdev);
+-	struct hwtstamp_config conf;
 -
--	switch (config.tx_type) {
-+	switch (config->tx_type) {
- 	case HWTSTAMP_TX_OFF:
+-	if (copy_from_user(&conf, ifr->ifr_data, sizeof(conf)))
+-		return -EFAULT;
+ 
+-	switch (conf.tx_type) {
++	switch (conf->tx_type) {
  	case HWTSTAMP_TX_ON:
+ 	case HWTSTAMP_TX_OFF:
  		break;
-@@ -1918,7 +1918,7 @@ static int nicvf_config_hwtstamp(struct net_device *netdev, struct ifreq *ifr)
+@@ -1257,7 +1250,7 @@ static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr)
  		return -ERANGE;
  	}
  
--	switch (config.rx_filter) {
-+	switch (config->rx_filter) {
+-	switch (conf.rx_filter) {
++	switch (conf->rx_filter) {
  	case HWTSTAMP_FILTER_NONE:
- 		nic->hw_rx_tstamp = false;
  		break;
-@@ -1937,7 +1937,7 @@ static int nicvf_config_hwtstamp(struct net_device *netdev, struct ifreq *ifr)
+ 	case HWTSTAMP_FILTER_ALL:
+@@ -1275,35 +1268,31 @@ static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr)
  	case HWTSTAMP_FILTER_PTP_V2_SYNC:
  	case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
- 		nic->hw_rx_tstamp = true;
--		config.rx_filter = HWTSTAMP_FILTER_ALL;
-+		config->rx_filter = HWTSTAMP_FILTER_ALL;
+ 	case HWTSTAMP_FILTER_NTP_ALL:
+-		conf.rx_filter = HWTSTAMP_FILTER_ALL;
++		conf->rx_filter = HWTSTAMP_FILTER_ALL;
  		break;
  	default:
  		return -ERANGE;
-@@ -1946,20 +1946,24 @@ static int nicvf_config_hwtstamp(struct net_device *netdev, struct ifreq *ifr)
- 	if (netif_running(netdev))
- 		nicvf_config_hw_rx_tstamp(nic, nic->hw_rx_tstamp);
+ 	}
  
--	if (copy_to_user(ifr->ifr_data, &config, sizeof(config)))
--		return -EFAULT;
--
- 	return 0;
- }
+-	if (conf.rx_filter == HWTSTAMP_FILTER_ALL)
++	if (conf->rx_filter == HWTSTAMP_FILTER_ALL)
+ 		ifstate_set(lio, LIO_IFSTATE_RX_TIMESTAMP_ENABLED);
  
--static int nicvf_ioctl(struct net_device *netdev, struct ifreq *req, int cmd)
-+static int nicvf_hwtstamp_get(struct net_device *netdev,
-+			      struct kernel_hwtstamp_config *config)
- {
--	switch (cmd) {
--	case SIOCSHWTSTAMP:
--		return nicvf_config_hwtstamp(netdev, req);
--	default:
--		return -EOPNOTSUPP;
--	}
-+	struct nicvf *nic = netdev_priv(netdev);
-+
-+	if (!nic->ptp_clock)
-+		return -ENODEV;
-+
-+	/* TX timestamping is technically always on */
-+	config->tx_type = HWTSTAMP_TX_ON;
-+	config->rx_filter = nic->hw_rx_tstamp ?
-+			    HWTSTAMP_FILTER_ALL :
-+			    HWTSTAMP_FILTER_NONE;
-+
+ 	else
+ 		ifstate_reset(lio, LIO_IFSTATE_RX_TIMESTAMP_ENABLED);
+ 
+-	return copy_to_user(ifr->ifr_data, &conf, sizeof(conf)) ? -EFAULT : 0;
 +	return 0;
  }
  
- static void __nicvf_set_rx_mode_task(u8 mode, struct xcast_addr_list *mc_addrs,
-@@ -2081,8 +2085,9 @@ static const struct net_device_ops nicvf_netdev_ops = {
- 	.ndo_fix_features       = nicvf_fix_features,
- 	.ndo_set_features       = nicvf_set_features,
- 	.ndo_bpf		= nicvf_xdp,
--	.ndo_eth_ioctl           = nicvf_ioctl,
- 	.ndo_set_rx_mode        = nicvf_set_rx_mode,
-+	.ndo_hwtstamp_get	= nicvf_hwtstamp_get,
-+	.ndo_hwtstamp_set	= nicvf_hwtstamp_set,
+-/**
+- * liquidio_ioctl - ioctl handler
+- * @netdev: network device
+- * @ifr: interface request
+- * @cmd: command
+- */
+-static int liquidio_ioctl(struct net_device *netdev, struct ifreq *ifr, int cmd)
++static int liquidio_hwtstamp_get(struct net_device *netdev,
++				 struct kernel_hwtstamp_config *conf)
+ {
+-	switch (cmd) {
+-	case SIOCSHWTSTAMP:
+-		return hwtstamp_ioctl(netdev, ifr);
+-	default:
+-		return -EOPNOTSUPP;
+-	}
++	struct lio *lio = GET_LIO(netdev);
++
++	/* TX timestamping is techically always on */
++	conf->tx_type = HWTSTAMP_TX_ON;
++	conf->rx_filter = ifstate_check(lio, LIO_IFSTATE_RX_TIMESTAMP_ENABLED) ?
++			  HWTSTAMP_FILTER_ALL : HWTSTAMP_FILTER_NONE;
++	return 0;
+ }
+ 
+ static void handle_timestamp(struct octeon_device *oct, u32 status, void *buf)
+@@ -1881,9 +1870,10 @@ static const struct net_device_ops lionetdevops = {
+ 	.ndo_vlan_rx_add_vid    = liquidio_vlan_rx_add_vid,
+ 	.ndo_vlan_rx_kill_vid   = liquidio_vlan_rx_kill_vid,
+ 	.ndo_change_mtu		= liquidio_change_mtu,
+-	.ndo_eth_ioctl		= liquidio_ioctl,
+ 	.ndo_fix_features	= liquidio_fix_features,
+ 	.ndo_set_features	= liquidio_set_features,
++	.ndo_hwtstamp_get	= liquidio_hwtstamp_get,
++	.ndo_hwtstamp_set	= liquidio_hwtstamp_set,
  };
  
- static int nicvf_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+ static int lio_nic_info(struct octeon_recv_info *recv_info, void *buf)
 -- 
 2.47.3
 
