@@ -4,104 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A5DCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAA4CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MqCRP9/Mbai8FOF4N9IAH1BiG9vM0x9aR5MB26eKXF8=; b=gw1cjwEYOkIl7qEysv7zKv7Wrh
-	mLTt/hl23zDYwBf4xsfFpxD6/q0KIpJzQbCmWV5PNYjvss4t/0o53UM8S0yMQpQzE4W0YtXpqjr1r
-	V3Meva6UseysoxAndnLlD582LIOb/oEZYZsit6pxu9v5pRA++Xk++E/0P7y8p95BVSDoEbtUbCp4R
-	cjFG7HC5ahYWKKvLt+w4dU2m+iGOe0E+ilCIfE4vSKdALwBwNmx2wcGpD3Xmn2T3c4as4qUvcw93U
-	TIgv3i1uHyr5c9+BA9AuogxiCnfIvMRokykhF1e1SAzd/fQqhoXo6mHdmVKyAJChpM7PsACQGeGvn
-	jnX4IRXg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3hp4POrzGEzYWsXLUiq24bsIuyJ9VI9HcKwxkmxgRkM=; b=FMCCZmlBBsKzr8+LHM3BGClf+k
+	dJLmBAnOroS4yMPcGGbXGm45tKNxZuotpXj85vCL51IHsy4BogXGqsa4jlee6HQSzGat8XrnVXmxm
+	YXfa7jPAtFJdXV5lOlLGQWkd9kfDp+ptU+sLNHuoP4ZSc15OXAD2QH75aSBKVPY+SaCV5N1iHz58y
+	n8qkTtilUJ/sK1p8+RgSWueSRnQ4Y2Fpnipm2C4YhB/fyZGPwIFq3PUgZW3grqfgc8mXAhondTiwp
+	QZsLvZkY/fSzwU+dm6ObaNZ15qRXWJS+v0lZE/nChDGFuNH+V1HKHw+PL7Cy6xJ5F8z9Vez59OtGy
+	NKd4azyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpWq-00000006B5r-3sfk;
-	Fri, 31 Oct 2025 13:50:56 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1vEpYb-00000006BFA-1p9A;
+	Fri, 31 Oct 2025 13:52:45 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpWo-00000006B5S-0Qlj
+	id 1vEpYY-00000006BEF-2dlZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 13:50:55 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-63e484f8e54so476329a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 06:50:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761918652; x=1762523452; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MqCRP9/Mbai8FOF4N9IAH1BiG9vM0x9aR5MB26eKXF8=;
-        b=UYJlHkk0u1mQPJRk6AagBf1M2D/sJkFQYrtoONbpLXJ9MHOEjaJzKLVGlh3NNUcHgl
-         2xEkvT+q1HooJbhA8aZHKhe/vKPal7XC7B1setLoDHMgOeC4WWMSHc361vy+1H+d6dXq
-         ObwhZHQkdoYvH5eQh1ulhp6LOB1oYpYUmXbJc1uDrDnb7aOc3UrCQrL+H3dqeqBTIjUY
-         /0wowwwOPWxWvddz2bJGtP+8XgxsCWDCG9FtxV6KRzjV2i5EQiqlZqqkVMJMLDHxNjZS
-         KXT4j2szzMqKtxMnnDo5W5VFpFuoHi53poWapZfZMCdAvyQh4O0d4GHa/4q23plAQ6US
-         qSNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761918652; x=1762523452;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MqCRP9/Mbai8FOF4N9IAH1BiG9vM0x9aR5MB26eKXF8=;
-        b=szUyUqY8aOFhOsRmK6gl3CiVHaijgrUzErZ/UibxRug93lY5kUmVeAn9pdoFehBEzs
-         aOvPEPjhKCyTI9hSMqYk8o4mcBwctaZuz/o1uEAvUjZ8NV0XXub2V2WAGoymh+/5VgiE
-         mt3J5ng2o1pSZTnV8t5mj0YzFR4VekBgiJ8JHpT9ISaMnF1fYaqvwiuvk5OeEcx1vhas
-         egNT30E1OXowYW6Hm+T4iv9p8d6MoVD58JIq75meBhLYcfM+n/3iTYmoS6x5B7cIDjGK
-         BAhSyb3ZKmwfgsLal7rt2yHQ2Wfla62Sy/6uQoqtsIB8Jrg88+z8kzGfgybulqpNtLzB
-         6VKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV18g/c2nvJ7nY5i754vIS99FS7uGRyQelUtKJz5pn8LuR1LVHgwoKv2mQOgS5UAj1ui5VLFBUQJb2C2jqtPanm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzhNPuW2EEiSNf81KObOdNuc9CAqBWPRMW5JaD+3wblmTnyOjr
-	RZPKa+YQQDGZAo0GAQtGU1q5sYiKZ6inGnd3pGqEDunj7klsrE4HX+kglmnxvHNtNp4=
-X-Gm-Gg: ASbGncsxu8Zueztv3PJYPLtkEvOCQiOXCDscS6oAOMl1jqY3zQ8Ph38u2yMaW/+1c8c
-	cECnDw+K0D43wFl9Qc4dDXDR3Zz4oPcVvaQlEGlYWgNICqrZjxqScY0J7NJkigW7jpiYZNhuVdg
-	KNFAD4JaS0i5DA7dW8RfmKQtZWoeyNgvt7KeWElDUtBClY4q37XWtnrjSMlQLSmZQMpVTpC73yA
-	cm72nFhHk/AyfbsrMOHEd4zQY7CDYXgOj02YhINIes45qJyEAWKm0zmc9WVrxOzoFTqvpjgUQ7A
-	+uanepW1fmlRQeCyIqtZZRxmpFGel5N7jHYGmfhIDGgbKau6Lklog5Rq12E/2pss4FI01PjxlvD
-	QOMCAxcI+j3VPbgHOEwQwfsOKOkPy2a7UvQD1BhAOVc82f0u83nIByJCkbAuGKLZQNNA+rvUKNe
-	nH+ChI4w4Qnr4=
-X-Google-Smtp-Source: AGHT+IG4ALcuZ2ZkrRAVrLeUPvJuTLghF2aRSPyjEkOrlsMOO2oZQiqthEsk9HuFzyEGo/NHGSB7Vw==
-X-Received: by 2002:a05:6402:2812:b0:637:e5dd:ef81 with SMTP id 4fb4d7f45d1cf-640770412e2mr1525778a12.8.1761918652041;
-        Fri, 31 Oct 2025 06:50:52 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6407b438ca4sm1647724a12.29.2025.10.31.06.50.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Oct 2025 06:50:51 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH fixes] MAINTAINERS: Update Krzysztof Kozlowski's email
-Date: Fri, 31 Oct 2025 14:50:39 +0100
-Message-ID: <20251031135041.78789-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	Fri, 31 Oct 2025 13:52:44 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4cyj7w6bTnzHnGk2;
+	Fri, 31 Oct 2025 13:51:40 +0000 (UTC)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 772C4140144;
+	Fri, 31 Oct 2025 21:52:37 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 31 Oct
+ 2025 13:52:36 +0000
+Date: Fri, 31 Oct 2025 13:52:35 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-crypto@vger.kernel.org>, <herbert@gondor.apana.org.au>,
+	<ebiggers@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v4 16/21] crypto/arm64: sm3 - Switch to 'ksimd' scoped
+ guard API
+Message-ID: <20251031135235.000007cb@huawei.com>
+In-Reply-To: <20251031103858.529530-39-ardb+git@google.com>
+References: <20251031103858.529530-23-ardb+git@google.com>
+	<20251031103858.529530-39-ardb+git@google.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1959; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=SmfR1ZQDKDR/gPIplrtS+9dHdS1dhkdiyMyQwkEDbCI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpBL6xj/1/uZGgWmRCMjhesc0s7ijjyTpdGyik9
- o3dmzeDDMCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQS+sQAKCRDBN2bmhouD
- 10xWD/0VNvesF6NpXo8GEMwtCDZGsmu1Ez1bxfGh4Wcx8onnFQYnJNNM0nZS4Wra8wGmIXEs2yw
- ++O7yRYY32m3kWy7wl1tJONc8eJPqu77N1N1J0jeXL4Cz8FHBNH31WAsiSIVY+apYXuoOxs42dP
- kOzCCOelWYKPetbG0HTVRPbUFz4woOj0T4iP7DHfedmRhvm/8hyEnMNlOLa03C5ui0vSu+b/tBw
- Z9qHcDlE+VzHsmLdEPH9Xlin29uUzxZHrbUfEZMJU/TKfF+Zkwch+U1LP9hm+6ba0ac9RWRD9NA
- aqa7RJMb9S4Z3gDXjntdUxKqOwhj/GJaRlfbtR3tkBo5fCwDA3/qDEg49bIefrWNoIddZAC8VLI
- +Gs8ExA/Wfsg/INK6QdWmSK+MHsaVW4o7MMnt5112zF691VElnAGnu1ALJryqz3IDqvy9juiYXr
- kRrKPAt9w6gQ8PTEj5yr2hV1SRIc5PFxNbO+txUTBigl0D4Q0TVxNCJYOh5kSMQCB6/Ly7fF4Qh
- tDKuudpRKh4mic+mjJ/9K+j8+PlO1KszRubCHAMKbfOZ1T0iLvjK42x66Zw2Og3puPRWwAN9x52
- JoK8EpG7tYRyyWk9lpcG8I44Puhr/v/k/8cmmzeuc1m17fRq8s6uOXfcdah9P+nX3W9/b1dsbhv iBSYSdgq8bvnv0A==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_065054_206731_F04A4275 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20251031_065242_991576_F52016F0 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,52 +73,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update Krzysztof Kozlowski's email address in mailmap to stay reachable.
+On Fri, 31 Oct 2025 11:39:15 +0100
+Ard Biesheuvel <ardb+git@google.com> wrote:
 
-Link: https://patch.msgid.link/20251021095426.86549-2-krzysztof.kozlowski@linaro.org
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
-Patch for current cycle please.
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Switch to the more abstract 'scoped_ksimd()' API, which will be modified
+> in a future patch to transparently allocate a kernel mode FP/SIMD state
+> buffer on the stack, so that kernel mode FP/SIMD code remains
+> preemptible in principe, but without the memory overhead that adds 528
+> bytes to the size of struct task_struct.
+> 
+> Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Hi Ard,
 
- .mailmap    | 1 +
- MAINTAINERS | 4 ++--
- 2 files changed, 3 insertions(+), 2 deletions(-)
+Trivial comment inline.
 
-diff --git a/.mailmap b/.mailmap
-index d2edd256b19d..9811c2a979cf 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -435,6 +435,7 @@ Krishna Manikandan <quic_mkrishn@quicinc.com> <mkrishn@codeaurora.org>
- Krzysztof Kozlowski <krzk@kernel.org> <k.kozlowski.k@gmail.com>
- Krzysztof Kozlowski <krzk@kernel.org> <k.kozlowski@samsung.com>
- Krzysztof Kozlowski <krzk@kernel.org> <krzysztof.kozlowski@canonical.com>
-+Krzysztof Kozlowski <krzk@kernel.org> <krzysztof.kozlowski@linaro.org>
- Krzysztof Wilczyński <kwilczynski@kernel.org> <krzysztof.wilczynski@linux.com>
- Krzysztof Wilczyński <kwilczynski@kernel.org> <kw@linux.com>
- Kshitiz Godara <quic_kgodara@quicinc.com> <kgodara@codeaurora.org>
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 46126ce2f968..811a89d61b87 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16186,7 +16186,7 @@ MEMORY CONTROLLER DRIVERS
- M:	Krzysztof Kozlowski <krzk@kernel.org>
- L:	linux-kernel@vger.kernel.org
- S:	Maintained
--B:	mailto:krzysztof.kozlowski@linaro.org
-+B:	mailto:krzk@kernel.org
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-mem-ctrl.git
- F:	Documentation/devicetree/bindings/memory-controllers/
- F:	drivers/memory/
-@@ -21148,7 +21148,7 @@ F:	Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
- F:	drivers/i2c/busses/i2c-qcom-cci.c
- 
- QUALCOMM INTERCONNECT BWMON DRIVER
--M:	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-+M:	Krzysztof Kozlowski <krzk@kernel.org>
- L:	linux-arm-msm@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/interconnect/qcom,msm8998-bwmon.yaml
--- 
-2.48.1
+> ---
+>  arch/arm64/crypto/sm3-ce-glue.c   | 15 ++++++++-------
+>  arch/arm64/crypto/sm3-neon-glue.c | 16 ++++++----------
+>  2 files changed, 14 insertions(+), 17 deletions(-)
+> 
+> diff --git a/arch/arm64/crypto/sm3-ce-glue.c b/arch/arm64/crypto/sm3-ce-glue.c
+> index eac6f5fa0abe..24c1fcfae072 100644
+> --- a/arch/arm64/crypto/sm3-ce-glue.c
+> +++ b/arch/arm64/crypto/sm3-ce-glue.c
+> @@ -5,7 +5,6 @@
+>   * Copyright (C) 2018 Linaro Ltd <ard.biesheuvel@linaro.org>
+>   */
+>  
+> -#include <asm/neon.h>
+>  #include <crypto/internal/hash.h>
+>  #include <crypto/sm3.h>
+>  #include <crypto/sm3_base.h>
+> @@ -13,6 +12,8 @@
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+>  
+> +#include <asm/simd.h>
+> +
+>  MODULE_DESCRIPTION("SM3 secure hash using ARMv8 Crypto Extensions");
+>  MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+>  MODULE_LICENSE("GPL v2");
+> @@ -25,18 +26,18 @@ static int sm3_ce_update(struct shash_desc *desc, const u8 *data,
+>  {
+>  	int remain;
+>  
+> -	kernel_neon_begin();
+> -	remain = sm3_base_do_update_blocks(desc, data, len, sm3_ce_transform);
+> -	kernel_neon_end();
+> +	scoped_ksimd() {
+
+Why does this get brackets unlike other cases?
+
+> +		remain = sm3_base_do_update_blocks(desc, data, len, sm3_ce_transform);
+> +	}
+>  	return remain;
+>  }
+>  
+>  static int sm3_ce_finup(struct shash_desc *desc, const u8 *data,
+>  			unsigned int len, u8 *out)
+>  {
+> -	kernel_neon_begin();
+> -	sm3_base_do_finup(desc, data, len, sm3_ce_transform);
+> -	kernel_neon_end();
+> +	scoped_ksimd() {
+> +		sm3_base_do_finup(desc, data, len, sm3_ce_transform);
+> +	}
+>  	return sm3_base_finish(desc, out);
+>  }
+>  
+> diff --git a/arch/arm64/crypto/sm3-neon-glue.c b/arch/arm64/crypto/sm3-neon-glue.c
+> index 6c4611a503a3..15f30cc24f32 100644
+> --- a/arch/arm64/crypto/sm3-neon-glue.c
+> +++ b/arch/arm64/crypto/sm3-neon-glue.c
+> @@ -5,7 +5,7 @@
+>   * Copyright (C) 2022 Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
+>   */
+>  
+> -#include <asm/neon.h>
+> +#include <asm/simd.h>
+>  #include <crypto/internal/hash.h>
+>  #include <crypto/sm3.h>
+>  #include <crypto/sm3_base.h>
+> @@ -20,20 +20,16 @@ asmlinkage void sm3_neon_transform(struct sm3_state *sst, u8 const *src,
+>  static int sm3_neon_update(struct shash_desc *desc, const u8 *data,
+>  			   unsigned int len)
+>  {
+> -	int remain;
+> -
+> -	kernel_neon_begin();
+> -	remain = sm3_base_do_update_blocks(desc, data, len, sm3_neon_transform);
+> -	kernel_neon_end();
+> -	return remain;
+> +	scoped_ksimd()
+> +		return sm3_base_do_update_blocks(desc, data, len,
+> +						 sm3_neon_transform);
+>  }
+>  
+>  static int sm3_neon_finup(struct shash_desc *desc, const u8 *data,
+>  			  unsigned int len, u8 *out)
+>  {
+> -	kernel_neon_begin();
+> -	sm3_base_do_finup(desc, data, len, sm3_neon_transform);
+> -	kernel_neon_end();
+> +	scoped_ksimd()
+> +		sm3_base_do_finup(desc, data, len, sm3_neon_transform);
+>  	return sm3_base_finish(desc, out);
+>  }
+>  
 
 
