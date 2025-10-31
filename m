@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC438CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C64DCCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tT4v4FkMCSqc8eIjKGkwR/LzsSL+UJ+pvOmTnRK1rzo=; b=enMVAK8VCBOe70H5ACROFfXdee
-	Umc1D+F8Hmgzw51cc4/wrJKRGJGTddJpzvEaH9shL0VYfbIhxEVHmELm/KBlnkqPuz2dzqr1PgaTg
-	2DrV6C4YGqeDxqltsvBYgV997IKLYrf79UVeEPiJkQOotUytkaXjso99gFshAcDywdEkM+RMNy8FY
-	C0Wg5fLTPULPwo0Pvh6X1j0c+DzjXGwO3b6Jx5O8ch1FQuD9chc+pKmINE/8BrS2skukmnPw79NMp
-	f0G4MeaMCEtug1QiihoYi7hyeSZaQTpYDmNWUUSULPQVZoBMcavjnS9oO0DRBLylVt1MQuh483cP9
-	1vVrSnRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XqY6d+LWsOv8MlASEsOAsXeeO9HQOKCMwdj36zjoEBg=; b=nd6gSDiRijhfUG
+	wHjo7Ohdy9cBJ1kpmaINnW+rwbkMcQxyjMs+wyGgMeAqI3lWnoLg4ZbOV5e7kmgDnSH2jzj0yu/Ds
+	yySLEgi8Ch/KYCsw/DqYSqPnRFWEJz/XhMKVWe+ZKZwyvfh6Tv6azK77CYRz2O8tIJKpx+AB7fEo2
+	6P7aG4uob7RPaYanqBPuCZoUpnGkpv4XxTNWtCQ27haj2Y4UpEKGV/bkDGPDjeABxVBFCt/SvxxRj
+	nm/lu/Wib6zUNZBOWW4Tk0Pzl5wdFcoUnTcx7JQMJgYcKAGYOwo1ZWpMNNQSuQfDGIGyLqMpexghR
+	d0B7ogdAPN3tkxOoxoFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt8f-00000006YxN-03v9;
-	Fri, 31 Oct 2025 17:42:14 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vEt9m-00000006Z4z-07hL;
+	Fri, 31 Oct 2025 17:43:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt8Q-00000006Yvz-3rXF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:42:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 843F01A17C2;
-	Fri, 31 Oct 2025 17:41:57 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 450B260704;
-	Fri, 31 Oct 2025 17:41:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B0F1811818007;
-	Fri, 31 Oct 2025 18:41:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761932515; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=tT4v4FkMCSqc8eIjKGkwR/LzsSL+UJ+pvOmTnRK1rzo=;
-	b=iGAYTjASZ6Bzyqi89mDzhDwqlw52gD0eSh7eI1MPz0n+KP8IOzsuftv1EPHRorb4yUQo8/
-	NdXDk9TJ0KBKvau0AEbTz7gTd4swB6JXJtm4r3qHcA2UAMJYj37msJuOiFkCmDvitKPIck
-	vrID7tm0SLwMo/+Z71rRdVWNugYamW/D4EYlC93JwBw23+84M96R0PMGzohN4tZsQrNJso
-	EkC4quSXFd3Ns9BhgGAMjg0Y1zm/3G31kQDQEAOIxR9/r42vzdfo9WGJifjqO6bhQ338mn
-	iAv/kMlFPrnvczaO3VFeEuGrqFp2MoZrgdRh1NQ59jMCR+T1LDwUh3ZZQXlzNQ==
-Date: Fri, 31 Oct 2025 18:41:48 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Cc: Sudarsana Kalluru <skalluru@marvell.com>, Manish Chopra
- <manishc@marvell.com>, Marco Crivellari <marco.crivellari@suse.com>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Sunil Goutham <sgoutham@marvell.com>, Richard
- Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
- Jacob Keller <jacob.e.keller@intel.com>,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next 0/7] convert drivers to use ndo_hwtstamp
- callbacks part 3
-Message-ID: <20251031184148.1417ac8a@kmaincent-XPS-13-7390>
-In-Reply-To: <20251031181027.1313b51d@kmaincent-XPS-13-7390>
-References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
-	<20251031181027.1313b51d@kmaincent-XPS-13-7390>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	id 1vEt9k-00000006Z4b-3KXj;
+	Fri, 31 Oct 2025 17:43:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B317A60254;
+	Fri, 31 Oct 2025 17:43:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 382B5C4CEE7;
+	Fri, 31 Oct 2025 17:43:11 +0000 (UTC)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Subject: [PATCH 0/3] PCI: meson: Fix the parsing of DBI region
+Date: Fri, 31 Oct 2025 23:12:58 +0530
+Message-Id: <20251031-pci-meson-fix-v1-0-ed29ee5b54f9@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_104200_098369_E5ADA57B 
-X-CRM114-Status: GOOD (  11.21  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACL1BGkC/x2MQQqAIBAAvyJ7bkENJfpKdEjbag+pKEQg/j3pO
+ AMzFQplpgKzqJDp4cIxdFCDAH9t4STkvTNoqY2So8LkGW8qMeDBL/rJWaOct9Zq6E3K1PX/W9b
+ WPrPmlXNfAAAA
+X-Change-ID: 20251031-pci-meson-fix-c8b651bc6662
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Hanjie Lin <hanjie.lin@amlogic.com>, Yue Wang <yue.wang@amlogic.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Andrew Murray <amurray@thegoodpenguin.co.uk>, 
+ Jingoo Han <jingoohan1@gmail.com>, 
+ Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ stable+noautosel@kernel.org, stable@vger.kernel.org, 
+ Linnaea Lavia <linnaea-von-lavia@live.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1509;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=vroR35+0m/WOqTCc3pHB+dq6wrRsNeMwH4SL+cTs0Zs=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBpBPUv/ByYAMlVSnih7i/7vpgUV16Ct4fpIK8Kc
+ YRDlbdh7viJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaQT1LwAKCRBVnxHm/pHO
+ 9UKrB/4jcLEeWocGJwfF6C2jbmqDNLzp+AgmCielD3AzwWmZi1u/nuZk23uQrE/nUyALXisj1NV
+ YTlJXdSp5Ua/KpwmqVwlEiRlT/2o7zQ1aZMjkBHuw3+RIjDM23ngzTsB3SfDidXqGoDD1vDwu6x
+ VbvARVbvAhtStxViBSpXAgBNDBXkAVR95izzw989HAIQ1CFq2YhSSqgu8goOtWH5ZdF2rWdJnvm
+ trXrsKghDytyE4UjlP/CztKgJYtzY3KnoWG/stR4IwIWGjQ0BXgPP9hx29yqFe55Y6PLSCVP+e5
+ 6AumRv0O79SN7H9dIMbI8Zklyo9bM0gWpgPE/Dkrp+1a/nn/
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 18:10:27 +0100
-Kory Maincent <kory.maincent@bootlin.com> wrote:
+Hi,
 
-> On Fri, 31 Oct 2025 00:46:00 +0000
-> Vadim Fedorenko <vadim.fedorenko@linux.dev> wrote:
->=20
-> > This patchset converts the rest of ethernet drivers to use ndo callbacks
-> > instead ioctl to configure and report time stamping. The drivers in part
-> > 3 originally implemented only SIOCSHWTSTAMP command, but converted to
-> > also provide configuration back to users. =20
->=20
-> For these 3 patches, maybe it is better to split them in two to separate =
-the
-> NDO conversion from the hwtstamp_get support. I will let Jakub with the f=
-inal
-> word on this.
+This compile tested only series aims to fix the DBI parsing issue repored in
+[1]. The issue stems from the fact that the DT and binding describing 'dbi'
+region as 'elbi' from the start.
 
-After a review, I found out that the patches are quite straightforward, so =
-it
-is ok to not split them.
+Now, both binding and DTs are fixed and the driver is reworked to work with both
+old and new DTs.
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+Note: The driver patch is OK to be backported till 6.2 where the common resource
+parsing code was introduced. But the DTS patch should not be backported. And I'm
+not sure about the backporting of the binding.
+
+Please test this series on the Meson board with old and new DTs.
+
+- Mani
+
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+---
+Manivannan Sadhasivam (3):
+      dt-bindings: PCI: amlogic: Fix the register name of the DBI region
+      arm64: dts: amlogic: Fix the register name of the 'DBI' region
+      PCI: meson: Fix parsing the DBI register region
+
+ .../devicetree/bindings/pci/amlogic,axg-pcie.yaml      |  6 +++---
+ arch/arm64/boot/dts/amlogic/meson-axg.dtsi             |  4 ++--
+ arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi      |  2 +-
+ drivers/pci/controller/dwc/pci-meson.c                 | 18 +++++++++++++++---
+ drivers/pci/controller/dwc/pcie-designware.c           | 12 +++++++-----
+ 5 files changed, 28 insertions(+), 14 deletions(-)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251031-pci-meson-fix-c8b651bc6662
+
+Best regards,
+-- 
+Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+
 
