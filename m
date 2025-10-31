@@ -4,197 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CB5CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5F6CCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EF9Xr9zzkOS9n+jVhnEHU8uxgj5gFXSLoTryD6d/Wc=; b=XquxEhaxRP9DsR3bHlSIalWZSn
-	Xr8frm7kVyYCQ29tdmhygHm4X9bd4mVLzocdE0ZX2BM95h9m+aIW5JY8SLWDryGwGjO2A1YLHntkh
-	XOJemxlPGF5OpUqwwxYXxz2vJVIc4Hwsqv/YHV1ncsMG/lwDjDRaNBt5mujbBEwrUK2LCCzwgITWN
-	+r6XTNfXS04S/SlXdsS1Ix6Eu2B0IeGIaEnIZjrY0xANbNi701HSHJ1z+KqkohTiDXyknmCHt/2Ms
-	MsPte5nNL0PvwyS21AWrKzDT938ciwUIwlsI05tplRVi8Ds9jy/u7/oWkII0215LDuFNKFXe9KIkE
-	4BYN67pQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E+isSm0tESAECMiu4x/HWPUg/HqD5qUnglPjpGg08t4=; b=CVV/NvGNjw+Ilu74QtZVG1T3V3
+	kbPX6ibJVThNzJaI/cGPFlBoHkIz8l1rdFrjFS+EwJF/wNkArD8yptkU7BoRyzjBx55AQbu8KYigd
+	KWTj+HKd5T1ePKiJYiw4sNrFhbIfKelhxIBFXEobY+FZpwkbEySSlEjuMbA2wtEMJ916kRx5JCjPn
+	qx3WZZw5uuOwk9sio0ee7jQCyMoDT+BCkWy1kiV3qc9MpqHCdhRwJIOsCEYgcM1MRI8Y/hSyHexcH
+	fx/7SdK6plYdyF9sCjNZX3FszALaW/9XLChXP+C8p9He1IprTp5kJb5PZpsg1H6VTASsEOdKvva4Y
+	TblKHGSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkX6-00000005eqU-1ssE;
-	Fri, 31 Oct 2025 08:30:52 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vEkZf-00000005fBg-0esv;
+	Fri, 31 Oct 2025 08:33:31 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkX3-00000005epf-2Q71;
-	Fri, 31 Oct 2025 08:30:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761899449; x=1793435449;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=SwSUIsLkf1bb0G6j/gYXjbbhuzp3bjyAhquwCNNeMYM=;
-  b=L7WvsY4dWYI4moPT8u58jykq0zC8GKGDoVN3bSmPPsIkiXwiYbQSibcp
-   MdUAA4WSc6M7kNsPE7w2rEDEI6W//coFLhSDRlrSTSkMzHqINJ39Qg3KS
-   2UpP2gG3YwWh+S1a075qb/WMcOEkBGPRvsXCgL0V6Kcfq32+ekxRYnTGD
-   N8jKc6X9bmEFMcsnZsotH22K5AbJdSbTQ+4SF1CZEbEF3WAC4dhC4MEwB
-   JWtiLRhQPFIPnmtEVvWj40Py1gDpUgfWAlp2PWZM7IsYoXMP6oYrr8P5T
-   fape66EfnesVAHadYLR3U8zABLTl8FCXxoovd2TG+iUPWCt3mfDtjhCq8
-   w==;
-X-CSE-ConnectionGUID: z8ejdwkAS/yXqLUucc/5pw==
-X-CSE-MsgGUID: lL5k6m8xScWyKS2xrsr+Lg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="81466697"
-X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
-   d="scan'208";a="81466697"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:30:49 -0700
-X-CSE-ConnectionGUID: ZbuwHgFORlaIgWiM3ym1cw==
-X-CSE-MsgGUID: pW6sXiYqRs+i0XjbMS97dA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
-   d="scan'208";a="190259139"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:30:49 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Fri, 31 Oct 2025 01:30:48 -0700
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Fri, 31 Oct 2025 01:30:48 -0700
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.42)
- by edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Fri, 31 Oct 2025 01:30:47 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q+4d1XwPAkFEMvyDDkoco60IjQOYXVjrLnOwv0EhSJCbStZ/YnSxkmynC/H4c0eu3O5mHCQL0trOXqRy6p+TPSKCHGnPz9V8qT5sRzyPZZBl0RZw8RplEv2CDuM27sS0Wisg+j1Fy6Wg1dZ8vBUqRO1aSYPJ2afMn0tiuS/UXnRJ/no05yrT04uUUA5g3cvBKUuClv9p9rk0Z/DJzdc5nf5J62lCRH+Jzhkjt+q0+QvN/Fl0DfFZG3rdmqo4iru3krZmqRWBNPn3HMTYGNvEqyM3uePSwk4LD67eR+k8ZXntbT0gn5cU9lIzds5ifL3+g5w+B65crfitSmSAQfmSzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+EF9Xr9zzkOS9n+jVhnEHU8uxgj5gFXSLoTryD6d/Wc=;
- b=KeIzfV/bBw5FGkVhJ5UevllgWnSFhvP9PFyD9XH3sE7X5UQgO/5uZ5dharquv1Ivz/TOAmXJBZHiZ9XzJHqQr97l7GIJ3mpZ/LAE7qh+soXzr8B4ZoeOS3aU2kOXzLhP03KED1NUSezJ4h0h8SB+by6kjQYKuER6dRP4FZ3i4dzo6MIhnj4trmYnNnL67Qp/3Lwx4P5Grvk1heRL2hWXS7EawUqM6D0+QuiksOsi60iDs0oczzdlRgEYe1caqOtulEgPk9TW6vJqGgZaikdmMNzM6j4KrM/13VEDKhP0J5F0G5mZoe+ihAVj0kgICchoaziVyVnkBf0VL1c/tw0cCg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- SJ2PR11MB8566.namprd11.prod.outlook.com (2603:10b6:a03:56e::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.14; Fri, 31 Oct
- 2025 08:30:45 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
- 08:30:45 +0000
-Date: Fri, 31 Oct 2025 16:29:13 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
-	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Kirill A.
- Shutemov" <kas@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<x86@kernel.org>, <linux-coco@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, Kai Huang
-	<kai.huang@intel.com>, Binbin Wu <binbin.wu@linux.intel.com>, Michael Roth
-	<michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, "Rick
- Edgecombe" <rick.p.edgecombe@intel.com>, Ackerley Tng
-	<ackerleytng@google.com>
-Subject: Re: [PATCH v4 08/28] KVM: TDX: Drop superfluous page pinning in
- S-EPT management
-Message-ID: <aQRzWb3Fu6ywdE9t@yzhao56-desk.sh.intel.com>
-References: <20251030200951.3402865-1-seanjc@google.com>
- <20251030200951.3402865-9-seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251030200951.3402865-9-seanjc@google.com>
-X-ClientProxiedBy: SG2PR01CA0186.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::14) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
+	id 1vEkZa-00000005fAb-1w03
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 08:33:29 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id CE1B24E4142B;
+	Fri, 31 Oct 2025 08:33:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 923CD60704;
+	Fri, 31 Oct 2025 08:33:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5A6C11180FE55;
+	Fri, 31 Oct 2025 09:33:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761899600; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=E+isSm0tESAECMiu4x/HWPUg/HqD5qUnglPjpGg08t4=;
+	b=ZrmssfVqvhNe04qAMQHnanzo8UqXJm0eBpIBMo4B0K2KSgv3M6ae422uEQPY5+QOOrARAA
+	DISItDSoi//vNkuJETrUDYbD194s/hTQpA/IYjgNVyil6qZc1zSYJdfr9Bm2IqqlBh+fhg
+	SX7yOxKnR5+pWTZLADqProCI7CKc3bmE3/NywA7fp84frjGE1vgIGe+j3G5Gcacs8AF3xA
+	NfDhvaauNITCEBu5L+cQ0WVygrpC+Fl9D/Y7ux7vH9ZK0Dz5yrTs/u1/rwJ8ie4dfkhmPw
+	P0r33uZ+NWlfSlSLVWHh4LU22t7aJmVjPmhFn3u8uLCrwOdkCc9qp+Y5P0FCrw==
+Message-ID: <da18cd22-9f9e-4166-8a91-d5b19470c693@bootlin.com>
+Date: Fri, 31 Oct 2025 09:33:17 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|SJ2PR11MB8566:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3592603b-3d74-44b8-985e-08de1857c94b
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nSKjGK2/0htILDOmL4r7qmGzPEZSe+OJs9BDEeo4K3/Ng+UkNwy5gan+ibCD?=
- =?us-ascii?Q?tw+257GeCjaVtbJG2hxDkE1LTou4J4MR7Yw2i+yFEU2GvqMwW3LCH/D8frfD?=
- =?us-ascii?Q?JE4bsiywyGI2QVKNTHWZ8IuiF7m37NbjA6493DChAHY+lJSYSgldgu9+JDq9?=
- =?us-ascii?Q?E5U4Q/elulGAbl6B4/qE8I51pYxXt37PeA7OfYtuTVyNHYx+eLseBCQh/Pv0?=
- =?us-ascii?Q?Nsd+Ja0CTX6mWcHQQC5hYkr0OcsKOClUrnSlCSyGtqJgjAZGF4Co6vT1/Vhd?=
- =?us-ascii?Q?qffYK4WVzX+RGCZ5fnhnX/64/szl0ajT2N6T6rwyy+5DtwiLE7OxuacF/YTY?=
- =?us-ascii?Q?D0D2o42y+/1RxajZfenH7tvppD9Wtah9GZp2VyOcLGsKnWwbwQPjj7gl3um4?=
- =?us-ascii?Q?wAjiHfyaNxaS64Lsbk0D61N+6QgCfjpqZYpVM8wRDQO3uzrOIKuHC1/Foyff?=
- =?us-ascii?Q?c3neRvtcVIc5lx6LlssLGC++86AVYxnIgHtyxH/bMgxNSgnkn/2AzwQstplc?=
- =?us-ascii?Q?uORhnPpA3tjS+wMQrEK+U2KbBZPRc/KiAXNak5XBWPel0AEGADmUKnWxL8A0?=
- =?us-ascii?Q?DibfQTt2wtwXq2W3g5uvlATV7LfQz0An1zvmPdXGAuxbzpnMvuoWhxktK3AG?=
- =?us-ascii?Q?6TZBmlLsWpqoLySYIhXjWh7xZzsa/kW7jRNmBGQ6OmzINGunB4UN76cc1WOf?=
- =?us-ascii?Q?W4anrxNSq2eL1QVdc2qO2bzr60A8UfDizKM33j+UcY/l1jKtWdNwCs0qkHcV?=
- =?us-ascii?Q?QPvXLLNCrxjlu9aL6KsGw+PwFYZh/+RfJ5olGYlmFXwWI35XmqZIARfoPP/S?=
- =?us-ascii?Q?Vodb0BAeZbouqqx/02X4hW/Va8VRbwR78Td/gFXcnQ1DhlVwfxpjgLITuu4f?=
- =?us-ascii?Q?VABJ/YA9Xf1fHtLJF1wUjcObNrekpWhAB/+E0B9GoLvgtYr+sfX/s+u5D/jb?=
- =?us-ascii?Q?WFQzf1YNjykK31HMaoNF/jo7XV1ChNWQcnuFiFT5ypHqa9RZqUPsvW9o3m+M?=
- =?us-ascii?Q?rp6l2PlrTo/xQQYERFRSBSSoCdpWiRauQCq3Efup0fXkBhb0JaLnQwG61xMS?=
- =?us-ascii?Q?XyWGnev/4cVVXFq6H9wZ+7SGssW2NlGHew+3VK/UB4brTli5EmidGTELq/UJ?=
- =?us-ascii?Q?rGkyHH6Lpx1rXhlmdDGoaJpZExiMplAFpv565JdaTKHJx6j8xPbDY7KQ66Lh?=
- =?us-ascii?Q?QPcWQ4uHXijOVXbp/FjHP7rKVoaY9JCZJYUTrr3llY+fzVEqz01kVVe5Hmt+?=
- =?us-ascii?Q?gxLD+oYSh51XTxTLpH6CcieKs+CQaN+7T95yzYtpmVM9QuvUw0UF0dyHCwPp?=
- =?us-ascii?Q?ClC5Wgj7fhrybZ2QiGX+omaKHkAL/pS8irHrJPqvtp9h0qU84LjaSZqNLZWt?=
- =?us-ascii?Q?rspo191jcvAkvP6vxE7Q/7Uwe5sqzaFz339k/f7zPecDaN3nQrvYTMelqm0U?=
- =?us-ascii?Q?KMmdm6d+Lgptc5ZiL8C5jzc9w5kPR+Sx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MEIX5JlRAn60ZKzDs/96YGDz0tB8fN3W7eD28RuEbrKtJbCHiN8V4mOWMipI?=
- =?us-ascii?Q?8C02Hl4P7jxHdAr/xEw2OovpzxcmyYc1VCtRFSH45ziJQ6/s6Kuyiu4qPi2L?=
- =?us-ascii?Q?KtfGxT0YAz2JdTHoE4RNAdMW6ie4Kj0OrbznZXB3rjRnkLPq+c6J4hacF8x/?=
- =?us-ascii?Q?jOc68v2HlYcGqwqvukbdW3YTtrBi9jiqeg3tVYQXpJN5W/UD1PVzIBqz+o8Y?=
- =?us-ascii?Q?otV+c2ujiE/PFpVXCx9f1AsL0TNDga4dSTDy7BRVptQorZH8YOOCnBuBZzCT?=
- =?us-ascii?Q?LWdJNm8D59qPUDI7Zgho+i/ShuFAGQ8Pu3bbTnsYh4lcqSUe7xZ2bW9rkWLC?=
- =?us-ascii?Q?4O1PS8D6gtyuSjS+h7xyqexq/YBGTTXebn9moS1TmFMrLlt3DSYml5CxWXKF?=
- =?us-ascii?Q?Op28PO13sN+wlRPlXw3VdiKFHwP1nHxMlVt2uv1dDASxRgB4BxuCgCuJHd/2?=
- =?us-ascii?Q?xGI+WPccidkugm/sivVLFVpBV9uTldNenX4RI18rpscaCDE6sMZpSMm9K8sP?=
- =?us-ascii?Q?Bjq/oavGBbmY1BIS+KpohIgec8KDL6zvvYhZLrjB1j3dQ7bbNg2J0+0ATNAV?=
- =?us-ascii?Q?PCXAM6+Rx1IMplqydmuUC2smgoyhy5XCz7IA0KBBr6yBxATNj87f+d8JEiNh?=
- =?us-ascii?Q?DLgNUNeC4v8vSXvBCdZg7taOuHVbkH5inLJvQ30Vir393li13XwGfL8buzAk?=
- =?us-ascii?Q?I9ShzzBQDc64Px0LjhrythdUb9hMQGXTswne/PdCGfY/2CI2I8mw7XGKf1Uv?=
- =?us-ascii?Q?3uayxAJtdYSRed3kR7ox9gdkCsf3AQ1b4ISHcGiPIobTmK3Wf1wFanysYde6?=
- =?us-ascii?Q?m/FHDVB98B6APAv8j5rMo+UA7hBYc1znEnkXeElmCsOrA/+Invg/V88CZjEB?=
- =?us-ascii?Q?xeYNX01yJ4lTV/elHea4Zj90zb2xMbIuPf+IAieiaK/IfsFYgJ9JZUtRj1Od?=
- =?us-ascii?Q?uA6CCm5Sh06MUrE2bGqMUkJxWOrdRxPxMFufOa0cl7acFWg5yPAJzV3bv4h3?=
- =?us-ascii?Q?pPRsbQXTFA5qLq9/DEgFbWO/H1ur+1qaQVwCche0UFFv1+3C67IayHNSeadS?=
- =?us-ascii?Q?hTpqIy80UzCfRCpwzEyc/igMtVAa9xjYiB+OPAS2DI3pJng8qLSAvVaC8KW6?=
- =?us-ascii?Q?PA96nyza8hHsoWp/gaRMlKeWySOBjFyDDlIWe691EOzhjDEJNcCywF9eeohz?=
- =?us-ascii?Q?2B4dO4JGE73SEllH/kU3bfYLBkTyYJeqqvTHFmVglTLar318sAtbnu1R04T8?=
- =?us-ascii?Q?fUnXCwii077iR9uPbEDGwvmv/tCIrK0My/2uEHobQz9/rK2fmy4ChrPVqnXZ?=
- =?us-ascii?Q?Dab7b41R2VnxLZMvAIirD93sX6SOfrzt4QuBGyQ+gruNDAJ2rcooMFOXLPfb?=
- =?us-ascii?Q?dv2v4ISOjxE5kyMJKMo4+AK+P89O3uU91qBTwJouSkTTVZ3s5j8hs8tSf9xw?=
- =?us-ascii?Q?PE1TxVH524X+ko/NPi2RO61Y/qpzlZMlgr7GD+58GDqUCuT1f1q0SosTNvkP?=
- =?us-ascii?Q?P2N61jLQgfDnAlOnEn9XlZCiNbnEu/mlQTTRk8rncYk1yb691UwG2hx6oMQc?=
- =?us-ascii?Q?q+Xq9qIA0YebHGrApnuRfN3WsjSiRFjIT2PDpK4A?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3592603b-3d74-44b8-985e-08de1857c94b
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 08:30:45.3067
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ipXxTVHrOHMtZUHBMvUUwJ5XLfU81QTuswH5FtDuFmhJMftqlwddWpxorKo2ma4q7O8YS/CM/Z9Ny/p1H72ycw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB8566
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: ti_sci: replace ifdeffery by pm_sleep_ptr()
+ macro
+To: Nishanth Menon <nm@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gregory CLEMENT <gregory.clement@bootlin.com>,
+ Richard Genoud <richard.genoud@bootlin.com>, Udit Kumar <u-kumar1@ti.com>,
+ Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251014-ti-sci-pm-ops-cleanup-v1-1-70b50b73ac85@bootlin.com>
+ <20251031041131.3qmqfitiertc7vdp@scotch>
+Content-Language: en-US
+From: Thomas Richard <thomas.richard@bootlin.com>
+In-Reply-To: <20251031041131.3qmqfitiertc7vdp@scotch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_013050_026768_47769F5E 
-X-CRM114-Status: UNSURE (   5.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_013327_410143_2F43EB3C 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,13 +79,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->   - Increasing the folio reference count only upon S-EPT zapping failure[5].
-Nit: There's a warning:
+Hello Nishanth,
 
-WARNING: Prefer a maximum 75 chars per line (possible unwrapped commit description?)
- 
+On 10/31/25 5:11 AM, Nishanth Menon wrote:
+> On 10:35-20251014, Thomas Richard (TI.com) wrote:
+>> Using pm_sleep_ptr() macro allows to remove ifdeffery and '__maybe_unused'
+>> annotations.
+>>
+>> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+>> ---
+>>  drivers/firmware/ti_sci.c | 18 ++++++++----------
+>>  1 file changed, 8 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+>> index 49fd2ae01055d0f425062147422471f0fd49e4bd..99a2e0e2960f463918950fef8829409ec365ce70 100644
+>> --- a/drivers/firmware/ti_sci.c
+>> +++ b/drivers/firmware/ti_sci.c
+>> @@ -3706,7 +3706,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
+>>  	}
+>>  }
+>>  
+>> -static int __maybe_unused ti_sci_suspend(struct device *dev)
+>> +static int ti_sci_suspend(struct device *dev)
+>>  {
+>>  	struct ti_sci_info *info = dev_get_drvdata(dev);
+>>  	struct device *cpu_dev, *cpu_dev_max = NULL;
+>> @@ -3746,7 +3746,7 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
+>>  	return 0;
+>>  }
+>>  
+>> -static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
+>> +static int ti_sci_suspend_noirq(struct device *dev)
+>>  {
+>>  	struct ti_sci_info *info = dev_get_drvdata(dev);
+>>  	int ret = 0;
+>> @@ -3758,7 +3758,7 @@ static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
+>>  	return 0;
+>>  }
+>>  
+>> -static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
+>> +static int ti_sci_resume_noirq(struct device *dev)
+>>  {
+>>  	struct ti_sci_info *info = dev_get_drvdata(dev);
+>>  	int ret = 0;
+>> @@ -3780,7 +3780,7 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
+>>  	return 0;
+>>  }
+>>  
+>> -static void __maybe_unused ti_sci_pm_complete(struct device *dev)
+>> +static void ti_sci_pm_complete(struct device *dev)
+> 
+> PTR_IF when CONFIG_PM_SLEEP is disabled will result in these static
+> functions unused, no? should we leave __maybe_unused as is?
+
+PTR_IF is ((cond) ? ptr : NULL)
+
+If CONFIG_PM_SLEEP is disabled, after preprocessor step you will have
+
+	.suspend = 0 ? ti_sci_suspend : NULL,
+
+So ti_sci_suspend() is still used. But as the condition is always false,
+the compiler can do some optimization by removing ti_sci_suspend().
+
+PTR_IF macro has a great documentation [1] which describes this use case.
+
+[1]
+https://elixir.bootlin.com/linux/v6.17.5/source/include/linux/util_macros.h#L85-L136
+
+Best Regards,
+Thomas
 
