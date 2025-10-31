@@ -4,105 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE24CCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 09:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA769CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 09:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PEZyjCEAirGsnd1ualshLT165jeP3bC2ATQpTmkSqys=; b=WtBkTzJD7HTle0qrEHWaFKyvC9
-	24eu7jIJcGqiXPKK6AlfNf5qM8OcbjQbkwPqhHbrDgyuZo8XMQC1MXr5shnB23oGbaJhYHajDCKSb
-	gH25qrVbGl+6rr010ulPug/jcUD2ib469PcZfa6U18g7Z7B44j6eLiExEU/f0kiryf+qauaqGLDf0
-	SF23QJcPTIwVisM037np3NTMTkwbV3zDzbg84a4TyHFueVCMz6uH8tGjvOI6l/r/uezJK0TBhpnxz
-	kRiU/DCvzymH8ewmCknHwIvdOpBLVfobbdi7i8kF1dBhuGMbSAqqX42pX0N5r8viFfFyL4x1P0vMZ
-	XvSz7Uag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kO3mYnSx+SJ79r8fxt6iy7F2Q1sQ4j5WzZ66ieR5tks=; b=NOOWman7h9KWkf1IpMJJHeGEzO
+	KjbYEpO7RT1ZbWZ9R1XfQu4GLfwbmhuuMrSPoZWztkhOV/padS9OEl+jKQ40JH0C/mjIsPzSQftj8
+	AK/kLtZ4MmFJ5KZPLJdDZYy8vxUxxloBlhaXPHnm5uxxeLv46Llu5CFqpiGs0+mFX2ZKqBRjt3Gav
+	Q/TywejdfVnqnyhFHVo8YiAGqRqpHR6iuM2X32ErRTrh7WLpSNWyvWJBmSyV5dqWbbNvYEfbLTsvT
+	iakMPqEGFs7CFyKdhsB/NyQ+JMv5OC+FzpMgwbku7xInGK0bnixUkxa/EYqXbx4QFmwTD+ssWW29M
+	BuAPojOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vElED-00000005myk-0pFM;
-	Fri, 31 Oct 2025 09:15:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vElEs-00000005nAx-1ONI;
+	Fri, 31 Oct 2025 09:16:06 +0000
+Received: from wxsgout03.xfusion.com ([36.139.52.80] helo=wxsgout04.xfusion.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vElEB-00000005my5-3GVR;
-	Fri, 31 Oct 2025 09:15:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=PEZyjCEAirGsnd1ualshLT165jeP3bC2ATQpTmkSqys=; b=HKefvg7EDXbPfBs+iJg6JYbc2e
-	jnq2ouAp//9vvt29M6RoqH20eb1KlV1AY9FwyQLyclhAgNxdbGgR7nJwTxn0CuGMWDrteFOC3bnkK
-	bXQBJ3IkDCm1oR+KW5TFC9fZrtj5TaMSnu8JBJ3n4Hf+aFBkU6qltx6K4UMkhC5XODSZFjngyCR9B
-	k/sJHpsB7LIUV0HF4tvgzEvBKakrkOuHh1VU+Ss43L3st5R5EW1kSfMDzccxuv3FzuZm9HpPK6AJc
-	PeS1BbVRLhe22CldJJJyMF30fpgW3xy0O8LqEJOmoZW6EPq3mmVV4YE1AsAM2GJ5ajLcDPq9zftxV
-	f9ufiNWA==;
-Received: from mgamail.intel.com ([198.175.65.9])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkMP-0000000AsVG-24uA;
-	Fri, 31 Oct 2025 08:19:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761902120; x=1793438120;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=PEZyjCEAirGsnd1ualshLT165jeP3bC2ATQpTmkSqys=;
-  b=WcCj5oD0u3zhbShu6vPwdHnGv45HkFutP4XpTLr9oQ+lqdLQ/nb6DySR
-   uVUvXaiD/VpZiPDt96Mkgl65WCWkb45dA10EAbNra0ic8m7tQqSKH7ZS7
-   xxSOgkk7UHhGeQPye025TecTI1ONC0WvNiQ3ElThXIgT0+C5JGG+k5wdi
-   EM+XVIvSThBDvxmc3KaEqqJ+2aSFGZiJ/U6RgQBYNWb6y9/jKi/UL8D9C
-   j2DJVFbUVI25vFVZ2fefHwONQCyGAg7JE+WVhuxSN+NBwbqZuo/eJLqYo
-   CxiY1T6UETb+ozqpZVi8Pe67mwn9RK8ROVIPXqNeobovDjpe5AER8fbq1
-   g==;
-X-CSE-ConnectionGUID: 3s/SO0FiS6uvvHQTkJryvA==
-X-CSE-MsgGUID: CFDetKpPTfajPX7W5VXg3Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="86683964"
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="86683964"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 02:15:18 -0700
-X-CSE-ConnectionGUID: /aUTuTUZR1CXvXYAACxkEg==
-X-CSE-MsgGUID: 8/kgW76KTTCO7UxJ6gCbbg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="186125404"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.240.28]) ([10.124.240.28])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 02:15:09 -0700
-Message-ID: <fd65c501-296a-4f77-86fc-7de61a7c5eeb@linux.intel.com>
-Date: Fri, 31 Oct 2025 17:15:06 +0800
+	id 1vElEp-00000005n7u-0GEB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 09:16:05 +0000
+Received: from wuxpheds03048.xfusion.com (unknown [10.32.143.30])
+	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cyb0t30h5zB9Xpf;
+	Fri, 31 Oct 2025 17:15:10 +0800 (CST)
+Received: from DESKTOP-Q8I2N5U.xfusion.com (10.82.130.100) by
+ wuxpheds03048.xfusion.com (10.32.143.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20;
+ Fri, 31 Oct 2025 17:15:47 +0800
+From: shechenglong <shechenglong@xfusion.com>
+To: <mark.rutland@arm.com>, <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stone.xulei@xfusion.com>, <chenjialong@xfusion.com>,
+	<yuxiating@xfusion.com>, shechenglong <shechenglong@xfusion.com>
+Subject: [PATCH v3 1/2] cpu:Remove the print when the CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY Kconfig option is disabled.
+Date: Fri, 31 Oct 2025 17:15:05 +0800
+Message-ID: <20251031091507.1896-2-shechenglong@xfusion.com>
+X-Mailer: git-send-email 2.37.1.windows.1
+In-Reply-To: <20251031091507.1896-1-shechenglong@xfusion.com>
+References: <20250918064907.1832-1-shechenglong@xfusion.com>
+ <20251031091507.1896-1-shechenglong@xfusion.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 23/28] KVM: TDX: Convert INIT_MEM_REGION and INIT_VCPU
- to "unlocked" vCPU ioctl
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
- Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ackerley Tng <ackerleytng@google.com>
-References: <20251030200951.3402865-1-seanjc@google.com>
- <20251030200951.3402865-24-seanjc@google.com>
-Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251030200951.3402865-24-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.82.130.100]
+X-ClientProxiedBy: wuxpheds03047.xfusion.com (10.32.141.63) To
+ wuxpheds03048.xfusion.com (10.32.143.30)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_081950_174619_4CFA0253 
-X-CRM114-Status: UNSURE (   4.97  )
+X-CRM114-CacheID: sfid-20251031_021603_736775_A5F9C030 
+X-CRM114-Status: UNSURE (   8.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,21 +70,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Following the pattern established with other Spectre mitigations,
+do not prints a message when the CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY
+Kconfig option is disabled.
 
+Link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250918064907.1832-1-shechenglong@xfusion.com/
+Suggested-by: Will Deacon <will@kernel.org>
+Signed-off-by: shechenglong <shechenglong@xfusion.com>
+---
+ arch/arm64/kernel/proton-pack.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-On 10/31/2025 4:09 AM, Sean Christopherson wrote:
-> Handle the KVM_TDX_INIT_MEM_REGION and KVM_TDX_INIT_VCPU vCPU sub-ioctls
-> in the unlocked variant, i.e. outside of vcpu->mutex, in anticipation of
-> taking kvm->lock along with all other vCPU mutexes, at which point the
-> sub-ioctls _must_ start without vcpu->mutex held.
->
-> No functional change intended.
->
-> Reviewed-by: Kai Huang <kai.huang@intel.com>
-> Co-developed-by: Yan Zhao <yan.y.zhao@intel.com>
-> Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index f9a32dfde006..d833b7c1bba8 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -1042,8 +1042,6 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
+ 
+ 	if (arm64_get_spectre_v2_state() == SPECTRE_VULNERABLE) {
+ 		/* No point mitigating Spectre-BHB alone. */
+-	} else if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY)) {
+-		pr_info_once("spectre-bhb mitigation disabled by compile time option\n");
+ 	} else if (cpu_mitigations_off() || __nospectre_bhb) {
+ 		pr_info_once("spectre-bhb mitigation disabled by command line option\n");
+ 	} else if (supports_ecbhb(SCOPE_LOCAL_CPU)) {
+-- 
+2.33.0
 
 
