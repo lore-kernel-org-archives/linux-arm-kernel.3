@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD30CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 436ACCCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cbj3gKZ0mzSwdkwPXRoDa/eaYfVSxFDtUK1SIosiT1M=; b=A65S3TbN8Ayf2q
-	UzKYJ44inHbT2DenJeboSXtE/O1QSAs2obtodQNcpPEe7Tn81ECEZJjCwQecst4mZ2qLC8d+RWcEz
-	M3YrRJONRawXJtna1xYVn1TLvra5WN/lkp8f1WjlMe9ztUnDPGlDfgHDc7s0e9pv5HgRR4fAnzV6A
-	dX16bO+MQggcQJsWfCZm806YKyuJ8+jK9OWnWVD0E+ZFXlM4kqPmLo0vd6i9iSdLPZwzvH2lx27N0
-	OS8DkeQZwIqFjnD6CO/du2bp/oz1xWjkkmn1C5Rei/ZNpqDWw9YcLXvQgHE8zVLaT7QXFYhrYGGep
-	wezYyUXjSrLt9fJ5qFSA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=660/GUyr8+xiyQEE/ln7pRyZWtVdpwNeVJPsoSzCzFA=; b=fglt4rtLsuGY/1nffLFYTdXjMv
+	YxiBChiy5ZrK5Mvf+VAUreYzltnN3aVjr6qQYYd63M5rRd5ZUgzp8btljEWH+5qIpePurAxoHXtt7
+	KbaxR/Uos1hd6fNZCUeGxviQkPyrHt+CipdeaO0JyKguSaWZzcWXUp5/vFwAyorX2aLayKNBfZ9SA
+	TKxmz03aMk+nS6/312ZuXcfa3O6tldlefN1EzAQo0CcXy5/54FNYb6R+toghQgloXhw2VjLoNfazj
+	D35Yetq9cRpZgdZ4yqdyAQQ7EmtVC1knWE+cx8L9kgQRwsmtAGCMqAYiciuXmMUl8+vvTr4/RsMyn
+	esn5bVMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEoVN-000000065qG-3cuf;
-	Fri, 31 Oct 2025 12:45:23 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vEoVR-000000065sT-3H5p;
+	Fri, 31 Oct 2025 12:45:25 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEoVK-000000065o5-3t6I
+	id 1vEoVM-000000065ot-0uJA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 12:45:20 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-474975af41dso16128545e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 05:45:18 -0700 (PDT)
+	Fri, 31 Oct 2025 12:45:21 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4711b95226dso27866965e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 05:45:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761914717; x=1762519517; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cbj3gKZ0mzSwdkwPXRoDa/eaYfVSxFDtUK1SIosiT1M=;
-        b=uLGY9KeIr3kkP+jzUeTtHD2WMC4/DeieCiEFRFQ7UbBvmmjVvQ5p4xOp+QWiPVmRNT
-         9pbQMWEZXsWV/TYP9X6rdtI9EEh5G2PerqidSzmqLfU03uAgzeYwbFJpfBlUlcfj17zE
-         yrYPr4S4RLtIo5R6mbwC6c9Y/01mMloV7DPKFWWTaaIqtP4IvuSyjJkYGyZBkA9/3/kr
-         4ev31YUKleBQqsfWjv50oqbzlcT1LKrkYKfNpsyf//Ijj3aG/XQhwgNONFftFZ3iwf1W
-         1J37SbFRj5BBSiEM09nh+cyP9moP16k0OZ5ikAkkjZXu2l/boFEwKPFPPOtprBiYmRGB
-         bjtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761914717; x=1762519517;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1761914718; x=1762519518; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cbj3gKZ0mzSwdkwPXRoDa/eaYfVSxFDtUK1SIosiT1M=;
-        b=gpjFXmuIzNKCZXaizy303jZgkApBCqpG/didbEAmhcMI+POEqplulmfkWJt47jlYnf
-         UvPWu4K9WDqtXQ9bPRlj28Wa4BqeA4ld20VuZTszdp2syUMEZN4Mi2q+Kj2UAC8xmZ2b
-         wZ7Q6UCGlq2z9wvJ4sT5zOHetzNsdXow00aZ7Mlpp7Nhy3Jbn/B4aH1oSa2Z2Ju99h81
-         IzgXkv0YArRfl8/7q+gYmPKV6WBbJtdX5qMkR0P/j1kOy8OlmwtRdeycDAq0M41zLUSC
-         jkBm0ooVaGFRn9iqNWoUyj2OCn/jUJO98r5n+7lwWTkQr3wjCE2oVgOmlkDucCy8i/IJ
-         AP/g==
-X-Forwarded-Encrypted: i=1; AJvYcCVnwEld17752E1/DL+Ne0QQtZGqD1YNPT1FDp3fRPt4Y7vehDXZ3fcXk2J3Nr5yofjDAgbQ5VJ2NvJ2tPgk0NJh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN6Ca7htXB+moiAqgOVpfnh62EjkI/goEu6quyyfdrjpxeVmnf
-	6n2IduRpxGnLOhYTb3V10VnBE0IfloWC5t+ALxz6FPFVFOqPX4Kqgq3WdV2YLqosOR4=
-X-Gm-Gg: ASbGncu9uSLnxwCW4EC6pzVHTO6evKTwRy0Iym5N9G9BPqW55OZ4gO+UzaokLYMQV/m
-	+Cg98uBts+orK19JIdFUC4RLxMx2Ur8h5Jif5usj+RkTiqBd7i8YWbGAbY/BlttfsSBmNfhan/k
-	3SsrZy7dG3FCXTm0nfD3hVJOISMgroX9dZ5HflC6PoWJSejOm5mPiv8sy+XMuRXrdZOKy92oOPR
-	bTFlD6chwNSWvpkvsvIo0Q05hbXL+GWyfT/a3N1X2VZl3kXNNHzxkiwogZM2fuFQCzOle80uclE
-	OnQb2Ik8bL1V9ljzLYKsg3SrZmlDAfXkHbQrqc3xMrvITG40WSjnCai68qIUGam3B/cMtXLvO2m
-	cJUhtrv6Y8XUlArSdcwvwJ/nT4hCYVoOFWlWrLwjpEffQ6qs7Yw2HUoFjyrwhRdtz3M7u2eMNmc
-	Hc0AAwu0QZ5ZaRKPM/I2FHYnD84Mu7kx4h3geWLiix3W0QdnfXC8Ml
-X-Google-Smtp-Source: AGHT+IHqy0NvjSEdkC5QA4dlobMBtMSys4ERttR9A7YfgXRw5s+9LrWnpqc3fCglT5Vt6XnCw3B/fA==
-X-Received: by 2002:a05:600c:4687:b0:45b:7d77:b592 with SMTP id 5b1f17b1804b1-477307c1f24mr29666305e9.12.1761914716741;
-        Fri, 31 Oct 2025 05:45:16 -0700 (PDT)
+        bh=660/GUyr8+xiyQEE/ln7pRyZWtVdpwNeVJPsoSzCzFA=;
+        b=Nifod0CMQP1Z/j8nHWdzODafOACOr2lMHymoTNvlE+i2yMdBq+qAsmX+1KrGubZmTb
+         vtVepE7s8hYnRGRz7509jpHTCpgtTjjXpoF3k0MNuPcPLq6CHGOiAl0yVO0qlGu7wl+R
+         sVCdVtq/8Ue2G0FGzz8hyrRxkRL3EATes7/B//NRNLoYY84MYnA7y1ZsklpHhW1NDKcI
+         r9aEA5oRa1kJHvBXKazBPJ7XOk6LgCwk81hgWKBgmrpysiNt3oT2RkHD7xffjGxYYggX
+         BoAeD7EE1bnk0rC4yVxDM4Y9SeODhLDNgR8hbakKVCWo7yu32otCzqKVkt3LKzXvK6dj
+         RDwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761914718; x=1762519518;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=660/GUyr8+xiyQEE/ln7pRyZWtVdpwNeVJPsoSzCzFA=;
+        b=LaN6wIb1CDEuKOKISIdHe8v8ogyrTIw1HyWusvdYRSkKQXZYtq9tutHWfbwmjG5EOO
+         mXUHmcs+aLrRbJnqFOIyXlnkU12ublMK2pphpfY375G6rNQt+v7y6MRMzw4ux8qVfuw7
+         ugPVqs8bCBv5Qk4QPoJjk8+EqwBg7qzRphRonhZYTvInFtP0rgoLxDfkeakfMtSZN4+h
+         pFtB/00Tczdnd9owuaSYZJzBMw59g+6viejEQtc8k3OUCzeLZN2ewkNJTbW5zsluKbUE
+         nZCWsNYenZpJ6NQLbVS544lJoNFbILp/XJIUmJDq+IHEoZXf8n5awP2qma+Z1s9KNwNs
+         Jt5w==
+X-Forwarded-Encrypted: i=1; AJvYcCUZbpKsGaKy+CNDKKAtv9sHcIBtYDV4yqf40i+XEFzVQJuTQgjTHz5i0pVCSV2UU8EIP8e3XDVcWo1XGoD7/8RF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDw4IRs5IyAm9xE+UkJxzpWZ/hwmw7GYzXnhgdyRJ3zff5qqMj
+	hJ1jwzhd5nwtHRQ3C0M6BnkzJ5kAHCnMtaaSgTASDXEkbjrK3l0fYvtHj6Dr3ezFcQc=
+X-Gm-Gg: ASbGncviD0Jy2Bb95tnsr0p55XE4p1n9BBQdMxHUtnnTuX1/c6suNeOcQT6eAdZQU14
+	440zuMyjuRPd0KkE7MEmt6OOziToZJIk/6uIA/BITT/6gO9brHchstP6JQV5hWvylOsS1UdB+Xl
+	sP1ubaJMdi19HGxJn7S6cOynEIQIgQCI/S9gFIXA84qUm2bSvrAPpWO7PTPLqhfczBry4lYEwww
+	RJliukthLCk+1aVHhlbFGvfcbUovAtE4yhXYmLcjqfEnuKQvjbNVT3lUJ8rV/j7FOYaj0jWnW1Z
+	kTmlr1KsMzU3Esvep2x40hCk8j2raGCaNb0PqBTdIj/9OHsb/sJakxyxUnE/dSc8HxAI4Atxx47
+	WxqniVILecGeJBBtzNo0aKBsQIwpNi9fxB/v3Q0Bv8gGhVWNhPc1WTIIdXJqdI/qbFjjTMhSW8E
+	pUD4iukFWqNXUeMrBGRibf2VvHOJMTkzcxfA84fQsa5xbz0JUq1I4/2dFy3Uc2vIQ=
+X-Google-Smtp-Source: AGHT+IH0gyK0WWDUF75+dz03qe3+Zyttu7Zg0jZFhbcGhaDg57ZydmfAmUHKy/Cjxcmg2bJ8GmNwBw==
+X-Received: by 2002:a05:600c:1f0e:b0:46e:4704:b01e with SMTP id 5b1f17b1804b1-477305a24bcmr36164165e9.8.1761914718273;
+        Fri, 31 Oct 2025 05:45:18 -0700 (PDT)
 Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47732ff7fdbsm31077535e9.16.2025.10.31.05.45.16
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47732ff7fdbsm31077535e9.16.2025.10.31.05.45.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Oct 2025 05:45:16 -0700 (PDT)
+        Fri, 31 Oct 2025 05:45:17 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH 0/5] nvmem: add Samsung Exynos OTP support
-Date: Fri, 31 Oct 2025 12:45:08 +0000
-Message-Id: <20251031-gs101-otp-v1-0-2a54f6c4e7b6@linaro.org>
+Date: Fri, 31 Oct 2025 12:45:10 +0000
+Subject: [PATCH 2/5] nvmem: add Samsung Exynos OTP support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFSvBGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDA2ND3fRiQwND3fySAl2jNGOLVIskkyRzS2MloPqCotS0zAqwWdGxtbU
- Av8ZwdFsAAAA=
-X-Change-ID: 20251031-gs101-otp-2f38e8b4b793
+Message-Id: <20251031-gs101-otp-v1-2-2a54f6c4e7b6@linaro.org>
+References: <20251031-gs101-otp-v1-0-2a54f6c4e7b6@linaro.org>
+In-Reply-To: <20251031-gs101-otp-v1-0-2a54f6c4e7b6@linaro.org>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -92,16 +91,16 @@ Cc: semen.protsenko@linaro.org, willmcvicker@google.com,
  linux-arm-kernel@lists.infradead.org, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761914715; l=1825;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761914716; l=5190;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=eShtlJ8Q5lLAIYL5hn7v+uZe4nyW0U4dTV2Vv/o37Is=;
- b=Cav6xp6EkVef+kR5+xm0NcqzjGfCB8JtxlbVHdTW7e4KMSsgOBlOfS4QS/NSWUZKRyXAq0Ff3
- 4hPYHB6jVi2BPtPgXa6/b8DGjvet/fG+YJ7cfBVavtwrAhttcx6A8OS
+ bh=w0yfdSTm6gp3caPgxHc/5REqzvFvqbJrg1PSnC6Rs4g=;
+ b=YcYEgJptfXhF94yOa4/Ab0f9sCdd4QntT5HeUNYAN73i4zFNGC6vPbnjwfZ9a76WL82ms///n
+ VwtDhW+9XjTBzgLFrKzjVbzbdb/axrnQvjUKPYf9zol9IGWEShWS2Mz
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_054519_030038_9C262BEA 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20251031_054520_301135_A580FEF6 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,17 +115,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch set has the typical dependency of the DT patch depending on
-the bindings patch. I propose thus to have the bindings patch taken
-via the Samsung SoC tree, if not all.
-
 Add support for the Samsung Exynos OTP controller. On the Google GS101
 SoC, this controller provides 32 Kbit of OTP memory space that can be
 read/program/lock using a specific sequence of register accesses.
 
 The OTP controller register space is of interest as well because it
 contains dedicated registers for the Product ID and the Chip ID (apart
-from other things like TMU or ASV info). Register the OTP controller
+other things like TMU or ASV info). Register the OTP controller
 register space as a nvmem device so that other drivers can access its
 contents using nvmem cells.
 
@@ -135,27 +130,151 @@ dedicated nvmem device.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
-Tudor Ambarus (5):
-      dt-bindings: nvmem: add google,gs101-otp
-      nvmem: add Samsung Exynos OTP support
-      arm64: dts: exynos: gs101: add OTP node
-      arm64: defconfig: enable Samsung Exynos OTP controller
-      MAINTAINERS: add entry for the Samsung Exynos OTP controller driver
+ drivers/nvmem/Kconfig      | 10 +++++
+ drivers/nvmem/Makefile     |  2 +
+ drivers/nvmem/exynos-otp.c | 98 ++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 110 insertions(+)
 
- .../bindings/nvmem/google,gs101-otp.yaml           | 68 +++++++++++++++
- MAINTAINERS                                        |  8 ++
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       | 17 ++++
- arch/arm64/configs/defconfig                       |  1 +
- drivers/nvmem/Kconfig                              | 10 +++
- drivers/nvmem/Makefile                             |  2 +
- drivers/nvmem/exynos-otp.c                         | 98 ++++++++++++++++++++++
- 7 files changed, 204 insertions(+)
----
-base-commit: 73f7017e663620a616171cc80d62504a624dc4de
-change-id: 20251031-gs101-otp-2f38e8b4b793
+diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+index e0d88d3199c11a3b71cc274b2114e9554ac486fc..f973e009737f2fbdc8511e50f1aa9e6003286065 100644
+--- a/drivers/nvmem/Kconfig
++++ b/drivers/nvmem/Kconfig
+@@ -84,6 +84,16 @@ config NVMEM_BRCM_NVRAM
+ 	  This driver provides support for Broadcom's NVRAM that can be accessed
+ 	  using I/O mapping.
+ 
++config NVMEM_EXYNOS_OTP
++	tristate "Samsung Exynos OTP support"
++	depends on ARCH_EXYNOS || COMPILE_TEST
++	help
++	  This driver provides support for the OTP controller found on some
++	  Samsung Exynos SoCs.
++
++	  This driver can also be built as a module. If so, the module
++	  will be called exynos-otp.
++
+ config NVMEM_IMX_IIM
+ 	tristate "i.MX IC Identification Module support"
+ 	depends on ARCH_MXC || COMPILE_TEST
+diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
+index 70a4464dcb1e25cf9116280a32f4a0f4f9941a75..920a536fc359a5a7d8f3aabba6a712e85c277ee7 100644
+--- a/drivers/nvmem/Makefile
++++ b/drivers/nvmem/Makefile
+@@ -20,6 +20,8 @@ obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
+ nvmem-bcm-ocotp-y			:= bcm-ocotp.o
+ obj-$(CONFIG_NVMEM_BRCM_NVRAM)		+= nvmem_brcm_nvram.o
+ nvmem_brcm_nvram-y			:= brcm_nvram.o
++obj-$(CONFIG_NVMEM_EXYNOS_OTP)		+= nvmem-exynos-otp.o
++nvmem-exynos-otp-y			:= exynos-otp.o
+ obj-$(CONFIG_NVMEM_IMX_IIM)		+= nvmem-imx-iim.o
+ nvmem-imx-iim-y				:= imx-iim.o
+ obj-$(CONFIG_NVMEM_IMX_OCOTP)		+= nvmem-imx-ocotp.o
+diff --git a/drivers/nvmem/exynos-otp.c b/drivers/nvmem/exynos-otp.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..3bff9421e6f2b80a8f20533b490a289687d117e8
+--- /dev/null
++++ b/drivers/nvmem/exynos-otp.c
+@@ -0,0 +1,98 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright 2025 Linaro Ltd.
++ *
++ * Samsung Exynos OTP driver.
++ */
++
++#include <linux/clk.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/ioport.h>
++#include <linux/module.h>
++#include <linux/nvmem-provider.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/mod_devicetable.h>
++
++struct exynos_otp {
++	struct clk *pclk;
++	struct regmap *regmap;
++};
++
++static int exynos_otp_read(void *context, unsigned int offset, void *val,
++			   size_t bytes)
++{
++	struct exynos_otp *eotp = context;
++
++	return regmap_bulk_read(eotp->regmap, offset, val, bytes / 4);
++}
++
++static struct nvmem_config exynos_otp_nvmem_config = {
++	.name = "exynos-otp-reg",
++	.add_legacy_fixed_of_cells = true,
++	.reg_read = exynos_otp_read,
++	.word_size = 4,
++	.stride = 4,
++};
++
++static int exynos_otp_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct nvmem_device *nvmem;
++	struct exynos_otp *eotp;
++	struct resource *res;
++	void __iomem *base;
++
++	eotp = devm_kzalloc(dev, sizeof(*eotp), GFP_KERNEL);
++	if (!eotp)
++		return -ENOMEM;
++
++	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	const struct regmap_config reg_config = {
++		.reg_bits = 32,
++		.val_bits = 32,
++		.reg_stride = 4,
++		.use_relaxed_mmio = true,
++		.max_register = (resource_size(res) - reg_config.reg_stride),
++	};
++
++	eotp->regmap = devm_regmap_init_mmio(dev, base, &reg_config);
++	if (IS_ERR(eotp->regmap))
++		return PTR_ERR(eotp->regmap);
++
++	eotp->pclk = devm_clk_get_enabled(dev, "pclk");
++	if (IS_ERR(eotp->pclk))
++		return dev_err_probe(dev, PTR_ERR(eotp->pclk),
++				     "Could not get pclk\n");
++
++	exynos_otp_nvmem_config.size = resource_size(res);
++	exynos_otp_nvmem_config.dev = dev;
++	exynos_otp_nvmem_config.priv = eotp;
++
++	nvmem = devm_nvmem_register(dev, &exynos_otp_nvmem_config);
++
++	return PTR_ERR_OR_ZERO(nvmem);
++}
++
++static const struct of_device_id exynos_otp_dt_ids[] = {
++	{ .compatible = "google,gs101-otp" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, exynos_otp_dt_ids);
++
++static struct platform_driver exynos_otp_driver = {
++	.probe	= exynos_otp_probe,
++	.driver = {
++		.name	= "exynos-otp",
++		.of_match_table = exynos_otp_dt_ids,
++	},
++};
++module_platform_driver(exynos_otp_driver);
++
++MODULE_AUTHOR("Tudor Ambarus <tudor.ambarus@linaro.org>");
++MODULE_DESCRIPTION("Samsung Exynos OTP driver");
++MODULE_LICENSE("GPL");
 
-Best regards,
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+2.51.1.930.gacf6e81ea2-goog
 
 
