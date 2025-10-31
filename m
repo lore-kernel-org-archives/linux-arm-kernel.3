@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAA4CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD6FCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hp4POrzGEzYWsXLUiq24bsIuyJ9VI9HcKwxkmxgRkM=; b=FMCCZmlBBsKzr8+LHM3BGClf+k
-	dJLmBAnOroS4yMPcGGbXGm45tKNxZuotpXj85vCL51IHsy4BogXGqsa4jlee6HQSzGat8XrnVXmxm
-	YXfa7jPAtFJdXV5lOlLGQWkd9kfDp+ptU+sLNHuoP4ZSc15OXAD2QH75aSBKVPY+SaCV5N1iHz58y
-	n8qkTtilUJ/sK1p8+RgSWueSRnQ4Y2Fpnipm2C4YhB/fyZGPwIFq3PUgZW3grqfgc8mXAhondTiwp
-	QZsLvZkY/fSzwU+dm6ObaNZ15qRXWJS+v0lZE/nChDGFuNH+V1HKHw+PL7Cy6xJ5F8z9Vez59OtGy
-	NKd4azyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mn5jbJwM2CAxbTkcZq3Fzr3koHOdGsBr8mzb4LmkEr4=; b=bIhN9/4s54jOEZ/uPIErcPK5tR
+	lmy5DGepiCcE43aoWbg1cykC2Y+7Hg9MwA/+3E9BPcHYlqVuJ/cQLIxcqqYsSVIjMvomLb7kaoHzY
+	+H8p+7mchi39NUspyrh8KMQlpE02cil+7qROUxXQZBruRfdBCOa/UxU5MeR8CikAOZ80ZulF6jrBZ
+	bTAS4/5HBXPvZNH4NxT04J3PzQhdiXNvTHrratLCYncHlVhJdPDo23t2hhXciNNpVBS84gv8uEu4z
+	+jAf21SR52jjW0c++QovMagAHsFc9N2xDh+nv2QOv5QEq83NNa+4TXdyVDOFBTsNhNVH0OxgEJXpc
+	d7FUTgow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpYb-00000006BFA-1p9A;
-	Fri, 31 Oct 2025 13:52:45 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vEpYj-00000006BHL-1D1S;
+	Fri, 31 Oct 2025 13:52:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpYY-00000006BEF-2dlZ
+	id 1vEpYg-00000006BGV-3dbW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 13:52:44 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4cyj7w6bTnzHnGk2;
-	Fri, 31 Oct 2025 13:51:40 +0000 (UTC)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 772C4140144;
-	Fri, 31 Oct 2025 21:52:37 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 31 Oct
- 2025 13:52:36 +0000
-Date: Fri, 31 Oct 2025 13:52:35 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ard Biesheuvel <ardb+git@google.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-crypto@vger.kernel.org>, <herbert@gondor.apana.org.au>,
-	<ebiggers@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v4 16/21] crypto/arm64: sm3 - Switch to 'ksimd' scoped
- guard API
-Message-ID: <20251031135235.000007cb@huawei.com>
-In-Reply-To: <20251031103858.529530-39-ardb+git@google.com>
-References: <20251031103858.529530-23-ardb+git@google.com>
-	<20251031103858.529530-39-ardb+git@google.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 31 Oct 2025 13:52:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E989740C32
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 13:52:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9B7AC4CEFD
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 13:52:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761918769;
+	bh=OZOJGVFPVvgoICzb96sWJOAxC8zQUwZgmSqC+4PRa40=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ofeRqvX2L7Pn9ovcq2lQufq0kGpAqAZnOXo3GjIcfAWaclc6jOoG/Q0SnsnttZzOC
+	 P+ahLVgGodiule3lfdJ3mBC1BNy3n62cqGnTGRmvuAC3KCwxsymgEql/pq6lxQjDg1
+	 wX0yoySYtu/vY/dwi514HL/x+WDf7f3rOyd/CfeZ6D2TVAOSDCcVXR03hAz0jN7czB
+	 luk4ImAlSi78rqa89syl6a9Tz5f3zsGX9lLiE2O4Coy1LElMj4bSGomz5zZbyh1WwE
+	 hOW+hVO5g5CHecNA0GHm98HVumj1CD32DmSUqv0Eb+wXwbrIdoaoGnVGkkUUpV4zuu
+	 btlfQgSNknlDw==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5930e30857bso3093976e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 06:52:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCU/weu/VZ8Ssz8j7+zZvkbOxc3s06SDfYi/njRC2woZXACD+UxmrqIKzUKrNUBZdI8uw7MuxkbesWU2/Wb7qDKx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMpduwLjtEeY1RNulZ3cSdoXP3YR1tJEmT9RKxm9vGjjV2esoL
+	tJrtzmFyBSbZcunw09EZJuM0zTCAJ0dsfQmkWZg4MYEJDVrv8ACe872iPnB2QavNArlhx26A5S/
+	GgyGhsvQyaBL2GY/hnKe/cy2odS6cpRE=
+X-Google-Smtp-Source: AGHT+IGKmCnEm7EzivIgJyR5JKOYXoySZ6tvgvet9bi10ExWbl/TVPMYWyirNSz29x5TQUoCZJBcqca3iDbFf1g6fWQ=
+X-Received: by 2002:a05:6512:224c:b0:592:ef1b:da72 with SMTP id
+ 2adb3069b0e04-5941d505da1mr1434407e87.14.1761918768160; Fri, 31 Oct 2025
+ 06:52:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+References: <20251031103858.529530-23-ardb+git@google.com> <20251031103858.529530-31-ardb+git@google.com>
+ <20251031134909.00006bf3@huawei.com>
+In-Reply-To: <20251031134909.00006bf3@huawei.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 31 Oct 2025 14:52:36 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHMa_Vj3DsuoAR-rvWW12Bsnz10w+BAze6mtngqpABZPw@mail.gmail.com>
+X-Gm-Features: AWmQ_bnUHTmFTpf6_wwhZYvTf56YiWzMFCCLq2ZM6tGMZqDdBbz5PGKileyFjes
+Message-ID: <CAMj1kXHMa_Vj3DsuoAR-rvWW12Bsnz10w+BAze6mtngqpABZPw@mail.gmail.com>
+Subject: Re: [PATCH v4 08/21] lib/crc: Switch ARM and arm64 to 'ksimd' scoped
+ guard API
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	herbert@gondor.apana.org.au, ebiggers@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_065242_991576_F52016F0 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20251031_065250_955124_B5ED51D2 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,115 +85,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 11:39:15 +0100
-Ard Biesheuvel <ardb+git@google.com> wrote:
+On Fri, 31 Oct 2025 at 14:49, Jonathan Cameron
+<jonathan.cameron@huawei.com> wrote:
+>
+> On Fri, 31 Oct 2025 11:39:07 +0100
+> Ard Biesheuvel <ardb+git@google.com> wrote:
+>
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > Before modifying the prototypes of kernel_neon_begin() and
+> > kernel_neon_end() to accommodate kernel mode FP/SIMD state buffers
+> > allocated on the stack, move arm64 to the new 'ksimd' scoped guard API,
+> > which encapsulates the calls to those functions.
+> >
+> > For symmetry, do the same for 32-bit ARM too.
+> >
+> > Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > ---
+> >  lib/crc/arm/crc-t10dif.h   | 16 +++++-----------
+> >  lib/crc/arm/crc32.h        | 11 ++++-------
+> >  lib/crc/arm64/crc-t10dif.h | 16 +++++-----------
+> >  lib/crc/arm64/crc32.h      | 16 ++++++----------
+> >  4 files changed, 20 insertions(+), 39 deletions(-)
+> >
+> > diff --git a/lib/crc/arm/crc-t10dif.h b/lib/crc/arm/crc-t10dif.h
+> > index 63441de5e3f1..aaeeab0defb5 100644
+> > --- a/lib/crc/arm/crc-t10dif.h
+> > +++ b/lib/crc/arm/crc-t10dif.h
+>
+> >  static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
+> > @@ -20,21 +19,16 @@ asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
+> >  static inline u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
+> >  {
+> >       if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
+> > -             if (static_branch_likely(&have_pmull)) {
+> > -                     if (likely(may_use_simd())) {
+> > -                             kernel_neon_begin();
+> > -                             crc = crc_t10dif_pmull64(crc, data, length);
+> > -                             kernel_neon_end();
+> > -                             return crc;
+> > -                     }
+> > +             if (static_branch_likely(&have_pmull) && likely(may_use_simd())) {
+> > +                     scoped_ksimd()
+> > +                             return crc_t10dif_pmull64(crc, data, length);
+>
+> >               } else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+> >                          static_branch_likely(&have_neon) &&
+> >                          likely(may_use_simd())) {
+>
+> I briefly thought this was a functional change but it's not because
+> of may_use_simd() being something that isn't going to change between
+> the two evaluations.
+>
+> Would it hurt at all to pull that up to be
+>         if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && likely(may_use_simd())) {
+>                 if (static_branch_likely(&have_pmull)) {
+>                         scoped_ksimd()
+>                                 return crc_t10dif_pmull64(crc, data, length);
+>
+>                 } else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+>                            static_branch_likely(&have_neon)) {
+>                 ...
+>
+> ?
+>
 
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Switch to the more abstract 'scoped_ksimd()' API, which will be modified
-> in a future patch to transparently allocate a kernel mode FP/SIMD state
-> buffer on the stack, so that kernel mode FP/SIMD code remains
-> preemptible in principe, but without the memory overhead that adds 528
-> bytes to the size of struct task_struct.
-> 
-> Reviewed-by: Eric Biggers <ebiggers@kernel.org>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-Hi Ard,
-
-Trivial comment inline.
-
-> ---
->  arch/arm64/crypto/sm3-ce-glue.c   | 15 ++++++++-------
->  arch/arm64/crypto/sm3-neon-glue.c | 16 ++++++----------
->  2 files changed, 14 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/arm64/crypto/sm3-ce-glue.c b/arch/arm64/crypto/sm3-ce-glue.c
-> index eac6f5fa0abe..24c1fcfae072 100644
-> --- a/arch/arm64/crypto/sm3-ce-glue.c
-> +++ b/arch/arm64/crypto/sm3-ce-glue.c
-> @@ -5,7 +5,6 @@
->   * Copyright (C) 2018 Linaro Ltd <ard.biesheuvel@linaro.org>
->   */
->  
-> -#include <asm/neon.h>
->  #include <crypto/internal/hash.h>
->  #include <crypto/sm3.h>
->  #include <crypto/sm3_base.h>
-> @@ -13,6 +12,8 @@
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  
-> +#include <asm/simd.h>
-> +
->  MODULE_DESCRIPTION("SM3 secure hash using ARMv8 Crypto Extensions");
->  MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
->  MODULE_LICENSE("GPL v2");
-> @@ -25,18 +26,18 @@ static int sm3_ce_update(struct shash_desc *desc, const u8 *data,
->  {
->  	int remain;
->  
-> -	kernel_neon_begin();
-> -	remain = sm3_base_do_update_blocks(desc, data, len, sm3_ce_transform);
-> -	kernel_neon_end();
-> +	scoped_ksimd() {
-
-Why does this get brackets unlike other cases?
-
-> +		remain = sm3_base_do_update_blocks(desc, data, len, sm3_ce_transform);
-> +	}
->  	return remain;
->  }
->  
->  static int sm3_ce_finup(struct shash_desc *desc, const u8 *data,
->  			unsigned int len, u8 *out)
->  {
-> -	kernel_neon_begin();
-> -	sm3_base_do_finup(desc, data, len, sm3_ce_transform);
-> -	kernel_neon_end();
-> +	scoped_ksimd() {
-> +		sm3_base_do_finup(desc, data, len, sm3_ce_transform);
-> +	}
->  	return sm3_base_finish(desc, out);
->  }
->  
-> diff --git a/arch/arm64/crypto/sm3-neon-glue.c b/arch/arm64/crypto/sm3-neon-glue.c
-> index 6c4611a503a3..15f30cc24f32 100644
-> --- a/arch/arm64/crypto/sm3-neon-glue.c
-> +++ b/arch/arm64/crypto/sm3-neon-glue.c
-> @@ -5,7 +5,7 @@
->   * Copyright (C) 2022 Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
->   */
->  
-> -#include <asm/neon.h>
-> +#include <asm/simd.h>
->  #include <crypto/internal/hash.h>
->  #include <crypto/sm3.h>
->  #include <crypto/sm3_base.h>
-> @@ -20,20 +20,16 @@ asmlinkage void sm3_neon_transform(struct sm3_state *sst, u8 const *src,
->  static int sm3_neon_update(struct shash_desc *desc, const u8 *data,
->  			   unsigned int len)
->  {
-> -	int remain;
-> -
-> -	kernel_neon_begin();
-> -	remain = sm3_base_do_update_blocks(desc, data, len, sm3_neon_transform);
-> -	kernel_neon_end();
-> -	return remain;
-> +	scoped_ksimd()
-> +		return sm3_base_do_update_blocks(desc, data, len,
-> +						 sm3_neon_transform);
->  }
->  
->  static int sm3_neon_finup(struct shash_desc *desc, const u8 *data,
->  			  unsigned int len, u8 *out)
->  {
-> -	kernel_neon_begin();
-> -	sm3_base_do_finup(desc, data, len, sm3_neon_transform);
-> -	kernel_neon_end();
-> +	scoped_ksimd()
-> +		sm3_base_do_finup(desc, data, len, sm3_neon_transform);
->  	return sm3_base_finish(desc, out);
->  }
->  
-
+Yeah that would be a reasonable cleanup, I guess.
 
