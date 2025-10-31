@@ -4,214 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27EECCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61555CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lxshdVgiXaDth0ePQwRp69gJof/IDFMERdflJ4mrNdQ=; b=GCrzUB3iS/Vx0xiJz4TE9IKh/S
-	LFmh9q8fJigAk4VeQJr9IgOOJcV+chXJNOx2FDQe97qlv5dhDqA4EAAU53lpyVot2oDJOUJHSYZUL
-	MMnEah+lrfzIZx+RTWzTOOVqrvsEw4nvYs6Re4t+bb6vwYRGqo1m1Ee/j/y2b4S1W1cV9UK5CH6Xm
-	CRjPsv/ryBAIic67h+ESpwlJ/VoHf6sHYUvCzgf9Y6shlPPop+mpf6eF9cNjHifPeCqn+cjgPnjg8
-	zlh/N4wpEODKO+EyjWojwkFfT0xWjADw7DtdKDoFCijYo2chQaABJbHu0abifm8AG+oLjZFuPmMOu
-	Lmn1MpmQ==;
+	bh=uCV4syeEnykmP/XWmSr65esd3ge5PBZ99l5kbINMKrQ=; b=T7/PeT3TABwdGcKA6ySMBhBCE+
+	8YJ4iTu9cGWAF5VGmWLoTJ/xn3yu21nyBcZiIg5KRl6e41TCFnbZrUA+sVMtDrZerU9nH2ni4Oh6g
+	CO7XufgnTRbUPUlGV7N9tPkfGOD6e13TEqBv8EF3j75JnridjWXJPMKzQmyDGc5qmQi4eFj948904
+	LT09ICcUNdlJTyxsz9EaOA98aatplCsxNPN+YMU7bDYSuOXccfS4od6CtzRFhnGke7PGRHCzx/of8
+	+zn0HpYIqhhhR54BOsGy6Vd0xTPBW4UlTdzWVo25HHyZlYjhSL51oT1onRytD6HrYJ8QBk+8DWL6R
+	WVy0Q9yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEn3K-00000005zXF-2DlA;
-	Fri, 31 Oct 2025 11:12:18 +0000
-Received: from mail-northeuropeazon11011037.outbound.protection.outlook.com ([52.101.65.37] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vEn7F-00000005zxf-0nkS;
+	Fri, 31 Oct 2025 11:16:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEn3H-00000005zVJ-1kPs
+	id 1vEn7D-00000005zxC-0QX2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 11:12:17 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=KCTGiyi0M6f3F9TXmrpWtsa7HZJAbxNQ8Y6+rTPFcPjJvRWyp33V/82Mmn6mTOsI6JYLRouo4kXMRlncSZyg0hq9z4jKFGxXh7KL4A1sRewdGrbvJp1HqKKkXnGe9XgCig8MYJ33v2ZdillAsIsTovZnIkm734JMscq0GlXF4TOTUU8dMCTPxLOv8Wa7XPLMUPlSnxJduwmikYIAXtx2WkocSxPa687L5TUMkT7fDcR7CyC2rASyzYBGIm7NkrrZxjgPflRpRV/Hv5pMICSIRp2JeRC+fNt22/bDDoc9urxaAxKenn4+E698qLnoiApsDgYuQMhG7x+HnWLaJ0XFsg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lxshdVgiXaDth0ePQwRp69gJof/IDFMERdflJ4mrNdQ=;
- b=rPor+PLToYI3NSS4dCgOUze84NvL+mY9CqmWsikamj6rOG5Ch5kHOsNTIUkSmOKMI51s/sjZiUx3l213a3690JpkKvWNs9fEGW40jPr8Il3LEqXrZkNpA4Z8qYWuK34HCwbr5OwZtvrP3L7MX19d6k1UIUCDJV47Gv0K/h2nHMhod//JviU+PayYzdCd/nPbiIBdwEoIckfZEL4tiRgOXEiF3PXjM3onXYsfVjdL4GtfgcTr+LSzLtnrG1eX+fxdAhHsNoY8stHL1eLkS17Ha90jdkSCGHI+qmjtZB9BoqJWU6RL9OgqINqLaeR8UEFzcYvPhU9RGAiiMZ+8sei+Rg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lxshdVgiXaDth0ePQwRp69gJof/IDFMERdflJ4mrNdQ=;
- b=oj8Z2gvHlkWJanCvMfIxRmuyxG41jRe/64yLPUhYMt87RWuHaCDRzN9C6kPxo2yFv+BXA7labi0WR4ue/ihmupxCyyZh029nqQ3K2Arukn0yz0VIMvl9DJaVyRoOFMVeN2Lq8sB7wAr14zHXILWCCC5CVFqxghnks36vuXlLw0w=
-Received: from DUZPR01CA0120.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bc::18) by VI1PR08MB10146.eurprd08.prod.outlook.com
- (2603:10a6:800:1cf::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Fri, 31 Oct
- 2025 11:12:06 +0000
-Received: from DU2PEPF00028D0F.eurprd03.prod.outlook.com
- (2603:10a6:10:4bc:cafe::3) by DUZPR01CA0120.outlook.office365.com
- (2603:10a6:10:4bc::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.15 via Frontend Transport; Fri,
- 31 Oct 2025 11:12:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D0F.mail.protection.outlook.com (10.167.242.23) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.10
- via Frontend Transport; Fri, 31 Oct 2025 11:12:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x5Io/EtKrCTAZOQN4mTpL9eH0ACwgEHIkuDKvCUH+UhBf14ScVrJuQTJ9VlhL7YxR2f4Vc5VLnRzDFHUZX3ZEk7SpKeKj2E8fLn3t2RwgocdjFya9UiRKFCnypByQm4lxGptHyuPlz1MNR+axX9uRvjFDh0LAshQSvFzTL/mGPzv0PW6TLRpZnyaIjRbO2HwM4LUemwLKIKIUfoge+Q1L+MVOzKLQ4x/Zm6M2pqW84cIpLqGMSlQzJMWg1q29+COaCS0PCmLh1EYKBInqvAFsdhr1C4qSNKV8VORssdhvjRGlPsZNDGoSDyBQvAX7VW0QpzmC2u2EyQHdGxCou32wQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lxshdVgiXaDth0ePQwRp69gJof/IDFMERdflJ4mrNdQ=;
- b=ugvpPQoW/2u34wqh8/ImXAIG5BIXHOT8w/GmXsPPQrpXD6lmNDqRrrJDrObGJtelvkp2mw3xYLPhpifTg6Jlmn+dhVbyjHCACRvUzS5rHXUr1Ps8EilFSL03znM8miLogu+SWyQv9ljqaaLUz2WtS/mDkdWf/Tkw6uyZ3xkeeZSp/QhVUx0lY4kh7hsQlJH670NqziKKLUZHiCwO8apsRjMEuRV5EiVnlz/42Sth7YtRbuV7jRPOQy3jxBBg9Ma+YbgT0zVdFoFQdfhZ0VvizFfRIU1p3PZm17RF7akFOjtj/U7iGt7OX8GIL27823VL7gisJ+naGsGtxTFjxtzTEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lxshdVgiXaDth0ePQwRp69gJof/IDFMERdflJ4mrNdQ=;
- b=oj8Z2gvHlkWJanCvMfIxRmuyxG41jRe/64yLPUhYMt87RWuHaCDRzN9C6kPxo2yFv+BXA7labi0WR4ue/ihmupxCyyZh029nqQ3K2Arukn0yz0VIMvl9DJaVyRoOFMVeN2Lq8sB7wAr14zHXILWCCC5CVFqxghnks36vuXlLw0w=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DB9PR08MB8459.eurprd08.prod.outlook.com
- (2603:10a6:10:3d5::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Fri, 31 Oct
- 2025 11:11:31 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
- 11:11:31 +0000
-Date: Fri, 31 Oct 2025 11:11:28 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Sebastian Ene <sebastianene@google.com>, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, perlarsen@google.com,
-	ayrton@google.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	sudeep.holla@arm.com
-Subject: Re: [PATCH 1/2] KVM: arm64: fix FF-A call failure when ff-a driver
- is built-in
-Message-ID: <aQSZYJQfcWCTtIZm@e129823.arm.com>
-References: <20251027191729.1704744-1-yeoreum.yun@arm.com>
- <20251027191729.1704744-2-yeoreum.yun@arm.com>
- <aQRuvu8V3woqnqCV@google.com>
- <aQSKpZDrLzf/bcx7@e129823.arm.com>
- <86ms57v00j.wl-maz@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <86ms57v00j.wl-maz@kernel.org>
-X-ClientProxiedBy: LNXP265CA0003.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:5e::15) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Fri, 31 Oct 2025 11:16:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E9FF44748
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 11:16:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449F5C19421
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 11:16:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761909378;
+	bh=MN2xaDVwCUdlanpNizsByKz0+be9U+2kboQP6A6ka+c=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=PFIeE/g3Xz3yEobHpJCFwU7z+FC5bcfhAzW88pUAHVRd90Ga8Z++6zBv5gL9XFiRx
+	 YQvG8wuTB9oJJStvqTmj/U9funN9hqtZ1BUapoQeHOLNsf3QgNlVhsnOTHrkT6Vw5B
+	 5HkHVsh89sqc5cGKkhBUDPHrCrJuQd3lIZoN2p67d0p/Ss+gLOd4gf0jSJH9kd1FvZ
+	 6RdJpa6jGWGgrRfANpGazb5v57i9PV5tp4hN1SeuavHjVve9Bo5KW50NRsaTjStjfn
+	 MRGclCdEwtoclnMEEYCAXdXwd4rbgNAmOkhJ8tvNhnpIbF5VWqFcpjMx4xSNSEVYCz
+	 D1gVo2rQgridA==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-63c556b4e0cso4652751a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 04:16:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUS3R5GyKoGCPnGXkYq+C1k/uaykvfxlIYpA1SKsrt41VtSJkJTTkpwqICxfm0CtqcXtqpmErV5nH7HiZLBySBt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUwXFObX3VX+qnreB/eXpGVof9YqkwHPiJpWXi7SgFgO5YMfna
+	8BBdlungR9KSjWR24bI3vL5CvoQ7FeBnqG42V47Kpnk0VPzQjC8MSIBj4GIxfEn5gfnFbImlJHT
+	BKkJ8bREVzpzS5e3AFJTmwdKMNDQZXg==
+X-Google-Smtp-Source: AGHT+IFy0NbXlcnXpyCvGbtSasVfYk1W9RDOglxfcqh8P6vYA81B6Yle+fdZVj41g52eOJdNAj3qOy2YCWw8vpUheb0=
+X-Received: by 2002:a05:6402:518b:b0:639:dd3f:f265 with SMTP id
+ 4fb4d7f45d1cf-640771ceb67mr2656760a12.25.1761909376763; Fri, 31 Oct 2025
+ 04:16:16 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DB9PR08MB8459:EE_|DU2PEPF00028D0F:EE_|VI1PR08MB10146:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32ecca20-a36d-40c3-9a7b-08de186e52db
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?UHhIWDdCcU9iMklLaVFseTlyZ3FOSkpZNkU4ZFg5VWYxUm8zRkZ5VkE2UVhr?=
- =?utf-8?B?ZnV6QVhGUDRRM21nUFAxd3lsNlAxMW9VOVo3Zno0M1BxYnI5d0lHV0lEV0p3?=
- =?utf-8?B?QUNvczlCSjZ2RzlnVnZEcmUxWkZxUTZ3R2VWL2M4bW5TbVMyY05LMkhraGNQ?=
- =?utf-8?B?R25rWXluYmlzSGZXWGxEZC9maXVxRE1BVDYybXhoTk0wcVl5Sk1vcnQ5YkxW?=
- =?utf-8?B?OHkvVkJLNnhWVUVVZURhdThzS0ZWRGtieGJwRUdWd1ZGMWlKODRBMGNRRG4r?=
- =?utf-8?B?b3UwMEhlQUQvRFRXdHRuSWxpanpPYjlldkorMzAyTjRwaWFLbW8wZTVRVy90?=
- =?utf-8?B?Njh3L3Z3ZVNMRlllaWtsTlkreDNaVTQ1Q2dkU0VOakE5WUIyd1RBYUtwYmNG?=
- =?utf-8?B?cmVBSzV5cUh3TW1QN2hDZGNPZTlSTTdqVnRQODZkeFgxaXRrTEU1UWVER01T?=
- =?utf-8?B?SVhpT0o4V256RE11eitIOVVpbnNHRDZ5c2NnSzJzdDB4REJYL2NXamJlWERn?=
- =?utf-8?B?VkdjTnVYSUFaYUV4ZFRHbzJNTTZ3ZGRuMHlPOG1FNFJKZDhMZnVsZXRiMVFs?=
- =?utf-8?B?RWx1QjhHQ3A3SnN2ZFljY3pETTZucS9wWTRld2JtZzVrUW1zeW5XL1phb0FP?=
- =?utf-8?B?bTFiN1BJUjRrekZleWN3R0xKcDU0ZGR3M2NIZGpXSHUrZmpsOHRYcCt4ajgw?=
- =?utf-8?B?UWxOWGNwb2xpbmFnWUpjNmVZTUdOSGxIaFRlMjNLU3JXbWlMSFhaUmUwVFRN?=
- =?utf-8?B?VStUQlN3MnE4TkNleXFJUmhpZUdEOWg5cy9iejhxcEY2bldvQVB0bC9KNEtn?=
- =?utf-8?B?ZXdFMVVQbUxjd3VjSVRrYTc2NlkxcmQ3UVRyUnVGaVFBc3RhTEdwOGFWckxo?=
- =?utf-8?B?cVg1MC9aNzdhV3N0ODJSdUJaMXQ2bVgvRzUxd1h6b2drQTdhTVQwWk1iZC8w?=
- =?utf-8?B?Q3EwNlAxWHRpb1QyR3NoUkYxblVzQTZsWmhkRkFpZU1Bcis3NGRIOTFuMEcw?=
- =?utf-8?B?TSszMERlNzFTdEtJT2JaTUY1SFhzdWpXanZlSjZ2b04xaUZFTXRNeDBuU0dh?=
- =?utf-8?B?QmhBTmZycGRCaEpqZVFUM1UyQlpZU0U2UkJmMkhpYWIwcUtBcVlENVlzYWtJ?=
- =?utf-8?B?M0JFbVNHeElPUU9NdFUzWjNpWUJEdmZwdjIvdk5wNjM0RmVpOWlVNFlVd1JG?=
- =?utf-8?B?RjQ3RTk2eVdXWjJ1QzkvaG1ad2x4cDJNZURTc2JOemFzUUFaRC9jNk51eitD?=
- =?utf-8?B?cFFtWnQwanlrUUs2Wlk3L0N3NnNiWW5BbXJhMVVJOHpwMDJLTWhRQm5pQThy?=
- =?utf-8?B?OWMwZDIrTXVEaExqbjdRM3NwYklBaGcvTXZKbHpTQXdpcTJUazV4VzZuelRI?=
- =?utf-8?B?MTRIeCtsYUdRQUNPMWZ5Slp5T0hoYVo5WWhpR0FIcmNSTWo1UmZpUXdMK3dK?=
- =?utf-8?B?QVpSWm40MXpRakxBbXBrbm5ibS9zTnhORisxeFRFQWhEQ0tOTkpkRjZ6Qm85?=
- =?utf-8?B?TUZIVE96RHR5Ty9EWXFpSFdEdk81Yi9pSnFuYkFKNzFxUzAyUm5IYWJESzJv?=
- =?utf-8?B?QzRXWHVkOFRIdnpuQXp4WENJckNpcm04czVYaVExNGtiT3EvUllRbE1TZ0w1?=
- =?utf-8?B?NUc4R0ZNUmZ0a1pxR2dQL2FzNXFQNmJyM25iVVh5R0ZTNElacWJaUW1wVk5H?=
- =?utf-8?B?OVp5bGg3R3dCbitqKzFnMVgyQWJTZUFKbWVtMXZ4dGUva05QMnVyK1RYamln?=
- =?utf-8?B?WS9DZG0xT3NMK05IVFpvbDJLRS84cUwxRXZucGRyMWtWSGhaS2lidDVsOEkw?=
- =?utf-8?B?RzIvWkJHeGlsK1FHQm82ZnlwN3ZWZzBkdXJkdXArV1F6eUNVZUc1RURTTUE2?=
- =?utf-8?B?SDRoVmNpQ2ZhUWE4Vm5idjdpdFpCT25hc2N0TGNQUloralVIbkhMMVFHc1da?=
- =?utf-8?B?NlVSdUQ4QUYyK2lGVCtjQi92a1Y3QU5tWFJ3QXpXb0hYY2dNRWJDRG1JNXV1?=
- =?utf-8?B?V0c1Ni84eGJBPT0=?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8459
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D0F.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: aa5dfaf6-3106-49a1-edb0-08de186e3e92
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|35042699022|14060799003|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cVhIYXF3UmdNUnFaL0g0RTU5dDNNRWltcE1IQjFQT3FtR2VFSktYdDJ3cXlk?=
- =?utf-8?B?WFVScEdiSytrYXFEeGlMK1VubHVFWk1iOXF0T29SV1cwYkwzSHZxSXR5Z3BY?=
- =?utf-8?B?SVNyK3pkdEgyVFc5Um9mS0FXVXdvNWVTVzBGd3NRaS9QVWxFaE1QOUhLeWRy?=
- =?utf-8?B?ZEJIUm9CREVUQmtwRFl6dnRIcUF1dm13SHR6YmFSWkZMaWl0dkM4ZmRDSWpx?=
- =?utf-8?B?bEg1VWhLVklzYUZCUUVSVFhYZ2lrc0RJcFBUVUZYcVIrZWpFbUVMMlY4M29n?=
- =?utf-8?B?L0l5SHc1Q3lYajgxU3daM2VDenFLQTcwek5PZHVPWCt0L1IzS0JZU0JFN2pj?=
- =?utf-8?B?S1VncURlRndna1R4WmZCY0p5dnZNTWc2aWtJZGVXaFZhdGZGSytYU3JiRXZ4?=
- =?utf-8?B?R1BJQUtwZXhuNUNyckoyNEdLS0hTSTFudlhoNVdsTjNzTEoyZ0ZwT3oxZEhq?=
- =?utf-8?B?a0c2NGJPWUdQZFVjWGhRUFpCZmN5OEk4bFpxZTN0MTZoeFRiV2p3bStON2Nn?=
- =?utf-8?B?QzhJY1plZFZ5TU9XNXJKYWozNXNUdERobnpQT05EdVNQcDB0UnNlTjRIdzVo?=
- =?utf-8?B?NmhrcGsvcGRwTGJ5bG5wN2ZaVVVzcEFlRUpyTHgrR2RyWG5XVjFuem96dkVZ?=
- =?utf-8?B?NHU5ci9IYmF0NzV1WmxyZXpvV2k2blhmbDdkMkM3VDF3aTVkNDNFR1JjL2hV?=
- =?utf-8?B?VFZpWEhRVVJobEJLOE45OXpQSGRKdTk4SnpOV3lBMlQyelMrRzZiYWdHbFZi?=
- =?utf-8?B?ejVtNmtaTFZUSVpSb1FmSXk4NkI1VTdtSVQ2TGM3S1QrbFRIYy9ueExONHdH?=
- =?utf-8?B?WWZXUEp5TzNOZEJwM25jUkJRNHNjemRlNWUwL1dMbTRodml2MTdVQVVPZGxi?=
- =?utf-8?B?Y1p5ZkJidDIyQytDNUxoOWdQY1lPeXZHYlBuRkJoVXo3L01KQk14VHUrZ0M0?=
- =?utf-8?B?eDFKdW9mSDE3N1oyY3FJbCtlL2RKbkppYTFSd3BqTHduWXdwMG1PVnQzSHEw?=
- =?utf-8?B?N3pSYjI0T3hpYzYvZkFjcStmMCtqVjB0SWxnS0JpWXNRRjNWVGJGL3lzeHBF?=
- =?utf-8?B?WExzNUc5RHJtTnZnWkNoMkcvMUVGa2NOZ293RDR1QmZhOEo0Vm54cmlWT3lL?=
- =?utf-8?B?VlgwWUlrOW5pZFlRcGtYeUdESzlpY1E0NU50SklZa0hvakhxRFZscStGaXFB?=
- =?utf-8?B?LzN1VkV0aVpvVm9jalVCNzNGSkRHazFHTnViSk0yY3crUDhWRXdqUkVnYXBm?=
- =?utf-8?B?N0VBRkVUUHJQMVVRcUUwTVAyY0VJQ0hGK2RaVjl1OVdnK012VkNGSGdKb3pn?=
- =?utf-8?B?d3Q5TEh5dUZiN1BsMFhNaFdUSFZCc2pJVW1iZGZMR2puMDVrbVZmc1NvMkl6?=
- =?utf-8?B?WmpzZ0NobE11VkgzdkQ0MlgvaVVIR1JIS0RFQlBqYklqUlYwSUNGL3ZJaUlO?=
- =?utf-8?B?U0s0bGdYUERrUDRzbjU0V2ZOZE41Ky9iSTA1Yk4zMmM4S0k2UkZKNGk1M1Qy?=
- =?utf-8?B?d2lKY2FMSjBuekp3cDViRlBBYWpScnRoVnAzQkVjTGRGNjRBZUlCWkR3VXlO?=
- =?utf-8?B?NEYrOThWaTlOeHJtMU5yUzBaVGFHazBWQWFCV3E0d2luQnZPdjhlSXpNOWxX?=
- =?utf-8?B?MFlxR3BsN3Z3cm04VGN5WnEyUnlBd0VXUkFJekQyeUN4NTZXM1F4VkRCRXZm?=
- =?utf-8?B?Wnc2bDcyWTArbUNNSE5RUk04Y2VFQm5sV3JvaUtNM21TTGIxN21zQnI0Ulhi?=
- =?utf-8?B?RmZ6a2ZaSW8wSzFhbnpnRDVtNHVOaWVTSTl6cGxsUThjaDE3WE14TlJONThB?=
- =?utf-8?B?TXl3dXZnRnVhN2w3TWZRSWI5RTJkenp5OGFpNUFyMVhYZnFLa2ZkYm9ad3F6?=
- =?utf-8?B?SHFlNU9WVTJjTXVmMjh3NzR6ZytWcEdFM3JPVHAyUDZLTFptTElNaU9tblNx?=
- =?utf-8?B?RXRTRXpDM0RyK2RzNVRKTUpJREZZQTdzUkR1TEZNWGhCZE03Z1dZVWJtU0Zn?=
- =?utf-8?B?cEtlbzZ6RzNLWlJFWnpSMmZWeXFrVXNTMUs3T1d3WGY1N1BEVDg3VEV2QTUw?=
- =?utf-8?B?RGs3SXE1Y3VsREhQd240dndYSnorSlZ1YS8xZUh3cjNEVVFnRUFwVEw1VjZC?=
- =?utf-8?Q?Ap78=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(35042699022)(14060799003)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 11:12:04.7775
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32ecca20-a36d-40c3-9a7b-08de186e52db
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0F.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB10146
+References: <20251031084101.701159-1-adriana@arista.com> <20251031101009.704759-1-adriana@arista.com>
+ <20251031101009.704759-2-adriana@arista.com>
+In-Reply-To: <20251031101009.704759-2-adriana@arista.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 31 Oct 2025 06:15:58 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJn+vG=FJEnBT2rMQ9Jf+JE2u_j-JpEb=mnWPuTsuz_4w@mail.gmail.com>
+X-Gm-Features: AWmQ_bk1oTvQggG1qKqU7kkYKnnYBwVScBkS83XY6BPVibiHe_igBZftju1dB8c
+Message-ID: <CAL_JsqJn+vG=FJEnBT2rMQ9Jf+JE2u_j-JpEb=mnWPuTsuz_4w@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] dt-bindings: firmware: Add binding for SMBIOS
+ /chosen properties
+To: adriana <adriana@arista.com>
+Cc: ilias.apalodimas@linaro.org, ardb@kernel.org, trini@konsulko.com, 
+	krzk@kernel.org, jdelvare@suse.com, frowand.list@gmail.com, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, vasilykh@arista.com, 
+	arm.ebbr-discuss@arm.com, boot-architecture@lists.linaro.org, 
+	linux-efi@vger.kernel.org, uefi-discuss@lists.uefi.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_041215_699732_13E9A857 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20251031_041619_183186_E57B034B 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -226,73 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Sudeep holla
-
-Hi Marc,
-
-> Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> >
-> > Hi Sebastian,
-> >
-> > > > Until has_version_negotiated is set to true,
-> > > > all FF-A function calls fail except FFA_VERSION.
-> > > > The has_version_negotiated flag is set to true when
-> > > > the first FFA_VERSION call is made after init_hyp_mode().
-> > > >
-> > > > This works fine when the FF-A driver is built as a module,
-> > > > since ffa_init() is invoked after kvm_arm_init(), allowing do_ffa_version()
-> > > > to set has_version_negotiated to true.
-> > > >
-> > > > However, when the FF-A driver is built-in (CONFIG_ARM_FFA_TRANSPORT=y),
-> > > > all FF-A calls fail. This happens because ffa_init() runs before
-> > > > kvm_arm_init() — the init level of ffa_init() is rootfs_initcall.
-> > > > As a result, the hypervisor cannot set has_version_negotiated,
-> > > > since the FFA_VERSION call made in ffa_init() does not trap to the hypervisor
-> > > > (HCR_EL2.TSC is cleared before kvm_arm_init()).
-> > > >
-> > >
-> > > I understand the reason behind the patch but this is problematic to have
-> > > the builtin driver load before pKVM because the hypervisor would be
-> > > un-aware of the host mapped buffers. (eg. the call from ffa_rxtx_map is
-> > > not trapped because it is too early). Essentially, you will end up
-> > > bypassing the hyp FF-A proxy which I think you will want to avoid.
-> >
-> > Ah. I've overlooed the ffa_rxtx_map proxy.
-> > But unfortunately, some of depndency with the driver using arm_ffa
-> > driver, ffa_init() should be called first then other drivers' initcall
-> > (usually, these kind of driver defines its one initcall with
-> > device_initcall()) (i.e) https://lore.kernel.org/all/20250618102302.2379029-1-yeoreum.yun@arm.com/.
-> >
-> > Though I arm_ffa driver provide an API getting mapped rx/tx buffer,
-> > But this seems to reverse dependency -- kvm depends on arm_ffa driver.
+On Fri, Oct 31, 2025 at 5:10=E2=80=AFAM adriana <adriana@arista.com> wrote:
 >
-> No it doesn't. KVM doesn't give a damn about the kernel FFA driver. It
-> just makes sure that the driver doesn't do anything stupid.
+> Signed-off-by: adriana <adriana@arista.com>
+> ---
+>  .../firmware/linux,smbios3-entrypoint.yaml    | 25 +++++++++++++++++++
+>  1 file changed, 25 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/linux,smbi=
+os3-entrypoint.yaml
 >
-> > I’ve been thinking about some possible solutions,
-> > but in my narrow idea, valid solution is kvm_arm_init() as
-> > subsys_initcall_sync() and call kvm_init() in module_init() like
-> > attached modification.
-> >
-> > Do you have any idea?
->
-> There is no way we can accept such a change. It makes something
-> fragile even more brittle. If anything, make the FFA driver check for
-> KVM being initialised, and make the probing defer if not.
+> diff --git a/Documentation/devicetree/bindings/firmware/linux,smbios3-ent=
+rypoint.yaml b/Documentation/devicetree/bindings/firmware/linux,smbios3-ent=
+rypoint.yaml
+> new file mode 100644
+> index 000000000000..4d1521c685ff
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/firmware/linux,smbios3-entrypoint=
+.yaml
+> @@ -0,0 +1,25 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright 2025 Arista Networks
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/firmware/linux,smbios3-entrypoint.yam=
+l#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Memory location for SMBIOS entry point
+> +
+> +description: |
+> +  This property is used in the /chosen node to pass the physical address
+> +  of SMBIOS (System Management BIOS) or DMI (Desktop Management Interfac=
+e)
+> +  tables from firmware to the kernel. This is typically used on non-EFI.
+> +
+> +maintainers:
+> +  - Adriana Nicolae <adriana@arista.com>
+> +  - Rob Herring <robh+dt@kernel.org>
+> +
+> +properties:
+> +  linux,smbios3-entrypoint:
+> +    $ref: /schemas/types.yaml#/definitions/uint64
+> +    description:
+> +      The 64-bit physical address of the SMBIOSv3 entry point structure.
 
-The problematic situation is that we couldn't use "defer probe".
-For example, IMA doesn't support the module build
-and if ffa driver and related drivers using ffa driver defered,
-IMA couldn't generated "boot aggregate log" which should be produced
-at that time with PCR values in the TPM using CRB over FF-A.
+This needs to go in the chosen binding instead:
 
-Whatever monitoring KVM being intitialised, unless "defer probe" makes
-a problematic situation, I think it seems meaningless.
-
-@Sudeep. What do you think about it?
-
-
---
-Sincerely,
-Yeoreum Yun
+https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/chos=
+en.yaml
 
