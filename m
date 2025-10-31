@@ -4,65 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9662FCCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD123CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOkYvQG+Sh53NGhL21Jhy7ZV7gavvZxgT/rXIEVZ16s=; b=i/57Foh4Va3tXo91PVRUiJ916m
-	KJCOmlhbSyauA+g+x0o+Y0WUTabkwbAvu0ZYMQAF1OqMwz5YVuYElgrzSMXjOFLOk56aoPRICREQp
-	QsOGdxTjSq6+RF7jiL6FHKe6/9bqVwZFLTCO/7jyuv5xPDdr+8bJQapytFUprnnvleDNkA60W93Ae
-	uKqIMJiMTPVyII8gEpfDxkqvJ6YipmuqMqfrqQhXBkUMLXa5KXB0YlG3v2o8PJwqSWONCHuA+hiW6
-	s5ungDDP8sdr/Jowqol6y7ORg64ts2kAYCY4m5XG9kkMJjrQl/nWGsXB678nhWLKh+E4ltM3GaSm7
-	N+1LZGbA==;
+	bh=WGICm9g4dRXmU+6sf5Z8nF9V+YHMwgRzuS0Vk6yWmQ0=; b=nSxtjtH0KVdW9caE6wcrH1eVN6
+	TJ4D9jmdAWX+2ZKnRiWpW0Yy3DQRo7e3gZ87/ZfdGNDeM4/Z2qQFatpBzibhhNt6qq9YSSiihffR8
+	stye43kYO4MauVWY8z2I+I3vMAnnVk1PSb7GZHARX/TayhsAy6AMuaQbZIxoVTSA/KaE8IyuElGWH
+	0JrgdK6lq3Xsm0IJbYpJEgE2aqGZ8IFKlBoShcPN1HQg7obxwRXZR26TVKIjdyPxewAir+eqozSlG
+	ewNcHTNMfrlXgYq55o57TUBds14d3Bq3Y5MSOfwKjoLkjtPYItNMPNTA/SgV8f6YvtrpCy9IEvce9
+	eZE8DlRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErz7-00000006PPN-1eiP;
-	Fri, 31 Oct 2025 16:28:17 +0000
+	id 1vEs2M-00000006PmH-2WXP;
+	Fri, 31 Oct 2025 16:31:38 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErz6-00000006POf-08sK;
-	Fri, 31 Oct 2025 16:28:16 +0000
+	id 1vEs2L-00000006Pm9-46XN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 16:31:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3F0960241;
-	Fri, 31 Oct 2025 16:28:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42381C4CEE7;
-	Fri, 31 Oct 2025 16:28:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761928094;
-	bh=J84IQUL9bblDhG1K4MYDhAu/ebJSucswpnmmazP+pEE=;
+	by tor.source.kernel.org (Postfix) with ESMTP id A618460241;
+	Fri, 31 Oct 2025 16:31:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D00C4CEE7;
+	Fri, 31 Oct 2025 16:31:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1761928296;
+	bh=zW829c3pZwV8tsnXSpZcuT+PeSyI9qJf7eQP02+ZFXQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ii4vi4doCkLRPW1OiEegRLUvHoi9sSYnwbZx7UTKizmW4OWXgaXzOxHz70r9hpLvm
-	 fmyU7HJh+wUsDj4YPZHrynwCyFwqUutuINETDIPoz9V62zoBzQusuL/KP/5JcanLSL
-	 8LUSvnqGMiMWrmIIIy9xMOXdRDjULeBe6+zqsf38BYkhLYYJ6sdMoZ/dzWvaJ2MvIL
-	 WcfEXE8fN/sD216LUHAytWSIFyHyvwyNg8ioVpKwaNCELZl3VO9CWH61HRycvoU0Fq
-	 ocNnQBNxWoopcyYyPHIgg/zpxVhZg9f2ul65zTebNy8CdzzUQ9wJxhwFvB+sWRv+Nc
-	 /ODyNG6ol2Kxw==
-Date: Fri, 31 Oct 2025 11:28:13 -0500
-From: Rob Herring <robh@kernel.org>
-To: peter.wang@mediatek.com
-Cc: linux-scsi@vger.kernel.org, alim.akhtar@samsung.com,
-	avri.altman@wdc.com, bvanassche@acm.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	jejb@linux.ibm.com, martin.petersen@oracle.com, lgirdwood@gmail.com,
-	broonie@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, wenst@chromium.org,
-	michael@walle.cc, conor.dooley@microchip.com, chu.stanley@gmail.com,
-	chun-hung.wu@mediatek.com, alice.chao@mediatek.com,
-	naomi.chu@mediatek.com, ed.tsai@mediatek.com
-Subject: Re: [PATCH v1] dt-bindings: ufs: mediatek,ufs: Update maintainer
- information in mediatek,ufs.yaml
-Message-ID: <20251031162813.GA912533-robh@kernel.org>
-References: <20251031122008.1517549-1-peter.wang@mediatek.com>
+	b=jfpYzVSnpBx2JIf4UZTkGylOO01LoGMr6kaTAtbxyIQgB6kMrogWmJUEZAQU3xtHT
+	 TKh5uHJD2YFuaPRMk74ktnoi6CgWWjaEAe/WJHkrg6YvtmW0XSz4sdEDN2e3vjmPcj
+	 KIa2c3vPKJTYTg+Ztr7NhjBRmU4WmJG969TZX0Gg=
+Date: Fri, 31 Oct 2025 17:31:32 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Haotian Zhang <vulab@iscas.ac.cn>
+Cc: jirislaby@kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] serial: ma35d1: Fix resource leaks on driver removal
+Message-ID: <2025103115-humped-body-d522@gregkh>
+References: <20251029080039.1010-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251031122008.1517549-1-peter.wang@mediatek.com>
+In-Reply-To: <20251029080039.1010-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +66,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 08:19:12PM +0800, peter.wang@mediatek.com wrote:
-> From: Peter Wang <peter.wang@mediatek.com>
+On Wed, Oct 29, 2025 at 04:00:39PM +0800, Haotian Zhang wrote:
+> The driver fails to release resources acquired during probe. It calls
+> of_clk_get() to obtain the clock reference but never calls clk_put()
+> in the remove path, leaking the clock reference count. Similarly, it
+> calls ioremap() to map UART registers but never calls iounmap() during
+> removal, leaking the I/O memory mapping.
 > 
-> Replace Stanley Chu with me and Chaotian in the maintainers field,
-> since his email address is no longer active.
+> Switch to devm_clk_get() for automatic clock resource management and
+> add iounmap() call in ma35d1serial_remove() to properly release the
+> memory mapping.
 > 
-> Signed-off-by: Peter Wang <peter.wang@mediatek.com>
+> Fixes: 930cbf92db01 ("tty: serial: Add Nuvoton ma35d1 serial driver support")
+> Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
 > ---
->  Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml | 3 ++-
+>  drivers/tty/serial/ma35d1_serial.c | 3 ++-
 >  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
+> index 285b0fe41a86..37e9f6166290 100644
+> --- a/drivers/tty/serial/ma35d1_serial.c
+> +++ b/drivers/tty/serial/ma35d1_serial.c
+> @@ -711,7 +711,7 @@ static int ma35d1serial_probe(struct platform_device *pdev)
+>  
+>  	spin_lock_init(&up->port.lock);
+>  
+> -	up->clk = of_clk_get(pdev->dev.of_node, 0);
+> +	up->clk = devm_clk_get(&pdev->dev, NULL);
+>  	if (IS_ERR(up->clk)) {
+>  		ret = PTR_ERR(up->clk);
+>  		dev_err(&pdev->dev, "failed to get core clk: %d\n", ret);
+> @@ -762,6 +762,7 @@ static void ma35d1serial_remove(struct platform_device *dev)
+>  
+>  	uart_remove_one_port(&ma35d1serial_reg, port);
+>  	clk_disable_unprepare(up->clk);
+> +	iounmap(up->port.membase);
 
-The ufs-phy binding also needs updating. You can do a single patch and 
-I'll take it.
+You are doing two different things in this patch, shouldn't this be 2
+different commits?
 
-Rob
+thanks,
+
+greg k-h
 
