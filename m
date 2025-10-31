@@ -4,211 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D9DCCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A0CCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDo1HdIgtgzOI9rcAevWeDsD5aHIZT2J/lFerKY2z+Q=; b=vbbqp8nVIe9ar+lp4ubZqyKubW
-	WAOQ/64KkJo4DOUvh9rSlQ38nhlxsdRsTyl0698K1LpqXeExsa8Oibdih7c2x+osEfckZKCMBO2s8
-	2nUmScgIhLOPlVIHnpRQYnEMyeBPHg/nWb9jAjtajcNaLppi+MLKpcOwd4GigsTKp5OqHJtjxt2pK
-	mVeYrj1Maa+dETI7bx0asVAt5yIV1lqfjY1wzkCxLJymqExwrpJubt5WqPD4sWr0Y8m2rlagO80la
-	bltfx+4aRNzpzXnZ5ECqMkYNJSAaK6Dq7GosRLjYLtkyOW3W/TNe5lOeTn6fbQQktKNz8LPLUqSYs
-	olBeQVNg==;
+	bh=xmq+bAz1UkNsQtohwkVTzYtE5dGD+y13agWhpu9mVtU=; b=nM+IRC8KsrlToAMtA0I7EZLiNG
+	MGn4OVK54xyz6G6TlMmO50lMH+wnDwrz9qgGLwXICFGmDguCIo86uYR+b3RMUx2WrmWziJWXb+h3W
+	0Ml1G3fbTetetXouOHzrOEvJo7gV3GJTdsd1u+LrImLBbD2eNg02xtoA4da0D4Esm+9SIusXpTOBk
+	eJhEoLrWTzEJHj8sRDT5azq6PBRc5OKId3O1LIzFwIjAGL/pFQVicAJ5uI+0UfNUyT8beqtpZOliq
+	Ujx5CjqBenvnQuo46E/jbgwtZwQVkcLPhalNYzbu0PcapecNoH+/Z44cRqZRzdblXWCFW96VrRqot
+	zLskdKiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEm4X-00000005rjp-1LKK;
-	Fri, 31 Oct 2025 10:09:30 +0000
-Received: from mail-westeuropeazon11013068.outbound.protection.outlook.com ([52.101.72.68] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vEm5V-00000005rsT-3nC4;
+	Fri, 31 Oct 2025 10:10:29 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEm4O-00000005riO-2s0H
+	id 1vEm5S-00000005rrM-3wSg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 10:09:27 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Kk0tuvLk6mqIvVCfkIe2OG5pyV3B+3mXeA9TL0pOZ/r6szEe4T3J71FB3gRZMvElYWPxz4Vbja2SPgFxCVc3fWtuFL/uSPvd4Z4LYJWb0SsSOsYWEM2bIRCJhSZU+UHvNjDzXFta3yUWGpFlEKl/ZMTsvLZ7xgztm93VJiFPVpFQ+wV3Zjwc7opd4vlJ6xbDFDyzsv2HmuV6FCrhn7xeBbRoXUvQgdfBY69KyirJZSQlYfovkGK/7j34fj90yk8gyl0c7qUd5U0WDYkDelaO25wamQPP9iDsE4wHtq9pgi5KGE7+K51ht3EGoBc7OnJExEfyuGxHNEW6St9dy3o+Fw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NDo1HdIgtgzOI9rcAevWeDsD5aHIZT2J/lFerKY2z+Q=;
- b=iSTxhg1pxhQGdxbmjOo4JIdtG1RarvGe1SUn8yY9DLx9L+ZPNZ507Bss3RJ55h4n1TK2TAFnYmsUvGQw+tFschexzWRKlsFQBreoEwBjZhJ6EG4amzdoQq1pX8Au6la5mrMIwDBbTIuzxwuHPO6NQApAVaAyzh0t0uCKr5++iFrvCyittSIrc5SvX42Lwkcm9Uzq1Hbttr/E3Edz+wt2r8hTTrVQ80El3u43TR4YvAOWZ8EUMISYqSWl+5BQNrVyHtjROV7KYyYXzFg9x0I8sP//hzxQ/rXXdLx3HQS+jaUp+FgfpHPWoEforLJM6Nv0ptPfdO0ZbTTQGiUgL+1w8Q==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NDo1HdIgtgzOI9rcAevWeDsD5aHIZT2J/lFerKY2z+Q=;
- b=Wq8w6nMDKZvIvC/CiRWrui9x+y1PMwXGl71JkXTLJiG++BnUSs3Tik/KzJqnPAY2vO6wq8mAyzY0C8h33TL+cKZDhCcNrB2fw1ORY83uyL+XQkDGPgHpGk8WYwneV0+ymwpur6+6FOrY4TxoOuFfeImRMDh6qBOa8QaBcJAWvaM=
-Received: from CWLP123CA0175.GBRP123.PROD.OUTLOOK.COM (2603:10a6:400:19b::13)
- by DBBPR08MB6284.eurprd08.prod.outlook.com (2603:10a6:10:20e::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.17; Fri, 31 Oct
- 2025 10:09:16 +0000
-Received: from AM2PEPF0001C712.eurprd05.prod.outlook.com
- (2603:10a6:400:19b:cafe::71) by CWLP123CA0175.outlook.office365.com
- (2603:10a6:400:19b::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.15 via Frontend Transport; Fri,
- 31 Oct 2025 10:09:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM2PEPF0001C712.mail.protection.outlook.com (10.167.16.182) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.10
- via Frontend Transport; Fri, 31 Oct 2025 10:09:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vvNN9DxiuXsZC427XyakVLFr/7STN7QuVUVkOkjKB9SGtuKg8q5G1BLSTbvzfnQUB1L5JD5/dLDN2qEcjCshqoGcLZWtv1Bmkh26Q5lx/A+MHDhk7Gihv6zw78506zZp96Iqd7mt0gryOMiWrdtU2+mi1XCB68D4Wo/J8zyoV3smIKaxNLx1Ah0B5TGJ/FVq6+/Xg6LoLBMCxmQ8b/bk+xVnpcmDl10tU+SQJh+Xcb08MZtt1ud3l+K7g4m7Gp4G8ja6eTvXI39O1urg9bB2u9phWFMnolzYvo6zvh94sgbCcdoB7wANpnZWDCsGk5iQoZ2Z40aS72WHEKnIODIXpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NDo1HdIgtgzOI9rcAevWeDsD5aHIZT2J/lFerKY2z+Q=;
- b=YZ2cAXCbsTj2zfnl+HGXoy9lZiSyBHylsygY1qQixpTjeM7thnSUI8wXQsIhs5B5XNCrlLOSuxzgeB6b+OD28btP1mhMxpzzGTneu4Q/Ds0FMXBuaRaiLS+l5bkV/qQJmC11RoSy3XBWT4h3pYMSPcyPdPauOhNgRByi4le1T6ElZP5Tn1wfbFjSht65AWmxoAZhWpHXeqoBrN2nw6xD4YlV2TwaasO5VeLHR4KYd2VoBOo5zOLDpW86dltnS+7SNCNQkrToSoeVMZR+WjWbMXVqy0C/ru05vr+dzBpgCJm35McrVnijOB88wGkcyrfTDvMonPqLebeKukTRn1vkeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NDo1HdIgtgzOI9rcAevWeDsD5aHIZT2J/lFerKY2z+Q=;
- b=Wq8w6nMDKZvIvC/CiRWrui9x+y1PMwXGl71JkXTLJiG++BnUSs3Tik/KzJqnPAY2vO6wq8mAyzY0C8h33TL+cKZDhCcNrB2fw1ORY83uyL+XQkDGPgHpGk8WYwneV0+ymwpur6+6FOrY4TxoOuFfeImRMDh6qBOa8QaBcJAWvaM=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DB9PR08MB9540.eurprd08.prod.outlook.com
- (2603:10a6:10:451::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Fri, 31 Oct
- 2025 10:08:42 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
- 10:08:41 +0000
-Date: Fri, 31 Oct 2025 10:08:37 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, perlarsen@google.com,
-	ayrton@google.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] KVM: arm64: fix FF-A call failure when ff-a driver
- is built-in
-Message-ID: <aQSKpZDrLzf/bcx7@e129823.arm.com>
-References: <20251027191729.1704744-1-yeoreum.yun@arm.com>
- <20251027191729.1704744-2-yeoreum.yun@arm.com>
- <aQRuvu8V3woqnqCV@google.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aQRuvu8V3woqnqCV@google.com>
-X-ClientProxiedBy: LO4P123CA0606.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:314::14) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Fri, 31 Oct 2025 10:10:28 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-295351ad2f5so359175ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:10:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=arista.com; s=google; t=1761905426; x=1762510226; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xmq+bAz1UkNsQtohwkVTzYtE5dGD+y13agWhpu9mVtU=;
+        b=FtNM64DRuU7Vj8bZFO81HQcMperWt5QXBA9aalmuz0Dan7CcrvA3wtnLNBh/+Xh1kG
+         POLggPkgtfbpdP0kQ/NFFdPHk8+NwWYmde4j1ORbTQVc6jebjXUQVBxgE2WGMaTWOKSv
+         o2vg1PglLJynrY+MiBV0iRGsb2kKjlvfrSIAzcW9kGew0E87F+3d+5SH2Vr0LnUrcnHD
+         HTiP3cnKa8UPBI0IHzpe03zEpfPsLTTYpmkeWSBwycPvZ6I4BCn0DobefOAWEndeHAzq
+         BP+0Cl8WdzaDtPdsCOpG+icbO1gXa562ZJwnrxgB9hs4FTdl7Y7WbVcKFeIu0fwNnaAQ
+         4eaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761905426; x=1762510226;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xmq+bAz1UkNsQtohwkVTzYtE5dGD+y13agWhpu9mVtU=;
+        b=RcCFe537DtwBM6/XMVIKbEMLbsoHdEkQ7fB3M5DiIhcwzrWfKPCPbYnWP1v5OgA01C
+         K/ltFKgk9eAlgqq1UWkYpebykErm72qoeMBbgdyAwMWzatU4O4tCLzA3nWYVYrrxUFY9
+         9vCRMGpFRyqmjxdGXiJIaJJSthRma8wYLwJFnr3+o04Ni4CPRcGSmIxdzUVQemHX13WF
+         t9r98ohCkI2v+8rTZoqt3EAk69wgrJsd7dSv0ZE418QSdZNYjZv09ei52Nqr1gTtwWKG
+         1YEsEeyEYPludwifopLeKXclGnAVd19PY5ucZQCXYv2F6VjYDSBdjoj9m36nabSIi8OJ
+         comw==
+X-Forwarded-Encrypted: i=1; AJvYcCWsa95YfzKcFXXIfywTycqDsBoReGIY6h7AjUcHEvlkM1wIE/4j8BNTGccDt5TclQbqocUtbU6EcOri+4PMhwPK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyEME/vnt3kZBzkbSiiBy2RBhMXUF6XMdj/GVMcu4jNPIWypQh
+	V3z1bfxa8MnVwh+XY+wVu7TEXnEc6m/ENF+CM+IhdrS4k7kR+VBPlGQl6nGRb40ijtl/0K61/Fr
+	hCZlCMQ==
+X-Gm-Gg: ASbGnctbwZdq5PSOp4bMaFlqpI6bejcEcZNlzclG9GAdT7Lkarrdb5SiM9a6NP96t8M
+	5E2sI7ZCzARyKSj25Tq3T4F1QaV2BxXP+apWRubfVCldFgy9uUW4+6vWpSzKq5iOViJE95DRKgv
+	qcLEtNc4EKhb112piD1+GmV+DIzHH5SNWsWlL6Iuq15IroCthmfOxeet6GQITKpwgptswu522dy
+	zeiFMv3HlD1TM4xbXwOXR6kMAq0mdt19WEXnt8odWQuoitsmOM8wYPvHI+bJ61mB/oaWhlb5ItC
+	yt0GMpGRummX6y+cgqjlxnePBF6k0dCCVADuPMhpHqv0T2SQOCWfneFZ6/w80oI2QCwI7JzrY3e
+	TwdpDkw/vpvPkBCG0zD9j2efBj3PF5swcJt+13f1WMQOrQt+v/XyY5+sLR3hdWiMnBswIooGULX
+	58GeFNlCBl6G8ZUnWGi+Iu7cb7roB4hDsaCrC/tE8LCCIKlJw=
+X-Google-Smtp-Source: AGHT+IHP0KcJILf7X9uuGPb4TLUcbh/zJGOXAc0JvgPUtH5JkTiBAWLIYK309sM/jCBKRYZpJQMPaA==
+X-Received: by 2002:a17:902:c94d:b0:27e:e96a:4bf with SMTP id d9443c01a7336-2951a37bb0dmr23125135ad.2.1761905425939;
+        Fri, 31 Oct 2025 03:10:25 -0700 (PDT)
+Received: from adriana-dmi-upstream.sjc.aristanetworks.com ([74.123.28.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2952774570bsm17458545ad.99.2025.10.31.03.10.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Oct 2025 03:10:25 -0700 (PDT)
+From: adriana <adriana@arista.com>
+To: ilias.apalodimas@linaro.org,
+	ardb@kernel.org,
+	trini@konsulko.com
+Cc: robh@kernel.org,
+	krzk@kernel.org,
+	jdelvare@suse.com,
+	frowand.list@gmail.com,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	vasilykh@arista.com,
+	arm.ebbr-discuss@arm.com,
+	boot-architecture@lists.linaro.org,
+	linux-efi@vger.kernel.org,
+	uefi-discuss@lists.uefi.org,
+	linux-arm-kernel@lists.infradead.org,
+	adriana <adriana@arista.com>
+Subject: [PATCH v4 0/2] DMI: Scan for DMI table from DTS info
+Date: Fri, 31 Oct 2025 03:10:07 -0700
+Message-ID: <20251031101009.704759-1-adriana@arista.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251031084101.701159-1-adriana@arista.com>
+References: <20251031084101.701159-1-adriana@arista.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DB9PR08MB9540:EE_|AM2PEPF0001C712:EE_|DBBPR08MB6284:EE_
-X-MS-Office365-Filtering-Correlation-Id: 506799e2-13b5-4c65-316c-08de18658be9
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?UytsUzJ2TUZzQm9rd1FPeEJoUndsZ3ltSmlpZFNMd1VOdjBHTEM2bFgwWlZE?=
- =?utf-8?B?dGZ6RTdON0ZlQXZaZXdMcVdGcGtEVWxjS2Y2YTJmbmVxR1hHQjlTZVg4Tmsy?=
- =?utf-8?B?dWxsYW5LMUFnbzFsMUFqZjFFK04yTnVBd2cyRmJMSDZ5NzRYQ1RiaGxieitC?=
- =?utf-8?B?VmNweHl5ZkZJMWpIZWFjeUdVaEo4a0NSUXNsZmpib2RPRWJvYVhNTlE5SDFE?=
- =?utf-8?B?djFMSk5rQnZGVmNQN0N6M2FvbDNkY2YyNmdjdW51MDNPN29YeGNOQnY3NDNs?=
- =?utf-8?B?NUNzV1dwd2RnczcyMFJDejN4a0VMck5hM1lZK0dzYVdnSXUxalBlRnF2b21t?=
- =?utf-8?B?R05EZnY5S2NvRk91OTV6ZzVjcEtDajZxZGs5Y2VYcjdjOWNCekpkMDBOV09j?=
- =?utf-8?B?U0ozYjBZakNHZGdGV01oYk9JRTJkWUFBUm5ka3J1MHQyRnp6bkZ6TlRoQVFn?=
- =?utf-8?B?bmN3T0lkZW5nTmdFRytVSTRGSjdSYTdGVjhoOWQ1VHZBT1JMN1FWWEJ6TjM3?=
- =?utf-8?B?aW9aTzRWUzc2T0NidE5weTdSc3ZoeWxmdlRFMngrQ0pxdEtwRE9oT3ptSTF2?=
- =?utf-8?B?cERkYVlFSE9CcTdSclNqYUVuc2N4ZjVqc3NqT2hWZTIrbzJPZTJTaTNBWWd3?=
- =?utf-8?B?TWVxMTBhVVJJZ0Z3bitZa3Roc01XUElOZ1BxeXRHcjhTWXo3TFNSMzZsdXFC?=
- =?utf-8?B?VUJiK0VUR3BQNEhpdThrNFQxNUVLWlJqQkkwK25ZK3oxUDRVUlQ3bTA2TWh5?=
- =?utf-8?B?N0tDVS9hVU43UFRnY2o0Tkpveko2S0ppaWdSR1ZjNG85SS8xeVJQYUVWbWZZ?=
- =?utf-8?B?V1NCZUZDdE1TSjBRTEFUNlgxUHZ3YmJmU0NVU09hT3FXcExwd2o2bGVjT0Vv?=
- =?utf-8?B?aEpMVFBqbERUVVJwdkhDaDVBRGc1Tjh5LzNvbFo2NmI0eW5qOHFLYUtjTTQx?=
- =?utf-8?B?cXRXWVRGM2VRMmlBSHEyV0dya0hIS2ZyMEtodzlQS1pJd2tYd0xXbktlQkQ2?=
- =?utf-8?B?SWJuQWh2UWt2OThqVEJLV0lsSkROYmh3N2lqSzZSVy9VNTExK2k3UGZTSkRB?=
- =?utf-8?B?YTBSUStHODBpd1I3ak9XTjI1V09iQWp2cFJJMmlOdXp2U0M0SVNGZU8wYmFZ?=
- =?utf-8?B?ZExMd1dlZ2d0SlVDOGk0Um5TM0h4N1dPdjNyZUF4Q3FHSGJ4U2Q5UEgzaXVn?=
- =?utf-8?B?cC9oVGlLNG11Q1BESUh5TWxSNlNWb1RvSGFRcjZkdlVaNkpiYXBMODEzd0kz?=
- =?utf-8?B?N01vSnhSVXBtQ1BDYW5wTit1MW1UbitleTVpMGpONHZjS3pKTUZyUUdBc2Fm?=
- =?utf-8?B?WThhbVlvTm13bU9pLzdYS0JoNUZlTkg5RGJYVFJUVXJ1SU1sWG44amhEVHZO?=
- =?utf-8?B?VE5JeGFWdGthTmNyQmM2M3orNGZraUladXhKeGVkMS83MmZVeXdDeTdkbTlm?=
- =?utf-8?B?Zjk0RDBEdWl1TjlPbmEyUTNKbkpWMVhFM1o2N1BJVHJJbzBoOEpPc1lYMThk?=
- =?utf-8?B?MnBaWndDTFJhNU1zZnlmVlJQWk1QNHJCODBVMzRmajZKeFZpSWc5Zk1TNmFG?=
- =?utf-8?B?d0FPdmFYTlR0RDcvMys0Vjgxazg4MlVpV1VmRGxyUS8xYWd5TGFUT016UGhR?=
- =?utf-8?B?Y0JLOGJaem9MRGtSckVFTFVRK0wxRkVyK1VqTHlZR3E3d0hxNVB0NTRvVnpC?=
- =?utf-8?B?b2QyQnVWUk9DOElDdGJBSGUxeVdVdDNaV2x3V1NKYjdpaGF6UVp3Qjc2TFJo?=
- =?utf-8?B?b0JRdkdFTTBaSFd4QW8zNE1kaTlaOVdjcFhTaVJpSHNGaWFrYUlrV1RuYm9M?=
- =?utf-8?B?eWpobnVRTzlBS0NCNjJuUzBPemRSNFhtcFgxS0dSWDZBejd4YldhaTd2enk5?=
- =?utf-8?B?RmZYY0tEa0MzWXR3c0RxQ2NFMFBVL25BM201SnptcHhCMFF6RGVySG5OMUpS?=
- =?utf-8?B?V3NtZ3ZhazJjaUxFa3NvOUdhYnMyQXVYd09FK0VJR2ZiYWxkZDAzZjBXcDJM?=
- =?utf-8?B?dFIxT0ppc1hBPT0=?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9540
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C712.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 5e679d45-2c11-411d-2dd2-08de18657745
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|35042699022|7416014|1800799024|376014|82310400026|14060799003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OFhNc1JManpmTDI0S2ZJR0ZlUE5CeUVJaTh5Z1BYRGQ3OExWZkJabzJRQlRw?=
- =?utf-8?B?Q2p3UjkyME9VREJYZSswL3MvelU4MTJIVzFyTGgzTEUvRHNXak0yWGJueVl6?=
- =?utf-8?B?T2xkK2hVelF0dS9sNmI4N0g0YTFJaFBZVWtuU3dBWGMxbTBsK1R2ODB6YUo3?=
- =?utf-8?B?ZzhQeEo3amxWTi82N0tlaDRQdUFtSUdCWVFPWWIxZWl1MytUR1JyTW9ueU44?=
- =?utf-8?B?NGxHNWFPVWdDTm4zVWhGdUZZRUYwM2t1RnlCdlIyUi9uV25NSXRZUCs5ZEY2?=
- =?utf-8?B?TWt0bU9xMjlleFp4MFlaNStORjhFa3RiSTNObkU1ZllmUmFoVDhZNDJsak1D?=
- =?utf-8?B?YzdnNGdpWmtiWTA3TWF4VnNRbGEwM3NjQ1NZU2t1TUZCeDZ2RTVPZ2IrcXBE?=
- =?utf-8?B?dWxCUkswUGZSTWE4SmdZQ09MUk03emNtNnNmcWR0VDhVTjJBT3JYL2QzVTVP?=
- =?utf-8?B?NlozQnM4dTVrZlhhc1ZQRzNmU2pHTEFWNzl1bHFYOVlxUnNiY2NoVnpUbVh2?=
- =?utf-8?B?ajcvNUFhVTVJR3hhR3VWU3FJMXBxaWtIMjhTY1VEdEVlc09acWx2aXpUVW5J?=
- =?utf-8?B?cml6TGgzcGhXaXcxMllHT0hJM1dCd04yNCtTZjMrWml6cGxNaTRxYm93THl6?=
- =?utf-8?B?OS9YczRBMVhvNzJPNW9CTC8zUzQ4NW5FT1ZiRHBGSXNwRWMzVDdabkNNVFpO?=
- =?utf-8?B?b3VLRnZhVnZGKy9aMG9VUEs0dVgvTFRNOUFjSm9QUVdUUFBwVmk5SkhmQjJx?=
- =?utf-8?B?KzZ6OGtTNzVtUWlxbEphVUlhaGNiWU1VOHFnMGk0Skloako1U0dEb2dMMnpF?=
- =?utf-8?B?VVNZaThXcVN4WnlLY2doa3U2dmhJUllDWVdYRzhrTlQvaTJIWUdpSldOdlc0?=
- =?utf-8?B?RUdqTE9nVHc3TmlObnRpcUdlZ3BYOUdONU5PaEI5TCtnSytmbDkwY3RXZjA3?=
- =?utf-8?B?YkVielFpejNmRU10Q1ZhbXFUaDBBMEhIMGV0bE9yenk5QWxIRjdQaWdER3Qz?=
- =?utf-8?B?MzN5VTllaEtDckdWMmdsNEdWL25ya2JhWkJrU1VzZTk1YlViZm5vTTlweDQ3?=
- =?utf-8?B?Qm5ZL0YwSE9LdWQvYmIzU3MxQUcwZlk4MDRwR0pRUWUzdzR0WEF1ak5jbWh5?=
- =?utf-8?B?UzFBdi9RSEM4TzBQYnlkeVk5RXU2L0x2TUdZWFR6TEtkb2h6TXRxL0FhNk9N?=
- =?utf-8?B?WkdIblhoU3l5THpNZmNyb0xFSXVyZGlGaHpFMit3d0JTamRtYWhkSzFIWGk4?=
- =?utf-8?B?T2JyTSt6dUUwcHptZ1k1anB2ZzA2Y25jT2psbytFSXJBajNackRnRHNUUU1p?=
- =?utf-8?B?RUJLVXRCVlZBVEVhYnVBMmtyK05XT2xBRlZ5L1RKV0wrNjdwK1VKREc5VzBG?=
- =?utf-8?B?dFhUaFNodjIxdmJlN0RIbHZtWUtYL3ltYTN4Wk1hdndGem90NHdzVjBOTjJM?=
- =?utf-8?B?eUsxS1BMV25STWpDVzI4MDBSZlpqeHo0Q3diL3FsT2M4blNOL0Z6d3oxQnNO?=
- =?utf-8?B?blUrN2VsZjQ2WkNiUlFNbW11TGF4amR3YzUwVU40NFVLSFZxWUliLzBKQzF5?=
- =?utf-8?B?R0xwdjQ2Z1BUanVmejl2VTdjMkg2WXEyNjZzM01FMWsvUGhoV3pTWGIyWlUy?=
- =?utf-8?B?NHFJV0FTSTNmRlNtN2VHT0I5VFY1aUxMRVQ2M2lma3VoU0MwanpLYUpyVFox?=
- =?utf-8?B?K0xydDYwOXZMWXBJRk51WHl6aFJFbjBLVkNhU0RGZllGWm5lMWlrYjc5cEdz?=
- =?utf-8?B?V3plU1hTRjBpRE1CTDE1VXBFaXdwaUM1SXFOaHBqNkNUMlNKVFRKSXM3UllU?=
- =?utf-8?B?Z2xBckV4cVlIVmFSSGF5NlpiUFBBYjZPWjk5bHdTcGg0WXhsWFg3M1V2NDlS?=
- =?utf-8?B?Zi9xOGdmbW03STg3VWgvZnJTdVJpWGZvYVRtVEhDTytTNjVmdE1CWDd4Q2Ey?=
- =?utf-8?B?Wmp1TFZ3R3Y1NGVjY1ZqYnVGWHRsOEdjRzBOQVdBUUhvRDkzakJ5cmR4SmhK?=
- =?utf-8?B?OXY0VDREYTZtQldybCt1UWRGZko1V0RwNkV0azRrTHVWa3hRcDFwZkw4K213?=
- =?utf-8?B?RTlheGJyNkF4bXk5WUw4ZjVMS0M1WjFlQnBwNFoxUko3MzZmZEJ6RG9sdFAv?=
- =?utf-8?Q?/Fr4=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(35042699022)(7416014)(1800799024)(376014)(82310400026)(14060799003);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 10:09:15.0287
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 506799e2-13b5-4c65-316c-08de18658be9
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C712.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB6284
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_030924_550327_3F79DA5F 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20251031_031027_075156_568289F4 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -223,160 +113,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+Some bootloaders like U-boot, particularly for the ARM architecture,
+provide SMBIOS/DMI tables at a specific memory address. However, these
+systems often do not boot using a full UEFI environment, which means the
+kernel's standard EFI DMI scanner cannot find these tables.
 
-> > Until has_version_negotiated is set to true,
-> > all FF-A function calls fail except FFA_VERSION.
-> > The has_version_negotiated flag is set to true when
-> > the first FFA_VERSION call is made after init_hyp_mode().
-> >
-> > This works fine when the FF-A driver is built as a module,
-> > since ffa_init() is invoked after kvm_arm_init(), allowing do_ffa_version()
-> > to set has_version_negotiated to true.
-> >
-> > However, when the FF-A driver is built-in (CONFIG_ARM_FFA_TRANSPORT=y),
-> > all FF-A calls fail. This happens because ffa_init() runs before
-> > kvm_arm_init() — the init level of ffa_init() is rootfs_initcall.
-> > As a result, the hypervisor cannot set has_version_negotiated,
-> > since the FFA_VERSION call made in ffa_init() does not trap to the hypervisor
-> > (HCR_EL2.TSC is cleared before kvm_arm_init()).
-> >
->
-> I understand the reason behind the patch but this is problematic to have
-> the builtin driver load before pKVM because the hypervisor would be
-> un-aware of the host mapped buffers. (eg. the call from ffa_rxtx_map is
-> not trapped because it is too early). Essentially, you will end up
-> bypassing the hyp FF-A proxy which I think you will want to avoid.
+This series adds support for the kernel to find these tables by
+reading the associated property from the Device Tree /chosen node. The
+bootloader can specify the physical addresses using the property
+"linux,smbios3-entrypoint".
 
-Ah. I've overlooed the ffa_rxtx_map proxy.
-But unfortunately, some of depndency with the driver using arm_ffa
-driver, ffa_init() should be called first then other drivers' initcall
-(usually, these kind of driver defines its one initcall with
-device_initcall()) (i.e) https://lore.kernel.org/all/20250618102302.2379029-1-yeoreum.yun@arm.com/.
+The first patch introduces the device tree binding documentation for this
+new ABI, and the second patch implements the driver logic in dmi_scan.c.
 
-Though I arm_ffa driver provide an API getting mapped rx/tx buffer,
-But this seems to reverse dependency -- kvm depends on arm_ffa driver.
+Changes in v4:
+  - Renamed linux,smbios3-table.yaml file, removed mention of ARM/ARM64
+    (Patch 1/2).
+  - Drop the second definition of dmi_scan_from_dt() and fold checking
+    for CONFIG_OF (Patch 2/2).
+  - Drop unnecessary goto on the success case (Patch 2/2).
+  - Replace magic number for entrypoint size with SMBIOS3_ENTRY_POINT_SIZE
+    definition (Patch 2/2).
 
-I’ve been thinking about some possible solutions,
-but in my narrow idea, valid solution is kvm_arm_init() as
-subsys_initcall_sync() and call kvm_init() in module_init() like
-attached modification.
+Changes in v3:
+  - Removed linux,smbios-table property, only keep the SMBIOSv3 property
+    (Patch 1/2).
+  - Search DT for linux,smbios3-table only, removed the code searching
+    for the previous property (Patch 2/2).
 
-Do you have any idea?
+Changes in v2:
+  - Add missing Device Tree binding documentation (Patch 1/2).
+  - Split the original patch into a 2-part series (binding + driver).
+  - (No functional changes to the driver code in patch 2/2).
 
-Thanks.
+adriana (2):
+  dt-bindings: firmware: Add binding for SMBIOS /chosen properties
+  drivers: firmware: dmi_scan: Add support for reading SMBIOS from DT
 
-------<&--------
+ .../firmware/linux,smbios3-entrypoint.yaml    | 25 +++++++++
+ drivers/firmware/dmi_scan.c                   | 54 +++++++++++++++++++
+ 2 files changed, 79 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/firmware/linux,smbios3-entrypoint.yaml
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 870953b4a8a7..44711f3c7e04 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -65,7 +65,7 @@ DECLARE_KVM_NVHE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+-- 
+2.51.0
 
- DECLARE_KVM_NVHE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
-
--static bool vgic_present, kvm_arm_initialised;
-+static bool vgic_present, in_hyp_mode, okvm_arm_early_initialised, kvm_arm_initialised;
-
- static DEFINE_PER_CPU(unsigned char, kvm_hyp_initialized);
-
-@@ -2827,11 +2827,42 @@ void kvm_arch_irq_bypass_start(struct irq_bypass_consumer *cons)
-        kvm_arm_resume_guest(irqfd->kvm);
- }
-
-+static __init int kvm_arm_post_init(void)
-+{
-+       int err;
-+
-+       if (!kvm_arm_early_initialised)
-+               return -ENODEV;
-+
-+       /*
-+        * FIXME: Do something reasonable if kvm_init() fails after pKVM
-+        * hypervisor protection is finalized.
-+        */
-+       err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
-+       if (err) {
-+               teardown_subsystems();
-+               if (!in_hyp_mode)
-+                       teardown_hyp_mode();
-+               kvm_arm_vmid_alloc_free();
-+               return err;
-+       }
-+
-+       /*
-+        * This should be called after initialization is done and failure isn't
-+        * possible anymore.
-+        */
-+       if (!in_hyp_mode)
-+               finalize_init_hyp_mode();
-+
-+       kvm_arm_initialised = true;
-+       return 0;
-+}
-+
-+
- /* Initialize Hyp-mode and memory mappings on all CPUs */
- static __init int kvm_arm_init(void)
- {
-        int err;
--       bool in_hyp_mode;
-
-        if (!is_hyp_mode_available()) {
-                kvm_info("HYP mode not available\n");
-@@ -2893,30 +2924,18 @@ static __init int kvm_arm_init(void)
-                                     "h" : "n"),
-                 cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) ? "+NV2": "");
-
--       /*
--        * FIXME: Do something reasonable if kvm_init() fails after pKVM
--        * hypervisor protection is finalized.
--        */
--       err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
--       if (err)
--               goto out_subs;
--
--       /*
--        * This should be called after initialization is done and failure isn't
--        * possible anymore.
--        */
--       if (!in_hyp_mode)
--               finalize_init_hyp_mode();
--
--       kvm_arm_initialised = true;
-+       kvm_arm_early_initialised = true;
-
--       return 0;
-+#ifdef MODULE
-+       err = kvm_arm_post_init();
-+#endif
-+       return err;
-
--out_subs:
--       teardown_subsystems();
- out_hyp:
--       if (!in_hyp_mode)
-+       if (!in_hyp_mode) {
-                teardown_hyp_mode();
-+               in_hyp_mode = false;
-+       }
- out_err:
-        kvm_arm_vmid_alloc_free();
-        return err;
-@@ -2995,4 +3014,7 @@ enum kvm_mode kvm_get_mode(void)
-        return kvm_mode;
- }
-
--module_init(kvm_arm_init);
-+subsys_initcall_sync(kvm_arm_init);
-+#ifndef MODULE
-+module_init(kvm_arm_post_init);
-+#endif
-
-[...]
-
---
-Sincerely,
-Yeoreum Yun
 
