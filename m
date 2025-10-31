@@ -4,40 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618FFCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 00:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7AECCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 00:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wbOBQC6OXsC8yYQ/n7plcezWGQeLGRAvgXU0EFFJFf8=; b=v3h6xt0O+/1Kuc1DDgw7o7E8dy
-	xWKYuFhtgNk5HGHfifRzFTPisbYEdW97f50pcxfj2sZNSsn1QELiJMGPgV18QCxhXMzwIMaumen1y
-	KlwC77x2VYf51mJk8itj4AKKFnvcGAdswOmeCYo6qTV06GGh5HVg8QCzZv8fU602xUZ1qMarhRPNQ
-	qLjuC2+BCcaaZdedz1KM95O7PnOJA0GSjkTfvlxGDMod0R2i3Y1ZJIULlwsZo/auUrJvr+b34/ZZ5
-	5R+oZSkUoQVqHMhDF5M3TOLMGlwkot3r5+eyE1NiF+ACrzSzRwL3ce432FFLWctvtToWn+6+52luT
-	s4Nlu/qw==;
+	bh=rjrw0MCTJkLHYnxNcLUiTkG0NWdJr6MqqqnbhuwbLiY=; b=dnve0IiTEEG7e32tBOLOSXgYTY
+	EUqdCPbRdqd3zBpxq5xYDmyTFPX1UnfoX4AjLtdkkx0TeEDEP9aveM+tUqUkQZGq6BBTaWfw2ixJX
+	QTFOTVhXZA5Xk3CJq4tI6EewVmBL6WDqjml1OvOd4IujP5mvaOxx0gN4YPBAwBlyL/ZJqs9W/DdEY
+	a7hXa7VXhCqjXzyhm/RU9/uHXhG3zJHW4jviWCwcEwoW2/4GS5EJAaSDSaOZMZ8yUrpSfUWCwL+PX
+	kZ5+Ek1DrztAQ2lhyvQnHz0w6siGXfe3MWHHCJONvAWuTTC9fwmxniwA6glMD2C9U7VCVQrJeil+Q
+	BDEO+UZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdI8-00000005C29-3xzr;
-	Fri, 31 Oct 2025 00:46:56 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1vEdI7-00000005C14-3lOl;
+	Fri, 31 Oct 2025 00:46:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdHw-00000005Bvv-0Nw5
+	id 1vEdHu-00000005Bvu-3jeb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 31 Oct 2025 00:46:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=rjrw0MCTJkLHYnxNcLUiTkG0NWdJr6MqqqnbhuwbLiY=; b=EmLYmnNgeDsCEUO05rXWYU1kX6
+	VPwfyQ0C57NJazGgtTloMrLJ06yYVpeAYkdbmvbZHHO8hk2z8NNbigdiQPI4MSb1THsjV9smZxfRR
+	0g77WisMeBGVktbM4iHsPkqtMZaTxEVYykM3kp0E3lnDyL9iEC9amlc+XmcwvqlYubzvhnycUn+TP
+	efKzMcr6R7Fwoct5AlxBjN+quvYYZ6qsyMKnhD6qpKWq+X9VBJO4TSw1WyLwForZMrWEe2ciYyZ9e
+	IhBnOB61Cdj+4g+KSvibJ57URRw0Pl+oiKa9lYRKLRuOGO2mhAFcoTdqP2ACD7ek78KVKWUlOe/yy
+	gF2B3Idg==;
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEcQ8-0000000AHPO-3tZx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 00:46:45 +0000
+	Thu, 30 Oct 2025 23:51:10 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1761871600;
+	t=1761871590;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wbOBQC6OXsC8yYQ/n7plcezWGQeLGRAvgXU0EFFJFf8=;
-	b=tIIe5nHJ7QQCkTilXLcnxjLlN6tJEaLaFgvVXlppO9Ixa9Zzc1FJ1rwhZ1VMnx5v3xMqSc
-	4q/uU/D9t0sgtk562Xf2tzeDYoNN16JG0nQc8Gf/52bSiwYDD6GQk4eqewR6UVyZZbLoOq
-	lFvsH5vO0TwxdjnJQHG1aSy1DQWeaqU=
+	bh=rjrw0MCTJkLHYnxNcLUiTkG0NWdJr6MqqqnbhuwbLiY=;
+	b=UErJtRWlGGMrWhDmXDV5rG9sqeu614lBDvdPjAQQItXd+APHBaIUWUqipM49qeKQ5jM5yg
+	7rJbf1siydcm46WUPBs/NS5YjR5SkeqpWpdERCBYLDaV+2H+OXlF+sFwsNf8BudYkkH84r
+	jTzG7Ur4BQUAddSggiLybdlvJj2lY3k=
 From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 To: Sudarsana Kalluru <skalluru@marvell.com>,
 	Manish Chopra <manishc@marvell.com>,
@@ -57,17 +72,17 @@ Cc: Richard Cochran <richardcochran@gmail.com>,
 	Kory Maincent <kory.maincent@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org
-Subject: [PATCH net-next 7/7] qede: convert to use ndo_hwtstamp callbacks
-Date: Fri, 31 Oct 2025 00:46:07 +0000
-Message-ID: <20251031004607.1983544-8-vadim.fedorenko@linux.dev>
+Subject: [PATCH net-next 4/7] net: octeon: mgmt: convert to use ndo_hwtstamp callbacks
+Date: Fri, 31 Oct 2025 00:46:04 +0000
+Message-ID: <20251031004607.1983544-5-vadim.fedorenko@linux.dev>
 In-Reply-To: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
 References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_174644_750530_536CBC13 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20251030_235109_175585_7126A04A 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,154 +97,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver implemented SIOCSHWTSTAMP ioctl cmd only, but it stores
-configuration in private structure, so it can be reported back to users.
-Implement both ndo_hwtstamp_set and ndo_hwtstamp_set callbacks.
+The driver implemented SIOCSHWTSTAMP ioctl command only. But it stores
+timestamping configuration, so it is possible to report it to users.
+Implement both ndo_hwtstamp_set and ndo_hwtstamp_get callbacks. After
+this the ndo_eth_ioctl effectively becomes phy_do_ioctl - adjust
+callback accrodingly.
 
 Signed-off-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 ---
- drivers/net/ethernet/qlogic/qede/qede_main.c | 22 +--------
- drivers/net/ethernet/qlogic/qede/qede_ptp.c  | 47 ++++++++++++++------
- drivers/net/ethernet/qlogic/qede/qede_ptp.h  |  6 ++-
- 3 files changed, 40 insertions(+), 35 deletions(-)
+ .../net/ethernet/cavium/octeon/octeon_mgmt.c  | 62 ++++++++++---------
+ 1 file changed, 32 insertions(+), 30 deletions(-)
 
-diff --git a/drivers/net/ethernet/qlogic/qede/qede_main.c b/drivers/net/ethernet/qlogic/qede/qede_main.c
-index b5d744d2586f..66ab1b9d65a1 100644
---- a/drivers/net/ethernet/qlogic/qede/qede_main.c
-+++ b/drivers/net/ethernet/qlogic/qede/qede_main.c
-@@ -506,25 +506,6 @@ static int qede_set_vf_trust(struct net_device *dev, int vfidx, bool setting)
+diff --git a/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c b/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c
+index 393b9951490a..c190fc6538d4 100644
+--- a/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c
++++ b/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c
+@@ -690,19 +690,16 @@ static irqreturn_t octeon_mgmt_interrupt(int cpl, void *dev_id)
+ 	return IRQ_HANDLED;
  }
- #endif
  
--static int qede_ioctl(struct net_device *dev, struct ifreq *ifr, int cmd)
--{
--	struct qede_dev *edev = netdev_priv(dev);
--
--	if (!netif_running(dev))
--		return -EAGAIN;
--
--	switch (cmd) {
--	case SIOCSHWTSTAMP:
--		return qede_ptp_hw_ts(edev, ifr);
--	default:
--		DP_VERBOSE(edev, QED_MSG_DEBUG,
--			   "default IOCTL cmd 0x%x\n", cmd);
--		return -EOPNOTSUPP;
--	}
--
--	return 0;
--}
--
- static void qede_fp_sb_dump(struct qede_dev *edev, struct qede_fastpath *fp)
+-static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
+-				      struct ifreq *rq, int cmd)
++static int octeon_mgmt_hwtstamp_set(struct net_device *netdev,
++				    struct kernel_hwtstamp_config *config,
++				    struct netlink_ext_ack *extack)
  {
- 	char *p_sb = (char *)fp->sb_info->sb_virt;
-@@ -717,7 +698,6 @@ static const struct net_device_ops qede_netdev_ops = {
- 	.ndo_set_mac_address	= qede_set_mac_addr,
- 	.ndo_validate_addr	= eth_validate_addr,
- 	.ndo_change_mtu		= qede_change_mtu,
--	.ndo_eth_ioctl		= qede_ioctl,
- 	.ndo_tx_timeout		= qede_tx_timeout,
- #ifdef CONFIG_QED_SRIOV
- 	.ndo_set_vf_mac		= qede_set_vf_mac,
-@@ -742,6 +722,8 @@ static const struct net_device_ops qede_netdev_ops = {
- #endif
- 	.ndo_xdp_xmit		= qede_xdp_transmit,
- 	.ndo_setup_tc		= qede_setup_tc_offload,
-+	.ndo_hwtstamp_get	= qede_hwtstamp_get,
-+	.ndo_hwtstamp_set	= qede_hwtstamp_set,
- };
+ 	struct octeon_mgmt *p = netdev_priv(netdev);
+-	struct hwtstamp_config config;
+-	union cvmx_mio_ptp_clock_cfg ptp;
+ 	union cvmx_agl_gmx_rxx_frm_ctl rxx_frm_ctl;
++	union cvmx_mio_ptp_clock_cfg ptp;
+ 	bool have_hw_timestamps = false;
  
- static const struct net_device_ops qede_netdev_vf_ops = {
-diff --git a/drivers/net/ethernet/qlogic/qede/qede_ptp.c b/drivers/net/ethernet/qlogic/qede/qede_ptp.c
-index a38f1e72c62b..b65e9f46ac52 100644
---- a/drivers/net/ethernet/qlogic/qede/qede_ptp.c
-+++ b/drivers/net/ethernet/qlogic/qede/qede_ptp.c
-@@ -290,35 +290,54 @@ static int qede_ptp_cfg_filters(struct qede_dev *edev)
+-	if (copy_from_user(&config, rq->ifr_data, sizeof(config)))
+-		return -EFAULT;
+-
+-	/* Check the status of hardware for tiemstamps */
++	/* Check the status of hardware for timestamps */
+ 	if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+ 		/* Get the current state of the PTP clock */
+ 		ptp.u64 = cvmx_read_csr(CVMX_MIO_PTP_CLOCK_CFG);
+@@ -733,10 +730,12 @@ static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
+ 		have_hw_timestamps = true;
+ 	}
+ 
+-	if (!have_hw_timestamps)
++	if (!have_hw_timestamps) {
++		NL_SET_ERR_MSG_MOD(extack, "HW doesn't support timestamping");
+ 		return -EINVAL;
++	}
+ 
+-	switch (config.tx_type) {
++	switch (config->tx_type) {
+ 	case HWTSTAMP_TX_OFF:
+ 	case HWTSTAMP_TX_ON:
+ 		break;
+@@ -744,7 +743,7 @@ static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
+ 		return -ERANGE;
+ 	}
+ 
+-	switch (config.rx_filter) {
++	switch (config->rx_filter) {
+ 	case HWTSTAMP_FILTER_NONE:
+ 		p->has_rx_tstamp = false;
+ 		rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
+@@ -766,33 +765,34 @@ static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
+ 	case HWTSTAMP_FILTER_PTP_V2_SYNC:
+ 	case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
+ 	case HWTSTAMP_FILTER_NTP_ALL:
+-		p->has_rx_tstamp = have_hw_timestamps;
+-		config.rx_filter = HWTSTAMP_FILTER_ALL;
+-		if (p->has_rx_tstamp) {
+-			rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
+-			rxx_frm_ctl.s.ptp_mode = 1;
+-			cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_CTL, rxx_frm_ctl.u64);
+-		}
++		p->has_rx_tstamp = true;
++		config->rx_filter = HWTSTAMP_FILTER_ALL;
++		rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
++		rxx_frm_ctl.s.ptp_mode = 1;
++		cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_CTL, rxx_frm_ctl.u64);
+ 		break;
+ 	default:
+ 		return -ERANGE;
+ 	}
+ 
+-	if (copy_to_user(rq->ifr_data, &config, sizeof(config)))
+-		return -EFAULT;
+-
  	return 0;
  }
  
--int qede_ptp_hw_ts(struct qede_dev *edev, struct ifreq *ifr)
-+int qede_hwtstamp_set(struct net_device *netdev,
-+		      struct kernel_hwtstamp_config *config,
-+		      struct netlink_ext_ack *extack)
+-static int octeon_mgmt_ioctl(struct net_device *netdev,
+-			     struct ifreq *rq, int cmd)
++static int octeon_mgmt_hwtstamp_get(struct net_device *netdev,
++				    struct kernel_hwtstamp_config *config)
  {
--	struct hwtstamp_config config;
-+	struct qede_dev *edev = netdev_priv(netdev);
- 	struct qede_ptp *ptp;
- 	int rc;
- 
- 	ptp = edev->ptp;
--	if (!ptp)
-+	if (!ptp) {
-+		NL_SET_ERR_MSG_MOD(extack, "HW timestamping is not supported");
- 		return -EIO;
--
--	if (copy_from_user(&config, ifr->ifr_data, sizeof(config)))
--		return -EFAULT;
-+	}
- 
- 	DP_VERBOSE(edev, QED_MSG_DEBUG,
--		   "HWTSTAMP IOCTL: Requested tx_type = %d, requested rx_filters = %d\n",
--		   config.tx_type, config.rx_filter);
-+		   "HWTSTAMP SET: Requested tx_type = %d, requested rx_filters = %d\n",
-+		   config->tx_type, config->rx_filter);
- 
- 	ptp->hw_ts_ioctl_called = 1;
--	ptp->tx_type = config.tx_type;
--	ptp->rx_filter = config.rx_filter;
-+	ptp->tx_type = config->tx_type;
-+	ptp->rx_filter = config->rx_filter;
- 
- 	rc = qede_ptp_cfg_filters(edev);
--	if (rc)
-+	if (rc) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "One-step timestamping is not supported");
- 		return rc;
-+	}
+-	switch (cmd) {
+-	case SIOCSHWTSTAMP:
+-		return octeon_mgmt_ioctl_hwtstamp(netdev, rq, cmd);
+-	default:
+-		return phy_do_ioctl(netdev, rq, cmd);
+-	}
++	struct octeon_mgmt *p = netdev_priv(netdev);
 +
-+	config->rx_filter = ptp->rx_filter;
- 
--	config.rx_filter = ptp->rx_filter;
-+	return 0;
-+}
- 
--	return copy_to_user(ifr->ifr_data, &config,
--			    sizeof(config)) ? -EFAULT : 0;
-+int qede_hwtstamp_get(struct net_device *netdev,
-+		      struct kernel_hwtstamp_config *config)
-+{
-+	struct qede_dev *edev = netdev_priv(netdev);
-+	struct qede_ptp *ptp;
++	/* Check the status of hardware for timestamps */
++	if (!OCTEON_IS_MODEL(OCTEON_CN6XXX))
++		return -EINVAL;
 +
-+	ptp = edev->ptp;
-+	if (!ptp)
-+		return -EIO;
-+
-+	config->tx_type = ptp->tx_type;
-+	config->rx_filter = ptp->rx_filter;
++	config->tx_type = HWTSTAMP_TX_ON;
++	config->rx_filter = p->has_rx_tstamp ?
++			    HWTSTAMP_FILTER_ALL :
++			    HWTSTAMP_FILTER_NONE;
 +
 +	return 0;
  }
  
- int qede_ptp_get_ts_info(struct qede_dev *edev, struct kernel_ethtool_ts_info *info)
-diff --git a/drivers/net/ethernet/qlogic/qede/qede_ptp.h b/drivers/net/ethernet/qlogic/qede/qede_ptp.h
-index adafc894797e..88f168395812 100644
---- a/drivers/net/ethernet/qlogic/qede/qede_ptp.h
-+++ b/drivers/net/ethernet/qlogic/qede/qede_ptp.h
-@@ -14,7 +14,11 @@
+ static void octeon_mgmt_disable_link(struct octeon_mgmt *p)
+@@ -1370,11 +1370,13 @@ static const struct net_device_ops octeon_mgmt_ops = {
+ 	.ndo_start_xmit =		octeon_mgmt_xmit,
+ 	.ndo_set_rx_mode =		octeon_mgmt_set_rx_filtering,
+ 	.ndo_set_mac_address =		octeon_mgmt_set_mac_address,
+-	.ndo_eth_ioctl =			octeon_mgmt_ioctl,
++	.ndo_eth_ioctl =		phy_do_ioctl,
+ 	.ndo_change_mtu =		octeon_mgmt_change_mtu,
+ #ifdef CONFIG_NET_POLL_CONTROLLER
+ 	.ndo_poll_controller =		octeon_mgmt_poll_controller,
+ #endif
++	.ndo_hwtstamp_get =		octeon_mgmt_hwtstamp_get,
++	.ndo_hwtstamp_set =		octeon_mgmt_hwtstamp_set,
+ };
  
- void qede_ptp_rx_ts(struct qede_dev *edev, struct sk_buff *skb);
- void qede_ptp_tx_ts(struct qede_dev *edev, struct sk_buff *skb);
--int qede_ptp_hw_ts(struct qede_dev *edev, struct ifreq *req);
-+int qede_hwtstamp_get(struct net_device *netdev,
-+		      struct kernel_hwtstamp_config *config);
-+int qede_hwtstamp_set(struct net_device *netdev,
-+		      struct kernel_hwtstamp_config *config,
-+		      struct netlink_ext_ack *extack);
- void qede_ptp_disable(struct qede_dev *edev);
- int qede_ptp_enable(struct qede_dev *edev);
- int qede_ptp_get_ts_info(struct qede_dev *edev, struct kernel_ethtool_ts_info *ts);
+ static int octeon_mgmt_probe(struct platform_device *pdev)
 -- 
 2.47.3
 
