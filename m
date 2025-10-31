@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF07CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7C8CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=apCb/lOGJpJj6QhRZ9UR59jodDVlImpMOMOiYYU0fVk=; b=ykkITsPpf7DKExxoD5BzwkpBQK
-	BJO3UtQKADQGW6wjXtUl0WZqShH6+IENmvK9DyjNE7TVMq7QbY6uaydlnNQH5VswBnZ/9vJnvyqS+
-	YziBCswUzr7PQcjLE6DpvElYHAL0TYAhG0+qnyy6BF/9Z+pQtzK0XQP8PXT3IEAn4Hh/zsIMfGcki
-	hhpv5R+lIaLYPTPJZxDeIaZl/jDvtM68gndpojTPstgnoGPWYcIub9vuEq06EV7mC9aUVmIRvmgSg
-	SjXfg8q/NAEE269HKZuC1c9O/+dX10uDf4E04PxbXJyZqnPtTzjZz4o4B8mULeoLT8I39cCvTf185
-	v33EwA4Q==;
+	bh=C01l+MJujWzA+l5ACmj/G+LOCIeE0x+IRw6tpegJqFs=; b=w5uDs+aY16yHVV2Z3Eb2ObdJwi
+	ThUewyUAumtcSK9EHz96EtgOIlYrDFGrn7MqOwez9IchdWm+sllEEeW/0lRAej1dOvNWAhHc/GTmq
+	9hL6oGLwjC8+gHmYvqxVPod3S3qT6Dz6T2EzWJNpVGppH/piSkCcIPucuHoWOphpM1gf5jtbnLtfF
+	jVGcE3l0eZdNboQBr+afuaahVFMd/+NTvfSfzbSq8MpmQceENhSeEwdwtH/KfDtxl8lG+ifJFXbR1
+	/h1qbyyhJyLihtEWyp6UDE30RRZGn8kD3JzVgn0gnQOC2EFb34vFKG9knBwgNGcJdUJYEu30GljUc
+	iX3XM7uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsYE-00000006Rwi-1Axi;
-	Fri, 31 Oct 2025 17:04:34 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vEsbR-00000006S8O-2Hb0;
+	Fri, 31 Oct 2025 17:07:53 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsYB-00000006Rvy-3UwC
+	id 1vEsbO-00000006S86-3TSK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:04:33 +0000
+	Fri, 31 Oct 2025 17:07:52 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 0A7E54E41439;
-	Fri, 31 Oct 2025 17:04:28 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id F347AC0E958;
+	Fri, 31 Oct 2025 17:07:26 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B640A60704;
-	Fri, 31 Oct 2025 17:04:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 50BD61181808E;
-	Fri, 31 Oct 2025 18:04:19 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6F95C60704;
+	Fri, 31 Oct 2025 17:07:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC8F511818091;
+	Fri, 31 Oct 2025 18:07:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761930266; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1761930466; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=apCb/lOGJpJj6QhRZ9UR59jodDVlImpMOMOiYYU0fVk=;
-	b=sWLyeBW9gjPE0OJcGkYS7oKbR6cvjMBE6OruelYFJc7G73m/L7N0STTO1vBSngYjR/+Tfk
-	4RIDG1afC09Qo1QYtkY6f111NRHjQ1FGYAv0cmKH5Jb91Ow5ro+huY83C80KD0C2Xh17jQ
-	xX6hn7ljMj/u43LzGD9EGNpx3emnEQkT5sNbZrkEGiLlTBrewYhCFQdOdDaW4GEZIn52v8
-	VVuiz9BzrqjKAclrGkaM74UOR6fMM1MDldajoznNTF+X1zH0/jPcBW4wYQzNYD/3G3l/qP
-	bEKO74x6jmBXTR1X5nt/cGVGu44BQ6ToondbswTGjNj10i64MyZ+/4ZcdO4UBQ==
-Date: Fri, 31 Oct 2025 18:04:18 +0100
+	bh=C01l+MJujWzA+l5ACmj/G+LOCIeE0x+IRw6tpegJqFs=;
+	b=MWh0JOwh4S53kkAb5piFTuPod9/R+DKNC0/oycGja0ehBcEGb1fpSHCuQrIuJKxQJ3CxO9
+	0NdRKuXltvwk+HqjjqUjjepCDcN7dsHVkHWyPfmy/xDFsv8hRMTshCxwtaIAdHsr+Fl6u1
+	cKZJeATxF4yiDKYOp5EZqAfNIWtaDn1zT7MCHfTM+qOaHiqBDhr752eb+EUetabMSaK/Xg
+	NMnnLENMLfcFCZoeBFyMWlWnZEe1emMyydoDbDLebrPValUTuE3vhBIYAajVkFPeU0NgWl
+	qqNsd1KfOg6YPqLqdxCA0aYOeqkK2yKj6D/GrLTV4LO42zNOrL8pFM5MEvw3CQ==
+Date: Fri, 31 Oct 2025 18:07:40 +0100
 From: Kory Maincent <kory.maincent@bootlin.com>
 To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 Cc: Sudarsana Kalluru <skalluru@marvell.com>, Manish Chopra
@@ -56,12 +56,12 @@ Cc: Sudarsana Kalluru <skalluru@marvell.com>, Manish Chopra
  Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
  Jacob Keller <jacob.e.keller@intel.com>,
  linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next 1/7] bnx2x: convert to use ndo_hwtstamp
+Subject: Re: [PATCH net-next 2/7] net: liquidio: convert to use ndo_hwtstamp
  callbacks
-Message-ID: <20251031180418.5047c65d@kmaincent-XPS-13-7390>
-In-Reply-To: <20251031004607.1983544-2-vadim.fedorenko@linux.dev>
+Message-ID: <20251031180740.188a6134@kmaincent-XPS-13-7390>
+In-Reply-To: <20251031004607.1983544-3-vadim.fedorenko@linux.dev>
 References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
-	<20251031004607.1983544-2-vadim.fedorenko@linux.dev>
+	<20251031004607.1983544-3-vadim.fedorenko@linux.dev>
 Organization: bootlin
 X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
@@ -69,8 +69,8 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_100432_002983_F65941B2 
-X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-CacheID: sfid-20251031_100751_100453_A333079C 
+X-CRM114-Status: UNSURE (   7.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,12 +86,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 00:46:01 +0000
+On Fri, 31 Oct 2025 00:46:02 +0000
 Vadim Fedorenko <vadim.fedorenko@linux.dev> wrote:
 
-> The driver implemented SIOCSHWTSTAMP ioctl command only, but at the same
-> time it has configuration stored in a private structure. Implement both
-> ndo_hwtstamp_set and ndo_hwtstamp_get callback using stored info.
+> The driver implemented SIOCSHWTSTAMP ioctl command only, but there is a
+> way to get configured status. Implement both ndo_hwtstamp_set and
+> ndo_hwtstamp_get callbacks.
 
 Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
 
