@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C737CCFA03
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 584F7CCF9F8
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3ImoaESr7T31Kj+mDsWEqXwVEK1MWqSyne71ANfJz8=; b=fErmR6HRtyegNY5NAnq6Pmjg7r
-	NrNFMKe5vaj/hsib0w4Zl60B3b85g2U8Yyr+FHCy+mtkYmC8+37oj+vXRiFsemHm4PheeOlcYIWQ4
-	MfO/RWsuixmAWHZDOX2YXb/mW5ucZV+J+hn/lFkT5TY4MhOEvypyt5st379n1COQOFgayhPk7fOSE
-	GsEXNhffecB65fUyikP1jsC8sroXBhsOZ9VksS9otgBUEbtZ2Ydj88HdpoVXoBmsc6gsrFu9DoXXo
-	MURU6eB4HgSJnx8VsUSCa3ldXU3ZBgJ6KHJ28LI4r1UHdHXUp5aIaVbYKB+DKEOLtaOov7nAOwTXv
-	qZk/pZcQ==;
+	bh=+0zBcOBt6imrrjsin7GEVhYBCWSxjDlq4dXbd8CaQZs=; b=Wl9I13B02hSlh5EoW6KIS5CgYe
+	MQaen7/IoP/EQXGc7Q7OhbjdDPvBhxugQGYo8CPJ0NRG/25kzoRhUAVkMyGKFZYOD3GBYXOqXKPJL
+	Lu2wrC4kJhVolPyCvvDgKJa5TSRHUQ4purUzqrROeuEV+FExmOaP5Khowhc06sTeX+rl20T0JZAMj
+	H1NPbkRHSvn8hBf3iGcsRnZkVDPWxwOtEhNqKn2tNI3sMGSfee4X6AZQeGrrqN2gkwvzX82JH/H7S
+	PmnL0j8XVikXwcmIBOV5w0yQ+KWx4WOzTUjR+CrSvYGE4WKqsBnuulvc0lpfMn4PAB0cVCf7hdl+x
+	f7uuzr3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt3a-00000006Y6A-0hxb;
-	Fri, 31 Oct 2025 17:36:58 +0000
+	id 1vEt3Z-00000006Y5e-3Kkg;
+	Fri, 31 Oct 2025 17:36:57 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt3V-00000006Y3K-3wKH
+	id 1vEt3V-00000006Y3J-3OLO
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 31 Oct 2025 17:36:56 +0000
 Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:314e:ee86:ae6e:30:9d13])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 12DF3B5;
-	Fri, 31 Oct 2025 18:26:46 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DD8BA16A8;
+	Fri, 31 Oct 2025 18:27:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761931607;
-	bh=L2jskCFzVI8vu/VxoOiuw8oJHvcjhXC0BGW7Tik0EZE=;
+	s=mail; t=1761931634;
+	bh=5LsFZf/cIZrJvTxKTyeuhDVpVX8Vu2fnD0rlBUYfDdE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ecJtDpaWBSsdWbqTB9WfO0ZAgCfK6oPUBQFzr4ywkc8ILhY7PBrk287JgiwN8iYgX
-	 +aJOUevbMNbzDVzfQyifE/oRFZIc6qgbo/i5RrWT/GEL48whOkLQLKJX/jjrxAydkU
-	 mKQ+vN2+hTsI/y1wDef537z7BWF5pDJFHCizyLCc=
+	b=brKhu+F3/ZRM/yOou/442+jj52hYUp94MxAi9MLiP3xMKIax2qmXoteg4rlTE8k52
+	 HngMmcNsp7WkN+B/Gt98ljKXPvDlg2a3cOFPEjJL3jR8klcjPLVc9UBfBEkNUJFblY
+	 TN9ZolPxlnq9YyF9BvOTz3ETco/+y6AH9zr21T4A=
 From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Fri, 31 Oct 2025 22:57:26 +0530
-Subject: [PATCH 06/13] platform/raspberrypi: vchiq-mmal: Update video
- parameters
+Date: Fri, 31 Oct 2025 22:57:31 +0530
+Subject: [PATCH 11/13] platform/raspberrypi: vchiq-mmal: Reset
+ buffers_with_vpu on port_enable
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251031-b4-vc-sm-cma-v1-6-0dd5c0ec3f5c@ideasonboard.com>
+Message-Id: <20251031-b4-vc-sm-cma-v1-11-0dd5c0ec3f5c@ideasonboard.com>
 References: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com>
 In-Reply-To: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com>
 To: Florian Fainelli <florian.fainelli@broadcom.com>, 
@@ -57,30 +57,28 @@ Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
  Sumit Semwal <sumit.semwal@linaro.org>, 
  =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jai Luthra <jai.luthra@ideasonboard.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.org>
+ Jai Luthra <jai.luthra@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2277;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1181;
  i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=chq8KEMAdpSsSzxQiDjebF7K761kG8qgjKO6tzXXFxo=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpBPGZeNUdnT5uwGciICWjn0Bs341CwEpZvzpCw
- F6gnxeQh7aJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaQTxmQAKCRBD3pH5JJpx
- RXzsD/0UKwNYQXhWfszp1SLk0j7aatmNyK4ciO8eqrV2Qq+TfuYyP79JDN7/nwMKwndxEV4MiBO
- 3oOMK8DR9kt+OiAfIxR7I5Ccb637XMmOVj6EHcZUUA9HsmOYpZfERK9isM44t/2L4lB1Pv9MjDe
- OdXSxrQqw1qWGMvZyX+v1tSWF8K5MKeNlqN7sqtHXKKAS4BIaD7ZwWQbsN6PzkfLFUkFu4oKRsC
- pyCXm3wbRD2P3OBdZOJBq1UXrlO7jVRoavxU32hce80+2OYnOsB5Rvj1a2Wuak3BALVtIB6+gNy
- TCjsskoEsQL2T/6u3bB9QXSCBevOPjFeOBgNXV9hfzEUB7nNIfg7LNfuTMkCg4ph9cYx5GS7F47
- kkgmpcbzruKOkI1eszELBykdlzJuXLAIga6PayDg/sdq4Hj6D7XsI6A8k2vA0TCJY+Zv1qLArlp
- sZccIkJ63nylB49Q8QY4eD5CEMDQ0OxVQMuoFR0rFUzZjvrGOYWKYJRM9FuxjsM2pJp7onoOkUF
- FQyYhsCNjSfvOpifwJNQMzndAUTu24n1zu56tSLZIH2ZV1AGwGxsBE/4zJoznSZ7/tb1W6SrRiu
- /2iQqDdYzpp7a1tvyV0JGfFLJJpVilUifHmLefxy7w8GIBQneVXnALlOw6KNLxvRbADnN2Dk9gS
- 7CLz6YS2tXlKTtw==
+ bh=xRyZ+PABcf09n5xFUP7XusKRU9z53iVixMht1alL/A0=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpBPGe+YXRZScfcvd11TYSAIT6cz7VulpYyCdGN
+ b+AW3CIOimJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaQTxngAKCRBD3pH5JJpx
+ RQ7+D/9aCr4U1C13o6L/8MAlZAO+/GW5nOOwjVt/uijThW+GJnyexb/ttjdJ+/R4vdO4NxSxP+6
+ rDGYpQhMbFiaAKKd9wfMW+Vo4+dRAW8S2oy3PLKoGJVNU0A+sx6dHLbByDiMsg73ALYdJT5DwBu
+ J1VwCfMoPuqVeKiVbRtZZoSYkUBlptGmsbqDqhQY1S/PB1VAQ5uU8bysjEm0YKqGhiWwXZPSik3
+ q8wgxim2pr3aRd1cfGM5PfyM3FUbzQRVK4k+B2Jxwxx2WtH0FsmjjN6/8DcY2z5KJrf0kMOTphz
+ WEJwOU+kHIrRtfaHLVB5ei+1npC2y07IzCkhjn/mgdTbEHq0moUWH1nQbRPmmxbBwCUh3ovLn9t
+ sYfI8A4ncKfoFh0ziwT29DF4X7EGZQ9EHyN5uAZ7bkTni2bjz8cKFZ0LN5p+K30uSv9b/Yv2wKB
+ RGaBGTy2H+6sXNtxoszQt5irEMwNaaXpUNfv0XQVWDhfCxEWKmO28W8eN74k2YY++0gZrzxGSN7
+ 86VpsndO1CZXzhJYdJQ/SgvC7fwPE9vebHA96+tvvZCHYOnJwSMsnyUljc3VI5XFr5C+MxP7lIY
+ bjIjfVSz1d9DiUnSxpFNaWDnGDu60U5rP9HfHjpKmgyXZvNtJpDKq09GNTmWwvJ1Ecxub27UMVq
+ 2jZ8mp83cYQFc2w==
 X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
  fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_103654_121335_55EAEEC9 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_103654_004265_078CD605 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,67 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.org>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
 
-mmal_parameters.h hasn't been updated to reflect additions made
-over the last few years. Update it to reflect the currently
-supported parameters.
+Should we go through the timeout failure case with port_disable
+not returning all buffers for whatever reason, the
+buffers_with_vpu counter gets left at a non-zero value, which
+will cause reference counting issues should the instance be
+reused.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.org>
+Reset the count when the port is enabled again, but before
+any buffers have been sent to the VPU.
+
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 ---
- drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h | 38 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 37 insertions(+), 1 deletion(-)
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h b/drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h
-index a0cdd28101f2dd67fd6b64ce1c95c0cbbfe15fc4..0a4fc9252b1798d883047e22bbfca050017f938e 100644
---- a/drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h
-+++ b/drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h
-@@ -577,7 +577,43 @@ enum mmal_parameter_video_type {
- 	MMAL_PARAMETER_VIDEO_ENCODE_H264_LOW_DELAY_HRD_FLAG,
+diff --git a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c b/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
+index 02fbf061c171cba287657266aa1731333609b3b0..f9e1a773fa55f885f240f4945b980f77676d83a6 100644
+--- a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
++++ b/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
+@@ -1490,6 +1490,8 @@ static int port_enable(struct vchiq_mmal_instance *instance,
  
- 	/**< @ref MMAL_PARAMETER_BOOLEAN_T */
--	MMAL_PARAMETER_VIDEO_ENCODE_INLINE_HEADER
-+	MMAL_PARAMETER_VIDEO_ENCODE_INLINE_HEADER,
-+
-+	/**< Take a @ref MMAL_PARAMETER_BOOLEAN_T. */
-+	MMAL_PARAMETER_VIDEO_ENCODE_SEI_ENABLE,
-+
-+	/**< Take a @ref MMAL_PARAMETER_BOOLEAN_T. */
-+	MMAL_PARAMETER_VIDEO_ENCODE_INLINE_VECTORS,
-+
-+	/**< Take a @ref MMAL_PARAMETER_VIDEO_RENDER_STATS_T. */
-+	MMAL_PARAMETER_VIDEO_RENDER_STATS,
-+
-+	/**< Take a @ref MMAL_PARAMETER_VIDEO_INTERLACE_TYPE_T. */
-+	MMAL_PARAMETER_VIDEO_INTERLACE_TYPE,
-+
-+	/**< Takes a @ref MMAL_PARAMETER_BOOLEAN_T */
-+	MMAL_PARAMETER_VIDEO_INTERPOLATE_TIMESTAMPS,
-+
-+	/**< Takes a @ref MMAL_PARAMETER_BOOLEAN_T */
-+	MMAL_PARAMETER_VIDEO_ENCODE_SPS_TIMING,
-+
-+	/**< Takes a @ref MMAL_PARAMETER_UINT32_T */
-+	MMAL_PARAMETER_VIDEO_MAX_NUM_CALLBACKS,
-+
-+	/**< Takes a @ref MMAL_PARAMETER_SOURCE_PATTERN_T */
-+	MMAL_PARAMETER_VIDEO_SOURCE_PATTERN,
-+
-+	/**< Takes a @ref MMAL_PARAMETER_BOOLEAN_T */
-+	MMAL_PARAMETER_VIDEO_ENCODE_SEPARATE_NAL_BUFS,
-+
-+	/**< Takes a @ref MMAL_PARAMETER_UINT32_T */
-+	MMAL_PARAMETER_VIDEO_DROPPABLE_PFRAME_LENGTH,
-+
-+	/**< Take a @ref MMAL_PARAMETER_VIDEO_STALL_T */
-+	MMAL_PARAMETER_VIDEO_STALL_THRESHOLD,
-+
-+	/**< Take a @ref MMAL_PARAMETER_BOOLEAN_T */
-+	MMAL_PARAMETER_VIDEO_ENCODE_HEADERS_WITH_FRAME,
- };
+ 	port->enabled = true;
  
- /** Valid mirror modes */
++	atomic_set(&port->buffers_with_vpu, 0);
++
+ 	if (port->buffer_cb) {
+ 		/* send buffer headers to videocore */
+ 		hdr_count = 1;
 
 -- 
 2.51.0
