@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8723ACCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C41BCCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8Vz/kVetkZkK1cizTpypIQTEgiMe9aRwVeIYyr3Isc=; b=Fo4U7n++tN66AAlOy0qq4me1X7
-	YFCQxJfBk42QNarrDO/wCITzvmXUaN4FXRltbaUDnh+NXqWHMtFo5r4LlgUZRh6jw3PkF6kaOMf9p
-	FGC314aID0xnao0gw8wJEG2pYcAH1AUcTp2UdTqmQkKDpuEiiSwPnvoIF7J1atJxRfeDgs5Jl+/5F
-	Q+rW4ZNePpsHYx6dg9gKjufTNIJCcTmuE77zgmZoCxZHLXDfXdaAuUFm/bSp4TvIny08PspBPq3lI
-	65OoTN7GKeRM37in4jbgIOKfb2oZ3zpA4VCgsppwVVn0Pno8k4Xd2TPpPhtvmolg5cmQrqjILhRSh
-	IgEkP0DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EzjqWFPbYzjEfpDteBcncRVxcsQvYXXWJGNfJY3z6Qw=; b=medZP6XupUArXYrRNjwJ+YopVa
+	U709G+Qq40vZsmNtY3o9h9f82fI86pyRf3jNgY9P9/fPi2abBc1rFq1n0yeJ6wBjiSJll4l5hT9ea
+	9Omkx9hIy854kYFY11JDXuDevbC2/GDMfAefJADEEtjF7I40Kflsk5kTkZngNoix6Mor+mZdSozuj
+	BtufmYWxa1Tmzs34Rv8+Uj4YnhXq1EXntbxQaODQAq2UxFk//9xnb5FbMZ2f18KUAdaOjx/wnOuWX
+	fTNedri7fWzsAWQmJfVd/p4//dP8d2dRwZzTA7J3hhrkm/2srs9+UUGj8ITrUCNXxhwoA0POXtG/M
+	rqgtZMyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkM6-00000005d2r-2Jgs;
-	Fri, 31 Oct 2025 08:19:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vEkMF-00000005d6k-1N7z;
+	Fri, 31 Oct 2025 08:19:41 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkM5-00000005d2c-3dqA;
-	Fri, 31 Oct 2025 08:19:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09CA3601D8;
-	Fri, 31 Oct 2025 08:19:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2498BC4CEF1;
-	Fri, 31 Oct 2025 08:19:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761898768;
-	bh=KxNLKm898ISK9bg5Y6Dwq7+27/Y6B02z4sitZmbdhhg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WDRnDgoQwv4gBXL/VUzJI6qGi4Zy3uokZrGwaE6SKKFuKRt+pTZT9gTjpAzBT/Co/
-	 Qso8QrABj/VtulwZ4lvoIr5kWCpirgnjzq1uHgwIwczKNgrEluq2uofGwIYFdELjUY
-	 PdkjBaZ3Ad2+4K0D9++HEFhucTPuw7Ca7DbD5Xo6hMZ98kj8GjyI88OlFGyZmT2V+1
-	 rb0goahzfje7Ej6/vgknrOKQmAX3LVt9QkYa3gMMQDbCjJABz5fByn1zTVvpSsI+BG
-	 9F4bbFi1MIW1bLytKYZ3uzPSKNN86cqFh+ZEYNvEaKpCdGDs5Bgbn7C4nuF4HeiykC
-	 K71fxnhwQdSRQ==
-Date: Fri, 31 Oct 2025 09:19:26 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Jack Hsu <jh.hsu@mediatek.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
-	andy@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	srini@kernel.org, ukleinek@kernel.org, gregkh@linuxfoundation.org, 
-	jirislaby@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de, 
-	chunfeng.yun@mediatek.com, wim@linux-watchdog.org, linux@roeck-us.net, 
-	sean.wang@mediatek.com, zhiyong.tao@mediatek.com, andrew-ct.chen@mediatek.com, 
-	lala.lin@mediatek.com, jitao.shi@mediatek.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-pwm@vger.kernel.org, linux-serial@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-watchdog@vger.kernel.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v6 07/11] dt-bindings: usb: Support MediaTek MT8189 evb
- board xhci
-Message-ID: <20251031-nifty-sticky-hoatzin-eeafeb@kuoka>
-References: <20251030134541.784011-1-jh.hsu@mediatek.com>
- <20251030134541.784011-8-jh.hsu@mediatek.com>
- <20251030-underwent-courier-1f4322e1cb34@spud>
+	id 1vEkM9-00000005d3h-0ETg;
+	Fri, 31 Oct 2025 08:19:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761898773; x=1793434773;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=EzjqWFPbYzjEfpDteBcncRVxcsQvYXXWJGNfJY3z6Qw=;
+  b=Uu01M07n5zKOlRjF7OzTzFGT5Rk4rSA/1L3VOjsCFftzEMEl+9nqIM2c
+   m8V0YCCHUdhcYM+2dpKb/yJiVPS5okYFPQdWeX4lRnE25AJl4lT1Aj9Jz
+   KcwLCtk8kCL2Qm5xd9YohjYMouNTX9zQ4S2WKjRfLAuF5hRVDJmz1W75p
+   I/OTmTY371A0utoNQnA0c8LyLwqXKWwoOwK4gH/GAbceBAsm3anc2oV//
+   Trm914ZmWlN+l3n0HJSeY7cV6iwOB9ejt9W5Qh578N9lXljPWT7fweVaE
+   YF6wGX5TO/IUdfxKp6ebzHUyyDLWW1lMb24RL5n4wCWrkSZSRN5dCsOKI
+   A==;
+X-CSE-ConnectionGUID: 8ZlWVh3VST2hI0G+0lWdgQ==
+X-CSE-MsgGUID: fpu2L7NTRxaeLwZkm/sQPA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="66666550"
+X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
+   d="scan'208";a="66666550"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:19:29 -0700
+X-CSE-ConnectionGUID: ln37oo4sSVGgtPADrikf7g==
+X-CSE-MsgGUID: Cf3BSL1nT0KAv+tRtGKg6g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
+   d="scan'208";a="186112068"
+Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.240.28]) ([10.124.240.28])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:19:22 -0700
+Message-ID: <af023723-63d5-46d3-85bb-c2d2dcfe7b15@linux.intel.com>
+Date: Fri, 31 Oct 2025 16:19:18 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251030-underwent-courier-1f4322e1cb34@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 12/28] KVM: TDX: WARN if mirror SPTE doesn't have full
+ RWX when creating S-EPT mapping
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+ Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
+ Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ackerley Tng <ackerleytng@google.com>
+References: <20251030200951.3402865-1-seanjc@google.com>
+ <20251030200951.3402865-13-seanjc@google.com>
+Content-Language: en-US
+From: Binbin Wu <binbin.wu@linux.intel.com>
+In-Reply-To: <20251030200951.3402865-13-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_011933_146172_09E6D88B 
+X-CRM114-Status: UNSURE (   5.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +104,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 07:32:26PM +0000, Conor Dooley wrote:
-> On Thu, Oct 30, 2025 at 09:44:39PM +0800, Jack Hsu wrote:
-> > modify dt-binding for support mt8189 evb board dts node of xhci
-> > 
-> > Signed-off-by: Jack Hsu <jh.hsu@mediatek.com>
-> > ---
-> >  .../devicetree/bindings/usb/mediatek,mtk-xhci.yaml         | 7 ++++++-
-> >  1 file changed, 6 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml b/Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml
-> > index 004d3ebec091..05cb6a219e5c 100644
-> > --- a/Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml
-> > +++ b/Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml
-> > @@ -34,6 +34,7 @@ properties:
-> >            - mediatek,mt8183-xhci
-> >            - mediatek,mt8186-xhci
-> >            - mediatek,mt8188-xhci
-> > +          - mediatek,mt8189-xhci
-> >            - mediatek,mt8192-xhci
-> >            - mediatek,mt8195-xhci
-> >            - mediatek,mt8365-xhci
-> > @@ -119,6 +120,9 @@ properties:
-> >    resets:
-> >      maxItems: 1
-> >  
-> > +  reset-names:
-> > +    maxItems: 1
-> 
-> Is this reset required on mt8189? Does it appear on other mediatek xhci
-> controllers?
 
-reset was there, it is the name added for some unknown reason.
 
-Best regards,
-Krzysztof
+On 10/31/2025 4:09 AM, Sean Christopherson wrote:
+> Pass in the mirror_spte to kvm_x86_ops.set_external_spte() to provide
+> symmetry with .remove_external_spte(), and assert in TDX that the mirror
+> SPTE is shadow-present with full RWX permissions (the TDX-Module doesn't
+> allow the hypervisor to control protections).
+>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
 
 
