@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7C8CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F2B2CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C01l+MJujWzA+l5ACmj/G+LOCIeE0x+IRw6tpegJqFs=; b=w5uDs+aY16yHVV2Z3Eb2ObdJwi
-	ThUewyUAumtcSK9EHz96EtgOIlYrDFGrn7MqOwez9IchdWm+sllEEeW/0lRAej1dOvNWAhHc/GTmq
-	9hL6oGLwjC8+gHmYvqxVPod3S3qT6Dz6T2EzWJNpVGppH/piSkCcIPucuHoWOphpM1gf5jtbnLtfF
-	jVGcE3l0eZdNboQBr+afuaahVFMd/+NTvfSfzbSq8MpmQceENhSeEwdwtH/KfDtxl8lG+ifJFXbR1
-	/h1qbyyhJyLihtEWyp6UDE30RRZGn8kD3JzVgn0gnQOC2EFb34vFKG9knBwgNGcJdUJYEu30GljUc
-	iX3XM7uA==;
+	bh=32nDqmBKVToC5XZjIn+9lDUzqkxmv73uD6jiIMAifEE=; b=x86g5bdzC5gFMZVni3d8K+qL82
+	45DC0YLBkFO7PhxOEV+AbV2j4tv1MOj9w3BOfBCxik+vsMlE66f/2AeCA6oOj977l4L5oeAjoT7g3
+	0IA5X+HfOsWpqCjSgfycM1W0UwAWf0cSiFNSVXYEPv2dz72Um7vXpx++pf96XtR2TCYPbUnTOB4Sp
+	MrOVzAj61QAd7x0XMgZf+BuuDhbB9xdfHGvntvYd7/2E9f5pwgvAFzqf7YmN8XiOhOn3thLLi9wYt
+	cDXbTvTryrgiYFuqmGrahY2H91iD8xUTh0H7xKtuk94peHvQTaW9LAlcTnk/1ipIudFn3fZKcbWBq
+	dwg+KrIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsbR-00000006S8O-2Hb0;
-	Fri, 31 Oct 2025 17:07:53 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vEse8-00000006SJI-0Eq9;
+	Fri, 31 Oct 2025 17:10:40 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsbO-00000006S86-3TSK
+	id 1vEse4-00000006SIs-1keQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:07:52 +0000
+	Fri, 31 Oct 2025 17:10:38 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id F347AC0E958;
-	Fri, 31 Oct 2025 17:07:26 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 9FF194E41442;
+	Fri, 31 Oct 2025 17:10:34 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6F95C60704;
-	Fri, 31 Oct 2025 17:07:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC8F511818091;
-	Fri, 31 Oct 2025 18:07:41 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7654F60704;
+	Fri, 31 Oct 2025 17:10:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 05DB11181808E;
+	Fri, 31 Oct 2025 18:10:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761930466; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1761930633; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=C01l+MJujWzA+l5ACmj/G+LOCIeE0x+IRw6tpegJqFs=;
-	b=MWh0JOwh4S53kkAb5piFTuPod9/R+DKNC0/oycGja0ehBcEGb1fpSHCuQrIuJKxQJ3CxO9
-	0NdRKuXltvwk+HqjjqUjjepCDcN7dsHVkHWyPfmy/xDFsv8hRMTshCxwtaIAdHsr+Fl6u1
-	cKZJeATxF4yiDKYOp5EZqAfNIWtaDn1zT7MCHfTM+qOaHiqBDhr752eb+EUetabMSaK/Xg
-	NMnnLENMLfcFCZoeBFyMWlWnZEe1emMyydoDbDLebrPValUTuE3vhBIYAajVkFPeU0NgWl
-	qqNsd1KfOg6YPqLqdxCA0aYOeqkK2yKj6D/GrLTV4LO42zNOrL8pFM5MEvw3CQ==
-Date: Fri, 31 Oct 2025 18:07:40 +0100
+	bh=32nDqmBKVToC5XZjIn+9lDUzqkxmv73uD6jiIMAifEE=;
+	b=q7UtPrSCEVe6YTolk8YtAHps+syWlcEE0fjbjfAyImsanNTBjJxJD/Ms2oq8lWLMVZrw7g
+	7yt4hRbZmehfTnKvbu1Rta39jM60Re2ZQ32GJsLP3am7E7c1Vnee0VwRbxarZBXt0DAjow
+	++gVUsNRZQRdvR/aeTV6mtkR3WYxFOVb3VpE3pRAEM3LOloWWKq40/34tyboDHshRh7xwE
+	x1UNZjFZwszaUw+TlYXLvldTPJlyQoSteV+CrZIGEBwm5NPBO95cTcx3EMZ1D4AEuDr5vf
+	T3uTIrtStrR63KhTj3kV8kS4iKEgYix8kDKJGAoR0Doq+7ZopMHgKMAVmdPsJQ==
+Date: Fri, 31 Oct 2025 18:10:27 +0100
 From: Kory Maincent <kory.maincent@bootlin.com>
 To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 Cc: Sudarsana Kalluru <skalluru@marvell.com>, Manish Chopra
@@ -56,12 +56,11 @@ Cc: Sudarsana Kalluru <skalluru@marvell.com>, Manish Chopra
  Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
  Jacob Keller <jacob.e.keller@intel.com>,
  linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next 2/7] net: liquidio: convert to use ndo_hwtstamp
- callbacks
-Message-ID: <20251031180740.188a6134@kmaincent-XPS-13-7390>
-In-Reply-To: <20251031004607.1983544-3-vadim.fedorenko@linux.dev>
+Subject: Re: [PATCH net-next 0/7] convert drivers to use ndo_hwtstamp
+ callbacks part 3
+Message-ID: <20251031181027.1313b51d@kmaincent-XPS-13-7390>
+In-Reply-To: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
 References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
-	<20251031004607.1983544-3-vadim.fedorenko@linux.dev>
 Organization: bootlin
 X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
@@ -69,9 +68,8 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_100751_100453_A333079C 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_101036_590284_9B1A7A23 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,16 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 00:46:02 +0000
+On Fri, 31 Oct 2025 00:46:00 +0000
 Vadim Fedorenko <vadim.fedorenko@linux.dev> wrote:
 
-> The driver implemented SIOCSHWTSTAMP ioctl command only, but there is a
-> way to get configured status. Implement both ndo_hwtstamp_set and
-> ndo_hwtstamp_get callbacks.
+> This patchset converts the rest of ethernet drivers to use ndo callbacks
+> instead ioctl to configure and report time stamping. The drivers in part
+> 3 originally implemented only SIOCSHWTSTAMP command, but converted to
+> also provide configuration back to users.
 
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+For these 3 patches, maybe it is better to split them in two to separate the
+NDO conversion from the hwtstamp_get support. I will let Jakub with the fin=
+al
+word on this.
 
-Thank you!
+> Vadim Fedorenko (7):
+>   bnx2x: convert to use ndo_hwtstamp callbacks
+>   net: liquidio: convert to use ndo_hwtstamp callbacks
+>   net: liquidio_vf: convert to use ndo_hwtstamp callbacks
+>   net: octeon: mgmt: convert to use ndo_hwtstamp callbacks
+>   net: thunderx: convert to use ndo_hwtstamp callbacks
+>   net: pch_gbe: convert to use ndo_hwtstamp callbacks
+>   qede: convert to use ndo_hwtstamp callbacks
+>=20
+>  .../net/ethernet/broadcom/bnx2x/bnx2x_main.c  | 53 +++++++++-------
+>  .../net/ethernet/cavium/liquidio/lio_main.c   | 50 ++++++---------
+>  .../ethernet/cavium/liquidio/lio_vf_main.c    | 48 ++++++--------
+>  .../net/ethernet/cavium/octeon/octeon_mgmt.c  | 62 ++++++++++---------
+>  .../net/ethernet/cavium/thunder/nicvf_main.c  | 45 ++++++++------
+>  .../ethernet/oki-semi/pch_gbe/pch_gbe_main.c  | 40 +++++++-----
+>  drivers/net/ethernet/qlogic/qede/qede_main.c  | 22 +------
+>  drivers/net/ethernet/qlogic/qede/qede_ptp.c   | 47 +++++++++-----
+>  drivers/net/ethernet/qlogic/qede/qede_ptp.h   |  6 +-
+>  9 files changed, 191 insertions(+), 182 deletions(-)
+>=20
+
+
+
 --=20
 K=C3=B6ry Maincent, Bootlin
 Embedded Linux and kernel engineering
