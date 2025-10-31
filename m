@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFA8CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:27:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6CECCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0a87uhexrPVU3gNxHlkt9mKorfh8nMdGhXMgY/Q4W8=; b=0Ch3i6DQE/Q7fP8sXxIpMp2b7q
-	+vagwizUvK2FGplbhGgE78/hp8j0CYM25Y5wLRp21gE8+K/1hOZ5HaITOaokUhtfL1Ueie8UD59be
-	J5XaDvDej+VRuMfvDun24FXh7eUZmLtU/YOzJSK1hxUP1LzvsK+KTAViTd+quHMOyX0A2e7361cut
-	x4zVuNU4yv8tmA4H5RQBDas3awcyXhaLXmHQTQmrnffl2eDaT+uk5i7uQDq5Ho9rdhGhN+KBYl6SU
-	+V8W/keO0WBd3jpQtKlDO0zABfMLQl8ChIGK/vCDDtsVT5qDF6fx+ywNX9/fEFl2XDfi63R+Ew+8A
-	huYn5ZCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yGKydFi0rlCWDTGfVx+eqqPT7FXtty04QcU087ifbkg=; b=ZpachrUIdcENXE
+	0oHJclHtRYRkIrS+1HAHaehlHmcp9sRgVzvbLQxJN0s+MFkwe3aXNnxtqCg8yO8tmTY1jBoaADDeu
+	Yfcog1bfeMUkgoipTWnaf3R2xLb4AETltvxU3LCxM5+K143CgD1PtIpe8YXw8kFJTpapt2C/tyGpk
+	w9m7rI0rXPXFJHPAB6yPnT97dw3mEHD97Kft1muDg6ZnL+OXdbw5d1cARvvehQoywzvuLx6BL9Y4Z
+	7FmJQWoVN8AVwni8+nFTFYPwXYDzbxaDO0WkBewqhoCNr06MDBg7SgVdsgin47O1r1LaRc8V3xXEc
+	WmhTVHsNwlXduWCR8jKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsuP-00000006Tm4-1upN;
-	Fri, 31 Oct 2025 17:27:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEsvC-00000006U7F-1YmE;
+	Fri, 31 Oct 2025 17:28:18 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsuD-00000006ThE-1si9
+	id 1vEsv4-00000006U1D-2bPc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:27:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F7BB44248;
-	Fri, 31 Oct 2025 17:27:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2BF65C116C6;
-	Fri, 31 Oct 2025 17:27:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761931636;
-	bh=5A/kLq8po/AIfsNGO6cLTZ+fIVCQT5AElgJFBCeehsg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Vyi6NX87iJN6ZbeYYAXbf63YVcp/ADMBFRvE1zXks28mK87vEUU6cQd/3z/uLcIHG
-	 aJbbmy+g7ZLdH0W7wm6sJgIEbMjNm0m1ZtC0KgxNjvylyPcC3rlZOza6J7Ay7uWH7l
-	 UwFV9D8XGq61zQ5vK55swVToo0gUX0ICWhykzmT4DBYnmnmlCVjSE97/EQl5KakL3U
-	 VAnwV/j4s5KgbTVAukt09NwqSpb4STcRGbTXtPm2B2mv/3gLOaqqjvm6PAsQcdXJui
-	 UsYz0Qw+KgDKyh8FFJCkXhoRAMAyz4uJg1Ss7zUERlImmPy/MMw/MGmyAtD3tLBshF
-	 kPpp6Alu9hn0A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 22808CCFA03;
-	Fri, 31 Oct 2025 17:27:16 +0000 (UTC)
-From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Sat, 01 Nov 2025 01:27:10 +0800
-Subject: [PATCH net-next v2 4/4] net: stmmac: socfpga: Add hardware
- supported cross-timestamp
+	Fri, 31 Oct 2025 17:28:16 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:314e:ee86:ae6e:30:9d13])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 19DC1B5;
+	Fri, 31 Oct 2025 18:26:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1761931575;
+	bh=9SSY1folB+duN1Z637f7cJ0O43yr4Zt9RriQBj05roM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=uId7y65hlTu2bACspNHUnUPnO2ewYDVwKqha0H6TwWXSU/U0SJ9/NB3tq3+Rm/QZa
+	 sxp8z4lFiTdlrkM28Uklg2bDOr1yTmhMwUTwE6naVkjmSA9Wdgiqp7F8lR/lWdtX7l
+	 zuN4kxbSCGvvz9FCy+/0kfEnbHkAylGQVnqJrUmA=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: [PATCH 00/13] platform/raspberrypi: Add Broadcom Videocore shared
+ memory support
+Date: Fri, 31 Oct 2025 22:57:20 +0530
+Message-Id: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251101-agilex5_ext-v2-4-a6b51b4dca4d@altera.com>
-References: <20251101-agilex5_ext-v2-0-a6b51b4dca4d@altera.com>
-In-Reply-To: <20251101-agilex5_ext-v2-0-a6b51b4dca4d@altera.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+X-B4-Tracking: v=1; b=H4sIAHjxBGkC/yXNwQ6CMAyA4VchO1szN4FBjPE9DIfRFdlhICsSE
+ 8O7O+D4t+nXn2CKnljU2U9EWjz7cUhxOWUCezu8CLxLLZRU+UVqCe0VFgQOgMFCV5SqRF2hU7l
+ IJ+9Inf/u3LM5OtL0Sep8DEUgZrurdXY7UFUlsfcTOOJ52y0aJDhrXIFGo8L84R1ZHod2tNGdc
+ Qz37VlrmSBF8HOdaWuKQprSGF2JZl3/IRC+59kAAAA=
+X-Change-ID: 20251030-b4-vc-sm-cma-f6727c39cd25
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ bcm-kernel-feedback-list@broadcom.com
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Phil Elwell <phil@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rohan G Thomas <rohan.g.thomas@altera.com>
+ Jai Luthra <jai.luthra@ideasonboard.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.org>, 
+ Dom Cobley <popcornmix@gmail.com>, 
+ Alexander Winkowski <dereference23@outlook.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Juerg Haefliger <juerg.haefliger@canonical.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761931634; l=7078;
- i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=9EkvKknTEFMhFgiG4guzPV0b/EvK3DNx3dlBmCIhiac=;
- b=uOn4rWvTDMcdAQ1HyyZkaYCxtJBnVLAs8rfsa590bz7r8rgMCrSuY56YVXV7Ee82E4rG1yhuk
- 3ix7Ne28jO4Do5xeB7MLMu5HdpyewAFibr4FJBycKZ5nKY1qKwg/Dji
-X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
- pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
-X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
- with auth_id=494
-X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4137;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=9SSY1folB+duN1Z637f7cJ0O43yr4Zt9RriQBj05roM=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpBPGTIF52f00vRd2pwHOlyYuo04j8E+9SkmKbr
+ CumA/Ys9leJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaQTxkwAKCRBD3pH5JJpx
+ RZSxEADPMPUvu2vFXvGNh0skoDic2m8IZq4TOVSmTG0MihhMvHlaoft3qTBJFmIW9UMiid4plg4
+ 0/YTxc2mvYn26HrhtHq3mpAr88EdHq0ew7168lt2aFmQzffx9SnACNOxaDh8vlCJPfXJHnr1oyB
+ 8SFJuhftOKU0d0q1BolETdOK6ZIF1V26nAgKuK7HcSnVg+6LPY9yexPSdbpCXjHCQrteYTz6AB/
+ Iw6nlfS9NN2rpIbPdayWlBX3Hvu9FwjJFO9CFxc+pHi8yp4nMlB0tQHwY0pq1pddLTsbRYZD7zp
+ toh5brPceUEWgMnVutqbi4KB6gxSsa9EP+kfLsw8JO5e8Oy3K8sj1NtvnNck9XkJlk20C+rrA6D
+ Mfng5Ko6DAeCmC8rgGkI/qgQCLMjboBtGQNfR3QQABsHQBYN2Jd28IjBQ8I1QkuYilrDUmSVQ88
+ m0I3HGgruYNxSOQUanuAh44nNzUbrBoGjUQhF9SfM7i1XvJSLipw37hv9h+NWIM4+kLmoYMlw2X
+ sS9x7m4X2iTc544HfmURFye1aU5ZVsG3l8AmSwr3r88mrHySFV8ih8XSyF6gB3y/iDT+KLnSDB6
+ LvUmmSiY0qlPHnwO10rmkATrhpws+YLMT07POOYyD4vtxMxDITcwJ4De/rNuH/NpFGUMCDXnLFt
+ QIB+ONdx2mmwWTA==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_102717_544444_2F6AA642 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20251031_102811_124139_CBE1ED46 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,224 +98,80 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+Hi,
 
-Cross timestamping is supported on Agilex5 platform with Synchronized
-Multidrop Timestamp Gathering(SMTG) IP. The hardware cross-timestamp
-result is made available the applications through the ioctl call
-PTP_SYS_OFFSET_PRECISE, which inturn calls stmmac_getcrosststamp().
+The vc-sm-cma driver allows contiguous memory blocks to be imported into
+the VideoCore VPU memory map. This series adds support for this driver
+and various changes to VCHIQ MMAL layer required to get this functional.
 
-Device time is stored in the MAC Auxiliary register. The 64-bit System
-time (ARM_ARCH_COUNTER) is stored in SMTG IP. SMTG IP is an MDIO device
-with 0xC - 0xF MDIO register space holds 64-bit system time.
+These changes have lived in the staging directory of the downstream
+Raspberry Pi tree since quite some time, but are necessary for getting
+the VCHIQ based peripherals like the ISP and codec functional in
+mainline.
 
-This commit is similar to following commit for Intel platforms:
-Commit 341f67e424e5 ("net: stmmac: Add hardware supported cross-timestamp")
+This series depends on an earlier series, destaging VCHIQ interface and
+MMAL driver, which was posted here:
+https://lore.kernel.org/all/20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com/
 
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Thanks,
+	Jai
+
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 120 +++++++++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     |   5 +
- 2 files changed, 125 insertions(+)
+Dave Stevenson (13):
+      platform/raspberrypi: vchiq-mmal: Avoid use of bool in structures
+      platform/raspberrypi: vchiq-mmal: Add support for event callbacks.
+      platform/raspberrypi: vchiq-mmal: Support sending data to MMAL ports
+      platform/raspberrypi: vchiq-mmal: Fix client_component for 64 bit kernel
+      platform/raspberrypi: vchiq-mmal: Add in the bayer and gray formats
+      platform/raspberrypi: vchiq-mmal: Update video parameters
+      platform/raspberrypi: vchiq-mmal: Free the event context for control ports
+      platform/raspberrypi: vchiq-mmal: Fix memory leak in error path
+      platform/raspberrypi: Add new vc-sm-cma driver
+      platform/raspberrypi: vchiq-mmal: Use vc-sm-cma to support zero copy
+      platform/raspberrypi: vchiq-mmal: Reset buffers_with_vpu on port_enable
+      platform/raspberrypi: vchiq-mmal: Add defines for mmal_es_format flags
+      platform/raspberrypi: vchiq: Register vc-sm-cma as a platform driver
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 1837346ca2d438018ae161a233f415fe0181c78d..49d651948e2bd41faeecaebb37121aef757a66a7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <linux/mfd/altera-sysmgr.h>
-+#include <linux/clocksource_ids.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_net.h>
-@@ -15,8 +16,10 @@
- #include <linux/reset.h>
- #include <linux/stmmac.h>
- 
-+#include "dwxgmac2.h"
- #include "stmmac.h"
- #include "stmmac_platform.h"
-+#include "stmmac_ptp.h"
- 
- #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII 0x0
- #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RGMII 0x1
-@@ -41,6 +44,13 @@
- #define SGMII_ADAPTER_ENABLE		0x0000
- #define SGMII_ADAPTER_DISABLE		0x0001
- 
-+#define SMTG_MDIO_ADDR		0x15
-+#define SMTG_TSC_WORD0		0xC
-+#define SMTG_TSC_WORD1		0xD
-+#define SMTG_TSC_WORD2		0xE
-+#define SMTG_TSC_WORD3		0xF
-+#define SMTG_TSC_SHIFT		16
-+
- struct socfpga_dwmac;
- struct socfpga_dwmac_ops {
- 	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv);
-@@ -269,6 +279,112 @@ static int socfpga_set_phy_mode_common(int phymode, u32 *val)
- 	return 0;
- }
- 
-+static void get_smtgtime(struct mii_bus *mii, int smtg_addr, u64 *smtg_time)
-+{
-+	u64 ns;
-+
-+	ns = mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD3);
-+	ns <<= SMTG_TSC_SHIFT;
-+	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD2);
-+	ns <<= SMTG_TSC_SHIFT;
-+	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD1);
-+	ns <<= SMTG_TSC_SHIFT;
-+	ns |= mdiobus_read(mii, smtg_addr, SMTG_TSC_WORD0);
-+
-+	*smtg_time = ns;
-+}
-+
-+static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
-+			    void *ctx)
-+{
-+	struct stmmac_priv *priv = (struct stmmac_priv *)ctx;
-+	u32 num_snapshot, gpio_value, acr_value;
-+	void __iomem *ptpaddr = priv->ptpaddr;
-+	void __iomem *ioaddr = priv->hw->pcsr;
-+	unsigned long flags;
-+	u64 smtg_time = 0;
-+	u64 ptp_time = 0;
-+	int i, ret;
-+	u32 v;
-+
-+	/* Both internal crosstimestamping and external triggered event
-+	 * timestamping cannot be run concurrently.
-+	 */
-+	if (priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN)
-+		return -EBUSY;
-+
-+	mutex_lock(&priv->aux_ts_lock);
-+	/* Enable Internal snapshot trigger */
-+	acr_value = readl(ptpaddr + PTP_ACR);
-+	acr_value &= ~PTP_ACR_MASK;
-+	switch (priv->plat->int_snapshot_num) {
-+	case AUX_SNAPSHOT0:
-+		acr_value |= PTP_ACR_ATSEN0;
-+		break;
-+	case AUX_SNAPSHOT1:
-+		acr_value |= PTP_ACR_ATSEN1;
-+		break;
-+	case AUX_SNAPSHOT2:
-+		acr_value |= PTP_ACR_ATSEN2;
-+		break;
-+	case AUX_SNAPSHOT3:
-+		acr_value |= PTP_ACR_ATSEN3;
-+		break;
-+	default:
-+		mutex_unlock(&priv->aux_ts_lock);
-+		return -EINVAL;
-+	}
-+	writel(acr_value, ptpaddr + PTP_ACR);
-+
-+	/* Clear FIFO */
-+	acr_value = readl(ptpaddr + PTP_ACR);
-+	acr_value |= PTP_ACR_ATSFC;
-+	writel(acr_value, ptpaddr + PTP_ACR);
-+	/* Release the mutex */
-+	mutex_unlock(&priv->aux_ts_lock);
-+
-+	/* Trigger Internal snapshot signal. Create a rising edge by just toggle
-+	 * the GPO0 to low and back to high.
-+	 */
-+	gpio_value = readl(ioaddr + XGMAC_GPIO_STATUS);
-+	gpio_value &= ~XGMAC_GPIO_GPO0;
-+	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
-+	gpio_value |= XGMAC_GPIO_GPO0;
-+	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
-+
-+	/* Poll for time sync operation done */
-+	ret = readl_poll_timeout(priv->ioaddr + XGMAC_INT_STATUS, v,
-+				 (v & XGMAC_INT_TSIS), 100, 10000);
-+	if (ret) {
-+		netdev_err(priv->dev, "%s: Wait for time sync operation timeout\n",
-+			   __func__);
-+		return ret;
-+	}
-+
-+	*system = (struct system_counterval_t) {
-+		.cycles = 0,
-+		.cs_id = CSID_ARM_ARCH_COUNTER,
-+		.use_nsecs = false,
-+	};
-+
-+	num_snapshot = (readl(ioaddr + XGMAC_TIMESTAMP_STATUS) &
-+			XGMAC_TIMESTAMP_ATSNS_MASK) >>
-+			XGMAC_TIMESTAMP_ATSNS_SHIFT;
-+
-+	/* Repeat until the timestamps are from the FIFO last segment */
-+	for (i = 0; i < num_snapshot; i++) {
-+		read_lock_irqsave(&priv->ptp_lock, flags);
-+		stmmac_get_ptptime(priv, ptpaddr, &ptp_time);
-+		*device = ns_to_ktime(ptp_time);
-+		read_unlock_irqrestore(&priv->ptp_lock, flags);
-+	}
-+
-+	get_smtgtime(priv->mii, SMTG_MDIO_ADDR, &smtg_time);
-+	system->cycles = smtg_time;
-+
-+	return 0;
-+}
-+
- static int socfpga_gen5_set_phy_mode(struct socfpga_dwmac *dwmac)
- {
- 	struct regmap *sys_mgr_base_addr = dwmac->sys_mgr_base_addr;
-@@ -473,6 +589,10 @@ static void socfpga_agilex5_setup_plat_dat(struct socfpga_dwmac *dwmac)
- 		/* Tx Queues 0 - 5 doesn't support TBS on Agilex5 */
- 		break;
- 	}
-+
-+	/* Hw supported cross-timestamp */
-+	plat_dat->int_snapshot_num = AUX_SNAPSHOT0;
-+	plat_dat->crosststamp = smtg_crosststamp;
- }
- 
- static int socfpga_dwmac_probe(struct platform_device *pdev)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index 0d408ee17f337851502cbcba8e82d2b839b9db02..e48cfa05000c07ed9194de786efa530a61a9dbfa 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -79,6 +79,7 @@
- #define XGMAC_PSRQ(x)			GENMASK((x) * 8 + 7, (x) * 8)
- #define XGMAC_PSRQ_SHIFT(x)		((x) * 8)
- #define XGMAC_INT_STATUS		0x000000b0
-+#define XGMAC_INT_TSIS			BIT(12)
- #define XGMAC_LPIIS			BIT(5)
- #define XGMAC_PMTIS			BIT(4)
- #define XGMAC_INT_EN			0x000000b4
-@@ -173,6 +174,8 @@
- #define XGMAC_MDIO_ADDR			0x00000200
- #define XGMAC_MDIO_DATA			0x00000204
- #define XGMAC_MDIO_C22P			0x00000220
-+#define XGMAC_GPIO_STATUS		0x0000027c
-+#define XGMAC_GPIO_GPO0			BIT(16)
- #define XGMAC_ADDRx_HIGH(x)		(0x00000300 + (x) * 0x8)
- #define XGMAC_ADDR_MAX			32
- #define XGMAC_AE			BIT(31)
-@@ -220,6 +223,8 @@
- #define XGMAC_OB			BIT(0)
- #define XGMAC_RSS_DATA			0x00000c8c
- #define XGMAC_TIMESTAMP_STATUS		0x00000d20
-+#define XGMAC_TIMESTAMP_ATSNS_MASK	GENMASK(29, 25)
-+#define XGMAC_TIMESTAMP_ATSNS_SHIFT	25
- #define XGMAC_TXTSC			BIT(15)
- #define XGMAC_TXTIMESTAMP_NSEC		0x00000d30
- #define XGMAC_TXTSSTSLO			GENMASK(30, 0)
+ MAINTAINERS                                               |    7 +
+ drivers/platform/raspberrypi/Kconfig                      |    2 +
+ drivers/platform/raspberrypi/Makefile                     |    1 +
+ drivers/platform/raspberrypi/vc-sm-cma/Kconfig            |    9 +
+ drivers/platform/raspberrypi/vc-sm-cma/Makefile           |    9 +
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c            | 1619 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm.h            |   83 ++++++
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm_cma_vchi.c   |  513 ++++++++++++++++++++++++++++++++++++
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm_cma_vchi.h   |   63 +++++
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm_defs.h       |  298 +++++++++++++++++++++
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm_knl.h        |   28 ++
+ drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c  |    3 +
+ drivers/platform/raspberrypi/vchiq-mmal/Kconfig           |    3 +-
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h     |    5 +
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-encodings.h  |   41 +++
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-msg-format.h |   10 +
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-msg.h        |   35 +++
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h |   38 ++-
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c      |  269 +++++++++++++++++--
+ drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.h      |    5 +
+ include/linux/raspberrypi/vc_sm_cma_ioctl.h               |  114 ++++++++
+ 21 files changed, 3132 insertions(+), 23 deletions(-)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251030-b4-vc-sm-cma-f6727c39cd25
+prerequisite-message-id: <20251029-vchiq-destage-v3-0-da8d6c83c2c5@ideasonboard.com>
+prerequisite-patch-id: b0a98fe9aa5b5cd548c55f01fb51962d15c2a86d
+prerequisite-patch-id: a745143658be8020e9c906f7b503473b54cacb82
+prerequisite-patch-id: 163c9bc2d42a9b743ae726d1e5559fdc8988d5a2
+prerequisite-patch-id: 8d81e9507d7e47daca70eb681b1400d96e5cd869
+prerequisite-patch-id: 28f7ab0db3909b8ab9201d47741e7f941322680f
+prerequisite-patch-id: c39620e68ca4ef9441f621db946c072f3be66721
+prerequisite-patch-id: 47af76c416f5d80839e384ffb5b2d37032d2ee7a
 
+Best regards,
 -- 
-2.43.7
-
+Jai Luthra <jai.luthra@ideasonboard.com>
 
 
