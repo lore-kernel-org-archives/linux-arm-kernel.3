@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B01D7CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 06:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91BCCCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 07:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hF/sVbbm9Ao9b8Ns6PIrso6umKYBwwEUA+RHQF/p8WU=; b=RD9aUoH/t6QauuLhWkW1zhva4Z
-	fp4mJodj1Dqnfcdn/qvM7fFm1HWjBsT1RCL6UFd43o6HnAWTNST2QQLw80mmjdTXIQQFd8ADsuhEd
-	CPrGCs+YVMyKMfVd5rFvH1aS+jIlHp+ClexS9FpdMiWvEXH26bCMoZFXV/kkfoU7UsqJvFAdPduKr
-	UAX5V2XHJjPjufrmjRa84abANvxaSKRnwuf1ouJMo6Y+d7Bc7gD5E9s/wgG0WDob00nB1dukfG/VU
-	BErijTtnbq2RLvJ6ZjCyst/l9lMfUoE019FkT8PRbcMVOVsHCk37k9IV1DRdBuO59NJj9rwhAYq6H
-	+OVeXV7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bn7kB7W8C3y9Z/MKrM0dzhJT6GgDza4+fSBtp+C3jAg=; b=ljlfeDkaNSf2w8O/RI5rmDyQs+
+	YfL7cp1XBCoESamhnC5B6l/iyaOzkcRFNNY7HtXWOW94tafbtKburFVaAY82qsWZ9ZskbF0QS75LO
+	zovkh8zaRxEt2TzS5vn0bR1Jl7EJ+iUzp6whmbqjneUwHTuccXDpz3qURjkTP8IOWskTKRwuDf0VT
+	d9eOW4HjTNTYoj4CCIgUJvmd/MIRriu3QBViAtU2mcj7m5Xej8zbjbKRX1VoyT7gvnqE47Z1nvoFm
+	LAJPzonTUJ5u5rCltYms4933LulagIMVEFNRNOmImMMn66onIN8AFT2UwzC9A/5uuJbAf9jfxPWcT
+	MLYBNaSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEj4t-00000005V8t-1pot;
-	Fri, 31 Oct 2025 06:57:39 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vEjII-00000005Vk3-17l9;
+	Fri, 31 Oct 2025 07:11:31 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEj4q-00000005V81-0mYd
+	id 1vEjID-00000005VjX-2BIU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 06:57:37 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-63c45c11be7so3200125a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 23:57:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761893853; x=1762498653; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hF/sVbbm9Ao9b8Ns6PIrso6umKYBwwEUA+RHQF/p8WU=;
-        b=PusivBd6dxkYzbGAwK29cTTmrnmWJkeOxq/efLkAc3GcgbQ/xshGsUyh4RGTZW+nHL
-         Hjt9wuN1EUG+vL/vaXDEiVZp+rJTz7EfzIHBXmE3rpltbmzjvI6A+s9B6x9+Ek+UDQt+
-         mEty+bDiWV/4QXjPIZE4vmFvV2oEhktLgLUAGAKM1IEsrHaK3UoNx/p+J99Sa0nRFIIu
-         t5jOYsA9oYeNEDSMmPOeWN+1WG/xl+3wd/+umNiuJUqb6FQ4IUtH54VSnfxoeLv7/6Ib
-         NTypIOA7D8KvpTDXaEKANSneTSKSnGiSDXv9/QWFN5MsMWZVplcmWFBWWeJ/3MSFRRZT
-         QRLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761893853; x=1762498653;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hF/sVbbm9Ao9b8Ns6PIrso6umKYBwwEUA+RHQF/p8WU=;
-        b=fWhg4HwW3B29Qa9179B0RCNS8pBbR93mtbglwUMft8KusL3p0asBWWpi9Sg3EWxUex
-         uDcCDVhHgRUI5kiKG502nqXnTC5iHgDsIeWWvyHDqzGitv9FRFx26zzsac+o1ze9IccZ
-         1ugMP1vBUWs05ScvqOK1p0dAWWKmn/DYIFN0sC4UXMkZ9ht+RVDHE/+t9xoXd7I7L3c/
-         7OMZ9EEs0ilksy9QExhdEQxMnO5Clj5Iy2yrxWvyoNns4AobFud9B8DLSUPaKaV5CM8c
-         FebEcfyFHHAd7sHV4w8aXy+yt3FNO6S2zevUB+Z0A2KX6PiNhUUiFTxrk+TeQYyzSRH6
-         eTPw==
-X-Forwarded-Encrypted: i=1; AJvYcCWakR0mDvlTrrVSnvUo4OCz1JtFWZlVHf0mbPPBKY1FGLIa6a31xiEd9V74jLupQF390xoGqT4VFjj0s8kx/CdQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyrn4gWIeegO2HmemBwGRq2XU17AErk0eiT4KHmyWCpt+BqwNf+
-	nyrwvo642iGpxYy7L+J1iULUOzCS8c12Iah9DTKmUgmIkjKKecCXX5v1Qmi2vM9IeCEHySMSEPo
-	FEMHkdfDDuH/79ZckTew/8i4CEMoGssM=
-X-Gm-Gg: ASbGnctLsocrj0M1bNan4B4AxTq5WzxdHq9H6sTy0G0Q3Vu/BF7idoQZM7reuRwU8Fc
-	rDCUvI27kPtAqPNOVTRoJyuBcSWHWJxUahSWb7ZwqTO0GQRyO8SIbEGkJpb59einiUnRX16bkTi
-	lKzlqZEL/g9Yn53xETfA8qm3YChh90yx1qPiNRO76rlY6AhDj41Sv3XTK99IjRBWIkdFKc8Rshp
-	JQ5cMICT10UMaDHm0tWiRk95Qu9WjS8s6o9zUinNRpr5iqOMTz407jCz7bpx/HE/vFO0w==
-X-Google-Smtp-Source: AGHT+IFyei+klT+e0zDZRYAQ8WfZ4bnVZVHTeB/u6lCn4sY3PNMEr1huxXolqGu7fMkBJJ2eI8cU2oPW7PqE/lfnbIQ=
-X-Received: by 2002:a05:6402:42d2:b0:639:4c9:9c9e with SMTP id
- 4fb4d7f45d1cf-64076f745edmr1865815a12.10.1761893853181; Thu, 30 Oct 2025
- 23:57:33 -0700 (PDT)
+	Fri, 31 Oct 2025 07:11:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cyXF35PtDz12LFQ;
+	Fri, 31 Oct 2025 15:10:31 +0800 (CST)
+Received: from kwepemr500004.china.huawei.com (unknown [7.202.195.141])
+	by mail.maildlp.com (Postfix) with ESMTPS id DDF21180B71;
+	Fri, 31 Oct 2025 15:11:07 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemr500004.china.huawei.com
+ (7.202.195.141) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 31 Oct
+ 2025 15:11:07 +0800
+Message-ID: <5b8602a6-73ea-4c34-8154-0a48e218d4f4@hisilicon.com>
+Date: Fri, 31 Oct 2025 15:11:06 +0800
 MIME-Version: 1.0
-References: <20250905112736.6401-1-linux.amoon@gmail.com> <176085588758.11569.7678087221969106036.b4-ty@kernel.org>
-In-Reply-To: <176085588758.11569.7678087221969106036.b4-ty@kernel.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Fri, 31 Oct 2025 12:27:15 +0530
-X-Gm-Features: AWmQ_bkdpeuvODAhvIaaZqDfiic9UVZyJJONFz6Rrfy4AXRXj22BM3Tny4odqv0
-Message-ID: <CANAwSgRjXS4V_Kpw5kaJnPA8f=18uN-MgfEQ5ErN3aFRqbJKfg@mail.gmail.com>
-Subject: Re: [PATCH v1] PCI: dw-rockchip: Simplify regulator setup with devm_regulator_get_enable_optional()
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Hans Zhang <18255117159@163.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] cpufreq: CPPC: Update FIE arch_freq_scale in ticks
+ for non-PCC regs
+To: Beata Michalska <beata.michalska@arm.com>
+CC: <viresh.kumar@linaro.org>, <rafael@kernel.org>, <ionela.voinescu@arm.com>,
+	<zhenglifeng1@huawei.com>, <linux-pm@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>
+References: <20250828110212.2108653-1-zhanjie9@hisilicon.com>
+ <20250828110212.2108653-3-zhanjie9@hisilicon.com> <aQNq7uwVCtFfBDMJ@arm.com>
+Content-Language: en-US
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <aQNq7uwVCtFfBDMJ@arm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr500004.china.huawei.com (7.202.195.141)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_235736_223414_5112DB5B 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20251031_001126_023362_428C15D5 
+X-CRM114-Status: GOOD (  28.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +75,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manivannan,
 
-On Sun, 19 Oct 2025 at 12:08, Manivannan Sadhasivam <mani@kernel.org> wrote:
->
->
-> On Fri, 05 Sep 2025 16:57:25 +0530, Anand Moon wrote:
-> > Replace manual get/enable logic with devm_regulator_get_enable_optional()
-> > to reduce boilerplate and improve error handling. This devm helper ensures
-> > the regulator is enabled during probe and automatically disabled on driver
-> > removal. Dropping the vpcie3v3 struct member eliminates redundant state
-> > tracking, resulting in cleaner and more maintainable code.
-> >
-> >
-> > [...]
->
-> Applied, thanks!
->
-> [1/1] PCI: dw-rockchip: Simplify regulator setup with devm_regulator_get_enable_optional()
->       commit: c930b10f17c03858cfe19b9873ba5240128b4d1b
->
-I am looking to suspend or resume the issue. We probably need to
-toggle the regulator
-to maintain the power status on the PCIe controller.
-Therefore, dropping the patch is an option; I will add dev_err_probe
-for PHY later in the patch.
 
-> Best regards,
-> --
-> Manivannan Sadhasivam <mani@kernel.org>
->
-Thanks
--Anand
+On 10/30/2025 9:41 PM, Beata Michalska wrote:
+> Hi Jie,
+> On Thu, Aug 28, 2025 at 07:02:12PM +0800, Jie Zhan wrote:
+>> Currently, the CPPC Frequency Invariance Engine (FIE) is invoked from the
+>> scheduler tick but defers the update of arch_freq_scale to a separate
+>> thread because cppc_get_perf_ctrs() would sleep if the CPC regs are in PCC.
+>>
+>> However, this deferred update mechanism is unnecessary and introduces extra
+>> overhead for non-PCC register spaces (e.g. System Memory or FFH), where
+>> accessing the regs won't sleep and can be safely performed from the tick
+>> context.  Also, reading perf counters of a remote CPU may return 0 if it's
+>> in a low-power idle state, e.g. power down or reset.
+> I'm not sure how this is relevant to the changes (?)
+Hi Beata,
+
+The CPPC FIE is eventually handled in a thread, where it accesses perf
+counters of remote CPUs.
+
+Reading perf counters of a remote CPU may throw us warnings of
+"cppc_scale_freq_workfn: failed to read perf counters"
+because the CPC regs are in System Memory and the target CPU is in a
+power-down idle state.
+
+Moving the FIE handling back to the scheduler tick process makes the CPU
+handle its own perf counters so it won't fail.  Then the issue is
+inherently solved.
+
+I can update the commit log so this would be clear.
+>>
+>> Update arch_freq_scale directly in ticks for non-PCC regs and keep the
+>> deferred update mechanism for PCC regs.
+>>
+>> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+>> ---
+>>  drivers/cpufreq/cppc_cpufreq.c | 52 +++++++++++++++++++++++-----------
+>>  1 file changed, 36 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+>> index 7724318b3415..66d74b062ceb 100644
+>> --- a/drivers/cpufreq/cppc_cpufreq.c
+>> +++ b/drivers/cpufreq/cppc_cpufreq.c
+>> @@ -55,31 +55,24 @@ static int cppc_perf_from_fbctrs(struct cppc_cpudata *cpu_data,
+>>  				 struct cppc_perf_fb_ctrs *fb_ctrs_t1);
+>>  
+>>  /**
+>> - * cppc_scale_freq_workfn - CPPC arch_freq_scale updater for frequency invariance
+>> - * @work: The work item.
+>> + * __cppc_scale_freq_tick - CPPC arch_freq_scale updater for frequency invariance
+>> + * @cppc_fi: per-cpu CPPC FIE data.
+>>   *
+>> - * The CPPC driver register itself with the topology core to provide its own
+>> + * The CPPC driver registers itself with the topology core to provide its own
+>>   * implementation (cppc_scale_freq_tick()) of topology_scale_freq_tick() which
+>>   * gets called by the scheduler on every tick.
+>>   *
+>>   * Note that the arch specific counters have higher priority than CPPC counters,
+>>   * if available, though the CPPC driver doesn't need to have any special
+>>   * handling for that.
+>> - *
+>> - * On an invocation of cppc_scale_freq_tick(), we schedule an irq work (since we
+>> - * reach here from hard-irq context), which then schedules a normal work item
+>> - * and cppc_scale_freq_workfn() updates the per_cpu arch_freq_scale variable
+>> - * based on the counter updates since the last tick.
+>>   */
+>> -static void cppc_scale_freq_workfn(struct kthread_work *work)
+>> +static void __cppc_scale_freq_tick(struct cppc_freq_invariance *cppc_fi)
+>>  {
+>> -	struct cppc_freq_invariance *cppc_fi;
+>>  	struct cppc_perf_fb_ctrs fb_ctrs = {0};
+>>  	struct cppc_cpudata *cpu_data;
+>>  	unsigned long local_freq_scale;
+>>  	u64 perf;
+>>  
+>> -	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
+>>  	cpu_data = cppc_fi->cpu_data;
+>>  
+>>  	if (cppc_get_perf_ctrs(cppc_fi->cpu, &fb_ctrs)) {
+>> @@ -104,6 +97,14 @@ static void cppc_scale_freq_workfn(struct kthread_work *work)
+>>  	per_cpu(arch_freq_scale, cppc_fi->cpu) = local_freq_scale;
+>>  }
+>>  
+>> +static void cppc_scale_freq_workfn(struct kthread_work *work)
+>> +{
+>> +	struct cppc_freq_invariance *cppc_fi;
+>> +
+>> +	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
+>> +	__cppc_scale_freq_tick(cppc_fi);
+>> +}
+>> +
+>>  static void cppc_irq_work(struct irq_work *irq_work)
+>>  {
+>>  	struct cppc_freq_invariance *cppc_fi;
+>> @@ -112,7 +113,14 @@ static void cppc_irq_work(struct irq_work *irq_work)
+>>  	kthread_queue_work(kworker_fie, &cppc_fi->work);
+>>  }
+>>  
+>> -static void cppc_scale_freq_tick(void)
+>> +/*
+>> + * Reading perf counters may sleep if the CPC regs are in PCC.  Thus, we
+>> + * schedule an irq work in scale_freq_tick (since we reach here from hard-irq
+>> + * context), which then schedules a normal work item cppc_scale_freq_workfn()
+>> + * that updates the per_cpu arch_freq_scale variable based on the counter
+>> + * updates since the last tick.
+>> + */
+>> +static void cppc_scale_freq_tick_pcc(void)
+>>  {
+>>  	struct cppc_freq_invariance *cppc_fi = &per_cpu(cppc_freq_inv, smp_processor_id());
+>>  
+>> @@ -123,6 +131,11 @@ static void cppc_scale_freq_tick(void)
+>>  	irq_work_queue(&cppc_fi->irq_work);
+>>  }
+>>  
+>> +static void cppc_scale_freq_tick(void)
+>> +{
+>> +	__cppc_scale_freq_tick(&per_cpu(cppc_freq_inv, smp_processor_id()));
+>> +}
+>> +
+>>  static struct scale_freq_data cppc_sftd = {
+>>  	.source = SCALE_FREQ_SOURCE_CPPC,
+>>  	.set_freq_scale = cppc_scale_freq_tick,
+>> @@ -140,8 +153,10 @@ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
+>>  		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+>>  		cppc_fi->cpu = cpu;
+>>  		cppc_fi->cpu_data = policy->driver_data;
+>> -		kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
+>> -		init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
+>> +		if (cppc_perf_ctrs_in_pcc()) {
+> I'm wondering if we really need to go through all present cpus every time this
+> check is needed. Maybe the result of it could be stashed somehow, especially now
+> that more invocations are added.
+Make sense.  I'll have a look whether it's safe to stash that in
+cppc_freq_invariance_init() and use the stashed value later.
+
+Thanks!
+Jie
+> 
+> ---
+> BR
+> Beata
+>> +			kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
+>> +			init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
+>> +		}
+>>  
+>>  		ret = cppc_get_perf_ctrs(cpu, &cppc_fi->prev_perf_fb_ctrs);
+>>  		if (ret && cpu_online(cpu)) {
+>> @@ -174,6 +189,9 @@ static void cppc_cpufreq_cpu_fie_exit(struct cpufreq_policy *policy)
+>>  	/* policy->cpus will be empty here, use related_cpus instead */
+>>  	topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_CPPC, policy->related_cpus);
+>>  
+>> +	if (!cppc_perf_ctrs_in_pcc())
+>> +		return;
+>> +
+>>  	for_each_cpu(cpu, policy->related_cpus) {
+>>  		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+>>  		irq_work_sync(&cppc_fi->irq_work);
+>> @@ -206,9 +224,11 @@ static void __init cppc_freq_invariance_init(void)
+>>  		}
+>>  	}
+>>  
+>> -	if (fie_disabled)
+>> +	if (fie_disabled || !cppc_perf_ctrs_in_pcc())
+>>  		return;
+>>  
+>> +	cppc_sftd.set_freq_scale = cppc_scale_freq_tick_pcc;
+>> +
+>>  	kworker_fie = kthread_run_worker(0, "cppc_fie");
+>>  	if (IS_ERR(kworker_fie)) {
+>>  		pr_warn("%s: failed to create kworker_fie: %ld\n", __func__,
+>> @@ -228,7 +248,7 @@ static void __init cppc_freq_invariance_init(void)
+>>  
+>>  static void cppc_freq_invariance_exit(void)
+>>  {
+>> -	if (fie_disabled)
+>> +	if (fie_disabled || !cppc_perf_ctrs_in_pcc())
+>>  		return;
+>>  
+>>  	kthread_destroy_worker(kworker_fie);
+>> -- 
+>> 2.33.0
+>>
+> 
 
