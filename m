@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E809CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31214CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LtnXaqdbVR8gOvpEPR+6l9cfgKr6bsCXJtfhHUXOVv8=; b=Vjd0NIL/utPYC7w/aTxM++EJyT
-	pJDUAlfO+lSgdD0bBddP1Mr/ruf+VdwAbvO6fZers3bVwWrOStI255+DpogLo6/kJrGCCX+vmadO3
-	KRPYD7IjhRkLUd1mlWq49hxUcn8tKjAzKe3T6lFqyHX0ilxxA4Y5Fiy5KwSKvQcz9Fs85YnvR1WoW
-	6GzMEkrfwb0hM0i/ZZ2eOnKBXIp7So9G/AylW2j/wqeKUBM9xWOrx/H84PKS/dNlFBpyOekISt1pO
-	Udh+EMFd9bgqEXA5kanGn4PPpvOwGC4KQjvCkNuFIrAeNavWYZydl+qQ+ZXptoWYZ6lEr+DVizLjT
-	9tsp7lDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=teo/tPQKbj+eqyN8v2WFrPYQgfwcLLLvEpHLsfU/D9k=; b=yCIY539Sd32iQ9j7Meh9D24EMr
+	hC5ZnrteoY26DXuE+bo9f1r6oZsDuSpj0KC0e0cknARXFAJFkT4xDRAEzA+EbIaYHhk1oXwXICOZh
+	BeO1TnZ67b4/lUUXuKC/q/9lbRUza2SF6UbYVfa/eoUadvOHHvUerOFxMHyYNrSRgBUigYUFN1UP7
+	PRng/641CYBcKgTYEtzTj92hNsksfjBDxlbZeF8f8dm5m/rd2zaQOtSXqsyzziKoAHMuolJs5gsOD
+	wi9upcq9mU/vbXk3zUGEKBH7qT+uhkQ3DSrU3uOqK004cVs2z+qfY4dULgMA+62oS9NBhCsEicZ8e
+	LL5+7JKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt1d-00000006XiY-3lUj;
-	Fri, 31 Oct 2025 17:34:57 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vEt2J-00000006XsX-1aJO;
+	Fri, 31 Oct 2025 17:35:39 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt1a-00000006Xgo-2NBa
+	id 1vEt2F-00000006Xra-19Tt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:34:56 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33baf262850so2926886a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 10:34:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761932093; x=1762536893; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LtnXaqdbVR8gOvpEPR+6l9cfgKr6bsCXJtfhHUXOVv8=;
-        b=2qj7q/SPnSzAJWmUBZOwFnAJRi1bVMZE4leSeHsOE87g0MVN+52wGnSgpUAzf60VUz
-         DUXb2JITJp0PKZVNPF/zQ992bK2koe6YPvKGFEcCxKV4sjbzFPz3UKERLhwVkAY2j13p
-         BYstnDl6AiImMc5sRxzOCbW7Qm0jiB0L+0nfX8hgCzD5w9j+mb9fUiEiSVPBZKfT6ahQ
-         gk/QuMmnxy62x/41wj2Nft39tCxozY9TlcbWfNJwgWfBg7JQFqPPkK0OMnEmh1BdX1n2
-         3CxSrZ/uTblAdIlhMJHF80LoPjpJVQnDxWPXJW5avVNG1aDuBT2U95RjzqjyJKJitZhp
-         +LSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761932093; x=1762536893;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LtnXaqdbVR8gOvpEPR+6l9cfgKr6bsCXJtfhHUXOVv8=;
-        b=AeVUeUikuu59AHyh8lmges/lL1WGCi7EF1UQqUkdXrkSLCMhsFXJyTOSXtx915/zks
-         o+duv8daFBVYJ7Mfr5ucOyIazr/OshwmtlOtdPKAzOGGBRiywialfrkca3vHHFEI44Hx
-         kwgU4E+KWPy5SYZyTw6/PMMRjXfKFJTOuAJqySVkOqPEDAyBVDo0DGFBRC51SzC5Z7cz
-         Qq7p8yVoFBSdqWWFPLHEKfTrNV+hKkkBK1MF5nU+INibMIDT2PVgxP3OkAESoGLrZ65r
-         osk9jIgR6do65SMUXjAeoumMWo88O9rmWJ/M+uM+eu3rvKvQYqJRAiWQCjh8tgSSu4DZ
-         5Ftg==
-X-Forwarded-Encrypted: i=1; AJvYcCVZ/+bZqvxMUu5fO+yQ55fSA+/YvrDbXkRTAQyw7pmOc9bNyyaPFHeDl+dlO3TCGCVv9EU/aSsqkNeUjMYVXa9A@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvpy+FTx2zHr4R6y1P6g/VmYRtKEXmJ0jhkiSLPka/WtO6tZCu
-	TUguhrjtsqrnU96ksHasshk3Y6Ngt95dWZamR/VdHrtCzXPWfSRiOmRGNz995psF3YoAWardDqY
-	GrDpu2Q==
-X-Google-Smtp-Source: AGHT+IEhd62pQuR9tjnc3Il5ckB3BFxieNfGOf0XAASHT7mISEiuLVbYaHxfkZsCDA/umOxHYLwWX5NLxe4=
-X-Received: from pjbmg14.prod.google.com ([2002:a17:90b:370e:b0:33e:34c2:1e17])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:fc4b:b0:32e:5646:d43f
- with SMTP id 98e67ed59e1d1-3408306e65fmr6078929a91.19.1761932092859; Fri, 31
- Oct 2025 10:34:52 -0700 (PDT)
-Date: Fri, 31 Oct 2025 10:34:51 -0700
-In-Reply-To: <aQRyyieyDrZZMpIt@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251030200951.3402865-1-seanjc@google.com> <20251030200951.3402865-27-seanjc@google.com>
- <aQRyyieyDrZZMpIt@yzhao56-desk.sh.intel.com>
-Message-ID: <aQTzO7D1O02zQbcD@google.com>
-Subject: Re: [PATCH v4 26/28] KVM: TDX: Guard VM state transitions with "all"
- the locks
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>, Michael Roth <michael.roth@amd.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
-	Ackerley Tng <ackerleytng@google.com>
-Content-Type: text/plain; charset="us-ascii"
+	Fri, 31 Oct 2025 17:35:37 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8345FC0E958;
+	Fri, 31 Oct 2025 17:35:12 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E1FD360710;
+	Fri, 31 Oct 2025 17:35:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C799C11818007;
+	Fri, 31 Oct 2025 18:35:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761932131; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=teo/tPQKbj+eqyN8v2WFrPYQgfwcLLLvEpHLsfU/D9k=;
+	b=keIn0ekHPTx73WLzGzd9c4dsLHU9DVD9o5X2yeoQnwyT/aPiv8EHkw2ukThiZr1ymLnMsC
+	rfORmkZJOJGlYscSpk2j919AMcD83vOu/fZhcrVORgLkTPHqlaygLDn2IFdlOVoczikdVN
+	oW1LKuuNfBOR271crLqJoh4Si6TPrzsgZQrJZBpolvuy6D4LiiNchooDIVqNbCfI9d4+nT
+	hTVC0KeRyAGZivZAGL8G5fBNDNwgW73xcKJ3+bI93xguELqLvBVNje6z1/MsFLsgzA90fy
+	QUaUDfgNQq8zF81bL3LEUf/CPcu8TR6vTwXE5/mfcgNnztqSPqxlIhPYAJMScQ==
+Date: Fri, 31 Oct 2025 18:35:25 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Sudarsana Kalluru <skalluru@marvell.com>, Manish Chopra
+ <manishc@marvell.com>, Marco Crivellari <marco.crivellari@suse.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Sunil Goutham <sgoutham@marvell.com>, Richard
+ Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
+ Jacob Keller <jacob.e.keller@intel.com>,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next 6/7] net: pch_gbe: convert to use ndo_hwtstamp
+ callbacks
+Message-ID: <20251031183525.5b8b8110@kmaincent-XPS-13-7390>
+In-Reply-To: <20251031004607.1983544-7-vadim.fedorenko@linux.dev>
+References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
+	<20251031004607.1983544-7-vadim.fedorenko@linux.dev>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_103454_599619_AAEF26D7 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20251031_103535_463228_57CFF6E9 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +85,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025, Yan Zhao wrote:
-> On Thu, Oct 30, 2025 at 01:09:49PM -0700, Sean Christopherson wrote:
-> > Acquire kvm->lock, kvm->slots_lock, and all vcpu->mutex locks when
-> > servicing ioctls that (a) transition the TD to a new state, i.e. when
-> > doing INIT or FINALIZE or (b) are only valid if the TD is in a specific
-> > state, i.e. when initializing a vCPU or memory region.  Acquiring "all"
-> > the locks fixes several KVM_BUG_ON() situations where a SEAMCALL can fail
-> > due to racing actions, e.g. if tdh_vp_create() contends with either
-> > tdh_mr_extend() or tdh_mr_finalize().
-> > 
-> > For all intents and purposes, the paths in question are fully serialized,
-> > i.e. there's no reason to try and allow anything remotely interesting to
-> > happen.  Smack 'em with a big hammer instead of trying to be "nice".
-> > 
-> > Acquire kvm->lock to prevent VM-wide things from happening, slots_lock to
-> > prevent kvm_mmu_zap_all_fast(), and _all_ vCPU mutexes to prevent vCPUs
-> s/kvm_mmu_zap_all_fast/kvm_mmu_zap_memslot
+On Fri, 31 Oct 2025 00:46:06 +0000
+Vadim Fedorenko <vadim.fedorenko@linux.dev> wrote:
 
-Argh!  Third time's a charm?  Hopefully...
+> The driver implemented SIOCSHWTSTAMP ioctl command only, but it stores
+> configuration in the private data, so it is possible to report it back
+> to users. Implement both ndo_hwtstamp_set and ndo_hwtstamp_get
+> callbacks. To properly report RX filter type, store it in hwts_rx_en
+> instead of using this field as a simple flag. The logic didn't change
+> because receive path used this field as boolean flag.
+>=20
+> Signed-off-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+> ---
+>  .../ethernet/oki-semi/pch_gbe/pch_gbe_main.c  | 40 +++++++++++--------
+>  1 file changed, 24 insertions(+), 16 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
+> b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c index
+> e5a6f59af0b6..4049137abc40 100644 ---
+> a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c +++
+> b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c @@ -198,42 +198,40=
+ @@
+> pch_tx_timestamp(struct pch_gbe_adapter *adapter, struct sk_buff *skb)
+> pch_ch_event_write(pdev, TX_SNAPSHOT_LOCKED); }
+> =20
+> -static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr, =
+int
+> cmd) +static int pch_gbe_hwtstamp_set(struct net_device *netdev,
+> +				struct kernel_hwtstamp_config *cfg,
+> +				struct netlink_ext_ack *extack)
+>  {
+> -	struct hwtstamp_config cfg;
+>  	struct pch_gbe_adapter *adapter =3D netdev_priv(netdev);
+>  	struct pci_dev *pdev;
+>  	u8 station[20];
+> =20
+> -	if (copy_from_user(&cfg, ifr->ifr_data, sizeof(cfg)))
+> -		return -EFAULT;
+> -
+>  	/* Get ieee1588's dev information */
+>  	pdev =3D adapter->ptp_pdev;
+> =20
+> -	if (cfg.tx_type !=3D HWTSTAMP_TX_OFF && cfg.tx_type !=3D HWTSTAMP_TX_ON)
+> +	if (cfg->tx_type !=3D HWTSTAMP_TX_OFF && cfg->tx_type !=3D
+> HWTSTAMP_TX_ON) return -ERANGE;
+> =20
+> -	switch (cfg.rx_filter) {
+> +	switch (cfg->rx_filter) {
+>  	case HWTSTAMP_FILTER_NONE:
+>  		adapter->hwts_rx_en =3D 0;
+>  		break;
+>  	case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
+> -		adapter->hwts_rx_en =3D 0;
+> +		adapter->hwts_rx_en =3D cfg->rx_filter;
 
-> > @@ -3170,7 +3208,8 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
-> >  
-> >  int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
-> >  {
-> > -	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
-> > +	struct kvm *kvm = vcpu->kvm;
-> > +	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
-> reverse xmas tree ?
+It seems there is a functional change here.
 
-No, because the shorter line generates an input to the longer line.  E.g. we could
-do this if we really, really want an xmas tree:
-
-	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
-	struct kvm *kvm = vcpu->kvm;
-
-but this won't compile
-
-	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
-	struct kvm *kvm = vcpu->kvm;
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
