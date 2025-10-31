@@ -4,78 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A455ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CBFECCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yrm5olPCZv+MKZt1QBiFa4Kqvhr/2YybfwLySCaXxMc=; b=OlWWn9dw02Ax5hD3Hy2icxwKMq
-	waCpCC/CtceNhmBojjp4s9mKVD/bQZ7v8VkJa3xCSoj2W97TmsyTgkYQtmvhfbK7Ot19+Kbx9zPKZ
-	tOJV0MTWGp1Go3vhhkyRNZP26D/usi75iMeUrCl+fRjxB7GTPmfeovpBC002uJNkAW+5ApXvy3LwH
-	wXTUw0VpxSdso780bAWvDskY8CG/ujVpDJPRr3N0b0W/y0WExOQ5WPl2cWzM3BM9MwXk82MR6CJE5
-	oN9tyON6JRCAN0eaVXyI4luTkIIx85hr/rJp74i7QharWhQ1afRM+4SZbmSbYHpoI+vgxZQYTSoby
-	VSa1HN5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8jNgLgU+8Dhd7NVBFoNb21G3Q8hVCVLA9VFcRjhpm5M=; b=Jalvl4JK1y/do2uDsB1riFQtb9
+	3OPxnGYJqXk53iILSgEaMDe79PHBccTK4plaTasoLeYMYDVWaiYNOKNcVIIbHoD8ajjDMKuw1O9f/
+	1XjfKj2a0mlNffknYvgFw1zUm4pRHa54V81xfqPf2GG9BU2FX6w1fiE/vQ+2R5CrD+moh1ly3Dymw
+	GbovpcY2eWL7tE69NZQMHJL5cTBEmaDY9TcPpjZdvQkZnj+48cTmXLk15taNfB4l3sSS703LKIyfx
+	Km9+mxqjwmF91LBR2t3PKgOX3QNcXCy/KSYUrcFnuQ3/7UCGmAEIPCEIOLkMfy0FBKH1VxDgVpFgV
+	eUkzzRlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEqFj-00000006FP9-0tl7;
-	Fri, 31 Oct 2025 14:37:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vEqLE-00000006Fii-3yXz;
+	Fri, 31 Oct 2025 14:43:00 +0000
+Received: from mail-centralusazon11011010.outbound.protection.outlook.com ([52.101.62.10] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEqFi-00000006FOx-0IrM
+	id 1vEqLB-00000006Fhf-2qSL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 14:37:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 174A1603B0;
-	Fri, 31 Oct 2025 14:37:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3FDC4CEE7;
-	Fri, 31 Oct 2025 14:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761921436;
-	bh=Yrm5olPCZv+MKZt1QBiFa4Kqvhr/2YybfwLySCaXxMc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N50Vm5tQrO0PZCXBrwnFaZD4cz5xOyC5R5i0oU9Ke+NrJenx0xBHU4sGw4xF/oQ0V
-	 7q+wNYoe8pObjsuBpItN1xA8PZvYkRQode6g4lVOkvZpNMUD2b7h7wzmF9OFqyANUu
-	 Vt7J4iRtKeYzG/eVh/BxBiOYBZhTYO3ofWAmg5ac9sg8WoMbFuZugDPK4pmYHm3IAL
-	 RwnQm2l/y83hw4AYKudWmWlzG66QqXUofiycqiU6WUw0asFZjocqJAG7HmMX0OCn/E
-	 tfXj7rWMdkTqLKwfm/ybVQ7btG0MSSh0/1yv+eMgc2q5dD3cC/qRq4GSyqEUJ0TnV9
-	 rk6NybrcSS5Aw==
-Date: Fri, 31 Oct 2025 14:37:07 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com, Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Melissa Wen <mwen@igalia.com>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	kernel-dev@igalia.com, kernel-list@raspberrypi.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	"open list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>
-Subject: Re: RPi 4 deferred probe timeout of V3D PM domain
-Message-ID: <77bbe008-427b-4491-a191-15be5e40e708@sirena.org.uk>
-References: <10a4ef77-0e70-4ef2-b1df-535b476d256d@sirena.org.uk>
- <ecd75fd5-3131-4d10-ae3d-b6f608d9622a@gmx.net>
- <25e500c2-3dc1-476c-b6c1-ac4098a0501d@sirena.org.uk>
- <d6b14388-e0ab-44f0-b4d9-78adf74c2a7f@gmx.net>
- <d88f6420-5013-4856-99d6-da28f79bd7a5@sirena.org.uk>
- <CGME20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c@eucas1p2.samsung.com>
- <043f1702-52fc-4a83-82f7-683a26851623@gmx.net>
- <b02c8890-4568-4afe-8628-10b77e79bf44@samsung.com>
- <3c171b6b-f8f5-4192-a3a3-da453a900316@sirena.org.uk>
- <aff4e3de-6dde-475b-9df0-3d7d6ad5d740@samsung.com>
+	Fri, 31 Oct 2025 14:42:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FZtzxbdMGIMroQfSOzIWbDPhwkdQ3+mSiNWGVX0MDxaZvLiXU97WuAvD398D+HML88N60zmyCgCEj2tSZd9tpBNrtiiBvFFuRGFvON6HzMlhfGDUgNcVMH7nJAE2aSN5+1KYTnWvOXuCgaGkB6oOtegn07nJHL84YNqdJW8w0KIaLrXQ3nPCAO0rJLhyWxngEaJ9MiT9Dw/DC1gZZYLjmECKgbpOnm68YfxkegYODMUvwh6RHkGHDVN/Qvl/GQZqh2PGDsFYp4/biNSplR5PeNm5Z1bIsNj124b2EoB94J3z/MVEOMlbjiB2LWFzVbtDxxkOItu1Dm7ty6YYYoXxng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8jNgLgU+8Dhd7NVBFoNb21G3Q8hVCVLA9VFcRjhpm5M=;
+ b=CnEcSH+l9gU7tdStpAoD3LzqHs+ATLDEslgHc2V/cDKeb9kdJdLRGNHxKkw037zNqF1F0p9l1Nd+cPwuJThnCB6f6hFjyaaqrbUYC05qX+HGP7XhkLAXhuCWTVSZoy10W6oVUCGvytSuVOE96pw6g5mb0y6B3t7qKixUs2T9HSdBp6bC5cBY5/hMgu316HgSHROkRGrqtvPR5VnVQs9ztN9sc6rhh7QXNXiOxd3KoRx5Y+mfLB9sCsloiOAjEPqcIhHffcnwX0k22Yl9dorxs5BvsKSmnLBKXpyDBku5KM7splT2680II0wVuTHfl9h8lEZhiLACcCmKQEnWDY/uWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8jNgLgU+8Dhd7NVBFoNb21G3Q8hVCVLA9VFcRjhpm5M=;
+ b=IRUWm0rpM17peMxxOktS2YirEKUZqPpuNv14V2zSzbQsgYrBa4KT0ibFxGmxiJOopFRr0Ub2etfC5YfDJ1YKaAW8ohBDaJv1qlmAmko1ao2IVRTWIPMENBfGYViln2J61v+QaliXi1xfot58K6WwmazcBsjFpznOWVfyTJMJRLQ=
+Received: from MN2PR12CA0024.namprd12.prod.outlook.com (2603:10b6:208:a8::37)
+ by CH0PR10MB5209.namprd10.prod.outlook.com (2603:10b6:610:da::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Fri, 31 Oct
+ 2025 14:42:51 +0000
+Received: from BL02EPF00021F6E.namprd02.prod.outlook.com
+ (2603:10b6:208:a8:cafe::72) by MN2PR12CA0024.outlook.office365.com
+ (2603:10b6:208:a8::37) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.15 via Frontend Transport; Fri,
+ 31 Oct 2025 14:42:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BL02EPF00021F6E.mail.protection.outlook.com (10.167.249.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.10 via Frontend Transport; Fri, 31 Oct 2025 14:42:51 +0000
+Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 31 Oct
+ 2025 09:42:45 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 31 Oct
+ 2025 09:42:45 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 31 Oct 2025 09:42:45 -0500
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59VEgf5V4024498;
+	Fri, 31 Oct 2025 09:42:42 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Aniket Limaye
+	<a-limaye@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <gehariprasath@ti.com>
+Subject: Re: [PATCH v3] arm64: dts: ti: k3-j784s4: Fix I2C pinmux pull configuration
+Date: Fri, 31 Oct 2025 20:10:53 +0530
+Message-ID: <176192142809.427883.385396429453219228.b4-ty@ti.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20251022122638.234367-1-a-limaye@ti.com>
+References: <20251022122638.234367-1-a-limaye@ti.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="X5uYBAMfzR7WDf5d"
-Content-Disposition: inline
-In-Reply-To: <aff4e3de-6dde-475b-9df0-3d7d6ad5d740@samsung.com>
-X-Cookie: Byte your tongue.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6E:EE_|CH0PR10MB5209:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed08deda-bb62-415d-5bf0-08de188bc4d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|34020700016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V1U3ZlQ4SXBuUjVrTjZPZHV3VlplVTNYb2lUaWxwSHNGWDZQNnp2YjVKeGNT?=
+ =?utf-8?B?MnBFd3hKYStBUExWSCtKdXJSQno2dWlyNWxzTjRLbFVkb2U1ZGhvRzhVTTYr?=
+ =?utf-8?B?NFdDdFljcWJ4Y3gwZUtMeUZjT1kxMTNienVRZ3N3ajNuSU5BbUZUN3VueHFL?=
+ =?utf-8?B?WW53MHhVcFRDcmRyKzJzTjBWQ2MwK25ZZXNrQ1hVdEZtU3Vub3NoZUlFMGZZ?=
+ =?utf-8?B?NzhSTnBCb3lSa3BPd0JFUkpLZXJ0V0o1SVFCS2tUZ3YzWnJsMUFNNGdwNjVn?=
+ =?utf-8?B?OHJwcEppZ3VKK0VkUzh0ZWlaQSs3dVZLM25XTWg4SkhLQjF6ZXVJU2VzTlA1?=
+ =?utf-8?B?cjZoL2xvR2dSRlgvMExYc3NHd1ZQVWh6K01ndURPdlV6K0lLYjNsSytZTVVQ?=
+ =?utf-8?B?TUVEaEF2aTN4cWQvaXhUd1BCdlVtYjRaWVl5akNDUjRRMGhmQzhheGZtQ2tP?=
+ =?utf-8?B?REhFTlNjT2o5ZkNlazRwSXhSc2lpamlHb1FhYzVuNHdYZ2JxbEpTOEVkaW13?=
+ =?utf-8?B?RlBFYnJYWFhkaEZVc1h3UGZGNXQ0anFWVGVSdWU3bWNvRUlmd1M1SEJIbk5D?=
+ =?utf-8?B?bjZNaGpSeVIxRm5qYkFEOS9JYnJDbXNQbTljOHAzdk1oWTlMMWxBVTEvQWpr?=
+ =?utf-8?B?MXY2c01nVTVzejF6K3NnK1o0ZmxwUEljOVdlTzNPM0FuZngrekpzZlVEMmpM?=
+ =?utf-8?B?TDRVR0JxemtZVG83dmszZ0F0RlVSRGZwZmFDcWNqNTJSMVFMd0RiYURrVWpJ?=
+ =?utf-8?B?NjFSWnAwci9IQ1YyS2JyQlJvL3J3eG4vUkEza1pXS2hRZWFOUGV2MFk2WGZD?=
+ =?utf-8?B?NDhnTnpPK01yaStQRmdjczdSZ2NBZnVuMlEvYkw2cFlDV1B1clFYTWF5c1VZ?=
+ =?utf-8?B?eVFvWVBpRGc1WFFVNlZSeFg5VnFlWnJIaFlVMUZuOVg1U01KTUd4ZHhzVlZh?=
+ =?utf-8?B?TzYxeU9XeVBwSUtzdkZPeTdpNmVNdGt2dXI2amg2cjZKSUMzM2dDMUdKYlc4?=
+ =?utf-8?B?ejhweGpkNUVkSkcwdlJ2RkFxYXRWSXQzR0kyckgvNEsydDVHZUlqY2REZS90?=
+ =?utf-8?B?U3FUS2JQSmxoRlJFMmtmckFId29OOGJ4RGlyMlNVVlkxbjU0UzJGM21nakVa?=
+ =?utf-8?B?OE9vd0ZkQlpCcDZuT3k1V3FacnZnVzlwcmwrQU5LaUQ4a1gxZHFRVFlueFpU?=
+ =?utf-8?B?MWZkZ28yclA0ZTdtdlZ2R3g5cjg4VkhqMmN0djR2Tk9ua3htSFhFYnUyQVNv?=
+ =?utf-8?B?eFZsSG5LK2ZKbFl2bU4zZjV4dnBwSnE5ZktuZHpVNlhpeFFBWkhPSXBGMURo?=
+ =?utf-8?B?QW5VWkczUlgrazJlTysrSzFuRjNEdklkUDlLWkwxVm0zOHErS21GNFpWU0dY?=
+ =?utf-8?B?cjBqMGVReVp6ODdCbGFQSElOWmVPbXlmNHJjWkRCd2h1c1lCeC9YSjdjZ213?=
+ =?utf-8?B?TmN0SGFyVU9qdlpTTzFFcm5rb3JFTHpwb1BSRVZOdkdOWkxLREJoaWxsWGNQ?=
+ =?utf-8?B?cUl1Mmw4T3ZpbjBIdWVScEs5UFY5NTJyQ2pNMmhRR3hzN2plSTlTVElsdGl3?=
+ =?utf-8?B?ZGdrckQxa2pWS2tCQ1o4aUNmakVrWkpubEpPbW5HbUgwOTFvQnBQTXpnSlpx?=
+ =?utf-8?B?NmNVVUIvM1FjRFI1R0xkYStnUXFiWFltVWdsZlJMVzdGSlgxdXRobWtOSnZG?=
+ =?utf-8?B?MHV3d1ZGVGlwekRKRHFhUnRRdys0bDAxOEtJaktGejBQWThPUDFxamJBYmJs?=
+ =?utf-8?B?R3JyNUdIaVNyanNYS2l2NFIwN3k4QWtkZkE3Vm9tMGJDU01lN0RqdUJOWlFa?=
+ =?utf-8?B?QTN3a2owQTFBN2xOTklObjN2VlJ5ZXRyZDdkMXE4QzFqVERSWHp1Q0Mremgx?=
+ =?utf-8?B?ZThiRDhDTmhtMGpkMzZTVkxxdERXOGowZmEzeXdBYmVUUW9Jem9RTS9nOFhm?=
+ =?utf-8?B?clZZZUgrTHN1RFFGUEhSb001Q0F4VUgzSlJvY1M5OVU1ZENUWkZwNVBSdVFJ?=
+ =?utf-8?B?STc4cGlGUmNVUkplM3JRZ0NUUWFhejZ3Z3BjcXJQdlVMWXNmS2lRZ2l6TVdJ?=
+ =?utf-8?B?dUh0UmlhSkMvMDJ0RDJzNnppR1VBalM2bnd5MWc2NEFkSThxTFhJUjB5U3Bx?=
+ =?utf-8?Q?hOkg=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(34020700016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 14:42:51.4500
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed08deda-bb62-415d-5bf0-08de188bc4d8
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB5209
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_074257_741389_B4F4BD6A 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +165,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Aniket Limaye,
 
---X5uYBAMfzR7WDf5d
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, 22 Oct 2025 17:56:33 +0530, Aniket Limaye wrote:
+> The I2C pins for some of the instances on J784S4/J742S2/AM69 are
+> configured as PIN_INPUT_PULLUP while these pins are open-drain type and
+> do not support internal pull-ups [0][1][2]. The pullup configuration
+> bits in the corresponding padconfig registers are reserved and any
+> writes to them have no effect and readback checks on those bits fail.
+> 
+> Update the pinmux settings to use PIN_INPUT instead of PIN_INPUT_PULLUP
+> to reflect the correct hardware behaviour.
+> 
+> [...]
 
-On Fri, Oct 31, 2025 at 02:54:15PM +0100, Marek Szyprowski wrote:
-> On 31.10.2025 13:39, Mark Brown wrote:
+I have applied the following to branch ti-next on [1].
+Thank you!
 
-> > Or the GPU driver should be moved to a module to match the clock.
+[1/1] arm64: dts: ti: k3-j784s4: Fix I2C pinmux pull configuration
+      commit: 671c852fc53d1b6f5eccdb03c1889a484c9d1996
 
-> V3D already is being built as a module in ARM64's defconfig. The problem=
-=20
-> is in CONFIG_BCM2835_POWER driver (defaults to 'y'), which depends on=20
-> resources provided by CONFIG_CLK_RASPBERRYPI (defaults to 'm'). IMHO=20
-> both of them should be built-in and this will solve this issue.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Ah, yes so it is - I agree.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
---X5uYBAMfzR7WDf5d
-Content-Type: application/pgp-signature; name="signature.asc"
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
------BEGIN PGP SIGNATURE-----
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkEyZIACgkQJNaLcl1U
-h9A1Ugf/YzkqFyXsikEGtRnC21evm/sbuTehV9VfpTcKzm0S41+hb2KBsArFjUSf
-6UPvt2hTKFZQGhrslYCm8/K9WCog41Ai+anzrlCtPxYZ0oJ1nImyB0DEPdLnZFbS
-0ykvMWQQwRaCJbPaKL1ryv8IxfRYW1O+hDxzZQ+g4qRBN9IRsE7nVcLFdQjZPvBU
-dCvpe57Id+Nd1M/wNaO46emy4juCYxdyH2kotwW2k2l/p7bYLEZS5f1YqhQfhrTI
-0YA5577P19tieAncVpJM+YkWOWTz8A5kQCnJYWNIkYKesimePHek9jNN7IsNYMj4
-SHkVuRoe+e9kJs0Pa2UyDL9ZLSBssg==
-=h+x7
------END PGP SIGNATURE-----
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
 
---X5uYBAMfzR7WDf5d--
 
