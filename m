@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD6FCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C8BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mn5jbJwM2CAxbTkcZq3Fzr3koHOdGsBr8mzb4LmkEr4=; b=bIhN9/4s54jOEZ/uPIErcPK5tR
-	lmy5DGepiCcE43aoWbg1cykC2Y+7Hg9MwA/+3E9BPcHYlqVuJ/cQLIxcqqYsSVIjMvomLb7kaoHzY
-	+H8p+7mchi39NUspyrh8KMQlpE02cil+7qROUxXQZBruRfdBCOa/UxU5MeR8CikAOZ80ZulF6jrBZ
-	bTAS4/5HBXPvZNH4NxT04J3PzQhdiXNvTHrratLCYncHlVhJdPDo23t2hhXciNNpVBS84gv8uEu4z
-	+jAf21SR52jjW0c++QovMagAHsFc9N2xDh+nv2QOv5QEq83NNa+4TXdyVDOFBTsNhNVH0OxgEJXpc
-	d7FUTgow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Biwe3xggY6rX66H/gYXOoATgjPhp88WrOScO7zPxMig=; b=NKl5KwYLcR7mV0OpY65X0GVNRN
+	sK4Do8BNesw5IYiMTYPbsblSVFguBNNoAEIghH3VHckfr/FmEo7sQrcJl6EWRMobW+MXyiwTY8JPq
+	unJmnxf1SPKs+8PasIL/tdtbvHcf5Yp87R1c41GtZh++YNuvQM34HmNRxIXAuwse76XwtIX1comyZ
+	xmwPnJKHX5+e3bVNnDKrINaz6jnY+lIrTbpW3lOQNQI+cI5z0wJTZxmZvOLbiRDqwtGQHa3NGRA5Q
+	KcPC1/+yfESgf4Fv0tri1852WoWTG3jDIhVbEX0qiw3SkFEQLzj6G/fcSVa7Z2Kt71SFQrr5f5Jc1
+	2kWSEQLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpYj-00000006BHL-1D1S;
-	Fri, 31 Oct 2025 13:52:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vEpaG-00000006BTd-3E4z;
+	Fri, 31 Oct 2025 13:54:28 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpYg-00000006BGV-3dbW
+	id 1vEpaC-00000006BT6-28lI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 13:52:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E989740C32
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 13:52:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9B7AC4CEFD
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 13:52:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761918769;
-	bh=OZOJGVFPVvgoICzb96sWJOAxC8zQUwZgmSqC+4PRa40=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ofeRqvX2L7Pn9ovcq2lQufq0kGpAqAZnOXo3GjIcfAWaclc6jOoG/Q0SnsnttZzOC
-	 P+ahLVgGodiule3lfdJ3mBC1BNy3n62cqGnTGRmvuAC3KCwxsymgEql/pq6lxQjDg1
-	 wX0yoySYtu/vY/dwi514HL/x+WDf7f3rOyd/CfeZ6D2TVAOSDCcVXR03hAz0jN7czB
-	 luk4ImAlSi78rqa89syl6a9Tz5f3zsGX9lLiE2O4Coy1LElMj4bSGomz5zZbyh1WwE
-	 hOW+hVO5g5CHecNA0GHm98HVumj1CD32DmSUqv0Eb+wXwbrIdoaoGnVGkkUUpV4zuu
-	 btlfQgSNknlDw==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5930e30857bso3093976e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 06:52:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU/weu/VZ8Ssz8j7+zZvkbOxc3s06SDfYi/njRC2woZXACD+UxmrqIKzUKrNUBZdI8uw7MuxkbesWU2/Wb7qDKx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMpduwLjtEeY1RNulZ3cSdoXP3YR1tJEmT9RKxm9vGjjV2esoL
-	tJrtzmFyBSbZcunw09EZJuM0zTCAJ0dsfQmkWZg4MYEJDVrv8ACe872iPnB2QavNArlhx26A5S/
-	GgyGhsvQyaBL2GY/hnKe/cy2odS6cpRE=
-X-Google-Smtp-Source: AGHT+IGKmCnEm7EzivIgJyR5JKOYXoySZ6tvgvet9bi10ExWbl/TVPMYWyirNSz29x5TQUoCZJBcqca3iDbFf1g6fWQ=
-X-Received: by 2002:a05:6512:224c:b0:592:ef1b:da72 with SMTP id
- 2adb3069b0e04-5941d505da1mr1434407e87.14.1761918768160; Fri, 31 Oct 2025
- 06:52:48 -0700 (PDT)
+	Fri, 31 Oct 2025 13:54:26 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251031135418euoutp015c5bf6a137093713b5691e266db2ca2b~zl93XwT6Q0096700967euoutp016
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 13:54:18 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251031135418euoutp015c5bf6a137093713b5691e266db2ca2b~zl93XwT6Q0096700967euoutp016
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1761918858;
+	bh=Biwe3xggY6rX66H/gYXOoATgjPhp88WrOScO7zPxMig=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=iaBfzCTizhDjc5gow7AhT58vuDx9h05kGixniiU3hamt4lFZnlBWVs7tqkz0uEFZu
+	 qMcshY4usR3ALixCwSfL7fUeYs7r6QUGJuJbNXh39vH8HNZ1RpzA1GkrKKT0U+fGMV
+	 CuLCKPuc0/8UJPC5iJCoKsSsPpmDimNKjYG5AC5o=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251031135417eucas1p229a2f6bb12f5ebbeb4ad74c155347e1a~zl921986N0589105891eucas1p2P;
+	Fri, 31 Oct 2025 13:54:17 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251031135416eusmtip1695a6772d241ce4f9305448af7d48726~zl91_Dyis1078110781eusmtip1f;
+	Fri, 31 Oct 2025 13:54:16 +0000 (GMT)
+Message-ID: <aff4e3de-6dde-475b-9df0-3d7d6ad5d740@samsung.com>
+Date: Fri, 31 Oct 2025 14:54:15 +0100
 MIME-Version: 1.0
-References: <20251031103858.529530-23-ardb+git@google.com> <20251031103858.529530-31-ardb+git@google.com>
- <20251031134909.00006bf3@huawei.com>
-In-Reply-To: <20251031134909.00006bf3@huawei.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 31 Oct 2025 14:52:36 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHMa_Vj3DsuoAR-rvWW12Bsnz10w+BAze6mtngqpABZPw@mail.gmail.com>
-X-Gm-Features: AWmQ_bnUHTmFTpf6_wwhZYvTf56YiWzMFCCLq2ZM6tGMZqDdBbz5PGKileyFjes
-Message-ID: <CAMj1kXHMa_Vj3DsuoAR-rvWW12Bsnz10w+BAze6mtngqpABZPw@mail.gmail.com>
-Subject: Re: [PATCH v4 08/21] lib/crc: Switch ARM and arm64 to 'ksimd' scoped
- guard API
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	herbert@gondor.apana.org.au, ebiggers@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Betterbird (Windows)
+Subject: Re: RPi 4 deferred probe timeout of V3D PM domain
+To: Mark Brown <broonie@kernel.org>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, bcm-kernel-feedback-list@broadcom.com, Ray
+	Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Melissa Wen
+	<mwen@igalia.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, Maxime
+	Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	kernel-dev@igalia.com, kernel-list@raspberrypi.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "open
+ list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <3c171b6b-f8f5-4192-a3a3-da453a900316@sirena.org.uk>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20251031135417eucas1p229a2f6bb12f5ebbeb4ad74c155347e1a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c
+X-EPHeader: CA
+X-CMS-RootMailID: 20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c
+References: <ad07546f-0c2d-4bc2-b794-755b892c7328@sirena.org.uk>
+	<a016e7e1-09f7-4056-a855-6cfaa8d51962@gmx.net>
+	<10a4ef77-0e70-4ef2-b1df-535b476d256d@sirena.org.uk>
+	<ecd75fd5-3131-4d10-ae3d-b6f608d9622a@gmx.net>
+	<25e500c2-3dc1-476c-b6c1-ac4098a0501d@sirena.org.uk>
+	<d6b14388-e0ab-44f0-b4d9-78adf74c2a7f@gmx.net>
+	<d88f6420-5013-4856-99d6-da28f79bd7a5@sirena.org.uk>
+	<CGME20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c@eucas1p2.samsung.com>
+	<043f1702-52fc-4a83-82f7-683a26851623@gmx.net>
+	<b02c8890-4568-4afe-8628-10b77e79bf44@samsung.com>
+	<3c171b6b-f8f5-4192-a3a3-da453a900316@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_065250_955124_B5ED51D2 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20251031_065425_187601_BE0088B4 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 at 14:49, Jonathan Cameron
-<jonathan.cameron@huawei.com> wrote:
+On 31.10.2025 13:39, Mark Brown wrote:
+> On Thu, Oct 30, 2025 at 09:12:57PM +0100, Marek Szyprowski wrote:
+>> On 30.10.2025 20:13, Stefan Wahren wrote:
+>>> Any ideas how to solve this?
+>> As I mentioned in the other thread, this is imho a configuration issue.
+>> If core modules are distributed on NFS rootfs, then one should increase
+>> deferred probe timeout by adding deferred_probe_timeout=60 to cmdline.
+> Like I say I just don't think we should apply timeouts that take things
+> out of commision entirely.
 >
-> On Fri, 31 Oct 2025 11:39:07 +0100
-> Ard Biesheuvel <ardb+git@google.com> wrote:
->
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > Before modifying the prototypes of kernel_neon_begin() and
-> > kernel_neon_end() to accommodate kernel mode FP/SIMD state buffers
-> > allocated on the stack, move arm64 to the new 'ksimd' scoped guard API,
-> > which encapsulates the calls to those functions.
-> >
-> > For symmetry, do the same for 32-bit ARM too.
-> >
-> > Reviewed-by: Eric Biggers <ebiggers@kernel.org>
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> >  lib/crc/arm/crc-t10dif.h   | 16 +++++-----------
-> >  lib/crc/arm/crc32.h        | 11 ++++-------
-> >  lib/crc/arm64/crc-t10dif.h | 16 +++++-----------
-> >  lib/crc/arm64/crc32.h      | 16 ++++++----------
-> >  4 files changed, 20 insertions(+), 39 deletions(-)
-> >
-> > diff --git a/lib/crc/arm/crc-t10dif.h b/lib/crc/arm/crc-t10dif.h
-> > index 63441de5e3f1..aaeeab0defb5 100644
-> > --- a/lib/crc/arm/crc-t10dif.h
-> > +++ b/lib/crc/arm/crc-t10dif.h
->
-> >  static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
-> > @@ -20,21 +19,16 @@ asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
-> >  static inline u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
-> >  {
-> >       if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
-> > -             if (static_branch_likely(&have_pmull)) {
-> > -                     if (likely(may_use_simd())) {
-> > -                             kernel_neon_begin();
-> > -                             crc = crc_t10dif_pmull64(crc, data, length);
-> > -                             kernel_neon_end();
-> > -                             return crc;
-> > -                     }
-> > +             if (static_branch_likely(&have_pmull) && likely(may_use_simd())) {
-> > +                     scoped_ksimd()
-> > +                             return crc_t10dif_pmull64(crc, data, length);
->
-> >               } else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
-> >                          static_branch_likely(&have_neon) &&
-> >                          likely(may_use_simd())) {
->
-> I briefly thought this was a functional change but it's not because
-> of may_use_simd() being something that isn't going to change between
-> the two evaluations.
->
-> Would it hurt at all to pull that up to be
->         if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && likely(may_use_simd())) {
->                 if (static_branch_likely(&have_pmull)) {
->                         scoped_ksimd()
->                                 return crc_t10dif_pmull64(crc, data, length);
->
->                 } else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
->                            static_branch_likely(&have_neon)) {
->                 ...
->
-> ?
->
+>> On the other hand drivers built into the kernel should not depend on the
+>> resources provided by the drivers built as modules, so maybe it would
+>> make sense to change CONFIG_CLK_RASPBERRYPI from 'm' to 'y' in
+>> arch/arm64/configs/defconfig.
+> Or the GPU driver should be moved to a module to match the clock.
 
-Yeah that would be a reasonable cleanup, I guess.
+V3D already is being built as a module in ARM64's defconfig. The problem 
+is in CONFIG_BCM2835_POWER driver (defaults to 'y'), which depends on 
+resources provided by CONFIG_CLK_RASPBERRYPI (defaults to 'm'). IMHO 
+both of them should be built-in and this will solve this issue.
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
