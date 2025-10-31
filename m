@@ -4,97 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EE9CCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E3ACCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9aIatXLlfj49i3F2CejCYzrKCiTw8TnzOpfYBQFqbQ=; b=IDTus8U3A6zuGzkBPzZWUpxCo7
-	/iFvMGTMi6YZR2o5TwUJsqQFyHA1cCkbZ+Kg+bTK9QcO/erP3XqYKFM1ctY871GA/8ITDK+P3fEf7
-	iNEf9xMBO1fJBkTa6DQLeElOlc/YjhhZ5QMHJxvJZp+UYuSgs6QBfOaGRBDQhgrG6Rfd33zwc+uxI
-	4fHEN/q8j3ubTA2O3BRkKNKeXOip6Guj2G7+UtWQA60GPmpv4lRM2Ov1ereT0bp7YsHMTdYVAEpeH
-	PWfc+UQPhEKAhbt5x+2wXvNFh/SEDBygJHJRQr3Ehp84XmhvJsVj2eaHuNaaE8Qa249/hGz5Dg2Za
-	xCvjAUGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GMx94PXpl9Bd44bRwjfAPN60GnZnLha+f/UpxbB45Q8=; b=VA0LcwGZpCrOxbmZTdRwfQ1kT7
+	HY9hIm3K5swQhXQbR28LdAcH1LNGi8eu1XOULz8w81FtsSUUdF8zqvjXLiyW2CwU2qBjdVZquV4k2
+	R2rWGRQzcmg83/2ngnE+NCSVGr+RBdijGqWnmD7CVvGXu/ZdblIQohrKZYxAIFV1PkN53sysjEbUj
+	F4SU3MeKh0JKrM4xGL0ZpPLMFfrLFpC0iEL6Vdd5QQTiaoCS0+IXeIPTVZ8mgdZvG45P4oRkk1p6X
+	y69tjmOkATduyBz/a+CK0X7NWrvcCwFLUISo4MUv6JKSFfYv23DEQq5lcjrhHpum98Puez49DX+My
+	AbbZeRsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmst-00000005yYr-17WI;
-	Fri, 31 Oct 2025 11:01:31 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1vEmvM-00000005ys0-3gSU;
+	Fri, 31 Oct 2025 11:04:04 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmsj-00000005yW6-3ZMu
+	id 1vEmvL-00000005yrB-1ABF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 11:01:23 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-592f1988a2dso3391720e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 04:01:21 -0700 (PDT)
+	Fri, 31 Oct 2025 11:04:04 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-71d71bcab69so24390177b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 04:04:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761908480; x=1762513280; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K9aIatXLlfj49i3F2CejCYzrKCiTw8TnzOpfYBQFqbQ=;
-        b=ZaxoTXjVwvDv9PBCv0zKE/XYvATI7HYxjvPlVcIXNnN5MlQtzeWmcam3YZ1XQwUy2X
-         xK/VX2bNrBZbihyF60njDG0QdnrIrTbUNqxlQYIt6Mr8TODS0vJkknZM9YMB0o0zdUGD
-         XCQM51u6+7XUAVtC+s65n3hnj6FsSSs/vfZl249x0tOyyGwy6iobPTbvn3mEpoA9WQFf
-         r3JaguzDc1+XNGBGPJKeahT7CpiAWX88tpQaxORIxG8EJTKzDWFvpjclGVf+dDwBmmi4
-         KGFFEbRwkH2EmOGjooBTcDFzuRm2mb2MPgCh86FGo2H0J5dSAST4WkUdD7mDeXI/wTVq
-         mSIw==
+        d=linaro.org; s=google; t=1761908642; x=1762513442; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GMx94PXpl9Bd44bRwjfAPN60GnZnLha+f/UpxbB45Q8=;
+        b=xMCz8aX32PdbO2Ov2bBYJtxoNPI1v+dU5uaJAClslGOGFzXSbA+6bZRudgkr8RaC9h
+         4mN52jP9OJic8Gvt5kVDWbuS0YiuxdBGUibtR3KcJnY1VqZGEk623zL7mT6ii0RUXhzN
+         422oOj5pMk4vMp+X3HOr9SbkF6m7hadAveBYbn7SDso8YjDa9O+3Fwv/NF9MqNiZ4m62
+         U97jFpenFg/GM3K9sKQts6PH6qTbOKqExfjTo7odwUnCNdglFgMSQW0OxPBSt3bf3YJo
+         iaOpziPUtSzlw4RpvEAKaQlpQZSYPTjB5Vp1wUWg0ta92qDH2ttN78aglLfilSxt1mTB
+         SDkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761908480; x=1762513280;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K9aIatXLlfj49i3F2CejCYzrKCiTw8TnzOpfYBQFqbQ=;
-        b=o11NwPp6S3Djhv5M6UW0gEkWjQqaOlNgV2wlZYEaP4vP/CqKDDKvIXHK0cUMwALp9G
-         dKRz0qGjSPlQIadMhYJubla6wiWPPkau4bxP/IXsvIJcWbc+6lfsBJIyIoGp0+J6p+Xn
-         PzJjjFjevrW7ONwY10MC2h9yvZJu6OaNXfyXznfOyIuS2wrddU8kg+GRVaeg3paSQXK5
-         wguusWqxvtARw644jXiSdig0cOYo8ESrLL0YGq9AEjmRrU0zEvcOjv95XEIBolR2lOhA
-         nNsAh7U0/8/tx3hrYWcp5khRcumluEB12DizE+EmGuZNHyRAspd8mDaO7vGB1BsAzboE
-         1jMA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwLyPLOIPNp6gKHvp8x0Ny7io0YaRMMH+VtjSEl10UOMWL6h0zzfqcBJ0OKCAqQvVF7CYbsvfWGIJbIb1/7ufr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPU9TfsRhZo/05Phakdtv8Jw4auJckMR/n4rFZNSivQ4q+0Lmi
-	zT0w6Bgne4+8i1WiiwnW1rjUZO1oLY6vp6xyLIfN8zvfhnwxdWzZALBWK4a9gbW16X0=
-X-Gm-Gg: ASbGncu0DuiW4HuUaOrwIgR5ixWOh/lM17Pdcm4ht3mLW8wtbw1hoYrYNQntV5IOLDz
-	jyp9wJpU7P9iwlJEIlbHf4EU5LQO0Ak8vg2l/olOuee9Ryyyh7Ax/PTME3tD3+5OSUdHT+bme21
-	YBfaz6hqQghDqcPWNjwYA0actW4mLPldK1yz9qi9FFMtZ7qyWtilPwRAxAXXVXhz/eUY/HthjYj
-	8PLyej0SnLx2IjN5e6//hSEocag4328moNpMp97uw/rR6cCEAVkeUAZeaY9nQPvOxFFKbpVmvsc
-	Q7Pvytx5cLWlmxDsfKEu4lEhrWw9DWi9H2+mGQY+jApc/3GPI23rhoQqUW8pRmro6buXNpX3cz8
-	9B12U1IqBC5TmyV1do800wYu7ybI/iuY6dfePEehN/pDw9eZ3gvUdC3RdgmdIV0fqNvMcl1b4s2
-	6oQHlcdiTENtea6vv+Ftil1LkG5UKQwntqJ+W5iLNKhdaFNO02HY0MFBYVCCFc
-X-Google-Smtp-Source: AGHT+IEvmMm+SHsTsxbA+wx4szbKJtnGkNvIOtF29kV79GhvswIxNRBqKo3y48TrcsBUClr8bRcn2g==
-X-Received: by 2002:a05:6512:b92:b0:592:fc90:f771 with SMTP id 2adb3069b0e04-59416d06f68mr2302670e87.1.1761908477406;
-        Fri, 31 Oct 2025 04:01:17 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5941f5bbaa9sm432721e87.77.2025.10.31.04.01.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Oct 2025 04:01:15 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Maulik Shah <quic_mkshah@quicinc.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Ben Horgan <ben.horgan@arm.com>,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 2/2] pmdomain: Extend the genpd governor for CPUs to account for IPIs
-Date: Fri, 31 Oct 2025 12:00:58 +0100
-Message-ID: <20251031110106.62394-3-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251031110106.62394-1-ulf.hansson@linaro.org>
-References: <20251031110106.62394-1-ulf.hansson@linaro.org>
+        d=1e100.net; s=20230601; t=1761908642; x=1762513442;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GMx94PXpl9Bd44bRwjfAPN60GnZnLha+f/UpxbB45Q8=;
+        b=pfQ6JPNNwneUBgOAL3AaUs47UYbzj4HL5Zk8MYBYLpXeVCqMMmCZLQ/NHYk/UZ8Gr6
+         EGTkymKAheocg0XD48NZwk/5zvUqI1CSAazY1qhq6DJxoKmJzpHfuNenOIUKvbaf8ju5
+         KG2pbuycY3gLmhsld2tULorncBqYq/GhYhLrbTtdlIWIPz7a7Z4iDAh4H3yQ/CyzCR8J
+         QIauGZDABE06cWQ0QrAlkQT8vqRetnRVTCa76HgwgJz/5edhex807IlVeYqw4UJg8k/H
+         08q65z6nH7zUj1KfXoW8ixSkxKNI7ErPHc60e7Fd21KyizmBa1vEpAJAzpgGsP08ckFw
+         T5bg==
+X-Forwarded-Encrypted: i=1; AJvYcCXIMrh/7R6LI2ryKGSAtWmpTSGUU5zRfJDBC/mVGTIWOaoxuCOicOISrp6bz3fggvcUb0gXy3Bb2Ia0t+AH5eA5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxv03yegWN904yVLNzJqwhUJAT/eD0N3VyETwOAnAqEv8byGRkF
+	QlVW8894kZQw58U8Uz89SKA8J+xG024bs/xgKkq2JCzhf3W8uAMkzZAbI8YkWzUXoaBMfarBxhV
+	lAbjpf1sRZlF50d9tEcG18KVU/o/6rHa79qTbi0JrCQ==
+X-Gm-Gg: ASbGncsMSFx9eTL9bYsU6I71NXblIozR4Vs8Le70FXHcDV6Xevh69hdHKSuO4fru0+e
+	GEjKrIHEmnKRCDtup8MfJpLVTl2thrl7NxxiwSJ9Kf1bC7Xf9jqi40lNT4CeHS0mATAKVEKQbh+
+	xSZPxD3IfRH5o0nT/kDRQjqWyZWSnbN6IZJyNeQ00/VJqGfQUKx7C7/7U+7uGqCAYKrFfc45lZT
+	LJK61sXeGbgSdZA7gLtFt/8+A1ezGCoINwDlz/GIDy7zqL+QMojOs7HI1lsRYTzXlbIecTUCaYd
+	tmewCjGjq9HYD3ImPeKTPg/YP4rlqpUPSn8nGrha
+X-Google-Smtp-Source: AGHT+IENjMS/Fga4h9EGVaoBL/JjQIFhSSBeM0v44Hn+OuW65Q/a+xvvD2ieXhLRYKQlrWWpSRadCKaQfY/EdENAIpU=
+X-Received: by 2002:a05:690c:46c3:b0:785:c4a5:8f5c with SMTP id
+ 00721157ae682-7864851b3c1mr26633967b3.38.1761908641696; Fri, 31 Oct 2025
+ 04:04:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251031084101.701159-1-adriana@arista.com> <20251031101009.704759-1-adriana@arista.com>
+ <CAMj1kXGUyzPQu14SOBs8GSsJ3+ASssNR1vCN5T8OzeEbXdBbBQ@mail.gmail.com>
+In-Reply-To: <CAMj1kXGUyzPQu14SOBs8GSsJ3+ASssNR1vCN5T8OzeEbXdBbBQ@mail.gmail.com>
+From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Date: Fri, 31 Oct 2025 13:03:25 +0200
+X-Gm-Features: AWmQ_bknhkycM9Zb7uWN1yqYnJarIE7ayygRrMnHr8ptW7rbfAvU0YMcrItxqQ0
+Message-ID: <CAC_iWjKcoKk-=2ojNfatNbuZ5B5LTFLhURHMJg4pPOGD_T8h5A@mail.gmail.com>
+Subject: Re: [PATCH v4 0/2] DMI: Scan for DMI table from DTS info
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: adriana <adriana@arista.com>, trini@konsulko.com, robh@kernel.org, 
+	krzk@kernel.org, jdelvare@suse.com, frowand.list@gmail.com, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, vasilykh@arista.com, 
+	arm.ebbr-discuss@arm.com, boot-architecture@lists.linaro.org, 
+	linux-efi@vger.kernel.org, uefi-discuss@lists.uefi.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_040121_958667_A9C93A93 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20251031_040403_321620_9F141C47 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,138 +99,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the genpd governor for CPUs, tries to select the most optimal idle
-state for a group of CPUs managed in a PM domain, it fails far too often.
+On Fri, 31 Oct 2025 at 12:17, Ard Biesheuvel <ardb@kernel.org> wrote:
+>
+> On Fri, 31 Oct 2025 at 11:10, adriana <adriana@arista.com> wrote:
+> >
+> > Some bootloaders like U-boot, particularly for the ARM architecture,
+> > provide SMBIOS/DMI tables at a specific memory address. However, these
+> > systems often do not boot using a full UEFI environment, which means the
+> > kernel's standard EFI DMI scanner cannot find these tables.
+> >
+> > This series adds support for the kernel to find these tables by
+> > reading the associated property from the Device Tree /chosen node. The
+> > bootloader can specify the physical addresses using the property
+> > "linux,smbios3-entrypoint".
+> >
+> > The first patch introduces the device tree binding documentation for this
+> > new ABI, and the second patch implements the driver logic in dmi_scan.c.
+> >
+> > Changes in v4:
+> >   - Renamed linux,smbios3-table.yaml file, removed mention of ARM/ARM64
+> >     (Patch 1/2).
+> >   - Drop the second definition of dmi_scan_from_dt() and fold checking
+> >     for CONFIG_OF (Patch 2/2).
+> >   - Drop unnecessary goto on the success case (Patch 2/2).
+> >   - Replace magic number for entrypoint size with SMBIOS3_ENTRY_POINT_SIZE
+> >     definition (Patch 2/2).
+> >
+> > Changes in v3:
+> >   - Removed linux,smbios-table property, only keep the SMBIOSv3 property
+> >     (Patch 1/2).
+> >   - Search DT for linux,smbios3-table only, removed the code searching
+> >     for the previous property (Patch 2/2).
+> >
+> > Changes in v2:
+> >   - Add missing Device Tree binding documentation (Patch 1/2).
+> >   - Split the original patch into a 2-part series (binding + driver).
+> >   - (No functional changes to the driver code in patch 2/2).
+> >
+> > adriana (2):
+> >   dt-bindings: firmware: Add binding for SMBIOS /chosen properties
+> >   drivers: firmware: dmi_scan: Add support for reading SMBIOS from DT
+> >
+>
+> For the series,
+>
+> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+>
+> I can take the second patch, but bindings need to go in separately IIRC.
+>
+> Rob?
 
-On a Dragonboard 410c, which is an arm64 based platform with 4 CPUs in one
-cluster that is using PSCI OS-initiated mode, we can observe that we often
-fail when trying to enter the selected idle state. This is certainly a
-suboptimal behaviour that leads to many unnecessary requests being sent to
-the PSCI FW.
+Feel free to add
+Reviewed-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
 
-A simple dd operation that reads from the eMMC, to generate some IRQs and
-I/O handling helps us to understand the problem, while also monitoring the
-rejected counters in debugfs for the corresponding idle states of the genpd
-in question.
-
- Menu governor:
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             1451           437        91         149        0
-S1             65194          558        149        172        0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.562698 seconds, 140.3MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             2694           1073       265        892        1
-S1             74567          829        561        790        0
-
- The dd completed in ~3.6 seconds and rejects increased with 586.
-
- Teo governor:
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             4976           2096       392        1721       2
-S1             160661         1893       1309       1904       0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.543225 seconds, 141.1MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             5192           2194       433        1830       2
-S1             167677         2891       3184       4729       0
-
- The dd completed in ~3.6 seconds and rejects increased with 1916.
-
-The main reason to the above problem is pending IPIs for one of the CPUs
-that is affected by the idle state that the genpd governor selected. This
-leads to that the PSCI FW refuses to enter it. To improve the behaviour,
-let's start to take into account pending IPIs for CPUs in the genpd
-governor, hence we fallback to use the shallower per CPU idle state.
-
- Re-testing with this change shows a significant improved behaviour.
-
- - Menu governor:
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             2556           878        19         368        1
-S1             69974          596        10         152        0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.522010 seconds, 142.0MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             3360           1320       28         819        1
-S1             70168          710        11         267        0
-
- The dd completed in ~3.5 seconds and rejects increased with 10.
-
- - Teo governor
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             5145           1861       39         938        1
-S1             188887         3117       51         1975       0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.653100 seconds, 136.9MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             5260           1923       42         1002       1
-S1             190849         4033       52         2892       0
-
- The dd completed in ~3.7 seconds and rejects increased with 4.
-
-Note that, the rejected counters in genpd are also being accumulated in the
-rejected counters that are managed by cpuidle, yet on a per CPU idle states
-basis. Comparing these counters before/after this change, through cpuidle's
-sysfs interface shows the similar improvements.
-
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
-
-Changes in v3:
-	- Use the new name of the helper function.
-	- Minor updates to the commit message.
-
-Changes in v2:
-	- Use the new name of the helper function.
-	- Re-test and update the statistics in the commit message.
-
----
- drivers/pmdomain/governor.c | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/pmdomain/governor.c b/drivers/pmdomain/governor.c
-index 39359811a930..a46470f2261a 100644
---- a/drivers/pmdomain/governor.c
-+++ b/drivers/pmdomain/governor.c
-@@ -404,15 +404,21 @@ static bool cpu_power_down_ok(struct dev_pm_domain *pd)
- 		if ((idle_duration_ns >= (genpd->states[i].residency_ns +
- 		    genpd->states[i].power_off_latency_ns)) &&
- 		    (global_constraint >= (genpd->states[i].power_on_latency_ns +
--		    genpd->states[i].power_off_latency_ns))) {
--			genpd->state_idx = i;
--			genpd->gd->last_enter = now;
--			genpd->gd->reflect_residency = true;
--			return true;
--		}
-+		    genpd->states[i].power_off_latency_ns)))
-+			break;
-+
- 	} while (--i >= 0);
- 
--	return false;
-+	if (i < 0)
-+		return false;
-+
-+	if (cpus_peek_for_pending_ipi(genpd->cpus))
-+		return false;
-+
-+	genpd->state_idx = i;
-+	genpd->gd->last_enter = now;
-+	genpd->gd->reflect_residency = true;
-+	return true;
- }
- 
- struct dev_power_governor pm_domain_cpu_gov = {
--- 
-2.43.0
-
+Cheers
+/Ilias
+>
+>
+> >  .../firmware/linux,smbios3-entrypoint.yaml    | 25 +++++++++
+> >  drivers/firmware/dmi_scan.c                   | 54 +++++++++++++++++++
+> >  2 files changed, 79 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/firmware/linux,smbios3-entrypoint.yaml
+> >
+> > --
+> > 2.51.0
+> >
 
