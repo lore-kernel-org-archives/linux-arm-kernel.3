@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2206CCCF9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 09:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A77CCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 09:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/mZtn147ikWvuq3oArSaA/nKxRJMYxqffmhEF5+2L50=; b=WFkjMSSpjUceCDZMvLyQe1PW3u
-	jlcup2Me3TQFVBsMdun9DlC31CE63weZhhWgE6tS1SJf7H7fQSR7t9W62yTbqwC9z7mbyVB8jsNUx
-	gstUnes2eqfKGVz7Se2HguMueHlVKu/s/lCIuNp0Feu66PuWLYuxTIZ71GtjAAgLfqF0PwoUcOros
-	bigggGKH//xoVPubyB18PnobNlClUIU1iGmtfK2B6Rbk4b3bImT54yO7zwCLqP9tf4xe14VD1nacu
-	3P/HO+a5iq/57y/9vZ4tNgzVzH6LSFnPFiLqiYTca87VTGhqxClqcrYaMRjtjHfRQ9nGoW+RGEClj
-	7qnZKtmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3dp94GrDZg0UVkVDHJkjmLVgK6x3UrsnNDqe+2G/50o=; b=GTbneRhKmGZPttm8aGBCx0XZuD
+	LQE8NWp8+XqN5+IXIul+ew2FHUimebproNT/8TkJrwSOFyfKMSD9BQbq4uGTvhgcPY+U/X7YVyyZ3
+	bi8siYEXtA/8QoLPAgu2EAJjvM54P9vS+YBJoeV+MHq4LecW5ToXsVOxEVDxw9aUrFIKfhuZSGtNs
+	xWO9YScxXPUNn4tl2Pi9nLENPLoWg2iLRHtgyyhHlfO6XOIeSroSny69+P1D7aeyNdqJWWwGQQuqB
+	QEz2gnMWDoU3N0j9W1kHsiHpwIFhzrWJ96qHfk+2EJS4fJDiNtaRLesdfSyV+qusbgQrb0qSwHHHs
+	HVf3wHWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEl4r-00000005kNA-07ga;
-	Fri, 31 Oct 2025 09:05:45 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vEl5E-00000005kYT-45mE;
+	Fri, 31 Oct 2025 09:06:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEl4n-00000005kM6-1wOJ;
-	Fri, 31 Oct 2025 09:05:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761901541; x=1793437541;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=qFNmSQUeXMaY7XvP4sAPgKkJ8Ev3XCXyw2q+qbAZDIU=;
-  b=D+MDkPJIuJbXracYjeQPrhqp2Z1J8PA42DgmToB5mtukOzejdJb50tr6
-   cLik5jPvXKRz1TM0r9X8dHdLwjvAhrFZvBTXG64qqlr2LGGgWJd057SKV
-   riKu2x1GjGa/3ov1D3aXluC2bfwO+Lnvk7pyy+UKDpfTqKXZBJhDDNa+K
-   wqzyu3ndmH8bFkjB8hFr8tj2gVzIxiJRl5hoyCY9nmtnDWF73mdl49V8F
-   KacemejJhnFmXDuQYf52FiW0d3a1eqYStTprjDAyMJ5qMk7cdYqu1SXzT
-   ZlAEQkWog/K+kF29XWI6K/5yTiO0WAP93vNCb8WIg58Du34qMeGWNFCv+
-   Q==;
-X-CSE-ConnectionGUID: tEiLt9G5SqyhLgFW8uPmOA==
-X-CSE-MsgGUID: Tue60yezT+2yOgJW9ot+EQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="89523298"
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="89523298"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 02:05:41 -0700
-X-CSE-ConnectionGUID: wf1Dt5UnRy6jaWYzdx9wDQ==
-X-CSE-MsgGUID: x9G1JpmbTtGdOFT3heo6QA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="186121954"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.240.28]) ([10.124.240.28])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 02:05:32 -0700
-Message-ID: <18ecf186-c3b9-4027-a54b-7f3e5ba9f484@linux.intel.com>
-Date: Fri, 31 Oct 2025 17:05:34 +0800
+	id 1vEl5B-00000005kWi-3q5k
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 09:06:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 13B4861DE2
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 09:06:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A875CC2BC87
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 09:06:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761901564;
+	bh=HY35X0Jzske9SGqhpLiK1C62JcE5DLM53IEaMjOcCVY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=loiaIyIRL4ulsJ+FEOYNY2/S0JaFMly4NkQGS459NSi2JDRp7vA9vd5hhO/+s7lQP
+	 PDKYs9cFu3Y4+CBCIeg22y9Ur+yDODNTSL5i+QmD8p0vlURZy3XlnZDOjc2mOAxD5X
+	 VDVAPczTuQaBCJPIlj9a0Az9kAhcSmQWxNcvFIUxTKIXfTrWUVuNu/OzuGtn69HfFL
+	 KJLb9+41Ok1E3GdO0yLxMPmjL3lgN+fQ67PjkNROqU7hkuOspvJ/ozRFnIjDn6VMkQ
+	 ZwBKrsyRrEuTxqye8yU9QRH+FwGRNNHB9h32JsCwr1RRGbtZJ4KUxO1akKXde+Yj9w
+	 02c7pcoln4uUQ==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-378d710caedso19439921fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 02:06:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWYBqRNK1yLUn9M/l/aZjwYFZkOD+px1aIrOYJrx2x+nflFXdA2uMKvVaafA9GABrUmQUbbmqN8ISHNKJkO90SD@lists.infradead.org
+X-Gm-Message-State: AOJu0YySy0qI+sNzfMxnjaBv2SATulf5PnWCN3/oADKMtKb0t/KDISSf
+	Ns0W+z1MVX1d6so8bWq0KGSQHgrkjx6094CrRauAzOoROEhY/TDSVedD+aIHuvjBQPlpxnktwN1
+	tW2TqXzLU2RwpmPNf9eW+NGzS6cB5v2Q=
+X-Google-Smtp-Source: AGHT+IHo1BDxtEcYJCNqrkX3cSbClvnLOEGhzOUXS7m3YmCBUjmZoaCOU8Y8UHOzac6EJyOFBI9H4ZUYvlMV1sk1fT0=
+X-Received: by 2002:a05:651c:50f:b0:372:9fd0:8c44 with SMTP id
+ 38308e7fff4ca-37a18da85c2mr7825361fa.3.1761901562867; Fri, 31 Oct 2025
+ 02:06:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 20/28] KVM: TDX: Assert that mmu_lock is held for write
- when removing S-EPT entries
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
- Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ackerley Tng <ackerleytng@google.com>
-References: <20251030200951.3402865-1-seanjc@google.com>
- <20251030200951.3402865-21-seanjc@google.com>
-Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251030200951.3402865-21-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_020541_515641_8C4F1DA8 
-X-CRM114-Status: GOOD (  16.41  )
+References: <20251022114527.618908-1-adriana@arista.com> <20251031084101.701159-1-adriana@arista.com>
+ <20251031084101.701159-3-adriana@arista.com>
+In-Reply-To: <20251031084101.701159-3-adriana@arista.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 31 Oct 2025 10:05:51 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXE6L2PTtYYqOC7+fQd7HoB_FJAOtF=p=u+AimhqkLzV8w@mail.gmail.com>
+X-Gm-Features: AWmQ_blu14Z2p8TiOqD9ran31qq1TH0PhxjuvuYB7qcqo-ibv4LM8TnejHIrFyE
+Message-ID: <CAMj1kXE6L2PTtYYqOC7+fQd7HoB_FJAOtF=p=u+AimhqkLzV8w@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] drivers: firmware: dmi_scan: Add support for
+ reading SMBIOS from DT
+To: adriana <adriana@arista.com>
+Cc: ilias.apalodimas@linaro.org, trini@konsulko.com, robh@kernel.org, 
+	krzk@kernel.org, jdelvare@suse.com, frowand.list@gmail.com, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, vasilykh@arista.com, 
+	arm.ebbr-discuss@arm.com, boot-architecture@lists.linaro.org, 
+	linux-efi@vger.kernel.org, uefi-discuss@lists.uefi.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,60 +85,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Adriana,
 
-
-On 10/31/2025 4:09 AM, Sean Christopherson wrote:
-> Unconditionally assert that mmu_lock is held for write when removing S-EPT
-> entries, not just when removing S-EPT entries triggers certain conditions,
-> e.g. needs to do TDH_MEM_TRACK or kick vCPUs out of the guest.
-> Conditionally asserting implies that it's safe to hold mmu_lock for read
-> when those paths aren't hit, which is simply not true, as KVM doesn't
-> support removing S-EPT entries under read-lock.
+On Fri, 31 Oct 2025 at 09:41, adriana <adriana@arista.com> wrote:
 >
-> Only two paths lead to remove_external_spte(), and both paths asserts that
-                                                                 ^
-                                                               assert
-> mmu_lock is held for write (tdp_mmu_set_spte() via lockdep, and
-> handle_removed_pt() via KVM_BUG_ON()).
+> From: Adriana Nicolae <adriana@arista.com>
 >
-> Deliberately leave lockdep assertions in the "no vCPUs" helpers to document
-> that wait_for_sept_zap is guarded by holding mmu_lock for write, and keep
-> the conditional assert in tdx_track() as well, but with a comment to help
-> explain why holding mmu_lock for write matters (above and beyond why
-> tdx_sept_remove_private_spte()'s requirements).
->
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
-
+> Signed-off-by: Adriana Nicolae <adriana@arista.com>
 > ---
->   arch/x86/kvm/vmx/tdx.c | 7 +++++++
->   1 file changed, 7 insertions(+)
+>  drivers/firmware/dmi_scan.c | 58 +++++++++++++++++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
 >
-> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-> index 63d4609cc3bc..999b519494e9 100644
-> --- a/arch/x86/kvm/vmx/tdx.c
-> +++ b/arch/x86/kvm/vmx/tdx.c
-> @@ -1715,6 +1715,11 @@ static void tdx_track(struct kvm *kvm)
->   	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
->   		return;
->   
-> +	/*
-> +	 * The full sequence of TDH.MEM.TRACK and forcing vCPUs out of guest
-> +	 * mode must be serialized, as TDH.MEM.TRACK will fail if the previous
-> +	 * tracking epoch hasn't completed.
-> +	 */
->   	lockdep_assert_held_write(&kvm->mmu_lock);
->   
->   	err = tdh_mem_track(&kvm_tdx->td);
-> @@ -1762,6 +1767,8 @@ static void tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
->   	gpa_t gpa = gfn_to_gpa(gfn);
->   	u64 err, entry, level_state;
->   
-> +	lockdep_assert_held_write(&kvm->mmu_lock);
-> +
->   	/*
->   	 * HKID is released after all private pages have been removed, and set
->   	 * before any might be populated. Warn if zapping is attempted when
+> diff --git a/drivers/firmware/dmi_scan.c b/drivers/firmware/dmi_scan.c
+> index 70d39adf50dc..acc0e18b8d0f 100644
+> --- a/drivers/firmware/dmi_scan.c
+> +++ b/drivers/firmware/dmi_scan.c
+> @@ -10,6 +10,9 @@
+>  #include <linux/random.h>
+>  #include <asm/dmi.h>
+>  #include <linux/unaligned.h>
+> +#if IS_ENABLED(CONFIG_OF)
+> +#include <linux/of.h>
+> +#endif
+>
+>  #ifndef SMBIOS_ENTRY_POINT_SCAN_START
+>  #define SMBIOS_ENTRY_POINT_SCAN_START 0xF0000
+> @@ -670,6 +673,54 @@ static int __init dmi_smbios3_present(const u8 *buf)
+>         return 1;
+>  }
+>
+> +#if IS_ENABLED(CONFIG_OF)
+> +/**
+> + * dmi_scan_from_dt - Find and parse DMI/SMBIOS tables from the Device Tree
+> + *
+> + * Checks if the bootloader has passed SMBIOS table addresses via the /chosen
+> + * node in the Device Tree. This follows the standard kernel DT bindings and
+> + * assumes a fixed 32-byte mapping for the entry point.
 
+Not sure what 'the standard kernel DT bindings' are, or what you mean
+by 'a fixed 32-byte mapping. You could just drop this sentence, I
+think, or otherwise, describe that the DT property gives us the
+physical address of the SMBIOS3 entrypoint structure.
+
+> + * Returns true if a valid table is found and successfully parsed.
+
+if a valid entry point is found
+
+> + */
+> +static bool __init dmi_scan_from_dt(void)
+> +{
+> +       struct device_node *chosen;
+> +       const __be64 *prop;
+> +       char buf[32];
+> +       void __iomem *p;
+> +       bool dmi_available = false;
+> +       u64 addr;
+> +       int len;
+> +
+> +       chosen = of_find_node_by_path("/chosen");
+> +       if (!chosen)
+> +               return false;
+> +
+> +       prop = of_get_property(chosen, "linux,smbios3-table", &len);
+> +       if (prop && len >= sizeof(u64)) {
+> +               addr = be64_to_cpup(prop);
+> +
+> +               p = dmi_early_remap(addr, 32);
+> +               if (p == NULL)
+> +                       goto out;
+> +
+> +               memcpy_fromio(buf, p, sizeof(buf));
+> +               dmi_early_unmap(p, 32);
+> +
+> +               if (!dmi_smbios3_present(buf)) {
+> +                       dmi_available = true;
+> +                       goto out;
+> +               }
+> +       }
+> +
+> +out:
+> +       of_node_put(chosen);
+> +       return dmi_available;
+> +}
+> +#else
+> +static bool __init dmi_scan_from_dt(void) { return false; }
+> +#endif /* IS_ENABLED(CONFIG_OF) */
+> +
+>  static void __init dmi_scan_machine(void)
+>  {
+>         char __iomem *p, *q;
+> @@ -718,6 +769,13 @@ static void __init dmi_scan_machine(void)
+>                         dmi_available = 1;
+>                         return;
+>                 }
+> +       } else if (IS_ENABLED(CONFIG_OF) && dmi_scan_from_dt()) {
+
+Please drop the IS_ENABLED() here, and fold it into dmi_scan_from_dt(), by doing
+
+if (!IS_ENABLED(CONFIG_OF))
+    return false;
+
+at the beginning. This removes the need to provide two different
+versions of dmi_scan_from_dt().
+
+
+> +               /*
+> +                * If EFI is not present or failed, try getting SMBIOS
+> +                * tables from the Device Tree.
+> +                */
+> +               dmi_available = 1;
+> +               return;
+>         } else if (IS_ENABLED(CONFIG_DMI_SCAN_MACHINE_NON_EFI_FALLBACK)) {
+>                 p = dmi_early_remap(SMBIOS_ENTRY_POINT_SCAN_START, 0x10000);
+>                 if (p == NULL)
+> --
+> 2.51.0
+>
 
