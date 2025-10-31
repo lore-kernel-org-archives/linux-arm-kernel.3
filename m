@@ -4,152 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A34CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76597CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hYEz0LlzqW56NSEG9zzoWDnjyQ4mCMBlcUdJVY5yHng=; b=FQ0IdB3bYWLYaV3O2h3+HOnfni
-	CIg07lVyIkCyVguIqXUfY7128V0XCy1mdLOqxQ3MUkanPMQRM1BWcQrzcRwVOQN+r7K7u+Am+j5Rk
-	cDmVv3jPjo0mE4xIdxM0Z4fJa2jWxY/mIIxk79FfeIJQzPY93InQERanrCBXgw0eGzAw7O4uU3YHc
-	ouDtR1dl854aVLC4cPLy2K9/CF13bQ8wH0j/UM10cBMF8mu9GiNG1W9EWKOjEq+NUpDRwnJ5wC8nv
-	PnkRRHwlLiVDInhu2lF7dyrN3s2qIWLTbZvO1IGPvCMIOOeP1729lPOYLWUhAIL+v1FqHC/pqSk4y
-	lTTUirnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hrayKAKaSRu3AEFjENKUssZHoHeNJ30UqnLov4d3dfA=; b=xQkhDkiHptdUwh/q3xzkbVrI2f
+	IwaTS1Qg7hy0xLpdD8ZvqZIDDkWUJLZoE3DEwMOv/zonAlsmoFCgxClmd0BCnscOb8HEf27MCbUGk
+	mKs9Yuxiuepz91ziYvIkdY21IfEzouHpSY1T/TPBLJ0MCMTzhyY6ZMqw1oUcgipOtbF5mueIgwI8P
+	9FOQw7176r39/vQ4NkLkGDASTB6wOva1KFdPUP/89O150MLnIrfSspAlIfmI4HX4ZzeMFRGiQeyoS
+	xdnsOeK/ei2cfXlFBJU0INZzjsx/MdSm3DLHjcunC/I8lHnpQRYFTylWva+FKruhRJkERXTUM6fit
+	v3TBuN2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEqMY-00000006GLo-0IYh;
-	Fri, 31 Oct 2025 14:44:22 +0000
-Received: from mail-westusazon11012060.outbound.protection.outlook.com ([52.101.43.60] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vEqVg-00000006HB8-2Jng;
+	Fri, 31 Oct 2025 14:53:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEqLn-00000006Fuz-0fAB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 14:43:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m0pGIxHsTQVW+kawZ6dkj20xNbFclShEc65PWb4+ZQEycheQfD9dxT4NYGcvwX/bQ9WYkElgulB9GZ5E4nwzh1PngASbCzuI+CDq9J2defSeGjFAWS+0nzjEWO7PLO7iMTuJV50eONn8fvU1YOfh6fALCsxLG31rnGsKyWqYlBJom2tfGab3PbU99SIwibH+wFqBglD2xU2q8RPDgR8L+Y7M6XZvYd2iBUNzXshEdS4XlUa+PIPkMy7cLP9xmExPIVkqBlp5taGOMsbx/iEx2u8CRr6ORVCrUvdVwC+1VDxKcZxggS/iWExBa/JTJq6UXaLL/J9uK6K8b1rbT/TbzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hYEz0LlzqW56NSEG9zzoWDnjyQ4mCMBlcUdJVY5yHng=;
- b=HAX1bpAujsk3qA3Gxb2Tnst0im1N/+uZGfQ3VexCAyZ4q7HSbeaSIf12mvs24qX8h4/x43QyxbGO32nFXIvTTLa8pLu4v5rVWDOB5lQWb/m0dGNSIjbdkcGi5JZ+bPdmDQhe7tEPQcBW/HC5BPRlpcxvDrOj53eyUp1nUIrw3ecq/RZsHu827sdZ2/5xwBvoh9fIbT34YCiyK9UjzBQcXVHZNKxvaJnaK0h+eZipKqqrlurz5sz8o8dNdyukUsaYqDuOsnX2FV94Wno3EgQw+O1zTImurdyAj+ZUAFrtflSsPyNetCmTt6n647szzEXhaeCKiS3BwRsR5lCvwXRM5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hYEz0LlzqW56NSEG9zzoWDnjyQ4mCMBlcUdJVY5yHng=;
- b=kczf8wxtmD6mTJOjHDuGbLRVfz6nfL0GwOwfANY46ydVb4U5iQkEu57YYiE+dmad9KTX5oK+TZbO7bS2iybKqeS9JfJ1IRZ/jU3iAzyDe3uXV+Sa/Xv8tsA9HSFNzRJGgQD/GKL7/zhs67IZxOMDlq68GTtP82J/8pkA6x6e8WM=
-Received: from BL1PR13CA0318.namprd13.prod.outlook.com (2603:10b6:208:2c1::23)
- by MW4PR10MB6372.namprd10.prod.outlook.com (2603:10b6:303:1e9::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.14; Fri, 31 Oct
- 2025 14:43:23 +0000
-Received: from BL02EPF00021F6D.namprd02.prod.outlook.com
- (2603:10b6:208:2c1:cafe::e8) by BL1PR13CA0318.outlook.office365.com
- (2603:10b6:208:2c1::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.13 via Frontend Transport; Fri,
- 31 Oct 2025 14:43:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BL02EPF00021F6D.mail.protection.outlook.com (10.167.249.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Fri, 31 Oct 2025 14:43:22 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 31 Oct
- 2025 09:43:12 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 31 Oct
- 2025 09:43:11 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 31 Oct 2025 09:43:11 -0500
-Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59VEgf5c4024498;
-	Fri, 31 Oct 2025 09:43:09 -0500
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Sai Sree
- Kartheek Adivi" <s-adivi@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am642-evm: Add DMA support for tscadc
-Date: Fri, 31 Oct 2025 20:11:00 +0530
-Message-ID: <176192142807.427883.14111257672969371338.b4-ty@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251013115225.3668641-1-s-adivi@ti.com>
-References: <20251013115225.3668641-1-s-adivi@ti.com>
+	id 1vEqVe-00000006HAj-08pK;
+	Fri, 31 Oct 2025 14:53:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FE3643713;
+	Fri, 31 Oct 2025 14:53:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D644AC4CEE7;
+	Fri, 31 Oct 2025 14:53:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761922425;
+	bh=6vHW2fp30oSt1Z1dUetdmISj2k4xcp73KZzarQrJoJ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hg3KPhvnGuPVN9p618BTCV3Kb5hMDEZ/ev5rl0D2cJy40ogHWKJltb29YlTacv1Hi
+	 nuQtkj25k0SbWF25CFg/DdLkuzPz/RURsIOAU66uFwwv54A/ApMvz2Xin7BsGdZJYF
+	 j5yZ5pWm8lBpWJCqiZ1jkvWYhsR3NN5d+uurlsoXAbqh3iFti2RRduOfw9NOsGAbjG
+	 ppISPIizNTSaIzCoNKSmA1BdWs0SLU19Q5fqROuSRTvMR/SbviKtgq9Tg/ONMgapjg
+	 OVI9t4PhUWeYhizGXPmrLqFj5OA7wLfWopW9c8lkW1uLlNRcLU6wNHfYQUlKFZeWXd
+	 4921bdDmC5uyQ==
+Date: Fri, 31 Oct 2025 20:23:27 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 2/2] PCI: dw-rockchip: Add runtime PM support to
+ Rockchip PCIe driver
+Message-ID: <e7cttuu5525k7ryvmkh6ifspm5vloj4muazvmp3yxtkgsdtbjs@u4odsfurejxq>
+References: <20251027145602.199154-1-linux.amoon@gmail.com>
+ <20251027145602.199154-3-linux.amoon@gmail.com>
+ <ukgkfetbggzon4ppndl7gpitlsz7hjhzhyx3dgxqhdo52exguy@bqksd7d27lpy>
+ <CANAwSgTECOAoKeJS_=HxkkTP4OJvYu5xGQxY__Auh81v3QT=-w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F6D:EE_|MW4PR10MB6372:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58b9152d-6995-4c1b-7374-08de188bd742
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|34020700016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L2hpczByaENldllNRE03SDJZMjBZcHdzRE1DbFlXV3V4UjNLRmNpSHc1ZVB1?=
- =?utf-8?B?L0Izb2hEYmk0ZzhiRlpVNzdueWd4UkpjcVY1bzdNT3FnamZGcGtMN2ZNaDl0?=
- =?utf-8?B?TkJldFRXTU1xaVhoSHRscXBnOWltWlFQOHdXSnA0QjJyQStEdUJNa2hBVU9t?=
- =?utf-8?B?YjBPYktCMjY0d0JRelhzazZYMytveUxNd21JaTAwcWVHeXlkN1hCTzZBaHcw?=
- =?utf-8?B?MWJXUHdqY3pFb3BjU2RuYTAyeFh2YlRpSDM3V2dOVWxRSmYwYmVIajJ4eEp1?=
- =?utf-8?B?cW04YXp6Q1ZGY255V3A2S1dFYVpqQmptVStBdTZkckMwRmtQQ1Bwbi9ZYjlz?=
- =?utf-8?B?YWJqVlBONXNVVVJwM1JmdUpIamkzNWRyR3NqVXpZWjQ4S0hmTEVIR2RZdG9U?=
- =?utf-8?B?b3hwSTlzQzhqdWxUSXFURC90RW1vRGpYZ1hqdCt5S3Rlejk0a3dSRlJGL2Zu?=
- =?utf-8?B?b2c0WCtHUEljUk9WRUtHZnZKNkc1aCtqcmtVVm5zUkN4QWFiZnpZV2RyZjYr?=
- =?utf-8?B?bjBJaXJuMkFYMlV3aHhwZlVlcG1udUljaGlZVkplQzVocVQ1RVl6UDQvZW5v?=
- =?utf-8?B?SkRYK2pGdGNZMHpLc3lHSVhDN1VDQWQyTDNKN1o5UURSS3Frd2dyekNzOHVw?=
- =?utf-8?B?RU5XZ2xsSGZ1OTY2elRkYStrWHlKbWxxWVhsR002WjFuK1BYdnQrTjJlU2Q2?=
- =?utf-8?B?dnRKRnVVM2RzNFFyWFNEMU0waGtyZEUwRVNCUENWM3o3eHlKOUdQWEF1MWpr?=
- =?utf-8?B?SGVFSldwZFIyMzJXSi9lcWNQa1dhaXI5SHdTbm5icm9vbWxJN29jaCtKVXlE?=
- =?utf-8?B?OVFkSTIrSkQ1L1FEYTBNRk43UU9kWUdsVC9sYU53WEhZUVBnalhTYWltVldM?=
- =?utf-8?B?aDFuQXhSY2cyOHF5Um1VMzN1QWhRUk5aYVFlL0syakpXMGNVZldCN2hQVDFH?=
- =?utf-8?B?U0thNmpCanJlbFljbjBXUjdQYmd5aDlSOGJLNEIyak1jdVNITEpaY25jbFk5?=
- =?utf-8?B?MUZnaXBSMjhQMm9VKzFZWVV3RmVZeng1d0c3eFBiMldYajgvV2lLVEgxek42?=
- =?utf-8?B?UllBWDV5OXpVc3lsVGc0alN2SmVydllvSVZBY255MVBFRU5ScFljN2xUdmIv?=
- =?utf-8?B?cUVuRTUzSndlTWRMb1JaQjZVMGJyVjZXeUtJQUtQd2lJaWJwTkswZkpHM2xv?=
- =?utf-8?B?KzBhUytCbk5UM0NHTmNtTUJQdWVmNjVOMDlOdzJrU2lTWnZOVXJyb0NBT283?=
- =?utf-8?B?YnpFaVZUVkh5b1hGOVE0bXMramZaa2VLSW9sa0ZyM21EK3B2MU5KcnJSRHQ3?=
- =?utf-8?B?RGNzNWl0TW9uL3B2c29Ka2x3QkxvdDNia0poRGlSZDBBU3Qvc2VsbE1ReDNX?=
- =?utf-8?B?Y0xBU0cyTDdSWmxSeE5JSTd3b3RxQnovRDVRNTJQSUJCZnFLRGpDWlpHdjlk?=
- =?utf-8?B?b0kyU3RsY3E0Y2x1cFpCdFE0UVpkSXJkSUg1Y3c3TnNWc05oZlZ0QWl5Qm10?=
- =?utf-8?B?TnN3ZlQwYUNUODVmZ1RBWmNuSk1RN0xaM3NIOTZkd3dNRVJ5RWViYk51TWZh?=
- =?utf-8?B?cUtrUnYvSlZTaFJTVEJQNFNidHNsOFc4VHI2L1FOMXJYbi9WVTZoL2EyeFdH?=
- =?utf-8?B?VUM0clVxSGtoL0tSZUpPVGtBSmpMdmViRXNHNkp3WkdWVFpjR3JoenZjTWwx?=
- =?utf-8?B?K21ySkNzQ0tOSHo4ZGJVNy8yaWl6RlZaTGhoUERKWExZU0xtVGFVL1hqMVND?=
- =?utf-8?B?UFcwVHN6cTNRKzF0QWlCZENaQVQ5ek8vWGlWSE9YSG5Sb2k5bkFhWlJBUGJM?=
- =?utf-8?B?YWdYdGhrODNZRTZRekFmeC9WOXoxNkJMbnBQa0d1d2tOR2RJR1JpWXN1QXAr?=
- =?utf-8?B?a1UxZkE4ZE5BbkJoU1JWUzZieFNQdk9xSm1Xdmh3YnBRZDlTZEpoVUJRMjU5?=
- =?utf-8?B?SVZVaHVIZzFJTmNPdDZ1aHJFVWtzRFlaTEI0WXBDajRCTktBazZzZk5RTTNq?=
- =?utf-8?B?aUFOOXo5QXpXOVZybC9COW1ydU11NnlYUTF0aHBST2FHcTZEd0NxYmRVU3ZD?=
- =?utf-8?B?alhaQ3l3T0xCYnJRNzhKTUUyeHJRVFJSdGVnN2ltcm5GYytKanVES0hGQ3k3?=
- =?utf-8?Q?1g80=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(34020700016)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 14:43:22.3430
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58b9152d-6995-4c1b-7374-08de188bd742
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6372
+In-Reply-To: <CANAwSgTECOAoKeJS_=HxkkTP4OJvYu5xGQxY__Auh81v3QT=-w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_074335_240756_3C707FD7 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20251031_075346_119998_0C2B5A93 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,37 +81,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sai Sree Kartheek Adivi,
-
-On Mon, 13 Oct 2025 17:22:25 +0530, Sai Sree Kartheek Adivi wrote:
-> Add dma support for tscadc0
+On Fri, Oct 31, 2025 at 07:33:23PM +0530, Anand Moon wrote:
+> Hi Manivannan
 > 
+> Thanks for your review comment.
+> 
+> On Fri, 31 Oct 2025 at 14:09, Manivannan Sadhasivam <mani@kernel.org> wrote:
+> >
+> > On Mon, Oct 27, 2025 at 08:25:30PM +0530, Anand Moon wrote:
+> > > Add runtime power management support to the Rockchip DesignWare PCIe
+> > > controller driver by enabling devm_pm_runtime() in the probe function.
+> > > These changes allow the PCIe controller to suspend and resume dynamically,
+> > > improving power efficiency on supported platforms.
+> > >
+> >
+> > Seriously? How can this patch improve the power efficiency if it is not doing
+> > any PM operation on its own?
+> >
+> I could verify that runtime power management is active
 > 
 
-I have applied the following to branch ti-next on [1].
-Thank you!
+This is runtime status being active, which is a different thing as it only
+allows the runtime PM hierarchy to be maintained. But the way you described the
+commit message sounds like the patch is enabling runtime PM of the controller
+and that improves efficiency (as if the controller driver is actively doing
+runtime PM operations).
 
-[1/1] arm64: dts: ti: k3-am642-evm: Add DMA support for tscadc
-      commit: 5ccb63373d6568d9f99e927b23bc758a4b102a34
+> [root@rockpi-5b alarm]# cat
+> /sys/devices/platform/a41000000.pcie/power/runtime_status
+> active
+> [root@rockpi-5b alarm]#  find /sys -name runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/pci_bus/0004:41/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-3::lan/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-2::lan/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-1::lan/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-0::lan/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/mdio_bus/r8169-4-4100/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/mdio_bus/r8169-4-4100/r8169-4-4100:00/power/runtime_status
+> /sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/mdio_bus/r8169-4-4100/r8169-4-4100:00/hwmon/hwmon11/power/runtime_status
+> 
+> Well, the powertop shows that the runtime power management is enabled
+> on Radxa Rock 5b,
+> 
+> PowerTOP 2.15     Overview   Idle stats   Frequency stats   Device
+> stats   Device Freq stats   Tunables   WakeUp
+> >> Good          Wireless Power Saving for interface wlan0
+>    Good          VM writeback timeout
+>    Good          Bluetooth device interface status
+>    Good          NMI watchdog should be turned off
+>    Good          Autosuspend for unknown USB device 2-1.3 (8087:0a2b)
+>    Good          Autosuspend for USB device USB 2.0 Hub [2-1]
+>    Good          Autosuspend for USB device Generic Platform OHCI
+> controller [usb1]
+>    Good          Autosuspend for USB device xHCI Host Controller [usb8]
+>    Good          Autosuspend for USB device Generic Platform OHCI
+> controller [usb4]
+>    Good          Autosuspend for USB device EHCI Host Controller [usb2]
+>    Good          Autosuspend for USB device xHCI Host Controller [usb6]
+>    Good          Autosuspend for USB device EHCI Host Controller [usb3]
+>    Good          Autosuspend for USB device xHCI Host Controller [usb5]
+>    Good          Autosuspend for USB device xHCI Host Controller [usb7]
+>    Good          Runtime PM for PCI Device Intel Corporation Wireless
+> 8265 / 8275
+>    Good          Runtime PM for PCI Device Rockchip Electronics Co., Ltd RK3588
+>    Good          Runtime PM for PCI Device Rockchip Electronics Co., Ltd RK3588
+>    Good          Runtime PM for PCI Device Realtek Semiconductor Co.,
+> Ltd. RTL8125 2.5GbE Controller
+>    Good          Runtime PM for PCI Device Rockchip Electronics Co., Ltd RK3588
+>    Good          Runtime PM for PCI Device Samsung Electronics Co Ltd
+> NVMe SSD Controller SM981/PM981/PM983
+> 
+> PowerTOP 2.15     Overview   Idle stats   Frequency stats   Device
+> stats   Device Freq stats   Tunables   WakeUp
+>               Usage     Device name
+>               1.1%        CPU use
+>             100.0%        Radio device: rfkill_gpio
+>             100.0%        runtime-rockchip-gate-link-clk.712
+>             100.0%        PCI Device: Realtek Semiconductor Co., Ltd.
+> RTL8125 2.5GbE Controller
+>             100.0%        runtime-rockchip-gate-link-clk.717
+>             100.0%        runtime-rockchip-gate-link-clk.714
+>             100.0%        runtime-rockchip-gate-link-clk.489
+>             100.0%        runtime-a40000000.pcie
+>             100.0%        runtime-a40800000.pcie
+>             100.0%        runtime-rockchip-gate-link-clk.718
+>             100.0%        runtime-rockchip-gate-link-clk.706
+>             100.0%        runtime-rockchip-gate-link-clk.708
+>             100.0%        PCI Device: Intel Corporation Wireless 8265 / 8275
+>             100.0%        Radio device: btusb
+>             100.0%        runtime-fcd00000.usb
+>             100.0%        PCI Device: Samsung Electronics Co Ltd NVMe
+> SSD Controller SM981/PM981/PM983
+>             100.0%        Radio device: rfkill_gpio
+>             100.0%        runtime-fc000000.usb
+>             100.0%        Radio device: iwlwifi
+>             100.0%        PCI Device: Rockchip Electronics Co., Ltd RK3588
+>             100.0%        PCI Device: Rockchip Electronics Co., Ltd RK3588
+>             100.0%        PCI Device: Rockchip Electronics Co., Ltd RK3588
+>             100.0%        runtime-rockchip-gate-link-clk.711
+>             100.0%        runtime-fc400000.usb
+>             100.0%        runtime-rockchip-gate-link-clk.704
+>             100.0%        runtime-rockchip-gate-link-clk.701
+>             100.0%        runtime-rockchip-gate-link-clk.716
+>             100.0%        runtime-rockchip-gate-link-clk.707
+>             100.0%        runtime-rockchip-gate-link-clk.709
+>             100.0%        runtime-rockchip-gate-link-clk.719
+>             100.0%        runtime-xhci-hcd.1.auto
+>             100.0%        runtime-feb50000.serial
+>             100.0%        runtime-rockchip-gate-link-clk.715
+>             100.0%        runtime-rockchip-gate-link-clk.710
+> 
+> > Again, a pointless patch.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+This patch might make sense on its own, to enable runtime PM status of the
+controller so that the runtime PM could be applied to the entire PCIe hierarchy.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+> I implemented a .remove patch to ensure proper resource cleanup,
+> which is a necessary step for successfully enabling and managing
+> runtime power for the device.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+How a dead code (remove callback for a always built-in driver) becomes necessary
+for runtime PM.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+- Mani
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
---
-Vignesh
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
