@@ -4,54 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD123CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560DFCCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WGICm9g4dRXmU+6sf5Z8nF9V+YHMwgRzuS0Vk6yWmQ0=; b=nSxtjtH0KVdW9caE6wcrH1eVN6
-	TJ4D9jmdAWX+2ZKnRiWpW0Yy3DQRo7e3gZ87/ZfdGNDeM4/Z2qQFatpBzibhhNt6qq9YSSiihffR8
-	stye43kYO4MauVWY8z2I+I3vMAnnVk1PSb7GZHARX/TayhsAy6AMuaQbZIxoVTSA/KaE8IyuElGWH
-	0JrgdK6lq3Xsm0IJbYpJEgE2aqGZ8IFKlBoShcPN1HQg7obxwRXZR26TVKIjdyPxewAir+eqozSlG
-	ewNcHTNMfrlXgYq55o57TUBds14d3Bq3Y5MSOfwKjoLkjtPYItNMPNTA/SgV8f6YvtrpCy9IEvce9
-	eZE8DlRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Prc2FqBCKdzHY6nEpuB9LU3Sy57F4RCmA/VQbF5rrrs=; b=xJNOECL+XjWdXJJlUFNooWHLCk
+	2nnPIbCuANOwnJr4btrQgVUB8b6i8pZjCU3IU8qEy1+k89Bjqnadauqr61Ud2z7xWbm6zStWiSq6n
+	0ZdME64BhG3qsfxt4sBBRyOnLfyH4+Dm35eXFbgbKVU0v83ZdgGcvvKFGG9m3j8CifqvxrcoDo54y
+	VzpVlp4Co4Z0ebx5Cm/UWBbCaV8sEAKB332y2E/HDKtS2c/jWJTJLNTRvSmCJTtKXObRHo0+FquDS
+	TOmBlPE41GxK1dDBGv5QzVWicGzwGNs6v5lI7FDUpVG2y1UER8VNGEt4hnTQdifuqaDQhnIvNjSM6
+	r2++PNvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEs2M-00000006PmH-2WXP;
-	Fri, 31 Oct 2025 16:31:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vEs3j-00000006Q0Z-0AVG;
+	Fri, 31 Oct 2025 16:33:03 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEs2L-00000006Pm9-46XN
+	id 1vEs3g-00000006Pzf-0Anl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 16:31:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A618460241;
-	Fri, 31 Oct 2025 16:31:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D00C4CEE7;
-	Fri, 31 Oct 2025 16:31:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1761928296;
-	bh=zW829c3pZwV8tsnXSpZcuT+PeSyI9qJf7eQP02+ZFXQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jfpYzVSnpBx2JIf4UZTkGylOO01LoGMr6kaTAtbxyIQgB6kMrogWmJUEZAQU3xtHT
-	 TKh5uHJD2YFuaPRMk74ktnoi6CgWWjaEAe/WJHkrg6YvtmW0XSz4sdEDN2e3vjmPcj
-	 KIa2c3vPKJTYTg+Ztr7NhjBRmU4WmJG969TZX0Gg=
-Date: Fri, 31 Oct 2025 17:31:32 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Haotian Zhang <vulab@iscas.ac.cn>
-Cc: jirislaby@kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] serial: ma35d1: Fix resource leaks on driver removal
-Message-ID: <2025103115-humped-body-d522@gregkh>
-References: <20251029080039.1010-1-vulab@iscas.ac.cn>
+	Fri, 31 Oct 2025 16:33:02 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 6C12C1A17B6;
+	Fri, 31 Oct 2025 16:32:55 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 392CF60704;
+	Fri, 31 Oct 2025 16:32:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 12CD711818025;
+	Fri, 31 Oct 2025 17:32:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761928374; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Prc2FqBCKdzHY6nEpuB9LU3Sy57F4RCmA/VQbF5rrrs=;
+	b=a7ywpVnHwP3DxXaeUHlnNNOmBr68JW6/D8Sdwho3OVgzpATcfab+7qTznAIsRfgUC0UjcM
+	Ck+5JRJ4G6j9mqujE5RF3nX80IIkAgSgfA0LnNCVMHDZ/gmCBXVi/PIUkX+FMk/A3GvmTJ
+	SUOyt2bKTHr5ykKw1g8WKy6cGw6KhQALaV0IZebpYoGbrkmCrgfGY390B2shmJ4JWBA8K0
+	zfLffb1eHwV04MuniPkW1+l8CTFIw1+2ub3U6vvoaOwthYagCvsMK8ypY4WGRRJ+S7u2Dg
+	SvXmR3qCclupBXLg4FX7hYdt+qWBbQ1rFcXox+HWN3M+r0WhhpD85PAovVCD8w==
+Message-ID: <08518010-3997-4e11-b17e-94765e9c1ca9@bootlin.com>
+Date: Fri, 31 Oct 2025 17:32:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029080039.1010-1-vulab@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/4] net: altera-tse: Read core revision before
+ registering netdev
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ Simon Horman <horms@kernel.org>, Boon Khai Ng <boon.khai.ng@altera.com>,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251030102418.114518-1-maxime.chevallier@bootlin.com>
+ <20251030102418.114518-3-maxime.chevallier@bootlin.com>
+ <b72e0572-6000-478a-b125-93f079944ace@lunn.ch>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <b72e0572-6000-478a-b125-93f079944ace@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_093300_217906_F1A946A2 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,46 +84,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 04:00:39PM +0800, Haotian Zhang wrote:
-> The driver fails to release resources acquired during probe. It calls
-> of_clk_get() to obtain the clock reference but never calls clk_put()
-> in the remove path, leaking the clock reference count. Similarly, it
-> calls ioremap() to map UART registers but never calls iounmap() during
-> removal, leaking the I/O memory mapping.
-> 
-> Switch to devm_clk_get() for automatic clock resource management and
-> add iounmap() call in ma35d1serial_remove() to properly release the
-> memory mapping.
-> 
-> Fixes: 930cbf92db01 ("tty: serial: Add Nuvoton ma35d1 serial driver support")
-> Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
-> ---
->  drivers/tty/serial/ma35d1_serial.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
-> index 285b0fe41a86..37e9f6166290 100644
-> --- a/drivers/tty/serial/ma35d1_serial.c
-> +++ b/drivers/tty/serial/ma35d1_serial.c
-> @@ -711,7 +711,7 @@ static int ma35d1serial_probe(struct platform_device *pdev)
->  
->  	spin_lock_init(&up->port.lock);
->  
-> -	up->clk = of_clk_get(pdev->dev.of_node, 0);
-> +	up->clk = devm_clk_get(&pdev->dev, NULL);
->  	if (IS_ERR(up->clk)) {
->  		ret = PTR_ERR(up->clk);
->  		dev_err(&pdev->dev, "failed to get core clk: %d\n", ret);
-> @@ -762,6 +762,7 @@ static void ma35d1serial_remove(struct platform_device *dev)
->  
->  	uart_remove_one_port(&ma35d1serial_reg, port);
->  	clk_disable_unprepare(up->clk);
-> +	iounmap(up->port.membase);
+Hi Andrew,
 
-You are doing two different things in this patch, shouldn't this be 2
-different commits?
+On 31/10/2025 17:15, Andrew Lunn wrote:
+> On Thu, Oct 30, 2025 at 11:24:15AM +0100, Maxime Chevallier wrote:
+>> The core revision is used in .ndo_open(), so we have to populate it
+>> before regstering the netdev.
+> 
+> All that open does is:
+> 
+> 	if ((priv->revision < 0xd00) || (priv->revision > 0xe00))
+> 		netdev_warn(dev, "TSE revision %x\n", priv->revision);
+> 
+> So i agree this does not need a Fixes: tag.
+> 
+> But i do wounder why this is in open. The revision has already been
+> printed once in probe. Are values < 0xd00 or > 0xe00 significant? Is
+> this left over code and some actions that were previously here are now
+> gone?
+> 
+> Maybe a better fix is to remove this, and make revision local in
+> probe?
 
-thanks,
+You are correct. I was focusing on leaving the existing behaviour
+untouched so I didn't dig any further, but now that you point this
+out, we can definitely simplify that.
 
-greg k-h
+The revision is read from the priv->megacore_revsion address, and
+stored into priv->revision.
+
+The only other spot where this could have been useful is in
+altera_tse_ethtool.c, .tse_get_drvinfo(), but here we actually
+re-read the version from the registers...
+
+So indeed we can keep that local to probe, print a warning for
+unexpected version, and just drop priv->revision :)
+
+Thanks, I'll respin with this.
+
+Maxime
+
+>       Andrew
+
 
