@@ -4,70 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA96CCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 00:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20836CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 01:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FdXSw7y+tJwtEnUY1bUYezsC1HyGh3pjufJt1lWDKVg=; b=lGiCg89EBmk1GRXtR6D1piiN5e
-	mBAJDcEfjK2dDX+a9kTGoSq+YG8J4QtPYGVd6we2+KjbHmLiwixkO12cK1jq37z/DnZ8Ozey5r2ev
-	8gh3tlCscpUOIgn9KNNJCiz1B+RIdOa7suUKWtpMo5qSul88yBemLVtcvVCrsySsyz9OCyjDIkucp
-	tZWvXiumMa7kefIbkBwlyfondobZtt0X83tCGISQ18OFDqQ/Ig5GeD2mUaKyEz/fKTbaMrOPBxSuv
-	eMEX43WkS3Sh+7BWHBFq+e83uQTXx+qwl38sJx1IXaNGMcbt2sx2ODtZRyfC34dVdX01EI6qJhP9W
-	HzT1agIg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4k5u4IDHa2ldPO/YRgbWN7ExpsWnE3pSTkUg9MZsePQ=; b=3IqBj+CfEr7bO4vtRtOamWkzgi
+	OCvEZvBUSCjYWcng4ojp2NnZDSyvL5bo8cbPTXjeLNj6+dH85zJnrHFM7eDsuik0hZnPC/mC2UP5Y
+	wHDO9KkdFRDzD5jqV6FE+s0g+Lmak5hsFAYcjA/lrR7C7ICW/FHWmoasoYsp/f/cjoWyt7dcDXwzX
+	wTuNQk+nfjszH3lxSHGMWomEX+WJdZ2kKvuoxrO6sCvzrMemZXhU4FW4B2WYnJMJRCUVwAsRf2jEM
+	kESE+cKSG9RHDHZWpL9HFs+qhXI5mIAkzko6jQ0UyxFV7kcyYrDNKpwteehkQjj+nXxi9ycy5/Mpb
+	+xapACfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdI8-00000005C1V-1oIv;
-	Fri, 31 Oct 2025 00:46:56 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
+	id 1vEdst-00000005DwN-410y;
+	Fri, 31 Oct 2025 01:24:55 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdHt-00000005Bva-0P81
+	id 1vEdsr-00000005Dvj-0LiD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 00:46:44 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1761871599;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FdXSw7y+tJwtEnUY1bUYezsC1HyGh3pjufJt1lWDKVg=;
-	b=pTlq8m7FAsvLVyz4krKbchHJ0NU5FE+R5WQSR13ckbEKsC5uEdB4LKOVk31e8XfnS5BhDg
-	yQomAnUMHX6oRoEUeqI2GwnhOD5oQEMecLtSIKiubaTbsgj7Q32fnVYPwDKZa2exBgqTnF
-	1WadY5XibFr4noMxOjp+jozCdfxwQTw=
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-To: Sudarsana Kalluru <skalluru@marvell.com>,
-	Manish Chopra <manishc@marvell.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
+	Fri, 31 Oct 2025 01:24:54 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7a76584ea6cso651786b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Oct 2025 18:24:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761873892; x=1762478692; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4k5u4IDHa2ldPO/YRgbWN7ExpsWnE3pSTkUg9MZsePQ=;
+        b=AsMiPXC/tbnyAQmwaOW8SgfYoMO8P8CPBWidnZ0A+4YRh5jmXq3CB78pZrVLhGWhgE
+         vANB3vg0RjIwDCHE2ZTt4c3JBhtfLkYrgvl4YA1t1o7n21DE1yRytMHEb0pGB3Tr8VQG
+         u6ggwHGr+iS+FP0hCCYC76coALWi5v1DEMe788zksAw3a2idJSGBqFE92Hadl5/KnSVT
+         3YxrwMr2yTnoYTuHkC9+YvWH8pUK7iAEOSdzcW0Eds3AOKCgTdd9xQW2d3hUuwlgZXui
+         rVtP+eKOO835BBboNbJwcQmEBtpRyAbmi/8E9L86505KgvZ3uhfG3iwvgv1XnuuK0RHG
+         UQpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761873892; x=1762478692;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4k5u4IDHa2ldPO/YRgbWN7ExpsWnE3pSTkUg9MZsePQ=;
+        b=U9GkqjxchwvuZLDKlndD3IZYgmwTkigAfeu1Rc8cUy7fYLUZocAoXqHm2yG0wDazWm
+         r4Im/q4RrbK/azIlRXMRLNTIG0OS9ezHj9o44RMRUOCeDRfG0iTkfk4Eyi+AfCcGnqk5
+         Gx8l7Yz/4dJpKS4nR099STlKGET5QhYk2HAlu+CKQr6GjfnljgCMl1qLk1PH7tX08LaO
+         /oJodVVO2yT+WWMati2JTayY8qEPRIltS/EV0i2zhba1q0FAOijBIwPjUVgjts9RIePH
+         6hmcpEowGMZxrinRlb69lKCd1cMaqqbaTpsBZFeKjk/xx7IV9GRN40mqdCbRTt3f2bb6
+         mKIw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrJdhMb+YqU8ZJWWNbTgLWGLGlh0MN3dpLyTUd2LxR+UvAtYnJMXNJREZHpi2itzW0Eb/nWgfpbLlvcqEpxrn/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYKyccMvnVV1DRspEYrnFPML/S5hMgA3zFnMNztNgPceHe3GFp
+	PsWRhoBF4IraVrfxJdQKtlokFKVLAstEZCwyu7gwGWdA9S3v+oghAG/m
+X-Gm-Gg: ASbGncuiG9p82WXeNYep5usGSRS6aezXn/AKVgRm3NxR6UM/I7y40OLbulKka0viqS9
+	smMv+cyXbkMKgU3xTfB2DwyFDktUtN8IuBPfevmNSUm6G1FlITwschrz97NHazQIaYve1mmEDiD
+	JtRqg9kbjXbpX0vEzd3SIDHn/oWGvpVZQ+KfQnO4zwf17GoH6EHfPmVISyiSua1Uz+uXkpQOZpZ
+	zXaKcB8V41rpYYG/UskAccVnN+gHJviaNROxXasQjM7i3m4g8nesxy55hx+WRdsgaGFIAjr/sCX
+	dDi6blAAoMvvzgvSiEjxORQTCCkyGYSx3xif1JbSZ4Dvl2PHZDoZAV9jEcZKX7kqvgE2jd7dKi5
+	CLk6OX6qZXXmnYdlh/Ts/YDd451lrgelKoyRKKRT1gre16MkE0dPiBq0uAqjwxmvkbIpWP5dwZJ
+	A=
+X-Google-Smtp-Source: AGHT+IEKj3bBCS9FtDr97rBmPSsnGuT/6Hzs7PvtGv6PRK2iG5dvba7cpbCl+e/48QRV8/RBzMyxUg==
+X-Received: by 2002:a17:902:c401:b0:24b:182b:7144 with SMTP id d9443c01a7336-2951a38fdf9mr20303525ad.7.1761873892179;
+        Thu, 30 Oct 2025 18:24:52 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2952699baabsm3091035ad.76.2025.10.30.18.24.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Oct 2025 18:24:51 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Han Gao <rabenda.cn@gmail.com>,
+	Icenowy Zheng <uwu@icenowy.me>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Yao Zi <ziyao@disroot.org>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Sunil Goutham <sgoutham@marvell.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Cc: Richard Cochran <richardcochran@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
 	Russell King <linux@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Simon Horman <horms@kernel.org>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org
-Subject: [PATCH net-next 6/7] net: pch_gbe: convert to use ndo_hwtstamp callbacks
-Date: Fri, 31 Oct 2025 00:46:06 +0000
-Message-ID: <20251031004607.1983544-7-vadim.fedorenko@linux.dev>
-In-Reply-To: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
-References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH v5 0/3] net: stmmac: dwmac-sophgo: Add phy interface filter
+Date: Fri, 31 Oct 2025 09:24:25 +0800
+Message-ID: <20251031012428.488184-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_174643_828387_F56EA6B7 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20251030_182453_139973_31DB7699 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,120 +120,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver implemented SIOCSHWTSTAMP ioctl command only, but it stores
-configuration in the private data, so it is possible to report it back
-to users. Implement both ndo_hwtstamp_set and ndo_hwtstamp_get
-callbacks. To properly report RX filter type, store it in hwts_rx_en
-instead of using this field as a simple flag. The logic didn't change
-because receive path used this field as boolean flag.
+As the SG2042 has an internal rx delay, the delay should be remove
+when init the mac, otherwise the phy will be misconfigurated.
 
-Signed-off-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
----
- .../ethernet/oki-semi/pch_gbe/pch_gbe_main.c  | 40 +++++++++++--------
- 1 file changed, 24 insertions(+), 16 deletions(-)
+Since this delay fix is common for other MACs, add a common helper
+for it. And use it to fix SG2042.
 
-diff --git a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
-index e5a6f59af0b6..4049137abc40 100644
---- a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
-+++ b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
-@@ -198,42 +198,40 @@ pch_tx_timestamp(struct pch_gbe_adapter *adapter, struct sk_buff *skb)
- 	pch_ch_event_write(pdev, TX_SNAPSHOT_LOCKED);
- }
- 
--static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr, int cmd)
-+static int pch_gbe_hwtstamp_set(struct net_device *netdev,
-+				struct kernel_hwtstamp_config *cfg,
-+				struct netlink_ext_ack *extack)
- {
--	struct hwtstamp_config cfg;
- 	struct pch_gbe_adapter *adapter = netdev_priv(netdev);
- 	struct pci_dev *pdev;
- 	u8 station[20];
- 
--	if (copy_from_user(&cfg, ifr->ifr_data, sizeof(cfg)))
--		return -EFAULT;
--
- 	/* Get ieee1588's dev information */
- 	pdev = adapter->ptp_pdev;
- 
--	if (cfg.tx_type != HWTSTAMP_TX_OFF && cfg.tx_type != HWTSTAMP_TX_ON)
-+	if (cfg->tx_type != HWTSTAMP_TX_OFF && cfg->tx_type != HWTSTAMP_TX_ON)
- 		return -ERANGE;
- 
--	switch (cfg.rx_filter) {
-+	switch (cfg->rx_filter) {
- 	case HWTSTAMP_FILTER_NONE:
- 		adapter->hwts_rx_en = 0;
- 		break;
- 	case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
--		adapter->hwts_rx_en = 0;
-+		adapter->hwts_rx_en = cfg->rx_filter;
- 		pch_ch_control_write(pdev, SLAVE_MODE | CAP_MODE0);
- 		break;
- 	case HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ:
--		adapter->hwts_rx_en = 1;
-+		adapter->hwts_rx_en = cfg->rx_filter;
- 		pch_ch_control_write(pdev, MASTER_MODE | CAP_MODE0);
- 		break;
- 	case HWTSTAMP_FILTER_PTP_V2_L4_EVENT:
--		adapter->hwts_rx_en = 1;
-+		adapter->hwts_rx_en = cfg->rx_filter;
- 		pch_ch_control_write(pdev, V2_MODE | CAP_MODE2);
- 		strcpy(station, PTP_L4_MULTICAST_SA);
- 		pch_set_station_address(station, pdev);
- 		break;
- 	case HWTSTAMP_FILTER_PTP_V2_L2_EVENT:
--		adapter->hwts_rx_en = 1;
-+		adapter->hwts_rx_en = cfg->rx_filter;
- 		pch_ch_control_write(pdev, V2_MODE | CAP_MODE2);
- 		strcpy(station, PTP_L2_MULTICAST_SA);
- 		pch_set_station_address(station, pdev);
-@@ -242,12 +240,23 @@ static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr, int cmd)
- 		return -ERANGE;
- 	}
- 
--	adapter->hwts_tx_en = cfg.tx_type == HWTSTAMP_TX_ON;
-+	adapter->hwts_tx_en = cfg->tx_type == HWTSTAMP_TX_ON;
- 
- 	/* Clear out any old time stamps. */
- 	pch_ch_event_write(pdev, TX_SNAPSHOT_LOCKED | RX_SNAPSHOT_LOCKED);
- 
--	return copy_to_user(ifr->ifr_data, &cfg, sizeof(cfg)) ? -EFAULT : 0;
-+	return 0;
-+}
-+
-+static int pch_gbe_hwtstamp_get(struct net_device *netdev,
-+				struct kernel_hwtstamp_config *cfg)
-+{
-+	struct pch_gbe_adapter *adapter = netdev_priv(netdev);
-+
-+	cfg->tx_type = adapter->hwts_tx_en ? HWTSTAMP_TX_ON : HWTSTAMP_TX_OFF;
-+	cfg->rx_filter = adapter->hwts_rx_en;
-+
-+	return 0;
- }
- 
- static inline void pch_gbe_mac_load_mac_addr(struct pch_gbe_hw *hw)
-@@ -2234,9 +2243,6 @@ static int pch_gbe_ioctl(struct net_device *netdev, struct ifreq *ifr, int cmd)
- 
- 	netdev_dbg(netdev, "cmd : 0x%04x\n", cmd);
- 
--	if (cmd == SIOCSHWTSTAMP)
--		return hwtstamp_ioctl(netdev, ifr, cmd);
--
- 	return generic_mii_ioctl(&adapter->mii, if_mii(ifr), cmd, NULL);
- }
- 
-@@ -2328,6 +2334,8 @@ static const struct net_device_ops pch_gbe_netdev_ops = {
- #ifdef CONFIG_NET_POLL_CONTROLLER
- 	.ndo_poll_controller = pch_gbe_netpoll,
- #endif
-+	.ndo_hwtstamp_get = pch_gbe_hwtstamp_get,
-+	.ndo_hwtstamp_set = pch_gbe_hwtstamp_set,
- };
- 
- static pci_ers_result_t pch_gbe_io_error_detected(struct pci_dev *pdev,
--- 
-2.47.3
+Change from v4:
+- https://lore.kernel.org/all/20251028003858.267040-1-inochiama@gmail.com
+1. patch 3: add const qualifier to struct sg2042_dwmac_data
+
+Change from v3:
+- https://lore.kernel.org/all/20251024015524.291013-1-inochiama@gmail.com
+1. patch 1: fix binding check error
+
+Change from v2:
+- https://lore.kernel.org/all/20251020095500.1330057-1-inochiama@gmail.com
+1. patch 3: fix comment typo
+2. patch 3: add check for PHY_INTERFACE_MODE_NA.
+
+Change from v1:
+- https://lore.kernel.org/all/20251017011802.523140-1-inochiama@gmail.com
+1. Add phy-mode property to dt-bindings of sophgo,sg2044-dwmac
+2. Add common helper for fixing RGMII phy mode
+3. Use struct to hold the compatiable data.
+
+Inochi Amaoto (3):
+  dt-bindings: net: sophgo,sg2044-dwmac: add phy mode restriction
+  net: phy: Add helper for fixing RGMII PHY mode based on internal mac
+    delay
+  net: stmmac: dwmac-sophgo: Add phy interface filter
+
+ .../bindings/net/sophgo,sg2044-dwmac.yaml     | 20 +++++++++
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 20 ++++++++-
+ drivers/net/phy/phy-core.c                    | 43 +++++++++++++++++++
+ include/linux/phy.h                           |  3 ++
+ 4 files changed, 85 insertions(+), 1 deletion(-)
+
+--
+2.51.2
 
 
