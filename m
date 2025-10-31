@@ -4,108 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A25CCF9FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DA3CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+wNT7KW8FpybzoaA+6FfZ6C32T5hx5xiEfdag3k3wE=; b=CNYuyjbdEt75fDyTwV23xXbPma
-	tjWHIeETkIa2CHGBDig0Ey7KQ0kJteTAt5h3yiNIH0Gbn3XRrT3LhRuLkbuGd8QbmzCvkKdms145q
-	/CkpeJcLezSZXZ8PF/RDupU2+xYH9gmfbYLELF1U5GZHJHgJBGVwqXGSCwy4waaODJ56oAJH3eSN0
-	UwjPapiVhoMwZhYXb+jvABLSjhPcOie/Q08TGYZbDbLvJcpFN/nt7gEIXrGBgUxvQ5OhYV1sAIxn1
-	LLKxqv22JgyZNSzviZA2jZDiWTSvtCisHVkuv19SxNNs2xmKYIYpvLXmN8sEc03YLbiUEONluPgHN
-	SwrEFCxg==;
+	bh=3wQkIqFSxm4DwztQKNF4cKRvEGSUUnW60kfr9cFIuEU=; b=I7xlcbM6SM2oU9G/zlk17Ag/jb
+	hsMamqqx48HHYDhFDbzZNwzlj8FPn8eQrZa5OQc+qwiunw8qBo83Lk92pTdh83KN28altyz8Aiecj
+	wdklJ7pxxg1W3usehUk8FqytyCdWq0ZuOtjjrfOkQ/6ZpswZn44z/4WmfoEI7MZrLgFVrCofdrSO5
+	cMh/SDlsvD3C25EvJ3voynwF0NqKKLR1qSqb9vi5rz6SM6js1FQ8hRd0aIHHk2Q7eQzIK9BuHPU/a
+	t860/9ebP7LEjYB28TLs3tftqAlzPSA4LNfmPn0vx67hKiXFGhXWjDcfpQzs/X06WMRurnjipSn5q
+	oOa0x4jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEnuQ-000000063Rm-12kJ;
-	Fri, 31 Oct 2025 12:07:10 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1vEnvC-000000063WP-2R3A;
+	Fri, 31 Oct 2025 12:07:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEnuN-000000063RN-1sAk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 12:07:08 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-37a17d470dfso17206921fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 05:07:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761912425; x=1762517225; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=g+wNT7KW8FpybzoaA+6FfZ6C32T5hx5xiEfdag3k3wE=;
-        b=EZagSP4oQRlVD8BYUYPoVUm9Se6t4ndHpgTSL8/Vr6BbTxSWyCkJtTyZGQhOE6rZJB
-         E43TvQsAkKRi5yWzpkEmKaKOOD2HBC6OFDPoLaPGEwaw3dXsh1EQyFUWufIP+WDM4euV
-         U9hdMjVR1UHpvhv5XsrW/IXNaRCE1EEALdufWBbYuK3jnLZfDMsqUf4MTy6GWesIFkqT
-         6uZ5R/Sp66aZFmiLfSHEVL6A2JYhaymG5YraZKFlfLcftShgM7VE1sut9BpwBSq+9rTH
-         Z/bnn3QcvhXPMJOXYRUxGURhCI/foLVj0OLYRKoo/kzVArFPlRauguBOi+0Js2NX6LjB
-         HLYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761912425; x=1762517225;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=g+wNT7KW8FpybzoaA+6FfZ6C32T5hx5xiEfdag3k3wE=;
-        b=MGMS9gfU8MLwUaZaDnVcCRBGJz2rrTXCMD3wtKaVRKepJQKc+1CQiKN0W+N8XhrXvV
-         x7jgVujmv84V29IllKoCq31eGbx9rqWsiEF+v7OtnTw1edKSNVfbHdpPtLskpEx1hsGY
-         Wphgxq//StfsfEQxtoXA5Qf0qvl1egG0K1fzCKC0xfSDF+pm27f/FVSBLpRDShAZAwWp
-         GhX3yOVeTCHNQTYkPrF+AwbblSH/v+NJvNKFgxTIKeS3qRV6LA+Rs1kEHf+lTqK/N1/+
-         3lH1Z3VdMQpBK8ckTde3Ya538dvPl12TXPZRjCiH+5JvlSztI+M30nr65Rdalpn60HEa
-         ZDSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWv3AhS7WCgQvwpwc/mlXGAa4I8D+tDVqxVPzolbW1Pk3GWZg9LUigNbSEweFCnjHdMkC/mpiZ58oEVjLsW7G9A@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIMxuqMHt7KwnfGjMl1cO8QcIfvtIy8DYM/cBKnyryKRoUis6k
-	8pNsWdNIpjh/JR3MMO849e51yYxS07yAg6hjix7suMLrjhKI4sxY7yKC
-X-Gm-Gg: ASbGncvu/135RWy9w7aVPoXwpzrtCi7LG2rcWPqvwUIzhNMkqzVWF9F3nGWu9MYYTFn
-	XThUgNvKtXP71v05/JhCdv1t4Yna+UJUmHAlrtBppM5VKC6dEoBB/cdNZSWRZzSgbaDMMYZvdZs
-	H5Pa7aWRr11jk5vAkRvKgLRMt8PpYFCBFnkiY0q3HcDxBrbzKAJ9eNrkasl1tUD0fLCQXZVYao2
-	ps68xjTYwwYog00Dkk8tnkL3BYQ9tVkEriYHN6n1LY1tNPJyTzz9qjYiimnZbDZHa0LKGRpn/m7
-	pd5Q2FF+qRVORNSLq9u0Rz/zj35Vt44NDP/xuveUmORw8NdtaEUYDopFqFtPiPuY0BrXpVF3zSR
-	Cco887pfOAf+y0VeZ8vh5LE/ZHUa61dFU9DXWmcHfsinpfDJC2l8Mo4VpWveonx7450qOjCE+MK
-	9FEQye4n0wES/YOz9iTSsWuzLCRmZqVflN25wXM+dmFVU2jSXtLGGFI6fJgVVVifpcesqt
-X-Google-Smtp-Source: AGHT+IH/ICNj/bMV5RVGbwRdK/Ejd2emYkz7dh/g7c7spskiA/UNWUDs1dQqtabTPzVdNpWwUCQDtw==
-X-Received: by 2002:a2e:8689:0:b0:36a:925e:cf3c with SMTP id 38308e7fff4ca-37a18dc7311mr10659721fa.31.1761912424618;
-        Fri, 31 Oct 2025 05:07:04 -0700 (PDT)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37a1bfb3e70sm3216571fa.12.2025.10.31.05.07.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 31 Oct 2025 05:07:03 -0700 (PDT)
-Message-ID: <0beeacba-c484-43c0-80fb-66b2e0293681@gmail.com>
-Date: Fri, 31 Oct 2025 14:07:03 +0200
+	id 1vEnvB-000000063WA-2hxj;
+	Fri, 31 Oct 2025 12:07:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AF47661254;
+	Fri, 31 Oct 2025 12:07:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82C3BC4CEE7;
+	Fri, 31 Oct 2025 12:07:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761912476;
+	bh=FdIPLrzBazADvULcobccxNMUECw5dXroZ8Nui3p0uOg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WbVCnwqIONAJBBxEzpEBdg+UMrZQzZhvOZ4ZviB3Mu6Y4i+eQ6B9xiQe/3lSty8J4
+	 4v2tlbV0XOKc8hoUcFvRY0zH+nlhe0Gn56a3S2xJmqnZtqz3zpc3RUmzciUeO7i4ew
+	 1yhd5i8jkJy/roBbcxrL6JVwfAmAPE6Th0uAbAy3o1NCZViv7wLwYNemMurtcjP62m
+	 43Yujj07cqiPXq+VS8D53Xd8uw5farO+6ZQpKkmP2Ggy1faZ6gcSdXee3ttHqiXoP2
+	 aSvNTds4qwjaCpWNGzkIbq03wBCsnbnuatJeesPmF0dkljqLx5Ci+SRHoZsiaioDku
+	 ODDwH6TOkpm5Q==
+Message-ID: <008ce91a-9037-4f18-9639-f1ccda277624@kernel.org>
+Date: Fri, 31 Oct 2025 13:07:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] arm64: dts: freescale: add Ka-Ro Electronics
- tx8m-1610 COM
-To: =?UTF-8?Q?Lothar_Wa=C3=9Fmann?= <LW@KARO-electronics.de>
-Cc: Maud Spierings <maudspierings@gocontroll.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
- <20251022-mini_iv-v2-3-20af8f9aac14@gocontroll.com>
- <a7012995-c2a8-48a3-abe1-5c227272f21c@gmail.com>
- <65202d1f-6c4f-4d4e-9fef-85cfb74ec768@gocontroll.com>
- <938f85b0-4c9b-463a-960a-f5f4e4092480@gocontroll.com>
- <20251029081138.2161a92a@karo-electronics.de>
- <4a47b9b5-f482-41b6-a441-7728572c5a0c@gmail.com>
- <20251029104838.44c5adcf@karo-electronics.de>
- <d05c62c9-7ed7-46e4-aa4d-27172741b5ee@gmail.com>
- <0667e026-99f3-4233-b3f6-e38273961d49@gocontroll.com>
- <20251030095434.1dc06df2@karo-electronics.de>
- <26fc62bb-3484-4812-b576-6640eef72c49@gmail.com>
- <20251030130006.0221957a@karo-electronics.de>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20251030130006.0221957a@karo-electronics.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v11 1/2] dt-bindings: memory: mediatek: Add SMI reset and
+ clamp for MT8188
+To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20250917120724.8650-1-friday.yang@mediatek.com>
+ <20250917120724.8650-2-friday.yang@mediatek.com>
+ <5e3a0317-31b2-43f1-9a4b-b66447a6044d@kernel.org>
+ <1c84112b5a7fa48d8422f531e660aa1b49ec6487.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1c84112b5a7fa48d8422f531e660aa1b49ec6487.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_050707_520315_72160ECE 
-X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,118 +127,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/10/2025 14:00, Lothar Waßmann wrote:
-> Hi,
-> 
-> On Thu, 30 Oct 2025 13:01:52 +0200 Matti Vaittinen wrote:
->> On 30/10/2025 10:54, Lothar Waßmann wrote:
->>> Hi,
+On 31/10/2025 07:10, Friday Yang (杨阳) wrote:
+> On Sat, 2025-10-18 at 18:42 +0200, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> On 17/09/2025 14:07, Friday Yang wrote:
+>>> Add 'resets' and 'reset-names' properties for SMI LARBs to support
+>>> SMI reset operations.
+>>
+>> Not informative...
+>>
+>>> diff --git a/Documentation/devicetree/bindings/memory-
+>>> controllers/mediatek,smi-larb.yaml
+>>> b/Documentation/devicetree/bindings/memory-
+>>> controllers/mediatek,smi-larb.yaml
+>>> index 2e7fac4b5094..fc5feb2eac1f 100644
+>>> --- a/Documentation/devicetree/bindings/memory-
+>>> controllers/mediatek,smi-larb.yaml
+>>> +++ b/Documentation/devicetree/bindings/memory-
+>>> controllers/mediatek,smi-larb.yaml
+>>> @@ -70,6 +70,12 @@ properties:
+>>>      description: the hardware id of this larb. It's only required
+>>> when this
+>>>        hardware id is not consecutive from its M4U point of view.
 >>>
->>> On Wed, 29 Oct 2025 16:35:25 +0100 Maud Spierings wrote:
->>>> Hi Matti,
->>>>
->>>> On 10/29/25 11:05, Matti Vaittinen wrote:
->>>>> On 29/10/2025 11:48, Lothar Waßmann wrote:
->>>>>> Hi,
->>>>>>
->>>>>> On Wed, 29 Oct 2025 10:42:17 +0200 Matti Vaittinen wrote:
->>>>>>> On 29/10/2025 09:11, Lothar Waßmann wrote:
->>>>>>>> Hi,
->>>>>>>>
->>>>>>>> On Tue, 28 Oct 2025 14:10:04 +0100 Maud Spierings wrote:
->>>>>>>>> On 10/28/25 13:42, Maud Spierings wrote:
->>>>>>>>>> On 10/28/25 13:15, Matti Vaittinen wrote:
->>>>>>>> [...]
->>>>>>>>>>> Could/Should this be described using the:
->>>>>>>>>>> 'rohm,feedback-pull-up-r1-ohms' and
->>>>>>>>>>> 'rohm,feedback-pull-up-r2-ohms'? If I understand the comment
->>>>>>>>>>> correctly, that might allow the driver to be able to use correctly
->>>>>>>>>>> scaled voltages.
->>>>>>>>>>>
->>>>>>>>>>> https://elixir.bootlin.com/linux/v6.18-rc1/source/Documentation/
->>>>>>>>>>> devicetree/bindings/regulator/rohm,bd71837-regulator.yaml#L108
->>>>>>>>>>   
+>>> +  resets:
+>>> +    maxItems: 1
+>>> +
+>>> +  reset-names:
+>>> +    const: larb
 >>
->> // snip
+>> Is the reset valid for all existing devices as well? Commit msg does
+>> not
+>> explain that... it is pretty useless - you say what you did. We see
+>> that
+>> from the diff. Explain something not obvious.
 >>
->>>>>>>
->>>>>>> If real voltages aren't matching what is calculated by the driver, then
->>>>>>> the voltages requested by regulator consumers will cause wrong voltages
->>>>>>> to be applied. Debug interfaces will also show wrong voltages, and the
->>>>>>> safety limits set in the device-tree will not be really respected.
->>>>>>>
->>>>>>> I think this would be well worth fixing.
->>>>>>>      
->>>>>> Before doing the real-life test I did the same calculation that's done
->>>>>> in the driver to be sure that it will generate the correct values:
->>>>>> bc 1.07.1
->>>>>> Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017
->>>>>> Free Software Foundation, Inc.
->>>>>> This is free software with ABSOLUTELY NO WARRANTY.
->>>>>> For details type `warranty'.
->>>>>> fb_uv=0
->>>>>> r1=2200
->>>>>> r2=499
->>>>>> min=800000
->>>>>> step=10000
->>>>>> # default voltage without divider
->>>>>> min+30*step
->>>>>> 1100000
->>>>>> min=min-(fb_uv-min)*r2/r1
->>>>>> step=step*(r1+r2)/r1
->>>>>> min
->>>>>> 981454
->>>>>> step
->>>>>> 12268
->>>>>> # default voltage with divider
->>>>>> min+30*step
->>>>>> 1349494
->>>>>>
->>>>>> Probably we need to use this value rather than the nominal 135000 as
->>>>>> the target voltage in the DTB.
->>>>>
->>>>> Yes. When the driver calculates the voltages which match the actual
->>>>> voltages, then you should also use the actual voltages in the device-tree.
->>>>>       
->>>>   
->>
->> // snip
->>
->>>>
->>>> Then setting 1349494 as the actual voltage makes it fully work.
->>>> Otherwise it complains:
->>>> buck6: failed to apply 1350000-1350000uV constraint: -EINVAL
->>>>
->>>> Final debug output now:
->>>> [    0.327807] rohm-bd718x7 0-004b: buck6: old range min 800000, step 10000
->>>> [    0.327813] rohm-bd718x7 0-004b: new range min 981454, step 12268
->>>> [    0.327819] rohm-bd718x7 0-004b: regulator 'buck6' has FB pull-up
->>>> configured
->>>>
->>>> I will add this fix to the next version of this patchset and include
->>>> your requested change in the dts.
->>>>   
->>> Does it also work with min/max settings in the DTS that are taken from
->>> the designated value +/- 5% tolerance margin, so that the DTS contains
->>> reasonable values determined by the HW requirements, rather than some
->>> artificial number that is enforced by the SW behaviour?
->>
->> I am unsure what you mean by "artificial number that is enforced by the
->> SW behaviour"?
->>
-> The nominal voltage that is required by the consumer is 1.35 V. That's
-> the voltage I would expect to set as target for the regulator.
-> If that voltage cannot be achieved exactly, I would prefer to have the
-> intended voltage listed explicitly rather than listing a value that
-> accidentally can be achieved by the regulator but has nothing to do with
-> the requirements of the consumer.
+> 
+> Thanks, I could add more descriptions here, like below:
+> 
+> On the MediaTek MT8188 SoC, bus glitches may occur during MTCMOS
+> on/off transitions. To prevent these glitches from causing errors,
+> SMI requires clamp and reset operations. This issue specifically
+> affects the image, camera, and IPE subsystems. 
 
-Ah. Thanks for the explanation. I get it now - sorry for the noise.
+This explains why you need it. But I asked more questions than only "whY".
 
--- 
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
+Read the question:
+"Is the reset valid for all existing devices as well?"
+Where is the answer for that? I still do not know...
 
-~~ When things go utterly wrong vim users can always type :help! ~~
+Do not reply to only pieces of review.
+
+> This change adds the
+> 'resets' and 'reset-names' properties to the SMI LARBs within
+> these subsystems to support the necessary reset operations.
+
+Read again my message:
+" it is pretty useless - you say what you did"
+That's the same, drop.
+
+So again you just cared to implement only piece of review.
+
+Best regards,
+Krzysztof
 
