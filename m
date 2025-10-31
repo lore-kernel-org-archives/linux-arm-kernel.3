@@ -4,98 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B0DCCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AB9CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nr4rS2fAjknlAFAh/CTKTEYGfrsIHKWJOlOaV018KsY=; b=GVdY3daDDf/Ll/ayQ+QAtdiCkd
-	zQ/rTpVXRhd7ry+LvHLR9urT8cLhTSGCTqzqe22SjMceiHWkfKjuCNYg8FUDT+cBzkvALs+hyRyEw
-	eKeWx5OTc7kkACLajdvsjpIQ5CX/4VUuo8xx+otgjeHSO1Q4VHawxBn5ywiY0P4SNLoODPCkuf+dJ
-	JG/u7DZHnTCGn/z5Cv3p6hp9XvjheEKYmcrhNcj3AASdxloBTrPI7FHihM7uPNibT7tWcaau/lJyQ
-	rYQZ68wHm8g4snOwtAoMqiCW/UN/58NOydJtZoD49GzrA1sotxGwYekL8Wi+ozbgvIjgWZts676Yp
-	skYq9A5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kUCtGCFwRvUEG4Bh7Y4FA/+ZjBJuHT2lo6zXAMV1QvY=; b=W+q4iH6zmELrCwP6jXLtBYedi2
+	PgxvGJKYiJctMcF7i0G7Hl6YKMZuDAe/L2mw8I5DoBGWcNxTqOGIHHdYTS4H9lyN8Xry3rRj4aev4
+	06qF8mu5kZ8okHFFE9Y8a7FJQm69Sw6Lguxcx+rmyb6ChJhlOrMBkRwIWSlaOl98jpMtVgrKZOqxz
+	pyy3azCOgzkZtEnT5KmG/UbMGt19qFp4MwC10c5hOZODvrvdpNy5S3ZIu+7MuLUwvlcz+AuV2SMJb
+	htRC+yE211Ox3KdjSwMAErb9FCpeaLzsQuXZVW8MOJ6PLBRDErgBq11YuOMYpfQxiXOR0e2RFSybz
+	gdJb40Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpMG-00000006AOx-1Hwt;
-	Fri, 31 Oct 2025 13:40:00 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vEpVG-00000006Aqx-1fmb;
+	Fri, 31 Oct 2025 13:49:18 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpMC-00000006AOO-3olY;
-	Fri, 31 Oct 2025 13:39:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761917997; x=1793453997;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2cVyjKey4dFxUiUnROSgPcOL0J7KqoBoYiJcjCFDf/g=;
-  b=c6Ob6ym9n9gA/m1b3ZXr0SXhcqvC7gnyPvmfAGVzWXQfwsn6V1LB2/4H
-   IL4i1rz7p6w+gDykz9d+RMbTv1g6l23IjyskjzM+oIugPZ1Xt8x3ENaZ5
-   weAxNJwr5wS/4Lse/CA4dylqWAM84RgjLtRrFcqBCoN8VxsnLPfHgReja
-   lDOu8tO5a4hG9UHzXW9Srzo9Wyx1/l2ijjZfgxUKThNQgW5jRWfXIIR3b
-   IONUOolxBHZ6sD6k62Wl9lB1Xu0by/lQbx6IadSoh1ynGNuReivwgbMLK
-   XlKjmD9S4OV+lx5bsGYWrJ0FQEmxsb6XvMZjNbGbptD5btUPueup/Cqsg
-   Q==;
-X-CSE-ConnectionGUID: Er/r1P2PTG2L6Br1erwu+w==
-X-CSE-MsgGUID: 2a7yo+WFSv+mtfzGCQqXJw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="51650228"
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="51650228"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 06:39:56 -0700
-X-CSE-ConnectionGUID: a3xtnYTPQP+uCyKoQ92d0Q==
-X-CSE-MsgGUID: C/6GFGJvSTi0FjPfK6/uAw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="186115249"
-Received: from jjgreens-desk20.amr.corp.intel.com (HELO kuha.fi.intel.com) ([10.124.220.81])
-  by fmviesa006.fm.intel.com with SMTP; 31 Oct 2025 06:39:46 -0700
-Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Fri, 31 Oct 2025 15:39:45 +0200
-Date: Fri, 31 Oct 2025 15:39:45 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v8 01/10] usb: typec: Add notifier functions
-Message-ID: <aQS8IatWiAUzBUxd@kuha.fi.intel.com>
-References: <20251029071435.88-1-kernel@airkyi.com>
- <20251029071435.88-2-kernel@airkyi.com>
+	id 1vEpVD-00000006Aq9-2y7j
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 13:49:17 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cyj0s3JBjz6L4ws;
+	Fri, 31 Oct 2025 21:45:33 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id D81631402E9;
+	Fri, 31 Oct 2025 21:49:11 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 31 Oct
+ 2025 13:49:11 +0000
+Date: Fri, 31 Oct 2025 13:49:09 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-crypto@vger.kernel.org>, <herbert@gondor.apana.org.au>,
+	<ebiggers@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v4 08/21] lib/crc: Switch ARM and arm64 to 'ksimd'
+ scoped guard API
+Message-ID: <20251031134909.00006bf3@huawei.com>
+In-Reply-To: <20251031103858.529530-31-ardb+git@google.com>
+References: <20251031103858.529530-23-ardb+git@google.com>
+	<20251031103858.529530-31-ardb+git@google.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251029071435.88-2-kernel@airkyi.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_063956_965926_66358F01 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20251031_064915_931950_BCEC4C7B 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,40 +73,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, 31 Oct 2025 11:39:07 +0100
+Ard Biesheuvel <ardb+git@google.com> wrote:
 
-> diff --git a/include/linux/usb/typec_notify.h b/include/linux/usb/typec_notify.h
-> new file mode 100644
-> index 000000000000..f3a7b5f5b05b
-> --- /dev/null
-> +++ b/include/linux/usb/typec_notify.h
-> @@ -0,0 +1,16 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef __USB_TYPEC_NOTIFY
-> +#define __USB_TYPEC_NOTIFY
-> +
-> +#include <linux/notifier.h>
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Before modifying the prototypes of kernel_neon_begin() and
+> kernel_neon_end() to accommodate kernel mode FP/SIMD state buffers
+> allocated on the stack, move arm64 to the new 'ksimd' scoped guard API,
+> which encapsulates the calls to those functions.
+> 
+> For symmetry, do the same for 32-bit ARM too.
+> 
+> Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  lib/crc/arm/crc-t10dif.h   | 16 +++++-----------
+>  lib/crc/arm/crc32.h        | 11 ++++-------
+>  lib/crc/arm64/crc-t10dif.h | 16 +++++-----------
+>  lib/crc/arm64/crc32.h      | 16 ++++++----------
+>  4 files changed, 20 insertions(+), 39 deletions(-)
+> 
+> diff --git a/lib/crc/arm/crc-t10dif.h b/lib/crc/arm/crc-t10dif.h
+> index 63441de5e3f1..aaeeab0defb5 100644
+> --- a/lib/crc/arm/crc-t10dif.h
+> +++ b/lib/crc/arm/crc-t10dif.h
 
-Replace that include with a forward declaration:
+>  static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
+> @@ -20,21 +19,16 @@ asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
+>  static inline u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
+>  {
+>  	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
+> -		if (static_branch_likely(&have_pmull)) {
+> -			if (likely(may_use_simd())) {
+> -				kernel_neon_begin();
+> -				crc = crc_t10dif_pmull64(crc, data, length);
+> -				kernel_neon_end();
+> -				return crc;
+> -			}
+> +		if (static_branch_likely(&have_pmull) && likely(may_use_simd())) {
+> +			scoped_ksimd()
+> +				return crc_t10dif_pmull64(crc, data, length);
 
-struct notifier_block;
+>  		} else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+>  			   static_branch_likely(&have_neon) &&
+>  			   likely(may_use_simd())) {
 
-> +enum usb_typec_event {
-> +	TYPEC_ALTMODE_REGISTERED,
-> +	TYPEC_ALTMODE_UNREGISTERED,
-> +};
-> +
-> +int typec_altmode_register_notify(struct notifier_block *nb);
-> +int typec_altmode_unregister_notify(struct notifier_block *nb);
-> +
-> +#endif /* __USB_TYPEC_NOTIFY */
+I briefly thought this was a functional change but it's not because
+of may_use_simd() being something that isn't going to change between
+the two evaluations.  
 
-I don't see any need for a separate header file for this. Intoduce
-those in typec_altmode.h.
+Would it hurt at all to pull that up to be
+	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && likely(may_use_simd())) {
+		if (static_branch_likely(&have_pmull)) {
+			scoped_ksimd()
+				return crc_t10dif_pmull64(crc, data, length);
 
-thanks,
+ 		} else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+ 			   static_branch_likely(&have_neon)) {
+		...
 
--- 
-heikki
+?
+
 
