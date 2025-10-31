@@ -4,67 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2F7CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6573CCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 08:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mPxLEL7QNlZDWS6jDA+27QrQoLVjop8vjZVTIhYnr8=; b=iYClKQ3+SlT1ZWpH1u1DowF04I
-	5l1a2OAnI1/2p/DYf4oOIrT1mIvEYe2TMaEIAxWizPs6InqwRzQXrNjoLsEZtiLmls45MlO0H8S9a
-	JAdVcK6l5u2ZwTXXvL7ueQgKSwLMd1L6h06IKvFLXrkYsJlWXHSCqYmUUhV+/dKapSDmIw0rf3Gll
-	yX8JBQwh9Y3LEx6idpwr9DQ441s1+ftu0SAN9J4RLnqUxVtNxPv27SqWYb2rR5au3vMGk7h9GOjpB
-	+p9Gyqk+7KrTy1IYkBCMjl01bIU+AA9l4C64R8Rb5VOurgZmsrxxHZTlSZ1Oua0RX97KS8uL7UFqp
-	1Le62RCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yPyVbe7btBrb/kbufU+DTPGJAkd1ax44z1PEdLO1daY=; b=UOH6UxAS+gbDsMnnBrL/oyWEh9
+	ceC7is/Bs9YCG/n/tEovJOBAKxOjhrqv8lc4A4NK6QtmEx3h6oNINhHX/gQ1njWStXGQ/3OVeBuud
+	vmWZBFL4IGgkLCHcbT4YaQSfkk7uKiNeIR9F1o7FLAOOCSLLEmkAUdZg8DCZGR5pwE4pU1Zmv6N25
+	8EC36zEMBnqRefJPDKd9DikVjGXmyR5OQGt18pVzt/c3F9lTv3eHtv2gtrzTk06Wnapfgb/8fN1Dq
+	1juix7xQmT9Hks3r/Crbz/IRRrma+hkYVtUzgyxOImrEqM5t7/eqv2l6EOZCD8uHwBXRfTLiz6gYQ
+	1OG++6dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkfK-00000005feI-2x7s;
-	Fri, 31 Oct 2025 08:39:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEkha-00000005fqy-3wWn;
+	Fri, 31 Oct 2025 08:41:42 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkfI-00000005fds-0TjR;
-	Fri, 31 Oct 2025 08:39:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B472240787;
-	Fri, 31 Oct 2025 08:39:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8112EC4CEE7;
-	Fri, 31 Oct 2025 08:39:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761899959;
-	bh=k79R0Hpx74QOJ14uPbnMxmO5AYu0XzyA/jnOzGhcDXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WVthp2o3amxt2TBTbBgyM45rfymEwJoPZwEW9FhdA7296shiaUGS1dax/8mhMdXH7
-	 ogY9IlrGVeamaW8vqfi0VaLkm+60ibSG6d1B+ANO+kJi53cf/BOFIi130riPokoKgA
-	 qg38nsA5JflgYuxLpSBOpzWbClZVWwVodc0jvx0y1EDuLIpRj2zgH+zRQ5hvMP3yfs
-	 Y7eyaTzvuXq4BVseuffgmanbQIwniOfpzthdZGLnGR6wmR/7VJGS/ijIg10UHph/pv
-	 /ybpYX75EQuKWzIOn3BVIVpsva8pvLZFEGITebmzL311N0Bci+62OhdiB/Z5lFnhfZ
-	 f7p0Tq13gdDlg==
-Date: Fri, 31 Oct 2025 14:09:06 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 2/2] PCI: dw-rockchip: Add runtime PM support to
- Rockchip PCIe driver
-Message-ID: <ukgkfetbggzon4ppndl7gpitlsz7hjhzhyx3dgxqhdo52exguy@bqksd7d27lpy>
-References: <20251027145602.199154-1-linux.amoon@gmail.com>
- <20251027145602.199154-3-linux.amoon@gmail.com>
+	id 1vEkhV-00000005fqc-3qIo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 08:41:40 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-295395ceda3so92695ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 01:41:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=arista.com; s=google; t=1761900096; x=1762504896; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yPyVbe7btBrb/kbufU+DTPGJAkd1ax44z1PEdLO1daY=;
+        b=MS3mT8au4jb/SmP00e6GEXfZGc0DrNAuGXjA57EDOnhG8wBORE2Bc96RIHvpxrR0nB
+         wo74NlH9Ys5zNw8O5z8JXEb25nnM1S0lJpsLFZahasq6Q5/ZB5DJOsgleiLBStpL0fnX
+         LOKNetjkrBKS65p+rpcHkOUd/rMuFZw0c7pY3Zlox3UO6YhV/I6JPBijHxqIjCYDzO7i
+         jo2U/FgZFkVFFauW9e18kwEhdMfRvZERM53Mz399HvuLtv+0nI16UQY7ly20IL/4c5AJ
+         X7waouLMDAuhrcbFghRIP7QmQKWvklUUf4tH0AQogiKkrOysGtJcuk6t7NMZlLoMr5dW
+         Y/Ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761900096; x=1762504896;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yPyVbe7btBrb/kbufU+DTPGJAkd1ax44z1PEdLO1daY=;
+        b=N7VqRJqBZ1RXvNCPJlGJQKez9DGgvcFTH1J0qRIFiIj+9nOxFyGaGfdjV0l6qKp/Xk
+         Eja5hfXeY0qVRlChRhBZNO+zvQdgoiOeMuRMlxc4WMCWphWOEI45+wZtRhiS3pmuJ9hD
+         ZUwd8kPs6X3bQJYA9+FMA2Rcu6xOXde5tucEAIMNXnR2j9TrKgNo5Wq7ZPhjPNLILHdA
+         Oe1Pi2zc2sj9PSvxLOMrILd7spRI7Sb5PEtIkFBpom4lh3mth+nZYa+ZX+j6d+SAVLUD
+         szPMZJQa2df4ORy9iYPWWdvRXomuvGlFV/jC9kuZ89ehvBH6Gkk/Q48V4Aw5s3NBr8IN
+         E3kg==
+X-Forwarded-Encrypted: i=1; AJvYcCV5fxIZ6hgnUChS7bqEMkN8FwSppriVPm8DxtZ6vSg4F7rzbOAQFiS4IPzEAr9S+JZyp6+Bu9NiazTjR5slnq6/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0ZrL1hZlCoMHEvjAV1jNLeUSjFmcQIKnP0HXxVT7r3mruJ97+
+	FaCRlrbyiccqu3CgXrZWwa1w5vQX88PbSDe1n+ys8gETv6KHWKbqbPOgD1/3GpYE8w==
+X-Gm-Gg: ASbGncu6Lg45HRS7UxqeiQ1k2XRyLY6adRHPiLleOv/i0x+2m0v28y+3RZZeIwPEkck
+	oQJldkjZv4T9cfQ6ewHOBWKnW8/rggcDDcVW89OKpyVyOfPe9MUofTsUf8Z3NorgE004mltxv56
+	5sXtCSlDZP/5G/Uc+JsKsbhtBABYDwgXBBi2RcXvGY4gn6Qt40s6QByJ8rt1J4i5ggXWGgqmqvJ
+	M0C2u+MZG1GDGVF/qQl8LvfhDlm/nS72wcGdGJLuO5ll6aLpdt5NsyIrfG8IaoEmfkMm+piNS9h
+	XDM+U1imVAkNbL5nJY3JOeP7sjDWlHl8UnBAA3FNF8afdgUYea1Mf563vro+eK/wHjWu23D9mz8
+	Af/JMvOWZCOJLtYO3YZgZBDlnlaaRkQ8QH10q1neq9S5SDU9uLHM5TIdH6uepzAuExAtVBAn++T
+	aPNl4JBwmV3Kbhlho5srWDHKilQzvlHnMs5a+pAhulPj9bfKQ=
+X-Google-Smtp-Source: AGHT+IFRjA11KiQtuDLyXpyzr+cH+MBZZXOEiapTRE2mqruvh26mmlGWuUYPHkHWLSUbX3DkbIXD+g==
+X-Received: by 2002:a17:903:38c8:b0:295:37ac:8d54 with SMTP id d9443c01a7336-29537ac8ec7mr1773595ad.9.1761900096398;
+        Fri, 31 Oct 2025 01:41:36 -0700 (PDT)
+Received: from adriana-dmi-upstream.sjc.aristanetworks.com ([74.123.28.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2952699c9dbsm15333505ad.84.2025.10.31.01.41.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Oct 2025 01:41:35 -0700 (PDT)
+From: adriana <adriana@arista.com>
+To: ilias.apalodimas@linaro.org,
+	ardb@kernel.org,
+	trini@konsulko.com
+Cc: robh@kernel.org,
+	krzk@kernel.org,
+	jdelvare@suse.com,
+	frowand.list@gmail.com,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	vasilykh@arista.com,
+	arm.ebbr-discuss@arm.com,
+	boot-architecture@lists.linaro.org,
+	linux-efi@vger.kernel.org,
+	uefi-discuss@lists.uefi.org,
+	linux-arm-kernel@lists.infradead.org,
+	Adriana Nicolae <adriana@arista.com>
+Subject: [PATCH v3 0/2] DMI: Scan for DMI table from DTS info
+Date: Fri, 31 Oct 2025 01:40:59 -0700
+Message-ID: <20251031084101.701159-1-adriana@arista.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251022114527.618908-1-adriana@arista.com>
+References: <20251022114527.618908-1-adriana@arista.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251027145602.199154-3-linux.amoon@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_013920_324051_FB3967FA 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20251031_014138_134713_5D846F0F 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +112,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 08:25:30PM +0530, Anand Moon wrote:
-> Add runtime power management support to the Rockchip DesignWare PCIe
-> controller driver by enabling devm_pm_runtime() in the probe function.
-> These changes allow the PCIe controller to suspend and resume dynamically,
-> improving power efficiency on supported platforms.
-> 
+From: Adriana Nicolae <adriana@arista.com>
 
-Seriously? How can this patch improve the power efficiency if it is not doing
-any PM operation on its own?
+Some bootloaders like U-boot, particularly for the ARM architecture,
+provide SMBIOS/DMI tables at a specific memory address. However, these
+systems often do not boot using a full UEFI environment, which means the
+kernel's standard EFI DMI scanner cannot find these tables.
 
-Again a pointless patch.
+This series adds support for the kernel to find these tables by
+reading the associated property from the Device Tree /chosen node. The
+bootloader can specify the physical addresses using "linux,smbios3-table".
 
-- Mani
+The first patch introduces the device tree binding documentation for this
+new ABI, and the second patch implements the driver logic in dmi_scan.c.
 
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 21 +++++++++++++++++++
->  1 file changed, 21 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index b878ae8e2b3e..5026598d09f8 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -20,6 +20,7 @@
->  #include <linux/of_irq.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
->  #include <linux/regmap.h>
->  #include <linux/reset.h>
->  
-> @@ -690,6 +691,20 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto deinit_phy;
->  
-> +	ret = pm_runtime_set_suspended(dev);
-> +	if (ret)
-> +		goto disable_pm_runtime;
-> +
-> +	ret = devm_pm_runtime_enable(dev);
-> +	if (ret) {
-> +		ret = dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
-> +		goto deinit_clk;
-> +	}
-> +
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret)
-> +		goto disable_pm_runtime;
-> +
->  	switch (data->mode) {
->  	case DW_PCIE_RC_TYPE:
->  		ret = rockchip_pcie_configure_rc(pdev, rockchip);
-> @@ -709,7 +724,10 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->  
->  	return 0;
->  
-> +disable_pm_runtime:
-> +	pm_runtime_disable(dev);
->  deinit_clk:
-> +	pm_runtime_no_callbacks(dev);
->  	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
->  deinit_phy:
->  	rockchip_pcie_phy_deinit(rockchip);
-> @@ -725,6 +743,9 @@ static void rockchip_pcie_remove(struct platform_device *pdev)
->  	/* Perform other cleanups as necessary */
->  	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
->  	rockchip_pcie_phy_deinit(rockchip);
-> +	pm_runtime_put_sync(dev);
-> +	pm_runtime_disable(dev);
-> +	pm_runtime_no_callbacks(dev);
->  }
->  
->  static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
-> -- 
-> 2.50.1
-> 
+Changes in v3:
+  - Removed linux,smbios-table property, only keep the SMBIOSv3 property
+    (Patch 1/2).
+  - Search DT for linux,smbios3-table only, removed the code searching
+    for the previous property (Patch 2/2).
+
+Changes in v2:
+  - Add missing Device Tree binding documentation (Patch 1/2).
+  - Split the original patch into a 2-part series (binding + driver).
+  - (No functional changes to the driver code in patch 2/2).
+
+Adriana Nicolae (2):
+  dt-bindings: firmware: Add binding for SMBIOS /chosen properties
+  drivers: firmware: dmi_scan: Add support for reading SMBIOS from DT
+
+ .../bindings/firmware/linux,smbios-table.yaml | 26 +++++++++
+ drivers/firmware/dmi_scan.c                   | 58 +++++++++++++++++++
+ 2 files changed, 84 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/firmware/linux,smbios-table.yaml
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.51.0
+
 
