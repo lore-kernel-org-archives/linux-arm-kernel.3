@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75833CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EE9CCF9FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 11:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGqVXPX174dI1TmkMpyvoDpe58SAFIHrUIhMpLUiKvg=; b=AnWZ6xZVsQ8MRBKNi6fYTbIvxj
-	LgUo9gzSqldwjgKKNXp2cI5aXpl+QSteuFLYU8VbAK+7MvEmBp4yKRqrL71dWwhDRergdLdWE5DRa
-	Gww5Pod0t1yEpbxMxdtBbWYAFKNf7apjQX7Y6FLpBLpJnmYHCBJ4bfXAisMJD5LhZy2atj0nEeMsz
-	0lvTGxj722DF9rB0j9F0MkVXOW7YxA7YDNr2NU3Y/6fnQMxsD2hrIySz44aPK4IbXKXEyr5Slv9DG
-	IjxCCmF94ycdawg0wnvNBJYZJgMCpMxWNdAI01WZyFC0x02L3Ni46V3Fl2vHBKXATYgpxkaivKGUU
-	ESqmSVCg==;
+	bh=K9aIatXLlfj49i3F2CejCYzrKCiTw8TnzOpfYBQFqbQ=; b=IDTus8U3A6zuGzkBPzZWUpxCo7
+	/iFvMGTMi6YZR2o5TwUJsqQFyHA1cCkbZ+Kg+bTK9QcO/erP3XqYKFM1ctY871GA/8ITDK+P3fEf7
+	iNEf9xMBO1fJBkTa6DQLeElOlc/YjhhZ5QMHJxvJZp+UYuSgs6QBfOaGRBDQhgrG6Rfd33zwc+uxI
+	4fHEN/q8j3ubTA2O3BRkKNKeXOip6Guj2G7+UtWQA60GPmpv4lRM2Ov1ereT0bp7YsHMTdYVAEpeH
+	PWfc+UQPhEKAhbt5x+2wXvNFh/SEDBygJHJRQr3Ehp84XmhvJsVj2eaHuNaaE8Qa249/hGz5Dg2Za
+	xCvjAUGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmsm-00000005yWu-1zDc;
-	Fri, 31 Oct 2025 11:01:24 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vEmst-00000005yYr-17WI;
+	Fri, 31 Oct 2025 11:01:31 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmse-00000005yUx-2wwM
+	id 1vEmsj-00000005yW6-3ZMu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 11:01:17 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-3637d6e9923so19787101fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 04:01:16 -0700 (PDT)
+	Fri, 31 Oct 2025 11:01:23 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-592f1988a2dso3391720e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 04:01:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761908475; x=1762513275; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761908480; x=1762513280; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YGqVXPX174dI1TmkMpyvoDpe58SAFIHrUIhMpLUiKvg=;
-        b=M88TUy9nHijnLQ3yUzEfcp9UBhbwUoLt/p5YxM5xXuZj0dzQOX/bBPsDcPC2rchSGB
-         Mw89NoxAb/jTz9CqHBPfzKRKY6Kpvz4S2/9BcNa0/SlD3WWZnvmZGXbxPGjgm7kHCcS5
-         JpG+sl7tgnrFTOFRfTmBVjXfoW0hcKiJ0nOWEe9QvaptYOCS6xM3qgQPzacYUyBCNj0f
-         VMuctliSzqJxhHy9lSLINM1d0YGvomWfgi9wqUe51O5Pg+vppPhnWTAo4FUDonmoKkVk
-         6UNr3MspwYKE8HCDUn9guAVF92h/1xjbWJblNgc0bxKOnDlbFya9IDfUpPa6frIRKad+
-         0YMw==
+        bh=K9aIatXLlfj49i3F2CejCYzrKCiTw8TnzOpfYBQFqbQ=;
+        b=ZaxoTXjVwvDv9PBCv0zKE/XYvATI7HYxjvPlVcIXNnN5MlQtzeWmcam3YZ1XQwUy2X
+         xK/VX2bNrBZbihyF60njDG0QdnrIrTbUNqxlQYIt6Mr8TODS0vJkknZM9YMB0o0zdUGD
+         XCQM51u6+7XUAVtC+s65n3hnj6FsSSs/vfZl249x0tOyyGwy6iobPTbvn3mEpoA9WQFf
+         r3JaguzDc1+XNGBGPJKeahT7CpiAWX88tpQaxORIxG8EJTKzDWFvpjclGVf+dDwBmmi4
+         KGFFEbRwkH2EmOGjooBTcDFzuRm2mb2MPgCh86FGo2H0J5dSAST4WkUdD7mDeXI/wTVq
+         mSIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761908475; x=1762513275;
+        d=1e100.net; s=20230601; t=1761908480; x=1762513280;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YGqVXPX174dI1TmkMpyvoDpe58SAFIHrUIhMpLUiKvg=;
-        b=tN6nfXJZ4Nuu/xf68fY/rrie1BCAXOVVzClgVvnSbS1yKS7gM0MdZUBJyZy011evUY
-         jVsqj2jCxRjEGiYkfRRuziLy0oaOawJDGNdIMtzVxFWgrmV7NJr/e3Jd4N+oNYvZotpN
-         PeZQfdJl09zz9P3fFT+gtEvdRd/PXuqq4m4wbY0V9lvgh4SN4rDqSIfCq1ef57NksHlz
-         gG7lF2hOqql2VC1DiWiA4MWQKhjRbJJqwB4pskXvbqD9VAtBigS6G6oDre0kl5MGJVJi
-         K7tqg8o406u6q/14AyOJ3y+LlReAhEEjnXcCmdAHnYkQv1Pz9p02N19pE601fDoda0Yz
-         2wRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVShbePvmMFXuhPHCnhOBXvD/hB590Ueb4XXhss1r5q5r6he77qeObr4aq66RadqarKnEAp+x2CGg4Zyaf8OyzH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDtGjimKN7o72GivDsGtQuMtcV5Usby3jj4j/FlTUjyCcF0HJi
-	+3+2OW5NAWJEFReY1djhyjhzH6y4rf04Zr9q7QPdTGTHiHc2djL2Yddjq+XY94kXSXuLlC/xih9
-	2ew+v
-X-Gm-Gg: ASbGncsatMboNWKRBPJ741AXyKAxkZHVi1sz5LZuANk1rrpsaN1fE0yxKL6q90gyCJv
-	cCvSqG2eIQByWYYzFTOUm47OQBXC+rq8tMBpf310ig+vFoiW0ClrYLItWpUubYZVMgB2kK8Sqnh
-	WjLD6NnEZ5VzkmPjeUjMQwuP7W42LaJQI0GEAD6POflf/r6DGA7ABd1OToUL4QjgTZ3LZudCayk
-	g0JGJdNTvvTnTQqah54q7oNyoBKSH3I5y8Zc37xRbUbUH9f9fUX9KQBlQk82ldBX7b8xn5Wvw1n
-	iq0EBgZcja/fzZ6gsk2RBnFenbyCV8Hy1Z6GNtg7gkHDyFDUiG77m1haGBa2Oc77YUqmTIn2sBg
-	tTzFmHxADAV7q0VezM9FbYAy5GFU4QnpGYkCgrzOaHi9s14c1UTt1jFlr0/0I2mlBLPMo5a9nxM
-	jye3uyPg34PV1Pu6yRXDNVxrQ8BQa6bZGcJOjv/nEe7HqfVLx/+KvUXF/pmkSr
-X-Google-Smtp-Source: AGHT+IEJlHlKeVgDybBDloCVX/b/55G16rZzd9wktKjKbh8UnSTpKxD5S3XdnZkoiLNP4Lmabyt7SQ==
-X-Received: by 2002:a05:6512:3c92:b0:590:6e62:10ca with SMTP id 2adb3069b0e04-5941d57f50fmr1302080e87.57.1761908474417;
-        Fri, 31 Oct 2025 04:01:14 -0700 (PDT)
+        bh=K9aIatXLlfj49i3F2CejCYzrKCiTw8TnzOpfYBQFqbQ=;
+        b=o11NwPp6S3Djhv5M6UW0gEkWjQqaOlNgV2wlZYEaP4vP/CqKDDKvIXHK0cUMwALp9G
+         dKRz0qGjSPlQIadMhYJubla6wiWPPkau4bxP/IXsvIJcWbc+6lfsBJIyIoGp0+J6p+Xn
+         PzJjjFjevrW7ONwY10MC2h9yvZJu6OaNXfyXznfOyIuS2wrddU8kg+GRVaeg3paSQXK5
+         wguusWqxvtARw644jXiSdig0cOYo8ESrLL0YGq9AEjmRrU0zEvcOjv95XEIBolR2lOhA
+         nNsAh7U0/8/tx3hrYWcp5khRcumluEB12DizE+EmGuZNHyRAspd8mDaO7vGB1BsAzboE
+         1jMA==
+X-Forwarded-Encrypted: i=1; AJvYcCXwLyPLOIPNp6gKHvp8x0Ny7io0YaRMMH+VtjSEl10UOMWL6h0zzfqcBJ0OKCAqQvVF7CYbsvfWGIJbIb1/7ufr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPU9TfsRhZo/05Phakdtv8Jw4auJckMR/n4rFZNSivQ4q+0Lmi
+	zT0w6Bgne4+8i1WiiwnW1rjUZO1oLY6vp6xyLIfN8zvfhnwxdWzZALBWK4a9gbW16X0=
+X-Gm-Gg: ASbGncu0DuiW4HuUaOrwIgR5ixWOh/lM17Pdcm4ht3mLW8wtbw1hoYrYNQntV5IOLDz
+	jyp9wJpU7P9iwlJEIlbHf4EU5LQO0Ak8vg2l/olOuee9Ryyyh7Ax/PTME3tD3+5OSUdHT+bme21
+	YBfaz6hqQghDqcPWNjwYA0actW4mLPldK1yz9qi9FFMtZ7qyWtilPwRAxAXXVXhz/eUY/HthjYj
+	8PLyej0SnLx2IjN5e6//hSEocag4328moNpMp97uw/rR6cCEAVkeUAZeaY9nQPvOxFFKbpVmvsc
+	Q7Pvytx5cLWlmxDsfKEu4lEhrWw9DWi9H2+mGQY+jApc/3GPI23rhoQqUW8pRmro6buXNpX3cz8
+	9B12U1IqBC5TmyV1do800wYu7ybI/iuY6dfePEehN/pDw9eZ3gvUdC3RdgmdIV0fqNvMcl1b4s2
+	6oQHlcdiTENtea6vv+Ftil1LkG5UKQwntqJ+W5iLNKhdaFNO02HY0MFBYVCCFc
+X-Google-Smtp-Source: AGHT+IEvmMm+SHsTsxbA+wx4szbKJtnGkNvIOtF29kV79GhvswIxNRBqKo3y48TrcsBUClr8bRcn2g==
+X-Received: by 2002:a05:6512:b92:b0:592:fc90:f771 with SMTP id 2adb3069b0e04-59416d06f68mr2302670e87.1.1761908477406;
+        Fri, 31 Oct 2025 04:01:17 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5941f5bbaa9sm432721e87.77.2025.10.31.04.01.12
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5941f5bbaa9sm432721e87.77.2025.10.31.04.01.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Oct 2025 04:01:13 -0700 (PDT)
+        Fri, 31 Oct 2025 04:01:15 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>
@@ -85,17 +84,17 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 1/2] smp: Introduce a helper function to check for pending IPIs
-Date: Fri, 31 Oct 2025 12:00:57 +0100
-Message-ID: <20251031110106.62394-2-ulf.hansson@linaro.org>
+Subject: [PATCH v3 2/2] pmdomain: Extend the genpd governor for CPUs to account for IPIs
+Date: Fri, 31 Oct 2025 12:00:58 +0100
+Message-ID: <20251031110106.62394-3-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251031110106.62394-1-ulf.hansson@linaro.org>
 References: <20251031110106.62394-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_040116_780776_CB653737 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20251031_040121_958667_A9C93A93 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,92 +109,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When governors used during cpuidle try to find the most optimal idle state
-for a CPU or a group of CPUs, they are known to quite often fail. One
-reason for this is, that they are not taking into account whether there has
-been an IPI scheduled for any of the CPUs that are affected by the selected
-idle state.
+When the genpd governor for CPUs, tries to select the most optimal idle
+state for a group of CPUs managed in a PM domain, it fails far too often.
 
-To enable pending IPIs to be taken into account for cpuidle decisions,
-introduce a new helper function, cpus_peek_for_pending_ipi().
+On a Dragonboard 410c, which is an arm64 based platform with 4 CPUs in one
+cluster that is using PSCI OS-initiated mode, we can observe that we often
+fail when trying to enter the selected idle state. This is certainly a
+suboptimal behaviour that leads to many unnecessary requests being sent to
+the PSCI FW.
 
-Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+A simple dd operation that reads from the eMMC, to generate some IRQs and
+I/O handling helps us to understand the problem, while also monitoring the
+rejected counters in debugfs for the corresponding idle states of the genpd
+in question.
+
+ Menu governor:
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             1451           437        91         149        0
+S1             65194          558        149        172        0
+dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
+524288000 bytes (500.0MB) copied, 3.562698 seconds, 140.3MB/s
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             2694           1073       265        892        1
+S1             74567          829        561        790        0
+
+ The dd completed in ~3.6 seconds and rejects increased with 586.
+
+ Teo governor:
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             4976           2096       392        1721       2
+S1             160661         1893       1309       1904       0
+dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
+524288000 bytes (500.0MB) copied, 3.543225 seconds, 141.1MB/s
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             5192           2194       433        1830       2
+S1             167677         2891       3184       4729       0
+
+ The dd completed in ~3.6 seconds and rejects increased with 1916.
+
+The main reason to the above problem is pending IPIs for one of the CPUs
+that is affected by the idle state that the genpd governor selected. This
+leads to that the PSCI FW refuses to enter it. To improve the behaviour,
+let's start to take into account pending IPIs for CPUs in the genpd
+governor, hence we fallback to use the shallower per CPU idle state.
+
+ Re-testing with this change shows a significant improved behaviour.
+
+ - Menu governor:
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             2556           878        19         368        1
+S1             69974          596        10         152        0
+dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
+524288000 bytes (500.0MB) copied, 3.522010 seconds, 142.0MB/s
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             3360           1320       28         819        1
+S1             70168          710        11         267        0
+
+ The dd completed in ~3.5 seconds and rejects increased with 10.
+
+ - Teo governor
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             5145           1861       39         938        1
+S1             188887         3117       51         1975       0
+dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
+524288000 bytes (500.0MB) copied, 3.653100 seconds, 136.9MB/s
+cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
+State          Time Spent(ms) Usage      Rejected   Above      Below
+S0             5260           1923       42         1002       1
+S1             190849         4033       52         2892       0
+
+ The dd completed in ~3.7 seconds and rejects increased with 4.
+
+Note that, the rejected counters in genpd are also being accumulated in the
+rejected counters that are managed by cpuidle, yet on a per CPU idle states
+basis. Comparing these counters before/after this change, through cpuidle's
+sysfs interface shows the similar improvements.
+
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
 
 Changes in v3:
-	- Renamed the helper function and updated its description.
-	- Updated the commit message.
+	- Use the new name of the helper function.
+	- Minor updates to the commit message.
 
 Changes in v2:
-	- Implemented a common function, rather than making it arch-specific. As
-	suggested by Thomas and Marc.
-	- Renamed the function to indicate that it doesn't provide correctness.
-	- Clarified function description and commit message.
+	- Use the new name of the helper function.
+	- Re-test and update the statistics in the commit message.
 
 ---
- include/linux/smp.h |  5 +++++
- kernel/smp.c        | 24 ++++++++++++++++++++++++
- 2 files changed, 29 insertions(+)
+ drivers/pmdomain/governor.c | 20 +++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
-diff --git a/include/linux/smp.h b/include/linux/smp.h
-index 18e9c918325e..91d0ecf3b8d3 100644
---- a/include/linux/smp.h
-+++ b/include/linux/smp.h
-@@ -168,6 +168,7 @@ int smp_call_function_any(const struct cpumask *mask,
+diff --git a/drivers/pmdomain/governor.c b/drivers/pmdomain/governor.c
+index 39359811a930..a46470f2261a 100644
+--- a/drivers/pmdomain/governor.c
++++ b/drivers/pmdomain/governor.c
+@@ -404,15 +404,21 @@ static bool cpu_power_down_ok(struct dev_pm_domain *pd)
+ 		if ((idle_duration_ns >= (genpd->states[i].residency_ns +
+ 		    genpd->states[i].power_off_latency_ns)) &&
+ 		    (global_constraint >= (genpd->states[i].power_on_latency_ns +
+-		    genpd->states[i].power_off_latency_ns))) {
+-			genpd->state_idx = i;
+-			genpd->gd->last_enter = now;
+-			genpd->gd->reflect_residency = true;
+-			return true;
+-		}
++		    genpd->states[i].power_off_latency_ns)))
++			break;
++
+ 	} while (--i >= 0);
  
- void kick_all_cpus_sync(void);
- void wake_up_all_idle_cpus(void);
-+bool cpus_peek_for_pending_ipi(const struct cpumask *mask);
- 
- /*
-  * Generic and arch helpers
-@@ -216,6 +217,10 @@ smp_call_function_any(const struct cpumask *mask, smp_call_func_t func,
- 
- static inline void kick_all_cpus_sync(void) {  }
- static inline void wake_up_all_idle_cpus(void) {  }
-+static inline bool cpus_peek_for_pending_ipi(const struct cpumask *mask)
-+{
-+	return false;
-+}
- 
- #define setup_max_cpus 0
- 
-diff --git a/kernel/smp.c b/kernel/smp.c
-index 02f52291fae4..4533e666152c 100644
---- a/kernel/smp.c
-+++ b/kernel/smp.c
-@@ -1087,6 +1087,30 @@ void wake_up_all_idle_cpus(void)
+-	return false;
++	if (i < 0)
++		return false;
++
++	if (cpus_peek_for_pending_ipi(genpd->cpus))
++		return false;
++
++	genpd->state_idx = i;
++	genpd->gd->last_enter = now;
++	genpd->gd->reflect_residency = true;
++	return true;
  }
- EXPORT_SYMBOL_GPL(wake_up_all_idle_cpus);
  
-+/**
-+ * cpus_peek_for_pending_ipi - Check for pending IPI for CPUs
-+ * @mask: The CPU mask for the CPUs to check.
-+ *
-+ * This function walks through the @mask to check if there are any pending IPIs
-+ * scheduled, for any of the CPUs in the @mask.
-+ *
-+ * It's important for the caller to know that this function does not guarantee
-+ * correctness. It provides a snapshot, while being as lightweight as possible.
-+ *
-+ * Returns true if there is a pending IPI scheduled and false otherwise.
-+ */
-+bool cpus_peek_for_pending_ipi(const struct cpumask *mask)
-+{
-+	unsigned int cpu;
-+
-+	for_each_cpu(cpu, mask) {
-+		if (!llist_empty(per_cpu_ptr(&call_single_queue, cpu)))
-+			return true;
-+	}
-+
-+        return false;
-+}
-+
- /**
-  * struct smp_call_on_cpu_struct - Call a function on a specific CPU
-  * @work: &work_struct
+ struct dev_power_governor pm_domain_cpu_gov = {
 -- 
 2.43.0
 
