@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7505DCCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 09:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F565CCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 09:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTUxY2QRsBa4YiD8QVHQP1f7QsWrz+ePLEmHRSCQsCg=; b=y4umiECFNxEIojhaSL+SxWyENM
-	3HM6SGZud5lJeJ0BYudYsU17o89ZUlvX08ZEnfz8B4KTZuJ/mZfHvbIW11Ap1hn7Nt85O2aIsa12V
-	wVVVHWo6hiXcvFVesTJGwutPrQD30zLC/KAmPuEWeyNvTG2uy7RmyUP+su5Kw54rrhx27FnpoVkgU
-	Zy39GuhkyuOTtDFeEbvTqqucgeRMIneOHZxT4nhvqWe5OIEs9+bcjiv1VHHg3i0YxDwylpy8q7GBk
-	aBvW0z/SDD71XJmcmmSLKexCrazdkp+AV2b/dQARajmzFm6zhCcBwGXSiNLWEK2GUVkSyHwo6M5/h
-	th5pxZnA==;
+	bh=UKNP/yN+HoKZjA3XR1NyvYVI7Ql/SNuJgENY3tlDe/U=; b=Po9Q1KQ0WZ1tBohOZUGCExQAzt
+	RomVLT/tJgtTCNp9n+9cWXyTcVm2ecpcYd+21sgbJwLYYkn3n//tn1ODBdi0VHlEfSiUGf9LE2iQ7
+	Yi6j/l3opyopwu2oPNQujh+B968O/Oq68bPlmBIpGecZ0yrOlR8R/khBmWIOvd/wT2VaImRw6cCzF
+	W89E4gujRAVInR+pp78UY5u/yqA3v5rSpBRJvgBY/OR6Scb+l3jw0FGtXVNwOYoQGvD4WYmR9IQx2
+	+pGOxkreol8L4V4WQxHFUfGedKyhELSMKeLLXBpTt1bSnZtjxN+k0fntwFnd0SJJcEbBoptnkILzH
+	irb6yHUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEl3z-00000005kD5-0em9;
-	Fri, 31 Oct 2025 09:04:51 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1vEl4f-00000005kKa-2BiU;
+	Fri, 31 Oct 2025 09:05:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEl3v-00000005kCA-0Eq8
+	id 1vEl4c-00000005kK4-0MOw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 09:04:49 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-429b72691b4so1746684f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 02:04:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761901485; x=1762506285; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NTUxY2QRsBa4YiD8QVHQP1f7QsWrz+ePLEmHRSCQsCg=;
-        b=RB+w/zgjW0h5AKHMa0lNR58FuYPiIFRjgbwOAD9PZClTNcaKQeHG2KmDIeIv6jvgH7
-         reSyyX4qJfxmCFaA9D9M9wqdXXbsU1V4EOZck8yMDUB0H/Dg/YR7JpdnS+LeDUCMwr9X
-         ve84q3XjVSXEpUnPxC62b6wVhcFKKiNyC0M0mT/HXi94j16QWaTA4L70vFr8nWCNnJSR
-         2xrANezGUeEmDPKszPy8ceh7PgEOlZwJmEUt4C5SowrJnm647EdF6udp6OzulSk1J8Qj
-         ISGqXu2pnMsRcG/jsv3LVxZRQ5mjtSvSB5YhLHjTs3pwGjkPIe6oudsoAeHCjlprtOgj
-         WyuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761901485; x=1762506285;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NTUxY2QRsBa4YiD8QVHQP1f7QsWrz+ePLEmHRSCQsCg=;
-        b=iydzLUjDCpWWP5NSA3jYi4AnmXdULyYH20mp4tN3XIV5Zxx9YExJWceQcYobf+lymY
-         41fKAZjGc2k3lO0VBMMImJuVx2ujeluAfUlSQ4tOBAxbFjV6ujwVFoPsYZ+Jq7nJoKyJ
-         c5hv8a2KVTBOxd6gboAC+ajwxcfuRu2HpkZMVZdcAePRRmbytiI+bGE+VQ+p5bpnhBcq
-         RwtbuC7UdrhPdjVK4tPaWceISeQpAbr5/ycNTuW3u4FCghfWH5LtLubaE1wmTllWGbF0
-         6X+/9G45EkckC/oJjHB6srZOrrdIJXW4dG6Exj4ILXSLzK8YbjXGA9j2m+9Dp225caLk
-         LQFA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZq98u/UiymQtKee371Ilg40Fx9Zz0LLbIdSYXcWdJ1RtGYgTAVZB6nSFoZS+eDkIMY9QUpb00f9dj+rcy4kJA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMw5f0ve7qIPt6Er34HbQgjxiqTs6YBL5DzKMuQsFHdyJ0MQV7
-	6EjDuu4Sm3N+87lw5dOlIcB+FGm1zWrHl45QyOmCkpnl7eBByeatffsBH/VRQkyEW82+URmNSnj
-	GXGFF
-X-Gm-Gg: ASbGncvvutsM5b/3QrwuMl0Z1supoz7WWkcdpz4lfSp4dmZsY/WZ+Hbxcet5OBnGYMG
-	4fpkGLuv+WDP5zCcof+wrCVKO3cWLCyja3rrX3tDTQrIvD9e5/I7E01CDGff+Ody3T8SABA4Zd9
-	FE5nAasuyHzzX0T5dpQ+kc1jy0QqJcAIg997DXQnG/onTPG5xYFl3F7HC47coi+ULQcL7iEQIht
-	U4w6LzK7D4fWLF0nsEekk+fFSJqnVV9WhDr1BzHVDsaK3BPIvtrF4e5F13OpuvCdIOtbsVX8ETh
-	0OP7rfQPy1Gs8RzX/z3wXPG1SZcpSXOX5Oas5RmnxBJfGMKVZAKu/rfMqFOpeDQ6EKsMw1fKubg
-	QTzeBw/LSBD6NvVCHIYjynAKU6EqCYnoZj7axMn2CXhplU6r3ioE8Hf/2jFRRSnD9rSLhbtG3wE
-	U=
-X-Google-Smtp-Source: AGHT+IHz9Ep06R4/artcngFbJlB1bKA2Girkc8hxPw+EQjUGEBiqGYPMJZdtFD7tESCBa2KyIazeYQ==
-X-Received: by 2002:a5d:5846:0:b0:428:4004:8241 with SMTP id ffacd0b85a97d-429bd6aa277mr2136641f8f.40.1761901483472;
-        Fri, 31 Oct 2025 02:04:43 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:b8e9:e124:10fc:8444])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429c13e1d47sm2392315f8f.23.2025.10.31.02.04.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Oct 2025 02:04:42 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,  Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman
- <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
-  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] clk: amlogic: optimize the PLL driver
-In-Reply-To: <20251031-optimize_pll_driver-v3-0-92f3b2f36a83@amlogic.com>
-	(Chuan Liu via's message of "Fri, 31 Oct 2025 16:10:07 +0800")
-References: <20251031-optimize_pll_driver-v3-0-92f3b2f36a83@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Fri, 31 Oct 2025 10:04:42 +0100
-Message-ID: <1jms57xx05.fsf@starbuckisacylon.baylibre.com>
+	Fri, 31 Oct 2025 09:05:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 829B745461
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 09:05:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B58C4CEFB
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 09:05:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761901529;
+	bh=eTKgCRHXJ2ttsTcaNiE+n665NDkdon4ccb7z2QxZkLc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=tCCyI58p4NXE9j2AYlOilbllj+ceXfrTCqgb319SHV43EG2At5MNkx76QzhYRkTII
+	 Qxqx3anwIr//+EOyWZl/NuyKiai4fYT3+dYM2SSlga+vAeFOsbTXPSERs8QFVlX2E4
+	 Lm8JGOJGuft7DlAZNHtjSV1ksZh0zzbNlfcUn+yIPghiCEU4jkeNa0j6avSGy3ms90
+	 9dxTaxgUf5T2MzdvWLBh6bIHA0cpocjAq1srsxdd+nPEQdDKYUaOYbiXSdbLmYjcLB
+	 jUtidO6dWRYROMG9rw33SgA8vFZbtrJKVd+4vXyMyDKgy7uHlYw6jtHwm9F++t/NpT
+	 vIGEtwEoUKraQ==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-57f0aa38aadso2936465e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 02:05:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVQpGB/pD3AkSPJA8D41Hcwhw1FJ8AF3Jvpg4zWJkdoiYSstZC+ieuMTivvRgDLXiEhG9nupjwn45DFeFoy64O+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNB32HPAssc7Rquwbq541fs7PQE4LSlL4bBa1vWPdFgg8eaYoo
+	TRhilDGdl2e8Wet9U38Ezia8NEWhH7ZBXSCyFmHzJKzUWKn9aI7qK22kSlU+roP8Oj1bU5lkFKM
+	aXNDGugSsjbaaJ8MPe6Zn0Z3POnZeJnc=
+X-Google-Smtp-Source: AGHT+IE7b83tXRjmclJn2avYmt6XtvERRHTx5LrGseWwdXtkY4M3M6KW2ebXYIVYmSbAzUGZb4o1I6v7gq5sYFVpZVk=
+X-Received: by 2002:a05:6512:234c:b0:592:f8c0:c917 with SMTP id
+ 2adb3069b0e04-5941d50dd57mr1067998e87.10.1761901527758; Fri, 31 Oct 2025
+ 02:05:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20251022114527.618908-1-adriana@arista.com> <20251031084101.701159-1-adriana@arista.com>
+ <20251031084101.701159-2-adriana@arista.com> <CAMj1kXG8hOMXzbbP2akJLB27hGJ_S28hcOL2c7k1uGA23hHUpA@mail.gmail.com>
+In-Reply-To: <CAMj1kXG8hOMXzbbP2akJLB27hGJ_S28hcOL2c7k1uGA23hHUpA@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 31 Oct 2025 10:05:16 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGykgmJey8SgGuKBC8DdwnfqYTiop9OMo1UbcRdw=4cNg@mail.gmail.com>
+X-Gm-Features: AWmQ_blRWekdn2tndAk532XPWCtNvPNe5S6diOrP7TlzawjZdaa-VvWSFigqvUI
+Message-ID: <CAMj1kXGykgmJey8SgGuKBC8DdwnfqYTiop9OMo1UbcRdw=4cNg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: firmware: Add binding for SMBIOS
+ /chosen properties
+To: adriana <adriana@arista.com>
+Cc: ilias.apalodimas@linaro.org, trini@konsulko.com, robh@kernel.org, 
+	krzk@kernel.org, jdelvare@suse.com, frowand.list@gmail.com, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, vasilykh@arista.com, 
+	arm.ebbr-discuss@arm.com, boot-architecture@lists.linaro.org, 
+	linux-efi@vger.kernel.org, uefi-discuss@lists.uefi.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_020447_222157_E854E9A4 
-X-CRM114-Status: GOOD (  26.80  )
+X-CRM114-CacheID: sfid-20251031_020530_162089_A496D0EE 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,135 +88,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 31 Oct 2025 at 16:10, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+On Fri, 31 Oct 2025 at 09:52, Ard Biesheuvel <ardb@kernel.org> wrote:
+>
+> On Fri, 31 Oct 2025 at 09:41, adriana <adriana@arista.com> wrote:
+> >
+> > From: Adriana Nicolae <adriana@arista.com>
+> >
+> > Signed-off-by: Adriana Nicolae <adriana@arista.com>
+> > ---
+> >  .../bindings/firmware/linux,smbios-table.yaml | 26 +++++++++++++++++++
+> >  1 file changed, 26 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/firmware/linux,smbios-table.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/firmware/linux,smbios-table.yaml b/Documentation/devicetree/bindings/firmware/linux,smbios-table.yaml
+> > new file mode 100644
+> > index 000000000000..b78d8ec6025f
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/firmware/linux,smbios-table.yaml
+> > @@ -0,0 +1,26 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +# Copyright 2025 Arista Networks
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/firmware/linux,smbios-table.yaml#
+>
+> Should the file name reflect the property? I.e., linux,smbios3-table.yaml
+>
 
-> This patch series consists of four topics involving the amlogic PLL
-> driver:
-> - Fix out-of-range PLL frequency setting.
-> - Improve the issue of PLL lock failures.
-> - Add handling for PLL lock failure.
-> - Optimize PLL enable timing.
->
-> For easier review and management, these are submitted as a single
-> patch series.
->
-> The PLL timing optimization changes were merged into our internal
-> repository quite some time ago and have been verified on a large
-> number of SoCs:
-> - Already supported upstream: G12A, G12B, SM1, S4, A1, C3.
-> - Planned for upstream support: T7, A5, A4, S7, S7D, S6, etc.
->
-> Based on the upstream code base, I have performed functional testing
-> on G12A, A1, A5, A4, T7, S7, S7D, and S6, all of which passed.
->
-> Additionally, stress testing using scripts was conducted on A5 and
-> A1, with over 40,000 and 50,000 iterations respectively, and no
-> abnormalities were observed. Below is a portion of the stress test
-> log (CLOCK_ALLOW_WRITE_DEBUGFS has been manually enabled):
+And maybe the property should be called linux,smbios3-entrypoint?
 
-Okay, this little game has been going on long enough.
+Sorry for the bikeshedding but this will be set in stone as soon as we
+deploy it so better to get it right the first time.
 
-You've posted v2 24h hours ago
-You've got feedback within hours
-There was still a 1 question pending
-The rest of community had no chance to review.
-
-and yet, here the v3 already ! still with bearing pr_warn().
-
-Chuan, the community is not dedicated to reviewing your submission.
-Time and time again you ignore the feedback provided in reviews and the
-documentation. I've had enough of your sloppy submission.
-
-I will not review or apply anything from you in this cycle.
-
-You have been warned multiple times. Every time you ignore a review,
-you'll get ignored in return. This is how it will be from now on.
-
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Memory location for SMBIOS table
+> > +
+> > +description: |
+> > +  This property is used in the /chosen node to pass the physical address
+> > +  of SMBIOS (System Management BIOS) or DMI (Desktop Management Interface)
+> > +  tables from firmware to the kernel. This is typically used on non-EFI
+> > +  platforms like ARM/ARM64.
+> > +
 >
-> - For A5:
->   # echo 491520000 > /sys/kernel/debug/clk/hifi_pll/clk_rate
->   # cnt=0
->   # while true; do
->   >     echo "------------ cnt=$cnt -----------"
->   >     echo 1 > /sys/kernel/debug/clk/hifi_pll/clk_prepare_enable
->   >     en=$(cat /sys/kernel/debug/clk/hifi_pll/clk_prepare_enable 2>/dev/null)
->   >     if [ "$en" != "1" ]; then
->   >         echo "[ERROR] PLL enable test failed! (clk_prepare_enable=$en)"
->   >         break
->   >     fi
->   > 
->   >     echo 0 > /sys/kernel/debug/clk/hifi_pll/clk_prepare_enable
->   >     cnt=$((cnt + 1))
->   >     echo -e "sleep time: 1 s."
->   >     sleep 1
->   > done &
->   # ------------ cnt=0 -----------
->   sleep time: 1 s.
->   ------------ cnt=1 -----------
->   sleep time: 1 s.
->   ------------ cnt=2 -----------
->   sleep time: 1 s.
->   ...
->   ------------ cnt=42076 -----------
->   sleep time: 1 s.
+> 'like ARM/ARM64' is both unnecessary and inaccurate, so better to drop it.
 >
-> - For A1:
->   # echo 983040000 > /sys/kernel/debug/clk/hifi_pll/clk_rate
->   # cnt=0
->   # while true; do
->   >     echo "------------ cnt=$cnt -----------"
->   >     echo 1 > /sys/kernel/debug/clk/hifi_pll/clk_prepare_enable
->   >     en=$(cat /sys/kernel/debug/clk/hifi_pll/clk_prepare_enable 2>/dev/null)
->   >     if [ "$en" != "1" ]; then
->   >         echo "[ERROR] PLL enable test failed! (clk_prepare_enable=$en)"
->   >         break
->   >     fi
->   > 
->   >     echo 0 > /sys/kernel/debug/clk/hifi_pll/clk_prepare_enable
->   >     cnt=$((cnt + 1))
->   >     echo -e "sleep time: 1 s."
->   >     sleep 1
->   > done &
->   # ------------ cnt=0 -----------
->   sleep time: 1 s.
->   ------------ cnt=1 -----------
->   sleep time: 1 s.
->   ------------ cnt=2 -----------
->   sleep time: 1 s.
->   ...
->   ------------ cnt=55051 -----------
->   sleep time: 1 s.
->
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
-> Changes in v3:
-> - Fix some formatting issues.
-> - Move the 20 us delay after reset into the corresponding if
-> condition (no delay is needed if there is no reset).
-> - Move the code that releases rst back to execute before current_en.
-> - Remove the patch that changes the active level of l_detect.
-> - Link to v2: https://lore.kernel.org/r/20251030-optimize_pll_driver-v2-0-37273f5b25ab@amlogic.com
->
-> Changes in v2:
-> - Modify the judgment condition of 'm' out of range.
-> - Split the PLL timing optimization patch to make it easier to review.
-> - Link to v1: https://lore.kernel.org/r/20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com
->
-> ---
-> Chuan Liu (4):
->       clk: amlogic: Fix out-of-range PLL frequency setting
->       clk: amlogic: Improve the issue of PLL lock failures
->       clk: amlogic: Add handling for PLL lock failure
->       clk: amlogic: Optimize PLL enable timing
->
->  drivers/clk/meson/clk-pll.c | 64 +++++++++++++++++++++++++++------------------
->  1 file changed, 39 insertions(+), 25 deletions(-)
-> ---
-> base-commit: 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
-> change-id: 20251020-optimize_pll_driver-7bef91876c41
->
-> Best regards,
-
--- 
-Jerome
+> > +maintainers:
+> > +  - Adriana Nicolae <adriana@arista.com>
+> > +  - Rob Herring <robh+dt@kernel.org>
+> > +
+> > +properties:
+> > +  linux,smbios3-table:
+> > +    $ref: /schemas/types.yaml#/definitions/uint64
+> > +    description:
+> > +      The 64-bit physical address of the SMBIOSv3 entry point structure.
+> > +
+> > +additionalProperties: true
+> > --
+> > 2.51.0
+> >
 
