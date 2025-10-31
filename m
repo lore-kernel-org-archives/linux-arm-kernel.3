@@ -4,157 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF94CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 16:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7610BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=taIPcN7Yu27XeFjq5HCNywGXMEYihVAZDOrIKiDHYiM=; b=N1upWku2ujpXP8STsUjZhTypK2
-	0csSSTt/BcjiGJdpYxIyugdwX5aF/FO1L5Ty+K6WSNjI6uKkvU0Wjv+fwPiByUqBokqKgd9sBXtH4
-	dIIF+4+c6gTWYDTfKGorzaavVVm87QOdC8k8OX6+n64vtDsKsXC9LjZBE4sDeFlHlo4pdqA+slTPG
-	vG6ndwYDxA0CR+bh81TbAnop6MJzWmK96NebfgEZet/Ww3fcuwtx8Re5gFVt1wk9u6XWC0Nf8V/jo
-	d8lvKTemUDjie8LWwlDzmg8Xbw8YdOdwr+MsE2u3LC0D+QZXDrhviEQXehSgvL6W9UiFk9/rPRq9M
-	bcG8Sn8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zDleg4Mg/E7jKipTuQZM26MqfRH8PXTsxP2sSTdHnok=; b=1dxh78amd9kuH96VEC+BVAKMou
+	EVjAH7GmfYik2bvi7aT/TBtjTLunIvVSyGfc3Ebb4OAAcq4jraoR5Oj1AbUIJ1y97+P4Q5Lr5GCTA
+	sPHC+CyFMEIqHIuxAtltNwfRJrTsqUu+RcE1+BPK7S+oMrHktNhBl8LsOGnPQamZGFaqP3ddRurch
+	lUqksb/XPPsy0P6yIfUZHSaeRit0TdA+/g6qqI2D6GsmsB4VBHEwE+rrdY+kMc7rowGarhge6yUrW
+	1WRDIMSbOxR3XyRwAamla/6Xz8VmS0C14Opg68R9BuAP0FMSdTTq0a9mR7AzhQiLCP3+h6GL1rAGp
+	Hjd+EPcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEs65-00000006QEd-28ul;
-	Fri, 31 Oct 2025 16:35:29 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vEsVQ-00000006RhC-0TWI;
+	Fri, 31 Oct 2025 17:01:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEs62-00000006QE7-3xAU
+	id 1vEsVO-00000006Rh6-2i1J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 16:35:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hWTdNgUzbPgehnbUuPcuSmtEtKqKnkv0VPJKtMZaPy5ZlSBwLV4HWNyehFzoXiVd8gI1x+LIOO4y5dgF0QiyOLciQBCYg4UXC57fP4jux24HmiAMQGES60JKimMobNJ+hFeOH/6GJWg6hIloMHjkFzqa6ER3H9wtL6nRDvLTvyy1CKOSlZKj7fm9LRT9dQk+7/GfwM1CMohEnHKtJgZqnnmhHwSMqg0PcZRT/YB3VfxQho7GLHVLSB+zt9FyE/cOrEhoLVoW7IysZ17USTKO2PSOadzPPe80aJzaiE2jIJ8INBuOWIwVPg+cQBvW4lLrMpWhiMudYMfvsxmOw1gD/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=taIPcN7Yu27XeFjq5HCNywGXMEYihVAZDOrIKiDHYiM=;
- b=KedpARM+rYrTbZX7DV4X1SqRFsdELu9tituF+scy6+jnGHRLdYqRwGfYHTQB3AkttuuytxVpCrDE4ZoJOt00qkGapAMNlnuHRfUNjnapc9t0QedyCaob2EnUeuMzf8SeAOhKM3KyBsH02kM2O5IJ+Z2HOvwLqhgVAltXS2RZm0eOXXqb0X5WxmCZXm4ABrScNX0FJ+VLteZiGAI0Uu2HYT5wTInHMHArpSLbeluqOY4onsMqJ55yB0icYVnu9moGiBiKhcdIT/92gRzIMKPg+huVtAhx0zJglZkAmSvkL2An6f/rcQuDJ659S+ygVX9Zea8EuEzvkGOLpPRFinl/ng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=taIPcN7Yu27XeFjq5HCNywGXMEYihVAZDOrIKiDHYiM=;
- b=nU8ANocgHnl2SaMqyLf9SiqPu5LNqSuJJWlPatmV+xfsJQXVBAUVn7xWwzP/iqigP3hIuDUykRcRVpBjJnQPHSYSI0FHkyok7FUkkutviqoWHwnhXT9WapuN332iQnlXZQ60TZX/I4bh1WXFbixEjR/LSgHU9j4UifQbtmElqevDYpB0T/Cb9iRuZHOX5ELJSzNLXtUASMd0jCFS0OVoPs6BANwNnjXND8KQXxEefZ9WYj+97fd3wrkCq5nZupuLPbccLTTwyB4Prks5kqUwt+VApHKdXfqHHFZlhYoj+m2C7BC/ghMzYUMVWBglqnHVS6fm6rxPTqihEW1nTlP6NQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AS8PR04MB8198.eurprd04.prod.outlook.com (2603:10a6:20b:3b0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Fri, 31 Oct
- 2025 16:35:20 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.011; Fri, 31 Oct 2025
- 16:35:19 +0000
-Date: Fri, 31 Oct 2025 12:35:10 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: jan.petrous@oss.nxp.com
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Enric Balletbo i Serra <eballetb@redhat.com>
-Subject: Re: [PATCH v2] arm64: dts: freescale: Add GMAC Ethernet for S32G2
- EVB and RDB2 and S32G3 RDB3
-Message-ID: <aQTlPgDLRwOhzD/V@lizhi-Precision-Tower-5810>
-References: <20251031-nxp-s32g-boards-v2-1-6e214f247f4e@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251031-nxp-s32g-boards-v2-1-6e214f247f4e@oss.nxp.com>
-X-ClientProxiedBy: PH7P220CA0040.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::24) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Fri, 31 Oct 2025 17:01:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C352603E1;
+	Fri, 31 Oct 2025 17:01:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 020B1C4CEF1;
+	Fri, 31 Oct 2025 17:01:35 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-mm@kvack.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH] mm/huge_memory: Initialise the tags of the huge zero folio
+Date: Fri, 31 Oct 2025 16:57:50 +0000
+Message-ID: <20251031170133.280742-1-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB8198:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36388238-613e-4263-aca0-08de189b7a95
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|366016|376014|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t+hIyh+tbqtoHNSeeclXp4G6X5jc8kkPrMK2um3CebFRGlHZo7kfjwRTva9/?=
- =?us-ascii?Q?XGmgaf8JBwAbpFmBRZRqUzM3imrxQiAsIAkANvpsZsqFxAgt2bgiZr1T+2dP?=
- =?us-ascii?Q?GKe8Ww9Gigu8ZyPwn80fDAs8eDNCfK4vuTZVbgb1pCGoyY5jqjjDcHlMf1lr?=
- =?us-ascii?Q?Yigw2E6GscFzvFVbrHnYIA5u9SJ1FPOkNyyQrm/BFuygn4S61eZRiriwMB67?=
- =?us-ascii?Q?etPznzo1gBV1MAZy4LpWKkZTtHK3XTSd4rjy618mI4JOV/FiuIq+p1hPqvop?=
- =?us-ascii?Q?FKNOL7Mw9oflJyJUKJfV8DW0ScjDiwrh2706mwW/aUiRX0W8rsNS8SV2b4gQ?=
- =?us-ascii?Q?dClCk6ugpuZzgW6h3sAeWc+rWtkraE7w86+kEVLlAaRXXIT5VvOa4RzSpAJy?=
- =?us-ascii?Q?Ew6kBDpgPMYArF5svY7spxpfZb7oNO9OPJL/XucV1+CwLTXT7uREoB6zcFv3?=
- =?us-ascii?Q?6dTqSdGi3IiO3BCmBS0Cdz1WOGZTVOZk3ZtjdQho6MsD0tOZHsj1uL/hCuvS?=
- =?us-ascii?Q?ECa2P3EHmGGVvQelnH6b6jg2gHOKu/rtiiSR3YvMaoQ5+PMnPUkzVE2d2GF1?=
- =?us-ascii?Q?zQ+Px8NT69WkYJGAe1jpu6eJIsmg9CjtT1yOYvI5xo4iM22WTVGrbfPmEOJI?=
- =?us-ascii?Q?S7i6PwxZ3sjx5EkmWumYmxL+9K7T/FT9ysVPqrawrqogtp8A0OUF4nwiAtPI?=
- =?us-ascii?Q?jqeut/UNKoIuIRhqBReOs9r68XX1v7u9/o/KlMO9qBj8eeSBt+X6mywjaoau?=
- =?us-ascii?Q?mz2NDOZP1vS3okUCj+EEySJ5MGUPAQBJrztSmhYGGHBVfSSnBZFSiN0SlomZ?=
- =?us-ascii?Q?Tf1HY7lOUsc4GxKx6/rLXeioX31CARZ0J5l2bA05T4eeRLrJXJqUC/igoqTu?=
- =?us-ascii?Q?69jFVeAgdozRljINmuw4TwdqITmTNv7G4qGm3wiHaZWbDzvIVP6LR5LiRw08?=
- =?us-ascii?Q?WeexeymVyKsOuV2JeQa/lcAcxjawOoHNIMmOutOgdzhFFaWyqEDFvN3W2fwP?=
- =?us-ascii?Q?eca1BC5PLr6jR0qtbkgdo07TJ722l4P9Ee1juRAroKLdcpxPdaeO53JzvCFK?=
- =?us-ascii?Q?GTbwnvDTZ/r4k7tgf8B1f+I5epqcMjKw2aeizq1gTjEMQv8P/zMUUHGx79dk?=
- =?us-ascii?Q?q3vRTKyyDuJecpvVRY+7kQK49ciIPRYKJrGfdQSyozs8vSHwUbOLWMoABH1t?=
- =?us-ascii?Q?qCvcUe/79jCtsC4UTdkQLWoOEBG80gd2w6Sr2AihPpMdCZi4ezro2A9y13nU?=
- =?us-ascii?Q?YMTaNGleboxBOe4n3QoH1nNUOruAy82WrgW5oWyeo3kKRxdBEB1+g7xgfxVK?=
- =?us-ascii?Q?ZJ+5g8Dw/ZdmK+1favWq1Ycrijp6Nu63JDzcPuAp2bJM3edwR59tb324MuTr?=
- =?us-ascii?Q?1hOLf2morLK3C2ymRbUO7yEhWTDJtB9rkOjXveMEl2MGUuFzE01QGRhrenM8?=
- =?us-ascii?Q?reSf6G59ivn+lGu217Poeej93PwrUYzcQBWvQBOeDG/XmBsKhPmWqlCbd6Ld?=
- =?us-ascii?Q?bMpF0ho0zOrdkcKSRdK7BPjFFWwGhMtJvSch?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(366016)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?i56o+SDhZoZHVRWzYho6m/Ldryb/zXEUDp2TrY5DhGJgsoBQyRy7/PEhvidK?=
- =?us-ascii?Q?bNaIbJ4F70yuAzp1lTptNHDLUn+pZX2MfvVoUoYnn8I2rIKVtNYhR8KYSbEs?=
- =?us-ascii?Q?8wuJYcloLtIQmTvlX02rvecaGqgyVOffNHuDG6U5xDi7HZauSl6iHsGIo283?=
- =?us-ascii?Q?jm77v3ena86iLfXEyrOHOPTWWPoL34gcM5NvLxZEd/bjsBiUFiG8L57R3oQG?=
- =?us-ascii?Q?91h2+3fhhi3eZHBGVEepCKWhJLGg/zVzYjtRJnpBFbDTBCFrSgOiYZt3jWT2?=
- =?us-ascii?Q?xn0+FoTUVy8KLq4dyBDn6CL75sdIr+FYOumfDPWj+1cZhlUhC8cx8+E058mN?=
- =?us-ascii?Q?wbmjR4u4IvbhSBSUmqlNFbOY2UQcTJEnPLkXbno1cIq0P7LoiH8GvBuUHoa7?=
- =?us-ascii?Q?h5Ju8dXrmcEPsd+7Fg/fOliN/FnMkUgZnbGCFkqpS8Fn2adGb4i1DnhiNMfR?=
- =?us-ascii?Q?dEqxsdsJjs3PmAIPULQ7k8LPIHijE8aNZqTIqsZxTZ/9vEl5apl1jGOx11fD?=
- =?us-ascii?Q?/+KTUzEoeytI3WFicvPeGPO0p5s6+fbwN/1bLLhIjyDTUbV8BjEUKbe/CW5o?=
- =?us-ascii?Q?8HVwR7e1tJd79Ib3ly31WvDssTKrm1faD1PAbR87/NZYv6p3DhWnP3JVc+g3?=
- =?us-ascii?Q?9JNtfFe5xLUDANDkOYrEd9e/hix8U/wUF5odm/1pG0d/Z8zgy6bfNSuco7ri?=
- =?us-ascii?Q?NaeHsxPYOIHpxHr/44cbp7adk1TS6cUfUqa71hDts83T6dYJ9Wv6a5+DlKL8?=
- =?us-ascii?Q?zqCSJ78zq7x52pfk5evNLc9n+GFtF7ER/zQS6mGuUTWHdFqSi5qzec1WmnM4?=
- =?us-ascii?Q?IJSMDIw4ex2Mtp1amxDYwppmle7d5ONup/eDuHZ4aY/LCPXCt2/WezQ9ZkYk?=
- =?us-ascii?Q?j4A2tIuzkwZFy4FB4oOMItWd+zvqV7ldP9ynGwl5RDS7AjQL4u3ly0q7+YVI?=
- =?us-ascii?Q?XsptE4Vs+q8SfpLVMl0/KDoYguI/9LBkcl9XdFtN9dNs19eF4HLOJRpUEy1O?=
- =?us-ascii?Q?iWrilElXuqKhIz1pAht/PxFRik36t7SjxLVQwwHT7y+mYzI3Gad95NdDUK2i?=
- =?us-ascii?Q?EO5+eajrwsEdrW1Meu0Xrc5SnOd74jZMgc9A8uichCLWb6r9xlQjXBtPBda4?=
- =?us-ascii?Q?a1rxq7V2KUGWNEG6mAXPenCnx++Ns2qgRQZ3cbUdDDZIEkBm7uxqGUOtNKsL?=
- =?us-ascii?Q?19d3aj0jQP29P6s02HdYht+Tw1iEZ6kJKKkLRzIiueXVS+xh/FegfvUR5mg/?=
- =?us-ascii?Q?n66Dy9ufsnsOkk9SpdKzCsCmuLD6rVHWWeWAEm0/rXQpEFi4ZQZ6PQ77ulJi?=
- =?us-ascii?Q?wdgvNyi1H9lF6KJwQBIhCr1g4+v3KV9aIWD9fLYKMrPn25gcym10uodwvbAM?=
- =?us-ascii?Q?6PeN8XVmp/5iwVvyWgQZ8HnoQ0gTxbU+o1wBgPseT3ZHBhOVm1jPy3AtjXtW?=
- =?us-ascii?Q?wQsNG2H3WwEZdwW9Rc3r1x+ypqmz4dZTPYrdUcqIthgd8msfWqIx31+HVnjL?=
- =?us-ascii?Q?sC4psu6fRgXVl211Dnc0zmKD63INLKxph7jJoByXlPLa5ketqLM3xUhLvdZ2?=
- =?us-ascii?Q?sC2i5JoW4Db3obWUfuw=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36388238-613e-4263-aca0-08de189b7a95
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 16:35:19.0000
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: S7hxJ/wJ7GdgXD4x65Wj9hsHcZxzzYDUbSulk0scKULY8b89dYqEW219bMW9PhRQ7jmTmgeNaztQDctE76YsNw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8198
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_093527_151236_D0C4DCFA 
-X-CRM114-Status: GOOD (  17.73  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,70 +58,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 03:06:17PM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
->
-> Add support for the Ethernet connection over GMAC controller connected to
-> the Micrel KSZ9031 Ethernet RGMII PHY located on the boards.
->
-> The mentioned GMAC controller is one of two network controllers
-> embedded on the NXP Automotive SoCs S32G2 and S32G3.
->
-> The supported boards:
->  * EVB:  S32G-VNP-EVB with S32G2 SoC
->  * RDB2: S32G-VNP-RDB2
->  * RDB3: S32G-VNP-RDB3
->
-> Tested-by: Enric Balletbo i Serra <eballetb@redhat.com>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> ---
-> Changes in v2:
->  - fixed correct instance orders, include blank lines
->  - Link to v1: https://lore.kernel.org/r/20251006-nxp-s32g-boards-v1-1-f70a57b8087f@oss.nxp.com
-> ---
-...
-> +
-> +			gmac0mdio: mdio {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +				compatible = "snps,dwmac-mdio";
+On arm64 with MTE enabled, a page mapped as Normal Tagged (PROT_MTE) in
+user space will need to have its allocation tags initialised. This is
+normally done in the arm64 set_pte_at() after checking the memory
+attributes. Such page is also marked with the PG_mte_tagged flag to
+avoid subsequent clearing. Since this relies on having a struct page,
+pte_special() mappings are ignored.
 
-compatible should be first property,  Move address(size)-cells after it.
+Commit d82d09e48219 ("mm/huge_memory: mark PMD mappings of the huge zero
+folio special") maps the huge zero folio special and the arm64
+set_pmd_at() will no longer zero the tags. There is no guarantee that
+the tags are zero, especially if parts of this huge page have been
+previously tagged.
 
+Allocate the huge zero folio with the __GFP_ZEROTAGS flag. In addition,
+do not warn in the arm64 __access_remote_tags() when reading tags from
+the huge zero page.
 
-> +			};
-> +		};
-> +
->  		gic: interrupt-controller@50800000 {
->  			compatible = "arm,gic-v3";
->  			reg = <0x50800000 0x10000>,
-> diff --git a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
-> index c4a195dd67bf..fb4002a2aa67 100644
-> --- a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
-> +++ b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
-...
-> +
-> +&gmac0mdio {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
+Fixes: d82d09e48219 ("mm/huge_memory: mark PMD mappings of the huge zero folio special")
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>
+---
 
-needn't it here because your dtsi already set it.
+It's fairly easy to detect this by regularly dropping the caches to
+force the reallocation of the huge zero folio. I bundled the arm64
+change in here as well since they are both related to the commit mapping
+the huge zero folio as special.
 
-Frank
-> +
-> +	/* KSZ 9031 on RGMII */
-> +	rgmiiaphy1: ethernet-phy@1 {
-> +		reg = <1>;
-> +	};
-> +};
->
-> ---
-> base-commit: fd94619c43360eb44d28bd3ef326a4f85c600a07
-> change-id: 20251006-nxp-s32g-boards-2d156255b592
->
-> Best regards,
-> --
-> Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
->
->
+I don't have any preference how this patch goes in, either the mm tree
+or the arm64 fixes one is fine by me.
+
+ arch/arm64/kernel/mte.c | 3 ++-
+ mm/huge_memory.c        | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+index 43f7a2f39403..32148bf09c1d 100644
+--- a/arch/arm64/kernel/mte.c
++++ b/arch/arm64/kernel/mte.c
+@@ -476,7 +476,8 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
+ 
+ 		folio = page_folio(page);
+ 		if (folio_test_hugetlb(folio))
+-			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio));
++			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio) &&
++				     !is_huge_zero_folio(folio));
+ 		else
+ 			WARN_ON_ONCE(!page_mte_tagged(page) && !is_zero_page(page));
+ 
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 1b81680b4225..b7498e51282a 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -214,7 +214,8 @@ static bool get_huge_zero_folio(void)
+ 	if (likely(atomic_inc_not_zero(&huge_zero_refcount)))
+ 		return true;
+ 
+-	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO) & ~__GFP_MOVABLE,
++	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
++				 ~__GFP_MOVABLE,
+ 			HPAGE_PMD_ORDER);
+ 	if (!zero_folio) {
+ 		count_vm_event(THP_ZERO_PAGE_ALLOC_FAILED);
 
