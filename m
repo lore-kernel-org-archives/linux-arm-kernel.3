@@ -4,46 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7610BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D538CCCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zDleg4Mg/E7jKipTuQZM26MqfRH8PXTsxP2sSTdHnok=; b=1dxh78amd9kuH96VEC+BVAKMou
-	EVjAH7GmfYik2bvi7aT/TBtjTLunIvVSyGfc3Ebb4OAAcq4jraoR5Oj1AbUIJ1y97+P4Q5Lr5GCTA
-	sPHC+CyFMEIqHIuxAtltNwfRJrTsqUu+RcE1+BPK7S+oMrHktNhBl8LsOGnPQamZGFaqP3ddRurch
-	lUqksb/XPPsy0P6yIfUZHSaeRit0TdA+/g6qqI2D6GsmsB4VBHEwE+rrdY+kMc7rowGarhge6yUrW
-	1WRDIMSbOxR3XyRwAamla/6Xz8VmS0C14Opg68R9BuAP0FMSdTTq0a9mR7AzhQiLCP3+h6GL1rAGp
-	Hjd+EPcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Di3ZApnxCl0wa001MXy2q3Q979yTcSpo9qN3rOYWbY0=; b=pmPwgfSCUA5D6U1umvEmSIeWxE
+	XjFL6v35WUnDawpcDCSCOKBkCXmxHT51OH1RutDvpvPcWznmLtW1DsT9inyXqGNFH6pw75KoLRrfJ
+	cKk+c2pCsJ78MSPB4sP7lOa9T89kvnJgCfCvFKeyD8d8YVnH/N6FfeYxYT7MCU6gxJt9bUglIwtX6
+	JNcwkSqTtU9JZqryLXFQ2zYJQk3y6cSsuNWe3OU8i8ToUsxJCTJ4a2UEKn8aFpuO40jqpDrEAsY2k
+	exb2DAdRpcP46pF9su+EwZ/fW3cv4/hmemHxSifsYcrQNWnyzwFE1OJPq9aedrZRIP7pmoErywG5c
+	7+wPzI0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsVQ-00000006RhC-0TWI;
-	Fri, 31 Oct 2025 17:01:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vEsWN-00000006RmA-1tPY;
+	Fri, 31 Oct 2025 17:02:39 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEsVO-00000006Rh6-2i1J
+	id 1vEsWK-00000006Rle-1rxV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:01:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C352603E1;
-	Fri, 31 Oct 2025 17:01:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 020B1C4CEF1;
-	Fri, 31 Oct 2025 17:01:35 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	David Hildenbrand <david@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH] mm/huge_memory: Initialise the tags of the huge zero folio
-Date: Fri, 31 Oct 2025 16:57:50 +0000
-Message-ID: <20251031170133.280742-1-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.47.3
+	Fri, 31 Oct 2025 17:02:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761930157; x=1793466157;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=yDv6EgtiAeu4cOA0bFneDjrfyEEmzUj26cMNw39epTU=;
+  b=kdDMZSnirkeTKx9eF6/GSp8gQaTt50P4ivFZ+4stDPZhzyrJYL8ACEwl
+   OQnI9PF5ym02x43l5r79ATF7THyoRPoKtJoKrtiGu0YNOD067w+JdBe5l
+   qTNtdPZntLG5pes3cQeFovPsc/Ofd1HZe+eX6/eiTZ2JWMUK78wNF0VzM
+   T66wgldN3bhzw1ZQdHy2UoLBl0EhlKCGKGW2okL/6rCOpbl4dviYoLmLB
+   FvAcJUzbp+u7X3IkYTLk0KvKxqdqs2kOIMRdE05uddYuhvTe4u1uCEAS5
+   SmcAiDZrtcceL5nHEFgXetpDf+gcoO0/5RSoG+WKdPTMUNHumUtJ6Hx0+
+   w==;
+X-CSE-ConnectionGUID: FTMA+1mYSfqC/8/Yrfq9ZQ==
+X-CSE-MsgGUID: ufXjZLadRIGuTA5Ld+0QGA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11599"; a="64126154"
+X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
+   d="scan'208";a="64126154"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 10:02:36 -0700
+X-CSE-ConnectionGUID: D1sa5WS/TvqpPNu3Vd6RTA==
+X-CSE-MsgGUID: tBaFbmKcS9O0+gxgVl/e3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
+   d="scan'208";a="216937489"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 31 Oct 2025 10:02:31 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vEsWC-000NUM-38;
+	Fri, 31 Oct 2025 17:02:28 +0000
+Date: Sat, 1 Nov 2025 01:02:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, kernel-team@android.com,
+	Peter Griffin <peter.griffin@linaro.org>
+Subject: Re: [PATCH v2 3/4] clk: samsung: Implement automatic clock gating
+ mode for CMUs
+Message-ID: <202511010049.sebVqntI-lkp@intel.com>
+References: <20251029-automatic-clocks-v2-3-f8edd3a2d82b@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029-automatic-clocks-v2-3-f8edd3a2d82b@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_100236_505198_57319CFC 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,68 +102,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On arm64 with MTE enabled, a page mapped as Normal Tagged (PROT_MTE) in
-user space will need to have its allocation tags initialised. This is
-normally done in the arm64 set_pte_at() after checking the memory
-attributes. Such page is also marked with the PG_mte_tagged flag to
-avoid subsequent clearing. Since this relies on having a struct page,
-pte_special() mappings are ignored.
+Hi Peter,
 
-Commit d82d09e48219 ("mm/huge_memory: mark PMD mappings of the huge zero
-folio special") maps the huge zero folio special and the arm64
-set_pmd_at() will no longer zero the tags. There is no guarantee that
-the tags are zero, especially if parts of this huge page have been
-previously tagged.
+kernel test robot noticed the following build warnings:
 
-Allocate the huge zero folio with the __GFP_ZEROTAGS flag. In addition,
-do not warn in the arm64 __access_remote_tags() when reading tags from
-the huge zero page.
+[auto build test WARNING on 72fb0170ef1f45addf726319c52a0562b6913707]
 
-Fixes: d82d09e48219 ("mm/huge_memory: mark PMD mappings of the huge zero folio special")
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>
----
+url:    https://github.com/intel-lab-lkp/linux/commits/Peter-Griffin/dt-bindings-clock-google-gs101-clock-add-samsung-sysreg-property-as-required/20251030-053356
+base:   72fb0170ef1f45addf726319c52a0562b6913707
+patch link:    https://lore.kernel.org/r/20251029-automatic-clocks-v2-3-f8edd3a2d82b%40linaro.org
+patch subject: [PATCH v2 3/4] clk: samsung: Implement automatic clock gating mode for CMUs
+config: riscv-randconfig-002-20251031 (https://download.01.org/0day-ci/archive/20251101/202511010049.sebVqntI-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251101/202511010049.sebVqntI-lkp@intel.com/reproduce)
 
-It's fairly easy to detect this by regularly dropping the caches to
-force the reallocation of the huge zero folio. I bundled the arm64
-change in here as well since they are both related to the commit mapping
-the huge zero folio as special.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511010049.sebVqntI-lkp@intel.com/
 
-I don't have any preference how this patch goes in, either the mm tree
-or the arm64 fixes one is fine by me.
+All warnings (new ones prefixed by >>):
 
- arch/arm64/kernel/mte.c | 3 ++-
- mm/huge_memory.c        | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+>> Warning: drivers/clk/samsung/clk.c:458 function parameter 'np' not described in 'samsung_cmu_register_clocks'
 
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 43f7a2f39403..32148bf09c1d 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -476,7 +476,8 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
- 
- 		folio = page_folio(page);
- 		if (folio_test_hugetlb(folio))
--			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio));
-+			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio) &&
-+				     !is_huge_zero_folio(folio));
- 		else
- 			WARN_ON_ONCE(!page_mte_tagged(page) && !is_zero_page(page));
- 
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 1b81680b4225..b7498e51282a 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -214,7 +214,8 @@ static bool get_huge_zero_folio(void)
- 	if (likely(atomic_inc_not_zero(&huge_zero_refcount)))
- 		return true;
- 
--	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO) & ~__GFP_MOVABLE,
-+	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
-+				 ~__GFP_MOVABLE,
- 			HPAGE_PMD_ORDER);
- 	if (!zero_folio) {
- 		count_vm_event(THP_ZERO_PAGE_ALLOC_FAILED);
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
