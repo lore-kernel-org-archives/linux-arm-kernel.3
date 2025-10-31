@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B76CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 07:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEB5CCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 07:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhyzJ7Z7ESPd3yOdaFgRvcCmuMfmlajJp4IO/eIceVk=; b=dbjb+QQTsjz4zAAQR2V9tzV32h
-	STkV/qR3Hc25j9lnsRMWmpdoZdtQUIO20SEa0K6w1g4rpxfqYBuSF6s20vHafTZizlzP0ikNqArAU
-	4l4Fh0rG5oVIgbrCqIi5XjyEYN6o0OEselzGkouWQGAPz7Tv2+jxDTeL4pHiWMO3QiLEB6hWmA6Fb
-	odj8DVJPCEyHThNvnzykE664u8xPJU2/+efVlexhdr50DqxOUj13nCMWV4QE4/tQEqFXcYiAZk8LS
-	k/c+/Bfuutfwv3cOqCdlPcexfS52tDw7tnIRvY3489qS5+TFFRf0+6kP+XygbGwaMkrRoz7SWY+2u
-	iiNLzH8A==;
+	bh=v6ZPfV662h1Ig8uyTNsRNsx0POH1j8eh3iLkxjXARr0=; b=yYfVTaKoPW+qeMb20Y7Vd/xUrI
+	N0iOKHjrF8Je+Lu1v6dAFexXYRn2ZzUbX7oYUt3nvGjbd1WFPR0lBwtkxoy/GUmpGR0mQWLG4mm1N
+	lyGlIuafVJfqJDs3hJEZj79+4mIRje8zCQMBmXUBDP5n28ceJJYXS6zmA7He3B1pmsP/xKSZXpKdn
+	GN8Srd9QMZisnCN03GAoCkb45/M682BdoARwaK2D0oRTNjl9oA4bTxtvWYcWhPDQpdlyWetucYL7b
+	i6+iYZf7E4pa0ItzKfQ9QjNc+YGGybJof0M7N3YdsWoSn/CFm6OUvmx6fI1yCTCK+nv76JGWLdIhS
+	4ykas4+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEjdP-00000005XpK-2ZMw;
-	Fri, 31 Oct 2025 07:33:19 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vEjde-00000005Xye-2uO4;
+	Fri, 31 Oct 2025 07:33:34 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEjcx-00000005XWU-2rQs;
-	Fri, 31 Oct 2025 07:32:54 +0000
-X-UUID: cd77706cb62b11f0a52f393f94899d25-20251031
+	id 1vEjd0-00000005XYT-1tYD;
+	Fri, 31 Oct 2025 07:32:58 +0000
+X-UUID: cec4e76ab62b11f09f706fa2197c6ceb-20251031
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=xhyzJ7Z7ESPd3yOdaFgRvcCmuMfmlajJp4IO/eIceVk=;
-	b=TALZUSie37aAWXqZ8wS6W/QyAOpgogTEkEARcrCHubJ+Vl2fn2SqMiOUGpltnruKwCVwAdMk9SwefuQ+6LZ92pb4sjcv8CgB/EeYkNAG+UpYPTSAQfjv7ammuXJQGK6znvh+6ARlmSLiDQ+Sc/pyAg+hH3zNrRWadQ5MOEX84HA=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=v6ZPfV662h1Ig8uyTNsRNsx0POH1j8eh3iLkxjXARr0=;
+	b=qhtz+4CA5YQHhzG8xveoXfJm6OhX5bT+dhgXgJprMPcs+flOuaH7vOXcpJaHqVMZB9QZMJuUVm2OBhtYIu3G29fKpttHEaPWa7PS3iowPjYcs2SxlKhJwzy+QVbWyy7P8/UhyWfhgHrChccoqlDhG/TbTXuWWS5R0O+Bgj+e/CM=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:e89e71d2-ed02-4ade-ace8-54ae38a529ba,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:cd16fbdf-3890-4bb9-a90e-2a6a4ecf6c66,B
+X-CID-O-INFO: VERSION:1.3.6,REQID:7b1e8294-c2be-426f-816b-bcfc46dc3e5d,IP:0,UR
+	L:25,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:20
+X-CID-META: VersionHash:a9d874c,CLOUDID:f516fbdf-3890-4bb9-a90e-2a6a4ecf6c66,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+	0|15|50,EDM:-3,IP:nil,URL:11|97|99|83|106|1,File:130,RT:0,Bulk:nil,QS:nil,
+	BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: cd77706cb62b11f0a52f393f94899d25-20251031
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+X-UUID: cec4e76ab62b11f09f706fa2197c6ceb-20251031
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
 	(envelope-from <cyril.chao@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2090033153; Fri, 31 Oct 2025 00:32:49 -0700
+	with ESMTP id 955760625; Fri, 31 Oct 2025 00:32:51 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Fri, 31 Oct 2025 15:32:46 +0800
+ 15.2.1748.26; Fri, 31 Oct 2025 15:32:48 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Fri, 31 Oct 2025 15:32:45 +0800
+ 15.2.1748.26 via Frontend Transport; Fri, 31 Oct 2025 15:32:47 +0800
 From: Cyril Chao <Cyril.Chao@mediatek.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
 CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>, Cyril Chao <cyril.chao@mediatek.com>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Cyril Chao
-	<Cyril.Chao@mediatek.com>
-Subject: [PATCH v3 06/10] ASoC: mediatek: mt8189: support PCM in platform driver
-Date: Fri, 31 Oct 2025 15:32:00 +0800
-Message-ID: <20251031073216.8662-7-Cyril.Chao@mediatek.com>
+	<Cyril.Chao@mediatek.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v3 07/10] ASoC: dt-bindings: mediatek,mt8189-afe-pcm: add audio afe document
+Date: Fri, 31 Oct 2025 15:32:01 +0800
+Message-ID: <20251031073216.8662-8-Cyril.Chao@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20251031073216.8662-1-Cyril.Chao@mediatek.com>
 References: <20251031073216.8662-1-Cyril.Chao@mediatek.com>
@@ -76,8 +77,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_003252_051560_9AB8F92B 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20251031_003254_855130_F4CF2E2C 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,352 +93,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add mt8189 PCM DAI driver support.
+Add mt8189 audio afe document.
 
 Signed-off-by: Cyril Chao <Cyril.Chao@mediatek.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- sound/soc/mediatek/mt8189/mt8189-dai-pcm.c | 332 +++++++++++++++++++++
- 1 file changed, 332 insertions(+)
- create mode 100644 sound/soc/mediatek/mt8189/mt8189-dai-pcm.c
+ .../sound/mediatek,mt8189-afe-pcm.yaml        | 178 ++++++++++++++++++
+ 1 file changed, 178 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8189-afe-pcm.yaml
 
-diff --git a/sound/soc/mediatek/mt8189/mt8189-dai-pcm.c b/sound/soc/mediatek/mt8189/mt8189-dai-pcm.c
+diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8189-afe-pcm.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8189-afe-pcm.yaml
 new file mode 100644
-index 000000000000..21317c0413e5
+index 000000000000..9c9f21652af9
 --- /dev/null
-+++ b/sound/soc/mediatek/mt8189/mt8189-dai-pcm.c
-@@ -0,0 +1,332 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ *  MediaTek ALSA SoC Audio DAI I2S Control
-+ *
-+ *  Copyright (c) 2025 MediaTek Inc.
-+ *  Author: Darren Ye <darren.ye@mediatek.com>
-+ */
++++ b/Documentation/devicetree/bindings/sound/mediatek,mt8189-afe-pcm.yaml
+@@ -0,0 +1,178 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/mediatek,mt8189-afe-pcm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/regmap.h>
++title: MediaTek Audio Front End PCM controller for MT8189
 +
-+#include <sound/pcm_params.h>
++maintainers:
++  - Darren Ye <darren.ye@mediatek.com>
++  - Cyril Chao <cyril.chao@mediatek.com>
 +
-+#include "mt8189-afe-common.h"
-+#include "mt8189-interconnection.h"
-+#include "mt8189-afe-clk.h"
++properties:
++  compatible:
++    const: mediatek,mt8189-afe-pcm
 +
-+enum AUD_TX_LCH_RPT {
-+	AUD_TX_LCH_RPT_NO_REPEAT,
-+	AUD_TX_LCH_RPT_REPEAT
-+};
++  reg:
++    maxItems: 1
 +
-+enum AUD_VBT_16K_MODE {
-+	AUD_VBT_16K_MODE_DISABLE,
-+	AUD_VBT_16K_MODE_ENABLE
-+};
++  interrupts:
++    maxItems: 1
 +
-+enum AUD_EXT_MODEM {
-+	AUD_EXT_MODEM_SELECT_INTERNAL,
-+	AUD_EXT_MODEM_SELECT_EXTERNAL
-+};
++  memory-region:
++    maxItems: 1
 +
-+enum AUD_PCM_SYNC_TYPE {
-+	/* bck sync length = 1 */
-+	AUD_PCM_ONE_BCK_CYCLE_SYNC,
-+	/* bck sync length = PCM_INTF_CON1[9:13] */
-+	AUD_PCM_EXTENDED_BCK_CYCLE_SYNC
-+};
++  mediatek,apmixedsys:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: To set up the apll12 tuner
 +
-+enum AUD_BT_MODE {
-+	AUD_BT_MODE_DUAL_MIC_ON_TX,
-+	AUD_BT_MODE_SINGLE_MIC_ON_TX
-+};
++  power-domains:
++    maxItems: 1
 +
-+enum AUD_PCM_AFIFO_SRC {
-+	/* slave mode & external modem uses different crystal */
-+	AUD_PCM_AFIFO_ASRC,
-+	/* slave mode & external modem uses the same crystal */
-+	AUD_PCM_AFIFO_AFIFO
-+};
++  clocks:
++    items:
++      - description: mux for audio intbus
++      - description: mux for audio engen1
++      - description: mux for audio engen2
++      - description: mux for audio h
++      - description: audio apll1 clock
++      - description: audio apll2 clock
++      - description: audio apll1 divide4
++      - description: audio apll2 divide4
++      - description: audio apll12 divide for i2sin0
++      - description: audio apll12 divide for i2sin1
++      - description: audio apll12 divide for i2sout0
++      - description: audio apll12 divide for i2sout1
++      - description: audio apll12 divide for fmi2s
++      - description: audio apll12 divide for tdmout mck
++      - description: audio apll12 divide for tdmout bck
++      - description: mux for audio apll1
++      - description: mux for audio apll2
++      - description: mux for i2sin0 mck
++      - description: mux for i2sin1 mck
++      - description: mux for i2sout0 mck
++      - description: mux for i2sout1 mck
++      - description: mux for fmi2s mck
++      - description: mux for tdmout mck
++      - description: 26m clock
++      - description: audio slv clock
++      - description: audio mst clock
++      - description: audio intbus clock
 +
-+enum AUD_PCM_CLOCK_SOURCE {
-+	AUD_PCM_CLOCK_MASTER_MODE,
-+	AUD_PCM_CLOCK_SLAVE_MODE
-+};
++  clock-names:
++    items:
++      - const: top_aud_intbus
++      - const: top_aud_eng1
++      - const: top_aud_eng2
++      - const: top_aud_h
++      - const: apll1
++      - const: apll2
++      - const: apll1_d4
++      - const: apll2_d4
++      - const: apll12_div_i2sin0
++      - const: apll12_div_i2sin1
++      - const: apll12_div_i2sout0
++      - const: apll12_div_i2sout1
++      - const: apll12_div_fmi2s
++      - const: apll12_div_tdmout_m
++      - const: apll12_div_tdmout_b
++      - const: top_apll1
++      - const: top_apll2
++      - const: top_i2sin0
++      - const: top_i2sin1
++      - const: top_i2sout0
++      - const: top_i2sout1
++      - const: top_fmi2s
++      - const: top_dptx
++      - const: clk26m
++      - const: aud_slv_ck_peri
++      - const: aud_mst_ck_peri
++      - const: aud_intbus_ck_peri
 +
-+enum AUD_PCM_WLEN {
-+	AUD_PCM_WLEN_PCM_32_BCK_CYCLES,
-+	AUD_PCM_WLEN_PCM_64_BCK_CYCLES
-+};
++required:
++  - compatible
++  - reg
++  - interrupts
++  - memory-region
++  - power-domains
++  - clocks
++  - clock-names
 +
-+enum AUD_PCM_MODE {
-+	AUD_PCM_MODE_PCM_MODE_8K,
-+	AUD_PCM_MODE_PCM_MODE_16K,
-+	AUD_PCM_MODE_PCM_MODE_32K,
-+	AUD_PCM_MODE_PCM_MODE_48K
-+};
++additionalProperties: false
 +
-+enum AUD_PCM_FMT {
-+	AUD_PCM_FMT_I2S,
-+	AUD_PCM_FMT_EIAJ,
-+	AUD_PCM_FMT_PCM_MODE_A,
-+	AUD_PCM_FMT_PCM_MODE_B
-+};
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
 +
-+enum AUD_BCLK_OUT_INV {
-+	AUD_BCLK_OUT_INV_NO_INVERSE,
-+	AUD_BCLK_OUT_INV_INVERSE
-+};
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
 +
-+enum AUD_PCM_EN {
-+	AUD_PCM_EN_DISABLE,
-+	AUD_PCM_EN_ENABLE
-+};
++        afe@11050000 {
++            compatible = "mediatek,mt8189-afe-pcm";
++            reg = <0 0x11050000 0 0x10000>;
++            interrupts = <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH 0>;
++            memory-region = <&afe_dma_mem_reserved>;
++            pinctrl-names = "default";
++            pinctrl-0 = <&aud_pins_default>;
++            power-domains = <&scpsys 1>; //MT8189_POWER_DOMAIN_AUDIO
++            clocks = <&topckgen_clk 23>, //CLK_TOP_AUD_INTBUS_SEL
++                     <&topckgen_clk 39>, //CLK_TOP_AUD_ENGEN1_SEL
++                     <&topckgen_clk 40>, //CLK_TOP_AUD_ENGEN2_SEL
++                     <&topckgen_clk 49>, //CLK_TOP_AUDIO_H_SEL
++                     <&topckgen_clk 146>, //CLK_TOP_APLL1
++                     <&topckgen_clk 151>, //CLK_TOP_APLL2
++                     <&topckgen_clk 148>, //CLK_TOP_APLL1_D4
++                     <&topckgen_clk 153>, //CLK_TOP_APLL2_D4
++                     <&topckgen_clk 93>, //CLK_TOP_APLL12_CK_DIV_I2SIN0
++                     <&topckgen_clk 94>, //CLK_TOP_APLL12_CK_DIV_I2SIN1
++                     <&topckgen_clk 95>, //CLK_TOP_APLL12_CK_DIV_I2SOUT0
++                     <&topckgen_clk 96>, //CLK_TOP_APLL12_CK_DIV_I2SOUT1
++                     <&topckgen_clk 97>, //CLK_TOP_APLL12_CK_DIV_FMI2S
++                     <&topckgen_clk 98>, //CLK_TOP_APLL12_CK_DIV_TDMOUT_M
++                     <&topckgen_clk 99>, //CLK_TOP_APLL12_CK_DIV_TDMOUT_B
++                     <&topckgen_clk 44>, //CLK_TOP_AUD_1_SEL
++                     <&topckgen_clk 45>, //CLK_TOP_AUD_2_SEL
++                     <&topckgen_clk 78>, //CLK_TOP_APLL_I2SIN0_MCK_SEL
++                     <&topckgen_clk 79>, //CLK_TOP_APLL_I2SIN1_MCK_SEL
++                     <&topckgen_clk 84>, //CLK_TOP_APLL_I2SOUT0_MCK_SEL
++                     <&topckgen_clk 85>, //CLK_TOP_APLL_I2SOUT1_MCK_SEL
++                     <&topckgen_clk 90>, //CLK_TOP_APLL_FMI2S_MCK_SEL
++                     <&topckgen_clk 91>, //CLK_TOP_APLL_TDMOUT_MCK_SEL
++                     <&topckgen_clk 191>, //CLK_TOP_TCK_26M_MX9
++                     <&pericfg_ao_clk 77>, //CLK_PERAO_AUDIO0
++                     <&pericfg_ao_clk 78>, //CLK_PERAO_AUDIO1
++                     <&pericfg_ao_clk 79>; //CLK_PERAO_AUDIO2
++            clock-names = "top_aud_intbus",
++                          "top_aud_eng1",
++                          "top_aud_eng2",
++                          "top_aud_h",
++                          "apll1",
++                          "apll2",
++                          "apll1_d4",
++                          "apll2_d4",
++                          "apll12_div_i2sin0",
++                          "apll12_div_i2sin1",
++                          "apll12_div_i2sout0",
++                          "apll12_div_i2sout1",
++                          "apll12_div_fmi2s",
++                          "apll12_div_tdmout_m",
++                          "apll12_div_tdmout_b",
++                          "top_apll1",
++                          "top_apll2",
++                          "top_i2sin0",
++                          "top_i2sin1",
++                          "top_i2sout0",
++                          "top_i2sout1",
++                          "top_fmi2s",
++                          "top_dptx",
++                          "clk26m",
++                          "aud_slv_ck_peri",
++                          "aud_mst_ck_peri",
++                          "aud_intbus_ck_peri";
++        };
++    };
 +
-+enum AUD_PCM1_1X_EN_DOMAIN {
-+	HOPPING_26M,
-+	APLL,
-+	SLAVE = 6
-+};
-+
-+enum AUD_PCM1_1X_EN_SLAVE_MODE {
-+	PCM0_SLAVE_1X_EN,
-+	PCM1_SLAVE_1X_EN
-+};
-+
-+enum {
-+	PCM_8K,
-+	PCM_16K = 4,
-+	PCM_32K = 8,
-+	PCM_48K = 10
-+};
-+
-+static unsigned int pcm_1x_rate_transform(struct device *dev,
-+					  unsigned int rate)
-+{
-+	switch (rate) {
-+	case 8000:
-+		return PCM_8K;
-+	case 16000:
-+		return PCM_16K;
-+	case 32000:
-+		return PCM_32K;
-+	case 48000:
-+		return PCM_48K;
-+	default:
-+		dev_warn(dev, "rate %u invalid, use %d!!!\n",
-+			 rate, PCM_48K);
-+		return PCM_48K;
-+	}
-+}
-+
-+static unsigned int pcm_rate_transform(struct device *dev,
-+				       unsigned int rate)
-+{
-+	switch (rate) {
-+	case 8000:
-+		return MTK_AFE_PCM_RATE_8K;
-+	case 16000:
-+		return MTK_AFE_PCM_RATE_16K;
-+	case 32000:
-+		return MTK_AFE_PCM_RATE_32K;
-+	case 48000:
-+		return MTK_AFE_PCM_RATE_48K;
-+	default:
-+		dev_warn(dev, "rate %u invalid, use %d\n",
-+			 rate, MTK_AFE_PCM_RATE_48K);
-+		return MTK_AFE_PCM_RATE_48K;
-+	}
-+}
-+
-+/* dai component */
-+static const struct snd_kcontrol_new mtk_pcm_0_playback_ch1_mix[] = {
-+	SOC_DAPM_SINGLE_AUTODISABLE("ADDA_UL_CH1", AFE_CONN096_0,
-+				    I_ADDA_UL_CH1, 1, 0),
-+	SOC_DAPM_SINGLE_AUTODISABLE("DL2_CH1", AFE_CONN096_1,
-+				    I_DL2_CH1, 1, 0),
-+	SOC_DAPM_SINGLE_AUTODISABLE("DL_24CH_CH1", AFE_CONN096_1,
-+				    I_DL_24CH_CH1, 1, 0),
-+};
-+
-+static const struct snd_kcontrol_new mtk_pcm_0_playback_ch2_mix[] = {
-+	SOC_DAPM_SINGLE_AUTODISABLE("ADDA_UL_CH2", AFE_CONN097_0,
-+				    I_ADDA_UL_CH2, 1, 0),
-+	SOC_DAPM_SINGLE_AUTODISABLE("DL2_CH2", AFE_CONN097_1,
-+				    I_DL2_CH2, 1, 0),
-+	SOC_DAPM_SINGLE_AUTODISABLE("DL_24CH_CH2", AFE_CONN097_1,
-+				    I_DL_24CH_CH2, 1, 0),
-+};
-+
-+static const struct snd_kcontrol_new mtk_pcm_0_playback_ch4_mix[] = {
-+	SOC_DAPM_SINGLE_AUTODISABLE("I2SIN1_CH1", AFE_CONN099_4,
-+				    I_I2SIN1_CH1, 1, 0),
-+	SOC_DAPM_SINGLE_AUTODISABLE("I2SIN1_CH2", AFE_CONN099_4,
-+				    I_I2SIN1_CH2, 1, 0),
-+	SOC_DAPM_SINGLE_AUTODISABLE("DL0_CH1", AFE_CONN099_1,
-+				    I_DL0_CH1, 1, 0),
-+	SOC_DAPM_SINGLE_AUTODISABLE("DL_24CH_CH1", AFE_CONN099_1,
-+				    I_DL_24CH_CH1, 1, 0),
-+};
-+
-+static const struct snd_soc_dapm_widget mtk_dai_pcm_widgets[] = {
-+	/* inter-connections */
-+	SND_SOC_DAPM_MIXER("PCM_0_PB_CH1", SND_SOC_NOPM, 0, 0,
-+			   mtk_pcm_0_playback_ch1_mix,
-+			   ARRAY_SIZE(mtk_pcm_0_playback_ch1_mix)),
-+	SND_SOC_DAPM_MIXER("PCM_0_PB_CH2", SND_SOC_NOPM, 0, 0,
-+			   mtk_pcm_0_playback_ch2_mix,
-+			   ARRAY_SIZE(mtk_pcm_0_playback_ch2_mix)),
-+	SND_SOC_DAPM_MIXER("PCM_0_PB_CH4", SND_SOC_NOPM, 0, 0,
-+			   mtk_pcm_0_playback_ch4_mix,
-+			   ARRAY_SIZE(mtk_pcm_0_playback_ch4_mix)),
-+
-+	SND_SOC_DAPM_SUPPLY("PCM_0_EN",
-+			    AFE_PCM0_INTF_CON0, PCM0_EN_SFT, 0,
-+			    NULL, 0),
-+
-+	SND_SOC_DAPM_SUPPLY("PCM0_CG", AUDIO_TOP_CON0, PDN_PCM0_SFT, 1,
-+			    NULL, 0),
-+
-+	SND_SOC_DAPM_INPUT("AFE_PCM_INPUT"),
-+	SND_SOC_DAPM_OUTPUT("AFE_PCM_OUTPUT"),
-+};
-+
-+static const struct snd_soc_dapm_route mtk_dai_pcm_routes[] = {
-+	{"PCM 0 Playback", NULL, "PCM_0_PB_CH1"},
-+	{"PCM 0 Playback", NULL, "PCM_0_PB_CH2"},
-+	{"PCM 0 Playback", NULL, "PCM_0_PB_CH4"},
-+
-+	{"PCM 0 Playback", NULL, "PCM_0_EN"},
-+	{"PCM 0 Capture", NULL, "PCM_0_EN"},
-+	{"PCM 0 Playback", NULL, "PCM0_CG"},
-+	{"PCM 0 Capture", NULL, "PCM0_CG"},
-+
-+	{"AFE_PCM_OUTPUT", NULL, "PCM 0 Playback"},
-+	{"PCM 0 Capture", NULL, "AFE_PCM_INPUT"},
-+
-+	{"PCM_0_PB_CH1", "DL2_CH1", "DL2"},
-+	{"PCM_0_PB_CH2", "DL2_CH2", "DL2"},
-+	{"PCM_0_PB_CH4", "DL0_CH1", "DL0"},
-+
-+	{"PCM_0_PB_CH1", "DL_24CH_CH1", "DL_24CH"},
-+	{"PCM_0_PB_CH2", "DL_24CH_CH2", "DL_24CH"},
-+	{"PCM_0_PB_CH4", "DL_24CH_CH1", "DL_24CH"},
-+};
-+
-+/* dai ops */
-+static int mtk_dai_pcm_hw_params(struct snd_pcm_substream *substream,
-+				 struct snd_pcm_hw_params *params,
-+				 struct snd_soc_dai *dai)
-+{
-+	struct mtk_base_afe *afe = snd_soc_dai_get_drvdata(dai);
-+	unsigned int rate = params_rate(params);
-+	unsigned int rate_reg = pcm_rate_transform(afe->dev, rate);
-+	unsigned int x_rate_reg = pcm_1x_rate_transform(afe->dev, rate);
-+	unsigned int pcm_con0;
-+	unsigned int pcm_con1;
-+	unsigned int playback_active = 0;
-+	unsigned int capture_active = 0;
-+	struct snd_soc_dapm_widget *playback_widget =
-+		snd_soc_dai_get_widget(dai, SNDRV_PCM_STREAM_PLAYBACK);
-+	struct snd_soc_dapm_widget *capture_widget =
-+		snd_soc_dai_get_widget(dai, SNDRV_PCM_STREAM_CAPTURE);
-+
-+	if (playback_widget)
-+		playback_active = playback_widget->active;
-+	if (capture_widget)
-+		capture_active = capture_widget->active;
-+	dev_dbg(afe->dev,
-+		"id %d, stream %d, rate %d, rate_reg %d, active p %d, c %d\n",
-+		dai->id, substream->stream, rate, rate_reg,
-+		playback_active, capture_active);
-+
-+	if (playback_active || capture_active)
-+		return 0;
-+	switch (dai->id) {
-+	case MT8189_DAI_PCM_0:
-+		pcm_con0 = AUD_BCLK_OUT_INV_NO_INVERSE << PCM0_BCLK_OUT_INV_SFT;
-+		pcm_con0 |= AUD_TX_LCH_RPT_NO_REPEAT << PCM0_TX_LCH_RPT_SFT;
-+		pcm_con0 |= AUD_VBT_16K_MODE_DISABLE << PCM0_VBT_16K_MODE_SFT;
-+		pcm_con0 |= 0 << PCM0_SYNC_LENGTH_SFT;
-+		pcm_con0 |= AUD_PCM_ONE_BCK_CYCLE_SYNC << PCM0_SYNC_TYPE_SFT;
-+		pcm_con0 |= AUD_PCM_AFIFO_AFIFO << PCM0_BYP_ASRC_SFT;
-+		pcm_con0 |= AUD_PCM_CLOCK_MASTER_MODE << PCM0_SLAVE_SFT;
-+		pcm_con0 |= rate_reg << PCM0_MODE_SFT;
-+		pcm_con0 |= AUD_PCM_FMT_I2S << PCM0_FMT_SFT;
-+
-+		pcm_con1 = AUD_EXT_MODEM_SELECT_INTERNAL << PCM0_EXT_MODEM_SFT;
-+		pcm_con1 |= AUD_BT_MODE_DUAL_MIC_ON_TX << PCM0_BT_MODE_SFT;
-+		pcm_con1 |= HOPPING_26M << PCM0_1X_EN_DOMAIN_SFT;
-+		pcm_con1 |= x_rate_reg << PCM0_1X_EN_MODE_SFT;
-+
-+		regmap_update_bits(afe->regmap, AFE_PCM0_INTF_CON0,
-+				   ~(unsigned int)PCM0_EN_MASK_SFT, pcm_con0);
-+		regmap_update_bits(afe->regmap, AFE_PCM0_INTF_CON1,
-+				   AFE_PCM0_INTF_CON1_MASK_MON_MASK_SFT,
-+				   pcm_con1);
-+		break;
-+	default:
-+		dev_err(afe->dev, "%s(), id %d not support\n",
-+			__func__, dai->id);
-+		return -EINVAL;
-+	}
-+	return 0;
-+}
-+
-+static const struct snd_soc_dai_ops mtk_dai_pcm_ops = {
-+	.hw_params = mtk_dai_pcm_hw_params,
-+};
-+
-+/* dai driver */
-+#define MTK_PCM_RATES (SNDRV_PCM_RATE_8000 |\
-+		       SNDRV_PCM_RATE_16000 |\
-+		       SNDRV_PCM_RATE_32000 |\
-+		       SNDRV_PCM_RATE_48000)
-+
-+#define MTK_PCM_FORMATS (SNDRV_PCM_FMTBIT_S16_LE |\
-+			 SNDRV_PCM_FMTBIT_S24_LE |\
-+			 SNDRV_PCM_FMTBIT_S32_LE)
-+
-+static struct snd_soc_dai_driver mtk_dai_pcm_driver[] = {
-+	{
-+		.name = "PCM 0",
-+		.id = MT8189_DAI_PCM_0,
-+		.playback = {
-+			.stream_name = "PCM 0 Playback",
-+			.channels_min = 1,
-+			.channels_max = 2,
-+			.rates = MTK_PCM_RATES,
-+			.formats = MTK_PCM_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "PCM 0 Capture",
-+			.channels_min = 1,
-+			.channels_max = 2,
-+			.rates = MTK_PCM_RATES,
-+			.formats = MTK_PCM_FORMATS,
-+		},
-+		.ops = &mtk_dai_pcm_ops,
-+		.symmetric_rate = 1,
-+		.symmetric_sample_bits = 1,
-+	},
-+};
-+
-+int mt8189_dai_pcm_register(struct mtk_base_afe *afe)
-+{
-+	struct mtk_base_afe_dai *dai;
-+
-+	dai = devm_kzalloc(afe->dev, sizeof(*dai), GFP_KERNEL);
-+	if (!dai)
-+		return -ENOMEM;
-+
-+	dai->dai_drivers = mtk_dai_pcm_driver;
-+	dai->num_dai_drivers = ARRAY_SIZE(mtk_dai_pcm_driver);
-+	dai->dapm_widgets = mtk_dai_pcm_widgets;
-+	dai->num_dapm_widgets = ARRAY_SIZE(mtk_dai_pcm_widgets);
-+	dai->dapm_routes = mtk_dai_pcm_routes;
-+	dai->num_dapm_routes = ARRAY_SIZE(mtk_dai_pcm_routes);
-+
-+	list_add(&dai->list, &afe->sub_dais);
-+
-+	return 0;
-+}
++...
 -- 
 2.45.2
 
