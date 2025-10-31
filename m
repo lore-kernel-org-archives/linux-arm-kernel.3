@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F154CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC016CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rj8s1wnUATyl/Io36KEtToNI7y6NAciHE7SXMDsNhyY=; b=k42QdIlzUsiun18yL4ihL3klMe
-	CuQEmvIsXvAScd7KbGM/HuTruGPwQ8m6UGJHnCd3h4zzycP4nHCWMHV+HqZ/L9zWVSXMEJsnksxms
-	iwpi1e++ZDgikDTrZqvms17cLRbtHbmP4TnRF+DmkeYSuDJq5esFIF6UPh0i8TZpnIpX2crpCcoKE
-	mdvcnz67KrPypIHES2DJPu6Fl1lOso2Xnal+BIo5ix3PTuFDUVp9gq9YOA/rFX9Q9HtLY3pdjw6PZ
-	otdhoUClIQKBGjdho22VtIokfM9PU/ribE2sjrUA3XyntFqCRag1QduByKNzuQwgtjPcWykmTBp3y
-	glgrWmpw==;
+	bh=iYFyMmosJfCGXPey/kJzbsgDJfoqgAg9lmTWdG1QPGs=; b=gQql2B+UI3ao0OG05I57tTLEIr
+	mH+uWxEY59CgyiJtu3fec/65KZajpm6gTtsMGOTYlYtgKl6cxQP+bVCX3O9NYFhkE8VFaEO3jMpU9
+	cCNXiP15euq4KPkri1f0L/nuZG8AsmfVL6eKfIH8OL574CG9MBDDxFEg9MEM+waCfoWt3hDZUO1sx
+	F0wQI24YbprghcPaagsKHYv0NgCqUteVuoMNGUV2RREOLp2jcMt1hG8HGNUh3l9h7m5dsY5buf1tG
+	TFVejFaM2VMwvEQ70YluGmXQpxnb2VVjjtIr29p36Svtmmbn80Lzbp/+tOu0A3L8e9IHSGkgykg1D
+	UddFwXaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpjF-00000006CE7-0NNa;
-	Fri, 31 Oct 2025 14:03:45 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vEpkU-00000006CRL-22Y5;
+	Fri, 31 Oct 2025 14:05:02 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEpjC-00000006CD2-0njW
+	id 1vEpkR-00000006CQC-2yBl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 14:03:44 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-63c0c9a408aso3482670a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 07:03:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761919420; x=1762524220; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rj8s1wnUATyl/Io36KEtToNI7y6NAciHE7SXMDsNhyY=;
-        b=lepSm5pEBrAgoMn877ghvG5Sfi3H2hcedVSKidV8aEpVhWM9ZXfJ3BvneS+wNIRgQ1
-         CYHglLTmiqnBPjWDYepU2SVbPM0RvLJM8OSTooPq/5SAq+k5DB+4CDTpAsstPm0XkwEt
-         E0ogcKeEMVX+3sjaXdIBgIGbkSsxQpeYCU56jRQ55zjX0uVGSVYOr/7MoloDFZYbLHoV
-         zu9slOk/xH2CrJgSe8a5TOmZNPQDTqT58OkCmhiLNbpy8ob/BuBQGm8pM01Klm+duCqA
-         3hJPrSS/fDayaMtpBX8WNwL1aK+FM1IGPecFu8UiAEqWepHUMlbaHjLy/1Q4FV2Z+sam
-         tbVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761919420; x=1762524220;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Rj8s1wnUATyl/Io36KEtToNI7y6NAciHE7SXMDsNhyY=;
-        b=hB0Iyb+8Fq3DyYHk0oZwPK3lauA6TyBqa0Ofyxx0Qxk4svK9+SDez2B9IQAC81O1zH
-         hXmw3qKj41zpwWgKKlSO0CKDhrOcruJhc8oS5ZYlW1YjSzOyw99vf0nkWwNOLl4KkeG3
-         zoIULA2EJfkk7321XpY3gZLpjFPThmFjKZoGOEY8mje8xdtOCUEaMbbsKWtTnF1wRLIu
-         yYG89p+YGe4JJuILhL+RI4ZE9HhcaMoHNB+uVZnXA4qxsBYlBKiMSoPxoqdwWcO/bWYA
-         zs47RR1nhwEup39dmuxC8qOU4Tap5rFjCwAvMP5Au8L2uqoIXcpW0YGCd/yYsan1HNlg
-         1gmg==
-X-Forwarded-Encrypted: i=1; AJvYcCWyFZMi0CAc6M9DBQynDgVRs9jTTWU7w2eX+PkVnalyT3stvarzpDkDkFg5y5YPqPCnM55nVjwYYPpq+razi3zF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4Y+55D1hk4nYFFF2gme1z6hrnLPFNb6327UaLKtho9iLrS9VW
-	Rg0s50MTy2Pd6Rumhh3ihYx+2pwPPJCf9DTiTCg0KS6k7lT+iulCFmem3USIiAT9181VjVZrog4
-	+630WDQ33b4M2KTt9hxtxPBE+frvsR48=
-X-Gm-Gg: ASbGncuFqZGv/SaZXqf7AKBjni2cF5Tubb81CUyzYgqwhXH1A3Di+lthFqEEFUeeHYT
-	y1TJpzstzjOI6O0r41YVlYmvZC0AtokajAhdvBX/F5ZNSIJUXLBAOsHzAELccYMRlkQRbUJ/JPU
-	te6FMgWQeSPt5cVMkaLWiY3/3eaHS8OKj8XMhqiDlLrNWg4vA2buBdc+0h0nGBb4jsNt2PeAvd+
-	m4MQ560MX3ykCJ9vDSRTNLNm1ffulcgHIQYSLtKnArfVFRQy3e/S6q0NCU=
-X-Google-Smtp-Source: AGHT+IFFEnMjDFLH3xr8fEIyqOPBV7EY4VCIK4pS6uE8BEVFtTPJxx3MWiLabn3HLkuRrI1ocxVTpieowo++InLDHHw=
-X-Received: by 2002:a05:6402:1e90:b0:639:fca4:c471 with SMTP id
- 4fb4d7f45d1cf-6407704da9fmr2381667a12.28.1761919419979; Fri, 31 Oct 2025
- 07:03:39 -0700 (PDT)
+	Fri, 31 Oct 2025 14:05:01 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id D76C4202F7E;
+	Fri, 31 Oct 2025 15:04:55 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id CA781202F7C;
+	Fri, 31 Oct 2025 15:04:55 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 8372720259;
+	Fri, 31 Oct 2025 15:04:55 +0100 (CET)
+Date: Fri, 31 Oct 2025 15:04:55 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Shawn Guo <shawnguo2@yeah.net>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: freescale: Add GMAC Ethernet for S32G2 EVB
+ and RDB2 and S32G3 RDB3
+Message-ID: <aQTCBwLzhRDl+pH9@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20251006-nxp-s32g-boards-v1-1-f70a57b8087f@oss.nxp.com>
+ <aP8Ezk_zjo-NZCD4@dragon>
 MIME-Version: 1.0
-References: <20251027145602.199154-1-linux.amoon@gmail.com>
- <20251027145602.199154-3-linux.amoon@gmail.com> <ukgkfetbggzon4ppndl7gpitlsz7hjhzhyx3dgxqhdo52exguy@bqksd7d27lpy>
-In-Reply-To: <ukgkfetbggzon4ppndl7gpitlsz7hjhzhyx3dgxqhdo52exguy@bqksd7d27lpy>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Fri, 31 Oct 2025 19:33:23 +0530
-X-Gm-Features: AWmQ_bk2RE7HwEI0_pE9LFbkkRWOVq0EH46VuMrlsLHx-lzP_lVcojMP9zLP-UY
-Message-ID: <CANAwSgTECOAoKeJS_=HxkkTP4OJvYu5xGQxY__Auh81v3QT=-w@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] PCI: dw-rockchip: Add runtime PM support to
- Rockchip PCIe driver
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aP8Ezk_zjo-NZCD4@dragon>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_070342_287814_A10335D6 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20251031_070500_018387_F92658C9 
+X-CRM114-Status: GOOD (  22.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,117 +79,318 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manivannan
+On Mon, Oct 27, 2025 at 01:36:14PM +0800, Shawn Guo wrote:
+> On Mon, Oct 06, 2025 at 06:31:28PM +0200, Jan Petrous via B4 Relay wrote:
+> > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> > 
+> > Add support for the Ethernet connection over GMAC controller connected to
+> > the Micrel KSZ9031 Ethernet RGMII PHY located on the boards.
+> > 
+> > The mentioned GMAC controller is one of two network controllers
+> > embedded on the NXP Automotive SoCs S32G2 and S32G3.
+> > 
+> > The supported boards:
+> >  * EVB:  S32G-VNP-EVB with S32G2 SoC
+> >  * RDB2: S32G-VNP-RDB2
+> >  * RDB3: S32G-VNP-RDB3
+> > 
+> > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/s32g2.dtsi        | 50 ++++++++++++++++++++++++-
+> >  arch/arm64/boot/dts/freescale/s32g274a-evb.dts  | 21 ++++++++++-
+> >  arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts | 19 ++++++++++
+> >  arch/arm64/boot/dts/freescale/s32g3.dtsi        | 50 ++++++++++++++++++++++++-
+> >  arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts | 21 ++++++++++-
+> >  5 files changed, 157 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> > index d167624d1f0c..d06103e9564e 100644
+> > --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> > @@ -3,7 +3,7 @@
+> >   * NXP S32G2 SoC family
+> >   *
+> >   * Copyright (c) 2021 SUSE LLC
+> > - * Copyright 2017-2021, 2024 NXP
+> > + * Copyright 2017-2021, 2024-2025 NXP
+> >   */
+> >  
+> >  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > @@ -738,5 +738,53 @@ gic: interrupt-controller@50800000 {
+> >  			interrupt-controller;
+> >  			#interrupt-cells = <3>;
+> >  		};
+> > +
+> > +		gmac0: ethernet@4033c000 {
+> 
+> Please sort devices in order of unit-address.
+> 
 
-Thanks for your review comment.
+Moved up.
 
-On Fri, 31 Oct 2025 at 14:09, Manivannan Sadhasivam <mani@kernel.org> wrote:
->
-> On Mon, Oct 27, 2025 at 08:25:30PM +0530, Anand Moon wrote:
-> > Add runtime power management support to the Rockchip DesignWare PCIe
-> > controller driver by enabling devm_pm_runtime() in the probe function.
-> > These changes allow the PCIe controller to suspend and resume dynamically,
-> > improving power efficiency on supported platforms.
-> >
->
-> Seriously? How can this patch improve the power efficiency if it is not doing
-> any PM operation on its own?
->
-I could verify that runtime power management is active
+> > +			compatible = "nxp,s32g2-dwmac";
+> > +			reg = <0x4033c000 0x2000>, /* gmac IP */
+> > +			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+> > +			interrupt-parent = <&gic>;
+> > +			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> > +			interrupt-names = "macirq";
+> > +			snps,mtl-rx-config = <&mtl_rx_setup>;
+> > +			snps,mtl-tx-config = <&mtl_tx_setup>;
+> > +			status = "disabled";
+> > +
+> > +			mtl_rx_setup: rx-queues-config {
+> > +				snps,rx-queues-to-use = <5>;
+> > +
+> > +				queue0 {
+> > +				};
+> 
+> We usually have newline between nodes.
+> 
 
-[root@rockpi-5b alarm]# cat
-/sys/devices/platform/a41000000.pcie/power/runtime_status
-active
-[root@rockpi-5b alarm]#  find /sys -name runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/pci_bus/0004:41/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-3::lan/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-2::lan/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-1::lan/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/net/enP4p65s0/enP4p65s0-0::lan/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/mdio_bus/r8169-4-4100/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/mdio_bus/r8169-4-4100/r8169-4-4100:00/power/runtime_status
-/sys/devices/platform/a41000000.pcie/pci0004:40/0004:40:00.0/0004:41:00.0/mdio_bus/r8169-4-4100/r8169-4-4100:00/hwmon/hwmon11/power/runtime_status
+Added newline between queue subnodes.
 
-Well, the powertop shows that the runtime power management is enabled
-on Radxa Rock 5b,
+> > +				queue1 {
+> > +				};
+> > +				queue2 {
+> > +				};
+> > +				queue3 {
+> > +				};
+> > +				queue4 {
+> > +				};
+> > +			};
+> > +
+> > +			mtl_tx_setup: tx-queues-config {
+> > +				snps,tx-queues-to-use = <5>;
+> > +
+> > +				queue0 {
+> > +				};
+> > +				queue1 {
+> > +				};
+> > +				queue2 {
+> > +				};
+> > +				queue3 {
+> > +				};
+> > +				queue4 {
+> > +				};
+> > +			};
+> > +
+> > +			gmac0mdio: mdio {
+> > +				#address-cells = <1>;
+> > +				#size-cells = <0>;
+> > +				compatible = "snps,dwmac-mdio";
+> > +			};
+> > +		};
+> >  	};
+> >  };
+> > diff --git a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> > index c4a195dd67bf..f020da03979a 100644
+> > --- a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> > +++ b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> > @@ -1,7 +1,7 @@
+> >  // SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> >  /*
+> >   * Copyright (c) 2021 SUSE LLC
+> > - * Copyright 2019-2021, 2024 NXP
+> > + * Copyright 2019-2021, 2024-2025 NXP
+> >   */
+> >  
+> >  /dts-v1/;
+> > @@ -15,6 +15,7 @@ / {
+> >  
+> >  	aliases {
+> >  		serial0 = &uart0;
+> > +		ethernet0 = &gmac0;
+> 
+> Sort aliases in alphabetical order.
 
-PowerTOP 2.15     Overview   Idle stats   Frequency stats   Device
-stats   Device Freq stats   Tunables   WakeUp
->> Good          Wireless Power Saving for interface wlan0
-   Good          VM writeback timeout
-   Good          Bluetooth device interface status
-   Good          NMI watchdog should be turned off
-   Good          Autosuspend for unknown USB device 2-1.3 (8087:0a2b)
-   Good          Autosuspend for USB device USB 2.0 Hub [2-1]
-   Good          Autosuspend for USB device Generic Platform OHCI
-controller [usb1]
-   Good          Autosuspend for USB device xHCI Host Controller [usb8]
-   Good          Autosuspend for USB device Generic Platform OHCI
-controller [usb4]
-   Good          Autosuspend for USB device EHCI Host Controller [usb2]
-   Good          Autosuspend for USB device xHCI Host Controller [usb6]
-   Good          Autosuspend for USB device EHCI Host Controller [usb3]
-   Good          Autosuspend for USB device xHCI Host Controller [usb5]
-   Good          Autosuspend for USB device xHCI Host Controller [usb7]
-   Good          Runtime PM for PCI Device Intel Corporation Wireless
-8265 / 8275
-   Good          Runtime PM for PCI Device Rockchip Electronics Co., Ltd RK3588
-   Good          Runtime PM for PCI Device Rockchip Electronics Co., Ltd RK3588
-   Good          Runtime PM for PCI Device Realtek Semiconductor Co.,
-Ltd. RTL8125 2.5GbE Controller
-   Good          Runtime PM for PCI Device Rockchip Electronics Co., Ltd RK3588
-   Good          Runtime PM for PCI Device Samsung Electronics Co Ltd
-NVMe SSD Controller SM981/PM981/PM983
+Swapped.
 
-PowerTOP 2.15     Overview   Idle stats   Frequency stats   Device
-stats   Device Freq stats   Tunables   WakeUp
-              Usage     Device name
-              1.1%        CPU use
-            100.0%        Radio device: rfkill_gpio
-            100.0%        runtime-rockchip-gate-link-clk.712
-            100.0%        PCI Device: Realtek Semiconductor Co., Ltd.
-RTL8125 2.5GbE Controller
-            100.0%        runtime-rockchip-gate-link-clk.717
-            100.0%        runtime-rockchip-gate-link-clk.714
-            100.0%        runtime-rockchip-gate-link-clk.489
-            100.0%        runtime-a40000000.pcie
-            100.0%        runtime-a40800000.pcie
-            100.0%        runtime-rockchip-gate-link-clk.718
-            100.0%        runtime-rockchip-gate-link-clk.706
-            100.0%        runtime-rockchip-gate-link-clk.708
-            100.0%        PCI Device: Intel Corporation Wireless 8265 / 8275
-            100.0%        Radio device: btusb
-            100.0%        runtime-fcd00000.usb
-            100.0%        PCI Device: Samsung Electronics Co Ltd NVMe
-SSD Controller SM981/PM981/PM983
-            100.0%        Radio device: rfkill_gpio
-            100.0%        runtime-fc000000.usb
-            100.0%        Radio device: iwlwifi
-            100.0%        PCI Device: Rockchip Electronics Co., Ltd RK3588
-            100.0%        PCI Device: Rockchip Electronics Co., Ltd RK3588
-            100.0%        PCI Device: Rockchip Electronics Co., Ltd RK3588
-            100.0%        runtime-rockchip-gate-link-clk.711
-            100.0%        runtime-fc400000.usb
-            100.0%        runtime-rockchip-gate-link-clk.704
-            100.0%        runtime-rockchip-gate-link-clk.701
-            100.0%        runtime-rockchip-gate-link-clk.716
-            100.0%        runtime-rockchip-gate-link-clk.707
-            100.0%        runtime-rockchip-gate-link-clk.709
-            100.0%        runtime-rockchip-gate-link-clk.719
-            100.0%        runtime-xhci-hcd.1.auto
-            100.0%        runtime-feb50000.serial
-            100.0%        runtime-rockchip-gate-link-clk.715
-            100.0%        runtime-rockchip-gate-link-clk.710
+> 
+> Shawn
+> 
 
-> Again, a pointless patch.
-I implemented a .remove patch to ensure proper resource cleanup,
-which is a necessary step for successfully enabling and managing
-runtime power for the device.
->
-> - Mani
-Thanks
--Anand
+Prepared v2.
+Thanks for review.
+
+/Jan
+
+> >  	};
+> >  
+> >  	chosen {
+> > @@ -43,3 +44,21 @@ &usdhc0 {
+> >  	no-1-8-v;
+> >  	status = "okay";
+> >  };
+> > +
+> > +&gmac0 {
+> > +	clocks = <&clks 24>, <&clks 19>, <&clks 18>, <&clks 15>;
+> > +	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
+> > +	phy-mode = "rgmii-id";
+> > +	phy-handle = <&rgmiiaphy4>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&gmac0mdio {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +
+> > +	/* KSZ 9031 on RGMII */
+> > +	rgmiiaphy4: ethernet-phy@4 {
+> > +		reg = <4>;
+> > +	};
+> > +};
+> > diff --git a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> > index 4f58be68c818..b9c2f964b3f7 100644
+> > --- a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> > +++ b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> > @@ -16,6 +16,7 @@ / {
+> >  	aliases {
+> >  		serial0 = &uart0;
+> >  		serial1 = &uart1;
+> > +		ethernet0 = &gmac0;
+> >  	};
+> >  
+> >  	chosen {
+> > @@ -77,3 +78,21 @@ &usdhc0 {
+> >  	no-1-8-v;
+> >  	status = "okay";
+> >  };
+> > +
+> > +&gmac0 {
+> > +	clocks = <&clks 24>, <&clks 19>, <&clks 18>, <&clks 15>;
+> > +	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
+> > +	phy-mode = "rgmii-id";
+> > +	phy-handle = <&rgmiiaphy1>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&gmac0mdio {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +
+> > +	/* KSZ 9031 on RGMII */
+> > +	rgmiiaphy1: ethernet-phy@1 {
+> > +		reg = <1>;
+> > +	};
+> > +};
+> > diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> > index be3a582ebc1b..e31184847371 100644
+> > --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> > @@ -1,6 +1,6 @@
+> >  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+> >  /*
+> > - * Copyright 2021-2024 NXP
+> > + * Copyright 2021-2025 NXP
+> >   *
+> >   * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+> >   *          Ciprian Costea <ciprianmarian.costea@nxp.com>
+> > @@ -883,6 +883,54 @@ gic: interrupt-controller@50800000 {
+> >  			      <0x50420000 0x2000>;
+> >  			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> >  		};
+> > +
+> > +		gmac0: ethernet@4033c000 {
+> > +			compatible = "nxp,s32g2-dwmac";
+> > +			reg = <0x4033c000 0x2000>, /* gmac IP */
+> > +			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+> > +			interrupt-parent = <&gic>;
+> > +			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> > +			interrupt-names = "macirq";
+> > +			snps,mtl-rx-config = <&mtl_rx_setup>;
+> > +			snps,mtl-tx-config = <&mtl_tx_setup>;
+> > +			status = "disabled";
+> > +
+> > +			mtl_rx_setup: rx-queues-config {
+> > +				snps,rx-queues-to-use = <5>;
+> > +
+> > +				queue0 {
+> > +				};
+> > +				queue1 {
+> > +				};
+> > +				queue2 {
+> > +				};
+> > +				queue3 {
+> > +				};
+> > +				queue4 {
+> > +				};
+> > +			};
+> > +
+> > +			mtl_tx_setup: tx-queues-config {
+> > +				snps,tx-queues-to-use = <5>;
+> > +
+> > +				queue0 {
+> > +				};
+> > +				queue1 {
+> > +				};
+> > +				queue2 {
+> > +				};
+> > +				queue3 {
+> > +				};
+> > +				queue4 {
+> > +				};
+> > +			};
+> > +
+> > +			gmac0mdio: mdio {
+> > +				#address-cells = <1>;
+> > +				#size-cells = <0>;
+> > +				compatible = "snps,dwmac-mdio";
+> > +			};
+> > +		};
+> >  	};
+> >  
+> >  	timer {
+> > diff --git a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> > index e94f70ad82d9..4a74923789ae 100644
+> > --- a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> > +++ b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> > @@ -1,6 +1,6 @@
+> >  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+> >  /*
+> > - * Copyright 2021-2024 NXP
+> > + * Copyright 2021-2025 NXP
+> >   *
+> >   * NXP S32G3 Reference Design Board 3 (S32G-VNP-RDB3)
+> >   */
+> > @@ -18,6 +18,7 @@ aliases {
+> >  		mmc0 = &usdhc0;
+> >  		serial0 = &uart0;
+> >  		serial1 = &uart1;
+> > +		ethernet0 = &gmac0;
+> >  	};
+> >  
+> >  	chosen {
+> > @@ -93,3 +94,21 @@ &usdhc0 {
+> >  	disable-wp;
+> >  	status = "okay";
+> >  };
+> > +
+> > +&gmac0 {
+> > +	clocks = <&clks 24>, <&clks 19>, <&clks 18>, <&clks 15>;
+> > +	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
+> > +	phy-mode = "rgmii-id";
+> > +	phy-handle = <&rgmiiaphy1>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&gmac0mdio {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +
+> > +	/* KSZ 9031 on RGMII */
+> > +	rgmiiaphy1: ethernet-phy@1 {
+> > +		reg = <1>;
+> > +	};
+> > +};
+> > 
+> > ---
+> > base-commit: fd94619c43360eb44d28bd3ef326a4f85c600a07
+> > change-id: 20251006-nxp-s32g-boards-2d156255b592
+> > 
+> > Best regards,
+> > -- 
+> > Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> > 
+> > 
+> 
 
