@@ -4,168 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A53CCF9EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 03:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01968CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 04:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yTK2pdJjPmkHjwboRAr4omp8/rLQuHKcFq8FblOQxpk=; b=vGTRJZJUAMyTc6rm/QT4/DvmoM
-	gnZ3FfUKakOdMmoYob82QYFXGjbeBqefUHjBor64XCDUWdXJVal1WZIW6/lX1uTmvu+KlxcSxvpwF
-	r7Jftd82vp3CET1HYVskPGSZ/oO37SwljRLkMKONPNU4Gt2+JyAIFx88VQSHbvo4AAagZbqxB9RGC
-	GuTo6cSlTmyOHKDC5dHoTpz1YEdytvvuRr03PegM7zIDfm/n/UyG8DLHNPDuAbr8c9d35tMXoW1H6
-	/kjVsPYccxLKXoGu3ZX9DqIdGRoXkiHjAa1sf2z76NJ7tu1xd6hdagnh0J7rhyIt6WicXT1oGuP0H
-	RVHsyesQ==;
+	bh=/GcExelvZHgLHmnH/LZ0YNu1y/pUMQdmMrtdtUrutEo=; b=cD7+gAQXCi8AeF8WJdvKePf9+5
+	FL6s4oFuI5PLO4VS8cisryfwFfFtAj/OSectJND4e8UsjS3T3As14KizaJq6HwtG6x7/tHoZ/ywrF
+	fvvptrSx5FGPBFsgC6OhOxiWxH/PKuQoqzITjWdzqvYAI66wkpK+PVm05wVIo30ZwZOKipzaIZAP6
+	hu4Yla9IIzRMKBkUIY+eOOBmXTxPOTx6uVtIjGCZM1qA+xsg7uqKF3g/iemIifJJ6VfQbolFkS6XZ
+	nwMtkfOFm4CmqmTPZXVB17mp5qB/327gZVzUGxwtLXMhcLH/p5Xifx0N/x5waCWArJ+ac/dq0YEhh
+	om/l7SSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEg9W-00000005LyZ-169V;
-	Fri, 31 Oct 2025 03:50:14 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vEgTE-00000005MtF-0Q2W;
+	Fri, 31 Oct 2025 04:10:36 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEg9K-00000005Lum-0ibQ
+	id 1vEgTA-00000005Msr-3h17
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 03:50:03 +0000
+	Fri, 31 Oct 2025 04:10:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Oc7x0pQvs73WdfJA9eJ2Vk+kgU3tYxNsfj3B0+Evv4KNYUCImvyg9Muy62c7fLGFrOutx7nd8OQxKGpl9XLEQSKLG6T11bLAaJDyK2+/76KdAmIMkfc8BY+qFW9wSAFQGgXIuwdcddAUZXe3aDSusv0EsHrgysZWdsjuAzqyWEINtfaYt2NSs89KXcva6uFTE2hs84hPNle6xgkwsSqJNSBr/esc22stkJFbncFDveBFV7Qm1VBDteHgw8VrG4llfao2DsvOvRzIkdPHrtFkMqgUS/MyYQzB7hSsAT7wstDN/JVYSkpfrhLyhTDQ6YNwjhML4uahHrS2DqELwQxRHg==
+ b=WU0ek1Vycn5YFK6YZ3nWO5T0c3akarf4dwOQJh2ZGN7FFCbRkUd6ZTNAJloRzyrt3r8K0Uvvk6WK6ZN0cX+tkVyKYC/0B551rcpezMlDhStrxnrMzmLvIbyfQCv6Gh9n29/0hp27Ii/f+5Gg03Lw5oUOJ8oBkvLqSrP2TIiJksDgF7HyhB11tfMszooEHxn1yZ4GYaYmNYypZu9PdLgfrqOYF137nNcqLJ8k5eZ0zkLKFhV5u7aSAaZS9RWa8xIkjR4SppPAzR+qfjtHEi2q09VCQ/5QwYKYCd1w5sFChFtZKKXG3bnWxBoipVNB7QytLp0i0LP97EeR78krWwblKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yTK2pdJjPmkHjwboRAr4omp8/rLQuHKcFq8FblOQxpk=;
- b=d2D2JeEqtA5PgfJiEkfrMvG6Gal83I31hKUOYeEe6wknLbASncgEPSzRvnUUMuzD7SZsYz8pGGd6biQBrzi9GhWUbR4hquC23b0s2yCqWmVzhBXniG6uneSUrsPyfenZUU19rw3GPmWfbvok5gPXUQy4KN7Pz2prT03MVo4fyCEnGH9sHT1LwdVOzudueDdaHv7yFwHgUCKeuvxQLkEtIobDMQuaK5cXy3IUaixbi7jTdjmAarbjZdCBMRRb8wmxmmmgT01g8oLsXKCkP+skM4BKXOzZuFWp4b3grXuhrvzBsmAAsl4rhdUV4ASugIjR5gneRdF7+rexqsZToOu1Ag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
+ bh=/GcExelvZHgLHmnH/LZ0YNu1y/pUMQdmMrtdtUrutEo=;
+ b=cbcPvTI+fqxIJLqghFeRO3Uz+gX9LjveiJwsj5c4GldUmTDKQwv1tXLwbwCFypZ78Nt4V7lLVJwnQe3V1Kjj9ml1GryX95RGEEE5WUrkxhNE56bMX2N2b0a5KVf2adB6Q+L+WRNwbU8QWPpWldwJhWF8mCmH1Yu1IAK05XFqYEZjs1uRSxaAAkoqVnchkRgSRu6BhsSrkw4QM2OR8nRj/kDhgX9Yz1fD4nhsnBV2IaX+QFu+tKim6cb/Um9SjlO+NWwTZBwwyn51t3SvfJi+QGSU/qxo7ASr9sYdQyAJNvEE4m41rYycBUCJnWeMqM6dD+Fk8KdMS4TFXDvOn9TDCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yTK2pdJjPmkHjwboRAr4omp8/rLQuHKcFq8FblOQxpk=;
- b=Pyk+P4/LsQCE3Dg4coNHXDuopSEKhjc65Kp0uTYNGnyi20WJO8FvP0WE/Tax69LYr5KByf6qIlcbnGGq1koCDv0WwuD14eLCR4RPhZsorEEaHLCfw2mfjA4vaTzcS8sstmXdMA4E1rD/0RnUUkH3kxjJVGN5Fmj7z/RHgvA0Utg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from BN0PR01MB6862.prod.exchangelabs.com (2603:10b6:408:161::11) by
- LV9PR01MB994129.prod.exchangelabs.com (2603:10b6:408:366::10) with Microsoft
+ bh=/GcExelvZHgLHmnH/LZ0YNu1y/pUMQdmMrtdtUrutEo=;
+ b=Hy8Nn9rCuPQCiq/WwgGMlYb5xZ61EO6wcGlPu4OLwh4n0Q1MYzeZTsg4MepAEN6eUw9fnXIe3f9Fr6IT5elrxdy+f/jbxPfIPqF5HvDLA+q7R3r8OWWwuTfz8xmka/5r6XFU8jv7iJqS/b4et4d7a6mmCzy1QlzoNRx8DQ90Gw8=
+Received: from CH2PR18CA0008.namprd18.prod.outlook.com (2603:10b6:610:4f::18)
+ by DM4PR10MB6693.namprd10.prod.outlook.com (2603:10b6:8:113::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Fri, 31 Oct
+ 2025 04:10:27 +0000
+Received: from CH1PEPF0000A349.namprd04.prod.outlook.com
+ (2603:10b6:610:4f:cafe::cd) by CH2PR18CA0008.outlook.office365.com
+ (2603:10b6:610:4f::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.18 via Frontend Transport; Fri,
+ 31 Oct 2025 04:10:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CH1PEPF0000A349.mail.protection.outlook.com (10.167.244.9) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.13; Fri, 31 Oct 2025 03:49:58 +0000
-Received: from BN0PR01MB6862.prod.exchangelabs.com
- ([fe80::8a1e:34a8:2ad9:7f83]) by BN0PR01MB6862.prod.exchangelabs.com
- ([fe80::8a1e:34a8:2ad9:7f83%2]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
- 03:49:58 +0000
-From: Carl Worth <carl@os.amperecomputing.com>
-Date: Thu, 30 Oct 2025 20:49:31 -0700
-Subject: [PATCH 1/2] arm64: mte: Unify kernel MTE policy and manipulation
- of TCO
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251030-mte-tighten-tco-v1-1-88c92e7529d9@os.amperecomputing.com>
-References: <20251030-mte-tighten-tco-v1-0-88c92e7529d9@os.amperecomputing.com>
-In-Reply-To: <20251030-mte-tighten-tco-v1-0-88c92e7529d9@os.amperecomputing.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Taehyun Noh <taehyun@utexas.edu>, Carl Worth <carl@os.amperecomputing.com>
-X-Mailer: b4 0.12.0
-X-ClientProxiedBy: MW4PR03CA0029.namprd03.prod.outlook.com
- (2603:10b6:303:8f::34) To BN0PR01MB6862.prod.exchangelabs.com
- (2603:10b6:408:161::11)
+ 15.20.9275.10 via Frontend Transport; Fri, 31 Oct 2025 04:10:24 +0000
+Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
+ 2025 23:10:13 -0500
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Oct
+ 2025 23:10:13 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 30 Oct 2025 23:10:13 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59V4ADZu3280795;
+	Thu, 30 Oct 2025 23:10:13 -0500
+Date: Thu, 30 Oct 2025 23:10:13 -0500
+From: Nishanth Menon <nm@ti.com>
+To: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
+CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Gregory CLEMENT
+	<gregory.clement@bootlin.com>, Richard Genoud <richard.genoud@bootlin.com>,
+	Udit Kumar <u-kumar1@ti.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
+ Kumar" <a-kumar2@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] firmware: ti_sci: set IO Isolation only if the firmware
+ is capable
+Message-ID: <20251031041013.kfyveddq7rkmtvfv@wince>
+References: <20251014-ti-sci-io-isolation-v1-1-67c7ce5d1b63@bootlin.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251014-ti-sci-io-isolation-v1-1-67c7ce5d1b63@bootlin.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN0PR01MB6862:EE_|LV9PR01MB994129:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c96ce9b-6722-42c6-5046-08de18308fb7
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000A349:EE_|DM4PR10MB6693:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a751068-1f97-4374-fd74-08de18336a6b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VjdVQUoxVHVyZDI4SUQ0TFB4YXU2LzhUK0psVFlZMnhSQTRVRzJFYk1SWjll?=
- =?utf-8?B?ZUU4dlh3QmRmTDhyUFVLTWh6eFJFdHNWeWZlVHY3NVUrRHRSanBYTWNjMEFk?=
- =?utf-8?B?em1jdmVoZU43dUFVVkJmS1ptdjVCUWdtQzlQWVFhRDdRR3ExRzBMTXdRb1RR?=
- =?utf-8?B?VzNQb2JzeFRzeW11bHVQMEozNVFsUDdBQmUrTXRZNlh0NnBHcXRFbStZNzgy?=
- =?utf-8?B?bVhkNktxdXNYc21NcmFqRUh0OElDQ3VYZURYRTgvSnM0V0pzcStxUGFiMEx6?=
- =?utf-8?B?dzVJVk4xRGptNjVJN2J1VFBYSnE3K3Zkc2dOM0FlSHU5akVDVGdTbm5tQ1pW?=
- =?utf-8?B?Nm5tQkU5QlJMbGNzSzZCaEJtL0NPK3FUbFFCZWtXS2IxV09UVXF5ckJyOWNY?=
- =?utf-8?B?eGVGR3BrMU1iZmR2RHh0RnRpVERqVFBrUUpLSnFPTGx1NnZDZmV6R1dxMHN1?=
- =?utf-8?B?VGhwYm5FeXZBblg2UGdCWkZVakwvbDAwUXRmaUI2T0R5aGF2c1QvR0JNOE5R?=
- =?utf-8?B?QmxHNTI0R1g5b0QrTlg5ZVh5cGtocUR3OEphQ09oMVZyUGpIYWJmQ0p5bndE?=
- =?utf-8?B?Z05ZOCttbUI5NDlKcjNLRERYUVhYdXlJRzEwQ29BbGVKVEVFd3JnNVRONGFH?=
- =?utf-8?B?WjBPbkhLK0JOa3plQjZPMnQ3czkwTXNsT2E2NmI1Zkwrc3hBS3d1Wnh6VVZM?=
- =?utf-8?B?Z3BrdHQwcEtZRDYvdEdEREpMOFhSYTlWK3pSUFEyK1ZnREE4eWJFL2Q0NWlL?=
- =?utf-8?B?dmpNOWo1RlViYkZsQkJUczV5OUJkanZmclIwQVJVczl2WGVxMUFwbXBHcm11?=
- =?utf-8?B?cTR4RHM5QTRvd0pyMEExSVk3cUVOcTF4OXlHeWhNckpiYVVIQ2RYS0pvakJp?=
- =?utf-8?B?QllpcjBEN2MxOHhNSXNnZ0NKYUVjaDcxaFhqN1ZYV09hL29RTnFBZ1lxbnZu?=
- =?utf-8?B?bUpuRGhtNjBqeDNVUmZKY2pTUi9Kbk1WMGhZbmlROVB3citlQTFRbUlhOGN3?=
- =?utf-8?B?K1hXdnVrMEszVVp1c1U4eEQwWFVqUFhIaUU4SUtIY2FEVGVxdzc3R1lVN2Vq?=
- =?utf-8?B?MEdyWW5KTlExaVk0UTV1dWdIWFd0OUpLV0paanJ0cHp4Q1pWZ2pjTWdOamp0?=
- =?utf-8?B?eFZGRERXb1J3TTN3bkd3KzhZLzFJbS9vdFZUQU5NTkR4S0hLTWhsdU54ZzdO?=
- =?utf-8?B?Y1JjNFBJUjVLL3c3em1vWEhkb0tRZGJ2MDFJUXJuNFFaYmJVbmM2ek51SFpv?=
- =?utf-8?B?U25FdkNhUUV4Y3pVVE5hdjBxanc4TTgvbU9HNWNvbTA2bVJWSkZwYnRoTS94?=
- =?utf-8?B?ZjZzOVJXR1dNMk0rT3JDVThtS0Fzc2wvWUZuNVdNM1lkV2YwLzJVRTNGSG1S?=
- =?utf-8?B?anVaN2hBSTJ6aDRBUzNvRzV5SnlDbVM0Tmd0RkZJRUNzbmhEeFpkTVNBN3hZ?=
- =?utf-8?B?ZkhlZlo1Zk1jcVE4TnQ0QUQzZG5UV2dhQmxuc3d0a1dhUWh6QU5mcFpiY1Rl?=
- =?utf-8?B?TExZTC93ZUxrbVVQTHBiMDhwZndka25wQmRrZ0Mvd25aQTMwclVEL2wwUm9J?=
- =?utf-8?B?UG44N3NiMXV5eVV2a05EMVdSM1dSM2Y4SFRCR0ZJajNrS3YzZGpsZXVmVjlw?=
- =?utf-8?B?RCtQTW0yRVowNUxsb0tqWkczMFlIamlmd01WcUwwZU9YU2RZdHdkV2xxemRJ?=
- =?utf-8?B?anhlMkVIY0NWR2VGYld6TzgrUmZjWkdzMjFJSTVwM0I1dG1uS3dDUUxWRjYr?=
- =?utf-8?B?c3U3S3lZSDdwb2QyODFrbTN5UWo5OFY0Zko1ckozckYwM24wb0V0czhxUzF1?=
- =?utf-8?B?WFV5Y2VjRmhzNWF1b0o3cGVEempjcDJ0K0ovOHQrTk9CSkoweVZGaUNXQnFB?=
- =?utf-8?B?UkE5SW9FbzdwSndlc3dJSHhDZjhHbUg0Ujdua3QyNm92b2lmZHFNZlUxWnky?=
- =?utf-8?B?S0hQY2R3eTdlR3l3WjcvbG0wTXlOSGhkM2tGVmk3QXpHTzN6RWlXK29xS2FN?=
- =?utf-8?B?ZUttbG1ubWk1Y1ZoRkxrdGg5UGxXRWl1ckdNSjlkR0t4bEdHeDFhWGpiTkIx?=
- =?utf-8?Q?w05LqB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR01MB6862.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WTc4b0FJNVUyNllZNHplN3Q2aU0zbCtHNmdtVUhPMEZ5QmpvQ2xMdENMZ0xI?=
- =?utf-8?B?V1JzTEkvdTVMRnRydUI1RUk3SWRUUENiVXdyV1JubFpwTXZnMHdlaENVcFNu?=
- =?utf-8?B?N2VuaC9IRGdnRmczRDZiSGQ1UE1weXc2SEgzZ3hTemxkZEFJZ2pqeHB0SHMz?=
- =?utf-8?B?YVBKeDliMW1ubGs1akR6akNoSG9EZzR4ODIrR2RZUXVnZWZwYnVrWEhBeFY0?=
- =?utf-8?B?WVlOcGdwbGloYVFDdTVNSlFSSThvS2NId2NrNmhob2ZRZ3VpYUpYVmJyY2Uy?=
- =?utf-8?B?RmpoQUpWbnc2N0VtVTlLMndMN2NGc1RuMHpDMHRZakdpZ0tuK3AvUW1hN2Ji?=
- =?utf-8?B?VTYveWJVc3FNYWg5L094QVlWZGlWdHVvU2Vvdmd3K1N0SFArNHliM3AwU2FD?=
- =?utf-8?B?T0pLYWc1MGp4QVY3bXI1bktkNkJ1a2tqeFZVOHBSc0NFQ1FtdUxLOXJYazJQ?=
- =?utf-8?B?QlJ3Tzg5WFBPQzRSYU51by9oRTNxd1JBaTdiRzArb29EWVFWZ2Zpa2twZlZO?=
- =?utf-8?B?VEFVUFhVWUZiTmdhanB6SnpsZ01HdVByN1cwZ25CUlI3cFVzUDB0ZXBQaU5G?=
- =?utf-8?B?amVBcTV2SXBpVktacmMzcGZGQlZML1c1aFpkazd5dDJESVJ1OUFuM3FBbmw1?=
- =?utf-8?B?TVhKTEdFaTdjMVZxajlFUzFCTlhxSldmc1JDVUErTWlOSFFzWFRzQm0zL0tq?=
- =?utf-8?B?bjBIdmRCK215WktQRDZ6NDBkQUtVQk5iMjRvU2RETFlVRGNVU2hMSEZmSkNC?=
- =?utf-8?B?RTV5VHpVclRCZm9XWUJWQXh2anluM0VNU0tFekM3RG5kN0pTajhxenA2ekF0?=
- =?utf-8?B?NFNIeUJla1hwMTIrSSsveExjSVVFQ0FQSUlPY3FrMnA2Z3JmLy9WV1lxMk1w?=
- =?utf-8?B?ZU1ZR0hQSTBMb3FqVHNmTmU3UzhGbG8zYmV5OTViZ1NBaVRlemRrQURhMnF2?=
- =?utf-8?B?NjN3Rmc5c1ozTVdTN3MvOENodjNVVHZ6NEJ0dFYrdUd5eDF3MmxvZUo5N0hY?=
- =?utf-8?B?M0Q1eU9lWXFvV0duem5ZRXEvalpoS0t0RTRKT3o5NUNXUVExN3Y2V09ybHNz?=
- =?utf-8?B?dC9HNUNhT1ZYbzNuajBWQzQybEsvTTVaQ1ZWZHpRWWdzakh2YXA4VStBOWZs?=
- =?utf-8?B?MDRBTHN3ZmdXNDFXSFdmM0hheXROTUlVOS9WaExyd3hBM1Vicy9DYnVFbmpT?=
- =?utf-8?B?TGR1cjg1VUpsaEIzdUVZUnFlY0p4dklkdFZEcFlLRjZNMUNtQ2tzOW1Yc0RJ?=
- =?utf-8?B?V3IzSkc0ZE5TRi8wRS96SGJqU0cxaWJibjZlQzJMaWtxdk5UTzFRUmh1NHlr?=
- =?utf-8?B?WGxDNzdHMTZoVCtpNEdHcUFWbWNQR2JXZU8xVVF1QmI5VnBaTFhDUGpwY2lS?=
- =?utf-8?B?TGgwM0hsWnVmckM0S1duYzFqdVRHV2lEUlFxZjZLMnYwbWcvV0tLYVZtcFJF?=
- =?utf-8?B?Q1JuU2F6MXQvRm1Sbkx4L0hKUi9QTE8yRmFNMzYrZDY3aVh2Z2hZbUZwUzJh?=
- =?utf-8?B?YklFbS9GaHRnRGVjUzNxdjlBM29JSllQWGUyanlCamgra3RFcFdsS1c0QUZF?=
- =?utf-8?B?L3BiZXY2ZFVrZXlnamdKT3I1YkRuYUdjVkVwUUdZcGZ5Sit5U0ZHa3FCM0w2?=
- =?utf-8?B?LzVOZWFVNjdVcDZyZDFZNjVMdDNKYWtoTWY0SFhYSGVXeUE5ZmxKMkt3b2lO?=
- =?utf-8?B?Yk5WNDlkTnpJRkEwVjFGQ1dPUXFaU0lXSGg5RElJWmhpaUV4bm00TC95QUtz?=
- =?utf-8?B?RkpCV016ZVkrOFlYN284ckJBVXA4aWNxUFJvM09Fb2N6V0FMQ2tKU21sYWlU?=
- =?utf-8?B?RjdTWVdYeHZnak9LTEZuOG5Rb0V4bmNQVHliTkVVdHhOV3ozZkh2cmREaXVF?=
- =?utf-8?B?aG5iemFpdTcwcFNVS0F6UU94WHh0aVRWZUxzTTR5WXZpRDk1VnFBWmh2K2M0?=
- =?utf-8?B?QjZRN05acHU3SWRMaUlQMWxXa2I2UlZkVTJqTG5VUmlJdG9LR0RKMW5GOExS?=
- =?utf-8?B?VlFLMG5CR1ZaOVo1WVhCRDRjTlRTRjBWeHUzMy9ZU3FHQ0VYZ2lVczZaWnJ1?=
- =?utf-8?B?RFR3SXB5QzN3SVpmaHREcWo2ZHdRSkptbmRtYlQ3bnp0N1F5bHkwVlZFMnJl?=
- =?utf-8?B?UUUwNGcvd3RVU1d0Nk5ON1c1L0RVMytZblZ6MEtLOUorTXBSNkEvL0pKaGxl?=
- =?utf-8?B?bFE9PQ==?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c96ce9b-6722-42c6-5046-08de18308fb7
-X-MS-Exchange-CrossTenant-AuthSource: BN0PR01MB6862.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 03:49:58.2508
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024|34020700016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4YKfbbKdHiKShwfSzTEqvMMFjGPOA95b8itDZ7idVvcM0Pcdcj4c9RpoOh1J?=
+ =?us-ascii?Q?m7EWbRUuYq+OIogriOWEpzGTVhcgY/krAKVKufOBlHelBdf03QdNQF9/wAjB?=
+ =?us-ascii?Q?D77wq5gDJJbDy8rPZPlP/HFO29ejqYa7/TpNrV+7MSLBAVKlEpZdRJUNYw0g?=
+ =?us-ascii?Q?JsdgNsUsMTKWngOOVA6ReGdhmQNpY4hJyvelNY5BVgzVeDKyhWS32wAMUkn7?=
+ =?us-ascii?Q?Htkhg2/H5KJ3YAkxaeWbOl7MmItgwsrwt/wN1OWYY5KCSZYMu1DwrLJB8jdB?=
+ =?us-ascii?Q?3Tbk+PNpZgQUY7vxUylesRcRfyBR6CyxEgpubFDE7OI6A9qvFJck9YGg7Ogj?=
+ =?us-ascii?Q?WXMbAhoJPy+8yI4Q6P0DCcE2jDfPXn4BqPJaXN6/YQsIttwQOqlPrVVgsHjf?=
+ =?us-ascii?Q?J/4eKswcPdJMCwebF8Pd9dfOBqXND7IA5b4DaE+hsBiQ+8wmiEdcAGaZnJLb?=
+ =?us-ascii?Q?rY+rkPSS1maebIxVYHM88Togo/8dk2PukZXyCeJCZX5LX+bNeeRDGbXTRqNU?=
+ =?us-ascii?Q?CLH3Rm8VZMEFW7TaEBwtBKl/LVt62DpxSy6ukvppXsbN0qydhqwHP7DjhAgb?=
+ =?us-ascii?Q?cAnriFA9seGQMfKITcVLqtrSKpVlMrapE8fRlCNlcAMMkEMJPkDBN7c9rwX+?=
+ =?us-ascii?Q?HNqdzxJIdtZFBW771Bw/Wh+BfIE7vGBXtN3vXi6aM0vt+6c4d2I34tQNWIiR?=
+ =?us-ascii?Q?GoKjJ1yNHu18Y+iPspa/gmbdcA6XAWSKETBVvX9X6OuSLTLxz3UhW4X1EWu2?=
+ =?us-ascii?Q?pAj1zw3bur9Y+mawARgmLuKkW+P2xKYyApAFq1cCBX/MoAqRVMCz2rQaDfkS?=
+ =?us-ascii?Q?up8lkaF7cag+ys84ijd163I5yPWHlJAVE9cf/JpJCbVVRiWVKEJfUUIkzQ2a?=
+ =?us-ascii?Q?qKswG9oNMXmfhEKBtOY4PEdlgbWF6Q3AMgsBuHKsUVIHwh2ZfUtOc2xE9N6I?=
+ =?us-ascii?Q?a7GuScDyPxNMdNionVxG0E9zWopF0pvqgyi19qw+Osew5hJESWiyYDfGabkN?=
+ =?us-ascii?Q?M1oe2BDy1wYxsoSzooUhuB/9Ve/zyvA9tl5T/E7DhZ+UHFG/CZhKv7I9vIAg?=
+ =?us-ascii?Q?EOSIZe+I4k6B4LsaPzRPB6Njj5kM6oNV4ZVanggtmboCsrA44dzdM7Lu+Y7X?=
+ =?us-ascii?Q?0K+W+JEAn39+C4+Ge8T72w9khQlJ9zt9ZUtz7NarVOyOjBsw6BnNzWXa2i1M?=
+ =?us-ascii?Q?fJ5RO6I5b8fYioeaaZGA1bcIuIEs5eOwbdaxGM6vfSLzlzjgDzuV7bvT/0kq?=
+ =?us-ascii?Q?ywqx0Pdk2AAtiD7VIurrCaD97j4gyMMqdKHWNE7jTtFbJHp2XKwk3IVZHRHb?=
+ =?us-ascii?Q?re623KJuWADZPaP4LPiIcXAGa1DrWJlkvinl+k1g7HRyiJngaMsbO3NCXmAK?=
+ =?us-ascii?Q?Y3M5PZBOs35aoFd4KDuphMFQzTa9m1ZvF6upw/qMK6X50s6Rp4b5vIFCYle4?=
+ =?us-ascii?Q?Pz1MKkRmc0KjF6ukjC9RHqDnqp2WgC023GgVKxo4N6bUbEBmW9qKv7Zq3jYv?=
+ =?us-ascii?Q?VTK6Z+EhtaRCIgwnmsPsbD60GEuQB2DtmRmePxshefufrr6LHz0A14fckfMd?=
+ =?us-ascii?Q?kwzr3W0WJWlt/KUJ6cY=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024)(34020700016);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 04:10:24.0388
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 46uzFnvCg8NInmXfm2j1wBxY5xr1ht8Bcd1M2Yukvnw3FjQlTcKFGHk/ToMd6qo51AGrckAw7RrFKtCpsW1rixIuxB/t4Eqh6eVII01KsZk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR01MB994129
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a751068-1f97-4374-fd74-08de18336a6b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000A349.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6693
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_205002_226304_114295DE 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20251030_211033_304754_0B7337C0 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,135 +157,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Taehyun Noh <taehyun@utexas.edu>
+On 10:31-20251014, Thomas Richard (TI.com) wrote:
+> Add the IO_ISOLATION firmware capability, and set IO Isolation during
+> suspend only if the firmware is capable.
 
-The kernel's primary knob for controlling MTE tag checking is the
-PSTATE.TCO bit (tag check override). TCO is enabled (which,
-confusingly _disables_ tag checking) by the hardware at the time of an
-exception. Then, at various times, when the kernel needs to enable
-tag-checking it clears TCO, (which in turn allows TCF0 or TCF to
-control whether tag-checking occurs).
+How about:
+Prevent calling ti_sci_cmd_set_io_isolation() on
+firmware that does not support the IO_ISOLATION capability. Add
+the MSG_FLAG_CAPS_IO_ISOLATION capability flag and check it before
+attempting to set IO isolation during suspend/resume operations.
 
-Some of the TCO manipulation code has redundancy and confusing naming.
+Without this check, systems with older firmware may experience
+undefined behavior or errors when entering/exiting suspend states.
 
-Fix the redundancy by introducing a new function user_uses_tagcheck
-which captures the existing repeated condition. The new function
-includes significant new comments to help explain the logic.
-
-Fix the naming by renaming mte_disable_tco_entry() to
-set_kernel_mte_policy(). This function does not necessarily disable
-TCO, but does so only conditionally in the case of KASAN HW TAGS. The
-new name accurately describes the purpose of the function.
-
-This commit should have no behavioral change.
-
-Signed-off-by: Taehyun Noh <taehyun@utexas.edu>
-Co-developed-by: Carl Worth <carl@os.amperecomputing.com>
-Signed-off-by: Carl Worth <carl@os.amperecomputing.com>
----
- arch/arm64/include/asm/mte.h     | 40 +++++++++++++++++++++++++++++++++-------
- arch/arm64/kernel/entry-common.c |  4 ++--
- arch/arm64/kernel/mte.c          |  2 +-
- 3 files changed, 36 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
-index 3b5069f4683d..70dabc884616 100644
---- a/arch/arm64/include/asm/mte.h
-+++ b/arch/arm64/include/asm/mte.h
-@@ -224,7 +224,35 @@ static inline bool folio_try_hugetlb_mte_tagging(struct folio *folio)
- }
- #endif
- 
--static inline void mte_disable_tco_entry(struct task_struct *task)
-+static inline bool user_uses_tagcheck(void)
-+{
-+	/*
-+	 * To decide whether userspace wants tag checking we only look
-+	 * at TCF0 (SCTLR_EL1.TCF0 bit 0 is set for both synchronous
-+	 * or asymmetric mode).
-+	 *
-+	 * There's an argument that could be made that the kernel
-+	 * should also consider the state of TCO (tag check override)
-+	 * since userspace does have the ability to set that as well,
-+	 * and that could suggest a desire to disable tag checking in
-+	 * spite of the state of TCF0. However, the Linux kernel has
-+	 * never historically considered the userspace state of TCO,
-+	 * (so changing this would be an ABI break), and the hardware
-+	 * unconditionally sets TCO when an exception occurs
-+	 * anyway.
-+	 *
-+	 * So, again, here we look only at TCF0 and do not consider
-+	 * TCO.
-+	 */
-+	return (current->thread.sctlr_user & (1UL << SCTLR_EL1_TCF0_SHIFT));
-+}
-+
-+/*
-+ * Set the kernel's desired policy for MTE tag checking.
-+ *
-+ * This function should be used right after the kernel entry.
-+ */
-+static inline void set_kernel_mte_policy(struct task_struct *task)
- {
- 	if (!system_supports_mte())
- 		return;
-@@ -232,15 +260,13 @@ static inline void mte_disable_tco_entry(struct task_struct *task)
- 	/*
- 	 * Re-enable tag checking (TCO set on exception entry). This is only
- 	 * necessary if MTE is enabled in either the kernel or the userspace
--	 * task in synchronous or asymmetric mode (SCTLR_EL1.TCF0 bit 0 is set
--	 * for both). With MTE disabled in the kernel and disabled or
--	 * asynchronous in userspace, tag check faults (including in uaccesses)
--	 * are not reported, therefore there is no need to re-enable checking.
-+	 * task. With MTE disabled in the kernel and disabled or asynchronous
-+	 * in userspace, tag check faults (including in uaccesses) are not
-+	 * reported, therefore there is no need to re-enable checking.
- 	 * This is beneficial on microarchitectures where re-enabling TCO is
- 	 * expensive.
- 	 */
--	if (kasan_hw_tags_enabled() ||
--	    (task->thread.sctlr_user & (1UL << SCTLR_EL1_TCF0_SHIFT)))
-+	if (kasan_hw_tags_enabled() || user_uses_tagcheck())
- 		asm volatile(SET_PSTATE_TCO(0));
- }
- 
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index f546a914f041..466562d1d966 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -49,7 +49,7 @@ static noinstr irqentry_state_t enter_from_kernel_mode(struct pt_regs *regs)
- 
- 	state = __enter_from_kernel_mode(regs);
- 	mte_check_tfsr_entry();
--	mte_disable_tco_entry(current);
-+	set_kernel_mte_policy(current);
- 
- 	return state;
- }
-@@ -83,7 +83,7 @@ static void noinstr exit_to_kernel_mode(struct pt_regs *regs,
- static __always_inline void __enter_from_user_mode(struct pt_regs *regs)
- {
- 	enter_from_user_mode(regs);
--	mte_disable_tco_entry(current);
-+	set_kernel_mte_policy(current);
- }
- 
- static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 43f7a2f39403..0cc698714328 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -289,7 +289,7 @@ void mte_thread_switch(struct task_struct *next)
- 	mte_update_gcr_excl(next);
- 
- 	/* TCO may not have been disabled on exception entry for the current task. */
--	mte_disable_tco_entry(next);
-+	set_kernel_mte_policy(next);
- 
- 	/*
- 	 * Check if an async tag exception occurred at EL1.
+> 
+> Fixes: ec24643bdd62 ("firmware: ti_sci: Add system suspend and resume call")
+> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+> ---
+>  drivers/firmware/ti_sci.c | 21 +++++++++++++--------
+>  drivers/firmware/ti_sci.h |  2 ++
+>  2 files changed, 15 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+> index 49fd2ae01055d0f425062147422471f0fd49e4bd..8d96a3c12b36a908097805b44dc3343172fbbfec 100644
+> --- a/drivers/firmware/ti_sci.c
+> +++ b/drivers/firmware/ti_sci.c
+> @@ -3751,9 +3751,11 @@ static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
+>  	struct ti_sci_info *info = dev_get_drvdata(dev);
+>  	int ret = 0;
+>  
+> -	ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_ENABLE);
+> -	if (ret)
+> -		return ret;
+> +	if (info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION) {
+> +		ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_ENABLE);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -3767,9 +3769,11 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
+>  	u8 pin;
+>  	u8 mode;
+>  
+> -	ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_DISABLE);
+> -	if (ret)
+> -		return ret;
+> +	if (info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION) {
+> +		ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_DISABLE);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	ret = ti_sci_msg_cmd_lpm_wake_reason(&info->handle, &source, &time, &pin, &mode);
+>  	/* Do not fail to resume on error as the wake reason is not critical */
+> @@ -3928,11 +3932,12 @@ static int ti_sci_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
+> -	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s\n",
+> +	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s\n",
+>  		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
+>  		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
+>  		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
+> -		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : ""
+> +		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
+> +		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : ""
+>  	);
+>  
+>  	ti_sci_setup_ops(info);
+> diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+> index 701c416b2e78f8ef20ce6741a88ffa6fd4853b2d..7559cde17b6ccfeeb1bc357fce5c5767c3f75c54 100644
+> --- a/drivers/firmware/ti_sci.h
+> +++ b/drivers/firmware/ti_sci.h
+> @@ -149,6 +149,7 @@ struct ti_sci_msg_req_reboot {
+>   *		MSG_FLAG_CAPS_LPM_PARTIAL_IO: Partial IO in LPM
+>   *		MSG_FLAG_CAPS_LPM_DM_MANAGED: LPM can be managed by DM
+>   *		MSG_FLAG_CAPS_LPM_ABORT: Abort entry to LPM
+> + *		MSG_FLAG_CAPS_IO_ISOLATION: IO Isolation support
+>   *
+>   * Response to a generic message with message type TI_SCI_MSG_QUERY_FW_CAPS
+>   * providing currently available SOC/firmware capabilities. SoC that don't
+> @@ -160,6 +161,7 @@ struct ti_sci_msg_resp_query_fw_caps {
+>  #define MSG_FLAG_CAPS_LPM_PARTIAL_IO	TI_SCI_MSG_FLAG(4)
+>  #define MSG_FLAG_CAPS_LPM_DM_MANAGED	TI_SCI_MSG_FLAG(5)
+>  #define MSG_FLAG_CAPS_LPM_ABORT		TI_SCI_MSG_FLAG(9)
+> +#define MSG_FLAG_CAPS_IO_ISOLATION	TI_SCI_MSG_FLAG(7)
+>  #define MSG_MASK_CAPS_LPM		GENMASK_ULL(4, 1)
+>  	u64 fw_caps;
+>  } __packed;
+> 
+> ---
+> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> change-id: 20251013-ti-sci-io-isolation-63a8bcd9d4e9
+> 
+> Best regards,
+> -- 
+> Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+> 
 
 -- 
-2.39.5
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
