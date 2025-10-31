@@ -4,126 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89464CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 09:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9751CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tkSelHNNZtYzi5EY8XsAlaXp+ewc844ITqqtJnf0nc=; b=hELUgFjtukU9qbTXjE9xIErbLJ
-	Ww3DrxUxnl3tePHROm2pxiVn4BOJVNYHPI+AY7glKnmbZItAk86wlqqEcgjct7TYS1v7SvxU6adEk
-	p/S8F6bkgUEIygxMZIMbu6kt/2DxxJp1PAmqFoPXcfcaGijG4QUSL3YvuVHZIN+ENb69aBtf10gQD
-	FOTDcYaWtvcfRq/yr+4cQs47ogokIHoWwW8dLp3GjuSmUuYL1gUNJYysqKEDbyG2wPcaawqukKthD
-	EP/9RS11nXZL5+zzMb7QONNGg73d7hwreJPHMLrLlFwpAbAkNKqGLl7Qn3n8zHD2mm85xLLI0SXSR
-	JJcaW0aA==;
+	bh=9XmagYXZGhiRCZo8nGtg5dtjzropHlOVEQuuywu8QoA=; b=oKo5kx7mgvRM8FPVkFsqzvHvog
+	21xZw8e6phi9CNzGuJmxUYiR2U0tdQmG47UXnQc6TIQAYmYij6IdwjV63asVbDWQZ+vgkHztzn6AY
+	BUuEnLGX8t8ASOQrBLk2rh91TO6IxNx0+/x3FWG2Ne03ooUq1nh47aCXbU2RLRLkPXo3ktH6zlk6F
+	kHwDF2m24wzO+LctH3QmXA2fBtBqB9ukMeMFIwos285ugZPEUPzZuronlf+AFsR7/+tye7s0omXh+
+	2qTHOG0Gb8KAgXRphq3pZJjtsR3F/KDFknqkBwAm7P7ux9sHJhC7t+vwZ1txJviqCsE8g97gTmeqH
+	MgnPBPIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vElrJ-00000005q8k-2De2;
-	Fri, 31 Oct 2025 09:55:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vElvT-00000005qXI-0J9C;
+	Fri, 31 Oct 2025 10:00:07 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vElrG-00000005q7x-1LVj
+	id 1vElvQ-00000005qWr-3dfV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 09:55:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761904542;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3tkSelHNNZtYzi5EY8XsAlaXp+ewc844ITqqtJnf0nc=;
-	b=CeugEqmChg06nf8lEYpsg4xGenJPg5zkuVRjpnaaVxUULE4dpEO14f0dplP+ecVeaaPtrg
-	8jsA20yRqcs7GqQYgH88gVxL3ztMaQLuuX1N9fawcsK1HQ2eNG+6WeSaXEekcAVCMXdGXx
-	S38+nqYv36CyU64TF1FlGwe5utQ/pCM=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-614-jhR1MXdSPmW8cSX2-HCJ6g-1; Fri, 31 Oct 2025 05:55:40 -0400
-X-MC-Unique: jhR1MXdSPmW8cSX2-HCJ6g-1
-X-Mimecast-MFC-AGG-ID: jhR1MXdSPmW8cSX2-HCJ6g_1761904540
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-427015f63faso1209255f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 02:55:40 -0700 (PDT)
+	Fri, 31 Oct 2025 10:00:06 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-475dd559b0bso26873075e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:00:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761904803; x=1762509603; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9XmagYXZGhiRCZo8nGtg5dtjzropHlOVEQuuywu8QoA=;
+        b=T3W94/7mYRCCHY8w4+CZhd3jRM8ebpOdPDs48lG6UiTf98ElSnlzMaSditM9Jm0uru
+         ZfXmdC5NJmpixe3kWqCvAnr3QcElr9BISU7nzxLocfeBAYzsemv+USzEaBcnjSN6Hauf
+         kY7I1z24jRTf/vY6eIs6iSdTX5RNnwzI+zhV4Ote/ZgUXotJAHwqKrO1JW6/lc/TaWAd
+         XyWt0YZtx0tHCdvmT2IkS01ZSG1RxMqzECHnNiRK9s35iAr0Vx0P4XN4rhSuFXrbHbrQ
+         PiSlF1DW/Q2Mep0RSE4+gIW2+mC8MAWeDuuiq7ZeMppBecaAIeW9eyH/Wjdh6si9tBHd
+         kE9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761904539; x=1762509339;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kTCg+N3NYwBLqF+pIITZOoHrF01dYEOCOu0+H1nRDT0=;
-        b=TgN+iZlQdcWkZyZifMr35BC8WEn1WbTTUwLMEWawshmj/TI/Yez3BX8gmqHMKuHgIB
-         noMGs0wzAXZW2nQoReR6H8qqIQDTW+0mOKH/y1SYkZoQJWE3ymZiLeUTxLrhPIyDkGqY
-         03hmjF0jR1YSqJMGmNB8X1MUVrw/QX4shJtbu2KcTk0flPbMupzNWoalqirfqiMvsKTR
-         thkgb+Xyuua0fJoafz8DENJuILMUQk7Qio9VoDxIdasnZ5mm3RG5yN0hpBi4kgw1CBwl
-         m3pgUc7/6C0Cdyf6F1HZoY1mvZJz3LAnHR5DOvR7ImfafNoY66Ek0es0MZsIwyRnwFj/
-         mVNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWNzv8A7I04X7yNNv2PApnxoCzIouQy7yIWxLTYkE61mFjN0aLF3FkFGF2jCtqJlA+QP49zf+7XnjluOUYzYROt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcTd/y0GggHKT1fCKDbVXuXLJCMsd2WICbLreLah3WTO7IUSgS
-	0iREMoJdfev1ByGNThZxPXe3qQwyfO3Yc6q2e7qTq3eBwlKzo3VXEHVJjEgGPDTX7PH7sK9DwH1
-	MhH/yXEq6FZEPGuZIRTSSMbOv5x6PqEq1SeK065iRnLPMoP23Hkfp4Q6oTaH4q/FzqcK2Eo3OE8
-	R7
-X-Gm-Gg: ASbGncvqglJAtlN+ac2VeXz9gmyfNBdDlFZuyeumMM47bPR8ygmSM1UeMUgi0og1BTY
-	iO9poIBtOECuyJHXalkjRDb1xWi/qcm7h6aGwDwEFChWzIqcGjGYyhRa+y9oQSYfR38NLcfX3KO
-	atZTdFWjPW48f16bxqZCCuIuXATcVDNPe5bFJ1hrRQUuYJioIh1G8i/M2EMRWY9ZazGz9P/TZ9w
-	9pdyg2BBYjIa8DTMvmTGbDRn3UzT7T1Tg4ZNPHcRAUNhLeAQXW3zZidU/Lff0bqz06VQyljWVFR
-	Ci4XLzB26O4gSbj476hptEXvYjG6FycBYDdFmyVjytgxJ6nXlZHn9OEcFy1MrBiGRcw4dVGDp+v
-	MZrLC//avmdH+wuWtFjTkLO6NxnCy0LxDEZOVQ7NQD70DmqK4Brja6HEuKGoN
-X-Received: by 2002:a05:6000:310f:b0:40f:5eb7:f24a with SMTP id ffacd0b85a97d-429bd68869amr2437855f8f.12.1761904539542;
-        Fri, 31 Oct 2025 02:55:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGbUxApmJAOYlrcJigfNqaTRZ7Pz52J94NiUAhMgZ/Qwj+7BmCVMNCnPqwOLJ11D9kpjdgFWQ==
-X-Received: by 2002:a05:6000:310f:b0:40f:5eb7:f24a with SMTP id ffacd0b85a97d-429bd68869amr2437793f8f.12.1761904539055;
-        Fri, 31 Oct 2025 02:55:39 -0700 (PDT)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c1406a45sm2624895f8f.47.2025.10.31.02.55.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Oct 2025 02:55:38 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
- Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, "Paul E. McKenney"
- <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven Rostedt
- <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen
- <samitolvanen@google.com>, "David S. Miller" <davem@davemloft.net>, Neeraj
- Upadhyay <neeraj.upadhyay@kernel.org>, Joel Fernandes
- <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, Boqun Feng
- <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada
- <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
- <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
- <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
- <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
- Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
- Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
- immediately after a switch to kernel CR3
-In-Reply-To: <aQIpXyX-z8ltB1i5@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-28-vschneid@redhat.com>
- <aQDoVAs5UZwQo-ds@localhost.localdomain>
- <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <aQHtBudA4aw4a3gT@localhost.localdomain>
- <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <aQIpXyX-z8ltB1i5@localhost.localdomain>
-Date: Fri, 31 Oct 2025 10:55:36 +0100
-Message-ID: <xhsmhtszfpf8n.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+        d=1e100.net; s=20230601; t=1761904803; x=1762509603;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9XmagYXZGhiRCZo8nGtg5dtjzropHlOVEQuuywu8QoA=;
+        b=GPuero31Ms0U15rUBO8eb50Y0ZQGImEsRQ1TpiTw8qiV77FpHZKT9dxxnHFED9YULL
+         1o0R6JKjJlxE73Zuj203Av2AjzTAdkM2PrH685HWFa+pWPGouDIDJnkEeVOyLnM6/HZZ
+         OBbiCYgSdDacT5rqOTZx5M38k3zhg8HftRW+EWNopTezG4TphTO5QPs2aG8MnhT4Ha13
+         OTIcljgoRksDQZlcP7q70P1KjfFFVI8AN7Rc5U4eX3KqxkG1NltOMFL8sIf2DsXe+uMN
+         P1XVQRDd2Cs62cSiMD7jUTUm/cQr24eCJuknQcSUVbbdFb9cF/e8qQ9SpxQw+1hrFj7T
+         o1CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUjtlLRMo6+NZfqzevDPnDx5yQKPjoq1h44gYotlS3s4sTHQy7CmB5SsV63H+OCk0Fgj0n1a05rbUpL/QrzvsZg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9GfAttAvhSWChVhEdl+yQMZ4Pk4ph9zFj3UXU51PewaO+muMw
+	q5EfZBAYv7GI/CGIF2kBFJgnz6GP9X+IO7X3VU3jX0mjLz0R/URv4tLXvO5MUwxihYM=
+X-Gm-Gg: ASbGncu8ZPVLyQ6SQ1vhi9ZCmvYuVu2ix5E4LwB03Y2x1YhWm0BlsGswY7hDSwIsgv0
+	HsdMU6WBShloZCWazDQRwllXzStIdbXOi3Lamrn/fOQ7AMsKc0ksTYmcaKkqY2sjbw3y6khs/Rh
+	G3d1KEgYKxuezWE9iBjKGO4bsmWSagEU+v2yvqABylkYXOeWtHr/bgUc1a1iEqmS41pJqtRt2Rj
+	Z7WNNN/YLZGFpij1w4hmnBoZLvEyn9SKex6THHU5dQUDtizM1yBwZ/AibADJ4gmEfjohk+ua7gm
+	sRrr4B/KSiQLKqY7dqyiLBFc2/scdKStk8wnnceEss7hTTe4688xBW8DVPy3D5SRfKJFm1bsiaY
+	vxQdGwRBwZsNvC06n6/EWaA1K9aKgZvUsfGB8iJP33rBl8zVnXHB4uTcpAUBWgZK1G3E9dQwqTt
+	JVVlsqmnAuZquNDyMQ
+X-Google-Smtp-Source: AGHT+IEv9vBf1gcZcP/1EXFL+TdkTt1q9osVqrYbZXlOtnlKXOqyYbm17I+a0qRcWFjfmA40A3E6SA==
+X-Received: by 2002:a05:600c:4e44:b0:45f:2cb5:ecff with SMTP id 5b1f17b1804b1-477308ce7b2mr28429105e9.31.1761904802781;
+        Fri, 31 Oct 2025 03:00:02 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47728a979b8sm86399575e9.10.2025.10.31.03.00.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 Oct 2025 03:00:02 -0700 (PDT)
+Message-ID: <18df2108-5f09-4806-af0f-3af3fbff3f92@linaro.org>
+Date: Fri, 31 Oct 2025 10:00:00 +0000
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: j6imh3EkIkD-Czpy4EgZeZXjLXs301EZY5juxEDhi-g_1761904540
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tools: Fix typo error in json file
+To: Chu Guangqing <chuguangqing@inspur.com>
+References: <20251031031729.2304-1-chuguangqing@inspur.com>
+Content-Language: en-US
+Cc: john.g.garry@oracle.com, will@kernel.org, mike.leach@linaro.org,
+ leo.yan@linux.dev, peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+ namhyung@kernel.org, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251031031729.2304-1-chuguangqing@inspur.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_025546_434329_25FCCB14 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20251031_030004_964618_EEF77C0A 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,26 +105,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/10/25 15:49, Frederic Weisbecker wrote:
-> Le Wed, Oct 29, 2025 at 03:13:59PM +0100, Valentin Schneider a =C3=A9crit=
- :
->> Given we have ALTERNATIVE's in there I assume something like a
->> boot-time-driven static key could do, but I haven't found out yet if and
->> how that can be shoved in an ASM file.
->
-> Right, I thought I had seen static keys in ASM already but I can't find i=
-t
-> anymore. arch/x86/include/asm/jump_label.h is full of reusable magic
-> though.
->
 
-I got something ugly that /seems/ to work, now to spend twice the time to
-clean it up :-)
 
-> Thanks.
->
-> --
-> Frederic Weisbecker
-> SUSE Labs
+On 31/10/2025 3:17 am, Chu Guangqing wrote:
+> Correct instruction spelling errors.
+> 
+> Signed-off-by: Chu Guangqing <chuguangqing@inspur.com>
+> ---
+>   tools/perf/pmu-events/arch/arm64/ampere/emag/cache.json | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/tools/perf/pmu-events/arch/arm64/ampere/emag/cache.json b/tools/perf/pmu-events/arch/arm64/ampere/emag/cache.json
+> index 4cc50b7da526..4001cc5753a7 100644
+> --- a/tools/perf/pmu-events/arch/arm64/ampere/emag/cache.json
+> +++ b/tools/perf/pmu-events/arch/arm64/ampere/emag/cache.json
+> @@ -81,7 +81,7 @@
+>           "BriefDescription": "L2D TLB access"
+>       },
+>       {
+> -        "PublicDescription": "Level 2 access to instruciton TLB that caused a page table walk. This event counts on any instruciton access which causes L2I_TLB_REFILL to count",
+> +        "PublicDescription": "Level 2 access to instruction TLB that caused a page table walk. This event counts on any instruction access which causes L2I_TLB_REFILL to count",
+>           "EventCode": "0x35",
+>           "EventName": "L2I_TLB_ACCESS",
+>           "BriefDescription": "L2I TLB access"
+
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
