@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 779CBCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF59CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 17:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=83TX57/PmSJw58PmSRiMF2q6MkZxkb2Yagt86BaYVvM=; b=vfJLJdpqe3kTI3AUfoTsXksQdm
-	xkfk91q2qmGvEQ22KD6qh7wKWvxvdFQtU/ew66NVd+kxLo77YtMqxHIjt0BOn8K+drmVyD7V6iPL2
-	zM9xcavcuOTKp3BDtNbxb+HWUhLD2l/LlYpwe8mIUH09CE/VdQ+7UQ6Jy0SZ7o5ERmmQOHevEXLxo
-	Z9jHcCLskh+TkLCJ041NQ5poT8W5hySNni3itfBwO7LpD0RYZdlArBE+YNaO+3ynOcN4WsRUKvy//
-	NRcGhevPEFm1z+GfrYUW0soKM/CWG/C21z2a1QUQriZVghLRSLH54qoNzcPKCrBxSHiV58Sq7kd/y
-	tEFjmjOg==;
+	bh=PHhDIiZekTEyAYDgcBX7q1siYTr1dOxWIQ4BtmseKVg=; b=tlmaHd5YkW4/1ko5veMjrNDtMI
+	1Lp36uTBpXluMUl0hV6/+G+yJPdSLFYyKd9RDjPeRagFctDM5lSCB/Mx7+CK0kWNfH0TMfj4NWL6M
+	3zNZRlW+j7e+l4vMcYhzaKGbYUmQZ3wIP+PglasJD3sHG3SkhFBYng4rnZNOwHgyt72lFQyNCIEG+
+	t2Zexr9h2ba8IAw1A1r1j5wjtxj0Ky5yQ3KNgijWoj7bhBIXYK5LXCTi16dyZbgbbbQeCLuxXKRt+
+	8PXZYkH8EJrR4vNBRp/Nhqc8FGON7buigikg3En0PQHiag5shfVwvyiZ+nqUN1Y7ackdIYvRThurz
+	8c/7rTyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt46-00000006YK0-0ztA;
-	Fri, 31 Oct 2025 17:37:30 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vEt6T-00000006YhT-1HxL;
+	Fri, 31 Oct 2025 17:39:57 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt3Z-00000006Y5S-3NnD
+	id 1vEt6Q-00000006Yh5-0Cco
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 17:36:59 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:314e:ee86:ae6e:30:9d13])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 660DD19AD;
-	Fri, 31 Oct 2025 18:27:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761931644;
-	bh=9CJ7u1jnlnm84awcn639u6Yp/yBstqIpcAoOOdICSkI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MJdDdwY6W2U6sGWpx79RZex9hPLCL0rz6ZVb0ZU5ctpvkqx6nGysWUil4gbDvrdjh
-	 0M4INmFp7O38NvgKOYyD7zIWhUUpQIuvFs/ciPbbnjpGYmx/+d0NiU0qxXnBQmUUHB
-	 /KbzPPnKxIhxKSALiGtJPad4Ky7baUYW/M531ERs=
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Fri, 31 Oct 2025 22:57:33 +0530
-Subject: [PATCH 13/13] platform/raspberrypi: vchiq: Register vc-sm-cma as a
- platform driver
+	Fri, 31 Oct 2025 17:39:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id DD5251A17C2;
+	Fri, 31 Oct 2025 17:39:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B07F260704;
+	Fri, 31 Oct 2025 17:39:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 00D9311818007;
+	Fri, 31 Oct 2025 18:39:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761932389; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=PHhDIiZekTEyAYDgcBX7q1siYTr1dOxWIQ4BtmseKVg=;
+	b=Q9YaIMCDe4UzfWR/C1Ro7yZCZVAk2YvR22FyVv+gZwDEPXE3zYwhptvcZYxOpqo0nfhXUM
+	K+D7t9Lqs7mEabZT+nNz/lrUZFPqT3sy5II5H+qmMC86JnRDcUPq26J7n1Wy1RXx3kSfYS
+	LwxNNNzVYs+4UceTBncb61zqjEOdQMrEQKmpHvqrXkyWfV9WAOTJmHk5gmYs0ea3zGBUuM
+	zBNdCcH0ZLa1oUvz3MFn33q9wCDfBencaWR31dHZs1DU9DW2Dm8Xzank0SFd1wQaevHMZT
+	7wBktRjcfnbeS3rxxwdo5EHpP1PkH+qnsl7I9adJM0s1SEXrPjMRKJmKLEKa1Q==
+Date: Fri, 31 Oct 2025 18:39:44 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Sudarsana Kalluru <skalluru@marvell.com>, Manish Chopra
+ <manishc@marvell.com>, Marco Crivellari <marco.crivellari@suse.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Sunil Goutham <sgoutham@marvell.com>, Richard
+ Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
+ Jacob Keller <jacob.e.keller@intel.com>,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next 7/7] qede: convert to use ndo_hwtstamp
+ callbacks
+Message-ID: <20251031183944.5e3f922b@kmaincent-XPS-13-7390>
+In-Reply-To: <20251031004607.1983544-8-vadim.fedorenko@linux.dev>
+References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
+	<20251031004607.1983544-8-vadim.fedorenko@linux.dev>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251031-b4-vc-sm-cma-v1-13-0dd5c0ec3f5c@ideasonboard.com>
-References: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com>
-In-Reply-To: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- bcm-kernel-feedback-list@broadcom.com
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Phil Elwell <phil@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jai Luthra <jai.luthra@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1464;
- i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=rAaQpRHtWGp7BJRz7YWXM337EB/6DfYZ9A46xHhwYZY=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpBPGgaG15cb+ogx/QrVis56z2df+pwHeMLcxzo
- qRCX/wZD3yJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaQTxoAAKCRBD3pH5JJpx
- RbJgD/4wpdKvt6yg4rO214J6mG4ABEkpeK7I0bf88qPV1ZaNUcjEAz9XusPjEpkUOwDxPgoBfmH
- 1FBudws2zDI2/GgOa/H8/1+IWkJY+SSMWzo4hf/KbdWM8tvFST1efw5jt4Tc7UvmItrtbDXVesI
- Eswog4EObYV/E88rvqxRX9aaF3xEqwMz3H8an0MIGIt3DtU7gpO5AuaKcQBiXyUd+jPYy6TLijD
- /fHo0tkjjJC484M7eIE8IFoudnuoD1RHxZzDURgZAgpEBQur+y5k+mjsA6lKXoVdifBX5JYl3WV
- Mjpcl8i5V1I8+eM0dPzwaff1niZHbe5Twz66m8S02LIaAv0jDo3LF4w3lLDMDzX7Uv2jaR6XeKc
- e3yK+2u/SguX6cRULhgu4ukwWMFujsOFWi185jbLSZhF00Gy3YqaXCR5K9Ip7drsPMaxQv2pRW/
- Fw98H16fY5yAKxlQSKHim9ETcdfSLm0uGCW6N9J43E6AKvSm4bNENCgh2TA6Cl+KPNwAPvuW1uj
- /veJBmoYagW91F+gyq23/VSeuQ6hhO6XMKzYyK5H8PMtV6p05OPo3aDYglBZS74P5JxvucjB4zQ
- 0NstgRBYQoeVRD5KKqyxmzzQNNm2k1FE64UAgMtcotHGoSW+lNc+NzsBl36WbwZNuxD0vr31ISP
- skDwFCSpnquUd9Q==
-X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
- fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_103657_992021_8F3D2E93 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20251031_103954_220073_529EC251 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,46 +86,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+On Fri, 31 Oct 2025 00:46:07 +0000
+Vadim Fedorenko <vadim.fedorenko@linux.dev> wrote:
 
-Register the vc-sm-cma driver as a platform driver under vchiq.
+> The driver implemented SIOCSHWTSTAMP ioctl cmd only, but it stores
+> configuration in private structure, so it can be reported back to users.
+> Implement both ndo_hwtstamp_set and ndo_hwtstamp_set callbacks.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
----
- drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 3 +++
- 1 file changed, 3 insertions(+)
+Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
 
-diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-index 6a7b96d3dae6275a483ef15dc619c5510454765e..09d33bec46ec45175378fff8dd1084d0a8a12dd6 100644
---- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-+++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-@@ -63,6 +63,7 @@
-  * the interface.
-  */
- static struct vchiq_device *bcm2835_audio;
-+static struct vchiq_device *vcsm_cma;
- 
- static const struct vchiq_platform_info bcm2835_info = {
- 	.cache_line_size = 32,
-@@ -1421,6 +1422,7 @@ static int vchiq_probe(struct platform_device *pdev)
- 
- 	vchiq_debugfs_init(&mgmt->state);
- 
-+	vcsm_cma = vchiq_device_register(&pdev->dev, "vcsm-cma");
- 	bcm2835_audio = vchiq_device_register(&pdev->dev, "bcm2835-audio");
- 
- 	return 0;
-@@ -1431,6 +1433,7 @@ static void vchiq_remove(struct platform_device *pdev)
- 	struct vchiq_drv_mgmt *mgmt = dev_get_drvdata(&pdev->dev);
- 
- 	vchiq_device_unregister(bcm2835_audio);
-+	vchiq_device_unregister(vcsm_cma);
- 	vchiq_debugfs_deinit();
- 	vchiq_deregister_chrdev();
- 	vchiq_platform_uninit(mgmt);
-
--- 
-2.51.0
-
+Thank you!
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
