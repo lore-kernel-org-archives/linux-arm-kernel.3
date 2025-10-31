@@ -4,103 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F293ECCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A15CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 13:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPmKs28lkpvHoRqiGTUvXenyc4ndbMqG/sODnZUvqnA=; b=zBq3PTW8nkzzUwme4NA+R6glY1
-	q2kqHoawkFHoIZy1W9WUfcDH26SuCd5zFenKEdwqc9jKvB0pk04U6QmKFtf8MnZuRo/iFbTXyqSfe
-	sFcO+a1N0K16znRxRb2QBt5H/4pprlVabsQxLK6U4FSeQHh9z9xzXMkI5/VdOeqW+zXNE+UV2z3L3
-	93yiEj0YQ8gsl+h8wreN9W8xPUn2v/P+rc4pn3TMpDPK1rX6nr2dpG0n5QzfCAOQ7tpQfHj919rFh
-	LJ9vNLLLuaHoQz9W7Y05J1KJwYZvSxn/qJ3mh7R4CmchtqFki/NeeqEDDhlJh9zU6aiBgKK2chqU5
-	O9qUxVDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uLDwt+NU3vvKrlrQRKfDo5aEPn3HnX2ZWzIgGku0kDc=; b=4Ss0irADE+TrrlbC+y0kyMQdmj
+	Gy3IBh2PAmLJy0ShgIZCSLyx9baQok5le3TNtZtoetNs6i8hs75fR3oBwcNhoACmGkEk0jTb8ChJy
+	7SdvSPCHqSyHbg1FwjrugSS47LIUvdhLDWG759juAkUkdgXasDjG5xQg2Oni1eEge4WNM+F/HysBS
+	oPeUll8ZrSVYrczok5vdf51DJ0iB5lINkBi5Wwbhd89RGosxSeQhgVc9G14k1FvQWYDG/Gf7+oi9I
+	G8Nk2PJY2NYZyPMltfDLK2eUQTaynqBLzCoKIm2HXJ5HiPc0Vx0V38jDfCxQSs0WKGNIpKWdlgeL6
+	lmtkOt6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEog1-000000067Y6-3Loh;
-	Fri, 31 Oct 2025 12:56:21 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vEoju-000000068cs-0SBu;
+	Fri, 31 Oct 2025 13:00:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEofu-000000067Qp-30t7
+	id 1vEojq-000000068bq-0W7L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 12:56:15 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47112a73785so16237415e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 05:56:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761915373; x=1762520173; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nPmKs28lkpvHoRqiGTUvXenyc4ndbMqG/sODnZUvqnA=;
-        b=tXOoPP2xe94tnTTlttsGXPo4XGpxgnSRH3E878pPMPRzMRlmgvYgVLMar55hTh3sVC
-         2+7eXjcmQf2pR11XOWpqLSElHEGkOMjyJbpavawIMjuwMD8LTEYGFefCAdwFUSd4Rm9N
-         sqXf366MIVfYoZEBeBYomqFxztspEyPahuhHMrcGbbcJcXvb1PORpQUvqigOnwrDkUc5
-         kTSia74P1B+/AJsmgAElORuRpq73K6P+t5AaI3p49HtGy6QjgZmehQWMo4i+Z7v//CyQ
-         oNIN1jL41DGIDXnxBnf9Gh7pysNp40UV6PsO+PN3YLUkXuv6RyBOjBtsfccHkkwNScxg
-         PsPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761915373; x=1762520173;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nPmKs28lkpvHoRqiGTUvXenyc4ndbMqG/sODnZUvqnA=;
-        b=KZaFhuvvSXvFkYOxqJdcP1emfmXdiL3PBzvGZIWJxifuO6IGfYthdMtmya8OeKCC1X
-         EQCJAj9YJuuMBuqd9m/ysf3t1/0XEf67ciLy8rUXALYK4xdMsMw3d4Aa9ejo91SiJ7nl
-         3jin0MtZyXbKALe/52HPDj93G5JDVfHbI8ol9epevvb7bkvDbc/5700xCqzdI8WtogUH
-         Q62GiaMc1DG3GT2O8spVmCxhrcRMHOLMJPGMygmP9U4Fg7Gyzcc9g628ovhy2hfCekAh
-         dGwrQWqM1hXAbh1IRrXSAdN5tpX9O5aOXo3dXRr0v5SFHjzf6hMw9HW0bfLvGYQTPO+y
-         ZtuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVSPzDAjE5RgcO1oRC3VLTgQJAxLz2JEfkXeI7yXymYlNskaRQIHBUF6HKu0Ib9Z29dOZBuDlbX7dp6drJIP2Sx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaT1l/hbAaQFZSCMc7hwGb80IQnP3IlMRt7ldDh4beb9u9hzT5
-	swynqA7cODJFKR4IWe9OoQdWptMqG+j7D3Jg6FGoOu/j/hDvgve4Qdm9x8bstXPRDjk=
-X-Gm-Gg: ASbGncvRAWe9Si1VyxQUUsL4oyA4kefZ9BDLKHTprzeIhFh1Xxcs1e+DsFiyel89Rze
-	samZu1/qFfMnjdvS22n1AKY2jQTmoU6xJJnVA1PEqEvDeETMr+670LRmMt4XnyI9tCPfvA/1a/j
-	i54pUraAgOnNzG6qV3Id8bIESPE2776U/GhPJgZ37JGIwnvbQPH0cejWaj3rhRgaTPcPo1nK+el
-	BXPO8mGI7Fg2lcEsdNJ8aUVWhwd13AKoz9Y5txdcFRTkeeiw718UouseZoHL7uLUME2uQqN2z5P
-	hMfHgSKKIVzYcZVJE+jDgzfU2fOLWGbLvNxmst6FhFdAiaVuv5E2TeSMhKHI6kL6lF2JbGP6+Pn
-	YNyrhVvTTC/vkM8UMiV0nGp08BBV/K2gKiZ/SVeyGaqZsMjJdGANuHu4si82gqbbjV9RidcTko9
-	xM3BWroC2yqBIwM4DDCZbpF+H6wNXZDU/YfPTSjGTc5x/QHYTZlSPQxXkwMGh/U0g=
-X-Google-Smtp-Source: AGHT+IEgFt2drlICBdE8c15ZSdRAo3YhHP301vNjyBeBb0HaK8c5JkyxDlcHps+bf8XyCx+ZBmNPVQ==
-X-Received: by 2002:a05:600c:538e:b0:46e:33b2:c8da with SMTP id 5b1f17b1804b1-47730890e99mr33964965e9.32.1761915372724;
-        Fri, 31 Oct 2025 05:56:12 -0700 (PDT)
-Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47732fe1075sm31814585e9.11.2025.10.31.05.56.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Oct 2025 05:56:12 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Fri, 31 Oct 2025 12:56:10 +0000
-Subject: [PATCH 11/11] arm64: defconfig: enable Samsung Exynos chipid
- driver
+	Fri, 31 Oct 2025 13:00:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761915615;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uLDwt+NU3vvKrlrQRKfDo5aEPn3HnX2ZWzIgGku0kDc=;
+	b=I622t+votir+o6W0kijC/MB1m+syBwAS+VBTOeZVDYp0jyWxEQkh+mWRXnBcRh0Z/eyBWg
+	WqcBbBL9pny3UtX/Iif5TixJ/n/mCaVrQsk+6IoufMY2cQoOK8baExbyTc7MnGEV5EHt0o
+	bb/LFV0w25o6JNCJ1TH6KbIKfY3SWc0=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-607-qDUMAdLUOq24oc-NOEKyLQ-1; Fri,
+ 31 Oct 2025 09:00:10 -0400
+X-MC-Unique: qDUMAdLUOq24oc-NOEKyLQ-1
+X-Mimecast-MFC-AGG-ID: qDUMAdLUOq24oc-NOEKyLQ_1761915606
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CB1101955F3E;
+	Fri, 31 Oct 2025 13:00:03 +0000 (UTC)
+Received: from pauld.westford.csb (unknown [10.22.80.244])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2491A1955BE3;
+	Fri, 31 Oct 2025 12:59:53 +0000 (UTC)
+Date: Fri, 31 Oct 2025 08:59:51 -0400
+From: Phil Auld <pauld@redhat.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
+Message-ID: <20251031125951.GA430420@pauld.westford.csb>
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-14-frederic@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251031-gs101-chipid-v1-11-d78d1076b210@linaro.org>
-References: <20251031-gs101-chipid-v1-0-d78d1076b210@linaro.org>
-In-Reply-To: <20251031-gs101-chipid-v1-0-d78d1076b210@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org, 
- willmcvicker@google.com, kernel-team@android.com, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761915362; l=829;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=SNitQ6iR1OrWkD+1kTT2otCfVrWRB5Aki2fWLfOjKbs=;
- b=tiltm92a6lWnlNHMGe7UFecCrk/97yelVtT3Nd5y3c3b6toA4eFvJ9l/AoAY69Wscue1C6ZYq
- vOAuVToq/TGCmsCXChXNd7/Jjdxd10s8Y2Ky3SlZlKDxTR1t/jGCqZq
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013203146.10162-14-frederic@kernel.org>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_055614_780885_513F6FCE 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_060018_245234_A804136D 
+X-CRM114-Status: GOOD (  30.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +108,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Samsung Exynos chipid driver provides SoC information to userspace
-using the standard soc interface. Enable this to allow certain user
-space tools to acquire this information.
+Hi Frederic,
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+On Mon, Oct 13, 2025 at 10:31:26PM +0200 Frederic Weisbecker wrote:
+> Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
+> CPUs passed through isolcpus= boot option. Users interested in also
+> knowing the runtime defined isolated CPUs through cpuset must use
+> different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
+> 
+> There are many drawbacks to that approach:
+> 
+> 1) Most interested subsystems want to know about all isolated CPUs, not
+>   just those defined on boot time.
+> 
+> 2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
+>   concurrent cpuset changes.
+> 
+> 3) Further cpuset modifications are not propagated to subsystems
+> 
+> Solve 1) and 2) and centralize all isolated CPUs within the
+> HK_TYPE_DOMAIN housekeeping cpumask.
+> 
+> Subsystems can rely on RCU to synchronize against concurrent changes.
+> 
+> The propagation mentioned in 3) will be handled in further patches.
+> 
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> ---
+>  include/linux/sched/isolation.h |  2 +
+>  kernel/cgroup/cpuset.c          |  2 +
+>  kernel/sched/isolation.c        | 75 ++++++++++++++++++++++++++++++---
+>  kernel/sched/sched.h            |  1 +
+>  4 files changed, 74 insertions(+), 6 deletions(-)
+> 
+> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+> index da22b038942a..94d5c835121b 100644
+> --- a/include/linux/sched/isolation.h
+> +++ b/include/linux/sched/isolation.h
+> @@ -32,6 +32,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
+>  extern bool housekeeping_enabled(enum hk_type type);
+>  extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+>  extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
+> +extern int housekeeping_update(struct cpumask *mask, enum hk_type type);
+>  extern void __init housekeeping_init(void);
+>  
+>  #else
+> @@ -59,6 +60,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>  	return true;
+>  }
+>  
+> +static inline int housekeeping_update(struct cpumask *mask, enum hk_type type) { return 0; }
+>  static inline void housekeeping_init(void) { }
+>  #endif /* CONFIG_CPU_ISOLATION */
+>  
+> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+> index aa1ac7bcf2ea..b04a4242f2fa 100644
+> --- a/kernel/cgroup/cpuset.c
+> +++ b/kernel/cgroup/cpuset.c
+> @@ -1403,6 +1403,8 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
+>  
+>  	ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
+>  	WARN_ON_ONCE(ret < 0);
+> +	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
+> +	WARN_ON_ONCE(ret < 0);
+>  }
+>  
+>  /**
+> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> index b46c20b5437f..95d69c2102f6 100644
+> --- a/kernel/sched/isolation.c
+> +++ b/kernel/sched/isolation.c
+> @@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
+>  
+>  bool housekeeping_enabled(enum hk_type type)
+>  {
+> -	return !!(housekeeping.flags & BIT(type));
+> +	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
+>  }
+>  EXPORT_SYMBOL_GPL(housekeeping_enabled);
+>  
+> +static bool housekeeping_dereference_check(enum hk_type type)
+> +{
+> +	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
+> +		/* Cpuset isn't even writable yet? */
+> +		if (system_state <= SYSTEM_SCHEDULING)
+> +			return true;
+> +
+> +		/* CPU hotplug write locked, so cpuset partition can't be overwritten */
+> +		if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
+> +			return true;
+> +
+> +		/* Cpuset lock held, partitions not writable */
+> +		if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
+> +			return true;
+> +
+> +		return false;
+> +	}
+> +
+> +	return true;
+> +}
+> +
+> +static inline struct cpumask *housekeeping_cpumask_dereference(enum hk_type type)
+> +{
+> +	return rcu_dereference_check(housekeeping.cpumasks[type],
+> +				     housekeeping_dereference_check(type));
+> +}
+> +
+>  const struct cpumask *housekeeping_cpumask(enum hk_type type)
+>  {
+> +	const struct cpumask *mask = NULL;
+> +
+>  	if (static_branch_unlikely(&housekeeping_overridden)) {
+> -		if (housekeeping.flags & BIT(type)) {
+> -			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
+> -		}
+> +		if (READ_ONCE(housekeeping.flags) & BIT(type))
+> +			mask = housekeeping_cpumask_dereference(type);
+>  	}
+> -	return cpu_possible_mask;
+> +	if (!mask)
+> +		mask = cpu_possible_mask;
+> +	return mask;
+>  }
+>  EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+>  
+> @@ -80,12 +110,45 @@ EXPORT_SYMBOL_GPL(housekeeping_affine);
+>  
+>  bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>  {
+> -	if (housekeeping.flags & BIT(type))
+> +	if (READ_ONCE(housekeeping.flags) & BIT(type))
+>  		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+>  	return true;
+>  }
+>  EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+>  
+> +int housekeeping_update(struct cpumask *mask, enum hk_type type)
+> +{
+> +	struct cpumask *trial, *old = NULL;
+> +
+> +	if (type != HK_TYPE_DOMAIN)
+> +		return -ENOTSUPP;
+> +
+> +	trial = kmalloc(sizeof(*trial), GFP_KERNEL);
+> +	if (!trial)
+> +		return -ENOMEM;
+> +
+> +	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), mask);
+> +	if (!cpumask_intersects(trial, cpu_online_mask)) {
+> +		kfree(trial);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (!housekeeping.flags)
+> +		static_branch_enable(&housekeeping_overridden);
+> +
+> +	if (!(housekeeping.flags & BIT(type)))
+> +		old = housekeeping_cpumask_dereference(type);
+> +	else
+> +		WRITE_ONCE(housekeeping.flags, housekeeping.flags | BIT(type));
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 646097e94efe7f1a18fb59d5b6dfc6268be91383..cf1a548034d28db201bab0d48b838b4136dbb59c 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1530,6 +1530,7 @@ CONFIG_QCOM_APR=m
- CONFIG_QCOM_ICC_BWMON=m
- CONFIG_QCOM_PBS=m
- CONFIG_ROCKCHIP_IODOMAIN=y
-+CONFIG_EXYNOS_CHIPID=m
- CONFIG_ARCH_TEGRA_132_SOC=y
- CONFIG_ARCH_TEGRA_210_SOC=y
- CONFIG_ARCH_TEGRA_186_SOC=y
+Isn't this backwards?   If the bit is not set you save old to free it
+and if the bit is set you set it again.
+
+
+Cheers,
+Phil
+
+
+> +	rcu_assign_pointer(housekeeping.cpumasks[type], trial);
+> +
+> +	synchronize_rcu();
+> +
+> +	kfree(old);
+> +
+> +	return 0;
+> +}
+> +
+>  void __init housekeeping_init(void)
+>  {
+>  	enum hk_type type;
+> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+> index 0c0ef8999fd6..8fac8aa451c6 100644
+> --- a/kernel/sched/sched.h
+> +++ b/kernel/sched/sched.h
+> @@ -30,6 +30,7 @@
+>  #include <linux/context_tracking.h>
+>  #include <linux/cpufreq.h>
+>  #include <linux/cpumask_api.h>
+> +#include <linux/cpuset.h>
+>  #include <linux/ctype.h>
+>  #include <linux/file.h>
+>  #include <linux/fs_api.h>
+> -- 
+> 2.51.0
+> 
 
 -- 
-2.51.1.930.gacf6e81ea2-goog
 
 
