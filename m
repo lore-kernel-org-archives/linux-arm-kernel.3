@@ -4,144 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB3C9CCFA02
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 21:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00E3CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 22:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRcR63eSkad99HHrIf8c3stt2LgXQ3oTsHFraoTOF8o=; b=Bwqwx7iffffd3XgYtLezFZWiR/
-	GPj8BuHTa6I+ZMyBbWlcV+YlQCEGMjv4lEHZ2+i3GTA+Y+rI8qycdU9NxNOax6DptTw9PBdL4sdsg
-	DYaQVWgEQjAmjQbgOQbWIkIkwJq5EhNyZclESX4ux/9vh7qstWgoGkwx5Rgm4gf0MZ+PBbhAUBAhq
-	HPN8skwaDX7N4+BQT8+m50MirogIKib2UYzhhQMMLWfS95RCuah5cUXR6UcTR2FPHmHa+L8ME+opl
-	O3yEqXOLXFQy6D/vFw9f09Fz1iCr3PxL9cR+RWv6bDhKMzDJacbV3/IvuUI/baGLHV7BiuXI5AfkS
-	e0fRwN8g==;
+	bh=4XVKM6UF53pfme8D8bHidJVAWdDzjlL10/7ImpYmQCA=; b=uNGq8/bWR+oAYKXikppFlZyEUT
+	LfHpzL/Rqn5adg7gY6hdk+Yf3Eanu6mz0LMBYTlXafFntbIK0InO2JVKywx2Sd/NYYkyEO5+cWEdB
+	64iv2+pN1kKXW0ZgeTBglhMt9erFkSsJItoGGjoYxAHO92i4YRO9iT7xN19truhLM1oeoE5KGpnC+
+	pqN4GOBu5VLSk/OZ7EAKpoBOZP5/T97+l8+0z0G4KT2yRrgNSfLBLIOxa057W78u5OjdmVCDTedBi
+	FS1xbLmaWziuP+V6WAMxoLAktS45YUDLfSKLWeeVRWFP36L9tmJgjWHLT3zazIRZ7a326SWQ5xzic
+	XUyfWRPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEwEe-00000006o0X-3VwN;
-	Fri, 31 Oct 2025 21:00:36 +0000
-Received: from mail-westusazon11010004.outbound.protection.outlook.com ([52.101.85.4] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vExV8-00000006rJX-096S;
+	Fri, 31 Oct 2025 22:21:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEwEb-00000006o07-0saS
+	id 1vExV6-00000006rJO-1qe1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 21:00:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vWKO0Mdw2KLIaeFwtazqt3BgGQ4tN7ou3QJmLsvwZ/4lg9GKWzQRL/Xeh+n1LKyI4rFcmt+3XPOPkEzVutf0hsQlQC5Pu3VjSjwrApizVNxTjhVNhOguneVqbXTemCHt3DGGwKOmhCv1NwN49ENekiZOYA+SGCQQ9OWUumGBWZsGfDVWWpjcCtkMXhsFkPDb9X2S63wdX8GyNCZgDJX5X57JhKz4D855fPWPXdfsGZrRe/ywhjOwLhUwHuu+lFB3lVn77EfhYv3E29DVA1suGiMuAMjtKn2ENXkEz/Zkqwf8h8t2GSFSZc9vwJppVbXR9BeNxJwaachpQkSvNom9uA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iRcR63eSkad99HHrIf8c3stt2LgXQ3oTsHFraoTOF8o=;
- b=weQqi7xkr2bXuY5VGcRsHhCFMpOJTPhaTvOkK53UmUj+gaVhah9ofgQTG1PsQOcMqSAIy6x1G6mUdKfl4Lg+x5v7lIVB+Fdf+k/QD3zO0riij07x+k3sLzu1d1AVOlQBzy9zLXOU4CSyketTfuPPljROw2ZN7Le7DeiN+khJulr+dEkqUbjmoG/sZQx8AorEWIM1qhhKHihbdBRKHW+LMs5N/ss69qIEzwejP4ZdWNR4d8597KJVXunFW4qvSH/Q7oETjSMFvozcx929vPYVpBpUsUhL3HkXRfatZ3HPiq38vjVEXDUsjckKwIKlrtOdnzFhWRwntPp1j/LtJsBcRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iRcR63eSkad99HHrIf8c3stt2LgXQ3oTsHFraoTOF8o=;
- b=hDOMS/ATNpMkCpre9zjRG1WX608KezVxQtLmAwmvUwX+mYe9tnnWu7ItxedrRM0ywDcRxmC4cPTEPsUcNT6jMYoszxDaht/EIMxjYdv/66xOzINYrB1nUbS1C+g7b0uaDACKkB2ZdrNibH1ClkDUeUCANlZOkuIe2vK0J0cHxdiK8IuZ7DbScw1gg/t8F94PMA2+NXIG3PYfGam8QWyLGXPw9BiKfQBxM6LuhQCtE3yrmQsktJWixrLXmKraqQSAHvQ1gIaWUklLQyfeiQBWB3er5JSSVoipSupZbf6MKbHL6nRchMB5BrHmbjuJCXTyGddI+3qk2194WEgXdmlItw==
-Received: from SN7P222CA0025.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:124::35)
- by DS0PR12MB8293.namprd12.prod.outlook.com (2603:10b6:8:f3::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.15; Fri, 31 Oct 2025 21:00:24 +0000
-Received: from SN1PEPF0002529E.namprd05.prod.outlook.com
- (2603:10b6:806:124:cafe::b1) by SN7P222CA0025.outlook.office365.com
- (2603:10b6:806:124::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.15 via Frontend Transport; Fri,
- 31 Oct 2025 21:00:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SN1PEPF0002529E.mail.protection.outlook.com (10.167.242.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Fri, 31 Oct 2025 21:00:24 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 31 Oct
- 2025 14:00:06 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 31 Oct 2025 14:00:05 -0700
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 31 Oct 2025 14:00:04 -0700
-Date: Fri, 31 Oct 2025 14:00:03 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Ashish Mhetre <amhetre@nvidia.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <thierry.reding@gmail.com>,
-	<jonathanh@nvidia.com>, <jgg@ziepe.ca>, <linux-tegra@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH 2/3] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
-Message-ID: <aQUjU/mgccX7mt8R@Asurada-Nvidia>
-References: <20251031062959.1521704-1-amhetre@nvidia.com>
- <20251031062959.1521704-3-amhetre@nvidia.com>
- <20251031-witty-sociable-chachalaca-b73dbc@kuoka>
+	Fri, 31 Oct 2025 22:21:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 39A4960256;
+	Fri, 31 Oct 2025 22:21:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D18ACC4CEE7;
+	Fri, 31 Oct 2025 22:21:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761949298;
+	bh=kbtWjVrlAh1nObdL3lBppK9zumwscuazIRUIkocJERM=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=MLvHUeD/zj82Xj+2g6Rb9DRhatOKw6rEfMxe7UUqrHOXadulrX1kK+aWLDiX23nti
+	 iJe/4fEuxeRtqIb8kBIcyM1pGJ3420VlL8Kv42uZi+6vmOT+OfcE9eiPEcHri3FiHM
+	 Wq7Tb1eWsxH7VpV+y8LPM7twKRETKWwTLT4rqD7mDvloOUCXqy7brGTjUIUPoHbYoD
+	 Cd0ylmWoaHAVAFSb242z5OCgegR6fJK2CfcQ3hJ9FND72hgTpLwoNm7mY9EXM8wuAN
+	 QSJGArw0G1I+YJ3iQ2GRLexzKvP/2cD0pdWS8xSTQ6D9N77FlAclwJGBnnWGCol8V5
+	 ykzwtYqbXWn/g==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 4F617CE0DEC; Fri, 31 Oct 2025 15:21:38 -0700 (PDT)
+Date: Fri, 31 Oct 2025 15:21:38 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <43c2b8f3-e7b3-4f0d-837c-eabc059af0f4@paulmck-laptop>
+References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
+ <aQUAR9MRxP6_qtEH@arm.com>
+ <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251031-witty-sociable-chachalaca-b73dbc@kuoka>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002529E:EE_|DS0PR12MB8293:EE_
-X-MS-Office365-Filtering-Correlation-Id: b15feded-d508-41c3-01f8-08de18c082e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?c/Cl4llGOpzFNh3Yoy0vS7Kx4oDSH1w8EPJ5BszjFfJFFeTs1OMDtHsMNiDD?=
- =?us-ascii?Q?Lbmctt2e3PdrcIc6Oz5Ro44hnf+58RRUNe0bQCDpQ0b3RHDW59kYb7ASYnsd?=
- =?us-ascii?Q?KecmQcTjbeeceWeShwWoNdyvmFkYn/aVWbFYSJlVwi6RrO9TcP8parNfTp2x?=
- =?us-ascii?Q?xDrgjqT3EHDjFwcdeVg1ycaoSCSn3aN+3Mx+1N49lVblz05ytgdo3wY1dQ1b?=
- =?us-ascii?Q?vaOni9bjOgx+kZoQqw8lWZ8xqWeJLlw7M8gpKKNgwIar8uridv54smRDTwM3?=
- =?us-ascii?Q?ZoviNXMVDUOC2tq59TQ1mk95Z0FM/BedH6kLyMvfvh5+AMmoopG7BPg3Yxll?=
- =?us-ascii?Q?IW5HJueIWVE+5vIYFbwhF9bAn5FocUhmccP0VC82q7BR+cFTbvkVqRyWtznp?=
- =?us-ascii?Q?MIvo6oxS9Cy8SbmQzzrmZ1x6QkO/0HYXKn45OVvfEzLo37jn6kmVLu2hNJ35?=
- =?us-ascii?Q?Uyg1ly3CjxizJmnAyigyGsu9/agOm0baThiNwooVxWg9kHMaSf6vFba1uMPp?=
- =?us-ascii?Q?2Ro5+NP7Xi5UyU8DaFEErCkY9S8sFKB+YnFwpSC5F60JNUOow8mLP9pHVjLw?=
- =?us-ascii?Q?4/jVzcpovWfbnACjHBBY/uFnz6RtjDKh0VEZvNuJdnVK6rxY8duLfre2idMP?=
- =?us-ascii?Q?6uKuzjCzi/Vm8+EuD24gonnCwVCijGHTGPk/Y/2D9T9+ICW7BHfSU9d7eLh5?=
- =?us-ascii?Q?Gy9Wvhvc4aBzi5H9GfzYJD81vjWSV7jtpCRvwMVTIxoazd23CLyxluSzxPJs?=
- =?us-ascii?Q?KbQvDRRSVqtWKKLKb08xOc1N4pa+uv4taYyrDmP5uR3alRWl/a/4yBptKN95?=
- =?us-ascii?Q?91Kqov5er8APN3efmPcR4SDQn81gsKTOjPpE2VJYCGAn6dgtMjJGeTAHshua?=
- =?us-ascii?Q?AOs6kYjXgXXiUOEzyF9AhtZ7KFd+3EKExDF09i7Jocy1CI7eREDcGQikrZkx?=
- =?us-ascii?Q?mYT/YSB7H+15nBu1V7AuMAai+nQQ7rhsVnk2XgNKkEZ5BynV1C9MlaTiQVwu?=
- =?us-ascii?Q?XmolAuXAUCYpOciUU/Gb5bjNjqHUcQt6CB/Mmi8Ghp9blMQQL6Eyw7up67bC?=
- =?us-ascii?Q?ljdfWq/VhcoaXsRvwtNJDRPPO0QnVO4NHmyLpt2+vwhmbzgmoPn8Nw7MZGLG?=
- =?us-ascii?Q?uorVaejBVWCkO5aRYCCp5ryLAopiEFRRrsTevKtqtrGDKiAamucBLTOgwKwp?=
- =?us-ascii?Q?5DtvwwwaFgYbW3Cg8VTTAoQFBSgi1icgwHXA+N3Ip7iBmi+ISNPMSF5Dcnbt?=
- =?us-ascii?Q?VrSfPAPcSRTiabaTH9WU2YKIL0aGYX+Ef4QyynZyQChmNhGhHVjUVdi3AJlj?=
- =?us-ascii?Q?/6plgKG6z8Adw1MLh3s61YGr2YGJpz3gri/yTgxg1WvGKXezrtxSlwxMFAo2?=
- =?us-ascii?Q?XJsgR90DMdCA/3BjdH5bkOsgPY9lqDtCSZMxhInByLTT8tlM3WjRf6WqrxBd?=
- =?us-ascii?Q?cMN4GuFTQox9ZhdaaUOa98k9q1bP1qXubchnkg8wwMMFeN+x+tYiVtnmXezc?=
- =?us-ascii?Q?QZf66pSLcIFLbC/d59l5qg+ZqcKmNUoUg3X/lcND1LK8CRX9WO4yQXQFyN1M?=
- =?us-ascii?Q?YuwYAHLnYAGtanAeMTk=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 21:00:24.0777
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b15feded-d508-41c3-01f8-08de18c082e8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002529E.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8293
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_140033_653671_A9A339FF 
-X-CRM114-Status: GOOD (  12.41  )
+In-Reply-To: <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,22 +69,136 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 09:14:25AM +0100, Krzysztof Kozlowski wrote:
-> On Fri, Oct 31, 2025 at 06:29:58AM +0000, Ashish Mhetre wrote:
-> > +  The CMDQ-Virtualization hardware block is part of the SMMUv3 implementation
-> > +  on Tegra264 SoCs. It assists in virtualizing the command queue for the SMMU.
-> > +
-> > +maintainers:
-> > +  - NVIDIA Corporation <linux-tegra@nvidia.com>
+On Fri, Oct 31, 2025 at 12:39:41PM -0700, Paul E. McKenney wrote:
+> On Fri, Oct 31, 2025 at 06:30:31PM +0000, Catalin Marinas wrote:
+> > On Thu, Oct 30, 2025 at 03:37:00PM -0700, Paul E. McKenney wrote:
+> > > To make event tracing safe for PREEMPT_RT kernels, I have been creating
+> > > optimized variants of SRCU readers that use per-CPU atomics.  This works
+> > > quite well, but on ARM Neoverse V2, I am seeing about 100ns for a
+> > > srcu_read_lock()/srcu_read_unlock() pair, or about 50ns for a single
+> > > per-CPU atomic operation.  This contrasts with a handful of nanoseconds
+> > > on x86 and similar on ARM for a atomic_set(&foo, atomic_read(&foo) + 1).
+> > 
+> > That's quite a difference. Does it get any better if
+> > CONFIG_ARM64_LSE_ATOMICS is disabled? We don't have a way to disable it
+> > on the kernel command line.
 > 
-> No. It should be a person. If entire Nvidia cannot find a person, I
-> don't think we are interested in having this in the kernel.
+> In other words, build with CONFIG_ARM64_USE_LSE_ATOMICS=n, correct?
+> 
+> Yes, this gets me more than an order of magnitude, and about 30% better
+> than my workaround of disabling interrupts around a non-atomic increment
+> of those counters, thank you!
+> 
+> Given that per-CPU atomics are usually not heavily contended, would it
+> make sense to avoid LSE in that case?
 
-I was the submitter of the driver. I can take it up.
+For example, how about something like the patch below?
 
-Thanks
-Nicolin
+							Thanx, Paul
+
+------------------------------------------------------------------------
+
+commit 0c0b71d19c997915c5ef5fe7e32eb56b4e4a750e
+Author: Paul E. McKenney <paulmckrcu@fb.com>
+Date:   Fri Oct 31 14:14:13 2025 -0700
+
+    arm64: Separately select LSE for per-CPU atomics
+    
+    LSE atomics provide better scalability, but not always better single-CPU
+    performance.  In fact, on the ARM Neoverse V2, they degrade single-CPU
+    performance by an order of magnitude, from about 5ns per operation to
+    about 50ns.
+    
+    Now per-CPU atomics are rarely contended, in fact, a given per-CPU
+    variable is usually used mostly by the CPU in question.  This means
+    that LSE's better scalability does not help, but its degraded single-CPU
+    performance does hurt.
+    
+    Therefore, provide a new default-n ARM64_USE_LSE_PERCPU_ATOMICS Kconfig
+    option that uses LSE for per-CPU atomics.  This means that default kernel
+    builds will use non-LSE atomics for this case, but will still use LSE
+    atomics for the global atomic variables that are more likely to be
+    heavily contended, and thus are more likely to benefit from LSE.
+    
+    Signed-off-by: Paul E. McKenney <paulmckrcu@fb.com>
+    Cc: Catalin Marinas <catalin.marinas@arm.com>
+    Cc: Will Deacon <will@kernel.org>
+    Cc: <linux-arm-kernel@lists.infradead.org>
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 58b782779138..b91b7cbe4569 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1927,6 +1927,21 @@ config ARM64_USE_LSE_ATOMICS
+ 	  atomic routines. This incurs a small overhead on CPUs that do
+ 	  not support these instructions.
+ 
++config ARM64_USE_LSE_PERCPU_ATOMICS
++	bool "LSE for per-CPU atomic instructions"
++	default n
++	help
++	  As part of the Large System Extensions, ARMv8.1 introduces new
++	  atomic instructions that are designed specifically to scale in
++	  very large systems.  However, contention on per-CPU atomics
++	  is usually quite low by design, so these atomics likely benefit
++	  from higher performance, even if this is purchased with reduced
++	  performance under high contention.
++
++	  Say Y here to make use of these instructions for the in-kernel
++	  per-CPU atomic routines. This incurs a small overhead on CPUs
++	  that do not support these instructions.
++
+ endmenu # "ARMv8.1 architectural features"
+ 
+ menu "ARMv8.2 architectural features"
+diff --git a/arch/arm64/include/asm/lse.h b/arch/arm64/include/asm/lse.h
+index 3129a5819d0e..2d5eff217d63 100644
+--- a/arch/arm64/include/asm/lse.h
++++ b/arch/arm64/include/asm/lse.h
+@@ -26,12 +26,19 @@
+ /* In-line patching at runtime */
+ #define ARM64_LSE_ATOMIC_INSN(llsc, lse)				\
+ 	ALTERNATIVE(llsc, __LSE_PREAMBLE lse, ARM64_HAS_LSE_ATOMICS)
++#if IS_ENABLED(CONFIG_ARM64_USE_LSE_PERCPU_ATOMICS)
++#define ARM64_LSE_PERCPU_ATOMIC_INSN(llsc, lse)				\
++	ALTERNATIVE(llsc, __LSE_PREAMBLE lse, ARM64_HAS_LSE_ATOMICS)
++#else
++#define ARM64_LSE_PERCPU_ATOMIC_INSN(llsc, lse)	llsc
++#endif
+ 
+ #else	/* CONFIG_ARM64_LSE_ATOMICS */
+ 
+ #define __lse_ll_sc_body(op, ...)		__ll_sc_##op(__VA_ARGS__)
+ 
+ #define ARM64_LSE_ATOMIC_INSN(llsc, lse)	llsc
++#define ARM64_LSE_PERCPU_ATOMIC_INSN(llsc, lse)	llsc
+ 
+ #endif	/* CONFIG_ARM64_LSE_ATOMICS */
+ #endif	/* __ASM_LSE_H */
+diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+index 9abcc8ef3087..eaa3c2f87407 100644
+--- a/arch/arm64/include/asm/percpu.h
++++ b/arch/arm64/include/asm/percpu.h
+@@ -70,7 +70,7 @@ __percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
+ 	unsigned int loop;						\
+ 	u##sz tmp;							\
+ 									\
+-	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
++	asm volatile (ARM64_LSE_PERCPU_ATOMIC_INSN(			\
+ 	/* LL/SC */							\
+ 	"1:	ldxr" #sfx "\t%" #w "[tmp], %[ptr]\n"			\
+ 		#op_llsc "\t%" #w "[tmp], %" #w "[tmp], %" #w "[val]\n"	\
+@@ -91,7 +91,7 @@ __percpu_##name##_return_case_##sz(void *ptr, unsigned long val)	\
+ 	unsigned int loop;						\
+ 	u##sz ret;							\
+ 									\
+-	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
++	asm volatile (ARM64_LSE_PERCPU_ATOMIC_INSN(			\
+ 	/* LL/SC */							\
+ 	"1:	ldxr" #sfx "\t%" #w "[ret], %[ptr]\n"			\
+ 		#op_llsc "\t%" #w "[ret], %" #w "[ret], %" #w "[val]\n"	\
 
