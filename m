@@ -4,151 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424EACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 19:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82300CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 19:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CAOiQNPBel7v66o39Mem2iIelbHcFsqEk0GQaQno2pQ=; b=g0jMTIzvnng0AuwbEVsmbEcRCp
-	IFjutNbjCDBqZvm5LPOPR/8+Zk/Hd6CZ/U06tkk8nk7kq6KuILAm8spzY6QzAc32cBFE/OyNgbGH9
-	rXw/pU6zuuvQI7wkemMnrkZzslIF5Uk+ZqvazbYyfjTX3+3ZJ2V+T56j/L/7d1srVCVpGsRPa9rck
-	kvceHo2o510QNcqUVKzPHB3U2vRMj/6xYqxq67EHXczOpcEkV5eP95MYyiFxVWMRn6PZv1dmtB84C
-	ydkhruyMmbGYcTR3VfVaeCjzRBrVj2U/bES32z13s7TGquU73R6KdxTarVtpZ+nOtxDbncyrwcMhm
-	JkschsxQ==;
+	bh=GctXqqwq29gzrkvaDlLQqMTX++Y+8RuGuXk9QTItqHw=; b=kXyCSu/cbzKRQqmsD7eErpG5ee
+	g7c5YDM2LqymalLgNWDTehecn7cGWwc7t4L9Q6hkJaUAqfbT3CWT63MpFgFpMSGHZQzwUvQjqTAuG
+	C7GE8I8ij0uNU2Tmz/F7Tt4uzTqCPt302n0C3E5+T0kEdgvyKTKnmwBXjPactaG9zi5EorKUM+B6D
+	oWueMsrPYDOSlEPSbY7EOeT3Gp9Rr1NSduMxdzirqRoiGMqkRS68RgUSg5ZkmOsETfV9pRZ1+yNHC
+	Rzo8FgABnfkpH/K3tE70F1fzweflS64tld6lmAmO1QsG8oUmRghJpF35iFXuMW+mnI3eSTgNpTF9Q
+	xXUzsJzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEuxc-00000006j2I-43Iz;
-	Fri, 31 Oct 2025 19:38:56 +0000
-Received: from mail-norwayeastazon11013048.outbound.protection.outlook.com ([40.107.159.48] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vEuyQ-00000006jBw-1lPJ;
+	Fri, 31 Oct 2025 19:39:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEuxb-00000006j1C-288p
+	id 1vEuyN-00000006jB9-1txP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 19:38:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mybKVNeogoCOI8SRlvSFlTgSt/EbFVJbZ8ZP50rg2hv2eDTfP7/wafNTNXHRpJssDueC9UsJPDToROMHpwY2Xd+1OG1PvtrVhBV4/GkFFAQEJRzhf9ACLaLg5gVdlMXrlv+Hk3X2Hl/bVlAKA2k9ZAkd+ryW9rm8phM91EHaQVzixpcYcuJSFoRqHCMq6Pmjkw1te2r688DrOJR6iP3UF1nVG/Hhfxy0uaP75lwkkVD+wZNFLEWs1KxpNePJMj5pUf3ey7fvrJIy4KbwR6ThD/Djd4B/Lst3ZFbprHVbJtmg2GxLDSeqzCvSOsZtYXfA4P7eOxTGCgmNAXcGdEbUtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CAOiQNPBel7v66o39Mem2iIelbHcFsqEk0GQaQno2pQ=;
- b=trw+Mn9Sif8XXcjZ6WyBrAxTrfffv4lJO4lbvrMZElZ0WAu4hFVqSzYld3cHCSQ/HyEZdTfx+zETLQ6kD1Iyxk15RdJjD/sL74SRaod703C1cFJZF4BRx74HS9fwdA9WKJAMwARiAh9MNidB7yeHsKkWc4gwTHpJqj/FlXVCIyjdNBiqwhMjRsJiiU/wugjy8QEWtLw1xoEoowRnpDbl7H5cEPa1bkGCD8brNaAQ+um53p0rb5+pSTJ69/GyCTtw7vMKyPQrFBW3OtqG2dYFPum5urOosNEktUYeUN4t/1lR4LnIWGS/i1GKJWnKx6RJrYXhwYpYZXxxaw4KGnHjOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CAOiQNPBel7v66o39Mem2iIelbHcFsqEk0GQaQno2pQ=;
- b=GTMQAQlPSvBfssx691stUSVOxst0IcLvF0qX4yjT4dcT9ib2RIVsaDV2mkgyxA0o6b9sx11jIeL3RgLtvf6gC6QqdUVvf1oWXQySlTbxm6ryv4tqXx1ts/1zRVPALp88blteZei5cy5/vIW4H87DlrK9Cb3+E6GkEZxhyMkFacPzZJKvs31x3oC18pnQA7IANCTgittt+SmBOSiJZeeY/bLa3gIBXvp4ts5kr6JOZkxPrB1zHtOFUGVYnjLYJY4Jt0O19vOLBp/kGaTPC8A58gjW9YYUJ5kxxGU7BqMH7XjGlyzavN5baE5irWA/bG7ksf1sNpNsXc3aoAnOcJ5Maw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by DU0PR04MB9468.eurprd04.prod.outlook.com (2603:10a6:10:35c::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.14; Fri, 31 Oct
- 2025 19:38:52 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
- 19:38:52 +0000
-Date: Fri, 31 Oct 2025 15:38:39 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 05/11] arm64: dts: imx8mq-evk: Add supports-clkreq
- property to PCIe M.2 port
-Message-ID: <aQUQP2x18ODq8zwT@lizhi-Precision-Tower-5810>
-References: <20251015030428.2980427-1-hongxing.zhu@nxp.com>
- <20251015030428.2980427-6-hongxing.zhu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251015030428.2980427-6-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: BY5PR03CA0017.namprd03.prod.outlook.com
- (2603:10b6:a03:1e0::27) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Fri, 31 Oct 2025 19:39:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 38540446AF;
+	Fri, 31 Oct 2025 19:39:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9BCC4CEE7;
+	Fri, 31 Oct 2025 19:39:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761939582;
+	bh=j0kdcnOS4wp/B9Iv4K5vIQWuojAFEyejrrlkJvsu4TI=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=jppHkdIm8Vsc2CfKtKRS40xUj8v9ljGC31ZjXLKN7n02B22RecckbkASbXMG8MJTo
+	 c4LmnIe815rya/Q6hAxEouyU2t3MwA+fNQ0mbZ1Nj8cCTAJ009+SHP/qROsg1tB1gD
+	 +W1tvqYl2pGUpx5TvzxQiZQ4ntZm8uL7ULc4abJV1IrjqW+nSPgZKeU++KQcOHHg85
+	 wTZTYEraIYwBBJGb1ggjvw4bI4SrEuxazO+AiALFg1snZIEmiXL7oVFDSCiDQsaBED
+	 hpwtt3rAh0DPpTbneteqd0V5KxpZo7umvzpT/FXHY6IxrNhZeHOoY9yZebRrZ4IK0q
+	 nRaljHiL5e/Hw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 9999BCE0DEC; Fri, 31 Oct 2025 12:39:41 -0700 (PDT)
+Date: Fri, 31 Oct 2025 12:39:41 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
+References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
+ <aQUAR9MRxP6_qtEH@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DU0PR04MB9468:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b8cbb92-0b86-405a-fc2b-08de18b51ce9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|366016|19092799006|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?L83A3FUNQULlxdVygQIffKlovqvKlWQBiXlQbdLMBqvCb8ktusDB1oHIIh5o?=
- =?us-ascii?Q?FfjTo9Z1XgohFGzTbbPvdOXt0U2WAyshn5V9JbF3Ls9fteJ+WkvupSmmoDFL?=
- =?us-ascii?Q?J6vFLgr6sE+BS6CEw5pWBrLg9SFs6Lb31fFUlqS+i5dnquQqhd86moRBqDLN?=
- =?us-ascii?Q?Fpun3cZZblfalniPauBuYw5Q0XeAtHjbokH3P8yAApvMO+0jPFF5fxsl00ci?=
- =?us-ascii?Q?GeO5ToJw+Z8/j5btBfHZI0Vb/ZJ9Rb92tbiG3CBfuZj8YPkj4xRThVnms0bb?=
- =?us-ascii?Q?qW/6Mr3E+cwJ7oKd4BBOjNC1i/SAT1rfbAjVjDaBld6X3X3xbIkqsOdupNwr?=
- =?us-ascii?Q?ElYgLM79fu7HKfQPO/yVIw122439027wincfo3MJ3G96J7FtQUECXnfUQJ65?=
- =?us-ascii?Q?NQnuhYxmcZVD1r++euxcA0syzgO9M5lcf9mgmTwWRpv1U4IOG5S8Bn9SpE0b?=
- =?us-ascii?Q?dw66BMehPReqE4XOAgYUAZwgfBznndJuVYNjCP3rmUwz9G1y2KOZHWviCrDI?=
- =?us-ascii?Q?5ndt3d6JsP5sZ8AALMlC6kZRtZG0CeWEFS0c9lArU8CoBroN69fjuOTV0U2P?=
- =?us-ascii?Q?rRpDiK0WLEFR2EbeteDsQEEw7aDU7lLokxl/VkeO7BQBh2MnbfgIL2ufGzTf?=
- =?us-ascii?Q?2sFyI8i8XhdOEbYApSR5J9VPn7cP2YziwgJKrPk8G45LE30EPtzzUkXuJJkC?=
- =?us-ascii?Q?8J1qhObpvVn7Q2OsHxiFXfbkqlYrZ+dQ+23TlOSxZ6jmqBldKCVzSRmjbUF5?=
- =?us-ascii?Q?PFpUBglMdSqamH5v0xSH9FSj7mTQgJtbFZYQ4KJoh2fVM4jDMhe9VzGAfHy/?=
- =?us-ascii?Q?7KBWNslnuSHW6rj2IrvbL6rCBE/n30prp0ByjnvKk2F+7+ftl4QRc+/XrfrZ?=
- =?us-ascii?Q?tvXaNnRnsMN9yLQ7ZSTFuHz01xE7jBen+62t87O58b5X9H29iNzTf8fXXADm?=
- =?us-ascii?Q?PzNHIKwxACLCr1ZHFOpKes8hUmNRizw1VKbtx//fUbcndMLP89ux8131F/LV?=
- =?us-ascii?Q?+ZrPtSMBbG/aU9TEXrEW6WFdkY1/x9W3Fryl9WPY4IzZbPxXVJ7Urzyml7fH?=
- =?us-ascii?Q?kshP5vRIpcJc+RMJE9Zgf5ZwzBPNm2gcanhVQKKFhiMl49WAkGyDP1fv5qbU?=
- =?us-ascii?Q?WFKjpkxLsxFi2xkYJOgAbASI8/tZAapCGIpMPN4X0dah9RR24B26CMWnj19W?=
- =?us-ascii?Q?IDcmTtcIUiXnLVniY8o+cPsO+8P8HO0X6h+9YxZBnIDMTe/Pd3jdqHSoa/Nr?=
- =?us-ascii?Q?rp735eQRwohRqEDsm3bWak82hRItgZ1nx3KQSEKRWXed1eIETlaZZWDUG5o9?=
- =?us-ascii?Q?JYlX6VLwLmwK2LojgOaaBDQUtUqBjvzGYtacG8pn3We7SL3UWsde5PQopGns?=
- =?us-ascii?Q?uULMVV8ra9zJzVcOAxJnlqfs2spf4/JLHC8Jz3ElYbdlo+cZQSSbyb6whaNY?=
- =?us-ascii?Q?0i7kGZoPzmcrhNdY/KCTKRVkNaCKEc+mxFHd0joh5fjk8TrpYankUggB3O4j?=
- =?us-ascii?Q?bX699FIlDHcCu2Hc7OC9CP/9o8hCsdD7EUXb?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(366016)(19092799006)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dXgOOZhtH1eLOHxDxbHOsVA+0vHmncD2mr5hwgvDIspmSH+VHrv5fBtBTYCE?=
- =?us-ascii?Q?XbdAyYxyPhSdXr6JIaXUt2XNIAXCmIeNdtJCXo0qoL4M8MKm46tr9NkMTkAA?=
- =?us-ascii?Q?qn1v8cSXQsDLYb8MCcaXxnihpX9id8j4BKiEQtHk+VT/HR/R9G56OD2hhQgw?=
- =?us-ascii?Q?q/D7k1tokhpPPLgkBigkZv3vsVgx/qpKpT+M1G7nKynsPU/wb/ImMTLVSItB?=
- =?us-ascii?Q?YoUZK0D09dntum4fZfZuriUqW9mVA1m6frwkrtKrI1ySg856RU0QcaPMohNW?=
- =?us-ascii?Q?Q1426gT12Y/jIIn6HTfGEzOIDl1dW68y+A2wwV/ABALEMPv3Etr4vHyn43lO?=
- =?us-ascii?Q?e1jCk6aljUnB8V0du95k1uW8HhGm9zDk3wc54Dr8sFsd/8xkhHDhSxgrnH86?=
- =?us-ascii?Q?5wKEzzwoJ6yABP6niI42h56rQqQaIzdOKcQD1iYDnq8TKFtZq2CIlZPEBxCv?=
- =?us-ascii?Q?X1n5jG0llxktMSe1scm+mAUCjtcJ9YF1P+Tu7KklZs9iuzeuZiHRIsx1UMqd?=
- =?us-ascii?Q?UyTiMnzqXFNop87q2DbA3/eW32fs6Wmp3EfzNvp+uuDDZC2P4ubDzIZ0Z+RI?=
- =?us-ascii?Q?PJX83nqoIEZtPg6TIGxV6C0QJgc6YnWv8Lr6XA17rWUpAZPt2bFK2VWvOGE5?=
- =?us-ascii?Q?qqQkYfnOdBUrO1sax67HFLkngWRTOtMwgrL+l57sRfTfAJwPrP0ue1qB3snu?=
- =?us-ascii?Q?cwBnPEVTjucBgfuS91ttI1Nd1N4uE8T6rjiwK8pVJXTNl1Vbu43vx/suXzfq?=
- =?us-ascii?Q?YEC+wS0aq28bauGTfp79S12Jkd4ilSCYOEFRUpu1DbOtTRNEGB2RBuUqQbd7?=
- =?us-ascii?Q?+pzBU7tP4kUdAAAun9baWZfaPqhzsyaRuagiQxOFTBzTNiWMi6wgs1QsRlTi?=
- =?us-ascii?Q?AnfCmZK1YBd2PdXI/HXqAUU5T5smKv+SexI6Xv49TZxkYElVaNhXtTCElQfY?=
- =?us-ascii?Q?hzA1Bt7GXGR9IVm6eUIPZ16cu4JG1Wzbpe9CZ+V3ZVY2C7zrRLJPs77IOiO/?=
- =?us-ascii?Q?id38L+0x/bzu1TaRQUjJ0xQ+zM6TQHCsxNwI++K4tNb7tS5Eh1LrGV2+nepl?=
- =?us-ascii?Q?sCiPbap/QgpXfRq0uhUDqzsP9cOgK8CB++VuPYO4AfsWurBFXjgeUAXOvS/M?=
- =?us-ascii?Q?aD3HZxxmWYw4FT/Rc4BpkSGEW8N8xo0jBRoJvKWOorCeQ0YiIk/X9vivyAVC?=
- =?us-ascii?Q?vOMzHFKhjO12DOkkD/3TMOW62h6lLVTbVdKD07+tUv2BO0JR5rwpIbUMCrju?=
- =?us-ascii?Q?JGODMGfhE8KiRkb4jZPDhXQe7YxTGTZWALQUS0EFNjs3T44JWjSszUDwptAI?=
- =?us-ascii?Q?9J1hDBbJ6BhN+awS3ZvNTaeZbcrrI6hyAc3/Ir2Yhgt/jhxk1WPcLErg10oi?=
- =?us-ascii?Q?iXv5OcvckY+N5yTUQ0u0gWMHXmj2jNRJfHhG3Oxbc/LQzcwHYdqWasgHa+oz?=
- =?us-ascii?Q?FfUncjkesIUGzVI44cAVykp9Po3IHSiNr2xXyTECdgig+YcX8M3ikGFdz+JY?=
- =?us-ascii?Q?6P6f9KEzSe6SumoBF2tU7h5E/Nx0UPAosf10KQDiuTW4WsENDi3GJ+qD8m0N?=
- =?us-ascii?Q?K/tC0hzbs4EWrnAxQpc=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b8cbb92-0b86-405a-fc2b-08de18b51ce9
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 19:38:49.3695
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YB3p/DXDOW45nKmPf8IQRE/3lcGEML6YivjsJ2usEuGvjuZDpPeRmkp8JTXiNXJKAR5kbB6BgBddL6KAN2yqYw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9468
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aQUAR9MRxP6_qtEH@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_123855_547753_329E7A3D 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20251031_123943_540057_4817F02C 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,51 +72,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 11:04:22AM +0800, Richard Zhu wrote:
-> According to PCIe r6.1, sec 5.5.1.
->
-> The following rules define how the L1.1 and L1.2 substates are entered:
-> Both the Upstream and Downstream Ports must monitor the logical state of
-> the CLKREQ# signal.
->
-> Typical implement is using open drain, which connect RC's clkreq# to
-> EP's clkreq# together and pull up clkreq#.
->
-> imx8mq-evk matches this requirement, so add supports-clkreq to allow
-> PCIe device enter ASPM L1 Sub-State.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
+On Fri, Oct 31, 2025 at 06:30:31PM +0000, Catalin Marinas wrote:
+> On Thu, Oct 30, 2025 at 03:37:00PM -0700, Paul E. McKenney wrote:
+> > To make event tracing safe for PREEMPT_RT kernels, I have been creating
+> > optimized variants of SRCU readers that use per-CPU atomics.  This works
+> > quite well, but on ARM Neoverse V2, I am seeing about 100ns for a
+> > srcu_read_lock()/srcu_read_unlock() pair, or about 50ns for a single
+> > per-CPU atomic operation.  This contrasts with a handful of nanoseconds
+> > on x86 and similar on ARM for a atomic_set(&foo, atomic_read(&foo) + 1).
+> 
+> That's quite a difference. Does it get any better if
+> CONFIG_ARM64_LSE_ATOMICS is disabled? We don't have a way to disable it
+> on the kernel command line.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+In other words, build with CONFIG_ARM64_USE_LSE_ATOMICS=n, correct?
 
->  arch/arm64/boot/dts/freescale/imx8mq-evk.dts | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-> index a88bc90346636..852992b915a39 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-> @@ -375,6 +375,7 @@ &pcie0 {
->  		 <&clk IMX8MQ_CLK_PCIE1_PHY>,
->  		 <&clk IMX8MQ_CLK_PCIE1_AUX>;
->  	vph-supply = <&vgen5_reg>;
-> +	supports-clkreq;
->  	status = "okay";
->  };
->
-> @@ -398,6 +399,7 @@ &pcie1 {
->  		 <&clk IMX8MQ_CLK_PCIE2_AUX>;
->  	vpcie-supply = <&reg_pcie1>;
->  	vph-supply = <&vgen5_reg>;
-> +	supports-clkreq;
->  	status = "okay";
->  };
->
-> --
-> 2.37.1
->
+Yes, this gets me more than an order of magnitude, and about 30% better
+than my workaround of disabling interrupts around a non-atomic increment
+of those counters, thank you!
+
+Given that per-CPU atomics are usually not heavily contended, would it
+make sense to avoid LSE in that case?
+
+And I need to figure out whether I should recommend that Meta build
+its arm64 kernels with CONFIG_ARM64_USE_LSE_ATOMICS=n.  And advice you
+might have would be deeply appreciated!  (I am of course also following
+up internally.)
+
+> Depending on the implementation and configuration, the LSE atomics may
+> skip the L1 cache and be executed closer to the memory (they used to be
+> called far atomics). The CPUs try to be smarter like doing the operation
+> "near" if it's in the cache but the heuristics may not always work.
+
+My knowledge-free guess is that it is early days for LSE, and that it
+therefore has significant hardware-level optimization work ahead of it.
+For example, I well recall being roundly denounced by Intel engineers in
+my neighborhood for reporting similar performance results on Pentium 4
+back in the day.  The truth might well have set them free, but it sure
+didn't make them happy!  ;-)
+
+But what would a non-knowledge-free guess be?
+
+> Interestingly, we had this patch recently to force a prefetch before the
+> atomic:
+> 
+> https://lore.kernel.org/all/20250724120651.27983-1-yangyicong@huawei.com/
+> 
+> We rejected it but I wonder whether it improves the SRCU scenario.
+
+No statistical difference on my system.  This is a 72-CPU Neoverse V2, in
+case that matters.  Here are my results for the underlying this_cpu_inc()
+and this_cpu_dec() pair of operations:
+
+	LSE Atomics Enabled (Stock)	LSE Atomics Disabled
+
+Without Yicong’s Patch (Stock)
+
+			    110.786		       9.852
+
+With Yicong’s Patch
+
+			    109.873		       9.853
+
+As you can see, disabling LSE gets about an order of magnitude
+and Yicong's patch has no statistically significant effect.
+
+This and more can be found in the "Per-CPU Increment/Decrement"
+section of this Google document:
+
+https://docs.google.com/document/d/1RoYRrTsabdeTXcldzpoMnpmmCjGbJNWtDXN6ZNr_4H8/edit?usp=sharing
+
+Full disclosure: Calls to srcu_read_lock_fast() followed by
+srcu_read_unlock_fast() really use one this_cpu_inc() followed by another
+this_cpu_inc(), but I am not seeing any difference between the two.
+And testing the underlying primitives allows my tests to give reproducible
+results regardless of what state I have the SRCU code in.  ;-)
+
+Thoughts?
+
+							Thanx, Paul
 
