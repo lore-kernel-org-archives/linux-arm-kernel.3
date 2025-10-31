@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4246CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 029CECCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 14:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r16HOsdHrokCnygKXzJqFuEiJ7p0Vy0XUfBxLQB8xos=; b=MTXpasy5SHa7se5hVcHh5caTbG
-	L2EWn+J3494iqgTZ7RBsUD9midkfvw5jFvVUDVHJjelDUaHvT2631ddruKLp6y4Y0EnNoHOPx6zpn
-	G58d/mf6pqWk5j2+EAp+BHJl6sGGw9v3eneKiwS0YzBz4KbfS2bud3BVXUybS6Dj7RdD1/vfQJes6
-	/AIudL8OQ8Npyw0EzsAcc5/3+XYNZleFyUOvVLQsX9VlA5iBtk/UXmMI6R7nkxjWqQDIJv1gNXun4
-	O+VdwM9kcCGtmFeFQa/lGDc0hIpFPYExNittMQ9XUsequWEcd4UwN0RpwWN/gxW9LyaQeYM2vHuO8
-	aaWpXK9w==;
+	bh=Senli/gUTlb94KaG2bqE9W4PmPXuV1AXKru6PJLwQu4=; b=NhVYvT+PATRZT8YpcFTN8SX7Yb
+	yr800U213UMa1NVCY0scqwsXXer0+Le3EdWYLHfEdH40b5I/KYygZp3AwxXoDmUrs3/h1UpbNrSDT
+	sBb6jQP9B1FBiRXL4gBE8WMfS43tQSzcpJB2/QOhwtoqNQPxq1iv5F/TRbbPftNV09RMMRU00or4Z
+	FHL2ZTIrTxHMpUXi6eu6MPiMlcnLxC9DkeaOp4P8OMRNT5eUi01RHI7eM3UpoLDvTErhfchV940s9
+	xR8A7hlK40yYrUeHX7t+PXs6V4VmBmA0R+KFTdkTY/hv7/Y4UHHyLIPjx+vym48SWMIZ0D1L2YFkj
+	texpPTzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEqLh-00000006Fqf-0diq;
-	Fri, 31 Oct 2025 14:43:29 +0000
-Received: from mail-westus3azon11012039.outbound.protection.outlook.com ([40.107.209.39] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1vEqLj-00000006FtT-1uFl;
+	Fri, 31 Oct 2025 14:43:31 +0000
+Received: from mail-westusazhn15010017.outbound.protection.outlook.com ([52.102.128.17] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEqLI-00000006Fk0-2Tg5
+	id 1vEqLe-00000006Fpv-3Gwp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 14:43:05 +0000
+	Fri, 31 Oct 2025 14:43:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GR4c06yPfE4xjCE+VeU+onGMRWRGRP1d+FoqRYHobhps5mamN0zcEST6sJ5V1gEnee0GZ9incb/hx8kqCWNWGDxkbnjY8lYyG5oL/feJPAxB94vJmxor09Zk8uY6Jikt3dtav/RrO5dLyFid8wowQrKvMW5J6qe3f5Zy1/X3gPoazIXNCLvNvOVQpmKL92wT8w/JaJ2Xc1/zgt6mHxCsACv7t95TGIc8lMXzd/wFlzedYpBnJYTUh3XyjCM3xJVKIX7GAOvZtTn4kFVR5mYY8yyPL+/7DD+ykpFrP/bxTVcB2TJ+oYpSVIpBYq0mp7j8EJ2suIgx0+JYmfhjLubEvA==
+ b=cQoHTsMrDv+farJrB7xlJ3l9jcCwy516xdAPcNYUPqIhB8WWuMhYlX+3/hlOTBEAfAcwfKV3/dbLhDnmOOFIr8VSMyPunu0eH4fYaPPgis9A6COoBMrroNmm1Z86nMJRHeGVov8XWtqWXR5HYcptzUc5OWmmYvHptttVa6QC+PsX3E5LIl3tzVCI6iGi0PHk1LNu5n8Dzc3saUoD+qgnsYew9P5sXcGGyORCJHXEgDYJmK/7TEOJiLIzAnt7Dehj8bObetu6yU8+6R6K1Ef08UfUv75yZKAAghl3bVJVT7KPjM8LstyWGZ8QxCIAyUOoIv9iuP1eYNTEOp/XyJQTDg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r16HOsdHrokCnygKXzJqFuEiJ7p0Vy0XUfBxLQB8xos=;
- b=w8vQYbh1DEm2fyThOjKtGvHGTVgNr7fRtemlTYnrE5Q0hW5WgKyGhIHWwTEOiQW6K24uChbG9ffcad59UePTM6AE1UnLiOH/jCc4ToWfZ5IwNaqrybXiIvF+NNaitmnjp+XDTsZTp/LFN408WuEj2OIGYl9USvbGndT5j4/t2ST/P641FbxgXSVH7EO3dLGYz534bMXCpjBvqgNdIbAibMyGK64KzhP7R0dqNHsndrVzy4YTJxDv9O13mjF5lYEmmRJ2NSRiURo5m/VWATNKcA6IsA5d31KbTuID09YrPzfawpWsoTs0ENYLUH7ur1/O327CfxnjViTfXcm5gxaWrQ==
+ bh=Senli/gUTlb94KaG2bqE9W4PmPXuV1AXKru6PJLwQu4=;
+ b=a5dkskM17OZrtlvQlHnY4oegPgmKRxreXswZIOUvv//XZxsOgusK5KhIvfbm3h0ZsKA65ewwjWJ7Zz2K5QPB6kE0gH/ysGWF3CcuSbcrzbJs0K2VaZ6/tqEbFvWkravVemeMriQD1kMABrgn/zqIF0pi8zB2zIFMFSeF67pxII2gKdDqKnIIyNeB0QF1mQCs0+ecyBTOhUhfEFlUpqI0dm6ekAf9fCAtJ0eAwrkvvxbwOS1D3qGREmPr+ud0/6uQ9F3akswyO6exwflXjmmRTK/FnTgS0ek20zJXaRd26qUctt8D4bS66aItabv5jYSw6guJ2xzV8kOVhvp7tx+ivQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r16HOsdHrokCnygKXzJqFuEiJ7p0Vy0XUfBxLQB8xos=;
- b=lUhAPbpiUqB4IHsBAFoj2wt055we2XMvApnwx1GvXe9dTwqaaeZ0c34d4LWO3l2KYaJKdPFEnL74RPnBvuJPmS8PV1fh0e8TbGDuXXKzH+VilTetU74O7SMZJERkNWuRqLdTIbNvbZYrt0e1hn5eS/rXJwcd4h9QPtpura6efmU=
-Received: from PH0P220CA0016.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:d3::19)
- by DM6PR10MB4316.namprd10.prod.outlook.com (2603:10b6:5:21d::23) with
+ bh=Senli/gUTlb94KaG2bqE9W4PmPXuV1AXKru6PJLwQu4=;
+ b=P8R4e0rNASgq0y208QX7AI9Dfj4I5TDfQYlO7hNFjEpd5G8ODTbKxiHpVM5e5ufBiAzGRgW+dHSd8Cemrw/+SrzjOcdFhTjVhhAYv7PqlW4N4jZB6TVA7GHx1q6gqRjjabx2Clz3pzLsE2t8RLSv0pu2RmDqw73xR/qr7iuRntk=
+Received: from PH8PR20CA0013.namprd20.prod.outlook.com (2603:10b6:510:23c::27)
+ by DM4PR10MB7526.namprd10.prod.outlook.com (2603:10b6:8:17f::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Fri, 31 Oct
- 2025 14:42:59 +0000
-Received: from CY4PEPF0000FCC0.namprd03.prod.outlook.com
- (2603:10b6:510:d3:cafe::b1) by PH0P220CA0016.outlook.office365.com
- (2603:10b6:510:d3::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.14 via Frontend Transport; Fri,
- 31 Oct 2025 14:42:38 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.14; Fri, 31 Oct
+ 2025 14:43:21 +0000
+Received: from CY4PEPF0000FCC4.namprd03.prod.outlook.com
+ (2603:10b6:510:23c:cafe::2b) by PH8PR20CA0013.outlook.office365.com
+ (2603:10b6:510:23c::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.15 via Frontend Transport; Fri,
+ 31 Oct 2025 14:43:17 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -59,98 +59,101 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
  198.47.23.195 as permitted sender) receiver=protection.outlook.com;
  client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
 Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CY4PEPF0000FCC0.mail.protection.outlook.com (10.167.242.102) with Microsoft
+ CY4PEPF0000FCC4.mail.protection.outlook.com (10.167.242.106) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.10 via Frontend Transport; Fri, 31 Oct 2025 14:42:58 +0000
+ 15.20.9275.10 via Frontend Transport; Fri, 31 Oct 2025 14:43:19 +0000
 Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
  (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 31 Oct
- 2025 09:42:55 -0500
-Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE215.ent.ti.com
+ 2025 09:43:18 -0500
+Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE215.ent.ti.com
  (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 31 Oct
- 2025 09:42:55 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 09:43:17 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 31 Oct 2025 09:42:55 -0500
+ Transport; Fri, 31 Oct 2025 09:43:17 -0500
 Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59VEgf5Y4024498;
-	Fri, 31 Oct 2025 09:42:52 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59VEgf5d4024498;
+	Fri, 31 Oct 2025 09:43:12 -0500
 From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Michael Walle <mwalle@kernel.org>
-CC: Vignesh Raghavendra <vigneshr@ti.com>,
+To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <jyri.sarha@iki.fi>,
+	<tomi.valkeinen@ideasonboard.com>, <maarten.lankhorst@linux.intel.com>,
+	<mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <aradhya.bhatia@linux.dev>, Swamil Jain <s-jain1@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, <h-shenoy@ti.com>,
+	<devarsht@ti.com>, <praneeth@ti.com>, <u-kumar1@ti.com>,
 	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 0/3] Initial Kontron SMARC-sAM67 support
-Date: Fri, 31 Oct 2025 20:10:56 +0530
-Message-ID: <176192142805.427883.17050945919190775595.b4-ty@ti.com>
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/2] Enable OLDI support on AM62X
+Date: Fri, 31 Oct 2025 20:11:01 +0530
+Message-ID: <176192142803.427883.15770841375412671810.b4-ty@ti.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251017135116.548236-1-mwalle@kernel.org>
-References: <20251017135116.548236-1-mwalle@kernel.org>
+In-Reply-To: <20250913064205.4152249-1-s-jain1@ti.com>
+References: <20250913064205.4152249-1-s-jain1@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC0:EE_|DM6PR10MB4316:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab6779dc-9a51-43de-3a4a-08de188bc919
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC4:EE_|DM4PR10MB7526:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39c6b8cb-e1e0-4f60-9bff-08de188bd587
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|34020700016|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?djJLb2w2V3ZUNElVSm9WdUp2M2xIM1BnZjBoT2ZyWHdzSHE4YlFqOTJEOUMw?=
- =?utf-8?B?MjU0dUNyblcvd255dzU3QS9Ocm1peHFsWjVkOWpuZjMrZXl5RlFQN1gzK0lR?=
- =?utf-8?B?ZTE3SnZSMkExYVo1ZmtFdlBvZ2tpUmtDU255Y0czNnFocFJiWWpwc281RDVN?=
- =?utf-8?B?YXN0UVJUK3liQmFtMXhzdmZFY3RmczdxM2Z0OUJ0REdkVU5tc0hkd003WDZx?=
- =?utf-8?B?M3EzOVZPbzM2SE5JcEVzRFZtSnFIOFBISGduS1RsN0k0UHJ4RUhmdW9KdWxm?=
- =?utf-8?B?cnVGV2x3NURnZG9mbWQ1dDBPcUF5cDV6RXp5QUJHWHhnYUJlNEk0aHFhL1Na?=
- =?utf-8?B?SHF6eTlEMUJneHY1QVV0Zit1RndmNzZJb0V6N3YveE9RQm9pNGt1a3dwM3hw?=
- =?utf-8?B?MWEycVVIRy80UzZQaGlMcmkyK3cxbFB1SkxCNTVxblNydFRrY2dxZHBXVzlp?=
- =?utf-8?B?Q2NGRTFNdHNVNlJwRzZlSHUrNTZFaHY2Y3ArTHRhdFpJYVV1aUxiemtvWFd4?=
- =?utf-8?B?RW5vVVY4OTlhekpPSU1MeHNSTFhSc0pFRGF1QmRGdU5DeHBIc08xQlJ5b1hH?=
- =?utf-8?B?eUJLTE5TeUh1dlIzVWFwdjB3WW9SZlVnd0xJNmdCOWdkVWJWbkQwZGtMVjdN?=
- =?utf-8?B?SUpMdTYvd1h2MEV4UUljUForMTBrd2VrN093QmV3b2RiTEtZTnk4UTl5SVcy?=
- =?utf-8?B?bFRrUll0L3pwTUtLUWpsMThqUmRCbUM3K1RaQkJJL3NqVm54VHRwYkFMbk9C?=
- =?utf-8?B?Q05JcUh4alBYMWhhbDNjUHlGY2F1WGo1S0hGWGp4KytUMXJOcmhERUcxNUt2?=
- =?utf-8?B?Q0JOSU41aUJUalhZdWtZS2tzSW13OGNRN0xuTzY4a0lYaTZIY1o0R25HQzd2?=
- =?utf-8?B?UG0yZktBMDhORlZSd25XS1diVnh5TU1MNk9SSHNEdGlFK3pxMXdtMVluOUVJ?=
- =?utf-8?B?WlVxSEVHTUQ5NGRmT0NIc2UrWE9qQkxKS3A2WXh6L2NJV2xuNVZJanN3YVp1?=
- =?utf-8?B?KzJjUjhpRlY4alFXMXc2a2JWVEhLcnR6cmdpU0E1VS9jYURDQUZ5ZXRJR1V1?=
- =?utf-8?B?TWdqNzJjaWI5aUlQSS9TZkpnb3R5ZllVZE1PM3QzR2hucG41NHRzK3hGNlJq?=
- =?utf-8?B?R3VZSzlBTUhCcmZ2ZnUzZVFrWWV4c3VGN3dqQmdsa3pxV0V0cHlOckprWFNy?=
- =?utf-8?B?WmViS1ArNEhJd1VoYWZZTkFndzV0bUgxbXJmbjc4aEdiandWeS80WThPU1Nx?=
- =?utf-8?B?OXZQcUsxTld2ZmxzSnNPK0R2aTE5OUh1WElEY2FHenFMNEl3ZGVMTGlPR0k5?=
- =?utf-8?B?c0NEamNVdkQwb25aMEk0RTRrMFZTRzA1a1d5Q2ROOU9qbnB4Nys3d0E3Q054?=
- =?utf-8?B?a2gyaGRXbWJZK0Q5WFhHSHZUK2RtTitXbWRQcWRIWENkNjNHTEhqblBOQ3pl?=
- =?utf-8?B?YldBemZScDR3OEUweWI4SUVIbkhKNUFxQ2x4aHc0aUkyVFNBUVRGdzZxa09o?=
- =?utf-8?B?ekZCWHorVm1NTDVCaFkrRCtwT09VL3VUSmVKeEZaaEt5SUgyVlphVFd0dE82?=
- =?utf-8?B?YmFMaHVIbFRHdU1Oam5pd0xFL0x2SzJ6RENwek1yVENhL3JFZzZYNDE2NWww?=
- =?utf-8?B?aVBFWTllZGF3dlBMU2o3QmJQVjBaWjRzZlgyZ2tRTWRrL05MeXA0YU1DQ1Vx?=
- =?utf-8?B?NFA1VmJTVGFXVDZkNWpKOHNrckd0VlAxamVpeXBIa1dLVHh4SmJoZEIvZE5O?=
- =?utf-8?B?V0M2b2tuQ1JWVFp4WmIzSDJrUVRVYno1Y00zeDh3QnN5bC83d2lEZUg0M3hJ?=
- =?utf-8?B?bU54R2RpUzJaWCtwK3ZGa1E3Z2FNSStVRDNaWmpINDFlMjIwODdRRE9lUEtt?=
- =?utf-8?B?QmplUHN0ZXl5ZWY0SCsxeDZndmNFakpNbFl2QUtHancrK3Y2OTlacldsY0tM?=
- =?utf-8?B?SEFlQlQyWXVtckdtdXNiV2ExMGNlOGIzNmwvUnc1RzJPN0VaTXRqN0tOUW9n?=
- =?utf-8?B?UE5EVzZEY0NlR3E4S1J2cmVnaHkwOGo4bzcxUjZ5K09iZW1oSFJGbGZORlZ1?=
- =?utf-8?B?dWN0L293ODdlTzRDekdzUDBBd3ZWaHcxd3VIR0FVdUlEckc2amk4bkRDZ0o2?=
- =?utf-8?Q?rEI0=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(34020700016)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|34020700016|36860700013|7416014|376014|82310400026|921020|12100799066;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?KysrK1JKeVIzejUxOGM4NmhWY25Jb0JNUS9BKzlPME9tT1RENVpNcWhSenJr?=
+ =?utf-8?B?aWdUYUxHc0loUjQ1MHlJVm1scFllQjVFbU1QdTY3RElWVEFtQzJPdTFmSVJw?=
+ =?utf-8?B?akh6c2s2citpcUhFUzNod2JQaG91VXRBV1NxQUxSRXFNSHR6TU9HRTZocUky?=
+ =?utf-8?B?YnErVlkzYnYxbmZmZU8zb0Zpd3U5K0N5YU9BUkNXUjFNVys1c0xCVHZGSkJm?=
+ =?utf-8?B?c2JrSGVZQWpKd1ZVQWk5SHlyQmxaQjJpaTRYbXJGYjNaZHZJZVFaTFBFN01C?=
+ =?utf-8?B?aE45WWhsVGpmMW9KS213clQyZnpaRXBVZlJiWkJhUWQxZDBZUU1ubXVETlpB?=
+ =?utf-8?B?TlF3OVI0eHJyUnpkRDJCcGhaOW9KU2xLemxwUTJpQUEwVVpxVUtNS3hJY202?=
+ =?utf-8?B?WFB5dGNSUXFScVMxUk12MmtYQnA2VXAvdjFCUHlNMWVUQnJtNGFxNENKb2lO?=
+ =?utf-8?B?UHFEYmM4UDFVMnduaHRuZEplSG5vbVhxK1FKbTJDN0E5UEVpTEM5cUZnZzVH?=
+ =?utf-8?B?bENEaVVpZTZYQjdyK1RnaW44QTZLSnhnTFMxZXREamtvQ2hsTjVVZWNxa3Ez?=
+ =?utf-8?B?K0xHSGtwVzFVNU85TGF5MEZxMllHNHIyYm1HRnZUbS83UDNNRVIvOHNNaGN1?=
+ =?utf-8?B?SVZKWThZanVvamsyaXNzeTZVWGxuMytCRGJNbHQweHAxMmtGbGVvY29tN0xy?=
+ =?utf-8?B?UHdnTkpQOGx6Wk1UNU84L1luSEVTNVc3WWJmR3lySExMZytTMXM4WWl5Tnk3?=
+ =?utf-8?B?ZG1tNG41SlhlVWFaRWZJbnlQb2lpZ2EyWVQvNnVqZUVXQ3lDNWdOR0hCZWxs?=
+ =?utf-8?B?S1Q5bFl3eEtnRWRKdzhIeVlyVFZadWd4OWtDYkhmdXNHNE4zM0ZKVVUxK0lZ?=
+ =?utf-8?B?LzRBRHNkMmRvV3laeWVPWmw2QXJVTmlLdUZBSHkvUFlxa3J6WHZ0YlZ6UEoy?=
+ =?utf-8?B?b3gxOEtTTkJJT2Zua1RscTdEa2EvS1dzSDJsM2VLWk5rN0JuRkFvWjIxTnky?=
+ =?utf-8?B?WVc3cGsvcnE0OWNWVzJXK1psbERXcmxjQ3pJMldYcDBpbHRYMU1FTVdyT1pU?=
+ =?utf-8?B?Nk9McEk0Z1B1SUpzbnFOSnRWWDl6NlJvMVpBWDFuejNYaEppSjBpWWhoRlpH?=
+ =?utf-8?B?SW5FWWNLQmFKRHZmNmNMbWQxMmlIMkRuckNZdkpaT3c4anhiazl0VitQLzNG?=
+ =?utf-8?B?R21GbFVrUWNTaVIxTHFCQTllQktGdFExRWw5RSs2ekpNdGdyVktBQjdIM0pT?=
+ =?utf-8?B?UFREUXVwZVdFU0ZjTlNjL0lMbUpKS1NiaUt1azFpOEQxRjhQa1RCa1k0aW9i?=
+ =?utf-8?B?dndVamtxczcrdThLMlBOK1lYV0syZnNNcFViVk45My82dFMySUNybWZaT3N2?=
+ =?utf-8?B?ci9ZUHBvL3B2VFB4TUY2alZpeDVxOVFXazZDWitxZmRoSG5vNHBMUjIrcWFY?=
+ =?utf-8?B?b1RqeEpySzJ0cHZUZFluR1MzTkN6SUJXckN3OTJqYlVUaDA2eWY1dWhjYlBI?=
+ =?utf-8?B?dnlVanRXZXQvNUYxaUs5dENPbkJyY3gyUWNJZjFkbVVrUkNqZzdzQ2dzNGF0?=
+ =?utf-8?B?TU04YUN6S3RMWXlDNWI4cDlFOXZhTGtGT1lwallIbno5WnNOQ2NtcFRJbmN4?=
+ =?utf-8?B?OEYvVVljcTF0Uk9wSXF6b0cwNUZRbFFPWGJsRTJ3Y3dRaWZUZk8vbTVLU0xo?=
+ =?utf-8?B?MEU3RllSSFY2S2lMU2tQYzJwZDM2S04xTXFHbFlrTDZ1elVtbS9WYjdkcjcr?=
+ =?utf-8?B?MW5sRGRReDFRdkpkRTNiVWFIUzc1TkxWOStKVWIra1ZkRlVRbURXeHFOaDZB?=
+ =?utf-8?B?SnJSaHd5ZUJ0WmJHeVVHMXZ1Tkt1ZGZWRVRuMmpjMkxDU0d0VDRwdU5NN096?=
+ =?utf-8?B?SjJWdlIyZEY4SmNZWW9XOEpBK0RyVHJxUE1GTlRzTXVLWWtDT1BRSjlYK2JN?=
+ =?utf-8?B?ZnBzMjdsVWVHU3IrN0FTci9wM29XWGpxcVc4YTIrZktxUzhLSTFxMXNOdjA0?=
+ =?utf-8?B?SnJFdWNQNGMwQnVPOXloNWtWc3Zvb3BwWFNMZFRtN0U0MVBXQmFMQzFnVGUw?=
+ =?utf-8?B?d3lGbzlYMU45aFBhc2NUb2hqeWJWOWFHTmRxSDZXYW9pZ3JCZHQzOUdVYnhT?=
+ =?utf-8?Q?Gzlo3xM/9TNvZLxaEDgVqJn6e?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(34020700016)(36860700013)(7416014)(376014)(82310400026)(921020)(12100799066);DIR:OUT;SFP:1501;
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 14:42:58.6119
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 14:43:19.4382
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab6779dc-9a51-43de-3a4a-08de188bc919
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39c6b8cb-e1e0-4f60-9bff-08de188bd587
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC4.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4316
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB7526
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_074304_640352_8CCE45C8 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20251031_074326_826698_B1DD334A 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,36 +168,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael Walle,
+Hi Swamil Jain,
 
-On Fri, 17 Oct 2025 15:50:43 +0200, Michael Walle wrote:
-> This series contains the remaining (device tree) patches for the
-> Kontron SMARC-sAM67 module.
+On Sat, 13 Sep 2025 12:12:03 +0530, Swamil Jain wrote:
+> The AM62x SoC features 2 OLDI TXes each, which makes it possible to
+> connect them in dual-link or cloned single-link OLDI display modes. This
+> series enables OLDI support on AM62X[1].
 > 
-> v3:
->  - dropped all patches which were already applied
->  - add 'bootph-all' to the usb ctrl node to support DFU boot
->  - as all MFD bits are now merged, combine the patch which added the
->    system controller node into the main one again
->  - drop duplicate RTC node. This one was a left over before the rtc
->    node moved into it's own overlay
->  - add a new overlay for the Kontron SMARC 2.2 evaluation carrier
->  - add a new SMARC gpio overlay to configure the pinmux correct.
->    This is not integrated into the default device tree because it
->    will conflict with any device tree which will use the pins for
->    different purposes (they are multi function pins)
+> [1]: https://www.ti.com/product/AM625
+> 
+> Aradhya Bhatia (2):
+>   arm64: dts: ti: k3-am62: Add support for AM625 OLDI IO Control
+>   arm64: dts: ti: k3-am625: Add OLDI support
 > 
 > [...]
 
 I have applied the following to branch ti-next on [1].
 Thank you!
 
-[1/3] dt-bindings: arm: ti: Add Kontron SMARC-sAM67 module
-      commit: 22e1d0d8cda783bee95de578cbda3ad0da8a3eb4
-[2/3] arm64: dts: ti: Add support for Kontron SMARC-sAM67
-      commit: 1c3c4df06f9dee41bff60b93d9f0e67500f798f7
-[3/3] arm64: dts: ti: sa67: add overlay for the ADS2 carrier
-      commit: 0114330e7f92ae4f643fca62e6004631018f48d0
+[1/2] arm64: dts: ti: k3-am62: Add support for AM625 OLDI IO Control
+      commit: 779ea073dba35a8f29c8403684c6e0177504775b
+[2/2] arm64: dts: ti: k3-am625: Add OLDI support
+      commit: a00ee8014d5b6bb00bc41d7fc947fd52f53c9209
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
