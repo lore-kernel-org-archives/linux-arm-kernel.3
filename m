@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3E9CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA5ECCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YcJUAK6wYbUnIItcXuhAD3+TuliFkqmiKq4znCgSGF0=; b=l76zDrtVqZnuTGTkPnl/6Ctzri
-	4W3sSOt9Qc6legAJiDSL0RDEDu8u+nMNuH6/hevDUdqGQccxYlXmYNqKsMxvcPc1oCcz4WkeDZL4z
-	ldhhfcEMZxkd/CfIpVPNiw476Fxb925nc5uZhVUo1iepRHk4DEZMWle9flQGFShP5qeY12oY9tTWL
-	iPfNeMfxjyz3l68am/PXG8NrlHk0N8qC+DQud6uFx/KQ21iim6GQq5bxZmDPefZMSMMPmBjt24Uzy
-	9ZPtwpGzRwOxzYjN2XR5sxhV1hF/Th86YJebXUKxmD20Ejjo2vktkvyFen/sngq/Wii4KMl/62OpN
-	CHYFR9Sg==;
+	bh=HN/+IzS5796w6R+9DpNyrnH5kTzGCEYUE8OX1y/TT0c=; b=EXPRwstfAf1fKBUjRaX9oT+pOf
+	6ge6VWo48D3EsdqcrpEpNnO8rt6JpRI15/VfU2Pao7RE6a6WkK/KXSAh3NwFGAaOoteR5BhCJIvS0
+	B3ANOJ+doM5DWDJrduiGsnKBMFIxwx02xzcU7Af86KifQrKoMGRJykTuC3hLGv9OZ/7RCOqfsgk9N
+	MjAtiQDglMQnUPnBjrPTD9kZt2NnIectAJpfsgejc83iLHc1QjFDqsW8e6MmX0oIqB7s7F4pVGohs
+	DvnNqNsbeJ8napfLKu9KzS5sI2egGa755eKro+gUnUgQ7ZFsAwruORh+A0RVa+JLI9iXKjSWDUHPN
+	jXW3TTxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmY0-00000005v96-3z9a;
+	id 1vEmY1-00000005v9i-1ZLu;
 	Fri, 31 Oct 2025 10:39:57 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmXt-00000005v4g-2zMz
+	id 1vEmXu-00000005v50-1hro
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 10:39:50 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b479e43ad46so223150366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:39:48 -0700 (PDT)
+	Fri, 31 Oct 2025 10:39:51 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4770eded72cso11689675e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:39:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761907187; x=1762511987; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761907188; x=1762511988; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YcJUAK6wYbUnIItcXuhAD3+TuliFkqmiKq4znCgSGF0=;
-        b=ia865/kD7/xknEBpNLXtTJmWJClwZtDMJZAyzrSYPZh+F8eVzT0JLp5dJwTID6HLBL
-         Vrl45kxfEn6QX90wNviseeYpNxrbqNioqaknWmW3STogxx0hr/eGX3c0cetEQht2/sxF
-         Mb7hw9CtChS7VK+dcQMT2y4NohPA8nZYv0Ujt14C2HLb4pFVFht7XNHEgw515I1Yp7Y2
-         y5SG4UAjNUnSJJCx83flhzAKYlsO2KrQ6jHnhIIxQhcd9MF2n/wFEAaMuhS55+4Zbc49
-         vorYgQAW5EBujCH5zzJtw1ChM0eSZivC/GORBTI8Ou2nscRjcTx9ETbws44NM3CuwyXq
-         DgFQ==
+        bh=HN/+IzS5796w6R+9DpNyrnH5kTzGCEYUE8OX1y/TT0c=;
+        b=lRDGwHtSKj8PXtt049CVC7KNCOhugC6+xWCn/v5D73tDdKvqd2CFl2liD6KS+lgCuM
+         ZO8sXqHE6R3f9sHQ8UDoqNAvcnDSDOY9yJJb4Rq04Wx39ACC9GL8LDFERdSglCxAWp/1
+         8L/Ujt8c8dE2lJ1RtiTSUcqVEUkhK48vtYLnz2CPeIodaf+RwLnle3fCy67MPDamkfOc
+         d8FVvH0Y26rxITeECk7f655Ji5U/i7dzUu3AMMx/qVQSWNnA/W7qAjkDklngeBcDxkgS
+         mqVHU6JFVJH23cVovOYs3lfX1SbIJhVAGALQKJW1ozOgPU088tchLRvTA4ND61e4KBjC
+         nkAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761907187; x=1762511987;
+        d=1e100.net; s=20230601; t=1761907188; x=1762511988;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YcJUAK6wYbUnIItcXuhAD3+TuliFkqmiKq4znCgSGF0=;
-        b=X+vS+xOmPVOKaTCs8SWeZrmWhrMhNlquNd3vEUG5yeYc+iAe9U07ytz8NCCcdTwHuJ
-         OtfGagOyTyirQ0blYZEGrBBMkuAJSCtAy7EnbD3wGJ+Hy3dsfyvCU/jmr6bPGxz3rEgQ
-         oa8ONybMs2SNcC0sebBp5sTdRiL7Xs6KDodPKUqZ4UDWmwWdwTQraxS0Bq62/63sWuA8
-         vm9OyR5iYJRUOFHomXKgsRpTzgVL/hc6ofAxkRtfduP+n1boroQxfrNVOwtb8NKX2JjZ
-         zIc2wBIZxh3Dq3lXhQzYxS2r2vYW0u8zA9VGJmEiAnYDH5POh69tbU5XltzB7U/jF39f
-         jJQw==
-X-Gm-Message-State: AOJu0YwmBrU2gMPa2t063DdfKd/RNJdIUB2ptfI/9oMQa31p+ocgLlZd
-	sS2XCbzXHWR/VHW83Da21VNguwFQcR4XWhsOSUeRxsLE9bSnSMeVlZxb/adXoUu5WVg3Z81/YCX
-	f+muIv2kBzmdfJDjcxJ6EcyXf+J1jTIWOg+VkqgCgRmBqzZh/3L/cUXQppePOdkpMcfOJ1f4s7h
-	ptkj7pM/ZpBbEKxIVa9zfz+CPyCGyk8gFTsph4OeYLvQHL
-X-Google-Smtp-Source: AGHT+IGZh2XVfTLLj0zhjt1BICvTQf4H+YXy15GPZEDU6T61fPt/5oBnkxDlk7NOR3Q1+6PHRVp+5rAW
-X-Received: from ejdao14.prod.google.com ([2002:a17:907:f48e:b0:b6d:5f6f:f88d])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:4fd3:b0:b2d:d7ba:8e7b
- with SMTP id a640c23a62f3a-b70701b183cmr329375466b.23.1761907187206; Fri, 31
- Oct 2025 03:39:47 -0700 (PDT)
-Date: Fri, 31 Oct 2025 11:39:00 +0100
+        bh=HN/+IzS5796w6R+9DpNyrnH5kTzGCEYUE8OX1y/TT0c=;
+        b=fIBgvfkinY6lT851rpRkLPXgurISr8TWJQ3lUou2hFR+1IpG3DIs6uCpvcyAauWFuS
+         gLu3+e19WGEMKqW6iwPnBxCSKicIwSkSmvJlBaJi8fhIHW0Z58kmViuGFGqaqxMtQjGL
+         MybdUfNaGuvrp5NWr28srJMsjRpEIcw6RizFuMg9VZxD6ofKrwyVJQYkvQkA4Bbg6wGp
+         SrlQ0D0QRsJRP4oxl/hN5HQ5tuUVAdMLwlrScClRXUYhQ+jEb8G6Ia+VoPJFrxBI+QlM
+         +FjjLOrDMGMAQh6sJHbTS8ymxALKJLNAWRxuxtGsRYwzBjR3l+q3iWR7U9Sol/PdWB+K
+         QZeA==
+X-Gm-Message-State: AOJu0YyR9Z6vMcf01+hx525grA9H8LSybrjtCce2gpWo2GPNco/0RD6K
+	5kdzS2xnJHA6B9t58r9yX0bSm0s/yeWSsEoOs10XcL/sn7xr54r3lcNeDVhwf9vqlM+alOacVUj
+	lJnfi3ZEHL7J1Bxsz+ZDychHmq7RkRFoWxKrEWjQfqf0eBW8Pa7H1uduTbkZy1JFqqXZTZy+d+q
+	IdTwzDpzDQvwwYs0ReKFWAKKxOoWu4ova3gPwEa/lGqIHb
+X-Google-Smtp-Source: AGHT+IHlmFXxc1C8TcZ+HXf8DCZ7hZ6snCdGJ0O89HH9mn+babxzm78NbK82txSCG6oBizn12pHWQ7nS
+X-Received: from wma8.prod.google.com ([2002:a05:600c:8908:b0:46e:4c7c:5162])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a7b:ca54:0:b0:475:dc32:5600
+ with SMTP id 5b1f17b1804b1-477262e8fd6mr49406465e9.19.1761907188374; Fri, 31
+ Oct 2025 03:39:48 -0700 (PDT)
+Date: Fri, 31 Oct 2025 11:39:01 +0100
 In-Reply-To: <20251031103858.529530-23-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251031103858.529530-23-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=926; i=ardb@kernel.org;
- h=from:subject; bh=dO4a5jlY66z9w+gPMMFWeTG7Ku3rgSUkr2hPJWOMIU0=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZNl4pHD/75JiC/9K2vH/lbtRfh3+QvnpDrMDjge27JVP
- HOJ/5G3HaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAihQEM/zSie2ONrfwLXk3+
- t1VdNqr2RUzhcYsZcfEmO5qeTnM7/IXhn8H7NtmnN3p+XXt/sq5gYUf1EqtZvT3e2uK8kaf+XVX dzwAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1825; i=ardb@kernel.org;
+ h=from:subject; bh=yjdixCt9NaDfY8u4Fm681ZNm+FKMZ22mvY7LIiuXs68=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZNl4rFLr9lSCrOW7tixbpb2jXSBA2sFQ/zV59hqMJ4UW
+ BvJV8HVUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACYy7wHD/+A1+gVed6+eSP31
+ oeHEnZUKayoiHTn2rFzct9j7W+9xWxeGP3y15UmKR/Odrh3eEr7Iwj51X+TpI87ad6Rlf32r4mF fwQEA
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251031103858.529530-24-ardb+git@google.com>
-Subject: [PATCH v4 01/21] crypto/arm64: aes-ce-ccm - Avoid pointless yield of
+Message-ID: <20251031103858.529530-25-ardb+git@google.com>
+Subject: [PATCH v4 02/21] crypto/arm64: sm4-ce-ccm - Avoid pointless yield of
  the NEON unit
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
@@ -81,8 +81,8 @@ Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_033949_758470_32675AF2 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20251031_033950_460073_09A70FF8 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +100,65 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Ard Biesheuvel <ardb@kernel.org>
 
 Kernel mode NEON sections are now preemptible on arm64, and so there is
-no need to yield it explicitly in order to prevent scheduling latency
-spikes.
+no need to yield it when calling APIs that may sleep.
+
+Also, move the calls to kernel_neon_end() to the same scope as
+kernel_neon_begin(). This is needed for a subsequent change where a
+stack buffer is allocated transparently and passed to
+kernel_neon_begin().
 
 Reviewed-by: Eric Biggers <ebiggers@kernel.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/crypto/aes-ce-ccm-glue.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ arch/arm64/crypto/sm4-ce-ccm-glue.c | 25 +++++---------------
+ 1 file changed, 6 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/crypto/aes-ce-ccm-glue.c b/arch/arm64/crypto/aes-ce-ccm-glue.c
-index 2d791d51891b..2eb4e76cabc3 100644
---- a/arch/arm64/crypto/aes-ce-ccm-glue.c
-+++ b/arch/arm64/crypto/aes-ce-ccm-glue.c
-@@ -114,11 +114,8 @@ static u32 ce_aes_ccm_auth_data(u8 mac[], u8 const in[], u32 abytes,
- 			in += adv;
- 			abytes -= adv;
+diff --git a/arch/arm64/crypto/sm4-ce-ccm-glue.c b/arch/arm64/crypto/sm4-ce-ccm-glue.c
+index e9cc1c1364ec..e92cbdf1aaee 100644
+--- a/arch/arm64/crypto/sm4-ce-ccm-glue.c
++++ b/arch/arm64/crypto/sm4-ce-ccm-glue.c
+@@ -172,35 +172,22 @@ static int ccm_crypt(struct aead_request *req, struct skcipher_walk *walk,
+ 	if (req->assoclen)
+ 		ccm_calculate_auth_mac(req, mac);
  
--			if (unlikely(rem)) {
--				kernel_neon_end();
--				kernel_neon_begin();
-+			if (unlikely(rem))
- 				macp = 0;
--			}
- 		} else {
- 			u32 l = min(AES_BLOCK_SIZE - macp, abytes);
+-	while (walk->nbytes && walk->nbytes != walk->total) {
++	while (walk->nbytes) {
+ 		unsigned int tail = walk->nbytes % SM4_BLOCK_SIZE;
  
++		if (walk->nbytes == walk->total)
++			tail = 0;
++
+ 		sm4_ce_ccm_crypt(rkey_enc, walk->dst.virt.addr,
+ 				 walk->src.virt.addr, walk->iv,
+ 				 walk->nbytes - tail, mac);
+ 
+-		kernel_neon_end();
+-
+ 		err = skcipher_walk_done(walk, tail);
+-
+-		kernel_neon_begin();
+ 	}
+ 
+-	if (walk->nbytes) {
+-		sm4_ce_ccm_crypt(rkey_enc, walk->dst.virt.addr,
+-				 walk->src.virt.addr, walk->iv,
+-				 walk->nbytes, mac);
+-
+-		sm4_ce_ccm_final(rkey_enc, ctr0, mac);
++	sm4_ce_ccm_final(rkey_enc, ctr0, mac);
+ 
+-		kernel_neon_end();
+-
+-		err = skcipher_walk_done(walk, 0);
+-	} else {
+-		sm4_ce_ccm_final(rkey_enc, ctr0, mac);
+-
+-		kernel_neon_end();
+-	}
++	kernel_neon_end();
+ 
+ 	return err;
+ }
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
