@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F57CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6C0CCF9FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 12:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gTU6KsNp/+TiTs2Aeqfmf3gR4n/zV/REoxgn6Z0vMHQ=; b=tmUeYhEeLp2rrhcgL7Rjk1DlW3
-	tEyWo6CbYRI4WcUDd/vDYRPtybe+JU7MbIQKUuCWhCJDhhZTyzf5hnIidVE0wFuad1k16CiiEPeRo
-	GUNX2d4Z61hcbg3be1Po+1/nhOAWr38cztj1sJQAynGz7a1iNJHeUhcT4oJR3dYAw+6ByEqmEdhSx
-	UjOSOaRfyfai+51E22sjLMb2DK2eaTSkZRUwZzzLXIiai6iXuHTf4hFvJbHoyEkiL2jHeDkOwVuG+
-	f2Q+YUjfVXrdyYMnZXUE/5RoYE2SO0UAxycVC/n69QrWQ6WCL6En8oQYtfBmhuBumxXNwUFj9TmPn
-	bG6W6Sqg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5zTIt+rAoBvPMQKP7EcQfAbiSRLViWy6hR5zucTP3Kg=; b=gOLLxwgv3Vpb52sxHtYJCawaYK
+	CeTH5wyXchzblneJa42fe/L5vTl30LPGt3TIjBFyk82yP+Wlk1YIOvcxZCyB9RbRpWtAojbpoVvPe
+	/1pwWFx8dsFWdBNzVoQhf/T6Yr0gUtjEXx6FUMWtjqMI/fmBu6ZuMq4np5f9JgKG3fLdiIs30Isri
+	JgwESv6zWpHMKl12FZYyAQEaqZaeXQEW4Lq+R7ZAhZlUTto8eFhqGtlgt4yhU0PND6DFEvAM6n5N0
+	XKxHihAjWdTDRTN4DPZlHH5qxUNLth7AmRVKMAfpi5gGp0hp0KG7qltwOLgEG3xwSdCawpwArU6dS
+	iDfXbGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEo7C-000000064EE-2c1b;
-	Fri, 31 Oct 2025 12:20:22 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vEo7r-000000064JI-0pwM;
+	Fri, 31 Oct 2025 12:21:03 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEo79-000000064DU-1EYE;
-	Fri, 31 Oct 2025 12:20:20 +0000
-X-UUID: f36cc0ceb65311f0a52f393f94899d25-20251031
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=gTU6KsNp/+TiTs2Aeqfmf3gR4n/zV/REoxgn6Z0vMHQ=;
-	b=oDuaB826EyfzqnTwMZDMimyB0TJ7Fxf8dRoZiDJMKWqOwKMQkltpr/7iPPqINpfaUvMob/k69eH/1b+ypGzXnT1IW47glToQWELb+ltUzOAFdZi+Bk0JUXfOenw8MrAyeKy/d2UasIOEOyMFM1zc0UJc+KcgOs25WH9iwrOPjW0=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:3f4d47bd-0b45-470a-8b50-ec02f9e0f15c,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:a9d874c,CLOUDID:45abfddf-3890-4bb9-a90e-2a6a4ecf6c66,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|123|836|888|898,TC:-5,Content:0|
-	15|50,EDM:-3,IP:nil,URL:11|97|99|83|106|1,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f36cc0ceb65311f0a52f393f94899d25-20251031
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1864515970; Fri, 31 Oct 2025 05:20:13 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Fri, 31 Oct 2025 20:20:09 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Fri, 31 Oct 2025 20:20:09 +0800
-From: <peter.wang@mediatek.com>
-To: <linux-scsi@vger.kernel.org>
-CC: <alim.akhtar@samsung.com>, <avri.altman@wdc.com>, <bvanassche@acm.org>,
-	<robh@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<conor+dt@kernel.org>, <jejb@linux.ibm.com>, <martin.petersen@oracle.com>,
-	<lgirdwood@gmail.com>, <broonie@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <wenst@chromium.org>,
-	<michael@walle.cc>, <conor.dooley@microchip.com>, <chu.stanley@gmail.com>,
-	<chun-hung.wu@mediatek.com>, <peter.wang@mediatek.com>,
-	<alice.chao@mediatek.com>, <naomi.chu@mediatek.com>, <ed.tsai@mediatek.com>
-Subject: [PATCH v1] dt-bindings: ufs: mediatek,ufs: Update maintainer information in mediatek,ufs.yaml
-Date: Fri, 31 Oct 2025 20:19:12 +0800
-Message-ID: <20251031122008.1517549-1-peter.wang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1vEo7o-000000064If-1MBd;
+	Fri, 31 Oct 2025 12:21:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761913244; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NYrVCdrwtfSvlZFvJ04ri1DzX5zX+b3GD79h1D4eMLRK+QMF1d9Gjbk8uTIAj+zGkoAJb4xaZTd/j1SKn6x8IK0jf3mmTSZh9ocQNSkaoj8VVjZyc7G3isqnk3DQmngoLqesqxv0omMYcrVZgkFvc1SYkhP58fLyamktkuJfyOY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761913244; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5zTIt+rAoBvPMQKP7EcQfAbiSRLViWy6hR5zucTP3Kg=; 
+	b=AgWKks5HGuNLTYPTjTAo5RCmaBhczJXzyVAtAdFgJz8BxzBx+cwzJHjph843CcGQXnWeWPtf7Q8W0SlTY33D8w9KfOJwvB7zcWpzLy6AQXNq1dkKkUCC6zJA7KFpDOgpSvpjaFh7Eomwvdcc05286lfR8CLt+2MNKlx2YyGs6C4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761913244;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=5zTIt+rAoBvPMQKP7EcQfAbiSRLViWy6hR5zucTP3Kg=;
+	b=A4UWeNPA23M7lsIukrsOH7bMGSKligZV1HnaAwV2DdWV6EclFAbHWF/fr7a0+yW4
+	pdvNPakawyFW5CNuDHtiQm/hXB/U1P5eEW3+7psTi3EP3NA138ZJQRXZv9sVLSpjS3H
+	44DG+udYIh/AlEO1zDtzVvp5ZbKgIWSirRZCQXm8=
+Received: by mx.zohomail.com with SMTPS id 1761913243469405.4251213598277;
+	Fri, 31 Oct 2025 05:20:43 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
+ Johan Jonker <jbx6244@yandex.com>
+Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+Subject: Re: [PATCH v3 2/5] mfd: Add Rockchip mfpwm driver
+Date: Fri, 31 Oct 2025 13:20:37 +0100
+Message-ID: <3598089.ElGaqSPkdT@workhorse>
+In-Reply-To: <16341fe2-7d2b-45a6-a861-93950c1bbd1f@yandex.com>
+References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
+ <20251027-rk3576-pwm-v3-2-654a5cb1e3f8@collabora.com>
+ <16341fe2-7d2b-45a6-a861-93950c1bbd1f@yandex.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_052019_342204_E0F9E7FD 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_052100_431951_F3D5720B 
+X-CRM114-Status: GOOD (  39.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +84,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peter Wang <peter.wang@mediatek.com>
+On Tuesday, 28 October 2025 19:52:53 Central European Standard Time Johan J=
+onker wrote:
+>=20
+> On 10/27/25 18:11, Nicolas Frattaroli wrote:
+> > With the Rockchip RK3576, the PWM IP used by Rockchip has changed
+> > substantially. Looking at both the downstream pwm-rockchip driver as
+> > well as the mainline pwm-rockchip driver made it clear that with all its
+> > additional features and its differences from previous IP revisions, it
+> > is best supported in a new driver.
+> >=20
+> > This brings us to the question as to what such a new driver should be.
+> > To me, it soon became clear that it should actually be several new
+> > drivers, most prominently when Uwe Kleine-K=C3=B6nig let me know that I
+> > should not implement the pwm subsystem's capture callback, but instead
+> > write a counter driver for this functionality.
+> >=20
+> > Combined with the other as-of-yet unimplemented functionality of this
+> > new IP, it became apparent that it needs to be spread across several
+> > subsystems.
+> >=20
+> > For this reason, we add a new MFD core driver, called mfpwm (short for
+> > "Multi-function PWM"). This "parent" driver makes sure that only one
+> > device function driver is using the device at a time, and is in charge
+> > of registering the MFD cell devices for the individual device functions
+> > offered by the device.
+> >=20
+> > An acquire/release pattern is used to guarantee that device function
+> > drivers don't step on each other's toes.
+> >=20
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  MAINTAINERS                        |   2 +
+> >  drivers/mfd/Kconfig                |  15 ++
+> >  drivers/mfd/Makefile               |   1 +
+> >  drivers/mfd/rockchip-mfpwm.c       | 340 +++++++++++++++++++++++++++
+> >  include/linux/mfd/rockchip-mfpwm.h | 454 +++++++++++++++++++++++++++++=
+++++++++
+> >  5 files changed, 812 insertions(+)
+> >=20
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index baecabab35a2..8f3235ba825e 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -22372,6 +22372,8 @@ L:	linux-rockchip@lists.infradead.org
+> >  L:	linux-pwm@vger.kernel.org
+> >  S:	Maintained
+>=20
+> >  F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
+>=20
+> A question not so much for Nicolas specific:
+> The yaml documents already have a 'maintainers' entry.
+> However MAINTAINERS is full yaml entries.
+> Could someone explain why we still need dual registration?
+>=20
+> maintainers:
+>   - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>=20
+> > +F:	drivers/soc/rockchip/mfpwm.c
+> > +F:	include/soc/rockchip/mfpwm.h
+>=20
+> different file name and location?
+>=20
+>   drivers/mfd/rockchip-mfpwm.c       | 340 +++++++++++++++++++++++++++
+>   include/linux/mfd/rockchip-mfpwm.h | 454 ++++++++++++++++++++++++++++++=
++++++++
+>=20
+>=20
 
-Replace Stanley Chu with me and Chaotian in the maintainers field,
-since his email address is no longer active.
+Yeah, I forgot to adjust this when moving this to being an MFD.
+I'll fix it in v4.
 
-Signed-off-by: Peter Wang <peter.wang@mediatek.com>
----
- Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> > [... snip ...]
+> > diff --git a/drivers/mfd/rockchip-mfpwm.c b/drivers/mfd/rockchip-mfpwm.c
+> > new file mode 100644
+> > index 000000000000..08c2d8da41b7
+> > --- /dev/null
+> > +++ b/drivers/mfd/rockchip-mfpwm.c
+> > [... snip ...]
+> > +
+> > +static int mfpwm_register_subdevs(struct rockchip_mfpwm *mfpwm)
+> > +{
+> > +	int ret;
+> > +
+>=20
+> > +	ret =3D mfpwm_register_subdev(mfpwm, "pwm-rockchip-v4");
+>=20
+> Not sure who came up with this name?
 
-diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-index 1dec54fb00f3..15c347f5e660 100644
---- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-+++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-@@ -7,7 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: Mediatek Universal Flash Storage (UFS) Controller
- 
- maintainers:
--  - Stanley Chu <stanley.chu@mediatek.com>
-+  - Peter Wang <peter.wang@mediatek.com>
-+  - Chaotian Jing <chaotian.jing@mediatek.com>
- 
- properties:
-   compatible:
--- 
-2.45.2
+I did.
+
+> In case we need to filter wouldn't be easier to order it just like the bi=
+ndings: manufacture '-' function
+
+It's based on the filename of the pwm output driver. pwm-rockchip.c
+is already taken by v1 to v3 hardware. Apparently however, pwm
+subsystem drivers then reverse the order in the driver name, so
+`pwm-rockchip.c` registers a driver with the name `rockchip-pwm`.
+
+So I'll rename my PWM output driver to `rockchip-pwm-v4`. The v4
+stays, it refers to the hardware IP revision.
+
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret =3D mfpwm_register_subdev(mfpwm, "rockchip-pwm-capture");
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > [... snip ...]
+
+Kind regards,
+Nicolas Frattaroli
+
+
+
 
 
