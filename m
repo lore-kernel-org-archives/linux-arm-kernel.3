@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC410CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 15:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585A2CCFA06
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 15:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7Rlp07E145mjICdfP0fMeKyTSRO79dBuZu7u2IiVMk=; b=QHgrtXiIOQJTcnp2tZmq5fNsVB
-	7qGysRgt43Ynu3/eauRetuWlAYH0R6+JCDJ3CleR+afAM7rLa6L7PdvOve6gZICbkQO1peOq5vC52
-	Wu/IF/UVeZlfyqYeMkXztPfne78NNvuZdItrhC4BJZX6H/v9tfNm0kMcmtp1hB1WmbYV2ikenhMzg
-	mI3Gpq4ZnO220gQb/9xc0xjnO2us5xtKPOFGhaBOBkYjJOehin7M5Lql+BNHy8PcAzkf0cncqxKUU
-	ehn3hxR3d3nq2RUh0y7ay16CXBXvkd644TLUsXOzatGYn46v5WnlZZdJj0F4TVdcaD2n2IiLn6Ypn
-	w3A1GjOQ==;
+	bh=MgNiv+FwBlkhW1yeX7nrA3dERYq6TSJBXJPQrpp2OkA=; b=BB/Jv+ixiuGc20FS47IJsLv/Tf
+	NuHKNDCbw6+/2BeMzp1UWtutSj5oe8ioOrIy8QgAgh7dkxkU0j3dKnLJh7g2FhhuVaPVCjsuyNXyd
+	72RZGa1M7RLBg783zj41WrTm8GehMFyCCSZP+TrK/LqeCIFDTRE8hsEtpWxLAwTHWacf8KQVXUIbs
+	515y96dW2iQnpGB24PdGIu1+RhYTbERj65Ex5noe7hXvXXc+EUl7jYpkM0NGQDL37k4aLofhz9ngH
+	D28wvilZGYZ08fS6JtGAJEnLV5beMoN9Dnsgee9i27xwnz/wosn8GBc2uX5ZTkC7EBhdspuTdSHAN
+	3nCdBIcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErAd-00000006K8f-2qla;
-	Fri, 31 Oct 2025 15:36:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vErWc-00000006L0a-0Sgf;
+	Fri, 31 Oct 2025 15:58:50 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vErAb-00000006K8N-22Vv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 15:36:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EFF2601DC;
-	Fri, 31 Oct 2025 15:36:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3AEC4CEE7;
-	Fri, 31 Oct 2025 15:36:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761924964;
-	bh=f2kdcTzIgflTZpNVJcpB/wXw4Pn7v3oe8LGnD3Ghpv0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bgZioyMfejcWWV0MS6C05S2LbsEdxX50diKJLFbw9ByzTss1Ijd602OkOPk5VfJ9K
-	 BRKcnvMU8FhGuOYJD6IlhqxkvqA74T7C11v39u1D+WoQbt6yJqS7412XtCYdJe0PHy
-	 Ln62jNHD5VjGRqjBBZSBa4jUMaVRdwp5bzP89/ZWKaQCzVlnK86qZsU+w4X0SXlEbI
-	 lRkg7pYEBULQLbHiEuqIewp4ucaxmKc3j/liAl9yD7UK/IyLDT6JMbpqc1UA7U21O9
-	 xfmguuXRFsOBFWFtnYsZeHmVkddUjMRhYiHjr9QoNL/wS5AGPYJo2404lc9S1uCEeI
-	 AAsxziPBgXXWA==
-Date: Fri, 31 Oct 2025 16:36:01 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 05/33] sched/isolation: Save boot defined domain flags
-Message-ID: <aQTXYSyPS65nhkvl@localhost.localdomain>
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-6-frederic@kernel.org>
- <xhsmhecqtoc4b.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	id 1vErWa-00000006KxX-0ZM3;
+	Fri, 31 Oct 2025 15:58:49 +0000
+X-UUID: 79ef3622b67211f0a52f393f94899d25-20251031
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=MgNiv+FwBlkhW1yeX7nrA3dERYq6TSJBXJPQrpp2OkA=;
+	b=B+fRrfBsN8cO38p1gorCNCr9r6oNXVZjpM1V+AZj2dFdMDUg4QOe7vRX3gKXEZCsLK/6CqWWYGhS+o5/Pw/vYiPPl1IxVySty7mCh6tQlxNK7qUWZR+RzZc5yVwND+RBQTDxw7HJkRrWEcFn5RTmLZj2IZtpNaK67OeIJMubhAE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:6648d1aa-e6da-4fac-b2cd-ab6d5f919e01,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:4713e76a-d4bd-4ab9-8221-0049857cc502,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 79ef3622b67211f0a52f393f94899d25-20251031
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 25040788; Fri, 31 Oct 2025 08:58:43 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Fri, 31 Oct 2025 23:58:40 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Fri, 31 Oct 2025 23:58:40 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, Nicolas Dufresne
+	<nicolas@ndufresne.ca>, Jason-JH Lin <jason-jh.lin@mediatek.com>, Nancy Lin
+	<nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Paul-PL
+ Chen <paul-pl.chen@mediatek.com>, Moudy Ho <moudy.ho@mediatek.com>, Xiandong
+ Wang <xiandong.wang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>,
+	Fei Shao <fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
+Subject: [PATCH 7/9] soc: mediatek: mtk-cmdq: Add pa_base parsing for hardware without subsys ID support
+Date: Fri, 31 Oct 2025 23:56:35 +0800
+Message-ID: <20251031155838.1650833-8-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20251031155838.1650833-1-jason-jh.lin@mediatek.com>
+References: <20251031155838.1650833-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <xhsmhecqtoc4b.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_085848_187441_75E661FE 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,99 +97,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Oct 23, 2025 at 05:45:40PM +0200, Valentin Schneider a écrit :
-> On 13/10/25 22:31, Frederic Weisbecker wrote:
-> > HK_TYPE_DOMAIN will soon integrate not only boot defined isolcpus= CPUs
-> > but also cpuset isolated partitions.
-> >
-> > Housekeeping still needs a way to record what was initially passed
-> > to isolcpus= in order to keep these CPUs isolated after a cpuset
-> > isolated partition is modified or destroyed while containing some of
-> > them.
-> >
-> > Create a new HK_TYPE_DOMAIN_BOOT to keep track of those.
-> >
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > Reviewed-by: Phil Auld <pauld@redhat.com>
-> > ---
-> >  include/linux/sched/isolation.h | 1 +
-> >  kernel/sched/isolation.c        | 5 +++--
-> >  2 files changed, 4 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-> > index d8501f4709b5..da22b038942a 100644
-> > --- a/include/linux/sched/isolation.h
-> > +++ b/include/linux/sched/isolation.h
-> > @@ -7,6 +7,7 @@
-> >  #include <linux/tick.h>
-> >
-> >  enum hk_type {
-> > +	HK_TYPE_DOMAIN_BOOT,
-> >       HK_TYPE_DOMAIN,
-> >       HK_TYPE_MANAGED_IRQ,
-> >       HK_TYPE_KERNEL_NOISE,
-> > diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> > index a4cf17b1fab0..8690fb705089 100644
-> > --- a/kernel/sched/isolation.c
-> > +++ b/kernel/sched/isolation.c
-> > @@ -11,6 +11,7 @@
-> >  #include "sched.h"
-> >
-> >  enum hk_flags {
-> > +	HK_FLAG_DOMAIN_BOOT	= BIT(HK_TYPE_DOMAIN_BOOT),
-> >       HK_FLAG_DOMAIN		= BIT(HK_TYPE_DOMAIN),
-> >       HK_FLAG_MANAGED_IRQ	= BIT(HK_TYPE_MANAGED_IRQ),
-> >       HK_FLAG_KERNEL_NOISE	= BIT(HK_TYPE_KERNEL_NOISE),
-> > @@ -216,7 +217,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
-> >
-> >               if (!strncmp(str, "domain,", 7)) {
-> >                       str += 7;
-> > -			flags |= HK_FLAG_DOMAIN;
-> > +			flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
-> >                       continue;
-> >               }
-> >
-> > @@ -246,7 +247,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
-> >
-> >       /* Default behaviour for isolcpus without flags */
-> >       if (!flags)
-> > -		flags |= HK_FLAG_DOMAIN;
-> > +		flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
-> 
-> I got stupidly confused by the cpumask_andnot() used later on since these
-> are housekeeping cpumasks and not isolated ones; AFAICT HK_FLAG_DOMAIN_BOOT
-> is meant to be a superset of HK_FLAG_DOMAIN - or, put in a way my brain
-> comprehends, NOT(HK_FLAG_DOMAIN) (i.e. runtime isolated cpumask) is a
-> superset of NOT(HK_FLAG_DOMAIN_BOOT) (i.e. boottime isolated cpumask),
-> thus the final shape of cpu_is_isolated() makes sense:
-> 
->   static inline bool cpu_is_isolated(int cpu)
->   {
->           return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN);
->   }
+When GCE executes instructions, it typically locates the corresponding
+hardware register using the subsys ID. For hardware that does not
+support subsys ID, the subsys ID is set to an invalid value, and the
+physical address must be used to generate GCE instructions.
 
-Right, I get confused myself as well. I've been thinking several times about
-inverting those housekeeping masks to work instead with isolated masks. But I'm
-not sure that would make the APIs easier to use.
+The main advantage of using subsys ID is to reduce the number of
+instructions. Without subsys ID, an additional `ASSIGN` instruction
+is needed to assign the high bytes of the physical address, which can
+impact performance if too many instructions are required. However, if
+the hardware does not support subsys ID, using the physical address
+is the only option to achieve the same functionality.
 
-> Could we document that to make it a bit more explicit? Maybe something like
-> 
->   enum hk_type {
->         /* Set at boot-time via the isolcpus= cmdline argument */
->         HK_TYPE_DOMAIN_BOOT,
->         /*
->          * Updated at runtime via isolated cpusets; strict subset of
->          * HK_TYPE_DOMAIN_BOOT as it accounts for boot-time isolated CPUs.
->          */
->         HK_TYPE_DOMAIN,
->         ...
->   }
+This commit adds a pa_base parsing flow to the cmdq_client_reg structure
+to handle hardware without subsys ID support.
 
-I thought I did already but obviously not. Let me fix that...
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/soc/mediatek/mtk-cmdq-helper.c | 16 ++++++++++++++--
+ include/linux/soc/mediatek/mtk-cmdq.h  |  3 +++
+ 2 files changed, 17 insertions(+), 2 deletions(-)
 
-Thanks.
-
+diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
+index 8feeaa320359..80806fbeba91 100644
+--- a/drivers/soc/mediatek/mtk-cmdq-helper.c
++++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
+@@ -8,6 +8,7 @@
+ #include <linux/module.h>
+ #include <linux/mailbox_controller.h>
+ #include <linux/of.h>
++#include <linux/of_address.h>
+ #include <linux/soc/mediatek/mtk-cmdq.h>
+ 
+ #define CMDQ_WRITE_ENABLE_MASK	BIT(0)
+@@ -60,20 +61,31 @@ int cmdq_dev_get_client_reg(struct device *dev,
+ 			    struct cmdq_client_reg *client_reg, int idx)
+ {
+ 	struct of_phandle_args spec;
++	struct resource res;
+ 	int err;
+ 
+ 	if (!client_reg)
+ 		return -ENOENT;
+ 
++	err = of_address_to_resource(dev->of_node, 0, &res);
++	if (err) {
++		dev_err(dev, "Missing reg in %s node\n", dev->of_node->full_name);
++		return -EINVAL;
++	}
++	client_reg->pa_base = res.start;
++
+ 	err = of_parse_phandle_with_fixed_args(dev->of_node,
+ 					       "mediatek,gce-client-reg",
+ 					       3, idx, &spec);
+ 	if (err < 0) {
+-		dev_warn(dev,
++		dev_dbg(dev,
+ 			"error %d can't parse gce-client-reg property (%d)",
+ 			err, idx);
+ 
+-		return err;
++		/* make subsys invalid */
++		client_reg->subsys = CMDQ_SUBSYS_INVALID;
++
++		return 0;
+ 	}
+ 
+ 	client_reg->subsys = (u8)spec.args[0];
+diff --git a/include/linux/soc/mediatek/mtk-cmdq.h b/include/linux/soc/mediatek/mtk-cmdq.h
+index 0c3906e8ad19..3578cc9200e9 100644
+--- a/include/linux/soc/mediatek/mtk-cmdq.h
++++ b/include/linux/soc/mediatek/mtk-cmdq.h
+@@ -23,6 +23,8 @@
+ #define CMDQ_THR_SPR_IDX2	(2)
+ #define CMDQ_THR_SPR_IDX3	(3)
+ 
++#define CMDQ_SUBSYS_INVALID	(U8_MAX)
++
+ struct cmdq_pkt;
+ 
+ enum cmdq_logic_op {
+@@ -52,6 +54,7 @@ struct cmdq_operand {
+ 
+ struct cmdq_client_reg {
+ 	u8 subsys;
++	phys_addr_t pa_base;
+ 	u16 offset;
+ 	u16 size;
+ };
 -- 
-Frederic Weisbecker
-SUSE Labs
+2.43.0
+
 
