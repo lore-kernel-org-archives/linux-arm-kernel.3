@@ -4,53 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FD9CCF9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4358BCCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 10:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=65dyEA4RUYUNpCoI9pyaTvnNZm5LJ+V1BgHZanIfaU8=; b=iYTc0CaCsh6Ua35vtWZ92vGJhS
-	KcUCDmBY1n+Vbsple8lyVsng/bmbm3IRkv/HoVJjEzP7e5dtRJwwodgga9a9N51XFz3UmJ8libo6X
-	Wwu8bx3F+eksIbdn4hCM6U0tKD9d/pM5D1foV8h+heKTNfcrUEI/1q7wIHQgVLrhETGdyAWioYVcL
-	WQqM1Fs3zB5b7o3iYLYQcnmjnCkYmXaMFngxss7gzgIIaB15+32bVpnMxCDuF9200/QPAu1GFjdwZ
-	W8qBdmgP95Mi7gaeRD1fwI4I96gsk9gXOllHYp3MfEnyoXPOoNYE1KEVglLuidXknNMzgS3jJsWTV
-	5esoQeFQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NgLCYfpgrKXyb0uNcHRkHZoucWvjEkXvo5QPwaDt/k0=; b=CUOXec4S8yMykbkKVTJVA3NCRL
+	oDCHZsrBmGv0B7onQEM5UD8AzOclFvWX0wGKmIDJhEUD5RnBf+Kx/VcQmL3YsnKW3Vxd12UQa4KUq
+	SV0N6nDVgq3q6HbyuDHSoQWKc0zz6IRy36tfbWPqISTqfCdmKERESlqU49AR5Pu2HGsJjzV5F7Dn4
+	DPCpeKngRZF2AJeZkDE0qBkTW9BuDGuoyXT4bt5KhYfp9oR39SyabqcB4xz6dwxqAfHTQvEjjJZWr
+	H6jZBK9usNQb9mBiZmJI/SFyMxHUEBsqQlH/6U+XDg1/rKEFvUgKhSn4jDgnQ8iutOU544MogC54a
+	yr2DGS3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmbt-00000005x3i-1n1R;
-	Fri, 31 Oct 2025 10:43:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vEmgh-00000005xag-2GPx;
+	Fri, 31 Oct 2025 10:48:55 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEmbh-00000005x0N-24o1
+	id 1vEmge-00000005xYE-29dy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 10:43:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1C5A44D31;
-	Fri, 31 Oct 2025 10:43:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C24EC116C6;
-	Fri, 31 Oct 2025 10:43:43 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
+	Fri, 31 Oct 2025 10:48:53 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4711b95226dso26243035e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Oct 2025 03:48:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1761907730; x=1762512530; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NgLCYfpgrKXyb0uNcHRkHZoucWvjEkXvo5QPwaDt/k0=;
+        b=SI8B0czy+yAbKvi0PKzV+ugS2MKOFsD2sWhjfHI0fuBQKkJRDu5qMF2CZxAtUPoJ53
+         9nrivpkwuPqfZ26MU7mA6VjCbNBAgP9mpRiWvAxxGUdp78AWZuJG8EPc+6+mvILfA3sZ
+         jy1T23BTv91vPJNxkUX4KOm/pP+podpQhLEzUNxFzQ4lVoLUAgdHgfv9wXfYEBLkYLFI
+         gTzl8Xau0iYkZJsivjuRy4bendG40a4gljrECZZ8udYRfG9mrNBHIpv0K9LLtpfBjSah
+         dZ39GOXHURtd+DoF2ZvrC86PYag12iu9C8aUSpUS3pcsyZiSHkwkDbXGK2m4NydBMok5
+         vhHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761907730; x=1762512530;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NgLCYfpgrKXyb0uNcHRkHZoucWvjEkXvo5QPwaDt/k0=;
+        b=mfasrNRVapwnEykit/WlKrWn84JCT07KG9kpkqvGJuU8xuLWDv98G8pTbt7ps8cJg+
+         Rfc3ZeEPJ+/WnorukCQ5Sb1YGAyQrZNmmWFqdWGNwBq5VxIFMB+dWulQlhPc7Uid7VyX
+         l6OF9PJkVpwSX7CquabRyRYCAbeLbGoJrM1Ja8l9gnDZC7A5GOYT6SwW0lcel4k4Hreb
+         u7WYl4qCW0eDE1yYI1Jgl57l7a6KzNSIqUz8Exiyl8lkKwlwt2KW2pqhMwEiMM4k32uJ
+         dijiN0b3tbj99dZWF8fPIoRsI1Xd3ss4cShdTSMAhxo388RlywJCgv1Gx5JuZcb/y2iM
+         qPnw==
+X-Forwarded-Encrypted: i=1; AJvYcCVz04UnGz8NTGhc16QnHNe/rLAs2a5lVRuXkxowirupOEDiI6EgZY91sYkEkb6I3K0//1ek6+06oV9R4ttms9eF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz35Sd1gzp49LYJkpk1NCfHvSGUMlgk6i0n1VtsOzoSMwfpoCCh
+	E725SyP6Jn4GrSvut6ItLlf7yh+uKOL3VyP5rF+YoVVYRjVqfojysMQ+NRjj8VJBjitOo4pc9DN
+	VQjc2
+X-Gm-Gg: ASbGncuR8wifQ6pm7EjLODL1oq28JFxk1lxRRfWhujDTLnXnoLYoTnCm1guIzsOtrnC
+	EL4m1fRSNYe3SX4yt9Icy4bo/o3Dcc8ddjyw6zp17IquHjaTp8r9LQDa+tt5wcs2K+E6vafPeRR
+	Mf1f+QRob8rOZfqBprRd8nd6LXCWlEEfxf7qmKaN//lvUzB/C0Jf0qx5CIJNRSybilsz9EOVmy7
+	vLu2Qfj3+RCwjr68cDZY8b1/QskTs+vupUhx9ctZmJonHVAmdZC1EOErdGVHdgcv3ZVIxCpr2dB
+	EGdK5yDWGdMnlNgyLBNkEZmwLslV2EiFiDhFHvCIYQxLtPotKVFAZr2G2yrkN/JWlxr3FaarOJA
+	ivbNrp6iu+SM4GXc2GM/EK8Nkd3aRLVnBMXkg5+m9Iou86ra4pKrok4jee4Ta5eRtTGWbTCRGhX
+	H//g4zkaz9Y3kilQbpw/CxRPKZ/HdtQQXPiJo=
+X-Google-Smtp-Source: AGHT+IFP987BsDATwy71oQrVgMqL+tPUdk6zXS4vwh+ZuiP9GnPeneDUsTtppOuOWWpaBC8dvT1MnQ==
+X-Received: by 2002:a05:600c:3e06:b0:475:dc58:39e5 with SMTP id 5b1f17b1804b1-4773089b541mr26933225e9.27.1761907729944;
+        Fri, 31 Oct 2025 03:48:49 -0700 (PDT)
+Received: from localhost.localdomain ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c102dfd2sm2961635f8f.0.2025.10.31.03.48.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Oct 2025 03:48:49 -0700 (PDT)
+From: Marco Crivellari <marco.crivellari@suse.com>
+To: linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 3/3] Renesas DTS updates for v6.19
-Date: Fri, 31 Oct 2025 11:43:32 +0100
-Message-ID: <cover.1761905416.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1761905410.git.geert+renesas@glider.be>
-References: <cover.1761905410.git.geert+renesas@glider.be>
+	linux-rockchip@lists.infradead.org
+Cc: Tejun Heo <tj@kernel.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Subject: [PATCH 0/2] rename system_wq and system_unbound_wq
+Date: Fri, 31 Oct 2025 11:48:44 +0100
+Message-ID: <20251031104846.119503-1-marco.crivellari@suse.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_034346_998231_D278AD48 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20251031_034852_613147_076937AC 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,212 +111,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+Hi,
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+=== Current situation: problems ===
 
-are available in the Git repository at:
+Let's consider a nohz_full system with isolated CPUs: wq_unbound_cpumask is
+set to the housekeeping CPUs, for !WQ_UNBOUND the local CPU is selected.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.19-tag1
+This leads to different scenarios if a work item is scheduled on an
+isolated CPU where "delay" value is 0 or greater then 0:
+        schedule_delayed_work(, 0);
 
-for you to fetch changes up to 9d22a34a016313137b9e534a918f1f9aa790aa69:
+This will be handled by __queue_work() that will queue the work item on the
+current local (isolated) CPU, while:
 
-  arm64: dts: renesas: sparrow-hawk: Fix full-size DP connector node name and labels (2025-10-31 10:16:03 +0100)
+        schedule_delayed_work(, 1);
 
-----------------------------------------------------------------
-Renesas DTS updates for v6.19
+Will move the timer on an housekeeping CPU, and schedule the work there.
 
-  - Add thermal support for the RZ/G3S and RZ/G3E SoCs,
-  - Add DT overlay support for the Raspberry Pi Display 2 and Argon40
-    fan hats on the Retronix Sparrow Hawk board,
-  - Add eMMC support for the Eagle Function expansion board,
-  - Add initial support for the R-Car X5H (R8A78000) SoC and the
-    Ironhide development board,
-  - Move interrupt-parent properties to root nodes,
-  - Add system watchdog timer support for R-Car Gen3 and Gen4 SoCs,
-    which is reserved for secure firmware on R-Car Gen3 boards,
-  - Add ADC support for the RZ/T2H and RZ/N2H SoCs and their evaluation
-    boards,
-  - Add watchdog timer support on the R-Car V3M Starter Kit board,
-  - Add Cortex-A55 PMU support on the RZ/V2H, RZ/V2N, RZ/T2H, and RZ/N2H
-    SoCs,
-  - Add Imagination Technologies PowerVR Series 6XT GX6250 GPU support
-    on the R-Car M3-W and M3-W+ SoCs,
-  - Miscellaneous fixes and improvements.
+Currently if a user enqueue a work item using schedule_delayed_work() the
+used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
+WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
+schedule_work() that is using system_wq and queue_work(), that makes use
+again of WORK_CPU_UNBOUND.
 
-----------------------------------------------------------------
-Claudiu Beznea (1):
-      arm64: dts: renesas: r9a08g045: Add TSU node
+This lack of consistency cannot be addressed without refactoring the API.
 
-Cosmin Tanislav (3):
-      arm64: dts: renesas: r9a09g077: Add ADCs support
-      arm64: dts: renesas: r9a09g087: Add ADCs support
-      arm64: dts: renesas: rzt2h/rzn2h-evk: Enable ADCs
+=== Recent changes to the WQ API ===
 
-Geert Uytterhoeven (14):
-      ARM: dts: renesas: r7s72100: Move interrupt-parent to root node
-      ARM: dts: renesas: r7s9210: Remove duplicate interrupt-parent
-      ARM: dts: renesas: r8a7742: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7743: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7744: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7745: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a77470: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7790: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7791: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7792: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7793: Move interrupt-parent to root node
-      ARM: dts: renesas: r8a7794: Move interrupt-parent to root node
-      ARM: dts: renesas: r9a06g032: Move interrupt-parent to root node
-      arm64: dts: renesas: v3msk: Enable watchdog timer
+The following, address the recent changes in the Workqueue API:
 
-Hai Pham (2):
-      arm64: dts: renesas: Add R8A78000 SoC support
-      arm64: dts: renesas: r8a78000: Add initial Ironhide board support
+- commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
+- commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
 
-John Madieu (1):
-      arm64: dts: renesas: r9a09g047: Add TSU node
+The old workqueues will be removed in a future release cycle.
 
-Kuninori Morimoto (26):
-      arm64: dts: renesas: r8a774a1: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a774b1: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a774c0: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a774e1: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77951: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77960: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77961: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77965: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77970: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77980: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77990: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a77995: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a779a0: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a779f0: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a779g0: Move interrupt-parent to root node
-      arm64: dts: renesas: r8a779h0: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a07g043u: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a07g044: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a07g054: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a08g045: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a09g011: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a09g047: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a09g056: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a09g057: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a09g077: Move interrupt-parent to root node
-      arm64: dts: renesas: r9a09g087: Move interrupt-parent to root node
+=== Introduced Changes by this series ===
 
-Lad Prabhakar (4):
-      arm64: dts: renesas: r9a09g057: Add Cortex-A55 PMU node
-      arm64: dts: renesas: r9a09g056: Add Cortex-A55 PMU node
-      arm64: dts: renesas: r9a09g077: Add Cortex-A55 PMU node
-      arm64: dts: renesas: r9a09g087: Add Cortex-A55 PMU node
+1) [P 1-2]  Replace uses of system_wq and system_unbound_wq
 
-Laurent Pinchart (2):
-      arm64: dts: renesas: aistarvision-mipi-adapter-2.1: Drop clock-frequency from camera sensor node
-      arm64: dts: renesas: rzg2l-smarc: Drop clock-frequency from camera sensor node
+    system_wq is a per-CPU workqueue, but his name is not clear.
+    system_unbound_wq is to be used when locality is not required.
 
-Marek Vasut (5):
-      arm64: dts: renesas: sparrow-hawk: Add overlay for RPi Display 2
-      arm64: dts: renesas: sparrow-hawk: Add overlay for Argon40 fan HAT
-      arm64: dts: renesas: r8a77960: Add GX6250 GPU node
-      arm64: dts: renesas: r8a77961: Add GX6250 GPU node
-      arm64: dts: renesas: sparrow-hawk: Fix full-size DP connector node name and labels
+    Because of that, system_wq has been replaced with system_percpu_wq, and
+    system_unbound_wq has been replaced with system_dfl_wq.
 
-Niklas Söderlund (1):
-      ARM: dts: renesas: koelsch: Update ADV7180 binding
+	The new wq(s) keep the same old behavior.
 
-Wolfram Sang (21):
-      arm64: dts: renesas: v3[mh]sk: Remove wrong sound property in HDMI encoder node
-      arm64: dts: renesas: eagle-function-expansion: Add eMMC support
-      arm64: dts: renesas: r8a77951: Add SWDT node
-      arm64: dts: renesas: r8a77960: Add SWDT node
-      arm64: dts: renesas: r8a77961: Add SWDT node
-      arm64: dts: renesas: r8a77965: Add SWDT node
-      arm64: dts: renesas: r8a77970: Add SWDT node
-      arm64: dts: renesas: r8a77990: Add SWDT node
-      arm64: dts: renesas: r8a77995: Add SWDT node
-      arm64: dts: renesas: salvator-common: Mark SWDT as reserved
-      arm64: dts: renesas: ulcb: Mark SWDT as reserved
-      arm64: dts: renesas: draak: Mark SWDT as reserved
-      arm64: dts: renesas: ebisu: Mark SWDT as reserved
-      arm64: dts: renesas: eagle/v3msk: Mark SWDT as reserved
-      ARM: dts: renesas: gose: Remove superfluous port property
-      arm64: dts: renesas: r8a779a0: Add SWDT node
-      arm64: dts: renesas: r8a779f0: Add SWDT node
-      arm64: dts: renesas: r8a779g0: Add SWDT node
-      arm64: dts: renesas: r8a779h0: Add SWDT node
-      ARM: dts: renesas: r9a06g032-rzn1d400-db: Drop invalid #cells properties
-      ARM: dts: renesas: kzm9g: Name interrupts for accelerometer
 
- arch/arm/boot/dts/renesas/r7s72100.dtsi            |   4 +-
- arch/arm/boot/dts/renesas/r7s9210.dtsi             |   1 -
- arch/arm/boot/dts/renesas/r8a7742.dtsi             |  26 +-
- arch/arm/boot/dts/renesas/r8a7743.dtsi             |  14 +-
- arch/arm/boot/dts/renesas/r8a7744.dtsi             |  14 +-
- arch/arm/boot/dts/renesas/r8a7745.dtsi             |  14 +-
- arch/arm/boot/dts/renesas/r8a77470.dtsi            |  14 +-
- arch/arm/boot/dts/renesas/r8a7790.dtsi             |  26 +-
- arch/arm/boot/dts/renesas/r8a7791-koelsch.dts      |  34 +-
- arch/arm/boot/dts/renesas/r8a7791.dtsi             |  14 +-
- arch/arm/boot/dts/renesas/r8a7792.dtsi             |  14 +-
- arch/arm/boot/dts/renesas/r8a7793-gose.dts         |   1 -
- arch/arm/boot/dts/renesas/r8a7793.dtsi             |  14 +-
- arch/arm/boot/dts/renesas/r8a7794.dtsi             |  14 +-
- .../arm/boot/dts/renesas/r9a06g032-rzn1d400-db.dts |   2 -
- arch/arm/boot/dts/renesas/r9a06g032.dtsi           |   3 +-
- arch/arm/boot/dts/renesas/sh73a0-kzm9g.dts         |   1 +
- arch/arm64/boot/dts/renesas/Makefile               |  11 +
- .../dts/renesas/aistarvision-mipi-adapter-2.1.dtsi |   1 -
- arch/arm64/boot/dts/renesas/draak.dtsi             |   5 +
- arch/arm64/boot/dts/renesas/ebisu.dtsi             |   5 +
- arch/arm64/boot/dts/renesas/r8a774a1.dtsi          |  22 +-
- arch/arm64/boot/dts/renesas/r8a774b1.dtsi          |  14 +-
- arch/arm64/boot/dts/renesas/r8a774c0.dtsi          |  14 +-
- arch/arm64/boot/dts/renesas/r8a774e1.dtsi          |  26 +-
- arch/arm64/boot/dts/renesas/r8a77951.dtsi          |  36 +-
- arch/arm64/boot/dts/renesas/r8a77960.dtsi          |  49 +-
- arch/arm64/boot/dts/renesas/r8a77961.dtsi          |  49 +-
- arch/arm64/boot/dts/renesas/r8a77965.dtsi          |  24 +-
- .../renesas/r8a77970-eagle-function-expansion.dtso |  17 +
- arch/arm64/boot/dts/renesas/r8a77970-eagle.dts     |   5 +
- arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts     |  11 +-
- arch/arm64/boot/dts/renesas/r8a77970.dtsi          |  24 +-
- arch/arm64/boot/dts/renesas/r8a77980-v3hsk.dts     |   1 -
- arch/arm64/boot/dts/renesas/r8a77980.dtsi          |  22 +-
- arch/arm64/boot/dts/renesas/r8a77990.dtsi          |  24 +-
- arch/arm64/boot/dts/renesas/r8a77995.dtsi          |  22 +-
- arch/arm64/boot/dts/renesas/r8a779a0.dtsi          |  24 +-
- arch/arm64/boot/dts/renesas/r8a779f0.dtsi          |  24 +-
- arch/arm64/boot/dts/renesas/r8a779g0.dtsi          |  24 +-
- .../renesas/r8a779g3-sparrow-hawk-fan-argon40.dtso |  51 ++
- .../r8a779g3-sparrow-hawk-rpi-display-2-5in.dtso   |  13 +
- .../r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso   |  13 +
- .../r8a779g3-sparrow-hawk-rpi-display-2.dtsi       |  90 +++
- .../boot/dts/renesas/r8a779g3-sparrow-hawk.dts     |   6 +-
- arch/arm64/boot/dts/renesas/r8a779h0.dtsi          |  24 +-
- arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts  |  85 +++
- arch/arm64/boot/dts/renesas/r8a78000.dtsi          | 787 +++++++++++++++++++++
- arch/arm64/boot/dts/renesas/r9a07g043u.dtsi        |  16 +-
- arch/arm64/boot/dts/renesas/r9a07g044.dtsi         |  14 +-
- arch/arm64/boot/dts/renesas/r9a07g054.dtsi         |  14 +-
- arch/arm64/boot/dts/renesas/r9a08g045.dtsi         |  61 +-
- arch/arm64/boot/dts/renesas/r9a09g011.dtsi         |  10 +-
- arch/arm64/boot/dts/renesas/r9a09g047.dtsi         |  60 +-
- arch/arm64/boot/dts/renesas/r9a09g056.dtsi         |  17 +-
- arch/arm64/boot/dts/renesas/r9a09g057.dtsi         |  17 +-
- arch/arm64/boot/dts/renesas/r9a09g077.dtsi         |  83 ++-
- .../boot/dts/renesas/r9a09g077m44-rzt2h-evk.dts    |  28 +
- arch/arm64/boot/dts/renesas/r9a09g087.dtsi         |  83 ++-
- .../boot/dts/renesas/r9a09g087m44-rzn2h-evk.dts    |  64 ++
- .../boot/dts/renesas/rz-smarc-cru-csi-ov5645.dtsi  |   1 -
- arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi   |   4 -
- .../boot/dts/renesas/rzt2h-n2h-evk-common.dtsi     |  79 +++
- arch/arm64/boot/dts/renesas/salvator-common.dtsi   |   5 +
- arch/arm64/boot/dts/renesas/ulcb.dtsi              |   5 +
- 65 files changed, 1982 insertions(+), 312 deletions(-)
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-fan-argon40.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-5in.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2.dtsi
- create mode 100644 arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
- create mode 100644 arch/arm64/boot/dts/renesas/r8a78000.dtsi
+Thanks!
+
+
+Marco Crivellari (2):
+  drm/rockchip: replace use of system_unbound_wq with system_dfl_wq
+  drm/rockchip: replace use of system_wq with system_percpu_wq
+
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++--
+ drivers/gpu/drm/rockchip/rockchip_drm_vop.c    | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+-- 
+2.51.0
+
 
