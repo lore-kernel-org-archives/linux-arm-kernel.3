@@ -4,64 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B507CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 18:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D58CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 18:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NzbDUivdbZHMfuBc4xDzyoycsdLc4AWCQGQkE2LD/fM=; b=SLGtyx1w7uIfgXPNH5FE/Kz434
-	gjNN5qZlQY3tN+4oVvpDH/hM8WSK7qzxW/ub7tV6OvCZgb/h18U4D7ipqB+01PHD6eVoC7XgTqm5I
-	/6ADvCPnfONA2TxnKSOyByV/inB9iK3/2Ojcwd85JhtW+ibnj5RFwlYRg/Hz91EDUyjxPgz/R/C7/
-	+UNvg3VzgpWA7SXchEAlN/Do09gxxPOrrWNNXPsEw+JRH/Yxg3UGkaq5s/ObzEcwu5VwJ/CiMGsKN
-	s3onJF/wG7MumhgdnHwfXSe5HvmVf7UN/66JhUKO6r17cZQMX3yot/CPLe6H2WU6EbZdMfZmYJEvK
-	qoV5bcRg==;
+	bh=jessRx6TNC0QixhPKRj2h5XBAo+ylMyAf01j+QDGZrw=; b=QS/e0HtLqGDzedvr/m4izVHXRp
+	Qa5SxB3eOHT5lhXbc6b5lyR072e9ZIFJKcpiWIoHxj5D0bfelT4kYXTAUzTetYfcIUy+mXg4TvE+g
+	u0Pck4HNOQhBoXTFcB3/zwdFBTNoL9thGoFUoyOQlGUzlrcuvBPQFSr6CYnXRVhKt2Z+vn/yIkZCi
+	dpnDJ6PYT+6R2+ox0x/oSQov5qw4kdmGkF1LtzJwQqDUZGXYJaw+PRrrpOiv2kdazl7yRNHKoUjTf
+	hu2CutOCFuGLLEoIWYWwOxvYRNZ6iAIvGBg0cm4W5egqnxLbdy3U8nFEEkwRkbcSJsNuTS55IuhsW
+	RBb7c4Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEtg6-00000006bfR-1vW0;
-	Fri, 31 Oct 2025 18:16:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vEtlM-00000006byz-2Uhg;
+	Fri, 31 Oct 2025 18:22:12 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEtg4-00000006bfB-1S5O;
-	Fri, 31 Oct 2025 18:16:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DB056025C;
-	Fri, 31 Oct 2025 18:16:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E322C4CEE7;
-	Fri, 31 Oct 2025 18:16:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761934603;
-	bh=JnGr5vUYfVAVza81n1ZuarMPqOm1k7qNnjeylSO/u4k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JmK3nULsKWb4OBVjVEIiQPxIWECn/zWUWrH03JI1dsV8J6T8ZSr5nuNescmInN8K9
-	 HYZ319GYROw8OfkDz2RIMOzkw3A2gnGjKgJKXtTuG2RvvOI7q01uk5C86vC3qcdPnT
-	 Z2CbDx/Yy7siPbUNnEJM/SSyRNAWzcsSpIOhH6YbuAF5wFeUvU2dzoXC9xgeDj+nzE
-	 Q7HznMnBwHtZTvBwlEytqTpb76ij7EVPGxwlIFTwKG+Yb8FxST0jYignNsySn0zLCo
-	 plMd3mzLB03sIZSkDRzK7oyh8y0NsfFB3bUMxVKw5Wc45xk+qnCiRMs24BQKQ1eAWf
-	 cYWPbbEMtIU4w==
-Date: Fri, 31 Oct 2025 11:16:41 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Eric Dumazet <edumazet@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Add TCP LRO support
-Message-ID: <20251031111641.08471c44@kernel.org>
-In-Reply-To: <aQR2Z51Q45Zl99m_@lore-desk>
-References: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
-	<CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
-	<aEg1lvstEFgiZST1@lore-rh-laptop>
-	<20250611173626.54f2cf58@kernel.org>
-	<aEtAZq8Th7nOdakk@lore-rh-laptop>
-	<20250612155721.4bb76ab1@kernel.org>
-	<aFATYATliil63D5R@lore-desk>
-	<aQR2Z51Q45Zl99m_@lore-desk>
+	id 1vEtlI-00000006byF-1dYx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Oct 2025 18:22:09 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 433DE223E4;
+	Fri, 31 Oct 2025 18:22:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1761934926; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jessRx6TNC0QixhPKRj2h5XBAo+ylMyAf01j+QDGZrw=;
+	b=TzgpNHyKZcFSDWwunMLd2X71Jgz9ba03UiBxZQcLzDelaJP6atFhs4LA0UDe8oMvUnDgwp
+	PXC4sOOnEzEEwiKdsskYEq54s11zaGrTZsRRvvU0ig797fLdg+pXn4i0rHIPxMGOQUoN6l
+	l6wrLEjXKj2RmV1xsZ8efQstlGY02JY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1761934926;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jessRx6TNC0QixhPKRj2h5XBAo+ylMyAf01j+QDGZrw=;
+	b=CEH3HQeMT3rUTyh+KA1JIrTOUkOIE/w2GWcujKzHW1fp1rCI2mIJMdd52lszF9KohAiG1t
+	YyI7HhGigbhCIZBg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1761934926; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jessRx6TNC0QixhPKRj2h5XBAo+ylMyAf01j+QDGZrw=;
+	b=TzgpNHyKZcFSDWwunMLd2X71Jgz9ba03UiBxZQcLzDelaJP6atFhs4LA0UDe8oMvUnDgwp
+	PXC4sOOnEzEEwiKdsskYEq54s11zaGrTZsRRvvU0ig797fLdg+pXn4i0rHIPxMGOQUoN6l
+	l6wrLEjXKj2RmV1xsZ8efQstlGY02JY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1761934926;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jessRx6TNC0QixhPKRj2h5XBAo+ylMyAf01j+QDGZrw=;
+	b=CEH3HQeMT3rUTyh+KA1JIrTOUkOIE/w2GWcujKzHW1fp1rCI2mIJMdd52lszF9KohAiG1t
+	YyI7HhGigbhCIZBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A086D13991;
+	Fri, 31 Oct 2025 18:22:05 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 1SBoJU3+BGn3bwAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Fri, 31 Oct 2025 18:22:05 +0000
+Message-ID: <309707dc-43e6-4c2c-9547-cbfce2e9e1fb@suse.de>
+Date: Fri, 31 Oct 2025 20:22:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] dt-bindings: soc: bcm: Add bcm2712 compatible
+To: Conor Dooley <conor@kernel.org>, Stanimir Varbanov <svarbanov@suse.de>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, linux-pm@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Lee Jones <lee@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Willow Cunningham <willow.e.cunningham@gmail.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Saenz Julienne <nsaenz@kernel.org>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
+ <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
+References: <20251031102423.1150093-1-svarbanov@suse.de>
+ <20251031102423.1150093-3-svarbanov@suse.de>
+ <20251031-icon-woozy-58061dd3d4b4@spud>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <20251031-icon-woozy-58061dd3d4b4@spud>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TAGGED_RCPT(0.00)[dt];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.net];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[vger.kernel.org,lists.infradead.org,broadcom.com,kernel.org,linaro.org,gmail.com,gmx.net,suse.com,raspberrypi.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_112208_939913_02E0E497 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +149,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 09:42:15 +0100 Lorenzo Bianconi wrote:
-> > > Hm, truesize is the buffer size, right? If the driver allocated n bytes
-> > > of memory for packets it sent up the stack, the truesizes of the skbs
-> > > it generated must add up to approximately n bytes.  
-> > 
-> > With 'truesize' I am referring to the real data size contained in the x-order
-> > page returned by the hw. If this size is small, I was thinking to just allocate
-> > a skb for it, copy the data from the x-order page into it and re-insert the
-> > x-order page into the page_pool running page_pool_put_full_page().
-> > Let me do some tests with order-2 page to see if the GRO can compensate the
-> > reduced page size.  
-> 
-> Sorry for the late reply about this item.
-> I carried out some comparison tests between GRO-only and GRO+LRO with order-2
-> pages [0]. The system is using a 2.5Gbps link. The device is receiving a single TCP
-> stream. MTU is set to 1500B.
-> 
-> - GRO only:			~1.6Gbps
-> - GRO+LRO (order-2 pages):	~2.1Gbps
-> 
-> In both cases we can't reach the line-rate. Do you think the difference can justify
-> the hw LRO support? Thanks in advance.
->  
-> [0] the hw LRO requires contiguous memory pages to work. I reduced the size to
-> order-2 from order-5 (original implementation).
+Hi Conor,
 
-I think we're mostly advising about real world implications of 
-the approach rather than nacking. I can't say for sure if potentially
-terrible skb->len/skb->truesize ratio will matter for a router
-application. Maybe not.
+On 10/31/25 5:04 PM, Conor Dooley wrote:
+> On Fri, Oct 31, 2025 at 12:24:21PM +0200, Stanimir Varbanov wrote:
+>> Add bcm2712-pm compatible and update the bindings to satisfy it's
+>> requirements. The PM hardware block inside bcm2712 lacks the "asb"
+>> and "rpivid_asb" register ranges and also does not have clocks, update
+>> the bindings accordingly.
+>>
+>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+>> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>> ---
+>>  .../bindings/soc/bcm/brcm,bcm2835-pm.yaml     | 38 ++++++++++++++++---
+>>  1 file changed, 32 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/soc/bcm/brcm,bcm2835-pm.yaml b/Documentation/devicetree/bindings/soc/bcm/brcm,bcm2835-pm.yaml
+>> index e28ef198a801..ce910802ee9d 100644
+>> --- a/Documentation/devicetree/bindings/soc/bcm/brcm,bcm2835-pm.yaml
+>> +++ b/Documentation/devicetree/bindings/soc/bcm/brcm,bcm2835-pm.yaml
+>> @@ -13,23 +13,21 @@ description: |
+>>  maintainers:
+>>    - Nicolas Saenz Julienne <nsaenz@kernel.org>
+>>  
+>> -allOf:
+>> -  - $ref: /schemas/watchdog/watchdog.yaml#
+>> -
+>>  properties:
+>>    compatible:
+>>      items:
+>>        - enum:
+>>            - brcm,bcm2835-pm
+>>            - brcm,bcm2711-pm
+>> +          - brcm,bcm2712-pm
+>>        - const: brcm,bcm2835-pm-wdt
+>>  
+>>    reg:
+>> -    minItems: 2
+>> +    minItems: 1
+>>      maxItems: 3
+>>  
+>>    reg-names:
+>> -    minItems: 2
+>> +    minItems: 1
+>>      items:
+>>        - const: pm
+>>        - const: asb
+>> @@ -62,7 +60,35 @@ required:
+>>    - reg
+>>    - "#power-domain-cells"
+>>    - "#reset-cells"
+>> -  - clocks
+>> +
+>> +allOf:
+>> +  - $ref: /schemas/watchdog/watchdog.yaml#
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - brcm,bcm2835-pm
+>> +              - brcm,bcm2711-pm
+>> +    then:
+>> +      required:
+>> +        - clocks
+>> +
+>> +      properties:
+>> +        reg:
+>> +          minItems: 2
+>> +
+>> +        reg-names:
+>> +          minItems: 2
+> 
+>> +
+>> +    else:
+>> +      properties:
+>> +        reg:
+>> +          minItems: 1
+>> +
+>> +        reg-names:
+>> +          minItems: 1
+> 
+> This else has no impact, was it meant to be maxItems?
 
-BTW is the device doing header-data split or the LRO frame has headers
-and payload in a single buffer?
+Oops, yes it should be maxItems. Sending new version ...
+
+~Stan
+
 
