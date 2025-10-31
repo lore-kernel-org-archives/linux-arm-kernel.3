@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3ABCCF9EE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 03:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DFACCF9EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Oct 2025 03:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qwk7zr2MuNQZ+FfJ0ztDTnZdkyhPxI51F5tDM18IOBo=; b=U1ZppuMTIw88tX3vSSjwNc16lN
-	QH+sffj+69FwH6+GMU4IHSLB5hHdYcb4eUkmOGO6vdkyqYnWzAR00N0/E+XgdjZPONh4ZO0BrJVIv
-	D1tt2xcmXjrVVpOfx64J2ktas6iFuwsUJpuNO1NWdz4yhc9arkMq0sqkMFjtPUlptpdki0FSSaxqK
-	bGFRG7b2crn8niI9Q00IgtIE209uds7fAqZC2Tx+z31EESiaj3e2RTIuqoRrLdDrJS9d4dairOLLM
-	w5XNAPjEztJSt5tDkf6EKn2aOfoNsm8YR07lh1E5SrH7qq5BRSTvDM9etaj4RT9LWwgSlBIGd89Ta
-	orS2ZGHQ==;
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fhtBCgBNaHdkFxfK++fI1K2tyQdnDAZWDLcdFqxeIeA=; b=E/5NzmUE4UPwH9kTI2flbuG5dq
+	MChZ/v7Gt89PZviryMqyMBsc+pbtS1iH4fGINd46X6shjSunYVZZoFxqH2x6kVibNMkdVUgvLfkaD
+	CxQHJWU3ABZ2wDKHxuF6wvvxVTpSmNklCa8uRdP/BCXGOZjE57+kRdMhQKpgsk2RZePMIb6RDQgSK
+	TAEd9oXuwA/cO6+hxDAEJ/F7oQUIsXXYeQcE5FWnbM9XXCu8dKRj/BGKq9bK4P9XO6NfL3JAcuERw
+	ATb64F2DoYsbAUlQgx0aV5ld5kldSkT+6/kuV6PkXEuh6c+Wx6PPWRY714CwhwY1veYE4Fu6vYUHp
+	UhwJHg1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEg9K-00000005Lwe-3uJd;
-	Fri, 31 Oct 2025 03:50:02 +0000
+	id 1vEg9W-00000005Lyr-2Zdd;
+	Fri, 31 Oct 2025 03:50:14 +0000
 Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEg9I-00000005Lum-1y0E
+	id 1vEg9L-00000005Lum-31nB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Oct 2025 03:50:01 +0000
+	Fri, 31 Oct 2025 03:50:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O12EJeqUMDTbpn882vZaBzChip0i422/j23V2ARrymAOrC9xBnBYVil8xkzYI2V6LVih6kFjslFOtEH1b+hw+OMEUu/OQAjxK0L5ih0bFd8QULRH+zCWlFjwPkVtjS3GuqlswuQ8bbTqqYAhkPjvDpCgbyGn/q/ATXKdbDYBYV3oeluRI8JyVRlEKzH0Gorjxy0MWBg7c/4XfzHfI4joZ0beliPFKL8KDlAqSUrMcF9rzbSnS3JddKNCvs4JX32iLH1qMBl2Tls7HarZd+6cvLFhu+i/7zOm8f7aOoLvj9j6KoBGjLq+3TYtCT+CaRHPEx3reVZ6cvyGSOwu4w5nuw==
+ b=yORU8D73rSOJNF1Z623yHhyDAZvKbzwwk0dDzDOu4Q1Q9jMXEKVlkxq+FR9a+XdcQp7ipDU385Xc0cVOJJOSbr5RsU4cqQdCB3odgjl+9mHHHReZuIFnK74puZaAvSxzwaJHDAEcOVLjNYfT4YFTqpTN4kssC02KDSyrrW5jJ0RjRtSDib94roR8WAB2btVq1M9662zxRAW4DDfB/9APKw2baFPBSSoAddpaadn0klkYcr5RznQ8xlcyMOlhFUg8lmEzClCQuO2cyEYVSHwiuRPMnLudgCygnlOAbb3xemLFMdlz9OEP26AFA8l2an5QpBf9tguv2tx5TKxLnh18aQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Qwk7zr2MuNQZ+FfJ0ztDTnZdkyhPxI51F5tDM18IOBo=;
- b=fhYhXalEz7C9h25NTOLSEpOxcXy+MetkbMRR8qxHVIUbhS0mnfEBB+QYrd6ZeVGCQIHupbuyEHoB/z5kzhokKhlRWroBpPqzkEgPsxYsHxtZ6cgNXHjutwL5EhHMWMKWX5WQ99X6L29PLh25X/6bh9arJq27U08pdcU8hwRt5osiZ4oqHAyDRWhDnS3Gr/w+GotGUOlHUpCuFWz4QRvk0TVg9RP1Ihf9wv84mhQ+DAn2kFKWjkQH2ZiLfac0685gy3xnwsFQ0FrRIeF2kZY8IWaeKXuOpS9btPqdtq+8asJ1fCWX5yR0JKARiQ4Ssg3r2GPa/k3uIYPqc9FdLyE90Q==
+ bh=fhtBCgBNaHdkFxfK++fI1K2tyQdnDAZWDLcdFqxeIeA=;
+ b=gwK+XiyLWCTt8CoPF5lDQGb6fLj/h3cjvZ1Gntcl1+yP4xU2kvQ3tHxVioXmTcnSr+U+YZfgVYA2PTJE5+aOWjmCmt1khy5WXUusqCwInv8423t4gQt3zUnNJcDUFI67gE0mIQoPIOK4YQWPrUijT0CVDFAdW8Jtlj3mK924jd69eMjY2NBQOBGyGScf5p7OBwJExQ5teguwuy9zqo7hjZCyCQ4qju5EvI3TPb/STIhYopjWOJEirx06/k7y0M7ips1q2w4RdrrrmLnoiLa0Wwxc3U4FJ6bOPutsjV8PLwdc5RbxHJ1KyLYf9jFjr3jC2zp52bj1xuiq5J4XhJZFfw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,132 +41,131 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Qwk7zr2MuNQZ+FfJ0ztDTnZdkyhPxI51F5tDM18IOBo=;
- b=gnOqSYu9dYdhQ65G7rkqnaWvNgLEkociNc2qg+EFQi2T/wTEskhJ/m2D437C7iFOBr7WVbNlvZq25amF0G12E66ZD5AjT8fgQ8Ir7P29R64gtWHYYWaeMk3ChHhq+dddM3sR6QAn+pEW79ZmuJKDNQIXUnCWWtiekV/GQjdfgx0=
+ bh=fhtBCgBNaHdkFxfK++fI1K2tyQdnDAZWDLcdFqxeIeA=;
+ b=cC49Lh4fyzO4esbmnzHfV6vNnX9gsYzMO8chxkNoxzjPdSY8ZZT0rvYajVjmF2C9wFVjo2RdNefkE5kVejPiltt9UvfogK2Nt7lTuNpNdvxVlG9AvJj3IptX9OpgmgVJQsQAfoIQwzE6tzl1Codpo+DthUS+GBcww8fmxVFxjyA=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from BN0PR01MB6862.prod.exchangelabs.com (2603:10b6:408:161::11) by
  LV9PR01MB994129.prod.exchangelabs.com (2603:10b6:408:366::10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.13; Fri, 31 Oct 2025 03:49:55 +0000
+ 15.20.9275.13; Fri, 31 Oct 2025 03:50:00 +0000
 Received: from BN0PR01MB6862.prod.exchangelabs.com
  ([fe80::8a1e:34a8:2ad9:7f83]) by BN0PR01MB6862.prod.exchangelabs.com
  ([fe80::8a1e:34a8:2ad9:7f83%2]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
- 03:49:55 +0000
+ 03:50:00 +0000
 From: Carl Worth <carl@os.amperecomputing.com>
-Subject: [PATCH 0/2] arm64: mte: Improve performance by tightening handling
- of PSTATE.TCO
-Date: Thu, 30 Oct 2025 20:49:30 -0700
-Message-Id: <20251030-mte-tighten-tco-v1-0-88c92e7529d9@os.amperecomputing.com>
+Date: Thu, 30 Oct 2025 20:49:32 -0700
+Subject: [PATCH 2/2] arm64: mte: Defer disabling of TCO until
+ user_access_begin/end
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMoxBGkC/x2NQQqDMBAAvyJ7diFRDLRfEQ9JXM2CXSWJpSD+3
- aXHGRjmgkKZqcC7uSDTlwvvomDbBmLyshLyrAyd6QZreoOfSlh5TZUEa9zRLS83BxcG4y1oFXw
- hDNlLTNrJuW0qj0wL//6bcbrvB8Xki852AAAA
+Message-Id: <20251030-mte-tighten-tco-v1-2-88c92e7529d9@os.amperecomputing.com>
+References: <20251030-mte-tighten-tco-v1-0-88c92e7529d9@os.amperecomputing.com>
+In-Reply-To: <20251030-mte-tighten-tco-v1-0-88c92e7529d9@os.amperecomputing.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Taehyun Noh <taehyun@utexas.edu>, Carl Worth <carl@os.amperecomputing.com>
 X-Mailer: b4 0.12.0
-X-ClientProxiedBy: MW4PR04CA0045.namprd04.prod.outlook.com
- (2603:10b6:303:6a::20) To BN0PR01MB6862.prod.exchangelabs.com
+X-ClientProxiedBy: MW4PR04CA0342.namprd04.prod.outlook.com
+ (2603:10b6:303:8a::17) To BN0PR01MB6862.prod.exchangelabs.com
  (2603:10b6:408:161::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: BN0PR01MB6862:EE_|LV9PR01MB994129:EE_
-X-MS-Office365-Filtering-Correlation-Id: 15c41be8-bd77-47bf-d739-08de18308dca
+X-MS-Office365-Filtering-Correlation-Id: 97fa2e77-caa8-4dad-e3b0-08de18309113
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U3MvS0RTOVJQVnVGa3Fucm9jSk1qVHB3VjRaVXF3RWZJRkpBKzBtRk9zbXJQ?=
- =?utf-8?B?UXJ1eGxoaTRrQ3ZPZzBZODRRQnFKRThFeWpvLzhQRkNSb3R4NEUxZDY1TDFI?=
- =?utf-8?B?WUVVUCtOWEpHMHduUE93cWRtaS9JU0pIbkxnbHd4Z0hRRUF0SFRqSUV1RHo2?=
- =?utf-8?B?ZU5uQ0pYK3AwaVhWZzI5dklaUS9zR1Y1aWtlQ2kwNGRwbWltS0JoVzVRZkRo?=
- =?utf-8?B?UW82dHB6Zmw0SUp0WXR1UG5tdFo2YzJnT2xjNVNTYmFLZ3lrejVXR2U3ZWc2?=
- =?utf-8?B?SDd3ZmFCbVR2UmpNKzg1OTVHaHQwcEZ2bTNESGJ1VFlRYkF4RmpEaE1rNU5u?=
- =?utf-8?B?cUo3RDNjRXFWWWs0bDJBYlF5YU1jK0dlS3EvUm84ZmlOTmloa1VnVmZjdkx0?=
- =?utf-8?B?T1JpZm04VGFmbXVyK0ZrSkE3THVGMTI4WXVqdWFmVjc2V0FkK2xaWG15bys5?=
- =?utf-8?B?N2pSMHJwdTJFQU9iL2psTTRjVkVIUGdBdXUvbUxmNXNvdjVuY3BQaFAxZERM?=
- =?utf-8?B?aUUxcUc3dUVoalRBdnYxUlRsd1JLL1NvYnNrWlBhUVFxZ3BjdFdyb0srRjZv?=
- =?utf-8?B?Ykp2UGRxRnBGM3owYy9NMXBnMEN3SEhsREZDM1hCZ2lxdTc1c1JGSVJVZ1BP?=
- =?utf-8?B?MU5tK290RnhqK1JLUDROelZtaVF4NHRTamVCcnF0ZEZUWXRuZmZUSEpwNklF?=
- =?utf-8?B?dzU4THhyZlNlOWRJTlBaeXE5L3M5MTMzVlhUaFo1eDl6T0VxTVZwWlBUbk5I?=
- =?utf-8?B?djdPMDlhekliWUVWQk5ycjM4a2dKMTBEY1NxSFN3YnJaa25sMmE0VnlyUHJI?=
- =?utf-8?B?a0JIL2gyZCtWSDV3SlBPNVhRekNlMnhuV0J4bW94THZaRTJNczZCMmpuZ1RJ?=
- =?utf-8?B?b0hVN3Z2Ykk0REJ6VUlrU0RsOXBwcldFejJLMGFHSE5HVWtVZlNqbmt4eWdS?=
- =?utf-8?B?dmVYVllEYjhhUStjR0thYlplMXdxK1AxUnRmNGpkNFYyYzQ1dGpzbzJaZUxi?=
- =?utf-8?B?WnEwRklkemhJWDZlaTZnVnNERjg5M01aMFJkd1NObzZLQmZ2YWpLa1BHOUl6?=
- =?utf-8?B?RTJDNWFMLzVqNGNTRDFNeDVVUUc3U0NHeTVuVklTZzh0elBDUEhDbWlhZkRL?=
- =?utf-8?B?U0dDS0FudFZNOHEvQUN2dUtlSERaQWVOazBjWk5GbXk0cFdsOVhZQVdWRGc4?=
- =?utf-8?B?RHl6cGVwVGU1QzVZUUtuTXhaWjZLUU52UWFobmsxQ1AzV2JzY0JFalZTeE5n?=
- =?utf-8?B?ZDJROWg4OHhydy9zM2hsamFCS1dtTjhodHFvZWpUdjU1bHA0Nm15cDFWcHlP?=
- =?utf-8?B?Y1UwT2tGbnJpNG5rUDg5cTFDZ1Z5THRyMUMxWVUvaUJ5NkdWSnNQQlNHUmRF?=
- =?utf-8?B?TUF2alM1cGw2MWZ3QkRsamsvYnFqZFo0eGpyWnY4T0RFRFI3a2NYZStsaW44?=
- =?utf-8?B?SXgyS2EzVCsxeGh4Skh5QmZOdmZZQlVnOVZWTFAwS201enVkNWpGcDFXQ1ln?=
- =?utf-8?B?TStiL3QxTlZ1dVIvVzlPTU9mV2h5aXNrSkhJOXl4REd0ZUxzYkJEVWpCc3Bu?=
- =?utf-8?B?YWNiR2RnMDlnaTRBYlpSUGNrU2dWYlRYOHZ6djhnWlczNDd3ZktiSE9QYWZ5?=
- =?utf-8?B?eGdQTUMrVnFFWC9rMGlJMFNvOHo1ajl0cGMybWY0dllKZHlqZ2VESnhSTmJ6?=
- =?utf-8?B?UHVLQ1ZycjlqUllidjlWT1FpbWs4VzNjcGFjcnYxY2pFVFFhbCtvdGwyV3Ay?=
- =?utf-8?B?N1dnUFF4cThHWmRXUGI1N2NzWHhCUWVScWtySU1HTHBRWURvWU1pWGZQOElB?=
- =?utf-8?B?NEsxdmlrc0twMm1JcG5tZ2xPZTRsNmJHek43MCs2WWN5UTgyb3BVK3NsaCtM?=
- =?utf-8?B?ZlVCeWpQSXdtKzVyelpNeDcwU0xPZmVEcmpKd0dJdDN1a0JleUpMY25TN2dP?=
- =?utf-8?B?UmllL3RNL1VTMUxYU25zS3A3YlNwS2N5U3Q0ZVBqcE9Ic0c4ck9CSnYrY0d2?=
- =?utf-8?B?d0JRTFhFdWFJUDdSTXBieEp0Z1duZGlKZGl2VTRjUmg2RVVLb1l3aHloTUcr?=
- =?utf-8?Q?M2x22I?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dVRnaUpsTi9pcDNWQzQ1Y2dSZW0rVTFTeGtmUW0wMWpObW91OTU5S0FBWGhS?=
+ =?utf-8?B?NkpGbXZTckhlRjBja0E4NGN1cW02OGpQcWJUZHpMN3V2Qmowa2dNQmIvUVhm?=
+ =?utf-8?B?S3prL1E2U1YwTUJjemVvN3h1U1RqaVBGOGZSdmxZNnRVKzFNczcvTkFhb1Rw?=
+ =?utf-8?B?azZBVFczWUtTVGxlblo3V2tsU0JwN1FRTGtVM0VVZ3dtMFk0bmhKNno2am9T?=
+ =?utf-8?B?cFZwSTlEdVRvaG15NWJDbHN6U3ZyUXlRNlpkYmp4S1hJL0hCQXA5MDRBcEZl?=
+ =?utf-8?B?eHhDWDdOdCtOOWhPd2plelNySXR4UGVsNlh0S1YxZ2dubkNxR2M5Z2pXN0tX?=
+ =?utf-8?B?Z1JMMmE4OFc4eVh2OHplNFFzTzJpaHhxd09YK3lQTGszT2I5SzV0SEppMWRs?=
+ =?utf-8?B?QTBkeDJSaEpESTZyWDA3d2NSNkR5ajNwdUxGeVFGMVY1L1hlU0gxMG54Nkxx?=
+ =?utf-8?B?aFhnbkFHTUQrZEZIOG1leEdsQXFUUTZBQldhRHJtZk1rcS9lSjJ0ek1qMHpl?=
+ =?utf-8?B?N1VsUGNaVFkvOEhUbFp6ODlrbVdpYkZiTlo0dUFpWXNvSmpySDJrQm51a0h2?=
+ =?utf-8?B?b004NE5ZQWFBSnFuSk45MXRrTXc3bVFMNGJmWE03dmZDdXZWbXNKWGdoTWpt?=
+ =?utf-8?B?dHZOdlJHNUNOWmNITG1qVUNpU29nUVZNNURGd0RYOEtkbFJ5WFlMM2dYQk5O?=
+ =?utf-8?B?U2Z0QjRnUkQ1eWxSTUgrTW1URVY0ellKYWtpcGVKQnk5aHZ5NzZiZVgyM3VQ?=
+ =?utf-8?B?SXpmcEp0bmZiQVhRZE1GbG9TOWVtQWpSUFdvS2hEVlJ5SGJLaExHODI3RXVY?=
+ =?utf-8?B?NHRkbFFBNlNwTGx5VW4wcmlaNWJpM0JCeDJpRDVDZG9hVjhjYklWUDFiRWN2?=
+ =?utf-8?B?bGR2bTQrVVAyNkpXeG5UMTJGZ1RJWk5JL1Btakhib0hUdjk5UjNlelowV1Q3?=
+ =?utf-8?B?UGRzQkYwb3B3SktKQ0E1T1VwOXY2K2pqMlo5ZGJmTFFtZnQvR3MwVG5QNnpO?=
+ =?utf-8?B?MlYzdkVUeDVQbFdjTTJLUVBlbW4rL1IySG9LWGNwMDNiazZDMFIvcVRmRzdU?=
+ =?utf-8?B?Z3VRUXR5czBVaWhCRll3MnpVMi9Hditsb3lxVGtsU1FkL1g3K1ZUejRNeVVp?=
+ =?utf-8?B?M3lzaVlnYVM5QldRWldmNkd6bFJQamRHaVo0NTd3NkJHdXA0SithdWJTb256?=
+ =?utf-8?B?eEJsZGtQN2xZWDh1Z2IyRlh0WGE4VkNLVXV4RG5QKzNJOWwxU0tKUU9PbU10?=
+ =?utf-8?B?Q2F6dE85bjc0YkljdU5DWDRWb2VrWHJZYmIra1I5VSsvWGk4Z0ZkYkdXNDhX?=
+ =?utf-8?B?QVBMdXZKYzhJOFAxTG95SzJ6QnRCREtjM3AyMEMrNFdDVmNDQlBZSXZiQjdG?=
+ =?utf-8?B?Wk1CUXpuWGJJeXJqbUcxamdaNmhMTmN5NHVxMEliTUN4ckc4OWVvMWRIZnJw?=
+ =?utf-8?B?aU9iOVRIUDdNRFlxYUNhVXNFM3dDSkdBS1dZNFFWUGNOejBSMWZSY00vOGRo?=
+ =?utf-8?B?b1l4Zkp0OWw4d2RjR2s5NEhFaFlISGdzb2grN0pBNmhYemxFN2pZZWZ6dVJh?=
+ =?utf-8?B?Q0xiY2szblpWd1RIdHdueTdsUGU4RFJkZXhUUHJpWmZZK2llamNnNHBMMTJF?=
+ =?utf-8?B?c2lrZHRFcWN1WjZpZEVZek03eXZLVU9OOTVaaS9mb3NiVDJWTUF4ekJyMkFE?=
+ =?utf-8?B?TGl2ZW9CTHVaWlFvc2RvdnNURlIrWXNvMW5hbTcvZlQyTndkRmNyN1BCYjZN?=
+ =?utf-8?B?SlA3Yk5lbVlPSkpJb0lLN0NxaklNVy9zVW0zemF1UUI1T3VScFc1NHA3Rjd1?=
+ =?utf-8?B?V0YzNGdRMk4vak1WWVBCMkRuckVYSHRGUUNwYitpMDE5THNMWjZWV3ZVMzRR?=
+ =?utf-8?B?Mno1QkhOVEg2SG13eVByaHNNbkc3MEtGWm80NWhYakloc1lESFhFSVlrVExT?=
+ =?utf-8?B?SjVFa05Lend6R0pYZ0NrZGlmSGQvems5amJtVUNuRkhRcDdMS0RGZXU3WTU0?=
+ =?utf-8?B?OVlUcFBmdW5GRFhJWW1IRTF6b0lxLzZ6TWVBSm42Q3BmSmxmcHVmU25hT2pM?=
+ =?utf-8?Q?VP/eL0?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR01MB6862.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGx2ZWpqTHFCRTA3Z3d2bk5xOWJRMU5CU2VZeHFRRGZZcHdUSzZwS2xUbW5F?=
- =?utf-8?B?azFxcGgwNW9xSDNqQStFWVkrVm9qcHFhRm1xdElXeXZ6c2RCaHh5YTdYeTUr?=
- =?utf-8?B?dHZYUzN0NXY0OVlabGdrK0pRZGxuT0ZGUWJFOEo1U3JTdHRVaC91OXE5dkZq?=
- =?utf-8?B?QUl2bFhpc216L0NkRTJ4ZVg3anBaZE5vdEhlRkhZbHdIVitvc1g3MkFjMHdU?=
- =?utf-8?B?RXQ0a1lycnpFaDJTcFNsMGJHRDVBaXJCN2QzN0FvN0J1K2R6S3lUcmhzK2VT?=
- =?utf-8?B?VHlPNmF0T0NvbkNSZGxvUFBLZ1N2dWhUYmRHdmVOOVJuNnBmbzB6UXFBL2pE?=
- =?utf-8?B?Q1NqMmJweEE1VWNRRitQOXVCcXJUQmJmMjh5ZWVxV1lPbVN6MkZHTVdReG1Q?=
- =?utf-8?B?RUpqZUNLN0dVa3BjL0FZVWZYUzEwdmhaUFZCN3dwMHA2VnBZbkpaQ1BGUTM0?=
- =?utf-8?B?QmdoT2xaVWZQVFlia1RQckJNUm94MDF0RkFabkFPMHlNODlEaGZxOUhqWU02?=
- =?utf-8?B?MlJXUUVCQVkwc2xuc2RhclVLNmFZbmMra0QvckpPOWROd0gxeWxiZ0lCbkhJ?=
- =?utf-8?B?NEt4emtKNjdmNTRzUDM0WThGcVVCekFzaFYwajN6M05GYjIvQk95N2FuTlFk?=
- =?utf-8?B?RStxeGNjdENmM28wTnNWemVxL2o2Q2V0SW1mSU5DY2l1RURoY051V0Yxakcz?=
- =?utf-8?B?dVdyS2ZucU9DWHVKUXNKVVBMZnp5eE14dUYrUDJEY2lVSHJuRWl6cUVFc0dx?=
- =?utf-8?B?Q3VYdFh3SHNwbnlkcWVVeUxQZ29wMUtBcVpjUnhXSFZFT002Nlo5UzFxMlFM?=
- =?utf-8?B?OXJRZ1ZDRTRsd3BCbkI0NzZCaHN3VFltM2xsZFh3MFMrYXlvUTFoK2pGMDJs?=
- =?utf-8?B?Z1ZlZGlQR09QU1U3TTBDS0NqZUZFSkw5MjZweXRpcXNVYm5wcVZYV3ZtZ0JF?=
- =?utf-8?B?aUFUTFdEVVVuWTRJaWxBdkp5QUpQN0VDYkpIZXlZV2NBU1lKSndsOHgrcmVp?=
- =?utf-8?B?ZTVMM21vWW9NWkwrdkNjamsvaTdGVFFmYWJENFM3Mm5sMFpGMWJyVXBZUThD?=
- =?utf-8?B?ZUxUVXJHU3ZkcGtzcTFlUk04OTI5MjI3amVLcEZiNSt0aWVtZWVxWmlqVk94?=
- =?utf-8?B?bVN5V0NvR0c3cXNvcWZRcTFCNzZ0eUpYU203SXZDQTdzQmxwL0RCRk00YnNC?=
- =?utf-8?B?bitQUTB6S0RmbWJZbVNHZEV4Z2xray9VRzd4bGNSYXVqVHhqUWlKelFkcnh4?=
- =?utf-8?B?OW04NHNsRFQySjM1TytUeHJKdE5zQzdRdlN2MzlzcnBaamdXM2c0TVlFckJF?=
- =?utf-8?B?YmJDM3pUcVF1NmJEa0Z3YjJTTm5keUthU0FHZHdYd2F0c0dlNFgwenNmN1B0?=
- =?utf-8?B?NW1kSkhFNXh1WG1IUmNORkVMZ3o4RkNkMnFnY3hSa0Rsa2M1MzZxTjRjMEp2?=
- =?utf-8?B?dzg3NFNQaXBURlRlNjNsekRub0dCVE5ob3FZbFVZTytzRnpmTzU3azg1d1NT?=
- =?utf-8?B?T3hYVzdhVUJia0szUTB6UzFVQmpyekdFaHJrMUtaNHpnN2R6elB6TWUrMWN5?=
- =?utf-8?B?bHd3RVRQTGxycTZRZ2hRby83WHcvSzNnWkg2K2x6aGlDb2dnamJPanc1Ukxk?=
- =?utf-8?B?UmRLQW81bURNR0wwMVVlcktJLzJRUjZVbG5halFsTnJYT1p1cTRpMXRYNU51?=
- =?utf-8?B?bFJtakxnYjF3OW9EUDJaNzV0WStQYU5jZTdhaTJLaFRnbWxFd3V0WEF0Ym5z?=
- =?utf-8?B?R2dLSk9OTjl2UkEwU0V3c2lscHdKRWJ0V21GZ291QTJ6RjNqcktHVGFrblM2?=
- =?utf-8?B?QjltRkRzMlZqd0ZlcWhJMW00aWNDTzlDRjN1ODRBNUlRQUNJK28vUzNvVHlG?=
- =?utf-8?B?ZzdtRW0zcDlaOWhsZVB0c2I0NHB0QWNra2tDVUNBYWdnT3YrWjY2MGY1UUNl?=
- =?utf-8?B?ZGdVMjZNbVBISUFGTmltR3h3WEFrdW4yZElOQjIrMGh6NGtSemJUclJQNkhO?=
- =?utf-8?B?MWgxYWt2NnFNeFNTcFVMajYwOU51cEp1QlhBQnE0clQvMlFONnljZzNkNGZX?=
- =?utf-8?B?OXpBeDZYQWs1VVJzRzBkQXp2eWpVTmxrSEYvR2xUcUVDZXV0YU05VkxGRFdQ?=
- =?utf-8?B?eXhLM01VQndaUDh6TUhteE5DU3pKSEJXU2J4cDM5bXNMams5K294dEVybnBD?=
- =?utf-8?B?SWc9PQ==?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QzhYYzZzL0ZKQnZCYUI0dEc5SFNXcVdzdHlvN2I5SmtkZTM5dVZXMzNjYWlO?=
+ =?utf-8?B?VHZVaStiVGR6N2dNalRxaHp0Q25SOGEzMTJIdk1acFJCdnh2SCtNeEg2NVY1?=
+ =?utf-8?B?NGVmWlBJRDJXdDFTZlRPNUZUbXFzV2U5TzdNaXd5ZXhkaUtiMTBSejBqMitp?=
+ =?utf-8?B?MnBsV1pHamVXSmRtM3hqb2JTRDVFQ25PZE5aSHBaNElweXE5TmNaM0hBOE9H?=
+ =?utf-8?B?QUQrRzZFWHFEQ3RLN1R3bTFFUjF0S2lIUWQ5bG5FbmtSV3BkS0ZlL214QjN5?=
+ =?utf-8?B?RFJrM1hZRTBTVkRwUEN4Ri8rTVpjd3I2clZWdlM0TVhhbnJYN0NnQzZmSnYx?=
+ =?utf-8?B?TTFYcWpTRnp0b3BtdkhvUENUakNkN3FnTFhxS0VKaWhLWkRrbVBNTnMySnBh?=
+ =?utf-8?B?SmdxOTdiMnB6ZTJHeG5BVHd5bkk1d0U2RDh4QzNidUZDK3VkQmo5VFNWM1Yy?=
+ =?utf-8?B?OUs2elRvbHJabWxJM2xYMGg5ZkFjNXE4Z2Qwa25GNEorY2l1Q29OMjdJcHR1?=
+ =?utf-8?B?WW1nTk1lenZERU1JZUJuSlVaK1dZVXdtcnhHdGxkM25JM0xqSkpVNGtoaWpS?=
+ =?utf-8?B?R3NaSmY0OWRaSkRiUnlueG0zbytnMm5PM1U0dHJhUS84Wm1pT0NhTUNmY0pU?=
+ =?utf-8?B?dE9MN1BmbEZWQTl2ajN6bE5NYkRDWTFpUUNZY3dwdnYrQ1FJQTBLcVhIR0Nn?=
+ =?utf-8?B?VmM0SEFjUTA1bTgzNDhRcjZPZ204RzMzcGZwVTFUdS9yYnd2RTdXZm93WDd5?=
+ =?utf-8?B?NXgxUmljVXlsSkhXQnUxY1BHTDVIUlZKdTFkYkIrdzNoQmkydlBTRVg5alJs?=
+ =?utf-8?B?UjF2blprcTlXNkRvQjlKRHM3aG9ETXk4YlhXVnZwRDRORkd4YVRhMmlRK1Y4?=
+ =?utf-8?B?R1d0NENKeW54NzFuYWZsWlVac24wRnpjLzFySEpJa1dCb1FsakFUMmpLU2lj?=
+ =?utf-8?B?RXJtNlVwMDJXcTY2THhQVG5qYktDMit1L0hsQ2oyeUtRRVYxOThZNXhNWTdu?=
+ =?utf-8?B?ZityUld3Wm9kVHZqbktsUHpCaDJyVVI2dlB4N2ZCTTRRcWZMdzdwcjFvbVov?=
+ =?utf-8?B?Z2JXSndBWk9jWFk2TVRkRHJ3QUQ0TElwRVdLQzh2eE8xd1FKNzh6Wm52R2hW?=
+ =?utf-8?B?QWhsYzBWcytqOWtGZXIvaWRiZmZZcTcvL3ZQWXFCQjhzZjNpRlpwU0NIbi9p?=
+ =?utf-8?B?TXFDcC9meUc4eVBZdWhCaFF6OFZya3gxVDJrMU4rY011anZkNWRIbFFEbkIw?=
+ =?utf-8?B?K0l3WHJjc3Z0c253d0hybnhodFlFS3U5VVpUS1lTYWZpamR2dEcySnRud3Y4?=
+ =?utf-8?B?N0RCNDFuRE9vTU1aOUJCUXpCSHBYd25UT2RvQS8vNmxOaS9pZ0ViTUNKWWZm?=
+ =?utf-8?B?cW5iTHRwQ0JRalNHUStUNW51bk1JdkwzNTJicDVhU2gvV3N0c3NBRGhpbUIz?=
+ =?utf-8?B?ajVrZGtzUUxGaE9zSmwrQWlRNFVUK2tuSjJBdDgwRlRhZEJ4WDdvK3lpMm00?=
+ =?utf-8?B?K3VwblRYMnJadVlVME0zWXlVS0d1TFExemVMckdtSldrZnpsOE5HWVBhVFBS?=
+ =?utf-8?B?RnlsU3drUDV0M1duUnovOXI4OWE1KzVCL2RDdGIrdDE2TnJmUWphYjRQTkR3?=
+ =?utf-8?B?ZG1vT2J3cFRrWTdydEtiaWFiS01LS3U4anBqUncrYW9RZE5OOXU5MnpkNTU2?=
+ =?utf-8?B?RXgyaFNrR0NyQUV0UG4yaVBMQXdHVzVUcjlXT3ZVT0cyeG9KTThpZG8ybnpZ?=
+ =?utf-8?B?RXVnbnRMaURad3hZTnY5RnZldVF6NDlqeWNWWXFabGI4VDBVdkt6dFNqQWFy?=
+ =?utf-8?B?KzUyZHFYUGJRU3dzOUpCMzIwZUVUZlRZWUlyN2tDK0R5YWF0YXVlNXAzWkRh?=
+ =?utf-8?B?bzl6LzJYSkhyeURtRGxKdS91VUpXS1dSTlppekoyN3hDWGZkcnkzYitlZmdZ?=
+ =?utf-8?B?QVFTekJlamdhbkFtUFA1eHdwd21CNkFqNTM1WWdhSk9HUFoyM2JJdFFvRC9X?=
+ =?utf-8?B?c1k5d1QxYkFPQkM0VC8yRE54eVZkNTZ6emJYQ1paakV3R240Y0NJT3RhNEgy?=
+ =?utf-8?B?TlRsRkcwangxejlQdjJCNUtpZnJhL0V3SXNiUXFDWS9qL2RtSWpNaTBRRDNQ?=
+ =?utf-8?B?RjFDZzB1RXk0SHdjV1JpeXNlOUo0dzBlbnFHcXNMRzFBWkc5VWk5RW01a3h4?=
+ =?utf-8?Q?A4WGhjz7odbOoiGZxd09BXE=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15c41be8-bd77-47bf-d739-08de18308dca
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97fa2e77-caa8-4dad-e3b0-08de18309113
 X-MS-Exchange-CrossTenant-AuthSource: BN0PR01MB6862.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 03:49:55.1317
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 03:50:00.6036
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XsxBf5PVuio3QK33MkDfbjAnVbkiy2NqEE83HqEVoYkBe6YOPKIxYdFHHPfM6T9CXJRCcL0X2n1Y1udRzBZ91TGwtiw8BSPV6lHTHS8ZFvE=
+X-MS-Exchange-CrossTenant-UserPrincipalName: mdY096EXFINcsrNdpQ/BQC6mDP/7di66ppiw2pyExXiFCs20fbzk5jhnW38DA5yOl1dcayzCRzoV1y4M8yVn8fNceyBcTyOWxLdBHHwgVUM=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR01MB994129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_205000_566607_75B2EF02 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20251030_205003_913982_AAC7EC2F 
+X-CRM114-Status: GOOD (  22.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,106 +180,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Thanks to Taehyun Noh from UT Austin for originally reporting this
-bug. In this cover letter, "we" refers to a collaborative effort
-between indiviuals at both Ampere Computing and UT Austin.]
+The PSTATE.TCO (Tag Checking Override) register, when set causes MTE
+tag checking to be disabled. The TCO bit is automatically set by the
+hardware when an exception is taken.
 
-We measured severe performance overhead (30-50%) when enabling
-userspace MTE and running memcached on an AmpereOne machine, (detailed
-benchmark results are provided below).
+Prior to this commit, mte_disable_tco_entry would clear TCO (enable
+tag checking) for either of two cases: 1. When the kernel wants tag
+checking (KASAN) or 2. when userspace wants tag checking (via
+SCTLR.TCF0).
 
-We identified excessive tag checking taking place in the kernel,
-(though only userspace tag checking was requested), as the culprit for
-the performance slowdown. The existing code enables tag checking (by
-_disabling_ PSTATE.TCO: ("tag check override")) at kernel entry
-regardless of whether it's kernel-side MTE (via KASAN_HW_TAGS) or
-userspace MTE that is being requested.
+In the case of userspace desired tag checking, (that is, when KASAN is
+off), clearing TCO on entry to the kernel has negative performance
+implications. This results in excess kernel space tag checking that
+has not been requested.
 
-This patch series addresses the slowdown (in the case that only
-userspace MTE is requested) by deferring the enabling of tag checking
-until the kernel is about to access userspace memory, that is enabling
-tag checking in user_access_begin and then disabling it again in
-user_access_end.
+For this case, move the clearing of TCO to user_space_access_begin,
+and set it again in user_access_end. This restricts the tag checking
+to only the duration of the userspace accesses as desired.
 
-The effect of this patch series is most-readily seen by using perf to
-count tag-checked accesses in both kernel and userspace, for example
-while runnning "perf bench futex hash" with MTE enabled.
+This patch has been measured to eliminate over 97% of kernel-side tag
+checking during "perf bench futex hash"
 
-Prior to the patch series, we see:
-
- # GLIBC_TUNABLES=glibc.mem.tagging=3 perf stat -e mem_access_checked_rd:u,mem_access_checked_wr:u,mem_access_checked_rd:k,mem_access_checked_wr:k perf bench futex hash
-...
- Performance counter stats for 'perf bench futex hash':
-     4,046,872,020      mem_access_checked_rd:u
-            23,580      mem_access_checked_wr:u
-   251,248,813,102      mem_access_checked_rd:k
-    87,256,021,241      mem_access_checked_wr:k
-
-And after the patch series we see (for the same command):
-
- Performance counter stats for 'perf bench futex hash':
-     3,866,346,822      mem_access_checked_rd:u
-            23,499      mem_access_checked_wr:u
-     7,725,072,314      mem_access_checked_rd:k
-               424      mem_access_checked_wr:k
-
-As can be seen above, with roughly equivalent counts of userspace
-tag-checked accesses, over 97% of the kernel-space tag-checked
-accesses are eliminated.
-
-As to performance, the patch series has been observed as having no
-impact for workloads with MTE disabled.
-
-For workloads with MTE enabled, we measured the series causing a 5-8%
-slowdown for "perf bench futex hash". Presumably, this results from
-code paths that now include 2 writes to PSTATE.TCO where previously
-there was only 1. Given that this is a synthetic micro-benchmark, we
-argue that this performance slowdown is acceptable given the results
-with more realistic workloads as described below.
-
-We used the Phoronix Test Suite pts/memcached benchmark with a
-get-heavy workload (1:10 Set:Get ratio) which is where the slowdown
-appears most clearly. The slowdown worsens with increased core count,
-levelling out above 32 cores. The numbers below are based on averages
-from 50 runs each, with 96 cores on each run. For "MTE on",
-GLIBC_TUNABLES was set to "glibc.mem.tagging=3". For "MTE off",
-GLIBC_TUNABLES was unset.
-
-The numbers below are normalized ops./sec. (higher is better),
-normalized to the baseline case (unpatched kernel, MTE off).
-
-Before the patch series (unpatched v6.18-rc1):
-
-	MTE off: 1.000
-	MTE  on: 0.455
-
-	MTE overhead: 54.5% +/ 2.3%
-
-After applying this patch series:
-
-	MTE off: 0.997
-	MTE  on: 1.002
-
-	MTE overhead: No difference proven at 95.0% confidence
-
-Changes since v1:
-
-  * Reorded patches to put cleanup patch before performance fix.
-
+Reported-by: Taehyun Noh <taehyun@utexas.edu>
 Signed-off-by: Carl Worth <carl@os.amperecomputing.com>
 ---
-Carl Worth (1):
-      arm64: mte: Defer disabling of TCO until user_access_begin/end
+ arch/arm64/include/asm/mte.h     | 21 +++++++++++++--------
+ arch/arm64/include/asm/uaccess.h | 32 +++++++++++++++++++++++++++++++-
+ 2 files changed, 44 insertions(+), 9 deletions(-)
 
-Taehyun Noh (1):
-      arm64: mte: Unify kernel MTE policy and manipulation of TCO
+diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
+index 70dabc884616..3608ba452da5 100644
+--- a/arch/arm64/include/asm/mte.h
++++ b/arch/arm64/include/asm/mte.h
+@@ -258,15 +258,20 @@ static inline void set_kernel_mte_policy(struct task_struct *task)
+ 		return;
+ 
+ 	/*
+-	 * Re-enable tag checking (TCO set on exception entry). This is only
+-	 * necessary if MTE is enabled in either the kernel or the userspace
+-	 * task. With MTE disabled in the kernel and disabled or asynchronous
+-	 * in userspace, tag check faults (including in uaccesses) are not
+-	 * reported, therefore there is no need to re-enable checking.
+-	 * This is beneficial on microarchitectures where re-enabling TCO is
+-	 * expensive.
++	 * TCO is set on exception entry, (which overrides either of TCF
++	 * or TCF0 and disables tag checking).
++	 *
++	 * If KASAN is enabled and using MTE/(aka "hw_tags") we clear
++	 * TCO so that the kernel gets the tag-checking it needs for
++	 * KASAN_HW_TAGS.
++	 *
++	 * When the kernel needs to enable tag-checking temporarily,
++	 * (such as before accessing userspace memory in the case that
++	 * userspace has requested tag checking), the kernel can
++	 * temporarily change the state of TCO. See
++	 * user_access_begin().
+ 	 */
+-	if (kasan_hw_tags_enabled() || user_uses_tagcheck())
++	if (kasan_hw_tags_enabled())
+ 		asm volatile(SET_PSTATE_TCO(0));
+ }
+ 
+diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
+index 1aa4ecb73429..248741a66c91 100644
+--- a/arch/arm64/include/asm/uaccess.h
++++ b/arch/arm64/include/asm/uaccess.h
+@@ -417,11 +417,41 @@ static __must_check __always_inline bool user_access_begin(const void __user *pt
+ {
+ 	if (unlikely(!access_ok(ptr,len)))
+ 		return 0;
++
++	/*
++	 * Enable tag checking for the user access if MTE is enabled
++	 * in the userspace task.
++	 *
++	 * Note: We don't need to do anything if KASAN is enabled,
++	 * since that means the tag checking override (TCO) will
++	 * already be disabled. In turn, the TCF0 bits will control
++	 * whether user-space tag checking happens .
++	 */
++	if (!kasan_hw_tags_enabled() && user_uses_tagcheck())
++		asm volatile(SET_PSTATE_TCO(0));
++
+ 	uaccess_ttbr0_enable();
+ 	return 1;
+ }
++
++static __always_inline void user_access_end(void)
++{
++	/*
++	 * Restore TCO to disable tag checking now that user access is done.
++	 *
++	 * This logic uses the identical condition as in user_access_begin
++	 * to avoid writing PSTATE.TCO with a value identical to what it
++	 * already has (which would needlessly introduce a pipeline flush
++	 * and could impact performance).
++	 */
++	if (!kasan_hw_tags_enabled() && user_uses_tagcheck())
++		asm volatile(SET_PSTATE_TCO(1));
++
++	uaccess_ttbr0_disable();
++}
++
+ #define user_access_begin(a,b)	user_access_begin(a,b)
+-#define user_access_end()	uaccess_ttbr0_disable()
++#define user_access_end()	user_access_end()
+ #define unsafe_put_user(x, ptr, label) \
+ 	__raw_put_mem("sttr", x, uaccess_mask_ptr(ptr), label, U)
+ #define unsafe_get_user(x, ptr, label) \
 
- arch/arm64/include/asm/mte.h     | 53 +++++++++++++++++++++++++++++++---------
- arch/arm64/include/asm/uaccess.h | 32 +++++++++++++++++++++++-
- arch/arm64/kernel/entry-common.c |  4 +--
- arch/arm64/kernel/mte.c          |  2 +-
- 4 files changed, 76 insertions(+), 15 deletions(-)
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+-- 
+2.39.5
 
 
