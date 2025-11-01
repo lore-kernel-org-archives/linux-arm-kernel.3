@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0DFCCF9F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C043CCF9F0
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 12:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,78 +12,78 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nakH/PvmVEC4FueXBEYiavMVStVvZPPhZqsGXFef+TU=; b=4/vUD+smi9Dk9Y559x9DOKtb+a
-	/LO9p4fm4bAc7YmgkvJbINNT/5vPV5/fYtmiGG9BMK5VE5fX8yZFazG5GaXXj3mzmROmoCKNbCzxh
-	D5NnpgkFcT48cs4qoL/do10qQdsYd8hyW/cX9cQXFPFWTNNQfY2Mc08Y8zT5C6ZT0kKMcfm4FeVlG
-	jnbu/DuYzGNNdhEcOzbvzdlBCQfCS+xa3XcDUWKBuM9rg7iCy25XpmjDQJpu2hv9WYLdTH7HCp+Bt
-	EXciwTlIKWC2MutYKZbWu+nQS//W4OmN9NsZfWIqznGfvh/J3yl3dBzXLbm0Rw7IMy7IgF9+Lw48u
-	2fhVGgJw==;
+	bh=Ec0hJUsQTUWsdl6E8s6GRpczB51mwhz+FQUrv1x/BOM=; b=Z+NZ+R/YAJDAsd17AUfE8yiq7I
+	+JwNp9lYZKc2+17i6iRmxsLTC5Aix9zWMY70OO/4DzOzpWxgN937p+NjLrlOoh9zRDhgXccnj6zQU
+	mIC4/ilinib1D1kepFn6R3hfY77TW85GCoJ7teRzn4EuMnYxODYhZhXjW9MgHrshHgH6DDl+/EXV0
+	aZ8DEOGnL7pCcbNP8VjF1fTkaml/LDwgl0eYhUtBcnECCNtCrQn4If+aQJapCbfNGNcEy+gby870R
+	acqAviwNz4vMtbJACIBCJt4cAMDsHC68cUeyHiF0LlHf0Ivp6QMmPw+OXWSTXRHN0U9acgxH7jdtc
+	4TtCagnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAtO-00000007i5o-1cXy;
-	Sat, 01 Nov 2025 12:39:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vFAtN-00000007i4M-0djh;
+	Sat, 01 Nov 2025 12:39:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAYe-00000007TmK-0e4f
+	id 1vFAXQ-00000007T0I-3KWC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 12:18:13 +0000
+	Sat, 01 Nov 2025 12:16:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761999491;
+	s=mimecast20190719; t=1761999415;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=nakH/PvmVEC4FueXBEYiavMVStVvZPPhZqsGXFef+TU=;
-	b=Gmyek10jlrx6Q8ozH7KMs213EE5JBRMus7S8X2g+ghkEYrU0ujMTAD159e6Z8zlhsNonkz
-	8YTYOCfIeAw1hA408J+5U0p4HDjGoIcQPG5gxzMfGkOgzRm+oizsoT/N7opc599rxDo3mg
-	5wMO7VYIqMKDygfOLgFCpZSZrXd2LKs=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=Ec0hJUsQTUWsdl6E8s6GRpczB51mwhz+FQUrv1x/BOM=;
+	b=R+pvMkH1HJx6jcVYDDjGzxmmI+Rzb0WGRQj1eYMVv/YnnC5LTIAziPzT52op1s8uSV9VSh
+	Oa4JsJWsRbBzIax9SizxsHyVDrfPqZBeXCb2Z9C39SmbpNfbF4AQKv4l3pcuBAx6eY5hlx
+	NVwYp4u/QKjunymin8YhjTgTSXveGHQ=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-522-_xzE8BllOHKu7SymhPTKOA-1; Sat, 01 Nov 2025 08:18:09 -0400
-X-MC-Unique: _xzE8BllOHKu7SymhPTKOA-1
-X-Mimecast-MFC-AGG-ID: _xzE8BllOHKu7SymhPTKOA_1761999489
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-46e39567579so16950355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 05:18:09 -0700 (PDT)
+ us-mta-515-E4prWruDPHyUvrvT_vzq7Q-1; Sat, 01 Nov 2025 08:16:54 -0400
+X-MC-Unique: E4prWruDPHyUvrvT_vzq7Q-1
+X-Mimecast-MFC-AGG-ID: E4prWruDPHyUvrvT_vzq7Q_1761999413
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-429c8d07874so222113f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 05:16:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761999488; x=1762604288;
+        d=1e100.net; s=20230601; t=1761999413; x=1762604213;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nakH/PvmVEC4FueXBEYiavMVStVvZPPhZqsGXFef+TU=;
-        b=YJuJdekAzLse2d1VKkHP7DsNj3tEoG5j6UOddzAavv8tnnG3MZW9mr3LszrnWQDJqJ
-         zIcITbu65TdMXByegnaFsyUD2oUXh48zB6r/fxlFx5blhBf8lntoG7nMRQ1k64repqUq
-         6/EzkzofwE8yY1tsfIe9WzssFwjGTOcoBQFv62K9T65xDALCX2t1UTFTKTPkDkd7LIry
-         KrBQXuf11i3TzB6s6proGx3Fw1LXqZiZ6rXF0GWSRMsXeGGdCM8F5grr9QhrxexfD+Nw
-         N5vcXKR2CqxRf8+jy2fLDeEQ8lROdJkzE4x46j0HOQLTsrL6YUSJGF9B6RPenBw1C7/G
-         gO+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVVYUiYDuGABDWIabRgDLwSVYGjnJS5scdP5gfEZwH37SZZLjQ9d+rqXn8qUNKS/HBiPt1JQ0tY9XGXQx81XCQI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZTI2eR+UI7799WqkXQrg+a3A6IoNgpjYo83fQle8qibJ5+uzt
-	pWOt0Rew10M6XqMjU0LNvKD+V1ru0DXzvSHmQrRFEq6j54Cc82LwEV0P3PolZYoG7g9YoeqelID
-	Qd7dSKef7aPgrR9HNEzS2sbyGGLpb60t26j1yZd2LzfNIKjzUrkb+nyR4lSQ7W4AwoxAgmjWEn0
-	eI
-X-Gm-Gg: ASbGnctji/NRwDURCQ5EOOXXtP+f/d75YKc826S/WxsBjWVSsV9hp1UAXSukyV0ex2W
-	4Qju2WiC9C4r9ZrLptDvuyko8CY2QVO48hlzEc8M/DO55b+cfu/S7Q3brikdKbncwImIFrs3VXQ
-	UwKypu0E3jGZILZD7F1og+8MEWOLtJy+zMgjg0pdS7oF+ReKQoEf0X3WX+4ydgQwZzr2gRjvf2Y
-	jK2M/ZVQuzGbG2JGnzd35RqxaXELgtKULB8Z3w8D33Uyoaa0LOeJrdEI5MKPdgZsOA+CE+5qZ5n
-	kaBtR6m0oHgMjcu2QX9b3VUwBytETX3VRaV++JSptcYlNCgJASwXJWsFQwMVD9rtsVl1epg8YJ5
-	dJ4wKFUfb2IuJRQg1r+Xuwca2fcpPHy6K7iUUvJtQ0yc8mHCIxhQLTJoVz52MQgym9h9v0wlKtE
-	IRvw3SpMbeDoQbvrqMxoh33qYM2po=
-X-Received: by 2002:a05:600c:1d9b:b0:46d:996b:826a with SMTP id 5b1f17b1804b1-477308c8b64mr64006465e9.36.1761999488373;
-        Sat, 01 Nov 2025 05:18:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEYuiv87iZ7G8foU4ArwULKDJw8Idy7HTvUTtsGo13HOjZ3TpQsscDerygyrVDH0/hBtY+XhQ==
-X-Received: by 2002:a05:600c:1d9b:b0:46d:996b:826a with SMTP id 5b1f17b1804b1-477308c8b64mr64006055e9.36.1761999487959;
-        Sat, 01 Nov 2025 05:18:07 -0700 (PDT)
+        bh=Ec0hJUsQTUWsdl6E8s6GRpczB51mwhz+FQUrv1x/BOM=;
+        b=Ytpt/TS3UiEAnBfZzS82f1ZPKPafYGCaxMH3mlw6YFJRlVPAyaJou6WFO037bSY2Oq
+         6Iu7Ng69kWQTH3ZMo7NNihPtYxYnCic6Sx2wiUbYXlz+Ehr3Ra2rAfbN+GxlGbETxGu1
+         57df/pXdVLcJWWGKSfQQ8Jw4U0qoFCxJJwu4keRgrnZesvnwqZGBl2XGzgv2PUse/XCo
+         74Cg0XByAZ6EkB0DpLIvBFw93At57dGJh4k5rDSPPjiNMcu0HfY4rwJGEf26FxsJfgD3
+         5ua5c/SoKD7+gOsVSnXlenDa+PZP47QvhtaJoTEQ6/ev9G99D4VGaeazL4mKMA/6O8d7
+         YCSA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLZlsGAcaik1zYj6QEE+AxsgTezz1l6bpiX65VOZTHabyY8tF/SNJDkWjwZFkVSTEwwXFMeMgr7QRo011pi0jW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBP3TxHvEnSXZLScHmq7PDQuGpcGfSGrsfgR7k61SLCbnE9uA0
+	TCgygsUtavI+Qk4ZmoD2IrWg5GsKI17RZ7X1fgidSa66K8rV3lIDW+XSdRQT8Png3ozVK/GiB8U
+	nZ5glYCnj6yIrc9HH4QxnYE08M6KW/gLRv1MADQ8XNlaejBb+hZJBemSBX8nOnSrpuj2kon7fwn
+	8K
+X-Gm-Gg: ASbGnctLa3kCMWFXC0L+w7HTiIsRY78hTgCOgk085gCKoKnQ9zY3azg2ZGJg3LpDY3O
+	CPCTonjyeeKc3HexYcpmSt4va4KiM72plDNT/r34ZI5MRuuG9kJs34cC8ISOyk2wsMpUIi/YFWi
+	gRulvSxTIq3vdf1KuO9KJgQJiJXSMTOCRuGUaRHCtjus9M3f/BGhckhG+BGy6oi9UbEfPyhD/iO
+	BCH7XBp7FnxfCl0I3BbN70wA8m1i8IXxTRrrWSKbrcNUNLAV28y2AUEHECd/mLe60LG801gDwWr
+	Q6YIU7sQycglGCo6H3XdJEQsnH1gyimmALcL+1KywPIVDAomR3cGTK57/OW+GHSk/AR/0eoUK8o
+	W4vO9qLpYgszFb9vsmnc7YozgD1gGIX9w9day0dF/zIqTpHTVp+6LI7JEN79qI69cGasK/rIzLg
+	OQ9Az4hRmIMUtU8AeAb8/BLQOvDC4=
+X-Received: by 2002:a05:6000:2f86:b0:3f0:2ab8:710f with SMTP id ffacd0b85a97d-429bd671cc6mr4920647f8f.8.1761999412959;
+        Sat, 01 Nov 2025 05:16:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHwyu8iCMznl2jxRh8YLUHJ3p228bh0SCAtFEkItp6biokKqMXHyqxQIX3SdYCS4w5abwUMoA==
+X-Received: by 2002:a05:6000:2f86:b0:3f0:2ab8:710f with SMTP id ffacd0b85a97d-429bd671cc6mr4920621f8f.8.1761999412492;
+        Sat, 01 Nov 2025 05:16:52 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169? (p200300d82f3f4b00ee138c225cc5d169.dip0.t-ipconnect.de. [2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4773c53ec2csm45855895e9.11.2025.11.01.05.18.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c114ca0csm9986764f8f.21.2025.11.01.05.16.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Nov 2025 05:18:07 -0700 (PDT)
-Message-ID: <8f3596e9-fe40-4591-946d-65e849955a2f@redhat.com>
-Date: Sat, 1 Nov 2025 13:18:05 +0100
+        Sat, 01 Nov 2025 05:16:51 -0700 (PDT)
+Message-ID: <5368a371-10f5-40ce-9246-d8eeff52e654@redhat.com>
+Date: Sat, 1 Nov 2025 13:16:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
+Subject: Re: [PATCH v4 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
 To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -107,7 +107,7 @@ Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
  sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
 References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-7-kevin.brodsky@arm.com>
+ <20251029100909.3381140-6-kevin.brodsky@arm.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,16 +153,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20251029100909.3381140-7-kevin.brodsky@arm.com>
+In-Reply-To: <20251029100909.3381140-6-kevin.brodsky@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: CN4g9ePbB_Cn0EyUi-9vFPo9py9bgX7Jvwqrsqkq_vk_1761999489
+X-Mimecast-MFC-PROC-ID: N6n-LLS5yBHrYqTvBuZE3A8cQZJtTJSSjce8uIrYfb0_1761999413
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_051812_447780_52140FB9 
-X-CRM114-Status: GOOD (  25.62  )
+X-CRM114-CacheID: sfid-20251101_051656_922486_A035578E 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,75 +178,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29.10.25 11:09, Kevin Brodsky wrote:
-> The implementation of the lazy MMU mode is currently entirely
-> arch-specific; core code directly calls arch helpers:
-> arch_{enter,leave}_lazy_mmu_mode().
+> Architectures currently opt in for implementing lazy_mmu helpers by
+> defining __HAVE_ARCH_ENTER_LAZY_MMU_MODE.
 > 
-> We are about to introduce support for nested lazy MMU sections.
-> As things stand we'd have to duplicate that logic in every arch
-> implementing lazy_mmu - adding to a fair amount of logic
-> already duplicated across lazy_mmu implementations.
+> In preparation for introducing a generic lazy_mmu layer that will
+> require storage in task_struct, let's switch to a cleaner approach:
+> instead of defining a macro, select a CONFIG option.
 > 
-> This patch therefore introduces a new generic layer that calls the
-> existing arch_* helpers. Two pair of calls are introduced:
+> This patch introduces CONFIG_ARCH_HAS_LAZY_MMU_MODE and has each
+> arch select it when it implements lazy_mmu helpers.
+> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is removed and <linux/pgtable.h>
+> relies on the new CONFIG instead.
 > 
-> * lazy_mmu_mode_enable() ... lazy_mmu_mode_disable()
->      This is the standard case where the mode is enabled for a given
->      block of code by surrounding it with enable() and disable()
->      calls.
-> 
-> * lazy_mmu_mode_pause() ... lazy_mmu_mode_resume()
->      This is for situations where the mode is temporarily disabled
->      by first calling pause() and then resume() (e.g. to prevent any
->      batching from occurring in a critical section).
-> 
-> The documentation in <linux/pgtable.h> will be updated in a
-> subsequent patch.
-> 
-> No functional change should be introduced at this stage.
-> The implementation of enable()/resume() and disable()/pause() is
-> currently identical, but nesting support will change that.
-> 
-> Most of the call sites have been updated using the following
-> Coccinelle script:
-> 
-> @@
-> @@
-> {
-> ...
-> - arch_enter_lazy_mmu_mode();
-> + lazy_mmu_mode_enable();
-> ...
-> - arch_leave_lazy_mmu_mode();
-> + lazy_mmu_mode_disable();
-> ...
-> }
-> 
-> @@
-> @@
-> {
-> ...
-> - arch_leave_lazy_mmu_mode();
-> + lazy_mmu_mode_pause();
-> ...
-> - arch_enter_lazy_mmu_mode();
-> + lazy_mmu_mode_resume();
-> ...
-> }
-> 
-> A couple of notes regarding x86:
-> 
-> * Xen is currently the only case where explicit handling is required
->    for lazy MMU when context-switching. This is purely an
->    implementation detail and using the generic lazy_mmu_mode_*
->    functions would cause trouble when nesting support is introduced,
->    because the generic functions must be called from the current task.
->    For that reason we still use arch_leave() and arch_enter() there.
-> 
-> * x86 calls arch_flush_lazy_mmu_mode() unconditionally in a few
->    places, but only defines it if PARAVIRT_XXL is selected, and we
->    are removing the fallback in <linux/pgtable.h>. Add a new fallback
->    definition to <asm/pgtable.h> to keep things building.
+> On x86, lazy_mmu helpers are only implemented if PARAVIRT_XXL is
+> selected. This creates some complications in arch/x86/boot/, because
+> a few files manually undefine PARAVIRT* options. As a result
+> <asm/paravirt.h> does not define the lazy_mmu helpers, but this
+> breaks the build as <linux/pgtable.h> only defines them if
+> !CONFIG_ARCH_HAS_LAZY_MMU_MODE. There does not seem to be a clean
+> way out of this - let's just undefine that new CONFIG too.
 > 
 > Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 > ---
