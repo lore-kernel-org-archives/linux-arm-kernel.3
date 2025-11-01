@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA882CCF9F0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EE4CCFA06
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 12:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,157 +12,87 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wcrewv7OssaEm3gyvMk1iF/ClvQjL5UKQAK3UbLbS48=; b=fRIFNOE0QbxqiatJh+f99yA3GU
-	89Xo+r+JQR7xbBlwpmlAT6vR0MZfeuuimYtC/D2Eos1NfskuXxRh/YO102RF5EJnPNRNCph7JInhb
-	IhNB2V7FTcBP6CnTgONb/FcDBtvrDtRxGAvY8+QnHwv+1LUGI8MQ5izd/ge/LnZ4MzhIDhAABClif
-	yqCjvj2/d7kkmU0dVo8jtWf0Dw6XOlNEMRhN+KwjnmOYBy81n3jmhQpg2wnbuBDA1ikvKigMCThlJ
-	Wvsb7+23JJtAKTXJ/OICCuyXTXeKHzdsHVbRhIhNEQXrTeQiuD4H32LTM9eCTNGesOujGZtjZUUPN
-	lP/lR48w==;
+	bh=2ujdLBAXhZY2AOY4FZZ6eP/3+PsXNveO7Mezvnen8AY=; b=nfhOTaM6j4MR9X2KcEqQRs+vGk
+	AvAU0yC+BDIaiBcoS/LN/eAC4TyYk6Dk4yDkZKhLLogbwO8MaeAHkVqJO41fcGDSwa1mPh6vioIAR
+	X7z1O/+c9M5K4T+olSw+kD9UVqOeulIK7KJ5miJuVndQowI5Vi7jMr9ZgAPOmS0b9WQiPSJGwb05x
+	rOVBuDOoWwBxuQo9+tdG94YMgRTAO0CCn6E3wlNdOvnQkeszKBQK00LYl+kELfSpp2Y7bt4Q8Vg5C
+	KvKm88bB2ABNyfgPFqhjmuPNQ7uPAS8vh4d7k1vJpz3uAQ5y5qvSESK++K9kCycD4f4g6NlsM8BFM
+	t9t44kBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAtJ-00000007hzB-00Z2;
-	Sat, 01 Nov 2025 12:39:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vFAtI-00000007hyd-1jWC;
+	Sat, 01 Nov 2025 12:39:32 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAVL-00000007RgX-2390
+	id 1vFAVC-00000007Rb7-2ybp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 12:14:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761999286;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Wcrewv7OssaEm3gyvMk1iF/ClvQjL5UKQAK3UbLbS48=;
-	b=I5s+LJujy807p09M01y7bbwR77hghtjGqVcUfTYCe6756sWnWbyhfw7Bse9KFnHs++fOdr
-	0ho7H2mIq3BhaHBaX16Y44n8GcJ+rUwxhPnPSawSMAuwOmQwLqG3O1fZUisbzPyuEOWC6+
-	flIaBZP3P6ZKrhcu9q6YmCl1ngS6riE=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-260-prnmrbOKMSiSXeoGXlBoJw-1; Sat, 01 Nov 2025 08:14:45 -0400
-X-MC-Unique: prnmrbOKMSiSXeoGXlBoJw-1
-X-Mimecast-MFC-AGG-ID: prnmrbOKMSiSXeoGXlBoJw_1761999284
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4721b4f3afbso9000205e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 05:14:44 -0700 (PDT)
+	Sat, 01 Nov 2025 12:14:40 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2698384978dso25957245ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 05:14:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761999277; x=1762604077; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2ujdLBAXhZY2AOY4FZZ6eP/3+PsXNveO7Mezvnen8AY=;
+        b=Z/PfysO3PYXH09lCSeeQl2JH7qxn/PY0cHcRF2GUQOPfI4sbo9z3O4twwaJFolEJPN
+         cpsvS2SqKntzy5zYtiP9HyypYYvNjhZ0/2ttzH/WqS8+TJGcNbK8z2WRxrMTl5buG81d
+         xWhIKrofXqoWiVW9u2Td7hVZzQBRqKb3i5ajNF447MT1ze6r9MZ+tLU1LNuXzmKOS87f
+         TvZB1Ryaqx4jpab4X/CKpP915kY5Ruw5Vn2975RSuejF9/8vKMQ5SX1GI/H8CPSpFXdp
+         SHoJiv/ceyyddcgzeRMP47gJFAsctn6zy0r0/5SZka2ZSh0MpNpHEBBITYxXlV4J+H5S
+         b2Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761999284; x=1762604084;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Wcrewv7OssaEm3gyvMk1iF/ClvQjL5UKQAK3UbLbS48=;
-        b=Eafmvdu29sng4jQvGF0yOVKiW4+Bglae5740b/KLjOOKfjiUgpEwwZnvInd2ukk1c0
-         L9KcihcJEkABqddn+kNfzBfONnbN547SEj+p3h60L+CzcbPQtlsrGgh7arU7xSyfvGeM
-         64LZQ6FnXRshOayzZ5fTVYFdFDuY5XAfCWVszjzsmFWdDmIal8ozjvrLLe6pIV99PD1u
-         pDd0HbYhqCoXA3ujpL9ps743FvphUjGVBRhyL8aCJQliMCzm8IkLWexiMescoGXA1i44
-         /nS+aGTA7zhs4HBp6XtHJsQ1wtmGXpCBkpv1qyRKQngOTrwZLk29mlTpYvSoVEKTL6Ho
-         CUgw==
-X-Forwarded-Encrypted: i=1; AJvYcCVOgJZmoRHlOKkOn01NLnslKjgH7ESUouQP2PQ+ION+vMJqlqGBBqSe1vK+GWtQkQqu+pvTIEc35krNFuPDRvKz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/WEP0ThM5Rw2+/gQi0PZKtb/fMd8uqn5AAuY5HSjoXVpV7zXA
-	X3d31FNYQ3XIY/3Yr9y9o1E4YIE1+OyXarZdf6rB3pwARE3e5g+7h5JzXkySvr4ddHyId5zSu/H
-	psNJo+IxgP6+OkH2jX2WyRN/pioPTgWDyKtFEniUtolzw/YBOxys9ge/+IX2T1N53sZRRItXQ4d
-	ua
-X-Gm-Gg: ASbGncstA/UBNrh827fqo5chuZbilCVWEAouZwAYsPTDzbDarF9FH3+ep7ZdZR8NW0f
-	JwPvAgOlYIB4aI8R4LlK7GxmPtc3533T5v+nr9fqDtL3+ZjkVmdSnFqrHwv/jOsBciluDbb1V0z
-	vwBVn8h+4vBnxx2nFl1B85cNYv455aSk6VHgPoEkr28oMSev4/DZuvJT6c9SMvREWwzIXHeC0ve
-	pZqw3P8mco3LPLlzjzvto9/+8uOP2QnYQBOXRBnXPYxHOQq+O0Nzc9vvpNlbaRrjh61xM+RWZA0
-	p7lXdrinSsqNAYnqOh4WAOiB6aTgqKaeI459RSRaXcbkw6DyyGw16rVsZQSD8PUwQiYR7ZOWhmM
-	mk4e/LecMlblOCccS1RoGKNBLsf0V+7Dyj9kCzLzXyODqEaHeZxIXQZU6JNWSMvpaHn8OIsiQ/2
-	v+O4heVE3+47OFuDBY1nfYREbMK9w=
-X-Received: by 2002:a05:600c:a0b:b0:476:57b4:72b6 with SMTP id 5b1f17b1804b1-477305a6db5mr69965215e9.8.1761999283772;
-        Sat, 01 Nov 2025 05:14:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFFQqut/W+Hh2058Mo2KRwgSobvPqBB9YeSBGPmcQlX0YmXFdyt0oSxc1X9BsoNgscSeoohIA==
-X-Received: by 2002:a05:600c:a0b:b0:476:57b4:72b6 with SMTP id 5b1f17b1804b1-477305a6db5mr69964795e9.8.1761999283199;
-        Sat, 01 Nov 2025 05:14:43 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169? (p200300d82f3f4b00ee138c225cc5d169.dip0.t-ipconnect.de. [2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c110037asm9428834f8f.3.2025.11.01.05.14.41
+        d=1e100.net; s=20230601; t=1761999277; x=1762604077;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2ujdLBAXhZY2AOY4FZZ6eP/3+PsXNveO7Mezvnen8AY=;
+        b=D6I77FyMgYNT4vuPtQPMsirHwRNCfL2areb8G6F8FtOVSUU8FHQFFPTITh6suHokOV
+         yW3j5tLX3OTLif51InGOLmnuvFBHFlOVrGbl/5Lj8A/cesGfgtS/XXG0S3VLZa92gK6S
+         ljzmKhg0dsGRQSCvk3bhzi2AAR995rom9kUoy88zAwFLWJTd1P6v/gdpiTe1XV6vyOvB
+         yLvbrV/NRpcgtIQq3736KI8VPItMZDLf2RwiBDh1AEw3uRvfxM6vqlZIVkP0GhL7wHNJ
+         /8EiGgv92BmSN//qV30cZqylk5sH3GGw2P8hhNUK8pSrA1zkhRYL4mNBNUYgqnTMODU5
+         n5Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCVwSf0EUu3aDQF/6MrmE5GHuN2JDHFKtLX23StybC//8fO07trN8y+Hopyn0IKtgyC6O6fkxvXb1CDclhdjAmbD@lists.infradead.org
+X-Gm-Message-State: AOJu0YynyBfiR/mZr2rNuSOhgw2joOr8JCkWRm/YzUmdhWku0Z5M9HWx
+	W4vqxUxgYp/Ml0cSOW2p4s80fhKjmIsqVbpnoLRP5n3Egh2I99S8peI3
+X-Gm-Gg: ASbGncvUvpXQGYnVFeQ00kJZ1B05XCkBW6S5g38UOQGBtE78gxReqe+ens1TgcN8dMk
+	DvO7jyWJq9DxbSlchvL+vl/jE8Lmj2m7+sLOK96cS8M2uPUP4czxzrO/MqWTQoXeiAjNt579xYe
+	yqbyIK/mtjn8Qnnce7jcmlglucY+VTruW0ML+sz9UZoSnicCGBX8mKiHq5zUVLT8hiB6+PyxnKC
+	YGvUBY9oe5BejR69bhKokYrKfhCZJ7cZWlWBOo6Bl3OpAGY9eb0wWGhEfmYlm4tR91rCcnHZ9tI
+	sXcQ2my5VuYdSf/7JcGiqINiGbreR0ikEMmkqzTEL+e7TyiVxAR+bm064G4YAj3gpanhhvv5uAu
+	tEXQqLCMhZ4Hq/urF0OcedAYbaEu5EmHCYjl1qyY8JJnQNfCbGu45Ldfuw6SlNa4=
+X-Google-Smtp-Source: AGHT+IEeRk+2DxXb5yHODDdJKSDxSfi10vJFhmh11HwS87jb+u5luDPpAWnpSEzbksr4arETIJtz8w==
+X-Received: by 2002:a17:903:2343:b0:27e:ef35:2dbf with SMTP id d9443c01a7336-2951a55b4e1mr82703355ad.30.1761999276934;
+        Sat, 01 Nov 2025 05:14:36 -0700 (PDT)
+Received: from CNSZTL-PC.lan ([2001:df0:a640:1::14])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2952e9a3972sm49654205ad.46.2025.11.01.05.14.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Nov 2025 05:14:42 -0700 (PDT)
-Message-ID: <c2859944-734f-4ba0-8b49-e0df23e1bdbf@redhat.com>
-Date: Sat, 1 Nov 2025 13:14:40 +0100
+        Sat, 01 Nov 2025 05:14:36 -0700 (PDT)
+Message-ID: <3cba9996-228e-4086-99ba-4a2a00de57ab@gmail.com>
+Date: Sat, 1 Nov 2025 20:14:31 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/12] powerpc/mm: implement arch_flush_lazy_mmu_mode()
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-4-kevin.brodsky@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20251029100909.3381140-4-kevin.brodsky@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: x44ci-zGad20zB-dNTYWJMSTp5BdUM6pS4vxA_BGlsI_1761999284
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Subject: Re: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6
+ with A3A444 chips
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Shawn Lin <shawn.lin@rock-chips.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Grzegorz Sterniczuk <grzegorz@sternicz.uk>,
+ Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Jianfeng Liu <liujianfeng1994@gmail.com>
+References: <20251017073954.130710-1-cnsztl@gmail.com>
+ <08911ae2-fef3-432d-a236-d820c9cb67ac@gmail.com>
+ <5af928c4-4b6e-489c-ad39-26cef3dd7473@gmail.com> <10751338.nUPlyArG6x@phil>
+From: Tianling Shen <cnsztl@gmail.com>
+In-Reply-To: <10751338.nUPlyArG6x@phil>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_051447_603312_4E2B7859 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20251101_051438_740575_99DD8B60 
+X-CRM114-Status: GOOD (  20.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,26 +107,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29.10.25 11:09, Kevin Brodsky wrote:
-> Upcoming changes to the lazy_mmu API will cause
-> arch_flush_lazy_mmu_mode() to be called when leaving a nested
-> lazy_mmu section.
-> 
-> Move the relevant logic from arch_leave_lazy_mmu_mode() to
-> arch_flush_lazy_mmu_mode() and have the former call the latter.
-> 
-> Note: the additional this_cpu_ptr() on the
-> arch_leave_lazy_mmu_mode() path will be removed in a subsequent
-> patch.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
+Hi Heiko,
 
-Acked-by: David Hildenbrand <david@redhat.com>
+On 2025/11/1 19:54, Heiko Stuebner wrote:
+> Am Montag, 27. Oktober 2025, 18:34:25 Mitteleuropäische Normalzeit schrieb Tianling Shen:
+>> + Jianfeng
+>>
+>> On 2025/10/20 12:44, Tianling Shen wrote:
+>>> Hi Shawn,
+>>>
+>>> On 2025/10/20 9:53, Shawn Lin wrote:
+>>>> Hi Tianling
+>>>>
+>>>> On 2025/10/17 Friday 15:39, Tianling Shen wrote:
+>>>>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+>>>>>
+>>>>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors and
+>>>>> corruption when using HS400 mode. Downgrade to HS200 mode to ensure
+>>>>> stable operation.
+>>>>
+>>>> May I ask you to test another patch I just posted to see if it fixes
+>>>> your issue?
+>>>>
+>>>> https://patchwork.kernel.org/project/linux-mmc/
+>>>> patch/1760924981-52339-1- git-send-email-shawn.lin@rock-chips.com/
+>>>
+>>> Thank you for the patch! I will ask my friend to test it but he uses
+>>> this board as a home router, so it may take a few days or weeks to
+>>> report the result.
+>>
+>> Hi all, sorry for the late. My friend has tested this patch and it works
+>> fine after 50 times dd operation. A big thanks to Shawn!
+> 
+> So I guess, we don't need the patch reducing the speed anymore, right?
 
--- 
-Cheers
+Yes! ;)
 
-David / dhildenb
+Thanks,
+Tianling.
+
+> 
+> 
+> Thanks
+> Heiko
+> 
+> 
+>> And hi Jianfeng, I found you made a similiar patch[1] for the ROCK 5 ITX
+>> board to lower down the mmc speed, could you please check if this patch
+>> also fixes your issue?
+>>
+>> Thanks,
+>> Tianling.
+>>
+>> 1.
+>> https://lore.kernel.org/linux-rockchip/20250228143341.70244-1-liujianfeng1994@gmail.com/
+>>
+>>>
+>>> Thanks,
+>>> Tianling.
+>>>
+>>>>
+>>>>
+>>>>>
+>>>>> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+>>>>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
+>>>>> ---
+>>>>>    arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
+>>>>>    1 file changed, 1 insertion(+), 2 deletions(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/
+>>>>> arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>>>> index fafeabe9adf9..5f63f38f7326 100644
+>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>>>> @@ -717,8 +717,7 @@ &sdhci {
+>>>>>        no-sd;
+>>>>>        non-removable;
+>>>>>        max-frequency = <200000000>;
+>>>>> -    mmc-hs400-1_8v;
+>>>>> -    mmc-hs400-enhanced-strobe;
+>>>>> +    mmc-hs200-1_8v;
+>>>>>        status = "okay";
+>>>>>    };
+>>>>
+>>>
+>>
+>>
+> 
+> 
+> 
+> 
 
 
