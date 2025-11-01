@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4777CCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 10:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC8FCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 11:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtLoHp0kEwq/bLHJArViyfu5fWlEi0xAxEhFmz0T09k=; b=GO26axCXUqH4kIU3INLcnGvEvb
-	re4bNPpZvkhVAIhWoAe6rXIBlgt4VlnZ6vEp8C5X0kY3SyJqjBcbX9cXnPUJO7yD2y1cagiQN2pFZ
-	exf6B/TrKTK7PuD9RZOMtZFiP8+Z6yCtmrF8EbYaDnyJQZg8703rLU4trKzUjb1KrudJhf3q4vkxN
-	Pgw5pGImf8R3LuwyINSDEyl8hpi3/Rc6v0ILW5ZkNYp8k/ko+uXByKtihHmcMyr6A+70sKXvkxI0B
-	iLZQLNysuVGOkITa4lAMnsRWbfEtBGxe6Ko4qTmWZ0BzsOrTW4aRVRU2lsJHYQGbFko4cvqVsVJr7
-	G5JwGiHA==;
+	bh=U9kIH6UR3WvzItMogJ8+c2t26bKltrjc7KYTuVlXmfk=; b=ABAeMosHbr2dGeIA8q/iA5OTA8
+	agBGUAaJSZDD4AkkP+7HbCcO+UrzvOwdeKfq+LTZyq1mbS9RkwGWcWVqgKK2Eo6NND8pPr3KUSnLJ
+	u4zaeOoYq5HqHnWn06MYjzrpr/8aMdz+18W0b/cbJfPpRNdQpRMCUbobnXZjgGpBtbIjBCFTjIx3G
+	Ev+T9A0dQrkZdXSlmO5Kqdl4Cr/xkH3TM4n1XiQW1t/6oNFZsK/fE3pDuV5OFKiF+8OuSNQvGkBAK
+	pNAZaa6HeyXWOWC23OUXTmSHqfynjS3t8GD/ETecs6vLgAs30FjJDXgCxTikXFkrYlYlTy650GdB2
+	TagXupqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vF99f-00000007H02-0Vhq;
-	Sat, 01 Nov 2025 10:48:19 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1vF9Sa-00000007HiX-26pw;
+	Sat, 01 Nov 2025 11:07:52 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vF99c-00000007GzG-0sEO
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 10:48:17 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-640a0812658so162874a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 03:48:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761994092; x=1762598892; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=gtLoHp0kEwq/bLHJArViyfu5fWlEi0xAxEhFmz0T09k=;
-        b=IpbNylaUj/3ap/nO0M1LTzjtkS1acydsD8qyt1w3d7R/6HXxrEUgDYoUhKLXHaYWXV
-         JUCLJCCWJX8CZJ9rcXZI/D+wuLyysewWObUo7XgQ5LuUzgOuNfpp/RSKm3dWd0T5eUHz
-         J5G/rFwq4XE1XWypxFMf/4RIgOWTo5WeT8kGs4jFokamRoOwM9uE6hJp5IsYH574chO4
-         Yrt3Zfk8kVT3qnLsK0jkbsHO48aR+mEDxa3agCtJhkmMQCWB5wweR/j8PK3xh0TeK5aR
-         Uo+UW77IxgME/VVWhfDizvWJuNPelqu8Du86RDBloEE9xV5LivYdHp8VXfsX59ByZUA5
-         MFbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761994092; x=1762598892;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gtLoHp0kEwq/bLHJArViyfu5fWlEi0xAxEhFmz0T09k=;
-        b=jOUIIBATXbYFur2zyugniq3MVD/oVyEf/Sh5L3LTmALdmoSbA9mm/Okk01rXH6slYj
-         JnJY6hFU4lP/6HyFXtVaoRNYMUdyN1KeUbNKq/RNUbRX5QgZm09sjnn+iUNuBCz/F/Bm
-         whMNZmHDspd0DL3piJ3YKFUldjhfzOoAxh8hlqLvyU1hApIownjGGmZKohu1sE0Dup35
-         hCHRScnAWqNhm92Qd2VZsqG7/CxRNp7Z8K9BixV1CVxk/61TrX82+0Oi/BdiIBJ27C48
-         XctrMOZF4kaxoAo+K9KqBi3iP9d71fNPOF/ymdGK+GmUB9W73ExiK4qBU58mAReeFa7f
-         lE3g==
-X-Forwarded-Encrypted: i=1; AJvYcCVHb78YQnsHtq5rlOqiFNH9NP+7RmdNhO7Fww+tLdNmJCoravUIC+wFvEhlhKm91KXgf6Xry237bUnLEVGtCA8R@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfoknH4VsAnLy4hZM6YqybTCb/YDnb8SuuIMr+f6Y+lR5eIElC
-	4IBtuRvSXj4JWRT40t7d2y0EkWfNCNmYRkwTkvIIs2+lER58WLQpOvqEd0KPQcw8SGmFsAJ0SGf
-	Jt/DEmxuYPMaWh1ct3fKAvxmbxbdZaeI=
-X-Gm-Gg: ASbGnctLZXEIBFQ3SR5XuL9rLhRZdI9mg8JQhrwrJ+GgcAp16wcQNIHgmHN0iEi6kmw
-	Ts8cfXCL0alCGVCnhYtwmSlSkfL/H9ZXM2rOSL4vlRXIexnblcDxHtQJqrB3GvXN1MLgDXicBOg
-	vYymqjGR2MhvKV2+Op3E1MI4BgvBT3ZgE4YtEXXsh/m4jaP0l1+vfa80h816PEkAPyrwMJhBKRy
-	wbF6Olg1P8KQSNGDQ3rIbwvoUHCPriMuERf9MtCjI0KfZ9b6UI/PuAaW0AToqM0QnrqEA==
-X-Google-Smtp-Source: AGHT+IEwEAbpzczbirHeYPq9CirAqArt7tfqx1f1DuepotXx+VdlfMQPQPP7/cGb1j0Z5jLq9Qc9/0ubBl45KkLxH90=
-X-Received: by 2002:a05:6402:518b:b0:639:dd3f:f265 with SMTP id
- 4fb4d7f45d1cf-640771ceb67mr5718247a12.25.1761994091667; Sat, 01 Nov 2025
- 03:48:11 -0700 (PDT)
+	id 1vF9SX-00000007Hhh-19Dh;
+	Sat, 01 Nov 2025 11:07:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761995269; x=1793531269;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pwo2AH/F6d+H4i2vyh89lNZ+XD4n4HBplTVDLdDFnB4=;
+  b=OdStbLUV0TYV6+cb7ou5cq0zbKWFOiQfsll+JAGDNIvEP83ZkkJ1cFaW
+   fULYnrJ6qPMASZEUHEPwZrLUiMF+z7DANsaFyiwQgB0XunS/TVGlwSQr3
+   lGh3d0wxyrElyOswNvmDmbAt4iXoZ2PpM90sjLlj30Cy1k7VLi+7LSXWm
+   T+bfq560xJPf455SH69s01cf02OVn8sjqvXd6sEmGALKdMfhS/WRA0f+X
+   UShM+lpXHcUM6LN6ZCXh4C4B+AjxhUvskCr9+1wEBc/CcI6KIBS0Rdyrv
+   1Io6YRjmVqdxajeUu6cVU7t4/GVmDaqyiwh/HMUPNETOGTVEkc29aJ9pd
+   g==;
+X-CSE-ConnectionGUID: IvKCdI5NQO+YSEfEYKkNkw==
+X-CSE-MsgGUID: N89bsFbbRKmCt11ENMJO7g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11599"; a="64240775"
+X-IronPort-AV: E=Sophos;i="6.19,271,1754982000"; 
+   d="scan'208";a="64240775"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2025 04:07:45 -0700
+X-CSE-ConnectionGUID: D9pmvt2aRzub+M8lQn84cw==
+X-CSE-MsgGUID: FpfaqeAFSECmJUUrEqcDeg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,271,1754982000"; 
+   d="scan'208";a="190789457"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by fmviesa005.fm.intel.com with ESMTP; 01 Nov 2025 04:07:39 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vF9SE-000OAS-0o;
+	Sat, 01 Nov 2025 11:07:33 +0000
+Date: Sat, 1 Nov 2025 19:06:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Nicolas Dufresne <nicolas@ndufresne.ca>,
+	Jason-JH Lin <jason-jh.lin@mediatek.com>,
+	Nancy Lin <nancy.lin@mediatek.com>,
+	Singo Chang <singo.chang@mediatek.com>,
+	Paul-PL Chen <paul-pl.chen@mediatek.com>,
+	Moudy Ho <moudy.ho@mediatek.com>,
+	Xiandong Wang <xiandong.wang@mediatek.com>,
+	Sirius Wang <sirius.wang@mediatek.com>,
+	Fei Shao <fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/5] soc: mediatek: Use pkt_write function pointer for
+ subsys ID compatibility
+Message-ID: <202511011822.Vn6fsvGr-lkp@intel.com>
+References: <20251031160309.1654761-2-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
-References: <20250905112736.6401-1-linux.amoon@gmail.com> <176085588758.11569.7678087221969106036.b4-ty@kernel.org>
- <CANAwSgRjXS4V_Kpw5kaJnPA8f=18uN-MgfEQ5ErN3aFRqbJKfg@mail.gmail.com>
-In-Reply-To: <CANAwSgRjXS4V_Kpw5kaJnPA8f=18uN-MgfEQ5ErN3aFRqbJKfg@mail.gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Sat, 1 Nov 2025 16:17:54 +0530
-X-Gm-Features: AWmQ_bmhgMeWFkOeYmBpsEodWI1g24fEo-iGnLSXhllxCODvU7vKr_LfOJBB0YE
-Message-ID: <CANAwSgSrisWFPPRkZ=ukCjui3_xzgrmLKz5F9iXnerUFktk5UA@mail.gmail.com>
-Subject: Re: [PATCH v1] PCI: dw-rockchip: Simplify regulator setup with devm_regulator_get_enable_optional()
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Hans Zhang <18255117159@163.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251031160309.1654761-2-jason-jh.lin@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_034816_265652_A33ECC86 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20251101_040749_539928_3616A36F 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,45 +106,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manivannan,
+Hi Jason-JH,
 
-On Fri, 31 Oct 2025 at 12:27, Anand Moon <linux.amoon@gmail.com> wrote:
->
-> Hi Manivannan,
->
-> On Sun, 19 Oct 2025 at 12:08, Manivannan Sadhasivam <mani@kernel.org> wrote:
-> >
-> >
-> > On Fri, 05 Sep 2025 16:57:25 +0530, Anand Moon wrote:
-> > > Replace manual get/enable logic with devm_regulator_get_enable_optional()
-> > > to reduce boilerplate and improve error handling. This devm helper ensures
-> > > the regulator is enabled during probe and automatically disabled on driver
-> > > removal. Dropping the vpcie3v3 struct member eliminates redundant state
-> > > tracking, resulting in cleaner and more maintainable code.
-> > >
-> > >
-> > > [...]
-> >
-> > Applied, thanks!
-> >
-> > [1/1] PCI: dw-rockchip: Simplify regulator setup with devm_regulator_get_enable_optional()
-> >       commit: c930b10f17c03858cfe19b9873ba5240128b4d1b
-> >
-> I am looking to suspend or resume the issue. We probably need to
-> toggle the regulator
-> to maintain the power status on the PCIe controller.
-> Therefore, dropping the patch is an option; I will add dev_err_probe
-> for PHY later in the patch.
->
-I found this series with the address system suspend support
+kernel test robot noticed the following build errors:
 
-[1] https://lore.kernel.org/linux-pci/20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com/
+[auto build test ERROR on linuxtv-media-pending/master]
+[also build test ERROR on media-tree/master linus/master v6.18-rc3 next-20251031]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-This patch will conflict with
-[2] https://lore.kernel.org/linux-pci/20251029-rockchip-pcie-system-suspend-v4-3-ce2e1b0692d2@collabora.com/
+url:    https://github.com/intel-lab-lkp/linux/commits/Jason-JH-Lin/soc-mediatek-Use-pkt_write-function-pointer-for-subsys-ID-compatibility/20251101-000555
+base:   https://git.linuxtv.org/media-ci/media-pending.git master
+patch link:    https://lore.kernel.org/r/20251031160309.1654761-2-jason-jh.lin%40mediatek.com
+patch subject: [PATCH 1/5] soc: mediatek: Use pkt_write function pointer for subsys ID compatibility
+config: powerpc64-randconfig-r063-20251101 (https://download.01.org/0day-ci/archive/20251101/202511011822.Vn6fsvGr-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251101/202511011822.Vn6fsvGr-lkp@intel.com/reproduce)
 
-So please drop my patch.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511011822.Vn6fsvGr-lkp@intel.com/
 
-Thanks
--Anand
+All errors (new ones prefixed by >>):
+
+>> drivers/soc/mediatek/mtk-mmsys.c:170:26: error: no member named 'pkt_write_mask' in 'struct cmdq_client_reg'
+     170 |                 ret = mmsys->cmdq_base.pkt_write_mask(cmdq_pkt,
+         |                       ~~~~~~~~~~~~~~~~ ^
+>> drivers/soc/mediatek/mtk-mmsys.c:172:30: error: no member named 'pa_base' in 'struct cmdq_client_reg'
+     172 |                                                       mmsys->cmdq_base.pa_base,
+         |                                                       ~~~~~~~~~~~~~~~~ ^
+   2 errors generated.
+--
+>> drivers/soc/mediatek/mtk-mutex.c:1002:16: error: no member named 'pkt_write' in 'struct cmdq_client_reg'
+    1002 |         mtx->cmdq_reg.pkt_write(cmdq_pkt, mtx->cmdq_reg.subsys, en_addr, en_addr, 1);
+         |         ~~~~~~~~~~~~~ ^
+   1 error generated.
+
+
+vim +170 drivers/soc/mediatek/mtk-mmsys.c
+
+   162	
+   163	static void mtk_mmsys_update_bits(struct mtk_mmsys *mmsys, u32 offset, u32 mask, u32 val,
+   164					  struct cmdq_pkt *cmdq_pkt)
+   165	{
+   166		int ret;
+   167		u32 tmp;
+   168	
+   169		if (mmsys->cmdq_base.size && cmdq_pkt) {
+ > 170			ret = mmsys->cmdq_base.pkt_write_mask(cmdq_pkt,
+   171							      mmsys->cmdq_base.subsys,
+ > 172							      mmsys->cmdq_base.pa_base,
+   173							      mmsys->cmdq_base.offset + offset,
+   174							      val, mask);
+   175			if (ret)
+   176				pr_debug("CMDQ unavailable: using CPU write\n");
+   177			else
+   178				return;
+   179		}
+   180		tmp = readl_relaxed(mmsys->regs + offset);
+   181		tmp = (tmp & ~mask) | (val & mask);
+   182		writel_relaxed(tmp, mmsys->regs + offset);
+   183	}
+   184	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
