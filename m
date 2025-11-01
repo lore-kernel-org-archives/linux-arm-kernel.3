@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193B1CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 14:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5229CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 15:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HkYm+o5ZrKQsoVDIa7Xk6T9MOu2JC8WhA3qTTbVvthE=; b=GzC5g8iMDj9ESS56AYEfFNiDnW
-	CcIZ2dhl83T2HlQxZiAFUtkpjhKJxp+KSK+M9wkSI0h0nFlw+WWao5tLUSuRCm9h80MZ39MjkFdNa
-	CviI5b0lytuK8nUU6axbG72/FKBvgi/T302e1SAWnJtBcVJZzQdJhrjBclaFgU4MIKuS634kzzy3X
-	tqshjHR0iZZEn1zbeId03fL7ItlXCENlagN2zQj8cPeyQ9X+F8WhUpQ2nsr900InpANPogk9QeXss
-	MK6qfoK6vh5V6nHr1qR2cHvDp/eXy6548i3X01HCK/ymA5cH5AynN2SydAx1Or+EG/L2quEcAYiEw
-	9seCBl8A==;
+	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h0Tk9dDcYmqBenbtFC0DeeXVXsg2rmtasPdJhxUdBos=; b=DNDV6OQiUh/exsUN5LgUF3TMxm
+	bnM9tDRgBm+nA2CjwVFW+VykywI7R6N92TXVykaqadCVMqUZ6IbPb+wq0eW0Bq/7y3LkbLpZHKwbD
+	KvmXRLs0EMt5l8YRgE9LZGrAxm+j5G5L5oNxS4IVLfyYpLNWLlWTl7LlrrwyiKdqSxevj3f5LroHP
+	jfG1XPsSO/wEGJmVEh6xi0/3zG9s9Sh06UOQ1zRSO6DzSDBKBhUV0JteWOQbZv7ZEJbRQ4a598jXY
+	gp+qrmk9mb6oSYLWgKE922FzkyJ0tcBBEX1De4ltoZr31sCTCaoWzg/kGUkNnnyyasmqdWPXtqWWP
+	HsK2DEOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFCk4-00000007qSN-3DqS;
-	Sat, 01 Nov 2025 14:38:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFDdc-00000007sRv-1wt9;
+	Sat, 01 Nov 2025 15:35:32 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFCk1-00000007qRH-2obx
+	id 1vFDdZ-00000007sR4-3KLY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 14:38:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0611644269
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  1 Nov 2025 14:38:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D103BC113D0
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  1 Nov 2025 14:38:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762007883;
-	bh=HkYm+o5ZrKQsoVDIa7Xk6T9MOu2JC8WhA3qTTbVvthE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=URjaxQwj38MV9iQGYaolqDOCkpTUlKnSVuIzesiOnQhIW/2s3vUvTor5VZ2NOXl3r
-	 2cOYuzMs8TvXSCJ8GkZqcH1oQUmWVTrWNSWXi5IhOXmiLHJe3uxdq0rLgVBfTJ8bJG
-	 6LeOHDmU0rtBOaVQaj1TNa2WXeEM3ho0pa/OQLjuZfsNHTCHabjju0Kyu31tPVK2+R
-	 upnREDJ2Wk7qeLcnJwWXYXB5vxHv5n6TDRSW9lWW4rBw1dSZrsjB5LHmnGCe46CWu3
-	 iOtj3nJ7kghS2LWUPH5bO8f84VUPwjXtNBOiXUg+y1giOhYJ1aa0x3sJiuPs8K9+ra
-	 C2SbXRfQTUa+Q==
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2955623e6faso5401505ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 07:38:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWiVEmewTImiC6ZGUExzcwG6XYGgXc8hX3fV5UBebDGPb7Ow5Q4q5h2Z/4Nx0cL7JVukbwTScoQ5vH0D4EP+Wyp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJZc4y3MqPB8xpza1on4Z76A/eyK/xWZ52knYiEOxlzzCfDTtM
-	wFzvF2IltwadPI/bJg7XZjLIwbnaOGZHIQ8l0mjnTJMHinARGFFhB68Y9qvbdwIYiKmsrhoK5l3
-	ycz+shpFcoE4ftQpvHR7qLwT3XJqyTg==
-X-Google-Smtp-Source: AGHT+IGVMak7HVgm2Kw7YYyD00KFk0fyKjURT+jhVGcUMpmtFlXzH6MEO5oeGDTKYtxCg8XT42xXcp+sjl4UzEP3ki0=
-X-Received: by 2002:a17:903:1ce:b0:27e:ec72:f62 with SMTP id
- d9443c01a7336-2951a35eb36mr108901805ad.6.1762007883402; Sat, 01 Nov 2025
- 07:38:03 -0700 (PDT)
+	Sat, 01 Nov 2025 15:35:31 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-63c479268efso656879a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 08:35:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762011328; x=1762616128; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-language:cc:to:subject:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h0Tk9dDcYmqBenbtFC0DeeXVXsg2rmtasPdJhxUdBos=;
+        b=TuLifoN+SfiZ8J8UV5RTJDY7lK59rE2x9yVRHKujbGpYIVlvqolNWNOG+2eqS2x9Sz
+         cIg+NZhAtMeTXbxYjrAHef8IeHtc8eO3rNgRo3Wo2GlE+8oknrBIXWn/mbtB7Fi1q8WS
+         EN3I6cTR8MEVlgA39SbBA7c6FLUsi45Qp/13f7FRFC+0pVszYuYsJJW0EicDQiIv+7CT
+         f/LWi4efRXh4Yx3LG7QeITYyAq5r2OROwqnGms52jwEF4Eh1QME5zxNZJjpHIKI3rQ2e
+         k+H98Ln4Wz153pdzOR8qgAN0SPfhQxmPmyXc5VAhCsokJZvGV4AB3i9c924x6L6dPFn+
+         jogg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762011328; x=1762616128;
+        h=content-transfer-encoding:content-language:cc:to:subject:from
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=h0Tk9dDcYmqBenbtFC0DeeXVXsg2rmtasPdJhxUdBos=;
+        b=oa5NEfhGbM5W5JW91Hay2bc0sBCJ9oLp3YpbpYUUXPmDuN4vL1QTlamNuOBQYQ2aeH
+         dwLHDe23zh5bDbzZGbqilBsFehdFo+vblYv9YRAAwB7YSR5DFgFP2ds+0hOOUoENr+IV
+         28+1x0hFuPT6L+Os88nwx4CEYC+ueb/qJLZu69X9LOP147fY5p9eR9YJRQrdorMi8908
+         Nm41GsNk4GLQwcH9kW37p2AdjTeccsVElvASjtB3+GWFq2efHBTnadUyBotdYOqNPjOK
+         YPFGFNUxhVXlVvqzuxuCcYMOnR1bwF7skyHlZgOMALLB2STUqw9JzKVjrhUS/vgzw8/d
+         AsaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWuNV19houtZws2dywzorIZ2/jG5rGP8GZpaBJHmVxjvHG17/BXdSAPUVd/Sgzdyi9y7at/mQ9cGNLsjuYAXeZn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQlKBnRq7lOgiSngQeOLDsdVjheCFPWReI5Afrq95Tp5MbSuJl
+	eMoLS17ZNLie6C5wD5NK3fFGVZe4lWwXebVz603ae1NAE2OkYBPyYyET
+X-Gm-Gg: ASbGncvarJ6JHtWrBICYMJB+ZjZCY96k4LHJclf/Ox6w9CgUIYKYUMNv41Xyi1EtJ8Y
+	n9fFEaN90o15GWXkBlM3F0ojxHKJXIqyn1jZ/AOvRTcccRjIEP1Ne8Xli6X0DALBvwTNU4KWy0l
+	42B+ZQioWHlCHx6d1WPpoCMBE7tGaf5xSoVDHA/Ddr04q4b3bpIsusH7VOEKHSTH8u/5oWP39Oj
+	vkr3qS+ZhciFTLS7V0/hyKGRAagycr7UcD9RfuhynQ7py35/Ve3x0LIoo068FvFYhtr7zfTRbDA
+	670YGMKuLcDiDA4Be5V5I9OzLZiuT/p8t2y7LvllwtHGiuQWvzHjL5uvcavPvtqDFGU6qs/mP9a
+	o3ITjZsv2qxiZZCya0wbLg4QFIoEW2JmpF55UsBy8ZRoZ9KNTr/ZKR0LfyHkDzpnaUznpUOMZz1
+	eZ8ufu4tk6qIufA0tw7H6yRnk5icKhz2JjrdEoF7ydCwc/xNRiZw==
+X-Google-Smtp-Source: AGHT+IGGbZKmix+04v0yBeE+miuCe2f5O67VTMu7nJKCL7jr0B/QprRarMtQ6I/yofHU8ylwWgs/DA==
+X-Received: by 2002:a17:906:730b:b0:b6d:5587:e336 with SMTP id a640c23a62f3a-b70708c8a6fmr418924566b.9.1762011327533;
+        Sat, 01 Nov 2025 08:35:27 -0700 (PDT)
+Received: from ?IPV6:2a02:a449:4071:0:32d0:42ff:fe10:6983? ([2a02:a449:4071:0:32d0:42ff:fe10:6983])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7077cfa966sm478124166b.65.2025.11.01.08.35.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 01 Nov 2025 08:35:27 -0700 (PDT)
+Message-ID: <92714b6c-6c0d-4a10-afe4-73ed313c87c0@gmail.com>
+Date: Sat, 1 Nov 2025 16:35:26 +0100
 MIME-Version: 1.0
-References: <20250829091727.3745415-1-jason-jh.lin@mediatek.com> <20250829091727.3745415-3-jason-jh.lin@mediatek.com>
-In-Reply-To: <20250829091727.3745415-3-jason-jh.lin@mediatek.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Sat, 1 Nov 2025 14:37:51 +0000
-X-Gmail-Original-Message-ID: <CAAOTY_8inC0s+md84zyjqyrfvsd4Aruy=oVCVsZfhqkv6WPk4g@mail.gmail.com>
-X-Gm-Features: AWmQ_bnMutOthr5nfHuj9QF2tM6tPBJ9JUU0hnLlgQDkMeGZ7OwmHz0IXIzXIxk
-Message-ID: <CAAOTY_8inC0s+md84zyjqyrfvsd4Aruy=oVCVsZfhqkv6WPk4g@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] drm/mediatek: Add pm_runtime support for GCE power control
-To: Jason-JH Lin <jason-jh.lin@mediatek.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Jassi Brar <jassisinghbrar@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Nancy Lin <nancy.lin@mediatek.com>, 
-	Singo Chang <singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>, 
-	Yongqiang Niu <yongqiang.niu@mediatek.com>, Zhenxing Qin <zhenxing.qin@mediatek.com>, 
-	Xiandong Wang <xiandong.wang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>, 
-	Xavier Chang <xavier.chang@mediatek.com>, Jarried Lin <jarried.lin@mediatek.com>, 
-	Fei Shao <fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-media@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Johan Jonker <jbx6244@gmail.com>
+Subject: [PATCH v1] arm64: dts: rockchip: correct assigned-clock-rates
+ spelling
+To: heiko@sntech.de
+Cc: robh@kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_073805_777192_2E8DA022 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251101_083529_874148_8D467507 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason-JH Lin <jason-jh.lin@mediatek.com> =E6=96=BC 2025=E5=B9=B48=E6=9C=882=
-9=E6=97=A5 =E9=80=B1=E4=BA=94 =E4=B8=8A=E5=8D=889:17=E5=AF=AB=E9=81=93=EF=
-=BC=9A
->
-> Call pm_runtime_resume_and_get() before accessing GCE hardware in
-> mbox_send_message(), and invoke pm_runtime_put_autosuspend() in the
-> cmdq callback to release the PM reference and start autosuspend for
-> GCE. This ensures correct power management for the GCE device.
+Due to some copy and paste from the manufacturer tree the property
+assigned-clock-rate is missing a letter "s". Correct spelling to
+reduce dtbs_check output.
 
-Applied to mediatek-drm-fixes [1], thanks.
+Signed-off-by: Johan Jonker <jbx6244@gmail.com>
+---
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+https://github.com/rockchip-linux/kernel/blob/develop-4.4/arch/arm64/boot/dts/rockchip/rk3328-evb.dts#L313
+---
+ arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts | 2 +-
+ arch/arm64/boot/dts/rockchip/rk3328-evb.dts     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-Regards,
-Chun-Kuang.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts b/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts
+index b5bf84322031..b9d4d78bff0f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts
+@@ -184,7 +184,7 @@ &emmc {
 
->
-> Fixes: 8afe816b0c99 ("mailbox: mtk-cmdq-mailbox: Implement Runtime PM wit=
-h autosuspend")
-> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
-> ---
+ &gmac2phy {
+ 	assigned-clock-parents = <&cru SCLK_MAC2PHY_SRC>;
+-	assigned-clock-rate = <50000000>;
++	assigned-clock-rates = <50000000>;
+ 	assigned-clocks = <&cru SCLK_MAC2PHY>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-evb.dts b/arch/arm64/boot/dts/rockchip/rk3328-evb.dts
+index 3707df6acf1f..76715de886e2 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-evb.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-evb.dts
+@@ -101,7 +101,7 @@ &emmc {
+ &gmac2phy {
+ 	phy-supply = <&vcc_phy>;
+ 	clock_in_out = "output";
+-	assigned-clock-rate = <50000000>;
++	assigned-clock-rates = <50000000>;
+ 	assigned-clocks = <&cru SCLK_MAC2PHY>;
+ 	assigned-clock-parents = <&cru SCLK_MAC2PHY_SRC>;
+ 	status = "okay";
+--
+2.39.5
+
 
