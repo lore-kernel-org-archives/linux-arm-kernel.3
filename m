@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C043CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 12:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E25CCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 12:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ec0hJUsQTUWsdl6E8s6GRpczB51mwhz+FQUrv1x/BOM=; b=Z+NZ+R/YAJDAsd17AUfE8yiq7I
-	+JwNp9lYZKc2+17i6iRmxsLTC5Aix9zWMY70OO/4DzOzpWxgN937p+NjLrlOoh9zRDhgXccnj6zQU
-	mIC4/ilinib1D1kepFn6R3hfY77TW85GCoJ7teRzn4EuMnYxODYhZhXjW9MgHrshHgH6DDl+/EXV0
-	aZ8DEOGnL7pCcbNP8VjF1fTkaml/LDwgl0eYhUtBcnECCNtCrQn4If+aQJapCbfNGNcEy+gby870R
-	acqAviwNz4vMtbJACIBCJt4cAMDsHC68cUeyHiF0LlHf0Ivp6QMmPw+OXWSTXRHN0U9acgxH7jdtc
-	4TtCagnQ==;
+	bh=iR1r/3xhU7MVcJwVYZUltUXo3c7eUSFIQ+pGKdoQg2M=; b=ecZzdNSQTlOr1NsmK1x6wASuxv
+	CDaSV0FrqJM5YJeMZWQ0sqUg8DVcENCghGNiqHLeuLw0J5YT/jKE8Mazn82psC33g9EwgiUdCrrAz
+	6yQnumS18+DJQ3UnZ27c2wvO03RgfXA4yJonI4Tx80I76k4dc3U2R+D9waQYO7gufTBWwisfwfHUp
+	R5jnSrRxeWCCQpzIVnchmXKTd0cVT+Z0Tqqy2NMmJpG3DMaGO+HRmBg2JFjmmP9seTzjl+J37sePP
+	GzcPLtCL2pvA+aod94KfLUo7aiwAAc+FgMMfW8d0Buy//AH0D2x+N8u83oYnHE/qShidrn0fl7kWB
+	2I/FhzmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAtN-00000007i4M-0djh;
-	Sat, 01 Nov 2025 12:39:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vFAtm-00000007iVq-2d8N;
+	Sat, 01 Nov 2025 12:40:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAXQ-00000007T0I-3KWC
+	id 1vFAd9-00000007WTR-397T
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 12:16:58 +0000
+	Sat, 01 Nov 2025 12:22:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761999415;
+	s=mimecast20190719; t=1761999770;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Ec0hJUsQTUWsdl6E8s6GRpczB51mwhz+FQUrv1x/BOM=;
-	b=R+pvMkH1HJx6jcVYDDjGzxmmI+Rzb0WGRQj1eYMVv/YnnC5LTIAziPzT52op1s8uSV9VSh
-	Oa4JsJWsRbBzIax9SizxsHyVDrfPqZBeXCb2Z9C39SmbpNfbF4AQKv4l3pcuBAx6eY5hlx
-	NVwYp4u/QKjunymin8YhjTgTSXveGHQ=
+	bh=iR1r/3xhU7MVcJwVYZUltUXo3c7eUSFIQ+pGKdoQg2M=;
+	b=h1TsCHdfHNbbWJNllLpXnvY3sZ6viEZyBQ8eDdUeAZizsyA87pYajXmGxYVEQW2Za6C0Q3
+	ypVvNb/xyu+oL0fogETvX3PULdrqXQVz75Ctn4JmVqmDAQtDGGdRt9Dq+/z9gnK6YD/raZ
+	7D3wojThoJjzlpbZqmG73V8mMw39n2E=
 Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
  [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-515-E4prWruDPHyUvrvT_vzq7Q-1; Sat, 01 Nov 2025 08:16:54 -0400
-X-MC-Unique: E4prWruDPHyUvrvT_vzq7Q-1
-X-Mimecast-MFC-AGG-ID: E4prWruDPHyUvrvT_vzq7Q_1761999413
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-429c8d07874so222113f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 05:16:54 -0700 (PDT)
+ us-mta-74-pnaGtSLfOE6TnjRTJAn-mg-1; Sat, 01 Nov 2025 08:22:47 -0400
+X-MC-Unique: pnaGtSLfOE6TnjRTJAn-mg-1
+X-Mimecast-MFC-AGG-ID: pnaGtSLfOE6TnjRTJAn-mg_1761999766
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-429c93a28ebso346190f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 05:22:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761999413; x=1762604213;
+        d=1e100.net; s=20230601; t=1761999766; x=1762604566;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Ec0hJUsQTUWsdl6E8s6GRpczB51mwhz+FQUrv1x/BOM=;
-        b=Ytpt/TS3UiEAnBfZzS82f1ZPKPafYGCaxMH3mlw6YFJRlVPAyaJou6WFO037bSY2Oq
-         6Iu7Ng69kWQTH3ZMo7NNihPtYxYnCic6Sx2wiUbYXlz+Ehr3Ra2rAfbN+GxlGbETxGu1
-         57df/pXdVLcJWWGKSfQQ8Jw4U0qoFCxJJwu4keRgrnZesvnwqZGBl2XGzgv2PUse/XCo
-         74Cg0XByAZ6EkB0DpLIvBFw93At57dGJh4k5rDSPPjiNMcu0HfY4rwJGEf26FxsJfgD3
-         5ua5c/SoKD7+gOsVSnXlenDa+PZP47QvhtaJoTEQ6/ev9G99D4VGaeazL4mKMA/6O8d7
-         YCSA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLZlsGAcaik1zYj6QEE+AxsgTezz1l6bpiX65VOZTHabyY8tF/SNJDkWjwZFkVSTEwwXFMeMgr7QRo011pi0jW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBP3TxHvEnSXZLScHmq7PDQuGpcGfSGrsfgR7k61SLCbnE9uA0
-	TCgygsUtavI+Qk4ZmoD2IrWg5GsKI17RZ7X1fgidSa66K8rV3lIDW+XSdRQT8Png3ozVK/GiB8U
-	nZ5glYCnj6yIrc9HH4QxnYE08M6KW/gLRv1MADQ8XNlaejBb+hZJBemSBX8nOnSrpuj2kon7fwn
-	8K
-X-Gm-Gg: ASbGnctLa3kCMWFXC0L+w7HTiIsRY78hTgCOgk085gCKoKnQ9zY3azg2ZGJg3LpDY3O
-	CPCTonjyeeKc3HexYcpmSt4va4KiM72plDNT/r34ZI5MRuuG9kJs34cC8ISOyk2wsMpUIi/YFWi
-	gRulvSxTIq3vdf1KuO9KJgQJiJXSMTOCRuGUaRHCtjus9M3f/BGhckhG+BGy6oi9UbEfPyhD/iO
-	BCH7XBp7FnxfCl0I3BbN70wA8m1i8IXxTRrrWSKbrcNUNLAV28y2AUEHECd/mLe60LG801gDwWr
-	Q6YIU7sQycglGCo6H3XdJEQsnH1gyimmALcL+1KywPIVDAomR3cGTK57/OW+GHSk/AR/0eoUK8o
-	W4vO9qLpYgszFb9vsmnc7YozgD1gGIX9w9day0dF/zIqTpHTVp+6LI7JEN79qI69cGasK/rIzLg
-	OQ9Az4hRmIMUtU8AeAb8/BLQOvDC4=
-X-Received: by 2002:a05:6000:2f86:b0:3f0:2ab8:710f with SMTP id ffacd0b85a97d-429bd671cc6mr4920647f8f.8.1761999412959;
-        Sat, 01 Nov 2025 05:16:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHwyu8iCMznl2jxRh8YLUHJ3p228bh0SCAtFEkItp6biokKqMXHyqxQIX3SdYCS4w5abwUMoA==
-X-Received: by 2002:a05:6000:2f86:b0:3f0:2ab8:710f with SMTP id ffacd0b85a97d-429bd671cc6mr4920621f8f.8.1761999412492;
-        Sat, 01 Nov 2025 05:16:52 -0700 (PDT)
+        bh=iR1r/3xhU7MVcJwVYZUltUXo3c7eUSFIQ+pGKdoQg2M=;
+        b=ZJigsvjSVK2T12lKwQR4FCakvrd8iidyOjvBLFTZ5pbaYHGeBeValvecs4Lpn9OHXC
+         arO6OrotXZ1PQ4r6f25ySpjwt6PVUfZYjVQp6ZGu3hZMoigzNKGWZG/L/NUBIfQZepzx
+         2UyM1n/A/Papysj854rscb/hh9xaXjKcwrQmIoijPL/qAAWNWnjq2/WoJ5guXw/xVxLm
+         HNLuypxid2H03Y39L+A11jnKyGmqG5a136Hw8pDZUPy0ZQ2MDiAUforExI/Tm4e9tz2t
+         aJnS+UWG0lgt3eEJE/J9Z2V+ZFGG1OnuN+oS1hHpTDlp/bXxivuNlZwejKrK2hVQqVtC
+         lrhg==
+X-Forwarded-Encrypted: i=1; AJvYcCW8O27lbxdSckKA8BgjprvaEL6G1hYQQ+w/KiYHKxC9dt1MyG2aZvFp1POxKd5KV87GWNgk/UqtcshYHOuaKSMD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy01e8PCe0WWU96yAnCeB+Qdsb/hKDXMPBDCYOb9FnTv2w5n2Ln
+	NlBs1fJF6mz9oVKkXfrfdQuqkC7SeqQ/VAzfss6YITXKrW3au/4NsXL6NvccZZg0DmeHbgHDggy
+	BAuvA7cDkoTraKdv4PSSMZdA1H23LtXNQtkJ+Mnmz7vfSr3Qz1sMK2K19ibtLc9yrdsYWQRvHGe
+	lc
+X-Gm-Gg: ASbGncvmfcrNOIlVnHLVBFNI3rYLskvEaNFYeIModpa8fgGOG5YDMOr3nsNGos1mt65
+	cpDE3cqJvGASowiQ8b7FonlVrUaMBC7s/D7OFktVEHMSXfKla++/w9Rz2cNQHPi/wzNfQzaT56S
+	KoPqqAYbjYNw0wy9BO/3ldKPyvEwHXJdpWDLdPxi+7slWI1RRnrMTrYh14qT/k6JP1/dW7wiJpz
+	JzoEMdlIvEe4RjcOCnvMH+hK3QJXT8kFq5/6RNrgoS4NJPPthxZjxPKWu/Cx7qeyOFg0R58wL2l
+	9K0nptIewPrleV3JEwqiIZ5OIAwuJzy+KkxkDoXssB3ICQRr9lPxP9oBphlKBpn5NRqIPqEOM+T
+	jjDC9AeQNqaekSzdryDrA8oeyc4LgkkvRn2Lp43RUFe+DhIN41dJ5sQHzHsGPMG59o4V75oQ3Ig
+	NfXAtQGBY6tHRW0+D6u+IDly7rzB0=
+X-Received: by 2002:a05:6000:2f86:b0:429:8daa:c6b4 with SMTP id ffacd0b85a97d-429bd6860d5mr4833023f8f.21.1761999765979;
+        Sat, 01 Nov 2025 05:22:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFJ+TTH/VeYpEYhd62jH/WbFLaTQZ/6xytSCDTH7QTl8AfN9d4nyTXPMxG2nY+bN2wOvpiPqw==
+X-Received: by 2002:a05:6000:2f86:b0:429:8daa:c6b4 with SMTP id ffacd0b85a97d-429bd6860d5mr4832980f8f.21.1761999765533;
+        Sat, 01 Nov 2025 05:22:45 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169? (p200300d82f3f4b00ee138c225cc5d169.dip0.t-ipconnect.de. [2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c114ca0csm9986764f8f.21.2025.11.01.05.16.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c110037asm9461926f8f.3.2025.11.01.05.22.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Nov 2025 05:16:51 -0700 (PDT)
-Message-ID: <5368a371-10f5-40ce-9246-d8eeff52e654@redhat.com>
-Date: Sat, 1 Nov 2025 13:16:49 +0100
+        Sat, 01 Nov 2025 05:22:45 -0700 (PDT)
+Message-ID: <ae1236da-2647-4d53-bf4d-ff8fc32eb734@redhat.com>
+Date: Sat, 1 Nov 2025 13:22:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
 To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -107,7 +107,7 @@ Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
  sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
 References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-6-kevin.brodsky@arm.com>
+ <20251029100909.3381140-8-kevin.brodsky@arm.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -153,16 +153,17 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20251029100909.3381140-6-kevin.brodsky@arm.com>
+In-Reply-To: <20251029100909.3381140-8-kevin.brodsky@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: N6n-LLS5yBHrYqTvBuZE3A8cQZJtTJSSjce8uIrYfb0_1761999413
+X-Mimecast-MFC-PROC-ID: 08lyJBBAbkl12mELCn50VTwsPdiZ-2j_DgcHA2HjD18_1761999766
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_051656_922486_A035578E 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20251101_052252_033885_09B9A89B 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,31 +178,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29.10.25 11:09, Kevin Brodsky wrote:
-> Architectures currently opt in for implementing lazy_mmu helpers by
-> defining __HAVE_ARCH_ENTER_LAZY_MMU_MODE.
-> 
-> In preparation for introducing a generic lazy_mmu layer that will
-> require storage in task_struct, let's switch to a cleaner approach:
-> instead of defining a macro, select a CONFIG option.
-> 
-> This patch introduces CONFIG_ARCH_HAS_LAZY_MMU_MODE and has each
-> arch select it when it implements lazy_mmu helpers.
-> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is removed and <linux/pgtable.h>
-> relies on the new CONFIG instead.
-> 
-> On x86, lazy_mmu helpers are only implemented if PARAVIRT_XXL is
-> selected. This creates some complications in arch/x86/boot/, because
-> a few files manually undefine PARAVIRT* options. As a result
-> <asm/paravirt.h> does not define the lazy_mmu helpers, but this
-> breaks the build as <linux/pgtable.h> only defines them if
-> !CONFIG_ARCH_HAS_LAZY_MMU_MODE. There does not seem to be a clean
-> way out of this - let's just undefine that new CONFIG too.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
 
-Acked-by: David Hildenbrand <david@redhat.com>
+>   static inline void lazy_mmu_mode_pause(void)
+>   {
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_WARN_ON(state->nesting_level == 0 || !state->active);
+> +
+> +	state->active = false;
+>   	arch_leave_lazy_mmu_mode();
+
+Just one question:
+
+Don't we want to allow for pause/resume when not enabled? Would seem 
+valid to me, because pause/resume code should actually not worry about 
+that, right?
+
+if (!state->nesting_level) {
+	VM_WARN_ON(state->active);
+	return;
+}
+VM_WARN_ON(!state->active);
+state->active = false;
+arch_leave_lazy_mmu_mode();
 
 -- 
 Cheers
