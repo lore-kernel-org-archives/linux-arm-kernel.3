@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C88CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 13:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B60DCCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 13:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=igGoFfjYr0gx7p+P1chKL+mLA5lCOX0X0DM+4gTK2VE=; b=B3jk0mhxZmo0N3mZCzTPqtQQCi
-	zHqWii1kDOOGJ2X0iOxefjkJIp7ut4lJSa0ftFqTz/xyf8vpnd2Jo8hhuxYOFjTDUWRd6p+fDOtO7
-	fybZsQ/IYqjKut2XXcF5qbRuCUPkho0MyVaCVjCZPb+9FtUjpKsaOGQQ/FOC91UJVelMawM8RP6mg
-	HNtYU9B7ToXlVpNUgp9Zhcslh1IqszaTi2DUHighEdJAd3KVrAUffXIt2Bw/QS97+JSsNoRE+dr1e
-	u1QVdg/38Kcj5vqvHdxEG22ZVKIJkl5azqoIOhwYhHBRonwB2eYHszreuppgTfyuIyYNBTeYAK22x
-	tmEvBrLQ==;
+	bh=EK06CbvSEGuUCCYDJu0v9KuyLuNNsss4+MFQFqTJHXE=; b=bmGGiGmFREcf6kVKaVtN9oot2T
+	K7RcbO9+NMb3HfHIImXrIgyLv46urSPX2iTLWg8os+98TLBoVGPIFBPtIwnhAcgbnKPcToRDYffya
+	fSoZnqU/1rYHfNH6vdrFWu0wIuSkrp49w5BLJFcHNt/lqJv6tplKKk5iZL/sHh0UPBEnpz7QUbQ4d
+	TQU8gXMgTBgrNfQ0j9KnK4HQI7usr6QDsgKf2PVP0lwUGY8JEd8CJqsaloM4yq2nG4/SpXRcTx61Z
+	BNVz+UqN9r4ePUqv2nq9qk2AOpLyacVaFRniqH/qjA5wjeHEo5zeA+CAMWIgWWJ5g3+Vzs6YzBFk3
+	9Dz/DygQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFBjN-00000007md1-36WY;
-	Sat, 01 Nov 2025 13:33:22 +0000
+	id 1vFBjR-00000007mjA-0Tdb;
+	Sat, 01 Nov 2025 13:33:25 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFBjD-00000007m8U-0RJA;
+	id 1vFBjB-00000007m9Y-2qfm;
 	Sat, 01 Nov 2025 13:33:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1762003979;
-	bh=ehoK8fZf94EyPJ6NwKMPoY3AbvxsvMfKSeRs4gLjd6w=;
+	bh=UijHeDMHMdBNIO9BLCrR9i8WyBLXoUJhDobFME3OXHY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lAE3KTjSfaomBP7o+9LEwq+KhmWbVGytQUHuaD7HoDbk3bDOBaICBvGt3xHS3Vuf7
-	 cQ9yWHdjXDlDq5Noltbb9rbC1bJClo1xYjVsxMNGjAZxJvUOvWCw4KwrdarFe0N78L
-	 KhTGHYTJ5HgjYEwaMtQCRrDKNKLB7eTaWKrkF9BNvAFwvID0HBVaAtQ1u/ehqdhfYp
-	 FM0a/IrvMerFf5cyB5gYfjxTI5YdqmmFsiovAJaL/N4TO4bY4wV2VZM7Vo3Fp35Cwo
-	 4Ej4Vqi7e2VsoYa/qx87Q5fW/T21eFWab70u2QwxpA/hWhyHy0pGciwsFT5v7xRdZM
-	 3Qz0sATeHSf0g==
+	b=E2Y4n+EvnaE3MViZJ+XtsJMVOGjHDNaXPHmKm7axkj15Dv1CxLY1N8BjXN02rR8O0
+	 9TvvzOxKf4fnbLYiwGtq7+KCVzMMr324qhvDZC3P8vK53ZLTd/0useF9Bh6e8Zd6vB
+	 c2NXXUGlc4EwCg83rG+hSzrN3UPVRlNcY2M8G+2zaRI5mKoEOnT7A2o93LSBBDgwwt
+	 12sD3DVv7WpV7RolzzryQw1AQbd1VdYpIuf/c9iigfn8fZKxbpDCb+ti2l5lhxemt8
+	 n+YJ2TdqlN+mtwTrYmyMYs2+s2Ch4ZKIwk3V4g8pxJOMe5GCobJ2vKfhTG8x0b2RfR
+	 BuygEanXt5xVg==
 Received: from beast.luon.net (simons.connected.by.freedominter.net [45.83.240.172])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sjoerd)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 78A7F17E142F;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AB5BE17E15C9;
 	Sat,  1 Nov 2025 14:32:59 +0100 (CET)
 Received: by beast.luon.net (Postfix, from userid 1000)
-	id B5E0C10E9D03A; Sat, 01 Nov 2025 14:32:58 +0100 (CET)
+	id DC29010E9D046; Sat, 01 Nov 2025 14:32:58 +0100 (CET)
 From: Sjoerd Simons <sjoerd@collabora.com>
-Date: Sat, 01 Nov 2025 14:32:54 +0100
-Subject: [PATCH v2 09/15] arm64: dts: mediatek: mt7981b: Add Ethernet and
- WiFi offload support
+Date: Sat, 01 Nov 2025 14:33:00 +0100
+Subject: [PATCH v2 15/15] arm64: dts: mediatek: mt7981b-openwrt-one: Enable
+ software leds
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251101-openwrt-one-network-v2-9-2a162b9eea91@collabora.com>
+Message-Id: <20251101-openwrt-one-network-v2-15-2a162b9eea91@collabora.com>
 References: <20251101-openwrt-one-network-v2-0-2a162b9eea91@collabora.com>
 In-Reply-To: <20251101-openwrt-one-network-v2-0-2a162b9eea91@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -79,8 +79,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  Sjoerd Simons <sjoerd@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_063312_061753_958EC68E 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20251101_063310_012558_9EBE4B05 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,198 +95,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree nodes for the Ethernet subsystem on MT7981B SoC,
-including:
-- Ethernet MAC controller with dual GMAC support
-- Wireless Ethernet Dispatch (WED)
-- SGMII PHY controllers for high-speed Ethernet interfaces
-- Reserved memory regions for WiFi offload processor
+The openwrt has 3 status leds at the front:
+* red: Used as failsafe led by openwrt
+* white: Used as boot led by openwrt
+* green: Used as running/upgrade led by openwrt
+
+On the back each RJ45 jack has the typical amber/green leds. For the WAN
+jack this is hardware controlled by the phy, for LAN these are under
+software control and enabled by this patch.
 
 Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 ---
-V1 -> V2: Don't add unneeded interrupt-parent
+V1 -> V2:
+  - Improve commit message
+  - Re-order nodes to be alphabetical
 ---
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 133 +++++++++++++++++++++++++++++-
- 1 file changed, 132 insertions(+), 1 deletion(-)
+ .../boot/dts/mediatek/mt7981b-openwrt-one.dts      | 57 ++++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi          |  2 +-
+ 2 files changed, 58 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-index fab22cbbece47..3510a26cb5112 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-@@ -2,6 +2,7 @@
- 
- #include <dt-bindings/clock/mediatek,mt7981-clk.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/leds/common.h>
- #include <dt-bindings/phy/phy.h>
- #include <dt-bindings/reset/mt7986-resets.h>
- 
-@@ -47,11 +48,36 @@ reserved-memory {
- 		#size-cells = <2>;
- 		ranges;
- 
-+		wo_boot: wo-boot@15194000 {
-+			reg = <0 0x15194000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		wo_ilm0: wo-ilm@151e0000 {
-+			reg = <0 0x151e0000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		wo_dlm0: wo-dlm@151e8000 {
-+			reg = <0 0x151e8000 0 0x2000>;
-+			no-map;
-+		};
-+
- 		/* 192 KiB reserved for ARM Trusted Firmware (BL31) */
- 		secmon_reserved: secmon@43000000 {
- 			reg = <0 0x43000000 0 0x30000>;
- 			no-map;
- 		};
-+
-+		wo_emi0: wo-emi@47d80000 {
-+			reg = <0 0x47d80000 0 0x40000>;
-+			no-map;
-+		};
-+
-+		wo_data: wo-data@47dc0000 {
-+			reg = <0 0x47dc0000 0 0x240000>;
-+			no-map;
-+		};
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+index b13f16d7816bf..b308b7ad4945d 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+@@ -26,6 +26,50 @@ memory@40000000 {
+ 		device_type = "memory";
  	};
  
- 	soc {
-@@ -107,6 +133,18 @@ pwm@10048000 {
- 			#pwm-cells = <2>;
- 		};
- 
-+		sgmiisys0: syscon@10060000 {
-+			compatible = "mediatek,mt7981-sgmiisys_0", "syscon";
-+			reg = <0 0x10060000 0 0x1000>;
-+			#clock-cells = <1>;
++	pwm-leds {
++		compatible = "pwm-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_WHITE>;
++			default-brightness = <0>;
++			function = LED_FUNCTION_STATUS;
++			max-brightness = <255>;
++			pwms = <&pwm 0 10000>;
 +		};
 +
-+		sgmiisys1: syscon@10070000 {
-+			compatible = "mediatek,mt7981-sgmiisys_1", "syscon";
-+			reg = <0 0x10070000 0 0x1000>;
-+			#clock-cells = <1>;
++		led-1 {
++			color = <LED_COLOR_ID_GREEN>;
++			default-brightness = <0>;
++			function = LED_FUNCTION_STATUS;
++			max-brightness = <255>;
++			pwms = <&pwm 1 10000>;
++		};
++	};
++
++	gpio-leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_STATUS;
++			gpios = <&pio 9 GPIO_ACTIVE_HIGH>;
 +		};
 +
- 		uart0: serial@11002000 {
- 			compatible = "mediatek,mt7981-uart", "mediatek,mt6577-uart";
- 			reg = <0 0x11002000 0 0x100>;
-@@ -345,15 +383,108 @@ soc-uuid@140 {
- 			thermal_calibration: thermal-calib@274 {
- 				reg = <0x274 0xc>;
- 			};
++		led-1 {
++			color = <LED_COLOR_ID_AMBER>;
++			function = LED_FUNCTION_LAN;
++			gpios = <&pio 34 GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "netdev";
++		};
 +
-+			phy_calibration: phy-calib@8dc {
-+				reg = <0x8dc 0x10>;
-+			};
++		led-2 {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_LAN;
++			gpios = <&pio 35 GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "netdev";
++		};
++	};
++
+ 	reg_3p3v: regulator-3p3v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "fixed-3.3V";
+@@ -111,6 +155,13 @@ mux {
  		};
+ 	};
  
--		clock-controller@15000000 {
-+		ethsys: clock-controller@15000000 {
- 			compatible = "mediatek,mt7981-ethsys", "syscon";
- 			reg = <0 0x15000000 0 0x1000>;
++	pwm_pins: pwm-pins {
++		mux {
++			function = "pwm";
++			groups = "pwm0_0", "pwm1_1";
++		};
++	};
++
+ 	spi2_flash_pins: spi2-pins {
+ 		mux {
+ 			function = "spi";
+@@ -147,6 +198,12 @@ conf {
+ 	};
+ };
+ 
++&pwm {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pwm_pins>;
++	status = "okay";
++};
++
+ &spi2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&spi2_flash_pins>;
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+index 17dd13d4c0015..66d89495bac52 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+@@ -126,7 +126,7 @@ apmixedsys: clock-controller@1001e000 {
  			#clock-cells = <1>;
- 			#reset-cells = <1>;
  		};
  
-+		wed: wed@15010000 {
-+			compatible = "mediatek,mt7981-wed",
-+				     "syscon";
-+			reg = <0 0x15010000 0 0x1000>;
-+			interrupts = <GIC_SPI 205 IRQ_TYPE_LEVEL_HIGH>;
-+			memory-region = <&wo_emi0>, <&wo_ilm0>, <&wo_dlm0>,
-+					<&wo_data>, <&wo_boot>;
-+			memory-region-names = "wo-emi", "wo-ilm", "wo-dlm",
-+					      "wo-data", "wo-boot";
-+			mediatek,wo-ccif = <&wo_ccif0>;
-+		};
-+
-+		eth: ethernet@15100000 {
-+			compatible = "mediatek,mt7981-eth";
-+			reg = <0 0x15100000 0 0x40000>;
-+			assigned-clocks = <&topckgen CLK_TOP_NETSYS_2X_SEL>,
-+					  <&topckgen CLK_TOP_SGM_325M_SEL>;
-+			assigned-clock-parents = <&topckgen CLK_TOP_CB_NET2_800M>,
-+						 <&topckgen CLK_TOP_CB_SGM_325M>;
-+			clocks = <&ethsys CLK_ETH_FE_EN>,
-+				 <&ethsys CLK_ETH_GP2_EN>,
-+				 <&ethsys CLK_ETH_GP1_EN>,
-+				 <&ethsys CLK_ETH_WOCPU0_EN>,
-+				 <&topckgen CLK_TOP_SGM_REG>,
-+				 <&sgmiisys0 CLK_SGM0_TX_EN>,
-+				 <&sgmiisys0 CLK_SGM0_RX_EN>,
-+				 <&sgmiisys0 CLK_SGM0_CK0_EN>,
-+				 <&sgmiisys0 CLK_SGM0_CDR_CK0_EN>,
-+				 <&sgmiisys1 CLK_SGM1_TX_EN>,
-+				 <&sgmiisys1 CLK_SGM1_RX_EN>,
-+				 <&sgmiisys1 CLK_SGM1_CK1_EN>,
-+				 <&sgmiisys1 CLK_SGM1_CDR_CK1_EN>,
-+				 <&topckgen CLK_TOP_NETSYS_SEL>,
-+				 <&topckgen CLK_TOP_NETSYS_500M_SEL>;
-+			clock-names = "fe", "gp2", "gp1", "wocpu0",
-+				      "sgmii_ck",
-+				      "sgmii_tx250m", "sgmii_rx250m",
-+				      "sgmii_cdr_ref", "sgmii_cdr_fb",
-+				      "sgmii2_tx250m", "sgmii2_rx250m",
-+				      "sgmii2_cdr_ref", "sgmii2_cdr_fb",
-+				      "netsys0", "netsys1";
-+			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "fe0", "fe1", "fe2", "fe3", "pdma0",
-+					  "pdma1", "pdma2", "pdma3";
-+			sram = <&eth_sram>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			mediatek,ethsys = <&ethsys>;
-+			mediatek,sgmiisys = <&sgmiisys0>, <&sgmiisys1>;
-+			mediatek,infracfg = <&topmisc>;
-+			mediatek,wed = <&wed>;
-+			status = "disabled";
-+
-+			mdio_bus: mdio-bus {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				int_gbe_phy: ethernet-phy@0 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <0>;
-+					phy-mode = "gmii";
-+					phy-is-integrated;
-+					nvmem-cells = <&phy_calibration>;
-+					nvmem-cell-names = "phy-cal-data";
-+				};
-+			};
-+		};
-+
-+		eth_sram: sram@15140000 {
-+			compatible = "mmio-sram";
-+			reg = <0 0x15140000 0 0x40000>;
-+			ranges = <0 0x15140000 0 0x40000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+		};
-+
-+		wo_ccif0: syscon@151a5000 {
-+			compatible = "mediatek,mt7986-wo-ccif", "syscon";
-+			reg = <0 0x151a5000 0 0x1000>;
-+			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
- 		wifi@18000000 {
- 			compatible = "mediatek,mt7981-wmac";
- 			reg = <0 0x18000000 0 0x1000000>,
+-		pwm@10048000 {
++		pwm: pwm@10048000 {
+ 			compatible = "mediatek,mt7981-pwm";
+ 			reg = <0 0x10048000 0 0x1000>;
+ 			clocks = <&infracfg CLK_INFRA_PWM_STA>,
 
 -- 
 2.51.0
