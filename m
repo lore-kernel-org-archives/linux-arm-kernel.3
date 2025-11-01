@@ -4,166 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E25CCF9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 12:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A59CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 12:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iR1r/3xhU7MVcJwVYZUltUXo3c7eUSFIQ+pGKdoQg2M=; b=ecZzdNSQTlOr1NsmK1x6wASuxv
-	CDaSV0FrqJM5YJeMZWQ0sqUg8DVcENCghGNiqHLeuLw0J5YT/jKE8Mazn82psC33g9EwgiUdCrrAz
-	6yQnumS18+DJQ3UnZ27c2wvO03RgfXA4yJonI4Tx80I76k4dc3U2R+D9waQYO7gufTBWwisfwfHUp
-	R5jnSrRxeWCCQpzIVnchmXKTd0cVT+Z0Tqqy2NMmJpG3DMaGO+HRmBg2JFjmmP9seTzjl+J37sePP
-	GzcPLtCL2pvA+aod94KfLUo7aiwAAc+FgMMfW8d0Buy//AH0D2x+N8u83oYnHE/qShidrn0fl7kWB
-	2I/FhzmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wX50N1iHvuUcfFTPrDTk6BLpkXD7It4diuWw8d34XeY=; b=2S3eZsEFDt1jrxVhTPeqgE66yS
+	5krU1JQFrdnOAR7YxCyRV0q5KlpVAIf+qvpRx7OK5Q3ysZ6uiV0SulxCqBAZNS1e++5krtwDgHh83
+	NnqbiEtuB5JiONmgQ7e8oFu27aw5Mg62i4UVbGPSEpj7GMuuo6xJx+aFObaCkE9PPOWlyvmqjrrBV
+	reW6kjv8xeUPZAlV4AnaqxMI43HlqRsTocdfqMO4ThBMZR+E8ZknLxN/rccEfe0wUol8TM4b76TPe
+	py5mo0ve1O0hMRLyoaQTMiiT0bbyF6CmWnzf2Rxh99cPdD0DC5hWrKxBsRBkWnOiSg7DA/A68eibf
+	X0xFjvyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAtm-00000007iVq-2d8N;
-	Sat, 01 Nov 2025 12:40:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vFAvo-00000007jtw-3wMk;
+	Sat, 01 Nov 2025 12:42:08 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFAd9-00000007WTR-397T
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 12:22:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761999770;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=iR1r/3xhU7MVcJwVYZUltUXo3c7eUSFIQ+pGKdoQg2M=;
-	b=h1TsCHdfHNbbWJNllLpXnvY3sZ6viEZyBQ8eDdUeAZizsyA87pYajXmGxYVEQW2Za6C0Q3
-	ypVvNb/xyu+oL0fogETvX3PULdrqXQVz75Ctn4JmVqmDAQtDGGdRt9Dq+/z9gnK6YD/raZ
-	7D3wojThoJjzlpbZqmG73V8mMw39n2E=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-74-pnaGtSLfOE6TnjRTJAn-mg-1; Sat, 01 Nov 2025 08:22:47 -0400
-X-MC-Unique: pnaGtSLfOE6TnjRTJAn-mg-1
-X-Mimecast-MFC-AGG-ID: pnaGtSLfOE6TnjRTJAn-mg_1761999766
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-429c93a28ebso346190f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 05:22:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761999766; x=1762604566;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iR1r/3xhU7MVcJwVYZUltUXo3c7eUSFIQ+pGKdoQg2M=;
-        b=ZJigsvjSVK2T12lKwQR4FCakvrd8iidyOjvBLFTZ5pbaYHGeBeValvecs4Lpn9OHXC
-         arO6OrotXZ1PQ4r6f25ySpjwt6PVUfZYjVQp6ZGu3hZMoigzNKGWZG/L/NUBIfQZepzx
-         2UyM1n/A/Papysj854rscb/hh9xaXjKcwrQmIoijPL/qAAWNWnjq2/WoJ5guXw/xVxLm
-         HNLuypxid2H03Y39L+A11jnKyGmqG5a136Hw8pDZUPy0ZQ2MDiAUforExI/Tm4e9tz2t
-         aJnS+UWG0lgt3eEJE/J9Z2V+ZFGG1OnuN+oS1hHpTDlp/bXxivuNlZwejKrK2hVQqVtC
-         lrhg==
-X-Forwarded-Encrypted: i=1; AJvYcCW8O27lbxdSckKA8BgjprvaEL6G1hYQQ+w/KiYHKxC9dt1MyG2aZvFp1POxKd5KV87GWNgk/UqtcshYHOuaKSMD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy01e8PCe0WWU96yAnCeB+Qdsb/hKDXMPBDCYOb9FnTv2w5n2Ln
-	NlBs1fJF6mz9oVKkXfrfdQuqkC7SeqQ/VAzfss6YITXKrW3au/4NsXL6NvccZZg0DmeHbgHDggy
-	BAuvA7cDkoTraKdv4PSSMZdA1H23LtXNQtkJ+Mnmz7vfSr3Qz1sMK2K19ibtLc9yrdsYWQRvHGe
-	lc
-X-Gm-Gg: ASbGncvmfcrNOIlVnHLVBFNI3rYLskvEaNFYeIModpa8fgGOG5YDMOr3nsNGos1mt65
-	cpDE3cqJvGASowiQ8b7FonlVrUaMBC7s/D7OFktVEHMSXfKla++/w9Rz2cNQHPi/wzNfQzaT56S
-	KoPqqAYbjYNw0wy9BO/3ldKPyvEwHXJdpWDLdPxi+7slWI1RRnrMTrYh14qT/k6JP1/dW7wiJpz
-	JzoEMdlIvEe4RjcOCnvMH+hK3QJXT8kFq5/6RNrgoS4NJPPthxZjxPKWu/Cx7qeyOFg0R58wL2l
-	9K0nptIewPrleV3JEwqiIZ5OIAwuJzy+KkxkDoXssB3ICQRr9lPxP9oBphlKBpn5NRqIPqEOM+T
-	jjDC9AeQNqaekSzdryDrA8oeyc4LgkkvRn2Lp43RUFe+DhIN41dJ5sQHzHsGPMG59o4V75oQ3Ig
-	NfXAtQGBY6tHRW0+D6u+IDly7rzB0=
-X-Received: by 2002:a05:6000:2f86:b0:429:8daa:c6b4 with SMTP id ffacd0b85a97d-429bd6860d5mr4833023f8f.21.1761999765979;
-        Sat, 01 Nov 2025 05:22:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFJ+TTH/VeYpEYhd62jH/WbFLaTQZ/6xytSCDTH7QTl8AfN9d4nyTXPMxG2nY+bN2wOvpiPqw==
-X-Received: by 2002:a05:6000:2f86:b0:429:8daa:c6b4 with SMTP id ffacd0b85a97d-429bd6860d5mr4832980f8f.21.1761999765533;
-        Sat, 01 Nov 2025 05:22:45 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169? (p200300d82f3f4b00ee138c225cc5d169.dip0.t-ipconnect.de. [2003:d8:2f3f:4b00:ee13:8c22:5cc5:d169])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429c110037asm9461926f8f.3.2025.11.01.05.22.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Nov 2025 05:22:45 -0700 (PDT)
-Message-ID: <ae1236da-2647-4d53-bf4d-ff8fc32eb734@redhat.com>
-Date: Sat, 1 Nov 2025 13:22:42 +0100
+	id 1vFAuO-00000007j17-3ztK;
+	Sat, 01 Nov 2025 12:40:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1762000821; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=A7QggDksDzCmseQYSFGx/xof5FXoKWhxWCF1voGnOqira6R7CpXcFOe0adxPrhAfq46N1HjN76y4RmHjG2MKHWqbGxvwsMyJVal7+yN2yaVxHACMWl+iV2XKLZ756ZfiGeB7GPOMfmO5c2NiDuOqi33nIosp10r5BtTbdXDjSu0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1762000821; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=wX50N1iHvuUcfFTPrDTk6BLpkXD7It4diuWw8d34XeY=; 
+	b=IRfmqhYlU29u+cfbSc2SPpAMwbA9jqEXzZ2q6s4FAq/fo8xrlDQSrLa8qvj+KfyhxxoqqjfejRhYxARtTv0si7j9gCxYbC/wfSsPcXJeow/Nupy5oK9uEUoQqa+vx/v1KKRRxXaopfS8uW9e92K+MwM/7lXIx+A+HLzbpKdLB3Y=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sjoerd@collabora.com;
+	dmarc=pass header.from=<sjoerd@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1762000821;
+	s=zohomail; d=collabora.com; i=sjoerd@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=wX50N1iHvuUcfFTPrDTk6BLpkXD7It4diuWw8d34XeY=;
+	b=hVxDDM/gqRw68T07nRuvdrHGupRkXhOU8RexT1UeP+9bS+r2KO4yzzfNJKjP+80C
+	7ABb6CAL4qYLI3lXalMwKyt2SNufHOI19Bfnb3DH6aWQUjo7eCQ7Z9iLnS5/At0SWAQ
+	DMYA4onW8qA2XN4liLwbv9J0ttSlgEbygWhi/Tro=
+Received: by mx.zohomail.com with SMTPS id 1762000816267360.6637248664106;
+	Sat, 1 Nov 2025 05:40:16 -0700 (PDT)
+Message-ID: <548101c6c887299b3c39f294e376c782e0bd2160.camel@collabora.com>
+Subject: Re: [PATCH 13/15] arm64: dts: mediatek: mt7981b: Add wifi memory
+ region
+From: Sjoerd Simons <sjoerd@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang	
+ <jianjun.wang@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>,  Manivannan Sadhasivam	 <mani@kernel.org>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul	 <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Lee Jones	 <lee@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"	
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski	
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Lorenzo Bianconi	
+ <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org, 
+	linux-phy@lists.infradead.org, netdev@vger.kernel.org, Daniel Golle
+	 <daniel@makrotopia.org>, Bryan Hinton <bryan@bryanhinton.com>
+Date: Sat, 01 Nov 2025 13:40:06 +0100
+In-Reply-To: <9bf32a56-b67f-488a-8719-3f97d85533d3@collabora.com>
+References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+	 <20251016-openwrt-one-network-v1-13-de259719b6f2@collabora.com>
+	 <9bf32a56-b67f-488a-8719-3f97d85533d3@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-7 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-8-kevin.brodsky@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20251029100909.3381140-8-kevin.brodsky@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 08lyJBBAbkl12mELCn50VTwsPdiZ-2j_DgcHA2HjD18_1761999766
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_052252_033885_09B9A89B 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251101_054041_048716_44E23B3E 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,33 +95,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 2025-10-16 at 13:28 +0200, AngeloGioacchino Del Regno wrote:
+> Il 16/10/25 12:08, Sjoerd Simons ha scritto:
+> > Add required memory region for the builtin wifi block. Disable the bloc=
+k
+> > by default as it won't function properly without at least pin muxing.
+> >=20
+> > Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+>=20
+> You should split this commit in two:
+> =C2=A0 - Add wifi memory region
+> =C2=A0 - Disable wifi by default
 
->   static inline void lazy_mmu_mode_pause(void)
->   {
-> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-> +
-> +	VM_WARN_ON(state->nesting_level == 0 || !state->active);
-> +
-> +	state->active = false;
->   	arch_leave_lazy_mmu_mode();
+Will split.
 
-Just one question:
+> Regarding the second commit, you have to re-enable the wifi node in all o=
+f
+> the currently supported MT7981b devices, including:
+> =C2=A0 - Xiaomi AX3000T
+> =C2=A0 - Cudy WR3000 V1
+>=20
+> While I agree that without pin muxing the wifi may not properly work, it =
+is
+> unclear whether the aforementioned devices are pre-setting the pinmux in =
+the
+> bootloader before booting Linux.
+>=20
+> In case those do, you'd be "breaking" WiFi on two routers here.
 
-Don't we want to allow for pause/resume when not enabled? Would seem 
-valid to me, because pause/resume code should actually not worry about 
-that, right?
+Wifi will never have worked on those upstream; The driver hits an unconditi=
+onal -EINVAL during probe
+due to the  missing memory-region this patch adds. I'll make sure to note t=
+hat in the new disable
+patch.
 
-if (!state->nesting_level) {
-	VM_WARN_ON(state->active);
-	return;
-}
-VM_WARN_ON(!state->active);
-state->active = false;
-arch_leave_lazy_mmu_mode();
-
--- 
-Cheers
-
-David / dhildenb
-
+--=20
+Sjoerd Simons <sjoerd@collabora.com>
 
