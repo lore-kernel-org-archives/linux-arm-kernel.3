@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8667CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 14:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C96CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 14:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9tIBzY4dTmapvVnf3dQUMP0/UgkhXhQTrB0U4inhZGg=; b=wT/S+/dOJalY8uFxYvez/5BYeU
-	4sbmru4ncQfuR/qUb3ODuKBTvocWYJDzuuNOYZkkaS8E37WgnlhlxcbgLOjjzH7mTcuwLtbdkFj9G
-	P4FomlKB/hvmO4Cgsmc27YUgDPyxE/4MQtz3Hxc/0IDp+ajC9YazlGNhBy97wcfgoE7pRNG43du8F
-	bQQQ8TgwcOoi3vhilb7Kr/8Y3NRqmJP0wWdwxRCnYjKhyRHZmv7lm5ThW605T2GgvlJvtjtklj96X
-	/wO4JRDXqG4otopYLTROoZNPNLI3tL/sfNJ1krZorPmSS0HcQA1lvrh80XEpxDtjhOgZL/PgS24Ul
-	r2bBjwfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Uvv4Ka4UXIT1LnU9mCoMqPO3YBJzbGN5Uxr9dgbmR+g=; b=Y1cVkUbb7jDRnKRBt+18aKXpP8
+	v4zOD+2VJfxFRYRQNmMAVjSk6aeBPkj39PndZEHU+S6+DsrsrbZ5XkbBTvT+nn4Bq0qcwrJOXijqs
+	re44GG+NTBGlr9UW2F/yKkJe6GkA1STVdEqUjNrq5dVlnjrbVO81NvztPoQMRvO6ZqD6xKrMbBm4x
+	tJUhaPXDyXV5qE8yOAHURnFj+TEvmBSpBpw7LarW/n3+/LDtxf9MasjnAZVfk23dOR3QzH9io3nU/
+	O2pgL0afwQSHM73wcXQFR2MU6IQ9aJLrLxw0h2r9flQjbtJDqRLP+VikP8KcB5Cm38SD1xnhomymL
+	geGCgYfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFC99-00000007oft-1fvi;
-	Sat, 01 Nov 2025 13:59:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vFCAP-00000007ooz-2PHS;
+	Sat, 01 Nov 2025 14:01:17 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFC97-00000007ofi-2Urp;
-	Sat, 01 Nov 2025 13:59:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B7F3601EF;
-	Sat,  1 Nov 2025 13:59:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF889C4CEF1;
-	Sat,  1 Nov 2025 13:59:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762005595;
-	bh=m7C3U3qzThf33XwoRsd1OWSRs7f7Z7SEULSpUd0++FY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=midrRS9rdrC+XyGBuprUT4byWe1Zbx/aHwRVsM+laKgkIPY7Hx0MJsydN9UB+Mv1u
-	 LbjwBJ0uN6ZNQlsengRus2AVi7f6atWT6IJu7UjpqkpWDAZamMvSWB3BNNYmUwAmmy
-	 zR9gHFpHDvN6JJxI4WpQYjKhQsgMlRV4KOVeQIQNqQtdNRtbw5Z5AJtWih8S9HhBbb
-	 392hKPrCZIEMqw4uzD3aHXmWt084ouHdWBexpDvcUYuupitHWxQ80xCGsYj1Q50qJi
-	 cTIpw3gZ3ylkPAMmbZC1FX7GqXEHUDAHY5CZ3pHoTgurhIc0I2X1DvN70aD/U529w2
-	 pp8HI2n2Tgf8Q==
-Date: Sat, 1 Nov 2025 19:29:41 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH v4 0/9] PCI: dw-rockchip: add system suspend support
-Message-ID: <cf6zumlp4iiltglu7bbrpdeysaznrkyvlemwl4lxwkfjkgux7a@wl37bxilsprx>
-References: <20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com>
+	id 1vFCAL-00000007ony-1Pyd;
+	Sat, 01 Nov 2025 14:01:15 +0000
+Received: from localhost.localdomain (unknown [58.61.140.134])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2802e7076;
+	Sat, 1 Nov 2025 22:01:07 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH 1/1] arm64: dts: rockchip: drop reset from rk3576 i2c9 node
+Date: Sat,  1 Nov 2025 22:01:01 +0800
+Message-Id: <20251101140101.302229-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com>
+X-HM-Tid: 0a9a3fb8ce2803a2kunm744b76102df25f
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZThpCVkpOGUJOSh4YSBoaH1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlOQ1VNSlVKT0tVSkhPWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
+	tLWQY+
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251101_070113_851359_2C90070D 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,86 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 06:56:39PM +0100, Sebastian Reichel wrote:
-> I've recently been working on fixing up at least basic system suspend
-> support on the Rockchip RK3576 platform. Currently the biggest open
-> issue is missing support in the PCIe driver. This series is a follow-up
-> for Shawn Lin's series with feedback from Niklas Cassel and Manivannan
-> Sadhasivam being handled as well as some of my own changes fixing up
-> things I noticed.
-> 
-> In opposite to Shawn Lin I did not test with different peripherals as my
-> main goal is getting basic suspend to ram working in the first place.
+The reset property is not part of the binding, so drop it.
+It is also not used by the driver, so it was likely copied
+from some vendor-kernel node.
 
-Wouldn't it break users who have connected endpoint devices and suspend their
-platform? I don't want to have an untested feature that could potentially cause
-regressions, just for the sake of getting basic system PM.
+Fixes: 57b1ce903966 ("arm64: dts: rockchip: Add rk3576 SoC base DT")
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
 
-But if your goal is to just add basic system PM operations for CI testing, then
-I would suggest you to do something minimal in the suspend/resume path that
-don't disrupt the operation of a device.
-
-But this also should be tested with some devices for sanity.
-
-- Mani
-
-> I
-> did notice issues with the Broadcom WLAN card on the RK3576 EVB.
-> Suspending that platform without a driver being probed works, but after
-> probing brcmfmac suspend is aborted because brcmf_pcie_pm_enter_D3()
-> does not work. As far as I can tell the problem is unrelated to the
-> Rockchip PCIe driver.
-> 
-> Changes since PATCHv3:
->  * https://lore.kernel.org/linux-pci/1744940759-23823-1-git-send-email-shawn.lin@rock-chips.com/
->  * rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg
->    in a separate patch (Niklas Cassel)
->  * rename rockchip_pcie_get_pure_ltssm to rockchip_pcie_get_ltssm_state
->    in a separate patch (Niklas Cassel)
->  * Move devm_phy_get out of phy_init to probe in a separate patch
->    (Manivannan Sadhasivam)
->  * Add helper function for enhanced LTSSM control mode in a separate patch
->    (Niklas Cassel)
->  * Add helper function for controller mode in a separate patch
->    (Niklas Cassel)
->  * Add helper function for DDL indicator in a separate patch
->    (Niklas Cassel)
->  * Move rockchip_pcie_pme_turn_off implementation in a separate patch
->  * Rebase to v6.18-rc3 using new FIELD_PREP_WM16()
->  * Improve readability of PME_TURN_OFF/PME_TO_ACK defines (Manivannan Sadhasivam)
->  * Fix usage of reverse Xmas (Manivannan Sadhasivam)
->  * Assert PERST# before turning off other resources (Manivannan Sadhasivam)
->  * Improve some error messages (Manivannan Sadhasivam)
->  * Rename goto labels as per their purpose (Manivannan Sadhasivam)
->  * Add extra patch for dw_pcie_resume_noirq, since I've seen errors
->    during resume on boards not having anything plugged into their PCIe
->    port
-> 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
-> Sebastian Reichel (9):
->       PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm function
->       PCI: dw-rockchip: Support get_ltssm operation
->       PCI: dw-rockchip: Move devm_phy_get out of phy_init
->       PCI: dw-rockchip: Add helper function for enhanced LTSSM control mode
->       PCI: dw-rockchip: Add helper function for controller mode
->       PCI: dw-rockchip: Add helper function for DDL indicator
->       PCI: dw-rockchip: Add pme_turn_off support
->       PCI: dw-rockchip: Add system PM support
->       PCI: dwc: support missing PCIe device on resume
-> 
->  drivers/pci/controller/dwc/pcie-designware-host.c |  13 +-
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c     | 220 ++++++++++++++++++----
->  2 files changed, 198 insertions(+), 35 deletions(-)
-> ---
-> base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
-> change-id: 20251028-rockchip-pcie-system-suspend-86cf08a7b229
-> 
-> Best regards,
-> -- 
-> Sebastian Reichel <sebastian.reichel@collabora.com>
-> 
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index f0c3ab00a7f3..a86fc6b4e8c4 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -2549,8 +2549,6 @@ i2c9: i2c@2ae80000 {
+ 			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&i2c9m0_xfer>;
+-			resets = <&cru SRST_I2C9>, <&cru SRST_P_I2C9>;
+-			reset-names = "i2c", "apb";
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
 -- 
-மணிவண்ணன் சதாசிவம்
+2.25.1
+
 
