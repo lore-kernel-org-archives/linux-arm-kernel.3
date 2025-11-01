@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BFFCCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 14:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 628E5CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 14:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1LkRbxJhMjI8fwY/1OM4eO+Zht9LmRcqTK7fFfRKPpE=; b=yGMjZwk8MwWBeAr+xsgK7QZ1t+
-	m/O89nxCMPgUKXpSLimS3iDg1Jpc5aPGeuv/YnN2LbPWmwFMDTC26M5cXKAi81/yh86QFEwEmumEs
-	cVlkv5OEdbMehRVQzQEADokslK7YVX/xq/p8WIL/JLqiS6NUHDCBC/TL/NIhp7vZ5rRjRlLuTnBAS
-	aKCDQ/QiuX0A1mz1yQTT5EqsSmqzLSfL1wGfMWsdWUlQbIdBhetwF7dtCJr4fZvfKq5mCXbB6vTYb
-	NyZWFDGmBahCHR+1A815z4Zbn/9zrRUssZo1LCUn4DjZtf3dH/B6Zymh0lt9n7bESdbI/YfZBUX6a
-	BrMb2A4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ZYpUpOAXpJ+IKkb04BaHmWYt/5ffG0uR0XEO4qo4hU=; b=W/H7Lq09NL7a90Wo55WmFV9msC
+	BcBUS3JZaftG0F8hKqZMUl8NCoMiBwg1KIbEtO4Ch3SbSXerBVHRPNpaXm2AVF8PNlkrYbtT9yLbW
+	Vk79hpxXFItUi6OvYOxdsG8aGeQjyU/ZrbhdGFWXpFFcnwGNX38UL6MiG2uresDxRLx7UyEAEcKWD
+	SsjI0xF8+VxYzCMIyQp37HkWJo0SPHPR4TXBmg0ztf242eTpXIGx9s387RtxPXiYvSv7d5XfAUPHB
+	QK75jYZ4IVN9moDZq++vLIyEi/EzMR6b/ssWg41qI1Ym87YCm1HHb+e/bimJpS8H+kERQCSKe/Li/
+	ssb5u0lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFCTk-00000007piX-2EZ6;
-	Sat, 01 Nov 2025 14:21:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFCa5-00000007q3n-4267;
+	Sat, 01 Nov 2025 14:27:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFCTh-00000007pi7-45pP;
-	Sat, 01 Nov 2025 14:21:15 +0000
+	id 1vFCa4-00000007q3Y-47si
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Nov 2025 14:27:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 37C9143B4B;
-	Sat,  1 Nov 2025 14:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AB40C4CEF1;
-	Sat,  1 Nov 2025 14:21:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ECA42601F8
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  1 Nov 2025 14:27:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91BC7C19424
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  1 Nov 2025 14:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762006870;
-	bh=Gvf1mYIDAEuIXGTcNGdXvQgYVAM627aH5dsUdJvMLwQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nG48ZwOsmf7ywyIGxFuAKUMJaoY0VGESkpv/4qfZ/KTJNA6A2yFpJYCOkpKtiQL3p
-	 MwqeckBV20eo0FzheXg09WpWb8CJ/4Qkx2OAcUGcGGtx0NA1P+bi2JffRjGJmI9+bp
-	 5CJcGRHKTC/tknYmstKlskizDI2wkbBuzf89hPe5acIc/W6IqYgngxX0YC0LU+qFtx
-	 ZUVmaw1kczjP+C9CvW38D//14rynREuHAONkC0ZqFBmXtXikwPUH/q4ofymafDb/Tz
-	 NCExRsF/0TC/fuwYqUkoC1aVQ3rIn4lxdpD0HeJHvYlr+uE1I3ogVeulX/p2qIuBCc
-	 yU7Fs4Bv+fErw==
-Date: Sat, 1 Nov 2025 19:50:58 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Jingoo Han <jingoohan1@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@collabora.com
-Subject: Re: [PATCH v4 9/9] PCI: dwc: support missing PCIe device on resume
-Message-ID: <qlil44i7ywwxurdfovkbqvvjff7dey53uy5hzq4zbmvg7jg54o@zdg27w4q26gr>
-References: <20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com>
- <20251029-rockchip-pcie-system-suspend-v4-9-ce2e1b0692d2@collabora.com>
- <dc230a62-bd31-450a-9acd-fa654f694b3a@oss.qualcomm.com>
+	s=k20201202; t=1762007265;
+	bh=lV3WbcP4L63VVdKmRFHTW2IFkZA0MqVRd2TKiW7+rwE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=L5Yny+RqR6ejBT6dWjFU5SPnufclvSK/b4ZmkHgMH6VFD/mWp5pBe6NBwWJvKh9WQ
+	 dsgceBxVUt+AO2fGJ7F7f4vOLZIkAgGFHdATQcvg9q0kcr9iabq4uwwJWy9kUzAwa/
+	 DoFWq7t+6T2yv6Ptrc+1xMFw9+2PuFR79bBKtT5OVGW5QUlQ4CXg6r4756IW3Qb5v7
+	 7J0q4ufSMc/E670BHmPOvjV+CV0F5R1Wsu0m4YJP2ZnJbv3BDCkn6uHoqDdpjcqTGE
+	 GNEOyFEnh+Zc8PEnjyMQkOUWtgLc+S/vNujsiam8gFVG3pcxFUM8cBPBRvB7oe3FfY
+	 5Cs7n7Dvgpnyw==
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2953ad5517dso13721505ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 07:27:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUOkTkCRV84Icb712JkDzVM2YL54GsrJlCyrRCFhBODoBfkhWNLzZb9yhKVjTkRV2l3dwbxDJtEyn2TE1sBNAMw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNEJt1IMCsxJ+wLuDGU33d64KTlaVE/c8b5QItXtQLEd2yEH0X
+	3fAo3DqMslbXgMVQqH9glKYcYXQr5k+hvPn2EMiif89o9B9mSJAIGY3eYJO7Oya2p1ArOGk0K21
+	sPbJeboNyclmuneWF+CZ58wqonBJ5Ag==
+X-Google-Smtp-Source: AGHT+IGnOFjLL6wAsT9pv5cIhcF/90Mw/1kp/7g3CvXtV1RTTu/pF5hz4dyECsPv9IpJsPMLjLxpTdmcXg7a1NiMbbo=
+X-Received: by 2002:a17:903:24f:b0:295:24ab:fb06 with SMTP id
+ d9443c01a7336-29524abfc57mr60471485ad.22.1762007265054; Sat, 01 Nov 2025
+ 07:27:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <dc230a62-bd31-450a-9acd-fa654f694b3a@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_072114_077050_626F563D 
-X-CRM114-Status: GOOD (  26.38  )
+References: <20251024202756.811425-1-ariel.dalessandro@collabora.com>
+In-Reply-To: <20251024202756.811425-1-ariel.dalessandro@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Sat, 1 Nov 2025 14:27:32 +0000
+X-Gmail-Original-Message-ID: <CAAOTY__Ac8S3gnbx6RbVZrNzMcqSkE70xuq5ErbzAWPUh9moAA@mail.gmail.com>
+X-Gm-Features: AWmQ_bn-FuEPLjCksrS_ODh-bQvHMz1N_UARyqPo_gbgBDuh1txOjH8bx8rhYo0
+Message-ID: <CAAOTY__Ac8S3gnbx6RbVZrNzMcqSkE70xuq5ErbzAWPUh9moAA@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: Disable AFBC support on Mediatek DRM driver
+To: "Ariel D'Alessandro" <ariel.dalessandro@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, greenjustin@chromium.org, 
+	sjoerd@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +84,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 11:07:19AM +0530, Krishna Chaitanya Chundru wrote:
-> 
-> On 10/29/2025 11:26 PM, Sebastian Reichel wrote:
-> > When dw_pcie_resume_noirq() is called for a PCIe root complex for a PCIe
-> > slot with no device plugged on Rockchip RK3576, dw_pcie_wait_for_link()
-> > will return -ETIMEDOUT. During probe time this does not happen, since
-> > the platform sets 'use_linkup_irq'.
-> > 
-> > This adds the same logic from dw_pcie_host_init() to the PM resume
-> > function to avoid the problem.
-> > 
-> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> > ---
-> >   drivers/pci/controller/dwc/pcie-designware-host.c | 13 ++++++++++---
-> >   1 file changed, 10 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > index e92513c5bda5..f25f1c136900 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > @@ -1215,9 +1215,16 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
-> >   	if (ret)
-> >   		return ret;
-> > -	ret = dw_pcie_wait_for_link(pci);
-> > -	if (ret)
-> > -		return ret;
-> > +	/*
-> > +	 * Note: Skip the link up delay only when a Link Up IRQ is present.
-> > +	 * If there is no Link Up IRQ, we should not bypass the delay
-> > +	 * because that would require users to manually rescan for devices.
-> > +	 */
-> 
-> In the resume scenario, we should explicitly wait for the link to be up,
-> there is no IRQ support at this resume phase
+Ariel D'Alessandro <ariel.dalessandro@collabora.com> =E6=96=BC 2025=E5=B9=
+=B410=E6=9C=8824=E6=97=A5 =E9=80=B1=E4=BA=94 =E4=B8=8B=E5=8D=888:28=E5=AF=
+=AB=E9=81=93=EF=BC=9A
+>
+> Commit c410fa9b07c32 ("drm/mediatek: Add AFBC support to Mediatek DRM
+> driver") added AFBC support to Mediatek DRM and enabled the
+> 32x8/split/sparse modifier.
+>
+> However, this is currently broken on Mediatek MT8188 (Genio 700 EVK
+> platform); tested using upstream Kernel and Mesa (v25.2.1), AFBC is used =
+by
+> default since Mesa v25.0.
+>
+> Kernel trace reports vblank timeouts constantly, and the render is garble=
+d:
+>
+> ```
+> [CRTC:62:crtc-0] vblank wait timed out
+> WARNING: CPU: 7 PID: 70 at drivers/gpu/drm/drm_atomic_helper.c:1835 drm_a=
+tomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
+> [...]
+> Hardware name: MediaTek Genio-700 EVK (DT)
+> Workqueue: events_unbound commit_work
+> pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+> pc : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
+> lr : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
+> sp : ffff80008337bca0
+> x29: ffff80008337bcd0 x28: 0000000000000061 x27: 0000000000000000
+> x26: 0000000000000001 x25: 0000000000000000 x24: ffff0000c9dcc000
+> x23: 0000000000000001 x22: 0000000000000000 x21: ffff0000c66f2f80
+> x20: ffff0000c0d7d880 x19: 0000000000000000 x18: 000000000000000a
+> x17: 000000040044ffff x16: 005000f2b5503510 x15: 0000000000000000
+> x14: 0000000000000000 x13: 74756f2064656d69 x12: 742074696177206b
+> x11: 0000000000000058 x10: 0000000000000018 x9 : ffff800082396a70
+> x8 : 0000000000057fa8 x7 : 0000000000000cce x6 : ffff8000823eea70
+> x5 : ffff0001fef5f408 x4 : ffff80017ccee000 x3 : ffff0000c12cb480
+> x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000c12cb480
+> Call trace:
+>  drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c (P)
+>  drm_atomic_helper_commit_tail_rpm+0x64/0x80
+>  commit_tail+0xa4/0x1a4
+>  commit_work+0x14/0x20
+>  process_one_work+0x150/0x290
+>  worker_thread+0x2d0/0x3ec
+>  kthread+0x12c/0x210
+>  ret_from_fork+0x10/0x20
+> ---[ end trace 0000000000000000 ]---
+> ```
+>
+> Until this gets fixed upstream, disable AFBC support on this platform, as
+> it's currently broken with upstream Mesa.
 
-This could be fixed if the PM handlers are moved to non-no_irq ones.
+Applied to mediatek-drm-fixes [1], thanks.
 
-> and secondly after controller resume pm framework will start resuming the
-> bridges & endpoints. what happens
-> if the link is not up by the time endpoint is resume is called. And entire
-> save & restore states might also gets messed up.
-> There will be no way to recover from this.
-> 
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
 
-This is true if there were any devices connected to the bus during suspend. If
-there were no devices, then it is fine to skip waiting for the link to be up.
+Regards,
+Chun-Kuang.
 
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+>
+> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> ---
 
