@@ -4,86 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F675CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 11:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0822ECCF9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 11:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VA9/GYZqPtmMozVN89uR4Q0aoS5m99Ji3OBPgu1mZyE=; b=A93y8Ktg1lkRD9+SNSkUJaqJ0f
-	bqRLh0m8z/WZaEDUbuZqFuo/YmFPFiqpdPMw2UazoshAZ4MHCcPSW2+/h/S1vkC4QUMtfBEReMlBo
-	QrJfgGpo3BPdOI4KKx/7m1nu41xI0Pq8HQXW0z8PS7lFIGXTcwh8SqgVF30g/G8Fu/uzIn4YIH9Fb
-	tqm/BVHq3HeX9DPblmBpJXtn6K32UxOT6WgZXSARZbCuwbbQY3aNrNi+XqyHrQax9onz38aJE0o93
-	9ob+X8cgzxto5p+9XXF7WqtTisHygIMqhjWki8vc/7SB4EPYCDzd967LNuSVioRo2V/kPzbTZ1VBY
-	QFUv8Jkg==;
+	bh=wii+Em+qxiradKpcbAmcUyZhsJ0s4QAy5vQvReV0AD8=; b=FyYmY/D1RxqpTzTW+svobBk5t+
+	rQv1L0cAr3FPVXazSDFcVpjwbSSxGv7QIdR+ddFzAOZl/lpI0bjspjVE8WIky22SspEtM8oAaGSym
+	MdrQnWCMvEib93zrSdrjk3iFkqai+RjesVQEzm0EwrgRgNGCl6x8a0Qac72tMI7aqSQrK8pUIfZlK
+	YWJvdimFlk+ome43wuM3YRJD1pu8mCIdC7odLxr1wgfTm43jUsfqWhWg0Br23RzmpS5jI8/vHST0Z
+	zI0KZ7JbWGl4t9yPk5BU0Gtx6M3o8tAO39npoh3MLVukRsnpz1wVOaRGjcfv4hLCOXQZZy3LH8WMb
+	pskAJrUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vF9eA-00000007ICI-0bBw;
-	Sat, 01 Nov 2025 11:19:50 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vF9hg-00000007IQK-0eK1;
+	Sat, 01 Nov 2025 11:23:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vF9e5-00000007IBI-2QJC
+	id 1vF9hf-00000007IQ9-1iLK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 11:19:48 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6407e617ad4so2762998a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 04:19:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761995983; x=1762600783; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=VA9/GYZqPtmMozVN89uR4Q0aoS5m99Ji3OBPgu1mZyE=;
-        b=ADjBQbZauXLq2IZzorxQJ1znMdcEmQfkh7CzGUSZzV3flJ3mcu3e0Aq/aVMza8K4fG
-         yLrwo6u2+uhqVVGeoy0wS8JO5RdNwi4e5fTc7gr580sbw+fH7wxW4t5pDK9xM42LVahR
-         dMwW/FAOmNljVw0pRhd1f74wmk6x6JSQh89dvH8PohbeK3aq4MGhRCpW4u/HTlIkfRgo
-         5pkaWwaeBrsdEvnMM/UFXOVg8aNGSKjcIDWyQBaRkLiFwZ971k1w1YOwCWinBNjT/+kD
-         OjCGwZXyTwRe1+YLj+OQucC1x4iMz2rqnTUdxYf/eRXo45YLKZveufpxsjQx8IffZKog
-         eXuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761995983; x=1762600783;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VA9/GYZqPtmMozVN89uR4Q0aoS5m99Ji3OBPgu1mZyE=;
-        b=WcN+6jUyRKrSSjp27/N9jFIIlt5+vByywv2vnhFR4UeNRuwhdOxmcAd+L0+ynaPNit
-         wPWNPK99vjIxwwwZ9+ZT2C5cd0AnLd88/+uVv3ct4woJUcFYawMWvvD+XV4AgMg42e2X
-         fVI6q5puuhbHL/d/AtWoRKAnHQFRBowD6ry2ufFarzLKIxt2lSkAIPrYd0OatGkGf7gp
-         dR1WHvSTVSNZqc6WADCseQjWvKdgR7JM5tXUCcYxFfI9AvF9h54G628APQTXXjKkmAKy
-         jxqU921dHYbTbe+AsldYShErnqpa98+gSceel4Q5U0NoYOcMmbMmppTI3RcfKtVG3BSk
-         cjJw==
-X-Forwarded-Encrypted: i=1; AJvYcCViQ2g/lLNAFdrUqRmPHS7j1xy0gUR5uph1X/dFhAq3gqu4Kjq4w5Npg6qi7r7OX+zkFWFA6lELfUBgT3WRluLD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKzPDT7zGXmBcZMzI8GyQ+mjbn4JziNGuzfyXJ+uOF/7pg3LuS
-	jDv4Jj0xDcUy9jsmWBMDvC/x4fSPXHnyowNv+WO6qLXsb/bCvwnBhURzOkLqygjpGJjUf/I9HES
-	wdpNjCy3rbG/239L3rRsII1URle7MLCw=
-X-Gm-Gg: ASbGncv9gNoJqlRtzpUgGjYvy0RwO82x7EPlO66XB43pT1eTaXpP4uFFDQ2zRgr40MB
-	sBzFwAS2zQ151rM4fB9G0U+gWNip6NSu6RHlBZgPNwgK/d2nJlTD6nhf/iCFQwKxvNni6U94pu1
-	gFnBC7HfCGJQvPNneB859DcyuiBMWSdDA3CyyMVE2ysWKLOJp4gnM8tTDnXRv5f5FoG1A7c/wOz
-	gJsuDIjAjyYC8d+hfAtl/bg0ihV2AWWWGb18FHCyCjFe0hinVXMjqEWJFnG7Re63YtHXw==
-X-Google-Smtp-Source: AGHT+IEQEHTI7whxk9fnli4P3xU5KyTR7FJHxqf2wRSXKBIIgvmPQ5NPDMPaydsHGdsnaMf8venN81CtsI73mU47/Pw=
-X-Received: by 2002:a05:6402:210b:b0:640:9997:a229 with SMTP id
- 4fb4d7f45d1cf-6409997ae92mr1067104a12.3.1761995983045; Sat, 01 Nov 2025
- 04:19:43 -0700 (PDT)
+	Sat, 01 Nov 2025 11:23:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1789B601D2;
+	Sat,  1 Nov 2025 11:23:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 761F8C113D0;
+	Sat,  1 Nov 2025 11:23:24 +0000 (UTC)
+Date: Sat, 1 Nov 2025 11:23:22 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Willy Tarreau <w@1wt.eu>,
+	Yicong Yang <yangyicong@huawei.com>
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <aQXtqoUEtDr-xUeS@arm.com>
+References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
+ <aQUAR9MRxP6_qtEH@arm.com>
+ <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
+ <aQU7l-qMKJTx4znJ@arm.com>
+ <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
+ <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
 MIME-Version: 1.0
-References: <20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com>
-In-Reply-To: <20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Sat, 1 Nov 2025 16:49:25 +0530
-X-Gm-Features: AWmQ_bmpT_2mcSjzejdSRAZS_z3Z3YCstTId1JiavKjLthWXyNA8r6zVYPZ7wSg
-Message-ID: <CANAwSgTMc=FcOi4=vPCUytMMg5dZO7QU4m6D=6V8RZ9hSDxn4A@mail.gmail.com>
-Subject: Re: [PATCH v4 0/9] PCI: dw-rockchip: add system suspend support
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Jingoo Han <jingoohan1@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_041945_919526_50A2BF42 
-X-CRM114-Status: GOOD (  16.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,337 +64,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Fri, Oct 31, 2025 at 08:25:07PM -0700, Paul E. McKenney wrote:
+> On Fri, Oct 31, 2025 at 04:38:57PM -0700, Paul E. McKenney wrote:
+> > On Fri, Oct 31, 2025 at 10:43:35PM +0000, Catalin Marinas wrote:
+> > > I just realised that patch doesn't touch percpu.h at all. So what about
+> > > something like (untested):
+> > > 
+> > > -----------------8<------------------------
+> > > diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> > > index 9abcc8ef3087..e381034324e1 100644
+> > > --- a/arch/arm64/include/asm/percpu.h
+> > > +++ b/arch/arm64/include/asm/percpu.h
+> > > @@ -70,6 +70,7 @@ __percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
+> > >  	unsigned int loop;						\
+> > >  	u##sz tmp;							\
+> > >  									\
+> > > +	asm volatile("prfm pstl1strm, %a0\n" : : "p" (ptr));
+> > >  	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
+> > >  	/* LL/SC */							\
+> > >  	"1:	ldxr" #sfx "\t%" #w "[tmp], %[ptr]\n"			\
+> > > @@ -91,6 +92,7 @@ __percpu_##name##_return_case_##sz(void *ptr, unsigned long val)	\
+> > >  	unsigned int loop;						\
+> > >  	u##sz ret;							\
+> > >  									\
+> > > +	asm volatile("prfm pstl1strm, %a0\n" : : "p" (ptr));
+> > >  	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
+> > >  	/* LL/SC */							\
+> > >  	"1:	ldxr" #sfx "\t%" #w "[ret], %[ptr]\n"			\
+> > > -----------------8<------------------------
+> > 
+> > I will give this a shot, thank you!
+> 
+> Jackpot!!!
+> 
+> This reduces the overhead to 8.427, which is significantly better than
+> the non-LSE value of 9.853.  Still room for improvement, but much
+> better than the 100ns values.
+> 
+> I presume that you will send this up the normal path, but in the meantime,
+> I will pull this in for further local testing, and thank you!
 
-On Wed, 29 Oct 2025 at 23:27, Sebastian Reichel
-<sebastian.reichel@collabora.com> wrote:
->
-> I've recently been working on fixing up at least basic system suspend
-> support on the Rockchip RK3576 platform. Currently the biggest open
-> issue is missing support in the PCIe driver. This series is a follow-up
-> for Shawn Lin's series with feedback from Niklas Cassel and Manivannan
-> Sadhasivam being handled as well as some of my own changes fixing up
-> things I noticed.
->
-> In opposite to Shawn Lin I did not test with different peripherals as my
-> main goal is getting basic suspend to ram working in the first place. I
-> did notice issues with the Broadcom WLAN card on the RK3576 EVB.
-> Suspending that platform without a driver being probed works, but after
-> probing brcmfmac suspend is aborted because brcmf_pcie_pm_enter_D3()
-> does not work. As far as I can tell the problem is unrelated to the
-> Rockchip PCIe driver.
->
-Well, I gave it a try on Radxa Rock 5b,
-I am observing the falling warning.
+I think for this specific case it may work, for the futex as well but
+not generally. The Neoverse-V2 TRM lists some controls in the
+IMP_CPUECTLR_EL1, bits 29 to 33:
 
-PM: noirq suspend of devices failed
+https://developer.arm.com/documentation/102375/0002
 
-alarm@rockpi-5b:~$ sudo systemctl suspend
-[sudo] password for alarm:
-alarm@rockpi-5b:~$ [  459.301536][ T6149] wlan0: deauthenticating from
-78:d2:94:85:bb:b2 by local choice (Reason: 3=DEAUTH_LEAVING)
-[  459.383823][ T6056] r8169 0004:41:00.0 enP4p65s0: Link is Down
-[  459.384568][ T6056] r8169 0004:41:00.0: disabling bus mastering
-[  459.862229][ T6291] PM: suspend entry (deep)
-[  459.935040][ T6291] Filesystems sync: 0.072 seconds
-[  459.941444][ T6253] (NULL device *): loading
-/lib/firmware/6.18.0-rc3-3-ARM64-GCC/intel/ibt-12-16.sfi failed with
-error -20
-[  459.943775][ T6253] (NULL device *): loading
-/lib/firmware/6.18.0-rc3-3-ARM64-GCC/intel/ibt-12-16.ddc failed with
-error -20
-[  459.945047][   T59] (NULL device *): loading
-/lib/firmware/6.18.0-rc3-3-ARM64-GCC/arm/mali/arch10.8/mali_csffw.bin
-failed with error -20
-[  459.946854][ T6253] (NULL device *): loading
-/lib/firmware/6.18.0-rc3-3-ARM64-GCC/iwlwifi-8265-36.ucode failed with
-error -20
-[  459.953052][ T6291] Freezing user space processes
-[  460.001306][ T6291] Freezing user space processes completed
-(elapsed 0.047 seconds)
-[  460.001993][ T6291] OOM killer disabled.
-[  460.002341][ T6291] Freezing remaining freezable tasks
-[  460.004202][ T6291] Freezing remaining freezable tasks completed
-(elapsed 0.001 seconds)
-[  460.004953][ T6291] printk: Suspending console(s) (use
-no_console_suspend to debug)
-[  460.070242][ T6253] nvme 0000:01:00.0: save config 0x00: 0xa808144d
-[  460.070261][ T6253] nvme 0000:01:00.0: save config 0x04: 0x00100406
-[  460.070272][ T6253] nvme 0000:01:00.0: save config 0x08: 0x01080200
-[  460.070281][ T6253] nvme 0000:01:00.0: save config 0x0c: 0x00000000
-[  460.070291][ T6253] nvme 0000:01:00.0: save config 0x10: 0xf0200004
-[  460.070300][ T6253] nvme 0000:01:00.0: save config 0x14: 0x00000000
-[  460.070309][ T6253] nvme 0000:01:00.0: save config 0x18: 0x00000000
-[  460.070319][ T6253] nvme 0000:01:00.0: save config 0x1c: 0x00000000
-[  460.070328][ T6253] nvme 0000:01:00.0: save config 0x20: 0x00000000
-[  460.070337][ T6253] nvme 0000:01:00.0: save config 0x24: 0x00000000
-[  460.070346][ T6253] nvme 0000:01:00.0: save config 0x28: 0x00000000
-[  460.070355][ T6253] nvme 0000:01:00.0: save config 0x2c: 0xa801144d
-[  460.070364][ T6253] nvme 0000:01:00.0: save config 0x30: 0x00000000
-[  460.070373][ T6253] nvme 0000:01:00.0: save config 0x34: 0x00000040
-[  460.070383][ T6253] nvme 0000:01:00.0: save config 0x38: 0x00000000
-[  460.070392][ T6253] nvme 0000:01:00.0: save config 0x3c: 0x0000016d
-[  460.274027][ T6253] iwlwifi 0002:21:00.0: save config 0x00: 0x24fd8086
-[  460.274058][ T6253] iwlwifi 0002:21:00.0: save config 0x04: 0x00100406
-[  460.274080][ T6253] iwlwifi 0002:21:00.0: save config 0x08: 0x02800078
-[  460.274102][ T6253] iwlwifi 0002:21:00.0: save config 0x0c: 0x00000000
-[  460.274124][ T6253] iwlwifi 0002:21:00.0: save config 0x10: 0xf2200004
-[  460.274146][ T6253] iwlwifi 0002:21:00.0: save config 0x14: 0x00000000
-[  460.274168][ T6253] iwlwifi 0002:21:00.0: save config 0x18: 0x00000000
-[  460.274189][ T6253] iwlwifi 0002:21:00.0: save config 0x1c: 0x00000000
-[  460.274210][ T6253] iwlwifi 0002:21:00.0: save config 0x20: 0x00000000
-[  460.274232][ T6253] iwlwifi 0002:21:00.0: save config 0x24: 0x00000000
-[  460.274253][ T6253] iwlwifi 0002:21:00.0: save config 0x28: 0x00000000
-[  460.274275][ T6253] iwlwifi 0002:21:00.0: save config 0x2c: 0x10108086
-[  460.274296][ T6253] iwlwifi 0002:21:00.0: save config 0x30: 0x00000000
-[  460.274318][ T6253] iwlwifi 0002:21:00.0: save config 0x34: 0x000000c8
-[  460.274340][ T6253] iwlwifi 0002:21:00.0: save config 0x38: 0x00000000
-[  460.274361][ T6253] iwlwifi 0002:21:00.0: save config 0x3c: 0x00000183
-[  460.274917][ T6300] r8169 0004:41:00.0: save config 0x00: 0x812510ec
-[  460.274927][ T6300] r8169 0004:41:00.0: save config 0x04: 0x00100403
-[  460.274937][ T6300] r8169 0004:41:00.0: save config 0x08: 0x02000005
-[  460.274947][ T6300] r8169 0004:41:00.0: save config 0x0c: 0x00000010
-[  460.274957][ T6300] r8169 0004:41:00.0: save config 0x10: 0xf4100001
-[  460.274967][ T6300] r8169 0004:41:00.0: save config 0x14: 0x00000000
-[  460.274977][ T6300] r8169 0004:41:00.0: save config 0x18: 0xf4200004
-[  460.274987][ T6300] r8169 0004:41:00.0: save config 0x1c: 0x00000000
-[  460.274996][ T6300] r8169 0004:41:00.0: save config 0x20: 0xf4210004
-[  460.275006][ T6300] r8169 0004:41:00.0: save config 0x24: 0x00000000
-[  460.275016][ T6300] r8169 0004:41:00.0: save config 0x28: 0x00000000
-[  460.275026][ T6300] r8169 0004:41:00.0: save config 0x2c: 0x012310ec
-[  460.275036][ T6300] r8169 0004:41:00.0: save config 0x30: 0x00000000
-[  460.275045][ T6300] r8169 0004:41:00.0: save config 0x34: 0x00000040
-[  460.275055][ T6300] r8169 0004:41:00.0: save config 0x38: 0x00000000
-[  460.275065][ T6300] r8169 0004:41:00.0: save config 0x3c: 0x00000197
-[  460.285117][ T6253] iwlwifi 0002:21:00.0: PCI PM: Suspend power state: D3hot
-[  460.287498][ T6300] r8169 0004:41:00.0: PCI PM: Suspend power state: D3hot
-[  460.287631][ T6296] pcieport 0004:40:00.0: save config 0x00: 0x35881d87
-[  460.287644][ T6296] pcieport 0004:40:00.0: save config 0x04: 0x00100507
-[  460.287651][ T6296] pcieport 0004:40:00.0: save config 0x08: 0x06040001
-[  460.287658][ T6296] pcieport 0004:40:00.0: save config 0x0c: 0x00010000
-[  460.287664][ T6296] pcieport 0004:40:00.0: save config 0x10: 0x00000000
-[  460.287671][ T6296] pcieport 0004:40:00.0: save config 0x14: 0x00000000
-[  460.287677][ T6296] pcieport 0004:40:00.0: save config 0x18: 0x00414140
-[  460.287683][ T6296] pcieport 0004:40:00.0: save config 0x1c: 0x00000000
-[  460.287689][ T6296] pcieport 0004:40:00.0: save config 0x20: 0xf420f420
-[  460.287696][ T6296] pcieport 0004:40:00.0: save config 0x24: 0x0001fff1
-[  460.287702][ T6296] pcieport 0004:40:00.0: save config 0x28: 0x00000000
-[  460.287708][ T6296] pcieport 0004:40:00.0: save config 0x2c: 0x00000000
-[  460.287714][ T6296] pcieport 0004:40:00.0: save config 0x30: 0x00000000
-[  460.287720][ T6296] pcieport 0004:40:00.0: save config 0x34: 0x00000040
-[  460.287727][ T6296] pcieport 0004:40:00.0: save config 0x38: 0x00000000
-[  460.287733][ T6296] pcieport 0004:40:00.0: save config 0x3c: 0x00020197
-[  460.299895][ T6296] pcieport 0004:40:00.0: PCI PM: Suspend power state: D3hot
-[  460.311927][ T6291] rockchip-dw-pcie a41000000.pcie: Timeout
-waiting for L2 entry! LTSSM: 0x12
-[  460.311935][ T6291] rockchip-dw-pcie a41000000.pcie: PM:
-dpm_run_callback(): genpd_suspend_noirq returns -110
-[  460.311950][ T6291] rockchip-dw-pcie a41000000.pcie: PM: failed to
-suspend noirq: error -110
-[  460.328691][   T57] pcieport 0004:40:00.0: restore config 0x2c:
-0x00000000 -> 0x00000000
-[  460.328706][   T57] pcieport 0004:40:00.0: restore config 0x28:
-0x00000000 -> 0x00000000
-[  460.328714][   T57] pcieport 0004:40:00.0: restore config 0x24:
-0x0001fff1 -> 0x0001fff1
-[  460.329363][ T6299] iwlwifi 0002:21:00.0: restore config 0x3c:
-0x00000100 -> 0x00000183
-[  460.329558][ T6299] iwlwifi 0002:21:00.0: restore config 0x10:
-0x00000004 -> 0xf2200004
-[  460.329643][ T6299] iwlwifi 0002:21:00.0: restore config 0x04:
-0x00100000 -> 0x00100406
-[  460.341978][ T6291] PM: noirq suspend of devices failed
-[  460.352925][ T6303] xhci-hcd xhci-hcd.7.auto: xHC error in resume,
-USBSTS 0x401, Reinit
-[  460.352937][ T6303] usb usb5: root hub lost power or was reset
-[  460.352941][ T6303] usb usb6: root hub lost power or was reset
-[  460.517043][   T56] xhci-hcd xhci-hcd.8.auto: xHC error in resume,
-USBSTS 0x401, Reinit
-[  460.517056][   T56] usb usb7: root hub lost power or was reset
-[  460.517060][   T56] usb usb8: root hub lost power or was reset
-[  460.833660][ T6291] OOM killer enabled.
-[  460.834002][ T6291] Restarting tasks: Starting
-[  460.835432][ T6291] Restarting tasks: Done
-[  460.835846][ T6291] random: crng reseeded on system resumption
-[  460.837377][ T6291] PM: suspend exit
-[  460.838167][ T6291] PM: suspend entry (s2idle)
-[  460.976541][ T6291] Filesystems sync: 0.138 seconds
-[  460.978668][ T6291] Freezing user space processes
-[  460.980928][ T6291] Freezing user space processes completed
-(elapsed 0.001 seconds)
-[  460.981607][ T6291] OOM killer disabled.
-[  460.981954][ T6291] Freezing remaining freezable tasks
-[  460.997394][ T6291] Freezing remaining freezable tasks completed
-(elapsed 0.014 seconds)
-[  460.998116][ T6291] printk: Suspending console(s) (use
-no_console_suspend to debug)
-[  461.041501][ T6299] nvme 0000:01:00.0: save config 0x00: 0xa808144d
-[  461.041520][ T6299] nvme 0000:01:00.0: save config 0x04: 0x00100406
-[  461.041530][ T6299] nvme 0000:01:00.0: save config 0x08: 0x01080200
-[  461.041540][ T6299] nvme 0000:01:00.0: save config 0x0c: 0x00000000
-[  461.041549][ T6299] nvme 0000:01:00.0: save config 0x10: 0xf0200004
-[  461.041559][ T6299] nvme 0000:01:00.0: save config 0x14: 0x00000000
-[  461.041568][ T6299] nvme 0000:01:00.0: save config 0x18: 0x00000000
-[  461.041577][ T6299] nvme 0000:01:00.0: save config 0x1c: 0x00000000
-[  461.041586][ T6299] nvme 0000:01:00.0: save config 0x20: 0x00000000
-[  461.041595][ T6299] nvme 0000:01:00.0: save config 0x24: 0x00000000
-[  461.041604][ T6299] nvme 0000:01:00.0: save config 0x28: 0x00000000
-[  461.041613][ T6299] nvme 0000:01:00.0: save config 0x2c: 0xa801144d
-[  461.041622][ T6299] nvme 0000:01:00.0: save config 0x30: 0x00000000
-[  461.041632][ T6299] nvme 0000:01:00.0: save config 0x34: 0x00000040
-[  461.041641][ T6299] nvme 0000:01:00.0: save config 0x38: 0x00000000
-[  461.041650][ T6299] nvme 0000:01:00.0: save config 0x3c: 0x0000016d
-[  461.211199][ T6307] r8169 0004:41:00.0: save config 0x00: 0x812510ec
-[  461.211220][ T6307] r8169 0004:41:00.0: save config 0x04: 0x00100403
-[  461.211233][ T6307] r8169 0004:41:00.0: save config 0x08: 0x02000005
-[  461.211246][ T6307] r8169 0004:41:00.0: save config 0x0c: 0x00000010
-[  461.211257][ T6307] r8169 0004:41:00.0: save config 0x10: 0xf4100001
-[  461.211269][ T6307] r8169 0004:41:00.0: save config 0x14: 0x00000000
-[  461.211294][ T6297] iwlwifi 0002:21:00.0: save config 0x00: 0x24fd8086
-[  461.211298][ T6307] r8169 0004:41:00.0: save config 0x18: 0xf4200004
-[  461.211311][ T6307] r8169 0004:41:00.0: save config 0x1c: 0x00000000
-[  461.211327][ T6297] iwlwifi 0002:21:00.0: save config 0x04: 0x00100406
-[  461.211333][ T6307] r8169 0004:41:00.0: save config 0x20: 0xf4210004
-[  461.211350][ T6297] iwlwifi 0002:21:00.0: save config 0x08: 0x02800078
-[  461.211355][ T6307] r8169 0004:41:00.0: save config 0x24: 0x00000000
-[  461.211372][ T6297] iwlwifi 0002:21:00.0: save config 0x0c: 0x00000000
-[  461.211379][ T6307] r8169 0004:41:00.0: save config 0x28: 0x00000000
-[  461.211395][ T6297] iwlwifi 0002:21:00.0: save config 0x10: 0xf2200004
-[  461.211401][ T6307] r8169 0004:41:00.0: save config 0x2c: 0x012310ec
-[  461.211417][ T6297] iwlwifi 0002:21:00.0: save config 0x14: 0x00000000
-[  461.211421][ T6307] r8169 0004:41:00.0: save config 0x30: 0x00000000
-[  461.211439][ T6297] iwlwifi 0002:21:00.0: save config 0x18: 0x00000000
-[  461.211445][ T6307] r8169 0004:41:00.0: save config 0x34: 0x00000040
-[  461.211461][ T6297] iwlwifi 0002:21:00.0: save config 0x1c: 0x00000000
-[  461.211468][ T6307] r8169 0004:41:00.0: save config 0x38: 0x00000000
-[  461.211483][ T6297] iwlwifi 0002:21:00.0: save config 0x20: 0x00000000
-[  461.211487][ T6307] r8169 0004:41:00.0: save config 0x3c: 0x00000197
-[  461.211505][ T6297] iwlwifi 0002:21:00.0: save config 0x24: 0x00000000
-[  461.211527][ T6297] iwlwifi 0002:21:00.0: save config 0x28: 0x00000000
-[  461.211550][ T6297] iwlwifi 0002:21:00.0: save config 0x2c: 0x10108086
-[  461.211574][ T6297] iwlwifi 0002:21:00.0: save config 0x30: 0x00000000
-[  461.211596][ T6297] iwlwifi 0002:21:00.0: save config 0x34: 0x000000c8
-[  461.211618][ T6297] iwlwifi 0002:21:00.0: save config 0x38: 0x00000000
-[  461.211644][ T6297] iwlwifi 0002:21:00.0: save config 0x3c: 0x00000183
-[  461.224517][ T6297] iwlwifi 0002:21:00.0: PCI PM: Suspend power state: D3hot
-[  461.224566][ T6307] r8169 0004:41:00.0: PCI PM: Suspend power state: D3hot
-[  461.224614][ T6299] pcieport 0004:40:00.0: save config 0x00: 0x35881d87
-[  461.224622][ T6299] pcieport 0004:40:00.0: save config 0x04: 0x00100507
-[  461.224629][ T6299] pcieport 0004:40:00.0: save config 0x08: 0x06040001
-[  461.224636][ T6299] pcieport 0004:40:00.0: save config 0x0c: 0x00010000
-[  461.224642][ T6299] pcieport 0004:40:00.0: save config 0x10: 0x00000000
-[  461.224649][ T6299] pcieport 0004:40:00.0: save config 0x14: 0x00000000
-[  461.224655][ T6299] pcieport 0004:40:00.0: save config 0x18: 0x00414140
-[  461.224661][ T6299] pcieport 0004:40:00.0: save config 0x1c: 0x00000000
-[  461.224667][ T6299] pcieport 0004:40:00.0: save config 0x20: 0xf420f420
-[  461.224673][ T6299] pcieport 0004:40:00.0: save config 0x24: 0x0001fff1
-[  461.224680][ T6299] pcieport 0004:40:00.0: save config 0x28: 0x00000000
-[  461.224686][ T6299] pcieport 0004:40:00.0: save config 0x2c: 0x00000000
-[  461.224692][ T6299] pcieport 0004:40:00.0: save config 0x30: 0x00000000
-[  461.224698][ T6299] pcieport 0004:40:00.0: save config 0x34: 0x00000040
-[  461.224705][ T6299] pcieport 0004:40:00.0: save config 0x38: 0x00000000
-[  461.224711][ T6299] pcieport 0004:40:00.0: save config 0x3c: 0x00020197
-[  461.236873][ T6299] pcieport 0004:40:00.0: PCI PM: Suspend power state: D3hot
-[  461.247945][ T6291] rockchip-dw-pcie a41000000.pcie: Failed to
-receive PME_TO_Ack
-[  461.258929][ T6291] rockchip-dw-pcie a41000000.pcie: Timeout
-waiting for L2 entry! LTSSM: 0x12
-[  461.258937][ T6291] rockchip-dw-pcie a41000000.pcie: PM:
-dpm_run_callback(): genpd_suspend_noirq returns -110
-[  461.258952][ T6291] rockchip-dw-pcie a41000000.pcie: PM: failed to
-suspend noirq: error -110
-[  461.276608][ T6303] iwlwifi 0002:21:00.0: restore config 0x3c:
-0x00000100 -> 0x00000183
-[  461.276655][ T6302] pcieport 0004:40:00.0: restore config 0x2c:
-0x00000000 -> 0x00000000
-[  461.276683][ T6302] pcieport 0004:40:00.0: restore config 0x28:
-0x00000000 -> 0x00000000
-[  461.276714][ T6302] pcieport 0004:40:00.0: restore config 0x24:
-0x0001fff1 -> 0x0001fff1
-[  461.276805][ T6303] iwlwifi 0002:21:00.0: restore config 0x10:
-0x00000004 -> 0xf2200004
-[  461.276908][ T6303] iwlwifi 0002:21:00.0: restore config 0x04:
-0x00100000 -> 0x00100406
-[  461.289977][ T6291] PM: noirq suspend of devices failed
-[  461.302571][ T6298] xhci-hcd xhci-hcd.7.auto: xHC error in resume,
-USBSTS 0x401, Reinit
-[  461.302581][ T6298] usb usb5: root hub lost power or was reset
-[  461.302585][ T6298] usb usb6: root hub lost power or was reset
-[  461.425101][ T6307] xhci-hcd xhci-hcd.8.auto: xHC error in resume,
-USBSTS 0x401, Reinit
-[  461.425111][ T6307] usb usb7: root hub lost power or was reset
-[  461.425115][ T6307] usb usb8: root hub lost power or was reset
-[  461.746324][ T6291] OOM killer enabled.
-[  461.746666][ T6291] Restarting tasks: Starting
-[  461.748345][ T6291] Restarting tasks: Done
-[  461.748757][ T6291] random: crng reseeded on system resumption
-[  461.749533][ T6291] PM: suspend exit
-[  461.809104][ T6056] Realtek Internal NBASE-T PHY r8169-4-4100:00:
-attached PHY driver (mii_bus:phy_addr=r8169-4-4100:00, irq=MAC)
-[  461.810148][ T6056] r8169 0004:41:00.0: enabling bus mastering
-[  461.989335][ T6298] r8169 0004:41:00.0 enP4p65s0: Link is Down
-[  464.915207][ T6311] r8169 0004:41:00.0 enP4p65s0: Link is Up -
-1Gbps/Full - flow control rx/tx
-[  465.527599][ T6149] wlan0: authenticate with 78:d2:94:85:bb:b2
-(local address=a4:6b:b6:06:5c:8e)
-[  465.529749][ T6149] wlan0: send auth to 78:d2:94:85:bb:b2 (try 1/3)
-[  465.543850][ T6298] wlan0: authenticated
-[  465.545190][ T6298] wlan0: associate with 78:d2:94:85:bb:b2 (try 1/3)
-[  465.555534][ T6298] wlan0: RX AssocResp from 78:d2:94:85:bb:b2
-(capab=0x31 status=0 aid=1)
-[  465.560431][ T6298] wlan0: associated
+These can be configured depending on the system configuration but they
+are too big knobs to cover all use-cases within an OS. This register is
+typically configured by firmware, we don't touch it in Linux.
 
-Thanks
--Anand
+I'll dig some more but we may have to do tricks like prefetch if we
+can't find a hardware configuration that satisfies all cases.
 
-> Changes since PATCHv3:
->  * https://lore.kernel.org/linux-pci/1744940759-23823-1-git-send-email-shawn.lin@rock-chips.com/
->  * rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg
->    in a separate patch (Niklas Cassel)
->  * rename rockchip_pcie_get_pure_ltssm to rockchip_pcie_get_ltssm_state
->    in a separate patch (Niklas Cassel)
->  * Move devm_phy_get out of phy_init to probe in a separate patch
->    (Manivannan Sadhasivam)
->  * Add helper function for enhanced LTSSM control mode in a separate patch
->    (Niklas Cassel)
->  * Add helper function for controller mode in a separate patch
->    (Niklas Cassel)
->  * Add helper function for DDL indicator in a separate patch
->    (Niklas Cassel)
->  * Move rockchip_pcie_pme_turn_off implementation in a separate patch
->  * Rebase to v6.18-rc3 using new FIELD_PREP_WM16()
->  * Improve readability of PME_TURN_OFF/PME_TO_ACK defines (Manivannan Sadhasivam)
->  * Fix usage of reverse Xmas (Manivannan Sadhasivam)
->  * Assert PERST# before turning off other resources (Manivannan Sadhasivam)
->  * Improve some error messages (Manivannan Sadhasivam)
->  * Rename goto labels as per their purpose (Manivannan Sadhasivam)
->  * Add extra patch for dw_pcie_resume_noirq, since I've seen errors
->    during resume on boards not having anything plugged into their PCIe
->    port
->
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
-> Sebastian Reichel (9):
->       PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm function
->       PCI: dw-rockchip: Support get_ltssm operation
->       PCI: dw-rockchip: Move devm_phy_get out of phy_init
->       PCI: dw-rockchip: Add helper function for enhanced LTSSM control mode
->       PCI: dw-rockchip: Add helper function for controller mode
->       PCI: dw-rockchip: Add helper function for DDL indicator
->       PCI: dw-rockchip: Add pme_turn_off support
->       PCI: dw-rockchip: Add system PM support
->       PCI: dwc: support missing PCIe device on resume
->
->  drivers/pci/controller/dwc/pcie-designware-host.c |  13 +-
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c     | 220 ++++++++++++++++++----
->  2 files changed, 198 insertions(+), 35 deletions(-)
-> ---
-> base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
-> change-id: 20251028-rockchip-pcie-system-suspend-86cf08a7b229
->
-> Best regards,
-> --
-> Sebastian Reichel <sebastian.reichel@collabora.com>
->
->
+-- 
+Catalin
 
