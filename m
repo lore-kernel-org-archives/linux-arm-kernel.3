@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76F6CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 11:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC72CCFA06
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 12:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/+9Nrg/MBKOyjOA2O+fnXbPaDve8v5ZbqMCiqeCxKE=; b=fpjV8tWnSQj8EIUp2507v53479
-	QX5ko+GUPJETTCUaEDbw7Uc9UO8/e5qLY1L9ScQ/T7JLGp8y68UjJeM/SW1SorycOKuhBYmJZ6O/6
-	6R5W/JWarAoUiPwTZHbxLI73BF1c3/b8b2lyIQWAuCzyFX2kjfwE+wRBVOkOqyWHOl2evVAWlfNoU
-	ylz+Uz08MWelcuzCXYXUxNly68slURDiUW6YcPXPBLzxyAo3YCJjnbNsgo25eD49aeYxK4kSxiA00
-	MKubeyqVVDJQ8N1OrDR1XyQJwTTFdXd/A7qZcgoEJ+NkncK2EQp4aul2lBPYdsBzk05zxxFjH7lLR
-	NDWkUKUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1W5UdxG4gWgXaiBcCpY2iZkD63ss2QrMgIsz3JzeCyo=; b=ofYtfaEHdgouf2WCB4zDO06GGH
+	mUroh8ZwBZzRx7ZP32b5p7xtIWI4OK4GzyBaoTVpAj0j7lMXe9zlbNKOahYapmg1RPesfnTc+dVWQ
+	/cGb8rib1iYvima6CkMcGvgsK/rPvlimlr68UYj8HmaTjmttrBV+2fIRtLq/PhGORnqcucdt/e4Dl
+	M2MWtASzWFNQ7neL0qH2q2pVI0HUIhULcV2G6y2VISqojxfxyqb0OGSVtQEY4o1kgrLog9Gu/Nx2A
+	hu9Rh5giG89aHyp/ZFp7wp8gle3UzVOzgambbKaTh3LUyf2eoUMesFMFwY6sqFCkBcwDSltPPcjrE
+	MGAEvXag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFABQ-00000007JgZ-13Q1;
-	Sat, 01 Nov 2025 11:54:12 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vFAPW-00000007NpS-1X0g;
+	Sat, 01 Nov 2025 12:08:46 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFABN-00000007Jg7-2DHm;
-	Sat, 01 Nov 2025 11:54:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=2/+9Nrg/MBKOyjOA2O+fnXbPaDve8v5ZbqMCiqeCxKE=; b=vBFn4pnkphDuozK5iAz9y8k4E4
-	l5Rk/WmLU/cMVmO4oTd5xthvniS2QfDBF5scMKSfVkaPyVEXrUevzYFw8mGUGcPSgdLB6m9vAw7lE
-	3yYX1wd/CdVCYJlvwFqodjOgNkWhtfa1rC64UCZG+zqeLKhNZz9QbS7egZdf9ITJJnH/yEg4vVEJx
-	1Q6tL++wkVXm5jAoAFl3vHxvhP4IVa/O/i0RCUGOZn4bG++Lw1f/LPUHbX6gU3S3OuA4tgB9gI4JS
-	XGzKWfsPt+VkalK0ndUKpt5SZ5RRm22bLwmVaIcTb3cjXXDiY+WbgjuBhv8ZAk+qjzDGHKTmXGaM+
-	xhCyyjwg==;
-Received: from i53875b80.versanet.de ([83.135.91.128] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vFABL-0008PQ-Jz; Sat, 01 Nov 2025 12:54:07 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Shawn Lin <shawn.lin@rock-chips.com>, Tianling Shen <cnsztl@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Grzegorz Sterniczuk <grzegorz@sternicz.uk>,
- Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
- Jianfeng Liu <liujianfeng1994@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6 with
- A3A444 chips
-Date: Sat, 01 Nov 2025 12:54:06 +0100
-Message-ID: <10751338.nUPlyArG6x@phil>
-In-Reply-To: <5af928c4-4b6e-489c-ad39-26cef3dd7473@gmail.com>
-References: <20251017073954.130710-1-cnsztl@gmail.com>
- <08911ae2-fef3-432d-a236-d820c9cb67ac@gmail.com>
- <5af928c4-4b6e-489c-ad39-26cef3dd7473@gmail.com>
+	id 1vFAHS-00000007K6j-0SlP;
+	Sat, 01 Nov 2025 12:00:30 +0000
+Received: from localhost.localdomain (unknown [58.61.140.134])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2801cc498;
+	Sat, 1 Nov 2025 20:00:22 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Chukun Pan <amadeus@jmu.edu.cn>,
+	Hsun Lai <i@chainsx.cn>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH 4/6] arm64: dts: rockchip: fixes supply for 100ASK DshanPi A1
+Date: Sat,  1 Nov 2025 20:00:08 +0800
+Message-Id: <20251101120010.41729-4-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20251101120010.41729-1-amadeus@jmu.edu.cn>
+References: <20251101120010.41729-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9a3f4a42d503a2kunmfa682f8b2d36c2
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDQxoaVk5NGB9MSRlOSUhIH1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlOQ1VNSlVKT0tVSkhPWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0NMVUpLS1VLWQ
+	Y+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_045409_641418_861BD2D4 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20251101_050026_431870_C11C9CB0 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,89 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 27. Oktober 2025, 18:34:25 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Tianling Shen:
-> + Jianfeng
->=20
-> On 2025/10/20 12:44, Tianling Shen wrote:
-> > Hi Shawn,
-> >=20
-> > On 2025/10/20 9:53, Shawn Lin wrote:
-> >> Hi Tianling
-> >>
-> >> On 2025/10/17 Friday 15:39, Tianling Shen wrote:
-> >>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
-> >>>
-> >>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors and
-> >>> corruption when using HS400 mode. Downgrade to HS200 mode to ensure
-> >>> stable operation.
-> >>
-> >> May I ask you to test another patch I just posted to see if it fixes
-> >> your issue?
-> >>
-> >> https://patchwork.kernel.org/project/linux-mmc/=20
-> >> patch/1760924981-52339-1- git-send-email-shawn.lin@rock-chips.com/
-> >=20
-> > Thank you for the patch! I will ask my friend to test it but he uses=20
-> > this board as a home router, so it may take a few days or weeks to=20
-> > report the result.
->=20
-> Hi all, sorry for the late. My friend has tested this patch and it works=
-=20
-> fine after 50 times dd operation. A big thanks to Shawn!
+From the schematic, the supply of ES8388 chip and the vmmc-supply
+of SD card both originate from the VCC3V3_S0 regulator, fix it.
 
-So I guess, we don't need the patch reducing the speed anymore, right?
+Fixes: d809417c5a40 ("arm64: dts: rockchip: add DTs for 100ASK DShanPi A1")
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-
-Thanks
-Heiko
-
-
-> And hi Jianfeng, I found you made a similiar patch[1] for the ROCK 5 ITX=
-=20
-> board to lower down the mmc speed, could you please check if this patch=20
-> also fixes your issue?
->=20
-> Thanks,
-> Tianling.
->=20
-> 1.=20
-> https://lore.kernel.org/linux-rockchip/20250228143341.70244-1-liujianfeng=
-1994@gmail.com/
->=20
-> >=20
-> > Thanks,
-> > Tianling.
-> >=20
-> >>
-> >>
-> >>>
-> >>> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
-> >>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
-> >>> ---
-> >>>   arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
-> >>>   1 file changed, 1 insertion(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/=20
-> >>> arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> >>> index fafeabe9adf9..5f63f38f7326 100644
-> >>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> >>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> >>> @@ -717,8 +717,7 @@ &sdhci {
-> >>>       no-sd;
-> >>>       non-removable;
-> >>>       max-frequency =3D <200000000>;
-> >>> -    mmc-hs400-1_8v;
-> >>> -    mmc-hs400-enhanced-strobe;
-> >>> +    mmc-hs200-1_8v;
-> >>>       status =3D "okay";
-> >>>   };
-> >>
-> >=20
->=20
->=20
-
-
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+index 425a78db9522..7c961cb27032 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+@@ -606,9 +606,9 @@ es8388: audio-codec@10 {
+ 		compatible = "everest,es8388", "everest,es8328";
+ 		reg = <0x10>;
+ 		clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
+-		AVDD-supply = <&vcca_3v3_s0>;
++		AVDD-supply = <&vcc_3v3_s0>;
+ 		DVDD-supply = <&vcc_3v3_s0>;
+-		HPVDD-supply = <&vcca_3v3_s0>;
++		HPVDD-supply = <&vcc_3v3_s0>;
+ 		PVDD-supply = <&vcc_3v3_s0>;
+ 		assigned-clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
+ 		assigned-clock-rates = <12288000>;
+@@ -710,7 +710,7 @@ &sdmmc {
+ 	cap-sd-highspeed;
+ 	disable-wp;
+ 	sd-uhs-sdr104;
+-	vmmc-supply = <&vcc_3v3_s3>;
++	vmmc-supply = <&vcc_3v3_s0>;
+ 	vqmmc-supply = <&vccio_sd_s0>;
+ 	status = "okay";
+ };
+-- 
+2.25.1
 
 
