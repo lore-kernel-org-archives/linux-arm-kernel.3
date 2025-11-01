@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0999CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 11:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76F6CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 11:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PHVYSvdDYI0ifXKzRw7b8rWjTZ1yx6Imu7EM6kr3mrU=; b=z7qnMSbgFUjOw3LLbX36dPzNVh
-	qRXxrTS7+01f31CM18bIPSfUIzUzqA53edwVnijAE1n8yXZmF4yeGvU9xmcX8BqNXmRi68C9tp9dK
-	ugtVG5eE9KjELOQMyn+flvMKQhWFvS8qb4ytAXduI9CBgj0FkhvlOByxBsykyVEWhs7rmzwDZypkE
-	IZWJqnfFiaYOxYiMTRyZvNOvETVxTnTyYfJNg4HLVkn105oJPV1+ezJHLC5ZwwmYyKq7ZvJYh24gH
-	rxp07Vj8sPIDULH/6oouVsjBtNM2XWEKb9eXPkZxVL/mUtgpkqPxXjWdfiBXJL5bW9+wlmBohXMwr
-	UaEEtFqQ==;
+	bh=2/+9Nrg/MBKOyjOA2O+fnXbPaDve8v5ZbqMCiqeCxKE=; b=fpjV8tWnSQj8EIUp2507v53479
+	QX5ko+GUPJETTCUaEDbw7Uc9UO8/e5qLY1L9ScQ/T7JLGp8y68UjJeM/SW1SorycOKuhBYmJZ6O/6
+	6R5W/JWarAoUiPwTZHbxLI73BF1c3/b8b2lyIQWAuCzyFX2kjfwE+wRBVOkOqyWHOl2evVAWlfNoU
+	ylz+Uz08MWelcuzCXYXUxNly68slURDiUW6YcPXPBLzxyAo3YCJjnbNsgo25eD49aeYxK4kSxiA00
+	MKubeyqVVDJQ8N1OrDR1XyQJwTTFdXd/A7qZcgoEJ+NkncK2EQp4aul2lBPYdsBzk05zxxFjH7lLR
+	NDWkUKUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFA2Z-00000007JIm-1ZtX;
-	Sat, 01 Nov 2025 11:45:03 +0000
+	id 1vFABQ-00000007JgZ-13Q1;
+	Sat, 01 Nov 2025 11:54:12 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFA2X-00000007JI5-1y6S;
-	Sat, 01 Nov 2025 11:45:02 +0000
+	id 1vFABN-00000007Jg7-2DHm;
+	Sat, 01 Nov 2025 11:54:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=PHVYSvdDYI0ifXKzRw7b8rWjTZ1yx6Imu7EM6kr3mrU=; b=F9EcTBASWM5qh/zDz2Za0DKHJv
-	O86Tv5obC46pwjRdwxGXFTKR4PRNCzkPOkXPSnqWov/3dIxsIxD3Ne0RjmQzOn0YG5aAkU3hFoL4g
-	+s+WRlofAnWqd/jtEX59Us1aepVBVm2xn/WwE+qLd5oUHbVJjWXwdXWvVmywqjAXM7DJGN55ERaWK
-	ek3ieHeDNY1kQSmWmFNZZTLr6kiWLGzqpxVmOjvJjL/CWDZDHP1owMZ6CwrvOLr8Nxh+wdd0rAeyu
-	yCkTa1xbnBENaEsSEpr7zWK1X5Tn51bI3PZMKji1nQ1FpOIhiRfPgPeFX3BGaw9AcTUdIwyK3/A3G
-	FK1eTZ3g==;
+	bh=2/+9Nrg/MBKOyjOA2O+fnXbPaDve8v5ZbqMCiqeCxKE=; b=vBFn4pnkphDuozK5iAz9y8k4E4
+	l5Rk/WmLU/cMVmO4oTd5xthvniS2QfDBF5scMKSfVkaPyVEXrUevzYFw8mGUGcPSgdLB6m9vAw7lE
+	3yYX1wd/CdVCYJlvwFqodjOgNkWhtfa1rC64UCZG+zqeLKhNZz9QbS7egZdf9ITJJnH/yEg4vVEJx
+	1Q6tL++wkVXm5jAoAFl3vHxvhP4IVa/O/i0RCUGOZn4bG++Lw1f/LPUHbX6gU3S3OuA4tgB9gI4JS
+	XGzKWfsPt+VkalK0ndUKpt5SZ5RRm22bLwmVaIcTb3cjXXDiY+WbgjuBhv8ZAk+qjzDGHKTmXGaM+
+	xhCyyjwg==;
 Received: from i53875b80.versanet.de ([83.135.91.128] helo=phil.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vFA2Q-0008ME-Vd; Sat, 01 Nov 2025 12:44:55 +0100
+	id 1vFABL-0008PQ-Jz; Sat, 01 Nov 2025 12:54:07 +0100
 From: Heiko Stuebner <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>, Dragan Simic <dsimic@manjaro.org>
-Cc: sigmaris@gmail.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- robh@kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: pwm-fan overlay for NanoPC-T6
-Date: Sat, 01 Nov 2025 12:44:54 +0100
-Message-ID: <2246326.irdbgypaU6@phil>
-In-Reply-To: <2cfeeb0c-f7e0-b101-62c4-3b6eae40a30b@manjaro.org>
-References: <d583ee43-38c4-40fb-b33b-ce3153c9723b@gmail.com>
- <CABjd4Yzfx-4xBHVB=W_r6nEdbwNJKdpHYB6bN3Xsk8dZOegJWw@mail.gmail.com>
- <2cfeeb0c-f7e0-b101-62c4-3b6eae40a30b@manjaro.org>
+To: Shawn Lin <shawn.lin@rock-chips.com>, Tianling Shen <cnsztl@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Grzegorz Sterniczuk <grzegorz@sternicz.uk>,
+ Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Jianfeng Liu <liujianfeng1994@gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6 with
+ A3A444 chips
+Date: Sat, 01 Nov 2025 12:54:06 +0100
+Message-ID: <10751338.nUPlyArG6x@phil>
+In-Reply-To: <5af928c4-4b6e-489c-ad39-26cef3dd7473@gmail.com>
+References: <20251017073954.130710-1-cnsztl@gmail.com>
+ <08911ae2-fef3-432d-a236-d820c9cb67ac@gmail.com>
+ <5af928c4-4b6e-489c-ad39-26cef3dd7473@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_044501_536406_5C2CB679 
-X-CRM114-Status: GOOD (  55.22  )
+X-CRM114-CacheID: sfid-20251101_045409_641418_861BD2D4 
+X-CRM114-Status: GOOD (  24.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,138 +77,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 27. Oktober 2025, 22:15:05 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Dragan Simic:
-> Hello Alexey,
+Am Montag, 27. Oktober 2025, 18:34:25 Mitteleurop=C3=A4ische Normalzeit sch=
+rieb Tianling Shen:
+> + Jianfeng
 >=20
-> On Monday, October 27, 2025 21:56 CET, Alexey Charkov <alchark@gmail.com>=
- wrote:
-> > On Tue, Oct 28, 2025 at 12:02=E2=80=AFAM Dragan Simic <dsimic@manjaro.o=
-rg> wrote:
-> > > On Mon, Oct 27, 2025 at 7:08=E2=80=AFPM Hugh Cole-Baker <sigmaris@gma=
-il.com> wrote:
-> > > > On 27/10/2025 09:14, Alexey Charkov wrote:
-> > > >
-> > > >> Is there any downside to enabling this unconditionally in the board
-> > > >> .dts?
-> > > >
-> > > > Only that it goes against the principle that the DT should describe=
- the
-> > > > hardware; the board .dts would describe a cooling device that doesn=
-'t
-> > > > actually exist on the base board.
-> > >
-> > > Having a separate DT overlay is perfectly fine if we want to
-> > > describe a board absolutely correctly: if the fan actually isn't
-> > > present, the operating system shouldn't be made to think it is
-> > > there, especially if there's no fan RPM feedback, which is the
-> > > case on almost all Rockchip boards that support a fan.
-> > >
-> > > Preventing the kernel from managing a non-existent fan might even
-> > > save some CPU cycles, ending up producing a bit less heat, which
-> > > can only help in passively cooled setups.
+> On 2025/10/20 12:44, Tianling Shen wrote:
+> > Hi Shawn,
 > >=20
-> > Sounds like an overcomplication without real benefit. It's one thing
-> > with overlays for functionality that can be software-incompatible
-> > depending on whether an external attachment is connected or depending
-> > on the type of attachment connected. Here we are looking at a plain
-> > 2-pin fan which cannot be software incompatible to anything really
-> > (it's not like one could repurpose the fan connector for anything
-> > meaningful if a fan is not in use, and noone gets hurt if a PWM output
-> > is left running without load).
+> > On 2025/10/20 9:53, Shawn Lin wrote:
+> >> Hi Tianling
+> >>
+> >> On 2025/10/17 Friday 15:39, Tianling Shen wrote:
+> >>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+> >>>
+> >>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors and
+> >>> corruption when using HS400 mode. Downgrade to HS200 mode to ensure
+> >>> stable operation.
+> >>
+> >> May I ask you to test another patch I just posted to see if it fixes
+> >> your issue?
+> >>
+> >> https://patchwork.kernel.org/project/linux-mmc/=20
+> >> patch/1760924981-52339-1- git-send-email-shawn.lin@rock-chips.com/
 > >=20
-> > The CPU cycles spent parsing a slightly larger DTB at boot are likely
-> > comparable to those spent activating a PWM output needlessly upon
-> > hitting the active cooling trip point, and both are negligible for any
-> > practical purpose.
+> > Thank you for the patch! I will ask my friend to test it but he uses=20
+> > this board as a home router, so it may take a few days or weeks to=20
+> > report the result.
 >=20
-> Hmm, right, I forgot for a moment that the PWM output is generated
-> by dedicated hardware, so not many CPU cycles would be wasted.
->=20
-> BTW, with a fan PWM signal generated by a soft-GPIO output, much
-> more CPU cycles would've been saved by omitting the fan definition
-> if it isn't present, but that isn't the case here.
->=20
-> > > However, the practice so far has been to describe the fans in the
-> > > main board dts files, if the board provides fan support, regardless
-> > > of the fan being present in a particular board setup or not.
-> > >
-> > > > I guess then in theory, an OS might allow the SoC to reach undesira=
-bly high
-> > > > temperatures if it's relying on the nonexistent fan to cool it down=
-=2E But I
-> > > > don't think this would be an issue on Linux, at least, in practice.
-> > >
-> > > We're safe, a thermal runaway isn't going to happen when the fan is
-> > > defined in a board DT but actually isn't present.  Thermal CPU and
-> > > GPU throttling will prevent the overheating from happening.
-> > >
-> > > >> Overlays require more user configuration, and not all
-> > > >> bootloaders support them directly (e.g. systemd-boot users would
-> > > >> struggle). Compiling with overlays enabled also makes .dtb's a lot
-> > > >> larger due to added symbols information.
-> > > >
-> > > > Nowadays (on Debian at least) using overlays is pretty easy, I'm us=
-ing the
-> > > > u-boot-menu package in Debian, I just copy the overlay(s) to /boot/=
-dtbo/ and
-> > > > it detects them automatically and adds them to extlinux.conf for u-=
-boot to
-> > > > apply.
-> > > >
-> > > > Couldn't systemd-boot users just use rk3588-nanopc-t6-(lts-)with-fa=
-n.dtb as
-> > > > their single DT to load, if it doesn't support applying overlays an=
-d they
-> > > > want to use the fan addon?
-> >=20
-> > Sure, but it's a manual configuration step, where otherwise the kernel
-> > would just default to the correct dtb for the board that the firmware
-> > told it about. The fan is not discoverable, so the firmware won't ever
-> > offer the "-with-fan" variant, meaning users would need to supply it
-> > manually in every instance.
->=20
-> FWIW, the most user-friendly SBC family in the world, Raspberry
-> Pi, :) requires manual enabling of the fan on Raspberry Pi 4.
-> I haven't researched what's the background for that, perhaps the
-> need to keep the GPIO expansion header completely unoccupied by
-> default, because the fan attaches to the GPIO header, instead of
-> to some dedicated fan connector.
->=20
-> > > Yes, that's an option.  However, that in general doesn't resolve
-> > > the issues arising from systemd-boot users wanting to apply more
-> > > than a single DT overlay.
-> > >
-> > > > FWIW, I haven't noticed any problems with having a larger .dtb (usi=
-ng mainline
-> > > > U-Boot to load it) and several other RK3588 boards are also compile=
-d with
-> > > > symbols enabled already, and I haven't seen any issues reported wit=
-h them.
-> > >
-> > > After thinking a bit about it, I'd support the extraction of fan
-> > > definitions into separate DT overlays.  As I wrote above already,
-> > > not managing the non-existent fan might actually help a bit with
-> > > passively cooled board setups, which is a good enough reason for
-> > > me to support separate DT overlays.
-> >=20
-> > Practical benefits sound far fetched here, while forcing users to
-> > manually configure something that would have otherwise just worked.
-> > Let's see what Heiko thinks.
+> Hi all, sorry for the late. My friend has tested this patch and it works=
+=20
+> fine after 50 times dd operation. A big thanks to Shawn!
 
-Personally, I'm more on the less complication side.
-
-I.e. if there is an actual fan-connector on the board we should describe
-it as such.
-
-Overlays I see for things where you attach hats to generic pin headers
-to create specific functionality on top of a generic interface.
-
-But if the board itself has an actual fan header, it should be described
-as such. Because that then _is_ the standard use of that.
+So I guess, we don't need the patch reducing the speed anymore, right?
 
 
+Thanks
 Heiko
+
+
+> And hi Jianfeng, I found you made a similiar patch[1] for the ROCK 5 ITX=
+=20
+> board to lower down the mmc speed, could you please check if this patch=20
+> also fixes your issue?
+>=20
+> Thanks,
+> Tianling.
+>=20
+> 1.=20
+> https://lore.kernel.org/linux-rockchip/20250228143341.70244-1-liujianfeng=
+1994@gmail.com/
+>=20
+> >=20
+> > Thanks,
+> > Tianling.
+> >=20
+> >>
+> >>
+> >>>
+> >>> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+> >>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
+> >>> ---
+> >>>   arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
+> >>>   1 file changed, 1 insertion(+), 2 deletions(-)
+> >>>
+> >>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/=20
+> >>> arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+> >>> index fafeabe9adf9..5f63f38f7326 100644
+> >>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+> >>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+> >>> @@ -717,8 +717,7 @@ &sdhci {
+> >>>       no-sd;
+> >>>       non-removable;
+> >>>       max-frequency =3D <200000000>;
+> >>> -    mmc-hs400-1_8v;
+> >>> -    mmc-hs400-enhanced-strobe;
+> >>> +    mmc-hs200-1_8v;
+> >>>       status =3D "okay";
+> >>>   };
+> >>
+> >=20
+>=20
+>=20
+
+
 
 
 
