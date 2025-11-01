@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9009CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 13:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C88CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 13:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPHqoq2Dbr98/AhrIcs43AntO+XyDRbEh8HD1hf20WI=; b=JAScGSqSRadSLhGFH+gBQcD9PT
-	4IYvNKIGeqbj7EYzqx+H6GIjQx6n3EcVNE2DA06QhTtN0czLkZ/CtOsBRyV39PuSTpri9j0ikCCmU
-	SpgoOS2i1+0LcwsYk3u7yUEJGg0Uw9DsxXYrcoUJfQzWX2HEjSDvRhkD9MGs3vwHZ1N4+2DFgwDum
-	2QFH3WcuXYJJxucXROKnjLExTd4G2dcQUY274BYiPfa7oaDOoPMhAnTME4aY5WFW9MWHNnFfu2Efi
-	vUirxztc0MEaFNwpi0hJFtiPsCSQFtsQLSq7FrwXaHUtSem2mnPshVK98uCcfGahN5T9zf4iZ/RYt
-	FcF4dpYQ==;
+	bh=igGoFfjYr0gx7p+P1chKL+mLA5lCOX0X0DM+4gTK2VE=; b=B3jk0mhxZmo0N3mZCzTPqtQQCi
+	zHqWii1kDOOGJ2X0iOxefjkJIp7ut4lJSa0ftFqTz/xyf8vpnd2Jo8hhuxYOFjTDUWRd6p+fDOtO7
+	fybZsQ/IYqjKut2XXcF5qbRuCUPkho0MyVaCVjCZPb+9FtUjpKsaOGQQ/FOC91UJVelMawM8RP6mg
+	HNtYU9B7ToXlVpNUgp9Zhcslh1IqszaTi2DUHighEdJAd3KVrAUffXIt2Bw/QS97+JSsNoRE+dr1e
+	u1QVdg/38Kcj5vqvHdxEG22ZVKIJkl5azqoIOhwYhHBRonwB2eYHszreuppgTfyuIyYNBTeYAK22x
+	tmEvBrLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFBjM-00000007mZx-20cz;
-	Sat, 01 Nov 2025 13:33:20 +0000
+	id 1vFBjN-00000007md1-36WY;
+	Sat, 01 Nov 2025 13:33:22 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFBjC-00000007mBJ-45J2;
+	id 1vFBjD-00000007m8U-0RJA;
 	Sat, 01 Nov 2025 13:33:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1762003979;
-	bh=YUkMxhc36lfDFQq88M5/ukQps2eWc5BNpPfONN/wkTU=;
+	bh=ehoK8fZf94EyPJ6NwKMPoY3AbvxsvMfKSeRs4gLjd6w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=l0fhBZXxbT5HKIykr8Fk3qKkjo31VGI8L72JfSpzHqeBi4RmwcTYVZ9qT9eqT9vKP
-	 47Z9ZTZAc4WQmdlmrnm5SbrNzjB4I+sOuKf7K4Dj1YvnHre3lZ3ccBIXLsY7dR8/LP
-	 Xr1xI6M3e97yGGrfAsaM1s7CZPl26mWFOB986EZC0mOnw/KPeUpjnFZETvpcWZMjZv
-	 vTZWfzE68I0GYM+3S8thQFOikv5EDEJjoO99dXaaast1sl41rRdfW1lTo8ZjIdVtKh
-	 /cf59dS3alql+eEWEePZgCuSbm73WBffOmaWq/uSx/dKtYxOZQwQ1xXvHXgUtRVKq3
-	 icKuL/Tg8ynUQ==
-Received: from beast.luon.net (unknown [IPv6:2a10:3781:2531::8])
+	b=lAE3KTjSfaomBP7o+9LEwq+KhmWbVGytQUHuaD7HoDbk3bDOBaICBvGt3xHS3Vuf7
+	 cQ9yWHdjXDlDq5Noltbb9rbC1bJClo1xYjVsxMNGjAZxJvUOvWCw4KwrdarFe0N78L
+	 KhTGHYTJ5HgjYEwaMtQCRrDKNKLB7eTaWKrkF9BNvAFwvID0HBVaAtQ1u/ehqdhfYp
+	 FM0a/IrvMerFf5cyB5gYfjxTI5YdqmmFsiovAJaL/N4TO4bY4wV2VZM7Vo3Fp35Cwo
+	 4Ej4Vqi7e2VsoYa/qx87Q5fW/T21eFWab70u2QwxpA/hWhyHy0pGciwsFT5v7xRdZM
+	 3Qz0sATeHSf0g==
+Received: from beast.luon.net (simons.connected.by.freedominter.net [45.83.240.172])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sjoerd)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6C2DB17E1423;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 78A7F17E142F;
 	Sat,  1 Nov 2025 14:32:59 +0100 (CET)
 Received: by beast.luon.net (Postfix, from userid 1000)
-	id BBBAB10E9D03C; Sat, 01 Nov 2025 14:32:58 +0100 (CET)
+	id B5E0C10E9D03A; Sat, 01 Nov 2025 14:32:58 +0100 (CET)
 From: Sjoerd Simons <sjoerd@collabora.com>
-Date: Sat, 01 Nov 2025 14:32:55 +0100
-Subject: [PATCH v2 10/15] arm64: dts: mediatek: mt7981b-openwrt-one: Enable
- SPI NOR
+Date: Sat, 01 Nov 2025 14:32:54 +0100
+Subject: [PATCH v2 09/15] arm64: dts: mediatek: mt7981b: Add Ethernet and
+ WiFi offload support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251101-openwrt-one-network-v2-10-2a162b9eea91@collabora.com>
+Message-Id: <20251101-openwrt-one-network-v2-9-2a162b9eea91@collabora.com>
 References: <20251101-openwrt-one-network-v2-0-2a162b9eea91@collabora.com>
 In-Reply-To: <20251101-openwrt-one-network-v2-0-2a162b9eea91@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -79,8 +79,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  Sjoerd Simons <sjoerd@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_063311_295281_191CDD61 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20251101_063312_061753_958EC68E 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,133 +95,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The openwrt one has a SPI NOR flash which from factory is used for:
-* Recovery system
-* WiFi eeprom data
-* ethernet Mac addresses
-
-Describe this following the same partitions as the openwrt configuration
-uses.
+Add device tree nodes for the Ethernet subsystem on MT7981B SoC,
+including:
+- Ethernet MAC controller with dual GMAC support
+- Wireless Ethernet Dispatch (WED)
+- SGMII PHY controllers for high-speed Ethernet interfaces
+- Reserved memory regions for WiFi offload processor
 
 Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 ---
-V1 -> V2:
-  - Use numeric drive-strength values rather then defines
-  - Make nvmem cell labers more meaningfull
-  - Only define nvmem cells used in later patches by devicetree
+V1 -> V2: Don't add unneeded interrupt-parent
 ---
- .../boot/dts/mediatek/mt7981b-openwrt-one.dts      | 77 ++++++++++++++++++++++
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi          |  2 +-
- 2 files changed, 78 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 133 +++++++++++++++++++++++++++++-
+ 1 file changed, 132 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-index 5834273839c17..183e48d985ed7 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-@@ -3,6 +3,7 @@
- /dts-v1/;
- 
- #include "mt7981b.dtsi"
-+#include "dt-bindings/pinctrl/mt65xx.h"
- 
- / {
- 	compatible = "openwrt,one", "mediatek,mt7981b";
-@@ -53,6 +54,82 @@ mux {
- 			groups = "pcie_pereset";
- 		};
- 	};
-+
-+	spi2_flash_pins: spi2-pins {
-+		mux {
-+			function = "spi";
-+			groups = "spi2";
-+		};
-+
-+		conf-pu {
-+			bias-pull-up = <MTK_PUPD_SET_R1R0_11>;
-+			drive-strength = <8>;
-+			pins = "SPI2_CS", "SPI2_WP";
-+		};
-+
-+		conf-pd {
-+			bias-pull-down = <MTK_PUPD_SET_R1R0_11>;
-+			drive-strength = <8>;
-+			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
-+		};
-+	};
-+};
-+
-+&spi2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spi2_flash_pins>;
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <40000000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				reg = <0x00000 0x40000>;
-+				label = "bl2-nor";
-+			};
-+
-+			partition@40000 {
-+				reg = <0x40000 0xc0000>;
-+				label = "factory";
-+				read-only;
-+
-+				nvmem-layout {
-+					compatible = "fixed-layout";
-+					#address-cells = <1>;
-+					#size-cells = <1>;
-+
-+					wifi_factory_calibration: eeprom@0 {
-+						reg = <0x0 0x1000>;
-+					};
-+
-+					wan_factory_mac: macaddr@24 {
-+						reg = <0x24 0x6>;
-+						compatible = "mac-base";
-+						#nvmem-cell-cells = <1>;
-+					};
-+				};
-+			};
-+
-+			partition@100000 {
-+				reg = <0x100000 0x80000>;
-+				label = "fip-nor";
-+			};
-+
-+			partition@180000 {
-+				reg = <0x180000 0xc80000>;
-+				label = "recovery";
-+			};
-+		};
-+	};
- };
- 
- &uart0 {
 diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-index 3510a26cb5112..2c9819f28fdc2 100644
+index fab22cbbece47..3510a26cb5112 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-@@ -195,7 +195,7 @@ i2c@11007000 {
- 			status = "disabled";
+@@ -2,6 +2,7 @@
+ 
+ #include <dt-bindings/clock/mediatek,mt7981-clk.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/leds/common.h>
+ #include <dt-bindings/phy/phy.h>
+ #include <dt-bindings/reset/mt7986-resets.h>
+ 
+@@ -47,11 +48,36 @@ reserved-memory {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
++		wo_boot: wo-boot@15194000 {
++			reg = <0 0x15194000 0 0x1000>;
++			no-map;
++		};
++
++		wo_ilm0: wo-ilm@151e0000 {
++			reg = <0 0x151e0000 0 0x8000>;
++			no-map;
++		};
++
++		wo_dlm0: wo-dlm@151e8000 {
++			reg = <0 0x151e8000 0 0x2000>;
++			no-map;
++		};
++
+ 		/* 192 KiB reserved for ARM Trusted Firmware (BL31) */
+ 		secmon_reserved: secmon@43000000 {
+ 			reg = <0 0x43000000 0 0x30000>;
+ 			no-map;
+ 		};
++
++		wo_emi0: wo-emi@47d80000 {
++			reg = <0 0x47d80000 0 0x40000>;
++			no-map;
++		};
++
++		wo_data: wo-data@47dc0000 {
++			reg = <0 0x47dc0000 0 0x240000>;
++			no-map;
++		};
+ 	};
+ 
+ 	soc {
+@@ -107,6 +133,18 @@ pwm@10048000 {
+ 			#pwm-cells = <2>;
  		};
  
--		spi@11009000 {
-+		spi2: spi@11009000 {
- 			compatible = "mediatek,mt7981-spi-ipm", "mediatek,spi-ipm";
- 			reg = <0 0x11009000 0 0x1000>;
- 			interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>;
++		sgmiisys0: syscon@10060000 {
++			compatible = "mediatek,mt7981-sgmiisys_0", "syscon";
++			reg = <0 0x10060000 0 0x1000>;
++			#clock-cells = <1>;
++		};
++
++		sgmiisys1: syscon@10070000 {
++			compatible = "mediatek,mt7981-sgmiisys_1", "syscon";
++			reg = <0 0x10070000 0 0x1000>;
++			#clock-cells = <1>;
++		};
++
+ 		uart0: serial@11002000 {
+ 			compatible = "mediatek,mt7981-uart", "mediatek,mt6577-uart";
+ 			reg = <0 0x11002000 0 0x100>;
+@@ -345,15 +383,108 @@ soc-uuid@140 {
+ 			thermal_calibration: thermal-calib@274 {
+ 				reg = <0x274 0xc>;
+ 			};
++
++			phy_calibration: phy-calib@8dc {
++				reg = <0x8dc 0x10>;
++			};
+ 		};
+ 
+-		clock-controller@15000000 {
++		ethsys: clock-controller@15000000 {
+ 			compatible = "mediatek,mt7981-ethsys", "syscon";
+ 			reg = <0 0x15000000 0 0x1000>;
+ 			#clock-cells = <1>;
+ 			#reset-cells = <1>;
+ 		};
+ 
++		wed: wed@15010000 {
++			compatible = "mediatek,mt7981-wed",
++				     "syscon";
++			reg = <0 0x15010000 0 0x1000>;
++			interrupts = <GIC_SPI 205 IRQ_TYPE_LEVEL_HIGH>;
++			memory-region = <&wo_emi0>, <&wo_ilm0>, <&wo_dlm0>,
++					<&wo_data>, <&wo_boot>;
++			memory-region-names = "wo-emi", "wo-ilm", "wo-dlm",
++					      "wo-data", "wo-boot";
++			mediatek,wo-ccif = <&wo_ccif0>;
++		};
++
++		eth: ethernet@15100000 {
++			compatible = "mediatek,mt7981-eth";
++			reg = <0 0x15100000 0 0x40000>;
++			assigned-clocks = <&topckgen CLK_TOP_NETSYS_2X_SEL>,
++					  <&topckgen CLK_TOP_SGM_325M_SEL>;
++			assigned-clock-parents = <&topckgen CLK_TOP_CB_NET2_800M>,
++						 <&topckgen CLK_TOP_CB_SGM_325M>;
++			clocks = <&ethsys CLK_ETH_FE_EN>,
++				 <&ethsys CLK_ETH_GP2_EN>,
++				 <&ethsys CLK_ETH_GP1_EN>,
++				 <&ethsys CLK_ETH_WOCPU0_EN>,
++				 <&topckgen CLK_TOP_SGM_REG>,
++				 <&sgmiisys0 CLK_SGM0_TX_EN>,
++				 <&sgmiisys0 CLK_SGM0_RX_EN>,
++				 <&sgmiisys0 CLK_SGM0_CK0_EN>,
++				 <&sgmiisys0 CLK_SGM0_CDR_CK0_EN>,
++				 <&sgmiisys1 CLK_SGM1_TX_EN>,
++				 <&sgmiisys1 CLK_SGM1_RX_EN>,
++				 <&sgmiisys1 CLK_SGM1_CK1_EN>,
++				 <&sgmiisys1 CLK_SGM1_CDR_CK1_EN>,
++				 <&topckgen CLK_TOP_NETSYS_SEL>,
++				 <&topckgen CLK_TOP_NETSYS_500M_SEL>;
++			clock-names = "fe", "gp2", "gp1", "wocpu0",
++				      "sgmii_ck",
++				      "sgmii_tx250m", "sgmii_rx250m",
++				      "sgmii_cdr_ref", "sgmii_cdr_fb",
++				      "sgmii2_tx250m", "sgmii2_rx250m",
++				      "sgmii2_cdr_ref", "sgmii2_cdr_fb",
++				      "netsys0", "netsys1";
++			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "fe0", "fe1", "fe2", "fe3", "pdma0",
++					  "pdma1", "pdma2", "pdma3";
++			sram = <&eth_sram>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			mediatek,ethsys = <&ethsys>;
++			mediatek,sgmiisys = <&sgmiisys0>, <&sgmiisys1>;
++			mediatek,infracfg = <&topmisc>;
++			mediatek,wed = <&wed>;
++			status = "disabled";
++
++			mdio_bus: mdio-bus {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				int_gbe_phy: ethernet-phy@0 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <0>;
++					phy-mode = "gmii";
++					phy-is-integrated;
++					nvmem-cells = <&phy_calibration>;
++					nvmem-cell-names = "phy-cal-data";
++				};
++			};
++		};
++
++		eth_sram: sram@15140000 {
++			compatible = "mmio-sram";
++			reg = <0 0x15140000 0 0x40000>;
++			ranges = <0 0x15140000 0 0x40000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++		};
++
++		wo_ccif0: syscon@151a5000 {
++			compatible = "mediatek,mt7986-wo-ccif", "syscon";
++			reg = <0 0x151a5000 0 0x1000>;
++			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
+ 		wifi@18000000 {
+ 			compatible = "mediatek,mt7981-wmac";
+ 			reg = <0 0x18000000 0 0x1000000>,
 
 -- 
 2.51.0
