@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F071CCFA02
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 16:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3657CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Nov 2025 17:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G0jsLZvsAQ9jUhuq/Qy/GAwPEDahTIIfhybMb8BvNq8=; b=kzpZtJuTBcA7oUvy/FZTcJ23RX
-	beFXFnjBMu7iK0Jt1c+UL6ZHGZGABI22Qod+ZvKQAKkd9h1qs/A0BL4nyDAArG2N5jh7CzXTgVFMP
-	3ZeetVJ5PJBHpSxD4UR1/g8PJk9ZmXqVUU/MfWaaIHyi68qJ0qKqR/sh/NwJcuGHiF4uWit6v8+xS
-	w1E8sDHXDozZRn7v2RU+6+ZXEq4nFiZsLCXQhSV5+Xa0E0yoS9WAXQkA7A2i0fSAG9U+9baYw9VGd
-	p/0gisXgho9gyL5sJdM+IKKmnWd2jWmqCE8+wVQavVwit3VXd8V5eqTmlLnF+ePpsaL/fi2yh8J9V
-	2OvYBuDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1/+Nze/WxYiePnoauR8DL7uQ8un+Tc8QVxtrh0Cr7cg=; b=MsmxY8X1EsyOVr517oZL0Kq84s
+	+3iKvxzOQL3m+GWtlzmw2Agj3bUJiEHlzdaXyrv1M0LeHGHUSbf4ohnoHweVJ3rQPbYylFK4XCpX8
+	tX/jhs/QL0ySgubLhR4YDHe+kZxY6QuZfZlRyuwAA8lX038wgr8e4sQ/JoCx1bzhnSAagMo+IDnfh
+	not0RROhsVInhVy+4hKix2onntqu3JDlbnNJebcC6KhQ9qVJYuX7RrFgJywiuc+XIBiBGIUYKHFFg
+	eNW4JovzZxl1L6KPSkF+PojEnRYfuUinyRqbBdzbZBsRhLR6W6LSGzb2rmyEtF+JdEOS5/WRf3qdE
+	prgKqQLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFEtO-00000007xKP-0IJi;
-	Sat, 01 Nov 2025 16:55:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFEz9-00000007xdZ-238F;
+	Sat, 01 Nov 2025 17:01:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFEtM-00000007xK0-0f4o
+	id 1vFEz8-00000007xdQ-1GlS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Nov 2025 16:55:53 +0000
+	Sat, 01 Nov 2025 17:01:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C26AE44254
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  1 Nov 2025 16:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C43C19424
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  1 Nov 2025 16:55:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6262A601D9;
+	Sat,  1 Nov 2025 17:01:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEA4BC4CEF1;
+	Sat,  1 Nov 2025 17:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762016150;
-	bh=sP80vbxc0GNP/r5uXwFDomQ23UoJ4yroWxjXP3XmNMU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RF0EYwGkYWAviePjW7xN/OJRvwNhbqV1hMMNIs20gYmgWjrUhX3VTiMTlz9ZOCZ5B
-	 NXQkgiqk8kYiwPDsvTA0VFMALLKyf5rQdgj/CBG1sTE15ccibfrhS1g63ZlKX1lHKM
-	 7UL3/hfHnLT5czan5cp/tcrvWDt4uWQ6UuGsdc+QEdMaz7s1qTGKGYYXQJYBe6vVca
-	 z1o0oo3gMr4PFJwzcE+qRl/dEms8SbUHTB8ZwVA2Uf/IDxdQO9JDrNb7/WRWaVtzGH
-	 71Lh5gelYwPa5qTi/Hg3BmeOn0k8gVwdT2WJ5JcjHGb8oMfT8U2c1Ut/j9b0mZ+sFJ
-	 GEsrrsx0XoT7g==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3737d09d123so42399961fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Nov 2025 09:55:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUs+7vWgH6blD+8ZK4srRFG9/7QSKuFjTHqlHE3FLJdUUjPvbuj3R8cnEez+VFlLZTOkIgHP5ac73l6Yyv7OQym@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKVFcCRbQzSlXJGwdrbHmlUm3G6CTABuVv/O84BZKZLzdCh64O
-	tezmjp8rnRVIhrILD/K8aZM2Oy3OhHmFWfTdNZpgVV52gXD4un9f4hdPhADaO5D/LMBTn/9Nqmi
-	LaZkaOZr++kYchGRAjNAEFsOVdSm2rWo=
-X-Google-Smtp-Source: AGHT+IFzm6byOVEcoCYQ/cLxtsweQADoRZYzXMb1uWfsMHcHS2qxBFBPxKTICmebgyez5+m6RGoVxWrnW9Pxli+8r4A=
-X-Received: by 2002:a2e:b8cb:0:b0:37a:2c7d:2d69 with SMTP id
- 38308e7fff4ca-37a2c7d3241mr5473091fa.40.1762016148544; Sat, 01 Nov 2025
- 09:55:48 -0700 (PDT)
+	s=k20201202; t=1762016509;
+	bh=GP4gDrHyamNc1MWJlGO4DRUHbfFH0p+wioFnu0kmRDY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j7N0Y46bpWBWILdmwRBfx/EieWyWKblN8vIi6YHFx9y+MnJTYHP5UMYH923Ey8YAU
+	 vEtmaDKrsmAxUTA87sAJ3n0eNCFihZeW3tpkB/hnrYu7MpK1YoMt70FJ5M3jPITPT4
+	 XCwDvqmuxXYLeeISsKUTFKL5j26hCpuQ12QFJyKaTHuzReUsm5q4Nul1fi3RGAa/2l
+	 aM18xxV+l/u+iXiCSvnwzMJm8QG6okidZIIhOMNZQaq+JZv/X+gYVXqYsc7Vcxyv42
+	 jfrjvOmssQYCZRilrAz179zuzRn6A2sriUYsZEX7SdovhxPb3pAE0o+Iu0CvtlkEcG
+	 6pLXEB94bqeEA==
+Date: Sat, 1 Nov 2025 17:01:41 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Jean-Baptiste Maneyrol
+ <jean-baptiste.maneyrol@tdk.com>, David Lechner <dlechner@baylibre.com>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
+ <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: iio: imu: mpu6050: remove interrupts
+ from required list
+Message-ID: <20251101170141.103d6689@jic23-huawei>
+In-Reply-To: <20251030-glorious-nano-muskox-e37d49@kuoka>
+References: <20251029-qxp_sensor-v1-0-e97ee1de96d8@nxp.com>
+	<20251029-qxp_sensor-v1-1-e97ee1de96d8@nxp.com>
+	<20251030-glorious-nano-muskox-e37d49@kuoka>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20251101-kbuild-ms-extensions-dedicated-cflags-v1-1-38004aba524b@kernel.org>
-In-Reply-To: <20251101-kbuild-ms-extensions-dedicated-cflags-v1-1-38004aba524b@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 1 Nov 2025 17:55:37 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGy8s7Cc=aycKymv2d5wEZFL5J5_HxWyMb-QYDXkUrU9Q@mail.gmail.com>
-X-Gm-Features: AWmQ_bnURnp_FaiKs8-FENuEErFxDHIc7i6dKr7lAYFTzEG_ElUiaSBCxPBJiyA
-Message-ID: <CAMj1kXGy8s7Cc=aycKymv2d5wEZFL5J5_HxWyMb-QYDXkUrU9Q@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: Add '-fms-extensions' to areas with dedicated CFLAGS
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org, llvm@lists.linux.dev, 
-	Christian Brauner <brauner@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_095552_290415_12176B86 
-X-CRM114-Status: GOOD (  22.49  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 1 Nov 2025 at 17:36, Nathan Chancellor <nathan@kernel.org> wrote:
->
-> This is a follow up to commit c4781dc3d1cf ("Kbuild: enable
-> -fms-extensions") but in a separate change due to being substantially
-> different from the initial submission.
->
-> There are many places within the kernel that use their own CFLAGS
-> instead of the main KBUILD_CFLAGS, meaning code written with the main
-> kernel's use of '-fms-extensions' in mind that may be tangentially
-> included in these areas will result in "error: declaration does not
-> declare anything" messages from the compiler.
->
-> Add '-fms-extensions' to all these areas to ensure consistency, along
-> with -Wno-microsoft-anon-tag to silence clang's warning about use of the
-> extension that the kernel cares about using. parisc does not build with
-> clang so it does not need this warning flag. LoongArch does not need it
-> either because -W flags from KBUILD_FLAGS are pulled into cflags-vdso.
->
-> Reported-by: Christian Brauner <brauner@kernel.org>
-> Closes: https://lore.kernel.org/20251030-meerjungfrau-getrocknet-7b46eacc215d@brauner/
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
-> I am taking the original '-fms-extensions' change [1] via a shared
-> branch in kbuild [2] so I would appreciate acks. I plan to finalize that
-> branch so that other maintainers can safely pull it on Thursday.
->
-> [1]: https://git.kernel.org/kbuild/c/c4781dc3d1cf0e017e1f290607ddc56cfe187afc
-> [2]: https://git.kernel.org/kbuild/l/kbuild-ms-extensions
-> ---
->  arch/arm64/kernel/vdso32/Makefile     | 3 ++-
->  arch/loongarch/vdso/Makefile          | 2 +-
->  arch/parisc/boot/compressed/Makefile  | 2 +-
->  arch/powerpc/boot/Makefile            | 3 ++-
->  arch/s390/Makefile                    | 3 ++-
->  arch/s390/purgatory/Makefile          | 3 ++-
->  arch/x86/Makefile                     | 4 +++-
->  arch/x86/boot/compressed/Makefile     | 7 +++++--
->  drivers/firmware/efi/libstub/Makefile | 4 ++--
->  9 files changed, 20 insertions(+), 11 deletions(-)
->
+On Thu, 30 Oct 2025 09:23:37 +0100
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> On Wed, Oct 29, 2025 at 03:27:18PM -0400, Frank Li wrote:
+> > Irq is optional signal to make sensor work. Not all boards connect this
+> > signals, so remove it from required list.
+> > 
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  Documentation/devicetree/bindings/iio/imu/invensense,mpu6050.yaml | 1 -
+> >  1 file changed, 1 deletion(-)  
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> Best regards,
+> Krzysztof
+> 
+
+Applied. thanks,
+J
 
