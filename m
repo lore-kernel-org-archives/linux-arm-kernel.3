@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD756CCFA02
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Nov 2025 16:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46301CCFA02
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Nov 2025 17:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tuc0gSOD9fQpTDaquk7ZB10Y9kON7r8sBAmsb13i3YA=; b=cursi0fEsQkJ/59o+1HITWNv1j
-	/SlhOjzC5/zlePqFPCXzo8dZMV3fKd1TXzT9c0zrr1g1pXPXH3JeI6vBD+fengmKLOTQZ2AchtEKs
-	isKrodg/7313hFKy8tzqOYoB2tco19kOYFuWlBlmCIDZIFeGxkvTADyVNeK6Z1uKdosUCg2+kexrj
-	MVOfSVkRt5iEIXDs+pasGTSfvvt/lpI9ZT137nmX+XysBJRs6Vk3Qawg03f9c29W+tBJT/QLE8zV1
-	ewsXWLmN3qBj2Q22s4TcugWKf7idY0Fc2dobQy9BTcG/QCt3cqQxhtNAs6mXIwa6f1aOUOhH2kQ4q
-	8KxHRRgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cObXJ30PSUthwthSYfE+TCB57ZPuOUf5acEEf646mE0=; b=tl/c5aP8UuV5eKKPPJJTctT2bi
+	3To7xxhh5QcE5fQ+PpSxW3tMT4tEd0BB5nDxsXjKuoSVTNBpO2Q6pDGKZIdqVMleEjPu8613tCWvd
+	QgJ+/BroU9r8N+r+/R/W4cYN05XHvuWi1iPzHy/L/qi71n+cPfYgfs6WsNDQw+CMaaNjzUKlGCnwt
+	9Vz2R6xTByKoJk5jdsdzD3L1OSHPgTgRStLDcecvimYN6LcjXLehG8r/eLH21Fki8bHFToBSJIC5t
+	4UO5EcOIaIaCdZJ2u2BmjelA6EGfPT0FCuPN8htGxZXVGpIiWJrh5JLwLak1D5HnVJxqh98HlRNQt
+	5ISpLh/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFb26-00000008eqr-0Bbs;
-	Sun, 02 Nov 2025 16:34:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vFbTy-00000008fyD-0zIC;
+	Sun, 02 Nov 2025 17:03:10 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFb24-00000008eqd-2KvG;
-	Sun, 02 Nov 2025 16:34:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 88BC46022D;
-	Sun,  2 Nov 2025 16:34:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABB61C4CEF7;
-	Sun,  2 Nov 2025 16:34:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762101259;
-	bh=BMHbVQks4miUEqiNB8Bj8JUPKeAlJSJSR1yVrl8aLco=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m7eRD6TVlAfyAK/SnxypxQv2CmKl306jhXgTbNo+yEzxGzgBywD4o3XO+Kra3kmUC
-	 BHeM9hHDBMsxnas3zHbLQV+jXGd43myStuXXahsqlnh1MurcU2NGwQZgqfQ1ROV/GQ
-	 R1Pn9WDjXqwgLImO8l2p2csPYY5IvVZokYSEJGvJl6QDnPEPH2lDomh0rfaaZUlZeM
-	 GXKm1g0JlMbAHcafI/yarK+QpXQbMIsDi8O/iVF9ZvJcEBhNzY649s591I/T7XpW7k
-	 vJMX2iVXWlqbfZvVvbDLnKCpTK3ZsX6HPpK8vBbVLb8hhzsxrvKHJS6Gj0qvKfdMhp
-	 vvcH1GW9R8jLA==
-Date: Sun, 2 Nov 2025 17:34:16 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sjoerd Simons <sjoerd@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Jianjun Wang <jianjun.wang@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Chunfeng Yun <chunfeng.yun@mediatek.com>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>, kernel@collabora.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-phy@lists.infradead.org, netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>, 
-	Bryan Hinton <bryan@bryanhinton.com>
-Subject: Re: [PATCH v2 08/15] dt-bindings: net: mediatek,net: Correct
- bindings for MT7981
-Message-ID: <20251102-honest-jade-hedgehog-b85f0d@kuoka>
-References: <20251101-openwrt-one-network-v2-0-2a162b9eea91@collabora.com>
- <20251101-openwrt-one-network-v2-8-2a162b9eea91@collabora.com>
+	id 1vFbTv-00000008fxl-0AkA
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 02 Nov 2025 17:03:08 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4d01Hr69VNz9tWy;
+	Sun,  2 Nov 2025 18:03:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1762102984;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cObXJ30PSUthwthSYfE+TCB57ZPuOUf5acEEf646mE0=;
+	b=n2Q1XX2LmiQ/N2Mkv3nqCEAW57yBf3oAFd/XIEY92LJCgpXFFM/rOquUPeSzHcodQIP0jj
+	kTIgPHcGfZURrQgPkaOgKZXa0WXzbhChKaBq65Iq4SrTeLR/zu9wYu97Xp6wscT9mXCsav
+	1d62AVGPtijgbe8BXNZcHNGKBJ+QwQcD4ooSqOjXFdbYWeWoYLqnACKwrl1EblsZaOxTvB
+	GHwxzYc8psf2tnHLZ+lqG3YSP9byE21ENYKcrfthmfG8b+JFFamfPEA5iTZRq4M89IQpM0
+	DyfJR6a6QT2XzGVeGGXGFXKwulNzZ+4kywdCFTnMAg3PKfqD4JGfLn9L5Ozy8w==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=iRvrAYr4;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1762102983;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cObXJ30PSUthwthSYfE+TCB57ZPuOUf5acEEf646mE0=;
+	b=iRvrAYr4FO7AzaJkf8eBmFevGmmIb+djXPYubKgKxQmGZmQqcTQK4UGrqDgKr8IIEDxzPr
+	0JqqYJxZ1fSjgOaWZlot8P69AO8eKAS3zYuT1FZ2K0gm+16zBLhdWS2njea6YQIenKxt34
+	hIFtklgZ5r154mq91B+Qu27HipodPiJRIfAFpa7/XlKXtT7YNrG6AA4QjzgnO7NRj8vreq
+	ILdHwrmgU97EQW3W/nWzF/kg1B0WvuxNuDBfHUS1G0jco/lBE1dma2arhnO61BOifwUUXo
+	Bv08mHPeL+zySrbVc/RomM+vY6rDxbPrYYefqjg8xsgxMHaZXR3Cf1t5pwKbqQ==
+To: dri-devel@lists.freedesktop.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v2] drm/bridge: fsl-ldb: Parse register offsets from DT
+Date: Sun,  2 Nov 2025 18:02:18 +0100
+Message-ID: <20251102170257.65491-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251101-openwrt-one-network-v2-8-2a162b9eea91@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: xcxj75s7zio9aapmup5yw6jehygx1ii8
+X-MBO-RS-ID: 309f2c2b1c1acb202cc
+X-Rspamd-Queue-Id: 4d01Hr69VNz9tWy
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251102_090307_259065_3A430BD4 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +102,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 01, 2025 at 02:32:53PM +0100, Sjoerd Simons wrote:
-> Different SoCs have different numbers of Wireless Ethernet
-> Dispatch (WED) units:
-> - MT7981: Has 1 WED unit
-> - MT7986: Has 2 WED units
-> - MT7988: Has 2 WED units
-> 
-> Update the binding to reflect these hardware differences. The MT7981
-> also uses infracfg for PHY switching, so allow that property.
-> 
-> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
-> ---
-> V1 -> V2: Only overwrite constraints that are different from the default
+The DT binding for this bridge describe register offsets for the LDB,
+parse the register offsets from DT instead of hard-coding them in the
+driver. No functional change.
 
-I don't get it.
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Abel Vesa <abelvesa@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+Cc: Liu Ying <victor.liu@nxp.com>
+Cc: Lucas Stach <l.stach@pengutronix.de>
+Cc: Peng Fan <peng.fan@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-clk@vger.kernel.org
+---
+V2: - Switch to of_property_read_reg()
+    - Parse single-register LDB variants from DT too
+---
+ drivers/gpu/drm/bridge/fsl-ldb.c | 58 ++++++++++++++++++++------------
+ 1 file changed, 36 insertions(+), 22 deletions(-)
 
-mediatek,mt7622-eth now can have 1 or 2 items, but previously it had
-strict 2. This needs explanation in commit msg.
-
-Best regards,
-Krzysztof
+diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+index 5c3cf37200bce..2357cb2fbbe39 100644
+--- a/drivers/gpu/drm/bridge/fsl-ldb.c
++++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+@@ -8,6 +8,7 @@
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/of_address.h>
+ #include <linux/of_graph.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+@@ -61,24 +62,13 @@ enum fsl_ldb_devtype {
+ };
+ 
+ struct fsl_ldb_devdata {
+-	u32 ldb_ctrl;
+-	u32 lvds_ctrl;
+ 	bool lvds_en_bit;
+-	bool single_ctrl_reg;
+ };
+ 
+ static const struct fsl_ldb_devdata fsl_ldb_devdata[] = {
+-	[IMX6SX_LDB] = {
+-		.ldb_ctrl = 0x18,
+-		.single_ctrl_reg = true,
+-	},
+-	[IMX8MP_LDB] = {
+-		.ldb_ctrl = 0x5c,
+-		.lvds_ctrl = 0x128,
+-	},
++	[IMX6SX_LDB] = { },
++	[IMX8MP_LDB] = { },
+ 	[IMX93_LDB] = {
+-		.ldb_ctrl = 0x20,
+-		.lvds_ctrl = 0x24,
+ 		.lvds_en_bit = true,
+ 	},
+ };
+@@ -90,8 +80,11 @@ struct fsl_ldb {
+ 	struct clk *clk;
+ 	struct regmap *regmap;
+ 	const struct fsl_ldb_devdata *devdata;
++	u64 ldb_ctrl;
++	u64 lvds_ctrl;
+ 	bool ch0_enabled;
+ 	bool ch1_enabled;
++	bool single_ctrl_reg;
+ };
+ 
+ static bool fsl_ldb_is_dual(const struct fsl_ldb *fsl_ldb)
+@@ -204,15 +197,15 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 		reg |=	(fsl_ldb->ch0_enabled ? LDB_CTRL_DI0_VSYNC_POLARITY : 0) |
+ 			(fsl_ldb->ch1_enabled ? LDB_CTRL_DI1_VSYNC_POLARITY : 0);
+ 
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, reg);
+ 
+-	if (fsl_ldb->devdata->single_ctrl_reg)
++	if (fsl_ldb->single_ctrl_reg)
+ 		return;
+ 
+ 	/* Program LVDS_CTRL */
+ 	reg = LVDS_CTRL_CC_ADJ(2) | LVDS_CTRL_PRE_EMPH_EN |
+ 	      LVDS_CTRL_PRE_EMPH_ADJ(3) | LVDS_CTRL_VBG_EN;
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+ 
+ 	/* Wait for VBG to stabilize. */
+ 	usleep_range(15, 20);
+@@ -220,7 +213,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 	reg |=	(fsl_ldb->ch0_enabled ? LVDS_CTRL_CH0_EN : 0) |
+ 		(fsl_ldb->ch1_enabled ? LVDS_CTRL_CH1_EN : 0);
+ 
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+ }
+ 
+ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+@@ -231,12 +224,12 @@ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+ 	/* Stop channel(s). */
+ 	if (fsl_ldb->devdata->lvds_en_bit)
+ 		/* Set LVDS_CTRL_LVDS_EN bit to disable. */
+-		regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl,
++		regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl,
+ 			     LVDS_CTRL_LVDS_EN);
+ 	else
+-		if (!fsl_ldb->devdata->single_ctrl_reg)
+-			regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, 0);
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, 0);
++		if (!fsl_ldb->single_ctrl_reg)
++			regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, 0);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, 0);
+ 
+ 	clk_disable_unprepare(fsl_ldb->clk);
+ }
+@@ -296,7 +289,7 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	struct device_node *remote1, *remote2;
+ 	struct drm_panel *panel;
+ 	struct fsl_ldb *fsl_ldb;
+-	int dual_link;
++	int dual_link, idx, ret;
+ 
+ 	fsl_ldb = devm_drm_bridge_alloc(dev, struct fsl_ldb, bridge, &funcs);
+ 	if (IS_ERR(fsl_ldb))
+@@ -309,6 +302,27 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	fsl_ldb->dev = &pdev->dev;
+ 	fsl_ldb->bridge.of_node = dev->of_node;
+ 
++	/* No "reg-names" property likely means single-register LDB */
++	idx = of_property_match_string(dev->of_node, "reg-names", "ldb");
++	if (idx < 0) {
++		fsl_ldb->single_ctrl_reg = true;
++		idx = 0;
++	}
++
++	ret = of_property_read_reg(dev->of_node, idx, &fsl_ldb->ldb_ctrl, NULL);
++	if (ret)
++		return ret;
++
++	if (!fsl_ldb->single_ctrl_reg) {
++		idx = of_property_match_string(dev->of_node, "reg-names", "lvds");
++		if (idx < 0)
++			return idx;
++
++		ret = of_property_read_reg(dev->of_node, idx, &fsl_ldb->lvds_ctrl, NULL);
++		if (ret)
++			return ret;
++	}
++
+ 	fsl_ldb->clk = devm_clk_get(dev, "ldb");
+ 	if (IS_ERR(fsl_ldb->clk))
+ 		return PTR_ERR(fsl_ldb->clk);
+-- 
+2.51.0
 
 
