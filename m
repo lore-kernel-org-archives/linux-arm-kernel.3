@@ -4,119 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A58CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Nov 2025 21:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724E0CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Nov 2025 21:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8B1xp+SmLXggwATnlZ56FNZ4Kfou721p8uoDtFoWNy4=; b=J8CuUxod4FHf9Nc4YDQX3pGX17
-	0/28HsDvmVxiyqV7sORrrMiHTIJSKAz9sbD6AhxM2k1gFsI4zGe4OeXhUPNfWG2MtxoVcK47l5LwD
-	+cmOOp3TD/MAyWN/B94sFdH6XUA0STz7uED4Lcc6RDkhg6r6YgNQ+IjY4ZE5njKZGTSAA01Y14Ign
-	8Ov8IW2HReErgeyfZyJ+K8K/xyGVgdxxiAP1DFWblZ17tFA0Ek33kj8BFcuc7CUR/iBiQAeSmgwid
-	iBbp04ldHBImXdM+98TY+CWFEDrjWd4LBHh3KXrnvC60wFmt9VizD/oTckp926gbZhRQMv0hfd1Pz
-	eEmDeXaA==;
+	bh=Skys7Ib/MJIC0Zt4TMDGTkTWwzuer5tjfFmoznfD5Qo=; b=IJpG/ZDuN9aRwfpNDZLLBQ6FOD
+	XaBKjFeC3jGd+QS72HkxvRqm5nd8Lz7Atr5wrgykPtPOntEBFscBar0upEkLWBCOV6Yv3trV4E1CT
+	IJA/yEOvtumyhAyhaupBd5GEq30MLt9H+dWgl8cYcTdz5PApp8aCidwZVTDYmqm6GzXj3ZUhIljZ8
+	tGcuDuwMhNH0+WXsmuQdm79gVFgOdz2Ct4AJs5Z7eCoEoZEQ8JBfHmGVyRSQmDHy8bd4/Nb3elfP3
+	2zEsP08XvjnI2kZcZlerX8pKyl1p/hiVenb4Xpviqkf07f5LMXxdeyYBxWi4icylmHSWr93wgVrta
+	g5ExlQ7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFfoL-00000008qfF-2wzR;
-	Sun, 02 Nov 2025 21:40:29 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1vFfsR-00000008qrl-1WX9;
+	Sun, 02 Nov 2025 21:44:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFfoI-00000008qer-20i6
+	id 1vFfsP-00000008qrE-0Hs7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Nov 2025 21:40:28 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 738127A0158;
-	Sun,  2 Nov 2025 16:40:21 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Sun, 02 Nov 2025 16:40:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1762119621;
-	 x=1762206021; bh=8B1xp+SmLXggwATnlZ56FNZ4Kfou721p8uoDtFoWNy4=; b=
-	RV7uRs3vimLSXn6Afc+9B4lLmPGColOELBjahtzeRc3gOVIkP88nxF2/LuBNCzU9
-	xz7MXGS0YsfdTM33xxL5jV4r12BYm816kL1YTVASb3eT46kalb7VRw+eVFHzGG9D
-	wlhIQuLWTdzHbYZNxz5zcC4pj6ym+Vt/v5rdm+MCoVgg1CUFbOo6gJH+XlsBldN7
-	fpEJWNmD4tcvNm0Kr/Wwh3dh0pzMwdSkLzYf+iQzyL1zVk2wOVXevEN4PlTijnNY
-	FLRep8oOhdmJiWXaanIDfUhtB9hvMlqAyh8T3WZzto55tlIBve6vRM7HbuHrwzMJ
-	m7Sk5PX35dEHojKA4syKwQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1762119621; x=
-	1762206021; bh=8B1xp+SmLXggwATnlZ56FNZ4Kfou721p8uoDtFoWNy4=; b=u
-	tcngmW8NumqKEtJZRC61dRQcY5oRVtSYld384hctmb6co+AFxgEQknIMtfXquK+b
-	BE4yTtO/aTGUR4i43NyQavxqLW07MBGoFZJ5CjzlSecSDabw4+DxsU7nis7PTNBU
-	4/TcaafzIz1rSvSUtcxxYHOqe02HsBy1P1L3Klzv8rMEcI2ND5i43z+70dt/yR/+
-	tyLgMnjqjDScBQc1lpViE2gIFzwIoTfT8bbyN0k0ADw07wDM/urcbGgnbkjWj+8Z
-	1iKoipFDG20XY+wQdeyBr5fq7su0W3JF/EuZglh0M6UwOay3+3OptwqCZy6sJa5p
-	KpF5SGCd0a/NM6vsvFr6Q==
-X-ME-Sender: <xms:ws8HaRO3Z2R6gtrzw7TOb7KdjsMCj-JgEmab2t6605D0EhlP6Jdp0g>
-    <xme:ws8HaezYtglLhvkuSO4TMO6GZ71_2ei-E_YHrNKdq8BPrFaGAn9xmTKkFMya1292K
-    ANkeq0JPLlLkpeIMbS_E5XVGsxAPQvOW3QcjjtY-u8FGFcj5H_QKqhN>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddujeeifeeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddvpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehhrghrihhsohhknhesrghmrgiiohhnrdgtohhmpdhrtghpthhtoh
-    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghr
-    khdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopegtlhesghgvnhhtfihord
-    horhhgpdhrtghpthhtohepmhgvmhigohhrsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
-    iihhvghnghhlihhfvghnghdusehhuhgrfigvihdrtghomhdprhgtphhtthhopehpvghtvg
-    hriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshhtsehkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:ws8HaRq9eQIUCLNoV0sLHNJIDsI3IIjDWFNun-OjdPISQPGYv9gxpA>
-    <xmx:ws8HafOGxBOTYFM7_HNmx1Z0WD7tO-j-PZMunUB7QMP53mcHAcnJbw>
-    <xmx:ws8HaeNj6uut1gZb-8vqDSEsN1HNSwIczXM446XhQ1wg7RrmJAM2QQ>
-    <xmx:ws8HaR1tH_q1HG1L6VawcNcKP8QU9co3bJd7lDw4S6Fqbwa5idiMUQ>
-    <xmx:xc8HaZntFxU_iduZUOwzYhm1s0mvM8DwXkvnjdVyDPtbtYFo7WSN8-PV>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id EE582700063; Sun,  2 Nov 2025 16:40:17 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 02 Nov 2025 21:44:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E7C06448D9;
+	Sun,  2 Nov 2025 21:44:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF40DC113D0;
+	Sun,  2 Nov 2025 21:44:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762119879;
+	bh=R4kFwOOFYwrXB688uqk8xRjU0CSAKW/oggKTVNMYKqU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HoNbtz9GmnNxGwEWhNeSECkfCd8sjgQCadJgzAA8UCnfQpFu6H3nb5u7Mu09hr3/H
+	 oDptY4r0jGPfbbBmnOWcIHnRO1ND4GZKuFryKo1F7WcjLo0XxfZhj14m4j8ja1+clz
+	 Kj4hMfmB7dfSCRkBumoIUpiiehB85RLARaOBJKGtvIgumrCsbHtZgZE9wvsyQxjkI0
+	 IfFxwva1a3PCHz8tWgLhuesiBr5xEXhVSSpSzNBrfnacmGtLPk45VI3oUECeKwQw7y
+	 +DdGvbjaNmNsAwmZicXIeDmgfOx9HWlX5sdGAu8hSCrgjGLdgsej49rRGAo973lskN
+	 2qr32duqsG/Xw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id A58B2CE16C7; Sun,  2 Nov 2025 13:44:37 -0800 (PST)
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: rcu@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	kernel-team@meta.com,
+	rostedt@goodmis.org,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH 17/19] srcu: Optimize SRCU-fast-updown for arm64
+Date: Sun,  2 Nov 2025 13:44:34 -0800
+Message-Id: <20251102214436.3905633-17-paulmck@kernel.org>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
+References: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
 MIME-Version: 1.0
-X-ThreadId: Ab2ZwGVH8-qs
-Date: Sun, 02 Nov 2025 22:39:42 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Ankur Arora" <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- bpf@vger.kernel.org, "Will Deacon" <will@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Haris Okanovic" <harisokn@amazon.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>,
- "Alexei Starovoitov" <ast@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, zhenglifeng1@huawei.com,
- xueshuai@linux.alibaba.com, "Joao Martins" <joao.m.martins@oracle.com>,
- "Boris Ostrovsky" <boris.ostrovsky@oracle.com>,
- "Konrad Rzeszutek Wilk" <konrad.wilk@oracle.com>
-Message-Id: <746c2de4-7613-4f13-911c-c2c4e071ed73@app.fastmail.com>
-In-Reply-To: <aQEy6ObvE0s2Gfbg@arm.com>
-References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
- <20251028053136.692462-3-ankur.a.arora@oracle.com>
- <3642cfd1-7da6-4a75-80b7-00c21ab6955f@app.fastmail.com>
- <87qzumq51p.fsf@oracle.com> <aQEy6ObvE0s2Gfbg@arm.com>
-Subject: Re: [RESEND PATCH v7 2/7] arm64: barrier: Support
- smp_cond_load_relaxed_timeout()
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_134027_047940_7DC1A71D 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20251102_134441_149116_F88B4767 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,73 +82,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025, at 22:17, Catalin Marinas wrote:
-> On Tue, Oct 28, 2025 at 11:01:22AM -0700, Ankur Arora wrote:
->> Arnd Bergmann <arnd@arndb.de> writes:
->> > On Tue, Oct 28, 2025, at 06:31, Ankur Arora wrote:
->> >> +
->> >
->> > Since the caller knows exactly how long it wants to wait for,
->> > we should be able to fit a 'wfet' based primitive in here and
->> > pass the timeout as another argument.
->>=20
->> Per se, I don't disagree with this when it comes to WFET.
->>=20
->> Handling a timeout, however, is messier when we use other mechanisms.
->>=20
->> Some problems that came up in my earlier discussions with Catalin:
->>=20
->>   - when using WFE, we also need some notion of slack
->>     - and if a caller specifies only a small or no slack, then we need
->>       to combine WFE+cpu_relax()
+Some arm64 platforms have slow per-CPU atomic operations, for example,
+the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
+atomic operations to interrupt-disabled non-read-modify-write-atomic
+atomic_read()/atomic_set() operations.  This works because
+SRCU-fast-updown is not invoked from read-side primitives, which
+means that if srcu_read_unlock_fast() NMI handlers.  This means that
+srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
+exclude themselves and each other
 
-I don't see the difference to what you have: with the event stream,
-you implicitly define a slack to be the programmed event stream rate
-of ~100=C2=B5s.
+This reduces the overhead of calls to srcu_read_lock_fast_updown() and
+srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
+Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
+it sure beats 100ns.
 
+This command was used to measure the overhead:
 
-I'm not asking for anything better in this case, only for machines
-with WFET but no event stream to also avoid the spin loop.
+tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
 
->>   - for platforms that only use a polling primitive, we want to check
->>     the clock only intermittently for power reasons.
+Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: <linux-arm-kernel@lists.infradead.org>
+Cc: <bpf@vger.kernel.org>
+---
+ include/linux/srcutree.h | 56 ++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 51 insertions(+), 5 deletions(-)
 
-Right, I missed that bit.
+diff --git a/include/linux/srcutree.h b/include/linux/srcutree.h
+index d6f978b50472..70560dc4636c 100644
+--- a/include/linux/srcutree.h
++++ b/include/linux/srcutree.h
+@@ -253,6 +253,34 @@ static inline struct srcu_ctr __percpu *__srcu_ctr_to_ptr(struct srcu_struct *ss
+ 	return &ssp->sda->srcu_ctrs[idx];
+ }
+ 
++/*
++ * Non-atomic manipulation of SRCU lock counters.
++ */
++static inline struct srcu_ctr __percpu notrace *__srcu_read_lock_fast_na(struct srcu_struct *ssp)
++{
++	atomic_long_t *scnp;
++	struct srcu_ctr __percpu *scp;
++
++	lockdep_assert_preemption_disabled();
++	scp = READ_ONCE(ssp->srcu_ctrp);
++	scnp = raw_cpu_ptr(&scp->srcu_locks);
++	atomic_long_set(scnp, atomic_long_read(scnp) + 1);
++	return scp;
++}
++
++/*
++ * Non-atomic manipulation of SRCU unlock counters.
++ */
++static inline void notrace
++__srcu_read_unlock_fast_na(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
++{
++	atomic_long_t *scnp;
++
++	lockdep_assert_preemption_disabled();
++	scnp = raw_cpu_ptr(&scp->srcu_unlocks);
++	atomic_long_set(scnp, atomic_long_read(scnp) + 1);
++}
++
+ /*
+  * Counts the new reader in the appropriate per-CPU element of the
+  * srcu_struct.  Returns a pointer that must be passed to the matching
+@@ -327,12 +355,23 @@ __srcu_read_unlock_fast(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
+ static inline
+ struct srcu_ctr __percpu notrace *__srcu_read_lock_fast_updown(struct srcu_struct *ssp)
+ {
+-	struct srcu_ctr __percpu *scp = READ_ONCE(ssp->srcu_ctrp);
++	struct srcu_ctr __percpu *scp;
+ 
+-	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
++	if (IS_ENABLED(CONFIG_ARM64) && IS_ENABLED(CONFIG_ARM64_USE_LSE_PERCPU_ATOMICS)) {
++		unsigned long flags;
++
++		local_irq_save(flags);
++		scp = __srcu_read_lock_fast_na(ssp);
++		local_irq_restore(flags); /* Avoids leaking the critical section. */
++		return scp;
++	}
++
++	scp = READ_ONCE(ssp->srcu_ctrp);
++	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE)) {
+ 		this_cpu_inc(scp->srcu_locks.counter); // Y, and implicit RCU reader.
+-	else
++	} else {
+ 		atomic_long_inc(raw_cpu_ptr(&scp->srcu_locks));  // Y, and implicit RCU reader.
++	}
+ 	barrier(); /* Avoid leaking the critical section. */
+ 	return scp;
+ }
+@@ -350,10 +389,17 @@ static inline void notrace
+ __srcu_read_unlock_fast_updown(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
+ {
+ 	barrier();  /* Avoid leaking the critical section. */
+-	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
++	if (IS_ENABLED(CONFIG_ARM64)) {
++		unsigned long flags;
++
++		local_irq_save(flags);
++		 __srcu_read_unlock_fast_na(ssp, scp);
++		local_irq_restore(flags);
++	} else if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE)) {
+ 		this_cpu_inc(scp->srcu_unlocks.counter);  // Z, and implicit RCU reader.
+-	else
++	} else {
+ 		atomic_long_inc(raw_cpu_ptr(&scp->srcu_unlocks));  // Z, and implicit RCU reader.
++	}
+ }
+ 
+ void __srcu_check_read_flavor(struct srcu_struct *ssp, int read_flavor);
+-- 
+2.40.1
 
->>     Now, this could be done with an architecture specific spin-count.
->>     However, if the caller specifies a small slack, then we might need
->>     to we check the clock more often as we get closer to the deadline=
- etc.
-
-Again, I think this is solved by defining the slack as architecture
-specific as well rather than an explicit argument, which is essentially
-what we already have.
-=20
->> A smaller problem was that different users want different clocks and =
-so
->> folding the timeout in a 'timeout_cond_expr' lets us do away with the
->> interface having to handle any of that.
->>
->> I had earlier versions [v2] [v3] which had rather elaborate policies =
-for
->> handling timeout, slack etc. But, given that the current users of the
->> interface don't actually care about precision, all of that seemed
->> a little overengineered.
->
-> Indeed, we've been through all these options and without a concrete us=
-er
-> that needs a more precise timeout, we decided it's not worth it. It ca=
-n,
-> however, be improved later if such users appear.
-
-The main worry I have is that we get too many users of cpu_poll_relax()
-hardcoding the use of the event stream without a timeout argument, it
-becomes too hard to change later without introducing regressions
-from the behavior change.
-
-As far as I can tell, the only place that currently uses the
-event stream on a functional level is the delay() loop, and that
-has a working wfet based version.
-
-     Arnd
 
