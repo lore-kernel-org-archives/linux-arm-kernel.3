@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045E2CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Nov 2025 09:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66CDCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Nov 2025 09:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o5INxwXV/Je+vWd0a1TJJpOIyu8KFKEWqF14E2UVhKw=; b=uq0RF07MXYXvrGqqQzLgwmyP3D
-	EvE8AjgaiEN8UvWWSiu62dMgrc4jSTMvAypv1ZzX3Q8zZ2VZOn+gRfLm7w+oUaVymYsOcOhIGTdMB
-	v6q9FL51MW0PdQXbZQpAOriqKQ1B+Yp6pSjEeMhTr8Pd/APJIoX8WZlBO59iOpw3j6qEvOMG7pkGj
-	iAh8Z9iYasxxtd8AmDBq3pUEOTCx/3zXBFV6H8sDe1SgD/P94sv/0KYtTEwVFWmqtbpgNm+Ff1OyZ
-	r43eqzU4tD65onCQON78z8m0nTXVKkn0bWQkI3tsXEG5JrrNgTd0XdyVsKkL6l1X7/FL0bw1F3Oxt
-	Up33idoA==;
+	bh=ObgVq0kCdVe2rSweLuVv3XC7u2ZX7yFgi98eayGZBFA=; b=X4q6V3rpbUekSqGUTZCdpeAbaS
+	ZgeBlp00r2a1kU8usIUgqyjz316ZavRSk3+Vx6nV/X5XZV7/QDiYi0ph8Oln/zra3abD25CbVmdyU
+	r3SBhvOepKsfguj+MjCN3BVarT7znFjwDLz7cH8bpur1Q3j/jht3UL53x7Me+Sb7qXKYkPagefsgF
+	peVbRbWT+82wiEto7nODeg3+GzrUcy1RTMod6k3ddmlC9h+fXOy14ghxghI/y2x6fggBch7X7M+lH
+	uQ2gn489nWU5vP+NWEegwEiXYCOsm4e16rG8oZG4m7MtiDnv7/jEvVW6kNgkqYRgdk37zmnI4KWll
+	6BUTOv6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFUSf-00000008RBY-2pnR;
-	Sun, 02 Nov 2025 09:33:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFUTL-00000008RFl-09DI;
+	Sun, 02 Nov 2025 09:34:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFUSd-00000008RBC-0JWQ
+	id 1vFUTI-00000008RF3-1o9Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Nov 2025 09:33:20 +0000
+	Sun, 02 Nov 2025 09:34:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49BBC437EC;
-	Sun,  2 Nov 2025 09:33:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55AC2C4CEF7;
-	Sun,  2 Nov 2025 09:33:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD8C040164;
+	Sun,  2 Nov 2025 09:33:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D03C4CEF7;
+	Sun,  2 Nov 2025 09:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762075998;
-	bh=jDo3YIewvX9sNR57D/UAxqc9SHvYj8gf6En4x71pVlE=;
+	s=k20201202; t=1762076039;
+	bh=GFuzS8yTkRy7ZaigVcCJ9u3XO0WPI9k3hJqlBwUMpLc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WgQQfaVqux9fU+dw8VmFMGWPJTr1ToecIKbvoAnUotedw9VK+QYQVRoa9Y3/WAn7Q
-	 ib/WIjbsEsOtLaewgahZAMIKf5zy5Uj5SomtOpBFQP/5E7f+OMG7f0ancsk7fG6ynr
-	 TfqmBKcW6fLlO/lwJo8yJODovAv+m3i9oNxA8Yhi+HTwyoVFPGEKxI4AKoFL03HD8o
-	 43RVkZQsmJ5/Rrlksxu+/mrjQxFxy/o8khU0UzbTzbhet3YvMDfwKyf1MlJ6TviiMg
-	 xsbYE7Wol04tKrZwlLO1juYFA9XOVCJT3JqPcrP6Ac/9/1Nfec7bGhoeyo+v51bLdf
-	 yNk7/67LDN5aQ==
-Message-ID: <12c0c18f-2edf-402d-a0b6-04d8fa47693d@kernel.org>
-Date: Sun, 2 Nov 2025 10:33:13 +0100
+	b=bJQNzF7Z1yQXmCKEsCxjxjQHC5Kf3aLI6qj7ucbhdXPfqmGtC2FosgA+T6a8EncMN
+	 6RyOSQqz5OYDAa6SZrZ7wsUTCikNffEDjRzvLYu7++/vbpI/S8Sr/J1VzLk5O99x2x
+	 Zd5axR43X8ge6XZUKrMhg+7WFbq7NGhN/GE5Q3sWZPthona3FeTyK9J0Ia/ZhQvq9f
+	 RFJ99GFYhAJZJq2pJ4yXH7cwgs0MvOfEAMcHFqYGNC+LQVUdd0m+3ii7kDy3vG/VSB
+	 PBjUykVxN0oU4m8p8KKzh3bLFcKGtCai9oSXsgaDo+yIKO3SRzaZWTLnmYqpjKeA4c
+	 FSsZH7qkUZkXA==
+Message-ID: <d0517fad-9253-4c39-a063-a2c09e74237f@kernel.org>
+Date: Sun, 2 Nov 2025 10:33:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/13] platform/raspberrypi: vchiq-mmal: Add defines for
- mmal_es_format flags
+Subject: Re: [PATCH 13/13] platform/raspberrypi: vchiq: Register vc-sm-cma as
+ a platform driver
 To: Jai Luthra <jai.luthra@ideasonboard.com>,
  Florian Fainelli <florian.fainelli@broadcom.com>,
  Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
@@ -60,7 +60,7 @@ Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
  =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com>
- <20251031-b4-vc-sm-cma-v1-12-0dd5c0ec3f5c@ideasonboard.com>
+ <20251031-b4-vc-sm-cma-v1-13-0dd5c0ec3f5c@ideasonboard.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251031-b4-vc-sm-cma-v1-12-0dd5c0ec3f5c@ideasonboard.com>
+In-Reply-To: <20251031-b4-vc-sm-cma-v1-13-0dd5c0ec3f5c@ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_013319_174877_54DACBA5 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20251102_013400_516531_D946F12A 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,17 +129,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 31/10/2025 18:27, Jai Luthra wrote:
 > From: Dave Stevenson <dave.stevenson@raspberrypi.com>
 > 
-> There is a flags field in struct mmal_es_format, but the defines
-> for what the bits meant weren't included in the headers.
-> For V4L2_PIX_FMT_NV12_COL128 support we need them, so add them in.
+> Register the vc-sm-cma driver as a platform driver under vchiq.
 > 
 > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 > ---
->  drivers/platform/raspberrypi/vchiq-mmal/mmal-msg-format.h | 10 ++++++++++
+>  drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+> index 6a7b96d3dae6275a483ef15dc619c5510454765e..09d33bec46ec45175378fff8dd1084d0a8a12dd6 100644
+> --- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+> +++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+> @@ -63,6 +63,7 @@
+>   * the interface.
+>   */
+>  static struct vchiq_device *bcm2835_audio;
+> +static struct vchiq_device *vcsm_cma;
 
-That's pointless change. We don't add unused header pieces. If this is
-used, add it with the user in the same commit.
+Please don't write singletons. How do you handle probe of two devices?
+
+>  
+>  static const struct vchiq_platform_info bcm2835_info = {
+>  	.cache_line_size = 32,
+> @@ -1421,6 +1422,7 @@ static int vchiq_probe(struct platform_device *pdev)
 
 
 Best regards,
