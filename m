@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73BFCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA4BCCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5y4DsSw95v+07wLx2tUYogC/HdCUQXY0Bm30VEjGOxA=; b=18NHOaIKnWdwKfat7QiesTd+MH
-	FuKnG44V89vaoMWC052VqwWt3nXqGdT16xRAGBkyE6lplWzhUwlLhZP8YWMEdpfg+iWf9mxQ6Hqyt
-	1BdRfIwiCQ3A+ONNa/+yT+RacK3MiKgASbCNtRIKPyClOHuzTLE1efy5Y0mLrkNnhMLC6KJjExIFD
-	Y69/z6J9MRzrmi2BO3yTuCZW8KWbMPnZgXiVrqS0I6ROsmh9qZ4hEq7qL3khXyh4pvtfH/jjiec61
-	l9IyrqiT99M/zAp+9mU5SZCkhMHvdbpJokum5hOMbfyRxkByeRpd4eFdK5IemVhwB+MOX0wwjFeDh
-	OrcyHCIg==;
+	bh=7Hl+D9SlgMpjrA3rrjBo0piACXFtEe+s3grL9+kBsNU=; b=O6k+mdArZf52A3RTW6Pb82GmS+
+	jE05erLZLTjQyLQAjZ0XeYak6hgpzIMMWf2pjMDPuslXF4CoAHTFbm6g4Fxha24ZhwOwZcqzyzEvA
+	J+XzlrtsSlNOVjKOyn4WmEXiZf1449i7VIkXzO4bwsXlVzvSgx0M36jckJf1Bomd85JgQp9sTBfSJ
+	k3x1rylyZ2W5/kdXBhFt8Byp/SQDivwo8HzkCW47mLQGfg3eVn9EnPB3Y0cLZYdq3hSWOg/yFtZpy
+	/eApwsrxYoqlKu9s+S58gpK0vaddkxC4L6k8vxWFPkf9f/PdUMcj55rAgXM77bX2Fn3W6d2MaJNqF
+	foQH2XhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvty-0000000A3AG-27eW;
-	Mon, 03 Nov 2025 14:51:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vFvvC-0000000A3N4-3G9Z;
+	Mon, 03 Nov 2025 14:52:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvtv-0000000A39f-3gfg
+	id 1vFvvC-0000000A3Mf-0vZK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:51:21 +0000
+	Mon, 03 Nov 2025 14:52:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3AE2F43660;
-	Mon,  3 Nov 2025 14:51:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34355C4CEE7;
-	Mon,  3 Nov 2025 14:51:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A0856013E;
+	Mon,  3 Nov 2025 14:52:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53E24C4CEE7;
+	Mon,  3 Nov 2025 14:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762181479;
-	bh=5y4DsSw95v+07wLx2tUYogC/HdCUQXY0Bm30VEjGOxA=;
+	s=k20201202; t=1762181557;
+	bh=RrSlhEPlFOptszqsD7U/MqxYlaIFQGwHAxWx2ZuQQ1A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k5HLoWzVCL7WXMXdlowgyG6GNXjmPl4jO51pz754vvqU4vnoxFfj0XqLMVqF/+o1m
-	 U9ver7HoczrmInF5VxEkpTLubRcZP2PM+GOkmfZrgiEGvs6gRBmNv+0zmtqneNPCN3
-	 DzbesmPCBn9xDtn1ffCgwJgf2NWYqXktFZRjNZbtrpU0QvyyMd9s6gxG30UROkQcZa
-	 25EBKb4ZSg8VaPdn/rxKC5IWiGLtGdnR44gJHuCLLI0EyjWTDpNgDgo3rBrlkAFG3c
-	 vZI2oO4ti72GWfXRjYSU1A2zQA51w0+I2vQBYc1HD29dqhDX8AgSvQQdvbyzRQpLNg
-	 LE7RAdcgHAKLQ==
-Message-ID: <5f369c52-ddb0-407a-b276-361b616ac759@kernel.org>
-Date: Mon, 3 Nov 2025 15:51:15 +0100
+	b=EcwJNlAt0Jd6+Es6lXY0IirElAM4cLi+qS6m+1QqDkPgDrQCuusno9gzzQOMLZiYM
+	 bWpMdTpx/WDrklRwFbdAsxxCZ3G7AZKR871lCpi8fczxugAKDlJtmh7Jif7M/q1Myx
+	 MCBxjODn1UEGJrCn8790Qx5ZgxnPh0AtOzLY6aseBOmxq61ccQgBpDcKt2nPCZnUkd
+	 DpbIqYjNcQWPVAyL5szdikPR+m7CAtAPvo6OtOjh9lXvYQK4CbZY09lZM4/ClIhKby
+	 Pfc+sYLL3NcwKn5Yn+xlLnj8qdCdl8GVtkSYhzZSZnnEnt/V3NoY/z6StNLvXnsjdB
+	 LkhpfWz2m9ADA==
+Message-ID: <b2172320-2539-4bde-b7f8-cf3e94bb9d7a@kernel.org>
+Date: Mon, 3 Nov 2025 15:52:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Make RESET_GPIO driver built-in
+Subject: Re: [PATCH] ARM: multi_v7_defconfig: Enable RESET_GPIO driver
 To: Marek Szyprowski <m.szyprowski@samsung.com>,
  linux-arm-kernel@lists.infradead.org
-Cc: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
+Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
  Wolfram Sang <wsa+renesas@sang-engineering.com>,
  Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@bgdev.pl>
-References: <CGME20251103140625eucas1p2909567ab24fdae587fd5e43d58f27ae8@eucas1p2.samsung.com>
- <20251103140617.2361857-1-m.szyprowski@samsung.com>
+References: <CGME20251103140555eucas1p16d2f5ab4ed02527da37afd1bd48553a2@eucas1p1.samsung.com>
+ <20251103140515.2350619-1-m.szyprowski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,13 +99,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251103140617.2361857-1-m.szyprowski@samsung.com>
+In-Reply-To: <20251103140515.2350619-1-m.szyprowski@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_065119_966739_3591BC34 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +116,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 15:06, Marek Szyprowski wrote:
+On 03/11/2025 15:05, Marek Szyprowski wrote:
 > Commit 25d4d4604d01 ("reset: always bail out on missing RESET_GPIO
 > driver") reworked GPIO-based reset controller initialization, so now
 > RESET_GPIO driver is required to properly instantiate MMC device for
-> most of WLAN and SDIO chips. Make the driver built-in.
+> most of WLAN and SDIO chips.
+> 
+> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
 
+You should sent all this as one patchset, so we don't need to repeat
+same objections to every email.
 
-Huh? I don't recall the final consensus over RESET_GPIO but I had
-impression that patch was wrong and should not be merged.
-
-Was the consensus to break all possible platforms? What!?!?
-
-Can't we just revert 25d4d4604d01 because apparently it was not tested
-properly?
+25d4d4604d01 is wrong and it breaks platforms. defconfig cannot fix that.
 
 Best regards,
 Krzysztof
