@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2DDCCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 04:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1AD9CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 05:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIbJnt34Jnm75Xf3+0FOg0UHm+WTC5nRGyPf7jeT9To=; b=y6pFvCs8ZLk7HOUXHZybCqdFQF
-	FK7Q0JPqj2E0LAsd1ZNJEjsGBx0yMJHGEGHso40d27QxK0q4lQ5MeE912xdXzV1X3KaxgG7lt+OjW
-	kllSpfLz2z8MVC5B2Ay+1/nsnlkoAE1FLWJAEFkiJJRgfidoAKlstXM97jqrihzFCMhVJv6hW8phL
-	KAcnJS6dOyZ6nHHLRMMAIvAG5wTSX9urU7an7yBMC7MTqL7AlrkFJZaXJjOG2J5AFSPU2qdgGVHng
-	+jIKOv1tKzbHkjFpcoF5T7zX0fJ8hk1TrcVrBZK8Gn6MhflHRRvH1qkiuLEMFvIskl6OjxhK/DOJ1
-	ZdkFHAlQ==;
+	bh=y8+i7xth5y9Fhal1XtZY4aF00hz1zrbFRsT2/r8BRfw=; b=gLBkVVE6O+i5fsw3zV6RpyEv1D
+	+2XCoeAhejusfsqqZgpdupdl9SBi0ZuOLXsdF+EyiCEZ5QhqpHibHcZwRNysm3/P9YOpe4qZRYE19
+	JLtO4t6gtGtT+9Wq2qXxbDtd1iVyI6m4Y9408XeiCk10ZzZwVO5dsHzXO+UyUTKCWyWljAR64VNsW
+	IuxHoc5Btl4nBJkBa9BTO9t47aqIgoFON3XMOJARCaAWmjZ2n3pvhyIi3X5ZQsokwxGReXWZnAiVF
+	puTR0IeC+GwrQZjF8F73F1Q2Y20u/dsePhXy2z/3jJSnAjxxzxlgkKhZs9rz+MB57hDxMnTo8wJAL
+	h5V8/o2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFlp1-00000009Ac9-1JHj;
-	Mon, 03 Nov 2025 04:05:35 +0000
+	id 1vFn5P-00000009DvR-3xca;
+	Mon, 03 Nov 2025 05:26:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFlow-00000009AbV-0TOa
+	id 1vFn5O-00000009Due-07DO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 04:05:33 +0000
+	Mon, 03 Nov 2025 05:26:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D20A51A9A;
-	Sun,  2 Nov 2025 20:05:18 -0800 (PST)
-Received: from [10.164.136.41] (unknown [10.164.136.41])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5FCD3F694;
-	Sun,  2 Nov 2025 20:05:23 -0800 (PST)
-Message-ID: <e564295b-d5b6-4544-ab8e-dad48a2aee1e@arm.com>
-Date: Mon, 3 Nov 2025 09:35:20 +0530
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E2C328FA;
+	Sun,  2 Nov 2025 21:26:25 -0800 (PST)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 891F23F63F;
+	Sun,  2 Nov 2025 21:26:31 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 4/6] arm64/mm: Ensure correct 48 bit PA gets into TTBRx_EL1
+Date: Mon,  3 Nov 2025 05:26:16 +0000
+Message-Id: <20251103052618.586763-5-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20251103052618.586763-1-anshuman.khandual@arm.com>
+References: <20251103052618.586763-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND] [PATCH v2] arm64/mm: Elide TLB flush in certain pte
- protection transitions
-To: catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
- ryan.roberts@arm.com, baohua@kernel.org, pjaroszynski@nvidia.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251017160251.96717-1-dev.jain@arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20251017160251.96717-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_200530_204953_F5C5EA0A 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20251102_212634_104436_5FD0B630 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,70 +67,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping
+Even though 48 bit PA representation in TTBRx_EL1 does not involve shifting
+partial bits like 52 bit variant does, they sill need to be masked properly
+for correctness. Hence mask 48 bit PA with TTBRx_EL1_BADDR_MASK.
 
-On 17/10/25 9:32 pm, Dev Jain wrote:
-> Currently arm64 does an unconditional TLB flush in mprotect(). This is not
-> required for some cases, for example, when changing from PROT_NONE to
-> PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
-> growing into the non-main heaps), and unsetting uffd-wp in a range.
->
-> Therefore, implement pte_needs_flush() for arm64, which is already
-> implemented by some other arches as well.
->
-> Running a userspace program changing permissions back and forth between
-> PROT_NONE and PROT_READ | PROT_WRITE, and measuring the average time taken
-> for the none->rw transition, I get a reduction from 3.2 microseconds to
-> 2.85 microseconds, giving a 12.3% improvement.
->
-> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
-> mm-selftests pass. Based on 6.18-rc1.
->
-> v1->v2:
->   - Drop PTE_PRESENT_INVALID and PTE_AF checks, use ptdesc_t instead of
->     pteval_t, return !!diff (Ryan)
->
->   arch/arm64/include/asm/tlbflush.h | 27 +++++++++++++++++++++++++++
->   1 file changed, 27 insertions(+)
->
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 18a5dc0c9a54..40df783ba09a 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -524,6 +524,33 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
->   {
->   	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
->   }
-> +
-> +static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
-> +{
-> +	ptdesc_t diff = oldval ^ newval;
-> +
-> +	/* invalid to valid transition requires no flush */
-> +	if (!(oldval & PTE_VALID))
-> +		return false;
-> +
-> +	/* Transition in the SW bits requires no flush */
-> +	diff &= ~PTE_SWBITS_MASK;
-> +
-> +	return !!diff;
-> +}
-> +
-> +static inline bool pte_needs_flush(pte_t oldpte, pte_t newpte)
-> +{
-> +	return __pte_flags_need_flush(pte_val(oldpte), pte_val(newpte));
-> +}
-> +#define pte_needs_flush pte_needs_flush
-> +
-> +static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
-> +{
-> +	return __pte_flags_need_flush(pmd_val(oldpmd), pmd_val(newpmd));
-> +}
-> +#define huge_pmd_needs_flush huge_pmd_needs_flush
-> +
->   #endif
->   
->   #endif
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+ arch/arm64/include/asm/assembler.h | 1 +
+ arch/arm64/include/asm/pgtable.h   | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 23be85d93348..d5eb09fc5f8a 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -609,6 +609,7 @@ alternative_endif
+ 	and	\ttbr, \ttbr, #TTBR_BADDR_MASK_52
+ #else
+ 	mov	\ttbr, \phys
++	and	\ttbr, \ttbr, #TTBRx_EL1_BADDR_MASK
+ #endif
+ 	.endm
+ 
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 0944e296dd4a..c3110040c137 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1604,7 +1604,7 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ #ifdef CONFIG_ARM64_PA_BITS_52
+ #define phys_to_ttbr(addr)	(((addr) | ((addr) >> 46)) & TTBR_BADDR_MASK_52)
+ #else
+-#define phys_to_ttbr(addr)	(addr)
++#define phys_to_ttbr(addr)	(addr & TTBRx_EL1_BADDR_MASK)
+ #endif
+ 
+ /*
+-- 
+2.30.2
+
 
