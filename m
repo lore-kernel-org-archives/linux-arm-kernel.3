@@ -4,88 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B189FCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B25CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N3mC2IrimTjppkhXo9GUUy1X4ukV/Q/7Ytq5A8GyzSw=; b=WMCiJGDhQb6hibt1OVVke3ahzB
-	vPkbqAZfP46S12ecNJyeQC3ku/KPNHyWPBNNl2t0EUJdaOKecGm2SNFvtlwDPnF39xiAJPdrjT4tc
-	xzs5Oc7RlF2d02rEP/4oQN9N0umpNl13l6UGayTZpgqKr9HoKa4imPInCkp3CnlrhXv5EwgYBfPPy
-	4IzSmvwDLrD1nAGJ20HyM2FNmCiiTNEq3aDntngiXLHR8IMVUaMnf2retYCUu6D7lu1N7aM9IAg4b
-	WznVBdAQTePV+gqa8uONqbSnqYYFlRAzlNN8ZqqbWLvcP2mlVs9jvn7QY4dgBRiVvdNauqSmh83QY
-	XbWzimCQ==;
+	bh=ZDW6S0V6VqUg8tSpm+PPW7y7vHXWxjwKO8pMmxVl2PA=; b=v0DlrbHXR6+V3HtUE1jQlbLPfs
+	sIRUIaErv32je3sDIemfdP21+PUGlYCLbcfwndwv4Qd+J8zcOXAc6udnHWYlr5fsi0J7j3zkQ3H53
+	/WwZyTyKcr0S53io5ab+Fd6j1Lt0PZ2wU2LjIl1qLFCn+tb/+oaVIk+K8+IHFwBmBoDCABK4+kM4E
+	g1CWehicnLfpclsaUEgNXrptIL+lB0BkYST+kubRadPV9wtBDY93MDKEKX1QRpue2uk0uFLygFMIq
+	5L99GsDbmgBX0Ra6rD/izOhRVzR0uk3isSLU83lzPY4UtXO6PICzBscvzzk1f1uP1tp0R6RWb2xX2
+	kR2TQ2Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFu6N-00000009rWU-2VlG;
-	Mon, 03 Nov 2025 12:56:03 +0000
-Received: from server.couthit.com ([162.240.164.96])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFu6K-00000009rTP-48Ml
+	id 1vFu8D-00000009rhO-0PUu;
+	Mon, 03 Nov 2025 12:57:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFu8A-00000009rgM-2Zgu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 12:56:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=N3mC2IrimTjppkhXo9GUUy1X4ukV/Q/7Ytq5A8GyzSw=; b=vpmKuyszMO0JHXCxcB4jw6giy/
-	RP+CNNXBYo3crdrkF0RI8Xs1z1Yfc9QpALKfLQPZoIyn5Y1CldkDLEP4CKsE10imD9ulsinGjBq3y
-	k81XRKIy7KbZupH324bZjB6bS9oJO5blv8i0sz7ZNyQZkz5tM76mB3AU2tbyUFEsAeQWOrdxdvOT5
-	XANrGLLvvFOAJdrOT8hXJRvyfuG138RqFCKrYt2PjTShQOzmQZQuJTGzu1Bbw+SAULz78kWAQuWGt
-	jvQLUVnJsA321xYrQ+N30A4nrWxb2q3VlNI/T6v45r0AxUV/f1Y/kfWhAGy4bmesxk26DbToJoAVq
-	turj3K7w==;
-Received: from [122.175.9.182] (port=36484 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1vFu5d-00000006SKR-2YOn;
-	Mon, 03 Nov 2025 07:55:18 -0500
-From: Parvathi Pudi <parvathi@couthit.com>
-To: nm@ti.com,
-	vigneshr@ti.com,
-	aaro.koskinen@iki.fi,
-	andreas@kemnade.info,
-	khilman@baylibre.com,
-	rogerq@kernel.org,
-	tony@atomide.com
-Cc: linux-omap@vger.kernel.org,
+	Mon, 03 Nov 2025 12:57:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B96A31A9A;
+	Mon,  3 Nov 2025 04:57:43 -0800 (PST)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B01EB3F66E;
+	Mon,  3 Nov 2025 04:57:49 -0800 (PST)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	yang@os.amperecomputing.com,
+	david@redhat.com,
+	ardb@kernel.org,
+	dev.jain@arm.com,
+	scott@os.amperecomputing.com,
+	cl@gentwo.org
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	danishanwar@ti.com,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com,
-	pmohan@couthit.com,
-	basharath@couthit.com,
-	Parvathi Pudi <parvathi@couthit.com>
-Subject: [RESEND PATCH] ARM: multi_v7_defconfig: Enable TI PRU Ethernet driver
-Date: Mon,  3 Nov 2025 18:24:51 +0530
-Message-ID: <20251103125451.1679404-1-parvathi@couthit.com>
+	Guenter Roeck <groeck@google.com>
+Subject: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping() when in atomic context
+Date: Mon,  3 Nov 2025 12:57:37 +0000
+Message-ID: <20251103125738.3073566-1-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_045601_051302_F2C6FD05 
-X-CRM114-Status: UNSURE (   4.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251103_045754_732194_36D2A920 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +69,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Programmable Real-time Unit and Industrial Communication Subsystem
-Megabit (ICSSM) is a microcontroller subsystem in TI SoCs such as
-AM57x, AM437x, and AM335x. It provides real-time processing
-capabilities for industrial communication and custom peripheral interfaces.
+It has been reported that split_kernel_leaf_mapping() is trying to sleep
+in non-sleepable context. It does this when acquiring the
+pgtable_split_lock mutex, when either CONFIG_DEBUG_PAGEALLOC or
+CONFIG_KFENCE are enabled, which change linear map permissions within
+softirq context during memory allocation and/or freeing. All other paths
+into this function are called from sleepable context and so are safe.
 
-Currently, EVMs based on AM57x, AM437x, and AM335x use the ICSSM driver
-for PRU-based Ethernet functionality.
+But it turns out that the memory for which these 2 features may attempt
+to modify the permissions is always mapped by pte, so there is no need
+to attempt to split the mapping. So let's exit early in these cases and
+avoid attempting to take the mutex.
 
-This patch enables TI_PRUSS and TI_PRUETH as a module for TI SoCs.
+There is one wrinkle to this approach; late-initialized kfence allocates
+it's pool from the buddy which may be block mapped. So we must hook that
+allocation and convert it to pte-mappings up front. Previously this was
+done as a side-effect of kfence protecting all the individual pages in
+its pool at init-time, but this no longer works due to the added early
+exit path in split_kernel_leaf_mapping().
 
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+So instead, do this via the existing arch_kfence_init_pool() arch hook,
+and reuse the existing linear_map_split_to_ptes() infrastructure. This
+will now also be more efficient as a result.
+
+Closes: https://lore.kernel.org/all/f24b9032-0ec9-47b1-8b95-c0eeac7a31c5@roeck-us.net/
+Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+Tested-by: Guenter Roeck <groeck@google.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm/configs/multi_v7_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 12f706e2ded5..7f1fa9dd88c9 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -281,6 +281,8 @@ CONFIG_TI_CPSW_SWITCHDEV=y
- CONFIG_TI_CPTS=y
- CONFIG_TI_KEYSTONE_NETCP=y
- CONFIG_TI_KEYSTONE_NETCP_ETHSS=y
-+CONFIG_TI_PRUSS=m
-+CONFIG_TI_PRUETH=m
- CONFIG_XILINX_EMACLITE=y
- CONFIG_SFP=m
- CONFIG_BROADCOM_PHY=y
--- 
+Hi All,
+
+This is a fuller fix than the suggestion I sent yesterday, and works correctly
+with late-init kfence (thanks to Yang Shi for pointing that out).
+
+I've verified this on AmpereOne with CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE
+individually, and I've also forced it to take the linear_map_split_to_ptes() to
+verify that I haven't broken it during the refactoring.
+
+I've kept Guenter's T-b since the early-init kfence path that he was testing is
+unchanged.
+
+Assuming nobody spots any issues, I'fd like to get it into the next round of
+arm64 bug fixes for this cycle.
+
+Thanks,
+Ryan
+
+
+ arch/arm64/include/asm/kfence.h |  4 +-
+ arch/arm64/mm/mmu.c             | 92 +++++++++++++++++++++++----------
+ 2 files changed, 68 insertions(+), 28 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
+index a81937fae9f6..4a921e06d750 100644
+--- a/arch/arm64/include/asm/kfence.h
++++ b/arch/arm64/include/asm/kfence.h
+@@ -10,8 +10,6 @@
+
+ #include <asm/set_memory.h>
+
+-static inline bool arch_kfence_init_pool(void) { return true; }
+-
+ static inline bool kfence_protect_page(unsigned long addr, bool protect)
+ {
+ 	set_memory_valid(addr, 1, !protect);
+@@ -25,8 +23,10 @@ static inline bool arm64_kfence_can_set_direct_map(void)
+ {
+ 	return !kfence_early_init;
+ }
++bool arch_kfence_init_pool(void);
+ #else /* CONFIG_KFENCE */
+ static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
++static inline bool arch_kfence_init_pool(void) { return false; }
+ #endif /* CONFIG_KFENCE */
+
+ #endif /* __ASM_KFENCE_H */
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index b8d37eb037fc..0385e9b17ab0 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -708,6 +708,16 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
+ 	return ret;
+ }
+
++static inline bool force_pte_mapping(void)
++{
++	bool bbml2 = system_capabilities_finalized() ?
++		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
++
++	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
++			   is_realm_world())) ||
++		debug_pagealloc_enabled();
++}
++
+ static DEFINE_MUTEX(pgtable_split_lock);
+
+ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+@@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+ 	if (!system_supports_bbml2_noabort())
+ 		return 0;
+
++	/*
++	 * If the region is within a pte-mapped area, there is no need to try to
++	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
++	 * change permissions from softirq context so for those cases (which are
++	 * always pte-mapped), we must not go any further because taking the
++	 * mutex below may sleep.
++	 */
++	if (force_pte_mapping() || is_kfence_address((void *)start))
++		return 0;
++
+ 	/*
+ 	 * Ensure start and end are at least page-aligned since this is the
+ 	 * finest granularity we can split to.
+@@ -758,30 +778,30 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+ 	return ret;
+ }
+
+-static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+-					  unsigned long next,
+-					  struct mm_walk *walk)
++static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
++				   unsigned long next, struct mm_walk *walk)
+ {
++	gfp_t gfp = *(gfp_t *)walk->private;
+ 	pud_t pud = pudp_get(pudp);
+ 	int ret = 0;
+
+ 	if (pud_leaf(pud))
+-		ret = split_pud(pudp, pud, GFP_ATOMIC, false);
++		ret = split_pud(pudp, pud, gfp, false);
+
+ 	return ret;
+ }
+
+-static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+-					  unsigned long next,
+-					  struct mm_walk *walk)
++static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
++				   unsigned long next, struct mm_walk *walk)
+ {
++	gfp_t gfp = *(gfp_t *)walk->private;
+ 	pmd_t pmd = pmdp_get(pmdp);
+ 	int ret = 0;
+
+ 	if (pmd_leaf(pmd)) {
+ 		if (pmd_cont(pmd))
+ 			split_contpmd(pmdp);
+-		ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
++		ret = split_pmd(pmdp, pmd, gfp, false);
+
+ 		/*
+ 		 * We have split the pmd directly to ptes so there is no need to
+@@ -793,9 +813,8 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+ 	return ret;
+ }
+
+-static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+-					  unsigned long next,
+-					  struct mm_walk *walk)
++static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
++				   unsigned long next, struct mm_walk *walk)
+ {
+ 	pte_t pte = __ptep_get(ptep);
+
+@@ -805,12 +824,24 @@ static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+ 	return 0;
+ }
+
+-static const struct mm_walk_ops split_to_ptes_ops __initconst = {
++static const struct mm_walk_ops split_to_ptes_ops = {
+ 	.pud_entry	= split_to_ptes_pud_entry,
+ 	.pmd_entry	= split_to_ptes_pmd_entry,
+ 	.pte_entry	= split_to_ptes_pte_entry,
+ };
+
++static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp)
++{
++	int ret;
++
++	arch_enter_lazy_mmu_mode();
++	ret = walk_kernel_page_table_range_lockless(start, end,
++					&split_to_ptes_ops, NULL, &gfp);
++	arch_leave_lazy_mmu_mode();
++
++	return ret;
++}
++
+ static bool linear_map_requires_bbml2 __initdata;
+
+ u32 idmap_kpti_bbml2_flag;
+@@ -847,11 +878,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
+ 		 * PTE. The kernel alias remains static throughout runtime so
+ 		 * can continue to be safely mapped with large mappings.
+ 		 */
+-		ret = walk_kernel_page_table_range_lockless(lstart, kstart,
+-						&split_to_ptes_ops, NULL, NULL);
++		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
+ 		if (!ret)
+-			ret = walk_kernel_page_table_range_lockless(kend, lend,
+-						&split_to_ptes_ops, NULL, NULL);
++			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
+ 		if (ret)
+ 			panic("Failed to split linear map\n");
+ 		flush_tlb_kernel_range(lstart, lend);
+@@ -1002,6 +1031,27 @@ static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
+ 	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
+ 	__kfence_pool = phys_to_virt(kfence_pool);
+ }
++
++bool arch_kfence_init_pool(void)
++{
++	unsigned long start = (unsigned long)__kfence_pool;
++	unsigned long end = start + KFENCE_POOL_SIZE;
++	int ret;
++
++	/* Exit early if we know the linear map is already pte-mapped. */
++	if (!system_supports_bbml2_noabort() || force_pte_mapping())
++		return true;
++
++	/* Kfence pool is already pte-mapped for the early init case. */
++	if (kfence_early_init)
++		return true;
++
++	mutex_lock(&pgtable_split_lock);
++	ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
++	mutex_unlock(&pgtable_split_lock);
++
++	return ret ? false : true;
++}
+ #else /* CONFIG_KFENCE */
+
+ static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
+@@ -1009,16 +1059,6 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
+
+ #endif /* CONFIG_KFENCE */
+
+-static inline bool force_pte_mapping(void)
+-{
+-	bool bbml2 = system_capabilities_finalized() ?
+-		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+-
+-	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+-			   is_realm_world())) ||
+-		debug_pagealloc_enabled();
+-}
+-
+ static void __init map_mem(pgd_t *pgdp)
+ {
+ 	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+--
 2.43.0
 
 
