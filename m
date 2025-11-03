@@ -4,151 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98331CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7449CCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8knuqx5dfDYzPF2+hLSNPS/Pqg1EONZiI3O9dCKDeTE=; b=dpkKUCRpFANURXSDCBsN+ExjJF
-	quAUX5of4DSe9W7ES8Xu13u1A7q7dPI7whAgcfqwnBOmO9kIl2M5Nu8v1Fv8aApZ9ooqvENNHh0Tp
-	zzObmJ3mMtb8gQMMmlbgKb1gp1gUgARp0tm0bO38pfNseQb48BGDOTgm/s9E/n8njCFM+uDJVnxRv
-	sdKbgimX7Yl4beoAeRAAdrmTte3vK8v+J3+xY5wBuRfn1/fDUqaJ0mNxbHDYVo+h/oi9ezt6r/FZN
-	4JoZBIEXxoWrOMPhgrrv7z6KJswCpyKTpvofzB80Zd9dT+A8jevhxqZUourYLZuAjvvtE2h+pQX7h
-	cFDEnL4g==;
+	bh=Yk/MqQKqZE9ciR/f+72baGg6dFC+oYSceyoJ97PjXtQ=; b=Hyz5/APaxqNGgzmPk25EpnpKvT
+	0Pw2/twWyGOYXczwCZgkyS7KzlXubk66PAIw1N23BabS3GHG6sH4uhtHQyNh/k7lRa9J+jHpcAXwU
+	3XSO33x5UK2hlaV7obgfIIQa2qoE54rzmXG/8bSkvpdaoWo/DSP054Ed85Q1V6d/+Gjsd3qgFHcNA
+	XB3f0X9VzJb/e0mzrd3HABt8fKj9qyBUo0CSW/BrP4bhL1U1pjq1h4myDyt9QLPkKXboyNxHwk3Jd
+	AfKPguoR1dXsqjFQnq322g1yJap/G1sU30AWCPm7Zk5bLqWvoQwlosnHs+arUMnDpjPJ/En+xpDh8
+	EJHXE3rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFreV-00000009c5X-2M4U;
-	Mon, 03 Nov 2025 10:19:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vFrfL-00000009cD9-3qVl;
+	Mon, 03 Nov 2025 10:19:59 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFreS-00000009c4q-20NR
+	id 1vFrfI-00000009cCZ-2D6l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 10:19:05 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A38p4K72732474
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Nov 2025 10:19:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=8knuqx5dfDYzPF2+hLSNPS/P
-	qg1EONZiI3O9dCKDeTE=; b=djPP1mm0aJ7VX4dcT/d0PQnmWqEhFzz/mtXA+/bF
-	tE3R4rFCxO5vLEl0X0ByIA8soOO2KYMl1pVAGGYziZby90gF+VuQNnJbsDAQ1yvc
-	OzjNVOJ/ad1Z2/x+q5+f2v0d2f/bftzI4kJgQ1tUkuhZ2iQn245y+9trM9A4ARWK
-	QQ0ieuxVb4TbQ+PhT9bID8haq2OHOjUlX2gP36/YshVts+l0OQcnYAQJMFTjlNo4
-	VW7WpkPWnB7bGfA5c0bH+bQTqRz1DUGulUm+Px194iwn4iPsQePgC7Q+iR39MWw/
-	hjwYC5ygeh5w1w20dFELH8dHpaSN6xwek3dS7peM00v0aQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a6s86g8x1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 10:19:03 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2956510d04cso17002365ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 02:19:03 -0800 (PST)
+	Mon, 03 Nov 2025 10:19:58 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-474975af41dso31514355e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 02:19:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762165142; x=1762769942; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1762165194; x=1762769994; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8knuqx5dfDYzPF2+hLSNPS/Pqg1EONZiI3O9dCKDeTE=;
-        b=RzqkWc3P0F9YHFDtfqV7FBy6d+OSY2wknrhBSkJr6ilBpGy0LXHEz66IgSYztMrefg
-         zh+9k5nMGXzOImr86yzn2xB3/lUA/mrYP+K7sXr7568lQIAzc3wSSRHpv13N7gDK9yIc
-         mGJBhPoJTV9bxRK/+DPrpJjk0qrPhLEk/oatFE3y4pd7wdLvMIR1d6mu5qxKTarNBZTi
-         AGT6EDrGu3LL6/9wNsqeXOxcEs4i2nHbi70+x1iWLMOJqmlnLpqqsIW09Kr0GU9slJ+U
-         PpdfxV6nAopZvOYsZmrJeQGIwEdHAxGTPm8RjbGa+0wFB6VgcwzyaaZE7F/UMsYlbeRj
-         qoXQ==
+        bh=Yk/MqQKqZE9ciR/f+72baGg6dFC+oYSceyoJ97PjXtQ=;
+        b=r72jeJrdZTPk7OLdGMLyB8d1MLMSwKb2/M+kizgDjGral6R7DMaN+85cUjFpAabbdi
+         WRmdeDI85OxBj94VqFQXl5eSpr8U8Ppr0sqsm2Lxo68GBncjfIweAf4U5hQAp+fpKiz9
+         BhdhXB6BnII+0Q8GMmq7CqLp/EpqHdzKQzLAXBg6Mr3Mw7wtGiQ4HeIdobzitk1NWamE
+         oYTdJOmC0zgLVtChq0W2tN4IVPOcBm+imNgkbmJUWiV+RbiI0gD3ollM/0sw0YQSl72t
+         MDCcqsAIthou/ghXXg8u02HRlctrN4cvXfah3AgsoReK/Ci7d8UOSuVJi7ctl41OI3pB
+         KXhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762165142; x=1762769942;
+        d=1e100.net; s=20230601; t=1762165194; x=1762769994;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8knuqx5dfDYzPF2+hLSNPS/Pqg1EONZiI3O9dCKDeTE=;
-        b=cD5SqBTF2w4/G5v45Ljd/53d5ap70W126Sp6FWxLAN+xSoXVVv+8iVBzeXuhLcvypH
-         tJgYaAU8ViU/Nb/WzYbtTzav7gfBTY/nzJuDWgxLBufjVQUA1tIsNtO9LFKoat/Cr/xg
-         vGiT0hkXq++g/Z2/X9PGSaYY9eeHDxYRZcbAgkscNF+e0V2Ay3A1Nv4/65PsdFah3h8W
-         MTBbIfoXWDUMmpPtM3goUL6sRvMRWbaucpq+AWKuad6K2KUJ1ln5HdE1E7LT8Et5PKfw
-         E/oHf82ZYLn8JK5YmcVUfr8EKwSk0iZuqLtN+xGC3lTC4FlNeWz4rKhLfFSCM1qg+RqM
-         H6Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCVFiyPhxJxZjmqZqLUqgJOg9pgr0Ig3HeCOcSQQ5ahRcFvFhPB6BpwlRL3ZdbJzpbfjqNZTmn/mDpnJ9giA43Zh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMjXcqc+hCV0Ryf9+hCyTrpyUmIG6+JgsGtg2wov9gplvfB8rt
-	NkK2S7jUONK5Wr3XefHkfEGBJpYfaJr0Xt5bHieMcMhQeVjPnUcc9NeaSJD3uw8pK3EwGm39NRB
-	o/dZsa8R8GHJIfZBlTJD9hA9M5gByRxGcP6lXn5VALsJFcDIZdHBmqYLKZqXoCDaw51IVrmw5Wi
-	NrwA==
-X-Gm-Gg: ASbGnctqEmzcKnVvwWo3jXYRRyHCs3QiPSLIHfr7cv8LhtqkYBnhGcoHmeRhYJTxFdN
-	SDJCVIswaIVxJx+oNoxKu8PmWBE/I61WGJLP1cQgcWnCfMYPVt8573mUj3vGepG6h8dWiXSp1sZ
-	Xnd8Bidl/efRBADWahoQ53fNWDERDUpWYIVlZq4cep5oIq5iyKdQoeKm841skX4xOS1Vr4rtyhs
-	G3wpYjM2vdxVEWg96KmWoMNJF0fsDIhTAPF+5/w+uZEawyB/QWB11YxbezLkm91vWfdEOTobspy
-	zJ9Wtl5gOam5FFVNcWAJQNVKZFPuXEAIk6sc7rryc9BDQtKP6tFqdjBW68G8/RZ+mXXY3KhMS6x
-	lXMo1i5QGBkR2
-X-Received: by 2002:a17:902:c947:b0:295:223b:cdee with SMTP id d9443c01a7336-295223bd149mr141656955ad.14.1762165142279;
-        Mon, 03 Nov 2025 02:19:02 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHgdcfwBp3HqfGTGr6bQPq69wlWi0qcKLftcjaOWW4Q7ozE69g6Y2EISLsaJgc9EFYI4f2kwA==
-X-Received: by 2002:a17:902:c947:b0:295:223b:cdee with SMTP id d9443c01a7336-295223bd149mr141656545ad.14.1762165141713;
-        Mon, 03 Nov 2025 02:19:01 -0800 (PST)
-Received: from oss.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-295268cc48fsm114249025ad.49.2025.11.03.02.18.55
+        bh=Yk/MqQKqZE9ciR/f+72baGg6dFC+oYSceyoJ97PjXtQ=;
+        b=rHWHtRLZS9X+BT73CWaUf1jH0KAqddVh8UsG19QJYmy2S2G8D4noCIrKZGckJjZVz8
+         2bYVVh17sCY7kODDUTpQ6Q12ise6twNSrDvpNFaqt5BtxXrOKmB8YtZk6WVNTFhmDRw3
+         xZx1gWJpPX31lojvqV4Sbc2/Sg4dzFB5AkBmsWkUUmV3VBeVecUtmlywBonY9pVePEMv
+         5hTSYZ1mI3czb5/PbxZhwdtrL1rZ0ABdu65HdcLb2TmlTXHgp1o1hzpYJ7PH1s3VwvIx
+         0SwbXiJ3uevmYUNXW4WsmB4RPt43C079qoOfg8g8uqj2pz7ssigw8G3M1uOGH/RBOGhX
+         DTOg==
+X-Forwarded-Encrypted: i=1; AJvYcCWtgc9h2706BRehFBpIK79Xv9+QLDRdTt/MwTWy9BheEMZ+QVTp6tCAkmGMiu9kYve8nalzkWYEnyw4GtfMkD13@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLxcTKViuVdmWFCITuX17IDFBBBofdE+rEKSv7psFZ9bOVGK/5
+	lZlvp8/BxClli03I7jVmWP11p+Z7SDbMHNVmadXbiMpOCe/6NzPAiDXAxDVc7/rnivk=
+X-Gm-Gg: ASbGncvlOh3ONSZIIbW8HhF8hQ7w6Eycea4klB7Gjcog4TYHpYKZukTrCYlo2gm73Z4
+	yJprvUTBqj6q5Ds7B5sxdJ5dO3LXOisZZ6HVwnbZ8wywX2swqSNCjFuC1W8mT79wmhfmC21/U2j
+	FbTLVyuQkJ4fh6EHqeWZQTKpKWC++jPRwu68lu1xX2Kj5HCIdN/TIFtMNaI+DeZjfggelo6puex
+	di2othkwXLikYxeC1vx+25o3YvSfmFrR90BxRHbw+Yoaf+5WlKsK+bZy5emSnrCDNLGAZCqmi4m
+	+M5hLyr0KqM4x5WzpJUvwS+tdJS2rXLcjPEgbWgpOFai0jWDDtgnhuAT4tV1gatI31ZnTffwyW9
+	wEN55nQxYtRQKaK3y0VndNk9J188r//Man2gOmxb7zwanpk+bA3vEA/f1K59IUK9Oh0eThtHmWg
+	yHSR/vlOABIeb2CGCoYH6jU+G8wb+SI9HmHdDiW/g7yrjcnjDPbh1bBxl6rPsJEEcKNzqi4XP8r
+	A==
+X-Google-Smtp-Source: AGHT+IHOtduNrRBMSHOgFwat+JbsvBQbjZA2f2jjaeArzvIV58w9j8NgIBsWYYESYm2z3s+D+nQH/A==
+X-Received: by 2002:a05:600c:34d0:b0:471:1435:b0ea with SMTP id 5b1f17b1804b1-47730872aaamr92764025e9.24.1762165194241;
+        Mon, 03 Nov 2025 02:19:54 -0800 (PST)
+Received: from localhost (p200300f65f19f5043df592b151413282.dip0.t-ipconnect.de. [2003:f6:5f19:f504:3df5:92b1:5141:3282])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4773c569390sm144870105e9.16.2025.11.03.02.19.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Nov 2025 02:19:01 -0800 (PST)
-Date: Mon, 3 Nov 2025 15:48:53 +0530
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Boon Khai Ng <boon.khai.ng@altera.com>,
-        Daniel Machon <daniel.machon@microchip.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
-        Jacob Keller <jacob.e.keller@intel.com>,
-        Jakub Kicinski <kuba@kernel.org>,
-        "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-        linux-arm-kernel@lists.infradead.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Vladimir Oltean <olteanv@gmail.com>,
-        Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 0/3] net: stmmac: phylink PCS conversion part 3
- (dodgy stuff)
-Message-ID: <aQiBjYNtJks2/mrw@oss.qualcomm.com>
-References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
- <aQExx0zXT5SvFxAk@oss.qualcomm.com>
- <aQHc6SowbWsIA1A5@shell.armlinux.org.uk>
- <aQNmM5+cptKllTS8@oss.qualcomm.com>
- <aQOB_yCzCmAVM34V@shell.armlinux.org.uk>
- <aQOCpG_gjJlnm0A1@shell.armlinux.org.uk>
- <aQhusPX0Hw9ZuLNR@oss.qualcomm.com>
- <aQh7Zj10C7QcDoqn@shell.armlinux.org.uk>
+        Mon, 03 Nov 2025 02:19:53 -0800 (PST)
+Date: Mon, 3 Nov 2025 11:19:52 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: "Krebs, Olaf" <Olaf.Krebs@emh-metering.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	"open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3] Fix IMX PWM period setting
+Message-ID: <vi2hrue6l5g5ihoa3rh2u3pitgbwiyvr5su6dhztg6iowajwfw@6rj6lh5fbtb4>
+References: <20251103064813.522840-1-user@jenkins>
+ <1b071599b84c4519a81990fbfe09782b@emh-metering.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cs2lqjurbk5vnplp"
 Content-Disposition: inline
-In-Reply-To: <aQh7Zj10C7QcDoqn@shell.armlinux.org.uk>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAzMDA5NCBTYWx0ZWRfXyr175tliCS3k
- 7GWo7iAuSqtJrsij8zpgwxDMKmMmed/Xf6KLi+pPZqtVXqjuSmveg8ZSG7XMsRGbkL9JEAJYnD4
- Vt1I+JXuaE2o49ssqXl3LGsnFAEWfcx2lE/Fs4CAvgkiL3X39XPzyQe3ntRcK8lhNU16uhQ/EIY
- kjSGF27T5XMEyAyrj+YDb9/seXcNuKb4xbuaeFYLhiMQLbO1CFbygMh1UdNBX8d4itz+mz79nSl
- mf2P/0Xt+az7BZ+lK7/22T2MpqhS9/v+vtnNaXDI7WVNvRkgHwouXEuPKVt8y6XgiK+XsJ3KCqY
- tf/6QY9Gl9z1CwA71cPRDuCyxrroB1dHpni1BiN1WC3/JXjhG84aPMzeJZzdkP/z78TQPR0mrmp
- KscxuESMUqW6+BV6Tdzc8WqO/H07Zg==
-X-Authority-Analysis: v=2.4 cv=Tq/rRTXh c=1 sm=1 tr=0 ts=69088197 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=PHq6YzTAAAAA:8 a=UWWzG2wtzVmZz2Rg0KUA:9
- a=CjuIK1q_8ugA:10 a=1OuFwYUASf3TG4hYMiVC:22 a=ZKzU8r6zoKMcqsNulkmm:22
-X-Proofpoint-GUID: 2zraJioNfVM98vzIWo-SzG0QfXcl3Isp
-X-Proofpoint-ORIG-GUID: 2zraJioNfVM98vzIWo-SzG0QfXcl3Isp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-03_01,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 spamscore=0
- adultscore=0 suspectscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511030094
+In-Reply-To: <1b071599b84c4519a81990fbfe09782b@emh-metering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_021904_634590_E6CBD381 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20251103_021956_592726_7A96E878 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,62 +104,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 09:52:38AM +0000, Russell King (Oracle) wrote:
-> On Mon, Nov 03, 2025 at 02:28:24PM +0530, Mohd Ayaan Anwar wrote:
-> > On Thu, Oct 30, 2025 at 03:22:12PM +0000, Russell King (Oracle) wrote:
-> > > On Thu, Oct 30, 2025 at 03:19:27PM +0000, Russell King (Oracle) wrote:
-> > > > > 
-> > > > > This is probably fine since Bit(9) is self-clearing and its value just
-> > > > > after this is 0x00041000.
-> > > > 
-> > > > Yes, and bit 9 doesn't need to be set at all. SGMII isn't "negotiation"
-> > > > but the PHY says to the MAC "this is how I'm operating" and the MAC says
-> > > > "okay". Nothing more.
-> > > > 
-> > > > I'm afraid the presence of snps,ps-speed, this disrupts the test.
-> > > 
-> > > Note also that testing a 10M link, 100M, 1G and finally 100M again in
-> > > that order would also be interesting given my question about the RGMII
-> > > register changes that configure_sgmii does.
-> > > 
-> > 
-> > Despite several attempts, I couldn't get 10M to work. There is a link-up
-> > but the data path is broken. I checked the net-next tip and it's broken
-> > there as well.
-> > 
-> > Oddly enough, configure_sgmii is called with its speed argument set to
-> > 1000:
-> > [   12.305488] qcom-ethqos 23040000.ethernet eth0: phy link up sgmii/10Mbps/Half/pause/off/nolpi
-> > [   12.315233] qcom-ethqos 23040000.ethernet eth0: major config, requested phy/sgmii
-> > [   12.322965] qcom-ethqos 23040000.ethernet eth0: interface sgmii inband modes: pcs=00 phy=03
-> > [   12.331586] qcom-ethqos 23040000.ethernet eth0: major config, active phy/outband/sgmii
-> > [   12.339738] qcom-ethqos 23040000.ethernet eth0: phylink_mac_config: mode=phy/sgmii/pause adv=0000000,00000000,00000000,00000000 pause=00
-> > [   12.355113] qcom-ethqos 23040000.ethernet eth0: ethqos_configure_sgmii : Speed = 1000
-> > [   12.363196] qcom-ethqos 23040000.ethernet eth0: Link is Up - 10Mbps/Half - flow control off
-> 
-> If you have "rate matching" enabled (signified by "pause" in the mode=
-> part of phylink_mac_config), then the MAC gets told the maximum speed for
-> the PHY interface, which for Cisco SGMII is 1G. This is intentional to
-> support PHYs that _really_ do use rate matching. Your PHY isn't using it,
-> and rate matching for SGMII is pointless.
-> 
-> Please re-run testing with phy-mode = "sgmii" which you've tested
-> before without your rate-matching patch to the PHY driver, so the
-> system knows the _correct_ parameters for these speeds.
-> 
-Sorry, I forgot to mention that all the recent testing is being done on
-QCS9100 Ride R3 which has the AQR115C PHY.
 
-My rate-matching patch was for IQ8 which has the QCA808X PHY. I am
-putting its testing on hold until we sort everything out on QCS9100
-first.
+--cs2lqjurbk5vnplp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3] Fix IMX PWM period setting
+MIME-Version: 1.0
 
-So, for AQR115C, what should be the way forward? It has support for rate
-matching. For 10M should I remove its .get_rate_matching callback?
+Hello Olaf,
 
-	Ayaan
+On Mon, Nov 03, 2025 at 06:50:20AM +0000, Krebs, Olaf wrote:
+> From: Olaf Krebs <okr@smgw.emh-meter.de>
+>=20
+> If a second PWM is requested by a driver before the first is configured, =
+trying to configure any of these results in .user_count > 1 and thus the co=
+nfiguration fails.
+> Fix that by only erroring out by additionally checking if the period is a=
+ctually configured.
+>=20
+> Exapmle: Using of 3 PWM channels to control a RGB LED.
+>=20
+> DTS-Config for an imx93-Board:
+> 	...
+> 	led-controller {
+> 		compatible =3D "pwm-leds-multicolor";
+> 		multi-led {
+> 			label =3D "RGBled";
+> 			color =3D <LED_COLOR_ID_RGB>;
+> 			function =3D LED_FUNCTION_INDICATOR;
+> 			max-brightness =3D <255>;
+> 			led-red {
+> 				pwms =3D <&tpm5 0 1000000 PWM_POLARITY_INVERTED>;
+> 				color =3D <LED_COLOR_ID_RED>;
+> 			};
+> 			led-green {
+> 				pwms =3D <&tpm6 2 1000000 PWM_POLARITY_INVERTED>;
+> 				color =3D <LED_COLOR_ID_GREEN>;
+> 			};
+> 			led-blue {
+> 				pwms =3D <&tpm5 1 1000000 PWM_POLARITY_INVERTED>;
+> 				color =3D <LED_COLOR_ID_BLUE>;
+> 			};
+> 		};
+> 	};
+> 	...
+>=20
+> Without this patch, an BUSY-error message is generated during initializat=
+ion.
+>=20
+> [    7.395326] leds_pwm_multicolor led-controller: error -EBUSY: failed t=
+o set led PWM value for (null)
+> [    7.405167] leds_pwm_multicolor led-controller: probe with driver leds=
+_pwm_multicolor failed with error -16
+>=20
+> Signed-off-by: Olaf krebs <olaf.krebs@emh-metering.com>
 
-> -- 
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+checkpatch is still unhappy with your patch. That might be (at least
+partially) the fault of your MUA or MTA.
+
+> ---
+>  drivers/pwm/pwm-imx-tpm.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c index =
+5b399de16d60..411daa7711f1 100644
+> --- a/drivers/pwm/pwm-imx-tpm.c
+> +++ b/drivers/pwm/pwm-imx-tpm.c
+> @@ -190,7 +190,7 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
+>  		 * there are multiple channels in use with different
+>  		 * period settings.
+>  		 */
+> -		if (tpm->user_count > 1)
+> +		if ((tpm->user_count > 1) && (tpm->real_period !=3D 0))
+>  			return -EBUSY;
+
+Repeating my review for v2:
+> Please drop the added parenthesis.
+
+Have you considered "I wonder if a saner check would involve
+enable_count instead of user_count."?
+
+Best regards
+Uwe
+
+--cs2lqjurbk5vnplp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkIgcUACgkQj4D7WH0S
+/k5zegf/ayuI0k1O/rvOwqgY2KX2snbmVt0zQXx+wWSvSz644LtOFQR+LgsDyy7u
+SlZmCAUgG9sTXIZk8uCCI9YhccesU/1Tybc5sca7brEOjTlWzWVGhzliodTxVbYI
+95iNCr3aNm6Lkhf6mfDO9FEVvfn7oTSZlDmeiBQyDaD9LDEVKyrHBbFC0GaEINLT
+GFLi3KqbLbvJu5df5v2xnsLIwH0zaWj13fMV1oocCylH9tp+YB5tGLMl4/3Ygq9b
+4R+YiqcoeL8cupykXBd0WR9S3lqUcIfME9FivoDTC3UDCTeNiMrDNgbF8mxOwd4+
+39agoAx03n2Cq66N/ZG21wkBHiffjA==
+=DpDO
+-----END PGP SIGNATURE-----
+
+--cs2lqjurbk5vnplp--
 
