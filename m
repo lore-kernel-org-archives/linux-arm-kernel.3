@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD57CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9E8CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eae8eKVkCwvICsxnP9U+9O41DT348z5sds+Y5X/4gRk=; b=H6n/4SNTvAFFURDKMQk8i8j4z3
-	EzM55Nu1uLHEcA/s/Bi0YvvZY/LJyw3jGZSneuqnyGRDKMMkNZDckMRxoLjedSF+DCXQIg0J6QMFx
-	GpoqWxdC6KPJifq9Q/mWeHEyp2lDgiUgfmjkwmKArJv0XT23OTk/zM/VBaOCIzJrWdGIlMWBM0Y40
-	Pi7pC7p2MZ7uejC6dKzkEFSE+UN4cshvAAcqNFh25c9/ob7Jvb+K0zPpQOKsOV6MrWmA35GaAfSJ1
-	8P9u7VegrV1dfHfopbVENRsDdrfI/dzdRwO0mbqc3zRK1q4iGq0StcOt4jgMNYvKJ+ySJp1cc2WoY
-	Y7Xb/NkA==;
+	bh=sXccO+5Jxyd1LezVbx+SScF46BFjQSgckyZrNTm24Jw=; b=UEwP35M9qWwDsVzTmzFNS8nx1U
+	BDKiT26GLbm4avAqXVJlrICa/vYFgJ8sRLFUBVOxhdY04gBnpEjs9spEQ0EXKgsCK+aJRV8rlDDzb
+	193ZlVM6YoCk1OBI5PesmJ++PaBlnnfsGBvXaj8tsg+OruzM6S6WI2nOhH8qy1SwwcwPoHmA1DTPm
+	YyVAPdek0+hi43e3T0hBLOKPwGptK4ewzbPmJuyYlJShomD8Z5WvpNNbW4szGDKXsomEc9z0OROwS
+	aZ6/4s81p7k9I4NI6WiKLE3h/ZK1gZcrEW50twL6KgOEnyQ5HFiwjUUmqyHYDqfRvS6ixmZZYyKPf
+	cj2Qwe3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxka-0000000AIcf-1DF3;
-	Mon, 03 Nov 2025 16:49:48 +0000
+	id 1vFxkd-0000000AIg6-2RZ0;
+	Mon, 03 Nov 2025 16:49:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxkY-0000000AIaS-2eut
+	id 1vFxka-0000000AIdG-2j4d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:49:47 +0000
+	Mon, 03 Nov 2025 16:49:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFEAE1D14;
-	Mon,  3 Nov 2025 08:49:37 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5DE62BCB;
+	Mon,  3 Nov 2025 08:49:39 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF9163F694;
-	Mon,  3 Nov 2025 08:49:43 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D88AF3F694;
+	Mon,  3 Nov 2025 08:49:45 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 03 Nov 2025 16:49:27 +0000
-Subject: [PATCH v5 06/11] coresight: etm4x: Properly control filter in CPU
- idle with FEAT_TRF
+Date: Mon, 03 Nov 2025 16:49:28 +0000
+Subject: [PATCH v5 07/11] coresight: etm4x: Remove the redundant DSB
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251103-arm_coresight_power_management_fix-v5-6-f803c19aa153@arm.com>
+Message-Id: <20251103-arm_coresight_power_management_fix-v5-7-f803c19aa153@arm.com>
 References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
 In-Reply-To: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +52,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762188572; l=4485;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762188572; l=3006;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=URjVc4nJXKlJKyg3LmfH1UoWeo7utbddavnWP6EgaRQ=;
- b=UfkPtVMhxrmTUXw5F54NLYEycC+vLn6L7DXVJ96dsGlSLSZgyzRxWw8mi7/J/IwM0+ULoWLRI
- HImd+sDsG0iAcYXzhw5AX2Ka2WZITUs3Y9VnM1oCBYVM2RgSpZFQfa3
+ bh=MhGTvkgNXzSsyPEuPah4/hh9zrW0TXKbY5/4yXiyAP8=;
+ b=Nold4GXvLqGUkzz7SsWK+5VRXnc/YPzfwVdZhKFyiXzojdydaBZs9DSLnyq+C7xkyhlwBA45v
+ Ud3cr6DE91RCjxRBH9Lbn5v66JgyzFDqc8b3gISsTvf561ZglXAEpL1
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_084946_761490_74FF56A4 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20251103_084948_984378_B3B26DBE 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,116 +76,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a CPU supports FEAT_TRF, as described in the section K5.5 "Context
-switching", Arm ARM (ARM DDI 0487 L.a), it defines a flow to prohibit
-program-flow trace, execute a TSB CSYNC instruction for flushing,
-followed by clearing TRCPRGCTLR.EN bit.
+As recommended in section 4.3.7 "Synchronization when using the
+memory-mapped interface" of ARM IHI0064H.b:
 
-To restore the state, the reverse sequence is required.
+  When using the memory-mapped interface to program the trace unit, the
+  trace analyzer must ensure that writes have completed, to ensure that
+  the trace unit is fully programmed and either enabled or disabled.
 
-This differs from the procedure described in the section 3.4.1 "The
-procedure when powering down the PE" of ARM IHI0064H.b, which involves
-the OS Lock to prevent external debugger accesses and implicitly
-disables trace.
+  To ensure writes have completed, the trace analyzer can do ...
 
-To be compatible with different ETM versions, explicitly control trace
-unit using etm4_disable_trace_unit() and etm4_enable_trace_unit()
-during CPU idle to comply with FEAT_TRF.
+  If the memory marked is as Device-nGnRE or stronger, read back the
+  value of any register in the trace unit. This relies on peripheral
+  coherence order defined in the Arm architecture.
 
-As a result, the save states for TRFCR_ELx and trcprgctlr are redundant,
-remove them.
+Polling TRCSTATR ensures the previous write has completed. Therefore,
+removes the redundant DSB barrier in the enabling flow.
 
-Fixes: f188b5e76aae ("coresight: etm4x: Save/restore state across CPU low power states")
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
-Tested-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Update the comment in the disable flow for consistency.
+
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 14 +++++++-------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  3 ---
- 2 files changed, 7 insertions(+), 10 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 23 +++++++++++++++++-----
+ 1 file changed, 18 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 5e707d082537a405e86fc30e28957ef8beec250f..fdda924a2c7117a6828e5325d78586b09e75febd 100644
+index fdda924a2c7117a6828e5325d78586b09e75febd..bdf5ab85b2213dfd601391fdcf50960667fa7cea 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1858,9 +1858,11 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 		goto out;
+@@ -475,10 +475,16 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
  	}
  
-+	if (!drvdata->paused)
-+		etm4_disable_trace_unit(drvdata);
-+
- 	state = drvdata->save_state;
- 
--	state->trcprgctlr = etm4x_read32(csa, TRCPRGCTLR);
- 	if (drvdata->nr_pe)
- 		state->trcprocselr = etm4x_read32(csa, TRCPROCSELR);
- 	state->trcconfigr = etm4x_read32(csa, TRCCONFIGR);
-@@ -1970,9 +1972,6 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
- {
- 	int ret = 0;
- 
--	/* Save the TRFCR irrespective of whether the ETM is ON */
--	if (drvdata->trfcr)
--		drvdata->save_trfcr = read_trfcr();
  	/*
- 	 * Save and restore the ETM Trace registers only if
- 	 * the ETM is active.
-@@ -1994,7 +1993,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 	etm4_cs_unlock(drvdata, csa);
- 	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
+-	 * As recommended by section 4.3.7 ("Synchronization when using the
+-	 * memory-mapped interface") of ARM IHI 0064D
++	 * As recommended in section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 *
++	 * For the memory-mapped interface, the registers are mapped as Device
++	 * type (Device-nGnRE). Reading back the value of any register in the
++	 * trace unit ensures that all writes have completed. Therefore, polling
++	 * on TRCSTATR guarantees that the writing TRCPRGCTLR is complete, and
++	 * no explicit dsb() is required at here.
+ 	 */
+-	dsb(sy);
+ 	isb();
  
--	etm4x_relaxed_write32(csa, state->trcprgctlr, TRCPRGCTLR);
- 	if (drvdata->nr_pe)
- 		etm4x_relaxed_write32(csa, state->trcprocselr, TRCPROCSELR);
- 	etm4x_relaxed_write32(csa, state->trcconfigr, TRCCONFIGR);
-@@ -2079,13 +2077,15 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 
- 	/* Unlock the OS lock to re-enable trace and external debug access */
- 	etm4_os_unlock(drvdata);
-+
-+	if (!drvdata->paused)
-+		etm4_enable_trace_unit(drvdata);
-+
- 	etm4_cs_lock(drvdata, csa);
+ 	return 0;
+@@ -974,8 +980,15 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+ 		dev_err(etm_dev,
+ 			"timeout while waiting for PM stable Trace Status\n");
+ 	/*
+-	 * As recommended by section 4.3.7 (Synchronization of register updates)
+-	 * of ARM IHI 0064H.b.
++	 * As recommended in section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 *
++	 * For the memory-mapped interface, the registers are mapped as Device
++	 * type (Device-nGnRE). Reading back the value of any register in the
++	 * trace unit ensures that all writes have completed. Therefore, polling
++	 * on TRCSTATR guarantees that the writing TRCPRGCTLR is complete, and
++	 * no explicit dsb() is required at here.
+ 	 */
+ 	isb();
  }
- 
- static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- {
--	if (drvdata->trfcr)
--		write_trfcr(drvdata->save_trfcr);
- 	if (drvdata->state_needs_restore)
- 		__etm4_cpu_restore(drvdata);
- }
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index 13ec9ecef46f5b60a38c464e8ebde3ef72e7d50b..b8796b4271025f6aba79fe3cd6e4d17d0b56952d 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -866,7 +866,6 @@ struct etmv4_config {
-  * struct etm4_save_state - state to be preserved when ETM is without power
-  */
- struct etmv4_save_state {
--	u32	trcprgctlr;
- 	u32	trcprocselr;
- 	u32	trcconfigr;
- 	u32	trcauxctlr;
-@@ -980,7 +979,6 @@ struct etmv4_save_state {
-  *		at runtime, due to the additional setting of TRFCR_CX when
-  *		in EL2. Otherwise, 0.
-  * @config:	structure holding configuration parameters.
-- * @save_trfcr:	Saved TRFCR_EL1 register during a CPU PM event.
-  * @save_state:	State to be preserved across power loss
-  * @state_needs_restore: True when there is context to restore after PM exit
-  * @skip_power_up: Indicates if an implementation can skip powering up
-@@ -1037,7 +1035,6 @@ struct etmv4_drvdata {
- 	bool				lpoverride;
- 	u64				trfcr;
- 	struct etmv4_config		config;
--	u64				save_trfcr;
- 	struct etmv4_save_state		*save_state;
- 	bool				state_needs_restore;
- 	bool				skip_power_up;
 
 -- 
 2.34.1
