@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D567CCFA08
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B21CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wt/YaIdP5H2iqjN5ZcW+LJhKxJ7W2AmyJFnbxNjqU/M=; b=P9rBTOKHv2dhXdoK2lDGF34uKN
-	ocEl/B0ygEtLDY/er8B4qZKJN/TUpsDF9Cr5dvRZ7nDgyv01W+KtgdxboE2MF5QqyJoY2dtCqZSuJ
-	YoZ5kDhXoePxwq7jA72EXqu2y3GwgG2aQ0koDds9qOYMG3+BqoAaGF4b3MZbA7Hzsu1tSLkrddjt4
-	v2haphqh5dyVEXqqppKO7qiifhOKVLQBqUbkrGO5rDmsdJVQoss+uYhqPHi13NTd+w86b3MgotA/0
-	mBI4HuabVo4exD5FBTOrJOz3Vwy7Xnm7m8gJBIOqg2d1Aricu4eRnau6j/3Bdm1JeBJbvOv5TGztL
-	X1dcW9xQ==;
+	bh=kmX4lyPBoT875wjHWdcqUov5fV8rK+s5knvWif8YRXo=; b=0EgpJ/BNILXhentFyPNuFNiIMR
+	PDNE5J0AHrX9HR+bEpr9kFWUeweeKE2bIoUWJi/4iFTEYvP+5/JFIDYuq73+Hfqx1hrqVFTudR46R
+	J6xaycXhnF9NL9kRbY97tnXT7hTBva8+116tiINHLgQ7PlYFLVAWp6n6CI/EsMCu89ZTaK406/JW7
+	TcOWD5bdUOXB6R160Wpr3ad/ynt/FHQK5tD+ckoRxzNNnPUI0C//TGPFv+aXErawwDvnjEFktHA4W
+	SfbfOaVXLfB8LJMb6nIRfb+sK5EhibfFlqonozHdzBZN/ItJyXXF6709qTuVspJANNKtqPArYXm1u
+	VgExnHnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxq7-0000000AK15-1Otk;
-	Mon, 03 Nov 2025 16:55:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFxqB-0000000AK8A-0iXg;
+	Mon, 03 Nov 2025 16:55:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxq4-0000000AJwy-10hn
+	id 1vFxq4-0000000AJwv-112A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:55:29 +0000
+	Mon, 03 Nov 2025 16:55:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82BA64388C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A9A143BB2;
 	Mon,  3 Nov 2025 16:55:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6692EC4CEE7;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FCC2C4CEE7;
 	Mon,  3 Nov 2025 16:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1762188927;
-	bh=OMxD2PYcmSUFGf3eaSzIGAaXKeRPy9/qh6982gD/Xp0=;
+	bh=/GSt2XVw5TKgrkgRLW7hTqPErYsbM430CGm8iWI4aZ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VYA9XzlO/t8NiQpLYfMq7BC7TxV6sKrJOkNnRH18fve5zMjUDh4T5Vpk5cil4fLSo
-	 TRo5kVG1oMr+kNqt28OaRZFvl12aTExFw3uA6U7VqxYS0N3sm3WGnNfZDodHVrJn2d
-	 DYFaWxf3kCbQqu0uHR9GRQRED+DRBvTsDr6k4FhOjsxj7bvejwy82PD2qUtmTgZIrY
-	 /wNW/I8gXTCvJbco9Hc/3TYuglHY2K3Hb8RJlk9G6ocxvp1ue9GiknXw1yQ8ylsIRz
-	 h61VTUisVuUXAZQnLYY3IzXrGK9FyOxEqUiom6VAqxTArl0WKjrP8LD1YD14wcbRCM
-	 achBZm5+F7mgw==
+	b=S9VpH4Tc1GofJU3nn5WlkM6DwqZoHs1qLob6kjcmmwB1GyBjdNn8fPbxU4NPFuadv
+	 NOL217IqwR7cC7uucW+SF6HOmB7ZiF777dDm5ysQP3U++141I3mSPpIGBWlsUm19U1
+	 5NNepzgr+7sF1ZB0EeQV30+9lrSCQUUVpT+MdY2qo5/x4U0cdUM3SSQqSt0lg5V8Jh
+	 /hK8eKhpeOkzM8A/4TTshOwpFODQMFav2nQMIL5fb2BO7z5xLg4sixLNiLsn2c06f4
+	 lu5on9tR0Llh3M0xj6nc6VZ6/xecQApqc/HC+ED3EbZVluCsWrHhklaqoZlJiDnzGm
+	 fuhleDjZrloZA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vFxq1-000000021VN-1bHg;
-	Mon, 03 Nov 2025 16:55:25 +0000
+	id 1vFxq0-000000021VN-3l0L;
+	Mon, 03 Nov 2025 16:55:24 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: [PATCH 03/33] irqchip/apple-aic: Spit out ICH_MIDR_EL2 value on spurious vGIC MI
-Date: Mon,  3 Nov 2025 16:54:47 +0000
-Message-ID: <20251103165517.2960148-4-maz@kernel.org>
+Subject: [PATCH 01/33] irqchip/gic: Add missing GICH_HCR control bits
+Date: Mon,  3 Nov 2025 16:54:45 +0000
+Message-ID: <20251103165517.2960148-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251103165517.2960148-1-maz@kernel.org>
 References: <20251103165517.2960148-1-maz@kernel.org>
@@ -71,8 +71,9 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_085528_300983_6D131655 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20251103_085528_312370_5E6F3244 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +88,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is all good and well to scream about spurious vGIC maintenance
-interrupts. It would be even better to output the reason why, which
-is already checked, but not printed out.
-
-The unsuspecting kernel tinkerer thanks you.
+The GICH_HCR description is missing a bunch of additional control
+bits for the maintenance interrupt. Add them.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-apple-aic.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ include/linux/irqchip/arm-gic.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-index 032d66dceb8ec..4607f4943b19a 100644
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -411,12 +411,15 @@ static void __exception_irq_entry aic_handle_irq(struct pt_regs *regs)
- 	if (is_kernel_in_hyp_mode() &&
- 	    (read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
- 	    read_sysreg_s(SYS_ICH_MISR_EL2) != 0) {
-+		u64 val;
-+
- 		generic_handle_domain_irq(aic_irqc->hw_domain,
- 					  AIC_FIQ_HWIRQ(AIC_VGIC_MI));
+diff --git a/include/linux/irqchip/arm-gic.h b/include/linux/irqchip/arm-gic.h
+index 2223f95079ce8..d45fa19f9e470 100644
+--- a/include/linux/irqchip/arm-gic.h
++++ b/include/linux/irqchip/arm-gic.h
+@@ -86,7 +86,13 @@
  
- 		if (unlikely((read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
--			     read_sysreg_s(SYS_ICH_MISR_EL2))) {
--			pr_err_ratelimited("vGIC IRQ fired and not handled by KVM, disabling.\n");
-+			     (val = read_sysreg_s(SYS_ICH_MISR_EL2)))) {
-+			pr_err_ratelimited("vGIC IRQ fired and not handled by KVM (MISR=%llx), disabling.\n",
-+					   val);
- 			sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
- 		}
- 	}
+ #define GICH_HCR_EN			(1 << 0)
+ #define GICH_HCR_UIE			(1 << 1)
++#define GICH_HCR_LRENPIE		(1 << 2)
+ #define GICH_HCR_NPIE			(1 << 3)
++#define GICH_HCR_VGrp0EIE		(1 << 4)
++#define GICH_HCR_VGrp0DIE		(1 << 5)
++#define GICH_HCR_VGrp1EIE		(1 << 6)
++#define GICH_HCR_VGrp1DIE		(1 << 7)
++#define GICH_HCR_EOICOUNT		GENMASK(31, 27)
+ 
+ #define GICH_LR_VIRTUALID		(0x3ff << 0)
+ #define GICH_LR_PHYSID_CPUID_SHIFT	(10)
 -- 
 2.47.3
 
