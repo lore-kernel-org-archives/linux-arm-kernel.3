@@ -4,169 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47706CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5619ACCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OjA+tCkVv7HMBopE4CROfapBNMNTcsB8iFYjRUDIDVI=; b=pbeSgmohNMma86tB/BZX3YpvM1
-	lYHr9XehHJyIgR+Y9PE6P4ryO5B5B+TsbPPGT6aM3ZIi1s/3OY7GcYXw03KFvS4YYOQHSAcOUhQ5B
-	ndZ1LKBS/DTUwFDrfIODCrWP3MKcON8Cwm2DJN+KW7EjZOANMB0gz5Sd/Xos099cY/mF+fEAFR549
-	xixTQ28N4BdYBrc0y322Zxq1CrWhIipZVdVVZ/X/Znsy2aCD1C4rKAXx1wvtHNhkjhouC6Dj8MWgZ
-	yaeRwpFxClbCkJSmu37GE9vTJlyUF1DXl0dBHFW67hTjlbv4dGA64UZMn+IiqzSuTYC0TbBiU5IFY
-	1KHBgrig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=it03AAMKYd2g1Yeydh/9ozAQpRko2jPLb8JT9ESxDMU=; b=ABUttRFvWK7OsKYCYHONutYl3w
+	2sJy99vZbSU9pxv/SSsj+OqK+zoLVbD8Av+5Ivf1MZ7Y/dPOwK0J32NxUh/dVGTngTVYlY/8xzaat
+	z1YTS0rnpz0IBTVMDwWQh/4a1zXEPAIEDzF+MjM/xCgXNsRqQ1c24cn8Es6E0T9ifhLzSmrGsVnkZ
+	tsEsBRwfJMdAcQ2OJ1YXJcyJe+HEecwLxMS1Kr9JRq3vDqFfhPO5HU83IHT0H3Zk+ECjVgtjTQJ88
+	or/HmlTqASzcGp9+X+g9EVaKC7CCgPeZAiXNpd8I6SN84gVikjg5BZKtpPEi6LAaRBgENdDyPM2SF
+	ONr5YmLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFz6Z-0000000ATQS-3jg2;
-	Mon, 03 Nov 2025 18:16:35 +0000
-Received: from mail-canadaeastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c104::] helo=YQZPR01CU011.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFz6W-0000000ATQ6-3Djb
+	id 1vFz7M-0000000ATaA-2Blc;
+	Mon, 03 Nov 2025 18:17:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFz7I-0000000ATZD-40Dt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 18:16:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CkrqKlOFl1KTNxLCZkpIEe2T2GR3a5P0No/UIk6lEXcmWAfsLUNIKr0PTXS7Fr+lmXWxZiay9TgEya52r+hyIOmYE26zwshghZWXMr23EdmcMZwze6T/7p3ZXPwDvML1HgiYSsczykfDxyI7bRYeQDXRulo3pQyv7J8ogsK+eMgIotbi3DjH6FtQfWQ0Cg6vLB4uGcMNQrB/5zspC1DkwiHi/I0XMaz8tbAyeHNeZHX3ls38ggCaO+cpmRSohftkFpJENZYgTrd513F/Z1/tOjQTJolswnnj/QpMwGckFddEklJVHyTTOjPuBeMzAKjaHS4+X7c/30MUP2gJxWM03w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OjA+tCkVv7HMBopE4CROfapBNMNTcsB8iFYjRUDIDVI=;
- b=xJF6aPXS1EAtcur17GvS28TVCQU8aJmGPCkLvnBIY+TxmiLLRKSlLMMXz2rs+UovwMxX3dQqo0mOL48oRMbQpXSHiitJyiliG2HE8OgdJmMOfzqBRAYgd8ww++JvKXBUGsHaYDbMYSN6cIz40o1aKofHQuMrHAqGQ40haIRGaV6hH0/eHe6rjx9iR3rp365qRzFO4+8RFthQplsVSDn9E8ouORYWv448Ivpeu0phbdPgPyiOykhViMZfV3vNha3FV6/eE7JJaz4K7m1YgLRmpaYl/MjshTLFJ7RoXgil8QGONXbOOAvOgQpxEnhP0xs5VQpfOD2WSfChGmZ8JKw3ZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OjA+tCkVv7HMBopE4CROfapBNMNTcsB8iFYjRUDIDVI=;
- b=a35T0c46utUuk06XBVZNlbbjtYU/Et/qRmzQxkEo8NBWfnWURuA9ES6p+gCLFhOgfm5BhFZ4X3Tr8VmZTr3x+Lh4fuyUZUuaoAs4gALk+gpr2xOPHW0ZwfzFE5MtV78BRtf/9dMVJc8Otp30wkHyfKIuJ89+xmwO14hVeFdim0FayWV639oaxgW4LTnL6b8aSItlRk9xWsoCz264VsS0PhMl+y6sKvSQYHGonihlrPyWcWyAZbIwjNkDnp49sCS4nu/4RcwQKVr8cYe6r6POym7jHW5d3Y3q+FLLF6Q5Qr1Qur68De/MyLJKyMNwdZrKTlT0akVAQKKGJXIPUlalgw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YQBPR0101MB5959.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:36::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
- 2025 18:16:24 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4%2]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
- 18:16:24 +0000
-Message-ID: <7cdecba1-2b30-4296-9862-3dd7bcc013d8@efficios.com>
-Date: Mon, 3 Nov 2025 13:16:23 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/19] srcu: Optimize SRCU-fast-updown for arm64
-To: paulmck@kernel.org
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
- rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
- <20251102214436.3905633-17-paulmck@kernel.org>
- <b2fb5a99-8dc2-440b-bf52-1dbcf3d7d9a7@efficios.com>
- <f89a3a56-e48a-4975-b67b-9387fe2e48c6@paulmck-laptop>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+	Mon, 03 Nov 2025 18:17:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E2812A6B;
+	Mon,  3 Nov 2025 10:17:10 -0800 (PST)
+Received: from [10.57.71.231] (unknown [10.57.71.231])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF8D33F694;
+	Mon,  3 Nov 2025 10:17:13 -0800 (PST)
+Message-ID: <7a61bcf9-a57d-a8e9-a9b8-4eacef80acd3@arm.com>
+Date: Mon, 3 Nov 2025 18:17:00 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Subject: Re: [PATCH v4 1/3] KVM: arm64: VM exit to userspace to handle SEA
 Content-Language: en-US
-In-Reply-To: <f89a3a56-e48a-4975-b67b-9387fe2e48c6@paulmck-laptop>
+To: Jiaqi Yan <jiaqiyan@google.com>, maz@kernel.org, oliver.upton@linux.dev
+Cc: duenwen@google.com, rananta@google.com, jthoughton@google.com,
+ vsethi@nvidia.com, jgg@nvidia.com, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
+ will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org,
+ kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20251013185903.1372553-1-jiaqiyan@google.com>
+ <20251013185903.1372553-2-jiaqiyan@google.com>
+From: Jose Marinho <jose.marinho@arm.com>
+In-Reply-To: <20251013185903.1372553-2-jiaqiyan@google.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQZPR01CA0123.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:87::28) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YQBPR0101MB5959:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef9db93c-b335-4394-1002-08de1b051917
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Rk1sb0ZFbUhHVkNxUCtoNVllT1Iwdm8yL3hQclFpZkVLMjcxR1g2Rm0xbmNF?=
- =?utf-8?B?WUd3OHhyZEVac3VublN4dSthMWFJQXhiYUVVSHVtcmQwNmRrL2JybkQwdDZD?=
- =?utf-8?B?bW5vTysrWENqVVEwbzB6NVNHVFNXOFdNcjhIK0tKUjNTK2M0SU1OdmNGcXl3?=
- =?utf-8?B?b2hoMUtteDZhb1dkZ1dNN2E3QnZ5UU5TZmM0ZG5rQzFPbXB3Q0hmNUxadE5y?=
- =?utf-8?B?MWNDWkdSbWtvN09qbGpZSFBnZEVabkhoRGhhNU9zUC91cDd4NFRPRXF1RjFB?=
- =?utf-8?B?UTlOeW5UT2dKajJadjgwQk9GdzZDRFVWdk1CamVwVks4VEpZS29tNGJ1Z0xx?=
- =?utf-8?B?SmMzK0Ewd0JWTS93TDNabDI5aVFwV1hKNHk5WTRhODNYRyt0eW15dVNkN3dI?=
- =?utf-8?B?SDZoZFJTSmJYTlp0emc1aGFjMjF4SjNyMVZvVVNwTURVK3lVQkxoa0FXSjhI?=
- =?utf-8?B?ZHBjN3B4djhJMlJYM1B3MnJmSjFZNGhnTndmNFhkSDMxU3ZSeVhrYjRWRGpE?=
- =?utf-8?B?ZVRGSE9CeFFpaGtTZ3RDcmZLd01MZkd1dnZjZDJPbzF3QUlyTWdpMkcrME1h?=
- =?utf-8?B?Ykd6TXdkeG92aXBvcm9PSjk4VnNzdlhEb3B0Q1JMK2VyS3ROVjVuWmM2N1dn?=
- =?utf-8?B?d3JXWU4xNnphZDFHSzcwTE9kOXdxSElaUnZDRm1Rcm51b1h5b0ljYUtPMVhw?=
- =?utf-8?B?U01kbFVQNEEybWNsdjc0R1lteW1vZm5RdndhQi9Dc3BDakg1eEg2U0xEKzI1?=
- =?utf-8?B?MTZ2S2NXc3lIWmxoZ3NOcVkrdmYxOFk0S014bVBhZWJBeFFpbUx1R2Q1cVF4?=
- =?utf-8?B?ZUtlaHp4NzlQWGV0SlFhWFlMbEZRaTVUODBjeEhRWFg3QVROVnIwdWtBalZ5?=
- =?utf-8?B?RUpVajJ0bEZNUFhndzNYK3IxejdBc3NhQlRodEZJaWRjNXZVN1gzYWx2eDFJ?=
- =?utf-8?B?cVZOQVJTeVNBNkF3ZnYxajlLMW9wTVIwSFlkUGszYVJxd1JNcmVFV200UzlM?=
- =?utf-8?B?TFJ3ektJa09GclVLd1JMQnpQVnBwTW1vOFpsNUJhSWpabkxEYU9SRUhLa2tS?=
- =?utf-8?B?WThJL3pFTzFyLzBkczJWVUd1YVNvQlU1Q1AxQ0lMLzRqK25WdE5hZjB6WXU4?=
- =?utf-8?B?NnNqUm1FY204VFV0UityQkpvdWVWTURjVU5DMm1jK3VGN0dsYzBFTG9URVdj?=
- =?utf-8?B?WEtxYTRCYVhWdnZPUXhXcE9sSkkwZ2g4RnVyNGJCb01QL1c4QklqOG05SjRt?=
- =?utf-8?B?OSsxeEtKZGFyVzZnb2FLVlcrNTY5TXEzUndFNVdrTmtMbVM2VGZQbzFyWFNr?=
- =?utf-8?B?dXgyQWIzM05FcWJvdXk3dXRORXJPK1FKMzZPLzNNSE5mN3ZsdU11NFFLYUdH?=
- =?utf-8?B?NlBtMzNCZUVWZTlOT0hlYmNFNFBIVUwvaTdNUm0xSmJiRUlaSmhwYlpwNG9n?=
- =?utf-8?B?eFR1T01tamZVZThlaDdkTGlhUEswU0F0MkZGMm9Oam44NUxKb1k1bnRwMFh5?=
- =?utf-8?B?OG1YWVFyK0V0d3MvTXo5SGU3eHlJMjRWbGtuM2RYejVPUVR2eW01NFFUSTBm?=
- =?utf-8?B?VzRMMVVxdlprV0xtVnptVnY2M3B0M0xTd3lTV3h4WVpZdlRPK2NOT25FZ3Ix?=
- =?utf-8?B?eTlLN0svbHdKKzdpUzl4eUNMTmd4QUdGK2lCTWpBa3ZQL3VVd1pUSHcwaUVB?=
- =?utf-8?B?QWRncUYzYmN0bENzMytRMlkrSXhhWlY0TWEycVFwODF4NzdCMjUvZkZDZ21r?=
- =?utf-8?B?Ulo4UVkzb25lMG9XNmNkejFxUzg0RldSQkpocExZdDgwTHM1ZGgwaXM0ZS9Q?=
- =?utf-8?B?cjdaSUoyaG9ZeEpReldzYVlrVmY3b1p1MlQvUHhIQ3NCL1RMTXpET3NzMStS?=
- =?utf-8?B?MGpreC82QlprL3pGYWFvN3h0Ylo5VVBnMlBaQmlQTUdTQlE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SE1JQldUNHYzaXh2ZXcrNlJ3RUhHMTVieEFTeEcwMytJY0d0aXh2SE45Smox?=
- =?utf-8?B?WHQ3RmFwYm1FYkVOQjB4UlF0WkVSb2RINlkyRUJta09DQi8zR3hwSGtBUysx?=
- =?utf-8?B?MjlhVkQvZkhTTy9pd215NWZKcTFldlhId0JGcS9iUXdaak91Q0hZSmxkdVQ4?=
- =?utf-8?B?STlhTmhvZzhrek5TZ3hsSi9xNUlXUHRWd2hUS1hicHoyRFpMOVNuQmFoR2pw?=
- =?utf-8?B?V0V4dEorQlJ4bnhnaXJNUENVaitZVjBxVUdOSU8yZi9qcmphODI5d2l5OG1k?=
- =?utf-8?B?d3FCd2hJVWYzNjJuODRmdGp3VTZTZWx3SThQdUVGcXdsSEppcU5vS2pLWEhT?=
- =?utf-8?B?K0loa1NzdDJBQ3Y1UGhVTldFZjFObHNQYWZLd3krRWlKZDdMZit1Nm8wUDJt?=
- =?utf-8?B?R1dTVWRUbis0VjJVeE9VRHZETXI5VzdOTUYwVlBMcTdyeHVtUVo0UUZrbndE?=
- =?utf-8?B?RXNKTWJCUzdKUEJhZUJjRnRSZjd0RXllQjN2Q3lGZ2cwdVdDY3ozRU8zNE1W?=
- =?utf-8?B?RElXcEdrMk1xVm9GdmNRQmxSdkdTS0x3YVFBOWt2dVptRkxLK0VkaWxsUzJR?=
- =?utf-8?B?K1o4QkNnbkhLeXJwazJGMzhsd2xXc1RPV21WbGJsVUpiaGF1WS8yMDF0TG1u?=
- =?utf-8?B?TjV1OEVxUVVEck1SemZwdmJmeHkwWjdERFVoZFljWDZOdVhWQ2E0MlIyVzdW?=
- =?utf-8?B?K2lkcWRoR1hMRG1ZN29qV0Q0VS8zUWZheWZReitFQTJjNmk3eDZIK3VlMWNz?=
- =?utf-8?B?M0JJSkZMdmpoSGQ5dFN0UWlBTU8wQlhod0g4Y3lOdzBkcUFWczI0T3M4T3JJ?=
- =?utf-8?B?RmpXWU9vTitHRjRlQlJZR01qZmZuVWJ3OEJ5cHBhbVBhRWRXWWdNRWp5QmJF?=
- =?utf-8?B?Sjc0YiswcUFwRVJmNjdoaTZYV2JZbDdOM2JVVDB0Sm9va0hPMHJhTFRqMlF2?=
- =?utf-8?B?Y1hlSmpsTXprczBzblZRNFRCSkw4VmRhUEN3Ri95L3ZZa0FMZkZaTzNvSUFF?=
- =?utf-8?B?UkJqaVc5Nm5kWm1kTFpCcU9sekJPYzJDb1dKZG9UN2FVZGtBSjVrc3Z0eUtt?=
- =?utf-8?B?UldsaFF2RENMS2cya1dqN0ViYWF1NG1QaURaR3R1NDFKdGJWMm1tbzhBUjZm?=
- =?utf-8?B?Wmp1ckRrK0lsSk1KVjAxV2dvcTlEaGRQQlF6cTlTSG9GeURqS3FLenowVUNh?=
- =?utf-8?B?SytHNHZabUhGcE1iZ2JyNFBhY2JGZ1RCVmhIWEVQZUpKcGR6N21ZNy80RmhZ?=
- =?utf-8?B?bXVTTWZNT2t1VytFZlVjRlJqclZlVDFza3Z1NHFoSVBRRit0UVJPS0V4Vnpl?=
- =?utf-8?B?NlZYWlJpOTVaWWxRVUZnc2JrQnZaZlE3Z0EvdTZOUXdQMTFiSEowNkxkWUN3?=
- =?utf-8?B?QjUxTFBoUVBoNGw4Tm8wSldSV1pPdXlLVk83WlZoS2NRWFlwU2JCQ3dSaWZx?=
- =?utf-8?B?OWwreWZqZXhmcUZCVXBXU3BJUlNyZTM1RDhCTTFJREFNTUgvN1hQSWhHR3ND?=
- =?utf-8?B?YnkyZFJ1Tm53eFdvbDR0WlNvZVVIWEo5Um9pT0VubW9XN1NxLytuVnMwc0E1?=
- =?utf-8?B?aytMWDBMR0d2UWZ2ZDZUbE9XMzZLWVRBUTJRNk0wOTVuUURiTzVGYVM3UXJ2?=
- =?utf-8?B?UWJzNzZmQVJpb2xiZWdvTmZqRWJnM3h2THIwZmNKZWx0NTVkN1E2WWpGeisr?=
- =?utf-8?B?ZDJQd0NqSTJSb3kxUXBpcnhKWDdzM05ZektZalU3NGsvSFRLWEtGYTZ2Q29E?=
- =?utf-8?B?US9xTDkrSWtXRXVONHFvZWl0RnBJKzRkY2cweTV1V3pXMXFrMy8yblZCbUtQ?=
- =?utf-8?B?TTBMUmpoQk1aQ1QwWTRPdzNoWDhsTFFuM1ltYUl1b3lSWWVvbENkaWlEanlI?=
- =?utf-8?B?SXJVUXZET25XZHNZSThPWkt4QXNqbC80OGFob21jNW85NUJOaEpVbVpaRnZa?=
- =?utf-8?B?RThaRHBsdDRaVkJuWnM4M1RZNUJRQnZ4bWQ4OHRKK1cwVnYxZ3oxUnc0TThC?=
- =?utf-8?B?dDFzckhnVXdidnVyMitvamkrenY1dXM2Y0dHWDJTWnpBc0p4WmlmYy9tQnMz?=
- =?utf-8?B?cjc5b0dWcEg1dHdBNHl4a3NPUlpUYzVHckFnQmFHUGE5Vk9qUHd0eVMweUpQ?=
- =?utf-8?B?N1lzcE1TSzNKaGFVOEs2MG00OFRjcldzT09OQ1diNG0rVnY4TkxWUmdiNWRU?=
- =?utf-8?Q?9KlYXnmlHINB70ksJdz469g=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef9db93c-b335-4394-1002-08de1b051917
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 18:16:24.4534
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XzuvIG3nz/X8kdkvgFgGiX5pvQXS5seXX3NuN82cJuETFtevMhG55gdWQssiotfb7JyrL+YSr74bMzahOEu6FG+NFWGFXP9f0rZrxMwAMKU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR0101MB5959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_101633_137717_5CA78876 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20251103_101721_086175_CD557A5C 
+X-CRM114-Status: GOOD (  34.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,63 +71,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-11-03 12:08, Paul E. McKenney wrote:
-> On Mon, Nov 03, 2025 at 08:34:10AM -0500, Mathieu Desnoyers wrote:
-[...]
+Thank you for these patches.
 
->> One example is the libside (user level) rcu implementation which uses
->> two counters per cpu [1]. One counter is the rseq fast path, and the
->> second counter is for atomics (as fallback).
->>
->> If the typical scenario we want to optimize for is thread context, we
->> can probably remove the atomic from the fast path with just preempt off
->> by partitioning the per-cpu counters further, one possibility being:
->>
->> struct percpu_srcu_fast_pair {
->> 	unsigned long lock, unlock;
->> };
->>
->> struct percpu_srcu_fast {
->> 	struct percpu_srcu_fast_pair thread;
->> 	struct percpu_srcu_fast_pair irq;
->> };
->>
->> And the grace period sums both thread and irq counters.
->>
->> Thoughts ?
+On 10/13/2025 7:59 PM, Jiaqi Yan wrote:
+> When APEI fails to handle a stage-2 synchronous external abort (SEA),
+> today KVM injects an asynchronous SError to the VCPU then resumes it,
+> which usually results in unpleasant guest kernel panic.
 > 
-> One complication here is that we need srcu_down_read() at task level
-> and the matching srcu_up_read() at softirq and/or hardirq level.
+> One major situation of guest SEA is when vCPU consumes recoverable
+> uncorrected memory error (UER). Although SError and guest kernel panic
+> effectively stops the propagation of corrupted memory, guest may
+> re-use the corrupted memory if auto-rebooted; in worse case, guest
+> boot may run into poisoned memory. So there is room to recover from
+> an UER in a more graceful manner.
 > 
-> Or am I missing a trick in your proposed implementation?
+> Alternatively KVM can redirect the synchronous SEA event to VMM to
+> - Reduce blast radius if possible. VMM can inject a SEA to VCPU via
+>    KVM's existing KVM_SET_VCPU_EVENTS API. If the memory poison
+>    consumption or fault is not from guest kernel, blast radius can be
+>    limited to the triggering thread in guest userspace, so VM can
+>    keep running.
+> - Allow VMM to protect from future memory poison consumption by
+>    unmapping the page from stage-2, or to interrupt guest of the
+>    poisoned page so guest kernel can unmap it from stage-1 page table.
+> - Allow VMM to track SEA events that VM customers care about, to restart
+>    VM when certain number of distinct poison events have happened,
+>    to provide observability to customers in log management UI.
+> 
+> Introduce an userspace-visible feature to enable VMM handle SEA:
+> - KVM_CAP_ARM_SEA_TO_USER. As the alternative fallback behavior
+>    when host APEI fails to claim a SEA, userspace can opt in this new
+>    capability to let KVM exit to userspace during SEA if it is not
+>    owned by host.
+> - KVM_EXIT_ARM_SEA. A new exit reason is introduced for this.
+>    KVM fills kvm_run.arm_sea with as much as possible information about
+>    the SEA, enabling VMM to emulate SEA to guest by itself.
+>    - Sanitized ESR_EL2. The general rule is to keep only the bits
+>      useful for userspace and relevant to guest memory.
+>    - Flags indicating if faulting guest physical address is valid.
+>    - Faulting guest physical and virtual addresses if valid.
+> 
+> Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+> Co-developed-by: Oliver Upton <oliver.upton@linux.dev>
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>   arch/arm64/include/asm/kvm_host.h |  2 +
+>   arch/arm64/kvm/arm.c              |  5 +++
+>   arch/arm64/kvm/mmu.c              | 68 ++++++++++++++++++++++++++++++-
+>   include/uapi/linux/kvm.h          | 10 +++++
+>   4 files changed, 84 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index b763293281c88..e2c65b14e60c4 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -350,6 +350,8 @@ struct kvm_arch {
+>   #define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
+>   	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
+>   #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+> +	/* Unhandled SEAs are taken to userspace */
+> +#define KVM_ARCH_FLAG_EXIT_SEA				11
+>   	unsigned long flags;
+>   
+>   	/* VM-wide vCPU feature set */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index f21d1b7f20f8e..888600df79c40 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -132,6 +132,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>   		}
+>   		mutex_unlock(&kvm->lock);
+>   		break;
+> +	case KVM_CAP_ARM_SEA_TO_USER:
+> +		r = 0;
+> +		set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
+> +		break;
+>   	default:
+>   		break;
+>   	}
+> @@ -327,6 +331,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>   	case KVM_CAP_IRQFD_RESAMPLE:
+>   	case KVM_CAP_COUNTER_OFFSET:
+>   	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
+> +	case KVM_CAP_ARM_SEA_TO_USER:
+>   		r = 1;
+>   		break;
+>   	case KVM_CAP_SET_GUEST_DEBUG2:
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 7cc964af8d305..09210b6ab3907 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1899,8 +1899,48 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+>   	read_unlock(&vcpu->kvm->mmu_lock);
+>   }
+>   
+> +/*
+> + * Returns true if the SEA should be handled locally within KVM if the abort
+> + * is caused by a kernel memory allocation (e.g. stage-2 table memory).
+> + */
+> +static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
+> +{
+> +	/*
+> +	 * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external abort
+> +	 * taken from a guest EL to EL2 is due to a host-imposed access (e.g.
+> +	 * stage-2 PTW).
+> +	 */
+> +	if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
+> +		return true;
+> +
+> +	/* KVM owns the VNCR when the vCPU isn't in a nested context. */
+> +	if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
+Is this check valid only for a "Data Abort"?
+> +		return true;
+> +
+> +	/*
+> +	 * Determine if an external abort during a table walk happened at
+> +	 * stage-2 is only possible with S1PTW is set. Otherwise, since KVM
+nit: Is the first sentence correct?
 
-I think you are indeed missing the crux of the solution here.
+> +	 * sets HCR_EL2.TEA, SEAs due to a stage-1 walk (i.e. accessing the
+> +	 * PA of the stage-1 descriptor) can reach here and are reported
+> +	 * with a TTW ESR value.
+> +	 */
+> +	return (esr_fsc_is_sea_ttw(esr) && (esr & ESR_ELx_S1PTW));
+> +}
+> +
+>   int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+>   {
+> +	struct kvm *kvm = vcpu->kvm;
+> +	struct kvm_run *run = vcpu->run;
+> +	u64 esr = kvm_vcpu_get_esr(vcpu);
+> +	u64 esr_mask = ESR_ELx_EC_MASK	|
+> +		       ESR_ELx_IL	|
+> +		       ESR_ELx_FnV	|
+> +		       ESR_ELx_EA	|
+> +		       ESR_ELx_CM	|
+> +		       ESR_ELx_WNR	|
+> +		       ESR_ELx_FSC;
+> +	u64 ipa;
+> +
+>   	/*
+>   	 * Give APEI the opportunity to claim the abort before handling it
+>   	 * within KVM. apei_claim_sea() expects to be called with IRQs enabled.
+> @@ -1909,7 +1949,33 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+>   	if (apei_claim_sea(NULL) == 0)
+>   		return 1;
+>   
+> -	return kvm_inject_serror(vcpu);
+> +	if (host_owns_sea(vcpu, esr) ||
+> +	    !test_bit(KVM_ARCH_FLAG_EXIT_SEA, &vcpu->kvm->arch.flags))
+> +		return kvm_inject_serror(vcpu);
+> +
+> +	/* ESR_ELx.SET is RES0 when FEAT_RAS isn't implemented. */
+> +	if (kvm_has_ras(kvm))
+> +		esr_mask |= ESR_ELx_SET_MASK;
+> +
+> +	/*
+> +	 * Exit to userspace, and provide faulting guest virtual and physical
+> +	 * addresses in case userspace wants to emulate SEA to guest by
+> +	 * writing to FAR_ELx and HPFAR_ELx registers.
+> +	 */
+> +	memset(&run->arm_sea, 0, sizeof(run->arm_sea));
+> +	run->exit_reason = KVM_EXIT_ARM_SEA;
+> +	run->arm_sea.esr = esr & esr_mask;
+> +
+> +	if (!(esr & ESR_ELx_FnV))
+> +		run->arm_sea.gva = kvm_vcpu_get_hfar(vcpu) > +
+> +	ipa = kvm_vcpu_get_fault_ipa(vcpu);
+> +	if (ipa != INVALID_GPA) {
+> +		run->arm_sea.flags |= KVM_EXIT_ARM_SEA_FLAG_GPA_VALID;
+> +		run->arm_sea.gpa = ipa;
 
-Each of task level and soft/hard irq level increments will be
-dispatched into different counters (thread vs irq). But the
-grace period will sum, for each the the two periods one after the
-next, the unlock counts and then the lock counts. It will consider
-the period as quiescent if the delta between the two sums is zero,
-e.g.
+Are we interested in the value of PFAR_EL2 (if FEAT_PFAR implemented)?
+I believe kvm_vcpu_get_fault_ipa gets the HPFAR_EL2, which is valid for 
+S2 translation and GPC faults, but unknown for other cases.
 
-   (count[period].irq.unlock + count[period].thread.unlock -
-    count[period].irq.lock - count[period].thread.lock) == 0
+Jose
 
-so the sum does not care how the counters were incremented
-(it just does a load-relaxed), but each counter category
-have its own way of dealing with concurrency (thread: percpu
-ops, irq: atomics).
-
-This is effectively a use of split-counters, but the split
-is across concurrency handling mechanisms rather than across
-CPUs.
-
-Thanks,
-
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+> +	}
+> +
+> +	return 0;
+>   }
+>   
+>   /**
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index 6efa98a57ec11..acc7b3a346992 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -179,6 +179,7 @@ struct kvm_xen_exit {
+>   #define KVM_EXIT_LOONGARCH_IOCSR  38
+>   #define KVM_EXIT_MEMORY_FAULT     39
+>   #define KVM_EXIT_TDX              40
+> +#define KVM_EXIT_ARM_SEA          41
+>   
+>   /* For KVM_EXIT_INTERNAL_ERROR */
+>   /* Emulate instruction failed. */
+> @@ -473,6 +474,14 @@ struct kvm_run {
+>   				} setup_event_notify;
+>   			};
+>   		} tdx;
+> +		/* KVM_EXIT_ARM_SEA */
+> +		struct {
+> +#define KVM_EXIT_ARM_SEA_FLAG_GPA_VALID	(1ULL << 0)
+> +			__u64 flags;
+> +			__u64 esr;
+> +			__u64 gva;
+> +			__u64 gpa;
+> +		} arm_sea;
+>   		/* Fix the size of the union. */
+>   		char padding[256];
+>   	};
+> @@ -963,6 +972,7 @@ struct kvm_enable_cap {
+>   #define KVM_CAP_RISCV_MP_STATE_RESET 242
+>   #define KVM_CAP_ARM_CACHEABLE_PFNMAP_SUPPORTED 243
+>   #define KVM_CAP_GUEST_MEMFD_MMAP 244
+> +#define KVM_CAP_ARM_SEA_TO_USER 245
+>   
+>   struct kvm_irq_routing_irqchip {
+>   	__u32 irqchip;
 
