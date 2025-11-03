@@ -4,62 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43297CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 08:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A43CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 08:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+El+MDXdmfsNSaC/SCdwjn4AbXykYyugBqpJMifOazM=; b=eKSG3iIqgaluDpmTvE94oUKGr+
-	q4F0CsqvGHLixlp8c2OUN4wKbcgWvwJwYzd7muMIAvkN67TofxnUn4uGURsH0xN6ZQxyxfJ9ms9bw
-	8UbrN3BfXlvF5mS9aJ+ne5o4WJmfTpC34BQD3ZvUiFg1a6y1Fs+ATg8zHHEQMOS6G7ihWRHm9lASW
-	Whl/KTMN21xpNRVF5hL7eZAqE5wSm8pQjimKfLRO0m+HnbxwmenAn5o96gVuyWl3RRZ2j62Kc2wN2
-	O/kgaymOnmbrx3K0wUWbNmE1TktH7rkINXYxHw8QvnNmCXxW1HV6ZaHGIz5dlHciHiv0StWy8H3i8
-	NuQ2H3eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6kvXegtnHGH2dvhngivPl8vSn9VVnbxianx2ml6At6Q=; b=jYCDNr9fF6egIRhNyD8gxH1CcQ
+	aVvBZaoAMqkBgJSM+cimqFGVO9HsYBPZyYnWC3Hem182RGNBZBkA3RkLjB9zhW/tF//+la+cyrCsv
+	eQXL9wh9ROseg9nCAD5AJN8Q+Q30tx/MXUsMBFrbe0iT1m1t4MpfrLTpCmYXTx5HV1CH5ahsGEuvu
+	bs9vPELcPyB92tMP1tyV49FaI+bHl95dYzyXJPsOgFln1oOiPb103hvXsNLujWohsDkkh8slemVxm
+	xkHmBgx9HFnilv7EaO9kHNwsez2i5wuz0zANtTJlId29QigZFA0uI5uHZ02U07obTqQ//c+cOB+N1
+	kQfm+28A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFplF-00000009QG9-1SQF;
-	Mon, 03 Nov 2025 08:17:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vFq0a-00000009R33-3ZJ4;
+	Mon, 03 Nov 2025 08:33:48 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFplE-00000009QG0-0Nc9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 08:17:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BB3760053;
-	Mon,  3 Nov 2025 08:17:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BDA0C4CEE7;
-	Mon,  3 Nov 2025 08:17:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762157874;
-	bh=e4eP8kIUbnxFkpE508lw7JjVKEVh23zzNZi3k04+VEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hPgHPj60n+mdv62mBOJGsVRWqHQ01Gjr7rTSTRIbj0hEjbXQsio7zNnampwXmqVfr
-	 Sa91lh+8Xq11c2+0Eob2Mol7XBSQJj7zWPNQ5V/g6F1JDR4dqvCiIP9HT2K+AkNAcL
-	 Getpo0YGj7SaTIBeEQrO9vLl8D1dpFVaLA9BHQJwYUBay5ujiO3DOp4ST9WOasWYrR
-	 iEe9bbG/vX18ImVYbICTXGNw3rJ2W9y7N7ru3GyHbfFCGaO8tCGT+29JaOtPbGXYKS
-	 2Tw6/LfHfQ+08W0UHnbz56r9V02UmWfUDrvk7LicyK7GpLoz5kyMept3/H2CWlbjR9
-	 BFmCJrOBptHrg==
-Date: Mon, 3 Nov 2025 09:17:52 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	jk@codeconstruct.com.au, Kevin Chen <kevin_chen@aspeedtech.com>, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org
-Subject: Re: [PATCH v6 1/1] dt-bindings: interrupt-controller:
- aspeed,ast2700: correct #interrupt-cells and interrupts count
-Message-ID: <20251103-economic-lime-chupacabra-d7adec@kuoka>
-References: <20251030060155.2342604-1-ryan_chen@aspeedtech.com>
- <20251030060155.2342604-2-ryan_chen@aspeedtech.com>
+	id 1vFq0X-00000009R2b-2UYF;
+	Mon, 03 Nov 2025 08:33:47 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A2KFI8K004420;
+	Mon, 3 Nov 2025 08:32:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=6kvXeg
+	tnHGH2dvhngivPl8vSn9VVnbxianx2ml6At6Q=; b=SIJzn+1B6W9oM2eaoy/YHg
+	eBBigTFYyvOI9FqFVbAxNQBJk7OsJkIcL71Bfna6VZUkqh40c7GapUFYZ5iF8sRv
+	Gr8dTXMymRtZJ8s++yexWv1ij7wo6VYhShrZhVDq41yj75ph0JeGVCKADK/YHtTq
+	GX3MIMDZ/N5qqAEIbGF00Q5htF6MOC+XL4hF518BX18l+iJjxcQbmu4bDG1zmjC4
+	JaRrWPwAdwUgpIOYFdxBzdZMRCWUzsW/HgM451x3+JWx1KfcwQmlDNOkYt4NhTIW
+	gRD9YIaV0/uJm8zB4i1DBFMoHs18pKBmB/HXGu5E8lZ+lxXr3R2rXIwqr6iKj5Pg
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59xbnkvs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Nov 2025 08:32:27 +0000 (GMT)
+Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5A38WQmQ029518;
+	Mon, 3 Nov 2025 08:32:27 GMT
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59xbnkvq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Nov 2025 08:32:26 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A34SfIE012891;
+	Mon, 3 Nov 2025 08:32:25 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a5y81mbvw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Nov 2025 08:32:25 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A38WNYw44106174
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Nov 2025 08:32:23 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C27F220040;
+	Mon,  3 Nov 2025 08:32:23 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 16F2220043;
+	Mon,  3 Nov 2025 08:32:13 +0000 (GMT)
+Received: from [9.109.215.252] (unknown [9.109.215.252])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  3 Nov 2025 08:32:12 +0000 (GMT)
+Message-ID: <dee4dc13-b187-42df-93ce-f738cfab32ea@linux.ibm.com>
+Date: Mon, 3 Nov 2025 14:02:11 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251030060155.2342604-2-ryan_chen@aspeedtech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 23/29] context-tracking: Introduce work deferral
+ infrastructure
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: Nicolas Saenz Julienne <nsaenzju@redhat.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Arnaldo Carvalho de Melo <acme@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+        Frederic Weisbecker <frederic@kernel.org>,
+        "Paul E. McKenney" <paulmck@kernel.org>,
+        Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+        Joel Fernandes <joelagnelf@nvidia.com>,
+        Josh Triplett
+ <josh@joshtriplett.org>,
+        Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>,
+        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+        Mel Gorman <mgorman@suse.de>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Masahiro Yamada <masahiroy@kernel.org>, Han Shen <shenhan@google.com>,
+        Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>,
+        Dan Carpenter <dan.carpenter@linaro.org>,
+        Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+        Clark Williams <williams@redhat.com>,
+        Yair Podemsky <ypodemsk@redhat.com>,
+        Marcelo Tosatti <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>,
+        Petr Tesarik <ptesarik@suse.com>, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
+        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+        linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+        linux-trace-kernel@vger.kernel.org
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-24-vschneid@redhat.com>
+Content-Language: en-US
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+In-Reply-To: <20251010153839.151763-24-vschneid@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAyMSBTYWx0ZWRfXyZF7uxWMbR9h
+ eLK/nkDGQm3o/vMS6b4dMArF21TNJ6CaqoI+fi7VPIcu7OWjh13TfAaGOyTxh1gnwQIWiBKHjJa
+ 4uMwIrzLslo+qUygbHd9488ZCjL6vK5iXuiWUNX6ThTOzJBP1PKCUz5zZmvloNgyToR45jE2irN
+ a4EYP7E5d99vyLe0EnPUaY+AWXCKsxBO2ENMsQJ0K7+9kC0+hwsMybY4fCkeMcwmUxF0SvKxntf
+ G1Y18toiIF/maL5RFi7povbdJ4FJNPvHT8auC2LdGyFW5VpJAL0soYtskChjteGM2wfpc+kcC7y
+ KDSiIb0W+R7wCTgyXcXkjXUndM3ScPyUHlasPD5janXDgGwLZxidSrdWYD0Sch6Yd3oNTOJv1+T
+ flE5Wy2KQc8LqVOKJgn3Dc1iG4Hf4Q==
+X-Proofpoint-GUID: U84lOeDC5Q0AhrPIqcAHknHeCkhsE8rA
+X-Authority-Analysis: v=2.4 cv=OdCVzxTY c=1 sm=1 tr=0 ts=6908689b cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8 a=20KFwNOVAAAA:8 a=e3ynTO8eh5RAdg4_BR0A:9
+ a=QEXdDO2ut3YA:10 a=1CNFftbPRP8L7MoqJWF3:22 a=UhEZJTgQB8St2RibIkdl:22
+ a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=QOGEsqRv6VhmHaoFNykA:22
+X-Proofpoint-ORIG-GUID: Yw4-ly9gm_lGmLrDsIj0uqTuFktFQQKI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-02_02,2025-10-29_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 spamscore=0 suspectscore=0 impostorscore=0
+ lowpriorityscore=0 priorityscore=1501 clxscore=1011 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010021
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251103_003345_653175_F89C83C2 
+X-CRM114-Status: GOOD (  30.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +160,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 02:01:55PM +0800, Ryan Chen wrote:
-> Update the AST2700 interrupt controller binding to match the actual
-> hardware and the irq-aspeed-intc driver behavior.
+Hi Valentin.
+
+On 10/10/25 9:08 PM, Valentin Schneider wrote:
+> smp_call_function() & friends have the unfortunate habit of sending IPIs to
+> isolated, NOHZ_FULL, in-userspace CPUs, as they blindly target all online
+> CPUs.
 > 
-> - Interrupts:
->   First-level INTC banks request multiple interrupt lines to the root
->   GIC, with a maximum of 10 per bank. Second-level INTC banks request
->   only one interrupt line to their parent INTC-IC. Therefore, set the
->   interrupts property to allow a minimum of 1 and a maximum of 10
->   entries.
+> Some callsites can be bent into doing the right, such as done by commit:
 > 
-> - #interrupt-cells:
->   Set '#interrupt-cells' to <1> since the irq-aspeed-intc.c driver does
->   not support specifying a trigger type; only the interrupt index is used.
+>    cc9e303c91f5 ("x86/cpu: Disable frequency requests via aperfmperf IPI for nohz_full CPUs")
 > 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> Unfortunately, not all SMP callbacks can be omitted in this
+> fashion. However, some of them only affect execution in kernelspace, which
+> means they don't have to be executed *immediately* if the target CPU is in
+> userspace: stashing the callback and executing it upon the next kernel entry
+> would suffice. x86 kernel instruction patching or kernel TLB invalidation
+> are prime examples of it.
+> 
+> Reduce the RCU dynticks counter width to free up some bits to be used as a
+> deferred callback bitmask. Add some build-time checks to validate that
+> setup.
+> 
+> Presence of CT_RCU_WATCHING in the ct_state prevents queuing deferred work.
+> 
+> Later commits introduce the bit:callback mappings.
+> 
+> Link: https://lore.kernel.org/all/20210929151723.162004989@infradead.org/
+> Signed-off-by: Nicolas Saenz Julienne <nsaenzju@redhat.com>
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 > ---
->  .../interrupt-controller/aspeed,ast2700-intc.yaml   | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
+>   arch/Kconfig                                 |  9 +++
+>   arch/x86/Kconfig                             |  1 +
+>   arch/x86/include/asm/context_tracking_work.h | 16 +++++
+>   include/linux/context_tracking.h             | 21 ++++++
+>   include/linux/context_tracking_state.h       | 30 ++++++---
+>   include/linux/context_tracking_work.h        | 26 ++++++++
+>   kernel/context_tracking.c                    | 69 +++++++++++++++++++-
+>   kernel/time/Kconfig                          |  5 ++
+>   8 files changed, 165 insertions(+), 12 deletions(-)
+>   create mode 100644 arch/x86/include/asm/context_tracking_work.h
+>   create mode 100644 include/linux/context_tracking_work.h
+> 
+> diff --git a/include/linux/context_tracking_work.h b/include/linux/context_tracking_work.h
+> new file mode 100644
+> index 0000000000000..c68245f8d77c5
+> --- /dev/null
+> +++ b/include/linux/context_tracking_work.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _LINUX_CONTEXT_TRACKING_WORK_H
+> +#define _LINUX_CONTEXT_TRACKING_WORK_H
+> +
+> +#include <linux/bitops.h>
+> +
+> +enum {
+> +	CT_WORK_n_OFFSET,
+> +	CT_WORK_MAX_OFFSET
+> +};
+> +
+> +enum ct_work {
+> +	CT_WORK_n        = BIT(CT_WORK_n_OFFSET),
+> +	CT_WORK_MAX      = BIT(CT_WORK_MAX_OFFSET)
+> +};
+> +
+> +#include <asm/context_tracking_work.h>
+> +
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+It fails to compile on powerpc (likey any arch other than x86)
 
-Best regards,
-Krzysztof
+In file included from ./include/linux/context_tracking_state.h:8,
+                  from ./include/linux/hardirq.h:5,
+                  from ./include/linux/interrupt.h:11,
+                  from ./include/linux/kernel_stat.h:8,
+                  from ./include/linux/cgroup.h:27,
+                  from ./include/linux/memcontrol.h:13,
+                  from ./include/linux/swap.h:9,
+                  from ./include/linux/suspend.h:5,
+                  from arch/powerpc/kernel/asm-offsets.c:21:
+./include/linux/context_tracking_work.h:17:10: fatal error: 
+asm/context_tracking_work.h: No such file or directory
+    17 | #include <asm/context_tracking_work.h>
+       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+Gating works for compile, but no benefit of the series.
+
++#ifdef HAVE_CONTEXT_TRACKING_WORK
+  #include <asm/context_tracking_work.h>
++#endif
+
+
+I have been trying to debug/understand the issue seen with isolcpus= and
+nohz_full=. system is idle, even then it occasionally woken up to do 
+some work. So I was interesting if this series can help.
 
