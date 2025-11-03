@@ -4,52 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E04CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13383CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbiVRSvkGknwyw6fR5JdZ2lDta2KdReoGzJ3YYcrmM0=; b=UOZSR8wM47j6dTQzzIbzSdAnw9
-	9JI8GDtMYIHQcd1YDV13M/b6anTX/QavB2TVAiEjewjikaw19h9eiG2+sGoGb/bONpZci64guEm52
-	LNGDSDA5yrXah52jYaDpj5Px9ZdOSUKLqNxScoz+ybLOXKPXb14AQbQRnMMgSmOIQnJJdjPTcFTYB
-	fXxygYjlSeFVYHFFxUWe+3u45AQqJbmx3y9ej6MGOR8xcaJziqypBYVRx4tkElBRmmf0W+KCl6WTq
-	Nwm+C1yh0o4IqOd/r1bNFYwxPTEev4s40KHmYVcCfRj+qc7ftyYY+x79Q1M/yyIQBRKFh/NCHvr+9
-	kmMaLplA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0DLlqBA6bAi7nusY1Kk4Ff1d+Dhb/e05LWrLhGEE4Fs=; b=BASHXyN3Eic7tDpJobUyErTbvF
+	56XM57mWrQfln9AaKwqLg7Y2kPiftX2OpQUWts4aV6OZkfIm9/CnZYS0GuQWwhCtLH+j5s/nmY5Pl
+	8yMxZPQYhSf2qbFJhVokUt2vgQpYQHVfwgVXXF6GrXNMgwQQNAZRlTZdMblFTKRKvhNa8ETKzW1uA
+	qAbSAaw1NaPC7adID5YpdV4fkfK3xJ2aBHBTL6Rt7A2xglOWW2E2v0/zs262PTVgkpgtEJgVvYDGU
+	XJwH8E6zEbFkLcnft7slH1JY2YWTakeC8uwtSuZuK2UIzRHJ0QfwKNFhOMYFnhgicg49V+6Yvdt1K
+	zlecJ29g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFyKL-0000000APnM-2SOd;
-	Mon, 03 Nov 2025 17:26:45 +0000
+	id 1vFyM9-0000000APuk-48Zb;
+	Mon, 03 Nov 2025 17:28:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFyKJ-0000000APmz-1UaL
+	id 1vFyM7-0000000APuH-0xwG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 17:26:44 +0000
+	Mon, 03 Nov 2025 17:28:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BBF31D14;
-	Mon,  3 Nov 2025 09:26:33 -0800 (PST)
-Received: from arm.com (unknown [10.1.25.188])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23C253F66E;
-	Mon,  3 Nov 2025 09:26:40 -0800 (PST)
-Date: Mon, 3 Nov 2025 17:26:37 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Balbir Singh <balbirs@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH] arch/arm64/mm/fault: Implement exceptions tracepoints
-Message-ID: <aQjlzbkdzzYL2xJR@arm.com>
-References: <20251013035532.1793181-1-balbirs@nvidia.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9ED11D14;
+	Mon,  3 Nov 2025 09:28:26 -0800 (PST)
+Received: from [10.1.36.161] (XHFQ2J9959.cambridge.arm.com [10.1.36.161])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B00D83F66E;
+	Mon,  3 Nov 2025 09:28:32 -0800 (PST)
+Message-ID: <8df1d593-f176-422d-8b87-844986ac38a6@arm.com>
+Date: Mon, 3 Nov 2025 17:28:31 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251013035532.1793181-1-balbirs@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping()
+ when in atomic context
+Content-Language: en-GB
+To: "David Hildenbrand (Red Hat)" <david@kernel.org>,
+ catalin.marinas@arm.com, will@kernel.org, yang@os.amperecomputing.com,
+ ardb@kernel.org, dev.jain@arm.com, scott@os.amperecomputing.com,
+ cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Guenter Roeck <groeck@google.com>
+References: <20251103125738.3073566-1-ryan.roberts@arm.com>
+ <e5fee14a-4569-49c8-9f42-844839e51e85@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <e5fee14a-4569-49c8-9f42-844839e51e85@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_092643_441088_8A69C65F 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20251103_092835_352533_C9029184 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,62 +69,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 02:55:32PM +1100, Balbir Singh wrote:
-> x86 and riscv provide trace points for page-faults (user and kernel
-> tracepoints). Some scripts [1],[2] rely on these trace points. The
-> tracepoint is useful for tracking faults and their reasons.
+On 03/11/2025 15:38, David Hildenbrand (Red Hat) wrote:
 > 
-> Adding the tracepoints is simple and straight-forward. For arm64
-> use esr as error code and untagged memory address as addr.
+>>   }
+>>
+>> +static inline bool force_pte_mapping(void)
+>> +{
+>> +    bool bbml2 = system_capabilities_finalized() ?
+>> +        system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
 > 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Paul Walmsley <pjw@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
+> You are only moving this function. Still, there is some room for improvement I
+> want to point out :)
 > 
-> [1] https://www.brendangregg.com/FlameGraphs/memoryflamegraphs.html
-> [2] https://taras.glek.net/posts/ebpf-mmap-page-fault-tracing/
-> Signed-off-by: Balbir Singh <balbirs@nvidia.com>
-> ---
+> bbml2 could be a const (or a helper function like bbml2_supported).
 > 
-> Tested at my end with a kernel-compile and running a user space
-> program to check that the trace points are indeed reported.
+>> +
+>> +    return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+>> +               is_realm_world())) ||
+>> +        debug_pagealloc_enabled();
 > 
->  arch/arm64/mm/fault.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index d816ff44faff..9d7b86e92434 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -44,6 +44,9 @@
->  #include <asm/tlbflush.h>
->  #include <asm/traps.h>
->  
-> +#define CREATE_TRACE_POINTS
-> +#include <trace/events/exceptions.h>
-> +
->  struct fault_info {
->  	int	(*fn)(unsigned long far, unsigned long esr,
->  		      struct pt_regs *regs);
-> @@ -572,8 +575,12 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
->  	if (faulthandler_disabled() || !mm)
->  		goto no_context;
->  
-> -	if (user_mode(regs))
-> +	if (user_mode(regs)) {
->  		mm_flags |= FAULT_FLAG_USER;
-> +		trace_page_fault_user(addr, regs, esr);
-> +	} else {
-> +		trace_page_fault_kernel(addr, regs, esr);
-> +	}
+> I suspect this could be made a bit easier to read.
+> 
+>     if (debug_pagealloc_enabled())
+>         return true;
+>     if (bbml2)
+>         return false;
+>     return rodata_full || arm64_kfence_can_set_direct_map() || is_realm_world();
 
-This has come up before and rejected:
+Yeah, I guess that's a bit nicer. I'd prefer to tidy it up in as separate commit
+though. (feel free ;-) )
 
-https://lore.kernel.org/all/aG0aIKzxApp9j7X0@willie-the-truck/
+> 
+> 
+>> +}
+>> +
+>>   static DEFINE_MUTEX(pgtable_split_lock);
+>>
+>>   int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start,
+>> unsigned long end)
+>>       if (!system_supports_bbml2_noabort())
+>>           return 0;
+>>
+>> +    /*
+>> +     * If the region is within a pte-mapped area, there is no need to try to
+>> +     * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
+>> +     * change permissions from softirq context so for those cases (which are
+>> +     * always pte-mapped), we must not go any further because taking the
+>> +     * mutex below may sleep.
+>> +     */
+>> +    if (force_pte_mapping() || is_kfence_address((void *)start))
+>> +        return 0;
+>> +
+> 
+> We're effectively performing two system_supports_bbml2_noabort() checks,
+> similarly in
+> arch_kfence_init_pool().
+> 
+> I wonder if there is a clean way to avoid that.
 
--- 
-Catalin
+I thought about this too. But system_supports_bbml2_noabort() is actually a
+magic alternatives patching thing; the code is updated so it's zero overhead. I
+decided this was the simplest and clearest way to do it. But I'm open to other
+ideas...
+
+> 
+> I'm not super up-to-date on that code. Nothing else jumped at me.
+
+Thanks for the review!
+
+> 
+
 
