@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7505CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 07:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58865CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 07:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPjICmxBmEwSlEylkjLMQ/Rxk8AkfM8gJOwbJripiMM=; b=YJB5uc535woUszYdO0j7ZBIEQb
-	c5GSFUCsKWQrjHme6QUOboANr7FwLcNB/FSobh2e/HXvuAEtxS4KiHV4JrjLTKi4sGpbgkokeORH9
-	XARa+0XlCmyjp0KcGPyJglAOevbPnsSTnnXITS44GnBrBSyzm5xEh7OpSKQ8TTrE0XAOp2tIUdoNK
-	HugAmtp5EHd65EnUSzuPjEvHWu9Ym8laixMTPZbzMa7S8/C6H10+1d6lDC1eb/MPGdUV4oTViSmIi
-	6Qhjz0vgoeOKto35U0cjylx3y3HqVbHj2rsFeQjR00uxzyTZz1Go34ivz0cdfVR7WzSn68feUgz4j
-	XbqxTK3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HyBWjGCdQ56N5mUJS4FqY/Xhl2MrYCXAoeOEUBzSX2E=; b=ED5tuTZ64rZ1Cp
+	3ExUGCd3R9vrRD0AHrI70BGqL5M4cxrgFBYG6cBJ1kz8MuHH4WKsgU2b5dwrJ6o+yUmCZqSeMABbV
+	c3BEpQvToHQIra4EtmaLucHEFle+Q7iRcSU2dAYTHXw1VEDsCo3JxxudurdxBb/Uajg5Td+wO5CpB
+	KiR1GeWPG5LwJbGknBy/p0Lb5mj6a33nepZVg9M9zgemco+nPVKlssNb1b/zKF6D6ISCZn6p1I0Ep
+	ep7HRhm8nwFKnc4VsSgPlZg9Aqf7jBAQFr8eqOdOULX0LKjtl2Wtf36N36L0GbLaMYotsQP0p0SD1
+	pvfG7mHFAhs3+kWjwD/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFpAk-00000009NCA-2YNi;
-	Mon, 03 Nov 2025 07:40:14 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vFpFF-00000009NWq-09Tl;
+	Mon, 03 Nov 2025 07:44:53 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFpAi-00000009NBY-1XRh
+	id 1vFpFB-00000009NVv-3x4W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 07:40:13 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <sha@pengutronix.de>)
-	id 1vFpAU-0001rH-RE; Mon, 03 Nov 2025 08:39:58 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <sha@pengutronix.de>)
-	id 1vFpAT-006ozU-2l;
-	Mon, 03 Nov 2025 08:39:57 +0100
-Received: from sha by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <sha@pengutronix.de>)
-	id 1vFpAT-00GZtJ-2O;
-	Mon, 03 Nov 2025 08:39:57 +0100
-Date: Mon, 3 Nov 2025 08:39:57 +0100
-From: Sascha Hauer <s.hauer@pengutronix.de>
-To: Bryan Brattlof <bb@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Andrew Davis <afd@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Tony Lindgren <tony@atomide.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v7 3/3] arm64: dts: ti: k3-am62l: add initial reference
- board file
-Message-ID: <aQhcTbQbSZj-MniQ@pengutronix.de>
-References: <20251031-am62lx-v7-0-cb426be9d6ee@ti.com>
- <20251031-am62lx-v7-3-cb426be9d6ee@ti.com>
+	Mon, 03 Nov 2025 07:44:51 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 3 Nov
+ 2025 15:39:31 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 3 Nov 2025 15:39:31 +0800
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+Subject: [PATCH net-next v3 0/4] Add AST2600 RGMII delay into ftgmac100
+Date: Mon, 3 Nov 2025 15:39:15 +0800
+Message-ID: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251031-am62lx-v7-3-cb426be9d6ee@ti.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: sha@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACNcCGkC/x3MQQrCMBBG4auEWRuYpLWKV5FS0vQ3DmiUpEik5
+ O4NXX6L9zbKSIJMN7VRwk+yfGJDd1Lkny4GaFmaybI9G+6MTuEtMi14uf9kB2btmGe2/dVfMFD
+ LvgkPKcfyThGrjigrjbXupxSX7mwAAAA=
+X-Change-ID: 20251031-rgmii_delay_2600-a00b0248c7e6
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <taoren@meta.com>, Jacky Chou
+	<jacky_chou@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762155571; l=2614;
+ i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
+ bh=PqRciZ9pt8w7E8BTpp5PCJ9LMcXBFSAE7sxgLoWY5qw=;
+ b=ZsJ8ICqzAmlkil/2X2ZC7pjgchQy9vsSXnfRLxbn93VAb2AZ7aFqIKPI55aDCy+mKjYG59Tvr
+ xGzWRAravsVAlfBgdPT3x9YoiA7roBDKdmhSD7nvuhS1ZpkX9EDnUso
+X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
+ pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_234012_408027_D613C184 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20251102_234449_990716_93120BF5 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 09:08:06AM -0500, Bryan Brattlof wrote:
-> +&i2c0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c0_pins_default>;
-> +	clock-frequency = <400000>;
+This patch series adds support for configuring RGMII internal delays for the
+Aspeed AST2600 FTGMAC100 Ethernet MACs. It introduces new compatible strings to
+distinguish between MAC0/1 and MAC2/3, as their delay chains and configuration
+units differ.
+The device tree bindings are updated to restrict the allowed phy-mode and delay
+properties for each MAC type. Corresponding changes are made to the device tree
+source files and the FTGMAC100 driver to support the new delay configuration.
 
-status = "okay" missing here.
+Summary of changes:
+- dt-bindings: net: ftgmac100: Add conditional schema for AST2600 MAC0/1 and
+  MAC2/3, restrict delay properties, and require SCU phandle.
+- ARM: dts: aspeed-g6: Add ethernet aliases to indentify the index of
+  MAC.
+- ARM: dts: aspeed-ast2600-evb: Add new compatibles, scu handle and
+  rx/tx-internal-delay-ps properties and update phy-mode for MACs.
+- net: ftgmac100: Add driver support for configuring RGMII delay for AST2600
+  MACs via SCU.
 
-> +
-> +	eeprom@51 {
-> +		/* AT24C512C-MAHM-T or M24512-DFMC6TG */
-> +		compatible = "atmel,24c512";
-> +		reg = <0x51>;
-> +	};
-> +};
-> +
+This enables precise RGMII timing configuration for AST2600-based platforms,
+improving interoperability with various PHYs
 
-Sascha
+---
+v3:
+ - Add new item on compatible property for new compatible strings
+ - Remove the new compatible and scu handle of MAC from aspeed-g6.dtsi
+ - Add new compatible and scu handle to MAC node in
+   aspeed-ast2600-evb.dts
+ - Change all phy-mode of MACs to "rgmii-id"
+ - Keep "aspeed,ast2600-mac" compatible in ftgmac100.c and configure the
+   rgmii delay with "aspeed,ast2600-mac01" and "aspeed,ast2600-mac23"
+v2:
+ - added new compatible strings for MAC0/1 and MAC2/3
+ - updated device tree bindings to restrict phy-mode and delay properties
+ - refactored driver code to handle rgmii delay configuration
+---
 
+Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+
+---
+Jacky Chou (4):
+      dt-bindings: net: ftgmac100: Add delay properties for AST2600
+      ARM: dts: aspeed-g6: Add ethernet alise
+      ARM: dts: aspeed: ast2600-evb: Configure RGMII delay for MAC
+      net: ftgmac100: Add RGMII delay support for AST2600
+
+ .../devicetree/bindings/net/faraday,ftgmac100.yaml |  50 ++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts    |  28 +++++-
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |   4 +
+ drivers/net/ethernet/faraday/ftgmac100.c           | 110 +++++++++++++++++++++
+ drivers/net/ethernet/faraday/ftgmac100.h           |  15 +++
+ 5 files changed, 203 insertions(+), 4 deletions(-)
+---
+base-commit: 01cc760632b875c4ad0d8fec0b0c01896b8a36d4
+change-id: 20251031-rgmii_delay_2600-a00b0248c7e6
+
+Best regards,
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Jacky Chou <jacky_chou@aspeedtech.com>
+
 
