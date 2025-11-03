@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7CDCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 19:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D381BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 19:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uyIQZeckruG54a+Nh6sbj5akESgvp9ezVzP4H0SsUZw=; b=KuzQg+6VDRUdTZ1Ub2wuNWbu+L
-	s8sQP8brmbj2aftS9LzKZNaKtd65Txi0aSNoVAIv09dcngzz84tjZ5wzFYF1zThTCofy7SSJyCRk4
-	N/Le4rqdVCcgKrNnrqzXmuVNb/s7b+eiCBTqQ8DICTr3elq6seSRu23iJ72eY8HuHu9FcNS77bs3d
-	SMuPfK/Wg2wIeSYG3dFtErlh4ACcenybL/WBc3CMrAPMXEXHQOpIExJHn6IX2K30TTASufAKag4Wp
-	0uESrCCFHJ2WSkVtUArs8U2hpwv3ET31j7EJrUl4iLJE8e3SQLWXPSW35Ihjd18SK0ek9upp5Ugg4
-	xFFLxyhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=weTI/pW9maFaAf4ecSp6p8DKVpA0nMs1SjMBlDKsDGE=; b=WM2lVpf8d/o2LqSkuWEXd3fiic
+	8deIEqRuYKu6i2qJZEY4dWX7M2ydcDExxdkSloZ2N757m5vsY7R0S9DYJyEkHR1W42fsgy2nZPK9i
+	qAySGGLPZ1LKOaVXtbeDfnabRiZsBSQrEDyQyQJl6jRSZ/PgMBzRCVbamr87WX/VnSdKvFmGY4ymP
+	e0TgW5QfVlcB908gGx/HJ1a17YPQtGHZvzLFx3KZ+VYTc0kGxNjjHbgG79UZFC66FiBmCYtNx2z2W
+	8TySkpYx6rdYgPelK7zU1sG8aLsOWVFt4I2UnfJKEiQaYs3LCQywDtIxrX1BD9i7ZvNaAJYMxJ6py
+	IoJgRziQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG03v-0000000AX1p-2CBr;
-	Mon, 03 Nov 2025 19:17:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vG06j-0000000AXCO-07FR;
+	Mon, 03 Nov 2025 19:20:49 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG03u-0000000AX1i-09PN
+	id 1vG06f-0000000AXBh-0GOY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 19:17:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8B3D60139;
-	Mon,  3 Nov 2025 19:17:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E071C4CEE7;
-	Mon,  3 Nov 2025 19:17:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762197471;
-	bh=hXuE1VBaSY3RKRgphu5e9Wa0Cavk7sH93K8Brpnelhw=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=cEeNuDTr1SboNVPsjO50nf9fbgya3TROP191it+xMY0GC6SUqqkeZSHuss3m/OFW1
-	 rWuRFnTf6Mtuv12qSlGbiD03Rq6E6Wl+7KYuRVNdmNBhzsiusb0GHv5PitEUvqhEez
-	 ZyprsnZuAHp8MVZ154qU3gCMzqvr7gHvnqhNMRTqvyO2zW2MynDG2+nuS2pdRtOaFv
-	 +Yrem4yAAvxN9aMqqfUjCl2+Dd0xypZgu6aGCE619PdS9s8BGK5GrR/jSfEJjwIm4f
-	 ACmB5v7t7iTvrEwgQYkzl+rek4TUUJ5lYi7WE+1NEjtwZ+t1rPIb8rmdj9HhuKs6MI
-	 BKre6jda/c4bw==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 4330ACE0BB3; Mon,  3 Nov 2025 11:17:50 -0800 (PST)
-Date: Mon, 3 Nov 2025 11:17:50 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH 17/19] srcu: Optimize SRCU-fast-updown for arm64
-Message-ID: <8a33bf08-8ca4-4fc1-9481-fff2247e5518@paulmck-laptop>
-References: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
- <20251102214436.3905633-17-paulmck@kernel.org>
- <b2fb5a99-8dc2-440b-bf52-1dbcf3d7d9a7@efficios.com>
- <f89a3a56-e48a-4975-b67b-9387fe2e48c6@paulmck-laptop>
- <7cdecba1-2b30-4296-9862-3dd7bcc013d8@efficios.com>
+	Mon, 03 Nov 2025 19:20:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 469204E414CD;
+	Mon,  3 Nov 2025 19:20:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1ABA660628;
+	Mon,  3 Nov 2025 19:20:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36B1910B5010E;
+	Mon,  3 Nov 2025 20:20:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762197639; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=weTI/pW9maFaAf4ecSp6p8DKVpA0nMs1SjMBlDKsDGE=;
+	b=NBaHNTJApPAPsviZWlGZCrZcCYFc7LEQaXaA9TJXnvf78iAR57ai9eyc6t2x4mIUeHvkrM
+	fdvSx10HlF0jzM5TZD0l3P3pmZXRA1OZTi84BBYq0ff6MyvLoe0j6/Qrznt2aQXtUFuklS
+	vOwfMSc+wx3aIw9kRbLzytHc4CdoKyP2mtMeei7tNXtUCvTTFy32ny7iO7uUbBgmdn6vyB
+	s+46T+W12HTgnQY3vVC5XruYxaKOcWzPol5T51K6rDgM3/eg+NO9gybFJYdx9tSg3wBZBQ
+	70yylJoBcrEt2pAXVLEEO/iFZ35qdKqdag1lNtf9ipO7UZlltpgOe709TRGNnw==
+Date: Mon, 3 Nov 2025 20:20:28 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Manish Chopra <manishc@marvell.com>, Marco Crivellari
+ <marco.crivellari@suse.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Sunil Goutham
+ <sgoutham@marvell.com>, Richard Cochran <richardcochran@gmail.com>, Russell
+ King <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ Simon Horman <horms@kernel.org>, Jacob Keller <jacob.e.keller@intel.com>,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v2 6/7] net: pch_gbe: convert to use
+ ndo_hwtstamp callbacks
+Message-ID: <20251103202028.12325f62@kmaincent-XPS-13-7390>
+In-Reply-To: <20251103150952.3538205-7-vadim.fedorenko@linux.dev>
+References: <20251103150952.3538205-1-vadim.fedorenko@linux.dev>
+	<20251103150952.3538205-7-vadim.fedorenko@linux.dev>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7cdecba1-2b30-4296-9862-3dd7bcc013d8@efficios.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251103_112045_445389_CEFEA575 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +82,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 01:16:23PM -0500, Mathieu Desnoyers wrote:
-> On 2025-11-03 12:08, Paul E. McKenney wrote:
-> > On Mon, Nov 03, 2025 at 08:34:10AM -0500, Mathieu Desnoyers wrote:
-> [...]
-> 
-> > > One example is the libside (user level) rcu implementation which uses
-> > > two counters per cpu [1]. One counter is the rseq fast path, and the
-> > > second counter is for atomics (as fallback).
-> > > 
-> > > If the typical scenario we want to optimize for is thread context, we
-> > > can probably remove the atomic from the fast path with just preempt off
-> > > by partitioning the per-cpu counters further, one possibility being:
-> > > 
-> > > struct percpu_srcu_fast_pair {
-> > > 	unsigned long lock, unlock;
-> > > };
-> > > 
-> > > struct percpu_srcu_fast {
-> > > 	struct percpu_srcu_fast_pair thread;
-> > > 	struct percpu_srcu_fast_pair irq;
-> > > };
-> > > 
-> > > And the grace period sums both thread and irq counters.
-> > > 
-> > > Thoughts ?
-> > 
-> > One complication here is that we need srcu_down_read() at task level
-> > and the matching srcu_up_read() at softirq and/or hardirq level.
-> > 
-> > Or am I missing a trick in your proposed implementation?
-> 
-> I think you are indeed missing the crux of the solution here.
-> 
-> Each of task level and soft/hard irq level increments will be
-> dispatched into different counters (thread vs irq). But the
-> grace period will sum, for each the the two periods one after the
-> next, the unlock counts and then the lock counts. It will consider
-> the period as quiescent if the delta between the two sums is zero,
-> e.g.
-> 
->   (count[period].irq.unlock + count[period].thread.unlock -
->    count[period].irq.lock - count[period].thread.lock) == 0
-> 
-> so the sum does not care how the counters were incremented
-> (it just does a load-relaxed), but each counter category
-> have its own way of dealing with concurrency (thread: percpu
-> ops, irq: atomics).
-> 
-> This is effectively a use of split-counters, but the split
-> is across concurrency handling mechanisms rather than across
-> CPUs.
+On Mon,  3 Nov 2025 15:09:51 +0000
+Vadim Fedorenko <vadim.fedorenko@linux.dev> wrote:
 
-Ah, got it, thank you!  But we would need an additional softirq counter,
-correct?
+> The driver implemented SIOCSHWTSTAMP ioctl command only, but it stores
+> configuration in the private data, so it is possible to report it back
+> to users. Implement both ndo_hwtstamp_set and ndo_hwtstamp_get
+> callbacks. To properly report RX filter type, store it in hwts_rx_en
+> instead of using this field as a simple flag. The logic didn't change
+> because receive path used this field as boolean flag.
 
-I will keep this in my back pocket in case Catalin's and Yicong's prefetch
-trick turns out to be problematic, and again, thank you!
+Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
 
-							Thanx, Paul
+Thank you!
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
