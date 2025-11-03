@@ -4,103 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB799CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 11:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFADACCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 11:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bXmiAx9QJn5Cd4yX+kpBqr8qGocn6PX/S5rUjKZ/oEw=; b=YSiriVI0qoQ0zVBbaUrgEDxvic
-	3iUlfdD7fF3JkoZQVahbJuntWkv7JBRzr9nIfyC2Fe4pNK0MvkQH73MevdEPjXPXarjTQbw+0SiJh
-	6QcK+Leh29GoQnoDjPxGsyHaemzd+/mo/BbVDfTr/TeJNtB/i26S/CjMu3Cd1v1o1KtQLtq5R4olj
-	KoOa1z77wYX0u5I8rVHL/z1T0hCSxuL4y2hr4f/5Tz6l+2mWf4raAahOJsH8dAqRH9t21Ffx0Vhur
-	79advTw9cc8GYCJRVnr+Adb3ivn12KHR3Sz0XFSWUCl0tQoP5mtS5bJiUFINP6GOeNqRmY5XKrz2k
-	bJPtg/Hw==;
+	bh=qjmy8XjX+bzyGd/5u6oANywBcBczevKHZ7vCYGJEnxc=; b=Y7Ar0xbYQq0U2/RHlcRVsMSoSX
+	tFuWlvTM8GOv6XmqUxgMK7dVe+9tCBMXtV7QD1CL2u1fT3X7rZBTbXjTeQG9UnkvR/KAv9v1vEDdK
+	1KS03QjgHJ3EWBrdWLNnJFDWxpe7XlewbjiPGGKyux12Ui50b1EwWwBI0tC8I21y2cI1DOSD4GNQ/
+	5hwdzg8td0QETN2u3qmUtIfnVSmt1+MyQHS6kqOjj8kaQEbrfR4MJ3JnkGB2HOHDqJtyVrY+Vii+r
+	ubycv62GgKbFf/hZVRsqvyOwwpewTCGqsZHLsOMRkTK0wznMuaLm+s8iJbYHfZWHvmyEPIqXLiDV0
+	WWoH4X/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFsfz-00000009jdW-3kkT;
-	Mon, 03 Nov 2025 11:24:43 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1vFsiG-00000009jpC-15kR;
+	Mon, 03 Nov 2025 11:27:04 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFsfx-00000009jcr-11ts
+	id 1vFsiD-00000009joW-2Nmh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 11:24:42 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 486CA1D000F7;
-	Mon,  3 Nov 2025 06:24:39 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 03 Nov 2025 06:24:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1762169079;
-	 x=1762255479; bh=bXmiAx9QJn5Cd4yX+kpBqr8qGocn6PX/S5rUjKZ/oEw=; b=
-	uPcwANjMBuMOSClbNsjXdfT3jFROU/h7nz+9i3Y3hq8AWCFhg/ouUyVIaRU8Z+Dk
-	6cyrvNf4nthrGeQfHrmytYKkXQE/fXhJ8QOoSILRjPBVjW8ZyMaU6kekeV9zlA1g
-	hmDHvnnpMzlOYfl8DJTVR25RkrZW/s0e71Sns0yncVsVhVFQo+SDQ32di0C1EyTX
-	S9QG1md4NnVaCHzy7xkfhondN3q0AELEvIYmH9tZl9btYaxmlIClA2hEBEjU26f2
-	7RmYm8g93mzS5+UOquXtMtnWbBCFqV1eUumWpco89/pr/0tuhPeAUBzh3znQq8IG
-	n3A3zwZxKQlNQjC1cVQLvw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1762169079; x=
-	1762255479; bh=bXmiAx9QJn5Cd4yX+kpBqr8qGocn6PX/S5rUjKZ/oEw=; b=y
-	8QrTOGXT5IS5WAzIx7Uxk1bhBEHLz0onjHgb85OjRhMjy1A23najjhgb0lQYx0tM
-	QeSzhG7DRF/aaf+uaBNQGbkl0jhm79UDMY6mrjRa3Jkr6Kba6hgjwwZmgt6neyqJ
-	Zle3bINXobLTeqQR2R83h7sVhN4Q/PTMHa1FbL9K8DKCutWlCEJVLbhhHUdQj8dM
-	npbLCjOdC2G4AW/6LH4Uk8AvVe31i+XkRf0WATqQCSNxMRFNC9CWVFcS0emuZO9B
-	AqByD9aGxfb3oLXoKd/hdTfNc4HMeYcyN2Ztyf5QiUv13cJO2zXfXxkOP+8y9Lft
-	my048fBXkCTYsrpI07EDg==
-X-ME-Sender: <xms:9pAIaaEFPup_UWc6rDldMqa6lN0E2r5vG0zzsR8aO-48DnnxNDabwA>
-    <xme:9pAIaWLfcR9uPDKU5-SBwiNvj27AP-JpnT40vzrFsVqBuRievBr3poR1-cY-ayjPV
-    7yxRpXutFexchPtebCYsrLsNFHQnt8K_FfXReyEwoXTlWGqjCZx4Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddujeektdduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepkedvuefhiedtueeijeevtdeiieejfeelvefffeelkeeiteejffdvkefgteeuhffg
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
-    phhtthhopeeipdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrh
-    hmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepgihivgihuhgrnhgsihhnudeshhhu
-    rgifvghirdgtohhmpdhrtghpthhtoheplhhinhhushifsehkvghrnhgvlhdrohhrghdprh
-    gtphhtthhopegsihhgvggrshihsehlihhnuhhtrhhonhhigidruggvpdhrtghpthhtohep
-    lhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorh
-    hgpdhrtghpthhtoheplhhinhhugidqrhhtqdguvghvvghlsehlihhsthhsrdhlihhnuhig
-    rdguvghv
-X-ME-Proxy: <xmx:9pAIadrwJyiUtStMoEUrK7D-CXsIwlXoXVSkkUCB-bXjHqnOWB2ssg>
-    <xmx:9pAIaR5tKw8evsjbfFrAPgADcKX4enfqrj6m-xMQ7yyreS_ekfGnZg>
-    <xmx:9pAIacdFcgD0OwpLiquAUFAZHgf9d6jqUDnHeaE38dcTF2goGu2Egw>
-    <xmx:9pAIae7te0_n__Z2-c1AnqnAie7zru13R8WWasdpiABzt-KrnfjesA>
-    <xmx:95AIaSfVtn3q7NWQkkFNtQquBId1rUbzpywIiRd5xzZy-YKm4R6n1JnG>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 9599A700063; Mon,  3 Nov 2025 06:24:38 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 03 Nov 2025 11:27:02 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-63bea08a326so6187291a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 03:27:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762169219; x=1762774019; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qjmy8XjX+bzyGd/5u6oANywBcBczevKHZ7vCYGJEnxc=;
+        b=qLsyfMHDlnwAEiKI+5biEKM50hwsKBwsgILqZYk62s3BWdpKUwKVr5yBpz7/5+L0Xp
+         xWRPnKrCi843ULQeavduIOnqVszpRm2YhS40oGBpi1giH1j+SPNdyyo0uBQvpTaCfGmF
+         IND+L/xpZf5jSLEKJF/jjpHRiTcC2IVgteHpIoDXpIhkwf0IlOYGiBzyilByeY7JYOBb
+         K5gI/wu06waZd26rz+qokkV01r1nAAVOBxScMIg/7/SKnaZ0nEM9DKEYO4XzTcl0O4WR
+         TPVDHkxQntcKx5pFQaJESr1IeQAUjB973/kOm83MW/r+8jMKBfsx6OteAuT8t4NL4Cx3
+         3r2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762169219; x=1762774019;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qjmy8XjX+bzyGd/5u6oANywBcBczevKHZ7vCYGJEnxc=;
+        b=DhXK/y0aJpBj2Y33MkJX+Xpzy5ZAihLyC3oOEC4B2UPSMC6DbOHJEjHu/YJ/KRm1se
+         ZMc/FyHPr4p7pdDaZ3ajMZJC1yhVQ5z8D5XmH6Y/3ZINEiY6grmDxNmPPf2LfeM3PYC7
+         xbR2Zo937UkzXN+odzXK0rg30mcjdUckVlWW+eCARbPlqgnaY7KzZdkqlEK71WWDvq17
+         AEeRVJMVpA57AP3dIs/6UkATdDXOK/WYKAZOBStu14ggGILXQETnuBEmdxtwi63slayx
+         +ckSdS8UlKMDBPVLX+Yilv+P3PDcyWuquCUr6+7f51+SUw6X2qefSMarGl/zGt6Co47V
+         5EVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX1Q4sC+DzyVq7vyC5lLB0x/lEoN4RX9tF5jMwEc5/hDIga8Mwg1f7T8S2szvT3YZkWvxfOfgrNliEG3wfop4Uo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOHd+ETgrdCogYCauzVs+scRs7UeHtvqzzoTjPGvJPa0OPSJKQ
+	B8nxEohdH34hFnQTGdqCahkyF6shBQP7UMUw3sCqdMwSvutew+Sql3pteEISovyPz2s=
+X-Gm-Gg: ASbGncveP+fWq4fXaPuVff0f3kBhN/oqR91pL8RLUTj/hti1xitIUAzeOsQ1t9dczKW
+	unkNaMuCSCtu2h+kq2k2nJoZaJTtz9PVwMq/SmiazodbdcWA8kc8kVo9qD0uYAwArEaRmn0IPDD
+	ub1ssxrHt6mRvpvQfThfMJQirWg6Hni8Wcwg8TLUCWnnxIZlzMMqaPRNsO67PHOz3AEOowiXaOM
+	bXQ5+0TG3+vcm4SA6OS/1wMQ6H265wQutcLvH5hjYSYVLR7nQXb/g98l4PaxKx4sNEYs4/8VSb+
+	BjXSjgpVdJv7e/MnsLhphp0HbWCLsY+OA3EdHFRghb0SkGLw9y7gd36mZYxR7DVl+wwKjRLqDbu
+	WmaLjKkyUgsk7b7Be/oMqMmta+xF55mKicI6P71q72TIEnqVcgoUF+ZwhJaI8ormBVSA1NtHne2
+	mFTZcwIBFuogngU8djscTRhpY=
+X-Google-Smtp-Source: AGHT+IHivtvy/jRPu0I8Ces/TDhvBY7TVA9tDT88jLA028aX3ASpmqQ3KfJYVYM1rOEorR2QyolQYQ==
+X-Received: by 2002:a05:6402:4402:b0:640:a26e:3d76 with SMTP id 4fb4d7f45d1cf-640a26e4208mr5484730a12.27.1762169219448;
+        Mon, 03 Nov 2025 03:26:59 -0800 (PST)
+Received: from [172.20.10.10] ([213.233.110.172])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-640af968e5dsm4801329a12.19.2025.11.03.03.26.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Nov 2025 03:26:58 -0800 (PST)
+Message-ID: <c5c81744-48a2-4f3f-9ac3-2420af7caaac@linaro.org>
+Date: Mon, 3 Nov 2025 13:26:56 +0200
 MIME-Version: 1.0
-X-ThreadId: A9BOEV1KOSwF
-Date: Mon, 03 Nov 2025 12:24:08 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
- "Linus Walleij" <linusw@kernel.org>
-Cc: "Russell King" <linux@armlinux.org.uk>,
- "Xie Yuanbin" <xieyuanbin1@huawei.com>
-Message-Id: <740b1a09-24b2-4473-aeb4-490ac42da7c2@app.fastmail.com>
-In-Reply-To: <20251103101545.760243-1-bigeasy@linutronix.de>
-References: <20251103101545.760243-1-bigeasy@linutronix.de>
-Subject: Re: [PATCH v2 0/5] ARM: Remaining PREEMPT_RT bits
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/11] arm64: dts: exynos: gs101: add the chipid node
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ semen.protsenko@linaro.org, willmcvicker@google.com,
+ kernel-team@android.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251031-gs101-chipid-v1-0-d78d1076b210@linaro.org>
+ <20251031-gs101-chipid-v1-10-d78d1076b210@linaro.org>
+ <20251103-pompous-lean-jerboa-c7b8ee@kuoka>
+ <b82af744-ebbd-4dc8-8ccb-c7e4f2a6b04d@linaro.org>
+ <abd5b16b-1467-449c-b452-7699cbe5d9f5@kernel.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <abd5b16b-1467-449c-b452-7699cbe5d9f5@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_032441_588951_17A58F3C 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20251103_032701_678561_0EA454B4 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,40 +111,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 3, 2025, at 11:15, Sebastian Andrzej Siewior wrote:
-> this is the last batch I have to enable PREEMPT_RT on the ARM
-> architecture.
-> Last time I posted them there was some discussion about making the
-> branch predictor hardening worse. I redid it hoping it improved now and
-> does not make it worse.
->
-> v1=E2=80=A6v2: https://lore.kernel.org/all/20251029155918.503060-1-big=
-easy@linutronix.de
->   - Allow to enable jump-labels on UP. The UP build does not involve
->     stop_machine(). Reworked by Arnd.
->
->   - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
->     disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
->     needed.
->
->   - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WO=
-RK
->     which in turn depends on !KVM. Since KVM has been removed from ARM
->     it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
->     by Arnd.
 
-Whole series
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+On 11/3/25 1:01 PM, Krzysztof Kozlowski wrote:
+> On 03/11/2025 11:50, Tudor Ambarus wrote:
+>>
+>>
+>> On 11/3/25 12:18 PM, Krzysztof Kozlowski wrote:
+>>> On Fri, Oct 31, 2025 at 12:56:09PM +0000, Tudor Ambarus wrote:
+>>>> Add the chipid node.
+>>>>
+>>>> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>>>> ---
+>>>>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 6 ++++++
+>>>>  1 file changed, 6 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>>> index d06d1d05f36408137a8acd98e43d48ea7d4f4292..11622da2d46ff257b447a3dfdc98abdf29a45b9a 100644
+>>>> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>>> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>>> @@ -467,6 +467,12 @@ opp-2802000000 {
+>>>>  		};
+>>>>  	};
+>>>>  
+>>>> +	chipid {
+>>>> +		compatible = "google,gs101-chipid";
+>>>
+>>> That's not a real device, sorry.
+>>>
+>>> I had some doubts when reading the bindings, then more when reading
+>>> driver - like chipid probe() was basically empty, no single device
+>>> access, except calling other kernel subsystem - and now here no single
+>>> actual hardware resource, except reference to other node.
+>>>
+>>> Are you REALLY REALLY sure you have in your datasheet such device as
+>>> chipid?
+>>>
+>>> It is damn basic question, which you should start with.
+>>
+>> Documentation says that  GS101 "includes a CHIPID block for the software
+>> that sends and receives APB interface signals to and from the bus system.
+>> The first address of the SFR region (0x1000_0000) contains the product ID."
+>>
+>> 0x1000_0000 is the base address of the OTP controller (OTP_CON_TOP).
+>>
+>> "CHIPID block" tells it's a device, no? But now I think it was just an
+>> unfortunate datasheet description. Do you have an advice on how I shall
+>> treat this next please? Maybe register to the soc interface directly from
+>> the OTP controller driver?
+>>
+> 
+> 
+> Huh, then I am confused, because:
+> 1. That's the same message as in other Exynos and it has SFR region
+> 2. Your binding said there is no SFR region.
+> 3. Anyway, please post complete DTS, so if this has SFR region it must
+> have proper reg entry. You cannot skip it.
+> 
+> Of course next question would be what is the OTP controller...
 
-Looks all good to me. The first two patches may clash with
-the work on generic entry that I think Linus Walleij (added to
-Cc) is in the process of rebasing, but I think that is fine:
-hopefully the special case that you  adding here will just go
-away after Linus' patches, so everything should be fine
-regardless of which gets merged first.
+The CHIPID block, which has a dedicated chapter and all :), consists of two
+registers:
 
-Linus, can you have a look and confirm?
+Product ID
+Address = Base Address (0x1000_0000) + 0x0000, Reset Value = 0xE383_0000
 
-      Arnd
+Chipid 3
+Address = Base Address (0x1000_0000) + 0x0010, Reset Value = 0x0000_0000
+
+While the Product ID is fixed (fused I assume), the CHIPID registers:
+"depend on the OTP value. When the power-on sequence progresses, the OTP
+values are loaded to the registers. These registers can read the loaded
+current OTP values."
+
+OTP values are from the OTP memory (32Kbit) from address 5'b00000, 160 bits
+in total. Even if not explicitly stated, I think the OTP controller copies
+the CHIP ID from the OTP memory to its registers, so that the "CHIPID block"
+can access them. You notice that the reset value of the CHIPID OTP registers
+is zero. They're then filled at power-on.
+
+This is all. I lean towards thinking the CHIPID block is not really a device.
+It's just a way software gets the product and chip IDs, which is by querying
+the OTP registers. I think I lean towards registering to the soc interface
+directly via the OTP device. Or maybe you think differently?
+
+Thanks,
+ta
+
+
 
