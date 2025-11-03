@@ -4,59 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5619ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FE4CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=it03AAMKYd2g1Yeydh/9ozAQpRko2jPLb8JT9ESxDMU=; b=ABUttRFvWK7OsKYCYHONutYl3w
-	2sJy99vZbSU9pxv/SSsj+OqK+zoLVbD8Av+5Ivf1MZ7Y/dPOwK0J32NxUh/dVGTngTVYlY/8xzaat
-	z1YTS0rnpz0IBTVMDwWQh/4a1zXEPAIEDzF+MjM/xCgXNsRqQ1c24cn8Es6E0T9ifhLzSmrGsVnkZ
-	tsEsBRwfJMdAcQ2OJ1YXJcyJe+HEecwLxMS1Kr9JRq3vDqFfhPO5HU83IHT0H3Zk+ECjVgtjTQJ88
-	or/HmlTqASzcGp9+X+g9EVaKC7CCgPeZAiXNpd8I6SN84gVikjg5BZKtpPEi6LAaRBgENdDyPM2SF
-	ONr5YmLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oOkSrmlf0aOWsDYEHY5io0janLDt+V8WTrWiBQZVLTA=; b=NHSdKg0I7dPSu7KBJZgphuQH9L
+	sDHwYn7qVRTsDlhd4H0c+/GJbN0JFsIvp17frXnYld9vXxbJJdAQuoD/H8CM/oJtbV4Wo3frCekGj
+	VJye/vyThGJJXLtcU+EW+c99BdVZPZICSAwGdTGuoiNTO/e5mCwAxlLMN0rMXXTfZUtb/Ga/cqoD3
+	97BM4K1Yj/OC7Wmik8D7v4IDIpkLBA8+HPZRfD7RB+kEZA3ikeg8PqyMAzI8oe5sgsJglYHylwFA5
+	zK6I9WadxLlFbeb1h5GKBFAg4WZxJf0PC9tdYtN4e/JzA28eOPOuhG8tHYA7+l3a/jQmD9DGmeTdV
+	IlwaBPQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFz7M-0000000ATaA-2Blc;
-	Mon, 03 Nov 2025 18:17:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFz7I-0000000ATZD-40Dt
+	id 1vFzC9-0000000AU13-1Rjy;
+	Mon, 03 Nov 2025 18:22:21 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFzC7-0000000AU0J-0HHN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 18:17:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E2812A6B;
-	Mon,  3 Nov 2025 10:17:10 -0800 (PST)
-Received: from [10.57.71.231] (unknown [10.57.71.231])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF8D33F694;
-	Mon,  3 Nov 2025 10:17:13 -0800 (PST)
-Message-ID: <7a61bcf9-a57d-a8e9-a9b8-4eacef80acd3@arm.com>
-Date: Mon, 3 Nov 2025 18:17:00 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH v4 1/3] KVM: arm64: VM exit to userspace to handle SEA
+	Mon, 03 Nov 2025 18:22:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DwRvKneVrny9FKsvOV+tU3SxHuY1xfigNzEPSpJ2SX1laRz5Ap7Da7uvjc5+sv0uicSJYteKTl6lCa68iYw6HMlkUtgjNEowzJMOJeu5NmfL/wAnYX6iHKrG3USEW57wzKFR5bpm0EkZ/lGmfjgJf2O/z9L4z9GTZqmlyxB5ID8uw3NOVxYJU0nJw5Op+MX3jjktgXS79s/kH3uzuul6m46L7ayQ5cQRxt+V06NBzGIMTgnw0ExRF/ig6lYQIV+9A8ZLuwxX+2I1IzIsGLnMMcuaeyBqWGXpSaELNFjcZQD3oQoHBA+MewNxfBMvTdaQpHmTzyuNgrU02wtQ2vfP+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oOkSrmlf0aOWsDYEHY5io0janLDt+V8WTrWiBQZVLTA=;
+ b=baS2dsl5nXdj7cw0xYx8cecKDkcWIpnzG/H9QTjCwPkxM2x7uhiKNLjF0WGpRU6qQaSjR5852qHp2zYMIU4nbKtPCwB+xiOtQS3+BS03UYBHIxQzMml39XvJSHHRIY7ZQ0zM0RTFswC0Er+UTjpHsHKNBTTKGNBmHdipAIV3xKsBcQGRMUZB71zEpLQAnLR2yeAOQ2osVgNKSTdquMRUj18nRqnoHnNIcO2t5idyxoUK5QhddBlOvcuaHKvKDDn4fUoBsNGStZ6CTJcUgu8kutE8prYeF5mvDf0bP3T7ZirNH5J+vnS0nFwa2+u3i15j3FPXvvMw9t39lKxUwXjTsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oOkSrmlf0aOWsDYEHY5io0janLDt+V8WTrWiBQZVLTA=;
+ b=FXC674GqrESbeFLzKmQakaDX84FYoCLh3jwLGPBwL8poJc+7hcquGtSwdrGJm6k/YfQG2r05mT/Z3zZ0Wk3zpExqSOTG1ncSmenI7zYaLt6DnfIvsMfZG6lCjJXU+ZGJHruxPMmDYV0ezuhDYcyDC7kWkUx+dY/sYNgpf4iynxs=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ LV9PR01MB9399.prod.exchangelabs.com (2603:10b6:408:2ed::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.12; Mon, 3 Nov 2025 18:22:15 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
+ 18:22:15 +0000
+Message-ID: <3fe7e501-b319-4b9b-b129-dce5e945bf9a@os.amperecomputing.com>
+Date: Mon, 3 Nov 2025 10:22:12 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Question] mprotect() can't clear PROT_MTE
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: LAK <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <04ea9978-e6aa-4498-b899-76d56e19b084@os.amperecomputing.com>
+ <aQUEk6a_3OWapRbE@arm.com>
 Content-Language: en-US
-To: Jiaqi Yan <jiaqiyan@google.com>, maz@kernel.org, oliver.upton@linux.dev
-Cc: duenwen@google.com, rananta@google.com, jthoughton@google.com,
- vsethi@nvidia.com, jgg@nvidia.com, joey.gouly@arm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org,
- kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20251013185903.1372553-1-jiaqiyan@google.com>
- <20251013185903.1372553-2-jiaqiyan@google.com>
-From: Jose Marinho <jose.marinho@arm.com>
-In-Reply-To: <20251013185903.1372553-2-jiaqiyan@google.com>
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <aQUEk6a_3OWapRbE@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: CY3P220CA0006.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:930:fb::8) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV9PR01MB9399:EE_
+X-MS-Office365-Filtering-Correlation-Id: c58c8fc7-a697-41db-ddb1-08de1b05ea65
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L1BVZS9Bc2pTM2E2UHhyNy8yL1c5SE5jQTFNQnRPdWxkS3lNWmdwZHlGZ3Z1?=
+ =?utf-8?B?SDlIM1NlMncrTzdRM3E4OHJSWDE2RnN2Yno1dEdJejFGT2dKLzE0aFZraGh6?=
+ =?utf-8?B?NFYxTXUxaFA0dytrRmNhckIzSjZybm54NUlEQkw5VXlZOFlYMXIrd2xTWFdz?=
+ =?utf-8?B?SG15VVZjRFdwQWorL2I3R1Q4Wk9UaUxYRE5VT2lCL09zVWIzN2pUZzZ1L1dL?=
+ =?utf-8?B?OU9temhYZWFEeW92YWFNSlpNQVV1bStxRWxFaE55SmRacXhPdEV5TFhVaFA2?=
+ =?utf-8?B?cE1DMEQyNWNlNmJXWWxiU1diUW82cUtsMlVoQXdTcTFtb2ZhZDlFZTlSaFcw?=
+ =?utf-8?B?OHpPWFRCdUluTkIvbWZwMXhXNDdGbXpKNDVGaVBXWTRMZkhMOXVjb0NIc0J5?=
+ =?utf-8?B?QmdhbFNPRk1OWXc5WjRpRnNCbzhEQXRqRHhncU5YcjFhTlNWcEltYkpPTlNz?=
+ =?utf-8?B?ZTNMZ2ZWZEpCOFJqU1Zkd3BTaWZxa2xoZ0Nia1RYUURNSTZ0Vm03NzJENTFt?=
+ =?utf-8?B?RksrbHlBVTc3K0N5M1RPWDZqTTJYbDZSMnhxOExWRDNDOUNRRG85QUh4aTJP?=
+ =?utf-8?B?dEpjUzR2K3FFVmFJQUZvTmlIRm9WZVhEdUhxcUFBb3dnSkd6RllKSTNPQzZ5?=
+ =?utf-8?B?ZStmb0Z2VkE0NW8rZEI4UGNIOGNIMHJCMG04L0Noa2tDdCs4NEI1Qm1uR0tY?=
+ =?utf-8?B?YmQxcDRxcVUzd3hDc282SEhERklmbWJwekFtb1VqY3FtMXptdUwzNnhCS0R0?=
+ =?utf-8?B?TFZ0cWs3UklYbTQ0c1E1am1xalB1RndTVHd0SEo3Smd0bDZhRUZibE9sSmlH?=
+ =?utf-8?B?amlLVDJsQVBUcS9OU0w5RTRjM05hek8zZm40b1NaZ1FjTS9VSlp4cXNoeFhK?=
+ =?utf-8?B?c0NLaUt5R1BOS1ZBb2xaWE9BVVMrcTZNM3MxY2craXpKWXVKejMrNkZhWkE1?=
+ =?utf-8?B?eTJUWjFleGRKeU9nVGUrbXBkbjZjOFhWcjg1SkdzdXcxK0lGeG45Z1BPYmRa?=
+ =?utf-8?B?SzJLd1N2NFAvQWwxMy80ci9uandyMlpvcUFSc0pmcy9SV2Fwb1dnQ0d2RnFo?=
+ =?utf-8?B?cE0zR2UrVlhzL3hGNktUSm5Pam1FdUlxNFdkdHdabmpoaFZjK0FYbllZSDdl?=
+ =?utf-8?B?YTV5cHpFY1BmeEFUOVBiYnh6SktvQ2JIOUh2VHR6UVhrNmhsWTdBeEE4WWdy?=
+ =?utf-8?B?c2tJMGpkU3pSTC8ySWoxamlTMnlSNTN0SWhmbWdRL0xXVk4xSDRlSURxaW4v?=
+ =?utf-8?B?aFBNVFV6OVpZSDAyZm04SUlhY2lMb1ZwL283dUhkUDdFN3h5bkZxYUdlZ3Jw?=
+ =?utf-8?B?YXRydzRMSVVkM1lqRFFER0lwcTN5WjM4Wm5mbEhEVld2dUFaZVNPWXJQaDZo?=
+ =?utf-8?B?OXM3Q0lUVnBiQ3FOMXlLU1RUM3pXdUJvS0dVRk9TbGdOSlJpUUZLTDdjais1?=
+ =?utf-8?B?cnBJNW1hemxkTkpxOWsvRy8zaUYyN1VUK2xhcG1KOFRUY1JsN3Y1Y2w0bjYv?=
+ =?utf-8?B?MVJQMFFSS0EySmxuR2tKVWsrQm1ad3pPTS9CSkFHNEg4d1E3MWtlMXI5M0lo?=
+ =?utf-8?B?c0pzMm9IWndzV3gvaTdNVElOTWIxY1ZNa01oQVkyeHpaUC96NW5ZV2ZNc2xm?=
+ =?utf-8?B?M1lBYWxuZFUwOTdkYW13WURKTVIwM25jOEVzcElseHlOdVpUSEJXVGpPWXcz?=
+ =?utf-8?B?dmpOeHFsZFZUTllMdGpVcE9Od0w3TnN3RzZSc0lzWjV2TzAraXMyZU1FSjFt?=
+ =?utf-8?B?T3hoWkl5QmVBK2htckJUVEVYY0ZyWUZ6U2x6VUpIQWRydWwxR1Zlb1Z1dDdO?=
+ =?utf-8?B?OGJ2TkhaQWJLWlJNRWhmbTZjbm5CUW1BR29yVHpTOUl2a3Irekp1enNHeU96?=
+ =?utf-8?B?eUdxUUd1TW1sR2d2emh6QzFtZngvTDdhNit3K0lNM0RaRXViMjdob0JTeHBL?=
+ =?utf-8?Q?9QC/kBURGTb0NiRJK9qBov+LMWzlYAGM?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eVpqNUVrNkhZV3pwQzU1Rjc1WnltTVk3RW5xREF3KytRQmNjN0ZvREkzRVp1?=
+ =?utf-8?B?Q1V5bGlrWktPRjVkb3k4M1lYYkh2cjU5bFdwSkJSRE5oRnRFMCtHeGhTR2hu?=
+ =?utf-8?B?RTZtdTBZK3RVVlYyTlkvQnUwWU5LYlN1MVVWeXNGdTk0aFJTcUJWRisxNHZv?=
+ =?utf-8?B?QWFDVWFOZjB5eG0rSU9pWVBucjExYVdveG1ONHNxbkw0eE1ENk9qeVlpbjlz?=
+ =?utf-8?B?Nk54YVMrdzA2ZzhwbGphRXlCaTAxV3RhMDFpRG9kcEJKanhJaW9vdjJGN0F1?=
+ =?utf-8?B?K1lWNG56OFFja1hZL2dCWmgrbDVLS2lHVHg5Ny82UVNROHNkWjdvRnk2NVU0?=
+ =?utf-8?B?SVNZNzBpUGNleEh5UUkydEdNaEpWSVozUjdrYWM1NysxeFJqaVFjcnEvV3k1?=
+ =?utf-8?B?ZEI1ems2RWxuQ1FZT1BiTmcxVGFuMDVBaitXbGt5Y09XVVFnZnp3c3Q1d2tn?=
+ =?utf-8?B?RVFjQjRqVW5GR1QwZUN4bXU2ekUzU2lBWkszY3ZzOUxVQVFnb24rR1NCeXVX?=
+ =?utf-8?B?VnlCc05XaVRnem9zRmFucCtxZWxmd2hSRXkzMytKY2ZtVUFjK1ljVkdNYzMy?=
+ =?utf-8?B?aXhjTGRFOSt2cE9PUmhaVXordngyK2hJTTJGSHBKUCtZb04yOEdnY1JPcXFt?=
+ =?utf-8?B?bUlzalp1UG5BczExbkNuS0hNcDRKMWFDN2JZc1NFRU1ubmgwRTRrM1FGdnVQ?=
+ =?utf-8?B?bWxJdDJTSGF6Z1pHRWVlRlVRQlkwd21CcFdoZG1mNnNQdkNQTTZmdTJRS2Jn?=
+ =?utf-8?B?RnFXdkZEcmlDMkVWTHNxVG1PMUQyTGM4QWhwenU3NnBubXJ0Z3VwZ1BIdzFG?=
+ =?utf-8?B?ZG8vZXAzSkhUNUVBZngvWVJab3lWRG5JU3duTkFKNit1N2xnaGNnU1JFRXdF?=
+ =?utf-8?B?VFo0ZWZOa3lPcEFHMWlXZVZ3WktqbFdDd2RmR3BZZ3JNOW94Tm11WHRqYjVO?=
+ =?utf-8?B?NWF5M2l2eGx0bzRvSlBONGxaZ1drK05lYk9tWlR2WDNtNzBJdHQraDBFWnN3?=
+ =?utf-8?B?K2F6Z3VhRmFGdU9zdGU2ZEFES1Z0K2pqazNVRSt3VEtXcXd1cXFDUGRBeVAx?=
+ =?utf-8?B?YUlPdm9pUjZtSmkwa1dWaHBtQXFXM3d4QTNBNzJsK1ZVM1I0T2UxQko1ejRj?=
+ =?utf-8?B?TjZETjMzemVDck9adjJZM3l2LzBGTXhlVnpMeXZMa3l5RXUwcktzWEJWTnhD?=
+ =?utf-8?B?c3hYRHFOQnpDZk03QXJEL1AxMmpMTU8rcjJWOXVJd0ZHM2lLN1laRG5iUmdJ?=
+ =?utf-8?B?S2tiQm9NVS9ZYUdYSEs2eUliVmpHNEg3emhWUTlyVUFITlR5OHpqVElaa3RQ?=
+ =?utf-8?B?UUdQU2crdm45cmZBTDVKN2YzMEZiWUdFamt6aFV3am9OSWpaZng3QlFCODVl?=
+ =?utf-8?B?UW1telJkMzJ4SFA4RmdmamEwbkVtMlJDSzl1bUNXa281bkhiU1RMOU1mejJy?=
+ =?utf-8?B?WmdVbUdxVEZ6amF0NGdUUW1PaEhpaDdYRWordTNCV2U3cGR4TUlFRUsrRjRj?=
+ =?utf-8?B?SEpiZElzNDRqQXd1aVp3UUhnZ05tL3hkajdTa1ArVEtuSlpOQTRWc1JRUTdU?=
+ =?utf-8?B?ajJLREdmWnpsUEk2WkFQVFhRb2VqRDdlQ2ZwTk55L3RIZENOZTJQSEtIbXhM?=
+ =?utf-8?B?YTEyUTFtTURCa0xSbW1MQ3h2TGxZZWpCTzQ2dEpVcjEyMHJSckpNUEFMTmJZ?=
+ =?utf-8?B?Z09wV08rdmxuQWE2cTNMakhORnVNUElqUGxscHZnc1ZicnFEY3pWZDBFWVRz?=
+ =?utf-8?B?NHJSYmwydk9IOS9TbkcrNkVMMzdhdVJlVGxYWjRvdGE5ZDgxTFlUQUU1VFZn?=
+ =?utf-8?B?NWlZMHNLSGdEbWVwRjlTOW5nTXE3eXNCUVRZck9ETjRodTJxRnlIUE0rU2JD?=
+ =?utf-8?B?Z25BU1lzeFhQMnNNYVRqdzIycGxMYnE5ZTFWcTBBQ1ZLaEIxUVFnWTRpdmpk?=
+ =?utf-8?B?RXJTeWtoSEhoSHdrSWNrRUphNGxNN2lFRW5XN0p4alBKNUtmblYrellvMERk?=
+ =?utf-8?B?NzRqRXBVYVdaWWJnbGFqQ1d3WTFVQTlvMkM3RXFobXhaRGVmQWZlK2tzVFhT?=
+ =?utf-8?B?WEt4eHNZdmVtazg0SHcyd1k5VG14MkFBWHFVVXgzNmJPWHpmb3pHS0JabGpo?=
+ =?utf-8?B?QWhFSWRtOFBIMGV5OGoyOERVYnVYdFZJbUJBZUplajJUTUVZTm0rdmpqb092?=
+ =?utf-8?Q?Pbk41V4XavTcomwZCjpb3js=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c58c8fc7-a697-41db-ddb1-08de1b05ea65
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 18:22:15.6157
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2SJ4myyouWc4pTuSK7pMn4dXMywePRAeXnyGuWCNDx/EPXsZ4A4Z+gRKjFsYNVM0V00T4raB+B0DhzNdNYEXY8CXVFrQaekOT2E7PZ4k+lY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR01MB9399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_101721_086175_CD557A5C 
-X-CRM114-Status: GOOD (  34.37  )
+X-CRM114-CacheID: sfid-20251103_102219_114951_625E6820 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,222 +178,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for these patches.
 
-On 10/13/2025 7:59 PM, Jiaqi Yan wrote:
-> When APEI fails to handle a stage-2 synchronous external abort (SEA),
-> today KVM injects an asynchronous SError to the VCPU then resumes it,
-> which usually results in unpleasant guest kernel panic.
-> 
-> One major situation of guest SEA is when vCPU consumes recoverable
-> uncorrected memory error (UER). Although SError and guest kernel panic
-> effectively stops the propagation of corrupted memory, guest may
-> re-use the corrupted memory if auto-rebooted; in worse case, guest
-> boot may run into poisoned memory. So there is room to recover from
-> an UER in a more graceful manner.
-> 
-> Alternatively KVM can redirect the synchronous SEA event to VMM to
-> - Reduce blast radius if possible. VMM can inject a SEA to VCPU via
->    KVM's existing KVM_SET_VCPU_EVENTS API. If the memory poison
->    consumption or fault is not from guest kernel, blast radius can be
->    limited to the triggering thread in guest userspace, so VM can
->    keep running.
-> - Allow VMM to protect from future memory poison consumption by
->    unmapping the page from stage-2, or to interrupt guest of the
->    poisoned page so guest kernel can unmap it from stage-1 page table.
-> - Allow VMM to track SEA events that VM customers care about, to restart
->    VM when certain number of distinct poison events have happened,
->    to provide observability to customers in log management UI.
-> 
-> Introduce an userspace-visible feature to enable VMM handle SEA:
-> - KVM_CAP_ARM_SEA_TO_USER. As the alternative fallback behavior
->    when host APEI fails to claim a SEA, userspace can opt in this new
->    capability to let KVM exit to userspace during SEA if it is not
->    owned by host.
-> - KVM_EXIT_ARM_SEA. A new exit reason is introduced for this.
->    KVM fills kvm_run.arm_sea with as much as possible information about
->    the SEA, enabling VMM to emulate SEA to guest by itself.
->    - Sanitized ESR_EL2. The general rule is to keep only the bits
->      useful for userspace and relevant to guest memory.
->    - Flags indicating if faulting guest physical address is valid.
->    - Faulting guest physical and virtual addresses if valid.
-> 
-> Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
-> Co-developed-by: Oliver Upton <oliver.upton@linux.dev>
-> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> ---
->   arch/arm64/include/asm/kvm_host.h |  2 +
->   arch/arm64/kvm/arm.c              |  5 +++
->   arch/arm64/kvm/mmu.c              | 68 ++++++++++++++++++++++++++++++-
->   include/uapi/linux/kvm.h          | 10 +++++
->   4 files changed, 84 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index b763293281c88..e2c65b14e60c4 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -350,6 +350,8 @@ struct kvm_arch {
->   #define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
->   	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
->   #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
-> +	/* Unhandled SEAs are taken to userspace */
-> +#define KVM_ARCH_FLAG_EXIT_SEA				11
->   	unsigned long flags;
->   
->   	/* VM-wide vCPU feature set */
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index f21d1b7f20f8e..888600df79c40 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -132,6 +132,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
->   		}
->   		mutex_unlock(&kvm->lock);
->   		break;
-> +	case KVM_CAP_ARM_SEA_TO_USER:
-> +		r = 0;
-> +		set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
-> +		break;
->   	default:
->   		break;
->   	}
-> @@ -327,6 +331,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_IRQFD_RESAMPLE:
->   	case KVM_CAP_COUNTER_OFFSET:
->   	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
-> +	case KVM_CAP_ARM_SEA_TO_USER:
->   		r = 1;
->   		break;
->   	case KVM_CAP_SET_GUEST_DEBUG2:
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 7cc964af8d305..09210b6ab3907 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1899,8 +1899,48 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
->   	read_unlock(&vcpu->kvm->mmu_lock);
->   }
->   
-> +/*
-> + * Returns true if the SEA should be handled locally within KVM if the abort
-> + * is caused by a kernel memory allocation (e.g. stage-2 table memory).
-> + */
-> +static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
-> +{
-> +	/*
-> +	 * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external abort
-> +	 * taken from a guest EL to EL2 is due to a host-imposed access (e.g.
-> +	 * stage-2 PTW).
-> +	 */
-> +	if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
-> +		return true;
-> +
-> +	/* KVM owns the VNCR when the vCPU isn't in a nested context. */
-> +	if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
-Is this check valid only for a "Data Abort"?
-> +		return true;
-> +
-> +	/*
-> +	 * Determine if an external abort during a table walk happened at
-> +	 * stage-2 is only possible with S1PTW is set. Otherwise, since KVM
-nit: Is the first sentence correct?
 
-> +	 * sets HCR_EL2.TEA, SEAs due to a stage-1 walk (i.e. accessing the
-> +	 * PA of the stage-1 descriptor) can reach here and are reported
-> +	 * with a TTW ESR value.
-> +	 */
-> +	return (esr_fsc_is_sea_ttw(esr) && (esr & ESR_ELx_S1PTW));
-> +}
-> +
->   int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
->   {
-> +	struct kvm *kvm = vcpu->kvm;
-> +	struct kvm_run *run = vcpu->run;
-> +	u64 esr = kvm_vcpu_get_esr(vcpu);
-> +	u64 esr_mask = ESR_ELx_EC_MASK	|
-> +		       ESR_ELx_IL	|
-> +		       ESR_ELx_FnV	|
-> +		       ESR_ELx_EA	|
-> +		       ESR_ELx_CM	|
-> +		       ESR_ELx_WNR	|
-> +		       ESR_ELx_FSC;
-> +	u64 ipa;
-> +
->   	/*
->   	 * Give APEI the opportunity to claim the abort before handling it
->   	 * within KVM. apei_claim_sea() expects to be called with IRQs enabled.
-> @@ -1909,7 +1949,33 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
->   	if (apei_claim_sea(NULL) == 0)
->   		return 1;
->   
-> -	return kvm_inject_serror(vcpu);
-> +	if (host_owns_sea(vcpu, esr) ||
-> +	    !test_bit(KVM_ARCH_FLAG_EXIT_SEA, &vcpu->kvm->arch.flags))
-> +		return kvm_inject_serror(vcpu);
-> +
-> +	/* ESR_ELx.SET is RES0 when FEAT_RAS isn't implemented. */
-> +	if (kvm_has_ras(kvm))
-> +		esr_mask |= ESR_ELx_SET_MASK;
-> +
-> +	/*
-> +	 * Exit to userspace, and provide faulting guest virtual and physical
-> +	 * addresses in case userspace wants to emulate SEA to guest by
-> +	 * writing to FAR_ELx and HPFAR_ELx registers.
-> +	 */
-> +	memset(&run->arm_sea, 0, sizeof(run->arm_sea));
-> +	run->exit_reason = KVM_EXIT_ARM_SEA;
-> +	run->arm_sea.esr = esr & esr_mask;
-> +
-> +	if (!(esr & ESR_ELx_FnV))
-> +		run->arm_sea.gva = kvm_vcpu_get_hfar(vcpu) > +
-> +	ipa = kvm_vcpu_get_fault_ipa(vcpu);
-> +	if (ipa != INVALID_GPA) {
-> +		run->arm_sea.flags |= KVM_EXIT_ARM_SEA_FLAG_GPA_VALID;
-> +		run->arm_sea.gpa = ipa;
+On 10/31/25 11:48 AM, Catalin Marinas wrote:
+> Hi Yang,
+>
+> On Wed, Oct 29, 2025 at 03:41:17PM -0700, Yang Shi wrote:
+>> Our customers have usecase to untag memory w/o unmapping it, but mprotect
+>> can't do it. It seems like an intended behavior because I saw MTE doc
+>> explicitly says PROT_MTE flags can't be cleared by mprotect().
+>> But I don't see why mprotect() can't do it if I don't miss anything. So I'd
+>> like to know why it behaves in this way.
+> It would be interesting to know more about the use-case. At the time,
+> clearing PROT_MTE got in the way. The theory was that an allocator
+> controls the tags and the PROT_MTE property but if that range is used by
+> something like a JIT, toggling between PROT_WRITE and PROT_EXEC would
+> inadvertently clear PROT_MTE. I'm not sure whether this would happen in
+> practice though but it's ABI already, so we can't change it.
 
-Are we interested in the value of PFAR_EL2 (if FEAT_PFAR implemented)?
-I believe kvm_vcpu_get_fault_ipa gets the HPFAR_EL2, which is valid for 
-S2 translation and GPC faults, but unknown for other cases.
+I'm not quite sure about their usecase yet.
 
-Jose
+Yeah, understand. It has been an established behavior.
 
-> +	}
-> +
-> +	return 0;
->   }
->   
->   /**
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 6efa98a57ec11..acc7b3a346992 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -179,6 +179,7 @@ struct kvm_xen_exit {
->   #define KVM_EXIT_LOONGARCH_IOCSR  38
->   #define KVM_EXIT_MEMORY_FAULT     39
->   #define KVM_EXIT_TDX              40
-> +#define KVM_EXIT_ARM_SEA          41
->   
->   /* For KVM_EXIT_INTERNAL_ERROR */
->   /* Emulate instruction failed. */
-> @@ -473,6 +474,14 @@ struct kvm_run {
->   				} setup_event_notify;
->   			};
->   		} tdx;
-> +		/* KVM_EXIT_ARM_SEA */
-> +		struct {
-> +#define KVM_EXIT_ARM_SEA_FLAG_GPA_VALID	(1ULL << 0)
-> +			__u64 flags;
-> +			__u64 esr;
-> +			__u64 gva;
-> +			__u64 gpa;
-> +		} arm_sea;
->   		/* Fix the size of the union. */
->   		char padding[256];
->   	};
-> @@ -963,6 +972,7 @@ struct kvm_enable_cap {
->   #define KVM_CAP_RISCV_MP_STATE_RESET 242
->   #define KVM_CAP_ARM_CACHEABLE_PFNMAP_SUPPORTED 243
->   #define KVM_CAP_GUEST_MEMFD_MMAP 244
-> +#define KVM_CAP_ARM_SEA_TO_USER 245
->   
->   struct kvm_irq_routing_irqchip {
->   	__u32 irqchip;
+>
+> I'm happy to add support for this if there's a concrete use-case but it
+> will need to be gated by a prctl() flag to keep the current ABI. A
+> weirder approach would be to add a PROT_MTE_CLEAR flag (I think I prefer
+> the prctl).
+
+I agree we should not change the current ABI, some applications may 
+already rely on it. prctl sounds fine to me. Anyway we can discuss more 
+about how to implement it once we have more solid usecase.
+
+Thanks for educating me about the context.
+
+Yang
+
+>
+
 
