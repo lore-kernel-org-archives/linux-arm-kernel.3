@@ -4,112 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D54CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 03:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B16E8CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 03:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xpMkuoemEQ8nHGHR+sKpMED/PEl2v5+7S85Qkm8JY+4=; b=zFxMhh8GIMAaqiVft3bVi+C2RK
-	ViClHFGClHihZr5uAVxJQj8MmfiESmYGyPsY0mDY2Hp2Iguka1yp61SXZcRo9ZGjsLelO0+568SCA
-	JfaGSOqSdeWQ461O0IVGeYrBS1cdxtt6kQQyZS9DJs3hGRTCTi4KciVnVFIzw7uspiUK+7sxlwXlQ
-	oryEwhNg5bt0eSjgtkdHaY7Ja3aVSwdbWD00wyCy2u/3UhX0We+5jujDEchHsrGKDmFNZTVVcgZzc
-	vvZ1PE+jrHH/HElHh9g8LPY5RSiD88TFdGPLFp55ysw4ns+Ur8Yhgc5gfNvJCU7z/Rxg4jX6zTfTK
-	TgT7bjxA==;
+	bh=0rpIOldGaRZqux6IkfxvDrJ9iXhiz25va/SIekALyO4=; b=rORlKHt6OpdPOdhLHOkXtdOFYB
+	4+bqLvnj4aK4gyflAi0oHN4MnxbrFujvshnm3Uy7tJICWsf1C2IOSjVpdweYO4gnjecljifjqZnL6
+	HGDWt5g7Zaf0V6mC/XjtWiQtbod2eRfxWEyqtO21VmQ4U3aRJJvEpviWE7CicBnrZrnKJHm8GRm84
+	BrBJ1saI8D+ulfQ9qLduFS/hCmzbx938ILbpsNu08/OL+N7AbkQkpCO8lKv0bwiOZDv6Rcc5vkMgd
+	9z3cwiCkyRZpdsbkiu2fu+sx8+ekApuCzmcTsv481bhlGV5MfJ0dlIpabIpqsSCX9MqtKiC2BjO+V
+	gLICP/FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFktI-000000096Dx-25nd;
-	Mon, 03 Nov 2025 03:05:56 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1vFlXM-0000000998f-0ipl;
+	Mon, 03 Nov 2025 03:47:20 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFktF-000000096CN-1qpv
+	id 1vFlXJ-0000000997M-1JPn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 03:05:54 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7833765433cso5163919b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Nov 2025 19:05:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762139153; x=1762743953; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xpMkuoemEQ8nHGHR+sKpMED/PEl2v5+7S85Qkm8JY+4=;
-        b=Vfl1hapsItL3qPFqKkBZUunDWJeBOZgWGHMrL/sR/jX5RiMfbCQ6BeQKcWaHDeczaz
-         3fkOt9ax/rYYL/9xBIUPUxdouhpm1sGbg3usah16kcZatq7OClEIAUh7Sg1lVMapGxkN
-         8doM9uraRF2H+z6zshuy8zia5PATnTjVljjl3S3Zf0eXh6vtp8HNkcMq472Xsv9OgzYi
-         E0/TR9R4FHdmnI03CpznUQ8VQb3gzp1EanQZcnzOujpwWPMgft14CoZGJOqAwtSAQ9Qu
-         +wNVTFclkpysOb1MhG8JzCBbGQiruSM/8RAscYZAwFsoZctTCL6DhPvFise+N6uUP14m
-         S1yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762139153; x=1762743953;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xpMkuoemEQ8nHGHR+sKpMED/PEl2v5+7S85Qkm8JY+4=;
-        b=m8FE4BySfw1Yqj9PAdl5bTeXWdaQ9M3Tdan5nn+4QPLGcwWU4JKN1bx5Yt6NtBoyY3
-         r+GikFizYHJYXzac5yNWNN2u7evwVtxnFQRTSj9qCHlmkaOO4amHAq9Em0CenFORmc3n
-         dBgjeL38Z+VtvcXXGHek1umjbM6Xm+XYRmY1kJtV5dwjVcge/7uBdID3Kkvhmb5BpOu6
-         AFEamvOp+yc0zthADR/xzRM4czKZpN+R915xHV5T5ov+h8PqSuHxxACSixFO/MWYco5+
-         zxtFJWDgtByUhuCoKavLYNg8TWeUSAFX09KzaZyggCPD9UNxrP6EWsGjf8/5nE2AEUQo
-         jfYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWhM2ZSWdzYk/I6n0nNMODKbEutd/qd5oLz+M/FrAlKlDR9BI+TNCLbCRiiO5ZqfLJmkU5fge9NK9iePwzkw9LT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyT0OuYGiNH8oZfKJf6AQdgxHS0ydDJYbx9kwMlTPa8A9S7/QkJ
-	ZdISIlW8RoVPwMHwjwvstyNCb2/fNhsy9s3Hevs/M7duFjKKEEUOhoFc
-X-Gm-Gg: ASbGncuh05WmmEv83caHMzHK143s71wQvQ9oAoFXqm5AlF/KIfk2sBxxPWWBzHOr/u+
-	igB8Xvw2HPU6gK6Dp7yjKQvFOLKGGvIEC/APfWo15VIKqpT1RqRAi/xmORsbftN9Ibwr5Zw8qK6
-	RuXPMp6vD0l7aBepiue7WLgu/f3NfNVqKFhGOI9gEYYunxiYjNGLGyXIA+BPGWbvYGxltGjy+ah
-	xZ+jaZrBkhOR3kSiUyP+WFLqQ2l6XeXLlPOumALBcQkSFkVhsnjDZYQ0hNG0d1DsGnobpDSq1n8
-	Nk6gC98E/SLeQqqmchimz5Ix4jHnu3rb2+YXBDqnvGOGysfJSIrs7bbCBYBqJn9K1uC+d5cAEM1
-	5OrHHZ86KiRo4e1i11g5igQGdP3lbaOf4t+NBYuTnWUkVpU9IHU5ZIkdaEz5EjHEZqyN9Paiuu9
-	g=
-X-Google-Smtp-Source: AGHT+IHPm4B46oBMKEiDtF1pRQ9fXhJATCw1b8SJYuGAuFOpbmfcoaiK6106eJ2qyIrf/kfq6Jj0wQ==
-X-Received: by 2002:a05:6a00:2196:b0:7ab:4fce:fa34 with SMTP id d2e1a72fcca58-7ab4fcf3eccmr1842539b3a.1.1762139152609;
-        Sun, 02 Nov 2025 19:05:52 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a7d897c632sm9343229b3a.10.2025.11.02.19.05.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Nov 2025 19:05:52 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Han Gao <rabenda.cn@gmail.com>,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Yao Zi <ziyao@disroot.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v6 3/3] net: stmmac: dwmac-sophgo: Add phy interface filter
-Date: Mon,  3 Nov 2025 11:05:26 +0800
-Message-ID: <20251103030526.1092365-4-inochiama@gmail.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251103030526.1092365-1-inochiama@gmail.com>
-References: <20251103030526.1092365-1-inochiama@gmail.com>
+	Mon, 03 Nov 2025 03:47:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=0rpIOldGaRZqux6IkfxvDrJ9iXhiz25va/SIekALyO4=;
+	b=MFjKhlNhh/5/RBFE9MVUU6tsM6zHmptB2deGf3AyAlf3opd53Q4QDzhqUwNkbIkvhyn1IVoln
+	WgIhnIslqfzwbiQQwhIWLicTnsxOwmIzXuWXAMgqWaAkxO9WR6kIM/pATG8PmUKG3qV7N2ggk3T
+	LHKLqzfGj2QplFROV1RpDIU=
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4d0HY74cWyz1cyNp;
+	Mon,  3 Nov 2025 11:45:31 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id CE76D1A0188;
+	Mon,  3 Nov 2025 11:47:05 +0800 (CST)
+Received: from [10.174.178.24] (10.174.178.24) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 3 Nov 2025 11:47:03 +0800
+Message-ID: <f4518f80-8e17-e622-fbe6-e20a7d1c85fc@huawei.com>
+Date: Mon, 3 Nov 2025 11:47:03 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v2] arm64/mpam: Clean MBWU monitor overflow bit
+Content-Language: en-US
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
+	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
+	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
+	<jeremy.linton@arm.com>, <jonathan.cameron@huawei.com>, <kobak@nvidia.com>,
+	<lcherian@marvell.com>, <lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>, <wangkefeng.wang@huawei.com>,
+	<sunnanyong@huawei.com>
+References: <20251017185645.26604-25-james.morse@arm.com>
+ <20251029075655.3284280-1-zengheng4@huawei.com>
+ <b0ea1879-9e77-4eb3-8312-ce27d73cc1f4@arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <b0ea1879-9e77-4eb3-8312-ce27d73cc1f4@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.24]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_190553_500911_F0D4E749 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20251102_194718_016529_33EC347D 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,72 +93,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the SG2042 has an internal rx delay, the delay should be removed
-when initializing the mac, otherwise the phy will be misconfigurated.
+Hi Ben,
 
-Fixes: 543009e2d4cd ("net: stmmac: dwmac-sophgo: Add support for Sophgo SG2042 SoC")
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Tested-by: Han Gao <rabenda.cn@gmail.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
----
- .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 20 ++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+On 2025/10/30 17:52, Ben Horgan wrote:
+> Hi Zeng,
+> 
+> On 10/29/25 07:56, Zeng Heng wrote:
+>> The MSMON_MBWU register accumulates counts monotonically forward and
+>> would not automatically cleared to zero on overflow. The overflow portion
+>> is exactly what mpam_msmon_overflow_val() computes, there is no need to
+>> additionally subtract mbwu_state->prev_val.
+>>
+>> Before invoking write_msmon_ctl_flt_vals(), the overflow bit of the
+>> MSMON_MBWU register must first be read to prevent it from being
+>> inadvertently cleared by the write operation.
+>>
+>> Finally, use the overflow bit instead of relying on counter wrap-around
+>> to determine whether an overflow has occurred, that avoids the case where
+>> a wrap-around (now > prev_val) is overlooked. So with this, prev_val no
+>> longer has any use and remove it.
+>>
+>> CC: Ben Horgan <ben.horgan@arm.com>
+>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c  | 22 +++++++++++++++++-----
+>>   drivers/resctrl/mpam_internal.h |  3 ---
+>>   2 files changed, 17 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 0dd048279e02..db4cec710091 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1039,7 +1039,6 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>>   		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+>>
+>>   		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+>> -		mbwu_state->prev_val = 0;
+>>
+>>   		break;
+>>   	default:
+>> @@ -1062,6 +1061,16 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
+>>   	}
+>>   }
+>>
+>> +static bool read_msmon_mbwu_is_overflow(struct mpam_msc *msc)
+>> +{
+>> +	u32 ctl;
+>> +
+>> +	ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+>> +	return ctl & (MSMON_CFG_x_CTL_OFLOW_STATUS |
+>> +		      MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L) ?
+>> +		      true : false;
+>> +}
+>> +
+>>   /* Call with MSC lock held */
+>>   static void __ris_msmon_read(void *arg)
+>>   {
+>> @@ -1069,6 +1078,7 @@ static void __ris_msmon_read(void *arg)
+>>   	bool config_mismatch;
+>>   	struct mon_read *m = arg;
+>>   	u64 now, overflow_val = 0;
+>> +	bool mbwu_overflow = false;
+>>   	struct mon_cfg *ctx = m->ctx;
+>>   	bool reset_on_next_read = false;
+>>   	struct mpam_msc_ris *ris = m->ris;
+>> @@ -1091,6 +1101,7 @@ static void __ris_msmon_read(void *arg)
+>>   			reset_on_next_read = mbwu_state->reset_on_next_read;
+>>   			mbwu_state->reset_on_next_read = false;
+>>   		}
+>> +		mbwu_overflow = read_msmon_mbwu_is_overflow(msc);
+>>   	}
+>>
+>>   	/*
+>> @@ -1103,8 +1114,10 @@ static void __ris_msmon_read(void *arg)
+>>   	config_mismatch = cur_flt != flt_val ||
+>>   			  cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+>>
+>> -	if (config_mismatch || reset_on_next_read)
+>> +	if (config_mismatch || reset_on_next_read) {
+>>   		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
+>> +		mbwu_overflow = false;
+>> +	}
+>>
+>>   	switch (m->type) {
+>>   	case mpam_feat_msmon_csu:
+>> @@ -1138,10 +1151,9 @@ static void __ris_msmon_read(void *arg)
+>>   		mbwu_state = &ris->mbwu_state[ctx->mon];
+>>
+>>   		/* Add any pre-overflow value to the mbwu_state->val */
+>> -		if (mbwu_state->prev_val > now)
+>> -			overflow_val = mpam_msmon_overflow_val(m->type) - mbwu_state->prev_val;
+> 
+> This all looks fine for overflow, but what we've been forgetting about
+> is the power management. As James mentioned in his commit message, the
+> prev_val is after now check is doing double duty. If an msc is powered
+> down and reset then we lose the count. Hence, to keep an accurate count,
+> we should be considering this case too.
+> 
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-index 3b7947a7a7ba..fcdda2401968 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-@@ -7,11 +7,16 @@
- 
- #include <linux/clk.h>
- #include <linux/module.h>
-+#include <linux/property.h>
- #include <linux/mod_devicetable.h>
- #include <linux/platform_device.h>
- 
- #include "stmmac_platform.h"
- 
-+struct sophgo_dwmac_data {
-+	bool has_internal_rx_delay;
-+};
-+
- static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
- 				    struct plat_stmmacenet_data *plat_dat,
- 				    struct stmmac_resources *stmmac_res)
-@@ -32,6 +37,7 @@ static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
- static int sophgo_dwmac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-+	const struct sophgo_dwmac_data *data;
- 	struct stmmac_resources stmmac_res;
- 	struct device *dev = &pdev->dev;
- 	int ret;
-@@ -50,11 +56,23 @@ static int sophgo_dwmac_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	data = device_get_match_data(&pdev->dev);
-+	if (data && data->has_internal_rx_delay) {
-+		plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
-+									  false, true);
-+		if (plat_dat->phy_interface == PHY_INTERFACE_MODE_NA)
-+			return -EINVAL;
-+	}
-+
- 	return stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
- }
- 
-+static const struct sophgo_dwmac_data sg2042_dwmac_data = {
-+	.has_internal_rx_delay = true,
-+};
-+
- static const struct of_device_id sophgo_dwmac_match[] = {
--	{ .compatible = "sophgo,sg2042-dwmac" },
-+	{ .compatible = "sophgo,sg2042-dwmac", .data = &sg2042_dwmac_data },
- 	{ .compatible = "sophgo,sg2044-dwmac" },
- 	{ /* sentinel */ }
- };
--- 
-2.51.2
+
+Regarding CPU power management and CPU on-/off-line scenarios, this
+should and already has been handled by mpam_save_mbwu_state():
+
+1. Freezes the current MSMON_MBWU counter into the
+mbwu_state->correction;
+2. Clears the MSMON_MBWU counter;
+
+After the CPU is powered back on, the total bandwidth traffic is
+MSMON_MBWU(the `now` variable) + correction.
+
+So the above solution also covers CPU power-down scenarios, and no
+additional code is needed to adapt to this case.
+
+If I've missed anything, thanks in advance to point it out.
+
+
+Best Regards,
+Zeng Heng
+
+
+
+
+
+
 
 
