@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC5FBCCF9F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A78CCFA04
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uKbxrb3yOkJ/tGn9RCKR1HhtVX7bJLoeZ2kuONOb2rM=; b=oR3m1dQGjh8honKFjPEBV5xQLU
-	DBBN/TGssy6ZpV9IpM+VfkaPmqLncfHsgqd67wLMwv58hMiHBCKV0denJe1ro8ElOjLLXu/J+dm0h
-	So0CAEpOHhRWXpOMe5nEjKxf1yZZeWqUdG1/IRgXl9WtvbhNPVgx5me8pdhOE4qDxoN4XOKL85lXr
-	pipmrm+q3Pd9rmlnYvvX6bZsKmDQaV3qsjfC29ClP1cdoisX8eLZrhYYGSfiZid07KNwQrRYTX9Rv
-	+9sQaAVRjrrz6OQ4cKzhurpn3PEBtzlP3FT5ATlFO/YygKdC5UHzeyP5OCHamCZvmDYhx9NdNxtcb
-	qKSbAS7A==;
+	bh=AfKkw/yP9GXJJPUGUhO0f9fXCxHvrwILY+JIU1cqaHk=; b=RV12W7TMBvHoTrHoHbSvVBHGs3
+	QQADe/YelkwhFVEJSt7kjESC5jYSFAiMRJ3YU0FOXFuqJ5ALBzMlxcMGA5HegmpqLQUi6tfhg7wRN
+	9LGkOLdb4mJ0x6a2viH3E4C0XtEhmkX74PN1fbhcZf57d1QfKZmbTBH9m0c5P4tqDhwmVdLKYkD0c
+	qBqHq14/RoePWxF5ePfJfLHDKgUJtYksfnoCHyLbiAIkLQxtEOwfSpDYpCDIR6haVXewBa/w3uDMX
+	Fhem5ZZ4Bt5su5bcNC+nkbKGinYZI78y+MLqA3Wgbjf//x85ujD5TRmbHGMu9ysJVmPI7fyU9FPCA
+	qWlgK4JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqF-0000000AKFS-2Bny;
+	id 1vFxqF-0000000AKEk-0hA1;
 	Mon, 03 Nov 2025 16:55:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxq6-0000000AJzI-2pEF
+	id 1vFxq8-0000000AK1z-0Yfh
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 03 Nov 2025 16:55:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 667C243C7A;
-	Mon,  3 Nov 2025 16:55:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C9CAC113D0;
-	Mon,  3 Nov 2025 16:55:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7273E601AF;
+	Mon,  3 Nov 2025 16:55:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06300C4CEE7;
+	Mon,  3 Nov 2025 16:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762188928;
-	bh=WThSsHFOHDds/2rdWEDCjAsmDGlKwebpZPD2tTNfRzY=;
+	s=k20201202; t=1762188931;
+	bh=aQ7u70SG7WFJvTtI0RPPihLeSLpWJXoLDaE7OdfAJsw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Rvziw2U5pNT+7uyKPzJTsSCpaxZ21AXIwKkfXJ+h5ygxCjBjDSo78EYSW8PYtnOCQ
-	 bfpvqWVO9rme3L1IhGFlqsFZr8OU1CuoNraWO4vc3N+/ThcgmUl8AmPy1AzSB4qlxG
-	 NJp3b+eOQ09ay4CXR/NS+b9yzcFVHV34tpRmrICPJJFidrKr4KBZVNqajllt+uotVG
-	 3N2p0fdszvEQZitNfsafvFP57sKW0WEWhEC0MjzpKw/XwKVxldsxfGVBotrf/uDNWd
-	 OC49iTxCCJwHk6dVzFffKdPVP8z+qCNg6N5UnlLR4cJlFVbnAfZFxPkXXIETPlCGt9
-	 S79subs96xn7Q==
+	b=aVWAkiZy6GPAHGfO1Nxuc8vnC7R4C9UJdbb5HcPVA/ZogDt64H4UVFAOEgrx3RxlX
+	 mqMacbrAewsDnUEeliAGqVcFxhEwYeMRjrcgRqZYkld7Q8+L5iU7iZWy3xiW/iPSwO
+	 IRsUDfawyZGbz09+4fYQ0poNDId2IDXInl6fhg/B7I4dWcKDK1XX4ke6//+vAB3FVo
+	 V06Narhx/v1qhO+YsdgrcOCX7EFlxXuddL2Kx73hgtfI1m9fMPj81RNDiC9+H/TC41
+	 jlc4mkBmw7ya/MwNUwM25N/Dd8KQYMP+/aVAsYlwWG1j3T71dq7beAssahP8df2PNr
+	 g4C9Kly+sfkpQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vFxq2-000000021VN-2IOM;
-	Mon, 03 Nov 2025 16:55:26 +0000
+	id 1vFxq5-000000021VN-0miM;
+	Mon, 03 Nov 2025 16:55:29 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: [PATCH 08/33] KVM: arm64: Add LR overflow handling documentation
-Date: Mon,  3 Nov 2025 16:54:52 +0000
-Message-ID: <20251103165517.2960148-9-maz@kernel.org>
+Subject: [PATCH 19/33] KVM: arm64: Eagerly save VMCR on exit
+Date: Mon,  3 Nov 2025 16:55:03 +0000
+Message-ID: <20251103165517.2960148-20-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251103165517.2960148-1-maz@kernel.org>
 References: <20251103165517.2960148-1-maz@kernel.org>
@@ -70,9 +70,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_085530_752741_CF34EBD9 
-X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +84,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a bit of documentation describing how we are dealing with LR
-overflow. This is mostly a braindump of how things are expected
-to work. For now anyway.
+We currently save/restore the VMCR register in a pretty lazy way
+(on load/put, consistently with what we do with the APRs).
+
+However, we are going to need the group-enable bits that are backed
+by VMCR on each entry (so that we can avoid injecting interrupts for
+disabled groups).
+
+Move the synchronisation from put to sync, which results in some minor
+churn in the nVHE hypercalls to simplify things.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic.c | 81 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 80 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_asm.h     |  2 +-
+ arch/arm64/include/asm/kvm_hyp.h     |  2 +-
+ arch/arm64/kvm/arm.c                 |  3 +--
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c   |  7 ++++---
+ arch/arm64/kvm/hyp/vgic-v3-sr.c      | 15 +++------------
+ arch/arm64/kvm/vgic/vgic-v2.c        |  2 +-
+ arch/arm64/kvm/vgic/vgic-v3-nested.c |  2 +-
+ arch/arm64/kvm/vgic/vgic-v3.c        |  2 +-
+ 8 files changed, 13 insertions(+), 22 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 6dd5a10081e27..8d7f6803e601b 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -825,7 +825,86 @@ static int compute_ap_list_depth(struct kvm_vcpu *vcpu,
- 	return count;
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index 9da54d4ee49ee..f8adbd535b4ae 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -79,7 +79,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+-	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_vmcr_aprs,
++	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_reserve_vm,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_unreserve_vm,
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index e6be1f5d0967f..dbf16a9f67728 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -82,7 +82,7 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if);
+-void __vgic_v3_save_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
++void __vgic_v3_save_aprs(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
+ int __vgic_v3_perform_cpuif_access(struct kvm_vcpu *vcpu);
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 870953b4a8a74..733195ef183e1 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -659,8 +659,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ {
+ 	if (is_protected_kvm_enabled()) {
+-		kvm_call_hyp(__vgic_v3_save_vmcr_aprs,
+-			     &vcpu->arch.vgic_cpu.vgic_v3);
++		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
+ 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+ 	}
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 29430c031095a..a7c689152f686 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -157,6 +157,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	host_vcpu->arch.iflags		= hyp_vcpu->vcpu.arch.iflags;
+ 
+ 	host_cpu_if->vgic_hcr		= hyp_cpu_if->vgic_hcr;
++	host_cpu_if->vgic_vmcr		= hyp_cpu_if->vgic_vmcr;
+ 	for (i = 0; i < hyp_cpu_if->used_lrs; ++i)
+ 		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
+ }
+@@ -464,11 +465,11 @@ static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
+ 	__vgic_v3_init_lrs();
  }
  
--/* Requires the VCPU's ap_list_lock to be held. */
-+/*
-+ * Dealing with LR overflow is close to black magic -- dress accordingly.
-+ *
-+ * We have to present an almost infinite number of interrupts through a very
-+ * limited number of registers. Therefore crucial decisions must be made to
-+ * ensure we feed the most relevant interrupts into the LRs, and yet have
-+ * some facilities to let the guest interact with those that are not there.
-+ *
-+ * All considerations below are in the context of interrupts targeting a
-+ * single vcpu with non-idle state (either pending, active, or both),
-+ * colloquially called the ap_list:
-+ *
-+ * - Pending interrupts must have priority over active interrupts. This also
-+ *   excludes pending+active interrupts. This ensures that a guest can
-+ *   perform priority drops on any number of interrupts, and yet be
-+ *   presented the next pending one.
-+ *
-+ * - Deactivation of interrupts outside of the LRs must be tracked by using
-+ *   either the EOIcount-driven maintenance interrupt, and sometimes by
-+ *   trapping the DIR register.
-+ *
-+ * - For EOImode=0, a non-zero EOIcount means walking the ap_list past the
-+ *   point that made it into the LRs, and deactivate interrupts that would
-+ *   have made it onto the LRs if we had the space.
-+ *
-+ * - The MI-generation bits must be used to try and force an exit when the
-+ *   guest has done enough changes to the LRs that we want to reevaluate the
-+ *   situation:
-+ *
-+ *	- if the total number of pending interrupts exceeds the number of
-+ *	  LR, NPIE must be set in order to exit once no pending interrupts
-+ *	  are present in the LRs, allowing us to populate the next batch.
-+ *
-+ *	- if there are active interrupts outside of the LRs, then LRENPIE
-+ *	  must be set so that we exit on deactivation of one of these, and
-+ *	  work out which one is to be deactivated.  Note that this is not
-+ *	  enough to deal with EOImode=1, see below.
-+ *
-+ *	- if the overall number of interrupts exceeds the number of LRs,
-+ *	  then UIE must be set to allow refilling of the LRs once the
-+ *	  majority of them has been processed.
-+ *
-+ *	- as usual, MI triggers are only an optimisation, since we cannot
-+ *        rely on the MI being delivered in timely manner...
-+ *
-+ * - EOImode=1 creates some additional problems:
-+ *
-+ *      - deactivation can happen in any order, and we cannot rely on
-+ *	  EOImode=0's coupling of priority-drop and deactivation which
-+ *	  imposes strict reverse Ack order. This means that DIR must be set
-+ *	  if we have active interrupts outside of the LRs.
-+ *
-+ *      - deactivation of SPIs can occur on any CPU, while the SPI is only
-+ *	  present in the ap_list of the CPU that actually ack-ed it. In that
-+ *	  case, EOIcount doesn't provide enough information, and we must
-+ *	  resort to trapping DIR even if we don't overflow the LRs. Bonus
-+ *	  point for not trapping DIR when no SPIs are pending or active in
-+ *	  the whole VM.
-+ *
-+ *	- LPIs do not suffer the same problem as SPIs on deactivation, as we
-+ *	  have to essentially discard the active state, see below.
-+ *
-+ * - Virtual LPIs have an active state (surprise!), which gets removed on
-+ *   priority drop (EOI). However, EOIcount doesn't get bumped when the LPI
-+ *   is not present in the LR (surprise again!). Special care must therefore
-+ *   be taken to remove the active state from any activated LPI when exiting
-+ *   from the guest. This is in a way no different from what happens on the
-+ *   physical side. We still rely on the running priority to have been
-+ *   removed from the APRs, irrespective of the LPI being present in the LRs
-+ *   or not.
-+ *
-+ * - Virtual SGIs directly injected via GICv4.1 must not affect EOIcount, as
-+ *   they are not managed in SW and don't have a true active state. So only
-+ *   set vSGIEOICount when no SGIs are in the ap_list.
-+ *
-+ * - GICv2 SGIs with multiple sources are injected one source at a time, as
-+ *   if they were made pending sequentially. This may mean that we don't
-+ *   always present the HPPI if other interrupts with lower priority are
-+ *   pending in the LRs. Big deal.
-+ */
- static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
+-static void handle___vgic_v3_save_vmcr_aprs(struct kvm_cpu_context *host_ctxt)
++static void handle___vgic_v3_save_aprs(struct kvm_cpu_context *host_ctxt)
  {
- 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+ 	DECLARE_REG(struct vgic_v3_cpu_if *, cpu_if, host_ctxt, 1);
+ 
+-	__vgic_v3_save_vmcr_aprs(kern_hyp_va(cpu_if));
++	__vgic_v3_save_aprs(kern_hyp_va(cpu_if));
+ }
+ 
+ static void handle___vgic_v3_restore_vmcr_aprs(struct kvm_cpu_context *host_ctxt)
+@@ -616,7 +617,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid_range),
+ 	HANDLE_FUNC(__kvm_flush_cpu_context),
+ 	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+-	HANDLE_FUNC(__vgic_v3_save_vmcr_aprs),
++	HANDLE_FUNC(__vgic_v3_save_aprs),
+ 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+ 	HANDLE_FUNC(__pkvm_reserve_vm),
+ 	HANDLE_FUNC(__pkvm_unreserve_vm),
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index d001b26a21f16..1e5c1cf4b9144 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -235,6 +235,8 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
+ 		}
+ 	}
+ 
++	cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
++
+ 	if (cpu_if->vgic_hcr & ICH_HCR_EL2_LRENPIE) {
+ 		u64 val = read_gicreg(ICH_HCR_EL2);
+ 		cpu_if->vgic_hcr &= ~ICH_HCR_EL2_EOIcount;
+@@ -332,10 +334,6 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
+ {
+ 	u64 val;
+ 
+-	if (!cpu_if->vgic_sre) {
+-		cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
+-	}
+-
+ 	/* Only restore SRE if the host implements the GICv2 interface */
+ 	if (static_branch_unlikely(&vgic_v3_has_v2_compat)) {
+ 		val = read_gicreg(ICC_SRE_EL2);
+@@ -357,7 +355,7 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
+ 		write_gicreg(0, ICH_HCR_EL2);
+ }
+ 
+-static void __vgic_v3_save_aprs(struct vgic_v3_cpu_if *cpu_if)
++void __vgic_v3_save_aprs(struct vgic_v3_cpu_if *cpu_if)
+ {
+ 	u64 val;
+ 	u32 nr_pre_bits;
+@@ -518,13 +516,6 @@ static void __vgic_v3_write_vmcr(u32 vmcr)
+ 	write_gicreg(vmcr, ICH_VMCR_EL2);
+ }
+ 
+-void __vgic_v3_save_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if)
+-{
+-	__vgic_v3_save_aprs(cpu_if);
+-	if (cpu_if->vgic_sre)
+-		cpu_if->vgic_vmcr = __vgic_v3_read_vmcr();
+-}
+-
+ void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if)
+ {
+ 	__vgic_v3_compat_mode_enable();
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index 5a2165a8d22c0..07e93acafd04d 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -451,6 +451,7 @@ void vgic_v2_save_state(struct kvm_vcpu *vcpu)
+ 	if (!base)
+ 		return;
+ 
++	cpu_if->vgic_vmcr = readl_relaxed(kvm_vgic_global_state.vctrl_base + GICH_VMCR);
+ 
+ 	if (used_lrs)
+ 		save_lrs(vcpu, base);
+@@ -495,6 +496,5 @@ void vgic_v2_put(struct kvm_vcpu *vcpu)
+ {
+ 	struct vgic_v2_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v2;
+ 
+-	cpu_if->vgic_vmcr = readl_relaxed(kvm_vgic_global_state.vctrl_base + GICH_VMCR);
+ 	cpu_if->vgic_apr = readl_relaxed(kvm_vgic_global_state.vctrl_base + GICH_APR);
+ }
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+index 387557e20a272..17bceef83269e 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -341,7 +341,7 @@ void vgic_v3_put_nested(struct kvm_vcpu *vcpu)
+ 	u64 val;
+ 	int i;
+ 
+-	__vgic_v3_save_vmcr_aprs(s_cpu_if);
++	__vgic_v3_save_aprs(s_cpu_if);
+ 	__vgic_v3_deactivate_traps(s_cpu_if);
+ 	__vgic_v3_save_state(s_cpu_if);
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index ad5c0dbae2dfe..15225cf353f91 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -815,7 +815,7 @@ void vgic_v3_put(struct kvm_vcpu *vcpu)
+ 	}
+ 
+ 	if (likely(!is_protected_kvm_enabled()))
+-		kvm_call_hyp(__vgic_v3_save_vmcr_aprs, cpu_if);
++		kvm_call_hyp(__vgic_v3_save_aprs, cpu_if);
+ 	WARN_ON(vgic_v4_put(vcpu));
+ 
+ 	if (has_vhe())
 -- 
 2.47.3
 
