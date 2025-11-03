@@ -4,184 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D20CCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:54:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC1ACCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yj3fUhDhfhfxVJyqMlNMmluhM8PA25nyJNIOaAuLGDw=; b=wZY+MWtZh2lO55YOfMLkllUma7
-	PJ/DWzmjsB+b+rhfNRYZaJI7fereaKLRB8f/Hd5rklzIhNqozoc+1Tv9QX40B9L5CF83mMHXGBK0m
-	BKatWhaimZBTk04iQvYETdbmnvayiPu/M+hrIf+TEIK0XH4G7bxnN9VPQQwkYhygLjpG0sykH9zJn
-	emc3mDx0HDCjlHfOGjuRiEGmkADevWPBFGzN5Ep7xmrolgOUYqVVopFoxfWnF+t38QsVoDfD8aqTH
-	jwnlHeq5DtUSRwSG+uztmuzIp+yx/dCNuaKpDxLbPJGg13hlhtcpzgur/fXHuli7xh4Ok8xVWVGxm
-	QMaZjj9w==;
+	bh=TH3yqasRfeQp6b3ZhZZ90WJQERq/LUl+1qHlgx+8ZXs=; b=HQ2lxQsauZiGsTl0J0+EZCUOPM
+	h4HaEX/dNqFI7K5+Y9oEoxF//eciro9MtQF/4l9XUC6tFyxOGxjrACrE+u/kxl0N44s1OAYVSNbR7
+	BQrvgaDKTvIB0MW8A6GIuvBTSNVqDs+eYlXo4XF4z8o2zzWPIDPVSupx8UANwkF9JvAEP0xK4uTRJ
+	BaLpEUz2B023EE0KVdc5acUGEIArwtxriiH+psX8fyyzsA9/bDYx/5OZkAFRv0hOdtvIPiuw/wzdN
+	cnbpt667aqeDg+OtG5fI6KSGSIfPgu4NisXiupKV6ncaq7nNZET7ksg6cphS6R5ZNjRQk2hfTUhK6
+	QvPakltg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFzgz-0000000AVoS-0Ymw;
-	Mon, 03 Nov 2025 18:54:13 +0000
-Received: from mail-centralusazon11010023.outbound.protection.outlook.com ([52.101.61.23] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vFzlS-0000000AWBQ-3sj8;
+	Mon, 03 Nov 2025 18:58:50 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFzgx-0000000AVno-1ovd;
-	Mon, 03 Nov 2025 18:54:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j+pH0y2IONrgVd0+aFugk4tG3iIPaPkd2MKtDKcmGsbH1NMcWTuNRrddwoBmcfxStyDLe1t5LRFP6JHegZ2QJUppf1N6awN2AP/91BpBlUhauryOSg8eVhaUHnH1+HNXRRsqzgyOChOk+uhrZpvZckOzpa39Buk3RHeeiMFo7Fc3eJyqzYUDHL29vg5zpFZ0r8BAtjJ6wzReHxE0gl+ejlSv/3U6lzv4RxhfngZGoDN0d9j3bESbdTZcWZgNa6oRDCFv+DS/X7Ra9GK+y76cS1QfD/5FAvowMhhV8GoGncm4rV+Y3qpjk9Nf4Wm7w5cndJIZ9luJbg+mJ1ioFBQnhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yj3fUhDhfhfxVJyqMlNMmluhM8PA25nyJNIOaAuLGDw=;
- b=TR7ah27wgWnL9PbLrA5OmJXS8DCn/fEbhum65XtvKesH7xo7arWPmzavBW/UfmvSnqjSDpK0PlDHSCsUhxgCY/A3MRGWWdGnu0lDG2dDklRQOLmzdn2QiKaMocg7DIacAv6+ozsuEkBAxFqR/9ecWdurTVuTjcH5bWDK6fyP+dTu8uL1CrfH1cafNcNIs8AI2FMUtnbQHDZmwAuAl7hOT2XesqGZu3TkkpTo7XggLDVhqo26NRDVz+eiH8OdB9r5COAul2gOT5j9CMyc73dLx3dOFA6LiqTMAkiDyK1lO2xmjUW5TEpd1azFS8/khRf39CCwwWQmGi4dQU7x4ThmIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yj3fUhDhfhfxVJyqMlNMmluhM8PA25nyJNIOaAuLGDw=;
- b=mf+znmq9wJatmKJh0YFCJXSEcu7eOiBlvg4zitbxhyZe2HhrcxD7Am8Ssa7x887UJ1PeVa7wgyXpP23MadJdZi+AQ5OlYgZ8dPBQNBghDq6nv7yFX9X+qyj+7kTE+PT0vTysh2+j1OhgZIstNIjThFW0crQA+A6GqYK5zh3I8DKli0X6QIRtq4Mabq5A8jhO3uZRkaP0lkz6XuS4/W+NXQfYomG/e/b1h8oyaTBpe8/tdQL0XIXNEPZFll8F8hZ/f2JbpMJDGqGl6XB5Pm1DtMJkR1wWxlN29l4S+BxE8MtaWjlYaxv0k8+A7waXN6hWF0Bt9dNIpzCuSxhLABScRg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by CY5PR12MB6431.namprd12.prod.outlook.com (2603:10b6:930:39::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
- 2025 18:54:01 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
- 18:54:01 +0000
-Date: Mon, 3 Nov 2025 14:54:00 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: "Tian, Kevin" <kevin.tian@intel.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
-	"dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"yong.wu@mediatek.com" <yong.wu@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com" <angelogioacchino.delregno@collabora.com>,
-	"tjeznach@rivosinc.com" <tjeznach@rivosinc.com>,
-	"pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"heiko@sntech.de" <heiko@sntech.de>,
-	"schnelle@linux.ibm.com" <schnelle@linux.ibm.com>,
-	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>,
-	"wens@csie.org" <wens@csie.org>,
-	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
-	"samuel@sholland.org" <samuel@sholland.org>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
-	"virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: Re: [PATCH v1 02/20] iommu: Introduce a test_dev domain op and an
- internal helper
-Message-ID: <20251103185400.GA1537560@nvidia.com>
-References: <cover.1760312725.git.nicolinc@nvidia.com>
- <32ce256a2ece5d63e99d5858f953586859818ffc.1760312725.git.nicolinc@nvidia.com>
- <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
- <aQO//+6/B/WbdK2h@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQO//+6/B/WbdK2h@Asurada-Nvidia>
-X-ClientProxiedBy: BL1PR13CA0265.namprd13.prod.outlook.com
- (2603:10b6:208:2ba::30) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
+	id 1vFzlQ-0000000AWAb-01XZ;
+	Mon, 03 Nov 2025 18:58:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1762196309; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ECZ5ky1XIV0JIuHY1wM6bR4Fz/1Giq+pDGCzXa9Z3sWbSoUeY0PHBoChGWvCJ4JAbwuYi3gZxo0UJU0u2XxCdOlONoKWkV4o/Gv/1GhZoIc2I3bjUuEafX/6gyhPjWPstwwuWibtn7awGSywvEWRzriZGnxBeo3hq6CNp4c79S4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1762196309; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=TH3yqasRfeQp6b3ZhZZ90WJQERq/LUl+1qHlgx+8ZXs=; 
+	b=fsIgd0NUr4/4QeEEF4PQgtQ+ibnEa3SUpdY6D0BCpAyIP9WMyrWsMnjbxqu5C4sXfH8yKPGpUqhaV7jed6E/HHriPsSDmTN+NaGHJ0eCQQH1RVL+cz84uXoQQ7OaT31ASndcLT5KENsVgmtY6vpVtED77rTUIVr/oh/z1YwV4tA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1762196309;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=TH3yqasRfeQp6b3ZhZZ90WJQERq/LUl+1qHlgx+8ZXs=;
+	b=JEL+pbhcacBrS2/IZygPnbXLt15rbdGjSWuG1ZFJ1pALljMiGdrpgzs+z3jwHb2H
+	ahR7hg6Yus31v2V8Gu7kkDIgn692MpgMeAgZcJXFfzjOjrHDeLx56nb0dB2GNX2ceqc
+	UKqklgSyWO994ahNem59jfizGoF0cPe6jdT8dswU=
+Received: by mx.zohomail.com with SMTPS id 1762196306239659.8542788627383;
+	Mon, 3 Nov 2025 10:58:26 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id CF49B182F6B; Mon, 03 Nov 2025 19:58:15 +0100 (CET)
+Date: Mon, 3 Nov 2025 19:58:15 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH v4 0/9] PCI: dw-rockchip: add system suspend support
+Message-ID: <cbvcjgcd7saxj42ifgqn3l6mwpgenlhbr4zuf5ibqbtj6rmzqh@yuc7flbwyi2y>
+References: <20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com>
+ <cf6zumlp4iiltglu7bbrpdeysaznrkyvlemwl4lxwkfjkgux7a@wl37bxilsprx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|CY5PR12MB6431:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59ee45de-9ea3-4d4a-8db1-08de1b0a5a52
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9ERHwDpYtDfspgdJzH4vMwcZmXWsdSipnlFgTFQyNc4GxvYjQRc/1ZuyaLP4?=
- =?us-ascii?Q?DxjythutWStwJaahcW4d1M3Ga2p7t2R7DVeN47VLE4KLhwrHLvhppJm7muyP?=
- =?us-ascii?Q?P/fnPsWGYCNESteAsj+J/Qft65WqoLR23uUB6yfbFS7JihDU3ZL7UStvARZ9?=
- =?us-ascii?Q?7KzN8dG60Y5d5rEjxq4wTdwZ7NAdKqWNwazYNy0c8iJsZbEjCbS1OhCDQiyD?=
- =?us-ascii?Q?RTFUvhrjbIA2w3eF1KAeqdHGPpY7rBOz95TDoAhkeRYP6uBGZZa+ILRDoyVs?=
- =?us-ascii?Q?/y6bAA7AvXUtBEmxqvwNVlJbYn4cG4GCa/A4X801MM7Bo3ydXC/7+rGZfdyT?=
- =?us-ascii?Q?TjVer46QT57t9FFSNgrpJPV5H60T2pr9T8q/2okIaOZFpxcf7BxlgWzFd7R9?=
- =?us-ascii?Q?nAXwS7Xkb59Ls2tu3l04ni2uiFeHZhLTwboidNfMWRs8vj+yRnMDJhcj+eXy?=
- =?us-ascii?Q?N4Abs+1JkVEktZzcrRJHNf3vsSVBrecFqxAmxL2jQhDkdednkcPUo3xLQBM/?=
- =?us-ascii?Q?WYKjs/kvmOaep6wWU31+DDhUOek6PhG8xQs4rsH+9QGN4+Pz5zEjr2QKX4+g?=
- =?us-ascii?Q?qIeJ+tbLPWOPM0PbchbAHlTCqJvDgcVQjEQgsFXL8WiPIEjw3+qpGf+Vc4PZ?=
- =?us-ascii?Q?HblQFUw0FQFO6uVm59FiJBLNO77rlfU3snT8Im1d8y6+a6GWg/lsR2USv5Mj?=
- =?us-ascii?Q?ouWFk5pmN8DcQkAIXRoFFgEoZMBiQBOpI4SpQZgKF5IR0zNRPB6UGMTvJWhU?=
- =?us-ascii?Q?V/2aLxpzPQ8k6tNPfF0hEMMWUjYlVkzdnOnRYBIJubPbiUkN1kbfQBzKw+QY?=
- =?us-ascii?Q?hSD960bVoSFeMBlmHlYcFSbvqIQjbX27DUaujKnBN2lMi8BCfQALlylxXwx9?=
- =?us-ascii?Q?G+fhqgaolowjQHN9mJADXcNCW6oLof55DXsvrtntVNa5LyGzW6Mr8EJtJPdq?=
- =?us-ascii?Q?EO7iWxRZKenft3R7azDxTbZLTFfieMSJtHskrySv71vwFZgK3QPGpNYYxvgp?=
- =?us-ascii?Q?ImLNrFOHFy72VWT+UWwbAjc5rGcNUxEv3rQ5vy//xEgtc+D7I5OSeTwjSvzD?=
- =?us-ascii?Q?Cw7AW1WS5pg9ApqUj7BVPD3sjmy4pxl8f/Zo0D8l4M2xk2JXA7xqo0qHLFPK?=
- =?us-ascii?Q?XyGLG4VWWxGIMWTKMmLzX2EKtlNLlekwr8qaNl80x40AxsR0VrMU1LULVgjW?=
- =?us-ascii?Q?RDrzLlJbdjfyEoCamcJ1es/yClk5sMFPKsoic8H7GWsmO0D7ijFGIwqTbC8f?=
- =?us-ascii?Q?Xlx474HBsGpu6v5MPaLrq7WWedBaOZrE/zbeZNVnUyhsJYW9S0kpaoxB2FTN?=
- =?us-ascii?Q?ZzgqnpKt/jQsoNu8s4VnN85dqQOrXfdX1bTjZapDe9jImCalAzJaASzi/KWJ?=
- =?us-ascii?Q?kN2n/3AoxQY0tFMIjya6IV7WcrNHTcg+lhqO8jzE3OxO2uUABitJw/Mm5Xfr?=
- =?us-ascii?Q?vXzOGqE8epHkrHOAEMQnYQjMh3YMKGsg?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OGt9KK0BZ9r2ndE8cd6PaC3l8X3t8TxblUwAqIhPQVViwSFCdWicPi19O3d0?=
- =?us-ascii?Q?mhiWtJA3x1S5Q8jGeQEqEj1QGsSefzefmumZKqSbUCdclhE6xpe8YrT5OTou?=
- =?us-ascii?Q?1w0D4Hu156h3Zlc5bAL11imWASOkJsQpCYtJIUPvhFePeswkTFmLK71+pICD?=
- =?us-ascii?Q?7KM65h4DlT/sVIGQD1v7ERHtIgx35EZVNaVIlh7wGXZKJUxPsT9HeMOOZEG9?=
- =?us-ascii?Q?cuyq081aqow/olhhvFZ0K0j/PpZpIumoEscc988/yxVwXPcQFJNKxT8w85kg?=
- =?us-ascii?Q?NM+gV+UpopDuXk92MUcDzAXQrlL87VQ0YzlVt6HtX7rm/Nl4FI78o3AjVlOT?=
- =?us-ascii?Q?PLStUtz2FQSxv5GOMuC5+Gl/oOMDX44ktbB8NwT2WvUezW4q6Y0MK91bnnWl?=
- =?us-ascii?Q?a+r6CJEOLED1R28hs0x3SCNp10NMPOVUYpPYAWXYdDluxqUjCpXrbSaSkEQ6?=
- =?us-ascii?Q?tdbqn1HQaDrt82pnqwZuJ4rNFGhYkEFnXyTYCqT7XvbtIIrm5jP3RRWrQSqD?=
- =?us-ascii?Q?pbTdslBayQD56WMs14bRgY8e4mRQv5FZ2J1mEGdYrkLCHhZMOE/tpyf2lgV3?=
- =?us-ascii?Q?aFXHwF/gKQty0gMOZDV21Ge4rFsVkAj0+OsPZbdwXwRoudiYkKYG5quprnkg?=
- =?us-ascii?Q?55A2lR7Qjc2Wvx3Ze3/vUJcJ+//mk5AWywYRcop+N6gCiZ0KjAF7HXOq8T6M?=
- =?us-ascii?Q?gd/hhoDWbzdKvmpr5CP1XPhBxvwJy6J01dVt9I+EOjXmVILrGdb9TWvZ19bv?=
- =?us-ascii?Q?R//aeg89XrX5RMM2MPp7LWLCxDZX2J6Cq72MUlhVW3Lqvg8oHQr+rL4qE8bt?=
- =?us-ascii?Q?RFxJMqTXiTr2fAcdoCoyvyCh/L+TDZIgQFQnlfCUY0kacNiZApT8ByowL7dt?=
- =?us-ascii?Q?7bfGt9Po3iIwCqeIs79DvEJ3csIyD+muH1oiQ0z0rK88e52ab0F5lQW0TXNX?=
- =?us-ascii?Q?3tkYZtW9km9sZyW6hZ7IAJeDB2B60W0YGW36Ms+g1Zxu2+qUPATnGJo9NWSm?=
- =?us-ascii?Q?45ETOeieZh0u9bJoQ9yhPhvqRnt0fGJZ97GLXEAtVScfc1eKJ2YTFJK5Ke/1?=
- =?us-ascii?Q?XIeeO8TyO4gOyOnzxAgt7nKuHQPuA93Kvtq/Lz3cKu7xzw92V5c0p0jA+4IQ?=
- =?us-ascii?Q?EaxISnTA10C3KujHymKXiK4MiZW33IcaGaX9q7K20p1pB7mau0MXI9sR1g0P?=
- =?us-ascii?Q?eartFnbO7QE4rXTx2GRA+CLY7Tjnl/5wW5cxMwCbrntYkRfEMMGf2VbecpqF?=
- =?us-ascii?Q?5okFTUN9jIjthLBXVLV4xoH4muuCeHp8ChHAw218t4om6Zw+Es4+1h+2bTl/?=
- =?us-ascii?Q?PtGzAcbzwEgztZJcSB93AfXaNelOoQtaWl05W7FXFy7czf9eMOmCCh0GtBNC?=
- =?us-ascii?Q?8u7nnhtavfELmzjp6yrEoB6oWrF64XCAO9mPNH7vnuFXg/U1IvpKm5PgH8uC?=
- =?us-ascii?Q?Rg82loKyymA/nmI+xRJAygDp4amQSM6dzkX5OOeI2X+j7egV5nuPKNbzYB13?=
- =?us-ascii?Q?pZD5P6uRZh2ZBbBDIX4ut0kwaxulFmGfc9KarXmBsz9ffRa17dfry+OE8IaU?=
- =?us-ascii?Q?pVvQSj0MyVj/zciNyaI=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59ee45de-9ea3-4d4a-8db1-08de1b0a5a52
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 18:54:01.3813
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GBFFQPVVX6WJAcuBxzILU3DDIplJh+q6ILmgLpN5n59SOQ3VaaYHRADviDm+1mHF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6431
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="efzunfkzasasexir"
+Content-Disposition: inline
+In-Reply-To: <cf6zumlp4iiltglu7bbrpdeysaznrkyvlemwl4lxwkfjkgux7a@wl37bxilsprx>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.5.1/262.144.53
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_105411_510438_E52D46F8 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251103_105848_110014_3A3EC407 
+X-CRM114-Status: GOOD (  38.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,18 +87,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 12:43:59PM -0700, Nicolin Chen wrote:
 
-> FWIW, I am thinking of another design based on Jason's remarks:
-> https://lore.kernel.org/linux-iommu/aQBopHFub8wyQh5C@Asurada-Nvidia/
-> 
-> So, instead of core initiating the round trip between the blocking
-> domain and group->domain, it forwards dev_reset_prepare/done to the
-> driver where it does a low-level attachment that wouldn't fail:
->   For SMMUv3, it's an STE update.
->   For intel_iommu, it seems to be the context table update?
+--efzunfkzasasexir
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 0/9] PCI: dw-rockchip: add system suspend support
+MIME-Version: 1.0
 
-Kevin, how bad do you think the UAPI issue is if we ignore it?
+Hi,
 
-Jason
+On Sat, Nov 01, 2025 at 07:29:41PM +0530, Manivannan Sadhasivam wrote:
+> On Wed, Oct 29, 2025 at 06:56:39PM +0100, Sebastian Reichel wrote:
+> > I've recently been working on fixing up at least basic system suspend
+> > support on the Rockchip RK3576 platform. Currently the biggest open
+> > issue is missing support in the PCIe driver. This series is a follow-up
+> > for Shawn Lin's series with feedback from Niklas Cassel and Manivannan
+> > Sadhasivam being handled as well as some of my own changes fixing up
+> > things I noticed.
+> >=20
+> > In opposite to Shawn Lin I did not test with different peripherals as my
+> > main goal is getting basic suspend to ram working in the first place.
+>=20
+> Wouldn't it break users who have connected endpoint devices and suspend t=
+heir
+> platform? I don't want to have an untested feature that could potentially=
+ cause
+> regressions, just for the sake of getting basic system PM.
+>
+> But if your goal is to just add basic system PM operations for CI
+> testing, then I would suggest you to do something minimal in the
+> suspend/resume path that don't disrupt the operation of a device.
+>
+> But this also should be tested with some devices for sanity.
+
+My goal is proper system PM support, but I would like to go step by
+step. Right now system suspend on the Rockchip RK3576 EVB just hangs
+the board and it has to be power cycled afterwards. In parallel to
+this series I've send a bunch of fixes to get it working. It surely
+isn't perfect, but I fear things regressing again in other areas while
+the complex PCIe system sleep is being worked on - simply blocking system
+suspend is not very helpful, since it effectively hides suspend problems.
+
+Greetings,
+
+-- Sebastian
+
+
+> - Mani
+>=20
+> > I did notice issues with the Broadcom WLAN card on the RK3576 EVB.
+> > Suspending that platform without a driver being probed works, but after
+> > probing brcmfmac suspend is aborted because brcmf_pcie_pm_enter_D3()
+> > does not work. As far as I can tell the problem is unrelated to the
+> > Rockchip PCIe driver.
+> >=20
+> > Changes since PATCHv3:
+> >  * https://lore.kernel.org/linux-pci/1744940759-23823-1-git-send-email-=
+shawn.lin@rock-chips.com/
+> >  * rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg
+> >    in a separate patch (Niklas Cassel)
+> >  * rename rockchip_pcie_get_pure_ltssm to rockchip_pcie_get_ltssm_state
+> >    in a separate patch (Niklas Cassel)
+> >  * Move devm_phy_get out of phy_init to probe in a separate patch
+> >    (Manivannan Sadhasivam)
+> >  * Add helper function for enhanced LTSSM control mode in a separate pa=
+tch
+> >    (Niklas Cassel)
+> >  * Add helper function for controller mode in a separate patch
+> >    (Niklas Cassel)
+> >  * Add helper function for DDL indicator in a separate patch
+> >    (Niklas Cassel)
+> >  * Move rockchip_pcie_pme_turn_off implementation in a separate patch
+> >  * Rebase to v6.18-rc3 using new FIELD_PREP_WM16()
+> >  * Improve readability of PME_TURN_OFF/PME_TO_ACK defines (Manivannan S=
+adhasivam)
+> >  * Fix usage of reverse Xmas (Manivannan Sadhasivam)
+> >  * Assert PERST# before turning off other resources (Manivannan Sadhasi=
+vam)
+> >  * Improve some error messages (Manivannan Sadhasivam)
+> >  * Rename goto labels as per their purpose (Manivannan Sadhasivam)
+> >  * Add extra patch for dw_pcie_resume_noirq, since I've seen errors
+> >    during resume on boards not having anything plugged into their PCIe
+> >    port
+> >=20
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > ---
+> > Sebastian Reichel (9):
+> >       PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm function
+> >       PCI: dw-rockchip: Support get_ltssm operation
+> >       PCI: dw-rockchip: Move devm_phy_get out of phy_init
+> >       PCI: dw-rockchip: Add helper function for enhanced LTSSM control =
+mode
+> >       PCI: dw-rockchip: Add helper function for controller mode
+> >       PCI: dw-rockchip: Add helper function for DDL indicator
+> >       PCI: dw-rockchip: Add pme_turn_off support
+> >       PCI: dw-rockchip: Add system PM support
+> >       PCI: dwc: support missing PCIe device on resume
+> >=20
+> >  drivers/pci/controller/dwc/pcie-designware-host.c |  13 +-
+> >  drivers/pci/controller/dwc/pcie-dw-rockchip.c     | 220 ++++++++++++++=
+++++----
+> >  2 files changed, 198 insertions(+), 35 deletions(-)
+> > ---
+> > base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
+> > change-id: 20251028-rockchip-pcie-system-suspend-86cf08a7b229
+> >=20
+> > Best regards,
+> > --=20
+> > Sebastian Reichel <sebastian.reichel@collabora.com>
+> >=20
+>=20
+> --=20
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
+
+--efzunfkzasasexir
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmkI+0AACgkQ2O7X88g7
++prV+A//fQ0srBn/Fw9erSz5jCHGcnolpEsDLgEyrQJk1RJCL/9n1NxofTJ39UZA
+mMxrahRzui2C0+oksXBBDLsmyZjEWLy7iocK1IkYP/kVfEKt6+T0hgptbpMfRuDM
+ZhTjsADyyil56eDAq98haf2lx6mGC8DzGBsA1a4Wo/E0K5xLplvffqfHZXG+65mx
+2DcdDu3sg5AXe8V0aYJuLolATBPheyYZNLOQaG+xaptTJzOeps3dGfe4UM5FkYX8
+udk6t7RUpmCb/QiwSFKOsVGlYM7B4M2jZhSzKKFWdGMs1UIsC2ql3claFHLlaGsW
+3kkIxRcLAex7hICDghnYejcifCd2WyVgtfrgZien4y68wHYbtF907aLWS2wDnNZ9
++uj7k44Hl6+PhKu2nANq0DlXnq/Gx7Y9tkoZ44lbJ7h5vo7E9K7QCw3JAn+nyUFE
+9QyuBK/ytyFwIJkyRKcGbXLFfKHI79fSPbcFekV38KxoAyc92APXHuc+A1Fw2nt/
+30LSXpSCd4oqk4PYx80HfsNCDFjE6QZMatquSs0cygiYBQB4IdE+tvb9UWjqkZFI
+ZtjxM8W7K+HPe8Ge4EqzKhFANXXdr4ICLLyhultkekTs7AgMBTZurm7i3/txah9E
+uGkw3GK0kORPW3X7b/CbryDlucHLpNlM+EDOv03k+f/lAYCOFqM=
+=tUN5
+-----END PGP SIGNATURE-----
+
+--efzunfkzasasexir--
 
