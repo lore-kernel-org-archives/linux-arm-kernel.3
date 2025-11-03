@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265ABCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 20:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA60CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 20:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G48lqrWAp84CtID4B43TXDF7qk3ftwUyHuTZcwxiNGQ=; b=b32dnxvW4aeHrd0FkgO275Td9B
-	8QdiPncmTPcJDtlNzjri3oJRydEhQ2J9ESzEztIjBryt8pcl1+R+SDRKvf3B6RPHKVRzlW3eDHm/M
-	DD7u2nMBsLL8Lj77WzgD/6jRIsAjk8EhWe5uOzfOn9argNl99AS7M6ZIMED1PYw/sJHISAg1RS/q6
-	iQ9ni+t3ueodQi6TuPSJMpiEPxUs9S8jiZY0mQtXy6YasaSuaUIBgzP8q+0PskD3vvORihj6KO8w/
-	z3Ps3x/okYnTttJ5r4clBuJKSH2WjM0vIblVkkEbRKRV+TY4U7oTZP0jJo9lVpdGCels4kMoUrDmc
-	XkUPuAcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XFLQG05yxnGeCUjCRezA06BGBQoij7YwrxYVw5ACcfo=; b=iEfJHTe6hvxjiDl77O0bJMxM7l
+	xMHwxUWocxLpEc6GtjCuGy1DIAx9a8NNNz1eaNKZvwl9qyVfoR0RuUJYigU9XBxR9sP6gBqFvf5wi
+	+8g/qLiqtvlwEQV7GDBABaOEuNYgpFdWFe+xCfi4ldgm3yN4tZvBMUQQYW+E8jx1xobNvhbAY7G5P
+	K/e+CET3e8XytG3nz+T3FIbGH1VnticKUgOV/lqr4q8T2IL5YYNGwMT6kzvD0OBQf8PS/cp1besiN
+	cSsuQmVY8pTaXyiK1Z+JrAa2HFFPXKugxkrsAI1/5bBkxbfTEHZgjebnp7uGaOwMTF9Rvk/vXcNiv
+	V6A3nOnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG1F2-0000000AbfO-3DpI;
-	Mon, 03 Nov 2025 20:33:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vG1RL-0000000AcAk-0Xvg;
+	Mon, 03 Nov 2025 20:46:11 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG1Ez-0000000AbfB-1VdK
+	id 1vG1RF-0000000AcAA-0CZL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 20:33:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FE11600AC;
-	Mon,  3 Nov 2025 20:33:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8219EC4CEE7;
-	Mon,  3 Nov 2025 20:33:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762202004;
-	bh=KFUkblgsEEN8vjzJcuGJbVZaQoZIH0aQ8mp6eqbsoos=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lEfWB4g1GdxFAt8hlanFY7fEBht94H5mGkqLwHdxhsLsE2X0yixYFGj0GpmBcyoWd
-	 L7z2RcQferEDtJl/EEiGHiFLXzA2w1iFMy8zvcZKZb8I08Q9Hub5F7JMAF2Qma6pj9
-	 2l19cmg7+ecolAxCb7+81aubrLESR9IR1fP3TCcYqzW6F9MJMeKVIAezxZYkB/0Vu0
-	 MsBkrWlFEsqu2wWhjBvMwyAPfFCBtvCsccaUIxmTbjroOSBkCXTyMwpE9E/VJc6OWu
-	 gTURDw3pn5LcsqKwQbaQGeAEM6MmOI98DU/kOkc5zvWtKGMzWjnYG6/zA22JUiAmx/
-	 aEli4xMn44xiQ==
-Date: Mon, 3 Nov 2025 17:33:20 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Chu Guangqing <chuguangqing@inspur.com>
-Cc: john.g.garry@oracle.com, will@kernel.org, james.clark@linaro.org,
-	mike.leach@linaro.org, leo.yan@linux.dev, peterz@infradead.org,
-	mingo@redhat.com, namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] perf vendor events arm64 AmpereOneX: Fix spelling
- typo in the metrics file
-Message-ID: <aQkRkLMYTGLVJAuZ@x1>
-References: <20251103014633.1213-1-chuguangqing@inspur.com>
- <20251103014633.1213-2-chuguangqing@inspur.com>
+	Mon, 03 Nov 2025 20:46:10 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-47105bbb8d9so2095e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 12:46:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1762202762; x=1762807562; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XFLQG05yxnGeCUjCRezA06BGBQoij7YwrxYVw5ACcfo=;
+        b=KxQW/dzeqQ32z0YhhHkDTjng/zj0N2XSR6l3X1gmHXirR6/trUFmDTmI8/f3c99g3H
+         psozJARhZEF1fLo8gYhL9ehViswamMUm6h9M8Vf3ziSUXwx6RG0vjIgHV9JDLDalFZow
+         jdRvqsrtMM4Q8uIzMAs1cd9Z/iVKolgeaOtSEwXfnFVVZ66DTdO++NMb1kvIdONyeAkD
+         7ls+BZAOussBRQUXlwRqSCwurBobuXwrl1+tsGr2wYg41z/4Y2n7Mn8St5hVV0lkQNm2
+         uJpvJkvQYpxi4cX8ysdk52UATH8k/GjOdFJVAH4QONNw5gw4Bbj7TU87hEULnO64C9bC
+         P6Lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762202762; x=1762807562;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XFLQG05yxnGeCUjCRezA06BGBQoij7YwrxYVw5ACcfo=;
+        b=ilctx6C2SV59+3M6ymltmHwW2DmGQB7KaGEBru2yct3PROjXmnPHf7o73kWLH8XamT
+         1muPyyEJQ/ZOSRX6RX8kVfIkWoxbg2g+jGdsElwxFTF6MRy+9s+t1sOR+G4ZdHxo8zfs
+         jswV/x4wfR72HNgCIUfhQfa0Dvl5xcgTKPfqX37DM8hf5CP1NduiZunyDpXhGTdD5W2/
+         3QAYRPym5GSodkWhXSB0u7sxhNPkv2XU4HDoSG5t2OXRi2kzivgtUAMnqLjHAyJwNibq
+         gzF+x5AGAR+iILwEvGPJRc2Y2FATLgZ+Whq7Y6o5kAS3Umg+f9gTUiZ/cVipbHtU5K9A
+         V/og==
+X-Forwarded-Encrypted: i=1; AJvYcCUFEVn1UFzbTxSUBJl6HgzOIB8+xQcyYkRm+SilSt2vDIjbfkYZIZ9hFZgrsAxVK88h2Xf6RP2I/47LMQTmkp4B@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyuuqma3NYOtHcUq09NyEBZcUqW7uQUqZCc3MFnW8ZdOcbSQPrK
+	z4cJlRshbHwBfirK6/lI8Cel8bZixyO9spLJ4BAJqsuoe9fU7eG67F09+z1hzwNcWVo2P3uvkVU
+	e1xr/ixNJKtix74F/mBrqu1TxhgMtp8v46M55WwT8
+X-Gm-Gg: ASbGncsnb7rm1m5iHsz3JW+QQwMqayBsYMxSooZ5UsZWbPb3JM3+ZUIcyjQv8jk4vMB
+	zQ/3aUqIAWNJATMk+i+HT+TSl8XR/oqN/gfHhEkRFPx/+u/yUkXwoGhfXgfs45xyCmw+y1/ORm3
+	KQeYYxfC93nL6hFO53xiJqdWBzMi2OOTcM77CxQVBfObMnh/erveBSU4dpf0ONmTXxobSUNTDbJ
+	udBrqwBGXTb1VfNQNWDIRNh5iW/S90uWTbXbaeg4cykn+INBws7LWRDRSOdJXTQAKcsMRuHNZzw
+	M0L3MuE+FiXRmA==
+X-Google-Smtp-Source: AGHT+IG9oVCZDDY5MyOKgKW4xlI1Oc/GPLlunrZYyxDoj2qoI35Mip7UpVZjaQGJTHznRiF6HsyMfkM02zJ0rlqdzwI=
+X-Received: by 2002:a05:600c:21ce:b0:475:da0c:38a8 with SMTP id
+ 5b1f17b1804b1-47754f81696mr407755e9.4.1762202761807; Mon, 03 Nov 2025
+ 12:46:01 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251103014633.1213-2-chuguangqing@inspur.com>
+References: <20251013185903.1372553-1-jiaqiyan@google.com> <20251013185903.1372553-2-jiaqiyan@google.com>
+ <7a61bcf9-a57d-a8e9-a9b8-4eacef80acd3@arm.com>
+In-Reply-To: <7a61bcf9-a57d-a8e9-a9b8-4eacef80acd3@arm.com>
+From: Jiaqi Yan <jiaqiyan@google.com>
+Date: Mon, 3 Nov 2025 12:45:50 -0800
+X-Gm-Features: AWmQ_bn3UtOS-iQBnGW8DyhNypxqDQ3vgsdMl2IVI_yUyITm8YFcPAhNl3XpHT4
+Message-ID: <CACw3F51_0A8CuCgzcvoA3Db=Wxo8mm5XZw5in+nTKrst+NCcqw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] KVM: arm64: VM exit to userspace to handle SEA
+To: Jose Marinho <jose.marinho@arm.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, duenwen@google.com, 
+	rananta@google.com, jthoughton@google.com, vsethi@nvidia.com, jgg@nvidia.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251103_124605_173610_1B5026C7 
+X-CRM114-Status: GOOD (  46.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,85 +102,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 09:46:33AM +0800, Chu Guangqing wrote:
-> The json file incorrectly used "acceses" instead of "accesses".
+On Mon, Nov 3, 2025 at 10:17=E2=80=AFAM Jose Marinho <jose.marinho@arm.com>=
+ wrote:
+>
+> Thank you for these patches.
 
-Acked-by: Arnaldo Carvalho de Melo <acme@redhat.com>
- 
-> Signed-off-by: Chu Guangqing <chuguangqing@inspur.com>
-> ---
->  .../arch/arm64/ampere/ampereonex/metrics.json    | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
-> 
-> diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-> index 6817cac149e0..a29aadc9b2e3 100644
-> --- a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-> +++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-> @@ -388,55 +388,55 @@
->          "MetricExpr": "L1D_CACHE_RW / L1D_CACHE",
->          "BriefDescription": "L1D cache access - demand",
->          "MetricGroup": "Cache",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      },
->      {
->          "MetricName": "l1d_cache_access_prefetches",
->          "MetricExpr": "L1D_CACHE_PRFM / L1D_CACHE",
->          "BriefDescription": "L1D cache access - prefetch",
->          "MetricGroup": "Cache",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      },
->      {
->          "MetricName": "l1d_cache_demand_misses",
->          "MetricExpr": "L1D_CACHE_REFILL_RW / L1D_CACHE",
->          "BriefDescription": "L1D cache demand misses",
->          "MetricGroup": "Cache",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      },
->      {
->          "MetricName": "l1d_cache_demand_misses_read",
->          "MetricExpr": "L1D_CACHE_REFILL_RD / L1D_CACHE",
->          "BriefDescription": "L1D cache demand misses - read",
->          "MetricGroup": "Cache",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      },
->      {
->          "MetricName": "l1d_cache_demand_misses_write",
->          "MetricExpr": "L1D_CACHE_REFILL_WR / L1D_CACHE",
->          "BriefDescription": "L1D cache demand misses - write",
->          "MetricGroup": "Cache",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      },
->      {
->          "MetricName": "l1d_cache_prefetch_misses",
->          "MetricExpr": "L1D_CACHE_REFILL_PRFM / L1D_CACHE",
->          "BriefDescription": "L1D cache prefetch misses",
->          "MetricGroup": "Cache",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      },
->      {
->          "MetricName": "ase_scalar_mix",
->          "MetricExpr": "ASE_SCALAR_SPEC / OP_SPEC",
->          "BriefDescription": "Proportion of advanced SIMD data processing operations (excluding DP_SPEC/LD_SPEC) scalar operations",
->          "MetricGroup": "Instructions",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      },
->      {
->          "MetricName": "ase_vector_mix",
->          "MetricExpr": "ASE_VECTOR_SPEC / OP_SPEC",
->          "BriefDescription": "Proportion of advanced SIMD data processing operations (excluding DP_SPEC/LD_SPEC) vector operations",
->          "MetricGroup": "Instructions",
-> -        "ScaleUnit": "100percent of cache acceses"
-> +        "ScaleUnit": "100percent of cache accesses"
->      }
->  ]
-> -- 
-> 2.43.7
-> 
+Thanks for your comments, Jose!
+
+>
+> On 10/13/2025 7:59 PM, Jiaqi Yan wrote:
+> > When APEI fails to handle a stage-2 synchronous external abort (SEA),
+> > today KVM injects an asynchronous SError to the VCPU then resumes it,
+> > which usually results in unpleasant guest kernel panic.
+> >
+> > One major situation of guest SEA is when vCPU consumes recoverable
+> > uncorrected memory error (UER). Although SError and guest kernel panic
+> > effectively stops the propagation of corrupted memory, guest may
+> > re-use the corrupted memory if auto-rebooted; in worse case, guest
+> > boot may run into poisoned memory. So there is room to recover from
+> > an UER in a more graceful manner.
+> >
+> > Alternatively KVM can redirect the synchronous SEA event to VMM to
+> > - Reduce blast radius if possible. VMM can inject a SEA to VCPU via
+> >    KVM's existing KVM_SET_VCPU_EVENTS API. If the memory poison
+> >    consumption or fault is not from guest kernel, blast radius can be
+> >    limited to the triggering thread in guest userspace, so VM can
+> >    keep running.
+> > - Allow VMM to protect from future memory poison consumption by
+> >    unmapping the page from stage-2, or to interrupt guest of the
+> >    poisoned page so guest kernel can unmap it from stage-1 page table.
+> > - Allow VMM to track SEA events that VM customers care about, to restar=
+t
+> >    VM when certain number of distinct poison events have happened,
+> >    to provide observability to customers in log management UI.
+> >
+> > Introduce an userspace-visible feature to enable VMM handle SEA:
+> > - KVM_CAP_ARM_SEA_TO_USER. As the alternative fallback behavior
+> >    when host APEI fails to claim a SEA, userspace can opt in this new
+> >    capability to let KVM exit to userspace during SEA if it is not
+> >    owned by host.
+> > - KVM_EXIT_ARM_SEA. A new exit reason is introduced for this.
+> >    KVM fills kvm_run.arm_sea with as much as possible information about
+> >    the SEA, enabling VMM to emulate SEA to guest by itself.
+> >    - Sanitized ESR_EL2. The general rule is to keep only the bits
+> >      useful for userspace and relevant to guest memory.
+> >    - Flags indicating if faulting guest physical address is valid.
+> >    - Faulting guest physical and virtual addresses if valid.
+> >
+> > Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+> > Co-developed-by: Oliver Upton <oliver.upton@linux.dev>
+> > Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> > ---
+> >   arch/arm64/include/asm/kvm_host.h |  2 +
+> >   arch/arm64/kvm/arm.c              |  5 +++
+> >   arch/arm64/kvm/mmu.c              | 68 ++++++++++++++++++++++++++++++=
+-
+> >   include/uapi/linux/kvm.h          | 10 +++++
+> >   4 files changed, 84 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm=
+/kvm_host.h
+> > index b763293281c88..e2c65b14e60c4 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -350,6 +350,8 @@ struct kvm_arch {
+> >   #define KVM_ARCH_FLAG_GUEST_HAS_SVE                 9
+> >       /* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace=
+ */
+> >   #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS          10
+> > +     /* Unhandled SEAs are taken to userspace */
+> > +#define KVM_ARCH_FLAG_EXIT_SEA                               11
+> >       unsigned long flags;
+> >
+> >       /* VM-wide vCPU feature set */
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index f21d1b7f20f8e..888600df79c40 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -132,6 +132,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+> >               }
+> >               mutex_unlock(&kvm->lock);
+> >               break;
+> > +     case KVM_CAP_ARM_SEA_TO_USER:
+> > +             r =3D 0;
+> > +             set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
+> > +             break;
+> >       default:
+> >               break;
+> >       }
+> > @@ -327,6 +331,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, l=
+ong ext)
+> >       case KVM_CAP_IRQFD_RESAMPLE:
+> >       case KVM_CAP_COUNTER_OFFSET:
+> >       case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
+> > +     case KVM_CAP_ARM_SEA_TO_USER:
+> >               r =3D 1;
+> >               break;
+> >       case KVM_CAP_SET_GUEST_DEBUG2:
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 7cc964af8d305..09210b6ab3907 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1899,8 +1899,48 @@ static void handle_access_fault(struct kvm_vcpu =
+*vcpu, phys_addr_t fault_ipa)
+> >       read_unlock(&vcpu->kvm->mmu_lock);
+> >   }
+> >
+> > +/*
+> > + * Returns true if the SEA should be handled locally within KVM if the=
+ abort
+> > + * is caused by a kernel memory allocation (e.g. stage-2 table memory)=
+.
+> > + */
+> > +static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
+> > +{
+> > +     /*
+> > +      * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external abo=
+rt
+> > +      * taken from a guest EL to EL2 is due to a host-imposed access (=
+e.g.
+> > +      * stage-2 PTW).
+> > +      */
+> > +     if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
+> > +             return true;
+> > +
+> > +     /* KVM owns the VNCR when the vCPU isn't in a nested context. */
+> > +     if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
+> Is this check valid only for a "Data Abort"?
+
+Yes, the VNCR bit is specific to a Data Abort (provided we can only
+reach host_owns_sea if kvm_vcpu_abt_issea).
+I don't think we need to explicitly exclude the check here for
+Instruction Abort.
+
+> > +             return true;
+> > +
+> > +     /*
+> > +      * Determine if an external abort during a table walk happened at
+> > +      * stage-2 is only possible with S1PTW is set. Otherwise, since K=
+VM
+> nit: Is the first sentence correct?
+
+Oh, it should be "Determining ...".
+
+>
+> > +      * sets HCR_EL2.TEA, SEAs due to a stage-1 walk (i.e. accessing t=
+he
+> > +      * PA of the stage-1 descriptor) can reach here and are reported
+> > +      * with a TTW ESR value.
+> > +      */
+> > +     return (esr_fsc_is_sea_ttw(esr) && (esr & ESR_ELx_S1PTW));
+> > +}
+> > +
+> >   int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+> >   {
+> > +     struct kvm *kvm =3D vcpu->kvm;
+> > +     struct kvm_run *run =3D vcpu->run;
+> > +     u64 esr =3D kvm_vcpu_get_esr(vcpu);
+> > +     u64 esr_mask =3D ESR_ELx_EC_MASK  |
+> > +                    ESR_ELx_IL       |
+> > +                    ESR_ELx_FnV      |
+> > +                    ESR_ELx_EA       |
+> > +                    ESR_ELx_CM       |
+> > +                    ESR_ELx_WNR      |
+> > +                    ESR_ELx_FSC;
+> > +     u64 ipa;
+> > +
+> >       /*
+> >        * Give APEI the opportunity to claim the abort before handling i=
+t
+> >        * within KVM. apei_claim_sea() expects to be called with IRQs en=
+abled.
+> > @@ -1909,7 +1949,33 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+> >       if (apei_claim_sea(NULL) =3D=3D 0)
+> >               return 1;
+> >
+> > -     return kvm_inject_serror(vcpu);
+> > +     if (host_owns_sea(vcpu, esr) ||
+> > +         !test_bit(KVM_ARCH_FLAG_EXIT_SEA, &vcpu->kvm->arch.flags))
+> > +             return kvm_inject_serror(vcpu);
+> > +
+> > +     /* ESR_ELx.SET is RES0 when FEAT_RAS isn't implemented. */
+> > +     if (kvm_has_ras(kvm))
+> > +             esr_mask |=3D ESR_ELx_SET_MASK;
+> > +
+> > +     /*
+> > +      * Exit to userspace, and provide faulting guest virtual and phys=
+ical
+> > +      * addresses in case userspace wants to emulate SEA to guest by
+> > +      * writing to FAR_ELx and HPFAR_ELx registers.
+> > +      */
+> > +     memset(&run->arm_sea, 0, sizeof(run->arm_sea));
+> > +     run->exit_reason =3D KVM_EXIT_ARM_SEA;
+> > +     run->arm_sea.esr =3D esr & esr_mask;
+> > +
+> > +     if (!(esr & ESR_ELx_FnV))
+> > +             run->arm_sea.gva =3D kvm_vcpu_get_hfar(vcpu) > +
+> > +     ipa =3D kvm_vcpu_get_fault_ipa(vcpu);
+> > +     if (ipa !=3D INVALID_GPA) {
+> > +             run->arm_sea.flags |=3D KVM_EXIT_ARM_SEA_FLAG_GPA_VALID;
+> > +             run->arm_sea.gpa =3D ipa;
+>
+> Are we interested in the value of PFAR_EL2 (if FEAT_PFAR implemented)?
+
+I don't think userspace (VMM) or the guest would need or make any use
+of the physical memory address. I believe host physical address in
+general should be hidden from userspace process.
+
+Completely off-topic: if FEAT_PFAR is implemented, I would propose EL3
+RAS to implement something below so that host APEI can claim the SEA:
+1. Triage the SEA to determine if it has to be handled in place, or
+should it be redirected to lower EL2.
+2. If SEA should be redirected to EL2, craft a memory error CPER that
+contains a valid physical memory address.
+3. When redirect a SEA to EL2, also populate it to host APEI GHES.
+
+This way, memory error caused SEA can properly trigger the normal
+memory_failure routine provided by host kernel, instead of handled as
+an exception without memory error context by KVM.
+
+> I believe kvm_vcpu_get_fault_ipa gets the HPFAR_EL2, which is valid for
+> S2 translation and GPC faults, but unknown for other cases.
+
+You are absolutely right that HPFAR_EL2 register is unknown for SEA.
+However, thanks to Oliver [1] KVM now performs a FAR to HPFAR address
+translation (__translate_far_to_hpfar) for certain SEA cases (see
+__fault_safe_to_translate), and stores the translation status +
+results in vcpu->arch.fault. These SEA cases are returned to userspace
+in this patchset.
+
+[1] https://lore.kernel.org/all/20250402201725.2963645-4-oliver.upton@linux=
+.dev.
+
+>
+> Jose
+>
+> > +     }
+> > +
+> > +     return 0;
+> >   }
+> >
+> >   /**
+> > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> > index 6efa98a57ec11..acc7b3a346992 100644
+> > --- a/include/uapi/linux/kvm.h
+> > +++ b/include/uapi/linux/kvm.h
+> > @@ -179,6 +179,7 @@ struct kvm_xen_exit {
+> >   #define KVM_EXIT_LOONGARCH_IOCSR  38
+> >   #define KVM_EXIT_MEMORY_FAULT     39
+> >   #define KVM_EXIT_TDX              40
+> > +#define KVM_EXIT_ARM_SEA          41
+> >
+> >   /* For KVM_EXIT_INTERNAL_ERROR */
+> >   /* Emulate instruction failed. */
+> > @@ -473,6 +474,14 @@ struct kvm_run {
+> >                               } setup_event_notify;
+> >                       };
+> >               } tdx;
+> > +             /* KVM_EXIT_ARM_SEA */
+> > +             struct {
+> > +#define KVM_EXIT_ARM_SEA_FLAG_GPA_VALID      (1ULL << 0)
+> > +                     __u64 flags;
+> > +                     __u64 esr;
+> > +                     __u64 gva;
+> > +                     __u64 gpa;
+> > +             } arm_sea;
+> >               /* Fix the size of the union. */
+> >               char padding[256];
+> >       };
+> > @@ -963,6 +972,7 @@ struct kvm_enable_cap {
+> >   #define KVM_CAP_RISCV_MP_STATE_RESET 242
+> >   #define KVM_CAP_ARM_CACHEABLE_PFNMAP_SUPPORTED 243
+> >   #define KVM_CAP_GUEST_MEMFD_MMAP 244
+> > +#define KVM_CAP_ARM_SEA_TO_USER 245
+> >
+> >   struct kvm_irq_routing_irqchip {
+> >       __u32 irqchip;
 
