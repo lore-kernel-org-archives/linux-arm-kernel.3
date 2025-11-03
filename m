@@ -4,111 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A2BCCFA06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 08:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DF8CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 08:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H26VIwt+agnnRoIUvWCQXs/2JOF56AwXUHjfpfr4mpA=; b=gBZETHcsS/qJlkPUW3wwWMwpkc
-	GxvIRBozFcYGNZYAS3Q3HNXDebZltUbek+8PP8buyJEVAkcvs7+CunWyWy2D5PIDU+23LUvpEm2a3
-	V5Xg2FDsv5hKHtaE8is+e64dFB3+cmjeVNYwk4O4uvBBaFUii7R7CmlY7+aRpUs4HYFqkmNUTQjIs
-	QlDsspopMdMPBs8ma2xBNRDw2QLnHH3GqE0W/I5oAerTEtfscOLgxDlQZds7uJwVxpQOulblr2lsp
-	xjS0xwCFLxHhYMfnY1X1UvQr5GUQHJ594uI9b8BWtm5fJDkap8bbnMt9/LBja4KTAbHvC9izBHGLH
-	rZ0DLAWw==;
+	bh=/74cktSMYLp+ktcjEue6HWwDM7axHBFgOQmdgvIC1gs=; b=PncFnnS0gA42kNvW2ptx16dCqx
+	6vB3datNqcHeQznp9JyK13J3e7Y2DHcRw80yPAFcpb9MoXFjP7wnyLJTZ1IWkRMOALH7jmwtrnssE
+	PugxEuSZ+0qeymH4c0IknKeSP91qiYo2IstPrgT8dRe/t1F8axhMa5ZQUdNDgHSBVAA1pD6XKfvRa
+	HTSiHB6KRmSeEguYq14SFySSayKeehzQjtcDM4xv5PgULxqbQnf1DIKpMhpY6h/NQxwqsIL/27v2N
+	hPxt2VjQil3ryikVb6pBZUBf1bzlRWH/lKHXlckkXidEkVdCBil3UYe1VULS9RVRCgs9bQ+rb8baS
+	M3ruxJYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFpX8-00000009PCs-0mht;
-	Mon, 03 Nov 2025 08:03:22 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vFpZJ-00000009PYK-1xrC;
+	Mon, 03 Nov 2025 08:05:37 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFpX5-00000009PBb-1HOZ
+	id 1vFpZG-00000009PXQ-1DmA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 08:03:20 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-429c19b5de4so2110954f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 00:03:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762156997; x=1762761797; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=H26VIwt+agnnRoIUvWCQXs/2JOF56AwXUHjfpfr4mpA=;
-        b=yUCvF5/H9P3G+XPTVpTZwBMr1JVXzh4nrRtXysVNYQpYnkUCrL8c3smEyANcfIuVM7
-         cpVfD6aRPlA5G/WRXdgBb2GrXILrofJZa8t4rCB4QNOdHAjIAtClQwQlQ4wsotbjPNuq
-         nt9INvsnI/wnKLzBfhWkmc7hMNapA5hRED8wKrbWOyOlzQRKAikBoZ+qmuB265RSO6wM
-         A/gmPV7LpFJrAeizzyhMwgOh+0tnIVNw092XVU37xc2n/tM+eGgtSpPxyB3+Cc6STdBG
-         VPxgSxLBOTb1Dks7z0I5/anGwaVNCXwLN3DI0ZJ4PNyXTCLVlXPX4S9CUPeyhTtv3I7f
-         CD6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762156997; x=1762761797;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=H26VIwt+agnnRoIUvWCQXs/2JOF56AwXUHjfpfr4mpA=;
-        b=fMt7JCcybNbGwJaHcQelnHa2w9RVowHacifzcBxhetd9vIDoj1fyCyG0WfnDWpfYr9
-         oj9EoskmHq5696vK9hOa018Ycn3i/5/K9aCI/8eBs1Q/+Iw4RPLPbSEb/hIh7479peRr
-         IobiZu5V5hfyi6uqluloiQPdBgh1lEtsbCvLF9MK2Kg5UxxU3Mt2QPlCymGTzpxZ74mK
-         TG21bwynDaS+8Bt7ALCaKi9EUS6nfOyV9CfkhhghWrK0ZsnHr4ALp9CsVFMdkbXofmKB
-         jIWQI1hx2qsXLPKvQnZ7wTc5Ne7heVYu0P36glR/0H94oes9bWwewnqmXu9hv7n40cNE
-         ae7Q==
-X-Gm-Message-State: AOJu0YyA6+ok3Xbvw3F3vsADRedgEaABAUXdqyyDjXfdDKdOasvJNbvT
-	pYnooceTj2MBu+5EzV4W18rEDgVYEKK8BmMsP2SY4dB+EhXZOfPT18OIxKbFi4o2zbg=
-X-Gm-Gg: ASbGncvgprf2I6EBE/1cMVL04XRnxlqhQWcb+cviXZlHkdZMWD4cQ4EXbGWIaL7PyR9
-	4DBxwmAdW4EJCAqWBbX0DZJpNqs2Uyi5TppBu4pH98bcri5y9MaYo4j7xLFR9Y9NGQhwP9bcrde
-	/MWVyxaKKOM4QXWPlZLS089XjSDM6n72/+xyA8dtnUdYoMEvZZOueaP+wP1w1kAiM/Oh1/IBkd4
-	sIy4zjKnBBBkYFIENSYQi24bMC2b0NP7i3ew8ue7o61+9cOTcUrS1DqF+NY3DqmdECTgZlGT03F
-	G2/GhH4w8Vw5X0K5Z1CiuiiYODrnewL6z3zeaJQXuQJ6UcZ8Z+hZ9UqghM4TlKF4CXXYNJqjmWh
-	xoTjn6r2ZtmQNe4GETxgmaNmLLvbtIr/gRJ3Bjdd5oJi8wNh9K6b676ZkB5m1/dd/W0jT2y5jOu
-	sDEcDOJ7k1imKZ026VJosdG3O5YGJtaJI=
-X-Google-Smtp-Source: AGHT+IGNz9UjeIUIyTmrdpy1PxW7eeOvbLMlDXLQPjJMq+zpapydUSIPBZjaS+Vh5y+ecN3Jkbp6Fw==
-X-Received: by 2002:a05:6000:2501:b0:429:ca7f:8d72 with SMTP id ffacd0b85a97d-429ca7f903emr4511698f8f.23.1762156997401;
-        Mon, 03 Nov 2025 00:03:17 -0800 (PST)
-Received: from gpeter-l.roam.corp.google.com ([145.224.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4773c4ac5d6sm142336215e9.8.2025.11.03.00.03.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Nov 2025 00:03:17 -0800 (PST)
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 03 Nov 2025 08:03:11 +0000
-Subject: [PATCH 2/2] arm64: dts: exynos: gs101: remove syscon compatible
- from pmu node
+	Mon, 03 Nov 2025 08:05:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1762157129; x=1762761929; i=markus.elfring@web.de;
+	bh=/74cktSMYLp+ktcjEue6HWwDM7axHBFgOQmdgvIC1gs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=qaJIqKJP9ZwNzwvm53OZ8AD/3L3yjImYrj+/LsoEf0J7cHj60eZIAnHhv1lCJ649
+	 AY1f4S/TRmRMAlZugyOPgg9OlrSMT+PhGnQSHRXVAV3A0e9OOul+3TsrMFnvlEnxt
+	 YqcrwUlcvzN7Wt/OmSTuuURJeFZiPIWmEaafkx64mxKGSsqwuT9UyH/Rz1l/r553n
+	 DX7KObEPmW8IgCaE8oKvP0mHanDG017376A9TjWYuWQuyZLtr8Se0JEhL3IZ66kt2
+	 30vRTQToxjeVrkQCCPYO5HzpF335XaByVlAH4+FQ7T28zz6Z9FP4IE+JGV++SpIJj
+	 lrTRhyOucBvULtuEQA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.186]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1M8TBS-1vKFQ12BSi-00FRkI; Mon, 03
+ Nov 2025 09:05:29 +0100
+Message-ID: <65eda66d-a6cd-408f-ad00-c23b8f675a73@web.de>
+Date: Mon, 3 Nov 2025 09:05:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: clk: keystone: sci-clk: use devm_kmemdup_array() once more in
+ ti_sci_scan_clocks_from_fw()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Michael Turquette <mturquette@baylibre.com>, Nishanth Menon <nm@ti.com>,
+ Raag Jadav <raag.jadav@intel.com>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Tero Kristo <kristo@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Jonathan Corbet <corbet@lwn.net>
+References: <a8e94921-a426-4db8-aed6-b6e17e88b8e3@web.de>
+ <aQTLHlv2_V9Pgjk3@smile.fi.intel.com>
+ <06be737a-365d-4a2e-89dd-72fe415bc7d5@web.de>
+ <aQheXQLhrn_fOnyz@smile.fi.intel.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <aQheXQLhrn_fOnyz@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251103-remove-pmu-syscon-compat-v1-2-f2cb7f9ade6f@linaro.org>
-References: <20251103-remove-pmu-syscon-compat-v1-0-f2cb7f9ade6f@linaro.org>
-In-Reply-To: <20251103-remove-pmu-syscon-compat-v1-0-f2cb7f9ade6f@linaro.org>
-To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dan.carpenter@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
- dan.carpenter@linaro.org, arnd@arndb.de, robh@kernel.org, 
- Peter Griffin <peter.griffin@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1645;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=UGPgjULdS+we3HJqc3I3soms/UG6+af7wQFeI8hNCdo=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpCGHBKP/enJRrOYHc08VISfExyYfUCOIHP/hNH
- NbGGlSpBV6JAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaQhhwQAKCRDO6LjWAjRy
- uiiWD/97FQHrIvR7Ad+ObGfq9pO2VhDQDunpWCIekHI474m6k3nUj2ags+XEydrybbUAlBAJS5S
- si656ToMn2SK+oYw+BO2niz2Pnh58THEqnm5FlS9Q1Fw0RJgiyFaPhfWKR0dR6MTPrso9RSjEEc
- wx+vGME5loVJgJHMvBwdrtyy/L6m7g7TV4OWB8DBuExigkqdQLacipDGXbONDP/j5mMrEDQ2Vdo
- Ga30F3f/pW5rr5mVrtVHEjzV4+Z1UVsfJw5L4qUeyZY7/Mh0HAMQ1sh0jixf8UUkUTrQhlOyv4u
- Z4Lq8D5GirrHGhFoNmC/X1GlxGSlhc1ltUzAyyMhQ7rolomG4gsBqPY5XwwOLcN6sokE184lhJT
- i/lw0r6FicCx76Sh2r0Kno9sFUpPl7pibEXgKfeSCT76z3wnN685iKmTZvdbUI/LRFzxITlhtXe
- 2vMgFIbxfimbqKqCI1F53ty/eBHVvbqsJ9YZbDplSLYkFOXXzmztRZ5HG9rg6y6HYDCMMUWi9mo
- UPmWmJT9SbbjnVgz1L0S+rd2mExb8FEZZ4opckU9JwoX36t+3qjTkxLcrXpln64RGdoGpBnRJpk
- 6UAIy+QaOQt91LDA3BGDxPC1+yu3UKgv5FjICgKUkKCPNo/bun1F5f2T7XLSD0s4Fkg57+Qz4eY
- GbB0Tw4cdgP5DSg==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+X-Provags-ID: V03:K1:QGujYg4NANfYF8P89orDyKUdGs0nUSvUGX7V/iErFROWOCTMr54
+ BoynwWdOCgeLn1k2Ad1m4uh25eN4KFGGdjnuVuD0nUao2ke8Z9UkXBpqvCLL7A8AI4cRLKu
+ erDooRE0txexIxsFSHtsLmGZFZbPWlkj+zYtcfD3S9INyNC6KlUjBr186aPpIMRfyyRm8bD
+ b3c5LwHiXKlmKXgTGIW/Q==
+UI-OutboundReport: notjunk:1;M01:P0:NUrLSnLVcLI=;wdNnC3K5R7MW9Fneki44Pw3ep1K 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_000319_366506_EB62FB9C 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20251103_000534_687993_86020EE2 
+X-CRM114-Status: UNSURE (   4.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,42 +92,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit ba5095ebbc7a ("mfd: syscon: Allow syscon nodes without a
-"syscon" compatible") it is possible to register a regmap without the
-syscon compatible in the node.
+>>>> Fixes: 3c13933c60338ce6fb2369bd0e93f91e52ddc17d ("clk: keystone: sci-clk: add support for dynamically probing clocks")
 
-As mentioned in that commit, it's not correct to claim we are compatible
-with syscon, as a MMIO regmap created by syscon won't work. Removing the
-syscon compatible means syscon driver won't ever create a mmio regmap.
+Will further adjustments become more helpful for the affected function implementation?
 
-Note this isn't usually an issue today as exynos-pmu runs at an early
-initcall so the custom regmap will have been registered first. However
-changes proposed in [1] will bring -EPROBE_DEFER support to syscon allowing
-this mechanism to be more robust, especially in highly modularized systems.
-
-Technically this is a ABI break but no other platforms are affected.
-
-Link: https://lore.kernel.org/lkml/aQdHmrchkmOr34r3@stanley.mountain/ [1]
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index d06d1d05f36408137a8acd98e43d48ea7d4f4292..e1a7d33fd4a369f7b352b81d2070beb62a0ced16 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -1705,7 +1705,7 @@ sysreg_apm: syscon@17420000 {
- 		};
- 
- 		pmu_system_controller: system-controller@17460000 {
--			compatible = "google,gs101-pmu", "syscon";
-+			compatible = "google,gs101-pmu";
- 			reg = <0x17460000 0x10000>;
- 			google,pmu-intr-gen-syscon = <&pmu_intr_gen>;
- 
-
--- 
-2.51.1.930.gacf6e81ea2-goog
-
+Regards,
+Markus
 
