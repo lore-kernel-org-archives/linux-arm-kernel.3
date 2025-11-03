@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58865CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 07:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D3BCCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 07:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HyBWjGCdQ56N5mUJS4FqY/Xhl2MrYCXAoeOEUBzSX2E=; b=ED5tuTZ64rZ1Cp
-	3ExUGCd3R9vrRD0AHrI70BGqL5M4cxrgFBYG6cBJ1kz8MuHH4WKsgU2b5dwrJ6o+yUmCZqSeMABbV
-	c3BEpQvToHQIra4EtmaLucHEFle+Q7iRcSU2dAYTHXw1VEDsCo3JxxudurdxBb/Uajg5Td+wO5CpB
-	KiR1GeWPG5LwJbGknBy/p0Lb5mj6a33nepZVg9M9zgemco+nPVKlssNb1b/zKF6D6ISCZn6p1I0Ep
-	ep7HRhm8nwFKnc4VsSgPlZg9Aqf7jBAQFr8eqOdOULX0LKjtl2Wtf36N36L0GbLaMYotsQP0p0SD1
-	pvfG7mHFAhs3+kWjwD/Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=73M7tW49m2K8uMh9lDk/bmUgfp3JFhduDvFKOahFF2A=; b=y4vRVD3CcSpa2T2ciFXL+W2eZL
+	16Rhzro+j31q4KYpDxuwMBMaS0zeb6f2FlUWpXu668oPBQfWt/oG3uN6bKrUenvJrwV5NHJoPX6Zd
+	UgilwtUil3G34XxxWiGFYc1LGWGzyFjnNrSzI5CkSBlfZiJAku0uKSX/HhBh5HDGGuZD0TG0o48ff
+	XCOxcl7fFH0nj9YEKeTILx/a/mJOgAjuM60gt+dVjPs1myO6jurXKgS6bqQ2EEFs+gXKhBJOKjjze
+	yNR7YAoh7MZFDM5U0OG95WIMecrspx3/WwPBGFpCKHs+Gf/UGyfe/yiMheHh3RJScmCmWrVnDbSj4
+	YrBgfHFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFpFF-00000009NWq-09Tl;
-	Mon, 03 Nov 2025 07:44:53 +0000
+	id 1vFpFG-00000009NXR-1NGg;
+	Mon, 03 Nov 2025 07:44:54 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFpFB-00000009NVv-3x4W
+	id 1vFpFE-00000009NVv-0WBr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 07:44:51 +0000
+	Mon, 03 Nov 2025 07:44:53 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 3 Nov
@@ -35,16 +35,15 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Mon, 3 Nov 2025 15:39:31 +0800
 From: Jacky Chou <jacky_chou@aspeedtech.com>
-Subject: [PATCH net-next v3 0/4] Add AST2600 RGMII delay into ftgmac100
-Date: Mon, 3 Nov 2025 15:39:15 +0800
-Message-ID: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
+Date: Mon, 3 Nov 2025 15:39:16 +0800
+Subject: [PATCH net-next v3 1/4] dt-bindings: net: ftgmac100: Add delay
+ properties for AST2600
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACNcCGkC/x3MQQrCMBBG4auEWRuYpLWKV5FS0vQ3DmiUpEik5
- O4NXX6L9zbKSIJMN7VRwk+yfGJDd1Lkny4GaFmaybI9G+6MTuEtMi14uf9kB2btmGe2/dVfMFD
- LvgkPKcfyThGrjigrjbXupxSX7mwAAAA=
-X-Change-ID: 20251031-rgmii_delay_2600-a00b0248c7e6
+Message-ID: <20251103-rgmii_delay_2600-v3-1-e2af2656f7d7@aspeedtech.com>
+References: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
+In-Reply-To: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
 	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
@@ -56,16 +55,17 @@ CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-aspeed@lists.ozlabs.org>, <taoren@meta.com>, Jacky Chou
 	<jacky_chou@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762155571; l=2614;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762155571; l=2708;
  i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=PqRciZ9pt8w7E8BTpp5PCJ9LMcXBFSAE7sxgLoWY5qw=;
- b=ZsJ8ICqzAmlkil/2X2ZC7pjgchQy9vsSXnfRLxbn93VAb2AZ7aFqIKPI55aDCy+mKjYG59Tvr
- xGzWRAravsVAlfBgdPT3x9YoiA7roBDKdmhSD7nvuhS1ZpkX9EDnUso
+ bh=PYQ6XsN2gnhIp8Xo10NhHRhhYIWg1cOPkDhVccPlR7M=;
+ b=8dQN9gN9ej9i43GElLGYbszMymHwxeJW2OmcXiRvmXcYj/4GFfTzTlHQ1YGAWaPxG5n5BDaN+
+ FO4ETMfGFPwAKTnDiLBELXw5qtDywwUeN9fTojTTX8W6/F85DDzewjc
 X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
  pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_234449_990716_93120BF5 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20251102_234452_168185_F2ECA41A 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +80,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for configuring RGMII internal delays for the
-Aspeed AST2600 FTGMAC100 Ethernet MACs. It introduces new compatible strings to
-distinguish between MAC0/1 and MAC2/3, as their delay chains and configuration
-units differ.
-The device tree bindings are updated to restrict the allowed phy-mode and delay
-properties for each MAC type. Corresponding changes are made to the device tree
-source files and the FTGMAC100 driver to support the new delay configuration.
-
-Summary of changes:
-- dt-bindings: net: ftgmac100: Add conditional schema for AST2600 MAC0/1 and
-  MAC2/3, restrict delay properties, and require SCU phandle.
-- ARM: dts: aspeed-g6: Add ethernet aliases to indentify the index of
-  MAC.
-- ARM: dts: aspeed-ast2600-evb: Add new compatibles, scu handle and
-  rx/tx-internal-delay-ps properties and update phy-mode for MACs.
-- net: ftgmac100: Add driver support for configuring RGMII delay for AST2600
-  MACs via SCU.
-
-This enables precise RGMII timing configuration for AST2600-based platforms,
-improving interoperability with various PHYs
-
----
-v3:
- - Add new item on compatible property for new compatible strings
- - Remove the new compatible and scu handle of MAC from aspeed-g6.dtsi
- - Add new compatible and scu handle to MAC node in
-   aspeed-ast2600-evb.dts
- - Change all phy-mode of MACs to "rgmii-id"
- - Keep "aspeed,ast2600-mac" compatible in ftgmac100.c and configure the
-   rgmii delay with "aspeed,ast2600-mac01" and "aspeed,ast2600-mac23"
-v2:
- - added new compatible strings for MAC0/1 and MAC2/3
- - updated device tree bindings to restrict phy-mode and delay properties
- - refactored driver code to handle rgmii delay configuration
----
+Create the new compatibles to identify AST2600 MAC0/1 and MAC3/4.
+Add conditional schema constraints for Aspeed AST2600 MAC controllers:
+- For "aspeed,ast2600-mac01", require rx/tx-internal-delay-ps properties
+  with 45ps step.
+- For "aspeed,ast2600-mac23", require rx/tx-internal-delay-ps properties
+  with 250ps step.
+- Both require the "scu" property.
+Other compatible values remain unrestricted.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-
 ---
-Jacky Chou (4):
-      dt-bindings: net: ftgmac100: Add delay properties for AST2600
-      ARM: dts: aspeed-g6: Add ethernet alise
-      ARM: dts: aspeed: ast2600-evb: Configure RGMII delay for MAC
-      net: ftgmac100: Add RGMII delay support for AST2600
+ .../devicetree/bindings/net/faraday,ftgmac100.yaml | 50 ++++++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
- .../devicetree/bindings/net/faraday,ftgmac100.yaml |  50 ++++++++++
- arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts    |  28 +++++-
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |   4 +
- drivers/net/ethernet/faraday/ftgmac100.c           | 110 +++++++++++++++++++++
- drivers/net/ethernet/faraday/ftgmac100.h           |  15 +++
- 5 files changed, 203 insertions(+), 4 deletions(-)
----
-base-commit: 01cc760632b875c4ad0d8fec0b0c01896b8a36d4
-change-id: 20251031-rgmii_delay_2600-a00b0248c7e6
+diff --git a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+index d14410018bcf..de646e7e3bca 100644
+--- a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
++++ b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+@@ -19,6 +19,12 @@ properties:
+               - aspeed,ast2500-mac
+               - aspeed,ast2600-mac
+           - const: faraday,ftgmac100
++      - items:
++          - enum:
++              - aspeed,ast2600-mac01
++              - aspeed,ast2600-mac23
++          - const: aspeed,ast2600-mac
++          - const: faraday,ftgmac100
+ 
+   reg:
+     maxItems: 1
+@@ -69,6 +75,12 @@ properties:
+   mdio:
+     $ref: /schemas/net/mdio.yaml#
+ 
++  scu:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the SCU (System Control Unit) syscon node for Aspeed platform.
++      This reference is used by the MAC controller to configure the RGMII delays.
++
+ required:
+   - compatible
+   - reg
+@@ -88,6 +100,44 @@ allOf:
+     else:
+       properties:
+         resets: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: aspeed,ast2600-mac01
++    then:
++      properties:
++        rx-internal-delay-ps:
++          minimum: 0
++          maximum: 1395
++          multipleOf: 45
++        tx-internal-delay-ps:
++          minimum: 0
++          maximum: 1395
++          multipleOf: 45
++      required:
++        - scu
++        - rx-internal-delay-ps
++        - tx-internal-delay-ps
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: aspeed,ast2600-mac23
++    then:
++      properties:
++        rx-internal-delay-ps:
++          minimum: 0
++          maximum: 7750
++          multipleOf: 250
++        tx-internal-delay-ps:
++          minimum: 0
++          maximum: 7750
++          multipleOf: 250
++      required:
++        - scu
++        - rx-internal-delay-ps
++        - tx-internal-delay-ps
+ 
+ unevaluatedProperties: false
+ 
 
-Best regards,
 -- 
-Jacky Chou <jacky_chou@aspeedtech.com>
+2.34.1
 
 
