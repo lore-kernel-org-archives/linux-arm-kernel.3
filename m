@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC9ECCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61A3CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGbhjmpZVWXoSy9UYKPfoXYpdHSekQkl2moVN/7/8dc=; b=vkKOGEBDGHWIeXBjxEvfHkS7kr
-	GOiSmuh5zVBgNtI2K/3EhkzlJO7tBFad3YtI+tJY9cjUjBT6FguTmRHO8zLSle4LzHHH6wdhS5lv+
-	PAcleifbW2aMSzGERDr8fyXuAOFUYRJPBULabr+tJ5cOaI5i5R2G+ATaN1WaTm0JLjfjjZEBQF0uv
-	FbyJtXlXBsHGfdKimwTPmUQmiNetwhrZg1sSx0lXLSzDVK9FJiRAyP3R9Q1eOYi2OckV2tabUZkzW
-	Pm5GxmQ4JpY3FgZSIGwkyVf0Fq+syfCUGSf1nrdFXaWKcugrzyc2HzuFfyB2uE9pdmUrQOYbDY4kz
-	feuUD7kw==;
+	bh=eU7WK/1PqFlvzgHgAfgHxGbQJbuUHY5MaiGqpoJ3158=; b=FHNf9G+wjIRdz+aL//Gmh+xDDa
+	iA4046SrETAV/zB7WmUNLrhwejPAMS8Qn2me43iWWucuIS97CU3vz9ADCyCMb4HCxGWvhimXy6dfz
+	hnF9hWueCAKRVRLGI0q4N4kE9u3cXVydurJBmw5D6toz33j2sBLXQGEGXK+1HIfDFzWO5vEHNxMKh
+	sEA+7elUbpM/PQvzrIw00z2P1XVuMwCBmL+DwtS07/Pwq9m1QZYOdagJ0HvlJ8rDhbbsggLMxBRYb
+	LbZZgZnfgzquTcSUnZtD1sbk14SgLHKtjXxDOMmpTCqFiJ+NGaLth9qwNpepp2fD5HZWw/JewklAD
+	+RF7YOBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFywp-0000000ASSk-0UcQ;
-	Mon, 03 Nov 2025 18:06:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFywn-0000000ASSW-3MYy
+	id 1vFywx-0000000ASV7-2Xym;
+	Mon, 03 Nov 2025 18:06:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFywv-0000000ASU1-1OjN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 18:06:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D726D600AC;
-	Mon,  3 Nov 2025 18:06:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDF47C4CEE7;
-	Mon,  3 Nov 2025 18:06:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762193188;
-	bh=AnbfUwPzkbHols+QiT2l5c4xTQZEscZ7pxRKBf3sdYM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qsRz6HJRxpQGx9VQ8+UjPgABTqHGOwBwaVGe22cJ6Ie0R+SJmoWPXMvJ+ypcmAZzL
-	 rWRXW0IMFLZ+lQZut8028LHNqCrMNVf3bBB/+9LkBCjPlK6Tqu33AcnclRvzwHZOHb
-	 2DBxizgEOHFVrPNl9FgyxyxDg33F4b/Te9VmocyQHmjXU1rCr9TLN64SWohgZtG2lj
-	 +0bUCjj14/4gJ30GUDWDRFjnVhYDFhDKdyeMeC0xQyS5ZBBLQU3lEmbSEbgNlTWdKJ
-	 10dd568pgIFgTPug9DUhnf1NoCbXqfacF+0+UmPt/MSv23X8H9QBWVf4+wbDN70vUx
-	 ZTF30IA6wUplg==
-Message-ID: <f6ee43c3-7175-48a5-a483-f89650ce02bc@kernel.org>
-Date: Mon, 3 Nov 2025 19:06:24 +0100
+	Mon, 03 Nov 2025 18:06:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 183932A6B;
+	Mon,  3 Nov 2025 10:06:27 -0800 (PST)
+Received: from [10.1.30.16] (unknown [10.1.30.16])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67BAA3F694;
+	Mon,  3 Nov 2025 10:06:27 -0800 (PST)
+Message-ID: <bcc78ea0-5eca-49e5-bafd-84a16e06ab98@arm.com>
+Date: Mon, 3 Nov 2025 18:06:24 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping()
- when in atomic context
-To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
- will@kernel.org, yang@os.amperecomputing.com, ardb@kernel.org,
- dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Guenter Roeck <groeck@google.com>
-References: <20251103125738.3073566-1-ryan.roberts@arm.com>
- <e5fee14a-4569-49c8-9f42-844839e51e85@kernel.org>
- <8df1d593-f176-422d-8b87-844986ac38a6@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <8df1d593-f176-422d-8b87-844986ac38a6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v4 02/12] x86/xen: simplify flush_lazy_mmu()
+To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-3-kevin.brodsky@arm.com>
+ <5a3ccb7e-9d36-4ac8-9634-c8dec3d6a47c@redhat.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <5a3ccb7e-9d36-4ac8-9634-c8dec3d6a47c@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251103_100637_493598_0A2DE84C 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,98 +85,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03.11.25 18:28, Ryan Roberts wrote:
-> On 03/11/2025 15:38, David Hildenbrand (Red Hat) wrote:
+On 01/11/2025 12:14, David Hildenbrand wrote:
+> On 29.10.25 11:08, Kevin Brodsky wrote:
+>> arch_flush_lazy_mmu_mode() is called when outstanding batched
+>> pgtable operations must be completed immediately. There should
+>> however be no need to leave and re-enter lazy MMU completely. The
+>> only part of that sequence that we really need is xen_mc_flush();
+>> call it directly.
 >>
->>>    }
->>>
->>> +static inline bool force_pte_mapping(void)
->>> +{
->>> +    bool bbml2 = system_capabilities_finalized() ?
->>> +        system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> ---
+>>   arch/x86/xen/mmu_pv.c | 6 ++----
+>>   1 file changed, 2 insertions(+), 4 deletions(-)
 >>
->> You are only moving this function. Still, there is some room for improvement I
->> want to point out :)
->>
->> bbml2 could be a const (or a helper function like bbml2_supported).
->>
->>> +
->>> +    return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
->>> +               is_realm_world())) ||
->>> +        debug_pagealloc_enabled();
->>
->>
->> I suspect this could be made a bit easier to read.
->>
->>      if (debug_pagealloc_enabled())
->>          return true;
->>      if (bbml2)
->>          return false;
->>      return rodata_full || arm64_kfence_can_set_direct_map() || is_realm_world();
-> 
-> Yeah, I guess that's a bit nicer. I'd prefer to tidy it up in as separate commit
-> though. (feel free ;-) )
+>> diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
+>> index 2a4a8deaf612..7a35c3393df4 100644
+>> --- a/arch/x86/xen/mmu_pv.c
+>> +++ b/arch/x86/xen/mmu_pv.c
+>> @@ -2139,10 +2139,8 @@ static void xen_flush_lazy_mmu(void)
+>>   {
+>>       preempt_disable();
+>>   -    if (xen_get_lazy_mode() == XEN_LAZY_MMU) {
+>> -        arch_leave_lazy_mmu_mode();
+>> -        arch_enter_lazy_mmu_mode();
+>> -    }
+>> +    if (xen_get_lazy_mode() == XEN_LAZY_MMU)
+>> +        xen_mc_flush();
+>>         preempt_enable();
+>>   }
+>
+> Looks like that was moved to XEN code in
+>
+> commit a4a7644c15096f57f92252dd6e1046bf269c87d8
+> Author: Juergen Gross <jgross@suse.com>
+> Date:   Wed Sep 13 13:38:27 2023 +0200
+>
+>     x86/xen: move paravirt lazy code
+>
+>
+> And essentially the previous implementation lived in
+> arch/x86/kernel/paravirt.c:paravirt_flush_lazy_mmu(void) in an
+> implementation-agnostic way:
+>
+> void paravirt_flush_lazy_mmu(void)
+> {
+>        preempt_disable();
+>
+>        if (paravirt_get_lazy_mode() == PARAVIRT_LAZY_MMU) {
+>                arch_leave_lazy_mmu_mode();
+>                arch_enter_lazy_mmu_mode();
+>        }
+>
+>        preempt_enable();
+> }
 
-Separate commit is fine (hoping you can do it once this lands :P ).
+Indeed, I saw that too. Calling the generic leave/enter functions made
+some sense at that point, but now that the implementation is
+Xen-specific we can directly call xen_mc_flush().
 
-> 
->>
->>
->>> +}
->>> +
->>>    static DEFINE_MUTEX(pgtable_split_lock);
->>>
->>>    int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start,
->>> unsigned long end)
->>>        if (!system_supports_bbml2_noabort())
->>>            return 0;
->>>
->>> +    /*
->>> +     * If the region is within a pte-mapped area, there is no need to try to
->>> +     * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
->>> +     * change permissions from softirq context so for those cases (which are
->>> +     * always pte-mapped), we must not go any further because taking the
->>> +     * mutex below may sleep.
->>> +     */
->>> +    if (force_pte_mapping() || is_kfence_address((void *)start))
->>> +        return 0;
->>> +
->>
->> We're effectively performing two system_supports_bbml2_noabort() checks,
->> similarly in
->> arch_kfence_init_pool().
->>
->> I wonder if there is a clean way to avoid that.
-> 
-> I thought about this too. But system_supports_bbml2_noabort() is actually a
-> magic alternatives patching thing; 
+>
+> So indeed, I assume just doing the flush here is sufficient.
+>
+> Reviewed-by: David Hildenbrand <david@redhat.com> 
 
-Makes sense, so likely just another nop in the final code.
+Thanks for the review!
 
-> the code is updated so it's zero overhead. I
-> decided this was the simplest and clearest way to do it. But I'm open to other
-> ideas...
-
-Given that we have two such call sequences, I was wondering if we could 
-have a helper that better expresses+documents the desired semantics.
-
-static bool pte_leaf_split_possible()
-{
-	/*
-	 * !BBML2_NOABORT systems should never run into scenarios where
-          * we would have to split. So exit early and let calling code
-	 * detect it + raise a warning.
-	 */
-	if (!system_supports_bbml2_noabort())
-		return false;
-	return force_pte_mapping();
-}
-
-Something like that maybe.
-
--- 
-Cheers
-
-David
+- Kevin
 
