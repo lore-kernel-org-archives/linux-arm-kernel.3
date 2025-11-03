@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C0ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 11:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A544CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 11:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+x67xrOfs+NtjduqtRJxZD8HBELV2D7qvud2IndiqU4=; b=oGj91lNBcFrDyYolmXIfEsi+LN
-	hDx6d8O67wu2t6rRn7IJ8690vIjbK4rFveuHKj7JddaDITiFSztHWq4mvw+aq7h/61ceiPkbSrrMv
-	msZju4waudCFvlYcC2pk7DVUXOtFHYLXNv4yVVBB7WBOTwlPaeBsCfcWx8nxiviskv81DOtvvpZX5
-	jWEmw0WFJuTjzyEtvSu3v2jq/jLYltps10Fa11YaegkWZr+b6ywrZd4mdIQ9TjVZIDphj4nyURqul
-	KArzNHIXVFTEV/jc8aZ+qkBX8D2/6UxD7TRTMosR1idLwG3rwOy+KAkUSSP+7OZTDgOKmSmHcQF0p
-	ylmx66Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RHKonKHpuu8h2tauK0dzekelgQBO2YV089GcLoFAdyw=; b=f+xPLuQOhDOfIuEw9A6reUjCRN
+	eg4UO/Kn+et09vyCsj3KMO8DjoTvg6VXvsv/W7wnuo9LJdANMrb38j8bBD7kNTup5B0jgTNLyCsKs
+	5sjz3cDDUjsccUg0tcAsyU71r5mFFeJDkCI5rBuUYaLuwZ6mmaIT5C/CqnNoEU4cN+QnvmW07REqS
+	ilIrdO6zmEWJgsNooXmu+2qGJyH6Z0lyTKFcbImJ73TN1WQtP/NNfrCZs6iPDFq+8z+qc3N47WlYr
+	AbepOdIySI0vTtG6dAT9jDt3o//OQIq+NO1l6EZxBz1TDPMIrU9tw9fJ40pWa2R8juKK6bax6iZoL
+	5ji4B7Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFt5e-00000009mc3-09Of;
-	Mon, 03 Nov 2025 11:51:14 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vFtCZ-00000009nKH-2AEZ;
+	Mon, 03 Nov 2025 11:58:23 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFt5Y-00000009mW2-3uWH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 11:51:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+x67xrOfs+NtjduqtRJxZD8HBELV2D7qvud2IndiqU4=; b=eDlTZltoetN3Hk1dXyigbldu0u
-	gLYRDBWpaj8VhWcsanGsGMOEUnFEmvC66Nj4x1QtyF9BH1Qc/u73b7jubrIw5ZWPWmoKzk3GSGmtL
-	xJ9VYkHMSdMM42Dt1mcLxJSlD11vWe+IaORHyBYfRrUznWsbnT5Hyy7U7dB07Z7+qFT+pT95V8b0G
-	XWTfellsJlbbkChSQwSejkGFdESfUc9XW1T0/bSPpZgSgo6LMOMRm7sDvUaOFtMzQNbTnJWGkGbZz
-	FjQGf64JAQ9Xj87x8/+0Fzjt3KRvSmN7HSRkQXrWz0SxaznipsaFpnMXTXOx7CdEYBEMhIlYm9jnl
-	sc2ueNDQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35376 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vFt5G-000000000iL-006H;
-	Mon, 03 Nov 2025 11:50:50 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vFt5C-0000000ChpR-2kAB;
-	Mon, 03 Nov 2025 11:50:46 +0000
-In-Reply-To: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
-References: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	s32@nxp.com,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: [PATCH net-next 11/11] net: stmmac: imx: use ->set_phy_intf_sel()
+	id 1vFtCW-00000009nJi-0SIO;
+	Mon, 03 Nov 2025 11:58:21 +0000
+X-UUID: 5fef663eb8ac11f0a52f393f94899d25-20251103
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=RHKonKHpuu8h2tauK0dzekelgQBO2YV089GcLoFAdyw=;
+	b=EY6UN7uPF+IpU25XwBchGixP4+bKlnnbw3CuiPi6iIXX8FjovB0TOv0xNatm3AKr1F1eUXM5ia7k5cbgeqEW4a36SpNjbml/fy8gP+S8AtgiQU/1PUnr95KChjH3HvAta6JDU9kgW3H7SYOL1hETgSI9rKygRHjSZP/L90mQWyQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:06055afa-e246-4c23-8749-2790494be268,IP:0,UR
+	L:25,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:5
+X-CID-META: VersionHash:a9d874c,CLOUDID:b4c2fb6a-d4bd-4ab9-8221-0049857cc502,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|123|836|888|898,TC:-5,Content:0|
+	15|50,EDM:1,IP:nil,URL:11|97|99|83|106|1,File:130,RT:0,Bulk:nil,QS:nil,BEC
+	:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5fef663eb8ac11f0a52f393f94899d25-20251103
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 27042865; Mon, 03 Nov 2025 04:58:13 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 3 Nov 2025 19:58:12 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 3 Nov 2025 19:58:12 +0800
+From: <peter.wang@mediatek.com>
+To: <linux-scsi@vger.kernel.org>
+CC: <alim.akhtar@samsung.com>, <avri.altman@wdc.com>, <bvanassche@acm.org>,
+	<robh@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<conor+dt@kernel.org>, <jejb@linux.ibm.com>, <martin.petersen@oracle.com>,
+	<lgirdwood@gmail.com>, <broonie@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <wenst@chromium.org>,
+	<conor.dooley@microchip.com>, <chu.stanley@gmail.com>,
+	<chun-hung.wu@mediatek.com>, <peter.wang@mediatek.com>,
+	<alice.chao@mediatek.com>, <naomi.chu@mediatek.com>, <ed.tsai@mediatek.com>,
+	<chunfeng.yun@mediatek.com>
+Subject: [PATCH v1] dt-bindings: phy: mediatek,ufs-phy: Update maintainer information in mediatek,ufs-phy.yaml
+Date: Mon, 3 Nov 2025 19:57:36 +0800
+Message-ID: <20251103115808.3771214-1-peter.wang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vFt5C-0000000ChpR-2kAB@rmk-PC.armlinux.org.uk>
-Date: Mon, 03 Nov 2025 11:50:46 +0000
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_035109_003427_2702ACA9 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20251103_035820_182858_26CAF15C 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,75 +93,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than placing the phy_intf_sel() setup in the ->init() method,
-move it to the new ->set_phy_intf_sel() method.
+From: Peter Wang <peter.wang@mediatek.com>
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Replace Stanley Chu with me and Chaotian in the maintainers field,
+since his email address is no longer active.
+
+Signed-off-by: Peter Wang <peter.wang@mediatek.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-imx.c   | 38 +++++--------------
- 1 file changed, 10 insertions(+), 28 deletions(-)
+ Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-index ae1b73e1bcb2..db288fbd5a4d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-@@ -134,36 +134,19 @@ static int imx_dwmac_clks_config(void *priv, bool enabled)
- 	return ret;
- }
+diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+index 3e62b5d4da61..6e2edd43fc2a 100644
+--- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+@@ -8,8 +8,9 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: MediaTek Universal Flash Storage (UFS) M-PHY
  
--static int imx_dwmac_init(struct platform_device *pdev, void *priv)
-+static int imx_set_phy_intf_sel(void *bsp_priv, u8 phy_intf_sel)
- {
--	struct imx_priv_data *dwmac = priv;
--	phy_interface_t interface;
--	int phy_intf_sel, ret;
--
--	if (dwmac->ops->set_intf_mode) {
--		interface = dwmac->plat_dat->phy_interface;
--
--		phy_intf_sel = stmmac_get_phy_intf_sel(interface);
--		if (phy_intf_sel != PHY_INTF_SEL_GMII_MII &&
--		    phy_intf_sel != PHY_INTF_SEL_RGMII &&
--		    phy_intf_sel != PHY_INTF_SEL_RMII) {
--			dev_dbg(dwmac->dev,
--				"imx dwmac doesn't support %s interface\n",
--				phy_modes(interface));
--			return phy_intf_sel < 0 ? phy_intf_sel : -EINVAL;
--		}
-+	struct imx_priv_data *dwmac = bsp_priv;
+ maintainers:
+-  - Stanley Chu <stanley.chu@mediatek.com>
+   - Chunfeng Yun <chunfeng.yun@mediatek.com>
++  - Peter Wang <peter.wang@mediatek.com>
++  - Chaotian Jing <chaotian.jing@mediatek.com>
  
--		ret = dwmac->ops->set_intf_mode(dwmac, phy_intf_sel);
--		if (ret)
--			return ret;
--	}
-+	if (!dwmac->ops->set_intf_mode)
-+		return 0;
- 
--	return 0;
--}
-+	if (phy_intf_sel != PHY_INTF_SEL_GMII_MII &&
-+	    phy_intf_sel != PHY_INTF_SEL_RGMII &&
-+	    phy_intf_sel != PHY_INTF_SEL_RMII)
-+		return -EINVAL;
- 
--static void imx_dwmac_exit(struct platform_device *pdev, void *priv)
--{
--	/* nothing to do now */
-+	return dwmac->ops->set_intf_mode(dwmac, phy_intf_sel);
- }
- 
- static int imx_dwmac_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
-@@ -342,8 +325,7 @@ static int imx_dwmac_probe(struct platform_device *pdev)
- 		plat_dat->tx_queues_cfg[i].tbs_en = 1;
- 
- 	plat_dat->host_dma_width = dwmac->ops->addr_width;
--	plat_dat->init = imx_dwmac_init;
--	plat_dat->exit = imx_dwmac_exit;
-+	plat_dat->set_phy_intf_sel = imx_set_phy_intf_sel;
- 	plat_dat->clks_config = imx_dwmac_clks_config;
- 	plat_dat->bsp_priv = dwmac;
- 	dwmac->plat_dat = plat_dat;
+ description: |
+   UFS M-PHY nodes are defined to describe on-chip UFS M-PHY hardware macro.
 -- 
-2.47.3
+2.45.2
 
 
