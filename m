@@ -4,156 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46555CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 08:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C82CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 08:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxfYEmYqkxe9I64Jt37v1r1LAgjhaDXjQTd8b8LMNGI=; b=PIq67Lnmg78g2Y17j6Zk/B9mvS
-	1UQfrsDamwlAqa84vbuOO4YanpkXrIyqhvFfF8n3bmQ/rpoHrWRYQnpzEj2fNCfznE+R23xIEnyLg
-	PCjciXKTRIi5TBA6cXY1hs0T+rKNsQO8azvxv76iNgtraCtu0IRw0Copb4flQ4Rv9qvwtkhBnYURQ
-	knWmRycURhpBV5jooDNf1sq88bCPJs8e+yfdTXTL4XvEDbOkXLfbcglKYR7lIVj2yKmaw0xXK9f5T
-	UF6+1XcDBjo3LCIZTOV6qihTGi3dDyy5T+b3VX3ynAqHMbukYj3zc5qAmhg8vuUCFaLinphCdzaQz
-	uUlzerrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/6+8IBdXCcTU6eZ4JMuY2we8/fQYN6+oBue210uWprk=; b=LO+BzsefqVHQLGIBK3ip9bTGui
+	nXKNvG+3OUDZWsTiX4IJ8EqY2cLueoSq9al6noV47F9iWKfOzftDQYoc6an153wB/h0ikeq384/Dg
+	jz1Vq4ZRQ7Q6yBgy+ng3wPDCebR5PhCFDgGpPRjuNekj4ypgFX623ckCG0aolZOOzFAZiP7y3SFEq
+	F3i22NCqXMc5n0hwLgDB2LihhhuS1NIXDB9/Zwk8Wl3YKrXpj9YEIZc+jvPhh0QM8HeqSJukSEbS/
+	spCqgGirIiEmG56BbKPoYGeFyY3CBbHgXjsDx+mIN03aBqk4NGCYuj6f531pb7dPJuQbfXMg833PW
+	rJqgq2ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFq3r-00000009RPM-0Ef2;
-	Mon, 03 Nov 2025 08:37:11 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vFq4M-00000009RTb-0tBb;
+	Mon, 03 Nov 2025 08:37:42 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFq3p-00000009ROy-180W
+	id 1vFq4J-00000009RSM-2f5t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 08:37:10 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A33DE3S1940616
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Nov 2025 08:37:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=nxfYEmYqkxe9I64Jt37v1r1L
-	AgjhaDXjQTd8b8LMNGI=; b=bZF9dkzBty7u8M+wJbp6L4YSEjUQ/5sUI9G7pac/
-	GvXEiA3Dell9aFb1bodE+LD4Und4qEud0c/7ucYodn+48YiVBKgmgbyYUCFnAmTW
-	eJgtOj8wF8rVOrdPOeWj8J+BQc6D9UsFndjGcePSQvest142NVewahDpi+vV2txl
-	86QjwLqLv36UVP+AF3wqlRU72tiUUP26mfOI7V7r4NngvKtJ4Wjj+lSYRHpHRVCA
-	8BlrD7DyOFhNtJ1e4HLm9nck6C1YL6jv/aHwWkpQrAb/JSTwsDGBO/wZzWMEFdQj
-	ki1x0Fm5UGdF2MCgfKgqmTxGBcFw1oCA4uiNTdzEdh7YCQ==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a6m9w8sy8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 08:37:08 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2930e2e8e7fso40808345ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 00:37:08 -0800 (PST)
+	Mon, 03 Nov 2025 08:37:41 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6409cb34fe0so344872a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 00:37:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762159027; x=1762763827; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nxfYEmYqkxe9I64Jt37v1r1LAgjhaDXjQTd8b8LMNGI=;
-        b=PA2WiqODE14CiL8/Hxzqydd/1OSHQzSJ9TZ8FHxwSrMAnwpI+zcn0I8AACe3hJ9dbe
-         J6FQyfbe/vKosj/Hw3kVm2CQtSE+S8NHBjTD21lAwrk7Vjm9tcqhq42KU0zgtT/touDM
-         Iz31Ga8e8T1JhP4SZItgiWwTdB3soco/rJC/0EhiGzntBp47oQ03duKkg34fmKU23+XZ
-         5PGzTdPZI1bIZuQuZeNBXDP79f3YP0D2I0EuN/E74RiKY/xJgG5dBxSK33BO4nvoW5A1
-         n6CtiRRY3kprigyopovgNMfcJEhutoKov8GyAYvgQDffXCmyBuZCexHvm2Ag2faiVjku
-         SZHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762159027; x=1762763827;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=suse.com; s=google; t=1762159057; x=1762763857; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nxfYEmYqkxe9I64Jt37v1r1LAgjhaDXjQTd8b8LMNGI=;
-        b=N4stR3G9WX390atPNDyANlubovUSV5rzCfzp1kDVuOPaLAA1oQGGzaURvWyMB92Ofx
-         vbJjIx5VQKKS+mnuKVgUqhtISUWKNM1bbPRHd6ihIyYehNcJOU2zlrU4QMPLVR95n8xT
-         EMkW8jDfv3CT5Es5apoDqas7LlbRBecs1i95Zs+2d0wLjxny9zy5rgOE0u3H4rv7o+6N
-         jCqItu3XkgbzbJ1DOrfCq7c/9Qyeft2rhMUftC+c1y304RkRt09Nh/9J55u6W8nQ+QSo
-         XvZeDMaoWaxTmiDxC1HQ4EIYpv/5qXqc0ldcTAnsVij0ZC1MgFVg/kBmNdyIgmi61W9T
-         6XTg==
-X-Forwarded-Encrypted: i=1; AJvYcCU37RVu2ZlCorzd9heLtq3013fh9IjCm9GM2uXXEW2OFKU4ovT3GEJLeho++GJ2dV+7pUczXC7rP/Z8RkXIuMK1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKrzRxOw2awISQMe2xu2G1Jw6Mg2yRNl49zkVDPFiim7QqEZf3
-	La4geblXG01AMQbkkWxYvUEe8lsOm7nyqM0UzVkp6nVz79zyUpGbExEiZETqY3MYPwqNGFwtHPf
-	7o7VVzQbP4BAvAAYHrUZhsji9nJFVcz1RHuJELxKAYZYvaJaIJCefxLio0tpcRgIPzcTkpEb/ZW
-	h6MQ==
-X-Gm-Gg: ASbGncu7YVrFW6iRF3k3zbt8yB28gl0KjyfTlrRmPooSK3VHC/wEPFcknRdbCRMH+Rz
-	JMNXQwASFCH5hApt64dKS+R4m2JTPVP4AYjO3ktaNRxtCOszi5Zi2WRYkI3t2lbhpXL1P3BlmGR
-	zUHl+wedFtrAYLBRurHQRoSsUJXNI17fYPbuI3QEId7dZUYAirKUkKxXxBAZCT81nh4zqxNaJQx
-	XLBNxHG4QIl5b85YMuz3RHWsVEyETVC+lO+ivmaQz2AYQnY0W1uZtGna+vzbP4U3N4GZXA/MNk/
-	v/aA2N9b2Rartpd8XhTgLGHFtjGQyGOJhHbqz9gpCs2BXS6rbYXmjgR+bUm8UyuzrJgonARZ35m
-	ACn911Q8fqYw2aHacKAaPM4VnMA==
-X-Received: by 2002:a17:902:9a43:b0:269:8edf:67f8 with SMTP id d9443c01a7336-2951a51115emr96421385ad.52.1762159026965;
-        Mon, 03 Nov 2025 00:37:06 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEg79jBe83qZ4qcFrRUL0Cs4zucPSebSAbF6GkYrqF3XDiBJBW5qwOvoRCXhg+yjXEA3w8txQ==
-X-Received: by 2002:a17:902:9a43:b0:269:8edf:67f8 with SMTP id d9443c01a7336-2951a51115emr96421055ad.52.1762159025910;
-        Mon, 03 Nov 2025 00:37:05 -0800 (PST)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-295269a66cbsm112235015ad.89.2025.11.03.00.36.57
+        bh=/6+8IBdXCcTU6eZ4JMuY2we8/fQYN6+oBue210uWprk=;
+        b=KGLRGCr6hAYuitreTADyMcp5+eFvB+tXFyLH336hSHXQ3jyhAb9BsHBumOE7RAI+mK
+         O/Xm6siv88MQLxDuy/uXSsvoM8WpIXwHfy6ZjeS45ZXkk7on+rjjgugKukVsIyZ7j964
+         o4VLAc7MtCqPHQWKGho1h4oReP8qK8BrRFPNSnKQ+fTZUhhu03RJX3L8LEs5Qsv51R+o
+         ov5p3sJpqyz1rDX4m5IgUB3aNoXILeXjU1Fd6jVt/0ZTy7EfzkiTbBks7hhH/yqEFnlB
+         gsJEVsIs0EtmI4zLM8gUVUSDiN/5OK/2vDPA8kzyXuAj0MMKALaMTNPIbuA7z7lIS+l0
+         IqSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762159057; x=1762763857;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/6+8IBdXCcTU6eZ4JMuY2we8/fQYN6+oBue210uWprk=;
+        b=jNm+GvZDCCjji2qD7/o4XXt++3OsS1m6+u1f6JOZQG90kpfj7lT+l/kMoekxzkVg7b
+         yG8VrohjsW5NH1uB3/ryhX4BF/Rne7p+c04CcKfY/YD9E2KUgo0FNc8fOPXVo0Ofn6C9
+         DkNhw2bMxAuV0oMBtEzXcZh8s6XfmdCtqYTZAuWbwKK4As46Bc9CzdM5j1Mi/wwhZLn3
+         Ya3ldD83BBMTConBdR48kyCETTVT6CyIgpfw8bjB2qlQ6+4MBBB8UTrlIapDgL4ew8V7
+         bZ8JLCZGlU/zS350gfjdQljKh283y5kFhF0gURPK3saYKEefj4G0MUhfo9wuWmy/cHub
+         vbmA==
+X-Forwarded-Encrypted: i=1; AJvYcCVmXTdXlTVnuyruNswpHEaQluZOnnR+Q46ODXd9xtlH/61hbsgF0PgIDYtqBgPiQrDhPahbuy1IIaOhgFmJysv3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA4G80o0gx0IgUMgEcWjR1hObdWVjMi0X5W7RgMo0g0ZgXIIzG
+	Eq4CjmIJN3TKYLmGcRcU7TRhwBXbCrj/k0zEMYh+JtFOhURtFvbMdHY/qpi9+PWNI+s=
+X-Gm-Gg: ASbGncvq7zTToIkIGfXd8gEDhXaFqakPlvpTqU2avskYE9sjqvHCTqff64G0Im1e4+C
+	tiUEsz9WYdp8U86tBpQBLWSvr9e5dR2OQo8umveHvOsfututeux9UXH10/hkb64yPOzAn78D6eI
+	rXONL9JcRIDkhiYqwUIn52DD5FymuM7zYEiG6OtnPGyS+aQ4ObFeBTkrhdTLDc73ij3v6iYi6HF
+	HQgUjF2IdAbqUvgS54mHP7ajn+QRodHm1tHGmtT28N15s3MK/k+tItJwxo5JUsq4IZx2E7jt4so
+	qlVwzUHZJaenaFRon2Vr9VMopBS5jsd2CzX3QVQvwiCnrtsOZxaUWBNXc/ik4yxI8HUN8e+iT0m
+	ix2GNBdAGmTUvMV0u78q6/P8cP3tU0Dw3x+UEZw8Mc9UD/iO3m1ORbkvEvbXT6wFPae44ynqWJV
+	+RpV+AUX9dBaQEMUiQb3TAbgr1WrW7+fJ1fFpA+cztefS1pH2fmWHX9xWuCidth9T0JJ7j29/tu
+	9I8
+X-Google-Smtp-Source: AGHT+IEXAMzB4Q3iZseWqc5EI+3z01yD/lkzyZQiHdGqXZRiWGSYaalZ7FPGcsDnEnqBbvKYbK1akQ==
+X-Received: by 2002:a05:6402:27d3:b0:640:9eb3:3683 with SMTP id 4fb4d7f45d1cf-6409eb34460mr3244974a12.1.1762159057100;
+        Mon, 03 Nov 2025 00:37:37 -0800 (PST)
+Received: from mordecai (dynamic-2a00-1028-83b8-1e7a-3010-3bd6-8521-caf1.ipv6.o2.cz. [2a00:1028:83b8:1e7a:3010:3bd6:8521:caf1])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6407b428119sm9012005a12.24.2025.11.03.00.37.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Nov 2025 00:37:05 -0800 (PST)
-Date: Mon, 3 Nov 2025 14:06:54 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Elliot Berman <elliot.berman@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v16 10/14] arm64: dts: qcom: lemans-ride: Add PSCI
- SYSTEM_RESET2 types
-Message-ID: <20251103083654.a4u5vapgk5io4cr4@hu-mojha-hyd.qualcomm.com>
-References: <20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com>
- <20251015-arm-psci-system_reset2-vendor-reboots-v16-10-b98aedaa23ee@oss.qualcomm.com>
+        Mon, 03 Nov 2025 00:37:36 -0800 (PST)
+Date: Mon, 3 Nov 2025 09:37:28 +0100
+From: Petr Tesarik <ptesarik@suse.com>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Josh
+ Poimboeuf <jpoimboe@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy
+ Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
+ <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron
+ <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel
+ <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, "David S.
+ Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn
+ <jannh@google.com>, Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov
+ <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Clark Williams
+ <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti
+ <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>
+Subject: Re: [PATCH v6 06/29] static_call: Add read-only-after-init static
+ calls
+Message-ID: <20251103093728.031042d0@mordecai>
+In-Reply-To: <xhsmhqzujp9t3.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+	<20251010153839.151763-7-vschneid@redhat.com>
+	<20251030112251.5afcf9ed@mordecai>
+	<xhsmhqzujp9t3.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.50; x86_64-suse-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251015-arm-psci-system_reset2-vendor-reboots-v16-10-b98aedaa23ee@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=P7Q3RyAu c=1 sm=1 tr=0 ts=690869b4 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=_kws7oYgz0zWIvm8_ZIA:9
- a=CjuIK1q_8ugA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: WIJ6j2c_bpWbJOxZWk6BrB2CnK2oXH-8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAzMDA3OSBTYWx0ZWRfX75A6zEgLWDko
- iHVLQiAdnsDrVOd4kX2nS9LfnQlSdo6Yr7y0Cua96XgBv6GQGIXzSv9s5f8iNkeTdQqs9RmDuVA
- hrHyEBtAV4DQCnPb7daw+SBs9BpVlPv280KsGPElp+I8zzCiSkclm9DaZ+V/3AlMOLdLx3QAgKL
- tYN5pgFOVaQKFMgEH3OzWcaslxRoxP+QGv8ZHcU1ZnFaij2mkIdCyKZ0EXAV4STQQn5ByqSEUw2
- LX0vHg0g1etUtWsxUmY3QLOJCMQija2AOHhFlgZYAebUeEfv6qRdweG+2//AuN1Gv56qIDYBqTb
- 30U4puFp8uX/5lkqkqjmBy+t2YVDVuY28dyHztc0btTIZSHrEYqZQQP3woXc+4YNdnLS0iL52dc
- QjJ+L2cKeIS+VNL1FgoIpLQAWkH/dg==
-X-Proofpoint-ORIG-GUID: WIJ6j2c_bpWbJOxZWk6BrB2CnK2oXH-8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-02_02,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 phishscore=0
- clxscore=1015 suspectscore=0 adultscore=0 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511030079
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_003709_430068_92D836D9 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20251103_003739_707157_5F319044 
+X-CRM114-Status: GOOD (  39.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,67 +127,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 10:08:25AM +0530, Shivendra Pratap wrote:
-> From: Elliot Berman <elliot.berman@oss.qualcomm.com>
-> 
-> Add support for SYSTEM_RESET2 vendor-specific resets in
-> lemans-ride as reboot-modes.  Describe the resets:
-> "bootloader" will cause device to reboot and stop in the
-> bootloader's fastboot mode.  "edl" will cause device to reboot
-> into "emergency download mode", which permits loading images via
-> the Firehose protocol.
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Elliot Berman <elliot.berman@oss.qualcomm.com>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi | 7 +++++++
->  arch/arm64/boot/dts/qcom/lemans.dtsi             | 2 +-
->  2 files changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-> index c69aa2f41ce29f9f841cc6e6651a8efc38690e19..41ba0f4d437727cfe0c51e3d355427f37dce7f46 100644
-> --- a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-> @@ -722,6 +722,13 @@ &pmm8654au_3_gpios {
->  			  "GNSS_BOOT_MODE";
->  };
->  
-> +&psci {
-> +	reboot-mode {
-> +		mode-bootloader = <0x10001 0x2>;
-> +		mode-edl = <0 0x1>;
-> +	};
+On Fri, 31 Oct 2025 12:52:56 +0100
+Valentin Schneider <vschneid@redhat.com> wrote:
 
-Why is this reboot-mode mentioned here ?
-
-Can this not be directly mentioned inside lemans.dtsi and similarly for
-other SoCs ?
-
-
-> +};
-> +
->  &qupv3_id_1 {
->  	status = "okay";
->  };
-> diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-> index cf685cb186edcade643790ba22f6a900beb85679..5bb27665cfa95954543f7a66ec424452ddeb24c5 100644
-> --- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-> @@ -622,7 +622,7 @@ pmu {
->  		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
->  	};
->  
-> -	psci {
-> +	psci: psci {
->  		compatible = "arm,psci-1.0";
->  		method = "smc";
->  
+> On 30/10/25 11:25, Petr Tesarik wrote:
+> > On Fri, 10 Oct 2025 17:38:16 +0200
+> > Valentin Schneider <vschneid@redhat.com> wrote:
+> >  
+> >> From: Josh Poimboeuf <jpoimboe@kernel.org>
+> >>
+> >> Deferring a code patching IPI is unsafe if the patched code is in a
+> >> noinstr region.  In that case the text poke code must trigger an
+> >> immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
+> >> CPU running in userspace.
+> >>
+> >> If a noinstr static call only needs to be patched during boot, its key
+> >> can be made ro-after-init to ensure it will never be patched at runtime.
+> >>
+> >> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+> >> ---
+> >>  include/linux/static_call.h | 16 ++++++++++++++++
+> >>  1 file changed, 16 insertions(+)
+> >>
+> >> diff --git a/include/linux/static_call.h b/include/linux/static_call.h
+> >> index 78a77a4ae0ea8..ea6ca57e2a829 100644
+> >> --- a/include/linux/static_call.h
+> >> +++ b/include/linux/static_call.h
+> >> @@ -192,6 +192,14 @@ extern long __static_call_return0(void);
+> >>      };								\
+> >>      ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+> >>
+> >> +#define DEFINE_STATIC_CALL_RO(name, _func)				\
+> >> +	DECLARE_STATIC_CALL(name, _func);				\
+> >> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
+> >> +		.func = _func,						\
+> >> +		.type = 1,						\
+> >> +	};								\
+> >> +	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+> >> +
+> >>  #define DEFINE_STATIC_CALL_NULL(name, _func)				\
+> >>      DECLARE_STATIC_CALL(name, _func);				\
+> >>      struct static_call_key STATIC_CALL_KEY(name) = {		\
+> >> @@ -200,6 +208,14 @@ extern long __static_call_return0(void);
+> >>      };								\
+> >>      ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+> >>
+> >> +#define DEFINE_STATIC_CALL_NULL_RO(name, _func)				\
+> >> +	DECLARE_STATIC_CALL(name, _func);				\
+> >> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
+> >> +		.func = NULL,						\
+> >> +		.type = 1,						\
+> >> +	};								\
+> >> +	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+> >> +  
+> >
+> > I think it would be a good idea to add a comment describing when these
+> > macros are supposed to be used, similar to the explanation you wrote for
+> > the _NOINSTR variants. Just to provide a clue for people adding a new
+> > static key in the future, because the commit message may become a bit
+> > hard to find if there are a few cleanup patches on top.
+> >  
 > 
-> -- 
-> 2.34.1
+> I was about to write such a comment but I had another take; The _NOINSTR
+> static key helpers are special and only relevant to IPI deferral; whereas
+> the _RO helpers actually change the backing storage for the keys and as a
+> bonus are used by the IPI deferral instrumentation.
 > 
+> IMO it's the same here for the static calls, it makes sense to mark the
+> relevant ones as _RO regardless of IPI deferral.
+> 
+> I could however add a comment to ANNOTATE_NOINSTR_ALLOWED() itself,
+> something like:
+> 
+> ```
+> /*
+>  * This is used to tell objtool that a given static key is safe to be used
+>  * within .noinstr code, and it doesn't need to generate a warning about it.
+>  *
+>  * For more information, see tools/objtool/Documentation/objtool.txt,
+>  * "non-RO static key usage in noinstr code"
+>  */
+> #define ANNOTATE_NOINSTR_ALLOWED(key) __ANNOTATE_NOINSTR_ALLOWED(key)
+> ```
 
--- 
--Mukesh Ojha
+I agree, this makes more sense. Thank you!
+
+Petr T
 
