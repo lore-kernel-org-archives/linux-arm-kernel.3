@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E5ECCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC98CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9sAcUtC3H99LGi5c5vTc31vswFYXuBu5HaI39PYNE9I=; b=iZ645gy++ptbKZoQkjQ8r9smMY
-	Mu0jhc0GxaXd0vY4+9DhqfRJMd9Bs6ODOxNGJbFUZnGW55uI20ZGTZhfkDoSxBri+pgTOCmVb+KQu
-	KejcF0BmxsjkUo0wNIVv7Sxav6k9tLtmH4woZr8RzgowGJuWlkDlLcDtTH4HCMq1abyaErrWSzE5w
-	vPdDDYIBXjjjg22qv+v6PLXdnCQYmGNekFncVI7+mYfizAkJaFJbrO+jf5m6YmQFYBtmi5Ovn8Sfl
-	LAXIB1N47tXsZ9x8Y83C2av8q7HE+YAKhwMcG+YUYhntzFFLTHpmMS7AHODAx3KMJcPrSQkSZ2O5M
-	Eqx59FCA==;
+	bh=SfoQUh36QE7h8qt3hF9rnB1Y0l49JXwFNS9QZ6PhD74=; b=LlZDiqUX//B/sztM2SvCr9m7ZU
+	M+zZw5LZHhjDGb+J2tkFTECJBH7eY3LcNb4S9ScTQiHe2A17b/rx5etyNjfB4ie4xSQmlJiWi6/2K
+	K5lUUG5/LjF6X0vJmbi5+SL9NtWhXHzDRs5bqZHk1F+OmmdO9Z9z4SS8xnDqbYyq/gVd/T9z8X3z3
+	GsqpU/dtUX25H+ZCehdDkjOmQWZdSkHB5E9CmbFNTygocSFPc+XzuKEBH9BbfwO3BwVDVwu/RkRG5
+	aHXbXsr4GYM4+EiwEhDcCoKOaGXX903QkeBA91mUtyfuR/V5wRqrJOIdQQ65HA3xnwl0M3zmLYGbc
+	kDlHdQ1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFs0R-00000009eLp-1UC8;
-	Mon, 03 Nov 2025 10:41:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFs6D-00000009esx-0zId;
+	Mon, 03 Nov 2025 10:47:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFs0P-00000009eLB-0yQ8
+	id 1vFs6B-00000009esW-0XLY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 10:41:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B5453419AD
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 10:41:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96AA9C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 10:41:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762166503;
-	bh=ywHCDC6f70q+FVeVwqunZDaffuR4I1EUWoQ0AifeUk0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=i2KRnNo2nLgcp0ju0M1YrqrrexGDv0pjZAm+p8PP1D261hfxiH2VgDYYQtWPFU2eI
-	 vBJHYNtTXvQbSMZmuLHeH3BYZImua4W5iYahjt3wCb4QEyxFQsI7R828b9e629QRrz
-	 p258VQ3CXkGgr9KV8bV33bgSUlajM+1x+0z+vVBOyZvM3bWdOvTBpJKmAFTqwd7tuV
-	 +ua0y5c7vVNHkd8elgkQvqUZD6JPebbB4Crsy9GESsxWKr+0FQ2GEOMV6e2UPy4pfz
-	 lebJv5yHWL82ORvjgvAHTq8hn3qpbCYLW/5yfI59Z2YHsxyTwFONfK9t6BKmh98Uhl
-	 3MBVwbqH0QUSQ==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-37a1267c45dso35390731fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 02:41:43 -0800 (PST)
-X-Gm-Message-State: AOJu0YxIsOrX1RGZv5IAXVPqaqV1NKy3e2uBfhPYKvsWjEyXVZfIR0CB
-	bRIDA/zAOgRdwEnHShK9Po0YDnkzyGimmyzZ8QlnO4YPQw1ZLMHLbsG8HdSRxKaw++E1kwA0Gph
-	XJ4cRyG6F9ILBGozluPFLhme2bIHQaYw=
-X-Google-Smtp-Source: AGHT+IGkM8viXJNBlQ80+5YfdV3jjNXsEEVUkp5Q6j2EjUrf25AVLVkvSj9qeEV5Pd0r/i3Y1KW9dhFw83oDj2eOFzM=
-X-Received: by 2002:a05:651c:2103:b0:37a:15b6:f35b with SMTP id
- 38308e7fff4ca-37a18d8ecabmr37322841fa.2.1762166501972; Mon, 03 Nov 2025
- 02:41:41 -0800 (PST)
+	Mon, 03 Nov 2025 10:47:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=SfoQUh36QE7h8qt3hF9rnB1Y0l49JXwFNS9QZ6PhD74=; b=ZD7a9bk8YePsQT1gCLHkpemXYH
+	jhhr//2fwcanBJEPfFnIzR9Kj5qNOUYwkH/a2hZUUeo9NW1VBzJeZBdCOSQJg1LuxKtAWVpqNl7wU
+	aUrLae87cb5hpCzJf7bIRkrKc+vIbuclKrSXn0N4OdXXbNGTDAeg7RjZTptf4kBAyfmHpK22Dwuf6
+	SaplTqH3s6g/mBJxCDzqVf5asyAAGEH4ta90oPgzCzczsoOCtn0G9WlKvLC+3cA52CrK9c2KBR9hE
+	JNMLsgrK3LBJKihiVC0FBn8OlXBiB36aFp/3i4YCquBgToxfch366UNf5WzynDG+TPyOCB7NTnYvU
+	ixOPMqZA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42202)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vFs5z-000000000a9-1PlG;
+	Mon, 03 Nov 2025 10:47:31 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vFs5v-000000003jm-0uly;
+	Mon, 03 Nov 2025 10:47:27 +0000
+Date: Mon, 3 Nov 2025 10:47:27 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: Re: [PATCH net-next 0/3] net: stmmac: phylink PCS conversion part 3
+ (dodgy stuff)
+Message-ID: <aQiIP0_sQmdwrzu2@shell.armlinux.org.uk>
+References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
+ <aQExx0zXT5SvFxAk@oss.qualcomm.com>
+ <aQHc6SowbWsIA1A5@shell.armlinux.org.uk>
+ <aQNmM5+cptKllTS8@oss.qualcomm.com>
+ <aQOB_yCzCmAVM34V@shell.armlinux.org.uk>
+ <aQOCpG_gjJlnm0A1@shell.armlinux.org.uk>
+ <aQhusPX0Hw9ZuLNR@oss.qualcomm.com>
+ <aQh7Zj10C7QcDoqn@shell.armlinux.org.uk>
+ <aQiBjYNtJks2/mrw@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20251103101545.760243-1-bigeasy@linutronix.de> <20251103101545.760243-4-bigeasy@linutronix.de>
-In-Reply-To: <20251103101545.760243-4-bigeasy@linutronix.de>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 3 Nov 2025 11:41:30 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEv2iZ7UOiG7OSR3KQVguFtASh5yhpxMTXzuiZTOFz7_Q@mail.gmail.com>
-X-Gm-Features: AWmQ_bmpyUNLlkLPqZocz3nncFM6nY6pwBfeKiZVNBLewlkUVJzl7p9usZ6XIY4
-Message-ID: <CAMj1kXEv2iZ7UOiG7OSR3KQVguFtASh5yhpxMTXzuiZTOFz7_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 3/5] ARM: Disable jump-label on PREEMPT_RT
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev, 
-	Russell King <linux@armlinux.org.uk>, Xie Yuanbin <xieyuanbin1@huawei.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>, 
-	Linus Walleij <linus.walleij@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aQiBjYNtJks2/mrw@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_024145_311979_866E4E52 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20251103_024743_169639_FA64EDAD 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Nov 2025 at 11:15, Sebastian Andrzej Siewior
-<bigeasy@linutronix.de> wrote:
->
-> From: Thomas Gleixner <tglx@linutronix.de>
->
-> jump-labels are used to efficiently switch between two possible code
-> paths. To achieve this, stop_machine() is used to keep the CPU in a
-> known state while the opcode is modified. The usage of stop_machine()
-> here leads to large latency spikes which can be observed on PREEMPT_RT.
->
-> Jump labels may change the target during runtime and are not restricted
-> to debug or "configuration/ setup" part of a PREEMPT_RT system where
-> high latencies could be defined as acceptable.
->
-> On 64-bit Arm, it is possible to use jump labels without the
-> stop_machine() call, which architecturally provides a way to atomically
-> change one 32-bit instruction word while keeping maintaining consistency,
-> but this is not generally the case on 32-bit, in particular in thumb2
-> mode.
->
-> Disable jump-label support on a PREEMPT_RT system when SMP is enabled.
->
-> [bigeasy: Patch description.]
-> [arnd: add !SMP case, extend changelog]
->
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+On Mon, Nov 03, 2025 at 03:48:53PM +0530, Mohd Ayaan Anwar wrote:
+> My rate-matching patch was for IQ8 which has the QCA808X PHY. I am
+> putting its testing on hold until we sort everything out on QCS9100
+> first.
+> 
+> So, for AQR115C, what should be the way forward? It has support for rate
+> matching. For 10M should I remove its .get_rate_matching callback?
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Yes, AQR115C has support for rate matching, but it depends how the
+firmware is configured. Different firmwares for this PHY default to
+different settings for this.
 
-> ---
->  arch/arm/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 2e3f93b690f47..92ca24336ec4b 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -80,7 +80,7 @@ config ARM
->         select HAS_IOPORT
->         select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
->         select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
-> -       select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
-> +       select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU && (!PREEMPT_RT || !SMP)
->         select HAVE_ARCH_KFENCE if MMU && !XIP_KERNEL
->         select HAVE_ARCH_KGDB if !CPU_ENDIAN_BE32 && MMU
->         select HAVE_ARCH_KASAN if MMU && !XIP_KERNEL
-> --
-> 2.51.0
->
+Some operate at a fixed speed on the host interface and do rate
+matching. Others don't. The registers in the PHY can be reprogrammed
+to change this behaviour and the PHY reset to change the provisioned
+firmware's behaviour, but mainline doesn't have that code.
+
+If you enable debugging in drivers/net/phy/aquantia/aquantia_main.c,
+then aqr_gen2_read_global_syscfg() will print its configuration for
+each speed via:
+
+	"Media speed %d uses host interface %s with %s\n"
+
+messages. Unfortunately, aqr_gen2_get_rate_matching() does not take
+account of this configuration, and just assumes they're all the
+same (reporting rate adaption for 2500BASE-X and 10GBASE-R interfaces.)
+
+One thing occurs to me is maybe your PHY firmware is provisioned for
+rate adaption with the 2500BASE-X interface for 1G and 100M speeds,
+but for 10M, it's using SGMII. The above messages will tell us.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
