@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B95CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303E4CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sTXgO0JufSjQq4qun96irVM1W5U+5GeYXkP+g+Q0NvM=; b=Ty7uy+DfWTLqKXcUY1PslMJHvs
-	r7Q7WNrkbXDySHCbjtl1nQIRwSGeiiQ62ZxhVQPm8CuOIXaME+jSbsHZJKu1xO+qbm6ZjR1X4e4li
-	3DMMQOEmzAP44FYwzT8jgWXkm+WeAshZa2dpf8xLFV8XnOXXwkfbJQheq/9IoraHVqgMj0Lyi4AyY
-	P1oFrAWqTWhGc/7ja8XnGBvYMFKD26XdrlM47u6TT72o3ANuhc3OX5LddunJqv2OfiGvTFfuvk3bP
-	QEfhOsPN9Px59p80zyIR4YcvtmiJlW834J0ehYNOIIVEnEbmrffBXVwUkjtWN/ynFC6Cjl6JpzEdX
-	jge1yhqA==;
+	bh=0OEHWe0aEX4CL8pwp76r7di9HP/R/Jl+wwruwqA9LqA=; b=Ipav0mMJ4oaJ09GgWdMg5/wZzN
+	enBZCpOSz+DGmqyzOYAXZpOd2kjRPBJ8+y1z1k2vQ4ii6q+MxfdDlMfkTTRdboKEpdwDhKH+AiRb3
+	BnKXWWw0n59R+v1Ffx8VjFZJgrxACUysTR2NI9Q1EOgt7TDLNu1R58X9FTeTdKVtl/2+d4JLNH7Zq
+	+HCnR0fSwUNJWgqUzUCrSwlWS4nelRRsdIWERzVEkZ4PoWXY48VfhW8K+jLbFiwonCpYVYwYBMC+A
+	q8veW4r+w85fX3af5OTthzEIdu+a5YLwRJG0tnLa3PcQahYFs9F8LOIgIO64KsaTmXMhOp8RrZzV0
+	pBaipxwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxwc-0000000ANB3-0SuG;
-	Mon, 03 Nov 2025 17:02:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vFxx1-0000000ANDi-1sDd;
+	Mon, 03 Nov 2025 17:02:39 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxwZ-0000000ANAN-2ORu
+	id 1vFxwy-0000000AND9-3mh6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 17:02:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7D613419D6;
-	Mon,  3 Nov 2025 17:02:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44EC1C4CEE7;
-	Mon,  3 Nov 2025 17:02:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762189324;
-	bh=z4bhIkeLe61YGtNnfKtyj+dwQB2OwI+pXpuaZfbsQts=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=YIB6Mk+zbB+GuDbJ0vWKv4vitziT/ejEWmFLfRUmfVLCbHkCc1NoXbUQ8oUDIISbW
-	 OXJnzt8GUPCdEfPwgjFVlp+q3Ey0IuWRWLoZ4jKpoqkVAkJYB7wkZVirI+P/T0gs1D
-	 zczVjmrjN0XRrX1f0wHJcVNwPt5QBOk27UDLUfG52wRylaTiBLO+EVJGtAaZuiuoBz
-	 x1xc4vd2DbaCB4HK2AweVplZg6GowNF6DcS1HSuCkioX7pDEJStFfU5wvE3vHPwrnl
-	 xbCVvjZl4YCUbCIrIwQqVaAF7zn3C5GQBxFCXVdx5HheXwY2ZHhQDUnt4iWqfo4g94
-	 +Mqb1OQrjIztQ==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 44EABCE0B94; Mon,  3 Nov 2025 09:02:02 -0800 (PST)
-Date: Mon, 3 Nov 2025 09:02:02 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH 17/19] srcu: Optimize SRCU-fast-updown for arm64
-Message-ID: <c598e85a-4008-4ca7-a424-80c324523bbb@paulmck-laptop>
-References: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
- <20251102214436.3905633-17-paulmck@kernel.org>
- <aQilZAXQv2P-b2eI@willie-the-truck>
+	Mon, 03 Nov 2025 17:02:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0OEHWe0aEX4CL8pwp76r7di9HP/R/Jl+wwruwqA9LqA=; b=D4ikYTJuLxfvbADYfspsJJ1+PR
+	G9TIv5Edt/r6/WaJZAMklqrf4uQXnTFghnVtt5e2pEK6hkTK/ovT48QofuyuapGxPChHIdI+l7cAZ
+	gPOrF+mElZpbbQ+EvQIPyWkznOrtQKCO+Smfppm2l51XddJEf1qgnAEPWOPhMYtCLXNL0d/3Senen
+	UfeLWqnJdFJiV3OCNGv7Gx6uF/nkB58jMALhMUDGIl3CGihzMnKJorDdmXOy7EjSquQEOFZRyzSvO
+	7zGAhvP8v5iroVagEKr3iVVtuL68nTw6ENsDAAWUL52866vN9a1vYHVGMNjrUG5zhFBacsisMbZ33
+	+AwD+DZQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37810)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vFxwj-0000000019y-3eQA;
+	Mon, 03 Nov 2025 17:02:21 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vFxwf-000000003wv-0J3T;
+	Mon, 03 Nov 2025 17:02:17 +0000
+Date: Mon, 3 Nov 2025 17:02:16 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: Re: [PATCH net-next 0/3] net: stmmac: phylink PCS conversion part 3
+ (dodgy stuff)
+Message-ID: <aQjgGBGY4T6xbjWr@shell.armlinux.org.uk>
+References: <aQNmM5+cptKllTS8@oss.qualcomm.com>
+ <aQOB_yCzCmAVM34V@shell.armlinux.org.uk>
+ <aQOCpG_gjJlnm0A1@shell.armlinux.org.uk>
+ <aQhusPX0Hw9ZuLNR@oss.qualcomm.com>
+ <aQh7Zj10C7QcDoqn@shell.armlinux.org.uk>
+ <aQiBjYNtJks2/mrw@oss.qualcomm.com>
+ <20251103104820.3fcksk27j34zu6cg@skbuf>
+ <aQiP46tKUHGwmiTo@oss.qualcomm.com>
+ <aQiVWydDsRaMz8ua@shell.armlinux.org.uk>
+ <20251103121353.dbnalfub5mzwad62@skbuf>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aQilZAXQv2P-b2eI@willie-the-truck>
+In-Reply-To: <20251103121353.dbnalfub5mzwad62@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_090211_651154_9EC66B8B 
-X-CRM114-Status: GOOD (  28.52  )
+X-CRM114-CacheID: sfid-20251103_090236_949911_1766CBDB 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,77 +102,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 12:51:48PM +0000, Will Deacon wrote:
-> Hi Paul,
+On Mon, Nov 03, 2025 at 02:13:53PM +0200, Vladimir Oltean wrote:
+> > stmmac unfortunately doesn't give access to the raw Cisco SGMII
+> > in-band control word. However, reading register 0xf8 bits 31:16 for
+> > dwmac4, or register 0xd8 bits 15:0 for dwmac1000 will give this
+> > information. In that bitfield, bits 2:1 give the speed. 2 = 1G,
+> > 1 = 100M, 0 = 10M.
 > 
-> On Sun, Nov 02, 2025 at 01:44:34PM -0800, Paul E. McKenney wrote:
-> > Some arm64 platforms have slow per-CPU atomic operations, for example,
-> > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
-> > atomic operations to interrupt-disabled non-read-modify-write-atomic
-> > atomic_read()/atomic_set() operations.  This works because
-> > SRCU-fast-updown is not invoked from read-side primitives, which
-> > means that if srcu_read_unlock_fast() NMI handlers.  This means that
-> > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
-> > exclude themselves and each other
-> > 
-> > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
-> > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
-> > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
-> > it sure beats 100ns.
-> > 
-> > This command was used to measure the overhead:
-> > 
-> > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
-> > 
-> > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> > Cc: Steven Rostedt <rostedt@goodmis.org>
-> > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > Cc: <linux-arm-kernel@lists.infradead.org>
-> > Cc: <bpf@vger.kernel.org>
-> > ---
-> >  include/linux/srcutree.h | 56 ++++++++++++++++++++++++++++++++++++----
-> >  1 file changed, 51 insertions(+), 5 deletions(-)
-> 
-> [...]
-> 
-> > @@ -327,12 +355,23 @@ __srcu_read_unlock_fast(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
-> >  static inline
-> >  struct srcu_ctr __percpu notrace *__srcu_read_lock_fast_updown(struct srcu_struct *ssp)
-> >  {
-> > -	struct srcu_ctr __percpu *scp = READ_ONCE(ssp->srcu_ctrp);
-> > +	struct srcu_ctr __percpu *scp;
-> >  
-> > -	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
-> > +	if (IS_ENABLED(CONFIG_ARM64) && IS_ENABLED(CONFIG_ARM64_USE_LSE_PERCPU_ATOMICS)) {
-> > +		unsigned long flags;
-> > +
-> > +		local_irq_save(flags);
-> > +		scp = __srcu_read_lock_fast_na(ssp);
-> > +		local_irq_restore(flags); /* Avoids leaking the critical section. */
-> > +		return scp;
-> > +	}
-> 
-> Do we still need to pursue this after Catalin's prefetch suggestion for the
-> per-cpu atomics?
-> 
-> https://lore.kernel.org/r/aQU7l-qMKJTx4znJ@arm.com
-> 
-> Although disabling/enabling interrupts on your system seems to be
-> significantly faster than an atomic instruction, I'm worried that it's
-> all very SoC-specific and on a mobile part (especially with pseudo-NMI),
-> the relative costs could easily be the other way around.
+> It might be Linux who is forcing the AQR115C into the nonsensical
+> behaviour of advertising 10M in the SGMII control word while
+> simultanously forcing the PHY MII to operate at 1G with flow control
+> for the 10M media speed.
 
-In my testing Catalin's patch wins by at least 10% on microbenchmarks.
-So I am holding this one in my back pocket just in case, but yes, you
-should ignore it, hopefully forever.  ;-)
+There's another factor in play here: the dwmac-qcom-ethqos glue driver
+forces the configuration of the stmmac integrated PCS irrespective of
+what phylink wants (whether or not patch 1 is being used.) That is,
+for 1G, 100M and 10M, the SGMII in-band control word must be sent by
+the PHY, and it must accurately indicate the symbol replication via
+the speed bits. If this is not the case, then the stmmac PCS block will
+not behave correctly.
 
-							Thanx, Paul
+So, if the PHY says in the SGMII configuration word that its operating
+at 10M, but is internally rate-adapting to 1G and sending the packet
+with no symbol replication, that is outside what the stmmac PCS block
+will cope with.
+
+> We don't control the latter, but we do control the former:
+> aqr_gen2_config_inband(), if given modes == LINK_INBAND_ENABLE, will
+> enable in-band for all media speeds that use PHY_INTERFACE_MODE_SGMII.
+> Regardless of how the PHY was provisioned for each media speed, and
+> especially regardless of rate matching settings, this function will
+> uniformly set the same in-band enabled/disabled setting for all media
+> speeds using the same host interface.
+> 
+> If dwmac_integrated_pcs_inband_caps(), as per Russell's patch 1/3,
+> reports LINK_INBAND_ENABLE | LINK_INBAND_DISABLE, and if
+> aqr_gen2_inband_caps() also reports LINK_INBAND_ENABLE | LINK_INBAND_DISABLE,
+> then we're giving phylink_pcs_neg_mode() all the tools it needs to shoot
+> itself in the foot, and select LINK_INBAND_ENABLE.
+> 
+> The judgement call in the Aquantia PHY driver was mine, as documented in
+> commit 5d59109d47c0 ("net: phy: aquantia: report and configure in-band
+> autoneg capabilities"). The idea being that the configuration would have
+> been unsupportable anyway given the question that the framework asks:
+> "does the PHY use in-band for SGMII, or does it not?"
+
+From the kernel messages provided, the PCS is reporting no
+capabilities, but as you say, the PHY is reporting
+LINK_INBAND_ENABLE | LINK_INBAND_DISABLE. The mode that phylink is
+using is "phy/outband/sgmii" - so what _should_ be no in-band
+signalling. However, note what I said above - for 1G, 100M and 10M,
+qcom-ethqos does this:
+
+	ethqos_pcs_set_inband(priv, true);
+
+in its fix_mac_speed() hook, which translates to:
+
+	stmmac_pcs_ctrl_ane(priv, true, 0);
+
+which eventually gets through to:
+
+	dwmac_ctrl_ane(priv, offset, true, false);
+
+This sets GMAC_AN_CTRL_ANE | GMAC_AN_CTRL_RAN but not
+GMAC_AN_CTRL_SGMRAL. This means "autoneg enable" "restart autoneg" and
+!SGMRAL means that the SGMII rate adaption block operates according to
+the link speed received from the PHY.
+
+At this point, I'm not sure whether I should just rip out the
+stmmac_pcs_ctrl_ane() stuff from dwmac-qcom-ethqos.c - I've been
+operating on the assumption that this is working code. Maybe that's
+a false assumption, and its been broken since a818bd12538c ("net:
+stmmac: dwmac-qcom-ethqos: Add support for 2.5G SGMII").
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
