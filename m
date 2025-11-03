@@ -4,152 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654E7CCFA06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:13:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9485CCFA06
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6rbB+3LDmHIBWBXdi5abzG/1VsWT6ATs2cdAV/GmUY=; b=4IJ1FNvPpf2KyRswpJ8UEBJdAr
-	a//EQYeL3SQs28T91f6bDNVXL/Ds4pbmWsrxzzx3ZTij11qXZyeNrbQyosVhzyo8X41573g5r1x2S
-	TUGoWo2/PdmUsQh5pF9jbPK8bZa3jFs7xT707/hU+mzEZCRRozpdhhVHAoyuMDnuMfP+raYP/xEwM
-	nRFgXDPaXmGOIbaIvThrXy1QsbWrXC4Lblvp3vxuKrhzkqZat+DQBf235GrwBdNUKSdFC1Std8qv5
-	LgCSJ8wQQXluHwxq0trB6za9RZKsLMKnA9MpDeAFofVcZdbo+qfOOH+IPEaWS8mptOsgkrFAkFUOC
-	VrW9wFDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SkTtU6HE0wOI0oNXgpl0QXg2DrXWwNxk/gPZcLQHMlU=; b=ToQ/WKHCdCt3BP0r+/B5q9RTPW
+	NgqGrYFFa5RG5EKpiduifSKszCfNmu/mABb4VhSYnkeInym+7KcLNQXfiGGie5IUmGuFPTKNJry3N
+	vtDAy+TMZkt6nQyC5LmKu5NCX5ccj0qxj717SuMixqKvGV9xJBYFimAyoQ9Kh1slU//dgEAqQosQY
+	CRwuTbEcIICun/6P81a+7Yc34HPlAW9msBoyC+NSItq1gDJ0Ezv2SgwPAw7ke6gB+1iPvlBTRYxlF
+	HNhM5G9VYi0B6D0Pz0otJeEv4lBs30e71ImTe9SJwFc6YQ8NdGlBtV9DoKt+3nehta0YoYvRFZld2
+	Z4RsNT1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwEw-0000000A6Od-1Qyd;
-	Mon, 03 Nov 2025 15:13:02 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vFwGH-0000000A6iw-2Dgw;
+	Mon, 03 Nov 2025 15:14:25 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwEu-0000000A6Nq-0XL4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 15:13:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H2sO2X1Lc7K4fBkORZLSnDV0LuwMuQMNk1FhtUkxWVn4IdEIj0SPTA8L4Ff6igbb0kgMnbHT+AZZfXo0hOcZ89ZtadiuRyEZlHusobUP14qz/UZ1ovwjcMJxTePMpWk+cg5+ypMuR7wthRiEEXeISKlAq5o/AXUA/9qIyaT/diI04zvd6bd7pS7MKQfhhJIGQHexw00hIOay/kMi2wYUOo39hO/1Sb+mj7CCdgAP6K8jTMFd0tEeF7wgPKnSzOUk7scdBgnck8UGIpHr1Xvw4o3JivXfppDRk3S6GoVZdz/uvYF2FR3yFCQIMhiexNCZY2tPCkfjDB9USWOMCJ/kcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W6rbB+3LDmHIBWBXdi5abzG/1VsWT6ATs2cdAV/GmUY=;
- b=skkvcC0MOP0U+1vcV4yQ6bM+/nxQwM2oBx1ZKFYHvFnKpMbcq5wU6LK3q8NmcjfomPp/3KLq7ULKWjdCrvwz1fO/MPB4tbElonOm7zMkTadQwG3RD0I/W06nhnoHSCfLZjcxFBzJr9hrc5FsUzTsaiPc5oEXbvgKY9g1VUkS3E9E2IPCtVhUIByeGDNPwSB1J5HmpPbDPgBHhAereW+HZfp4FINkBEzieKXbzuKp1c84+NIusUFm7GHhdonbRzlnzgqoXaxJKCN8AJQQiyDBpqCxWN8/4acv8eyIHlM74lMLce6c0IfdduK2O98dHblgZ9xu5zs24KE/B0YbyMTaBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W6rbB+3LDmHIBWBXdi5abzG/1VsWT6ATs2cdAV/GmUY=;
- b=L2X146sI+STGXR7JfPQHHDgj8jFpOpaeKXiExNht/RRM+f6tBVtWoOJoW10jgIpXSgJ0MShb+J1i/Px3FJZYoLfKR5kug5EauK/OkGRrh44MQA8GnnGszE/ARq/y65CWuVGtCdMdXHFMABgjqqjWAALn5MWw/gFJMWytex/5i4BfgjltGpkmRFPq0aVRFTpnX3nqRIl2F8vFS697zGuHk4plRFPyvDzCIqhiub7w74CRvHbe2qLOlMgvlZiDg3Y303kAYdL+eG+p594p8M6XK1LfBhHrT74R6Zj8mM5CCn3IIflS/S/qbu+rN98y6EZaVZtoho7OUNqruLfS/d7imQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PA1PR04MB10414.eurprd04.prod.outlook.com (2603:10a6:102:44f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
- 2025 15:12:55 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
- 15:12:55 +0000
-Date: Mon, 3 Nov 2025 10:12:45 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Anson Huang <Anson.Huang@nxp.com>, Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] Input: imx_sc_key - Fix memory corruption on unload
-Message-ID: <aQjGbdKdTcfo83b+@lizhi-Precision-Tower-5810>
-References: <aQYKR75r2VMFJutT@stanley.mountain>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQYKR75r2VMFJutT@stanley.mountain>
-X-ClientProxiedBy: SJ0PR13CA0204.namprd13.prod.outlook.com
- (2603:10b6:a03:2c3::29) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	id 1vFwGE-0000000A6iD-2rHD;
+	Mon, 03 Nov 2025 15:14:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1762182859;
+	bh=Fi4+R1Ob18N+hWKOsFjrNw4jSyFKNHKkEG+GMBZjsvI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jzvEqUOnHp5MJRCsQbEcE5I3T47rCyIMaddchuQBJK1HlqfF+m9O6UcJyiT0FskiB
+	 paN72tfJGZgGWsCFCl24BrK9Nj3wWE5zoYxct4hL/3AhrkBo7E5VLLfkSenRKspjZ6
+	 Hxkq5+ODuoke9HQzEeudTXfuN2rUz0/vQq3CAOGRq+EUTyd10d/o7XRGtJ+2hfKEco
+	 bQ4puUQO1AYxi05HXaujHbBEfiYBtjZsxBucnaiVKgbYqRDMB/fBlS05UCFKcedyH/
+	 ChuMgmIE1I7ZxvRJVA10cf0WGuxu3JQPbEVOnyhsn0bH2M/rP5mVtBl+2XU+pKGrmS
+	 FnIGUQ3uKhXXQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0F25A17E00A6;
+	Mon,  3 Nov 2025 16:14:19 +0100 (CET)
+Message-ID: <7f743fd5-a64f-4378-b8da-198e45fc66e2@collabora.com>
+Date: Mon, 3 Nov 2025 16:14:18 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA1PR04MB10414:EE_
-X-MS-Office365-Filtering-Correlation-Id: ba30e97c-67d0-4112-4702-08de1aeb7740
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xYIqQKXpl4roCYmfjt3E/jPcTHFHMWA8uiwPf9eGOXGHyN3AsMVQt2ogy5PE?=
- =?us-ascii?Q?hS4QkYZci0QMAxWzxcbZUh5/PB2C6XrRmLsPImpEJn85CprDbyWpR6YXv6IZ?=
- =?us-ascii?Q?gCgyjmTnqFLvOvOxjM2Oo4LhhU2AlciOi7nKcFkVEiWbAQN9GOCr0FPsxfT+?=
- =?us-ascii?Q?jFBZ1yhQlqDrTl3k+xOhyvFrFfq/UJ8/vbHCoD5DpnNSgjsTKixy3Wfjdwxe?=
- =?us-ascii?Q?KgBedQmsefgcwkkfqLMA3kqudfFO0QIj4Cc6OoDYrMzJHkoXeqeso+NFV461?=
- =?us-ascii?Q?IVWOHTQIio5GRwmQHxQgDGxy57D7FUmwtI4keu5ZkFHoz4Zmk8IgzgcGFhAL?=
- =?us-ascii?Q?ykzFe/4JZKX0bLSQh28HMXn4gRw78nrPJhPc6F9fj9Ok5CkK5I9DFUsZlYkk?=
- =?us-ascii?Q?JHOoIjqct/KJdFO1YrN5EEPRmlDKsvLM+pqL+OEqCoAtRiUWfWQft7fotlp+?=
- =?us-ascii?Q?o1BuTmPG692vZeCZyF3cIrMEIEgtxad2VIOCrOR4DRBQaqcbjItG0UTCxvn+?=
- =?us-ascii?Q?uEacPR/pzstH8RR+iWz0YK3r3AZg8s4bCqF5qxkXLCCptYa82R09DTNZymuC?=
- =?us-ascii?Q?PXmMYLUOZM1uHKunAfzNIm8RqcQtNwOSdjVYiejo1XUDi/5Neszq8QPYJTG/?=
- =?us-ascii?Q?Wyr5pqIvETAzilMB5ye/l8MKXC6AnGH0/qrkhLIosCrSlqSfyxB2xlsDHjky?=
- =?us-ascii?Q?tuXb01eptd4qQk2/QTRkbssLC3+fCREtzF/56j68/v4L2KztugVIT32wIl3x?=
- =?us-ascii?Q?8/1zseHhiOPHOF421zCN+HGLToGNTvzdF9Hp3+fDFh5G38Ltk8MonTh/850X?=
- =?us-ascii?Q?kcgVEbnV0C30Ac2dUEjr4ChuFX6Szp42pLbWNptevsDnxRVphJGTlFNgzdg8?=
- =?us-ascii?Q?dqpABJAmyYzAHxmA8uiSQzmOUJbi2ZjNWV8ypzMfdhF/q7CKw4H22J9bU5y4?=
- =?us-ascii?Q?h9v+6qDZPSAQtR3QDvbXm57TRIFStaTHWBGmvEAhQ5HOc0eb2HQmd6wBAwsz?=
- =?us-ascii?Q?XWLn+nE/cehhHY6k0ohikqIvnrOHd7ciXl+BPFZorzJUln7JNbT6wTUUoCEY?=
- =?us-ascii?Q?/zTLTu/OPb4E54ELTe3D6fq1OATbmZbuyYLZsvHA3OJn4N/CO+AsJXz+ahNy?=
- =?us-ascii?Q?e7SuYtqg4aQXPKtH1HW+Enk2+QrkrNTM2D/50N4QCLy3rETA1grnHj/hcJmS?=
- =?us-ascii?Q?ImirqZliqu4KVOR9MyiK+OhXWsY96zY1+xfKnj+vQlvwLSpfw84LeK7+ALYF?=
- =?us-ascii?Q?oxu0948VzbLueZPSgn97Js8zv5XYr5DdfwEbpU6N3MSzJ6zxVbCEtl9OcyIC?=
- =?us-ascii?Q?TZFgFuozaXgFmVamZlHVr2L/k3e+ZGM166vuz988FDsltv+QFcEmta56KEWD?=
- =?us-ascii?Q?aXeyHCZyqrtTC/Y3fjqcBDVcxdo1fAKw1N6vPXt75kIXQkCJM7f8m640egLm?=
- =?us-ascii?Q?P06HoSL3J7BTpVKcNwO2uedglHWJN35zd+tWW+MowPUgcePhy8OY3eli8e9K?=
- =?us-ascii?Q?MuV/PcFkBY/9oBU+ZAyhdEO6GqzI+z5z0AJR?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7Ygo7Q4R16Bq2nhSCpzSp0K82ny2wGlnpAIXCehkXJXaQpH5xaymRF9txg9s?=
- =?us-ascii?Q?KLwoOqWJsOBH1LdsI3tMXaZa0OXR3qfq5FOj33CUf6Ctw0mrEN3sS+MDaQBn?=
- =?us-ascii?Q?8UL9mR4ylPWCS+ePGBdEHaZ66HyFKRxENIvfFDRC0AysBGFIpurJaHwnAt20?=
- =?us-ascii?Q?pcnrbrwX81ZYGUawL3Ey7Vo+4Vc4tTZUr6zUrNUSf/QsjjWXHqz0EGoUqVnV?=
- =?us-ascii?Q?dPjGEINsOTy8PDYa1sC1ChitJYRXOpQ6Zkh5hQiL8iDdDsGQ3ntCxEU4X8ik?=
- =?us-ascii?Q?SIM2TmX2zF7SC02/AwcsSLIIjI4cEJ3XZz8v8BM8h3pHMxdKIJXBtOsi0app?=
- =?us-ascii?Q?2vhfbutvoW6QlSvEAfA14zn/TyK9zBfkF+FT7Uc7ta5XLgCzcFWx5QLJKyB0?=
- =?us-ascii?Q?SgOfQbxMVpSLaWLoDx+e2KxDJZmMPJRqFNhyaHRhBG87AR0/Qq8IekCkr5gW?=
- =?us-ascii?Q?LToBl7I9fF9QAkXAm/3fCkGahdF/9eed/2nbR81m1+JRP/ceELQY7RdG2HGG?=
- =?us-ascii?Q?voqm6+P+FASild2CiwFBNFiEaAaNh75KLygIE5GH3P//zik0xyOWaus1pm1Z?=
- =?us-ascii?Q?QMOXxN+WimF+8TLIQfWKFDltoLHleGGBIxcp8eYUFI7e2TyIq8HHpNQ48Un7?=
- =?us-ascii?Q?jQjrPrH0sv2ixor8F5nlYMgxgn2A+uqpXobavxs+TmqPSFnqYzCDldNEBTDR?=
- =?us-ascii?Q?zN6FkISR8/KsH4upuFj7471PoNiwS0OJEkcVVO2ZXH3hpaCjpHeblMk1UjDj?=
- =?us-ascii?Q?zxhst5ytZgkbtiJPd+6nsbJGfjIFu/AHQ9iNChVTDod/OzhtolCSZjlwMfJl?=
- =?us-ascii?Q?eHryrFsNQDeSf9cpys56XFUDYMpj9xBA36V3MnDEsHuNTpIWACwFqGLqXGXB?=
- =?us-ascii?Q?SECltH14gKBDu2J7OjNmPB2/gQUN/1LYuIGfwvQKarncSDmGwLqYxZiYez/j?=
- =?us-ascii?Q?gYbsys1hbQ4EaVQtAutiOL20mo1ig04YSp9ymjqKosvP8egwOAMttH9q/f+D?=
- =?us-ascii?Q?o/vnMRkDG67dXDzfrPQTPHIF6ALc8ihxtkJbAmAubARKm5VqQ6lmKZIDA7JN?=
- =?us-ascii?Q?T+eL7pllej/KBA/o2OvgZM6RPJP9hW9mohmG3mRDDSvez71FH7/+XfnQuMl/?=
- =?us-ascii?Q?SfdFy7NTWJs1SlnLg6Jrne/r7OIahhwl/NSatOsuZ6oVCP6FiosedN8s0z9i?=
- =?us-ascii?Q?0zzp7PVwBAj1azRP8oNThcT7w1JHARNVsGgxxAI5g3a0sHp+0TAJe5/u2RsT?=
- =?us-ascii?Q?I3RdFXQ+3bgAQBgCrqfjStPw89Gk8qetYQvQqXeNE9wPuX2VMq6xUgYVIst0?=
- =?us-ascii?Q?U6yHVbXZfC1j0kUcsMDQFsvr3idfeCIoKhvbH32BCNJDZJ9BZyxASN+wNr0F?=
- =?us-ascii?Q?Y+AvAPSEwT5rAb7f1Xw+MDD79uyp1dkX/Y5d7GKbihXoGGYlfyvypoGQx80g?=
- =?us-ascii?Q?BrRh6zvaX2dsraiY7ssO/Ys/lp9C/BgXMPvOxr+s/Du72aIdkiqqPZbJPbHQ?=
- =?us-ascii?Q?U3SRn676SrbJD/3tkKOw2QIlbJW5PlxPjtbjEWTcTeuRgsm7NF6RdX4AC9r8?=
- =?us-ascii?Q?deASF1GROafyKe+Z9r4=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ba30e97c-67d0-4112-4702-08de1aeb7740
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 15:12:55.5433
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eGZ1o8eyD9fITeks3obdgV7TJ2pOpA9POwG6nwWjOD0JeAElV8+ZRHNhxWDaO5/W6KrtWznf5TJ8XzCO7bJKsg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10414
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] soc: mediatek regulator: Add Support for mt8189
+To: "niklaus.liu" <Niklaus.Liu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, sirius.wang@mediatek.com,
+ vince-wl.liu@mediatek.com, jh.hsu@mediatek.com, zhigang.qin@mediatek.com,
+ sen.chu@mediatek.com
+References: <20251103134241.3773-1-Niklaus.Liu@mediatek.com>
+ <20251103134241.3773-2-Niklaus.Liu@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251103134241.3773-2-Niklaus.Liu@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_071300_164920_B8D3FEFE 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20251103_071422_888265_4C4F0212 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,34 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 01, 2025 at 04:25:27PM +0300, Dan Carpenter wrote:
-> This is supposed to be "priv" but we accidentally pass "&priv" which is
-> an address in the stack and so it will lead to memory corruption when
-> the imx_sc_key_action() function is called.  Remove the &.
->
-> Fixes: 768062fd1284 ("Input: imx_sc_key - use devm_add_action_or_reset() to handle all cleanups")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+Il 03/11/25 14:42, niklaus.liu ha scritto:
+> From: Niklaus Liu <niklaus.liu@mediatek.com>
+> 
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Please change the title to
+"soc: mediatek: mtk-regulator-coupler: Add support for MT8189"
 
+> Enhance the regulator coupler driver to support GPU power control on the
+> MediaTek MT8189 platform. This update ensures proper coordination of
+> multiple regulators required for GPU operation,improving power management
+> and system stability.
+> 
+> Signed-off-by: Niklaus Liu <niklaus.liu@mediatek.com>
 > ---
->  drivers/input/keyboard/imx_sc_key.c | 2 +-
->  1 files changed, 1 insertions(+), 1 deletions(-)
->
-> diff --git a/drivers/input/keyboard/imx_sc_key.c b/drivers/input/keyboard/imx_sc_key.c
-> index d18839f1f4f6..b620cd310cdb 100644
-> --- a/drivers/input/keyboard/imx_sc_key.c
-> +++ b/drivers/input/keyboard/imx_sc_key.c
-> @@ -158,7 +158,7 @@ static int imx_sc_key_probe(struct platform_device *pdev)
->  		return error;
->  	}
->
-> -	error = devm_add_action_or_reset(&pdev->dev, imx_sc_key_action, &priv);
-> +	error = devm_add_action_or_reset(&pdev->dev, imx_sc_key_action, priv);
->  	if (error)
->  		return error;
->
-> --
-> 2.51.0
->
+>   drivers/soc/mediatek/mtk-regulator-coupler.c | 15 ++++++++++++++-
+>   1 file changed, 14 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/soc/mediatek/mtk-regulator-coupler.c b/drivers/soc/mediatek/mtk-regulator-coupler.c
+> index 0b6a2884145e..f6e3b2a3a5a8 100644
+> --- a/drivers/soc/mediatek/mtk-regulator-coupler.c
+> +++ b/drivers/soc/mediatek/mtk-regulator-coupler.c
+> @@ -42,6 +42,18 @@ static int mediatek_regulator_balance_voltage(struct regulator_coupler *coupler,
+>   	int max_uV = INT_MAX;
+>   	int ret;
+>   
+> +	/*
+> +	 * When vsram_gpu is enabled or disabled and the use_count of the
+> +	 * vsram_gpu regulator is zero, the regulator coupler driver will
+> +	 * execute regulator_do_balance_voltage, which adjusts the vsram_gpu
+> +	 * voltage to the minimum value. This may result in vsram_gpu being
+> +	 * lower than vgpu. Therefore, when enabling or disabling vsram_gpu,
+> +	 * the 8189 temporarily skips the regulator coupler driver's modification
+> +	 * of the vsram_gpu voltage.
+> +	 */
+
+Looks like you are misconfiguring something here.... VSRAM_GPU on, VGPU off should
+not be supported if those are coupled.
+
+It's either both are ON, or both are getting OFF: in case of both being offlined,
+it doesn't matter if the voltage is dropping, because the SRAM is getting powered
+OFF, as much as the GPU is.
+
+Makes me wonder if you're assigning the power supplies to both of the MFG power
+domains *and* to Panfrost (vgpu == mali-supply).
+
+Note that VGPU should be assigned to the outer power domain (the main one, usually
+MFG0), and that VSRAM_GPU should be assigned to the inner-next domain (which is
+usually MFG1).
+
+Check how it's done in mt8195.dtsi, mt8195-cherry.dtsi :-)
+
+> +	if (of_machine_is_compatible("mediatek,mt8189") && rdev == mrc->vsram_rdev)
+> +		return 0;
+> +
+>   	/*
+>   	 * If the target device is on, setting the SRAM voltage directly
+>   	 * is not supported as it scales through its coupled supply voltage.
+> @@ -148,7 +160,8 @@ static int mediatek_regulator_coupler_init(void)
+>   	if (!of_machine_is_compatible("mediatek,mt8183") &&
+>   	    !of_machine_is_compatible("mediatek,mt8186") &&
+>   	    !of_machine_is_compatible("mediatek,mt8188") &&
+
+Keep entries sorted alphabetically please, 8189 goes here.
+
+Regards,
+Angelo
+
+> -	    !of_machine_is_compatible("mediatek,mt8192"))
+> +	    !of_machine_is_compatible("mediatek,mt8192") &&
+> +	    !of_machine_is_compatible("mediatek,mt8189"))
+>   		return 0;
+>   
+>   	return regulator_coupler_register(&mediatek_coupler.coupler);
+
 
