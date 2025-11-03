@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1696CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA1E4CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pz4JVN2VVeYXX1UQjMQ530ApI/CM8JKcyuImtcVfO7k=; b=0Yta5hyUYql/rjmXnde28iuKa/
-	kUdwrd/E1Av5WKmassGhhy5Xr/PCqmQqL9NFz/yKoMl2scNqrYlg21JCzK6Pldbz+lq1ShrtHkUHq
-	O4kQw120ofwIyD/Urlzc+DMrDo1jvjYDp6MHL9smlI6uat3CTOKj0FnbBaY66Gbjvicbt1yfo8XPf
-	9RJQbruDRjrbBdFnuI9BtZBmtgG/i573dhQQHH37Nt0OyT6oP9vnH0FLcmnPNooqX0z9AB3aVi+8q
-	z9gei1Lj33iWWwlqwCPS23hnpis2VN1aRh0ZiymVll1bafIAbdgnHGMzCU9liH2nPKrzgg38tHnDy
-	Z0IJLFWw==;
+	bh=iHrOgEgzQLtXqfjmHDjsKinl4MI7A2M2jyU12+oKmNw=; b=mosCHO1E7q74xIKP/UuJPlfJjW
+	yY+gxJ7Ria58dka3pqprqgz6Y5U3nInZvc/SuGGmjy3y4CgilZ6zhqh9CAh/vh9Yl4Lem0bgyI229
+	SSJSK/WiZW+g2ju4lkNKlg9Hq1iFiJzwwDyGCSz/ugFn/3nRe+nu2kdmOErpMT82+6fqIUnl3XL61
+	IQ/iPaqAdcYucR9DtQaSJKFgUwuhh2Py+6o95EiWG11CICm7Y7g3pNfoNRFPRYbRxXT5bwA9TgyHo
+	5+B1MZCStcU0LN8CCzW/miVcbVQX+1t58QVb98RtSl4NeBBJH4QxdJZazlmAp1FivLCSIpBuYdyin
+	wLHnluBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrnT-00000009d2k-3OmW;
-	Mon, 03 Nov 2025 10:28:23 +0000
+	id 1vFrnV-00000009d4T-3uyT;
+	Mon, 03 Nov 2025 10:28:25 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrnR-00000009d0d-2Qgg;
-	Mon, 03 Nov 2025 10:28:22 +0000
+	id 1vFrnS-00000009d1h-4C4d;
+	Mon, 03 Nov 2025 10:28:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1373941890;
-	Mon,  3 Nov 2025 10:28:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91ADEC4CEE7;
-	Mon,  3 Nov 2025 10:28:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AB06240851;
+	Mon,  3 Nov 2025 10:28:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33422C4CEF8;
+	Mon,  3 Nov 2025 10:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762165699;
-	bh=qDICcggEYwpzeew0V9EpWauGDNTFAtZObRveRemaIaY=;
+	s=k20201202; t=1762165702;
+	bh=R6HeLI7JDCTVZupquML/vCC+pYaZ4S+yt8pXUQACxto=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NN2H1vTEDXfpykRNkuD4/dJNDrJzwOt5j4FNHmHXO/Mbu9PxgrJrUlsNbA9u56GA5
-	 +4xQVgItyMar3jprrqq4qhAtBITGCgM5uCvTmsv0zHSrXEjlR49jGfFocQ9JC6vY3i
-	 OWwIYpH4yybW+1ARayyLbTyZ1IcpMH0HkCAlIUJ0peP65VRS2vbolXZ6Ut6iFXC0kC
-	 mUMpN/nm80RwHuVHQ4s0TMrlsatH2rh7SkPdTCber5bjGHMthYXxqXIjioLWbUtVFB
-	 cGB0Kyu8li4OpcryKHqJYd0HkEz3dMfFmH4olXl70hnepnNxYSK9c5xyO97q6mjuhC
-	 tPTVGyLCuXbwA==
+	b=JMBbxG/JFgkLStq6fa/BiyXiO80VoBi0IRsp5hFdV4bD/jmiAOs/xvHFFRH+hTQAS
+	 0XRYH9LPnap6RvzNJp9cFYDkM9VTqIMSUOMcF3Yq357jKRJaMfI81HGOFtKJUIA0W/
+	 +JkUwtYjIvridOy0V95he6RZCzT9IE5aTqtPJT0KR3Zn/JOMQtXHS5J47RndaxmkVr
+	 wTiAX99PqI4r40+Fh8sggDUoW4HKMObmjgV15WT8dJjBL7LVfPp/gN0jTMAuqneOo+
+	 UkObvOY7iRU4UhdCqPUoAJKIzYK4pAMvlaEQsgJz3CTjNMhvNXQxPfNRhctwWDONjS
+	 9u0t3+g8qUX8Q==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 03 Nov 2025 11:27:55 +0100
-Subject: [PATCH net-next 1/2] net: airoha: Add the capability to consume
- out-of-order DMA tx descriptors
+Date: Mon, 03 Nov 2025 11:27:56 +0100
+Subject: [PATCH net-next 2/2] net: airoha: Reorganize airoha_queue struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251103-airoha-tx-linked-list-v1-1-baa07982cc30@kernel.org>
+Message-Id: <20251103-airoha-tx-linked-list-v1-2-baa07982cc30@kernel.org>
 References: <20251103-airoha-tx-linked-list-v1-0-baa07982cc30@kernel.org>
 In-Reply-To: <20251103-airoha-tx-linked-list-v1-0-baa07982cc30@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -56,12 +55,12 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
  Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_022821_665721_EB1220C1 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20251103_022823_066105_0DC1959E 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,245 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EN7581 and AN7583 SoCs are capable of DMA mapping non-linear tx skbs on
-non-consecutive DMA descriptors. This feature is useful when multiple
-flows are queued on the same hw tx queue since it allows to fully utilize
-the available tx DMA descriptors and to avoid the starvation of
-high-priority flow we have in the current codebase due to head-of-line
-blocking introduced by low-priority flows.
+Do not allocate memory for rx-only fields for hw tx queues and for tx-only
+fields for hw rx queues.
 
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 87 +++++++++++++++-----------------
- drivers/net/ethernet/airoha/airoha_eth.h |  7 ++-
- 2 files changed, 47 insertions(+), 47 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.h | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 688faf999e4c0a30d53a25877b4a81a33ec7fca2..b717e3efe53cc9c86be8a39e7f9b03cc592e7281 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -892,19 +892,13 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- 
- 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
- 				 DMA_TO_DEVICE);
--		memset(e, 0, sizeof(*e));
-+		e->dma_addr = 0;
-+		list_add_tail(&e->list, &q->tx_list);
-+
- 		WRITE_ONCE(desc->msg0, 0);
- 		WRITE_ONCE(desc->msg1, 0);
- 		q->queued--;
- 
--		/* completion ring can report out-of-order indexes if hw QoS
--		 * is enabled and packets with different priority are queued
--		 * to same DMA ring. Take into account possible out-of-order
--		 * reports incrementing DMA ring tail pointer
--		 */
--		while (q->tail != q->head && !q->entry[q->tail].dma_addr)
--			q->tail = (q->tail + 1) % q->ndesc;
--
- 		if (skb) {
- 			u16 queue = skb_get_queue_mapping(skb);
- 			struct netdev_queue *txq;
-@@ -949,6 +943,7 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 	q->ndesc = size;
- 	q->qdma = qdma;
- 	q->free_thr = 1 + MAX_SKB_FRAGS;
-+	INIT_LIST_HEAD(&q->tx_list);
- 
- 	q->entry = devm_kzalloc(eth->dev, q->ndesc * sizeof(*q->entry),
- 				GFP_KERNEL);
-@@ -961,9 +956,9 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 		return -ENOMEM;
- 
- 	for (i = 0; i < q->ndesc; i++) {
--		u32 val;
-+		u32 val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
- 
--		val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
-+		list_add_tail(&q->entry[i].list, &q->tx_list);
- 		WRITE_ONCE(q->desc[i].ctrl, cpu_to_le32(val));
- 	}
- 
-@@ -973,9 +968,9 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 
- 	airoha_qdma_wr(qdma, REG_TX_RING_BASE(qid), dma_addr);
- 	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
--			FIELD_PREP(TX_RING_CPU_IDX_MASK, q->head));
-+			FIELD_PREP(TX_RING_CPU_IDX_MASK, 0));
- 	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
--			FIELD_PREP(TX_RING_DMA_IDX_MASK, q->head));
-+			FIELD_PREP(TX_RING_DMA_IDX_MASK, 0));
- 
- 	return 0;
- }
-@@ -1031,17 +1026,21 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
- static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- {
- 	struct airoha_eth *eth = q->qdma->eth;
-+	int i;
- 
- 	spin_lock_bh(&q->lock);
--	while (q->queued) {
--		struct airoha_queue_entry *e = &q->entry[q->tail];
-+	for (i = 0; i < q->ndesc; i++) {
-+		struct airoha_queue_entry *e = &q->entry[i];
-+
-+		if (!e->dma_addr)
-+			continue;
- 
- 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
- 				 DMA_TO_DEVICE);
- 		dev_kfree_skb_any(e->skb);
-+		e->dma_addr = 0;
- 		e->skb = NULL;
--
--		q->tail = (q->tail + 1) % q->ndesc;
-+		list_add_tail(&e->list, &q->tx_list);
- 		q->queued--;
- 	}
- 	spin_unlock_bh(&q->lock);
-@@ -1883,20 +1882,6 @@ static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
- #endif
- }
- 
--static bool airoha_dev_tx_queue_busy(struct airoha_queue *q, u32 nr_frags)
--{
--	u32 tail = q->tail <= q->head ? q->tail + q->ndesc : q->tail;
--	u32 index = q->head + nr_frags;
--
--	/* completion napi can free out-of-order tx descriptors if hw QoS is
--	 * enabled and packets with different priorities are queued to the same
--	 * DMA ring. Take into account possible out-of-order reports checking
--	 * if the tx queue is full using circular buffer head/tail pointers
--	 * instead of the number of queued packets.
--	 */
--	return index >= tail;
--}
--
- static int airoha_get_fe_port(struct airoha_gdm_port *port)
- {
- 	struct airoha_qdma *qdma = port->qdma;
-@@ -1919,8 +1904,10 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	struct airoha_qdma *qdma = port->qdma;
- 	u32 nr_frags, tag, msg0, msg1, len;
-+	struct airoha_queue_entry *e;
- 	struct netdev_queue *txq;
- 	struct airoha_queue *q;
-+	LIST_HEAD(tx_list);
- 	void *data;
- 	int i, qid;
- 	u16 index;
-@@ -1966,7 +1953,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	txq = netdev_get_tx_queue(dev, qid);
- 	nr_frags = 1 + skb_shinfo(skb)->nr_frags;
- 
--	if (airoha_dev_tx_queue_busy(q, nr_frags)) {
-+	if (q->queued + nr_frags >= q->ndesc) {
- 		/* not enough space in the queue */
- 		netif_tx_stop_queue(txq);
- 		spin_unlock_bh(&q->lock);
-@@ -1975,11 +1962,13 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 
- 	len = skb_headlen(skb);
- 	data = skb->data;
--	index = q->head;
-+
-+	e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-+			     list);
-+	index = e - q->entry;
- 
- 	for (i = 0; i < nr_frags; i++) {
- 		struct airoha_qdma_desc *desc = &q->desc[index];
--		struct airoha_queue_entry *e = &q->entry[index];
- 		skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
- 		dma_addr_t addr;
- 		u32 val;
-@@ -1989,7 +1978,15 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		if (unlikely(dma_mapping_error(dev->dev.parent, addr)))
- 			goto error_unmap;
- 
--		index = (index + 1) % q->ndesc;
-+		__list_del_entry(&e->list);
-+		list_add_tail(&e->list, &tx_list);
-+		e->skb = i ? NULL : skb;
-+		e->dma_addr = addr;
-+		e->dma_len = len;
-+
-+		e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-+				     list);
-+		index = e - q->entry;
- 
- 		val = FIELD_PREP(QDMA_DESC_LEN_MASK, len);
- 		if (i < nr_frags - 1)
-@@ -2002,15 +1999,9 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		WRITE_ONCE(desc->msg1, cpu_to_le32(msg1));
- 		WRITE_ONCE(desc->msg2, cpu_to_le32(0xffff));
- 
--		e->skb = i ? NULL : skb;
--		e->dma_addr = addr;
--		e->dma_len = len;
--
- 		data = skb_frag_address(frag);
- 		len = skb_frag_size(frag);
- 	}
--
--	q->head = index;
- 	q->queued += i;
- 
- 	skb_tx_timestamp(skb);
-@@ -2019,7 +2010,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	if (netif_xmit_stopped(txq) || !netdev_xmit_more())
- 		airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid),
- 				TX_RING_CPU_IDX_MASK,
--				FIELD_PREP(TX_RING_CPU_IDX_MASK, q->head));
-+				FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
- 
- 	if (q->ndesc - q->queued < q->free_thr)
- 		netif_tx_stop_queue(txq);
-@@ -2029,10 +2020,14 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	return NETDEV_TX_OK;
- 
- error_unmap:
--	for (i--; i >= 0; i--) {
--		index = (q->head + i) % q->ndesc;
--		dma_unmap_single(dev->dev.parent, q->entry[index].dma_addr,
--				 q->entry[index].dma_len, DMA_TO_DEVICE);
-+	while (!list_empty(&tx_list)) {
-+		e = list_first_entry(&tx_list, struct airoha_queue_entry,
-+				     list);
-+		__list_del_entry(&e->list);
-+		dma_unmap_single(dev->dev.parent, e->dma_addr, e->dma_len,
-+				 DMA_TO_DEVICE);
-+		e->dma_addr = 0;
-+		list_add_tail(&e->list, &q->tx_list);
- 	}
- 
- 	spin_unlock_bh(&q->lock);
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index eb27a4ff51984ef376c6e94607ee2dc1a806488b..fbbc58133364baefafed30299ca0626c686b668e 100644
+index fbbc58133364baefafed30299ca0626c686b668e..750dd3e5dfecb5d3d0ff754f6a92ffa000db3343 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.h
 +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -169,7 +169,10 @@ enum trtcm_param {
- struct airoha_queue_entry {
- 	union {
- 		void *buf;
--		struct sk_buff *skb;
-+		struct {
-+			struct list_head list;
+@@ -185,19 +185,27 @@ struct airoha_queue {
+ 	spinlock_t lock;
+ 	struct airoha_queue_entry *entry;
+ 	struct airoha_qdma_desc *desc;
+-	u16 head;
+-	u16 tail;
+ 
+ 	int queued;
+ 	int ndesc;
+-	int free_thr;
+-	int buf_size;
+ 
+ 	struct napi_struct napi;
+-	struct page_pool *page_pool;
+-	struct sk_buff *skb;
+ 
+-	struct list_head tx_list;
++	union {
++		struct { /* rx */
++			u16 head;
++			u16 tail;
++			int buf_size;
++
++			struct page_pool *page_pool;
 +			struct sk_buff *skb;
 +		};
- 	};
- 	dma_addr_t dma_addr;
- 	u16 dma_len;
-@@ -193,6 +196,8 @@ struct airoha_queue {
- 	struct napi_struct napi;
- 	struct page_pool *page_pool;
- 	struct sk_buff *skb;
 +
-+	struct list_head tx_list;
++		struct { /* tx */
++			struct list_head tx_list;
++			int free_thr;
++		};
++	};
  };
  
  struct airoha_tx_irq_queue {
