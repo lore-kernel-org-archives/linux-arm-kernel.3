@@ -4,168 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F18F1CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82365CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+DEkJb3sRLMgPdJXOne+d+2kVv1sHxmraeeZlxopH0=; b=GL1ndxoexVxbl72blcDYljPPoO
-	maOrUtNSCFqjXe2EIpLTM4dKiZN7vNPNwznufprtl5vxJqehRGBXYuHC31X7mjfljxg2pZhmKdr1q
-	tBNAsPfvY0OD7yCMJnFDDI7qmqYWyOfg+ljNlJhKXNEDFbPzajqon4xIKT2OHlQwSrmifZJCuAmF/
-	YC16viJjgpwgYtOggt63yiGJyhEqeklzK5HRWqIPnWBC92YkM62kT1bHl9nO8XDQzW+2rJxD5m5PC
-	blGmCDaU26dTFRnH/nX48BPivDJJpzK/nmZxsCEflWlsPH/Eg7Xe1RluiS+j2U1rgPRVIX07Ij0z9
-	112/Ke2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4bTLrYcdGviHL8Gi8iTccxKPkHb0A01pNfuP/UlxY48=; b=gDvRdpLzgpFgWI04Da2NuArJXL
+	g6GuYNMv3KIncK0qx2hyvH8PAb5HRhJJn+p68mRKugQlYaju+wMLgqAyTdMomARVC5wYOdqef6ifX
+	BHq+brga+l4YtUO9lx2NkET9un48NJ6Io6wvGjOpgiSyZE4ZZ7+7/PL6ZuC4z1Qkm9MMBLve3AGOM
+	OL4HFL6yGwcae1QjLR+IN/pbroBU93VlPS6BFwD4Vi5Zy4/ekZctKr2SqKPaDqqXPxjBcsIeeDI/0
+	5PGPKFQrOdZWf6SVDQ1C2GKyfkMkAhZSNkZN7H4MLkGqXeFF/jioD6gT6xDnzK/jB9qqtCUQxr5bv
+	TrFHZ/Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFzZ1-0000000AVE0-0NUn;
-	Mon, 03 Nov 2025 18:45:59 +0000
-Received: from mail-centralusazon11020120.outbound.protection.outlook.com ([52.101.61.120] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vFzfZ-0000000AVdJ-11Yo;
+	Mon, 03 Nov 2025 18:52:45 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFzYy-0000000AVDd-1sht
+	id 1vFzfX-0000000AVcw-02vR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 18:45:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YDecvJ1uC88yVneA5LBh4UzHwNloRnXobPZj7jrIzb75hlfAeq9Tl+q+wE2hvn/J2iQa9kZ7AzT3EXDrtJDsSNcPE8ksSAq3KesVuAhtKT+9JmNepN5W8d76mI5j1TM8ypdF6YqQ+im2EbnZfdFhhaSCDO/uv8hc5yE5siFnWYEtRD59AwFQD1pg30xt2MEg4HgKrAOswWVljeOqgENfgX8ca+9ag7NDtuxpdKJ2TjInkohtwWXKJqFjttNjZyS8Sbx3G+qqqmwah9BjiB00REIMFo5e5VWRTHO/9s27tyT1NArHpA6M3AwUkLoJWIrGlh4UAfDqP5b8dlVQ58u8cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D+DEkJb3sRLMgPdJXOne+d+2kVv1sHxmraeeZlxopH0=;
- b=d1ZRyd0fn7+UxX2kz/wHUWY4aUbfxo1+74msj9Qt/7jwbVULBiekUD87CS7/y9ipyGMSEOxe3pmOAAZPEhYVTCZfnXb7fiRSnl1uU/y2VdfBSMzZXIIxvUO2viTxoGBxrjVBQiFVCVgOO1zpUwOqOZt/qgFe7EwaEbh3mM8Ic2ZaGZcbuSu5421fuRzq3vQ7YfWIt4pwqhyx04eUZ9WwB6GDnjOkNOSrq6CTDBe6TUp3hncvY8YScXU1NleuGvCydBpi0NkvI52cMJckD4LSdJbYPsIhCykO8v+5TfdPW/PHIICGjbYShQ0BvPk5WTliPFSB6VtdQeVf5T+XYNpAwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Mon, 03 Nov 2025 18:52:44 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3414de5b27eso641215a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 10:52:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D+DEkJb3sRLMgPdJXOne+d+2kVv1sHxmraeeZlxopH0=;
- b=cAi6XVi+NBe5TD9bTrf+c7JohBwctFqEQ1M04hupnVgO1VMu+buT9cbDyx7TVw+SvVC8RfJMssm/0F3GCPLrydhIX4D0MY86TxUc7KqSDe2isuXZRvkoIaZPC+7ibyN9lzasZF3y/1lXNvWWWxck6d5um9awwgPp39254LobSdU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- PH0PR01MB7288.prod.exchangelabs.com (2603:10b6:510:10b::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.16; Mon, 3 Nov 2025 18:45:48 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
- 18:45:48 +0000
-Message-ID: <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
-Date: Mon, 3 Nov 2025 10:45:42 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
- __change_memory_common
-To: Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, rppt@kernel.org,
- shijie@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20251103061306.82034-1-dev.jain@arm.com>
- <aQjHQt2rYL6av4qw@willie-the-truck>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <aQjHQt2rYL6av4qw@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CY5PR19CA0002.namprd19.prod.outlook.com
- (2603:10b6:930:15::8) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=gmail.com; s=20230601; t=1762195962; x=1762800762; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4bTLrYcdGviHL8Gi8iTccxKPkHb0A01pNfuP/UlxY48=;
+        b=ZNi7Q3cR4yMzdIekeaev7WUOaElqqq4ADrDEVutMj68zo2rXH20zD2luXQuGO62PhB
+         av3sdT2jhP0X+aA1mcyLqs6O4ykni8k5IOYs8bdEt2u3M4o9gHA/s3GJzQ1BF28wsewB
+         W9B6oWie039EE2atZtY2yk72peOYyGrJAiDJuNbJJRYVEBmQ4nUlzBpvk6e3DT6S3pTE
+         JIM0GahtftahktSdDXWyarP33IW19pkcllb3yB634ZQzxsPjr/4bbhaauitxxBeFSLr5
+         VeCZ9kECG7wjJ6pO7h14tcYfpvLb6z0gFVMMcXNHtqpXQ4f3NeBUpP0ojsi9QWU+dS68
+         g+tQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762195962; x=1762800762;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4bTLrYcdGviHL8Gi8iTccxKPkHb0A01pNfuP/UlxY48=;
+        b=XHBH7XXH/yMM+rIXrld0RqF2+N1s84/qzEjcz/3nEVDzPHdd7r4KvRuhuX+Pp+jtZ9
+         apH8psj0gDEp4Y+HpYWLrBGyTWfKeyRK6tYN/Lh8e7tygsaVUCpfyOhPHXXp4Kjlgctu
+         Cj92tdhapbOfo9tW4uE8JSLr5L+g9fyeighJ2akY4dqPQbBhl7GwWoCXQTnRXdPUQgwH
+         x5vKqazGSa0o7zXPQBQlKH1ct8TByp0CUGXfZgBHwRFyEvGACYMepFgpS67Gbf5x32sz
+         lC3Y8vbYRZWta7Mt/o+vHVyjzkJ0/RhYc9mgIZ/P4tYTZa6BiBslBfzT84j2y4IBAgSN
+         it5g==
+X-Forwarded-Encrypted: i=1; AJvYcCWeaz+7p/7VO6Wk9ZXjGN3T91HKmSG2njFM9M+KCSui1mklDkzRN13JSuV7NuDgNmYOM7aYWmvflwu91lO5Xzeq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3IbltDE+KSKxBq/RGZqrsLRAtZOUroph+Azu27pAH4QLpfII4
+	qJ5DAwdIKryn1MTKHQ28QXLecjgpoydw24wgS2SVzSIxUDCvT3oHYnhE
+X-Gm-Gg: ASbGncsT917WbUcIxcQMuDqDhwc+RgvorkMPBXGnim7E4wj/7ixAU3zMGxkmLSAndJ/
+	zkN60JCTcml7xgS80XUfzufHqMWF+MEzkHdMeJ4oHmeEdBY5theTZKPY0jpSztX/CrVISOFevf7
+	BA8+5ro7+lxPodlceyPMBWZfV93gzosjF+FJkfVxBpVs6v1i2J0sy9xiqqSML5n9Ey8SfVq3KKy
+	Baz9hIkHsEmIepEaVFKCNMjjbJXKvt4r3YWiGbWL3Uq9LFtKhLFJ9DZbFFEkad0bcPVKF7B757g
+	s079xhRoxLIWJzQKzLqYig1Ye+eRLNGyWKcNbThihcEW6QV2vsAFlW1Zt42Y6asNu93YiHF8UrL
+	q6aLfpkSUt4469s0tI9LPO8fqy0oCCyq+BrsuaEWqKblj+EMH96Zh3J/ogvS54ztSpT1jwLnZ91
+	HXEQmt23LwIxZa4RwnGqMS+VBxs791
+X-Google-Smtp-Source: AGHT+IEoJGgdDYDkKXdr+CYpLYlhkWn/9DscVQmfV05umliaGx7nf5rDXxZHqyJxi65KxiLM+AdQJw==
+X-Received: by 2002:a17:90a:c2cc:b0:33b:d74b:179 with SMTP id 98e67ed59e1d1-3408308ccebmr15462822a91.27.1762195961473;
+        Mon, 03 Nov 2025 10:52:41 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:4::])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b93bf44e233sm11232213a12.34.2025.11.03.10.52.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Nov 2025 10:52:41 -0800 (PST)
+From: Ben Niu <niuben003@gmail.com>
+X-Google-Original-From: Ben Niu <benniu@meta.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	tytso@mit.edu,
+	Jason@zx2c4.com,
+	Ben Niu <benniu@meta.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] tracing: Enable kprobe for selected Arm64 assembly
+Date: Mon,  3 Nov 2025 10:52:35 -0800
+Message-ID: <20251103185237.2284456-1-benniu@meta.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB7288:EE_
-X-MS-Office365-Filtering-Correlation-Id: 82511f34-e376-4945-12bb-08de1b09347b
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YXRiY283SkVXZUdBSC9BempFandJY2VLR05TYll4eFNyeXVDMGpVcHlLenBk?=
- =?utf-8?B?aGpLR3Z3TTJMNFB0S2VaVjliQ1lPdG9qejhJNGhXTVJ6MytrNDFLMWNFYnpF?=
- =?utf-8?B?TjZRMVJOdVlyaTU1ZXp6Um93a09id3hSb1Z6MkZFa2N2TlYzdjhqaEVyYTVP?=
- =?utf-8?B?L1dsQ1ZpNVVWNCs2UWU1Y1BaaFFmT0hGbk1xa1ZWdlN0RllyQXFMOWVpUnJE?=
- =?utf-8?B?K2RudExDNmNsTWppVGswZGVWVEZJMDN6NE9naGs3L3RzUGh6R1d3dDEzTDlX?=
- =?utf-8?B?MmVmdVJRdlp5L083VktWZURIN0tXRWhtTzYzbXpqT1dRbTZ6S1VobVYvbWcy?=
- =?utf-8?B?N3pvN3VMVDJ6OVBmT1Rjck5IT0hVSzdOTlQvYjU0OUVmTXFLWlRtc3c3YmI2?=
- =?utf-8?B?RVp4QkZaRWVTQkliRityeVVoRUJkS2JYeWwrZEF6QXJ6TFRQUGFTKzF5SGR3?=
- =?utf-8?B?Ry9mQU9vei9ES2dhZnI1U0M0YWcwUFFGKzJYSENxeHFvRU4yc0czWitKb0VF?=
- =?utf-8?B?SDJkL05wVUtOMkZDdnp3ZzhLY2hhTlNWd25JMVI3Mmhic2dETytDcnVXYTZo?=
- =?utf-8?B?ZzZRc0w0VXpNSWo5dnpjZVcyRHFMMS9YeDZBcm9oQmZ3akNKZFozSjgzUENh?=
- =?utf-8?B?SjhaMm1aN3B1eW5kS3JnOUZjSDY1T3RWVU9scXM5Z2ExVk10VnpNbFc0SXBr?=
- =?utf-8?B?QnhxRk5TWWQvaXZITzdBdU5QVTA3TDZtTU03MVlqZUxyNGI4OE5ZbzVXSVNC?=
- =?utf-8?B?MHVuWW1FblEycUp2WEFWQnpqV0Jib3R4YUF0aUtQdGJFdEhpN1FudlYzbkFF?=
- =?utf-8?B?TXRRb2Z3cTczVXJKaVIxNmV5cmc1aStjNFBVUjg4VUc1VzZIVzZwRUVZUllo?=
- =?utf-8?B?U3poOFFYa1djVDNnL3JyZTBuejFQVmRkMjRPYjlUazl3SUR2UVdpTVNESTBE?=
- =?utf-8?B?aERSdFBhZTNXRUg5OTFZQndTdmpMZU1EOUxlV3gva0NTU3J5RHkwU0Jpa0py?=
- =?utf-8?B?T0NDWHQ5SHhzTklDVU12SWo2QU5ETVpJYU1hTmpPSVpjTVU4UFplUTZ2eEpJ?=
- =?utf-8?B?WUVPYWxLU3duOWk2SWV0K0NYMlcxQVVxbjNoMjdKa2ExK2ZMbVpMVjQ4SG9v?=
- =?utf-8?B?SzNjdTZNcDhOakExV2Z2RWpwRlM0RW0ydzVXd1pSUUtDSDJNdi9ERmRBNHd5?=
- =?utf-8?B?SDhScjUza1VDZHZJUDhiTWdGQm9VUGdqNUw1RVVmdURlNSs0QjFPUm1mYW45?=
- =?utf-8?B?Kzg2cTh6ejYxdFJzYVpoakh4bjF0MWJaSnpFSWFtdkJ4UTRHK1czcVJ4QWYy?=
- =?utf-8?B?YWsrblJ6RVhCQmNEN0N3b1ZLOVM3aGp6N1ozSVVXdG1lcXE2Z3doYnF0NVhC?=
- =?utf-8?B?UU1peThhWnEzaUxEajZleElOeDBMVGg3RmhVbzl0VmRZUlhUYTdYU2I2ZkR1?=
- =?utf-8?B?cnZWcllDWDVmeSt6enJKcmhsWHZhcitMc0F5Q2grVThtK1F6aXhXTm42aWRU?=
- =?utf-8?B?dzVZYzJrTUxoM1FZRXVOTDVYK0wwUmtibktLWHhWTGUzUkNGTXF3TjVKNVFN?=
- =?utf-8?B?QUJqbW1uNWc1MDZNYmVaTFYvcWN5cE0remk4NHZvNVpYRldMOFJicEJISm9X?=
- =?utf-8?B?VTZPUWlueCtKUFYraEdCVCtRdzVjM2pJMmtBYzk5c053SmJBbmU3NnRtZUhN?=
- =?utf-8?B?MmxBTEx6VUlpL1dWeXZoN3dsMEd5R01nRGgrT2FiNzFNV0ZsOGgyQTByT3NB?=
- =?utf-8?B?VDFCcjMrMitkbWw4cGlQSVQ5UUJWRXAydGh3VE0zeDA2SFJTbXhiT3hRNldi?=
- =?utf-8?B?RmVkUmVySkp6QnBDQ2IzKzdnd2svT0djZ3dtQXRvNVBibXRnSVJNbFJRWFhI?=
- =?utf-8?B?RDFzWDNBWjN1Si8xTk5qWmdRQW0wanVuMmNXYXNPeEhWLzdxK1pNaHNhdW1W?=
- =?utf-8?Q?7bDu+hDnbAMBojbV84SaLbyNE1ttYyrJ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eGIxZkhpSnRoeUV0SDhwS2tFR0t0UHUwd1hqU2lkUlhRN0t6TDVXa0RVN3pr?=
- =?utf-8?B?MXc2bHlqZndQdWE2OEFMZzR6UnFDSjltaS9Vai9mL3N2amlHeXJidW5ubTFi?=
- =?utf-8?B?eTNZTS9MK0gyOUcyNm5OMmZoVDJzVnhSSTh6NFJjbDRqK2VpazJBRDg5Nnda?=
- =?utf-8?B?dTZ3UkZvZmNoSjlDY2kxbHplR3FvWXFUNFA5RHdPVGs3OFRRTnE4ZG4xUGNC?=
- =?utf-8?B?T29uRWlaajRnekVvaVB6cDNicHdPZHZnMXlFcTNURCsxMmxpSldkK0Zqa2dH?=
- =?utf-8?B?NVRibUpjeWVUdWZUanIxcXFiK2FqTzVGMC9lbFdXcE42WEQvcy91RG9LS1Q3?=
- =?utf-8?B?eG14N1ZFUGk2M3VGdEk4TGRZQjMyOWx5d0FDN2tXeUU0cGYwbTViSlI1NGN4?=
- =?utf-8?B?bk9wRVoyaXZmVi9hcUtjcnA2VlV1ajBqOGw1N1Z5T0JXaVY4TnluRGtrNmM0?=
- =?utf-8?B?aWQ1NW1ralVlR1BIVzEzQVRwdGdLZFNCOXdUMmx4bTUveEN1N0VPUmUvdXRt?=
- =?utf-8?B?UkNrc0lhNHNZQmdXYkV2MHpoNEI5cmprUlA4TTMzZExHd2wvUnlPalIyZThR?=
- =?utf-8?B?VTZ1UWRGb0krc1FCeDdneGlzZ0hnaXhReGpXQUhNS2dyVGFMUTVaSTlWcUlp?=
- =?utf-8?B?Y3dyRWxCSk9xMmRvWnBVc3J3bTFNL0sxNlRsYUVMZEVzODB6Vjd4UWxWaUVS?=
- =?utf-8?B?MW1JaDltMmE4QWo4UVg4WmcyTFdJTjdIZDhHSWFwMldRWkw2TGtCZVdITlVw?=
- =?utf-8?B?OEFpcWtFOGhIbkc0Q3hpb0g2cVZyK2pVY1h0TkhHVVBWSmtHdmVIVk9uekU4?=
- =?utf-8?B?VDJMaVZlOFJMZU1CZ1VoVXhHSmJCNHl3MzhUTWFCOExoQmFlYVNvc2FGa094?=
- =?utf-8?B?d01qM2dRS1hyRkZhdmRwKzkwWXBJNHJ4d0tkVm9Yb05uVVpWbitEbUFpbklS?=
- =?utf-8?B?RFl0MEd1bVgxekhHYkFpZm5TS3BIRXN5VlFUSWFxSVhKQzJHYk1odExoOFZU?=
- =?utf-8?B?U2orSUI5a0lIR0ZIanFIY1NLMVZhcExiZHVpVjlmNWhYcElmMzl3V295UEtw?=
- =?utf-8?B?c3M2d1hQRytPeGhWdDZVc0txY0Evd3N4THlYajdWOHRkanFSalVEOUd0VUoy?=
- =?utf-8?B?UHppMkJLa2JRTk9Ecy9Hb1ZhY3lDT2Z1UGdoMUdiNUpZSllLTmxkRHJ5bkQ2?=
- =?utf-8?B?dndLWnJhOUlJaVdJOHpDdUdLL3dIcFIrNEdhUlltVXhpY3N1SGhsTlF6K0ZF?=
- =?utf-8?B?aW1MMG40T29kQ3BiUjRsQm5sZjduRjJBdkNGbS9aaENlcXg1VXlKd1NrOU1v?=
- =?utf-8?B?cGg1eUFLRFBnUnBtNURoYVBlcUFNUXVzYXQ5Q3U0dWhaL09FOEtqLzBxRVow?=
- =?utf-8?B?SU5GR1F1WnFqVjJoS3c0T0l0NVFDMkNBWmxqS0tJQVVmZVpiVXVFUVVZSUFl?=
- =?utf-8?B?VkxwMzlzQmwxbEszcGJ2ZU9DOVI0eXJFRjUyVEE3WHk1TkF3QWRFZ0ZJMUha?=
- =?utf-8?B?S1pSV0lteXViSTJDM0tEOFYveVZaZTdaVFJrYjBZbHY2STNSamh2bS9FVElE?=
- =?utf-8?B?TW1FMVM0bzZadmVRMDFHTzZmc21oZHM0Z1BjZXpPZis3UGMrbzJwT2x4dmk5?=
- =?utf-8?B?WSsxeTV1K0ovWHJMMkdEVjB3SzEwZXBodXBNMFpPbTA1eHdqOUF2dmQvdmJC?=
- =?utf-8?B?aGNWQVBNMzRHdnNqUVJvZVdlL293VE5NQ2JCbG4xMFowRDFFQTBlVmM2QTkz?=
- =?utf-8?B?bWg3eXUyN1phTU5IaVNtMThkOTRMRHZuUWMvb3FUTm5RZjlNRWR0SVp3RVM1?=
- =?utf-8?B?SFg0Q3JXQWhFeEFNOWJKamF3ZHVJZWcvYTZDMkRMWVFJUFRRWndWQUNiSzN6?=
- =?utf-8?B?akR3K0tEZWlBNzFNSUc4ekdmRHhZUXRsR0VsN2JjZ1kyN3ZPSjYrbEw3V2ha?=
- =?utf-8?B?WFU2V2JYN1hkVUE5cHgxZlFYS280ZXMzZ0tiVlI4TGVCcGxDa3VzMVFDbmJ4?=
- =?utf-8?B?Mm9LREFuMmp3S3JsMnNtN3l3Y2d1Q2o0dlpYL0p3bnBid2RaN0g5eTdaNzNI?=
- =?utf-8?B?a21QaitVeGtLSVhFNnQxczIzNjdvUk96OCtoN1VoS04rT0VVZUx2THdtaFgx?=
- =?utf-8?B?WE1IQnVPcXRZemlBeTZPN0xuUTQ5Vlg3S1ZDeUpRSFQzcGtBZnh0eCtVTG8z?=
- =?utf-8?Q?NEAlrQ1surm/lZQzHGuMwMc=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 82511f34-e376-4945-12bb-08de1b09347b
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 18:45:48.3651
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3hY2Wbl3jevOZSgffe4PS43/MQoKBVwLPHaUarAzFqrO4xG/HEqKuTtRg6Rd/tBJCmA/5QsbIkS9GKroThpt/ZTIAVtzbFq9aGdv443xVfU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB7288
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_104556_527270_F8FA81CB 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20251103_105243_079705_EF44092E 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,59 +102,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When ftrace is enabled, a function can only be kprobe'd if
+  (1) the function has proper nops inserted at the beginning
+  (2) the first inserted nop's address is added in section
+      __patchable_function_entries.
 
+See function within_notrace_func in kernel/trace/trace_kprobe.c
+for more details.
 
-On 11/3/25 7:16 AM, Will Deacon wrote:
-> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
->> Post a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full"),
->> __change_memory_common has a real chance of failing due to split failure.
->> Before that commit, this line was introduced in c55191e96caa, still having
->> a chance of failing if it needs to allocate pagetable memory in
->> apply_to_page_range, although that has never been observed to be true.
->> In general, we should always propagate the return value to the caller.
->>
->> Cc: stable@vger.kernel.org
->> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM areas to its linear alias as well")
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->> Based on Linux 6.18-rc4.
->>
->>   arch/arm64/mm/pageattr.c | 5 ++++-
->>   1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index 5135f2d66958..b4ea86cd3a71 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned long addr, int numpages,
->>   	unsigned long size = PAGE_SIZE * numpages;
->>   	unsigned long end = start + size;
->>   	struct vm_struct *area;
->> +	int ret;
->>   	int i;
->>   
->>   	if (!PAGE_ALIGNED(addr)) {
->> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned long addr, int numpages,
->>   	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->>   			    pgprot_val(clear_mask) == PTE_RDONLY)) {
->>   		for (i = 0; i < area->nr_pages; i++) {
->> -			__change_memory_common((u64)page_address(area->pages[i]),
->> +			ret = __change_memory_common((u64)page_address(area->pages[i]),
->>   					       PAGE_SIZE, set_mask, clear_mask);
->> +			if (ret)
->> +				return ret;
-> Hmm, this means we can return failure half-way through the operation. Is
-> that something callers are expecting to handle? If so, how can they tell
-> how far we got?
+This patch adds a new asm function macro SYM_FUNC_START_TRACE
+that makes an asm funtion satisfy the above two conditions so that
+it can be kprobe'd. In addition, the macro is applied to
+__arch_copy_to_user and __arch_copy_from_user, which were found
+to be hot in certain workloads.
 
-IIUC the callers don't have to know whether it is half-way or not 
-because the callers will change the permission back (e.g. to RW) for the 
-whole range when freeing memory.
+Note: although this patch unblocks kprobe tracing, fentry is still
+broken because no BTF info gets generated from assembly files. A
+separate patch is needed to fix that.
 
-Thanks,
-Yang
+This patch was built with different combos of the following
+features and kprobe tracing for asm functions __arch_copy_to_user
+and __arch_copy_from_user worked in all cases:
 
->
-> Will
+CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+CONFIG_ARM64_BTI_KERNEL
+
+Signed-off-by: Ben Niu <benniu@meta.com>
+---
+v2: only opt-in __arch_copy_from_user and __arch_copy_to_user for
+    tracing since tracing asm functions in general may be unsafe
+
+v1: aQOpd14RXnyQLOWR@meta.com
+---
+ arch/arm64/include/asm/linkage.h | 91 ++++++++++++++++++++++++--------
+ arch/arm64/lib/copy_from_user.S  |  2 +-
+ arch/arm64/lib/copy_to_user.S    |  2 +-
+ 3 files changed, 70 insertions(+), 25 deletions(-)
+
+diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/linkage.h
+index d3acd9c87509..b9a7513dc7d9 100644
+--- a/arch/arm64/include/asm/linkage.h
++++ b/arch/arm64/include/asm/linkage.h
+@@ -5,8 +5,47 @@
+ #include <asm/assembler.h>
+ #endif
+ 
+-#define __ALIGN		.balign CONFIG_FUNCTION_ALIGNMENT
+-#define __ALIGN_STR	".balign " #CONFIG_FUNCTION_ALIGNMENT
++#define __ALIGN .balign CONFIG_FUNCTION_ALIGNMENT
++#define __ALIGN_STR ".balign " #CONFIG_FUNCTION_ALIGNMENT
++
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
++
++#define PRE_FUNCTION_NOPS                                                   \
++	ALIGN;                                                              \
++	nops CONFIG_FUNCTION_ALIGNMENT / 4 - 2;                             \
++	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
++	.p2align 3;                                                         \
++	.8byte 1f;                                                          \
++	.popsection;                                                        \
++	1 :;                                                                \
++	nops 2;
++
++#define PRE_PROLOGUE_NOPS nops 2;
++
++#elif defined(CONFIG_DYNAMIC_FTRACE_WITH_ARGS)
++
++#define PRE_FUNCTION_NOPS
++
++#define PRE_PROLOGUE_NOPS                                                   \
++	.pushsection __patchable_function_entries, "awo", @progbits, .text; \
++	.p2align 3;                                                         \
++	.8byte 1f;                                                          \
++	.popsection;                                                        \
++	1 :;                                                                \
++	nops 2;
++
++#else
++
++#define PRE_FUNCTION_NOPS
++#define PRE_PROLOGUE_NOPS
++
++#endif
++
++#ifdef CONFIG_ARM64_BTI_KERNEL
++#define BTI_C bti c;
++#else
++#define BTI_C
++#endif
+ 
+ /*
+  * When using in-kernel BTI we need to ensure that PCS-conformant
+@@ -15,32 +54,38 @@
+  * everything, the override is done unconditionally so we're more
+  * likely to notice any drift from the overridden definitions.
+  */
+-#define SYM_FUNC_START(name)				\
+-	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_FUNC_START_TRACE(name)                 \
++	PRE_FUNCTION_NOPS                          \
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
++	BTI_C                                      \
++	PRE_PROLOGUE_NOPS
++
++#define SYM_FUNC_START(name)                       \
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
++	BTI_C
+ 
+-#define SYM_FUNC_START_NOALIGN(name)			\
+-	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE)	\
+-	bti c ;
++#define SYM_FUNC_START_NOALIGN(name)              \
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE) \
++	BTI_C                                     \
+ 
+-#define SYM_FUNC_START_LOCAL(name)			\
+-	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_FUNC_START_LOCAL(name)                \
++	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN) \
++	BTI_C                                     \
+ 
+-#define SYM_FUNC_START_LOCAL_NOALIGN(name)		\
+-	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE)	\
+-	bti c ;
++#define SYM_FUNC_START_LOCAL_NOALIGN(name)       \
++	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE) \
++	BTI_C                                    \
+ 
+-#define SYM_FUNC_START_WEAK(name)			\
+-	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_FUNC_START_WEAK(name)                \
++	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN) \
++	BTI_C                                    \
+ 
+-#define SYM_FUNC_START_WEAK_NOALIGN(name)		\
+-	SYM_START(name, SYM_L_WEAK, SYM_A_NONE)		\
+-	bti c ;
++#define SYM_FUNC_START_WEAK_NOALIGN(name)       \
++	SYM_START(name, SYM_L_WEAK, SYM_A_NONE) \
++	BTI_C                                   \
+ 
+-#define SYM_TYPED_FUNC_START(name)				\
+-	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+-	bti c ;
++#define SYM_TYPED_FUNC_START(name)                       \
++	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN) \
++	BTI_C                                            \
+ 
+ #endif
+diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
+index 400057d607ec..07b6d6c9573f 100644
+--- a/arch/arm64/lib/copy_from_user.S
++++ b/arch/arm64/lib/copy_from_user.S
+@@ -61,7 +61,7 @@
+ 
+ end	.req	x5
+ srcin	.req	x15
+-SYM_FUNC_START(__arch_copy_from_user)
++SYM_FUNC_START_TRACE(__arch_copy_from_user)
+ 	add	end, x0, x2
+ 	mov	srcin, x1
+ #include "copy_template.S"
+diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
+index 819f2e3fc7a9..e7e663aea8ca 100644
+--- a/arch/arm64/lib/copy_to_user.S
++++ b/arch/arm64/lib/copy_to_user.S
+@@ -60,7 +60,7 @@
+ 
+ end	.req	x5
+ srcin	.req	x15
+-SYM_FUNC_START(__arch_copy_to_user)
++SYM_FUNC_START_TRACE(__arch_copy_to_user)
+ 	add	end, x0, x2
+ 	mov	srcin, x1
+ #include "copy_template.S"
+-- 
+2.47.3
 
 
