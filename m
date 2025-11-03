@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5634CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A06CCFA06
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ySdZbsfQoA3Pydck58t1awyRQGkCymKZ+NC9Ymw8JnE=; b=pNtuWc3ZuEycg+
-	tzRX+TuOB4W9nUEc85CmXRVK06E1UjC8oLJW/o+x9t3mqDZSM2QM30IiVVNDEhSQQJblhMptRw/sC
-	KJ+2ohtzRLEqNAKx/bVuP4TIRNbGck/AtKEGFpB0/G0Rn5Q/7pmwWFCokbBIL4qKAFVZhtatuhFhN
-	DMK2D1qPP8mJUS00n6i/wwvjnIngqoWJsQY8GKD7N5l6zQhPiSnaQo7hgO6xCotF43Bqmj/ya5+Iw
-	4JEQe1PahAly7VfkAT1izWTmy9mq56DAR1tjGk6wfbVpBjyn8R+eQOHfrdJzPQy3Y/OPjgijU53k1
-	l0CXxPbyN3H336m7o2Gg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PPrnykW9RcTv8SXmC4oIff7zEg9zUe3KhDF23k6GnlE=; b=G79ZQdOkev80vMaL0luNVXBKYG
+	MMsr6mGg0d/XxpK9uKIQCS/77AGd1YR5Am88PMO9cpjVPrHL+zog/RC8+W825T/D2+hXmD4tvgIZA
+	XNRRsBXUCWh3kvumUCukhUzUpsc5ND0KQ+e+nw9PdENqpCWJb18DcmXVTQdz+ZoH/wGP9b0iOXrZ4
+	4VaEDSEBB9QDNI5povxsnPGsOTjqnS1YEbV75eGHkxm/Kzi9s3jjmO3Z+wkhLGX04rXUXRN2Seqen
+	9Um9HuNE/4vEdU1FJ27RowFTP3dUbsQOJIWzcov0nZqaWK4OMKuB1UgwIM8SNtxJ85btChgsmDjqT
+	JvV32hvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFttW-00000009qXP-3IIm;
-	Mon, 03 Nov 2025 12:42:46 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1vFttZ-00000009qZq-19A4;
+	Mon, 03 Nov 2025 12:42:49 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFttT-00000009qVc-3lbi
+	id 1vFttX-00000009qWn-0U8d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 12:42:45 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-63b9da57cecso7574994a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 04:42:43 -0800 (PST)
+	Mon, 03 Nov 2025 12:42:48 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6409e985505so2681584a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 04:42:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1762173762; x=1762778562; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ySdZbsfQoA3Pydck58t1awyRQGkCymKZ+NC9Ymw8JnE=;
-        b=mAzFg7/fuSmNOT/1heERXCYANBlILL8jSVb1o7TrMkdQu7GKsphU7xNB0kC81xMfRV
-         ONVVu5MbtCYYV1MWTKvhMVpQ5ZgL7Z5eI6WuXHw84Ug8E3qHORO4uPwUMM/RIJO2OglB
-         pFLTXFJFZH098CRenrY8VHJfQ3VUz6067UFADkSH6hSLkaVYvJGdsShwBFvEXgFpbgPH
-         2REHd/rhFwf7GNUQzRcBR0U65r7BhIoODVU5CDIvx3KipZ2NCCsRR1dBPFQRVXifZwYF
-         XskETittqpe/XWEEbFpv/I+g8NMJyM4XmYq8QKCaDDPKGx1hCsmphHoyHow/8OkmUJ4O
-         4EAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762173762; x=1762778562;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1762173765; x=1762778565; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ySdZbsfQoA3Pydck58t1awyRQGkCymKZ+NC9Ymw8JnE=;
-        b=uiKbY+ThZxBqlDWci5DuSyZRsbkP2MHTd0nmV9KGe3MIFAo4S5NBkP/0KLjZpCLGT1
-         /JonOULGZKWmlQIQWQHzOoaJtZdd+/+mI2ihC+J4hEjdO8TkQKX0o7HJPgCb5etthaVn
-         5dXWsShOiWYyyhvCxbNv7JvRSDse4BlQzpWfbJsT9fDV2mNQKi6bb69jCk+Z9SvqbmjS
-         A9QviMrll8cNYieIvqZ0oz2uIfvHjKaGnqH4m1AxfJSH+8uaACBRW+eIbuNQo2ACvJDo
-         2rb6h0HZ/77VFssxgKrgS3AwlXnUfK81BpL0ihOWkrnHsMcb3BHQfB264z19w6MTetAV
-         jFVw==
-X-Forwarded-Encrypted: i=1; AJvYcCVN5MxPpFaTp8I+NdoC2GI907DPGgJHN4MWzp+EUoNi97obSIxN3GOeLM5UDGDuKIjNFjjO4dwbQnEUKp+xEKvY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+8+Xs6g+nv4LKqMOKbrFqctbNJPeO2BjNypxsy4pkDSZ2IFT1
-	oPBrFElMn19tZbT16yUU+dfHmGiBEiIqUSsrgH+AbIgo/H+tLn2pFWQrWSC+u+QxRY4=
-X-Gm-Gg: ASbGncsS+YDeh+7MLulQO5l3RSZgFkDYTUAf0tUR4+vNNRKmTpv5qYrMZPwNUKSMQ4a
-	WYCaJiuhcxh20MzXswrvkueHRLEcEYH87tnh5QG710PCu3qfEiW0zFInIcIs5vVt2/nT6dik+b8
-	emEufvO4bW96OjGBiSnTr890vyD3sjtj6WScgFNvU9Km0T3399X8468K+J5k2oULqzjTU5C17Vt
-	KD7RpGJNK3c7knnz8/J8hBtE3HV46zsUCmwn8btEU1iEv42pu+VRR5NAP/tCkhGEzVt2cdMABjP
-	BS2wM/18Wsmrmb7+QhfeWWXDkAtCBCbPfjaGC2H6p5+4bJ1Cuaguy8CFZR+wVaVp3GO6YygA/lx
-	RuRZcNu0BVAy3uxiy4Ispkakycm1Ak71t8YmD4Vel8LxIrmWakjLqrzzxoJwRV6nxTJXyVJxvR2
-	LqjnYPvA==
-X-Google-Smtp-Source: AGHT+IH7gnDUVPLdyweD2s8+ECeaCpX5murw+DO/g9xiCSZKO8V3qVwx15d1k0QmIznWlNpzSJCtaw==
-X-Received: by 2002:a05:6402:5111:b0:63e:2d4d:5a60 with SMTP id 4fb4d7f45d1cf-64076f67066mr11004356a12.8.1762173761943;
-        Mon, 03 Nov 2025 04:42:41 -0800 (PST)
+        bh=PPrnykW9RcTv8SXmC4oIff7zEg9zUe3KhDF23k6GnlE=;
+        b=u3e3MX3OEWwM9hKeJpaxnIMuqXRPde51QYxxVnGqhcXFOhgWkBuheMPQZS8nW9cJ26
+         W/rYDSjMtmU3gxELW7l5y/I8Ne3nM8JS7ErNmFcau79F/zOAK5OH+05fMtmTD+xuuGRS
+         t3dJgzl7OvuB3//iLEkSxEkLwf/qMkHgiGOu/ZYaXmV03y16qtqVlCuza9XJv55rV86Y
+         NTZFd9EcttjPIvJliPY7o4m3pxhixTM0Y2h0Nkk8NtvY8gERIHvpufhTjTobjJsVhzGO
+         8wmLPw0okm0uASBuHDCPAtKUVLgZvnWJVYihnGGtCwGUJtW6OKFP1N+FLfejGGkui5m2
+         MwMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762173765; x=1762778565;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PPrnykW9RcTv8SXmC4oIff7zEg9zUe3KhDF23k6GnlE=;
+        b=PIpa6ASNPZKBWSJtCSTpesWwaFARm4pgYXiubfuKTuS3dyrbDSo8aypwXmcuy3L3sx
+         dgGug19hRNpHMSTgV4jQ/h4fuWWNGxyNPfJUmDDjCuMCTDn+Muyr0a1z6YLrlvG4xqZN
+         3pN7CKoqORlcKodZI4VQbTuU7uHwqfwNvlRdkDT35Moyn5UcKMehObv6uoC4l5r38KjL
+         hPk6KsXSsGsN1K/eUTWpZc1MXic2u5s6l49/AoHOwHUljEbHRcmyJ8R4GSjRJUwHr91V
+         kXhb0NFNb1mKSDisxsd/vTZOmBtpgYaE1je5O7eBsJLJqsaZKbGizuxIdRZ7ocoH22bX
+         kFlg==
+X-Forwarded-Encrypted: i=1; AJvYcCUEBbzjYxP3yrZnYH3BA4xvNCx4Y/y4BuVqP8g/e7lL4mKdXyh5CpDitxQo3gKvh/3/CVnKKiaR7L6oOOj6VmhU@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe5dDO6sDEfyKfQyRiNfb41AZ5HjCwhJ/Hp89lv/gG8fT1EXDS
+	cxwPDuaGZlNIkxzz7o/mqb74Ppjau12T0VxNN9r0UNnDdx3r6hscli09p1mMYuIBvio=
+X-Gm-Gg: ASbGncuuh2vIpzHhAJIO8THyVbrvDX/mVT8OGRirS7rLLYEbF8R+tfS1VOrDkMcLvaQ
+	uLHXZde1N9daL1wb4v6AtXh9dPHEx53fMn/jArK1lTQuXz/z1igV+cwwNVwWROKccYEGerPEHYp
+	gU3RNzOlDsQp/ANUZ3lgPL05rEihyZgRCzksUvM9UxDgjg+n77vDfDo3NqPA+gSurkl4IUjBxJE
+	rXPJjwGSDEzJ2v68+Mi4fekxyyH9lxlVdtNbbFZJ7HvBybOma/bnAN35B6MNvo16eV72LUymShH
+	jF8jTsNPjEdzrJnw99wbeR7iufOjil8TIjdS8k8m3If+7dSRNe2FI75y2MPhMkkgj1qE6CygGvy
+	BU0aqvN11rG2zQxwxjnxEdT9VaKB249pC7Ykwt7HQRihp10R+k5SS+3JxUsjr2tYPz2lpIXk=
+X-Google-Smtp-Source: AGHT+IEt2sGyB8OGmSAirfMXRL4rXymXxxnigXWQMbloi64CMl+rBW5jNMGAdVjLMSOzt2Z2+JBIlg==
+X-Received: by 2002:a17:907:60cd:b0:b3b:110c:d343 with SMTP id a640c23a62f3a-b70701061c7mr1219796166b.8.1762173765217;
+        Mon, 03 Nov 2025 04:42:45 -0800 (PST)
 Received: from localhost ([2001:4090:a247:830a:fe22:a8:f29a:a5c3])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-640d50199e1sm930448a12.35.2025.11.03.04.42.41
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b70bd65ca39sm348853066b.26.2025.11.03.04.42.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Nov 2025 04:42:41 -0800 (PST)
+        Mon, 03 Nov 2025 04:42:44 -0800 (PST)
 From: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
-Subject: [PATCH v10 0/3] firmware: ti_sci: Partial-IO support
-Date: Mon, 03 Nov 2025 13:42:18 +0100
-Message-Id: <20251103-topic-am62-partialio-v6-12-b4-v10-0-0557e858d747@baylibre.com>
+Date: Mon, 03 Nov 2025 13:42:21 +0100
+Subject: [PATCH v10 3/3] firmware: ti_sci: Remove constant 0 function
+ arguments
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACqjCGkC/4XSTWrDMBAF4KsErasyo39l1XuULiRZbgRJ7MquS
- Qi5eycObUox9XIG5nsPoQsbci15YNvNhdU8laF0RxoQnjYs7cLxPfPS0IIJEAoBHB+7viQeDkb
- wPtSxhH3p+GQ4Ch4VT8LKNoaklLKMjL7mtpzmgNe3+1zzxyfljPcli2HIPHWHQxm3m2M+jZyiN
- ILw7HawK8PY1fNccJLzxb0K5f1fZZIceGuTuXXyxuFLDOd9iTU/U9yMT+oBCvRroCIQU3Q5xEa
- BzQug/gY1SDBroL419FLIRlqlglgAzQNUAtdAQ6CMOuU2RJTSL4D2Abr1N7QEhoTgjE6icXYBd
- D8g/Y/Vho5Aa4JVwoBGhAXQ/wIlrIGeQLCq1brxCU38A16v1y+Rty/n5QIAAA==
-X-Change-ID: 20241008-topic-am62-partialio-v6-12-b4-c273fbac4447
+Message-Id: <20251103-topic-am62-partialio-v6-12-b4-v10-3-0557e858d747@baylibre.com>
+References: <20251103-topic-am62-partialio-v6-12-b4-v10-0-0557e858d747@baylibre.com>
+In-Reply-To: <20251103-topic-am62-partialio-v6-12-b4-v10-0-0557e858d747@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
  Santosh Shilimkar <ssantosh@kernel.org>
 Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
@@ -91,17 +87,17 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7486; i=msp@baylibre.com;
- h=from:subject:message-id; bh=tUy+XzWKsgLSae03b5aT8r2DQygS0809yUu4YJxMeqk=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhkyOxdqVAv/Lig/Hit+S21K5/d3ayoMJUq9X6Fb7fuN4c
- Gimk1VnRykLgxgXg6yYIktnYmjaf/mdx5IXLdsMM4eVCWQIAxenAExk02yGfwafs+Xbz0Uc/uL7
- 896SiIyj59XW7q44mvb36qrzN+Njn/9lZPg5SfC8d+qT092ragJvSf3V+GWt9K8mznOLg9eHO2Y
- fGJkA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2722; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=9WWZRj95x1PsEyZywEyr4mp9AG5VR4rGO6uiOLlvg2k=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhkyOxdZ7NE5/fPheUGmV3Z/0nr0a4lOcNDdtrst6dE+iI
+ 5rzgu6ljlIWBjEuBlkxRZbOxNC0//I7jyUvWrYZZg4rE8gQBi5OAZjIMz2G/+lzd76tzC2pOXVi
+ 14eD3gfTM6epTn4ZKz5hxcdT513ypIIZ/tfuLI4p25z+VE9ng/P5tUrJc1ZvqXbXUq8I0eOXn1B
+ mxAAA
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_044244_011517_0EDC541F 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20251103_044247_183112_362E09CE 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,175 +112,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-This series adds support for Partial-IO to the ti-sci driver,
-implementing the firmware interface necessary to enter this low power
-state. It processes the wakeup-source properties from the devicetree and
-communicates with the system firmware to enter Partial-IO mode when
-appropriate wakeup sources are enabled.
-
-Partial-IO Overview
-------------------
-Partial-IO is a low power system state in which nearly everything is
-turned off except the pins of the CANUART group (mcu_mcan0, mcu_mcan1,
-wkup_uart0 and mcu_uart0). These devices can trigger a wakeup of the
-system on pin activity. Note that this does not resume the system as the
-DDR is off as well. So this state can be considered a power-off state
-with wakeup capabilities.
-
-A documentation can also be found in section 6.2.4 in the TRM:
-  https://www.ti.com/lit/pdf/spruiv7
-
-Implementation Details
-----------------------
-The complete Partial-IO feature requires three coordinated series, each
-handling a different aspect of the implementation:
-
-1. [MERGED] m_can driver series: Implements device-specific wakeup functionality
-   for m_can devices, allowing them to be set as wakeup sources. This is
-   now available in linux-next.
-   https://lore.kernel.org/r/20251001-topic-mcan-wakeup-source-v6-12-v10-0-4ab508ac5d1e@baylibre.com
-
-2. Devicetree series: Defines system states and wakeup sources in the
-   devicetree for am62, am62a and am62p.
-   https://gitlab.baylibre.com/msp8/linux/-/tree/topic/am62-dt-partialio/v6.18?ref_type=heads
-   https://lore.kernel.org/r/20251103-topic-am62-dt-partialio-v6-15-v5-0-b8d9ff5f2742@baylibre.com
-
-3. This series (TI-SCI firmware): Implements the firmware interface to
-   enter Partial-IO mode when appropriate wakeup sources are enabled.
-
-Testing
--------
-A test branch is available here that includes all patches required to
-test Partial-IO:
-
-https://gitlab.baylibre.com/msp8/linux/-/tree/integration/am62-partialio/v6.18?ref_type=heads
-
-After enabling Wake-on-LAN the system can be powered off and will enter
-the Partial-IO state in which it can be woken up by activity on the
-specific pins:
-    ethtool -s can0 wol p
-    ethtool -s can1 wol p
-    poweroff
-
-These patches are tested on am62-lp-sk.
-
-Best,
-Markus
-
-Previous versions "firmware: ti_sci: Partial-IO support":
- v1: https://lore.kernel.org/lkml/20240523080225.1288617-1-msp@baylibre.com/
- v2: https://lore.kernel.org/lkml/20240729080101.3859701-1-msp@baylibre.com/
- v3: https://lore.kernel.org/r/20241012-topic-am62-partialio-v6-13-b4-v3-0-f7c6c2739681@baylibre.com
- v4: https://lore.kernel.org/r/20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com
- v5: https://lore.kernel.org/r/20250306-topic-am62-partialio-v6-12-b4-v5-0-f9323d3744a2@baylibre.com
- v6: https://lore.kernel.org/r/20250421-topic-am62-partialio-v6-12-b4-v6-0-3b5cefab1339@baylibre.com
- v7: https://lore.kernel.org/r/20250812-topic-am62-partialio-v6-12-b4-v7-0-ac10865c2d87@baylibre.com
- v8: https://lore.kernel.org/r/20251001-topic-am62-partialio-v6-12-b4-v8-0-76a742605110@baylibre.com
- v9: https://lore.kernel.org/r/20251030-topic-am62-partialio-v6-12-b4-v9-0-074f55d9c16b@baylibre.com
-
-Previous versions "can: m_can: Add am62 wakeup support":
- v1: https://lore.kernel.org/lkml/20240523075347.1282395-1-msp@baylibre.com/
- v2: https://lore.kernel.org/lkml/20240729074135.3850634-1-msp@baylibre.com/
- v3: https://lore.kernel.org/lkml/20241011-topic-mcan-wakeup-source-v6-12-v3-0-9752c714ad12@baylibre.com
- v4: https://lore.kernel.org/r/20241015-topic-mcan-wakeup-source-v6-12-v4-0-fdac1d1e7aa6@baylibre.com
- v5: https://lore.kernel.org/r/20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com
- v6: https://lore.kernel.org/r/20241219-topic-mcan-wakeup-source-v6-12-v6-0-1356c7f7cfda@baylibre.com
-
-Changes in v10:
- - Remove unnecessary empty line
- - Make ti_sci_cmd_prepare_sleep aware of PARTIAL_IO mode and the
-   not-expected response, because both Kendall and Andrew seem to
-   prefer this.
- - Moved the removal of the ctx_lo, ctx_hi and debug_flags to the end of
-   the series so merging is optional.
-
-Changes in v9:
- - Rebased to next-20251029
-
-Changes in v8:
- - Add a patch to remove constant 0 argument passing to
-   ti_sci_cmd_prepare_sleep
- - Move partial-io functions further up in the file before the first
-   static const initializations
-
-Changes in v7:
- - Rebase to v6.17-rc1
- - Update the idle-state-name used to off-wake as introduced in
-   dt-schema
-
-Changes in v6:
- - Narrowed down the wakeup-source binding to phandle lists
- - Split off the mcan and DT changes into separate series
-
-Changes in v5:
- - Rebased to v6.14-rc1
- - Merged m_can and ti_sci series to avoid conflicts and show
-   dependencies more easily
- - Added definitions of system-states for am62/am62a/am62p
- - Moved wakeup-source definitions into board dts files as they require
-   a bit of support on the board.
- - Updated ti_sci support to walk through the wakeup-source phandle
-   lists
- - Added pinctrl settings for mcu_mcan0/1 on all boards
- - Minor style updates for ti_sci support for transfers without response
- - Update and move the dt-binding for wakeup-source from the m_can
-   binding to the dt-schema repository
-
-Changes in v4:
- - Rebased to v6.13-rc1
- - Removed all regulator related structures from patches and implemented
-   the wakeup-source property use instead.
-
-Changes in v3:
- - Remove other modes declared for PREPARE_SLEEP as they probably won't
-   ever be used in upstream.
- - Replace the wait loop after sending PREPARE_SLEEP with msleep and do
-   an emergency_restart if it exits
- - Remove uarts from DT wakeup sources
- - Split no response handling in ti_sci_do_xfer() into a separate patch
-   and use goto instead of if ()
- - Remove DT binding parital-io-wakeup-sources. Instead I am modeling
-   the devices that are in the relevant group that are powered during
-   Partial-IO with the power supplies that are externally provided to
-   the SoC. In this case they are provided through 'vddshv_canuart'. All
-   devices using this regulator can be considered a potential wakeup
-   source if they are wakeup capable and wakeup enabled.
- - Added devicetree patches adding vcc_3v3_sys regulator and
-   vddshv_canuart for am62-lp-sk
- - Add pinctrl entries for am62-lp-sk to add WKUP_EN for mcu_mcan0 and
-   mcu_mcan1
-
-Changes in v2:
- - Rebase to v6.11-rc1
- - dt-binding:
-    - Update commit message
-    - Add more verbose description of the new binding for a better
-      explanation.
- - ti_sci driver:
-    - Combine ti_sci_do_send() into ti_sci_do_xfer and only wait on a
-      response if a flag is set.
-    - On failure to enter Partial-IO, do emergency_restart()
-    - Add comments
-    - Fix small things
+ti_sci_cmd_prepare_sleep takes three arguments ctx_lo, ctx_hi and
+debug_flags which are always 0 for the caller. Remove these arguments as
+they are basically unused.
 
 Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
 ---
-Markus Schneider-Pargmann (TI.com) (3):
-      firmware: ti_sci: Support transfers without response
-      firmware: ti_sci: Partial-IO support
-      firmware: ti_sci: Remove constant 0 function arguments
+ drivers/firmware/ti_sci.c | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
 
- drivers/firmware/ti_sci.c | 131 +++++++++++++++++++++++++++++++++++++++-------
- drivers/firmware/ti_sci.h |   5 ++
- 2 files changed, 117 insertions(+), 19 deletions(-)
----
-base-commit: c9a389ffad27e7847c69f4d2b67ba56b77190209
-change-id: 20241008-topic-am62-partialio-v6-12-b4-c273fbac4447
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index 811507ded63ac784ad6c6ad77b2f827768f3f3c7..023c603ae58cb5df176c66eec429bd0b4037b798 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -1664,14 +1664,10 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
+  * ti_sci_cmd_prepare_sleep() - Prepare system for system suspend
+  * @handle:		pointer to TI SCI handle
+  * @mode:		Device identifier
+- * @ctx_lo:		Low part of address for context save
+- * @ctx_hi:		High part of address for context save
+- * @debug_flags:	Debug flags to pass to firmware
+  *
+  * Return: 0 if all went well, else returns appropriate error value.
+  */
+-static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+-				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
++static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode)
+ {
+ 	u32 msg_flags = mode == TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO ?
+ 			TI_SCI_FLAG_REQ_GENERIC_NORESPONSE :
+@@ -1702,9 +1698,9 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+ 
+ 	req = (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
+ 	req->mode = mode;
+-	req->ctx_lo = ctx_lo;
+-	req->ctx_hi = ctx_hi;
+-	req->debug_flags = debug_flags;
++	req->ctx_lo = 0;
++	req->ctx_hi = 0;
++	req->debug_flags = 0;
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+ 	if (ret) {
+@@ -3729,7 +3725,7 @@ static int ti_sci_sys_off_handler(struct sys_off_data *data)
+ 
+ 	dev_info(info->dev, "Entering Partial-IO because a powered wakeup-enabled device was found.\n");
+ 
+-	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO, 0, 0, 0);
++	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO);
+ 	if (ret) {
+ 		dev_err(info->dev,
+ 			"Failed to enter Partial-IO %pe, trying to do an emergency restart\n",
+@@ -3768,8 +3764,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
+ 			 * internal use and can be 0
+ 			 */
+ 			return ti_sci_cmd_prepare_sleep(&info->handle,
+-							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
+-							0, 0, 0);
++							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED);
+ 		} else {
+ 			/* DM Managed is not supported by the firmware. */
+ 			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
 
-Best regards,
 -- 
-Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
+2.51.0
 
 
