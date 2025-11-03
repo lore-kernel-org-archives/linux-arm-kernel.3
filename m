@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DFE5CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 558B0CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnWmT4am00S+C4H1HpcrbM/K6G2IqhDwJkRazIXAa3Q=; b=foU9CuTa9CsE5UxkdS3Uk0d39L
-	BbOtkV+8m9/q+Yevp738SE8kLNea9EAlV6DKwMRr/7gSBYJha1qvPxKN0Wbf8U8BlQXvki4SojKg+
-	IkEwK8VSJojW2XFxJTtsJajPesAh8geLvR5ZRc5O66qlfBhSrxpfqiXmS975xFzWhgw8UnPUAfE+9
-	m56QspZB32279u0eumbOThE8gKRGQNPDjrQubcouWAh3UKGNmaNw4bQmZDe44gjdaApDUq8DTteHT
-	onGXM4u2gxwMmDIAoThzWCjEYgrf557TFJKAUWFAajD7jvKfENu7vFmL2GqTBhRSlbXiH9EVnSQvn
-	hMof9MzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pYpE/o8QeVnvKWPaYcPJE1tYaZ7Vi13aXpPbvbysa7w=; b=K2/k98yZjyHSrbuqU2Gs6Zq7LL
+	JDFgn/iX5IwG997fOfe77ANy+E8bj0YNfrA2mPen0H+yhWDHdXnH5OKU/38vMU2oeFHZos0EahM1i
+	Zs3OCMBt5CmHHtlkvxuhUpF2TRUOPR4kNFytQOBnsNDoEVgpgvsVU7nDu/DG81OCVktgjs0lmDpPt
+	xhsPCDMNRAi1aRfX436WMcGWuYoVq/b1uIuX2G4pMQT14dNZhUx9zqY1zoSYhIg2e/vS7X95VsMAo
+	3sIT4TgD59gJCkVHIVIieVkC2X5pUeaPzDT0zD9byUZV1yjjDGeuuf98fOBcyda4+sptDroGf0Tgh
+	rC2EF9+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxUO-0000000AGzs-1WJP;
-	Mon, 03 Nov 2025 16:33:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxUL-0000000AGx1-3fQ2
+	id 1vFxdx-0000000AI00-1L4D;
+	Mon, 03 Nov 2025 16:42:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFxdu-0000000AHzR-33hK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:33:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 120663161;
-	Mon,  3 Nov 2025 08:32:53 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ABC853F694;
-	Mon,  3 Nov 2025 08:32:57 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	maz@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com,
-	ardb@kernel.org,
-	suzuki.poulose@arm.com,
-	lpieralisi@kernel.org,
-	yangyicong@hisilicon.com,
-	scott@os.amperecomputing.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	pbonzini@redhat.com,
-	shuah@kernel.org,
-	mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v10 9/9] arm64: armv8_deprecated: apply FEAT_LSUI for swpX emulation.
-Date: Mon,  3 Nov 2025 16:32:24 +0000
-Message-Id: <20251103163224.818353-10-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251103163224.818353-1-yeoreum.yun@arm.com>
+	Mon, 03 Nov 2025 16:42:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1BB6043745;
+	Mon,  3 Nov 2025 16:42:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63513C4CEE7;
+	Mon,  3 Nov 2025 16:42:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762188174;
+	bh=pYpE/o8QeVnvKWPaYcPJE1tYaZ7Vi13aXpPbvbysa7w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jBVbreQjg37cDVv0mGvX9dbU9+n08cbq6ZzOFDSiW6enAmiVfVYCyGNcGGp4+vvTC
+	 DCDPxeJW9+EoKUqPzu6kcExrXZyKFYtkt7V0NoTfp0Md8uXB60buGicnmPTIt57IwI
+	 syA0XqyVDb/lvrd4sTJQImXC4kHd/SCzdmzL7AmI2JTUtGs9Z3kZAUxykwq6J/PsS/
+	 jQ2qFU0312rEPhkXayASbbsvhHt+qCIWlQ1hI3jmKbiuFNahkM40CQECEtUbgZFgJY
+	 qsg6Y00CMlYCAu8c8SjFbUVO79jh61/mMate8J7VrZ54LSf+vs97sGymcDgRelmtZc
+	 eH4dbDzM0sgEw==
+Date: Mon, 3 Nov 2025 16:42:51 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, miko.lenczewski@arm.com,
+	kevin.brodsky@arm.com, ardb@kernel.org, suzuki.poulose@arm.com,
+	lpieralisi@kernel.org, yangyicong@hisilicon.com,
+	scott@os.amperecomputing.com, joey.gouly@arm.com,
+	yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v10 2/9] KVM: arm64: expose FEAT_LSUI to guest
+Message-ID: <aQjbiyNWZxrjRLQd@finisterre.sirena.org.uk>
 References: <20251103163224.818353-1-yeoreum.yun@arm.com>
+ <20251103163224.818353-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SsaoZEtYAOX1mTlI"
+Content-Disposition: inline
+In-Reply-To: <20251103163224.818353-3-yeoreum.yun@arm.com>
+X-Cookie: If in doubt, mumble.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_083301_983199_F097348B 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20251103_084254_785117_9B964684 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,92 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-apply FEAT_LSUI instruction to emulate deprecated swpX instruction.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/kernel/armv8_deprecated.c | 52 ++++++++++++++++++++++++++--
- 1 file changed, 50 insertions(+), 2 deletions(-)
+--SsaoZEtYAOX1mTlI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/arch/arm64/kernel/armv8_deprecated.c b/arch/arm64/kernel/armv8_deprecated.c
-index d15e35f1075c..424cf51d554f 100644
---- a/arch/arm64/kernel/armv8_deprecated.c
-+++ b/arch/arm64/kernel/armv8_deprecated.c
-@@ -13,6 +13,7 @@
- #include <linux/uaccess.h>
- 
- #include <asm/cpufeature.h>
-+#include <asm/lsui.h>
- #include <asm/insn.h>
- #include <asm/sysreg.h>
- #include <asm/system_misc.h>
-@@ -86,6 +87,53 @@ static unsigned int __maybe_unused aarch32_check_condition(u32 opcode, u32 psr)
-  *	   Rn  = address
-  */
- 
-+#ifdef CONFIG_AS_HAS_LSUI
-+static __always_inline int
-+__lsui_user_swp_asm(unsigned int *data, unsigned int addr)
-+{
-+	int err = 0;
-+	unsigned int temp;
-+
-+	asm volatile("// __lsui_user_swp_asm\n"
-+	__LSUI_PREAMBLE
-+	"1:	swpt		%w1, %w2, [%3]\n"
-+	"	mov		%w1, %w2\n"
-+	"2:\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-+	: "+r" (err), "+r" (*data), "=&r" (temp)
-+	: "r" ((unsigned long)addr)
-+	: "memory");
-+
-+	return err;
-+}
-+
-+static __always_inline int
-+__lsui_user_swpb_asm(unsigned int *data, unsigned int addr)
-+{
-+	unsigned char idx;
-+	int err;
-+	unsigned int addr_al;
-+	union {
-+		unsigned int var;
-+		unsigned char raw[4];
-+	} data_al;
-+
-+	idx = addr & (sizeof(unsigned int) - 1);
-+	addr_al = ALIGN_DOWN(addr, sizeof(unsigned int));
-+
-+	if (get_user(data_al.var, (unsigned int *)(unsigned long)addr_al))
-+		return -EFAULT;
-+
-+	data_al.raw[idx] = *data;
-+
-+	err = __lsui_user_swp_asm(&data_al.var, addr_al);
-+	if (!err)
-+		*data = data_al.raw[idx];
-+
-+	return err;
-+}
-+#endif /* CONFIG_AS_HAS_LSUI */
-+
- /*
-  * Error-checking SWP macros implemented using ldxr{b}/stxr{b}
-  */
-@@ -128,9 +176,9 @@ LLSC_USER_SWPX()
- LLSC_USER_SWPX(b)
- 
- #define __user_swp_asm(data, addr) \
--	__llsc_user_swp_asm(data, addr)
-+	__lsui_llsc_body(user_swp_asm, data, addr)
- #define __user_swpb_asm(data, addr) \
--	__llsc_user_swpb_asm(data, addr)
-+	__lsui_llsc_body(user_swpb_asm, data, addr)
- 
- /*
-  * Bit 22 of the instruction encoding distinguishes between
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+On Mon, Nov 03, 2025 at 04:32:17PM +0000, Yeoreum Yun wrote:
 
+> expose FEAT_LSUI to guest.
+
+You should also update the set_id_regs test to cover this (the addition
+of ID_AA64ISAR4_EL1 was applied now).
+
+--SsaoZEtYAOX1mTlI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkI24cACgkQJNaLcl1U
+h9ADVwf/SkI01bIU3sqijvh+m3ciwOMaw8AQTOZ21rAp8NHnf0xynHjwbIP0GLzh
+z8Y19mBYMVtFkTkSAsPsHauHZbzaCRgN/Uje2OhNJTvJK9sRmEJr/Zvr5TgedGq4
+5ypibycxN20qO9Zkhf6bVvclZ2Q35qHuM5ZQz8Vkbad8TmoZLS4x5rIcf26AFRS4
+Cf4Zl5DoA5jFOesZmz6jKxYGVMPz73zOF4owaL/Hake4ZvG+JO6ijjqOGcPFjWP5
+Bhs9DTIzOQzG4Ff2WfQw6VwWL3pZP+dMAKyL1cQnUkl7MaBHbDhVQjRsZhpxUNLh
+2eTrRDfBp0Wez31IZmTh1EH2AMIobA==
+=Vduu
+-----END PGP SIGNATURE-----
+
+--SsaoZEtYAOX1mTlI--
 
