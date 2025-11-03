@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F36DCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF0FCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MnmMZ7NyfPznhGBOCovNUIQDFuQTI2k1XUKjlUbTHaY=; b=lIYVzpcEgHjHBLH7uOjZRgsdDw
-	O7sZt5pcC2BlJnQzlEwKIbd4tFSU4SpT3VLeqEOZ29CETaLOQJodsLbpCUaqAzX80rN6ZYBNQVtJj
-	96UwlHcBfmTFMzFbkFkYSirgQgY23U/jDa6AQHxb+PwJSijCv5T/rnqNk7uYepWGe9yMI1ZQuu9cR
-	ELMA4wLD3an5SgyrhRt5sMyfqhzwG3WDHleb3HDNEJRzedOvRXhLO1BI+Qm+d/FNsYG95Osdhe34f
-	iuXU7oNho3ZUsDkaXOlwAmi9A2Y+CD7NaYdQEanLNZjdFqkC9SSLXoyO6WAKzAdDMXsFymQJDdFaD
-	upHtlr0Q==;
+	bh=WBF6BigqDGHpLohygKEBk47de1/glpe+s9mh/hweIEs=; b=INF1MR+i9WEuw6pdIrftXBhnUk
+	GXipfcVo+YjfUvpyuDOpf2FY8CIaGZGo0AqrcFjj4GBF1yylH/Z90d/cfC5EnXJBkLyQDwxKB5Hjh
+	wDf3u9hHhLY6XDhWUxHo+TTPMqgIx/2c6ztKIs0ycuUODL5LmY6TEHaylTOFFYnRYnRBUyIso7Xq0
+	ma5FgKbG+XHL0wXeqwxiorDiukXkfuTGv520lPX5Rziz0KPO0UIWNLZP9C/9L1H/bxNZvsqbzQMhH
+	ANBR9K/wCYbYmYnPBPAqgd0sMTgawh5I+ClU7WTRNZR0PMZDEWZWzwvr2bKY7PTOk+slAsb7CW15P
+	dPq09Ulg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxkn-0000000AIsK-0JMF;
-	Mon, 03 Nov 2025 16:50:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vFxoA-0000000AJii-00ZB;
+	Mon, 03 Nov 2025 16:53:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxkl-0000000AIpv-3UTc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Nov 2025 16:50:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=MnmMZ7NyfPznhGBOCovNUIQDFuQTI2k1XUKjlUbTHaY=; b=fTJK+ck5MTe/Hv59vA5UpmpgJg
-	aTf7JKCucuMcTNvMsKXMjaOzzpWDPVIUIR1505aa2kPe+JDgyNunmwrr20CN387Gr7jMx/F0FOK/U
-	qHnUtY/4/XiQlpB1vNjkuGlN/3dVfPHbuEDgbNtaKds6X1qdyKfnui76VIqy4LsKh0Bkf2HkjSPqx
-	ArRWMC5HdHpLk38OLZ/dutFyXd2JFs1n57kh6hFEROFuqYzk9JffgufUtHCr5cXSMj8Dwlx/ni4cP
-	mBkjqGg+8ac7TYEQIfN1dVcM5fvxo2h5c8ud5cGp+1aSdeD3+7s67O7HfhyArfvMvMBD6IcLpkuHZ
-	QEpffwdA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwt1-0000000Ftf4-0B99
+	id 1vFxo8-0000000AJic-1wPa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 15:54:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DD7F1D14;
-	Mon,  3 Nov 2025 08:49:47 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7CE3F3F694;
-	Mon,  3 Nov 2025 08:49:53 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 03 Nov 2025 16:49:32 +0000
-Subject: [PATCH v5 11/11] coresight: etm4x: Reuse normal enable and disable
- logic in CPU idle
+	Mon, 03 Nov 2025 16:53:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 85F706013C;
+	Mon,  3 Nov 2025 16:53:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54741C4CEE7;
+	Mon,  3 Nov 2025 16:53:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762188807;
+	bh=ZkLFIz0vvjDeD2wJOSQTr9Q/o5xR6ot5EVcHo9EzqcM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SqZuypYw81+njFxxCaYsGfEQYd+kxBwe0YRsRX1hV1YGEqo96Hxh0inlgQEfMWrJn
+	 6tlXxeQY1lRmbVuXqstLs5+OTEyM8aZZuuVQuvjau7xitn8ECPIez/gTYYXyUZS8u5
+	 DPrfzr0DXatM368eGnaT8jMeWvQtaWucQ0DEy/NOeaWu8+mIez5c3j2BA2nmeqd6R8
+	 9XqUzerFozM0V/f7uS02Xk4gapLylS2u/Y8kgHCV1cfDAjWq2DCRcLa54SsQHZuahi
+	 mRFXsM2qTglPv8wsD8hMi8b4s6SlHNR5ovQ/F/9PxU3YZLgxUMEqACdk/9RerJs/mC
+	 /MmH3dF3KIP0Q==
+Message-ID: <e323f1f3-f543-4e81-af6b-243fcf9ba750@kernel.org>
+Date: Mon, 3 Nov 2025 17:53:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/2] ARM: mm: support memory-failure
+To: Xie Yuanbin <xieyuanbin1@huawei.com>, linux@armlinux.org.uk,
+ akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, linmiaohe@huawei.com, nao.horiguchi@gmail.com,
+ rmk+kernel@armlinux.org.uk, ardb@kernel.org, nathan@kernel.org,
+ ebiggers@kernel.org, arnd@arndb.de, rostedt@goodmis.org, kees@kernel.org,
+ dave@vasilevsky.ca, peterz@infradead.org
+Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, liaohua4@huawei.com,
+ lilinjie8@huawei.com
+References: <9c0cd24c-559b-4550-9fc8-5dc4bcc20bf7@app.fastmail.com>
+ <20250923041005.9831-1-xieyuanbin1@huawei.com>
+From: "David Hildenbrand (Red Hat)" <david@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20250923041005.9831-1-xieyuanbin1@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251103-arm_coresight_power_management_fix-v5-11-f803c19aa153@arm.com>
-References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
-In-Reply-To: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762188572; l=13931;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=53nPtfcWCkKYW4ejhVtgJQ4KszKgyoi4zIhvPAIKFRM=;
- b=gFvf0mENlp9piO38w84abXvcVf8QvXOi1lsylqqQqceda87srSO9Ani+bKWv+N9g2bf9fZmLP
- i/Fn+CTOYyMAFJGe2H45BkV96mkpapXD3eQhgXutVpO0SGAZCzvZMFE
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_155427_380144_8E1D80B1 
-X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,395 +78,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The etm4_enable_trace_unit() function is almost identical to the restore
-flow, with a few differences listed below:
+On 23.09.25 06:10, Xie Yuanbin wrote:
+> Arnd Bergmann wrote:
+>>>> It would be helpful to be more specific about what you
+>>>> want to do with this.
+>>>>
+>>>> Are you working on a driver that would actually make use of
+>>>> the exported interface?
+>>>
+>>> Thanks for your reply.
+>>>
+>>> Yes, In fact, we have developed a hardware component to detect DDR bit
+>>> transitions (software does not sense the detection behavior). Once a bit
+>>> transition is detected, an interrupt is reported to the CPU.
+>>>
+>>> On the software side, we have developed a driver module ko to register
+>>> the interrupt callback to perform soft page offline to the corresponding
+>>> physical pages.
+>>>
+>>> In fact, we will export `soft_offline_page` for ko to use (we can ensure
+>>> that it is not called in the interrupt context), but I have looked at the
+>>> code and found that `memory_failure_queue` and `memory_failure` can also
+>>> be used, which are already exported.
+>>
+>> Ok
+>>
+>>>> I see only a very small number of
+>>>> drivers that call memory_failure(), and none of them are
+>>>> usable on Arm.
+>>>
+>>> I think that not all drivers are in the open source kernel code.
+>>> As far as I know, there should be similar third-party drivers in other
+>>> architectures that use memory-failure functions, like x86 or arm64.
+>>> I am not a specialist in drivers, so if I have made any mistakes,
+>>> please correct me.
+>>
+>> I'm not familiar with the memory-failure support, but this sounds
+>> like something that is usually done with a drivers/edac/ driver.
+>> There are many SoC specific drivers, including for 32-bit Arm
+>> SoCs.
+>>
+>> Have you considered adding an EDAC driver first? I don't know
+>> how the other platforms that have EDAC drivers handle failures,
+>> but I would assume that either that subsystem already contains
+>> functionality for taking pages offline,
+> 
+> I'm very sorry, I tried my best to do this,
+> but it seems impossible to achieve.
+> I am a kernel developer rathder than a driver developer. I have tried to
+> communicate with driver developers, but open source is very difficult due
+> to the involvement of proprietary hardware and algorithms.
+> 
+>> or this is something
+>> that should be done in a way that works for all of them without
+>> requiring an extra driver.
+> 
+> Yes, I think that the memory-failure feature should not be associated with
+> specific architectures or drivers.
+> 
+> I have read the memory-failure's doc and code,
+> and found the following features, which are user useable,
+> are not associated with specific drivers:
+> 
+> 1. `/sys/devices/system/memory/soft_offline_page`:
+> see https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-memory-page-offline
+> 
+> This interface only exists when CONFIG_MEMORY_HOTPLUG is enabled, but
+> ARM cannot enable it.
+> However, I have read the code and believe that it should not require a
+> lot of effort to decouple these two, allowing the interface to exist
+> even if mem-hotplug is disabled.
 
-1) TRCQCTLR register
+It's all about the /sys/devices/system/memory/ directory, which 
+traditionally only made sense for memory hotplug. Well, still does to 
+most degree.
 
-   The TRCQCTLR register is saved and restored during CPU idle, but it
-   is never touched in the normal flow. Given the Q element is not
-   enabled (TRCCONFIGR.QE bits), it is acceptable to omit saving and
-   restoring this register during idle.
+Not sure whether some user space (chmem?) senses for 
+/sys/devices/system/memory/ to detect memory hotplug capabilities.
 
-2) TRCSSCSRn.STATUS bit
+But given soft_offline_page is a pure testing mechanism, I wouldn't be 
+too concerned about that for now.
 
-   The restore flow does not explicitly clear the TRCSSCSRn.STATUS bit
-   but instead directly loads the saved value. In contrast, the normal
-   flow clears this bit to 0 when re-enabling single-shot control.
+> 
+> 2. The syscall madvise with `MADV_SOFT_OFFLINE/MADV_HWPOISON` flags:
+> 
+> According to the documentation, this interface is currently only used for
+> testing. However, if the user program can map the specified physical
+> address, it can actually be used for memory-failure.
 
-   Therefore, the restore function passes the restart_ss argument as
-   false to etm4_enable_hw() to avoid re-enabling single-shot mode.
+It's mostly a testing-only interface. It could be used for other things, 
+but really detecting MCE and handling it properly is kernel responsibility.
 
-3) Claim Tag Handling
+> 
+> 3. The CONFIG_HWPOISON_INJECT which depends on CONFIG_MEMORY_FAILURE:
+> see https://docs.kernel.org/mm/hwpoison.html
+> 
+> It seems to allow input of physical addresses and trigger memory-failure,
+> but according to the doc, it seems to be used only for testing.
 
-   The claim tag is acquired and released in normal flow, on the other
-   hand, the claim protocol is not applied in CPU idle flow - it simply
-   restores the saved value.
+Right, all these interfaces are testing only.
 
-   The claim bits serve two purpose:
+> 
+> 
+> Additionally, I noticed that in the memory-failure doc
+> https://docs.kernel.org/mm/hwpoison.html, it mentions that
+> "The main target right now is KVM guests, but it works for all kinds of
+> applications." This seems to confirm my speculation that the
+> memory-failure feature should not be associated with specific
+> architectures or drivers.
 
-   * Exclusive access between the kernel driver and an external
-     debugger. During CPU idle, the kernel driver locks the OS Lock,
-     ensuring that the external debugger cannot access the trace unit.
-     Therefore, it is safe to release the claim tag during idle.
+Can you go into more details which exact functionality in 
+memory-failure.c you would be interested in using?
 
-   * Notification to supervisory software to save/restore context for
-     external debuggers. The kernel driver does not touch the external
-     debugger's claim bit (ETMCLAIM[0]).
-
-   Based on this, it is safe to acquire and release claim tag in the
-   idle sequence.
-
-4) OS Lock Behavior
-
-   The OS Lock should be locked during CPU idle states. This differs
-   from the normal flow, which unlock it. This special handling remains
-   in the CPU save path.
-
-This commit reuses the normal enable and disable logic in the CPU idle
-path. The only addition is locking the OS Lock upon entering idle to
-ensure exclusive access.
-
-The save context in the driver data is no longer needed and has been
-removed.
-
-Tested-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 201 +--------------------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  57 ------
- 2 files changed, 5 insertions(+), 253 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 662492ddd296d9974406ddffad14e7ccb92edbae..d7da5f3b97b3b18d5d6eee0c20a3bdca0c4bec1a 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1845,8 +1845,7 @@ static int etm4_dying_cpu(unsigned int cpu)
- 
- static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- {
--	int i, ret = 0;
--	struct etmv4_save_state *state;
-+	int ret = 0;
- 	struct coresight_device *csdev = drvdata->csdev;
- 	struct csdev_access *csa;
- 	struct device *etm_dev;
-@@ -1876,93 +1875,11 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 		ret = -EBUSY;
- 		goto out;
- 	}
-+	etm4_cs_lock(drvdata, csa);
- 
--	if (!drvdata->paused)
--		etm4_disable_trace_unit(drvdata);
--
--	state = drvdata->save_state;
--
--	if (drvdata->nr_pe)
--		state->trcprocselr = etm4x_read32(csa, TRCPROCSELR);
--	state->trcconfigr = etm4x_read32(csa, TRCCONFIGR);
--	state->trcauxctlr = etm4x_read32(csa, TRCAUXCTLR);
--	state->trceventctl0r = etm4x_read32(csa, TRCEVENTCTL0R);
--	state->trceventctl1r = etm4x_read32(csa, TRCEVENTCTL1R);
--	if (drvdata->stallctl)
--		state->trcstallctlr = etm4x_read32(csa, TRCSTALLCTLR);
--	state->trctsctlr = etm4x_read32(csa, TRCTSCTLR);
--	state->trcsyncpr = etm4x_read32(csa, TRCSYNCPR);
--	state->trcccctlr = etm4x_read32(csa, TRCCCCTLR);
--	state->trcbbctlr = etm4x_read32(csa, TRCBBCTLR);
--	state->trctraceidr = etm4x_read32(csa, TRCTRACEIDR);
--	if (drvdata->q_filt)
--		state->trcqctlr = etm4x_read32(csa, TRCQCTLR);
--
--	state->trcvictlr = etm4x_read32(csa, TRCVICTLR);
--	state->trcviiectlr = etm4x_read32(csa, TRCVIIECTLR);
--	state->trcvissctlr = etm4x_read32(csa, TRCVISSCTLR);
--	if (drvdata->nr_pe_cmp)
--		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
--
--	for (i = 0; i < drvdata->nrseqstate - 1; i++)
--		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
--
--	if (drvdata->nrseqstate) {
--		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
--		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
--	}
--
--	if (drvdata->numextinsel)
--		state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
--
--	for (i = 0; i < drvdata->nr_cntr; i++) {
--		state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
--		state->trccntctlr[i] = etm4x_read32(csa, TRCCNTCTLRn(i));
--		state->trccntvr[i] = etm4x_read32(csa, TRCCNTVRn(i));
--	}
--
--	/* Resource selector pair 0 is reserved */
--	for (i = 2; i < drvdata->nr_resource * 2; i++)
--		state->trcrsctlr[i] = etm4x_read32(csa, TRCRSCTLRn(i));
--
--	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
--		state->trcssccr[i] = etm4x_read32(csa, TRCSSCCRn(i));
--		state->trcsscsr[i] = etm4x_read32(csa, TRCSSCSRn(i));
--		if (etm4x_sspcicrn_present(drvdata, i))
--			state->trcsspcicr[i] = etm4x_read32(csa, TRCSSPCICRn(i));
--	}
--
--	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
--		state->trcacvr[i] = etm4x_read64(csa, TRCACVRn(i));
--		state->trcacatr[i] = etm4x_read64(csa, TRCACATRn(i));
--	}
--
--	/*
--	 * Data trace stream is architecturally prohibited for A profile cores
--	 * so we don't save (or later restore) trcdvcvr and trcdvcmr - As per
--	 * section 1.3.4 ("Possible functional configurations of an ETMv4 trace
--	 * unit") of ARM IHI 0064D.
--	 */
--
--	for (i = 0; i < drvdata->numcidc; i++)
--		state->trccidcvr[i] = etm4x_read64(csa, TRCCIDCVRn(i));
--
--	for (i = 0; i < drvdata->numvmidc; i++)
--		state->trcvmidcvr[i] = etm4x_read64(csa, TRCVMIDCVRn(i));
--
--	state->trccidcctlr0 = etm4x_read32(csa, TRCCIDCCTLR0);
--	if (drvdata->numcidc > 4)
--		state->trccidcctlr1 = etm4x_read32(csa, TRCCIDCCTLR1);
--
--	state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR0);
--	if (drvdata->numvmidc > 4)
--		state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR1);
--
--	state->trcclaimset = etm4x_read32(csa, TRCCLAIMCLR);
--
--	if (!drvdata->skip_power_up)
--		state->trcpdcr = etm4x_read32(csa, TRCPDCR);
-+	etm4_disable_hw(drvdata);
- 
-+	etm4_cs_unlock(drvdata, csa);
- 	/* wait for TRCSTATR.IDLE to go up */
- 	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 1)) {
- 		dev_err(etm_dev,
-@@ -1972,14 +1889,6 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 		goto out;
- 	}
- 
--	/*
--	 * Power can be removed from the trace unit now. We do this to
--	 * potentially save power on systems that respect the TRCPDCR_PU
--	 * despite requesting software to save/restore state.
--	 */
--	if (!drvdata->skip_power_up)
--		etm4x_relaxed_write32(csa, (state->trcpdcr & ~TRCPDCR_PU),
--				      TRCPDCR);
- out:
- 	etm4_cs_lock(drvdata, csa);
- 	return ret;
-@@ -2003,103 +1912,10 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 
- static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- {
--	int i;
--	struct etmv4_save_state *state = drvdata->save_state;
--	struct csdev_access *csa = &drvdata->csdev->access;
--
- 	if (WARN_ON(!drvdata->csdev))
- 		return;
- 
--	etm4_cs_unlock(drvdata, csa);
--	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
--
--	if (drvdata->nr_pe)
--		etm4x_relaxed_write32(csa, state->trcprocselr, TRCPROCSELR);
--	etm4x_relaxed_write32(csa, state->trcconfigr, TRCCONFIGR);
--	etm4x_relaxed_write32(csa, state->trcauxctlr, TRCAUXCTLR);
--	etm4x_relaxed_write32(csa, state->trceventctl0r, TRCEVENTCTL0R);
--	etm4x_relaxed_write32(csa, state->trceventctl1r, TRCEVENTCTL1R);
--	if (drvdata->stallctl)
--		etm4x_relaxed_write32(csa, state->trcstallctlr, TRCSTALLCTLR);
--	etm4x_relaxed_write32(csa, state->trctsctlr, TRCTSCTLR);
--	etm4x_relaxed_write32(csa, state->trcsyncpr, TRCSYNCPR);
--	etm4x_relaxed_write32(csa, state->trcccctlr, TRCCCCTLR);
--	etm4x_relaxed_write32(csa, state->trcbbctlr, TRCBBCTLR);
--	etm4x_relaxed_write32(csa, state->trctraceidr, TRCTRACEIDR);
--	if (drvdata->q_filt)
--		etm4x_relaxed_write32(csa, state->trcqctlr, TRCQCTLR);
--
--	etm4x_relaxed_write32(csa, state->trcvictlr, TRCVICTLR);
--	etm4x_relaxed_write32(csa, state->trcviiectlr, TRCVIIECTLR);
--	etm4x_relaxed_write32(csa, state->trcvissctlr, TRCVISSCTLR);
--	if (drvdata->nr_pe_cmp)
--		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
--
--	for (i = 0; i < drvdata->nrseqstate - 1; i++)
--		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
--
--	if (drvdata->nrseqstate) {
--		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
--		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
--	}
--	if (drvdata->numextinsel)
--		etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
--
--	for (i = 0; i < drvdata->nr_cntr; i++) {
--		etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
--		etm4x_relaxed_write32(csa, state->trccntctlr[i], TRCCNTCTLRn(i));
--		etm4x_relaxed_write32(csa, state->trccntvr[i], TRCCNTVRn(i));
--	}
--
--	/* Resource selector pair 0 is reserved */
--	for (i = 2; i < drvdata->nr_resource * 2; i++)
--		etm4x_relaxed_write32(csa, state->trcrsctlr[i], TRCRSCTLRn(i));
--
--	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
--		etm4x_relaxed_write32(csa, state->trcssccr[i], TRCSSCCRn(i));
--		etm4x_relaxed_write32(csa, state->trcsscsr[i], TRCSSCSRn(i));
--		if (etm4x_sspcicrn_present(drvdata, i))
--			etm4x_relaxed_write32(csa, state->trcsspcicr[i], TRCSSPCICRn(i));
--	}
--
--	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
--		etm4x_relaxed_write64(csa, state->trcacvr[i], TRCACVRn(i));
--		etm4x_relaxed_write64(csa, state->trcacatr[i], TRCACATRn(i));
--	}
--
--	for (i = 0; i < drvdata->numcidc; i++)
--		etm4x_relaxed_write64(csa, state->trccidcvr[i], TRCCIDCVRn(i));
--
--	for (i = 0; i < drvdata->numvmidc; i++)
--		etm4x_relaxed_write64(csa, state->trcvmidcvr[i], TRCVMIDCVRn(i));
--
--	etm4x_relaxed_write32(csa, state->trccidcctlr0, TRCCIDCCTLR0);
--	if (drvdata->numcidc > 4)
--		etm4x_relaxed_write32(csa, state->trccidcctlr1, TRCCIDCCTLR1);
--
--	etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR0);
--	if (drvdata->numvmidc > 4)
--		etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR1);
--
--	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
--
--	if (!drvdata->skip_power_up)
--		etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
--
--	/*
--	 * As recommended by section 4.3.7 ("Synchronization when using the
--	 * memory-mapped interface") of ARM IHI 0064D
--	 */
--	dsb(sy);
--	isb();
--
--	/* Unlock the OS lock to re-enable trace and external debug access */
--	etm4_os_unlock(drvdata);
--
--	if (!drvdata->paused)
--		etm4_enable_trace_unit(drvdata);
--
--	etm4_cs_lock(drvdata, csa);
-+	etm4_enable_hw(drvdata, false);
- }
- 
- static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
-@@ -2286,13 +2102,6 @@ static int etm4_probe(struct device *dev)
- 		pm_save_enable = coresight_loses_context_with_cpu(dev) ?
- 			       PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
- 
--	if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
--		drvdata->save_state = devm_kmalloc(dev,
--				sizeof(struct etmv4_save_state), GFP_KERNEL);
--		if (!drvdata->save_state)
--			return -ENOMEM;
--	}
--
- 	raw_spin_lock_init(&drvdata->spinlock);
- 
- 	drvdata->cpu = coresight_get_cpu(dev);
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index 012c52fd19338133129752d35523dc102df24604..9dfdcfc2b16748bedc278ba2ceaa7e39b29cc351 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -862,61 +862,6 @@ struct etmv4_config {
- 	u8				s_ex_level;
- };
- 
--/**
-- * struct etm4_save_state - state to be preserved when ETM is without power
-- */
--struct etmv4_save_state {
--	u32	trcprocselr;
--	u32	trcconfigr;
--	u32	trcauxctlr;
--	u32	trceventctl0r;
--	u32	trceventctl1r;
--	u32	trcstallctlr;
--	u32	trctsctlr;
--	u32	trcsyncpr;
--	u32	trcccctlr;
--	u32	trcbbctlr;
--	u32	trctraceidr;
--	u32	trcqctlr;
--
--	u32	trcvictlr;
--	u32	trcviiectlr;
--	u32	trcvissctlr;
--	u32	trcvipcssctlr;
--
--	u32	trcseqevr[ETM_MAX_SEQ_STATES];
--	u32	trcseqrstevr;
--	u32	trcseqstr;
--	u32	trcextinselr;
--	u32	trccntrldvr[ETMv4_MAX_CNTR];
--	u32	trccntctlr[ETMv4_MAX_CNTR];
--	u32	trccntvr[ETMv4_MAX_CNTR];
--
--	u32	trcrsctlr[ETM_MAX_RES_SEL];
--
--	u32	trcssccr[ETM_MAX_SS_CMP];
--	u32	trcsscsr[ETM_MAX_SS_CMP];
--	u32	trcsspcicr[ETM_MAX_SS_CMP];
--
--	u64	trcacvr[ETM_MAX_SINGLE_ADDR_CMP];
--	u64	trcacatr[ETM_MAX_SINGLE_ADDR_CMP];
--	u64	trccidcvr[ETMv4_MAX_CTXID_CMP];
--	u64	trcvmidcvr[ETM_MAX_VMID_CMP];
--	u32	trccidcctlr0;
--	u32	trccidcctlr1;
--	u32	trcvmidcctlr0;
--	u32	trcvmidcctlr1;
--
--	u32	trcclaimset;
--
--	u32	cntr_val[ETMv4_MAX_CNTR];
--	u32	seq_state;
--	u32	vinst_ctrl;
--	u32	ss_status[ETM_MAX_SS_CMP];
--
--	u32	trcpdcr;
--};
--
- /**
-  * struct etm4_drvdata - specifics associated to an ETM component
-  * @pclk:       APB clock if present, otherwise NULL
-@@ -979,7 +924,6 @@ struct etmv4_save_state {
-  *		at runtime, due to the additional setting of TRFCR_CX when
-  *		in EL2. Otherwise, 0.
-  * @config:	structure holding configuration parameters.
-- * @save_state:	State to be preserved across power loss
-  * @skip_power_up: Indicates if an implementation can skip powering up
-  *		   the trace unit.
-  * @paused:	Indicates if the trace unit is paused.
-@@ -1034,7 +978,6 @@ struct etmv4_drvdata {
- 	bool				lpoverride;
- 	u64				trfcr;
- 	struct etmv4_config		config;
--	struct etmv4_save_state		*save_state;
- 	bool				skip_power_up;
- 	bool				paused;
- 	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
+Only soft-offlining or also the other (possibly architecture-specific) 
+handling?
 
 -- 
-2.34.1
+Cheers
 
+David
 
