@@ -4,181 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF7BCCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 02:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD64CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 02:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDH1Sh3T6PHWq1V5GCTrZZzvMmDyuzymxBBvgPLt0nU=; b=hwlqHbBOpa43zwDcwPmQxkt9su
-	7AqAXQHM0AoGH9yEQAxIK2QUDZemB2+4T65rj5ijHlWm+z9FFOY5JYfwqzPNr8K2+FjxbC/7xvlCs
-	SOuQ+A4xP5up5YSowfpQSaFwgyX1XAD3I+yX5sufCnr6qnb0pqjDHNn1BN0pRCmYm8KUEINtwc0NZ
-	jS5OCeX6DH1rykogXJ3GbmOjdGT5V8z2uU6N5TmIdiRrBMOVBio5NBp6phAU+0io376kjDv6G+cpi
-	5JWPObrXO+LAaY1o6iUVLQtAF/tojrm236EeHFmCVzYUWLOVH1bncj8OtVL7O943+39tpcR2ieuPT
-	lGSy5JlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ucqkRwzrfBsenxemOARzaMa+BGX7n61tqLj1pLVa8L0=; b=L97OP0GKneZGJSXF+Ddoecu7Z9
+	Ar+vAcFeQ3k9xSkcg9hPeTqthPp/Mm5YWxevtqtsoEaenuI6yJs+KYY2sTAgaVqXajW1szV8DYJre
+	A42jwWQgIIyjMkWBFmSZ64jIyHWUcwz4bR/kFPYUPpZxXIjKwPhgvzg+T8dUZQ43nnzbTl69FFDvl
+	9sVV07/80vSmt69UM0gKtgwrqGOCB2TgD0/QXKCLEHXwrfasRspvnQoNtT89XK6FjEa3v8Ay/vi9z
+	KCSxWofndoqt9BpDgolUaQpwgUYcUm2uX/jccImiAuewBx8H41fc2QZAsjYLXO4eFw+Uk2vUEjai+
+	gNtJjR/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFjv4-000000092g0-2EG5;
-	Mon, 03 Nov 2025 02:03:42 +0000
-Received: from mail-francecentralazon11013036.outbound.protection.outlook.com ([40.107.162.36] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vFkDo-000000093ZF-2ceM;
+	Mon, 03 Nov 2025 02:23:04 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFjv1-000000092f8-2qbS
+	id 1vFkDl-000000093YJ-0sNx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 02:03:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JwZ1ctlprjkmsuSnDYFnUk0WbgcD0agjaR2YIL/tuuzknhcJwjs/TyZKIjkDyGR5AreUwxSXZj6nApmAL4k/MzLbDN8CxabZs1/E0CDN6lajv9uHr4uzE6X9ZexvP39egUtKvJFaCiqafg9rP1QYk7Fguw7Vylpge5qr3qWt8SIKsltnkPPrPGE5m3G/zj1Ata0cO1wIx/gLs7+fLFUqwWRAGGptUS1HbCNaAKBmwZPgdtEZ5V0WKU2TWd8LN9F+OF8svyWQM9QSHTG0gRZExg8KjCZ8yeJph+d2FpLWX+VP+2+jOz/JPqUFVLV8RJd6IzMcEthLWtKqgL4fvnn7GA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uDH1Sh3T6PHWq1V5GCTrZZzvMmDyuzymxBBvgPLt0nU=;
- b=QrfY1Q92asLsP4wUnrICScKcKOSZ4Z95vKU4pBmW1Tov1GB8cpQEfIvrhj2jKGHEz5/XMI10/PQKXyxPHmnuK6b4JZg+5AuIfIIPP3GL124VumThmwTjA7shiN6XFKiMnU0iXCdjZqp34VOBevigv2N610AdOHbesLCZwys4z4uWOGxtG+H04udIM8Qk15XsG3B27XKDeOWLc/JHIgySq19Joqpi3mmma48RUBSP4zpKI2D3hqfXDs6RJsVb+PLYbcrewdRaqZIDyQVLU24UWXBWW9FDOprYmCb2NgkIibMhUrT1KKN41O0//8SIDpmZxJ/jYCE+brrDgcZwfvcDVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uDH1Sh3T6PHWq1V5GCTrZZzvMmDyuzymxBBvgPLt0nU=;
- b=JnTGT0xzfG3RRtOhjJCAgXtQg7EQru5XQQMiqF8rEhEcMkswhHgSR9CAt7DiLR5fQken1RoNQXB1obJlVX7D+iFEleRZO0oVJC/CMiLOnybVvtrEL+AbDHiShJvM6GYZHWN1OOPmOwN/p+16AQV3fAAIyHJLQzTzugt1GJgnx6QrHxBYocNdUGPmQUZqFFPheEqdvzOL3bpHg/ka9dTvcdBF9F4i58tdAGpkDKO3YvY/Y2sJYsHpHlm8LrqXqeu1/lXQAD5OwKZQzh3SwCY0mxG90fIJ1R+xOiGL4be19NoZ2KP2ZtgVwg/IeWbp8dHpo9npMxHIPr5ylzjAJ4mF9g==
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by AS8PR04MB8452.eurprd04.prod.outlook.com (2603:10a6:20b:348::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Mon, 3 Nov
- 2025 02:03:33 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9275.013; Mon, 3 Nov 2025
- 02:03:33 +0000
-From: "G.N. Zhou" <guoniu.zhou@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [EXT] Re: [PATCH v2 2/5] media: nxp: imx8-isi: Simplify code by
- using helper macro
-Thread-Topic: [EXT] Re: [PATCH v2 2/5] media: nxp: imx8-isi: Simplify code by
- using helper macro
-Thread-Index: AQHcHjIzAx8GBuTeC0eoL870oKvfoLSeTYGAgAA8otCAQdZmAIAALxJg
-Date: Mon, 3 Nov 2025 02:03:33 +0000
-Message-ID: <AS8PR04MB9080F97658FC324261575C40FAC7A@AS8PR04MB9080.eurprd04.prod.outlook.com>
-References: <20250905-isi_imx93-v2-0-37db5f768c57@nxp.com>
- <20250905-isi_imx93-v2-2-37db5f768c57@nxp.com>
- <20250921221325.GB10540@pendragon.ideasonboard.com>
- <AS8PR04MB9080158655C3EA188BE7FE7AFA12A@AS8PR04MB9080.eurprd04.prod.outlook.com>
- <20251102231440.GA1933@pendragon.ideasonboard.com>
-In-Reply-To: <20251102231440.GA1933@pendragon.ideasonboard.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|AS8PR04MB8452:EE_
-x-ms-office365-filtering-correlation-id: dc710255-dbd4-4680-8a65-08de1a7d3160
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|366016|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?SkhHdVFsT2tsYjlJWUw5S2NnRkg2eU12ZDg5OTUwK3RPTnVNTkQ3L2FvZVhm?=
- =?utf-8?B?clBMUlg2TXdySWl1alVTbUwwanNQcm13UWYxRldMR2lKMUxIZkN2NW83RUhL?=
- =?utf-8?B?M205WDBiZ0RvMURDUjk1ODFCOUR0YU9rVUt2NXQ3bmxPWmpQRFM4QXFsYnBq?=
- =?utf-8?B?ZHVSVVlpeXlDSE5qMnJENWRDdFpvNFdFOGRhaTNDUC9GcWJRejkwVGkvOU56?=
- =?utf-8?B?QlBCOVpvZnRyTzJKNjV3SmZKalFHMms4MzF5ZDlHWHBzQnZLMkprNDBlc2FG?=
- =?utf-8?B?bFJCUTAxaE05Y2FBL2g2eHpCN3M1bXR3RnhSaWNYWk52V01wdzh6TmV6ZkhS?=
- =?utf-8?B?NGQrU0ptbDk3TmlqWGpIdEJ1L2wvWWR1SXQ2NlRDd3hLeXlmOThEWXpicXJQ?=
- =?utf-8?B?eWZZNTk3ZlRVcXAyamY5TkFWeFoyd2ppQ09hRjVxSSsrSXBtSmtUcEdJSlJ5?=
- =?utf-8?B?NUw3SjRPR1FtRDdZdTQvclNBekFxejh4WXJJOGpWQnZSNHBTTk8rcmVtTEtQ?=
- =?utf-8?B?VFZiMWkwVnJjbTFyekZJS1NHK0R2Z3g3aFVyMVhLODdHUDZTWHA2YVptZXY0?=
- =?utf-8?B?OHgwcEk1azI1ZVd1cXNLcWNSZU82d21hd2RnUnZTaFhmNjMya3dDQmhhaHVw?=
- =?utf-8?B?NStuMnJTSUwrSFR2VDRFU1lrWithdWV0TFRRd1dmMElHcDA0UVpIWlFSeFg1?=
- =?utf-8?B?RXg4eElzdGR3TUlIV29kNUNQS3ZpSzcwNFppVS9tWTNPbWpZaVhROXdFQkNL?=
- =?utf-8?B?bWhtWS9YcHJZZXNsT0Yzc0lqc2VRZEVWRTJXK2hIZ1AzR2Jwa2dXdWtHclZv?=
- =?utf-8?B?VGsxYjNiKy82dTV2cEJIdm16UldmdFhBQlhjdDJydXBVdzdZT2xobkFjL3hx?=
- =?utf-8?B?Z3Y1L2RCeVFtTi85MDN6WlJTcUIyUFJ6dy8zNk1wSDNZdmFOTXNRdHdGR0xW?=
- =?utf-8?B?amVOMEdEWElmWCtMUFJFTFdkS3NnSURYOHdFZlNLWktZVWdCemREQnUxdXFF?=
- =?utf-8?B?RmVubmhHa28yZTZaRkQybXVXaXYvV0lBaXpzcE5RV1JTSHhHa3VvNnNSY09p?=
- =?utf-8?B?ekZTYW1rWUkvV0h5VDA5bGppQ2JpVVQ5dVhma0V6L2dRTjZ3WHhmSFF5cEJl?=
- =?utf-8?B?aXluay9rTlp5d3hhaDB2TmJRNmFrQXRVMjd6WHJVelpOWlpqMGo5MlR2VGlQ?=
- =?utf-8?B?RjB1Q3BFWHVuVGc5S2haQjNnWHl1cHEyN3djTEJuT3pBNXlNUitBaUlRcEpi?=
- =?utf-8?B?UVdQWXhNUEQraVNzTTloS0VyeWpOM0lmN1NSdHdscm1uU2d4TzhqbTVhdnJK?=
- =?utf-8?B?Sjlra0t0RkVyeUp6L3ByZHJ5NUF3WGhGTTREOUkvR1ZaRk45WWlCMjJGblVO?=
- =?utf-8?B?TVkzMittaGh2Q2NDZDg0ZzE0dXFPS3hRSmZkQ0VKd3lkbithemc4OXIzZDM0?=
- =?utf-8?B?WDZKWG5MWVlkdG54NHRXY2pRSDFwdGJzeDJDMXA3SDBIVWxRYW5UejZmcVY1?=
- =?utf-8?B?SlZjNXFiMkR3bUJLU1AzaHRWZnF5bWFuQmVMV2FlR051SHltV1g4b04xVVd1?=
- =?utf-8?B?YU53Rk4yNVVYV3JTMXVlbFFWQkhzVnN5b0NtN0FWNjNBcHdmREdpZHhlYnVO?=
- =?utf-8?B?dnN0aGNWUFRpNUNIUG5LRXJYMjIyZXZ4K0grYXBSZEV4VmZoWG9XQitsNzNS?=
- =?utf-8?B?RFdFMU5XRkxsMTVFMUhsR2NZN3RSLzU0SE43cVhSS0dSWXFuN01XOWdmM21X?=
- =?utf-8?B?R2sxQXg2d1lkanREajRaNEZNWFphVk5HTzJXejMyRUpBSjRla2szUll0TFZV?=
- =?utf-8?B?N0pLQUcxMzVqWWI5NUNNUGU5K21aSVVsMi9RVkRuaGFGay9wbkRCNTIvZE0y?=
- =?utf-8?B?elNvSG90eDhTMTBsYUdTbEtKTDhzMW9pcE1SZ29pemNhcWRXVkZoMmZSU2Rq?=
- =?utf-8?B?dzJGKzF1MTE2bFFuRVhjcDFEU3oyY1FDNFBpMjlHRWk1elhmd1BkamQ2Smt1?=
- =?utf-8?B?THBDclEwcnY1MFB3RzBBL1N0djErM0liNDZSS1kwc1puNzRkcSt0alhjZ0tU?=
- =?utf-8?Q?ifBIso?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Y3hDMUUwVG1DOVVxbVVDVjlEVmZJQW5DK1BONkdGS1ViQW9DbWdNdG13aHlk?=
- =?utf-8?B?cThRK21scmhkVU9LWi9TMEdISEtXMEdqU1dkK3EwalZFeWo0K3N1V1lxMlRs?=
- =?utf-8?B?ZDhraGFLQ1hZdVZRQ29qUnZPTk9ZeFdyTTgrMEMxTTE4Nnp3SFBPeGl6Rjln?=
- =?utf-8?B?WlBJZVplVC9TYk1ieFhmdVFpcEdDc1krUDU4ZjdXZHIwVXBPUithWUJTWGpX?=
- =?utf-8?B?T1J2T1lPTjF0NG9PSkFGMEorZDR1bE1tK3ZuQ3FLUHFXdWI5ZTNWYTJEYXhF?=
- =?utf-8?B?WGxIUXRONzFsaGtIdFZHVEpvUi9VYjBGb1QveGVJenczN1FiZlpzSUpiNlVR?=
- =?utf-8?B?MWhEb0FPdVF3SDNoblNoL2grdjFxbGcrTkRNc1JsUzg1WGNyWWNCRmVBY3Bo?=
- =?utf-8?B?Zk9vcTBRSlQrSi9td1h0ZlM3b3JuMW9pY1BuNUh1SWkxQ05iVjJJUnhFY2Rh?=
- =?utf-8?B?ajBRRW5SZmVEMFJGWk1XR1JrY3V2TmZJZGNFVHd6c1NHS0cwTXEyN1lnSERz?=
- =?utf-8?B?M3I5amNpdWZEK3dHT1BCNzNhZVl5MFZFTUJkcHJaUVpjOHA2UnhGQVJVZ285?=
- =?utf-8?B?S2dGeFR6bnNyNnZSMVdBUjUrTndHSXRsSDdtTkNCR1p0SnQvNVZpdDdaRUE2?=
- =?utf-8?B?S01JY0EyYStJTk05Rm9BQ05qcWNCbXVtWFNCTUdabDJCREhseC9LRXNIWWtO?=
- =?utf-8?B?RnJGOXgrSjdoWklWRHBQSnFZWUdBVFo3SjBDTXlMSlhRSDVEeFIvRG9RV2Fp?=
- =?utf-8?B?VldUSjNFYWgreENJaGkrVGthMHZoLzJrZkUwTHhRK2tTTDk1NHZIRXJmeVpy?=
- =?utf-8?B?dFhJQ1kwN1FjSllydXZVczh5TUc0ZTh0ZytoV0ZST2xNczVIZnJWYUpTaExm?=
- =?utf-8?B?alRET09xTUIwUDlNOUgyMEVMQW1NbkI3TzdLS3JwaEloMG1HRUhXZEFXZUxX?=
- =?utf-8?B?Rlk3R0ZQay9hT0RnR2hUZk5WK09wK2ZBRWQ3Y09mTU00QnlLUXNTNzNQSENZ?=
- =?utf-8?B?YlUwQVM0WWMwcC8zNjI2SmVTMlBVV0tYYW1rZ2ZVTWs0Q0hJdVkwVFExR1Qy?=
- =?utf-8?B?aG4ycStodXEyVmY5eWpuR3c4Y3NROC81SlZjbmhUQTNZclRQeXUxS3B6YVpK?=
- =?utf-8?B?Y250UmV1QUh2alRZVWQ0dGt3VHRpR0g4T05kZzZLZHVzS3lwNnhzcFVMM0RB?=
- =?utf-8?B?T3NsbExJbVlZQWpxaTZtZ2ZpQm0yaGIrVE55RFZtN0pDK3FsSlZ0VzRLaFJC?=
- =?utf-8?B?c2p2TmwwbnpFMzRXNitMUHY5RDF2U1YrbEpEaFhTTEF6MWN5V1BmWWRPdC8z?=
- =?utf-8?B?ZnhJRzloNVh4TmdOQklMajkvZzlVcG1BQ2duS2F0Y3ZhUEVobHJMUWV0c0Mx?=
- =?utf-8?B?YzFqNDJzamVxV1BzZUNHYlFJdXUvNDNUdGFzM3NNeXRIMlZRN0VLWGw0V0Rl?=
- =?utf-8?B?Vi9BMXdCNHFwUXpRYWh1amlwMlhkWTV2dENTM0hwbm9hZjAwZUFtV2o1a3lH?=
- =?utf-8?B?MnJwUUkwUWNtamM5bk1WUVJxYUdhRjZCNTBSdWF6cDkyMGxEaUhTdmNRR1F6?=
- =?utf-8?B?d1JLMHdBMStEN0xkTGJWVXMxRVRLWEVEbFFnOEl5S1p0NW96cklIZ25VMVV5?=
- =?utf-8?B?WnBxVFp4LzFaL29vemQrYmNQTEhSWFBqVWFpWE42YU1qT2xaTkpTN0xpQVJz?=
- =?utf-8?B?NC9OTCtNMnIveG1JQS9ZRGNEYzRRbSt4ODZkWTlPaklHTXdCanVYQXcrZkFi?=
- =?utf-8?B?eTZJK1NPbE95WFJTTVltM2xEeEs3THRwcmdmeE5iUFJPeWx2eG81Mm9lcW1X?=
- =?utf-8?B?NFcxREltNzR5Yit6OUVwUWdxWUZ1OEk4b0cxVW1pZkpQd01lY1ZubFdDNVNo?=
- =?utf-8?B?QXVLdUY5NjNDVnE2TzJXU3RzRkdzTERIRmRsYWkzZGdZY2FhYlBtaUx6b2RK?=
- =?utf-8?B?citoM2VNd0R2UHMrOXhvTzBlNkJWTzZ2RGpxNVQ2RlBmK2ZYMzh0NGswenk3?=
- =?utf-8?B?TEhoZlIwTXZUZjdsMUZ2Z0JSSFd0VjhnQlJyREVoVFNOcTEycWk0dU03bnlu?=
- =?utf-8?B?VXpCV0xndmtYblJUM0dNUGw0TWF3OE14OGZhcGNWVjQ5TytKb0paeldDdi95?=
- =?utf-8?Q?PGPLXIoE/2aR3U5z1etz7KVYs?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 03 Nov 2025 02:23:03 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4d0Fjg3gLMzKHMKW
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 10:22:47 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id 346091A07C0
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 10:22:51 +0800 (CST)
+Received: from [10.67.111.176] (unknown [10.67.111.176])
+	by APP3 (Coremail) with SMTP id _Ch0CgAHmt74EQhp69jiCQ--.60304S2;
+	Mon, 03 Nov 2025 10:22:50 +0800 (CST)
+Message-ID: <14cd347c-42c9-4134-9c1c-1a222b553c2f@huaweicloud.com>
+Date: Mon, 3 Nov 2025 10:22:47 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc710255-dbd4-4680-8a65-08de1a7d3160
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Nov 2025 02:03:33.3889
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pIYTuTRlbGvhOL2GPMY4U4ay4/4PtDlmYeohWjL3l7paYMDbNLEZeMfNntSRyevkGTdw4QliInAGZvnHcaX77A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8452
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/33] sched/isolation: Convert housekeeping cpumasks to
+ rcu pointers
+To: Frederic Weisbecker <frederic@kernel.org>, Waiman Long <llong@redhat.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-13-frederic@kernel.org>
+ <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
+ <510b0185-51d6-44e6-8c39-dfc4c1721e03@redhat.com>
+ <aQThLsnmqu8Lor6c@localhost.localdomain>
+Content-Language: en-US
+From: Chen Ridong <chenridong@huaweicloud.com>
+In-Reply-To: <aQThLsnmqu8Lor6c@localhost.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _Ch0CgAHmt74EQhp69jiCQ--.60304S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3JF4xAr48tryrCw1kZr4kXrb_yoWfCrWfpr
+	WDGFW7GF4kXr15G3yYvwnFyr90gwn7AFn2yr93Gw4rGF9F93WkJry09F13Wrykur97Cr1U
+	ZF1Dtw4fua48A37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
+	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07
+	j6a0PUUUUU=
+X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_180339_894239_B55AB599 
-X-CRM114-Status: GOOD (  31.33  )
+X-CRM114-CacheID: sfid-20251102_182301_601133_33F6489F 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,75 +109,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-R290IGl0LiBUaGFua3MuDQoNCkJlc3QgUmVnYXJkcw0KRy5OIFpob3UNCg0KDQo+IC0tLS0tT3Jp
-Z2luYWwgTWVzc2FnZS0tLS0tDQo+IEZyb206IExhdXJlbnQgUGluY2hhcnQgPGxhdXJlbnQucGlu
-Y2hhcnRAaWRlYXNvbmJvYXJkLmNvbT4NCj4gU2VudDogTW9uZGF5LCBOb3ZlbWJlciAzLCAyMDI1
-IDc6MTUgQU0NCj4gVG86IEcuTi4gWmhvdSA8Z3Vvbml1Lnpob3VAbnhwLmNvbT4NCj4gQ2M6IE1h
-dXJvIENhcnZhbGhvIENoZWhhYiA8bWNoZWhhYkBrZXJuZWwub3JnPjsgUm9iIEhlcnJpbmcNCj4g
-PHJvYmhAa2VybmVsLm9yZz47IEtyenlzenRvZiBLb3psb3dza2kgPGtyemsrZHRAa2VybmVsLm9y
-Zz47IENvbm9yIERvb2xleQ0KPiA8Y29ub3IrZHRAa2VybmVsLm9yZz47IFNoYXduIEd1byA8c2hh
-d25ndW9Aa2VybmVsLm9yZz47IFNhc2NoYSBIYXVlcg0KPiA8cy5oYXVlckBwZW5ndXRyb25peC5k
-ZT47IFBlbmd1dHJvbml4IEtlcm5lbCBUZWFtDQo+IDxrZXJuZWxAcGVuZ3V0cm9uaXguZGU+OyBG
-YWJpbyBFc3RldmFtIDxmZXN0ZXZhbUBnbWFpbC5jb20+OyBGcmFuayBMaQ0KPiA8ZnJhbmsubGlA
-bnhwLmNvbT47IGxpbnV4LW1lZGlhQHZnZXIua2VybmVsLm9yZzsgZGV2aWNldHJlZUB2Z2VyLmtl
-cm5lbC5vcmc7DQo+IGlteEBsaXN0cy5saW51eC5kZXY7IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMu
-aW5mcmFkZWFkLm9yZzsgbGludXgtDQo+IGtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVj
-dDogUmU6IFtFWFRdIFJlOiBbUEFUQ0ggdjIgMi81XSBtZWRpYTogbnhwOiBpbXg4LWlzaTogU2lt
-cGxpZnkgY29kZSBieQ0KPiB1c2luZyBoZWxwZXIgbWFjcm8NCj4gDQo+IENhdXRpb246IFRoaXMg
-aXMgYW4gZXh0ZXJuYWwgZW1haWwuIFBsZWFzZSB0YWtlIGNhcmUgd2hlbiBjbGlja2luZyBsaW5r
-cyBvcg0KPiBvcGVuaW5nIGF0dGFjaG1lbnRzLiBXaGVuIGluIGRvdWJ0LCByZXBvcnQgdGhlIG1l
-c3NhZ2UgdXNpbmcgdGhlICdSZXBvcnQgdGhpcw0KPiBlbWFpbCcgYnV0dG9uDQo+IA0KPiANCj4g
-T24gTW9uLCBTZXAgMjIsIDIwMjUgYXQgMDI6MDM6NDRBTSArMDAwMCwgRy5OLiBaaG91IHdyb3Rl
-Og0KPiA+IE9uIE1vbmRheSwgU2VwdGVtYmVyIDIyLCAyMDI1IDY6MTMgQU0sIExhdXJlbnQgUGlu
-Y2hhcnQgd3JvdGU6DQo+ID4gPiBPbiBGcmksIFNlcCAwNSwgMjAyNSBhdCAwMjo1NTo1OVBNICsw
-ODAwLCBHdW9uaXUgWmhvdSB3cm90ZToNCj4gPiA+ID4gU2ltcGxpZnkgY29kZSBieSB1c2luZyBo
-ZWxwZXIgbWFjcm8gRklFTERfUFJFUCgpIGFuZCBHRU5NQVNLKCkuDQo+ID4gPg0KPiA+ID4gSSdt
-IG5vdCBuZWNlc3NhcmlseSBhZ2FpbnN0IHRoaXMgY2hhbmdlLCBidXQgaG93IGRvZXMgaXQgInNp
-bXBsaWZ5IGNvZGUiDQo+ID4gPiA/IFRoZXJlJ3Mgbm8gY2hhbmdlIGluIHRoZSBjb2RlIGJlc2lk
-ZSB0aGUgbWFjcm9zLCBhbmQgdGhleSBkb24ndA0KPiA+ID4gbG9vayBwYXJ0aWN1bGFybHkgc2lt
-cGxlci4NCj4gPg0KPiA+IEhvdyBhYm91dCB0aGUgbWVzc2FnZSBib2R5IGNoYW5nZSB0byAiIE1h
-a2UgY29kZSBtb3JlIHJlYWRhYmxlIGFuZA0KPiA+IGVhc2llciB0byBtYWludGFpbiBieSB1c2lu
-ZyB0aGUgRklFTERfUFJFUCBhbmQgR0VOTUFTSygpLiBtYWNybyIgYW5kIHRpdGxlDQo+IGNoYW5n
-ZSB0byAiUmVmaW5lIGNvZGUgYnkgdXNpbmcgaGVscGVyIG1hY3JvIj8NCj4gPiBJZiB5b3UgYWdy
-ZWUsIEkgY291bGQgYXBwbHkgaXQgaW4gbmV4dCB2ZXJzaW9uLg0KPiANCj4gTm8gbmVlZCB0byBz
-ZW5kIGEgbmV3IHZlcnNpb24sIEknbGwgdXBkYXRlIHRoZSBjb21taXQgbWVzc2FnZSBteXNlbGYu
-DQo+IA0KPiA+ID4gPiBObyBmdW5jdGlvbnMgY2hhbmdlZC4NCj4gPiA+ID4NCj4gPiA+ID4gUmV2
-aWV3ZWQtYnk6IEZyYW5rIExpIDxGcmFuay5MaUBueHAuY29tPg0KPiA+ID4gPiBTaWduZWQtb2Zm
-LWJ5OiBHdW9uaXUgWmhvdSA8Z3Vvbml1Lnpob3VAbnhwLmNvbT4NCj4gPiA+ID4gLS0tDQo+ID4g
-PiA+ICBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL254cC9pbXg4LWlzaS9pbXg4LWlzaS1nYXNrZXQu
-YyB8IDcgKysrKy0tLQ0KPiA+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwg
-MyBkZWxldGlvbnMoLSkNCj4gPiA+ID4NCj4gPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWVk
-aWEvcGxhdGZvcm0vbnhwL2lteDgtaXNpL2lteDgtaXNpLWdhc2tldC5jDQo+ID4gPiA+IGIvZHJp
-dmVycy9tZWRpYS9wbGF0Zm9ybS9ueHAvaW14OC1pc2kvaW14OC1pc2ktZ2Fza2V0LmMNCj4gPiA+
-ID4gaW5kZXgNCj4gPiA+ID4NCj4gPiA+DQo+IGY2OWMzYjVkNDc4MjA5YzA4MzczODQ3N2VkZjM4
-MGUzZjI4MGM0NzEuLjJmNWU3Mjk5YjUzN2Q2MTJmYjFmZTY2OA0KPiA+ID4gOGMxYg0KPiA+ID4g
-PiA3NWJmZDJkNjA0OWIgMTAwNjQ0DQo+ID4gPiA+IC0tLSBhL2RyaXZlcnMvbWVkaWEvcGxhdGZv
-cm0vbnhwL2lteDgtaXNpL2lteDgtaXNpLWdhc2tldC5jDQo+ID4gPiA+ICsrKyBiL2RyaXZlcnMv
-bWVkaWEvcGxhdGZvcm0vbnhwL2lteDgtaXNpL2lteDgtaXNpLWdhc2tldC5jDQo+ID4gPiA+IEBA
-IC0zLDYgKzMsOCBAQA0KPiA+ID4gPiAgICogQ29weXJpZ2h0IDIwMTktMjAyMyBOWFANCj4gPiA+
-ID4gICAqLw0KPiA+ID4gPg0KPiA+ID4gPiArI2luY2x1ZGUgPGxpbnV4L2JpdGZpZWxkLmg+DQo+
-ID4gPiA+ICsjaW5jbHVkZSA8bGludXgvYml0cy5oPg0KPiA+ID4gPiAgI2luY2x1ZGUgPGxpbnV4
-L3JlZ21hcC5oPg0KPiA+ID4gPg0KPiA+ID4gPiAgI2luY2x1ZGUgPG1lZGlhL21pcGktY3NpMi5o
-Pg0KPiA+ID4gPiBAQCAtMTYsOCArMTgsNyBAQA0KPiA+ID4gPiAgI2RlZmluZSBHQVNLRVRfQkFT
-RShuKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMHgwMDYwICsgKG4pICogMHgzMCkN
-Cj4gPiA+ID4NCj4gPiA+ID4gICNkZWZpbmUgR0FTS0VUX0NUUkwgICAgICAgICAgICAgICAgICAg
-ICAgICAgIDB4MDAwMA0KPiA+ID4gPiAtI2RlZmluZSBHQVNLRVRfQ1RSTF9EQVRBX1RZUEUoZHQp
-ICAgICAgICAgICAgKChkdCkgPDwgOCkNCj4gPiA+ID4gLSNkZWZpbmUgR0FTS0VUX0NUUkxfREFU
-QV9UWVBFX01BU0sgICAgICAgICAgICgweDNmIDw8IDgpDQo+ID4gPiA+ICsjZGVmaW5lIEdBU0tF
-VF9DVFJMX0RBVEFfVFlQRShkdCkgICAgICAgICAgICBGSUVMRF9QUkVQKEdFTk1BU0soMTMsDQo+
-IDgpLA0KPiA+ID4gKGR0KSkNCj4gPiA+DQo+ID4gPiBJIHRoaW5rIHlvdSBjYW4gb21pdCB0aGUg
-cGFyZW50aGVzZXMgYXJvdW5kIGR0IGhlcmUsIGFuZCBhcm91bmQgeCBiZWxvdy4NCj4gPg0KPiA+
-IE9rLCB3aWxsIGFwcGx5IGluIG5leHQgdmVyc2lvbi4NCj4gPg0KPiA+ID4NCj4gPiA+ID4gICNk
-ZWZpbmUgR0FTS0VUX0NUUkxfRFVBTF9DT01QX0VOQUJMRSAgICAgICAgIEJJVCgxKQ0KPiA+ID4g
-PiAgI2RlZmluZSBHQVNLRVRfQ1RSTF9FTkFCTEUgICAgICAgICAgICAgICAgICAgQklUKDApDQo+
-ID4gPiA+DQo+ID4gPiA+IEBAIC01OCw3ICs1OSw3IEBAIGNvbnN0IHN0cnVjdCBteGNfZ2Fza2V0
-X29wcyBteGNfaW14OF9nYXNrZXRfb3BzDQo+ID0gew0KPiA+ID4gPiAgICovDQo+ID4gPiA+DQo+
-ID4gPiA+ICAjZGVmaW5lIERJU1BfTUlYX0NBTUVSQV9NVVggICAgICAgICAgICAgICAgICAgICAw
-eDMwDQo+ID4gPiA+IC0jZGVmaW5lIERJU1BfTUlYX0NBTUVSQV9NVVhfREFUQV9UWVBFKHgpICAg
-ICAgICAoKCh4KSAmIDB4M2YpIDw8IDMpDQo+ID4gPiA+ICsjZGVmaW5lIERJU1BfTUlYX0NBTUVS
-QV9NVVhfREFUQV9UWVBFKHgpDQo+ID4gPiBGSUVMRF9QUkVQKEdFTk1BU0soOCwgMyksICh4KSkN
-Cj4gPiA+ID4gICNkZWZpbmUgRElTUF9NSVhfQ0FNRVJBX01VWF9HQVNLRVRfRU5BQkxFICAgICAg
-IEJJVCgxNikNCj4gPiA+ID4NCj4gPiA+ID4gIHN0YXRpYyB2b2lkIG14Y19pbXg5M19nYXNrZXRf
-ZW5hYmxlKHN0cnVjdCBteGNfaXNpX2RldiAqaXNpLA0KPiANCj4gLS0NCj4gUmVnYXJkcywNCj4g
-DQo+IExhdXJlbnQgUGluY2hhcnQNCg==
+
+
+On 2025/11/1 0:17, Frederic Weisbecker wrote:
+> Le Tue, Oct 21, 2025 at 12:03:05AM -0400, Waiman Long a écrit :
+>> On 10/20/25 9:46 PM, Chen Ridong wrote:
+>>>
+>>> On 2025/10/14 4:31, Frederic Weisbecker wrote:
+>>>> HK_TYPE_DOMAIN's cpumask will soon be made modifyable by cpuset.
+>>>> A synchronization mechanism is then needed to synchronize the updates
+>>>> with the housekeeping cpumask readers.
+>>>>
+>>>> Turn the housekeeping cpumasks into RCU pointers. Once a housekeeping
+>>>> cpumask will be modified, the update side will wait for an RCU grace
+>>>> period and propagate the change to interested subsystem when deemed
+>>>> necessary.
+>>>>
+>>>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>>>> ---
+>>>>   kernel/sched/isolation.c | 58 +++++++++++++++++++++++++---------------
+>>>>   kernel/sched/sched.h     |  1 +
+>>>>   2 files changed, 37 insertions(+), 22 deletions(-)
+>>>>
+>>>> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+>>>> index 8690fb705089..b46c20b5437f 100644
+>>>> --- a/kernel/sched/isolation.c
+>>>> +++ b/kernel/sched/isolation.c
+>>>> @@ -21,7 +21,7 @@ DEFINE_STATIC_KEY_FALSE(housekeeping_overridden);
+>>>>   EXPORT_SYMBOL_GPL(housekeeping_overridden);
+>>>>   struct housekeeping {
+>>>> -	cpumask_var_t cpumasks[HK_TYPE_MAX];
+>>>> +	struct cpumask __rcu *cpumasks[HK_TYPE_MAX];
+>>>>   	unsigned long flags;
+>>>>   };
+>>>> @@ -33,17 +33,28 @@ bool housekeeping_enabled(enum hk_type type)
+>>>>   }
+>>>>   EXPORT_SYMBOL_GPL(housekeeping_enabled);
+>>>> +const struct cpumask *housekeeping_cpumask(enum hk_type type)
+>>>> +{
+>>>> +	if (static_branch_unlikely(&housekeeping_overridden)) {
+>>>> +		if (housekeeping.flags & BIT(type)) {
+>>>> +			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
+>>>> +		}
+>>>> +	}
+>>>> +	return cpu_possible_mask;
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+>>>> +
+>>>>   int housekeeping_any_cpu(enum hk_type type)
+>>>>   {
+>>>>   	int cpu;
+>>>>   	if (static_branch_unlikely(&housekeeping_overridden)) {
+>>>>   		if (housekeeping.flags & BIT(type)) {
+>>>> -			cpu = sched_numa_find_closest(housekeeping.cpumasks[type], smp_processor_id());
+>>>> +			cpu = sched_numa_find_closest(housekeeping_cpumask(type), smp_processor_id());
+>>>>   			if (cpu < nr_cpu_ids)
+>>>>   				return cpu;
+>>>> -			cpu = cpumask_any_and_distribute(housekeeping.cpumasks[type], cpu_online_mask);
+>>>> +			cpu = cpumask_any_and_distribute(housekeeping_cpumask(type), cpu_online_mask);
+>>>>   			if (likely(cpu < nr_cpu_ids))
+>>>>   				return cpu;
+>>>>   			/*
+>>>> @@ -59,28 +70,18 @@ int housekeeping_any_cpu(enum hk_type type)
+>>>>   }
+>>>>   EXPORT_SYMBOL_GPL(housekeeping_any_cpu);
+>>>> -const struct cpumask *housekeeping_cpumask(enum hk_type type)
+>>>> -{
+>>>> -	if (static_branch_unlikely(&housekeeping_overridden))
+>>>> -		if (housekeeping.flags & BIT(type))
+>>>> -			return housekeeping.cpumasks[type];
+>>>> -	return cpu_possible_mask;
+>>>> -}
+>>>> -EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+>>>> -
+>>>>   void housekeeping_affine(struct task_struct *t, enum hk_type type)
+>>>>   {
+>>>>   	if (static_branch_unlikely(&housekeeping_overridden))
+>>>>   		if (housekeeping.flags & BIT(type))
+>>>> -			set_cpus_allowed_ptr(t, housekeeping.cpumasks[type]);
+>>>> +			set_cpus_allowed_ptr(t, housekeeping_cpumask(type));
+>>>>   }
+>>>>   EXPORT_SYMBOL_GPL(housekeeping_affine);
+>>>>   bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>>>>   {
+>>>> -	if (static_branch_unlikely(&housekeeping_overridden))
+>>>> -		if (housekeeping.flags & BIT(type))
+>>>> -			return cpumask_test_cpu(cpu, housekeeping.cpumasks[type]);
+>>>> +	if (housekeeping.flags & BIT(type))
+>>>> +		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+>>>>   	return true;
+>>>>   }
+>>>>   EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+>>>> @@ -96,20 +97,33 @@ void __init housekeeping_init(void)
+>>>>   	if (housekeeping.flags & HK_FLAG_KERNEL_NOISE)
+>>>>   		sched_tick_offload_init();
+>>>> -
+>>>> +	/*
+>>>> +	 * Realloc with a proper allocator so that any cpumask update
+>>>> +	 * can indifferently free the old version with kfree().
+>>>> +	 */
+>>>>   	for_each_set_bit(type, &housekeeping.flags, HK_TYPE_MAX) {
+>>>> +		struct cpumask *omask, *nmask = kmalloc(cpumask_size(), GFP_KERNEL);
+>>>> +
+>>>> +		if (WARN_ON_ONCE(!nmask))
+>>>> +			return;
+>>>> +
+>>>> +		omask = rcu_dereference(housekeeping.cpumasks[type]);
+>>>> +
+>>>>   		/* We need at least one CPU to handle housekeeping work */
+>>>> -		WARN_ON_ONCE(cpumask_empty(housekeeping.cpumasks[type]));
+>>>> +		WARN_ON_ONCE(cpumask_empty(omask));
+>>>> +		cpumask_copy(nmask, omask);
+>>>> +		RCU_INIT_POINTER(housekeeping.cpumasks[type], nmask);
+>>>> +		memblock_free(omask, cpumask_size());
+>>>>   	}
+>>>>   }
+>>>>   static void __init housekeeping_setup_type(enum hk_type type,
+>>>>   					   cpumask_var_t housekeeping_staging)
+>>>>   {
+>>>> +	struct cpumask *mask = memblock_alloc_or_panic(cpumask_size(), SMP_CACHE_BYTES);
+>>>> -	alloc_bootmem_cpumask_var(&housekeeping.cpumasks[type]);
+>>>> -	cpumask_copy(housekeeping.cpumasks[type],
+>>>> -		     housekeeping_staging);
+>>>> +	cpumask_copy(mask, housekeeping_staging);
+>>>> +	RCU_INIT_POINTER(housekeeping.cpumasks[type], mask);
+>>>>   }
+>>>>   static int __init housekeeping_setup(char *str, unsigned long flags)
+>>>> @@ -162,7 +176,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+>>>>   		for_each_set_bit(type, &iter_flags, HK_TYPE_MAX) {
+>>>>   			if (!cpumask_equal(housekeeping_staging,
+>>>> -					   housekeeping.cpumasks[type])) {
+>>>> +					   housekeeping_cpumask(type))) {
+>>>>   				pr_warn("Housekeeping: nohz_full= must match isolcpus=\n");
+>>>>   				goto free_housekeeping_staging;
+>>>>   			}
+>>>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+>>>> index 1f5d07067f60..0c0ef8999fd6 100644
+>>>> --- a/kernel/sched/sched.h
+>>>> +++ b/kernel/sched/sched.h
+>>>> @@ -42,6 +42,7 @@
+>>>>   #include <linux/ktime_api.h>
+>>>>   #include <linux/lockdep_api.h>
+>>>>   #include <linux/lockdep.h>
+>>>> +#include <linux/memblock.h>
+>>>>   #include <linux/minmax.h>
+>>>>   #include <linux/mm.h>
+>>>>   #include <linux/module.h>
+>>> A warning was detected:
+>>>
+>>> =============================
+>>> WARNING: suspicious RCU usage
+>>> 6.17.0-next-20251009-00033-g4444da88969b #808 Not tainted
+>>> -----------------------------
+>>> kernel/sched/isolation.c:60 suspicious rcu_dereference_check() usage!
+>>>
+>>> other info that might help us debug this:
+>>>
+>>>
+>>> rcu_scheduler_active = 2, debug_locks = 1
+>>> 1 lock held by swapper/0/1:
+>>>   #0: ffff888100600ce0 (&type->i_mutex_dir_key#3){++++}-{4:4}, at: walk_compone
+>>>
+>>> stack backtrace:
+>>> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-next-20251009-00033-g4
+>>> Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239
+>>> Call Trace:
+>>>   <TASK>
+>>>   dump_stack_lvl+0x68/0xa0
+>>>   lockdep_rcu_suspicious+0x148/0x1b0
+>>>   housekeeping_cpumask+0xaa/0xb0
+>>>   housekeeping_test_cpu+0x25/0x40
+>>>   find_get_block_common+0x41/0x3e0
+>>>   bdev_getblk+0x28/0xa0
+>>>   ext4_getblk+0xba/0x2d0
+>>>   ext4_bread_batch+0x56/0x170
+>>>   __ext4_find_entry+0x17c/0x410
+>>>   ? lock_release+0xc6/0x290
+>>>   ext4_lookup+0x7a/0x1d0
+>>>   __lookup_slow+0xf9/0x1b0
+>>>   walk_component+0xe0/0x150
+>>>   link_path_walk+0x201/0x3e0
+>>>   path_openat+0xb1/0xb30
+>>>   ? stack_depot_save_flags+0x41e/0xa00
+>>>   do_filp_open+0xbc/0x170
+>>>   ? _raw_spin_unlock_irqrestore+0x2c/0x50
+>>>   ? __create_object+0x59/0x80
+>>>   ? trace_kmem_cache_alloc+0x1d/0xa0
+>>>   ? vprintk_emit+0x2b2/0x360
+>>>   do_open_execat+0x56/0x100
+>>>   alloc_bprm+0x1a/0x200
+>>>   ? __pfx_kernel_init+0x10/0x10
+>>>   kernel_execve+0x4b/0x160
+>>>   kernel_init+0xe5/0x1c0
+>>>   ret_from_fork+0x185/0x1d0
+>>>   ? __pfx_kernel_init+0x10/0x10
+>>>   ret_from_fork_asm+0x1a/0x30
+>>>   </TASK>
+>>> random: crng init done
+>>>
+>> It is because bh_lru_install() of fs/buffer.c calls cpu_is_isolated()
+>> without holding a rcu_read_lock. Will need to add a rcu_read_lock() there.
+> 
+> But this is called within bh_lru_lock() which should have either disabled
+> IRQs or preemption off. I would expect rcu_dereference_check() to automatically
+> verify those implied RCU read-side critical sections.
+> 
+> Let's see, lockdep_assert_in_rcu_reader() checks preemptible(), which is:
+> 
+> #define preemptible()	(preempt_count() == 0 && !irqs_disabled())
+> 
+> Ah but if !CONFIG_PREEMPT_COUNT:
+> 
+> #define preemptible()	0
+> 
+> Chen did you have !CONFIG_PREEMPT_COUNT ?
+> 
+> Probably lockdep_assert_in_rcu_reader() should be fixed accordingly and consider
+> preemption always disabled whenever !CONFIG_PREEMPT_COUNT. Let me check that...
+> 
+> Thanks.
+> 
+
+I compiled with CONFIG_PREEMPT_COUNT=y and CONFIG_SMP=y.
+
+-- 
+Best regards,
+Ridong
+
 
