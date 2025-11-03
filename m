@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A06CCFA06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002AACCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PPrnykW9RcTv8SXmC4oIff7zEg9zUe3KhDF23k6GnlE=; b=G79ZQdOkev80vMaL0luNVXBKYG
-	MMsr6mGg0d/XxpK9uKIQCS/77AGd1YR5Am88PMO9cpjVPrHL+zog/RC8+W825T/D2+hXmD4tvgIZA
-	XNRRsBXUCWh3kvumUCukhUzUpsc5ND0KQ+e+nw9PdENqpCWJb18DcmXVTQdz+ZoH/wGP9b0iOXrZ4
-	4VaEDSEBB9QDNI5povxsnPGsOTjqnS1YEbV75eGHkxm/Kzi9s3jjmO3Z+wkhLGX04rXUXRN2Seqen
-	9Um9HuNE/4vEdU1FJ27RowFTP3dUbsQOJIWzcov0nZqaWK4OMKuB1UgwIM8SNtxJ85btChgsmDjqT
-	JvV32hvw==;
+	bh=q+/t9bteFAoRNa+cQTzNOtIizDYHm0AvKyEZOiZN2Yo=; b=eFIvVab3SDxSH+eTRPulYte+EI
+	RjjmY9YFtY4ZRnnlP5Emi1bB+zRcY8N1mxqYdMMqyvGtQrMivqcgLfOOR7TMaH9bZ/Vyxlh8E6d0O
+	wencqdu53yWwUX2lR9l7B/H60VzAizv/7u4vI8NKB3UHNCEVQqL4LFZIB/9rWFTYw/j6L579JE2Za
+	x37UugqoPzs9rskg8t7HFkC0IX5A+kfqW9CCd+a2OjW68hDZF0J5450T6n0oNC7Wm99xrZjhc4df8
+	kwjoSGMW/6ygj23BUapumFodELS6K7HUUFGrBBJs5osVysor8OBdlpklvf+fLpd0D6IHheUNa/qSb
+	ge6DJX5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFttZ-00000009qZq-19A4;
-	Mon, 03 Nov 2025 12:42:49 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFttX-00000009qWn-0U8d
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vFttY-00000009qZ9-3tRU;
 	Mon, 03 Nov 2025 12:42:48 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6409e985505so2681584a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 04:42:46 -0800 (PST)
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFttV-00000009qVt-3xd5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Nov 2025 12:42:47 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b3e9d633b78so1043786466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 04:42:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1762173765; x=1762778565; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1762173764; x=1762778564; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=PPrnykW9RcTv8SXmC4oIff7zEg9zUe3KhDF23k6GnlE=;
-        b=u3e3MX3OEWwM9hKeJpaxnIMuqXRPde51QYxxVnGqhcXFOhgWkBuheMPQZS8nW9cJ26
-         W/rYDSjMtmU3gxELW7l5y/I8Ne3nM8JS7ErNmFcau79F/zOAK5OH+05fMtmTD+xuuGRS
-         t3dJgzl7OvuB3//iLEkSxEkLwf/qMkHgiGOu/ZYaXmV03y16qtqVlCuza9XJv55rV86Y
-         NTZFd9EcttjPIvJliPY7o4m3pxhixTM0Y2h0Nkk8NtvY8gERIHvpufhTjTobjJsVhzGO
-         8wmLPw0okm0uASBuHDCPAtKUVLgZvnWJVYihnGGtCwGUJtW6OKFP1N+FLfejGGkui5m2
-         MwMA==
+        bh=q+/t9bteFAoRNa+cQTzNOtIizDYHm0AvKyEZOiZN2Yo=;
+        b=beivP2XXqbnTUrSYCE/ajvo/lSTw44q3O7o2IX2NflF4iKMZhYB64MQPAbkc9i8TQe
+         +jRaz/mWPGBD8szgdRibfIk9QC3GcWys0/SE++qqwsZtdRzzNQHjWBaNkkvSAfJyxtks
+         hEL1PqW0LYblTJG8ZMFf4q6CPuUm4nJyMhsezEuTtIPdwotPPYL23PGDL13LOjl/5J3U
+         UqmcBT7ki5Y91YtRj+ZjzEXdYOR07Cb2DbBg04GhcyX3X/6bADZ7nYr9Z8Ba9kx2+enn
+         Kw4t0kt+IY7BsIwmc3tni4Lje6pOnD1Ul4WAj8bIlCcIyvETsSMQiPg6M8lXCx9pYfu5
+         G92Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762173765; x=1762778565;
+        d=1e100.net; s=20230601; t=1762173764; x=1762778564;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PPrnykW9RcTv8SXmC4oIff7zEg9zUe3KhDF23k6GnlE=;
-        b=PIpa6ASNPZKBWSJtCSTpesWwaFARm4pgYXiubfuKTuS3dyrbDSo8aypwXmcuy3L3sx
-         dgGug19hRNpHMSTgV4jQ/h4fuWWNGxyNPfJUmDDjCuMCTDn+Muyr0a1z6YLrlvG4xqZN
-         3pN7CKoqORlcKodZI4VQbTuU7uHwqfwNvlRdkDT35Moyn5UcKMehObv6uoC4l5r38KjL
-         hPk6KsXSsGsN1K/eUTWpZc1MXic2u5s6l49/AoHOwHUljEbHRcmyJ8R4GSjRJUwHr91V
-         kXhb0NFNb1mKSDisxsd/vTZOmBtpgYaE1je5O7eBsJLJqsaZKbGizuxIdRZ7ocoH22bX
-         kFlg==
-X-Forwarded-Encrypted: i=1; AJvYcCUEBbzjYxP3yrZnYH3BA4xvNCx4Y/y4BuVqP8g/e7lL4mKdXyh5CpDitxQo3gKvh/3/CVnKKiaR7L6oOOj6VmhU@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe5dDO6sDEfyKfQyRiNfb41AZ5HjCwhJ/Hp89lv/gG8fT1EXDS
-	cxwPDuaGZlNIkxzz7o/mqb74Ppjau12T0VxNN9r0UNnDdx3r6hscli09p1mMYuIBvio=
-X-Gm-Gg: ASbGncuuh2vIpzHhAJIO8THyVbrvDX/mVT8OGRirS7rLLYEbF8R+tfS1VOrDkMcLvaQ
-	uLHXZde1N9daL1wb4v6AtXh9dPHEx53fMn/jArK1lTQuXz/z1igV+cwwNVwWROKccYEGerPEHYp
-	gU3RNzOlDsQp/ANUZ3lgPL05rEihyZgRCzksUvM9UxDgjg+n77vDfDo3NqPA+gSurkl4IUjBxJE
-	rXPJjwGSDEzJ2v68+Mi4fekxyyH9lxlVdtNbbFZJ7HvBybOma/bnAN35B6MNvo16eV72LUymShH
-	jF8jTsNPjEdzrJnw99wbeR7iufOjil8TIjdS8k8m3If+7dSRNe2FI75y2MPhMkkgj1qE6CygGvy
-	BU0aqvN11rG2zQxwxjnxEdT9VaKB249pC7Ykwt7HQRihp10R+k5SS+3JxUsjr2tYPz2lpIXk=
-X-Google-Smtp-Source: AGHT+IEt2sGyB8OGmSAirfMXRL4rXymXxxnigXWQMbloi64CMl+rBW5jNMGAdVjLMSOzt2Z2+JBIlg==
-X-Received: by 2002:a17:907:60cd:b0:b3b:110c:d343 with SMTP id a640c23a62f3a-b70701061c7mr1219796166b.8.1762173765217;
-        Mon, 03 Nov 2025 04:42:45 -0800 (PST)
-Received: from localhost ([2001:4090:a247:830a:fe22:a8:f29a:a5c3])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b70bd65ca39sm348853066b.26.2025.11.03.04.42.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=q+/t9bteFAoRNa+cQTzNOtIizDYHm0AvKyEZOiZN2Yo=;
+        b=kwKjTY2w1zi3+Av0ONO48x0K7SjlGd1SVZEmwJN1sNyVjtSkDeGs5d+L7h9PaEa5hv
+         gzjo2TjnYzB0GwLlN3sl6AEQxdczcdypcWVmMXT7KfREAU1Ac7jlZ+twW+OrEpsIOmmH
+         hbBlLXL6D/ZWT22SN2L5bhlaJv3xPxJPCoi0Y+ojdSP5aV6m6XHGTZNs39KwYSLx3XwZ
+         puChkpxlnvWMCVl6F8wHjcWC3Bcvx+gW3s88iR/jjq45sE0/ANV/ullzURlqF1IvGT3z
+         gBEw11541GH+j4ql+9ha+0o6srHJjncjCWDsB+cEkbAa8Lk56WvZOztnT4ALCwmNJWun
+         y/9w==
+X-Forwarded-Encrypted: i=1; AJvYcCV6vfBOo7Wqx1UvEutPBtiyXUTNPiJMzPBU9ZsY5QEYgVdo2IZZGrZaF8ZdwCi8pX8nxSUq8u7oIJQl4ET8yyMN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8h8OCTHOH4PV+gp6BGz3eYo9f21z8hVkp75IKW09m9UcW+Sy2
+	riRAkx9IhjrYRHa9CtR0CLQY+VZv2rYvMrXwQGqRBoHW79p6xF2Xur6+IfToX81fxuE=
+X-Gm-Gg: ASbGncs11jc1UMNp0m7USA9vVIfYQ5xPy5YseN5zm1mDBot+Ug71eCcaWAdzWqUYCdg
+	iJXA6avEysRQC/9xUGaGYS4JdXr+4fOEPfJeVIjHCBSaDtatj7IEzY178BdO0+L9gHjKjEdKlKJ
+	C2ofgfRs5M+SkFIPrxx57K9sj4WB/XVSs/u6ui5175YezJ17wdBgoOOuA3GDe0FZowHwITSJDbB
+	UlAqKfBxVf8CzkaXggQMKnZ03Xz68U5QqofxQPY328LcNvw7qKIGVeekE0TaZKWoUcpucJhxi85
+	PCzJQXcO7uvBX50U4ch6Y1IHn5V0ZGHybFvBOpl3dOnC+103VVUfTzMyFqscQixjz4SXTjNSIFC
+	ETt3+viLqUM5m1Eu97r3pVYL+dsq9aMYSS7aJpi9tM0xpENFz/WhNklE1+xfCHN2RrT1pYo+iAx
+	lgCPdBag==
+X-Google-Smtp-Source: AGHT+IFIHqwLMhjGscMYSAijor0+3yh5hRoO0Raw0QVXNoSscDyDDbST6mC5uISlP4ngwkAwYv6teg==
+X-Received: by 2002:a17:907:9707:b0:b3c:5f99:dac7 with SMTP id a640c23a62f3a-b706e54eabfmr1302167766b.21.1762173764075;
         Mon, 03 Nov 2025 04:42:44 -0800 (PST)
+Received: from localhost ([2001:4090:a247:830a:fe22:a8:f29a:a5c3])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b70acf84c51sm510327066b.30.2025.11.03.04.42.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Nov 2025 04:42:43 -0800 (PST)
 From: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
-Date: Mon, 03 Nov 2025 13:42:21 +0100
-Subject: [PATCH v10 3/3] firmware: ti_sci: Remove constant 0 function
- arguments
+Date: Mon, 03 Nov 2025 13:42:20 +0100
+Subject: [PATCH v10 2/3] firmware: ti_sci: Partial-IO support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251103-topic-am62-partialio-v6-12-b4-v10-3-0557e858d747@baylibre.com>
+Message-Id: <20251103-topic-am62-partialio-v6-12-b4-v10-2-0557e858d747@baylibre.com>
 References: <20251103-topic-am62-partialio-v6-12-b4-v10-0-0557e858d747@baylibre.com>
 In-Reply-To: <20251103-topic-am62-partialio-v6-12-b4-v10-0-0557e858d747@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
@@ -87,17 +87,17 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2722; i=msp@baylibre.com;
- h=from:subject:message-id; bh=9WWZRj95x1PsEyZywEyr4mp9AG5VR4rGO6uiOLlvg2k=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhkyOxdZ7NE5/fPheUGmV3Z/0nr0a4lOcNDdtrst6dE+iI
- 5rzgu6ljlIWBjEuBlkxRZbOxNC0//I7jyUvWrYZZg4rE8gQBi5OAZjIMz2G/+lzd76tzC2pOXVi
- 14eD3gfTM6epTn4ZKz5hxcdT513ypIIZ/tfuLI4p25z+VE9ng/P5tUrJc1ZvqXbXUq8I0eOXn1B
- mxAAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7313; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=3nTf+/ss8Vb1phICCN/rX1fk5ehJsdJVA3tLrFZB+zQ=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhkyOxaZpaTeDLddf+spvW/3j+orOe8slzeqzCj/0xrB9m
+ MKw/U9ARykLgxgXg6yYIktnYmjaf/mdx5IXLdsMM4eVCWQIAxenAEykT4WR4axrzwFtDSZNw/xn
+ 1b0bIw8d474xd2f+x602rPGWWU+W5TH8D/oaNmOf/bIZp5XjTz3y9v6t/Ld7U8amrs+Gm0SyWeY
+ asAEA
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_044247_183112_362E09CE 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20251103_044246_027027_C2AEAA1D 
+X-CRM114-Status: GOOD (  26.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +112,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ti_sci_cmd_prepare_sleep takes three arguments ctx_lo, ctx_hi and
-debug_flags which are always 0 for the caller. Remove these arguments as
-they are basically unused.
+Add support for Partial-IO poweroff. In Partial-IO pins of a few
+hardware units can generate system wakeups while DDR memory is not
+powered resulting in a fresh boot of the system. These hardware units in
+the SoC are always powered so that some logic can detect pin activity.
+
+If the system supports Partial-IO as described in the fw capabilities, a
+sys_off handler is added. This sys_off handler decides if the poweroff
+is executed by entering normal poweroff or Partial-IO instead. The
+decision is made by checking if wakeup is enabled on all devices that
+may wake up the SoC from Partial-IO.
+
+The possible wakeup devices are found by checking which devices
+reference a "Partial-IO" system state in the list of wakeup-source
+system states. Only devices that are actually enabled by the user will
+be considered as an active wakeup source. If none of the wakeup sources
+is enabled the system will do a normal poweroff. If at least one wakeup
+source is enabled it will instead send a TI_SCI_MSG_PREPARE_SLEEP
+message from the sys_off handler. Sending this message will result in an
+immediate shutdown of the system. No execution is expected after this
+point. The code will wait for 5s and do an emergency_restart afterwards
+if Partial-IO wasn't entered at that point.
+
+A short documentation about Partial-IO can be found in section 6.2.4.5
+of the TRM at
+  https://www.ti.com/lit/pdf/spruiv7
 
 Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
 ---
- drivers/firmware/ti_sci.c | 17 ++++++-----------
- 1 file changed, 6 insertions(+), 11 deletions(-)
+ drivers/firmware/ti_sci.c | 109 +++++++++++++++++++++++++++++++++++++++++++---
+ drivers/firmware/ti_sci.h |   5 +++
+ 2 files changed, 107 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 811507ded63ac784ad6c6ad77b2f827768f3f3c7..023c603ae58cb5df176c66eec429bd0b4037b798 100644
+index 2585cb82d1ad8e3d79bca458a2b86cc81a3e627b..811507ded63ac784ad6c6ad77b2f827768f3f3c7 100644
 --- a/drivers/firmware/ti_sci.c
 +++ b/drivers/firmware/ti_sci.c
-@@ -1664,14 +1664,10 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
-  * ti_sci_cmd_prepare_sleep() - Prepare system for system suspend
-  * @handle:		pointer to TI SCI handle
-  * @mode:		Device identifier
-- * @ctx_lo:		Low part of address for context save
-- * @ctx_hi:		High part of address for context save
-- * @debug_flags:	Debug flags to pass to firmware
-  *
-  * Return: 0 if all went well, else returns appropriate error value.
-  */
--static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
--				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
-+static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode)
+@@ -1673,6 +1673,9 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
+ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+ 				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
  {
- 	u32 msg_flags = mode == TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO ?
- 			TI_SCI_FLAG_REQ_GENERIC_NORESPONSE :
-@@ -1702,9 +1698,9 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
++	u32 msg_flags = mode == TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO ?
++			TI_SCI_FLAG_REQ_GENERIC_NORESPONSE :
++			TI_SCI_FLAG_REQ_ACK_ON_PROCESSED;
+ 	struct ti_sci_info *info;
+ 	struct ti_sci_msg_req_prepare_sleep *req;
+ 	struct ti_sci_msg_hdr *resp;
+@@ -1689,7 +1692,7 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+ 	dev = info->dev;
  
- 	req = (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
- 	req->mode = mode;
--	req->ctx_lo = ctx_lo;
--	req->ctx_hi = ctx_hi;
--	req->debug_flags = debug_flags;
-+	req->ctx_lo = 0;
-+	req->ctx_hi = 0;
-+	req->debug_flags = 0;
+ 	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
+-				   TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++				   msg_flags,
+ 				   sizeof(*req), sizeof(*resp));
+ 	if (IS_ERR(xfer)) {
+ 		ret = PTR_ERR(xfer);
+@@ -1709,11 +1712,12 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+ 		goto fail;
+ 	}
  
- 	ret = ti_sci_do_xfer(info, xfer);
- 	if (ret) {
-@@ -3729,7 +3725,7 @@ static int ti_sci_sys_off_handler(struct sys_off_data *data)
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp)) {
+-		dev_err(dev, "Failed to prepare sleep\n");
+-		ret = -ENODEV;
++	if (msg_flags == TI_SCI_FLAG_REQ_ACK_ON_PROCESSED) {
++		resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
++		if (!ti_sci_is_response_ack(resp)) {
++			dev_err(dev, "Failed to prepare sleep\n");
++			ret = -ENODEV;
++		}
+ 	}
  
- 	dev_info(info->dev, "Entering Partial-IO because a powered wakeup-enabled device was found.\n");
+ fail:
+@@ -3667,6 +3671,78 @@ devm_ti_sci_get_resource(const struct ti_sci_handle *handle, struct device *dev,
+ }
+ EXPORT_SYMBOL_GPL(devm_ti_sci_get_resource);
  
--	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO, 0, 0, 0);
-+	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO);
- 	if (ret) {
- 		dev_err(info->dev,
- 			"Failed to enter Partial-IO %pe, trying to do an emergency restart\n",
-@@ -3768,8 +3764,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
- 			 * internal use and can be 0
- 			 */
- 			return ti_sci_cmd_prepare_sleep(&info->handle,
--							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
--							0, 0, 0);
-+							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED);
- 		} else {
- 			/* DM Managed is not supported by the firmware. */
- 			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
++/*
++ * Iterate all device nodes that have a wakeup-source property and check if one
++ * of the possible phandles points to a Partial-IO system state. If it
++ * does resolve the device node to an actual device and check if wakeup is
++ * enabled.
++ */
++static bool ti_sci_partial_io_wakeup_enabled(struct ti_sci_info *info)
++{
++	struct device_node *wakeup_node = NULL;
++
++	for_each_node_with_property(wakeup_node, "wakeup-source") {
++		struct of_phandle_iterator it;
++		int err;
++
++		of_for_each_phandle(&it, err, wakeup_node, "wakeup-source", NULL, 0) {
++			struct platform_device *pdev;
++			bool may_wakeup;
++
++			/*
++			 * Continue if idle-state-name is not off-wake. Return
++			 * value is the index of the string which should be 0 if
++			 * off-wake is present.
++			 */
++			if (of_property_match_string(it.node, "idle-state-name", "off-wake"))
++				continue;
++
++			pdev = of_find_device_by_node(wakeup_node);
++			if (!pdev)
++				continue;
++
++			may_wakeup = device_may_wakeup(&pdev->dev);
++			put_device(&pdev->dev);
++
++			if (may_wakeup) {
++				dev_dbg(info->dev, "%pOF identified as wakeup source for Partial-IO\n",
++					wakeup_node);
++				of_node_put(it.node);
++				of_node_put(wakeup_node);
++				return true;
++			}
++		}
++	}
++
++	return false;
++}
++
++static int ti_sci_sys_off_handler(struct sys_off_data *data)
++{
++	struct ti_sci_info *info = data->cb_data;
++	const struct ti_sci_handle *handle = &info->handle;
++	bool enter_partial_io = ti_sci_partial_io_wakeup_enabled(info);
++	int ret;
++
++	if (!enter_partial_io)
++		return NOTIFY_DONE;
++
++	dev_info(info->dev, "Entering Partial-IO because a powered wakeup-enabled device was found.\n");
++
++	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO, 0, 0, 0);
++	if (ret) {
++		dev_err(info->dev,
++			"Failed to enter Partial-IO %pe, trying to do an emergency restart\n",
++			ERR_PTR(ret));
++		emergency_restart();
++	}
++
++	mdelay(5000);
++	emergency_restart();
++
++	return NOTIFY_DONE;
++}
++
+ static int tisci_reboot_handler(struct sys_off_data *data)
+ {
+ 	struct ti_sci_info *info = data->cb_data;
+@@ -3946,6 +4022,19 @@ static int ti_sci_probe(struct platform_device *pdev)
+ 		goto out;
+ 	}
+ 
++	if (info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO) {
++		ret = devm_register_sys_off_handler(dev,
++						    SYS_OFF_MODE_POWER_OFF,
++						    SYS_OFF_PRIO_FIRMWARE,
++						    ti_sci_sys_off_handler,
++						    info);
++		if (ret) {
++			dev_err(dev, "Failed to register sys_off_handler %pe\n",
++				ERR_PTR(ret));
++			goto out;
++		}
++	}
++
+ 	dev_info(dev, "ABI: %d.%d (firmware rev 0x%04x '%s')\n",
+ 		 info->handle.version.abi_major, info->handle.version.abi_minor,
+ 		 info->handle.version.firmware_revision,
+@@ -3955,7 +4044,13 @@ static int ti_sci_probe(struct platform_device *pdev)
+ 	list_add_tail(&info->node, &ti_sci_list);
+ 	mutex_unlock(&ti_sci_list_mutex);
+ 
+-	return of_platform_populate(dev->of_node, NULL, NULL, dev);
++	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
++	if (ret) {
++		dev_err(dev, "platform_populate failed %pe\n", ERR_PTR(ret));
++		goto out;
++	}
++	return 0;
++
+ out:
+ 	if (!IS_ERR(info->chan_tx))
+ 		mbox_free_channel(info->chan_tx);
+diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+index 701c416b2e78f8ef20ce6741a88ffa6fd4853b2d..09eaea54dd5cabce72dd1652c9603e3ab446b60c 100644
+--- a/drivers/firmware/ti_sci.h
++++ b/drivers/firmware/ti_sci.h
+@@ -595,6 +595,11 @@ struct ti_sci_msg_resp_get_clock_freq {
+ struct ti_sci_msg_req_prepare_sleep {
+ 	struct ti_sci_msg_hdr	hdr;
+ 
++/*
++ * When sending prepare_sleep with MODE_PARTIAL_IO no response will be sent,
++ * no further steps are required.
++ */
++#define TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO				0x03
+ #define TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED				0xfd
+ 	u8			mode;
+ 	u32			ctx_lo;
 
 -- 
 2.51.0
