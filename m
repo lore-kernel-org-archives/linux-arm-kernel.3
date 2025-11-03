@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96E6CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CE5CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwOqk6r952fnoq6kqx5JJLxmDxQO3I/qHQLZzHd75RQ=; b=A+0fLHJj13/NPFtRMVfFLM3TlP
-	WySSysNHbycHSWrjU250EJzCJ/hmfx9lba4iSojfq3Ymr+s0HBYP0/GspRxV6bAiSqxmHUtMuOUVX
-	UmxObJkIeFTqmL3MvwrZ2JTHllWveTERv/aMPGp4RqZFECdSxAffLnRhJxh18UOQXhaugt67W3DIq
-	Kw6/1/EpOv+ycOWfr5gHjHZO/b9naFo8uRoF2umNOCG2yzpd0HQJ19Owc6fxD2smiWg8tot9zaKpx
-	mnZrKnh8HvwLFlsdYcK6T4EuIPi3AYcAnZ5OIX8KpNYGdETDBZn3RxXrfK8DKdOXow/GzwHS0QYgw
-	wsK0Ujdg==;
+	bh=e5n02YsPUymsm+YL55DgTYP/9/gC3odoxIrhflBuFxU=; b=Z6sWFVudriY9ZeHWrxmjLQMXce
+	ahVdQPkmIXzWs3IcO1i+sfYh3yFMYwTROG722UoV9lP5OfhQY9bGX2NtrLwvQHZZXyU7zOQyVDQjg
+	zG2/fIkVGsU6Waq52Pth1ZET3atLLzXqp2OrscJH7+b14pLUtw26KEreNkZHAlt/x+qF1kYx6Qs80
+	6h88FDAidi4t22StjACHS1QYLcJ8UqDRXTSGzCvRfWDCznkDrtPcD/RwrwrV9muRHo4jqyDC8zP1r
+	RvQR9cPYGAACQgev774YtMklf0iZC0NcV+I+s8A4+1ApNJR+x8pbMZ/OOwuT3IisQZvui/Ph+zgf+
+	htOnCi4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxDQ-0000000AEfF-4ACf;
-	Mon, 03 Nov 2025 16:15:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFxFP-0000000AExi-46q9;
+	Mon, 03 Nov 2025 16:17:36 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxDN-0000000AEeo-3CmH
+	id 1vFxFN-0000000AEwv-049x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:15:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D68643BB2;
-	Mon,  3 Nov 2025 16:15:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22BE5C4CEE7;
-	Mon,  3 Nov 2025 16:15:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762186529;
-	bh=S0YKJr0SoBmysmz8IMr3QugNjlhYpJzfR41WjPWBUB4=;
+	Mon, 03 Nov 2025 16:17:34 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 43F9B22E;
+	Mon,  3 Nov 2025 17:15:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762186534;
+	bh=tU20dHhvzTic1V34oCJnXHvxilHx8SjrMcH9p7oyPPg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pMmG9L/wSj8xOcK/DzcO7x+pUKpbN+kaGWRhPKGT/hFa2p/Ay8Nl1Mzz1ZWUyScDa
-	 vucJ0XbF6T0spIoI3AD/0qxqWiVKMh+Mmks24qxQFDpKZf3Zexx64cDs61lCh6Efy6
-	 od0TqupiK1VEnDg7glIHKRlBc357kZIMtV/jM6SD3qxje1H7u2r4taFzH3oyOWmxWM
-	 hHnL2j3jQ8KEJexQD4wpbJBjPfYdQst+gwFFqah20VMhXD96dyPMbnm/scOYZnijeO
-	 WcP/Ww9iS8dXs6EdOUxwooqxO/I0VbjvAaMNzv31ZZN/WtGdcK9zJR5blHKdrg4t/9
-	 0WafEdG9rsGng==
-Message-ID: <c7c8a233-2103-4b48-b65e-ec81666d20e4@kernel.org>
-Date: Mon, 3 Nov 2025 17:15:18 +0100
+	b=tQRQPOThqW29KOusEVJeufmpzOaCbYCbNbLbWE1NpG84mKLRIWv77MbLFXjZkhVXJ
+	 QDs/t6uzSZDbGhk6r85U8+COeUQjXNnUrpYgcy3MftX22HYkHu8Im67VyQPnFVAIvg
+	 WFufq9+zZbS7jmnGDJ4O+oOSXwHihz1FxnS5mhTk=
+Message-ID: <8c5a4c68-8299-4d8f-96b2-8db232df70fe@ideasonboard.com>
+Date: Mon, 3 Nov 2025 16:17:24 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 11/12] x86/xen: use lazy_mmu_state when
- context-switching
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-12-kevin.brodsky@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
+Subject: Re: [PATCH v12 03/15] dt-bindings: media: Add bindings for ARM
+ mali-c55
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+ jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com, robh+dt@kernel.org,
+ mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
+ <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
+ <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
 Content-Language: en-US
-In-Reply-To: <20251029100909.3381140-12-kevin.brodsky@arm.com>
+From: Dan Scally <dan.scally@ideasonboard.com>
+In-Reply-To: <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_081529_848394_B41AA146 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20251103_081733_198015_50B0A593 
+X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,70 +77,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29.10.25 11:09, Kevin Brodsky wrote:
-> We currently set a TIF flag when scheduling out a task that is in
-> lazy MMU mode, in order to restore it when the task is scheduled
-> again.
+Hi Prabhakar
+
+On 28/10/2025 18:23, Lad, Prabhakar wrote:
+> Hi Daniel,
 > 
-> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-> mode in task_struct::lazy_mmu_state. We can therefore check that
-> state when switching to the new task, instead of using a separate
-> TIF flag.
+> Thank you for the patch.
 > 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->   arch/x86/include/asm/thread_info.h | 4 +---
->   arch/x86/xen/enlighten_pv.c        | 3 +--
->   2 files changed, 2 insertions(+), 5 deletions(-)
+> On Thu, Oct 2, 2025 at 11:19 AM Daniel Scally
+> <dan.scally@ideasonboard.com> wrote:
+>>
+>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+>>
+>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+>> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>> ---
+>> Changes in v12:
+>>
+>>          - _Actually_ dropped the arm,inline property mode, having forgotten to
+>>            do so in v11.
+>>
+>> Changes in v11:
+>>
+>>          - Dropped in arm,inline_mode property. This is now identical to the
+>>            reviewed version 8, so I have kept the tags on there.
+>>
+>> Changes in v10:
+>>
+>>          - None
+>>
+>> Changes in v9:
+>>
+>>          - Added the arm,inline_mode property to differentiate between inline and
+>>            memory input configurations
+>>
+>> Changes in v8:
+>>
+>>          - Added the video clock back in. Now that we have actual hardware it's
+>>            clear that it's necessary.
+>>          - Added reset lines
+>>          - Dropped R-bs
+>>
+>> Changes in v7:
+>>
+>>          - None
+>>
+>> Changes in v6:
+>>
+>>          - None
+>>
+>> Changes in v5:
+>>
+>>          - None
+>>
+>> Changes in v4:
+>>
+>>          - Switched to port instead of ports
+>>
+>> Changes in v3:
+>>
+>>          - Dropped the video clock as suggested by Laurent. I didn't retain it
+>>          for the purposes of the refcount since this driver will call .s_stream()
+>>          for the sensor driver which will refcount the clock anyway.
+>>          - Clarified that the port is a parallel input port rather (Sakari)
+>>
+>> Changes in v2:
+>>
+>>          - Added clocks information
+>>          - Fixed the warnings raised by Rob
+>> ---
+>>   .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++++++++
+>>   1 file changed, 82 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1bae234147eb967a8
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+>> @@ -0,0 +1,82 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: ARM Mali-C55 Image Signal Processor
+>> +
+>> +maintainers:
+>> +  - Daniel Scally <dan.scally@ideasonboard.com>
+>> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: arm,mali-c55
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: ISP Video Clock
+>> +      - description: ISP AXI clock
+>> +      - description: ISP AHB-lite clock
+> As per RZ/V2H HW manual we have reg clock looking at the driver code
+> it does have readl. IVC has reg clock if IVC driver fails are you
+> still able to read/write regs from ISP driver?
+ >
+ > I think we do need to pass reg clock too.
+
+Yes - but I should clarify that the names are from the arm documentation that we had when we 
+originally developed the ISP driver. The RZ/V2H documentation treats the ISP and IVC as one block 
+that shares 4 clocks and resets, but when we originally developed the ISP driver the platform we 
+used had the ISP implemented as an inline configuration (taking data directly from a csi-2 receiver 
+without an IVC equivalent), and the documentation detailed just the three clocks and resets. The 
+dtsi changes for the RZ/V2H(P) [1] assign clocks 226, 228 and 229 to the ISP which are named 
+reg_aclk, vin_aclk and isp_sclk in the renesas documentation.
+
+The IVC gets pclk, vin_aclk and isp_sclk.
+
+[1] https://lore.kernel.org/linux-renesas-soc/20251010-kakip_dts-v1-1-64f798ad43c9@ideasonboard.com/
+
+> Also for IVC we do have a main clock (which is a system clock).  Can
+> you please educate me on what is the purpose of it. Just curious as we
+> pass to IVC and not ISP.
+
+The IVC uniquely gets the one called "pclk" in renesas documentation, with the description "Input 
+Video Control block register access APB clock".
+
+Thanks
+Dan
+
 > 
-> diff --git a/arch/x86/include/asm/thread_info.h b/arch/x86/include/asm/thread_info.h
-> index e71e0e8362ed..0067684afb5b 100644
-> --- a/arch/x86/include/asm/thread_info.h
-> +++ b/arch/x86/include/asm/thread_info.h
-> @@ -100,8 +100,7 @@ struct thread_info {
->   #define TIF_FORCED_TF		24	/* true if TF in eflags artificially */
->   #define TIF_SINGLESTEP		25	/* reenable singlestep on user return*/
->   #define TIF_BLOCKSTEP		26	/* set when we want DEBUGCTLMSR_BTF */
-> -#define TIF_LAZY_MMU_UPDATES	27	/* task is updating the mmu lazily */
-> -#define TIF_ADDR32		28	/* 32-bit address space on 64 bits */
-> +#define TIF_ADDR32		27	/* 32-bit address space on 64 bits */
->   
->   #define _TIF_SSBD		BIT(TIF_SSBD)
->   #define _TIF_SPEC_IB		BIT(TIF_SPEC_IB)
-> @@ -114,7 +113,6 @@ struct thread_info {
->   #define _TIF_FORCED_TF		BIT(TIF_FORCED_TF)
->   #define _TIF_BLOCKSTEP		BIT(TIF_BLOCKSTEP)
->   #define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
-> -#define _TIF_LAZY_MMU_UPDATES	BIT(TIF_LAZY_MMU_UPDATES)
->   #define _TIF_ADDR32		BIT(TIF_ADDR32)
->   
->   /* flags to check in __switch_to() */
-> diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
-> index 4806cc28d7ca..f40f5999352e 100644
-> --- a/arch/x86/xen/enlighten_pv.c
-> +++ b/arch/x86/xen/enlighten_pv.c
-> @@ -426,7 +426,6 @@ static void xen_start_context_switch(struct task_struct *prev)
->   
->   	if (this_cpu_read(xen_lazy_mode) == XEN_LAZY_MMU) {
->   		arch_leave_lazy_mmu_mode();
-> -		set_ti_thread_flag(task_thread_info(prev), TIF_LAZY_MMU_UPDATES);
->   	}
->   	enter_lazy(XEN_LAZY_CPU);
->   }
-> @@ -437,7 +436,7 @@ static void xen_end_context_switch(struct task_struct *next)
->   
->   	xen_mc_flush();
->   	leave_lazy(XEN_LAZY_CPU);
-> -	if (test_and_clear_ti_thread_flag(task_thread_info(next), TIF_LAZY_MMU_UPDATES))
-> +	if (next->lazy_mmu_state.active)
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: vclk
+>> +      - const: aclk
+>> +      - const: hclk
+> Not sure if we want to have the same names as IVC or vice versa.
+> 
+>> +
+>> +  resets:
+>> +    items:
+>> +      - description: vclk domain reset
+>> +      - description: aclk domain reset
+>> +      - description: hclk domain reset
+> Same query here, wrt register reset.
+> 
+>> +
+>> +  reset-names:
+>> +    items:
+>> +      - const: vresetn
+>> +      - const: aresetn
+>> +      - const: hresetn
+> ditto naming.
+> 
+>> +
+>> +  port:
+>> +    $ref: /schemas/graph.yaml#/properties/port
+>> +    description: Input parallel video bus
+>> +
+>> +    properties:
+>> +      endpoint:
+>> +        $ref: /schemas/graph.yaml#/properties/endpoint
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - clocks
+>> +  - clock-names
+>> +  - port
+> maybe also resets and rest-names should be part of required properties?
+> 
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    mali_c55: isp@400000 {
+> we could drop `mali_c55`
+> 
+>> +      compatible = "arm,mali-c55";
+>> +      reg = <0x400000 0x200000>;
+>> +      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
+>> +      clock-names = "vclk", "aclk", "hclk";
+>> +      resets = <&resets 0>, <&resets 1>, <&resets 2>;
+>> +      reset-names = "vresetn", "aresetn", "hresetn";
+>> +      interrupts = <0>;
+> I would have a non-zero val here.
+> 
+> Cheers,
+> Prabhakar
+> 
+>> +
+>> +      port {
+>> +        isp_in: endpoint {
+>> +            remote-endpoint = <&csi2_rx_out>;
+>> +        };
+>> +      };
+>> +    };
+>> +...
+>>
+>> --
+>> 2.43.0
+>>
+>>
 
-This is nasty. If in_lazy_mmu_mode() is not sufficient, we will want to 
-have a separate helper that makes it clear what the difference between 
-both variants is.
-
-
--- 
-Cheers
-
-David
 
