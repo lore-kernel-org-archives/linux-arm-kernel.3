@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E18CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BEBACCFA09
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fIbk6e4N47V07yQ7ThI9X95Rq48j6+sE4jGhoStVg7Q=; b=Mjejv10ZOqxrmtP23W2LO57TYv
-	h/658aorD/Pj7PTMjcMGAtXiktNy9xX2W9YessABrQyOBF3srybvuVIEoVwnnTxVpIz4Xlrf5QZL9
-	xtx5Ij53f7FrWqGHGtC1v2NosV/6rPP619dVu7qlHN1HDnVN6cFex6+73w630j0gJo1aE+npJp7nk
-	YYoU6o00iI3AkLIB/IrjCaIBBH6T3dO2ArFx3WFS7/ISlfpTE2z4mHnFemEtEV6NLXqiYOY+Nw5XM
-	u1mBfGHUNMxs6UiyTjfK+4VRnyHBi6kVwpzPzYzxMdcSx3fakf+qrwKPdTiyZPhNPFlZIWZuv4OVB
-	m917X1ZA==;
+	bh=8U/Jt9MtVAhMDIvqQ8DqmKGSwf/svq+Rcie5PSGF9og=; b=drnW9eF/6zgflxDblaHOsfMm7u
+	hUxFlv6RYg9b3rPrbRx2hndcm4iesN/Ve1HEl+hJarjkP9ipSsZ6KtrLStlruP5ZWVUgoSK19YupM
+	Gnr1ZC5LwLwI2BypVkGIShSCcRTIpZskTWAmKZQnaYNM8xYtaZ2G+QxIOAsIYZUpgCBtiU30cf5eN
+	BB/sIkgCxxOr7gLK+xMItNHVYwk366zB9585tZl4d9dCoiVkOLAGMSoJgqwHA92HYY2lxh9KDHPGq
+	3BnX/1fxtak7S7tmKTZvPaKsiM0uwCmzoYYUbm2tbGwK8lI7vAfkIYSiBAxJdzdaD6hKIjS6AeM9Q
+	WVngzOTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqh-0000000AL58-2pOw;
-	Mon, 03 Nov 2025 16:56:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vFxqi-0000000AL8L-3fD6;
+	Mon, 03 Nov 2025 16:56:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqA-0000000AK0T-16fB
+	id 1vFxqE-0000000AKC6-3BuW
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Nov 2025 16:55:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=8U/Jt9MtVAhMDIvqQ8DqmKGSwf/svq+Rcie5PSGF9og=; b=pRaFo7nw/YjMGIR+R4l63dZzhp
+	Ax97AO70P6pgvDn7rxj+64QT0Jje/j/w84VMnjmegtQbOcBvjbTx1eufePXr3xncP8fNhRMmSWtah
+	J17ulkO3TaGBDOw39ANwsgBRwZBCUpvqJhYE4WbBRkDSdYQxoK4a1+HVUc7sZNBPTzT74OXEBP4X6
+	/xNw1p8x/b/sxitZ/IMVriun2rWj0JJQAxYj3mrC9Xux0tk9ZNxg1WvRBUINiyYz1w7HXbykk40/P
+	9DR7vV1Z2B4uyPpYHmqNMAUkIP1dW0h3yJcQAigM8RcmroLsUofZhXa2sI4Bmx0HEY3b1BnRUFXvZ
+	P7wiDpFQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFwyT-0000000FumS-3x3e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:55:37 +0000
+	Mon, 03 Nov 2025 16:00:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 186C143BB2;
-	Mon,  3 Nov 2025 16:55:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE31FC16AAE;
-	Mon,  3 Nov 2025 16:55:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FE3640A17;
+	Mon,  3 Nov 2025 16:55:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 723B8C19425;
+	Mon,  3 Nov 2025 16:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762188934;
-	bh=Rv2hpKh3dTurYOtTYW9BNCgKkUsXKYG5Ix32knANyl8=;
+	s=k20201202; t=1762188931;
+	bh=eMdKgJvpXR9g6dp42ZCCeiki15cZjNTkDMh6Rl2Yf+I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TXx4s87m9rUXwET2Tpj4Ahi0e9V0XnCbzuY55lrvuaDwXNe9nuoAuEUQSs/PPay/o
-	 IDkQFt5i8rXcxH2dADl02JRSaTrWTQv2hmkTKWNEpfXVBotCY05Gl9bfk+Qk2ll8aC
-	 HpF9AyMaseKerwyep3B5ITGEtjNb/1i6HnFhdp6bGGssNKkpkBwC4NH8DF1PzpoMar
-	 egj/3/VL04S2NoFAn0/vhVfgzRnphb94KTuB42sSsMoZbKB9QBpP/qfRSeBrsGu3sE
-	 yiYnR2eJzIltNFSF7fTPuyJDtpV+1yfLWqiFCtYB45hSYBG3zYQYNjultWWfau/uoG
-	 1PATwjvR2dZBA==
+	b=II+MAjDYqpAz1+2r2lnG0q+TPs1pPnfM/1YQGHah8NWXf+MRhriors07R+vBxUkXN
+	 rf9t4wigWLKp3LxBO3N25kcm/6Vemio3zK9TSS2D3xUxCGo2qubpMHRoDXfJA91K17
+	 2RkezM5Y3k4Rab26H9Av66oRbM6MlxcNf8PKD95tyCkJ3OeVO/HYc2fiMt8knYzQji
+	 0DUigJZujrX3zZMioITICclEfS66Fi8DgIkPMglcOwcU3+si50vOjy1dJF1cWp7Nhq
+	 dB4rkaoxvYJpNZoayYHQ5Lnnp3BFzW5qpym0dKfa9PkqJ76KE8mjl6ht6yyYFHeV0w
+	 ldxcoc+6uf4BA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vFxq8-000000021VN-0OJd;
-	Mon, 03 Nov 2025 16:55:32 +0000
+	id 1vFxq5-000000021VN-2qmJ;
+	Mon, 03 Nov 2025 16:55:29 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +73,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: [PATCH 31/33] KVM: arm64: GICv2: Handle deactivation via GICV_DIR traps
-Date: Mon,  3 Nov 2025 16:55:15 +0000
-Message-ID: <20251103165517.2960148-32-maz@kernel.org>
+Subject: [PATCH 21/33] KVM: arm64: Make vgic_target_oracle() globally available
+Date: Mon,  3 Nov 2025 16:55:05 +0000
+Message-ID: <20251103165517.2960148-22-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251103165517.2960148-1-maz@kernel.org>
 References: <20251103165517.2960148-1-maz@kernel.org>
@@ -71,8 +86,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_085534_386379_55BAC133 
-X-CRM114-Status: GOOD (  25.91  )
+X-CRM114-CacheID: sfid-20251103_160006_238104_758731CD 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,248 +102,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the plumbing of GICv2 interrupt deactivation via GICV_DIR.
-This requires adding a new device so that we can easily decode
-the DIR address.
-
-The deactivation itself is very similar to the GICv3 version.
+Make the internal crystal ball global, so that implementation-specific
+code can use it.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-mmio-v2.c |  24 +++++++
- arch/arm64/kvm/vgic/vgic-mmio.h    |   1 +
- arch/arm64/kvm/vgic/vgic-v2.c      | 110 +++++++++++++++++++++++++++++
- arch/arm64/kvm/vgic/vgic.h         |   1 +
- include/kvm/arm_vgic.h             |   1 +
- 5 files changed, 137 insertions(+)
+ arch/arm64/kvm/vgic/vgic.c | 2 +-
+ arch/arm64/kvm/vgic/vgic.h | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v2.c b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
-index f25fccb1f8e63..406845b3117cf 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v2.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
-@@ -359,6 +359,16 @@ static void vgic_mmio_write_vcpuif(struct kvm_vcpu *vcpu,
- 	vgic_set_vmcr(vcpu, &vmcr);
- }
- 
-+static void vgic_mmio_write_dir(struct kvm_vcpu *vcpu,
-+				gpa_t addr, unsigned int len,
-+				unsigned long val)
-+{
-+	if (kvm_vgic_global_state.type == VGIC_V2)
-+		vgic_v2_deactivate(vcpu, val);
-+	else
-+		vgic_v3_deactivate(vcpu, val);
-+}
-+
- static unsigned long vgic_mmio_read_apr(struct kvm_vcpu *vcpu,
- 					gpa_t addr, unsigned int len)
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index c420f8262e4c1..570cc8fe42b87 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -237,7 +237,7 @@ void vgic_irq_set_phys_active(struct vgic_irq *irq, bool active)
+  *
+  * Requires the IRQ lock to be held.
+  */
+-static struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
++struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
  {
-@@ -482,6 +492,10 @@ static const struct vgic_register_region vgic_v2_cpu_registers[] = {
- 	REGISTER_DESC_WITH_LENGTH(GIC_CPU_IDENT,
- 		vgic_mmio_read_vcpuif, vgic_mmio_write_vcpuif, 4,
- 		VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH_UACCESS(GIC_CPU_DEACTIVATE,
-+		vgic_mmio_read_raz, vgic_mmio_write_dir,
-+		vgic_mmio_read_raz, vgic_mmio_uaccess_write_wi,
-+		4, VGIC_ACCESS_32bit),
- };
+ 	lockdep_assert_held(&irq->irq_lock);
  
- unsigned int vgic_v2_init_dist_iodev(struct vgic_io_device *dev)
-@@ -494,6 +508,16 @@ unsigned int vgic_v2_init_dist_iodev(struct vgic_io_device *dev)
- 	return SZ_4K;
- }
- 
-+unsigned int vgic_v2_init_cpuif_iodev(struct vgic_io_device *dev)
-+{
-+	dev->regions = vgic_v2_cpu_registers;
-+	dev->nr_regions = ARRAY_SIZE(vgic_v2_cpu_registers);
-+
-+	kvm_iodevice_init(&dev->dev, &kvm_io_gic_ops);
-+
-+	return KVM_VGIC_V2_CPU_SIZE;
-+}
-+
- int vgic_v2_has_attr_regs(struct kvm_device *dev, struct kvm_device_attr *attr)
- {
- 	const struct vgic_register_region *region;
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio.h b/arch/arm64/kvm/vgic/vgic-mmio.h
-index 5b490a4dfa5e9..50dc80220b0f3 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio.h
-+++ b/arch/arm64/kvm/vgic/vgic-mmio.h
-@@ -213,6 +213,7 @@ void vgic_write_irq_line_level_info(struct kvm_vcpu *vcpu, u32 intid,
- 				    const u32 val);
- 
- unsigned int vgic_v2_init_dist_iodev(struct vgic_io_device *dev);
-+unsigned int vgic_v2_init_cpuif_iodev(struct vgic_io_device *dev);
- 
- unsigned int vgic_v3_init_dist_iodev(struct vgic_io_device *dev);
- 
-diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index 0159da5a94412..5ab29c6755ade 100644
---- a/arch/arm64/kvm/vgic/vgic-v2.c
-+++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -9,6 +9,7 @@
- #include <kvm/arm_vgic.h>
- #include <asm/kvm_mmu.h>
- 
-+#include "vgic-mmio.h"
- #include "vgic.h"
- 
- static inline void vgic_v2_write_lr(int lr, u32 val)
-@@ -147,6 +148,104 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
- 	cpuif->used_lrs = 0;
- }
- 
-+void vgic_v2_deactivate(struct kvm_vcpu *vcpu, u32 val)
-+{
-+	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-+	struct vgic_v2_cpu_if *cpuif = &vgic_cpu->vgic_v2;
-+	struct kvm_vcpu *target_vcpu = NULL;
-+	bool mmio = false;
-+	struct vgic_irq *irq;
-+	unsigned long flags;
-+	u64 lr = 0;
-+	u8 cpuid;
-+
-+	/* Snapshot CPUID, and remove it from the INTID */
-+	cpuid = FIELD_GET(GENMASK_ULL(12, 10), val);
-+	val &= ~GENMASK_ULL(12, 10);
-+
-+	/* We only deal with DIR when EOIMode==1 */
-+	if (!(cpuif->vgic_vmcr & GICH_VMCR_EOI_MODE_MASK))
-+		return;
-+
-+	/* Make sure we're in the same context as LR handling */
-+	local_irq_save(flags);
-+
-+	irq = vgic_get_vcpu_irq(vcpu, val);
-+	if (WARN_ON_ONCE(!irq))
-+		goto out;
-+
-+	/*
-+	 * Four possibities:
-+	 *
-+	 * - The irq is not queued on any CPU, and there is nothing to
-+	 *   do,
-+	 *
-+	 * - Or the irq is in an LR, meaning that its state is not
-+	 *   directly observable. Treat it bluntly by making it as if
-+	 *   this was a write to GICD_ICACTIVER, which will force an
-+	 *   exit on all vcpus. If it hurts, don't do that.
-+	 *
-+	 * - Or the irq is active, but not in an LR, and we can
-+	 *   directly deactivate it by building a pseudo-LR, fold it,
-+	 *   and queue a request to prune the resulting ap_list,
-+	 *
-+	 * - Or the irq is not active, and there is nothing to do.
-+	 *
-+	 * Special care must be taken to match the source CPUID when
-+	 * deactivating a GICv2 SGI.
-+	 */
-+	scoped_guard(raw_spinlock, &irq->irq_lock) {
-+		target_vcpu = vgic_target_oracle(irq);
-+
-+		/* Not on any ap_list? */
-+		if (!target_vcpu)
-+			goto put;
-+
-+		/*
-+		 * Urgh. We're deactivating something that we cannot
-+		 * observe yet... Big hammer time.
-+		 */
-+		if (irq->on_lr) {
-+			mmio = true;
-+			goto put;
-+		}
-+
-+		/* Not active: relax!  */
-+		if (!irq->active) {
-+			target_vcpu = NULL;
-+			goto put;
-+		}
-+
-+		/* SGI: check that the cpuid matches */
-+		if (val < VGIC_NR_SGIS && irq->active_source != cpuid) {
-+			target_vcpu = NULL;
-+			goto put;
-+		}
-+
-+		/* (with a Dalek voice) DEACTIVATE!!!! */
-+		lr = vgic_v2_compute_lr(vcpu, irq) & ~GICH_LR_ACTIVE_BIT;
-+	}
-+
-+	if (lr & GICH_LR_HW)
-+		writel_relaxed(FIELD_GET(GICH_LR_PHYSID_CPUID, lr),
-+			       kvm_vgic_global_state.gicc_base + GIC_CPU_DEACTIVATE);
-+
-+	vgic_v2_fold_lr(vcpu, lr);
-+
-+put:
-+	vgic_put_irq(vcpu->kvm, irq);
-+
-+out:
-+	local_irq_restore(flags);
-+
-+	if (mmio)
-+		vgic_mmio_write_cactive(vcpu, val / 32, 4, BIT(val % 32));
-+
-+	/* Force the ap_list to be pruned */
-+	if (target_vcpu)
-+		kvm_make_request(KVM_REQ_VGIC_PROCESS_UPDATE, target_vcpu);
-+}
-+
- static u32 vgic_v2_compute_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq)
- {
- 	u32 val = irq->intid;
-@@ -349,6 +448,7 @@ static bool vgic_v2_check_base(gpa_t dist_base, gpa_t cpu_base)
- int vgic_v2_map_resources(struct kvm *kvm)
- {
- 	struct vgic_dist *dist = &kvm->arch.vgic;
-+	unsigned int len;
- 	int ret = 0;
- 
- 	if (IS_VGIC_ADDR_UNDEF(dist->vgic_dist_base) ||
-@@ -372,6 +472,16 @@ int vgic_v2_map_resources(struct kvm *kvm)
- 		return ret;
- 	}
- 
-+	len = vgic_v2_init_cpuif_iodev(&dist->cpuif_iodev);
-+	dist->cpuif_iodev.base_addr = dist->vgic_cpu_base;
-+	dist->cpuif_iodev.iodev_type = IODEV_CPUIF;
-+	dist->cpuif_iodev.redist_vcpu = NULL;
-+
-+	ret = kvm_io_bus_register_dev(kvm, KVM_MMIO_BUS, dist->vgic_cpu_base,
-+				      len, &dist->cpuif_iodev.dev);
-+	if (ret)
-+		return ret;
-+
- 	if (!static_branch_unlikely(&vgic_v2_cpuif_trap)) {
- 		ret = kvm_phys_addr_ioremap(kvm, dist->vgic_cpu_base,
- 					    kvm_vgic_global_state.vcpu_base,
 diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 39589e1fbbb55..cf41864736204 100644
+index f35410de1457b..7a44484acf93c 100644
 --- a/arch/arm64/kvm/vgic/vgic.h
 +++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -261,6 +261,7 @@ int vgic_check_iorange(struct kvm *kvm, phys_addr_t ioaddr,
- 
- void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu);
- void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr);
-+void vgic_v2_deactivate(struct kvm_vcpu *vcpu, u32 val);
- void vgic_v2_clear_lr(struct kvm_vcpu *vcpu, int lr);
- void vgic_v2_configure_hcr(struct kvm_vcpu *vcpu, struct ap_list_summary *als);
- int vgic_v2_has_attr_regs(struct kvm_device *dev, struct kvm_device_attr *attr);
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 3c528c74bc6bf..caa72a92cb5d9 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -284,6 +284,7 @@ struct vgic_dist {
- 	struct vgic_irq		*spis;
- 
- 	struct vgic_io_device	dist_iodev;
-+	struct vgic_io_device	cpuif_iodev;
- 
- 	bool			has_its;
- 	bool			table_write_in_progress;
+@@ -245,6 +245,7 @@ vgic_get_mmio_region(struct kvm_vcpu *vcpu, struct vgic_io_device *iodev,
+ struct vgic_irq *vgic_get_irq(struct kvm *kvm, u32 intid);
+ struct vgic_irq *vgic_get_vcpu_irq(struct kvm_vcpu *vcpu, u32 intid);
+ void vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq);
++struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq);
+ bool vgic_get_phys_line_level(struct vgic_irq *irq);
+ void vgic_irq_set_phys_pending(struct vgic_irq *irq, bool pending);
+ void vgic_irq_set_phys_active(struct vgic_irq *irq, bool active);
 -- 
 2.47.3
 
