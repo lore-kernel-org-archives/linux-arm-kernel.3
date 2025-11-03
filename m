@@ -4,92 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E242CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 20:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB53CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 20:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gO1uJlhV6oM64fVpq/0JHSVRxjQ7sLQnALSTsOIjYT8=; b=ouInCyo2ZWfxPxSfSJJoPRT8IL
-	RL3NL9TehPqkabQGL8CnzxyqvoTlOXyRS2rU5sjftmf/dmc8mXDDBJVBpKD1Qy0WXsGoc06ULQa6/
-	GR34j2uSZlUBEIsTEdhPihkGoXvaa+Bauf2RGeCg6A/U7jvE1tpaoqRNbq5ne9smuTqHRHLdU7g+D
-	XCKjy8+cvTBaVwaZdHoICR84Ojbl3L6KsoD046oC0QlHaGDfvRc/9S6OVCDYMjAU6yZpQBI+l7bG3
-	YufqBa5bY5+jCRJITVAUBT+Cc26dQkVj3xhk+oaXNTlZ0EjDZdZhkdEUz6aCr76u2NuX3nL0HuidI
-	g9hacftg==;
+	Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=sFISxKcpVtRMW9qViBSzBSHtJYoRCisVbA2/agw09uM=; b=nfRBje36bk52DtC+1o2KcsXCHj
+	mKg+perFt8KC/EKTCJmND7jUeM65xFrNZBpkd8NN1df1IGqAyy7Cxtg2Tt/irrODhANyMmRNh4/zU
+	dHBnfl7f0kkXR403lnXd7p/ih6wVu2edUtZnfnj/w5m4F5kXv9nnv2N6Ptj1A5L2o5UlCsRXhbuvw
+	Oq6QnXVVXL/0efjQNcujB/y3mjYYeUlFP9V0SRof280ZjQdwb2C6ChZdMnjTGEWTi30KJllYlm5mw
+	1kENBNPUaeBwGcSdLkg8qwclQs82Yx1dkbr0W5gg73YkBPILXT2Fd0HXGVwXM5rHlHZ+X2Ewniz9h
+	fRdEUEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG0qr-0000000AaDS-3lac;
-	Mon, 03 Nov 2025 20:08:29 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	id 1vG0us-0000000AaVq-3JTv;
+	Mon, 03 Nov 2025 20:12:38 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG0qp-0000000AaCP-1CUR
+	id 1vG0uq-0000000AaVP-2FJ5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 20:08:28 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4d0jMB4JpDz9sxJ;
-	Mon,  3 Nov 2025 21:08:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1762200502;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=gO1uJlhV6oM64fVpq/0JHSVRxjQ7sLQnALSTsOIjYT8=;
-	b=X5Y+8ilodsOL4HoPbZhGRipcGdvgrg5A+4S0GGWdKrlzaSe+/pB790XiCyHIJH/iTol3cj
-	yR0r4fGRm9EiaSSs2PtK59Qjdq1IMlxks4i7AsZRRZCJ+3vX6qvpUX1Lbaz5iQkkrL0Nft
-	uCgQbew9IhSOaJxs/63ofIVZDa735q6VlAuhgapYiqwM/oGpz04UG1oATZAKD6p6739Ext
-	EF2cteoqnWTCkU1eOvqHk+v3ZxBcQDlv9dq5mnArLcjKKbN6OvsUsuR0gkO+j7JribmxBK
-	QCP8Ka4C/2eUIi4YuoMEHQoQy4a8e9GL7N5EK4/mfinCEPTWdStbT4thtekNYQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=xI66H01M;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1762200500;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=gO1uJlhV6oM64fVpq/0JHSVRxjQ7sLQnALSTsOIjYT8=;
-	b=xI66H01MM1/fv0z0izQzVRJQPMuP3I6bz+TAuuAPKQPlnq7DvVRC0CVYwJxQk2HDLQSyyy
-	13Fbr9xPflk3Xh6E55W8oiVfhcTqOzWB40Dl3d3BqKUa5nJW6W7+ZDHdiUPfFj69jdxJ3S
-	aBNUP4NZYCbHz3jMMOq6dsRbwrL2Ub/iknkPRiG5/Ujp4cCvxRacPEwmwWJvpI8c0/gENM
-	CG/5HD2tI1SEURI/MPo4BtItGb/1fP1g9+1Y/eLADF6+KifszQl1FG8EZD4j3qCeVxIq9Q
-	lHM2YsDliF2FIb7zypw5ZGOPNyEAksRlWLIIJHuQuG6qZtONPPXYvsIQJFA30A==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
-	Rob Herring <robh@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 1/2] dt-bindings: gpu: img,powervr-rogue: Document GE7800 GPU in Renesas R-Car M3-N
-Date: Mon,  3 Nov 2025 21:07:35 +0100
-Message-ID: <20251103200800.173440-1-marek.vasut+renesas@mailbox.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Mon, 03 Nov 2025 20:12:38 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b5a631b9c82so2974599a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 12:12:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1762200755; x=1762805555; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sFISxKcpVtRMW9qViBSzBSHtJYoRCisVbA2/agw09uM=;
+        b=F5sgR1bFBYv/aUtmmqEvKFI9gf0Na2GcFrtklBrt7iu8KfmWnj6LEVTL8TR4ayXOmW
+         bIQQQ7h1d4h9hXJ75yeHumMzrKPuk9qIZ0fkOjbikGAKEBaIZpSzQsY6WwnH40iIPveW
+         xSwHCTmw3iWqP6BDZmKb8q1zMUObwf/Q/AR+1mdQ+ovH4A8Pi80EwpC1OT7ydMTXpZw3
+         YFkOQ7WO7jANrTQbXwQfftg+0wt7h0I8ailFMojygp6AnmouXmi9aSq0kPw5C2HdK8sT
+         WdBWHslnfDVrAq1gZQHdf85R4qWUOXwVq0z9goDStyb2OXir0F6i/x2aqZhO65tdScsE
+         F0Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762200755; x=1762805555;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sFISxKcpVtRMW9qViBSzBSHtJYoRCisVbA2/agw09uM=;
+        b=B1azSTQx/kPSs83+qR+vB/bSt9zLfqw84H4GYfJf+Ila81tbefIdtijUpKvuIKsmbj
+         x+t3YXyEBxNssUK231jW9weEuB2yljdM3ful5c1dW4dsDOnONajVENfAOrPZ8ABt97Vg
+         NQ/OerheQfvW9vW6MUEdUEGCJOnnCv+DMMqRR3flWiVZc53BfnDgccTs3NG/sqit7oDY
+         xAcGQFWT47GEG0wZ5/INzhlVMf2Zl9mA19bHPSiWfNAPlo2fqSNh8SVfB5skL6C9J4Jz
+         8MfbxLheLHJL+zF/tXLXYsSmKBUW56bVIeDu9WL06YrWdl08KoD8y9L3q55mB0b4NQI4
+         zS/A==
+X-Forwarded-Encrypted: i=1; AJvYcCXihVwAAqGuF2a0EacWNQGWOQfBjMK4WxidQYerJ+au3ZfFo0mZt4NSuPbBV0I8nGCsT9nKh94TKKsKFj96BRpS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb3Q88xx8+6EQbKeZXBSgaqO1dEYok9LCJJNqxKPfaJMaSlCKQ
+	qElZBCUfl/ZH5ui8c2A7fL5WVuowZEprRpD1Rntcdx3h1Y/7wT7EYNlkjAvfLp8EshU=
+X-Gm-Gg: ASbGncvlxNByC3lANjJAJu53xywQqW5qgPUHp3GfIS2XQ+ill8oeYTJjr/tFPWJX8tw
+	S0M1ypiGX2DNXX1NpqHmdd9qWEWpB6sBhN83uSX6LIPIkm2y3Vcimmj8gTZvaXakgcE0IFc4zbg
+	vLoX1BXkJ2rEQeW/+VjmU+MynBe7xyI0kRG8Z/aAvT5F/rQzjN+T8Cy202igczoYMD82HmPK6Ru
+	zf/kj7GfwDQ/zJAkvW0kOKH721kC63j4IlGshRhKJcgv+P8K3tq+VgVQLxxfoZ0I8TJL81807NT
+	HBXzmkzF+dMpTCse5ukjSAUFkTRiR6p6PutlQi7KqQBI/Fi3dY/RZqaaCbz78qSl34rMlstCLmv
+	TDXvI1aVB6N99M35t+Ad7aHxdeWFvjf2nSQ3dqDr5wrcTBsop/QomA/NUmrIoJLo0/5qGvmwzvN
+	PcGUADn/2tfpWSC/jzeb/ZgVYmZAtf
+X-Google-Smtp-Source: AGHT+IE4MP1pGlWYwqtJ9xrsRX8t2xur3n+Uk0TXpYe3poYigeUNjIO8w2p3vJkvxGanZh15ZZCuLw==
+X-Received: by 2002:a17:903:120a:b0:295:195:23b6 with SMTP id d9443c01a7336-2951a52a6f5mr176076975ad.55.1762200754689;
+        Mon, 03 Nov 2025 12:12:34 -0800 (PST)
+Received: from localhost ([2620:10d:c090:500::5:449])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34159a06dd4sm1968212a91.15.2025.11.03.12.12.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Nov 2025 12:12:34 -0800 (PST)
+Date: Mon, 03 Nov 2025 12:12:34 -0800 (PST)
+X-Google-Original-Date: Mon, 03 Nov 2025 12:12:11 PST (-0800)
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+In-Reply-To: <aQXtqoUEtDr-xUeS@arm.com>
+CC: paulmck@kernel.org, Will Deacon <will@kernel.org>,
+  Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, w@1wt.eu, yangyicong@huawei.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Message-ID: <mhng-A59C956F-FF23-4DC9-A797-3DC0F2323CEF@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: khrd3qq4o39hm5ydwj6crqdebybxex5s
-X-MBO-RS-ID: 914238a6db457e3aa3b
-X-Rspamd-Queue-Id: 4d0jMB4JpDz9sxJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_120827_471837_CCF85C0C 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251103_121236_689045_BDCF888D 
+X-CRM114-Status: GOOD (  29.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,63 +99,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Imagination Technologies PowerVR Rogue GE7800 BNVC 15.5.1.64
-present in Renesas R-Car R8A77965 M3-N SoC.
+On Sat, 01 Nov 2025 04:23:22 PDT (-0700), Catalin Marinas wrote:
+> On Fri, Oct 31, 2025 at 08:25:07PM -0700, Paul E. McKenney wrote:
+>> On Fri, Oct 31, 2025 at 04:38:57PM -0700, Paul E. McKenney wrote:
+>> > On Fri, Oct 31, 2025 at 10:43:35PM +0000, Catalin Marinas wrote:
+>> > > I just realised that patch doesn't touch percpu.h at all. So what about
+>> > > something like (untested):
+>> > >
+>> > > -----------------8<------------------------
+>> > > diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+>> > > index 9abcc8ef3087..e381034324e1 100644
+>> > > --- a/arch/arm64/include/asm/percpu.h
+>> > > +++ b/arch/arm64/include/asm/percpu.h
+>> > > @@ -70,6 +70,7 @@ __percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
+>> > >  	unsigned int loop;						\
+>> > >  	u##sz tmp;							\
+>> > >  									\
+>> > > +	asm volatile("prfm pstl1strm, %a0\n" : : "p" (ptr));
+>> > >  	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
+>> > >  	/* LL/SC */							\
+>> > >  	"1:	ldxr" #sfx "\t%" #w "[tmp], %[ptr]\n"			\
+>> > > @@ -91,6 +92,7 @@ __percpu_##name##_return_case_##sz(void *ptr, unsigned long val)	\
+>> > >  	unsigned int loop;						\
+>> > >  	u##sz ret;							\
+>> > >  									\
+>> > > +	asm volatile("prfm pstl1strm, %a0\n" : : "p" (ptr));
+>> > >  	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
+>> > >  	/* LL/SC */							\
+>> > >  	"1:	ldxr" #sfx "\t%" #w "[ret], %[ptr]\n"			\
+>> > > -----------------8<------------------------
+>> >
+>> > I will give this a shot, thank you!
+>>
+>> Jackpot!!!
+>>
+>> This reduces the overhead to 8.427, which is significantly better than
+>> the non-LSE value of 9.853.  Still room for improvement, but much
+>> better than the 100ns values.
+>>
+>> I presume that you will send this up the normal path, but in the meantime,
+>> I will pull this in for further local testing, and thank you!
+>
+> I think for this specific case it may work, for the futex as well but
+> not generally. The Neoverse-V2 TRM lists some controls in the
+> IMP_CPUECTLR_EL1, bits 29 to 33:
+>
+> https://developer.arm.com/documentation/102375/0002
+>
+> These can be configured depending on the system configuration but they
+> are too big knobs to cover all use-cases within an OS. This register is
+> typically configured by firmware, we don't touch it in Linux.
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Frank Binns <frank.binns@imgtec.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Matt Coster <matt.coster@imgtec.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: "Niklas Söderlund" <niklas.soderlund@ragnatech.se>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Simona Vetter <simona@ffwll.ch>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- .../devicetree/bindings/gpu/img,powervr-rogue.yaml          | 6 ++++++
- 1 file changed, 6 insertions(+)
+Mostly for Paul:
 
-diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-index a7ca6d3fdf10..c03efbedc397 100644
---- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-+++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-@@ -19,6 +19,10 @@ properties:
-               - renesas,r8a77961-gpu
-           - const: img,img-gx6250
-           - const: img,img-rogue
-+      - items:
-+          - const: renesas,r8a77965-gpu
-+          - const: img,img-ge7800
-+          - const: img,img-rogue
-       - items:
-           - enum:
-               - ti,am62-gpu
-@@ -105,6 +109,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - img,img-ge7800
-               - img,img-gx6250
-               - thead,th1520-gpu
-     then:
-@@ -134,6 +139,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - img,img-ge7800
-               - img,img-gx6250
-               - img,img-bxs-4-64
-     then:
--- 
-2.51.0
+I have patch to let you do this from Linux, and I have some 
+firmware for some of these internal systems that lets you set most of 
+these magic bits.  I've noticed some unexpected behavior around prefetch 
+distance on an internal workload, but haven't gotten much farther there.  
+There's also some other bits that to wacky things...
 
+Just FYI: Marc described trying to set these dynamically as trying to 
+swallow a running chainsaw, but LMK if you're feeling risky and I can 
+try and get you a copy of my setup.  They seem to work fine for me ;)
+
+> I'll dig some more but we may have to do tricks like prefetch if we
+> can't find a hardware configuration that satisfies all cases.
 
