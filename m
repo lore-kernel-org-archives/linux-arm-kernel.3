@@ -4,76 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E95CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 13:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5391CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 13:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRIS9Quy51a3mNw2C7dYSGFB2RcLs93hOIiFJCI5w1w=; b=jwS8rVLB9F+32uLWEayT/DFXh7
-	iwFnG8K0MsThwDK556RPQ/5Z7/8NjXNzLQ+h45gzjhOw2D7sVdqISO2b7p/jLmnKPWGSZBlVn2IHU
-	ofiGejpnP/fcvsTV09u9h7fayJ0LB6QN5jL6mdLHGjOUAliya+xazhdci/HGGHnJssW6jx+GS8Swj
-	AylLvHxxl5z/5jl/L8EKmhZ6PJFNJi9CWhur3+2i02c7JmRfau4WBqg72s/5uiYrLuoqelvjLBqGD
-	91TtH7VsV1j3bm+XOFM5jZ8UJDjlAPDiJLYCuFIvlZyBTOKbWEgokgxn0SljZP/l95TOPSPKTYmIf
-	47NNVuwQ==;
+	bh=jodrgEZhuHyvNhEGhxEAIn6daZ/jl0wOadBxgR2upsQ=; b=sPHKiE9hU1eqvNoPjXgDx+pYGU
+	NUTXSV8Ee7lcQiAMNzgn3GWVUFPxhcW1Q1Tdo9aIIlMyMdwubSbXvTn4wsBpxg7HkEbcJt23OGHlV
+	xKJdPbTELp7lBVIaH3V/4CRAZ8tLsQ1Jy9G0kDnVx4OnDr7D8aB3lbS88Ei8HU2ILJi7N+S4uVZWw
+	TxYuxI0twwu6QY2wlYRwfmOrKDW/Ukeif+6LmRXs20wrzY1gIUI4W4xuJH4LOLp+vkoAXi1k2CMkT
+	wquMyH33dmvejOui5l8FYI/KipSwH8NWCygdaKYaR7gH2PBIKu3/JQxFY24+TmFWiQTA4Ty1bn7a/
+	L/YKG3ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFv1B-00000009xoz-0p8O;
-	Mon, 03 Nov 2025 13:54:45 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vFv1T-00000009xrx-2u3V;
+	Mon, 03 Nov 2025 13:55:03 +0000
+Received: from mail-westus2azon11010036.outbound.protection.outlook.com ([52.101.46.36] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFv17-00000009xoE-2JrU;
-	Mon, 03 Nov 2025 13:54:43 +0000
-X-UUID: fd007b12b8ba11f0a52f393f94899d25-20251103
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=yRIS9Quy51a3mNw2C7dYSGFB2RcLs93hOIiFJCI5w1w=;
-	b=u/3tIrrrfRovPzAGVtxQ20mxQ+KVWiAShCbEt6DZCLiumDCW406iTSOVJ8Dm3S8h8BgjCM97elpOgeYNJ2AKzFEeGupKQg3gsGwniVrab+MKBVb/mTLHjAdUCyCTgcDnclBGUNIVLKCCJPqc20Xt2FShP+LMEHB+zGdJm4OXb+U=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:9520e8b7-509e-42d9-9b46-5b97a059e60c,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:b23b8f26-cfd6-4a1d-a1a8-72ac3fdb69c4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: fd007b12b8ba11f0a52f393f94899d25-20251103
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <niklaus.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 709616032; Mon, 03 Nov 2025 06:42:49 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Mon, 3 Nov 2025 21:42:49 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Mon, 3 Nov 2025 21:42:48 +0800
-From: niklaus.liu <Niklaus.Liu@mediatek.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <sirius.wang@mediatek.com>,
-	<vince-wl.liu@mediatek.com>, <jh.hsu@mediatek.com>,
-	<zhigang.qin@mediatek.com>, <sen.chu@mediatek.com>, Niklaus Liu
-	<niklaus.liu@mediatek.com>
-Subject: [PATCH 1/1] soc: mediatek regulator: Add Support for mt8189
-Date: Mon, 3 Nov 2025 21:42:26 +0800
-Message-ID: <20251103134241.3773-2-Niklaus.Liu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20251103134241.3773-1-Niklaus.Liu@mediatek.com>
-References: <20251103134241.3773-1-Niklaus.Liu@mediatek.com>
+	id 1vFv1Q-00000009xr9-3Wqt
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Nov 2025 13:55:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uG68z03ESvt5kCnSDF3E1ngxeUuhEDSsSMujt4Ku9OL/6DgIaVgPr4J6yvie8znYO/dl4WKSNdVI6F6RGdvP1TsSyVDUL/1tmRhAeUu5jfd3zbmff0N2DOk/aMHGAxIMpILda6xiPwBSM/55v179w1lpUF5KnUEKe/LNit7Jtek/N62nQJCoRvipLLo5GS1tyFPJOwPzg7o/vOEvEgodwZrUHP6+uwFP16EuUs9V7CMlBCoViyYFh5vWUCtxWUPEdaBlkrEaDNf7QX/WwtahYKbDi/ZT1gzdiKYwG6Tjz3vJ6Kon7BAK+p4g6SJPQ+FPcfZb/rHjDE08teI9G9LjoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jodrgEZhuHyvNhEGhxEAIn6daZ/jl0wOadBxgR2upsQ=;
+ b=W0msSAutVqzF+WVsphcwuNyH05kfTcbYK+6xIAwFVRbdNiHzdVfLT9fH1HXHYfAUdHXzLuaTpqtvHGa0M57pqwT8vrYCfnO/DV/CfZeQm9OX1uQsLbRrKjhkcO2QMf5koZ41BBanMHL2cWEMgRQFdI7mv8golc5uuTorGBycu+bgJbN/RprjZTKD8jrHolW8lf21E1CP5RQThw4Z2JzSV/XYv12dIDLJ1sZr9tdkcDazulRrNo1ubjx9CqKqiTy9m7yi7Yfw8EFyd+D4yAOAH9DN2/c6e1ybftsARVhf33/t9I6R3ikTVjw8mBgSgTmiBer1uyJw7q5WyYmQZY+3zQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jodrgEZhuHyvNhEGhxEAIn6daZ/jl0wOadBxgR2upsQ=;
+ b=umaG/ijk4uIyxDspzm8OUOE36U2umonCFNjpIh5DwhGb4ulr8qUJII439vGzcwdrY/Bp144yWcArhC6zjyy7HXSlBL1jACnCXjpElKWF5bt8s9BBTJAHlGt2VCmRHP4/i56vGyw+Y86dSxxpYRJcTsHJI5I5Z1rGKldYTg8YSMGz8ySrkHf9BxYuMmpo3cmpVSoPO2s5jfmghOv7uuyxAaLDue77zqMYKBtl9TFsw19e6uctett4kvMbBYDz1PLJnJ/fWAMyrDd3Zx+ANyHcBFa3k8j7v/UCRbeuHYDdbEi9WE+0ONJDM7h1IATmoViXnRUNbiBPE5edWIgw0onfDw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY5PR12MB9056.namprd12.prod.outlook.com (2603:10b6:930:34::5)
+ by MN2PR12MB4224.namprd12.prod.outlook.com (2603:10b6:208:1dd::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
+ 2025 13:54:54 +0000
+Received: from CY5PR12MB9056.namprd12.prod.outlook.com
+ ([fe80::9a15:4da5:cfae:f5c6]) by CY5PR12MB9056.namprd12.prod.outlook.com
+ ([fe80::9a15:4da5:cfae:f5c6%4]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
+ 13:54:54 +0000
+Message-ID: <4f6496de-d3c8-4701-a9b4-6f695018eb5e@nvidia.com>
+Date: Mon, 3 Nov 2025 19:24:45 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, thierry.reding@gmail.com,
+ jonathanh@nvidia.com, jgg@ziepe.ca, nicolinc@nvidia.com,
+ linux-tegra@nvidia.com, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
+References: <20251031062959.1521704-1-amhetre@nvidia.com>
+ <20251031062959.1521704-3-amhetre@nvidia.com>
+ <20251031-witty-sociable-chachalaca-b73dbc@kuoka>
+Content-Language: en-US
+From: Ashish Mhetre <amhetre@nvidia.com>
+In-Reply-To: <20251031-witty-sociable-chachalaca-b73dbc@kuoka>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5PR01CA0177.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a9::15) To CY5PR12MB9056.namprd12.prod.outlook.com
+ (2603:10b6:930:34::5)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY5PR12MB9056:EE_|MN2PR12MB4224:EE_
+X-MS-Office365-Filtering-Correlation-Id: b417b4fd-bb31-4808-0d74-08de1ae0910a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L2UxeDFaUmEvT1dmV2xFV25NOVJnSHo3eUNlQTFna3JLOXhiNWdHSzY0U0xo?=
+ =?utf-8?B?TXYwTzgxWHNzRWhVUTVQYjRuUjZiVEQxaTE3dUlsOFpFVGlDaks3RndhS2tw?=
+ =?utf-8?B?b0pLNGZOVkxqU0c3clV4OGRhdkJscXdjemVmTzZHQURHL1J5WEc2bGVhMmNW?=
+ =?utf-8?B?NXJhbjYzSk5aeVNtSDdLNnFBY21jWEd6MUFPNjJWUkJvSzErNE01UDZCUlpW?=
+ =?utf-8?B?cXBBSFpvRWdudHFnd1lVN3RlbUVvcXk3ZUZERHIwTUplUlNKVSt4QmlQa3dj?=
+ =?utf-8?B?QkU4dHR1NkJyMVZMWm14aUpCUy9GSzZ2ZWY3YzMxZXAwWUo2SWorU1YxYzls?=
+ =?utf-8?B?YnUwMzBmL1RwK3UyajRKbklFbEhKNHFQMW52ZVl2M2xZRUU3VGdNS1krM0tJ?=
+ =?utf-8?B?dEJaUEtyeGJOd214OFJyUjBoTWFHY3lDYzBYa28yYTlrNnI2cXRmQnFCTjN2?=
+ =?utf-8?B?MjdhdzhqZTI0QzVsR2hUMGlzTytnZVkzV3VORWRUUDRpT0hJZEd3cDVpZDdx?=
+ =?utf-8?B?b3hjTXpDVUg2UklpVTFMTTNYcndhMmlRcFhNd2ZGbmc3d1RKM0V5OE5iUEdr?=
+ =?utf-8?B?S1h6bTY2R1BrSUQ5YS8rZytRQ2ttMzNiYWJIYk85TkNpaG5TemUxTVI0OFV2?=
+ =?utf-8?B?c2drSlNxeUZ0WjhKeVZHd1FoM3NmbllhUUdnTGl3Nkp4c1kvVENYb2g2VHFv?=
+ =?utf-8?B?SFlrT1dMcTlXT01jSC80UDdLWTcyZXJIOHVaNk5XSWV0Tk1iZk1UL2NINTQx?=
+ =?utf-8?B?Z1Y2em5DM0JYZGNUdWNKV2luRUZZRGR0TDJMUkpsakJKTy9MOC9BcmI0SkM1?=
+ =?utf-8?B?bFpmVmFGN1NPTEpwN2lOTXlFbkpWdGRqcGRlYkpISmlGVXRWR0FGckxjci9z?=
+ =?utf-8?B?c3J2aGpSTm5MWjlKaytxQkJRY0VkZkkvdzM3OHlCMm94NWFUaG5uekxlalpE?=
+ =?utf-8?B?aEZKSEdtOU5QTkxhVkVjaVgxbFQyQlRySGxDRDlMNmkvdmpnYVJGYTAza20x?=
+ =?utf-8?B?RE5UbmxOV0lyT1RMUzJ1VGw0RGY0Q3E5bkNIQ2VFZGZ2a1FsWmt6S3VUMmNx?=
+ =?utf-8?B?ckw1SGtsOENWTm5sUkExLy9XLzlsZkNCVXRPSTFCeHhWVzVldWkzNkZva1Iy?=
+ =?utf-8?B?RE1sVHpNazMwT2J6SXNPaHkyek9QcG4zWldja3NKak1PK0lEaEp5eDRWc2JP?=
+ =?utf-8?B?c2ZRaEFhL0N6NGprNGw5SHZqT3lUZUdsdU04a21TeUNlNm13UkxBV1krWE1m?=
+ =?utf-8?B?QllxcWY4bVppS3Ywa3hqR05ZM3crcGNvUzVWLytvdVNjQXlDSVVWMnlkOG9H?=
+ =?utf-8?B?bzNidjJMb203YmJUbGpXVG03bmxDczNySzRSbjNVQTBOWmFkTVVoWjVBY25F?=
+ =?utf-8?B?VVRydzBJakdxMUdUUmZyeHB6MWVwN3NxZGMyUXBhekVHOEwwKzNXTkdnMmkx?=
+ =?utf-8?B?RURtbFRVY2VkZmJ0UCt6MmlwUFNLeFJXQmxLYUZ4dEp5WlptZVlJQWNZcHBs?=
+ =?utf-8?B?NXRHTXBKdXRRQUJyMm53WWpkTmNaa1lKcVUwOGVkTTZ4SStXZU9VQktuc0pR?=
+ =?utf-8?B?YmM0TDF1SXoyek1naXVIZUtHTmpmRXJHNThwcnJKMjdMUG5vS3RqV1Y3bkRH?=
+ =?utf-8?B?K3g0VEZqc1grdzNSa0RPcUpWcEhHaDA1TVlGb0p2WnBHRythRHVHZk1mMjFR?=
+ =?utf-8?B?Wk5nbWYrYzUxVll3U21zWWlHbkNQeGY4WW85dWJHbThNOU1kZ2NSQkdqQ0VO?=
+ =?utf-8?B?Q0NzZmE3VC8wM3l6cHAwRkczeE4vczBGWXg0bEloTFp1UXNiVWxLU1I4SUF3?=
+ =?utf-8?B?aVFGUlN0R2l1QURtTEZMTGdkaVZsU09TKzJSTE9pMi8rbitVNmFlMFJjVFRH?=
+ =?utf-8?B?QmtRNTM0ejRBNVFNNE9qb0NwNGpickdQZ08xMEY4Z2MzeDMvcjg2SW93eWoz?=
+ =?utf-8?Q?WZsB4oufIzCgRdDH+eoAFZOhC1pQBORi?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY5PR12MB9056.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Zk9NZzIrcGFkR3JxNm1oc2FrTmxKam82RWMvTXZKMzhUZ0RWZjZJYWY2WGlB?=
+ =?utf-8?B?NlFHL25RK1lVdUhpWTVBNVJmLzdqeDAyLytKazBTNFc0eWR0Z1FFRmI2Yy9a?=
+ =?utf-8?B?MlB5eUV5LzJnK3pCYTdGcjNRRzI2OFloUzl4N2oyTDNEU1B1YmxYSkpycGQz?=
+ =?utf-8?B?bWR6TG9acEtpWHlOcUNkcm5iS3pubUFEUzB0c3d3TEZsVUM2YWZTOHkzQ3Av?=
+ =?utf-8?B?a3R6ZmhZWXZ3SlFUS05oUE5wQlYyZTBXQm03WVJ5SlNZK0ZIR3c3TmtzbHll?=
+ =?utf-8?B?OUFFbGpwWjVhK0NMNFl5WXJWTllKS2Q0azBieEpqOE11cjBJRUNJcTFKT2RX?=
+ =?utf-8?B?SjIwQ1R0ODc2WHp1OFdrSUVOWDhVWXJYRHd2akROeGJLa2huS3Y3Q1BDbjZV?=
+ =?utf-8?B?RVJoR3ZacnpkYVBvOHNlaDVmbCtCSjdjZkYzTUdtclRpcmpQOVVLeSt3V2sv?=
+ =?utf-8?B?QVJhV1FxOXlBMlk5bEtpUUFucGtmU2ozSWZHQ1JBLytPQzMxR1kxTWNYd2Fi?=
+ =?utf-8?B?MjRMNzl6bGU0SEUvRkV6d3pYUkZROTZVMW9raElickE1U2taZGRmL1VjcVBV?=
+ =?utf-8?B?bGFjSDBxc2NRU3BVZlNVZGNibzFqZDAzSlRsSUZTNjlpa3FLVHJWZENaeWt1?=
+ =?utf-8?B?NlNRS3FqNzlWM1NqMXJVdk92WWRUUXRuNkdsczRVOE1MTVRBbWR5ZDhlemo1?=
+ =?utf-8?B?amcvU0RtTWlZS2NyMEhDaUtwYjFSbkZSbk04K2l1YUtocG1JOUdaNDBQaldJ?=
+ =?utf-8?B?cVZrc20yNThhUTNEekdReTErL3dNYU1mVnY0VHdiT0d1a2NFU1Q5SVNaMzRM?=
+ =?utf-8?B?TlhZOXpRdm1CMTEwczhvejBQcTNXOEVEYVF6UzFQWGpsZ2N2L1hxNWtHelFQ?=
+ =?utf-8?B?MXIwdFkzYWVRcUNGdWZaRE9CRTVSZzlpZ0xObXZNSUNVRzllaGhZUm1HOG1i?=
+ =?utf-8?B?WVZqVTBwdzJhajNnQ2psbURpam9ZMnVSRURTMkZNWWdvUmVheWY0Q3B2QjNB?=
+ =?utf-8?B?c1V1WDNEaURFUmErRWJGODRacFd3SW9IT0hGQ1FPRWk3dTRBZFFRTkFhUlkr?=
+ =?utf-8?B?ejlNejM1cncycHJVSWFPWGFZMWdJNkZNY3lSUEswM3hpVytVNmhaMHZKZDQz?=
+ =?utf-8?B?emhhdkxTUmZXZEU2cTQ1RXZHckhzQkVYVkx3RmJsTUEwNVdOTERNMTd0N2Z6?=
+ =?utf-8?B?UlozOHR4SVM0OTVlZ2pjbm1GMit6cGJvMWJQMVh1V0FvamZGeFVXUkliUzlr?=
+ =?utf-8?B?NmVZckVrVWRaMkRYSFVIRGFlZmxEK0lWeURxbHU5Ri9ZdXVidXk4RUNhempq?=
+ =?utf-8?B?OUwzQ0hWVVhsVjBUMVVscFVGZTRPSXg0TEtBZ2VKVXhPalp6SUFEQjVKWCtz?=
+ =?utf-8?B?blRRbEFBdnI5VG5FakFwQzFFbnpIN3IrcVptM2pJZDQrSGxSMzhkbWxxeTA3?=
+ =?utf-8?B?UnhKZXJZUThhQXpONVZISDhoN1ZFbUx2VzJYbVc4VGpEb203V2MwZy9UWmtW?=
+ =?utf-8?B?SGpFS25WeVpTZGNpS1k0MTBCOE9ZZ0g1b2E4QlM4b25tTnViUWFWdU5ITnEv?=
+ =?utf-8?B?WmlQRmFLeWxCMVJUNjBGcHJ0dmJSMk9pSWEyTGRkRm5XWXpSVFEwMjA2MlNu?=
+ =?utf-8?B?TGhZQWJZU1VvaEIxTEZpUWc3NXY5T3NOVi9KaEdBS0hpZmFqekdpdmozMzNM?=
+ =?utf-8?B?RGxaMmRkN2NRa013Lzdld0JraUVEdmZpbnJCa2hFblFyWGJnWEhHZ1JhRDMr?=
+ =?utf-8?B?Q05ucVAwZzhKQmFIRjRKaWpjeUVFN3R5a2NaNmZRbUFyQ2R3b2w2d0c5b3Bq?=
+ =?utf-8?B?cXRydW44dlBVT2s0eXkwaThxaHVSYlkwaVhVb3gzMHZ2d0VnVXh0UjJEalRP?=
+ =?utf-8?B?U2pKeFJIUmdLcGtnTFgxN29QNCs3KzF3eHpRR2tLcUJ0aVZWZ1IxSzZXTGVS?=
+ =?utf-8?B?THZTcVBLQndwYjdDK29nMXdHQ2xJZFJMSjBnbWNZV2ptY0lkQkFqeTNyOWNV?=
+ =?utf-8?B?TlVrOWhtYmQ2K2VpN05aOU16VDFJRUlUMEd4cnNjS1UrT2Jrb1VwZGU2UlZW?=
+ =?utf-8?B?WVhoSVVVVXhZb0QzKzdXRWlKVXNPbmZCM1FYNnFVUjlyTEpST1pzU25aY3dt?=
+ =?utf-8?Q?ETLmMig/Gw7VNLpxr53OupAT2?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b417b4fd-bb31-4808-0d74-08de1ae0910a
+X-MS-Exchange-CrossTenant-AuthSource: CY5PR12MB9056.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 13:54:54.5802
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YjzhV7o07m2OvWbIdY0I7nArHPML1qs3TsdsNVKZSA84hmO/tFas2xQRSc41YUN4muEBTB1VYe3B3FuUJAsrcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4224
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_055441_594072_3DD8D295 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20251103_055500_893575_E841F53D 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +181,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Niklaus Liu <niklaus.liu@mediatek.com>
 
-Enhance the regulator coupler driver to support GPU power control on the
-MediaTek MT8189 platform. This update ensures proper coordination of
-multiple regulators required for GPU operation,improving power management
-and system stability.
+On 10/31/2025 1:44 PM, Krzysztof Kozlowski wrote:
+> External email: Use caution opening links or attachments
+>
+>
+> On Fri, Oct 31, 2025 at 06:29:58AM +0000, Ashish Mhetre wrote:
+>> The Command Queue Virtualization (CMDQV) hardware is part of the
+>> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
+>> virtualizing the command queue for the SMMU.
+> If this is specific to Nvidia, then I think you need specific front
+> compatible and disallow it for other vendors.
 
-Signed-off-by: Niklaus Liu <niklaus.liu@mediatek.com>
----
- drivers/soc/mediatek/mtk-regulator-coupler.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+Yes, CMDQV is specific to Nvidia. There isn't currently a vendor-specific
+compatible for Nvidia's arm,smmu-v3 implementation. Would it be acceptable
+to document this as Nvidia-specific in the description? Or can we add a
+new Nvidia-specific compatible string like "nvidia,smmu-v3" if that's
+preferred and use conditional schema to restrict the property?
+>> Add a new device tree binding document for nvidia,tegra264-cmdqv.
+>>
+>> Also update the arm,smmu-v3 binding to include an optional nvidia,cmdqv
+>> property. This property is a phandle to the CMDQV device node, allowing
+>> the SMMU driver to associate with its corresponding CMDQV instance.
+>>
+>> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+>> ---
+>>   .../bindings/iommu/arm,smmu-v3.yaml           | 10 ++++
+>>   .../bindings/iommu/nvidia,tegra264-cmdqv.yaml | 46 +++++++++++++++++++
+>>   2 files changed, 56 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+>> index 75fcf4cb52d9..edc0c20a0c80 100644
+>> --- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+>> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+>> @@ -58,6 +58,15 @@ properties:
+>>
+>>     msi-parent: true
+>>
+>> +  nvidia,cmdqv:
+>> +    description: |
+>> +      A phandle to its pairing CMDQV extension for an implementation on NVIDIA
+>> +      Tegra SoC.
+>> +
+>> +      If this property is absent, CMDQ-Virtualization won't be used and SMMU
+>> +      will only use its own CMDQ.
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +
+>>     hisilicon,broken-prefetch-cmd:
+>>       type: boolean
+>>       description: Avoid sending CMD_PREFETCH_* commands to the SMMU.
+>> @@ -92,4 +101,5 @@ examples:
+>>               dma-coherent;
+>>               #iommu-cells = <1>;
+>>               msi-parent = <&its 0xff0000>;
+>> +            nvidia,cmdqv = <&cmdqv>;
+>>       };
+>> diff --git a/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml b/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
+>> new file mode 100644
+>> index 000000000000..f22c370278a3
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
+>> @@ -0,0 +1,46 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: NVIDIA Tegra264 CMDQV
+> Missing blank line
 
-diff --git a/drivers/soc/mediatek/mtk-regulator-coupler.c b/drivers/soc/mediatek/mtk-regulator-coupler.c
-index 0b6a2884145e..f6e3b2a3a5a8 100644
---- a/drivers/soc/mediatek/mtk-regulator-coupler.c
-+++ b/drivers/soc/mediatek/mtk-regulator-coupler.c
-@@ -42,6 +42,18 @@ static int mediatek_regulator_balance_voltage(struct regulator_coupler *coupler,
- 	int max_uV = INT_MAX;
- 	int ret;
- 
-+	/*
-+	 * When vsram_gpu is enabled or disabled and the use_count of the
-+	 * vsram_gpu regulator is zero, the regulator coupler driver will
-+	 * execute regulator_do_balance_voltage, which adjusts the vsram_gpu
-+	 * voltage to the minimum value. This may result in vsram_gpu being
-+	 * lower than vgpu. Therefore, when enabling or disabling vsram_gpu,
-+	 * the 8189 temporarily skips the regulator coupler driver's modification
-+	 * of the vsram_gpu voltage.
-+	 */
-+	if (of_machine_is_compatible("mediatek,mt8189") && rdev == mrc->vsram_rdev)
-+		return 0;
-+
- 	/*
- 	 * If the target device is on, setting the SRAM voltage directly
- 	 * is not supported as it scales through its coupled supply voltage.
-@@ -148,7 +160,8 @@ static int mediatek_regulator_coupler_init(void)
- 	if (!of_machine_is_compatible("mediatek,mt8183") &&
- 	    !of_machine_is_compatible("mediatek,mt8186") &&
- 	    !of_machine_is_compatible("mediatek,mt8188") &&
--	    !of_machine_is_compatible("mediatek,mt8192"))
-+	    !of_machine_is_compatible("mediatek,mt8192") &&
-+	    !of_machine_is_compatible("mediatek,mt8189"))
- 		return 0;
- 
- 	return regulator_coupler_register(&mediatek_coupler.coupler);
--- 
-2.46.0
+Ack, I will correct this in V2.
+>> +description: |
+> Do not need '|' unless you need to preserve formatting.
 
+Okay, I'll remove this in next version.
+>> +  The CMDQ-Virtualization hardware block is part of the SMMUv3 implementation
+>> +  on Tegra264 SoCs. It assists in virtualizing the command queue for the SMMU.
+>> +
+>> +maintainers:
+>> +  - NVIDIA Corporation <linux-tegra@nvidia.com>
+> No. It should be a person. If entire Nvidia cannot find a person, I
+> don't think we are interested in having this in the kernel.
+
+Okay, I'll add Nicolin as maintainer.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: nvidia,tegra264-cmdqv
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  interrupt-names:
+>> +    items:
+>> +      - const: cmdqv
+> Drop interript names, obvious.
+
+Sure, I will update in V2.
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - interrupt-names
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>> +
+>> +    cmdqv: cmdqv@8105200000 {
+> Drop unused label
+
+Okay, I will remove the label.
+> Best regards,
+> Krzysztof
+>
 
