@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A23CCFA06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D82FCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Fr0FIJepkm+ThFHAEs62pg4ABnNj30rVqosHEqcqeg=; b=ChG4JgCpsUNfv0bmGSA7EAaBbt
-	4VqwPhl2fpugJytvycla7eTcE3GBeZU2uzxqxkApOkqNUlkqm3yCgKMUao5guiLlkcSDF8SeIdqWs
-	xqmARckMbbfPyX0hoeC9uWKQJsVvkR48GbNKFLSHxSjmC/J6Us6WQ46jJYrwFpixMkeFnrm7FbsDH
-	lSE7Vb7HVC/yGjfenUS/LV9CXpX0rwn0Y30oWXfyuigWXo6pXK5szHKV20xW6y39r/VNn6NLOjd/2
-	YzKOyImARp3viWpbjV44mgUAe7Unpennb41LB0elZwM7snwimOSSVbucmipEl1/jrmU9g3rQV5oz6
-	BK0jmVqA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tS0MhUe7KY1JxyB8FA5hPJlAGmWi888eRvQYge3RUY0=; b=KQ1oyqk9niPNGv82HPyOrQEVCO
+	n3DnlsyDqiXXErqYHMi7AIufP73QZzGyrB5KhkssX4a9Og+q6xI1lUoUL/bMYqFQCSXQmo3xyonxg
+	cU8G6E+atnbtfZe72UhABVc9Efxw/4PqAZpvShzlzLe5GpH8ibRaKFm13BfY6Cl7wExt0DWvwy+Lw
+	KORIpvfHn1pE3Z/n8m4wrQ9kXuDHpUFZoch9hyBJ993A9p28+kBcoPNmVPiPsQq2WCH5ki4c4W26W
+	e/OnM1c+WjIXcMjDm01R5CPSIx6I9F714P/LKnW1RmXOUs5to5m0MLCBohpgHAfjBXd8ITBlPekrw
+	6nFweVMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrbQ-00000009aty-2j9W;
-	Mon, 03 Nov 2025 10:15:56 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vFrbV-00000009azD-0NuZ;
+	Mon, 03 Nov 2025 10:16:01 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrbM-00000009akk-0xyX
+	id 1vFrbM-00000009akb-1vbi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 10:15:54 +0000
+	Mon, 03 Nov 2025 10:15:55 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1762164947;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Fr0FIJepkm+ThFHAEs62pg4ABnNj30rVqosHEqcqeg=;
-	b=1IqWaHbVcL8QjkIz4WveM9GyXjMb2CV1dibCwN0zYIXSWaq9K+ZinxC1zznX6OqTrjJ21r
-	rgfZOtPOsEiXoAf5R3Rv86vv9oncyLFCsV1mcngw6Or291vRSPVCejapjf90Pvq53R3506
-	OcKQZeUglPdzjDl/PhCEDU0u6H5XeMw9vrOYVlvgU3l8T8nhlZxoBz1a7hqgIStIihpXld
-	Lko9FSCBmWYMvaLzZeuCp7eVX90LNWoEfsPkXpAIiYwyXM+o1hYawDyMC9LWVkU2ulg/Vv
-	lEwaHrzJkHp4Jnx33ryoIe7cSgGn5qj9OfaavNOiLdobcng5S6yCRfvnAWRFqA==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=tS0MhUe7KY1JxyB8FA5hPJlAGmWi888eRvQYge3RUY0=;
+	b=Lktdhd8Ogqpeh2d00Mj+SWegbA0xdE0cfDr+m25Q0+W/aAuq+IUiY1yQcQPFp/Fz2ySg3f
+	2SJRhUBWE/C/ghEHkwaKL5M89DWv2J61e3yu4iT+nuhU9bw/ZYYePIqNv/j1YPV5F/ETTr
+	VZm8vBhyfSkTwo77BPNlK6daYcpUnnQTRHTSKpWSJX+mq/2cMYa9VHxtjvdBNNe/HI82Q2
+	EaYYv+4jdcFrqpwqm0Hb7J9TEe93/v5nFP4nz5L+hdjLYEGNoRc5V9DcS3qrfATHtl8nnx
+	M0s+QvdqVIxCP6lBCgGHuok7uks9ARoFLfvKsKG1E/TCE6S6tPwWA0bFmqgpkg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1762164947;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Fr0FIJepkm+ThFHAEs62pg4ABnNj30rVqosHEqcqeg=;
-	b=Q3t7HbjmjUv/qrWbmiQ8wFN3q3XcnJwjNTICiIXk1s+8rM0TbTKRL7TdDh/dBMht7XGCLX
-	2Il85jj0ZIW4IFCg==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=tS0MhUe7KY1JxyB8FA5hPJlAGmWi888eRvQYge3RUY0=;
+	b=22tKgmVTCnMRRdsnLTJmuJkSqEuvGcL6DUOl2QpHhdeWDtupClhiy6NDcuEUAJXI+dOY2v
+	POdYR1saXF5MRTBw==
 To: linux-arm-kernel@lists.infradead.org,
 	linux-rt-devel@lists.linux.dev
 Cc: Russell King <linux@armlinux.org.uk>,
 	Xie Yuanbin <xieyuanbin1@huawei.com>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v2 1/5] ARM: mm: fault: Move harden_branch_predictor() before interrupts are enabled
-Date: Mon,  3 Nov 2025 11:15:41 +0100
-Message-ID: <20251103101545.760243-2-bigeasy@linutronix.de>
-In-Reply-To: <20251103101545.760243-1-bigeasy@linutronix.de>
-References: <20251103101545.760243-1-bigeasy@linutronix.de>
+Subject: [PATCH v2 0/5] ARM: Remaining PREEMPT_RT bits
+Date: Mon,  3 Nov 2025 11:15:40 +0100
+Message-ID: <20251103101545.760243-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_021552_419131_6587DC86 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20251103_021552_645617_97321A8F 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the LPAE case, interrupts are enabled early in do_page_fault(). If
-the user attempts to access a pointer > TASK_SIZE then is invoked
-harden_branch_predictor(). The function will complain that CPU migration
-is enabled due to its smp_processor_id() usage.
+this is the last batch I have to enable PREEMPT_RT on the ARM
+architecture.
+Last time I posted them there was some discussion about making the
+branch predictor hardening worse. I redid it hoping it improved now and
+does not make it worse.
 
-The intention is invoke harden_branch_predictor() on the CPU which
-triggered the page fault. It is only invoked for user access of pointer
-> TASK_SIZE. This always generate a fault for the user because this area
-is restricted to the kernel.
+v1=E2=80=A6v2: https://lore.kernel.org/all/20251029155918.503060-1-bigeasy@=
+linutronix.de
+  - Allow to enable jump-labels on UP. The UP build does not involve
+    stop_machine(). Reworked by Arnd.
 
-Move the invocation of harden_branch_predictor() up in the call chain to
-the two callers do_bad_area() and do_page_fault().
-Invoke it if the user accesses the >=3D TASK_SIZE area.
+  - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
+    disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
+    needed.
 
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
- arch/arm/mm/fault.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+  - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WORK
+    which in turn depends on !KVM. Since KVM has been removed from ARM
+    it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
+    by Arnd.
 
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index 2bc828a1940c0..5d28c28e877c1 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -183,9 +183,6 @@ __do_user_fault(unsigned long addr, unsigned int fsr, u=
-nsigned int sig,
- {
- 	struct task_struct *tsk =3D current;
-=20
--	if (addr > TASK_SIZE)
--		harden_branch_predictor();
--
- #ifdef CONFIG_DEBUG_USER
- 	if (((user_debug & UDBG_SEGV) && (sig =3D=3D SIGSEGV)) ||
- 	    ((user_debug & UDBG_BUS)  && (sig =3D=3D SIGBUS))) {
-@@ -218,10 +215,13 @@ void do_bad_area(unsigned long addr, unsigned int fsr=
-, struct pt_regs *regs)
- 	 * If we are in kernel mode at this point, we
- 	 * have no context to handle this fault with.
- 	 */
--	if (user_mode(regs))
-+	if (user_mode(regs)) {
-+		if (addr >=3D TASK_SIZE)
-+			harden_branch_predictor();
- 		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
--	else
-+	} else {
- 		__do_kernel_fault(mm, addr, fsr, regs);
-+	}
- }
-=20
- #ifdef CONFIG_MMU
-@@ -274,8 +274,11 @@ do_page_fault(unsigned long addr, unsigned int fsr, st=
-ruct pt_regs *regs)
-=20
-=20
- 	/* Enable interrupts if they were enabled in the parent context. */
--	if (interrupts_enabled(regs))
-+	if (interrupts_enabled(regs)) {
-+		if (user_mode(regs) && addr >=3D TASK_SIZE)
-+			harden_branch_predictor();
- 		local_irq_enable();
-+	}
-=20
- 	/*
- 	 * If we're in an interrupt or have no user
+Sebastian Andrzej Siewior (3):
+  ARM: mm: fault: Move harden_branch_predictor() before interrupts are
+    enabled
+  ARM: Disable HIGHPTE on PREEMPT_RT kernels
+  ARM: Allow to enable RT
+
+Thomas Gleixner (1):
+  ARM: Disable jump-label on PREEMPT_RT
+
+Yadi.hu (1):
+  ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
+
+ arch/arm/Kconfig    |  5 +++--
+ arch/arm/mm/fault.c | 16 ++++++++++------
+ 2 files changed, 13 insertions(+), 8 deletions(-)
+
 --=20
 2.51.0
 
