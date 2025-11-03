@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AE7CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3174ECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJkn3+hAfuP5XL6t2hbjA53WEnJ0gkoFQXv9QW+o5c8=; b=B++rYPneITnE98lZNLApDgC5zy
-	fR/hh90tZtT0Gvgbgllp9+/9pl4tOMLMEvntE2mttcbew6jaI91dXowoURUx9Wew610z5uYWdff6C
-	lVoCURbj0gP9vcYKt9ca/Z5uBMPcDajZmjJt+iZmSN+UOwsObtBmtC0ycnnQi0aiERoKNyBMKL5+2
-	W5QWSvWDsnzG96mnkL93E/0JoSseYr/lWS6ZTf0rI4F/fCUbIQS9q52k5CJ/XINyM0ZoQ8lXBpz2X
-	DCuIFPQySE1FmNurqC2D0qycTABS3ngFc354Y00R5LHWLdmrRHzpl9C6Ym5QCMaBMkXWuFgFdnYTp
-	s7HOsO3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WrB/gSLdf3VA/om+dC5j8qNs8f2OaoR8P08bJ5Kp73k=; b=fPdmDlkZzxJ0bUbkZZWGyM1eJB
+	imb8Clat2Xxyq4cyCL1RYuVZKl4FKCON5uQbFCVpcAb4pzEf7szSP74u70+VUEc/PKb6G9CkRz0mW
+	Zcwf4hcbWZs63x/tTVr50K7G6HIGb8B6K9zHP5IsBEgvu3+fadxWvRFC+bck7cPUW0Lzr8+ODDK2a
+	tUQ3fqlwIr27vGVGNH0OQhXFNgAUpyCZc4SgtBDwXgobbcXkACagelVv/46x1yj/LUgLJofmpG6zx
+	QfTKtzqH+aceUcwRGUokStTl+bdFQqXi3xpiiN4oRrOCFfiNssjFg/CWCMTbBwD2R2QNRZa1sNgpU
+	jJHNq68A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrbV-00000009b02-3aCb;
-	Mon, 03 Nov 2025 10:16:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vFrbX-00000009b1t-1zwt;
+	Mon, 03 Nov 2025 10:16:03 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrbO-00000009apX-0Ume
+	id 1vFrbP-00000009ar6-3LQR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 10:15:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B0E341780;
-	Mon,  3 Nov 2025 10:15:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD967C4CEE7;
-	Mon,  3 Nov 2025 10:15:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762164953;
-	bh=dm7oH3nTgvJPBFEPHOn1ekJrOzWA9gbujJ2NtsgHXr4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hH1Dit0wk9oiesrLwFJAlNmPS6aQvL3139fH7tJ34UCj2WovwcCoi9NLoPf2ixyro
-	 2cRSsoSPwhvmhbgNM3oj989qyG+26Otryd/Z9ZvdhUUM0SYOrkolWmH86RJnwFRcnc
-	 NavM7BTs9daY3y5gvblFMepkEsDBbnEJXfHPeKV9l3KxW9k3FpG+Rx3jg/MoQxYkY+
-	 21XAIXykHIp7FFno9j7elmercX3zpYmZilRJZmGwUkI4/BGNuDKnUAHVyr9+qdRBgS
-	 dmcycU6x/9I7LbITL272PNTxYhUkK88IkzThwCPV7bvsPdJlDh7hIxbQymY1wXFpaE
-	 1PuIrt49nIbnQ==
-Date: Mon, 3 Nov 2025 11:15:50 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, semen.protsenko@linaro.org, willmcvicker@google.com, 
-	kernel-team@android.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 05/11] soc: samsung: exynos-chipid: introduce
- match_data->get_chipid_info()
-Message-ID: <20251103-polar-wasp-of-chivalry-9cd93f@kuoka>
-References: <20251031-gs101-chipid-v1-0-d78d1076b210@linaro.org>
- <20251031-gs101-chipid-v1-5-d78d1076b210@linaro.org>
+	Mon, 03 Nov 2025 10:16:02 +0000
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1762164949;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WrB/gSLdf3VA/om+dC5j8qNs8f2OaoR8P08bJ5Kp73k=;
+	b=FoxNWJmo+ld5qzhUCv+HCRcQ0KtxHasJ/ErVn16eXHBfM/Pg/5eXNZvngUqXytkeOG75FB
+	wwA6ikGs+SvND5a5kFbx9I0b9mG4/70iqJAOgg96hxZQUJgnpSP8kI9/roq5a3cuGa3/LG
+	zyjbJLpZzjYPjs9Em0fgCbd7YOvSru/7mjQMV7ILcOYsBa9RsQEPRJyfaA3NuFUUMtBV2b
+	qoC6EbVO0VKg023+sAaonXWHgME+RKw+OZsfdUKpfHaqS13o81HGKT5yirZ11fh/RRpF/o
+	5iTQdsoMNjTWBqiw6NWhytPN6ugL0zLBzuIUyIkBgCN0ewC2FaTh7lhhzGsU8A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1762164949;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WrB/gSLdf3VA/om+dC5j8qNs8f2OaoR8P08bJ5Kp73k=;
+	b=iFUp/uacy9LksbAsmAR66Id6bgYBzoc5hAYuGQmWXBakwocOjATfMXGekVe9Eiuo07ER0z
+	tiQ0JpvpQwtuP6CA==
+To: linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Cc: Russell King <linux@armlinux.org.uk>,
+	Xie Yuanbin <xieyuanbin1@huawei.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: [PATCH v2 5/5] ARM: Allow to enable RT
+Date: Mon,  3 Nov 2025 11:15:45 +0100
+Message-ID: <20251103101545.760243-6-bigeasy@linutronix.de>
+In-Reply-To: <20251103101545.760243-1-bigeasy@linutronix.de>
+References: <20251103101545.760243-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251031-gs101-chipid-v1-5-d78d1076b210@linaro.org>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_021554_194220_E18EE1BD 
-X-CRM114-Status: GOOD (  23.99  )
+X-CRM114-CacheID: sfid-20251103_021556_025327_81780C91 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,81 +80,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 12:56:04PM +0000, Tudor Ambarus wrote:
-> Newer SoCs, like GS101, don't have a dedicated Chip ID controller.
+All known issues have been adressed.
+Allow to select RT.
 
-This would suggest that these are completely different devices and
-should not be part of the same bindings. Actually bindings also
-suggested this - changing programming model.
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ arch/arm/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-> The GS101 Chip ID info is available as part of the OTP controller
-> registers, among other things. For GS101 we will read the Chip ID from
-> the OTP controller using the nvmem API.
-> 
-> Extend the match_data with a get_chipid_info() method, to allow nvmem
-> integration.
-> 
-> `struct exynos_chipid_info` is moved to the top of the file to avoid a
-> forward declaration. The structure is extended with pointers to device
-> and regmap to allow current implementation to obtain the regmap in the
-> newly introduced exynos_chipid_get_regmap_chipid_info() method. The
-> nvmem consumer support that will follow won't use the regmap, and
-> instead will use the nvmem API. It will need the pointer to the device
-> to report errors.
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
->  drivers/soc/samsung/exynos-chipid.c | 35 ++++++++++++++++++++++-------------
->  1 file changed, 22 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
-> index ab6bdf24a754a0faf974190c1fa1f99735cbef8e..7b1951f28e8d4958ab941af91dab4b0183ceda5f 100644
-> --- a/drivers/soc/samsung/exynos-chipid.c
-> +++ b/drivers/soc/samsung/exynos-chipid.c
-> @@ -26,17 +26,21 @@
->  
->  #include "exynos-asv.h"
->  
-> +struct exynos_chipid_info {
-> +	struct regmap *regmap;
-> +	struct device *dev;
-> +	u32 product_id;
-> +	u32 revision;
-> +};
-> +
->  struct exynos_chipid_variant {
-> +	int (*get_chipid_info)(const struct exynos_chipid_variant *data,
-> +			       struct exynos_chipid_info *exynos_chipid);
->  	unsigned int rev_reg;		/* revision register offset */
->  	unsigned int main_rev_shift;	/* main revision offset in rev_reg */
->  	unsigned int sub_rev_shift;	/* sub revision offset in rev_reg */
->  };
->  
-> -struct exynos_chipid_info {
-> -	u32 product_id;
-> -	u32 revision;
-> -};
-> -
->  static const struct exynos_soc_id {
->  	const char *name;
->  	unsigned int id;
-> @@ -80,13 +84,19 @@ static const char *product_id_to_soc_id(unsigned int product_id)
->  	return NULL;
->  }
->  
-> -static int exynos_chipid_get_chipid_info(struct regmap *regmap,
-> -		const struct exynos_chipid_variant *data,
-> +static int exynos_chipid_get_regmap_chipid_info(const struct exynos_chipid_variant *data,
->  		struct exynos_chipid_info *exynos_chipid)
->  {
-
-This function now gets both regmap and chip info, that's too much.
-Probably all ASV and regmap getting should be somehow split/customized
-per variant.
-
-I don't know yet, need to read rest of patches.
-
-Best regards,
-Krzysztof
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 45d29320196f0..84ad4fe11589b 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -41,6 +41,7 @@ config ARM
+ 	select ARCH_SUPPORTS_CFI
+ 	select ARCH_SUPPORTS_HUGETLBFS if ARM_LPAE
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK
++	select ARCH_SUPPORTS_RT
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF
+ 	select ARCH_USE_MEMTEST
+--=20
+2.51.0
 
 
