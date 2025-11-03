@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBB8CCFA09
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F3FCCFA03
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1W5vrCmKeFr/H07m8jDEZ4YdjC0kQWKbExI23VrzOtI=; b=dgGRt7Vc5kWz3dvYC+zneb9y15
-	maah2zlfLjbLSuTI9/JlLDcIHUYkqynmjEESrQ86R1y4OxcBmjCb9OVaCcIoVxJp8NmDCIIgPchne
-	maCH34hIdJD+BW4n4Tr1y/3kduG9BjVD8GdUxqTxdW1svHX6Bb6aGEBTlGgSHkCA4JZKWgMBcCLU9
-	3AhFjFH975QPHfpRqfB1EytJrqz57Hf/VO39S0MY65FDXw0ZZh2Bow/eeGW35PkLkNO8FCeQg8Nj2
-	syUgocYSulgDTthXmDcdv1H+pxRWuel39fVN/58Bcq/chtRCUOw99+LEdQ7vZtDk2Q5CeQTebJouq
-	F0aMRH0Q==;
+	bh=AgA3CYpLeqEQbsNh6Xe6jRDBzYl0Bu5jZNW8Fb8ensI=; b=VRpLeMC8FXrJ0l5P6JQKiMWY75
+	81BAx5Nm52KBXneXui20GNEiavMI9a48RRz7lZoGzg5wwC1CP4uJ/txTQWCrFrWmXT3Y0u6XV10RS
+	kfN7wfqt1+w4LRr80TWPmBB5e3bNboaeoQW/q/Jo2QpSPKx5fICpkWMUMmyR+mqi9tA6zM1rrlWa/
+	vTdXUdEjAUJ848OFD2p36Ackv3k2Mx+5zEdtb+WpbxWI7DosixjfZyYiy+7JLvZF6n7R0REnzRXSF
+	wY1Rc7FtAhYPRF18MkBBeHI36RZompOKXZVkSzfIXBVjWL4td/4vttrT4FwTW1ZCThhaOpQGXFZZz
+	OIsFl1aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqW-0000000AKik-0PfZ;
-	Mon, 03 Nov 2025 16:55:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vFxqY-0000000AKmy-0BT5;
+	Mon, 03 Nov 2025 16:55:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxq8-0000000AJzH-0rlj
+	id 1vFxq8-0000000AJzO-3rWL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:55:34 +0000
+	Mon, 03 Nov 2025 16:55:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1692F43C22;
+	by sea.source.kernel.org (Postfix) with ESMTP id C2E4B43CDD;
 	Mon,  3 Nov 2025 16:55:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8BD1C113D0;
-	Mon,  3 Nov 2025 16:55:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A71F7C116D0;
+	Mon,  3 Nov 2025 16:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762188931;
-	bh=PnttpW5k/sZbVwWIADxCl8IZlSHBNDSq8thM0EUpP/0=;
+	s=k20201202; t=1762188932;
+	bh=iqZcVcEEAlkxkd+PUiY5mjGb5FYWhKWCcmecb4qtFAw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aT1xrAMRMQNRyHDOnEcLIz88OfZ3iGHZ5jvhf6RnlO/jq5c6WvTJ6KgyICS/94+kh
-	 BVi3HrAW6SXP95M9Xs/ln2r/ab0m6ed7dNwxydPje1rj9AcL4MW7GCvk1cjtNRPHW3
-	 iexzxxtZxgFgaSn83JBb6T5fY/+ecmBHl/szNM8HzZzAF2zsIc4pmjMxMFZZln7r6b
-	 /RgOmRVBB3XojUdi+lxgYyEjxzUNBE7PgLm0zpldomOuE+hJBmBfK0RB1HQ8pGU3lR
-	 gtfbXORyaF35smIf/cn3YCWuuNHCpKBJ332bLAwl0+jI7/eERDELA+C0Lu/W2EqnJR
-	 coAmtvSrPVjxQ==
+	b=RjIb8ziAti490KyjyrE0X6LDN3hVg2jlPjgzrl+gC4GyYQbNyuNn21HFQaycOnQuE
+	 RKDWuaIiFPQdkNJhVD/9PnYrUU/elhQ+VCb66Rp9u7kbl3exIULpxy55VIYvvCMr5W
+	 33IuxAQgtC3QjuSZlfuOlMidIc3mXNBd2ke5GkWYcbjee8U3FUvYZiozaoi2mP9AE2
+	 0Sazw8BG4JkPM9pE7qU0ydUzz/gp+xV3f7BFZ5I8Uo45I6XKOn1Mhh22FBbyXUrA3y
+	 dlLgGE57PZxw/u4ZfeIuNeL/mPqXGWCDtO5TZszHFLcp2kDUfm9ykQr1SnLSsvIM6Z
+	 qMh3cW8ueFSqQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vFxq6-000000021VN-0cO6;
-	Mon, 03 Nov 2025 16:55:30 +0000
+	id 1vFxq6-000000021VN-3ph0;
+	Mon, 03 Nov 2025 16:55:31 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: [PATCH 23/33] KVM: arm64: Move undeliverable interrupts to the end of ap_list
-Date: Mon,  3 Nov 2025 16:55:07 +0000
-Message-ID: <20251103165517.2960148-24-maz@kernel.org>
+Subject: [PATCH 26/33] KVM: arm64: GICv3: Handle LR overflow when EOImode==0
+Date: Mon,  3 Nov 2025 16:55:10 +0000
+Message-ID: <20251103165517.2960148-27-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251103165517.2960148-1-maz@kernel.org>
 References: <20251103165517.2960148-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_085532_341658_5AA356D3 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20251103_085533_060404_E86E6DD1 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,80 +87,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Interrupts in the ap_list that cannot be acted upon because they
-are not enabled, or that their group is not enabled, shouldn't
-make it into the LRs if we are space-constrained.
+Now that we can identify interrupts that have not made it into the LRs,
+it becomes relatively easy to use EOIcount to walk the overflow list.
+
+What is a bit odd is that we compute a fake LR for the original
+state of the interrupt, clear the active bit, and feed into the existing
+logic for processing. In a way, this is what would have happened if
+the interrupt was in an LR.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic.c | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/vgic/vgic-v3.c | 45 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 56c61e17e1e88..5c9204d18b27d 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -265,6 +265,11 @@ struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
- 	return NULL;
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index e18b13b240492..14b35a62e2981 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -109,16 +109,61 @@ static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
+ 	vgic_put_irq(vcpu->kvm, irq);
  }
  
-+struct vgic_sort_info {
-+	struct kvm_vcpu *vcpu;
-+	struct vgic_vmcr vmcr;
-+};
++static u64 vgic_v3_compute_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq);
 +
- /*
-  * The order of items in the ap_lists defines how we'll pack things in LRs as
-  * well, the first items in the list being the first things populated in the
-@@ -273,6 +278,7 @@ struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
-  * Pending, non-active interrupts must be placed at the head of the list.
-  * Otherwise things should be sorted by the priority field and the GIC
-  * hardware support will take care of preemption of priority groups etc.
-+ * Interrupts that are not deliverable should be at the end of the list.
-  *
-  * Return negative if "a" sorts before "b", 0 to preserve order, and positive
-  * to sort "b" before "a".
-@@ -282,6 +288,8 @@ static int vgic_irq_cmp(void *priv, const struct list_head *a,
- {
- 	struct vgic_irq *irqa = container_of(a, struct vgic_irq, ap_list);
- 	struct vgic_irq *irqb = container_of(b, struct vgic_irq, ap_list);
-+	struct vgic_sort_info *info = priv;
-+	struct kvm_vcpu *vcpu = info->vcpu;
- 	bool penda, pendb;
- 	int ret;
- 
-@@ -295,6 +303,17 @@ static int vgic_irq_cmp(void *priv, const struct list_head *a,
- 	raw_spin_lock(&irqa->irq_lock);
- 	raw_spin_lock_nested(&irqb->irq_lock, SINGLE_DEPTH_NESTING);
- 
-+	/* Undeliverable interrupts should be last */
-+	ret = (int)(vgic_target_oracle(irqb) == vcpu) - (int)(vgic_target_oracle(irqa) == vcpu);
-+	if (ret)
-+		goto out;
++static void vgic_v3_deactivate_phys(u32 intid)
++{
++	if (cpus_have_final_cap(ARM64_HAS_GICV5_LEGACY))
++		gic_insn(intid | FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, 1), CDDI);
++	else
++		gic_write_dir(intid);
++}
 +
-+	/* Same thing for interrupts targeting a disabled group */
-+	ret =  (int)(irqb->group ? info->vmcr.grpen1 : info->vmcr.grpen0);
-+	ret -= (int)(irqa->group ? info->vmcr.grpen1 : info->vmcr.grpen0);
-+	if (ret)
-+		goto out;
-+
- 	penda = irqa->enabled && irq_is_pending(irqa) && !irqa->active;
- 	pendb = irqb->enabled && irq_is_pending(irqb) && !irqb->active;
- 
-@@ -320,10 +339,12 @@ static int vgic_irq_cmp(void *priv, const struct list_head *a,
- static void vgic_sort_ap_list(struct kvm_vcpu *vcpu)
+ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
  {
  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-+	struct vgic_sort_info info = { .vcpu = vcpu, };
+ 	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
++	u32 eoicount = FIELD_GET(ICH_HCR_EL2_EOIcount, cpuif->vgic_hcr);
++	struct vgic_irq *irq;
  
- 	lockdep_assert_held(&vgic_cpu->ap_list_lock);
+ 	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
  
--	list_sort(NULL, &vgic_cpu->ap_list_head, vgic_irq_cmp);
-+	vgic_get_vmcr(vcpu, &info.vmcr);
-+	list_sort(&info, &vgic_cpu->ap_list_head, vgic_irq_cmp);
+ 	for (int lr = 0; lr < cpuif->used_lrs; lr++)
+ 		vgic_v3_fold_lr(vcpu, cpuif->vgic_lr[lr]);
+ 
++	/*
++	 * EOIMode=0: use EOIcount to emulate deactivation. We are
++	 * guaranteed to deactivate in reverse order of the activation, so
++	 * just pick one interrupt after the other in the overflow list, and
++	 * replay the deactivation as if the CPU was doing it. We also rely
++	 * on priority drop to have taken place.
++	 */
++	list_for_each_entry(irq, &vgic_cpu->overflow_ap_list_head, ap_list) {
++		u64 lr;
++
++		/*
++		 * I would have loved to write this using a scoped_guard(),
++		 * but using 'continue' here is a total train wreck.
++		 */
++		if (!eoicount) {
++			break;
++		} else {
++			guard(raw_spinlock)(&irq->irq_lock);
++
++			if (!(likely(vgic_target_oracle(irq) == vcpu) &&
++			      irq->active))
++				continue;
++
++			lr = vgic_v3_compute_lr(vcpu, irq) & ~ICH_LR_ACTIVE_BIT;
++		}
++
++		if (lr & ICH_LR_HW)
++			vgic_v3_deactivate_phys(FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
++
++		vgic_v3_fold_lr(vcpu, lr);
++		eoicount--;
++	}
++
+ 	cpuif->used_lrs = 0;
  }
  
- /*
 -- 
 2.47.3
 
