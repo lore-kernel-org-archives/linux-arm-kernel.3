@@ -4,73 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B19CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D3DCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F2f1sseHxrXjYvg/ukS1BEOMzDekfTFZA7KRzFvkAxA=; b=RIf73lz7UYcpAL54IGdYjFkN2W
-	dZsDrmD3r3vHXaLtcD2gJBtK09G4FzhlYAxwuAyEaceQqG8x3h7BrJt7Ztka2WAQNdkWCvuTy9irO
-	8TofZxxtJAjaKcdHVIfY2Jqq413hBWAXVWaoxW7xe9RcbqGPYtrCgp5y+RvgQpoZG8OZcxPqbsopX
-	mHdzPhZ7yPZIh/JIpZaCmnhoFUezYZwc100zfLjjkkv3Eun12XHEKfUiimcosq/nhrtzM8Y5/fNWO
-	i9NdTQSorsq87EswOCv3N6LdnGOhTMIwL2Nc6Aztme+B3fW45fwEi/gCxrUwCXs9ZcHv9w9mUpU6K
-	W9dDYKLw==;
+	bh=RxnzT6MDNu6xaMxu3F1Q8cBBjNRBmAKRhhu8JsfkkHI=; b=CIq5GeMdqZ9VqCn8evVEFG9WOa
+	mMPlGWYxIT8CTWEjLtaP4O/cL7O1sSnnvzvr1LFzAKh+eVAQrnGyCDWunPOhqrAWU4xgdtedwMt5e
+	kKMf4dShzjo9KQso0FL3aiYPO6oOFHvhnnGxlasilE/26piK5qJgHsoPn3hVhh1U9IFRmhsKWcrpU
+	b+zXqVDDGua1K1RkU4sR4NKUlw9zq8d1U9sUQXtkPpAP/Y5ZsTC9bxrDh9L7BUfyeFiGo7wOWXA3w
+	5aWFRqOCMXqRkVDiMBH3d7dNux/fMFxh7cQtOGII2o8azxkTtvgqkcB23aab/Z5AK1ujQH3wEP4SZ
+	UGhXc5iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxHi-0000000AFQB-1EGt;
-	Mon, 03 Nov 2025 16:19:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vFxHk-0000000AFQo-2mVW;
+	Mon, 03 Nov 2025 16:20:00 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxHh-0000000AFPm-1COP
+	id 1vFxHh-0000000AFPK-1q0b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:19:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23FF7601B4
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 16:19:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB65FC19424
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 16:19:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762186795;
-	bh=Sk3YUo7dUQtfztKAt03QLqMqer/FMN4d3z80Z8X0gQY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dxZK56OlymerAXSLwcLJt5wUMBCeKIIy9k9GZrQIWtIybqxFAG8HG5eoRNsFV1W8G
-	 LQmGxQHV6ltIL3yHCFC1ZNy53wFCeSEoTPc0yw1eE3ENLLRJO45ic9q/r2nG/+wgFY
-	 ELkmJT1boKpiZjKxsCrgystfh2kWIvg+LAJHXn0A8525tXiVO6Fjy9b3m065jzMo05
-	 9OE+JYZs4ewGR8lOjokWdhW2QfC917+q9iNK447Mpr1ycV0G8ahkUHGdA6dKxtugSb
-	 xe2TIiC5CQhtwMvBVc7TBnLdt5sFpD6jBD2kw01inXCrgklxuYNintL75CBU+fNe/+
-	 WTETAAUJ7TKtw==
-Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-7c52fa75cd3so3625637a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 08:19:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUA3qGK3DCZuCctPe9WJAmFUe8EPU1AXsGs+vtwJMa33LmhJep0QdIG2nHCs5wRfhEmtcClyiCacQ5aO7GEcvtn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx064LjrTYIxuTiM+snyyptsjfjosx/+dBNGciRKrXE4IzHqYsb
-	kZm3E8ZtU9/vqAyttLXXXPop39oDZVnXe2d2whosyPNuJsbXOMngW0RwRzxPjnfDsXXLAdcbiQ8
-	rUvQfYeH6yLk0agUKH82VHXFQ+ld7lg4=
-X-Google-Smtp-Source: AGHT+IG3361toIoasB3uOKUzNV6dinGA22EHyvpJDIQt6UYgSrpZaDoMHd819oZo8awumREm/GvNri9dakziMUuH1og=
-X-Received: by 2002:a05:6808:d4d:b0:438:39a2:b61c with SMTP id
- 5614622812f47-44f95dfb174mr5549335b6e.2.1762186795085; Mon, 03 Nov 2025
- 08:19:55 -0800 (PST)
+	Mon, 03 Nov 2025 16:19:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1762186790; x=1762791590; i=wahrenst@gmx.net;
+	bh=RxnzT6MDNu6xaMxu3F1Q8cBBjNRBmAKRhhu8JsfkkHI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=NOI08/HjrNKbFD39ht7utILbpPpnRKZh3cW5+XZFmQumZAKBFdTPQWULqqzC6M7d
+	 FnA8DPmLVWRVGQVGaTnLTQSn8EBlIUF3Z0m6z8v/r1jXnaQAhREX6sFextOZbIrUz
+	 tXQqZio3LUYJoKkwDKkngcxNdQGYMxO0hY5gtczjxHwkIifa4ONNu/qcqn1w3TgW3
+	 Paql7tfzxEFeofPiofL1rub6+zkvZMMY0boXCMD/HhKYrlJbOvYwQJQkb/zKK/gxY
+	 WxPOmdLzXre/Csqx1xrLRZh2KFTi3gy9iM8TQvJ035V1SeCL8Dll4N9+o9BHCyT7c
+	 5VyPoffJWz5/OJsnjQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.156] ([91.41.217.223]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1M5fIQ-1vIh6y1z4s-001CVD; Mon, 03
+ Nov 2025 17:19:50 +0100
+Message-ID: <6de1bcfa-a924-4172-81ec-0384d7360014@gmx.net>
+Date: Mon, 3 Nov 2025 17:19:48 +0100
 MIME-Version: 1.0
-References: <20251030071321.2763224-1-hejunhao3@h-partners.com>
-In-Reply-To: <20251030071321.2763224-1-hejunhao3@h-partners.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 3 Nov 2025 17:19:43 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0h=QtcT7zhZEgrTjUk7EAk2OfbGG6BoEEv-3toKODMXQA@mail.gmail.com>
-X-Gm-Features: AWmQ_bk1ceWWT4cSZSU5mE1myDtpg3UPaMnBHWg-zIlq7JFILI41pAtQ3N0MKOQ
-Message-ID: <CAJZ5v0h=QtcT7zhZEgrTjUk7EAk2OfbGG6BoEEv-3toKODMXQA@mail.gmail.com>
-Subject: Re: [PATCH] ACPI: APEI: Handle repeated SEA error interrupts storm scenarios
-To: Junhao He <hejunhao3@h-partners.com>
-Cc: rafael@kernel.org, tony.luck@intel.com, bp@alien8.de, guohanjun@huawei.com, 
-	mchehab@kernel.org, xueshuai@linux.alibaba.com, jarkko@kernel.org, 
-	yazen.ghannam@amd.com, jane.chu@oracle.com, lenb@kernel.org, 
-	Jonathan.Cameron@huawei.com, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-edac@vger.kernel.org, shiju.jose@huawei.com, tanxiaofei@huawei.com, 
-	linuxarm@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: RPi 4 deferred probe timeout of V3D PM domain
+To: Mark Brown <broonie@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Melissa Wen <mwen@igalia.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ kernel-dev@igalia.com, kernel-list@raspberrypi.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "open list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>
+References: <10a4ef77-0e70-4ef2-b1df-535b476d256d@sirena.org.uk>
+ <ecd75fd5-3131-4d10-ae3d-b6f608d9622a@gmx.net>
+ <25e500c2-3dc1-476c-b6c1-ac4098a0501d@sirena.org.uk>
+ <d6b14388-e0ab-44f0-b4d9-78adf74c2a7f@gmx.net>
+ <d88f6420-5013-4856-99d6-da28f79bd7a5@sirena.org.uk>
+ <CGME20251030191426eucas1p29ce063b538b60e4a998bcd32f925267c@eucas1p2.samsung.com>
+ <043f1702-52fc-4a83-82f7-683a26851623@gmx.net>
+ <b02c8890-4568-4afe-8628-10b77e79bf44@samsung.com>
+ <3c171b6b-f8f5-4192-a3a3-da453a900316@sirena.org.uk>
+ <aff4e3de-6dde-475b-9df0-3d7d6ad5d740@samsung.com>
+ <77bbe008-427b-4491-a191-15be5e40e708@sirena.org.uk>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <77bbe008-427b-4491-a191-15be5e40e708@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:GSZCYLeBwwQ1q4+BR102xGRkjcHoh7FKy0bdyzvFEbYzjFUI7Kc
+ MZyz9fRszdnbPcWpHlfWbPmH/nGwvm7+sLrtYx/V5kRCHx+YLheulNbC6GRFuN/mqJWhfzm
+ 8IQMkGqXvlZ+t/3pcILTJj+kFv4keqd0XQK76cMNhy1cgeMsOai2hjeYJfNdIdVgHgJIwVB
+ 9BiifTnz6+xXeze33QKSw==
+UI-OutboundReport: notjunk:1;M01:P0:I6VEA0ye/s4=;aJOD8vNMqM4O8hcNv2lWtWQ0b9j 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 ScC2ET3HPpjUqjliYSSNyE3L20=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251103_081957_832848_797F871C 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,189 +110,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 8:13=E2=80=AFAM Junhao He <hejunhao3@h-partners.com=
-> wrote:
->
-> The do_sea() function defaults to using firmware-first mode, if supported=
-.
-> It invoke acpi/apei/ghes ghes_notify_sea() to report and handling the SEA
-> error, The GHES uses a buffer to cache the most recent 4 kinds of SEA
-> errors. If the same kind SEA error continues to occur, GHES will skip to
-> reporting this SEA error and will not add it to the "ghes_estatus_llist"
-> list until the cache times out after 10 seconds, at which point the SEA
-> error will be reprocessed.
->
-> The GHES invoke ghes_proc_in_irq() to handle the SEA error, which
-> ultimately executes memory_failure() to process the page with hardware
-> memory corruption. If the same SEA error appears multiple times
-> consecutively, it indicates that the previous handling was incomplete or
-> unable to resolve the fault. In such cases, it is more appropriate to
-> return a failure when encountering the same error again, and then proceed
-> to arm64_do_kernel_sea for further processing.
->
-> When hardware memory corruption occurs, a memory error interrupt is
-> triggered. If the kernel accesses this erroneous data, it will trigger
-> the SEA error exception handler. All such handlers will call
-> memory_failure() to handle the faulty page.
->
-> If a memory error interrupt occurs first, followed by an SEA error
-> interrupt, the faulty page is first marked as poisoned by the memory erro=
-r
-> interrupt process, and then the SEA error interrupt handling process will
-> send a SIGBUS signal to the process accessing the poisoned page.
->
-> However, if the SEA interrupt is reported first, the following exceptiona=
-l
-> scenario occurs:
->
-> When a user process directly requests and accesses a page with hardware
-> memory corruption via mmap (such as with devmem), the page containing thi=
-s
-> address may still be in a free buddy state in the kernel. At this point,
-> the page is marked as "poisoned" during the SEA claim memory_failure().
-> However, since the process does not request the page through the kernel's
-> MMU, the kernel cannot send SIGBUS signal to the processes. And the memor=
-y
-> error interrupt handling process not support send SIGBUS signal. As a
-> result, these processes continues to access the faulty page, causing
-> repeated entries into the SEA exception handler. At this time, it lead to
-> an SEA error interrupt storm.
->
-> Fixes this by returning a failure when encountering the same error again.
->
-> The following error logs is explained using the devmem process:
->   NOTICE:  SEA Handle
->   NOTICE:  SpsrEl3 =3D 0x60001000, ELR_EL3 =3D 0xffffc6ab42671400
->   NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
->   NOTICE:  EsrEl3 =3D 0x92000410
->   NOTICE:  PA is valid: 0x1000093c00
->   NOTICE:  Hest Set GenericError Data
->   [ 1419.542401][    C1] {57}[Hardware Error]: Hardware error from APEI G=
-eneric Hardware Error Source: 9
->   [ 1419.551435][    C1] {57}[Hardware Error]: event severity: recoverabl=
-e
->   [ 1419.557865][    C1] {57}[Hardware Error]:  Error 0, type: recoverabl=
-e
->   [ 1419.564295][    C1] {57}[Hardware Error]:   section_type: ARM proces=
-sor error
->   [ 1419.571421][    C1] {57}[Hardware Error]:   MIDR: 0x0000000000000000
->   [ 1419.571434][    C1] {57}[Hardware Error]:   Multiprocessor Affinity =
-Register (MPIDR): 0x0000000081000100
->   [ 1419.586813][    C1] {57}[Hardware Error]:   error affinity level: 0
->   [ 1419.586821][    C1] {57}[Hardware Error]:   running state: 0x1
->   [ 1419.602714][    C1] {57}[Hardware Error]:   Power State Coordination=
- Interface state: 0
->   [ 1419.602724][    C1] {57}[Hardware Error]:   Error info structure 0:
->   [ 1419.614797][    C1] {57}[Hardware Error]:   num errors: 1
->   [ 1419.614804][    C1] {57}[Hardware Error]:    error_type: 0, cache er=
-ror
->   [ 1419.629226][    C1] {57}[Hardware Error]:    error_info: 0x000000002=
-0400014
->   [ 1419.629234][    C1] {57}[Hardware Error]:     cache level: 1
->   [ 1419.642006][    C1] {57}[Hardware Error]:     the error has not been=
- corrected
->   [ 1419.642013][    C1] {57}[Hardware Error]:    physical fault address:=
- 0x0000001000093c00
->   [ 1419.654001][    C1] {57}[Hardware Error]:   Vendor specific error in=
-fo has 48 bytes:
->   [ 1419.654014][    C1] {57}[Hardware Error]:    00000000: 00000000 0000=
-0000 00000000 00000000  ................
->   [ 1419.670685][    C1] {57}[Hardware Error]:    00000010: 00000000 0000=
-0000 00000000 00000000  ................
->   [ 1419.670692][    C1] {57}[Hardware Error]:    00000020: 00000000 0000=
-0000 00000000 00000000  ................
->   [ 1419.783606][T54990] Memory failure: 0x1000093: recovery action for f=
-ree buddy page: Recovered
->   [ 1419.919580][ T9955] EDAC MC0: 1 UE Multi-bit ECC on unknown memory (=
-node:0 card:1 module:71 bank:7 row:0 col:0 page:0x1000093 offset:0xc00 grai=
-n:1 - APEI location: node:0 card:257 module:71 bank:7 row:0 col:0)
->   NOTICE:  SEA Handle
->   NOTICE:  SpsrEl3 =3D 0x60001000, ELR_EL3 =3D 0xffffc6ab42671400
->   NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
->   NOTICE:  EsrEl3 =3D 0x92000410
->   NOTICE:  PA is valid: 0x1000093c00
->   NOTICE:  Hest Set GenericError Data
->   NOTICE:  SEA Handle
->   NOTICE:  SpsrEl3 =3D 0x60001000, ELR_EL3 =3D 0xffffc6ab42671400
->   NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
->   NOTICE:  EsrEl3 =3D 0x92000410
->   NOTICE:  PA is valid: 0x1000093c00
->   NOTICE:  Hest Set GenericError Data
->   ...
->   ...        ---> Hapend SEA error interrupt storm
->   ...
->   NOTICE:  SEA Handle
->   NOTICE:  SpsrEl3 =3D 0x60001000, ELR_EL3 =3D 0xffffc6ab42671400
->   NOTICE:  skt[0x0]die[0x0]cluster[0x0]core[0x1]
->   NOTICE:  EsrEl3 =3D 0x92000410
->   NOTICE:  PA is valid: 0x1000093c00
->   NOTICE:  Hest Set GenericError Data
->   [ 1429.818080][ T9955] Memory failure: 0x1000093: already hardware pois=
-oned
->   [ 1429.825760][    C1] ghes_print_estatus: 1 callbacks suppressed
->   [ 1429.825763][    C1] {59}[Hardware Error]: Hardware error from APEI G=
-eneric Hardware Error Source: 9
->   [ 1429.843731][    C1] {59}[Hardware Error]: event severity: recoverabl=
-e
->   [ 1429.861800][    C1] {59}[Hardware Error]:  Error 0, type: recoverabl=
-e
->   [ 1429.874658][    C1] {59}[Hardware Error]:   section_type: ARM proces=
-sor error
->   [ 1429.887516][    C1] {59}[Hardware Error]:   MIDR: 0x0000000000000000
->   [ 1429.901159][    C1] {59}[Hardware Error]:   Multiprocessor Affinity =
-Register (MPIDR): 0x0000000081000100
->   [ 1429.901166][    C1] {59}[Hardware Error]:   error affinity level: 0
->   [ 1429.914896][    C1] {59}[Hardware Error]:   running state: 0x1
->   [ 1429.914903][    C1] {59}[Hardware Error]:   Power State Coordination=
- Interface state: 0
->   [ 1429.933319][    C1] {59}[Hardware Error]:   Error info structure 0:
->   [ 1429.946261][    C1] {59}[Hardware Error]:   num errors: 1
->   [ 1429.946269][    C1] {59}[Hardware Error]:    error_type: 0, cache er=
-ror
->   [ 1429.970847][    C1] {59}[Hardware Error]:    error_info: 0x000000002=
-0400014
->   [ 1429.970854][    C1] {59}[Hardware Error]:     cache level: 1
->   [ 1429.988406][    C1] {59}[Hardware Error]:     the error has not been=
- corrected
->   [ 1430.013419][    C1] {59}[Hardware Error]:    physical fault address:=
- 0x0000001000093c00
->   [ 1430.013425][    C1] {59}[Hardware Error]:   Vendor specific error in=
-fo has 48 bytes:
->   [ 1430.025424][    C1] {59}[Hardware Error]:    00000000: 00000000 0000=
-0000 00000000 00000000  ................
->   [ 1430.053736][    C1] {59}[Hardware Error]:    00000010: 00000000 0000=
-0000 00000000 00000000  ................
->   [ 1430.066341][    C1] {59}[Hardware Error]:    00000020: 00000000 0000=
-0000 00000000 00000000  ................
->   [ 1430.294255][T54990] Memory failure: 0x1000093: already hardware pois=
-oned
->   [ 1430.305518][T54990] 0x1000093: Sending SIGBUS to devmem:54990 due to=
- hardware memory corruption
->
-> Signed-off-by: Junhao He <hejunhao3@h-partners.com>
-> ---
->  drivers/acpi/apei/ghes.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 005de10d80c3..eebda39bfc30 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-> @@ -1343,8 +1343,10 @@ static int ghes_in_nmi_queue_one_entry(struct ghes=
- *ghes,
->         ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
->
->         /* This error has been reported before, don't process it again. *=
-/
-> -       if (ghes_estatus_cached(estatus))
-> +       if (ghes_estatus_cached(estatus)) {
-> +               rc =3D -ECANCELED;
->                 goto no_work;
-> +       }
->
->         llist_add(&estatus_node->llnode, &ghes_estatus_llist);
->
-> --
+Am 31.10.25 um 15:37 schrieb Mark Brown:
+> On Fri, Oct 31, 2025 at 02:54:15PM +0100, Marek Szyprowski wrote:
+>> On 31.10.2025 13:39, Mark Brown wrote:
+>>> Or the GPU driver should be moved to a module to match the clock.
+>> V3D already is being built as a module in ARM64's defconfig. The proble=
+m
+>> is in CONFIG_BCM2835_POWER driver (defaults to 'y'), which depends on
+>> resources provided by CONFIG_CLK_RASPBERRYPI (defaults to 'm'). IMHO
+>> both of them should be built-in and this will solve this issue.
+> Ah, yes so it is - I agree.
+If no one objects, I would prepare a corresponding patch for=20
+arm64/defconfig.
 
-This needs a response from the APEI reviewers as per MAINTAINERS, thanks!
+Best regards
 
