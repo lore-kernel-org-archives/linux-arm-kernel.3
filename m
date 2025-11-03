@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F408ECCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497D2CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4c4LRRJ8sw5A6vf7y+x/rzyPGD7ZqnrLurNJrM/Rt1U=; b=ZM8buWp2bR0T24f/a2xobAsB9/
-	8V3M6g1DqjTil2+zGnn4abZavRmeBUFR3aRuHjVLyCBe04c/AmUmswiT3huXqy2hG7hO7dISiDfdP
-	dvIQ5Qw2olo+8DU4+iHmS6cSUYqUMzhWfYZkIiXVykMip3pD2WuN4oQQWtESdeR4A8fT+aMbqA6Ve
-	DeGQFOmYIaFaiwtsxR6uozx06QIrN3QBVZfESZxH0E2gbuuOUsyyRihDLNPuPeXoFFrWyGbGbg9RR
-	KCpYJuSN/fi2cT/A78NZGlkEjA89CUFfnOw7+Zqut2b6Lqdevwe0mvKpkAoD39AMfMxPLj2Q03i9D
-	bLLYgBUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j33smVISVrnN0itzkGV4Zm4MAj8OlVMwAec9wNuydK0=; b=uFsGrxQD/9WYWlJ4H/N8Oo0CBa
+	WG7Lo2Bpoea8ro5tk5goMZHhXac/0FbnKqGa7bFsOkjPD+Xn0R4fwicKFF3BavZrMLdQRu15T8PFq
+	eOzEm38ygqiVgYrnyhGlXETzLMaY/fFw9Efe3tbuNGVEuL1sofstfoe2astAXoyI3YP0wwJA9x6mu
+	5qdAUJwF8b7rF9B2GVFkq+pMZ5IvTgiklkQlO3NRf/culrIee7o2Ny0xaY2N6T/8opvbNxv2zmlO1
+	IJFYZv+ND8X/xw04Z/dEDcSdQ/Vc6ujWvbyDHc+vmPCuShqZ80ypCuNsHreepsNn/LYP9zM141QqE
+	fZKp6e5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwuH-0000000ACNY-16OX;
-	Mon, 03 Nov 2025 15:55:45 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwuD-0000000ACMc-0i8T
+	id 1vFwyC-0000000ACdL-0ffn;
+	Mon, 03 Nov 2025 15:59:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFwyA-0000000ACcu-0GDJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 15:55:43 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 8ABF81A182B;
-	Mon,  3 Nov 2025 15:55:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5A68A60628;
-	Mon,  3 Nov 2025 15:55:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FA3310B5013A;
-	Mon,  3 Nov 2025 16:55:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762185335; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=4c4LRRJ8sw5A6vf7y+x/rzyPGD7ZqnrLurNJrM/Rt1U=;
-	b=YiP0Q3MGz6gKrdhEJYtIAzBLLE0V4pCs3lkwuur1gQC4tqTE93BsSj+Bkf4+dvh0NbYtmz
-	IUJSHBgvH5XUn/58C/KgsMPolI+ztn40Eosus6fKiAeEC2MQzFJ9Ql4dCxLg6ThYVZ0eSE
-	4TSuzPoVZZeQT/BHz2ADoIRkklr3QfnittPET7bboaawDrInQQqFr4V3/bSzm6zCa77kS2
-	14dKpih+uvDajz56ookb4xHM/Q9DH+TGBidee0WG7jlqrMfPONznoMI/7Kt8A9aFT7TkWy
-	fBGMPsAMqf3nFRfAfZQLmAsOJcC4OFThkJaD/C4YYUXGbgiSb/cupY0C4LE3cA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 03 Nov 2025 16:55:30 +0100
-Message-Id: <DDZ6KCUVYB55.330X4X5ETRXR3@bootlin.com>
-Cc: "Abel Vesa" <abelvesa@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Fabio Estevam" <festevam@gmail.com>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>,
- "Lucas Stach" <l.stach@pengutronix.de>, "Peng Fan" <peng.fan@nxp.com>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Rob Herring"
- <robh@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v2] drm/bridge: fsl-ldb: Parse register offsets from DT
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-To: "Marek Vasut" <marek.vasut@mailbox.org>,
- <dri-devel@lists.freedesktop.org>, "Laurentiu Palcu"
- <laurentiu.palcu@oss.nxp.com>
-X-Mailer: aerc 0.20.1
-References: <20251102170257.65491-1-marek.vasut@mailbox.org>
-In-Reply-To: <20251102170257.65491-1-marek.vasut@mailbox.org>
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 03 Nov 2025 15:59:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F9C11D14;
+	Mon,  3 Nov 2025 07:59:35 -0800 (PST)
+Received: from arm.com (unknown [10.1.25.188])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDEAA3F694;
+	Mon,  3 Nov 2025 07:59:41 -0800 (PST)
+Date: Mon, 3 Nov 2025 15:59:39 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "David Hildenbrand (Red Hat)" <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Mark Brown <broonie@kernel.org>, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Aishwarya.TCV@arm.com
+Subject: Re: [PATCH] mm/huge_memory: Initialise the tags of the huge zero
+ folio
+Message-ID: <aQjRa-Bh8J8Smgur@arm.com>
+References: <20251031170133.280742-1-catalin.marinas@arm.com>
+ <aQiu-hU3x5V5drHF@finisterre.sirena.org.uk>
+ <aQi8dA_QpXM8XqrE@arm.com>
+ <79a1f2dd-6752-426c-84c1-a38d300eb78c@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <79a1f2dd-6752-426c-84c1-a38d300eb78c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_075541_698264_1013B0B0 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20251103_075946_139492_9CE2C291 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +68,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marek,
+On Mon, Nov 03, 2025 at 03:41:03PM +0100, David Hildenbrand (Red Hat) wrote:
+> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > index d816ff44faff..125dfa6c613b 100644
+> > --- a/arch/arm64/mm/fault.c
+> > +++ b/arch/arm64/mm/fault.c
+> > @@ -969,6 +969,16 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+> >   void tag_clear_highpage(struct page *page)
+> >   {
+> > +	/*
+> > +	 * Check if MTE is supported and fall back to clear_highpage().
+> > +	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
+> > +	 * post_alloc_hook() will invoke tag_clear_highpage().
+> > +	 */
+> > +	if (!system_supports_mte()) {
+> > +		clear_highpage(page);
+> > +		return;
+> > +	}
+> 
+> LGTM!
 
-+Laurentiu Palcu
+I tested it with and without MTE and it works fine.
 
-On Sun Nov 2, 2025 at 6:02 PM CET, Marek Vasut wrote:
-> The DT binding for this bridge describe register offsets for the LDB,
-> parse the register offsets from DT instead of hard-coding them in the
-> driver. No functional change.
->
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+Andrew, would you like a separate patch or are you ok with folding this
+into the previous patch?
 
-I was initially a bit skeptical because normally register offsets are
-derived from the compatible string, not from device tree. But then I
-realized this is about the LDB which has its two registers in the
-MEDIA_BLK. This means all in all this looks somewhat like an integration
-aspect (the LDB component uses two resources of the MEDIA_CLK component)
-and your patch mekse sense.
+Thanks.
 
-So my only remark is that the above may be in the commit message, to make
-the "why" clear from the beginning. It took a bit of research for me to
-find out.
-
-Laurentiu's patch adding i.MX94 support will conflict with this
-one. Whichever gets applied after the other will have to be adapted
-accordingly.
-
-[0] https://lore.kernel.org/dri-devel/20251103-dcif-upstreaming-v6-3-76fcec=
-fda919@oss.nxp.com/
-
-> @@ -309,6 +302,27 @@ static int fsl_ldb_probe(struct platform_device *pde=
-v)
->  	fsl_ldb->dev =3D &pdev->dev;
->  	fsl_ldb->bridge.of_node =3D dev->of_node;
->
-> +	/* No "reg-names" property likely means single-register LDB */
-
-Uh? If it is "likely" it means we are not sure this code is not introducing
-regressions, and that would be bad.
-
-> +	idx =3D of_property_match_string(dev->of_node, "reg-names", "ldb");
-> +	if (idx < 0) {
-> +		fsl_ldb->single_ctrl_reg =3D true;
-> +		idx =3D 0;
-> +	}
-
-From the bindings I understand that having two 'reg' values and no
-'reg-names' at all is legal. Your patch implies differently. Who's right
-here?
-
-> +	ret =3D of_property_read_reg(dev->of_node, idx, &fsl_ldb->ldb_ctrl, NUL=
-L);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!fsl_ldb->single_ctrl_reg) {
-> +		idx =3D of_property_match_string(dev->of_node, "reg-names", "lvds");
-> +		if (idx < 0)
-> +			return idx;
-> +
-> +		ret =3D of_property_read_reg(dev->of_node, idx, &fsl_ldb->lvds_ctrl, N=
-ULL);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-
-Best regards,
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+Catalin
 
