@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF48ACCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FC4CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AzAszSWDtU82Su6aXsdxcziggr3awsEuHFtnEj7fvT4=; b=bKSA0FVpDaoTT53BC0VijPn4v3
-	70L5ChJhy4DwJCXQSScMvUNxooNy7u5w34Rvl81TPfK3EdqkRMUpdrGo8zLHM+HJkaSEX3MSHFiL+
-	gf8h4WCoEeepoBi1GEg2BKUsugh4JtXNYl8wnF5ov/iG27oylW71MzzBBrZz5GeF7cOc2czqnvq/A
-	TarWc/EPcMzu6rY0a4z4SlG9dm48z/fL3tPjfn6ZQDRfGG4L7FFb4+Y0Su4xtAc5PDbgFzBJEFfxC
-	ePJfc5VZTZJk46lYEQZPuzGLwAxvgzaWIWMmVrD8IvH7gyPv9lTiWy3RbLYFzJZQbcHO/6Q1W7CjI
-	XHqy9fmA==;
+	bh=JOHbJG2tgx5CorchXbXQ7IRse1V4YLVmAAM9cO2POrM=; b=TudNee19tp0nLNYocLyY24LwJw
+	+3e1lfk16L5Oa6ybv1dmpeVJXQdLVZNWZeMWRraxia6Tb8N2Uqv4vnddyTZ3+n/z5W/Vt5YmXxpVp
+	JT0nJv1drd3kQQMiHBUQwKYnL3u8RmlXPy2xpPiUOG1vJyAsC0fnEtkB++NmCqGj9LqtYWY6Rla5f
+	MKJr7aCGg//xSr6a6/hnPfrCaJ0GTbFWA59rC74G1SVP3qpcZc+fdSOXILDzdc1oN5I9jD0DWraRu
+	FSaD4gsX7s3lm9J0bAAvCX3FBl/FtJTC3ujb+npq4phGMwD0AhXQrzNSx4RulxIVT95BvGgWJVS/a
+	9LMbybhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFv6Z-00000009yh6-42sE;
-	Mon, 03 Nov 2025 14:00:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vFv7v-00000009ysn-1Zk9;
+	Mon, 03 Nov 2025 14:01:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFv6Z-00000009ygl-0IwB
+	id 1vFv7u-00000009ysb-24No
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:00:19 +0000
+	Mon, 03 Nov 2025 14:01:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 384276013E;
-	Mon,  3 Nov 2025 14:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EF79C4CEE7;
-	Mon,  3 Nov 2025 14:00:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AD71C6013E;
+	Mon,  3 Nov 2025 14:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E97DC4CEFD;
+	Mon,  3 Nov 2025 14:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762178416;
-	bh=08PC3/AvFg4BABny9/8my4vAacX9aJRn5UW8imC12P4=;
+	s=k20201202; t=1762178501;
+	bh=xaAtZU7nwAu69RoNLb+EjyPaW4L4d/6Kjisfp81Xn44=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sUw80VCpomPZrm81732UjVojj5Qvf3UxuVADgq1JY2zGk2KPxO4eQGAjSigELTMDi
-	 H1s7fZiywF7FXUP/yldLUH6X7YGVxy46h8HfBHiuCqG0dayMJ+XLLkW6MLgqsrSaNC
-	 3AnGk1eX+Z0wdrYNTWJUBIAASenX3gNm/KyqiI49n8ayxRy1v0OFR7cnqKyp2+ILUV
-	 +RTd11iKudbDIzDZIMRUy57Z8Z+2lbSVw1om5A7ifi8HTP89ipZvJOFXSceNweH4NQ
-	 yxbTi5ErQnmxPsIDKjiFJVR2cpmlyfWNOYcBs+1WndiNmD6Q++pIy2JYEmFYSQkGct
-	 au4jlnQVSWbzg==
-Message-ID: <79d45a6d-df37-475a-9edd-57e7a06155e3@kernel.org>
-Date: Mon, 3 Nov 2025 15:00:11 +0100
+	b=ERn0Mk5EoGFT4DzA6BqtU3ueaazGF0Y1a3nsJ/npeCtq7NQ1BCwYCyfYUDRKw6k0c
+	 uNQCfBKcm4SdjwJ6xUzNt8d3Vgk7qaPJodhpBaUzRcOVQKXIDiKr3Sbv0J2VB5ORHB
+	 zuzqg4Exx5i9gNTHEy8bqiOL7ZS2rtWgex8kElv9pFyIo1lY0AnLIVFpFGp6njO824
+	 B3U917cG8HH0sv1oTmLTptNK2HLe2ihAXzqNzJw9WUc+uuPdo35ns/IxyQhGYHdLX9
+	 0MCvYlvicbEtmlGPK+SoCYTOijNMD6xpr4nzHlcsv0bNS5UuCUR987rL8F4TkZLetQ
+	 yjsZx8dh1N5Ow==
+Message-ID: <503ac2d6-2636-4e32-85d1-490f0fa5b5f9@kernel.org>
+Date: Mon, 3 Nov 2025 15:01:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/13] platform/raspberrypi: Add new vc-sm-cma driver
+Subject: Re: [PATCH 13/13] platform/raspberrypi: vchiq: Register vc-sm-cma as
+ a platform driver
 To: Jai Luthra <jai.luthra@ideasonboard.com>,
  Florian Fainelli <florian.fainelli@broadcom.com>,
  Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
  bcm-kernel-feedback-list@broadcom.com
-Cc: Phil Elwell <phil@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Phil Elwell <phil@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
  Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
  Kieran Bingham <kieran.bingham@ideasonboard.com>,
  Sumit Semwal <sumit.semwal@linaro.org>,
  =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Dom Cobley <popcornmix@gmail.com>,
- Alexander Winkowski <dereference23@outlook.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Juerg Haefliger <juerg.haefliger@canonical.com>
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com>
- <20251031-b4-vc-sm-cma-v1-9-0dd5c0ec3f5c@ideasonboard.com>
- <cc7edba3-af91-44ef-9899-18c21a3f33bd@kernel.org>
- <176217777617.8690.2075618272816893198@freya>
+ <20251031-b4-vc-sm-cma-v1-13-0dd5c0ec3f5c@ideasonboard.com>
+ <d0517fad-9253-4c39-a063-a2c09e74237f@kernel.org>
+ <176217826196.8690.15955501577381404885@freya>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,7 +108,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <176217777617.8690.2075618272816893198@freya>
+In-Reply-To: <176217826196.8690.15955501577381404885@freya>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,71 +125,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 14:49, Jai Luthra wrote:
-> Hi Krzysztof,
-> 
-> 
-> Thanks for the review.
-> 
-> Quoting Krzysztof Kozlowski (2025-11-02 15:00:58)
+On 03/11/2025 14:57, Jai Luthra wrote:
+> Quoting Krzysztof Kozlowski (2025-11-02 15:03:55)
 >> On 31/10/2025 18:27, Jai Luthra wrote:
 >>> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
 >>>
->>> Add Broadcom VideoCore Shared Memory support.
+>>> Register the vc-sm-cma driver as a platform driver under vchiq.
+>>>
+>>> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+>>> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+>>> ---
+>>>  drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 3 +++
+>>>  1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+>>> index 6a7b96d3dae6275a483ef15dc619c5510454765e..09d33bec46ec45175378fff8dd1084d0a8a12dd6 100644
+>>> --- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+>>> +++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+>>> @@ -63,6 +63,7 @@
+>>>   * the interface.
+>>>   */
+>>>  static struct vchiq_device *bcm2835_audio;
+>>> +static struct vchiq_device *vcsm_cma;
 >>
->> You will have to come with really, really good argument why CMA is not
->> working for you. This is how you write commit msgs. All further is not
->> really helpful.
->>
+>> Please don't write singletons. How do you handle probe of two devices?
 > 
-> From my limited understanding, this driver allows sharing buffers between
-> the kernel and the firmware that controls the ISP and codec on the remote
-> VideoCore VPU.
+> This driver instantiates all the devices under the vchiq bus during its
+> probe.
 > 
-> Maybe Dave can comment better on the historical reasons of this approach
-> versus other DMA buffer sharing mechanisms available in the kernel, and if
-> it is feasible/possible to make that change today.
-
-You are upstreaming this so you have to come with rationale and detailed
-analysis why existing infrastructure cannot work here.
-
-Of course maybe it's just commit description which needs improvement.
-
-But anyway, please do not send downstream Rpi drivers to us just because
-downstream has them. That's never a good enough reason. And that is the
-only impression you are making here.
+> The VCHIQ firmware doesn't support device enumeration, hence we have to
+> list out the supported devices here.
 
 
-...
+You did not answer the problem. So if you respond like this, then: fine,
+instantiate as you wish but since it is in the probe, you still do not
+need singleton.
 
->>> +
->>> +module_vchiq_driver(bcm2835_vcsm_cma_driver);
->>> +
->>> +MODULE_AUTHOR("Dave Stevenson");
->>> +MODULE_DESCRIPTION("VideoCore CMA Shared Memory Driver");
->>> +MODULE_LICENSE("GPL");
->>> +MODULE_ALIAS("vcsm-cma");
->>
->> Why don't you have proper ID table? How this driver is supposed to be
->> instantiated?
->>
-> 
-> Sorry, I was unaware of this discussion:
-> https://lore.kernel.org/linux-media/2023100955-stunt-equate-c6fa@gregkh/
-> 
-> I will switch to using an ID table.
-> 
-> This and other drivers for audio, isp, codec are all instantiated as
-> platform drivers under the VCHIQ bus (PATCH 13/13).
-
-
-If you have a bus, not some sort of MFD device, then you should use bus
-way of binding, which means in almost all cases providing an ID table,
-which will generate proper aliases.
-
-MODULE_ALIAS is basically only for the few cases where platform driver
-registers another platform device or for MFD (and even then only for few
-MFD cases).
+NAK for the singleton pattern.
 
 Best regards,
 Krzysztof
