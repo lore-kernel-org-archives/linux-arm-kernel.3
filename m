@@ -4,64 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A53CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E9ACCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0uKGOUFxfm1HzVMYmImdbb1ivQXFLwB51pAfmHueMSY=; b=vLy6MzndirzmETfoPIGKUd7kzc
-	mVzWK74CRgpMoefgYddhzfEgHhKHmgu5w3cfmJ+PpCO+Q8YPgKAzHdPqtw8IUvHXz0drkHsjtoU52
-	s51wLTcjn6UNfcXn9QjAqCWZWESS/LemlW32Ghj7fXPmKmCknOUifUQF4UqAKAfW2L9+ru+SqF9yO
-	S6Eznzf/U5KMdUaFKscnyA12N6VCFy8TOKnd7UdB5v3CzJgyzjKaTXxcMDbQpj7bODEhPy8/m1HOQ
-	rinzeA3lz05DGaarXfxXmUpVg6PRkkoGSynJ90ug89AicV04kCO4A/wJ2QHuwY4TUm/85vIc17RwN
-	r766jFIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y2HjS41PJQbFoV0LqxXtT+0M30byhgXU2NRk6PIlO2M=; b=YoFGVFVB743LT9RygGTcHy8akN
+	FA5ykBbHAgUjdirFC+zmhxG8VLdzgaShtsOAOZmroQOpi5n7rSf5v6ZzQGQo8sPkXr/csid6bu9Ww
+	V57ITrufp/TDqLS4LtouIUq7Nm6bSSr85h7R/uAcgHr5arFyZMEK4q9J0rVfBRD5pvwE25LBsu2YQ
+	qK4080XBCkWFxvcSNz6JlM3UEPtFiiVfRmZ6TNqdKTu6ZL1TI5M0fyyO5XgeM1C3lai9GoX+mt94S
+	5f/TnR1zEsvg+/VjHaC6aBOb6cYFW+Bx4t1rzyD6ig7GEYQUQe9TMqKQ67zzgYTCSEvOmuAmllV3O
+	3PpEOnbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwdG-0000000ABCW-24H7;
-	Mon, 03 Nov 2025 15:38:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFwkd-0000000ABl5-2Zil;
+	Mon, 03 Nov 2025 15:45:47 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwdE-0000000ABBr-0xkQ
+	id 1vFwka-0000000ABk5-0Uq9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 15:38:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D986B439C2;
-	Mon,  3 Nov 2025 15:38:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4ACC113D0;
-	Mon,  3 Nov 2025 15:38:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762184287;
-	bh=1CDUYOsWVIa1CRQEq15QH6kbgshp4nDJDCB9TrYkUp4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cX2+0VA/Ows4CvgbN3MImYhWPsU6aHq8caEHnyvEwOsbBnTELIxzQL1SE5Bn+wQDg
-	 tuBnhESqJVix3PzSlErs9y+UMJNReBhf7Vre6V78TB+oAQg2+vZ/rNiA6DLoVNqYVG
-	 H8d+MdnI+UMf4qPYo+sZvPS3V/dakDCr+L0I/kAS8wEy9EbqYgEHcHTxQjMa78nmId
-	 Tf3ZcR8OQp0wnm7RApDjW2I/rZvlqg9uBpBJ5i70/itshlrD5xQQcg2dM5b9O6V/T8
-	 hLhGjaHDg0wRidX1sk1A7D64kJkV9EE5wAkXfOZ8Sl1AMOIsPyVH+lhPXv+tETT6fD
-	 J2e3E1KaibQ5g==
-Message-ID: <e5fee14a-4569-49c8-9f42-844839e51e85@kernel.org>
-Date: Mon, 3 Nov 2025 16:38:02 +0100
+	Mon, 03 Nov 2025 15:45:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dEY0CJXOFazDV5KUa/Ap6eK38xo9+SMlzXKSA8pkJXcN4VnrYm5qhPgpsaMGS3Jn5BXUW6a1d180XastSUralURSV/hPccydOIG4KeZK8UyYu5Q0WwmU2qZWahbUVqbppYucwPHBJ6WmAurpGw3s8/YbU2WyhwhpTyzVx6WrzAgLDFsJXi2P9fBBV28Jk+eyvM4u9uNSZZ3+xUtoHk94opJyWO6+W0cu1RzZJuk/clBMLcuPiAbuT2V1etLOgX26Wkoks8NoQcWOhvk4KfJq3l+Gp0LComeO0/K27EBySDvZd5t0Sq3TK4sCNQD9SPlHmQ+w689ZCA0bLwvTukv3nw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=y2HjS41PJQbFoV0LqxXtT+0M30byhgXU2NRk6PIlO2M=;
+ b=AID5hgM74L5+QZmo3B5OQwwrRAtdDJT/dg0XJPdSr6gQRm9B8gL5XPNHamYbfsWZwlTby858dGtHejVQlelw9PbE1B/pqvwG76g3zJlPViKs3nYkWEQZeEFyBu9uR0tN4La9LeiODCXPvJfot/eLy0H/frsVJcMN4xJ+pWIP1vJHjWcs21Z5E2VhcOvyUD7RkWnOZnMIv6XO/S4J26he76tKMe0a9xRLrqAJzOJs1ukNIjf/mKUCogTDyztm4lNupSrJ8yv52kHVSPde3/P/xZVTepp4H2TgcVDODcp5eDkwpUNDkfniqaLBuVSW9bIp0olEljqsc4KrKLO0iN5Ixg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=y2HjS41PJQbFoV0LqxXtT+0M30byhgXU2NRk6PIlO2M=;
+ b=FJVI24MD9lZVW/AX2qE1dMXOUc8Ct+aARnmKbo1qf26yhKKx/dWAog4THgu+A3avlFsOM7t49AQ2fR2k8GKTq78HvLBi5wvxGG88aLMqtbs2plcjL5TadWvFmjxsULrP5LZL1p8Lfu4Cy9Qx1FcPR69yd/c7NNS26ggeHRAabcZ+h4ci2DftjHj/gCTXrgRZLCEDpArIGuFPYNmjwBOmV4Y8mxJ9rCl6dYHWXeZELpFshtOf8xwIIlIDRfexwT2ebT3O+SgNY+BZW4FP/YyksXRQOtwyCAcb718ZmZluz/5DsUvxyrXeYqhM3LT3VGlebc76uECrhThS2IXJUUegrQ==
+Received: from DS7PR05CA0010.namprd05.prod.outlook.com (2603:10b6:5:3b9::15)
+ by DS0PR12MB7704.namprd12.prod.outlook.com (2603:10b6:8:138::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
+ 2025 15:45:38 +0000
+Received: from DS1PEPF00017094.namprd03.prod.outlook.com
+ (2603:10b6:5:3b9:cafe::c5) by DS7PR05CA0010.outlook.office365.com
+ (2603:10b6:5:3b9::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.7 via Frontend Transport; Mon, 3
+ Nov 2025 15:45:38 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ DS1PEPF00017094.mail.protection.outlook.com (10.167.17.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Mon, 3 Nov 2025 15:45:38 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 3 Nov
+ 2025 07:45:24 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Mon, 3 Nov 2025 07:45:23 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 3 Nov 2025 07:45:23 -0800
+Date: Mon, 3 Nov 2025 07:45:21 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>
+Subject: Re: [PATCH] iommu/arm-smmu-v3-iommufd: Allow attaching nested domain
+ for GBPA cases
+Message-ID: <aQjOEQOPP2p1KsIX@Asurada-Nvidia>
+References: <20251024040551.1711281-1-nicolinc@nvidia.com>
+ <aQi8TivdgmtAyb7v@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping()
- when in atomic context
-To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
- will@kernel.org, yang@os.amperecomputing.com, ardb@kernel.org,
- dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Guenter Roeck <groeck@google.com>
-References: <20251103125738.3073566-1-ryan.roberts@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20251103125738.3073566-1-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aQi8TivdgmtAyb7v@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017094:EE_|DS0PR12MB7704:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7fe64727-4d83-46e6-fc1f-08de1af0098a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GYq5KTL9+YSsMXB2tb01sKgmuDOjcYM2PBWjl5Xzg58wGJIkhondlryAi3Qy?=
+ =?us-ascii?Q?fyyu10VxPw85WE2V9yjnWYasCX3pR5fXA/Ph1T459UVpbXssnMgRW3gupPUt?=
+ =?us-ascii?Q?wqcb8z0kFRqoN4DZhrsYsFcBBlh6QQJtqOXsDVC7XcTpbV591F8bYh3+z4np?=
+ =?us-ascii?Q?90lWvqmd4SvkHgYA1uikgH4fYI9m7jph/+FbtsV0/TdIRlmU5SMPbE9ukIDq?=
+ =?us-ascii?Q?USAOGQO63irYQYM2RiXEBDZlh2QhS6gWkZiM7i3xIAmnpr+56ZYrvEAhN8oR?=
+ =?us-ascii?Q?8XFYD+IfmDjk2OjL/n4UF/Gt4t69BI1Pm6bzws7YD6s2YAn77KwzdtxXLkGQ?=
+ =?us-ascii?Q?uuzVsqh95Aqq6sM3ME2lYp30LhnoPF6NFAJPP+oEzUwgnWnHaQ7wlhgYXB5x?=
+ =?us-ascii?Q?vVdc1BO/iFVcXtsmtCMEsUIATCYlQlrOC9GjpWFhhPqag5VXjjKPqfduSz5p?=
+ =?us-ascii?Q?/fFJz6W8WABReXUyN7AfsVQh7BIa7WVbhtTPStD62RqZ5nvLvIHhRAbPfVwA?=
+ =?us-ascii?Q?ijR8xPWZBq5GaiNkzvuHzENrc0JlQZjgNDP9jbdv67aVz+wIbSDzxhygJ/wy?=
+ =?us-ascii?Q?nNXy9mZP6n9YTgpgkynnWGsktDSkbynTWfKxpiigL9Z0/ZglwDX1LznNFZjO?=
+ =?us-ascii?Q?U/epwwpziDbpaLmpjCmpg6r4UE+NawxFPsBmfUQ//rbxHKUviguv6OiTmgSx?=
+ =?us-ascii?Q?z3iXL+gQSJjvNMjNx0defp5A+mSt1hB6NDGgq3RTxAgeX5V8j8680dkJPwGe?=
+ =?us-ascii?Q?AfMJq8jd2kEi0eesmz+pGSHD6fciemXJSYkHhubytOAaz8IE0VGEhzA8dEmq?=
+ =?us-ascii?Q?bc9YoqtogIuYc+aZpIm93qF1+AGFRf3imojf+GJ94wdem4krOxsxHAKBuTuL?=
+ =?us-ascii?Q?/X+QSaOAjJpzVfub23tNCV6rc4MOpVA/WzdeSNfIgy5L7r5E7FQ/kK1BLHh6?=
+ =?us-ascii?Q?vp/zHq/oGIUAtSR57Ptt7PVcwO92vLGOEgS98gafcLXrR8ZiFdZwO15qPTgT?=
+ =?us-ascii?Q?lfGo204surKwPRNFTKYjXfBKmTACqkDawkWQwDgANc0+dyhtaCbKl3tyTIKr?=
+ =?us-ascii?Q?6pP+TM/Uj98QIHfLppSzE42xT6bhaf+QgZfvL7g4hHLPVYtSQs4mT22PKx9e?=
+ =?us-ascii?Q?JkhsJ1lM0hKINYvX20fc4M0d30eVNtEufTzZlp/HcDxchQqaDNjFLi0Wu8ev?=
+ =?us-ascii?Q?cu94Ld6pm7ZgZ0GdYVx7vSrMQa5fD8TnJ84sDuHykXQZF9fwj6Ga5MZFL/Tp?=
+ =?us-ascii?Q?cEE4C/76xC2LXJAMFERZncTSf7Sp2T7BndBqZMJrUHzkHQcDwZzCHwyqteq8?=
+ =?us-ascii?Q?EHlKVJmX3S+T4DVWF2Bg+Uik4ak8sHvU5KE5lxjnPNcr4LdchO5eBk725ROl?=
+ =?us-ascii?Q?+/wjUGcIPSoGojICDqHzCajRRzAYphfmZ7upf84ug4n83CTHloLwe8lpM7u8?=
+ =?us-ascii?Q?+LmsjcZM5HTLRxPC760QCZ8y1ZPQaZh4/jujlp/C8s0+He2ZkD8QbtvDBtlj?=
+ =?us-ascii?Q?D3JZxR7XrgjtFbP50B1llfAcjo1H4WZLjB3JnAVI3/cl45/A1IdscKf8KCOp?=
+ =?us-ascii?Q?LWo//YJn7d2muR1mOS0=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 15:45:38.6404
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7fe64727-4d83-46e6-fc1f-08de1af0098a
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017094.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7704
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_073808_294922_3376BA29 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20251103_074544_162999_A33D81CC 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,63 +154,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
->   }
+On Mon, Nov 03, 2025 at 02:29:34PM +0000, Pranjal Shrivastava wrote:
+> On Thu, Oct 23, 2025 at 09:05:51PM -0700, Nicolin Chen wrote:
+> >  int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
+> >  				    struct arm_smmu_nested_domain *nested_domain)
+> >  {
+> > +	unsigned int cfg =
+> > +		FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0]));
+> >  	struct arm_smmu_vmaster *vmaster;
+> > -	unsigned long vsid;
+> > +	unsigned long vsid = 0;
 > 
-> +static inline bool force_pte_mapping(void)
-> +{
-> +	bool bbml2 = system_capabilities_finalized() ?
-> +		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+> I'm a little confused here, can we not have a vDEVICE allocated with
+> vSID = 0 ?
 
-You are only moving this function. Still, there is some room for improvement I want to point out :)
+Ah, good catch..
 
-bbml2 could be a const (or a helper function like bbml2_supported).
+> Perhaps a separate bool has_vdevice flag in struct arm_smmu_vmaster
+> would be clearer and avoid this ambiguity, allowing vsid = 0 to be a
+> valid ID for an allocated vdevice when user-space explicitly requests it?
 
-> +
-> +	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
-> +			   is_realm_world())) ||
-> +		debug_pagealloc_enabled();
+Yes. I will send a v2.
 
-
-I suspect this could be made a bit easier to read.
-
-	if (debug_pagealloc_enabled())
-		return true;
-	if (bbml2)
-		return false;
-	return rodata_full || arm64_kfence_can_set_direct_map() || is_realm_world();
-
-
-> +}
-> +
->   static DEFINE_MUTEX(pgtable_split_lock);
-> 
->   int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
-> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->   	if (!system_supports_bbml2_noabort())
->   		return 0;
-> 
-> +	/*
-> +	 * If the region is within a pte-mapped area, there is no need to try to
-> +	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
-> +	 * change permissions from softirq context so for those cases (which are
-> +	 * always pte-mapped), we must not go any further because taking the
-> +	 * mutex below may sleep.
-> +	 */
-> +	if (force_pte_mapping() || is_kfence_address((void *)start))
-> +		return 0;
-> +
-
-We're effectively performing two system_supports_bbml2_noabort() checks, similarly in
-arch_kfence_init_pool().
-
-I wonder if there is a clean way to avoid that.
-
-I'm not super up-to-date on that code. Nothing else jumped at me.
-
--- 
-Cheers
-
-David
-
+Thanks
+Nicolin
 
