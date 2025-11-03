@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34949CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF4BCCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRwPUktMFGp/Comr5LxB75bQkPyJT9fVhB6SL5uplVg=; b=4ElZQoawbzypZVovMs31kU66cH
-	2yW0PME2arNEDJiMthwg+NGqA8HRoGBN9j2c1P0TK8yjcs3+Kd3HYSC3sSq3EI0MXILX4wQugchLr
-	GRtV8pM62m0qV4H6EKDEFTO+5NSiF/W+DZhYqXqh2aVCnUpMEisVdfD5ewHgDMQ+VGrSmrIc9Ori/
-	A5RFD7971r1NenwLD8p6yUstb9Tpuu3ayEkGJVus+9qMKm6dlFcTcaPZXFbE3u2aT+Oh5FtXkkoUq
-	pnpxDtWjBKBKa1e/Lj+oAYXPqEBcrGphJrJYbLVEinkU4SRR8VY8p2YLZiDOWwJrOB9/+l+o4Wv04
-	zl3X59jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EK4Lf4oijCtUZFtlZV654o9J48yPjUYbcF3QEjX+jjA=; b=LIX3xkfMi+wHE8d79AxaNAYbKb
+	7KT8oaf4QojmvB5vu4P1py3jYtsWSDpUsEdPM3gf0XCw9h75SXwKzR9DTo1uyJHXhUTYb1J1q6peW
+	g/hArB5KCVP1kw8fIduStNGaJaF8IIfDbkqvGp9nAzy3DI9316SOJItK7I7GYBBIK+ry//xFA3Vp+
+	C5j0K+e799tNigfRR1HX6AyEBTM5mtmvA1Ov6GvPO1l5KN8m83nXRDzoQBCzgKA2yUH2VESuHdpHf
+	r0GrcbMQ6TjMqUeMJBL4zl6hQShGyjBVe5Ll0wxaO9/wR432f238Dr/OFGJCDp6GUcXPeNmudbrDD
+	s7yZsC1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvar-0000000A1aP-05RK;
-	Mon, 03 Nov 2025 14:31:37 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	id 1vFvci-0000000A1lr-1tZc;
+	Mon, 03 Nov 2025 14:33:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvan-0000000A1Kg-2bQ8
+	id 1vFvch-0000000A1lU-0CzH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:31:35 +0000
-Message-ID: <04d22523-34ed-45f1-ba59-ab8170d749e7@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1762180233;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SRwPUktMFGp/Comr5LxB75bQkPyJT9fVhB6SL5uplVg=;
-	b=CcqTrDvFulflmHynUwnickQYQCFq4t8CE4PwdAmPujfMOwui7gI8S2olXAhbWue7OCcveD
-	ecbLLXCpe/vGRm6BfXccmU2m7mbp21wGicq/nrW74fVNhbOJDYffL4x8u7J9wtKkckNNTB
-	xjRFzL41d1EnE96DYP/ewai31vzD5Ag=
-Date: Mon, 3 Nov 2025 14:30:26 +0000
+	Mon, 03 Nov 2025 14:33:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6FF974019F;
+	Mon,  3 Nov 2025 14:33:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05AD8C4CEE7;
+	Mon,  3 Nov 2025 14:33:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762180410;
+	bh=ADIEP2R4Ye3a32o5urTgbZq2x2MIrVSu4eY4ppawa+E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pu0EgPfzvjxNzAIsMUXSORw/6lYc9GfU4GaBq2sILlsDpGtjsrmRc+YdwDv3m6ake
+	 JHxJ2Yay279m0qKorZ3WYC67v1gF4ln6k4IMb6+HwrSwsVQeFUbzJzigRn5MHI9OeY
+	 qjVx5buHc9KVTKW/R1cvEsti/x+qNEUhwlk0a9XjuQEbOoV9QnImX50GUpNci/qCxz
+	 vql1rTt+ETn/+hUSJH3lr6oIYzPVgxk82JOo7j5i+UALRm5az5Ofga8DTAx6ACk3f9
+	 rlAw2wYpEkHIcl89YFRv2J0vO2tS295cEnBqrcyv1DbPNunAfRoPNJeAmmKBbkbkzT
+	 q/NtfE39BpBVA==
+Date: Mon, 3 Nov 2025 14:33:22 +0000
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v9 1/5] perf: Add perf_event_attr::config4
+Message-ID: <aQi9MstZTsloKmeo@willie-the-truck>
+References: <20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org>
+ <20251029-james-perf-feat_spe_eft-v9-1-d22536b9cf94@linaro.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next 6/7] net: pch_gbe: convert to use ndo_hwtstamp
- callbacks
-To: Jakub Kicinski <kuba@kernel.org>,
- Kory Maincent <kory.maincent@bootlin.com>
-Cc: Sudarsana Kalluru <skalluru@marvell.com>,
- Manish Chopra <manishc@marvell.com>,
- Marco Crivellari <marco.crivellari@suse.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Sunil Goutham <sgoutham@marvell.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
- Jacob Keller <jacob.e.keller@intel.com>,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-References: <20251031004607.1983544-1-vadim.fedorenko@linux.dev>
- <20251031004607.1983544-7-vadim.fedorenko@linux.dev>
- <20251031183525.5b8b8110@kmaincent-XPS-13-7390>
- <20251031113840.067ef711@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20251031113840.067ef711@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029-james-perf-feat_spe_eft-v9-1-d22536b9cf94@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_063134_155557_47559EC9 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20251103_063331_128606_154135B4 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +88,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/10/2025 18:38, Jakub Kicinski wrote:
-> On Fri, 31 Oct 2025 18:35:25 +0100 Kory Maincent wrote:
->>>   	case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
->>> -		adapter->hwts_rx_en = 0;
->>> +		adapter->hwts_rx_en = cfg->rx_filter;
->>
->> It seems there is a functional change here.
->>
->>> 		pch_ch_control_write(pdev, SLAVE_MODE | CAP_MODE0);
+On Wed, Oct 29, 2025 at 03:46:01PM +0000, James Clark wrote:
+> Arm FEAT_SPE_FDS adds the ability to filter on the data source of a
+> packet using another 64-bits of event filtering control. As the existing
+> perf_event_attr::configN fields are all used up for SPE PMU, an
+> additional field is needed. Add a new 'config4' field.
 > 
-> Good catch. Looks like SLAVE | MODE0 translates to 0 | 0
-> so presumably the device doesn't actually support timestamping
-> of V1 L4 SYNC messages? Unclear what to do about this.
-> Maybe let's leave it be? keep the hwts_rx_en = 0; ?
-> Not strictly correct but at least we won't break anything.
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Reviewed-by: Ian Rogers <irogers@google.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  include/uapi/linux/perf_event.h | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+> index 78a362b80027..0d0ed85ad8cb 100644
+> --- a/include/uapi/linux/perf_event.h
+> +++ b/include/uapi/linux/perf_event.h
+> @@ -382,6 +382,7 @@ enum perf_event_read_format {
+>  #define PERF_ATTR_SIZE_VER6			120	/* Add: aux_sample_size */
+>  #define PERF_ATTR_SIZE_VER7			128	/* Add: sig_data */
+>  #define PERF_ATTR_SIZE_VER8			136	/* Add: config3 */
+> +#define PERF_ATTR_SIZE_VER9			144	/* add: config4 */
+>  
+>  /*
+>   * 'struct perf_event_attr' contains various attributes that define
+> @@ -543,6 +544,7 @@ struct perf_event_attr {
+>  	__u64	sig_data;
+>  
+>  	__u64	config3; /* extension of config2 */
+> +	__u64	config4; /* extension of config3 */
 
-Ok, it looked like typo as the function actually does the register
-manipulation while it's not doing anything for disabling RX timestamping
-which probably means it's enabled by default.
-But as the code was added back in 2012, and nobody complained, we should 
-probably keep it as is. I'll send v2 shortly.
+Please can one of the core perf maintainers ack/nak this extension?
+
+Cheers,
+
+Will
 
