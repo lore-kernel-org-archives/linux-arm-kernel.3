@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA43CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B189FCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMyPh0N8S+W6HZSaHXKGAl4MGR7wBtk85RguP769ytQ=; b=KD0N9XDs3F+FEnnTyr5WinQ0cX
-	Rw1jmNjbCdhYftkiX5fvnnt+m5H+qr2lNSRlI5vatI2DJO8B5FoN04EKEmVXI2BRt2eY7Fy9bhkeJ
-	n+4j83WJVW5xtSDK7s/JSndbdS864qdBcDsqAcL+2UusEWfI8R7UwMPyriLfLRTTctTTekwKyj264
-	SMo1WWnfme+Mj0GNmh5u6es3ZrNJrFGv8JWSDAI1/DPxu9ih9JzkUQejGRVDFO8pvC2Dvzc1W3Q04
-	dcFkttErQ5ywmPj2Yau3/IFTaUbbUFgYnSvyFkrHXJRDy6m+iHdRKqGUQrwgSNH+eqe6iuaqHPZqZ
-	Ru3CeD+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N3mC2IrimTjppkhXo9GUUy1X4ukV/Q/7Ytq5A8GyzSw=; b=WMCiJGDhQb6hibt1OVVke3ahzB
+	vPkbqAZfP46S12ecNJyeQC3ku/KPNHyWPBNNl2t0EUJdaOKecGm2SNFvtlwDPnF39xiAJPdrjT4tc
+	xzs5Oc7RlF2d02rEP/4oQN9N0umpNl13l6UGayTZpgqKr9HoKa4imPInCkp3CnlrhXv5EwgYBfPPy
+	4IzSmvwDLrD1nAGJ20HyM2FNmCiiTNEq3aDntngiXLHR8IMVUaMnf2retYCUu6D7lu1N7aM9IAg4b
+	WznVBdAQTePV+gqa8uONqbSnqYYFlRAzlNN8ZqqbWLvcP2mlVs9jvn7QY4dgBRiVvdNauqSmh83QY
+	XbWzimCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFu2P-00000009rFV-37ze;
-	Mon, 03 Nov 2025 12:51:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vFu6N-00000009rWU-2VlG;
+	Mon, 03 Nov 2025 12:56:03 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFu2N-00000009rFL-3Qqn
+	id 1vFu6K-00000009rTP-48Ml
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 12:51:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9CD3D600B0;
-	Mon,  3 Nov 2025 12:51:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216FCC4CEFD;
-	Mon,  3 Nov 2025 12:51:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762174314;
-	bh=qaatkfcleskF5A5nvzlK4r/WGYzHFYOBVI4ibhGc4fY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RTVvodkydVGO/qZA9Kt85/9qV3NeZSbaxJPXmaYb7Du8/VrHlMY9VEBCP54vUMk7P
-	 gYZktn+jvkLtNAPMD9Z3nmUjMftDyLytWc1t301sNoJkj2Gi8G+BEJ023CM/NgzKMd
-	 3J0+FSCY6r/cVQ+DiPDoe1gI/aJRbsSTAa5gjgu90sVjih1bY7Um8jikMRY/jH9Qkw
-	 0lXbHpLzCr9Eu2TlgzDThERnXxxdLaJBwxnjCdphLpmM1h8wKFhtKiVIRATxNCNjIE
-	 BIJqZteaUJ84yylMSt/tFrY27ukojXlyKS4ywH2Ws4a7dH6l0AoDnJW9D+ispoOY4g
-	 fzmQCrMnWHyEw==
-Date: Mon, 3 Nov 2025 12:51:48 +0000
-From: Will Deacon <will@kernel.org>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH 17/19] srcu: Optimize SRCU-fast-updown for arm64
-Message-ID: <aQilZAXQv2P-b2eI@willie-the-truck>
-References: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
- <20251102214436.3905633-17-paulmck@kernel.org>
+	Mon, 03 Nov 2025 12:56:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=N3mC2IrimTjppkhXo9GUUy1X4ukV/Q/7Ytq5A8GyzSw=; b=vpmKuyszMO0JHXCxcB4jw6giy/
+	RP+CNNXBYo3crdrkF0RI8Xs1z1Yfc9QpALKfLQPZoIyn5Y1CldkDLEP4CKsE10imD9ulsinGjBq3y
+	k81XRKIy7KbZupH324bZjB6bS9oJO5blv8i0sz7ZNyQZkz5tM76mB3AU2tbyUFEsAeQWOrdxdvOT5
+	XANrGLLvvFOAJdrOT8hXJRvyfuG138RqFCKrYt2PjTShQOzmQZQuJTGzu1Bbw+SAULz78kWAQuWGt
+	jvQLUVnJsA321xYrQ+N30A4nrWxb2q3VlNI/T6v45r0AxUV/f1Y/kfWhAGy4bmesxk26DbToJoAVq
+	turj3K7w==;
+Received: from [122.175.9.182] (port=36484 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1vFu5d-00000006SKR-2YOn;
+	Mon, 03 Nov 2025 07:55:18 -0500
+From: Parvathi Pudi <parvathi@couthit.com>
+To: nm@ti.com,
+	vigneshr@ti.com,
+	aaro.koskinen@iki.fi,
+	andreas@kemnade.info,
+	khilman@baylibre.com,
+	rogerq@kernel.org,
+	tony@atomide.com
+Cc: linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	danishanwar@ti.com,
+	pratheesh@ti.com,
+	j-rameshbabu@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com,
+	pmohan@couthit.com,
+	basharath@couthit.com,
+	Parvathi Pudi <parvathi@couthit.com>
+Subject: [RESEND PATCH] ARM: multi_v7_defconfig: Enable TI PRU Ethernet driver
+Date: Mon,  3 Nov 2025 18:24:51 +0530
+Message-ID: <20251103125451.1679404-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251102214436.3905633-17-paulmck@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251103_045601_051302_F2C6FD05 
+X-CRM114-Status: UNSURE (   4.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+The Programmable Real-time Unit and Industrial Communication Subsystem
+Megabit (ICSSM) is a microcontroller subsystem in TI SoCs such as
+AM57x, AM437x, and AM335x. It provides real-time processing
+capabilities for industrial communication and custom peripheral interfaces.
 
-On Sun, Nov 02, 2025 at 01:44:34PM -0800, Paul E. McKenney wrote:
-> Some arm64 platforms have slow per-CPU atomic operations, for example,
-> the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
-> atomic operations to interrupt-disabled non-read-modify-write-atomic
-> atomic_read()/atomic_set() operations.  This works because
-> SRCU-fast-updown is not invoked from read-side primitives, which
-> means that if srcu_read_unlock_fast() NMI handlers.  This means that
-> srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
-> exclude themselves and each other
-> 
-> This reduces the overhead of calls to srcu_read_lock_fast_updown() and
-> srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
-> Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
-> it sure beats 100ns.
-> 
-> This command was used to measure the overhead:
-> 
-> tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
-> 
-> Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> Cc: Steven Rostedt <rostedt@goodmis.org>
-> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> Cc: <linux-arm-kernel@lists.infradead.org>
-> Cc: <bpf@vger.kernel.org>
-> ---
->  include/linux/srcutree.h | 56 ++++++++++++++++++++++++++++++++++++----
->  1 file changed, 51 insertions(+), 5 deletions(-)
+Currently, EVMs based on AM57x, AM437x, and AM335x use the ICSSM driver
+for PRU-based Ethernet functionality.
 
-[...]
+This patch enables TI_PRUSS and TI_PRUETH as a module for TI SoCs.
 
-> @@ -327,12 +355,23 @@ __srcu_read_unlock_fast(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
->  static inline
->  struct srcu_ctr __percpu notrace *__srcu_read_lock_fast_updown(struct srcu_struct *ssp)
->  {
-> -	struct srcu_ctr __percpu *scp = READ_ONCE(ssp->srcu_ctrp);
-> +	struct srcu_ctr __percpu *scp;
->  
-> -	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
-> +	if (IS_ENABLED(CONFIG_ARM64) && IS_ENABLED(CONFIG_ARM64_USE_LSE_PERCPU_ATOMICS)) {
-> +		unsigned long flags;
-> +
-> +		local_irq_save(flags);
-> +		scp = __srcu_read_lock_fast_na(ssp);
-> +		local_irq_restore(flags); /* Avoids leaking the critical section. */
-> +		return scp;
-> +	}
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+---
+ arch/arm/configs/multi_v7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Do we still need to pursue this after Catalin's prefetch suggestion for the
-per-cpu atomics?
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 12f706e2ded5..7f1fa9dd88c9 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -281,6 +281,8 @@ CONFIG_TI_CPSW_SWITCHDEV=y
+ CONFIG_TI_CPTS=y
+ CONFIG_TI_KEYSTONE_NETCP=y
+ CONFIG_TI_KEYSTONE_NETCP_ETHSS=y
++CONFIG_TI_PRUSS=m
++CONFIG_TI_PRUETH=m
+ CONFIG_XILINX_EMACLITE=y
+ CONFIG_SFP=m
+ CONFIG_BROADCOM_PHY=y
+-- 
+2.43.0
 
-https://lore.kernel.org/r/aQU7l-qMKJTx4znJ@arm.com
-
-Although disabling/enabling interrupts on your system seems to be
-significantly faster than an atomic instruction, I'm worried that it's
-all very SoC-specific and on a mobile part (especially with pseudo-NMI),
-the relative costs could easily be the other way around.
-
-Will
 
