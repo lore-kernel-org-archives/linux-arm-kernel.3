@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17145CCFA06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFAD4CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q9B+wJcC9hgti5SVgtCMBRDB3ojo71Fg4Ndlpeq6akg=; b=1BW37IaSHtoVQe31k3aL/udHB0
-	m6POgX4DojYRog93Se+Kdqd+j99L+6k3jPjlplkJvjaP4dptPYHpUuqpfArPWsXUqnEuvaUXpEGWr
-	q9LJO0Jr2rwVb5pyKt9G0YXtT/VGG3VFAsOPc37w3npM4BxZyM0qz3OD6HZ+gbIh7egRWUqlfyiAV
-	FAbiRegdePS7zx7TJql2HxEkKzHNTUMNjZ/BEg7t7V/681Xp8iAuRVV25X1GDbtqrdanFZCQVjS97
-	U24WFC/h3pXg5hnWpl141XYT7pqt2Dgdx9NK39Zf38E1bS1SJtIbXTzoiO4g/cxpNiCgPA7wbnHlc
-	Y0g+LV2g==;
+	bh=VWuVspmUhSJsExmenHKhxq2bnNciqFsbmxhyM13tHTg=; b=isg823fvcIjt5BDg1hh0LGA2i9
+	RLA7iO0tzYsIMc37zxim9pW0S7B8mMPuL4ZiYit+hv4VVUHsRK4o4vz/zzGJHwT/yPETmOfZFmbmo
+	M+4Vi6gF5TlhnDIylbg/cnjop8A5Maio3361q0CFq3nty+32HVoE4jmoDOVrd6f+cxscyb5vZoDnk
+	YglIp38dtypV4V1LRKFJz1Dxkhl15XjKO5fl9KJvE7sG+JvdWqRMyZyMyZO/7OQ2gKsDauxheY429
+	CRh0+/g9DuwZohn208smnkBykxfBpGZP/m+qo6svPJchvCLjqJHhTM3ul9dME95TZlJivo5Ix1HfJ
+	NqcCp3hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwCT-0000000A5Pw-496j;
-	Mon, 03 Nov 2025 15:10:29 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1vFwCV-0000000A5Rl-3NVK;
+	Mon, 03 Nov 2025 15:10:31 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwCR-0000000A5MY-0b5K
+	id 1vFwCS-0000000A5N1-2V7g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 15:10:28 +0000
+	Mon, 03 Nov 2025 15:10:30 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1762182624;
+	t=1762182626;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q9B+wJcC9hgti5SVgtCMBRDB3ojo71Fg4Ndlpeq6akg=;
-	b=qv3PPZf+wkyHzVPgTYdgJP4CiZ4o2Bero1LkXwdFOOh65QEf0is1gZ+JEWJF1IzkA9tdr8
-	+lEskTxS18Ok19J7a9yrMLUJCS63Vhc3tcVs1jT8snQ3ruap3PFntjKW2co+Rv7nnc9Nsb
-	ji2hQlOOadxn8X2Iv3T4ZYdK2YveI+E=
+	bh=VWuVspmUhSJsExmenHKhxq2bnNciqFsbmxhyM13tHTg=;
+	b=TQE8dIU/ZknqxJkubcDLYx4CCgOVVMkyUI+O+ye0aI5X2Wqnc7Z0SrQVn5nE7VKD/5x+rd
+	uX3qmLYVQgUECB2Wf3lG8XaCw/DIZ8GqAnR/2ukz8XwSFNQPPwoge99nIOE2aUobjPvLN/
+	s/VPVDc6iiWHOX7H1c4kLwijPd9mtFA=
 From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 To: Manish Chopra <manishc@marvell.com>,
 	Marco Crivellari <marco.crivellari@suse.com>,
@@ -56,17 +56,17 @@ Cc: Richard Cochran <richardcochran@gmail.com>,
 	Kory Maincent <kory.maincent@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org
-Subject: [PATCH net-next v2 3/7] net: liquidio_vf: convert to use ndo_hwtstamp callbacks
-Date: Mon,  3 Nov 2025 15:09:48 +0000
-Message-ID: <20251103150952.3538205-4-vadim.fedorenko@linux.dev>
+Subject: [PATCH net-next v2 4/7] net: octeon: mgmt: convert to use ndo_hwtstamp callbacks
+Date: Mon,  3 Nov 2025 15:09:49 +0000
+Message-ID: <20251103150952.3538205-5-vadim.fedorenko@linux.dev>
 In-Reply-To: <20251103150952.3538205-1-vadim.fedorenko@linux.dev>
 References: <20251103150952.3538205-1-vadim.fedorenko@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_071027_323236_86770501 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20251103_071028_914763_09523779 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,114 +81,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver implemented SIOCSHWTSTAMP ioctl command only, but there is a
-way to get configuration back. Implement both ndo_hwtstamp_set and
-ndo_hwtstamp_set callbacks.
+The driver implemented SIOCSHWTSTAMP ioctl command only. But it stores
+timestamping configuration, so it is possible to report it to users.
+Implement both ndo_hwtstamp_set and ndo_hwtstamp_get callbacks. After
+this the ndo_eth_ioctl effectively becomes phy_do_ioctl - adjust
+callback accordingly.
 
 Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
 Signed-off-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 ---
- .../ethernet/cavium/liquidio/lio_vf_main.c    | 48 ++++++++-----------
- 1 file changed, 19 insertions(+), 29 deletions(-)
+ .../net/ethernet/cavium/octeon/octeon_mgmt.c  | 62 ++++++++++---------
+ 1 file changed, 32 insertions(+), 30 deletions(-)
 
-diff --git a/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c b/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c
-index 3230dff5ba05..e02942dbbcce 100644
---- a/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c
-+++ b/drivers/net/ethernet/cavium/liquidio/lio_vf_main.c
-@@ -1236,20 +1236,13 @@ liquidio_get_stats64(struct net_device *netdev,
- 		lstats->tx_carrier_errors;
+diff --git a/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c b/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c
+index 393b9951490a..c190fc6538d4 100644
+--- a/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c
++++ b/drivers/net/ethernet/cavium/octeon/octeon_mgmt.c
+@@ -690,19 +690,16 @@ static irqreturn_t octeon_mgmt_interrupt(int cpl, void *dev_id)
+ 	return IRQ_HANDLED;
  }
  
--/**
-- * hwtstamp_ioctl - Handler for SIOCSHWTSTAMP ioctl
-- * @netdev: network device
-- * @ifr: interface request
-- */
--static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr)
-+static int liquidio_hwtstamp_set(struct net_device *netdev,
-+				 struct kernel_hwtstamp_config *conf,
-+				 struct netlink_ext_ack *extack)
+-static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
+-				      struct ifreq *rq, int cmd)
++static int octeon_mgmt_hwtstamp_set(struct net_device *netdev,
++				    struct kernel_hwtstamp_config *config,
++				    struct netlink_ext_ack *extack)
  {
- 	struct lio *lio = GET_LIO(netdev);
--	struct hwtstamp_config conf;
--
--	if (copy_from_user(&conf, ifr->ifr_data, sizeof(conf)))
--		return -EFAULT;
+ 	struct octeon_mgmt *p = netdev_priv(netdev);
+-	struct hwtstamp_config config;
+-	union cvmx_mio_ptp_clock_cfg ptp;
+ 	union cvmx_agl_gmx_rxx_frm_ctl rxx_frm_ctl;
++	union cvmx_mio_ptp_clock_cfg ptp;
+ 	bool have_hw_timestamps = false;
  
--	switch (conf.tx_type) {
-+	switch (conf->tx_type) {
- 	case HWTSTAMP_TX_ON:
+-	if (copy_from_user(&config, rq->ifr_data, sizeof(config)))
+-		return -EFAULT;
+-
+-	/* Check the status of hardware for tiemstamps */
++	/* Check the status of hardware for timestamps */
+ 	if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+ 		/* Get the current state of the PTP clock */
+ 		ptp.u64 = cvmx_read_csr(CVMX_MIO_PTP_CLOCK_CFG);
+@@ -733,10 +730,12 @@ static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
+ 		have_hw_timestamps = true;
+ 	}
+ 
+-	if (!have_hw_timestamps)
++	if (!have_hw_timestamps) {
++		NL_SET_ERR_MSG_MOD(extack, "HW doesn't support timestamping");
+ 		return -EINVAL;
++	}
+ 
+-	switch (config.tx_type) {
++	switch (config->tx_type) {
  	case HWTSTAMP_TX_OFF:
+ 	case HWTSTAMP_TX_ON:
  		break;
-@@ -1257,7 +1250,7 @@ static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr)
+@@ -744,7 +743,7 @@ static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
  		return -ERANGE;
  	}
  
--	switch (conf.rx_filter) {
-+	switch (conf->rx_filter) {
+-	switch (config.rx_filter) {
++	switch (config->rx_filter) {
  	case HWTSTAMP_FILTER_NONE:
- 		break;
- 	case HWTSTAMP_FILTER_ALL:
-@@ -1275,35 +1268,31 @@ static int hwtstamp_ioctl(struct net_device *netdev, struct ifreq *ifr)
+ 		p->has_rx_tstamp = false;
+ 		rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
+@@ -766,33 +765,34 @@ static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
  	case HWTSTAMP_FILTER_PTP_V2_SYNC:
  	case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
  	case HWTSTAMP_FILTER_NTP_ALL:
--		conf.rx_filter = HWTSTAMP_FILTER_ALL;
-+		conf->rx_filter = HWTSTAMP_FILTER_ALL;
+-		p->has_rx_tstamp = have_hw_timestamps;
+-		config.rx_filter = HWTSTAMP_FILTER_ALL;
+-		if (p->has_rx_tstamp) {
+-			rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
+-			rxx_frm_ctl.s.ptp_mode = 1;
+-			cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_CTL, rxx_frm_ctl.u64);
+-		}
++		p->has_rx_tstamp = true;
++		config->rx_filter = HWTSTAMP_FILTER_ALL;
++		rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
++		rxx_frm_ctl.s.ptp_mode = 1;
++		cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_CTL, rxx_frm_ctl.u64);
  		break;
  	default:
  		return -ERANGE;
  	}
  
--	if (conf.rx_filter == HWTSTAMP_FILTER_ALL)
-+	if (conf->rx_filter == HWTSTAMP_FILTER_ALL)
- 		ifstate_set(lio, LIO_IFSTATE_RX_TIMESTAMP_ENABLED);
- 
- 	else
- 		ifstate_reset(lio, LIO_IFSTATE_RX_TIMESTAMP_ENABLED);
- 
--	return copy_to_user(ifr->ifr_data, &conf, sizeof(conf)) ? -EFAULT : 0;
-+	return 0;
+-	if (copy_to_user(rq->ifr_data, &config, sizeof(config)))
+-		return -EFAULT;
+-
+ 	return 0;
  }
  
--/**
-- * liquidio_ioctl - ioctl handler
-- * @netdev: network device
-- * @ifr: interface request
-- * @cmd: command
-- */
--static int liquidio_ioctl(struct net_device *netdev, struct ifreq *ifr, int cmd)
-+static int liquidio_hwtstamp_get(struct net_device *netdev,
-+				 struct kernel_hwtstamp_config *conf)
+-static int octeon_mgmt_ioctl(struct net_device *netdev,
+-			     struct ifreq *rq, int cmd)
++static int octeon_mgmt_hwtstamp_get(struct net_device *netdev,
++				    struct kernel_hwtstamp_config *config)
  {
 -	switch (cmd) {
 -	case SIOCSHWTSTAMP:
--		return hwtstamp_ioctl(netdev, ifr);
+-		return octeon_mgmt_ioctl_hwtstamp(netdev, rq, cmd);
 -	default:
--		return -EOPNOTSUPP;
+-		return phy_do_ioctl(netdev, rq, cmd);
 -	}
-+	struct lio *lio = GET_LIO(netdev);
++	struct octeon_mgmt *p = netdev_priv(netdev);
 +
-+	/* TX timestamping is techically always on */
-+	conf->tx_type = HWTSTAMP_TX_ON;
-+	conf->rx_filter = ifstate_check(lio, LIO_IFSTATE_RX_TIMESTAMP_ENABLED) ?
-+			  HWTSTAMP_FILTER_ALL : HWTSTAMP_FILTER_NONE;
++	/* Check the status of hardware for timestamps */
++	if (!OCTEON_IS_MODEL(OCTEON_CN6XXX))
++		return -EINVAL;
++
++	config->tx_type = HWTSTAMP_TX_ON;
++	config->rx_filter = p->has_rx_tstamp ?
++			    HWTSTAMP_FILTER_ALL :
++			    HWTSTAMP_FILTER_NONE;
++
 +	return 0;
  }
  
- static void handle_timestamp(struct octeon_device *oct, u32 status, void *buf)
-@@ -1881,9 +1870,10 @@ static const struct net_device_ops lionetdevops = {
- 	.ndo_vlan_rx_add_vid    = liquidio_vlan_rx_add_vid,
- 	.ndo_vlan_rx_kill_vid   = liquidio_vlan_rx_kill_vid,
- 	.ndo_change_mtu		= liquidio_change_mtu,
--	.ndo_eth_ioctl		= liquidio_ioctl,
- 	.ndo_fix_features	= liquidio_fix_features,
- 	.ndo_set_features	= liquidio_set_features,
-+	.ndo_hwtstamp_get	= liquidio_hwtstamp_get,
-+	.ndo_hwtstamp_set	= liquidio_hwtstamp_set,
+ static void octeon_mgmt_disable_link(struct octeon_mgmt *p)
+@@ -1370,11 +1370,13 @@ static const struct net_device_ops octeon_mgmt_ops = {
+ 	.ndo_start_xmit =		octeon_mgmt_xmit,
+ 	.ndo_set_rx_mode =		octeon_mgmt_set_rx_filtering,
+ 	.ndo_set_mac_address =		octeon_mgmt_set_mac_address,
+-	.ndo_eth_ioctl =			octeon_mgmt_ioctl,
++	.ndo_eth_ioctl =		phy_do_ioctl,
+ 	.ndo_change_mtu =		octeon_mgmt_change_mtu,
+ #ifdef CONFIG_NET_POLL_CONTROLLER
+ 	.ndo_poll_controller =		octeon_mgmt_poll_controller,
+ #endif
++	.ndo_hwtstamp_get =		octeon_mgmt_hwtstamp_get,
++	.ndo_hwtstamp_set =		octeon_mgmt_hwtstamp_set,
  };
  
- static int lio_nic_info(struct octeon_recv_info *recv_info, void *buf)
+ static int octeon_mgmt_probe(struct platform_device *pdev)
 -- 
 2.47.3
 
