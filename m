@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F98CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 02:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9503FCCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 02:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f7NJ5BHZawfzP3SjdeFGSHGjJ23dkO6ZAs2KcuU9kho=; b=KXizxBWkSykxXgHaiXwc1JM3h8
-	V22mHy7macpodLs742PY0bxE604t5hMqc8Dz7qKSKtKdBSIxoRQUnO8pWkgR0vK7FCOD3WOW+UQoY
-	1E4AB1P/JGrcQgg/5pT0IIQVQ8rIOK6S6KCtQNdEgRsYBYsEjc+iC81wIyyLBnB+COArrapFxOJRw
-	duVFLfZhEIMxnjiLce/RUBEc664hSzU7YcsTs1XDJ0rmq/fHpECBJbCewysCpreMDYg/D+70NoLDc
-	ClKxzKsgRyr1V05o1Vf39V36zuY4nKjY47kDlv/kLPpFggS0aW7qS+pTM/yIuWmyEIGL+zGD1210I
-	7htKg58g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wI3KVeuMyrhq5/O2srP1k4wZ7VJIeNSmNRwqJ/uquS0=; b=n5ZqSNe5TpH4VeVJBC8WcQMLB5
+	bkXkP/r0rGsHZpKo7Ldxn/tN+ho2WgnAw5Ru3fxbC8tH1BXTDJnhWeexzRv8i6pbGRarvuOBY6P/u
+	QZx9WBrcRmw+7WKSt47ogEbUZaYV/38lHCqFLVJvFYWWzXS58J8+yQaryFYregsQ6VvbBjheM+6Wc
+	vN/SxoeGY9Jz7/z0Ri2RBgru9GqTREfXPhA8tR+z3qTZtr6BNkVAmg4j+PMbsrwvbCLSVpFQIW8fZ
+	9ts4CiSAHopTHpGQBGWs8MqiY7fWZbbaj3U0naoi3jFlcJjsWJ/M6A1sEN3BIq13o5exq/zc+QyhU
+	8gY2y4LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFkMd-0000000948y-39NM;
-	Mon, 03 Nov 2025 02:32:11 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1vFkcb-0000000958h-18Wt;
+	Mon, 03 Nov 2025 02:48:41 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFkMb-0000000948H-2M65
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 02:32:11 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4d0Fw91mGgzYQtkM
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 10:31:53 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id E166C1A07BB
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 10:32:05 +0800 (CST)
-Received: from [10.67.111.176] (unknown [10.67.111.176])
-	by APP1 (Coremail) with SMTP id cCh0CgDHN0slFAhpPKf4CQ--.38631S2;
-	Mon, 03 Nov 2025 10:32:05 +0800 (CST)
-Message-ID: <400165fe-18d5-4a78-b4bd-4e5b55de0c04@huaweicloud.com>
-Date: Mon, 3 Nov 2025 10:32:04 +0800
+	id 1vFkcZ-0000000958B-0yAF;
+	Mon, 03 Nov 2025 02:48:40 +0000
+X-UUID: 977cbd10b85f11f09f706fa2197c6ceb-20251102
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=wI3KVeuMyrhq5/O2srP1k4wZ7VJIeNSmNRwqJ/uquS0=;
+	b=C1KSSDo9Z83WBCYei3EeKuhK4MJ/kzYkIvpSrzPJDgDJBoTkMh7no9yRdlYCQJPv7pJEUCjclpDDLdnHOSVOTQenChFQLrr9jXaIDp+d1MhndVhmQAEflO+HAEhBWzJg2zsnZkw3hp3zc8JnyubA90qigNDaw2zn+Tew9uIXzb8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:a0d96bbf-ee82-4793-b738-0896ff864c2c,IP:0,UR
+	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:25
+X-CID-META: VersionHash:a9d874c,CLOUDID:b4eb8826-cfd6-4a1d-a1a8-72ac3fdb69c4,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|123|836|888|898,TC:-5,Content:0|
+	15|50,EDM:-3,IP:nil,URL:11|97|99|83|106|1,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 977cbd10b85f11f09f706fa2197c6ceb-20251102
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1214382483; Sun, 02 Nov 2025 19:48:35 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 3 Nov 2025 10:48:26 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 3 Nov 2025 10:48:26 +0800
+From: <peter.wang@mediatek.com>
+To: <linux-scsi@vger.kernel.org>
+CC: <alim.akhtar@samsung.com>, <avri.altman@wdc.com>, <bvanassche@acm.org>,
+	<robh@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<conor+dt@kernel.org>, <jejb@linux.ibm.com>, <martin.petersen@oracle.com>,
+	<lgirdwood@gmail.com>, <broonie@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <wenst@chromium.org>,
+	<conor.dooley@microchip.com>, <chu.stanley@gmail.com>,
+	<chun-hung.wu@mediatek.com>, <peter.wang@mediatek.com>,
+	<alice.chao@mediatek.com>, <naomi.chu@mediatek.com>, <ed.tsai@mediatek.com>,
+	<chunfeng.yun@mediatek.com>
+Subject: [PATCH v2] dt-bindings: ufs: mediatek: Update maintainer information in mediatek ufs and phy
+Date: Mon, 3 Nov 2025 10:47:26 +0800
+Message-ID: <20251103024831.3663689-1-peter.wang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/33] cpuset: Provide lockdep check for cpuset lock held
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
- <mkoutny@suse.com>, Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
- <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
- Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-12-frederic@kernel.org>
- <b94f6159-a280-4890-a02a-f19ff808de5b@huaweicloud.com>
- <aQTe6X5XXSp8_3z5@localhost.localdomain>
-Content-Language: en-US
-From: Chen Ridong <chenridong@huaweicloud.com>
-In-Reply-To: <aQTe6X5XXSp8_3z5@localhost.localdomain>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgDHN0slFAhpPKf4CQ--.38631S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tryxCw1kAF1UJrWfKw4DJwb_yoW5Jr1rpF
-	yDKFyrCF4rZr4UuFy2qw17uF1vqw4kWF1UGFn5tr18XasFvFn2vF1v9r1Ygr1F9rs7Gw40
-	vF17Wa9I9FWqyrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
-	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
-	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
-	xUsPfHUUUUU
-X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_183209_920922_BDA5E3A1 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20251102_184839_284032_22F7385E 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,84 +93,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Peter Wang <peter.wang@mediatek.com>
 
+Replace Stanley Chu with me and Chaotian in the maintainers field,
+since his email address is no longer active.
 
-On 2025/11/1 0:08, Frederic Weisbecker wrote:
-> Le Tue, Oct 14, 2025 at 09:29:25PM +0800, Chen Ridong a écrit :
->>
->>
->> On 2025/10/14 4:31, Frederic Weisbecker wrote:
->>> cpuset modifies partitions, including isolated, while holding the cpuset
->>> mutex.
->>>
->>> This means that holding the cpuset mutex is safe to synchronize against
->>> housekeeping cpumask changes.
->>>
->>> Provide a lockdep check to validate that.
->>>
->>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
->>> ---
->>>  include/linux/cpuset.h | 2 ++
->>>  kernel/cgroup/cpuset.c | 7 +++++++
->>>  2 files changed, 9 insertions(+)
->>>
->>> diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
->>> index 2ddb256187b5..051d36fec578 100644
->>> --- a/include/linux/cpuset.h
->>> +++ b/include/linux/cpuset.h
->>> @@ -18,6 +18,8 @@
->>>  #include <linux/mmu_context.h>
->>>  #include <linux/jump_label.h>
->>>  
->>> +extern bool lockdep_is_cpuset_held(void);
->>> +
->>>  #ifdef CONFIG_CPUSETS
->>>  
->>>  /*
->>> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
->>> index 8595f1eadf23..aa1ac7bcf2ea 100644
->>> --- a/kernel/cgroup/cpuset.c
->>> +++ b/kernel/cgroup/cpuset.c
->>> @@ -279,6 +279,13 @@ void cpuset_full_unlock(void)
->>>  	cpus_read_unlock();
->>>  }
->>>  
->>> +#ifdef CONFIG_LOCKDEP
->>> +bool lockdep_is_cpuset_held(void)
->>> +{
->>> +	return lockdep_is_held(&cpuset_mutex);
->>> +}
->>> +#endif
->>> +
->>>  static DEFINE_SPINLOCK(callback_lock);
->>>  
->>>  void cpuset_callback_lock_irq(void)
->>
->> Is the lockdep_is_cpuset_held function actually being used?
->> If CONFIG_LOCKDEP is disabled, compilation would fail with an "undefined reference to
->> lockdep_is_cpuset_held" error.
-> 
-> Although counter-intuitive, this is how the lockdep_is_held() functions family
-> do work.
-> 
-> This allows this kind of trick:
-> 
-> if (IS_ENABLED(CONFIG_LOCKDEP))
->    WARN_ON_ONCE(!lockdep_is_held(&some_lock))
-> 
-> This works during the compilation because the prototype of lockdep_is_held()
-> is declared. And since the IS_ENABLED() is resolved during compilation as well,
-> the conditional code is wiped out and therefore not linked. As a result the
-> linker doesn't even look for the definition of lockdep_is_held() and we don't
-> need to define an off case that would return a wrong assumption.
-> 
-> Thanks.
-> 
+Signed-off-by: Peter Wang <peter.wang@mediatek.com>
+---
+ Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml | 3 ++-
+ Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml     | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-Thank you for your explanation
-
+diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+index 3e62b5d4da61..6e2edd43fc2a 100644
+--- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+@@ -8,8 +8,9 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: MediaTek Universal Flash Storage (UFS) M-PHY
+ 
+ maintainers:
+-  - Stanley Chu <stanley.chu@mediatek.com>
+   - Chunfeng Yun <chunfeng.yun@mediatek.com>
++  - Peter Wang <peter.wang@mediatek.com>
++  - Chaotian Jing <chaotian.jing@mediatek.com>
+ 
+ description: |
+   UFS M-PHY nodes are defined to describe on-chip UFS M-PHY hardware macro.
+diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+index 1dec54fb00f3..15c347f5e660 100644
+--- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
++++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+@@ -7,7 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: Mediatek Universal Flash Storage (UFS) Controller
+ 
+ maintainers:
+-  - Stanley Chu <stanley.chu@mediatek.com>
++  - Peter Wang <peter.wang@mediatek.com>
++  - Chaotian Jing <chaotian.jing@mediatek.com>
+ 
+ properties:
+   compatible:
 -- 
-Best regards,
-Ridong
+2.45.2
 
 
