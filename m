@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486D8CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244A4CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zNYo2LK0r9ymlHkqqNH88mFoL+fAp95YytunWlV58ig=; b=iKRYSvt00WZkY3UKqbde44MDi3
-	Pq6WDPCWiKeS/i2il8k4TN+4+V9IEskZIGTxHPspAwbibCDdsUc6nmDI3JJRK0Qik9tNLlHz1NG8l
-	b9wRreSD4MVreRTRR3bhBJ39j6uPST7y/kd8Dj5sv6FIfrdjuSkHfGpelD9PHu6Rw0mLBBgngRE7l
-	OJorVdRG7Sb0duCHjiB9TuPbVkhMcpDzJfihKqDHCfycRTehg9VDpIXYpzSY1iabRws0wWkUNQZpS
-	IrHtI9ApsQa2vET5G2hEiWVNQdZN9GPXK5eGr4SJXZXng+J78aiJimsz0CaQp/ZnyNb5E+osFeOA0
-	Coqn5hdA==;
+	bh=0E5IeMU4PS2em/ynC/hGv8hf9oi5/ddxQnRlB1T70/s=; b=PiDbrILx56qTAy9TBsZ7vFum/v
+	IIQVgHb9+eE12ZZ3dy+xvNSGjn7D9kpu3iKjCXzxxg++zC53JiCNX3G9WqQqBF+Sq1NmtpuVmOacw
+	6ZnNpl1Mdd0y+mYtM4Iy7rebZWHd1esRz7TMj8hkNcZ3pNkC/c1NpiD7n/x52ejRwIeC5vt8os7I+
+	DVFtLafZx5gEyk5PEiPMUwjI38va4qIuzSTQPghgTB08j6U75xwIzoEm/tZf0MyyuxHT3glNRthfm
+	XY9ZIW9ZLgwhHRvx5Uhs4RP3D/zSvab720wRu9pDOHHu1JG95EvsEzyZvgu75K3qOoOK5dbx9DUVg
+	Wm802QMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFw0X-0000000A3uZ-1fEg;
-	Mon, 03 Nov 2025 14:58:09 +0000
+	id 1vFw0b-0000000A3xJ-0s5G;
+	Mon, 03 Nov 2025 14:58:13 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFw0W-0000000A3tU-1LJn
+	id 1vFw0a-0000000A3wL-0hp8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:58:08 +0000
+	Mon, 03 Nov 2025 14:58:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7414F601B3;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8CEB2601B5;
+	Mon,  3 Nov 2025 14:58:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC4DFC19421;
 	Mon,  3 Nov 2025 14:58:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910E1C4CEE7;
-	Mon,  3 Nov 2025 14:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762181887;
-	bh=VB+OJdhFko++Cc4PEpxdVhhL1Tqf3bp8WQNWSVbu7VE=;
+	s=k20201202; t=1762181891;
+	bh=FyNh0PxfcH5xW0MRq81VDMErnc8Oj7mYNOWP2GYRM+0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Mdkfw/5VBc7WvLgks52fmjnPgUxH4An/R0ffGAuU8ozjeaLHfK+eZAu/FgfgvcFx5
-	 iimo5wFdIP+w6X7S8c9uABeZ6Q0Zrt7Q3EnrSS3v0nhEcsSE9Ur9MaW9/ioMmpujQS
-	 jb0FEa/tNNw0pmHbT+Dim+3LnO4IHMLOPb6YUTShaxH/hDADCdshdRjxaEgS1u8ckq
-	 6DIh0KMPvbP9iwMjDrAX9clDVCKSY7pOdD7WwQmt4Bqtx8YU7zEjvmaMvyvCTiuTeY
-	 IQBVvxEC/6u6Z1yLjP+c7Ib3k5uvBXN8TzlKNIU9Un8hfMsM8tl4fy0/kLfZbuoVO1
-	 VTxiymJYgvnsQ==
+	b=hamcaUKvZ/j8vZJDaaWjVv098Xe/A2tMam9Dsi14BDt2l+8LmUgVV4F8h8Fprs0vh
+	 eu8g2yedkGN7nSVOY3TbtGKlgUtkrXCPxtXTeebtD8vnpo1TJ6gKVWVC1QHFeUjFBx
+	 Am34dcMPUhPJOVVHGzXGumM7mTp0M+C7ejyUgdv2fYmkszHBImRtt+cP6vfHXEZyW6
+	 UQ6hx8JY4VFLLAmqqR5POYPYPIhH15/j9rlDHgLNu9yAVPkm0HyVvVi2hD1DMxF0n2
+	 Y9wzk1kM1RERd9kfZP7n4VQQWNWJTausZd2V+Adxesm2rABj6EcF3CovBEt4hJYitu
+	 aBR0Z63ojtnUw==
 From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
+To: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Yicong Yang <yangyicong@huawei.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH] perf/arm-ni: Add NoC S3 support
-Date: Mon,  3 Nov 2025 14:57:49 +0000
-Message-Id: <176217955803.2904482.3019050250965959797.b4-ty@kernel.org>
+	sudeep.holla@arm.com,
+	james.clark@linaro.org,
+	robh@kernel.org,
+	anshuman.khandual@arm.com,
+	jonathan.cameron@huawei.com,
+	hejunhao3@huawei.com,
+	linuxarm@huawei.com,
+	prime.zeng@hisilicon.com,
+	xuwei5@huawei.com,
+	wangyushan12@huawei.com,
+	yangyicong@hisilicon.com,
+	yangyccccc@gmail.com
+Subject: Re: [PATCH v3 1/1] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
+Date: Mon,  3 Nov 2025 14:57:50 +0000
+Message-Id: <176217652888.2887047.18326627382472428067.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <ddb1dbaccce2f092bbfe1029982aad3a81bded71.1760960572.git.robin.murphy@arm.com>
-References: <ddb1dbaccce2f092bbfe1029982aad3a81bded71.1760960572.git.robin.murphy@arm.com>
+In-Reply-To: <20250922033010.4596-1-yangyicong@huawei.com>
+References: <20250922033010.4596-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,20 +84,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Oct 2025 12:44:19 +0100, Robin Murphy wrote:
-> NoC S3 and its SI L1 sibling look largely similar to their predecessors,
-> but add the notion of subfeatures to the discovery process, which we now
-> use to find the event muxes for each device node. Plus, as ever, more
-> mildly annoying shuffling around of some of the PMU registers (this time
-> it's the counters...)
+On Mon, 22 Sep 2025 11:30:10 +0800, Yicong Yang wrote:
+> CPU_CYCLES is expected to count the logical CPU (PE) clock. Currently it's
+> preferred to use PMCCNTR_EL0 for counting CPU_CYCLES, but it'll count
+> processor clock rather than the PE clock (ARM DDI0487 L.b D13.1.3) if
+> one of the SMT siblings is not idle on a multi-threaded implementation.
+> So don't use it on SMT cores.
 > 
+> Introduce topology_core_has_smt() for knowing the SMT implementation and
+> cached it in arm_pmu::has_smt during allocation.
 > 
 > [...]
 
 Applied to will (for-next/perf), thanks!
 
-[1/1] perf/arm-ni: Add NoC S3 support
-      https://git.kernel.org/will/c/8fa08f8835e5
+[1/1] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
+      https://git.kernel.org/will/c/c3d78c34ad00
 
 Cheers,
 -- 
