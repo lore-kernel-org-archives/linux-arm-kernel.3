@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA480CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A25CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YA8sXFA0OPROcJCL+f55Bq+qqdOX8UURJdXJr72IWQ4=; b=k0rz5K5TxgTkJl2NXKuFMWftzQ
-	N3rCuMgrPuqc8CHds7LXwwE6Nc6aajra6ciUzNdm04VyRkXkgmrbr1muOXUNqaruRYRBTxQXW/T9n
-	+8aJ0UZb68PQqtzPW4/Ru13VGQ/oolV9m5L2udpTBcu0EB1hFS08/ZBD/7shFyE04jdMQAMePyB4J
-	OsgHQVgH7Rek+vWBViX/+nOGqNNjQjeXbreaDr0b5v6+1iF17A59pxRBLGp7VaPVwtG8EkHEbUBUU
-	rbnpeMozWrO3izidNmYElaJCVBqBdat3w2TU0FVg2VS4skLSvlIMOSVQ2Yx6I1mgC/kmuf5g2EtOr
-	1LUpEJ4Q==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n0I75g7L32DElp2iwBRFQ1AhD2jEmMGjIS1HjLJtkOc=; b=aFNgRpMpFIDQkj
+	qUHTlWV4o2oZNubIuNAvywhQj9bvQOE+6XGGpAAg3WKgozOwgj/EOy9rE53VgZPpD6yd2qc4ZRjgh
+	6SkTeFC10h9PkP4ggSBVoNpWxcBWt3CJG3BxLLFyCXMiN+hhytJoEzJWJhXlW5BJnKdy6cKQ1n5fe
+	wQ2E2Ndce/jyv7ykDgEOyKGcPRgoL+noM3QCV/eM3ZQhB1fkv767Sdam1cYvolEJnvVMu/jDqDW4m
+	0Pxn50iL2Q+YGxPp3bQQ90propwgq98XysEb22haZQRm7RzNur4BSMdLb2su070mC99ob32DCdBIk
+	NTB3Imen30hIBEYogSDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFy2s-0000000ANkE-49a6;
-	Mon, 03 Nov 2025 17:08:42 +0000
+	id 1vFy5V-0000000ANxS-2HqQ;
+	Mon, 03 Nov 2025 17:11:25 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFy2r-0000000ANjw-49Na
+	id 1vFy5T-0000000ANxK-3r6d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 17:08:42 +0000
+	Mon, 03 Nov 2025 17:11:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C69D600B0;
-	Mon,  3 Nov 2025 17:08:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C1FFC4CEFD;
-	Mon,  3 Nov 2025 17:08:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 181226013D
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 17:11:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7A58C4AF0F
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 17:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762189721;
-	bh=nc9pwfo7tVhfkofi9WsCHyPsawYIqzmCCe2hZfm+ryk=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=NPLq8Qxjk5TF2XoJ3zCNnbZ8M1n51tjVIBvXcBq0DCmi75P9TiTP+gla/3+NQ6kIG
-	 ec171K/lqcI/7q3+JNfTlBvy5eFF+tqfh6FiJEithvtCOfxDJ1P9KFV7X9SQy6R7wm
-	 LLfCZGkKk5NNubTVqLPOHZI3QbET/7DHSJt/ayYOkswXKLJmkjEOD4SStXpJC/MMWX
-	 n1Ls3fQRTAY2MRktVlxsEqKZnTCVpFkB/jSGbVb2W8I5CUq0ydnb1IjUY71U/dLOBK
-	 wJUXvdfqTdj1ffixMOMeJlkD9CQSTvvjOYGgLd0zoO1u5ujBnxFQ/VLkINpSwZDcyA
-	 bTLK6d+XFNUhg==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id E6772CE0B94; Mon,  3 Nov 2025 09:08:39 -0800 (PST)
-Date: Mon, 3 Nov 2025 09:08:39 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH 17/19] srcu: Optimize SRCU-fast-updown for arm64
-Message-ID: <f89a3a56-e48a-4975-b67b-9387fe2e48c6@paulmck-laptop>
-References: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
- <20251102214436.3905633-17-paulmck@kernel.org>
- <b2fb5a99-8dc2-440b-bf52-1dbcf3d7d9a7@efficios.com>
+	s=k20201202; t=1762189882;
+	bh=Sv9FQL3Mzv+xYf8NoCGm6lqnm9197fwnn5s+c0L/OC4=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=SlqXc6fdFdwZKkA3NGn+gW1fT8efWP2Pq9Eay/W3Z/vvEZfuiMhms2HFuhmciuSLQ
+	 1Kh7RRyWB29Umachh4f15d/U7AQqP3zYHMeYH5OC3ZppNDS1UKTAdPsHgevXW/WW55
+	 ve9P/zKD57n3O8qju8FiYDzLkoTNe2h4N+7x0a2rVJjuzTYWH53qtGyPu87G5HYLDv
+	 eCmzAwVZo6J+LklFDGA4aj3LdeXYHdHp3670uap8kl2GfnATtEfPe4pICSzf4/kbdD
+	 thKd8mjau7IIw+u35stL/MSUdmOQNyQ03rET2COozaTLSqLRDjZQlLrDM1E0HNe3q2
+	 pDtzVyQqo3pug==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3737d09d123so60508751fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 09:11:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWSsY0HdwUkSnlXZA3FxP/ZLHY7q8gypD6kwGn3jDxcqyBml7qCaDh6h0jf8iKS1OEoyerVWzqoQ5xju/dclFL9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQrj2cSl1xsW2TgY4Sq6+uwVnBMR3B9LRTjC1s+BIW4EbAc9ux
+	r5LouN9wxt2GziDGlaP2TmUX2L6C+xESq0KucPXhERVtLZLf0QgaZPxoy1oVIFA/TaKKJ7aEITK
+	DjT9y0eRM9jfobK8FINsZBCMxEcjk2bI=
+X-Google-Smtp-Source: AGHT+IGj3r9zUjzPzn9IEygYQzEgz7ukM/+Lp4b6fW21ZV+0fJdeLDp4noFAI8Yrq2hHKB7s/nRse2db5Ak/8EyGv8Q=
+X-Received: by 2002:a2e:9205:0:b0:337:e29c:b0d2 with SMTP id
+ 38308e7fff4ca-37a18de1e52mr34298411fa.41.1762189881006; Mon, 03 Nov 2025
+ 09:11:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b2fb5a99-8dc2-440b-bf52-1dbcf3d7d9a7@efficios.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-27-jernej.skrabec@gmail.com>
+In-Reply-To: <20251012192330.6903-27-jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 4 Nov 2025 01:11:07 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65RecyHZVUN--oSmtzPDpmUHALd3Pqf79a1fKP9yxD8cA@mail.gmail.com>
+X-Gm-Features: AWmQ_bkNL0jahcEQaqn8bSZ19J8F-ktWPPiEchcfhtJA1Ye9Nhc1HXJ4hMb0Q_M
+Message-ID: <CAGb2v65RecyHZVUN--oSmtzPDpmUHALd3Pqf79a1fKP9yxD8cA@mail.gmail.com>
+Subject: Re: [PATCH 26/30] drm/sun4i: mixer: Add quirk for number of VI scalers
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,87 +79,158 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 08:34:10AM -0500, Mathieu Desnoyers wrote:
-> On 2025-11-02 16:44, Paul E. McKenney wrote:
-> > Some arm64 platforms have slow per-CPU atomic operations, for example,
-> > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
-> > atomic operations to interrupt-disabled non-read-modify-write-atomic
-> > atomic_read()/atomic_set() operations.  This works because
-> > SRCU-fast-updown is not invoked from read-side primitives, which
-> > means that if srcu_read_unlock_fast() NMI handlers.  This means that
-> > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
-> > exclude themselves and each other
-> > 
-> > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
-> > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
-> > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
-> > it sure beats 100ns.
-> > 
-> > This command was used to measure the overhead:
-> > 
-> > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
-> > 
-> Hi Paul,
-> 
-> At a high level, what are you trying to achieve with this ?
+On Mon, Oct 13, 2025 at 3:24=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
+>
+> On DE2 and DE3, UI scalers are located right after VI scalers. So in
+> order to calculate proper UI scaler base address, number of VI scalers
+> must be known. In practice, it is same as number of VI channels, but it
+> doesn't need to be.
+>
+> Let's make a quirk for this number. Code for configuring channels and
+> associated functions won't have access to vi_num quirk anymore after
+> rework for independent planes.
+>
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> ---
+>  drivers/gpu/drm/sun4i/sun8i_mixer.c     | 11 +++++++++++
+>  drivers/gpu/drm/sun4i/sun8i_mixer.h     |  2 ++
+>  drivers/gpu/drm/sun4i/sun8i_ui_scaler.c | 10 +++++-----
+>  3 files changed, 18 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/=
+sun8i_mixer.c
+> index 78bbfbe62833..f9131396f22f 100644
+> --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> @@ -708,6 +708,7 @@ static const struct sun8i_mixer_cfg sun8i_a83t_mixer0=
+_cfg =3D {
+>         .scaler_mask    =3D 0xf,
+>         .scanline_yuv   =3D 2048,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 3,
+>         .vi_num         =3D 1,
+>  };
+> @@ -718,6 +719,7 @@ static const struct sun8i_mixer_cfg sun8i_a83t_mixer1=
+_cfg =3D {
+>         .scaler_mask    =3D 0x3,
+>         .scanline_yuv   =3D 2048,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 1,
+>         .vi_num         =3D 1,
+>  };
+> @@ -729,6 +731,7 @@ static const struct sun8i_mixer_cfg sun8i_h3_mixer0_c=
+fg =3D {
+>         .scaler_mask    =3D 0xf,
+>         .scanline_yuv   =3D 2048,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 3,
+>         .vi_num         =3D 1,
+>  };
+> @@ -740,6 +743,7 @@ static const struct sun8i_mixer_cfg sun8i_r40_mixer0_=
+cfg =3D {
+>         .scaler_mask    =3D 0xf,
+>         .scanline_yuv   =3D 2048,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 3,
+>         .vi_num         =3D 1,
+>  };
+> @@ -751,6 +755,7 @@ static const struct sun8i_mixer_cfg sun8i_r40_mixer1_=
+cfg =3D {
+>         .scaler_mask    =3D 0x3,
+>         .scanline_yuv   =3D 2048,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 1,
+>         .vi_num         =3D 1,
+>  };
+> @@ -761,6 +766,7 @@ static const struct sun8i_mixer_cfg sun8i_v3s_mixer_c=
+fg =3D {
+>         .ui_num =3D 1,
+>         .scaler_mask =3D 0x3,
+>         .scanline_yuv =3D 2048,
+> +       .vi_scaler_num  =3D 2,
+>         .ccsc =3D CCSC_MIXER0_LAYOUT,
+>         .mod_rate =3D 150000000,
+>  };
+> @@ -772,6 +778,7 @@ static const struct sun8i_mixer_cfg sun20i_d1_mixer0_=
+cfg =3D {
+>         .scaler_mask    =3D 0x3,
+>         .scanline_yuv   =3D 2048,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 1,
+>         .vi_num         =3D 1,
+>  };
+> @@ -783,6 +790,7 @@ static const struct sun8i_mixer_cfg sun20i_d1_mixer1_=
+cfg =3D {
+>         .scaler_mask    =3D 0x1,
+>         .scanline_yuv   =3D 1024,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 0,
+>         .vi_num         =3D 1,
+>  };
+> @@ -794,6 +802,7 @@ static const struct sun8i_mixer_cfg sun50i_a64_mixer0=
+_cfg =3D {
+>         .scaler_mask    =3D 0xf,
+>         .scanline_yuv   =3D 4096,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 3,
+>         .vi_num         =3D 1,
+>  };
+> @@ -805,6 +814,7 @@ static const struct sun8i_mixer_cfg sun50i_a64_mixer1=
+_cfg =3D {
+>         .scaler_mask    =3D 0x3,
+>         .scanline_yuv   =3D 2048,
+>         .de2_fcc_alpha  =3D 1,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 1,
+>         .vi_num         =3D 1,
+>  };
+> @@ -814,6 +824,7 @@ static const struct sun8i_mixer_cfg sun50i_h6_mixer0_=
+cfg =3D {
+>         .mod_rate       =3D 600000000,
+>         .scaler_mask    =3D 0xf,
+>         .scanline_yuv   =3D 4096,
+> +       .vi_scaler_num  =3D 1,
+>         .ui_num         =3D 3,
+>         .vi_num         =3D 1,
+>  };
+> diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.h b/drivers/gpu/drm/sun4i/=
+sun8i_mixer.h
+> index def07afd37e1..40b800022237 100644
+> --- a/drivers/gpu/drm/sun4i/sun8i_mixer.h
+> +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.h
+> @@ -178,6 +178,7 @@ enum sun8i_mixer_type {
+>   * @scaline_yuv: size of a scanline for VI scaler for YUV formats.
+>   * @de2_fcc_alpha: use FCC for missing DE2 VI alpha capability
+>   *     Most DE2 cores has FCC. If number of VI planes is one, enable thi=
+s.
+> + * @vi_scaler_num: Number of VI scalers. Used on DE2 and DE3.
+>   * @map: channel map for DE variants processing YUV separately (DE33)
+>   */
+>  struct sun8i_mixer_cfg {
+> @@ -189,6 +190,7 @@ struct sun8i_mixer_cfg {
+>         unsigned int    de_type;
+>         unsigned int    scanline_yuv;
+>         unsigned int    de2_fcc_alpha : 1;
+> +       unsigned int    vi_scaler_num;
 
-I am working around the high single-CPU cost of arm64 LSE instructions,
-as in about 50ns per compared non-LSE of about 5ns per.  The 50ns rules
-them out for uretprobes, for example.
+This could be a smaller type. Please do a sweep of the struct after the
+refactoring is done and see if any of the types could be shrunk.
 
-But Catalin's later patch is in all ways better than mine, so I will be
-keeping this one only until Catalin's hits mainline.  Once that happens,
-I will revert this one the following merge window.  (It might be awhile
-because of the testing required on a wide range of platforms.)
+And just a nitpick, but I would probably insert it above scaler_mask.
 
-> AFAIU, you are trying to remove the cost of atomics on per-cpu
-> data from srcu-fast read lock/unlock for frequent calls for
-> CONFIG_NEED_SRCU_NMI_SAFE=y, am I on the right track ?
-> 
-> [disclaimer: I've looked only briefly at your proposed patch.]
-> Then there are various other less specific approaches to consider
-> before introducing such architecture and use-case specific work-around.
-> 
-> One example is the libside (user level) rcu implementation which uses
-> two counters per cpu [1]. One counter is the rseq fast path, and the
-> second counter is for atomics (as fallback).
-> 
-> If the typical scenario we want to optimize for is thread context, we
-> can probably remove the atomic from the fast path with just preempt off
-> by partitioning the per-cpu counters further, one possibility being:
-> 
-> struct percpu_srcu_fast_pair {
-> 	unsigned long lock, unlock;
-> };
-> 
-> struct percpu_srcu_fast {
-> 	struct percpu_srcu_fast_pair thread;
-> 	struct percpu_srcu_fast_pair irq;
-> };
-> 
-> And the grace period sums both thread and irq counters.
-> 
-> Thoughts ?
 
-One complication here is that we need srcu_down_read() at task level
-and the matching srcu_up_read() at softirq and/or hardirq level.
-
-Or am I missing a trick in your proposed implementation?
-
-							Thanx, Paul
-
-> Thanks,
-> 
-> Mathieu
-> 
-> [1] https://github.com/compudj/libside/blob/master/src/rcu.h#L71
-> 
-> -- 
-> Mathieu Desnoyers
-> EfficiOS Inc.
-> https://www.efficios.com
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
