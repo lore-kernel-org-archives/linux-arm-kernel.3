@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82192CFC28C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 16:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F4FCCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 13:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70SZzEkmeWLCa17DsjpZL0wenaZZgkONKSmc3KcPeco=; b=mXIgSzntj+3YyTj7CSeerwa332
-	W12I8lTGrL9LCqyaNJE8+u1dVmyZnsRK9tGpmfP6lYLDHKcu4P4lCYajIiKD0FU0Xc1opyNIbMGC9
-	3DL1onwZZpDZCfHv41T9/HORXvV72mREZVcbTopsCDBz9Vea95+00C0hvKYEQ1zIeTD3zZjcKTjBc
-	c9evJHuyxcGR7qgBMWDdvnczy5uEHvnX6RVn1r+pGs91ktkvDyyXkfJSMsOhxgDkkVfjcfENgvNIL
-	eBGzKey3ydAMUILJzx96uOaa+Ctsx9XE0IuSSWuk7uH/HakWiRXetEvfDfqH3AdNnUr7zpTDBR/wR
-	F3WlYdVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4zpUXsTaas0d04qVuUufLjAsxPeCu/19RhV4iRVm7B4=; b=sb9u4AjQJksvZQifojj/+o7PvW
+	aWjwXCgkXSOxWERYmbTyb/1y9ulSiTEWu6l2rlBPlBO93pPDKseEmwRM57IAF3ij7qXOA7g8A1LaT
+	4KXbd8IN5Q9YBKCPH4ZatndzRIZvMNJoJ2DGWDuQekl0XOfDKOFkbzpaFTAxsf/GHmZeN0F+KxN1h
+	K42Zkw52NdlNe7Q2fFruiNzbtueXV1xMVUvQ0+7ifwmjVkc1pL+INhrxa7tBb754ICWihooC2RWom
+	Iy2XzXbDfqYOvOm0l7689US4efwn7uY3cMRiuqIjpf7Oynz015lzet6gfNUz1oGX8eD/+7/Umsx8i
+	6le4opkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTrd-00000008hcF-3NXj;
-	Fri, 21 Nov 2025 16:20:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFupj-00000009wCO-41SS;
+	Mon, 03 Nov 2025 13:42:55 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTrb-00000008hbS-2K2m
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 16:20:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E3020417F2
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 16:19:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C04FCC19424
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 16:19:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763741998;
-	bh=cET4fLR+Sx0tqItmiU0JPHurpZgDU1nqYWJPQ7uvhYs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LVn7sgHiTk6RLTGHtFAYvT5jt8uzinAFRBsJxMA1SfZel1bMIJ1hFT843Hnfd20C6
-	 yJGuhMhYYhggX1rZbeXzTJCiyw2JtfyOjPdE+gZyUeZuHTa/3fich29WX1yfpBasMI
-	 +pp3yZJV7CyDiEY2ErtONnDXBelFq5fitTil+cntXvg4ftcD+K4w6Y/2+c3n+JqRod
-	 RKqEoEU/bqquH5adcQVN11faw3W7KgplzC+Js1wPpvpvsdHqhTqSANFBA4dC1xnUXv
-	 TXqyK+KZNpwLWL/7XkONE899kog8Wbxb7wgM3KGd+kdA3ao++oNai2xTACQ3304AlS
-	 7mJu7ZkTqBQIg==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-59577c4c7c1so3028095e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 08:19:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXIRjRm0sUYmjXTLGS8iDRXR8JMWwlHrT12JmdbqzdG948f32FxtPY8omX92GKiynWZSmA1ClhWL/cNMs8AMXcs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/s0T8kRs4Ia7e351HuIGLbWLFFumZrNF9jUnKVKZqlUwJup5J
-	ndRSEIi1CXdcN53nrgm7YjPoNi/6jQbrGQxLWtwzdWZLle4SbYSQL4IjskyJJiFy6MALgT72DgF
-	s3ICxr39/xxSvTsce0BFJGRmvHHbecjU=
-X-Google-Smtp-Source: AGHT+IGeSY0QcKkdeUCs++wMYjj72N3cUYU9kW2Fl9IQJ23AXOiUCrIM5BGdicOeoDbtfPEdjzSeYm/zK81S5JjGD00=
-X-Received: by 2002:ac2:4e04:0:b0:595:90ce:df8e with SMTP id
- 2adb3069b0e04-596a3740821mr1260884e87.5.1763741997082; Fri, 21 Nov 2025
- 08:19:57 -0800 (PST)
+	id 1vFuph-00000009wBc-2E68;
+	Mon, 03 Nov 2025 13:42:54 +0000
+X-UUID: fb47f066b8ba11f09f706fa2197c6ceb-20251103
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=4zpUXsTaas0d04qVuUufLjAsxPeCu/19RhV4iRVm7B4=;
+	b=mnDc2Mrxr42eL/djfy4FDMBzWDzRicKIC8Shx9UWUfDmmWufX0EzxSlQiTy7lNFXU7iioOXpR+5pwlClQ4aEvm5spTllvqegP5Kp1TvYni5xS3HHRhzAuIZjG9I82eqwXuQ4T9NhEtrGnpk+rq3sVARGg3fNsrj6SGodN+akT+Y=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:1665e397-f86c-402d-b2a1-31af8ecddeae,IP:0,UR
+	L:0,TC:0,Content:54,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:54
+X-CID-META: VersionHash:a9d874c,CLOUDID:5b82dd18-3399-4579-97ab-008f994989ea,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:-7|-6|
+	3|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: fb47f066b8ba11f09f706fa2197c6ceb-20251103
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <niklaus.liu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1975779101; Mon, 03 Nov 2025 06:42:46 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 3 Nov 2025 21:42:46 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 3 Nov 2025 21:42:45 +0800
+From: niklaus.liu <Niklaus.Liu@mediatek.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <sirius.wang@mediatek.com>,
+	<vince-wl.liu@mediatek.com>, <jh.hsu@mediatek.com>,
+	<zhigang.qin@mediatek.com>, <sen.chu@mediatek.com>, Niklaus Liu
+	<niklaus.liu@mediatek.com>, niklaus.liu <Niklaus.Liu@mediatek.com>
+Subject: 
+Date: Mon, 3 Nov 2025 21:42:25 +0800
+Message-ID: <20251103134241.3773-1-Niklaus.Liu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-References: <20251121135624.494768-1-tzimmermann@suse.de> <96a8d591-29d5-4764-94f9-6042252e53ff@app.fastmail.com>
- <CAMj1kXF1Dh0RbuqYc0fhAPf-CM0mdYh8BhenM8-ugKVHfwnhBg@mail.gmail.com>
- <199e7538-5b4a-483b-8976-84e4a8a0f2fd@suse.de> <CAMj1kXE+mS1Sm5GaROU0P97J2w1pew0P_To4sKiw8h1iOMuLcg@mail.gmail.com>
- <d080729c-6586-4b9c-b234-470977849d3d@suse.de> <6dff8e7e-c99b-443d-a1d8-22650ca0b595@suse.de>
-In-Reply-To: <6dff8e7e-c99b-443d-a1d8-22650ca0b595@suse.de>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 21 Nov 2025 17:19:45 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGpC_162bFL65kQw=7qVP7ezYw77Q76y217dDs8pqHogw@mail.gmail.com>
-X-Gm-Features: AWmQ_bn-6TfeudJLq0R8hLHr8efLSQaLZUt3gyg8tPWks9v2PmiXguu4ImOLBA0
-Message-ID: <CAMj1kXGpC_162bFL65kQw=7qVP7ezYw77Q76y217dDs8pqHogw@mail.gmail.com>
-Subject: Re: [PATCH 0/6] arch, sysfb: Move screen and edid info into single place
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, Javier Martinez Canillas <javierm@redhat.com>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-efi@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-fbdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_081959_653446_6BB1AD61 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20251103_054253_579012_009B083B 
+X-CRM114-Status: UNSURE (   5.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +87,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->
->
->
-> Am 21.11.25 um 17:08 schrieb Thomas Zimmermann:
-> > Hi
-> >
-> > Am 21.11.25 um 16:56 schrieb Ard Biesheuvel:
-> >> On Fri, 21 Nov 2025 at 16:53, Thomas Zimmermann <tzimmermann@suse.de>
-> >> wrote:
-> >>> Hi
-> >>>
-> >>> Am 21.11.25 um 16:16 schrieb Ard Biesheuvel:
-> >>>> On Fri, 21 Nov 2025 at 16:10, Arnd Bergmann <arnd@arndb.de> wrote:
-> >>>>> On Fri, Nov 21, 2025, at 14:36, Thomas Zimmermann wrote:
-> >>>>>> Replace screen_info and edid_info with sysfb_primary_device of type
-> >>>>>> struct sysfb_display_info. Update all users.
-> >>>>>>
-> >>>>>> Sysfb DRM drivers currently fetch the global edid_info directly,
-> >>>>>> when
-> >>>>>> they should get that information together with the screen_info
-> >>>>>> from their
-> >>>>>> device. Wrapping screen_info and edid_info in
-> >>>>>> sysfb_primary_display and
-> >>>>>> passing this to drivers enables this.
-> >>>>>>
-> >>>>>> Replacing both with sysfb_primary_display has been motivate by
-> >>>>>> the EFI
-> >>>>>> stub. EFI wants to transfer EDID via config table in a single entry.
-> >>>>>> Using struct sysfb_display_info this will become easily possible.
-> >>>>>> Hence
-> >>>>>> accept some churn in architecture code for the long-term
-> >>>>>> improvements.
-> >>>>> This all looks good to me,
-> >>>>>
-> >>>>> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> >>> Thanks
-> >>>
-> >>>>> It should also bring us one step closer to eventually
-> >>>>> disconnecting the x86 boot ABI from the kernel-internal
-> >>>>> sysfb_primary_display.
-> >>>>>
-> >>>> Agreed
-> >>>>
-> >>>> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> >>> Thanks
-> >>>
-> >>>> I can take patches 1-2 right away, if that helps during the next
-> >>>> cycle.
-> >>>   From my sysfb-focused POV, these patches would ideally all go through
-> >>> the same tree, say efi or generic arch, or whatever fits best. Most of
-> >>> the other code is only renames anyway.
-> >>>
-> >> I don't mind queueing all of it, but I did get a conflict on
-> >> drivers/pci/vgaarb.c
-> >
-> > Probably from a78835b86a44 ("PCI/VGA: Select SCREEN_INFO on X86")
->
-> https://lore.kernel.org/all/20251013220829.1536292-1-superm1@kernel.org/
->
+This series is based on linux-next, tag: next-20251103
+Subject: [PATCH 0/1] soc: mediatek regulator: Add Support for mt8189
 
-Yes, if I merge back -rc2 first, I can apply patches 1-5 onto my
-efi/next tree. But then I hit
+changes in V1:
+ - mediatek-regulator-coupler mechanism for platform MT8189 
 
-Applying: sysfb: Move edid_info into sysfb_primary_display
-error: sha1 information is lacking or useless (drivers/gpu/drm/sysfb/efidrm.c).
-error: could not build fake ancestor
-Patch failed at 0006 sysfb: Move edid_info into sysfb_primary_display
+Niklaus Liu (1):
+  soc: mediatek regulator: Add Support for mt8189
 
-If you prefer, you can take the whole lot via the sysfb tree instead,
-assuming it does not depend on the EDID changes I already queued up?
+ drivers/soc/mediatek/mtk-regulator-coupler.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+-- 
+2.46.0
+
 
