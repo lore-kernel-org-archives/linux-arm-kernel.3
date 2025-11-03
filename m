@@ -4,155 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEB1CCFA06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8594CCFA06
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aaHxGyfUWRtYWRrAwbzqN5Os+W1zyD3kh/kOvOTAJc0=; b=3nRqxIrME4Iwo4VeVwSPWiMgA5
-	OO77kfWfby6wdkIm2oModbGICtS6gBjwBCzNENIYxTP0PMIOd7dZUCTUAcwz9F3dilgE4vRp0j7cJ
-	XKdXaUbhxpejN75AnkV7LeQpr8jJz3xaWSxxDtysgRcY7vcTfpbYSVJ89ajwo52aQPNf+GfVJw6g4
-	XAV9IqyHKz7I5wiPn1L8Lr6ezP5YGjwZAXrqXCtVXQb6Ssknf7A7HuiEdgrOiVufGVARc1X3BvYxi
-	kgd5PtoJi8QqULyWV6gQi3nz1gihBnROlKFCHp65QlCqR3NDzAHQBKOmLcNS1U4ELB78Kbuq3Tm5w
-	bf8hDlGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X1lQDIOUYsjBlo4ocs57kAT3XVTll6xW8NP/rqlaXgw=; b=RXq1YC4vL7hImr
+	N3CkXwWTz810RvTSzfYWtT4rNW8NGGFwiyvjyg+y3P5+6MC1WgbscqsrOxsIaecdbgLtz/bRWCqW3
+	/g/7bDJCEl/65j3GpyABa8lQtsxl9OwQlP/AJij2HKjF/gf+P5uyFkvgMaJK6KFTcHDAPEOYpvOQd
+	6bnbW+LmSNRMopYYeiyxiyBC0bPwLu5cmNNnn8AKUReiqh9nhz+tHlqXm+YcEE4PQxreAFDvklbOy
+	YiZoWgx6OFxo1iOlcB8o/m6nhX5L44Xk5R4Kx7JtpUFfYNydFdQnq44n+AkQfmREMHugjjV584VxF
+	9M40p6GZKVqrRuEM/t6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwGi-0000000A6pv-1uBN;
-	Mon, 03 Nov 2025 15:14:52 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vFwGn-0000000A6ry-3SUA;
+	Mon, 03 Nov 2025 15:14:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwGe-0000000A6op-49Tk
+	id 1vFwGk-0000000A6qc-3weV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 15:14:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D6NHQ3toqabVpE6iHI6aQhU3oj3zlnBgViHHdR+ELcR1aTpMU5LJ8Blc4YrTHfccIJDSo0J4Dk3z2BQWgho7lOsnKoqw8pDt8gKircow2gaaYyX48lC1Mly4Y4z66NFukHZQitSJ5QIUvb7JrkjwTcQos53uq9AhvdDh+kpbUC1Sjm39HXCQThQLKUVZa4rUGwnm9Et5PT6Bx16Q0RvtLrEnjTXJ5mT+dzIBDio0ClZ7UrHCmvWRkbc5W0tU8/G75+f6puzehM0vyDOCVPddsntVWUeqiOulqXFXqwQyfNwyv23khjpiqKO+IeCWufsNpeQGgBpQbfnJ+QmkNP03YA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aaHxGyfUWRtYWRrAwbzqN5Os+W1zyD3kh/kOvOTAJc0=;
- b=yzgnvq4d6Muq6yZaLzY1h96jxJZmx4sNdsna9FJfkMFgy+O3YVPOPzhwQJY585BF7s6o5vDRz4xci+zGeu3YwxzB3ewOtKEbUoRfU5S+gwASaPn2iqFs0z8LTgXOlJkEiKdeVUvKCf6AvZBZlyVLCZmlOqILgVM+JN1vG3QEgE/CwCYKPAtW6mYiKd1X258NjeLGjX6lWPzWB4/TkUe4Z3KmaeGSlo6pF6nfFaBsauPG7+HstHDELXcOi4bAD6b17+kmFZ1YxWdu4/EjkbgBZHIVkK3i9yjJNVPYtqfsVJ4rCQ0DJ1wcKb53lR8lV7lQmbP1Clhtz26dTurlf7wFVg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aaHxGyfUWRtYWRrAwbzqN5Os+W1zyD3kh/kOvOTAJc0=;
- b=FFyjAPHg1ccQVatl+WoEuAwKl8d9sqNaF/0PiMrtZtV15CVw2hzYjLscsp1lFPj6CuV6dA9kWtnzbuD0fMUZQnZdLpADm95Gi5IgJzHbuiBRv4R7lmeJbDcnxaOVSBnc4491AFu6+Tl7hNZocdKI7lcCmN7Vs8URn/yx2A0mV+M=
-Received: from SJ0PR05CA0095.namprd05.prod.outlook.com (2603:10b6:a03:334::10)
- by CO6PR10MB5650.namprd10.prod.outlook.com (2603:10b6:303:14f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
- 2025 15:14:43 +0000
-Received: from SJ5PEPF000001EA.namprd05.prod.outlook.com
- (2603:10b6:a03:334:cafe::74) by SJ0PR05CA0095.outlook.office365.com
- (2603:10b6:a03:334::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.7 via Frontend Transport; Mon, 3
- Nov 2025 15:14:36 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SJ5PEPF000001EA.mail.protection.outlook.com (10.167.242.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Mon, 3 Nov 2025 15:14:43 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
- 2025 09:14:39 -0600
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
- 2025 09:14:39 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 3 Nov 2025 09:14:39 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A3FEdkK324832;
-	Mon, 3 Nov 2025 09:14:39 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-	"Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-CC: Nishanth Menon <nm@ti.com>, Thomas Petazzoni
-	<thomas.petazzoni@bootlin.com>, Gregory CLEMENT
-	<gregory.clement@bootlin.com>, Richard Genoud <richard.genoud@bootlin.com>,
-	Udit Kumar <u-kumar1@ti.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
- Kumar" <a-kumar2@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] firmware: ti_sci: replace ifdeffery by pm_sleep_ptr() macro
-Date: Mon, 3 Nov 2025 09:14:33 -0600
-Message-ID: <176218286915.3559215.8776729657431757097.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20251014-ti-sci-pm-ops-cleanup-v1-1-70b50b73ac85@bootlin.com>
-References: <20251014-ti-sci-pm-ops-cleanup-v1-1-70b50b73ac85@bootlin.com>
+	Mon, 03 Nov 2025 15:14:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F38943BF5
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 15:14:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CA4EC19423
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 15:14:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762182894;
+	bh=X1lQDIOUYsjBlo4ocs57kAT3XVTll6xW8NP/rqlaXgw=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=d9DZanYu1Du0MYDLUS/92X+Uwvd7DmItGjVLn7l92ZW9DEUb8dEouTlqUwbuYBZIG
+	 pH1gQX7ZxOuFzhDCHe1s9G1KSvbw67fwVhKmCxVsahiM4x5/rVqHu+u0zq2W8ODsoz
+	 WJKUcHd5pr5oqkT/iQb5R4T4g6WV2iAa1ZTE1eSPGtr4DTB6shuHq5kXqIQZd1KCoy
+	 Ncb+AIiWy6F51l7Sq/I7eO7jQ7OQXP2ga3CqRE2OYEinAFBBmjD7g9EP+9O7cTMeDs
+	 JLxEmg5g4qWSllg5lno1JojlPBPckXZm0wq2CI5DsZSfACxyfyaUpu5nVc7Vg9Fqyq
+	 bGk2N7GSrgBCw==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-378cffe5e1aso16215961fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 07:14:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUytF/NvaE89MIZE+qX/BN+fYhzMGv7QNk8WxOHVF3WrCKBuWp6utT/L3UPnF05DlU7Ssg+yptnfjtAgvW4t/4J@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBuYh2RuHFkdyp5wlMfduQK5zbUzNmkeNAhSvPeRbCV36h3nYF
+	fI4Gg2fTerSy0urayqbIJP1OKwlfexhGwBtSo/QUNlUPqf1Rop0V5NLZsKwHYiGIFP81sBXuvf6
+	yPdIucAII7+XZSikybczjPre6qAp9POk=
+X-Google-Smtp-Source: AGHT+IHZDkoXxNdhZHooF7In6ZS/umouiKh+BmptD052LhPp+RR7HY7bCHqMPN8dvQ1n5W4zzJk3EOAaNxVFM3Xu/nE=
+X-Received: by 2002:a05:651c:b11:b0:37a:2c50:c437 with SMTP id
+ 38308e7fff4ca-37a2c50c5c6mr22032461fa.14.1762182892512; Mon, 03 Nov 2025
+ 07:14:52 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EA:EE_|CO6PR10MB5650:EE_
-X-MS-Office365-Filtering-Correlation-Id: bf94d23c-a955-439c-ead9-08de1aebb79a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013|34020700016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UjZOcE1KK0RCNmxOeVBFKzZ3Y2FDUUc4Y3plN0gvRUcyeHpDQjduN3JYZ3Ir?=
- =?utf-8?B?OHlyWGlZK1lxcFp2UlBVWkYzdTRPWFVySkRiUzhTTUJsL0NoZHZkQ1dRbnhi?=
- =?utf-8?B?V2J3U2FNL3dxbm5XbHlBempDdVlLa0FwdnVramVqWjFXaTd2WThyQlc3WUg2?=
- =?utf-8?B?cGhEMm5HdE9jcEV3Z2IrTmIyQnFTZVpGaThUZkRYd05TaFpNelN6ZGtPdlBG?=
- =?utf-8?B?d2RnS2J1L1ZYUFE0OWtVVjhmK1BONDZYaGxoRkRGVjg5N216ZDNTTmVIaXhy?=
- =?utf-8?B?NjN3MlVTVE50ak43QytXb3JSdzd3ZjNqS3E5VkFaRHpGb0NrKzVpbmpMdU0v?=
- =?utf-8?B?dnJFT3haQW9wQ3FoK1ZBY1JsMG5idU1nZm00NktvZ1NKMU81cGpJenVlRHN0?=
- =?utf-8?B?ZU5tTmVPL2tyMmEwbmdqWE5sc01LTndReU1CZ2tuTmZ3Q1RXNjFIakVFRFFJ?=
- =?utf-8?B?bDRYRE4xTU84L2c0L2x4dWdOMUJvRzdibGtTaElYTTdUQUhMT1J0a2xVTjUx?=
- =?utf-8?B?TFcrbjBNSE80QUxpL3NValg1a1p6Wm5RT0piSklsek0rYVByNHFuU3FvRm5O?=
- =?utf-8?B?RFZ5Y20ybTEycE1UcU9Zbjk4dmpzcklnelRHMUtYVTZJNkppekpadlp5WWFn?=
- =?utf-8?B?eEJjbDdNRWJpb1ZiVStqNmZDZi9Zb3ZvbGFySzlWak5lSTZXSC9Qb2dZenhZ?=
- =?utf-8?B?ZEh0L2tNTURhUW5jVElWUEFSMnRMWWZlSHh6d0FtZ1h0T3ZjcTRpTTkrdnZk?=
- =?utf-8?B?enNJcFNXcy8yWFpNV0lKeTVZeWpUdldtbXR6L1M5SEtwSzR1WTZKMjVlaTFy?=
- =?utf-8?B?c2haTHVDdHBINGhkUEZuUWxsMHNyUTRhYzdRdFFZTjRmUXkvWXNOdjRMQ1hQ?=
- =?utf-8?B?d0lQQSttN0tzT1MrWU51bkxnS0U3RjlLRGp6R1Z2VjdPcmZHM3FNa3Y5Y0RC?=
- =?utf-8?B?QXBvY2N5dkxwRDJwVFZrQTZZUjQ0OG5TR0xOeExxcWVhWFlnWUtsd0RLUVFN?=
- =?utf-8?B?ZlFDcEQrbnp5bDNmQWxsZ2J5dmZYTFlwNHpyaW50Y2dmRHRhaVhOaHlPa0tM?=
- =?utf-8?B?VWdTOFAybG8waTJhcXF2OEVlRHBGMjNaVnVaQlFndVRsVnllTnVmeTk2TTZI?=
- =?utf-8?B?enArbkpRUUV5YUtEcXk4M0JhQ1BOVmc0YURSWnAwemZXWDlmczMwWlFhWlNT?=
- =?utf-8?B?MnJHeVQ0QVIyNHdRZ0JEU3gvanhxcTlUUGh0UUdQVGpaM0F0bzRqdTh1ajd1?=
- =?utf-8?B?RUtOZWQybUdqS0p1Z3JMakhpalBlYy9Rc0w2S1p5Mm8zS3FEUDM2WWM2eWhx?=
- =?utf-8?B?UTh2M0FvK05sTys3SmY3dG5xeEJDeEVEejNCU0NuK25XY2pSSlhkaU1JVDZa?=
- =?utf-8?B?OHpHNmpTa2pYZ3ZmZFphYThwOVgxWFlsVEtnc1IzOG9yekswY1Zmd2ZDSEhU?=
- =?utf-8?B?aUx6WHVwUzZrMXBucEdIamFuRjcwd1RiMENMdnNKck5WYmNxaWNsb2JBdXQ0?=
- =?utf-8?B?azF2aGZTZktiQUNEYitld0dJRFR4dEp4VFNtWUhtamdpak1vVW1WYWxiK0VB?=
- =?utf-8?B?aUNYcFBTR0JxMzVTZ0xTRXVPZzBDZGU0UDRQMzZNQm1MVFZIdW1Yd3ZDNkNv?=
- =?utf-8?B?eUxubjZvRUpRQkdZQ2JRSWZkQmNXVERUSVJPQTZYdWEyazNwd3lMLzNwQnZk?=
- =?utf-8?B?Q1lBVnlLSldQSVpxVGE0cXhyVWdMZGQrS3RGMkN6Yjk1U3pKbmJCM2QxYmFv?=
- =?utf-8?B?Zk9jYTY5dWw5a25vWUM3NTZwbVJDRlZtM2x3bi84YTNzMytnWVJpUStVTmxo?=
- =?utf-8?B?Y1VLWWFGenJNZVhsMEVmZk54YWlzcnR5RCtPZGcza2xUZFAzcXo3aWxaMnpD?=
- =?utf-8?B?Y21SVjVXMlhUNG9haXg5N294VTFBbEcvSnd2UnIrekdqZCtzbnFQSWN3MmZo?=
- =?utf-8?B?L0dOdXZJb2xMU2p2UjVGNUF3NW8vdDExdVpRUVc1SFlnOENTd005RVJJMG1r?=
- =?utf-8?B?dmhJV2trZUJQelJvQ1RJWEJKT1ovQXQ4TldhZDJYd0h3UmxxbUxTUHNFMncw?=
- =?utf-8?B?bjdMaFpGamdCblBvZVgxV21lTkFOZjdUNzU4ZFM3NDdWczMzd0xUaFlzdW5n?=
- =?utf-8?Q?hwKA=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013)(34020700016);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 15:14:43.2441
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bf94d23c-a955-439c-ead9-08de1aebb79a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR10MB5650
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-21-jernej.skrabec@gmail.com>
+In-Reply-To: <20251012192330.6903-21-jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 3 Nov 2025 23:14:39 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65ubpB5sKnfQVej3AOtNSX=xAfh+RDL+=qZ3oz0j8-rDQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bk5XxIurfQd85eS3oxbla8XyM5TbCCjYCsGGsUnTgr3dnC2wC7GmAAQMwA
+Message-ID: <CAGb2v65ubpB5sKnfQVej3AOtNSX=xAfh+RDL+=qZ3oz0j8-rDQ@mail.gmail.com>
+Subject: Re: [PATCH 20/30] drm/sun4i: layers: Make regmap for layers configurable
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_071449_110801_A332E470 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20251103_071455_008749_6C71EB4C 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,44 +83,17 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas Richard (TI.com),
+On Mon, Oct 13, 2025 at 3:24=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
+>
+> Till DE33, there were no reason to decouple registers from mixer.
+> However, with future new plane driver, this will be necessary.
+>
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-On Tue, 14 Oct 2025 10:35:23 +0200, Thomas Richard (TI.com) wrote:
-> Using pm_sleep_ptr() macro allows to remove ifdeffery and '__maybe_unused'
-> annotations.
-> 
-> 
-
-I have applied the following to branch ti-drivers-soc-next on [1].
-Thank you!
-
-[1/1] firmware: ti_sci: replace ifdeffery by pm_sleep_ptr() macro
-      commit: 7a4cd87e76fb4547d7843e3124611bf13004b18b
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
-
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
