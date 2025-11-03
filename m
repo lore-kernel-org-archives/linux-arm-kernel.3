@@ -4,97 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938F4CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EFFCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zV61ssPxcQ80Vn+xuEZISQ1ICnJDQBimD7YTtlxO9tk=; b=qKi1Sg7zkmk+kOfOwcO5YW1mYG
-	xLKhq2buhEedot326VZSP9I4L8nyAmagDvS7Ag/Rmwc6PK7k4P9m8raS16LZjYrJK1yXiGgvLI2k7
-	I0BrwM4c9JvkHNPYpj+25VvoMNcZ3M3aNijbrIxiN5p+OKWGO//nJCB0IUoQuntWeAbGCMlKRQbvk
-	23Y0xeJsKvBc0Jb/r9A5wRTqA5LuahLeYTSoDaKvFfRfGIB7QSNhWRNGA3rjsRkHOh6M4jMV7qRlG
-	iFnJKCxwwFtv/wcTU2eMFbQPWiQLS0zoRVO2z4+awtm/D8c6nYRGay03q0Vkgd3kD2QPwa2g5FXVb
-	idGIvXXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cZh3EAAFw5xS6vEfH+7ykrXOPIOPAtE3oZ5wdfzZmtM=; b=uEeXcK4JjMG660Yv/JhSCZ94lP
+	jx+GyxeK9VnLtPW6JNmz/UpxYLxWD6TEZU+bZ8kYkdAd8wb1aPWFHsOLVwwhpHsHVYMtlZpGwo1T4
+	dIL6ak44SFGfvt26En/ObMYbXjr5w56xj5IxQDKt0ytvUEUAPOOkop4er1XC8NRaRWvvvGucT21Ro
+	ub+sE7x1OpY02EAQhqJwbnl29n41Qixc5h2a1xxdY/Sgen/8woamodASA02O5PSkoLypWkMWuvpO5
+	DX5PAxg0lzlfjpE183QgsAy5ijDhU2AkEeaVU7hZ2itn8nVvUC4G99c94otCVd2OzdX8he1MtTYAp
+	ZqpReH2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrWX-00000009Zq9-1U1K;
-	Mon, 03 Nov 2025 10:10:53 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1vFrYl-00000009a9B-2SlK;
+	Mon, 03 Nov 2025 10:13:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrWV-00000009Zp7-1q43
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 10:10:52 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b3c2c748bc8so542815266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 02:10:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762164649; x=1762769449; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zV61ssPxcQ80Vn+xuEZISQ1ICnJDQBimD7YTtlxO9tk=;
-        b=FPVA8fPIY0Nn9sx6tfXHHSE7MZZVSCsBmNmojbHmL0g6qJH3X2WY3vwJdKCa29Yz0X
-         m/Xv69/2lrCN6mobFG/MJeSD/zZsajYnRJCIHXO9jUjoK98iGUJTyLsl7Jl0wCsAdmMT
-         uNfNWz7nmX+srtC0H7oAFdnNesSLaZiqKD9bknCAQPWCPZdQR6u56Sx5nVzzhAINdP5l
-         6gw7JuiJxtsTILr+mwMVhbE63cAK0e9ccIm605+apyzD3NWMVS7xTK+KGQO7BTuy4VbL
-         sIZiqaea0t8Pw88qd4ZP7AaUx7nSZQLTnGNL0f5zmJG9WMaIeCfJ7AU2GlN+OSVQPNYH
-         BzIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762164649; x=1762769449;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zV61ssPxcQ80Vn+xuEZISQ1ICnJDQBimD7YTtlxO9tk=;
-        b=GIh5rK81PBpWm1+QCSKVRVZjft2dJrKgCESTcBki9zTUZdOaDTFiHSaUySDrTRjly0
-         cW2EiFD+mymcjqhlsc480pM4Ajuk8z5VKjL5Y7UbMGX7juFVUiSRt63EP5AJ7qnoqQnd
-         BvlxIIWeDEY+h/9/FpoO4826xuHN5g+su4t/rZX4PMGDyMWbupJQ8cA7vBDLCNH2psj/
-         lWStcJQh7aM00ISUTtQ1lf63cV9UssyZNMg1J2nzY18tMYGpMyoQ7cMvnD8d0WyHjxUH
-         /8mDnNJXJAHsfMfkPRei3sz+xAQqYa7F6VHqLA43qTT/+qYjgBU9Zz3zK3hSuHDjUM2G
-         Rf2g==
-X-Forwarded-Encrypted: i=1; AJvYcCVpSfOrKMy4i5rB+vdDMc5bUBOlOblrJMvhfcl+CBFRtTyjyVCMpZHuUOSuKFF9lQUUmnKaomHnsyAGDBxkR+ii@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmfP605uH5LIhIR489ogf9K/HusX5RK01OwVPPiZ+MBXncrNzV
-	N+qa95xHDRcAfYF6oDbm1zHAAUIArZyVLuS3C6/0kn743acJXDdxrkwn
-X-Gm-Gg: ASbGncsqTsYLtV4Ex3wpB9n95t4HQX2En/CRQx2SGCaPro0XboxB1812weMryCbduf8
-	P1X/FzhV8x7eUx13rdUTLKg9ylilbQyNV6uo3012kl8Ul7XLJeGVZke1MUt+bUQdc6ji8fTDbhH
-	UJlAi4o6OLf4oME/S7YZIjQV+FDcvjXpsEjDkZltT0YE+RvCNoyHcTSSN0/GqGGg4Cl12EywTWo
-	l2B0LVmlxPxS/u1lAwQwk20wlUxOzQ5XGr9tC+b+n3gvfYm+noTC2y20jeLCxwsZx7+R+/SG0ny
-	umGooT0PRIjus6b1Y33iU4npHZHnov6yIuI9Pk4GSfiClPb1r5r/hWng5Gpi4fRwD9fmLSXYX5Z
-	x+ZBhaHaE54qtCDU6kH3VuENkgzskiSejXTsNIkxd4BPt9+gGclmY0UL6dPYLBzIqS3PTGiKFeV
-	uQOfHRkQy+fxIXcB/9AR8Wa3ugXfiSZidXWMcv6n3AmC3cCYFgb/nyCA==
-X-Google-Smtp-Source: AGHT+IFp+T/Nu357ftkE83jIAMW9+xcbhTQBIaVYYeJtQz1ee/caz6rCsgqFAGPZlpwzilmbvSJQ7g==
-X-Received: by 2002:a17:907:2d25:b0:b3e:5f20:88ad with SMTP id a640c23a62f3a-b70701c3f34mr1227300566b.28.1762164649077;
-        Mon, 03 Nov 2025 02:10:49 -0800 (PST)
-Received: from EPUAKYIW02F7.. (pool185-5-253-81.as6723.net. [185.5.253.81])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b718f8b52fdsm66758666b.18.2025.11.03.02.10.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Nov 2025 02:10:48 -0800 (PST)
-From: Mykola Kvach <xakep.amatop@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Muhammed Efe Cetin <efectn@6tel.net>,
-	=?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: rockchip: orangepi-5: fix PCIe 3.3V regulator voltage
-Date: Mon,  3 Nov 2025 12:08:14 +0200
-Message-ID: <9232ae8cc8e7eb4f986734c8820f44b7989b9dae.1762161839.git.xakep.amatop@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251024173830.49211-1-xakep.amatop@gmail.com>
-References: <20251024173830.49211-1-xakep.amatop@gmail.com>
+	id 1vFrYk-00000009a8n-05Xp;
+	Mon, 03 Nov 2025 10:13:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 23CAA60007;
+	Mon,  3 Nov 2025 10:13:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DCD2C4CEE7;
+	Mon,  3 Nov 2025 10:13:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762164788;
+	bh=3HvSwd3Hdi/gWECtVw0p3KFzqcxgB2PNYUbt+Yyqiyk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eI+/sVQ9SlsH4jxh7ldDJPSzl9u1cyTsFagb7+gvmUh4ExL/zDq0bf1Gbvmp5sPSx
+	 PxOyHzDt9E/jVv2OmRkPvGEqzu1k2oujSXANHPm55HKlbab005K9610paGE/jgx9TW
+	 M6hQTPI06hlYMNQX/ikArLJ0f1JHblDl5xEcz9EXYY7E798ASikJD+vbmD2II+gdxg
+	 PBGbA1BQfNdMFMtvDfCgz/DPrYIJFUoPL1O4ODwd2uR7tdRhknbXeVXvi5vkO2eNxI
+	 q0s58Y/m24NQnWTfX5sgkHF3IP/b2lDmSmuoX9GhlxwpFYy386TOHtXf9vpc/W15tl
+	 h9byOjeJtFrUQ==
+Date: Mon, 3 Nov 2025 15:42:58 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hanjie Lin <hanjie.lin@amlogic.com>, Yue Wang <yue.wang@amlogic.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Andrew Murray <amurray@thegoodpenguin.co.uk>, 
+	Jingoo Han <jingoohan1@gmail.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH RESEND 1/3] dt-bindings: PCI: amlogic: Fix the register
+ name of the DBI region
+Message-ID: <rguwscxck7vel3hjdd2hlkypzdbwdvafdryxtz5benweduh4eg@sny4rr2nx5aq>
+References: <20251101-pci-meson-fix-v1-0-c50dcc56ed6a@oss.qualcomm.com>
+ <20251101-pci-meson-fix-v1-1-c50dcc56ed6a@oss.qualcomm.com>
+ <31271df3-73e1-4eea-9bba-9e5b3bf85409@linaro.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_021051_488752_4C791372 
-X-CRM114-Status: GOOD (  12.99  )
+In-Reply-To: <31271df3-73e1-4eea-9bba-9e5b3bf85409@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,38 +79,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vcc3v3_pcie20 fixed regulator powers the PCIe device-side 3.3V rail
-for pcie2x1l2 via vpcie3v3-supply. The DTS mistakenly set its
-regulator-min/max-microvolt to 1800000 (1.8 V). Correct both to 3300000
-(3.3 V) to match the rail name, the PCIe/M.2 power requirement, and the
-actual hardware wiring on Orange Pi 5.
+On Mon, Nov 03, 2025 at 10:47:36AM +0100, Neil Armstrong wrote:
+> Hi Mani,
+> 
+> On 11/1/25 05:29, Manivannan Sadhasivam wrote:
+> > Binding incorrectly specifies the 'DBI' region as 'ELBI'. DBI is a must
+> > have region for DWC controllers as it has the Root Port and controller
+> > specific registers, while ELBI has optional registers.
+> > 
+> > Hence, fix the binding. Though this is an ABI break, this change is needed
+> > to accurately describe the PCI memory map.
+> 
+> Not fan of this ABI break, the current bindings should be marked as deprecated instead.
+> 
 
-Fixes: b6bc755d806e ("arm64: dts: rockchip: Add Orange Pi 5")
-Signed-off-by: Mykola Kvach <xakep.amatop@gmail.com>
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
----
-Changes in v2:
-- add Fixes tag and Cc stable list as requested during review.
----
- arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Fair enough. Will make it as deprecated.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts
-index ad6d04793b0a..83b9b6645a1e 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts
-@@ -14,8 +14,8 @@ vcc3v3_pcie20: regulator-vcc3v3-pcie20 {
- 		gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
- 		regulator-name = "vcc3v3_pcie20";
- 		regulator-boot-on;
--		regulator-min-microvolt = <1800000>;
--		regulator-max-microvolt = <1800000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
- 		startup-delay-us = <50000>;
- 		vin-supply = <&vcc5v0_sys>;
- 	};
---
-2.43.0
+- Mani
 
+> > 
+> > Fixes: 7cd210391101 ("dt-bindings: PCI: meson: add DT bindings for Amlogic Meson PCIe controller")
+> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+> > ---
+> >   Documentation/devicetree/bindings/pci/amlogic,axg-pcie.yaml | 6 +++---
+> >   1 file changed, 3 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/pci/amlogic,axg-pcie.yaml b/Documentation/devicetree/bindings/pci/amlogic,axg-pcie.yaml
+> > index 79a21ba0f9fd62804ba95fe8a6cc3252cf652197..c8258ef4032834d87cf3160ffd1d93812801b62a 100644
+> > --- a/Documentation/devicetree/bindings/pci/amlogic,axg-pcie.yaml
+> > +++ b/Documentation/devicetree/bindings/pci/amlogic,axg-pcie.yaml
+> > @@ -36,13 +36,13 @@ properties:
+> >     reg:
+> >       items:
+> > -      - description: External local bus interface registers
+> > +      - description: Data Bus Interface registers
+> >         - description: Meson designed configuration registers
+> >         - description: PCIe configuration space
+> >     reg-names:
+> >       items:
+> > -      - const: elbi
+> > +      - const: dbi
+> >         - const: cfg
+> >         - const: config
+> > @@ -113,7 +113,7 @@ examples:
+> >       pcie: pcie@f9800000 {
+> >           compatible = "amlogic,axg-pcie", "snps,dw-pcie";
+> >           reg = <0xf9800000 0x400000>, <0xff646000 0x2000>, <0xf9f00000 0x100000>;
+> > -        reg-names = "elbi", "cfg", "config";
+> > +        reg-names = "dbi", "cfg", "config";
+> >           interrupts = <GIC_SPI 177 IRQ_TYPE_EDGE_RISING>;
+> >           clocks = <&pclk>, <&clk_port>, <&clk_phy>;
+> >           clock-names = "pclk", "port", "general";
+> > 
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
