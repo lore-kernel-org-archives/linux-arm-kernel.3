@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3619ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F177CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UgNV5l/vcmwM3qAcCOldSF/JP53RMr5MkKHIorMUYbg=; b=SGRiD7i2tS6B0OQ4GE03objWcl
-	P45Z5GeqbQswXLLA3ZiOrp9u2vsxnaRcZptAJvUGQ9fVTK8ZXbJ+hp1l7gSlNh0tiy/BWkRjf++uj
-	zM9dyrOV4d2uaIhUc+jL8hAUxwYmOIGhtkSaPbhzyBgAns5/IYPxno/EjwM1SDX6mUKlBwp9vipyK
-	v5GPISiy0qjpOBPLrBcfxVLyMFB7djVe/5SoX6GxTdGMHp1k3WHhfcqeeAGVrRzRSQ2SeqEhnQbiX
-	IdeJFAatNMg/T8UC/g7UYofUA/BBDxhgXfqxhiMeu6yb6413pmBUR1jYYVAsND+frtJAK9m7ahd76
-	GzDI9o4Q==;
+	bh=Rf6umCTs6ByjmJaBYxnA7MT63F2QTyiiAoh4dGhmsWM=; b=CkJYRJ5kXVL1qvQPaiAW0JUdlL
+	MUYQdjMu07n9ioVtKhCMuRG2Em8kmG5ORnZhrVm0Mlpm9THQ0ZYUtpnGNyz2Ftz8c/KvJEZUb8f1o
+	/5cTsOqbaGjMbimAlFFgpHguyOkB/e/uGU9jRQRnpi62BB2t2WvQLHtWqRwz9kELB64pJm0B5JnQz
+	RnUoOToMqHdtsQ/apj9+NqyTLdd9nwFM9EbrulTXQQ9duIubCO++wBjiDqtZf36A04f70Jroa4ACk
+	9EOEAKMzM/D7GPZprxvy3aRL6t3Khsp4lanVPOk9LepnmSV8qUt+G8YolWUM3xFm0eS+mC6DLQBTP
+	/QhEOVtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwQd-0000000A8ue-1cps;
-	Mon, 03 Nov 2025 15:25:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vFwRa-0000000A95J-3SjY;
+	Mon, 03 Nov 2025 15:26:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwQb-0000000A8to-1kuu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Nov 2025 15:25:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UgNV5l/vcmwM3qAcCOldSF/JP53RMr5MkKHIorMUYbg=; b=C8qThO++DJBFv66V8Hy06ewgUU
-	TQUU1qkxx9SMoUnaqjmF4pD934xQEZ10T6n6hsTP53n5WhbSJUBV/cNveDuwshuz8UvfUNaPG2R5k
-	Gw1UZIuxhOUNqFYCjwezkhFe5F4zCjliQeDboV+H0HYvA7Qnob6r5YYVGWfQJxqLcf/GW+HkrUIVs
-	FaTUJ//zgjGSAHzZZe/dW7RPSjGFOtxENxow8ASPM3mmgVJ/zqfhESRODms9iOv3gm2sF7nbUKGQa
-	o3T/uJy6VTtTPnwID6wLNGS7eKbUspwLJwOIRADGeenA/Zgajf4NqPjFA1SMTswKPkqOpenbvBW8g
-	qv/u8bQQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvYq-0000000Fh0g-3LUM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:29:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18B6C2BC2
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 07:24:51 -0800 (PST)
-Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A38FB3F66E
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Nov 2025 07:24:58 -0800 (PST)
-Date: Mon, 3 Nov 2025 15:24:31 +0000
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Rob Herring <robh@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	Steven Price <steven.price@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	id 1vFwRY-0000000A94j-3CbA;
+	Mon, 03 Nov 2025 15:26:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B8E27416CD;
+	Mon,  3 Nov 2025 15:26:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6021C4CEFD;
+	Mon,  3 Nov 2025 15:25:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762183563;
+	bh=vTEEqBvf4uzbZw74WdV2qWj7leVepYcRsHzgRilYAj0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dR4lyfqyfIeJ3Ig5IPvfd8uQHC7OCGkNY5Ighzdr7vuELihzTMXwpe1J33wj3KKqF
+	 yXmy51zxJLjI4GwonRG1NW5zAvQittC2tg3yCjRcZMgdiNt30fumnf97uLkEaLYA+4
+	 r6swm9vdmo8l8qyKlx6b9m3eX9FfPDwKiTLK9JjVkvYookjhlcFEBfKoOVT0WsG9+p
+	 82keLUNdicu7twpN0Qvj8BU2ViUhie01STXSh+ioYOCdTJddR+uVE8NIufhxzLUmM/
+	 5GGmf0rKR9Akh31tWmPTVFX7fFXFURZ+UPi8gqlwg3/kVJsyQmz7JnBtqO5mhL3JQK
+	 383L40wVejGiQ==
+Date: Mon, 3 Nov 2025 15:25:56 +0000
+From: Lee Jones <lee@kernel.org>
+To: Johan Jonker <jbx6244@yandex.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v8 1/5] dt-bindings: gpu: mali-valhall-csf: add
- mediatek,mt8196-mali variant
-Message-ID: <aQjJLwd33aVY-ss9@e110455-lin.cambridge.arm.com>
-References: <20251017-mt8196-gpufreq-v8-0-98fc1cc566a1@collabora.com>
- <6599426.lOV4Wx5bFT@workhorse>
- <aQFoKoWIlf7xPzZX@e110455-lin.cambridge.arm.com>
- <3127655.ElGaqSPkdT@workhorse>
- <aQIc39c8MvU37G_q@e110455-lin.cambridge.arm.com>
+	Heiko Stuebner <heiko@sntech.de>,
+	William Breathitt Gray <wbg@kernel.org>, kernel@collabora.com,
+	Jonas Karlman <jonas@kwiboo.se>, Alexey Charkov <alchark@gmail.com>,
+	linux-rockchip@lists.infradead.org, linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH v3 2/5] mfd: Add Rockchip mfpwm driver
+Message-ID: <20251103152556.GB8064@google.com>
+References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
+ <20251027-rk3576-pwm-v3-2-654a5cb1e3f8@collabora.com>
+ <16341fe2-7d2b-45a6-a861-93950c1bbd1f@yandex.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aQIc39c8MvU37G_q@e110455-lin.cambridge.arm.com>
+In-Reply-To: <16341fe2-7d2b-45a6-a861-93950c1bbd1f@yandex.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_142933_077254_91C9BBD3 
-X-CRM114-Status: GOOD (  56.21  )
+X-CRM114-CacheID: sfid-20251103_072604_850551_13EC2507 
+X-CRM114-Status: GOOD (  55.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,185 +82,343 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 01:56:14PM +0000, Liviu Dudau wrote:
-> On Wed, Oct 29, 2025 at 02:42:35PM +0100, Nicolas Frattaroli wrote:
-> > On Wednesday, 29 October 2025 02:04:42 Central European Standard Time Liviu Dudau wrote:
-> > > On Tue, Oct 28, 2025 at 09:51:43PM +0100, Nicolas Frattaroli wrote:
-> > > > On Tuesday, 28 October 2025 18:12:35 Central European Standard Time Liviu Dudau wrote:
-> > > > > On Fri, Oct 17, 2025 at 05:31:08PM +0200, Nicolas Frattaroli wrote:
-> > > > > > The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
-> > > > > > control the power and frequency of the GPU. This is modelled as a power
-> > > > > > domain and clock provider.
-> > > > > > 
-> > > > > > It lets us omit the OPP tables from the device tree, as those can now be
-> > > > > > enumerated at runtime from the MCU.
-> > > > > > 
-> > > > > > Add the necessary schema logic to handle what this SoC expects in terms
-> > > > > > of clocks and power-domains.
-> > > > > > 
-> > > > > > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> > > > > > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> > > > > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > > > > > ---
-> > > > > >  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 37 +++++++++++++++++++++-
-> > > > > >  1 file changed, 36 insertions(+), 1 deletion(-)
-> > > > > > 
-> > > > > > diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > > > > > index 613040fdb444..860691ce985e 100644
-> > > > > > --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > > > > > +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > > > > > @@ -45,7 +45,9 @@ properties:
-> > > > > >      minItems: 1
-> > > > > >      items:
-> > > > > >        - const: core
-> > > > > > -      - const: coregroup
-> > > > > > +      - enum:
-> > > > > > +          - coregroup
-> > > > > > +          - stacks
-> > > > > >        - const: stacks
-> > > > > 
-> > > > > I'm not sure how to parse this part of the change. We're overwriting the property
-> > > > > for mt8196-mali anyway so why do we need this? And if we do, should 'stacks'
-> > > > > still remain as a const?
-> > > > 
-> > > > The properties section outside of the if branches outside here
-> > > > specifies a pattern of properties that matches for all devices.
-> > > > 
-> > > > In this case, I changed it so that the second clock-names item
-> > > > may either be "coregroup" or "stacks".
-> > > 
-> > > Why would we want to do that for non-MT8196 devices? It doesn't make sense to me.
-> > > The overwrite in the if branch should be enough to give you want you want (i.e.
-> > > core followed by stacks and only that).
-> > 
-> > I built my understanding of why on the same reason of why we specify
-> > a minItems of 1 but require it to be 3 in the if branch of the only
-> > other compatible (rk3588): it describes what may be found in those
-> > properties, not what is required by the specific compatible preceding
-> > the generic valhall compatible. arm,mali-valhall-csf is currently
-> > not described as a compatible that's allowed to appear stand-alone
-> > without some other compatible before it to specify further which SoC
-> > it's on, so it really just is whatever RK3588 needs vs. whatever
-> > MT8196 needs at the moment.
-> > 
-> > Arguably though, there's no functional difference here, and I'm not
-> > aware on any rules regarding this. My change may be problematic
-> > however, because of the whole double stacks thing.
-> 
-> I think I'm saying the same thing. The "arm,mali-valhall-csf" is the most general
-> compatible string and defines the common denominator if not overwritten. I'm
-> not expecting anyone to use just that string for a compatible, but downstream
-> we have additional compatible strings that don't have to update the schema at all.
-> rk3588 has a specific setup that requires 3 clocks so you cannot have any optional,
-> that's why it is overwriting the minItems. Your whole double stack thing is
-> actually not needed if all you do is overwrite in the MT8196 case the clock
-> names and maxItems to only need two clocks.
-> 
-> > 
-> > > > Yes, the third "stacks"
-> > > > remains, though if you wanted to be extra precise you could
-> > > > then specify in the non-MT8196 cases that we should not have
-> > > > stacks followed by stacks, but I'd wager some checker for
-> > > > duplicate names may already catch that.
-> > > > 
-> > > > However, I don't think it's a big enough deal to reroll this
-> > > > series again.
-> > > 
-> > > I'm not asking you to re-roll the series but if you agree to drop that
-> > > part I can make the edit when merging it.
-> > 
-> > If the other DT maintainers (especially Rob who gave it his R-b)
-> > are okay with dropping it, then yes please do.
-> 
-> Rob, do you agree with dropping the change in the generic bindings?
+On Tue, 28 Oct 2025, Johan Jonker wrote:
 
-I haven't got any answers, so I'll push the patch as is and send a separate
-fix that hopefully catches Rob's attention quicker.
-
-Best regards,
-Liviu
-
-
-> > > > > 
-> > > > > >  
-> > > > > >    mali-supply: true
-> > > > > > @@ -110,6 +112,27 @@ allOf:
-> > > > > >          power-domain-names: false
-> > > > > >        required:
-> > > > > >          - mali-supply
-> > > > > > +  - if:
-> > > > > > +      properties:
-> > > > > > +        compatible:
-> > > > > > +          contains:
-> > > > > > +            const: mediatek,mt8196-mali
-> > > > > > +    then:
-> > > > > > +      properties:
-> > > > > > +        mali-supply: false
-> > > > > > +        sram-supply: false
-> > > > > > +        operating-points-v2: false
-> > > > > > +        power-domains:
-> > > > > > +          maxItems: 1
-> > > > > > +        power-domain-names: false
-> > > > > > +        clocks:
-> > > > > > +          maxItems: 2
-> > > > > > +        clock-names:
-> > > > > > +          items:
-> > > > > > +            - const: core
-> > > > > > +            - const: stacks
-> > > > > > +      required:
-> > > > > > +        - power-domains
-> > > > > >  
-> > > > > >  examples:
-> > > > > >    - |
-> > > > > > @@ -145,5 +168,17 @@ examples:
-> > > > > >              };
-> > > > > >          };
-> > > > > >      };
-> > > > > > +  - |
-> > > > > > +    gpu@48000000 {
-> > > > > > +        compatible = "mediatek,mt8196-mali", "arm,mali-valhall-csf";
-> > > > > > +        reg = <0x48000000 0x480000>;
-> > > > > > +        clocks = <&gpufreq 0>, <&gpufreq 1>;
-> > > > > > +        clock-names = "core", "stacks";
-> > > > > > +        interrupts = <GIC_SPI 606 IRQ_TYPE_LEVEL_HIGH 0>,
-> > > > > > +                     <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH 0>,
-> > > > > > +                     <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH 0>;
-> > > > > > +        interrupt-names = "job", "mmu", "gpu";
-> > > > > > +        power-domains = <&gpufreq>;
-> > > > > > +    };
-> > > > > >  
-> > > > > >  ...
-> > > > > > 
-> > > > > 
-> > > > > 
-> > > > 
-> > > > 
-> > > > 
-> > > > 
-> > > 
-> > > 
-> > 
-> > 
-> > 
-> > 
 > 
-> -- 
-> ====================
-> | I would like to |
-> | fix the world,  |
-> | but they're not |
-> | giving me the   |
->  \ source code!  /
->   ---------------
->     ¯\_(ツ)_/¯
+> 
+> On 10/27/25 18:11, Nicolas Frattaroli wrote:
+> > With the Rockchip RK3576, the PWM IP used by Rockchip has changed
+> > substantially. Looking at both the downstream pwm-rockchip driver as
+> > well as the mainline pwm-rockchip driver made it clear that with all its
+> > additional features and its differences from previous IP revisions, it
+> > is best supported in a new driver.
+> > 
+> > This brings us to the question as to what such a new driver should be.
+> > To me, it soon became clear that it should actually be several new
+> > drivers, most prominently when Uwe Kleine-König let me know that I
+> > should not implement the pwm subsystem's capture callback, but instead
+> > write a counter driver for this functionality.
+> > 
+> > Combined with the other as-of-yet unimplemented functionality of this
+> > new IP, it became apparent that it needs to be spread across several
+> > subsystems.
+> > 
+> > For this reason, we add a new MFD core driver, called mfpwm (short for
+> > "Multi-function PWM"). This "parent" driver makes sure that only one
+> > device function driver is using the device at a time, and is in charge
+> > of registering the MFD cell devices for the individual device functions
+> > offered by the device.
+> > 
+> > An acquire/release pattern is used to guarantee that device function
+> > drivers don't step on each other's toes.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  MAINTAINERS                        |   2 +
+> >  drivers/mfd/Kconfig                |  15 ++
+> >  drivers/mfd/Makefile               |   1 +
+> >  drivers/mfd/rockchip-mfpwm.c       | 340 +++++++++++++++++++++++++++
+> >  include/linux/mfd/rockchip-mfpwm.h | 454 +++++++++++++++++++++++++++++++++++++
+> >  5 files changed, 812 insertions(+)
+> > 
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index baecabab35a2..8f3235ba825e 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -22372,6 +22372,8 @@ L:	linux-rockchip@lists.infradead.org
+> >  L:	linux-pwm@vger.kernel.org
+> >  S:	Maintained
+> 
+> >  F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
+> 
+> A question not so much for Nicolas specific:
+> The yaml documents already have a 'maintainers' entry.
+> However MAINTAINERS is full yaml entries.
+> Could someone explain why we still need dual registration?
+> 
+> maintainers:
+>   - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> > +F:	drivers/soc/rockchip/mfpwm.c
+> > +F:	include/soc/rockchip/mfpwm.h
+> 
+> different file name and location?
+> 
+>   drivers/mfd/rockchip-mfpwm.c       | 340 +++++++++++++++++++++++++++
+>   include/linux/mfd/rockchip-mfpwm.h | 454 +++++++++++++++++++++++++++++++++++++
+> 
+> 
+> >  
+> >  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+> >  M:	Daniel Golle <daniel@makrotopia.org>
+> > diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> > index dbeac6825a10..8b3a3160fbdf 100644
+> > --- a/drivers/mfd/Kconfig
+> > +++ b/drivers/mfd/Kconfig
+> > @@ -1367,6 +1367,21 @@ config MFD_RC5T583
+> >  	  Additional drivers must be enabled in order to use the
+> >  	  different functionality of the device.
+> >  
+> > +config MFD_ROCKCHIP_MFPWM
+> > +	tristate "Rockchip multi-function PWM controller"
+> > +	depends on OF
+> > +	depends on HAS_IOMEM
+> > +	depends on COMMON_CLK
+> > +	select MFD_CORE
+> > +	help
+> > +	  Some Rockchip SoCs, such as the RK3576, use a PWM controller that has
+> > +	  several different functions, such as generating PWM waveforms but also
+> > +	  counting waveforms.
+> > +
+> > +	  This driver manages the overall device, and selects between different
+> > +	  functionalities at runtime as needed. Drivers for them are implemented
+> > +	  in their respective subsystems.
+> > +
+> >  config MFD_RK8XX
+> >  	tristate
+> >  	select MFD_CORE
+> > diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> > index e75e8045c28a..ebadbaea9e4a 100644
+> > --- a/drivers/mfd/Makefile
+> > +++ b/drivers/mfd/Makefile
+> > @@ -231,6 +231,7 @@ obj-$(CONFIG_MFD_PALMAS)	+= palmas.o
+> >  obj-$(CONFIG_MFD_VIPERBOARD)    += viperboard.o
+> >  obj-$(CONFIG_MFD_NTXEC)		+= ntxec.o
+> >  obj-$(CONFIG_MFD_RC5T583)	+= rc5t583.o rc5t583-irq.o
+> > +obj-$(CONFIG_MFD_ROCKCHIP_MFPWM)	+= rockchip-mfpwm.o
+> >  obj-$(CONFIG_MFD_RK8XX)		+= rk8xx-core.o
+> >  obj-$(CONFIG_MFD_RK8XX_I2C)	+= rk8xx-i2c.o
+> >  obj-$(CONFIG_MFD_RK8XX_SPI)	+= rk8xx-spi.o
+> > diff --git a/drivers/mfd/rockchip-mfpwm.c b/drivers/mfd/rockchip-mfpwm.c
+> > new file mode 100644
+> > index 000000000000..08c2d8da41b7
+> > --- /dev/null
+> > +++ b/drivers/mfd/rockchip-mfpwm.c
+> > @@ -0,0 +1,340 @@
+> > +// SPDX-License-Identifier: GPL-2.0-or-later
+> > +/*
+> > + * Copyright (c) 2025 Collabora Ltd.
+> > + *
+> > + * A driver to manage all the different functionalities exposed by Rockchip's
+> > + * PWMv4 hardware.
+> > + *
+> > + * This driver is chiefly focused on guaranteeing non-concurrent operation
+> > + * between the different device functions, as well as setting the clocks.
+> > + * It registers the device function platform devices, e.g. PWM output or
+> > + * PWM capture.
+> > + *
+> > + * Authors:
+> > + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > + */
+> > +
+> > +#include <linux/array_size.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/mfd/core.h>
+> > +#include <linux/mfd/rockchip-mfpwm.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/overflow.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/spinlock.h>
+> > +
+> > +/**
+> > + * struct rockchip_mfpwm - private mfpwm driver instance state struct
+> > + * @pdev: pointer to this instance's &struct platform_device
+> > + * @base: pointer to the memory mapped registers of this device
+> > + * @pwm_clk: pointer to the PLL clock the PWM signal may be derived from
+> > + * @osc_clk: pointer to the fixed crystal the PWM signal may be derived from
+> > + * @rc_clk: pointer to the RC oscillator the PWM signal may be derived from
+> > + * @chosen_clk: a clk-mux of pwm_clk, osc_clk and rc_clk
+> > + * @pclk: pointer to the APB bus clock needed for mmio register access
+> > + * @active_func: pointer to the currently active device function, or %NULL if no
+> > + *               device function is currently actively using any of the shared
+> > + *               resources. May only be checked/modified with @state_lock held.
+> > + * @acquire_cnt: number of times @active_func has currently mfpwm_acquire()'d
+> > + *               it. Must only be checked or modified while holding @state_lock.
+> > + * @state_lock: this lock is held while either the active device function, the
+> > + *              enable register, or the chosen clock is being changed.
+> > + * @irq: the IRQ number of this device
+> > + */
+> > +struct rockchip_mfpwm {
+> > +	struct platform_device *pdev;
+> > +	void __iomem *base;
+> > +	struct clk *pwm_clk;
+> > +	struct clk *osc_clk;
+> > +	struct clk *rc_clk;
+> > +	struct clk *chosen_clk;
+> > +	struct clk *pclk;
+> > +	struct rockchip_mfpwm_func *active_func;
+> > +	unsigned int acquire_cnt;
+> > +	spinlock_t state_lock;
+> > +	int irq;
+> > +};
+> > +
+> > +static atomic_t subdev_id = ATOMIC_INIT(0);
+> > +
+> > +static inline struct rockchip_mfpwm *to_rockchip_mfpwm(struct platform_device *pdev)
+> > +{
+> > +	return platform_get_drvdata(pdev);
+> > +}
+> > +
+> > +static int mfpwm_check_pwmf(const struct rockchip_mfpwm_func *pwmf,
+> > +			    const char *fname)
+> > +{
+> > +	struct device *dev = &pwmf->parent->pdev->dev;
+> > +
+> > +	if (IS_ERR_OR_NULL(pwmf)) {
+> > +		dev_warn(dev, "called %s with an erroneous handle, no effect\n",
+> > +			 fname);
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	if (IS_ERR_OR_NULL(pwmf->parent)) {
+> > +		dev_warn(dev, "called %s with an erroneous mfpwm_func parent, no effect\n",
+> > +			 fname);
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +__attribute__((nonnull))
+> > +static int mfpwm_do_acquire(struct rockchip_mfpwm_func *pwmf)
+> > +{
+> > +	struct rockchip_mfpwm *mfpwm = pwmf->parent;
+> > +	unsigned int cnt;
+> > +
+> > +	if (mfpwm->active_func && pwmf->id != mfpwm->active_func->id)
+> > +		return -EBUSY;
+> > +
+> > +	if (!mfpwm->active_func)
+> > +		mfpwm->active_func = pwmf;
+> > +
+> > +	if (!check_add_overflow(mfpwm->acquire_cnt, 1, &cnt)) {
+> > +		mfpwm->acquire_cnt = cnt;
+> > +	} else {
+> > +		dev_warn(&mfpwm->pdev->dev, "prevented acquire counter overflow in %s\n",
+> > +			 __func__);
+> > +		return -EOVERFLOW;
+> > +	}
+> > +
+> > +	dev_dbg(&mfpwm->pdev->dev, "%d acquired mfpwm, acquires now at %u\n",
+> > +		pwmf->id, mfpwm->acquire_cnt);
+> > +
+> > +	return clk_enable(mfpwm->pclk);
+> > +}
+> > +
+> > +int mfpwm_acquire(struct rockchip_mfpwm_func *pwmf)
+> > +{
+> > +	struct rockchip_mfpwm *mfpwm;
+> > +	unsigned long flags;
+> > +	int ret = 0;
+> > +
+> > +	ret = mfpwm_check_pwmf(pwmf, "mfpwm_acquire");
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	mfpwm = pwmf->parent;
+> > +	dev_dbg(&mfpwm->pdev->dev, "%d is attempting to acquire\n", pwmf->id);
+> > +
+> > +	if (!spin_trylock_irqsave(&mfpwm->state_lock, flags))
+> > +		return -EBUSY;
+> > +
+> > +	ret = mfpwm_do_acquire(pwmf);
+> > +
+> > +	spin_unlock_irqrestore(&mfpwm->state_lock, flags);
+> > +
+> > +	return ret;
+> > +}
+> > +EXPORT_SYMBOL_NS_GPL(mfpwm_acquire, "ROCKCHIP_MFPWM");
+> > +
+> > +__attribute__((nonnull))
+> > +static void mfpwm_do_release(const struct rockchip_mfpwm_func *pwmf)
+> > +{
+> > +	struct rockchip_mfpwm *mfpwm = pwmf->parent;
+> > +
+> > +	if (!mfpwm->active_func)
+> > +		return;
+> > +
+> > +	if (mfpwm->active_func->id != pwmf->id)
+> > +		return;
+> > +
+> > +	/*
+> > +	 * No need to check_sub_overflow here, !mfpwm->active_func above catches
+> > +	 * this type of problem already.
+> > +	 */
+> > +	mfpwm->acquire_cnt--;
+> > +
+> > +	if (!mfpwm->acquire_cnt)
+> > +		mfpwm->active_func = NULL;
+> > +
+> > +	clk_disable(mfpwm->pclk);
+> > +}
+> > +
+> > +void mfpwm_release(const struct rockchip_mfpwm_func *pwmf)
+> > +{
+> > +	struct rockchip_mfpwm *mfpwm;
+> > +	unsigned long flags;
+> > +
+> > +	if (mfpwm_check_pwmf(pwmf, "mfpwm_release"))
+> > +		return;
+> > +
+> > +	mfpwm = pwmf->parent;
+> > +
+> > +	spin_lock_irqsave(&mfpwm->state_lock, flags);
+> > +	mfpwm_do_release(pwmf);
+> > +	dev_dbg(&mfpwm->pdev->dev, "%d released mfpwm, acquires now at %u\n",
+> > +		pwmf->id, mfpwm->acquire_cnt);
+> > +	spin_unlock_irqrestore(&mfpwm->state_lock, flags);
+> > +}
+> > +EXPORT_SYMBOL_NS_GPL(mfpwm_release, "ROCKCHIP_MFPWM");
+> > +
+> > +/**
+> > + * mfpwm_register_subdev - register a single mfpwm_func
+> > + * @mfpwm: pointer to the parent &struct rockchip_mfpwm
+> > + * @name: sub-device name string
+> > + *
+> > + * Allocate a single &struct mfpwm_func, fill its members with appropriate data,
+> > + * and register a new mfd cell.
+> > + *
+> > + * Returns: 0 on success, negative errno on error
+> > + */
+> > +static int mfpwm_register_subdev(struct rockchip_mfpwm *mfpwm,
+> > +				 const char *name)
+> > +{
+> > +	struct rockchip_mfpwm_func *func;
+> > +	struct mfd_cell cell = {};
+> > +
+> > +	func = devm_kzalloc(&mfpwm->pdev->dev, sizeof(*func), GFP_KERNEL);
+> > +	if (IS_ERR(func))
+> > +		return PTR_ERR(func);
+> > +	func->irq = mfpwm->irq;
+> > +	func->parent = mfpwm;
+> > +	func->id = atomic_inc_return(&subdev_id);
+> > +	func->base = mfpwm->base;
+> > +	func->core = mfpwm->chosen_clk;
+> > +	cell.name = name;
+> > +	cell.platform_data = func;
+> > +	cell.pdata_size = sizeof(*func);
+> > +	// cell.ignore_resource_conflicts = true;
+> > +	// cell.resources = mfpwm->pdev->resource;
+> > +	// cell.num_resources = mfpwm->pdev->num_resources;
+> > +
+> > +	return devm_mfd_add_devices(&mfpwm->pdev->dev, func->id, &cell, 1, NULL,
+> > +				    0, NULL);
+> > +}
+> > +
+> > +static int mfpwm_register_subdevs(struct rockchip_mfpwm *mfpwm)
+> > +{
+> > +	int ret;
+> > +
+> 
+> > +	ret = mfpwm_register_subdev(mfpwm, "pwm-rockchip-v4");
+> 
+> Not sure who came up with this name?
+> In case we need to filter wouldn't be easier to order it just like the bindings: manufacture '-' function
+
+Please snip your replies in the future.
 
 -- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+Lee Jones [李琼斯]
 
