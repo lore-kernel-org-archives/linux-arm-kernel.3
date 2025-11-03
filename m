@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CE5CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75D2CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e5n02YsPUymsm+YL55DgTYP/9/gC3odoxIrhflBuFxU=; b=Z6sWFVudriY9ZeHWrxmjLQMXce
-	ahVdQPkmIXzWs3IcO1i+sfYh3yFMYwTROG722UoV9lP5OfhQY9bGX2NtrLwvQHZZXyU7zOQyVDQjg
-	zG2/fIkVGsU6Waq52Pth1ZET3atLLzXqp2OrscJH7+b14pLUtw26KEreNkZHAlt/x+qF1kYx6Qs80
-	6h88FDAidi4t22StjACHS1QYLcJ8UqDRXTSGzCvRfWDCznkDrtPcD/RwrwrV9muRHo4jqyDC8zP1r
-	RvQR9cPYGAACQgev774YtMklf0iZC0NcV+I+s8A4+1ApNJR+x8pbMZ/OOwuT3IisQZvui/Ph+zgf+
-	htOnCi4A==;
+	bh=tKV1YRKzZazkL/NoJzDKcCgEVUsgaor2KPH1iKQjMzM=; b=0OC9fX5yCdMDn+omHndmgytnTB
+	XHw1QF6hEje/5RLpRa6Dm10eF9fF+EBglPcoHVjFFFyDnMXbeuDV4IsJpiTmIu9n9aZxbLYdgfkwQ
+	3gZgqY7oewyr1tWFK9ahpTeR7xOiPU5DQOG0op74GJ58gr4RME/CxiTlW6jLm2LCFWUw84yV1HUzA
+	AaY8vEjE5wk4klRJgjL2ukfER+yEpoLqklQLrMBeX7t9eiS68dEhY5ntmKGD7nx+5iySLEjWAit8Z
+	irsSo6Oea9o7E6ChC54Ye0famyBPDHEqSCXkqgZrz46FHVXFhgWG5J10Z3L2KN0bL13A5sZAT8wIb
+	3IWn9U5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxFP-0000000AExi-46q9;
-	Mon, 03 Nov 2025 16:17:36 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vFxFp-0000000AF1k-1Hwy;
+	Mon, 03 Nov 2025 16:18:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxFN-0000000AEwv-049x
+	id 1vFxFm-0000000AF0o-1hip
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:17:34 +0000
-Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 43F9B22E;
-	Mon,  3 Nov 2025 17:15:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762186534;
-	bh=tU20dHhvzTic1V34oCJnXHvxilHx8SjrMcH9p7oyPPg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tQRQPOThqW29KOusEVJeufmpzOaCbYCbNbLbWE1NpG84mKLRIWv77MbLFXjZkhVXJ
-	 QDs/t6uzSZDbGhk6r85U8+COeUQjXNnUrpYgcy3MftX22HYkHu8Im67VyQPnFVAIvg
-	 WFufq9+zZbS7jmnGDJ4O+oOSXwHihz1FxnS5mhTk=
-Message-ID: <8c5a4c68-8299-4d8f-96b2-8db232df70fe@ideasonboard.com>
-Date: Mon, 3 Nov 2025 16:17:24 +0000
+	Mon, 03 Nov 2025 16:17:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CBEFA407BF;
+	Mon,  3 Nov 2025 16:17:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68BD1C4CEE7;
+	Mon,  3 Nov 2025 16:17:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762186677;
+	bh=EM2WTYue35Sk0aDPoDRkWDE6sq0fSW1jSC3/FoLVVcE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MCxWYEWncWa8+Yshj3NmPUxnSbXXSPeeC3aMlzImtOS1KJLxVn+1hts9ARuWjHcsH
+	 AqGyVQ3nfJ2eSR+XlCluEr/7lsPhsZ7iUtOJwOOtLHJTs0I1Vcn/XzX6iVbOp47wJT
+	 USA+ljyjFnsiFx/jFMFe0cp8Qsi/rpzmipG7hWqhyTCU0POoIlbkltVEcQo4YnRiCO
+	 TAgLoaviqB3XrJGVh8itMRKaJsWNYOLQ4UZvJyVB6zT+mclpeYR5e8PTTN7fX8zh32
+	 QqyMo2NqG1YMdoZEmjwqkrwxwbm2Q6ZZlmZ1JLl3S6UqnyoKR9Vn7yTgk6yk+OFJ9r
+	 TVX1fq43bzaWA==
+From: Will Deacon <will@kernel.org>
+To: Rob Clark <robin.clark@oss.qualcomm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Abel Vesa <abel.vesa@linaro.org>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: Add Glymur MDSS compatible
+Date: Mon,  3 Nov 2025 16:17:49 +0000
+Message-Id: <176218536011.3313519.18252480197607777173.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20251028-iommu-arm-smmu-qcom-add-glymur-v1-1-73f8f884c9b4@linaro.org>
+References: <20251028-iommu-arm-smmu-qcom-add-glymur-v1-1-73f8f884c9b4@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 03/15] dt-bindings: media: Add bindings for ARM
- mali-c55
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
- jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com, robh+dt@kernel.org,
- mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
- jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
- laurent.pinchart@ideasonboard.com,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
- <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
- <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-In-Reply-To: <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_081733_198015_50B0A593 
-X-CRM114-Status: GOOD (  31.39  )
+X-CRM114-CacheID: sfid-20251103_081758_464628_4172D015 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,218 +81,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar
+On Tue, 28 Oct 2025 14:38:19 +0200, Abel Vesa wrote:
+> Add the Glymur DPU compatible to clients compatible list, as it needs
+> the workarounds.
+> 
+> 
 
-On 28/10/2025 18:23, Lad, Prabhakar wrote:
-> Hi Daniel,
-> 
-> Thank you for the patch.
-> 
-> On Thu, Oct 2, 2025 at 11:19 AM Daniel Scally
-> <dan.scally@ideasonboard.com> wrote:
->>
->> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
->>
->> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
->> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
->> ---
->> Changes in v12:
->>
->>          - _Actually_ dropped the arm,inline property mode, having forgotten to
->>            do so in v11.
->>
->> Changes in v11:
->>
->>          - Dropped in arm,inline_mode property. This is now identical to the
->>            reviewed version 8, so I have kept the tags on there.
->>
->> Changes in v10:
->>
->>          - None
->>
->> Changes in v9:
->>
->>          - Added the arm,inline_mode property to differentiate between inline and
->>            memory input configurations
->>
->> Changes in v8:
->>
->>          - Added the video clock back in. Now that we have actual hardware it's
->>            clear that it's necessary.
->>          - Added reset lines
->>          - Dropped R-bs
->>
->> Changes in v7:
->>
->>          - None
->>
->> Changes in v6:
->>
->>          - None
->>
->> Changes in v5:
->>
->>          - None
->>
->> Changes in v4:
->>
->>          - Switched to port instead of ports
->>
->> Changes in v3:
->>
->>          - Dropped the video clock as suggested by Laurent. I didn't retain it
->>          for the purposes of the refcount since this driver will call .s_stream()
->>          for the sensor driver which will refcount the clock anyway.
->>          - Clarified that the port is a parallel input port rather (Sakari)
->>
->> Changes in v2:
->>
->>          - Added clocks information
->>          - Fixed the warnings raised by Rob
->> ---
->>   .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++++++++
->>   1 file changed, 82 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1bae234147eb967a8
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
->> @@ -0,0 +1,82 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: ARM Mali-C55 Image Signal Processor
->> +
->> +maintainers:
->> +  - Daniel Scally <dan.scally@ideasonboard.com>
->> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: arm,mali-c55
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    items:
->> +      - description: ISP Video Clock
->> +      - description: ISP AXI clock
->> +      - description: ISP AHB-lite clock
-> As per RZ/V2H HW manual we have reg clock looking at the driver code
-> it does have readl. IVC has reg clock if IVC driver fails are you
-> still able to read/write regs from ISP driver?
- >
- > I think we do need to pass reg clock too.
+Applied to iommu (arm/smmu/updates), thanks!
 
-Yes - but I should clarify that the names are from the arm documentation that we had when we 
-originally developed the ISP driver. The RZ/V2H documentation treats the ISP and IVC as one block 
-that shares 4 clocks and resets, but when we originally developed the ISP driver the platform we 
-used had the ISP implemented as an inline configuration (taking data directly from a csi-2 receiver 
-without an IVC equivalent), and the documentation detailed just the three clocks and resets. The 
-dtsi changes for the RZ/V2H(P) [1] assign clocks 226, 228 and 229 to the ISP which are named 
-reg_aclk, vin_aclk and isp_sclk in the renesas documentation.
+[1/1] iommu/arm-smmu-qcom: Add Glymur MDSS compatible
+      https://git.kernel.org/iommu/c/617937d4d553
 
-The IVC gets pclk, vin_aclk and isp_sclk.
+Cheers,
+-- 
+Will
 
-[1] https://lore.kernel.org/linux-renesas-soc/20251010-kakip_dts-v1-1-64f798ad43c9@ideasonboard.com/
-
-> Also for IVC we do have a main clock (which is a system clock).  Can
-> you please educate me on what is the purpose of it. Just curious as we
-> pass to IVC and not ISP.
-
-The IVC uniquely gets the one called "pclk" in renesas documentation, with the description "Input 
-Video Control block register access APB clock".
-
-Thanks
-Dan
-
-> 
->> +
->> +  clock-names:
->> +    items:
->> +      - const: vclk
->> +      - const: aclk
->> +      - const: hclk
-> Not sure if we want to have the same names as IVC or vice versa.
-> 
->> +
->> +  resets:
->> +    items:
->> +      - description: vclk domain reset
->> +      - description: aclk domain reset
->> +      - description: hclk domain reset
-> Same query here, wrt register reset.
-> 
->> +
->> +  reset-names:
->> +    items:
->> +      - const: vresetn
->> +      - const: aresetn
->> +      - const: hresetn
-> ditto naming.
-> 
->> +
->> +  port:
->> +    $ref: /schemas/graph.yaml#/properties/port
->> +    description: Input parallel video bus
->> +
->> +    properties:
->> +      endpoint:
->> +        $ref: /schemas/graph.yaml#/properties/endpoint
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - clocks
->> +  - clock-names
->> +  - port
-> maybe also resets and rest-names should be part of required properties?
-> 
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    mali_c55: isp@400000 {
-> we could drop `mali_c55`
-> 
->> +      compatible = "arm,mali-c55";
->> +      reg = <0x400000 0x200000>;
->> +      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
->> +      clock-names = "vclk", "aclk", "hclk";
->> +      resets = <&resets 0>, <&resets 1>, <&resets 2>;
->> +      reset-names = "vresetn", "aresetn", "hresetn";
->> +      interrupts = <0>;
-> I would have a non-zero val here.
-> 
-> Cheers,
-> Prabhakar
-> 
->> +
->> +      port {
->> +        isp_in: endpoint {
->> +            remote-endpoint = <&csi2_rx_out>;
->> +        };
->> +      };
->> +    };
->> +...
->>
->> --
->> 2.43.0
->>
->>
-
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
