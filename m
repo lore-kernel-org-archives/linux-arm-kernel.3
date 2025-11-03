@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9146DCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A98ACCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BtJIApzR/ypDFDwewvSsH7n60xyLgZASA9+u6fTmTYc=; b=i2VRJ2IQliht7JWqgxuCnGd2re
-	QhmwMKpqYwaWJ5vVRVd2qPG3sQe9mP9UtVEcOc3l8fx/My4z5a0bwJq5yMsZIf6WBY6HA3PaH94tI
-	gly7zJCfLPTRweUAWTZ4Fk09Y4iUqEutH8kCVzIWpItIEAHUszs1iUU2EOFOciXZR1rrllT+ieeLy
-	q65SPXpgmAOTLhBxbZxNsFCs202/1k1QjCz2DhcnmveIMR8GJEktBUA+NT39myEcHPvNZfLqqRfxo
-	iD/LnmolFsOkpkMdARzPOpjdUTLbCJA0FcjM+D/xpX/B23qw+vehbymEkA5mTvZoNykCUMhXUc2IP
-	e+WDLatA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dunzXFHc5lhT9mpYA8ksyWSFETyML7Jg4ymCrcTM+K0=; b=cXB38JySFwbpd3c2a+IDC2+wjP
+	gCCStaVpETn5tv6v/bHJbu9mJ9tCII25itRz2RCu0d4QgHu+hCHfRo5kmFzU12I2Fjt9v5I8v1AdV
+	ZlVKEMQ8ncYtM5faxiGvZ/mmoD+8Z3Jycyo7s9d18rnVdnJvw7te2ZQUEbl6vhajJKerTt0pRuZV+
+	xZApUv6V8NabJX62jD/g4jXJKFMgsttT3foVCk+3w0FZkqLzPfuGUxk+HudWJ3vT3rhoxJ6EX6ArY
+	ZMWc/f4HtG8eyMHdZEIqCveG6pSnW3LT6qv6QJk3WYx7DdGAzPMQsG31nScHkfg31hJnqkT6UKQ+s
+	8RwRKMqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqp-0000000ALMB-18k2;
-	Mon, 03 Nov 2025 16:56:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vFxre-0000000AMY2-3l3h;
+	Mon, 03 Nov 2025 16:57:06 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqW-0000000AKjA-3mAU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:55:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A286240A17;
-	Mon,  3 Nov 2025 16:55:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E28A1C116C6;
-	Mon,  3 Nov 2025 16:55:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762188955;
-	bh=norwYxHA6VI/ySU0ex5Ew7OW1FQwMlwu39WjPcjgOKw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZPmPZfN0yXQ5Ndyhd1mm6d5YyvVQn+2NS84I1P7cyPdxS80PfY2ZucI9nnhbgf4WY
-	 s7T0hQkmYh3BvC31fK7wOMt5xVzp7z74BHWa8QiGuneY+AjDKqKSdLT2+rUSqfiIRO
-	 dq+CUk9yAJPAVVOoWmGfXhaovQn/CvtO/zMXNg05HM/YIbPUs0MlUvc8htSP7z6LHt
-	 MfQNRhhp20WhSWzc6Igwle5mi2X3jI4fgZVoTroQvMzbrqdD1j07JdGxQgKVOnVbrm
-	 vd3TNzlzeFyZKWqiC0BIaRsKVR8HfiPDkfKQworpdeGvoSegLcGOaqT5hTJ1SqTz0O
-	 PrtNV6DhYV2Ww==
-Date: Mon, 3 Nov 2025 16:55:52 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
-	Andy Lutomirski <luto@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Nick Alcock <nick.alcock@oracle.com>,
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Shuah Khan <shuah@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
-	Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-s390@vger.kernel.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
-Message-ID: <aQjemPIbHMplGD4N@finisterre.sirena.org.uk>
-References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
- <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
- <aQjJNmwniQwwjeBR@finisterre.sirena.org.uk>
- <87bjljw1ra.ffs@tglx>
+	id 1vFxrc-0000000AMTB-1Oqf;
+	Mon, 03 Nov 2025 16:57:06 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id CD22BC0005D0;
+	Mon,  3 Nov 2025 08:57:01 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com CD22BC0005D0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1762189021;
+	bh=XfjtYAu8vP41GKh4XxwuCGBykNYszRlSPcZFuY4ffG0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MYN2caJwDsCWoZex5JAtKGeXlVrW4IyGa4NMOtLUSBHy3Z5XXpEt+CZkB+ktj7sYY
+	 xsOJoxU5K0rzDC5i7elWK5R9AzzJSJVZKOJnWPfUEw2bk+RhkPxWNtq18VWNtOWzJM
+	 ol+3hd42OvbHtYfHQ1CLwPviZsrRHDLsDENVtAE0=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 5E61318000530;
+	Mon,  3 Nov 2025 08:57:01 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: bcm-kernel-feedback-list@broadcom.com,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	"Ivan T. Ivanov" <iivanov@suse.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Rob Herring <robh@kernel.org>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: rpi-5: Add ethernet0 alias
+Date: Mon,  3 Nov 2025 08:57:00 -0800
+Message-ID: <20251103165700.3760084-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251102111443.18206-1-laurent.pinchart@ideasonboard.com>
+References: <20251102111443.18206-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xyY1KyZQ9jhQldRu"
-Content-Disposition: inline
-In-Reply-To: <87bjljw1ra.ffs@tglx>
-X-Cookie: If in doubt, mumble.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_085557_117553_0E6EAAFD 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20251103_085704_522648_68EB82A6 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,46 +86,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Florian Fainelli <f.fainelli@gmail.com>
 
---xyY1KyZQ9jhQldRu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Sun,  2 Nov 2025 13:14:42 +0200, Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
+> The RP1 ethernet controller DT node contains a local-mac-address
+> property to pass the MAC address from the boot loader to the kernel. The
+> boot loader does not fill the MAC address as the ethernet0 alias is
+> missing. Add it.
+> 
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> ---
 
-On Mon, Nov 03, 2025 at 04:54:01PM +0100, Thomas Gleixner wrote:
-> On Mon, Nov 03 2025 at 15:24, Mark Brown wrote:
-
-> > which isn't super instructive.  Not all platforms seem to be affected,
-> > I've seen this on at least the Arm FVP, Orion O6 and Libretech Renegade
-> > Elite.  The diagnostics aren't very clear here but given that I'm seeing
-> > the same issue and bisect result on multiple platforms it seemed worth
-> > mentioning.  Some platforms do seem fine.
-
-> Can you try
-
->     git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git timers/vdso
-
-> which is rc1 based and only contains the VDSO changes. That might give
-> us a better hint.
-
-Yeah, hopefully - my infrastructure is pretty swamped ATM and I'm in an
-internal conference.  I did kick something off earlier on this specific
-commit which should be equivalent information but it'll be tomorrow
-before I can get a full picture.
-
---xyY1KyZQ9jhQldRu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkI3pcACgkQJNaLcl1U
-h9BpwAf9G2OE1wGg3D/F2WCmsKiRzqX8EJTZWpdThdfvEP9vbPytmPqRt4LoPk9E
-cKlt3SaJFVZbyfx2YTDOqcC/FaQr5gdVRVsLuiKavYpVHanTEb/HCx2BvROuDvE2
-Ssx3Em7R+eHCyonl/unY/EOt7PP4hUtDizXKblf1rb5I/tM9ADlHYpQSTKF2Poxr
-/gIn6gPy89C+hD2rrkQJZWraOVcbciUGJVMWtMKRm96l0pPwdHchsimXnrYq6AId
-exk8ECk4hjsPpcarTzTqvJr+UCDMFpF99qq7GWDrkeifMqQqrvR5RY2kcsdyNGMw
-3ssV8/Eg6XLVg7GU0FL9k76qaqD7kA==
-=et8+
------END PGP SIGNATURE-----
-
---xyY1KyZQ9jhQldRu--
+Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
+--
+Florian
 
