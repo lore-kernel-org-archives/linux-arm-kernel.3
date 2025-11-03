@@ -4,143 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D6DCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C3BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xfyjJ06MBddLeTNqjRi5wlvpQQZoCc1yA6hgZA6QgqY=; b=g+6MxxQa+Yyi2GH9ZE1z/AMw6l
-	V0BZPZFuOYwXTYklUABe+YtLOzgLEvdIrIuiyGN8F1Vo0EHTigZJsebWHZsRAQlSKYdpAV7zdfz86
-	iDrA5w1GOkAsjfKya6Qsapepkd6yHNGRJnGecOGSFD27KBvh0CcpHpWWCLIasNQ6xlL1ir9ZbWGyB
-	ZnLTi4tdEtsnJlyEI6mPG8EF7ViE+t/ZltdWBY7QRCWWdZ4r/71uisnvq4FyZCAbQDnTvxIy/kZB2
-	WWw8H9JBvvn1rr3Gh//tsMb/LEidoVqADJlfZ9DDGCYhmiJcCe0MvpzVXJFZOzIDXjrCt60A9tCdx
-	VT1ibauw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WupShnkJ2qD8yc8SiHYos+Q1qd1Igx9L4rZI4E0Y64w=; b=vkAAeU5R9sPpb7N0NFAJp3QiAn
+	6IHOBtr/sS59TCMRDn5cMl7k7tT/RtN5nxLk4ZODht/YghU1FU7m8WEMbeRxvoIsPasF+WOtRwBjp
+	eWLueUJB41VhVjfnJz00H0dipG10+KfauoELSrD3dRPXS5i9PSxbnvTZvJRQMN42q7C5RUB8UXsJJ
+	2hY5kyfq9ym0rFyeMEzU5UoQ4QZdtttjjnSYTgsiYpgmjTGhv+pdiyRO/6U7q2pqQoTLGAdByqYHW
+	+lUrkjWmvefydfWgA56tWOkvB2VDY7sTuTbhJDJVVB772ZIe8kS92burIdZ97QvFgyWD/QP3oiYCJ
+	LTiSm5ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxPq-0000000AGIu-3mWN;
-	Mon, 03 Nov 2025 16:28:22 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxPo-0000000AGIZ-2eWe
+	id 1vFxQg-0000000AGOG-10jb;
+	Mon, 03 Nov 2025 16:29:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFxQd-0000000AGNl-2Z3K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:28:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g09Klm32sp5BWWhbIAidUgfxTxmLDRFS5O6yoIPFeudj3oF/QnJESCV89qa140ZOFlxhur5V0yPE9NvbHiDNJgE/cNVQHHiVEMltKQJKyujmDWcNQseZNH3grVAMIDZDaZB8zkaWdafIHWK4zmtrAkOAFHZIrBezbM0YplK80XMQIta2KdBmV2iEsvC9Br7CNUvouTvsjQHbSfWsX+SsE+pKuoWF7Ix9I+Jmyz0HJLwnhAlmVpouOOLUNg7cnSpmcXLJ+a3bOhdzMPEyxf92x6iIY6CQk1PK9oaHJiSs0x1qGBAWO5jWLcHEENvzM0Qa3ksNVTt3IsqpGYqUSJjGug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xfyjJ06MBddLeTNqjRi5wlvpQQZoCc1yA6hgZA6QgqY=;
- b=Z/3uUIKlCEC5tHGAXU8nnXSC6BhyG+snW+HoUofqpYc7SjhIsObffd0zOcXELhIXyvPi2U1rVxJbwQM2NdlrtdevcEOcvBZaytRo+PHmEYphIrnu60xUK15L55+KvkeAPgJwnUkhvT8S8c2Fj1ZPTchPEVIiAbggEB47OpncQRC32HXXHzD1PLUc+rdtx2FK6LqBba8NBKkkTYm2s0F6q7IDo/udo3S8ElpSRPC6Xg087V/Z64QzrgwZEebUTqvMxF22ODmnmCnLLok0MF9MP9x0q7M9Mnnvk7KRE3v5ISKYjMJTB1l/UtkTwcXJH1xAbpOuyvX/pYZo2ghn+AeUiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xfyjJ06MBddLeTNqjRi5wlvpQQZoCc1yA6hgZA6QgqY=;
- b=Evq6GhEgFnm+opWNN82vttmKsHgYS8HwxTsdjjXnte+G5h52LutSNP9ML1eZt9fpkPOc8Qc+wlCp90qE+uTqpGOp1A4JmXiPHz0gOpcp0zGRf7oMg4icBukCn0n5mibLoF/WKRnRWmScdxA+8kHsbcG1JaD6z/UyFZQmf+LH550=
-Received: from CH3P220CA0023.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:1e8::29)
- by DM3PPFA632C0238.namprd10.prod.outlook.com (2603:10b6:f:fc00::c3e) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
- 2025 16:28:15 +0000
-Received: from CH2PEPF0000009E.namprd02.prod.outlook.com
- (2603:10b6:610:1e8:cafe::8d) by CH3P220CA0023.outlook.office365.com
- (2603:10b6:610:1e8::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.16 via Frontend Transport; Mon,
- 3 Nov 2025 16:28:10 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CH2PEPF0000009E.mail.protection.outlook.com (10.167.244.27) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Mon, 3 Nov 2025 16:28:14 +0000
-Received: from DLEE208.ent.ti.com (157.170.170.97) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
- 2025 10:28:13 -0600
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
- 2025 10:28:13 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 3 Nov 2025 10:28:13 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A3GSD8K423335;
-	Mon, 3 Nov 2025 10:28:13 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Jakub Kicinski <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>
-CC: Jacob Keller <jacob.e.keller@intel.com>, Simon Horman <horms@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, "Eric
- Dumazet" <edumazet@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "Santosh
- Shilimkar" <ssantosh@kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, Nishanth Menon <nm@ti.com>
-Subject: [PATCH V4] net: ethernet: ti: netcp: Standardize knav_dma_open_channel to return NULL on error
-Date: Mon, 3 Nov 2025 10:28:11 -0600
-Message-ID: <20251103162811.3730055-1-nm@ti.com>
-X-Mailer: git-send-email 2.47.0
+	Mon, 03 Nov 2025 16:29:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 737191D14;
+	Mon,  3 Nov 2025 08:29:02 -0800 (PST)
+Received: from [10.1.36.161] (XHFQ2J9959.cambridge.arm.com [10.1.36.161])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A13F63F694;
+	Mon,  3 Nov 2025 08:29:07 -0800 (PST)
+Message-ID: <3611cfeb-53d5-4db5-95a1-1d095edfc3c9@arm.com>
+Date: Mon, 3 Nov 2025 16:28:44 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009E:EE_|DM3PPFA632C0238:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01db1656-66b9-4069-fffb-08de1af5fca5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|34020700016|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZThRDCdODQ9w1cf9BDd8U38ZAnzKmXGfnvwFC8gj+HL03jUNxUVIVCJGnL93?=
- =?us-ascii?Q?BZaGsiguEsptdySdioK2vrhd4+0wAwxY6B2C41uEd0A8NZOmdO99pNxo2i8k?=
- =?us-ascii?Q?Z2RKecSuADlknzI6POo7TxjQ5v1Dfm5obS7Dxb5sPbU2cF0czcpd8j7Qapze?=
- =?us-ascii?Q?r7j1lQcDfiy42BqCFBO5ZiUiQ0kLSaC45oAaybjIxOJvDmXmwRfFspp514ie?=
- =?us-ascii?Q?V349wSYfWondTOATdePaEfrAKITTltH9yZMTT9LjV9hwauneqcScDFSegQ6z?=
- =?us-ascii?Q?ODiJ7eqPab+P0rmsZxPK+fuq53ITyicN87rA1fgg/5fsQybySfgekqSIllCc?=
- =?us-ascii?Q?SVKF+t5YIsKsUMuo8GKnCsIUBzTbiZhzcW+LxoFcXn/MA8HatLq3cy0oLLvi?=
- =?us-ascii?Q?SbQ1B3g4t1r+A1csHIeZhpAniUcAClzOfweF1Xqs10jCdAKsXGry2vv6drgR?=
- =?us-ascii?Q?TPHtWtRDcwQa8eHJEvyIo5cY3tMwzeXtLZkRdQV6CGXePHMavdmFHGmjFtvN?=
- =?us-ascii?Q?/tG+EZNebZXgjWetHyWr/zkhy7kxm8Kow/F+H7SEf0Vh3Z3xqOQuW610QqqD?=
- =?us-ascii?Q?+65F9/PUnFbiATyoSx/eyNVzr5tx0QrJsR8Qj6P8IUeV8u7w15F/NgnTwEXO?=
- =?us-ascii?Q?I/KbZBmaNqCgJQcjeW363v7tjJ7rU1VpxaFqBnwTeJEdDUq7vMtWwWj/rIx7?=
- =?us-ascii?Q?WDtEhuKAPHDb0kHXU/ZPB8kw8vUjcanWknjsMaZv31QVGugthW/lYAL3Aa9k?=
- =?us-ascii?Q?9F5EoUZuVryNU+clVkBAEMNyt8dCaLKcTkmncnDOQIgiJpw4obWwaTCWwAdL?=
- =?us-ascii?Q?1SVTJ+mF/SMKoUeVFqMSmFp6WP248Hqi2rjxyTPIa+5FXKgpQO07MApZCoal?=
- =?us-ascii?Q?b/UNrrYSOZoD+c6gZPbnHziK4AFdR2Ewyv0i66aC8JdrfdAgm1ZoyBwC9M8f?=
- =?us-ascii?Q?75nhwSBBjs4/QVT6KhVIdZrbWnPcJ2xBHzLZUWJQ4xH4Z7aS7acjPkD7NDRL?=
- =?us-ascii?Q?OauBYfsQ0MyL2JTp0+DSrCIpx1W2R7zi/r98nW0Lox/yG67M5irRwcz+eoIk?=
- =?us-ascii?Q?MvDdKAwwulGixsSBda/HR9G6tYOZPlE1lUH5xsKW7RAaopLKSeHyOumCFJAt?=
- =?us-ascii?Q?ZsjiN3ghv5Zk8moJJCo8Sz+PdM8RKdU7CCOjld5iPJkpotEAIptAMl0aJQ+C?=
- =?us-ascii?Q?/jyMsoyWlBc5CBf39D6L23OLVedR0EUZ83jTXVKzFf8BBpZlZiFZKXfl3bLs?=
- =?us-ascii?Q?wxjaCIxIxgYzOTX38Sr/btk6sfsyNMwBONJSejANJc11Ge4zvE+nenRfTo5Y?=
- =?us-ascii?Q?uA/ole51IpgrC6KtxAid5XzCHaa9VBys71b4nPEO6FWhc6/eoFbnaYZmEkfx?=
- =?us-ascii?Q?TqejZ1jnMAe+e6q79pFZT3l7aMXD2c6JhY5Yi5a0/Uenx9JAhVxZ+edO8Ksa?=
- =?us-ascii?Q?kyIcNOVWfF2oW0G1QHXo8Q7LSPu96kEFgG51x5k3/McYRWEJ1JSiABEcMpO6?=
- =?us-ascii?Q?Fo4yvoq+FySf23Y=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(34020700016)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 16:28:14.0224
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01db1656-66b9-4069-fffb-08de1af5fca5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPFA632C0238
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping()
+ when in atomic context
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, yang@os.amperecomputing.com, david@redhat.com,
+ ardb@kernel.org, dev.jain@arm.com, scott@os.amperecomputing.com,
+ cl@gentwo.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Guenter Roeck <groeck@google.com>
+References: <20251103125738.3073566-1-ryan.roberts@arm.com>
+ <aQjMUhspJrRQn5Ew@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aQjMUhspJrRQn5Ew@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_082820_673699_CA396663 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20251103_082911_751011_1B1130FA 
+X-CRM114-Status: GOOD (  36.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,170 +68,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make knav_dma_open_channel consistently return NULL on error instead
-of ERR_PTR. Currently the header include/linux/soc/ti/knav_dma.h
-returns NULL when the driver is disabled, but the driver
-implementation does not even return NULL or ERR_PTR on failure,
-causing inconsistency in the users. This results in a crash in
-netcp_free_navigator_resources as followed (trimmed):
+Thanks for the fast review!
 
-Unhandled fault: alignment exception (0x221) at 0xfffffff2
-[fffffff2] *pgd=80000800207003, *pmd=82ffda003, *pte=00000000
-Internal error: : 221 [#1] SMP ARM
-Modules linked in:
-CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-rc7 #1 NONE
-Hardware name: Keystone
-PC is at knav_dma_close_channel+0x30/0x19c
-LR is at netcp_free_navigator_resources+0x2c/0x28c
 
-[... TRIM...]
+On 03/11/2025 15:37, Will Deacon wrote:
+> On Mon, Nov 03, 2025 at 12:57:37PM +0000, Ryan Roberts wrote:
+>> It has been reported that split_kernel_leaf_mapping() is trying to sleep
+>> in non-sleepable context. It does this when acquiring the
+>> pgtable_split_lock mutex, when either CONFIG_DEBUG_PAGEALLOC or
+>> CONFIG_KFENCE are enabled, which change linear map permissions within
+>> softirq context during memory allocation and/or freeing. All other paths
+>> into this function are called from sleepable context and so are safe.
+>>
+>> But it turns out that the memory for which these 2 features may attempt
+>> to modify the permissions is always mapped by pte, so there is no need
+>> to attempt to split the mapping. So let's exit early in these cases and
+>> avoid attempting to take the mutex.
+>>
+>> There is one wrinkle to this approach; late-initialized kfence allocates
+>> it's pool from the buddy which may be block mapped. So we must hook that
+>> allocation and convert it to pte-mappings up front. Previously this was
+>> done as a side-effect of kfence protecting all the individual pages in
+>> its pool at init-time, but this no longer works due to the added early
+>> exit path in split_kernel_leaf_mapping().
+>>
+>> So instead, do this via the existing arch_kfence_init_pool() arch hook,
+>> and reuse the existing linear_map_split_to_ptes() infrastructure. This
+>> will now also be more efficient as a result.
+>>
+>> Closes: https://lore.kernel.org/all/f24b9032-0ec9-47b1-8b95-c0eeac7a31c5@roeck-us.net/
+>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+>> Tested-by: Guenter Roeck <groeck@google.com>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> ---
+>>
+>> Hi All,
+>>
+>> This is a fuller fix than the suggestion I sent yesterday, and works correctly
+>> with late-init kfence (thanks to Yang Shi for pointing that out).
+>>
+>> I've verified this on AmpereOne with CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE
+>> individually, and I've also forced it to take the linear_map_split_to_ptes() to
+>> verify that I haven't broken it during the refactoring.
+>>
+>> I've kept Guenter's T-b since the early-init kfence path that he was testing is
+>> unchanged.
+>>
+>> Assuming nobody spots any issues, I'fd like to get it into the next round of
+>> arm64 bug fixes for this cycle.
+>>
+>> Thanks,
+>> Ryan
+>>
+>>
+>>  arch/arm64/include/asm/kfence.h |  4 +-
+>>  arch/arm64/mm/mmu.c             | 92 +++++++++++++++++++++++----------
+>>  2 files changed, 68 insertions(+), 28 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
+>> index a81937fae9f6..4a921e06d750 100644
+>> --- a/arch/arm64/include/asm/kfence.h
+>> +++ b/arch/arm64/include/asm/kfence.h
+>> @@ -10,8 +10,6 @@
+>>
+>>  #include <asm/set_memory.h>
+>>
+>> -static inline bool arch_kfence_init_pool(void) { return true; }
+>> -
+>>  static inline bool kfence_protect_page(unsigned long addr, bool protect)
+>>  {
+>>  	set_memory_valid(addr, 1, !protect);
+>> @@ -25,8 +23,10 @@ static inline bool arm64_kfence_can_set_direct_map(void)
+>>  {
+>>  	return !kfence_early_init;
+>>  }
+>> +bool arch_kfence_init_pool(void);
+>>  #else /* CONFIG_KFENCE */
+>>  static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
+>> +static inline bool arch_kfence_init_pool(void) { return false; }
+> 
+> Why do we need this for the !KFENCE case?
 
-Call trace:
- knav_dma_close_channel from netcp_free_navigator_resources+0x2c/0x28c
- netcp_free_navigator_resources from netcp_ndo_open+0x430/0x46c
- netcp_ndo_open from __dev_open+0x114/0x29c
- __dev_open from __dev_change_flags+0x190/0x208
- __dev_change_flags from netif_change_flags+0x1c/0x58
- netif_change_flags from dev_change_flags+0x38/0xa0
- dev_change_flags from ip_auto_config+0x2c4/0x11f0
- ip_auto_config from do_one_initcall+0x58/0x200
- do_one_initcall from kernel_init_freeable+0x1cc/0x238
- kernel_init_freeable from kernel_init+0x1c/0x12c
- kernel_init from ret_from_fork+0x14/0x38
-[... TRIM...]
+We don't, my bad. I'll remove.
 
-Standardize the error handling by making the function return NULL on
-all error conditions. The API is used in just the netcp_core.c so the
-impact is limited.
+> 
+>>  #endif /* CONFIG_KFENCE */
+>>
+>>  #endif /* __ASM_KFENCE_H */
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index b8d37eb037fc..0385e9b17ab0 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -708,6 +708,16 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
+>>  	return ret;
+>>  }
+>>
+>> +static inline bool force_pte_mapping(void)
+>> +{
+>> +	bool bbml2 = system_capabilities_finalized() ?
+>> +		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+>> +
+>> +	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+>> +			   is_realm_world())) ||
+>> +		debug_pagealloc_enabled();
+>> +}
+>> +
+>>  static DEFINE_MUTEX(pgtable_split_lock);
+>>
+>>  int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>  	if (!system_supports_bbml2_noabort())
+>>  		return 0;
+>>
+>> +	/*
+>> +	 * If the region is within a pte-mapped area, there is no need to try to
+>> +	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
+>> +	 * change permissions from softirq context so for those cases (which are
+>> +	 * always pte-mapped), we must not go any further because taking the
+>> +	 * mutex below may sleep.
+>> +	 */
+>> +	if (force_pte_mapping() || is_kfence_address((void *)start))
+>> +		return 0;
+>> +
+>>  	/*
+>>  	 * Ensure start and end are at least page-aligned since this is the
+>>  	 * finest granularity we can split to.
+>> @@ -758,30 +778,30 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>  	return ret;
+>>  }
+>>
+>> -static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+>> -					  unsigned long next,
+>> -					  struct mm_walk *walk)
+>> +static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+>> +				   unsigned long next, struct mm_walk *walk)
+>>  {
+>> +	gfp_t gfp = *(gfp_t *)walk->private;
+>>  	pud_t pud = pudp_get(pudp);
+>>  	int ret = 0;
+>>
+>>  	if (pud_leaf(pud))
+>> -		ret = split_pud(pudp, pud, GFP_ATOMIC, false);
+>> +		ret = split_pud(pudp, pud, gfp, false);
+>>
+>>  	return ret;
+>>  }
+>>
+>> -static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>> -					  unsigned long next,
+>> -					  struct mm_walk *walk)
+>> +static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>> +				   unsigned long next, struct mm_walk *walk)
+>>  {
+>> +	gfp_t gfp = *(gfp_t *)walk->private;
+>>  	pmd_t pmd = pmdp_get(pmdp);
+>>  	int ret = 0;
+>>
+>>  	if (pmd_leaf(pmd)) {
+>>  		if (pmd_cont(pmd))
+>>  			split_contpmd(pmdp);
+>> -		ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
+>> +		ret = split_pmd(pmdp, pmd, gfp, false);
+>>
+>>  		/*
+>>  		 * We have split the pmd directly to ptes so there is no need to
+>> @@ -793,9 +813,8 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>>  	return ret;
+>>  }
+>>
+>> -static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>> -					  unsigned long next,
+>> -					  struct mm_walk *walk)
+>> +static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>> +				   unsigned long next, struct mm_walk *walk)
+>>  {
+>>  	pte_t pte = __ptep_get(ptep);
+>>
+>> @@ -805,12 +824,24 @@ static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>>  	return 0;
+>>  }
+>>
+>> -static const struct mm_walk_ops split_to_ptes_ops __initconst = {
+>> +static const struct mm_walk_ops split_to_ptes_ops = {
+>>  	.pud_entry	= split_to_ptes_pud_entry,
+>>  	.pmd_entry	= split_to_ptes_pmd_entry,
+>>  	.pte_entry	= split_to_ptes_pte_entry,
+>>  };
+>>
+>> +static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp)
+>> +{
+>> +	int ret;
+>> +
+>> +	arch_enter_lazy_mmu_mode();
+>> +	ret = walk_kernel_page_table_range_lockless(start, end,
+>> +					&split_to_ptes_ops, NULL, &gfp);
+>> +	arch_leave_lazy_mmu_mode();
+> 
+> Why are you entering/leaving lazy mode now? linear_map_split_to_ptes()
+> calls flush_tlb_kernel_range() right after this so now it looks like
+> we have more barriers than we need there.
 
-Note, this change, in effect reverts commit 5b6cb43b4d62 ("net:
-ethernet: ti: netcp_core: return error while dma channel open issue"),
-but provides a less error prone implementation.
+Without the lazy mmu block, every write to every pte (or pmd/pud) will cause a
+dsb and isb to be emitted. With the lazy mmu block, we only emit a single
+dsb/isb at the end of the block.
 
-Suggested-by: Simon Horman <horms@kernel.org>
-Suggested-by: Jacob Keller <jacob.e.keller@intel.com>
-Signed-off-by: Nishanth Menon <nm@ti.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
----
+linear_map_split_to_ptes() didn't previously have a lazy mmu block; that was an
+oversight, I believe. So when refactoring I thought it made sense to make it
+common for both cases.
 
-Changes since V3:
-* Updated function documentation to use "Return:" to be inline with kdoc
-* Picked Jacob's reviewed-by
+Yes, the flush_tlb_kernel_range() also has the barriers, so the lazy mmu mode is
+reducing from a gazillion barriers to 2. We could further optimize from 2 to 1,
+but I doubt the performance improvement will be measurable.
 
-V3: https://lore.kernel.org/r/20251029132310.3087247-1-nm@ti.com
-V2: https://lore.kernel.org/linux-arm-kernel/20250930121609.158419-1-nm@ti.com/
-V1: https://lore.kernel.org/all/20250926150853.2907028-1-nm@ti.com/
+Perhaps I've misunderstood your point...?
 
-Crash seen: https://dashboard.kernelci.org/log-viewer?itemId=ti%3A2eb55ed935eb42c292e02f59&org=ti&type=test&url=http%3A%2F%2Ffiles.kernelci.org%2F%2Fti%2Fmainline%2Fmaster%2Fv6.17-rc7-59-gbf40f4b87761%2Farm%2Fmulti_v7_defconfig%2BCONFIG_EFI%3Dy%2BCONFIG_ARM_LPAE%3Dy%2Bdebug%2Bkselftest%2Btinyconfig%2Fgcc-12%2Fbaseline-nfs-boot.nfs-k2hk-evm.txt.gz
+> 
+>> +
+>> +	return ret;
+>> +}
+>> +
+>>  static bool linear_map_requires_bbml2 __initdata;
+>>
+>>  u32 idmap_kpti_bbml2_flag;
+>> @@ -847,11 +878,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
+>>  		 * PTE. The kernel alias remains static throughout runtime so
+>>  		 * can continue to be safely mapped with large mappings.
+>>  		 */
+>> -		ret = walk_kernel_page_table_range_lockless(lstart, kstart,
+>> -						&split_to_ptes_ops, NULL, NULL);
+>> +		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
+>>  		if (!ret)
+>> -			ret = walk_kernel_page_table_range_lockless(kend, lend,
+>> -						&split_to_ptes_ops, NULL, NULL);
+>> +			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
+>>  		if (ret)
+>>  			panic("Failed to split linear map\n");
+>>  		flush_tlb_kernel_range(lstart, lend);
+>> @@ -1002,6 +1031,27 @@ static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
+>>  	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
+>>  	__kfence_pool = phys_to_virt(kfence_pool);
+>>  }
+>> +
+>> +bool arch_kfence_init_pool(void)
+>> +{
+>> +	unsigned long start = (unsigned long)__kfence_pool;
+>> +	unsigned long end = start + KFENCE_POOL_SIZE;
+>> +	int ret;
+>> +
+>> +	/* Exit early if we know the linear map is already pte-mapped. */
+>> +	if (!system_supports_bbml2_noabort() || force_pte_mapping())
+>> +		return true;
+>> +
+>> +	/* Kfence pool is already pte-mapped for the early init case. */
+>> +	if (kfence_early_init)
+>> +		return true;
+>> +
+>> +	mutex_lock(&pgtable_split_lock);
+>> +	ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
+>> +	mutex_unlock(&pgtable_split_lock);
+>> +
+>> +	return ret ? false : true;
+> 
+> return !ret
 
- drivers/net/ethernet/ti/netcp_core.c | 10 +++++-----
- drivers/soc/ti/knav_dma.c            | 14 +++++++-------
- 2 files changed, 12 insertions(+), 12 deletions(-)
+Yes good point - will fix in the next spin.
 
-diff --git a/drivers/net/ethernet/ti/netcp_core.c b/drivers/net/ethernet/ti/netcp_core.c
-index 857820657bac..5ee13db568f0 100644
---- a/drivers/net/ethernet/ti/netcp_core.c
-+++ b/drivers/net/ethernet/ti/netcp_core.c
-@@ -1338,10 +1338,10 @@ int netcp_txpipe_open(struct netcp_tx_pipe *tx_pipe)
- 
- 	tx_pipe->dma_channel = knav_dma_open_channel(dev,
- 				tx_pipe->dma_chan_name, &config);
--	if (IS_ERR(tx_pipe->dma_channel)) {
-+	if (!tx_pipe->dma_channel) {
- 		dev_err(dev, "failed opening tx chan(%s)\n",
- 			tx_pipe->dma_chan_name);
--		ret = PTR_ERR(tx_pipe->dma_channel);
-+		ret = -EINVAL;
- 		goto err;
- 	}
- 
-@@ -1359,7 +1359,7 @@ int netcp_txpipe_open(struct netcp_tx_pipe *tx_pipe)
- 	return 0;
- 
- err:
--	if (!IS_ERR_OR_NULL(tx_pipe->dma_channel))
-+	if (tx_pipe->dma_channel)
- 		knav_dma_close_channel(tx_pipe->dma_channel);
- 	tx_pipe->dma_channel = NULL;
- 	return ret;
-@@ -1678,10 +1678,10 @@ static int netcp_setup_navigator_resources(struct net_device *ndev)
- 
- 	netcp->rx_channel = knav_dma_open_channel(netcp->netcp_device->device,
- 					netcp->dma_chan_name, &config);
--	if (IS_ERR(netcp->rx_channel)) {
-+	if (!netcp->rx_channel) {
- 		dev_err(netcp->ndev_dev, "failed opening rx chan(%s\n",
- 			netcp->dma_chan_name);
--		ret = PTR_ERR(netcp->rx_channel);
-+		ret = -EINVAL;
- 		goto fail;
- 	}
- 
-diff --git a/drivers/soc/ti/knav_dma.c b/drivers/soc/ti/knav_dma.c
-index a25ebe6cd503..553ae7ee20f1 100644
---- a/drivers/soc/ti/knav_dma.c
-+++ b/drivers/soc/ti/knav_dma.c
-@@ -402,7 +402,7 @@ static int of_channel_match_helper(struct device_node *np, const char *name,
-  * @name:	slave channel name
-  * @config:	dma configuration parameters
-  *
-- * Returns pointer to appropriate DMA channel on success or error.
-+ * Return: Pointer to appropriate DMA channel on success or NULL on error.
-  */
- void *knav_dma_open_channel(struct device *dev, const char *name,
- 					struct knav_dma_cfg *config)
-@@ -414,13 +414,13 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 
- 	if (!kdev) {
- 		pr_err("keystone-navigator-dma driver not registered\n");
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	chan_num = of_channel_match_helper(dev->of_node, name, &instance);
- 	if (chan_num < 0) {
- 		dev_err(kdev->dev, "No DMA instance with name %s\n", name);
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	dev_dbg(kdev->dev, "initializing %s channel %d from DMA %s\n",
-@@ -431,7 +431,7 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 	if (config->direction != DMA_MEM_TO_DEV &&
- 	    config->direction != DMA_DEV_TO_MEM) {
- 		dev_err(kdev->dev, "bad direction\n");
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	/* Look for correct dma instance */
-@@ -443,7 +443,7 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 	}
- 	if (!dma) {
- 		dev_err(kdev->dev, "No DMA instance with name %s\n", instance);
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	/* Look for correct dma channel from dma instance */
-@@ -463,14 +463,14 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 	if (!chan) {
- 		dev_err(kdev->dev, "channel %d is not in DMA %s\n",
- 				chan_num, instance);
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	if (atomic_read(&chan->ref_count) >= 1) {
- 		if (!check_config(chan, config)) {
- 			dev_err(kdev->dev, "channel %d config miss-match\n",
- 				chan_num);
--			return (void *)-EINVAL;
-+			return NULL;
- 		}
- 	}
- 
--- 
-2.47.0
+Thanks,
+Ryan
+
+> 
+> Will
 
 
