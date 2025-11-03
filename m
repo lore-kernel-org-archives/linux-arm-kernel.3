@@ -4,65 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BEBACCFA09
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D38CCFA08
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8U/Jt9MtVAhMDIvqQ8DqmKGSwf/svq+Rcie5PSGF9og=; b=drnW9eF/6zgflxDblaHOsfMm7u
-	hUxFlv6RYg9b3rPrbRx2hndcm4iesN/Ve1HEl+hJarjkP9ipSsZ6KtrLStlruP5ZWVUgoSK19YupM
-	Gnr1ZC5LwLwI2BypVkGIShSCcRTIpZskTWAmKZQnaYNM8xYtaZ2G+QxIOAsIYZUpgCBtiU30cf5eN
-	BB/sIkgCxxOr7gLK+xMItNHVYwk366zB9585tZl4d9dCoiVkOLAGMSoJgqwHA92HYY2lxh9KDHPGq
-	3BnX/1fxtak7S7tmKTZvPaKsiM0uwCmzoYYUbm2tbGwK8lI7vAfkIYSiBAxJdzdaD6hKIjS6AeM9Q
-	WVngzOTg==;
+	bh=xCIjMttP1i7AxXvq6JI69blw6nSdzeiTaMFgsz/qmFg=; b=AqspVG/RBZ92c4p2EQog7XVQMq
+	5JT1fcg2fqCkvA4tOv5luQDKkxcRkYaLG5KDm5j4xSgMz07WfZFyFwlDV4TWsVqmBMgCvs+o+4KBp
+	oprWfVV09v+ohM7iBcgxkh29JIgqg7Wexerppv1UCYITa8A3puc2SCc9hl7OEjL/RYbxgay9RKmJl
+	G9O1axZ67ft0qRwMBMqTWs7WxxKT3irdclefkWSBNTK6pC2ruooxb4dIxXz5E6WL6Bn89+3vRkS6J
+	Yf7HbiPDdmKUDy6KlNA3sGAjsw/X3yFmF/l/xroKYFW4oKIYAr0FIiXLdbsb638EvYGO1uWnimrqR
+	ttsgyQeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqi-0000000AL8L-3fD6;
+	id 1vFxqi-0000000AL6k-1Yl0;
 	Mon, 03 Nov 2025 16:56:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxqE-0000000AKC6-3BuW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Nov 2025 16:55:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=8U/Jt9MtVAhMDIvqQ8DqmKGSwf/svq+Rcie5PSGF9og=; b=pRaFo7nw/YjMGIR+R4l63dZzhp
-	Ax97AO70P6pgvDn7rxj+64QT0Jje/j/w84VMnjmegtQbOcBvjbTx1eufePXr3xncP8fNhRMmSWtah
-	J17ulkO3TaGBDOw39ANwsgBRwZBCUpvqJhYE4WbBRkDSdYQxoK4a1+HVUc7sZNBPTzT74OXEBP4X6
-	/xNw1p8x/b/sxitZ/IMVriun2rWj0JJQAxYj3mrC9Xux0tk9ZNxg1WvRBUINiyYz1w7HXbykk40/P
-	9DR7vV1Z2B4uyPpYHmqNMAUkIP1dW0h3yJcQAigM8RcmroLsUofZhXa2sI4Bmx0HEY3b1BnRUFXvZ
-	P7wiDpFQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwyT-0000000FumS-3x3e
+	id 1vFxqA-0000000AJyJ-1nBt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:00:07 +0000
+	Mon, 03 Nov 2025 16:55:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8FE3640A17;
-	Mon,  3 Nov 2025 16:55:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 723B8C19425;
-	Mon,  3 Nov 2025 16:55:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A65143C4B;
+	Mon,  3 Nov 2025 16:55:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ECD1C113D0;
+	Mon,  3 Nov 2025 16:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762188931;
-	bh=eMdKgJvpXR9g6dp42ZCCeiki15cZjNTkDMh6Rl2Yf+I=;
+	s=k20201202; t=1762188934;
+	bh=MuJA4k4s9ChXN15wYrgJFMzwPZmjn6xR8Dy9RWxkAUs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=II+MAjDYqpAz1+2r2lnG0q+TPs1pPnfM/1YQGHah8NWXf+MRhriors07R+vBxUkXN
-	 rf9t4wigWLKp3LxBO3N25kcm/6Vemio3zK9TSS2D3xUxCGo2qubpMHRoDXfJA91K17
-	 2RkezM5Y3k4Rab26H9Av66oRbM6MlxcNf8PKD95tyCkJ3OeVO/HYc2fiMt8knYzQji
-	 0DUigJZujrX3zZMioITICclEfS66Fi8DgIkPMglcOwcU3+si50vOjy1dJF1cWp7Nhq
-	 dB4rkaoxvYJpNZoayYHQ5Lnnp3BFzW5qpym0dKfa9PkqJ76KE8mjl6ht6yyYFHeV0w
-	 ldxcoc+6uf4BA==
+	b=rSS4DWT62OFqJq8AHhaUXmtBWD9TYN88Ryj/ul1/K1dkqPFXpbpfjHGKUI8luNxFT
+	 yCfF0YdVTQTtooFSugkjvJWu3DYi7BcjcjuaYrxZpgckegzrkIQllphD3LBvWwvHVG
+	 ot2B16De9rq6M7UE7K3bnVy6BOryAp+Ds7xSydeHCGTOB/5e6XH337SE6NqFXnSKMX
+	 ATS+5aBd1N/m24ejuBpiQKPjQcmy7f2pmoeqzv+UHxjuxsUBKVFdJ9his18iLaMv3m
+	 mxDRffqu16jRnwBSOK4fBDicOfGeor4tCpynnCY8J5H/yrpaGJapxZX5IMVDYD6eRn
+	 iIhU+37KQwsSA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vFxq5-000000021VN-2qmJ;
-	Mon, 03 Nov 2025 16:55:29 +0000
+	id 1vFxq8-000000021VN-1Tgn;
+	Mon, 03 Nov 2025 16:55:32 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -73,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: [PATCH 21/33] KVM: arm64: Make vgic_target_oracle() globally available
-Date: Mon,  3 Nov 2025 16:55:05 +0000
-Message-ID: <20251103165517.2960148-22-maz@kernel.org>
+Subject: [PATCH 32/33] KVM: arm64: GICv2: Always trap GICV_DIR register
+Date: Mon,  3 Nov 2025 16:55:16 +0000
+Message-ID: <20251103165517.2960148-33-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251103165517.2960148-1-maz@kernel.org>
 References: <20251103165517.2960148-1-maz@kernel.org>
@@ -86,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_160006_238104_758731CD 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20251103_085534_550316_CFF0E95A 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make the internal crystal ball global, so that implementation-specific
-code can use it.
+Since we can't decide to trap the DIR register on a per-vcpu basis,
+always trap the second page of the GIC CPU interface. Yes, this is
+costly. On the bright side, no sane SW should use EOImode==1 on
+GICv2...
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic.c | 2 +-
- arch/arm64/kvm/vgic/vgic.h | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c | 4 ++++
+ arch/arm64/kvm/vgic/vgic-v2.c            | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index c420f8262e4c1..570cc8fe42b87 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -237,7 +237,7 @@ void vgic_irq_set_phys_active(struct vgic_irq *irq, bool active)
-  *
-  * Requires the IRQ lock to be held.
-  */
--static struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
-+struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
- {
- 	lockdep_assert_held(&irq->irq_lock);
+diff --git a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
+index 78579b31a4205..5fd99763b54de 100644
+--- a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
++++ b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
+@@ -63,6 +63,10 @@ int __vgic_v2_perform_cpuif_access(struct kvm_vcpu *vcpu)
+ 		return -1;
+ 	}
  
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index f35410de1457b..7a44484acf93c 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -245,6 +245,7 @@ vgic_get_mmio_region(struct kvm_vcpu *vcpu, struct vgic_io_device *iodev,
- struct vgic_irq *vgic_get_irq(struct kvm *kvm, u32 intid);
- struct vgic_irq *vgic_get_vcpu_irq(struct kvm_vcpu *vcpu, u32 intid);
- void vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq);
-+struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq);
- bool vgic_get_phys_line_level(struct vgic_irq *irq);
- void vgic_irq_set_phys_pending(struct vgic_irq *irq, bool pending);
- void vgic_irq_set_phys_active(struct vgic_irq *irq, bool active);
++	/* Handle deactivation as a normal exit */
++	if ((fault_ipa - vgic->vgic_cpu_base) >= GIC_CPU_DEACTIVATE)
++		return 0;
++
+ 	rd = kvm_vcpu_dabt_get_rd(vcpu);
+ 	addr  = kvm_vgic_global_state.vcpu_hyp_va;
+ 	addr += fault_ipa - vgic->vgic_cpu_base;
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index 5ab29c6755ade..37efffefdb710 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -485,7 +485,7 @@ int vgic_v2_map_resources(struct kvm *kvm)
+ 	if (!static_branch_unlikely(&vgic_v2_cpuif_trap)) {
+ 		ret = kvm_phys_addr_ioremap(kvm, dist->vgic_cpu_base,
+ 					    kvm_vgic_global_state.vcpu_base,
+-					    KVM_VGIC_V2_CPU_SIZE, true);
++					    KVM_VGIC_V2_CPU_SIZE - SZ_4K, true);
+ 		if (ret) {
+ 			kvm_err("Unable to remap VGIC CPU to VCPU\n");
+ 			return ret;
 -- 
 2.47.3
 
