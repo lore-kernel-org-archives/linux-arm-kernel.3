@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C4FCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 09:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F4DCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 09:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fi7edW2fKbyqZ3kHK/AlGvcaMEfMr3O/Cmh61+xdw30=; b=x/gXNalat+I+NJyvtZpw9ikxs8
-	0iCprMLMy1WJkO6yt2CFl+6GAzTU9JBZkdr2f2eI3C9It65zcualFUfBvUAu06W1e4DFcpN3hgk+P
-	3p+5OPDsId0+6MnAGgSlN0dZyaYYr/4YZqoN2nNK8fTzeT3ovxzJ/p7G+AWBQ3/wlUneRqXD7QnNG
-	yUcDb5peAmfxrWK3aq75vXbPRL/uKBXSkrV/oWNIDebIacJ+ApBUfjOOlES+4aHsXcbKFlkyCUZub
-	hCFm9V/7FsENLWN43rj+Hx0ETTZCPus/7dxpjNXU/FoEwQNg5byv/QKiIdnD8Tc2d0h7Z5Ob18L49
-	GZTCJ61g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jF3tE7PvrhPTALHjWZmN+099uKS6CXrFf6F9PXA5mFA=; b=GwcjdjnoIbwd0G2+MHzDbribUc
+	ibRAwI0L0da0SM+OWj8lEwRLrLS8pYln7xZ1jJybTI9xwO7r/L6m7K9a1/j6x0I/Sa5Oozm2qexdC
+	10h3GEjjoyGeL/Fu8uQN3G4jFXXki+mAR4O+HgJJ2juIH7iMl1QOX5y96Nv2iXXdbum72mF3Vc8bd
+	LGBmFwiQVZkW6B9J6hHyh1vBzJicVgl0PGyaH9LCd15vOwCdrz1ETKwnyZBmJT+IgJ+34pciGkIoV
+	797G+2xreKRtsb/+P4B8y3FDcnZG6boPbelBSRYdVHuYwcogiqRF5WFRve1DJcpJx6xT/Cw9X2UCB
+	egNwxplw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFqwJ-00000009W9z-3YE1;
-	Mon, 03 Nov 2025 09:33:27 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vFqwp-00000009WDs-0epJ;
+	Mon, 03 Nov 2025 09:33:59 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFqwG-00000009W9a-416I
+	id 1vFqwn-00000009WD5-1W8e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 09:33:26 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2952048eb88so40990905ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 01:33:24 -0800 (PST)
+	Mon, 03 Nov 2025 09:33:58 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b98e6ff9071so741244a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 01:33:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762162404; x=1762767204; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fi7edW2fKbyqZ3kHK/AlGvcaMEfMr3O/Cmh61+xdw30=;
-        b=CdWGd7Dhy2Exk70qjTXNvXCX/wiJ1yQWqfepOewbGz9NbVaNYd7GwYU5qCIFB47vWq
-         PBUlB3Af3XUCXnYlBvxBv6MMD+YmTIw3r/BD702Ga8fENKXDnefDm2YvZCq0WiZ9qvKs
-         S9bXeCvmRMR1CpLkJcO7Mrsc0vJYpBZ1v9BkFJi96hPuQoeru9OeVPf2qGjx+fLeOa6h
-         NsvmSc0nfOw6I0vUiTm4wI5PWGxpmqDVPBD3i8qnyiSFa7ntv3Dys8HmA5QyiCbx1djC
-         5BF4lFZANnsH6cE+3VsU1qfn3T/R5WAYXK96ViI+rztS7tRPvk9+kBWU43ERIR4jpczI
-         Rozw==
+        d=gmail.com; s=20230601; t=1762162436; x=1762767236; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jF3tE7PvrhPTALHjWZmN+099uKS6CXrFf6F9PXA5mFA=;
+        b=FQHwdeV5xmBmxivt5tBse4+XuvfDmeFwjA6d7IOtPXjP2Tt8C5/XbIEvx2h2mnLPU9
+         5sIrauVxcDPmAqsfAxJcFAerqbLCYsz6HV5gyUMsAG3IcmNvONdAnW6sI9EJfqAAvYrM
+         h6gML302DdOl5ZyBdYJtcQOF/S/ENoxyZCgIumXqmmH6p/ow2QzKnssXFLLfDzN/S2Z/
+         L+b05EaicmSyMRyYV9pbwbMUMXCeBAPer2uu0TYNP9Yb3l0tiC+qCCwzILpiFgekiyd+
+         kLoDUdArigr3INoEKgzyxOvOvalmqusBgTA65peYWoQ5KEMw6T+8GpRY5tT3AiDzmUeY
+         lh9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762162404; x=1762767204;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fi7edW2fKbyqZ3kHK/AlGvcaMEfMr3O/Cmh61+xdw30=;
-        b=sy6v84TnhJWXdLZ7hi6s4fmHt9gPtRNPkggl/zKXXkOulD24q01Gst1F6GObhVHJjF
-         sKlJOIR5XL0eh+wZw0O8xdV72vE2Qts5MP/aeilbhXWPb6impz1vpabojYqhlQsP9FmK
-         aDlIVJHR0luOUGCvRlAHInwQT5osS3LCdXNE4ULrvIVmgeTTbrgMqOfs2nzU7N5Wk2rD
-         ReRgSr6AbFKHX08A53wL1qho0QsP9jvTJh1AgQgL0tQWnwrq33mw2QSOpnlpZA+J+xbx
-         L5RkufDaq4ImyEkoeJaafhr3Wh1xh/DymhphEHNyyDQcfi8dyyqBqYGLFmJj3+pUpQ1E
-         Q1dA==
-X-Forwarded-Encrypted: i=1; AJvYcCWWLnJVmH0upqbtqVsUHKUy2U5NxjEIXixlo9q8Fq/sAb+/B4lFUQKnwdd77q31zHFIH1J6DZ+zmEYFUPgNGQjs@lists.infradead.org
-X-Gm-Message-State: AOJu0YySeU+DZmQvcIOHCjg09w7vGKXycjFQOisgHCrVJGhz2Y++UKxc
-	0B2LV+XxzR8ZMwZOK7G6HAlGlw6We2ALQjytGiEX/itNHIPn9oQpVBfJ
-X-Gm-Gg: ASbGncsrLf6lfbzzOv97rPV2zAgWx7zA+e1Qiy3XJraODSwyZMlT3Gb70nB/XHY9qMx
-	mszhXsOQ9sjj3SWzCfYd6rCAFD7/0DfL7iOnqiFqwGR7XIkJmOGDKxzHbR5tMvlrN0XHNdco3IF
-	oZSQkhOpRbfp42dcqJgSeVhD/4jo9iza7yZqj2zUnyuWGKDad0PdTZisA2IlQVanWtW6t66ZyZW
-	G+DjBrnBDLIBCfO2t1Bb3pssHH/SffX2+Eyj3ZkzuH13RcIzR7jUk1h4v8q/+xN7t1xzmhlJlSd
-	2od39FvekeIFYbn8+3aTH213/qvGjf5QPLofkXMmDIp4p9l0KhvJDssz3J35ziKMlZqNBGrhX2K
-	plejDb/dgZsZyGZ3OMBvg9lfSmFv5KWDSorXB/y7I5zr54NuzUvDKAtjibxskDXM6lplsgQ==
-X-Google-Smtp-Source: AGHT+IEhVI8HLKKsPHJmLdcgQIX3NyE6Qj62NyZlp0rKKc1HR0bkXg6Og36M1Mf5WeEiO70N6uA3uA==
-X-Received: by 2002:a17:903:11c3:b0:290:c5e5:4d90 with SMTP id d9443c01a7336-2951a524561mr137993865ad.42.1762162403672;
-        Mon, 03 Nov 2025 01:33:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762162436; x=1762767236;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jF3tE7PvrhPTALHjWZmN+099uKS6CXrFf6F9PXA5mFA=;
+        b=czVggHvEqWXRd2vhvc/tcdNngyd7R0UHWJEchvHAgJOrMFjxzPn3PXnaP2KXVTZRNQ
+         y2R56xOwzrwaZ2DVzl7lpBiOCdlcNxTJZPdy6x7lDl1wFxT+V3f7hyMh3aOFa0Vyg4UQ
+         fmB7Mi3pt992fnKfd66ePqtXA/ktuL/68GjeTPbFTG8AwpOoJqfvdOxxtmuXU4Uixu+T
+         uS7IFZWVhWlJEFZ1bNch79IX7OgMXqXnnjPYejWUons/40cIUh2pA0/w5bZCF0uksskd
+         mZNHqQeo1JIwc49dHbftcyEu3gWDx0YCawmhh3ErRbmv++7j/hpWHw4lY5XtFrvnpXPT
+         Xxrw==
+X-Forwarded-Encrypted: i=1; AJvYcCU2haeyZ/bI1Sp47m+LgB+Z8WvIc9bJdy+LayP7LtsM3Dqf0iVW7rW0BPQwQV9kALnk1I3T6LS7IOuzZfn5XNH8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd+UkRZP3MoIcqgg7B4a6addK3Du9iex0yFRC22/kNFP7Dq304
+	MaXc/5qVbhzXlB2L8EtYYtbK5r0KpC6in8qjL0mz2TQlbYPG1NxrAAqV
+X-Gm-Gg: ASbGncvtLJGdSCIsu5eyHxzyupXKDdh0ilBp3ZLS3WRiuQumJU5Q/G1tNSQ2we6Re4T
+	BPP012DJ/i9loqSEiv/y5mAiXqIwIjx9bDXx8IsP5YARv2gaRDaY3NjWpBC8WP+D4zI60m/hfmT
+	tFU/R+jqP+Rq26rjU62gRHTpw+vwGS0bDOEwKb1rfybK0aqpgZWmEvk+yUr+zVH9uZtwwsAs3Pd
+	Z4YW+2Kqn2ld3z5wASXNFVKVGv7sNRFMUl6i5hXbqWGZj1lXbp6mKMZqaEnSmq0EZ+8a7GmgBKw
+	481UmAu8H4xDlYqWScZgWaHFPuQbsAsO33WvevCo/xxvlB3+7b/6H07kcOxJOkCtOEZaz8Qb+Js
+	eHNsYY7uLuNfhl2BtDOIt01lDLBzrO8fsJy9qYhIxLYpJCPgn5TMCCrO34wUZiHpSHY2ldlCpK8
+	5Fxcmc
+X-Google-Smtp-Source: AGHT+IENCvGrL25P0O0Fc+MRrko1aTk7mSWYGPtk8oKD7ItaFZLfQ0P2sXgV2rrZRmkjGd+q+PpjRQ==
+X-Received: by 2002:a17:902:f606:b0:295:7423:530a with SMTP id d9443c01a7336-295742355fdmr75326455ad.29.1762162436497;
+        Mon, 03 Nov 2025 01:33:56 -0800 (PST)
 Received: from gmail.com ([218.32.81.133])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2952696ea51sm112351435ad.57.2025.11.03.01.33.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2952696ea51sm112351435ad.57.2025.11.03.01.33.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Nov 2025 01:33:23 -0800 (PST)
+        Mon, 03 Nov 2025 01:33:55 -0800 (PST)
 From: Peter Shen <sjg168@gmail.com>
 X-Google-Original-From: Peter Shen <peter.shen@amd.com>
 To: Andrew Jeffery <andrew@codeconstruct.com.au>
@@ -80,16 +82,17 @@ Cc: Joel Stanley <joel@jms.id.au>,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
 	peter.shen@amd.com
-Subject: [PATCH v3 0/2] ARM: dts: aspeed: Add Device Tree for Facebook Anacapa BMC
-Date: Mon,  3 Nov 2025 17:33:18 +0800
-Message-Id: <20251103093320.1392256-1-peter.shen@amd.com>
+Subject: [PATCH v3 1/2] dt-bindings: arm: aspeed: Add compatible for Facebook Anacapa BMC
+Date: Mon,  3 Nov 2025 17:33:19 +0800
+Message-Id: <20251103093320.1392256-2-peter.shen@amd.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251103093320.1392256-1-peter.shen@amd.com>
+References: <20251103093320.1392256-1-peter.shen@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_013325_001462_52DC2A0B 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251103_013357_404607_0A102789 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,23 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds Device Tree support for the Facebook Anacapa BMC 
-platform, which uses the Aspeed AST2600 SoC.
+This patch adds the compatible string for the Facebook Anacapa BMC
+which uses an Aspeed AST2600 SoC. This is required before adding
+the board's device tree source file.
 
-Patch 1/2: Adds the compatible string to the Device Tree bindings.
-Patch 2/2: Adds the initial Device Tree source file.
-
-The Anacapa BMC is based on the Aspeed AST2600 and includes the standard 
-peripherals required for BMC operation.
-
+Signed-off-by: Peter Shen <peter.shen@amd.com>
 ---
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v3:
-- Rebased onto the latest upstream kernel tree (Linux 6.18-rc4).
-- **Fixed all indentations from spaces to tabs to comply with the kernel coding style.**
-- **Updated the Device Tree Source (DTS) content based on review feedback.**
-- Resent as pure plain text using git send-email with --thread option to fix broken threading and corporate HTML issues from the previous submission.
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index aedefca7cf4a..bcb874ebd9d2 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -80,6 +80,7 @@ properties:
+               - aspeed,ast2600-evb
+               - aspeed,ast2600-evb-a1
+               - asus,x4tf-bmc
++              - facebook,anacapa-bmc
+               - facebook,bletchley-bmc
+               - facebook,catalina-bmc
+               - facebook,clemente-bmc
+-- 
+2.34.1
 
-Thanks,
-Peter Shen
 
