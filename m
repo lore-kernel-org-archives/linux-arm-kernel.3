@@ -4,57 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B25CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47503CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 13:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZDW6S0V6VqUg8tSpm+PPW7y7vHXWxjwKO8pMmxVl2PA=; b=v0DlrbHXR6+V3HtUE1jQlbLPfs
-	sIRUIaErv32je3sDIemfdP21+PUGlYCLbcfwndwv4Qd+J8zcOXAc6udnHWYlr5fsi0J7j3zkQ3H53
-	/WwZyTyKcr0S53io5ab+Fd6j1Lt0PZ2wU2LjIl1qLFCn+tb/+oaVIk+K8+IHFwBmBoDCABK4+kM4E
-	g1CWehicnLfpclsaUEgNXrptIL+lB0BkYST+kubRadPV9wtBDY93MDKEKX1QRpue2uk0uFLygFMIq
-	5L99GsDbmgBX0Ra6rD/izOhRVzR0uk3isSLU83lzPY4UtXO6PICzBscvzzk1f1uP1tp0R6RWb2xX2
-	kR2TQ2Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hWK5lfxcE8N9re200G1ZSSNW1CLnQ/q42SOEWkcMuU8=; b=FMbhjrX0UiHaXaZHmgd9zL34TF
+	Wd032hULYheY3h4SsHIOZHZL/60NL0HlOB/K8LFHD4c5XSomREdVm2vt0uHAbgT7oLPSfa4xTJsXp
+	qnlgJSFLs1z85w1NHQzWufplJ7t4js2MS/ZjEOVqQw9S6lm6gl6xPnBADsGGC6yh5O6i/lI4IpyvT
+	CO1qz4Lf8ytyz2MnR2lgdmGUUE6CVXYeEqE37MpM4mATVA87LM1O1C7LRqz+CsjMZb+ebQ7ySEarP
+	fVcNkaDMUniRTXhS4VvFYyuKu0CB86KKF1ZeCKLGw9ZUXtNT6aezVSei4KUhUlZDamT93BKcEwcbg
+	D1fybTzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFu8D-00000009rhO-0PUu;
-	Mon, 03 Nov 2025 12:57:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFu8A-00000009rgM-2Zgu
+	id 1vFuGX-00000009sLk-3YWC;
+	Mon, 03 Nov 2025 13:06:33 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFuGV-00000009sLN-0ZPI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 12:57:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B96A31A9A;
-	Mon,  3 Nov 2025 04:57:43 -0800 (PST)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B01EB3F66E;
-	Mon,  3 Nov 2025 04:57:49 -0800 (PST)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	yang@os.amperecomputing.com,
-	david@redhat.com,
-	ardb@kernel.org,
-	dev.jain@arm.com,
-	scott@os.amperecomputing.com,
-	cl@gentwo.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Guenter Roeck <groeck@google.com>
-Subject: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping() when in atomic context
-Date: Mon,  3 Nov 2025 12:57:37 +0000
-Message-ID: <20251103125738.3073566-1-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+	Mon, 03 Nov 2025 13:06:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QNVyt+BpdltTk0Kccrr84LRtwj6D810PJbljuOTL4/iQ5Rsp9CH2toxK80iPtW1goX4NDzS0Zmtdbeui5HPvtgOmS2LcT32O3IHjm8jIAobz7MU4IHM+n3dUzouUlM5vrQd+35bUmzgc/b4J5hQ7sT+FSVM9PXZcHn8FTTfMOVRpamcsHajLPInBFb3sMkCR2zLKWpMypvZl1qaZwdLw0dVx1Y2Hlf5Ds59ZMhQlp9MYVgMpKHOgdIEecVBrkJcxLR/ooqB/0Kh+eejZigjfoQP/E6Z0DVJLZNNCmevVwji5Hbbg17Q2V+v/vp5S/sOr7/NcRLOb331PfA55uBbVdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hWK5lfxcE8N9re200G1ZSSNW1CLnQ/q42SOEWkcMuU8=;
+ b=U0NgRSUIkI/fev0+KfVA0vSxLWvLbZUk62YKjeW/WiqU+jY0nQLJ0R4qhMfX1GfKG+gW2o6tSa0xLToRokhNMLZP5pHn3WTeX61SEAhG9TTPNqhjIiqD2rlPpDvjBR8LQ+mvh5hQbFEMxTbZMRJQdHPAuFRajUz5gopj4Kz8lCLA9EcTGP5X0UOo/K+84o5GPFuLIOpbe5+TQZ9aBoX+42f62zil71Nl5hQdXzNksTVnD+8u9yZkQ4tmz1wgjmNGagmiCtxupcCvFVv+HFVb1FWSXTts/M9jztr6bQAQAArBHFW7VxNTebmmeNQVpozeSazjeeqsLB5E6+Ty58Mj0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hWK5lfxcE8N9re200G1ZSSNW1CLnQ/q42SOEWkcMuU8=;
+ b=dygQ0GI+6KGrTflqBq5qGMktZ3wx+fHl/gODBON3BIxH/5GKOAFhsx+zx3ft4qHREus59ZeMRyk2789uk8dHJJvqcwlWiULtDn90ywYymnAJl/KfuJODyiZDH8uYtcJj5q7YnFmu/Fjk79bInimej/Qmvjzg3inaYxGJsbStg2bhE2sD5RIN8xhQchdJpmYYC0y8uY3lWNhegK13IEtXq62jb8nzSxQzt5WeVQgwzwdKk+dG/hzl/mYjkLlgb/BwEBSPfXy4UGt5oXQLJvEFhZhKskhqR98UyNJriKuDXvJ0cqrb50UGxHHXUAagOGPcO1jc9K/SKV05A9wJ0uwdaQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY5PR12MB9056.namprd12.prod.outlook.com (2603:10b6:930:34::5)
+ by CH2PR12MB4038.namprd12.prod.outlook.com (2603:10b6:610:7b::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
+ 2025 13:06:25 +0000
+Received: from CY5PR12MB9056.namprd12.prod.outlook.com
+ ([fe80::9a15:4da5:cfae:f5c6]) by CY5PR12MB9056.namprd12.prod.outlook.com
+ ([fe80::9a15:4da5:cfae:f5c6%4]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
+ 13:06:25 +0000
+Message-ID: <ac51c86e-775f-46c3-8767-c373d68c5522@nvidia.com>
+Date: Mon, 3 Nov 2025 18:36:16 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] iommu/arm-smmu-v3: Add device-tree support for CMDQV
+ driver
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, thierry.reding@gmail.com,
+ jonathanh@nvidia.com, jgg@ziepe.ca, linux-tegra@nvidia.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20251031062959.1521704-1-amhetre@nvidia.com>
+ <20251031062959.1521704-2-amhetre@nvidia.com>
+ <aQTyBBF0IoE+pcXW@Asurada-Nvidia>
+Content-Language: en-US
+From: Ashish Mhetre <amhetre@nvidia.com>
+In-Reply-To: <aQTyBBF0IoE+pcXW@Asurada-Nvidia>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5P287CA0244.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ae::10) To CY5PR12MB9056.namprd12.prod.outlook.com
+ (2603:10b6:930:34::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY5PR12MB9056:EE_|CH2PR12MB4038:EE_
+X-MS-Office365-Filtering-Correlation-Id: 651f81ec-0961-48da-d60e-08de1ad9cb1d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VGVvQXpzemE2TUZJQ2VUZG1oQzV2VWdVTlZIeVdlNmI5cmQvN1I2eFNBc09G?=
+ =?utf-8?B?enlFUm93TzFsQVFXbDg3L0M1NHBTSnpleGE0VTUyQjlWQ081Y3Ava1VBUStp?=
+ =?utf-8?B?d0RmR2VEcllrSkh1aCs3dWlnRHBkRWZYQW41S2NVSUxpMDNnMDF0bHZrWEtu?=
+ =?utf-8?B?bmxIVUpsZk1ZTmRTYTJsY1FMbDZTaWhTTTE5OCtwNjNHZ1JWQWFpR1ZUL1hI?=
+ =?utf-8?B?a2lKT1RmcExhMDBLVkk0dk9GLzV4eXQ2d0E0QVMzenZNa1d1QnB4NXFvNG5n?=
+ =?utf-8?B?eVNRYmNmNDFCeWJBdmFLcG5ZVHlSMTBmK3hTSU14N0g1a2hJUzdxbTA1UVVR?=
+ =?utf-8?B?aU1NZFVid0w2RkFWV0tpcVh2eWFYbm12dnZJYTZ3S2ZYVWo1c3gySHZSWHRF?=
+ =?utf-8?B?WUFBZmwyWFpXY0J5VVhsSW1NQWhrS0V5S3FHUjdBRVNDR1Ztd2dpSUl4dlBu?=
+ =?utf-8?B?eEhmM1Fnd1pVbUFRNkFIcGM5bUNaRzNGU082MzRBaFVoTFMyR3hhSG84RzZa?=
+ =?utf-8?B?QXhaM1QxaUJGTUxaNjJQZE9FQXE1OXRvd1NWS1Y1Mmp1SVJKUDRYT3B2aUww?=
+ =?utf-8?B?dll4a1Z6WGVVbVYwYkRSemROeU0rMEI2Vzlscy90Q1N1WXJZZE01T1MwODJW?=
+ =?utf-8?B?clBlUGdjZnM2dmdXTWRsd0xITFZNNjIrT0hRaDlpWVpkQ1UxakthYkFleTlG?=
+ =?utf-8?B?Vy9odGpYMUUydS85NUtlUGliajg4TlpNMDdsT0tBWFB0ME9Yazh0SDRjQXdE?=
+ =?utf-8?B?OGpGN1kxTlJ1Z3JBaXRwNmVHSEJhYUNXRE9QQlBZQ0FoRVZFSDdBQ2g4aStr?=
+ =?utf-8?B?dlRnVVZLTmtlYk0xL3EyZGJ2VmVFbitjU2lEUUhpS094UGJQSTNHYXo1ekZp?=
+ =?utf-8?B?UjBqVnd5WFgzZm0rSmxYUk5zcW1WOEZ2Z0hRaXZuR3Y1SVhPMkhvbDl1bmcr?=
+ =?utf-8?B?K2tzTEpUTVZnY2VrK2Rhck93V3o4SWI5dTlNWUhCckxCQ0NuS0tYZmtHK0d6?=
+ =?utf-8?B?d2QwVXRWdkRuVTVoZFZhRVFIL2tmdSsrKzd2aHdmbXgxeFl5VE9wa3pOZFQ0?=
+ =?utf-8?B?QlpGNDFMdnZoTlE3VWw1Ym40TjhyY3FTQnhja28rRVZrLzFnM0tEQU5pb3lw?=
+ =?utf-8?B?dG9pYTF6Rml2SEVtenJuNDRwNGN3aHh2empsOHN3LzVkb3FDRTNlenQrUVFR?=
+ =?utf-8?B?MGFEWHB6K3JyeGtqYkYzMDF6cm9FcDJtSHFORFU1S2lJOVRHY0wzS0tkTy84?=
+ =?utf-8?B?cjJ3V3R0cHFOODNIK3A5bldkd0JENVhSMXdhc3ZkcUd1R1dMZ3Nlb3Q3b2c1?=
+ =?utf-8?B?YXRBKzI5TlZxTTdkeWNYUlFWM2E4cHJOM0hLMlBaUGNYNFlPSzdFblE1N2k2?=
+ =?utf-8?B?UnpYN3MwY1B4cDBHc0NaVDdxdUIrT1hHSElVTGVjblZwVE00ZCtpNVlpbXdW?=
+ =?utf-8?B?Y3p0ZGNWa3ozdEV1dlRucHBnNnJCelBPVVFSMVpzMGxBK3ZacTJVNlZadlZS?=
+ =?utf-8?B?MktDWU1VMlNZdFByRisyekdxL1VwWTVJYjdLUEVvbk5DRUwrYkdWa1JaVDgx?=
+ =?utf-8?B?Q29sd3JRZmk0RVV0TXRhVjI4SlYzMlpWNzYrN255ZUoyc2lqOEtKRU5CN3ZW?=
+ =?utf-8?B?SVNaR01mb1U3NkMyYVlUL3BKNWYwRWRTR0FIUC9La0p1Ymd1QTEzRXRNeUdh?=
+ =?utf-8?B?Y1pYbER1WGtQTSs4SjhPbVJ3ZlZvckMvRldsbG1hT1NsQWpnTmR3bkZVWTlE?=
+ =?utf-8?B?QkpSNVdwRzFJTE1nV3I0dUN3T2ZEeDdVQUZQMnJPeVo3c0JJSmNaUnRJamxU?=
+ =?utf-8?B?SUljTlZFSmptRnBEbm1TUStlMDJOUGIwUmxuS0NMV3FNVkpqOWZLa1J0NDBK?=
+ =?utf-8?B?R2RVcWNaaURxTllGTjJIeVpLZTRELyt2YXc4OWw2dTVpK0hZT3JjRUgyeUE3?=
+ =?utf-8?Q?/9HJyQZJq7nLrBxhMXp6G4zwn5GbF33q?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY5PR12MB9056.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFFZdVl3S2FHQ2hEUXZKT21KM3hXbm9LY1dXYzdpYlE5ZmhIT0xJbE5WaUV3?=
+ =?utf-8?B?TkxQR2UzLzkwa2dvayt0MjloNUN0T2xoU1FjZy83UjA5czd6eGdiTDBVa29h?=
+ =?utf-8?B?c2hKUTBPNXhCVjZwY2hMNWl5QXU4MkgzUXF0aExmUWJWRURWaHVwM2VmNEkr?=
+ =?utf-8?B?aVB4ZjM4dUdvVHZoYUpDbTF1eUlRT293RlFyTjFxUHczV28zRm1xL3JIcjYx?=
+ =?utf-8?B?NmxZUm0wbC9FalJHS0NwUWZVSHZiM0prWkh6c01IdXJjNnRXUEhheHplZmxB?=
+ =?utf-8?B?RmFlMWNuR2J2U201aE5UYVFRNXY1a0paWWVqN2VoaXowYklBNW9OK2lHTW56?=
+ =?utf-8?B?ODhUN1BWZXU2OVhCL0dnNS9sKzZ0T0tNc2prREpLa2F6a2Eyb0t6Mis2S0hL?=
+ =?utf-8?B?R3dHN09JaGxacFRYNk4vY2M2MjhjaGNPZFNkWllNMmpiOTZSODNBR2dVQTlB?=
+ =?utf-8?B?clpYS292aDdXalpmZk84S2tLaU9YYVFMMlZ6dys3a3pUUWl1anl1cDRyMVl1?=
+ =?utf-8?B?b2tEcTQ0MGsvRnBuWE5rbktIbmpXZE9WL0hLaVFNZTZNWFgwTjhuZDdWYjBv?=
+ =?utf-8?B?aU4rN0x0RGozTmtoY1pGT2Rwc2VNdnFlVkY4b05GRFlPQmNxaFRPUTA4S3VR?=
+ =?utf-8?B?NDRPVG1WWXUzMlhreVR6bzNJbHd3UEY3ZjdObVd6MDJoc3NnT0R1VDJLdU4v?=
+ =?utf-8?B?TXJtK3BXL2Q2RTVDRTJ2R2Ywa2NzVmtnNTk0YjF0bTBFcm12RlY3dHpodmpR?=
+ =?utf-8?B?NnNtSTFrVHNYdEs0VlY4QWpCd0h0bTIwRGJtN0ZVd1JaQVNqQ1BNOFJIdUI5?=
+ =?utf-8?B?M09uZFk2aGZRRHNDczFDN1YySmxUWHZPUlRQdzBDY2F2allPb2djUmJzaWJ4?=
+ =?utf-8?B?SmRvaEVua1hGa2xLb0V0SlhCcTQ4Tm9Rek9uQVNDWlZaTzdJL3VzbGgwQlVN?=
+ =?utf-8?B?Y2NkanQ0dG9QM1h6RG92QkdRUGIxbjEvVGU1VndRaG1kYXcwbWdEN0tJVVBw?=
+ =?utf-8?B?b0VRN1Q5VEhGVjlvcnJhQ0pVTlhFT05wZmZXamZyZkV6VFNyNnN5Ylh5azhq?=
+ =?utf-8?B?WG12cEhOUFhGUXNmcmRveUNmYmtjWDVSNG83VUE4NndFT3RmWStIT0p0YW1I?=
+ =?utf-8?B?UEZBNUthSnNqNDlmSUltT2tnRUpONVhiK2FQcUZKZ3RIRW1ZYitZMktLdi93?=
+ =?utf-8?B?bXVOdTV4bDkzYnJod3dmaG1sR05mNFZJTXpLam1TUkhyY2hJNVBkS0tOdnVv?=
+ =?utf-8?B?MVhEdW53RnNScEJEY0toTmFsWVVYYXpybVNnVmxMVitEQkxWbE1pNFBxTUlX?=
+ =?utf-8?B?eEhKTEZEUHFMYTl6UGZpRTNWUzYzZ05lM1ZVaU51VXdGOTFMb1BQYk9ZTDFG?=
+ =?utf-8?B?Nzd5UGNya25jNzNUMWdENUxSRCthK1BPcmVWdVIxNk9jcmdKSDJxb1BnYS9o?=
+ =?utf-8?B?N0pWZzNyMEFKcjIxNkZJQ2RrbmRabHVXMjlQTkk3VlcrU1FrMjhITklBcXM3?=
+ =?utf-8?B?Y2cyWGFvVEpIWDkwMWZKcStQQVFuRGI2MVBPNFh0QUxLS0dGQVoyZms3NUww?=
+ =?utf-8?B?MkNtR3Nya1lpNytiVGg2Rnc2MWJ5ZGNhS0hyQy9nU2k2NVZHQ2hkY2NCSXBE?=
+ =?utf-8?B?eGtKT0FjWlhkSTlscmN6QWZJQ3l0V3dDQkdkYmRZaDJUM1RkTlgrZWRrU3Ar?=
+ =?utf-8?B?R1JUakRHVUovRW1FSkFZR1REeUZFUWovRmlpVkpqdk9MZEdjN2w1MkR6S0hi?=
+ =?utf-8?B?dXhmZk1sbCtNTUdUNXV5ME5RM0gyd0RPcUNSb1JvbHozZFdpbmJmcWhmNG41?=
+ =?utf-8?B?N1FIbzhZYkNpMGRvWlRWOC9qY3JxbGtseXcrMkRsZTh4cEVZaUNjSENUcHlk?=
+ =?utf-8?B?a1dRYXQ1RWV0VjhVNm16clA0M0JObWZSSk43bEN1cXVxcjBkS29OYUhwVDIr?=
+ =?utf-8?B?MXhFc1BDT0h2amtSdGtXb1drUkhsOFEveFJhWkV3Q25BTTM5NFNTTE82TjR3?=
+ =?utf-8?B?T3hGZ0V6OWkrTXhlelQ0bXJnT0h0OXZ4dUZCK1d6dFV4MTZyZzZGb2szcStR?=
+ =?utf-8?B?QS93OXdma3RUc0ZUZjd4Vm42NXJLbHVuMzNjVnM0U3lVcUlVQTVUTVdNdDVL?=
+ =?utf-8?Q?8brtE1NiXuTC6KlWXfVw0zbnL?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 651f81ec-0961-48da-d60e-08de1ad9cb1d
+X-MS-Exchange-CrossTenant-AuthSource: CY5PR12MB9056.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 13:06:25.3005
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sqz7zRk6V9pHX+ihKkPft8O2kNazaF1U74xF90sei4Tj/bdItv5pUWdBz8KOV91nHdj4Qzkopyl4TWENf0fooQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_045754_732194_36D2A920 
-X-CRM114-Status: GOOD (  25.39  )
+X-CRM114-CacheID: sfid-20251103_050631_364612_860901E3 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,257 +182,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It has been reported that split_kernel_leaf_mapping() is trying to sleep
-in non-sleepable context. It does this when acquiring the
-pgtable_split_lock mutex, when either CONFIG_DEBUG_PAGEALLOC or
-CONFIG_KFENCE are enabled, which change linear map permissions within
-softirq context during memory allocation and/or freeing. All other paths
-into this function are called from sleepable context and so are safe.
 
-But it turns out that the memory for which these 2 features may attempt
-to modify the permissions is always mapped by pte, so there is no need
-to attempt to split the mapping. So let's exit early in these cases and
-avoid attempting to take the mutex.
+On 10/31/2025 10:59 PM, Nicolin Chen wrote:
+> On Fri, Oct 31, 2025 at 06:29:57AM +0000, Ashish Mhetre wrote:
+>> Add device tree support to the CMDQV driver to enable usage on Tegra264
+>> SoCs. The implementation mirrors the existing ACPI probe path, parsing
+>> the nvidia,cmdqv phandle from the SMMU device tree node to associate
+>> each SMMU with its corresponding CMDQV instance.
+>>
+>> Remove the ACPI dependency from Kconfig as the driver now supports both
+>> ACPI and device tree initialization through conditional compilation.
+>>
+>> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+>
+> With two nits:
 
-There is one wrinkle to this approach; late-initialized kfence allocates
-it's pool from the buddy which may be block mapped. So we must hook that
-allocation and convert it to pte-mappings up front. Previously this was
-done as a side-effect of kfence protecting all the individual pages in
-its pool at init-time, but this no longer works due to the added early
-exit path in split_kernel_leaf_mapping().
+Thanks Nic, I'll address these in next version and add reviewed by.
+>> diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+>> index ef42bbe07dbe..5fac08b89dee 100644
+>> --- a/drivers/iommu/arm/Kconfig
+>> +++ b/drivers/iommu/arm/Kconfig
+>> @@ -121,7 +121,6 @@ config ARM_SMMU_V3_KUNIT_TEST
+>>   
+>>   config TEGRA241_CMDQV
+>>   	bool "NVIDIA Tegra241 CMDQ-V extension support for ARM SMMUv3"
+>> -	depends on ACPI
+> Perhaps:
+> depends on OF || ACPI
+>
+> and update the commit message.
 
-So instead, do this via the existing arch_kfence_init_pool() arch hook,
-and reuse the existing linear_map_split_to_ptes() infrastructure. This
-will now also be more efficient as a result.
+Sure, I will fix this in V2.
+>> +static void tegra_cmdqv_dt_probe(struct device_node *smmu_node,
+>> +				 struct arm_smmu_device *smmu)
+>> +{
+>> +	struct platform_device *pdev;
+>> +	struct device_node *np;
+>> +
+>> +	np = of_parse_phandle(smmu_node, "nvidia,cmdqv", 0);
+>> +	if (!np)
+>> +		return;
+>> +
+>> +	pdev = of_find_device_by_node(np);
+>> +	of_node_put(np);
+>> +	if (!pdev)
+>> +		return;
+>> +
+>> +	smmu->impl_dev = &pdev->dev;
+>> +	smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
+>> +	dev_info(smmu->dev, "found companion CMDQV device: %s\n",
+>> +			dev_name(smmu->impl_dev));
+> 	dev_info(smmu->dev, "found companion CMDQV device: %s\n",
+> 		 dev_name(smmu->impl_dev));
 
-Closes: https://lore.kernel.org/all/f24b9032-0ec9-47b1-8b95-c0eeac7a31c5@roeck-us.net/
-Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
-Tested-by: Guenter Roeck <groeck@google.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
-
-Hi All,
-
-This is a fuller fix than the suggestion I sent yesterday, and works correctly
-with late-init kfence (thanks to Yang Shi for pointing that out).
-
-I've verified this on AmpereOne with CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE
-individually, and I've also forced it to take the linear_map_split_to_ptes() to
-verify that I haven't broken it during the refactoring.
-
-I've kept Guenter's T-b since the early-init kfence path that he was testing is
-unchanged.
-
-Assuming nobody spots any issues, I'fd like to get it into the next round of
-arm64 bug fixes for this cycle.
-
-Thanks,
-Ryan
-
-
- arch/arm64/include/asm/kfence.h |  4 +-
- arch/arm64/mm/mmu.c             | 92 +++++++++++++++++++++++----------
- 2 files changed, 68 insertions(+), 28 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
-index a81937fae9f6..4a921e06d750 100644
---- a/arch/arm64/include/asm/kfence.h
-+++ b/arch/arm64/include/asm/kfence.h
-@@ -10,8 +10,6 @@
-
- #include <asm/set_memory.h>
-
--static inline bool arch_kfence_init_pool(void) { return true; }
--
- static inline bool kfence_protect_page(unsigned long addr, bool protect)
- {
- 	set_memory_valid(addr, 1, !protect);
-@@ -25,8 +23,10 @@ static inline bool arm64_kfence_can_set_direct_map(void)
- {
- 	return !kfence_early_init;
- }
-+bool arch_kfence_init_pool(void);
- #else /* CONFIG_KFENCE */
- static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
-+static inline bool arch_kfence_init_pool(void) { return false; }
- #endif /* CONFIG_KFENCE */
-
- #endif /* __ASM_KFENCE_H */
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index b8d37eb037fc..0385e9b17ab0 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -708,6 +708,16 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
- 	return ret;
- }
-
-+static inline bool force_pte_mapping(void)
-+{
-+	bool bbml2 = system_capabilities_finalized() ?
-+		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
-+
-+	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
-+			   is_realm_world())) ||
-+		debug_pagealloc_enabled();
-+}
-+
- static DEFINE_MUTEX(pgtable_split_lock);
-
- int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
-@@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
- 	if (!system_supports_bbml2_noabort())
- 		return 0;
-
-+	/*
-+	 * If the region is within a pte-mapped area, there is no need to try to
-+	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
-+	 * change permissions from softirq context so for those cases (which are
-+	 * always pte-mapped), we must not go any further because taking the
-+	 * mutex below may sleep.
-+	 */
-+	if (force_pte_mapping() || is_kfence_address((void *)start))
-+		return 0;
-+
- 	/*
- 	 * Ensure start and end are at least page-aligned since this is the
- 	 * finest granularity we can split to.
-@@ -758,30 +778,30 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
- 	return ret;
- }
-
--static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
--					  unsigned long next,
--					  struct mm_walk *walk)
-+static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
-+				   unsigned long next, struct mm_walk *walk)
- {
-+	gfp_t gfp = *(gfp_t *)walk->private;
- 	pud_t pud = pudp_get(pudp);
- 	int ret = 0;
-
- 	if (pud_leaf(pud))
--		ret = split_pud(pudp, pud, GFP_ATOMIC, false);
-+		ret = split_pud(pudp, pud, gfp, false);
-
- 	return ret;
- }
-
--static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
--					  unsigned long next,
--					  struct mm_walk *walk)
-+static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
-+				   unsigned long next, struct mm_walk *walk)
- {
-+	gfp_t gfp = *(gfp_t *)walk->private;
- 	pmd_t pmd = pmdp_get(pmdp);
- 	int ret = 0;
-
- 	if (pmd_leaf(pmd)) {
- 		if (pmd_cont(pmd))
- 			split_contpmd(pmdp);
--		ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
-+		ret = split_pmd(pmdp, pmd, gfp, false);
-
- 		/*
- 		 * We have split the pmd directly to ptes so there is no need to
-@@ -793,9 +813,8 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
- 	return ret;
- }
-
--static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
--					  unsigned long next,
--					  struct mm_walk *walk)
-+static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
-+				   unsigned long next, struct mm_walk *walk)
- {
- 	pte_t pte = __ptep_get(ptep);
-
-@@ -805,12 +824,24 @@ static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
- 	return 0;
- }
-
--static const struct mm_walk_ops split_to_ptes_ops __initconst = {
-+static const struct mm_walk_ops split_to_ptes_ops = {
- 	.pud_entry	= split_to_ptes_pud_entry,
- 	.pmd_entry	= split_to_ptes_pmd_entry,
- 	.pte_entry	= split_to_ptes_pte_entry,
- };
-
-+static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp)
-+{
-+	int ret;
-+
-+	arch_enter_lazy_mmu_mode();
-+	ret = walk_kernel_page_table_range_lockless(start, end,
-+					&split_to_ptes_ops, NULL, &gfp);
-+	arch_leave_lazy_mmu_mode();
-+
-+	return ret;
-+}
-+
- static bool linear_map_requires_bbml2 __initdata;
-
- u32 idmap_kpti_bbml2_flag;
-@@ -847,11 +878,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
- 		 * PTE. The kernel alias remains static throughout runtime so
- 		 * can continue to be safely mapped with large mappings.
- 		 */
--		ret = walk_kernel_page_table_range_lockless(lstart, kstart,
--						&split_to_ptes_ops, NULL, NULL);
-+		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
- 		if (!ret)
--			ret = walk_kernel_page_table_range_lockless(kend, lend,
--						&split_to_ptes_ops, NULL, NULL);
-+			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
- 		if (ret)
- 			panic("Failed to split linear map\n");
- 		flush_tlb_kernel_range(lstart, lend);
-@@ -1002,6 +1031,27 @@ static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
- 	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
- 	__kfence_pool = phys_to_virt(kfence_pool);
- }
-+
-+bool arch_kfence_init_pool(void)
-+{
-+	unsigned long start = (unsigned long)__kfence_pool;
-+	unsigned long end = start + KFENCE_POOL_SIZE;
-+	int ret;
-+
-+	/* Exit early if we know the linear map is already pte-mapped. */
-+	if (!system_supports_bbml2_noabort() || force_pte_mapping())
-+		return true;
-+
-+	/* Kfence pool is already pte-mapped for the early init case. */
-+	if (kfence_early_init)
-+		return true;
-+
-+	mutex_lock(&pgtable_split_lock);
-+	ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
-+	mutex_unlock(&pgtable_split_lock);
-+
-+	return ret ? false : true;
-+}
- #else /* CONFIG_KFENCE */
-
- static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
-@@ -1009,16 +1059,6 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
-
- #endif /* CONFIG_KFENCE */
-
--static inline bool force_pte_mapping(void)
--{
--	bool bbml2 = system_capabilities_finalized() ?
--		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
--
--	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
--			   is_realm_world())) ||
--		debug_pagealloc_enabled();
--}
--
- static void __init map_mem(pgd_t *pgdp)
- {
- 	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
---
-2.43.0
-
+Ack,  I'll fix this in next version
+> Nicolin
 
