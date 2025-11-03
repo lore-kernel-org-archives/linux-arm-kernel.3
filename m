@@ -4,138 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127A9CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 090E4CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 17:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4TaFPKM3LYUM5KAFWnkEQp7ML7TornS9PC60qHw95Yk=; b=TpiPMWGHVdHYjmEj20K9TCUy/A
-	w2yMw6tC1zepCLeRDw+c/Lt2/cXt7ldj5m0Av5xmHElhFtrUFGsuWvZk6aTPvUOHAb8iAgohERTzQ
-	YDCMhXTUpWJksjrz5wGYiEcZsW99KG8jJwkirR89iNC3orJDVxSiBlssvL4kr/bfBpFPCWfFRh2ru
-	Y6csx1KYCHFffze+v7Vb2Jr2AioHorNQGsbYM/6kA7NTwbyOcMBBEljHnSz7r+uOf5e6oZ2EI0F44
-	HQEyyv1VMOnGHwceeUREoQ9/6NzmRnQnypze8Z56IV2E+3gZhO5EvXXJMvLCWlI/PLgE7XnIPHeHl
-	pH0ox8HA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9eRsfa2WSVOeZdp9XJycZlUSijfgD6aDUQXrC6J6R3o=; b=4nKPF2r5W0BNLbd2wNhaSPAXXC
+	VzEX52NIoxhd7TV6IIxdSQygiafqNJ8T9QPngUPTPyXDnsQGTqH0W1iIr8lTzkItLier/4ZOLjL26
+	EAJA0ZIEy/TS3D1Grfucti6vKNSMlvoCFFbvwlIgYtMg/Tt/QwFQZtueeoWEKutkiVno2TkQmZHTI
+	grxzvhQZwrzQyHByA5JEMV3pUgbMFxa8MN6bueh5csFJgWYdyTNk1hW9Ju60UacGpL4p6e0e8Ntlp
+	5a2qW7PHLO97DywkgBulMcVojohwrx59sAKtvmVBks+ZdDJWbrICqbl+K7hL2070WgkWFjyBln/JA
+	lvXoxYVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFyMN-0000000APx0-1GQg;
-	Mon, 03 Nov 2025 17:28:51 +0000
-Received: from mail-northcentralusazon11013025.outbound.protection.outlook.com ([40.107.201.25] helo=CH4PR04CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFyMK-0000000APwO-2zY7
+	id 1vFyP0-0000000AQEK-3eHV;
+	Mon, 03 Nov 2025 17:31:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFyOy-0000000AQDf-2Qzv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 17:28:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PZVGggyV0+OEQ1bW8fpsm4IDtzWjbXpsulIERKM+UuguQR6E6cwYQ2LkwgqjXk2xVpxmy0dGsx1OTbD3y0lxeN6uSmAovCJn934XJkfX3WeUozHV1/NDtAZAbp84eMltvyRgHxxo25p0EWd9nrWEMhI5xwW/ZcF9lEH83WHirMabx9/qI4nhLWJpm61MKy1qdIKyXlv8pS+/q6L3rPc42yp2+Mdd5HoaUmhMUQLID2EAbQrAuXU/J1nqL7uQcBer9gsq4Do5yiW/IeDXKZ0UrauS5YimiWcBhKkGnD4MCftX2EcAtDLQ4R2XJFMI0/g2UkwRMtgLPxHAjxuzTaGhpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4TaFPKM3LYUM5KAFWnkEQp7ML7TornS9PC60qHw95Yk=;
- b=g93MEQMVb6ZAn1eSIc7MK5ixrUnggyGseQ+QVLH+0Pqy69VuYu9CFAljnJyrfg0jRLQ4QYSfSyBluMvYOg36OSeY9dm6VLjMkRnKFvNFQyNKVMRQ4O7e01G1DsVlIARGEG81bplBT3LxLHAMeLg7BqqJpXLKzFcCk7tP6X5IoVL4TU9xWi9YXq/pXCiFx+ZobX3W8SucjNDLPTDRTaMYJ0vWEGlaXUUL79mVBh0WHyt2Kp0gm4j7Qh33FQvTrQGL0WzgRl3NowZrYJg3ySFs7LgMb+KyRO2VgbQ5ggIkDvFbKfNGwITkzB4+hNokhfv0CH7cE0Ss7SPl/DeVi+jtow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4TaFPKM3LYUM5KAFWnkEQp7ML7TornS9PC60qHw95Yk=;
- b=HE/LJa4ks+Um+8W+6nnIQrP9whl6u0P4t0F0L+TwnFo8iPGYYMqgfjZH22QFevZpwq7C48CKOMLker+BFGFmuw5m1rbTDadKWUh7KvP40VolSI4u6YS9afDwdbOVNtGkhXzufBKAdq2fwRy7vJz8deMYFyTO8Rkjpmge1GaQkuVHphtt1LEXy1HD1oVWC7H/J705NVL94VsCPCSRuztV0a5+/lYvFgW8nLU4Z9bzpBIDB28tHryrIjMTysQg30Kg6UmHE8MKWAjRgs1kUVa5h/vMIqnbZa1GFoZkh0ZJkZG526yR2+QlxZvtAFxR1NXZmlswaOKX1xB5I0l6Hj9EPg==
-Received: from PH7PR10CA0012.namprd10.prod.outlook.com (2603:10b6:510:23d::26)
- by CYXPR12MB9277.namprd12.prod.outlook.com (2603:10b6:930:d8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
- 2025 17:28:38 +0000
-Received: from CY4PEPF0000EDD7.namprd03.prod.outlook.com
- (2603:10b6:510:23d:cafe::51) by PH7PR10CA0012.outlook.office365.com
- (2603:10b6:510:23d::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.16 via Frontend Transport; Mon,
- 3 Nov 2025 17:28:36 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000EDD7.mail.protection.outlook.com (10.167.241.203) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Mon, 3 Nov 2025 17:28:38 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
- 2025 09:28:11 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
- 2025 09:28:11 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Mon, 3 Nov 2025 09:28:10 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<skolothumtho@nvidia.com>
-Subject: [PATCH v2] iommu/arm-smmu-v3-iommufd: Allow attaching nested domain for GBPA cases
-Date: Mon, 3 Nov 2025 09:27:55 -0800
-Message-ID: <20251103172755.2026145-1-nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 03 Nov 2025 17:31:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 237A61D14;
+	Mon,  3 Nov 2025 09:31:24 -0800 (PST)
+Received: from arm.com (unknown [10.1.25.188])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2244C3F66E;
+	Mon,  3 Nov 2025 09:31:30 -0800 (PST)
+Date: Mon, 3 Nov 2025 17:31:27 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>, Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH V6 1/3] tools: header: arm64: Replace TCR_NFD[0|1] with
+ TCR_EL1_NFD[0|1]
+Message-ID: <aQjm7wmvHa79hkyi@arm.com>
+References: <20251013052945.2197190-1-anshuman.khandual@arm.com>
+ <20251013052945.2197190-2-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD7:EE_|CYXPR12MB9277:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8337a84a-9f6f-4900-24c6-08de1afe6cc6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wf9ROA6NEN+lX2bhE7LeMBZGZ6yf7Jo9l77j2LBaHa6qi+F/Y70CAX4ukhk+?=
- =?us-ascii?Q?or0YVn16qxurJSekytuS4dbcDqC6BhAmc9YXccUt7JfO9qHEOkjI9qcFHTwE?=
- =?us-ascii?Q?UFa1An6ladsktpqLvi/d8l5DU8rBzgsIdAyT7+aAE7y4SpLd/kbHBZD5oaIf?=
- =?us-ascii?Q?QZYm6S0FmdFQxizI0v6ZYg1mj9Qoa2L+KK/KNNd3GlstG/Ydp3Gu6uc01ity?=
- =?us-ascii?Q?N7EhhQ3mskP+rw6Mtz/hf5xw2wMuFrzr6wjZ98kShZldbedToHHC2gVWdvBC?=
- =?us-ascii?Q?17x70zppP8hYi/dp6LQzsHDrMG2ka2ifLSiUI0b63aQJ1p73botSSB5xwuqH?=
- =?us-ascii?Q?5kyYyT2o43/rIYZc7/sELO8DFmPUxS6LMUlTzKhCdNCN52meWdZYCo6zg15i?=
- =?us-ascii?Q?a/LSk5jVV+zLStGu5jMLjkamH0o+RDuqU4SLOfV90t3yO5QQ9fiBOsfKPEl6?=
- =?us-ascii?Q?uQpSIPgkGlNw4vz8UkTGZSEvRdeWRe0Jn1FoAp9vcyPjbgp/Ti2iE1ld9bZj?=
- =?us-ascii?Q?XV4m6vNbQZGqdlMPEOBJHN9ByIZ0A8ibCT66OxnYI+PHMlb5VALAgSrTmkEW?=
- =?us-ascii?Q?VHozehJoDgxDfncRr0AmzD2/ZV34p54HBYl6KLhuP75bmU2aV8bNd6Yk/K1D?=
- =?us-ascii?Q?2GsDycW/w/mBH/Xs0P3NkjjhuPe7Bzz92/sVcmnHMFropPhgR9qm1yS8QHQ2?=
- =?us-ascii?Q?Xs+/vRh+Cvj6YormZsYn0DHkjS1YDcCmX40lFFuO6ERh8KxNdVit20ff/M4y?=
- =?us-ascii?Q?Bj47Op0ttqxjt0PfYK+n6LB7idXFMj3zMd1jE4vQLiu7Yf78h//uGuSMZwXO?=
- =?us-ascii?Q?GiIjsgiHa74phZZAz0+akswWfMBG+XGHrPVmxQjWo0FWkdzR9VFZUOBjWJOu?=
- =?us-ascii?Q?P9M9ry0FnpO46GdeKx1zbt4etr+eKndc8nVqqDakkvqVrCTC0R4iSrj+hj+Q?=
- =?us-ascii?Q?RYTMNL4iwdkvw+h4S5kDaXrtP7jbysZ4yrB7MlNfVbl92bU6liXmN+YxmtMU?=
- =?us-ascii?Q?+4X6ToAKnIUfFAjiUJXgz4TS5ZEDo4CTMkxBqEzCgCvnwjpvGRtwpHqVL1cd?=
- =?us-ascii?Q?gkxDTd5uHng8a9XfgtivrZlHf7Xmnj3mkXI0R+nkxW0wUcPe+3sIzqooOscq?=
- =?us-ascii?Q?eNYHoIkiCxlU8pqSF48S2Vv0MXqkthHxoTfcxHqGrEY9hNRlOq/KXv3SuZed?=
- =?us-ascii?Q?j7Q/SH9Y+KTeBlt/ZdH3tPBsw3biOSyCAhSaJvEEGm70BUeRW8Q7OTKGH36k?=
- =?us-ascii?Q?kX+htrD5tvf7c/y+U2bQm5S/XHm8HMlSI+2NZZwvRT9CbPD+Eb6GUQQ6TDnV?=
- =?us-ascii?Q?a28ciKku1191s+epfMSo7hGfyri/du1MniE1jwV4vT9KHEqp+T3ImDC3LlIL?=
- =?us-ascii?Q?/N0HED71wNpy0fQjEs8a9Uy35S1Ud1Vi7w+nlymuQGpq5SNRO9+HgifIllwu?=
- =?us-ascii?Q?2NaREYKMdtIde1YVuwtWX2Zpabs8I14OTZ04CeMJAgLBFN5ejPCTVXzVYZ6e?=
- =?us-ascii?Q?przPnfDaGw+3AQoHyNpdixeU7CNW/7DvWbddSPtA9PVH1G4e4lAGxbUQeaa7?=
- =?us-ascii?Q?hdpKUbBZflFbXfNaWhs=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 17:28:38.0937
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8337a84a-9f6f-4900-24c6-08de1afe6cc6
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD7.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR12MB9277
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013052945.2197190-2-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_092848_756182_8E17209A 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20251103_093132_679466_604B3C4E 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,87 +70,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A vDEVICE has been a hard requirement for attaching a nested domain to the
-device. This makes sense when installing a guest STE, since a vSID must be
-present and given to the kernel during the vDEVICE allocation.
+On Mon, Oct 13, 2025 at 10:59:43AM +0530, Anshuman Khandual wrote:
+> Replace TCR_NFD[0|1] (used in TCR_CLEAR_FUJITSU_ERRATUM_010001) with field
+> definitions which are available in tool sysreg format. Helps in completely
+> dropping off the adhoc TCR_NFD[0|1] macros later.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Arnaldo Carvalho de Melo <acme@redhat.com>
+> Cc: Namhyung Kim <namhyung@kernel.org>
+> Cc: Leo Yan <leo.yan@arm.com>
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  tools/arch/arm64/include/asm/cputype.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
+> index 139d5e87dc95..dfa12df5e290 100644
+> --- a/tools/arch/arm64/include/asm/cputype.h
+> +++ b/tools/arch/arm64/include/asm/cputype.h
+> @@ -243,7 +243,7 @@
+>  /* Fujitsu Erratum 010001 affects A64FX 1.0 and 1.1, (v0r0 and v1r0) */
+>  #define MIDR_FUJITSU_ERRATUM_010001		MIDR_FUJITSU_A64FX
+>  #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
+> -#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
+> +#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
 
-But, when CR0.SMMUEN is disabled, VM doesn't really need a vSID to program
-the vSMMU behavior as GBPA will take effect, in which case the vSTE in the
-nested domain could have carried the bypass or abort configuration in GBPA
-register. Thus, having such a hard requirement doesn't work well for GBPA.
+Isn't this file usually updated automatically (well, someone running a
+script to sync) from the corresponding arch/arm64/ one?
 
-Skip vmaster allocation in arm_smmu_attach_prepare_vmaster() for an abort
-or bypass vSTE. Note that device on this attachment won't report vevents.
-
-Update the uAPI doc accordingly.
-
-Tested-by: Shameer Kolothum <skolothumtho@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
-
-Changelog
-v2
- * Add Tested-by from Shameer
- * Skip vmaster allocation instead of bypassing vsid=0
- * Revise the uAPI doc to note a corner case when CR0.SMMUEN=1
-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 13 ++++++++++++-
- include/uapi/linux/iommufd.h                        |  9 +++++++++
- 2 files changed, 21 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 8cd8929bbfdf8..e5fbbdbdea242 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -99,6 +99,8 @@ static void arm_smmu_make_nested_domain_ste(
- int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
- 				    struct arm_smmu_nested_domain *nested_domain)
- {
-+	unsigned int cfg =
-+		FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0]));
- 	struct arm_smmu_vmaster *vmaster;
- 	unsigned long vsid;
- 	int ret;
-@@ -107,8 +109,17 @@ int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
- 
- 	ret = iommufd_viommu_get_vdev_id(&nested_domain->vsmmu->core,
- 					 state->master->dev, &vsid);
--	if (ret)
-+	/*
-+	 * Attaching to a translate nested domain must allocate a vDEVICE prior,
-+	 * as CD/ATS invalidations and vevents require a vSID to work properly.
-+	 * A abort/bypass domain is allowed to attach w/o vmaster for GBPA case.
-+	 */
-+	if (ret) {
-+		if (cfg == STRTAB_STE_0_CFG_ABORT ||
-+		    cfg == STRTAB_STE_0_CFG_BYPASS)
-+			return 0;
- 		return ret;
-+	}
- 
- 	vmaster = kzalloc(sizeof(*vmaster), GFP_KERNEL);
- 	if (!vmaster)
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index c218c89e0e2eb..225671603ade6 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -450,6 +450,15 @@ struct iommu_hwpt_vtd_s1 {
-  * nested domain will translate the same as the nesting parent. The S1 will
-  * install a Context Descriptor Table pointing at userspace memory translated
-  * by the nesting parent.
-+ *
-+ * It's suggested to allocate a vDEVICE object carrying vSID and then re-attach
-+ * the nested domain, as soon as the vSID is available in the VMM level:
-+ * - when Cfg=translate, a vDEVICE must be allocated prior to attaching to the
-+ *   allocated nested domain, as CD/ATS invalidations and vevents need a vSID.
-+ * - when Cfg=bypass/abort, a vDEVICE is not enforced during the nested domain
-+ *   attachment, to support a GBPA case where VM sets CR0.SMMUEN=0. However, if
-+ *   VM sets CR0.SMMUEN=1 while missing a vDEVICE object, kernel would fail to
-+ *   report events to the VM. E.g. F_TRANSLATION when guest STE.Cfg=abort.
-  */
- struct iommu_hwpt_arm_smmuv3 {
- 	__aligned_le64 ste[2];
 -- 
-2.43.0
-
+Catalin
 
