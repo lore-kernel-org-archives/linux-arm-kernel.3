@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA71BCCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CB7CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMHYVRQscitphGbSmvrYN8Sjl2UCr/kek2Zu546FlnI=; b=SdvouqCl0twEOSecH37n2nXsSK
-	cG6TvafupESfoyxWIg6awcHsHkjs9/KjxithCXrN9Ma0iYn/asmVjaq/rzji1K+o5U2tVdbEonNhh
-	RmDd19McQVHuJYW2Ju1VFzMj3rcpYXu99AgnXyp4RLtbIgeiqxIvvs5dOPz4H3GHn9bt5N+2/gVa4
-	j9+DBK0XlR/US3Jr1zdYFbLJXGGhk+8i07ZyDnrpt7qRFT4KsllvKN5dxGfASY+t86fnI7PSO7U3/
-	4RQQK63CFQHlupz7hWufZO8FKZlufzKQwL97+rJlMxDhm+k0Ig/g2bOZL9RwN0+JIHEMPy29f/5/W
-	P6rfx8aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O1Z//l6k04timT7dfj9ZuAGoUYvysYRtMJVgtc7DCqw=; b=Vq4w30UeD2k/2JzIxu5Lj8RN9W
+	yXGZdK0Gy9p+m7vehErj6tB7ZeQA9xA+ZxsqWUpZIN48wcJSqS3KlGInea8Qa37/br5gqO4a+WpP6
+	4dLEcwYPO/twj+BjoekcxZXvrArPSxh3VzNnir5Y2jJBGaiNb4W1TvFzb/wcoNdYf2BP8FxaBDc/R
+	v4t7lv3M5mPMLSsAa8O+A1h799eIjUqcFqlT88xU2ayiPAwGRNtEOLHpnWo9OwCZgNFYUxmobn6mJ
+	uJDUjR+Vyk5GskEcaXJ7xZfFdjPjvvya50vTBVcHcnvR0DJZFeqQspL8bAADLhcRsjYzk0mF6MdQE
+	pSKiLmww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvDP-00000009zgN-112x;
-	Mon, 03 Nov 2025 14:07:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vFvDd-00000009zkI-2LsG;
+	Mon, 03 Nov 2025 14:07:37 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvDN-00000009zff-3s3j
+	id 1vFvDb-00000009zj8-1Rud
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:07:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA20F6013E;
-	Mon,  3 Nov 2025 14:07:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 666F7C4CEE7;
-	Mon,  3 Nov 2025 14:07:18 +0000 (UTC)
-Date: Mon, 3 Nov 2025 14:07:15 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, rcu@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	rostedt@goodmis.org, Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH 17/19] srcu: Optimize SRCU-fast-updown for arm64
-Message-ID: <aQi3E-3hoNWYocOl@arm.com>
-References: <082fb8ba-91b8-448e-a472-195eb7b282fd@paulmck-laptop>
- <20251102214436.3905633-17-paulmck@kernel.org>
- <aQilZAXQv2P-b2eI@willie-the-truck>
+	Mon, 03 Nov 2025 14:07:36 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:314e:ee86:ae6e:30:9d13])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6B42DC73;
+	Mon,  3 Nov 2025 15:05:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762178740;
+	bh=zGZUkrSKKsYnAxn5dIDSUtNe4q/9E6c28nR/r2Tsowo=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=AuK7I6pWGaQTcsoFp69tDNHBbEj6eEHMi//NqCquqi+ICFsjc0G0FMvMJHmsiWk0M
+	 lJkDKJetTmJwKgb5rgySv5rs4NnNzjGeaiWzAn7YtIEYnRQ/u7Ok5D7994y/bKqA9A
+	 8Y0HomuTBTNvsGfaU0nOWtwq8AysRNsS0/JY5Qgs=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQilZAXQv2P-b2eI@willie-the-truck>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <176217826196.8690.15955501577381404885@freya>
+References: <20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com> <20251031-b4-vc-sm-cma-v1-13-0dd5c0ec3f5c@ideasonboard.com> <d0517fad-9253-4c39-a063-a2c09e74237f@kernel.org> <176217826196.8690.15955501577381404885@freya>
+Subject: Re: [PATCH 13/13] platform/raspberrypi: vchiq: Register vc-sm-cma as a platform driver
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, Sumit Semwal <sumit.semwal@linaro.org>, Christian =?utf-8?q?K=C3=B6nig?= <christian.koenig@amd.com>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, bcm-kernel-feedback-list@broadcom.com
+Date: Mon, 03 Nov 2025 19:37:28 +0530
+Message-ID: <176217884879.8690.13419980100895110857@freya>
+User-Agent: alot/0.12.dev28+gd2c823fe
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251103_060735_522537_4EB69C1F 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,72 +66,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 12:51:48PM +0000, Will Deacon wrote:
-> On Sun, Nov 02, 2025 at 01:44:34PM -0800, Paul E. McKenney wrote:
-> > Some arm64 platforms have slow per-CPU atomic operations, for example,
-> > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
-> > atomic operations to interrupt-disabled non-read-modify-write-atomic
-> > atomic_read()/atomic_set() operations.  This works because
-> > SRCU-fast-updown is not invoked from read-side primitives, which
-> > means that if srcu_read_unlock_fast() NMI handlers.  This means that
-> > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
-> > exclude themselves and each other
-> > 
-> > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
-> > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
-> > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
-> > it sure beats 100ns.
-> > 
-> > This command was used to measure the overhead:
-> > 
-> > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
-> > 
-> > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> > Cc: Steven Rostedt <rostedt@goodmis.org>
-> > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > Cc: <linux-arm-kernel@lists.infradead.org>
-> > Cc: <bpf@vger.kernel.org>
-> > ---
-> >  include/linux/srcutree.h | 56 ++++++++++++++++++++++++++++++++++++----
-> >  1 file changed, 51 insertions(+), 5 deletions(-)
-> 
-> [...]
-> 
-> > @@ -327,12 +355,23 @@ __srcu_read_unlock_fast(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
-> >  static inline
-> >  struct srcu_ctr __percpu notrace *__srcu_read_lock_fast_updown(struct srcu_struct *ssp)
-> >  {
-> > -	struct srcu_ctr __percpu *scp = READ_ONCE(ssp->srcu_ctrp);
-> > +	struct srcu_ctr __percpu *scp;
-> >  
-> > -	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
-> > +	if (IS_ENABLED(CONFIG_ARM64) && IS_ENABLED(CONFIG_ARM64_USE_LSE_PERCPU_ATOMICS)) {
-> > +		unsigned long flags;
-> > +
-> > +		local_irq_save(flags);
-> > +		scp = __srcu_read_lock_fast_na(ssp);
-> > +		local_irq_restore(flags); /* Avoids leaking the critical section. */
-> > +		return scp;
-> > +	}
-> 
-> Do we still need to pursue this after Catalin's prefetch suggestion for the
-> per-cpu atomics?
-> 
-> https://lore.kernel.org/r/aQU7l-qMKJTx4znJ@arm.com
-> 
-> Although disabling/enabling interrupts on your system seems to be
-> significantly faster than an atomic instruction, I'm worried that it's
-> all very SoC-specific and on a mobile part (especially with pseudo-NMI),
-> the relative costs could easily be the other way around.
+Quoting Jai Luthra (2025-11-03 19:27:41)
+> Quoting Krzysztof Kozlowski (2025-11-02 15:03:55)
+> > On 31/10/2025 18:27, Jai Luthra wrote:
+> > > From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > >=20
+> > > Register the vc-sm-cma driver as a platform driver under vchiq.
+> > >=20
+> > > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+> > > ---
+> > >  drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 3 +++
+> > >  1 file changed, 3 insertions(+)
+> > >=20
+> > > diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c=
+ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+> > > index 6a7b96d3dae6275a483ef15dc619c5510454765e..09d33bec46ec45175378f=
+ff8dd1084d0a8a12dd6 100644
+> > > --- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+> > > +++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+> > > @@ -63,6 +63,7 @@
+> > >   * the interface.
+> > >   */
+> > >  static struct vchiq_device *bcm2835_audio;
+> > > +static struct vchiq_device *vcsm_cma;
+> >=20
+> > Please don't write singletons. How do you handle probe of two devices?
+>=20
+> This driver instantiates all the devices under the vchiq bus during its
+> probe.
+>=20
+> The VCHIQ firmware doesn't support device enumeration, hence we have to
+> list out the supported devices here.
 
-My preference would be to go for the percpu atomic prefetch but we'd
-need to do a bit of benchmarking to see we don't break other platforms
-(unlikely though).
+And as Laurent just pointed out to me, yes these shouldn't be globally
+defined singletons.
 
--- 
-Catalin
+I'll move them inside struct vchiq_drv_mgmt in v2.
+
+>=20
+> >=20
+> > > =20
+> > >  static const struct vchiq_platform_info bcm2835_info =3D {
+> > >       .cache_line_size =3D 32,
+> > > @@ -1421,6 +1422,7 @@ static int vchiq_probe(struct platform_device *=
+pdev)
+> >=20
+> >=20
+> > Best regards,
+> > Krzysztof
+>=20
+> Thanks,
+> Jai
 
