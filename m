@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F411BCCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486D8CCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0r8Hd1Bh70mq6A2IDY2tkeLNTNKfROuIjK8QurSbXoI=; b=skJHKV7Sx9evTJdBCFwZVUgg/c
-	YVD+kVYWvJI6ypLoBVjYv1T9z5NnJwhGw6RGlyW4TXhtpmEgVBzbBUMIT1odFdqzQk9yS08kI7phx
-	oSksCpxfMyeNAj4bVs/tR1mtURHPDvGoky5BtWHdQAMtusdQLLqyWon96BnX0Ag9nHscjHWjzPdBG
-	SLMTpyztlkoC3o1Onj1OYrhZfLbM3A1UToBEdnCunZEn/gjOXNwTuHmQvXkv5Wv8NYCbhUUYODRXZ
-	Sx4FSvXB7Cc7HmGyj31exJxuiIkse7s5ueRmf3m6jQt6DCaCMJgL4r8YHCXd9NfN+Kao0LMd9/xK4
-	lSNxHmVQ==;
+	bh=zNYo2LK0r9ymlHkqqNH88mFoL+fAp95YytunWlV58ig=; b=iKRYSvt00WZkY3UKqbde44MDi3
+	Pq6WDPCWiKeS/i2il8k4TN+4+V9IEskZIGTxHPspAwbibCDdsUc6nmDI3JJRK0Qik9tNLlHz1NG8l
+	b9wRreSD4MVreRTRR3bhBJ39j6uPST7y/kd8Dj5sv6FIfrdjuSkHfGpelD9PHu6Rw0mLBBgngRE7l
+	OJorVdRG7Sb0duCHjiB9TuPbVkhMcpDzJfihKqDHCfycRTehg9VDpIXYpzSY1iabRws0wWkUNQZpS
+	IrHtI9ApsQa2vET5G2hEiWVNQdZN9GPXK5eGr4SJXZXng+J78aiJimsz0CaQp/ZnyNb5E+osFeOA0
+	Coqn5hdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFw0V-0000000A3t1-0Tr5;
-	Mon, 03 Nov 2025 14:58:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vFw0X-0000000A3uZ-1fEg;
+	Mon, 03 Nov 2025 14:58:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFw0U-0000000A3sE-1FYj
+	id 1vFw0W-0000000A3tU-1LJn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:58:06 +0000
+	Mon, 03 Nov 2025 14:58:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5C3DF601B5;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7414F601B3;
+	Mon,  3 Nov 2025 14:58:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910E1C4CEE7;
 	Mon,  3 Nov 2025 14:58:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46F8DC19423;
-	Mon,  3 Nov 2025 14:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762181885;
-	bh=1y8nyhLMPDQthRdVRLcjZW6GOD7VlICRZa0k7+ilTrA=;
+	s=k20201202; t=1762181887;
+	bh=VB+OJdhFko++Cc4PEpxdVhhL1Tqf3bp8WQNWSVbu7VE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kCfnTOJLfLYbFN8gxf8ljTASem2Tu+fAvmEW/uOwwSoc0ga4ImCQV6ROb2zk+ESCY
-	 zlH4WPE7jnsRp7F8ony9MkHgiBW+zIQgeQwsmJtm8k/Klst4IwFfm9MSLCN2EAgjb/
-	 HjIme+3dr7vQodUv2pylktxuRhhCyLhxdwxjBD9hPUWPq3dFuqKzl0+peF7GDcy4To
-	 YxL4PDi6L4leuWZG8ExJjNMIcvlDK5TLS1H8PrVPU1k0QTqHNNYhOIY8cvorgeZV1C
-	 JBquY8zJLgCXoTHcRB2IJz4YzNw+L5kSjq2ZBqICnoq+4zPWqyGNBSHNwuRvFrrA8k
-	 ExmZBWC7n421g==
+	b=Mdkfw/5VBc7WvLgks52fmjnPgUxH4An/R0ffGAuU8ozjeaLHfK+eZAu/FgfgvcFx5
+	 iimo5wFdIP+w6X7S8c9uABeZ6Q0Zrt7Q3EnrSS3v0nhEcsSE9Ur9MaW9/ioMmpujQS
+	 jb0FEa/tNNw0pmHbT+Dim+3LnO4IHMLOPb6YUTShaxH/hDADCdshdRjxaEgS1u8ckq
+	 6DIh0KMPvbP9iwMjDrAX9clDVCKSY7pOdD7WwQmt4Bqtx8YU7zEjvmaMvyvCTiuTeY
+	 IQBVvxEC/6u6Z1yLjP+c7Ib3k5uvBXN8TzlKNIU9Un8hfMsM8tl4fy0/kLfZbuoVO1
+	 VTxiymJYgvnsQ==
 From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf: arm_pmuv3: Add new Cortex and C1 CPU PMUs
-Date: Mon,  3 Nov 2025 14:57:48 +0000
-Message-Id: <176217971597.2906896.12399584424760011005.b4-ty@kernel.org>
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH] perf/arm-ni: Add NoC S3 support
+Date: Mon,  3 Nov 2025 14:57:49 +0000
+Message-Id: <176217955803.2904482.3019050250965959797.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20251029213424.2951519-2-robh@kernel.org>
-References: <20251029213424.2951519-2-robh@kernel.org>
+In-Reply-To: <ddb1dbaccce2f092bbfe1029982aad3a81bded71.1760960572.git.robin.murphy@arm.com>
+References: <ddb1dbaccce2f092bbfe1029982aad3a81bded71.1760960572.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,16 +73,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Oct 2025 16:34:24 -0500, Rob Herring (Arm) wrote:
-> Add CPU PMU compatible strings for Cortex-A320, Cortex-A520AE,
-> Cortex-A720AE, and C1 Nano/Premium/Pro/Ultra.
+On Mon, 20 Oct 2025 12:44:19 +0100, Robin Murphy wrote:
+> NoC S3 and its SI L1 sibling look largely similar to their predecessors,
+> but add the notion of subfeatures to the discovery process, which we now
+> use to find the event muxes for each device node. Plus, as ever, more
+> mildly annoying shuffling around of some of the PMU registers (this time
+> it's the counters...)
 > 
 > 
+> [...]
 
 Applied to will (for-next/perf), thanks!
 
-[1/1] perf: arm_pmuv3: Add new Cortex and C1 CPU PMUs
-      https://git.kernel.org/will/c/989b40b7578a
+[1/1] perf/arm-ni: Add NoC S3 support
+      https://git.kernel.org/will/c/8fa08f8835e5
 
 Cheers,
 -- 
