@@ -4,66 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9485CCFA06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEB1CCFA06
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 15:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SkTtU6HE0wOI0oNXgpl0QXg2DrXWwNxk/gPZcLQHMlU=; b=ToQ/WKHCdCt3BP0r+/B5q9RTPW
-	NgqGrYFFa5RG5EKpiduifSKszCfNmu/mABb4VhSYnkeInym+7KcLNQXfiGGie5IUmGuFPTKNJry3N
-	vtDAy+TMZkt6nQyC5LmKu5NCX5ccj0qxj717SuMixqKvGV9xJBYFimAyoQ9Kh1slU//dgEAqQosQY
-	CRwuTbEcIICun/6P81a+7Yc34HPlAW9msBoyC+NSItq1gDJ0Ezv2SgwPAw7ke6gB+1iPvlBTRYxlF
-	HNhM5G9VYi0B6D0Pz0otJeEv4lBs30e71ImTe9SJwFc6YQ8NdGlBtV9DoKt+3nehta0YoYvRFZld2
-	Z4RsNT1A==;
+	bh=aaHxGyfUWRtYWRrAwbzqN5Os+W1zyD3kh/kOvOTAJc0=; b=3nRqxIrME4Iwo4VeVwSPWiMgA5
+	OO77kfWfby6wdkIm2oModbGICtS6gBjwBCzNENIYxTP0PMIOd7dZUCTUAcwz9F3dilgE4vRp0j7cJ
+	XKdXaUbhxpejN75AnkV7LeQpr8jJz3xaWSxxDtysgRcY7vcTfpbYSVJ89ajwo52aQPNf+GfVJw6g4
+	XAV9IqyHKz7I5wiPn1L8Lr6ezP5YGjwZAXrqXCtVXQb6Ssknf7A7HuiEdgrOiVufGVARc1X3BvYxi
+	kgd5PtoJi8QqULyWV6gQi3nz1gihBnROlKFCHp65QlCqR3NDzAHQBKOmLcNS1U4ELB78Kbuq3Tm5w
+	bf8hDlGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwGH-0000000A6iw-2Dgw;
-	Mon, 03 Nov 2025 15:14:25 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vFwGi-0000000A6pv-1uBN;
+	Mon, 03 Nov 2025 15:14:52 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFwGE-0000000A6iD-2rHD;
-	Mon, 03 Nov 2025 15:14:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1762182859;
-	bh=Fi4+R1Ob18N+hWKOsFjrNw4jSyFKNHKkEG+GMBZjsvI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jzvEqUOnHp5MJRCsQbEcE5I3T47rCyIMaddchuQBJK1HlqfF+m9O6UcJyiT0FskiB
-	 paN72tfJGZgGWsCFCl24BrK9Nj3wWE5zoYxct4hL/3AhrkBo7E5VLLfkSenRKspjZ6
-	 Hxkq5+ODuoke9HQzEeudTXfuN2rUz0/vQq3CAOGRq+EUTyd10d/o7XRGtJ+2hfKEco
-	 bQ4puUQO1AYxi05HXaujHbBEfiYBtjZsxBucnaiVKgbYqRDMB/fBlS05UCFKcedyH/
-	 ChuMgmIE1I7ZxvRJVA10cf0WGuxu3JQPbEVOnyhsn0bH2M/rP5mVtBl+2XU+pKGrmS
-	 FnIGUQ3uKhXXQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0F25A17E00A6;
-	Mon,  3 Nov 2025 16:14:19 +0100 (CET)
-Message-ID: <7f743fd5-a64f-4378-b8da-198e45fc66e2@collabora.com>
-Date: Mon, 3 Nov 2025 16:14:18 +0100
+	id 1vFwGe-0000000A6op-49Tk
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Nov 2025 15:14:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D6NHQ3toqabVpE6iHI6aQhU3oj3zlnBgViHHdR+ELcR1aTpMU5LJ8Blc4YrTHfccIJDSo0J4Dk3z2BQWgho7lOsnKoqw8pDt8gKircow2gaaYyX48lC1Mly4Y4z66NFukHZQitSJ5QIUvb7JrkjwTcQos53uq9AhvdDh+kpbUC1Sjm39HXCQThQLKUVZa4rUGwnm9Et5PT6Bx16Q0RvtLrEnjTXJ5mT+dzIBDio0ClZ7UrHCmvWRkbc5W0tU8/G75+f6puzehM0vyDOCVPddsntVWUeqiOulqXFXqwQyfNwyv23khjpiqKO+IeCWufsNpeQGgBpQbfnJ+QmkNP03YA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aaHxGyfUWRtYWRrAwbzqN5Os+W1zyD3kh/kOvOTAJc0=;
+ b=yzgnvq4d6Muq6yZaLzY1h96jxJZmx4sNdsna9FJfkMFgy+O3YVPOPzhwQJY585BF7s6o5vDRz4xci+zGeu3YwxzB3ewOtKEbUoRfU5S+gwASaPn2iqFs0z8LTgXOlJkEiKdeVUvKCf6AvZBZlyVLCZmlOqILgVM+JN1vG3QEgE/CwCYKPAtW6mYiKd1X258NjeLGjX6lWPzWB4/TkUe4Z3KmaeGSlo6pF6nfFaBsauPG7+HstHDELXcOi4bAD6b17+kmFZ1YxWdu4/EjkbgBZHIVkK3i9yjJNVPYtqfsVJ4rCQ0DJ1wcKb53lR8lV7lQmbP1Clhtz26dTurlf7wFVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aaHxGyfUWRtYWRrAwbzqN5Os+W1zyD3kh/kOvOTAJc0=;
+ b=FFyjAPHg1ccQVatl+WoEuAwKl8d9sqNaF/0PiMrtZtV15CVw2hzYjLscsp1lFPj6CuV6dA9kWtnzbuD0fMUZQnZdLpADm95Gi5IgJzHbuiBRv4R7lmeJbDcnxaOVSBnc4491AFu6+Tl7hNZocdKI7lcCmN7Vs8URn/yx2A0mV+M=
+Received: from SJ0PR05CA0095.namprd05.prod.outlook.com (2603:10b6:a03:334::10)
+ by CO6PR10MB5650.namprd10.prod.outlook.com (2603:10b6:303:14f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
+ 2025 15:14:43 +0000
+Received: from SJ5PEPF000001EA.namprd05.prod.outlook.com
+ (2603:10b6:a03:334:cafe::74) by SJ0PR05CA0095.outlook.office365.com
+ (2603:10b6:a03:334::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.7 via Frontend Transport; Mon, 3
+ Nov 2025 15:14:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ5PEPF000001EA.mail.protection.outlook.com (10.167.242.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Mon, 3 Nov 2025 15:14:43 +0000
+Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
+ 2025 09:14:39 -0600
+Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 3 Nov
+ 2025 09:14:39 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 3 Nov 2025 09:14:39 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A3FEdkK324832;
+	Mon, 3 Nov 2025 09:14:39 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	"Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
+CC: Nishanth Menon <nm@ti.com>, Thomas Petazzoni
+	<thomas.petazzoni@bootlin.com>, Gregory CLEMENT
+	<gregory.clement@bootlin.com>, Richard Genoud <richard.genoud@bootlin.com>,
+	Udit Kumar <u-kumar1@ti.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
+ Kumar" <a-kumar2@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] firmware: ti_sci: replace ifdeffery by pm_sleep_ptr() macro
+Date: Mon, 3 Nov 2025 09:14:33 -0600
+Message-ID: <176218286915.3559215.8776729657431757097.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20251014-ti-sci-pm-ops-cleanup-v1-1-70b50b73ac85@bootlin.com>
+References: <20251014-ti-sci-pm-ops-cleanup-v1-1-70b50b73ac85@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] soc: mediatek regulator: Add Support for mt8189
-To: "niklaus.liu" <Niklaus.Liu@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, sirius.wang@mediatek.com,
- vince-wl.liu@mediatek.com, jh.hsu@mediatek.com, zhigang.qin@mediatek.com,
- sen.chu@mediatek.com
-References: <20251103134241.3773-1-Niklaus.Liu@mediatek.com>
- <20251103134241.3773-2-Niklaus.Liu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251103134241.3773-2-Niklaus.Liu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EA:EE_|CO6PR10MB5650:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf94d23c-a955-439c-ead9-08de1aebb79a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013|34020700016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UjZOcE1KK0RCNmxOeVBFKzZ3Y2FDUUc4Y3plN0gvRUcyeHpDQjduN3JYZ3Ir?=
+ =?utf-8?B?OHlyWGlZK1lxcFp2UlBVWkYzdTRPWFVySkRiUzhTTUJsL0NoZHZkQ1dRbnhi?=
+ =?utf-8?B?V2J3U2FNL3dxbm5XbHlBempDdVlLa0FwdnVramVqWjFXaTd2WThyQlc3WUg2?=
+ =?utf-8?B?cGhEMm5HdE9jcEV3Z2IrTmIyQnFTZVpGaThUZkRYd05TaFpNelN6ZGtPdlBG?=
+ =?utf-8?B?d2RnS2J1L1ZYUFE0OWtVVjhmK1BONDZYaGxoRkRGVjg5N216ZDNTTmVIaXhy?=
+ =?utf-8?B?NjN3MlVTVE50ak43QytXb3JSdzd3ZjNqS3E5VkFaRHpGb0NrKzVpbmpMdU0v?=
+ =?utf-8?B?dnJFT3haQW9wQ3FoK1ZBY1JsMG5idU1nZm00NktvZ1NKMU81cGpJenVlRHN0?=
+ =?utf-8?B?ZU5tTmVPL2tyMmEwbmdqWE5sc01LTndReU1CZ2tuTmZ3Q1RXNjFIakVFRFFJ?=
+ =?utf-8?B?bDRYRE4xTU84L2c0L2x4dWdOMUJvRzdibGtTaElYTTdUQUhMT1J0a2xVTjUx?=
+ =?utf-8?B?TFcrbjBNSE80QUxpL3NValg1a1p6Wm5RT0piSklsek0rYVByNHFuU3FvRm5O?=
+ =?utf-8?B?RFZ5Y20ybTEycE1UcU9Zbjk4dmpzcklnelRHMUtYVTZJNkppekpadlp5WWFn?=
+ =?utf-8?B?eEJjbDdNRWJpb1ZiVStqNmZDZi9Zb3ZvbGFySzlWak5lSTZXSC9Qb2dZenhZ?=
+ =?utf-8?B?ZEh0L2tNTURhUW5jVElWUEFSMnRMWWZlSHh6d0FtZ1h0T3ZjcTRpTTkrdnZk?=
+ =?utf-8?B?enNJcFNXcy8yWFpNV0lKeTVZeWpUdldtbXR6L1M5SEtwSzR1WTZKMjVlaTFy?=
+ =?utf-8?B?c2haTHVDdHBINGhkUEZuUWxsMHNyUTRhYzdRdFFZTjRmUXkvWXNOdjRMQ1hQ?=
+ =?utf-8?B?d0lQQSttN0tzT1MrWU51bkxnS0U3RjlLRGp6R1Z2VjdPcmZHM3FNa3Y5Y0RC?=
+ =?utf-8?B?QXBvY2N5dkxwRDJwVFZrQTZZUjQ0OG5TR0xOeExxcWVhWFlnWUtsd0RLUVFN?=
+ =?utf-8?B?ZlFDcEQrbnp5bDNmQWxsZ2J5dmZYTFlwNHpyaW50Y2dmRHRhaVhOaHlPa0tM?=
+ =?utf-8?B?VWdTOFAybG8waTJhcXF2OEVlRHBGMjNaVnVaQlFndVRsVnllTnVmeTk2TTZI?=
+ =?utf-8?B?enArbkpRUUV5YUtEcXk4M0JhQ1BOVmc0YURSWnAwemZXWDlmczMwWlFhWlNT?=
+ =?utf-8?B?MnJHeVQ0QVIyNHdRZ0JEU3gvanhxcTlUUGh0UUdQVGpaM0F0bzRqdTh1ajd1?=
+ =?utf-8?B?RUtOZWQybUdqS0p1Z3JMakhpalBlYy9Rc0w2S1p5Mm8zS3FEUDM2WWM2eWhx?=
+ =?utf-8?B?UTh2M0FvK05sTys3SmY3dG5xeEJDeEVEejNCU0NuK25XY2pSSlhkaU1JVDZa?=
+ =?utf-8?B?OHpHNmpTa2pYZ3ZmZFphYThwOVgxWFlsVEtnc1IzOG9yekswY1Zmd2ZDSEhU?=
+ =?utf-8?B?aUx6WHVwUzZrMXBucEdIamFuRjcwd1RiMENMdnNKck5WYmNxaWNsb2JBdXQ0?=
+ =?utf-8?B?azF2aGZTZktiQUNEYitld0dJRFR4dEp4VFNtWUhtamdpak1vVW1WYWxiK0VB?=
+ =?utf-8?B?aUNYcFBTR0JxMzVTZ0xTRXVPZzBDZGU0UDRQMzZNQm1MVFZIdW1Yd3ZDNkNv?=
+ =?utf-8?B?eUxubjZvRUpRQkdZQ2JRSWZkQmNXVERUSVJPQTZYdWEyazNwd3lMLzNwQnZk?=
+ =?utf-8?B?Q1lBVnlLSldQSVpxVGE0cXhyVWdMZGQrS3RGMkN6Yjk1U3pKbmJCM2QxYmFv?=
+ =?utf-8?B?Zk9jYTY5dWw5a25vWUM3NTZwbVJDRlZtM2x3bi84YTNzMytnWVJpUStVTmxo?=
+ =?utf-8?B?Y1VLWWFGenJNZVhsMEVmZk54YWlzcnR5RCtPZGcza2xUZFAzcXo3aWxaMnpD?=
+ =?utf-8?B?Y21SVjVXMlhUNG9haXg5N294VTFBbEcvSnd2UnIrekdqZCtzbnFQSWN3MmZo?=
+ =?utf-8?B?L0dOdXZJb2xMU2p2UjVGNUF3NW8vdDExdVpRUVc1SFlnOENTd005RVJJMG1r?=
+ =?utf-8?B?dmhJV2trZUJQelJvQ1RJWEJKT1ovQXQ4TldhZDJYd0h3UmxxbUxTUHNFMncw?=
+ =?utf-8?B?bjdMaFpGamdCblBvZVgxV21lTkFOZjdUNzU4ZFM3NDdWczMzd0xUaFlzdW5n?=
+ =?utf-8?Q?hwKA=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013)(34020700016);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 15:14:43.2441
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf94d23c-a955-439c-ead9-08de1aebb79a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EA.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR10MB5650
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_071422_888265_4C4F0212 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20251103_071449_110801_A332E470 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,78 +167,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 03/11/25 14:42, niklaus.liu ha scritto:
-> From: Niklaus Liu <niklaus.liu@mediatek.com>
+Hi Thomas Richard (TI.com),
+
+On Tue, 14 Oct 2025 10:35:23 +0200, Thomas Richard (TI.com) wrote:
+> Using pm_sleep_ptr() macro allows to remove ifdeffery and '__maybe_unused'
+> annotations.
+> 
 > 
 
-Please change the title to
-"soc: mediatek: mtk-regulator-coupler: Add support for MT8189"
+I have applied the following to branch ti-drivers-soc-next on [1].
+Thank you!
 
-> Enhance the regulator coupler driver to support GPU power control on the
-> MediaTek MT8189 platform. This update ensures proper coordination of
-> multiple regulators required for GPU operation,improving power management
-> and system stability.
-> 
-> Signed-off-by: Niklaus Liu <niklaus.liu@mediatek.com>
-> ---
->   drivers/soc/mediatek/mtk-regulator-coupler.c | 15 ++++++++++++++-
->   1 file changed, 14 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/mediatek/mtk-regulator-coupler.c b/drivers/soc/mediatek/mtk-regulator-coupler.c
-> index 0b6a2884145e..f6e3b2a3a5a8 100644
-> --- a/drivers/soc/mediatek/mtk-regulator-coupler.c
-> +++ b/drivers/soc/mediatek/mtk-regulator-coupler.c
-> @@ -42,6 +42,18 @@ static int mediatek_regulator_balance_voltage(struct regulator_coupler *coupler,
->   	int max_uV = INT_MAX;
->   	int ret;
->   
-> +	/*
-> +	 * When vsram_gpu is enabled or disabled and the use_count of the
-> +	 * vsram_gpu regulator is zero, the regulator coupler driver will
-> +	 * execute regulator_do_balance_voltage, which adjusts the vsram_gpu
-> +	 * voltage to the minimum value. This may result in vsram_gpu being
-> +	 * lower than vgpu. Therefore, when enabling or disabling vsram_gpu,
-> +	 * the 8189 temporarily skips the regulator coupler driver's modification
-> +	 * of the vsram_gpu voltage.
-> +	 */
+[1/1] firmware: ti_sci: replace ifdeffery by pm_sleep_ptr() macro
+      commit: 7a4cd87e76fb4547d7843e3124611bf13004b18b
 
-Looks like you are misconfiguring something here.... VSRAM_GPU on, VGPU off should
-not be supported if those are coupled.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-It's either both are ON, or both are getting OFF: in case of both being offlined,
-it doesn't matter if the voltage is dropping, because the SRAM is getting powered
-OFF, as much as the GPU is.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Makes me wonder if you're assigning the power supplies to both of the MFG power
-domains *and* to Panfrost (vgpu == mali-supply).
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Note that VGPU should be assigned to the outer power domain (the main one, usually
-MFG0), and that VSRAM_GPU should be assigned to the inner-next domain (which is
-usually MFG1).
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-Check how it's done in mt8195.dtsi, mt8195-cherry.dtsi :-)
-
-> +	if (of_machine_is_compatible("mediatek,mt8189") && rdev == mrc->vsram_rdev)
-> +		return 0;
-> +
->   	/*
->   	 * If the target device is on, setting the SRAM voltage directly
->   	 * is not supported as it scales through its coupled supply voltage.
-> @@ -148,7 +160,8 @@ static int mediatek_regulator_coupler_init(void)
->   	if (!of_machine_is_compatible("mediatek,mt8183") &&
->   	    !of_machine_is_compatible("mediatek,mt8186") &&
->   	    !of_machine_is_compatible("mediatek,mt8188") &&
-
-Keep entries sorted alphabetically please, 8189 goes here.
-
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+-- 
 Regards,
-Angelo
-
-> -	    !of_machine_is_compatible("mediatek,mt8192"))
-> +	    !of_machine_is_compatible("mediatek,mt8192") &&
-> +	    !of_machine_is_compatible("mediatek,mt8189"))
->   		return 0;
->   
->   	return regulator_coupler_register(&mediatek_coupler.coupler);
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
 
