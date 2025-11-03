@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58063CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 09:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F733CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 09:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cyfgOfO5wbQrka4RaJRIQ58bY784PFhznl4lHer181M=; b=2KoncYmfdv1OCh5kcko9Yo0TK6
-	5WgAs/6F53JHEBFrh8aKyhxUd2/Ch+kKtj4G2pnzTgfcNb/vwb3LLX8HVG80VQu9r+raQ1YxyHyQY
-	xTqwR1lK+i5COybE98aRHWo2GN5vhX0MKvGoAgaPYf/kTq5sQ7/39CYE7tYdORsH0FmYXQURp25JB
-	2An9kzbhdcnUoxgFIUQ/pk2W56hzrbrD/C0Q7uH3rfg55DkmJvgXV5pEAfaS9g38+/UHuh18ZPBNk
-	E/HPpwsH3eJXqbAqcgwI9xDy5QYsmS+fdPMKMZt1pI2CqJwYjdX44OjZExGpGbk8+qLY4nzFYEk2x
-	byo6lbGg==;
+	bh=xkxRjtj8Zko1T2xij3oDoi3JjwhxKLKuoC0vibst6Dw=; b=nVoJrPaElMuRh+zP7swnAP0hcU
+	8nRNZna6ttchQV1DOqIyFHX6eJx1PMfWc7/muiQKR14pi6u9PJQA29FuXPws1tWcMCwLXyxtyMECz
+	xLokMrKi+IOuNPNKuTANCto4KMmUjBs2UZDfzNkS4Kaf1wRA8X4oe0rd8GBql9BAbbmpxGsoD9B7D
+	/5v/9ChKKvsuDqWMZ44coyTL2U61M3FJ1CxuZwLGk6bFslVNWpNilQ11IdnM2PVdzH2zIY68uOsbF
+	MQxda27WxbOrHYuPh8DANPLazwBqh6Jj1c0iFtKKd0s7er1GGjEem84kJGMMd7LK58aCge/bKe8P6
+	U6jwPmiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrBV-00000009XVk-2Z40;
-	Mon, 03 Nov 2025 09:49:09 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vFrCi-00000009XfT-0yKI;
+	Mon, 03 Nov 2025 09:50:24 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFrBT-00000009XUy-0J2T
+	id 1vFrCg-00000009Xem-0eUv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 09:49:08 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47118259fd8so30350415e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 01:49:06 -0800 (PST)
+	Mon, 03 Nov 2025 09:50:23 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-475de184058so12122785e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 01:50:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762163345; x=1762768145; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762163420; x=1762768220; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cyfgOfO5wbQrka4RaJRIQ58bY784PFhznl4lHer181M=;
-        b=VHRVf+lhthMaNb7IlvSh8+I2p0YMcaYWkIoaWz1mrsMPsBCpiLhGLxMYz7nfVoDU+b
-         okb8o8FyB+/rdPNHDZkd9neIE82+oGvjB3QVAevjP79dTL6BgveEZ8UQqFamGd3P5j7V
-         8HfDGJEqc0adxxFbpKYQ/a9YLe0N5KFGtKqUxiOt80hEwsP2T7UX5bBjOWszC6RCHwqa
-         kqoKdya8sJLojAXnvgxAl8MVG0AWTj1+AN8UeMUfFuWzY53KbmRZ8hd0iAyJKYqUETpm
-         0scbRWOy+jdHwvW3rtdVj3k32Qs8/ALtYR0IPwR4caAlVibvvSv4zzCVo8SHCPkzt68H
-         3pYQ==
+        bh=xkxRjtj8Zko1T2xij3oDoi3JjwhxKLKuoC0vibst6Dw=;
+        b=kHGpdjf+H926au+PMpaJ7LgDTDukT9D7wrZitfBxeaAq4b12vvHV0WUT423Y5+sRYD
+         a9IDOTd9DKSKwUif4waID7e2MHt+mNWgOr31fDZVvzFbXJcv1g74yxhRev031KQb6JwW
+         CuYgpUtml/QeRKf71kORbZ82G4VmSsDe0HNbNXCS7tfK+EPDUPUIJq57f6t+X6cFNEAn
+         qyHh8zpu0snoveInTeY1ByP/U4kDf27cWOuD+LRrgS8s30RdtOVTV5nFaXIxBcc1CsQM
+         5ZxBMFdH1YlUpfUQMo56zhFdZQTDxTQd3cgtk4mYEQNH+bmbKqOnh504n7PShEZwdTkV
+         jBNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762163345; x=1762768145;
+        d=1e100.net; s=20230601; t=1762163420; x=1762768220;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=cyfgOfO5wbQrka4RaJRIQ58bY784PFhznl4lHer181M=;
-        b=LgzdeGzpkS9i5W9hEvR87b3Q1/OuD0HY+YGQIioo95Qs7H8gsr6r8Y9imUT7UD2jt0
-         36Rb95kk7W+EDjPHpZOu2atqyoajVdGPnOMQmtyQm4WG/WZkV6u63sJTrajyptd4JFeH
-         fNccPGCAZqyHjwk8UAVPXD2cOzlQoaOU1+r458aGuw629Q69h/22vJKnXs3rvfoLzNQG
-         0bybGKYQ6J89j3/fSyuxDBeFGg6kVQZ4jhBkQa+NXlKz200dN79b7XC7CV0XoU651EMf
-         Z+dz4rDVIZP9Y/3wBZCETElDZF+Tx/6FQwvsDK2FhIFJVp8Xu3q30hKUbTB2gTX344wS
-         OrWA==
-X-Forwarded-Encrypted: i=1; AJvYcCXm3H37Tp5EWJ5ickO/fkEXEWf2+b9EBBbmySQb+jFJQfSnYgILhshthqTbc1Jes5Uv/pXQp/C6Js+9qNo/nw0u@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLhbOZnMm0U3bhTpfweFzQTzNs3l9Jw9wIPY6hUvkJfni+p8OI
-	ddSQQfko4c0NnDxgLRW3UrAwI5jyrYBQpjOhVvioNMfcGEM0TSgNydcHVq4FgESCfsw=
-X-Gm-Gg: ASbGncumrcjJAq1qWwkLG38UY5ge1tjH5JmzSE3cKZG4BTtUVZtqMy5gLtcPp2CVZ64
-	hEw6JWqJyE5086Vxon1jjwifrl+SH3/lMjAxE9OTrh2MH69sPWEPEfuZXUqv9FNUrYUweeDlBeu
-	HSXhP73oPz+4BAbUmzYjRByhFQL6+1QgISUUsKBvcAwYCspuwAyyuRz2k92J/DdS2kTn+/z7H42
-	TohyQpYVSySyvtinR4BIQYMoe3WwQNbfrTvJ4EpaYpptQVHZ+6hb2krs1ue+6yVY19QGScpuU3P
-	UQyt3Fs4Jn5HU57QlfqNpbBcNkXiaNnLWVIDyHmoXEoVQ9VVYG91KjtZG/wYoFmehkDBtpW4v+d
-	izIrFXG36Up1v9s7B9N9JHl2liGzxFR7lTzx4Q7yYXBeUMXkwIpFviJk6EyMSfbdccXKcEZZSlk
-	LagyGpK8BNCllYkNdYDq3Kb20vdeUWacoJUTWF+/1rCAiZ
-X-Google-Smtp-Source: AGHT+IH9c7oxZUwI4MZc+UcQYfSkmXSjNxCEXJEJzZAI5xj3Z/FVbn/Z55mp6ddo/Yu2LHLMUnh/Mg==
-X-Received: by 2002:a05:600c:b8d:b0:471:803:6a26 with SMTP id 5b1f17b1804b1-477308c8bc7mr112449905e9.37.1762163344829;
-        Mon, 03 Nov 2025 01:49:04 -0800 (PST)
+        bh=xkxRjtj8Zko1T2xij3oDoi3JjwhxKLKuoC0vibst6Dw=;
+        b=eSmQqi09T904755rWi0vjBEnXdysi5dNXFWBXBdGj1a+uuaFHMZGZdq0/dGtglOBYF
+         fxeHZ9EWQeUO5yQm3vHKOXpskWy59THZsIAjyUZcAQGkpk8S1hPJi30vHAhQr5ZtFink
+         EA534MGx0mytSS5h6jEdZkNxpvPkmekyvEgjqS+vRlieeMmp5ArHiOKYUawe6azXimRV
+         BEn22MytcgzIWMFzvp4ndBMrwjcv73lmF1rQmcxZk/lN6Zbut+pnCP9vm6KnvspMA7Vk
+         ggJF6s5bsP13IWe4PiI6ym6512mllvXGl4yl22dUPhJoJ8Qpg4qByuG5MHm7xe5kKN4s
+         BwbA==
+X-Forwarded-Encrypted: i=1; AJvYcCUU2BDFK71r6H2pNXxk3uGiS/mTa1uP7+aBPW1wY/JC8SLAik/YeOTA1HXRixOoDmqG+MpMF2Pzauug3fwgpiRi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1u7+o7l6DJzHq3x5EufGczhaUfNsLY0kW7xn3R/S+gd5ctcnM
+	D5OyJl2vv4xbS6oghtx8T/34NcrfaYTPwEen3omMTOjyResem3Wiie9bXZn56aSt/aE=
+X-Gm-Gg: ASbGncuX+9LHliHsFe0rTK768EXEw4YGHpmPqD/SFLiBRsGgrp4D/fdBPLa/EV8GXPF
+	QGebZ42YhVJAWsLF+g4F/yqYC44IdJa5nkAxjzPQjhKwnwt/1Xe4wSjWL07/rDBhvhgHo7QptsG
+	9f+AjgfuXBSZGlRFSriBaA2QaRYYKx1dd9cAlz7Y46sDLqsNRQw0kzgi5jtN2uih4B3sY2KMMhp
+	jS0lcsEg9G93rLHNy1DxS55HqOWNQMffKqEv75qtmCvpVy8pBzWH+iEtefhC9TMPYlIZtT4ZoOx
+	J0HBnKhM6Zf2OhWbR1eFKU6GEhaF/k4dDox3STcEaUGct4tIFN/K6OcAnMkecbqPURfRnEKU6ty
+	6Wnx0rrv649C129zZAz1y3eIInkLmR/4N9XqVIXV92EZZ3q2/7Y310c9qQaybk8ZDmSOKozNZpG
+	oPu+cA7Xuk8QVX4vAMo25ZHtRLeGEMuQMHkh+Srtp8zjG+
+X-Google-Smtp-Source: AGHT+IHrNu7b4MLVFNafM5XudQwLx9/rw/9sFxikTt/B5JVYOos8PxRbnxL+oXtoVWVlGPVam6SEPg==
+X-Received: by 2002:a05:600c:5249:b0:471:145b:dd0d with SMTP id 5b1f17b1804b1-4773087230cmr102374215e9.24.1762163420204;
+        Mon, 03 Nov 2025 01:50:20 -0800 (PST)
 Received: from [192.168.27.65] (home.rastines.starnux.net. [82.64.67.166])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4773c4ac18bsm144251275e9.5.2025.11.03.01.49.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4772fcd45a9sm84684815e9.3.2025.11.03.01.50.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Nov 2025 01:49:03 -0800 (PST)
-Message-ID: <807e9f74-79ed-44bc-8a80-3d99787edc65@linaro.org>
-Date: Mon, 3 Nov 2025 10:49:04 +0100
+        Mon, 03 Nov 2025 01:50:19 -0800 (PST)
+Message-ID: <83d07b54-d584-4297-9aae-2a170c0059d4@linaro.org>
+Date: Mon, 3 Nov 2025 10:50:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH RESEND 3/3] PCI: meson: Fix parsing the DBI register
- region
+Subject: Re: [PATCH RESEND 0/3] PCI: meson: Fix the parsing of DBI region
 To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
  Bjorn Helgaas <bhelgaas@google.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -94,10 +93,9 @@ To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
  Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, stable@vger.kernel.org,
- Linnaea Lavia <linnaea-von-lavia@live.com>
+ linux-amlogic@lists.infradead.org, stable+noautosel@kernel.org,
+ stable@vger.kernel.org, Linnaea Lavia <linnaea-von-lavia@live.com>
 References: <20251101-pci-meson-fix-v1-0-c50dcc56ed6a@oss.qualcomm.com>
- <20251101-pci-meson-fix-v1-3-c50dcc56ed6a@oss.qualcomm.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -124,12 +122,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20251101-pci-meson-fix-v1-3-c50dcc56ed6a@oss.qualcomm.com>
+In-Reply-To: <20251101-pci-meson-fix-v1-0-c50dcc56ed6a@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_014907_179224_B2554C72 
-X-CRM114-Status: GOOD (  23.25  )
+X-CRM114-CacheID: sfid-20251103_015022_254231_B65EB328 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,83 +144,51 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/1/25 05:29, Manivannan Sadhasivam wrote:
-> First of all, the driver was parsing the 'dbi' register region as 'elbi'.
-> This was due to DT mistakenly passing 'dbi' as 'elbi'. Since the DT is
-> now fixed to supply 'dbi' region, this driver can rely on the DWC core
-> driver to parse and map it.
+> Hi,
 > 
-> However, to support the old DTs, if the 'elbi' region is found in DT, parse
-> and map the region as both 'dw_pcie::elbi_base' as 'dw_pcie::dbi_base'.
-> This will allow the driver to work with both broken and fixed DTs.
+> This compile tested only series aims to fix the DBI parsing issue repored in
+> [1]. The issue stems from the fact that the DT and binding described 'dbi'
+> region as 'elbi' from the start.
 > 
-> Also, skip parsing the 'elbi' region in DWC core if 'pci->elbi_base' was
-> already populated.
+> Now, both binding and DTs are fixed and the driver is reworked to work with both
+> old and new DTs.
 > 
-> Cc: <stable@vger.kernel.org> # 6.2
-> Reported-by: Linnaea Lavia <linnaea-von-lavia@live.com>
-> Closes: https://lore.kernel.org/linux-pci/DM4PR05MB102707B8CDF84D776C39F22F2C7F0A@DM4PR05MB10270.namprd05.prod.outlook.com/
-> Fixes: 9c0ef6d34fdb ("PCI: amlogic: Add the Amlogic Meson PCIe controller driver")
-> Fixes: c96992a24bec ("PCI: dwc: Add support for ELBI resource mapping")
+> Note: The driver patch is OK to be backported till 6.2 where the common resource
+> parsing code was introduced. But the DTS patch should not be backported. And I'm
+> not sure about the backporting of the binding.
+> 
+> Please test this series on the Meson board with old and new DTs.
+
+Let me try this serie, I'm on a business trip this week so don't expect a full test
+report until next monday.
+
+Neil
+
+> 
+> - Mani
+> 
+> [1] https://lore.kernel.org/linux-pci/DM4PR05MB102707B8CDF84D776C39F22F2C7F0A@DM4PR05MB10270.namprd05.prod.outlook.com/
+> 
 > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 > ---
->   drivers/pci/controller/dwc/pci-meson.c       | 18 +++++++++++++++---
->   drivers/pci/controller/dwc/pcie-designware.c | 12 +++++++-----
->   2 files changed, 22 insertions(+), 8 deletions(-)
+> Resending as the git sendemail config got messed up
 > 
-> diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
-> index 787469d1b396d4c7b3e28edfe276b7b997fb8aee..54b6a4196f1767a3c14c6c901bfee3505588134c 100644
-> --- a/drivers/pci/controller/dwc/pci-meson.c
-> +++ b/drivers/pci/controller/dwc/pci-meson.c
-> @@ -108,10 +108,22 @@ static int meson_pcie_get_mems(struct platform_device *pdev,
->   			       struct meson_pcie *mp)
->   {
->   	struct dw_pcie *pci = &mp->pci;
-> +	struct resource *res;
->   
-> -	pci->dbi_base = devm_platform_ioremap_resource_byname(pdev, "elbi");
-> -	if (IS_ERR(pci->dbi_base))
-> -		return PTR_ERR(pci->dbi_base);
-> +	/*
-> +	 * For the broken DTs that supply 'dbi' as 'elbi', parse the 'elbi'
-> +	 * region and assign it to both 'pci->elbi_base' and 'pci->dbi_space' so
-> +	 * that the DWC core can skip parsing both regions.
-> +	 */
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "elbi");
-> +	if (res) {
-> +		pci->elbi_base = devm_pci_remap_cfg_resource(pci->dev, res);
-> +		if (IS_ERR(pci->elbi_base))
-> +			return PTR_ERR(pci->elbi_base);
-> +
-> +		pci->dbi_base = pci->elbi_base;
-> +		pci->dbi_phys_addr = res->start;
-> +	}
->   
->   	mp->cfg_base = devm_platform_ioremap_resource_byname(pdev, "cfg");
->   	if (IS_ERR(mp->cfg_base))
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-> index c644216995f69cbf065e61a0392bf1e5e32cf56e..06eca858eb1b3c7a8a833df6616febcdbe854850 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware.c
-> @@ -168,11 +168,13 @@ int dw_pcie_get_resources(struct dw_pcie *pci)
->   	}
->   
->   	/* ELBI is an optional resource */
-> -	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "elbi");
-> -	if (res) {
-> -		pci->elbi_base = devm_ioremap_resource(pci->dev, res);
-> -		if (IS_ERR(pci->elbi_base))
-> -			return PTR_ERR(pci->elbi_base);
-> +	if (!pci->elbi_base) {
-> +		res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "elbi");
-> +		if (res) {
-> +			pci->elbi_base = devm_ioremap_resource(pci->dev, res);
-> +			if (IS_ERR(pci->elbi_base))
-> +				return PTR_ERR(pci->elbi_base);
-> +		}
->   	}
->   
->   	/* LLDD is supposed to manually switch the clocks and resets state */
+> ---
+> Manivannan Sadhasivam (3):
+>        dt-bindings: PCI: amlogic: Fix the register name of the DBI region
+>        arm64: dts: amlogic: Fix the register name of the 'DBI' region
+>        PCI: meson: Fix parsing the DBI register region
 > 
+>   .../devicetree/bindings/pci/amlogic,axg-pcie.yaml      |  6 +++---
+>   arch/arm64/boot/dts/amlogic/meson-axg.dtsi             |  4 ++--
+>   arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi      |  2 +-
+>   drivers/pci/controller/dwc/pci-meson.c                 | 18 +++++++++++++++---
+>   drivers/pci/controller/dwc/pcie-designware.c           | 12 +++++++-----
+>   5 files changed, 28 insertions(+), 14 deletions(-)
+> ---
+> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> change-id: 20251031-pci-meson-fix-c8b651bc6662
+> 
+> Best regards,
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
