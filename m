@@ -4,166 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FE4CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF1BDCCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 18:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oOkSrmlf0aOWsDYEHY5io0janLDt+V8WTrWiBQZVLTA=; b=NHSdKg0I7dPSu7KBJZgphuQH9L
-	sDHwYn7qVRTsDlhd4H0c+/GJbN0JFsIvp17frXnYld9vXxbJJdAQuoD/H8CM/oJtbV4Wo3frCekGj
-	VJye/vyThGJJXLtcU+EW+c99BdVZPZICSAwGdTGuoiNTO/e5mCwAxlLMN0rMXXTfZUtb/Ga/cqoD3
-	97BM4K1Yj/OC7Wmik8D7v4IDIpkLBA8+HPZRfD7RB+kEZA3ikeg8PqyMAzI8oe5sgsJglYHylwFA5
-	zK6I9WadxLlFbeb1h5GKBFAg4WZxJf0PC9tdYtN4e/JzA28eOPOuhG8tHYA7+l3a/jQmD9DGmeTdV
-	IlwaBPQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Xh/82epPYCxQQw2FW1rqZLFSQMgbCtmljXqcyGvdlI=; b=Ok/p+F4JcPb+XKWPZXxOVRDROR
+	FQMU+1J0qgFXaoVix9KA88rrX8ZTfvIgfZyvz2Lr25MpOObkeLQ951YaVk9DE2cG2V8fU2A2aDmts
+	sM0k2pZexqNxkKlrM1C6FFnKA2PsyIzuLO7N96QmoMKS8+1pUQzBHTZfeSTX8b/Z15eZs0aBd+AE5
+	x1ZXnKElRznfqn/8Tk0yZcB5bb8cyIt5HtRJX+nzp4LXfevq9Ium18bckHAEwh0V7IIrfhoooIs3D
+	Fpmn+fYQtGfCTArH4La/G8gimpbqd69h5ixlD/odplMDW6skGrRb2u9RD1BX56V/HAPhNcPOV3QJJ
+	RkR8cidA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFzC9-0000000AU13-1Rjy;
-	Mon, 03 Nov 2025 18:22:21 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFzC7-0000000AU0J-0HHN
+	id 1vFzFe-0000000AUBk-3m1Q;
+	Mon, 03 Nov 2025 18:25:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFzFY-0000000AUBL-0iUD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 18:22:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DwRvKneVrny9FKsvOV+tU3SxHuY1xfigNzEPSpJ2SX1laRz5Ap7Da7uvjc5+sv0uicSJYteKTl6lCa68iYw6HMlkUtgjNEowzJMOJeu5NmfL/wAnYX6iHKrG3USEW57wzKFR5bpm0EkZ/lGmfjgJf2O/z9L4z9GTZqmlyxB5ID8uw3NOVxYJU0nJw5Op+MX3jjktgXS79s/kH3uzuul6m46L7ayQ5cQRxt+V06NBzGIMTgnw0ExRF/ig6lYQIV+9A8ZLuwxX+2I1IzIsGLnMMcuaeyBqWGXpSaELNFjcZQD3oQoHBA+MewNxfBMvTdaQpHmTzyuNgrU02wtQ2vfP+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oOkSrmlf0aOWsDYEHY5io0janLDt+V8WTrWiBQZVLTA=;
- b=baS2dsl5nXdj7cw0xYx8cecKDkcWIpnzG/H9QTjCwPkxM2x7uhiKNLjF0WGpRU6qQaSjR5852qHp2zYMIU4nbKtPCwB+xiOtQS3+BS03UYBHIxQzMml39XvJSHHRIY7ZQ0zM0RTFswC0Er+UTjpHsHKNBTTKGNBmHdipAIV3xKsBcQGRMUZB71zEpLQAnLR2yeAOQ2osVgNKSTdquMRUj18nRqnoHnNIcO2t5idyxoUK5QhddBlOvcuaHKvKDDn4fUoBsNGStZ6CTJcUgu8kutE8prYeF5mvDf0bP3T7ZirNH5J+vnS0nFwa2+u3i15j3FPXvvMw9t39lKxUwXjTsg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oOkSrmlf0aOWsDYEHY5io0janLDt+V8WTrWiBQZVLTA=;
- b=FXC674GqrESbeFLzKmQakaDX84FYoCLh3jwLGPBwL8poJc+7hcquGtSwdrGJm6k/YfQG2r05mT/Z3zZ0Wk3zpExqSOTG1ncSmenI7zYaLt6DnfIvsMfZG6lCjJXU+ZGJHruxPMmDYV0ezuhDYcyDC7kWkUx+dY/sYNgpf4iynxs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- LV9PR01MB9399.prod.exchangelabs.com (2603:10b6:408:2ed::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.12; Mon, 3 Nov 2025 18:22:15 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9275.015; Mon, 3 Nov 2025
- 18:22:15 +0000
-Message-ID: <3fe7e501-b319-4b9b-b129-dce5e945bf9a@os.amperecomputing.com>
-Date: Mon, 3 Nov 2025 10:22:12 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Question] mprotect() can't clear PROT_MTE
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: LAK <linux-arm-kernel@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-References: <04ea9978-e6aa-4498-b899-76d56e19b084@os.amperecomputing.com>
- <aQUEk6a_3OWapRbE@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <aQUEk6a_3OWapRbE@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CY3P220CA0006.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:930:fb::8) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Mon, 03 Nov 2025 18:25:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7EF862A6B;
+	Mon,  3 Nov 2025 10:25:43 -0800 (PST)
+Received: from [10.1.30.16] (unknown [10.1.30.16])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E06143F694;
+	Mon,  3 Nov 2025 10:25:43 -0800 (PST)
+Message-ID: <334d6272-a1c2-4075-a956-3f41908371a6@arm.com>
+Date: Mon, 3 Nov 2025 18:25:41 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV9PR01MB9399:EE_
-X-MS-Office365-Filtering-Correlation-Id: c58c8fc7-a697-41db-ddb1-08de1b05ea65
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L1BVZS9Bc2pTM2E2UHhyNy8yL1c5SE5jQTFNQnRPdWxkS3lNWmdwZHlGZ3Z1?=
- =?utf-8?B?SDlIM1NlMncrTzdRM3E4OHJSWDE2RnN2Yno1dEdJejFGT2dKLzE0aFZraGh6?=
- =?utf-8?B?NFYxTXUxaFA0dytrRmNhckIzSjZybm54NUlEQkw5VXlZOFlYMXIrd2xTWFdz?=
- =?utf-8?B?SG15VVZjRFdwQWorL2I3R1Q4Wk9UaUxYRE5VT2lCL09zVWIzN2pUZzZ1L1dL?=
- =?utf-8?B?OU9temhYZWFEeW92YWFNSlpNQVV1bStxRWxFaE55SmRacXhPdEV5TFhVaFA2?=
- =?utf-8?B?cE1DMEQyNWNlNmJXWWxiU1diUW82cUtsMlVoQXdTcTFtb2ZhZDlFZTlSaFcw?=
- =?utf-8?B?OHpPWFRCdUluTkIvbWZwMXhXNDdGbXpKNDVGaVBXWTRMZkhMOXVjb0NIc0J5?=
- =?utf-8?B?QmdhbFNPRk1OWXc5WjRpRnNCbzhEQXRqRHhncU5YcjFhTlNWcEltYkpPTlNz?=
- =?utf-8?B?ZTNMZ2ZWZEpCOFJqU1Zkd3BTaWZxa2xoZ0Nia1RYUURNSTZ0Vm03NzJENTFt?=
- =?utf-8?B?RksrbHlBVTc3K0N5M1RPWDZqTTJYbDZSMnhxOExWRDNDOUNRRG85QUh4aTJP?=
- =?utf-8?B?dEpjUzR2K3FFVmFJQUZvTmlIRm9WZVhEdUhxcUFBb3dnSkd6RllKSTNPQzZ5?=
- =?utf-8?B?ZStmb0Z2VkE0NW8rZEI4UGNIOGNIMHJCMG04L0Noa2tDdCs4NEI1Qm1uR0tY?=
- =?utf-8?B?YmQxcDRxcVUzd3hDc282SEhERklmbWJwekFtb1VqY3FtMXptdUwzNnhCS0R0?=
- =?utf-8?B?TFZ0cWs3UklYbTQ0c1E1am1xalB1RndTVHd0SEo3Smd0bDZhRUZibE9sSmlH?=
- =?utf-8?B?amlLVDJsQVBUcS9OU0w5RTRjM05hek8zZm40b1NaZ1FjTS9VSlp4cXNoeFhK?=
- =?utf-8?B?c0NLaUt5R1BOS1ZBb2xaWE9BVVMrcTZNM3MxY2craXpKWXVKejMrNkZhWkE1?=
- =?utf-8?B?eTJUWjFleGRKeU9nVGUrbXBkbjZjOFhWcjg1SkdzdXcxK0lGeG45Z1BPYmRa?=
- =?utf-8?B?SzJLd1N2NFAvQWwxMy80ci9uandyMlpvcUFSc0pmcy9SV2Fwb1dnQ0d2RnFo?=
- =?utf-8?B?cE0zR2UrVlhzL3hGNktUSm5Pam1FdUlxNFdkdHdabmpoaFZjK0FYbllZSDdl?=
- =?utf-8?B?YTV5cHpFY1BmeEFUOVBiYnh6SktvQ2JIOUh2VHR6UVhrNmhsWTdBeEE4WWdy?=
- =?utf-8?B?c2tJMGpkU3pSTC8ySWoxamlTMnlSNTN0SWhmbWdRL0xXVk4xSDRlSURxaW4v?=
- =?utf-8?B?aFBNVFV6OVpZSDAyZm04SUlhY2lMb1ZwL283dUhkUDdFN3h5bkZxYUdlZ3Jw?=
- =?utf-8?B?YXRydzRMSVVkM1lqRFFER0lwcTN5WjM4Wm5mbEhEVld2dUFaZVNPWXJQaDZo?=
- =?utf-8?B?OXM3Q0lUVnBiQ3FOMXlLU1RUM3pXdUJvS0dVRk9TbGdOSlJpUUZLTDdjais1?=
- =?utf-8?B?cnBJNW1hemxkTkpxOWsvRy8zaUYyN1VUK2xhcG1KOFRUY1JsN3Y1Y2w0bjYv?=
- =?utf-8?B?MVJQMFFSS0EySmxuR2tKVWsrQm1ad3pPTS9CSkFHNEg4d1E3MWtlMXI5M0lo?=
- =?utf-8?B?c0pzMm9IWndzV3gvaTdNVElOTWIxY1ZNa01oQVkyeHpaUC96NW5ZV2ZNc2xm?=
- =?utf-8?B?M1lBYWxuZFUwOTdkYW13WURKTVIwM25jOEVzcElseHlOdVpUSEJXVGpPWXcz?=
- =?utf-8?B?dmpOeHFsZFZUTllMdGpVcE9Od0w3TnN3RzZSc0lzWjV2TzAraXMyZU1FSjFt?=
- =?utf-8?B?T3hoWkl5QmVBK2htckJUVEVYY0ZyWUZ6U2x6VUpIQWRydWwxR1Zlb1Z1dDdO?=
- =?utf-8?B?OGJ2TkhaQWJLWlJNRWhmbTZjbm5CUW1BR29yVHpTOUl2a3Irekp1enNHeU96?=
- =?utf-8?B?eUdxUUd1TW1sR2d2emh6QzFtZngvTDdhNit3K0lNM0RaRXViMjdob0JTeHBL?=
- =?utf-8?Q?9QC/kBURGTb0NiRJK9qBov+LMWzlYAGM?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eVpqNUVrNkhZV3pwQzU1Rjc1WnltTVk3RW5xREF3KytRQmNjN0ZvREkzRVp1?=
- =?utf-8?B?Q1V5bGlrWktPRjVkb3k4M1lYYkh2cjU5bFdwSkJSRE5oRnRFMCtHeGhTR2hu?=
- =?utf-8?B?RTZtdTBZK3RVVlYyTlkvQnUwWU5LYlN1MVVWeXNGdTk0aFJTcUJWRisxNHZv?=
- =?utf-8?B?QWFDVWFOZjB5eG0rSU9pWVBucjExYVdveG1ONHNxbkw0eE1ENk9qeVlpbjlz?=
- =?utf-8?B?Nk54YVMrdzA2ZzhwbGphRXlCaTAxV3RhMDFpRG9kcEJKanhJaW9vdjJGN0F1?=
- =?utf-8?B?K1lWNG56OFFja1hZL2dCWmgrbDVLS2lHVHg5Ny82UVNROHNkWjdvRnk2NVU0?=
- =?utf-8?B?SVNZNzBpUGNleEh5UUkydEdNaEpWSVozUjdrYWM1NysxeFJqaVFjcnEvV3k1?=
- =?utf-8?B?ZEI1ems2RWxuQ1FZT1BiTmcxVGFuMDVBaitXbGt5Y09XVVFnZnp3c3Q1d2tn?=
- =?utf-8?B?RVFjQjRqVW5GR1QwZUN4bXU2ekUzU2lBWkszY3ZzOUxVQVFnb24rR1NCeXVX?=
- =?utf-8?B?VnlCc05XaVRnem9zRmFucCtxZWxmd2hSRXkzMytKY2ZtVUFjK1ljVkdNYzMy?=
- =?utf-8?B?aXhjTGRFOSt2cE9PUmhaVXordngyK2hJTTJGSHBKUCtZb04yOEdnY1JPcXFt?=
- =?utf-8?B?bUlzalp1UG5BczExbkNuS0hNcDRKMWFDN2JZc1NFRU1ubmgwRTRrM1FGdnVQ?=
- =?utf-8?B?bWxJdDJTSGF6Z1pHRWVlRlVRQlkwd21CcFdoZG1mNnNQdkNQTTZmdTJRS2Jn?=
- =?utf-8?B?RnFXdkZEcmlDMkVWTHNxVG1PMUQyTGM4QWhwenU3NnBubXJ0Z3VwZ1BIdzFG?=
- =?utf-8?B?ZG8vZXAzSkhUNUVBZngvWVJab3lWRG5JU3duTkFKNit1N2xnaGNnU1JFRXdF?=
- =?utf-8?B?VFo0ZWZOa3lPcEFHMWlXZVZ3WktqbFdDd2RmR3BZZ3JNOW94Tm11WHRqYjVO?=
- =?utf-8?B?NWF5M2l2eGx0bzRvSlBONGxaZ1drK05lYk9tWlR2WDNtNzBJdHQraDBFWnN3?=
- =?utf-8?B?K2F6Z3VhRmFGdU9zdGU2ZEFES1Z0K2pqazNVRSt3VEtXcXd1cXFDUGRBeVAx?=
- =?utf-8?B?YUlPdm9pUjZtSmkwa1dWaHBtQXFXM3d4QTNBNzJsK1ZVM1I0T2UxQko1ejRj?=
- =?utf-8?B?TjZETjMzemVDck9adjJZM3l2LzBGTXhlVnpMeXZMa3l5RXUwcktzWEJWTnhD?=
- =?utf-8?B?c3hYRHFOQnpDZk03QXJEL1AxMmpMTU8rcjJWOXVJd0ZHM2lLN1laRG5iUmdJ?=
- =?utf-8?B?S2tiQm9NVS9ZYUdYSEs2eUliVmpHNEg3emhWUTlyVUFITlR5OHpqVElaa3RQ?=
- =?utf-8?B?UUdQU2crdm45cmZBTDVKN2YzMEZiWUdFamt6aFV3am9OSWpaZng3QlFCODVl?=
- =?utf-8?B?UW1telJkMzJ4SFA4RmdmamEwbkVtMlJDSzl1bUNXa281bkhiU1RMOU1mejJy?=
- =?utf-8?B?WmdVbUdxVEZ6amF0NGdUUW1PaEhpaDdYRWordTNCV2U3cGR4TUlFRUsrRjRj?=
- =?utf-8?B?SEpiZElzNDRqQXd1aVp3UUhnZ05tL3hkajdTa1ArVEtuSlpOQTRWc1JRUTdU?=
- =?utf-8?B?ajJLREdmWnpsUEk2WkFQVFhRb2VqRDdlQ2ZwTk55L3RIZENOZTJQSEtIbXhM?=
- =?utf-8?B?YTEyUTFtTURCa0xSbW1MQ3h2TGxZZWpCTzQ2dEpVcjEyMHJSckpNUEFMTmJZ?=
- =?utf-8?B?Z09wV08rdmxuQWE2cTNMakhORnVNUElqUGxscHZnc1ZicnFEY3pWZDBFWVRz?=
- =?utf-8?B?NHJSYmwydk9IOS9TbkcrNkVMMzdhdVJlVGxYWjRvdGE5ZDgxTFlUQUU1VFZn?=
- =?utf-8?B?NWlZMHNLSGdEbWVwRjlTOW5nTXE3eXNCUVRZck9ETjRodTJxRnlIUE0rU2JD?=
- =?utf-8?B?Z25BU1lzeFhQMnNNYVRqdzIycGxMYnE5ZTFWcTBBQ1ZLaEIxUVFnWTRpdmpk?=
- =?utf-8?B?RXJTeWtoSEhoSHdrSWNrRUphNGxNN2lFRW5XN0p4alBKNUtmblYrellvMERk?=
- =?utf-8?B?NzRqRXBVYVdaWWJnbGFqQ1d3WTFVQTlvMkM3RXFobXhaRGVmQWZlK2tzVFhT?=
- =?utf-8?B?WEt4eHNZdmVtazg0SHcyd1k5VG14MkFBWHFVVXgzNmJPWHpmb3pHS0JabGpo?=
- =?utf-8?B?QWhFSWRtOFBIMGV5OGoyOERVYnVYdFZJbUJBZUplajJUTUVZTm0rdmpqb092?=
- =?utf-8?Q?Pbk41V4XavTcomwZCjpb3js=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c58c8fc7-a697-41db-ddb1-08de1b05ea65
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 18:22:15.6157
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2SJ4myyouWc4pTuSK7pMn4dXMywePRAeXnyGuWCNDx/EPXsZ4A4Z+gRKjFsYNVM0V00T4raB+B0DhzNdNYEXY8CXVFrQaekOT2E7PZ4k+lY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR01MB9399
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/12] arm64: mm: replace TIF_LAZY_MMU with
+ in_lazy_mmu_mode()
+To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-9-kevin.brodsky@arm.com>
+ <b6f5b3cc-93a0-408a-b7e0-72462f3fd549@redhat.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <b6f5b3cc-93a0-408a-b7e0-72462f3fd549@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_102219_114951_625E6820 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20251103_102552_549977_B062EE10 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,42 +86,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/31/25 11:48 AM, Catalin Marinas wrote:
-> Hi Yang,
+On 03/11/2025 16:03, David Hildenbrand wrote:
+> On 29.10.25 11:09, Kevin Brodsky wrote:
+>> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
+>> mode. As a result we no longer need a TIF flag for that purpose -
+>> let's use the new in_lazy_mmu_mode() helper instead.
+>>
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> ---
+>>   arch/arm64/include/asm/pgtable.h     | 16 +++-------------
+>>   arch/arm64/include/asm/thread_info.h |  3 +--
+>>   2 files changed, 4 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h
+>> b/arch/arm64/include/asm/pgtable.h
+>> index 535435248923..61ca88f94551 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -62,30 +62,21 @@ static inline void emit_pte_barriers(void)
+>>     static inline void queue_pte_barriers(void)
+>>   {
+>> -    unsigned long flags;
+>> -
+>>       if (in_interrupt()) {
+>>           emit_pte_barriers();
+>>           return;
+>>       }
+>>   -    flags = read_thread_flags();
+>> -
+>> -    if (flags & BIT(TIF_LAZY_MMU)) {
+>> -        /* Avoid the atomic op if already set. */
+>> -        if (!(flags & BIT(TIF_LAZY_MMU_PENDING)))
+>> -            set_thread_flag(TIF_LAZY_MMU_PENDING);
+>> -    } else {
+>> +    if (in_lazy_mmu_mode())
+>> +        test_and_set_thread_flag(TIF_LAZY_MMU_PENDING);
 >
-> On Wed, Oct 29, 2025 at 03:41:17PM -0700, Yang Shi wrote:
->> Our customers have usecase to untag memory w/o unmapping it, but mprotect
->> can't do it. It seems like an intended behavior because I saw MTE doc
->> explicitly says PROT_MTE flags can't be cleared by mprotect().
->> But I don't see why mprotect() can't do it if I don't miss anything. So I'd
->> like to know why it behaves in this way.
-> It would be interesting to know more about the use-case. At the time,
-> clearing PROT_MTE got in the way. The theory was that an allocator
-> controls the tags and the PROT_MTE property but if that range is used by
-> something like a JIT, toggling between PROT_WRITE and PROT_EXEC would
-> inadvertently clear PROT_MTE. I'm not sure whether this would happen in
-> practice though but it's ABI already, so we can't change it.
+> You likely don't want a test_and_set here, which would do a
+> test_and_set_bit() -- an atomic rmw.
 
-I'm not quite sure about their usecase yet.
-
-Yeah, understand. It has been an established behavior.
+Ah yes good point, the new version would do an atomic RMW in all cases.
+Simpler code but also slower :/
 
 >
-> I'm happy to add support for this if there's a concrete use-case but it
-> will need to be gated by a prctl() flag to keep the current ABI. A
-> weirder approach would be to add a PROT_MTE_CLEAR flag (I think I prefer
-> the prctl).
-
-I agree we should not change the current ABI, some applications may 
-already rely on it. prctl sounds fine to me. Anyway we can discuss more 
-about how to implement it once we have more solid usecase.
-
-Thanks for educating me about the context.
-
-Yang
-
+> You only want to avoid the atomic write if already set.
 >
+> So keep the current
+>
+>     /* Avoid the atomic op if already set. */
+>     if (!(flags & BIT(TIF_LAZY_MMU_PENDING)))
+>         set_thread_flag(TIF_LAZY_MMU_PENDING); 
 
+Pretty much, since we're now only considering one flag we can simplify
+it to:
+
+if (!test_thread_flag(TIF_LAZY_MMU_PENDING))
+    set_thread_flag(TIF_LAZY_MMU_PENDING);
+
+- Kevin
 
