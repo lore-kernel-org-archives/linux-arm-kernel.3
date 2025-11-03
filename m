@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0AACCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB52CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 10:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wSLTKZDYBJczR/hcNOPPArvh7dxErG0MtraQAm1J2lo=; b=ut7EqL2e0Y8pRV
-	5lsbm273ylNjbxkOK3DZdG72wKQvcgzzvbFKe8f/IP9/eS2LPVYOxG0VD4HQ+D7diE7FPvCDdhlB9
-	bbdNV6gcblwpRBuh+DY1CCVjQ1Dzoge7C9zQzCVwxTgSF90FODvpdW23eqrctaAMJYbvqZB/lgJJy
-	L19rkuE02hGrSe8FWsORJ+eUpJsuw9EukRibltUMVOevlom1QH1XnWCfjhTaJxfndZc/OdkrxRJ7+
-	Ybs6mnr7frplMG+pr+v8MXRJbYRjFnWMV2M4/D0iQutFXHmb1tnO6+SGbeL04lvUQTkv9IrHnYxlN
-	RE83kVbj+QjQKv9qBx9A==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P2iXB5W67n7YO4OssVtAEv8fDCZhOHZ+N8v9CZniUss=; b=hUAm7hkPH4TBfrxvH09xVTJDDe
+	iSujlfJzkdHrDg7o1mhtGCZqh7fqEgt1cJZ1Ppl6etCTXJNBroyTSCZG69980NhsKnrhAVoGJm5MC
+	r+6ZgJ9q0lu0Y3I3qTBmx/hYnvHycumF6LeO2to9eEOTdNXUyT2Dpv/6/6z0xRGWQzuGmeRuWIF8p
+	331XqfjVp2N38kozsk1T6RhT/AG/bUuEKkJsa4bhO2GQXfOghseYLsD1sp+iHT4nJ54UmsMDComsB
+	okwsW2t2G+KG/EnRpgSnS4NV1VcbqtBOZj3N9bHljnHLalZzecEdzEb2bOceEtns1vJ7h2ZOFLN2r
+	K8QvNs0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFsAk-00000009fsW-15iI;
-	Mon, 03 Nov 2025 10:52:26 +0000
+	id 1vFsAm-00000009ftB-2MGz;
+	Mon, 03 Nov 2025 10:52:28 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFsAh-00000009fre-3ey9
+	id 1vFsAj-00000009fre-3n30
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 10:52:25 +0000
+	Mon, 03 Nov 2025 10:52:26 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 3 Nov
@@ -41,17 +41,18 @@ To: <jic23@kernel.org>, <dlechner@baylibre.com>, <nuno.sa@analog.com>,
 	<billy_tsai@aspeedtech.com>, <linux-iio@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 1/2] dt-bindings: iio: adc: Add AST2700 ADC compatible strings
-Date: Mon, 3 Nov 2025 18:52:16 +0800
-Message-ID: <20251103105217.1764355-1-billy_tsai@aspeedtech.com>
+Subject: [PATCH v1 2/2] iio: adc: aspeed: Add AST2700 ADC support
+Date: Mon, 3 Nov 2025 18:52:17 +0800
+Message-ID: <20251103105217.1764355-2-billy_tsai@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251103105217.1764355-1-billy_tsai@aspeedtech.com>
+References: <20251103105217.1764355-1-billy_tsai@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_025223_911226_FC499EFF 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251103_025225_941599_B40CD1DF 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,29 +67,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible strings "aspeed,ast2700-adc0" and "aspeed,ast2700-adc1"
-to the binding for the Aspeed ADC. These new compatibles represent the
-ADC instances found on the AST2700 SoC, which are similar to the AST2600
-but have their trimming data located at different SCU offset.
+This patch adds support for the ADCs found on the Aspeed AST2700 SoC,
+which includes two instances: "ast2700-adc0" and "ast2700-adc1". While
+they are functionally similar to those on AST2600, the OTP trimming data
+is located at the same offset (0x820), but uses different bitfields.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- .../devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml         | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/iio/adc/aspeed_adc.c | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-index 5c08d8b6e995..509bfb1007c4 100644
---- a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-+++ b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-@@ -29,6 +29,8 @@ properties:
-     enum:
-       - aspeed,ast2600-adc0
-       - aspeed,ast2600-adc1
-+      - aspeed,ast2700-adc0
-+      - aspeed,ast2700-adc1
-     description:
-       Their trimming data, which is used to calibrate internal reference volage,
-       locates in different address of OTP.
+diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
+index 8ab29948214a..9df6e7f68f19 100644
+--- a/drivers/iio/adc/aspeed_adc.c
++++ b/drivers/iio/adc/aspeed_adc.c
+@@ -646,6 +646,16 @@ static const struct aspeed_adc_trim_locate ast2600_adc1_trim = {
+ 	.field = GENMASK(7, 4),
+ };
+ 
++static const struct aspeed_adc_trim_locate ast2700_adc0_trim = {
++	.offset = 0x820,
++	.field = GENMASK(3, 0),
++};
++
++static const struct aspeed_adc_trim_locate ast2700_adc1_trim = {
++	.offset = 0x820,
++	.field = GENMASK(7, 4),
++};
++
+ static const struct aspeed_adc_model_data ast2400_model_data = {
+ 	.model_name = "ast2400-adc",
+ 	.vref_fixed_mv = 2500,
+@@ -690,11 +700,35 @@ static const struct aspeed_adc_model_data ast2600_adc1_model_data = {
+ 	.trim_locate = &ast2600_adc1_trim,
+ };
+ 
++static const struct aspeed_adc_model_data ast2700_adc0_model_data = {
++	.model_name = "ast2700-adc0",
++	.min_sampling_rate = 10000,
++	.max_sampling_rate = 500000,
++	.wait_init_sequence = true,
++	.bat_sense_sup = true,
++	.scaler_bit_width = 16,
++	.num_channels = 8,
++	.trim_locate = &ast2700_adc0_trim,
++};
++
++static const struct aspeed_adc_model_data ast2700_adc1_model_data = {
++	.model_name = "ast2700-adc1",
++	.min_sampling_rate = 10000,
++	.max_sampling_rate = 500000,
++	.wait_init_sequence = true,
++	.bat_sense_sup = true,
++	.scaler_bit_width = 16,
++	.num_channels = 8,
++	.trim_locate = &ast2700_adc1_trim,
++};
++
+ static const struct of_device_id aspeed_adc_matches[] = {
+ 	{ .compatible = "aspeed,ast2400-adc", .data = &ast2400_model_data },
+ 	{ .compatible = "aspeed,ast2500-adc", .data = &ast2500_model_data },
+ 	{ .compatible = "aspeed,ast2600-adc0", .data = &ast2600_adc0_model_data },
+ 	{ .compatible = "aspeed,ast2600-adc1", .data = &ast2600_adc1_model_data },
++	{ .compatible = "aspeed,ast2700-adc0", .data = &ast2700_adc0_model_data },
++	{ .compatible = "aspeed,ast2700-adc1", .data = &ast2700_adc1_model_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, aspeed_adc_matches);
 -- 
 2.25.1
 
