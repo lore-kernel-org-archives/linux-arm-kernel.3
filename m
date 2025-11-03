@@ -4,96 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB2ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6919ECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 12:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HvThRY4eNfW5Inji/W0VKFrAjmGKVWgkAa2RGmz2+O0=; b=07W+ls3+dgCvrdqsH5e3eYSBgh
-	legz2vI/y5S92v7RZwBsaimz6KZ/hDw7pHr/e1At0jsgEGQrG/un6QFQ/Jbr3fDKCeaQ4yjuAZ0C9
-	QxBGjFJpaUwZbrp+lyJ42tKhJxdhKKVVFs+TORa2iIzfTnUZSGt4PtaNg+C/F+t0/pPci6jolWNgd
-	j+UUfl9FuE+9cNfJatpdYzsMXfSmyCrgHIk1646sO84zQ5UqDMxkegaLqs7TD3Gf3RAsVNJkTH+F2
-	i+GX5PC98qUg4HIewQ3Pa+LS+c3Sru0yHvqAaODTH08snjyIrDXS6GrxyoSOxgpUPWcXPG1Uq92GF
-	zzgXfBrw==;
+	bh=ZWLtXDn6y7nGmkcEsraLlFmoQbxgqaYx7SxZvmnC95k=; b=m7NhzQmgeNUNkWD7ggRUuNbO2h
+	WVycFhZXbdJ/AjvgXWo5T9MBI/yMmpgj9DFjoOL/FIw5QYKnUPRjny3rRoHpPM2vr4WEinyy77MBe
+	o6brb4bRs7uSPKtmmbCT2SufjxDQWF+HvNoyJkXwsJ+rzEvwmf8gUPST0ATAXeQOAGmeTzYpm+eOq
+	rSXAv28kdvDii/Et2ZB0AT2u06B9KefVK+CcU9D67iUsFupEqFqaz8XSZUUmqPVH5pZdt8FafS6TO
+	XWZSrdd0bQ0Ix1HToww90E69ZBg7jONLv+N0aDdaNgJZQWQ6btKgMPyjdlzSB9sCukHd3TwI2fPaY
+	sGBgXXVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFtRh-00000009o54-2x2w;
-	Mon, 03 Nov 2025 12:14:01 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vFtVM-00000009oHn-14pa;
+	Mon, 03 Nov 2025 12:17:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFtRf-00000009o4f-2vsD
+	id 1vFtVJ-00000009oHO-4AbR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 12:14:00 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4769bb77eb9so4488795e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 04:13:59 -0800 (PST)
+	Mon, 03 Nov 2025 12:17:47 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A38owlh1299048
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Nov 2025 12:17:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ZWLtXDn6y7nGmkcEsraLlFmo
+	QbxgqaYx7SxZvmnC95k=; b=Pqb0b5m0HDGsitHhufbYsYt3yvsRLDBHc+EANvD2
+	9F9FnEMheGDP9pUHAIpYFHoQug11F45f9QUWvc7Zjwnun1UaYI4yaoI/3yLsAHd1
+	YCtvKolV9jShUjXCl8iKNL9JZjjZvoK3MH5IH4f/tdidFQ5PL4XODYnhb0Gs79uQ
+	IoJi8v82gOW0CIVPR73hVKnhsKs4CAKW/osObsPOa2g75tNfQYrVo8iFP7GEj6Pm
+	XxalGZB6cAHXcY0s9nUhmIOTukFh3vjc2NOcG4QWQPN7G32jWZIBQWh9I6I6dJEt
+	QwxKQC6O88MZM8mrhXhGGfkJuMblPH7Xt9HD3CXZthdwyQ==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a5bcm4fte-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 12:17:45 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b92bdc65593so2903782a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 04:17:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762172038; x=1762776838; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1762172265; x=1762777065; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HvThRY4eNfW5Inji/W0VKFrAjmGKVWgkAa2RGmz2+O0=;
-        b=QvYjsFaX7hHkejmgBbPwsMlGs9ZamxMOgYE5PYBi8rAMVZ7si4ckkr+YRa9ud5+rHV
-         bXmxjVEcVYkDptYOJgxJSnVz/6DxRTx/Ge7ESc2Wr+JNKVh0AcXIYqnBBbqAV5/diW85
-         DbgPHQuEsL5STVFSA7BpG0BCUIYJij7pZDqT7x0p2zAncz1rJy1MHAXtutdxKWCUr7CZ
-         I4PjnQQyjAR273fDxQLhbJXJIT0xTe0wZedyeq3Z78EwOw3ClaKjS5Gkef1nnhY47//5
-         NPVmCUiUbXu+2uYVEFPV03wtWM+J1sxlYVYiOKB7Dbd+VScrGgz28fdN8fb1F6JK+1Xd
-         Ul2A==
+        bh=ZWLtXDn6y7nGmkcEsraLlFmoQbxgqaYx7SxZvmnC95k=;
+        b=jml5M1IxxGQM38lx3AD0hxsdxAMjuvEB2X1UnTx4DW66xPpK9LNrXJHV5inwU6KwYc
+         FGW8oObHYlGudZ3N9pFzNT8sq8vPQx2I3IPeG2/KMmy6bcDSrbEnnQPmV7wlHEJFiqXO
+         /1IViW6bSsz+N3KQG+rCiiRKOcTE+7tpTPxQm9StGvgqAHJwFxcdQAN5q48c3jB718y6
+         8DF6RkewQH7xUfGvmgV90WylrXNJUcvEAREPGNbu29ywqEIYbuBOfTmMpxfAj8zCJjOW
+         oC2wD/ymoV30Lkvt/Dd6ZQAo+gVmK8W0tTMvPwz7MczJnNiX4M9Cw+Mp1cX7RdwHeSM1
+         D8sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762172038; x=1762776838;
+        d=1e100.net; s=20230601; t=1762172265; x=1762777065;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HvThRY4eNfW5Inji/W0VKFrAjmGKVWgkAa2RGmz2+O0=;
-        b=sZPdcHYJOaQ8R2/TFgKy8ipuPZMiQhr36J8zrJXR8HVgUE98lp2KFPpYPkE8/exZI5
-         pjlL3AmkD9wRbg4Fz41uUR1ILTMMK6tJ1zaNye9IGdqRyQetb1s09IAd+gbDB8sroL2Z
-         tXA7lpwSGlPCWqVkntTurzKzN0uuecOBx4759KnQHue6r1zbyddcN8PsZ/6KMOBnpH57
-         eEfsGMvEzhipGxFyTZF1hgAK6nR9JxhPcsnYdo8hLr/IFIjIlps4ZeQXfU+zFeCO54i8
-         5ZoFHWfAR0+A3ViWScaKlT6IKH5ANSHV1PkhIldihaEriR7xrrbuCBu+HhWkhRX4xDvM
-         3RuA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7Bss2VFLKhgxndiX9Eoo5MCUmu4fhMuP/pFepiFttY3SmDLzfBBg16FMZ9CPdR7njWeL+TmHX9cCF1MmnMFAk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIU2RZ7WeJ+a1iDapIoW8EfMr80vzD0cWKsho8M4pHcCT3b54U
-	yxWd4rd2cRAqLFuQqxcvnFIEvlMdLaElARbJi1ATM5GKd7VqOeWtT5uE
-X-Gm-Gg: ASbGncujft4Q1HMUHDCnDgwbUhVw9fDYCd+Bf/q8Vus/py9d1svawB8SSXTKvcALuGo
-	UJnhs9+6r7lbngkBa1wKCE2mYxhnC7rD1mEHOqqOIEujg+eP4EHGsxLImQSngIceCOM+Cx/egiV
-	LbH4h3G1rQmTnoYIvXZTKJTVBmB5frvDBNG9f2guGsB4Cvh4xHvtp253FmAL65ZI+GV0m/8Lqa6
-	zYIcX0DflLUaBZVgKFfd7rcIq96JhcKNdGnG/fgQIhaGN/OEf0nIEocSzMYILkJST7mcvPJ41+j
-	njgBMo6QHchcbEu4wYmFf0mCYVuu3Eas1TMicfv9EB6b5JyOZn87ZDFk2c2CNAw9BzdAyuC722U
-	BxfSp3Bln6PKkNQrYkbkkdH7/MbRuDBhpXjmEt+Nh/T1A6xZHMx7CMiRq3Cngvzfji6PEtVNlQM
-	hILAo=
-X-Google-Smtp-Source: AGHT+IGQt2Q95D+Meobm86HVWwUHLHSku+aRz/VeZME+I3ZAsJ3m+6wdDTCQZ+nPhU3uPW8S3WqRpQ==
-X-Received: by 2002:a05:600c:19c6:b0:477:10c4:b52 with SMTP id 5b1f17b1804b1-4773090238fmr57140915e9.8.1762172037406;
-        Mon, 03 Nov 2025 04:13:57 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d406:ee00:7144:c922:dc8a:113d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4773c23b8d9sm173739975e9.0.2025.11.03.04.13.55
+        bh=ZWLtXDn6y7nGmkcEsraLlFmoQbxgqaYx7SxZvmnC95k=;
+        b=KnQ2WMuloRnNS0JI3JXlrS9HnlMvkk/VKQNEy+XFzqE2DMP/Fsf5d4JDbuKktdvsfU
+         kZ5lr3lmW9nB1lgQ/dcyWhgI9yWK+yJ9DCFRQssgirsqinilwCjOX2EWr91UZ16PNpWR
+         MQNshiVaNus5SJFxk6BVc8E77xqzP8GC6Jvrge/L/40H/8JfWRzsNIolLkdxXvwI7NCM
+         txaVgrqLIPP9sWMNqCgeB4nYo58RL5KXZa0aUuQVprT0Ggz4UnwltMvw2RYWNWkqjUmX
+         +oYs07asmVzAjvNij2Cv3Qqsbgwi7JhfXehu42brjDlkazF1TKwy7T1gt7LF+2mHgGI1
+         l+PQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWzYyYcmeE1LCnZ+U251eBZx89edMizVllQiwJY7y8gr5N0MgU5hB5IYngyvqEHVPdWgr0rtdsqtV0lo9E7uVFP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUzMYNxMcQOyHajHClulhOgeacP6ynzPSEdDnglDtH7LHELTNG
+	qQtAX34jqTmy4tLhQgOWcx0C/4yLchVkNfZzaxe1RcWpQ4lWGK1jsFsxKCqXSWV4CjsSZN9yrno
+	2n4rzY5IUg8uW4X/GPDZtAuT2OF9C1MlgbqExgYH2EF5+BsdgbUKl9DIRutDuDQpfbtPV38TU5R
+	1aJQ==
+X-Gm-Gg: ASbGncuDrokn/16s3GYyZLm6uJhJZMUHenKOLr+kvRXjJai88r9+3FCJOSy79SbEEsl
+	FeOSfquCVfKU9Ju3bFQUVNIvmrhTc5EEjRQmhd0xBnT9SIJEQbcnVQwbGjwBazrLJM++ExJk3xV
+	5h7MuDvXk//HqyHYDOUM/t+9QyMxixdRsY8zVWBcAZuzLiQtZJ3DHeKnlYOeCeQcfqx1ICVFoRl
+	AoKgGYH6P9ZQk+IlUcjiGBc8tvPGInikjTtcwm9JitpC7jq6ut0LkpVzawCqR8dZ5U1RvfwuhXA
+	DyJWJwtyf5xlWqL564VEwl/du/shPDHfT6Y1yt3yKL6Vf1d1uuVqt96ez81YEgdk5/jlMYRunpb
+	yjjvhGPdlZObj
+X-Received: by 2002:a05:6a20:7f96:b0:334:89c6:cdeb with SMTP id adf61e73a8af0-348cca003c8mr15764668637.56.1762172264657;
+        Mon, 03 Nov 2025 04:17:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE684E5CNdnLqZ8LrjHHapbK4k//kPutpzHfK5KHya4nfTR8e77rbPAda3wA4b8obXBE8KQPw==
+X-Received: by 2002:a05:6a20:7f96:b0:334:89c6:cdeb with SMTP id adf61e73a8af0-348cca003c8mr15764617637.56.1762172264108;
+        Mon, 03 Nov 2025 04:17:44 -0800 (PST)
+Received: from oss.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a7db197335sm11262090b3a.47.2025.11.03.04.17.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Nov 2025 04:13:56 -0800 (PST)
-Date: Mon, 3 Nov 2025 14:13:53 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
+        Mon, 03 Nov 2025 04:17:43 -0800 (PST)
+Date: Mon, 3 Nov 2025 17:47:35 +0530
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis =?utf-8?Q?Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
+Cc: Vladimir Oltean <olteanv@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+        Heiner Kallweit <hkallweit1@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        Boon Khai Ng <boon.khai.ng@altera.com>,
+        Daniel Machon <daniel.machon@microchip.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
+        Jacob Keller <jacob.e.keller@intel.com>,
+        Jakub Kicinski <kuba@kernel.org>,
+        "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+        linux-arm-kernel@lists.infradead.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Yu-Chun Lin <eleanor15x@gmail.com>
 Subject: Re: [PATCH net-next 0/3] net: stmmac: phylink PCS conversion part 3
  (dodgy stuff)
-Message-ID: <20251103121353.dbnalfub5mzwad62@skbuf>
+Message-ID: <aQidX6SPDbOQ5WKU@oss.qualcomm.com>
 References: <aQHc6SowbWsIA1A5@shell.armlinux.org.uk>
  <aQNmM5+cptKllTS8@oss.qualcomm.com>
  <aQOB_yCzCmAVM34V@shell.armlinux.org.uk>
@@ -105,12 +123,35 @@ References: <aQHc6SowbWsIA1A5@shell.armlinux.org.uk>
  <aQiP46tKUHGwmiTo@oss.qualcomm.com>
  <aQiVWydDsRaMz8ua@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="56qp7pmq6cw7fsz2"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <aQiVWydDsRaMz8ua@shell.armlinux.org.uk>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAzMDExMiBTYWx0ZWRfX/CtBugA3Zzua
+ 6eh6xoq3BZUvbi37lu4/1uLyuzhLzJdqsKyq02wHun38CEnseKq1xnN5508gQxr879/wjaJliIS
+ wmqUZRjnfVHzTWBMd+nRvhph6PTVp84/+8VwMyec6y7U/kcghudCGPZfGhTYTkbd2Miyzl0T1OT
+ PzUCPJFvBvTfGubIJIanrEvwRggS1hsyepgPk6hx45YVDDCWaggeZ47qjQCPnDDvZKryuTEF45P
+ 65i/of88WoV2WZ9LXtkwWLu0YSprRnVZ2ma40NkUVexMw1VJ9F3BlQHDRerQnZggyg2StEf8T9C
+ uBPAo8umOF2AVs6iXmOw/ucyjziZb4cBkMQklbGbHGQ6gq5cZfYy09JfeoNWUnjnYdThiwZIxTN
+ p5F8PrTgXY4vUQ7AN3xzUWU9Vkumig==
+X-Authority-Analysis: v=2.4 cv=EszfbCcA c=1 sm=1 tr=0 ts=69089d69 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=PHq6YzTAAAAA:8 a=XsfPzZo74fLR1ronddIA:9
+ a=CjuIK1q_8ugA:10 a=x9snwWr2DeNwDh03kgHS:22 a=ZKzU8r6zoKMcqsNulkmm:22
+X-Proofpoint-GUID: v-CydiNMi1zyORWnQyUQl8InN2SRCFN0
+X-Proofpoint-ORIG-GUID: v-CydiNMi1zyORWnQyUQl8InN2SRCFN0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-03_01,2025-11-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ malwarescore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2511030112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_041359_785081_52F08D47 
-X-CRM114-Status: GOOD (  39.04  )
+X-CRM114-CacheID: sfid-20251103_041746_041481_BE02DAC3 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,11 +165,6 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-
-
---56qp7pmq6cw7fsz2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
 On Mon, Nov 03, 2025 at 11:43:23AM +0000, Russell King (Oracle) wrote:
 > On Mon, Nov 03, 2025 at 04:50:03PM +0530, Mohd Ayaan Anwar wrote:
@@ -180,98 +216,15 @@ On Mon, Nov 03, 2025 at 11:43:23AM +0000, Russell King (Oracle) wrote:
 > dwmac4, or register 0xd8 bits 15:0 for dwmac1000 will give this
 > information. In that bitfield, bits 2:1 give the speed. 2 = 1G,
 > 1 = 100M, 0 = 10M.
+> 
 
-It might be Linux who is forcing the AQR115C into the nonsensical
-behaviour of advertising 10M in the SGMII control word while
-simultanously forcing the PHY MII to operate at 1G with flow control
-for the 10M media speed.
+This is dwmac4 and I got the following values with devmem at different
+link speeds:
+1. 10M:		0x00080000  => Bit 2:1 = 0
+2. 100M:	0x000A0000  => Bit 2:1 = 1
+3. 1G: 		0x000D0000  => Bit 2:1 = 2
 
-We don't control the latter, but we do control the former:
-aqr_gen2_config_inband(), if given modes == LINK_INBAND_ENABLE, will
-enable in-band for all media speeds that use PHY_INTERFACE_MODE_SGMII.
-Regardless of how the PHY was provisioned for each media speed, and
-especially regardless of rate matching settings, this function will
-uniformly set the same in-band enabled/disabled setting for all media
-speeds using the same host interface.
-
-If dwmac_integrated_pcs_inband_caps(), as per Russell's patch 1/3,
-reports LINK_INBAND_ENABLE | LINK_INBAND_DISABLE, and if
-aqr_gen2_inband_caps() also reports LINK_INBAND_ENABLE | LINK_INBAND_DISABLE,
-then we're giving phylink_pcs_neg_mode() all the tools it needs to shoot
-itself in the foot, and select LINK_INBAND_ENABLE.
-
-The judgement call in the Aquantia PHY driver was mine, as documented in
-commit 5d59109d47c0 ("net: phy: aquantia: report and configure in-band
-autoneg capabilities"). The idea being that the configuration would have
-been unsupportable anyway given the question that the framework asks:
-"does the PHY use in-band for SGMII, or does it not?"
-
-Assuming the configuration at 10Mbps wasn't always broken, there's only
-one way to know how it was supposed to work: more dumping of the initial
-provisioning, prior to our modification in aqr_gen2_config_inband().
-Ayaan, please re-print the same info with this new untested patch applied.
-I am going to assume that in-band autoneg isn't enabled in the unmodified
-provisioning, at least for 10M.
-
-Russell's request for the integrated PCS status is also a good parallel
-confirmation that yes, we've entered a mode where the PHY advertises
-SGMII replication at 10M.
-
---56qp7pmq6cw7fsz2
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0001-net-phy-aquantia-add-inband-setting-to-the-aqr_gen2_.patch"
-
-From b91162e5dae8e20b477999c4f2fcdb98c219d663 Mon Sep 17 00:00:00 2001
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-Date: Mon, 3 Nov 2025 14:03:55 +0200
-Subject: [PATCH] net: phy: aquantia: add inband setting to the
- aqr_gen2_read_global_syscfg() print
-
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
- drivers/net/phy/aquantia/aquantia_main.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/phy/aquantia/aquantia_main.c b/drivers/net/phy/aquantia/aquantia_main.c
-index 41f3676c7f1e..f06b7b51bb7d 100644
---- a/drivers/net/phy/aquantia/aquantia_main.c
-+++ b/drivers/net/phy/aquantia/aquantia_main.c
-@@ -839,6 +839,7 @@ static int aqr_gen2_read_global_syscfg(struct phy_device *phydev)
- 
- 	for (i = 0; i < AQR_NUM_GLOBAL_CFG; i++) {
- 		struct aqr_global_syscfg *syscfg = &priv->global_cfg[i];
-+		bool inband;
- 
- 		syscfg->speed = aqr_global_cfg_regs[i].speed;
- 
-@@ -849,6 +850,7 @@ static int aqr_gen2_read_global_syscfg(struct phy_device *phydev)
- 
- 		serdes_mode = FIELD_GET(VEND1_GLOBAL_CFG_SERDES_MODE, val);
- 		rate_adapt = FIELD_GET(VEND1_GLOBAL_CFG_RATE_ADAPT, val);
-+		inband = FIELD_GET(VEND1_GLOBAL_CFG_AUTONEG_ENA, val);
- 
- 		switch (serdes_mode) {
- 		case VEND1_GLOBAL_CFG_SERDES_MODE_XFI:
-@@ -896,12 +898,13 @@ static int aqr_gen2_read_global_syscfg(struct phy_device *phydev)
- 		}
- 
- 		phydev_dbg(phydev,
--			   "Media speed %d uses host interface %s with %s\n",
-+			   "Media speed %d uses host interface %s with %s, inband %s\n",
- 			   syscfg->speed, phy_modes(syscfg->interface),
- 			   syscfg->rate_adapt == AQR_RATE_ADAPT_NONE ? "no rate adaptation" :
- 			   syscfg->rate_adapt == AQR_RATE_ADAPT_PAUSE ? "rate adaptation through flow control" :
- 			   syscfg->rate_adapt == AQR_RATE_ADAPT_USX ? "rate adaptation through symbol replication" :
--			   "unrecognized rate adaptation type");
-+			   "unrecognized rate adaptation type",
-+			   str_enabled_disabled(inband));
- 	}
- 
- 	return 0;
--- 
-2.43.0
-
-
---56qp7pmq6cw7fsz2--
+> -- 
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
