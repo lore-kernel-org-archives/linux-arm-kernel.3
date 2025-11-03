@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9DECCFA09
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0130BCCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 16:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+WPue3Iv+tL0BlR1BnmIWzrK4BlC2NcKrWH67LSbbY=; b=ou8Geo28mG81trol0O+TmgCLaX
-	LwFeJmQHMizo5upiMQ27hNRN9nk6K/HNcn7M1kW8DroRQmrGk6pKjohlt4NjcetKATtsg5jWKPk5k
-	fuitmaU1hw8ASJsWkI4zGnOMUhfweBo2fCTagcBpbhMcY54i4PmIXJpjYRJZasDpk94k+XDkO0/wl
-	FjtiRoaYtWrOa4Q3vsUVseksqvk79y0Fui/qJf3WijJu7Hpep8eYOKw9WgGay8TwVa5vPDrwjMN7j
-	3xMq06LnlbvFzCFi5zhRjM+3GnWzyVooSEIjnT6dN74/RD9tlgDHdoeFpuqMP9WPFPQgsnQFl6DCh
-	aBhaWNWA==;
+	bh=J6Lp7gCe+omuPtct51PzY/9oCUHrmI3Le+gyqqPCMyk=; b=DXJlW780l1C+C2O4RKAtwfU5Za
+	00qG26OOqkG5Dlrouctvm1P5T1gr6ILwfhG1/5JSVTDyJizH8rTsArhp11hd3YFHv6iYaN0UARznj
+	4pc3Z7Hb7gitQsrLzBD4/PiKmdllT4AIyxSUMs7LOS+m2eIMuNz+RblQVfhdH4Xn016GdNUhUwjEp
+	0zEDuCDLoE3L/QWPA3h5XEcpMG4X16czTOl93Wg2Gg47D4LDsAZMgCtFn0YX1HXZGH2F9k1v5GdeK
+	QC680iGa9QiL5ZJDq3pqWXQg8YZv6Fj2qaDItCTkYtPhh4fJOHBiRVj+DppoH9ouM7z816CSUBQTW
+	k1YGPLeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxq9-0000000AK5K-2L8t;
-	Mon, 03 Nov 2025 16:55:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFxqC-0000000AK9W-0d0Q;
+	Mon, 03 Nov 2025 16:55:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFxq4-0000000AJww-10Qa
+	id 1vFxq6-0000000AJzQ-3xYV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 16:55:30 +0000
+	Mon, 03 Nov 2025 16:55:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F0C043C22;
-	Mon,  3 Nov 2025 16:55:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 105D5C4CEFD;
-	Mon,  3 Nov 2025 16:55:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CF0D60140;
+	Mon,  3 Nov 2025 16:55:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E7C4C19421;
+	Mon,  3 Nov 2025 16:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762188927;
-	bh=aE6NVHx7vy+DwlsbkAM2LLXqEhMtJjN7ppqT+b+NJig=;
+	s=k20201202; t=1762188930;
+	bh=FMwu06lK7Q6CryDZ52WbXhfFTuUdJV55nVDRrDJIZtA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cGKTkYrV2Q+lgqFmJqwvQZTZ73tIoRCd7hk2Q8NjxGs4cHCo3bi+ZKE07WEzGPAo9
-	 PaofwytlaV3g0tGKG39nZFqpbB86zquSShAuT8ur+qeGr3AsvOKV8/ceXmWsU1vVlj
-	 AsiVd2V13E3S7IHdBB3nvJSGmBJuK2xD6hDi2zwtzOfip1wAcqjv/6jJphtupcvcbJ
-	 zYoJPCozRrtJmhNlu/UFhOVq2pAVcnH3bMJ2XSKUP/n6l2I+ajSB1Aqg4SZi/TUXTz
-	 P7mOzdIUqDDiHnYIffkA/pB0dbM3MXpkMCj3RqdG3g6I80uxvXRwaNyz6tRNjHdGkZ
-	 pbjlg9PwZDvpQ==
+	b=aOCuFx2EDzly2p88N1IsrJeEr6bhP8mfVtXrKV3suAEZgKv2GwgGLCQJzxr2OfAqr
+	 pC55uhIKOHmCE16uI24k3AWfykkKVaiQJkMHrZUM+SxFxjV3qIuCPSfCnAjIAK6B5i
+	 D74dcum93yaTo/pa8sRNtHQ6vxXp9uSMEIs5h+0tv89ZvCFniuh/tUBHGRZh2cFC2/
+	 4bgDrQ/nAUN3beZiQOVYLlzVHU0dXtzRrM/NCHPf4iYZ9HPoPAqWyLaZhepEZc4MFc
+	 inn9hvnWCHhK4vViFrRJsMWm4qKZw2/eF3SEBKiyQKG86YMYVwX0vTa+dx8xcmTeAe
+	 8ab8KR1L5iwug==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vFxq1-000000021VN-0ZZB;
-	Mon, 03 Nov 2025 16:55:25 +0000
+	id 1vFxq4-000000021VN-1BmN;
+	Mon, 03 Nov 2025 16:55:28 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: [PATCH 02/33] irqchip/gic: Expose CPU interface VA to KVM
-Date: Mon,  3 Nov 2025 16:54:46 +0000
-Message-ID: <20251103165517.2960148-3-maz@kernel.org>
+Subject: [PATCH 15/33] KVM: arm64: GICv2: Decouple GICH_HCR programming from LRs being loaded
+Date: Mon,  3 Nov 2025 16:54:59 +0000
+Message-ID: <20251103165517.2960148-16-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251103165517.2960148-1-maz@kernel.org>
 References: <20251103165517.2960148-1-maz@kernel.org>
@@ -70,9 +70,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_085528_317190_D538F9B0 
-X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Future changes will require KVM to be able to perform deactivations
-by writing to the physical CPU interface. Add the corresponding
-VA to the kvm_info structure, and let KVM stash it.
+Not programming GICH_HCR while no LRs are populated is a bit
+of an issue, as we otherwise don't see any maintenance interrupt
+when the guest interacts with the LRs.
+
+Decouple the two and always program the control register, even when
+we don't have to touch the LRs.
+
+This is very similar to what we are already doing for GICv3.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v2.c         | 1 +
- drivers/irqchip/irq-gic.c             | 3 +++
- include/kvm/arm_vgic.h                | 3 +++
- include/linux/irqchip/arm-vgic-info.h | 2 ++
- 4 files changed, 9 insertions(+)
+ arch/arm64/kvm/vgic/vgic-v2.c | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index 381673f03c395..441efef80d609 100644
+index 5cfbe58983428..a0d803c5b08ae 100644
 --- a/arch/arm64/kvm/vgic/vgic-v2.c
 +++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -385,6 +385,7 @@ int vgic_v2_probe(const struct gic_kvm_info *info)
+@@ -430,22 +430,25 @@ static void save_lrs(struct kvm_vcpu *vcpu, void __iomem *base)
  
- 	kvm_vgic_global_state.can_emulate_gicv2 = true;
- 	kvm_vgic_global_state.vcpu_base = info->vcpu.start;
-+	kvm_vgic_global_state.gicc_base = info->gicc_base;
- 	kvm_vgic_global_state.type = VGIC_V2;
- 	kvm_vgic_global_state.max_gic_vcpus = VGIC_V2_MAX_CPUS;
+ void vgic_v2_save_state(struct kvm_vcpu *vcpu)
+ {
++	struct vgic_v2_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v2;
+ 	void __iomem *base = kvm_vgic_global_state.vctrl_base;
+ 	u64 used_lrs = vcpu->arch.vgic_cpu.vgic_v2.used_lrs;
  
-diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-index 1269ab8eb726a..ec70c84e9f91d 100644
---- a/drivers/irqchip/irq-gic.c
-+++ b/drivers/irqchip/irq-gic.c
-@@ -1459,6 +1459,8 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
- 	if (ret)
+ 	if (!base)
  		return;
  
-+	gic_v2_kvm_info.gicc_base = gic_data[0].cpu_base.common_base;
+-	if (used_lrs) {
+-		if (vcpu->arch.vgic_cpu.vgic_v2.vgic_hcr & GICH_HCR_LRENPIE) {
+-			u32 val = readl_relaxed(base + GICH_HCR);
+ 
+-			vcpu->arch.vgic_cpu.vgic_v2.vgic_hcr &= ~GICH_HCR_EOICOUNT;
+-			vcpu->arch.vgic_cpu.vgic_v2.vgic_hcr |= val & GICH_HCR_EOICOUNT;
+-		}
++	if (used_lrs)
+ 		save_lrs(vcpu, base);
+-		writel_relaxed(0, base + GICH_HCR);
 +
- 	if (static_branch_likely(&supports_deactivate_key))
- 		vgic_set_kvm_info(&gic_v2_kvm_info);
++	if (cpu_if->vgic_hcr & GICH_HCR_LRENPIE) {
++		u32 val = readl_relaxed(base + GICH_HCR);
++
++		cpu_if->vgic_hcr &= ~GICH_HCR_EOICOUNT;
++		cpu_if->vgic_hcr |= val & GICH_HCR_EOICOUNT;
+ 	}
++
++	writel_relaxed(0, base + GICH_HCR);
  }
-@@ -1620,6 +1622,7 @@ static void __init gic_acpi_setup_kvm_info(void)
+ 
+ void vgic_v2_restore_state(struct kvm_vcpu *vcpu)
+@@ -458,13 +461,10 @@ void vgic_v2_restore_state(struct kvm_vcpu *vcpu)
+ 	if (!base)
  		return;
  
- 	gic_v2_kvm_info.maint_irq = irq;
-+	gic_v2_kvm_info.gicc_base = gic_data[0].cpu_base.common_base;
- 
- 	vgic_set_kvm_info(&gic_v2_kvm_info);
- }
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 7a0b972eb1b12..577723f5599bd 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -59,6 +59,9 @@ struct vgic_global {
- 	/* virtual control interface mapping, HYP VA */
- 	void __iomem		*vctrl_hyp;
- 
-+	/* Physical CPU interface, kernel VA */
-+	void __iomem		*gicc_base;
+-	if (used_lrs) {
+-		writel_relaxed(cpu_if->vgic_hcr, base + GICH_HCR);
+-		for (i = 0; i < used_lrs; i++) {
+-			writel_relaxed(cpu_if->vgic_lr[i],
+-				       base + GICH_LR0 + (i * 4));
+-		}
+-	}
++	writel_relaxed(cpu_if->vgic_hcr, base + GICH_HCR);
 +
- 	/* Number of implemented list registers */
- 	int			nr_lr;
++	for (i = 0; i < used_lrs; i++)
++		writel_relaxed(cpu_if->vgic_lr[i], base + GICH_LR0 + (i * 4));
+ }
  
-diff --git a/include/linux/irqchip/arm-vgic-info.h b/include/linux/irqchip/arm-vgic-info.h
-index a470a73a805aa..67d9d960273b9 100644
---- a/include/linux/irqchip/arm-vgic-info.h
-+++ b/include/linux/irqchip/arm-vgic-info.h
-@@ -24,6 +24,8 @@ struct gic_kvm_info {
- 	enum gic_type	type;
- 	/* Virtual CPU interface */
- 	struct resource vcpu;
-+	/* GICv2 GICC VA */
-+	void __iomem	*gicc_base;
- 	/* Interrupt number */
- 	unsigned int	maint_irq;
- 	/* No interrupt mask, no need to use the above field */
+ void vgic_v2_load(struct kvm_vcpu *vcpu)
 -- 
 2.47.3
 
