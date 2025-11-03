@@ -4,148 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA13CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 07:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F02CCCF9FE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 07:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=11c3KbrjHPgiU5BclHH5SfdYsQYYwt21sbw+FWikq08=; b=BT+QyhFxXZuSjyP0AvQEbcgIOj
-	uYU0Q11yOXo2XL7hloa6n//24VDhNSIRoM4RB2KDNiy2Y37/OAbK5bNL/e6KH822wnmEhQZWYQkbv
-	W2g8yjeLmR4s/KXjySAIoHMnJMzzYxM0chVU0H5/Tz3aaauIdkjy7/PFhRfw+r0x6U4OxozHsBbdP
-	m6UXsOndZ9OT7r/L+Zt5XvRBe4hklMlf7kh9koeGObBse9AH7zmdp9BOxhvwMlFcHIDsIoNzVUVap
-	ta0md/Kxm5CSYCrcG0XW2w/sswDiFxgvZvPCn2+AnIRQjJ85QCkT3OBXjcwg+F3xGSfaZ64OL2uR1
-	ojmRSOsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pEeSSGWf3h8SCfUjIiXsvhaOWKWqwR/7CfPF03sEub0=; b=pkbjEDzMEm/+6E6+ac6EWi36J4
+	wNRaIdbJrNJY0XlIma/Aq68aaB/3MbXisIc3xGX5Fq0HfgZ1kb3PrpZ0DV7oJm8W1w8csUrNUIkci
+	h86PTnF1eT2WlkEHhY1QSFXsuUX4DGH5O3KZLlu5qGYndM61EMWQW4iFQFkNdFwy+BD2QGwCcWUdH
+	C3eh2KLOK4iabdPrR7L1JGiHvCU/JexuQ9Plkn6SL9+bT8iRZrb94/037zbER5Owt34MhBGRixk3S
+	DJxvXlHwiqR19gq5RBhqyKI7ClUUiIAWCkqZg5JQW4aBpaW9tgXA5uKp0P9SdAuvORFTh2viFwxuQ
+	41KP136g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFoeY-00000009KUZ-1MlK;
-	Mon, 03 Nov 2025 07:06:58 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vFoga-00000009KwJ-32MC;
+	Mon, 03 Nov 2025 07:09:04 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFoeV-00000009KTx-0boB
+	id 1vFogY-00000009Kvn-0ovc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 07:06:56 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A33Dgk41941400
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Nov 2025 07:06:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	11c3KbrjHPgiU5BclHH5SfdYsQYYwt21sbw+FWikq08=; b=FynWYY6fgsE7lM1b
-	1yx33gZKolSlLLfQF5/ByEl61T8AoYvPWEKL68uJuu4X4yN+Os/0m0qWfEXNFQLx
-	IGzJfIfCy2w6QLBFIHkRbSTf69bbzlXbblRIApme3HchxPUZoESre0SjTNPGJZcd
-	78C+7YXwpc3A2K4Ie1CeBNTeOiqJ6v6asekgn2D0WrEu37P2i6nAUn2PaYGMGuhS
-	CgzyfoL/Pgbir5yEBiURL2/RBFbxLZDEljUUxeizU96GV6z1/eKQtBJ4pyv8R0aj
-	DdbS4KJ6nkcl8vhMINq2j5JCvqGnTAy34KAQrG0jopy99w8GUUI68+IiH6rNdp/Y
-	0DzwCg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a6m9w8g2c-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 07:06:53 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-33baef12edaso4933708a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Nov 2025 23:06:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762153612; x=1762758412; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=11c3KbrjHPgiU5BclHH5SfdYsQYYwt21sbw+FWikq08=;
-        b=h71V70MA/Y6Ap1hXh+dCe7sUwq9cUSPbEeF1AWTwUsM+/Lnno3uLc6dJyIjPtf9Hx4
-         pqQ8nZN02x7P+3KvEsSgxAYwg6H4F1uiE7gs63KWV11riG4iHa4pdDhIotDFXRYl/9rG
-         MFjUMEya8C0HAR4zk2G7vOVBPByEHRx+y6vLK7Pq4/4R9gTs7gjbqrb2z/6HQq/UFQ5c
-         JOV7XEQUAygXENd7IjdVLD381IDI6xDNmJ4LlGsxGmDCRVCQmPRi5QWCOKl1MQ1Kpzv0
-         ueBpyCMJZ0jsdpt2C/DTWu/+3E5G/vi7wH6/ndbIPcAfNbxvAnABXcAxeesjMeWzrbUv
-         6bFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762153612; x=1762758412;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=11c3KbrjHPgiU5BclHH5SfdYsQYYwt21sbw+FWikq08=;
-        b=nihyWxjAvWy3obADAS2mSNyxLJrwOGtbUTaGkaBj7swejumf08ui/WyORNl7/okCv5
-         boTAoZLpXRkKrTjtnI4lXdk1zFCdm0JJmHZGSF0TmI6b7FsgHW4SYgiW15x5THEXnaw5
-         Kv9wl+zMVMgqmwRiqqGY/q/bSFNG528RznXScZH3ECkWxf+xft/VOGm8YI+myfj+RJ8a
-         vikfgy1eyz3OeUFOnAVyssDR1zn+3FX/04VyXk6sXPEzshCbi5ICNXzU0KxXoYimK9Tz
-         SZ5iibMNu5fBz0DGjZ2M3UZFOe+2/BBAb9nPCjNy1BRbJRDUYhaMhpwW702szuaGaIRY
-         zzHg==
-X-Forwarded-Encrypted: i=1; AJvYcCUkMJGY7Rj2L4Ubm8Zm9DiXtjSl5H97KtpKkb2kIN2RPmL2Yfz3mSi9S5JqESr/U7hS0PhItvAbk7dcSEVlOfqG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8jGU/rinnPImL8cyDAOKX6L3jw12HCyxt69h2EAUji+TTqvA6
-	AcT0E5TRAlJtsEsZTu6igON3s125p7DCd3wCaOUjHdejPUpFKZYQihPf6BwJnn/QCVxH/j3qka8
-	IzjDOoRhD7r9pFdR4AtCOAA5jNjRvnY2UTL4oljEhroAIAH4wxb9WCqrXzuHdskxhxVWSMQv1Dx
-	yO9Q==
-X-Gm-Gg: ASbGnctc6jm8q3p9VeuQeC/MjfLqkqoqxX4dxBx1g6smjksKTIOh5zEw6qAjIcCw/3c
-	NkLI6LljSZfbJHdkqwZvFGZXkvz0NKk2vXuxpC3Mt5rJggh2BVUVJTE+p/gbDjdrrDtUJe8kqdz
-	zMARAcX8fUVP+qSPdsZfoUkLvK2XXSXWuGHJnjA8VCq9Obe2XNEswbsrLYaoKqd2fTfffRU8sJM
-	T1wodjW7u8G3OPYwZf7Hy3egw2a8m51jr5+W7Oo3+RsU+YeoIxT3PitVVFN+0h2XTfrImy7JP3Z
-	QWXLz8Oo8nceNTZRDuJH1DzXtYj59aogvwkalt46LjkTi2F3Aavaowhk3TZ7twMPYGBXhKMUpCM
-	YEvWIUv4D4Mnkynwxus1HApGjQRre91ZGMucC5hTsO1ZN0H7tjfhiA82p4+n6HQ==
-X-Received: by 2002:a17:90b:3512:b0:340:ec6f:5ac5 with SMTP id 98e67ed59e1d1-340ec6f5cfcmr4480118a91.2.1762153612384;
-        Sun, 02 Nov 2025 23:06:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF0l22Dq0T/IasETveP/YFptHxCxmhpbzcfOxByTl+bEQYHpqub71iYiBm4TLNep6pPcUNFKw==
-X-Received: by 2002:a17:90b:3512:b0:340:ec6f:5ac5 with SMTP id 98e67ed59e1d1-340ec6f5cfcmr4480094a91.2.1762153611843;
-        Sun, 02 Nov 2025 23:06:51 -0800 (PST)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3407ef49da8sm5808704a91.1.2025.11.02.23.06.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Nov 2025 23:06:51 -0800 (PST)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 03 Nov 2025 15:06:22 +0800
-Subject: [PATCH v4 2/2] arm64: dts: qcom: monaco: Add CTCU and ETR nodes
+	Mon, 03 Nov 2025 07:09:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ixu5bl+xwMg0Izo59pRha8cEv8wVmlInczKWYqUuKff2SOPuPvb2Jc9CkYwdarJ6trrUZV/htV9VhovgVYliIyetUKXAFFfQYneLNJ2EbzgYEwSm9QoqA7WC8wnQ+mCn8KCvMiQlQeLNlKvSyHyxb8lhX7qVG2AofuvrVnl54owZcPh9B/FnFOnXd8/ce5Mvm4VcxheaTrmrC/SqM1EDqWFR0Hch2QkhlARZCRF1uRpYuEsIf4S1e6Ppa+TyFSv3Fm5bO0ihRMGcviNTlWO7z0KVGw6ZTyBRpFkpaursKT2D321I4h8KIJwiawtRpM+6vekqxGOSab7lLETp1P6p8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pEeSSGWf3h8SCfUjIiXsvhaOWKWqwR/7CfPF03sEub0=;
+ b=kEvfSTwZizRbFaURaDDKbzbf0Kf4KZBYOVqKF5XLHqGIzixsxrFdaU9ftqi511jea7Svc8tQom8p3q4J3Ovo/mrFfNR7OXbXn1WBHZSmZMgsPTpwiqz51outuuKtBx4xjzPNTCfn0uNCFPDZkeLv4HvBBsoBSZwyST6PQdM2BfXzRTDECCLLs93at9Maq5VAS3rywjw0Hg4dOBC7002Q3QLL5Pt9gTWciUR4J/K9YJIUVJN/Vob1G+0TnIuLzWOrpsFWGhxKY/Q+zhQi9soGCShdQPRqyIw20d+FgUm3WlTvYF5FJ2WIWFt1voYldO0ds3PvKcL5XjXX+BMVa721Yg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pEeSSGWf3h8SCfUjIiXsvhaOWKWqwR/7CfPF03sEub0=;
+ b=yMnawsSE16D6EuSO7AaZf2wfRsNxhUXwCx6B5YWZ5DCoO0DYxnIGUMc4akhELkwgIqDRiK1D0Z3/L3KUmxKiTJKv1/uqPy1YG08Waj5R2yQfhubHrQIch62qXahFd2/Zq26MXrt4sV6BhicRfH15Q0F/yuoaB+bQQW+eJriP89s=
+Received: from BYAPR08CA0026.namprd08.prod.outlook.com (2603:10b6:a03:100::39)
+ by DS0PR12MB8198.namprd12.prod.outlook.com (2603:10b6:8:f2::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Mon, 3 Nov
+ 2025 06:53:51 +0000
+Received: from MWH0EPF000989E7.namprd02.prod.outlook.com
+ (2603:10b6:a03:100:cafe::ff) by BYAPR08CA0026.outlook.office365.com
+ (2603:10b6:a03:100::39) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.16 via Frontend Transport; Mon,
+ 3 Nov 2025 06:53:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ MWH0EPF000989E7.mail.protection.outlook.com (10.167.241.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Mon, 3 Nov 2025 06:53:49 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sun, 2 Nov
+ 2025 22:53:48 -0800
+Received: from xirengwts09.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Sun, 2 Nov 2025 22:53:46 -0800
+From: Neal Frager <neal.frager@amd.com>
+To: <gregkh@linuxfoundation.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, <git@amd.com>
+CC: <michal.simek@amd.com>, <jguittet@witekio.com>,
+	<jay.buddhabhatti@amd.com>, <arun.balaji.kannan@amd.com>,
+	<senthilnathan.thangaraj@amd.com>, <thomas.hommel@emerson.com>,
+	<micheal.saleab@amd.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, Neal Frager <neal.frager@amd.com>
+Subject: [PATCH v2 1/1] arm64: dts: xilinx: fix zynqmp opp-table-cpu
+Date: Mon, 3 Nov 2025 06:53:44 +0000
+Message-ID: <20251103065344.4022482-1-neal.frager@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251103-enable-ctcu-for-monaco-v4-2-92ff83201584@oss.qualcomm.com>
-References: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
-In-Reply-To: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762153595; l=3931;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=jPRvo8AxN6ZXO7cz0KQaS/sv2ld0a4D/+sFPdm3cEx0=;
- b=UiqqFcnAt021/IodBx0c94um0OoWrMu9IazVSkrxBTI7ECq2bmxESxKNtPy2HBGxA2THKlqzD
- jgtTLzuRmbqB+xdzThilAsdrQR8916cbhK6E8e9YDFn3spYBbQw7eMA
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Authority-Analysis: v=2.4 cv=P7Q3RyAu c=1 sm=1 tr=0 ts=6908548e cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=xJyy5nzPNu-aANFJA0oA:9
- a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-GUID: 74c9cYJCxpvODweOExNmgrnSR0hctPIN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAzMDA2NSBTYWx0ZWRfX5vljUJLW38UG
- c7UsYKKeDMITcNVXUtReiqgEc9bs/uYKrOCpeiPepDtD2/DpEFsV5SmdZGeW0uJq9qkvnSd8BrH
- wJNn39iFkITZDy4E+y04aUt2c8/8Dh7O04J2k89NiibFvR8rXeCcZYVedbxFzvt7ErTF6qqW3FG
- TNzs9WtXNNiQ34OK+NMaUhPF/um4IB7adnldfdwr03fJTk0nNqPP0W+ATePM18nxFPqGyYUdP0F
- cwa9WkH6dqG+QDINcKIA+ERXCmdkHXipWZiKZzQC//nsy2otjEWof5eQ/bqjIwpmKw3szEO3Mfy
- Fj+hfJ4C4iy4SnCWjCsgPpdho4Mi9wLobU/5d0Z5vAEmQchYd4C0m+jw65lKtmpI4eQPKOFErw5
- LJknQq+QERfsBO+v/V8BNk3m5/15kQ==
-X-Proofpoint-ORIG-GUID: 74c9cYJCxpvODweOExNmgrnSR0hctPIN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-02_02,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 phishscore=0
- clxscore=1015 suspectscore=0 adultscore=0 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511030065
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000989E7:EE_|DS0PR12MB8198:EE_
+X-MS-Office365-Filtering-Correlation-Id: 47b598ad-9375-41f7-be41-08de1aa5bdf3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G409aUdBwP1oihhC+9EUNBpR/tl+eN+MDi+SE25/AIEA5sVN4CXlP8Wk8wTq?=
+ =?us-ascii?Q?55LWW0lW6ZqZMnHg2e3BUYfNBEPBzblEixmz9VaUNW2tjVswn7iDOEMSL7RN?=
+ =?us-ascii?Q?+sFhB7Kd+sPjAjPn5p06ZbK0zICqDcx/36z4RCldqRdVsbCHMxF+6yNZ1cDz?=
+ =?us-ascii?Q?w7/8JB178zYY4x8+9a8tJjUs5zKr295rUD7pxR5fTqhnds5hpjhUig7D7NhM?=
+ =?us-ascii?Q?RxE5MBPLNWNLKgjSQ91NLp3gQhiSzZetCuAnAyZ2YtPQB/2btegORxq+vyHl?=
+ =?us-ascii?Q?RWcfEtC2yauQ+geE6qhxSp3JjfwJZrzqfWfV2tLZoN1QzAq152jWmkG3ChWC?=
+ =?us-ascii?Q?sqiCR6hM68Ue5a7zZ06cxtp4a/zTVW8CEYI/darPBKVx4wX1XI5PH74WAhED?=
+ =?us-ascii?Q?FlxDhbekSMiOmbEY73oCK/7P7ruRVcFdvVCJbSGEtV7YND5OKHZ/KUJWVvoV?=
+ =?us-ascii?Q?43wMmCo0ZGHDQbbXr7E94V9msMIEtDTFoxsK44jsx7gFi6Q0RP9QMj3Sjph5?=
+ =?us-ascii?Q?QQLUV+8w/RJk8Fp1Fy5mOiPLywbCabSFwBylEZjlVuMSWQIVuarBHNuAPN6c?=
+ =?us-ascii?Q?oVKHhz7dsBGv4Q/KniVkTnkrDyHhpDnnZdhk5vr/k//odhO0DPiPpA9DJgTj?=
+ =?us-ascii?Q?wQZ8VqPL8rOUTYoSZkq1uHQEcF8aIhHNnEv+EMLN970y6+xTIY5AYqjOKjFm?=
+ =?us-ascii?Q?XMo4NjZbTxcvusFDevskTnetO/S1qvt+rJiLOIA9Zfl1w3SzwIMMdrRTW/fW?=
+ =?us-ascii?Q?cEb5FVcTwOYCew13WUAaVVdK0h8BOxxUu3ZSdiUB/0l/Q24y5P4B/jQiUJ/Q?=
+ =?us-ascii?Q?P1vthoP8eAcXqt0rcXBloJjZ1JW5aS1nAIHuyA+oATApweNoBmFxaMNZxJpY?=
+ =?us-ascii?Q?A1sh3nL5bhLsL0/K5D1JZqAz5An20FdZQqAfDFGsum+UimjFI+eWbdj7yoC+?=
+ =?us-ascii?Q?V4xNZwEzCfLDYyLm2smRVB6cp3na+fbIpkwNegc+WTPEvK+GTdrCBKfJe+uR?=
+ =?us-ascii?Q?cAARKP17nPLxPtH7P78iUaTf0c5ADbLjPJwJhj8a3n0nfkNEm2CCOXkSI2EM?=
+ =?us-ascii?Q?x08IUoDUure0d4J2P4iAWr32XHCBALii2qqdu/CX3SKRVS0bl49+oNXb8Nec?=
+ =?us-ascii?Q?TnWIqAIzf6hYBOlHLfSSnGxC1kopL2f21QlhFTMtZndSeIlBM7WJ0xeWC4fM?=
+ =?us-ascii?Q?+wCsbu+2nO/z/bxPIF0DliZaWvm9fFthBkvtwvnvCJyM6C2g30u5hI5YuxwZ?=
+ =?us-ascii?Q?LscxTF9sF3DwNENeQr0Ig0JAOu2Z42vP8XkzeFwQc0CjPVI+n1DI5IemAl/K?=
+ =?us-ascii?Q?+opZVRe4ad9JcRnVdRhQtL1IsMcA5AkbUjIaKOTMwwLHy2ITGjM0OadhTuYW?=
+ =?us-ascii?Q?A/46Lz7Y5ECaTHN13vzHyyMP4aFLCdQADFWt/rH5MNOExN9XYzFYYMddBdmo?=
+ =?us-ascii?Q?lOWVKBo+qtMkIaXQGqm8hQOM9nnMTADeyrlP5wC4YSCyn1MWf+KEVt3ekUUj?=
+ =?us-ascii?Q?87gBqTsuILw7zDB5iTZWD0wKBXcVwCR10ZFrcs8MeogAugQxOlZX63luF9U6?=
+ =?us-ascii?Q?bs94GlfKOgQR2ZNIXmw=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2025 06:53:49.0632
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47b598ad-9375-41f7-be41-08de1aa5bdf3
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E7.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8198
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_230655_318377_39FDC0CF 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20251102_230902_233486_48ABBD2C 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,194 +146,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add CTCU and ETR nodes in DT to enable expected functionalities.
+Since the following commit, the zynqmp clk driver uses the common
+divider_round_rate() when determining the appropriate clock divider for a
+requested clock frequency:
+https://github.com/torvalds/linux/commit/1fe15be1fb613534ecbac5f8c3f8744f757d237d
 
-Acked-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+This means that the typical parent clock rate will be 1200000000 based on the
+zynqmp pll configuration. If the current zynqmp.dtsi opp-hz values are used,
+this will mean the divider calculations are always slightly above the correct
+integer divider value meaning they will get rounded up to a divider value
+which is one too high. The result of this issue is that the cpu clock speed
+will always be one opp lower than the requested clock rate.
+
+For example, the following will occur when requesting 1.2 GHz with the current
+zynqmp.dtsi:
+
+root@zynqmp:/sys/kernel/tracing# cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
+299999 399999 599999 1199999
+root@zynqmp:/ # echo 1200000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed
+root@zynqmp:/ # cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_cur_freq
+600000
+
+To fix this issue, this patch updates the zynqmp opp-table-cpu, so the clock
+rates are calculated correctly.
+
+root@zynqmp:/sys/kernel/tracing# cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
+300000 400000 600000 1200000
+root@zynqmp:/ # echo 1200000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed
+root@zynqmp:/ # cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_cur_freq
+1200000
+
+Signed-off-by: Neal Frager <neal.frager@amd.com>
 ---
- arch/arm64/boot/dts/qcom/monaco.dtsi | 153 +++++++++++++++++++++++++++++++++++
- 1 file changed, 153 insertions(+)
+V1->V2:
+- The clock-latency-ns and opp-microvolt values did not change, so simplify
+  the patch by only changing the opp-hz values in decimal format.
+---
+ arch/arm64/boot/dts/xilinx/zynqmp.dtsi | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
-index 816fa2af8a9a..1966dfad2dcc 100644
---- a/arch/arm64/boot/dts/qcom/monaco.dtsi
-+++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
-@@ -2483,6 +2483,35 @@ lpass_ag_noc: interconnect@3c40000 {
- 			qcom,bcm-voters = <&apps_bcm_voter>;
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+index 938b014ca923..dd9bd39f61e8 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
++++ b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+@@ -103,23 +103,23 @@ CPU_SLEEP_0: cpu-sleep-0 {
+ 	cpu_opp_table: opp-table-cpu {
+ 		compatible = "operating-points-v2";
+ 		opp-shared;
+-		opp00 {
+-			opp-hz = /bits/ 64 <1199999988>;
++		opp-1200000000 {
++			opp-hz = /bits/ 64 <1200000000>;
+ 			opp-microvolt = <1000000>;
+ 			clock-latency-ns = <500000>;
  		};
- 
-+		ctcu@4001000 {
-+			compatible = "qcom,qcs8300-ctcu", "qcom,sa8775p-ctcu";
-+			reg = <0x0 0x04001000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					ctcu_in0: endpoint {
-+						remote-endpoint = <&etr0_out>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					ctcu_in1: endpoint {
-+						remote-endpoint = <&etr1_out>;
-+					};
-+				};
-+			};
-+		};
-+
- 		stm@4002000 {
- 			compatible = "arm,coresight-stm", "arm,primecell";
- 			reg = <0x0 0x04002000 0x0 0x1000>,
-@@ -2677,6 +2706,122 @@ qdss_funnel_out: endpoint {
- 			};
+-		opp01 {
+-			opp-hz = /bits/ 64 <599999994>;
++		opp-600000000 {
++			opp-hz = /bits/ 64 <600000000>;
+ 			opp-microvolt = <1000000>;
+ 			clock-latency-ns = <500000>;
  		};
- 
-+		replicator@4046000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x04046000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					qdss_rep_in: endpoint {
-+						remote-endpoint = <&swao_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					qdss_rep_out0: endpoint {
-+						remote-endpoint = <&etr_rep_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc@4048000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x04048000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+			iommus = <&apps_smmu 0x04c0 0x00>;
-+
-+			arm,scatter-gather;
-+
-+			in-ports {
-+				port {
-+					etr0_in: endpoint {
-+						remote-endpoint = <&etr_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					etr0_out: endpoint {
-+						remote-endpoint = <&ctcu_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		replicator@404e000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x0404e000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					etr_rep_in: endpoint {
-+						remote-endpoint = <&qdss_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					etr_rep_out0: endpoint {
-+						remote-endpoint = <&etr0_in>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					etr_rep_out1: endpoint {
-+						remote-endpoint = <&etr1_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc@404f000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x0404f000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+			iommus = <&apps_smmu 0x04a0 0x40>;
-+
-+			arm,scatter-gather;
-+			arm,buffer-size = <0x400000>;
-+
-+			in-ports {
-+				port {
-+					etr1_in: endpoint {
-+						remote-endpoint = <&etr_rep_out1>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					etr1_out: endpoint {
-+						remote-endpoint = <&ctcu_in1>;
-+					};
-+				};
-+			};
-+		};
-+
- 		tpdm@4841000 {
- 			compatible = "qcom,coresight-tpdm", "arm,primecell";
- 			reg = <0x0 0x04841000 0x0 0x1000>;
-@@ -3106,6 +3251,14 @@ out-ports {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-+				port@0 {
-+					reg = <0>;
-+
-+					swao_rep_out0: endpoint {
-+						remote-endpoint = <&qdss_rep_in>;
-+					};
-+				};
-+
- 				port@1 {
- 					reg = <1>;
- 
-
+-		opp02 {
+-			opp-hz = /bits/ 64 <399999996>;
++		opp-400000000 {
++			opp-hz = /bits/ 64 <400000000>;
+ 			opp-microvolt = <1000000>;
+ 			clock-latency-ns = <500000>;
+ 		};
+-		opp03 {
+-			opp-hz = /bits/ 64 <299999997>;
++		opp-300000000 {
++			opp-hz = /bits/ 64 <300000000>;
+ 			opp-microvolt = <1000000>;
+ 			clock-latency-ns = <500000>;
+ 		};
 -- 
-2.34.1
+2.25.1
 
 
