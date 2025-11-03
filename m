@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5E7CCF9FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E450CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 14:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yOIN4al8o3hvby2tYjmv7154iKKH2/FeWfWDeE8Z1b4=; b=HQu/VnEMB7y56yEmlSF/HbSanw
-	/1YAjeJRQzKGC3wGA06KDdLFo0K6nunVGyCNO8ZvjfHnUodBkbKJRhddu0OEenfiPmJ2lDLgQAXPS
-	1Ry6APqdgctnzzkx+ubw1rJNBtfQPoaFMq6GOBsqj/cAVc95wBsRwcYTSibi2zWb5TA51rL7Lj4Uy
-	LnaLymCLAuYwECkm8rzdrD38NPCRJoV8DgJKaCMtwNq74PMMJRfK7zeNZygksi7dsZNgnC5jQgclA
-	Rceq0QpRbiBviYtfE3eEsQF6JNz36GkTpA2a8ATwdrjEBOzUyLGcWR+1lcd9aWb1Q9zsK45DtJ80s
-	4tR0jKxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iI95N45xUlZVhTMjnyMu5qguS//l74sBdQ6FwuCHQXw=; b=a1r9OvJ1FcvhBXqHcIxXvrGp/i
+	eD44JHHmla/QI/eisChVdOhQPRDkDQq8u9WCPl5KJQUXNOJ6WPZJWD7OICtP9zFmRdj/W8V8GCkyD
+	085VJKKnsxA86Y84H9YFgYF2sPXuoBU5TLEq7nr7t04KupXghAc3agf0pbqF3x5ymZNDWTMRzLMqF
+	xfvFBfwiLBfzlF+mGW0l2tBcdUq4zd1/LV/miZl6uh8UxN/tQ3XN7DLe9ZcJ3i/6+tnLdafJxcuPR
+	hRX/js+A/I+SU655XZcgQae+x47+7NpNkYC64AYfEahOkQnJizMQ9INJv1XpSynjMKXBBgmEq39A1
+	ryl/WegA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvkA-0000000A2A7-2yZA;
-	Mon, 03 Nov 2025 14:41:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vFvpL-0000000A2iK-14F8;
+	Mon, 03 Nov 2025 14:46:36 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFvk4-0000000A29b-3NNH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 14:41:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90856439B7;
-	Mon,  3 Nov 2025 14:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D5CFC113D0;
-	Mon,  3 Nov 2025 14:41:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762180867;
-	bh=LjFjByiv2udyhbpyhBMDGQWMK+5W1S4rpccn8+FhmMU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JDHYLNBZtzPaNXVho2kDaLiARfyfnqFPnf9nfQ6EhFuKJtSRiOUtDhjFgeY/WYmAn
-	 2YcV9Ima4gdxz6cuzyeN28w4y8xpgk+5Ly7cWdY/OlR5ff6W4eurh8O+6DXGuBSCTW
-	 S2j+eMw/HHoN8UL7L718UMmeUmCy2S1K6SNGIqjFwGOUwxvFrVtIZFe8DJ2URkyBhZ
-	 Tb92uq2SfYTN5KbWc24raM66iJwD5mL5Ozm4oD0p0h/1rzNSg62ZSWCLuf2SZM+3FT
-	 4Rf8uDV0VWwRxE0K2MzM9oTB1Qk0vatyWHOVZX3p8H2Pd1dWTH1NsaUfAqBYnjUKXv
-	 7/Y3vSsYDIfPQ==
-Message-ID: <79a1f2dd-6752-426c-84c1-a38d300eb78c@kernel.org>
-Date: Mon, 3 Nov 2025 15:41:03 +0100
+	id 1vFvpJ-0000000A2hx-2nRF;
+	Mon, 03 Nov 2025 14:46:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=iI95N45xUlZVhTMjnyMu5qguS//l74sBdQ6FwuCHQXw=; b=tcpIk2F7iJsy2Cok39kpG4TNpm
+	lKGFJAP9fR4texKlFgtntVEWzbhlmiENIrTA4l+0JifVpJqLmNZfyAXXzOs8FaCh5TGjX0XUTzarD
+	8Bot3EmkXkU73yUEzFf/8auMdO142JWOdp6VgE+ueiT+l21xWODyM9U7fixMQ/Zt1hFAeXAgJGlvM
+	yc7JRFC4M5dUyOMS2EHvc/py/A352QKchG1ymiHG1p+aVeuaAEdBB7aRZ8j+BXdpJvRIJwtRaNrR/
+	ekhG7PmxVehxdQ8KrpsBgKsQGg3mU3AAzOvUzl92pYuLNuhkTO5useVCbiw5bU+POSPXTGYVwLK21
+	AblPip2A==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vFvpC-00000009AtY-0Qhs;
+	Mon, 03 Nov 2025 14:46:27 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 40487300220; Mon, 03 Nov 2025 15:46:26 +0100 (CET)
+Date: Mon, 3 Nov 2025 15:46:26 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel test robot <lkp@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	David Laight <david.laight.linux@gmail.com>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V5 00/12] uaccess: Provide and use scopes for user access
+Message-ID: <20251103144626.GX4068168@noisy.programming.kicks-ass.net>
+References: <20251027083700.573016505@linutronix.de>
+ <20251029102331.GG988547@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/huge_memory: Initialise the tags of the huge zero
- folio
-To: Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>,
- Aishwarya.TCV@arm.com
-References: <20251031170133.280742-1-catalin.marinas@arm.com>
- <aQiu-hU3x5V5drHF@finisterre.sirena.org.uk> <aQi8dA_QpXM8XqrE@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <aQi8dA_QpXM8XqrE@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_064108_871782_99A7C07B 
-X-CRM114-Status: GOOD (  10.18  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029102331.GG988547@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +91,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 29, 2025 at 11:23:32AM +0100, Peter Zijlstra wrote:
+> On Mon, Oct 27, 2025 at 09:43:40AM +0100, Thomas Gleixner wrote:
+> > Thomas Gleixner (12):
+> >       ARM: uaccess: Implement missing __get_user_asm_dword()
+> >       uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
+> >       x86/uaccess: Use unsafe wrappers for ASM GOTO
+> >       powerpc/uaccess: Use unsafe wrappers for ASM GOTO
+> >       riscv/uaccess: Use unsafe wrappers for ASM GOTO
+> >       s390/uaccess: Use unsafe wrappers for ASM GOTO
+> >       uaccess: Provide scoped user access regions
+> >       uaccess: Provide put/get_user_inline()
+> >       futex: Convert to get/put_user_inline()
+> >       x86/futex: Convert to scoped user access
+> >       select: Convert to scoped user access
 > 
-> -----------8<---------------------------------------------
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index d816ff44faff..125dfa6c613b 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -969,6 +969,16 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
->   
->   void tag_clear_highpage(struct page *page)
->   {
-> +	/*
-> +	 * Check if MTE is supported and fall back to clear_highpage().
-> +	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
-> +	 * post_alloc_hook() will invoke tag_clear_highpage().
-> +	 */
-> +	if (!system_supports_mte()) {
-> +		clear_highpage(page);
-> +		return;
-> +	}
-> +
+> Applied to tip/core/rseq along with the first set of rseq patches. The
+> core-scoped-uaccess tag should denote just this series.
 
-LGTM!
-
--- 
-Cheers
-
-David
-
+Due to various build fail, I've re-created the whole branch, including
+the tag. Sorry about that.
 
