@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2063BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 11:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE6CCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Nov 2025 11:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6W0DkUMzifwuDMlc9DiSUqRLpgMXFIVqdSysIfR+dbQ=; b=OJH/SbEHj+XcHy/FvK3prF4t1N
-	Er8PmYUhue+N7XloaDAQ6XfQxIPUClqce7YHq88Krxx7C82LM/yVs1t67eH8+Pw1c/4sM16d5dYoA
-	Zbdi/8TLWEJ2TbxsnxwHhup5NvsrdS1eFyXakhunmfOm944Y7CoUpOkKzWJoWldQ0Udw0HPiOwgbX
-	LU5FlXGg0RbdjEjsMxAlDvEnOvLDMjYKmHU+CaFPUn4QjxpnxhuGgtM1OtcOPgYaNLfj0Odf/mcOx
-	2cSzcZxIvoREwYB/uH9Z7XgEw0SuhcgHuRfQaj3SHNJRS7x9Cl1VoVRz7TdKkT6BEz/alwavoU+Di
-	cU6YVc1A==;
+	bh=4HA3ZOxKKxeIzqI7dq1d1qs69VYJLm1ozupEioRiy0s=; b=Mf8HECna68I3LsqWpdTOeIV+U4
+	t1s7Ywo+4z+UhlyoFJcDmFKr49yYyqFthOK/oT4tPkStGHKiutnc8C5nZGfCOM45uAx4VyKdrsXH3
+	PH4wlO5AzvBsVQIdbQ8naMMMKmC7p2RQEoDiQnOp+nMC10cKb7GV+1vwumD8hvmcxGrTyqXgB1P1n
+	g8ddJ3Yz+f3fWosHEyBERA5+Dr/SPdaCDNpKfVTFdz+dXjkgoziMyAUa5k8+tWPgtScN5ZPC/5oe/
+	Ibm8Cfr04NhXnsQhNf1z01UTT7rifWnSzf2N1E5ec9XUaH9Fr+HiyHQMCQ8traH4htPIKMQAzcaYD
+	x0jmWJiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFt4g-00000009lzp-0uMj;
-	Mon, 03 Nov 2025 11:50:14 +0000
+	id 1vFt4m-00000009m2w-28oF;
+	Mon, 03 Nov 2025 11:50:20 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFt4d-00000009lyA-2OYb
+	id 1vFt4k-00000009m0h-1bsl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Nov 2025 11:50:12 +0000
+	Mon, 03 Nov 2025 11:50:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=6W0DkUMzifwuDMlc9DiSUqRLpgMXFIVqdSysIfR+dbQ=; b=gYh3Se3MQRjmnvmEL8hRKs1HC6
-	EHX/zY77CnBzHwWKNZbz6WznbHtCMypMvDNyQFMsffbLDiOomjpAe+TyiqHSPswFC/zccbnX8Ek0K
-	t0VwQ3Z7/d5V0QYBYDPDdy1l+xmSuwke8rdmLABJnZdjUcjmiOxtF0A4oD09lHC7T38iildrHsTTq
-	f3sQqOm8ERg+JfB/xVWi0Aq1pUyYIOkIOyo6lwc21daWSOz4OgGFvXD9EHTpyHZ8gQzAUJcdO/lDu
-	0eVL8bsL5BQmIYLUAKy3HySTgtBhIJzWoaEvyUwFmr9nxtJJBG9ytrdju8NXvoifDzCxCvLzo2P5/
-	JMZu3J5A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39006 helo=rmk-PC.armlinux.org.uk)
+	bh=4HA3ZOxKKxeIzqI7dq1d1qs69VYJLm1ozupEioRiy0s=; b=KgKlwfhyQUwztSrcLVCljvWo2g
+	eSasz6BGPb5FLPB86aOCXq3YS4zZ+/5giHhALu13eqoLuSgAF8AnlXBlTNef0XS5N9FoNpX/b0ISS
+	O6hzmJ4UTcF4ov5CQln5+4igQUBYnHOFhyanPYEbLTCU0BmqjUlPYYaHzdnGLpllGuuqmi2lgz7MJ
+	61ZgIUECGBDC5hzDf+Rys34MCmwKHE1iN3ZRJgklNPkHHMaqRx630jtTCgi6f22s8CW9cPVh5SKsc
+	shgK65cWzfMR0mFYpmKJBGbH936485mwSOnZGIultXqPAB8GrMEeezoxtJm1wz6tyaatytTWH2EYr
+	Jn1PeUrg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39016 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vFt4T-000000000fS-26LA;
-	Mon, 03 Nov 2025 11:50:01 +0000
+	id 1vFt4Z-000000000fi-02ml;
+	Mon, 03 Nov 2025 11:50:07 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vFt4S-0000000ChoS-2Ahi;
-	Mon, 03 Nov 2025 11:50:00 +0000
+	id 1vFt4X-0000000ChoY-30p9;
+	Mon, 03 Nov 2025 11:50:05 +0000
 In-Reply-To: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
 References: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -71,17 +71,18 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	s32@nxp.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>
-Subject: [PATCH net-next 02/11] net: stmmac: s32: move PHY_INTF_SEL_x
- definitions out of the way
+Subject: [PATCH net-next 03/11] net: stmmac: add phy_intf_sel and ACTPHYIF
+ definitions
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vFt4S-0000000ChoS-2Ahi@rmk-PC.armlinux.org.uk>
-Date: Mon, 03 Nov 2025 11:50:00 +0000
+Message-Id: <E1vFt4X-0000000ChoY-30p9@rmk-PC.armlinux.org.uk>
+Date: Mon, 03 Nov 2025 11:50:05 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_035011_613719_9B325627 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20251103_035018_428656_5784808E 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +97,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-S32's PHY_INTF_SEL_x definitions conflict with those for the dwmac
-cores as they use a different bitmapping. Add a S32 prefix so that
-they are unique.
+Add definitions for the active PHY interface found in DMA hardware
+feature register 0, and also used to configure the core in multi-
+interface designs via phy_intf_sel.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/common.h | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-index ee095ac13203..2b7ad64bfdf7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-@@ -24,10 +24,10 @@
- #define GMAC_INTF_RATE_125M	125000000	/* 125MHz */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 27083af54568..7395bbb94aea 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -313,6 +313,16 @@ struct stmmac_safety_stats {
+ #define DMA_HW_FEAT_ACTPHYIF	0x70000000	/* Active/selected PHY iface */
+ #define DEFAULT_DMA_PBL		8
  
- /* SoC PHY interface control register */
--#define PHY_INTF_SEL_MII	0x00
--#define PHY_INTF_SEL_SGMII	0x01
--#define PHY_INTF_SEL_RGMII	0x02
--#define PHY_INTF_SEL_RMII	0x08
-+#define S32_PHY_INTF_SEL_MII	0x00
-+#define S32_PHY_INTF_SEL_SGMII	0x01
-+#define S32_PHY_INTF_SEL_RGMII	0x02
-+#define S32_PHY_INTF_SEL_RMII	0x08
- 
- struct s32_priv_data {
- 	void __iomem *ioaddr;
-@@ -40,7 +40,7 @@ struct s32_priv_data {
- 
- static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
- {
--	writel(PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
-+	writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
- 
- 	dev_dbg(gmac->dev, "PHY mode set to %s\n", phy_modes(*gmac->intf_mode));
++/* phy_intf_sel_i and ACTPHYIF encodings */
++#define PHY_INTF_SEL_GMII_MII	0
++#define PHY_INTF_SEL_RGMII	1
++#define PHY_INTF_SEL_SGMII	2
++#define PHY_INTF_SEL_TBI	3
++#define PHY_INTF_SEL_RMII	4
++#define PHY_INTF_SEL_RTBI	5
++#define PHY_INTF_SEL_SMII	6
++#define PHY_INTF_SEL_REVMII	7
++
+ /* MSI defines */
+ #define STMMAC_MSI_VEC_MAX	32
  
 -- 
 2.47.3
