@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0BBCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 06:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BABFACCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 06:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GrSEJYaGP9RVivJlgONHXlqu7FdWNUTH62IpXXnp9FE=; b=Rk7qgGJoF6ANPdHXAZdJ+SFogS
-	T7sliM0mn4gXIBDk1h2FgGITS5JJfhZU6OCAsWClGBP0IuKrIV20C7muYD/d43vmJzUoRkZk0Y9EU
-	Wxqf24fb7q7C1m6gNfYeopgL9XwnWzlOL9V21ys2/WWyxNZtkqQeyo0MKIXbKMO3a1ElUohpVrU/O
-	VOEJe+Dit8t8yqZViSVMBMSnwiFVIjQZjhnTuJHQa5ckYjEer/JC29Q1l18kKHSoUHAK6Z/c9QcRs
-	BH0LgSskOXYqJraEpYqKSJ0AVo8HoohsuuRx5KGfjVx/yxtzJv+SO+eBhZ2jD3bAi6tfBiJERtm6B
-	rZPkE+jw==;
+	bh=Ivhia2P31L3ei0jVhnnZos8lhDkPjPtGSI3kUzzKNKg=; b=FKTSlO6HDhroMUicyL977KHkE8
+	Mpx30iTEfiR0oIp4iSMw48i+qVAfxg+EZcC08y0AuwbNPZKUVX6uVWILXcmYkdOE37l5SkSCC1+i1
+	aoVgeQQhwOdc4UWAZARnOQHIH1DR5wa5yUyXFSETp0s61uc7wxp0xBd9jP64nkfsIx2MdeAP4xP6L
+	gPAZGzYXaX9MUgmv2FDv8oRl9maaA70XSaiQ80pHRyzROukTKOS1HQA0msDKvSV2QMxSY12Xu7O1O
+	0tvXFzDE9s0opyCUmYr4pQ5crjOG4yP6C/QeXB0+igrdGBLXzuwZnJ2jPGp/Xv1fthtmYtmaRdK2w
+	pnYOtfrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGArv-0000000BGUy-09Ar;
-	Tue, 04 Nov 2025 06:50:15 +0000
+	id 1vGAs1-0000000BGYo-2myr;
+	Tue, 04 Nov 2025 06:50:21 +0000
 Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGArt-0000000BGSv-0FB7;
-	Tue, 04 Nov 2025 06:50:14 +0000
+	id 1vGArx-0000000BGWe-3r8w;
+	Tue, 04 Nov 2025 06:50:20 +0000
 Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4d0zBs3R9Fz9sSf;
-	Tue,  4 Nov 2025 07:32:05 +0100 (CET)
+	by localhost (Postfix) with ESMTP id 4d0zGM0Zbtz9sSh;
+	Tue,  4 Nov 2025 07:35:07 +0100 (CET)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase2.c-s.fr ([172.26.127.65])
 	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Sv0jWyS-5i0P; Tue,  4 Nov 2025 07:32:05 +0100 (CET)
+	with ESMTP id I4w3aEv5EITr; Tue,  4 Nov 2025 07:35:06 +0100 (CET)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4d0zBs2ZWMz9sSd;
-	Tue,  4 Nov 2025 07:32:05 +0100 (CET)
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4d0zGL6PZFz9sSg;
+	Tue,  4 Nov 2025 07:35:06 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3B0AF8B76C;
-	Tue,  4 Nov 2025 07:32:05 +0100 (CET)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id C4D928B76C;
+	Tue,  4 Nov 2025 07:35:06 +0100 (CET)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id ZVg7BC0yuWfv; Tue,  4 Nov 2025 07:32:05 +0100 (CET)
+	with ESMTP id fs4pJqTtKSTf; Tue,  4 Nov 2025 07:35:06 +0100 (CET)
 Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 62AEA8B763;
-	Tue,  4 Nov 2025 07:32:03 +0100 (CET)
-Message-ID: <db0e0201-0bb5-4096-ad87-f2cd109d07dc@csgroup.eu>
-Date: Tue, 4 Nov 2025 07:32:02 +0100
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id C60B08B763;
+	Tue,  4 Nov 2025 07:35:04 +0100 (CET)
+Message-ID: <e0795f90-1030-4954-aefc-be137e9db49e@csgroup.eu>
+Date: Tue, 4 Nov 2025 07:35:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V5 12/12] select: Convert to scoped user access
+Subject: Re: [patch V5 00/12] uaccess: Provide and use scopes for user access
 To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org, kernel test robot <lkp@intel.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+Cc: kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
  Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
  Madhavan Srinivasan <maddy@linux.ibm.com>,
  Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
@@ -70,17 +68,18 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
  Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
  Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>
+ <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
 References: <20251027083700.573016505@linutronix.de>
- <20251027083745.862419776@linutronix.de>
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
 Content-Language: fr-FR
-In-Reply-To: <20251027083745.862419776@linutronix.de>
+In-Reply-To: <20251027083700.573016505@linutronix.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_225013_272155_6C111148 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20251103_225019_068600_794CF9F7 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,53 +96,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-Le 27/10/2025 à 09:44, Thomas Gleixner a écrit :
-> From: Thomas Gleixner <tglx@linutronix.de>
+Le 27/10/2025 à 09:43, Thomas Gleixner a écrit :
+> This is a follow up on the V4 feedback:
 > 
-> Replace the open coded implementation with the scoped user access guard.
+>     https://lore.kernel.org/20251022102427.400699796@linutronix.de
 > 
-> No functional change intended.
+> Changes vs. V4:
 > 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Alexander Viro <viro@zeniv.linux.org.uk>
-> Cc: Christian Brauner <brauner@kernel.org>
-> Cc: Jan Kara <jack@suse.cz>
-> Cc: linux-fsdevel@vger.kernel.org
+>    - Rename get/put_user_masked() to get/put_user_inline()
+> 
+>    - Remove the futex helpers. Keep the inline get/put for now as it needs
+>      more testing whether they are really valuable.
+> 
+>    - Picked up tags
+> 
+> The series is based on v6.18-rc1 and also available from git:
+> 
+>      git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git uaccess/scoped
+> 
 
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+move_addr_to_user() in net/socket.c and put_cmsg() in net/core/scm.c 
+should be converted as well
 
+Christophe
+
+> Thanks,
+> 
+> 	tglx
 > ---
-> V4: Use read guard - Peterz
->      Rename once more
-> V3: Adopt to scope changes
-> ---
->   fs/select.c |   12 ++++--------
->   1 file changed, 4 insertions(+), 8 deletions(-)
-> ---
-> --- a/fs/select.c
-> +++ b/fs/select.c
-> @@ -776,17 +776,13 @@ static inline int get_sigset_argpack(str
->   {
->   	// the path is hot enough for overhead of copy_from_user() to matter
->   	if (from) {
-> -		if (can_do_masked_user_access())
-> -			from = masked_user_access_begin(from);
-> -		else if (!user_read_access_begin(from, sizeof(*from)))
-> -			return -EFAULT;
-> -		unsafe_get_user(to->p, &from->p, Efault);
-> -		unsafe_get_user(to->size, &from->size, Efault);
-> -		user_read_access_end();
-> +		scoped_user_read_access(from, Efault) {
-> +			unsafe_get_user(to->p, &from->p, Efault);
-> +			unsafe_get_user(to->size, &from->size, Efault);
-> +		}
->   	}
->   	return 0;
->   Efault:
-> -	user_read_access_end();
->   	return -EFAULT;
->   }
->   
+> Thomas Gleixner (12):
+>        ARM: uaccess: Implement missing __get_user_asm_dword()
+>        uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
+>        x86/uaccess: Use unsafe wrappers for ASM GOTO
+>        powerpc/uaccess: Use unsafe wrappers for ASM GOTO
+>        riscv/uaccess: Use unsafe wrappers for ASM GOTO
+>        s390/uaccess: Use unsafe wrappers for ASM GOTO
+>        uaccess: Provide scoped user access regions
+>        uaccess: Provide put/get_user_inline()
+>        coccinelle: misc: Add scoped_masked_$MODE_access() checker script
+>        futex: Convert to get/put_user_inline()
+>        x86/futex: Convert to scoped user access
+>        select: Convert to scoped user access
+> 
+>   arch/arm/include/asm/uaccess.h               |   26 ++
+>   arch/powerpc/include/asm/uaccess.h           |    8
+>   arch/riscv/include/asm/uaccess.h             |    8
+>   arch/s390/include/asm/uaccess.h              |    4
+>   arch/x86/include/asm/futex.h                 |   75 ++----
+>   arch/x86/include/asm/uaccess.h               |   12 -
+>   fs/select.c                                  |   12 -
+>   include/linux/uaccess.h                      |  314 ++++++++++++++++++++++++++-
+>   kernel/futex/core.c                          |    4
+>   kernel/futex/futex.h                         |   58 ----
+>   scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++
+>   11 files changed, 501 insertions(+), 128 deletions(-)
 > 
 
 
