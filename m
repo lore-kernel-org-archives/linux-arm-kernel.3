@@ -4,221 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107A4CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDABDCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jKMhm7L4+bAkH+hQvBDE/hpqwYM+ArWpqbGU+uF8+Hc=; b=g3m7bDh49VZqxZe0Kqc5vtnpky
-	kbBqIbu1VxHtX+3yJIFAGC85jFsklT48F1QkbcaDU/nRE5JnuFAGqsaJAR/SDRdRrupJu3LMFwrR8
-	mY2eW8cnD2pAXi5BoRHrVwqInS+SwG1ftCzDfeLFbOoa2OsyVkMSzN+9z5kN1qXRWK41uEqzHWJoa
-	eA3VQy4GQIYwjLJMuX8zhOV28sq5biQ2zJMUnLNLUqrmAPszdVbxZoXaNlnQTw8F3c06glnAGdsBw
-	nsyeK+28pB3k+TTj/vTh8uHLkXySpGAcJHgN6s0N8PJ3yCkEY80aneukiEJAPDdC5v9p8CwHtf7l8
-	bwDKqPMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RQrVztubx2u+pACffgEQuXsypBYi+W9z0hLwySF7Kwo=; b=d+48u56nxJoDfKAYY9XZsJIWe2
+	GeA5CNNKH8FUEuzWEa91IejkMS9qMTwu2WYY7geOpsswKEJZtCKfX2GsdGzrZibBagixgIK00abd0
+	HBACWUOUefOqVqu47fMFB1MFCiur3u7r+IpDQmiuQbJGNGubM9rvPdZxRBQ94Db4rAYFk72CFg7c1
+	5G2FIGmHZb0HcIp/Jp+qF/Vk5YSXYF/huSYaOLRdcO4Uex0C7akM5Bg9UNxlGFoSfp/6/7N1PRq1/
+	gnbBMUPgNzkvi0Ry3JWoinJewGONs2cf2pgZfHMgcC1uJwGFt4joLG2nLLLpKiWXA0/bYwBE7FNVL
+	xnWjX0WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBSy-0000000BKM5-462Z;
-	Tue, 04 Nov 2025 07:28:33 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vGBTJ-0000000BKSu-2hcK;
+	Tue, 04 Nov 2025 07:28:53 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBSw-0000000BKLT-3Oxr;
-	Tue, 04 Nov 2025 07:28:31 +0000
-X-UUID: d92e4f58b94f11f09f706fa2197c6ceb-20251104
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=jKMhm7L4+bAkH+hQvBDE/hpqwYM+ArWpqbGU+uF8+Hc=;
-	b=cr6wMBLcSyyu1MOQBc783y06BfTmnvgw1j/BxLhyP14KEe7Jw4Sqm3rzcvLk+CtzSn1czwI0DkMHxZrAawtXZQQSGtPjd3KO0A6fpD7o/q840aknWUNP9AWBD6V6LedMm7vO02s1pb7c6iFZX/Y2r0ar/GRvM7TQgizsN5PfAyk=;
-X-CID-CACHE: Type:Local,Time:202511040028-07,HitQuantity:1
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:d20df5bb-0dc7-4d25-8b33-c86a3a3e3738,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:94f61be0-3890-4bb9-a90e-2a6a4ecf6c66,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d92e4f58b94f11f09f706fa2197c6ceb-20251104
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <chaotian.jing@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1833474451; Tue, 04 Nov 2025 00:28:24 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Tue, 4 Nov 2025 15:28:21 +0800
-Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Tue, 4 Nov 2025 15:28:21 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eAsUcRrVkpOLN1H783YYkVzbLciAzAdY4PM71Js+gEVOovCYLuA6HvFtVS/KSiFuTmFsj0NoxyQH3LRL4daUaV+fswEPoGC4hh8psweZjeDE9UDPrPlTH7mZ6VJxswiyCMVmHu8Ap+5dP/FUqislFfbHg2YABar+aN8IBSfyFzPj7mcJkZ6HjZUGLdD4411BCTbZg6f2t8UqR2qLBB8miVwpWJ1k7XGKx1JmbMkrFVHp2dk9EgMy93WoZ02nRuTt2bF9LHEnSeJr4+dl+uQRWw+LPiTGTDCQ3gTzchrBitIdUClyCKDGmxWY070KdtjIhGJVpnCCj0gSQwknru/61Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jKMhm7L4+bAkH+hQvBDE/hpqwYM+ArWpqbGU+uF8+Hc=;
- b=hO1iwm2mbsz177I3MpNnPC1naEA4wryybMZFTezm5U/Fk0DDwaWmfU7ESCVNWV8xDX+A5b6N7Ha7zyC8OfwZl9/BUK63mIJRRydYgOD3vbZtL1C299FBmk5xJ47Z+VhakNZDmh1jxW5AshN5mqsC7ng+BSiZm9BPXXyUKVcIwpKTror8FpomXar6XL2TdGsqcZXqJvuzBdBhy4UNKtyUyRXHbxsEjJP5+tq7xWiaMbaUdmf3mXdTEvPKDEkLIaLhhNBJMQ9oMmL9MkoX8lDGjD4i2d7oWrehv8Qob1e+rgTG/Ub7YXvKlzUFGjlQssj75AjqY3kkOXs+E7y9qQ7pEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1vGBTE-0000000BKQt-3tBf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 07:28:52 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-429b7ba208eso3164123f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 23:28:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jKMhm7L4+bAkH+hQvBDE/hpqwYM+ArWpqbGU+uF8+Hc=;
- b=DmlynacSHnEHA43ZIiiS8ft88L+zH+CGuJ5onEPhQUwsfFUls6EWLViM6BoAXgTdprRkmH6bdTd9ofsjcrOEoWZgCBDNjI9+0FvlHAWAbjfHbmNZNgxBxm1v7ZVYmkrta/FGtkPdvNkMt/ylDiFIK7rxfgrOQiVCiKbT6dv5PkA=
-Received: from KL1PR03MB6032.apcprd03.prod.outlook.com (2603:1096:820:8b::7)
- by JH0PR03MB7545.apcprd03.prod.outlook.com (2603:1096:990:8::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Tue, 4 Nov
- 2025 07:28:18 +0000
-Received: from KL1PR03MB6032.apcprd03.prod.outlook.com
- ([fe80::4e46:b38a:9317:deb7]) by KL1PR03MB6032.apcprd03.prod.outlook.com
- ([fe80::4e46:b38a:9317:deb7%7]) with mapi id 15.20.9275.015; Tue, 4 Nov 2025
- 07:28:18 +0000
-From: =?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
-	<Chaotian.Jing@mediatek.com>
-To: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
-	=?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
-	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
-	"kishon@kernel.org" <kishon@kernel.org>, "avri.altman@wdc.com"
-	<avri.altman@wdc.com>, "bvanassche@acm.org" <bvanassche@acm.org>,
-	"martin.petersen@oracle.com" <martin.petersen@oracle.com>,
-	"broonie@kernel.org" <broonie@kernel.org>, "alim.akhtar@samsung.com"
-	<alim.akhtar@samsung.com>, "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "robh@kernel.org" <robh@kernel.org>,
-	"James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>, "lgirdwood@gmail.com"
-	<lgirdwood@gmail.com>, "vkoul@kernel.org" <vkoul@kernel.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"kernel@collabora.com" <kernel@collabora.com>, Louis-Alexis Eyraud
-	<louisalexis.eyraud@collabora.com>, "linux-scsi@vger.kernel.org"
-	<linux-scsi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
-	<linux-phy@lists.infradead.org>
-Subject: Re: [PATCH v3 09/24] scsi: ufs: mediatek: Rework the crypt-boost
- stuff
-Thread-Topic: [PATCH v3 09/24] scsi: ufs: mediatek: Rework the crypt-boost
- stuff
-Thread-Index: AQHcTTo49ypGQfrPO0eMepv5B6/WfbTiHriA
-Date: Tue, 4 Nov 2025 07:28:18 +0000
-Message-ID: <9ae7495023a8562566ff57bd2dfa60524194ee30.camel@mediatek.com>
-References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
-	 <20251023-mt8196-ufs-v3-9-0f04b4a795ff@collabora.com>
-In-Reply-To: <20251023-mt8196-ufs-v3-9-0f04b4a795ff@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR03MB6032:EE_|JH0PR03MB7545:EE_
-x-ms-office365-filtering-correlation-id: 0cb1a420-3d3b-410d-de72-08de1b73b9b0
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|921020|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?OFY3OVIxK0gxRm5qL2c3NSsvY1RveXhsam5XWUIwSnZTTUUvaGlXaTBtWFVO?=
- =?utf-8?B?RFdVNnZjamNTKytRcmZOSDc2aDh1VS9tdVpDd2MydzlnSFBiMENITTZQbjVG?=
- =?utf-8?B?SWd3MmFCbnBwWWkzaGlzUC81aG9UYktqb1RKZ1U5TjBOWXdHVnpDS2dOSndw?=
- =?utf-8?B?QTRGbHl0azViTkU1TmhVRXFhLytyVHBjVWFYMkJ0U1pQZVdqT1E2MzJtTXVQ?=
- =?utf-8?B?RGxCc2h3WGJRQkJZbFo0bE53L2FMOEIwVy9VaURXcE4vYzluczFIV1NWOUxH?=
- =?utf-8?B?cVZ6MzFUWVBVejN5R016cVhtajRhcnplamVBcytwZnJrM0dmb0NaTWFZUldG?=
- =?utf-8?B?ZWRyKzNGM0JTSGlFZEZwOTRWbDVxdnR1K2tsYnRlM3d0K09JaEFGZVdoUXdR?=
- =?utf-8?B?YlVlbHY2VWFWbThldUlGQ01SdWlRbFdsMG9LV3ovdUZaeVZYWGZNK1hhMmZs?=
- =?utf-8?B?QXBJRW9sL1VoTDJqUGR1NEs0bmJCUGFhbUNCNmw2VWZKMnVuWU1pWEdzcW51?=
- =?utf-8?B?YkF5VU9XQ2lJb3daNUJhR1RGeTZIZlhFWit1SndHamp5eUtLSlVBRjhteVZh?=
- =?utf-8?B?cUV5b3JHZ09MN3dPZjM2bmZkZ1lDYlVkdnF0OHVFTVhjWlMrbitOa2xZc0d5?=
- =?utf-8?B?bWNNUWdibG5peUxRcU0vWEthVGQxYjlhNnc1OUF5dmlza0FIT2hCcUZlWmFj?=
- =?utf-8?B?NTFpK08yL0xSNTR3YXVIZ1RsL2E1S0VDeE9TWnhsdDJCcDB2c3NuRENINnR0?=
- =?utf-8?B?NHp6UGdCeDBzSHJwaHBId2xjc1Q0WTZoeEo3YmRiVDkzMDkwSVBxbG9ONVJt?=
- =?utf-8?B?U0hSMXM5S1U4Rmx4SXZTSU9OeTdqemovZlpkaitqeXFSM3dmTEw1bklyd2Q2?=
- =?utf-8?B?SGJ4MzgzZ0ttb3liOTBwR01ObDVKbjVqNHE2TkFiUlJRemJmeVgrMU01NnZo?=
- =?utf-8?B?N0VzZmhuendNV0lKQitqL1ZnaHMzVjR0M0JQaU40Z1dqaW1nQVdCcTFjWlFm?=
- =?utf-8?B?cUduZVJtMkFrN2FaRnpaeXNxZ3AxdnhVN0RoMDh0WEY3cmdXVWVMSzJPUXdu?=
- =?utf-8?B?NUVsaTRLMWtKUXJadW1Bb2hiOFpoQzBXLzhRSHdKbkVoNnFBQ01aZW9jeTdw?=
- =?utf-8?B?bmUzK1NJWi9FV3FXR1UxeWVteExJUk8vYktQWGo2NGJSWERJb0ZNbnZQcUJX?=
- =?utf-8?B?eENXUEpRQ1p0N2w0ZEVKMlEzZDd3SUdSYlIrQ3ZVVzB1dzZZZTdtS05kakp4?=
- =?utf-8?B?dCt0bHptcnhPYmZMVFZoMWtBclAwcGEwWmtiV0NJb3Z4bXJwZUtQZkJMMVEv?=
- =?utf-8?B?VlQ1dmVZWWI3b3g2eEMwMDRhalo4NStKTHFVTTZ5RTFXSHpoY1hleVRrTStr?=
- =?utf-8?B?TXJjdVVZMTB0M1kycjEycnBXd29WcVR0YVd4YlZrMFF5U2I2S2xvcHJnamIr?=
- =?utf-8?B?clNCWlFwNERZcDd0ZXVyWm5LcDRtUHhTS3YwUHZnRUJ6UFZhNEwrWWN6UTN3?=
- =?utf-8?B?cXA3NWJZUktvL25zMndyVFRqdWxrNTdDL1d0Rk9ITHZFdFNlNVhTZ0JYNnBY?=
- =?utf-8?B?dnpJZlVZQ2xjUTBQaEhCYjd1aklUYllvYjJJNHZma1k2L0lvSURQTTNPTkVv?=
- =?utf-8?B?NysybnlrUFE4MFkrdUE0Y0s3N284bTR0VDI2RGJlTWlkOHBTUkY5Mi9yMXhF?=
- =?utf-8?B?L3Z6TVVRcittcXllNmZSdm02cHlzZ25lMDdBTElJQ3hwWXFyOHBjSStCODkv?=
- =?utf-8?B?M3ErQnlPK0ZtRGpUY2lXTHgwOHN6bjFQTjJ6UW5rMjVmZHdwL09zOVJHV3Fy?=
- =?utf-8?B?OHdLKysrU3pxSlhneE5yakVaK01tcGFlRjdISmtCNklrTWZNYWpRYXFlcm1z?=
- =?utf-8?B?MElwREkwVEJQeDQ5eVFuTGw2eGVNVmJkRjdJTVhxSnJxQ2dlVGQrb0lFdSt3?=
- =?utf-8?B?VHRtKzlRZVZienl5OFJYcnNlSDd6eHc0S2g2S2I3MitOVndTSVpVRmhKNHQ5?=
- =?utf-8?B?bm5DaDFSc3FveVBld2QyRFhnZ0d2Z1JqOFk1NFRFd1piSmkrZWVVclVEOUhH?=
- =?utf-8?B?WFNsRGpmc2Z2V2FRcDRNUWJSV1NxNkFYQUFDdz09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB6032.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(921020)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?blFqOEpZeTVyRURWeUxUL1Fnc29IcTBpVG1ERDVpZysrS09WdXBLc1YyRlVj?=
- =?utf-8?B?WCtPOGx5OFh3WXZ5UE5KczRPeWxzS1FXTTF1eVd4V05Qa2R5Zlh2YTZTVDAy?=
- =?utf-8?B?aHhVR2hlM0V3T29HUGE5dnUxLytSUUFteWhnYXpQSXpZQzRtWFVRZjVnQk5K?=
- =?utf-8?B?QVUxeFBCT0dLYmRYL3N6NFZJMlpwSy8wVTl6Z1VzYUJlUmgvNDlGckVIeGx6?=
- =?utf-8?B?SU1aTGlRdTVEZzlRUnFlYTRhSDduZGEySkh1WnE5dGR1cXdHaG1HYUZ1a3Z6?=
- =?utf-8?B?dzFzWndFZE1wSEk0UjlxdVpEamxOMWJCNWdST0Z2TE5veVZKczB3MzdJTDF5?=
- =?utf-8?B?anNpS0V4M0RxTFpEYmJKSFBNdjFaUVdqTjk0bHk5SENoSjVnV2tnd1Bmd2xY?=
- =?utf-8?B?U2dKTlh2N0plQ21kcVFnYzdIZG1xdUZHZWpCRStuWVFBQ3dyNjFRdzlxNXZX?=
- =?utf-8?B?MjRxR1RaZlMxblZEY1hZZzhnQjJhcDEwTXZrWjgreHNlWTQzQkdmWHg1SzB3?=
- =?utf-8?B?RGIxL0w4SE5EMm1uMG0zNmdNb1lVbWRxa3JBK2gzQnFJbWZaT3cyZHVnN040?=
- =?utf-8?B?WUU3OFVqdzlhTlk5b2QwZDBTR3hPTXhUMHJicFJqcEZwaDRteGRRNjRETUMy?=
- =?utf-8?B?K2hMdUFPNVB4Yk5hVU1RUHR2RXNMdXBnNEhod3ljSUxNRk9LRjdhQlFFTHNP?=
- =?utf-8?B?b2Y2QWNHYW9lRyt2TlUxRVh4TitEU2F2WEpGbEQzS3FRYzQwY0grb1NjaW5n?=
- =?utf-8?B?SDA2V1VBLzFIWU9jSytnVjNRREFaK3EwTVNZcTNmY2l1ZklzOVF6aDFiSm1a?=
- =?utf-8?B?cUtsenJjT2hIRXl5OGpJVnFxRFliWEJGOVdaaVppUUtaOFFaRVNIcGhOZHg3?=
- =?utf-8?B?V0FZV1pnSDQzdXhTRHBEWHN4S2EvdjNROEErSXlQOGtEcTFmbGhSUXlNY0c1?=
- =?utf-8?B?azh6TjZDR001azU4QlNKOTkwU1Zmem56VllCNDdMWkxKY0Z5T1l1LzFlZVRk?=
- =?utf-8?B?M1N2VG5vZ3VPUnpHNk92STRFOHpvMWxJVE9vR0ZmdmVXM3lIcW5vdFM2S0RP?=
- =?utf-8?B?czJOTG1sV0xwUk9uZEJMKzRhcHR5VmFXWW5mcTJIMFlDb2pWbWhxVFpBVHFo?=
- =?utf-8?B?dSt6RThqMy9oanc5eE85NGdDcURLMDlMbnFOaFFTV24xbHk3YnNOS0t1MExP?=
- =?utf-8?B?V1FLcmpKL1M1TTNXaXBNTHlhZEkzdGZ2bVY0RGhsZW9KdTZZRjcvN1dHdGhF?=
- =?utf-8?B?eEx0SkV3OXlVS1JEVDJqNk5NSnQ1czlBa2U0UlR5aVF4emR3ZFpzSWNEV2Rn?=
- =?utf-8?B?dG5oZy9jOWVERWpTWHhYS1B0YTd4bUU4MnU1VE53YVE1dExQR2M1d2wxQ1Mr?=
- =?utf-8?B?VldPSW91QmRkNERmQnhMY2U3dldtRmpXdjlycWdlNFhNbzYxN1dFYzZwb3N1?=
- =?utf-8?B?ZEpTdk4vYVV3WkJKS3ZqeE9IbEdnczZWOVNScWhScFY3RDk1ckFockRyT3p2?=
- =?utf-8?B?ZTRrT3Y2L0NOQ3Yya3VhZ2NmemRDYllpT3YvZ0Y1YlgzdGsxOEJ3VjBzSXA1?=
- =?utf-8?B?a2Q0Y1VNY2lBRU8vRUp3RmxTRFlYdWNhTTV1czBZUFliUCtzV0pVMFNSWnZM?=
- =?utf-8?B?eFhOVVJwMlI3NW9xNGlaTERIL2NTU2ptY3J2MGFuNm9kWm1FYjRwNTkxcW52?=
- =?utf-8?B?aWk2VDdwNUlBQWRBdUdQTUc5R1N3dHpIWkg1VkdpUzJBRllxRkFJVFBSajFG?=
- =?utf-8?B?d0ljd3JsOUZTcVZVTlhwZzF1VlJtZE51QzVybzRvZmJUQVdLMFhOenorNFkz?=
- =?utf-8?B?MmswV01pdXRpKzA1REpnRXVmZzdad3lIdmxUbjg0R1BUU2d0WlJGMkNJcnI0?=
- =?utf-8?B?YlZCdGFHMjAyYlZFeW83c1k3ZGdPM3hQL1c2bXgzRWk0V05IenhBWHJZTHdG?=
- =?utf-8?B?Z2hLLzdxNjFFdWRGejV2NklsNFdTQ2Jya3dQand6dTQvR3l3SzN6MmtpdjZs?=
- =?utf-8?B?QjBDekRIOUJTRFJIcHRqQnZsblJBWE1mMlpEUkxnb2wwTDNVNWtiMVRDM092?=
- =?utf-8?B?NFJxRUhiQlIvdm5YOStCeTg4QUtvQjBtcm0vN1JJZ1U3NzBlbjl5RkZMSFlj?=
- =?utf-8?B?RUt0NDhUMXo5bG1YdFlJQVF1NkNMMUF0ZmFBVkE1R1RST055U1M1dDVUTTNL?=
- =?utf-8?B?R2c9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <05053CAC8DEB6C4AB8D7D5CCDA215855@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB6032.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0cb1a420-3d3b-410d-de72-08de1b73b9b0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Nov 2025 07:28:18.3363
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: LWfG5OyhHS+nnU11GiHu6cOpPAc4SM6vH+cmqxdVWCIh4yNrTtfCUsELhmtLesXriti5rJfHlDbbOJiVTF1G2FPVPo2J1RCAgGfJhoX490Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB7545
+        d=gmail.com; s=20230601; t=1762241327; x=1762846127; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RQrVztubx2u+pACffgEQuXsypBYi+W9z0hLwySF7Kwo=;
+        b=eEbAu7PGRKjlQ/zRhyjfMaoJ2prXRkwpUXLDIJ1V43eOmAkP1tB7oxHC8jO1yZHryb
+         TRXvuGcHikNZn5CtFtBv9iuXXg3jpGSNOEyR0gbf2daTdk0gl15tAFxLCX8OuwcnsLoC
+         nX9j+xQsI9NJE7t8826lqruEwW5tdY7aKpFxIL77i7drlNa0bh3am99CaCYYDT+pulvE
+         0A20dAEUARZ83Vl3opTPKGLzqPdQA+ipRkBRQB3BSizRQVYLdubInP2vsmtmeVEzM2GT
+         LqMNhUYChsp4xz/c94pJPnhzLFqTApHVJ5/pfXfEmfhqaeApFhNSO09ZpHm7kDMntpPI
+         5X9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762241327; x=1762846127;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RQrVztubx2u+pACffgEQuXsypBYi+W9z0hLwySF7Kwo=;
+        b=M3CzbyorIvd+Kcob8dZA8cUCl70alaslDyoFfNqYt8ZYUHRa3TdPsMsczn7Ff3xmhh
+         aQ0hrHu9GucbQ3DWSou+AwrJGPJQkh0LdxoeLcEbUH+MweRZt1sM/7ZB7G5OM/AdvtHk
+         +2cye6oFToHtFVF1jyIOnw5N7mJ8JkUsldVRBeUdzpyXgF3A+GFYmsKPU/6TJjo++tuQ
+         rMDN7rqRC2OoIEpuyycKU4ZMnq9Z4P8W2pypHMGljmn3phHXKfgJZrMcA/nn7VYimNaL
+         /4IrrAgCr96Ez3B2n2zfPfaqm9NzaGdYKX4JBVPrxf1MuA3CSWheJe+7u1Kz3WMbHpq9
+         kZLg==
+X-Forwarded-Encrypted: i=1; AJvYcCVj8dMWXACc4PQVE8K23sTwcu4uF1wFuWtO27Ubxqz58gNhRybVUNceT3O2idCUsr8ViiCDtvv7sK85bp/jzWSB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLtdszVj228dwDmiK5QdqPPcPQ8Lh8e+y4H5HjNXkTE8zQ+6yk
+	i6b/YWHWUzhvdyuq7XAeHk/s2CWMYKxrZzly6U8/WAjq74dZMMKNZ1pL
+X-Gm-Gg: ASbGnctdL2A4cK65oi+W5R7rUnIRwlwhdL7Am1L8upLksIv2C6G9ijfMoEMFsuTIRQj
+	kK8oWWFhRZt1Tgdg5EN2ZND43rlSJk2gbwG9+uDvyB156pU2IzrE0OqiaXSSzKjqRRvMsaWASOx
+	h0rzorfHSSSO7DSRE2isfSfNeVmn9KVIKHpoOo5YodcKlN7mBrE9ETZVj7Mzsj2LAuAcKMsB/NQ
+	oV61ifPCPHu/4uFb3vvi1xZJNVKI/Yb8Aax5+kEaPWcH1T1tDessfvQW9k+eaNCbeIcrCUQ02od
+	udegIQae439iIsugPmsG3Ww8NNttfmmNwSAaOwc1FNa6l66jQBCpNZZkfo7PBpYlsE2ByGNtJAE
+	WNnzWwIC4xV0x23ShisbJaR8ONdBGGZqnxK/y5igDKuPQK1kAM3/rr1K3fFIpA4xWPoIU8JcAYP
+	N+z210QIeLw9BY8bc9+M1I3NpnpWq039wVyet2S3mJh5gLM4iEVHBeC52ZVRnVyQlCvqt8Kdo=
+X-Google-Smtp-Source: AGHT+IE/zGw+D0u9TFjklGUocQN9vuvOn2j0IijPm9wr89yrvoE3rgFyzPC1PsYWnF6kAditU4Rbhw==
+X-Received: by 2002:a05:6000:714:b0:429:c711:22c5 with SMTP id ffacd0b85a97d-429c7112421mr9065018f8f.42.1762241326271;
+        Mon, 03 Nov 2025 23:28:46 -0800 (PST)
+Received: from smtpclient.apple (static.253.36.98.91.clients.your-server.de. [91.98.36.253])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc19227csm2989084f8f.11.2025.11.03.23.28.44
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 03 Nov 2025 23:28:45 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81\))
+Subject: Re: [PATCH 0/3] Add Amlogic stateless H.264 video decoder for S4
+From: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <540d98ea-114c-43bc-94c0-e944b5613d74@amlogic.com>
+Date: Tue, 4 Nov 2025 11:28:33 +0400
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <2B4BFCAC-57FF-429F-BD57-457E634A24E8@gmail.com>
+References: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com>
+ <b976b442-7d07-4fef-b851-ccd14661a233@linaro.org>
+ <540d98ea-114c-43bc-94c0-e944b5613d74@amlogic.com>
+To: Zhentao Guo <zhentao.guo@amlogic.com>
+X-Mailer: Apple Mail (2.3826.700.81)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_232830_868006_438EB49B 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20251103_232849_036352_719DC880 
+X-CRM114-Status: GOOD (  32.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -233,89 +114,359 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTEwLTIzIGF0IDIxOjQ5ICswMjAwLCBOaWNvbGFzIEZyYXR0YXJvbGkgd3Jv
-dGU6DQo+IEkgZG9uJ3Qga25vdyB3aGV0aGVyIHRoZSBjcnlwdC1ib29zdCBmdW5jdGlvbmFsaXR5
-IGFzIGl0IGlzIGN1cnJlbnRseQ0KPiBpbXBsZW1lbnRlZCBpcyBldmVuIGFwcHJvcHJpYXRlIGZv
-ciBtYWlubGluZS4gSXQgbWlnaHQgYmUgYmV0dGVyIGRvbmUNCj4gaW4NCj4gc29tZSBnZW5lcmlj
-IHdheS4gQnV0IHdoYXQgSSBkbyBrbm93IGlzIHRoYXQgSSBjYW4gcmV3b3JrIHRoZSBjb2RlIHRv
-DQo+IG1ha2UgaXQgbGVzcyBvYnR1c2UuDQo+IA0KPiBQcmVmaXggdGhlIGJvb3N0IHN0dWZmIHdp
-dGggdGhlIGFwcHJvcHJpYXRlIHZlbmRvciBwcmVmaXgsIHJlbW92ZSB0aGUNCj4gcG9pbnRsZXNz
-IGNsb2NrIHdyYXBwZXJzLCBhbmQgcmV3b3JrIHRoZSBmdW5jdGlvbi4NCj4gDQo+IFNpZ25lZC1v
-ZmYtYnk6IE5pY29sYXMgRnJhdHRhcm9saSA8bmljb2xhcy5mcmF0dGFyb2xpQGNvbGxhYm9yYS5j
-b20+DQo+IC0tLQ0KPiAgZHJpdmVycy91ZnMvaG9zdC91ZnMtbWVkaWF0ZWsuYyB8IDkxICsrKysr
-KysrKysrKysrKy0tLS0tLS0tLS0tLS0tDQo+IC0tLS0tLS0tLS0tLQ0KPiAgMSBmaWxlIGNoYW5n
-ZWQsIDMyIGluc2VydGlvbnMoKyksIDU5IGRlbGV0aW9ucygtKQ0KPiANCj4gZGlmZiAtLWdpdCBh
-L2RyaXZlcnMvdWZzL2hvc3QvdWZzLW1lZGlhdGVrLmMgYi9kcml2ZXJzL3Vmcy9ob3N0L3Vmcy0N
-Cj4gbWVkaWF0ZWsuYw0KPiBpbmRleCAxMzFmNzExNDVhMTIuLjljMGFjNzJkNmU0MyAxMDA2NDQN
-Cj4gLS0tIGEvZHJpdmVycy91ZnMvaG9zdC91ZnMtbWVkaWF0ZWsuYw0KPiArKysgYi9kcml2ZXJz
-L3Vmcy9ob3N0L3Vmcy1tZWRpYXRlay5jDQo+IEBAIC01NjIsMjEgKzU2Miw2IEBAIHN0YXRpYyBp
-bnQgdWZzX210a19tcGh5X3Bvd2VyX29uKHN0cnVjdCB1ZnNfaGJhDQo+ICpoYmEsIGJvb2wgb24p
-DQo+ICAJcmV0dXJuIDA7DQo+ICB9DQo+ICANCj4gLXN0YXRpYyBpbnQgdWZzX210a19nZXRfaG9z
-dF9jbGsoc3RydWN0IGRldmljZSAqZGV2LCBjb25zdCBjaGFyDQo+ICpuYW1lLA0KPiAtCQkJCXN0
-cnVjdCBjbGsgKipjbGtfb3V0KQ0KPiAtew0KPiAtCXN0cnVjdCBjbGsgKmNsazsNCj4gLQlpbnQg
-ZXJyID0gMDsNCj4gLQ0KPiAtCWNsayA9IGRldm1fY2xrX2dldChkZXYsIG5hbWUpOw0KPiAtCWlm
-IChJU19FUlIoY2xrKSkNCj4gLQkJZXJyID0gUFRSX0VSUihjbGspOw0KPiAtCWVsc2UNCj4gLQkJ
-KmNsa19vdXQgPSBjbGs7DQo+IC0NCj4gLQlyZXR1cm4gZXJyOw0KPiAtfQ0KPiAtDQo+ICBzdGF0
-aWMgdm9pZCB1ZnNfbXRrX2Jvb3N0X2NyeXB0KHN0cnVjdCB1ZnNfaGJhICpoYmEsIGJvb2wgYm9v
-c3QpDQo+ICB7DQo+ICAJc3RydWN0IHVmc19tdGtfaG9zdCAqaG9zdCA9IHVmc2hjZF9nZXRfdmFy
-aWFudChoYmEpOw0KPiBAQCAtNjMzLDY1ICs2MTgsNTMgQEAgc3RhdGljIHZvaWQgdWZzX210a19i
-b29zdF9jcnlwdChzdHJ1Y3QgdWZzX2hiYQ0KPiAqaGJhLCBib29sIGJvb3N0KQ0KPiAgCWNsa19k
-aXNhYmxlX3VucHJlcGFyZShjZmctPmNsa19jcnlwdF9tdXgpOw0KPiAgfQ0KPiAgDQo+IC1zdGF0
-aWMgaW50IHVmc19tdGtfaW5pdF9ob3N0X2NsayhzdHJ1Y3QgdWZzX2hiYSAqaGJhLCBjb25zdCBj
-aGFyDQo+ICpuYW1lLA0KPiAtCQkJCSBzdHJ1Y3QgY2xrICoqY2xrKQ0KPiAtew0KPiAtCWludCBy
-ZXQ7DQo+IC0NCj4gLQlyZXQgPSB1ZnNfbXRrX2dldF9ob3N0X2NsayhoYmEtPmRldiwgbmFtZSwg
-Y2xrKTsNCj4gLQlpZiAocmV0KSB7DQo+IC0JCWRldl9pbmZvKGhiYS0+ZGV2LCAiJXM6IGZhaWxl
-ZCB0byBnZXQgJXM6ICVkIiwNCj4gX19mdW5jX18sDQo+IC0JCQkgbmFtZSwgcmV0KTsNCj4gLQl9
-DQo+IC0NCj4gLQlyZXR1cm4gcmV0Ow0KPiAtfQ0KPiAtDQo+IC1zdGF0aWMgdm9pZCB1ZnNfbXRr
-X2luaXRfYm9vc3RfY3J5cHQoc3RydWN0IHVmc19oYmEgKmhiYSkNCj4gK3N0YXRpYyBpbnQgdWZz
-X210a19pbml0X2Jvb3N0X2NyeXB0KHN0cnVjdCB1ZnNfaGJhICpoYmEpDQpZb3UgY2hhbmdlIHRo
-ZSByZXR1cm4gdHlwZSBidXQgbmV2ZXIgY2hlY2tlZCB0aGUgcmV0dXJuIHZhbHVlIHdoZW4NCmNh
-bGxpbmcgdGhpcyBmdW5jdGlvbiA/DQo+ICB7DQo+ICAJc3RydWN0IHVmc19tdGtfaG9zdCAqaG9z
-dCA9IHVmc2hjZF9nZXRfdmFyaWFudChoYmEpOw0KPiAgCXN0cnVjdCB1ZnNfbXRrX2NyeXB0X2Nm
-ZyAqY2ZnOw0KPiAgCXN0cnVjdCBkZXZpY2UgKmRldiA9IGhiYS0+ZGV2Ow0KPiAtCXN0cnVjdCBy
-ZWd1bGF0b3IgKnJlZzsNCj4gLQl1MzIgdm9sdDsNCj4gKwlpbnQgcmV0Ow0KPiAgDQo+IC0JaG9z
-dC0+Y3J5cHQgPSBkZXZtX2t6YWxsb2MoZGV2LCBzaXplb2YoKihob3N0LT5jcnlwdCkpLA0KPiAt
-CQkJCSAgIEdGUF9LRVJORUwpOw0KPiAtCWlmICghaG9zdC0+Y3J5cHQpDQo+IC0JCWdvdG8gZGlz
-YWJsZV9jYXBzOw0KPiArCWNmZyA9IGRldm1fa3phbGxvYyhkZXYsIHNpemVvZigqY2ZnKSwgR0ZQ
-X0tFUk5FTCk7DQo+ICsJaWYgKCFjZmcpDQo+ICsJCXJldHVybiAtRU5PTUVNOw0KPiAgDQo+IC0J
-cmVnID0gZGV2bV9yZWd1bGF0b3JfZ2V0X29wdGlvbmFsKGRldiwgImR2ZnNyYy12Y29yZSIpOw0K
-PiAtCWlmIChJU19FUlIocmVnKSkgew0KPiAtCQlkZXZfaW5mbyhkZXYsICJmYWlsZWQgdG8gZ2V0
-IGR2ZnNyYy12Y29yZTogJWxkIiwNCj4gLQkJCSBQVFJfRVJSKHJlZykpOw0KPiAtCQlnb3RvIGRp
-c2FibGVfY2FwczsNCj4gKwljZmctPnJlZ192Y29yZSA9IGRldm1fcmVndWxhdG9yX2dldF9vcHRp
-b25hbChkZXYsICJkdmZzcmMtDQo+IHZjb3JlIik7DQo+ICsJaWYgKElTX0VSUihjZmctPnJlZ192
-Y29yZSkpIHsNCj4gKwkJZGV2X2VycihkZXYsICJGYWlsZWQgdG8gZ2V0IGR2ZnNyYy12Y29yZTog
-JXBlIiwgY2ZnLQ0KPiA+cmVnX3Zjb3JlKTsNClNpbmNlIHRoaXMgcmVndWxhdG9yIGlzIG9wdGlv
-bmFsLCB3aHkgdXNlIGRldl9lcnIgPyBhbmQgd2h5IHJldHVuZSBhbg0KZXJyb3Igc2luY2UgeW91
-IG5ldmVyIGNoZWNrIHRoZSByZXR1cm4gdmFsdWUgPw0KPiArCQlyZXR1cm4gUFRSX0VSUihjZmct
-PnJlZ192Y29yZSk7DQo+ICAJfQ0KPiAgDQo+IC0JaWYgKG9mX3Byb3BlcnR5X3JlYWRfdTMyKGRl
-di0+b2Zfbm9kZSwgImJvb3N0LWNyeXB0LXZjb3JlLW1pbiIsDQo+IC0JCQkJICZ2b2x0KSkgew0K
-PiAtCQlkZXZfaW5mbyhkZXYsICJmYWlsZWQgdG8gZ2V0IGJvb3N0LWNyeXB0LXZjb3JlLW1pbiIp
-Ow0KPiAtCQlnb3RvIGRpc2FibGVfY2FwczsNCj4gKwlyZXQgPSBvZl9wcm9wZXJ0eV9yZWFkX3Uz
-MihkZXYtPm9mX25vZGUsICJtZWRpYXRlayxib29zdC1jcnlwdC0NCj4gdmNvcmUtbWluIiwNCj4g
-KwkJCQkgICAmY2ZnLT52Y29yZV92b2x0KTsNCj4gKwlpZiAocmV0KSB7DQo+ICsJCWRldl9lcnIo
-ZGV2LCAiRmFpbGVkIHRvIGdldCBtZWRpYXRlayxib29zdC1jcnlwdC12Y29yZS0NCj4gbWluOiAl
-cGVcbiIsDQo+ICsJCQlFUlJfUFRSKHJldCkpOw0KPiArCQlyZXR1cm4gcmV0Ow0KPiAgCX0NCj4g
-IA0KPiAtCWNmZyA9IGhvc3QtPmNyeXB0Ow0KPiAtCWlmICh1ZnNfbXRrX2luaXRfaG9zdF9jbGso
-aGJhLCAiY3J5cHRfbXV4IiwNCj4gLQkJCQkgICZjZmctPmNsa19jcnlwdF9tdXgpKQ0KPiAtCQln
-b3RvIGRpc2FibGVfY2FwczsNCj4gKwljZmctPmNsa19jcnlwdF9tdXggPSBkZXZtX2Nsa19nZXQo
-ZGV2LCAiY3J5cHRfbXV4Iik7DQo+ICsJaWYgKElTX0VSUihjZmctPmNsa19jcnlwdF9tdXgpKSB7
-DQo+ICsJCWRldl9lcnIoZGV2LCAiRmFpbGVkIHRvIGdldCBjbG9jayBjcnlwdF9tdXg6ICVwZVxu
-IiwNCj4gY2ZnLT5jbGtfY3J5cHRfbXV4KTsNCj4gKwkJcmV0dXJuIFBUUl9FUlIoY2ZnLT5jbGtf
-Y3J5cHRfbXV4KTsNCj4gKwl9DQo+ICANCj4gLQlpZiAodWZzX210a19pbml0X2hvc3RfY2xrKGhi
-YSwgImNyeXB0X2xwIiwNCj4gLQkJCQkgICZjZmctPmNsa19jcnlwdF9scCkpDQo+IC0JCWdvdG8g
-ZGlzYWJsZV9jYXBzOw0KPiArCWNmZy0+Y2xrX2NyeXB0X2xwID0gZGV2bV9jbGtfZ2V0KGRldiwg
-ImNyeXB0X2xwIik7DQo+ICsJaWYgKElTX0VSUihjZmctPmNsa19jcnlwdF9scCkpIHsNCj4gKwkJ
-ZGV2X2VycihkZXYsICJGYWlsZWQgdG8gZ2V0IGNsb2NrIGNyeXB0X2xwOiAlcGVcbiIsDQo+IGNm
-Zy0+Y2xrX2NyeXB0X2xwKTsNCj4gKwkJcmV0dXJuIFBUUl9FUlIoY2ZnLT5jbGtfY3J5cHRfbHAp
-Ow0KPiArCX0NCj4gIA0KPiAtCWlmICh1ZnNfbXRrX2luaXRfaG9zdF9jbGsoaGJhLCAiY3J5cHRf
-cGVyZiIsDQo+IC0JCQkJICAmY2ZnLT5jbGtfY3J5cHRfcGVyZikpDQo+IC0JCWdvdG8gZGlzYWJs
-ZV9jYXBzOw0KPiArCWNmZy0+Y2xrX2NyeXB0X3BlcmYgPSBkZXZtX2Nsa19nZXQoZGV2LCAiY3J5
-cHRfcGVyZiIpOw0KPiArCWlmIChJU19FUlIoY2ZnLT5jbGtfY3J5cHRfcGVyZikpIHsNCj4gKwkJ
-ZGV2X2VycihkZXYsICJGYWlsZWQgdG8gZ2V0IGNsb2NrIGNyeXB0X3BlcmY6ICVwZVxuIiwNCj4g
-Y2ZnLT5jbGtfY3J5cHRfcGVyZik7DQo+ICsJCXJldHVybiBQVFJfRVJSKGNmZy0+Y2xrX2NyeXB0
-X3BlcmYpOw0KPiArCX0NCj4gIA0KPiAtCWNmZy0+cmVnX3Zjb3JlID0gcmVnOw0KPiAtCWNmZy0+
-dmNvcmVfdm9sdCA9IHZvbHQ7DQo+ICsJaG9zdC0+Y3J5cHQgPSBjZmc7DQo+ICAJaG9zdC0+Y2Fw
-cyB8PSBVRlNfTVRLX0NBUF9CT09TVF9DUllQVF9FTkdJTkU7DQo+ICANCj4gLWRpc2FibGVfY2Fw
-czoNCj4gLQlyZXR1cm47DQo+ICsJcmV0dXJuIDA7DQo+ICB9DQo+ICANCj4gIHN0YXRpYyB2b2lk
-IHVmc19tdGtfaW5pdF9ob3N0X2NhcHMoc3RydWN0IHVmc19oYmEgKmhiYSkNCj4gDQo=
+> On 28 Oct 2025, at 3:47=E2=80=AFpm, Zhentao Guo =
+<zhentao.guo@amlogic.com> wrote:
+>=20
+> =E5=9C=A8 2025/10/28 18:50, Neil Armstrong =E5=86=99=E9=81=93:
+>> [ EXTERNAL EMAIL ]
+>>=20
+>> Hi,
+>>=20
+>> On 10/27/25 06:42, Zhentao Guo via B4 Relay wrote:
+>>> Introduce initial driver support for Amlogic's new video =
+acceleration
+>>> hardware architecture, designed for video stream decoding.
+>>>=20
+>>> Compared to the current Amlogic video decoder hardware architecture,
+>>> this new implementation eliminates the Esparser hardware component,
+>>> enabling direct vb2 buffer input. The driver is designed to support
+>>> the V4L2 M2M stateless decoder API. The initial phase includes =
+support
+>>> for H.264 decoding on Amlogic S805X2 platform.
+
+S805X2 looks challenging to test (without hardware) and this will =
+prevent
+wider feedback. Can you extend the driver for G12B? - it has good =
+upstream
+support and lots of good boards. This would also demonstrate (in =
+patches)
+how further expansion is handled. The only minor complication is that
+meson-g12-common.dtsi has vdec nodes for the staging driver that need to =
+be
+reworked. This probably leads into a discussion (with Neil mostly) about
+how to drop/clean-up the staging driver. NB: There is also a canvas =
+driver
+long-merged upstream. Can this be reused or adapted instead of adding =
+new
+canvas code?
+
+>>> The driver is capable of:
+>>> - Supporting stateless H.264 decoding up to a resolution =
+1920x1088(on the S805X2 platform).
+>>> - Supporting I/P/B frame handling.
+>>> - Supporting vb2 mmap and dma-buf modes.
+>>> - Supporting frame-based decode mode. (Note that some H.264 =
+bitstreams require
+>>>    DPB reordering to generate reference lists, the stateless decoder =
+driver
+>>>    cannot access reordered reference lists in this mode, requiring =
+the driver
+>>>    to perform reference list reordering itself)
+>>> - Supporting NV12/NV21 output.
+>>> - Supporting Annex B start codes.
+>>=20
+>> Thanks for the initial drop, it's very nice !
+>>=20
+>> First of all, this still requires some work so it would be better if =
+you
+>> used the RFC tag until all issues are sorted out.
+>>=20
+> Thanks for the reminder, I will add the RFC tag from the next patch =
+version.
+>> You didn't tell anything about the firmware, did you build a specific =
+version
+>> of the firmware to handle the stateless and bypass ESPARSER ?
+>> Will this technique work with the released firmwares of GXL/G12/SM1 ?
+> For the firmware, we need to build a specific version for stateless =
+decoder
+> driver. The ESPARSER is fully dropped. As I mentioned, this technique =
+needs
+> specific firmware so it would not work with the released firmware of =
+the older
+> SOCs. We plan to submit the new firmware to the linux-firmware repo. I =
+will
+> share the commit once the upload is completed.
+
+linux-firmware only accepts files for merged drivers so while things are
+still in development you either need to share firmware blobs as an extra
+patch with the series (tagged as DONOTMERGE) or you need to put files in
+a repo and share a link in the cover-letter. You are welcome to abuse =
+the
+LibreELEC org on GitHub if you need somewhere friendly to push files (we
+already host similar things for distro packaging).
+
+>> Will you support the compressed format and 10bit with this ?
+> No, the compressed format and 10bit are not supported.
+
+Understood that AFBC and 10-bit are not part of this initial series, but
+are they planned for a follow-up series? .. or never?
+
+>>> This driver is tested with Gstreamer.
+>>> Example:
+>>> gst-launch-1.0 filesrc =
+location=3D/tmp/video_640x360_mp4_hevc_450kbps_no_b.mp4 !
+>>> parsebin ! v4l2slh264dec ! filesink location=3D/tmp/output.yuv
+>>>=20
+>>> The driver passes v4l2 compliance test, test reports :
+>>> v4l2-compliance 1.30.1, 64 bits, 64-bit time_t
+>>>=20
+>>> Compliance test for aml-vdec-drv device /dev/video0:
+>>>=20
+>>> Driver Info:
+>>>          Driver name      : aml-vdec-drv
+>>>          Card type        : platform:aml-vdec-drv
+>>>          Bus info         : platform:fe320000.video-codec
+>>>          Driver version   : 6.16.0
+>>>          Capabilities     : 0x84204000
+>>>                  Video Memory-to-Memory Multiplanar
+>>>                  Streaming
+>>>                  Extended Pix Format
+>>>                  Device Capabilities
+>>>          Device Caps      : 0x04204000
+>>>                  Video Memory-to-Memory Multiplanar
+>>>                  Streaming
+>>>                  Extended Pix Format
+>>>          Detected Stateless Decoder
+>>> Media Driver Info:
+>>>          Driver name      : aml-vdec-drv
+>>>          Model            : aml-vdec-drv
+>>>          Serial           :
+>>>          Bus info         : platform:fe320000.video-codec
+>>>          Media version    : 6.16.0
+>>>          Hardware revision: 0x00000000 (0)
+>>>          Driver version   : 6.16.0
+>>> Interface Info:
+>>>          ID               : 0x0300000c
+>>>          Type             : V4L Video
+>>> Entity Info:
+>>>          ID               : 0x00000001 (1)
+>>>          Name             : aml_dev_drv-source
+>>>          Function         : V4L2 I/O
+>>>          Pad 0x01000002   : 0: Source
+>>>            Link 0x02000008: to remote pad 0x1000004 of entity =
+'aml_dev_drv-proc' (Video Decoder): Data, Enabled, Immutable
+>>>=20
+>>> Required ioctls:
+>>>          test MC information (see 'Media Driver Info' above): OK
+>>>          test VIDIOC_QUERYCAP: OK
+>>>          test invalid ioctls: OK
+>>>=20
+>>> Allow for multiple opens:
+>>>          test second /dev/video0 open: OK
+>>>          test VIDIOC_QUERYCAP: OK
+>>>          test VIDIOC_G/S_PRIORITY: OK
+>>>          test for unlimited opens: OK
+>>>=20
+>>> Debug ioctls:
+>>>          test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>>>          test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>>=20
+>>> Input ioctls:
+>>>          test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>>          test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>>          test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>>          test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>>          test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>>          test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>>          Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>>=20
+>>> Output ioctls:
+>>>          test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>>          test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>>          test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>>          test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>>          test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>>          Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>>=20
+>>> Input/Output configuration ioctls:
+>>>          test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>>          test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>>          test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>>          test VIDIOC_G/S_EDID: OK (Not Supported)
+>>>=20
+>>> Control ioctls:
+>>>          test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+>>>          test VIDIOC_QUERYCTRL: OK
+>>>          test VIDIOC_G/S_CTRL: OK
+>>>          test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+>>>          test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+>>>          test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>>          Standard Controls: 6 Private Controls: 0
+>>>          Standard Compound Controls: 4 Private Compound Controls: 0
+>>>=20
+>>> Format ioctls:
+>>>          test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>>>          test VIDIOC_G/S_PARM: OK (Not Supported)
+>>>          test VIDIOC_G_FBUF: OK (Not Supported)
+>>>          test VIDIOC_G_FMT: OK
+>>>          test VIDIOC_TRY_FMT: OK
+>>>          test VIDIOC_S_FMT: OK
+>>>          test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>>          test Cropping: OK (Not Supported)
+>>>          test Composing: OK (Not Supported)
+>>>          test Scaling: OK (Not Supported)
+>>>=20
+>>> Codec ioctls:
+>>>          test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>>          test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>>          test VIDIOC_(TRY_)DECODER_CMD: OK
+>>>=20
+>>> Buffer ioctls:
+>>>          test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>>>          test CREATE_BUFS maximum buffers: OK
+>>>          test VIDIOC_REMOVE_BUFS: OK
+>>>          test VIDIOC_EXPBUF: OK
+>>>          test Requests: OK
+>>>          test blocking wait: OK
+>>=20
+>> Please also enable the streaming tests.
+> Yes, we did some streaming tests with Gstreamer, fluster test and bug =
+fix is also in progress.
+>>>=20
+>>> Total for aml-vdec-drv device /dev/video0: 49, Succeeded: 49, =
+Failed: 0, Warnings: 0
+>>>=20
+>>> Some Fluster test cases are still failing. We will publish the final =
+results
+>>> once all these Fluster test failures have been resolved.
+>>=20
+>> As Christian reported, please add the flutter results aswell.
+> Thanks. We have now tested the JVT-AVC_V1.
+> Result:
+> Ran 54/135 tests successfully
+>=20
+> - 52 test vectors failed due to interlaced or mbaff clips: The Amlogic =
+stateless
+>   decoder driver only support bitstreams with frame_mbs_only_flags =3D=3D=
+ 1.
+>   Test Vectors:
+>         cabac_mot_fld0_full
+>         cabac_mot_mbaff0_full
+>         cabac_mot_picaff0_full
+>         CABREF3_Sand_D
+>         CAFI1_SVA_C
+>         CAMA1_Sony_C
+>         CAMA1_TOSHIBA_B
+>         cama1_vtc_c
+>         cama2_vtc_b
+>         CAMA3_Sand_E
+>         cama3_vtc_b
+>         CAMACI3_Sony_C
+>         CAMANL1_TOSHIBA_B
+>         CAMANL2_TOSHIBA_B
+>         CAMANL3_Sand_E
+>         CAMASL3_Sony_B
+>         CAMP_MOT_MBAFF_L30
+>         CAMP_MOT_MBAFF_L31
+>         CANLMA2_Sony_C
+>         CANLMA3_Sony_C
+>         CAPA1_TOSHIBA_B
+>         CAPAMA3_Sand_F
+>         cavlc_mot_fld0_full_B
+>         cavlc_mot_mbaff0_full_B
+>         cavlc_mot_picaff0_full_B
+>         CVCANLMA2_Sony_C
+>         CVFI1_Sony_D
+>         CVFI1_SVA_C
+>         CVFI2_Sony_H
+>         CVFI2_SVA_C
+>         CVMA1_Sony_D
+>         CVMA1_TOSHIBA_B
+>         CVMANL1_TOSHIBA_B
+>         CVMANL2_TOSHIBA_B
+>         CVMAPAQP3_Sony_E
+>         CVMAQP2_Sony_G
+>         CVMAQP3_Sony_D
+>         CVMP_MOT_FLD_L30_B
+>         CVNLFI1_Sony_C
+>         CVNLFI2_Sony_H
+>         CVPA1_TOSHIBA_B
+>         FI1_Sony_E
+>         MR6_BT_B
+>         MR7_BT_B
+>         MR8_BT_B
+>         MR9_BT_B
+>         Sharp_MP_Field_1_B
+>         Sharp_MP_Field_2_B
+>         Sharp_MP_Field_3_B
+>         Sharp_MP_PAFF_1r2
+>         Sharp_MP_PAFF_2r
+>         CVMP_MOT_FRM_L31_B
+> - 3 test vectors failed due to unsupported bitstream.
+>   num_slice_group_minus1 greater than zero is not supported by the
+>   hardware.
+>   Test Vectors:
+>         FM1_BT_B
+>         FM1_FT_E
+>         FM2_SVA_C
+> - 2 test vectors failed because SP_SLICE type is not supported by the
+>   hardware.
+>   Test Vectors:
+>         SP1_BT_A
+>         sp2_bt_b
+>=20
+> We are working with the remain failures, we think that these fail =
+cases
+>=20
+> must be resolved.
+>=20
+> I'll add the fluster result to the cover-letter from the next patch =
+version.
+
+Thanks, it=E2=80=99s good to understand where things are. All good :)
+
+Christian
+
+
+>>=20
+>> Neil
+>>=20
+>>>=20
+>>> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+>>> ---
+>>> Zhentao Guo (3):
+>>>        dt-bindings: vdec: Add binding document of Amlogic decoder =
+accelerator
+>>>        dts: decoder: Support V4L2 stateless decoder dt node for S4
+>>>        decoder: Add V4L2 stateless H.264 decoder driver
+>>>=20
+>>>   .../bindings/media/amlogic,vcodec-dec.yaml         |   96 ++
+>>>   MAINTAINERS                                        |    7 +
+>>>   arch/arm64/boot/dts/amlogic/meson-s4.dtsi          |   24 +
+>>>   drivers/media/platform/amlogic/Kconfig             |    2 +
+>>>   drivers/media/platform/amlogic/Makefile            |    1 +
+>>>   drivers/media/platform/amlogic/vdec/Kconfig        |   15 +
+>>>   drivers/media/platform/amlogic/vdec/Makefile       |    4 +
+>>>   drivers/media/platform/amlogic/vdec/aml_vdec.c     |  759 =
++++++++++
+>>>   drivers/media/platform/amlogic/vdec/aml_vdec.h     |   31 +
+>>>   .../platform/amlogic/vdec/aml_vdec_canvas_utils.c  |  154 ++
+>>>   .../platform/amlogic/vdec/aml_vdec_canvas_utils.h  |   22 +
+>>>   drivers/media/platform/amlogic/vdec/aml_vdec_drv.c |  263 +++
+>>>   drivers/media/platform/amlogic/vdec/aml_vdec_drv.h |  194 +++
+>>>   drivers/media/platform/amlogic/vdec/aml_vdec_hw.c  |  652 +++++++
+>>>   drivers/media/platform/amlogic/vdec/aml_vdec_hw.h  |  182 ++
+>>>   .../platform/amlogic/vdec/aml_vdec_platform.c      |   37 +
+>>>   .../platform/amlogic/vdec/aml_vdec_platform.h      |   62 +
+>>>   drivers/media/platform/amlogic/vdec/h264.c         | 1790 =
+++++++++++++++++++++
+>>>   drivers/media/platform/amlogic/vdec/h264.h         |  300 ++++
+>>>   drivers/media/platform/amlogic/vdec/reg_defines.h  |  175 ++
+>>>   20 files changed, 4770 insertions(+)
+>>> ---
+>>> base-commit: 72fb0170ef1f45addf726319c52a0562b6913707
+>>> change-id: 20251027-b4-s4-vdec-upstream-0603c1a4c84a
+>>>=20
+>>> Best regards,
+>>=20
+> Thank you
+>=20
+> Zhentao
+>=20
+>=20
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+
 
