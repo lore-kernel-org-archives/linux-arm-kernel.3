@@ -4,155 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E62ACCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7E8CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3WTjemw2wPrAimT+oNEuNQM/NiqvdjGN412lBOH4YJ8=; b=Y17Ieq+4L+/si/5K3p1TnzL6O7
-	aydm0XWgLj+Mk1DNCFgM42ZklWPHjvtYJ1BCOQBGaDDjZhX4gX5hj8CbOA9zbTiVomyme6xgHzTHz
-	so+XSo8zMr9nGfRfTwjvzEva4bOAMCpe+bsIlpgsxCuc4B/gQoFQxa1FWt5SKJ3ipeP7i4P4gJvmq
-	VSiBBMRvBPcjb24C31Y0A3Q5ESaFzW9lGKQFoYHKOhuzj/lbUjKssZTuc8o33/l5P1F42pUujFL4l
-	IIo4zpS0cIzgGlB7lOIf476PHIq5XyQe5K9uI3NvJ4MooXy3WP9Py8vZRaAAFCf5evcD6v5Z/tCNI
-	yOuJyRIQ==;
+	bh=GdZgp8rFwisH6sL9hW06vie32Q/MJPgK1VmXTcKs3fA=; b=stL8p1vFsPersRT8sam5GrjiSL
+	+yb/6pTr1E2V6wgQOGuwu67qds9asbti0tM+GcSZKkOSn4pUNlMW7M8WAFoAnNjkjLVVsnNoq3tHA
+	+k9x+BpAg0AY6SlMsPPDyaDErrkO1KtnpkFB5uIaqGvR8ZuRreLl5f0bxP7XUdcRUhSXzOsEzTiNA
+	iCKN4ANdsg1KLPIqybfa1EoXaoUA/PbV/KR2ad2IEaAl34jGWK72R2vLL2ePtwnPLCHEBn/v0bRdF
+	bvJLIbUeRVQcyC+0FBS0SnRWt2Hg1TYZiPI5KhZTuDYWLk0RmpTgpksyy1RVPQyTIMqT2kAuGXtNd
+	4n+05iEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKB4-0000000CDNk-1ZVX;
-	Tue, 04 Nov 2025 16:46:38 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vGKEV-0000000CDdQ-1n1U;
+	Tue, 04 Nov 2025 16:50:11 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKB2-0000000CDND-3rML
+	id 1vGKES-0000000CDcs-43Pt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 16:46:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H2BHdC+1HUU7VLDbbQJSgjwnGFy2ZV6ZMesTjR/HoOewJhjgnyVaRR2ahi3t5WtdYyGqxeMoyU6Xxdau2WueewObhYz2hXkIxBo2xChQ7lRRXL3MG8b1wO11XN5/keJKDZ2sffYxnZMEPYKCklrJxlnJjp3PMs/CUpfHxbfC8BPQGT3oSYe29QjoebEyi2BpLX25ElVS/nj/2dx+WnU+Hf6FM0tn8V30awg3MZZWe8V5M5Ylv5A6uZpt9jQzpbpGDTuN7FBatGxcxmLcwYGFOcJheSWYTcEjnC3mD0dHG+H7ekclI6uKN81egQrApzqLswjAYQl6i8uYngsbzl7pGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3WTjemw2wPrAimT+oNEuNQM/NiqvdjGN412lBOH4YJ8=;
- b=zTni/E+OakEI2G4102CZQxCyrWibKr3xhSCHLKS+J8fFKuOVg3yBe4WbTw5za0WzMD/GalwT5MivpLnDmk10BG1Y8kozHqxBwdJRsOP8p0UyjvlJREz7T6Uy4LSTXLCkxYpWjrMFkB9hXdlWrvtx2My/lBd0a1xLymxNDx2zrC3eQ5nrHJ8zvolj2NFMhlkNvg0chC7VZUELEcylbqXk9LL7L7ZD2K+lj4XMi2bhcKBhzpgLdvxkQXQno1mJ5Cz7JuLnCnFxbTOKHRkniVA46yqhVrWkTfJJ42LQolZIoEgg/Fx1NE+VxlxbbzpFm7gcAm02LM2PDdk8ttBjIhcyVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3WTjemw2wPrAimT+oNEuNQM/NiqvdjGN412lBOH4YJ8=;
- b=HHk6ESrx+R/smctlaSemzzNwNklXPtcMb21NYzpMUMdoEjLvz7UDqui0IrTCVEPrRtTrJOFJ/QPMwCu847hT0KClSrzBDrcPg04BQW4IE4pVO8BtUVA80dtVCC8NMSpCs2078RIzIWhmPhvqTIAv/YmcWuIf8Kybc3tYoJPsgguknryoCRm/e0s8wsAlt+iGjgB9XK42d9gAxpOJAsBHhcUldVgQh8FomZue6fPwtktZf5k/VybTPSlmIf6muRcvr22Q0ukKFf2P5IUJpCJwhaL2JOxAI9cEEEVdNmmF8CHclomTDtAtpqofesDIDfMcvun+D2TtvpD8BY2VILc5mg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AM0PR04MB7188.eurprd04.prod.outlook.com (2603:10a6:208:192::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 4 Nov
- 2025 16:46:32 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
- 16:46:32 +0000
-Date: Tue, 4 Nov 2025 11:46:24 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v4 6/8] reset: imx8mp-audiomix: Extend the driver usage
-Message-ID: <aQot4AQ5DzryY8iW@lizhi-Precision-Tower-5810>
-References: <20251104120301.913-1-laurentiumihalcea111@gmail.com>
- <20251104120301.913-7-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251104120301.913-7-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: PH2PEPF0000385A.namprd17.prod.outlook.com
- (2603:10b6:518:1::7c) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Tue, 04 Nov 2025 16:50:10 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-429bccca1e8so2785771f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 08:50:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762275007; x=1762879807; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GdZgp8rFwisH6sL9hW06vie32Q/MJPgK1VmXTcKs3fA=;
+        b=LiyX62gJVkr6GBJnL0OV2IpeMYRqsgHLW4tVWWFDZF4gbKJ/4CUSRCCP4drVr7dhPR
+         h2QDLD0nT/K1EhXnRXvPDMQPw/mITJNIRu7qPvtuH0Q1FvJFZ5/BvOqusiY0JOLlX51+
+         8zjrlT7lBOBYZWNwDgThBS1AQHi9mWUjRYCEHHcQZk1XAPRQNnMa/00/4sCKQp5dbGgn
+         s/EPGSItVuDJmob+DQ2OefYhPz7cZ5lZIG8BS71OmFBQJ7k0Uz944OF8Q0n8Y0gL9HVy
+         jI+06R7cFtZNBJIGFVzBIOuYvRba8WFbFYWFFFYlJ3/6nhESTmM13DxOyYhNNTTE7Inv
+         SuWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762275007; x=1762879807;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GdZgp8rFwisH6sL9hW06vie32Q/MJPgK1VmXTcKs3fA=;
+        b=jGcjViV6FuRtw9fzVXnKHGgS5a7Jpb8hOZi18h06yoNZ50OVRtYFiJZFEcKMkpgVdR
+         PSfVvXuqG9fCuZvhIpUqEdfd9RvcHypInwK8K5fqGJi9Od4KbZyyl+19dTZ4GCyjv5wZ
+         pKjGZ8QPLkMk+bSH9HWvyr2I/ElxgaqNotI96Mseo4hRJHwGd7dvl9nCHXlTrNTLBFu3
+         OWvWpvWLydpmZAcGOmSMcw1enOLBjk3+zjp0ouMulB/F22Qcfdr9x4C5GC7TVNG02B99
+         J7iuE9d+Vnl4zl40p2060P+m/d/dLHx/16TUxPpFNx0ZUmyszRnGJLq4OIHU16JJYU8a
+         ubgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWVVPO974oUpXvy/xGu2JHPM1J/gG1xQIIfdEASsp4XaooCH5F7QWLMfShaXxfR4/P4T3Zg9U5rP2ottuLzdFsQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDbFwK4TZqi82SENVrs8Hnk+UQp1NOn5WTgPUvS3hWrKXYHtlF
+	nQ5PsyoYpgZHWZfkO4+92AL0794Kcw5LAm1HlscjqKohjYhFKp8yYJji
+X-Gm-Gg: ASbGnct6jSMafypoZDYG3o28TAF6Gwki6nGlCiDTB3PdwdufvBK/Ugg0rHib6R9+QZ+
+	5vTwXT96QybiIpFVfv9or/ljXjDY5caxiQ0vRFZF8Ci3c9t2HHGZybGfdbkxMTMvrcoao7PUkyb
+	RWZcqPc0N8iDwwt/n81lYYb8qkL5nvLRXRvu7RlvCoLANe2gAiVsjxZtVary33axdX8lOb9V+Gn
+	PyHBxmPaxok+wStP8xVpgDKqtX541jirOYRJNidFum/hJu2vvchJ2eVYDDXvEeL9dwtZfIZ8C2a
+	vW5iCg/rs8FcI0Q0cnyy/tqnHumMWxtZ13YEeLtug9MmqP5bLNrAhND7f8n4gphiVQglIMTht9s
+	tZJ70Zv7hRbkya/qgzn33+drQCG9oGeWpTxzcZaD+n7qLQPpcaK/gqL1BMhZKtUDhaevn4vmX70
+	82/p+dSao4DyGDEpdqO9CNA6YrDRK8MupXFdPNUW8rXpb9kSDqDJV4qZaPKTAmfrRPLEg=
+X-Google-Smtp-Source: AGHT+IHsOmcFgrKN0VFuIMGhIpJEUqqSZDIXndB9GVdXwqoNi1GsBka2e33KfnMwqvPBDWre8Hxpqw==
+X-Received: by 2002:a05:6000:186b:b0:429:ce81:fe2b with SMTP id ffacd0b85a97d-429ce82013amr7678935f8f.23.1762275006529;
+        Tue, 04 Nov 2025 08:50:06 -0800 (PST)
+Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc1f5be4sm5345170f8f.31.2025.11.04.08.50.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Nov 2025 08:50:06 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: wens@kernel.org
+Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com,
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 26/30] drm/sun4i: mixer: Add quirk for number of VI scalers
+Date: Tue, 04 Nov 2025 17:50:04 +0100
+Message-ID: <5959058.DvuYhMxLoT@jernej-laptop>
+In-Reply-To: <CAGb2v65RecyHZVUN--oSmtzPDpmUHALd3Pqf79a1fKP9yxD8cA@mail.gmail.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
+ <20251012192330.6903-27-jernej.skrabec@gmail.com>
+ <CAGb2v65RecyHZVUN--oSmtzPDpmUHALd3Pqf79a1fKP9yxD8cA@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM0PR04MB7188:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c74fc0f-737b-428e-2d09-08de1bc1b556
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?w045mCYHr6CAuznsCjXhLu2lLVEyXiQrqFJmrXXSodzbV1mVk3kaJQlgq+VQ?=
- =?us-ascii?Q?+yBqmRtEd3SL3PNBTJaKyIVw4sTji/JbAl2Qcaz0gEQ6ezKAkwqhBnGxeqeI?=
- =?us-ascii?Q?EZ3Sv2TXObR/u1zP3h28jGB9qzsCSa7ZHdNKFzs5BllHm3dWvSYzu0aOVOTf?=
- =?us-ascii?Q?+LDcaZR+9p0wEYUvwbMIws+OQu3XHANuXlPqw1OihRFWrqM5hGBlSpQ2Vq6h?=
- =?us-ascii?Q?j3PO0qSiTo4OhQGOpAFw6QJjJlS5JZEe64QKIGG8MIEQt8SorARMOQuq0fJ+?=
- =?us-ascii?Q?g0nKAbMDDMRZRebI1B+m8c3DG5wFeoyOX7UhkI/yS0oVg2ZfGSm6d8YKVgLU?=
- =?us-ascii?Q?SBhaRUfXfCcIGGJ7dnVU01JbjrwVTA/j7rP+TZ5VoLPDtpU7kG7hYLKzFrJN?=
- =?us-ascii?Q?FRDgnvqkw+wzAbHGzh4YppuSLYYfcnSzfwZlIlviTFvmDvg58fNzc54HVf7W?=
- =?us-ascii?Q?Yg+Yza4xe+WeD2eutvNJvI8ZBzBGhT6RLZzR/cxckHW5+67iMNVTZPvnuk5v?=
- =?us-ascii?Q?TsR0JXFmcGZ9252+/RUPUKbVi7yd/ui+D0xm/yJ+oxXKmFCd6U6KmoIhjdBL?=
- =?us-ascii?Q?TVUi69S1bMup8UeAUH/SBOfodjPPwRvzwVvLcI7zHqVJ98nts7d3q8E5EiR1?=
- =?us-ascii?Q?yBpAXkkD+QeyH/DsdlHeNEjjvrTihTTNa8owscjKU+3AQBV3OjWWWa3Sjn6k?=
- =?us-ascii?Q?8atv9KxddiEodfJgWrUq19N2BQk9rcW1vdWFY5qWHX4eYkSbkMBCGKbkxgIe?=
- =?us-ascii?Q?po/dvfuJkYnSiVtzb9RvWgABe7OdccOeNaRla5JRokuWwOuQrxgwr0jeNky/?=
- =?us-ascii?Q?8OblC/5uNmFWEV3fS2gMA7zmBta5I7eCclgs6gANc1WpMLn5t/cVd2MoEgYn?=
- =?us-ascii?Q?h+nAnNXMYDRfDsxBv3ZTt/FKAbQum98ciS9oRpt19aczj/vgRoM9ysPTMUqo?=
- =?us-ascii?Q?s9bNSzpRfn+dDi4A+sQPDz12NCxUXBzkSIm+K/3/7W1+4rglgMLuE7ifTRIb?=
- =?us-ascii?Q?mh+9MU71zX3byWZEPbAlJ836+5eyYz2ILICh8dowYbgzHKHfUnEdsQeGF8Hr?=
- =?us-ascii?Q?mr2H1XWrhincLfO2V3AkVGy4jwexGDLRac7lHlvuFkAvcgRWKxpU/Dr7eRRS?=
- =?us-ascii?Q?vAZkn3VIlLcyZCP8GPpuB9uIQZutRRH3CETGiRY4DR/zvYwSFm05bC4D8Q0a?=
- =?us-ascii?Q?d1Amm8rK7ZqXxXcpxAGpnvsf0Uy0GbgSsOqfs5dATbddyvXGuDtfRFV1es+R?=
- =?us-ascii?Q?WcaK0mu8xEeY5es62Lsch3ZAzInILKj1cWBJMJgesQD9+ezJUuQd23b2kaew?=
- =?us-ascii?Q?rkUE7XatU+YpP0yh4ujRDsii8YbHge+l3DVkdr1M4EHXlBNBxnBeqvf/Jeai?=
- =?us-ascii?Q?NcTR40HTnL0m80LsM1AGqFXcb77KilpzI02f3TY1cWZOM9iEOnonhuW2lwoa?=
- =?us-ascii?Q?d+yMfzKI1Hm5ZlzXX5a4pr27YDI/RJ/2OYVTsX4LdbHS9LJQqXSzoFgIS+hS?=
- =?us-ascii?Q?3AcgosZvRj+PggLCc+UX64vnXqsE0vc487DW?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oci7oE/gl+b8gHeALQ8OZTS5doz4EdaIhbjMAPXgKo2za/X2AAXeFe4UZpMM?=
- =?us-ascii?Q?bWkY+QGEHi2mT2UwuPZ9smO+A4joqHECqJauqgsrBo8x1B6fUi0tRyW9tUmT?=
- =?us-ascii?Q?7MTX22z5ODtHi7IqVs5L4zfidPzfgpuoHf9BOvYs2EcNwAxxhhOfERA+hc+V?=
- =?us-ascii?Q?kt0z9MRBLBgnWPu3NB58GFIpVCOWGYCH/qADnzwfcpo7ur6lOdLxCuTJ+Ilc?=
- =?us-ascii?Q?rrbDbhN1rWgReaHmsfZYpEXc/p6MPmHVnNi71V+uMQSZzJH6GI2guaJWf1x9?=
- =?us-ascii?Q?98yRt6gxR4hw4bdTxme4P2eYabgfEqFMH54l3YHnPqZR7ekDXypCmBPqs2gV?=
- =?us-ascii?Q?MDTo+yyjuBa/Zty4S2tCpRuhkxgSYP/ruWuV62VTI2kqFtMyCnVb9xHCRCVx?=
- =?us-ascii?Q?dvbvwQeLK7GUhhRbtxhbsJcx+aEDyWfRd8Noah+lnWhvwQG485qoUdVYNfnm?=
- =?us-ascii?Q?QmflBhCELqgxaTbfUqo6uWRrgoY6B8nmgBZfOtfvER9g+tJ70sod7sQSKfbZ?=
- =?us-ascii?Q?rEX6f665eLf6M23HvnkN+RJ61plIoaS8Z1adEBAH2iPlFd/cwZP694PsPSXk?=
- =?us-ascii?Q?ZC5ko1/rJ7lG7peAiTV20IMKQuoCrtoLiLyRuyQCBreM5xyiQvTyNV+LYGfC?=
- =?us-ascii?Q?5SDKU6rAToIk/vYeQi0auRqnRMbRMr2BvGvYwP67Or/Pg6ltQjFwqu5Z2ADN?=
- =?us-ascii?Q?+pkb7jT0fmzt0z0rPSEq7RwDxL0I+qD2/h6uq0kaNMZiLFpPQYYrNmVtsOi9?=
- =?us-ascii?Q?VmC4cJaRFFzHpnrQIludRBqcHrN24jFif3dWW0OJHK/UN48I0x+v77Tcg3gk?=
- =?us-ascii?Q?iED+eG5JIkqh0e2oxWE4AVAXO3A//A05gcB4JMR20Npf/Yetxuj3vDsF/3ul?=
- =?us-ascii?Q?fvbMAHuwocvRCZH2zeikbPbKWhoZ0ywot/+3fxlK1MfkkVsc/3cDwLrulnbF?=
- =?us-ascii?Q?4XmDsFGrCtSP/0qLuyLgJDpvlv3lOTDczxbBXDbRfjmK6PuVD5CO8St0hdDT?=
- =?us-ascii?Q?3oJ84MqZaBKcK0m2enA0yX+mNUlqZ+HCWMfBdlHwdawkc1/0SJS7HerwXO0D?=
- =?us-ascii?Q?nzt2GJNm46RITbgH+eSKmbdWuqQFGRUJC4CPuars+yu/Za4dcyTlX12Bel4K?=
- =?us-ascii?Q?wa0S5/xFuEHayImkHKT5M0WKsZXCFfarX4C0Vt0GYy1BaAqEr0pb2gzM4uMw?=
- =?us-ascii?Q?gllAOScTQpRs3/jV2yZrJRCeq1XZzadplgqGYWzSgV17yQF60DFrvB3tsvym?=
- =?us-ascii?Q?whluAvmsgBGvfKxl1jQRU/om+EhljLVNBYKaDeFYDOlwPDZXGK+J5Cgd+/lw?=
- =?us-ascii?Q?XM3Heqt7jwz7szOc64vNYdo+Ade+AevxxHZ3stIchJiPcBEn35ZA815oHXWC?=
- =?us-ascii?Q?+GzELSZktmUkS2Rdgs586NkYdJGLMy+1Im+QXTUUlFWiV8UVMPKAFWnHz0mt?=
- =?us-ascii?Q?iJKPmUZEP476m7Q8VH8Cmf55Fdq2mbEdCN3bvrj4QdfGvg9Y+1IkzICsZRoO?=
- =?us-ascii?Q?vq5p1YlQhQqy1wM08rX0LuLmW2WwOK1GlHscKMBSuzUHfEi8AEKdQn+PhaVV?=
- =?us-ascii?Q?IPOLRNvG4c3LQ6Hx2E4=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c74fc0f-737b-428e-2d09-08de1bc1b556
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 16:46:31.9617
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /socSe5aaK+dDk87TCJYVqpwkzUESP9MdiwVkHw8YE9NPGWhm8MZSoEK+pDj6qLr9ZnmtYM0VUv5jZFjrpD+9g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7188
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_084636_959490_06B278F3 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20251104_085009_067705_80E16FA9 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,82 +103,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 04:02:59AM -0800, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> Switch to per-device reset map to allow reusing the driver for other NXP
-> block control IPs.
->
-> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Hi Chen-Yu,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Dne ponedeljek, 3. november 2025 ob 18:11:07 Srednjeevropski standardni =C4=
+=8Das je Chen-Yu Tsai napisal(a):
+> On Mon, Oct 13, 2025 at 3:24=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gm=
+ail.com> wrote:
+> >
+> > On DE2 and DE3, UI scalers are located right after VI scalers. So in
+> > order to calculate proper UI scaler base address, number of VI scalers
+> > must be known. In practice, it is same as number of VI channels, but it
+> > doesn't need to be.
+> >
+> > Let's make a quirk for this number. Code for configuring channels and
+> > associated functions won't have access to vi_num quirk anymore after
+> > rework for independent planes.
+> >
+> > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> > ---
+> >  drivers/gpu/drm/sun4i/sun8i_mixer.c     | 11 +++++++++++
+> >  drivers/gpu/drm/sun4i/sun8i_mixer.h     |  2 ++
+> >  drivers/gpu/drm/sun4i/sun8i_ui_scaler.c | 10 +++++-----
+> >  3 files changed, 18 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4=
+i/sun8i_mixer.c
+> > index 78bbfbe62833..f9131396f22f 100644
+> > --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> > +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> > @@ -708,6 +708,7 @@ static const struct sun8i_mixer_cfg sun8i_a83t_mixe=
+r0_cfg =3D {
+> >         .scaler_mask    =3D 0xf,
+> >         .scanline_yuv   =3D 2048,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 3,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -718,6 +719,7 @@ static const struct sun8i_mixer_cfg sun8i_a83t_mixe=
+r1_cfg =3D {
+> >         .scaler_mask    =3D 0x3,
+> >         .scanline_yuv   =3D 2048,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 1,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -729,6 +731,7 @@ static const struct sun8i_mixer_cfg sun8i_h3_mixer0=
+_cfg =3D {
+> >         .scaler_mask    =3D 0xf,
+> >         .scanline_yuv   =3D 2048,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 3,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -740,6 +743,7 @@ static const struct sun8i_mixer_cfg sun8i_r40_mixer=
+0_cfg =3D {
+> >         .scaler_mask    =3D 0xf,
+> >         .scanline_yuv   =3D 2048,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 3,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -751,6 +755,7 @@ static const struct sun8i_mixer_cfg sun8i_r40_mixer=
+1_cfg =3D {
+> >         .scaler_mask    =3D 0x3,
+> >         .scanline_yuv   =3D 2048,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 1,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -761,6 +766,7 @@ static const struct sun8i_mixer_cfg sun8i_v3s_mixer=
+_cfg =3D {
+> >         .ui_num =3D 1,
+> >         .scaler_mask =3D 0x3,
+> >         .scanline_yuv =3D 2048,
+> > +       .vi_scaler_num  =3D 2,
+> >         .ccsc =3D CCSC_MIXER0_LAYOUT,
+> >         .mod_rate =3D 150000000,
+> >  };
+> > @@ -772,6 +778,7 @@ static const struct sun8i_mixer_cfg sun20i_d1_mixer=
+0_cfg =3D {
+> >         .scaler_mask    =3D 0x3,
+> >         .scanline_yuv   =3D 2048,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 1,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -783,6 +790,7 @@ static const struct sun8i_mixer_cfg sun20i_d1_mixer=
+1_cfg =3D {
+> >         .scaler_mask    =3D 0x1,
+> >         .scanline_yuv   =3D 1024,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 0,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -794,6 +802,7 @@ static const struct sun8i_mixer_cfg sun50i_a64_mixe=
+r0_cfg =3D {
+> >         .scaler_mask    =3D 0xf,
+> >         .scanline_yuv   =3D 4096,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 3,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -805,6 +814,7 @@ static const struct sun8i_mixer_cfg sun50i_a64_mixe=
+r1_cfg =3D {
+> >         .scaler_mask    =3D 0x3,
+> >         .scanline_yuv   =3D 2048,
+> >         .de2_fcc_alpha  =3D 1,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 1,
+> >         .vi_num         =3D 1,
+> >  };
+> > @@ -814,6 +824,7 @@ static const struct sun8i_mixer_cfg sun50i_h6_mixer=
+0_cfg =3D {
+> >         .mod_rate       =3D 600000000,
+> >         .scaler_mask    =3D 0xf,
+> >         .scanline_yuv   =3D 4096,
+> > +       .vi_scaler_num  =3D 1,
+> >         .ui_num         =3D 3,
+> >         .vi_num         =3D 1,
+> >  };
+> > diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.h b/drivers/gpu/drm/sun4=
+i/sun8i_mixer.h
+> > index def07afd37e1..40b800022237 100644
+> > --- a/drivers/gpu/drm/sun4i/sun8i_mixer.h
+> > +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.h
+> > @@ -178,6 +178,7 @@ enum sun8i_mixer_type {
+> >   * @scaline_yuv: size of a scanline for VI scaler for YUV formats.
+> >   * @de2_fcc_alpha: use FCC for missing DE2 VI alpha capability
+> >   *     Most DE2 cores has FCC. If number of VI planes is one, enable t=
+his.
+> > + * @vi_scaler_num: Number of VI scalers. Used on DE2 and DE3.
+> >   * @map: channel map for DE variants processing YUV separately (DE33)
+> >   */
+> >  struct sun8i_mixer_cfg {
+> > @@ -189,6 +190,7 @@ struct sun8i_mixer_cfg {
+> >         unsigned int    de_type;
+> >         unsigned int    scanline_yuv;
+> >         unsigned int    de2_fcc_alpha : 1;
+> > +       unsigned int    vi_scaler_num;
+>=20
+> This could be a smaller type. Please do a sweep of the struct after the
+> refactoring is done and see if any of the types could be shrunk.
 
-> ---
->  drivers/reset/reset-imx8mp-audiomix.c | 18 ++++++++++++++++--
->  1 file changed, 16 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
-> index 18a7f68aa59f..745b7e22b954 100644
-> --- a/drivers/reset/reset-imx8mp-audiomix.c
-> +++ b/drivers/reset/reset-imx8mp-audiomix.c
-> @@ -23,7 +23,12 @@ struct imx8mp_reset_map {
->  	bool active_low;
->  };
->
-> -static const struct imx8mp_reset_map reset_map[] = {
-> +struct imx8mp_reset_info {
-> +	const struct imx8mp_reset_map *map;
-> +	int num_lines;
-> +};
-> +
-> +static const struct imx8mp_reset_map imx8mp_reset_map[] = {
->  	[IMX8MP_AUDIOMIX_EARC_RESET] = {
->  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
->  		.mask = BIT(0),
-> @@ -41,9 +46,15 @@ static const struct imx8mp_reset_map reset_map[] = {
->  	},
->  };
->
-> +static const struct imx8mp_reset_info imx8mp_reset_info = {
-> +	.map = imx8mp_reset_map,
-> +	.num_lines = ARRAY_SIZE(imx8mp_reset_map),
-> +};
-> +
->  struct imx8mp_audiomix_reset {
->  	struct reset_controller_dev rcdev;
->  	struct regmap *regmap;
-> +	const struct imx8mp_reset_info *rinfo;
->  };
->
->  static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_controller_dev *rcdev)
-> @@ -55,6 +66,7 @@ static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
->  				  unsigned long id, bool assert)
->  {
->  	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
-> +	const struct imx8mp_reset_map *reset_map = priv->rinfo->map;
->  	unsigned int mask, offset, active_low, shift, val;
->
->  	mask = reset_map[id].mask;
-> @@ -141,7 +153,8 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->  		return -ENOMEM;
->
->  	priv->rcdev.owner     = THIS_MODULE;
-> -	priv->rcdev.nr_resets = ARRAY_SIZE(reset_map);
-> +	priv->rinfo           = (void *)id->driver_data;
-> +	priv->rcdev.nr_resets = priv->rinfo->num_lines;
->  	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
->  	priv->rcdev.of_node   = dev->parent->of_node;
->  	priv->rcdev.dev	      = dev;
-> @@ -164,6 +177,7 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->  static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
->  	{
->  		.name = "clk_imx8mp_audiomix.reset",
-> +		.driver_data = (kernel_ulong_t)&imx8mp_reset_info,
->  	},
->  	{ }
->  };
-> --
-> 2.43.0
->
+A lot of things can be stored in smaller type. However, making things small=
+er
+may be contraproductive. Structs are usually aligned for performance reason=
+s,
+so it won't save any memory and accessing them will use extra asm instructi=
+ons
+for zeroing out parts of CPU registers since registers are larger than used
+data type.
+
+>=20
+> And just a nitpick, but I would probably insert it above scaler_mask.
+>=20
+
+Will do.
+
+>=20
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+>=20
+
+Thanks.
+
+Best regards,
+Jernej
+
+
 
