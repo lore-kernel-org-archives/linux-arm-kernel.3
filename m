@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F3BCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAECCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wgBmqAU1oJxWzsvWxCn24FF0Yyp5TPl7Ahy+xGEgrk=; b=L/J257vSSxnIgZ5rFS8KmF31WQ
-	kw0caiNtdCC/WaCrlk0WhFEa7D5vXDuJbBVyMTVjmeJ1POMeqYslLSbGW6/cHBQUmfDxgfCCpFBqe
-	0S17wGpylHTII6kPlrfZ5gUPZAJVcdnFCpXl9/turC9AI8NmjzBOPOofH0m4GZAWc0vKAdt9KfmRP
-	R30z0pL6sliYKNA5YKelrRNYhbmUqKO7VRzpVwKHOoTABgxsELhb+nxat1N/YkhXQV+5XAg/i0hOA
-	V4r06MBmiQGPy5QN7/oje73IbWPAKQCQwwUHOsrfA6ZcA5DUblI6l8Jr0TA49UAUGZsTMPMNmLo7N
-	8d7okFsg==;
+	bh=/1hWH3+AR/bg3QpRh8gvwyFU649vBca22dStUU7iirU=; b=QbjOp1mloawnKOO4cgRX/DLR4P
+	g0Ai2lzII+CKjR2lVDxQQk1r7Ibte48cdNFrbu3oMabZrDqt0lNWsIuWd1s3C9dUVuIbawwRXb0wx
+	pWkHiPEECd0WWeA7MPPk8KGM7GOP1GCjT748TpfMfjnwD+HlEOyEIOefM/E2kshsnt7wf4BqADl3d
+	2PnxgDqQ2eitI/za0AGgq0sybST3b8yEiRcA9C09t2oqOrpkQY47+XeJ36zRVawN27tbn90ADslnJ
+	D+3MSnU84cKYAsCYJvbsCDxjjQQTOk0qSlMTUdNlgTHR8y/cmw401MMiJpV17wbDpSZILV5aOS6kH
+	NjVMfEew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCJ3-0000000BPat-030X;
-	Tue, 04 Nov 2025 08:22:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGCJL-0000000BPeY-1PPy;
+	Tue, 04 Nov 2025 08:22:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCJ0-0000000BPaN-1WSy
+	id 1vGCJJ-0000000BPe6-2mB6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 08:22:19 +0000
+	Tue, 04 Nov 2025 08:22:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B14BA41885
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Nov 2025 08:22:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91796C116B1
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Nov 2025 08:22:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C8FE1601F3;
+	Tue,  4 Nov 2025 08:22:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D539C4CEF7;
+	Tue,  4 Nov 2025 08:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762244537;
-	bh=f0ExexZSvSjh6pxIi8QuIB/M9WbshjMNb7Xh3MO5KaE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VLaWHizn94jal3QBfxMd/BJoRoSh9RpAuA13xpAWd3Yyv8gcZPalSX2SOTZdWFJ92
-	 EssLR0SB98U9DGgcVOjPNWggSOs6dh1F1k069nnQm/rpQadytABN+aN1mVitTmd99k
-	 d9O0lUwrDURTzQw8pD4Xi40srqs1reQkrYy6tjMP0OPowAPg1kujrKiL9y69XBuDtV
-	 1GGZCDCvLSRmckzRiXEEM7BRvkdFHpkbggnJnx8J0cKJyJcDbSXRzmLmoRsEqKELJW
-	 c1YaHqlPP3H7W4uTwj5OwmKVxnNIsyl5TQdKCrRx+gVcFthwaYH4OV7/L+foS0uKZI
-	 3D3uUn0r0ytOA==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3652d7800a8so39682011fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 00:22:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUnhpvXN3UmfmNTBBBOAk0jus9mYFaPpaNYFZ8YePFhJwnkQiicNcKTPkFV0sDs4aO06K2Dp2REx/vZTStjzIpx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw9eVC8gxF/g5HMhahgEN3KD18qLXD+MrTN5b+piwM2JqV81z8
-	BAFce1pUc06P8XTm7lSsY2hmCJ7oDv0alz8agVSpyIMDhwdFbG9eSfmtzg2XC54xVpLN0ZcZF8K
-	unVmaN0NQLICFDLPu2dVuCQfi3ro0ygA=
-X-Google-Smtp-Source: AGHT+IGg0J5ZRtiOoWdnps03k5E7YutbmyfCk230k7Pme1eseXmkIDg55LnE6Nfi0UlvvPP2AWGfgfJVJAdLVgfvcGk=
-X-Received: by 2002:a2e:80d7:0:b0:36d:6ae3:8158 with SMTP id
- 38308e7fff4ca-37a18dca6fcmr39923761fa.25.1762244535963; Tue, 04 Nov 2025
- 00:22:15 -0800 (PST)
+	s=k20201202; t=1762244556;
+	bh=ReIHYoZ0hfuPqjEQELfx5zZWt5YlSXlsiSnCN8jUknA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZPbwNonw93eAJJvAlPi5vo8zgVf76U06SpHwN8KcdItl2PD2A2gaGXwc6ZjgWx4uS
+	 wb801lM9uqwgMc0JomOoA+VmFd+G2mvXpEZ7ddbT+wQyqcrhMHOEgeV27krAw5KbxX
+	 2KU2rKAJO6ZuWiiPrrm3YwlXeVMwGrBbz+YyXho3rjEu3tuVIIx0UkuFxytgLmMNz2
+	 kyB0Gott5qFfuh3RI6jNeECSOkrtWGvlhrjJPzyTzGSjBJPfqEWZi8NYgsp60vA8P9
+	 U6ERelUNMVbVP8VMRNGL/KQAVcDzR6CzGYZf6c80bCUP5jdkTwl8Sozrpz1aOogxMg
+	 OjSVmzxjry5xw==
+Date: Tue, 4 Nov 2025 09:22:34 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Peter Shen <sjg168@gmail.com>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Joel Stanley <joel@jms.id.au>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	peter.shen@amd.com
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: aspeed: Add compatible for
+ Facebook Anacapa BMC
+Message-ID: <20251104-mellow-denim-dogfish-4affdb@kuoka>
+References: <20251103093320.1392256-1-peter.shen@amd.com>
+ <20251103093320.1392256-2-peter.shen@amd.com>
 MIME-Version: 1.0
-References: <20251104054906.716914-1-ebiggers@kernel.org>
-In-Reply-To: <20251104054906.716914-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 4 Nov 2025 09:22:04 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEu2G+XBKqK6KPGCaNWr9hLZ4xJHwG2+_BZ6DYdO8JKpw@mail.gmail.com>
-X-Gm-Features: AWmQ_bnbmOEiAvvcVM5m53o8_1hNWBUrXac4nkeIBPil7jYX7BfUJq098pZKe0I
-Message-ID: <CAMj1kXEu2G+XBKqK6KPGCaNWr9hLZ4xJHwG2+_BZ6DYdO8JKpw@mail.gmail.com>
-Subject: Re: [PATCH] lib/crypto: arm/curve25519: Disable on CPU_BIG_ENDIAN
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_002218_438261_1C7DE291 
-X-CRM114-Status: GOOD (  22.57  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251103093320.1392256-2-peter.shen@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +73,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Nov 2025 at 06:51, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On big endian arm kernels, the arm optimized Curve25519 code produces
-> incorrect outputs and fails the Curve25519 test.  This has been true
-> ever since this code was added.
->
-> It seems that hardly anyone (or even no one?) actually uses big endian
-> arm kernels.  But as long as they're ostensibly supported, we should
-> disable this code on them so that it's not accidentally used.
->
-> Note: for future-proofing, use !CPU_BIG_ENDIAN instead of
-> CPU_LITTLE_ENDIAN.  Both of these are arch-specific options that could
-> get removed in the future if big endian support gets dropped.
->
-> Fixes: d8f1308a025f ("crypto: arm/curve25519 - wire up NEON implementation")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
-> ---
->
-> This patch is targeting libcrypto-fixes
->
->  lib/crypto/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
+On Mon, Nov 03, 2025 at 05:33:19PM +0800, Peter Shen wrote:
+> This patch adds the compatible string for the Facebook Anacapa BMC
+> which uses an Aspeed AST2600 SoC. This is required before adding
+> the board's device tree source file.
+> 
+> Signed-off-by: Peter Shen <peter.shen@amd.com>
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Still broken email/DCO chain. Run checkpatch BEFORE you send, not after.
 
-> diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-> index 8886055e938f..16859c6226dd 100644
-> --- a/lib/crypto/Kconfig
-> +++ b/lib/crypto/Kconfig
-> @@ -62,11 +62,11 @@ config CRYPTO_LIB_CURVE25519
->           of the functions from <crypto/curve25519.h>.
->
->  config CRYPTO_LIB_CURVE25519_ARCH
->         bool
->         depends on CRYPTO_LIB_CURVE25519 && !UML && !KMSAN
-> -       default y if ARM && KERNEL_MODE_NEON
-> +       default y if ARM && KERNEL_MODE_NEON && !CPU_BIG_ENDIAN
->         default y if PPC64 && CPU_LITTLE_ENDIAN
->         default y if X86_64
->
->  config CRYPTO_LIB_CURVE25519_GENERIC
->         bool
->
-> base-commit: 1af424b15401d2be789c4dc2279889514e7c5c94
-> --
-> 2.51.2
->
+Best regards,
+Krzysztof
+
 
