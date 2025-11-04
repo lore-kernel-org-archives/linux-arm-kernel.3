@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53EEFCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1269CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnPwf3juJ8fC0SZ2sUvqbu68T4Ced1Efaz1FET2leSQ=; b=Nr0PzPx4yi9azQIjAiIonb6UJB
-	u9nNnaMGgQaXwoaAGAb/fL+KoF803IORjlwd0CLFFw+q2WQnz5xcxRDGkwcsfUDxqA7ceUYb0ifq7
-	McX2nnVZrv9UtTE1TXPKKOCu2qkwZdJ2LQiIsYShKS/CvJ4k4z4D32oBYb874iU0Btv/l2lms76rp
-	RlIx1ryoWcaYzwLC5aollPkaLBTTvhdLQDu3xevOqGRRVBz/Ne4RI+kWmB9V4qbPSrppjchZYTWQL
-	Pr9iIEimoRtQxEb1bxjyLKkx8hJfDBIx8IkYgod47UWEOP+ATdjCkCvmPi1RVQIwP4jWtF9vAc6Yo
-	ws972A5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GLU9jGk04ALbdYvIzbBaNS4eLjYOPWtqgp+eQ++uHwI=; b=WKiUOyajv1waJpl0j8N4UAjX1Z
+	XHdgpuDS5BkKASTNkUHhjq3osSS2F7W5KQf/DANFhbCM7cxlBWvFUf5iYwsPbYRulKMUlp7ai9QGP
+	8dv/JDtS2aHThiQ9nULIL+7r1CHH084FslsO40jvDfsbOQXQAae2MFRGxUo3/6YD7zz2vu+LnILFW
+	U4u4dbK/37D+juaAWfUdBmU3z/3yiw5O6g9rrkRPaxOBo5SSNGUo6zNTZNjwEXn5of9CoIHIgDiug
+	zZwHmAqjk3MjJdJXxP2wvZ7+lnij71WbUEJSO0ZtW2JW1YnJg5jlKQZu1mGwhdSc/cVGyJZ/drOgc
+	zoYCJMfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLS3-0000000CKt2-1UsB;
-	Tue, 04 Nov 2025 18:08:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGLSF-0000000CKw8-217C;
+	Tue, 04 Nov 2025 18:08:27 +0000
+Received: from mta1.formilux.org ([51.159.59.229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLS0-0000000CKsU-3Ceq
+	id 1vGLSB-0000000CKuj-2m0n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 18:08:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9EE044822
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Nov 2025 18:08:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ED0EC2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Nov 2025 18:08:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762279688;
-	bh=H+B0qEVhv/M/Hrjk3KWB9ja4t4CC1iXUb3hu7bcvErk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KJrL8B9VsSLFRaN5Nv1r2sEA54BPIO+ykvVUGuuC08YenM2w7o8J20Ceh7r/NCmzj
-	 s+/VQhStBW6h0154jcj66OvTOKzoTYmHA4KoQHqhpkqymuqUgSzhPOFK428T7rF5rZ
-	 CM6CIC9CIRUaqwmp3Lf//Y4xAZARt4PPzAXnFBh1okMmZcTGMpRiR8hkrEdk8xS4VD
-	 i0UT0nODeY+9zE3P1Di1G8dOh73jcDZFxvRwDSydikmuYS/0GmWGDUJarf2amWYZWy
-	 3VqVc0kiCG6KaSsXelDoTIeuK9tK5oc0hNTIEeDA6CWKO75wyt5WOIX1UdYmfrRCj1
-	 gSWTA4WPA4vVw==
-Received: by mail-oi1-f174.google.com with SMTP id 5614622812f47-44fe51f9788so262048b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 10:08:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXTKiQLqj2AsYIB6IBl+0j3j8/ISz3xEjt1VJyyLmRS5lH6i3Du+9lSVyTYYKJQEnJd8xNyKQSxFMLxW4Z8/oCY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIHCZueoVRgQKm36HX8j3jq4/Vs0uJWf+YKd7YPtI5HUYci2/Y
-	+haXRp0TrJCVgzsT8KVmEe/3Ih0pxHhP4mVbFP9W6fXyfKHK+3IX7GVaJM4M9ptvY562xGdxuac
-	PsVpy/+4NA0kxRn1xHI6vXSGDgtkR8aM=
-X-Google-Smtp-Source: AGHT+IHrSDGsNm50EjcF44D9MNFIEETayiGYgQQjLT67U0YPEVK8ag1wTkiiHIa/UUFfTk6ozb0F0TfYt8pNd0QYGzw=
-X-Received: by 2002:a05:6808:c146:b0:44d:ba5b:ad34 with SMTP id
- 5614622812f47-44fed503d77mr152270b6e.65.1762279687546; Tue, 04 Nov 2025
- 10:08:07 -0800 (PST)
+	Tue, 04 Nov 2025 18:08:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
+	t=1762279700; bh=GLU9jGk04ALbdYvIzbBaNS4eLjYOPWtqgp+eQ++uHwI=;
+	h=From:Message-ID:From;
+	b=DYtf5LfYLMoXKQNbouvRnclFjVzevW3Yod4XLAi7AHGNBXE2KWzAIoBMqQiBn8HSg
+	 uVYqbwuvhp3CvbJZ6Pjns6FwFrjbICPulSOH3phyC+vfoJkEHyXjVYpb7BifjbU9HZ
+	 yYjL6Y0jcOAclpY3LMugb1j4Y0Znu90mxoqkXgt4=
+Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
+	by mta1.formilux.org (Postfix) with ESMTP id 0673FC0954;
+	Tue, 04 Nov 2025 19:08:20 +0100 (CET)
+Received: (from willy@localhost)
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 5A4I8Ja1020678;
+	Tue, 4 Nov 2025 19:08:19 +0100
+Date: Tue, 4 Nov 2025 19:08:19 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: Breno Leitao <leitao@debian.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+        "Paul E. McKenney" <paulmck@kernel.org>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        linux-arm-kernel@lists.infradead.org, kernel-team@meta.com,
+        rmikey@meta.com
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <20251104180819.GB20579@1wt.eu>
+References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
+ <aQUAR9MRxP6_qtEH@arm.com>
+ <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
 MIME-Version: 1.0
-References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
- <20251028053136.692462-8-ankur.a.arora@oracle.com> <CAJZ5v0hSvzHfsE4nrEW-Ey0dnJ+m=dSU-f1RywGNU0Xyi3jXtQ@mail.gmail.com>
- <87ms5ajp4c.fsf@oracle.com> <CAJZ5v0hQ7G9jvOv9VtRmsCKahBpUcPJMMOe07k_2mqsvggWcWg@mail.gmail.com>
- <874irhjzcf.fsf@oracle.com> <CAJZ5v0i5-8eO6T_-Sr-K=3Up89+_qtJW7NSjDknJSkk3Nhu8BQ@mail.gmail.com>
- <875xbxifs0.fsf@oracle.com>
-In-Reply-To: <875xbxifs0.fsf@oracle.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 4 Nov 2025 19:07:56 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0izSBR0_DeH5HVnSLFGRfV9WoSzbu9Mh5yvvuyrvw7fLg@mail.gmail.com>
-X-Gm-Features: AWmQ_bntcfH83903HLZKfZK6BYsGABjvLPwboKVkSn1BQkd0aPOXL15UK_L4_Us
-Message-ID: <CAJZ5v0izSBR0_DeH5HVnSLFGRfV9WoSzbu9Mh5yvvuyrvw7fLg@mail.gmail.com>
-Subject: Re: [RESEND PATCH v7 7/7] cpuidle/poll_state: Poll via smp_cond_load_relaxed_timeout()
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de, 
-	catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org, 
-	akpm@linux-foundation.org, mark.rutland@arm.com, harisokn@amazon.com, 
-	cl@gentwo.org, ast@kernel.org, daniel.lezcano@linaro.org, memxor@gmail.com, 
-	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com, 
-	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_100812_885364_D51E6251 
-X-CRM114-Status: GOOD (  55.54  )
+X-CRM114-CacheID: sfid-20251104_100824_881126_6AD77FB0 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,211 +74,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 10:01=E2=80=AFPM Ankur Arora <ankur.a.arora@oracle.=
-com> wrote:
->
->
-> Rafael J. Wysocki <rafael@kernel.org> writes:
->
-> > On Wed, Oct 29, 2025 at 8:13=E2=80=AFPM Ankur Arora <ankur.a.arora@orac=
-le.com> wrote:
-> >>
-> >>
-> >> Rafael J. Wysocki <rafael@kernel.org> writes:
-> >>
-> >> > On Wed, Oct 29, 2025 at 5:42=E2=80=AFAM Ankur Arora <ankur.a.arora@o=
-racle.com> wrote:
-> >> >>
-> >> >>
-> >> >> Rafael J. Wysocki <rafael@kernel.org> writes:
-> >> >>
-> >> >> > On Tue, Oct 28, 2025 at 6:32=E2=80=AFAM Ankur Arora <ankur.a.aror=
-a@oracle.com> wrote:
-> >> >> >>
-> >> >> >> The inner loop in poll_idle() polls over the thread_info flags,
-> >> >> >> waiting to see if the thread has TIF_NEED_RESCHED set. The loop
-> >> >> >> exits once the condition is met, or if the poll time limit has
-> >> >> >> been exceeded.
-> >> >> >>
-> >> >> >> To minimize the number of instructions executed in each iteratio=
-n,
-> >> >> >> the time check is done only intermittently (once every
-> >> >> >> POLL_IDLE_RELAX_COUNT iterations). In addition, each loop iterat=
-ion
-> >> >> >> executes cpu_relax() which on certain platforms provides a hint =
-to
-> >> >> >> the pipeline that the loop busy-waits, allowing the processor to
-> >> >> >> reduce power consumption.
-> >> >> >>
-> >> >> >> This is close to what smp_cond_load_relaxed_timeout() provides. =
-So,
-> >> >> >> restructure the loop and fold the loop condition and the timeout=
- check
-> >> >> >> in smp_cond_load_relaxed_timeout().
-> >> >> >
-> >> >> > Well, it is close, but is it close enough?
-> >> >>
-> >> >> I guess that's the question.
-> >> >>
-> >> >> >> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> >> >> >> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
-> >> >> >> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-> >> >> >> ---
-> >> >> >>  drivers/cpuidle/poll_state.c | 29 ++++++++---------------------
-> >> >> >>  1 file changed, 8 insertions(+), 21 deletions(-)
-> >> >> >>
-> >> >> >> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll=
-_state.c
-> >> >> >> index 9b6d90a72601..dc7f4b424fec 100644
-> >> >> >> --- a/drivers/cpuidle/poll_state.c
-> >> >> >> +++ b/drivers/cpuidle/poll_state.c
-> >> >> >> @@ -8,35 +8,22 @@
-> >> >> >>  #include <linux/sched/clock.h>
-> >> >> >>  #include <linux/sched/idle.h>
-> >> >> >>
-> >> >> >> -#define POLL_IDLE_RELAX_COUNT  200
-> >> >> >> -
-> >> >> >>  static int __cpuidle poll_idle(struct cpuidle_device *dev,
-> >> >> >>                                struct cpuidle_driver *drv, int i=
-ndex)
-> >> >> >>  {
-> >> >> >> -       u64 time_start;
-> >> >> >> -
-> >> >> >> -       time_start =3D local_clock_noinstr();
-> >> >> >> +       u64 time_end;
-> >> >> >> +       u32 flags =3D 0;
-> >> >> >>
-> >> >> >>         dev->poll_time_limit =3D false;
-> >> >> >>
-> >> >> >> +       time_end =3D local_clock_noinstr() + cpuidle_poll_time(d=
-rv, dev);
-> >> >> >
-> >> >> > Is there any particular reason for doing this unconditionally?  I=
-f
-> >> >> > not, then it looks like an arbitrary unrelated change to me.
-> >> >>
-> >> >> Agreed. Will fix.
-> >> >>
-> >> >> >> +
-> >> >> >>         raw_local_irq_enable();
-> >> >> >>         if (!current_set_polling_and_test()) {
-> >> >> >> -               unsigned int loop_count =3D 0;
-> >> >> >> -               u64 limit;
-> >> >> >> -
-> >> >> >> -               limit =3D cpuidle_poll_time(drv, dev);
-> >> >> >> -
-> >> >> >> -               while (!need_resched()) {
-> >> >> >> -                       cpu_relax();
-> >> >> >> -                       if (loop_count++ < POLL_IDLE_RELAX_COUNT=
-)
-> >> >> >> -                               continue;
-> >> >> >> -
-> >> >> >> -                       loop_count =3D 0;
-> >> >> >> -                       if (local_clock_noinstr() - time_start >=
- limit) {
-> >> >> >> -                               dev->poll_time_limit =3D true;
-> >> >> >> -                               break;
-> >> >> >> -                       }
-> >> >> >> -               }
-> >> >> >> +               flags =3D smp_cond_load_relaxed_timeout(&current=
-_thread_info()->flags,
-> >> >> >> +                                                     (VAL & _TI=
-F_NEED_RESCHED),
-> >> >> >> +                                                     (local_clo=
-ck_noinstr() >=3D time_end));
-> >> >> >
-> >> >> > So my understanding of this is that it reduces duplication with s=
-ome
-> >> >> > other places doing similar things.  Fair enough.
-> >> >> >
-> >> >> > However, since there is "timeout" in the name, I'd expect it to t=
-ake
-> >> >> > the timeout as an argument.
-> >> >>
-> >> >> The early versions did have a timeout but that complicated the
-> >> >> implementation significantly. And the current users poll_idle(),
-> >> >> rqspinlock don't need a precise timeout.
-> >> >>
-> >> >> smp_cond_load_relaxed_timed(), smp_cond_load_relaxed_timecheck()?
-> >> >>
-> >> >> The problem with all suffixes I can think of is that it makes the
-> >> >> interface itself nonobvious.
-> >> >>
-> >> >> Possibly something with the sense of bail out might work.
-> >> >
-> >> > It basically has two conditions, one of which is checked in every st=
-ep
-> >> > of the internal loop and the other one is checked every
-> >> > SMP_TIMEOUT_POLL_COUNT steps of it.  That isn't particularly
-> >> > straightforward IMV.
-> >>
-> >> Right. And that's similar to what poll_idle().
-> >
-> > My point is that the macro in its current form is not particularly
-> > straightforward.
-> >
-> > The code in poll_idle() does what it needs to do.
-> >
-> >> > Honestly, I prefer the existing code.  It is much easier to follow a=
-nd
-> >> > I don't see why the new code would be better.  Sorry.
-> >>
-> >> I don't think there's any problem with the current code. However, I'd =
-like
-> >> to add support for poll_idle() on arm64 (and maybe other platforms) wh=
-ere
-> >> instead of spinning in a cpu_relax() loop, you wait on a cacheline.
-> >
-> > Well, there is MWAIT on x86, but it is not used here.  It just takes
-> > too much time to wake up from.  There are "fast" variants of that too,
-> > but they have been designed with user space in mind, so somewhat
-> > cumbersome for kernel use.
-> >
-> >> And that's what using something like smp_cond_load_relaxed_timeout()
-> >> would enable.
-> >>
-> >> Something like the series here:
-> >>   https://lore.kernel.org/lkml/87wmaljd81.fsf@oracle.com/
-> >>
-> >> (Sorry, should have mentioned this in the commit message.)
-> >
-> > I'm not sure how you can combine that with a proper timeout.
->
-> Would taking the timeout as a separate argument work?
->
->   flags =3D smp_cond_load_relaxed_timeout(&current_thread_info()->flags,
->                                          (VAL & _TIF_NEED_RESCHED),
->                                          local_clock_noinstr(), time_end)=
-;
->
-> Or you are thinking of something on different lines from the smp_cond_loa=
-d
-> kind of interface?
+Hello Breno,
 
-I would like it to be something along the lines of
+On Tue, Nov 04, 2025 at 07:59:38AM -0800, Breno Leitao wrote:
+> I found that the LSE case (__percpu_add_case_64_lse) has a huge variation,
+> while LL/SC case is stable.
+> In some case, LSE function runs at the same latency as LL/SC function and
+> slightly faster on p50, but, something happen to the system and LSE operations
+> start to take way longer than LL/SC.
+> 
+> Here are some interesting output coming from the latency of the functions above>
+> 
+> 	CPU: 47 - Latency Percentiles:
+> 	====================
+> 	LL/SC:   p50: 5.69 ns      p95: 5.71 ns      p99: 5.80 ns
+> 	LSE  :   p50: 45.53 ns     p95: 54.06 ns     p99: 55.18 ns
+(...)
 
-arch_busy_wait_for_need_resched(time_limit);
-dev->poll_time_limit =3D !need_resched();
+Very interesting. I've run them here on a 80-core Ampere Altra made
+of Neoverse-N1 (armv8.2) and am getting very consistently better timings
+with LSE than LL/SC:
 
-and I don't care much about how exactly this is done in the arch code,
-so long as it does what it says.
+   CPU: 0 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.32 ns     p95: 7.32 ns    p99: 7.33 ns
+  LSE  :   p50: 5.01 ns     p95: 5.01 ns    p99: 5.03 ns
+  
+   CPU: 1 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.32 ns     p95: 7.32 ns    p99: 7.33 ns
+  LSE  :   p50: 5.01 ns     p95: 5.01 ns    p99: 5.03 ns
+  
+   CPU: 2 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.32 ns     p95: 7.32 ns    p99: 7.33 ns
+  LSE  :   p50: 5.01 ns     p95: 5.01 ns    p99: 5.02 ns
+  (...)
 
-> > The timeout is needed because you want to break out of this when it sta=
-rts
-> > to take too much time, so you can go back to the idle loop and maybe
-> > select a better idle state.
->
-> Agreed. And that will happen with the version in the patch:
->
->      flags =3D smp_cond_load_relaxed_timeout(&current_thread_info()->flag=
-s,
->                                             (VAL & _TIF_NEED_RESCHED),
->                                             (local_clock_noinstr() >=3D t=
-ime_end));
->
-> Just that with waited mode on arm64 the timeout might be delayed dependin=
-g
-> on granularity of the event stream.
+They're *all* like this, between 7.32 and 7.36 for LL/SC p99,
+and 5.01 to 5.03 for LSE p99.
 
-That's fine.  cpuidle_poll_time() is not exact anyway.
+However, on a CIX-P1 (armv9.2, 8xA720 + 4xA520), it's what you've
+observed, i.e. a lot of variations that do not even depend on big
+vs little cores:
+
+   CPU: 0 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.56 ns     p95: 7.13 ns    p99: 8.81 ns
+  LSE  :   p50: 45.79 ns    p95: 45.80 ns   p99: 45.86 ns
+  
+   CPU: 1 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.38 ns     p95: 6.39 ns    p99: 6.39 ns
+  LSE  :   p50: 67.72 ns    p95: 67.78 ns   p99: 67.80 ns
+  
+   CPU: 2 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 5.60 ns
+  LSE  :   p50: 59.19 ns    p95: 59.23 ns   p99: 59.25 ns
+  (...)
+
+I tried the same on a RK3588 which has 4 Cortex A55 and 4 Cortex A76
+(the latter being very close to Neoverse-N1), and the A76 (the 4 latest
+ones) show the same pattern as the Altra above and are consistently much
+better than the LL/SC one:
+
+   CPU: 0 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 9.39 ns     p95: 9.40 ns    p99: 9.41 ns
+  LSE  :   p50: 4.43 ns     p95: 28.60 ns   p99: 30.29 ns
+  
+   CPU: 1 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 9.39 ns     p95: 9.40 ns    p99: 9.59 ns
+  LSE  :   p50: 4.42 ns     p95: 27.51 ns   p99: 29.46 ns
+  
+   CPU: 2 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 9.40 ns     p95: 9.40 ns    p99: 9.40 ns
+  LSE  :   p50: 4.42 ns     p95: 27.00 ns   p99: 29.60 ns
+  
+   CPU: 3 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 9.39 ns     p95: 9.40 ns    p99: 10.43 ns
+  LSE  :   p50: 8.02 ns     p95: 29.72 ns   p99: 31.05 ns
+  
+   CPU: 4 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.85 ns     p95: 8.86 ns    p99: 8.86 ns
+  LSE  :   p50: 5.75 ns     p95: 5.75 ns    p99: 5.75 ns
+  
+   CPU: 5 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.85 ns     p95: 8.85 ns    p99: 9.28 ns
+  LSE  :   p50: 5.75 ns     p95: 5.75 ns    p99: 8.29 ns
+  
+   CPU: 6 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.79 ns     p95: 8.80 ns    p99: 8.80 ns
+  LSE  :   p50: 5.71 ns     p95: 5.71 ns    p99: 5.71 ns
+  
+   CPU: 7 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.80 ns     p95: 8.80 ns    p99: 9.30 ns
+  LSE  :   p50: 5.71 ns     p95: 5.72 ns    p99: 5.72 ns
+
+Finally, on a Qualcomm QC6490 with 4xA55 + 4xA78, I'm getting something
+between the two (and the governor is in performance mode):
+
+ ./percpu_bench 
+ARM64 Per-CPU Atomic Add Benchmark
+===================================
+Running percentile measurements (100 iterations)...
+Detected 8 CPUs
+
+   CPU: 0 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.23 ns     p95: 8.24 ns    p99: 8.28 ns
+  LSE  :   p50: 4.63 ns     p95: 4.64 ns    p99: 19.48 ns
+  
+   CPU: 1 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.23 ns     p95: 8.24 ns    p99: 8.26 ns
+  LSE  :   p50: 4.63 ns     p95: 4.64 ns    p99: 16.30 ns
+  
+   CPU: 2 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.23 ns     p95: 8.25 ns    p99: 8.25 ns
+  LSE  :   p50: 4.63 ns     p95: 4.64 ns    p99: 4.65 ns
+  
+   CPU: 3 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 8.23 ns     p95: 8.25 ns    p99: 8.36 ns
+  LSE  :   p50: 4.63 ns     p95: 19.01 ns   p99: 32.15 ns
+  
+   CPU: 4 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.27 ns     p95: 6.28 ns    p99: 6.29 ns
+  LSE  :   p50: 5.44 ns     p95: 5.44 ns    p99: 5.44 ns
+  
+   CPU: 5 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.27 ns     p95: 6.28 ns    p99: 6.29 ns
+  LSE  :   p50: 5.44 ns     p95: 5.44 ns    p99: 5.44 ns
+  
+   CPU: 6 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.27 ns     p95: 6.28 ns    p99: 6.28 ns
+  LSE  :   p50: 5.44 ns     p95: 5.44 ns    p99: 5.45 ns
+  
+   CPU: 7 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 5.58 ns
+  LSE  :   p50: 4.82 ns     p95: 4.82 ns    p99: 4.83 ns
+
+So it seems at first glance that LL/SC is generally slower but can be
+more consistent on modern machines, that LSE is stable on older machines
+and can be stable sometimes even on some modern machines.
+
+@Catalin, I *tried* to do the ldadd test but I wasn't sure what to put in
+the Xt register (to be honest I've never understood Arm's docs regarding
+instructions, even the pseudo language is super cryptic to me), and I came
+up with this:
+
+        asm volatile(
+                /* LSE atomics */
+                "    ldadd    %[val], %[out], %[ptr]\n"
+                : [ptr] "+Q"(*(u64 *)ptr), [out] "+r" (val)
+                : [val] "r"((u64)(val))
+                : "memory");
+
+which assembles like this:
+
+ ab8:   f8200040        ldadd   x0, x0, [x2]
+
+It now gives me much better LSE performance on the ARMv9:
+
+   CPU: 0 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.56 ns     p95: 7.32 ns    p99: 8.72 ns
+  LSE  :   p50: 2.76 ns     p95: 2.76 ns    p99: 2.77 ns
+  
+   CPU: 1 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.38 ns     p95: 6.39 ns    p99: 6.39 ns
+  LSE  :   p50: 5.09 ns     p95: 5.11 ns    p99: 5.11 ns
+  
+   CPU: 2 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 5.56 ns     p95: 5.58 ns    p99: 9.07 ns
+  LSE  :   p50: 4.45 ns     p95: 4.46 ns    p99: 4.46 ns
+  
+   CPU: 3 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 7.42 ns
+  LSE  :   p50: 4.45 ns     p95: 4.46 ns    p99: 4.46 ns
+  
+   CPU: 4 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 5.60 ns
+  LSE  :   p50: 4.45 ns     p95: 4.46 ns    p99: 4.47 ns
+  
+   CPU: 5 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.40 ns
+  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
+  
+   CPU: 6 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.42 ns
+  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
+  
+   CPU: 7 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.40 ns
+  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
+  
+   CPU: 8 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.40 ns
+  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
+  
+   CPU: 9 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.05 ns     p95: 7.06 ns    p99: 7.07 ns
+  LSE  :   p50: 2.96 ns     p95: 2.97 ns    p99: 2.97 ns
+  
+   CPU: 10 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 7.05 ns     p95: 7.05 ns    p99: 7.06 ns
+  LSE  :   p50: 2.96 ns     p95: 2.96 ns    p99: 2.97 ns
+  
+   CPU: 11 - Latency Percentiles:
+  ====================
+  LL/SC:   p50: 6.56 ns     p95: 6.56 ns    p99: 6.57 ns
+  LSE  :   p50: 2.76 ns     p95: 2.76 ns    p99: 2.76 ns
+
+(cores 0,5-11 are A720, cores 1-4 are A520). I'd just like a
+confirmation that my change is correct and that I'm not just doing
+something ignored that tries to add zero :-/
+
+If that's OK, then it's indeed way better!
+
+Willy
+
+PS: thanks Breno for sharing your test code, that's super useful!
 
