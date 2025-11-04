@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED0F1CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 19:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D754CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 20:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5T9Z6UoyDLZbu/1k5b1T2wqbCAFrlV4h6XEJSvtC98=; b=XMTzGDBHyJq+moBmMQZ8Q53Zzi
-	6/sRT1tLW+ZFcj9V+aNx94a7R23LeOXDIZ8sMcAcEpU/ImjFMVZ/+Ikk7QyOZNBWv7siEt1gnchEp
-	Ox96/4scQdUrMfybt8eOIEJYkkvnOvcWF0gPUR1aKDAOq0ijX4finFFe6u5skPOYWcUXjhyHr7KQj
-	i4sdVDi3z8d2uraR8Hw+b3aFtraODtHZg7HJdU6/LsNNC9omoZag34JIG73wHSn8trwrMPkZozByU
-	ZN9TxCsmtPhNZsHQ3P9RoptIS1TqZikwdngdXKXdH06IQZWh1fwRocBJoawZ4fwXxwh+8ZKJQwn2o
-	RW4lmTEg==;
+	bh=jbJTG7c9VjlSzBjWZMoAV6APMNdMi+bJT4kSBPFUFNk=; b=p2SGFOsgmNdDYz+VDB3qNzKkDG
+	Nq1L79iPo1wVQFwbad4Mdb/1MaqLTFA7c1WUfe2h553vOKnvzDu+U3xWyNSBUKex5s/KikIxtR9GZ
+	aGP+bYEPpAUNzsEO3VZdmniZKFfZPU1/Jp5mfQRfAFbbdXoMoV1mDzZKAtGJtmPF9MJH3DJ7zrTYu
+	HwObTWVqcLaqJs0CQgOZn00x17pVNdfwAMMSu9IXMsZicOHsyP8eFh5zQ1yRAXc8R5qX9iKILMUTs
+	CiH2GU0rJgqyOIJ5k94oSOM1vm54NnjIMQTwYdY6IbnhHzN2ufvVabKAVpoqBHOQRWkfR9vngrYRl
+	GRPXPHzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMKz-0000000CSzQ-1VnQ;
-	Tue, 04 Nov 2025 19:05:01 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1vGNMX-0000000CWb7-1r85;
+	Tue, 04 Nov 2025 20:10:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMKx-0000000CSym-1XAL
+	id 1vGNMV-0000000CWak-0Ic9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 19:05:00 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4ed67a143c5so30671cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 11:04:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762283098; x=1762887898; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q5T9Z6UoyDLZbu/1k5b1T2wqbCAFrlV4h6XEJSvtC98=;
-        b=bCB8mteCOAFQVsXHarB3+evFYHUft85dIQVwmTl/uIog6p+E9VhZONEfEbK48+tIG1
-         URIUXwBGeiIPB7tgLuXAlOQIAVVUxqQB5v6axK42B2lbWoRsJf7yVBEh0AQUo4c+wUsQ
-         LeEM6Wl506hBkyOmdUGmniEz1g8EcYhBvtcvjAimOYRvpqpTYIOtbgX6wBViEeA6nNk7
-         CDhVfHd7JpSbk3xTVwmAKi6qYPX+cFhmrb/1d8TSspu202PGRRSYJtXWw1iZXgw/Umbb
-         SYTPkl9zffArzLnJKxjhFXfMzT7mSa8Pz+CW5FhNAgd34+14WMaPgxXtIvf1yd0AHCzb
-         TC/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762283098; x=1762887898;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Q5T9Z6UoyDLZbu/1k5b1T2wqbCAFrlV4h6XEJSvtC98=;
-        b=vM0F20MqhlerL7jJOHDNSzX6OWCAs4hcoNdK4tEwed3inr1xqIBNFNVO0jBg9GBAOB
-         tGhHgzKlqyRtEtwgIF1VF6yTx3vPR8ESxyUJrV4Gv1+ZLMRfA1YG8/WPTtkJ2tIgRT4o
-         KipUN+1RGubi0JM+UIU4JGDR5oYvJbGGVw1T5uVwsXhrCot4x504pogzW2uueN6dwouI
-         XgzfPBq9+Cid7DmPMTowXcYnQOS3SODAU/fszdb9vwOzw2XSGCj0o8RTKMbtl7IuLpBm
-         /PXvWiJhSlGKBIr+CRt0QkCUbxiswb2Frnya+5hDFufZjU46uqw5tTwveWKyhfC2F65G
-         l9qg==
-X-Forwarded-Encrypted: i=1; AJvYcCUfj66IS6xSadCIZR7udXVgOgKhuBhXn1zLGPMuQoJQwUfvRRjSL2qZtyDWxPsYV37Vo+fd/NhLR4c4oapBe5mx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqAUNPqc5+MRruKmtOPDhBUh9LnjIbyuz321laLGrVUO6OH6JP
-	rU9GL73dTRIS6QfbHRIA+uvIe3CE/dASChLUMHmuX4EjgH6UaM/3FwkeLO4l1fbtSQQzKkPZmIR
-	8e5wh2QCKB6rJxE71fXrFanuDFxC2xfSBCANH5ouu
-X-Gm-Gg: ASbGncvzvR8ef4jjdSBF52ImUNi2CMy43RN5tdKPA3T67Ls0VoCi8Lb+uouFg0ZIJCW
-	hoaZXhppi8XAZEtMCWur7ZVXe35IPOfenvvk/QuY7n6SEcRAOlGaZKwE3rxMAPt3fQyRyDxfYTM
-	R18gVU4IceGWmxoqos/VaWULSm3e/M4syx1rUeFxjzD3abk26N0IDFW5lv1GYlCXJyKPqUFHhI8
-	kc2QfC1yWaq8DrCQabf0Bo20fe1o0/W0ASPIpNLeeqtjybqXeDkpFLZklaUVA==
-X-Google-Smtp-Source: AGHT+IEXght+18UDdhRYqn8WNnXdZZ8DDF1K4rJ6QojfMfxG5vWmOJEkSqYHurrMJLnbhgGwTwCMYgkHt1EiuY3Gy5Q=
-X-Received: by 2002:a05:622a:14d4:b0:4e8:85ac:f7a7 with SMTP id
- d75a77b69052e-4ed7369911dmr416821cf.9.1762283097763; Tue, 04 Nov 2025
- 11:04:57 -0800 (PST)
+	Tue, 04 Nov 2025 20:10:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 83FD244070;
+	Tue,  4 Nov 2025 20:10:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51F35C4CEF7;
+	Tue,  4 Nov 2025 20:10:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762287037;
+	bh=yhqeCuK7vscwd9qy1eg+ADsex3is+LwTme6/sQh/Co0=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=hYYzCJ9+n1laop8VRxu2iEbxxy4Zu2weUy+1NvyoRhKp25YX7DHQiueCIqwEIGJwL
+	 FDN+DqfI7spV7s8aADtD3a6OBJen+sfb09jWmQA19++2vGF45h0a5cfQW3wNoCzQSZ
+	 7zQIjfnldlA+dZbs3ODJM7wcJi1UIXNSpKJvEvMuymHlWeZH08vU2O6GtyFWK4WMIs
+	 8vZZ0tRdpC6UvgUCL5nap3DUkPjHWTB6MEL22TMIWU0NYJp3j6GuOza/XC+3j+wBx7
+	 q7frwj65F0lpoIkvWsRhdD9KyjsNFrYrLkWcCu2g9xou21MR0x5TiDn3RVhm3au8xj
+	 BZAfm3qjM7Log==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 2ED1ACE10DA; Tue,  4 Nov 2025 12:10:36 -0800 (PST)
+Date: Tue, 4 Nov 2025 12:10:36 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
+References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
+ <aQUAR9MRxP6_qtEH@arm.com>
+ <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
+ <aQU7l-qMKJTx4znJ@arm.com>
+ <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
+ <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
+ <aQoyPox1DjlBT32O@arm.com>
+ <d132771d-3a3f-486c-b674-de4ec976e929@paulmck-laptop>
 MIME-Version: 1.0
-References: <20251104125906.1919426-1-tabba@google.com> <20251104125906.1919426-6-tabba@google.com>
- <a0b19558-dbcb-4231-b0c4-302cc10652db@arm.com> <CA+EHjTwPqm5wkmdGK60sn+S9BizK6LG5bSqWQLigsZVgXoJmUw@mail.gmail.com>
- <fbe0d81a-c4c2-46f5-b809-1b74f9307c98@arm.com>
-In-Reply-To: <fbe0d81a-c4c2-46f5-b809-1b74f9307c98@arm.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 4 Nov 2025 19:04:20 +0000
-X-Gm-Features: AWmQ_blncW2qCzgwgBP6dGyIM6hPJ2g29b3o7-4BRp6ltNDvSRRT2ZrMeg3mfYI
-Message-ID: <CA+EHjTxVFOj+NXt4eQupHNUBB4UwwMQEuhGiGo8F=nX3tjmZOw@mail.gmail.com>
-Subject: Re: [PATCH v1 5/8] KVM: arm64: Fix Trace Buffer trap polarity for
- protected VMs
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, vladimir.murzin@arm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d132771d-3a3f-486c-b674-de4ec976e929@paulmck-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_110459_417381_286D0849 
-X-CRM114-Status: GOOD (  23.86  )
+X-CRM114-CacheID: sfid-20251104_121039_175076_2C8519D9 
+X-CRM114-Status: GOOD (  46.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +77,164 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Nov 2025 at 18:03, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->
-> On 04/11/2025 17:56, Fuad Tabba wrote:
-> > Hi Suzuki,
-> >
-> > On Tue, 4 Nov 2025 at 17:50, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> >>
-> >> On 04/11/2025 12:59, Fuad Tabba wrote:
-> >>> The E2TB bits in MDCR_EL2 control trapping of Trace Buffer system
-> >>> register accesses. These accesses are trapped to EL2 when the bits are
-> >>> clear.
-> >>>
-> >>> The trap initialization logic for protected VMs in pvm_init_traps_mdcr()
-> >>> had the polarity inverted. When a guest did not support the ExtTrcBuff
-> >>> feature, the code was setting E2TB. This incorrectly disabled the trap,
-> >>> potentially allowing a protected guest to access registers for a feature
-> >>> it was not given.
-> >>>
-> >>> Fix this by inverting the operation.
-> >>>
-> >>> Fixes: f50758260bff ("KVM: arm64: Group setting traps for protected VMs by control register")
-> >>> Signed-off-by: Fuad Tabba <tabba@google.com>
-> >>> ---
-> >>>    arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
-> >>>    1 file changed, 1 insertion(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> >>> index 43bde061b65d..df0c59a29b35 100644
-> >>> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> >>> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> >>> @@ -118,7 +118,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
-> >>>                val |= MDCR_EL2_TTRF;
-> >>>
-> >>>        if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, ExtTrcBuff, IMP))
-> >>
-> >> Why are we checkin ExtTrcBuff ? Shouldn't that be TraceBuffer ?
-> >
-> > This is an existing bug that needs to be fixed. Thank for spotting it.
-> >
-> >>> -             val |= MDCR_EL2_E2TB_MASK;
-> >>> +             val &= ~MDCR_EL2_E2TB_MASK;
-> >> This looks correct to me.
-> >
-> > I don't thin it's correct. E2TB traps when clear, not set:
-> > https://developer.arm.com/documentation/ddi0601/2025-09/AArch64-Registers/MDCR-EL2--Monitor-Debug-Configuration-Register--EL2-
->
-> I meant your change to val looks correct.
+On Tue, Nov 04, 2025 at 10:43:02AM -0800, Paul E. McKenney wrote:
+> On Tue, Nov 04, 2025 at 05:05:02PM +0000, Catalin Marinas wrote:
+> > On Fri, Oct 31, 2025 at 08:25:07PM -0700, Paul E. McKenney wrote:
+> > > On Fri, Oct 31, 2025 at 04:38:57PM -0700, Paul E. McKenney wrote:
+> > > > On Fri, Oct 31, 2025 at 10:43:35PM +0000, Catalin Marinas wrote:
+> > > > > diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> > > > > index 9abcc8ef3087..e381034324e1 100644
+> > > > > --- a/arch/arm64/include/asm/percpu.h
+> > > > > +++ b/arch/arm64/include/asm/percpu.h
+> > > > > @@ -70,6 +70,7 @@ __percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
+> > > > >  	unsigned int loop;						\
+> > > > >  	u##sz tmp;							\
+> > > > >  									\
+> > > > > +	asm volatile("prfm pstl1strm, %a0\n" : : "p" (ptr));
+> > > > >  	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
+> > > > >  	/* LL/SC */							\
+> > > > >  	"1:	ldxr" #sfx "\t%" #w "[tmp], %[ptr]\n"			\
+> > > > > @@ -91,6 +92,7 @@ __percpu_##name##_return_case_##sz(void *ptr, unsigned long val)	\
+> > > > >  	unsigned int loop;						\
+> > > > >  	u##sz ret;							\
+> > > > >  									\
+> > > > > +	asm volatile("prfm pstl1strm, %a0\n" : : "p" (ptr));
+> > > > >  	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
+> > > > >  	/* LL/SC */							\
+> > > > >  	"1:	ldxr" #sfx "\t%" #w "[ret], %[ptr]\n"			\
+> > > > > -----------------8<------------------------
+> > > > 
+> > > > I will give this a shot, thank you!
+> > > 
+> > > Jackpot!!!
+> > > 
+> > > This reduces the overhead to 8.427, which is significantly better than
+> > > the non-LSE value of 9.853.  Still room for improvement, but much
+> > > better than the 100ns values.
+> > > 
+> > > I presume that you will send this up the normal path, but in the meantime,
+> > > I will pull this in for further local testing, and thank you!
+> > 
+> > After an educative discussion with the microarchitects, I think the
+> > hardware is behaving as intended, it just doesn't always fit the
+> > software use-cases ;). this_cpu_add() etc. (and atomic_add()) end up in
+> > Linux as a STADD instruction (that's LDADD with XZR as destination; i.e.
+> > no need to return the value read from memory). This is typically
+> > executed as "far" or posted (unless it hits in the L1 cache) and
+> > intended for stat updates. At a quick grep, it matches the majority of
+> > the use-cases in Linux. Most other atomics (those with a return) are
+> > executed "near", so filling the cache lines (assuming default CPUECTLR
+> > configuration).
+> 
+> OK...
+> 
+> > For the SRCU case, STADD especially together with the DMB after lock and
+> > before unlock, executing it far does slow things down. A microbenchmark
+> > doing this in a loop is a lot worse than it would appear in practice
+> > (saturating buses down the path to memory).
+> 
+> In this srcu_read_lock_fast_updown() case, there was no DMB.  But for
+> srcu_read_lock() and srcu_read_lock_nmisafe(), yes, there would be a DMB.
+> (The srcu_read_lock_fast_updown() is new and is in my -rcu tree.)
+> 
+> > A quick test to check this theory, if that's the functions you were
+> > benchmarking (it generates LDADD instead):
+> 
+> Thank you for digging into this!
 
-I see, thanks :) I'll fix the existing bug when I respin this.
+And this_cpu_inc_return() does speed things up on my hardware to about
+the same extent as did the prefetch instruction, so thank you again.
+However, it gets me more than a 4x slowdown on x86, so I cannot make
+this change in common code.
 
-Cheers,
-/fuad
+So, my thought is to push arm64-only this_cpu_inc_return() into SRCU via
+something like this_cpu_inc_srcu(), but not for the upcoming merge window,
+but the one after that, sticking with my current interrupt-disabling
+non-atomic approach in the meantime (which gets me most of the benefit).
+Alternatively, would it work for me to put that cache-prefetch instruction
+into SRCU for arm64?  My guess is "absolutely not!", but I figured that
+I should ask.
 
-> Suzuki
->
-> >
-> >> Suzuki
-> >>
-> >>>
-> >>>        /* Trap Debug Communications Channel registers */
-> >>>        if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, FGT, IMP))
-> >>
-> >>
->
+But if both of these approaches proves problematic, I might need some
+way to distinguish between systems having slow LSE and those that do not.
+Or I can stick with disabling interrupts across non-atomic updates.
+
+Thoughts?
+
+							Thanx, Paul
+
+> > ---------------------8<----------------------------------------
+> > diff --git a/include/linux/srcutree.h b/include/linux/srcutree.h
+> > index 42098e0fa0b7..5a6f3999883d 100644
+> > --- a/include/linux/srcutree.h
+> > +++ b/include/linux/srcutree.h
+> > @@ -263,7 +263,7 @@ static inline struct srcu_ctr __percpu notrace *__srcu_read_lock_fast(struct src
+> >  	struct srcu_ctr __percpu *scp = READ_ONCE(ssp->srcu_ctrp);
+> >  
+> >  	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
+> > -		this_cpu_inc(scp->srcu_locks.counter); // Y, and implicit RCU reader.
+> > +		this_cpu_inc_return(scp->srcu_locks.counter); // Y, and implicit RCU reader.
+> >  	else
+> >  		atomic_long_inc(raw_cpu_ptr(&scp->srcu_locks));  // Y, and implicit RCU reader.
+> >  	barrier(); /* Avoid leaking the critical section. */
+> > @@ -284,7 +284,7 @@ __srcu_read_unlock_fast(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
+> >  {
+> >  	barrier();  /* Avoid leaking the critical section. */
+> >  	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
+> > -		this_cpu_inc(scp->srcu_unlocks.counter);  // Z, and implicit RCU reader.
+> > +		this_cpu_inc_return(scp->srcu_unlocks.counter);  // Z, and implicit RCU reader.
+> >  	else
+> >  		atomic_long_inc(raw_cpu_ptr(&scp->srcu_unlocks));  // Z, and implicit RCU reader.
+> >  }
+> > diff --git a/kernel/rcu/srcutree.c b/kernel/rcu/srcutree.c
+> > index 1ff94b76d91f..c025d9135689 100644
+> > --- a/kernel/rcu/srcutree.c
+> > +++ b/kernel/rcu/srcutree.c
+> > @@ -753,7 +753,7 @@ int __srcu_read_lock(struct srcu_struct *ssp)
+> >  {
+> >  	struct srcu_ctr __percpu *scp = READ_ONCE(ssp->srcu_ctrp);
+> >  
+> > -	this_cpu_inc(scp->srcu_locks.counter);
+> > +	this_cpu_inc_return(scp->srcu_locks.counter);
+> >  	smp_mb(); /* B */  /* Avoid leaking the critical section. */
+> >  	return __srcu_ptr_to_ctr(ssp, scp);
+> >  }
+> > @@ -767,7 +767,7 @@ EXPORT_SYMBOL_GPL(__srcu_read_lock);
+> >  void __srcu_read_unlock(struct srcu_struct *ssp, int idx)
+> >  {
+> >  	smp_mb(); /* C */  /* Avoid leaking the critical section. */
+> > -	this_cpu_inc(__srcu_ctr_to_ptr(ssp, idx)->srcu_unlocks.counter);
+> > +	this_cpu_inc_return(__srcu_ctr_to_ptr(ssp, idx)->srcu_unlocks.counter);
+> >  }
+> >  EXPORT_SYMBOL_GPL(__srcu_read_unlock);
+> >  
+> > ---------------------8<----------------------------------------
+> > 
+> > To make things better for the non-fast variants above, we should add
+> > this_cpu_inc_return_acquire() etc. semantics (strangely,
+> > this_cpu_inc_return() doesn't have full barrier semantics as
+> > atomic_inc_return()).
+> > 
+> > I'm not sure about adding the prefetch since most other uses of
+> > this_cpu_add() are meant for stat updates and there's not much point in
+> > brining in a cache line. I think we could add release/acquire variants
+> > that generate LDADDA/L and maybe a slightly different API for the
+> > __srcu_*_fast() - or use a new this_cpu_add_return_relaxed() if we add
+> > full barrier semantics to the current _return() variants.
+> 
+> But other architectures might well have this_cpu_inc_return() running
+> more slowly than this_cpu_inc().  So my thought would be to make a
+> this_cpu_inc_srcu() that mapped to this_cpu_inc_return() on arm64 and
+> this_cpu_inc() elsewhere.
+> 
+> I could imagine this_cpu_inc_local() or some such, but it is not clear
+> that the added API explosion is yet justified.
+> 
+> Or is there a better way?
+> 
+> 							Thanx, Paul
 
