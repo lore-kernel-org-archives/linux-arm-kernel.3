@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F35CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C659ACCFA0C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FhAyrkxz0LpLbhrHbehusZbj6zNCgOcy91cHD7K/rTw=; b=Eryti1vuDWyjCIob0SUrhvaToD
-	N0bkALYaa8fdv//5of5GRQxnc522P67YVGkwsBbknaexos0DrDpRsAxjNWA3nDAJELsdBQgrY9aND
-	k5iym0A/VTDmMNOJr+2QcikQ2iM86mH29pIgPvU0EVHbOX/tb7tONV737W06ukqa0VN8BzWYsXtjo
-	CFvqOZ/jUDmEC1sXfWoVY97Vw9LTzFafQmLQc4kSEG6ATBm8HsMP10yBpknkS+exdIHIPbpIN1pM9
-	s9untTqcijtg4VaR+TlUGG2TIyNKY8ebYwcgMmujyFOujA4xpS7LTmuHa8TCOEVVdwcoaY9DEv18j
-	cyJySeDw==;
+	bh=6/0fonC1CcSFJ/vzCGw398TxXXxzhqjx7ZhCqclZhJI=; b=XVmUilJ/aP1TbqV3gF3S9I/b9h
+	4wrUFRh6WyyhLJMUpMgR8nUqc+9S6G2gDdxOjQGUoOWS5FneMdP9HvUfEtEakBukHfOFa4pSUY1p0
+	sprAJD8+xhoxzpxu2rOTnGv0H0giDLVSQ3Yla5cbq2DsrUAmPmUAU2FmISpBznc/hy2Ron7L+J/gz
+	BmLB0TNATYDvrFEqlctYJcdZKu03l3RuujyEPKCS6awGBUKwgw7lmzeTjCGicAah23lLoRdtL6b1h
+	EZTSm+antEOg1AxYO5nZiPC4o4chfMRecfImigmuZlL/sUiwRdfGMMbmwgosGYiUA85TsBawC1iyn
+	1qh5KVdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJBg-0000000C7ME-19Qc;
-	Tue, 04 Nov 2025 15:43:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGJCD-0000000C7SR-2bex;
+	Tue, 04 Nov 2025 15:43:45 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJBe-0000000C7LF-13ZB
+	id 1vGJCB-0000000C7Ra-1Q95
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 15:43:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8283F41AA4;
-	Tue,  4 Nov 2025 15:43:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41362C4CEF7;
-	Tue,  4 Nov 2025 15:43:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762270989;
-	bh=KVTmgezBCR1xhPB/QEJzMt3rheg4sku63yQBXwnYTP4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y8FucS1MWRrDaDhum/yjxBXSjcHW305MewAZ6Il1bMNCrQN9d5YWgPq7NaFePtAWn
-	 203jESlM53J+4VhxPwmSG8Gjwskr08fIy3IrN+7bUq0Te0FoAd/+3hXWADJCWFTox4
-	 +65vmET5Lb+by5OJ02rvKrjLYkpZpUOjDrdGgrdcfzFlt9JNfu4OGIQOFxXVCeeZLO
-	 n+jhd749RuUFFCR3HOIQk5CKEn0wg8TFQOyjE2aXEgrSgj3QTxES/CN7cL0a5gOxhP
-	 t6uqYJ+KZ8APdkbsvakEMKjA6vfVdXghOBRgv21zFhPbn3HugefDhaxcLED4r0bKDY
-	 9Mf9s3tF8A0Qw==
-Date: Tue, 4 Nov 2025 15:43:04 +0000
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org, ryan.roberts@arm.com
-Subject: Re: [PATCH] arm64/mm: Drop redundant extern declaration for
- rodata_full
-Message-ID: <aQofCMqxiqujZP-g@willie-the-truck>
-References: <20251015023609.427911-1-anshuman.khandual@arm.com>
+	Tue, 04 Nov 2025 15:43:44 +0000
+Date: Tue, 4 Nov 2025 16:43:34 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1762271019;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6/0fonC1CcSFJ/vzCGw398TxXXxzhqjx7ZhCqclZhJI=;
+	b=rjbrvle2cRAQ2r1/E6AUyn/63AoNirT+MeY3CSkMLQkjVu4MZ9i9gsM5VaY1sb3+Qse+3E
+	k5Tsj3k0sX10MaW1Vt77Ml/iwrO90sXCi7ohIUnxBp8RCfq2diJY/ZCpc3gLIELLZkZ1gT
+	L/BTyFm2ieNoLfdbPm3joETfalKC7jCYGiBCKDuN65AUEULDiusUD1wLGQDHRp47rNGPSE
+	CNiRZhbWp4pKi5KAc4rKlwVrMeyIJALch4gPPlEKog+++hdtB+pAyXWGyDy2/FQb1lBsmj
+	YmFrBOIEWYHsmogSRF3LDckjk1IVIHNKXQ3GxfoNtiFlAXBk/A7zx0VxilqApg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1762271019;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6/0fonC1CcSFJ/vzCGw398TxXXxzhqjx7ZhCqclZhJI=;
+	b=FojQgXp5lZ7JuVC/TErfcQFIVgMu5YQg1OclEVtlB2s1//ebKD9BRtli3pju35zYRju4WW
+	6T9NeyF0VG7+qZCA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Mark Brown <broonie@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
+	"Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King <linux@armlinux.org.uk>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>, Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
+Message-ID: <20251104162009-8cffa62d-e95b-466b-9a27-c51b0f5257cd@linutronix.de>
+References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
+ <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
+ <aQjJNmwniQwwjeBR@finisterre.sirena.org.uk>
+ <CGME20251104084442eucas1p2af1bd88393f4d6a532df1cd41f32a287@eucas1p2.samsung.com>
+ <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
+ <aQn8G9r2OWv_yEQp@finisterre.sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251015023609.427911-1-anshuman.khandual@arm.com>
+In-Reply-To: <aQn8G9r2OWv_yEQp@finisterre.sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_074310_314555_126FCD7D 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20251104_074343_516103_B04C9F57 
+X-CRM114-Status: GOOD (  27.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,59 +97,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 03:36:09AM +0100, Anshuman Khandual wrote:
-> Drop the redundant extern declaration 'rodata_full' which can be included
-> via the header <asm/setup.h> after moving exiting declaration outside the
-> function arch_parse_debug_rodata(). While here also drop 'rodata_enabled'
-> which is anyways available via the generic header <linux/init.h>.
+On Tue, Nov 04, 2025 at 01:14:03PM +0000, Mark Brown wrote:
+> On Tue, Nov 04, 2025 at 09:44:38AM +0100, Marek Szyprowski wrote:
+> > On 03.11.2025 16:24, Mark Brown wrote:
 > 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/include/asm/mmu_context.h | 2 --
->  arch/arm64/include/asm/setup.h       | 4 +---
->  2 files changed, 1 insertion(+), 5 deletions(-)
+> > > We do have some other serious breakage affecting arm64 in -next which
+> > > are making it hard to get a clear picture of which platforms are
+> > > affected, at least the FVP and O6 are unaffected by those other issues
+> > > (due to using MTE on platforms that don't have it, those platforms do
+> > > have MTE).
 > 
-> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-> index 0375ca3162ff..e4b3563e1d96 100644
-> --- a/arch/arm64/include/asm/mmu_context.h
-> +++ b/arch/arm64/include/asm/mmu_context.h
-> @@ -26,8 +26,6 @@
->  #include <asm/sysreg.h>
->  #include <asm/tlbflush.h>
->  
-> -extern bool rodata_full;
-> -
->  static inline void contextidr_thread_switch(struct task_struct *next)
->  {
->  	if (!IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR))
-> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
-> index 3d96dde4d214..902f1aab520f 100644
-> --- a/arch/arm64/include/asm/setup.h
-> +++ b/arch/arm64/include/asm/setup.h
-> @@ -12,12 +12,10 @@
->   */
->  extern phys_addr_t __fdt_pointer __initdata;
->  extern u64 __cacheline_aligned boot_args[4];
-> +extern bool rodata_full;
->  
->  static inline bool arch_parse_debug_rodata(char *arg)
->  {
-> -	extern bool rodata_enabled;
-> -	extern bool rodata_full;
-> -
->  	if (!arg)
->  		return false;
+> > I got almost the same result while bisecting on ARM 32bit Exynos-based 
+> > boards, so the issue with this patchset is not fully ARM64 specific. For 
+> > some reasons it also doesn't affect all systems though. It is even 
+> > worse, because it affected only a subset of boards, but different for 
+> > each tested commit. The observed failure looks exactly the same:
+> 
+> I've now got the results for this specific commit, it looks like every
+> single arm64 system is failing.  I didn't test any other architectures.
 
-It would probably be cleaner to make 'rodata_full' static in mm/pageattr.c,
-move the guts of arch_parse_debug_rodata in there and then consolidate
-can_set_direct_map() and force_pte_mapping().
+Which one do you mean exactly with "this specific commit"?
 
-You need to talk to Ryan for the last part, as David's made some
-suggestions around that too.
+6a011a228293 ("vdso/datastore: Map pages through struct page")
+10d91dac2ea5 ("vdso/datastore: Allocate data pages dynamically")
 
-Will
+> > Then I've tested it on ARM64bit (RaspberrryPi3b+ board) and got the 
+> > following panic on 6a011a228293 ("vdso/datastore: Map pages through 
+> > struct page") commit:
+> 
+> I'm seeing the same thing on at least some of the systems - this is with
+> arm64 defconfig (I suspect that's what Marek is doing too).  For
+> example:
+
+I can now reproduce this issue, too. Even on QEMU. But it goes away,
+as soon as the second commit is applied. The two commits should be merged.
+That could also explain the weird bisection results, landing on either one
+of the commits. However I can't reproduce the "silent freeze" issue on commit
+10d91dac2ea5 ("vdso/datastore: Allocate data pages dynamically") on my
+Raspberry Pi 3b+.
+
+Any chance I could get remote access to one of your test machines?
+I don't have access to the exact machines and that should reduce the chance
+of chasing down dead ends.
+
+
+Thomas
 
