@@ -4,92 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36AACCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 090A0CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7TAMX5tgRxcaQgmnIz2dr5/J34h/wClq0GmkAjx/eU=; b=syNocl0L3FLd2b2P9uxw7ibjz+
-	GgbmaeKiy82BQ55zZlg3xH5jeK6o6rsBSczkdE2lNzA5iR3tYmsLSqM2kH2TLldSaxqmgkXIZUVdW
-	/0CZs1Bmz6H5XEJcr1DlUkJrlVx0rUy8mdPVL+/54A4pK9ewUN0VKMbX9W20PXTBMDxMIUyQ08WDB
-	b/spS8P3WBjHns+3o6EMHkMMe0j+jWBHFzWWJmD4AETPFm82sV/yvkUzIEdZRQvhACacsGvABAVxI
-	nowJO3PNx6dBSPtlI7zwtvT9nuN4u1K+Aec8QWEadGcHHWnXU8KEtW5grVjGQ8DDgE+KRngNjNm6j
-	ceajR6hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EnBmgltdB0ioImqveHX+xx4A4npVGPQ/LTprzZSJ+xY=; b=10MsISG5PwQeAEizrnNbXdcMYT
+	vQrpNKeYwPYIN1gBtjZhtBBosoEYPbqKTctYEO3AuvaCKDqqwgtI4aiNNpKK7pcBf5moeNILfcJIn
+	7WBWcV5zgJDKafg6mX4MaYRc9EUBtTy7d0SStCZlfPNugM+egghOwgeB1dxv1GF5qwgQxOyrfrmEt
+	NbT3qsaIgxvQuR6VmBKdQqgQuIKxskKrDRObHdf4xu0+Ao03ZegLCMXT37No/ONJZ9HfPr3Z3bA6D
+	xNUe1bB+1B2RgDfHRLuA3nmf0OPHoyqDEBlozik2bCybdDFHj9AHORVIz5hvSzJjqNW7SQyvi3SrR
+	9+12uh2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLMZ-0000000CKER-3xXI;
-	Tue, 04 Nov 2025 18:02:35 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLMX-0000000CKD6-1xWm
+	id 1vGLNX-0000000CKRj-1D0q;
+	Tue, 04 Nov 2025 18:03:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGLNU-0000000CKQs-0vRc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 18:02:34 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b55283ff3fcso4043684a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 10:02:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762279351; x=1762884151; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=z7TAMX5tgRxcaQgmnIz2dr5/J34h/wClq0GmkAjx/eU=;
-        b=CIcncL6ZiHm24mQDQPyBWq3Ar2EZWWn/pvbLdnjD9UiboDrc51VsxM/VsMfOAC3Jh3
-         w3VTlOSiyWa2mLG9GC89C7C1vJkKHrT4ac1XD8iXZSR9o/yXiUzgeLlpJSKxJWB9dvcm
-         32+nvJGdbiZ56GijykgX85qL04ZPVjKgVJ4dvmwp624+S6rdR5ZSaZP75+A5U9jyWG1Q
-         DOi35F9QO2lYdxR9eIrffWE9X0EQ5oAqbbt3PfatdEy536GEGXMqeOha5P5Nl+dL98+x
-         HtyqBmbpcMLsjrbnK8tyNIa1TtgD73nT6YdJoDbNtlyu9i8zA2VycJB4G5G5U/zMgtY1
-         F9IQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762279351; x=1762884151;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=z7TAMX5tgRxcaQgmnIz2dr5/J34h/wClq0GmkAjx/eU=;
-        b=BHPfl+T0epGHkXe028B8IRU3ZaHGCdPAsurv28Jqp2h2+9Zz8fGf7fej0Ms8t64QX+
-         wfcKF+4xwIfJnX/p0zQLVEqhRSfU1CgiVloA4FAs6KVK6olmQAIx6wdEpmiHD/IjjNQW
-         tpmmrlisElBZZHbOtb6iTYoyN+lK+skMHxyqf3jdxx6UkOXXVri4sTSPEKc9tlAJBVN+
-         TEiZBXWunqDg0TNCNp0tNiBZhG8m2RszkFZGq8U/V16FnnSNTr8hA2ujeUe80YxMlvlX
-         Nq1luqaxietvaTwcmvLGTG5klRQM/zH/rCaYCzKar7xDk9M/SJJtCo6TtkMB01uQCZvV
-         c5xg==
-X-Forwarded-Encrypted: i=1; AJvYcCU3MSaTafhI7z7j5drNPhAGwoEXS0HKvQBxJdeXhPoW/B5K2ZadfS9qUBlMowR7am1qEutxmi7JkbwN1GDWajMS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw29vJnYDM4N61Kayewwk/HzhOW5LOuTRQ2NsACl5ufrh0Q4u+Q
-	YKyffJqo1QWso+YykFnL8yXu5PyGMNoRpt/VfvSj90PAL2rUeL1PwHpSEgs//aRG1gcmoLLOua+
-	a/GAkRg==
-X-Google-Smtp-Source: AGHT+IEToeihVC8rNRp4WXHuCXbja7cJV9DF8/gVM9lRFkFysIMA8abH+TqAL0waWRxDGRap6/agKlo3e+8=
-X-Received: from pjbmv10.prod.google.com ([2002:a17:90b:198a:b0:340:d512:22dc])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:6d92:b0:32b:7222:7459
- with SMTP id adf61e73a8af0-34f8591c355mr151990637.34.1762279351036; Tue, 04
- Nov 2025 10:02:31 -0800 (PST)
-Date: Tue, 4 Nov 2025 10:02:26 -0800
-In-Reply-To: <31da959f-d004-4ae0-a6a7-d5d31b646b70@linux.intel.com>
-Mime-Version: 1.0
-References: <20251030200951.3402865-1-seanjc@google.com> <20251030200951.3402865-28-seanjc@google.com>
- <31da959f-d004-4ae0-a6a7-d5d31b646b70@linux.intel.com>
-Message-ID: <aQo_spywQuek7fUi@google.com>
-Subject: Re: [PATCH v4 27/28] KVM: TDX: Bug the VM if extending the initial
- measurement fails
-From: Sean Christopherson <seanjc@google.com>
-To: Binbin Wu <binbin.wu@linux.intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Yan Zhao <yan.y.zhao@intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
-	Ackerley Tng <ackerleytng@google.com>
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 04 Nov 2025 18:03:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A70B1CE0;
+	Tue,  4 Nov 2025 10:03:22 -0800 (PST)
+Received: from [10.57.71.89] (unknown [10.57.71.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D7923F694;
+	Tue,  4 Nov 2025 10:03:28 -0800 (PST)
+Message-ID: <fbe0d81a-c4c2-46f5-b809-1b74f9307c98@arm.com>
+Date: Tue, 4 Nov 2025 18:03:26 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 5/8] KVM: arm64: Fix Trace Buffer trap polarity for
+ protected VMs
+Content-Language: en-GB
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com,
+ yuzenghui@huawei.com, catalin.marinas@arm.com, vladimir.murzin@arm.com
+References: <20251104125906.1919426-1-tabba@google.com>
+ <20251104125906.1919426-6-tabba@google.com>
+ <a0b19558-dbcb-4231-b0c4-302cc10652db@arm.com>
+ <CA+EHjTwPqm5wkmdGK60sn+S9BizK6LG5bSqWQLigsZVgXoJmUw@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CA+EHjTwPqm5wkmdGK60sn+S9BizK6LG5bSqWQLigsZVgXoJmUw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_100233_503891_6A6C7D77 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20251104_100332_308554_5A232846 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,33 +69,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025, Binbin Wu wrote:
+On 04/11/2025 17:56, Fuad Tabba wrote:
+> Hi Suzuki,
 > 
+> On Tue, 4 Nov 2025 at 17:50, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>>
+>> On 04/11/2025 12:59, Fuad Tabba wrote:
+>>> The E2TB bits in MDCR_EL2 control trapping of Trace Buffer system
+>>> register accesses. These accesses are trapped to EL2 when the bits are
+>>> clear.
+>>>
+>>> The trap initialization logic for protected VMs in pvm_init_traps_mdcr()
+>>> had the polarity inverted. When a guest did not support the ExtTrcBuff
+>>> feature, the code was setting E2TB. This incorrectly disabled the trap,
+>>> potentially allowing a protected guest to access registers for a feature
+>>> it was not given.
+>>>
+>>> Fix this by inverting the operation.
+>>>
+>>> Fixes: f50758260bff ("KVM: arm64: Group setting traps for protected VMs by control register")
+>>> Signed-off-by: Fuad Tabba <tabba@google.com>
+>>> ---
+>>>    arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
+>>>    1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+>>> index 43bde061b65d..df0c59a29b35 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+>>> @@ -118,7 +118,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+>>>                val |= MDCR_EL2_TTRF;
+>>>
+>>>        if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, ExtTrcBuff, IMP))
+>>
+>> Why are we checkin ExtTrcBuff ? Shouldn't that be TraceBuffer ?
 > 
-> On 10/31/2025 4:09 AM, Sean Christopherson wrote:
-> > WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
-> > measurement should fail if and only if there is a KVM bug, or if the S-EPT
-> > mapping is invalid.  Now that KVM makes all state transitions mutually
-> > exclusive via tdx_vm_state_guard, it should be impossible for S-EPT
-> > mappings to be removed between kvm_tdp_mmu_map_private_pfn() and
-> > tdh_mr_extend().
-> > 
-> > Holding slots_lock prevents zaps due to memslot updates,
-> > filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
-> > vcpu->mutex locks prevents updates from other vCPUs, kvm->lock prevents
-> > VM-scoped ioctls from creating havoc (e.g. by creating new vCPUs), and all
-> > usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT entries that
-> > can be used for the initial image.
-> > 
-> > For kvm_zap_gfn_range(), the call from sev.c is obviously mutually
-> > exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_PAT so the same goes
-> > for kvm_noncoherent_dma_assignment_start_or_stop(), and
-> > __kvm_set_or_clear_apicv_inhibit() is blocked by virtue of holding all
-> > VM and vCPU mutexes (and the APIC page has its own non-guest_memfd memslot
+> This is an existing bug that needs to be fixed. Thank for spotting it.
 > 
-> Nit:
-> It sounds like TDX is using the memslot for the APIC page, but for a TD, the
-> memslot for the APIC page is never initialized or used?
+>>> -             val |= MDCR_EL2_E2TB_MASK;
+>>> +             val &= ~MDCR_EL2_E2TB_MASK;
+>> This looks correct to me.
+> 
+> I don't thin it's correct. E2TB traps when clear, not set:
+> https://developer.arm.com/documentation/ddi0601/2025-09/AArch64-Registers/MDCR-EL2--Monitor-Debug-Configuration-Register--EL2-
 
-Oh!  Good point.  I'll tweak that snippet when applying.
+I meant your change to val looks correct.
+
+Suzuki
+
+> 
+>> Suzuki
+>>
+>>>
+>>>        /* Trap Debug Communications Channel registers */
+>>>        if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, FGT, IMP))
+>>
+>>
+
 
