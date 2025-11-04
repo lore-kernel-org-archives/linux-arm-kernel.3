@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761B3CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978E8CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VMlfAlUP9v3JsGfjULVG+gf8uvtLv81h4yynv7rUlLA=; b=JBE3LoDaLMWXsufJFjcLUZTsSr
-	t7yqiwd6xiCo833eS8hXqwEkljEUCdWTk/qg/KOMt6gI52g9mH2OceNxm22v/WD6O0yDJ4Mi7aiBR
-	uRb12Dyn9V1JmFLgE2sjRfAd4tA8j3ooq/49lvIAQedHQ95CafkgR9FXRSJdbx7/ADcHbElgDI4Lb
-	W4CSE+/4pmAVf8OSxy4eMGkt6DlmqZpcWMKw/Ia2WKD4dmy2KaIUlhmOXo7wl9XGykKWBGvebJvbG
-	LYQPVBgtmoI4TeBNvC4f3epsFDC6j6GkuqrJ5KNoJ9/grToie+tmOt9VquhF0rPDl+YK53qQlw3zN
-	VKEb9OHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8SMKG09ykFsVqQzZfgacsbrGDCmXgaLtql3fEwgu9io=; b=0KKFV0U1zMcn/1qs1kn3aToL/N
+	vHoi5TW5bqf8fSOZAx6gS8S1wPuEnrjzmRsgdCaDVLnxVfdWjq0YQ+kCiKKiM9ewDfjWI+cBXDF1d
+	qIjrMGcUPebOpILkyQdRIeE/PiI7/TabkfP1Eg1K84jT2yNF6KkqbHcLd2R1caz/0RmG0VG/SZC+Q
+	F1X9no74txos81wsSr9E+jxaYzewLpRF6KuJssIF6v9UYpN95VlzTlWs+y8WC5eukWOTHysbKakQr
+	TKHHHqCIgNG/WxetJ+3bISlK+lZhCGapDbTK3HLn5aMJ34jSMjnEQ60NvHe1qZmk4nT4lg5aOSZ1W
+	UaqxA7lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDlk-0000000BZ9r-09Pb;
-	Tue, 04 Nov 2025 09:56:04 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1vGDnB-0000000BZXP-2s32;
+	Tue, 04 Nov 2025 09:57:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDlf-0000000BZ6T-0YFl
+	id 1vGDn9-0000000BZXF-3qj0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 09:56:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1762250155; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=VMlfAlUP9v3JsGfjULVG+gf8uvtLv81h4yynv7rUlLA=;
-	b=YoRKdPLRUOPYt8heKR/ZBTtFOWJEMBgFD5//ENL5eaAYdup0asKv/HBzarHPIgd48Cca+3JmDJWafyqTX16j9YqOSPUYwX5mxHMQRH2iufJ0/jEA6Sq9JcPV37zZ+21wzS378GLF+Gh+gwaGrLq2qTaZA1pSGA2je15dTyfhllE=
-Received: from localhost.localdomain(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WrgsU9w_1762250152 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 04 Nov 2025 17:55:52 +0800
-From: Huang Ying <ying.huang@linux.alibaba.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>
-Cc: Huang Ying <ying.huang@linux.alibaba.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Barry Song <baohua@kernel.org>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Zi Yan <ziy@nvidia.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Yin Fengwei <fengwei_yin@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH -v4 2/2] arm64, tlbflush: don't TLBI broadcast if page reused in write fault
-Date: Tue,  4 Nov 2025 17:55:16 +0800
-Message-Id: <20251104095516.7912-3-ying.huang@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20251104095516.7912-1-ying.huang@linux.alibaba.com>
-References: <20251104095516.7912-1-ying.huang@linux.alibaba.com>
+	Tue, 04 Nov 2025 09:57:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 154A6600AC;
+	Tue,  4 Nov 2025 09:57:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31B08C4CEF7;
+	Tue,  4 Nov 2025 09:57:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762250250;
+	bh=7En2OG3X7ZP2LUb4t379Rh8l5nm4w5x2WVKDBZXU++c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lxvUEd0/+QrkhLPYuBnQ/9h1tHeLa30JGm9ZsH19YCY3j/D5/jn/L7l/XEY3JVvtF
+	 Z+DgQdggz5BBwcqp740WVIHMei09l8oiE1p2QhTiYydS2lQZRT3FsE2X9BqBn94k+H
+	 HqaEZD9WbXUKCbpAhnFbe5HtIBPdmja9P9bg/znjqY3OzlVkKIWFi1ki6yLj6VnOe7
+	 NwO+6fJYCl/wfdzvsp3Q06QtAOArsSNjyqP9s/WLt30+gFrqgPzJwj57suwQgvFfgq
+	 elpcMz/GB9twDSJfYfhzAfdI2s0iXiNO7+xbjIFE+vsJnhVE/9DBs8SAsy1L+w+FE2
+	 kmGj+fxz5zC9g==
+Date: Tue, 4 Nov 2025 10:57:28 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v2 1/3] media: dt-bindings: nxp,imx8-isi: Add i.MX95 ISI
+ compatible string
+Message-ID: <20251104-tricky-stallion-of-tenacity-a8e81b@kuoka>
+References: <20251104-isi_imx95-v2-0-c05b7cb104cd@nxp.com>
+ <20251104-isi_imx95-v2-1-c05b7cb104cd@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_015559_889556_E52058A4 
-X-CRM114-Status: GOOD (  24.61  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251104-isi_imx95-v2-1-c05b7cb104cd@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,204 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A multi-thread customer workload with large memory footprint uses
-fork()/exec() to run some external programs every tens seconds.  When
-running the workload on an arm64 server machine, it's observed that
-quite some CPU cycles are spent in the TLB flushing functions.  While
-running the workload on the x86_64 server machine, it's not.  This
-causes the performance on arm64 to be much worse than that on x86_64.
+On Tue, Nov 04, 2025 at 11:21:05AM +0800, Guoniu Zhou wrote:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx95-isi
+> +    then:
+> +      properties:
+> +        interrupts:
+> +          minItems: 8
+> +        ports:
+> +          properties:
+> +            port@0:
+> +              description: Pixel Link Slave 0
+> +            port@1:
+> +              description: Pixel Link Slave 1
+> +            port@2:
+> +              description: MIPI CSI-2 RX 0
+> +            port@3:
+> +              description: MIPI CSI-2 RX 1
+> +          required:
+> +            - port@2
+> +            - port@3
+> +    else:
 
-During the workload running, after fork()/exec() write-protects all
-pages in the parent process, memory writing in the parent process
-will cause a write protection fault.  Then the page fault handler
-will make the PTE/PDE writable if the page can be reused, which is
-almost always true in the workload.  On arm64, to avoid the write
-protection fault on other CPUs, the page fault handler flushes the TLB
-globally with TLBI broadcast after changing the PTE/PDE.  However, this
-isn't always necessary.  Firstly, it's safe to leave some stale
-read-only TLB entries as long as they will be flushed finally.
-Secondly, it's quite possible that the original read-only PTE/PDEs
-aren't cached in remote TLB at all if the memory footprint is large.
-In fact, on x86_64, the page fault handler doesn't flush the remote
-TLB in this situation, which benefits the performance a lot.
+Drop the else and instead add if:then: blocks per each variant where you
+correctly constrain the interrupts.
 
-To improve the performance on arm64, make the write protection fault
-handler flush the TLB locally instead of globally via TLBI broadcast
-after making the PTE/PDE writable.  If there are stale read-only TLB
-entries in the remote CPUs, the page fault handler on these CPUs will
-regard the page fault as spurious and flush the stale TLB entries.
-
-To test the patchset, make the usemem.c from
-vm-scalability (https://git.kernel.org/pub/scm/linux/kernel/git/wfg/vm-scalability.git).
-support calling fork()/exec() periodically.  To mimic the behavior of
-the customer workload, run usemem with 4 threads, access 100GB memory,
-and call fork()/exec() every 40 seconds.  Test results show that with
-the patchset the score of usemem improves ~40.6%.  The cycles% of TLB
-flush functions reduces from ~50.5% to ~0.3% in perf profile.
-
-Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Reviewed-by: Barry Song <baohua@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>
-Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: Dev Jain <dev.jain@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org
----
- arch/arm64/include/asm/pgtable.h  | 14 +++++---
- arch/arm64/include/asm/tlbflush.h | 56 +++++++++++++++++++++++++++++++
- arch/arm64/mm/contpte.c           |  3 +-
- arch/arm64/mm/fault.c             |  2 +-
- 4 files changed, 67 insertions(+), 8 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0944e296dd4a..9e1ff5195bde 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -130,12 +130,16 @@ static inline void arch_leave_lazy_mmu_mode(void)
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
- 
- /*
-- * Outside of a few very special situations (e.g. hibernation), we always
-- * use broadcast TLB invalidation instructions, therefore a spurious page
-- * fault on one CPU which has been handled concurrently by another CPU
-- * does not need to perform additional invalidation.
-+ * We use local TLB invalidation instruction when reusing page in
-+ * write protection fault handler to avoid TLBI broadcast in the hot
-+ * path.  This will cause spurious page faults if stale read-only TLB
-+ * entries exist.
-  */
--#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
-+#define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
-+	local_flush_tlb_page_nonotify(vma, address)
-+
-+#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
-+	local_flush_tlb_page_nonotify(vma, address)
- 
- /*
-  * ZERO_PAGE is a global shared page that is always zero: used
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 18a5dc0c9a54..5c8f88fa5e40 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -249,6 +249,19 @@ static inline unsigned long get_trans_granule(void)
-  *		cannot be easily determined, the value TLBI_TTL_UNKNOWN will
-  *		perform a non-hinted invalidation.
-  *
-+ *	local_flush_tlb_page(vma, addr)
-+ *		Local variant of flush_tlb_page().  Stale TLB entries may
-+ *		remain in remote CPUs.
-+ *
-+ *	local_flush_tlb_page_nonotify(vma, addr)
-+ *		Same as local_flush_tlb_page() except MMU notifier will not be
-+ *		called.
-+ *
-+ *	local_flush_tlb_contpte(vma, addr)
-+ *		Invalidate the virtual-address range
-+ *		'[addr, addr+CONT_PTE_SIZE)' mapped with contpte on local CPU
-+ *		for the user address space corresponding to 'vma->mm'.  Stale
-+ *		TLB entries may remain in remote CPUs.
-  *
-  *	Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
-  *	on top of these routines, since that is our interface to the mmu_gather
-@@ -282,6 +295,33 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
- 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
- }
- 
-+static inline void __local_flush_tlb_page_nonotify_nosync(
-+	struct mm_struct *mm, unsigned long uaddr)
-+{
-+	unsigned long addr;
-+
-+	dsb(nshst);
-+	addr = __TLBI_VADDR(uaddr, ASID(mm));
-+	__tlbi(vale1, addr);
-+	__tlbi_user(vale1, addr);
-+}
-+
-+static inline void local_flush_tlb_page_nonotify(
-+	struct vm_area_struct *vma, unsigned long uaddr)
-+{
-+	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
-+	dsb(nsh);
-+}
-+
-+static inline void local_flush_tlb_page(struct vm_area_struct *vma,
-+					unsigned long uaddr)
-+{
-+	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
-+	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
-+						(uaddr & PAGE_MASK) + PAGE_SIZE);
-+	dsb(nsh);
-+}
-+
- static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
- 					   unsigned long uaddr)
- {
-@@ -472,6 +512,22 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
- 	dsb(ish);
- }
- 
-+static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
-+					   unsigned long addr)
-+{
-+	unsigned long asid;
-+
-+	addr = round_down(addr, CONT_PTE_SIZE);
-+
-+	dsb(nshst);
-+	asid = ASID(vma->vm_mm);
-+	__flush_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid,
-+			     3, true, lpa2_is_enabled());
-+	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
-+						    addr + CONT_PTE_SIZE);
-+	dsb(nsh);
-+}
-+
- static inline void flush_tlb_range(struct vm_area_struct *vma,
- 				   unsigned long start, unsigned long end)
- {
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index c0557945939c..589bcf878938 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -622,8 +622,7 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
- 			__ptep_set_access_flags(vma, addr, ptep, entry, 0);
- 
- 		if (dirty)
--			__flush_tlb_range(vma, start_addr, addr,
--							PAGE_SIZE, true, 3);
-+			local_flush_tlb_contpte(vma, start_addr);
- 	} else {
- 		__contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
- 		__ptep_set_access_flags(vma, addr, ptep, entry, dirty);
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index d816ff44faff..22f54f5afe3f 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -235,7 +235,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
- 
- 	/* Invalidate a stale read-only entry */
- 	if (dirty)
--		flush_tlb_page(vma, address);
-+		local_flush_tlb_page(vma, address);
- 	return 1;
- }
- 
--- 
-2.39.5
+Best regards,
+Krzysztof
 
 
