@@ -4,50 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A62CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECBECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rSWenVj2+7fEyjwrY9GzjdbeLNu/2sr2FPNzJ2bILbM=; b=KlSzKoRv+zpac/9pIZdRWNd0dW
-	id4IHTCNItET7Ex0HKMtfU75pmyl75ngbg24TWlUYMKp0Tv9pEcjiWbPvVJ1FGPrn+f8CmOZiIULy
-	kNRWbBs8rR4G/Fp1EUVJhLgi48OSxlzoamIzuBJ4dxrDLJhCdRqneX1o4g9/5LHqd0WRdyCZp5Ck1
-	/YzpM4J0EtOB8qkqO2UYXCUEK27/JCZTvdbIdb3E5hceMFmzClOpPN8T953SJNxDhNH1l+0jNrKzC
-	vQIDtd/mgtTKBE/WGmehVYxu1WQflEoFrBsVERKQwKTw8lmIfCgQ/wc6Go4DqJQMPzqZstibBFAqT
-	XevciTtg==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hglUExweMVsY7DSMynSy081FOf6eRb8tRUYRhO0Q/8g=; b=InpN1yiPYzCbNiATPFlnFf25ox
+	oMGA2Vhq/Gx259yciG/LB8vyPy5eA5Ser8xHGRlKq8oIaGlXJjEROX+dhGoJgCsPbO8o6ptWR2qtH
+	jEcHnCE37T0tPMZ8fBpKxih9wSRR+ugF4VpuzbLKx4jC7UBgrOg/iKBqIYjOvzkPC9RwvPegVm0/m
+	89bKr0uniJHW01Yl1PHBvCNoimcFRIwSKuyw6gTDliAT5PfIqFWA0u3elNpqK3T6BJKS+eX1HQpBL
+	xVesCb4HKUsVNm95ofWqUZFMV4lBEPypAZdqBjAIM3SPETI/s93t6dDd4xMbzkitnUonPHuE7Waea
+	dr3+kFxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLn0-0000000COpa-3vXT;
-	Tue, 04 Nov 2025 18:29:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLmy-0000000COoU-0i6U
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 18:29:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C69A61CE0;
-	Tue,  4 Nov 2025 10:29:40 -0800 (PST)
-Received: from 010265703453.cambridge.arm.com (010265703453.cambridge.arm.com [10.1.33.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D22D23F694;
-	Tue,  4 Nov 2025 10:29:47 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] perf/arm-ni: Fix and optimise register offset calculation
-Date: Tue,  4 Nov 2025 18:29:40 +0000
-Message-Id: <5db610facd51b81af04b1afee53191836315b17a.1762264719.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.34.1
+	id 1vGLqh-0000000CQl7-0BMT;
+	Tue, 04 Nov 2025 18:33:43 +0000
+Received: from mout.web.de ([217.72.192.78])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGLqe-0000000CQkP-138b;
+	Tue, 04 Nov 2025 18:33:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1762281199; x=1762885999; i=markus.elfring@web.de;
+	bh=hglUExweMVsY7DSMynSy081FOf6eRb8tRUYRhO0Q/8g=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Qfhc1Q3Ahhq2qUafW3xX70XeZbBtleb8cTBujSidrq/BqMPWoRd0BOii0+h+EX2R
+	 GmtcLxqq9NH6PdAIe/cPTgn6VXIg4JwlMmNwEFI7Efu6cB3rfYTY08qIQLSH23vAy
+	 E2+nWobgzLH6SydG3X4/hwyZsauoBOOWHwHgd9At2YeK4RENd7VxDnQuGioN6jqAv
+	 M1+2EbxuHzscfPD/jQWciPoaehgjpGWPcnZHW8GsPzkYnC9ViwTDa0oOqVwleE8zc
+	 aqpPGyYswEjLQ8UjNAV65tkZWiA+8vaa9GiXlxLD4xgXqHeFRGulmghO0fBhXa9rH
+	 p01Hct6jBPxRAbTcFg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.92.227]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MqqTb-1w3DFW0aLB-00o6JQ; Tue, 04
+ Nov 2025 19:33:19 +0100
+Message-ID: <ea93f13a-ed14-44c7-ae01-edaea845e65d@web.de>
+Date: Tue, 4 Nov 2025 19:33:14 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+To: vulab@iscas.ac.cn, linux-mtd@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Vladimir Zapolskiy <vz@mleia.com>
+References: <20251104014042.1389-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH v2] mtd: rawnand: lpc32xx_slc: fix GPIO descriptor leak
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20251104014042.1389-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:KAY6UE17GKP5TI7ajDXJQsM3CZhA63IE27tryqBBHJtnt3maIEH
+ tDvJBsbGcH8RYSCf5nJYuFS6tGadmTM0Iep0doxSxmxFlYH5GjrdfKnEHHZu+bPa+bVNnJT
+ ByNkfgHK5bJm+2T3Ju8FFY1+P6D81vp4KXU3uUVsTyBdwGgnczcAT1mxvRuP/LgCCvf9io3
+ FUAILCimF8aLri+d9mBNg==
+UI-OutboundReport: notjunk:1;M01:P0:DDDlCo5CR4A=;rJ3ipbut/1toseLC1tZCjMW83S+ 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 80EHQylmKWI/yl0cKugkYYbLSk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_102952_257445_18879560 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20251104_103340_575339_2BBF9FFF 
+X-CRM114-Status: UNSURE (   5.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,88 +85,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LKP points out an operator precedence oversight in the new NoC S3
-support that, annoyingly, my local W=1 build didn't flag. In fixing
-that, we can also take the similarly-missed opportunity to cache the
-version check itself at event_init time.
+> The driver calls gpiod_get_optional() in the probe function but
+> never calls gpiod_put() in the remove function or in the probe
+=E2=80=A6
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202511041749.ok8zDP6u-lkp@intel.com/
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/perf/arm-ni.c | 21 ++++++++++++---------
- 1 file changed, 12 insertions(+), 9 deletions(-)
+You may occasionally put more than 63 characters into text lines
+of such a change description.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.18-rc4#n658
 
-diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-index aa824abc629e..66858c65215d 100644
---- a/drivers/perf/arm-ni.c
-+++ b/drivers/perf/arm-ni.c
-@@ -323,9 +323,15 @@ static int arm_ni_validate_group(struct perf_event *event)
- 	return 0;
- }
- 
-+static bool arm_ni_is_7xx(const struct arm_ni *ni)
-+{
-+	return ni->part == PART_NI_700 || ni->part == PART_NI_710AE;
-+}
-+
- static int arm_ni_event_init(struct perf_event *event)
- {
- 	struct arm_ni_cd *cd = pmu_to_cd(event->pmu);
-+	struct arm_ni *ni;
- 
- 	if (event->attr.type != event->pmu->type)
- 		return -ENOENT;
-@@ -333,7 +339,10 @@ static int arm_ni_event_init(struct perf_event *event)
- 	if (is_sampling_event(event))
- 		return -EINVAL;
- 
--	event->cpu = cd_to_ni(cd)->cpu;
-+	ni = cd_to_ni(cd);
-+	event->cpu = ni->cpu;
-+	event->hw.flags = arm_ni_is_7xx(ni);
-+
- 	if (NI_EVENT_TYPE(event) == NI_PMU)
- 		return arm_ni_validate_group(event);
- 
-@@ -411,18 +420,12 @@ static void arm_ni_init_evcnt(struct hw_perf_event *hw)
- 	writel_relaxed(S32_MIN, (void __iomem *)hw->event_base);
- }
- 
--static bool arm_ni_is_7xx(const struct arm_ni *ni)
--{
--	return ni->part == PART_NI_700 || ni->part == PART_NI_710AE;
--}
--
- static int arm_ni_event_add(struct perf_event *event, int flags)
- {
- 	struct arm_ni_cd *cd = pmu_to_cd(event->pmu);
- 	struct hw_perf_event *hw = &event->hw;
- 	struct arm_ni_unit *unit;
- 	enum ni_node_type type = NI_EVENT_TYPE(event);
--	bool is_7xx = arm_ni_is_7xx(cd_to_ni(cd));
- 	u32 reg;
- 
- 	if (type == NI_PMU) {
-@@ -430,7 +433,7 @@ static int arm_ni_event_add(struct perf_event *event, int flags)
- 			return -ENOSPC;
- 		hw->idx = NI_CCNT_IDX;
- 		hw->event_base = (unsigned long)cd->pmu_base +
--				 is_7xx ? NI700_PMCCNTR_L : NI_PMCCNTR_L;
-+				 (hw->flags ? NI700_PMCCNTR_L : NI_PMCCNTR_L);
- 		cd->ccnt = event;
- 		arm_ni_init_ccnt(hw);
- 	} else {
-@@ -443,7 +446,7 @@ static int arm_ni_event_add(struct perf_event *event, int flags)
- 		unit = (void *)hw->config_base;
- 		unit->event[hw->idx] = NI_EVENT_EVENTID(event);
- 		hw->event_base = (unsigned long)cd->pmu_base +
--				 is_7xx ? NI700_PMEVCNTR(hw->idx) : NI_PMEVCNTR(hw->idx);
-+				 (hw->flags ? NI700_PMEVCNTR(hw->idx) : NI_PMEVCNTR(hw->idx));
- 		arm_ni_init_evcnt(hw);
- 		lo_hi_writeq_relaxed(le64_to_cpu(unit->pmusel), unit->pmusela);
- 
--- 
-2.34.1
-
+Regards,
+Markus
 
