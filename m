@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479F5CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 06:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57E0CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 06:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQjuQovI+DE5aEgrD8ao68XCI3hF3vc81XPiTkTYtXM=; b=L2KB+LbFdIY7GeRYzGbClDSjJX
-	H5JliJ1fXTzqnSjcE5h5PEWfknF4kWBFmkufpLAgB1fdAxg0Z4EZQkZIo7MBTHIuY8GbOtN1b1uky
-	yqu2rS2x7aSxzOzXB/7KoSa7cj6teRmQsupIOpmOqHflh4E63S4HWj+k207jeByTMqv/kB1cu2Urj
-	ImHenmqTz4JfJjVjR8PqfwlYygknyt/rmTJXNNhJ/jgD7kcFe7QoNsI0K+twq4py/Gya5VFt6+nSu
-	8GtA4+G8cBSeeQ6ADUCguXBORY5/vWO2qkNCUllrAGXb2tJut8gm/PGqZ6UEi6YxiNnoJEmJ5TDve
-	jZF+tSzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iWKUVu/aLMFS8NUwzo8+QJvcsOHH1kpUXdzxrO4MflQ=; b=fvYpvmzsBZxhyWAZQy04tQAG42
+	bvEYCBpGVW8ys+q8S/Puc/mCsVFy4ZcBQKSOVIbqGdGSEjQPxS9AVr6MHVRY2xyE7Cyfk3tLPXoBY
+	3GAtXrEYkUehZdd0cUO4WWd5ngHNEf0g+zONye0rDH0JJKs1YcY6GE6pD3sAHze+xRSCoANwDXsKH
+	8sIr/gwWZ6R6Qu56KWXufWaB9umPaMc4VExBQfQWwY5abGOIQXY2JRSPOM0ruoMInDLC1YBr6918t
+	Pmr0NNl8Q+8FS5KOn7W3ObB2SG3IqY3KhQjLqR+2NZUXSBDUFz1C36DKnrXKWYrpicSAhDrAK2Jet
+	Zpd3Zm1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGAsA-0000000BGjQ-3y1w;
-	Tue, 04 Nov 2025 06:50:30 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGAs7-0000000BGfH-3BBG;
-	Tue, 04 Nov 2025 06:50:29 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4d0yxp0klwz9sSR;
-	Tue,  4 Nov 2025 07:20:46 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id UV5jl7N85Xo4; Tue,  4 Nov 2025 07:20:45 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4d0yxn6M0bz9sRy;
-	Tue,  4 Nov 2025 07:20:45 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id BCCBB8B76C;
-	Tue,  4 Nov 2025 07:20:45 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id UwygSlglnvtI; Tue,  4 Nov 2025 07:20:45 +0100 (CET)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id BC23D8B763;
-	Tue,  4 Nov 2025 07:20:43 +0100 (CET)
-Message-ID: <0049a144-be4d-46ca-acaf-cfe37ff06e6e@csgroup.eu>
-Date: Tue, 4 Nov 2025 07:20:42 +0100
+	id 1vGAt5-0000000BHMy-0sbs;
+	Tue, 04 Nov 2025 06:51:27 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGAt0-0000000BHIE-14cr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 06:51:25 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4d0zbB3GC9zpStT;
+	Tue,  4 Nov 2025 14:49:42 +0800 (CST)
+Received: from kwepemr500004.china.huawei.com (unknown [7.202.195.141])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3A73314027A;
+	Tue,  4 Nov 2025 14:51:11 +0800 (CST)
+Received: from localhost.localdomain (10.90.31.46) by
+ kwepemr500004.china.huawei.com (7.202.195.141) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 4 Nov 2025 14:51:10 +0800
+From: Jie Zhan <zhanjie9@hisilicon.com>
+To: <viresh.kumar@linaro.org>, <rafael@kernel.org>, <ionela.voinescu@arm.com>,
+	<beata.michalska@arm.com>
+CC: <linux-pm@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>,
+	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>,
+	<prime.zeng@hisilicon.com>, <jonathan.cameron@huawei.com>
+Subject: [PATCH v3] cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs
+Date: Tue, 4 Nov 2025 14:50:39 +0800
+Message-ID: <20251104065039.1675549-1-zhanjie9@hisilicon.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V5 07/12] uaccess: Provide scoped user access regions
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- David Laight <david.laight.linux@gmail.com>,
- kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-References: <20251027083700.573016505@linutronix.de>
- <20251027083745.546420421@linutronix.de>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <20251027083745.546420421@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr500004.china.huawei.com (7.202.195.141)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_225028_324603_70D07408 
-X-CRM114-Status: GOOD (  44.72  )
+X-CRM114-CacheID: sfid-20251103_225122_674520_14FCDF5E 
+X-CRM114-Status: GOOD (  23.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,355 +71,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Currently, the CPPC Frequency Invariance Engine (FIE) is invoked from the
+scheduler tick but defers the update of arch_freq_scale to a separate
+thread because cppc_get_perf_ctrs() would sleep if the CPC regs are in PCC.
 
+However, this deferred update mechanism is unnecessary and introduces extra
+overhead for non-PCC register spaces (e.g. System Memory or FFH), where
+accessing the regs won't sleep and can be safely performed from the tick
+context.
 
-Le 27/10/2025 à 09:43, Thomas Gleixner a écrit :
-> User space access regions are tedious and require similar code patterns all
-> over the place:
-> 
->       	if (!user_read_access_begin(from, sizeof(*from)))
-> 		return -EFAULT;
-> 	unsafe_get_user(val, from, Efault);
-> 	user_read_access_end();
-> 	return 0;
-> Efault:
-> 	user_read_access_end();
-> 	return -EFAULT;
-> 
-> This got worse with the recent addition of masked user access, which
-> optimizes the speculation prevention:
-> 
-> 	if (can_do_masked_user_access())
-> 		from = masked_user_read_access_begin((from));
-> 	else if (!user_read_access_begin(from, sizeof(*from)))
-> 		return -EFAULT;
-> 	unsafe_get_user(val, from, Efault);
-> 	user_read_access_end();
-> 	return 0;
-> Efault:
-> 	user_read_access_end();
-> 	return -EFAULT;
-> 
-> There have been issues with using the wrong user_*_access_end() variant in
-> the error path and other typical Copy&Pasta problems, e.g. using the wrong
-> fault label in the user accessor which ends up using the wrong accesss end
-> variant.
-> 
-> These patterns beg for scopes with automatic cleanup. The resulting outcome
-> is:
->      	scoped_user_read_access(from, Efault)
-> 		unsafe_get_user(val, from, Efault);
-> 	return 0;
->    Efault:
-> 	return -EFAULT;
-> 
-> The scope guarantees the proper cleanup for the access mode is invoked both
-> in the success and the failure (fault) path.
-> 
-> The scoped_user_$MODE_access() macros are implemented as self terminating
-> nested for() loops. Thanks to Andrew Cooper for pointing me at them. The
-> scope can therefore be left with 'break', 'goto' and 'return'.  Even
-> 'continue' "works" due to the self termination mechanism. Both GCC and
-> clang optimize all the convoluted macro maze out and the above results with
-> clang in:
-> 
->   b80:	f3 0f 1e fa          	       endbr64
->   b84:	48 b8 ef cd ab 89 67 45 23 01  movabs $0x123456789abcdef,%rax
->   b8e:	48 39 c7    	               cmp    %rax,%rdi
->   b91:	48 0f 47 f8          	       cmova  %rax,%rdi
->   b95:	90                   	       nop
->   b96:	90                   	       nop
->   b97:	90                   	       nop
->   b98:	31 c9                	       xor    %ecx,%ecx
->   b9a:	8b 07                	       mov    (%rdi),%eax
->   b9c:	89 06                	       mov    %eax,(%rsi)
->   b9e:	85 c9                	       test   %ecx,%ecx
->   ba0:	0f 94 c0             	       sete   %al
->   ba3:	90                   	       nop
->   ba4:	90                   	       nop
->   ba5:	90                   	       nop
->   ba6:	c3                   	       ret
-> 
-> Which looks as compact as it gets. The NOPs are placeholder for STAC/CLAC.
-> GCC emits the fault path seperately:
-> 
->   bf0:	f3 0f 1e fa          	       endbr64
->   bf4:	48 b8 ef cd ab 89 67 45 23 01  movabs $0x123456789abcdef,%rax
->   bfe:	48 39 c7             	       cmp    %rax,%rdi
->   c01:	48 0f 47 f8          	       cmova  %rax,%rdi
->   c05:	90                   	       nop
->   c06:	90                   	       nop
->   c07:	90                   	       nop
->   c08:	31 d2                	       xor    %edx,%edx
->   c0a:	8b 07                	       mov    (%rdi),%eax
->   c0c:	89 06                	       mov    %eax,(%rsi)
->   c0e:	85 d2                	       test   %edx,%edx
->   c10:	75 09                	       jne    c1b <afoo+0x2b>
->   c12:	90                   	       nop
->   c13:	90                   	       nop
->   c14:	90                   	       nop
->   c15:	b8 01 00 00 00       	       mov    $0x1,%eax
->   c1a:	c3                   	       ret
->   c1b:	90                   	       nop
->   c1c:	90                   	       nop
->   c1d:	90                   	       nop
->   c1e:	31 c0                	       xor    %eax,%eax
->   c20:	c3                   	       ret
-> 
-> 
-> The fault labels for the scoped*() macros and the fault labels for the
-> actual user space accessors can be shared and must be placed outside of the
-> scope.
-> 
-> If masked user access is enabled on an architecture, then the pointer
-> handed in to scoped_user_$MODE_access() can be modified to point to a
-> guaranteed faulting user address. This modification is only scope local as
-> the pointer is aliased inside the scope. When the scope is left the alias
-> is not longer in effect. IOW the original pointer value is preserved so it
-> can be used e.g. for fixup or diagnostic purposes in the fault path.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> Cc: Andrew Cooper <andrew.cooper3@citrix.com>
-> Cc: Linus Torvalds <torvalds@linux-foundation.org>
-> Cc: David Laight <david.laight.linux@gmail.com>
-> ---
-> V4: Remove the _masked_ naming as it's actually confusing - David
->      Remove underscores and make _tmpptr void - David
->      Add comment about access size and range - David
->      Shorten local variables and remove a few unneeded brackets - Mathieu
-> V3: Make it a nested for() loop
->      Get rid of the code in macro parameters - Linus
->      Provide sized variants - Mathieu
-> V2: Remove the shady wrappers around the opening and use scopes with automatic cleanup
-> ---
->   include/linux/uaccess.h |  192 ++++++++++++++++++++++++++++++++++++++++++++++++
->   1 file changed, 192 insertions(+)
-> 
-> --- a/include/linux/uaccess.h
-> +++ b/include/linux/uaccess.h
-> @@ -2,6 +2,7 @@
->   #ifndef __LINUX_UACCESS_H__
->   #define __LINUX_UACCESS_H__
->   
-> +#include <linux/cleanup.h>
->   #include <linux/fault-inject-usercopy.h>
->   #include <linux/instrumented.h>
->   #include <linux/minmax.h>
-> @@ -35,9 +36,17 @@
->   
->   #ifdef masked_user_access_begin
->    #define can_do_masked_user_access() 1
-> +# ifndef masked_user_write_access_begin
-> +#  define masked_user_write_access_begin masked_user_access_begin
-> +# endif
-> +# ifndef masked_user_read_access_begin
-> +#  define masked_user_read_access_begin masked_user_access_begin
-> +#endif
+Furthermore, with the CPPC FIE registered, it throws repeated warnings of
+"cppc_scale_freq_workfn: failed to read perf counters" on our platform with
+the CPC regs in System Memory and a power-down idle state enabled.  That's
+because the remote CPU can be in a power-down idle state, and reading its
+perf counters returns 0.  Moving the FIE handling back to the scheduler
+tick process makes the CPU handle its own perf counters, so it won't be
+idle and the issue would be inherently solved.
 
-You should move this out of the #ifdef/#else and remove the #else part 
-below, it should work as masked_user_access_begin(src) is defined in 
-both cases.
+To address the above issues, update arch_freq_scale directly in ticks for
+non-PCC regs and keep the deferred update mechanism for PCC regs.
 
->   #else
->    #define can_do_masked_user_access() 0
->    #define masked_user_access_begin(src) NULL
-> + #define masked_user_read_access_begin(src) NULL
-> + #define masked_user_write_access_begin(src) NULL
->    #define mask_user_address(src) (src)
->   #endif
->   
-> @@ -633,6 +642,189 @@ static inline void user_access_restore(u
->   #define user_read_access_end user_access_end
->   #endif
->   
-> +/* Define RW variant so the below _mode macro expansion works */
-> +#define masked_user_rw_access_begin(u)	masked_user_access_begin(u)
-> +#define user_rw_access_begin(u, s)	user_access_begin(u, s)
-> +#define user_rw_access_end()		user_access_end()
-> +
-> +/* Scoped user access */
-> +#define USER_ACCESS_GUARD(_mode)				\
-> +static __always_inline void __user *				\
-> +class_user_##_mode##_begin(void __user *ptr)			\
-> +{								\
-> +	return ptr;						\
-> +}								\
-> +								\
-> +static __always_inline void					\
-> +class_user_##_mode##_end(void __user *ptr)			\
-> +{								\
-> +	user_##_mode##_access_end();				\
-> +}								\
-> +								\
-> +DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
-> +	     class_user_##_mode##_end(_T),			\
-> +	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
-> +								\
-> +static __always_inline class_user_##_mode##_access_t		\
-> +class_user_##_mode##_access_ptr(void __user *scope)		\
-> +{								\
-> +	return scope;						\
-> +}
-> +
-> +USER_ACCESS_GUARD(read)
-> +USER_ACCESS_GUARD(write)
-> +USER_ACCESS_GUARD(rw)
-> +#undef USER_ACCESS_GUARD
-> +
-> +/**
-> + * __scoped_user_access_begin - Start a scoped user access
-> + * @mode:	The mode of the access class (read, write, rw)
-> + * @uptr:	The pointer to access user space memory
-> + * @size:	Size of the access
-> + * @elbl:	Error label to goto when the access region is rejected
-> + *
-> + * Internal helper for __scoped_user_access(). Don't use directly
-> + */
-> +#define __scoped_user_access_begin(mode, uptr, size, elbl)		\
-> +({									\
-> +	typeof(uptr) __retptr;						\
-> +									\
-> +	if (can_do_masked_user_access()) {				\
-> +		__retptr = masked_user_##mode##_access_begin(uptr);	\
-> +	} else {							\
-> +		__retptr = uptr;					\
-> +		if (!user_##mode##_access_begin(uptr, size))		\
-> +			goto elbl;					\
-> +	}								\
-> +	__retptr;							\
-> +})
-> +
-> +/**
-> + * __scoped_user_access - Open a scope for user access
-> + * @mode:	The mode of the access class (read, write, rw)
-> + * @uptr:	The pointer to access user space memory
-> + * @size:	Size of the access
-> + * @elbl:	Error label to goto when the access region is rejected. It
-> + *		must be placed outside the scope
-> + *
-> + * If the user access function inside the scope requires a fault label, it
-> + * can use @elvl or a different label outside the scope, which requires
-> + * that user access which is implemented with ASM GOTO has been properly
-> + * wrapped. See unsafe_get_user() for reference.
-> + *
-> + *	scoped_user_rw_access(ptr, efault) {
-> + *		unsafe_get_user(rval, &ptr->rval, efault);
-> + *		unsafe_put_user(wval, &ptr->wval, efault);
-> + *	}
-> + *	return 0;
-> + *  efault:
-> + *	return -EFAULT;
-> + *
-> + * The scope is internally implemented as a autoterminating nested for()
-> + * loop, which can be left with 'return', 'break' and 'goto' at any
-> + * point.
-> + *
-> + * When the scope is left user_##@_mode##_access_end() is automatically
-> + * invoked.
-> + *
-> + * When the architecture supports masked user access and the access region
-> + * which is determined by @uptr and @size is not a valid user space
-> + * address, i.e. < TASK_SIZE, the scope sets the pointer to a faulting user
-> + * space address and does not terminate early. This optimizes for the good
-> + * case and lets the performance uncritical bad case go through the fault.
-> + *
-> + * The eventual modification of the pointer is limited to the scope.
-> + * Outside of the scope the original pointer value is unmodified, so that
-> + * the original pointer value is available for diagnostic purposes in an
-> + * out of scope fault path.
-> + *
-> + * Nesting scoped user access into a user access scope is invalid and fails
-> + * the build. Nesting into other guards, e.g. pagefault is safe.
-> + *
-> + * The masked variant does not check the size of the access and relies on a
-> + * mapping hole (e.g. guard page) to catch an out of range pointer, the
-> + * first access to user memory inside the scope has to be within
-> + * @uptr ... @uptr + PAGE_SIZE - 1
-> + *
-> + * Don't use directly. Use scoped_masked_user_$MODE_access() instead.
-> + */
-> +#define __scoped_user_access(mode, uptr, size, elbl)					\
-> +for (bool done = false; !done; done = true)						\
-> +	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
-> +	     !done; done = true)							\
-> +		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
-> +			/* Force modified pointer usage within the scope */		\
-> +			for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
-> +
-> +/**
-> + * scoped_user_read_access_size - Start a scoped user read access with given size
-> + * @usrc:	Pointer to the user space address to read from
-> + * @size:	Size of the access starting from @usrc
-> + * @elbl:	Error label to goto when the access region is rejected
-> + *
-> + * For further information see __scoped_user_access() above.
-> + */
-> +#define scoped_user_read_access_size(usrc, size, elbl)		\
-> +	__scoped_user_access(read, usrc, size, elbl)
-> +
-> +/**
-> + * scoped_user_read_access - Start a scoped user read access
-> + * @usrc:	Pointer to the user space address to read from
-> + * @elbl:	Error label to goto when the access region is rejected
-> + *
-> + * The size of the access starting from @usrc is determined via sizeof(*@usrc)).
-> + *
-> + * For further information see __scoped_user_access() above.
-> + */
-> +#define scoped_user_read_access(usrc, elbl)				\
-> +	scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
-> +
-> +/**
-> + * scoped_user_write_access_size - Start a scoped user write access with given size
-> + * @udst:	Pointer to the user space address to write to
-> + * @size:	Size of the access starting from @udst
-> + * @elbl:	Error label to goto when the access region is rejected
-> + *
-> + * For further information see __scoped_user_access() above.
-> + */
-> +#define scoped_user_write_access_size(udst, size, elbl)			\
-> +	__scoped_user_access(write, udst, size, elbl)
-> +
-> +/**
-> + * scoped_user_write_access - Start a scoped user write access
-> + * @udst:	Pointer to the user space address to write to
-> + * @elbl:	Error label to goto when the access region is rejected
-> + *
-> + * The size of the access starting from @udst is determined via sizeof(*@udst)).
-> + *
-> + * For further information see __scoped_user_access() above.
-> + */
-> +#define scoped_user_write_access(udst, elbl)				\
-> +	scoped_user_write_access_size(udst, sizeof(*(udst)), elbl)
-> +
-> +/**
-> + * scoped_user_rw_access_size - Start a scoped user read/write access with given size
-> + * @uptr	Pointer to the user space address to read from and write to
-> + * @size:	Size of the access starting from @uptr
-> + * @elbl:	Error label to goto when the access region is rejected
-> + *
-> + * For further information see __scoped_user_access() above.
-> + */
-> +#define scoped_user_rw_access_size(uptr, size, elbl)			\
-> +	__scoped_user_access(rw, uptr, size, elbl)
-> +
-> +/**
-> + * scoped_user_rw_access - Start a scoped user read/write access
-> + * @uptr	Pointer to the user space address to read from and write to
-> + * @elbl:	Error label to goto when the access region is rejected
-> + *
-> + * The size of the access starting from @uptr is determined via sizeof(*@uptr)).
-> + *
-> + * For further information see __scoped_user_access() above.
-> + */
-> +#define scoped_user_rw_access(uptr, elbl)				\
-> +	scoped_user_rw_access_size(uptr, sizeof(*(uptr)), elbl)
-> +
->   #ifdef CONFIG_HARDENED_USERCOPY
->   void __noreturn usercopy_abort(const char *name, const char *detail,
->   			       bool to_user, unsigned long offset,
-> 
+Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+---
+We have tested this on Kunpeng SoCs with the CPC regs both in System Memory
+and FFH.  More tests on other platforms are welcome.
+
+Changelog:
+
+v3:
+- Stash the state of 'cppc_perf_ctrs_in_pcc' so it won't have to check the CPC
+  regs of all CPUs everywhere (Thanks to the suggestion from Beata Michalska).
+- Update the commit log, explaining more on the warning issue caused by
+  accessing perf counters on remote CPUs.
+- Drop Patch 1 that has been accepted, and rebase Patch 2 on that.
+
+v2:
+https://lore.kernel.org/linux-pm/20250828110212.2108653-1-zhanjie9@hisilicon.com/
+- Update the cover letter and the commit log based on v1 discussion
+- Update FIE arch_freq_scale in ticks for non-PCC regs
+
+v1:
+https://lore.kernel.org/linux-pm/20250730032312.167062-1-yubowen8@huawei.com/
+---
+ drivers/cpufreq/cppc_cpufreq.c | 60 ++++++++++++++++++++++++----------
+ 1 file changed, 42 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+index 9eac77c4f294..4fcaec7e2034 100644
+--- a/drivers/cpufreq/cppc_cpufreq.c
++++ b/drivers/cpufreq/cppc_cpufreq.c
+@@ -48,37 +48,31 @@ struct cppc_freq_invariance {
+ };
+ 
+ static DEFINE_PER_CPU(struct cppc_freq_invariance, cppc_freq_inv);
++static bool perf_ctrs_in_pcc;
+ static struct kthread_worker *kworker_fie;
+ 
+ static int cppc_perf_from_fbctrs(struct cppc_perf_fb_ctrs *fb_ctrs_t0,
+ 				 struct cppc_perf_fb_ctrs *fb_ctrs_t1);
+ 
+ /**
+- * cppc_scale_freq_workfn - CPPC arch_freq_scale updater for frequency invariance
+- * @work: The work item.
++ * __cppc_scale_freq_tick - CPPC arch_freq_scale updater for frequency invariance
++ * @cppc_fi: per-cpu CPPC FIE data.
+  *
+- * The CPPC driver register itself with the topology core to provide its own
++ * The CPPC driver registers itself with the topology core to provide its own
+  * implementation (cppc_scale_freq_tick()) of topology_scale_freq_tick() which
+  * gets called by the scheduler on every tick.
+  *
+  * Note that the arch specific counters have higher priority than CPPC counters,
+  * if available, though the CPPC driver doesn't need to have any special
+  * handling for that.
+- *
+- * On an invocation of cppc_scale_freq_tick(), we schedule an irq work (since we
+- * reach here from hard-irq context), which then schedules a normal work item
+- * and cppc_scale_freq_workfn() updates the per_cpu arch_freq_scale variable
+- * based on the counter updates since the last tick.
+  */
+-static void cppc_scale_freq_workfn(struct kthread_work *work)
++static void __cppc_scale_freq_tick(struct cppc_freq_invariance *cppc_fi)
+ {
+-	struct cppc_freq_invariance *cppc_fi;
+ 	struct cppc_perf_fb_ctrs fb_ctrs = {0};
+ 	struct cppc_cpudata *cpu_data;
+ 	unsigned long local_freq_scale;
+ 	u64 perf;
+ 
+-	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
+ 	cpu_data = cppc_fi->cpu_data;
+ 
+ 	if (cppc_get_perf_ctrs(cppc_fi->cpu, &fb_ctrs)) {
+@@ -102,6 +96,14 @@ static void cppc_scale_freq_workfn(struct kthread_work *work)
+ 	per_cpu(arch_freq_scale, cppc_fi->cpu) = local_freq_scale;
+ }
+ 
++static void cppc_scale_freq_workfn(struct kthread_work *work)
++{
++	struct cppc_freq_invariance *cppc_fi;
++
++	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
++	__cppc_scale_freq_tick(cppc_fi);
++}
++
+ static void cppc_irq_work(struct irq_work *irq_work)
+ {
+ 	struct cppc_freq_invariance *cppc_fi;
+@@ -110,7 +112,14 @@ static void cppc_irq_work(struct irq_work *irq_work)
+ 	kthread_queue_work(kworker_fie, &cppc_fi->work);
+ }
+ 
+-static void cppc_scale_freq_tick(void)
++/*
++ * Reading perf counters may sleep if the CPC regs are in PCC.  Thus, we
++ * schedule an irq work in scale_freq_tick (since we reach here from hard-irq
++ * context), which then schedules a normal work item cppc_scale_freq_workfn()
++ * that updates the per_cpu arch_freq_scale variable based on the counter
++ * updates since the last tick.
++ */
++static void cppc_scale_freq_tick_pcc(void)
+ {
+ 	struct cppc_freq_invariance *cppc_fi = &per_cpu(cppc_freq_inv, smp_processor_id());
+ 
+@@ -121,6 +130,11 @@ static void cppc_scale_freq_tick(void)
+ 	irq_work_queue(&cppc_fi->irq_work);
+ }
+ 
++static void cppc_scale_freq_tick(void)
++{
++	__cppc_scale_freq_tick(&per_cpu(cppc_freq_inv, smp_processor_id()));
++}
++
+ static struct scale_freq_data cppc_sftd = {
+ 	.source = SCALE_FREQ_SOURCE_CPPC,
+ 	.set_freq_scale = cppc_scale_freq_tick,
+@@ -138,8 +152,10 @@ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
+ 		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+ 		cppc_fi->cpu = cpu;
+ 		cppc_fi->cpu_data = policy->driver_data;
+-		kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
+-		init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
++		if (perf_ctrs_in_pcc) {
++			kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
++			init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
++		}
+ 
+ 		ret = cppc_get_perf_ctrs(cpu, &cppc_fi->prev_perf_fb_ctrs);
+ 
+@@ -177,6 +193,9 @@ static void cppc_cpufreq_cpu_fie_exit(struct cpufreq_policy *policy)
+ 	/* policy->cpus will be empty here, use related_cpus instead */
+ 	topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_CPPC, policy->related_cpus);
+ 
++	if (!perf_ctrs_in_pcc)
++		return;
++
+ 	for_each_cpu(cpu, policy->related_cpus) {
+ 		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+ 		irq_work_sync(&cppc_fi->irq_work);
+@@ -201,17 +220,22 @@ static void __init cppc_freq_invariance_init(void)
+ 	};
+ 	int ret;
+ 
++	perf_ctrs_in_pcc = cppc_perf_ctrs_in_pcc();
++
+ 	if (fie_disabled != FIE_ENABLED && fie_disabled != FIE_DISABLED) {
+-		fie_disabled = FIE_ENABLED;
+-		if (cppc_perf_ctrs_in_pcc()) {
++		if (!perf_ctrs_in_pcc) {
++			fie_disabled = FIE_ENABLED;
++		} else {
+ 			pr_info("FIE not enabled on systems with registers in PCC\n");
+ 			fie_disabled = FIE_DISABLED;
+ 		}
+ 	}
+ 
+-	if (fie_disabled)
++	if (fie_disabled || !perf_ctrs_in_pcc)
+ 		return;
+ 
++	cppc_sftd.set_freq_scale = cppc_scale_freq_tick_pcc;
++
+ 	kworker_fie = kthread_run_worker(0, "cppc_fie");
+ 	if (IS_ERR(kworker_fie)) {
+ 		pr_warn("%s: failed to create kworker_fie: %ld\n", __func__,
+@@ -231,7 +255,7 @@ static void __init cppc_freq_invariance_init(void)
+ 
+ static void cppc_freq_invariance_exit(void)
+ {
+-	if (fie_disabled)
++	if (fie_disabled || !perf_ctrs_in_pcc)
+ 		return;
+ 
+ 	kthread_destroy_worker(kworker_fie);
+-- 
+2.33.0
 
 
