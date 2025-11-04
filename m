@@ -4,167 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7363CCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E44CCFA07
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XIyUX6RMpCkACU7RwK94Xr91WpCdO/XviTe1NPqGoUU=; b=f/6LzcOIle3T4eoHp+APnND0eh
-	s8aBuCjNmvDm/cNBx4PRHvjuVgNtdKWms/QhodRc1niI72UPvh9VvGAvJNv4TSy1rNL0figVXByPr
-	bSpFtkp/w8sQM730oD6s+4TMo63WEhHqWIHHjDKuhpC3rX7UYy9YsEvKfgGsEIbIJhVOpaZpTvLtD
-	719qDGeAg/vYrrK11Hi+heP4tob1qJh7So2c5PuBpYZoujM/AL9PaRPdX6qb+oYJWPVhvNNKfLNUX
-	mRS0zN509aZTz7qKfrQ+P+rfm7brTlR0b5Kh3ua+XHXnX5XKMjrSb+CIHvdQ8enA9tHIiSNcjHkDo
-	WO1zT3Qg==;
+	bh=+sgv44AYg1GcxRuiUgsF791L+moCWZ5//4OYjNP3DEI=; b=PRtX9cqsgaGuUfjwzQJ1bvtO36
+	FP2lp/V4oFWIDrGBEKMeVrboS/1ztwuYAD7zViEAtn1PTAuuefTZrOkJhPPFcG3GTuHdxIIp5GCRM
+	toZyX6KVoZKIcopHFCSbpqYA2SxDVjPSLIVDdlydkaUiydmZ0V+gcFD/HlX+0QV2vHvNC+3taFSeY
+	j0TfceDKaYLYoL1UvzVWhvaXP19dUls4vnSJ3A3Ss1Nl7B8G64aq0eSVS0Fe96mVowWkGYuz/TnZp
+	KR9q6AkIMomMPl+3EkaOrTVFF28qbdvdRKhZOXjPQofWql0ydZ40goqK5AkPccR74clXbgn9Q+b7n
+	VV1ozH9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJhu-0000000CAqB-10Ff;
-	Tue, 04 Nov 2025 16:16:30 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vGJi3-0000000CAsT-2LIO;
+	Tue, 04 Nov 2025 16:16:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJhq-0000000CApe-2oTa
+	id 1vGJi1-0000000CArP-0fq8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 16:16:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ggnw7VELM8ffFCA9G/uY5boGG23wsVwcOtak1LWwzA4BUmyeWil7SKHuqug7RevIayRd63iiU5oGbV33usxtJjymD527KgwO7KtHWLzUObt9uBCBSG4eDA9Zk080Di9yVMaq7A9E8eMvbSF7skOQ3GZ0SsZqVEuxETrQM6Ujpne+NBt5j6cvthV444/247mELpAra4ssm8gafDzxh4hK57ffOuV5pPFoqCiUgQwNxwKnXwitrSQvNKf3VtScNP3CR7kEQh2170OLnC8S/zStGFACbSxIgtOCEnld92aV5/hUrcO7n2hpO4iDkyh6mx0DEo01tqdH9MrptjTI0caXMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XIyUX6RMpCkACU7RwK94Xr91WpCdO/XviTe1NPqGoUU=;
- b=I696vNOGkCgAZRC1HpBQ5MibNXU2d1J5WZBGHM89Llm87vEf3O/XXF2kMQ+ueTH+gN2vsr7+w1MxMRZpyAQ4BygW/TWmx332dXxm8gKjVz7VpP4qy2ygbkJconXIoULs9e4avq+Tf1oYeXCY7SuuXwErPqIgeJp0HRnCsi7UlV7wt1MqZ4wzscaBlqaDMJwZAzPG+H65wQTZQ1xd2960358VIl/63ksE1om06Wy4PuiZUsXGgt5tQrifvKb2U2vuUV2LKRpI3rFya9aQT4T5yBPK06KeppbGIB0ER+icJdECUv3DL/7xG49pq0lxOWODe5a2ZoE2GQAteyUAs5jpKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XIyUX6RMpCkACU7RwK94Xr91WpCdO/XviTe1NPqGoUU=;
- b=evMpRdtZs82K/DVGt7oNlvEvkIGGemSya10yRfPQftcPr1VGItMmbL5BpyXjBO8zuLVgC/eSH0bBCGpiVittvIEOToXWwstJeCNsr2BubPLhnZ4W5Us/qvl6L1/EniLxaNVmETXJ7pP3WKwvK1ERUm3TZ3d6x/gSxWWNWTBW7dI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- LV0PR01MB994221.prod.exchangelabs.com (2603:10b6:408:32d::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.7; Tue, 4 Nov 2025 16:16:21 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
- 16:16:21 +0000
-Message-ID: <453c5296-fe6a-473f-8169-3cf2d3802691@os.amperecomputing.com>
-Date: Tue, 4 Nov 2025 08:16:18 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: kprobes: check the return value of
- set_memory_rox()
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org,
- ryan.roberts@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251103194505.4077265-1-yang@os.amperecomputing.com>
- <053b2bfd-df5e-41fe-854c-f0eb96564dcb@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <053b2bfd-df5e-41fe-854c-f0eb96564dcb@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CYXPR02CA0022.namprd02.prod.outlook.com
- (2603:10b6:930:cf::26) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Tue, 04 Nov 2025 16:16:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B4D3447A9;
+	Tue,  4 Nov 2025 16:16:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA38DC116B1;
+	Tue,  4 Nov 2025 16:16:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762272996;
+	bh=EBvCozXC0B7xS4q4wIuy10Yn3kGVo6sqyYCj5vhUAGE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lj2eYO6Mtv7X8QLk+/EsC4EsuRFqDvAXLQejVWdxtafr8WSjZVXhWecI5E9kWHCYM
+	 C+m/9RgZ4ZIh0a1Cxv59F6YeYQ8VjyPToC64rNT/tZfKAZw8Z573Jav9hEEK5dmFw3
+	 eGmW7M4V8oaGxQ/RGRMdQkM0nyxzR7pNkD/g4/NNdA4F+UFdlHl6QqAS3Ai4jp+wtT
+	 zPrc7YhyqmVQ9ttdm+bwYcUZvlvDkEqQMuv55GWL6RElmhmjaEjI4AapgAlvF0iNxI
+	 POb08jgMRPqfkSi36Bl4ECjOmfaTonzyxnxWgqC444kQPYVuFyVP5v0789++QRtR/F
+	 fp8ZEyHLf0vhQ==
+Date: Tue, 4 Nov 2025 16:16:29 +0000
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Pierre Gondois <Pierre.Gondois@arm.com>,
+	Sami Mujawar <Sami.Mujawar@arm.com>
+Subject: Re: [PATCH v4 resend 3/7] arm64/fpsimd: Don't warn when EFI
+ execution context is preemptible
+Message-ID: <aQom3XPDmPTkq47d@willie-the-truck>
+References: <20251015205634.3820870-9-ardb+git@google.com>
+ <20251015205634.3820870-12-ardb+git@google.com>
+ <aQohO07DpxlriQfJ@willie-the-truck>
+ <CAMj1kXHJ8QWLE=awDUpNa0Cf_1YXMQaW-Se1NvvavOocshDkTQ@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV0PR01MB994221:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a1f1acf-2397-41b2-22a3-08de1bbd7e3a
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YU5yZjlwMDFpemJtL25sYm9RMG1IejNsRUNKNjIzRE8rSE5aNmFZbEpzeVE2?=
- =?utf-8?B?bzJ3czhpWlRNVEhOMFFNZVR1cVlrbWlLVlJCc3Q0TTZCWnNXUzR5eVNUbGk4?=
- =?utf-8?B?d0ZUSTdJbWFEdHF6ZndxWlJUSUpMQ3g4YmdkTWxDdUdVdFY1UGwxdk5xSWQv?=
- =?utf-8?B?dHNrYzNuY05HanhxellWV2RhMGNENUhTZTU3T1VpcTZoQnRLejJHV3h2d3VR?=
- =?utf-8?B?Mys1a3BseWZybmNMZUY1ZGMrTXhaaDFUWEZUYlBaUmlDT2pLdEtkWWZEeDVD?=
- =?utf-8?B?TGtsZTM4RkVxN0kwekJkR2hIV3NIck5GenQyVlZRd0FsUzFkUlJubExUbVoz?=
- =?utf-8?B?dU13c09tWGxaeWU1WlFzSjQreFJpZ1E3cFpnaWtxOTFVZ1dtWWNxVVRyL0N2?=
- =?utf-8?B?QldlZS9JekFPWmNPYWJORGZUeWpjbmtvQ0dKWHQ5Sk1LdlVSQkJwNzd3Y1ZP?=
- =?utf-8?B?V0lpVkNHNWNNU2lyeXk0Zm4yN3BkRHNLMzAxc29uUnJuaXJLZG8vc2NXVUVX?=
- =?utf-8?B?SU1QRUFlbmVFM2pHT3cyUnlWN3QxejJuZFVsYUhVRGRXK1ZUUFl6ZnBHbzVz?=
- =?utf-8?B?ck96Wi9naWxGWW5QZUU0Uk9NUFRtWloySzRKc0F5MmtXb2RIekN0akxCWW9C?=
- =?utf-8?B?Nk40ZzlWdVFBV0M4SXFDM3FpSnpOOGN5Y3BNN3JNWnNhNmVqMjJNeUVGVFFW?=
- =?utf-8?B?dkdZd1VyaGdRQ3M0OXRId2E3SUM0VG5FY01rdzhSYUtWNEhFendWR3ByMHM3?=
- =?utf-8?B?UVN4Mm5adlJ5L1ZFcG4remNFd1BOai9Bc0d6RmxKU3JQbG9IeTFLV2Q0T2ZQ?=
- =?utf-8?B?K2hMWHhzL2RFWHpIYis0OHk4MDNBclcyOU9nS3g2YTBPUmZ6UTl5SFRZVit4?=
- =?utf-8?B?RE9vamZHTHdNT3dmd0FFWFBIYjZ4U1pDdllBMWMrVHpUeEg2U0FtakR3a0RY?=
- =?utf-8?B?ckpxU0xlVVErTEhBMSs2RWlzQlBzWkN0cUhwNzk0MmtNL2ZqUU5DUjU3TEsw?=
- =?utf-8?B?RnNyVW12c09vTGRRK2NHMTBXSlljc3Z2SlFjVzRULzNXWm01eTR3Ym9KeVFy?=
- =?utf-8?B?aXRudXNLR3JqSkhBdTlrcHZHNkV0YmlvakFMbFEzUG85MWFobmRYSnYvV0c4?=
- =?utf-8?B?TjVXZzcvbU5wOTJxRytxdkoxV2trN2c4U1hZZi8zRUhvK2p0Ui9zOTA5Znhy?=
- =?utf-8?B?MnhrNFlTaFB5UTJ0SlpUVFh0emhGMzBpRXFQSHlOdjFDVFZ1Wm13OG1nSzhF?=
- =?utf-8?B?cDB2K3A1M3JYbGFNSGZoKzVpOHBRTnM5NEFySm8xNWhQdmxzUmJvMHQ1Snh3?=
- =?utf-8?B?bnJVVG40eTFuNzhOZGtMb29JRitLM2dsL1dEM0p0L0Q2VGlkLzJkNno4cVds?=
- =?utf-8?B?eVZHcjRMU24wZVVPanprYndyQVJUUVA2N3BFNms1WnZwUEdaN3pnc0NBS1BE?=
- =?utf-8?B?MzRaU2p4bjljU1U1TXpwWlE1dUw5RW1oeTlpWURKMUhzMDVVNmtCTHZIK0tz?=
- =?utf-8?B?TWFtS1NPNUI2M2VlS0lmejlSNERHUmRnWHdXS2tFdnQvNThsazM2dk40Mm1l?=
- =?utf-8?B?RmhKYVRlbnQwMy84eXpxakhoQTJqN2Z3L1lpRm9vY0JYKy9CNHRtR3dZZDVr?=
- =?utf-8?B?cXQ1QTdhZTV6RXhTOXkwNHpPOWxpWmc4YU9EQi9tbjd1cktkUlUvRUdodFRM?=
- =?utf-8?B?QXMvdVkxZ3d1R3NzeHo3WXhUbDdHS0gwMTEvNmFZMitlWFByRDNiRElWcWdQ?=
- =?utf-8?B?bDN1eHUvTTV3OU5UQ1NTZnpzQTh4NU9mN3E0MndONExOcDZuSjhLWHIreHk2?=
- =?utf-8?B?NVRmZGpYMnhORnNneEVpUURYTlROR1R4MFVqU1JCN3FqMG5hc1pvcFl3L2w1?=
- =?utf-8?B?TXQrenFvblpicEhwWXFCczRiTHpEU2liOVZnQ3ZEN2dSNGNWV0NGK0hjYjhy?=
- =?utf-8?Q?VMDwOWaApICWPZkDT8SIWRJtR4ladWF0?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VVBqT0JCSmpXN1dEQUplLzRDODJJWFlOamtVTitEa2ZhOGVjZXdtYk9VMGJV?=
- =?utf-8?B?L3hSNmpiN3NJaWRyeDQrZEN6cGhSVUxxYlR5WUhxNGliQ05XeTlaL3FTSUVk?=
- =?utf-8?B?ZGVmb2Q5dG02dGNlTWVWUktITFpucWcyNUt2bTMwSWE4VGt3dUJkM1ZqNGgx?=
- =?utf-8?B?NG1NdzlnNlpZMkxVd0wwdXY5dmU3dUxMZHRXdk9GR29MQnVYUjVTVUhybG0z?=
- =?utf-8?B?bElYbWFoYnpvdHp6TGtnU3BDb3B6MXc2WTBERGVDeHl5MDdxRFU0U0F6TW1X?=
- =?utf-8?B?K3BYejAwZ2VvUE1Bcnk1di9oZkFSZnhLUkptWS9WNzNlZFpvcEx3YXhZaUNw?=
- =?utf-8?B?WEN3eXdUZ3YwL3NpY1ZxY3RwS1VMelEwd0o4RVBzSS9ndW8yS2ZPS2tVZkox?=
- =?utf-8?B?YnpaTDkrS0cwV0xxRzVRaVgwVklRUTRZOXMyenZza0NTUlhqV3pWakVjU01x?=
- =?utf-8?B?d216bmovNFFuL0VwTkJIdDFtZG4wMTRSQzlUdlRpeVh4dzg3ZDVnMGNSeElR?=
- =?utf-8?B?dzFUb1ZoNW4rQWJVbkpVcWN5amdHSjFWNmlyZG9iS1RHL2pzNG5EQTBZNU15?=
- =?utf-8?B?ci94cm5rVElYYXhYWXdjT29jMmljYlppZWRLRXZmdEp4R2NaSXlJRnNOYVFD?=
- =?utf-8?B?OG5HQm9aUDJ5bzNzeWVnWktudGlrOFZJRnBqYXBxYS9QMklkZXRwS3VOeGJW?=
- =?utf-8?B?Wk1vcVkzNXQxbDkyU2pHU0R2WER1RWhPWXNKM2NXU0phVEdwOVYrZVBtYzEr?=
- =?utf-8?B?a01YYUk4RjBUQllJbTBjdGdmMlNNOU83MVJSWmxKbmV5OWFxYWNyQzkzZlJN?=
- =?utf-8?B?RFYwRm40aldGWXROeFZjdUFWdXFOcG1yS0hwSVM0akxIdFpJVml5akN1VGVw?=
- =?utf-8?B?RC9FR1RWb3h2dkpkR0JVZlNpb2ZYYy9XNXM0SmRQWHpya21vTElyRXdVWElZ?=
- =?utf-8?B?eFllQ1RmVzBRN1dTUld3SE1QTk1MZDNrTGc1THpjbUx6STQ1b0JMYnc5c3lF?=
- =?utf-8?B?c3lOOEliUEJ5OTdkeEZoaFZxNm5pM3d4RFFnazM5c1J5WHRaWnd5cHRkOEd6?=
- =?utf-8?B?RHh2UC9OREVOcDM0R3N0WVg3NWlJNGJJYVBrZFZHVDJxUE11Z2ZPTDdQRkNT?=
- =?utf-8?B?VFV5c2RRUXZ3YnIrUm0rQ280OTQwdUVkM29FQ1o0M01pZ0d0RkN1dllGSktE?=
- =?utf-8?B?U1BUWlIzRHVTdnFPWHpVM0kyTk9CcEJKOU1kWU5kZXdtdHh0L3FhSVgzbTdF?=
- =?utf-8?B?bEZmaUZ6a243UVErcXZQZEdRZld4N3Z5M2FJd1hnNENLOTVDYi9XbXF6Ym1D?=
- =?utf-8?B?MTdJYkZGNmV2aWVpK1dPeG9tanJPRHlHbWZ6NU96VkpDVG5mZmpzZWFlUXdY?=
- =?utf-8?B?NHZTR2RWOTNGaEUvdHQySDlwRHpjT2FzR2s1b0FacHBNdHdLcUZjSlBOVmJ1?=
- =?utf-8?B?V2NsRTgxdlNKY2tOWHZiZHo1VlBxTmFDemN4YnVSTldxVDcwREgxbHd3ZDl3?=
- =?utf-8?B?WTA2cGFSemhieUZWT1IvbW9pbGJobUo0OVR0eWN0MGhyWVZTNEF0N3A4bFhY?=
- =?utf-8?B?OHhabFBnNzI2WGxPTlh4cnVkY21mUkEzQUU1OHU4VHlPNDdhZFZncitnL0ZK?=
- =?utf-8?B?RHJZQ0U3S0l2eEh6RGpEMm5hNVNKbEhOSFJnM01LRkZDNmJWWEZEUjVJUzdX?=
- =?utf-8?B?YSsvRENUZURuVFNuOWFvajdsOHpwbUVMRW16ZnEzL1FyeWRrU2VLT1hpN0xX?=
- =?utf-8?B?U0xXS04vZkxuMUNLdk5BNUlsVHIwNTBnQ3JtenBVTmVWWDFkOGhxWld4MXBQ?=
- =?utf-8?B?OGcybGs5NjVQdlVXd0pXRHNjdGdKTlN4V240SWR1SDgwVUNYR3RUMHVGRXRL?=
- =?utf-8?B?RWUwc2hmU295TWJRT2VmRmdNRng1cmNkSUxMN3FuQzJxSHVUQUxpNnpzWk9z?=
- =?utf-8?B?Mm56QzRVQXl3U01WZ3dLYW8zZ2s2VGo5SHl6RGhFUlRxUVM3Vjl5b2tUTkdt?=
- =?utf-8?B?aldpQWtDRXpyRmhVVjlvMHpYZ21Ldmh3Z0FBOGlVRXpxWGRhZTY5a1A5RjIv?=
- =?utf-8?B?YkhZc3o5aExJa1VFelE3QmVLMXdnK1l2TGIzVzBsa29RZEZBUC9mMGIxa1RQ?=
- =?utf-8?B?TGhUZmR6dVNqOXEwWWlYb3BCaDVDektwUUh5cVM2RDNMNjBlbERVRXE5dG9z?=
- =?utf-8?Q?w71LcI36PatpaszgZ7Yjhus=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a1f1acf-2397-41b2-22a3-08de1bbd7e3a
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 16:16:21.4950
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A5s16nSHrngl3ZZpQGDXIJTvAsJjqvpv/gJz4u6P7WIDxbOFjy0T5EsY39W6KiBb6UC9gCVcNHFRoThY0PA8BifaOPJ87ZRV0WGFCUsdKA0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR01MB994221
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXHJ8QWLE=awDUpNa0Cf_1YXMQaW-Se1NvvavOocshDkTQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_081626_734916_90DCA609 
-X-CRM114-Status: GOOD (  24.29  )
+X-CRM114-CacheID: sfid-20251104_081637_238257_D0FE891D 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,76 +82,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Nov 04, 2025 at 05:00:34PM +0100, Ard Biesheuvel wrote:
+> On Tue, 4 Nov 2025 at 16:52, Will Deacon <will@kernel.org> wrote:
+> >
+> > On Wed, Oct 15, 2025 at 10:56:38PM +0200, Ard Biesheuvel wrote:
+> > > From: Ard Biesheuvel <ardb@kernel.org>
+> > >
+> > > Kernel mode FP/SIMD no longer requires preemption to be disabled, so
+> > > only warn on uses of FP/SIMD from preemptible context if the fallback
+> > > path is taken for cases where kernel mode NEON would not be allowed
+> > > otherwise.
+> > >
+> > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > > ---
+> > >  arch/arm64/kernel/fpsimd.c | 4 ++--
+> > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> > > index e3f8f51748bc..3d848c89604e 100644
+> > > --- a/arch/arm64/kernel/fpsimd.c
+> > > +++ b/arch/arm64/kernel/fpsimd.c
+> > > @@ -1934,11 +1934,11 @@ void __efi_fpsimd_begin(void)
+> > >       if (!system_supports_fpsimd())
+> > >               return;
+> > >
+> > > -     WARN_ON(preemptible());
+> > > -
+> > >       if (may_use_simd()) {
+> > >               kernel_neon_begin();
+> > >       } else {
+> > > +             WARN_ON(preemptible());
+> > > +
+> >
+> > Given that may_use_simd() returns false on systems without support for
+> > fpsimd, I wonder whether moving this WARN_ON() actually helps with
+> > anything.
+> 
+> This code is only reachable if system_supports_fpsimd() returns true,
+> so may_use_simd() will only return false here when running in
+> hardirq/NMI context.
 
+Sorry, I missed the check _right at the top of the hunk_!
 
-On 11/4/25 6:02 AM, Dev Jain wrote:
->
-> On 04/11/25 1:15 am, Yang Shi wrote:
->> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
->> rodata=full"), __change_memory_common has more chance to fail due to
->> memory allocation fialure when splitting page table. So check the return
->> value of set_memory_rox(), then bail out if it fails otherwise we may 
->> have
->> RW memory mapping for kprobes insn page.
->>
->> Fixes: 195a1b7d8388 ("arm64: kprobes: call set_memory_rox() for 
->> kprobe page")
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> ---
->> I actually epxected 195a1b7d8388 ("arm64: kprobes: call set_memory_rox()
->> for kprobe page") can be merged in 6.17-rcX, so I just restored it to
->> before commit 10d5e97c1bf8 ("arm64: use PAGE_KERNEL_ROX directly in
->> alloc_insn_page"), however it turned out to be merged in 6.18-rc1 and it
->> is after commit a166563e7ec3 ("arm64: mm: support large block mapping 
->> when
->> rodata=full"). So I made the fix tag point to it.
->> And I don't think we need to backport this patch to pre-6.18.
->>
->>   arch/arm64/kernel/probes/kprobes.c | 5 ++++-
->>   1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/kernel/probes/kprobes.c 
->> b/arch/arm64/kernel/probes/kprobes.c
->> index 8ab6104a4883..43a0361a8bf0 100644
->> --- a/arch/arm64/kernel/probes/kprobes.c
->> +++ b/arch/arm64/kernel/probes/kprobes.c
->> @@ -49,7 +49,10 @@ void *alloc_insn_page(void)
->>       addr = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
->>       if (!addr)
->>           return NULL;
->> -    set_memory_rox((unsigned long)addr, 1);
->> +    if (set_memory_rox((unsigned long)addr, 1)) {
->> +        execmem_free(addr);
->> +        return NULL;
->> +    }
->>       return addr;
->>   }
->
-> Looks obviously correct:
->
-> Reviewed-by: Dev Jain <dev.jain@arm.com>
+> 
+> > That is, you probably shouldn't be calling __efi_fpsimd_begin()
+> > from preemptible code regardless, no?
+> >
+> 
+> Not sure I follow you here: __efi_fpsimd_begin() is generally called
+> from preemptible code, and it is the EFI runtime wrappers themselves
+> that disable preemption - that is the whole point of this series.
 
-Thank you.
+Ignore me. I was reviewing this against the upstream
+arch_efi_call_virt_setup/teardown() functions rather than in the context
+of the changes made later in this series (specifically patch 5).
 
->
-> Although I got confused by why set_memory_rox() is being called; it is 
-> being used
-> only to handle the linear map alias perm change, which is not nice :) 
-> but I don't
-> see an obvious way to refactor the code to only perform the needed 
-> functionality here,
-> and probably this is not a hot path that we care about.
-
-Catalin actually raised the similar suggestion before. He suggested 
-extract the linear mapping update code into a helper then just call it 
-here if I remember correctly. However I have not gotten time to look it 
-deeper yet. Anyway we agree it is not a critical path. It may be not 
-worth all the effort.
-
-Thanks,
-Yang
-
-
->
-
+Will
 
