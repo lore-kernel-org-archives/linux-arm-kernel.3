@@ -4,151 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76469CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 21:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBB7CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 21:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nP4RwYz8oJZ7WGOMlw2jvJXCq+XY3Dor6t9LWHZQL+A=; b=ep2AaGMvModT81FkgLvRj6Gpvn
-	dKz2EVSgbPyIY+rUYHdBxGnuzzaflctUYRnkE1U51TTXzN1Ev2VajSsbvVkJWWg7cCK6RUDNJCgvp
-	+le4G/9ZfpdJn6TDsSW/YxoBdqQDHC6c20D98HTJjgmhmfWbnFP9497EvLLljB3/6lMGt/yYtd93Z
-	MuzAP0JPkye2Mnx/Oer4nLD7t7LAL1K/pw9CWta8gk2omlOMlKc5mxd058M2RUZcsbwNPDoftRaEu
-	qG+zFjIXpxc4V6C7dTYDUR//9Y43Sk6Qk32WXuhSf711v5X72mNCso3TQWRihMQtgLv5tLxfRXGB2
-	wwleztPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DYMd3nWuvWNKjSkxKxSoso9HfqmlhsjNjxbZY9/Zc/s=; b=40D5tvFkbdtGYfv2BpH/GN9sei
+	nb7qtuITEmW12uLjnTxbnR+p15CoFrW90pkWIZif2Yy5EO8mfoJcPRmjWT4n9YLHX1kSdiTD1lU+Y
+	kE+hfsKA+161Gi+0GbfXgFBjvpkgtZu8uq4vRJKGYT7m4oLx5sEPw4po3yls2B+pCGNFJalQep8u7
+	5nujMdEchfBWc9QgsSJqk94GY7ymudLuoSaunu83q8V/MPU00HWR4sTWDUNZFXxpw+25zRNrqLz90
+	7Bg5r4sYSH6k91BBnb9fQ2rMswR6bJZ2zdZiFHP+DSbos3lPzH9lJ3Kfk+zX7etmhXmEeLN2ufyFi
+	LXxLWPMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGOuo-0000000CeaK-27kH;
-	Tue, 04 Nov 2025 21:50:10 +0000
-Received: from mail-northcentralusazon11020127.outbound.protection.outlook.com ([52.101.193.127] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vGOyW-0000000CesR-1Wom;
+	Tue, 04 Nov 2025 21:54:00 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGOum-0000000CeZs-0lX3
+	id 1vGOyT-0000000CerH-2fSN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 21:50:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PbZVNAgIj+Z8r7VbE6b3UfN/svLPYBnv1Bzu4Vvz/ba5YZ9lncSRZZPqcvPFkdh42a2fMxYLQ6646D3+vGrxm+XmHfuRr7vYqlE6P13mBJ9pQnZqhGIgP+3KIqSOX5GVOvay3LjGR7sYuyvjtp6E4GLfLaalWKu2NPAifrRrYprab6fs7Rc0hl3/C0q37uicEs+cz7hPNbIxE9B7ft6h548DTXsGXjXF1r2VA9/JzQcxciOCZUsdsNG0WL12KaD73bhPGc51xoibAmAOd+M5Od/lHyHNjUyDOB4ph2Zp7Wm2vYINpSstfUmsE923gjtB+UyT9RgLlsvfUGgACAhwuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nP4RwYz8oJZ7WGOMlw2jvJXCq+XY3Dor6t9LWHZQL+A=;
- b=yyaSyKetjYO79QiaDIPNsELG5Zry20qlVxszf3Hdnfzt7qPe5KlRwKrCoO7CcEJCqbrmFjYIdZmhV/A+mIW5CcfknjaxOayxeGu9lKRFZiT2VzsgWwOaKqaCNVNrXb8XNGELmpwpE++pI15OYUiYlDFQAPRbUYs+lw9Cspc0yH0AipKkTvWe2J3oIUkHAHuadgDdrzQR0hx5yq7neoIgHMOPzHYo/jjJJ987v20Ish4mzVjAuV/w15VkeM6aYyaQenlkHWmuam+jZgc1upMV6E3WlGfwC3bhIAwXdSOPUO8K+/kRBDjtTnfF9E0UfulvgXOUl0UvLSmp2ABZQOx9oA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nP4RwYz8oJZ7WGOMlw2jvJXCq+XY3Dor6t9LWHZQL+A=;
- b=jzJWPUOoiMK0Pi8jxYn0INpB0xXedMQx8kvdRV+m8P2uETaBQ65AiPkn7A36P96KaI4zs7nbpvsRyrQMymNUn20Hrir02k1bTQ7n1u8idL618RhxL9gaulHDcxIQ68J4oh4dQ1Qo/rt6XGWgja2PgMwsDRmeq1vt6ktsASgl864=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- BY3PR01MB6691.prod.exchangelabs.com (2603:10b6:a03:354::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.16; Tue, 4 Nov 2025 21:50:02 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
- 21:50:02 +0000
-From: Yang Shi <yang@os.amperecomputing.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	punit.agrawal@oss.qualcomm.com
-Cc: yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [v2 PATCH] arm64: kprobes: check the return value of set_memory_rox()
-Date: Tue,  4 Nov 2025 13:49:47 -0800
-Message-ID: <20251104214947.799005-1-yang@os.amperecomputing.com>
-X-Mailer: git-send-email 2.51.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CY5PR15CA0089.namprd15.prod.outlook.com
- (2603:10b6:930:18::35) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Tue, 04 Nov 2025 21:53:59 +0000
+Message-ID: <a8f0de1d-07e8-4e48-8495-9cafa0febcf5@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1762293233;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DYMd3nWuvWNKjSkxKxSoso9HfqmlhsjNjxbZY9/Zc/s=;
+	b=UNNWkds2nwFp2h/Ss2GzM+XwOsHS+/FnMptQDlclwRKWU4aOg4M+BMKR9GgFDdBfieqlYM
+	KS3CjbR4o93ZVWLhpu+ey/0Y5STKB5TOH+JRCmjnPCo8F1vrww3ckteDEEFOD9xa18URIN
+	VXkdKbi5wX4AKW+tyt34sd+olRk0I18=
+Date: Tue, 4 Nov 2025 16:53:48 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BY3PR01MB6691:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d257159-40d9-40f6-cd3a-08de1bec1b65
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f8qoi+qEXEkzS0TYD2EaxOh/bwEUNeRQDvp9bOnyrTv0CDG0Id4uc+QSO1Nz?=
- =?us-ascii?Q?bnd/k2DrjDO3RK18kugfaJ3hkcXabIHATD9biGA2fM9gg/nvNxEuXLdScBZ1?=
- =?us-ascii?Q?yth40o4sfRmP2NxAorYRTvQy0fCr/+lwF/UfWoap8NP5LMVrt5gEcxMdduOG?=
- =?us-ascii?Q?tSahQ6um8V58U0/0g4Vaa80zaXVvLwb3d5uwSJbx4kHjeeeXk+Wk15iXYvPz?=
- =?us-ascii?Q?8EoiCP9A85Fals/6zR6Xxl5+dyFpDSGYNFT5lDzwAZ2Dse0I9V3a943UqCvD?=
- =?us-ascii?Q?hJ6wvjSjzL0TjC9I7CWf2ADwwFwTKwqODmrnaLxxtfaxq5TvFOFmL22oRvB3?=
- =?us-ascii?Q?fYetPat/Mn0VlmIdsPH9otfF1s4dJ0L3eefKNS06mpZjcezg8OIUUe1Sgyls?=
- =?us-ascii?Q?4DPTFaxWKZfK4CbFh1+Tf8kWc6zn90ivW00x2jtxSHXSaUGnPzXzkf8a0ZOj?=
- =?us-ascii?Q?1X4d+vrV6MgZxNwJYGukkmy9w6wfvcYNAaYOjwMLatT0byicyJ6yTYKPDAwk?=
- =?us-ascii?Q?901uv0M/pwq9i5mL8mYwPvvgidvV+NoWigiWV/CBu3CF7BTEWCOsXNryvdoU?=
- =?us-ascii?Q?SyQo/S2cHxNH7X/M4SgNcAGtgjtqETjCHkndDBexhwDYhG9kv4Xdjbc22eif?=
- =?us-ascii?Q?tr5lISCbtFlN1xLnVfCeS+XOTASarXnQIQzU1XSl2FWPm/9laCHPhGw2SP85?=
- =?us-ascii?Q?G/6hb9htTULvXW8nIzTpVryymSUnR1Vt7qjChAZOEsSS6yhKIbHyHGE76GbL?=
- =?us-ascii?Q?vlxkEEYTJUk8DkzuSw6y5ImkAs9lAebtv/g10jMf7VN7N0vSFZxC9zsAjzxe?=
- =?us-ascii?Q?VXagT8SFUZD6oUWNoupNXQ0STyTtblPcgP21uO9bW8od8YA81w+8/5uYH0lQ?=
- =?us-ascii?Q?aiOB0s5kRR1soDUvaVQk4hOdw9OgH2UPSO3V17QnuA7T800IebOJ4g5sqry3?=
- =?us-ascii?Q?NV6bFerz7/kszvgYj5YDdwe8lhRjsmsgHaP5sW0QOYseDCsQHWsg8DIoVJdX?=
- =?us-ascii?Q?/CooQDwxX2/1A/gZIWvdjY7qBsuMceD78EGglsNcLdZJD7+5kU8vlR6y+K+e?=
- =?us-ascii?Q?EKUvOrLopYYSrNHkx6oimNB/a2Kwn1Mw0gfWBXWnd1HX4Cky2jIZRO9Ee9LM?=
- =?us-ascii?Q?KPe6rp3N61Yi+Y5h5KSWKn9stTo1X2Rx2I6Bq+m6Dv58tmyUJv5IvINbeUyj?=
- =?us-ascii?Q?FSO/ol3PpuAIIPq8FCbV3RtTVC84V+IjJG5ECL594PREzVmukdimAW80QJEP?=
- =?us-ascii?Q?mNgBCb0/MDnMOkbHuU1TZKTMj9nJumrIODIQq4dVe8eCwMgywAMV1+vHLpWG?=
- =?us-ascii?Q?u+JmsIYC6jpNrczM5w2NW6tTZRi6O7fG4oPCnluxGFcyhdHJsUsgL7eudB5D?=
- =?us-ascii?Q?R60HPLnxYDnhwMcY4Cg7yus9XPiGnKLFTrYdUFjalyAOlF5nkJEZLWnOsI0Z?=
- =?us-ascii?Q?tDIb3syHL6jnoUn9DNoyj50XkY/+27gNxWjXWhlWmpgFSuAlzOJzAf2NIW88?=
- =?us-ascii?Q?rSNF9c9D4accbgTZ9EqDkvK1avY9PCQa8LeP?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ol0wML56aq/S4GsySN/V8lu+0p7dq8rVRv5Zc1aNXsJkKcx+B4bOIA3OhGKn?=
- =?us-ascii?Q?zYd4NVjvZAbxWXS74nW4pH4PJwWY7tx1RpeoK49/7RYghdRfQmxt4i2qznrM?=
- =?us-ascii?Q?x3aGYBfgoVA9qPewD7/4UMXQKIXOPu13RjMq9NCvBACDusTr7/8/0BG+DQ1G?=
- =?us-ascii?Q?ofv1Xbw/An16cJM9V7d7iJhIfRCc/nccFxRBD7aFOzX6SiraFJEusAonpw58?=
- =?us-ascii?Q?eAOMnfQZcXYt5kAzcZsw7hO36COWA77KbdD4A1ZUSQyhYh8JHcu2VW63Wr7h?=
- =?us-ascii?Q?7EnZdfwOE0F6jhCtYMrCjGXi75Vt/eYKEaieE0Gi4WuaXHZDv4ApPucVYnp1?=
- =?us-ascii?Q?QB8yVEzkAUsL9/DmVOfDA1EOEIaOpse5csQZPhRN489kjghm2HGZMTcViL+W?=
- =?us-ascii?Q?AXZVpowpp36tnX/w7a29e3xl75sfL7UMzwTt7OXaq9VfcLijJ5snjLah2+ax?=
- =?us-ascii?Q?pbQuregT/JL9y3ncNYUDaJpnGMeUU7e+dNUeqO7yB8BAqYeNuQMmb8Yvmh+M?=
- =?us-ascii?Q?RDShW0AgjwMwjIVCBUBy5zsjRnnPooIllOO/bm0/SJfw8o4KQcmyIvZq3wrw?=
- =?us-ascii?Q?3B13tm2JLNxUPapc12ED7U6wC8Oyo/Cd36nkkrG6MYeIadK6IbBHKPjTFwRy?=
- =?us-ascii?Q?h8NJzFXdC4Y10Or3hfG2j9FCKaIsjpMX+3EO2aMqjJplEogdEEGQownBrPws?=
- =?us-ascii?Q?eRkpP+4tdzw7kjxotjPQu/RvUXtfAJjK9QYpcQaBCkxnw0pUdT+xXLrhs0KF?=
- =?us-ascii?Q?AQPle7v5GW0MwRjrCfRGDfhUAs6KqvD3Mvi1L0YkxcP9jM02AfLP4zVBRnVf?=
- =?us-ascii?Q?Uqtx8FiP3RJYN4p/cs4BHIdrfs5EhS4hdLYHJ/das2By0vefeTsrFn4D+IWn?=
- =?us-ascii?Q?SSxw4nS5KEPUm38nHpksT10uQzr3hGQqXEANyrXR4EXa1nZkewDeB2UgSPwZ?=
- =?us-ascii?Q?d+xSqtGe+M2u8oYVWT8H49z0n8ldMmE/zumVdz9nrMlzg4b8JE8r1VOgNk89?=
- =?us-ascii?Q?cCcu/RAQa3H+hzq04qNciZbAb3tvGOBGn07+0Kgt2j2iHe5L2yRmHlfXojqK?=
- =?us-ascii?Q?lPvtVO7qZWqYk8nVPjG9CUnmBJWdahqnOeRbNqGLZJnyVfFgRNaiL7KdjIiA?=
- =?us-ascii?Q?1atEPoRc20uytTXTtN850zcRMVi/zi5o21VTbhTvndAlY6VF27+NEjg1eTHk?=
- =?us-ascii?Q?FqRp+S3uU/Z4edZ4tUNRNx/J0gMWgsJX1iQNtGMv1LqfGVbNehEggARzV2Vh?=
- =?us-ascii?Q?sam3p3DBsgmLUpdWah23cXqdJ1H3XsdQ3aAmqtqgRGDebYdWVYUGAOZwwQSv?=
- =?us-ascii?Q?OG4FTK0l6i0dd4vIPJzw2MH3mYpfVHYmpSeffEzBqMmANKhebPU46z/wabIL?=
- =?us-ascii?Q?BaqNXxOJglH782rAGBW2QnzTS2B9A86xtSEMsQbnJ4ind8W7bkUyFmBm0lxs?=
- =?us-ascii?Q?fARdm6MNN+am+xIlEwK/yp2rQ1imSaERo1fKrv9DSv70dmIh/NlQKhi54Pge?=
- =?us-ascii?Q?WZPUWIZLdoiCZGe7jIwlWlnYv3jBDo54rXJbV92E58PCccxPX6qoaDQTUZZR?=
- =?us-ascii?Q?MXkFeIH5IMCR+GsTgFdxWR5i7fn353as4dlXS7k1IVehElpuVOFXh1wG6vTP?=
- =?us-ascii?Q?pVy3L3mcLPJkpiut7NfKGV4=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d257159-40d9-40f6-cd3a-08de1bec1b65
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 21:50:02.1819
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dUb8EN4ZQWtIaHQ8mhZQYwtXmg6JzeSCot0wmT6JcG8Ni2YJOjNBsuOKkabm2ZsdPB2gBavFF8ioszS8cT19L0QY44jLpeXiG0YfFynKwsc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR01MB6691
+Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
+To: Mike Looijmans <mike.looijmans@topic.nl>, dri-devel@lists.freedesktop.org
+Cc: David Airlie <airlied@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
+ <20250627145058.6880-1-mike.looijmans@topic.nl>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20250627145058.6880-1-mike.looijmans@topic.nl>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_135008_258840_6FC27C66 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20251104_135358_123263_B0B16B90 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,40 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-rodata=full"), __change_memory_common has more chance to fail due to
-memory allocation failure when splitting page table. So check the return
-value of set_memory_rox(), then bail out if it fails otherwise we may have
-RW memory mapping for kprobes insn page.
+On 6/27/25 10:50, Mike Looijmans wrote:
+> XRGB8888 is the default mode that Xorg will want to use. Add support
+> for this to the Zynqmp DisplayPort driver, so that applications can use
+> 32-bit framebuffers. This solves that the X server would fail to start
+> unless one provided an xorg.conf that sets DefaultDepth to 16.
+> 
+> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+> ---
+> 
+>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+> index 80d1e499a18d..501428437000 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+> @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[] = {
+>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
+>  		.swap		= true,
+>  		.sf		= scaling_factors_888,
+> +	}, {
+> +		.drm_fmt	= DRM_FORMAT_XRGB8888,
+> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
+> +		.swap		= true,
+> +		.sf		= scaling_factors_888,
+>  	}, {
+>  		.drm_fmt	= DRM_FORMAT_RGBA8888,
+>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_ABGR8888,
 
-Fixes: 195a1b7d8388 ("arm64: kprobes: call set_memory_rox() for kprobe page")
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
----
-v2: Fixed the typo per Punit Agrawal
-    Collected the R-bs
+Tested-by: Sean Anderson <sean.anderson@linux.dev>
 
- arch/arm64/kernel/probes/kprobes.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-index 8ab6104a4883..43a0361a8bf0 100644
---- a/arch/arm64/kernel/probes/kprobes.c
-+++ b/arch/arm64/kernel/probes/kprobes.c
-@@ -49,7 +49,10 @@ void *alloc_insn_page(void)
- 	addr = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
- 	if (!addr)
- 		return NULL;
--	set_memory_rox((unsigned long)addr, 1);
-+	if (set_memory_rox((unsigned long)addr, 1)) {
-+		execmem_free(addr);
-+		return NULL;
-+	}
- 	return addr;
- }
- 
--- 
-2.47.0
-
+I can confirm that this provides a nice performance boost :)
 
