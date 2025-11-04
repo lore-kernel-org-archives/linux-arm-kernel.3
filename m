@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A76CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 12:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5B4CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 12:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bkXH7eosyb2JItJ6a+jHxlEQOajEabKKXGhxw0oKMn8=; b=QQu19IeWIsLBMSeruvBU0sC7B9
-	pS33Pyr4dnhyFbAkyl4xiKDFBz/OsYMPXXov8J9P5iQa43usauFxXb0XCxafksdA1dkelRc6AjIPg
-	FY8eW4nk035H0ZXitM8XaUhSIuY4TCKCZKbGR42oAncsEocY+tvJTFuXC3m7LjaaUCnnLKVOUB3R0
-	G687tfGlJ9ESUXn288KwM0+rpkhDbe8MEzTo/WL7zdPiSS8jUUbeqSMjravL5rIaNX66hwbhbf3uK
-	aoJk4BPOLlmebigQsb4RmzP6C8bEKHsbMyA2d0feffujvUf1jJPC3CeYLypfDbbFbwZzlbSNdVSva
-	uRn0dA2Q==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tEhk53Kdg2McQ7kEFZChXYgWniYrcrYlWUXlRqKFifw=; b=Kgg6IgwUq1grutYjLTqQ/RMt3P
+	5PGJp/dXQb+rh8Ics0ME3IR2UTh5a84NbPDgSJRH5OcZ+y5E8LIj0ZLwOb5DnnRUu+pSrQZDZlM1W
+	ki96+IH1bsYbg3EyeNAM0zoNjVpttVVfSPw3OBe79nvc0yC8KOMzZou/me/iJca+XNsbVL1wvNZDi
+	TDx1x8Ke/tWiIVc34zszbeXanYOVfhsKZ6x3uqQdsvEF7XSM9jsXJklwXhO/qL/ouX5GiQeY7LVXw
+	1sj64qpkuUjA0A6BnG7av6gR1rbzd5w5d91N3IC1ewV+Dz5GTY4YBK4vW9BMJ5sE/qfi/p7uGZCyv
+	0UY+Pd2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGGcy-0000000Bp4X-2UQX;
+	id 1vGGcy-0000000Bp4o-3mu3;
 	Tue, 04 Nov 2025 12:59:12 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGGcv-0000000Bp34-1usZ
+	id 1vGGcv-0000000Bp35-3mbr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 12:59:10 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-475de0566adso46397685e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 04:59:07 -0800 (PST)
+	Tue, 04 Nov 2025 12:59:11 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4770c37331fso39342775e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 04:59:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762261146; x=1762865946; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=bkXH7eosyb2JItJ6a+jHxlEQOajEabKKXGhxw0oKMn8=;
-        b=ZaOgftDR9u+mJ77DQcsES9tDVXEsr4MTX4V0DOvYzakCnspWlnJaBuyhoQwVRvW0nJ
-         KOvbktmDzSupMxyDERnM2IkHnDxstyI3SenWVZaVE3XCUEvwIv06zGMWFHXEi4yip2tD
-         CID6znYjvmaYuOEEYl76FVumfIAGHN4bllE7jr6NhZUyrFk4BDk1D2lsn+480byGANmy
-         /nRw6z9H0f9ZHjRyONHtFPjQUXDZmf35a4o405hWyuRv9pfYy2L2Anro+gcB6FQVtvPl
-         eEytZ9yfj3z5sB/rFD9oDq/yLln1mOVHu2k6uhvuUIXxsuKvacyB84Otb0S5LkKEw/uQ
-         GW3w==
+        d=google.com; s=20230601; t=1762261147; x=1762865947; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=tEhk53Kdg2McQ7kEFZChXYgWniYrcrYlWUXlRqKFifw=;
+        b=eZZjmpUoON9jo+Mnqr0f28trDtNuKjFylK5ScNialQQbyZY1unwvZhXnyv0bxSelBl
+         BKYkWgIXuEVOJueYmRBZICax1TmTrnGnUx3VfxDc28swfz/1u3eSgmJwtBlAs/afDi8/
+         SQ0CcMhi7sXJiRNkGakxOWqEfaK3h/fu8aCfZvswNjCv3PWaEl6+EtjgwW/H+jHp5lcS
+         QntT+z17wME9+bnAO4EwJZ+VQQVumOZBf60b0GHD/GEz/7XnoJcus5bzNFPVIbOvuhaQ
+         0tFz9gmA3yqsA7nBT5B+jAQGMvihBM6/M1hR8yjNNsOkmTK5J1vrYGXWsHQpwsUYqZ/b
+         nVGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762261146; x=1762865946;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bkXH7eosyb2JItJ6a+jHxlEQOajEabKKXGhxw0oKMn8=;
-        b=IzDjVmbckMLpTxQxLmlS37tIY1U1UWah9ot/1nXeeGZEXLgMszWAr8Gd3YtA67ch6e
-         2fjeNMV0tQ0YFdo6JKfnZA45bMS2sGoMFwfJCeU5PzHwgu0g78SoH92nM9ofewK96KD0
-         KUaomLe4+aXD8rTDTmk09eL7gamlEDhBL7+cK6eSe351RfrtG5gpeZDXQx6kUcmbb6rL
-         kZtr5j5TSCzJ9kb7LtjLzudhmgVEHxYKGRPXrqUzi9QbyY8gdxzjqwY0FrBvL9uiuDXt
-         9A9yKWCEqLEPG2kX+9SXVO6EAuYTyt+8x+wHEd0A0s86nxRy6yVLfeucoEa8SbPDUwXT
-         v8Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCXFR1E78/51du4Ks+HhOt2XOyJ0cKrweKKkO1QLFNDTk4frKEZT27KO4DuRBV72ufsgqep8jiy4P27pvop55uft@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAEZWxMOSh0E6wBEmqLJeyKgI396nNF28YBxWJIu5OVfAeur8a
-	i1gzXLxAYZoGRaXx5xTRtDsDyCJZnT3h9J3MsepPyAbDfxTlSGobQvnog8MdabaYvsoGxHVTydh
-	JBg==
-X-Google-Smtp-Source: AGHT+IFgYT4bLPXRk9AhJP2mOSaIQSkoHLrXRLVjVTxY3d2ElH76yRZQ1l6Yg9mlWEQgXIjTMp8drNDtYw==
-X-Received: from wmcq3.prod.google.com ([2002:a05:600c:c103:b0:476:4b14:2edf])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600d:8388:b0:477:3e07:217a
- with SMTP id 5b1f17b1804b1-4773e0722b7mr66876485e9.36.1762261146749; Tue, 04
- Nov 2025 04:59:06 -0800 (PST)
-Date: Tue,  4 Nov 2025 12:58:58 +0000
+        d=1e100.net; s=20230601; t=1762261147; x=1762865947;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tEhk53Kdg2McQ7kEFZChXYgWniYrcrYlWUXlRqKFifw=;
+        b=nSR+NI7HBS6v6bG7FlWDsHtIbtoYaaXAkNAClU8yCxA31UcUF7YOJDPAgtmaBDgVGN
+         qbDESliHux0rfnPame2OoVCZ3Wcw9WTxyRh2JSBthSQHGCm91yoa/ePtQoEs2BlH9YTY
+         HW48pchtNWgYSUbxfPan7uemckOTntcHtzQWprAo7iIByFDMeqSyZGFeAIUpTgawNmtH
+         67V0FaSvhLfj9pCCxNf021r6LSjti4TF+KgANlAKE3dewcK54Tw5v8fZALXLJ1saWRMm
+         Fng1BtRNk4fbXPCkP3Xz4FbaIrM8mAMSJKOpH9wjOoLtqb00C9vBj3s0gQVg6ht0EAGf
+         MqSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU7hV1P0js4Cy3gq7RIa1nonedwLu5QAaTCB6deWkHCZrmqVqBtbthm054Oa7BTE3sQ04YMqd2+EeHTELODICo/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRyqY/ye3EEUgBQqo5uy5amNWvIp3SqHUd/m2nwtveX/TzoeQV
+	G7dkH8YXA7OA4EEQwB+oMb83oH33aH8F0ROWgWMjfgS8tAMtGjkm2Su4WRnNArtyYFVkPVyrCNI
+	YWg==
+X-Google-Smtp-Source: AGHT+IEZahmzHvSbXgcmOaFfnt77ZN5FH4+ydq37xDaR1EeBlo2SdF0monKofs2zPRa1hAPchxrZ2/XsdQ==
+X-Received: from wmfv3.prod.google.com ([2002:a05:600c:15c3:b0:477:561f:772c])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:5252:b0:46f:b42e:e394
+ with SMTP id 5b1f17b1804b1-477308b0a6amr150505065e9.41.1762261147550; Tue, 04
+ Nov 2025 04:59:07 -0800 (PST)
+Date: Tue,  4 Nov 2025 12:58:59 +0000
+In-Reply-To: <20251104125906.1919426-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20251104125906.1919426-1-tabba@google.com>
 X-Mailer: git-send-email 2.51.2.997.g839fc31de9-goog
-Message-ID: <20251104125906.1919426-1-tabba@google.com>
-Subject: [PATCH v1 0/8] KVM: arm64: Fixes for guest CPU feature trapping and enabling
+Message-ID: <20251104125906.1919426-2-tabba@google.com>
+Subject: [PATCH v1 1/8] KVM: arm64: Route MOPS exceptions to EL2 when guest
+ lacks support
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -72,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_045909_544589_5F5C6E52 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20251104_045909_969112_F3445B3C 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,50 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+MOPS exceptions must be routed to the hypervisor (EL2) when the guest
+does not support the feature. If the guest does support MOPS, exceptions
+should be handled by the guest at EL1.
 
-This series contains several fixes for guest vCPU feature trapping and
-enabling, correcting logic for both non-protected and protected guests.
+The existing logic was inverted: exceptions were trapped to EL2 (by
+setting HCRX_EL2_MCE2) when the guest supported MOPS, and left to be
+handled at EL1 when it did not.
 
-It fixes inverted logic for MOPS exception routing and pKVM Trace Buffer
-trapping, and add missing traps for features like FEAT_NMI. It also
-ensures that supported features like FEAT_LS64 (LD/ST64B) are correctly
-enabled for the guest and not trapped.
+Fix this by moving the setting of HCRX_EL2_MCE2 from the feature-check
+block to the 'else' block, ensuring exceptions are only trapped to EL2
+when the guest cannot handle them.
 
-For pKVM, this series also ensures MTE is correctly detected and enabled
-when it is on the allow-list.
+Fixes: 84de212d739e ("KVM: arm64: Make FEAT_MOPS UNDEF if not advertised to the guest")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/include/asm/kvm_emulate.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Additionally, a simple refactoring of vcpu_set_hcrx() is included to
-reduce indentation and improve readability.
-
-Based on Linux 6.18-rc4.
-
-Cheers,
-/fuad
-
-Fuad Tabba (8):
-  KVM: arm64: Route MOPS exceptions to EL2 when guest lacks support
-  KVM: arm64: Trap access to ALLINT if FEAT_NMI not supported by the
-    guest
-  KVM: arm64: Enable LS64 instructions when supported by guest
-  KVM: arm64: Refactor vcpu_set_hcrx() to reduce indentation
-  KVM: arm64: Fix Trace Buffer trap polarity for protected VMs
-  KVM: arm64: Fix MTE flag initialization for protected VMs
-  KVM: arm64: Prevent host from managing timer offsets for protected VMs
-  KVM: arm64: Define FAR_MASK for faulting IPA offset
-
- arch/arm64/include/asm/kvm_arm.h         |  2 +
- arch/arm64/include/asm/kvm_emulate.h     | 48 +++++++++++++++---------
- arch/arm64/kvm/arch_timer.c              | 18 ++++++---
- arch/arm64/kvm/hyp/nvhe/pkvm.c           | 10 +++--
- arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c |  2 +-
- arch/arm64/kvm/inject_fault.c            |  2 +-
- arch/arm64/kvm/mmu.c                     |  4 +-
- arch/arm64/kvm/sys_regs.c                |  6 ++-
- 8 files changed, 60 insertions(+), 32 deletions(-)
-
-
-base-commit: 6146a0f1dfae5d37442a9ddcba012add260bceb0
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index c9eab316398e..0f8311263edf 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -684,7 +684,9 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+ 		vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
+ 
+ 		if (kvm_has_feat(kvm, ID_AA64ISAR2_EL1, MOPS, IMP))
+-			vcpu->arch.hcrx_el2 |= (HCRX_EL2_MSCEn | HCRX_EL2_MCE2);
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_MSCEn;
++		else
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_MCE2;
+ 
+ 		if (kvm_has_tcr2(kvm))
+ 			vcpu->arch.hcrx_el2 |= HCRX_EL2_TCR2En;
 -- 
 2.51.2.997.g839fc31de9-goog
 
