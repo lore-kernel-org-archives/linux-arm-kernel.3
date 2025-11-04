@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D05ECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32A4CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1eslUmE8GvgEql0WPtWaBVHPdJ4ILurg2r4AHTTPHo=; b=VcDqkS2Htq55aT1ISAhStKKiLR
-	QCHqCTs6hgHrpC1oOUOXE83nmpo7OwizhWXiIH0DJ7HR0gGqMUrWk8CVY1UXnnNgND6HFjCJrwOj5
-	WtZ6ib/vd21HMvhOEQobODZTAyGmtz0GrnaNVimNjDoI2mXBgHmnCj3hcbjPZs+61qK0VnvJxwF6f
-	GyJ6k4qs+fwdA1/J7APRM4D33n77pL3CWUScDwoQHP7UGF7TbS1kIPo4p7dGEg6rbSpa897iFxQtZ
-	Yr4M98ye3fvfEajbIn1HQ8v75X/c91/8XDV3m+IrGzpuG95J7h9IkZP1ms5xZR0NCmDOrbgKUmgg/
-	nB4nU0Dw==;
+	bh=FoGVSVqInleNznoc5Y01if1qKhxwlnCCyskMuMSplDM=; b=KkZNyjjD+SJ8UZGwEpq2yi1g3w
+	UWOLv9uKxiPUVJYvF9hAfmww2z+eDaRFXP5ixIppzh8XjLxA0O1j1Jxxo76jWSiwcOFeWN/xqc7v+
+	qUXuYDNHvCJvtgnEJZ8F822r7lIeXx2IcqvXqh8QiBdaU3qzVjmrGYjL5XrDVLCX7KiUXY7bSS3nM
+	Tj+IaO3Lb6r9OVEJ/KWMZxfiv53xMi2zMEMsLXz3s39e/hyZC+mAnQWpmVJDru6FXjCfARQJvProf
+	/3CkclHVFgyS3g2BcZQg7lNoIjGguiAQwJlO1D4EyHya850efM/ws/hwQDOF9Sw1Plo9CHdNpH+L9
+	nv742qfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBK0-0000000BJTj-0zBA;
-	Tue, 04 Nov 2025 07:19:16 +0000
+	id 1vGBLe-0000000BJeL-1Q8F;
+	Tue, 04 Nov 2025 07:20:58 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBJy-0000000BJTM-3nnN
+	id 1vGBLd-0000000BJeF-00Vk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 07:19:15 +0000
+	Tue, 04 Nov 2025 07:20:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1398F600AC;
-	Tue,  4 Nov 2025 07:19:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BEB4C4CEF7;
-	Tue,  4 Nov 2025 07:19:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C10D600AC;
+	Tue,  4 Nov 2025 07:20:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34147C4CEF7;
+	Tue,  4 Nov 2025 07:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762240753;
-	bh=1VqBPJua0R0bHLpOZL5JtWuxPmhUkmKa6r9tyoIY7UM=;
+	s=k20201202; t=1762240856;
+	bh=wM0bzbkluYx0iLABqa3yKEi++4KMDemVXoK7m20VGqU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kBGBC9p4mQpg3XS12E3RweaLskIYe0bC27PMWxy9Suk8qzQMpMyYDG3/yx2cEX90L
-	 T8a5LAlAC7Jhl6qfrXsRA2LLgASVTSuCgxFiqSNJtUZll4oUi3QqGPiD0AQmeOjKLc
-	 qvvhY1/Re51Y4o1oysLltK4vM+oeDjIfRkHVWEeAhFPXmkCjuH4qLD0MG/yE9cD3PC
-	 I9aTjL9JIPPKGEMhPxQ/dDxJI4VeOsklwMFO55UCi0pLlHlyxWDJHn9yrRzBoi1tw5
-	 k+fkzC0eObQ/GS6bJEqgZUh7wEGViBUbRyqgMezlvZ+fo8yfL+F1k8LAf+WPn6VMQ3
-	 fvNRXQ5Wsj7QA==
-Message-ID: <93d5636b-a515-4976-b68c-9606924eab8f@kernel.org>
-Date: Tue, 4 Nov 2025 08:19:08 +0100
+	b=fBdaJsCL8img427Ok4PRi04F5lYoJKgHXMrDiqO0MYZXO07UtPI8B2FDYsMm8ajcG
+	 b+jP4VE8szDQzynzZv9PFyms9bqPDcRXPpAmAJINsCNnQZPfid7qwDPP47XMR9TH/c
+	 ffu9iP4OgH+ghekTlMVp7tInZB/dIiA7JaT8UJv/RGiDh8qey8Lt4cXiemF5nJd3ft
+	 qsDa47R13FaAi4ODvhXXc/cDYL8r7lZHjioihk0EYR8KQjCx+J40btJvFEDYFoQ0lT
+	 KDKj4VPnZpnlKTjFE5xnr+Trv0znvLuEPCoUrmk5fr3AhjBxRT9abWHue8z2YyNG5k
+	 41LCqXagyRBog==
+Message-ID: <ab881629-9e2d-4d99-8e68-e18026d7c670@kernel.org>
+Date: Tue, 4 Nov 2025 08:20:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] nvmem: add Samsung Exynos OTP support
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v3 1/8] dt-bindings: net: qcom: document the ethqos device
+ for SCMI-based systems
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: semen.protsenko@linaro.org, willmcvicker@google.com,
- kernel-team@android.com, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251031-gs101-otp-v1-0-2a54f6c4e7b6@linaro.org>
- <20251031-gs101-otp-v1-2-2a54f6c4e7b6@linaro.org>
+ <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20251027-qcom-sa8255p-emac-v3-0-75767b9230ab@linaro.org>
+ <20251027-qcom-sa8255p-emac-v3-1-75767b9230ab@linaro.org>
+ <20251028-wonderful-orchid-emu-25cd02@kuoka>
+ <CAMRc=Mce_1O5fRn8xCu5GRc_hFUtMgotx7ZK1EHF4xZMoWsawA@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +113,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251031-gs101-otp-v1-2-2a54f6c4e7b6@linaro.org>
+In-Reply-To: <CAMRc=Mce_1O5fRn8xCu5GRc_hFUtMgotx7ZK1EHF4xZMoWsawA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,103 +130,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/10/2025 13:45, Tudor Ambarus wrote:
-> Add support for the Samsung Exynos OTP controller. On the Google GS101
-> SoC, this controller provides 32 Kbit of OTP memory space that can be
-> read/program/lock using a specific sequence of register accesses.
+On 03/11/2025 18:18, Bartosz Golaszewski wrote:
+> On Tue, Oct 28, 2025 at 9:16 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>>> +
+>>> +  power-domains:
+>>> +    minItems: 3
+>>
+>> maxItems instead
+>>
+>> But the other problem is that it is conflicting with snps,dwmac.yaml
+>> which says max 1 is allowed. You need to fix that, along with
+>> restricting other users of that shared schema to maxItems: 1.
+>>
 > 
-> The OTP controller register space is of interest as well because it
-> contains dedicated registers for the Product ID and the Chip ID (apart
-> other things like TMU or ASV info). Register the OTP controller
-> register space as a nvmem device so that other drivers can access its
-> contents using nvmem cells.
+> Just to be clear: snps,dwmac.yaml should stay as:
 > 
-> Support for the OTP memory space can follow and be modeled as a
-> dedicated nvmem device.
+> power-domains:
+>   minItems: 1
+>   maxItems: 3
 > 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
->  drivers/nvmem/Kconfig      | 10 +++++
->  drivers/nvmem/Makefile     |  2 +
->  drivers/nvmem/exynos-otp.c | 98 ++++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 110 insertions(+)
+> But all bindings referencing it, except the new one, should now gain:
 > 
-> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> index e0d88d3199c11a3b71cc274b2114e9554ac486fc..f973e009737f2fbdc8511e50f1aa9e6003286065 100644
-> --- a/drivers/nvmem/Kconfig
-> +++ b/drivers/nvmem/Kconfig
-> @@ -84,6 +84,16 @@ config NVMEM_BRCM_NVRAM
->  	  This driver provides support for Broadcom's NVRAM that can be accessed
->  	  using I/O mapping.
->  
-> +config NVMEM_EXYNOS_OTP
-> +	tristate "Samsung Exynos OTP support"
-> +	depends on ARCH_EXYNOS || COMPILE_TEST
-> +	help
-> +	  This driver provides support for the OTP controller found on some
-> +	  Samsung Exynos SoCs.
-> +
-> +	  This driver can also be built as a module. If so, the module
-> +	  will be called exynos-otp.
-> +
->  config NVMEM_IMX_IIM
->  	tristate "i.MX IC Identification Module support"
->  	depends on ARCH_MXC || COMPILE_TEST
-> diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-> index 70a4464dcb1e25cf9116280a32f4a0f4f9941a75..920a536fc359a5a7d8f3aabba6a712e85c277ee7 100644
-> --- a/drivers/nvmem/Makefile
-> +++ b/drivers/nvmem/Makefile
-> @@ -20,6 +20,8 @@ obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
->  nvmem-bcm-ocotp-y			:= bcm-ocotp.o
->  obj-$(CONFIG_NVMEM_BRCM_NVRAM)		+= nvmem_brcm_nvram.o
->  nvmem_brcm_nvram-y			:= brcm_nvram.o
-> +obj-$(CONFIG_NVMEM_EXYNOS_OTP)		+= nvmem-exynos-otp.o
-> +nvmem-exynos-otp-y			:= exynos-otp.o
->  obj-$(CONFIG_NVMEM_IMX_IIM)		+= nvmem-imx-iim.o
->  nvmem-imx-iim-y				:= imx-iim.o
->  obj-$(CONFIG_NVMEM_IMX_OCOTP)		+= nvmem-imx-ocotp.o
-> diff --git a/drivers/nvmem/exynos-otp.c b/drivers/nvmem/exynos-otp.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..3bff9421e6f2b80a8f20533b490a289687d117e8
-> --- /dev/null
-> +++ b/drivers/nvmem/exynos-otp.c
-> @@ -0,0 +1,98 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2025 Linaro Ltd.
-> + *
-> + * Samsung Exynos OTP driver.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/ioport.h>
-> +#include <linux/module.h>
-> +#include <linux/nvmem-provider.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/mod_devicetable.h>
-> +
-> +struct exynos_otp {
-> +	struct clk *pclk;
-> +	struct regmap *regmap;
-> +};
-> +
-> +static int exynos_otp_read(void *context, unsigned int offset, void *val,
-> +			   size_t bytes)
-> +{
-> +	struct exynos_otp *eotp = context;
-> +
-> +	return regmap_bulk_read(eotp->regmap, offset, val, bytes / 4);
+> power-domains:
+>   maxItems: 1
 
-
-So you are just reading MMIO and pretending this is NVMEM?
-
-Is it possible to actually do the other actions from your commit msg
-"read/program/lock"? If not, then you just created NVMEM abstraction
-over existing chipid completely duplicating the driver (with more
-translation layers).
+Yes.
 
 Best regards,
 Krzysztof
