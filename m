@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5585CCFA0C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3429CCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=778v4NmWPa3PgkoilE68pcMDsz6/RM9xJbpFZ7RKFb8=; b=uC77HQJyZ7oAsUHF8aEFXADIRo
-	Ypy1n0sVNk4uOu9rJZ1Il7RmXOs/c3kiRaTA12vMU4ixxe6UQdtFijP4mOtxnJxy2Y4p3RqiDX/30
-	Nic18ZXtwWh3fKTR7NpHPSPhWObNpZJtD8GUOpa9ekpWtkvQmP/aWOaNih184KGF50xfBcfaVhn0o
-	c4PhaLWVVof1Rezyfa7hnhsvDFEr5OskRym3DSeX2wCrusgX5g1k3WXAotch3DFXPR3MTKaFoabPb
-	PaRAOKrbCVbvrPnlD1weg0LqnN2lYeG/4Dwc20RpFBq56B3QuktgqUEk4Yu9iZWtwgn9LP4doyR12
-	1CE7ubYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aewq53Boo34gZ34orIJFa2cmk4MqQx2bdyolHKglpvQ=; b=XbzP+gZ6wJHuGib6uMDYgmaG4D
+	GEY4nO7kQIcgc6g/bmIq50mdsgfKfmbTYypLqEVY7Ir/S9ZsS5txp1PrrwoRJCVwQxzLJtkO8bWNf
+	F6hVKaZoF2h6+OsqjZ+f8GHn4KkrrxpVFBeyNv0Q6MjHWgQ9bJxaGLQGGvqQ1p4ss3Xh+exjbjb2J
+	m8uKnGZe1iELSAM1Wu0Sj3psfmcCONfcb8imFTs7MfnUm1ig9hv5KFPCe1HaQChCRpXysjeVG/Ask
+	qXpfJs8TH9rHj6jb/HnV2laJ5LwrkijVsFVikWpIFOS4OwHli3wRv3AETYH4sQRNyybySTp44WE8s
+	VbganTLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIsF-0000000C4Za-2tFl;
-	Tue, 04 Nov 2025 15:23:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vGIvH-0000000C5XM-31yw;
+	Tue, 04 Nov 2025 15:26:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIsC-0000000C4V5-2oTi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Nov 2025 15:23:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=778v4NmWPa3PgkoilE68pcMDsz6/RM9xJbpFZ7RKFb8=; b=mHo2fK0iou2/xlblHmq7nl0GjY
-	pb6s9Zs0unVqncmVhWdg7X2L/fwj17TzKiu6RqQ6BTdh5crShtZ/tCPXeGlXB5TDwPgfGGDRFkDTl
-	Pvo+U817f/H/pveE5bm12jDFcqN4qeoB7YTVbO7+xJoBxqRpiAcSTfhxR9FSWvjqSRibrw2RCsWYW
-	jmSqjrNJv96kbNwTfnsdQg5D+a2buEzJgCIYYq2XZOeE0rwOHFVV6/9HjjjHfJwbLIxQWQaRj2Ayi
-	4L7eMr8cADRm41eUv0vxgsZjGYUTjRra4lToumismlIX2X8ZNWCpe+28kcCTnukHC8iK6jmq1Vd3l
-	nnmOTRaQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGI0R-00000000IQx-2vHE
+	id 1vGIvF-0000000C5XC-2iNB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 14:27:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6503F2C41;
-	Tue,  4 Nov 2025 07:22:51 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CA673F66E;
-	Tue,  4 Nov 2025 07:22:57 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 04 Nov 2025 15:21:58 +0000
-Subject: [PATCH v4 14/15] coresight: Take hotplug lock in
- enable_source_store() for Sysfs mode
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251104-arm_coresight_path_power_management_improvement-v4-14-3d4bba674709@arm.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762269750; l=3442;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=F6tjhTQxWCJyErifaPxvwP9MA3ZhuW5tv5QMSckSvbk=;
- b=R88fFRi6yjPGByjcmTwJsWvJlFSh2SLAAvXtBAczvJ4x8G5Y0RV5gHRzrAxLReNUwHJOVCAzG
- G1XNhbzazwaCKBC+Dbx54GNcd/Hey1fieTnj+vk25v5/wI3EJ9xQ1GE
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_142732_114781_19143412 
-X-CRM114-Status: GOOD (  17.35  )
+	Tue, 04 Nov 2025 15:26:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B2FE6601EF;
+	Tue,  4 Nov 2025 15:26:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0DAC4CEF7;
+	Tue,  4 Nov 2025 15:26:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762269972;
+	bh=ufkzVDQGpPkSO8Os+Cl/eseLg3hDFTXk0IeH26ebQdo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=H52LslPcO2hTqEixOFdfNeDNtilT+VxG966alxulMa9XNn1XeU7un4PJK37i/PvNE
+	 fmiN7iv29QOmbAnoVLZJwEl0ch4X5Jx1TKWHpvNcN+uil/FqqgR5e/Mi6YsjwQStKW
+	 ubIzumPimcM4dXYiOM8HYoCcpUZaeekdnI7l3WaacrvR9e2muOM8m3M1mSFjomJcnj
+	 C7+8KsM38fHGnYl+kTE5OsqgsnWwfgnqdtFhGcsd+u2s7nKulw/Kq898zMTPzBzFIp
+	 FON2/Q5dTW32nmtmZutiOyw9QqjtUwI1sLSFl3pDZXupEoT3icHrgfC+lE0tpFkkGX
+	 NNjBIY8DXQt4g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vGIvC-00000002KvX-1BnK;
+	Tue, 04 Nov 2025 15:26:10 +0000
+Date: Tue, 04 Nov 2025 15:26:09 +0000
+Message-ID: <86fratvmy6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	vladimir.murzin@arm.com
+Subject: Re: [PATCH v1 3/8] KVM: arm64: Enable LS64 instructions when supported by guest
+In-Reply-To: <20251104125906.1919426-4-tabba@google.com>
+References: <20251104125906.1919426-1-tabba@google.com>
+	<20251104125906.1919426-4-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, vladimir.murzin@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,85 +88,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hotplug lock is acquired and released in the etm4_disable_sysfs()
-function, which is a low-level function located in the ETM4 driver.
-This prevents us from a new solution for hotplug.
+On Tue, 04 Nov 2025 12:59:01 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> The FEAT_LS64* family (FEAT_LS64, FEAT_LS64_V, FEAT_LS64_ACCDATA)
+> enables support for LD64B, ST64B, and their variants. If a guest is
+> advertised these features, KVM should not trap accesses to these
+> instructions to EL2.
+> 
+> This is controlled by the HCRX_EL2_EnASR, HCRX_EL2_EnALS, and
+> HCRX_EL2_EnAS0 bits. When clear, these bits trap the corresponding
+> instructions. KVM did not set them, which would cause guest-supported
+> instructions to trap.
+> 
+> This also created a state mismatch for nested virtualization, which
+> validates its own HCRX_EL2 value against the features advertised in the
+> guest's ID_AA64ISAR1_EL1 (in handle_other()).
+> 
+> Fix this by checking for each FEAT_LS64* variant in
+> vcpu_set_hcrx() and setting the corresponding HCRX_EL2 enable
+> bit if the guest supports the feature.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 
-Firstly, hotplug callbacks cannot invoke etm4_disable_sysfs() to disable
-the source; otherwise, a deadlock issue occurs.  The reason is that, in
-the hotplug flow, the kernel acquires the hotplug lock before calling
-callbacks.  Subsequently, if coresight_disable_source() is invoked and
-it calls etm4_disable_sysfs(), the hotplug lock will be acquired twice,
-leading to a double lock issue.
+Please see 20240815125959.2097734-1-maz@kernel.org, which has a large
+portion of what is required for this to work. Just flipping the bits
+isn't quite enough.
 
-Secondly, when hotplugging a CPU on or off, if we want to manipulate all
-components on a path attached to the CPU, we need to maintain atomicity
-for the entire path.  Otherwise, a race condition may occur with users
-setting the same path via the Sysfs knobs, ultimately causing mess
-states in CoreSight components.
+Thanks,
 
-This patch moves the hotplug locking from etm4_disable_sysfs() into
-enable_source_store().  As a result, when users control the Sysfs knobs,
-the whole flow is protected by hotplug locking, ensuring it is mutual
-exclusive with hotplug callbacks.
-
-Note, the paired function etm4_enable_sysfs() does not use hotplug
-locking, which is why this patch does not modify it.
-
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 9 ---------
- drivers/hwtracing/coresight/coresight-sysfs.c      | 7 +++++++
- 2 files changed, 7 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index af2793cdb983c85f883efe10d7633f9cf718a44f..7bea3d2c6f49a2169b8e3de1cb07cc22147aae3a 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1090,13 +1090,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
- {
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	/*
--	 * Taking hotplug lock here protects from clocks getting disabled
--	 * with tracing being left on (crash scenario) if user disable occurs
--	 * after cpu online mask indicates the cpu is offline but before the
--	 * DYING hotplug callback is serviced by the ETM driver.
--	 */
--	cpus_read_lock();
- 	raw_spin_lock(&drvdata->spinlock);
- 
- 	/*
-@@ -1110,8 +1103,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
- 
- 	cscfg_csdev_disable_active_config(csdev);
- 
--	cpus_read_unlock();
--
- 	/*
- 	 * we only release trace IDs when resetting sysfs.
- 	 * This permits sysfs users to read the trace ID after the trace
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index 72e9607fc6aea4663abf7d1f7f03f247ea060b83..781290d8ecd63ef7d568d8045d422d87c6221e6b 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -363,6 +363,13 @@ static ssize_t enable_source_store(struct device *dev,
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * CoreSight hotplug callbacks in core layer control a activated path
-+	 * from its source to sink. Taking hotplug lock here protects a race
-+	 * condition with hotplug callbacks.
-+	 */
-+	guard(cpus_read_lock)();
-+
- 	if (val) {
- 		ret = coresight_enable_sysfs(csdev);
- 		if (ret)
+	M.
 
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
