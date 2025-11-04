@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0910CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 06:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9942CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 06:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czD4HOm37Sn6UenIYCgK3Nv6nS3pHMMOXjFgZv3UY6o=; b=O1K61izwPTXHYa4e2TyhpR8tQH
-	knKDYsUZRxydoxRhPPAeIuto8j2//SNZ8VsWilvbBfVJjM2GTW/CNPJlkvXOOPhvcXNhUiuZXvCXg
-	oJhUCRuGh32hAFz1IhEWzGUw7pNy2kSRVdsXHTAwRYLkcTMR6B8Tqr8uP+uuWSw0uHGnVOsvD8zbO
-	L2iULTO6JTclzReGWy7upHWkg0RodP77rnM+rGCKQPhOFvhCZFiGi4WZJcSf8btK1s9KxfumyewCe
-	93Zj5PDyVwQL5CngQDJQwbVCM+Dx6uAyTlBBgbhlFvjrqEId7iPucwDYcR2FjVzURHQfYGGuftuqI
-	VEj3bGyw==;
+	bh=r77a9FBSuLxmDUxGTny5h3cynbHJ+Txxd3jDIF3rGnU=; b=H3IYa8Iev7fxP1zZD2DouSEbLP
+	AwPWPWjUg3U9TPpNJDzltp+Qs2rlegl2zbcLpMaIW+U45A9dJQJTmaWzjJhtwJlUTF0lww36fysiY
+	wNurZoppHHh+si6n/MmobpWEFlNpQ0VgB1DzIrNQSepmMHUE3v3ANn3yTvGUC27DOozAgFoM7c2TE
+	xdrL5GkxPqMXF7whyakm2nq19hSUaF9YMqRkMtDO/roefXXz/ekwnV+n+MW6K4i7TBRXa7So+PHMx
+	+HB/ev9Hzx4jwOhtEhT1qINtdzn4ujGfspq0bhUYqclspHy9nI+NvwjzTmTyQmsxcvCcqZXq7dB+y
+	2FsPpefQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGALs-0000000BE0E-1F10;
-	Tue, 04 Nov 2025 06:17:08 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGALp-0000000BDzR-0eoO;
-	Tue, 04 Nov 2025 06:17:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762237025; x=1793773025;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=mSKoZmGkcXW407B8mNGjY9EejInAopsSE39gAyEUn9k=;
-  b=Rfor26ryKck7JikmMrZaDlMjd8DS0Y0HIGDiL+9NLdlh2m+8722zaPj8
-   jnVHUd+xibkBOSc5fWmGwAI6KCXdacwMWo5322j81qXhaWrCHeEV7pIuL
-   RTK/P5zHLljo24bQjXEcfRrw0bxYIJ6aI2fNnV4dO1oHfEYlGFCM0xBQ/
-   psG8ObHs722naTnIdXbGBt04ntiPHaa2J//N1N19Fx3nNS5aI5kR/iizE
-   dmwoyt0kpumq562P1da93yHfsNbN1bhQWN7nIoDGobEP/onOMWWUZqook
-   Hm5NsfNbkjL8YysNLY3ozdOXRDq9ZlKnilO++uQNKTxYJ5GzlpqgbYaOb
-   w==;
-X-CSE-ConnectionGUID: VuLhlPnCRiqXi5WMEzMLmg==
-X-CSE-MsgGUID: CvDUfFj6TyeVYOw4t/rvwQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11602"; a="63528091"
-X-IronPort-AV: E=Sophos;i="6.19,278,1754982000"; 
-   d="scan'208";a="63528091"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2025 22:17:02 -0800
-X-CSE-ConnectionGUID: IL8VAT68RkmI5IbPyY1fNw==
-X-CSE-MsgGUID: u8bxLoPYS/KxoreV4M7Dmg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,278,1754982000"; 
-   d="scan'208";a="210576877"
-Received: from yinghaoj-desk.ccr.corp.intel.com (HELO [10.238.1.225]) ([10.238.1.225])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2025 22:16:56 -0800
-Message-ID: <31da959f-d004-4ae0-a6a7-d5d31b646b70@linux.intel.com>
-Date: Tue, 4 Nov 2025 14:16:53 +0800
+	id 1vGAOo-0000000BEKv-2s4b;
+	Tue, 04 Nov 2025 06:20:10 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGAOk-0000000BEK4-1lPU;
+	Tue, 04 Nov 2025 06:20:07 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4d0ylC5twsz9sS7;
+	Tue,  4 Nov 2025 07:11:35 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 1V_DzEabRqdH; Tue,  4 Nov 2025 07:11:35 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4d0ylC4fs9z9sRy;
+	Tue,  4 Nov 2025 07:11:35 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 7EE558B76C;
+	Tue,  4 Nov 2025 07:11:35 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id bDAKbX6wpuSV; Tue,  4 Nov 2025 07:11:35 +0100 (CET)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6D0C78B763;
+	Tue,  4 Nov 2025 07:11:33 +0100 (CET)
+Message-ID: <14010da0-9fba-4627-a499-e71034cd9bac@csgroup.eu>
+Date: Tue, 4 Nov 2025 07:11:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 27/28] KVM: TDX: Bug the VM if extending the initial
- measurement fails
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
+Subject: Re: [patch V5 02/12] uaccess: Provide ASM GOTO safe wrappers for
+ unsafe_*_user()
+To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
  Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
- Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ackerley Tng <ackerleytng@google.com>
-References: <20251030200951.3402865-1-seanjc@google.com>
- <20251030200951.3402865-28-seanjc@google.com>
-Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251030200951.3402865-28-seanjc@google.com>
+ Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ David Laight <david.laight.linux@gmail.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
+ <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+References: <20251027083700.573016505@linutronix.de>
+ <20251027083745.231716098@linutronix.de>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <20251027083745.231716098@linutronix.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_221705_217258_BCB09C08 
-X-CRM114-Status: GOOD (  29.20  )
+X-CRM114-CacheID: sfid-20251103_222006_652768_1478C76F 
+X-CRM114-Status: GOOD (  28.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,85 +98,204 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 10/31/2025 4:09 AM, Sean Christopherson wrote:
-> WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
-> measurement should fail if and only if there is a KVM bug, or if the S-EPT
-> mapping is invalid.  Now that KVM makes all state transitions mutually
-> exclusive via tdx_vm_state_guard, it should be impossible for S-EPT
-> mappings to be removed between kvm_tdp_mmu_map_private_pfn() and
-> tdh_mr_extend().
->
-> Holding slots_lock prevents zaps due to memslot updates,
-> filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
-> vcpu->mutex locks prevents updates from other vCPUs, kvm->lock prevents
-> VM-scoped ioctls from creating havoc (e.g. by creating new vCPUs), and all
-> usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT entries that
-> can be used for the initial image.
->
-> For kvm_zap_gfn_range(), the call from sev.c is obviously mutually
-> exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_PAT so the same goes
-> for kvm_noncoherent_dma_assignment_start_or_stop(), and
-> __kvm_set_or_clear_apicv_inhibit() is blocked by virtue of holding all
-> VM and vCPU mutexes (and the APIC page has its own non-guest_memfd memslot
+Le 27/10/2025 à 09:43, Thomas Gleixner a écrit :
+> ASM GOTO is miscompiled by GCC when it is used inside a auto cleanup scope:
+> 
+> bool foo(u32 __user *p, u32 val)
+> {
+> 	scoped_guard(pagefault)
+> 		unsafe_put_user(val, p, efault);
+> 	return true;
+> efault:
+> 	return false;
+> }
+> 
+>   e80:	e8 00 00 00 00       	call   e85 <foo+0x5>
+>   e85:	65 48 8b 05 00 00 00 00 mov    %gs:0x0(%rip),%rax
+>   e8d:	83 80 04 14 00 00 01 	addl   $0x1,0x1404(%rax)   // pf_disable++
+>   e94:	89 37                	mov    %esi,(%rdi)
+>   e96:	83 a8 04 14 00 00 01 	subl   $0x1,0x1404(%rax)   // pf_disable--
+>   e9d:	b8 01 00 00 00       	mov    $0x1,%eax           // success
+>   ea2:	e9 00 00 00 00       	jmp    ea7 <foo+0x27>      // ret
+>   ea7:	31 c0                	xor    %eax,%eax           // fail
+>   ea9:	e9 00 00 00 00       	jmp    eae <foo+0x2e>      // ret
+> 
+> which is broken as it leaks the pagefault disable counter on failure.
 
-Nit:
-It sounds like TDX is using the memslot for the APIC page, but for a TD, the
-memslot for the APIC page is never initialized or used?
+Is there a GCC bug report for it ?
 
-> and so can't be used for the initial image, which means that too is
-> mutually exclusive irrespective of locking).
->
-> Opportunistically return early if the region doesn't need to be measured
-> in order to reduce line lengths and avoid wraps.  Similarly, immediately
-> and explicitly return if TDH_MR_EXTEND fails to make it clear that KVM
-> needs to bail entirely if extending the measurement fails.
->
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> 
+> Clang at least fails the build.
 
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+Is it expected ? Is the error message meaningfull ?
+
+> 
+> Linus suggested to add a local label into the macro scope and let that
+> jump to the actual caller supplied error label.
+> 
+>         	__label__ local_label;                                  \
+>          arch_unsafe_get_user(x, ptr, local_label);              \
+> 	if (0) {                                                \
+> 	local_label:                                            \
+> 		goto label;                                     \
+
+That's in a while loop so it would have been cleaner (more readable) to 
+break instead of that ugly if(0), see __get_user_size_allowed() in 
+powerpc uaccess.h
+
+> 
+> That works for both GCC and clang.
+> 
+> clang:
+> 
+>   c80:	0f 1f 44 00 00       	   nopl   0x0(%rax,%rax,1)	
+>   c85:	65 48 8b 0c 25 00 00 00 00 mov    %gs:0x0,%rcx
+>   c8e:	ff 81 04 14 00 00    	   incl   0x1404(%rcx)	   // pf_disable++
+>   c94:	31 c0                	   xor    %eax,%eax        // set retval to false
+>   c96:	89 37                      mov    %esi,(%rdi)      // write
+>   c98:	b0 01                	   mov    $0x1,%al         // set retval to true
+>   c9a:	ff 89 04 14 00 00    	   decl   0x1404(%rcx)     // pf_disable--
+>   ca0:	2e e9 00 00 00 00    	   cs jmp ca6 <foo+0x26>   // ret
+> 
+> The exception table entry points correctly to c9a
+> 
+> GCC:
+> 
+>   f70:   e8 00 00 00 00          call   f75 <baz+0x5>
+>   f75:   65 48 8b 05 00 00 00 00 mov    %gs:0x0(%rip),%rax
+>   f7d:   83 80 04 14 00 00 01    addl   $0x1,0x1404(%rax)  // pf_disable++
+>   f84:   8b 17                   mov    (%rdi),%edx
+>   f86:   89 16                   mov    %edx,(%rsi)
+>   f88:   83 a8 04 14 00 00 01    subl   $0x1,0x1404(%rax) // pf_disable--
+>   f8f:   b8 01 00 00 00          mov    $0x1,%eax         // success
+>   f94:   e9 00 00 00 00          jmp    f99 <baz+0x29>    // ret
+>   f99:   83 a8 04 14 00 00 01    subl   $0x1,0x1404(%rax) // pf_disable--
+>   fa0:   31 c0                   xor    %eax,%eax         // fail
+>   fa2:   e9 00 00 00 00          jmp    fa7 <baz+0x37>    // ret
+> 
+> The exception table entry points correctly to f99
+> 
+> So both compilers optimize out the extra goto and emit correct and
+> efficient code.
+ > > Provide a generic wrapper to do that to avoid modifying all the 
+affected
+> architecture specific implementation with that workaround.
+> 
+> The only change required for architectures is to rename unsafe_*_user() to
+> arch_unsafe_*_user(). That's done in subsequent changes.
+> 
+> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+
+Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+
 
 > ---
->   arch/x86/kvm/vmx/tdx.c | 24 +++++++++++++-----------
->   1 file changed, 13 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-> index 8bcdec049ac6..762f2896547f 100644
-> --- a/arch/x86/kvm/vmx/tdx.c
-> +++ b/arch/x86/kvm/vmx/tdx.c
-> @@ -3123,21 +3123,23 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+>   include/linux/uaccess.h |   72 +++++++++++++++++++++++++++++++++++++++++++++---
+>   1 file changed, 68 insertions(+), 4 deletions(-)
+> 
+> --- a/include/linux/uaccess.h
+> +++ b/include/linux/uaccess.h
+> @@ -518,7 +518,34 @@ long strncpy_from_user_nofault(char *dst
+>   		long count);
+>   long strnlen_user_nofault(const void __user *unsafe_addr, long count);
 >   
->   	put_page(src_page);
+> -#ifndef __get_kernel_nofault
+> +#ifdef arch_get_kernel_nofault
+> +/*
+> + * Wrap the architecture implementation so that @label can be outside of a
+> + * cleanup() scope. A regular C goto works correctly, but ASM goto does
+> + * not. Clang rejects such an attempt, but GCC silently emits buggy code.
+> + */
+> +#define __get_kernel_nofault(dst, src, type, label)		\
+> +do {								\
+> +	__label__ local_label;					\
+> +	arch_get_kernel_nofault(dst, src, type, local_label);	\
+> +	if (0) {						\
+> +	local_label:						\
+> +		goto label;					\
+> +	}							\
+> +} while (0)
+> +
+> +#define __put_kernel_nofault(dst, src, type, label)		\
+> +do {								\
+> +	__label__ local_label;					\
+> +	arch_get_kernel_nofault(dst, src, type, local_label);	\
+> +	if (0) {						\
+> +	local_label:						\
+> +		goto label;					\
+> +	}							\
+> +} while (0)
+> +
+> +#elif !defined(__get_kernel_nofault) /* arch_get_kernel_nofault */
+> +
+>   #define __get_kernel_nofault(dst, src, type, label)	\
+>   do {							\
+>   	type __user *p = (type __force __user *)(src);	\
+> @@ -535,7 +562,8 @@ do {							\
+>   	if (__put_user(data, p))			\
+>   		goto label;				\
+>   } while (0)
+> -#endif
+> +
+> +#endif  /* !__get_kernel_nofault */
 >   
-> -	if (ret)
-> +	if (ret || !(arg->flags & KVM_TDX_MEASURE_MEMORY_REGION))
->   		return ret;
+>   /**
+>    * get_kernel_nofault(): safely attempt to read from a location
+> @@ -549,7 +577,42 @@ do {							\
+>   	copy_from_kernel_nofault(&(val), __gk_ptr, sizeof(val));\
+>   })
 >   
-> -	if (arg->flags & KVM_TDX_MEASURE_MEMORY_REGION) {
-> -		for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
-> -			err = tdh_mr_extend(&kvm_tdx->td, gpa + i, &entry,
-> -					    &level_state);
-> -			if (err) {
-> -				ret = -EIO;
-> -				break;
-> -			}
-> -		}
-> +	/*
-> +	 * Note, MR.EXTEND can fail if the S-EPT mapping is somehow removed
-> +	 * between mapping the pfn and now, but slots_lock prevents memslot
-> +	 * updates, filemap_invalidate_lock() prevents guest_memfd updates,
-> +	 * mmu_notifier events can't reach S-EPT entries, and KVM's internal
-> +	 * zapping flows are mutually exclusive with S-EPT mappings.
-> +	 */
-> +	for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
-> +		err = tdh_mr_extend(&kvm_tdx->td, gpa + i, &entry, &level_state);
-> +		if (TDX_BUG_ON_2(err, TDH_MR_EXTEND, entry, level_state, kvm))
-> +			return -EIO;
->   	}
->   
-> -	return ret;
-> +	return 0;
->   }
->   
->   static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *cmd)
+> -#ifndef user_access_begin
+> +#ifdef user_access_begin
+> +
+> +#ifdef arch_unsafe_get_user
+> +/*
+> + * Wrap the architecture implementation so that @label can be outside of a
+> + * cleanup() scope. A regular C goto works correctly, but ASM goto does
+> + * not. Clang rejects such an attempt, but GCC silently emits buggy code.
+> + *
+> + * Some architectures use internal local labels already, but this extra
+> + * indirection here is harmless because the compiler optimizes it out
+> + * completely in any case. This construct just ensures that the ASM GOTO
+> + * target is always in the local scope. The C goto 'label' works correct
+> + * when leaving a cleanup() scope.
+> + */
+> +#define unsafe_get_user(x, ptr, label)			\
+> +do {							\
+> +	__label__ local_label;				\
+> +	arch_unsafe_get_user(x, ptr, local_label);	\
+> +	if (0) {					\
+> +	local_label:					\
+> +		goto label;				\
+> +	}						\
+> +} while (0)
+> +
+> +#define unsafe_put_user(x, ptr, label)			\
+> +do {							\
+> +	__label__ local_label;				\
+> +	arch_unsafe_put_user(x, ptr, local_label);	\
+> +	if (0) {					\
+> +	local_label:					\
+> +		goto label;				\
+> +	}						\
+> +} while (0)
+> +#endif /* arch_unsafe_get_user */
+> +
+> +#else /* user_access_begin */
+>   #define user_access_begin(ptr,len) access_ok(ptr, len)
+>   #define user_access_end() do { } while (0)
+>   #define unsafe_op_wrap(op, err) do { if (unlikely(op)) goto err; } while (0)
+> @@ -559,7 +622,8 @@ do {							\
+>   #define unsafe_copy_from_user(d,s,l,e) unsafe_op_wrap(__copy_from_user(d,s,l),e)
+>   static inline unsigned long user_access_save(void) { return 0UL; }
+>   static inline void user_access_restore(unsigned long flags) { }
+> -#endif
+> +#endif /* !user_access_begin */
+> +
+>   #ifndef user_write_access_begin
+>   #define user_write_access_begin user_access_begin
+>   #define user_write_access_end user_access_end
+> 
 
 
