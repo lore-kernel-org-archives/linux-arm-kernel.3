@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7325BCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D92CCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eIVThJ6oj7D1koF1GgMYSCeT4kayJdABWWm6CbJVGg=; b=rxlolcrHZ9QMziLzaAuo3TqtdM
-	KwOUfpGmJHseaqmtAONtX/fEga50rbgUjMkNdR0T9h9JFuXmqPobLw0jQ5c8kJrfO56ZPYEeKhsUX
-	KwgrF6x5xcdEMwcMaGjRZMDLQ54ToxNwr8DBIIa4sJQqOZqjIJQdAZt55CunST23hwmTsiwEdOyyV
-	fnTnx6Q7eMq70zDXGBLNEkKIXSg/rQAO3YvUqYjMdZaIqibMsKWIOjtH4xt85Gl5hfUCmBV9HYpvm
-	BgfFLSM4IubH6MwzPSTEYj6A0skoxOJEdHPvCpad272O1bjUuNN6oizoDpoJ14W/NYBZfj/X3Xdkp
-	Ye/RSj2A==;
+	bh=aWllGX1MMtxiRedjfqMRJ8FqbdXbLLxpGyjmvt9VVBs=; b=rS6lqmVoJZasHpos/xEWep1NiM
+	kuRaEep8SOUoE4An9mNdIyxrY+k7qQmdfjv/MlW4BJyn1CBj6nTYK6EY3uGYeao80zwtkGKVTrE/8
+	gRrCyY8/X+p5d3naPQ+sTUHXlprqDyUKbnYi282e77VUKwbWGvr0xgf7I69aw38qMghAMieysHozY
+	3B3xn4nmMO6+t30nfkXo6VsBlu2TGlibBA/uQqIzDUbnAfoMOzl0ICGqztLovsRt+jgehpKBxa55E
+	EsuOqIyOHcCmpOlcR2KPpBITcXSkC4AK5c95y/4tmt/OsL1Rr75zIe0d4dXaGeIqvR5Sw624/orkD
+	vOb2KP9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHVi-0000000BvZO-0fVg;
-	Tue, 04 Nov 2025 13:55:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHVf-0000000BvXj-1k6u
+	id 1vGHVm-0000000Bvbu-2Bsw;
+	Tue, 04 Nov 2025 13:55:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGHVj-0000000Bva6-2uvU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 13:55:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97F9E1CE0;
-	Tue,  4 Nov 2025 05:55:33 -0800 (PST)
-Received: from arm.com (RQ4T19M611-5.cambridge.arm.com [10.1.31.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 004DB3F694;
-	Tue,  4 Nov 2025 05:55:37 -0800 (PST)
-Date: Tue, 4 Nov 2025 13:55:35 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
-	Linux-Arch <linux-arch@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	bpf@vger.kernel.org, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Haris Okanovic <harisokn@amazon.com>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, zhenglifeng1@huawei.com,
-	xueshuai@linux.alibaba.com,
-	Joao Martins <joao.m.martins@oracle.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
-Subject: Re: [RESEND PATCH v7 2/7] arm64: barrier: Support
- smp_cond_load_relaxed_timeout()
-Message-ID: <aQoF1-uKTgJo89W8@arm.com>
-References: <20251028053136.692462-1-ankur.a.arora@oracle.com>
- <20251028053136.692462-3-ankur.a.arora@oracle.com>
- <3642cfd1-7da6-4a75-80b7-00c21ab6955f@app.fastmail.com>
- <87qzumq51p.fsf@oracle.com>
- <aQEy6ObvE0s2Gfbg@arm.com>
- <746c2de4-7613-4f13-911c-c2c4e071ed73@app.fastmail.com>
- <87ikfqesr2.fsf@oracle.com>
+	Tue, 04 Nov 2025 13:55:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 190B4446DF;
+	Tue,  4 Nov 2025 13:55:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F28B8C116B1;
+	Tue,  4 Nov 2025 13:55:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762264547;
+	bh=G3VU4ztVKcvkUx9snPYfkRyw4Hbg8NsZbBTz7yXbbMs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SIjTg2vr88Jluwg0BWr2AaAiabXujExUwccYZrvT7V8wl+0qnk/o8BJKcC4D1Ydpn
+	 44pgtnQ+qZwCHvvz8TAjr9NIlUcmMJH4mrDbOJ9VYf4r1HUzPbwae7vjZVYYspTOnQ
+	 OpaUj5xfSCuvtvprohitxKhtSaHgWmD2XB2mJzSIMBb6Kns59YMiWwg0Q/5C4vp5mE
+	 GZfoWsIP/jALMr5IUlhtvFonNrc+URSogepMSpobYHM7sqEN7ERPybfoHrHnN4s0FD
+	 irzqqWSvZ+brRf6Z32MZoqo8W1tQ2mKO93nIZhnOn706dRw+jViW4Lewnj+SdW8xV+
+	 grJqw4S5Gh1pA==
+Date: Tue, 4 Nov 2025 13:55:42 +0000
+From: Will Deacon <will@kernel.org>
+To: mrigendrachaubey <mrigendra.chaubey@gmail.com>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Fix typos and spelling errors in comments
+Message-ID: <aQoF3pu8CjO3tAl6@willie-the-truck>
+References: <20251011144004.14946-1-mrigendra.chaubey@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87ikfqesr2.fsf@oracle.com>
+In-Reply-To: <20251011144004.14946-1-mrigendra.chaubey@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_055543_584460_B43C1790 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20251104_055547_759468_3E8FAD24 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +71,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 01:00:33PM -0800, Ankur Arora wrote:
->     /**
->     * smp_cond_load_relaxed_timeout() - (Spin) wait for cond with no ordering
->     * guarantees until a timeout expires.
->     * @ptr: pointer to the variable to wait on
->     * @cond: boolean expression to wait for
->     * @time_expr: time expression in caller's preferred clock
->     * @time_end: end time in nanosecond (compared against time_expr;
->     * might also be used for setting up a future event.)
->     *
->     * Equivalent to using READ_ONCE() on the condition variable.
->     *
->     * Note that the expiration of the timeout might have an architecture specific
->     * delay.
->     */
->     #ifndef smp_cond_load_relaxed_timeout
->     #define smp_cond_load_relaxed_timeout(ptr, cond_expr, time_expr, time_end_ns)	\
->     ({									\
->             typeof(ptr) __PTR = (ptr);					\
->             __unqual_scalar_typeof(*ptr) VAL;				\
->             u32 __n = 0, __spin = SMP_TIMEOUT_POLL_COUNT;		\
->             u64 __time_end_ns = (time_end_ns);				\
->                                                                         \
->             for (;;) {							\
->                     VAL = READ_ONCE(*__PTR);				\
->                     if (cond_expr)					\
->                             break;					\
->                     cpu_poll_relax(__PTR, VAL, __time_end_ns);		\
+On Sat, Oct 11, 2025 at 08:10:04PM +0530, mrigendrachaubey wrote:
+> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+> index ab83089c3d8f..3cfdb77fb47c 100644
+> --- a/arch/arm64/net/bpf_jit_comp.c
+> +++ b/arch/arm64/net/bpf_jit_comp.c
+> @@ -3053,7 +3053,7 @@ bool bpf_jit_supports_exceptions(void)
+>  	/* We unwind through both kernel frames starting from within bpf_throw
+>  	 * call and BPF frames. Therefore we require FP unwinder to be enabled
+>  	 * to walk kernel frames and reach BPF frames in the stack trace.
+> -	 * ARM64 kernel is aways compiled with CONFIG_FRAME_POINTER=y
+> +	 * ARM64 kernel is always, compiled with CONFIG_FRAME_POINTER=y
 
-With time_end_ns being passed to cpu_poll_relax(), we assume that this
-is always the absolute time. Do we still need time_expr in this case?
-It works for WFET as long as we can map this time_end_ns onto the
-hardware CNTVCT.
+Seems weird to add a comma here?
 
-Alternatively, we could pass something like remaining_ns, though not
-sure how smp_cond_load_relaxed_timeout() can decide to spin before
-checking time_expr again (we probably went over this in the past two
-years ;)).
-
->                     if (++__n < __spin)				\
->                             continue;					\
->                     if ((time_expr) >= __time_end_ns) {		\
->                             VAL = READ_ONCE(*__PTR);			\
->                             break;					\
->                     }							\
->                     __n = 0;						\
->             }								\
->             (typeof(*ptr))VAL;						\
->     })
->     #endif
-
--- 
-Catalin
+Will
 
