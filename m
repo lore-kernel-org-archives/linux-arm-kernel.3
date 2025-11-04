@@ -4,160 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140FBCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBE7CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=amXLrxK65pOS84TGlRP+Vzm8ZkPFl1pKpUewSXA9Tbk=; b=V7SwULMJiYHMCozXDnu4PkGTBF
-	d1RAhXHYt81gER4DYv+fv7Yt8bIQ4Guj/1WDhGp9r0KZEI57CCe5P64kd0/H0rR2G2IOyJH8GXkcQ
-	oxou+ecq1Vlajlqb9zsxMdwzqdZqJpktphlDdsfqwsf5wRWWs8stzrijthzWFqDtpXUMhUXfED4vM
-	MV3o6NiO40kjsIwRGho25tlH236Ty3cOBj49AKl33YYdkIpHHbQzOGmUvuTQtNyjkYEi8AMI/NPSL
-	clsuGTp0aIo9M6GPWZnj6eGgGJM9r6GEOV8PBaMq6CZiaqeku6KlrjQzhTVhBz9zH4bhjiNZGT33Z
-	HA7c9/wQ==;
+	bh=yRIS9Quy51a3mNw2C7dYSGFB2RcLs93hOIiFJCI5w1w=; b=0r0YXUoO4/sGSAlH6xuBuvZjVG
+	pFxsz1KjHOZy5SqDN/EmrF/YlZ0yGCmuyg3BENvpebgwSlXQCSAHTYvqIjLwKohDGRdX05n5pGaZ2
+	n4Ra9dV6ADJKjWnjZny9yembKAOA52JJzD+C0JwaCzWuQS8WmlP8XFXX/+hZfRwzJQwxpjtKvWZKr
+	A8rHgFUPanzzZA7jXhMHmu4ChJQ5MxVnzGuff9/jT3xBozOwR73bF4jXlQHETBEHogeO/PaK6Xb6T
+	9pKRHcuXQ46k0ani2wzs5VaOoAFjEom85CHkNiBgSKgn5S+CzOifHSS8eJYXB8Cr8G4r9G0bTuaUj
+	tAxmb9wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7Tm-0000000B2G1-0OlG;
-	Tue, 04 Nov 2025 03:13:06 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vG7WP-0000000B2VR-3PZD;
+	Tue, 04 Nov 2025 03:15:49 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7Tk-0000000B2FV-0DQk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 03:13:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Be3VPEKB9ZES8zLJ6wMpIM8t8C/iH13Ax1H1YR44YKLK4qXkEyj65F7NAxDumYnaG94Rdr6vMH8WEVVw39nfOlXes4RjPIfGkZTXJXqD8b35n2EnMo6CD22IsB377gIXxjgd/Wp/u35TknXn0gTslyNBUQuRRva+LV95wlGW8KEFPD4DMNI3BrwskTTNColBBX/8kzYAgd4SBDkh0x/4zF/v22odFJSASeh4bPXJ6AeDwS3UXmVzz0WmQloM04GYmZ4mDbNKoIo8Jp0U+AgCEVTIXzGihcvQVPpL9JxmaDYH6kvnXtEPBeS7BFI5iH8KbMQ8PzfAUDjkRsMISfilOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=amXLrxK65pOS84TGlRP+Vzm8ZkPFl1pKpUewSXA9Tbk=;
- b=xRyNyzct4l7A2GKwkuQudPF/v4i3ZW1idB84/3JTCuzQ+FWZQlNPIoKEzaMLeRj9xziwKOrhEs12L8hiBLY5Js8bXBQjEdDNBMApDXBo9qg25BFclOvPN5siiD/yM4OB07N2jOx7WMR6ZIK0RzT2rwancjpb5Ly9CLqr8RVV+Jc9N32NtHZ3lSNb/OeZEvlMWGlyybY1wrz8B2ftGancawPR3ZUg0ytq462knMQDGBEutJNoJZFjoVjH4ybxmlu0FhzMUQnmnkON0O3AEETVq4UtDORlDJKvWVUG4GR8rJuXOq7n/HYABzXRFXKyw0K8yfDxjftrcd1dWzRizFroZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=amXLrxK65pOS84TGlRP+Vzm8ZkPFl1pKpUewSXA9Tbk=;
- b=NZFCeiSJUkShs4VZdXEtoTsI7uebEX7pHSofX3DgsgrtxCT+VVYTEkNk4ePmW9wFbc+Q7CPgNpWWpI1JNnaR0c115ZukI6evZrW3/bZ1dWCh454hRs1sYu206O/1idPF9KklVhckRBNgRw532Q5GPQVwJqW+Jzk+qSNAvhAPBZIYJRv0VLz0j9SOVHympin+iLwOSafkeoJBsKMWMOrTvxGGMCNHAqwpKl3bBJQ4jqcL/hcio2OAur1cLG8dvcZXeYI/nhkBJD8h9wtKuFQfsZTI/amq/2gajLJBYYwhRGQVOXlkHfXExDAZqqgwoll5u+5RaXdpO7K94mxJV6Scvw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAXPR04MB8272.eurprd04.prod.outlook.com (2603:10a6:102:1c1::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Tue, 4 Nov
- 2025 03:12:58 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9275.015; Tue, 4 Nov 2025
- 03:12:58 +0000
-Date: Tue, 4 Nov 2025 12:25:26 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 08/11] remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_MMIO
- switch case
-Message-ID: <20251104042526.GB11714@nxa18884-linux.ap.freescale.net>
-References: <20251031-imx-dsp-2025-10-31-v1-0-282f66f55804@nxp.com>
- <20251031-imx-dsp-2025-10-31-v1-8-282f66f55804@nxp.com>
- <aQUJEwjl1xx20dtQ@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQUJEwjl1xx20dtQ@lizhi-Precision-Tower-5810>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG3P274CA0004.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::16)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	id 1vG7WK-0000000B2Tf-1urk;
+	Tue, 04 Nov 2025 03:15:47 +0000
+X-UUID: 8b9aaa66b92c11f0a52f393f94899d25-20251103
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=yRIS9Quy51a3mNw2C7dYSGFB2RcLs93hOIiFJCI5w1w=;
+	b=Rs5Uao0s8TyLHYaLLyEZQ7G9D0ZWI15aAru4eP/eyQx9bxKQE45hzRrc43DzfF4TC7FdqtiqtClc3Mgp6fI6kW0ucop2oqp7kPXWUTb+9tAS7V51EFOu56YeZdgEPyMAKO6gcPUQXwnWyrF1kB2BzaY94KC7zLg5DuUOvaxJoGs=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:fbdc5e09-12b1-43dc-800b-2dcf376ef2dd,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:1078e07c-f9d7-466d-a1f7-15b5fcad2ce6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 8b9aaa66b92c11f0a52f393f94899d25-20251103
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <niklaus.liu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 40326313; Mon, 03 Nov 2025 20:15:42 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Tue, 4 Nov 2025 11:15:39 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Tue, 4 Nov 2025 11:15:39 +0800
+From: niklaus.liu <Niklaus.Liu@mediatek.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <zhigang.qin@mediatek.com>, <sen.chu@mediatek.com>,
+	Niklaus Liu <niklaus.liu@mediatek.com>
+Subject: [PATCH 1/1] soc: mediatek: mtk-regulator-coupler: Add support for MT8189
+Date: Tue, 4 Nov 2025 11:15:11 +0800
+Message-ID: <20251104031533.9419-2-Niklaus.Liu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20251104031533.9419-1-Niklaus.Liu@mediatek.com>
+References: <20251104031533.9419-1-Niklaus.Liu@mediatek.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8272:EE_
-X-MS-Office365-Filtering-Correlation-Id: c78f000f-49f0-41e4-a6ee-08de1b500e58
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?r7d37rX6bSPbxSXTqBvQE3+kg4J/VDHSV/MZX58EwZQIKbhApsDb0PYvMFHa?=
- =?us-ascii?Q?QnDApUswYQrdLRinl7a9dspU6aOg0uqCoSgDj+2lV2UV0LEEUsZbf/1THeCU?=
- =?us-ascii?Q?r7CrDOcegr13XSyC5wBC1pzAPOX319CL0lMtip0y0xURTT/oGIj5965FIY91?=
- =?us-ascii?Q?D2wSrsV42mZVt6d5B6xiwhygvQhSBkBEQbGWtU44Og+DeSmfCrHjxwN1KSdK?=
- =?us-ascii?Q?J16p2IW91wLk55CxVMxKWzm0Q2bpDyDs6y/7dWWY//q9mkN/3EDI5i6tyGbg?=
- =?us-ascii?Q?Q3oExDNPIqRhjCCWuDKk6tBTeTZrhm0c7oiLkIEPxq1ASSbh2uQ91Qmxtu+I?=
- =?us-ascii?Q?Al7mH633pp5T9G4Ay06Na3gBPxCVqf03QVyqa7GJvR1UXxl5A4gUABpwsqXK?=
- =?us-ascii?Q?Rsi6y3D6+hyIx9hGTO8tcIytvoFC2c+o2cRx3oJzH0bBvpWmBBPuu0RftgN6?=
- =?us-ascii?Q?G8sSpZYyt3BcHoQIf9nuKCt2AxqFVlRBltRRKcbu071VGvIyK3Q2L9iqX9LT?=
- =?us-ascii?Q?GQqjk7Mf1oScdlIkr8TsGpXYSL1TqnDPco8GiBT8aS5OidbJKy7ELCJbc+Wk?=
- =?us-ascii?Q?dVCXAvvYM66U4SvW03RzunN0kr8yEWVH8Mx15+I6rv7u+MlUgtrKg04H4Bl0?=
- =?us-ascii?Q?wb0NoCO7UatsyLCDHbptFstXMA1kqzD9PPJvZ8geGwDRl2js6PSKS9XA+iZi?=
- =?us-ascii?Q?kq4GoMb+F/Kh50jt6d/rrggYvLktitq5z2YccenP9MfSYTYu/l+0uBkLyTeg?=
- =?us-ascii?Q?hBkTZaak5ArYsnE6WG1fSlOfP0XlZaa/uEBZZkRu/LYmq9TluMbRQf9rfh6l?=
- =?us-ascii?Q?qzMo46n8HcNOPY3FUIU+HlfTDkCs14vPToxQTkYikp0k5fy5HxH1cUWdFOOD?=
- =?us-ascii?Q?vV/Qr1PBJ+BsgUH79htyVGJx0mmV/KAYyGID9h9OhbE0zXEGlJgrKQq50r67?=
- =?us-ascii?Q?1pFxTM6HNx0zNZe2pLnuVVrejRQVawYe/EwHSNa7M/VMw+vkvn6xKv3TMvgE?=
- =?us-ascii?Q?SlOqpir0KqioouWefoW6+/EFZK45TUR3PfuOAsTORWYTqRLJZmnkH035oi2n?=
- =?us-ascii?Q?rDdE0c1EB/RpciXv3wOrlGvMkS0KuTBoRMgnTSWqza+uLnyZXpvgX637tU2V?=
- =?us-ascii?Q?z96/GI2w5Bs6FyhtcU/O0qS4ybnerMTdju2/j8rp+Js/E7cx/+WK1fY0/l2t?=
- =?us-ascii?Q?SnjtnYfCyTRqn+AhxcQddk1WlkwVgJe1aEEACB24r1/ehFdRz/1T537xfa6f?=
- =?us-ascii?Q?QYkTjtK5Wnte443WT/4Oh5BE9oAMI2N3IjiG4XyaZ2VAenEbiWSpxZkNSITP?=
- =?us-ascii?Q?3fh9KaxJHLrA0Sqi1RDej76lHMmgNeDr/dgTZnYErqTEMnmrZqmC05I7vn0R?=
- =?us-ascii?Q?7ifiopP/mPvnsZ6sGDq4HfssbI0XEb1FuEDiMKyyTt8JilMgWKhrlXtKmKkG?=
- =?us-ascii?Q?806pBFpURN7QJWvY1yC7S9F8bNhXQvpJrgOJoSL8dWr7lwChIOHWMDJKKrv0?=
- =?us-ascii?Q?vpgx3UPFcAkCcJJTJUFwCzzrw/N34Oh/wl8X?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sqsFb4a4HHAUFHrBu16vFDThjTi8uDV8xVuAD9lvjzlY7L5Fvsf8qchbBrb5?=
- =?us-ascii?Q?IVWO0HYmS1TLccBzT9SVEuTxx0Agls7nYlfsT2gJQPezF5IsV4qGtVl7qH6f?=
- =?us-ascii?Q?8j64flmsqUd+/9HJhDQske1R58Jq/vosRRgeyQHv3EwHyCnt7CcfSBjMSWbz?=
- =?us-ascii?Q?oV1ClHVAW/RSjtajGscGhgk4NwHYQsERK9XTt4vZ5Faq1hOvXlEDqdA1+hkv?=
- =?us-ascii?Q?P1b2bpd65ARu0Mu70wsDprH21p/qa14EUfZrlxcomvFxFFFYaT0h46UrJBuW?=
- =?us-ascii?Q?8yLdqwQS9P4LL+D6SBQkHAbNNNDIpRE4a55OxtIsEdZwxV96t5lOy3ypBwL3?=
- =?us-ascii?Q?OxS8RYIk5awi77Oq9aLcDg7faJelA/GKANs9dqFSlZ/OP8zlaRFIGiYebUBT?=
- =?us-ascii?Q?YtJmNxohagWvPtTNV6QGdkW3AM7TWNzA1K0IZmnhI2qJAFj4DfGo0ZEU86Bd?=
- =?us-ascii?Q?TtXg7WpbYFNc8ar1oBRq+TWQJ2so/Oh5YTGhyq17ZNdgQc4G6Q3qd9l2c+z+?=
- =?us-ascii?Q?VHaV+mA1yxmss7yU2+qKhRAvIBb6w/hJyZ5NsSDIVmHq+gpjgeK/jDkG2GBD?=
- =?us-ascii?Q?WNRd3UNna0oLM0osGfl9gIIbaCKILtFBIVMs60GGgevXNsr4zaR4y1pPJ63b?=
- =?us-ascii?Q?wEoP+uYsNe8ctePuRYroPVCb7Gn8jp5tA9TdxjSnLY8+OYEiPJT90aCzzaox?=
- =?us-ascii?Q?lp7xzFEkYwPBnGzs6wQ6/9MgLrARoGthE4/Fh0oZ9U7dOWswh4ZF1Vf+M4qr?=
- =?us-ascii?Q?+WEefbEodAZPCaodWnuqPp+ID97D541k72UicinqXa1iZGnDrixQpuBwKsbz?=
- =?us-ascii?Q?+eEfg1xbXVfbQCBihBw9xnSqpFF6e3e2DZpJRY9Br0LtQ/k2wE5dB2xAK2qo?=
- =?us-ascii?Q?AClTZ6X1PeY+JDlKXjaTIEVL4HvJxxPasIVwioRRGJZD3CGfaoZme6cnq+bN?=
- =?us-ascii?Q?d0T09CM7+2Z3uSwff/Xfua43RIU+NFUlzmTCpA/QJH44/+5SKfQzmpRXmuhk?=
- =?us-ascii?Q?wogGoNJKSo84sr9QidkeR4ZNMayjrzHpW/QP3M4gREMtWk28TxsSnJwvbYVP?=
- =?us-ascii?Q?zfo/uWYwP0YaV/ZYuLXqQLmEVqXqSm/Fyy/0nk3Dv0ud/zlJ4mERyGYxyld8?=
- =?us-ascii?Q?dG+O8mzFvtqNKrnR9ZjDktlsNSgzTGBQpYn5IMZHPszHNZK5lPdlYFkIJXFI?=
- =?us-ascii?Q?0A2w2AJmkI8kmWxVBICPcotCxpiaaDAupYWej1Rag0FaE2BITvWVktjS5d78?=
- =?us-ascii?Q?kUwbpzs5mytnKQ9ipBc3vrbELpfCME7MVUPyUF65ftGRbp1gu08+V9naTP32?=
- =?us-ascii?Q?TDSFKESc9GW9zaKYhRt6QoM9oDL0nmsJz/w+m5gjCnqgfb3kO7R9Vyw37KiC?=
- =?us-ascii?Q?9PvCzMveh0Tubhcw1bucx0trpeN2QTb+BVEhr1q8e7EOgl2+znPqbFivAoqB?=
- =?us-ascii?Q?SrwP1jZmv0Rit67GoLVjiw4YmpATaLV98IHpqGoINbiXiFkFgz/IfookzXgk?=
- =?us-ascii?Q?SBFwq0qQPZsbpnCk+rS0iuBua6/euqr64v8CmwyiwEgS+h8IObbtzi5RahiG?=
- =?us-ascii?Q?bF+cXuc/fwluvv5qT/RrdS9UAqpYuiwiUJtHxfBN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c78f000f-49f0-41e4-a6ee-08de1b500e58
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 03:12:58.6785
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sbZyfpcw6pfFRdVyaznTIzRuY+pKrSuEeQpEkyGCqSaaEFSSjNqFAvv89t3GIAXp/7mr1DzT8HTDvx+H/CtMPg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8272
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_191304_089664_A7B5336E 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20251103_191546_915491_D1A26F1D 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,72 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 03:09:17PM -0400, Frank Li wrote:
->On Fri, Oct 31, 2025 at 05:08:37PM +0800, Peng Fan wrote:
->> Introduce imx_dsp_rproc_mmio_{start, stop, detect_mode}() helper functions
->> for i.MX variants using IMX_RPROC_MMIO to manage remote processors.
->>
->> Allows the removal of the IMX_RPROC_MMIO switch-case blocks from
->> imx_dsp_rproc_[start,stop,detect_mode](), resulting in cleaner and more
->> maintainable code.
->>
->> No functional changes.
->>
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> ---
->>  drivers/remoteproc/imx_dsp_rproc.c | 63 +++++++++++++++++++++++++-------------
->>  drivers/remoteproc/imx_rproc.h     |  2 --
->>  2 files changed, 42 insertions(+), 23 deletions(-)
->>
->> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
->> index f28d25cab3f1d89e5cde37a04b528870a59abeed..456a46f163d3d823a25d16d11fb79fa9fceb2ddb 100644
->> --- a/drivers/remoteproc/imx_dsp_rproc.c
->> +++ b/drivers/remoteproc/imx_dsp_rproc.c
->> @@ -338,6 +338,15 @@ static int imx_dsp_rproc_handle_rsc(struct rproc *rproc, u32 rsc_type,
->>  	return RSC_HANDLED;
->>  }
->>
->> +static int imx_dsp_rproc_mmio_start(struct rproc *rproc)
->> +{
->> +	struct imx_dsp_rproc *priv = rproc->priv;
->> +	const struct imx_dsp_rproc_dcfg *dsp_dcfg = priv->dsp_dcfg;
->> +	const struct imx_rproc_dcfg *dcfg = dsp_dcfg->dcfg;
->> +
->> +	return regmap_update_bits(priv->regmap, dcfg->src_reg, dcfg->src_mask, dcfg->src_start);
->> +}
->> +
->>  /*
->>   * Start function for rproc_ops
->>   *
->> @@ -360,12 +369,6 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
->>  	}
->>
->>  	switch (dcfg->method) {
->> -	case IMX_RPROC_MMIO:
->> -		ret = regmap_update_bits(priv->regmap,
->> -					 dcfg->src_reg,
->> -					 dcfg->src_mask,
->> -					 dcfg->src_start);
->> -		break;
->>  	case IMX_RPROC_SCU_API:
->>  		ret = imx_sc_pm_cpu_start(priv->ipc_handle,
->>  					  IMX_SC_R_DSP,
->> @@ -388,6 +391,15 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
->>  	return ret;
->>  }
->>
->> +static int imx_dsp_rproc_mmio_stop(struct rproc *rproc)
->> +{
->> +	struct imx_dsp_rproc *priv = rproc->priv;
->> +	const struct imx_dsp_rproc_dcfg *dsp_dcfg = priv->dsp_dcfg;
->> +	const struct imx_rproc_dcfg *dcfg = dsp_dcfg->dcfg;
->
->can you add helper macro convert rproc to dcfg to avoid duplicate above
->3 line codes.
+From: Niklaus Liu <niklaus.liu@mediatek.com>
 
-Update in next version.
+Enhance the regulator coupler driver to support GPU power control on the
+MediaTek MT8189 platform. This update ensures proper coordination of
+multiple regulators required for GPU operation,improving power management
+and system stability.
 
-Thanks,
-Peng
->
+Signed-off-by: Niklaus Liu <niklaus.liu@mediatek.com>
+---
+ drivers/soc/mediatek/mtk-regulator-coupler.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/soc/mediatek/mtk-regulator-coupler.c b/drivers/soc/mediatek/mtk-regulator-coupler.c
+index 0b6a2884145e..f6e3b2a3a5a8 100644
+--- a/drivers/soc/mediatek/mtk-regulator-coupler.c
++++ b/drivers/soc/mediatek/mtk-regulator-coupler.c
+@@ -42,6 +42,18 @@ static int mediatek_regulator_balance_voltage(struct regulator_coupler *coupler,
+ 	int max_uV = INT_MAX;
+ 	int ret;
+ 
++	/*
++	 * When vsram_gpu is enabled or disabled and the use_count of the
++	 * vsram_gpu regulator is zero, the regulator coupler driver will
++	 * execute regulator_do_balance_voltage, which adjusts the vsram_gpu
++	 * voltage to the minimum value. This may result in vsram_gpu being
++	 * lower than vgpu. Therefore, when enabling or disabling vsram_gpu,
++	 * the 8189 temporarily skips the regulator coupler driver's modification
++	 * of the vsram_gpu voltage.
++	 */
++	if (of_machine_is_compatible("mediatek,mt8189") && rdev == mrc->vsram_rdev)
++		return 0;
++
+ 	/*
+ 	 * If the target device is on, setting the SRAM voltage directly
+ 	 * is not supported as it scales through its coupled supply voltage.
+@@ -148,7 +160,8 @@ static int mediatek_regulator_coupler_init(void)
+ 	if (!of_machine_is_compatible("mediatek,mt8183") &&
+ 	    !of_machine_is_compatible("mediatek,mt8186") &&
+ 	    !of_machine_is_compatible("mediatek,mt8188") &&
+-	    !of_machine_is_compatible("mediatek,mt8192"))
++	    !of_machine_is_compatible("mediatek,mt8192") &&
++	    !of_machine_is_compatible("mediatek,mt8189"))
+ 		return 0;
+ 
+ 	return regulator_coupler_register(&mediatek_coupler.coupler);
+-- 
+2.46.0
+
 
