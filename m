@@ -4,91 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7E8CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2676CCFA07
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GdZgp8rFwisH6sL9hW06vie32Q/MJPgK1VmXTcKs3fA=; b=stL8p1vFsPersRT8sam5GrjiSL
-	+yb/6pTr1E2V6wgQOGuwu67qds9asbti0tM+GcSZKkOSn4pUNlMW7M8WAFoAnNjkjLVVsnNoq3tHA
-	+k9x+BpAg0AY6SlMsPPDyaDErrkO1KtnpkFB5uIaqGvR8ZuRreLl5f0bxP7XUdcRUhSXzOsEzTiNA
-	iCKN4ANdsg1KLPIqybfa1EoXaoUA/PbV/KR2ad2IEaAl34jGWK72R2vLL2ePtwnPLCHEBn/v0bRdF
-	bvJLIbUeRVQcyC+0FBS0SnRWt2Hg1TYZiPI5KhZTuDYWLk0RmpTgpksyy1RVPQyTIMqT2kAuGXtNd
-	4n+05iEg==;
+	bh=uGdHtzXF1o8Vx6QrY7Tb+M94CeW1XUgYCxO3Y923wgc=; b=GOVRBdlnSKDpvRKlW1xZgjLIlB
+	BXRhb+c4Eq+g2XfVFSPZT0NZ4n+6u5jnP7hGG+ejBY5Le1WVDsaTNq94t67zTeFz9uIIeL2ry9uwx
+	uoENnbFTbx/PQwmu6pEEOA+QQlX28Xz2ncvW6vTZE6CdqALjRLmy/brR3fvlxz1Ig3yQ+LfJ/mlCG
+	FpeOokOcX7B+GR3gLe9zQc0xyhRplvwb4bwf7T//XbB2vqYEZsOU052BoerchOlMYJRDWqxIiqRJj
+	NqEkir1+Mz85HbXPy5jGhvxBA2r9EcMzRupXVDSgHTf+TgxLygikD/g6fGhYthlQo+FjNyS2G/XmS
+	IktPgRUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKEV-0000000CDdQ-1n1U;
-	Tue, 04 Nov 2025 16:50:11 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vGKG1-0000000CDlJ-3ozA;
+	Tue, 04 Nov 2025 16:51:45 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKES-0000000CDcs-43Pt
+	id 1vGKFz-0000000CDkp-3mvT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 16:50:10 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-429bccca1e8so2785771f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 08:50:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762275007; x=1762879807; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GdZgp8rFwisH6sL9hW06vie32Q/MJPgK1VmXTcKs3fA=;
-        b=LiyX62gJVkr6GBJnL0OV2IpeMYRqsgHLW4tVWWFDZF4gbKJ/4CUSRCCP4drVr7dhPR
-         h2QDLD0nT/K1EhXnRXvPDMQPw/mITJNIRu7qPvtuH0Q1FvJFZ5/BvOqusiY0JOLlX51+
-         8zjrlT7lBOBYZWNwDgThBS1AQHi9mWUjRYCEHHcQZk1XAPRQNnMa/00/4sCKQp5dbGgn
-         s/EPGSItVuDJmob+DQ2OefYhPz7cZ5lZIG8BS71OmFBQJ7k0Uz944OF8Q0n8Y0gL9HVy
-         jI+06R7cFtZNBJIGFVzBIOuYvRba8WFbFYWFFFYlJ3/6nhESTmM13DxOyYhNNTTE7Inv
-         SuWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762275007; x=1762879807;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GdZgp8rFwisH6sL9hW06vie32Q/MJPgK1VmXTcKs3fA=;
-        b=jGcjViV6FuRtw9fzVXnKHGgS5a7Jpb8hOZi18h06yoNZ50OVRtYFiJZFEcKMkpgVdR
-         PSfVvXuqG9fCuZvhIpUqEdfd9RvcHypInwK8K5fqGJi9Od4KbZyyl+19dTZ4GCyjv5wZ
-         pKjGZ8QPLkMk+bSH9HWvyr2I/ElxgaqNotI96Mseo4hRJHwGd7dvl9nCHXlTrNTLBFu3
-         OWvWpvWLydpmZAcGOmSMcw1enOLBjk3+zjp0ouMulB/F22Qcfdr9x4C5GC7TVNG02B99
-         J7iuE9d+Vnl4zl40p2060P+m/d/dLHx/16TUxPpFNx0ZUmyszRnGJLq4OIHU16JJYU8a
-         ubgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWVVPO974oUpXvy/xGu2JHPM1J/gG1xQIIfdEASsp4XaooCH5F7QWLMfShaXxfR4/P4T3Zg9U5rP2ottuLzdFsQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDbFwK4TZqi82SENVrs8Hnk+UQp1NOn5WTgPUvS3hWrKXYHtlF
-	nQ5PsyoYpgZHWZfkO4+92AL0794Kcw5LAm1HlscjqKohjYhFKp8yYJji
-X-Gm-Gg: ASbGnct6jSMafypoZDYG3o28TAF6Gwki6nGlCiDTB3PdwdufvBK/Ugg0rHib6R9+QZ+
-	5vTwXT96QybiIpFVfv9or/ljXjDY5caxiQ0vRFZF8Ci3c9t2HHGZybGfdbkxMTMvrcoao7PUkyb
-	RWZcqPc0N8iDwwt/n81lYYb8qkL5nvLRXRvu7RlvCoLANe2gAiVsjxZtVary33axdX8lOb9V+Gn
-	PyHBxmPaxok+wStP8xVpgDKqtX541jirOYRJNidFum/hJu2vvchJ2eVYDDXvEeL9dwtZfIZ8C2a
-	vW5iCg/rs8FcI0Q0cnyy/tqnHumMWxtZ13YEeLtug9MmqP5bLNrAhND7f8n4gphiVQglIMTht9s
-	tZJ70Zv7hRbkya/qgzn33+drQCG9oGeWpTxzcZaD+n7qLQPpcaK/gqL1BMhZKtUDhaevn4vmX70
-	82/p+dSao4DyGDEpdqO9CNA6YrDRK8MupXFdPNUW8rXpb9kSDqDJV4qZaPKTAmfrRPLEg=
-X-Google-Smtp-Source: AGHT+IHsOmcFgrKN0VFuIMGhIpJEUqqSZDIXndB9GVdXwqoNi1GsBka2e33KfnMwqvPBDWre8Hxpqw==
-X-Received: by 2002:a05:6000:186b:b0:429:ce81:fe2b with SMTP id ffacd0b85a97d-429ce82013amr7678935f8f.23.1762275006529;
-        Tue, 04 Nov 2025 08:50:06 -0800 (PST)
-Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc1f5be4sm5345170f8f.31.2025.11.04.08.50.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 08:50:06 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: wens@kernel.org
-Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com,
- tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 26/30] drm/sun4i: mixer: Add quirk for number of VI scalers
-Date: Tue, 04 Nov 2025 17:50:04 +0100
-Message-ID: <5959058.DvuYhMxLoT@jernej-laptop>
-In-Reply-To: <CAGb2v65RecyHZVUN--oSmtzPDpmUHALd3Pqf79a1fKP9yxD8cA@mail.gmail.com>
-References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
- <20251012192330.6903-27-jernej.skrabec@gmail.com>
- <CAGb2v65RecyHZVUN--oSmtzPDpmUHALd3Pqf79a1fKP9yxD8cA@mail.gmail.com>
+	Tue, 04 Nov 2025 16:51:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P01hoQ3TOL8qHPKnrxEH3ApSRKaprF6U+dM9GevITLLBAnawrcGDSGlI8q2kzBMtKo8WM+ELbMMpgdnv/VsYt/0fV1XVUCmqLcnItNG/dxuwNE/tZqjcQ2xz2nzZmu93zSu079IwX9j06iTMjXDZGEJn1xYNH0DWacyBitbQGT6RYq5Xj38LAQUu4cfFTXh0T1nFyBPchSHH7XhAah9wRwleeuf1w4EEgc6gCVAq5k3wnpDMNf7TLkjIMr6EM//V2UCgD2LcxRjLtkKz7O0XodrFPQ/GoZOE6VhZAnHE0FVCRVou/2WO24My5mP+HbPt1N8qLdyQNAz7ktqI7MrDaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uGdHtzXF1o8Vx6QrY7Tb+M94CeW1XUgYCxO3Y923wgc=;
+ b=kfhszIdoafBqle0xT+agHgHTexdWxJadKiADWVXr9FDbLGdyM0Ywu/g7bpi6BGt12k+Rp64FObSCbO+WOD77+oDk0VDpZTMaEvRhOqXdCgt6ghaoHHAx2Ux77ZHRc9G8tUA2pPW/6FdgN/DHbTOFpmALaGvpyASMOfElIBkA1C+cBgYKzIgrAmONzy6LDc/6EBqPyxydyLpmlqX7lG58G+CL/u/JvYo0n1BLSvL8yeLmju1Y0SqGREUUGTzeVm+YTo9EqBZp9+W0mswxLBeGmmS1JefUxoW2U/ryKVwqoGeNWvRmXQTBg9viDWn4XQ9zzUDC1oqmHOQPH2lnJZzhvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uGdHtzXF1o8Vx6QrY7Tb+M94CeW1XUgYCxO3Y923wgc=;
+ b=QpQIoYWmPfil0jBspnAyH7lmgvakpDIcPYd/fGWyPlHkz2bvK/OpqrNrM7sXZ3mI7/rh2Z7FbbODDP5nPp9T4PMlei3SqTKD4jhbMbcmUBT+6tU4xHG2qoWz3pjFglST8m9KqenJCO4c0EEaqiBBhGZz5eH3MSa193JWJPseHSl5oFd4h+/BVxtz8cDJBC8WzN90ExdL49FsZgB0bNoY3L+t4yIsUwcpRkxE5k97RFIMjbWSImZvIYKTDJL36owRoXP23m1H/ritWGWVeJPevV0JBHZ6kTEGLyVA4Uc7y9ONvcm86oK5m1Vb8d9tG44707qWFvbhpcb40k+lF+Pf2Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AM0PR04MB7188.eurprd04.prod.outlook.com (2603:10a6:208:192::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 4 Nov
+ 2025 16:51:38 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
+ 16:51:38 +0000
+Date: Tue, 4 Nov 2025 11:51:29 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v2 3/3] media: nxp: imx8-isi: Add ISI support for i.MX95
+Message-ID: <aQovEV5d6bvihzFh@lizhi-Precision-Tower-5810>
+References: <20251104-isi_imx95-v2-0-c05b7cb104cd@nxp.com>
+ <20251104-isi_imx95-v2-3-c05b7cb104cd@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251104-isi_imx95-v2-3-c05b7cb104cd@nxp.com>
+X-ClientProxiedBy: BY3PR03CA0022.namprd03.prod.outlook.com
+ (2603:10b6:a03:39a::27) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM0PR04MB7188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63c4fae1-ea9f-4f2f-5caa-08de1bc26c0b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6oF8PspE9RfD5tAadnS9OPH+rk0jo3qZdA6gwKqYJupmtJGby3eLzQAdjzty?=
+ =?us-ascii?Q?Cq+LiRCqJl5NfiK6qEIArhomjgU3zAdlFuh4TnHjQdMzxoeZeuZKmpE5KBE8?=
+ =?us-ascii?Q?jENz/ShQ9iz8NTqqiXIt3TLweyyRMT8gM6u5cu96vdwdhjIj0egMwn5ZGvE1?=
+ =?us-ascii?Q?GwPqOaTaqLQOmf2TzcJoIddWfXMUCIEcILRBCinSU3yysFlFSsRAkjz3f7hG?=
+ =?us-ascii?Q?Wyu2Ye/xHoBx36/mNGmBOBkQKJLz2UlK+Pp/OVfrPqUidQAe3dSWtplocwCb?=
+ =?us-ascii?Q?1O03gW4YFHTpSyRH2p4IGApmtCVMBjyeMgdKFNTfodE2T+dmGc65MpMrzTs3?=
+ =?us-ascii?Q?rs0/aXrJRVSg1A/OVfrSk8PsiSZGLeHagevHaKpAnQftkJew2+la3cNob2NS?=
+ =?us-ascii?Q?yKvd8FXDHQ61naZxz+LMNB5nA5cDRX9ynPDUkG1TGQJwiEv3KE4hamPY1km6?=
+ =?us-ascii?Q?gq2Xx96hY7p2A8FMzLlxAANymPAT8fsLXHRb115OrFu66gA68AXNnnOG1sbs?=
+ =?us-ascii?Q?97qd4K3LdbCWlrKd0RmNMcxxwMrdEBeONX2IZEFG/690Ofy6nG/Ja4iy12m8?=
+ =?us-ascii?Q?GLNOE81ysXxB3Im7f+kHZg8rzHVn8S0LGx1klw2vpMaf7xUhl/jESIa5C9l9?=
+ =?us-ascii?Q?jB+GcJLGiM16QYNSGTza6/O0UK/wP7/FuDFMh7PEDw1nUsiu53mm0iu5pcP7?=
+ =?us-ascii?Q?94NSrbmL6oUy86glf3iJu5c0KWDoivZk5212/khnRGOPjE5Jnsjyc6sEOkS/?=
+ =?us-ascii?Q?AsKlMcrKM1jMspSR9hqIe2rz76rUEc7VJsAgKUUpCaWGyFSV6WrAFPelTBJF?=
+ =?us-ascii?Q?tI1dkEyR/k5lWtjJxKpJxrZ4UEGEdD77dVnG9d/g3UJqqIQRO4F/YzxOTpLJ?=
+ =?us-ascii?Q?P/KLrV4iY0LtB1kHR+y+GvBQkWDVaLdvHrk9NTbg8DkW9cNgQS/h7S9MVmi0?=
+ =?us-ascii?Q?lqyp5/2WFdMwfOxtKAU6h6IXrwqN9wOQH5wKZTXw6uRYmkNwXCiwugA7m4eE?=
+ =?us-ascii?Q?77gavK/DbMsbbLLiFOzNx7I5y7b3z8Nfyrf/1GrclJ88wbqa4ZPdYOvRrFhQ?=
+ =?us-ascii?Q?STRX6OSZC99CaDke0EfUat0IQYu7L8a12MUk6FGsnlPHsTfOhli5bVI1c3IL?=
+ =?us-ascii?Q?fEOYI85UeNFSc3SgX8EGAWY63jlmRUOARKnLZ4sruWtJwkthuyPO3L8dkcxm?=
+ =?us-ascii?Q?vG/atoJFCpWKCkADXIkxOIWvACBJg/ITV5hcv0aWYmg1oPF9OYTSvxSy7LI8?=
+ =?us-ascii?Q?6iG9uV09507yUcfdSW9aaUBWYdyrNr3pwJND4yqjQboKBi4nC9AWKrEq3pnI?=
+ =?us-ascii?Q?7XYVOHfSZQnGJPsn4VNKng9/qGGc7QdB0Ci6QPze/cUg9C+DGW2OxJ8Jcc1Z?=
+ =?us-ascii?Q?X2X5fXxj+uZN/9UKDHBpIXcXsn8Gg4fTFUd7fI2J3xVjCb2kSCsNqjx9aIpb?=
+ =?us-ascii?Q?NBG5SjZZ9joddk1hofiZF8VoqfQCHn+zQUbEX/W+dDOZx5et9ZexxkY+OrAr?=
+ =?us-ascii?Q?TWriUtknwMzsnTgr8kiJen8RHO3AyVoZWORu?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yTEyRxIm8wk6VrwwIg/IsPJ3jjfT81ky2xORWYhFralrdtF9kojfyqNjAUIN?=
+ =?us-ascii?Q?LFl8NqAJP3toUqXhyybCOA68lHs/MOw374s4DDUaRSh8sL26UJTLSKzrq7go?=
+ =?us-ascii?Q?HSGPYT/5V+H5D/uRhvejA42cWILV6SVmm6LZoW1hw5ECJH34MtbGK5gFSifS?=
+ =?us-ascii?Q?79EN27AQOCKFs+3LVcMX87ITeyELKmk17/feK18qjiGSdmx0nsQXGNcRtzhM?=
+ =?us-ascii?Q?vhxRxFlPHDbSPY/SvrD88t2dPIgJy1wSXqzBM2fNQHnX4az0etBlYi9nLLRN?=
+ =?us-ascii?Q?+HIqSyw94UfYEDj1f9RRvamWAST+hF0ZGlOPQ4uK9UdrRWPwMq9ZBF+1UXja?=
+ =?us-ascii?Q?9HoF/o1ByBzhpKr1RdUpKowdSlIY6D0B9LMf+K8ESReB38yt3CfCd++0ZmUe?=
+ =?us-ascii?Q?fPifvSrhGSYQTBIPuPcCfpQOzbe00EVBxVwJRYyW/LORtC/t/y7NpVfHcRAQ?=
+ =?us-ascii?Q?mYv16twatYMhBhjRoK0wchILoN4xU/oDDGUL2w9NXXtAOt6v2NFWxN7D+0yH?=
+ =?us-ascii?Q?NUNMOlksp3DB6RPGI7XSsWTtyi4uwqxB74zdi4Lxe5nBb+ADOxN4RO0eBfCd?=
+ =?us-ascii?Q?XbJEhf3rVwSe6MCmJJPBbGGlHFEjqIU1MTNAUC67+mftbmPSN9BXGF+Fm1if?=
+ =?us-ascii?Q?4Qa6EHC3623iXlUeXXEu3hkfvqQ9226/445bfs4a0ZtLrUONbOpwIOICcmz8?=
+ =?us-ascii?Q?EOnrDibpy++OuGETfWKwGyjQnQJHVXNaByLTViKc39ziD/5KeFxRv7B3uZmG?=
+ =?us-ascii?Q?LUIXXtyJscKViwV4sDNRunrWfTEtYc/+Iu6rKkvPK2Big4H69dJ+ctk6W8Tf?=
+ =?us-ascii?Q?TvsmhOzUdaVtHBBKaqeCnT1vkonmeOyq7M6jiPO0dWJWz2CAHkjSzh/+lBSN?=
+ =?us-ascii?Q?REWZfzdlPL0mMuavVpQXNFEuXiUFR/xA/1J9K4fwxZUcl11lTgmAD7iSB6hF?=
+ =?us-ascii?Q?c65zP52vC8hJeKFCNMDvXX6bmeOg/JFC2PqaX5r29kKmC5GXt1Nz3SxU6ZGu?=
+ =?us-ascii?Q?LmtUSkC6Q8tkMvblg5tzG27tkeuMJUrFQ47MhPz98ElY+6mJhuUYx5/w7tmW?=
+ =?us-ascii?Q?F1qbcIpFc5Trx54UvtfWQOpdLLlSbQ8enLJRrrdh5YpePb6BjCxFGoLuH/ot?=
+ =?us-ascii?Q?pSry64+i/2FzGQxa8ukNVl6VAZ7B3jK0sJyDrRpOYBx6L8RmvBwgLO2t3GRE?=
+ =?us-ascii?Q?QEq2D03YNBVeZHsIWLcPEaIS9WT5aPSMyOvAl6p+R5ftm8liEUq1E/NTmdtJ?=
+ =?us-ascii?Q?AOu6f+xR2XOm1xgeclgRai7+5S1HndNOnU//QFiBpwz1WEGVHJlyB8zC5a1J?=
+ =?us-ascii?Q?XCmoJHwVMHZbdgzWUKJPXJIK/ig1mprrIEiPZdqUUFNS0M+Fe8B5UyCbGT43?=
+ =?us-ascii?Q?86c/jiSFcl+TUp7yEGqGkKctYllJAYINizmp3SRbmdY7YeBLub6pNchALJBt?=
+ =?us-ascii?Q?cN0ED7ySMEf2qf+2zxPQbRKscqIsyzyh07HZFV6q418P8ZPXfV2/TmPqDbQ8?=
+ =?us-ascii?Q?gdRO9csivBqm+h1qyBfTsnOJd5isztDJhY24PxPzXslttE1FxXfr7ZzpmgtQ?=
+ =?us-ascii?Q?jb2mcwQpI/5wqTJF2V2vY3oPJn1Mmofptse2aX0g?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63c4fae1-ea9f-4f2f-5caa-08de1bc26c0b
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 16:51:38.4711
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rU4Wp54ARAL6blz4VaayNZ8vSHbp0ng4Is9Yw9J/EdlJfRPMvxnTA1hF+lbIgrtxgLeSvqcNt9stKE7NFm+23w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_085009_067705_80E16FA9 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20251104_085143_963710_6AC5A272 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,179 +167,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu,
+On Tue, Nov 04, 2025 at 11:21:07AM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+>
+> The ISI module on i.MX95 supports up to eight channels and four link
+> sources to obtain the image data for processing in its pipelines. It
+> can process up to eight image sources at the same time.
+>
+> Add ISI basic functions support for i.MX95. It works well when system
+> loading isn't very high, such as no ISI buffer overflow.
 
-Dne ponedeljek, 3. november 2025 ob 18:11:07 Srednjeevropski standardni =C4=
-=8Das je Chen-Yu Tsai napisal(a):
-> On Mon, Oct 13, 2025 at 3:24=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gm=
-ail.com> wrote:
-> >
-> > On DE2 and DE3, UI scalers are located right after VI scalers. So in
-> > order to calculate proper UI scaler base address, number of VI scalers
-> > must be known. In practice, it is same as number of VI channels, but it
-> > doesn't need to be.
-> >
-> > Let's make a quirk for this number. Code for configuring channels and
-> > associated functions won't have access to vi_num quirk anymore after
-> > rework for independent planes.
-> >
-> > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > ---
-> >  drivers/gpu/drm/sun4i/sun8i_mixer.c     | 11 +++++++++++
-> >  drivers/gpu/drm/sun4i/sun8i_mixer.h     |  2 ++
-> >  drivers/gpu/drm/sun4i/sun8i_ui_scaler.c | 10 +++++-----
-> >  3 files changed, 18 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4=
-i/sun8i_mixer.c
-> > index 78bbfbe62833..f9131396f22f 100644
-> > --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> > +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> > @@ -708,6 +708,7 @@ static const struct sun8i_mixer_cfg sun8i_a83t_mixe=
-r0_cfg =3D {
-> >         .scaler_mask    =3D 0xf,
-> >         .scanline_yuv   =3D 2048,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 3,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -718,6 +719,7 @@ static const struct sun8i_mixer_cfg sun8i_a83t_mixe=
-r1_cfg =3D {
-> >         .scaler_mask    =3D 0x3,
-> >         .scanline_yuv   =3D 2048,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 1,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -729,6 +731,7 @@ static const struct sun8i_mixer_cfg sun8i_h3_mixer0=
-_cfg =3D {
-> >         .scaler_mask    =3D 0xf,
-> >         .scanline_yuv   =3D 2048,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 3,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -740,6 +743,7 @@ static const struct sun8i_mixer_cfg sun8i_r40_mixer=
-0_cfg =3D {
-> >         .scaler_mask    =3D 0xf,
-> >         .scanline_yuv   =3D 2048,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 3,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -751,6 +755,7 @@ static const struct sun8i_mixer_cfg sun8i_r40_mixer=
-1_cfg =3D {
-> >         .scaler_mask    =3D 0x3,
-> >         .scanline_yuv   =3D 2048,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 1,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -761,6 +766,7 @@ static const struct sun8i_mixer_cfg sun8i_v3s_mixer=
-_cfg =3D {
-> >         .ui_num =3D 1,
-> >         .scaler_mask =3D 0x3,
-> >         .scanline_yuv =3D 2048,
-> > +       .vi_scaler_num  =3D 2,
-> >         .ccsc =3D CCSC_MIXER0_LAYOUT,
-> >         .mod_rate =3D 150000000,
-> >  };
-> > @@ -772,6 +778,7 @@ static const struct sun8i_mixer_cfg sun20i_d1_mixer=
-0_cfg =3D {
-> >         .scaler_mask    =3D 0x3,
-> >         .scanline_yuv   =3D 2048,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 1,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -783,6 +790,7 @@ static const struct sun8i_mixer_cfg sun20i_d1_mixer=
-1_cfg =3D {
-> >         .scaler_mask    =3D 0x1,
-> >         .scanline_yuv   =3D 1024,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 0,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -794,6 +802,7 @@ static const struct sun8i_mixer_cfg sun50i_a64_mixe=
-r0_cfg =3D {
-> >         .scaler_mask    =3D 0xf,
-> >         .scanline_yuv   =3D 4096,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 3,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -805,6 +814,7 @@ static const struct sun8i_mixer_cfg sun50i_a64_mixe=
-r1_cfg =3D {
-> >         .scaler_mask    =3D 0x3,
-> >         .scanline_yuv   =3D 2048,
-> >         .de2_fcc_alpha  =3D 1,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 1,
-> >         .vi_num         =3D 1,
-> >  };
-> > @@ -814,6 +824,7 @@ static const struct sun8i_mixer_cfg sun50i_h6_mixer=
-0_cfg =3D {
-> >         .mod_rate       =3D 600000000,
-> >         .scaler_mask    =3D 0xf,
-> >         .scanline_yuv   =3D 4096,
-> > +       .vi_scaler_num  =3D 1,
-> >         .ui_num         =3D 3,
-> >         .vi_num         =3D 1,
-> >  };
-> > diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.h b/drivers/gpu/drm/sun4=
-i/sun8i_mixer.h
-> > index def07afd37e1..40b800022237 100644
-> > --- a/drivers/gpu/drm/sun4i/sun8i_mixer.h
-> > +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.h
-> > @@ -178,6 +178,7 @@ enum sun8i_mixer_type {
-> >   * @scaline_yuv: size of a scanline for VI scaler for YUV formats.
-> >   * @de2_fcc_alpha: use FCC for missing DE2 VI alpha capability
-> >   *     Most DE2 cores has FCC. If number of VI planes is one, enable t=
-his.
-> > + * @vi_scaler_num: Number of VI scalers. Used on DE2 and DE3.
-> >   * @map: channel map for DE variants processing YUV separately (DE33)
-> >   */
-> >  struct sun8i_mixer_cfg {
-> > @@ -189,6 +190,7 @@ struct sun8i_mixer_cfg {
-> >         unsigned int    de_type;
-> >         unsigned int    scanline_yuv;
-> >         unsigned int    de2_fcc_alpha : 1;
-> > +       unsigned int    vi_scaler_num;
->=20
-> This could be a smaller type. Please do a sweep of the struct after the
-> refactoring is done and see if any of the types could be shrunk.
+"It works well when system .. " is reduntant. Or "Qos optimization will
+be added later for high loading case."
 
-A lot of things can be stored in smaller type. However, making things small=
-er
-may be contraproductive. Structs are usually aligned for performance reason=
-s,
-so it won't save any memory and accessing them will use extra asm instructi=
-ons
-for zeroing out parts of CPU registers since registers are larger than used
-data type.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
->=20
-> And just a nitpick, but I would probably insert it above scaler_mask.
->=20
-
-Will do.
-
->=20
-> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
->=20
-
-Thanks.
-
-Best regards,
-Jernej
-
-
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 12 ++++++++++++
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h |  1 +
+>  2 files changed, 13 insertions(+)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index adc8d9960bf0df87d4e475661a3439beaf5ce9f6..cf609320f19e91c9c0f57634fabd62e0ff65123b 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -337,6 +337,17 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
+>  	.has_36bit_dma		= false,
+>  };
+>
+> +static const struct mxc_isi_plat_data mxc_imx95_data = {
+> +	.model			= MXC_ISI_IMX95,
+> +	.num_ports		= 4,
+> +	.num_channels		= 8,
+> +	.reg_offset		= 0x10000,
+> +	.ier_reg		= &mxc_imx8_isi_ier_v2,
+> +	.set_thd		= &mxc_imx8_isi_thd_v1,
+> +	.buf_active_reverse	= true,
+> +	.has_36bit_dma		= true,
+> +};
+> +
+>  static const struct mxc_isi_plat_data mxc_imx8qm_data = {
+>  	.model			= MXC_ISI_IMX8QM,
+>  	.num_ports		= 5,
+> @@ -548,6 +559,7 @@ static const struct of_device_id mxc_isi_of_match[] = {
+>  	{ .compatible = "fsl,imx8qxp-isi", .data = &mxc_imx8qxp_data },
+>  	{ .compatible = "fsl,imx8ulp-isi", .data = &mxc_imx8ulp_data },
+>  	{ .compatible = "fsl,imx93-isi", .data = &mxc_imx93_data },
+> +	{ .compatible = "fsl,imx95-isi", .data = &mxc_imx95_data },
+>  	{ /* sentinel */ },
+>  };
+>  MODULE_DEVICE_TABLE(of, mxc_isi_of_match);
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index e84af5127e4e7938e55e31b7063bee5e2cd4cb11..e52c7fc334b0f5624ade600914c275e7539290b4 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -161,6 +161,7 @@ enum model {
+>  	MXC_ISI_IMX8QXP,
+>  	MXC_ISI_IMX8ULP,
+>  	MXC_ISI_IMX93,
+> +	MXC_ISI_IMX95,
+>  };
+>
+>  struct mxc_isi_plat_data {
+>
+> --
+> 2.34.1
+>
 
