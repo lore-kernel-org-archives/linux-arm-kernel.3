@@ -4,76 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C05CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA897CCFA07
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9308af9824wJRQCfrTUzUzLWeaNsBxXGH7cM00c8/dg=; b=Z0uDS+VLI3Yl2h4LFeawg7MLrs
-	tsZOsU+xWh1Xmnf8dTGVTlHbSSmdRhlulnYtOYmIvSLXCc+qDmNsz68/gufuGON/5cLKc/8alkZnj
-	kMJ95P4gTDU8zEQoTQOUv/MGuFl7uEmDxcVKDj5WpzRzNA/7rhwk/sNyxoKI5huIHbfeOuobk5Ws8
-	VpgtXJ6XCR2Fm4L3Y0vogVnkuRyMDQ00ulzlprxOaOnuDEZLXpoCxK+9nqm+6c/yXy0991zeJulx6
-	Lw1rSTgWB4M/zg45FCSWTz+buWMJyv64hVKJlSr56AdARRIjOYqp6yXp8Oyw+wFl+EfGk+L53EfOq
-	JhA5ekZg==;
+	bh=0vuR2+oyDx28UDys4tZfHJl7/N4P/mSZutONpJEH+n8=; b=APaxiiVhg/F2LnADdNfpzI910G
+	b+Hb5aTmmcGrTjSjjWBc2JSQs2RuTal5zOmJkUxdY1EVdM8xGJQrAA4SDKHbLnVGbY8ezY4j+OzzQ
+	hvEO8fGOdQxgiprmodunH+xy9MB+yCJi3FN8lw6xZBDkqR85I+U99gDWzbnkA20JTOFbcCmo13ANX
+	Gle4fMRV7ARpQg6qzvK3J/mWO97dNAg8mdb1VHk4xsMqxzXWEQQHICMCt7v9TZM61RZT1iaGVthmm
+	nuIZ2ggfwei7RUyrq0BGhGvdY4tfqZbXxEBltDuuoeZ1nKVyrTqgDwK7jSTWrZX6GI67DpAmUJLJz
+	jYAravPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJRi-0000000C930-2Cgx;
-	Tue, 04 Nov 2025 15:59:46 +0000
-Received: from mail-ej1-f44.google.com ([209.85.218.44])
+	id 1vGJSg-0000000C9Qp-1tl2;
+	Tue, 04 Nov 2025 16:00:46 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJRf-0000000C92V-19SA
+	id 1vGJSd-0000000C9QH-0rWL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 15:59:44 +0000
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-b5e19810703so768802266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 07:59:42 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762271981; x=1762876781;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9308af9824wJRQCfrTUzUzLWeaNsBxXGH7cM00c8/dg=;
-        b=qIOyqZVbqa2sJOHalHrTPPm6pCp1a00R5bb6vztCYbR35X/QWlZWLs5aH1UyMGQs4B
-         d/suqN6EWuH9MzO8xENaZXTZEre06n4re6WRt+Bkpn4aGVldP3Ie6H/Lhv1kKnilA9cv
-         f2SncCz/eva0qoscVuqCcDUPLhKw9RRkHpiFcS72XuHI+eszj3BimDk0LBMa8M0CAZs/
-         KVZfTfyyLrzbelmC62QtswS7aoHpyorB9ZoFBf/GREwDDwXMRT90WNeGDbHz7S1KF88m
-         X3BXKNtHchKqMoziWzXkEqJxN8kwXg1PffSUPgzUVe0jHWOoFzw60+0u63slf4KCWZwI
-         jZTw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4pPv5eE3Y38037Rf2jvzF3WbUBYOx8TtXF3udIocKncnVHRtzLZ1WBP5CrSbwL4uCdQ84w7xvoC6d2nn5SBDx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw69N3WkJBjpNFsl4WvW85DUdkZIuEYAdoBIzwPEFPpsoNvAIIZ
-	nYIKXhiRdDihTFA9PUML9rMJXGnU6PKkWhYgBp7SpAubVmROayb1qogg
-X-Gm-Gg: ASbGncvcXZc5xkn0OUtRVMq0hz7qTPfbRyVnhIuPsRus76eY2I5ICMT1oLBMzjPL/Sr
-	fiDIeMDYWsN4ATY3VQyCYQsyDGEcuBktuTJlJJfXh2onuylbrEhlU7uDfM7yLa5LsMhXkKHdtA1
-	chu8YrUpAwwojSpDIzS17TXbuB/hAGZfEIp70rppkUShvXDTgHt0iV+IuXUDr7HcUwqXrJ8VbbP
-	M2Ov4gfgsu6jCyHNW1GSB7wmM7/MJ1Uc6dXHBvX3chEU3AyjqXznJVl2saV0LO67UGO1YMkIFHm
-	Le0SmOIYzwAOhA00MJbVrftBnw+zaORrQSuK1F8TuBF/hluOJ2MpTwimyEeGcnKB/+andjiAq8u
-	4plBeGgsCh0/tb1YKf7dD2PW82h6Fi2uW5Y6oUn2c35PilrDwIXmDV9+OcSFO8RaUyw==
-X-Google-Smtp-Source: AGHT+IHpmsXSBgeR/w7xWSqSP2e0Jw7qjRWDdQQ9nO24GcsKEnOmflUVhuJ5rMTNxWHA7NiItt9nSQ==
-X-Received: by 2002:a17:907:944d:b0:b70:b661:cfcb with SMTP id a640c23a62f3a-b70b6620591mr1064291966b.31.1762271980738;
-        Tue, 04 Nov 2025 07:59:40 -0800 (PST)
-Received: from gmail.com ([2a03:2880:30ff:6::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b723d7030adsm245704466b.24.2025.11.04.07.59.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 07:59:40 -0800 (PST)
-Date: Tue, 4 Nov 2025 07:59:38 -0800
-From: Breno Leitao <leitao@debian.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, kernel-team@meta.com, 
-	rmikey@meta.com
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
-References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
- <aQUAR9MRxP6_qtEH@arm.com>
+	Tue, 04 Nov 2025 16:00:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GTqLJaC1pTOZWvrzSnG3CT8uxPSAMl7GZ5VqVlT3kfHKmFS0ecR0CILRDZVt+qLQiTJjlSWLcvO4aKMIy9YmS+w2ZzHU6R8jy5R6TJdHdoEVtYONnmkxjsgowQhizNTpmMTxIHZcN8nY4vVlGbSTplcXsy44hkffQEKqJFlJIZl1lDsIf7gZ4T02UdUFSdpBwdsOcyDzCwAeVflpZLhQEYSLXjAoMZaOcrnAodc2Upf4vGIiJrLoQ957Y8Lv4c8gPgS28FBWpr81GtbImLx1W0YTTIw33p84myBXPyghKedMnhqAwyshCXrLnpFnf+dkz3OfSHURezzp60PaF0RSjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0vuR2+oyDx28UDys4tZfHJl7/N4P/mSZutONpJEH+n8=;
+ b=NMHgj4Vziz4r16Q687dQnvSlGX5J4LOO5fYh7/3TyJ73Z5GLxkBwp54X7qME9FKtnwzSHyis34vqPDNbhp/leFFM7b8nX07z/XLjlkSn84HW3uXUxwBBFIXIBUfl7wNN3tTg/WHnWHnRgLmggSh+y6m+l/2RIXbwzQ0cWUpnMmBjBGS26QSCduY9pdAesFqWJh5o6DX7zZZhYtMKLijwjgD9e9gZ78tn8uLzhTJOrYRZLpxVfOhXh77qZ0KLLCtJFm1JiaM460a94uv9X8sxBEt/SvwV9/LIxnlzqVpOsQMdjXltTZZashLJ/rU5liylygJv9czgBm80tWKsaYb/jg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0vuR2+oyDx28UDys4tZfHJl7/N4P/mSZutONpJEH+n8=;
+ b=LEvHRU3ALEi+ytjtULrO0tn1++woYloMspASKnZbCa3K02jkpmILCZ96B3p2qhtP2kQgxcViOU/4z8Vdcrd3f/gyy799WUDUx2VjacOAKKntzNJU0oOUJGRkgCdC3TG6ZVvNAsFvwrybOm/Co/QEz293UVAqPfRBMnFCPUtWh8k=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ SA1PR01MB8204.prod.exchangelabs.com (2603:10b6:806:38c::15) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.7; Tue, 4 Nov 2025 16:00:34 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
+ 16:00:34 +0000
+Message-ID: <663493ae-6b73-4c63-b306-66bcca17fab1@os.amperecomputing.com>
+Date: Tue, 4 Nov 2025 08:00:31 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: kprobes: check the return value of
+ set_memory_rox()
+To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251103194505.4077265-1-yang@os.amperecomputing.com>
+ <b5b978f3-bb29-4cbc-b006-fb9c4402b067@arm.com>
+ <3ad071db-775c-491d-ac31-0f4753eb3bce@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <3ad071db-775c-491d-ac31-0f4753eb3bce@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: CYZPR10CA0010.namprd10.prod.outlook.com
+ (2603:10b6:930:8a::23) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQUAR9MRxP6_qtEH@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB8204:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6e91869-9d0d-494d-0c90-08de1bbb49d3
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MklNZmlwZjFTaEV2WTF1TjJXcmhzWURvOVVGT2dyT3NtSkdTam94UzdDNmpS?=
+ =?utf-8?B?Q1NMQW56Z0NYeHd0SElQdlZaOG5pZGo3MGdva1YxVGVUaXRUZ04zanZBTzdz?=
+ =?utf-8?B?cHNUeUxvazZSL3BBQ2swN0dDenlQcmdHWEw4RGNhTHF4M3d0Y0U1M256bjN4?=
+ =?utf-8?B?TVJZQW1vUUxJSGh0endUMzZlcnAyY0s3SWt0VW80dTRhNUo4TFo3VWR5Sk43?=
+ =?utf-8?B?ZHRwc1lVMWtBYlRtdEpxQ1l0YlZZbTd6MTJsdHYrWjJNTUwzZjRKS1JSUXVG?=
+ =?utf-8?B?UkZUNWsraTZhemdWSHo4SkVYV2ZaVTNrNEJOSG5wYVpSVkFKWkRGQkFCNTQ0?=
+ =?utf-8?B?N0xTdENIb085L2FuNW95Uks2ZmJiSVFKNXJVZXBjejlKdUhSQTd3dTBVWXhr?=
+ =?utf-8?B?aC80Y2FKdXkwZEJESnN4bDV5bTlRdTVkVEMyZmEzMXlYaUxHZlpmYjJjVFBO?=
+ =?utf-8?B?SWUyQzRydEhlc25UbThCdnNMZTZxUDVsR1N3c3QrS3ZjbHdIWnF4QVNuZVVF?=
+ =?utf-8?B?SWlYVkRhUW9TS3JGSjF2MWpyMTZZblYxRkVwQVBzcUpyMy82cFN3SjlZMm5Y?=
+ =?utf-8?B?MFk1a0VjVUlGaDltSjNZYVNsNTA3UllTMDV6Y1VBOTRZR29VMVRLeS9yeXRV?=
+ =?utf-8?B?azl1MFhwMkxKZ1VWbklkZ3FZaFpGODZPaDl6dmh1aHJiMXBnVXlMMSszR2h0?=
+ =?utf-8?B?WURIK2ZlejlqUnVpeEVXWE5nK0ZNZ0R0ZlNNY2gxMGcrMExJeXQ5SVJVejc3?=
+ =?utf-8?B?bllTWXZVTUQ3ckZ4NVRTRFMrbFRZRXpveTM0WndLblVLMUhoTy9DMXVpVGpU?=
+ =?utf-8?B?WUhCTDFNZVhFcjRYTUFWdXl4RzJNc3QyVWVnanhmNG5JNDBIREw3QkFBVHY5?=
+ =?utf-8?B?RnkvTkhuTTRDVjBORWE1NGxYTnNwTit2N1VVK1AyMFFhV2doS0trRlBWMFJu?=
+ =?utf-8?B?RGVjMk5uTWR1UTlZNjVnaTNpV0UzVFVPVncwbmhZMkdRMk54OHUvcVRoUzhy?=
+ =?utf-8?B?RHpvUnBMSzFGRmRuSWN4WWNTNUt4RlBpR0VZUm9yckU0NjdSMCtoY1Btajdk?=
+ =?utf-8?B?UGsvV2x5YVFvTThIM3BTQ0dXV3pyMEhNMEdZamtyR2xtZHRsSGxkZmU1TE5B?=
+ =?utf-8?B?TlhIczhXMzFzTEV1WUNNejJjeTVkVUszY2FQZmNrd24vZFo2RTB6a1NBaFhn?=
+ =?utf-8?B?NTBNaFFUZmxMdlNsciswTERTb1YwdHFqaFozTVQxT1ZJalN4eEhTRUFCajNE?=
+ =?utf-8?B?a1QrRCt2L2U0ODRlVGxUQnM1QXVTZGU2N1ZkRndKRTNiQmdaWlB2LzZQcjBC?=
+ =?utf-8?B?Wlp5OGtvelJ1dkVRMWNKVnV5dnBvc2pSaTJwLzMwU1lGb0Vuc0JvN0dHWjV4?=
+ =?utf-8?B?a1JqV2prVWJxakdnM2ViZDhPOVVOb2ZUc0IycnVIcmFUMEVqTm1jU0gzcG9W?=
+ =?utf-8?B?Z1g0bWdwaXVtN0p6YVM5Z2F2ejVnMUg5WVRsNFlOZ21RS2lWREpSN1gzRzlv?=
+ =?utf-8?B?N2xJa1UyNktRenhnU0FTWlN6M0wvWXArZ20rMmhCR0QxWi94WFFEc0pmYUVU?=
+ =?utf-8?B?MTlJTUNoM2o1R3ZBb3RPNHUvanhWUmt2dElaN05ZdDAvR01QamczZW9kQmZQ?=
+ =?utf-8?B?RDJKYlQvcGh5RW9sQ0FMTVBnSDlILzBZZmgzTnBqQlBlVWVzdnRRWE9Nd3Jk?=
+ =?utf-8?B?bGhsWUhvd3E5Mm5VSkJ2V1pyc3hINExzOU1ENEllME05cVBaWHluc05wbUw3?=
+ =?utf-8?B?QU5sZ01QNEZOZVU5K1hLczNNMTZILzNPbkU3cTF4dDYrQVZtVTA3elBuaXQ4?=
+ =?utf-8?B?YVUzSzBwWEJ5cXFZWEE1TW5wN3JsTXJzVUd5Z2lWRloyRCsrVXVRVk5XNnNm?=
+ =?utf-8?B?cHdDaWQyS2VOM1I0WDl2U2VOMktYZEhiaDJKRGlHc1E0akZqSjVxdGhBRlVI?=
+ =?utf-8?Q?DRqXWZ8qSYRhcXze9bzmNIBKbTGu3k6I?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aDVhR2RGMEdkckN6VjVlVWhFVnhIZCs1N2FsUDIwL2haK1hlQWtpWE1SRzZV?=
+ =?utf-8?B?Z0hjZndCdlpyRWlWckNmMWFWTGlKcUVpTEVsTkdyR3AzZnVDekNHMnJmbmw5?=
+ =?utf-8?B?V2szOWcrL01CeW5LTXY4azhENUU5UW9LdGFvZkpyQUVMTWJobmtoc09TOEkw?=
+ =?utf-8?B?Zm1RejYvMmJob0RhMzRnNytSdFBWdDRTWGNKS3FyZENIMFk2Qy9XdURwM3VE?=
+ =?utf-8?B?aVo3TnBsc1N2SkRqeld2SVdvTEt1TTlsNi9QYmM0L3pRNE8vblBLNjlLdDI1?=
+ =?utf-8?B?VlQzbmFhTXVYU0FKV2tLTDFoUzdSUTRoUGsyVVhLcXhnL1FkaFA2dUpDSmRx?=
+ =?utf-8?B?NjBxMFZiUmloaVlPVytFVVZuTlRqdmFTeE40OXN2K2tvc04wSEIvaVJJUDMw?=
+ =?utf-8?B?Zi9RMjk0aEs2Y3pKOUFMLytTOGZ0VEo0T1ZXR05NVDVNSkI2bjI3Ukx3dzRw?=
+ =?utf-8?B?d0pmUDcwbUw2eVN2cElPYnhnUmNYSXNESHc3UisrTExaNFZUNEF0UG5BMVVX?=
+ =?utf-8?B?SmptMEVLeTJ6N25TdENUSmZ3VnlOMjhocUx4K3hGMFJ1ZlZReUNza0ExSXZq?=
+ =?utf-8?B?dStReW5PVlViMHRqTDIyVitiYURpdDY2S0w1b3RxN2R4RXZWcVVlZlRlVXdL?=
+ =?utf-8?B?VU1DYXVDYjljSVN1WEUzWldSMm9Cd0J3Q1lWZGRtNTlITDhKQk5yR1hTc2RB?=
+ =?utf-8?B?Rm40RzV6Tjk4VWd5L01Bdld2bkZEVWJrd1BwYzZ2VUVFWmJ4bU1xM3Q2dGor?=
+ =?utf-8?B?cElVY0FPMGk5aHRGSDFqcHJJR2xOeUtUTWNBZ2s5RmxyUVYrTnFxSXpUM2xX?=
+ =?utf-8?B?S3dNbXd4ZE4zSFZRSTIwQnFrYjhtMXhwSGhzMitHL3BFTTdTbDFDZnQrbVZ1?=
+ =?utf-8?B?SFhRVnhQOVp3ek9US3Jjb1ZuYzFQY0FMUFM3bHpldG1tdmF6NXdsSXV0cnYy?=
+ =?utf-8?B?QzVySm8vNk1Rc3VMUVA1djNhbUFucWtHVmxmUURlalhIeGlCWi9WYnhJUXpm?=
+ =?utf-8?B?ZEIvMUtGVjFTLzZBb2FsVEVVejgrbW1HUXZoTmZCczIyWU9HTWFEeGROdk9B?=
+ =?utf-8?B?S1padVVsTzdPaDhGUkNlb1RVTTR6V3hMTnFNUUV6VURSdVo1R1ZOc29MazJH?=
+ =?utf-8?B?UHkvMXZLbXArc2xWR1p6S0tNWlRTRnJiSSs2aitMeG9PMVhkK2hWbEg5d1Bp?=
+ =?utf-8?B?aWtCMVRSNXJQa3ZkdU1PTmxDRWNpZFN3dGM0N2dKYWUrREZwcWMzcEc1K1ZL?=
+ =?utf-8?B?SEpVb1laYWJTZWtCMU5Mc0xyQnBNOWdRbGtUekFBT2cxVUlFSGdXZ2lYR3lv?=
+ =?utf-8?B?UHlVcDhaNis4VXpnbTc3eERlQmovRmZiR1B2T242TVlUQlBKUlB1Zkw1NUhP?=
+ =?utf-8?B?SEcxUVhZWG9GWXIrR3M5dVhNYkYrRStCaUk5a2RxR3hnanRqeTY5UFZMVWZQ?=
+ =?utf-8?B?T1FXOGNiSEplNHEyQ29LLzhWbEJGK1JnSDNJN2RUN2hSRUdrMkxKa1dkaVBJ?=
+ =?utf-8?B?c3pPdVBMT3VHek9TSVF0eWdGY1lEUjBlT2xUWjFvbWM5amtBVERvVDNNOU1Y?=
+ =?utf-8?B?YXphWW1MMWpsME5yTitBZ204VGFhQitCVmphTmdjTFZlbU1ablU0aHZNNEdh?=
+ =?utf-8?B?bndpc2xTSEMyZnhFQThlb1M3VTVpT2dVajg0c1hIeFNLRzk0T1BwT0QwblVQ?=
+ =?utf-8?B?clV1Rjg1VzdWdGUwYUtka2NKVFFMV2VaVmJkQWYvRlBtY3VPSlRuTzdPd3hD?=
+ =?utf-8?B?NE1qdFl5SmRoMS96OGJyNXlQTWt3MnUzMncvU0FXVHpUVDNSdzlEVUdGTzNZ?=
+ =?utf-8?B?aGJCRGdpczVQTTBmdG1WL0tJeXh5VStjYkpWYUYyQmR3SlZaRC84dWlGSlph?=
+ =?utf-8?B?angyL05BVy9JTXordVc2RnZ6cUk5a1Jqbm9HSlZ5R2M3V3NtdG5hMTNCRExF?=
+ =?utf-8?B?NjNuQy9nZ2hJZXNKV3lqbG9reFF0YW80NnF0eGRudHplQjZXQ0JpRWhJTUd4?=
+ =?utf-8?B?eHFETWJ4eWt4dS9KR2dWVG5WenpTdml6OWpnWWpwWHEzbi9ZL3dRVVpZUFBm?=
+ =?utf-8?B?ZndSNUtmc0hCVFVvWWd3TVBaMm9KTDhlRHdvU2k2YjYzYzMyWE5ONnZ1V2pj?=
+ =?utf-8?B?YmVSZFUzQWhVTVArZUUyeGgvRnRveEkxNzU5UEtpVzd1U2tMNGI3K3lIQ0x3?=
+ =?utf-8?Q?v3qFVrH2LAwm6Edx26ZxlGg=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6e91869-9d0d-494d-0c90-08de1bbb49d3
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 16:00:34.6284
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WIVnntFSBuy6vhvBg+Hdr5WT0F6yQdVKuMSRgJ0yStTGuwMM1zTx/QBddAs2XVvfh333G/VPf968S1kMGu1A8dlTmMjKev82d/WvF+qg+Kk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB8204
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_075943_327994_2767044E 
-X-CRM114-Status: GOOD (  25.14  )
+X-CRM114-CacheID: sfid-20251104_080043_263698_243A33EA 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,89 +180,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Catalin,
-
-On Fri, Oct 31, 2025 at 06:30:31PM +0000, Catalin Marinas wrote:
-> On Thu, Oct 30, 2025 at 03:37:00PM -0700, Paul E. McKenney wrote:
-> > To make event tracing safe for PREEMPT_RT kernels, I have been creating
-> > optimized variants of SRCU readers that use per-CPU atomics.  This works
-> > quite well, but on ARM Neoverse V2, I am seeing about 100ns for a
-> > srcu_read_lock()/srcu_read_unlock() pair, or about 50ns for a single
-> > per-CPU atomic operation.  This contrasts with a handful of nanoseconds
-> > on x86 and similar on ARM for a atomic_set(&foo, atomic_read(&foo) + 1).
-> 
-> That's quite a difference. Does it get any better if
-> CONFIG_ARM64_LSE_ATOMICS is disabled? We don't have a way to disable it
-> on the kernel command line.
-> 
-> Depending on the implementation and configuration, the LSE atomics may
-> skip the L1 cache and be executed closer to the memory (they used to be
-> called far atomics). The CPUs try to be smarter like doing the operation
-> "near" if it's in the cache but the heuristics may not always work.
-
-I am trying to play with LSE latency and compare it with LL/SC usecase. I
-_think_ I have a reproducer in userspace
-
-I've create a simple userspace program to compare the latency of a atomic add
-using LL/SC and LSE, basically comparing the following two functions while
-executing without any contention (single thread doing the atomic operation -
-no atomic contention):
-
-	static inline void __percpu_add_case_64_llsc(void *ptr, unsigned long val)
-	{
-		asm volatile(
-			/* LL/SC */
-			"1:  ldxr    %[tmp], %[ptr]\n"
-			"    add     %[tmp], %[tmp], %[val]\n"
-			"    stxr    %w[loop], %[tmp], %[ptr]\n"
-			"    cbnz    %w[loop], 1b"
-			: [loop] "=&r"(loop), [tmp] "=&r"(tmp), [ptr] "+Q"(*(u64 *)ptr)
-			: [val] "r"((u64)(val))
-			: "memory");
-	}
-
-and
-
-	/* LSE implementation */
-	static inline void __percpu_add_case_64_lse(void *ptr, unsigned long val)
-	{
-		asm volatile(
-			/* LSE atomics */
-			"    stadd    %[val], %[ptr]\n"
-			: [ptr] "+Q"(*(u64 *)ptr)
-			: [val] "r"((u64)(val))
-			: "memory");
-	}
-
-I found that the LSE case (__percpu_add_case_64_lse) has a huge variation,
-while LL/SC case is stable.
-In some case, LSE function runs at the same latency as LL/SC function and
-slightly faster on p50, but, something happen to the system and LSE operations
-start to take way longer than LL/SC.
-
-Here are some interesting output coming from the latency of the functions above>
-
-	CPU: 47 - Latency Percentiles:
-	====================
-	LL/SC:   p50: 5.69 ns      p95: 5.71 ns      p99: 5.80 ns
-	LSE  :   p50: 45.53 ns     p95: 54.06 ns     p99: 55.18 ns
-
-	CPU: 48 - Latency Percentiles:
-	====================
-	LL/SC:   p50: 5.70 ns      p95: 5.72 ns      p99: 6.10 ns
-	LSE  :   p50: 4.02 ns      p95: 45.55 ns     p99: 54.93 ns
-
-	CPU: 49 - Latency Percentiles:
-	====================
-	LL/SC:   p50: 5.74 ns      p95: 5.75 ns      p99: 5.78 ns
-	LSE  :   p50: 4.04 ns      p95: 50.32 ns     p99: 53.04 ns
 
 
-At this stage, it is unclear what is causing these variations.
+On 11/4/25 5:44 AM, Ryan Roberts wrote:
+> On 04/11/2025 13:14, Ryan Roberts wrote:
+>> On 03/11/2025 19:45, Yang Shi wrote:
+>>> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+>>> rodata=full"), __change_memory_common has more chance to fail due to
+>>> memory allocation fialure when splitting page table. So check the return
+>>> value of set_memory_rox(), then bail out if it fails otherwise we may have
+>>> RW memory mapping for kprobes insn page.
+>>>
+>>> Fixes: 195a1b7d8388 ("arm64: kprobes: call set_memory_rox() for kprobe page")
+>>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+>> This patch looks correct so:
+>>
+>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-The code above could be run with:
+Thank you.
 
- # git clone https://github.com/leitao/debug.git
- # cd debug/LSE
- # make && ./percpu_bench
+>>
+>> but, I think I see an separate issue below...
+>>
+>>> ---
+>>> I actually epxected 195a1b7d8388 ("arm64: kprobes: call set_memory_rox()
+>>> for kprobe page") can be merged in 6.17-rcX, so I just restored it to
+>>> before commit 10d5e97c1bf8 ("arm64: use PAGE_KERNEL_ROX directly in
+>>> alloc_insn_page"), however it turned out to be merged in 6.18-rc1 and it
+>>> is after commit a166563e7ec3 ("arm64: mm: support large block mapping when
+>>> rodata=full"). So I made the fix tag point to it.
+>>> And I don't think we need to backport this patch to pre-6.18.
+>>>
+>>>   arch/arm64/kernel/probes/kprobes.c | 5 ++++-
+>>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+>>> index 8ab6104a4883..43a0361a8bf0 100644
+>>> --- a/arch/arm64/kernel/probes/kprobes.c
+>>> +++ b/arch/arm64/kernel/probes/kprobes.c
+>>> @@ -49,7 +49,10 @@ void *alloc_insn_page(void)
+>>>   	addr = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
+>>>   	if (!addr)
+>>>   		return NULL;
+>>> -	set_memory_rox((unsigned long)addr, 1);
+>>> +	if (set_memory_rox((unsigned long)addr, 1)) {
+>> How does x get cleared when freeing this memory? arm64's set_memory_x() sets
+>> PTE_MAYBE_GP and clears PTE_PXN. The only function that will revert that is
+>> set_memory_nx(). But that only gets called from module_enable_data_nx() (which I
+>> don't think is applicable here) and execmem_force_rw() - but only if
+>> CONFIG_ARCH_HAS_EXECMEM_ROX is enabled, which I don't think it is for arm64?
+>>
+>> So I think once we flip a page executable, it will be executable forever?
+>>
+>> Do we need to modify set_direct_map_default_noflush() to make the memory nx?
+>> Then vm_reset_perms() will fix it up at vfree time?
+>
+> Dev just pointed this out to me. Panic over!
+
+Aha, yes, it doesn't clear PXN at all.
+
+Thanks,
+Yang
+
+>
+> static int change_memory_common(unsigned long addr, int numpages,
+> 				pgprot_t set_mask, pgprot_t clear_mask)
+> {
+> 	...
+>
+> 	/*
+> 	 * If we are manipulating read-only permissions, apply the same
+> 	 * change to the linear mapping of the pages that back this VM area.
+> 	 */
+> 	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+> 			    pgprot_val(clear_mask) == PTE_RDONLY)) {
+> 		for (i = 0; i < area->nr_pages; i++) {
+> 			__change_memory_common(...);
+> 		}
+> 	}
+>
+> 	...
+> }
+>
+>
+>> Thanks,
+>> Ryan
+>>
+>>> +		execmem_free(addr);
+>>> +		return NULL;
+>>> +	}
+>>>   	return addr;
+>>>   }
+>>>   
+
 
