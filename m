@@ -4,127 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FD3CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE80ACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vZzjlCCT3j9j2Nd7pQrTgnxvKhulGcz35Gruny6M5Bw=; b=0fQtNM20u3zQ1PGEuQq5CpBLy3
-	MzH+9gOLsdZWMTbhsK5MYWn9cMGyZt15Xdl0PLpYXdjMOfrnome/aibqp4l9cwS3LPNsrxvzndZHx
-	g8Ux4SM08slKRmiCUTXCLWWf1A8FCcnXb5H8T/1/PkNMvW+k/Vqy1YVUl0U0ZYCIAPdz04aJRYeVd
-	4siPq11nU1meHM6q4XQCteMgjqwSVNdv0lXJSq08mNM/NyWrEkeSZidi4sTD3shuncGFb/oiOdMeQ
-	nH5ZVzVPto8QSX14fnXRop7/5Qf8143Y0bGTZtJiuCUnQ7oWQjBHNetoRK8C5PYYPCn4SCpKrPhDW
-	3mURUIPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GD9/PmM/FWmyHloO+QO6/ZwKLx6kfDA+PsRFEHl+e+M=; b=CCBaBjAn+XkGgG2t+6aSmiJw1a
+	21XJqwSAUp/ITwPf6pKyVYeC1ChqtDvlolktAJMXkoiU5tvfT2nxsaBmyhv1scy82RBv8X10Gh0Ry
+	YeeHI1Jmqo6uO4wBSZIqJQizlyGb6NNJI0V6xnDrH9tY6SrnKNkIt22FlSfz6Cgsda+K3/Gr7cSUJ
+	W/PVOXfmSilypUkHSi9bppzQLOeqzzVmb2CkYv47iOn5/MTodWQcvxMPIgdANaG10ZostF8mXFuNJ
+	oQqvpAa5D4ENpvXBuKHl1Yn05uwmdPq1m6YAF87NEc+PBgAtWF8MpYHZo9exMHHHdBFlxxxIwE/5X
+	5ap3+kAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCjL-0000000BSfN-0j0p;
-	Tue, 04 Nov 2025 08:49:31 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1vGCju-0000000BSmY-24Qq;
+	Tue, 04 Nov 2025 08:50:06 +0000
+Received: from pandora.armlinux.org.uk ([78.32.30.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCjJ-0000000BSeo-0w1a
+	id 1vGCjr-0000000BSlu-1f2X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 08:49:30 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b99bfb451e5so1509144a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 00:49:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762246168; x=1762850968; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vZzjlCCT3j9j2Nd7pQrTgnxvKhulGcz35Gruny6M5Bw=;
-        b=QsrwvUpYoAQ4ZY3w/GPw8HmX7w97HfqIqH+3zk8gAF4m5yijyFQrvvFrALHVL5g2QI
-         dJOndCEDgoj7/UP2K8rKZUaO3oJYLGbT35b5lbsNAA7/ItOxIeDHIE5eFgK41MkA9vM6
-         I2sKQlZn4Bxvvw7x8JAf9PnN8MvVmpiyI0JkabhyEGKLHGq4Y0QNKCcmVUnWsDLCUK+L
-         45T5W8sOjbKOPrNksbXZNpJyLptoQSMY7xCZu2d/vkf6dqOLZBRKPniyNgux5jV3KkIE
-         ApyV1C0SWGeP+QtfiAGGZZU6DbgTahzpGF+GwganfaSwXO2PNdsCUYCDAtpmFm3gSxrY
-         5AJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762246168; x=1762850968;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vZzjlCCT3j9j2Nd7pQrTgnxvKhulGcz35Gruny6M5Bw=;
-        b=NRs1j0fpdf0c3DnASIP95QVBsIzT3NRkCyl840gLkzOvlAGBXVK4WJsGOymo2qCuWy
-         C1pmbgSBYY7ysB0TLQKxegfBMYhaJPa1mmfNhSqS0md9BIicOHRDgs8uphczvoG0iNb5
-         ZhtoNjyaly9XEj89zUt1DYJonvrJxwHc36NYU82aM3nUU1rTXZ8mQHA/CfigngysMSZz
-         e/wD7rdbIK/mmjuDlWFnn/fhcR8Ic/Xp9XGNxuHU6x6ZTOW3E9nLjTecU+xxUKKVP5n+
-         NihiFySqPH1j1Jm/soCh/qpM5Ci7s9LXa7z2ZoO12AHd/KiwsR+WPRwiO+pjO5A8dLX/
-         uorQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVA7wCczUE5Lwo/C+6PPjGAvbdCLU2LVRueXB1OzgHlK8PobqUXXD6Aeq2jLMJ3tmCG2i8t84e4HCa1ZeT6UIhy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6Dw+bLe5OtL+k4/E6sismDeSrypgGPWxC7er8bxvlghrtCDJm
-	cT4ewSQs9pKLejnMjsth80k5w77UdG3gpV5M15RBvsj9hvCHgDbuzzvG
-X-Gm-Gg: ASbGncuw0uDHbDKGrV9DSabNf++vhn5nnM85/P3FkAGjuiUt0RhtLgPoPn9ZucGGxkj
-	AWNOEXDImDJP91CPt78JXi01CKhxT25kSlXj1wl4igZ/hLv8eWFfTgfwQGC/vuZngnYX3fHd0nz
-	pU4A2wYzojYFasEFnqMCGRyfdeVTk2NSsrvUlSnm6GJH3v5LyobwK5fvthMAA+kSDp3cr7vfLsy
-	R+hwM7u/NgEaadxGaOciMOylGaoOeIByYjGCeyBSg42cR2NFrcyPwjc8WhViW8muBf38Q2x0NW8
-	6JK9/Z1VgbGoWWroAQmo7fwYnAgkcfLnlxJNUEQLL0ayHwUDgPHObbBuleyeXvyZ2BVPZplSChQ
-	OBBnbRe+fhl++NfKSpuQy0ZufL0XMOlvbhzuUradoiOV4xpuQdMCf0oVMgxbdQAd/pmNz/GSBaJ
-	4mD0RB7bwxfI9aDVDEi37G2g==
-X-Google-Smtp-Source: AGHT+IEjMIiSe0x3JjyWJftYAjRTnLk4yj1+5guJH64mFdGd5LprT3gQcg1E9FYpKQf1UnNjUVPGcA==
-X-Received: by 2002:a17:902:e801:b0:295:7f3f:b943 with SMTP id d9443c01a7336-2957f3fd4d1mr114855785ad.28.1762246167913;
-        Tue, 04 Nov 2025 00:49:27 -0800 (PST)
-Received: from iku.. ([2401:4900:1c06:600d:d663:3d9f:b9aa:53e6])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3415c8b5cc1sm3692393a91.18.2025.11.04.00.49.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 00:49:27 -0800 (PST)
-From: Lad Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: thomas.weissschuh@linutronix.de
-Cc: Jason@zx2c4.com,
-	agordeev@linux.ibm.com,
-	andreas@gaisler.com,
-	arnd@arndb.de,
-	borntraeger@linux.ibm.com,
-	catalin.marinas@arm.com,
-	chenhuacai@kernel.org,
-	christophe.leroy@csgroup.eu,
-	davem@davemloft.net,
-	glaubitz@physik.fu-berlin.de,
-	gor@linux.ibm.com,
-	hca@linux.ibm.com,
-	jstultz@google.com,
-	kernel@xen0n.name,
+	Tue, 04 Nov 2025 08:50:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=GD9/PmM/FWmyHloO+QO6/ZwKLx6kfDA+PsRFEHl+e+M=; b=ddmvZClv++Mm8JUAQBHkW32Do2
+	fy2OCqnpW2FDUY0xj0PVlI6C5Yv/PlgwsdLiUyGgaP3yFgAKUchjpPCQDyxCuFgi7IjadKTSUMma6
+	bbxyrBJjtCuvgBFreCuqE+ah7EoCI5jFG8c2XKbB4gOmAxM2s0RjGyGT06EBiOsijVljc7KekF8mR
+	jzda4iFBjin+F5Z25XOcxTUyZtiHMsGiFovnGZxO8IkF2LWHyp+8Cb+6oQKixEzeHN7lX2RF0LClF
+	m2aandSYT3i1cItRpaxjlR5GBM6r4hKNICAispJAixaWMXEnc+lUILTxaWgd19CDPW930GJxg8l/q
+	vheYiCcQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33438)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vGCji-000000001tC-3HFr;
+	Tue, 04 Nov 2025 08:49:55 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vGCjf-000000004dY-0Anp;
+	Tue, 04 Nov 2025 08:49:51 +0000
+Date: Tue, 4 Nov 2025 08:49:50 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux@armlinux.org.uk,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	luto@kernel.org,
-	maddy@linux.ibm.com,
-	mpe@ellerman.id.au,
-	nagarathnam.muthusamy@oracle.com,
-	nick.alcock@oracle.com,
-	npiggin@gmail.com,
-	sboyd@kernel.org,
-	shuah@kernel.org,
-	sln@onemain.com,
-	sparclinux@vger.kernel.org,
-	svens@linux.ibm.com,
-	tglx@linutronix.de,
-	tsbogend@alpha.franken.de,
-	tytso@mit.edu,
-	vincenzo.frascino@arm.com,
-	will@kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [tip: timers/vdso] vdso/datastore: Allocate data pages dynamically
-Date: Tue,  4 Nov 2025 08:49:11 +0000
-Message-ID: <20251104084911.6961-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251014-vdso-sparc64-generic-2-v4-24-e0607bf49dea@linutronix.de>
-References: <20251014-vdso-sparc64-generic-2-v4-24-e0607bf49dea@linutronix.de>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, s32@nxp.com,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH net-next 04/11] net: stmmac: add stmmac_get_phy_intf_sel()
+Message-ID: <aQm-LnN0LifBvkoz@shell.armlinux.org.uk>
+References: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
+ <E1vFt4c-0000000Choe-3SII@rmk-PC.armlinux.org.uk>
+ <db01f926-d5bb-4317-beac-e6dcc0025a80@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <db01f926-d5bb-4317-beac-e6dcc0025a80@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_004929_262974_F98DC026 
-X-CRM114-Status: UNSURE (   6.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251104_005003_443151_21FAD416 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,15 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit breaks boot on Renesas arm64 RZ/V2H and RZ/V2N platforms.
+On Tue, Nov 04, 2025 at 09:34:31AM +0100, Maxime Chevallier wrote:
+> > +int stmmac_get_phy_intf_sel(phy_interface_t interface)
+> > +{
+> > +	int phy_intf_sel = -EINVAL;
+> > +
+> > +	if (interface == PHY_INTERFACE_MODE_MII ||
+> > +	    interface == PHY_INTERFACE_MODE_GMII)
+> > +		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
+> > +	else if (phy_interface_mode_is_rgmii(interface))
+> > +		phy_intf_sel = PHY_INTF_SEL_RGMII;
+> > +	else if (interface == PHY_INTERFACE_MODE_SGMII)
+> > +		phy_intf_sel = PHY_INTF_SEL_SGMII;
+> > +	else if (interface == PHY_INTERFACE_MODE_RMII)
+> > +		phy_intf_sel = PHY_INTF_SEL_RMII;
+> > +	else if (interface == PHY_INTERFACE_MODE_REVMII)
+> > +		phy_intf_sel = PHY_INTF_SEL_REVMII;
+> > +
+> > +	return phy_intf_sel;
+> > +}
+> > +EXPORT_SYMBOL_GPL(stmmac_get_phy_intf_sel);
+> 
+> Nothng wrong with your code, this is out of curiosity.
+> 
+> I'm wondering how we are going to support cases like socfpga (and
+> probably some other) where the PHY_INTF_SEL_xxx doesn't directly
+> translate to the phy_interface, i.e.  when you have a PCS or other
+> IP that serialises the MAC interface ?
 
-The boot process doesn't complete anymore with no obvious error logs to
-indicate the cause of the failure.
+It also doesn't differentiate between MII and GMII. That's fine for
+this - this is about producing the configuration for the dwmac's
+phy_intf_sel_i signals. It isn't for configuring the glue hardware
+for any other parameters such as RGMII delays.
+ 
+> for socfpga for example, we need to set the PHY_INTF_SEL to GMII_MII
+> when we want to use SGMII / 1000BaseX, but we do set it to RGMII when
+> we need to output RGMII.
 
-Reverting the following two commits fixes the boot issue:
-  10d91dac2ea5 ("vdso/datastore: Allocate data pages dynamically")
-  6a011a228293 ("vdso/datastore: Map pages through struct page")
+From what I remember for socfpga, you use an external PCS that needs
+GMII. This function doesn't take account of external PCS, and thus
+platform glue that makes use of an external PCS can't implement
+.set_phy_intf_sel() yet. As noted, it also doesn't handle TBI (which,
+although we have PHY_INTERFACE_MODE_TBI, Synopsys intended this mode
+to be used to connect to a SerDes for 1000BASE-X.)
 
-Cheers,
-Prabhakar
+> Do you have a plan in mind for that ? (maybe a .get_phy_intf_sel() ops ?)
+
+Yes, there will need to be a way to override this when an external
+PCS is being used. I suspect that all external 1G PCS will use GMII,
+thus we can probably work it out in core code.
+
+Note, however, that socfpga doesn't use the phy_intf_sel encoding:
+
+#define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII 0x0
+#define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RGMII 0x1
+#define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RMII 0x2
+
+#define PHY_INTF_SEL_GMII_MII   0
+#define PHY_INTF_SEL_RGMII      1
+#define PHY_INTF_SEL_RMII       4
+
+It's close, but it isn't the phy_intf_sel_i[2:0] signal values.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
