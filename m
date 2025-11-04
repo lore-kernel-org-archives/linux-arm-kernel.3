@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905A8CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B35CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5mpUIW6+CyzXZCjIETW1X/eFRIiBeTonduLxFWGZK/o=; b=47FdC1fhQ4zIxI48MlzygtHshT
-	OKy257xz1F9PZRpGTDNCXtXHSJ8wie5YJHT3D2uXnkkzU3MRvte0Gw/LxN5HcRR+MdPsBSCRH4lCv
-	lmifNLSksPKOGZe8AtI/Y803ukRNRsUqtpkTW5/0sokmtdJehwtbHHgIqXJgh6/gg/La1w3L6zSVE
-	TX3IqEa0LWjFgIwtf7v1fCAQ2LZOrNty3daWHI1XxqWkL7BnvGDD9y87PLlZCsJfvIxflgjZp70Gw
-	oEed2GteKPzj+0V5npGzogISvrnrPFRgT0U1mUwRH2S6U82KJv+/OKgun61kcwbTNvJeSea6PlquO
-	nj2HTPwg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=knoBTxhys0G5L6IMAZNao0/3R6GsTIMb0vdRqZYYHho=; b=xR15kSQKXVSNDrDylKFxmdx7iW
+	G/bH6y8p7dfG7B5V/+mX7CxKbG6oDiXAKVt6PpXNAyhDRrUAMla8boJmAAK3Ic4QR0NSPoUrtETVD
+	SS7QYOQ6Kc8vfE+e/IQJcr2PSMhaJptskIkfj5M3cynlo86b+iOynTVOQG0+rqXy2v3//6cAgicrY
+	mK7d5Ramp8PMoKTW8So+TlRPlDLnxHFlo1vzMlTq49YwDB8frtaFRUTSgKNVVdYGbgsWwGwqsBlvu
+	r+YXTUsanAFny+QP5na5r7bNw1rV4zIXMREOqrrTZdgLCIAOPATLII35BHUZ1KsTxaFfxxI8W4MS4
+	QmZRdS4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIcg-0000000C2Xr-19DV;
-	Tue, 04 Nov 2025 15:07:02 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vGIcj-0000000C2Zi-2LZO;
+	Tue, 04 Nov 2025 15:07:05 +0000
+Received: from mail-ed1-f51.google.com ([209.85.208.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIcd-0000000C2XM-1Ltc
+	id 1vGIch-0000000C2Xp-0b32
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 15:07:00 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-640b4a52950so2878622a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 07:06:58 -0800 (PST)
+	Tue, 04 Nov 2025 15:07:04 +0000
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-640bd9039fbso3889941a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 07:07:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762268817; x=1762873617; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5mpUIW6+CyzXZCjIETW1X/eFRIiBeTonduLxFWGZK/o=;
-        b=T+kmMkguZu4qwNIpSUn+zmdzUIOwkzkDC+zCt8NSWCI7m9U6YXU0TOXn2MGlZRRhHw
-         TEIlU46s4bF8a481Lxy6dCZuQb3zOmZKCSiU8lmp0XI9+eqhtbavYwzV/Lf0nmQ0s7Z8
-         RQ6l8htN/8TrpS4E/Nf3Q65He62dMU6DdIQ7gTa+eyBd65K5O3Yuuae4ssz3r7tHZ2Pg
-         K+wiOtoToEZmiID/L5yGA0vGocvEj+z+zVUtkZw6QUJjev5uj7CHgrJ9LvktiaOOEl/n
-         1eDWAno0hx2ggvtwtYFRSC9z+qVtLCXOLG/CO0zSP/ohQx/Hwv8LIG7l7FXkMaIzRI0J
-         AL1A==
+        d=gmail.com; s=20230601; t=1762268821; x=1762873621; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=knoBTxhys0G5L6IMAZNao0/3R6GsTIMb0vdRqZYYHho=;
+        b=Z80SQ6f3VDDsbCzhv88t75psAsH/HNf+TdzvNEDj0yyVB2hYZnPTzb/ep8sq52E8Kc
+         pHsWJhpsHB6AcJoT5CmV2+yS2/Cfp/LJVfq1sbQlgZBmprUrj9PuMZ/gxFPDzw6LxcAv
+         HeXDUFqSQnXIN2hel3hiPA8eL3SxEdu8nT7E1JskpKvHnCvcq+b1Si9vZ34jv49F0HwB
+         iAIgNSqD2RmWT1AIusy303aWP29TlUGT/kBAqe1mLyoXpUrVotj14fHpOtfDnxonBT8d
+         fUb9GJt9ZIVlG2h2fshe34cGMBxfPgnmjw97Q27sRsjk/jWJ24e3nlxu5n+dVKurxME8
+         qAiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762268817; x=1762873617;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5mpUIW6+CyzXZCjIETW1X/eFRIiBeTonduLxFWGZK/o=;
-        b=kQS0pCixuBje+1TrPVVm42QaH9LY6GXdxJpVaceZ0YDE2eEafh1rE/sGakHkNH00DC
-         ObZlE47GuNiXIICLI5Gtsihg4PCKFH3MeerFnyNqT2ErM3vGYmelB4M/LeWyP75jLsfV
-         Q4pG2WAXIp7yJn6769GxxTcRw1asVO645C/vhZb5wh9O3u2hQyB2sDoEKtxYInspM65a
-         izNEGzEeR5A/Rx6qgtEbolCqgaHSmwSgKs81C4ntLEz3MJXklCsigxGTpXvYR1lOUUEJ
-         33ubnAQ4CT5KLcXsdq+0i3ZYR0BJVhLmzdyYwNU1LPbV4I+weBh7PSM6HaRv977XbXGE
-         x9wg==
-X-Forwarded-Encrypted: i=1; AJvYcCXlHUcoa+q1REJB5irhXg/ByYsYjXhNZbgv/AtMQ8Apv27V70I2RFom3cRSctOBPXbeTp/TzCh4DASDdN2RDoFh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5adJCOqyCLL6j9Gaf7+T4AzJ0K78suOSswWpdTkFGHHpJfD8y
-	5IE8LyywhJVCNIk6x1SqTD3vVscJGtj9jeeLnzHSsyP9ZSEazGkBaALk
-X-Gm-Gg: ASbGncvdxmpzDg7iFXdXgS77vyfujgD5mqp4kDRVp7YO8/h3t1CTTUhRHBk3/p3957W
-	90ABnPQLiptQRsGj5iy4ZpgTQFCJVb6jXygON6nJ8SLTp8TJQ2s2y6aeDSWfg7AoTf4MkjQQfnh
-	PYcuPbk84sV7oXCQ+o0Lxnkl8DWBBK8EuOy1CTkxudJKYiy103Eha6K16CM4EK2UVmis9QLkzjS
-	PGC+GQEnpdt/bKagXePWtyJ3TrO6tErAtnpVrIcLXQXCy9Xn8+QEKigQAxwBGRVxO84XZx0LA+q
-	xv2QdJaRRlzHaF8mpIO4DUg5MAhmHiEzsOJW6I35i4bVBOaZRmUv+o5Nxh3VIkp6y3V8EGfe0oH
-	Nc2K2AHESYaODKx72o0GwJe7fEND1dGsXeKVoX1OYwn2mEFItUWWo1ZuntmgJqkJzw3jEjDrRvf
-	bXB6JHPhp5tJu6AauSf1nvkL6IAw==
-X-Google-Smtp-Source: AGHT+IHpPTJa2+j0h+Cs4K2bC2PC8wb2EuNR51cOnJgsXf5x4woRyQv45qLS4utiEScOeGGzpAw/cg==
-X-Received: by 2002:a05:6402:50c8:b0:63c:4537:75c0 with SMTP id 4fb4d7f45d1cf-640770823a5mr12779586a12.38.1762268817213;
-        Tue, 04 Nov 2025 07:06:57 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762268821; x=1762873621;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=knoBTxhys0G5L6IMAZNao0/3R6GsTIMb0vdRqZYYHho=;
+        b=tCNNtUF5heoMYkjJR9rz5XNAE+R0GrQJKzxF0gP0BDd44K/zUBEgpSewXtBbp8ZgTU
+         hTv5YR2nw5HeJofL8Wai1t1cCXCgxRSUXdyNc/DqMXf9LUYlBhPF/nPoD5Vo48az8VQA
+         wd58EtO7Cb94TPqeN17wRX9kd9tt8o4GGrCiEXCUx7Dt45ktcVeczUn7FAGFO8AdMz1n
+         xs4JqM2dZl5LP/ah4j1InsDeCHH8W41+3QZDbGIfPT36LYpQQD8NH0ztJDZx8KkSdFGd
+         Z++c3miIpjvv2ayBT75x2hEo4zpBNr2kFxgyXEhfaSDfA2bdrEDDkYsgMrqRzvPpQdt2
+         AA6w==
+X-Forwarded-Encrypted: i=1; AJvYcCVRTRYjH3uytOsr8qL89husJVlDn2oHggFUbzabYTPUt2rhPmWa2P1a/iY9mohZFFoyiz0OHYopVcenWYQrF/EL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxuJD+2ckMl18+vkSAv/2o64m04pUZg8qyRN3blhizjRBNr9Y7
+	IEbExAYjaFd/neftwUdNYBTNvuB8GSPs+DJk7pSkcIioCJ70DKxwAnJc
+X-Gm-Gg: ASbGnct/uLEAPnxyzStUdDDmwor1Qsh6neq4xwFIA69XX7cLVZQ4/VCQuIEZsBf75Dh
+	seE9sn/JqCRB3N8A0xtspLUFUTl1anhAgZMAkcinR8+wxlsBdF2zZSAXs/Nib9qDyAVaVxrlKkI
+	7mOSZdC3faMaG+aN/PZQefXa48NStgzYtT2Gl+FIHEZ49ncYmCqq0QR0WzKg9wtpWAzSXQ2fkoA
+	nqB2kUkDlPsZhV4ex4WtCPuiPyHLRd0u/fVkzpIIBHluX2Lw2GnLONBhC7v4saqvyc88PoORjmQ
+	9ZMY2d4SBqLv9ci7PByQGlx/Lvfn330WN1WWtNv/3z8TqejGOiULpJiH7j2zwSIxsAAy9FT8aYB
+	OuG7jlQxG8769ke5ZfCak/bRH4cgjnlP9SpXCgHmGO6lWgICP4CPyF86A2LhVQzLgpDm3NXRArc
+	cfhMqM7LbJmVg2uJxwG3ypvlaO3g==
+X-Google-Smtp-Source: AGHT+IH3QQar3AAy6xFUftSUi+POCA8TYsQTXR01XqUsEDkX3Cp2Kija0BWAy5x9Z/zOTkdgKsJWSA==
+X-Received: by 2002:a05:6402:350a:b0:640:976f:13b0 with SMTP id 4fb4d7f45d1cf-640976f1865mr10596262a12.12.1762268820845;
+        Tue, 04 Nov 2025 07:07:00 -0800 (PST)
 Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-640e6805da3sm2342014a12.15.2025.11.04.07.06.54
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-640e6805da3sm2342014a12.15.2025.11.04.07.06.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 07:06:55 -0800 (PST)
+        Tue, 04 Nov 2025 07:06:59 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,15 +83,17 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] Switch to using AIPSTZ5 on i.MX8MP
-Date: Tue,  4 Nov 2025 07:06:09 -0800
-Message-ID: <20251104150612.1874-1-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v2 1/3] arm64: defconfig: enable i.MX AIPSTZ driver
+Date: Tue,  4 Nov 2025 07:06:10 -0800
+Message-ID: <20251104150612.1874-2-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251104150612.1874-1-laurentiumihalcea111@gmail.com>
+References: <20251104150612.1874-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_070659_394074_CA9C7FAE 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20251104_070703_189146_66A65FBD 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,35 +110,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-This series is a combination of the previously dropped patches from [1]
-and the config-related patch from [2]. This enables the usage of AIPSTZ5
-on i.MX8MP-based platforms.
+Enable the i.MX AIPSTZ driver, which is used for i.MX8MP-based boards such
+as NXP's IMX8MP-EVK.
 
-[1]: https://lore.kernel.org/lkml/20250610160152.1113930-1-laurentiumihalcea111@gmail.com/
-[2]: https://lore.kernel.org/lkml/20250707234628.164151-1-laurentiumihalcea111@gmail.com/
-
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
-Changes in v2:
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-* squash patch 3 into patch 4.
-* rewrite commit message of patch 1 to state that this driver is used
-  for the IMX8MP-EVK board.
-* rewrite commit message of patch 2 to (hopefully) better describe
-  why we need this change.
-* link to v1: https://lore.kernel.org/lkml/20250821105634.1893-1-laurentiumihalcea111@gmail.com/
----
-
-Laurentiu Mihalcea (3):
-  arm64: defconfig: enable i.MX AIPSTZ driver
-  arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-  arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
-
- arch/arm64/boot/dts/freescale/imx8mp-aipstz.h | 33 +++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8mp.dtsi     | 16 ++++++---
- arch/arm64/configs/defconfig                  |  1 +
- 3 files changed, 46 insertions(+), 4 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
-
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 03d89f29e7c1..ae5d32ea9fc3 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -271,6 +271,7 @@ CONFIG_GOOGLE_FIRMWARE=y
+ CONFIG_GOOGLE_CBMEM=m
+ CONFIG_GOOGLE_COREBOOT_TABLE=m
+ CONFIG_EFI_CAPSULE_LOADER=y
++CONFIG_IMX_AIPSTZ=y
+ CONFIG_IMX_SCU=y
+ CONFIG_QCOM_TZMEM_MODE_SHMBRIDGE=y
+ CONFIG_QCOM_QSEECOM=y
 -- 
 2.43.0
 
