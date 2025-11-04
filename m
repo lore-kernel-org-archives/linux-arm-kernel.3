@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6203CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05B8CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IIaNLN8Yd4Txhb9bSY+7kMvbPVgTOperEEV/7lJ/36w=; b=icHMHLY+iryVofbcwE4Z2gSnXu
-	t6VyJqluaYtusg+5ekjNBGEYxblK9/OIbA/CBI0LkrRciIJApTCnAvKsclH5wOULYtwx2CUfznCuA
-	MIBnjxSIx0aOyO/V9H/tdHizfRx8gIXNx6NdGCwxco+yemhCTK4DGjArCEXndtvuxnHWKFJ+QWHCx
-	/gP2AjDuClzZRZpDMqirxHEROcpKH9Osg7VFRj9bc4oGlO7tfszxFCkxa1VVvwiKtI3W87YOPFDqF
-	3rjafB97R7dAG9FFKA8ET/K+KRA2KsTwCxMgT+OgcoKrP3soDVh8Nq9Ygoy8ZtRZr+dl2bz4OborH
-	2XyZlaKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C50buEJgHS4X44Pxki9184nNxCl3PAMZC3E2giSJfBw=; b=gzraSTP/T+ZdjiJ7s3C2UWLr8K
+	Y9H8xubfM/FNMzzI9NtgYVaL17+ECFqXNi2WupOOko+TeRHCIDp7DWJ25aVNw5ybOHkCuceyJIb7y
+	mzyHwZb7XleAFu2AOg6iqSh+C+DAlvZyhfzO3gNf24CBobAuoG6bypGLITA0q8pKYddYCOSYDb/xN
+	AcnPsAyFl6my3mut7lbvJ5uIBNYgTbJkHVvKIzJZgE5UhEZu017EdBDjx5Q90ATpVITsd8eQYbCpb
+	SwNzxWlTL7HPOenug/J3K9iIMcjLNjk9pAXLnQT40NI5pKg4h/YANMSxY81XeUSpbrlc41S0fo82L
+	QEyKFsdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBXV-0000000BKwu-29np;
-	Tue, 04 Nov 2025 07:33:13 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vGBbU-0000000BLDW-2HpQ;
+	Tue, 04 Nov 2025 07:37:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBXR-0000000BKwC-1Gcq;
-	Tue, 04 Nov 2025 07:33:12 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowAAHhOswrAlpskJmAQ--.18495S2;
-	Tue, 04 Nov 2025 15:33:04 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: ukleinek@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: linux-pwm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] pwm: mediatek: Remove unneeded semicolon
-Date: Thu,  6 Nov 2025 05:48:47 +0800
-Message-Id: <20251105214847.1279520-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1vGBbP-0000000BLD5-1t1Z
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 07:37:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA74B4454F;
+	Tue,  4 Nov 2025 07:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A0F2C4CEF7;
+	Tue,  4 Nov 2025 07:37:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762241834;
+	bh=xhxp+8yUrOqmn3E/ji9PabKENE1tC2sGm1YBQzpn5tI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XUMiCcXm2a4mJlNy0ladRJgAMrb6ML4tFYmoNTi6LuQo4JBcfic8fcTg3+RAgRaIW
+	 U/09qPu0qgPVvV3YviBldAEOWeQS0XD0eqqwtA4PJ9qdTEph+ShH8fA8gD5G0HTJ+c
+	 WvTPbKqI2PcnnO4TyZ1wgqCHxZ6sh9exOaPUIcm+zhnr/y8laDJkkMQpH7UlLM61hv
+	 SP+E39ihJ+w46V3iMQqEQxspZ+kJjtL2mGTeF0eaBPc2+i/eAJKQrm/baF66s65QHP
+	 Lfv1M3RO8qJBJt9X1HgL7WW8jx5QQ6yRw5F2ieA0Dj5FBCP529yNoMY1RCH8xF/jzd
+	 qfaxyogkCibwQ==
+Date: Tue, 4 Nov 2025 08:37:12 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+	Frank Binns <frank.binns@imgtec.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Matt Coster <matt.coster@imgtec.com>, 
+	Maxime Ripard <mripard@kernel.org>, 
+	Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: gpu: img,powervr-rogue: Document GE7800
+ GPU in Renesas R-Car M3-N
+Message-ID: <20251104-judicious-malkoha-of-snow-6a2b92@kuoka>
+References: <20251103200800.173440-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAHhOswrAlpskJmAQ--.18495S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDuF4rXw4DWFy5Ww1Utrb_yoWfJrcE9w
-	4kWrsrXrWUGwn8KrnxJ3yxZr9FyFn5uw409FsYvr43t3sruF40vFy0vrsIgw4DA340gFWD
-	K39xWr1fZF17ZjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbTxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M280x2IEY4vEnII2IxkI6ry26F1DM28lY4IEw2IIxx
-	k0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK
-	6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjc
-	xK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8CwCF04k20xvY0x0EwIxGrw
-	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
-	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
-	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7sR_TKZPUUUUU==
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251103200800.173440-1-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_233310_096104_0E521EEB 
-X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-CacheID: sfid-20251103_233715_509801_664C3EFC 
+X-CRM114-Status: UNSURE (   7.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,28 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
-semantic patch at scripts/coccinelle/misc/semicolon.cocci.
+On Mon, Nov 03, 2025 at 09:07:35PM +0100, Marek Vasut wrote:
+> Document Imagination Technologies PowerVR Rogue GE7800 BNVC 15.5.1.64
+> present in Renesas R-Car R8A77965 M3-N SoC.
+> 
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/pwm/pwm-mediatek.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-index f2c918c0d26a..fecc1b91e14c 100644
---- a/drivers/pwm/pwm-mediatek.c
-+++ b/drivers/pwm/pwm-mediatek.c
-@@ -266,7 +266,7 @@ static int pwm_mediatek_round_waveform_fromhw(struct pwm_chip *chip, struct pwm_
- 				DIV_ROUND_UP_ULL(NSEC_PER_SEC, clk_rate),
- 			.duty_length_ns = 0,
- 		};
--	};
-+	}
- 
- 	dev_dbg(&chip->dev, "pwm#%u: ENABLE: %x, CLKDIV: %x, PERIOD: %x, DUTY: %x @%lu -> %lld/%lld\n",
- 		pwm->hwpwm, wfhw->enable, clkdiv, cnt_period, cnt_duty, clk_rate,
--- 
-2.25.1
+Best regards,
+Krzysztof
 
 
