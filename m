@@ -4,84 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 076E0CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 753B7CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZURaLbDo3dwoVqwyM02ToCv5MutkNZmPeTZy84rbNEQ=; b=rC25I6P1fQYWEn00ds6UeJVzyd
-	34ulIj2mjRZCTvHF+PX0KsBTx+rrVhhQMajbW5bJczlZoLi0x08DSLUwGgRe1Nf84r8l0zMDVV7Va
-	ZgUfBb13lvogu9147nLwVvkx2wfyKYNVhSSATFSq81M4D17Xzl/TZDBw2g/sW6Ke1ZWDB7hE19m9C
-	XYWhF+pbWzmPvBMcmEhj3gaXomR3B7YnjTnbkwNt3xBz2hZmb60C83rZqGA6+YUcqjWOH76zBZuC3
-	z7r8ZJcI/EbnDeDQMKEur45NVLITpHU9Xc8MAedYA8hOJfm4E58ESWS3BcAgBnnzK8ozfYmaWLnEj
-	xyAiiLIw==;
+	bh=rW1GJi4aiIJpoXQbsiWj9rd0ncGdhqLn9jjFI472UaY=; b=GnRNS06fB0Mf+fb78ZPEvSKi7P
+	wL2ggkYvpEdsM9/lBsy3Ufvyj9ZDPA1ligU1L1XKJa9Q3XpNdkqg3OgH/3z/opSL11H7x1hWhP0wJ
+	yJfWojU5ASIS7+1U/+nD7DYkSwNUuN716uwmI/0A1XY4xL729GZvZZsXKttcrgGUBrejG0daY2NxV
+	jspqKf6yP96CyjiXhenMT/yUs91c2Op9IM3JuPIw7FJh3b1tqGYz143l7mMcNdehoU79P+V3kGqGw
+	uYqGoVEvVGUzcytdjPDiL/IpXuz/KI85Yqdpm87e99r+qSCB4qqO6Y0N5A+tAialajMoa8CS9FgyG
+	69P85hrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJzL-0000000CCaD-00hU;
-	Tue, 04 Nov 2025 16:34:31 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1vGK9h-0000000CDFn-40qt;
+	Tue, 04 Nov 2025 16:45:13 +0000
+Received: from mail-norwayeastazon11013035.outbound.protection.outlook.com ([40.107.159.35] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJzI-0000000CCYc-1Ey5
+	id 1vGK9e-0000000CDF7-1rMn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 16:34:29 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-63fbbad0ac3so1996705d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 08:34:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762274067; x=1762878867; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZURaLbDo3dwoVqwyM02ToCv5MutkNZmPeTZy84rbNEQ=;
-        b=khG4qCfcZ35qoWFm3qAc5vtPK6EY8+LDQWJwjZl2RTt3shiX3NtctEek+vRzrecWvA
-         ez2O1pUobBceg+1s9DP0UddGCDdX5oSLp1fk7pNV3cY/TNbJSM/FjM2JVgMxEhhkrfGX
-         BahLgDoKf8vwq1CHFiglD6nu64Nh4hvIHUa+E+4ArBgNP+xQMC4uut5yWJzjBTzW8T1T
-         SCsxRKTOY9yH/2P9ggPgy18P6Fzl6HD02gmihj2QsF/ux6iTZN9yU2sHPGue08I71+Xo
-         bI0OwKNMa74JDH16Budy4ncJyOBy/0hisZgFH0Xxb+0M/cCBR2jkGl6CMd9aS3SlqO2I
-         pEgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762274067; x=1762878867;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZURaLbDo3dwoVqwyM02ToCv5MutkNZmPeTZy84rbNEQ=;
-        b=luvhHUo8DfFN/WEutdqU9y0vFeG9FGiSbPvxMTDygMsJj5zdpIS5GTGazRK76aTw7f
-         d6CEBysZnnF6fzbzU1VmJ4rdbvlmOfQVIKeGFSsRMybjdaYRgzUp2OZ/X3FD9PCmir8K
-         adMWXTqYuC0GZsKdvLpmNFkT0kWnlt7QJq2jIQhqJzaBWKt2RDcuWfnLkqumMG5Awy4r
-         MnmbvBN1ShIGB81oNqCXy198nJUkMM+bZ/tiU1pEL1wxzPo86o3jYJTpb+k0HQvC3Cgy
-         aDq/LACG7bY4/GCfHXOi+fyiPsPLd0J65SJKaLEdA8B0pQDatPbbV/mUwZ1z+ojdJGXb
-         1KEA==
-X-Forwarded-Encrypted: i=1; AJvYcCW/peljDu5yPjK3Y0D2XqJnBtFQoK1mJeXaizRbi1eboLMB6/r6gqcAcGPX6b2C4so2czfVDGBg0lMYNV93AXKP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2H/WLOhf7ZhjRJ7/khS8b1x8f94YxJBXs+LtnopR7LsJ5swsK
-	BOza7kDy/FT4Os+Oj+LzjTWHBZg6pTlgUc0iq8fisNtYpSnVA9BRm3GZ+DbgrRiHg11jxIKs5Z/
-	i1IxnUaQTlrwEvFa7VhLcUllymd4zvcxtw8vi1ABeoA==
-X-Gm-Gg: ASbGncuVH00xvmExpoZ3u67OuyFNhpnPSbKuQBa9LQGMpXUCJJN0MmqcmGN9yZzJRWJ
-	PxswJjqYMxpzm/brJwII95J7eLHISp/WNMMBdF/ZmcI02ZzQUzoSL23C6sO3K3V3aqlslpKLh3d
-	guUGsrryG1LiBGKcIy5fPnQQkyPZX0f2d4MoJLPktxQWMeerCa30AU94oD6ll4l63TnYD+x8sVW
-	vPK3cHB0FFyNfkPUQmaODK3mrC79f230xjQdB1aOk+fA8BigWPWjeulASJnFA==
-X-Google-Smtp-Source: AGHT+IGVTYPjRbvY2dc+1i1hVKSl6/mUpbt8rBD57n2a05T5582PeM1IiJduGFBi48QQYI8y525MVnCW3dK3LdtTGiE=
-X-Received: by 2002:a05:690e:419b:b0:63f:c10e:6401 with SMTP id
- 956f58d0204a3-63fd358fe2bmr57363d50.59.1762274067017; Tue, 04 Nov 2025
- 08:34:27 -0800 (PST)
+	Tue, 04 Nov 2025 16:45:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O3GXEZgTWotnrWy+yfsG5GoUT6aTO/FfHAf888VQGKZBLKrrC68LlXKHTk9r/yjjQCzwc9S8al92VANd3smYGoD/MEjTVAsD5My/hZl1/ImBii/GQ2W7CFZXCl03qSyloX8UAUPF5UVgeSv5IfQJIF1Z5cWKpIONEOu+2iDTzJ9W9/5p3k5RfTk59alm1q1N1DOaUkYrTN2FfAu67aPjfhuOzPLrKIJbNYq6W4iAAaHKx0DOAcHSve6FQKHmBqVzRIMHMXI9qXxVFYZ5R+9LrIf/fU4F4czzNN3NK9TNgISc2VEx0A1n32SJO2be7/yEE9YT1FRY3d4ZoMqGtiPYPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rW1GJi4aiIJpoXQbsiWj9rd0ncGdhqLn9jjFI472UaY=;
+ b=bBgPssDKQ/3Es/Ss0ZeIRf548bhNaR3bxRpJckgd4heDuCMvUXnVMVUvFEne5lcumSZQn2mop4JmdlBYbeA9rvVepwLD/Jyi4bmGhFWxpIcE74r/zvm7EJmAowmzOVHTVWCc9X8A7ZQmUoQY+emNcKxo2Hw8B78nDHZUzftw7m6J4EfQp7DWEeX2KU5UFJ5IkzKIrlUOgqq8omBMsxRabtarD5/uxND5QTi7fBkrvokZXu4hL5D77hJ3UmrKvn3kIRv+n/cqOiBkodZuYSNko8GsecQzHyoQrGidzpr+whw7DLuArSOkFWFQiDHF4A3XXAN7hiyRhjgPOvg3DFHNgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rW1GJi4aiIJpoXQbsiWj9rd0ncGdhqLn9jjFI472UaY=;
+ b=YE896BRHwTIhJxqhf+7VMIvx5QAcw7HVnQPSwA0ovWv86qAEz1L+s0AZEz5f3n0xY7LMu1xQeo9s9BgwPJ+f7av10/GKWhYwsb3/dFWR1A7JdQ9oG3qmVk0JP67m5qM9Y4wI03q0zCYXiVkRGmpJjDa/gROq0N0kLzf8FZici0QTWiiFeywykO3fsdO3ajTHWxweTucpU+xzijMwnHhzmc8YgxXvktwi00Shd1TwvXHwa1ONldOvrZOshaNkDGRZVJFkPVCnTvs4dbBeRk7oj3EdWn+KRyLauEMfIeNdVhC+2ZZPcOKE5VU6oogkKKhIqHpuXET0Q9RZtuGAc1Wo4Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AM0PR04MB7188.eurprd04.prod.outlook.com (2603:10a6:208:192::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 4 Nov
+ 2025 16:45:05 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
+ 16:45:04 +0000
+Date: Tue, 4 Nov 2025 11:44:54 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Abel Vesa <abelvesa@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v4 5/8] reset: imx8mp-audiomix: Switch to using regmap API
+Message-ID: <aQothuvsclJoP74u@lizhi-Precision-Tower-5810>
+References: <20251104120301.913-1-laurentiumihalcea111@gmail.com>
+ <20251104120301.913-6-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251104120301.913-6-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: SJ0PR03CA0369.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a1::14) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-References: <20251030-mfg-mailbox-dep-v1-1-8a8c591aff27@collabora.com>
-In-Reply-To: <20251030-mfg-mailbox-dep-v1-1-8a8c591aff27@collabora.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 4 Nov 2025 17:33:50 +0100
-X-Gm-Features: AWmQ_blVz8oV6Q800iTY_FXK63-gujrHnWpwcZPlwshpI-BtZsgfevwVde_Zipk
-Message-ID: <CAPDyKFrJdN_6FyyjMrfNCKwXt6kFPEPAxcuosdasoxtbJHk2GA@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: mediatek: mtk-mfg: select MAILBOX in Kconfig
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, kernel@collabora.com, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM0PR04MB7188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44a74ffb-8c17-4ff0-af99-08de1bc18160
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OvW+PNPKxvJi0rijlQa5Pio9Zkx/ysO18LZKSbZzUoo5yeZUrxPez9VTlo0z?=
+ =?us-ascii?Q?cjbfAWClyEw9J8D+HADULhnyh6U9z0+/3dAQ2T//kmsYIN/tecfo6TsedXzN?=
+ =?us-ascii?Q?JarlVVzmtbrQjP+clI5tVdT/2LE9L/EKR/y9LT0Q8qJg089y2Q5p++qnAVML?=
+ =?us-ascii?Q?o9btuRmIivm6g5oMgwW9VoD7As9qVwhZ2uJfmQZC3TNr1wihuYW8c0QH0CAm?=
+ =?us-ascii?Q?F/rg0yrsc4dZGyJImU1xF9J1GhkMwLeEgKnaVe/CqRGqloFL3S07skvNmhor?=
+ =?us-ascii?Q?Oq9clL7E5Z3Hptt6+jsVbvUUBvjq5pr0r/cbjSgAP8hm3FLSQg00Gf8qzLO7?=
+ =?us-ascii?Q?LIORIIY4gKcwAWxSNE20E6PA16GMIW/vHD6XjAHD33hF4ln2igeUSkyPFbpf?=
+ =?us-ascii?Q?n6SK/UOjmw4DPulOoxqmI/DrRBjgsyEJImyBd3pZT+oivBlDVEJrsZq15DUF?=
+ =?us-ascii?Q?cJbNH3kzJuM4/NRJZSlnyzMaG3KIlSnx8+0A2sa23CWhNLqqyNpTkxM3KXL0?=
+ =?us-ascii?Q?bAYZMrTP3gb7yHY0E70o1q9qYF27ppkBeXtBXdWwZc7iHzNuKpRBFo7a86LJ?=
+ =?us-ascii?Q?X28V7Jod/75mVWkkyKLDf4nU41FpzOgooyljQSWCm5e9jR9/+yef2LnaaFUf?=
+ =?us-ascii?Q?9Bnu4HyyB6hC+s0R0Ugh1pTdErRgU4xcyKv60nhpr51Bk4DLwcxUhokiIkAV?=
+ =?us-ascii?Q?xKk/5dJQxW7sXEVnqryYd7dZ5zfCNfeh2s32KfG9m1BELo0g3OoqdgL55jgk?=
+ =?us-ascii?Q?uLJyrgN0LVwGyg1NC94ZRDVNBixEIp1AMkU6KjoKETaVRjQXxvNW88dUfs2+?=
+ =?us-ascii?Q?CFeqc4G4dOxGE/F1ZAudRNOnZPcgpIdNMhb7ycag4eP6MBGBTcQAN04yuK2u?=
+ =?us-ascii?Q?ClCAUJJnM0CmcddpCIh4MKAQZnxZQZklCLe93RrqBURV/xowFaq+DTK87q4+?=
+ =?us-ascii?Q?ephwJjWy6y7M3uN0rsIB5aRJD7/EgQydQ6lqsWKvc35PK1WHOBm+lRcsWpPr?=
+ =?us-ascii?Q?C/iusF5TYxqkWIJdRiyS9IoS1ftcXtrzHMzgLkgVXXXTyP+fUXwv7YvYiNqB?=
+ =?us-ascii?Q?0ovOUPtMVOb1r03106XCckUd0PgqxNiPDQkZyMXpcW1vGPujo0ivgte0iA5j?=
+ =?us-ascii?Q?gn9R3JgpGQqRRBNNqLnH4evLsDLgVVVwlZ/OokOh5V+Apl9BcF+91KdgvCn4?=
+ =?us-ascii?Q?GxTYsokz+k1nWadW4uqlGpGKimcwJwnBbCa1njrLcAXv7D3uzCd/9zUqrrWo?=
+ =?us-ascii?Q?0zpn9V80tCgGQkb+VyJoFTaFKLHYCwx+LHHdDhmvzHLafYczkhqdOBXTKegG?=
+ =?us-ascii?Q?G9Sc94Zl+O1R1EE8hVpeKMnFjKk7g5gjjAURASq2UCBMNXyyaEGSwON92nzQ?=
+ =?us-ascii?Q?n532lXdlDwZXFCK78lQFs8MN2qdEDrTwvvBhCb+Z36O5CnuIfy/2yEubAJ41?=
+ =?us-ascii?Q?+mGjVPUqx4xf4ykqHQMPccQGgsM6HNNeiLfAxYONBU4ia0eLpKjRKxhOpKA9?=
+ =?us-ascii?Q?BoYuOVlrwAbc0H3Rzn8o7D0882EtN3Uypmwq?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bU4Fko63VGep5PFcluBwDnFavSq91WOMauSCG8CW9/B5Q7S3VJev5AOh9Zqz?=
+ =?us-ascii?Q?jJsiNzcyhwuUD7SlT1z1h08+C2V5OrsFerMI+rICuOK35B2jG/dl4TIRpvAW?=
+ =?us-ascii?Q?tFh+NNFX44vSrSo1al6NE+6fsr6UrvhV196VAu3PZKX+fc0lZL4WCq9ruvao?=
+ =?us-ascii?Q?aSlfOpCbrWPFeFvDAP2aDePzKku7Hg0mvjqltL4BiY43mBKNyB+S523aqSvw?=
+ =?us-ascii?Q?CWnBgJ7X9gXl54SplsbJp5rkxOffNDr5y1gKB55YWg9VZUYrhb6kcEYTDHBg?=
+ =?us-ascii?Q?pVC+UNarGpKDPf21qqKcrWwm0kWEIqOTjc5erYscpDzUnvKCN/OdFuqMBEUs?=
+ =?us-ascii?Q?4I+GwoNPJBBGd9mlyMxVK8gEEJ9dUcwERGj8EYpUaOGiBZlRjjE1X7j7wjXi?=
+ =?us-ascii?Q?VsjP7yZz1mox/ViT+6aIju0LgA14XYH5Ggktisb4KsbJHX1ZntuiOcH6DIj/?=
+ =?us-ascii?Q?3inIyPzxEoYMqyGNqLdSUlsF9f9BscgUUJpQWgHrW/vcHHLf2iq+nXnhwh22?=
+ =?us-ascii?Q?JG0DMyh37u/GowV4w6FgfP66pjYcAHhySfGBDGaENSkdlNCvnl8Utb44a4Fg?=
+ =?us-ascii?Q?N519r9BirhBaL75jNBJMGKLtHub6J+J05Kc2We/R6nP+MZFpqf7Fi/iYDrze?=
+ =?us-ascii?Q?Pyiqwefjq1/XXb9pZTS9upIpd9HC9lnzT4RLbUm5YDALcn318uDcK7bHl0YX?=
+ =?us-ascii?Q?fiHPmgfP+vvqESmfsNj1GGjeANz/THWSBdKXoirmIOq4KQ9SQCVxDvtnjjFv?=
+ =?us-ascii?Q?kIdqK/9oS+zoBWn0s6nnV4GVs1GKP9e9W1wgo3dyOpUWY4NDus5GV4X4ZQK1?=
+ =?us-ascii?Q?g+Pn/bB3ty+SGXpjgIudKiQDxCP2nEPCWiIfGEoMALRhFZdxjZQgE5Y7MDfG?=
+ =?us-ascii?Q?auyMNNppbmkPSiTNKjg65MXPGoy3SrAklXTetV37CaDMP8TmsTFWwoAxWQY8?=
+ =?us-ascii?Q?PBj744H6XC0jOePqczoXil3zNDvwwcViDmfR5YUfEWdcBXEA5W9J3JbJC/3k?=
+ =?us-ascii?Q?NEoz8+o/1XDj+UQqUFGqAZHJmXd8DIrf03bScgZIrkKUtaGNM+swborJCFp5?=
+ =?us-ascii?Q?MkCFVFzFg2eyvhbMOXXn/F1L1gTEyNsdAFctpTvviYP9Lu8hOI379KvAsWvn?=
+ =?us-ascii?Q?HynxlnybUd4wNGujrfzwW7rKWMFZBhMtW90bxnq+0IWkdNiPjVNJnYyUGXQm?=
+ =?us-ascii?Q?hm7JWB4+b8xf35mTGnI9qO6zzaZ1Kqn//KccOCvCvyF9C1BhzUeziXVH4bBO?=
+ =?us-ascii?Q?p9G+CP8eysm33VjMBsjSDe56cIlRomPy/ajcpIc0b0AzWUfsykGPuA/AAGOr?=
+ =?us-ascii?Q?TekdO+rflh0VlK/dum1D2QWI/7xv2bLZxGaY82zsrJjcLFrHYoqxsGbwAYln?=
+ =?us-ascii?Q?PKL8v6qIGJmdJWhjZEZB0E+whqgpycO8M2WtzdGeR0OSGC1BPzP0CABl862W?=
+ =?us-ascii?Q?6Ni1vU7FwsfCw6RcBlog9Mimu3jfVRZXj6Hi0QBciVSZSu7L+RVOeQGMFITN?=
+ =?us-ascii?Q?MU3q+ix3SkiP8bUmjtPmlkcpnwLgr6IFOyRQ58wh7+vh5qrDgOw8RUzfUzAX?=
+ =?us-ascii?Q?w5bZCL8a//kXS7CRZ1mxJb7ZL2uYJTUU+8XvCPgR?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44a74ffb-8c17-4ff0-af99-08de1bc18160
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 16:45:04.7894
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1P685YVkDmlSOg/eDeW4OT04A7T3sfjlpKxO/Wv1PkXxOZe87K8fyijAlKbmmJ7/rSj9lD7/4FzBXDFGZF4pAA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_083428_346086_F9170E09 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20251104_084510_656226_86C22132 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +167,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Oct 2025 at 14:17, Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
+On Tue, Nov 04, 2025 at 04:02:58AM -0800, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 >
-> The mtk-mfg pmdomain driver calls common mailbox framework functions. If
-> the common mailbox framework is not selected in the kernel's
-> configuration, the build runs into a linker error, as the symbols are
-> absent.
+> Switch to using the regmap API to allow performing register operations
+> under the same lock. This is needed for cases such as i.MX8ULP's SIM LPAV
+> where clock gating, reset control and MUX-ing is performed via the same
+> register (i.e. SYSCTRL0) and different subsystem APIs.
 >
-> The hardware mailbox Kconfig system, MAILBOX, has no dependencies of its
-> own. It's therefore safe to "select" it rather than use "depend on".
->
-> Declare this "select" dependency in the Kconfig for the driver.
->
-> Fixes: 1ff1f0db6aec ("pmdomain: mediatek: Add support for MFlexGraphics")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202510301311.TcOCnZ1s-lkp@intel.com/
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-
-Applied for next, thanks!
-
-Kind regards
-Uffe
-
-
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 > ---
-> I assume this can be squashed into the mtk-mfg driver addition commit of
-> the maintainer that merged it.
-> ---
->  drivers/pmdomain/mediatek/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/reset/reset-imx8mp-audiomix.c | 93 +++++++++++++++++----------
+>  1 file changed, 58 insertions(+), 35 deletions(-)
 >
-> diff --git a/drivers/pmdomain/mediatek/Kconfig b/drivers/pmdomain/mediatek/Kconfig
-> index b06aaa9690f0..8923e6516441 100644
-> --- a/drivers/pmdomain/mediatek/Kconfig
-> +++ b/drivers/pmdomain/mediatek/Kconfig
-> @@ -32,6 +32,7 @@ config MTK_MFG_PM_DOMAIN
->         depends on PM
->         depends on OF
->         depends on COMMON_CLK
-> +       select MAILBOX
->         select PM_GENERIC_DOMAINS
->         imply MTK_GPUEB_MBOX
->         help
+> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+> index e9643365a62c..18a7f68aa59f 100644
+> --- a/drivers/reset/reset-imx8mp-audiomix.c
+> +++ b/drivers/reset/reset-imx8mp-audiomix.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+> +#include <linux/regmap.h>
+>  #include <linux/reset-controller.h>
 >
-> ---
-> base-commit: d78b0fee454c25d292fb6343253eca06d7634fd9
-> change-id: 20251030-mfg-mailbox-dep-ec32ef510e6a
+>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
+> @@ -42,8 +43,7 @@ static const struct imx8mp_reset_map reset_map[] = {
 >
-> Best regards,
+>  struct imx8mp_audiomix_reset {
+>  	struct reset_controller_dev rcdev;
+> -	spinlock_t lock; /* protect register read-modify-write cycle */
+> -	void __iomem *base;
+> +	struct regmap *regmap;
+>  };
+>
+>  static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_controller_dev *rcdev)
+> @@ -55,26 +55,15 @@ static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
+>  				  unsigned long id, bool assert)
+>  {
+>  	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
+> -	void __iomem *reg_addr = priv->base;
+> -	unsigned int mask, offset, active_low;
+> -	unsigned long reg, flags;
+> +	unsigned int mask, offset, active_low, shift, val;
+>
+>  	mask = reset_map[id].mask;
+>  	offset = reset_map[id].offset;
+>  	active_low = reset_map[id].active_low;
+> +	shift = ffs(mask) - 1;
+> +	val = (active_low ^ assert) << shift;
+>
+> -	spin_lock_irqsave(&priv->lock, flags);
+> -
+> -	reg = readl(reg_addr + offset);
+> -	if (active_low ^ assert)
+> -		reg |= mask;
+> -	else
+> -		reg &= ~mask;
+> -	writel(reg, reg_addr + offset);
+> -
+> -	spin_unlock_irqrestore(&priv->lock, flags);
+> -
+> -	return 0;
+> +	return regmap_update_bits(priv->regmap, offset, mask, val);
+>  }
+>
+>  static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
+> @@ -94,6 +83,52 @@ static const struct reset_control_ops imx8mp_audiomix_reset_ops = {
+>  	.deassert = imx8mp_audiomix_reset_deassert,
+>  };
+>
+> +static const struct regmap_config regmap_config = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +};
+> +
+> +/* assumption: registered only if not using parent regmap */
+> +static void imx8mp_audiomix_reset_iounmap(void *data)
+> +{
+> +	void __iomem *base = (void __iomem *)data;
+> +
+> +	iounmap(base);
+> +}
+> +
+> +static int imx8mp_audiomix_reset_get_regmap(struct imx8mp_audiomix_reset *priv)
+> +{
+> +	void __iomem *base;
+> +	struct device *dev;
+> +	int ret;
+> +
+> +	dev = priv->rcdev.dev;
+> +
+> +	/* try to use the parent's regmap */
+> +	priv->regmap = dev_get_regmap(dev->parent, NULL);
+> +	if (priv->regmap)
+> +		return 0;
+> +
+> +	/* ... if that's not possible then initialize the regmap right now */
+> +	base = of_iomap(dev->parent->of_node, 0);
+> +	if (!base)
+> +		return dev_err_probe(dev, -ENOMEM, "failed to iomap address space\n");
+> +
+> +	ret = devm_add_action_or_reset(dev,
+> +				       imx8mp_audiomix_reset_iounmap,
+> +				       (void __force *)base);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register action\n");
+> +
+> +	priv->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
+> +	if (IS_ERR(priv->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(priv->regmap),
+> +				     "failed to initialize regmap\n");
+
+Does anyone still base?  Supposed aux device probed by parent devices,
+if all parent already switch to regmap, you can remove this part.
+
+Frank
+
+> +
+> +	return 0;
+> +}
+> +
+>  static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
+>  				       const struct auxiliary_device_id *id)
+>  {
+> @@ -105,36 +140,25 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
+>  	if (!priv)
+>  		return -ENOMEM;
+>
+> -	spin_lock_init(&priv->lock);
+> -
+>  	priv->rcdev.owner     = THIS_MODULE;
+>  	priv->rcdev.nr_resets = ARRAY_SIZE(reset_map);
+>  	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
+>  	priv->rcdev.of_node   = dev->parent->of_node;
+>  	priv->rcdev.dev	      = dev;
+>  	priv->rcdev.of_reset_n_cells = 1;
+> -	priv->base            = of_iomap(dev->parent->of_node, 0);
+> -	if (!priv->base)
+> -		return -ENOMEM;
+>
+>  	dev_set_drvdata(dev, priv);
+>
+> +	ret = imx8mp_audiomix_reset_get_regmap(priv);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to get regmap\n");
+> +
+>  	ret = devm_reset_controller_register(dev, &priv->rcdev);
+>  	if (ret)
+> -		goto out_unmap;
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to register reset controller\n");
+>
+>  	return 0;
+> -
+> -out_unmap:
+> -	iounmap(priv->base);
+> -	return ret;
+> -}
+> -
+> -static void imx8mp_audiomix_reset_remove(struct auxiliary_device *adev)
+> -{
+> -	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(&adev->dev);
+> -
+> -	iounmap(priv->base);
+>  }
+>
+>  static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
+> @@ -147,7 +171,6 @@ MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
+>
+>  static struct auxiliary_driver imx8mp_audiomix_reset_driver = {
+>  	.probe		= imx8mp_audiomix_reset_probe,
+> -	.remove		= imx8mp_audiomix_reset_remove,
+>  	.id_table	= imx8mp_audiomix_reset_ids,
+>  };
+>
 > --
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 2.43.0
 >
 
