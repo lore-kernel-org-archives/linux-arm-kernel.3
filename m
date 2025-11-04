@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D10BCCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6121CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0LvKOhhmgkPbAnJv9RUevotOR4DI1Uoh5ENCeo7njA=; b=1tbydZt13nwWHoPRBkbHhIfcAM
-	RLV5uoKZDwbZK7wf+XwOha7zkc2PqQIAa0QNUPVaOHKwtN8etehJz1IvtngoshNOx471WChSvOzO9
-	K5NRwRhYMDqenM9N992yHKiNTaZkWZNG4SONAp51zbqFhKsLBUyau6/iB6/Xw5WltqRF1BVhELxvL
-	E7H08gGsRFoc47xkBBPVJlXB2eDIMXH3yUEm+fA3/LXX08ooZ0thk9f3F9sGeZJ7te9x3ZTDsKxkq
-	DuKJUoUzmjPipe4AQLqdl4BX+ZApxg/rQ/OQwoPe6qc2Cq26Tp7flxXJHF7kf7n1MScns8zLKaHzc
-	hy1CDj3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5V/Vz/H8HM7LchfMCgMJIzRqE49QYJch3AIZX3W5lns=; b=NxSt8sO2+YBIjuBipD023xSpiX
+	bET8F2OkgjrU+qwwYFDOc+8WEx2RLzdLl7P9EVgEXvKReN57n/0GK14LDpsqds7NUiSo224nunWhH
+	ATAXP5wJVzOYSKX7i0PMNF6xUaqfa3qauYi6XBwYX7l7dZW8lVqybpyzKGD5TxifAoU8OaPMF39iy
+	AaSxKS0yTgPzFG1Z0EE7Or1quLY/k3muDqk2hweSztW8xqzcx04k8TLnIU1pZDi0JBvRuB+d+K/RG
+	5+2Bm1SUKAqNs/iyLngzuScXNMHDb59cJdISV00sPc1JFr7NN26hnkdmvM1tQzpLfzJYKecC4WgA6
+	2StrpKbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCsH-0000000BU2r-3unP;
-	Tue, 04 Nov 2025 08:58:45 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vGCu0-0000000BUIx-2a4G;
+	Tue, 04 Nov 2025 09:00:32 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCsF-0000000BU2F-2n5D
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 08:58:45 +0000
-Date: Tue, 4 Nov 2025 09:58:37 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762246719;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C0LvKOhhmgkPbAnJv9RUevotOR4DI1Uoh5ENCeo7njA=;
-	b=PCKNJxulpg/PvsGYBz8V1FU4pIkAMexataoGH0wB1Wq12nZZHH8f2DwldZBJQaarAJVsP8
-	yusjtIDWmV+OdYsTjKunNaFJcWiiyhHX6oDRiKaBNw6mbt6vWYMefNn74zwVvtcQNanAb/
-	sFKjzpbAdgHOKh9I1DfB1uxqKlG9OH5OjQWRzQk9ok7MeccZ7XACWEaO4CMbje+8IR5FNE
-	ksy6MxBeFin8cOh8nSGbd7sgJ1u4+BFBLgtkTy0AC0nIyqKnVIQCZ0PrgpFKDWnHjNm1K5
-	thTLlUN+ZyklfklQSZjodwcMM1QHkniqB323QaFPf3lG/gDXH1KQ8B2yVTGLvw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762246719;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C0LvKOhhmgkPbAnJv9RUevotOR4DI1Uoh5ENCeo7njA=;
-	b=AYbRVmwTnBF9DHCl3zSORA5EBbeymIDmU5LN0MCGPkSaFq3DfisSLGnmVmNwMSYywgJ4+e
-	uTDyt4qZNgxw5dDg==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Mark Brown <broonie@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King <linux@armlinux.org.uk>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>, Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
-Message-ID: <20251104095555-ed009488-3aa8-43c5-b39f-066f04dee5a3@linutronix.de>
-References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
- <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
- <aQjJNmwniQwwjeBR@finisterre.sirena.org.uk>
- <CGME20251104084442eucas1p2af1bd88393f4d6a532df1cd41f32a287@eucas1p2.samsung.com>
- <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
+	id 1vGCtw-0000000BUHP-3Y4D;
+	Tue, 04 Nov 2025 09:00:29 +0000
+X-UUID: a6bfbb1cb95c11f0a52f393f94899d25-20251104
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=5V/Vz/H8HM7LchfMCgMJIzRqE49QYJch3AIZX3W5lns=;
+	b=YOUU5Xq0LuMjGkUosfD+LrR/zgy9bAUAy8mkE6TOqZsjVk1ieVKYuCo1c6YYq0ir8+TbfDqZMHaTLCLiohJJIqYa+o1xwBsgi0p/HM4wYfG4UZBXuU3ciaO+mXqyMtY0cBbNN28QXagzJSJvU7B7ZVJxUb39OHvKFTlT9H07ytI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:a2fcd327-06df-492b-bb64-c3ad7c5d8e54,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:14121de0-3890-4bb9-a90e-2a6a4ecf6c66,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a6bfbb1cb95c11f0a52f393f94899d25-20251104
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <liankun.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1385362656; Tue, 04 Nov 2025 02:00:03 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Tue, 4 Nov 2025 17:00:00 +0800
+Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Tue, 4 Nov 2025 16:59:59 +0800
+From: Liankun Yang <liankun.yang@mediatek.com>
+To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <mac.shen@mediatek.com>,
+	<peng.liu@mediatek.com>, <liankun.yang@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v7 0/2] Adjust bandwidth limit for DP
+Date: Tue, 4 Nov 2025 16:55:10 +0800
+Message-ID: <20251104085957.1175-1-liankun.yang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_005843_852584_B3893F6E 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20251104_010028_884858_05746331 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,62 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+DP link training checks the current PHY link signal quality.
+After DP detects an HPD connection, it should first determine
+the current link signal quality in order to select the resolution.
 
-On Tue, Nov 04, 2025 at 09:44:38AM +0100, Marek Szyprowski wrote:
-> On 03.11.2025 16:24, Mark Brown wrote:
-> > On Tue, Oct 14, 2025 at 08:49:09AM +0200, Thomas Weißschuh wrote:
-> >
-> >> An upcoming change will allocate the datapages dynamically instead of as
-> >> part of the kernel image. Such pages can only be mapped through
-> >> 'struct page' and not through PFNs.
-> > I'm seeing some boot failures on some arm64 platforms in -next which are
-> > bisecting to this patch in -next.  Unfortunately the diagnostics aren't
-> > super useful, we seem to just stop making progress in userspace with no
-> > obvious output.  One sample log from the FVP is:
+Since the EDP is already fixed to use the EDP panel,
+the current training information and resolution are basically fixed.
+EDP exists and its process differs from DP. Therefore,
+it is necessary to isolate the parsing capability,
+panel power, training state and enable state.
 
-(...)
+For example, the platform support DP 4lane 5.4G,
+but panel A support DP 2lane 5.4G.
 
-> Then I've tested it on ARM64bit (RaspberrryPi3b+ board) and got the 
-> following panic on 6a011a228293 ("vdso/datastore: Map pages through 
-> struct page") commit:
-> 
-> VFS: Mounted root (ext4 filesystem) on device 179:3. Trying to move old 
-> root to /initrd ... okay devtmpfs: mounted Freeing unused kernel memory: 
-> 12672K Run /sbin/init as init process Unable to handle kernel paging 
-> request at virtual address ffffffffc20b5d48 Mem abort info: ESR = 
-> 0x0000000096000006 EC = 0x25: DABT (current EL), IL = 32 bits SET = 0, 
-> FnV = 0 EA = 0, S1PTW = 0 FSC = 0x06: level 2 translation fault Data 
-> abort info: ISV = 0, ISS = 0x00000006, ISS2 = 0x00000000 CM = 0, WnR = 
-> 0, TnD = 0, TagAccess = 0 GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0 
-> swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000000230b000 
-> [ffffffffc20b5d48] pgd=0000000000000000, p4d=0000000003618403, 
-> pud=0000000003619403, pmd=0000000000000000 Internal error: Oops: 
-> 0000000096000006 [#1] SMP Modules linked in: CPU: 2 UID: 0 PID: 1 Comm: 
-> init Tainted: G W 6.18.0-rc1+ #16136 PREEMPT Tainted: [W]=WARN Hardware 
-> name: Raspberry Pi 3 Model B (DT) pstate: 80000005 (Nzcv daif -PAN -UAO 
-> -TCO -DIT -SSBS BTYPE=--) pc : vvar_fault+0x7c/0x17c lr : 
-> vvar_fault+0x24/0x17c ... Call trace: vvar_fault+0x7c/0x17c (P) 
-> special_mapping_fault+0x24/0xd0 __do_fault+0x3c/0x238 
-> __handle_mm_fault+0xaa0/0x19e0 handle_mm_fault+0xcc/0x384 
-> do_page_fault+0x1a0/0x720 do_translation_fault+0x60/0x6c 
-> do_mem_abort+0x44/0x94 el0_da+0x54/0x230 el0t_64_sync_handler+0xd0/0xe4 
-> el0t_64_sync+0x198/0x19c Code: f2d83fe0 8b010063 d34cfc63 8b031803 
-> (f9400461) ---[ end trace 0000000000000000 ]--- Kernel panic - not 
-> syncing: Attempted to kill init! exitcode=0x0000000b SMP: stopping 
-> secondary CPUs Kernel Offset: disabled CPU features: 
-> 0x000000,00180000,40004000,0400421b Memory Limit: none ---[ end Kernel 
-> panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
-> 
-> Reverting "clocksource: Remove ARCH_CLOCKSOURCE_DATA", "vdso/datastore: 
-> Allocate data pages dynamically" and "vdso/datastore: Map pages through 
-> struct page" on top of linux-next fixes booting on all tested boards.
+This is a time sequence:
 
-Thanks for the report. I have a Raspberry Pi 3 Model B V1.2 here and will try
-to reproduce the issue with it.
-Can you send me your kernel configuration?
-Which line is vvar_fault+0x7c/0x17c?
+1. Plug in panel A. According to the platform, it can output 4K 60Hz.
+2. Timing mode set 4K 60Hz.
+3. Atomic enable(Based on panel A ability, training pass 2lane 5.4G).
+4. Finally, due to 2lane 5.4G bandwidth limitation, the platform cannot
+output 4K 60Hz, resulting in a black sreen.
 
+If apply this patch.
 
-Thomas
+1. Plug in panel A.
+2. Training pass 2lane 5.4G
+3. Timing mode set 2K 60Hz(Based on the 2lane 5.4G bandwidth limit).
+4. Atomic enable for output screen.
+
+Liankun Yang (2):
+  drm/mediatek: Adjust bandwidth limit for DP
+  drm/mediatek: Add isolation to edp
+
+ drivers/gpu/drm/mediatek/mtk_dp.c | 57 ++++++++++++++++++++-----------
+ 1 file changed, 38 insertions(+), 19 deletions(-)
+
+-- 
+2.45.2
+
 
