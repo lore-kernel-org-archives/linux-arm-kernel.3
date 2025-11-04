@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36BF0CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E45ECCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TeNvl6wz3OEn3oRUCdz5nMl2u71butQifW6PQGFdkME=; b=Layc4r6bJ4/D/J0fiAxm05yZ7A
-	9aSlUHhuvzo00Xbg+p1HFuChAN5SQihxsmTK2nI6rOmCXs7QZAARj/6ufsnwupc755zo2TRHbzCYh
-	xtfLdGRXgHEwW2hp7PBRL88RcqG9vVcQ7w1lNHDkPq6GcwYPpAL/Tez4S/DwAbDI/0JC2ZM0geNhi
-	/w9KNbu2MsfgeLtAYXi6g0tVfi9cO89tmBW5Ao8zcQAJsnk49wKQkzxy2L1uWd95cmwYg+0kvn303
-	1DAd1Rclsf40jhD/pZ5X23FsgEGh4CRGDuL2cz1WfowH08JZU/vSWaR+AfvDTL2pOZuao/mm+rGqc
-	7wP2w6Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ITCLqcPKdtMfzHDn3f1hMx+q58ZaP4E+ZYDldEc3toE=; b=fBrAfiRPeNFtzrGQ4bLF9CDTtE
+	4bLTCEroFTx+L/UOgt9hi+H0d3yeg/8oJZ/odkk9GETQpd4mjxrhfE/EQxKWVlprTNgwqls+npmiN
+	Fs/bFsy8esUuxQFNQY4sHS6TQ9FqNSK5Y1Q0qXmjh0+MtR5Zauez07gYi7kJIpSSA3BIc74JuJvIZ
+	1vlokiLpwpo6+wcsrk+fsVFCTuRlJ4yznUGnvKNcXp5WgY3zKjloglfAJ73DYDmD+vy0sBP829x79
+	USbT6qJ1PL7Zj0rMnCTpVVlQRFYVvUn96HVHp/lsPoH7ZgUTDeASfa1BhuJ8plAdywvXSThifoSZK
+	AMXfnWag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHEI-0000000BtQm-0HQ9;
-	Tue, 04 Nov 2025 13:37:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGHHR-0000000BtfC-2UaP;
+	Tue, 04 Nov 2025 13:41:01 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHEF-0000000BtQ8-1sSh
+	id 1vGHHO-0000000BteY-3gfq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 13:37:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E630C438FA;
-	Tue,  4 Nov 2025 13:37:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8FB0C4CEF7;
-	Tue,  4 Nov 2025 13:37:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762263461;
-	bh=kW/ssnpFqsyUGVSW+ike0uQYSm2DE4pa7UTDsdKBjsY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=MoAZWgcdVfAiKGcImcD9LaLKF/jODEq4BpZLVVjxmTyMzJYQoHekfdrzqPDexT/kz
-	 SINX5UNQfnuV10UlpeRkELACz3eBqcW26FdLPGKgSzMEpqCUIPn44jBlxef8YsIx0S
-	 JOf1dhtBWvuZADG4ioasi8YQmVOHse0RQPRRRDqsyihs5zhgO+OFdwSU22kCur6hcr
-	 RzC7VoPGTFvifLua0W8BJ6uAFh+1RR9/zkxGdd9iZ3mtnrTr14i0Sp0YwdYDuQPxsc
-	 OIWMuySlXsUpKE23viueJZ0lKTpvpp7GHRi9vq/8cbGEJ7s8E3AQGOqJhEE+bmTD5t
-	 uePtyfGV+h1Xg==
-Date: Tue, 4 Nov 2025 22:37:35 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
- <namhyung@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Mark Rutland
- <mark.rutland@arm.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Ian
- Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/2] tracing/wprobe: Fix to avoid inifinite watchpoint
- exception on arm64
-Message-Id: <20251104223735.4164f224790ea0aea267dff1@kernel.org>
-In-Reply-To: <176179481538.959775.12326313742393696258.stgit@devnote2>
-References: <176179481538.959775.12326313742393696258.stgit@devnote2>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Tue, 04 Nov 2025 13:41:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=ITCLqcPKdtMfzHDn3f1hMx+q58ZaP4E+ZYDldEc3toE=; b=y6KWc+d1T0EMoGe0Uz8xFsN4wG
+	Hlk1wADkucu+s+tHZWPnOVCGTF2eItOAjrhVLD3QdPb5iAThErckAfFf4rZJdIe3i26+IzHZy7IiV
+	wGBMJUlRL0FiD9UZoZfhBArAmMCJDIV71TCE6UEZVmbXZMAVSw2X6IEm0YKhLRidusVc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vGHGu-00CtIS-V1; Tue, 04 Nov 2025 14:40:28 +0100
+Date: Tue, 4 Nov 2025 14:40:28 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Po-Yu Chuang <ratbert@faraday-tech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"taoren@meta.com" <taoren@meta.com>
+Subject: Re: [PATCH net-next v3 1/4] dt-bindings: net: ftgmac100: Add delay
+ properties for AST2600
+Message-ID: <d7b08607-73a3-4f6b-ab8b-3eb4ff8b8647@lunn.ch>
+References: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
+ <20251103-rgmii_delay_2600-v3-1-e2af2656f7d7@aspeedtech.com>
+ <2424e7e9-8eef-43f4-88aa-054413ca63fe@lunn.ch>
+ <SEYPR06MB5134AB242733717317AAEDEA9DC4A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB5134AB242733717317AAEDEA9DC4A@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_053743_508122_F0E2967F 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20251104_054058_919468_FDB2DDAD 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +85,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gently ping.
+On Tue, Nov 04, 2025 at 05:14:41AM +0000, Jacky Chou wrote:
+> Hi Andrew,
+> 
+> Thank you for your reply.
+> 
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            const: aspeed,ast2600-mac01
+> > > +    then:
+> > > +      properties:
+> > > +        rx-internal-delay-ps:
+> > > +          minimum: 0
+> > > +          maximum: 1395
+> > > +          multipleOf: 45
+> > 
+> > I would add a default: 0
+> > 
+> 
+> Agreed.
+> I will add it in next version.
+> 
+> > > +        tx-internal-delay-ps:
+> > > +          minimum: 0
+> > > +          maximum: 1395
+> > > +          multipleOf: 45
+> > 
+> > and also here.
+> > 
+> 
+> Agreed.
+> 
+> > > +      required:
+> > > +        - scu
+> > > +        - rx-internal-delay-ps
+> > > +        - tx-internal-delay-ps
+> > 
+> > and then these are not required, but optional.
+> > 
+> 
+> Configure the tx/rx delay in the scu register.
+> At least, the scu handle must be required.
 
-There is a bugfix (or strange behavior) on arm64 hw breakpoint but
-to fix it cleanly, it should change the perf itself (but I'm not
-sure why arm64 changes the behavior only for the default overflow
-handlers.) Anyone knows it?
+Sorry, i was unclear. By says 'and then', i was trying to chain it to
+the previous comment, that the delays should default to 0. With
+defaults set, rx-internal-delay-ps and tx-internal-delay-ps become
+optional. I agree scu is required.
 
-Thank you,
+> Here I have one question.
+> In v3 patches series, if the ftgmac driver cannot find one of 
+> tx-internal-delay-ps and rx-internal-delay-ps, it will return error in probe 
+> stage.
+> If here is optional, does it means that just add warning and not return error when
+> lack one of them and use the default to configure? Or not configure tx/rx delay just
+> return success in probe stage?
 
-On Thu, 30 Oct 2025 12:26:55 +0900
-"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
+Once you add the default statement, it is clear what delay should be
+added if they property is not listed, 0. No warning is needed.
 
-> Hi,
-> 
-> Here are patches which fixes a wprobe bug reported by Mark Brown on
-> arm64[1]. The root cause was that the infinite watchpoint exception on
-> the same instruction, because arm64 watchpoint exception happens before
-> the memory access has done, it needs to configure a single-step after
-> calling overflow handler. It does that only for the default overflow
-> handlers, and not for custom overflow handler registered via
-> hw_breakpoint interface.
-> 
-> [1] https://lore.kernel.org/all/aPvwGhMBJqMKcC9D@finisterre.sirena.org.uk/
-> 
-> To fix this issue, this series introduces default_overflow_compatible
-> flag in the perf_event and use it for identifying default overflow
-> handlers instead of checking handler functions everytime[1/2], and
-> set it in wprobe[2/2].
-> 
-> Thank you,
-> 
-> ---
-> 
-> Masami Hiramatsu (Google) (2):
->       perf: Introduce default_overflow_compatible flag
->       tracing: wprobe: Make wprobe_handler default overflow_handler compatible
-> 
-> 
->  include/linux/perf_event.h  |    9 ++-------
->  kernel/events/core.c        |    2 ++
->  kernel/trace/trace_wprobe.c |    7 +++++++
->  3 files changed, 11 insertions(+), 7 deletions(-)
-> 
-> --
-> Masami Hiramatsu (Google) <mhiramat@kernel.org>
+What you should find in the end is that most boards just set the new
+compatible and 'rgmii-id', and need nothing else. Only badly designed
+boards tend to need tx-internal-delay-ps and rx-internal-delay-ps.
 
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+	Andrew
 
