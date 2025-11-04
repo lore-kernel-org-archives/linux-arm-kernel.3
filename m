@@ -4,53 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E871CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5FFCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTc3iABbp8/x3cMApSkIXOySoaYZfZ4kjPplyV1NtwQ=; b=Isw3LPLEEVtHSs2Xr+cRKE7INf
-	mVY67bVNkR+v+hb9MobPgvKOKQM0gNcngMWwJ4JwlAcTVeEMwCi3F80Ax2guEG1qVKO9NYK1KLFxv
-	qTngJe2UuACEtQJS5XAStqHEcNdxPf5fKl2NDW6/mMTXDpAliHAxowmHSH7uZnkir9Xt42cYcDDsI
-	QEcKEVrePioD3aG/wbynWcWh1IM1M79u0pZZ0jqptKRW4XmIwX7WkFQDTnG6e9WzwXr3+vfzpKQ64
-	ZTp6dkrQnyh4wi7l9OeIfquT05r3XAgUdR3dnAIw9PgPV6cT/6gH7iafufNSUHq4NbJrLVBSpyAPs
-	vu/k10Kw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=; b=HfEJSIv8sKMbM69XK93gn3Bue1
+	ts8JsSRpVe1IGmf992HS7ORvG2IpK8jz9KsaSUtaeYASG1sa1QT4/UnCDm8aw3L7HMTY/T76vb95z
+	Xi9uYO86SlWfn09AtBg/iZrJnnT8LOUvjHmis8VFm2k+Bo7GzqHmr/EW3BGsOnCqr6hSyjjOQE1gt
+	t21s6LE6SIkO51UtlGweGGzNfe7+aCqmwQlfdjsSjDBql9qNtNLmMN0fLqjH9Q5UCS+wh6GrPRWLo
+	Q5nHhaEpLFGMosU7025ZS/U4FEalKy8QthnM/0jJaWl6o4exg/hqFfxVTmwlvOTKjXgWotL+EX3Ai
+	tKkkkTyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGGrf-0000000Brpr-2NqX;
-	Tue, 04 Nov 2025 13:14:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGGrd-0000000Bros-1avl
+	id 1vGGvO-0000000Bs9O-0vQv;
+	Tue, 04 Nov 2025 13:18:14 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGGvM-0000000Bs8s-0HJo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 13:14:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11CDA1CE0;
-	Tue,  4 Nov 2025 05:14:10 -0800 (PST)
-Received: from [10.1.31.224] (XHFQ2J9959.cambridge.arm.com [10.1.31.224])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC0DE3F66E;
-	Tue,  4 Nov 2025 05:14:16 -0800 (PST)
-Message-ID: <b5b978f3-bb29-4cbc-b006-fb9c4402b067@arm.com>
-Date: Tue, 4 Nov 2025 13:14:15 +0000
+	Tue, 04 Nov 2025 13:18:13 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id BBB291F385;
+	Tue,  4 Nov 2025 13:18:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1762262288; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
+	b=L5dysWudkNHvMO8s+VocZO9X+LhiJuC7UpFXuPunkHcWh5j4qeCoTZ84d/t+IyCoPH6Izc
+	DLU00ITrr66QvfyxlRfhWWxIgXTYtcAd4OP6MGpki18mJDn4I1PC24NRdTs30DtL4Np9RV
+	QyhoPGjeYO0sqTo1smRlRO6XaTVv3xs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1762262288;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
+	b=mvUya3UAOBGNdkh0pyL2z2w4DAB01zqhlZ2+UuGwEEGaKjTt5xqBo1ZMStD54ykw6lktWV
+	lqx9sKIzjavVW0Cg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1762262287; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
+	b=Kj2AuuMIlrQ11caOjtJe09asAigbQTbCDqsmZcC1cSp6ryiSVTN4B57noXtZ6ktLNw8lZY
+	cIEQnE9Sw+2OA8bzHe8ROA3ItXDxgSRal+xVVPqRBqCgVJSxNqzaKStmYxTZfxSVbMd8lB
+	B9fCju7SEeNS7oc1ILTV2edW7nSAhCM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1762262287;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
+	b=Eju4QiKg0udlYdNC3N4wgdBVk0S5E8EM5uz5K1Nl3u6mooL3zIQbn8WLonDi/I0UG6t2Sq
+	J066O+qY9eCzR3Ag==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 600C5139A9;
+	Tue,  4 Nov 2025 13:18:07 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id I+wGFg/9CWmeBAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 04 Nov 2025 13:18:07 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: p.zabel@pengutronix.de,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	airlied@gmail.com,
+	simona@ffwll.ch
+Cc: dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH] drm/imx/ipuv3: Fix dumb-buffer allocation for non-RGB formats
+Date: Tue,  4 Nov 2025 14:14:56 +0100
+Message-ID: <20251104131803.180126-1-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: kprobes: check the return value of
- set_memory_rox()
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251103194505.4077265-1-yang@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251103194505.4077265-1-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[14];
+	MIME_TRACE(0.00)[0:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid,qualcomm.com:email,linux.dev:email];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FREEMAIL_TO(0.00)[pengutronix.de,kernel.org,gmail.com,oss.qualcomm.com,linux.intel.com,ffwll.ch];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_051421_469268_5A09B679 
-X-CRM114-Status: GOOD (  24.11  )
+X-CRM114-CacheID: sfid-20251104_051812_277175_C0C417DA 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,64 +133,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 19:45, Yang Shi wrote:
-> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> rodata=full"), __change_memory_common has more chance to fail due to
-> memory allocation fialure when splitting page table. So check the return
-> value of set_memory_rox(), then bail out if it fails otherwise we may have
-> RW memory mapping for kprobes insn page.
-> 
-> Fixes: 195a1b7d8388 ("arm64: kprobes: call set_memory_rox() for kprobe page")
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+Align pitch to multiples of 8 pixels for bpp values that do not map
+to RGB formats. The call to drm_driver_color_mode_format() fails with
+DRM_INVALID_FORMAT in these cases. Fall back to manually computing
+the pitch alignment from which drm_mode_size_dumb() can compute the
+correct pitch.
 
-This patch looks correct so:
+Fixes userspace that allocates dumb buffers for YUV formats, where
+bpp equals 12. A common example is the IGT kms_getfb test.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: b1d0e470f881 ("drm/imx/ipuv3: Compute dumb-buffer sizes with drm_mode_size_dumb()")
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+---
+This patch is based on Dmitry's fix for msm. [1] Please test.
 
-but, I think I see an separate issue below...
+There could later be a helper to contain these aligmentment calculations
+in a single place.
 
-> ---
-> I actually epxected 195a1b7d8388 ("arm64: kprobes: call set_memory_rox()
-> for kprobe page") can be merged in 6.17-rcX, so I just restored it to
-> before commit 10d5e97c1bf8 ("arm64: use PAGE_KERNEL_ROX directly in
-> alloc_insn_page"), however it turned out to be merged in 6.18-rc1 and it
-> is after commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> rodata=full"). So I made the fix tag point to it.
-> And I don't think we need to backport this patch to pre-6.18.
-> 
->  arch/arm64/kernel/probes/kprobes.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-> index 8ab6104a4883..43a0361a8bf0 100644
-> --- a/arch/arm64/kernel/probes/kprobes.c
-> +++ b/arch/arm64/kernel/probes/kprobes.c
-> @@ -49,7 +49,10 @@ void *alloc_insn_page(void)
->  	addr = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
->  	if (!addr)
->  		return NULL;
-> -	set_memory_rox((unsigned long)addr, 1);
-> +	if (set_memory_rox((unsigned long)addr, 1)) {
+[1] https://lore.kernel.org/dri-devel/20251103-drm-msm-fix-nv12-v2-1-75103b64576e@oss.qualcomm.com/
+---
+ drivers/gpu/drm/imx/ipuv3/imx-drm-core.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
-How does x get cleared when freeing this memory? arm64's set_memory_x() sets
-PTE_MAYBE_GP and clears PTE_PXN. The only function that will revert that is
-set_memory_nx(). But that only gets called from module_enable_data_nx() (which I
-don't think is applicable here) and execmem_force_rw() - but only if
-CONFIG_ARCH_HAS_EXECMEM_ROX is enabled, which I don't think it is for arm64?
-
-So I think once we flip a page executable, it will be executable forever?
-
-Do we need to modify set_direct_map_default_noflush() to make the memory nx?
-Then vm_reset_perms() will fix it up at vfree time?
-
-Thanks,
-Ryan
-
-> +		execmem_free(addr);
-> +		return NULL;
-> +	}
->  	return addr;
->  }
->  
+diff --git a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
+index 465b5a6ad5bb..5116f33a5973 100644
+--- a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
++++ b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
+@@ -144,7 +144,6 @@ static int imx_drm_dumb_create(struct drm_file *file_priv,
+ 			       struct drm_mode_create_dumb *args)
+ {
+ 	u32 fourcc;
+-	const struct drm_format_info *info;
+ 	u64 pitch_align;
+ 	int ret;
+ 
+@@ -156,12 +155,15 @@ static int imx_drm_dumb_create(struct drm_file *file_priv,
+ 	 * the allocated buffer.
+ 	 */
+ 	fourcc = drm_driver_color_mode_format(drm, args->bpp);
+-	if (fourcc == DRM_FORMAT_INVALID)
+-		return -EINVAL;
+-	info = drm_format_info(fourcc);
+-	if (!info)
+-		return -EINVAL;
+-	pitch_align = drm_format_info_min_pitch(info, 0, SZ_8);
++	if (fourcc != DRM_FORMAT_INVALID) {
++		const struct drm_format_info *info = drm_format_info(fourcc);
++
++		if (!info)
++			return -EINVAL;
++		pitch_align = drm_format_info_min_pitch(info, 0, 8);
++	} else {
++		pitch_align = round_up(args->width, 8) * DIV_ROUND_UP(args->bpp, SZ_8);
++	}
+ 	if (!pitch_align || pitch_align > U32_MAX)
+ 		return -EINVAL;
+ 	ret = drm_mode_size_dumb(drm, args, pitch_align, 0);
+-- 
+2.51.1
 
 
