@@ -4,62 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AFACCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451ACCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzcMdp2iynSnLwdcr7Xyc/HaEci5kKTUV9g0xKg98Kw=; b=unJZyP7lnoUyYFjamWBskXR/6b
-	xDh3y12rVxH5KzaNJ1EbXoWNFzXcFxTpBD/relnaC1IJU0xRVZUM5WNE58G40lmpPrA7WCI4jp9d9
-	XTnmVDj/0Guw5nNkbK7Q5IS2Dfs91G9tALkYvYoLUuJ1WdeNVKG0vgYAIX+NenIk7DUsIgXZiYwr0
-	J0fl5KyGZfuBHGa6r+sstCV0SAMPP7FlIarBrtckCnnF7UiDSA5GZd355jDrx2XbUoI6wWPs8uQmz
-	vIQXNZEdB40u0gqlp2VMNLBSygBKO9gmaD5Q1ISo6G3H05jbALy+C6F+6GcCmmLS7gBo9Hw9+z8od
-	iEDDlpew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
+	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bi6NqUf1hKmHTT/dl5GLdbdbV4ouDKxeXLSp5oQ6qJs=; b=JTkMkUw85AbXq7
+	ARdIFZjI2H2R/R1MImkmDzPGv3smN9bX2LZOIv/eg/oc9iAcfppSWM+EUdtRf+17Fr1PFbxSnL9ax
+	N2XKTy1wpUbTSvTiPwGRfAEcAGqq52OB19ztAYcSqW189lOXJLM2GzlBs2QnE4cbPUTHfgc5M2aK3
+	PLpBOK8UPc0BwFEZZ0kq5qw2xnGGhUrxTFy6hkl+liO+9zu4Yr8I1E93xv888L6UNDFx1qlV4H2q6
+	nhRQoH5XivUWtE1bnZ9CxmaEiWOCckFeEjXr3dbIoc27Ce01Ml2UEiCv19CgM6H+j2Epyz7pTzsDp
+	Wr8Xlv4utWQU+dFhd/6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGEuL-0000000Bgnw-3uC6;
-	Tue, 04 Nov 2025 11:09:01 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vGEvY-0000000BgzX-13e8;
+	Tue, 04 Nov 2025 11:10:16 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGEuK-0000000BgnR-11m3;
-	Tue, 04 Nov 2025 11:09:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=CzcMdp2iynSnLwdcr7Xyc/HaEci5kKTUV9g0xKg98Kw=; b=pFDw7sddAIbfGsSbmG8PgRB2IW
-	CS4KayctWIlylbuFqBwLtsbKi8+tu8TB+grcFcSPn+NFYk3qqoN/myszwsE/5vlhwatwpkQGPbYyb
-	qKMoB2Z9CicZ+T+LotPL4apiyDLrTpoBqqftBas8hmwn2GPjHRbKERjLULtaVwwgeX0HglHsShM0h
-	jJEIOLwpaKB0Zdf/rNrE1m5D/JW88nJDWHexCkEbAvQiXW5Y0AM3oTWzf0CuMZWhO3RJEbjKnQlME
-	JyCS7FZGwgLLAl21uVfuGyi2l6VFaCEqcvljPRjWCDjC3SFmZx5QPYLfeMn1FscdMAArCCZ7Zxx/4
-	FWkoSv4w==;
-Received: from i53875aae.versanet.de ([83.135.90.174] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vGEuD-0004GC-It; Tue, 04 Nov 2025 12:08:53 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Ye Zhang <ye.zhang@rock-chips.com>,
- Linus Walleij <linus.walleij@linaro.org>, Ye Zhang <ye.zhang@rock-chips.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- tao.huang@rock-chips.com
-Subject: Re: [PATCH v1 3/3] pinctrl: rockchip: add rk3506 rmio support
-Date: Tue, 04 Nov 2025 12:08:52 +0100
-Message-ID: <4419588.mogB4TqSGs@diego>
-In-Reply-To: <20251104021223.2375116-4-ye.zhang@rock-chips.com>
-References: <20251104021223.2375116-1-ye.zhang@rock-chips.com>
- <20251104021223.2375116-4-ye.zhang@rock-chips.com>
+	id 1vGEvV-0000000Bgz8-2JAH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 11:10:14 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A42fUFY007984;
+	Tue, 4 Nov 2025 11:10:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=pp1;
+	 bh=bi6NqUf1hKmHTT/dl5GLdbdbV4ouDKxeXLSp5oQ6qJs=; b=GHT5zdADo2Ka
+	CoI8YOjUXardbfGtbDarE8LIdzeB9CaTzVW10ANiUK3NY8KMg7fRl51da/g+WzEW
+	mcS85c2BuwWSklGHNFuASevwXRhw7gk7RHccajvOGR/GYEdQo1fVbwji2A1QeNZ9
+	maAI71UwJ0UgsdLXvqTPEnjaaXYoNTjZDuKVWxN/5/XAHdjne9yYaZPqITSWSuyB
+	n0Onx6lW9Gbgv49gkd3cmkmayLWxpqTr2vmc68HrdefYZOBiJMeX3KNb3fqeqtYy
+	bfgFfJRGtEqDQ8bNjPXv8l2SAOiWQyOZCZ4okKjK0355L1md99xgeAl/KIjghfzd
+	ywEjIBfS4g==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59xbufwr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Nov 2025 11:10:04 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A4AmwrR018784;
+	Tue, 4 Nov 2025 11:10:03 GMT
+Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4a5whnan8g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Nov 2025 11:10:03 +0000
+Received: from smtpav01.dal12v.mail.ibm.com (smtpav01.dal12v.mail.ibm.com [10.241.53.100])
+	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A4BA2AP11797214
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 4 Nov 2025 11:10:02 GMT
+Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BFC665819E;
+	Tue,  4 Nov 2025 11:07:41 +0000 (GMT)
+Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3EEE05819A;
+	Tue,  4 Nov 2025 11:07:41 +0000 (GMT)
+Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
+	by smtpav01.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Tue,  4 Nov 2025 11:07:41 +0000 (GMT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Date: Tue, 04 Nov 2025 12:07:40 +0100
+From: Harald Freudenberger <freude@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, David Howells <dhowells@redhat.com>,
+        Ard
+ Biesheuvel <ardb@kernel.org>,
+        "Jason A . Donenfeld" <Jason@zx2c4.com>,
+        Holger Dengler <dengler@linux.ibm.com>,
+        Herbert Xu
+ <herbert@gondor.apana.org.au>,
+        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/15] SHA-3 library
+Mail-Reply-To: freude@linux.ibm.com
+In-Reply-To: <20251030171453.GA1624@sol>
+References: <20251026055032.1413733-1-ebiggers@kernel.org>
+ <ba3ff3d5183ab78b3d02d8db30223def@linux.ibm.com> <20251029163216.GA1603@sol>
+ <fa8bc10f36b1aeb9ffe1abf6350adbc1@linux.ibm.com> <20251030171453.GA1624@sol>
+Message-ID: <c39f6b6c110def0095e5da5becc12085@linux.ibm.com>
+X-Sender: freude@linux.ibm.com
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAyMSBTYWx0ZWRfX4Y8c/wo2oSf+
+ nyQA7bqxZoOO+sHrBw68vl8+5dOrrci8NJoY2zzphFc9yDcSKzjld19PTy491NMUv8TwVdWkGy1
+ FSsKmdbfAAgzdmTGMnArtnz8FTPxLnuBaMf47ybvd0ByIPQoMnwBoZJ7Q234rmpbntlCp29qOvJ
+ 4D8VmHZ0kL55gxb8ShrXj2Rt+apx2IbUvOY6AR8llQcdxXorCQowVskqtkvTjN2iKQQkDhEZsTW
+ WhnsZW4qjgDmG0xjFp9namLrfXmaZg2BTocCtUJReHbbhar6pCTba1eeyQmuGyPG8VQvYUL5iUl
+ /cpzuxcUxFGIlMuNBZ45XnOQ91jpXarxw+VjFsWndwpKri/I0WBT1BGJi4pTNDjRlmmno6qA2ER
+ 3O5XJEEgk69ma1hzt5J4cQLhsombpw==
+X-Proofpoint-GUID: ccsxJu9A99NoU73jp93HgIODxd9lkSUR
+X-Authority-Analysis: v=2.4 cv=OdCVzxTY c=1 sm=1 tr=0 ts=6909df0c cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=x0f-hN4bnvKweG5VnvMA:9 a=CjuIK1q_8ugA:10 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-ORIG-GUID: ccsxJu9A99NoU73jp93HgIODxd9lkSUR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-03_06,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 spamscore=0 suspectscore=0 impostorscore=0
+ lowpriorityscore=0 priorityscore=1501 clxscore=1015 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_030900_288720_360E687F 
-X-CRM114-Status: GOOD (  29.42  )
+X-CRM114-CacheID: sfid-20251104_031013_787705_E74A9AB6 
+X-CRM114-Status: GOOD (  49.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,190 +124,402 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: freude@linux.ibm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 4. November 2025, 03:12:23 Mitteleurop=C3=A4ische Normalzeit s=
-chrieb Ye Zhang:
-> Support rockchip matrix io
->=20
-> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-> ---
->  drivers/pinctrl/pinctrl-rockchip.c | 75 ++++++++++++++++++++++++++++++
->  drivers/pinctrl/pinctrl-rockchip.h |  1 +
->  2 files changed, 76 insertions(+)
+On 2025-10-30 18:14, Eric Biggers wrote:
+> On Thu, Oct 30, 2025 at 11:10:22AM +0100, Harald Freudenberger wrote:
+>> On 2025-10-29 17:32, Eric Biggers wrote:
+>> > On Wed, Oct 29, 2025 at 10:30:40AM +0100, Harald Freudenberger wrote:
+>> > > > If the s390 folks could re-test the s390 optimized SHA-3 code (by
+>> > > > enabling CRYPTO_LIB_SHA3_KUNIT_TEST and CRYPTO_LIB_BENCHMARK), that
+>> > > > would be helpful.  QEMU doesn't support the instructions it uses.  Also,
+>> > > > it would be helpful to provide the benchmark output from just before
+>> > > > "lib/crypto: s390/sha3: Add optimized Keccak function", just after it,
+>> > > > and after "lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest
+>> > > > functions".  Then we can verify that each change is useful.
+>> > [...]
+>> > >
+>> > > Picked this series from your ebiggers repo branch sha3-lib-v2.
+>> > > Build on s390 runs without any complains, no warnings.
+>> > > As recommended I enabled the KUNIT option and also
+>> > > CRYPTO_SELFTESTS_FULL.
+>> > > With an "modprobe tcrypt" I enforced to run the selftests
+>> > > and in parallel I checked that the s390 specific CPACF instructions
+>> > > are really used (can be done with the pai command and check for
+>> > > the KIMD_SHA3_* counters). Also ran some AF-alg tests to verify
+>> > > all the the sha3 hashes and check for thread safety.
+>> > > All this ran without any findings. However there are NO performance
+>> > > related tests involved.
+>> >
+>> > Thanks!  Just to confirm, did you actually run the sha3 KUnit test and
+>> > verify that all its test cases passed?  That's the most important one.
+>> > It also includes a benchmark, if CONFIG_CRYPTO_LIB_BENCHMARK=y is
+>> > enabled, and I was hoping to see your results from that after each
+>> > change.  The results get printed to the kernel log when the test runs.
+>> >
+>> 
+>> Here it is - as this is a zVM system the benchmark values may show 
+>> poor
+>> performance.
+>> 
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: KTAP version 1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: 1..1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     KTAP version 1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # Subtest: sha3
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     1..21
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 1 
+>> test_hash_test_vectors
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 2
+>> test_hash_all_lens_up_to_4096
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 3
+>> test_hash_incremental_updates
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 4
+>> test_hash_buffer_overruns
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 6
+>> test_hash_alignment_consistency
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 7
+>> test_hash_ctx_zeroization
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 8
+>> test_hash_interrupt_context_1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 9
+>> test_hash_interrupt_context_2
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 10 
+>> test_sha3_224_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 11 
+>> test_sha3_256_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 12 
+>> test_sha3_384_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 13 
+>> test_sha3_512_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 14 
+>> test_shake128_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 15 
+>> test_shake256_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 16 
+>> test_shake128_nist
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 17 
+>> test_shake256_nist
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 18
+>> test_shake_all_lens_up_to_4096
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 19
+>> test_shake_multiple_squeezes
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 20
+>> test_shake_with_guarded_bufs
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1: 14
+>> MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16: 109
+>> MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=64: 911
+>> MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=127:
+>> 1849 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=128:
+>> 1872 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=200:
+>> 2647 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=256:
+>> 3338 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=511:
+>> 5484 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=512:
+>> 5562 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1024:
+>> 8297 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=3173:
+>> 12625 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=4096:
+>> 11242 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16384:
+>> 12853 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 
+>> skip:0
+>> total:21
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: # Totals: pass:21 fail:0 
+>> skip:0
+>> total:21
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: ok 1 sha3
+> 
+> Thanks!  Is this with the whole series applied?  Those numbers are
+> pretty fast, so probably at least the Keccak acceleration part is
+> worthwhile.  But just to reiterate what I asked for:
+> 
+>     Also, it would be helpful to provide the benchmark output from just
+>     before "lib/crypto: s390/sha3: Add optimized Keccak function", just
+>     after it, and after "lib/crypto: s390/sha3: Add optimized one-shot
+>     SHA-3 digest functions".
+> 
+> So I'd like to see how much each change helped, which isn't clear if 
+> you
+> show only the result at the end.
+> 
+> If there's still no evidence that "lib/crypto: s390/sha3: Add optimized
+> one-shot SHA-3 digest functions" actually helps significantly vs. 
+> simply
+> doing the Keccak acceleration, then we should drop it for simplicity.
+> 
+>> > > What's a little bit tricky here is that the sha3 lib is statically
+>> > > build into the kernel. So no chance to unload/load this as a module.
+>> > > For sha1 and the sha2 stuff I can understand the need to have this
+>> > > statically enabled in the kernel. Sha3 is only supposed to be
+>> > > available
+>> > > as backup in case of sha2 deficiencies. So I can't see why this is
+>> > > really statically needed.
+>> >
+>> > CONFIG_CRYPTO_LIB_SHA3 is a tristate option.  It can be either built-in
+>> > or a loadable module, depending on what other kconfig options select it.
+>> > Same as all the other crypto library modules.
+>> 
+>> I know and see this. However, I am unable to switch this to 'm'. It 
+>> seems
+>> like the root cause is that CRYPTO_SHA3='y' and I can't change this to 
+>> 'm'.
+>> And honestly I am unable to read these dependencies (forgive my 
+>> ignorance):
+>> 
+>> CONFIG_CRYPTO_SHA3:
+>> SHA-3 secure hash algorithms (FIPS 202, ISO/IEC 10118-3)
+>>  Symbol: CRYPTO_SHA3 [=y]
+>>   Type  : tristate
+>>   Defined at crypto/Kconfig:1006
+>>     Prompt: SHA-3
+>>     Depends on: CRYPTO [=y]
+>>     Location:
+>>       -> Cryptographic API (CRYPTO [=y])
+>>         -> Hashes, digests, and MACs
+>>           -> SHA-3 (CRYPTO_SHA3 [=y])
+>>   Selects: CRYPTO_HASH [=y] && CRYPTO_LIB_SHA3 [=y]
+>>   Selected by [y]:
+>>     - CRYPTO_JITTERENTROPY [=y] && CRYPTO [=y]
+> 
+> Well, all that is saying is that there is a built-in option that 
+> selects
+> SHA-3, which causes it to be built-in.  So SHA-3 being built-in is
+> working as intended in that case.  (And it's also intended that we no
+> longer allow the architecture-optimized code to be built as a module
+> when the generic code is built-in.  That was always a huge footgun.)  
+> If
+> you want to know why something that needs SHA-3 is being built-in, 
+> you'd
+> need to follow the chain of dependencies up to see how it gets 
+> selected.
+> 
+> - Eric
 
-Here I disagree though.
+commit b2e169dd8ca5 lib/crypto: s390/sha3: Add optimized one-shot SHA-3 
+digest functions:
 
-The RMIO controller is a completely separate thing and from what I understa=
-nd
-from the documentation
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     1..21
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 1 
+test_hash_test_vectors
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 2 
+test_hash_all_lens_up_to_4096
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 3 
+test_hash_incremental_updates
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 4 
+test_hash_buffer_overruns
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 6 
+test_hash_alignment_consistency
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 7 
+test_hash_ctx_zeroization
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 8 
+test_hash_interrupt_context_1
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 9 
+test_hash_interrupt_context_2
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 10 test_sha3_224_basic
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 11 test_sha3_256_basic
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 12 test_sha3_384_basic
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 13 test_sha3_512_basic
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 14 test_shake128_basic
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 15 test_shake256_basic
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 16 test_shake128_nist
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 17 test_shake256_nist
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 18 
+test_shake_all_lens_up_to_4096
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 19 
+test_shake_multiple_squeezes
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 20 
+test_shake_with_guarded_bufs
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: len=1: 
+12 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: len=16: 
+80 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: len=64: 
+785 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=127: 812 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=128: 1619 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=200: 2319 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=256: 2176 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=511: 4881 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=512: 4968 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=1024: 7565 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=3173: 11909 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=4096: 10378 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=16384: 12273 MB/s
+Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+Nov 04 10:50:50 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 skip:0 
+total:21
 
-=2D you set the pinmux to go to the rmio controller, and then that controll=
-er
-  selects the function for this pin.
+commit 02266b8a383e lib/crypto: s390/sha3: Add optimized Keccak 
+functions:
 
-=46or example pinmux values for gpio0a7_sel are
-=2D 0: GPIO0_A7
-=2D 1: F SAI0_SDI3
-=2D 2: SPI1_CSN1
-=2D 7: RM_IO7
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     1..21
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 1 
+test_hash_test_vectors
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 2 
+test_hash_all_lens_up_to_4096
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 3 
+test_hash_incremental_updates
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 4 
+test_hash_buffer_overruns
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 6 
+test_hash_alignment_consistency
+Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 7 
+test_hash_ctx_zeroization
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 8 
+test_hash_interrupt_context_1
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 9 
+test_hash_interrupt_context_2
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 10 test_sha3_224_basic
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 11 test_sha3_256_basic
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 12 test_sha3_384_basic
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 13 test_sha3_512_basic
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 14 test_shake128_basic
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 15 test_shake256_basic
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 16 test_shake128_nist
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 17 test_shake256_nist
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 18 
+test_shake_all_lens_up_to_4096
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 19 
+test_shake_multiple_squeezes
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 20 
+test_shake_with_guarded_bufs
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: len=1: 
+12 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: len=16: 
+211 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: len=64: 
+835 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=127: 1557 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=128: 1617 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=200: 1457 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=256: 1830 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=511: 3035 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=512: 3245 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=1024: 5319 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=3173: 9969 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=4096: 11123 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=16384: 12767 MB/s
+Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+Nov 04 10:55:38 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 skip:0 
+total:21
 
-With 7 being the route to the matrix-io controller.
+commit aaca0ebc0717 lib/crypto: arm64/sha3: Migrate optimized code into 
+library:
 
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     1..21
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     ok 1 
+test_hash_test_vectors
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     ok 2 
+test_hash_all_lens_up_to_4096
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     ok 3 
+test_hash_incremental_updates
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     ok 4 
+test_hash_buffer_overruns
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     ok 6 
+test_hash_alignment_consistency
+Nov 04 12:02:31 b3545008.lnxne.boe kernel:     ok 7 
+test_hash_ctx_zeroization
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 8 
+test_hash_interrupt_context_1
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 9 
+test_hash_interrupt_context_2
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 10 test_sha3_224_basic
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 11 test_sha3_256_basic
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 12 test_sha3_384_basic
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 13 test_sha3_512_basic
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 14 test_shake128_basic
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 15 test_shake256_basic
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 16 test_shake128_nist
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 17 test_shake256_nist
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 18 
+test_shake_all_lens_up_to_4096
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 19 
+test_shake_multiple_squeezes
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 20 
+test_shake_with_guarded_bufs
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: len=1: 
+1 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: len=16: 
+29 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: len=64: 
+120 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=127: 236 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=128: 238 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=200: 185 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=256: 237 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=511: 240 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=512: 239 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=1024: 246 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=3173: 251 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=4096: 253 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=16384: 259 MB/s
+Nov 04 12:02:32 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+Nov 04 12:02:32 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 skip:0 
+total:21
 
-So lumping this into the main pinctrl feels definitly wrong, as then you
-create a number of "virtual" pinmuxes where they don't belong.
-
-So instead of trying to bolt this onto the main pinctrl, I'd like things
-to be separate ... for the main iomux you route the pin to the rmio
-controller and then have a separate configuration for the rmio marix.
-
-bus2: bus2 {
-	rockchip,pins =3D <0 RK_PA0 7 &pcfg_pull_none_drv_8ma>,
-		<0 RK_PA1 7 &pcfg_pull_none_drv_8ma>,
-		<0 RK_PA2 7 &pcfg_pull_none_drv_8ma>,
-		<0 RK_PA3 7 &pcfg_pull_none_drv_8ma>,
-
-	rockchip,rmio-pins {
-		/* some way to sanely describe the rmio-config */
-		pins =3D "GPIO0_A0", "GPIO0_A1";
-		functions =3D "i2c0-scl", "i2c0-sda";
-	};
-};
-
-This is especially true, as each pin in the rmio-controller can have each
-function. So gpio0-a0 can be uart1-tx, uart1-rx etc etc ... 98 different
-functions according to the documentation.
-
-
-Heiko
-
->=20
-> diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl=
-=2Drockchip.c
-> index e44ef262beec..89ff8d8c7fcc 100644
-> --- a/drivers/pinctrl/pinctrl-rockchip.c
-> +++ b/drivers/pinctrl/pinctrl-rockchip.c
-> @@ -1258,6 +1258,74 @@ static int rockchip_verify_mux(struct rockchip_pin=
-_bank *bank,
->  	return 0;
->  }
-> =20
-> +static int rockchip_set_rmio(struct rockchip_pin_bank *bank, int pin, in=
-t *mux)
-> +{
-> +	struct rockchip_pinctrl *info =3D bank->drvdata;
-> +	struct rockchip_pin_ctrl *ctrl =3D info->ctrl;
-> +	struct regmap *regmap;
-> +	int reg, function;
-> +	u32 data, rmask;
-> +	int ret =3D 0;
-> +	int iomux_num =3D (pin / 8);
-> +	u32 iomux_max, mux_type;
-> +
-> +	mux_type =3D bank->iomux[iomux_num].type;
-> +	if (mux_type & IOMUX_WIDTH_4BIT)
-> +		iomux_max =3D (1 << 4) - 1;
-> +	else if (mux_type & IOMUX_WIDTH_3BIT)
-> +		iomux_max =3D (1 << 3) - 1;
-> +	else
-> +		iomux_max =3D (1 << 2) - 1;
-> +
-> +	if (*mux > iomux_max)
-> +		function =3D *mux - iomux_max;
-> +	else
-> +		return 0;
-> +
-> +	switch (ctrl->type) {
-> +	case RK3506:
-> +		regmap =3D info->regmap_rmio;
-> +		if (bank->bank_num =3D=3D 0) {
-> +			if (pin < 24)
-> +				reg =3D 0x80 + 0x4 * pin;
-> +			else
-> +				ret =3D -EINVAL;
-> +		} else if (bank->bank_num =3D=3D 1) {
-> +			if (pin >=3D 9 && pin <=3D 11)
-> +				reg =3D 0xbc + 0x4 * pin;
-> +			else if (pin >=3D 18 && pin <=3D 19)
-> +				reg =3D 0xa4 + 0x4 * pin;
-> +			else if (pin >=3D 25 && pin <=3D 27)
-> +				reg =3D 0x90 + 0x4 * pin;
-> +			else
-> +				ret =3D -EINVAL;
-> +		} else {
-> +			ret =3D -EINVAL;
-> +		}
-> +
-> +		if (ret) {
-> +			dev_err(info->dev,
-> +				"rmio unsupported bank_num %d function %d\n",
-> +				bank->bank_num, function);
-> +
-> +			return -EINVAL;
-> +		}
-> +
-> +		rmask =3D 0x7f007f;
-> +		data =3D 0x7f0000 | function;
-> +		*mux =3D 7;
-> +		ret =3D regmap_update_bits(regmap, reg, rmask, data);
-> +		if (ret)
-> +			return ret;
-> +		break;
-> +
-> +	default:
-> +		break;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  /*
->   * Set a new mux function for a pin.
->   *
-> @@ -1291,6 +1359,10 @@ static int rockchip_set_mux(struct rockchip_pin_ba=
-nk *bank, int pin, int mux)
-> =20
->  	dev_dbg(dev, "setting mux of GPIO%d-%d to %d\n", bank->bank_num, pin, m=
-ux);
-> =20
-> +	ret =3D rockchip_set_rmio(bank, pin, &mux);
-> +	if (ret)
-> +		return ret;
-> +
->  	if (bank->iomux[iomux_num].type & IOMUX_SOURCE_PMU)
->  		regmap =3D info->regmap_pmu;
->  	else if (bank->iomux[iomux_num].type & IOMUX_L_SOURCE_PMU)
-> @@ -4247,6 +4319,9 @@ static int rockchip_pinctrl_probe(struct platform_d=
-evice *pdev)
->  	/* try to find the optional reference to the ioc1 syscon */
->  	info->regmap_ioc1 =3D syscon_regmap_lookup_by_phandle_optional(np, "roc=
-kchip,ioc1");
-> =20
-> +	/* try to find the optional reference to the rmio syscon */
-> +	info->regmap_rmio =3D syscon_regmap_lookup_by_phandle_optional(np, "roc=
-kchip,rmio");
-> +
->  	ret =3D rockchip_pinctrl_register(pdev, info);
->  	if (ret)
->  		return ret;
-> diff --git a/drivers/pinctrl/pinctrl-rockchip.h b/drivers/pinctrl/pinctrl=
-=2Drockchip.h
-> index 4f4aff42a80a..6d79ccf73b71 100644
-> --- a/drivers/pinctrl/pinctrl-rockchip.h
-> +++ b/drivers/pinctrl/pinctrl-rockchip.h
-> @@ -462,6 +462,7 @@ struct rockchip_pinctrl {
->  	struct regmap			*regmap_pull;
->  	struct regmap			*regmap_pmu;
->  	struct regmap			*regmap_ioc1;
-> +	struct regmap			*regmap_rmio;
->  	struct device			*dev;
->  	struct rockchip_pin_ctrl	*ctrl;
->  	struct pinctrl_desc		pctl;
->=20
-
-
-
-
+obviously this is without s390 specific acceleration.
 
