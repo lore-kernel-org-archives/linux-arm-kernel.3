@@ -4,93 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C78DECCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC61ECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gcR9x9yjnH5mbm0Y42BtMv0Ob7csNznvvqxMnGrFks=; b=i/rSIHyd88Jhzirhoj5RIUP8Pp
-	RbV+F+Xn7h2aJtDpY3dVdwwoVoe1OH4sGOjMtxHOowhfBIqqox7Vv2bNfUjlip3pdTwcUoX1sm7Wy
-	h5oMUqo/kxxi2ccIBAS/UxLE38LvAEmwNotqt7mIuYOx50mP4Nfw9CvwKSH8RCKxI6/NNHgdPPACq
-	oYDxg9aYX4SgCQBbidjws+yMFoCznzAlMXG4mB+cMUK+AwLttJ63J4vPNlkIfMMHrOn5+CKRmNmr2
-	oFBpYkpHye85PgQkei2Qo/SKYioGrzCuu1T4y6Pg6nGYcXTWB6kwSCsdIWmU5xyevM0DJOgdmEELB
-	IBTT9DSQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
+	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=p6yZqEmK0XYRFGs9RCkhx6N2+uDZP7n+q+ENaJ1ULPo=; b=2JMS15XZ4NwcWI
+	pfllRjQ7KWnAfVkYet0v7ZCObXsqkMIuprpKY4x20IfTlb4vpOZ8rk7+IRv7wotpHDA5LZjOJyy9f
+	7/oVM5/w52eXXtsgj+t8wKwVZexPW+FYblh0qpzfDritps7emKjv9IoY6EdRcrmXn8+LOUfAw0iR4
+	Wj3ybXaNVpGR4Y8oen+Eexwk9hX2EDAsUFKRKQBthDOnmu46+sERZpjzvj2Bky87GNX3tcQK3WVae
+	nfS8WBE3HbsrnbcZP0txdZ48L2w8DWpB3kYf1vXlhORM0dIl1qxdb6MzACPIgxqU6ELAk2mfCFESO
+	bLL8o8g3/wYS/crep2bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGFbx-0000000Bk7N-2gFX;
-	Tue, 04 Nov 2025 11:54:05 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vGFd8-0000000BkMN-2QHX;
+	Tue, 04 Nov 2025 11:55:18 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGFbv-0000000Bk6O-0wsb
+	id 1vGFd6-0000000BkLp-1ro6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 11:54:04 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7a9c64dfa6eso2100306b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 03:54:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762257242; x=1762862042; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6gcR9x9yjnH5mbm0Y42BtMv0Ob7csNznvvqxMnGrFks=;
-        b=U/K0FEeqq0jSiYTq32vweRRc49jB6z3vO5AMAFCyaUitS+rOpvODs+YAu4Sd0HTh6h
-         peULqsptXje7GjOMEKYySgzxDqnJcDlVqxZAn3GuiLSxECw1KeOtlPMO/lWykPlYBefF
-         uUq3nd5APoso23vicJljDylDvNSYoC3625O1YBJWrt91zVzkLQT7+7cPdFXHjJEYEkah
-         U1vOL9SdvW23MmEoKxFNUh7p+8v0IitPrlLDCjmL5fq923H9kt0Jyda09ucYut3Z/fdL
-         9ZsmNOah/41aReb3SSNZpUnMuXPtVwpcpVj5kp1UoUjVry6OTfF5XCfNqOC49uOR3wTc
-         PQIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762257242; x=1762862042;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6gcR9x9yjnH5mbm0Y42BtMv0Ob7csNznvvqxMnGrFks=;
-        b=TFL7m162ehle5JUVP8yLA54y/dlkixAN4DgsU3Vykcn6Cfin986AuyXaY1Lh5wplXJ
-         3rpJ0VlZDZ+HUugype+XI5MPOzAkl9Tfh+/X94TsQSH4EtLJQcj6x4ZmwyY4NeJw4xSt
-         9ruCw3hytTFO5nO8aGbzucj11h1WX1rjvs0oPC0UbZpqBlIfR+1hNgo19L+gQq8gdjq4
-         HDYeRZevN2aAo4FVfOOjvBJ6ydLGRPn7FnaakGeOUjPXxKB/ReFZgGAmQbBktrOj3X3I
-         IZX9f4yh4LeoJloZNGLQMd48GnumkH2SY5Q0ubSpE37XPVkLBwJWrz9Tag3dDuQeJry1
-         2THw==
-X-Forwarded-Encrypted: i=1; AJvYcCWiEECfPYCNi77H1CSB18ngjMVSNww2cdYn00EdAFDUVrs8pRgfaOKr/pKw2TQB4yuIeTsgmXvAPO1TYrjhFmT4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIj4BEPVs7xl5Sc2m587n507Vx0ewmSFnclxD7zEhGMMAB0Xdx
-	1s/0p4z/LLhUoJdk6AzZ5JfyJ2ji6H3Vw1G4XWAfb22wHsZX/V4eERMq
-X-Gm-Gg: ASbGnctNFIZ3X0ZrUaFaqjNeYRLpbNUpdXb/eDsaZpyaG95+hmef20RY+ZPsq28xirq
-	4K5au3y8rzYDChmn0XxYXXeF6TWu/+bbugsgNxbdIgcDxXmjUCjIELz2DeqybKLZAfiRIN6gmOc
-	cum96ELQNYvLejJwab4ajQdhahmQjPKzCkbBBBGv9cu+adKGvAEHJe447z59x48XYgAKxWQC0UC
-	vp03HouXhKh9N4bh8Mlhg5+7DshuclqG9jFu8qR4QLyTLhhb+UkhWQ/Xru+EeBfms0FjfKVw0Xu
-	nVvk+XO/hjRezvxYdMpBWL8eQPkAKJidYotrpLR73A7N9D7VJT1XicgVt3WRAc9yLX+odkR1dw0
-	vgoEf/0K8AFMu3dwArg0LSsIASPDU04KG5lbZMRXZTgVp2EZndoFONAw1eXCUfiBCJsefa506zf
-	pVoRUAML8=
-X-Google-Smtp-Source: AGHT+IEEmYPvHXD/1GaBM0T48zfd0bHyE1BQO9tVpVf2qvxRGanElD1UBTD4a/VVOvfsMgw8C8+/5w==
-X-Received: by 2002:a05:6300:210f:b0:341:84ee:7597 with SMTP id adf61e73a8af0-348cc2db7afmr20230517637.47.1762257241996;
-        Tue, 04 Nov 2025 03:54:01 -0800 (PST)
-Received: from EBJ9932692.tcent.cn ([124.156.216.125])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba1f765f148sm2215372a12.24.2025.11.04.03.53.58
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 04 Nov 2025 03:54:01 -0800 (PST)
-From: Lance Yang <ioworker0@gmail.com>
-To: catalin.marinas@arm.com
-Cc: Aishwarya.TCV@arm.com,
-	akpm@linux-foundation.org,
-	broonie@kernel.org,
-	david@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	will@kernel.org,
-	Lance Yang <lance.yang@linux.dev>
-Subject: Re: [PATCH] mm/huge_memory: Initialise the tags of the huge zero
-Date: Tue,  4 Nov 2025 19:53:53 +0800
-Message-ID: <20251104115353.98851-1-ioworker0@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <aQi8dA_QpXM8XqrE@arm.com>
-References: <aQi8dA_QpXM8XqrE@arm.com>
+	Tue, 04 Nov 2025 11:55:18 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A40m8V5011006;
+	Tue, 4 Nov 2025 11:55:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=pp1;
+	 bh=p6yZqEmK0XYRFGs9RCkhx6N2+uDZP7n+q+ENaJ1ULPo=; b=Ja8gAwPIEqoN
+	s6VzLvS6W/lwK/7mxWDXWjPY2smvjd//F/XJp9UVCcERIv7hNE+DLNYydDtK29UG
+	3eQDk9SnkVO5Gvd2Pj9q7dZIOU02exxIeGVzHesIIvPs3oUixKpnbwUAKoJRwl0D
+	0K9ZTsY8cdwspzF2mR5t4FKFPncOWGBdXpBIga9+VK90znWj9NoIVvY6Go1CodiS
+	eIda+IMicevtlzGb/tNcod9l991x6FQ8ENppZ4vv7UPjIEnWqPrkiXSzP3vzfprV
+	F/hh0Rr7wvQMJL+GwOcJlTtxjN+Fa6b5z2OM9+Gv84JxKOH1QjUN0hWs6TOMHzlx
+	IojRIxHmug==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59v1uhgj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Nov 2025 11:55:09 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A4BfOjL021471;
+	Tue, 4 Nov 2025 11:55:08 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a5xrjjpa4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Nov 2025 11:55:08 +0000
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A4Bt7UQ21496566
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 4 Nov 2025 11:55:07 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1CEA958061;
+	Tue,  4 Nov 2025 11:55:07 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8C40D5803F;
+	Tue,  4 Nov 2025 11:55:06 +0000 (GMT)
+Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Tue,  4 Nov 2025 11:55:06 +0000 (GMT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Tue, 04 Nov 2025 12:55:06 +0100
+From: Harald Freudenberger <freude@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, David Howells <dhowells@redhat.com>,
+        Ard
+ Biesheuvel <ardb@kernel.org>,
+        "Jason A . Donenfeld" <Jason@zx2c4.com>,
+        Holger Dengler <dengler@linux.ibm.com>,
+        Herbert Xu
+ <herbert@gondor.apana.org.au>,
+        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/15] SHA-3 library
+Mail-Reply-To: freude@linux.ibm.com
+In-Reply-To: <20251030171453.GA1624@sol>
+References: <20251026055032.1413733-1-ebiggers@kernel.org>
+ <ba3ff3d5183ab78b3d02d8db30223def@linux.ibm.com> <20251029163216.GA1603@sol>
+ <fa8bc10f36b1aeb9ffe1abf6350adbc1@linux.ibm.com> <20251030171453.GA1624@sol>
+Message-ID: <ed5c835c48bcfcdaadeb4726678fa551@linux.ibm.com>
+X-Sender: freude@linux.ibm.com
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: dwTlHSZThP0CQ9fXbrDjXCK3lj7Q77nu
+X-Proofpoint-ORIG-GUID: dwTlHSZThP0CQ9fXbrDjXCK3lj7Q77nu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAyMSBTYWx0ZWRfXxqF91XqzJdHk
+ 1N52+Q1Jp8rC5gR5TFpmfIRCXz5HKBa65LMQUWW/A12gdoKlscoC7E6Xx/6BCUoyil9SnaC/SMA
+ Nkuic/aCV0nEFvZJVC7H70gXsXeNxhgI/A4JNlvLmAKyqm7bVrbW3x0P6aZPlhuEYwSbFVPSJSy
+ JkxaNoj56wdYfa9bTGC2kzWF6HaxGcqegTnwBACJnczf4t4Npei7QrdlA3fIZAPlN2og6vfgsGo
+ ttsWu8ZqVkt7r37/TVMfTdpppO1xeft16aqfb1TOul+iT9EenDj9pCo5kW3TcTfShVXFkwUJYTy
+ svFLXNka+431S3bMsRjrfgJdMAgRc5x4kGgi4pNrNcEeem4ZRG92HLd8AxHMmIgLc7jB5TbGBq6
+ 4k/zMrt5z7SagknmE2mCEkPYUFEK/g==
+X-Authority-Analysis: v=2.4 cv=H8HWAuYi c=1 sm=1 tr=0 ts=6909e99d cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=xaui7q1DaLXQgw2eFWYA:9 a=CjuIK1q_8ugA:10 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-03_06,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
+ impostorscore=0 clxscore=1015 bulkscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_035403_274531_8046778D 
-X-CRM114-Status: GOOD (  31.08  )
+X-CRM114-CacheID: sfid-20251104_035516_949334_260F5AFA 
+X-CRM114-Status: GOOD (  50.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,101 +124,234 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: freude@linux.ibm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lance Yang <lance.yang@linux.dev>
+On 2025-10-30 18:14, Eric Biggers wrote:
+> On Thu, Oct 30, 2025 at 11:10:22AM +0100, Harald Freudenberger wrote:
+>> On 2025-10-29 17:32, Eric Biggers wrote:
+>> > On Wed, Oct 29, 2025 at 10:30:40AM +0100, Harald Freudenberger wrote:
+>> > > > If the s390 folks could re-test the s390 optimized SHA-3 code (by
+>> > > > enabling CRYPTO_LIB_SHA3_KUNIT_TEST and CRYPTO_LIB_BENCHMARK), that
+>> > > > would be helpful.  QEMU doesn't support the instructions it uses.  Also,
+>> > > > it would be helpful to provide the benchmark output from just before
+>> > > > "lib/crypto: s390/sha3: Add optimized Keccak function", just after it,
+>> > > > and after "lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest
+>> > > > functions".  Then we can verify that each change is useful.
+>> > [...]
+>> > >
+>> > > Picked this series from your ebiggers repo branch sha3-lib-v2.
+>> > > Build on s390 runs without any complains, no warnings.
+>> > > As recommended I enabled the KUNIT option and also
+>> > > CRYPTO_SELFTESTS_FULL.
+>> > > With an "modprobe tcrypt" I enforced to run the selftests
+>> > > and in parallel I checked that the s390 specific CPACF instructions
+>> > > are really used (can be done with the pai command and check for
+>> > > the KIMD_SHA3_* counters). Also ran some AF-alg tests to verify
+>> > > all the the sha3 hashes and check for thread safety.
+>> > > All this ran without any findings. However there are NO performance
+>> > > related tests involved.
+>> >
+>> > Thanks!  Just to confirm, did you actually run the sha3 KUnit test and
+>> > verify that all its test cases passed?  That's the most important one.
+>> > It also includes a benchmark, if CONFIG_CRYPTO_LIB_BENCHMARK=y is
+>> > enabled, and I was hoping to see your results from that after each
+>> > change.  The results get printed to the kernel log when the test runs.
+>> >
+>> 
+>> Here it is - as this is a zVM system the benchmark values may show 
+>> poor
+>> performance.
+>> 
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: KTAP version 1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: 1..1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     KTAP version 1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # Subtest: sha3
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     1..21
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 1 
+>> test_hash_test_vectors
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 2
+>> test_hash_all_lens_up_to_4096
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 3
+>> test_hash_incremental_updates
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 4
+>> test_hash_buffer_overruns
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 6
+>> test_hash_alignment_consistency
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 7
+>> test_hash_ctx_zeroization
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 8
+>> test_hash_interrupt_context_1
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 9
+>> test_hash_interrupt_context_2
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 10 
+>> test_sha3_224_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 11 
+>> test_sha3_256_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 12 
+>> test_sha3_384_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 13 
+>> test_sha3_512_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 14 
+>> test_shake128_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 15 
+>> test_shake256_basic
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 16 
+>> test_shake128_nist
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 17 
+>> test_shake256_nist
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 18
+>> test_shake_all_lens_up_to_4096
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 19
+>> test_shake_multiple_squeezes
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 20
+>> test_shake_with_guarded_bufs
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1: 14
+>> MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16: 109
+>> MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=64: 911
+>> MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=127:
+>> 1849 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=128:
+>> 1872 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=200:
+>> 2647 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=256:
+>> 3338 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=511:
+>> 5484 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=512:
+>> 5562 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1024:
+>> 8297 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=3173:
+>> 12625 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=4096:
+>> 11242 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16384:
+>> 12853 MB/s
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 
+>> skip:0
+>> total:21
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: # Totals: pass:21 fail:0 
+>> skip:0
+>> total:21
+>> Oct 30 10:46:44 b3545008.lnxne.boe kernel: ok 1 sha3
+> 
+> Thanks!  Is this with the whole series applied?  Those numbers are
+> pretty fast, so probably at least the Keccak acceleration part is
+> worthwhile.  But just to reiterate what I asked for:
+> 
+>     Also, it would be helpful to provide the benchmark output from just
+>     before "lib/crypto: s390/sha3: Add optimized Keccak function", just
+>     after it, and after "lib/crypto: s390/sha3: Add optimized one-shot
+>     SHA-3 digest functions".
+> 
+> So I'd like to see how much each change helped, which isn't clear if 
+> you
+> show only the result at the end.
+> 
+> If there's still no evidence that "lib/crypto: s390/sha3: Add optimized
+> one-shot SHA-3 digest functions" actually helps significantly vs. 
+> simply
+> doing the Keccak acceleration, then we should drop it for simplicity.
+> 
+>> > > What's a little bit tricky here is that the sha3 lib is statically
+>> > > build into the kernel. So no chance to unload/load this as a module.
+>> > > For sha1 and the sha2 stuff I can understand the need to have this
+>> > > statically enabled in the kernel. Sha3 is only supposed to be
+>> > > available
+>> > > as backup in case of sha2 deficiencies. So I can't see why this is
+>> > > really statically needed.
+>> >
+>> > CONFIG_CRYPTO_LIB_SHA3 is a tristate option.  It can be either built-in
+>> > or a loadable module, depending on what other kconfig options select it.
+>> > Same as all the other crypto library modules.
+>> 
+>> I know and see this. However, I am unable to switch this to 'm'. It 
+>> seems
+>> like the root cause is that CRYPTO_SHA3='y' and I can't change this to 
+>> 'm'.
+>> And honestly I am unable to read these dependencies (forgive my 
+>> ignorance):
+>> 
+>> CONFIG_CRYPTO_SHA3:
+>> SHA-3 secure hash algorithms (FIPS 202, ISO/IEC 10118-3)
+>>  Symbol: CRYPTO_SHA3 [=y]
+>>   Type  : tristate
+>>   Defined at crypto/Kconfig:1006
+>>     Prompt: SHA-3
+>>     Depends on: CRYPTO [=y]
+>>     Location:
+>>       -> Cryptographic API (CRYPTO [=y])
+>>         -> Hashes, digests, and MACs
+>>           -> SHA-3 (CRYPTO_SHA3 [=y])
+>>   Selects: CRYPTO_HASH [=y] && CRYPTO_LIB_SHA3 [=y]
+>>   Selected by [y]:
+>>     - CRYPTO_JITTERENTROPY [=y] && CRYPTO [=y]
+> 
+> Well, all that is saying is that there is a built-in option that 
+> selects
+> SHA-3, which causes it to be built-in.  So SHA-3 being built-in is
+> working as intended in that case.  (And it's also intended that we no
+> longer allow the architecture-optimized code to be built as a module
+> when the generic code is built-in.  That was always a huge footgun.)  
+> If
+> you want to know why something that needs SHA-3 is being built-in, 
+> you'd
+> need to follow the chain of dependencies up to see how it gets 
+> selected.
+> 
+> - Eric
 
+And here is a benchmark where I used I used commit
+151fbe15a6cb lib/crypto: s390/sha3: Migrate optimized code into library
+from your branch sha3-lib-v1. As far as I have in mind this lacks the
+code optimizations:
 
-On Mon, 3 Nov 2025 14:30:12 +0000, Catalin Marinas wrote:
-> On Mon, Nov 03, 2025 at 01:32:42PM +0000, Mark Brown wrote:
-> > On Fri, Oct 31, 2025 at 04:57:50PM +0000, Catalin Marinas wrote:
-> > 
-> > > On arm64 with MTE enabled, a page mapped as Normal Tagged (PROT_MTE) in
-> > > user space will need to have its allocation tags initialised. This is
-> > > normally done in the arm64 set_pte_at() after checking the memory
-> > > attributes. Such page is also marked with the PG_mte_tagged flag to
-> > > avoid subsequent clearing. Since this relies on having a struct page,
-> > > pte_special() mappings are ignored.
-> > 
-> > We are seeing breakage in userspace on a range of arm64 platforms which
-> > bisects to this commit in -next.  We see traces like:
-> > 
-> > [   59.746701] Internal error: Oops - Undefined instruction: 0000000002000000 [#1]  SMP
-> > 
-> > ...
-> > 
-> > [   59.819007] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > [   59.826055] pc : mte_zero_clear_page_tags+0x1c/0x40
-> > [   59.830980] lr : tag_clear_highpage+0x68/0x118
-> > 
-> > ...
-> > 
-> > [   59.911874] Call trace:
-> > [   59.914333]  mte_zero_clear_page_tags+0x1c/0x40 (P)
-> > [   59.919278]  get_page_from_freelist+0x1a60/0x1c80
-> > [   59.924042]  __alloc_frozen_pages_noprof+0x178/0xd20
-> > [   59.929068]  alloc_pages_mpol+0xb4/0x1a4
-> > [   59.933022]  alloc_frozen_pages_noprof+0x48/0xc0
-> > [   59.937683]  folio_alloc_noprof+0x14/0x68
-> > [   59.941718]  mm_get_huge_zero_folio+0xf4/0x30c
-> > [   59.946200]  do_huge_pmd_anonymous_page+0x278/0x6a0
-> > [   59.951119]  __handle_mm_fault+0x700/0x1834
-> > [   59.955332]  handle_mm_fault+0x8c/0x2a0
-> > [   59.959190]  do_page_fault+0x108/0x75c
-> > [   59.962964]  do_translation_fault+0x5c/0x6c
-> > [   59.967181]  do_mem_abort+0x40/0x90
-> 
-> Thanks for the report. I missed the fact that the arch
-> mte_zero_clear_page_tags() arch code issues MTE instructions
-> irrespective of whether the hardware supports it. We got away with this
-> so far since we check the VM_MTE flag and that's only set if the
-> hardware supports MTE.
-> 
-> > Looking at the codes:
-> > 
-> > > -       zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO) & ~__GFP_MOVABLE,
-> > > +       zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
-> > > +                                ~__GFP_MOVABLE,
-> > >                         HPAGE_PMD_ORDER);
-> > 
-> > This adds an unonditional __GFP_ZEROTAGS - from a quick scan it looks
-> > like this was previously only enabled by vma_alloc_zeroed_movable_folio()
-> > when the VMA has VM_MTE, I think we need a similar test here.
-> 
-> We can't do this for the huge zero page since this will be shared by
-> other vmas and not all would have VM_MTE set. I'll fix it in the arch
-> code:
-> 
-> -----------8<---------------------------------------------
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index d816ff44faff..125dfa6c613b 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -969,6 +969,16 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
->  
->  void tag_clear_highpage(struct page *page)
->  {
-> +	/*
-> +	 * Check if MTE is supported and fall back to clear_highpage().
-> +	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
-> +	 * post_alloc_hook() will invoke tag_clear_highpage().
-> +	 */
-> +	if (!system_supports_mte()) {
-> +		clear_highpage(page);
-> +		return;
-> +	}
-> +
->  	/* Newly allocated page, shouldn't have been tagged yet */
->  	WARN_ON_ONCE(!try_page_mte_tagging(page));
->  	mte_zero_clear_page_tags(page_address(page));
-> ------------------8<------------------------------------------
-> 
-> Testing now.
-> 
-
-Good catch! LGTM, feel free to add:
-
-Reviewed-by: Lance Yang <lance.yang@linux.dev>
-
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: len=1: 
+12 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: len=16: 
+196 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: len=64: 
+648 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=127: 1011 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=128: 1014 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=200: 1281 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=256: 1396 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=511: 2593 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=512: 2624 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=1024: 4637 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=3173: 8931 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=4096: 10636 MB/s
+Nov 04 12:47:32 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+len=16384: 12339 MB/s
 
