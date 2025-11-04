@@ -4,98 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DE8CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA7BCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/6U30xhVv6V/OllWka10lpmVdIsxk7KF/mWNRD7vXBM=; b=GULwbQRrc2pVQFPtx4jDAMdnEI
-	MIUgTikHiMD3qB5yBCRVY87QDQtdPJaOBdcdA+RbZzQZnNQbMzQVJd6T8N92r13TmqA4UjAraXDzf
-	fg2+7I+BVMkT3/i4asyycGMVe2xR6TmWGxkSx3K1bIZdLud2QN2XHlt8dV69y+dhCTd5KANQGgKE9
-	MMbR/zIBGssEH/PfPv5ywpBYC0iGHq+J1vTlWMkqFXY40hbkWm9kSiZVd/erpWV+r/2NgxLNfadUc
-	Ms8zvbHMP4xzCHt1MmKl2qV+HT1srKZcdd/WcJP8R0zU0VB+079hebsUeqno0fQ/HhG+/mYqq1VNO
-	SyiUFd3g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6WOQeTavzPrauVi8MwJO524evgvZo3Tkv1ShmH0pjuo=; b=ffkEtLuyRqmsk8qnUO4pET0Ic1
+	wkbL5wYUk1ztI7zdYWl47elWhw6m4Eu4JuKk1tm+0H+lvSvr+KpuuHgqZ0/die3D3uYsOfEOhRu+c
+	GJ5Q4mGUUvzJ3pXY15cqrfpFl6H8jHkAqXEa7vQN/SeVoFoFZcDpdvDGfvymPuGq8EUR/095SkLtq
+	3w4alVNNeH911h7PXtPQOYuFzzsjtNPq+leIfQAcKo2qBz7Nm094PWdNbxL0YsND1QCwyB0LlH46V
+	SOy8YuolPORnVaI691ypzyQRhNpWlly4311v1TLLPyKLD+yGxcRNTCqeE+PMRm4udqeRjD+FmE8JL
+	3mKytzLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGFEM-0000000BiW3-4BJu;
-	Tue, 04 Nov 2025 11:29:43 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGFEJ-0000000BiVF-1fon
+	id 1vGFHp-0000000Bikw-2lTS;
+	Tue, 04 Nov 2025 11:33:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGFHn-0000000BikY-3obs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 11:29:41 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64034284521so9334313a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 03:29:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1762255777; x=1762860577; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/6U30xhVv6V/OllWka10lpmVdIsxk7KF/mWNRD7vXBM=;
-        b=K3PQgr6elxgrxHM0hUv66XZA+puYMnJ4sOOtS/TSe62E6L0zQMsok0Opry3CMBrYnM
-         zfuuAla8cSWObq6i6QPsS0ZJ9qSnzFn6W0QzNlpqpYg/FCLMSbEXyq8gthLYKBTpc79V
-         8T1KeLG7qk3kZTFqTk5EioxC4wB++u5UMWp9Jww18BoQEGzmXIMwOCn11FCAUORxokpE
-         dXeuUFD41CSUTS7c8/19hiroB1jtRFQOVYv0+aYckCQilVrMdrc02d9ByiUTcgpo1Nrp
-         i1zlSqmVWowK3vNWNzicnkIPeLSiCuDaZpmUqj9zCS1tL3njiWe/F81I9WaYCDRhrJyj
-         bslw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762255777; x=1762860577;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/6U30xhVv6V/OllWka10lpmVdIsxk7KF/mWNRD7vXBM=;
-        b=T4kaTFzqfxrsQWWEg0pfDI0j9G0lZmlilmIJNjl4SsnmX+xR7ehGRqna/zXkxtuikQ
-         gC3nVlln6yC/OEGGgKd0RcPuDL6srfuIbpLOwPZEOx0rqwb4jPZepQrkcJKvBRh9fC6c
-         kelAwBcURiL9ZQ8fs67JqvJWQCRU9/708+7LVSNg/mnXaV4+IAxoclJVeBxYnFU64Hgh
-         ybsEDe9fnxg+RBLeQZCy9w9zAAnFx7T/6tU/VM2lrpPYnLj0S+qhdxva8q1MQlAVAUxA
-         2WEf8/wLfEgSabJPbKYtZNa1xJkDlQcKFseOsYnrZdmBs4JCRxrxTZOng+LiyrQrsIad
-         7V5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWzrYYl1CDD9m0Hjofw58P+Hutd1n3JBn27TEpEsyf+WDShw1mqEqS+Z/74SZLN9D/PMIwpqE/NJGnSDMAAZosf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyx7BiQWzFVUmNHAsC6+F3fXLaZiViA0TFp4zn4f/HrxElTXLQa
-	znKnc2uGvjkfOSeXSuDBDRDDf8ngS3Jq0e88zDNQDSxYJKHbnbZ8JamKp8ksUG04Tr8=
-X-Gm-Gg: ASbGncs7PWKX41A5v1QjFKc/2j1BxN1mzmL7Bx6Ypmbtnm/y3gyc7BnbbKwrWdZDnaz
-	PUAXR4gMzC4ok2GmV/9YYZaRtTDZJOVOfc4t087J+wZVV0XFOzoAmERyCMzQDU98WZYqH1lJWTG
-	xcxFh9EvUnt8B9pOkDQouQXjpjvLP+fnz8fwKFZL1jpkOA0cCSfyL0fZLOdfXrT4ae6vQiYC0CC
-	3W+OAhqGXej67qbALj85gxRMxOK7mXfn1byDFli4xz6QgsfPB+9x4IBwVvwxZczhWNR6R1RgapB
-	KYsEDMcS/OhY1ZUSZYYdYO52shSDOiMKSLB4Ep4Bb87inK1Zsp9++lSP1oVv8UU+5q9N9gXiDp5
-	T2McuvQEaEzas0tpMQT7csb3PmWNYiot+gRlCdEbkhiyRb3/mb9b0NUlUlBvEks+JwJZuVHk0/8
-	7an5E=
-X-Google-Smtp-Source: AGHT+IEH6YLnLzKBUaOBrPF+gt/Vwu3vr6ZVwfIBKjg5lysKKReAoUvEVvkYcdEX36hZw8BRX3tIXQ==
-X-Received: by 2002:a05:6402:26d6:b0:640:a356:e78b with SMTP id 4fb4d7f45d1cf-640a356f0e2mr8579226a12.7.1762255777493;
-        Tue, 04 Nov 2025 03:29:37 -0800 (PST)
-Received: from linux ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-640e680578esm1820370a12.10.2025.11.04.03.29.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 03:29:37 -0800 (PST)
-From: Marco Crivellari <marco.crivellari@suse.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Cc: Tejun Heo <tj@kernel.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Subject: [PATCH] drm/exynos: hdmi: replace use of system_wq with system_percpu_wq
-Date: Tue,  4 Nov 2025 12:29:23 +0100
-Message-ID: <20251104112923.143408-1-marco.crivellari@suse.com>
-X-Mailer: git-send-email 2.51.1
+	Tue, 04 Nov 2025 11:33:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D06201C2B;
+	Tue,  4 Nov 2025 03:33:05 -0800 (PST)
+Received: from [10.1.38.100] (e126510-lin.cambridge.arm.com [10.1.38.100])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C979F3F63F;
+	Tue,  4 Nov 2025 03:33:06 -0800 (PST)
+Message-ID: <e3326a9c-108a-4eb2-b12e-bff2b5edd1d3@arm.com>
+Date: Tue, 4 Nov 2025 11:33:03 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 09/12] powerpc/mm: replace batch->active with
+ in_lazy_mmu_mode()
+To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-10-kevin.brodsky@arm.com>
+ <05e2062c-1689-44e7-9cc6-697646ca075d@redhat.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <05e2062c-1689-44e7-9cc6-697646ca075d@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_032939_690353_F54C78A9 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20251104_033315_997845_DDAD50E0 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,45 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently if a user enqueue a work item using schedule_delayed_work() the
-used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-schedule_work() that is using system_wq and queue_work(), that makes use
-again of WORK_CPU_UNBOUND.
+On 03/11/2025 16:05, David Hildenbrand wrote:
+> On 29.10.25 11:09, Kevin Brodsky wrote:
+>> A per-CPU batch struct is activated when entering lazy MMU mode; its
+>> lifetime is the same as the lazy MMU section (it is deactivated when
+>> leaving the mode). Preemption is disabled in that interval to ensure
+>> that the per-CPU reference remains valid.
+>>
+>> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
+>> mode. We can therefore use the generic helper in_lazy_mmu_mode()
+>> to tell whether a batch struct is active instead of tracking it
+>> explicitly.
+>>
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> ---
+>
+> I suspect you were not able to test this on real HW. Some help from
+> the ppc folks would be appreciated.
 
-This lack of consistentcy cannot be addressed without refactoring the API.
+Indeed, it would be nice to get some testing on ppc HW that actually
+uses lazy MMU (!radix_enabled()).
 
-This patch continues the effort to refactor worqueue APIs, which has begun
-with the change introducing new workqueues and a new alloc_workqueue flag:
+>
+> LGTM, but the interaction with pause/resume adds a bit of complication
+> on top.
 
-commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
-commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
+Does it? This series doesn't change when arch_enter() and arch_leave()
+are called, batch->active and in_lazy_mmu_mode() should coincide. 
 
-system_wq should be the per-cpu workqueue, yet in this name nothing makes
-that clear, so replace system_wq with system_percpu_wq.
-
-The old wq (system_wq) will be kept for a few release cycles.
-
-Suggested-by: Tejun Heo <tj@kernel.org>
-Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
----
- drivers/gpu/drm/exynos/exynos_hdmi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/exynos/exynos_hdmi.c b/drivers/gpu/drm/exynos/exynos_hdmi.c
-index 01813e11e6c6..8e76ac8ee4e2 100644
---- a/drivers/gpu/drm/exynos/exynos_hdmi.c
-+++ b/drivers/gpu/drm/exynos/exynos_hdmi.c
-@@ -1692,7 +1692,7 @@ static irqreturn_t hdmi_irq_thread(int irq, void *arg)
- {
- 	struct hdmi_context *hdata = arg;
- 
--	mod_delayed_work(system_wq, &hdata->hotplug_work,
-+	mod_delayed_work(system_percpu_wq, &hdata->hotplug_work,
- 			msecs_to_jiffies(HOTPLUG_DEBOUNCE_MS));
- 
- 	return IRQ_HANDLED;
--- 
-2.51.1
-
+- Kevin
 
