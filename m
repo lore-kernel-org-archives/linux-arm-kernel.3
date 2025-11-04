@@ -4,87 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A0ECCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801A7CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEwtHmSL5BtzTNQnc9ruHdxSVG+6ysWNVzNzRsLAtuM=; b=yPxh6+9HvYRn9QZ6LZH2FYPXz7
-	SY+R2ZY+MbSY26pIgSp+YsgZSDaI56MsS/bEdEmhj5ZhF51gypNg3wSPhhgROFsX65IYsA6EhM0mX
-	AqTwJ5zwzysrwZcgBZuhUdudAM/+3/AQaQ59CcEnY+IdtMhyg/zuHyKSwiB22Tpneqyrt3DF40vRA
-	ys+OEtUpWLGa8xWvklqYw6/e9cXFk3FTGeBIDzQebGI5cumkFE98vPk96SJjS5ok/gCfv7v5wdlii
-	yO9Oer8FfLIvOHMeh5BUDdLgNPT3fV57adUrE6F1Isy8G7JLh17rw1eMrQn3VlvKxM2o60yGX3NeB
-	dTiE6K1A==;
+	bh=y8lPryox6o3CO17kF4Vef4CA1HTdCCbE37Ow4Bicjjc=; b=vYvnwy0PEzJbZGPCpfm/et3Fow
+	LrrNOoA64w8nzhkMfZ1fIJuUjIltlkw9I6gLMx9liJsD0HEGhrHNqaNsn1msujSUekODxSuHwxKlX
+	5xRYf9znXGY44j/O/MaJl8RDEElBJ2BQavEKGApUOCbUnSvaKFCxsmMossjsZeVVZmna+vMwQOPZy
+	R4USZC0xjxq20UC23wiN4Uyr60l3yGTlfsZN+drSc5/e84VI5di9g4gWGPGnCsoAo8iFtCJX2A1YQ
+	cqulEu9xB/cVbmg7Ywye1RmM8LJMiGqupEPv86lOlL9020RrZfTIZMsuBPa6sQVt/rvJQVcohVfid
+	/GOfBYUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7Rm-0000000B1yF-39z5;
-	Tue, 04 Nov 2025 03:11:02 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1vG7Se-0000000B25A-0hOe;
+	Tue, 04 Nov 2025 03:11:56 +0000
+Received: from mail-westeuropeazon11013014.outbound.protection.outlook.com ([52.101.72.14] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7Rk-0000000B1xu-0dpE
+	id 1vG7Sc-0000000B24I-06c9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 03:11:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762225860; x=1793761860;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nasp7obvVZx/zW5fYzUXJMKnK906v8ptyaXO0ca9Boo=;
-  b=cjKAkPh7BIiX9ns9MzFUPCuC4ii88kXAfEsy5Nm4fw0IWL2it7LcoSf/
-   W7Y3E/K8HaHFT2gIsUbXjzyhU8ar0aUw0sVsXJ815l2PW1Sa0I2uxEIqJ
-   4eJn/DPzGoozXPtmKWOpg+CtoflpHtxFnNPB3bYz/4d5w64l+czIwk8pE
-   C/TxaZyeL8DXaS758I2pm49dezHSq+sMqvZjb53o98lWItfqWDhpKiAAs
-   SihNXRsRIsCAHyb7NFtDow8mg39bTLOx/q3eHlcLmzgWflM4CL8G4fQHB
-   UOj5u9KW4nMMXJuS8t/g4Vrf0PrzE3DGJqPSmDLFwajiooUxPQXoalx3H
-   A==;
-X-CSE-ConnectionGUID: wTr8QrBJTymTI/QyqdLkcQ==
-X-CSE-MsgGUID: YyI8NuWfSi2Nkuv4glqLDA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11602"; a="64230027"
-X-IronPort-AV: E=Sophos;i="6.19,278,1754982000"; 
-   d="scan'208";a="64230027"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2025 19:10:58 -0800
-X-CSE-ConnectionGUID: Klu5rGQySFOcoXjRl282jw==
-X-CSE-MsgGUID: oH3aw8ubRJiFJiwtRMte1w==
-X-ExtLoop1: 1
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by fmviesa003.fm.intel.com with ESMTP; 03 Nov 2025 19:10:53 -0800
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vG7RZ-000QnM-34;
-	Tue, 04 Nov 2025 03:10:50 +0000
-Date: Tue, 4 Nov 2025 11:07:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jacky Chou <jacky_chou@aspeedtech.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Po-Yu Chuang <ratbert@faraday-tech.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, taoren@meta.com,
-	Jacky Chou <jacky_chou@aspeedtech.com>
-Subject: Re: [PATCH net-next v3 4/4] net: ftgmac100: Add RGMII delay support
- for AST2600
-Message-ID: <202511041023.QGAHaAZ3-lkp@intel.com>
-References: <20251103-rgmii_delay_2600-v3-4-e2af2656f7d7@aspeedtech.com>
-MIME-Version: 1.0
+	Tue, 04 Nov 2025 03:11:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y9IdB0Dce1CRCChG5ZsWEg/QpmwLlYjgNkwZgRQdqgwdqMloH3rmnbYkdo1Od5Z38ZpHHdA+x/oVsQBJlex7zI87aXLWwJgaQz94+C32yF/v7FeG38eZgjQDYuh3vJh68JNLTD5lgFthlsA0MCmr9tkOS24AE7KKM+sSy4vRyisqBXEuPw20fur/RCaqDo/hYcGH+CiVojjB/RjrbD8XhmN3rjRxkms80aJlhe+krxsX3ff6qTmfJWCAgg/C/LQnaEK9JyzMUX3gmjyKpypLYb8wu2Bfd1t982c1FEn7+R4W2my8F2csLZ6NPBmJUjQTjF0ofeCjRThbGUsisbAftA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=y8lPryox6o3CO17kF4Vef4CA1HTdCCbE37Ow4Bicjjc=;
+ b=CxaxxhrvBRx+5Nh1bCgd+lMgF1sF7exgHJnmIoiwqMGld3hJu9kTmicNgMZLg0VMrwZpInjSlxrJCMWZRn36XMei0WqLKmkDmK+KIVIiJUhyeTIP0BKkb1A/X2D4P5xosnOxS0B19atKcivXxPn0RdeucQDphJLIuItENu5iHIQLzgh554QZm1H5GjowjczPX8Xc9985E9K/xzSRwobSAm6N6z+BRIDrQZmiByidd/JqXVhqj1xI6BcQ0Z99j8Do3aF/SmxJICWXv5rEfk2HI+LE8rH0Ya2yUQ3Ss4V/oY0Kpza19AM1Vr3TD1YBjekw5/34S0kWL0vlxNN2F5LM4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=y8lPryox6o3CO17kF4Vef4CA1HTdCCbE37Ow4Bicjjc=;
+ b=Ca1K8pCtgmLpUFC/WII0OQPj/W7gzmLPJ7MjlzE0W5EjJeGCOVC3BT++jysXWiZ3xRls6ZEPWRlNKeW95uSOmZyQgW34pxVUuyQdK8b3T38viWUCRu/rly1re/Q9EWJtmDcjkIi9UarWoZ0H3/LrbOa/moNRB0jjIVFbBhfjd+We01lLGl9B58gg1lQF0U/INmcsxkOlCvex2A4sA0K9Tmhca/lltePu6+ySvwycyuiWbYK/MtL1mlyuxHDm3GS51ngsVRbWXpPwgI/a7ZHDbkNXzmudiVA6iUsPoLG/PN0yRe8IKyWOURzbdWb0nfzgm1uWo5/pMB0/dgGf/ypreQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB8272.eurprd04.prod.outlook.com (2603:10a6:102:1c1::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Tue, 4 Nov
+ 2025 03:11:48 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9275.015; Tue, 4 Nov 2025
+ 03:11:48 +0000
+Date: Tue, 4 Nov 2025 12:24:12 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 06/11] remoteproc: imx_dsp_rproc: Use
+ start/stop/detect_mode ops from imx_rproc_dcfg
+Message-ID: <20251104042334.GA11714@nxa18884-linux.ap.freescale.net>
+References: <20251031-imx-dsp-2025-10-31-v1-0-282f66f55804@nxp.com>
+ <20251031-imx-dsp-2025-10-31-v1-6-282f66f55804@nxp.com>
+ <aQUIR9YhTPxY0SpX@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251103-rgmii_delay_2600-v3-4-e2af2656f7d7@aspeedtech.com>
+In-Reply-To: <aQUIR9YhTPxY0SpX@lizhi-Precision-Tower-5810>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG3P274CA0017.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::29)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8272:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89187913-ffa6-4f3f-3525-08de1b4fe484
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0tEfQyBPq/7pKmVmoOhkVB/3NewcFvIEhN73RysjHSa0mMo+nqyL3EGWJdRx?=
+ =?us-ascii?Q?7AJIUXAMN7TH1gJnBQBkBVxtmEqAWieR41LFiAsepnOnRI++ZMXFY1YiwRWH?=
+ =?us-ascii?Q?pnjPL3ip+3uJ68GmJCUQRufEfjudRLeHs8uYXDoUCTtbUeMpdLYdLK693lFu?=
+ =?us-ascii?Q?1595Vja3KMA9gjRYicTqJOxKYbpMETmg5vC2nadnepjcz0nJ5Wj7BRjyZI3j?=
+ =?us-ascii?Q?6MH0JjvQW3lNy0EUM7BUrleG8QB0HmZHOVm0URvzBiW7qfioj3RFPYQej1bT?=
+ =?us-ascii?Q?g44XhV5xYrV5tZKe8RosBLs8ZFWblZjvMx+FE92cgSJuepanEJMIi3/RL8nQ?=
+ =?us-ascii?Q?Y0mhhAsMReY1BZqA3W3GuVbcCBdwRkNI8+3rBX0/qxkE9CHKJvwxpoxgY/o6?=
+ =?us-ascii?Q?XjnVp8NJ5Axkxuv2R7iwK3FN+lZJb9w8pBsVOc6xcsexfSZVZszGkrBXchhA?=
+ =?us-ascii?Q?92R0Q5m+SZWQ3EPeOXytOAd3UYvDBWSnseoxC5WRc8jxi9AM0G0vQu5dQYkn?=
+ =?us-ascii?Q?P2bjlgyIFRLMflUNRjE6bkeV+LSNpyPId94Jp9UEmB/ATJneNWwrstEh41sB?=
+ =?us-ascii?Q?mJrKJB0SKAWtFRvVrh2rphc2thotqo3n1kM8JrYi95We+r7LkcbwZ7KLQqZL?=
+ =?us-ascii?Q?yQEUHz9WZ0pf0WS+6LuwautiJKPQn3NB4scc+g0vCk3T+2MW9JiVqVwyzZd8?=
+ =?us-ascii?Q?gO9HtZpCPwPH+2m1BhBbS3xlibYvxdx9/UrRRXC+3Cqqgr1NchoS4ZX9q5n5?=
+ =?us-ascii?Q?F/2yYALYVRQwaXuUDtlskvyKwRtHkF0toLmgA5/EBxFwGDxpcdE2iqMRinZt?=
+ =?us-ascii?Q?hhSjGtENmyEKyBWPs1O3pNDw3VbAySZFbOBzJ+0cRhw53oc/y2M3eo9JJ+E4?=
+ =?us-ascii?Q?Qnz0h3aT6q0yzgIU7bsRngD9+QqvjBjFpcFfKRdr9g2wWLaGKkLG5exXcGlP?=
+ =?us-ascii?Q?ITIRVxbKuEDIrnsby7XZXLsVFCRz6+nAbhkePwHKELAlEGqNSVJa+UIBf3YH?=
+ =?us-ascii?Q?KTFoaAtFsXeNHJcctMQEb4beYBmiB4ToG8d8Ie2hWeKJYrH/jh4Eqfgl91YM?=
+ =?us-ascii?Q?5NO6S/EU8fZFE015Rp2hHUo25mrrIgfujtcLnvcDn+zVu8sB78K2lyNQYkjS?=
+ =?us-ascii?Q?9CuzaY565O/57e9cBOZDK6pz5mYyh2iZCNXy0hgyGb3+TRgReyuxQUVG68Jc?=
+ =?us-ascii?Q?mlhLjjPIzk8r/UVdTOvURrHuij71EOkFEZTLmWMQHwuB9HXB6dKVFPDNKI0b?=
+ =?us-ascii?Q?lvTd9n6o0xh8sJ5KDy76OoIWxiqv7HgTE7znSuYm/AhyWolJXyR6vGNiv4us?=
+ =?us-ascii?Q?EluTp3ry5yHFG9ZG7n70wegTCowxG2e0l4b02/ASjU6uuyp2DcmPtcYNnpJy?=
+ =?us-ascii?Q?K6l26ERKMu1h5Q3FL/TnJ8eGjWXINEd9XMOPNaRYVShu2S/rvajR3ukNHRZp?=
+ =?us-ascii?Q?CoCS2sVzoHJaoIMEgMmsRxvA2fGcL8qjlbgKJz38QKESD87AZI/4Af+SFCY8?=
+ =?us-ascii?Q?MsGnpQjnlFlVzeZkrzFZ8+kcimrlVn9MWPS3?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E4icVr4Tzf7UFOZ1BCqN+d8c7nEmsR+kVugHDgHlquViIdB1ku7Yeg/ywJ7d?=
+ =?us-ascii?Q?/5JzNxfy85YijhPs6zwf+AEdRD7WsFAItDeR41NVQZTAzSKbqS1k9w5D6gPh?=
+ =?us-ascii?Q?JnJza3qW4eZvDBM1m9S0QKaUfPtBaxTkvk3Hfe6DTQTLCB2zNcVamfdUxpYC?=
+ =?us-ascii?Q?NX7nM54f0/a5PdVVeTxVwkr8wYu0L5nm4u95H8YhzAEichC/n7lkXhDaf0hp?=
+ =?us-ascii?Q?5TqMd9ZXhWFU18apqcuad41iygPptyqoS+7wqSrl1CD3snn+K/DC7XvGQVOY?=
+ =?us-ascii?Q?8eqt+Sg28b4lKeS0Al+rRVhg/RSyqy4R2Uu66zWh1ceemV0tqq4qWWy3pNAz?=
+ =?us-ascii?Q?zcv62oPVoVELa5hM7IAHpBBSWogApXe1KYtI4xib9reZJ9Eo6kuAass9lSqX?=
+ =?us-ascii?Q?YJDlkM/iBhZmMCLQ6XDgzW1SAOjIu6k+euGXdfVn6/SdNu40p6GPLXEJbxky?=
+ =?us-ascii?Q?BNf8VfAmzn81kC3KPZ2St71NckNQBNm9bBSJWSaeNW/VgvzRm/qiylh6RwBR?=
+ =?us-ascii?Q?v43fN6p+/i91ZXE+/Y+E9YRK40cAfo1PoCWTEmr7LtSdaIKtpq6wueDVqSNr?=
+ =?us-ascii?Q?qqYWjM6dq5qu1D1wP7UhI4BzvBaLg2B84XVpNlFmA/SofvqcsWDgRVU9WDwv?=
+ =?us-ascii?Q?0fGcmjWgRaSYNF1sGKrKwlvrQTRcFzP84Fs977/+9cHbhGWOaR02XGeEy5BR?=
+ =?us-ascii?Q?VEFyJqR90BAl3pl4pdOoxbyH+qAJKp8Pf1PcSEVpdEra1ZXfgPSLGvHQSCjV?=
+ =?us-ascii?Q?6MEcSsAlTL/dlx+z3S4+e+sAfL8pB7qrSDqdQ2KZ5Wk64TjwcbaXVcHyGZ+e?=
+ =?us-ascii?Q?iW/kN9qAf1PaCSK0AeHRCixit/soaMz8sZntxaB6m1RxNNdjA4re5WLyCrwZ?=
+ =?us-ascii?Q?FhhrslaNUYk8R/78bAmUFGevd4an0CczWjmO01uS6pmppJX2EmoNpptUZ6/Z?=
+ =?us-ascii?Q?Lug5i6vAqzEgja+sOtywn6Yke1obg/plq2vf5BbM7JpXHqVtg2tXN7Q3F3PE?=
+ =?us-ascii?Q?zO6bK5I5SJJCc/7jiQs/+MuoEyOJOe3of7HsYK3gIYwUpCE3tVxKp1flHR+t?=
+ =?us-ascii?Q?/TJEn19cs3h6lYaWbeDgvUv4/SYAt85PaDINesYbbx8YknM4736rTMRhf2Tw?=
+ =?us-ascii?Q?CBEjsZHvxCubFySB/WUpXLPttsfpqUbkhPBD5LidbyPf0pc2W/2JpTDx3zV+?=
+ =?us-ascii?Q?D762FQJkGbrDZTVKCPPy1Yh8AIvikeRcrqZjALwR37F4KzAb8U2aHP/E6noA?=
+ =?us-ascii?Q?vOnvdwRwayEQyKYKOxyiBPddFjDcP9qgQY6UKVWNFKd9HVnxPGSw53vOEYPd?=
+ =?us-ascii?Q?ksvaOVwkcX4flrakF0DkizPjfMiJ0pYCRkWEuTas1v9b9XfpXL5Lbv7PO1im?=
+ =?us-ascii?Q?qAvMps174Canf0ijhVlnWAINXMDBo3wecxJclhXOYX/5AvuLEWsva9+O6icP?=
+ =?us-ascii?Q?XUsUEK89E/0wretS4am3yuhO6qmfsqeQuvij4Z9mJsGpjXA8viVfuvkGxUaT?=
+ =?us-ascii?Q?6dlMFC5wS+xqAYPHUoLQejmb7sQxqjaVrI9s9NkBzGpIYLHCDS6l6qLkqXCx?=
+ =?us-ascii?Q?D8O0qQ69zds/QlWCcMPNltx17Or7As9RWr8XJ+M9?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89187913-ffa6-4f3f-3525-08de1b4fe484
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 03:11:48.6099
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EnFZVnIPGsPfJpPnWqQdbpekCnDhk+awaR7drpCNSAYJCEj/WYB/bapGNiLY4OGcLheqaUjl0zQVFhwHe8NgCg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8272
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_191100_210036_CF5B822D 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20251103_191154_074195_3D49DCD9 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,120 +172,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacky,
+On Fri, Oct 31, 2025 at 03:04:39PM -0400, Frank Li wrote:
+>On Fri, Oct 31, 2025 at 05:08:35PM +0800, Peng Fan wrote:
+>> Allow each platform to provide its own implementation of start/stop/
+>> detect_mode operations, and prepare to eliminate the need for multiple
+>> switch-case statements.
+>>
+>> Improve code readability and maintainability by encapsulating
+>> platform-specific behavior.
+>>
+>> No functional changes.
+>>
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>> ---
+>>  drivers/remoteproc/imx_dsp_rproc.c | 16 ++++++++++++++++
+>>  1 file changed, 16 insertions(+)
+>>
+>> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+>> index 1726aaa1eafb9ac1a913e3e2caea73801b86dc09..833b1bd4019614157f0bedf09bd348caab802eef 100644
+>> --- a/drivers/remoteproc/imx_dsp_rproc.c
+>> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+>> @@ -404,6 +404,11 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
+>>  	struct device *dev = rproc->dev.parent;
+>>  	int ret;
+>>
+>> +	if (dcfg->ops && dcfg->ops->start) {
+>> +		ret = dcfg->ops->start(rproc);
+>> +		goto start_ret;
+>
+>not sure if error message is important, maybe
 
-kernel test robot noticed the following build warnings:
+I would like to keep the error message. Since this patch is just to prepare
+for ops introducton, I would not change the original behavior. 
 
-[auto build test WARNING on 01cc760632b875c4ad0d8fec0b0c01896b8a36d4]
+Thanks,
+Peng
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jacky-Chou/dt-bindings-net-ftgmac100-Add-delay-properties-for-AST2600/20251103-154258
-base:   01cc760632b875c4ad0d8fec0b0c01896b8a36d4
-patch link:    https://lore.kernel.org/r/20251103-rgmii_delay_2600-v3-4-e2af2656f7d7%40aspeedtech.com
-patch subject: [PATCH net-next v3 4/4] net: ftgmac100: Add RGMII delay support for AST2600
-config: arm-defconfig (https://download.01.org/0day-ci/archive/20251104/202511041023.QGAHaAZ3-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project d2625a438020ad35330cda29c3def102c1687b1b)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251104/202511041023.QGAHaAZ3-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511041023.QGAHaAZ3-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/net/ethernet/faraday/ftgmac100.c:1865:13: warning: variable 'rgmii_delay_unit' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-    1865 |         } else if (of_device_is_compatible(np, "aspeed,ast2600-mac23")) {
-         |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/net/ethernet/faraday/ftgmac100.c:1870:53: note: uninitialized use occurs here
-    1870 |         rgmii_tx_delay = DIV_ROUND_CLOSEST(rgmii_tx_delay, rgmii_delay_unit);
-         |                                                            ^~~~~~~~~~~~~~~~
-   drivers/net/ethernet/faraday/ftgmac100.c:1865:9: note: remove the 'if' if its condition is always true
-    1865 |         } else if (of_device_is_compatible(np, "aspeed,ast2600-mac23")) {
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/net/ethernet/faraday/ftgmac100.c:1844:22: note: initialize the variable 'rgmii_delay_unit' to silence this warning
-    1844 |         u32 rgmii_delay_unit;
-         |                             ^
-         |                              = 0
-   1 warning generated.
-
-
-vim +1865 drivers/net/ethernet/faraday/ftgmac100.c
-
-  1838	
-  1839	static int ftgmac100_set_ast2600_rgmii_delay(struct platform_device *pdev,
-  1840						     u32 rgmii_tx_delay,
-  1841						     u32 rgmii_rx_delay)
-  1842	{
-  1843		struct device_node *np = pdev->dev.of_node;
-  1844		u32 rgmii_delay_unit;
-  1845		struct regmap *scu;
-  1846		int dly_mask;
-  1847		int dly_reg;
-  1848		int id;
-  1849	
-  1850		scu = syscon_regmap_lookup_by_phandle(np, "scu");
-  1851		if (IS_ERR(scu)) {
-  1852			dev_err(&pdev->dev, "failed to get scu");
-  1853			return PTR_ERR(scu);
-  1854		}
-  1855	
-  1856		id = of_alias_get_id(np, "ethernet");
-  1857		if (id < 0 || id > 3) {
-  1858			dev_err(&pdev->dev, "get wrong alise id %d\n", id);
-  1859			return -EINVAL;
-  1860		}
-  1861	
-  1862		if (of_device_is_compatible(np, "aspeed,ast2600-mac01")) {
-  1863			dly_reg = AST2600_MAC01_CLK_DLY;
-  1864			rgmii_delay_unit = AST2600_MAC01_CLK_DLY_UNIT;
-> 1865		} else if (of_device_is_compatible(np, "aspeed,ast2600-mac23")) {
-  1866			dly_reg = AST2600_MAC23_CLK_DLY;
-  1867			rgmii_delay_unit = AST2600_MAC23_CLK_DLY_UNIT;
-  1868		}
-  1869	
-  1870		rgmii_tx_delay = DIV_ROUND_CLOSEST(rgmii_tx_delay, rgmii_delay_unit);
-  1871		if (rgmii_tx_delay >= 32) {
-  1872			dev_err(&pdev->dev,
-  1873				"The index %u of TX delay setting is out of range\n",
-  1874				rgmii_tx_delay);
-  1875			return -EINVAL;
-  1876		}
-  1877	
-  1878		rgmii_rx_delay = DIV_ROUND_CLOSEST(rgmii_rx_delay, rgmii_delay_unit);
-  1879		if (rgmii_rx_delay >= 32) {
-  1880			dev_err(&pdev->dev,
-  1881				"The index %u of RX delay setting is out of range\n",
-  1882				rgmii_rx_delay);
-  1883			return -EINVAL;
-  1884		}
-  1885	
-  1886		/* Due to the hardware design reason, for MAC23 on AST2600, the zero
-  1887		 * delay ns on RX is configured by setting value 0x1a.
-  1888		 * List as below:
-  1889		 * 0x1a -> 0   ns, 0x1b -> 0.25 ns, ... , 0x1f -> 1.25 ns,
-  1890		 * 0x00 -> 1.5 ns, 0x01 -> 1.75 ns, ... , 0x19 -> 7.75 ns, 0x1a -> 0 ns
-  1891		 */
-  1892		if (of_device_is_compatible(np, "aspeed,ast2600-mac23"))
-  1893			rgmii_rx_delay = (AST2600_MAC23_RX_DLY_0_NS + rgmii_rx_delay) &
-  1894					 AST2600_MAC_TX_RX_DLY_MASK;
-  1895	
-  1896		if (id == 0 || id == 2) {
-  1897			dly_mask = ASPEED_MAC0_2_TX_DLY | ASPEED_MAC0_2_RX_DLY;
-  1898			rgmii_tx_delay = FIELD_PREP(ASPEED_MAC0_2_TX_DLY, rgmii_tx_delay);
-  1899			rgmii_rx_delay = FIELD_PREP(ASPEED_MAC0_2_RX_DLY, rgmii_rx_delay);
-  1900		} else {
-  1901			dly_mask = ASPEED_MAC1_3_TX_DLY | ASPEED_MAC1_3_RX_DLY;
-  1902			rgmii_tx_delay = FIELD_PREP(ASPEED_MAC1_3_TX_DLY, rgmii_tx_delay);
-  1903			rgmii_rx_delay = FIELD_PREP(ASPEED_MAC1_3_RX_DLY, rgmii_rx_delay);
-  1904		}
-  1905	
-  1906		regmap_update_bits(scu, dly_reg, dly_mask, rgmii_tx_delay | rgmii_rx_delay);
-  1907	
-  1908		return 0;
-  1909	}
-  1910	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+>		return dcfg->ops->start(rproc);
+>
+>Frank
+>> +	}
+>> +
+>>  	switch (dcfg->method) {
+>>  	case IMX_RPROC_MMIO:
+>>  		ret = regmap_update_bits(priv->regmap,
+>> @@ -424,6 +429,7 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
+>>  		return -EOPNOTSUPP;
+>>  	}
+>>
+>> +start_ret:
+>>  	if (ret)
+>>  		dev_err(dev, "Failed to enable remote core!\n");
+>>  	else if (priv->flags & WAIT_FW_READY)
+>> @@ -449,6 +455,11 @@ static int imx_dsp_rproc_stop(struct rproc *rproc)
+>>  		return 0;
+>>  	}
+>>
+>> +	if (dcfg->ops && dcfg->ops->stop) {
+>> +		ret = dcfg->ops->stop(rproc);
+>> +		goto stop_ret;
+>> +	}
+>> +
+>>  	switch (dcfg->method) {
+>>  	case IMX_RPROC_MMIO:
+>>  		ret = regmap_update_bits(priv->regmap, dcfg->src_reg, dcfg->src_mask,
+>> @@ -467,6 +478,7 @@ static int imx_dsp_rproc_stop(struct rproc *rproc)
+>>  		return -EOPNOTSUPP;
+>>  	}
+>>
+>> +stop_ret:
+>>  	if (ret)
+>>  		dev_err(dev, "Failed to stop remote core\n");
+>>  	else
+>> @@ -1085,10 +1097,14 @@ static int imx_dsp_attach_pm_domains(struct imx_dsp_rproc *priv)
+>>  static int imx_dsp_rproc_detect_mode(struct imx_dsp_rproc *priv)
+>>  {
+>>  	const struct imx_dsp_rproc_dcfg *dsp_dcfg = priv->dsp_dcfg;
+>> +	const struct imx_rproc_dcfg *dcfg = dsp_dcfg->dcfg;
+>>  	struct device *dev = priv->rproc->dev.parent;
+>>  	struct regmap *regmap;
+>>  	int ret = 0;
+>>
+>> +	if (dcfg->ops && dcfg->ops->detect_mode)
+>> +		return dcfg->ops->detect_mode(priv->rproc);
+>> +
+>>  	switch (dsp_dcfg->dcfg->method) {
+>>  	case IMX_RPROC_SCU_API:
+>>  		ret = imx_scu_get_handle(&priv->ipc_handle);
+>>
+>> --
+>> 2.37.1
+>>
 
