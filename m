@@ -4,121 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5FFCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E03CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=; b=HfEJSIv8sKMbM69XK93gn3Bue1
-	ts8JsSRpVe1IGmf992HS7ORvG2IpK8jz9KsaSUtaeYASG1sa1QT4/UnCDm8aw3L7HMTY/T76vb95z
-	Xi9uYO86SlWfn09AtBg/iZrJnnT8LOUvjHmis8VFm2k+Bo7GzqHmr/EW3BGsOnCqr6hSyjjOQE1gt
-	t21s6LE6SIkO51UtlGweGGzNfe7+aCqmwQlfdjsSjDBql9qNtNLmMN0fLqjH9Q5UCS+wh6GrPRWLo
-	Q5nHhaEpLFGMosU7025ZS/U4FEalKy8QthnM/0jJaWl6o4exg/hqFfxVTmwlvOTKjXgWotL+EX3Ai
-	tKkkkTyw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SmmRjIkYOPEXfWQtW27oBnH3jfo7JHhENvMCdY9nzZ4=; b=x5U+PgL2T6Tq1y3oXPPfbZ3Jim
+	FfmfXaS/m4sgi4h+TCFcREeR2sWrHVLqDIKz9q4IrAvltVsW8bYLq+pAR/+a10igD+rlr2rG2QKl4
+	icCT4/rzUj+PWUl0TusZ8Y+vG+htsYE1M4w8eCLQf/lHAVSPDVn/T59HYRkoORAem5yaLdtR/k55B
+	qPUsIgJQNcetjr3Zm8Om3Jjl9DnzhqSLuID+1sBCtu0DZgWmP+utREU2vjESN5mVNkiJjhS1PUrBL
+	VVVLHuaAG5fYNm1B4W8YV8mXlr725gW4Y43QDhlswrnYPOtNHO+uB7HEDovXC2KWgZkVKq1iQAKkA
+	4qEg9BLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGGvO-0000000Bs9O-0vQv;
-	Tue, 04 Nov 2025 13:18:14 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGGvM-0000000Bs8s-0HJo
+	id 1vGH00-0000000BsYV-2ka9;
+	Tue, 04 Nov 2025 13:23:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGGzy-0000000BsXb-1q9x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 13:18:13 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id BBB291F385;
-	Tue,  4 Nov 2025 13:18:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1762262288; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
-	b=L5dysWudkNHvMO8s+VocZO9X+LhiJuC7UpFXuPunkHcWh5j4qeCoTZ84d/t+IyCoPH6Izc
-	DLU00ITrr66QvfyxlRfhWWxIgXTYtcAd4OP6MGpki18mJDn4I1PC24NRdTs30DtL4Np9RV
-	QyhoPGjeYO0sqTo1smRlRO6XaTVv3xs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1762262288;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
-	b=mvUya3UAOBGNdkh0pyL2z2w4DAB01zqhlZ2+UuGwEEGaKjTt5xqBo1ZMStD54ykw6lktWV
-	lqx9sKIzjavVW0Cg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1762262287; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
-	b=Kj2AuuMIlrQ11caOjtJe09asAigbQTbCDqsmZcC1cSp6ryiSVTN4B57noXtZ6ktLNw8lZY
-	cIEQnE9Sw+2OA8bzHe8ROA3ItXDxgSRal+xVVPqRBqCgVJSxNqzaKStmYxTZfxSVbMd8lB
-	B9fCju7SEeNS7oc1ILTV2edW7nSAhCM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1762262287;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=8I2k12PqhaohH81SnpOZtIgku1siAzcIeNEK95fSU9s=;
-	b=Eju4QiKg0udlYdNC3N4wgdBVk0S5E8EM5uz5K1Nl3u6mooL3zIQbn8WLonDi/I0UG6t2Sq
-	J066O+qY9eCzR3Ag==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 600C5139A9;
-	Tue,  4 Nov 2025 13:18:07 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id I+wGFg/9CWmeBAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 04 Nov 2025 13:18:07 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: p.zabel@pengutronix.de,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	airlied@gmail.com,
-	simona@ffwll.ch
-Cc: dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH] drm/imx/ipuv3: Fix dumb-buffer allocation for non-RGB formats
-Date: Tue,  4 Nov 2025 14:14:56 +0100
-Message-ID: <20251104131803.180126-1-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.51.1
+	Tue, 04 Nov 2025 13:22:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B4EB1CE0;
+	Tue,  4 Nov 2025 05:22:47 -0800 (PST)
+Received: from [10.164.18.64] (unknown [10.164.18.64])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 225613F66E;
+	Tue,  4 Nov 2025 05:22:51 -0800 (PST)
+Message-ID: <9f55664b-c510-4565-943b-0bed2d43898d@arm.com>
+Date: Tue, 4 Nov 2025 18:52:49 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
+ __change_memory_common
+To: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
+ ryan.roberts@arm.com, rppt@kernel.org, shijie@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20251103061306.82034-1-dev.jain@arm.com>
+ <aQjHQt2rYL6av4qw@willie-the-truck>
+ <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
+ <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
+ <aQn4EwKar66UZ7rz@willie-the-truck>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <aQn4EwKar66UZ7rz@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	MIME_TRACE(0.00)[0:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid,qualcomm.com:email,linux.dev:email];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FREEMAIL_TO(0.00)[pengutronix.de,kernel.org,gmail.com,oss.qualcomm.com,linux.intel.com,ffwll.ch];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_051812_277175_C0C417DA 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20251104_052258_616249_EFFE9DB1 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,73 +71,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Align pitch to multiples of 8 pixels for bpp values that do not map
-to RGB formats. The call to drm_driver_color_mode_format() fails with
-DRM_INVALID_FORMAT in these cases. Fall back to manually computing
-the pitch alignment from which drm_mode_size_dumb() can compute the
-correct pitch.
 
-Fixes userspace that allocates dumb buffers for YUV formats, where
-bpp equals 12. A common example is the IGT kms_getfb test.
+On 04/11/25 6:26 pm, Will Deacon wrote:
+> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
+>> On 04/11/25 12:15 am, Yang Shi wrote:
+>>> On 11/3/25 7:16 AM, Will Deacon wrote:
+>>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
+>>>>> Post a166563e7ec3 ("arm64: mm: support large block mapping when
+>>>>> rodata=full"),
+>>>>> __change_memory_common has a real chance of failing due to split
+>>>>> failure.
+>>>>> Before that commit, this line was introduced in c55191e96caa,
+>>>>> still having
+>>>>> a chance of failing if it needs to allocate pagetable memory in
+>>>>> apply_to_page_range, although that has never been observed to be true.
+>>>>> In general, we should always propagate the return value to the caller.
+>>>>>
+>>>>> Cc: stable@vger.kernel.org
+>>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
+>>>>> areas to its linear alias as well")
+>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>>> ---
+>>>>> Based on Linux 6.18-rc4.
+>>>>>
+>>>>>    arch/arm64/mm/pageattr.c | 5 ++++-
+>>>>>    1 file changed, 4 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>>>>> index 5135f2d66958..b4ea86cd3a71 100644
+>>>>> --- a/arch/arm64/mm/pageattr.c
+>>>>> +++ b/arch/arm64/mm/pageattr.c
+>>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
+>>>>> long addr, int numpages,
+>>>>>        unsigned long size = PAGE_SIZE * numpages;
+>>>>>        unsigned long end = start + size;
+>>>>>        struct vm_struct *area;
+>>>>> +    int ret;
+>>>>>        int i;
+>>>>>          if (!PAGE_ALIGNED(addr)) {
+>>>>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned
+>>>>> long addr, int numpages,
+>>>>>        if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+>>>>>                    pgprot_val(clear_mask) == PTE_RDONLY)) {
+>>>>>            for (i = 0; i < area->nr_pages; i++) {
+>>>>> - __change_memory_common((u64)page_address(area->pages[i]),
+>>>>> +            ret =
+>>>>> __change_memory_common((u64)page_address(area->pages[i]),
+>>>>>                               PAGE_SIZE, set_mask, clear_mask);
+>>>>> +            if (ret)
+>>>>> +                return ret;
+>>>> Hmm, this means we can return failure half-way through the operation. Is
+>>>> that something callers are expecting to handle? If so, how can they tell
+>>>> how far we got?
+>>> IIUC the callers don't have to know whether it is half-way or not
+>>> because the callers will change the permission back (e.g. to RW) for the
+>>> whole range when freeing memory.
+>> Yes, it is the caller's responsibility to set VM_FLUSH_RESET_PERMS flag.
+>> Upon vfree(), it will change the direct map permissions back to RW.
+> Ok, but vfree() ends up using update_range_prot() to do that and if we
+> need to worry about that failing (as per your commit message), then
+> we're in trouble because the calls to set_area_direct_map() are unchecked.
+>
+> In other words, this patch is either not necessary or it is incomplete.
 
-Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Fixes: b1d0e470f881 ("drm/imx/ipuv3: Compute dumb-buffer sizes with drm_mode_size_dumb()")
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
----
-This patch is based on Dmitry's fix for msm. [1] Please test.
+I think we had concluded in the discussion of the linear map series that those
+calls will always succeed - I'll refresh my memory on that and get back to you later!
 
-There could later be a helper to contain these aligmentment calculations
-in a single place.
-
-[1] https://lore.kernel.org/dri-devel/20251103-drm-msm-fix-nv12-v2-1-75103b64576e@oss.qualcomm.com/
----
- drivers/gpu/drm/imx/ipuv3/imx-drm-core.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-index 465b5a6ad5bb..5116f33a5973 100644
---- a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-+++ b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-@@ -144,7 +144,6 @@ static int imx_drm_dumb_create(struct drm_file *file_priv,
- 			       struct drm_mode_create_dumb *args)
- {
- 	u32 fourcc;
--	const struct drm_format_info *info;
- 	u64 pitch_align;
- 	int ret;
- 
-@@ -156,12 +155,15 @@ static int imx_drm_dumb_create(struct drm_file *file_priv,
- 	 * the allocated buffer.
- 	 */
- 	fourcc = drm_driver_color_mode_format(drm, args->bpp);
--	if (fourcc == DRM_FORMAT_INVALID)
--		return -EINVAL;
--	info = drm_format_info(fourcc);
--	if (!info)
--		return -EINVAL;
--	pitch_align = drm_format_info_min_pitch(info, 0, SZ_8);
-+	if (fourcc != DRM_FORMAT_INVALID) {
-+		const struct drm_format_info *info = drm_format_info(fourcc);
-+
-+		if (!info)
-+			return -EINVAL;
-+		pitch_align = drm_format_info_min_pitch(info, 0, 8);
-+	} else {
-+		pitch_align = round_up(args->width, 8) * DIV_ROUND_UP(args->bpp, SZ_8);
-+	}
- 	if (!pitch_align || pitch_align > U32_MAX)
- 		return -EINVAL;
- 	ret = drm_mode_size_dumb(drm, args, pitch_align, 0);
--- 
-2.51.1
-
+>
+> Will
 
