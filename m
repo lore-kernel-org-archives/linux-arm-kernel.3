@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B10CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 04:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD9CCCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 04:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H7yiL8lrVrCfercd8VJZOnrUXZAUWNvskegvwzX0TS8=; b=1GgK+D/+C35/4dF8PJSHgHnwpv
-	r+jfJkSJVjlfFiIFTt/Cmyr3t1Tg6RHGw1QuOEgNBIuKnjmnX1EIQwoWGdwxMPv6O4znBoy3vBa7G
-	mtNoE/w193m2TgHduqf2/GMFqdT5e7WNyqRrJd+qrStWv7aLknjxc2CL1LoSNqTXg6sdewOzi8HY8
-	1BEjnfRI9j4Yj4YZcu6jPxqLu0HE9ZOR34ACTfe5wA4X+kh9w/5pGO3c01iuZ3DZEUwY4N5svMH91
-	GXvwg8AT2T5U4k8pAkSSg5ZW8DsOeXwg4S/M+mr87LHLM+uWaj+ifHQXTQlbfv6hHrcj07twhDBdD
-	5fo+AFfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KjZfwq7+FeixOqIUwI6hH008ql6p+JUrRsxo6FhEVWY=; b=qUTjoud/BLwe4LL8dAjq9h2+JT
+	5frn1/rDLpY8coh1gnWjymKWsce+H/F/Ou5qDyON6AzSu4vXLXmKnlGWiiIpXFtLjHKkG8qBsOcbL
+	0Z/nEFtRbkMucV6ImeJSdX6vaTPdw/IK/vxQ6ICYlJMZ+ULQQiRHiFltFHKLnSnt12zqo7tHsMeUg
+	aehIhKaywRUCZy4l8/BdfiNOvEkhuk3HA42TJbU27sEFh1IW5XG7F6AzMi7dqbYk5nLHd57OwYSqM
+	iSnZXYsqiCANHSXcIhCAUCoFaImKF/f4vDoUTNh4ISa58eGHmU9DcYdpEMxr2SaxweFcm5tRLq9Ct
+	S7CbeWzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG8EP-0000000B5hR-1x62;
-	Tue, 04 Nov 2025 04:01:17 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vG8IM-0000000B68O-3o0f;
+	Tue, 04 Nov 2025 04:05:22 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG8EN-0000000B5h2-0tsv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 04:01:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=H7yiL8lrVrCfercd8VJZOnrUXZAUWNvskegvwzX0TS8=; b=PG
-	BKiwpNTDxXNwoYGTDvFE3lrCCRZd1UYwXofw9p2eTl1WFLNSSB0kueGwtnx4PvWmvcXoW/D7rzGSj
-	qDSskFz/1KZAATFLTXQJib441VDLxzDE1khI9Awb7wadi72KgsXdA9XArEoUf+6JTK8VKfui8G9if
-	F1JOS4G5pPjeFDw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vG8E6-00Cqwu-4D; Tue, 04 Nov 2025 05:00:58 +0100
-Date: Tue, 4 Nov 2025 05:00:58 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Po-Yu Chuang <ratbert@faraday-tech.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, taoren@meta.com
-Subject: Re: [PATCH net-next v3 3/4] ARM: dts: aspeed: ast2600-evb: Configure
- RGMII delay for MAC
-Message-ID: <afdd366b-8bf0-40a4-ae02-dfc2ff79011f@lunn.ch>
-References: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
- <20251103-rgmii_delay_2600-v3-3-e2af2656f7d7@aspeedtech.com>
+	id 1vG8IK-0000000B654-0GxU;
+	Tue, 04 Nov 2025 04:05:21 +0000
+Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
+	by APP-05 (Coremail) with SMTP id zQCowAB3IO94ewlpspxhAQ--.25862S2;
+	Tue, 04 Nov 2025 12:05:14 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Haotian Zhang <vulab@iscas.ac.cn>
+Subject: [PATCH] clk: mediatek: mt8173-apmixed: Fix ioremap resource leak in remove function
+Date: Tue,  4 Nov 2025 12:04:31 +0800
+Message-ID: <20251104040431.1452-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251103-rgmii_delay_2600-v3-3-e2af2656f7d7@aspeedtech.com>
+X-CM-TRANSID: zQCowAB3IO94ewlpspxhAQ--.25862S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zr45WrW5JFW3XFyfuw48WFg_yoW8AF17pF
+	ykKFWakay8tw4Uur1vy3yvkF1Fva1Iqa45KFy7W3s3ZwnxGrZ2yF1rKayvva4xArWkKr1D
+	tr1UurWxCFW7AFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	tVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
+	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+	0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4U
+	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUU
+	UU=
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgsQA2kJG3SlGQABss
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_200115_436878_23B1809E 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20251103_200520_480873_FD1D12DF 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +81,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 03:39:18PM +0800, Jacky Chou wrote:
-> This change sets the rx-internal-delay-ps and tx-internal-delay-ps
-> properties to control the RGMII signal delay.
-> The phy-mode for MAC0–MAC3 is updated to "rgmii-id" to enable TX/RX
-> internal delay on the PHY and disable the corresponding delay
-> on the MAC.
-> 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
->  arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts | 28 +++++++++++++++++++++----
->  1 file changed, 24 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-> index de83c0eb1d6e..a65568e637bd 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-> @@ -121,44 +121,64 @@ ethphy3: ethernet-phy@0 {
->  };
->  
->  &mac0 {
-> +	compatible = "aspeed,ast2600-mac01", "aspeed,ast2600-mac", "faraday,ftgmac100";
+The driver uses of_iomap() to map I/O memory in probe function, but
+forgets to call iounmap() in the remove function, leading to a resource
+leak when the driver is unloaded.
 
-Is it really compatible to aspeed,ast2600-mac? If a driver binds to
-that, not aspeed,ast2600-mac01, doesn't that imply the bootloader
-delays are still in use, so phy-mode will be wrong?
+Replace of_iomap() with devm_of_iomap() to automatically manage the
+I/O memory mapping. Remove the now-unnecessary unmap_io label and
+iounmap() call from the error path.
 
-I think you should only list aspeed,ast2600-mac01. If somebody uses
-this DT blob on an old kernel, then you won't get an ethernet
-interface, rather than a not working ethernet interface, which is
-probably preferable.
+Fixes: 4c02c9af3cb9 ("clk: mediatek: mt8173: Break down clock drivers and allow module build")
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
 
-	Andrew
+diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+index 95385bb67d55..ae759ef51f03 100644
+--- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+@@ -146,15 +146,13 @@ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
+ 	struct clk_hw *hw;
+ 	int r;
+ 
+-	base = of_iomap(node, 0);
+-	if (!base)
+-		return -ENOMEM;
++	base = devm_of_iomap(&pdev->dev, node, 0, NULL);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
+ 
+ 	clk_data = mtk_alloc_clk_data(CLK_APMIXED_NR_CLK);
+-	if (IS_ERR_OR_NULL(clk_data)) {
+-		r = -ENOMEM;
+-		goto unmap_io;
+-	}
++	if (IS_ERR_OR_NULL(clk_data))
++		return -ENOMEM;
+ 
+ 	fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+ 	r = mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
+@@ -188,8 +186,6 @@ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
+ 				  ARRAY_SIZE(pllfhs), clk_data);
+ free_clk_data:
+ 	mtk_free_clk_data(clk_data);
+-unmap_io:
+-	iounmap(base);
+ 	return r;
+ }
+ 
+-- 
+2.50.1.windows.1
+
 
