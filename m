@@ -4,62 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1269CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE49CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GLU9jGk04ALbdYvIzbBaNS4eLjYOPWtqgp+eQ++uHwI=; b=WKiUOyajv1waJpl0j8N4UAjX1Z
-	XHdgpuDS5BkKASTNkUHhjq3osSS2F7W5KQf/DANFhbCM7cxlBWvFUf5iYwsPbYRulKMUlp7ai9QGP
-	8dv/JDtS2aHThiQ9nULIL+7r1CHH084FslsO40jvDfsbOQXQAae2MFRGxUo3/6YD7zz2vu+LnILFW
-	U4u4dbK/37D+juaAWfUdBmU3z/3yiw5O6g9rrkRPaxOBo5SSNGUo6zNTZNjwEXn5of9CoIHIgDiug
-	zZwHmAqjk3MjJdJXxP2wvZ7+lnij71WbUEJSO0ZtW2JW1YnJg5jlKQZu1mGwhdSc/cVGyJZ/drOgc
-	zoYCJMfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HBEyfODAKvgwzHmkCm17lPDKK7nQ8zv0WCO9yDZDp4E=; b=qX8YPlD1jbljqrRBh5bAhmWeUj
+	nAeBAHsroouXh3S8cpXsjXkNec302cf6As/e9AfYJDm3jSXKmVBbHlLq57mkkdtl0V0//eIJ2GI54
+	3GT96M9v/NeOeXh45vF8pHMjfjtmD6KmNN81L3YZnc+NloVQffZkzW9p4gfz8jlxvQZusGkHou1yt
+	7VaGNB/spG2DpGjuOHVxjZtl9iMhkr8rk7E4oqEtbMoH9Z65uVZTx9JOzTB6wBlR09GHj4+JCjt8q
+	wTyO8PZlVx2Le4B662aMJNzJoA8FfZ6nzKhU94/dqREoCUh9TQWyPr6HXIjXCRiR2rglW+Odiazed
+	9ZPryJdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLSF-0000000CKw8-217C;
-	Tue, 04 Nov 2025 18:08:27 +0000
-Received: from mta1.formilux.org ([51.159.59.229])
+	id 1vGLTq-0000000CLAq-44hK;
+	Tue, 04 Nov 2025 18:10:06 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLSB-0000000CKuj-2m0n
+	id 1vGLTn-0000000CL9k-47Oc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 18:08:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
-	t=1762279700; bh=GLU9jGk04ALbdYvIzbBaNS4eLjYOPWtqgp+eQ++uHwI=;
-	h=From:Message-ID:From;
-	b=DYtf5LfYLMoXKQNbouvRnclFjVzevW3Yod4XLAi7AHGNBXE2KWzAIoBMqQiBn8HSg
-	 uVYqbwuvhp3CvbJZ6Pjns6FwFrjbICPulSOH3phyC+vfoJkEHyXjVYpb7BifjbU9HZ
-	 yYjL6Y0jcOAclpY3LMugb1j4Y0Znu90mxoqkXgt4=
-Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
-	by mta1.formilux.org (Postfix) with ESMTP id 0673FC0954;
-	Tue, 04 Nov 2025 19:08:20 +0100 (CET)
-Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 5A4I8Ja1020678;
-	Tue, 4 Nov 2025 19:08:19 +0100
-Date: Tue, 4 Nov 2025 19:08:19 +0100
-From: Willy Tarreau <w@1wt.eu>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-        "Paul E. McKenney" <paulmck@kernel.org>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        linux-arm-kernel@lists.infradead.org, kernel-team@meta.com,
-        rmikey@meta.com
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <20251104180819.GB20579@1wt.eu>
-References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
- <aQUAR9MRxP6_qtEH@arm.com>
- <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
+	Tue, 04 Nov 2025 18:10:05 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-429bcddad32so3561134f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 10:10:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762279802; x=1762884602; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HBEyfODAKvgwzHmkCm17lPDKK7nQ8zv0WCO9yDZDp4E=;
+        b=bU8xVGwa8C2s+znKEyDchfTD9iQJX/O/nqfJjjUoph6atBx8l92u8HPQm6lbLEBrNU
+         6dRAuDmxv2DgFbGI7GxZKkp1TO+j/34wLvTACoAMtYWr2OMdh0xi3gcd4Ljqo0ScqKER
+         HwbnFfcgXcQd8pqUsmC+le8PyVOji8/wJmVPtcirAzZ84N+Ja73JxtreM4oER09PmxlC
+         IQS67Plo+E23gF7e+qNf1jeq+bNxhIL0IqSF/TtZ20nDKSLAyo+FtWkKbRB92d6FHCdX
+         62Myq7bp7PXAqMHMJPf5aWbx+mgGcu6ay+ZOFkAYDTPWrrSXex+cqERt0WQfztIpSlmK
+         NEVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762279802; x=1762884602;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HBEyfODAKvgwzHmkCm17lPDKK7nQ8zv0WCO9yDZDp4E=;
+        b=w6ZIt3+XzVnTCuN0pImiyTT7jkAO+knNQrKSF2y2Fg+LOmM9B3WTMwfBi5+SKG5KPd
+         6rSmc0J3+h4QMfKpKpA+fcpl0JFyRY1zAKJfw9sajG6PsXLZCZbL0tDTEZFiQk7qcVmO
+         s8OM6RQyi+PPveRRRJvJRz+kjoT6XATSLUjS7xdyvYGCo4va+uXiA/6fQ4bkck3U+wPW
+         ZKTfMIeTf2ldqUGD2QYBjuKwd+mb+ybc/zAXVUmqCe4nskbcWkIcfjXw2cGuCVmOZN8q
+         eoibzgNJ0AmYfcDVDf+8+UNMz2lNU/QGdtR48W4r1MSpSQy1uRFGk19/MUYWK3vjzuM5
+         6KUA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/vpsDa4ailoDStV8zHoWMBv710L105mOfv1XoDePP4a7JSsK0QXct2+m3v6sCIwyIydOcKVzJMNdR2OyU8pWO@lists.infradead.org
+X-Gm-Message-State: AOJu0YycJ5oJ8QjYBuSv7kAYCcN7LrYlkzXf6BhR2hUVrysZxKAfiCN8
+	edQeZ1oZP3uaqERuV2WrzWciofeRO8M20uvgkjpmAtMQkMS3DfcHVN38
+X-Gm-Gg: ASbGncssGmZPlDq/MY9c+dtFbNyxxyeYdtOgxWz7U1nGt16XN/vi09uvHYbpLrS48bo
+	Js4NgI4CUIaTy3JXCt1j5PsESKKz0Vb1DJZnmfzwXGdy0GoE5iZqqdUTot52FvuqvhTdLfRYIk2
+	P1vx8e5OccNIc1DI/OZ857AtkXfWpfYkqZReTErbFpdqEQ7fgJNnEQKtNQbIoRGROHjw4KcS1sE
+	pclbdGMZkPiJZZ9VG8nDG+8kOZF2XZy8sQxvnuM0BtYcMo4lVIwGqDPIrXkhzjhKFoRr+ZEIFVI
+	WkH18OusKTGB1z62flOv0jKOGft85WWCuPwTNNgcnWFXdkbsnIDuE+UB1GFktWLEf+Po6NqxVOc
+	PfLC2SwEMB3pedOU+NZ6z7cbnN9Fk0AJLdnsDIOvHATLf9oOj8JLCZXPUVMCZmzcQ/mJQ69xtRz
+	oAffFB6fH9YpPUc1S8Tg==
+X-Google-Smtp-Source: AGHT+IE+3VWITYfmpHgFCOUqnzMrVHgHtPMl6DRBEJeRwc9yMJmO7cxC+Ce40qfK3g3txnNqIhsCKA==
+X-Received: by 2002:a05:600c:6388:b0:458:a7fa:211d with SMTP id 5b1f17b1804b1-4775ce1874bmr2405065e9.29.1762279801598;
+        Tue, 04 Nov 2025 10:10:01 -0800 (PST)
+Received: from jernej-laptop ([178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477558c1a03sm24688685e9.2.2025.11.04.10.10.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Nov 2025 10:10:01 -0800 (PST)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: wens@csie.org
+Cc: mripard@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	samuel@sholland.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH v2 00/30] drm/sun4i: Refactor layer code for proper DE33 support
+Date: Tue,  4 Nov 2025 19:09:12 +0100
+Message-ID: <20251104180942.61538-1-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_100824_881126_6AD77FB0 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20251104_101004_051019_5F57D4E6 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,249 +105,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Breno,
+Current DE33 support in sun4i-drm driver is based on my PoC code. It was
+written with *a lot* of hacks, because it was never meant to be upstreamed.
+Fortunately, DT parts were never merged which give us a chance to do it
+right.
 
-On Tue, Nov 04, 2025 at 07:59:38AM -0800, Breno Leitao wrote:
-> I found that the LSE case (__percpu_add_case_64_lse) has a huge variation,
-> while LL/SC case is stable.
-> In some case, LSE function runs at the same latency as LL/SC function and
-> slightly faster on p50, but, something happen to the system and LSE operations
-> start to take way longer than LL/SC.
-> 
-> Here are some interesting output coming from the latency of the functions above>
-> 
-> 	CPU: 47 - Latency Percentiles:
-> 	====================
-> 	LL/SC:   p50: 5.69 ns      p95: 5.71 ns      p99: 5.80 ns
-> 	LSE  :   p50: 45.53 ns     p95: 54.06 ns     p99: 55.18 ns
-(...)
+This is first of three series with proper DE33 support for H616 SoC. It's
+the longest, since it prepares terrain for new drivers in remaining series.
+Point of this work is to completely decouple mixer and layer code. Till
+DE3, mixer and layers were intimately connected. However, from DE33
+onwards, this is no longer the case. DE33 and upcoming DE35 planes are
+shared comodity between all mixers and can be assigned in any way driver
+(or user) prefers. This requires planes code to be completely independent
+from mixer. The only exception is mixer clock frequency which is used in
+VI scaler, but in that case mixer pointer is obtained through currently
+assigned CRTC.
 
-Very interesting. I've run them here on a 80-core Ampere Altra made
-of Neoverse-N1 (armv8.2) and am getting very consistently better timings
-with LSE than LL/SC:
+Second series will introduce separate driver for DE33 planes and adjust
+mixer code to new DT bindings. Third series will introduce TCON(-TOP)
+adjustments, HDMI PHY and finally, DT updates for several boards.
 
-   CPU: 0 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.32 ns     p95: 7.32 ns    p99: 7.33 ns
-  LSE  :   p50: 5.01 ns     p95: 5.01 ns    p99: 5.03 ns
-  
-   CPU: 1 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.32 ns     p95: 7.32 ns    p99: 7.33 ns
-  LSE  :   p50: 5.01 ns     p95: 5.01 ns    p99: 5.03 ns
-  
-   CPU: 2 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.32 ns     p95: 7.32 ns    p99: 7.33 ns
-  LSE  :   p50: 5.01 ns     p95: 5.01 ns    p99: 5.02 ns
-  (...)
+Current WIP code for remaining two series can be found at [1]. Code has
+been tested on Tanix TX6, which has DE3, for any regressions and on Myir
+MYD-YT507H board [2], which has DE33, with HDMI and LVDS panel outputs
+running simultaneously and independently. This confirms that plane code
+is properly decoupled.
 
-They're *all* like this, between 7.32 and 7.36 for LL/SC p99,
-and 5.01 to 5.03 for LSE p99.
+Please review.
 
-However, on a CIX-P1 (armv9.2, 8xA720 + 4xA520), it's what you've
-observed, i.e. a lot of variations that do not even depend on big
-vs little cores:
+Best regards,
+Jernej
 
-   CPU: 0 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.56 ns     p95: 7.13 ns    p99: 8.81 ns
-  LSE  :   p50: 45.79 ns    p95: 45.80 ns   p99: 45.86 ns
-  
-   CPU: 1 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.38 ns     p95: 6.39 ns    p99: 6.39 ns
-  LSE  :   p50: 67.72 ns    p95: 67.78 ns   p99: 67.80 ns
-  
-   CPU: 2 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 5.60 ns
-  LSE  :   p50: 59.19 ns    p95: 59.23 ns   p99: 59.25 ns
-  (...)
+[1] https://github.com/jernejsk/linux-1/commits/sun4i-drm-refactor/
+[2] https://github.com/jernejsk/linux-1/commits/okt507c-v3
 
-I tried the same on a RK3588 which has 4 Cortex A55 and 4 Cortex A76
-(the latter being very close to Neoverse-N1), and the A76 (the 4 latest
-ones) show the same pattern as the Altra above and are consistently much
-better than the LL/SC one:
+Changes from v1:
+- collected tags
+- updated commit messages
+- added missing kerneldoc description
+- moved vi_scaler_num position
 
-   CPU: 0 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 9.39 ns     p95: 9.40 ns    p99: 9.41 ns
-  LSE  :   p50: 4.43 ns     p95: 28.60 ns   p99: 30.29 ns
-  
-   CPU: 1 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 9.39 ns     p95: 9.40 ns    p99: 9.59 ns
-  LSE  :   p50: 4.42 ns     p95: 27.51 ns   p99: 29.46 ns
-  
-   CPU: 2 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 9.40 ns     p95: 9.40 ns    p99: 9.40 ns
-  LSE  :   p50: 4.42 ns     p95: 27.00 ns   p99: 29.60 ns
-  
-   CPU: 3 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 9.39 ns     p95: 9.40 ns    p99: 10.43 ns
-  LSE  :   p50: 8.02 ns     p95: 29.72 ns   p99: 31.05 ns
-  
-   CPU: 4 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.85 ns     p95: 8.86 ns    p99: 8.86 ns
-  LSE  :   p50: 5.75 ns     p95: 5.75 ns    p99: 5.75 ns
-  
-   CPU: 5 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.85 ns     p95: 8.85 ns    p99: 9.28 ns
-  LSE  :   p50: 5.75 ns     p95: 5.75 ns    p99: 8.29 ns
-  
-   CPU: 6 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.79 ns     p95: 8.80 ns    p99: 8.80 ns
-  LSE  :   p50: 5.71 ns     p95: 5.71 ns    p99: 5.71 ns
-  
-   CPU: 7 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.80 ns     p95: 8.80 ns    p99: 9.30 ns
-  LSE  :   p50: 5.71 ns     p95: 5.72 ns    p99: 5.72 ns
+Link: https://lore.kernel.org/linux-sunxi/64c0a4e1-15a5-4f41-9fba-852b0e83fd6f@app.fastmail.com/T/#t
 
-Finally, on a Qualcomm QC6490 with 4xA55 + 4xA78, I'm getting something
-between the two (and the governor is in performance mode):
+Jernej Skrabec (30):
+  drm/sun4i: mixer: Fix up DE33 channel macros
+  drm/sun4i: mixer: Remove ccsc cfg for >= DE3
+  drm/sun4i: de2: Initialize layer fields earlier
+  drm/sun4i: ui_layer: Move check from update to check callback
+  drm/sun4i: vi_layer: Move check from update to check callback
+  drm/sun4i: layers: Make atomic commit functions void
+  drm/sun4i: Move blender config from layers to mixer
+  drm/sun4i: ui layer: Write attributes in one go
+  drm/sun4i: vi layer: Write attributes in one go
+  drm/sun4i: mixer: Move layer enabling to atomic_update
+  drm/sun4i: de2/de3: Simplify CSC config interface
+  drm/sun4i: csc: Simplify arguments with taking plane state
+  drm/sun4i: de2/de3: Move plane type determination to mixer
+  drm/sun4i: ui_layer: Change index meaning
+  drm/sun4i: layer: move num of planes calc out of layer code
+  drm/sun4i: ui_layer: use layer struct instead of multiple args
+  drm/sun4i: vi_layer: use layer struct instead of multiple args
+  drm/sun4i: ui_scaler: use layer instead of mixer for args
+  drm/sun4i: vi_scaler: use layer instead of mixer for args
+  drm/sun4i: layers: Make regmap for layers configurable
+  drm/sun4i: csc: use layer arg instead of mixer
+  drm/sun4i: layers: add physical index arg
+  drm/sun4i: vi_scaler: Update DE33 base calculation
+  drm/sun4i: mixer: Convert heuristics to quirk
+  drm/sun4i: ui_scaler: drop sanity checks
+  drm/sun4i: mixer: Add quirk for number of VI scalers
+  drm/sun4i: mixer: split out layer config
+  drm/sun4i: layer: replace mixer with layer struct
+  drm/sun4i: vi_scaler: Find mixer from crtc
+  drm/sun4i: Nuke mixer pointer from layer code
 
- ./percpu_bench 
-ARM64 Per-CPU Atomic Add Benchmark
-===================================
-Running percentile measurements (100 iterations)...
-Detected 8 CPUs
+ drivers/gpu/drm/sun4i/sun8i_csc.c       | 113 ++++++-----
+ drivers/gpu/drm/sun4i/sun8i_csc.h       |  16 +-
+ drivers/gpu/drm/sun4i/sun8i_mixer.c     | 217 +++++++++++++--------
+ drivers/gpu/drm/sun4i/sun8i_mixer.h     |  65 ++++---
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c  | 183 +++++++-----------
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.h  |   7 +-
+ drivers/gpu/drm/sun4i/sun8i_ui_scaler.c |  44 ++---
+ drivers/gpu/drm/sun4i/sun8i_ui_scaler.h |   4 +-
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c  | 244 +++++++++---------------
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.h  |   7 +-
+ drivers/gpu/drm/sun4i/sun8i_vi_scaler.c |  51 ++---
+ drivers/gpu/drm/sun4i/sun8i_vi_scaler.h |   6 +-
+ 12 files changed, 475 insertions(+), 482 deletions(-)
 
-   CPU: 0 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.23 ns     p95: 8.24 ns    p99: 8.28 ns
-  LSE  :   p50: 4.63 ns     p95: 4.64 ns    p99: 19.48 ns
-  
-   CPU: 1 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.23 ns     p95: 8.24 ns    p99: 8.26 ns
-  LSE  :   p50: 4.63 ns     p95: 4.64 ns    p99: 16.30 ns
-  
-   CPU: 2 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.23 ns     p95: 8.25 ns    p99: 8.25 ns
-  LSE  :   p50: 4.63 ns     p95: 4.64 ns    p99: 4.65 ns
-  
-   CPU: 3 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 8.23 ns     p95: 8.25 ns    p99: 8.36 ns
-  LSE  :   p50: 4.63 ns     p95: 19.01 ns   p99: 32.15 ns
-  
-   CPU: 4 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.27 ns     p95: 6.28 ns    p99: 6.29 ns
-  LSE  :   p50: 5.44 ns     p95: 5.44 ns    p99: 5.44 ns
-  
-   CPU: 5 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.27 ns     p95: 6.28 ns    p99: 6.29 ns
-  LSE  :   p50: 5.44 ns     p95: 5.44 ns    p99: 5.44 ns
-  
-   CPU: 6 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.27 ns     p95: 6.28 ns    p99: 6.28 ns
-  LSE  :   p50: 5.44 ns     p95: 5.44 ns    p99: 5.45 ns
-  
-   CPU: 7 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 5.58 ns
-  LSE  :   p50: 4.82 ns     p95: 4.82 ns    p99: 4.83 ns
+-- 
+2.51.2
 
-So it seems at first glance that LL/SC is generally slower but can be
-more consistent on modern machines, that LSE is stable on older machines
-and can be stable sometimes even on some modern machines.
-
-@Catalin, I *tried* to do the ldadd test but I wasn't sure what to put in
-the Xt register (to be honest I've never understood Arm's docs regarding
-instructions, even the pseudo language is super cryptic to me), and I came
-up with this:
-
-        asm volatile(
-                /* LSE atomics */
-                "    ldadd    %[val], %[out], %[ptr]\n"
-                : [ptr] "+Q"(*(u64 *)ptr), [out] "+r" (val)
-                : [val] "r"((u64)(val))
-                : "memory");
-
-which assembles like this:
-
- ab8:   f8200040        ldadd   x0, x0, [x2]
-
-It now gives me much better LSE performance on the ARMv9:
-
-   CPU: 0 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.56 ns     p95: 7.32 ns    p99: 8.72 ns
-  LSE  :   p50: 2.76 ns     p95: 2.76 ns    p99: 2.77 ns
-  
-   CPU: 1 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.38 ns     p95: 6.39 ns    p99: 6.39 ns
-  LSE  :   p50: 5.09 ns     p95: 5.11 ns    p99: 5.11 ns
-  
-   CPU: 2 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 5.56 ns     p95: 5.58 ns    p99: 9.07 ns
-  LSE  :   p50: 4.45 ns     p95: 4.46 ns    p99: 4.46 ns
-  
-   CPU: 3 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 7.42 ns
-  LSE  :   p50: 4.45 ns     p95: 4.46 ns    p99: 4.46 ns
-  
-   CPU: 4 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 5.56 ns     p95: 5.57 ns    p99: 5.60 ns
-  LSE  :   p50: 4.45 ns     p95: 4.46 ns    p99: 4.47 ns
-  
-   CPU: 5 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.40 ns
-  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
-  
-   CPU: 6 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.42 ns
-  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
-  
-   CPU: 7 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.40 ns
-  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
-  
-   CPU: 8 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.40 ns     p95: 7.40 ns    p99: 7.40 ns
-  LSE  :   p50: 3.08 ns     p95: 3.08 ns    p99: 3.08 ns
-  
-   CPU: 9 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.05 ns     p95: 7.06 ns    p99: 7.07 ns
-  LSE  :   p50: 2.96 ns     p95: 2.97 ns    p99: 2.97 ns
-  
-   CPU: 10 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 7.05 ns     p95: 7.05 ns    p99: 7.06 ns
-  LSE  :   p50: 2.96 ns     p95: 2.96 ns    p99: 2.97 ns
-  
-   CPU: 11 - Latency Percentiles:
-  ====================
-  LL/SC:   p50: 6.56 ns     p95: 6.56 ns    p99: 6.57 ns
-  LSE  :   p50: 2.76 ns     p95: 2.76 ns    p99: 2.76 ns
-
-(cores 0,5-11 are A720, cores 1-4 are A520). I'd just like a
-confirmation that my change is correct and that I'm not just doing
-something ignored that tries to add zero :-/
-
-If that's OK, then it's indeed way better!
-
-Willy
-
-PS: thanks Breno for sharing your test code, that's super useful!
 
