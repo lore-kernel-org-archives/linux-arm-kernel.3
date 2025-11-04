@@ -4,57 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8836BCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1566CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JP58G636U6B/N0cRqF4Ram5dNdEoiyDnL80+1fpgwkM=; b=F6IFYZ3s5gk8uc7Je6hJGjsuSC
-	Vmm9kGtkjKBh2YovWNdLbt2XtF3dyaNDRBU7uczLxOQlj0MvF2fZ7HbeFja8EHh/MkovMuPeCzaAg
-	sh1V4GX0R8mKIMcuzqB9fMFL1g/Q+fi2Cyf3LZblV8CmuzyjgoCnMtx4W3KTAxZEHiRCP0YsN7CAr
-	LwJ4YzD7PN4hpZg+XiGBz4o71PHtwTqR7t6uzYBUe4wLgFKWttY5WidxaQusq/xSKoREYR9Myh821
-	j3Iia0cftXWaxL9I4qRYq69djXgo3I0XLY2PWX3IB1Z62WXXMhtQQ9RWv2XleEqknAI/V/ueJ7/Wr
-	wfjVq9SQ==;
+	bh=R2k3S0JM3GjzlqSiHtx7uGU4oJqackuOaOdMcXWCQD4=; b=N0tWWmuBbt7kKTVWbHeDNYNxaK
+	5Ctwb4+uH95k/Tf+v09l8Q/o/ve+/gUAzqBQWADe9Zie6M+wC5UUp3j3/b99qkb0SjXKAON3/TwBG
+	fbKANFMECMsi7W0HiWx4Vyt3IqZkBMJ+qzTLHCkipjf/mHI6MEKv0lV+tSFx8nC8BSQteQZ7KUBZU
+	IZCu9J/t6RdSGNS1pC4leGKDCEDeSAL0bZHXa/wJfWA5xT5dROK2sUQigHASi/uLcKvDfthnOUcGm
+	uEFit/p9xE3BSS8B6ZdDZgApOJyLH3VA5kIcy/eDXJmOIZ2CByVo1Rk994cicD4B5gD9qTAezNp2B
+	DQWJDa9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCRp-0000000BQe8-0goH;
-	Tue, 04 Nov 2025 08:31:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCRh-0000000BQd2-2pRm
+	id 1vGCV5-0000000BR5h-41Yq;
+	Tue, 04 Nov 2025 08:34:47 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGCV3-0000000BR4I-0GeN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 08:31:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 921441CE0;
-	Tue,  4 Nov 2025 00:31:08 -0800 (PST)
-Received: from [10.57.86.251] (unknown [10.57.86.251])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E0EB3F694;
-	Tue,  4 Nov 2025 00:31:14 -0800 (PST)
-Message-ID: <26c8aa23-068c-44e3-b899-f77bc18954b4@arm.com>
-Date: Tue, 4 Nov 2025 08:31:11 +0000
+	Tue, 04 Nov 2025 08:34:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 33E361A184C;
+	Tue,  4 Nov 2025 08:34:43 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 046FE606EF;
+	Tue,  4 Nov 2025 08:34:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 94FB810B50919;
+	Tue,  4 Nov 2025 09:34:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762245281; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=R2k3S0JM3GjzlqSiHtx7uGU4oJqackuOaOdMcXWCQD4=;
+	b=DCd+FqUxRxIK4KCVyBl2bY1jDIpBnI7OcnY2/p/8CRdl0Idsdm5miT0nvhZL9+PvxW/5g4
+	uhT2R3FGkTAnueao/HshktnCuxoAsYmnJz/QIr9rsKpKRWHbD/9lwGb3brlyQyb7aNQJSt
+	6YMA05A4UmvBNktmLqQJKBPdxwrZrGQRtExXpstbIvUBv96Huj5Myjkdm3+opAabia8Uf7
+	q6GlH55zcK9qoVuUD50tEindxjboWWp7lMVIRDUeZrHEX3xj2vL8O0eLvOCV/rqiffM6KU
+	jPOeZdZ6P2OK58ZUes2loyO+XbaQ4HDYIsO8PfB7/dVQd0zJE+R1XEGXcKBQJw==
+Message-ID: <db01f926-d5bb-4317-beac-e6dcc0025a80@bootlin.com>
+Date: Tue, 4 Nov 2025 09:34:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping()
- when in atomic context
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, yang@os.amperecomputing.com, david@redhat.com,
- ardb@kernel.org, dev.jain@arm.com, scott@os.amperecomputing.com,
- cl@gentwo.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Guenter Roeck <groeck@google.com>
-References: <20251103125738.3073566-1-ryan.roberts@arm.com>
- <aQjMUhspJrRQn5Ew@willie-the-truck>
- <3611cfeb-53d5-4db5-95a1-1d095edfc3c9@arm.com>
-In-Reply-To: <3611cfeb-53d5-4db5-95a1-1d095edfc3c9@arm.com>
+Subject: Re: [PATCH net-next 04/11] net: stmmac: add stmmac_get_phy_intf_sel()
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+ Jakub Kicinski <kuba@kernel.org>, Jan Petrous <jan.petrous@oss.nxp.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, s32@nxp.com,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
+References: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
+ <E1vFt4c-0000000Choe-3SII@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <E1vFt4c-0000000Choe-3SII@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_003119_847023_B9637791 
-X-CRM114-Status: GOOD (  48.35  )
+X-CRM114-CacheID: sfid-20251104_003445_242392_2105CB0F 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,319 +87,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 16:28, Ryan Roberts wrote:
-> Thanks for the fast review!
-> 
-> 
-> On 03/11/2025 15:37, Will Deacon wrote:
->> On Mon, Nov 03, 2025 at 12:57:37PM +0000, Ryan Roberts wrote:
->>> It has been reported that split_kernel_leaf_mapping() is trying to sleep
->>> in non-sleepable context. It does this when acquiring the
->>> pgtable_split_lock mutex, when either CONFIG_DEBUG_PAGEALLOC or
->>> CONFIG_KFENCE are enabled, which change linear map permissions within
->>> softirq context during memory allocation and/or freeing. All other paths
->>> into this function are called from sleepable context and so are safe.
->>>
->>> But it turns out that the memory for which these 2 features may attempt
->>> to modify the permissions is always mapped by pte, so there is no need
->>> to attempt to split the mapping. So let's exit early in these cases and
->>> avoid attempting to take the mutex.
->>>
->>> There is one wrinkle to this approach; late-initialized kfence allocates
->>> it's pool from the buddy which may be block mapped. So we must hook that
->>> allocation and convert it to pte-mappings up front. Previously this was
->>> done as a side-effect of kfence protecting all the individual pages in
->>> its pool at init-time, but this no longer works due to the added early
->>> exit path in split_kernel_leaf_mapping().
->>>
->>> So instead, do this via the existing arch_kfence_init_pool() arch hook,
->>> and reuse the existing linear_map_split_to_ptes() infrastructure. This
->>> will now also be more efficient as a result.
->>>
->>> Closes: https://lore.kernel.org/all/f24b9032-0ec9-47b1-8b95-c0eeac7a31c5@roeck-us.net/
->>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
->>> Tested-by: Guenter Roeck <groeck@google.com>
->>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->>> ---
->>>
->>> Hi All,
->>>
->>> This is a fuller fix than the suggestion I sent yesterday, and works correctly
->>> with late-init kfence (thanks to Yang Shi for pointing that out).
->>>
->>> I've verified this on AmpereOne with CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE
->>> individually, and I've also forced it to take the linear_map_split_to_ptes() to
->>> verify that I haven't broken it during the refactoring.
->>>
->>> I've kept Guenter's T-b since the early-init kfence path that he was testing is
->>> unchanged.
->>>
->>> Assuming nobody spots any issues, I'fd like to get it into the next round of
->>> arm64 bug fixes for this cycle.
->>>
->>> Thanks,
->>> Ryan
->>>
->>>
->>>  arch/arm64/include/asm/kfence.h |  4 +-
->>>  arch/arm64/mm/mmu.c             | 92 +++++++++++++++++++++++----------
->>>  2 files changed, 68 insertions(+), 28 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
->>> index a81937fae9f6..4a921e06d750 100644
->>> --- a/arch/arm64/include/asm/kfence.h
->>> +++ b/arch/arm64/include/asm/kfence.h
->>> @@ -10,8 +10,6 @@
->>>
->>>  #include <asm/set_memory.h>
->>>
->>> -static inline bool arch_kfence_init_pool(void) { return true; }
->>> -
->>>  static inline bool kfence_protect_page(unsigned long addr, bool protect)
->>>  {
->>>  	set_memory_valid(addr, 1, !protect);
->>> @@ -25,8 +23,10 @@ static inline bool arm64_kfence_can_set_direct_map(void)
->>>  {
->>>  	return !kfence_early_init;
->>>  }
->>> +bool arch_kfence_init_pool(void);
->>>  #else /* CONFIG_KFENCE */
->>>  static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
->>> +static inline bool arch_kfence_init_pool(void) { return false; }
->>
->> Why do we need this for the !KFENCE case?
-> 
-> We don't, my bad. I'll remove.
-> 
->>
->>>  #endif /* CONFIG_KFENCE */
->>>
->>>  #endif /* __ASM_KFENCE_H */
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index b8d37eb037fc..0385e9b17ab0 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -708,6 +708,16 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
->>>  	return ret;
->>>  }
->>>
->>> +static inline bool force_pte_mapping(void)
->>> +{
->>> +	bool bbml2 = system_capabilities_finalized() ?
->>> +		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
->>> +
->>> +	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
->>> +			   is_realm_world())) ||
->>> +		debug_pagealloc_enabled();
->>> +}
->>> +
->>>  static DEFINE_MUTEX(pgtable_split_lock);
->>>
->>>  int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>>  	if (!system_supports_bbml2_noabort())
->>>  		return 0;
->>>
->>> +	/*
->>> +	 * If the region is within a pte-mapped area, there is no need to try to
->>> +	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
->>> +	 * change permissions from softirq context so for those cases (which are
->>> +	 * always pte-mapped), we must not go any further because taking the
->>> +	 * mutex below may sleep.
->>> +	 */
->>> +	if (force_pte_mapping() || is_kfence_address((void *)start))
->>> +		return 0;
->>> +
->>>  	/*
->>>  	 * Ensure start and end are at least page-aligned since this is the
->>>  	 * finest granularity we can split to.
->>> @@ -758,30 +778,30 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>>  	return ret;
->>>  }
->>>
->>> -static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->>> -					  unsigned long next,
->>> -					  struct mm_walk *walk)
->>> +static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->>> +				   unsigned long next, struct mm_walk *walk)
->>>  {
->>> +	gfp_t gfp = *(gfp_t *)walk->private;
->>>  	pud_t pud = pudp_get(pudp);
->>>  	int ret = 0;
->>>
->>>  	if (pud_leaf(pud))
->>> -		ret = split_pud(pudp, pud, GFP_ATOMIC, false);
->>> +		ret = split_pud(pudp, pud, gfp, false);
->>>
->>>  	return ret;
->>>  }
->>>
->>> -static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->>> -					  unsigned long next,
->>> -					  struct mm_walk *walk)
->>> +static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->>> +				   unsigned long next, struct mm_walk *walk)
->>>  {
->>> +	gfp_t gfp = *(gfp_t *)walk->private;
->>>  	pmd_t pmd = pmdp_get(pmdp);
->>>  	int ret = 0;
->>>
->>>  	if (pmd_leaf(pmd)) {
->>>  		if (pmd_cont(pmd))
->>>  			split_contpmd(pmdp);
->>> -		ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
->>> +		ret = split_pmd(pmdp, pmd, gfp, false);
->>>
->>>  		/*
->>>  		 * We have split the pmd directly to ptes so there is no need to
->>> @@ -793,9 +813,8 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->>>  	return ret;
->>>  }
->>>
->>> -static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
->>> -					  unsigned long next,
->>> -					  struct mm_walk *walk)
->>> +static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
->>> +				   unsigned long next, struct mm_walk *walk)
->>>  {
->>>  	pte_t pte = __ptep_get(ptep);
->>>
->>> @@ -805,12 +824,24 @@ static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
->>>  	return 0;
->>>  }
->>>
->>> -static const struct mm_walk_ops split_to_ptes_ops __initconst = {
->>> +static const struct mm_walk_ops split_to_ptes_ops = {
->>>  	.pud_entry	= split_to_ptes_pud_entry,
->>>  	.pmd_entry	= split_to_ptes_pmd_entry,
->>>  	.pte_entry	= split_to_ptes_pte_entry,
->>>  };
->>>
->>> +static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp)
->>> +{
->>> +	int ret;
->>> +
->>> +	arch_enter_lazy_mmu_mode();
->>> +	ret = walk_kernel_page_table_range_lockless(start, end,
->>> +					&split_to_ptes_ops, NULL, &gfp);
->>> +	arch_leave_lazy_mmu_mode();
->>
->> Why are you entering/leaving lazy mode now? linear_map_split_to_ptes()
->> calls flush_tlb_kernel_range() right after this so now it looks like
->> we have more barriers than we need there.
-> 
-> Without the lazy mmu block, every write to every pte (or pmd/pud) will cause a
-> dsb and isb to be emitted. With the lazy mmu block, we only emit a single
-> dsb/isb at the end of the block.
-> 
-> linear_map_split_to_ptes() didn't previously have a lazy mmu block; that was an
-> oversight, I believe. So when refactoring I thought it made sense to make it
-> common for both cases.
-> 
-> Yes, the flush_tlb_kernel_range() also has the barriers, so the lazy mmu mode is
-> reducing from a gazillion barriers to 2. We could further optimize from 2 to 1,
-> but I doubt the performance improvement will be measurable.
-> 
-> Perhaps I've misunderstood your point...?
+Hi Russell,
 
-Having thought about this, I just wanted to add a few details; if KFENCE is
-enabled and can be used to allocate a page (actually I think it is currently
-only used for slab allocations), then allocation of a new page table page (which
-can be triggered while splitting the mappings to ptes) may get hooked by KFENCE
-and will cause a page unprotection request, which will cause us to enter a
-nested lazy mmu block and will cause a call into split_kernel_leaf_mapping().
-
-The nested lazy mmu block is safe but non-optimal since we will emit the
-barriers when we exit the nested block and will consider ourself not in lazy mmu
-mode for the remainder of the outer block; so we will emit more barriers than
-necessary there. That's an existing problem that Kevin has a series to address.
-
-Calling split_kernel_leaf_mapping() is safe since it will exit early since the
-ptp memory whose permissions are being changed must be in a region that is
-already pte-mapped (i.e. the KFENCE pool). So it won't attempt to grab the mutex
-and there will never be any deadlock. This is a special (slightly simpler) case
-of the circular issue that Kevin is trying to solve for kpkeys.
-
-But as I say - as far as I can tell, KFENCE will never be used for a page
-allocation so this is theoretical anyway. You could construct a similar argument
-with CONFIG_DEBUG_PAGEALLOC, but in that case force_pte_mapping() would be true
-and the whole linear map would be mapped by pte from the start and we would
-never be trying to split the mappings in the first place.
-
-I'm babbling, but the TL;DR is that I believe this is all safe and optimal in
-practice.
-
+On 03/11/2025 12:50, Russell King (Oracle) wrote:
+> Provide a function to translate the PHY interface mode to the
+> phy_intf_sel pin configuration for dwmac1000 and dwmac4 cores that
+> support multiple interfaces. We currently handle MII, GMII, RGMII,
+> SGMII, RMII and REVMII, but not TBI, RTBI nor SMII as drivers do not
+> appear to use these three and the driver doesn't currently support
+> these.
 > 
->>
->>> +
->>> +	return ret;
->>> +}
->>> +
->>>  static bool linear_map_requires_bbml2 __initdata;
->>>
->>>  u32 idmap_kpti_bbml2_flag;
->>> @@ -847,11 +878,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
->>>  		 * PTE. The kernel alias remains static throughout runtime so
->>>  		 * can continue to be safely mapped with large mappings.
->>>  		 */
->>> -		ret = walk_kernel_page_table_range_lockless(lstart, kstart,
->>> -						&split_to_ptes_ops, NULL, NULL);
->>> +		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
->>>  		if (!ret)
->>> -			ret = walk_kernel_page_table_range_lockless(kend, lend,
->>> -						&split_to_ptes_ops, NULL, NULL);
->>> +			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
->>>  		if (ret)
->>>  			panic("Failed to split linear map\n");
->>>  		flush_tlb_kernel_range(lstart, lend);
->>> @@ -1002,6 +1031,27 @@ static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
->>>  	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
->>>  	__kfence_pool = phys_to_virt(kfence_pool);
->>>  }
->>> +
->>> +bool arch_kfence_init_pool(void)
->>> +{
->>> +	unsigned long start = (unsigned long)__kfence_pool;
->>> +	unsigned long end = start + KFENCE_POOL_SIZE;
->>> +	int ret;
->>> +
->>> +	/* Exit early if we know the linear map is already pte-mapped. */
->>> +	if (!system_supports_bbml2_noabort() || force_pte_mapping())
->>> +		return true;
->>> +
->>> +	/* Kfence pool is already pte-mapped for the early init case. */
->>> +	if (kfence_early_init)
->>> +		return true;
->>> +
->>> +	mutex_lock(&pgtable_split_lock);
->>> +	ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
->>> +	mutex_unlock(&pgtable_split_lock);
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-I think it's worth adding a comment here to say that TLB invalidation is not
-required here since we know that bbml2 is supported. So while we have split the
-pgtables, the TLB may still contain the larger mappings, but they will be
-naturally evicted over time, and if/when the permissions are changed for smaller
-regions those small regions will be invalidated which will cause any
-intersecting large TLB entries to be invalidated.
+First, thanks for this work !
 
-I'll add for the next version.
+[...]
 
-Thanks,
-Ryan
+> +int stmmac_get_phy_intf_sel(phy_interface_t interface)
+> +{
+> +	int phy_intf_sel = -EINVAL;
+> +
+> +	if (interface == PHY_INTERFACE_MODE_MII ||
+> +	    interface == PHY_INTERFACE_MODE_GMII)
+> +		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
+> +	else if (phy_interface_mode_is_rgmii(interface))
+> +		phy_intf_sel = PHY_INTF_SEL_RGMII;
+> +	else if (interface == PHY_INTERFACE_MODE_SGMII)
+> +		phy_intf_sel = PHY_INTF_SEL_SGMII;
+> +	else if (interface == PHY_INTERFACE_MODE_RMII)
+> +		phy_intf_sel = PHY_INTF_SEL_RMII;
+> +	else if (interface == PHY_INTERFACE_MODE_REVMII)
+> +		phy_intf_sel = PHY_INTF_SEL_REVMII;
+> +
+> +	return phy_intf_sel;
+> +}
+> +EXPORT_SYMBOL_GPL(stmmac_get_phy_intf_sel);
 
+Nothng wrong with your code, this is out of curiosity.
 
->>> +
->>> +	return ret ? false : true;
->>
->> return !ret
-> 
-> Yes good point - will fix in the next spin.
-> 
-> Thanks,
-> Ryan
-> 
->>
->> Will
-> 
+I'm wondering how we are going to support cases like socfpga (and
+probably some other) where the PHY_INTF_SEL_xxx doesn't directly
+translate to the phy_interface, i.e.  when you have a PCS or other
+IP that serialises the MAC interface ?
 
+for socfpga for example, we need to set the PHY_INTF_SEL to GMII_MII
+when we want to use SGMII / 1000BaseX, but we do set it to RGMII when
+we need to output RGMII.
+
+Do you have a plan in mind for that ? (maybe a .get_phy_intf_sel() ops ?)
+
+Maxime
 
