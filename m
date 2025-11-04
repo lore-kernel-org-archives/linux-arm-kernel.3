@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E48C9CCFA0C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BBACCFA0C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2jJP2ZwoptvTTV+epGbpz67UiJ4YNK1Xzp/wtwTt6EY=; b=dTkJ1gztrPk4Q4PzTybo08LJ07
-	oF8l8FCgvtMftY+k62edkLbRyj790mDiQlqPnETQ92RR54QsVof4CSJXT3VAqNxrEqvAQHn+VE/LA
-	Yj5Jc2qxvuG++qs7MqpJE+4iSQLhBmGklVtcRvjwbkTvTcTjFtnclF2/IEpKPlmjG+MreV+SEIqpn
-	alhCghO5A2ex4hHu1VgaTqLs4UwIWkqQUSDqbjjTGfhQbDKplz9iH9SQmcMPCoS1H93c3upygjUJU
-	svhNLVntZFj1TQ6LD3kctnC1iz0jAljQxRAQhNeI1akbaep1MsgFow/3nY5takc0vRfwH8sQDQLRh
-	1Q3+/fLw==;
+	bh=dkATan9DlMg2AapNdS9ABuyThq0O9Pypq4ClHLZKj7k=; b=OHowqJzb8ldWW5Ejxgv2u/GukW
+	Tfc0Qw6WJQ6Z/UzRfSV46fr6FoGRiig/dqtpqBPPSVjTQuqXUUwr4sdXjPSDJ7q5P2OOAyjHYNlPu
+	xkSTfP5RX8k9gd0N1MbdnVhUIKg+Yet7P51AzvnPS7kY1QYoIzpgyUF72eZFhkmHHRvVcD0rMNhcn
+	qNwaVHxG+SMtBcj4/bcW1GII+pPfaLqto0VHDK4nCuNNTQMCGMHQKIAQTqDr7EThCXnVD17Lr8hrp
+	4LbiyNRRlktT5wWvXP5tHVo8KQSYbnN32tJpxfvlt1VLBReOF6HMBscSHpDlYwQPeLiHwjZjghtlE
+	OSStHNFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIs2-0000000C4F9-0rG5;
-	Tue, 04 Nov 2025 15:22:54 +0000
+	id 1vGIs3-0000000C4Hj-3I4a;
+	Tue, 04 Nov 2025 15:22:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIry-0000000C49S-1yQ9
+	id 1vGIs0-0000000C4CZ-2IHu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 15:22:51 +0000
+	Tue, 04 Nov 2025 15:22:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAE6A2C41;
-	Tue,  4 Nov 2025 07:22:41 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C20372E99;
+	Tue,  4 Nov 2025 07:22:43 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 096833F66E;
-	Tue,  4 Nov 2025 07:22:47 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E78C03F66E;
+	Tue,  4 Nov 2025 07:22:49 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 04 Nov 2025 15:21:53 +0000
-Subject: [PATCH v4 09/15] coresight: Save activated path into source device
+Date: Tue, 04 Nov 2025 15:21:54 +0000
+Subject: [PATCH v4 10/15] coresight: Add 'in_idle' argument to
+ enable/disable path functions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
+Message-Id: <20251104-arm_coresight_path_power_management_improvement-v4-10-3d4bba674709@arm.com>
 References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
 In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -52,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762269750; l=3593;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762269750; l=3740;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=Fhn3+nT6R/3Dhs4RSbOPBF0yzSklz2limcT6oCD2XFo=;
- b=ldXvE8AChyARu+xx6fSPG7eAOt03xMk4sAhA7bO9OOtV7aNx7p1D4dhAHqNuTLHOb0WqruO1m
- 3s/AJq/HMsZDO9+31NOy+JtUcLR/RGKPBSPELMq0JkJe7mXM20Tizg4
+ bh=4Oq/FY7qTvhJJL0l5XumPtbaeivGHVDFGr6+IX6hG5Q=;
+ b=jWyIlGwiWaAPhWN/PfZ+3L3PA2hIZNGve9etdiKPH6MkHYS/b5COKClrY945y/aU44ZXFMBLg
+ bsIZ5cfGTd0BsuVOTE0uXcV+DcuXL5XLjEmlWemPSFJquHAFnHvAClp
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_072250_642532_B15A170E 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20251104_072252_681110_795FD0E5 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,97 +77,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Save activated path into the source device's coresight_device structure.
-The path pointer will be used by later changes for controlling the path
-during CPU idle.
+Introduce an 'in_idle' argument to the path enable and disable
+functions. When set to true for idle flow, it skips to touch the sink
+device to avoid long latency caused by the sink operations.
 
-The path pointer is assigned before setting the source device mode to
-active, and it is cleared after the device is changed to an inactive
-mode. So safe access to path pointers is guaranteed when the device is
-in an active mode.
+This is a preparation for managing the path during CPU idle.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 39 +++++++++++++++++++++++++++-
- include/linux/coresight.h                    |  2 ++
- 2 files changed, 40 insertions(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-core.c | 35 +++++++++++++++++++++-------
+ 1 file changed, 26 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index c28f3d255b0e19b3d982de95b8e34d0fc2954b95..3ea31ed121f7b59d7822fba4df4c43efb1c76fe7 100644
+index 3ea31ed121f7b59d7822fba4df4c43efb1c76fe7..6c12692efb51c63f3aa9da6f65a349eae1926f4d 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -399,13 +399,50 @@ int coresight_enable_source(struct coresight_device *csdev,
- 			    struct perf_event *event, enum cs_mode mode,
- 			    struct coresight_path *path)
+@@ -475,7 +475,8 @@ EXPORT_SYMBOL_GPL(coresight_resume_source);
+  * disabled.
+  */
+ static void coresight_disable_path_from(struct coresight_path *path,
+-					struct coresight_node *nd)
++					struct coresight_node *nd,
++					bool in_idle)
  {
--	return source_ops(csdev)->enable(csdev, event, mode, path);
-+	int ret;
-+
-+	/*
-+	 * Record the path in the source device. The path pointer is first
-+	 * assigned, followed by transitioning from DISABLED mode to an enabled
-+	 * state on the target CPU. Conversely, during the disable flow, the
-+	 * device mode is set to DISABLED before the path pointer is cleared.
-+	 *
-+	 * This ordering ensures the path pointer to be safely access under the
-+	 * following race condition:
-+	 *
-+	 *  CPU(a)                          CPU(b)
-+	 *
-+	 *  coresight_enable_source()
-+	 *    STORE source->path;
-+	 *    smp_mb();
-+	 *    source_ops(csdev)->enable();
-+	 *                              `-> etm4_enable_sysfs_smp_call()
-+	 *                                    STORE source->mode;
-+	 *
-+	 * This sequence ensures that accessing the path pointer is safe when
-+	 * the device is in enabled mode.
-+	 */
-+	csdev->path = path;
-+
-+	/* Synchronization between csdev->path and csdev->mode */
-+	smp_mb();
-+
-+	ret = source_ops(csdev)->enable(csdev, event, mode, path);
-+	if (ret)
-+		csdev->path = NULL;
-+
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(coresight_enable_source);
+ 	u32 type;
+ 	struct coresight_device *csdev, *parent, *child;
+@@ -498,6 +499,10 @@ static void coresight_disable_path_from(struct coresight_path *path,
+ 						CORESIGHT_DEV_TYPE_SINK :
+ 						CORESIGHT_DEV_TYPE_LINK;
  
- void coresight_disable_source(struct coresight_device *csdev, void *data)
++		/* To reduce latency, CPU idle does not touch the sink */
++		if (in_idle && type == CORESIGHT_DEV_TYPE_SINK)
++			continue;
++
+ 		switch (type) {
+ 		case CORESIGHT_DEV_TYPE_SINK:
+ 			coresight_disable_sink(csdev);
+@@ -527,7 +532,7 @@ static void coresight_disable_path_from(struct coresight_path *path,
+ 
+ void coresight_disable_path(struct coresight_path *path)
  {
- 	source_ops(csdev)->disable(csdev, data);
-+
-+	/* Synchronization between csdev->path and csdev->mode */
-+	smp_mb();
-+	csdev->path = NULL;
-+
- 	coresight_disable_helpers(csdev, NULL);
+-	coresight_disable_path_from(path, NULL);
++	coresight_disable_path_from(path, NULL, false);
  }
- EXPORT_SYMBOL_GPL(coresight_disable_source);
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 3d59be214dd25dfa7ad9148a6688628e0d1a98dd..58484c225e58a68dd74739a48c08a409ce9ddd73 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -264,6 +264,7 @@ struct coresight_trace_id_map {
-  *		spinlock.
-  * @orphan:	true if the component has connections that haven't been linked.
-  * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
-+ * @path:	Activated path pointer (only used for source device).
-  * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
-  *		by writing a 1 to the 'enable_sink' file.  A sink can be
-  *		activated but not yet enabled.  Enabling for a _sink_ happens
-@@ -291,6 +292,7 @@ struct coresight_device {
- 	int refcnt;
- 	bool orphan;
- 	int cpu;
-+	struct coresight_path *path;
- 	/* sink specific fields */
- 	bool sysfs_sink_activated;
- 	struct dev_ext_attribute *ea;
+ EXPORT_SYMBOL_GPL(coresight_disable_path);
+ 
+@@ -550,8 +555,9 @@ static int coresight_enable_helpers(struct coresight_device *csdev,
+ 	return 0;
+ }
+ 
+-int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+-			  void *sink_data)
++static int coresight_enable_path_internal(struct coresight_path *path,
++					  enum cs_mode mode, void *sink_data,
++					  bool in_idle)
+ {
+ 	int ret = 0;
+ 	u32 type;
+@@ -564,10 +570,6 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ 		csdev = nd->csdev;
+ 		type = csdev->type;
+ 
+-		/* Enable all helpers adjacent to the path first */
+-		ret = coresight_enable_helpers(csdev, mode, path);
+-		if (ret)
+-			goto err_disable_path;
+ 		/*
+ 		 * ETF devices are tricky... They can be a link or a sink,
+ 		 * depending on how they are configured.  If an ETF has been
+@@ -579,6 +581,15 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ 						CORESIGHT_DEV_TYPE_SINK :
+ 						CORESIGHT_DEV_TYPE_LINK;
+ 
++		/* To reduce latency, CPU idle does not touch the sink */
++		if (in_idle && type == CORESIGHT_DEV_TYPE_SINK)
++			continue;
++
++		/* Enable all helpers adjacent to the path first */
++		ret = coresight_enable_helpers(csdev, mode, path);
++		if (ret)
++			goto err_disable_path;
++
+ 		switch (type) {
+ 		case CORESIGHT_DEV_TYPE_SINK:
+ 			ret = coresight_enable_sink(csdev, mode, sink_data);
+@@ -614,10 +625,16 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ err_disable_helpers:
+ 	coresight_disable_helpers(csdev, path);
+ err_disable_path:
+-	coresight_disable_path_from(path, nd);
++	coresight_disable_path_from(path, nd, in_idle);
+ 	goto out;
+ }
+ 
++int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
++			  void *sink_data)
++{
++	return coresight_enable_path_internal(path, mode, sink_data, false);
++}
++
+ struct coresight_device *coresight_get_sink(struct coresight_path *path)
+ {
+ 	struct coresight_device *csdev;
 
 -- 
 2.34.1
