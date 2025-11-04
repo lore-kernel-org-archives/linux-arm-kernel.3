@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F32FCCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77DACCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IqrKvT/39GIw4bETHcXxm6B86XwJZy5zQulp7Zkzg80=; b=38x61NersLCilhB+qxlH/DHt9K
-	+AvSuY4zOlvMSYRCfrSC4MCQG9UnS/tMYOiDWblH612nxwjrMpTtghhvO/r2cW8ajHxAr8Cv0TU0p
-	/CnXp9K2FTHCu0S0X1sS8VevENA1UEKfVwRjC7JanxjO6BSUuPaaoMSobEHAhF6co96e5msjB0O1r
-	KRoui3ArhX523OTDKUbdtIfDGbM2pMdtReuOPwG6RhKPzpszLzOL2r8jzM73jKSuQE7neZoBgvjcY
-	/4k0b0hf8uuJfgf7sIOGn4xE9hc5tJEcokNWstH9J1ZY61hKTNtaRBpbDmIlzMPqwII/GZl8RlYco
-	RhCaPIag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pO6dE6UElPiJpkG1mq8m4CRYqFTl9ZYqxqWs3yM4h1o=; b=0CPLy6rLV/PIzTgDRPlhR9FY14
+	b62V2DyV15fUDHG8hCxGwG+NiwuL6o47rKaMMyamx45vu/ZCfoaJK8qpzppCDCw9p2Tgz/wjqFDoF
+	A9M7HnA+NsZZenQfLVYNowXm9KYS2TV6bnCcfIkiqoU4fxV4qFknxrswObWdQEadySxYQ2kOzPqiE
+	DRoldoBe14GtzGOhXCb6ZcTgpafV7zkf8c2U2ciRBjVtHHGnpggBuwPL8jrQmUX12EWPYJxLy0Euf
+	2uIhWQ6xvkRZDU1WXyF7NW1pgbZxUJCsE8zEAhVTVw2uLg1SklETHREseBnIxQpzCDjxRBbXveqwu
+	0slbUSQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGD1M-0000000BVpy-2a9q;
-	Tue, 04 Nov 2025 09:08:08 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vGD36-0000000BW1T-2lpb;
+	Tue, 04 Nov 2025 09:09:56 +0000
+Received: from mail-ua1-f52.google.com ([209.85.222.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGD1J-0000000BVpa-17uM
+	id 1vGD34-0000000BW0v-1l5C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 09:08:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 19D7C4E414F0;
-	Tue,  4 Nov 2025 09:08:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D2ACD606EF;
-	Tue,  4 Nov 2025 09:08:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87FD110B50499;
-	Tue,  4 Nov 2025 10:07:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762247281; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=IqrKvT/39GIw4bETHcXxm6B86XwJZy5zQulp7Zkzg80=;
-	b=aPVPylMf2uPJTc5vq8FUwy26OuucAub5M8J+o+CEOCkoo6sjLGddx2uuKXPLxChca5uE9n
-	rCXLuYN1N5fV0jjH/bgGSLJaTrW4CvemCkaJB58wOL+bN8kMOtZUORX0zHjAvWGVCblCRL
-	1mOBICgLxRa47LV5NCBmyt104DOWZex53RAm0Lhb9Yok62+5FpbXSPK3BuCkl9tKKzmAUQ
-	tbxFO3TU5e2f50fJyb69LnMQWuCzGv6/9rCll6F26cvAbX8GJofb+wJvvg2nZA3WXgI79A
-	/g9jd600NqLXDLBVOrJk4PHYNpsN0UOSDA7OAEXG7oR8YBNadRWHBTijAJ96/w==
-Message-ID: <4f029450-df4f-419d-adb4-493a8ca03e63@bootlin.com>
-Date: Tue, 4 Nov 2025 10:07:54 +0100
+	Tue, 04 Nov 2025 09:09:55 +0000
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-930ff50d181so4646109241.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 01:09:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762247393; x=1762852193;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pO6dE6UElPiJpkG1mq8m4CRYqFTl9ZYqxqWs3yM4h1o=;
+        b=e9E34Q5aePyUoEYGf+nw7M+u+5F/524mpQXWMA5EYRWO18W61BQcSgzVhxNqZw2Vht
+         Mc4HHWwlem+eQrUJScL7oNuW5f9k7GZdHgJE+MK4pMRHhr6fQs2lVoAHgenmoMDM7VPd
+         4ebKWvkbDypqftK3I7RJtYfjBY/LGMKAPG470Zw20AMaa0hzcit7KF725w6M03bNMZe0
+         sMQH1zphWJAQODWg4Frrfn6SlePBDjUQEFFLmhClACFfOD+lydAmIIgcpaIVJ6OCdTTE
+         6MORRIy/9U3CJugNsajR9YX4oQ/SG+lJnw0Vvr51ZMiayTFvoNZLijA/FwiMULOAlQEx
+         M+fw==
+X-Gm-Message-State: AOJu0Yy4MAQ9e/kLctAbDPEgn8/NXHWwRHhLacVUFhF0Ahn1Ul/9T4nH
+	wkS8aRnFam7+L4O0rv/zPiVkL5AHPhEj9qBc04DwcIRaBZQ4APdht178audzUjoO
+X-Gm-Gg: ASbGnctjcgmSXDTFzt9+AOKKWItIqMlE1jM3AxeCDy+hJiBB/ZUmK3rm5BOgB3VCRm/
+	Ph1RKKXoYWxrxV/DDwJ0F9lDI7p7XTX8UGWgVSUn95gJAQlZiCHFqco3c0FSBQIGKPAqn8NeGXT
+	wHTvJQqR3MGHxYVIOhdyxQmq1k8nG99fIgmsUYG8BdFbOmP3SHFubxLYfMkLc4PAYm/z+OsRlka
+	wET4olQ0JiZPjxSBYUF04LvMBBhJk3LuJpnTUYNPfMfVIG5exrI+xl5q8VONnNlMCMWg+zqI+F9
+	pDu0oXwHz3NqBjNxVEbM0HLEIwRZjwMKVVP7JFTmDOj/yXqEM8pET/iGWKlEvpAvOU5EePozpPu
+	vvurSiw/XHRbbn3jGFucc0O/rt5cvMbPh/bUcKCtt3pJ9OYqclhr+9lbu4O3Bjv3BelYaDnsZEr
+	eAsF1X0BjqUEy0zZ2wYaQq7LOI5dltrF+R280QUg==
+X-Google-Smtp-Source: AGHT+IFg/+NVD0kBhUzw7YPb2q+PqOhjApmlLyJy2q7jI9O93I2BMWxOyTCYg2oKuTONGkJ5nmc55g==
+X-Received: by 2002:a05:6102:94c:b0:5db:cf38:f505 with SMTP id ada2fe7eead31-5dbcf38fa04mr2944280137.20.1762247392679;
+        Tue, 04 Nov 2025 01:09:52 -0800 (PST)
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com. [209.85.217.43])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-93542b72575sm912013241.13.2025.11.04.01.09.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Nov 2025 01:09:52 -0800 (PST)
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-58de3ab1831so4965268137.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 01:09:52 -0800 (PST)
+X-Received: by 2002:a05:6102:dcc:b0:5db:ecde:5ae7 with SMTP id
+ ada2fe7eead31-5dbecde6663mr1599267137.32.1762247049753; Tue, 04 Nov 2025
+ 01:04:09 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 04/11] net: stmmac: add stmmac_get_phy_intf_sel()
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
- Jakub Kicinski <kuba@kernel.org>, Jan Petrous <jan.petrous@oss.nxp.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, s32@nxp.com,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
-References: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
- <E1vFt4c-0000000Choe-3SII@rmk-PC.armlinux.org.uk>
- <db01f926-d5bb-4317-beac-e6dcc0025a80@bootlin.com>
- <aQm-LnN0LifBvkoz@shell.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <aQm-LnN0LifBvkoz@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20251103200800.173440-1-marek.vasut+renesas@mailbox.org> <20251103200800.173440-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20251103200800.173440-2-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 4 Nov 2025 10:03:58 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXQJJYzdWD3tufU5wVxy1OLfZEXh_KbkjTdaY4XJwKyOQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bmlcpVQIRAtDzcmHfsASxj-kOO0XENw5qhpcWFOCPThzyKdxDz-JN4eLYI
+Message-ID: <CAMuHMdXQJJYzdWD3tufU5wVxy1OLfZEXh_KbkjTdaY4XJwKyOQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: renesas: r8a77965: Add GE7800 GPU node
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Frank Binns <frank.binns@imgtec.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Matt Coster <matt.coster@imgtec.com>, 
+	Maxime Ripard <mripard@kernel.org>, =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
+	Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_010805_750902_3351D8AD 
-X-CRM114-Status: GOOD (  25.55  )
+X-CRM114-CacheID: sfid-20251104_010954_477651_42A7741F 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,84 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 3 Nov 2025 at 21:08, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Describe Imagination Technologies PowerVR Rogue GE7800 BNVC 15.5.1.64
+> present in Renesas R-Car R8A77965 M3-N SoC.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+To be queued in renesas-devel for v6.19, pending acceptance of the
+DT bindings.
 
-On 04/11/2025 09:49, Russell King (Oracle) wrote:
-> On Tue, Nov 04, 2025 at 09:34:31AM +0100, Maxime Chevallier wrote:
->>> +int stmmac_get_phy_intf_sel(phy_interface_t interface)
->>> +{
->>> +	int phy_intf_sel = -EINVAL;
->>> +
->>> +	if (interface == PHY_INTERFACE_MODE_MII ||
->>> +	    interface == PHY_INTERFACE_MODE_GMII)
->>> +		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
->>> +	else if (phy_interface_mode_is_rgmii(interface))
->>> +		phy_intf_sel = PHY_INTF_SEL_RGMII;
->>> +	else if (interface == PHY_INTERFACE_MODE_SGMII)
->>> +		phy_intf_sel = PHY_INTF_SEL_SGMII;
->>> +	else if (interface == PHY_INTERFACE_MODE_RMII)
->>> +		phy_intf_sel = PHY_INTF_SEL_RMII;
->>> +	else if (interface == PHY_INTERFACE_MODE_REVMII)
->>> +		phy_intf_sel = PHY_INTF_SEL_REVMII;
->>> +
->>> +	return phy_intf_sel;
->>> +}
->>> +EXPORT_SYMBOL_GPL(stmmac_get_phy_intf_sel);
->>
->> Nothng wrong with your code, this is out of curiosity.
->>
->> I'm wondering how we are going to support cases like socfpga (and
->> probably some other) where the PHY_INTF_SEL_xxx doesn't directly
->> translate to the phy_interface, i.e.  when you have a PCS or other
->> IP that serialises the MAC interface ?
-> 
-> It also doesn't differentiate between MII and GMII. That's fine for
-> this - this is about producing the configuration for the dwmac's
-> phy_intf_sel_i signals. It isn't for configuring the glue hardware
-> for any other parameters such as RGMII delays.
->  
->> for socfpga for example, we need to set the PHY_INTF_SEL to GMII_MII
->> when we want to use SGMII / 1000BaseX, but we do set it to RGMII when
->> we need to output RGMII.
-> 
-> From what I remember for socfpga, you use an external PCS that needs
-> GMII. This function doesn't take account of external PCS, and thus
-> platform glue that makes use of an external PCS can't implement
-> .set_phy_intf_sel() yet.
+Gr{oetje,eeting}s,
 
-Makes sense
+                        Geert
 
-> As noted, it also doesn't handle TBI (which,
-> although we have PHY_INTERFACE_MODE_TBI, Synopsys intended this mode
-> to be used to connect to a SerDes for 1000BASE-X.)
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-That's fine by me, thanks for the clarifications :)
-
-> 
->> Do you have a plan in mind for that ? (maybe a .get_phy_intf_sel() ops ?)
-> 
-> Yes, there will need to be a way to override this when an external
-> PCS is being used. I suspect that all external 1G PCS will use GMII,
-> thus we can probably work it out in core code.
-> 
-> Note, however, that socfpga doesn't use the phy_intf_sel encoding:
-> 
-> #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII 0x0
-> #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RGMII 0x1
-> #define SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_RMII 0x2
-> 
-> #define PHY_INTF_SEL_GMII_MII   0
-> #define PHY_INTF_SEL_RGMII      1
-> #define PHY_INTF_SEL_RMII       4
-> 
-> It's close, but it isn't the phy_intf_sel_i[2:0] signal values.
-
-> 
-Yeah :/
-
-I'll give this series a try on dwmac-imx once I get a bit of time then !
-
-thanks,
-
-Maxime
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
