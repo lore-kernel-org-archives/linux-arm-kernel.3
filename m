@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BA2CCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE71CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=trzVWn3q8K520lsD6h38S6zhjQv/gzjNZVwNLqNGPyU=; b=IUAxHh0BksohlI93PU4hmm2qpi
-	hlqooh42uCzaoRc9BKTqUUCy5xTeeWpmlD4woRtnb8zGNswm1ATgkRnYAvRqU/tPkZiGoaF+CbBb7
-	bpGz0vH9ZRR7imv3sef4BDUqjJoZvBAqcYS7f39Ymey/+3dXwnmI9R7sTCDi5acW703N37GSX/plr
-	TWSDl1XL4Yaw1BkZokv5Ffaw7FgqFIHLje/bmXUDQwlvkZBv8+gc6DVaWYUlT1POZ2sqgtg07VJH/
-	oLlnnobq9N8zPJvYjYQeonWq0aQ067Y9Gg0batBfTL2UE0pJrjVCtP+NRJPzKK3mi9PTZC6TNf/FR
-	DhVsQIjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EeY/Q1vjgJqdUpxoN7I5OLtGxJW4ljCXvqhX1XWJkyQ=; b=QsgtPrbPqL4nD/vm+WQBwQvyv/
+	tAz2R2ovkwkwAUSXKe47W7nJCXPGfroy/m4u6IgnD5oBR7A9zrcO7bpdzBZdARgYCk0C3kD3qjrFd
+	+hlaxfnEtE020DiuqRiNzcg92dEYVH5CVaVGqu9pMjTAf49Xz8tRUQ2oUdgBiWqO2yPjvU2tajsgF
+	whxBeJuxnZmV+kf9oOM05jdcS9Ogi9LWtt7WBuCnaa29jwZZ4hv7/CHy8nPCm5le2a78TQUVW+J1J
+	hEQKk8R0f6gRmlCCMPxpZyhEa/8Tmt6mJ4/Lj/YvRJGd+nmLmLiSct0U39afqhprRbjTRnNftP3ZX
+	hQ77WgXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJyL-0000000CCKr-3Ulq;
-	Tue, 04 Nov 2025 16:33:29 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1vGJz9-0000000CCWZ-2tqg;
+	Tue, 04 Nov 2025 16:34:19 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJyI-0000000CCJe-2YxQ;
-	Tue, 04 Nov 2025 16:33:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=trzVWn3q8K520lsD6h38S6zhjQv/gzjNZVwNLqNGPyU=;
-	b=am+dmD4/csrOyZJOXdSv2u8xwXTFEawi+UcC+idUmmLv+AgzSeygvq/5Ck0Xgh
-	cpk0VkMOwAHn/1AZXzAmPrfewybsTU9OcfMi7rYJDgiiVc4co3uE0tCrahbMzuus
-	vfmKoe+LvaGmNLfPd3ajSOM7Z6a9nv2LO4D227qGg7quM=
-Received: from [IPV6:240e:b8f:927e:1000:355:1a70:fad9:bcdf] (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3r7uOKgppcpmYBg--.12641S2;
-	Wed, 05 Nov 2025 00:32:15 +0800 (CST)
-Message-ID: <161d6789-4e7f-456a-91ed-9ef682187eae@163.com>
-Date: Wed, 5 Nov 2025 00:32:14 +0800
+	id 1vGJz6-0000000CCVJ-2rKs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 16:34:18 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-63d0692136bso6204444d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 08:34:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762274055; x=1762878855; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=EeY/Q1vjgJqdUpxoN7I5OLtGxJW4ljCXvqhX1XWJkyQ=;
+        b=S+n7xf209gwXJsZoXsWq2+gZDvMiCOBlIn9Q30poHpLfdUL0JBP+i6V1+0pzVVD0ES
+         LlIV+/pu22jHAGeiDUHtJbDWZEXmqGthzaLzdXsWKTjymkwC/DWuw845ST0VdZIKbKDW
+         aw1YHV0y5dWw2gcYjiaSJqkycejAkse+O25YE3EFgGDfpfu0DZcIbp/HDjff4osDuWuQ
+         giRqIEQOEuhUJeCN6fdlKYhSNPFiSa1b9SN1yj9efK0jM8so/vmp7cm/D7EQl7jMJlTI
+         F2JKj2Ol9pAVeoD0hyGvwixFoDlYoCsiob8n+f6s0svMID6u1XGKLDYnQDnd0UiPfbdw
+         IVuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762274055; x=1762878855;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EeY/Q1vjgJqdUpxoN7I5OLtGxJW4ljCXvqhX1XWJkyQ=;
+        b=NnbPC/oDOMUGhiXfoMj4pHI3rWFU9yxnAPEgqoy9lPxTEzPGE4kk/7771Emib7qGnO
+         ZSMWHiRr8WSDPHo7U0asrC/HGCAwcKT2dbHHIK4fcDTd1tyozG6rjmhVODQAsnuj87Gx
+         MkqQNptmI5LuwrmiU7+jXwCn02q5B9q3zbrMUBDzApqGE4GM1rOXvP9bAGqjoJsY1flS
+         OOFyuwhLMxnAvlFIldbNX12N5t2pu06jcE6mqAjAWrKRPZSgtY3tsaSoB6xX6D0gkLAG
+         6WGCNsDow5P/kJQShE6nV48tJnEYIMBv67WtPoCWOO1V5Uxk15eXRd7YJZ6m/ZcFDRWs
+         z/7A==
+X-Forwarded-Encrypted: i=1; AJvYcCWaBZkON7s6IUNcmKzTnEtchwF1luO51jTW3e3EMRlyBcq9v5LWX+bjOTUTCh3vScBMQ3uX9dX3frnUQAbPIq6D@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxXyLlnhIC3c9RL/GNjzVh5ihEYuiy2OwZ8DibwmcsC6BGviXz
+	5QY4ue0FnnQS02qsuIoRT61958MJ/BQf9zYNu1O5GE/KL2/pCXNqRpuxbcTkp19DFQM7vpjyEaR
+	4nPSfG8drfCoqghLDci3tpgRJcDhmkdQox5sQEcK1JhWYOjSIVDyR7oE=
+X-Gm-Gg: ASbGncuxjz+oBjO4GBow6qZgfzsU9q5RpMiq6aIcexUMQ7Vg8D3HBBwdURT3brsrUAS
+	Re0zVoNBO9wfzpn2digG+dRHyLnNrkMSGhj1Nmw5g8zCkOpa2gKTTvSZxFosJJTHJmbRX+uZN+Q
+	8HM9DOVJnvxPMS8rgNcDIn6ZnChPbsxCeELqHH84a2/FLkLP8sZ07aVZCtfuHhQ42PiCvRIhTCQ
+	sKJss+LVfmAiQvhqMEgeDgunGBJTKhyppbD2DU0BoXwmvuWCoNXFc7bw7HfbA==
+X-Google-Smtp-Source: AGHT+IF0Z/yNF7yi6Lz9tQRkNyi37+NTyOPEnzyNmvGQXNJdjD0tMjSSXuyBHzY73wkfo4eUOH3v52Gvr3xMHkvavMo=
+X-Received: by 2002:a05:690c:4882:b0:786:802b:d7ff with SMTP id
+ 00721157ae682-786a41efce2mr752787b3.59.1762274054906; Tue, 04 Nov 2025
+ 08:34:14 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] PCI: Configure root port MPS during host probing
-To: Niklas Cassel <cassel@kernel.org>, Bjorn Helgaas <helgaas@kernel.org>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
- heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com, pali@kernel.org,
- neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
- khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20250620155507.1022099-2-18255117159@163.com>
- <20250902174828.GA1165373@bhelgaas> <aLlmV8Qiaph1PHFY@ryzen>
- <aQoU-JhWz6IYTpGi@ryzen>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <aQoU-JhWz6IYTpGi@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wD3r7uOKgppcpmYBg--.12641S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Xr4rGw18Ww48Gw13uw4DJwb_yoW7Gw48pa
-	yjqa1vyFn7GryfCrs2va1F9rWUtrZ3AFW5Jr98Jry093Z0vF1Iqr4qyw45Cas7Cr4DArWj
-	vrZ8XryxZ3Z5AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U46wZUUUUU=
-X-Originating-IP: [240e:b8f:927e:1000:355:1a70:fad9:bcdf]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiOgD7o2kKH03PFAAAsI
+References: <20251028031623.43284-1-linmq006@gmail.com>
+In-Reply-To: <20251028031623.43284-1-linmq006@gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 4 Nov 2025 17:33:38 +0100
+X-Gm-Features: AWmQ_bk9KtCzO_f_YWM_AynJxSlgpLBL58lIquCitQc40-GRB32NM5WebMbg_Tg
+Message-ID: <CAPDyKFqiNeO==u0j=VTKmWaG8VdMR-mS84QoLjrussfMYrr1mw@mail.gmail.com>
+Subject: Re: [PATCH] soc: imx: gpc: fix reference count leak in imx_gpc_remove
+To: Miaoqian Lin <linmq006@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	"Rob Herring (Arm)" <robh@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, linux-pm@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_083327_084564_E0B7244E 
-X-CRM114-Status: GOOD (  27.89  )
+X-CRM114-CacheID: sfid-20251104_083416_727853_659BB22A 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,137 +97,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 28 Oct 2025 at 04:16, Miaoqian Lin <linmq006@gmail.com> wrote:
+>
+> of_get_child_by_name() returns a node pointer with refcount
+> incremented, we should use of_node_put() on it when not need anymore.
+> Add missing of_node_put() to avoid refcount leak.
+>
+> Fixes: 721cabf6c660 ("soc: imx: move PGC handling to a new GPC driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
 
+Applied for fixes, thanks!
 
-On 2025/11/4 23:00, Niklas Cassel wrote:
-> Hello Hans,
-> 
-> Any chance that you have time to re-spin this series?
-> 
-> I've seen some new DWC based drivers like NXP that also want to
-> configure MPS.
-> 
-> Most likely we know the reason... The PCI core does not change it
-> without this series.
-> 
+Kind regards
+Uffe
 
-Hi Niklas,
-
-I will modify a version based on Bjorn and your opinions and then send 
-it out.
-
-Best regards,
-Hans
-
-> 
-> Kind regards,
-> Niklas
-> 
-> On Thu, Sep 04, 2025 at 12:13:43PM +0200, Niklas Cassel wrote:
->> On Tue, Sep 02, 2025 at 12:48:28PM -0500, Bjorn Helgaas wrote:
->>> On Fri, Jun 20, 2025 at 11:55:06PM +0800, Hans Zhang wrote:
->>>> Current PCIe initialization logic may leave root ports operating with
->>>> non-optimal Maximum Payload Size (MPS) settings. While downstream device
->>>> configuration is handled during bus enumeration, root port MPS values
->>>> inherited from firmware or hardware defaults ...
->>>
->>> Apparently Root Port MPS configuration is different from that for
->>> downstream devices?
->>
->> pci_host_probe() will call pci_scan_root_bus_bridge(), which will call
->> pci_scan_single_device(), which will call pci_device_add(), which will
->> call pci_configure_device(), which will call pci_configure_mps().
->>
->> This will be done for both bridges and endpoints.
->>
->> The bridge will be scanned/added first, before devices behind the bridge.
->>
->>
->> While pci_configure_device()/pci_configure_mps() will be called for both
->> bridges and endpoints, pci_configure_mps() will do an early return for
->> devices where pci_upstream_bridge() returns NULL, i.e. for devices where
->> that does not have an upstream bridge, i.e. for the root bridge itself:
->> https://github.com/torvalds/linux/blob/v6.17-rc4/drivers/pci/probe.c#L2181-L2182
->>
->> So MPS will not be touched for root bridges.
->>
->> This patch ensures that MPS for root bridges gets initialized to MPSS
->> (Max supported MPS).
->>
->> Later, when pci_configure_device()/pci_configure_mps() is called for a
->> device behind the bridge, if the MPSS of the device behind the bridge is
->> smaller than the MPS of the bridge, the code reduces the MPS of the bridge:
->> https://github.com/torvalds/linux/blob/v6.17-rc4/drivers/pci/probe.c#L2205
->>
->>
->> My only question with this patch is if there is a bridge behind a bridge,
->> will the bridge behind the bridge still have pci_pcie_type() ==
->> PCI_EXP_TYPE_ROOT_PORT ?
->>
->> If so, perhaps we should modify this patch from:
->>
->> +       if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
->> +           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
->> +               pcie_write_mps(dev, 128 << dev->pcie_mpss);
->> +       }
->> +
->>          if (!bridge || !pci_is_pcie(bridge))
->>                  return;
->>
->>
->> to:
->>
->> +       if (!bridge && pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
->> +           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
->> +               pcie_write_mps(dev, 128 << dev->pcie_mpss);
->> +       }
->> +
->>          if (!bridge || !pci_is_pcie(bridge))
->>                  return;
->>
->>
->>
->>>> During host controller probing phase, when PCIe bus tuning is enabled,
->>>> the implementation now configures root port MPS settings to their
->>>> hardware-supported maximum values. Specifically, when configuring the MPS
->>>> for a PCIe device, if the device is a root port and the bus tuning is not
->>>> disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
->>>> match the Root Port's maximum supported payload size. The Max Read Request
->>>> Size (MRRS) is subsequently adjusted through existing companion logic to
->>>> maintain compatibility with PCIe specifications.
->>>>
->>>> Note that this initial setting of the root port MPS to the maximum might
->>>> be reduced later during the enumeration of downstream devices if any of
->>>> those devices do not support the maximum MPS of the root port.
->>>>
->>>> Explicit initialization at host probing stage ensures consistent PCIe
->>>> topology configuration before downstream devices perform their own MPS
->>>> negotiations. This proactive approach addresses platform-specific
->>>> requirements where controller drivers depend on properly initialized
->>>> root port settings, while maintaining backward compatibility through
->>>> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
->>>> utilized without altering existing device negotiation behaviors.
->>>
->>> This last paragraph seems kind of like marketing without any real
->>> content.  Is there something important in there?
->>>
->>> Nits:
->>> s/root port/Root Port/
->>>
->>> Reword "implementation now configures" to be clear about whether "now"
->>> refers to before this patch or after.
->>>
->>> Update the MRRS "to maintain compatibility" part.  I'm dubious about
->>> there being a spec compatibility issue with respect to MRRS.  Cite the
->>> relevant section if there is an issue.
->>
->> I'm not sure why the commit message mentions MRRS at all.
->>
->> Sure, pcie_write_mrrs() might set MRRS to MPS, but that is existing logic
->> and not really related to the change in this patch IMO.
->>
->>
->> Kind regards,
->> Niklas
-
+> ---
+>  drivers/pmdomain/imx/gpc.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
+> index 33991f3c6b55..a34b260274f7 100644
+> --- a/drivers/pmdomain/imx/gpc.c
+> +++ b/drivers/pmdomain/imx/gpc.c
+> @@ -536,6 +536,8 @@ static void imx_gpc_remove(struct platform_device *pdev)
+>                         return;
+>                 }
+>         }
+> +
+> +       of_node_put(pgc_node);
+>  }
+>
+>  static struct platform_driver imx_gpc_driver = {
+> --
+> 2.39.5 (Apple Git-154)
+>
 
