@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F80CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F60CCFA0C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DL1uuOPpI7eBL7XVs4zv2zhkmWbyM2pjpkA6d6PjBZ4=; b=T3RRoOFgpGOCzqRk/9fmsRWq/0
-	JsS5A1y535FHw1vJOS51fKlNL0OvZ89LA1YxnKl6OYGlAxN/n0VaU3f5MO4NEI3wi62zZk1ZSW6ur
-	OtotYCPQtr2fx0f6t7QwSC+eHmwaq8yhroRD8FzviCrUw7zG+oek2d/5JyssGo3XbqJz5Nnp2cSd6
-	P4PgvB6l3FHgSvWssYYRl4VF49Pl0CUy5CyIPsv0XIjqcBf33lyYQZvRrTj5RO186RECHH6lLNqwW
-	In7cvB+/UvWY1NidgOIO21eZ7ejlh3FCsDd3zXZQn99gaMgEeV47JWkIyDeFxg7p7KAzN2P1Qz57g
-	EnlxKkBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zW6knlq4MYYfbtj8UbiFJACNmyKYLIe3evx2Qbk3acw=; b=tCJokMPz2l9fmauMo2/tlPNfM7
+	L4o8fLqgfUM1fRS2d0YTwFGFj1mOc9mHkoHc6wfylPab5ufwPF3RjfLvF8+ACMMeHPZEGfnioq3mw
+	05B64a8B/i/N1xPoMbsBMjhNQzAOePLuSkuDFToVreBaxtBofqw6wY9CuJCYLI+vQkfjwrRw6CDxj
+	bRV8rAU1NGJTDTxotLomAlmYRM3VLfZ0FFoaem8T+C221IJnMZfG/Ue7pvmTTfrK09x+DbzKW72Xj
+	lNXv0JbXODSmr8ItfBEc2SfccSHB3rdZeX8o77QRMf8D1b3wvD1EWqEQGR0HOezNFu0D7d5/sHdSh
+	08zeIOKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIry-0000000C4A6-3mfg;
-	Tue, 04 Nov 2025 15:22:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIrv-0000000C44y-3EAc
+	id 1vGIrz-0000000C4Aq-0wx0;
+	Tue, 04 Nov 2025 15:22:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGIrw-0000000C46S-0Y5K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 15:22:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED911404E3;
-	Tue,  4 Nov 2025 15:22:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9CE4C19421;
-	Tue,  4 Nov 2025 15:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762269766;
-	bh=d0RcTZtusjmZh8x9Y9sQsCJSTNql9FIVu95tdoEGIQY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tbfprc8Ed+l+CBca2OYr3J9kLAZmLf3ThMnJEhyggNtjFxUlZlwKJp7/LSOCREMmQ
-	 hI+SrNb7pNal1Xaz3aa3caeH0pqft31YnAb5f7bi+NlH9ViVpr3/m0NdaT0HcDgpL1
-	 p+rC7ZUyYb/18R32IZnfDmEPkLDsvQxWxqZpzk6K+lKn8LN5/NlhtlaSiKCDyWe0ko
-	 f0Vf/EdH7dF3ad/iiYFupDogWIOTkQQzf6alA7jMIfSIEA7mUyE3E8N5gcZ+qhcuCl
-	 FCtR6mI7/qc3FdSbrrnMSrhD/njs+GcP9Ifetwu07DmzuEuIZXc6fM2n+7kcBVH/x1
-	 NCnk0iTfiKcgg==
-Date: Tue, 4 Nov 2025 15:22:42 +0000
-From: Will Deacon <will@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: entry: Clean out some indirection
-Message-ID: <aQoaQlR-AAuCEAO5@willie-the-truck>
-References: <20251014-arm64-skip-indirection-v1-1-f8ccfd9dbcb7@linaro.org>
+	Tue, 04 Nov 2025 15:22:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECCF32E99;
+	Tue,  4 Nov 2025 07:22:39 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FF623F66E;
+	Tue,  4 Nov 2025 07:22:46 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Date: Tue, 04 Nov 2025 15:21:52 +0000
+Subject: [PATCH v4 08/15] coresight: Introduce coresight_enable_source()
+ helper
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251014-arm64-skip-indirection-v1-1-f8ccfd9dbcb7@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251104-arm_coresight_path_power_management_improvement-v4-8-3d4bba674709@arm.com>
+References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
+In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762269750; l=4282;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=hqg3ZyMjG7+H9Ow/PetRq0+lgzZmUndlcI1rJtK/85Q=;
+ b=EPFMP2qnGbxzZ7H/IYMAX6OMx+I3OBrKoRKMlBLaNkecZqlcYRIaSFgtJ4FPIuWiRNP5iDRKj
+ UUlZJsRHQwFAfFd5SVJBiLHmkPe901hfQqy0V7S4RLSYE4HZYcUoWMX
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_072247_839361_17E6A8A3 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20251104_072248_253819_3BA3BD81 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,56 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 09:08:30PM +0200, Linus Walleij wrote:
-> The conversion to generic IRQ entry left some functions
-> in the EL1 (kernel) IRQ entry path very shallow, so drop
-> the __inner_functions() where appropriate, saving some
-> time and stack.
-> 
-> This is not a fix but an optimization.
-> 
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
->  arch/arm64/kernel/entry-common.c | 22 +++-------------------
->  1 file changed, 3 insertions(+), 19 deletions(-)
+Introduce the coresight_enable_source() helper for enabling source
+device, refine the comment for the imbalance between enable and disable
+pair functions.
 
-I think the code was originally structured to follow the same flow as
-the generic code so that the two could be easily compared. Now that
-we're moving over to the generic code, I agree that it makes sense to
-clean things up.
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c     | 15 ++++++++++++---
+ drivers/hwtracing/coresight/coresight-etm-perf.c |  2 +-
+ drivers/hwtracing/coresight/coresight-priv.h     |  3 +++
+ drivers/hwtracing/coresight/coresight-sysfs.c    |  2 +-
+ 4 files changed, 17 insertions(+), 5 deletions(-)
 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index f546a914f04174e37bf3578490545edebb66afd1..e34dfd93c522ae58a5f1c914fe4a5bfc6522cdae 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -38,16 +38,11 @@
->   * This is intended to match the logic in irqentry_enter(), handling the kernel
->   * mode transitions only.
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 0d4e935094297023b8a7786ff4b1b3783164016b..c28f3d255b0e19b3d982de95b8e34d0fc2954b95 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -385,15 +385,24 @@ static void coresight_disable_helpers(struct coresight_device *csdev, void *data
+ }
+ 
+ /*
+- * Helper function to call source_ops(csdev)->disable and also disable the
+- * helpers.
++ * coresight_enable_source() only enables the source but does nothing for the
++ * associated helpers. In contrast, coresight_disable_source() calls
++ * source_ops(csdev)->disable() and also disables the helpers.
+  *
+  * There is an imbalance between coresight_enable_path() and
+  * coresight_disable_path(). Enabling also enables the source's helpers as part
+  * of the path, but disabling always skips the first item in the path (which is
+  * the source), so sources and their helpers don't get disabled as part of that
+- * function and we need the extra step here.
++ * function and we need the extra step in coresight_disable_source().
+  */
++int coresight_enable_source(struct coresight_device *csdev,
++			    struct perf_event *event, enum cs_mode mode,
++			    struct coresight_path *path)
++{
++	return source_ops(csdev)->enable(csdev, event, mode, path);
++}
++EXPORT_SYMBOL_GPL(coresight_enable_source);
++
+ void coresight_disable_source(struct coresight_device *csdev, void *data)
+ {
+ 	source_ops(csdev)->disable(csdev, data);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f677c08233ba1a28b277674662c6e6db904873dd..dd1968dd173d608fb72835343cd647818c0bad1a 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -530,7 +530,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 		goto fail_end_stop;
+ 
+ 	/* Finally enable the tracer */
+-	if (source_ops(csdev)->enable(csdev, event, CS_MODE_PERF, path))
++	if (coresight_enable_source(csdev, event, CS_MODE_PERF, path))
+ 		goto fail_disable_path;
+ 
+ 	/*
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+index 33e22b1ba043264ad50acac69ece1ea6de25893b..8b978528cb49af43ef56d034f7ecc520f80f60df 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -250,6 +250,9 @@ void coresight_add_helper(struct coresight_device *csdev,
+ 
+ void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
+ struct coresight_device *coresight_get_percpu_sink(int cpu);
++int coresight_enable_source(struct coresight_device *csdev,
++			    struct perf_event *event, enum cs_mode mode,
++			    struct coresight_path *path);
+ void coresight_disable_source(struct coresight_device *csdev, void *data);
+ void coresight_pause_source(struct coresight_device *csdev);
+ int coresight_resume_source(struct coresight_device *csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index cb02f1bfaf068ec3f50f997bcb94f7d5215ccea8..72e9607fc6aea4663abf7d1f7f03f247ea060b83 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -66,7 +66,7 @@ static int coresight_enable_source_sysfs(struct coresight_device *csdev,
+ 	 */
+ 	lockdep_assert_held(&coresight_mutex);
+ 	if (coresight_get_mode(csdev) != CS_MODE_SYSFS) {
+-		ret = source_ops(csdev)->enable(csdev, NULL, mode, path);
++		ret = coresight_enable_source(csdev, NULL, mode, path);
+ 		if (ret)
+ 			return ret;
+ 	}
 
-nit: this comment ^^^ (the reference to irqentry_enter()) also seems to
-be out of date now.
+-- 
+2.34.1
 
->   */
-> -static __always_inline irqentry_state_t __enter_from_kernel_mode(struct pt_regs *regs)
-> -{
-> -	return irqentry_enter(regs);
-> -}
-> -
->  static noinstr irqentry_state_t enter_from_kernel_mode(struct pt_regs *regs)
->  {
->  	irqentry_state_t state;
->  
-> -	state = __enter_from_kernel_mode(regs);
-> +	state = irqentry_enter(regs);
->  	mte_check_tfsr_entry();
->  	mte_disable_tco_entry(current);
->  
-> @@ -62,17 +57,11 @@ static noinstr irqentry_state_t enter_from_kernel_mode(struct pt_regs *regs)
->   * This is intended to match the logic in irqentry_exit(), handling the kernel
->   * mode transitions only, and with preemption handled elsewhere.
->   */
-
-Similarly for this one ^^^.
-
-Will
 
