@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865EFCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC71CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vc/Ld1NtDq8exCNprRyMYMB04P0L2ZADAHjfvj1U/gg=; b=v3QVA/XY+J55MbJQfLeDvHcP8O
-	t3EQgtV81JwCVRk4UR7jPabW/55JoSBeC5NNSmtSNV/Uc8YU9plmDnV+HuAgQSfiyXg3LRF1ITmaI
-	L7EsOuk9pTL9vTRgU+CmhYn4Vl4o8nYaPfQIvKHGWDGNF0qz+/SEhIOeIz61VBiPDNjcoPVvKMQl4
-	hi7AvEy4Es8wr56IaxyfcwzS8/iyScyW4I/y6WYjvKcTIhW93UpQ4BpOAIZd/mXJkHKy85RNMrz7q
-	EzOtQOr8mcPKDWuC9qOA+zCjKCPviesFR4Q+gH5DuhU1mMsONNh2CmwN5Frv9U0eXYFRyFw5n9Z3a
-	mvLIEiSg==;
+	bh=rBdmFbAtZ4x0EBEmNprMJUgxsa3W4T6k8icJajXOb60=; b=XE6eE0a3TxGctn7pIXgxMK50Gm
+	aPEMy1xShtLoWJRKf1ptfSgoYUb8GxVt/7j6wGMs4X1z3RLqbPEAR8hOdkeVl63AhOuoWfhrQFCWY
+	Ue7ZCm9f6zLqtLSmTf+0w3PwIlSJXlK8YCQ/4u1TR80S24/cOxr+NWRV7S7Qv7tHeR41JKM22YXPL
+	zWYm2vsbcCm1Jspl5k0ZPTKQeKstz+vPk7tQb8Vyg8QXrivl7BWDqeyZEhTJncZEWemtnKsCxJoA0
+	26e9+FX3SfHT6rRa5aroakkZ65QduESRk+SRAq9nwNNLyADW5OVhkkb0ShblF4A5ehTpLNCkRIRMV
+	rjH0sl1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDTZ-0000000BXob-1SWF;
-	Tue, 04 Nov 2025 09:37:17 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1vGDXA-0000000BY9P-3b07;
+	Tue, 04 Nov 2025 09:41:00 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDTW-0000000BXoA-3MWI
+	id 1vGDX6-0000000BY8y-29xU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 09:37:15 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id E01321A0135;
-	Tue,  4 Nov 2025 10:37:10 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id D26211A004C;
-	Tue,  4 Nov 2025 10:37:10 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 38F12202E8;
-	Tue,  4 Nov 2025 10:37:10 +0100 (CET)
-Date: Tue, 4 Nov 2025 10:37:10 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, s32@nxp.com,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH net-next 02/11] net: stmmac: s32: move PHY_INTF_SEL_x
- definitions out of the way
-Message-ID: <aQnJRgJqFY99kDUj@lsv051416.swis.nl-cdc01.nxp.com>
-References: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
- <E1vFt4S-0000000ChoS-2Ahi@rmk-PC.armlinux.org.uk>
+	Tue, 04 Nov 2025 09:40:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1762249253; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=rBdmFbAtZ4x0EBEmNprMJUgxsa3W4T6k8icJajXOb60=;
+	b=Q/prudZTyzCkiiWbtHb66bVAt4egqfkpDrRAlMxZYlLOATGmoTUoU4I/BvVwY/DMpnbAclTiAJKy7wPcVKtqTgzx1pv3eRzedj/ACe2JM+gByIdvVKoyPRjV6RVrbdqjkU6E9ylRW5HSbDoKAulZa+oT8r1lpXJf3GaAXi9CCns=
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0WrgkE3J_1762249251 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 04 Nov 2025 17:40:52 +0800
+Date: Tue, 4 Nov 2025 17:40:51 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+Subject: Re: [PATCH 05/33] KVM: arm64: GICv3: Detect and work around the lack
+ of ICV_DIR_EL1 trapping
+Message-ID: <fprfzs2qtlhxv7no4zmpjfrgs76shbcm7gs4lh5o55n6qxozso@4uoe6tuadnx3>
+References: <20251103165517.2960148-1-maz@kernel.org>
+ <20251103165517.2960148-6-maz@kernel.org>
+ <eossoxorxj5knjyx2xglsrzhrbi6rry3rcr2xryfmft3q7up4b@tr5yrg6lljzq>
+ <86ikfquq28.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vFt4S-0000000ChoS-2Ahi@rmk-PC.armlinux.org.uk>
-X-Virus-Scanned: ClamAV using ClamSMTP
+In-Reply-To: <86ikfquq28.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_013714_995172_74997131 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20251104_014057_344414_E6D2D069 
+X-CRM114-Status: GOOD (  28.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,51 +71,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 11:50:00AM +0000, Russell King (Oracle) wrote:
-> S32's PHY_INTF_SEL_x definitions conflict with those for the dwmac
-> cores as they use a different bitmapping. Add a S32 prefix so that
-> they are unique.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> index ee095ac13203..2b7ad64bfdf7 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> @@ -24,10 +24,10 @@
->  #define GMAC_INTF_RATE_125M	125000000	/* 125MHz */
->  
->  /* SoC PHY interface control register */
-> -#define PHY_INTF_SEL_MII	0x00
-> -#define PHY_INTF_SEL_SGMII	0x01
-> -#define PHY_INTF_SEL_RGMII	0x02
-> -#define PHY_INTF_SEL_RMII	0x08
-> +#define S32_PHY_INTF_SEL_MII	0x00
-> +#define S32_PHY_INTF_SEL_SGMII	0x01
-> +#define S32_PHY_INTF_SEL_RGMII	0x02
-> +#define S32_PHY_INTF_SEL_RMII	0x08
->  
->  struct s32_priv_data {
->  	void __iomem *ioaddr;
-> @@ -40,7 +40,7 @@ struct s32_priv_data {
->  
->  static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
->  {
-> -	writel(PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
-> +	writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
->  
->  	dev_dbg(gmac->dev, "PHY mode set to %s\n", phy_modes(*gmac->intf_mode));
->  
-> -- 
-> 2.47.3
-> 
+On Tue, Nov 04, 2025 at 09:04:15AM +0800, Marc Zyngier wrote:
+> On Tue, 04 Nov 2025 08:50:26 +0000,
+> Yao Yuan <yaoyuan@linux.alibaba.com> wrote:
+> >
+> > On Mon, Nov 03, 2025 at 04:54:49PM +0800, Marc Zyngier wrote:
+> > > A long time ago, an unsuspecting architect forgot to add a trap
+> > > bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
+> > > what's a bit of spec between friends? Thankfully, this was fixed
+> > > in a later revision, and ARM "deprecates" the lack of trapping
+> > > ability.
+> > >
+> > > Unfortuantely, a few (billion) CPUs went out with that defect,
+> > > anything ARMv8.0 from ARM, give or take. And on these CPUs,
+> > > you can't trap DIR on its own, full stop.
+> > >
+> > > As the next best thing, we can trap everything in the common group,
+> > > which is a tad expensive, but hey ho, that's what you get. You can
+> > > otherwise recycle the HW in the neaby bin.
+> > >
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > ---
+> > >  arch/arm64/include/asm/virt.h  |  7 ++++++-
+> > >  arch/arm64/kernel/cpufeature.c | 34 ++++++++++++++++++++++++++++++++++
+> > >  arch/arm64/kernel/hyp-stub.S   |  5 +++++
+> > >  arch/arm64/kvm/vgic/vgic-v3.c  |  3 +++
+> > >  arch/arm64/tools/cpucaps       |  1 +
+> > >  5 files changed, 49 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+> > > index aa280f356b96a..8eb63d3294974 100644
+> > > --- a/arch/arm64/include/asm/virt.h
+> > > +++ b/arch/arm64/include/asm/virt.h
+> > > @@ -40,8 +40,13 @@
+> > >   */
+> > >  #define HVC_FINALISE_EL2	3
+> > >
+> > > +/*
+> > > + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
+> > > + */
+> > > +#define HVC_GET_ICH_VTR_EL2	4
+> > > +
+> > >  /* Max number of HYP stub hypercalls */
+> > > -#define HVC_STUB_HCALL_NR 4
+> > > +#define HVC_STUB_HCALL_NR 5
+> > >
+> > >  /* Error returned when an invalid stub number is passed into x0 */
+> > >  #define HVC_STUB_ERR	0xbadca11
+> > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > > index 5ed401ff79e3e..44103ad98805d 100644
+> > > --- a/arch/arm64/kernel/cpufeature.c
+> > > +++ b/arch/arm64/kernel/cpufeature.c
+> > > @@ -2303,6 +2303,31 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
+> > >  }
+> > >  #endif
+> > >
+> > > +static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+> > > +				 int scope)
+> > > +{
+> > > +	struct arm_smccc_res res = {};
+> > > +
+> > > +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDS <= ARM64_HAS_GICV3_CPUIF);
+> > > +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDS <= ARM64_HAS_GICV5_LEGACY);
+> > > +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) ||
+> > > +	    !cpus_have_cap(ARM64_HAS_GICV3_CPUIF))
+> >
+> > Duplicated checking ?
+>
+> Yup, cut'n'paste, and lack of GICv5 testing... This should really look
 
-Reviewed-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+Thanks for the quick reply!
 
-Thanks.
-/Jan
+Oh, not awared that checking GICv5 is necessary here.
+I looked v3/v4 spec before but stop before v5. Ok it's time to
+have a look on v5.
 
+> like the hack below, since GICv5 legacy feature is guaranteed to have
+> TDIR:
+>
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 44103ad98805d..3f2d4b033966d 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2310,13 +2310,15 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+>
+>  	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDS <= ARM64_HAS_GICV3_CPUIF);
+>  	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDS <= ARM64_HAS_GICV5_LEGACY);
+> -	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) ||
+> -	    !cpus_have_cap(ARM64_HAS_GICV3_CPUIF))
+> +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF))
+>  		return false;
+>
+>  	if (!is_hyp_mode_available())
+>  		return false;
+>
+> +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
+> +		return true;
+> +
+>  	if (is_kernel_in_hyp_mode())
+>  		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+>  	else
+>
+>
+> Thanks for the heads-up!
+>
+> 	M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
