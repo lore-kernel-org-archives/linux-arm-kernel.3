@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6E8CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 00:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453A8CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 00:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4POqQhvWWdidJ0gt2EIIr9UWMS8WdIjB7Sv2bwhgGB8=; b=WPGMhKypIkBtqu5f/bH+p3J2ow
-	tJjzWWe4yN8sWvoTaYJaBwQkHxN4NM/AluxAoFTot6OimAxr6N99fRZGrKA49+mcEiOPCEbxuEiAs
-	EXhIyM3QsHx1HFCb2r01q4AwnjizDLwHoBCD9u8jb1H2Owd1GfLAJSCy4WytTYmGpYHQOCpaB6500
-	weL2UB/CGEcHtgrSmWhE4gzWj2N44O4Maf15AITtuYBHkRy6a0RltXhNYcCC+YUn+fpUFeI4a00nk
-	1ffSRfsr3d7NBVouDIf4/Lw5h4ga5WixC0KhCP+g0H91+8CLYPoyez3ooi8+F02BmjBSJKIKTxTz4
-	or9DQaNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vFNAU18Fh84qRAvLmldHtwobRAG3DpMxVbbi0K7tM0A=; b=cjVbo1teXITOvlPLLBpL6Kpl7j
+	RmR5aDiv3JUGRNOJo2EoCzR/mtUxAA5iE7EH1Kk17H9cDsZW/F4kA2tq+MD9q+KKZUasCWFOtd97c
+	QPzklA8qKqc5gosENJ/h5LewvZuzqN29WxZx98HGgn6tEk7sENiqEtFcuRUbwhnxAeqKJ0emMXO/u
+	kSICfEUiWyssgAoNtx4Qi+BzqXwz8R/UTnwCPaQnJyROLq66FgZDdrg/xJxvoA6326jri6yfsldAz
+	x5s4qYce6Tx9bSSwwnYg3ixhAVcM/JxFwPreY792LBT7QKUjSJC9szdTuNnAjnpsJxMGxFTzGmu4M
+	lDV74zyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG4oI-0000000Aq6W-35zW;
-	Tue, 04 Nov 2025 00:22:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vG4oV-0000000Aq8i-0A45;
+	Tue, 04 Nov 2025 00:22:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG4oG-0000000Aq5z-3okl
+	id 1vG4oT-0000000Aq8V-32ID
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 00:22:05 +0000
+	Tue, 04 Nov 2025 00:22:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 812C843DA6;
-	Tue,  4 Nov 2025 00:22:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3140DC4CEE7;
-	Tue,  4 Nov 2025 00:22:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CD229601D7;
+	Tue,  4 Nov 2025 00:22:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50BBFC113D0;
+	Tue,  4 Nov 2025 00:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762215724;
-	bh=PZC6ZAFX5mF9YpTkaCf/jKGSfMQTSFoPUl3PB0kzxEA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jgWfkAHbxDoD2BP9iwLha/1gvlsiF+jnLgr+WZifolFV8R5Egc0AIiBEvR5rsz4g5
-	 eK7tWcNkCdVUq+7RKQHBkE8gcWNmBDvriEI0qcRx5En9g0HpHrA0UAOAnQOYiY8UmM
-	 WT1XtGrThAoV48lvxFlXafD7NhcgI6X3J49WtET07eOA8P01A/SQpoxOyiO+dUgm/a
-	 NGNek3UIn5jcORQ9NXJ1pGpsj0MXt+NgvNWy0TPuJGVQKsRqsT2bwGdr3FB1IFqRB4
-	 t+RQF86mNa+58QWc81TjbMTVQBV9+/qYLVtQeN21XdaERSkPYbo5KpT5x046flgsCO
-	 dB9BvXJGVm+HA==
-Date: Mon, 3 Nov 2025 16:22:02 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, Vivian
- Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, "Russell King (Oracle)"
- <rmk+kernel@armlinux.org.uk>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, sophgo@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin
- Li <looong.bin@gmail.com>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH v6 2/3] net: phy: Add helper for fixing RGMII PHY mode
- based on internal mac delay
-Message-ID: <20251103162202.1bd0dae0@kernel.org>
-In-Reply-To: <20251103030526.1092365-3-inochiama@gmail.com>
-References: <20251103030526.1092365-1-inochiama@gmail.com>
-	<20251103030526.1092365-3-inochiama@gmail.com>
+	s=k20201202; t=1762215736;
+	bh=umMkQ/I1GqBqTCSFshRO2Q3ySgL6SDeXavuMjayIeOo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gs0d4vQdyC9kPDBtTXowXOfaJUt6XgcIM1HB1t1GAQ48bwekhthaz0mOB9jATQP0+
+	 7XvXMQKGAnc4NgF1K3meZdHZEBWWFTQZ6c+ZFqVvSxZqIkgy1JyMJtivkN2wdAJgnu
+	 e6MPj8lXU31D7NsVj7N6fOnyo1Ynp+xbD2HBQSRRB4bZF1+dVwGFaHmPGPtLRZWibw
+	 //NfMdjvfctJQKSWJlLWndI81dFWqmCt+XmNQSoaETZ8xHBrmjOdUHM9U1GuQYHVuc
+	 WRjbw7TDtOXwgzUXoY8ZVuENWd/EpuePKo3OJcqNswzLz733CpRC9IzmGLM1k9N2ei
+	 AutSUuxE0WT5g==
+Date: Mon, 3 Nov 2025 19:22:15 -0500
+From: Sasha Levin <sashal@kernel.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: patches@lists.linux.dev, stable@vger.kernel.org,
+	Sven Peter <sven@kernel.org>, j@jannau.net, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH AUTOSEL 6.17-6.12] soc: apple: mailbox: Add Apple A11 and
+ T2 mailbox support
+Message-ID: <aQlHN7Nu-1aAyrXp@laps>
+References: <20251009155752.773732-1-sashal@kernel.org>
+ <20251009155752.773732-9-sashal@kernel.org>
+ <28f4950a-e3eb-4a54-b867-67bd269b8407@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_162204_972694_43B5FCE5 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <28f4950a-e3eb-4a54-b867-67bd269b8407@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  3 Nov 2025 11:05:25 +0800 Inochi Amaoto wrote:
-> +/**
-> + * phy_fix_phy_mode_for_mac_delays - Convenience function for fixing PHY
-> + * mode based on whether mac adds internal delay
-> + *
-> + * @interface: The current interface mode of the port
-> + * @mac_txid: True if the mac adds internal tx delay
-> + * @mac_rxid: True if the mac adds internal rx delay
-> + *
-> + * Return fixed PHY mode, or PHY_INTERFACE_MODE_NA if the interface can
-> + * not apply the internal delay
-> + */
+On Fri, Oct 10, 2025 at 10:22:18AM +0800, Nick Chan wrote:
+>
+>Sasha Levin 於 2025/10/9 晚上11:54 寫道:
+>> From: Nick Chan <towinchenmi@gmail.com>
+>>
+>> [ Upstream commit fee2e558b4884df08fad8dd0e5e12466dce89996 ]
+>>
+>> Add ASC mailbox support for Apple A11 and T2 SoCs, which is used for
+>> coprocessors in the system.
+>>
+>> Reviewed-by: Sven Peter <sven@kernel.org>
+>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+>> Link: https://lore.kernel.org/r/20250821-t8015-nvme-v3-2-14a4178adf68@gmail.com
+>> Signed-off-by: Sven Peter <sven@kernel.org>
+>> Signed-off-by: Sasha Levin <sashal@kernel.org>
+>> ---
+>>
+>> LLM Generated explanations, may be completely bogus:
+>>
+>> ## Backport Analysis: Apple A11 and T2 Mailbox Support
+>>
+>> **ANSWER: YES**
+>>
+>> This commit should be backported to stable kernel trees (and has already
+>> been backported as commit 37b630a26d235).
+>>
+>> ---
+>This patch adds support for new hardware which is not just a device ID
+>addition. None of the hardware that depends on this mailbox is supported
+>in stable either. Please drop.
 
-Please add a : after Return, so:
+Dropped, thanks!
 
- * Return: fixed PHY mode, or PHY_INTERFACE_MODE_NA if the interface can
-
-otherwise kdoc warns:
-
-Warning: drivers/net/phy/phy-core.c:116 No description found for return value of 'phy_fix_phy_mode_for_mac_delays'
 -- 
-pw-bot: cr
+Thanks,
+Sasha
 
