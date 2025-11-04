@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 764EDCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 14:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC36CCFA0C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 14:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49FY2zVqI9ZeKrIZlBhUVkh4m9OzOZyEeEGZ8bRpxBs=; b=M12YSg0Y4hSB2fRcwLP8PIFaqW
-	zSpsVa4m4BiBPoCs2EKfz3DqVxX3ndXnjzQpHSRYrBFpVtFIVDLI77G4En3ALHisKyV41lX+tQl0c
-	Jv4/gfHwjnKybRV02PYIOylRVaaJQRbO5zcasLuV9OzEWyr6Sl1UVBEz6fkBUX5U7H7oVyhSX2mHO
-	8pzqH8tFt5nfgs/ruJFDn7JGMnjNxzIMZz1Qgp0VWMTibbpFh4sbE3QoKhsaHHWAnTWynRJ1AwIKy
-	jLVPvbUCZTGsbFNX8UU0qwpfkgnE1R21gvTwINw2Qmk++PXhJv39chteI6a05zDFewaGNJv6B5mUw
-	YdUQbylQ==;
+	bh=4a5wcPALM8GOfKs0z25anJPOx5zdh7ANpA+yWaJ72oo=; b=gzL6dvsQJoo/aUttIuGWpOrJmY
+	vGOMZm8HGnECmZdEVo4MH2BJAsU8RDjBYTzedkrqLxiiW3+otVb4hPpdJy9xvVO7wy57WiyzCZdw8
+	lx1V/nmlZHgXCiJq96yfwgN4zZQ2/SRXwXscOKYw6aaN+qLDDdPp+dAAmjiD4mfrmBCFqhpfOfQmi
+	88YuCHFF+jPaegA1/5sL/Vz+CehP9dbKhGocqOJ9N94+ofYVL6NuLauvkSwGzLl4YfP6ShOkC6qTm
+	FiyD2A1pcjngazZ2FjAf/b1U876QAblgqkZt0orFkzFTN5TeY3ixYi0+Ms96uXQtf69iL/OzzoVB7
+	uT4LPp1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIUQ-0000000C10y-2JU4;
-	Tue, 04 Nov 2025 14:58:30 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1vGIUU-0000000C14u-3URO;
+	Tue, 04 Nov 2025 14:58:34 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIUN-0000000C0z7-4634
+	id 1vGIUS-0000000C11G-01Ml
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 14:58:29 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-640b06fa959so4388219a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 06:58:27 -0800 (PST)
+	Tue, 04 Nov 2025 14:58:33 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-640860f97b5so4841431a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 06:58:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762268306; x=1762873106; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1762268310; x=1762873110; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=49FY2zVqI9ZeKrIZlBhUVkh4m9OzOZyEeEGZ8bRpxBs=;
-        b=cmWGBhUHgal3ZHpxuC/w6KZ5tEU8hJBtIisOLZb/R+KpKHVA8788Zc13fxa27aT1vN
-         uj+a5WBbz1zk9VOsTRYYTvTi8pzBbIQ3eViFIancg1XUo6MDzpMz/Bx/uPcbiXwLiVsV
-         1ffdXtBl3JIqa6+GYADh8gEY7EehkqcnSaKJlaNs1dFmKAj3JZseS1CfsA1wsrp+dQK2
-         5E9j/M26zVh/zfeV8V24FCvfFBqwM9Alpdb9yWBF/rsCRvpfIVQTSsQM8aEbSKTp/4wQ
-         AicisLaitB8vom7DyOwIDXu4z1XwGX8a4pz3be3osb8NAmaerbM1qUOHSMylxbp5QKbR
-         CQcw==
+        bh=4a5wcPALM8GOfKs0z25anJPOx5zdh7ANpA+yWaJ72oo=;
+        b=Lz/tzsn6/vXMuEg+B2tgtBIWeTPaquEbxwDGxIbxSDuMaLNMLEM3xk1FGFbq2fnNwH
+         RgAWR5v3IugXnIs+Mq+YrvnlVgnKNI5+hIS4gvV1cf8cinRjWTX5mjoCG+1xnm8Z3ld4
+         kc9MbMnwhRG4fp7t20M1WNW4sTJ9Aq22s1yPuNBFo6H8/oC0nbauh4/BECv/TXgqoOgn
+         7HXF1C0FgYCftbSO/xJW8KO8lUkXdg2CN+ROG3xbui3Z7/xBAvtRDvou/4JWXyLTwROU
+         Y8BH7rsGrTlW0YVYzbi5N63QoiMI+xHpz7jcdyIjAnLm7pUP0NwX1ZNYqWPKWgWho9Bg
+         v8CQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762268306; x=1762873106;
+        d=1e100.net; s=20230601; t=1762268310; x=1762873110;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=49FY2zVqI9ZeKrIZlBhUVkh4m9OzOZyEeEGZ8bRpxBs=;
-        b=q9gnY5O2c/CrfNcdVwxVOU2CT6YHRxJxSqvwiIUa6GAnbgJG6MNsEO8Ul3ZSdzGoxf
-         fX/oY3CNn3FXZsnulV5yuMRBsTyf5FMGK2C+lEFHQncrzjTBMD9KN93WCUQwxvqHktxy
-         xBZqmxXUH8SX9EUBY17D1BSseEHVMA6SwzGZKeyy0G0bDQ5fnjTGNZ7JHtB36+OaMEMl
-         d8uPWfCCA85es9cKTqyEk5x0Kh1SQnAhSml/2TyTbEACo0Its6WPF/mgb63VxaBwx18F
-         Bs1kMUP2GaM1eGYgKdBXVNve/8Jg5ShoM7gBPi9yFVXXq+JaPavKJP+e9vfu8ePSdycM
-         XDAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXbfDXy6mrDm9kTHlNbe0FqDBSWm2mJlW+tWhceVwVZkQzZz6PJSwrvt0iX4pg7ILtBgmD3pMyuWgrFAcWSE4TJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy08y3xefonK0DpsWU5M4QeTX6w6NGKAEmyRE+veB351CpzlvT0
-	Ai1IHkndymITLtwSJJWB8S6u1MLbxXetZX/1mfjMdfan6tQORZOUAyDd
-X-Gm-Gg: ASbGncs0ha2GMGxX+NlheGjn/Kmq/O2kyy/EHPj/AltHL4z0XS7DLo1Oh8m/sXydjcw
-	FlPppKIivxB5m2TWrPbxKBHAS8Qtp8L+CusUma6/tHQfN/qKDaxo0Li5I5wWu3m+hOE16gTj+Sn
-	2HpR0ixXbyYdebiq20m9+K/48mdiDKIXHYGJT1T0VhTZnsu5IrfXCIborqJTtm4YyZSHFzZWqpO
-	goaAXPyoDgocYwWT8wxJZwW00Vmh2lMybaa5Ux7qmUFZ/vwytxYEo64bQGLWQYQFJXaY9ckCLxM
-	mKpUc3HAFI0Oe7pS2okIpX2Rxck1gkLQsxE+cL712RJfZUOGthAfxGrEW/x3+2tkipKbOkW2qHL
-	tdC9O99EQd4DUOp61shwMJ0/sU0ZyjfZ4HlOIg94kQ4MvRT6i6QwXpIXjD3NtYzmW1kFdy6y3Fe
-	EjlowSIdbFUPgcvBomAuRXLevGLDAPsHD5kasApPoYepndjBI=
-X-Google-Smtp-Source: AGHT+IGhPjYnI2dd4Y8tgVpYrusguuiQEaOFUSTzgRXBxGOGzflATdcavzKwVGBwCMd5j0FypdvmLA==
-X-Received: by 2002:a05:6402:2350:b0:640:7529:b8c7 with SMTP id 4fb4d7f45d1cf-64076f710cbmr15166855a12.1.1762268306022;
-        Tue, 04 Nov 2025 06:58:26 -0800 (PST)
+        bh=4a5wcPALM8GOfKs0z25anJPOx5zdh7ANpA+yWaJ72oo=;
+        b=uZqp6N79Bba2nIuYmsE/nxFzf/+5zz6e50bNHD6iNAMnqrusKoBCc0g4J8iS1+fQov
+         GRz9gKqF4gNlwQyqbat+naUH3EM/Lg1kd92HTylkpHCm0Ke1RERzML7focQlTlZNYNUZ
+         nfx5h7/FXhpIhgxtn4o1U4xex5di4tcWa/L+NOtBlxizwohUFMzFUSriSkj3+QZX/bki
+         xYERdS9rZn5vUSSarUPiXy+vyd89qgbsHxd4eNS4BoUXFqhpJFfBUNAMjEfGZ56jBLIo
+         gSB+ILuwSv6MlU7iYE+qSK59/G/4tLR/4DnDkbGD1BezPexCaPSzdl3BykJouExrExx1
+         3Ofg==
+X-Forwarded-Encrypted: i=1; AJvYcCUvlu6ZG8CuZFRXZvJ90M7g4ugXpJW1L6U5MT8S9Zhh8nfw3mr4Xz+n5C1ue6tYPKmETUYzrkP4fgux6IfmNTkb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaBwWhuPNJOpJYKATKm7e5ygVTb6JxSSCHJDrr8kob9/rVGiG6
+	bdYMkjtCAt2z0CNP0yVtonEOcME7BQGWJwrcf/NZ+9lcOn+IR74mswWU
+X-Gm-Gg: ASbGnctQTSej/iPh5Ywp443IjedeIrAmMo73FvlhDn+qs4IZcv8OSkGWIx2UEw5Hh9C
+	0Aer2VzMTvRt+o/iWotDk23jUG8MkMbesupv2eqfqwGwDrwprpilUjBqbG6VaOyy+EdocdjgiWl
+	PRC2388/G1QWDhyjiHpcsHT/NMXWb3YbSS9zLGFIv+0DbI4igGnjkHrWSddxTvIRX+VQqqF3Zin
+	o+SX88FUc1WRhVTAwDMlnVg0RCHXScZRiJJyTYYpoFDnI9pQ+8wg8uEzxxRxWIU8BKrwTyGC8qX
+	mSq+nd5mVdUJI7ytcr3r9v4KnPQtuURNGoapuo43l6h5eGUaDdkDJFdv6DbgjZ2OwVtJpJCazGy
+	dM/wcldJf3XscdN4lrsvOkog0sty2Sxbqvmndw5M/3N5VVgbnhgug3TrQlejIvP6iJsAjXhPMLb
+	Np3dBFXkfCsDojfQSVEypGF8S6JQCIdsFxLPDr9IHtIK9GGV0H+hrnjrrXvw==
+X-Google-Smtp-Source: AGHT+IE3SPYwKN2D9uouVnpgHkPM4iWY0NPIvFkNtkB9fhZTnfyYXljSUYSwO1JZKzF4K/C/EDmk6w==
+X-Received: by 2002:a05:6402:1472:b0:63b:feb1:3288 with SMTP id 4fb4d7f45d1cf-6407704cd63mr15674893a12.25.1762268310007;
+        Tue, 04 Nov 2025 06:58:30 -0800 (PST)
 Received: from tablet.my.domain (83.21.17.47.ipv4.supernova.orange.pl. [83.21.17.47])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-640e6a7fcd7sm2288874a12.37.2025.11.04.06.58.24
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-640e6a7fcd7sm2288874a12.37.2025.11.04.06.58.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 06:58:25 -0800 (PST)
+        Tue, 04 Nov 2025 06:58:29 -0800 (PST)
 From: Artur Weber <aweber.kernel@gmail.com>
-Date: Tue, 04 Nov 2025 15:58:19 +0100
-Subject: [PATCH RESEND v7 1/7] clk: bcm: kona: Move CLOCK_COUNT defines
- into the driver
+Date: Tue, 04 Nov 2025 15:58:21 +0100
+Subject: [PATCH RESEND v7 3/7] dt-bindings: clock: brcm,kona-ccu: Add
+ BCM21664 and BCM281xx bus clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251104-kona-bus-clock-v7-1-071002062659@gmail.com>
+Message-Id: <20251104-kona-bus-clock-v7-3-071002062659@gmail.com>
 References: <20251104-kona-bus-clock-v7-0-071002062659@gmail.com>
 In-Reply-To: <20251104-kona-bus-clock-v7-0-071002062659@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -91,28 +91,29 @@ Cc: Alex Elder <elder@kernel.org>,
  Stanislav Jakubek <stano.jakubek@gmail.com>, linux-clk@vger.kernel.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org, 
- phone-devel@vger.kernel.org, Artur Weber <aweber.kernel@gmail.com>
+ phone-devel@vger.kernel.org, Artur Weber <aweber.kernel@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6586;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6812;
  i=aweber.kernel@gmail.com; h=from:subject:message-id;
- bh=Pth2Uzo1gzhh5BgeItKlIlc+tS4ImCHocJjvX3QMVOU=;
- b=owEBbQKS/ZANAwAKAbO7+KEToFFoAcsmYgBpChSNOEyLcilSEETBIZirAou5qm09aAf8xYkar
- yv9ZYNtvReJAjMEAAEKAB0WIQTmYwAOrB3szWrSiQ2zu/ihE6BRaAUCaQoUjQAKCRCzu/ihE6BR
- aFV0D/98icD+0WcR/TEYPPGeJeKVzdMZjA2VaWFmw1wWQ9j2KtZcV+tMbX0OCSG0csSD+cpaQ7Z
- claxEfFqoKEEJkrOI8Ow/7j0vE/BiaFyLolZlCAvSgh3xhGqgIRG8y+q9586Kd3FJuQ8bt0dLPY
- Mr3zed8MJCa+hdMbkuUTI9xnpmrOHPqfFMDdRQtiK1D+y041Xx4/HutrjxlfTUVdbkEwSLIkb7L
- QLGa6JTn8mXhvqwycR3pxJZLPeR7f0GJfYWCvE7Vf1FD894uNRGYd1SUUaRVtZACXGe9dZqiBxu
- lp3pQyjqQbFbAyKmVs/OGfeGd/o2DofTz/oUPNFG9ebY/dhsPrhIaGrLITzp0AUVPLkw5ty/7Sl
- QEb5Vfn4B5cHuzBWWUHnmkaUVuKxdrrtmD8sMLoF8pVdTEJeUkGAAA5o1b2+GVM5bNOaLcFWRS6
- xVud/NkFx0xipNSDaXAiFL02F+gbRpNRKrm1x/j0+wh0hB1nriNYLYisPlfWNsX4i5zbObtx5SQ
- pidWARuqG6wOGl7Ww7NT8Y8vCKHmA0hr88sxBHv+uq9ThcmYoTy5jOG8oYBAV/Wm6SGqsJQ5VIv
- cuUHdnrY7eRHApxK2i8G2zl8DDEXdTi9yi3Qml2mQdFLxXZssd3d/CWNIdQ7yo49hJSLlApA/K1
- kzCeh7K6tnDf0lA==
+ bh=hE1zsEoAYQeihS0jeK+MtnVz9GFFqyenFrwA14PktZ8=;
+ b=owEBbQKS/ZANAwAKAbO7+KEToFFoAcsmYgBpChSOpSnAIZ3Z6c0gR1tTT6mBe/3BrU8mRyH5M
+ c63ilow95uJAjMEAAEKAB0WIQTmYwAOrB3szWrSiQ2zu/ihE6BRaAUCaQoUjgAKCRCzu/ihE6BR
+ aKYFEACXrIwrhw9pO3A/WWrRSvnhuf6JBILKSX3SzeK1xRhm7N0+qH1Gs6vS9kVhStn9inbkZft
+ Nt4yK2mSw8F11y7XrT/tmNj+GNxh28q9WftqaOD9GY9jlBLiQug4iPIzi0+No5XCmgzQ55iBIvm
+ RzSOPuIswtHfqdvV4M8gCuoMPbPr5Whd1eTL8wwd2ggh3WZWiJGEBJv82KLrIl2Otqe0shADgrx
+ dvHmgqfGErgcfkC7ALlgyt+45pAAua5UMHBOojQQRJ34ldVKwhSZFrYR2w6V1e3giXo565BPqsS
+ abZf0Sw0swA+eg5yiucRslPkurm+O1gDuYq5masacVlotWIbRAZu2YRksu+WqmIa2r/uKhltjd2
+ u1rcClF9ZSmlyC2H/rX2z1+WzC4IbQEiPYHlzQuXBoj3JyA+t/npRFp18qXZ8JxJPAEapt6W1EQ
+ QQ8DOS+6HatN9hb2visevAqqwQn+WgMI9HqamAivk8dd5Dp5XHyIRI1vcST+PGlfd/K8FfgVCb7
+ KK+dFkLlTtCgnyamUCxXISxTfNsOP1GQIwJ6IWvzT6c6ryKPT6Lamc0ZdW3/5r3bjNj3Za+L1mh
+ aVywvj8t8Bvw1e/caOSDzpWxeMaC6fFcDnd/Yi7ZyQc7N276zHG4yQGoM5VeUliSeIJSybs/PQ7
+ MKdhblxIaN40rJg==
 X-Developer-Key: i=aweber.kernel@gmail.com; a=openpgp;
  fpr=E663000EAC1DECCD6AD2890DB3BBF8A113A05168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_065828_061422_365DEBFD 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20251104_065832_119518_C8F7B2BC 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,206 +128,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CLOCK_COUNT defines for each CCU are stored in the DT binding header.
-This is not correct - they are not used by device trees, only internally
-by the driver.
+Add bus clocks corresponding to peripheral clocks currently supported
+by the BCM21664 and BCM281xx clock drivers and add the relevant clock
+IDs to the dt-bindings headers (bcm21664.h, bcm281xx.h).
 
-Move the CLOCK_COUNT defines directly into the driver in preparation
-for dropping them from the DT binding include. To avoid conflicts with
-the old defines, rename them to use the CLK_COUNT suffix.
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
 Changes in v4:
-- Rename CLOCK_COUNT to CLK_COUNT to avoid redefinition
-
-Changes in v3:
-- Add this commit
+- Squash BCM21664 and BCM281xx bus clock bindings commits
 ---
- drivers/clk/bcm/clk-bcm21664.c | 16 ++++++++++++----
- drivers/clk/bcm/clk-bcm281xx.c | 20 +++++++++++++++-----
- drivers/clk/bcm/clk-kona.h     |  2 +-
- 3 files changed, 28 insertions(+), 10 deletions(-)
+ .../devicetree/bindings/clock/brcm,kona-ccu.yaml   | 49 ++++++++++++++++++++--
+ include/dt-bindings/clock/bcm21664.h               | 13 ++++++
+ include/dt-bindings/clock/bcm281xx.h               | 19 +++++++++
+ 3 files changed, 78 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/clk/bcm/clk-bcm21664.c b/drivers/clk/bcm/clk-bcm21664.c
-index 520c3aeb4ea9..14b7db824704 100644
---- a/drivers/clk/bcm/clk-bcm21664.c
-+++ b/drivers/clk/bcm/clk-bcm21664.c
-@@ -17,13 +17,15 @@ static struct peri_clk_data frac_1m_data = {
- 	.clocks		= CLOCKS("ref_crystal"),
- };
+diff --git a/Documentation/devicetree/bindings/clock/brcm,kona-ccu.yaml b/Documentation/devicetree/bindings/clock/brcm,kona-ccu.yaml
+index e5656950b3bd..d00dcf916b45 100644
+--- a/Documentation/devicetree/bindings/clock/brcm,kona-ccu.yaml
++++ b/Documentation/devicetree/bindings/clock/brcm,kona-ccu.yaml
+@@ -40,7 +40,7 @@ properties:
  
-+#define BCM21664_ROOT_CCU_CLK_COUNT	(BCM21664_ROOT_CCU_FRAC_1M + 1)
-+
- static struct ccu_data root_ccu_data = {
- 	BCM21664_CCU_COMMON(root, ROOT),
- 	/* no policy control */
- 	.kona_clks	= {
- 		[BCM21664_ROOT_CCU_FRAC_1M] =
- 			KONA_CLK(root, frac_1m, peri),
--		[BCM21664_ROOT_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM21664_ROOT_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
+   clock-output-names:
+     minItems: 1
+-    maxItems: 10
++    maxItems: 20
  
-@@ -39,6 +41,8 @@ static struct peri_clk_data hub_timer_data = {
- 	.trig		= TRIGGER(0x0a40, 4),
- };
+ required:
+   - compatible
+@@ -61,6 +61,8 @@ allOf:
+             - const: hub_timer
+             - const: pmu_bsc
+             - const: pmu_bsc_var
++            - const: hub_timer_apb
++            - const: pmu_bsc_apb
+   - if:
+       properties:
+         compatible:
+@@ -86,6 +88,13 @@ allOf:
+             - const: usb_ic
+             - const: hsic2_48m
+             - const: hsic2_12m
++            - const: sdio1_ahb
++            - const: sdio2_ahb
++            - const: sdio3_ahb
++            - const: sdio4_ahb
++            - const: usb_ic_ahb
++            - const: hsic2_ahb
++            - const: usb_otg_ahb
+   - if:
+       properties:
+         compatible:
+@@ -116,6 +125,16 @@ allOf:
+             - const: bsc2
+             - const: bsc3
+             - const: pwm
++            - const: uartb_apb
++            - const: uartb2_apb
++            - const: uartb3_apb
++            - const: uartb4_apb
++            - const: ssp0_apb
++            - const: ssp2_apb
++            - const: bsc1_apb
++            - const: bsc2_apb
++            - const: bsc3_apb
++            - const: pwm_apb
+   - if:
+       properties:
+         compatible:
+@@ -124,7 +143,9 @@ allOf:
+     then:
+       properties:
+         clock-output-names:
+-          const: hub_timer
++          items:
++            - const: hub_timer
++            - const: hub_timer_apb
+   - if:
+       properties:
+         compatible:
+@@ -142,6 +163,11 @@ allOf:
+             - const: sdio2_sleep
+             - const: sdio3_sleep
+             - const: sdio4_sleep
++            - const: sdio1_ahb
++            - const: sdio2_ahb
++            - const: sdio3_ahb
++            - const: sdio4_ahb
++            - const: usb_otg_ahb
+   - if:
+       properties:
+         compatible:
+@@ -158,6 +184,13 @@ allOf:
+             - const: bsc2
+             - const: bsc3
+             - const: bsc4
++            - const: uartb_apb
++            - const: uartb2_apb
++            - const: uartb3_apb
++            - const: bsc1_apb
++            - const: bsc2_apb
++            - const: bsc3_apb
++            - const: bsc4_apb
  
-+#define BCM21664_AON_CCU_CLK_COUNT	(BCM21664_AON_CCU_HUB_TIMER + 1)
-+
- static struct ccu_data aon_ccu_data = {
- 	BCM21664_CCU_COMMON(aon, AON),
- 	.policy		= {
-@@ -48,7 +52,7 @@ static struct ccu_data aon_ccu_data = {
- 	.kona_clks	= {
- 		[BCM21664_AON_CCU_HUB_TIMER] =
- 			KONA_CLK(aon, hub_timer, peri),
--		[BCM21664_AON_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM21664_AON_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
+ additionalProperties: false
  
-@@ -122,6 +126,8 @@ static struct peri_clk_data sdio4_sleep_data = {
- 	.gate		= HW_SW_GATE(0x0360, 18, 2, 3),
- };
+@@ -176,6 +209,16 @@ examples:
+                            "bsc1",
+                            "bsc2",
+                            "bsc3",
+-                           "pwm";
++                           "pwm",
++                           "uartb_apb",
++                           "uartb2_apb",
++                           "uartb3_apb",
++                           "uartb4_apb",
++                           "ssp0_apb",
++                           "ssp2_apb",
++                           "bsc1_apb",
++                           "bsc2_apb",
++                           "bsc3_apb",
++                           "pwm_apb";
+     };
+ ...
+diff --git a/include/dt-bindings/clock/bcm21664.h b/include/dt-bindings/clock/bcm21664.h
+index 7a380a51848c..9f3614eb9036 100644
+--- a/include/dt-bindings/clock/bcm21664.h
++++ b/include/dt-bindings/clock/bcm21664.h
+@@ -25,6 +25,7 @@
+ /* aon CCU clock ids */
  
-+#define BCM21664_MASTER_CCU_CLK_COUNT	(BCM21664_MASTER_CCU_SDIO4_SLEEP + 1)
-+
- static struct ccu_data master_ccu_data = {
- 	BCM21664_CCU_COMMON(master, MASTER),
- 	.policy		= {
-@@ -145,7 +151,7 @@ static struct ccu_data master_ccu_data = {
- 			KONA_CLK(master, sdio3_sleep, peri),
- 		[BCM21664_MASTER_CCU_SDIO4_SLEEP] =
- 			KONA_CLK(master, sdio4_sleep, peri),
--		[BCM21664_MASTER_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM21664_MASTER_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
+ #define BCM21664_AON_CCU_HUB_TIMER		0
++#define BCM21664_AON_CCU_HUB_TIMER_APB		1
  
-@@ -225,6 +231,8 @@ static struct peri_clk_data bsc4_data = {
- 	.trig		= TRIGGER(0x0afc, 19),
- };
+ /* master CCU clock ids */
  
-+#define BCM21664_SLAVE_CCU_CLK_COUNT	(BCM21664_SLAVE_CCU_BSC4 + 1)
-+
- static struct ccu_data slave_ccu_data = {
- 	BCM21664_CCU_COMMON(slave, SLAVE),
-        .policy		= {
-@@ -246,7 +254,7 @@ static struct ccu_data slave_ccu_data = {
- 			KONA_CLK(slave, bsc3, peri),
- 		[BCM21664_SLAVE_CCU_BSC4] =
- 			KONA_CLK(slave, bsc4, peri),
--		[BCM21664_SLAVE_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM21664_SLAVE_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
+@@ -36,6 +37,11 @@
+ #define BCM21664_MASTER_CCU_SDIO2_SLEEP		5
+ #define BCM21664_MASTER_CCU_SDIO3_SLEEP		6
+ #define BCM21664_MASTER_CCU_SDIO4_SLEEP		7
++#define BCM21664_MASTER_CCU_SDIO1_AHB		8
++#define BCM21664_MASTER_CCU_SDIO2_AHB		9
++#define BCM21664_MASTER_CCU_SDIO3_AHB		10
++#define BCM21664_MASTER_CCU_SDIO4_AHB		11
++#define BCM21664_MASTER_CCU_USB_OTG_AHB		12
  
-diff --git a/drivers/clk/bcm/clk-bcm281xx.c b/drivers/clk/bcm/clk-bcm281xx.c
-index 823d5dfa31b8..62c3bf465625 100644
---- a/drivers/clk/bcm/clk-bcm281xx.c
-+++ b/drivers/clk/bcm/clk-bcm281xx.c
-@@ -19,12 +19,14 @@ static struct peri_clk_data frac_1m_data = {
- 	.clocks		= CLOCKS("ref_crystal"),
- };
+ /* slave CCU clock ids */
  
-+#define BCM281XX_ROOT_CCU_CLK_COUNT	(BCM281XX_ROOT_CCU_FRAC_1M + 1)
-+
- static struct ccu_data root_ccu_data = {
- 	BCM281XX_CCU_COMMON(root, ROOT),
- 	.kona_clks	= {
- 		[BCM281XX_ROOT_CCU_FRAC_1M] =
- 			KONA_CLK(root, frac_1m, peri),
--		[BCM281XX_ROOT_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM281XX_ROOT_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
+@@ -46,5 +52,12 @@
+ #define BCM21664_SLAVE_CCU_BSC2			4
+ #define BCM21664_SLAVE_CCU_BSC3			5
+ #define BCM21664_SLAVE_CCU_BSC4			6
++#define BCM21664_SLAVE_CCU_UARTB_APB		7
++#define BCM21664_SLAVE_CCU_UARTB2_APB		8
++#define BCM21664_SLAVE_CCU_UARTB3_APB		9
++#define BCM21664_SLAVE_CCU_BSC1_APB		10
++#define BCM21664_SLAVE_CCU_BSC2_APB		11
++#define BCM21664_SLAVE_CCU_BSC3_APB		12
++#define BCM21664_SLAVE_CCU_BSC4_APB		13
  
-@@ -57,6 +59,8 @@ static struct peri_clk_data pmu_bsc_var_data = {
- 	.trig		= TRIGGER(0x0a40, 2),
- };
+ #endif /* _CLOCK_BCM21664_H */
+diff --git a/include/dt-bindings/clock/bcm281xx.h b/include/dt-bindings/clock/bcm281xx.h
+index 0c7a7e10cb42..8e3ac4ab3e16 100644
+--- a/include/dt-bindings/clock/bcm281xx.h
++++ b/include/dt-bindings/clock/bcm281xx.h
+@@ -33,6 +33,8 @@
+ #define BCM281XX_AON_CCU_HUB_TIMER		0
+ #define BCM281XX_AON_CCU_PMU_BSC		1
+ #define BCM281XX_AON_CCU_PMU_BSC_VAR		2
++#define BCM281XX_AON_CCU_HUB_TIMER_APB		3
++#define BCM281XX_AON_CCU_PMU_BSC_APB		4
  
-+#define BCM281XX_AON_CCU_CLK_COUNT	(BCM281XX_AON_CCU_PMU_BSC_VAR + 1)
-+
- static struct ccu_data aon_ccu_data = {
- 	BCM281XX_CCU_COMMON(aon, AON),
- 	.kona_clks	= {
-@@ -66,7 +70,7 @@ static struct ccu_data aon_ccu_data = {
- 			KONA_CLK(aon, pmu_bsc, peri),
- 		[BCM281XX_AON_CCU_PMU_BSC_VAR] =
- 			KONA_CLK(aon, pmu_bsc_var, peri),
--		[BCM281XX_AON_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM281XX_AON_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
+ /* hub CCU clock ids */
  
-@@ -80,12 +84,14 @@ static struct peri_clk_data tmon_1m_data = {
- 	.trig		= TRIGGER(0x0e84, 1),
- };
+@@ -47,6 +49,13 @@
+ #define BCM281XX_MASTER_CCU_USB_IC		4
+ #define BCM281XX_MASTER_CCU_HSIC2_48M		5
+ #define BCM281XX_MASTER_CCU_HSIC2_12M		6
++#define BCM281XX_MASTER_CCU_SDIO1_AHB		7
++#define BCM281XX_MASTER_CCU_SDIO2_AHB		8
++#define BCM281XX_MASTER_CCU_SDIO3_AHB		9
++#define BCM281XX_MASTER_CCU_SDIO4_AHB		10
++#define BCM281XX_MASTER_CCU_USB_IC_AHB		11
++#define BCM281XX_MASTER_CCU_HSIC2_AHB		12
++#define BCM281XX_MASTER_CCU_USB_OTG_AHB		13
  
-+#define BCM281XX_HUB_CCU_CLK_COUNT	(BCM281XX_HUB_CCU_TMON_1M + 1)
-+
- static struct ccu_data hub_ccu_data = {
- 	BCM281XX_CCU_COMMON(hub, HUB),
- 	.kona_clks	= {
- 		[BCM281XX_HUB_CCU_TMON_1M] =
- 			KONA_CLK(hub, tmon_1m, peri),
--		[BCM281XX_HUB_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM281XX_HUB_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
+ /* slave CCU clock ids */
  
-@@ -172,6 +178,8 @@ static struct peri_clk_data hsic2_12m_data = {
- 	.trig		= TRIGGER(0x0afc, 5),
- };
+@@ -60,5 +69,15 @@
+ #define BCM281XX_SLAVE_CCU_BSC2			7
+ #define BCM281XX_SLAVE_CCU_BSC3			8
+ #define BCM281XX_SLAVE_CCU_PWM			9
++#define BCM281XX_SLAVE_CCU_UARTB_APB		10
++#define BCM281XX_SLAVE_CCU_UARTB2_APB		11
++#define BCM281XX_SLAVE_CCU_UARTB3_APB		12
++#define BCM281XX_SLAVE_CCU_UARTB4_APB		13
++#define BCM281XX_SLAVE_CCU_SSP0_APB		14
++#define BCM281XX_SLAVE_CCU_SSP2_APB		15
++#define BCM281XX_SLAVE_CCU_BSC1_APB		16
++#define BCM281XX_SLAVE_CCU_BSC2_APB		17
++#define BCM281XX_SLAVE_CCU_BSC3_APB		18
++#define BCM281XX_SLAVE_CCU_PWM_APB		19
  
-+#define BCM281XX_MASTER_CCU_CLK_COUNT	(BCM281XX_MASTER_CCU_HSIC2_12M + 1)
-+
- static struct ccu_data master_ccu_data = {
- 	BCM281XX_CCU_COMMON(master, MASTER),
- 	.kona_clks	= {
-@@ -189,7 +197,7 @@ static struct ccu_data master_ccu_data = {
- 			KONA_CLK(master, hsic2_48m, peri),
- 		[BCM281XX_MASTER_CCU_HSIC2_12M] =
- 			KONA_CLK(master, hsic2_12m, peri),
--		[BCM281XX_MASTER_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM281XX_MASTER_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
- 
-@@ -301,6 +309,8 @@ static struct peri_clk_data pwm_data = {
- 	.trig		= TRIGGER(0x0afc, 15),
- };
- 
-+#define BCM281XX_SLAVE_CCU_CLK_COUNT	(BCM281XX_SLAVE_CCU_PWM + 1)
-+
- static struct ccu_data slave_ccu_data = {
- 	BCM281XX_CCU_COMMON(slave, SLAVE),
- 	.kona_clks	= {
-@@ -324,7 +334,7 @@ static struct ccu_data slave_ccu_data = {
- 			KONA_CLK(slave, bsc3, peri),
- 		[BCM281XX_SLAVE_CCU_PWM] =
- 			KONA_CLK(slave, pwm, peri),
--		[BCM281XX_SLAVE_CCU_CLOCK_COUNT] = LAST_KONA_CLK,
-+		[BCM281XX_SLAVE_CCU_CLK_COUNT] = LAST_KONA_CLK,
- 	},
- };
- 
-diff --git a/drivers/clk/bcm/clk-kona.h b/drivers/clk/bcm/clk-kona.h
-index 348a3454ce40..d7cae437333c 100644
---- a/drivers/clk/bcm/clk-kona.h
-+++ b/drivers/clk/bcm/clk-kona.h
-@@ -483,7 +483,7 @@ struct ccu_data {
- #define KONA_CCU_COMMON(_prefix, _name, _ccuname)			    \
- 	.name		= #_name "_ccu",				    \
- 	.lock		= __SPIN_LOCK_UNLOCKED(_name ## _ccu_data.lock),    \
--	.clk_num	= _prefix ## _ ## _ccuname ## _CCU_CLOCK_COUNT
-+	.clk_num	= _prefix ## _ ## _ccuname ## _CCU_CLK_COUNT
- 
- /* Exported globals */
- 
+ #endif /* _CLOCK_BCM281XX_H */
 
 -- 
 2.51.1
