@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BAB3CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 10:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7679CCCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 10:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UdZLTCI+Yo35fJ2RRGRjjNNpS0Qcv7D95HtE6X6CoPI=; b=pIQG1mAe5Rqh3lM5v2lUyCCl7X
-	Uv7AdlWNB8Zi3AD3JmSAbFeDgaWRhgmgZsqF2gDrCnRG0jwJ+ZtY+K0j0aNJsHNqBcgeFqZ+I1U8H
-	WD9bEW5EbJj+SBQKpbh9j6cIAvSkLwTvywtka8EJn9i63U81RHWs4XfnpcsresS1JDsng017bfO0R
-	QLwQznuolpXEjohkHJuKenlSYjc5S788AqXU8S19LJzVS1RM9H1zmJkhEATHd3Eb11+1t9HTZ1Jf7
-	SkhUOEqy12ganMzTrTBmHbHEyJSN+5zeYDZryYLpVdTuSqK6QJmiSU5PiOhvk5AskSWBtq8g7/PW+
-	RZucPGqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rN5ODJt8gRZPVAZI+k9gdjZVtwbWhw5xcB2Zk2D7cHE=; b=Zl5R9pSst/NMDkTvakPtR3qgKu
+	eJ/QRTQft+NolEd5JqfzSZonlsG6ljp2T5cwyzYYbD9ipv+NU/2HtoyKjvAhYYjwiDO5dP6XwLK0e
+	kUZ8jV4pJo1YG6dn03/9hj7M+IdEe5NIDNSdP+65DYlDTUhnOZg0MZqV6dYLRQv5sEi6lTANPSusA
+	5TQYx3G8g+Lc4D9dg/5HZ33jbcRd/v8tCreBV3ScidZ1QBdB7UE9ppqj5MVJ4wPagv4homki5GtRM
+	af3KwvzrJNMXWtSZyo+HDEStzPGIsimbC3ZxI4Pekns2wZn/esC9n6Zqnot70NROddzQ/dI5lNzxn
+	cIJno7ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDxf-0000000BaKZ-1MA9;
-	Tue, 04 Nov 2025 10:08:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGE0q-0000000BaaF-44mn;
+	Tue, 04 Nov 2025 10:11:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDxc-0000000BaJl-1Vco
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 10:08:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C31B43B8C;
-	Tue,  4 Nov 2025 10:08:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C37DBC4CEF7;
-	Tue,  4 Nov 2025 10:08:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762250899;
-	bh=qO3WBVAPbxP4+oRxYAr9CsbFrExWM8O4nijZWjABxME=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a6lVN0C3JfLA+t8d+cw2jvUcx4IUtu2rer97kxIxwOGMSLifiMZaYjQTCecyvc0n3
-	 P3cH8j4yB1SFDCHLuuABNfDtunGs6hi/F5VI+Afjbe5LajAtRHAHLsYkvz7WfLpQvF
-	 nX2tMp2UuoS1ZMVQWe8xnywDIGLlkPjdd5W9q9wrBwuES3mLonzP4oXyWsacWa1DDS
-	 MYnBWEhRe9nTQ8Bt/X3lFg4cOoXx3snKeiq6n6KgBXeaQ3cMl4Z6+wc5lACf/uF8Sr
-	 Be3Xw4HON5okRjC2sFcic33cOiePOLkMGi91bPWw16VxNeGYTAfjxI7r5b9fboj1C6
-	 qgl2Nc4iOAXQg==
-Date: Tue, 4 Nov 2025 11:08:16 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
-	andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joel@jms.id.au, andrew@codeconstruct.com.au, linux-iio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] dt-bindings: iio: adc: Add AST2700 ADC compatible
- strings
-Message-ID: <20251104-enthusiastic-cinnamon-urchin-da480a@kuoka>
-References: <20251103105217.1764355-1-billy_tsai@aspeedtech.com>
+	id 1vGE0p-0000000BaZS-0Eri;
+	Tue, 04 Nov 2025 10:11:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=rN5ODJt8gRZPVAZI+k9gdjZVtwbWhw5xcB2Zk2D7cHE=; b=eCbLQzREsNTExVUsczDS0yaJji
+	8jm0RZQrBmx2dN38nVun2uezWF8xqcvi34nHY/4r0F5q02SVXcJb94GTeTUoaeorh3B7q9ptq1zC9
+	Lxe/PAyVJhy26LJkZmXdxlWgrzmk5PFdgeazWN2Dnjvt8dDTAClB1sc6LL0QiSuiSEX5YCSguydl7
+	ILMzU9oMA+WV73tPmvhG5Uq5rxQCyvoXB/xtYU8Pxhq75CHH8n3brqeqTmynGK/mMjXf10FyWXcZI
+	CrZDpb2M1rE5eweR85S7rzeCjVrI+RL7sw3g3Xh/gn8kX5MXXce4LBlxz157N5Ta33dWcpoFNm5x4
+	8FZ8E5JA==;
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGD92-0000000HMD8-2s7K;
+	Tue, 04 Nov 2025 09:16:07 +0000
+Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
+	by APP-03 (Coremail) with SMTP id rQCowAAnpOst0QlpydtqAQ--.17454S2;
+	Tue, 04 Nov 2025 18:10:55 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+Cc: linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haotian Zhang <vulab@iscas.ac.cn>
+Subject: [PATCH] mtd: rawnand: lpc32xx_slc: Convert to use devm_gpiod_get_optional()
+Date: Tue,  4 Nov 2025 18:08:41 +0800
+Message-ID: <20251104100842.369-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251103105217.1764355-1-billy_tsai@aspeedtech.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAAnpOst0QlpydtqAQ--.17454S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tr4rGr18GFyUKw1kXw48Crg_yoW8XFWDpa
+	ykAFWIkrWUCF4xKanrWa1kZF1Yy3y0yrWUGrW0934F9w1DXr1jqas5KF1FvFn0yFWrGF4Y
+	vFZ7tF1rAw18Zr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	tVW8ZwCY02Avz4vE14v_Gw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjfU5FApDUUUU
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgoQA2kJpV+0fgAAsP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_020820_420675_C8C60815 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20251104_091605_194703_32184537 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,20 +95,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 06:52:16PM +0800, Billy Tsai wrote:
-> Add the compatible strings "aspeed,ast2700-adc0" and "aspeed,ast2700-adc1"
-> to the binding for the Aspeed ADC. These new compatibles represent the
-> ADC instances found on the AST2700 SoC, which are similar to the AST2600
-> but have their trimming data located at different SCU offset.
-> 
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> ---
->  .../devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml         | 2 ++
->  1 file changed, 2 insertions(+)
+The initial fix for a GPIO descriptor leak added manual gpiod_put()
+calls in the error path and remove function.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+This follow-up patch improves upon the fix by switching to the
+resource-managed devm_gpiod_get_optional() API.
 
-Best regards,
-Krzysztof
+Suggested-by: Vladimir Zapolskiy <vz@mleia.com>
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ drivers/mtd/nand/raw/lpc32xx_slc.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/lpc32xx_slc.c b/drivers/mtd/nand/raw/lpc32xx_slc.c
+index fea3705a2138..3ca30e7dce33 100644
+--- a/drivers/mtd/nand/raw/lpc32xx_slc.c
++++ b/drivers/mtd/nand/raw/lpc32xx_slc.c
+@@ -854,7 +854,7 @@ static int lpc32xx_nand_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* Start with WP disabled, if available */
+-	host->wp_gpio = gpiod_get_optional(&pdev->dev, NULL, GPIOD_OUT_LOW);
++	host->wp_gpio = devm_gpiod_get_optional(&pdev->dev, NULL, GPIOD_OUT_LOW);
+ 	res = PTR_ERR_OR_ZERO(host->wp_gpio);
+ 	if (res) {
+ 		if (res != -EPROBE_DEFER)
+@@ -937,7 +937,6 @@ static int lpc32xx_nand_probe(struct platform_device *pdev)
+ 	dma_release_channel(host->dma_chan);
+ enable_wp:
+ 	lpc32xx_wp_enable(host);
+-	gpiod_put(host->wp_gpio);
+ 
+ 	return res;
+ }
+@@ -963,7 +962,6 @@ static void lpc32xx_nand_remove(struct platform_device *pdev)
+ 	writel(tmp, SLC_CTRL(host->io_base));
+ 
+ 	lpc32xx_wp_enable(host);
+-	gpiod_put(host->wp_gpio);
+ }
+ 
+ static int lpc32xx_nand_resume(struct platform_device *pdev)
+-- 
+2.50.1.windows.1
 
 
