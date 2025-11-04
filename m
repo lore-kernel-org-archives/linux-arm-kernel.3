@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6FCCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 22:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51F6CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 22:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UwX3J0ickBkFYv+967zOu+FA1VAKcVIsUcTaD7Zgs0E=; b=efMaAqGrpInnxiRUHEsgOHTpnP
-	G0kx4vVdg/MLYHrAZnGLbCbdMdskpchNtPVRZiy1sR7cBNW+m5OSpVStGI/zw4pFKBVvBDAG3xmiO
-	U9k35Wib303yc5nu4omE7+cUDv9RvaOXFbwl0M+dsPsI8KPYQM5vNykRCPbEh8pNmwUgk1XzCp3Ja
-	okieclINBlt+ZHkq4maLmJFsgdxJCuBZXdSGBVaxL1BrExmMbvXWNlP7MdzPD6R9OJk0cFgSEmeAe
-	CIbs+uxiApIcXGHYgB6kCrs6wfZkyXd4qrTBwRp/uUdkISksgvtynNJoG6gbIXSl+AvB0O8BHlA80
-	cukxf2ew==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/PPI2UlSg+2wDXB6qM/q5iBvs6wz5UduwX3SF9n6VxI=; b=bY+N8v3NZ2EM6RXBct8QK2ObHV
+	qX303sciGQz8N4wrtp+vbtn1ZYFOau+5YMnhpkiy9+JflfK2i2E8iXcs5PMl9OXBRgQ14mL6MIPtC
+	B2MEg/Gx+1iZjadnUbKyvQYBBxqFiLCVIxY5lwCTS3MfkdcdhclSUzjdPnRi5MYdfpXJB/ZLG1RWU
+	BYDVUMN3MPwpOth8wGO8Q29P9OBYf9hLn/GDIHyPfYnjzJi5GEq9eBFH2mxbIQZ5TpWUeu43h6FTT
+	gWg23OX0GtalnNKArrNntTW7fSJFtNKGmehVVpeOHMFr/kh90N/GlUo4sYFxZ/gmwt/EbLmgQJ3jl
+	3E6TmG8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGPVi-0000000CguS-2tXV;
-	Tue, 04 Nov 2025 22:28:18 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
+	id 1vGPVk-0000000Cgvj-0e1G;
+	Tue, 04 Nov 2025 22:28:20 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGPVg-0000000CgtC-0i1O
+	id 1vGPVg-0000000CgtJ-3Dy0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 22:28:17 +0000
+	Tue, 04 Nov 2025 22:28:19 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 865E8C021961;
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 9AA0DC0003E6;
 	Tue,  4 Nov 2025 14:28:13 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 865E8C021961
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 9AA0DC0003E6
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
 	s=dkimrelay; t=1762295293;
-	bh=eMyJfYp9kZW290dl9Vblnq83aD+uquXJrXxp2Bnnug8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=syorIhIgSNBNPUlvrEtHR/NKnKUiJ1LLAuTTSkfKvdmgaNVl5OZpfWyqZcuxtzMM2
-	 zABVWvWlXyMBOeh2haabV+klPgdpM/nVzdwHzeEQsqHh+XJLToMx5btB6ysiGQZLnk
-	 TFBHze6FmBs6SasLDaoZ2gPgDWUFuiDwC+TjQQag=
+	bh=p2n4TFm415R2JyPtCWeHvuVmBkp52QEUaSpQMwo74Jw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=o4sxXqjT5Lh6LpOot2VzdLl4xruyXIAa0PScWKuPZP9sIxYZcxGe/HVpsl7W/aHjY
+	 eDJDpzxrW9J3wF8BxZVn1lvCX/k8DdZ35mYQUUfm62XzivYDxWb4tYmkARG/OlRd5C
+	 7mr/tjFjRodmut9yBGCH7AAYSv/qPYdKvpyVncmY=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 688661800084D;
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 475AE18000530;
 	Tue,  4 Nov 2025 14:28:13 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: soc@kernel.org
-Cc: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+Cc: Stefan Wahren <wahrenst@gmx.net>,
+	Mark Brown <broonie@kernel.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-arm-kernel@lists.infradead.org,
 	arnd@arndb.de,
 	khilman@kernel.org,
 	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 2/2] Broadcom devicetree fixes for 6.18
-Date: Tue,  4 Nov 2025 14:28:11 -0800
-Message-ID: <20251104222811.3874608-2-florian.fainelli@broadcom.com>
+Subject: [GIT PULL 1/2] Broadcom defconfig-arm64 fixes for 6.18
+Date: Tue,  4 Nov 2025 14:28:10 -0800
+Message-ID: <20251104222811.3874608-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251104222811.3874608-1-florian.fainelli@broadcom.com>
-References: <20251104222811.3874608-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_142816_232499_4EB41F97 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251104_142816_874208_480F5A2F 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,22 +82,23 @@ The following changes since commit 6146a0f1dfae5d37442a9ddcba012add260bceb0:
 
 are available in the Git repository at:
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.18/devicetree-fixes-part2
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.18/defconfig-arm64-fixes
 
-for you to fetch changes up to 3d1c795bdef43363ed1ff71e3f476d86c22e059b:
+for you to fetch changes up to 9c16e4d216d8103a8178bbe070eb21f779f190c0:
 
-  ARM: dts: BCM53573: Fix address of Luxul XAP-1440's Ethernet PHY (2025-11-04 14:23:39 -0800)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM-based SoCs Device Tree files updates
-for 6.18, please pull the following:
-
-- Rafal fixes the Ethernet PHY address on the Luxul XAP-1440
+  arm64: defconfig: Fix V3D deferred probe timeout (2025-11-04 14:20:40 -0800)
 
 ----------------------------------------------------------------
-Rafał Miłecki (1):
-      ARM: dts: BCM53573: Fix address of Luxul XAP-1440's Ethernet PHY
+This pull request contains Broadcom ARM64 defconfig updates for 6.18,
+please pull the following:
 
- arch/arm/boot/dts/broadcom/bcm47189-luxul-xap-1440.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+- Stefan ensures that the clk-raspberrypi driver which is now the clock
+  provider is built into the kernel image to satisfy root over NFS
+
+----------------------------------------------------------------
+Stefan Wahren (1):
+      arm64: defconfig: Fix V3D deferred probe timeout
+
+ arch/arm64/configs/defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
