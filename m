@@ -4,70 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E44CCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5E1CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sgv44AYg1GcxRuiUgsF791L+moCWZ5//4OYjNP3DEI=; b=PRtX9cqsgaGuUfjwzQJ1bvtO36
-	FP2lp/V4oFWIDrGBEKMeVrboS/1ztwuYAD7zViEAtn1PTAuuefTZrOkJhPPFcG3GTuHdxIIp5GCRM
-	toZyX6KVoZKIcopHFCSbpqYA2SxDVjPSLIVDdlydkaUiydmZ0V+gcFD/HlX+0QV2vHvNC+3taFSeY
-	j0TfceDKaYLYoL1UvzVWhvaXP19dUls4vnSJ3A3Ss1Nl7B8G64aq0eSVS0Fe96mVowWkGYuz/TnZp
-	KR9q6AkIMomMPl+3EkaOrTVFF28qbdvdRKhZOXjPQofWql0ydZ40goqK5AkPccR74clXbgn9Q+b7n
-	VV1ozH9g==;
+	bh=g9b8dgRqX4uL2BHQtqvlqSlczFEDIsrr/9vjvvQGP/s=; b=3x7Jt2Na0927pJ3LSmBS2Ln2y4
+	arAhU2/Yco5Z+sYp5cJJOTpZz+UeUnyMBdKCFeRPyNXGbAKgENIQlctrIm3LT9BhzMyNMQRSE3saL
+	rxyzsR58pa5bjf/SboIz3unsYvowEVRe2IlXNoefnDB4eEF288x1fLUwKi3F9QIue1b3xzFUsr6Jm
+	CT2StvFKBepP0tOdk5pLqgcwyUmRZ2Udmcta+2lGTjaLaL2NHF4e9mywSt0Q6uB+tf2LGQ6i6TQ/l
+	0MtHARGrsU6K33RY9MKCEOJskOhIFX21FMRwVqND23PymJwQd5ZmBQ6L+TVJSZRePmgmFxCM3TOk/
+	5BDu044g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJi3-0000000CAsT-2LIO;
-	Tue, 04 Nov 2025 16:16:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGJn8-0000000CBFf-2MpE;
+	Tue, 04 Nov 2025 16:21:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJi1-0000000CArP-0fq8
+	id 1vGJn7-0000000CBFX-2WzY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 16:16:38 +0000
+	Tue, 04 Nov 2025 16:21:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B4D3447A9;
-	Tue,  4 Nov 2025 16:16:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA38DC116B1;
-	Tue,  4 Nov 2025 16:16:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 793D86020D;
+	Tue,  4 Nov 2025 16:21:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA99BC4CEF8;
+	Tue,  4 Nov 2025 16:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762272996;
-	bh=EBvCozXC0B7xS4q4wIuy10Yn3kGVo6sqyYCj5vhUAGE=;
+	s=k20201202; t=1762273312;
+	bh=ZgapEV2f6UOkVKQ4Tm3UO+ujY8mCniaMXHTUMRbX7qU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lj2eYO6Mtv7X8QLk+/EsC4EsuRFqDvAXLQejVWdxtafr8WSjZVXhWecI5E9kWHCYM
-	 C+m/9RgZ4ZIh0a1Cxv59F6YeYQ8VjyPToC64rNT/tZfKAZw8Z573Jav9hEEK5dmFw3
-	 eGmW7M4V8oaGxQ/RGRMdQkM0nyxzR7pNkD/g4/NNdA4F+UFdlHl6QqAS3Ai4jp+wtT
-	 zPrc7YhyqmVQ9ttdm+bwYcUZvlvDkEqQMuv55GWL6RElmhmjaEjI4AapgAlvF0iNxI
-	 POb08jgMRPqfkSi36Bl4ECjOmfaTonzyxnxWgqC444kQPYVuFyVP5v0789++QRtR/F
-	 fp8ZEyHLf0vhQ==
-Date: Tue, 4 Nov 2025 16:16:29 +0000
-From: Will Deacon <will@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
+	b=XERX5aBHazdMMA+oEnGRxw1zsSiVD03zD1/OvFrITxNP8TY8EKGHO897kQpHZcTC4
+	 AjOz22hE45sDXPt8Me6tOdmAhG+A6sT8FL6AjX6iYO6ZcS6KadkQT0rMkbJmui1OF/
+	 y4pOsmta37VrO7TikjmFAe6yJr0DOXYwKDoT/9gVY3btW9L5vhKbX9306CCCv2kmMU
+	 q0Xm6Z0TQ7+VPuX7Bj+EZ5H6rPQRzeur3ohk90yIJvxkO3YG03g9YEM8mYNDLcUFlG
+	 PnlmletPsDgf5n3+Go+pKne9UEK4e4ygPuzYRVo35SlZ1BzC2w6vuQ8zAxKAJKLqqA
+	 KeZdQ7RUrsN6Q==
+Date: Tue, 4 Nov 2025 16:21:49 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Nick Alcock <nick.alcock@oracle.com>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Shuah Khan <shuah@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Pierre Gondois <Pierre.Gondois@arm.com>,
-	Sami Mujawar <Sami.Mujawar@arm.com>
-Subject: Re: [PATCH v4 resend 3/7] arm64/fpsimd: Don't warn when EFI
- execution context is preemptible
-Message-ID: <aQom3XPDmPTkq47d@willie-the-truck>
-References: <20251015205634.3820870-9-ardb+git@google.com>
- <20251015205634.3820870-12-ardb+git@google.com>
- <aQohO07DpxlriQfJ@willie-the-truck>
- <CAMj1kXHJ8QWLE=awDUpNa0Cf_1YXMQaW-Se1NvvavOocshDkTQ@mail.gmail.com>
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
+	Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-s390@vger.kernel.org, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
+Message-ID: <aQooHZ5p4DNhwbar@finisterre.sirena.org.uk>
+References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
+ <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
+ <aQjJNmwniQwwjeBR@finisterre.sirena.org.uk>
+ <CGME20251104084442eucas1p2af1bd88393f4d6a532df1cd41f32a287@eucas1p2.samsung.com>
+ <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
+ <aQn8G9r2OWv_yEQp@finisterre.sirena.org.uk>
+ <20251104162009-8cffa62d-e95b-466b-9a27-c51b0f5257cd@linutronix.de>
+ <aQogAfbrP9rTPLvI@finisterre.sirena.org.uk>
+ <20251104170215-3600e71c-1573-43aa-ad1d-8d02af9bbbf4@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vgxhQqUhFOf4jqrE"
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXHJ8QWLE=awDUpNa0Cf_1YXMQaW-Se1NvvavOocshDkTQ@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_081637_238257_D0FE891D 
-X-CRM114-Status: GOOD (  26.51  )
+In-Reply-To: <20251104170215-3600e71c-1573-43aa-ad1d-8d02af9bbbf4@linutronix.de>
+X-Cookie: If in doubt, mumble.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +109,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 05:00:34PM +0100, Ard Biesheuvel wrote:
-> On Tue, 4 Nov 2025 at 16:52, Will Deacon <will@kernel.org> wrote:
-> >
-> > On Wed, Oct 15, 2025 at 10:56:38PM +0200, Ard Biesheuvel wrote:
-> > > From: Ard Biesheuvel <ardb@kernel.org>
-> > >
-> > > Kernel mode FP/SIMD no longer requires preemption to be disabled, so
-> > > only warn on uses of FP/SIMD from preemptible context if the fallback
-> > > path is taken for cases where kernel mode NEON would not be allowed
-> > > otherwise.
-> > >
-> > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > > ---
-> > >  arch/arm64/kernel/fpsimd.c | 4 ++--
-> > >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> > > index e3f8f51748bc..3d848c89604e 100644
-> > > --- a/arch/arm64/kernel/fpsimd.c
-> > > +++ b/arch/arm64/kernel/fpsimd.c
-> > > @@ -1934,11 +1934,11 @@ void __efi_fpsimd_begin(void)
-> > >       if (!system_supports_fpsimd())
-> > >               return;
-> > >
-> > > -     WARN_ON(preemptible());
-> > > -
-> > >       if (may_use_simd()) {
-> > >               kernel_neon_begin();
-> > >       } else {
-> > > +             WARN_ON(preemptible());
-> > > +
-> >
-> > Given that may_use_simd() returns false on systems without support for
-> > fpsimd, I wonder whether moving this WARN_ON() actually helps with
-> > anything.
-> 
-> This code is only reachable if system_supports_fpsimd() returns true,
-> so may_use_simd() will only return false here when running in
-> hardirq/NMI context.
 
-Sorry, I missed the check _right at the top of the hunk_!
+--vgxhQqUhFOf4jqrE
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> > That is, you probably shouldn't be calling __efi_fpsimd_begin()
-> > from preemptible code regardless, no?
-> >
-> 
-> Not sure I follow you here: __efi_fpsimd_begin() is generally called
-> from preemptible code, and it is the EFI runtime wrappers themselves
-> that disable preemption - that is the whole point of this series.
+On Tue, Nov 04, 2025 at 05:03:28PM +0100, Thomas Wei=DFschuh wrote:
+> On Tue, Nov 04, 2025 at 03:47:13PM +0000, Mark Brown wrote:
 
-Ignore me. I was reviewing this against the upstream
-arch_efi_call_virt_setup/teardown() functions rather than in the context
-of the changes made later in this series (specifically patch 5).
+> > I can let you submit LAVA jobs to my lab (there's an API, a web
+> > interface for (re)submitting jobs and a CLI tool for shoving jobs in) if
+> > that works?  That's how my own access to it works unless I go pull
+> > boards out.  You should be able to resubmit existing jobs, it downloads
+> > test binaries over HTTP.
 
-Will
+> Sounds good.
+
+OK, folllowing up off-list for that.
+
+--vgxhQqUhFOf4jqrE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkKKBwACgkQJNaLcl1U
+h9BB+Qf9EauYOf7gmQuIlmWkRFyAe3nL6GnUvplpFK7JQgCAmEpS6FK/StPLVbZL
+WwU/hE4esPcUwdBtU2pbY2fHKOHlAE3CNPiiEYfjkd51GcYtFX5b0Lw1PDB72Kgo
+ZFvKRrKRgkb3Mn3f7Dl2XoapM8m7YR/tRtJNCBk+SesiIQ0HfL5V4ExsYO+L5c7s
+wegS0czcQsWbwDBTsPWl3QJF+HPkq28QUpznRvaUwKfj7Pe5PJTpEQy9OZQf7u4r
+e8p94FrmEto2SEMlh98mHi5iZcmCBPvOtFtCrv8NmzDi7olabfnoQ+ECOnFB2+Cy
+tm2fLJofnR2UpxNKmXwxdF0pK8VkPw==
+=HhMt
+-----END PGP SIGNATURE-----
+
+--vgxhQqUhFOf4jqrE--
 
