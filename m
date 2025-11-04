@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B091CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 22:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F20CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 22:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tN8WzZ9GEpKaJgdfC1znVVrhhkhAJwlw/zZ1qhYY7To=; b=OpDxxLFzntTHU2fWqG3yuNz8n4
-	0TqzFr40vBp2TLzmVWCt7JCWvrxhPN9kQBT489ycHQij05qYg635YcSwmC0qg7I3sFLLEF4Yckz0h
-	niOsfZ2tGx2H3Ws18zuY+Ajkjmkcdfq7jD9gZG0E16s3g/3L35/F5sDWUWIE6rlrwW9LVkjCcyNCj
-	8N610khWwlqYAeFMQff4HKgA+LkdBuFKy1RvTqWF4fZYr0KO4z0rKTSDE8JD8yM0ic7fP+QYTuqRZ
-	Vurbdb2bA/Tj2sT5XNdVYsbZfAGLbb4YMyMPKtxIYULI1TTxeYqh2Ky9IW4EYPQ4GyMTG/daHaHs8
-	DI4k7ybw==;
+	bh=Lnl8n3Jcqh1zlq/2kwTqrdOA4/uuLInlKNkJl72nXWc=; b=weebiPZwP1Pl0dFwGPSTi4vUyb
+	28n0nUynHqPvPD62OUSV+7evPJlL0ZVuhqwNMZaFsjQ1FROnMRF1smqAAr8o3Lhz5/bkceH2FCUpU
+	bkr71lPEiyNVkdcuql9UOtgtSrs/sMz6POaEQrPjS75FB6RFjIR6J5JCv42KAHzW7aokTJtbW4gWR
+	WAKEWsJYEyj80K2ASYzV6V5rxY5Q6ETbnb91Y7RYwJ4ZkMq/7m85jj1loqCoO6Pr4vm6OELfuLmUI
+	4sXO4IaTzJHzuKnQ8t7R+cQ6PnvX7UuPnj8DOx1RiQl3ZLWvI3Vj8vHnNjopn/fq/8U1eidkzuODO
+	MrEdhI2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGPOE-0000000Cg4c-1ZCL;
-	Tue, 04 Nov 2025 22:20:34 +0000
-Received: from mail-qv1-xf61.google.com ([2607:f8b0:4864:20::f61])
+	id 1vGPOl-0000000Cg96-1UMt;
+	Tue, 04 Nov 2025 22:21:07 +0000
+Received: from mail-oi1-x265.google.com ([2607:f8b0:4864:20::265])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGPOA-0000000Cg3p-3DAH
+	id 1vGPOi-0000000Cg8f-2YL9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 22:20:32 +0000
-Received: by mail-qv1-xf61.google.com with SMTP id 6a1803df08f44-87bb66dd224so61270386d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 14:20:29 -0800 (PST)
+	Tue, 04 Nov 2025 22:21:06 +0000
+Received: by mail-oi1-x265.google.com with SMTP id 5614622812f47-44f7be0adcfso2339249b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 14:21:04 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762294829; x=1762899629;
+        d=1e100.net; s=20230601; t=1762294863; x=1762899663;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tN8WzZ9GEpKaJgdfC1znVVrhhkhAJwlw/zZ1qhYY7To=;
-        b=dSd3OftPJ+JmqfUGeYJo+ZDSYs8qZ83cFKYv0/dODd9EF9aMmeNXsMb/tQV11nnZDO
-         oPRqNY3soyFeCShBuqBNsP4g1ZLihsrUJt6tLngj2mspzcqYUIudhI1Mq7bvF9U3rnZc
-         ZX8Za2GTQiL4/LYVqU11KD4lajyvDwNXcOvqB5K2vym/UpFieYojHboP4p9S/sZ8ZEpy
-         Oq/Nxqo7t0pNHRcv1kQGfdDsLZcYRfpHV3gqU6h31HhTgfjHkDytyq/pOCuB8++S8I5m
-         XTNg8M392XXRlrUBipi5JLuldNw+/9qsJX0Z1NvdpEMd7Wj3SlZ4xuHJwLou1wtsBR/g
-         b9gg==
-X-Forwarded-Encrypted: i=1; AJvYcCURg85fekK78B5DgXoPqVmgphVZ8oMEwvolStM8do6TCzy1/cnXYPQCbRaYT5QbwRgN+lJCw5vBxQkA3a5ZMWGQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxl556xYyVx0ZnWX5JqP/MY9m4bJu6TvG4cfcWq3y7CJvPU4HPS
-	hNTJNNYHZAizNeXRJFSFSI6T5sxw0kAuj+UsTNp0L85wCqpQ2tGWVtR+ZQ8UOSqPdN6OZs2sIf6
-	GrAb7QR8pss0nkn/2Mz/hf+0tGld/Zssv1iIX+5E8wxGpX8HwtNPGr0txYKq4VDshC5+m1UP1lc
-	X/0FcDAVskQp32f53g6apzdAn5lSHVOOntCGDLCY9IIjWni+oGOUBk9iu4ZCA9P+fAPL+SwO13Q
-	kwAeRVEryTexjk1vrjWmUrHGrkZW8mrbxY=
-X-Gm-Gg: ASbGnctDWlvUFAZKv19T7UYpQio5vq09ey5sAQH9q6ngc0G9ZeRgyqOR1e/+tjymwPw
-	uU+ift0tQICiKoiKXZjw2OhZIVWsRpV+sskYHpC5RIk0P4ZQL3mGp9Hui8aoEhg1ETGq2Krx548
-	veOTmb3XLPe+IvH/JnVDqLpfz8LY7S47iaT6gFCpUFeBIYAoPAYaaprA/4JFiC9Kg2xITcXN2O7
-	ilz++kx9+gFa9aLdxG9YSNHBIq86TeHdgEZBFdJ4SD9Zc6CGi29m2ebBGIpWN9Sjib3dSJn4YuG
-	tC6EDFyJvwE9faqfMP37xwfNfXRZLjH+l0TIkz27KHtDUrnw1PArz9PMfyCDIMFhtCt9KZ5K3ba
-	mWsYt3n5+4givhfYgg1ZVXl8O1j95XjtNCq0K70imkzgJYiuneszcVu2u5Ci+9eJYUjRjl0mTC6
-	C/huKOtlxO8VSWXJO3bkHom4d+nI5d0TEkmdVcBwQVow==
-X-Google-Smtp-Source: AGHT+IH7YTu7Pan1YWKaLVknu/TcCobX3elNjr5yCqcuuN5xHC0eBo37gCmQQJlK+J/Kt9whGDkPioHPmXIS
-X-Received: by 2002:a05:6214:4001:b0:806:7173:3af5 with SMTP id 6a1803df08f44-880711923fcmr15573276d6.55.1762294828743;
-        Tue, 04 Nov 2025 14:20:28 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-101.dlp.protect.broadcom.com. [144.49.247.101])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-88060dd56a4sm3676456d6.14.2025.11.04.14.20.28
+        bh=Lnl8n3Jcqh1zlq/2kwTqrdOA4/uuLInlKNkJl72nXWc=;
+        b=NHQ8gBJiCNLcGloO4wKvPSc+0AgOF29fXb3PTrLL5EmeT3Q0TKyUU+c1T7cV0NGZx8
+         fEI4XVIx1Go7VqvSKoeQd8ShTSJ3NSA2ZydfTAzdHo6a5GCK2ENvPNC5TriiukPmaiq/
+         czzp0AmfFzaC/E/noZ/P57cA2TcOuq7YNLysGVOU01lKcw2DzMC8cH8aG4NNcAqawSoV
+         h8LDa0yydF9jY/zd0KVI1DCjmwCycdosQ1gfabCqBYItcrI6vZtEQ+8tS0unDIcVEYy4
+         OGAm22H/MSTe6ZNn+farOAVefNo5912pb3JNSkjcYEBmnlXZMS4nWzPVjiOFvU3NZo1O
+         QsSw==
+X-Forwarded-Encrypted: i=1; AJvYcCV8mPlMvFedcjwBFDfWaNvRQUsDAlb3yQXUy2eP+q5v9DNyZaof/hbbC+Hdhf7ZDWpNXfLkZ3eozJVp5CL1TIVw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeVeBpvMB1mDyH17GTgFNGSMrQZTPLyYWHqyHvUlm1ds9tLRPt
+	nrINL550pRsgTT3gvYr8ChOrxVE7MqOL4vZnPJfWmhdhSObgQ5pCyc83JTDJTRkYlWfzuinkA8U
+	2yUfz+8xeh5Fkzhy4h5awI+YjfU8dOuyL0ssXdqZuvM15X89gkDayKQaRpWP9BLtyIdPsKxwYT5
+	SAhaII3NWvpQzNFbeqddkV8R773dWjkORNfUEE01yPZvBttY7PavpmuNJNm5j9mzPCvsC81j9QL
+	9OKajsAMGfgXx66ckFyPLqi35jkiAFFCRLjcw==
+X-Gm-Gg: ASbGncs0midPE/GXqIFjDldwKsClK1DDdhjalBqxprdcPAOX2oU1ZJsxEsN5UO5cCRE
+	9z84BIsSZmwAgHqM2Vvj8eMEuig4s3Ry7aU4fHnkyQU4Msb6RMesphD5Tmz8Nu8scAHOpzAlFYq
+	TNhY27Xqswvx4ABs+Ga8gKMzJrhJQGHkV3mcfDzxPLzObdkpuuObiX0RMhpTAq209mUNttyPut+
+	WpcBPxSsuKq0BZbjqYY2qTbN7ymIkDLOmyv6Fhf5paohiec+rqyfRi7jBWo8sSCmxizR2nbXJoc
+	RhZ7FAh30s60es3zO9IrZKPCuAbBmN0I9AbB3XakJZui8J29XXSIk865UkKHQu4x2CfEeCDIxyx
+	vA5CGhzLu8S4Tj8yfsOTT+ZkLiRjxKc3pySqbwj8SvvRwjzkR0KKpiedWZzTaqbkLMvU/FEK/TZ
+	v/zymfGbMjW//p201mVeNYpqh0Ydk2c0vXqqNsIxLM9A==
+X-Google-Smtp-Source: AGHT+IGGXythP+tEKfLImQRf6eU3vzuRqiQyhbaITIxEwwVpPhgzGtV3hvfKLBnkpG0Qckem7YVb6MnRy5FH
+X-Received: by 2002:a05:6808:318c:b0:44f:6d6e:2836 with SMTP id 5614622812f47-44fed34342bmr354907b6e.23.1762294863506;
+        Tue, 04 Nov 2025 14:21:03 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-117.dlp.protect.broadcom.com. [144.49.247.117])
+        by smtp-relay.gmail.com with ESMTPS id 586e51a60fabf-3e12bd04cb3sm150121fac.18.2025.11.04.14.21.03
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 04 Nov 2025 14:20:28 -0800 (PST)
+        Tue, 04 Nov 2025 14:21:03 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ecf4540bb6so163347901cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 14:20:28 -0800 (PST)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4eba120950fso147645031cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 14:21:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1762294828; x=1762899628; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1762294862; x=1762899662; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=tN8WzZ9GEpKaJgdfC1znVVrhhkhAJwlw/zZ1qhYY7To=;
-        b=FVVBUt0ashdq20rP3Hq3Dsv/cl2bGILtFj2uQwtgdg1ccj4IuJcIZt7EVue13LPSvm
-         AB89I/eo7/xxGi04yWtEiXY/3MAUKbMIArBWvAN6mUv7xyJvFQZavQwKHCRS89aX7ivS
-         P65FQmlVxCffkF3rkYCJYykwxtQDm8fm5zY7g=
-X-Forwarded-Encrypted: i=1; AJvYcCUpvD1+T8MbV3ej+9C6HgiAaERRii00hjdTNRJi73ZUTj/cO9gO3xjsWWNNGgPuSI+biMC1EAnalB7bVPIaiujr@lists.infradead.org
-X-Received: by 2002:a05:622a:47:b0:4e8:ae94:7560 with SMTP id d75a77b69052e-4ed7264c433mr13277361cf.83.1762294828035;
-        Tue, 04 Nov 2025 14:20:28 -0800 (PST)
-X-Received: by 2002:a05:622a:47:b0:4e8:ae94:7560 with SMTP id d75a77b69052e-4ed7264c433mr13277101cf.83.1762294827619;
-        Tue, 04 Nov 2025 14:20:27 -0800 (PST)
+        bh=Lnl8n3Jcqh1zlq/2kwTqrdOA4/uuLInlKNkJl72nXWc=;
+        b=LTHnYhZ9N3cbfFJYoyHRTLqGDVxtOvewJIurHafl5Zq5K7BAK8oRRnnpK/5J8BtbaL
+         Npz3Pn28MjXFV3JKuSwNRsDbWBtfPXoOShqcpnfNpwBCYpMafxoEXoQ+YjUy3VqxR6ZG
+         DZjJZydikGjZ+dysmcYL/elfM8mEv4m6NxEBE=
+X-Forwarded-Encrypted: i=1; AJvYcCXLVM8Iv1QERmNvMCXlXi87/Y9+uzvI/KtQjAHNOgjGomCpuJh1iSMyf07vc1RwHKsM89beDR/pRVW54YencqkC@lists.infradead.org
+X-Received: by 2002:ac8:5acc:0:b0:4ec:b599:2879 with SMTP id d75a77b69052e-4ed7260440cmr14729111cf.66.1762294862614;
+        Tue, 04 Nov 2025 14:21:02 -0800 (PST)
+X-Received: by 2002:ac8:5acc:0:b0:4ec:b599:2879 with SMTP id d75a77b69052e-4ed7260440cmr14728731cf.66.1762294862153;
+        Tue, 04 Nov 2025 14:21:02 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ed5fc3c8dbsm24129701cf.36.2025.11.04.14.20.24
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ed5fbe0115sm26194261cf.18.2025.11.04.14.20.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Nov 2025 14:20:26 -0800 (PST)
-Message-ID: <3e538ec1-37f6-416c-bc04-6f21a4d31748@broadcom.com>
-Date: Tue, 4 Nov 2025 14:20:23 -0800
+        Tue, 04 Nov 2025 14:21:00 -0800 (PST)
+Message-ID: <55c23802-e545-4e88-9814-8d24fd24815c@broadcom.com>
+Date: Tue, 4 Nov 2025 14:20:59 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: bcm: rpi: Mark ISP clock as critical
-To: Jai Luthra <jai.luthra@ideasonboard.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251028-rpi-isp-clk-v1-1-2a54fecb495c@ideasonboard.com>
+Subject: Re: [PATCH] arm64: defconfig: Fix V3D deferred probe timeout
+To: Stefan Wahren <wahrenst@gmx.net>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: bcm-kernel-feedback-list@broadcom.com, kernel-dev@igalia.com,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ linux-arm-kernel@lists.infradead.org, Mark Brown <broonie@kernel.org>
+References: <20251104174518.11783-1-wahrenst@gmx.net>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -133,13 +132,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20251028-rpi-isp-clk-v1-1-2a54fecb495c@ideasonboard.com>
+In-Reply-To: <20251104174518.11783-1-wahrenst@gmx.net>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_142030_820600_4F5AC2A0 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20251104_142104_664937_4B9A4334 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,43 +153,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/28/25 04:46, Jai Luthra wrote:
-> The ISP clock should also be marked critical to prevent the clock
-> framework from disabling it on boot, which can lead to bus lockups when
-> the kernel tries to submit buffers to the VC4 ISP firmware.
-
-The commit message suggests that the driver that interfaces with the VC4 
-ISP firmware is not ensuring that the clock remains enabled for the 
-duration of the transactions. That would be a driver bug, would not it?
-
+On 11/4/25 09:45, Stefan Wahren wrote:
+> The commit 4adc20ba95d4 ("ARM: dts: broadcom: rpi: Switch to V3D firmware
+> clock") causes a regression in arm64 developer setups, which stores the
+> kernel modules via NFS. Before this change the involved V3D clock provider
+> was builtin, but after this DT change the clk-raspberrypi is responsible
+> for V3D and for arm64/defconfig this driver is build as a kernel module.
+> In case these kernel modules are provided via NFS this takes too long and
+> the PM domain core give up before the clock driver could be loaded:
 > 
-> Link: https://github.com/raspberrypi/linux/issues/7100
-> Fixes: 919d6924ae9b ("clk: bcm: rpi: Turn firmware clock on/off when preparing/unpreparing")
-> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> ---
->   drivers/clk/bcm/clk-raspberrypi.c | 1 +
->   1 file changed, 1 insertion(+)
+>    v3d fec00000.gpu: deferred probe timeout, ignoring dependency
 > 
-> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
-> index 1a9162f0ae31e330c46f6eafdd00350599b0eede..dcc3ae5fb91650b042d52f02499922786b43afde 100644
-> --- a/drivers/clk/bcm/clk-raspberrypi.c
-> +++ b/drivers/clk/bcm/clk-raspberrypi.c
-> @@ -151,6 +151,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
->   	[RPI_FIRMWARE_ISP_CLK_ID] = {
->   		.export = true,
->   		.minimize = true,
-> +		.flags = CLK_IS_CRITICAL,
->   	},
->   	[RPI_FIRMWARE_PIXEL_BVB_CLK_ID] = {
->   		.export = true,
+> So resolve this issue by making this critical driver builtin.
 > 
-> ---
-> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-> change-id: 20251028-rpi-isp-clk-eb5c48346e51
-> 
-> Best regards,
+> Reported-by: Mark Brown <broonie@kernel.org>
+> Closes: https://lore.kernel.org/linux-arm-kernel/9ebda74e-e700-4fbe-bca5-382f92417a9c@sirena.org.uk/
+> Fixes: 4adc20ba95d4 ("ARM: dts: broadcom: rpi: Switch to V3D firmware clock")
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 
-
+Applied, thanks Stefan!
 -- 
 Florian
 
