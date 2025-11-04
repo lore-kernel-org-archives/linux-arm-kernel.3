@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F60CCFA0C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE02CCFA0D
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zW6knlq4MYYfbtj8UbiFJACNmyKYLIe3evx2Qbk3acw=; b=tCJokMPz2l9fmauMo2/tlPNfM7
-	L4o8fLqgfUM1fRS2d0YTwFGFj1mOc9mHkoHc6wfylPab5ufwPF3RjfLvF8+ACMMeHPZEGfnioq3mw
-	05B64a8B/i/N1xPoMbsBMjhNQzAOePLuSkuDFToVreBaxtBofqw6wY9CuJCYLI+vQkfjwrRw6CDxj
-	bRV8rAU1NGJTDTxotLomAlmYRM3VLfZ0FFoaem8T+C221IJnMZfG/Ue7pvmTTfrK09x+DbzKW72Xj
-	lNXv0JbXODSmr8ItfBEc2SfccSHB3rdZeX8o77QRMf8D1b3wvD1EWqEQGR0HOezNFu0D7d5/sHdSh
-	08zeIOKQ==;
+	bh=L6By5eago49i7k9wm5RHNe664fmPaSwz6GDv40uWJr4=; b=OhiFdF256DmsBWaErexZDo9m7z
+	sg/4s4S7KTqFsbUssiviY5nISzHBi2IuskrNDXZdgm7wza84K23dpqelUdnkq+ksI1ApTA78kcSfL
+	GkiqmrSEgAJLixtYBT4JJnpG+DQfMRjVkCNK5GXa26AXD+baafvM7iSHsuKgYlkc51mQ8D6+HEHUZ
+	Xs8D0JzmN3/xHwvGeLyU6gkKwAMHEB5ciav+/GLgL15DT1/Xj/ZYEWvvL8dhK+x+8Latn7eaLxWwI
+	uDrdtijPvd0VfWG28DBi+DoFmynpDVr44hRDK5uOCfhWJN3w5j8MJiSSoje+SFRqBw6WfzqP9Yfbe
+	iojMG75w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIrz-0000000C4Aq-0wx0;
-	Tue, 04 Nov 2025 15:22:51 +0000
+	id 1vGIrx-0000000C48Q-2KpW;
+	Tue, 04 Nov 2025 15:22:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIrw-0000000C46S-0Y5K
+	id 1vGIrv-0000000C3wo-1ivn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 15:22:49 +0000
+	Tue, 04 Nov 2025 15:22:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECCF32E99;
-	Tue,  4 Nov 2025 07:22:39 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11D172C41;
+	Tue,  4 Nov 2025 07:22:38 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FF623F66E;
-	Tue,  4 Nov 2025 07:22:46 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 360863F66E;
+	Tue,  4 Nov 2025 07:22:44 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 04 Nov 2025 15:21:52 +0000
-Subject: [PATCH v4 08/15] coresight: Introduce coresight_enable_source()
- helper
+Date: Tue, 04 Nov 2025 15:21:51 +0000
+Subject: [PATCH v4 07/15] coresight: syscfg: Use spinlock to protect active
+ variables
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251104-arm_coresight_path_power_management_improvement-v4-8-3d4bba674709@arm.com>
+Message-Id: <20251104-arm_coresight_path_power_management_improvement-v4-7-3d4bba674709@arm.com>
 References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
 In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762269750; l=4282;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762269750; l=3963;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=hqg3ZyMjG7+H9Ow/PetRq0+lgzZmUndlcI1rJtK/85Q=;
- b=EPFMP2qnGbxzZ7H/IYMAX6OMx+I3OBrKoRKMlBLaNkecZqlcYRIaSFgtJ4FPIuWiRNP5iDRKj
- UUlZJsRHQwFAfFd5SVJBiLHmkPe901hfQqy0V7S4RLSYE4HZYcUoWMX
+ bh=FGpqAP/86VcmKet6qoEaxesg1S0n6yI/ka+2Nslwc4Q=;
+ b=jvGYcxodqRQjlISKyVIwtfe+H9feofz0PZ9Aq9GPWr94tqu6AxRg0k3y9QweiPrMUWoJxAsgZ
+ /vxXUlkLzglBm8TQBAhS5PaJ7TqfdpFLYG67zqTx0ugbo7rhicXfPdv
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_072248_253819_3BA3BD81 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20251104_072247_549269_E14FFE32 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,90 +77,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the coresight_enable_source() helper for enabling source
-device, refine the comment for the imbalance between enable and disable
-pair functions.
+To support dynamically enabling and disabling the CoreSight path during
+CPU idle, cscfg_config_sysfs_get_active_cfg() may be called by the ETM
+driver in an atomic context. However, the function currently acquires a
+mutex, which is a sleepable lock, and this is not allowed in atomic
+context.
+
+To make cscfg_config_sysfs_get_active_cfg() called in the idle flow,
+replace the mutex with a raw spinlock to protect the active
+variables.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c     | 15 ++++++++++++---
- drivers/hwtracing/coresight/coresight-etm-perf.c |  2 +-
- drivers/hwtracing/coresight/coresight-priv.h     |  3 +++
- drivers/hwtracing/coresight/coresight-sysfs.c    |  2 +-
- 4 files changed, 17 insertions(+), 5 deletions(-)
+ drivers/hwtracing/coresight/coresight-syscfg.c | 22 +++++++++++++---------
+ drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
+ 2 files changed, 15 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 0d4e935094297023b8a7786ff4b1b3783164016b..c28f3d255b0e19b3d982de95b8e34d0fc2954b95 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -385,15 +385,24 @@ static void coresight_disable_helpers(struct coresight_device *csdev, void *data
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+index 6836b05986e8091b4f8ad7d082d6a016f8cf7d74..53aa1a44f9ac8f65b4e3cce06a33255abfc17351 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -957,15 +957,19 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+ 
+ 	cfg_hash = (unsigned long)config_desc->event_ea->var;
+ 
++	raw_spin_lock(&cscfg_mgr->spinlock);
++
+ 	if (activate) {
++
+ 		/* cannot be a current active value to activate this */
+ 		if (cscfg_mgr->sysfs_active_config) {
+ 			err = -EBUSY;
+-			goto exit_unlock;
++		} else {
++			err = _cscfg_activate_config(cfg_hash);
++			if (!err)
++				cscfg_mgr->sysfs_active_config = cfg_hash;
+ 		}
+-		err = _cscfg_activate_config(cfg_hash);
+-		if (!err)
+-			cscfg_mgr->sysfs_active_config = cfg_hash;
++
+ 	} else {
+ 		/* disable if matching current value */
+ 		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
+@@ -975,7 +979,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+ 			err = -EINVAL;
+ 	}
+ 
+-exit_unlock:
++	raw_spin_unlock(&cscfg_mgr->spinlock);
++
+ 	mutex_unlock(&cscfg_mutex);
+ 	return err;
+ }
+@@ -983,9 +988,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+ /* set the sysfs preset value */
+ void cscfg_config_sysfs_set_preset(int preset)
+ {
+-	mutex_lock(&cscfg_mutex);
++	guard(raw_spinlock)(&cscfg_mgr->spinlock);
+ 	cscfg_mgr->sysfs_active_preset = preset;
+-	mutex_unlock(&cscfg_mutex);
  }
  
  /*
-- * Helper function to call source_ops(csdev)->disable and also disable the
-- * helpers.
-+ * coresight_enable_source() only enables the source but does nothing for the
-+ * associated helpers. In contrast, coresight_disable_source() calls
-+ * source_ops(csdev)->disable() and also disables the helpers.
-  *
-  * There is an imbalance between coresight_enable_path() and
-  * coresight_disable_path(). Enabling also enables the source's helpers as part
-  * of the path, but disabling always skips the first item in the path (which is
-  * the source), so sources and their helpers don't get disabled as part of that
-- * function and we need the extra step here.
-+ * function and we need the extra step in coresight_disable_source().
+@@ -994,10 +998,9 @@ void cscfg_config_sysfs_set_preset(int preset)
   */
-+int coresight_enable_source(struct coresight_device *csdev,
-+			    struct perf_event *event, enum cs_mode mode,
-+			    struct coresight_path *path)
-+{
-+	return source_ops(csdev)->enable(csdev, event, mode, path);
-+}
-+EXPORT_SYMBOL_GPL(coresight_enable_source);
-+
- void coresight_disable_source(struct coresight_device *csdev, void *data)
+ void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
  {
- 	source_ops(csdev)->disable(csdev, data);
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index f677c08233ba1a28b277674662c6e6db904873dd..dd1968dd173d608fb72835343cd647818c0bad1a 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -530,7 +530,7 @@ static void etm_event_start(struct perf_event *event, int flags)
- 		goto fail_end_stop;
+-	mutex_lock(&cscfg_mutex);
++	guard(raw_spinlock)(&cscfg_mgr->spinlock);
+ 	*preset = cscfg_mgr->sysfs_active_preset;
+ 	*cfg_hash = cscfg_mgr->sysfs_active_config;
+-	mutex_unlock(&cscfg_mutex);
+ }
+ EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
  
- 	/* Finally enable the tracer */
--	if (source_ops(csdev)->enable(csdev, event, CS_MODE_PERF, path))
-+	if (coresight_enable_source(csdev, event, CS_MODE_PERF, path))
- 		goto fail_disable_path;
+@@ -1201,6 +1204,7 @@ static int cscfg_create_device(void)
+ 	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
+ 	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
+ 	cscfg_mgr->load_state = CSCFG_NONE;
++	raw_spin_lock_init(&cscfg_mgr->spinlock);
  
- 	/*
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 33e22b1ba043264ad50acac69ece1ea6de25893b..8b978528cb49af43ef56d034f7ecc520f80f60df 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -250,6 +250,9 @@ void coresight_add_helper(struct coresight_device *csdev,
+ 	/* setup the device */
+ 	dev = cscfg_device();
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
+index 66e2db890d8203853a0c3c907b48aa66dd8014e6..f52aba4608dadc1c7666e0e28c9b43dc1c33d1eb 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.h
++++ b/drivers/hwtracing/coresight/coresight-syscfg.h
+@@ -42,6 +42,7 @@ enum cscfg_load_ops {
+  * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
+  * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
+  * @load_state:		A multi-stage load/unload operation is in progress.
++ * @spinlock:		Exclusive access sysfs_active_* variables.
+  */
+ struct cscfg_manager {
+ 	struct device dev;
+@@ -54,6 +55,7 @@ struct cscfg_manager {
+ 	u32 sysfs_active_config;
+ 	int sysfs_active_preset;
+ 	enum cscfg_load_ops load_state;
++	raw_spinlock_t spinlock;
+ };
  
- void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
- struct coresight_device *coresight_get_percpu_sink(int cpu);
-+int coresight_enable_source(struct coresight_device *csdev,
-+			    struct perf_event *event, enum cs_mode mode,
-+			    struct coresight_path *path);
- void coresight_disable_source(struct coresight_device *csdev, void *data);
- void coresight_pause_source(struct coresight_device *csdev);
- int coresight_resume_source(struct coresight_device *csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index cb02f1bfaf068ec3f50f997bcb94f7d5215ccea8..72e9607fc6aea4663abf7d1f7f03f247ea060b83 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -66,7 +66,7 @@ static int coresight_enable_source_sysfs(struct coresight_device *csdev,
- 	 */
- 	lockdep_assert_held(&coresight_mutex);
- 	if (coresight_get_mode(csdev) != CS_MODE_SYSFS) {
--		ret = source_ops(csdev)->enable(csdev, NULL, mode, path);
-+		ret = coresight_enable_source(csdev, NULL, mode, path);
- 		if (ret)
- 			return ret;
- 	}
+ /* get reference to dev in cscfg_manager */
 
 -- 
 2.34.1
