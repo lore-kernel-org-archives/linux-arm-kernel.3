@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70DFECCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 20:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B77CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 21:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H0F7ZrSKM7u2nUul9wV6xQgYjVJl928YliXgn45fMfw=; b=kuzHutPBm99JksRD96n/7b5gh3
-	KBng4bi3pR7DBYfya3yMmCiZQxygMznSxQkbLfK50pcS2M7wyuS7sD/xUqrXo6SWID76pm/ozbtkQ
-	dr1rx0d1rGFpkGjytyBWrtRgVO7fkAvEUktKbFfMpUZhOC/PqqkfrPbmHn8mV0CNOTLeajPQ0HuiB
-	bJUmflZD/XNRuMgCOGnx26F0PJBCrIOKmVwQ0bs7UXyfX4ZvsXk2MQGCYM04dnPCKosA1Bhhopurm
-	79VHWEyysTx5mDwCTGkJjVu8Zg7MxLUP4KTWXqBZdsAy5ZsGHsgod1jZO+z9IJXR02qmox29ytNWO
-	eQFWBvLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AIwhHY1dFc82gb86vjswtUt8oQA6A+yG9Jm0Q42Km9g=; b=s3+74ecH9J8Cwctt5TjFA4b9Db
+	SUbLaxgi5aMq2DanQknDWIAea//NgMchQMUgVBHBGqqKEw9Ojz6qftQFKZv25pyuGst0JYR3EbR+v
+	fBX07B1Xg7YWliEh18nt1a3Ld0BN2TYY7duF0sS2OoQoCeq5jwZcBMQWQ1cl8Q28+vaUg4b2dnDH1
+	5ZingXXo6L1E3tf9r2Ful1v41j5Jj6sOircevlswecFrvaswjzIbej3XhvwBUdR/ByWJ0DDnYKbfY
+	hBG52mzEaNDhzIP0Kuy9JXCKNHRTzlgh5RC0IZ69wG+f52ItxVPaI9AIPm2TwPXUC41NPkF15Wnj2
+	iP4gASxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGO6r-0000000CZlA-1Gpt;
-	Tue, 04 Nov 2025 20:58:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGOXL-0000000Cb6E-0j0w;
+	Tue, 04 Nov 2025 21:25:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGO6q-0000000CZl1-1V4f
+	id 1vGOXK-0000000Cb5y-1334
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 20:58:32 +0000
+	Tue, 04 Nov 2025 21:25:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 704C1601EC;
-	Tue,  4 Nov 2025 20:58:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBAC8C4CEF7;
-	Tue,  4 Nov 2025 20:58:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 14487601EC;
+	Tue,  4 Nov 2025 21:25:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A83A2C4CEF8;
+	Tue,  4 Nov 2025 21:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762289911;
-	bh=SBhTMzB2HppxP29WSrGYUcVzx1C3A9Tmx0XRlfClTik=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lmyQwHRYVH98mM9tPSqyM19/4C7aB0A0mWmK32Iw3kveUvwN30drOf5QYiVIR4ybA
-	 3im06eo6gHW+ppdDWHufpSwxiGHMT6MECorbVyYJac1HOodGFlBAlo5+uQGxXpJTjz
-	 wTXtQ3sb8CbtItFpKY/qdVX1+vGefLumBBvF7Yp5ET5+WO5qRZLPOW1MphFTwgkkZr
-	 tawc2zTO/0P67edAjoVFqjPmF6RYRY14aN6qKyZp2x4Sv+jnp0CexuaBqj2weSDMjh
-	 YzGZvuS1NqLso4Gcp7+OEeJwdRYzId6FY7UnZQQCeZm2Hmr2ioefUhMGl6NXTZjMKC
-	 qcxCnzQPf2aQA==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: leitao@debian.org
-Cc: catalin.marinas@arm.com,
-	kernel-team@meta.com,
-	linux-arm-kernel@lists.infradead.org,
-	mark.rutland@arm.com,
-	paulmck@kernel.org,
-	rmikey@meta.com,
-	will@kernel.org,
-	Puranjay Mohan <puranjay@kernel.org>
+	s=k20201202; t=1762291552;
+	bh=75L85vTETiCZUr6jzy8yOF0XFZNuoLyZ27NTRCPEs/A=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=QUyU1hyYJlXwjA6LPCmLA8bhtzwJXgDrWjhz4N1c03RuicAGP/1ILOMs3GDxFtQjy
+	 PFft0c2XAbaytKcwwh7DbSbBNldN/3raeJazzqyswl2AaaYZTxAXpFh5h5upkjRB5w
+	 hux0pVXa3XW2z4syMEhckzENiIA5wgpxS5/5rNrJ4JImojtqRxjKI+nKSCYR+mKC7q
+	 2GxsOlgoL18KaIjgwyUdFlUdbpsB+SjHMCu0KlMw0A4usJts7RnIhaPdqzpuwyPDdA
+	 ZQt1ihqS7XgqZOpd2icSjQN6pK8wTzJpS7LFakkENseFbQUxldShQjFiaexovtZ/ug
+	 OR32I9Fhb/Png==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id B9C2FCE10DA; Tue,  4 Nov 2025 13:25:51 -0800 (PST)
+Date: Tue, 4 Nov 2025 13:25:51 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Willy Tarreau <w@1wt.eu>
+Cc: Breno Leitao <leitao@debian.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com,
+	rmikey@meta.com
 Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Date: Tue,  4 Nov 2025 20:57:53 +0000
-Message-ID: <20251104205753.42224-1-puranjay@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
-References: <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
+Message-ID: <c7d8ef71-4dd6-4bc3-a6e0-831c69769b24@paulmck-laptop>
+References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
+ <aQUAR9MRxP6_qtEH@arm.com>
+ <ahkk2r22peni4s7j6c7tnv3uajvwiaeg3vwyusppblcokpvgjw@zuuzipntgu7x>
+ <20251104180819.GB20579@1wt.eu>
+ <9a58c50e-729e-4565-932d-641aee259758@paulmck-laptop>
+ <20251104203548.GA20840@1wt.eu>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251104203548.GA20840@1wt.eu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,95 +75,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Breno,
+On Tue, Nov 04, 2025 at 09:35:48PM +0100, Willy Tarreau wrote:
+> On Tue, Nov 04, 2025 at 12:13:53PM -0800, Paul E. McKenney wrote:
+> > > So it seems at first glance that LL/SC is generally slower but can be
+> > > more consistent on modern machines, that LSE is stable on older machines
+> > > and can be stable sometimes even on some modern machines.
+> > 
+> > I guess that I am glad that I am not alone?  ;-)
+> > 
+> > I am guessing that there is no reasonable way to check for whether a
+> > given system has slow LSE, as would be needed to use ALTERNATIVE(),
+> > but please let me know if I am mistaken.
+> 
+> I don't know either, and we've only tested additions (for which ldadd
+> seems to do a better job than stadd for local values). I have no idea
+> what happens with a CAS for example, that could be useful to set a max
+> value for a metric and which can be quite inefficient using LL/SC,
+> especially if the absolute value is stored in the same cache line as
+> the max since every thread touching it would probably invalidate the
+> update attempt. With a SWP instruction I don't see how it would be
+> handled directly in SLC, since we need to know the previous value,
+> hence load it into L1 (and hope nobody changes it between the load
+> and the write attempt). But overall there seems to be a lot of
+> unexplored possibilities here which I find quite interesting!
 
-I tried your benchmark on AWS graviton platforms:
+I must admit that this is a fun one.  ;-)
 
-On EC2 c8g.metal-24xl (96 cpus Neoverse-V2) (AWS Graviton 4):
-
-With ldadd, it was stable and LSE is always better than LL/SC
-
-But with stadd, I saw some spikes in p95 and p99:
-
- CPU: 28 - Latency Percentiles:
-====================
-LL/SC:   p50: 6.61 ns     p95: 6.61 ns    p99: 6.62 ns
-LSE  :   p50: 4.64 ns     p95: 4.65 ns    p99: 4.65 ns
-
- CPU: 30 - Latency Percentiles:
-====================
-LL/SC:   p50: 6.61 ns     p95: 6.61 ns    p99: 6.62 ns
-LSE  :   p50: 4.64 ns     p95: 14.24 ns  ***p99: 27.74 ns***
-
-
-On EC2 m6g.metal (64 cpus Neoverse-N1) (AWS Graviton 2):
-
-Here both stadd and ldadd were stable and LSE was always better than LL/SC
-
-with ldadd:
-
-ARM64 Per-CPU Atomic Add Benchmark
-===================================
-Running percentile measurements (100 iterations)...
-Detected 64 CPUs
-
- CPU: 0 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.40 ns     p95: 8.40 ns    p99: 8.42 ns
-LSE  :   p50: 5.60 ns     p95: 5.60 ns    p99: 5.61 ns
-
- CPU: 1 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.40 ns     p95: 8.40 ns    p99: 8.41 ns
-LSE  :   p50: 5.60 ns     p95: 5.60 ns    p99: 5.61 ns
-
-
-[....]
-
- CPU: 62 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.40 ns     p95: 8.40 ns    p99: 8.40 ns
-LSE  :   p50: 5.60 ns     p95: 5.60 ns    p99: 5.60 ns
-
- CPU: 63 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.40 ns     p95: 8.40 ns    p99: 8.41 ns
-LSE  :   p50: 5.60 ns     p95: 5.60 ns    p99: 5.60 ns
-
-=== Benchmark Complete ===
-
-With stadd:
-
-ARM64 Per-CPU Atomic Add Benchmark
-===================================
-Running percentile measurements (100 iterations)...
-Detected 64 CPUs
-
- CPU: 0 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.00 ns     p95: 8.01 ns    p99: 8.02 ns
-LSE  :   p50: 5.20 ns     p95: 5.21 ns    p99: 5.21 ns
-
- CPU: 1 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.00 ns     p95: 8.01 ns    p99: 8.01 ns
-LSE  :   p50: 5.20 ns     p95: 5.21 ns    p99: 5.22 ns
-
-
-[.....]
-
- CPU: 62 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.00 ns     p95: 8.01 ns    p99: 8.14 ns
-LSE  :   p50: 5.20 ns     p95: 5.21 ns    p99: 5.21 ns
-
- CPU: 63 - Latency Percentiles:
-====================
-LL/SC:   p50: 8.00 ns     p95: 8.01 ns    p99: 8.01 ns
-LSE  :   p50: 5.20 ns     p95: 5.20 ns    p99: 5.20 ns
-
-=== Benchmark Complete ===
+							Thanx, Paul
 
