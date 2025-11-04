@@ -4,105 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF10CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 18:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED0F1CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 19:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6B+aPmBbpdYFEZ5jj5U7gq6e1DRXMQ9PT8K+t5rVros=; b=RBz33vbMXdgcKBPhJRPulTeKj0
-	QRwHZmIaFHPS9V36mmj64a2Mxd7vr7TOqjFpSyUm7K6rptzzRhBHaQcJrhI7iAMKonLuz7eAMpYi0
-	tZWIx2R7hDoTGR+uys8zFaDLE3P61Z5BIvNGQiysKJLtW1Jo4gao4PHxxuxNwmnHw/V4Ieuv/8Kga
-	pB3YehEAm5GGgbaa9N9no3kqtKUXxXxGOyHpNIOIpA+sG3oBTBL74CFBR5LqxvuIpy2xOSE9QsyGS
-	3KM9AfP6i/TW4VYqKMNX/tXhNAWrkxddiBYcQPRY96ioDLZrO3TWB4Qod87Rjt9boIgJLEwC8j5Xh
-	Mr7+jyeA==;
+	bh=Q5T9Z6UoyDLZbu/1k5b1T2wqbCAFrlV4h6XEJSvtC98=; b=XMTzGDBHyJq+moBmMQZ8Q53Zzi
+	6/sRT1tLW+ZFcj9V+aNx94a7R23LeOXDIZ8sMcAcEpU/ImjFMVZ/+Ikk7QyOZNBWv7siEt1gnchEp
+	Ox96/4scQdUrMfybt8eOIEJYkkvnOvcWF0gPUR1aKDAOq0ijX4finFFe6u5skPOYWcUXjhyHr7KQj
+	i4sdVDi3z8d2uraR8Hw+b3aFtraODtHZg7HJdU6/LsNNC9omoZag34JIG73wHSn8trwrMPkZozByU
+	ZN9TxCsmtPhNZsHQ3P9RoptIS1TqZikwdngdXKXdH06IQZWh1fwRocBJoawZ4fwXxwh+8ZKJQwn2o
+	RW4lmTEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMEW-0000000CRpw-1R73;
-	Tue, 04 Nov 2025 18:58:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vGMKz-0000000CSzQ-1VnQ;
+	Tue, 04 Nov 2025 19:05:01 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMEV-0000000CRpp-3gKe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Nov 2025 18:58:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6B+aPmBbpdYFEZ5jj5U7gq6e1DRXMQ9PT8K+t5rVros=; b=moeNjv7/ckxp4r4fvj+rq/ZP4l
-	riuv9l25KLQazT32smcvc/uHAzqHOhxjluV5t7pIbVLx4RpQapdRT7WMgzKFh5I65T5k6ueuMajDD
-	gw3RywTxnw17PbeCDOu6HBnLwNhm7B6G8xzPrivHIzedPbQQfIFv0sLjFA+pfkl79QH7lMHC7hhE+
-	t2C7jnTMFlAmdSdDKJmPge9kzz3iOIrq8XU68h6l3dPITzW2sbJJ6f9uDDjnmqpi14f1ob0Q/qtt2
-	hsklT3T/i4dbvrMOO8+h+kCd7uFmpMO2Yxwih41uBkkD/fJeHzEEB1uTX7mU4Ygav9ZUnKRwXBAs9
-	9doOv6JA==;
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLMl-00000000gBq-2tFA
+	id 1vGMKx-0000000CSym-1XAL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 18:02:49 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-29555415c5fso45893395ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 10:58:16 -0800 (PST)
+	Tue, 04 Nov 2025 19:05:00 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4ed67a143c5so30671cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 11:04:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762282695; x=1762887495; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6B+aPmBbpdYFEZ5jj5U7gq6e1DRXMQ9PT8K+t5rVros=;
-        b=mU82NbiUikLW0LnZzJgVrvGBV2pTJsKpge3C7057QM59zmkT6qGINho7y9swTAnllh
-         PYHmSUzWPiCp3iU/VT4RsvWUbCWeD0dJ5v2gPVxpOpZOe+WBcCrTzeccNH9d6Z9nZAOE
-         pu1vVDBOBDSsLU2wefA7Jy9S8uF+OhBrmBKM8Vf0XJq2Kx3EJNO7vqTLw4UHpYfxjn77
-         sbvEL70dBfieE3z6+tbC3LIZor4uvRPV5fTlgkGHzYEpP5uEGrdGqdl4LKSkYxcG6hvN
-         QTvNhLA2JdjV0rrZ0mC1/Gg/gFL3e7XLjxcmPWp9YFMoRKRxtEskLQTrwfPlfm8Y1njf
-         6eEg==
+        d=google.com; s=20230601; t=1762283098; x=1762887898; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q5T9Z6UoyDLZbu/1k5b1T2wqbCAFrlV4h6XEJSvtC98=;
+        b=bCB8mteCOAFQVsXHarB3+evFYHUft85dIQVwmTl/uIog6p+E9VhZONEfEbK48+tIG1
+         URIUXwBGeiIPB7tgLuXAlOQIAVVUxqQB5v6axK42B2lbWoRsJf7yVBEh0AQUo4c+wUsQ
+         LeEM6Wl506hBkyOmdUGmniEz1g8EcYhBvtcvjAimOYRvpqpTYIOtbgX6wBViEeA6nNk7
+         CDhVfHd7JpSbk3xTVwmAKi6qYPX+cFhmrb/1d8TSspu202PGRRSYJtXWw1iZXgw/Umbb
+         SYTPkl9zffArzLnJKxjhFXfMzT7mSa8Pz+CW5FhNAgd34+14WMaPgxXtIvf1yd0AHCzb
+         TC/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762282695; x=1762887495;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6B+aPmBbpdYFEZ5jj5U7gq6e1DRXMQ9PT8K+t5rVros=;
-        b=GcF4MSq4CWmJPSdgqR4lznj42GAs/5aM/FWBMRFn1tW4GxSwfDjHO/6qVbY88oWZi8
-         RKqGBsfOEgJy3Th8sy5BGX96JkUwiIxojTl98ZJAv/3d3inRXEZXjoO0xS2Al9bqI0xT
-         7N2ixtevNtRFtsvmWtsCs+LWO3evBTOqC0/OH0Eng0XB6JJXcXL6eLYi34S0jFeHovyD
-         hjZr2i8ixXfe14cXtTKw1UhLeTBS4nKmttQTX5I+bURkAUcqOo08osK1bbljo8+rznaf
-         VpZaIbjpFHdFEnKXLsCMvaXoSAsjHkN4OszL28sHv+qr/5I7+oVpDqe+L5Kh0/1ScMMy
-         1V/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXiREQPzE8LbpsyIVgV/6ZbVSRlzBeMq1iFMZbTxJ7lM4Zdx8J3Qr3XmdL3lat0SZyhBXmcaLqW+aHblHf2m2NB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzP5780RwW2/n741N27GyNuuslKE0xOb2BLW7PHjX15TLWp3aM+
-	wa2UIVRkcK8KfypAz3o9QIjosKcYxXmckeEVUXkdUAUFwCaUNHmrySZQ
-X-Gm-Gg: ASbGncs5k5Pj3nm7p03wP3t+Ypv2glQ3Ky+2RJWBVFMI24DyYEHWrT9gjS1H9SFuoMy
-	Rnz3W3GY9uS5W0OUlDb3q2CW9MSpEWw497SaGT4eNqY5HWEfG69kqxFZDG+USl+ntFIawW9iHbi
-	/QcqLd00E183cNqjQtxqFah9//dffOVZ114dXicC8AXVL2wy0fLHqE4qydCd0fh0tyHiacbFVUd
-	O2+NguXEYOCek/C4mioDzFBtykAi1qkU56UbAMd82qrGUwG7taJcUcyj2skRaQ0NXc7iLmLJEDB
-	iymb1jCPu+kahKeJqY3PLSandzuahlLqMHcgJTW7xtGps82tfzAQm8oFneeDY7bx66mvfualvFI
-	zuPNQeGUp12zzi/HGELoFCpbNdymBXJLHxIkdwqXUP3G07iXKqkIFzibGpmG9fykfalViapCcC9
-	mg9RmtjKp/pSNPA+IG5LKB9ZTtk2vIk7Oo+1DwG/mifw==
-X-Google-Smtp-Source: AGHT+IFHo1RV7muJZAmmalRPgMc0IPBuau1lfoRTnOMDYdIJrPmtkFZaswgqqRuY7j3qYZj5YpoDdg==
-X-Received: by 2002:a17:902:d482:b0:295:425a:350e with SMTP id d9443c01a7336-2962ad0c176mr6981645ad.8.1762282694755;
-        Tue, 04 Nov 2025 10:58:14 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:1f2a:f7de:951a:621a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29601998d4fsm35273745ad.43.2025.11.04.10.58.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 10:58:14 -0800 (PST)
-Date: Tue, 4 Nov 2025 10:58:11 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Anson Huang <Anson.Huang@nxp.com>, Jiri Kosina <jikos@kernel.org>, 
-	Benjamin Tissoires <bentiss@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] Input: imx_sc_key - Fix memory corruption on unload
-Message-ID: <uimkyxzdrcrcm6jmprcsnbl7pw6w3impm5dqam5q4gln3lrcwi@ngqtd5pbuywo>
-References: <aQYKR75r2VMFJutT@stanley.mountain>
+        d=1e100.net; s=20230601; t=1762283098; x=1762887898;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q5T9Z6UoyDLZbu/1k5b1T2wqbCAFrlV4h6XEJSvtC98=;
+        b=vM0F20MqhlerL7jJOHDNSzX6OWCAs4hcoNdK4tEwed3inr1xqIBNFNVO0jBg9GBAOB
+         tGhHgzKlqyRtEtwgIF1VF6yTx3vPR8ESxyUJrV4Gv1+ZLMRfA1YG8/WPTtkJ2tIgRT4o
+         KipUN+1RGubi0JM+UIU4JGDR5oYvJbGGVw1T5uVwsXhrCot4x504pogzW2uueN6dwouI
+         XgzfPBq9+Cid7DmPMTowXcYnQOS3SODAU/fszdb9vwOzw2XSGCj0o8RTKMbtl7IuLpBm
+         /PXvWiJhSlGKBIr+CRt0QkCUbxiswb2Frnya+5hDFufZjU46uqw5tTwveWKyhfC2F65G
+         l9qg==
+X-Forwarded-Encrypted: i=1; AJvYcCUfj66IS6xSadCIZR7udXVgOgKhuBhXn1zLGPMuQoJQwUfvRRjSL2qZtyDWxPsYV37Vo+fd/NhLR4c4oapBe5mx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqAUNPqc5+MRruKmtOPDhBUh9LnjIbyuz321laLGrVUO6OH6JP
+	rU9GL73dTRIS6QfbHRIA+uvIe3CE/dASChLUMHmuX4EjgH6UaM/3FwkeLO4l1fbtSQQzKkPZmIR
+	8e5wh2QCKB6rJxE71fXrFanuDFxC2xfSBCANH5ouu
+X-Gm-Gg: ASbGncvzvR8ef4jjdSBF52ImUNi2CMy43RN5tdKPA3T67Ls0VoCi8Lb+uouFg0ZIJCW
+	hoaZXhppi8XAZEtMCWur7ZVXe35IPOfenvvk/QuY7n6SEcRAOlGaZKwE3rxMAPt3fQyRyDxfYTM
+	R18gVU4IceGWmxoqos/VaWULSm3e/M4syx1rUeFxjzD3abk26N0IDFW5lv1GYlCXJyKPqUFHhI8
+	kc2QfC1yWaq8DrCQabf0Bo20fe1o0/W0ASPIpNLeeqtjybqXeDkpFLZklaUVA==
+X-Google-Smtp-Source: AGHT+IEXght+18UDdhRYqn8WNnXdZZ8DDF1K4rJ6QojfMfxG5vWmOJEkSqYHurrMJLnbhgGwTwCMYgkHt1EiuY3Gy5Q=
+X-Received: by 2002:a05:622a:14d4:b0:4e8:85ac:f7a7 with SMTP id
+ d75a77b69052e-4ed7369911dmr416821cf.9.1762283097763; Tue, 04 Nov 2025
+ 11:04:57 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQYKR75r2VMFJutT@stanley.mountain>
+References: <20251104125906.1919426-1-tabba@google.com> <20251104125906.1919426-6-tabba@google.com>
+ <a0b19558-dbcb-4231-b0c4-302cc10652db@arm.com> <CA+EHjTwPqm5wkmdGK60sn+S9BizK6LG5bSqWQLigsZVgXoJmUw@mail.gmail.com>
+ <fbe0d81a-c4c2-46f5-b809-1b74f9307c98@arm.com>
+In-Reply-To: <fbe0d81a-c4c2-46f5-b809-1b74f9307c98@arm.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 4 Nov 2025 19:04:20 +0000
+X-Gm-Features: AWmQ_blncW2qCzgwgBP6dGyIM6hPJ2g29b3o7-4BRp6ltNDvSRRT2ZrMeg3mfYI
+Message-ID: <CA+EHjTxVFOj+NXt4eQupHNUBB4UwwMQEuhGiGo8F=nX3tjmZOw@mail.gmail.com>
+Subject: Re: [PATCH v1 5/8] KVM: arm64: Fix Trace Buffer trap polarity for
+ protected VMs
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, vladimir.murzin@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_180247_812190_23C7E393 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20251104_110459_417381_286D0849 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,16 +97,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 01, 2025 at 04:25:27PM +0300, Dan Carpenter wrote:
-> This is supposed to be "priv" but we accidentally pass "&priv" which is
-> an address in the stack and so it will lead to memory corruption when
-> the imx_sc_key_action() function is called.  Remove the &.
-> 
-> Fixes: 768062fd1284 ("Input: imx_sc_key - use devm_add_action_or_reset() to handle all cleanups")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+On Tue, 4 Nov 2025 at 18:03, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>
+> On 04/11/2025 17:56, Fuad Tabba wrote:
+> > Hi Suzuki,
+> >
+> > On Tue, 4 Nov 2025 at 17:50, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> >>
+> >> On 04/11/2025 12:59, Fuad Tabba wrote:
+> >>> The E2TB bits in MDCR_EL2 control trapping of Trace Buffer system
+> >>> register accesses. These accesses are trapped to EL2 when the bits are
+> >>> clear.
+> >>>
+> >>> The trap initialization logic for protected VMs in pvm_init_traps_mdcr()
+> >>> had the polarity inverted. When a guest did not support the ExtTrcBuff
+> >>> feature, the code was setting E2TB. This incorrectly disabled the trap,
+> >>> potentially allowing a protected guest to access registers for a feature
+> >>> it was not given.
+> >>>
+> >>> Fix this by inverting the operation.
+> >>>
+> >>> Fixes: f50758260bff ("KVM: arm64: Group setting traps for protected VMs by control register")
+> >>> Signed-off-by: Fuad Tabba <tabba@google.com>
+> >>> ---
+> >>>    arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
+> >>>    1 file changed, 1 insertion(+), 1 deletion(-)
+> >>>
+> >>> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> >>> index 43bde061b65d..df0c59a29b35 100644
+> >>> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> >>> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> >>> @@ -118,7 +118,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+> >>>                val |= MDCR_EL2_TTRF;
+> >>>
+> >>>        if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, ExtTrcBuff, IMP))
+> >>
+> >> Why are we checkin ExtTrcBuff ? Shouldn't that be TraceBuffer ?
+> >
+> > This is an existing bug that needs to be fixed. Thank for spotting it.
+> >
+> >>> -             val |= MDCR_EL2_E2TB_MASK;
+> >>> +             val &= ~MDCR_EL2_E2TB_MASK;
+> >> This looks correct to me.
+> >
+> > I don't thin it's correct. E2TB traps when clear, not set:
+> > https://developer.arm.com/documentation/ddi0601/2025-09/AArch64-Registers/MDCR-EL2--Monitor-Debug-Configuration-Register--EL2-
+>
+> I meant your change to val looks correct.
 
-Applied, thank you.
+I see, thanks :) I'll fix the existing bug when I respin this.
 
--- 
-Dmitry
+Cheers,
+/fuad
+
+> Suzuki
+>
+> >
+> >> Suzuki
+> >>
+> >>>
+> >>>        /* Trap Debug Communications Channel registers */
+> >>>        if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, FGT, IMP))
+> >>
+> >>
+>
 
