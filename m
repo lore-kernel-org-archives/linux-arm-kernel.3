@@ -4,84 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DE7CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 20:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982E4CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 20:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4Bva0w0KbqgCJAJfbsSK/8FEB2ivKz4/LZ5P7kuzw0=; b=h+UxxjYq/CkCOfq2v/lWnKh1HE
-	ZU59MIq3QmvYwwbz7kxyYYRd1vYWpK8QFDNNszjkMDfxvT7XakgpubHeXYnWSemzIo+AnibwVLdMq
-	Vh2laua5n+88+JIcVDm0cMl7Muf0uASnbhd86VaLPaVj0WOX7z7fI0JkPYqfOKbDO59HqqHhA1szk
-	kv5F2dXCzNBWdBtNvOUQQP2cvioBp5jgSTAtr6Et6otdgz0bQYqiW5nL3bJgNs3iSss5PYv8ojwgN
-	VZ2BD0sRTvHm87O4J2q43jBwi7/NscIhyLkvXuPCptyFdxg5aPjLp+ohx2FlDbbh7gANJ9LbilUMb
-	GYcsby0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n+JUwOAxQbEhzqc4rjZ+9gbKfinC0fcZW9YKszRfgWw=; b=qwqSaJHjwzSZjDQ27SWgYHiNqK
+	1TGiNV6EZxLrvKHeXyvWDiUQp6eWmf5LCNRuSnIHe3HegSqi3VKfXvrVit7S8uYfXop9c+wSv7bJ4
+	XN67z4k/Ksrf7tIoCww0WQskL0QGRyyNIE3xlWED9V4xCqrZcsRcO+z8+EIm9eYe9iQpNVdsbIH/q
+	JWG8oBZ5PV2WCcio50zNDrslOs/0dgI1B6sO9oD3l8fxrW4wOacNfItEVW0CDIJkWmoald5N8kqBs
+	r8sdeyix6ZOSrFDPmmyg7KYLsbox4SIS1kDyQ0WcsgVQ0jCDVppsz0FFd+QXSm+Ynlr5ycYX+3JoI
+	s1IfCTsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGNUp-0000000CXOP-49dp;
-	Tue, 04 Nov 2025 20:19:15 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vGNjf-0000000CY4O-169b;
+	Tue, 04 Nov 2025 20:34:35 +0000
+Received: from mail-norwayeastazon11013059.outbound.protection.outlook.com ([40.107.159.59] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGNUn-0000000CXO2-3E1n
+	id 1vGNjc-0000000CY3Z-1bxF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 20:19:15 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3418c17d21dso735109a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 12:19:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762287552; x=1762892352; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=K4Bva0w0KbqgCJAJfbsSK/8FEB2ivKz4/LZ5P7kuzw0=;
-        b=IKkoYYnSy4R7eK/ab4Bf4rC3XE6krLkqIdI8uw6rhN/E1krHgfBAG53uXSARUZl2KG
-         61g0AdSoWY20KdtXWEsVKfErwE1Pvhbe3WS7urre5GFWXgwG8zREHfceTsFxQe1h56BY
-         Mdg2tY24TczcA2wZBOeIH4EnaDu5KLuyNF/KNXOyCGK6OhK3QjTcvmQMUhdHgBQ2D01x
-         KrOXZkTPjcAZ7wn6UKp5BcAEGGDDbY/NHJujDG0w3zgnRCUkR7nmNN/90KxJelmIIxvI
-         tV2fX1Ge7Utuwd+tqMXczrQAn0zP31jTEXSnPkeTWtFLYtiZoV1NUo72T8ENoAwXMGjk
-         i+Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762287552; x=1762892352;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K4Bva0w0KbqgCJAJfbsSK/8FEB2ivKz4/LZ5P7kuzw0=;
-        b=PQV8BG4BN1PsEswEURhO+Gcds9U2eZj5Rx1fGDT40FTMUFVVr2YpJX3JJi9P1oFKLX
-         tHH6Fz/6hlvjRVeTj32AgmvMfxZbVhTpl/obw+6S0Uk8JLqpPn1ayNMS66UBb7STEt23
-         u+WZgDQ5c5vGjiG6gJaYfodMdvh42o1F/Upsr+4rp6Fx9Z3elTunQUb75g1yGbyeew+4
-         AZQZGJ+9l7iUiTO8I7cLE3Nv6AjuxbpP3yovR9li4sxGnmjYDoMCkll0xKMKLsmTsGRC
-         jIC8gGDpJxSkfFunX0DMBqqxK4yk4k/Bm8iqxUhcQZtuf7JjZ0B6aY/jZ8kM8sCefAOJ
-         7MCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUaVFTFrQzN6NeOZoaRO3yyrwNvs/yfV7nlOmhVjrNyONsU/H86uabbmk6X8ut57F88bifXP29IkXDkQaeE7guw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIhvKllcKceoKLyp64YzEXfPThW5ELPNVJtyBw1E1IhNvH6cEs
-	ViCcGqxq2lqm3N0d27kyTl2X90Pk7cTthd6alIOJPWLa2xTX0I5RVTZwIAUyLZddZYO83JQj0HE
-	1kHIOag==
-X-Google-Smtp-Source: AGHT+IGdgZKcyoQ0zGdQrLNOdi7+EjeBGpl2/tWI68ux+7RvDN8zvERNjHKEkloiI0RWSyl4SFGplL1NmQw=
-X-Received: from pjvf13.prod.google.com ([2002:a17:90a:da8d:b0:33b:e0b5:6112])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2c8b:b0:340:a961:80c5
- with SMTP id 98e67ed59e1d1-341a6defed9mr629130a91.32.1762287552241; Tue, 04
- Nov 2025 12:19:12 -0800 (PST)
-Date: Tue, 4 Nov 2025 12:19:10 -0800
-In-Reply-To: <0c3db907-7012-43c3-b7fc-36848789da52@gmail.com>
-Mime-Version: 1.0
-References: <20251013151502.6679-1-jackabt.amazon@gmail.com>
- <20251013151502.6679-3-jackabt.amazon@gmail.com> <aPpi1c-8EpWuo87B@google.com>
- <c52db7bf-494f-49a8-9829-3805db6dda7c@gmail.com> <aQkZtjLt6lIULffA@google.com>
- <0c3db907-7012-43c3-b7fc-36848789da52@gmail.com>
-Message-ID: <aQpfviS-oAmanqpq@google.com>
-Subject: Re: [PATCH v2 2/4] KVM: selftests: Fix unaligned mmap allocations
-From: Sean Christopherson <seanjc@google.com>
-To: Jack Thomson <jackabt.amazon@gmail.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	isaku.yamahata@intel.com, roypat@amazon.co.uk, kalyazin@amazon.co.uk, 
-	jackabt@amazon.com
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 04 Nov 2025 20:34:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sQ5eaf9J9Eth/Bxm0SBBtM3lHvEnv+SxvwvwF786LwA+D3aQKdQu75pXAIOQw27HRcl9i7+AVoeDDRb46F+2VdTgedeqBS66P20YmEgN4mQc6cxE4eiNfdEqMhQNh5aki16CA9Z9HovKqaaJbI0nuVXl1MnkWZOsVZpg/4Cuo3IseoV7QzFBOL+AHV4yI1IOsWPYItXKczhv2qtc00rscKSf+zhHQ1HhxTuLZz7AH9R6v+JPcHygrNJSMPflqEKHhKJjgsp/hPQb8Bzhdm7u8PCnnQ/PbHzxpyqcvcjVv/4yQnMHXY22/aniO+T1nHGy/ts7ZeTFCUWeWqYXO3CgGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n+JUwOAxQbEhzqc4rjZ+9gbKfinC0fcZW9YKszRfgWw=;
+ b=JvXEstZUB4l0NF/Qi+OR9YcD34TetNnGcZFDnB6RC22PxDQYc6rM+MTjbpPi+/Jf7sJ+qOFpjv0xb5Qn5KzrB6KYdbewOEn9ECt9vykEPFAsHr4mKxCXfeaAx7wwBY5E2LoodsVJvAXOv3iRSCBOVzb+3r/Pa+4RJCQTGbsbf+OSmALM4rtO0I1UMyFUiGOgzVqsPhNPO/cpS+7ZCt52aCWlytHvH7fO1iRK6thnRmSchVRlh1NG5wpgQ5r4WCONLeIUzWoM9aHQ7uEfmUW0GrkEozEdK0msszNrTaA29jnbEa9lLLcTgSmo3gI+48Ex8xIhzNUZx1GyGI7iz5pK2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n+JUwOAxQbEhzqc4rjZ+9gbKfinC0fcZW9YKszRfgWw=;
+ b=Lj1HPcxss01fYf1h8vnntmeEYM3EbxXL3V3uWs5yx5LNW9aB0uAsQp3dMCDZjrm+CfO23eBulTZLqofeZZHPHxkAAEUXi/Y7u9yzkwF1p2X/GhIS5Zi1KUqqChH9ARdCfm+bGgBaqSgHu2tq9ui75FygvNEX5RRYAvKZk8jqoEOpziA6Ziy40LfxmMi18pZZvwUSrEiDDsFmPL9RqMPMSerJbwuuAUHeCrwxtrkzGdL5a9UUurhyyZZ82TQGNOJaTyxyEmvQPDksoEG4A4iMa/fHRPP54NOjrTdjKc6LE3FoUWvOb5lAxlcL1CTH8as+EmLtchb0i6W/PQv20FSCAQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by GV1PR04MB11516.eurprd04.prod.outlook.com (2603:10a6:150:284::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Tue, 4 Nov
+ 2025 20:34:23 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
+ 20:34:23 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-imx@nxp.com,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH v5 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
+Date: Tue,  4 Nov 2025 14:33:10 -0600
+Message-ID: <20251104203315.85706-1-shenwei.wang@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0P220CA0022.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:41b::33) To PAXPR04MB9185.eurprd04.prod.outlook.com
+ (2603:10a6:102:231::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|GV1PR04MB11516:EE_
+X-MS-Office365-Filtering-Correlation-Id: 76986ac9-c238-47cc-2ed0-08de1be189d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|19092799006|376014|52116014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IoQZimF4pmeoM2FA1AKtIcNQk/KHltzysX9IpIQuZHkWZPjS0ywhp2ed5+MA?=
+ =?us-ascii?Q?omVze4TnJcgJcwWybz+hnNgPfb5hP18gMhIjDrSZcfVBAhbh/yElIDpgIDp/?=
+ =?us-ascii?Q?A9A525ppHEWHlwQndq0c7hy6jJ+i+IVQPWhNGyZZQ4dPdHrWeWs9TnbnFAgB?=
+ =?us-ascii?Q?qFWW93SQW1IxgEKELw1AJNHtb/9CKYqWBgkW+qh/uCe7LtElWoXPpFlHlIdW?=
+ =?us-ascii?Q?WE0O/9Ibk004ybVYY7Zp4m2FpFcvAn9zKXVdHBAovCbGWEptvbtoGi6lWaxH?=
+ =?us-ascii?Q?w7F6/XbfwrEaRhceMPFvDlycfRfmwEWdoclrYP281kUOmRPiJYWfPNPvLIRx?=
+ =?us-ascii?Q?07Do2P6hKqREeaWZVd7Lcd1YWer1FCm9cA4ravGMR5SNzx85Qks+ZWFwMFLn?=
+ =?us-ascii?Q?O1eKhhRraaENDmADtXRFwKyY81Y6Dn/vThH9IXolQkO/6nWJ7fvti5Njl7U4?=
+ =?us-ascii?Q?q8EzGCHqL4JtmOUoI3QkWDu7uGNk/o+/wLdxYSAVBpM1374Vb+oH8CcR2urj?=
+ =?us-ascii?Q?bcS0tfvbsE13Hi+fpCnEicrYOz0rDmlnORGSLb8h/oJBVhoHtbp+DwAGY+KS?=
+ =?us-ascii?Q?2h5uHdfgF/71O5inxNvHNHAXLRiPViXBUPvxfB3m/QOrKYwCzHHdCFIHmaIO?=
+ =?us-ascii?Q?p4GrQaDna0gn1sMhA9+nakeqqNxjUF3S1osd2uX/9aLX7H7sk85JwL/q7RD6?=
+ =?us-ascii?Q?GcDaYuGmrWhhkyOzSveykQtsG0CtLWsWsnJVpt2AyQ0P7DMGotVnf2R1DbSN?=
+ =?us-ascii?Q?F94brAkT5pst+iHiXZDWb3LjloSUMAxXJNlk7h92jE2E6wHOrHuKU+PphZJH?=
+ =?us-ascii?Q?w2ZnWUpDFJhf7OuLX5CLvVNGF6W0x3693BsT7bzkx8/wF2oOQtJAda4rFZNc?=
+ =?us-ascii?Q?KbLBH9IBGDOjRBW0OTztm4qrG6c9zZh08kIcEAsRtvoL7eq0sGiGbGzatW3i?=
+ =?us-ascii?Q?LnQGw9Wbj1CQNcRrkQrzN31mshCm3ehMmdHniKLJy4cuNQoNtOdjga7Xf8Hs?=
+ =?us-ascii?Q?f4eOrifopT7wzMoqn5ifVFy69urme1DMWXYGFnN7V8ZhvR2TZyNy2ARqFH/w?=
+ =?us-ascii?Q?KxYlfu9k/U7K67D4L4FwEUFvwR46zh53tJw4mWT+gFM63y0Cfv0RCiY+ehAu?=
+ =?us-ascii?Q?IKs4hzEI4/bAVgzdC/i84EycLPA0859LxensXdT71/JpiK9+7mBfFeCtGj2K?=
+ =?us-ascii?Q?1wVJnLGPYxKBZaBc1SL0BqORQNcJcMS2IHpm3aAnrmarovGmxV4qaF79ZZj3?=
+ =?us-ascii?Q?AiCTsTCTHFccSgqiUyeLCM0dGk6rZs19y3eHBLU+BVfDL2lfGTlxC28+jpq1?=
+ =?us-ascii?Q?kaTHNGNMEWuOzlp1grt3qOsThRiw2hZexyrMeNsxNU9Ueku6KLYBX+U959E0?=
+ =?us-ascii?Q?2OwM1W13n/G1fJIrs1pUOPumuRNOlcRH/pv8oCvLg6oZnSNW4pL9HuyVxCU6?=
+ =?us-ascii?Q?c/dg2E8BOTAT6bDDVZoxP2S4cx9L1FYwaE/bI5ukPoeXz0boMWXHiRkZ6gMu?=
+ =?us-ascii?Q?7z7kJyAUZr185Mb5jzXHyHpn/pXtqJvm2S0C?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(19092799006)(376014)(52116014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1FUU51fUDdVWlEFLjFGbAEZX5Zz5Te+qg1AOfbL+yiL9b1fbrKH9PoLuv6DX?=
+ =?us-ascii?Q?yhyYWw+amrRKq/6M49w8vpazjTqnizNDn1c1PBMHyKXCFfAfYh/RV2OQkKpo?=
+ =?us-ascii?Q?KO/N6QJ+R2uzobCkb89huuDCHc7fqh1wLUfvPIcwASYV0r6IFUaYtmlKtQAi?=
+ =?us-ascii?Q?Sk52ZCZgPZNbNu9/Z9qXW53+I/GVSzzNLuGAdBkKwq3MUsqBW+XG0C4x90iQ?=
+ =?us-ascii?Q?YzRP6VFGIyeyA4cIm1H3DcpW2uUqkE4MZ1Nj6k/qVNcKinxIQe4ADz3Pxy7p?=
+ =?us-ascii?Q?IQfrZKetTahZy1byAjLaVCLFyPOlrvuS9cL/vI+MPUb4JDqeH39tdM2VbmeI?=
+ =?us-ascii?Q?C+C442EgjhDmVDtPZ0QMJ+ek+aOTlHV6sBe9bk9Ufvn0uX1wajEKagvlkaPx?=
+ =?us-ascii?Q?PeiVnpbFy+k+IX1abZPhyIwjKbJ/0bFttp8Uzy9WzGPkXPo0sPpPOQKduxI7?=
+ =?us-ascii?Q?cSGj03IAashWuAyBZkRE6Jur2VyL2hjYvzyJvauitQwR/ix96a+Fk8qQ9U0s?=
+ =?us-ascii?Q?ON0s0vfXdmrtmLgPm4IIpzeTWxNKhF2uTfXPOvY3a5fXyLVBYppEWMTin7kN?=
+ =?us-ascii?Q?xnxboUUYVX5ALMKrVxjJekd1Dgyj4VkhS7EwVL4O1OmuA6ekSqC9ljBz692R?=
+ =?us-ascii?Q?zAF7Rgcdn6htRS3CiNgDTU02tnt91M+bBjOQ7gNu2N7RW1/KZxeOzWGlgHjt?=
+ =?us-ascii?Q?U0M8rt+zD1UAk7yTC0TtMAsuoCqUAU2owmRWYPvWvzXouBSTUfvrE0Pit86I?=
+ =?us-ascii?Q?X31CNUIX30vRvq65MURNTvajHhe7wwm/mAaSWdJtkys1NXP8Hh0MFmGdoft5?=
+ =?us-ascii?Q?yVQxLVFQsF6GTARn8KT6muDLeE3S+szZUY0wn/GiK6Jd1OWbuJepCHWHbxH2?=
+ =?us-ascii?Q?f+sgr29Fv98Q6HNjMyg4hfCJn/RPCDtuIOvy3qRZVi1R3aLE9c+4kj4q+cmN?=
+ =?us-ascii?Q?WKJk1qcEDCfOv+cpRYP/07/xKr1XZwH8q2o/OZXNrqR43UbfQVVE+YJ++9Ow?=
+ =?us-ascii?Q?uM0PevBUN+RYExxnW0nP8YLTtK3cM+ze+kLlLBHadFx+lMnO5ehuliZEEoy+?=
+ =?us-ascii?Q?Cuf3eD4FWvMW9NLguNBBscteNMh9V/B45hVW6plzBwSGG/61I1IONhaJIR7i?=
+ =?us-ascii?Q?h7iJ+9/fZdl3vYm4+NTesijp2bnj3nP7szJT9FKlq7uIdo9q1a0iRYaXN2nO?=
+ =?us-ascii?Q?d/iEAne3j2sbiGjzaoIMUnk2d474uVxfoOSVCjIIBAc1LT+ZeR9Ap0jBVZ2h?=
+ =?us-ascii?Q?1n/9p5WiVoXAvqcfbl1Fxe3ry88gD0SLzeZ0efLjI+IbOUa3/MNnj2kynR4a?=
+ =?us-ascii?Q?3SKdosCifiFEtZrXoFMYrZAGhl+nlhUHB9xF1rcZXMn6OT72iRwZrl+33ChJ?=
+ =?us-ascii?Q?ehjPxPHYcw9GTXRivkO1IPfYrp56XA/EIsRMUKDyuIwgBs19+9NodzOwh85j?=
+ =?us-ascii?Q?q1Q8aW18ajOJ2DIWEbqD+zR4K58OhbEm1wndgw1bK7efWxf5jrp0e/E27Za4?=
+ =?us-ascii?Q?6L4NtFIiGTvSxiUYkeNEw5uYJ+0dabOeztgvFBad10tcHcb1yooChI0Zzsxm?=
+ =?us-ascii?Q?G2rR9+sHFjgp++3PcLILKCVoKE5F89j/LigSLkgJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76986ac9-c238-47cc-2ed0-08de1be189d9
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 20:34:23.0497
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H8u9ueF0AWyBhQLHj54VmRSrI+5pENu4nKbU1YIU9QlvUIEqMO2bj0nLVimgIIWvBEe2fh8HEP0M+jW9MQN/pw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11516
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_121913_852880_AC3B8E72 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20251104_123432_441026_369212A4 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +177,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025, Jack Thomson wrote:
-> On 03/11/2025 9:08 pm, Sean Christopherson wrote:
-> > On Tue, Oct 28, 2025, Jack Thomson wrote:
-> > > 
-> > > 
-> > > On 23/10/2025 6:16 pm, Sean Christopherson wrote:
-> > > > On Mon, Oct 13, 2025, Jack Thomson wrote:
-> > > > > From: Jack Thomson <jackabt@amazon.com>
-> > > > > 
-> > > > > When creating a VM using mmap with huge pages, and the memory amount does
-> > > > > not align with the underlying page size. The stored mmap_size value does
-> > > > > not account for the fact that mmap will automatically align the length
-> > > > > to a multiple of the underlying page size. During the teardown of the
-> > > > > test, munmap is used. However, munmap requires the length to be a
-> > > > > multiple of the underlying page size.
-> > > > 
-> > > > What happens when selftests use the wrong map_size?  E.g. is munmap() silently
-> > > > failing?  If so, then I should probably take this particular patch through
-> > > > kvm-x86/gmem, otherwise it means we'll start getting asserts due to:
-> > > > 
-> > > >     3223560c93eb ("KVM: selftests: Define wrappers for common syscalls to assert success")
-> > > > 
-> > > > If munmap() isn't failing, then that begs the question of what this patch is
-> > > > actually doing :-)
-> > > > 
-> > > 
-> > > Hi Sean, sorry I completely missed your reply.
-> > > 
-> > > Yeah currently with a misaligned map_size it causes munmap() to fail, I
-> > > noticed when tested with different backings.
-> > 
-> > Exactly which tests fail?  I ask because I'm not sure we want to fix this by
-> > having vm_mem_add() paper over test issues (I vaguely recall looking at this in
-> > the past, but I can't find or recall the details).
-> 
-> The test failures happened with pre_faulting tests after adding the
-> option to change the backing page size [1]. If you'd prefer to
-> have the test handle with this I'll update there instead.
+Support the remote devices on the remote processor via the RPMSG bus on
+i.MX platform.
 
-Ah, yeah, that's a test bug introduced by your patch.  I can't find the thread,
-but the issue of hugepage aligntment in vm_mem_add() has come up in the past,
-and IIRC the conclusion was that tests need to handle the size+alignment, because
-having the library force the alignment risking papering over test bugs/flaws.
-And I think there may have even been cases where it introduced failures, as some
-tests deliberately wanted to do weird things?
+Changes in v5:
+ - move the gpio-rpmsg.rst from admin-guide to staging directory after
+   discussion with Randy Dunlap.
+ - add include files with some code improvements per Bartosz's comments.
 
-E.g. not updating the pre-faulting test to use the "correct" size+alignment means
-the test is missing easy coverage for hugepages, since KVM won't create huge
-mappings in stage-2 due to the memslot not being sized+aligned.
+Changes in v4:
+ - add a documentation to describe the transport protocol per Andrew's
+   comments.
+ - add a new handler to get the gpio direction.
+
+Changes in v3:
+ - fix various format issue and return value check per Peng 's review
+   comments.
+ - add the logic to also populate the subnodes which are not in the
+   device map per Arnaud's request. (in imx_rproc.c)
+ - update the yaml per Frank's review comments.
+
+Changes in v2:
+ - re-implemented the gpio driver per Linus Walleij's feedback by using
+   GPIOLIB_IRQCHIP helper library.
+ - fix various format issue per Mathieu/Peng 's review comments.
+ - update the yaml doc per Rob's feedback
+
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Randy Dunlap <rdunlap@infradead.org>
+Cc: Andrew Lunn <andrew@lunn.ch>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-gpio@vger.kernel.org
+
+Shenwei Wang (5):
+  dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+  remoteproc: imx_rproc: Populate devices under "rpmsg" subnode
+  docs: staging: gpio-rpmsg: gpio over rpmsg bus
+  gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+  arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    | 123 +++++
+ Documentation/staging/gpio-rpmsg.rst          | 202 ++++++++
+ Documentation/staging/index.rst               |   1 +
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  27 +
+ drivers/gpio/Kconfig                          |  17 +
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-imx-rpmsg.c                 | 475 ++++++++++++++++++
+ drivers/remoteproc/imx_rproc.c                | 146 ++++++
+ include/linux/rpmsg/imx_rpmsg.h               |  48 ++
+ 9 files changed, 1040 insertions(+)
+ create mode 100644 Documentation/staging/gpio-rpmsg.rst
+ create mode 100644 drivers/gpio/gpio-imx-rpmsg.c
+ create mode 100644 include/linux/rpmsg/imx_rpmsg.h
+
+--
+2.43.0
+
 
