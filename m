@@ -4,83 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768FDCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283F3CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 14:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yynEbxXKLUAVQAnHfu3RWqNgiNiS9M9W37sLEp4Bu9o=; b=d4ZlsXdLphe0QAKr13HjJGE1bd
-	J4VJ4iOT+53lBBrCiwT9Je0+phB1X+QAfgzQ8oRfbsHlqJADpZRgkInPI47OQ17KMK6l9U0UpDURv
-	DxBynIwNyjEaAMSomESmoadUBmuThBvvfShrr4icq1GXnwL3Zl4L+eh77BBsRjHNWT6U8oC+7HvAc
-	qcGLpFpfZb0/cfqMUhope0N4wmGx72foM/OmKm4Tgz4fUKBLs5zIO8rtT3eR8cj8WUPhM9yOzNKMR
-	xyrddmpWpFqW4JJph2uTJoCw8goQqp3DkDSpdjem4D+WDj06IKnnnDeafl6BQi2LNYWQ2qIAsw2FQ
-	lAXeOS4Q==;
+	bh=oDTOLCKmwK5HsGpdGPVjVo3Ub1IiZNd30+49VwjCsAo=; b=eSLTCfufRE0rypf3FGpukkOFUm
+	9yiKcLxKqhcX3pVURI2NSZ92SIIWqWdCezhwzbRRPGq/9vzWFnY7WtkoR5hCaPKE88mK1Z/oDYGJ/
+	fDxyNgFeUt96e7W9vZqibok3mosMhB7rnhVbXwCQw8rZYI8H9LGd/hAMTDzpE24UT54SVYAmj6K0h
+	7jp1R9jWtwoppVfnOoDlnRVNRvQe1hoOmI4QZhOe/yaDWDfZrVHbBEQSzklpb3IkJ+0/PVCrAM4An
+	/TiTEzMjesPis9b8w2kQYnJtlyYEcvSbgkLKluPdrqYcSP7+upFAZDH2TKyjzpcuibSR9jRuot2mX
+	wwdzuoig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHZB-0000000BwMb-3QFm;
-	Tue, 04 Nov 2025 13:59:21 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHZ9-0000000BwLt-0DQB
+	id 1vGHbv-0000000Bwaa-20hx;
+	Tue, 04 Nov 2025 14:02:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGHbs-0000000BwaA-2XpZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 13:59:20 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4d196q2BCMz9v6w;
-	Tue,  4 Nov 2025 14:59:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1762264755;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yynEbxXKLUAVQAnHfu3RWqNgiNiS9M9W37sLEp4Bu9o=;
-	b=VKZjUXmdJh+KxN3MM9Ebsvt+7cDhjh0+IOrwOtdxrP6cNYxysBBux1bDw+/pHnA3aZtA4r
-	gMRQPjaSiI3vm08y/q34UmIW1oVhcl5hFtSbWYI0i/6OmulEnKPsHGC2LZdGYZ55pWWzWT
-	CXkI7T9gBzX1wv54B/T4yh3XoIFrxwjnYDfSbID9vaYpsU7RkGQJ+ObeIWvQRzTdeg14lj
-	Ff+dTgKgyw1N/W+MfZDgR2OrTGNDi0ygwwyJcQoyzjKHqEf2r3aETUzcLUWxEswbHqNBBS
-	FzdrW+pZEuAQs+aubnKaDzrMd0/ZiS5zIz+iYhOA2WVlq9jj5ce9wX6uKxYPGg==
-Message-ID: <773b410d-26ad-4581-9de5-a2559891a3f7@mailbox.org>
-Date: Tue, 4 Nov 2025 14:59:10 +0100
+	Tue, 04 Nov 2025 14:02:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E79C01CE0;
+	Tue,  4 Nov 2025 06:01:58 -0800 (PST)
+Received: from [10.164.18.64] (unknown [10.164.18.64])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B037C3F694;
+	Tue,  4 Nov 2025 06:02:04 -0800 (PST)
+Message-ID: <053b2bfd-df5e-41fe-854c-f0eb96564dcb@arm.com>
+Date: Tue, 4 Nov 2025 19:32:01 +0530
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] dt-bindings: gpu: img,powervr-rogue: Document GE7800
- GPU in Renesas R-Car M3-N
-To: Matt Coster <Matt.Coster@imgtec.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Frank Binns <Frank.Binns@imgtec.com>,
- Alessio Belle <Alessio.Belle@imgtec.com>,
- Alexandru Dadu <Alexandru.Dadu@imgtec.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
- Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
-References: <20251103200800.173440-1-marek.vasut+renesas@mailbox.org>
- <10e39887-02b2-41bd-9ed1-f54481a3578c@imgtec.com>
- <1353f904-aa15-4e24-9e43-7b91185bba17@mailbox.org>
- <32d2db33-8477-45ea-ba41-5150ed750a59@imgtec.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: kprobes: check the return value of
+ set_memory_rox()
+To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
+ will@kernel.org, ryan.roberts@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251103194505.4077265-1-yang@os.amperecomputing.com>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <32d2db33-8477-45ea-ba41-5150ed750a59@imgtec.com>
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20251103194505.4077265-1-yang@os.amperecomputing.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: th9rrbeotgywfqmkigguauhk4jiu4488
-X-MBO-RS-ID: 43d16fc3659e66fc9c0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_055919_235414_FB3967B3 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20251104_060208_712667_50C2C1A7 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,28 +65,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/4/25 1:36 PM, Matt Coster wrote:
 
-Hello Matt,
+On 04/11/25 1:15 am, Yang Shi wrote:
+> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> rodata=full"), __change_memory_common has more chance to fail due to
+> memory allocation fialure when splitting page table. So check the return
+> value of set_memory_rox(), then bail out if it fails otherwise we may have
+> RW memory mapping for kprobes insn page.
+>
+> Fixes: 195a1b7d8388 ("arm64: kprobes: call set_memory_rox() for kprobe page")
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> ---
+> I actually epxected 195a1b7d8388 ("arm64: kprobes: call set_memory_rox()
+> for kprobe page") can be merged in 6.17-rcX, so I just restored it to
+> before commit 10d5e97c1bf8 ("arm64: use PAGE_KERNEL_ROX directly in
+> alloc_insn_page"), however it turned out to be merged in 6.18-rc1 and it
+> is after commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> rodata=full"). So I made the fix tag point to it.
+> And I don't think we need to backport this patch to pre-6.18.
+>
+>   arch/arm64/kernel/probes/kprobes.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+> index 8ab6104a4883..43a0361a8bf0 100644
+> --- a/arch/arm64/kernel/probes/kprobes.c
+> +++ b/arch/arm64/kernel/probes/kprobes.c
+> @@ -49,7 +49,10 @@ void *alloc_insn_page(void)
+>   	addr = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
+>   	if (!addr)
+>   		return NULL;
+> -	set_memory_rox((unsigned long)addr, 1);
+> +	if (set_memory_rox((unsigned long)addr, 1)) {
+> +		execmem_free(addr);
+> +		return NULL;
+> +	}
+>   	return addr;
+>   }
 
->>>> @@ -105,6 +109,7 @@ allOf:
->>>>            compatible:
->>>>              contains:
->>>>                enum:
->>>> +              - img,img-ge7800
->>>>                  - img,img-gx6250
->>>
->>> Can you put these in the same order they're declared above? The way I
->>> read it, the order is img,xxx in generational order followed by
->>> soc-specific entries in alphabetical order (which is why we have
->>> img,img-gx6250 before img,img-bxs-4-64 below).
->>
->> In this enum, the entries are (should be) sorted alphabetically .
->>
->> Do you want to sort them generationally instead ?
-> 
-> If we have it wrong and the correct way is that these should always be
-> alphabetical, can you please fix up the existing enum below (with gx6250
-> before bxs-4-64) to match the constraint too?
-Fixed in V2, thanks !
+Looks obviously correct:
+
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+
+Although I got confused by why set_memory_rox() is being called; it is being used
+only to handle the linear map alias perm change, which is not nice :) but I don't
+see an obvious way to refactor the code to only perform the needed functionality here,
+and probably this is not a hot path that we care about.
+
+>   
 
