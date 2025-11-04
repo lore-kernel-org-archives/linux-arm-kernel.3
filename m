@@ -4,171 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE88CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA8AFCCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjHqNBkLZXqvcbKecPGGHsl08expU5vi3Egw/B9Dpvg=; b=vfw+gN3pt9B/9B+WgGKtKaDREI
-	Lj13aMe5tbYyE59jFHmzHHzo9PNGDdva6AH26FAjkNRZxyhrpiw4T9ksrC4h++7r4UCjduDqtHAHR
-	tYYl5Xun941H/e9lNPfMHQu/BBadG4TR1fd+1e96ZEq4ljLFhaRMBYF4BsuoKlh7VU8inj8FLb5vc
-	otgu6X927OyAdtCIICVvrlkN1HstIgS+VgmuBn4QTo5AgsToFwx3FiDjL/Z3ngF0Bbwx2JNck+q01
-	LCKEpOHL7WrYNEX5udC8LFkSJGxg/kuNjJk+Ur6yXhBeymezst7Yy7aJZrH4APiBnuNsZRBcyiT69
-	EeKdLIEA==;
+	bh=nsWqlGvOTHmJEeqLDeYMyMDRlSEqzlWIE47fTC7la8g=; b=B3M980xCElk35502KbOsnKIQdM
+	izDJew6lnXxa3WXljH+tomK8O3X9vWk2VZN3NS4CqH8dXzjPwLwx40gJBNsjaq5fTcAHOwbGhSHuy
+	kTtcwh18n0xSYmeTcZyVbx1zHApXxXzRXe2s/77iC3ofzW0WV8vMwjpZwNPnyq+YX2R+KgM8d1eAk
+	r0gPoghK/1DMCK/RVSoo/6ap02RpQsOk5EUmWaX0hFDapTT4Z37kwvha2MosSJjMMnM8zZD18xdK7
+	Wj/2VTI42wicTbFK68fXE3kVfQa0NOh+KvWwUpXFT0sBU0L7k0hxtp6mmaq2leTecTj5JRLCBChqW
+	QDZx/LjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDB2-0000000BWcd-0QUd;
-	Tue, 04 Nov 2025 09:18:08 +0000
-Received: from mail-japanwestazon11022083.outbound.protection.outlook.com ([40.107.75.83] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vGDM5-0000000BXNq-2wEF;
+	Tue, 04 Nov 2025 09:29:33 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDAz-0000000BWbx-0Ytv;
-	Tue, 04 Nov 2025 09:18:06 +0000
+	id 1vGDM3-0000000BXNB-2MEH;
+	Tue, 04 Nov 2025 09:29:32 +0000
+X-UUID: c2a13596b96011f0a52f393f94899d25-20251104
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=nsWqlGvOTHmJEeqLDeYMyMDRlSEqzlWIE47fTC7la8g=;
+	b=SO/+JJb4vKEmEizN9cfKS5qCA075RWv96q2vVXpusA6SUfv1QpkLEboORK6vckBBh2av2PNySY9XtTPWvwZD8X3J9n+vk+k22AgS/N0TAxB3P0lLpYj0m15SgxvRohYas73DgIT/IIiYUtNHJledBnmNmQ4Aa36cV1JiuFycxJk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:4d85b8b2-eff4-464b-9abe-cc91f604f497,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:4faee47c-f9d7-466d-a1f7-15b5fcad2ce6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|51,EDM:-3,IP:nil,URL:80|1,File:130,RT:0,Bulk:nil,QS:nil
+	,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c2a13596b96011f0a52f393f94899d25-20251104
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <liankun.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1756139726; Tue, 04 Nov 2025 02:29:28 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Tue, 4 Nov 2025 17:29:25 +0800
+Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Tue, 4 Nov 2025 17:29:24 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kTQKg7eWCNbgpxrvtxbDj7lvVMCNpKRvQ30Pq8e2JlayHms5Uebnj2szt0edkXAx7qPorQVthbjQtJYnZ7E30L5qNGcuqaUBp37ENpaOO8E0tC72Ln4kBcm0hiDUHrnD6uWiU+YMra0XH1WaNqM63nbTWoFUnxAZBy+RCWAlino8PjM7MmEqHCW4awFkKDqRhpyjvdam46/wu8149LvgKs0Wn4BRcG+qjg3EysIPRJYmGEMyNbw8gJ2WF3JfFaqOGxv2B98ycWpHfTc91w005YBZGY1HJZ3slAsW1eHtdyK742zXSwvjodDM5DLGvojYdOQx/ITjkuo60slFWxlDWA==
+ b=Quh4nERzWEYjyEpTZw0aw54raxUhWjN1yvyb4BbeFK+696Owd3Gr5lBKGcJxewSsKDOtgneUke0qATUBw7CuVId0FhhpO94G75jaQ0aw0SIwhYtRZqspsoCsX+2lgl0Q+8GvChumMLAlBYSqYfMOKJCeNMOhDBtwQgH+OQ7ZJNvtyFSHJIlcZ/uojIabv+zRGw0BOk39S1N3TWTnmUh0Qf763YpSPTT8pkvelBkNSK/AGq1loabes19fkQ83xITELLYRFl9p5m06KXvaFCaeYveKs2i+E54U23eXGyodj06p10BeEDp/g7OO6ttUW9pSJGlLMeezhLzstLkt8wzdew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BjHqNBkLZXqvcbKecPGGHsl08expU5vi3Egw/B9Dpvg=;
- b=XiJF8MXX/6TobtWSzuU6+NGDaMej5BaceV+9kbeS64yUVH0lA2r9vFwBuLj/0UZGHJNx9tZDtpNthWNVx9TvonfrQdCqqr4QYAzNKXKYHdmK5BCyMaGZKkqR4BYIysu8FgECJbXdYid8eU3WqE6LOnfcdenX1034NDwEygpRay5LkNrf32EZ9ac6kK+UXV5Vnx8DSLP5oyp/D80xbOyqSYiFYIhtrHCB+2SqZIR5zhmssrESFIUKwm7QjuMwySp+cdzzDRCgR9GHjdbfLfcKXJIfgljYGf9FCp5e8t0oLxucOu400QocBShYFG1lESJHP+KKEZ56CHF0ByUUxxPOsA==
+ bh=nsWqlGvOTHmJEeqLDeYMyMDRlSEqzlWIE47fTC7la8g=;
+ b=m4km40ztMjRh7B0i+ZzeeF/R29bjj2GrSIShK7xl5O5iQAaBDrGdXYIFq3aglqs/qK5t3spJqc9aL+pXtByJzFtmFeYvZhgubqhQYfp1e5t2iPysswsTvp/HmBS8NSaL0M9l6PRLk3pHFBk3fczhIyNAUkCImfQQ2gIndMyHzOSAdy+Pvz2gvI40HLYhY0Pj8vv5wCmLUmT/EkKLdCYwn7b1j5d0XhdtUBPKY123jbIE2MiPb0be5alo8Vjz9dj020jCXlYOFOgp8G54j69SgsQ1bq70NNxcOBr2jBi3BTUUf40XrBOjJKmejYzo7/zwG/dWLZ0bzjv3PyNyNHU5Iw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BjHqNBkLZXqvcbKecPGGHsl08expU5vi3Egw/B9Dpvg=;
- b=WeIfWpDNZP0Lzd+PyYSDMiVWzxpn22FKC9T/pEv1MkPCaAjxs8WGNP0rmz3WBLdIY6aNvwLmA4+SW1fvfG9Z2j6kXy0RTRzKKwqQQywhfKGx20Y3hGkoRT7MZo3PjQ41UURmtwFvcLjsbsf1zTvtVZgcWwqz/e6UkwQa7JUTrAJ4hoXpessYxO7RnuAhl/E0SSZqQTnQI+znPE9NHi4+Blr3FpVlzEaG+KMAiktGkhtTcVcfUNM0glwGoZrDWnBY2OviwIhTrpnUHfc+uspqFVCSQydHsZ1lecp5v+zW+EdwaRNBfun6BmSCcgeerP3I/FDRAp2Ot10gvNCl94Xe2Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from SEZPR03MB7146.apcprd03.prod.outlook.com (2603:1096:101:ee::14)
- by JH0PR03MB7927.apcprd03.prod.outlook.com (2603:1096:990:34::6) with
+ bh=nsWqlGvOTHmJEeqLDeYMyMDRlSEqzlWIE47fTC7la8g=;
+ b=doQldKWCy9DGB/S6JVsrVvmXX9pTdHvb7Nwgv/NOZ9irwZfmE1KeFRUZSJvBJJzYwVyKcl7zgwC4HAfQvlZsgx+LiogIUSDo3pcrQeGAjW1XAHDwqfLSzogArbBrgc12aGLkVT39DCYRWytW90QUABoVN5pbsDOWfMvD9cBnfGI=
+Received: from TYZPR03MB5760.apcprd03.prod.outlook.com (2603:1096:400:70::13)
+ by TYZPR03MB7289.apcprd03.prod.outlook.com (2603:1096:400:41f::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Tue, 4 Nov
- 2025 09:17:57 +0000
-Received: from SEZPR03MB7146.apcprd03.prod.outlook.com
- ([fe80::f608:5d7a:df6:35f8]) by SEZPR03MB7146.apcprd03.prod.outlook.com
- ([fe80::f608:5d7a:df6:35f8%3]) with mapi id 15.20.9275.013; Tue, 4 Nov 2025
- 09:17:57 +0000
-Message-ID: <3b9a5978-aa02-486b-85f5-6443dc607dd5@amlogic.com>
-Date: Tue, 4 Nov 2025 17:17:50 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/5] clk: meson: t7: add t7 clock peripherals
- controller driver
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu
- <chuan.liu@amlogic.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Dmitry Rokosov <ddrokosov@sberdevices.ru>, robh+dt <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20251030094345.2571222-1-jian.hu@amlogic.com>
- <20251030094345.2571222-6-jian.hu@amlogic.com>
- <1jbjlnxuug.fsf@starbuckisacylon.baylibre.com>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <1jbjlnxuug.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2P153CA0027.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::14)
- To SEZPR03MB7146.apcprd03.prod.outlook.com (2603:1096:101:ee::14)
+ 2025 09:29:17 +0000
+Received: from TYZPR03MB5760.apcprd03.prod.outlook.com
+ ([fe80::7a62:8e4a:b62a:3c13]) by TYZPR03MB5760.apcprd03.prod.outlook.com
+ ([fe80::7a62:8e4a:b62a:3c13%5]) with mapi id 15.20.9275.013; Tue, 4 Nov 2025
+ 09:29:17 +0000
+From: =?utf-8?B?TElBTktVTiBZQU5HICjmnajov57lnaQp?= <Liankun.Yang@mediatek.com>
+To: =?utf-8?B?UGVuZyBMaXUgKOWImOm5jyk=?= <Peng.Liu@mediatek.com>,
+	=?utf-8?B?TWFjIFNoZW4gKOayiOS/iik=?= <Mac.Shen@mediatek.com>,
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "simona@ffwll.ch"
+	<simona@ffwll.ch>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+	Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "airlied@gmail.com"
+	<airlied@gmail.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 1/1] drm/mediatek: Adjust bandwidth limit for DP
+Thread-Topic: [PATCH v6 1/1] drm/mediatek: Adjust bandwidth limit for DP
+Thread-Index: AQHcE10aYjRcK7oUAECwQJj9ycuBWrR996KAgGS8mwA=
+Date: Tue, 4 Nov 2025 09:29:17 +0000
+Message-ID: <155234efaf55f5e481ab97f48dad321037a4add8.camel@mediatek.com>
+References: <20250822120506.15486-1-liankun.yang@mediatek.com>
+	 <e6337c08e2c40653b4a6542f1dd9fc350036b8c5.camel@mediatek.com>
+In-Reply-To: <e6337c08e2c40653b4a6542f1dd9fc350036b8c5.camel@mediatek.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR03MB5760:EE_|TYZPR03MB7289:EE_
+x-ms-office365-filtering-correlation-id: 01288404-8ee8-4811-db11-08de1b84a09a
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?NU1YTm81QVY4YUhZSitHbDYrVzh4WjNHS2dySDFGRDJwZU12Y2xxMlgrOG5S?=
+ =?utf-8?B?UGI3RjRQZzhTUG5RZEtzSVRQb1gyWVNWZE8rUW1YK2xaUGpualNCeEJVRDhD?=
+ =?utf-8?B?Q2xneTVURHIxTkhaRDBXWDVTZUtWUUxZNVlja2N4bUJ1YWtXR2tLU3NFRFJz?=
+ =?utf-8?B?bE1aanRaTFV1dDFhaFJKL2JKQ24zSisvK2dickFmeUdEdWFnaEVXeTJqZUs3?=
+ =?utf-8?B?L3FIRlBjRDJEOE9NYlJaemVQZmZ0bmJiTnFFYTFhMTliVm4vSXlJekVVMEc5?=
+ =?utf-8?B?emp3MGYwdUxkcjR1cHM4RGMvQ0ErZ1N3bWw3MXdHejlManB5c2t3cVpnVzJm?=
+ =?utf-8?B?QVZ2Y3RRdDRYbm1hTnZsUzUzYnUzckNPUklmTGhINjdhYkFBR1ZuUFJOOG02?=
+ =?utf-8?B?SVkzQXJxQUFybmZvcTJqRkpHYXhnWnllYjB0WmNlTVpCRVFzcnlnS1dIZnJY?=
+ =?utf-8?B?L0JaalE0RUZ6cXJhZ3p6RCtTVVRtazJYUFF2RnFPOHFzRTBCNThsU0V3VGVP?=
+ =?utf-8?B?bVNmbFBpZHU0WnMyR3IwczlNbFdlQ3o0QjZHbTJxSmorZk1objN2anBUN2pl?=
+ =?utf-8?B?YlFUek1YNnVSbW5NQzZWbkZ4TnoveXY2NUlMZkI0UVF3RS95b0xGb0Y5cDFB?=
+ =?utf-8?B?ekthVG0wSEhqZldYYUpDbzkycGhkdTc3ckxZYTBvNnVEUVJFS1p0NUdxM1Ft?=
+ =?utf-8?B?bFJVZ1lsNmJRM1lvV1dGR294cWl4MHBnUzJrT3BiRDhZYUhFVDZpbDMwSFND?=
+ =?utf-8?B?eDlGVFZ3MExlTDlDK2Q3aVY4YmUyeHBmT05VYklRMytaM0lSVTBXaEpoQ1ln?=
+ =?utf-8?B?bDN2MmdhSlF6V2liaUNZK0psZytXRFl1UjZDV2M0WG45Y0UwWVJlTDdhSVo2?=
+ =?utf-8?B?MEUzZ2J5RjhGV2hjbmIyYVpDWGc3VTFQWkZuVWliajMrckdyZTNBVWZMMFFY?=
+ =?utf-8?B?SkJWcUJrbHMzamJ6VTM1aU1ZeHV1dGl4ZUdaT0JoVXdsVGhsdGVQckRDYVdS?=
+ =?utf-8?B?aTViNFVLWVlpcTIva2tPclljZ2dxNEhpeEpSSk55RnZtaFNzOVYyS2tVSWtI?=
+ =?utf-8?B?WVhoYUtGUnMzWWcwYW1FODI5Q1R0SkF1ZSsxTWtESGRtKzNZVTViZktLbys5?=
+ =?utf-8?B?WWUxTUx6b3VZTytUYUpMc1VZeGJvc01KUk9YTGtwc01tcE5PNEFLckJSZlk2?=
+ =?utf-8?B?YVJ0UzF1S2hZdERXbWsrWldHQVJIaVhyb1YxbEI0N1hWd3V4SndvTytQcW1W?=
+ =?utf-8?B?am9MTmlrMnpnRzlKdHNjcDl2Mmg4b3lxYkoxTHRBSGlJZW1USE9hcjNOcjZz?=
+ =?utf-8?B?RGpSeVlzc1VIUDIvRUMxT0FPbmthYkx6bzhOcEJzTXd2R3IzbTR5OTBxTGNQ?=
+ =?utf-8?B?SVd4Y0xMdENMY2k0UVhNczYrRzg2U2xEaTJJbGNaT1QrOW1RV1hCYmRSWEsw?=
+ =?utf-8?B?bGlqR2xDV1lFbFhUQjJKRnI5MjJRb0FIUGpjQklNMTBYSGNqQytWR0JNOFM2?=
+ =?utf-8?B?Y1pmZ2VrNE1OYWZNVFFCMlBxaHRSbW5GNEkyREZHQ3Y1cm91NnRQRVJQU0c3?=
+ =?utf-8?B?SHk1aWZqbzNlT1N1MExXSnFFN1Jrb2cwUmk1YVpLaG5INnpwcExsaUU1eThO?=
+ =?utf-8?B?VHhucG5LemJYR1FzVityUjNwYkVGejBxVElQRi9EaUZzRWNTM2lwR3BKbVR6?=
+ =?utf-8?B?bmx5K1JzNU9VV3ZUdVFFZlRvS2hZTFN2SzlHVHdpNUtpVXZscGxpejFXYzVp?=
+ =?utf-8?B?b0J5UmdYZ3ZFeFVPeHQyVGpOeHZtWHViUmI0bUlENU9WWFF1aHd5UEFERVpk?=
+ =?utf-8?B?OGZUS2JTc05HWGJZdWoyd3JyQTFScVlkZEZubkFGZUdzcjhpTExleU5CS2oz?=
+ =?utf-8?B?MnI5WEF0cVhrOUl6bDdBaWlSRGtzZkwxeHdQbE9kY3ladEhsMW0wZ0ZlM1lF?=
+ =?utf-8?B?K05YQzBiTzdjR0RDd2hQV3owZUx0eHVuYmwxNEk4M1M1Q3MwMHN2Zys3Q05D?=
+ =?utf-8?B?ZTViK2FwT0JQTFdzTWIyWDR6aVZGSjZmNE1DYVYzeGdSK1o2UkNrci9ETmI1?=
+ =?utf-8?B?OUhyRG12QnliaGlLMTNqNmN2MzB5Q01ocGtUUT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB5760.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TWlmT1dueStVT2lzY1FibkFCS0xiOEFzVWpUWkI0ZXFPZG9IaGtPZ0JWcXhD?=
+ =?utf-8?B?Z05JbGhCd05Gem96RndWTzNCTUpBMzJHWFY3Nyt6aGgyM3ZuQVpPVlVmYzdl?=
+ =?utf-8?B?Z2NBYmU5Ui8zQ2pCeGxNeFFNdTR3YU95R1RJRkx4UFBMQncvR2F1WEtNa3VS?=
+ =?utf-8?B?eU5TSFF3VnVkdTFGekFsUFNXeG1haTdVcUlzRkZMRG41K1JUQ3BDb0xwU09i?=
+ =?utf-8?B?QW9iQnR4VllxZWlOZ29yOU1UVW1pUHJOb0ZaRGdXNTZkbXFsQjBFY3dvbWtB?=
+ =?utf-8?B?QWtEZG1SZFNjS1Q1bWZucVdqOUtoK1BRS2JFaFhpZkhJem1KWjVjbFF5a1ps?=
+ =?utf-8?B?QjhMSVFRMXMrOVRBSFdBU0ZmTGNSQzFySm9nZW9Hd01uUXJRamU0VFMxUjB2?=
+ =?utf-8?B?TjNHZlNzYWdSbHFXMmNMRUV0cTlvbUlBRml2T2VIN0hkQXZYaHZIWjhyY1Iw?=
+ =?utf-8?B?WlgyY0R2L2grWks1SjQ1QkhWRThXQWduN2VkODl4Rm0vL0g0SXNqODZLcHZP?=
+ =?utf-8?B?Q3pXYzFnZFRpbExWQjZveDFLcFl5KzNzVHJQSXdpY2cxaTIvc2VvN1huVjNh?=
+ =?utf-8?B?UFNGL2pVU0dmeG5ta0VsNlJsUVpyaXVSRjhZZlQrb0hIQ1pCYUpvMWFCbmZR?=
+ =?utf-8?B?aXJlem9XQ05BcWlkNVdyeFJnYldQRTQ1MmZZQ0JDWXFpbzJwYk1XTVZCRUp2?=
+ =?utf-8?B?MWZENFpiUFd4SFpQbnQ3RzNDMUhLUnRtM3FBazZQU2F2Y1VYUEIwekZ0b3NS?=
+ =?utf-8?B?T2RnQXNpNmhGMjdoVC9kQnJNb0VibEVTMkFhVDMwcVJlcUtNcENRUm5HMnE2?=
+ =?utf-8?B?QnNpZ2dsZmt1elQ0ZXg0U1hVKzdFODBod1QwU3BPKzdtOUdjcUVEaVp0bVpX?=
+ =?utf-8?B?cDFSRktrU3c3U2sycE82SkQramhBQmJwNXliOXpnRGIrQmt3YjVrZUExTDBl?=
+ =?utf-8?B?SlNrM0IzVzFlVTNYd1owVzFKaFU0dnIweTlLNDgwSTNtYS9XUnNJek1zbTdV?=
+ =?utf-8?B?QWhYVlFocVJ2bmxBSFpvZUVvbWM3UlhEZHJwU1loUnA3MlVvN3FSZ01nOC93?=
+ =?utf-8?B?VGw3NzQ4MXBNL29LUGRDcVdjTEtoT01ROFFsNUZ4eEcvYUpUZ0k3K1o5c0VP?=
+ =?utf-8?B?VmNhc2xPalIwZUlrSVFCYkxZQ0dkOStOU215STN1QzQrWW1qT1JJQ1VPWHBM?=
+ =?utf-8?B?NEIzanh0cU9TTmZ6REhBUk1VZitEU1RsQ1JDdXVTenRJT1JrK3FoemJ1VERI?=
+ =?utf-8?B?SzVnRExSMi9McVdhSXRGbFBGekFleDZYK3BFNk9wdTE2UDZyNmdEaWVXY3ZY?=
+ =?utf-8?B?Z3NDRUgwTUVxNFJyalQ3akhFdVJhT0RKbWdDTlQwMHNwNXVCcUlXUmNFVmIr?=
+ =?utf-8?B?cHF2MGwrRzBmcjZ4K0U0L2p5WW5JWGozYzZPdW9VMTlDNllnYU1jcjFuNmow?=
+ =?utf-8?B?c2VVZFNabXpzSE1NWlNOSE03cTJtTmQ3WUd1MWI1Qlo2SHg5T2hpTHF4REs1?=
+ =?utf-8?B?cDhrSVNUcWFSaUNLTnY2RldnbmhkNmpWUFdFcTFtWld6a0ZGaHdmaXZpeW1o?=
+ =?utf-8?B?dWF0Q3dJSzZ1VUxiSzNYRE9iRlpFSWFZeTVLTXlVRlFMZ0tQTHdhdGhncXVL?=
+ =?utf-8?B?bTN0Mks4dU92dWdBa0pndXMxMW9RNkt3d1Nmem14b3JDQ091WEFUNlNIWUlF?=
+ =?utf-8?B?cFhrQ0JUTDkxbDI3UmZpNWVYT0w3Tm1jZFg4VFd6aDlVbC9sWkpRZzVNaWtO?=
+ =?utf-8?B?eDlodE52VllmbEpwdm4xU0Z6bnRVc3k5Vm8rRGE2WWQva1NkbHRBaEtyUWE5?=
+ =?utf-8?B?N2V2dkFrVWRHY08veTZXL3Y0VEJHUzBwV2JMODA4TTMzcm9GWGg4NC94S3hN?=
+ =?utf-8?B?NVVIWVd3dFV2VFZUQnZtMVdScVoxa003djd5L2lteDlRQjgxQjdQMC83M0Nr?=
+ =?utf-8?B?U2RBY0Z3c25DbnFXWUZMc2dDOGtTUitnVGczZEF4a2Q3Q0VNU1QydlhnUkta?=
+ =?utf-8?B?cnIxMzU0dEhGaHFHZGsvM0JlSUtWN29vOGhzbERrVG1La2M0R1lhOVd2MlZQ?=
+ =?utf-8?B?NkMwWjd2aHN3UDVBeW9HbXh6emtJWEQ4WTRwTlhqOXAvNXB6UTRKc2RxbTBX?=
+ =?utf-8?B?dG1jdVY2UHhHdzZyd0R3Wmp2dUZKM2RUdHpLYXl6V2c3Z24zOFVRU2QwNG9J?=
+ =?utf-8?B?M2c9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <84ACA49577FA1340BDB0487657C8E572@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR03MB7146:EE_|JH0PR03MB7927:EE_
-X-MS-Office365-Filtering-Correlation-Id: 50300e5e-a965-4567-c45b-08de1b830a95
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RGlJYjg2djhkOXhPOG9uWkwwUXFBL3NBb0oxcUo2WjJ3SEtEakNXaTJVNFJP?=
- =?utf-8?B?UnNuMi9OOXhIT2JuaE5sMXJESTYyc2xRZmlBeDRuK3dnc2xBa1Eza25GRGkw?=
- =?utf-8?B?YWp6OWRuRG9FZnpVQlNaRGtzTHgzb2xJTHlZMlZLSGgzRXBiSFI3SmtUZnYx?=
- =?utf-8?B?QytQaWFjNmJiQjdPU281RWFUYnMvVXB2bTA5Q2NVL0N1Y3o0aURxenREcDJT?=
- =?utf-8?B?WVpBS3g4RlNuQzBHRmYrOHl6UkRLblBITmQraWRXSjhtQVAwbUZ2N25Jb2Zu?=
- =?utf-8?B?MXN1WkpJZWJQNHdNSDdoR2txcWVtZjNMYWFjWWxGa1huWGJabENXRGwyZUYz?=
- =?utf-8?B?MG90YWdYSnlPMkhGaFJEbk9ZWFpGNkJFdnJlazJ4bXhvelAzeTFhR1ZjK05H?=
- =?utf-8?B?WHNHUjgvWTJIWUJTVnozTlFMQUlGQm9jWDhzUmZTZ2FKOGpqbjhhOS83dGlQ?=
- =?utf-8?B?Nm9pQzQyVXNvWk5remFBU25vbURoc2liQkxHU0g0QWJMUGF1YjNRM1NHVTNT?=
- =?utf-8?B?WWZxNlhuNkFON0NET2NtQnVlb1B3c1RTYVRIMTk5MS9BWVpHMTV6VzlSN1c5?=
- =?utf-8?B?cUxXdFhzV1ZVUDIxdkVmVFVIOW4xQlVjZm5WeDh2Rld2NXozM29PdDhoNWlm?=
- =?utf-8?B?aGx4VmJsNENPZlFJaUNLTG1aWDlwdWFreFdiblViVms5TGl6aFZVVlYra2Q3?=
- =?utf-8?B?N213eWxBRjZHeWFxRXVGNFVDVldZQXZYSEpWc1ozYUI4TG44MWErVFZORkFo?=
- =?utf-8?B?K2R6c3IwVTNoVVdNSGNBS3NRdU9yUzNGSk9KNmVJbmd3OUJSU2FPMHd6amlL?=
- =?utf-8?B?WmJ5eFc3akM1WHRtb0s5ZUh2LzdnTndUMlIwZWFjR1dJWGJlS3RUWVFmVkp4?=
- =?utf-8?B?bnJLVm5LS2JValNDbTFRTWZmMVpicXd2SGtxa2k3WlV2RVNZaGZwQUwzc1ox?=
- =?utf-8?B?VHdRcUZQaVk3MTZpSjYvc1k2bU9tZ2F0dU5rNEM2UUtpSzlyRGRweVRYY0ZL?=
- =?utf-8?B?aENDcGxnWDRtSmYxNWZLT1BGZHgzTm9TYVB2ME5DSkdSaEQ4dzEwa1Mxc3FS?=
- =?utf-8?B?TVN4SUlzd2ZIMExldkpraXFEblhYYTZFa1hta3ppVUN1NWZMcnV6ZXY2OVhB?=
- =?utf-8?B?OUhKdDhuRTA0Wjl2OFFQeDRMdGt4R0tGeEdJRzRSVTUrbGdJOHFTNmw4TlRn?=
- =?utf-8?B?TTV0VHk1NFVzVTJLM2trV0RodkZkaWFhYVU1aTlYLzFDZ2xEUDBQTER0Nk1i?=
- =?utf-8?B?T041L1pJb3E5eG56Rk03MVVpZ283Q1llTVllNHBkUzE3YndNUm1SUTlaWnEr?=
- =?utf-8?B?cFErMnBHemc1RTZ5SHcyaHR0a3gwTmN1cDlNZER3WGhwRFJSRk8rWGxmOTJC?=
- =?utf-8?B?czc4T1R4RU5WQVdsZWVtYzZYSWlwM21XaHBPSUxXSFd3Y2RJN2ZTdFpqckVN?=
- =?utf-8?B?NWdkZDU3bzY2ek1QZDYxTGoyMktIcy9mM1ZDdmRzSjRhOFYyb0tiTkxQM2tq?=
- =?utf-8?B?YVFreG5WNExlTjY2UWI1TEt2OUQxQ2gyK05IMThBTncrUGJGZWw5QjNKa29F?=
- =?utf-8?B?M2IvWGZLN2l4U24rT1pIQXBzcnRhbmRkZUJxUW9oQWR2Q25rZHIzSC9ZcE9O?=
- =?utf-8?B?a1RpeWVRZVZlZVF4L3pnbmR2UWUxWk5HcFZxL2JQZURLaHE1c1R5b3AwMk5u?=
- =?utf-8?B?OGVLa1orcHRGZldrVS9qRmNxNEZtd3RVOG9BOThocER6aWJRM3p2VUVLRUxN?=
- =?utf-8?B?WkVxYTBDclFFbHVXcFRPNUIyejlST3Y0MndsdHVEWCtVTC84NzBPSG5lZUtP?=
- =?utf-8?B?dS95bEVBMTQyRXowUXVSd1paZDA2RXkvUFFnY3paSlBlV0cyaDgwclBxM2dy?=
- =?utf-8?B?QTdzZnV6MzNpSVM1SVhsK2d3dU1QUmdDMWlIQVVVTVdEdTZLTnhoeUdMVEhv?=
- =?utf-8?Q?6g0PjabMKCeJ7bazmOIQDE1A3Ok04JMi?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR03MB7146.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZkJyY1pkZzgyTWJnamVCR3J0VUNKSlY0UGY3OXhlVDFiZDErbTI0eHd6bU1Z?=
- =?utf-8?B?emtZaVUrRzJmN2xENzdKb0dzNTJwRVhOMTcveUxuUFRYNWdKMTZsUG0zOUU4?=
- =?utf-8?B?YmZqUnVWY0szMXpvMjk5RUdGNHdjRnhEemxUT1c4RUpac2loMldFSm85SUZ3?=
- =?utf-8?B?S3NicUlNTjQ1dTZXVDI2U0tsblZRVDlteUg2TDBjZTA2dFRFQ21kT1NDdGRM?=
- =?utf-8?B?RGV3djJ2STlEamw5QmlZRUZQUyt0enRvbnRscXBEZmRMVUlvQStLdVpVcDk2?=
- =?utf-8?B?MDU5NGx3TzkzSHBYSng2NlRpOFNvbGlNZE9aQzJTNDhRbE82SWhvbHNlWXlU?=
- =?utf-8?B?Ym4vaFMydHpaZWN3VEVKcWFZQnc2OUpjTDUvRG5JZm5CYytIbVMzcVMva1BF?=
- =?utf-8?B?OVRDMkdkZ0dnM2kxV1JjY25rS2h6c29KODFhMjJXSDkvRG45MzdmZnY1eWpw?=
- =?utf-8?B?cVBlRU11VzJWYko5bEdORTlSeXFCNUs5YUEvNG1MWGVxYWhkUTNmbmIxbzRJ?=
- =?utf-8?B?ZHNxcTBod2l0dzVtK0JxRHpESlFLVGppejgvRDgrZG1TWE5IMU9KRHh5R3Iw?=
- =?utf-8?B?QW5tUmhSOXRwT0J2VUpxbDcrT2V2dk43cG5TdU1hZEZyU01Jby8yZmJUQjA2?=
- =?utf-8?B?V0JUc3NZSUhoZUFjSzU4di8rVll3S3h0SDlpWG1yc2lNNGNQbkRiaGFXK0ZW?=
- =?utf-8?B?WGxHM2NBdFlHaE16NXF2TkZnQ1o2cGdkUWxrRU14TFhCczRiKzI2aUcrOUc5?=
- =?utf-8?B?UWVnN083Si9tcmdMTGNaZXlzSG5aNWFzK0RtWXNoNFBFMkVhZjZyZHVsSWFp?=
- =?utf-8?B?TnVoUVdjS2plZWc2MWdNaDRDOUlQa2Rkd0M5c0wzVENKQkxJQkM0L3M5YkF4?=
- =?utf-8?B?VzBBRnBwUENLUXRVTnRqMjdTckV3NXgvdVFoVWZ1UzlFeHdqOEZUQkJ6Szhq?=
- =?utf-8?B?YzV3amh6K09Db0M1L1I4OS9iWDJ4MVJlUFVpYlIrZ05YbzJ1ZGlqM3cyalZU?=
- =?utf-8?B?WVFkL3N6M0ZLNW05OEVpYy9BeU9xdnh6eHlvdEpjbzdXWnB1R01heEU3QWxh?=
- =?utf-8?B?c1E4UVg4L0wwQkJuTmZPU2p6SVp3cUYxa2RSOGlmSzYvMk85WUszazN1ZlA4?=
- =?utf-8?B?cG9zYThoWTZrMitiYVg0TjJOZ2xYTlZIakxZbGRQd1FFM2tQVngrS0p3OVFu?=
- =?utf-8?B?MERxbGFER2xuQjc0YUtwclNCYlVPUFRCMVNvbWtnUVZjRVk0RXJrT0J3c21p?=
- =?utf-8?B?WW13UzYzZk4zNXdwYW1nY3JoS01tZll2Y3VkSEp6bXpTY1A5ZHl0ZzNmV0xs?=
- =?utf-8?B?QTRYTWNsZ2MxajdPNlBuMWVJaW1rVGxvR3VTcUJYcGt5YUFua09EdTJVRTJl?=
- =?utf-8?B?TTNRTlVTSDJmMVp0ZjdoejB6YmhiNWZyblNXMDR3YWVKRmZscSs0VHU3M25Y?=
- =?utf-8?B?UkdEVE1TVkVrQm1aaDVNUjRTNEVDcEFtRmQwRWc0ZktwQktLV1NyRGVncFE4?=
- =?utf-8?B?SmpzVFA2T1h6bWVtSzd6a0pMVlV4R0QzdThMYmZvVXZZUlhuNkhubXR2TmNF?=
- =?utf-8?B?bTNQNVlyVDQzb1NQVHVRQXpvSUJ0VUFnTW85aXFEWSt3b045ZCt0OFJwdTk3?=
- =?utf-8?B?em4rTGxLbFpMTSt0bFcrY1FnU04xbVRPVlJPSDc4akJNb05BTU4xZWVQOUZn?=
- =?utf-8?B?dHhEZGs3MDIydEgySGx3V2l4SGhyUHE0cUhrZVdoN05qajhkZURFQ3U5UW1F?=
- =?utf-8?B?R25DbFVKZysvNEw1QjJWc1RXRUEwVFo0Ri9zL2pGbFljU3hodE5QeGd0RlFw?=
- =?utf-8?B?bDVMazFLNnpHOXRiKzdrM2lVTVBhRlVxL3A2VDE1bjNTbXQzS1dFVHpDOWRp?=
- =?utf-8?B?YUoxbWFGY1JDK0haZ2xZSkJhN0NzdTYrbDY0UW8rTGd4Tk5VMEx4R20ydE5x?=
- =?utf-8?B?LzFOU3NFbExiOVFPVnBYZlM5WGF0UEcySVVGQVYxeG1aM1daaW9QTDZ0K0hZ?=
- =?utf-8?B?S0Q3UW13VGUyRFp1WkthV25iQmt2Zm15SU9WNzJHOHN3dWFvaXZ0ZGJUcUww?=
- =?utf-8?B?R1BxS2FKVndpMURMVlkxcGFVTHM5eENkREloWE1idVNCc0tQN3krZjBOdUY0?=
- =?utf-8?Q?o8rC7YGB9jP45gvyhldPcn7Ur?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 50300e5e-a965-4567-c45b-08de1b830a95
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR03MB7146.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 09:17:56.9222
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB5760.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01288404-8ee8-4811-db11-08de1b84a09a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Nov 2025 09:29:17.7118
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rlBfUo8vOywT4lF7vQo5QN8NVox1fFRNd4zL2Ske/s/HfKek3wUv9vOY6pkoeuOy9vKLEaih4d4MkbZSLB7zDw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB7927
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lnY2u+mDVXAgvtP6UdNBpMnE1Q5Rlqv/7hJqZXIZ/1CVDVWvgmx3R/cAEecgDBn1rRQd5eYOjJ6VLIQ6QJMO7RcjxLF2dMqzZmetaxsBgBg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7289
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_011805_356487_901676AE 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20251104_012931_645863_122FEDAE 
+X-CRM114-Status: GOOD (  20.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,614 +219,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Jerome
-
-Thanks for your review.
-
-On 2025/10/31 17:51, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On Thu 30 Oct 2025 at 17:43, Jian Hu <jian.hu@amlogic.com> wrote:
->
->> Add Peripheral clock controller driver for the Amlogic T7 SoC family.
->>
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>   drivers/clk/meson/Kconfig          |   13 +
->>   drivers/clk/meson/Makefile         |    1 +
->>   drivers/clk/meson/t7-peripherals.c | 1734 ++++++++++++++++++++++++++++
->>   3 files changed, 1748 insertions(+)
->>   create mode 100644 drivers/clk/meson/t7-peripherals.c
->>
->> ......
->> +
->> +static struct clk_regmap t7_rtc_32k_in = {
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = RTC_BY_OSCIN_CTRL0,
->> +             .bit_idx = 31,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "rtc_32k_in",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_data = &(const struct clk_parent_data) {
->> +                     .fw_name = "xtal",
->> +             },
->> +             .num_parents = 1,
->> +     },
->> +};
->> +
->> +static const struct meson_clk_dualdiv_param t7_clk_32k_div_table[] = {
->> +     {
->> +             .n1     = 733, .m1      = 8,
->> +             .n2     = 732, .m2      = 11,
->> +             .dual   = 1,
->> +     },
->> +     {}
->> +};
->> +
->> +static struct clk_regmap t7_rtc_32k_div = {
->> +     .data = &(struct meson_clk_dualdiv_data){
->> +             .n1 = {
->> +                     .reg_off = RTC_BY_OSCIN_CTRL0,
->> +                     .shift   = 0,
->> +                     .width   = 12,
->> +             },
->> +             .n2 = {
->> +                     .reg_off = RTC_BY_OSCIN_CTRL0,
->> +                     .shift   = 12,
->> +                     .width   = 12,
->> +             },
->> +             .m1 = {
->> +                     .reg_off = RTC_BY_OSCIN_CTRL1,
->> +                     .shift   = 0,
->> +                     .width   = 12,
->> +             },
->> +             .m2 = {
->> +                     .reg_off = RTC_BY_OSCIN_CTRL1,
->> +                     .shift   = 12,
->> +                     .width   = 12,
->> +             },
->> +             .dual = {
->> +                     .reg_off = RTC_BY_OSCIN_CTRL0,
->> +                     .shift   = 28,
->> +                     .width   = 1,
->> +             },
->> +             .table = t7_clk_32k_div_table,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "rtc_32k_div",
->> +             .ops = &meson_clk_dualdiv_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_rtc_32k_in.hw
->> +             },
->> +             .num_parents = 1,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_rtc_32k_force_sel = {
->> +     .data = &(struct clk_regmap_mux_data) {
->> +             .offset = RTC_BY_OSCIN_CTRL1,
->> +             .mask = 0x1,
->> +             .shift = 24,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "rtc_32k_force_sel",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_rtc_32k_div.hw,
->> +                     &t7_rtc_32k_in.hw,
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_rtc_32k_out = {
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = RTC_BY_OSCIN_CTRL0,
->> +             .bit_idx = 30,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "rtc_32k_out",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_rtc_32k_force_sel.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_rtc_32k_mux0_0 = {
->> +     .data = &(struct clk_regmap_mux_data) {
->> +             .offset = RTC_CTRL,
->> +             .mask = 0x1,
->> +             .shift = 0,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "rtc_32k_mux0_0",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_data = (const struct clk_parent_data []) {
->> +                     { .fw_name = "xtal", },
->> +                     { .hw = &t7_rtc_32k_out.hw },
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_rtc_32k_mux0_1 = {
-> mux0_0 and mux0_1 ? Those are  terrible names to search and grep.
-> Is this really what your documentation is using ? If not, please come up
-> with something better
-
-
-ok, I will update rtc clock name.  It is a mux clock,  and the parents are
-
-'xtal,  rtc_32k_out, pad, xtal' controlled by RTC_CTRL bit [0:1]. the 
-first and last parent are same.
-
-here was defined as two mux clocks. I will use one mux clock here.
-
-After updated, the rtc clocks are:
-
-     rtc_dualdiv_in
-
-     rtc_dualdiv_div
-
-     rtc_dualdiv_sel
-
-     rtc_dualdiv
-
-     rtc
-
->> +     .data = &(struct clk_regmap_mux_data) {
->> +             .offset = RTC_CTRL,
->> +             .mask = 0x1,
->> +             .shift = 0,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "rtc_32k_mux0_1",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_data = (const struct clk_parent_data []) {
->> +                     { .fw_name = "pad", },
->> +                     { .fw_name = "xtal", },
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT,
-> You probably want CLK_SET_RATE_NO_REPARENT for clock with a pad source
-> like this.
-
-
-ok, I will add this flag when for clock with pad source.
-
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_rtc = {
->> +     .data = &(struct clk_regmap_mux_data) {
->> +             .offset = RTC_CTRL,
->> +             .mask = 0x1,
->> +             .shift = 1,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "rtc",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_rtc_32k_mux0_0.hw,
->> +                     &t7_rtc_32k_mux0_1.hw,
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_ceca_32k_in = {
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = CECA_CTRL0,
->> +             .bit_idx = 31,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "ceca_32k_in",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_data = &(const struct clk_parent_data) {
->> +                     .fw_name = "xtal",
->> +             },
->> +             .num_parents = 1,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_ceca_32k_div = {
->> +     .data = &(struct meson_clk_dualdiv_data){
->> +             .n1 = {
->> +                     .reg_off = CECA_CTRL0,
->> +                     .shift   = 0,
->> +                     .width   = 12,
->> +             },
->> +             .n2 = {
->> +                     .reg_off = CECA_CTRL0,
->> +                     .shift   = 12,
->> +                     .width   = 12,
->> +             },
->> +             .m1 = {
->> +                     .reg_off = CECA_CTRL1,
->> +                     .shift   = 0,
->> +                     .width   = 12,
->> +             },
->> +             .m2 = {
->> +                     .reg_off = CECA_CTRL1,
->> +                     .shift   = 12,
->> +                     .width   = 12,
->> +             },
->> +             .dual = {
->> +                     .reg_off = CECA_CTRL0,
->> +                     .shift   = 28,
->> +                     .width   = 1,
->> +             },
->> +             .table = t7_clk_32k_div_table,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "ceca_32k_div",
->> +             .ops = &meson_clk_dualdiv_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_ceca_32k_in.hw
->> +             },
->> +             .num_parents = 1,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_ceca_32k_sel_pre = {
->> +     .data = &(struct clk_regmap_mux_data) {
->> +             .offset = CECA_CTRL1,
->> +             .mask = 0x1,
->> +             .shift = 24,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "ceca_32k_sel_pre",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_ceca_32k_div.hw,
->> +                     &t7_ceca_32k_in.hw,
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_ceca_32k_sel = {
->> +     .data = &(struct clk_regmap_mux_data) {
->> +             .offset = CECA_CTRL1,
->> +             .mask = 0x1,
->> +             .shift = 31,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "ceca_32k_sel",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_ceca_32k_sel_pre.hw,
->> +                     &t7_rtc.hw,
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_ceca_32k_out = {
-> Is the "_out" really necessary ? usually the last element just the base
-> clock name. Same for the other occurence.
-
-
-ok, I will rename as ceca here. Same with cecb clocks.
-
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = CECA_CTRL0,
->> +             .bit_idx = 30,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "ceca_32k_out",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_ceca_32k_sel.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> ......
->> +static const struct clk_parent_data t7_dsp_ab_parent_data[] = {
->> +     { .fw_name = "xtal", },
->> +     { .fw_name = "fdiv2p5", },
->> +     { .fw_name = "fdiv3", },
->> +     { .fw_name = "fdiv5", },
->> +     { .fw_name = "hifi", },
->> +     { .fw_name = "fdiv4", },
->> +     { .fw_name = "fdiv7", },
->> +     { .hw = &t7_rtc.hw },
->> +};
->> +
->> +static struct clk_regmap t7_dspa_a_sel = {
->> +     .data = &(struct clk_regmap_mux_data){
->> +             .offset = DSPA_CLK_CTRL0,
->> +             .mask = 0x7,
->> +             .shift = 10,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "dspa_a_sel",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_data = t7_dsp_ab_parent_data,
->> +             .num_parents = ARRAY_SIZE(t7_dsp_ab_parent_data),
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_dspa_a_div = {
->> +     .data = &(struct clk_regmap_div_data){
->> +             .offset = DSPA_CLK_CTRL0,
->> +             .shift = 0,
->> +             .width = 10,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "dspa_a_div",
->> +             .ops = &clk_regmap_divider_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_dspa_a_sel.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_dspa_a = {
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = DSPA_CLK_CTRL0,
->> +             .bit_idx = 13,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "dspa_a",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_dspa_a_div.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_GATE | CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_dspa_b_sel = {
->> +     .data = &(struct clk_regmap_mux_data){
->> +             .offset = DSPA_CLK_CTRL0,
->> +             .mask = 0x7,
->> +             .shift = 26,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "dspa_b_sel",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_data = t7_dsp_ab_parent_data,
->> +             .num_parents = ARRAY_SIZE(t7_dsp_ab_parent_data),
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_dspa_b_div = {
->> +     .data = &(struct clk_regmap_div_data){
->> +             .offset = DSPA_CLK_CTRL0,
->> +             .shift = 16,
->> +             .width = 10,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "dspa_b_div",
->> +             .ops = &clk_regmap_divider_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_dspa_b_sel.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_dspa_b = {
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = DSPA_CLK_CTRL0,
->> +             .bit_idx = 29,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "dspa_b",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_dspa_b_div.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_GATE | CLK_SET_RATE_PARENT,
->> +     },
->> +};
-> You have several instances of these glitch free mux (dsp here, anakin
-> below, etc ...). That's quite verbose.
->
-> I suggest defining T7_COMP_GATE() such that flags is a parameter
-> Then use it for the sel, div and gate of element.
->
-> You'll just have to fully define the final mux element, like you have
-> below.
-
-
-ok, I will use T7_COMP_SEL/DIV/GATE for dspa, dspb, anakin clocks. and 
-leave the final mux.
-
->> +
->> +static struct clk_regmap t7_dspa = {
->> +     .data = &(struct clk_regmap_mux_data){
->> +             .offset = DSPA_CLK_CTRL0,
->> +             .mask = 0x1,
->> +             .shift = 15,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "dspa",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_dspa_a.hw,
->> +                     &t7_dspa_b.hw,
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> ......
->> +
->> +static struct clk_regmap t7_anakin_0 = {
-> Nitpick: for the DSP it was a/b, here it is 0/1
-> Could you pick one way or the other and stick to it ?
-
-
-ok , I will use 0/1 for DSP.
-
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = ANAKIN_CLK_CTRL,
->> +             .bit_idx = 8,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "anakin_0",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_hws = (const struct clk_hw *[]) { &t7_anakin_0_div.hw },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_GATE | CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_anakin_1_sel = {
->> +     .data = &(struct clk_regmap_mux_data){
->> +             .offset = ANAKIN_CLK_CTRL,
->> +             .mask = 0x7,
->> +             .shift = 25,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "anakin_1_sel",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_data = t7_anakin_parent_data,
->> +             .num_parents = ARRAY_SIZE(t7_anakin_parent_data),
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_anakin_1_div = {
->> +     .data = &(struct clk_regmap_div_data){
->> +             .offset = ANAKIN_CLK_CTRL,
->> +             .shift = 16,
->> +             .width = 7,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "anakin_1_div",
->> +             .ops = &clk_regmap_divider_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_anakin_1_sel.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_anakin_1 = {
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = ANAKIN_CLK_CTRL,
->> +             .bit_idx = 24,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "anakin_1",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_anakin_1_div.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_GATE | CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_anakin = {
->> +     .data = &(struct clk_regmap_mux_data){
->> +             .offset = ANAKIN_CLK_CTRL,
->> +             .mask = 1,
->> +             .shift = 31,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "anakin_sel",
->> +             .ops = &clk_regmap_mux_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_anakin_0.hw,
->> +                     &t7_anakin_1.hw
->> +             },
->> +             .num_parents = 2,
->> +             .flags = CLK_SET_RATE_PARENT
->> +     },
->> +};
->> +
->> +static struct clk_regmap t7_anakin_clk = {
->> +     .data = &(struct clk_regmap_gate_data){
->> +             .offset = ANAKIN_CLK_CTRL,
->> +             .bit_idx = 30,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "anakin_clk",
-> Again, not a great name, especially considering the one above.
-> Is this really really how the doc refers to these 2 clocks ?
-
-
-bit30 gate clock is after bit31 mux clock,  and the gate clock is the 
-final output clock, it is used to gate anakin clock.
-
-I will rename bit31 as anakin_pre, rename bit30 as anakin.
-
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &t7_anakin.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT
->> +     },
->> +};
->> +
->> ......
->> +
->> +/* parent index 2, 3, 4, 5, 6 not connect any clock signal, they are empty */
-> Remove "they are empty" ... the rest is fine
-
-
-ok.
-
->
->> +static u32 t7_eth_rmii_table[] = { 0, 1, 7 };
-> t7_eth_rmii_parents_val_table[] ... consistency (please check for other occurences)
-
-
-ok, I will update the table name.
-
->> +
->> +static const struct clk_parent_data t7_eth_rmii_parents[] = {
->> +     { .fw_name = "fdiv2", },
->> +     { .fw_name = "gp1", },
->> +     { .fw_name = "ext_rmii", },
->> +};
->> +
->> ......
->> +
->> +static struct platform_driver t7_peripherals_clkc_driver = {
->> +     .probe = meson_clkc_mmio_probe,
->> +     .driver = {
->> +             .name = "t7-peripherals-clkc",
->> +             .of_match_table = t7_peripherals_clkc_match_table,
->> +     },
->> +};
->> +
->> +MODULE_DESCRIPTION("Amlogic T7 Peripherals Clock Controller driver");
->> +module_platform_driver(t7_peripherals_clkc_driver);
-> This is an odd placement for this.
-> Please move this right after the platform_driver definition. Same goes
-> for the other controller
-
-
-ok, I will move it after t7_peripherals_clkc_driver. same with T7 PLL 
-driver.
-
->> +MODULE_AUTHOR("Jian Hu <jian.hu@amlogic.com>");
->> +MODULE_LICENSE("GPL");
->> +MODULE_IMPORT_NS("CLK_MESON");
-> --
-> Jerome
+T24gTW9uLCAyMDI1LTA5LTAxIGF0IDA3OjA4ICswMDAwLCBDSyBIdSAo6IOh5L+K5YWJKSB3cm90
+ZToNCj4gT24gRnJpLCAyMDI1LTA4LTIyIGF0IDIwOjA0ICswODAwLCBMaWFua3VuIFlhbmcgd3Jv
+dGU6DQo+ID4gQnkgYWRqdXN0aW5nIHRoZSBvcmRlciBvZiBsaW5rIHRyYWluaW5nIGFuZCByZWxv
+Y2F0aW5nIGl0IHRvIEhQRCwNCj4gPiBsaW5rIHRyYWluaW5nIGNhbiBpZGVudGlmeSB0aGUgdXNh
+YmlsaXR5IG9mIGVhY2ggbGFuZSBpbiB0aGUNCj4gPiBjdXJyZW50IGxpbmsuDQo+ID4gDQo+ID4g
+SXQgYWxzbyBzdXBwb3J0cyBoYW5kbGluZyBzaWduYWwgaW5zdGFiaWxpdHkgYW5kIHdlYWtuZXNz
+IGR1ZSB0bw0KPiA+IGVudmlyb25tZW50YWwgaXNzdWVzLCBlbmFibGluZyB0aGUgYWNxdWlzaXRp
+b24gb2YgYSBzdGFibGUNCj4gPiBiYW5kd2lkdGgNCj4gPiBmb3IgdGhlIGN1cnJlbnQgbGluay4g
+U3Vic2VxdWVudGx5LCBEUCB3b3JrIGNhbiBwcm9jZWVkIGJhc2VkIG9uDQo+ID4gdGhlIGFjdHVh
+bCBtYXhpbXVtIGJhbmR3aWR0aC4NCj4gPiANCj4gPiBJdCBzaG91bGQgdHJhaW5pbmcgaW4gdGhl
+IGhwZCBldmVudCB0aHJlYWQuDQo+ID4gQ2hlY2sgdGhlIG1vZGUgd2l0aCBsYW5lIGNvdW50IGFu
+ZCBsaW5rIHJhdGUgb2YgdHJhaW5pbmcuDQo+ID4gDQo+ID4gSWYgd2UncmUgZURQIGFuZCBjYXBh
+YmlsaXRpZXMgd2VyZSBhbHJlYWR5IHBhcnNlZCB3ZSBjYW4gc2tpcA0KPiA+IHJlYWRpbmcgYWdh
+aW4gYmVjYXVzZSBlRFAgcGFuZWxzIGFyZW4ndCBob3RwbHVnZ2FibGUgaGVuY2UgdGhlDQo+ID4g
+Y2FwcyBhbmQgdHJhaW5pbmcgaW5mb3JtYXRpb24gd29uJ3QgZXZlciBjaGFuZ2UgaW4gYSBib290
+IGxpZmUNCj4gPiANCj4gPiBUaGVyZWZvcmUsIGJyaWRnZSB0eXBlYyBqdWRnbWVudCBpcyByZXF1
+aXJlZCBmb3IgZWRwIHRyYWluaW5nIGluDQo+ID4gYXRvbWljX2VuYWJsZSBmdW5jdGlvbi4NCj4g
+PiANCj4gPiBTaWduZWQtb2ZmLWJ5OiBMaWFua3VuIFlhbmcgPGxpYW5rdW4ueWFuZ0BtZWRpYXRl
+ay5jb20+DQo+ID4gLS0tDQo+ID4gQ2hhbmdlIGluIFY2Og0KPiA+IC0gRml4ZWQgcG93ZXIgb24g
+aW4gYXRvbWljIGVuYWJsZS4NCj4gPiAtIEZpeGVkIHBhcnNlIGNhcGFiaWxpdHkgZm9yIGVkcC4N
+Cj4gPiBQZXIgc3VnZ2VzdGlvbiBmcm9tIHRoZSBwcmV2aW91cyB0aHJlYWQ6DQo+ID4gDQpodHRw
+czovL3VybGRlZmVuc2UuY29tL3YzL19faHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9q
+ZWN0L2xpbnV4LW1lZGlhdGVrL3BhdGNoLzIwMjUwNjMwMDgwODI0LjcxMDctMS1saWFua3VuLnlh
+bmdAbWVkaWF0ZWsuY29tL19fOyEhQ1RSTktBOXdNZzBBUmJ3IWtTTHJZX2VoWHRJSjIxYV9sam5Y
+N0VtRHREOTJuOFJmalc5SmVlNnFSZkt6Qzhla3BrdnZSY01vSlJJbzAzV2dRQW1fTDdSM3pLcnI1
+a1MxRlVLTTZhZyQNCj4gPiAgDQo+ID4gDQo+ID4gQ2hhbmdlIGluIFY1Og0KPiA+IC0gRml4ZWQg
+dGhlIGlzc3VlIHRoYXQgdGhlIDR0aCB2ZXJzaW9uIG9mIHRoZSBwYXRjaCBjYXVzZWQgRFAgdG8N
+Cj4gPiBoYXZlIG5vIHNjcmVlbi4NCj4gPiBQZXIgc3VnZ2VzdGlvbiBmcm9tIHRoZSBwcmV2aW91
+cyB0aHJlYWQ6DQo+ID4gDQpodHRwczovL3VybGRlZmVuc2UuY29tL3YzL19faHR0cHM6Ly9wYXRj
+aHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xpbnV4LW1lZGlhdGVrL3BhdGNoLzIwMjUwNjI1MDk1
+NDQ2LjMxNzI2LTEtbGlhbmt1bi55YW5nQG1lZGlhdGVrLmNvbS9fXzshIUNUUk5LQTl3TWcwQVJi
+dyFrU0xyWV9laFh0SUoyMWFfbGpuWDdFbUR0RDkybjhSZmpXOUplZTZxUmZLekM4ZWtwa3Z2UmNN
+b0pSSW8wM1dnUUFtX0w3UjN6S3JyNWtTMU54LWZzNU0kDQo+ID4gIA0KPiA+IA0KPiA+IENoYW5n
+ZSBpbiBWNDoNCj4gPiAtIFRlc3RlZCB0aGUgaW50ZXJuYWwgZURQIGRpc3BsYXkgb24gTVQ4MTk1
+IFRvbWF0byBhbmQgaXQgaXMgZmluZS4NCj4gPiBQZXIgc3VnZ2VzdGlvbiBmcm9tIHRoZSBwcmV2
+aW91cyB0aHJlYWQ6DQo+ID4gDQpodHRwczovL3VybGRlZmVuc2UuY29tL3YzL19faHR0cHM6Ly9w
+YXRjaHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xpbnV4LW1lZGlhdGVrL3BhdGNoLzIwMjUwMzE4
+MTQwMjM2LjEzNjUwLTItbGlhbmt1bi55YW5nQG1lZGlhdGVrLmNvbS9fXzshIUNUUk5LQTl3TWcw
+QVJidyFrU0xyWV9laFh0SUoyMWFfbGpuWDdFbUR0RDkybjhSZmpXOUplZTZxUmZLekM4ZWtwa3Z2
+UmNNb0pSSW8wM1dnUUFtX0w3UjN6S3JyNWtTMW9zUDFTRzAkDQo+ID4gIA0KPiA+IA0KPiA+IENo
+YW5nZSBpbiBWMzoNCj4gPiAtIFJlbW92ZSAnbXRrX2RwLT5lbmFibGVkID0gZmFsc2UiIGluIGF0
+b21pYyBkaXNhYmxlLg0KPiA+IC0gUmVtb3ZlICdtdGtfZHAtPmVuYWJsZWQgPSB0cnVlIiBpbiBh
+dG9taWMgZW5hYmxlLg0KPiA+IFBlciBzdWdnZXN0aW9uIGZyb20gdGhlIHByZXZpb3VzIHRocmVh
+ZDoNCj4gPiANCmh0dHBzOi8vdXJsZGVmZW5zZS5jb20vdjMvX19odHRwczovL3BhdGNod29yay5r
+ZXJuZWwub3JnL3Byb2plY3QvbGludXgtbWVkaWF0ZWsvcGF0Y2gvMjAyNDEwMjUwODMwMzYuODgy
+OS00LWxpYW5rdW4ueWFuZ0BtZWRpYXRlay5jb20vX187ISFDVFJOS0E5d01nMEFSYncha1NMcllf
+ZWhYdElKMjFhX2xqblg3RW1EdEQ5Mm44UmZqVzlKZWU2cVJmS3pDOGVrcGt2dlJjTW9KUklvMDNX
+Z1FBbV9MN1IzektycjVrUzFNalE1R2lVJA0KPiA+ICANCj4gPiANCj4gPiBDaGFuZ2UgaW4gVjI6
+DQo+ID4gLSBBZGp1c3QgRFAgdHJhaW5pbmcgdGltaW5nLg0KPiA+IC0gQWRqdXN0IHBhcnNlIGNh
+cGFiaWxpdGllcyB0aW1pbmcuDQo+ID4gLSBBZGQgcG93ZXIgb24vb2ZmIGZvciBjb25uZWN0L2Rp
+c2Nvbm5lY3QuDQo+ID4gUGVyIHN1Z2dlc3Rpb24gZnJvbSB0aGUgcHJldmlvdXMgdGhyZWFkOg0K
+PiA+IA0KaHR0cHM6Ly91cmxkZWZlbnNlLmNvbS92My9fX2h0dHBzOi8vcGF0Y2h3b3JrLmtlcm5l
+bC5vcmcvcHJvamVjdC9saW51eC1tZWRpYXRlay9wYXRjaC8yMDI0MDMxNTAxNTIzMy4yMDIzLTEt
+bGlhbmt1bi55YW5nQG1lZGlhdGVrLmNvbS9fXzshIUNUUk5LQTl3TWcwQVJidyFrU0xyWV9laFh0
+SUoyMWFfbGpuWDdFbUR0RDkybjhSZmpXOUplZTZxUmZLekM4ZWtwa3Z2UmNNb0pSSW8wM1dnUUFt
+X0w3UjN6S3JyNWtTMWlKSHBNelkkDQo+ID4gIA0KPiA+IC0tLQ0KPiA+ICBkcml2ZXJzL2dwdS9k
+cm0vbWVkaWF0ZWsvbXRrX2RwLmMgfCA0MSArKysrKysrKysrKysrKysrKysrKysrKystLS0NCj4g
+PiAtLS0tDQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAzMiBpbnNlcnRpb25zKCspLCA5IGRlbGV0aW9u
+cygtKQ0KPiA+IA0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRr
+X2RwLmMNCj4gPiBiL2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfZHAuYw0KPiA+IGluZGV4
+IGJlZjZlZWIzMGQzZS4uMzg0NDk2ZTQ5MTE4IDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvZ3B1
+L2RybS9tZWRpYXRlay9tdGtfZHAuYw0KPiA+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRl
+ay9tdGtfZHAuYw0KPiA+IEBAIC0xOTc2LDYgKzE5NzYsNyBAQCBzdGF0aWMgaXJxcmV0dXJuX3QN
+Cj4gPiBtdGtfZHBfaHBkX2V2ZW50X3RocmVhZChpbnQgaHBkLCB2b2lkICpkZXYpDQo+ID4gIAlz
+dHJ1Y3QgbXRrX2RwICptdGtfZHAgPSBkZXY7DQo+ID4gIAl1bnNpZ25lZCBsb25nIGZsYWdzOw0K
+PiA+ICAJdTMyIHN0YXR1czsNCj4gPiArCWludCByZXQ7DQo+ID4gIA0KPiA+ICAJaWYgKG10a19k
+cC0+bmVlZF9kZWJvdW5jZSAmJiBtdGtfZHAtDQo+ID4gPnRyYWluX2luZm8uY2FibGVfcGx1Z2dl
+ZF9pbikNCj4gPiAgCQltc2xlZXAoMTAwKTsNCj4gPiBAQCAtMTk5NCw5ICsxOTk1LDI4IEBAIHN0
+YXRpYyBpcnFyZXR1cm5fdA0KPiA+IG10a19kcF9ocGRfZXZlbnRfdGhyZWFkKGludCBocGQsIHZv
+aWQgKmRldikNCj4gPiAgCQkJbWVtc2V0KCZtdGtfZHAtPmluZm8uYXVkaW9fY3VyX2NmZywgMCwN
+Cj4gPiAgCQkJICAgICAgIHNpemVvZihtdGtfZHAtPmluZm8uYXVkaW9fY3VyX2NmZykpOw0KPiA+
+ICANCj4gPiArCQkJbXRrX2RwLT5lbmFibGVkID0gZmFsc2U7DQo+IA0KPiBJJ20gbm90IHN1cmUg
+ZURQIHdvdWxkIGhhdmUgaG90LXBsdWcgZXZlbnQgb3Igbm90Lg0KPiBJZiBlRFAgYWxzbyBoYXMg
+aG90LXBsdWcgZXZlbnQgKG9uY2UpLCBhZGQgZG8gdGhpcyBvbmx5IGZvciBEUA0KPiANCj4gaWYg
+KG10a19kcC0+ZGF0YS0+YnJpZGdlX3R5cGUgIT0gRFJNX01PREVfQ09OTkVDVE9SX2VEUCkgew0K
+PiAJLyogQWN0aW9uIG9ubHkgZm9yIERQICovDQo+IH0NCj4gDQo+ID4gKwkJCS8qIHBvd2VyIG9m
+ZiBhdXggKi8NCj4gPiArCQkJbXRrX2RwX3VwZGF0ZV9iaXRzKG10a19kcCwNCj4gPiBNVEtfRFBf
+VE9QX1BXUl9TVEFURSwNCj4gPiArCQkJCQkgICBEUF9QV1JfU1RBVEVfQkFOREdBUF9UUExMLA0K
+PiA+ICsJCQkJCSAgIERQX1BXUl9TVEFURV9NQVNLKTsNCj4gDQo+IFdoeSBub3QgdXNlIG10a19k
+cF9hdXhfcGFuZWxfcG93ZXJvbihtdGtfZHAsIGZhbHNlKT8NCj4gV2hlbiBwbHVnIGluLCB5b3Ug
+Y2FsbCBtdGtfZHBfYXV4X3BhbmVsX3Bvd2Vyb24obXRrX2RwLCB0cnVlKSwNCj4gSSB3b3VsZCBs
+aWtlIGl0IHRvIGJlIHN5bW1ldHJpYy4NCj4gSWYgbm90IHN5bW1ldHJpYywgYWRkIGNvbW1lbnQg
+dG8gZGVzY3JpYmUgd2h5IGl0J3Mgbm90IHN5bW1ldHJpYy4NCj4gDQoNCkhpIENLLA0KDQpUaGUg
+YG10a19kcF9hdXhfcGFuZWxfcG93ZXJvbmAgZnVuY3Rpb24gZmFpbHMgdG8gYWxpZ24uDQpXaXRo
+aW4gdGhlIGBtdGtfZHBfaHBkX2V2ZW50X3RocmVhZGAsIGlmIERQIGlzIGRpc2Nvbm5lY3RlZCwN
+CnRoZSBgbXRrX2RwX2F1eF9wYW5lbF9wb3dlcm9uYCBmdW5jdGlvbiB3aWxsIHdyaXRlIGZyb20g
+YGF1eGAgdG8NCmBEUFJYYCxjYXVzaW5nIGEgZmFpbHVyZS4NCg0KVGhlcmVmb3JlLCBpdCdzIG5v
+dCBzeW1tZXRyaWMuDQoNClJlZ2FyZHMsDQpMaWFua3VuIFlhbmcNCg0KPiA+ICsNCj4gPiAgCQkJ
+bXRrX2RwLT5uZWVkX2RlYm91bmNlID0gZmFsc2U7DQo+ID4gIAkJCW1vZF90aW1lcigmbXRrX2Rw
+LT5kZWJvdW5jZV90aW1lciwNCj4gPiAgCQkJCSAgamlmZmllcyArIG1zZWNzX3RvX2ppZmZpZXMo
+MTAwKSAtIDEpOw0KPiA+ICsJCX0gZWxzZSB7DQo+ID4gKwkJCW10a19kcF9hdXhfcGFuZWxfcG93
+ZXJvbihtdGtfZHAsIHRydWUpOw0KPiA+ICsNCj4gPiArCQkJcmV0ID0gbXRrX2RwX3BhcnNlX2Nh
+cGFiaWxpdGllcyhtdGtfZHApOw0KPiA+ICsJCQlpZiAocmV0KQ0KPiA+ICsJCQkJZHJtX2Vyciht
+dGtfZHAtPmRybV9kZXYsICJDYW4ndCBwYXJzZQ0KPiA+IGNhcGFiaWxpdGllc1xuIik7DQo+ID4g
+Kw0KPiA+ICsJCQkvKiBUcmFpbmluZyAqLw0KPiA+ICsJCQlyZXQgPSBtdGtfZHBfdHJhaW5pbmco
+bXRrX2RwKTsNCj4gPiArCQkJaWYgKHJldCkNCj4gPiArCQkJCWRybV9lcnIobXRrX2RwLT5kcm1f
+ZGV2LCAiVHJhaW5pbmcNCj4gPiBmYWlsZWQsICVkXG4iLCByZXQpOw0KPiA+ICsNCj4gPiArCQkJ
+bXRrX2RwLT5lbmFibGVkID0gdHJ1ZTsNCj4gPiAgCQl9DQo+ID4gIAl9DQo+ID4gIA0KPiA+IEBA
+IC0yMTY3LDcgKzIxODcsOCBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGRybV9lZGlkDQo+ID4gKm10
+a19kcF9lZGlkX3JlYWQoc3RydWN0IGRybV9icmlkZ2UgKmJyaWRnZSwNCj4gPiAgCSAqIFBhcnNl
+IGNhcGFiaWxpdHkgaGVyZSB0byBsZXQgYXRvbWljX2dldF9pbnB1dF9idXNfZm10cyBhbmQNCj4g
+PiAgCSAqIG1vZGVfdmFsaWQgdXNlIHRoZSBjYXBhYmlsaXR5IHRvIGNhbGN1bGF0ZSBzaW5rIGJp
+dHJhdGVzLg0KPiA+ICAJICovDQo+ID4gLQlpZiAobXRrX2RwX3BhcnNlX2NhcGFiaWxpdGllcyht
+dGtfZHApKSB7DQo+ID4gKwlpZiAobXRrX2RwLT5icmlkZ2UudHlwZSA9PSBEUk1fTU9ERV9DT05O
+RUNUT1JfZURQICYmDQo+ID4gKwkgICAgbXRrX2RwX3BhcnNlX2NhcGFiaWxpdGllcyhtdGtfZHAp
+KSB7DQo+IA0KPiBJIHRoaW5rIHRoaXMgbW9kaWZpY2F0aW9uIGlzIHJlbGF0ZWQgdG8gd2hhdCB5
+b3Ugc2F5Og0KPiANCj4gIklmIHdlJ3JlIGVEUCBhbmQgY2FwYWJpbGl0aWVzIHdlcmUgYWxyZWFk
+eSBwYXJzZWQgd2UgY2FuIHNraXANCj4gcmVhZGluZyBhZ2FpbiBiZWNhdXNlIGVEUCBwYW5lbHMg
+YXJlbid0IGhvdHBsdWdnYWJsZSBoZW5jZSB0aGUNCj4gY2FwcyBhbmQgdHJhaW5pbmcgaW5mb3Jt
+YXRpb24gd29uJ3QgZXZlciBjaGFuZ2UgaW4gYSBib290IGxpZmUiDQo+IA0KPiBJIHRoaW5rIHRo
+aXMgbW9kaWZpY2F0aW9uIGlzIG5vdCByZWxhdGVkIHRvIHRoZSB0aXRsZS4NCj4gVGhpcyBpcyB0
+byBpbXByb3ZlIGVEUCBmdW5jdGlvbiBub3QgRFAuDQo+IFNvIHNlcGFyYXRlIHRoaXMgdG8gYW5v
+dGhlciBwYXRjaC4NCg0KPiA+ICAJCWRybV9lcnIobXRrX2RwLT5kcm1fZGV2LCAiQ2FuJ3QgcGFy
+c2UgY2FwYWJpbGl0aWVzXG4iKTsNCj4gPiAgCQlkcm1fZWRpZF9mcmVlKGRybV9lZGlkKTsNCj4g
+PiAgCQlkcm1fZWRpZCA9IE5VTEw7DQo+ID4gQEAgLTIzNTUsNiArMjM3Niw3IEBAIHN0YXRpYyB2
+b2lkDQo+ID4gbXRrX2RwX2JyaWRnZV9hdG9taWNfZW5hYmxlKHN0cnVjdCBkcm1fYnJpZGdlICpi
+cmlkZ2UsDQo+ID4gIAkJCQkJc3RydWN0IGRybV9hdG9taWNfc3RhdGUgKnN0YXRlKQ0KPiA+ICB7
+DQo+ID4gIAlzdHJ1Y3QgbXRrX2RwICptdGtfZHAgPSBtdGtfZHBfZnJvbV9icmlkZ2UoYnJpZGdl
+KTsNCj4gPiArCWJvb2wgZW5hYmxlZCA9IG10a19kcC0+ZW5hYmxlZDsNCj4gPiAgCWludCByZXQ7
+DQo+ID4gIA0KPiA+ICAJbXRrX2RwLT5jb25uID0gZHJtX2F0b21pY19nZXRfbmV3X2Nvbm5lY3Rv
+cl9mb3JfZW5jb2RlcihzdGF0ZSwNCj4gPiBAQCAtMjM2NSwxMyArMjM4NywxNiBAQCBzdGF0aWMg
+dm9pZA0KPiA+IG10a19kcF9icmlkZ2VfYXRvbWljX2VuYWJsZShzdHJ1Y3QgZHJtX2JyaWRnZSAq
+YnJpZGdlLA0KPiA+ICAJCXJldHVybjsNCj4gPiAgCX0NCj4gPiAgDQo+ID4gLQltdGtfZHBfYXV4
+X3BhbmVsX3Bvd2Vyb24obXRrX2RwLCB0cnVlKTsNCj4gPiArCWlmICghZW5hYmxlZCkNCj4gPiAr
+CQltdGtfZHBfYXV4X3BhbmVsX3Bvd2Vyb24obXRrX2RwLCB0cnVlKTsNCj4gPiAgDQo+ID4gLQkv
+KiBUcmFpbmluZyAqLw0KPiA+IC0JcmV0ID0gbXRrX2RwX3RyYWluaW5nKG10a19kcCk7DQo+ID4g
+LQlpZiAocmV0KSB7DQo+ID4gLQkJZHJtX2VycihtdGtfZHAtPmRybV9kZXYsICJUcmFpbmluZyBm
+YWlsZWQsICVkXG4iLCByZXQpOw0KPiA+IC0JCWdvdG8gcG93ZXJfb2ZmX2F1eDsNCj4gPiArCWlm
+IChtdGtfZHAtPmRhdGEtPmJyaWRnZV90eXBlID09IERSTV9NT0RFX0NPTk5FQ1RPUl9lRFApIHsN
+Cj4gPiArCQkvKiBUcmFpbmluZyAqLw0KPiA+ICsJCXJldCA9IG10a19kcF90cmFpbmluZyhtdGtf
+ZHApOw0KPiA+ICsJCWlmIChyZXQpIHsNCj4gPiArCQkJZHJtX2VycihtdGtfZHAtPmRybV9kZXYs
+ICJUcmFpbmluZyBmYWlsZWQsDQo+ID4gJWRcbiIsIHJldCk7DQo+ID4gKwkJCWdvdG8gcG93ZXJf
+b2ZmX2F1eDsNCj4gPiArCQl9DQo+ID4gIAl9DQo+IA0KPiBpZiAobXRrX2RwLT5kYXRhLT5icmlk
+Z2VfdHlwZSA9PSBEUk1fTU9ERV9DT05ORUNUT1JfZURQKSB7DQo+IAltdGtfZHBfYXV4X3BhbmVs
+X3Bvd2Vyb24obXRrX2RwLCB0cnVlKTsNCj4gDQo+IAkvKiBUcmFpbmluZyAqLw0KPiAJcmV0ID0g
+bXRrX2RwX3RyYWluaW5nKG10a19kcCk7DQo+IAlpZiAocmV0KSB7DQo+IAkJZHJtX2VycihtdGtf
+ZHAtPmRybV9kZXYsICJUcmFpbmluZyBmYWlsZWQsICVkXG4iLCByZXQpOw0KPiAJCWdvdG8gcG93
+ZXJfb2ZmX2F1eDsNCj4gCX0NCj4gfQ0KPiANCj4gPiAgDQo+ID4gIAlyZXQgPSBtdGtfZHBfdmlk
+ZW9fY29uZmlnKG10a19kcCk7DQo+ID4gQEAgLTIzOTEsNyArMjQxNiw2IEBAIHN0YXRpYyB2b2lk
+DQo+ID4gbXRrX2RwX2JyaWRnZV9hdG9taWNfZW5hYmxlKHN0cnVjdCBkcm1fYnJpZGdlICpicmlk
+Z2UsDQo+ID4gIAkJICAgICAgIHNpemVvZihtdGtfZHAtPmluZm8uYXVkaW9fY3VyX2NmZykpOw0K
+PiA+ICAJfQ0KPiA+ICANCj4gPiAtCW10a19kcC0+ZW5hYmxlZCA9IHRydWU7DQo+IA0KPiBpZiAo
+bXRrX2RwLT5kYXRhLT5icmlkZ2VfdHlwZSA9PSBEUk1fTU9ERV9DT05ORUNUT1JfZURQKQ0KPiAJ
+bXRrX2RwLT5lbmFibGVkID0gdHJ1ZTsNCj4gDQo+ID4gIAltdGtfZHBfdXBkYXRlX3BsdWdnZWRf
+c3RhdHVzKG10a19kcCk7DQo+ID4gIA0KPiA+ICAJcmV0dXJuOw0KPiA+IEBAIC0yNDA2LDcgKzI0
+MzAsNiBAQCBzdGF0aWMgdm9pZA0KPiA+IG10a19kcF9icmlkZ2VfYXRvbWljX2Rpc2FibGUoc3Ry
+dWN0IGRybV9icmlkZ2UgKmJyaWRnZSwNCj4gPiAgew0KPiA+ICAJc3RydWN0IG10a19kcCAqbXRr
+X2RwID0gbXRrX2RwX2Zyb21fYnJpZGdlKGJyaWRnZSk7DQo+ID4gIA0KPiA+IC0JbXRrX2RwLT5l
+bmFibGVkID0gZmFsc2U7DQo+IA0KPiBpZiAobXRrX2RwLT5kYXRhLT5icmlkZ2VfdHlwZSA9PSBE
+Uk1fTU9ERV9DT05ORUNUT1JfZURQKQ0KPiAJbXRrX2RwLT5lbmFibGVkID0gZmFsc2U7DQo+IA0K
+PiBSZWdhcmRzLA0KPiBDSw0KPiANCj4gPiAgCW10a19kcF91cGRhdGVfcGx1Z2dlZF9zdGF0dXMo
+bXRrX2RwKTsNCj4gPiAgCW10a19kcF92aWRlb19lbmFibGUobXRrX2RwLCBmYWxzZSk7DQo+ID4g
+IAltdGtfZHBfYXVkaW9fbXV0ZShtdGtfZHAsIHRydWUpOw0KPiANCj4gDQo=
 
