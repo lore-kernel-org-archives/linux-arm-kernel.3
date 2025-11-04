@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324DBCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75EAACCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=21lGBZHN6RDH3gDJV/VR93+uRMqtY4vgBTT2MKuRSr8=; b=ZJCdSwCeV/oVSuUA1lJrzgjgBR
-	XTFdCrkzZMHQamK91MpOYFySa7EGfDgXh6ZHuG7f4I07PKgfEncHDVcKgTJAP16bgcw/J/HXT3i8b
-	aXyWzOSZ7nk1c9oYZDaBfVUlAT5VMsgp02p0NeDk+W9qDy9CQjYE3zB337UOjALAgeegMccvVzmlk
-	0CeTReSZQPv9P5SnlMgmb4DDzkTN2VPpJBDn+Puzs0fSMyLIsK7ZlQX14dCWtRd+YKvonfyK19TpN
-	RuonO+DEyHb28dlw0fmBnQ1VR1kD66z7UeNd4ehIRcS7v6j5P3qTgme10uUX/lo5EBtDvixfFY9OA
-	79ri/tKA==;
+	bh=ooiEwLkpEn3SIda5ET9ohbaQkm18JEOHhop52KX9ckk=; b=HG83dFvTyy4Da1jKV70wcyb0I6
+	wM9krA4p5QEwjGJjQXNtn2q08ujsLM5hCemJG509q7H5EA+V2exE8nR66ohC0dk5Y4V4xjRMnLHS7
+	Ng0SDeoI6jvhxhwaBO9zxPPu7kvQWt4Se9sQwbDe1qozxcKfSrfrGqjN7yZsM04X1678uCrq+eXmF
+	FeDY3iBjDkZFy/1qWNQBxNoXPoaaHVUNjJ1diTTLTrHVWxumkuXvo2X4rzF77hPrR6fBCR26leIxQ
+	lVEHN2vkJkP4+BHgwGvciofxOhJllGNL6izeOF1JoM3iH7GSvJ7+gmDPqstnZz4LZOwj6Is0kUQTF
+	AK6GLRnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJ0X-0000000C688-3wQS;
-	Tue, 04 Nov 2025 15:31:41 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1vGJ1Y-0000000C6KE-2UOJ;
+	Tue, 04 Nov 2025 15:32:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJ0V-0000000C67T-3cWT
+	id 1vGJ1W-0000000C6Ji-46C6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 15:31:40 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4ed0c8e4dbcso377131cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 07:31:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762270299; x=1762875099; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=21lGBZHN6RDH3gDJV/VR93+uRMqtY4vgBTT2MKuRSr8=;
-        b=XKSqZjGl9yUfLxtzl3ZXgwRNKoO2Pp+VLRNjsU0tiTpRR6NW1BY+XDEKs0Esqux8au
-         u4DzZPgDG/X+l0BuSO9V6mp0LNE4TsM3WNXbwpFV9QSPjbdfX3Khu+RyZehe1VxzgFes
-         9wtvxkkf/gtMzgZ9OVb8U4eNvuQUKYf98b4r2sc6/Wk0Dn8eKEKjaX4CO6+5yFqJmDTz
-         z+s2pf6QmNFuQyzHtR+UWPJCsIxTV6BjXRuNTn1+Oza0XxueajU/11ltU4a3RcsQgXqH
-         qKc0KQuumc0wO7A2zXrZQ0rc27Kl4zrNxICO7swfagn851uzmCsAwkRNmUXXUjSUIc9h
-         xBEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762270299; x=1762875099;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=21lGBZHN6RDH3gDJV/VR93+uRMqtY4vgBTT2MKuRSr8=;
-        b=XiFFPKV/U1JR62tj/4TSjyToNd4D8Avd6YJT37SsWYYJVtch9A+lVHhYmuS/7Vk9n7
-         0OAvPPGgI+X3gDv+wotW1i11rLWKSziC6+UwlZS+AXddukuenGZyQOKApHohQ2tETDJj
-         FicjCMMin03m+O9wmOFrRsGM+rZUBFzjv6yGhwReydxuGdxrozBjMMnvraXiXYVE6Nwr
-         /xRtC2ig3XbeUgJQUwyCX0utsdFwjD2Sh/nZ4qcH12tD1MJ33zkw0odYKeJ2zPnUwBxb
-         iPg/z8MzictchcfdqauRW8KqaAjvQhKLZKX+C5UpPA+e77rPum1X4kDAeoVE9My6/Rbp
-         1tmA==
-X-Forwarded-Encrypted: i=1; AJvYcCWlvTaMdtCTDMlEBdChKgO32+Rtw+115IEq9YVFBCJT4iWzcnbMoC/5cecqS5l16XJOylds1JyN/5tBRGk8qAmH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd9iKHXssTyr/Anf0dWBlG0wURYbBOuWUWoieDYFsr/ZtgG0wt
-	Ipwk0KBW2z44eRPwEqQ//Koim8R7aIpb9e1rKMaHL1f/bJ0/BbeRGgXSg76gqy6zkdrxLSGHLjx
-	kQUMvmNjPXsOpUxJH2mnjVTyvXh6B4uuWKlCswFyQ
-X-Gm-Gg: ASbGncsVl93HkmTs34Ohd6uCeEmX06V5jtOh7H7tMKtP011KctD6uHd08sbAgdGcZec
-	DuP5yqGXZPcieDOjuiJ7feBIJbKLbY9C8U01R6CtmlWozyYHFLAgyRCj+cb8rVcObte94du0YM/
-	fdNJwUa7LqNzPQAmRjZ++UlSs0BPjlopF84zkVuFCubffKNfuX3KzA332X7RVRapW4hjeHJHAPa
-	wAUd5d+m5q9L8MSe9jZZarbO3X8fdVDL3FtmYgcD4RSRsnIq6MP8J0AItdcCbE4EuRtrlO1uCoh
-	nroVBy7wUvlzmO7H4yFzmS60
-X-Google-Smtp-Source: AGHT+IGKUuRG3ZTQJQjA7fDbzPjiK8c0XLTuIcGAohK8BXI9QMN8hTTl8zf+znwMZHD4+Rf7gf9pYImYFgIOVtGiADE=
-X-Received: by 2002:a05:622a:1794:b0:4b7:9a9e:833f with SMTP id
- d75a77b69052e-4ed6384651fmr5720961cf.7.1762270298370; Tue, 04 Nov 2025
- 07:31:38 -0800 (PST)
+	Tue, 04 Nov 2025 15:32:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B7BE14180D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Nov 2025 15:32:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9770BC116B1
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Nov 2025 15:32:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762270361;
+	bh=8ucPxln4jCUuHFhw/d6Q11VjxjnmrQRrHkqL4b1Kkeg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=e2EPE5c/iiYhzgcYCbz55pMXl2qSKkkMnUVtPulbwAO6u99+Shf3FP95kREg0IXhC
+	 B4Wt9Sry1YTldXDY89BrRStt3l2ju/TJCul/a2Bhs2bDoJvKeT+kibcvhSw8fVBEVb
+	 drQeiUd0D/EF4/5iOseSGP+kEvBwDuU5dvOB0efMFp5bGe+PT54w5yQrHQBmSC8ThL
+	 jvFRlXZpd3lPx8vi5OU8mZAig6qvSw9JZ/i8BRIEvFS/9geR3yP0wvLo7P2Tk1wiYc
+	 KC6o9dIYNWuRd7V1V8fLIovimPSfvz2QIoPFn2/0A8QQHHNAvpSJErxScY/Car2A5J
+	 jegtfQx7Qvbwg==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-37a415a22ecso11454731fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 07:32:41 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVQYjK/wy4MeaRp3i1ncl8LzH40W2SgCm3DLATYCC5x0ndx4T6L3Nz3NsQ9OHO8CniiuAV+U1TTf89C+pFjZLp8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2qOwWrLjoJZQ8KamFIlfNlefEKb1c4hNudg3EkDK1zEOzdLOa
+	FrJb0zfOgx4YL96j3k2z/kNM9I1smWgyhKF9kzzBsQ2uM6JPFiO5uTQElhl+Q4Bc0UQ+jGy2xBY
+	Jv03u3bg4BN5bUyS0McNjby8DB7qX/mE=
+X-Google-Smtp-Source: AGHT+IH+CVhvcHFEROY6DI4fTTA1A0rVOvk6V2lH0Qy3bvx0oWjtx6rv8LHLiMplqLO8Ccc4rIiO5m5I7sknLNpZ/eA=
+X-Received: by 2002:a2e:a554:0:b0:372:91d2:f659 with SMTP id
+ 38308e7fff4ca-37a4e6f08demr36141fa.3.1762270359952; Tue, 04 Nov 2025 07:32:39
+ -0800 (PST)
 MIME-Version: 1.0
-References: <20251104125906.1919426-1-tabba@google.com> <20251104125906.1919426-4-tabba@google.com>
- <86fratvmy6.wl-maz@kernel.org>
-In-Reply-To: <86fratvmy6.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 4 Nov 2025 15:31:02 +0000
-X-Gm-Features: AWmQ_bmmcY2AsnQ7Tf1DOOd59RP8aCPwMHtrKQbQXLvPulNWGjrihLSXD_qNPF8
-Message-ID: <CA+EHjTxTBxR6VN_JtA-ga6QrZ-FL=AKyLTDr9vWSqfkdwjz9-Q@mail.gmail.com>
-Subject: Re: [PATCH v1 3/8] KVM: arm64: Enable LS64 instructions when
- supported by guest
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	vladimir.murzin@arm.com
+References: <20251031103858.529530-23-ardb+git@google.com> <20251031103858.529530-31-ardb+git@google.com>
+ <20251031134909.00006bf3@huawei.com> <CAMj1kXHMa_Vj3DsuoAR-rvWW12Bsnz10w+BAze6mtngqpABZPw@mail.gmail.com>
+ <CAMj1kXH_YCuBT4CbidTcVDNz2qNvYK9afS+v9eNkNggB3gopBw@mail.gmail.com> <20251103112836.00006966@huawei.com>
+In-Reply-To: <20251103112836.00006966@huawei.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 4 Nov 2025 16:32:28 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGog9bwqc=1qCv+Lh3giK081jf9h4AFCvQ=6Ls6N27LyA@mail.gmail.com>
+X-Gm-Features: AWmQ_bmFX2z95LFUqFBLXa1zysHI_LqNQuskPyUwu9Z4a7PNLTWxdw_qHd8vC_4
+Message-ID: <CAMj1kXGog9bwqc=1qCv+Lh3giK081jf9h4AFCvQ=6Ls6N27LyA@mail.gmail.com>
+Subject: Re: [PATCH v4 08/21] lib/crc: Switch ARM and arm64 to 'ksimd' scoped
+ guard API
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	herbert@gondor.apana.org.au, ebiggers@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_073139_904150_24EAF9B2 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20251104_073243_062675_C3E0C8A1 
+X-CRM114-Status: GOOD (  32.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +86,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Nov 2025 at 15:26, Marc Zyngier <maz@kernel.org> wrote:
+On Mon, 3 Nov 2025 at 12:28, Jonathan Cameron
+<jonathan.cameron@huawei.com> wrote:
 >
-> On Tue, 04 Nov 2025 12:59:01 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > The FEAT_LS64* family (FEAT_LS64, FEAT_LS64_V, FEAT_LS64_ACCDATA)
-> > enables support for LD64B, ST64B, and their variants. If a guest is
-> > advertised these features, KVM should not trap accesses to these
-> > instructions to EL2.
-> >
-> > This is controlled by the HCRX_EL2_EnASR, HCRX_EL2_EnALS, and
-> > HCRX_EL2_EnAS0 bits. When clear, these bits trap the corresponding
-> > instructions. KVM did not set them, which would cause guest-supported
-> > instructions to trap.
-> >
-> > This also created a state mismatch for nested virtualization, which
-> > validates its own HCRX_EL2 value against the features advertised in the
-> > guest's ID_AA64ISAR1_EL1 (in handle_other()).
-> >
-> > Fix this by checking for each FEAT_LS64* variant in
-> > vcpu_set_hcrx() and setting the corresponding HCRX_EL2 enable
-> > bit if the guest supports the feature.
-> >
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> On Fri, 31 Oct 2025 15:05:19 +0100
+> Ard Biesheuvel <ardb@kernel.org> wrote:
 >
-> Please see 20240815125959.2097734-1-maz@kernel.org, which has a large
-> portion of what is required for this to work. Just flipping the bits
-> isn't quite enough.
+> > On Fri, 31 Oct 2025 at 14:52, Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >
+> > > On Fri, 31 Oct 2025 at 14:49, Jonathan Cameron
+> > > <jonathan.cameron@huawei.com> wrote:
+> > > >
+> > > > On Fri, 31 Oct 2025 11:39:07 +0100
+> > > > Ard Biesheuvel <ardb+git@google.com> wrote:
+> > > >
+> > > > > From: Ard Biesheuvel <ardb@kernel.org>
+> > > > >
+> > > > > Before modifying the prototypes of kernel_neon_begin() and
+> > > > > kernel_neon_end() to accommodate kernel mode FP/SIMD state buffers
+> > > > > allocated on the stack, move arm64 to the new 'ksimd' scoped guard API,
+> > > > > which encapsulates the calls to those functions.
+> > > > >
+> > > > > For symmetry, do the same for 32-bit ARM too.
+> > > > >
+> > > > > Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+> > > > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > > > > ---
+> > > > >  lib/crc/arm/crc-t10dif.h   | 16 +++++-----------
+> > > > >  lib/crc/arm/crc32.h        | 11 ++++-------
+> > > > >  lib/crc/arm64/crc-t10dif.h | 16 +++++-----------
+> > > > >  lib/crc/arm64/crc32.h      | 16 ++++++----------
+> > > > >  4 files changed, 20 insertions(+), 39 deletions(-)
+> > > > >
+> > > > > diff --git a/lib/crc/arm/crc-t10dif.h b/lib/crc/arm/crc-t10dif.h
+> > > > > index 63441de5e3f1..aaeeab0defb5 100644
+> > > > > --- a/lib/crc/arm/crc-t10dif.h
+> > > > > +++ b/lib/crc/arm/crc-t10dif.h
+> > > >
+> > > > >  static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
+> > > > > @@ -20,21 +19,16 @@ asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
+> > > > >  static inline u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
+> > > > >  {
+> > > > >       if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
+> > > > > -             if (static_branch_likely(&have_pmull)) {
+> > > > > -                     if (likely(may_use_simd())) {
+> > > > > -                             kernel_neon_begin();
+> > > > > -                             crc = crc_t10dif_pmull64(crc, data, length);
+> > > > > -                             kernel_neon_end();
+> > > > > -                             return crc;
+> > > > > -                     }
+> > > > > +             if (static_branch_likely(&have_pmull) && likely(may_use_simd())) {
+> > > > > +                     scoped_ksimd()
+> > > > > +                             return crc_t10dif_pmull64(crc, data, length);
+> > > >
+> > > > >               } else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+> > > > >                          static_branch_likely(&have_neon) &&
+> > > > >                          likely(may_use_simd())) {
+> > > >
+> > > > I briefly thought this was a functional change but it's not because
+> > > > of may_use_simd() being something that isn't going to change between
+> > > > the two evaluations.
+> > > >
+> > > > Would it hurt at all to pull that up to be
+> > > >         if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && likely(may_use_simd())) {
+> > > >                 if (static_branch_likely(&have_pmull)) {
+> > > >                         scoped_ksimd()
+> > > >                                 return crc_t10dif_pmull64(crc, data, length);
+> > > >
+> > > >                 } else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+> > > >                            static_branch_likely(&have_neon)) {
+> > > >                 ...
+> > > >
+> > > > ?
+> > > >
+> > >
+> > > Yeah that would be a reasonable cleanup, I guess.
+> >
+> > Actually, looking more closely, that would result in may_use_simd()
+> > being evaluated even when the static keys are set to false, given that
+> > the compiler is unlikely to be able to figure out by itself that
+> > may_use_simd() has no side effects.
+> Yeah. That was why it was a question :)
+> Given everything is marked as likely I wasn't sure if we cared about when
+> the static keys aren't set.
+>
 
-I see that now. Thanks.
-/fuad
-
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Yeah, it is rather doubtful that those annotations (or the use of
+static keys, for that matter) make a meaningful difference here.
 
