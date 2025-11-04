@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009FFCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 17:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224BDCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 17:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xQbltzAdhXfwga5qXiYOqU8nts0UsDRjUvSm120wQY=; b=XG8e8VJRC/rLC52Ph5tB06AmK+
-	NTtpuK/UHl7G9xOTiIoe4qLxiecmJZeGe9nDnJF1GxAbP57XEJEj4UfHaSNjF6dbF5JcH/SGcNyzZ
-	NCO8rxSzSF3iq4tkv/g95xf7vl8W4Lhggxd+B6SkwGHif/EMLRDHH7K1y95inKz0MiHqrm1BvLmI4
-	t3V8vzO4Bs5ZmPfEDcd8sAU/hge9MaeZWsLkFjYTjFD4IH6JNvV43vVdgZ0OtmHGcOtbzUWpZZ6au
-	K0ftfIh6ZFMgQdCCyhj+R1DEWKUJLdTjb6i6DBgFf9xzsYH32eEV82bgbgPWoqkbfGe+DLVGDj5DU
-	9aH/zJNA==;
+	bh=7xYqpK7gk35tODd0h5yiaeI/qICBJPOlqhRGit3KyAY=; b=gC4okyw0E2SxiSbMosZlhnLYh+
+	Mc4XxwdWmH6M1DIfriHI65F/glTxKwONJmLrowGolT5wAXT2+hFSmuorfsLtTxbkw6DfDRuQCvfZR
+	2Xdve3y7h/6WwhogRd950YhZB8LaGxcCIyqdejCUWt9G3cIk1A9sEfDn5hzb2Jg23M6NKvwbhcKKJ
+	39ZGHlNL76VYxMt/mg7Ev/Ufx9/fteMlIVyPKmWgSbPSeaD1aN2j0dNoxr43Muw4+li45xdSK8ebT
+	9oEdI79ilpCt3P5s4ziU0Gua5jOYCt0Liu8idZwv3Sa52A9+9M7KWEqHLipfzf+GCNx2ZlHO5N53O
+	0+SjtCmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKvt-0000000CHgK-1QLS;
-	Tue, 04 Nov 2025 17:35:01 +0000
+	id 1vGL0G-0000000CI0A-32Qp;
+	Tue, 04 Nov 2025 17:39:32 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKvs-0000000CHfi-19lA;
-	Tue, 04 Nov 2025 17:35:00 +0000
+	id 1vGL0F-0000000CI01-0w4h
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 17:39:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63A79601EC;
-	Tue,  4 Nov 2025 17:34:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19C9FC4CEF8;
-	Tue,  4 Nov 2025 17:34:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C8B9601EC;
+	Tue,  4 Nov 2025 17:39:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14414C4CEF7;
+	Tue,  4 Nov 2025 17:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762277699;
-	bh=8xQbltzAdhXfwga5qXiYOqU8nts0UsDRjUvSm120wQY=;
+	s=k20201202; t=1762277970;
+	bh=dFzXmIcBVlOGJZ/dA9ocxVm/GMTXIf6nZ4evM0sDxuA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pmGaPMF63foSRg8VKHoS5RRVR++RJzTQp2nLIYnhJJNlrz5vKH3z9KgR9LsIA8jZu
-	 n7Aqi0/uF9eXo1R4i4oHDTeecz5kkP+GdzMXBfiAles5Yg9R4cLRANGmE6E+NITm69
-	 vzk2uqAyQnpn1zYGc4LFeKVoJCGs4qOaVfgNHYY0mClGI0bK0ZuY3buaGARPTIUnhv
-	 zt8SVYTRf1eGb8shbXtGJmEH1rog8VChbZRYnGGd5b5e2RYcjFdQmZXfmOaAyg23y5
-	 3T2OY9/p33DAWLIMWMJvsG6hXAQKyguEvIXNtMEhifgvIuQYAAfV7mI958V6RSm5+d
-	 rmuY+Pgf7uK9A==
-Date: Tue, 4 Nov 2025 17:34:53 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Stanimir Varbanov <svarbanov@suse.de>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-pm@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Lee Jones <lee@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Willow Cunningham <willow.e.cunningham@gmail.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Saenz Julienne <nsaenz@kernel.org>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v3 2/4] dt-bindings: soc: bcm: Add bcm2712 compatible
-Message-ID: <20251104-trilogy-unissued-43e96d7fce87@spud>
-References: <20251031183309.1163384-1-svarbanov@suse.de>
- <20251031183309.1163384-3-svarbanov@suse.de>
+	b=os7nvEy1/d3dzd2cJwR05Bti4sEOxgANxbGmOd9Yx2rsUDSsFAQ+qsZjTzAhbTaVP
+	 nY1NXejKptIuqUc0mdWD68OjE667k55JI0s83nphDygfBrlUb8P93QJ8LOMK6HyCCh
+	 xnLS0q2bEMpVIQFRWhlTkmJ9q0YCySOsLr/I3frvkerAp0h12MzExYtQoIGtUVzzHX
+	 3HPpNjZSua69NZswC6eUjOTFDkoNSmPceETGRkgZECW0U0p+AMGXiDahJBQgsB68IO
+	 FY9g1Uj2zVJyh4CrdkPrG7hzEEmzVdLfUHB/ELA7QHN1IMvDfNr3+CPiauXanXFasN
+	 2fAdfYr/a97XQ==
+Date: Tue, 4 Nov 2025 09:37:49 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] lib/crypto: arm/curve25519: Disable on CPU_BIG_ENDIAN
+Message-ID: <20251104173749.GA1780@sol>
+References: <20251104054906.716914-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8mj34RREUM25/Crp"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251031183309.1163384-3-svarbanov@suse.de>
+In-Reply-To: <20251104054906.716914-1-ebiggers@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +70,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 03, 2025 at 09:49:06PM -0800, Eric Biggers wrote:
+> On big endian arm kernels, the arm optimized Curve25519 code produces
+> incorrect outputs and fails the Curve25519 test.  This has been true
+> ever since this code was added.
+> 
+> It seems that hardly anyone (or even no one?) actually uses big endian
+> arm kernels.  But as long as they're ostensibly supported, we should
+> disable this code on them so that it's not accidentally used.
+> 
+> Note: for future-proofing, use !CPU_BIG_ENDIAN instead of
+> CPU_LITTLE_ENDIAN.  Both of these are arch-specific options that could
+> get removed in the future if big endian support gets dropped.
+> 
+> Fixes: d8f1308a025f ("crypto: arm/curve25519 - wire up NEON implementation")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+> ---
+> 
+> This patch is targeting libcrypto-fixes
+> 
+>  lib/crypto/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+> index 8886055e938f..16859c6226dd 100644
+> --- a/lib/crypto/Kconfig
+> +++ b/lib/crypto/Kconfig
+> @@ -62,11 +62,11 @@ config CRYPTO_LIB_CURVE25519
+>  	  of the functions from <crypto/curve25519.h>.
+>  
+>  config CRYPTO_LIB_CURVE25519_ARCH
+>  	bool
+>  	depends on CRYPTO_LIB_CURVE25519 && !UML && !KMSAN
+> -	default y if ARM && KERNEL_MODE_NEON
+> +	default y if ARM && KERNEL_MODE_NEON && !CPU_BIG_ENDIAN
+>  	default y if PPC64 && CPU_LITTLE_ENDIAN
+>  	default y if X86_64
+>  
+>  config CRYPTO_LIB_CURVE25519_GENERIC
+>  	bool
+> 
+> base-commit: 1af424b15401d2be789c4dc2279889514e7c5c94
+> -- 
+> 2.51.2
+> 
 
---8mj34RREUM25/Crp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-fixes
 
-On Fri, Oct 31, 2025 at 08:33:07PM +0200, Stanimir Varbanov wrote:
-> Add bcm2712-pm compatible and update the bindings to satisfy it's
-> requirements. The PM hardware block inside bcm2712 lacks the "asb"
-> and "rpivid_asb" register ranges and also does not have clocks, update
-> the bindings accordingly.
->=20
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
---8mj34RREUM25/Crp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQo5PAAKCRB4tDGHoIJi
-0paOAQDOdINvL0/4sTF6BCosi/vP75tcg5G44avu1plor8SBUgD8CObF4BwCPlZ0
-thXG5aX2ATjpFnbsPNdIZ1SWKUGVkwE=
-=a0/L
------END PGP SIGNATURE-----
-
---8mj34RREUM25/Crp--
+- Eric
 
