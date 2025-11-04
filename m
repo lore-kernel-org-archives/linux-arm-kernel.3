@@ -4,61 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7BDCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 14:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1095ECCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 14:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0SPlbyjso/mwT4FGB3u+5KyJ2qpQpBf099rWRXcddn8=; b=NyjjiMya/XySueRsnUBHT2DdX9
-	gIzv/MlnWr+Dw+s4T2/Li/9dc/YKY2T6dCnwUMD2QBrqwV+1quMS2RJELbdl+A4zXlPHi4OBqBZei
-	dtaa5sH2km60Ppx3uGt73j0/FnuqqwLzvkN9nqAuTf6qp9zfZ8FC/uWx3VBPU9UK6QJn6KoO4ToIS
-	Fnkst6d0CxctUcFPsjMqWVJqHPH4NGEEFYsH+IpdKkJo1m1cutFPcZtJ8o5swtfm87cNmdaFH6JGX
-	5mU7s2p5JOBalSMbz9l+MX1xMLdMkE4piNuUvtUP4ZJ4AoftrcVCz7/g+9NKNT07M002M/G4mSBK5
-	FnoCh/Tw==;
+	bh=fAauRomgDQ+omvLoLFBwPtz7dNNACFDbcFmMKHYNCI0=; b=lrU7Op5nETgr2zbHTyIaFatvFe
+	FJHUdtbVWxhPzqURezp4j5ccGtt6S+hG+Dk5jQKCbJ346SOecQNH6t7pfQpWIwJm3pGJ/V3A+F6lg
+	yWpO53izt5yeA1Kp+gyK8Ru4XWi4bRgbokTW61R8ik+W8RGPjcG3g6uM8727OwQYTP+mqwlJbEFVE
+	cU10pygmKm5RP3jLuPShortGo7d+FvfkuLzYRV5eF97EiYr5GVIcLt0UTAwDLkQKa7ZGIgT6+k2qJ
+	qUZgDXOpSqsEBOPw/muewd/K27aChEBF3qBOlnBpbA18uXerC2Tp5Ws7UAz8FxLY5qupgQ/i+QqbE
+	R7nv2AmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGI4T-0000000Bywv-1aZi;
-	Tue, 04 Nov 2025 14:31:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGI9O-0000000BzIs-43gT;
+	Tue, 04 Nov 2025 14:36:46 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGI4R-0000000BywU-1fmk
+	id 1vGI9M-0000000BzIP-0laB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 14:31:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAF0940249;
-	Tue,  4 Nov 2025 14:31:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75C8DC4CEF7;
-	Tue,  4 Nov 2025 14:31:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762266698;
-	bh=0SPlbyjso/mwT4FGB3u+5KyJ2qpQpBf099rWRXcddn8=;
+	Tue, 04 Nov 2025 14:36:45 +0000
+Received: from pendragon.ideasonboard.com (82-203-160-149.bb.dnainternet.fi [82.203.160.149])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CBD982B3;
+	Tue,  4 Nov 2025 15:34:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762266886;
+	bh=YbNQZmQDRHZuJEslGSplhQKbIwrxt/EXEnw5WMnSajg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F8Xh3gnVJPcqdE64pMFhkUD14Yva2zvXN6u37/PaTVEubw2ni57Y4j/nT2Jjqj3Cd
-	 xudVFbbUMaH6G8Hd5gaGRNhVeOLqbvDc5hUOFJg5Y7+lUFf78PY9+Ul3gYQbW5DOnd
-	 K5HA4v5YnscM3xEYmcZITR6pWLXf7HJ5nJTd6/zdm9VxfH8bV/KK3ikm9J/pcNBtyX
-	 NrThHcbZrdl7lkRDtf3d5izGQGQlVB+8nWWqVrZ+MWBZDt/tD1XI0IsAzFu6owXe57
-	 Ffzw4zS0+dBomhcEusJt802pS5ljd6ekZBy5O8TEraht9Z2O5HI19sEFIps7IAK+an
-	 jtSHf2vRQ/3cw==
-Date: Tue, 4 Nov 2025 14:31:34 +0000
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/mm: Add a fallback stub for pgd_page_paddr()
-Message-ID: <aQoORmgliayA0s_a@willie-the-truck>
-References: <20251014110633.304961-1-anshuman.khandual@arm.com>
+	b=bc4uA7j1fURx+NgskT53wh2ZAmze2XORP0DL6w/60BjHQTInlUYGg+aBc/Juord0Y
+	 Am4zn3UAhJ1g/+uVpaWceLyhuEVDMrnUmnrqKjIFHBbZI+9V0bYfDVrv5vTAQjYFRC
+	 wDY2AstzUCvKWZAjsxgHeHJDFezq5rd6QkSm1guA=
+Date: Tue, 4 Nov 2025 16:36:36 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: linux-media@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] media: imx8-isi: Drop unused module alias
+Message-ID: <20251104143636.GD27255@pendragon.ideasonboard.com>
+References: <20251102234438.8022-1-laurent.pinchart@ideasonboard.com>
+ <aQnRsVPq1ndQrLr_@hovoldconsulting.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251014110633.304961-1-anshuman.khandual@arm.com>
+In-Reply-To: <aQnRsVPq1ndQrLr_@hovoldconsulting.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_063139_456988_FC7F1E04 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251104_063644_390324_3E921ED4 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,16 +68,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 12:06:33PM +0100, Anshuman Khandual wrote:
-> Add a fallback stub for pgd_page_paddr() when (PGTBALE_LEVELS <= 4) which
+On Tue, Nov 04, 2025 at 11:13:05AM +0100, Johan Hovold wrote:
+> On Mon, Nov 03, 2025 at 01:44:38AM +0200, Laurent Pinchart wrote:
+> > The driver has never supported anything but OF probing so drop the
+> > unused platform module alias.
+> 
+> The commit message needs some more work since this isn't a platform
+> module alias (i.e. has a "platform:" prefix),
 
-typo
+Oops indeed.
 
-> helps in intercepting any unintended usage and which is also in line with
-> existing stubs for similar [pud|p4d]_page_paddr() helpers.
+> and judging from a quick
+> look it seems like the driver did support platform probing before commit
+> 605b57c4e888 ("media: nxp: imx8-isi: Drop partial support for i.MX8QM
+> and i.MX8QXP"), at least in theory.
 
-Are you saying the kernel compiles in this case without your patch? Which
-definition of pgd_page_paddr() does it end up using?
+That has never been used upstream. It was code from the BSP that should
+never have been imported in the first place, I missed removing it when I
+rewrote the driver for upstreaming.
 
-Will
+> It's probably fine to remove the "ISI" alias, but it should not affect
+> module autoloading.
+
+How about the following commit message ?
+
+
+media: imx8-isi: Drop unneeded module alias
+
+The imx8-isi driver has a module alias named "ISI". This is not
+required, as there is no reason to load this module through an alias:
+the device is probed through OF, and the module has never been named
+"ISI". Drop the alias.
+
+> > Suggested-by: Johan Hovold <johan@kernel.org>
+> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > ---
+> > Johan, I've got the idea from similar patches you submitted for other
+> > NXP media drivers, hence the Suggested-by tag. Please let me know if I
+> > can keep it.
+> 
+> Sure, please do.
+> 
+> > -MODULE_ALIAS("ISI");
+
+-- 
+Regards,
+
+Laurent Pinchart
 
