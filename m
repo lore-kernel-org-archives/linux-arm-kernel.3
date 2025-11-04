@@ -4,59 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57E0CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 06:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D04CCFA00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iWKUVu/aLMFS8NUwzo8+QJvcsOHH1kpUXdzxrO4MflQ=; b=fvYpvmzsBZxhyWAZQy04tQAG42
-	bvEYCBpGVW8ys+q8S/Puc/mCsVFy4ZcBQKSOVIbqGdGSEjQPxS9AVr6MHVRY2xyE7Cyfk3tLPXoBY
-	3GAtXrEYkUehZdd0cUO4WWd5ngHNEf0g+zONye0rDH0JJKs1YcY6GE6pD3sAHze+xRSCoANwDXsKH
-	8sIr/gwWZ6R6Qu56KWXufWaB9umPaMc4VExBQfQWwY5abGOIQXY2JRSPOM0ruoMInDLC1YBr6918t
-	Pmr0NNl8Q+8FS5KOn7W3ObB2SG3IqY3KhQjLqR+2NZUXSBDUFz1C36DKnrXKWYrpicSAhDrAK2Jet
-	Zpd3Zm1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SvDmqrx0n0T68fhN/GktJWGCFwTPwUq/bZqvOIxWGxc=; b=l2G8hXXTbL+I5z1WeG4xx57Wik
+	RRS/uT1wcEGasMfmIUKa9LuPFVoww2+TQSe/jMqjegLy4io4nVmyQ+gg7jl3DobzyWUmjny1UzsUx
+	wZyy3uSNh3V7sWuofDS7X3DViTZeY6XlOrAA4Hym6c8ElGCu8gp5EJxK2OlgU9iGHuIhc9MxHKYNU
+	5f/GH8MWnlCJ1OhwVOI7JV7ihhpaBIqefhAQWc5XcR8mN+z5yJAEGqoLrm4IOaB6q6UGdCpDRyhe2
+	x5lIoSLFvCL44Ct2jZLyQ9d13nVFrYIp0HIt/d+UaZnt97EwImn5EUkIQ7pM7Ku3reMPwX1v3fxza
+	MAzOM5uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGAt5-0000000BHMy-0sbs;
-	Tue, 04 Nov 2025 06:51:27 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1vGB1I-0000000BHuj-0dfg;
+	Tue, 04 Nov 2025 06:59:56 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGAt0-0000000BHIE-14cr
+	id 1vGB1F-0000000BHuJ-2dSa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 06:51:25 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4d0zbB3GC9zpStT;
-	Tue,  4 Nov 2025 14:49:42 +0800 (CST)
-Received: from kwepemr500004.china.huawei.com (unknown [7.202.195.141])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3A73314027A;
-	Tue,  4 Nov 2025 14:51:11 +0800 (CST)
-Received: from localhost.localdomain (10.90.31.46) by
- kwepemr500004.china.huawei.com (7.202.195.141) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 4 Nov 2025 14:51:10 +0800
-From: Jie Zhan <zhanjie9@hisilicon.com>
-To: <viresh.kumar@linaro.org>, <rafael@kernel.org>, <ionela.voinescu@arm.com>,
-	<beata.michalska@arm.com>
-CC: <linux-pm@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>,
-	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>,
-	<prime.zeng@hisilicon.com>, <jonathan.cameron@huawei.com>
-Subject: [PATCH v3] cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs
-Date: Tue, 4 Nov 2025 14:50:39 +0800
-Message-ID: <20251104065039.1675549-1-zhanjie9@hisilicon.com>
-X-Mailer: git-send-email 2.30.0
-MIME-Version: 1.0
+	Tue, 04 Nov 2025 06:59:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oPiKNQ2cjGtCEeJRAxYa900o8mZTeNufgymf+yPCZ6CtDFf2TyQhUYGjPIEepOWfg6C3aHxQCl+3Tbxb7jgmzzImZMY9TxcBySE+S3xWePn94cGPxdTDVXwEfWaqrpPoNUy5YaOXPz9MD8JK1LgFJTcrQvMD1KEs7PM6Uns8B52shGMGaz4WA/6xawg93sRCI/F/xeUmzxAcMfqoLINk+H63UH0IxwZu8Vxag9uhO7ky42bOCFvc6kRmTI75xKtUXrM6ouB3cKyj0C9LqZlCn3iXXyJyiS89QXhWucHPXNvTnb4moeOAegG4UNHtRRAsZoMWEQxSJCypOyUM54rk0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SvDmqrx0n0T68fhN/GktJWGCFwTPwUq/bZqvOIxWGxc=;
+ b=fecuweEkpiqn9pPCgA74RIOX77Ys9iliTdP75rOiExcmxeGn2yO/HbzSLusvRJfq+9nb0hF7kUNn8F35hx+U5fnLjFLrZ+DtO7LIMlYLeZb9X+1j0gwlME10UWd0wqSZhQJbdLsoGYsrLAk3iLCWcHgXjpl3hD3gxfiZITFuIxtzQn2yOQOmRMWUJ/ZNlH4Vch9P4ohqK/sDwqRCwrdF8Vwp2eQVcUdWmLpocdKfe0scepJfrIB9G+IuhOXb4T6mEBJiEfSmmnbCTZmBo4S8Pq+if/M+4IzmLkUq9FQ0kQHIM2ogjFa2RPMskTR8uQQ74K+x3m70av0d4Dre2tWI+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SvDmqrx0n0T68fhN/GktJWGCFwTPwUq/bZqvOIxWGxc=;
+ b=nrKcMDzpnpoBbikcF7gIxg+DARyA/vrQNnDBsuL5WcvehjAoXrmP36Gl1cxu2xb3E623dlGn9GJu/fI4FO8fE2BNX/C+xJWsVq3vPFyb87xmuLC8XgVbgsl8XroA86qPP8ACzcqcLZbQxaEc7IPRnNw7qIFY5Hrg8bNofajZj70V5mmjxnMKCQdxI5cbcY2RA1OPIpj+2RJ7OvYh0bR01sBLflgZgcokyVS8RkTCTVkR9LxMNztk1UFMjmI28OrlRmFrwh5kcQIbEpSr+r8PawD0VKYzthPgpkYjwPZHVznnyscvkSkwAqAj2gz1kdAecEdlds9u3+VxyUi5xFICHQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by AS8PR04MB7880.eurprd04.prod.outlook.com (2603:10a6:20b:2a5::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Tue, 4 Nov
+ 2025 06:59:48 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9253.017; Tue, 4 Nov 2025
+ 06:59:48 +0000
+Message-ID: <7e67c129-bf1f-4a4c-9aaf-a260d5481926@nxp.com>
+Date: Tue, 4 Nov 2025 15:00:15 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
+To: Marek Vasut <marek.vasut@mailbox.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
+Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <174ec43e-4cac-4452-a77b-e2e3b8413d05@nxp.com>
+ <2c4a42eb-8c49-4ba3-baa3-921ec52f730d@mailbox.org>
+ <92d928cc-d9df-4c9c-8571-da39001b91a7@nxp.com>
+ <e0507800-7e86-4fbb-95cb-e64d8cca1e49@mailbox.org>
+ <AM7PR04MB70466BF64A1CD8EB01D2DD9C98F5A@AM7PR04MB7046.eurprd04.prod.outlook.com>
+ <ad7c080f-38e3-4579-8cd8-148df7769826@mailbox.org>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <ad7c080f-38e3-4579-8cd8-148df7769826@mailbox.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemr500004.china.huawei.com (7.202.195.141)
+X-ClientProxiedBy: SI1PR02CA0040.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::7) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB7880:EE_
+X-MS-Office365-Filtering-Correlation-Id: 10964880-919a-4f43-895c-08de1b6fbe69
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OTJxV0ZCRDNVU3IrS05nM0IyUHNzTVJCUGh6RHFuTmpkTXYyTHZXYm04aXQ3?=
+ =?utf-8?B?aUM4dVJYc0Z4ekdQek9OclVvNGlNMnRpMTYwZ3YxT2F1NmNnMEtTZmVIa1c2?=
+ =?utf-8?B?NHI1NEVSVU5XcjBYR01URHRCeWhlNVBuUWo5UHBzTmp3T1V6SEE4RmJuSTFF?=
+ =?utf-8?B?alpJYjBWMm9JWEw5WXFsRGNyS0VsdHlrRGZ1NzhoMUNBZnBpeEg4NlNpdms0?=
+ =?utf-8?B?Z21NK0dMYmNOMnlBZ2NpaVlvOW52SWJiaVdibTVLaXZ6M1pKRG5vSTBrS2x5?=
+ =?utf-8?B?MkxMa0ZIN1NDMmpTZk5WOHhzMzY0bGdDY1g0QzIybmpWUjQycTgxMHJSYURn?=
+ =?utf-8?B?MGlZU3BRRzZyNElKSk52RkY1RmNsNHdvU2FRK1lJOVRRM0lIWU5UNXZNb241?=
+ =?utf-8?B?dTk1NmNGeVAvekNxZnlCR1VmVklLUW84WUdPeWVZYTFpSll1VmlESFZUOEQx?=
+ =?utf-8?B?TUR3U3FCOHhZZkpDRGNBUVp1YjV0MzgvLzNTZllxNGt5SmxQakx0UkhxRUVi?=
+ =?utf-8?B?a2JYaHgyOEVuaEdQUFhBSVYzU1kwUlNFdzFWcU1kNmNnYUxxaGJEMGV4SCto?=
+ =?utf-8?B?aHNkUmliL0RFcHk3N1A3YmY4NjVwNGNQK2FuQnFkbWQ3NkRicStyOVcwNmxx?=
+ =?utf-8?B?QWFDLzZrR0xNZTlwdEpxcXEzVG11MGZ4N1d0eUFsNllBNkIwY1RsRTFQemZZ?=
+ =?utf-8?B?VDBjc3Vmcnl1Ky9VMkVFUXBOaGN4Y1dUbDFmU0xwamczM1lubkJlWkxUemNa?=
+ =?utf-8?B?M0EyU2tqN0dsTnRCcWVxY2tLYUR6OTBlaW41NFVmUjRBYVF2S1RzczF0MW0v?=
+ =?utf-8?B?WWxhMkVQb25wUTIwUEFWUCsrdGZZN0E2cDRTQkhoalM1SDBiNUsveXNqQ3c3?=
+ =?utf-8?B?NjZmY3gxakR1Ky85dDhST25KNkphRUJUeDlDQnlBRjlNbWtaQTRNUS9tOS9q?=
+ =?utf-8?B?R1VDU2ZkRkxBVDAvRnQzSERmSzRGdjdoUk5wWnpWdDVFaUV0UVplKzM2OGk4?=
+ =?utf-8?B?NENMeVNxYkRUZlZXajJaRlY0UFF3WmtKaEx2N2t6WGNkRXZIcTVTZ2pYRy9F?=
+ =?utf-8?B?QU1aS2dYeXBiV24vUndmOFk1R2E5ZGUzS1BrL0xPbXNBdkV2Nmw1MVF5bWVL?=
+ =?utf-8?B?TVo2MkNrZ2UwQi9wTDNTWFo1TmRjZXNwOG1pZ2dRa1RaVzhRRFJzMklDcHN0?=
+ =?utf-8?B?dGdYb2pWSk1QVk4raDNRT0diUUVsN045bTVHVVdTV0pxSDQ2Y0ZORFppNGFN?=
+ =?utf-8?B?b3RZSVdQMU9pa2FNMVphNWZvblpEVnQ0cFBxOFlzSmZCTGZaMFB1NTFrNTE1?=
+ =?utf-8?B?MllTdVA1cG4rU3ZCdVR4Z2VHV2U1VDg3RCtxMm12eFNCR3k5TEs1UkR5T0Jt?=
+ =?utf-8?B?bWkxcGhmRmpwM2FqQ1hjcWZZcXk0T2gzYklqcGhkM2RwVjdsMlBBdGptcmxU?=
+ =?utf-8?B?SmlFNmZjdTZTVXhwZmtlRkVnMkFuWWh5MStaSzBkaWZOUy9rOS9laDZvcHEx?=
+ =?utf-8?B?K3JKV0tYL3hkQUx3U2VMUDkwTGw2NC83SVdCV3VnWUJZZXNlQlZSajRPMS80?=
+ =?utf-8?B?Z2FRa2xVdFZuTmJHNHRpYkF1TVk0c3NlWmJTNjlFTGJDbUlyNFBrYnFaR0ZJ?=
+ =?utf-8?B?ZWN5SzBPVklhaERwQ2drRk1QeXBGai9hK0R5ckFRV0d0RWdaVWtMRXZSQmZv?=
+ =?utf-8?B?eCs3QndSaE1HME5ZalVVdHRjZjZtQTdQemgwVEtSQmFtZ1lqdGE2U3RPeEsr?=
+ =?utf-8?B?NmlURmFIYXQ0OUE2ME1xR3MrMWlNdDZ4enNpQ2N4VHVMVzJsSWY1d0dEYkQ1?=
+ =?utf-8?B?SmRZUm5MSEs0VWhLNStGbjZZclUyNmNwbDB2NEhBUUVzVVVldnQremNQdGxJ?=
+ =?utf-8?B?SDR0TW5VZHZraGtFeFhac3Y0NGg2VHlGUlFIYkNUanMvTHFNOE5PR1VYZ3hK?=
+ =?utf-8?Q?a13DEpXgbBjtjWMSPtOFqrx6rwY4benn?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MjQrcG1pRG03bmJSVWdKRC9qUlNnSnd1T3J0S0p3RkRkWDdOak5DRFl0ZVV3?=
+ =?utf-8?B?bjd4TllrUERlbUlKUUVhWlFSTHgzc0EvMGh3SHlNQ09CdVo0MlU4T1Y4d2ZT?=
+ =?utf-8?B?WDNwMGZuUldOZnFRa3FxZWR0SkU3bkVJWDlZbWUrcVkrZnlhWEdzV0xyOGNs?=
+ =?utf-8?B?RUZPTE9PbkR5VzRXU2svbEdXdkx1VUJYVWZGS1dnMUZQWWlDVVE2b1dLbndL?=
+ =?utf-8?B?ZEUxNi9HdkJqazhqcDhlZnhEclh3Y1FoK0NacnRydE9vQnlHK1BTTTBOUDk4?=
+ =?utf-8?B?L1BwaVFKenM1VUMrQlVJaUplZEdGaVNiSm5CNk9ER2VEeTloU3Y1cjh5MUh6?=
+ =?utf-8?B?TjlCb2hGaC96WlVtRzZsbmRLQUczQkdSS0szS3JldXkvSnlER0dydkJNb1Zy?=
+ =?utf-8?B?Q3pRbXJMZ00wRlJLSGtNbE1wdmdZUW5kQThaWUI2UUJnUjBQRjY3QkRyMjRS?=
+ =?utf-8?B?SnYxcWRRNE50QlRkNG16T0ZVUXgxN25JbVpkTHVmMmREbHM4TlppaXQ1QTdw?=
+ =?utf-8?B?ZFpRelRTQ0ZTdHluSlc3Mi9XMXA1WmlXM2JhckhCQVRTZHVYTFVESmtmcXQ1?=
+ =?utf-8?B?VktraFhmNFpqSFNpNVNMM2xSbWZCdGRkaTZISXEvdUE3UmsvNWM1aUxaMTd2?=
+ =?utf-8?B?aUZYdG1MRkJITzB3MUZIRTRVTDZ0amNnMGxSNXk5dkhQWW4rVmhpencyRS83?=
+ =?utf-8?B?R3JwUU1FaEtQYndpdkU0ZWNIL0lyQzhUc2NkSDc5MXFtRVpZdWdpU1owY2tH?=
+ =?utf-8?B?ckxQc3NWWVp0RUNWWnkwM2Vzd3ZFMzlyK01CTHAvOTVHQXNuczZpQUlmeDFv?=
+ =?utf-8?B?eXVETENVNGdGZmRVREFud2RiWENGdjVqeUM5ZTBteW4wRkRScGJwcWtSMy9I?=
+ =?utf-8?B?c3dOVVFkbVVGdENRUWgrV3lkOVYwL1RjTUtVVXVZcTZCOWlaOXdEckl0NHJn?=
+ =?utf-8?B?bkljZHVyUTB0Rkg0QmtxZUFJQnV2cWVFWUM3SWlSUXdpN1BFSndWckNjem5Y?=
+ =?utf-8?B?RTFmODhuUU50Z0hFVEtjQVgwbDI3NXErdnpMQTMrZG1taytsTGd4L3pGMENF?=
+ =?utf-8?B?YVlyQmt5WmhZRFB2aWg0bWphMHc4bHNpVkY2bkw3OFUxZ1ZRcHhtcDFWZTcz?=
+ =?utf-8?B?VEw3eTNNMlJLOWRrYlYwOVAvTU5IcWNFZGJoekRvU25XTWRWUVl4NWVpZGdX?=
+ =?utf-8?B?dHlTaFJXeTYyQmtYSzloY09UUjhSWGY3UWttOWFaOSt3UFZycW1RTVUrK2h5?=
+ =?utf-8?B?VlR2RVRhWTZoYlBtaGpURnNNL2U1SzVDRmlJZDd3bStkRzkwT09NcmwzWllX?=
+ =?utf-8?B?dHpIMVpDbVNiMnJTdVl0T3ZQSER1SnY0MTJseHJRU1RGRTk0ZFhwa3lHaE00?=
+ =?utf-8?B?Q3lUODZHRCtpU1Z6SzBiVjNMVU5xUGFMMHdlcTZzSlNPWmpHTWVEcUtzdFpQ?=
+ =?utf-8?B?bGc2OFNCZCtpRFdZeGlKRG9QUm5qd3RKQnpMMGJ2K21JZnV3bENScDgzYXgw?=
+ =?utf-8?B?RnhTNUIraUVlM1c3djRhWlJJNE1BUlhPTFIxNlNjcDRQUzRjeFNXa1J6K2J1?=
+ =?utf-8?B?bW52NmJRWVFrVXFZUlZ6WVZGTUpPVy9NTjBCTGJ4ZGhCeCtEbUJydXVLaUZJ?=
+ =?utf-8?B?dGN3T1JQSzE3ODBNcmY4SzJ5WmtXM3dyV3RJSDZ1OTJDZlR3WTBpUHhDTUl4?=
+ =?utf-8?B?bStMVUh4Qkk2OFBBTi9qSlZxK3l6TnR0aW1NZEw0QmtZaFA0SHJFWFQzeElq?=
+ =?utf-8?B?NE9QanJIU0ZnUXZnbHhBbk5OUDQ5V0haT2hOdGZLdFJmc0pJbkhLbjRpK1kr?=
+ =?utf-8?B?b1NvSWxPTndiazRoMHhDNlNBUUxNUWIraXVVektaQjY2cmxLeGV3ZEFDb05Q?=
+ =?utf-8?B?NjR2OVV2RXNqQmJ2aE45Zk9TR09IUFFaaWtYMExTemR2V2d6QkJNcWpvY3lh?=
+ =?utf-8?B?M3ZiMXZrelEwMXA3L0JIWkRnc3YzMDRwZVdKL3hWdnJ4YlFndUJ5bElQQk1H?=
+ =?utf-8?B?RS92MUpEUzBXamxFKzM3QjdnZElaeGJ2Wm9yQ1d2NEZzeFpxUk8xbDZ0VDN4?=
+ =?utf-8?B?QnpRK1krckd0bllKbjRSSldtaXdQSjJ1ZEVIaXZhdWhFNDJlcmx6TFBkeWs0?=
+ =?utf-8?Q?mghh05AEK2fLz1nFjlVMxyAkJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 10964880-919a-4f43-895c-08de1b6fbe69
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 06:59:48.4813
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: olZ7NiGYEqrZ4y4m+iBQfQRpZeKTApQiNVrMDJQF6IHxnRjjSVX42oYSTygveuDchVCcU5HqNbcqY/fPyMr5LA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7880
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_225122_674520_14FCDF5E 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20251103_225953_838477_0E1F5BDA 
+X-CRM114-Status: GOOD (  33.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,200 +192,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the CPPC Frequency Invariance Engine (FIE) is invoked from the
-scheduler tick but defers the update of arch_freq_scale to a separate
-thread because cppc_get_perf_ctrs() would sleep if the CPC regs are in PCC.
+On 11/02/2025, Marek Vasut wrote:
+> On 10/20/25 4:15 AM, Ying Liu wrote:
+> 
+> Hello Liu,
 
-However, this deferred update mechanism is unnecessary and introduces extra
-overhead for non-PCC register spaces (e.g. System Memory or FFH), where
-accessing the regs won't sleep and can be safely performed from the tick
-context.
+Hello Marek,
 
-Furthermore, with the CPPC FIE registered, it throws repeated warnings of
-"cppc_scale_freq_workfn: failed to read perf counters" on our platform with
-the CPC regs in System Memory and a power-down idle state enabled.  That's
-because the remote CPU can be in a power-down idle state, and reading its
-perf counters returns 0.  Moving the FIE handling back to the scheduler
-tick process makes the CPU handle its own perf counters, so it won't be
-idle and the issue would be inherently solved.
+> 
+>>>>> I wanted to put this whole thing on the list first, before I start splitting it
+>>> up.
+>>>>>
+>>>>> For starters, I think I can send these separately:
+>>>>
+>>>> Before discussing how to split, a bigger question is that is it fine to
+>>>> support both i.MX8qxp DC and i.MX95 DC in the same imx8_dc_drm
+>>> module?
+>>>> Separate modules look more reasonable to me, considering the fact that
+>>>> there are quite a lot difference between the two DCs.
+>>>
+>>> (maybe I do not quite understand your suggestion with "separate module",
+>>> I assume this means entirely duplicate driver, is that correct? I
+>>> operate with that assumption in the text below.)
+>>
+>> I'd expect separate modules: the existing imx8_dc_drm(which can be
+>> modprobe'd) and something like imx95_dc_drm.  I wouldn't call them
+>> *entirely* duplicated drivers since I mentioned common part of the DCs
+>> could be wrapped as helpers in an additional module(something like
+>> imx_dc_drm_common).
+> 
+> How would this look if everything is built into the kernel ?
 
-To address the above issues, update arch_freq_scale directly in ticks for
-non-PCC regs and keep the deferred update mechanism for PCC regs.
+Something like imx8qm_ldb, imx8qxp_ldb and imx_ldb_helper modules -
+DRM_IMX8QM_LDB and DRM_IMX8QXP_LDB select DRM_IMX_LDB_HELPER.
 
-Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
----
-We have tested this on Kunpeng SoCs with the CPC regs both in System Memory
-and FFH.  More tests on other platforms are welcome.
+Note you may make CONFIG_DRM_IMX8QM_LDB=y and CONFIG_DRM_IMX8QXP_LDB=m with
+CONFIG_DRM_IMX_LDB_HELPER=y.
 
-Changelog:
+> 
+>>> This series indicates that the functional units in the DC are basically
+>>> identical, with the majority of changes being register base addresses of
+>>> the whole DC and an odd bit or register offset here and there. Most of
+>>> the code can be reused, as can be seen in the first half of the series.
+>>
+>> The major differences between the i.MX95 and i.MX8qxp DCs are
+>> different components in Display Engines(especially the additional
+>> Domain Blend Unit in i.MX95 DC)
+> 
+> This seems to be one component in the whole pipeline,
 
-v3:
-- Stash the state of 'cppc_perf_ctrs_in_pcc' so it won't have to check the CPC
-  regs of all CPUs everywhere (Thanks to the suggestion from Beata Michalska).
-- Update the commit log, explaining more on the warning issue caused by
-  accessing perf counters on remote CPUs.
-- Drop Patch 1 that has been accepted, and rebase Patch 2 on that.
+Yes, DB is i.MX95 DC component, but not in i.MX8qxp DC.
 
-v2:
-https://lore.kernel.org/linux-pm/20250828110212.2108653-1-zhanjie9@hisilicon.com/
-- Update the cover letter and the commit log based on v1 discussion
-- Update FIE arch_freq_scale in ticks for non-PCC regs
+> with links going into it. Those links are already in place.
 
-v1:
-https://lore.kernel.org/linux-pm/20250730032312.167062-1-yubowen8@huawei.com/
----
- drivers/cpufreq/cppc_cpufreq.c | 60 ++++++++++++++++++++++++----------
- 1 file changed, 42 insertions(+), 18 deletions(-)
+DB's inputs are not configurable.  They are ED0/1/4/5, going into DB0/1's
+primary and secondary inputs.   So, DB is nothing to do with LINK_ID_xxx.
 
-diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
-index 9eac77c4f294..4fcaec7e2034 100644
---- a/drivers/cpufreq/cppc_cpufreq.c
-+++ b/drivers/cpufreq/cppc_cpufreq.c
-@@ -48,37 +48,31 @@ struct cppc_freq_invariance {
- };
- 
- static DEFINE_PER_CPU(struct cppc_freq_invariance, cppc_freq_inv);
-+static bool perf_ctrs_in_pcc;
- static struct kthread_worker *kworker_fie;
- 
- static int cppc_perf_from_fbctrs(struct cppc_perf_fb_ctrs *fb_ctrs_t0,
- 				 struct cppc_perf_fb_ctrs *fb_ctrs_t1);
- 
- /**
-- * cppc_scale_freq_workfn - CPPC arch_freq_scale updater for frequency invariance
-- * @work: The work item.
-+ * __cppc_scale_freq_tick - CPPC arch_freq_scale updater for frequency invariance
-+ * @cppc_fi: per-cpu CPPC FIE data.
-  *
-- * The CPPC driver register itself with the topology core to provide its own
-+ * The CPPC driver registers itself with the topology core to provide its own
-  * implementation (cppc_scale_freq_tick()) of topology_scale_freq_tick() which
-  * gets called by the scheduler on every tick.
-  *
-  * Note that the arch specific counters have higher priority than CPPC counters,
-  * if available, though the CPPC driver doesn't need to have any special
-  * handling for that.
-- *
-- * On an invocation of cppc_scale_freq_tick(), we schedule an irq work (since we
-- * reach here from hard-irq context), which then schedules a normal work item
-- * and cppc_scale_freq_workfn() updates the per_cpu arch_freq_scale variable
-- * based on the counter updates since the last tick.
-  */
--static void cppc_scale_freq_workfn(struct kthread_work *work)
-+static void __cppc_scale_freq_tick(struct cppc_freq_invariance *cppc_fi)
- {
--	struct cppc_freq_invariance *cppc_fi;
- 	struct cppc_perf_fb_ctrs fb_ctrs = {0};
- 	struct cppc_cpudata *cpu_data;
- 	unsigned long local_freq_scale;
- 	u64 perf;
- 
--	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
- 	cpu_data = cppc_fi->cpu_data;
- 
- 	if (cppc_get_perf_ctrs(cppc_fi->cpu, &fb_ctrs)) {
-@@ -102,6 +96,14 @@ static void cppc_scale_freq_workfn(struct kthread_work *work)
- 	per_cpu(arch_freq_scale, cppc_fi->cpu) = local_freq_scale;
- }
- 
-+static void cppc_scale_freq_workfn(struct kthread_work *work)
-+{
-+	struct cppc_freq_invariance *cppc_fi;
-+
-+	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
-+	__cppc_scale_freq_tick(cppc_fi);
-+}
-+
- static void cppc_irq_work(struct irq_work *irq_work)
- {
- 	struct cppc_freq_invariance *cppc_fi;
-@@ -110,7 +112,14 @@ static void cppc_irq_work(struct irq_work *irq_work)
- 	kthread_queue_work(kworker_fie, &cppc_fi->work);
- }
- 
--static void cppc_scale_freq_tick(void)
-+/*
-+ * Reading perf counters may sleep if the CPC regs are in PCC.  Thus, we
-+ * schedule an irq work in scale_freq_tick (since we reach here from hard-irq
-+ * context), which then schedules a normal work item cppc_scale_freq_workfn()
-+ * that updates the per_cpu arch_freq_scale variable based on the counter
-+ * updates since the last tick.
-+ */
-+static void cppc_scale_freq_tick_pcc(void)
- {
- 	struct cppc_freq_invariance *cppc_fi = &per_cpu(cppc_freq_inv, smp_processor_id());
- 
-@@ -121,6 +130,11 @@ static void cppc_scale_freq_tick(void)
- 	irq_work_queue(&cppc_fi->irq_work);
- }
- 
-+static void cppc_scale_freq_tick(void)
-+{
-+	__cppc_scale_freq_tick(&per_cpu(cppc_freq_inv, smp_processor_id()));
-+}
-+
- static struct scale_freq_data cppc_sftd = {
- 	.source = SCALE_FREQ_SOURCE_CPPC,
- 	.set_freq_scale = cppc_scale_freq_tick,
-@@ -138,8 +152,10 @@ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
- 		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
- 		cppc_fi->cpu = cpu;
- 		cppc_fi->cpu_data = policy->driver_data;
--		kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
--		init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
-+		if (perf_ctrs_in_pcc) {
-+			kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
-+			init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
-+		}
- 
- 		ret = cppc_get_perf_ctrs(cpu, &cppc_fi->prev_perf_fb_ctrs);
- 
-@@ -177,6 +193,9 @@ static void cppc_cpufreq_cpu_fie_exit(struct cpufreq_policy *policy)
- 	/* policy->cpus will be empty here, use related_cpus instead */
- 	topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_CPPC, policy->related_cpus);
- 
-+	if (!perf_ctrs_in_pcc)
-+		return;
-+
- 	for_each_cpu(cpu, policy->related_cpus) {
- 		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
- 		irq_work_sync(&cppc_fi->irq_work);
-@@ -201,17 +220,22 @@ static void __init cppc_freq_invariance_init(void)
- 	};
- 	int ret;
- 
-+	perf_ctrs_in_pcc = cppc_perf_ctrs_in_pcc();
-+
- 	if (fie_disabled != FIE_ENABLED && fie_disabled != FIE_DISABLED) {
--		fie_disabled = FIE_ENABLED;
--		if (cppc_perf_ctrs_in_pcc()) {
-+		if (!perf_ctrs_in_pcc) {
-+			fie_disabled = FIE_ENABLED;
-+		} else {
- 			pr_info("FIE not enabled on systems with registers in PCC\n");
- 			fie_disabled = FIE_DISABLED;
- 		}
- 	}
- 
--	if (fie_disabled)
-+	if (fie_disabled || !perf_ctrs_in_pcc)
- 		return;
- 
-+	cppc_sftd.set_freq_scale = cppc_scale_freq_tick_pcc;
-+
- 	kworker_fie = kthread_run_worker(0, "cppc_fie");
- 	if (IS_ERR(kworker_fie)) {
- 		pr_warn("%s: failed to create kworker_fie: %ld\n", __func__,
-@@ -231,7 +255,7 @@ static void __init cppc_freq_invariance_init(void)
- 
- static void cppc_freq_invariance_exit(void)
- {
--	if (fie_disabled)
-+	if (fie_disabled || !perf_ctrs_in_pcc)
- 		return;
- 
- 	kthread_destroy_worker(kworker_fie);
+> Maybe I am not seeing the specialty of this particular DB component ?
+
+I commented on patch 1 earlier:
+-8<-
+Add more description about the unit according to i.MX95 DC IP spec:
+The unit operates in four modes:
+- Primary mode: The primary input is used for output.
+- Secondary mode: The secondary input is used for output.
+- Blend mode: Primary and secondary inputs are blended, according to the
+              programmed blending functions.
+- SidebySide mode: Primary and secondary streams are projected side by side,
+                   i.e., primary video on the left side and secondary on the
+		   right.
+-8<-
+
+The four modes make DB really special.
+
+> 
+>> plus i.MX8qxp DC's capability
+>> to connect with the prefetch engines(DPRC & PRG).
+> 
+> Isn't the prefetch engine only a bit of register configuration,
+
+Yes, but maybe more - See my prefetch engine patches, there are quite a few
+logics implemented(especailly in CRTC driver) to make sure proper sequence
+to enable or disable prefetch engine.
+
+> that can be abstracted out ?
+
+How to abstract that out?
+
+> 
+>> Both would
+>> have significant impact on how we implement the drivers.  We'll
+>> certainly end up having different implementations for callbacks to
+>> enable/disable CRTCs or update/disable planes.
+> 
+> It doesn't seem they have to be entirely different so far, do they ?
+
+Well, if you add really limited features, say just primary planes
+without prefetch engine support, then I'd say they are not entirely
+different.  But if you consider to add prefetch engine, overlay planes
+and those HW differences(especially DB), they are.
+
+> 
+>> The sort of minor difference is in Pixel Engine(including Blit Engine)
+>> where FethUnit types and numbers are different plus different numbers
+>> of Scaler Engine.  I'd expect logics to allocate FetchUnits for planes can be
+>> implemented in the imx_dc_drm_common module
+> 
+> This part is fine, but ultimately, it would have to be possible to build
+> both the MX8Q and MX95 drivers into the kernel too. And then there would
+> have to be some logic to deal with that, likely based on driver data, as
+> it is done here.
+> 
+>>> The addition of iMX95 into the iMX8QXP DC also does not seem to be
+>>> making the driver in any way more complicated.
+>>
+>> Disagree. The addition would introduce quite a few i.MX95 or i.MX8qxp
+>> DC specific code branches due to the differences mentioned above.
+> 
+> This does not need to be the case, see the first half of this series ?
+
+The first half kind of handles difference for some shared i.MX95 & i.MX8QXP
+DC components.  I'd expect the common part can be put into imx_dc_drm_common
+module.   The CRTC and plane drivers in the second half would really be
+quite different.
+
+> 
+>> I'd say i.MX95 DC support could be in drivers/gpu/drm/imx/dc, but it
+>> needs to be in a separate module like again imx95_dc_drm.
+>>
+>> This makes feel that the debate here becomes kind of similar to what
+>> we did for single mxsfb module vs  mxsfb + imx_lcdif separate modules...
+> 
+> The mxsfb (the old iMX23 LCDIF) and lcdifv3 (the new iMX8MP/iMXRT LCDIF)
+> are entirely different hardware IPs, the former is from SigmaTel , the
+> later is from somewhere else, right ?
+
+Well, I'd say they shared some HW IP logics.  I bet quite a few registers
+are shared.  After all, you the one who tried to support both i.MX23 LCDIF
+and i.MX8MP LCDIFv3 in one single mxsfb module in the first place :-P
+But now it ends up with mxsfb + imx_lcdif separate modules.
+
+> 
+>>> What would be the benefit of having duplicate driver for IP that is
+>>> basically identical, for i.MX95 ?
+>>
+>> Cleaner driver implementation and easier to maintain.  I don’t want
+>> to test both i.MX95 and i.MX8qxp platforms when only either
+>> i.MX95 DC specific or i.MX8qxp DC specific code is changed.
+>>
+>> But again, they won't be entirely duplicated drivers.  Common
+>> part could be shared between the drivers with software techniques,
+>> like the imx_dc_drm_common module mentioned above.
+> Please have a look at the first part of this patchset, there do not
+> seem to be that many new or complex branches.
+
+Like I said above, I'd expect the common part of the first halp can be
+put into imx_dc_drm_common module.
+
 -- 
-2.33.0
-
+Regards,
+Liu Ying
 
