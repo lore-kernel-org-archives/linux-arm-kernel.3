@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FC9CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF14CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 13:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+4v08Xiy+uTM94ewOyhc69Z/ILAxeJA+JIfK4kmp4w=; b=OzvWrGci0OV6wM5JNaC9sl3dW8
-	atrEIQ+2ZNbfNES66Supu4vycRMwDzKs2lMqEutoK2XPXeqFMZkoCh6COcDSitS9hyKc44Mye5KCK
-	cuxKycf7Snfi6egTZn+aSgdqXwZpjPAcQl5GcZ+hJsc78ILgfruxGCpDtfM0nYGyqLXCQ+wIDVoEt
-	tr766geEVQydUWl5jv3MHPiZPQW7igvp2C7p0VMPvC+V2DR1DMByJJZHDQExE7+J8F1MuC+AIZ0hm
-	97jnpyYAVJW6a3rR/rHmhFGn/Mxbb0tPHRrUqAOQqtQHKgRtQ2wMqpmTCOUvY04VSyRRu76Voiofs
-	CpasFLPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hYXcLzRaG8iNicTNR/jlMvoxSdUH1yGmuASCkq475x8=; b=qQohgQx3FDdnkYPZ/i92rNxpeM
+	W2il7MrkWPCJqE2tE3GSQQjeTcYznrb98JY9hzzLXlyzXNfxVGb8DdE2B2bdO5uXLC5uFGVT0P/vu
+	dDG9HJ5NV5FtffS0EUVcBg+5HI/3V6JV3hGRhhjt0zezaj1l2VsJw5QHTD0bykcDDgGmeElZ7g9B+
+	5JEwsDgqjP1rQrYnHecLKEZMsu3as3UOxYC7PwfsVeewG1+Cau8LzL8821CmNwPfHHK+BX3UZfhAU
+	grNGXrDhB8XTm8x2p3Iku3vK49RUieAl3Yx3ervSy2pqcazUtjL/Y3uxkfkd1jqZRPGh/MAPE4lFE
+	1dyu7enQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHXf-0000000Bw12-2fq8;
-	Tue, 04 Nov 2025 13:57:47 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1vGHYD-0000000BwBV-1vWZ;
+	Tue, 04 Nov 2025 13:58:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHXc-0000000Bw03-3ShV
+	id 1vGHYB-0000000BwAA-1ly9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 13:57:46 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4d19531mXkz9tdy;
-	Tue,  4 Nov 2025 14:57:43 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1762264663;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D+4v08Xiy+uTM94ewOyhc69Z/ILAxeJA+JIfK4kmp4w=;
-	b=XqnHzGMw6/+lZcOqhupS8oqPCiKbPn51s0ypPsgrzL/A9NL18yKbKpeKm186LZZQ/uRqv3
-	uEwAku63wFsrc4j+D1ChrikYJb1dNXgDLxudaA20doo+R7UQLbWwgZdX8P1GcS+xAuvhWV
-	4zyQUa+N9k1wkUmn6XCoa7OM9oq9ph673/Dnh1YT8HNc3kQpp30T2HgE6HqWiJYR2lPj6h
-	SwlCX8/YmTboSr+p9v+hIO3EqeIrOrC3E79sMsh/CYxQjHoj9HrX2V2Rjjnr7wpwFR6AnA
-	27dFyk/rcA7e+RWtFmGlQC5eTkDSXcQ7KfOhML2zHsYyfPj2nLu8ZPtNWHThGA==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1762264661;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D+4v08Xiy+uTM94ewOyhc69Z/ILAxeJA+JIfK4kmp4w=;
-	b=hsvFXjC0zOOXdSyNmlFdVdsMQmuaK4nt2XDzpd7HIb5eTT5QsHDZFTDU6tNtIcy+VaE84p
-	+QEGjO5zf5VQFG4eqIF3maWcthBDP+cIo7VQ8f2nTz1BA8g5CQWdd/cKvZX4XQhD2oadXZ
-	ALafxiPPaOC0HpUVHpdtytA+fE+/YwgRKgnbZpyoUw0G8H6fRMDLQpI9kD9obDFSJCC+v+
-	sZEAXOqlhmRR9q9G9sNplHSrGaVI3pkr7JRpnxNZTOLV7s6F7McaEBtA/sW37xH6eV429+
-	KNuiGNz2CJNvGSlKvCJ+UcnpB2LUv97evt4FP/Szb3uxY2mzFUM602NQVnGcXA==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
-	Rob Herring <robh@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 3/3] arm64: dts: renesas: r8a77965: Add GE7800 GPU node
-Date: Tue,  4 Nov 2025 14:56:07 +0100
-Message-ID: <20251104135716.12497-3-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20251104135716.12497-1-marek.vasut+renesas@mailbox.org>
-References: <20251104135716.12497-1-marek.vasut+renesas@mailbox.org>
+	Tue, 04 Nov 2025 13:58:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A1B10401A3;
+	Tue,  4 Nov 2025 13:58:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F1C9C4CEF7;
+	Tue,  4 Nov 2025 13:58:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762264698;
+	bh=4K46elwz2t41thzEDIlkodjmZEybmO5RrzNgtf0xipA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FTuYizHQP/YaIbgF3vqNbGgvB8bHF6TItco2OMyJ9evUpo+GBr20DxE5Jer8+p4K1
+	 Q+hFVJhn3gpVicQ2H0Ofyp6uCJN9ymtHFPPLDjxYfofm6lejPtS8XJgwAO5RL0xfrh
+	 9nW/y6m3o1sA+lBbGYZwON+Afz1yEkvdQnsCyZWZFCuBjMh861BJOgw4ddIegP8vWw
+	 CDy27YlcgnSzhLSu0KN0TojEMMqpNqXy0n7zprfWIzmZl2LTtr0cVzEatQl7Bl8m/u
+	 lzMahpVNdy0kWug9HG1JgJqN1YX431c9LR57rP8r6A6CK5d+uRJpVZCbr+WC/wtS7y
+	 aFF7c7dek1JVQ==
+Date: Tue, 4 Nov 2025 13:58:13 +0000
+From: Will Deacon <will@kernel.org>
+To: Ryo Takakura <ryotkkr98@gmail.com>
+Cc: catalin.marinas@arm.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
+	rostedt@goodmis.org, leitao@debian.org, mark.rutland@arm.com,
+	ardb@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] arm64: use SOFTIRQ_ON_OWN_STACK for enabling softirq
+ stack
+Message-ID: <aQoGdVYOddu9bxLg@willie-the-truck>
+References: <20251013013508.74677-1-ryotkkr98@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: fd6q819nhbkcsuqcwjz45r4cicp14c4m
-X-MBO-RS-ID: f50eafe9fe47865ebe2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013013508.74677-1-ryotkkr98@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_055745_007383_4D747CA1 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20251104_055819_477721_E5230C2F 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +74,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe Imagination Technologies PowerVR Rogue GE7800 BNVC 15.5.1.64
-present in Renesas R-Car R8A77965 M3-N SoC.
+On Mon, Oct 13, 2025 at 01:35:08AM +0000, Ryo Takakura wrote:
+> For those architectures with HAVE_SOFTIRQ_ON_OWN_STACK use
+> their dedicated softirq stack when !PREEMPT_RT. This condition
+> is ensured by SOFTIRQ_ON_OWN_STACK.
+> 
+> Let arm64 use SOFTIRQ_ON_OWN_STACK as well to select its
+> usage of the stack.
+> 
+> Signed-off-by: Ryo Takakura <ryotkkr98@gmail.com>
+> ---
+>  arch/arm64/kernel/irq.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+> index c0065a1d77cf..15dedb385b9e 100644
+> --- a/arch/arm64/kernel/irq.c
+> +++ b/arch/arm64/kernel/irq.c
+> @@ -62,7 +62,7 @@ static void __init init_irq_stacks(void)
+>  	}
+>  }
+>  
+> -#ifndef CONFIG_PREEMPT_RT
+> +#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
+>  static void ____do_softirq(struct pt_regs *regs)
+>  {
+>  	__do_softirq();
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Frank Binns <frank.binns@imgtec.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Matt Coster <matt.coster@imgtec.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: "Niklas Söderlund" <niklas.soderlund@ragnatech.se>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Simona Vetter <simona@ffwll.ch>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: Add RB from Geert
----
- arch/arm64/boot/dts/renesas/r8a77965.dtsi | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Acked-by: Will Deacon <will@kernel.org>
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a77965.dtsi b/arch/arm64/boot/dts/renesas/r8a77965.dtsi
-index 0868b136883c..4e730144e5fd 100644
---- a/arch/arm64/boot/dts/renesas/r8a77965.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a77965.dtsi
-@@ -2450,6 +2450,23 @@ gic: interrupt-controller@f1010000 {
- 			resets = <&cpg 408>;
- 		};
- 
-+		gpu: gpu@fd000000 {
-+			compatible = "renesas,r8a77965-gpu",
-+				     "img,img-ge7800",
-+				     "img,img-rogue";
-+			reg = <0 0xfd000000 0 0x40000>;
-+			interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg CPG_CORE R8A77965_CLK_ZG>,
-+				 <&cpg CPG_CORE R8A77965_CLK_S2D1>,
-+				 <&cpg CPG_MOD 112>;
-+			clock-names = "core", "mem", "sys";
-+			power-domains = <&sysc R8A77965_PD_3DG_A>,
-+					<&sysc R8A77965_PD_3DG_B>;
-+			power-domain-names = "a", "b";
-+			resets = <&cpg 112>;
-+			status = "disabled";
-+		};
-+
- 		pciec0: pcie@fe000000 {
- 			compatible = "renesas,pcie-r8a77965",
- 				     "renesas,pcie-rcar-gen3";
--- 
-2.51.0
-
+Will
 
