@@ -4,170 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712F6CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A0ECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4cvXBcIS7dUHX8JKHOsfsnAr8qRZvG/okWhClBz2KY=; b=WFKHxJGOruFkAzaWwFuF0G4hQP
-	pxJV/2kq6HqhVEGsICnfYTnIdjzSNQ/2+BnSXixEXxmXORl13nzC3Ifgwp1PzUG1Rio9W4O+AY3EE
-	qihAMuux2GHdVIxaL3YR+PExsMLIDXSi0LM1KAOuTGbPokcrYeOAWt9b9SlmAKZv6QrCtaFMo6HjM
-	fEhI/rMYwMCzYWtUFd4n6F6HTU3Tc1gku4OOASMzb75VhKZq64dkMzXHZQ5HrCefPwZ3CjgjSLgcs
-	QibsI9FMRYn6lSY5KlGHcIcg/U4b+OTNAMfjwjHHw9Xdfr+Ncoj9rPfI63ej92AFFiqRw4xYA+DMb
-	1CsEqt8w==;
+	bh=MEwtHmSL5BtzTNQnc9ruHdxSVG+6ysWNVzNzRsLAtuM=; b=yPxh6+9HvYRn9QZ6LZH2FYPXz7
+	SY+R2ZY+MbSY26pIgSp+YsgZSDaI56MsS/bEdEmhj5ZhF51gypNg3wSPhhgROFsX65IYsA6EhM0mX
+	AqTwJ5zwzysrwZcgBZuhUdudAM/+3/AQaQ59CcEnY+IdtMhyg/zuHyKSwiB22Tpneqyrt3DF40vRA
+	ys+OEtUpWLGa8xWvklqYw6/e9cXFk3FTGeBIDzQebGI5cumkFE98vPk96SJjS5ok/gCfv7v5wdlii
+	yO9Oer8FfLIvOHMeh5BUDdLgNPT3fV57adUrE6F1Isy8G7JLh17rw1eMrQn3VlvKxM2o60yGX3NeB
+	dTiE6K1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7Pu-0000000B1nz-1IXG;
-	Tue, 04 Nov 2025 03:09:06 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vG7Rm-0000000B1yF-39z5;
+	Tue, 04 Nov 2025 03:11:02 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7Pr-0000000B1nZ-3h1s
+	id 1vG7Rk-0000000B1xu-0dpE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 03:09:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jW24xjfHn+4+BthtnNHCNsZUpaPQHJMjQBTEFHZm9Sx8Anzy6viXYXgoxA+cFaDLO5t67pSi8RVQDmXK3dt4Ggkqa2zX5anttEUMP7ODvUYhCQZ+KyiGGYcrNiUxDfbXd+KDOA6EFj6dQcs9lEohdKivZ/dJo00fINVKlGpWR/HWOjmzzx5gRCqpOSeHgh37IGdzlabriqxAeMNTUZCzNrJbJdUK0QnxoDqDnZcobvNTmMkMrKMBI2diAeonEqP40THdDt+mkFhnWfXRH5VpvLqrqSA/iJskxnISV33kXVsjK9SKha5a1eyi9/a0gRC4iODvOeeLExR0C441D8GFfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e4cvXBcIS7dUHX8JKHOsfsnAr8qRZvG/okWhClBz2KY=;
- b=K7z0rdBF2NFO+VDYIU0Eej6C7l27bN8FrEi4eZ6TObbAtV0AOU8Mhgsgadwnp0XaJ4tedTd8PZAMfM5GGxqIelHHQfVLNmCEAovTIVqFSOhOv1UvOr8qEzGRnSqXV+WtaObDIyWvhGEsk3tCzJ48FyyZqKnz+e6dvtgQgMMSTd6EDmobudBTNUVsTBs6J8is8guYmGF1fA/lzzKiunxUTcXt00x2BbzlKFYogo0eJ+XRpiVSamUqBBGFzdgDGCT8ymL1UOili4bD1ZJB6OdPV8YeOKdbwme+qwEpN0YcMh1+NAWE8zBdfdsnW/YrvdstjKlB0r5pLdCfbmJj7MzAqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e4cvXBcIS7dUHX8JKHOsfsnAr8qRZvG/okWhClBz2KY=;
- b=cS/TLAbK5QjDqwvYfplH44cv+oxHSpqqQxcjxoMr0xWvZhPX1Q1+8cHeV2aw43l2QdlAlQ7m9wk1icAypsnvMhMJ1IPeVXn3h9/Hzw36cNzR7U9M2+goUZqwT/O2tHRC8fKfXj1UwfDpVh3O1lc8xPNqgkOZB1p8ioKlyAdQu4QQ/bCLIAnZVCp0WIeF02RYHBfOJwrjI5f9X0fqKVpdotLPEsAiBQqYG3deCN0z9bBEZxJ36q44/RxWo5veK/wYPPwuaVCIreWNnx5EI60CmWGXc88Im4+cPrpljoxyjvBQ3obxMLkApSquKs0BHSgq+rJ9EPouBvAxpm+9HmOupQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI1PR04MB9954.eurprd04.prod.outlook.com (2603:10a6:800:1d7::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Tue, 4 Nov
- 2025 03:08:59 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9253.017; Tue, 4 Nov 2025
- 03:08:59 +0000
-Message-ID: <9f77105f-4754-4a39-848d-c1f92e4f47d9@nxp.com>
-Date: Tue, 4 Nov 2025 11:09:26 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/imx: dc-plane: Add more RGB swizzling options
-To: Marek Vasut <marek.vasut@mailbox.org>, dri-devel@lists.freedesktop.org
-Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20251102162359.49263-1-marek.vasut@mailbox.org>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20251102162359.49263-1-marek.vasut@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2P153CA0003.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::20) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Tue, 04 Nov 2025 03:11:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762225860; x=1793761860;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nasp7obvVZx/zW5fYzUXJMKnK906v8ptyaXO0ca9Boo=;
+  b=cjKAkPh7BIiX9ns9MzFUPCuC4ii88kXAfEsy5Nm4fw0IWL2it7LcoSf/
+   W7Y3E/K8HaHFT2gIsUbXjzyhU8ar0aUw0sVsXJ815l2PW1Sa0I2uxEIqJ
+   4eJn/DPzGoozXPtmKWOpg+CtoflpHtxFnNPB3bYz/4d5w64l+czIwk8pE
+   C/TxaZyeL8DXaS758I2pm49dezHSq+sMqvZjb53o98lWItfqWDhpKiAAs
+   SihNXRsRIsCAHyb7NFtDow8mg39bTLOx/q3eHlcLmzgWflM4CL8G4fQHB
+   UOj5u9KW4nMMXJuS8t/g4Vrf0PrzE3DGJqPSmDLFwajiooUxPQXoalx3H
+   A==;
+X-CSE-ConnectionGUID: wTr8QrBJTymTI/QyqdLkcQ==
+X-CSE-MsgGUID: YyI8NuWfSi2Nkuv4glqLDA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11602"; a="64230027"
+X-IronPort-AV: E=Sophos;i="6.19,278,1754982000"; 
+   d="scan'208";a="64230027"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2025 19:10:58 -0800
+X-CSE-ConnectionGUID: Klu5rGQySFOcoXjRl282jw==
+X-CSE-MsgGUID: oH3aw8ubRJiFJiwtRMte1w==
+X-ExtLoop1: 1
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by fmviesa003.fm.intel.com with ESMTP; 03 Nov 2025 19:10:53 -0800
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vG7RZ-000QnM-34;
+	Tue, 04 Nov 2025 03:10:50 +0000
+Date: Tue, 4 Nov 2025 11:07:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jacky Chou <jacky_chou@aspeedtech.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Po-Yu Chuang <ratbert@faraday-tech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, taoren@meta.com,
+	Jacky Chou <jacky_chou@aspeedtech.com>
+Subject: Re: [PATCH net-next v3 4/4] net: ftgmac100: Add RGMII delay support
+ for AST2600
+Message-ID: <202511041023.QGAHaAZ3-lkp@intel.com>
+References: <20251103-rgmii_delay_2600-v3-4-e2af2656f7d7@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI1PR04MB9954:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3837d1f9-5441-44ca-0089-08de1b4f7fef
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MEpHVXBxQkF3YlJnMkZMRGY1MnoxVkxKZVhQMkVGUHpySGFiK01tSEhKbGow?=
- =?utf-8?B?U29OV2MrZGFscVA5T0EwVjdpcENSV0tlSzVOaEoydXRzKzBFT25vUkt3OWJk?=
- =?utf-8?B?bmlMVS8vUVRMZXBjRlhzZnYzaXhYbGlKUmsxK1RkRE9Kc2tqZGI5WjNFZVdv?=
- =?utf-8?B?ZTdWaUVoYUtGSmcwdXVHUTBLVzJoTUd6RUdEY1VhQTlxdWV6YU13a1hyUjFT?=
- =?utf-8?B?N2hEZVZ6WWU4dUtYdUUzTExyN1lEUWp6UUZ1eEYwRWZadUxmL2NlTHUyQzBO?=
- =?utf-8?B?WklJNEgvWVlvcjhPbWVLSEZCcThQMVYxY3B2bVUycTJmK2ZLZ2NOUlVkbG9Z?=
- =?utf-8?B?dVhzL1M0TzlGYk5uSHFESVFUbUpmRjNXejUxTjl3T0ZWMUFGUEVjaGp3ajl2?=
- =?utf-8?B?dnFyeHVVVHd0NloxTmpQMkJzQUJVbld2S296VkVxY1JjKzllZlFKalRSZmNT?=
- =?utf-8?B?dEhFc1EzQzBrdXplTXFpeVFGSzl5V2FqVmRDWHBwVXVRaElIa2lTdWlSb29J?=
- =?utf-8?B?SlVNRHI1LzR1L0xMMFRPWHJKVFN4allGMTFpT2xveHNGZkFKYk5HcTh5WlJv?=
- =?utf-8?B?cXJCaFQ1QzNCdmNTRE82My9sQ2RBNGJNYnVIT3F0N1kxczA5NGZNYmpJTStm?=
- =?utf-8?B?bEV0Vkc0cE9LclFEL2xGUCtSeitxaDYxb25YTko4SlBPbks1emdKNEJDR0h0?=
- =?utf-8?B?K2pnSW1VcmFHdytJOGliQjZPL2dvZEhaSkF0dWR6dmdseDdqYnVjVkNXYzVZ?=
- =?utf-8?B?SGEzTEg5UG5LRGNJOWJtSDhZQnk3K3dFYXl0Q3BDM3RuaDhZZGkwRm90RVJ2?=
- =?utf-8?B?U2lIZE1uS254K25WYTlTNFZkS1ZDMVY0aGFBYzRwdjh2TGliNjFYeEFJMFZB?=
- =?utf-8?B?OGlrcDdzbHdCbjhqSmRxKzhlYWJDYWdhMzBFTUZ3U1NCeVAxVzVNQThjZXd4?=
- =?utf-8?B?QUNPN2FFSy9LMUdzcGN6TkRpUVRGSUNrSnQ2SlBVS2ZwdWlLVU9DaGdLZ1Zi?=
- =?utf-8?B?WGgrcEIyQkV4S1VwL2ljQjFHZlAxNi9OOE41aHB5a1h5WU1HUUpUS0ZRNFNK?=
- =?utf-8?B?RjR2V3g0QTlCeU9UU01zdnJUQitDSWtLYWVCWW0rdUdZNndYYzlXV0RNRys2?=
- =?utf-8?B?ZmFHV0Jjd2RsYXMwOWxySW1jLzZYelFtVnc2aU5IWXlDdFJJL0RTanBremxY?=
- =?utf-8?B?SjMrTUNVTnlOTmM0RWdXMTdpcWJ3VTQzYVVqUTFXaEZKUkdzanFoQ3gxZG02?=
- =?utf-8?B?SkpyVmNtU2RwWTBwcVRMUzNUVUovRmZ5K3JVUEVBc05sRitJeG9oVWxsb0kv?=
- =?utf-8?B?MEtvRHorKzZqZGd1Ymw3djFZZTdPNEhlRGdZUm0zTWhDN0Rra2pqbFFNcmZZ?=
- =?utf-8?B?ajk2RTNhcGU4bnFKY1IzNllvdkc5djFveTZ4RTVrTUxOUFJOV01kUkpmQ1Fs?=
- =?utf-8?B?L2JTd2NZMmNzenJKcCsxK1owdGtrMlRUMHFiNU9FSGcyY1p6d1V3Z0o5L2JL?=
- =?utf-8?B?dHdraElYKzN0ZkRDUEg0bWZjRFhiSENRN3VvWEhDcDhkTUVNcWduTmhHUHoy?=
- =?utf-8?B?ak5uS3NKMm96dHpqNUFpZS9HUkNMZlpxTnhyQnpMSmtlNVRiOUREYlB3NXY4?=
- =?utf-8?B?Z3JLcFdpNWMwL3ZOcVIwQUszQS9oRUNTL0tmdWhPaXNJeHppbmhRTkNIbHVQ?=
- =?utf-8?B?M3BKL0pvbit4SHBmb3o3R29aN2hMRnRxM2hNZzQ0RE9mN3lCR3JpMGtvem1i?=
- =?utf-8?B?SGJpRnNZVUt0UVZ6Tmp2RUVNZUgrWkZVY2dtT2lvLzd4NW5tSUVMc2QrTFVW?=
- =?utf-8?B?WHZ6dkRWU0J2ZEZpOVRGV1FSSExUL2p6cVBvNHhlUzI0dDZIWkR3TWZldUhL?=
- =?utf-8?B?RVJqZStuUTlFSTJIMWk3SFhCV0d0MnJvem9EOWYvV0k0SVRVSktrLzdwZDI3?=
- =?utf-8?Q?fCZhxAsL1fHq+R8teIyrwsIB8o7cElMT?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YngxNlR4dVhoTTBhTVdkRmJrOG1ISWovM2g4OG5xcGlyWFRBRlpGSU5weTNB?=
- =?utf-8?B?aml6WjJacTVvczZkWWxoNkM2aXhHbDVvK0ZTQVphTDVlL3B2MHJxT3BRamZX?=
- =?utf-8?B?SXJiUDdISDUyUVBWMTVzTFNoUG9qcE5rSy9KSHFtVkFlL1JnM2RhTUNPclBS?=
- =?utf-8?B?dTgvcHdKT2tuQzAzOXlQaGlkYXlTK3ZkYVV5cG5FNk9MR1JaT0swNWVLc0ow?=
- =?utf-8?B?L25URFM2WUFjYzQzQ1hyMENBMUhja0pSTTM3L2M2elE4elMxN2dTRHltU2Q1?=
- =?utf-8?B?TXFkRDU2UC9uSmptTzJMRWVzQXNXUjBaNWY4T1dJZnR6WWdyS0tnTXlBRGla?=
- =?utf-8?B?YzN1bUhkNEE2TVRUUlM1bFRHOTd0c3M3bHNkYldEWUdrVVhWS0hRdnVqelg5?=
- =?utf-8?B?WUhCTkJNcWhqWk9HeFBlU3BKNjJXYXlTd1A4UzZvcDNsWWVaeDUzZGhIMzRk?=
- =?utf-8?B?bSt3a1puRkNqeHM2ZjBXMTRhOW55TDRxbERGOVVsaEk0bGF6Nmd3eFVnUFlr?=
- =?utf-8?B?T2pmd2poRGVzL3Zvc3lpaFhodTRVdzBIeG9XT2pDeUxFRGNNL3hhODVLcVRW?=
- =?utf-8?B?Mm9OSFBkb1NXZUNPelJJeUUxQ1JkOTNhTWpmRUgvZDlzaHREY3FIdkFwUnVX?=
- =?utf-8?B?MW9JVitSVnRPRVF6a0l3MXFKZWx2cFhZNER4dFpQa3h2bzhnMHhBenphS1Zt?=
- =?utf-8?B?NmU1U0RyQ0FFMjhtSDlJaWhrNTZhZG1JZ0I3Y0QrZXVQM3hRb1VDZ2U2MFB2?=
- =?utf-8?B?QWZWVCt4a0NZdzZXUWR3bXNIQ0NJNno0T2xsakVJZWFuQ1VNK1BvZFhiamVs?=
- =?utf-8?B?KzE3L1R5VUJreXVZZmhpQmR1WmNrU3NjbFFkVE1yQ3Bna1NmTmVKN08xbktF?=
- =?utf-8?B?ZGpxamFubjM4ZXdWZENpREFCTEdaSVdlTDFYRkFKVndUeGdzekE0LytncHRy?=
- =?utf-8?B?eXpOLzY2Rzc1SEVEcmhHUzJWMWc1SVcwZzNMV3dEWTJxTGttYW54Y0xvR0VI?=
- =?utf-8?B?Y1V1ZFk1NmtVWk9hNXJReS9EUXFya2FIQTJwUy9DNWdRbkFxei9XdEYvVEhB?=
- =?utf-8?B?UDJUUGQ5a3ZUaGpoMzRYQzNRWXRRSmZOcUNpWGNvMEprQVcwOXJYYVFBa2tW?=
- =?utf-8?B?VldBeXlkaVhNemI1QklxY1BYWVhLRURJZHdhNm5OQklBbFVxYTZiWm5HcUV2?=
- =?utf-8?B?c1BCdkdTclFpWHNhTC9hZnNpNWZYQm44dUZuNGRkWUxsNEdpckZRZHY0N0pi?=
- =?utf-8?B?TFNncGNLREdBUGlNenlwZ2c1VjRFcG5aSkVad2l5dTExTVZDTXJJNnRyMmFS?=
- =?utf-8?B?bFBQQmgyTURXVXlmY1pMVUpmVGR0czU0Rm5OZlduWGVKM1RLaTdLY1dhdmNR?=
- =?utf-8?B?cjNHN0RrSkN6cDNubllJbTN4d3krR0pKa0Y1Nk55bHlWMHpQTVMrdjhHQmZx?=
- =?utf-8?B?Q09qamIvNHlwVkMzQ1JyMzI2Q2k2aHIvZUlHNmw4U0RrMy9iRE01Ykg1NEpM?=
- =?utf-8?B?WGUwVlRmTkhSM2dXZDE1Mk96bzRDVDUyMVExaGNkNzU2SklySDBMMGdkRGNH?=
- =?utf-8?B?bmxiS05PL2RmOVpIZDZvMnpxaFpjTEt6OTNVZUVKVXFVNzgvdVBKeTV5RGVH?=
- =?utf-8?B?a0IxRVhRaU5yZmJHY0ZmaTgxbnl1NHNKTUd6RnhZb3RRT3JrcUpZaityNkJH?=
- =?utf-8?B?QmtzZTBwa1VYcm9leUs4L0M0RCtPU3FOMkRoeVBUSXl6ZVcxNjFSbTFySmlH?=
- =?utf-8?B?RWhmWHdLSFlwQ0hIaUw0WkN1MnhCT2NVRDkwNFdRaDFKZmMyMENiWFRhb0lv?=
- =?utf-8?B?ekZmNHZvTTl4T2VReW12bXhoa2pHRHRSczBhR2NXeGI4anl3TXVTMFlYY1ZW?=
- =?utf-8?B?QThsY1NBYXBuRGRzTG52a2FIa2h5OTQvQnZvcEs0NFVTNStxZm5SdDJaOHAy?=
- =?utf-8?B?N010eXdhNytua0pweldYNnZ0b05kUmFYMHhKRytMUjFMWUlWbUdiOVdBd0pU?=
- =?utf-8?B?cnF1YTkzdXdBTzUvYksyYk53QktQbTNoU1dubTNwSUhGeWt0Wkk1cURFdlFX?=
- =?utf-8?B?NzUzUHVEVklGSGx5S0JOTzZKMWJEU0xtT3hnRytETDdvS2FwV1lxZk1DMWty?=
- =?utf-8?Q?kP3gBUZMa5/SzthXyJ6GsPuQd?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3837d1f9-5441-44ca-0089-08de1b4f7fef
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 03:08:59.7152
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2iiHu3NXYz4saOuivoElBgZPf8ka63qjWPBHG48keLIW7BucEy61aoGMudwl6H5slkqffNO3UhPS+le3/aXVGA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9954
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251103-rgmii_delay_2600-v3-4-e2af2656f7d7@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_190904_476177_03DA0292 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20251103_191100_210036_CF5B822D 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,96 +99,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/3/25 00:23, Marek Vasut wrote:
-> Add additional buffer format swizzling options beyond XR24, the
-> hardware is capable of sampling other formats, fill them in.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
-> ---
-> Cc: Abel Vesa <abelvesa@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-clk@vger.kernel.org
-> ---
-> V2: - Adjust commit subject
->     - Drop the alpha formats for now, add RGB888/BGR888 to dc_plane_formats[]
-> ---
->  drivers/gpu/drm/imx/dc/dc-fu.c    | 24 ++++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-plane.c |  6 ++++++
->  2 files changed, 30 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/imx/dc/dc-fu.c b/drivers/gpu/drm/imx/dc/dc-fu.c
-> index 1d8f74babef8a..b4a3f8c58cbb0 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-fu.c
-> +++ b/drivers/gpu/drm/imx/dc/dc-fu.c
-> @@ -65,6 +65,30 @@ static const struct dc_fu_pixel_format pixel_formats[] = {
->  		DRM_FORMAT_XRGB8888,
->  		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
->  		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(0),
-> +	}, {
-> +		DRM_FORMAT_XBGR8888,
-> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-> +		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(0),
-> +	}, {
-> +		DRM_FORMAT_RGBX8888,
-> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-> +		R_SHIFT(24) | G_SHIFT(16) | B_SHIFT(8)  | A_SHIFT(0),
-> +	}, {
-> +		DRM_FORMAT_BGRX8888,
-> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-> +		R_SHIFT(8)  | G_SHIFT(16) | B_SHIFT(24) | A_SHIFT(0),
-> +	}, {
-> +		DRM_FORMAT_RGB888,
-> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-> +		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(0),
-> +	}, {
-> +		DRM_FORMAT_BGR888,
-> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-> +		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(0),
-> +	}, {
-> +		DRM_FORMAT_RGB565,
-> +		R_BITS(5)   | G_BITS(6)   | B_BITS(5)   | A_BITS(0),
-> +		R_SHIFT(11) | G_SHIFT(5)  | B_SHIFT(0)  | A_SHIFT(0),
->  	},
->  };
->  
-> diff --git a/drivers/gpu/drm/imx/dc/dc-plane.c b/drivers/gpu/drm/imx/dc/dc-plane.c
-> index e40d5d66c5c1f..4fd58afef16bb 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-plane.c
-> +++ b/drivers/gpu/drm/imx/dc/dc-plane.c
-> @@ -33,6 +33,12 @@ do {									\
->  
->  static const uint32_t dc_plane_formats[] = {
->  	DRM_FORMAT_XRGB8888,
-> +	DRM_FORMAT_XBGR8888,
-> +	DRM_FORMAT_RGBX8888,
-> +	DRM_FORMAT_BGRX8888,
-> +	DRM_FORMAT_RGB888,
-> +	DRM_FORMAT_BGR888,
+Hi Jacky,
 
-Can you please drop the above two formats, as I said in v1 comment that it
-would the driver a lot more complicated when prefetch engines are added?
+kernel test robot noticed the following build warnings:
 
-> +	DRM_FORMAT_RGB565,
->  };
->  
->  static const struct drm_plane_funcs dc_plane_funcs = {
+[auto build test WARNING on 01cc760632b875c4ad0d8fec0b0c01896b8a36d4]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Jacky-Chou/dt-bindings-net-ftgmac100-Add-delay-properties-for-AST2600/20251103-154258
+base:   01cc760632b875c4ad0d8fec0b0c01896b8a36d4
+patch link:    https://lore.kernel.org/r/20251103-rgmii_delay_2600-v3-4-e2af2656f7d7%40aspeedtech.com
+patch subject: [PATCH net-next v3 4/4] net: ftgmac100: Add RGMII delay support for AST2600
+config: arm-defconfig (https://download.01.org/0day-ci/archive/20251104/202511041023.QGAHaAZ3-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project d2625a438020ad35330cda29c3def102c1687b1b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251104/202511041023.QGAHaAZ3-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511041023.QGAHaAZ3-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/net/ethernet/faraday/ftgmac100.c:1865:13: warning: variable 'rgmii_delay_unit' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    1865 |         } else if (of_device_is_compatible(np, "aspeed,ast2600-mac23")) {
+         |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/net/ethernet/faraday/ftgmac100.c:1870:53: note: uninitialized use occurs here
+    1870 |         rgmii_tx_delay = DIV_ROUND_CLOSEST(rgmii_tx_delay, rgmii_delay_unit);
+         |                                                            ^~~~~~~~~~~~~~~~
+   drivers/net/ethernet/faraday/ftgmac100.c:1865:9: note: remove the 'if' if its condition is always true
+    1865 |         } else if (of_device_is_compatible(np, "aspeed,ast2600-mac23")) {
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/net/ethernet/faraday/ftgmac100.c:1844:22: note: initialize the variable 'rgmii_delay_unit' to silence this warning
+    1844 |         u32 rgmii_delay_unit;
+         |                             ^
+         |                              = 0
+   1 warning generated.
+
+
+vim +1865 drivers/net/ethernet/faraday/ftgmac100.c
+
+  1838	
+  1839	static int ftgmac100_set_ast2600_rgmii_delay(struct platform_device *pdev,
+  1840						     u32 rgmii_tx_delay,
+  1841						     u32 rgmii_rx_delay)
+  1842	{
+  1843		struct device_node *np = pdev->dev.of_node;
+  1844		u32 rgmii_delay_unit;
+  1845		struct regmap *scu;
+  1846		int dly_mask;
+  1847		int dly_reg;
+  1848		int id;
+  1849	
+  1850		scu = syscon_regmap_lookup_by_phandle(np, "scu");
+  1851		if (IS_ERR(scu)) {
+  1852			dev_err(&pdev->dev, "failed to get scu");
+  1853			return PTR_ERR(scu);
+  1854		}
+  1855	
+  1856		id = of_alias_get_id(np, "ethernet");
+  1857		if (id < 0 || id > 3) {
+  1858			dev_err(&pdev->dev, "get wrong alise id %d\n", id);
+  1859			return -EINVAL;
+  1860		}
+  1861	
+  1862		if (of_device_is_compatible(np, "aspeed,ast2600-mac01")) {
+  1863			dly_reg = AST2600_MAC01_CLK_DLY;
+  1864			rgmii_delay_unit = AST2600_MAC01_CLK_DLY_UNIT;
+> 1865		} else if (of_device_is_compatible(np, "aspeed,ast2600-mac23")) {
+  1866			dly_reg = AST2600_MAC23_CLK_DLY;
+  1867			rgmii_delay_unit = AST2600_MAC23_CLK_DLY_UNIT;
+  1868		}
+  1869	
+  1870		rgmii_tx_delay = DIV_ROUND_CLOSEST(rgmii_tx_delay, rgmii_delay_unit);
+  1871		if (rgmii_tx_delay >= 32) {
+  1872			dev_err(&pdev->dev,
+  1873				"The index %u of TX delay setting is out of range\n",
+  1874				rgmii_tx_delay);
+  1875			return -EINVAL;
+  1876		}
+  1877	
+  1878		rgmii_rx_delay = DIV_ROUND_CLOSEST(rgmii_rx_delay, rgmii_delay_unit);
+  1879		if (rgmii_rx_delay >= 32) {
+  1880			dev_err(&pdev->dev,
+  1881				"The index %u of RX delay setting is out of range\n",
+  1882				rgmii_rx_delay);
+  1883			return -EINVAL;
+  1884		}
+  1885	
+  1886		/* Due to the hardware design reason, for MAC23 on AST2600, the zero
+  1887		 * delay ns on RX is configured by setting value 0x1a.
+  1888		 * List as below:
+  1889		 * 0x1a -> 0   ns, 0x1b -> 0.25 ns, ... , 0x1f -> 1.25 ns,
+  1890		 * 0x00 -> 1.5 ns, 0x01 -> 1.75 ns, ... , 0x19 -> 7.75 ns, 0x1a -> 0 ns
+  1891		 */
+  1892		if (of_device_is_compatible(np, "aspeed,ast2600-mac23"))
+  1893			rgmii_rx_delay = (AST2600_MAC23_RX_DLY_0_NS + rgmii_rx_delay) &
+  1894					 AST2600_MAC_TX_RX_DLY_MASK;
+  1895	
+  1896		if (id == 0 || id == 2) {
+  1897			dly_mask = ASPEED_MAC0_2_TX_DLY | ASPEED_MAC0_2_RX_DLY;
+  1898			rgmii_tx_delay = FIELD_PREP(ASPEED_MAC0_2_TX_DLY, rgmii_tx_delay);
+  1899			rgmii_rx_delay = FIELD_PREP(ASPEED_MAC0_2_RX_DLY, rgmii_rx_delay);
+  1900		} else {
+  1901			dly_mask = ASPEED_MAC1_3_TX_DLY | ASPEED_MAC1_3_RX_DLY;
+  1902			rgmii_tx_delay = FIELD_PREP(ASPEED_MAC1_3_TX_DLY, rgmii_tx_delay);
+  1903			rgmii_rx_delay = FIELD_PREP(ASPEED_MAC1_3_RX_DLY, rgmii_rx_delay);
+  1904		}
+  1905	
+  1906		regmap_update_bits(scu, dly_reg, dly_mask, rgmii_tx_delay | rgmii_rx_delay);
+  1907	
+  1908		return 0;
+  1909	}
+  1910	
 
 -- 
-Regards,
-Liu Ying
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
