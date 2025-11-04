@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB91CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D13BCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HV6aCZe858sfDxOrV63v3V1QYYmt0i4YMWexhlJ+tbA=; b=ZoQKo0dyuaRK7URnh5PJlApoDJ
-	aJ+HlpwrnEZLvh09L3SS1AixOOPrKoVPdsDuxnvwBXxfm6W3EAlTf2h141sMLdDqk194Cbt+SMvJA
-	dKINsWg5EYtIQ0DGkoGS11zpGh0dOqW57z7OTrIrHXjiMtX2VPYMQCvux5JeoIXibaPOvLZfIQbi8
-	YL/x5BxVZbYTpQF6FgY6PVgxwgt/88gdgYzvKKTsF/zYckDzURQlioWs/yx77pyy0dGrX1DWWTdfL
-	HrR2o/jHgG3nRUBEIK0GbXtFx88+sb1zYi0FzdOJEUKC6mfGiGrVR3aqlZ3VfTqFdb8CSI2pCAWIa
-	EEK0p08w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3PdRhw4p3EoVxJpWYSAXydAjeo8TcVLX9r9WftaEstM=; b=dKf+EDTp/sabjYF9dUKSLqkz4O
+	/esr3oH/FNc4XLmi3zHgPckmc3HpsjJJYZoUapvoTnUDRYKAQy4NPrVd/pB9TR4v2pX3NtRPF4fCF
+	2XZxBmQr71GM02BKRHdr0yLt3FNlAD0ey7dG4kXEtsrnlH6BeJFIxI3cFCT5lJLjnbkxyEixAABWa
+	LiAXWPBIsdVtPTrXiCba6y1Q5ZaZ2ygJacG+RE4LJetZ1OmDCLTGBLk9VqjFHUxwdLF7UJBEab+Mv
+	9jfOy9AkILrWvdbtIETVfYuaYDaZ7LzPDi9TEmXbGNNggUWVyt8crRVviPEOcE1CpG3ErhYiNCTrH
+	1/uWsvPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKGn-0000000CDrb-15wN;
-	Tue, 04 Nov 2025 16:52:33 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1vGKGr-0000000CDuk-07SW;
+	Tue, 04 Nov 2025 16:52:37 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKGj-0000000CDqR-3zPu;
-	Tue, 04 Nov 2025 16:52:31 +0000
+	id 1vGKGn-0000000CDqw-2kW5;
+	Tue, 04 Nov 2025 16:52:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=HV
-	6aCZe858sfDxOrV63v3V1QYYmt0i4YMWexhlJ+tbA=; b=h5fPKUyG1CKLVdQyTu
-	mqwmctmn1qQwDOz2tGj7h+Tdo9iuWDESjeCwE7/7dQW/I2oRJRayNtpVq8v7/aPn
-	4oxCiiIBRQ+sq3x445D2SNWU3f0GYyqQTxEzrO7vZ6yXnA2wa2PfNTfAZbhoNmo8
-	hqp/h6gfjHeLs9zZ8r2nbHWpo=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=3P
+	dRhw4p3EoVxJpWYSAXydAjeo8TcVLX9r9WftaEstM=; b=pHxgCdwVe18OieQi0V
+	oDE/QKq1ZkR9EKQcdTCYjPxG8+8FHvvn5DRIrS799xXQWFbPJPw+N65FEYW5C9P7
+	Eo+6E1ZIKPj1SJ3cATvavRk3fs8pmXUcqeAgCSrvS/+eX84hkznpMgzDywMflQQh
+	aHODZzs5ywjbAcNHOjgIpn1Dg=
 Received: from zhb.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgDHcqsQLwppjl+qCg--.1966S4;
-	Wed, 05 Nov 2025 00:51:33 +0800 (CST)
+	by gzsmtp4 (Coremail) with SMTP id PygvCgDHcqsQLwppjl+qCg--.1966S2;
+	Wed, 05 Nov 2025 00:51:29 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: lpieralisi@kernel.org,
 	kwilczynski@kernel.org,
@@ -57,24 +57,22 @@ Cc: pali@kernel.org,
 	linux-amlogic@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v6 2/2] PCI: dwc: Remove redundant MPS configuration
-Date: Wed,  5 Nov 2025 00:51:25 +0800
-Message-Id: <20251104165125.174168-3-18255117159@163.com>
+Subject: [PATCH v6 0/2] PCI: Configure Root Port MPS during host probing
+Date: Wed,  5 Nov 2025 00:51:23 +0800
+Message-Id: <20251104165125.174168-1-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251104165125.174168-1-18255117159@163.com>
-References: <20251104165125.174168-1-18255117159@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgDHcqsQLwppjl+qCg--.1966S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KF4xuw4xXFWDJw43WF4xtFb_yoW8Cr1fpF
-	y3WrsakF18Ar45WF4qkan5Cay3tasxCry7JF9Ig34fZFyayFsrJa4ayFWFka4xWrW293WS
-	kr98K3y8A3W5trUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEeOJbUUUUU=
+X-CM-TRANSID: PygvCgDHcqsQLwppjl+qCg--.1966S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCw1DXr45CF1fWr1rXrWkZwb_yoW5Ar17pF
+	WFqFs3Gr4xGF13Ga9rGa1jkFyYqas7GrWUGrZ8GwnxZan8ZF1UXryvka1rAry7Xr4S93WI
+	vry2qry8C3Wqva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pE_-BtUUUUU=
 X-Originating-IP: [240e:b8f:927e:1000:355:1a70:fad9:bcdf]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiFQH7o2kKLUUm0AABsw
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwxOsUGkKLxOqdQAA3s
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_085230_431058_70FEF677 
-X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-CacheID: sfid-20251104_085234_232019_C5AE81AF 
+X-CRM114-Status: UNSURE (   9.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,52 +88,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Meson PCIe controller driver manually configures maximum payload
-size (MPS) through meson_set_max_payload, duplicating functionality now
-centralized in the PCI core.  Deprecating redundant code simplifies the
-driver and aligns it with the consolidated MPS management strategy,
-improving long-term maintainability.
+Current PCIe initialization exhibits a key optimization gap: Root Ports
+may operate with non-optimal Maximum Payload Size (MPS) settings. While
+downstream device configuration is handled during bus enumeration, Root
+Port MPS values inherited from firmware or hardware defaults often fail
+to utilize the full capabilities supported by controller hardware. This
+results in suboptimal data transfer efficiency throughout the PCIe
+hierarchy.
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
+This patch series addresses this by:
+
+1.  Core PCI enhancement (Patch 1):
+- Proactively configures Root Port MPS during host controller probing
+- Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
+- Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
+- Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
+- Preserves standard MPS negotiation during downstream enumeration
+
+2.  Driver cleanup (Patch 2):
+- Removes redundant MPS configuration from Meson PCIe controller driver
+- Functionality is now centralized in PCI core
+- Simplifies driver maintenance long-term
+
 ---
- drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
- 1 file changed, 17 deletions(-)
+Changes for v6:
+- Modify the commit message and comments. (Bjorn)
+- Patch 1/2 code logic: Add !bridge check to configure MPS only for Root Ports
+  without an upstream bridge (root bridges), avoiding incorrect handling of
+  non-root-bridge Root Ports (Niklas).
 
-diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
-index 787469d1b396..3d12e1a9bb0c 100644
---- a/drivers/pci/controller/dwc/pci-meson.c
-+++ b/drivers/pci/controller/dwc/pci-meson.c
-@@ -261,22 +261,6 @@ static int meson_size_to_payload(struct meson_pcie *mp, int size)
- 	return fls(size) - 8;
- }
- 
--static void meson_set_max_payload(struct meson_pcie *mp, int size)
--{
--	struct dw_pcie *pci = &mp->pci;
--	u32 val;
--	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
--	int max_payload_size = meson_size_to_payload(mp, size);
--
--	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
--	val &= ~PCI_EXP_DEVCTL_PAYLOAD;
--	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
--
--	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
--	val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
--	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
--}
--
- static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
- {
- 	struct dw_pcie *pci = &mp->pci;
-@@ -381,7 +365,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp *pp)
- 
- 	pp->bridge->ops = &meson_pci_ops;
- 
--	meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
- 	meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
- 
- 	return 0;
+Changes for v5:
+https://patchwork.kernel.org/project/linux-pci/patch/20250620155507.1022099-1-18255117159@163.com/
+
+- Use pcie_set_mps directly instead of pcie_write_mps.
+- The patch 1 commit message were modified.
+
+Changes for v4:
+https://patchwork.kernel.org/project/linux-pci/patch/20250510155607.390687-1-18255117159@163.com/
+
+- The patch [v4 1/2] add a comment to explain why it was done this way.
+- The patch [v4 2/2] have not been modified.
+- Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
+  that this patch cannot be submitted. In addition, Mani also suggests
+  dropping this patch until this series of issues is resolved.
+
+Changes for v3:
+https://patchwork.kernel.org/project/linux-pci/patch/20250506173439.292460-1-18255117159@163.com/
+
+- The new split is patch 2/3 and 3/3.
+- Modify the patch 1/3 according to Niklas' suggestion.
+
+Changes for v2:
+https://patchwork.kernel.org/project/linux-pci/patch/20250425095708.32662-1-18255117159@163.com/
+
+- According to the Maintainer's suggestion, limit the setting of MPS
+  changes to platforms with controller drivers.
+- Delete the MPS code set by the SOC manufacturer.
+---
+
+Hans Zhang (2):
+  PCI: Configure Root Port MPS during host probing
+  PCI: dwc: Remove redundant MPS configuration
+
+ drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+ drivers/pci/probe.c                    | 12 ++++++++++++
+ 2 files changed, 12 insertions(+), 17 deletions(-)
+
+
+base-commit: 691d401c7e0e5ea34ac6f8151bc0696db1b2500a
 -- 
 2.34.1
 
