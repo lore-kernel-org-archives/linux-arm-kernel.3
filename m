@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73AA4CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 17:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF527CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 17:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIzgPeLDxlIAFfaEWdgmDadVw/Zopxecuu6GllNIqCg=; b=Tij07OC1ZUpyRLMlEf4KHCtovX
-	Aag7ReYtfczY//7HHtsyTcDz5LEzWfZDjMhTTBKq0vGj44fsqb9d7Q7j6r2UVgRvSgsPYbqu/Iyi1
-	a2OIKtpUpFPd7JgrcrXzkxnGYdfWF8BborDp6gFbK6OXe5/5CgH5OirQFOiZUUSZ9VA/x4Bn0fTWf
-	hypQp4dun0WMFTPzlDqeYVZneWQJwiLtyTg3hQbX4xPruOohrR1idvpOSKwgUmClWkCoKW8E/yBx+
-	N+JSrqtfiHj1dhiYC2VUj0MBqPkmnV9QyGsYzypN11ozM0Y6okHk54D/UsYu3Kmd++E+nIXyRqJRY
-	bCx4MOfw==;
+	bh=H1XSY0vT6OMbSFwYM3WYl0nmIcd2JaGA5/JSzPeHm6U=; b=xRx+zQ4BAvqq3JgIeXlUQTKUE9
+	1oquDxnGg5P9uFArsppWJI+KNSnS04PTZM8hLXO+Ka1HZu8pac+QUg+FtTPYxVTIy0wxZR8ThyqXD
+	gftttjxzt5JQ31yYmijocNPtrWM62YWSohRaqLnvMBjjPro/9VMzGLqfvOdfFC7DbrlxkFPKmCcAE
+	dXQ+M+TfjMD+7o6zZrl88rp1pZLRVx3JnOLAQiIiGZ/NxIEsjEXbu0PwmiovnfVy3MI1iO2OkgAEA
+	aj9h+ppklil9J0zhZwmvIMeNcQVY5CMYsMOh0YM/9fNnUjMrsCpWyHi4G2jDCocMKGfe8XsQk+5ci
+	n9T2uBoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKjx-0000000CGLv-37ux;
-	Tue, 04 Nov 2025 17:22:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGKkY-0000000CGRC-0TNp;
+	Tue, 04 Nov 2025 17:23:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGKju-0000000CGLD-0QGi
+	id 1vGKkX-0000000CGQx-2708
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 17:22:40 +0000
+	Tue, 04 Nov 2025 17:23:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67244439C0;
-	Tue,  4 Nov 2025 17:22:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39F99C4CEF7;
-	Tue,  4 Nov 2025 17:22:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8FB52601FE;
+	Tue,  4 Nov 2025 17:23:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E99B8C4CEF7;
+	Tue,  4 Nov 2025 17:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762276957;
-	bh=iUZ3N3RHvseLx+CotbOn+5bZMf+u+c4VO9Kg+qOLrVA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=SfOW3hyLAuC+DmP6QnLsMcVsa4W8zvFii49QP6kZ6T0IW37/W0a9tr2yBoC/olCl+
-	 fQvpdKsn5uA9bn4zeTkCXV1nrgx5VofgcGP0dY69jimF+hjKRvvDjMSvbnlHcMJv0Z
-	 mYQGUSZ7xvN+skE97lNcaFO9TS1ZoxGHR4fv7foWceAytGmfYzSL3Mc9FVBpatsbZQ
-	 5EyYa2AwW9N6SoYq27syR1LwqMXCZWvSfraihWjibmbRWdoxLruqjnQKw7JF6AEydQ
-	 mzr8vdyeAwRxzijaddtW91G4mKwqBwYRRHxNBFrCuTsSmksKV1Pl0Du1ZmsiQ9mMMJ
-	 h6Gf9f7KT5pSQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vGKjr-00000002MrK-0GNT;
-	Tue, 04 Nov 2025 17:22:35 +0000
-Date: Tue, 04 Nov 2025 17:22:34 +0000
-Message-ID: <86ecqdvhk5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	vladimir.murzin@arm.com
-Subject: Re: [PATCH v1 2/8] KVM: arm64: Trap access to ALLINT if FEAT_NMI not supported by the guest
-In-Reply-To: <CA+EHjTw7KnXVKeyxd4kNysAOMZrJniuBdCNGV=NoWodc3H-rMw@mail.gmail.com>
-References: <20251104125906.1919426-1-tabba@google.com>
-	<20251104125906.1919426-3-tabba@google.com>
-	<86h5v9vnfc.wl-maz@kernel.org>
-	<CA+EHjTw7KnXVKeyxd4kNysAOMZrJniuBdCNGV=NoWodc3H-rMw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, vladimir.murzin@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_092238_179099_9AF1B649 
-X-CRM114-Status: GOOD (  32.03  )
+	s=k20201202; t=1762276996;
+	bh=E5LlO3nuIGMGzEZzuymHEqptWv1aueAZNyEcApu+pa0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HaetDQwrl/7Fkot0PU9d+nSTeVzFdfuXVDZmdtpJpJVeBaaA0klVmA1eENrt1+e+5
+	 TvhgjKUbjrZtovhEDg0p/Am7ivqIXvS57RaliFTnO9C2HOAGLORQ+0s4yJ1549qzi5
+	 gnwahsmhyujkKSeMLxE7Jq6+mB8ZvHH3Eqy2gdJKkij38H6iV88jCabEwF+N90TP+d
+	 nkBwS/85Hd9v0+6QjTt5T3ckOMj14HwnAD/nWS9HVhCHfN326C9iagieA4W0sQaU1i
+	 OHNav7/x0N7m+JDB2QKDKumsi6pntWjK6Fai4t3GiS1oW6jXuTiAMboyPolY1CBmjo
+	 4EbUobAL5zV1w==
+Date: Tue, 4 Nov 2025 17:23:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: linux@roeck-us.net, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+	linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/2] dt-bindings: hwmon: Add AST2700 compatible
+Message-ID: <20251104-grumbling-document-6483add9415e@spud>
+References: <20251104055112.2679087-1-billy_tsai@aspeedtech.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EAVUn09jG7fwpxUy"
+Content-Disposition: inline
+In-Reply-To: <20251104055112.2679087-1-billy_tsai@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,63 +72,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Nov 2025 15:30:34 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Tue, 4 Nov 2025 at 15:15, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Tue, 04 Nov 2025 12:59:00 +0000,
-> > Fuad Tabba <tabba@google.com> wrote:
-> > >
-> > > Access to ALLINT is part of FEAT_NMI. If a guest does not support this
-> > > feature, any access to this register must be trapped to the hypervisor
-> > > (EL2).
-> > >
-> > > KVM didn't configure this trap, potentially allowing a guest to toggle
-> > > all interrupt mask when it doesn't support FEAT_NMI. Fix this by
-> > > checking if the guest has FEAT_NMI support.
-> > >
-> > > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > > ---
-> > >  arch/arm64/include/asm/kvm_emulate.h | 3 +++
-> > >  1 file changed, 3 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> > > index 0f8311263edf..3fc62808c548 100644
-> > > --- a/arch/arm64/include/asm/kvm_emulate.h
-> > > +++ b/arch/arm64/include/asm/kvm_emulate.h
-> > > @@ -688,6 +688,9 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
-> > >               else
-> > >                       vcpu->arch.hcrx_el2 |= HCRX_EL2_MCE2;
-> > >
-> > > +             if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, NMI, IMP))
-> > > +                     vcpu->arch.hcrx_el2 |= HCRX_EL2_TALLINT;
-> > > +
-> > >               if (kvm_has_tcr2(kvm))
-> > >                       vcpu->arch.hcrx_el2 |= HCRX_EL2_TCR2En;
-> > >
-> >
-> > I think this is moving in the wrong direction. We have for quite some
-> > time now tried to automatically derive these behaviours from the guest
-> > config, as we do for FGUs.
-> >
-> > I would like to see a similar behaviour being introduced for non-FGT
-> > bits so that we don't have to worry about these things anymore.
-> 
-> I agree that we should make this more like FGT, but since that will
-> likely require a bit more time (and probably a couple of respins),
-> should we fix the HCRX traps as they are now?
 
-I don't think this is fixing anything. Where does the trap go? There
-is no triaging, no handling. At the very least, this needs to be
-defined.
+--EAVUn09jG7fwpxUy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
+On Tue, Nov 04, 2025 at 01:51:11PM +0800, Billy Tsai wrote:
+> Adds support for the AST2700 PWM/Tach controller by extending the
+> compatible string enumeration in the device tree binding.
+>=20
+> The AST2700 PWM/Tach hardware is compatible with the existing binding
+> schema and requires no additional properties or modifications beyond
+> the new compatible string.
 
-	M.
+With this commit message, I expected there to be a fallback compatible.
+Why isn't one used?
 
--- 
-Without deviation from the norm, progress is not possible.
+>=20
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+> ---
+>  Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.y=
+aml b/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml
+> index 9e5ed901ae54..d6ff4182085e 100644
+> --- a/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml
+> +++ b/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml
+> @@ -20,6 +20,7 @@ properties:
+>    compatible:
+>      enum:
+>        - aspeed,ast2600-pwm-tach
+> +      - aspeed,ast2700-pwm-tach
+> =20
+>    reg:
+>      maxItems: 1
+> --=20
+> 2.25.1
+>=20
+
+--EAVUn09jG7fwpxUy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQo2fwAKCRB4tDGHoIJi
+0sYTAQDbftqnYaV1ZmhlGS+OCOMPY79jqcr4MOlskykoteVUhgD6AqEmQ/T3y0h7
+Z5h+xKS/iDZ9j7HhE/bIphciTJDIMgQ=
+=uT06
+-----END PGP SIGNATURE-----
+
+--EAVUn09jG7fwpxUy--
 
