@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FF2CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761B3CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 09:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xXceKPMp8UFg2aPwvJeptDALB/4lrD/age8qUK3AD0=; b=ENk3fT0VIPqdkJngIwTnDivIcx
-	iAwskygNnPzH5TQz+4DKb37WH4/O/bPfTa2w+3wqwAfgCJaSPHj/nT4F1o2cW8mbcchjkPALrx2U8
-	ifc0fzgaSqg5uR0AU99JupfZF+Q+oFp9Cj63yM0iznb89MXYc4ikGfCBx1wUyOADeknU6fh3Y1Hug
-	BHhHNAYErejIkOhdD4klToMTAeU1WlgWBuTYmkmU6OttCgmGRFFZDletJe3VSOccGqv2xDcV82NWJ
-	s8+t6vKjEyLhd8fPtqzagYRPFokdZjfV+J+w5rqtGW4u04cYcIvXV4z+uLT7bxoRDuGo9ORK6yJ/9
-	feRLe8KQ==;
+	bh=VMlfAlUP9v3JsGfjULVG+gf8uvtLv81h4yynv7rUlLA=; b=JBE3LoDaLMWXsufJFjcLUZTsSr
+	t7yqiwd6xiCo833eS8hXqwEkljEUCdWTk/qg/KOMt6gI52g9mH2OceNxm22v/WD6O0yDJ4Mi7aiBR
+	uRb12Dyn9V1JmFLgE2sjRfAd4tA8j3ooq/49lvIAQedHQ95CafkgR9FXRSJdbx7/ADcHbElgDI4Lb
+	W4CSE+/4pmAVf8OSxy4eMGkt6DlmqZpcWMKw/Ia2WKD4dmy2KaIUlhmOXo7wl9XGykKWBGvebJvbG
+	LYQPVBgtmoI4TeBNvC4f3epsFDC6j6GkuqrJ5KNoJ9/grToie+tmOt9VquhF0rPDl+YK53qQlw3zN
+	VKEb9OHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDlj-0000000BZ9R-34xV;
-	Tue, 04 Nov 2025 09:56:03 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1vGDlk-0000000BZ9r-09Pb;
+	Tue, 04 Nov 2025 09:56:04 +0000
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDlf-0000000BZ6G-0YRa
+	id 1vGDlf-0000000BZ6T-0YFl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 09:56:01 +0000
+	Tue, 04 Nov 2025 09:56:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1762250154; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=/xXceKPMp8UFg2aPwvJeptDALB/4lrD/age8qUK3AD0=;
-	b=n4aJo2qNGWd4E6LBKb84/TzZC6+RREkjmW+xrAMaw/zDAScN6upVTIei3ZgLpD4NrdgfZe7wr3NzWkAZysxZXUuqto2HgsS0XijMr8NrYQzeSGfEw4ChYlSDzg9nd7qDUCQe156gt0Lwp/3ACghHjoyu40qcQ0D8Afk0FxwX4Xs=
-Received: from localhost.localdomain(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WrgsU9X_1762250151 cluster:ay36)
+	t=1762250155; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=VMlfAlUP9v3JsGfjULVG+gf8uvtLv81h4yynv7rUlLA=;
+	b=YoRKdPLRUOPYt8heKR/ZBTtFOWJEMBgFD5//ENL5eaAYdup0asKv/HBzarHPIgd48Cca+3JmDJWafyqTX16j9YqOSPUYwX5mxHMQRH2iufJ0/jEA6Sq9JcPV37zZ+21wzS378GLF+Gh+gwaGrLq2qTaZA1pSGA2je15dTyfhllE=
+Received: from localhost.localdomain(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WrgsU9w_1762250152 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 04 Nov 2025 17:55:51 +0800
+          Tue, 04 Nov 2025 17:55:52 +0800
 From: Huang Ying <ying.huang@linux.alibaba.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@redhat.com>
 Cc: Huang Ying <ying.huang@linux.alibaba.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Barry Song <baohua@kernel.org>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
 	Vlastimil Babka <vbabka@suse.cz>,
 	Zi Yan <ziy@nvidia.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
 	Yang Shi <yang@os.amperecomputing.com>,
 	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
 	Dev Jain <dev.jain@arm.com>,
-	Barry Song <baohua@kernel.org>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	Kefeng Wang <wangkefeng.wang@huawei.com>,
 	Kevin Brodsky <kevin.brodsky@arm.com>,
@@ -57,17 +57,17 @@ Cc: Huang Ying <ying.huang@linux.alibaba.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [PATCH -v4 1/2] mm: add spurious fault fixing support for huge pmd
-Date: Tue,  4 Nov 2025 17:55:15 +0800
-Message-Id: <20251104095516.7912-2-ying.huang@linux.alibaba.com>
+Subject: [PATCH -v4 2/2] arm64, tlbflush: don't TLBI broadcast if page reused in write fault
+Date: Tue,  4 Nov 2025 17:55:16 +0800
+Message-Id: <20251104095516.7912-3-ying.huang@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20251104095516.7912-1-ying.huang@linux.alibaba.com>
 References: <20251104095516.7912-1-ying.huang@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_015559_889956_EA6414BA 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20251104_015559_889556_E52058A4 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The page faults may be spurious because of the racy access to the page
-table.  For example, a non-populated virtual page is accessed on 2
-CPUs simultaneously, thus the page faults are triggered on both CPUs.
-However, it's possible that one CPU (say CPU A) cannot find the reason
-for the page fault if the other CPU (say CPU B) has changed the page
-table before the PTE is checked on CPU A.  Most of the time, the
-spurious page faults can be ignored safely.  However, if the page
-fault is for the write access, it's possible that a stale read-only
-TLB entry exists in the local CPU and needs to be flushed on some
-architectures.  This is called the spurious page fault fixing.
+A multi-thread customer workload with large memory footprint uses
+fork()/exec() to run some external programs every tens seconds.  When
+running the workload on an arm64 server machine, it's observed that
+quite some CPU cycles are spent in the TLB flushing functions.  While
+running the workload on the x86_64 server machine, it's not.  This
+causes the performance on arm64 to be much worse than that on x86_64.
 
-In the current kernel, there is spurious fault fixing support for pte,
-but not for huge pmd because no architectures need it. But in the
-next patch in the series, we will change the write protection fault
-handling logic on arm64, so that some stale huge pmd entries may
-remain in the TLB. These entries need to be flushed via the huge pmd
-spurious fault fixing mechanism.
+During the workload running, after fork()/exec() write-protects all
+pages in the parent process, memory writing in the parent process
+will cause a write protection fault.  Then the page fault handler
+will make the PTE/PDE writable if the page can be reused, which is
+almost always true in the workload.  On arm64, to avoid the write
+protection fault on other CPUs, the page fault handler flushes the TLB
+globally with TLBI broadcast after changing the PTE/PDE.  However, this
+isn't always necessary.  Firstly, it's safe to leave some stale
+read-only TLB entries as long as they will be flushed finally.
+Secondly, it's quite possible that the original read-only PTE/PDEs
+aren't cached in remote TLB at all if the memory footprint is large.
+In fact, on x86_64, the page fault handler doesn't flush the remote
+TLB in this situation, which benefits the performance a lot.
+
+To improve the performance on arm64, make the write protection fault
+handler flush the TLB locally instead of globally via TLBI broadcast
+after making the PTE/PDE writable.  If there are stale read-only TLB
+entries in the remote CPUs, the page fault handler on these CPUs will
+regard the page fault as spurious and flush the stale TLB entries.
+
+To test the patchset, make the usemem.c from
+vm-scalability (https://git.kernel.org/pub/scm/linux/kernel/git/wfg/vm-scalability.git).
+support calling fork()/exec() periodically.  To mimic the behavior of
+the customer workload, run usemem with 4 threads, access 100GB memory,
+and call fork()/exec() every 40 seconds.  Test results show that with
+the patchset the score of usemem improves ~40.6%.  The cycles% of TLB
+flush functions reduces from ~50.5% to ~0.3% in perf profile.
 
 Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Acked-by: David Hildenbrand <david@redhat.com>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Barry Song <baohua@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Cc: Vlastimil Babka <vbabka@suse.cz>
 Cc: Zi Yan <ziy@nvidia.com>
 Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
 Cc: Dev Jain <dev.jain@arm.com>
-Cc: Barry Song <baohua@kernel.org>
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
 Cc: Kevin Brodsky <kevin.brodsky@arm.com>
@@ -122,205 +139,146 @@ Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org
 ---
- include/linux/huge_mm.h |  2 +-
- include/linux/pgtable.h |  4 +++
- mm/huge_memory.c        | 33 ++++++++++++++--------
- mm/internal.h           |  2 +-
- mm/memory.c             | 62 ++++++++++++++++++++++++++++++-----------
- 5 files changed, 73 insertions(+), 30 deletions(-)
+ arch/arm64/include/asm/pgtable.h  | 14 +++++---
+ arch/arm64/include/asm/tlbflush.h | 56 +++++++++++++++++++++++++++++++
+ arch/arm64/mm/contpte.c           |  3 +-
+ arch/arm64/mm/fault.c             |  2 +-
+ 4 files changed, 67 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
-index f327d62fc985..887a632ce7a0 100644
---- a/include/linux/huge_mm.h
-+++ b/include/linux/huge_mm.h
-@@ -11,7 +11,7 @@ vm_fault_t do_huge_pmd_anonymous_page(struct vm_fault *vmf);
- int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
- 		  pmd_t *dst_pmd, pmd_t *src_pmd, unsigned long addr,
- 		  struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma);
--void huge_pmd_set_accessed(struct vm_fault *vmf);
-+bool huge_pmd_set_accessed(struct vm_fault *vmf);
- int copy_huge_pud(struct mm_struct *dst_mm, struct mm_struct *src_mm,
- 		  pud_t *dst_pud, pud_t *src_pud, unsigned long addr,
- 		  struct vm_area_struct *vma);
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 32e8457ad535..ee3148ef87f6 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1232,6 +1232,10 @@ static inline void arch_swap_restore(swp_entry_t entry, struct folio *folio)
- #define flush_tlb_fix_spurious_fault(vma, address, ptep) flush_tlb_page(vma, address)
- #endif
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 0944e296dd4a..9e1ff5195bde 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -130,12 +130,16 @@ static inline void arch_leave_lazy_mmu_mode(void)
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
  
-+#ifndef flush_tlb_fix_spurious_fault_pmd
-+#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp) do { } while (0)
-+#endif
-+
  /*
-  * When walking page tables, get the address of the next boundary,
-  * or the end address of the range if that comes earlier.  Although no
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 1d1b74950332..c7aeb639d063 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -1641,17 +1641,30 @@ vm_fault_t vmf_insert_folio_pud(struct vm_fault *vmf, struct folio *folio,
- EXPORT_SYMBOL_GPL(vmf_insert_folio_pud);
- #endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
- 
--void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
-+/**
-+ * touch_pmd - Mark page table pmd entry as accessed and dirty (for write)
-+ * @vma: The VMA covering @addr
-+ * @addr: The virtual address
-+ * @pmd: pmd pointer into the page table mapping @addr
-+ * @write: Whether it's a write access
-+ *
-+ * Return: whether the pmd entry is changed
-+ */
-+bool touch_pmd(struct vm_area_struct *vma, unsigned long addr,
- 	       pmd_t *pmd, bool write)
- {
--	pmd_t _pmd;
-+	pmd_t entry;
- 
--	_pmd = pmd_mkyoung(*pmd);
-+	entry = pmd_mkyoung(*pmd);
- 	if (write)
--		_pmd = pmd_mkdirty(_pmd);
-+		entry = pmd_mkdirty(entry);
- 	if (pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
--				  pmd, _pmd, write))
-+				  pmd, entry, write)) {
- 		update_mmu_cache_pmd(vma, addr, pmd);
-+		return true;
-+	}
-+
-+	return false;
- }
- 
- int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
-@@ -1841,18 +1854,14 @@ void huge_pud_set_accessed(struct vm_fault *vmf, pud_t orig_pud)
- }
- #endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
- 
--void huge_pmd_set_accessed(struct vm_fault *vmf)
-+bool huge_pmd_set_accessed(struct vm_fault *vmf)
- {
- 	bool write = vmf->flags & FAULT_FLAG_WRITE;
- 
--	vmf->ptl = pmd_lock(vmf->vma->vm_mm, vmf->pmd);
- 	if (unlikely(!pmd_same(*vmf->pmd, vmf->orig_pmd)))
--		goto unlock;
--
--	touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
-+		return false;
- 
--unlock:
--	spin_unlock(vmf->ptl);
-+	return touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
- }
- 
- static vm_fault_t do_huge_zero_wp_pmd(struct vm_fault *vmf)
-diff --git a/mm/internal.h b/mm/internal.h
-index 1561fc2ff5b8..27ad37a41868 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1402,7 +1402,7 @@ int __must_check try_grab_folio(struct folio *folio, int refs,
+- * Outside of a few very special situations (e.g. hibernation), we always
+- * use broadcast TLB invalidation instructions, therefore a spurious page
+- * fault on one CPU which has been handled concurrently by another CPU
+- * does not need to perform additional invalidation.
++ * We use local TLB invalidation instruction when reusing page in
++ * write protection fault handler to avoid TLBI broadcast in the hot
++ * path.  This will cause spurious page faults if stale read-only TLB
++ * entries exist.
   */
- void touch_pud(struct vm_area_struct *vma, unsigned long addr,
- 	       pud_t *pud, bool write);
--void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
-+bool touch_pmd(struct vm_area_struct *vma, unsigned long addr,
- 	       pmd_t *pmd, bool write);
+-#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
++#define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
++	local_flush_tlb_page_nonotify(vma, address)
++
++#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
++	local_flush_tlb_page_nonotify(vma, address)
  
  /*
-diff --git a/mm/memory.c b/mm/memory.c
-index 74b45e258323..6e5a08c4fd2e 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -6115,6 +6115,45 @@ static vm_fault_t wp_huge_pud(struct vm_fault *vmf, pud_t orig_pud)
- 	return VM_FAULT_FALLBACK;
+  * ZERO_PAGE is a global shared page that is always zero: used
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 18a5dc0c9a54..5c8f88fa5e40 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -249,6 +249,19 @@ static inline unsigned long get_trans_granule(void)
+  *		cannot be easily determined, the value TLBI_TTL_UNKNOWN will
+  *		perform a non-hinted invalidation.
+  *
++ *	local_flush_tlb_page(vma, addr)
++ *		Local variant of flush_tlb_page().  Stale TLB entries may
++ *		remain in remote CPUs.
++ *
++ *	local_flush_tlb_page_nonotify(vma, addr)
++ *		Same as local_flush_tlb_page() except MMU notifier will not be
++ *		called.
++ *
++ *	local_flush_tlb_contpte(vma, addr)
++ *		Invalidate the virtual-address range
++ *		'[addr, addr+CONT_PTE_SIZE)' mapped with contpte on local CPU
++ *		for the user address space corresponding to 'vma->mm'.  Stale
++ *		TLB entries may remain in remote CPUs.
+  *
+  *	Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
+  *	on top of these routines, since that is our interface to the mmu_gather
+@@ -282,6 +295,33 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
  }
  
-+/*
-+ * The page faults may be spurious because of the racy access to the
-+ * page table.  For example, a non-populated virtual page is accessed
-+ * on 2 CPUs simultaneously, thus the page faults are triggered on
-+ * both CPUs.  However, it's possible that one CPU (say CPU A) cannot
-+ * find the reason for the page fault if the other CPU (say CPU B) has
-+ * changed the page table before the PTE is checked on CPU A.  Most of
-+ * the time, the spurious page faults can be ignored safely.  However,
-+ * if the page fault is for the write access, it's possible that a
-+ * stale read-only TLB entry exists in the local CPU and needs to be
-+ * flushed on some architectures.  This is called the spurious page
-+ * fault fixing.
-+ *
-+ * Note: flush_tlb_fix_spurious_fault() is defined as flush_tlb_page()
-+ * by default and used as such on most architectures, while
-+ * flush_tlb_fix_spurious_fault_pmd() is defined as NOP by default and
-+ * used as such on most architectures.
-+ */
-+static void fix_spurious_fault(struct vm_fault *vmf,
-+			       enum pgtable_level ptlevel)
++static inline void __local_flush_tlb_page_nonotify_nosync(
++	struct mm_struct *mm, unsigned long uaddr)
 +{
-+	/* Skip spurious TLB flush for retried page fault */
-+	if (vmf->flags & FAULT_FLAG_TRIED)
-+		return;
-+	/*
-+	 * This is needed only for protection faults but the arch code
-+	 * is not yet telling us if this is a protection fault or not.
-+	 * This still avoids useless tlb flushes for .text page faults
-+	 * with threads.
-+	 */
-+	if (vmf->flags & FAULT_FLAG_WRITE) {
-+		if (ptlevel == PGTABLE_LEVEL_PTE)
-+			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
-+						     vmf->pte);
-+		else
-+			flush_tlb_fix_spurious_fault_pmd(vmf->vma, vmf->address,
-+							 vmf->pmd);
-+	}
++	unsigned long addr;
++
++	dsb(nshst);
++	addr = __TLBI_VADDR(uaddr, ASID(mm));
++	__tlbi(vale1, addr);
++	__tlbi_user(vale1, addr);
 +}
- /*
-  * These routines also need to handle stuff like marking pages dirty
-  * and/or accessed for architectures that don't do it in hardware (most
-@@ -6196,23 +6235,11 @@ static vm_fault_t handle_pte_fault(struct vm_fault *vmf)
- 	}
- 	entry = pte_mkyoung(entry);
- 	if (ptep_set_access_flags(vmf->vma, vmf->address, vmf->pte, entry,
--				vmf->flags & FAULT_FLAG_WRITE)) {
-+				vmf->flags & FAULT_FLAG_WRITE))
- 		update_mmu_cache_range(vmf, vmf->vma, vmf->address,
- 				vmf->pte, 1);
--	} else {
--		/* Skip spurious TLB flush for retried page fault */
--		if (vmf->flags & FAULT_FLAG_TRIED)
--			goto unlock;
--		/*
--		 * This is needed only for protection faults but the arch code
--		 * is not yet telling us if this is a protection fault or not.
--		 * This still avoids useless tlb flushes for .text page faults
--		 * with threads.
--		 */
--		if (vmf->flags & FAULT_FLAG_WRITE)
--			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
--						     vmf->pte);
--	}
-+	else
-+		fix_spurious_fault(vmf, PGTABLE_LEVEL_PTE);
- unlock:
- 	pte_unmap_unlock(vmf->pte, vmf->ptl);
- 	return 0;
-@@ -6309,7 +6336,10 @@ static vm_fault_t __handle_mm_fault(struct vm_area_struct *vma,
- 				if (!(ret & VM_FAULT_FALLBACK))
- 					return ret;
- 			} else {
--				huge_pmd_set_accessed(&vmf);
-+				vmf.ptl = pmd_lock(mm, vmf.pmd);
-+				if (!huge_pmd_set_accessed(&vmf))
-+					fix_spurious_fault(&vmf, PGTABLE_LEVEL_PMD);
-+				spin_unlock(vmf.ptl);
- 				return 0;
- 			}
- 		}
++
++static inline void local_flush_tlb_page_nonotify(
++	struct vm_area_struct *vma, unsigned long uaddr)
++{
++	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
++	dsb(nsh);
++}
++
++static inline void local_flush_tlb_page(struct vm_area_struct *vma,
++					unsigned long uaddr)
++{
++	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
++	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
++						(uaddr & PAGE_MASK) + PAGE_SIZE);
++	dsb(nsh);
++}
++
+ static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+ 					   unsigned long uaddr)
+ {
+@@ -472,6 +512,22 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+ 	dsb(ish);
+ }
+ 
++static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
++					   unsigned long addr)
++{
++	unsigned long asid;
++
++	addr = round_down(addr, CONT_PTE_SIZE);
++
++	dsb(nshst);
++	asid = ASID(vma->vm_mm);
++	__flush_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid,
++			     3, true, lpa2_is_enabled());
++	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
++						    addr + CONT_PTE_SIZE);
++	dsb(nsh);
++}
++
+ static inline void flush_tlb_range(struct vm_area_struct *vma,
+ 				   unsigned long start, unsigned long end)
+ {
+diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+index c0557945939c..589bcf878938 100644
+--- a/arch/arm64/mm/contpte.c
++++ b/arch/arm64/mm/contpte.c
+@@ -622,8 +622,7 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+ 			__ptep_set_access_flags(vma, addr, ptep, entry, 0);
+ 
+ 		if (dirty)
+-			__flush_tlb_range(vma, start_addr, addr,
+-							PAGE_SIZE, true, 3);
++			local_flush_tlb_contpte(vma, start_addr);
+ 	} else {
+ 		__contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
+ 		__ptep_set_access_flags(vma, addr, ptep, entry, dirty);
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index d816ff44faff..22f54f5afe3f 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -235,7 +235,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
+ 
+ 	/* Invalidate a stale read-only entry */
+ 	if (dirty)
+-		flush_tlb_page(vma, address);
++		local_flush_tlb_page(vma, address);
+ 	return 1;
+ }
+ 
 -- 
 2.39.5
 
