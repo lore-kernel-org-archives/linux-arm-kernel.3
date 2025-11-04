@@ -4,169 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068D7CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 02:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA685CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 02:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKD9/4u++4dc1PsBobs0R+YRbXFllA4uhEaOWYDIV6E=; b=z4MBz/BsSZh1RFSwt/K513ta71
-	mwfkd35eBUkpLIbEdOpkwWf2F0n1grZz2fTsGs+Yu1crhEgc7DoU04ZyqxNNtgnz5mMsUSoorSiVJ
-	u1594fZYSrZMA4CMu0h0o4HmB8XF9T5snQIHeDhDrsJkQi8O2wBKMWsTv6sZ4HqVRfj8fxyDKdVG0
-	0Q1eM77l1imICNCku9YHm13xg/UX3EG8UEQzlDTB0nQ6zYncgP8RzdxgmTKfqGG+jV/3ricmjdxTm
-	u4szfXtTB9JQUFmx9o7XzM3uulBe60wu4m4SahHNd2wGhJAuKJv5hfS4RUYMw4Kgy9WPIF44J1TYB
-	ropcG7gQ==;
+	bh=8gU4iu/jxMJVno8QaMCLdahHidjmz5hXR/hIiNJxZ5Q=; b=qrUnocIsnhHvcGClK2lE51iimF
+	q7tc/2wcJMjJ1ff33+4ZY7An6mgJ10fy8F2rUgOMsBTR5w+qO/Kx6t9J6nuQoYfgVBbk2Zk/nsGt9
+	qr201a8DVMuiTwn8PvHO4KCVGSwi9EhZF7yyeorrL8DxJojnhzPfFHQZnI3etlv8TVjOzYDtRwHtW
+	1kqBHf6WKk3ZIy1p+SIQfdMYmMNMP74GHDg+czDhOhhFN9m4K/QxXxvVCyx6ibkyKw8Y+bj+4mDWT
+	G6S70GJiaPKHBm8/1pViZHKsnUSlmsEubSHA+x9Zgwayz3/p8XKWslo4UUum+LIQpsVKVHOSCI0wE
+	dYoTBRNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG6x0-0000000AzVo-3h5q;
-	Tue, 04 Nov 2025 02:39:14 +0000
-Received: from mail-northeuropeazon11010071.outbound.protection.outlook.com ([52.101.84.71] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vG6xC-0000000AzYk-31wB;
+	Tue, 04 Nov 2025 02:39:26 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG6wx-0000000AzVQ-2LfU
+	id 1vG6xA-0000000AzXN-1KV8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 02:39:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ByOMS5bnvMYuiQmMgHgvNxntLfTRf57D5A1F2j6diXJsxy9uxDGjpnoMxxdV3HTZcJRtMCPfDkGk3G62AJLGhsOYF7oTNglUosww7b035l2JpDteUd7y9lhOSZ/JEEmK+uP6Im/YlB29DTPcu9wrYPNahoGRqfaVTQlWFv+p6c6Sg0COJJGSqmaAw/sxPCAm9m+2yTUHHCaGtyFhOvf56C4tUy+ZWEHrF1FgQrCVSJgcEYI7kO30lGFEbqGJ0XguKNNsMaAJkMbY41/vWWql0CltfImL5MUffyuWBv3/lysHvRnyQ4b0Mrszcvwvq0mzgwuML4m9rkdjPBG6dRCREA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KKD9/4u++4dc1PsBobs0R+YRbXFllA4uhEaOWYDIV6E=;
- b=xrcRdwNluZbvay6hIYa7Q8vv1Yo+d2kuf/5Q5aRrXNAD1DLltQd76b3VrRP49WfGuFeebXlfaNFSEkqMlhGTfei8bj+HdGLR52vKhIYOpXi+HQojOqs2fWTwN8UVs+aMGZCcAwSoY+1n1Mo5KaTLsppH/dS6+apHSPQVsfIrh2ufYjpxA2DG2L4Ycxb6Jl9klAlTc2+ALRKUcURBuiAdDducyqJV9fmx92l3OvE2UEwt3Aq80quwxlC98GYIkAIGRFnqrJXwo1sgGS3jkGBYMSY6DdDviHjkvYexqM865HVdhe8N17LwFkHjMyv26cuGzn4dY0r8xD6VRZZiBaD/ig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KKD9/4u++4dc1PsBobs0R+YRbXFllA4uhEaOWYDIV6E=;
- b=X3ntksFwbz3m33uNh/UAIc1KHJWT3XTwW+0SkWEOZv/S0LsybalBb2mW7j+EKT8wq3JZwz6O7B09He95sOgSp/JHtKiO54aolQS+ghOGV6XfWhXa4BCoCDxETA3KN+Jjc77ydZnSrfEHwek4keZFZJ8BR40pPGw1b3TAL9bUjgPlkSl1Gx5uTo0vw08eyjnB3PEj/n79vZCIlL7wBWInZChG75TqPQhNn4fdU2L0w2V+Vm6SrUrYOjm3opoqy+yjx2xktsHr+GZhC4gWhykYs4RkHcP4E4mkipCktU86OpoTzwkniCE6VwEH7lQ/irer4Hgap04llhKO3HslycwfIw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AS8PR04MB8359.eurprd04.prod.outlook.com (2603:10a6:20b:3b3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Tue, 4 Nov
- 2025 02:39:07 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9253.017; Tue, 4 Nov 2025
- 02:39:06 +0000
-Message-ID: <4beeffe0-6ae4-4039-9904-3ec318533a1d@nxp.com>
-Date: Tue, 4 Nov 2025 10:39:31 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/bridge: fsl-ldb: Parse register offsets from DT
-To: Marek Vasut <marek.vasut@mailbox.org>, dri-devel@lists.freedesktop.org
-Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20251102170257.65491-1-marek.vasut@mailbox.org>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20251102170257.65491-1-marek.vasut@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0105.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b5::7) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Tue, 04 Nov 2025 02:39:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=8gU4iu/jxMJVno8QaMCLdahHidjmz5hXR/hIiNJxZ5Q=; b=wzkJVWFwzWwRQDtieVeeWxvCTY
+	N+AVdOv9y4J3HJ14l+7IfSo/8GyV3CWeLDyPv/tzevlhm4ggiJ7lt7q8cYRnsp67nL4cgromDXfZC
+	0yE0P+zw8htEIQ4gZxOGG/tsE+54jXt0uNMLWeHNXowHaz9BfZhRgB8mk/hi39eZT8zA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vG6we-00Cqbf-KO; Tue, 04 Nov 2025 03:38:52 +0100
+Date: Tue, 4 Nov 2025 03:38:52 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Po-Yu Chuang <ratbert@faraday-tech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, taoren@meta.com
+Subject: Re: [PATCH net-next v3 1/4] dt-bindings: net: ftgmac100: Add delay
+ properties for AST2600
+Message-ID: <2424e7e9-8eef-43f4-88aa-054413ca63fe@lunn.ch>
+References: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
+ <20251103-rgmii_delay_2600-v3-1-e2af2656f7d7@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB8359:EE_
-X-MS-Office365-Filtering-Correlation-Id: 76d5cf79-43bb-4915-c8f4-08de1b4b5321
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R3hxZzdubFErZW9qd3Mrd1phakJFRXJNSklZNStkZGRBYVR5YkwwVFIvMzBo?=
- =?utf-8?B?WkpqbTFCV3U1VUxha3ZPUUNLeGVCMVI2ck9UZjBJc09zOEQyUUtFZHRxNFJQ?=
- =?utf-8?B?b2VhR1E2RW1MWlEwSFpmM3hubDA0dGFOdmxDdWZob2lSc1JCcXVXck1Od01G?=
- =?utf-8?B?V0J5ZFJoS0FxMnhTWnE5enUrcFZIUHJ4WmdaQ3BVZU9uZmd1SWxmbHBNNnNy?=
- =?utf-8?B?YkZjeDROaGpZWmhKbm5MbXdnWlNuSkJpc3VYd2FoejZXOGt3SEd2M1BudGtF?=
- =?utf-8?B?dUZsQ3dlbTdCa0hlQndjbmdnWk9EVXQyTHdhcHBHandkVktNbUNtaDNDUStp?=
- =?utf-8?B?R3d4TEFHYkNSenBzTGh3VWNwVnRPZ0xBOGVka05KVVRNNUQ4bGZVTmxsaGk1?=
- =?utf-8?B?Vmd3QkNxYkdpTkZqQzgrQS8yNmdZM0ZoZUQvRVovK0g4aG1PbXBDM05SY1Mz?=
- =?utf-8?B?MFRUZ0NrditTVUxjRFpEVHFHRGwxTlRsODV2UGF5OWM1cVluMWVPTDV0dDN0?=
- =?utf-8?B?WFc1bC95NnNRMUR0NVVLL2ZYMXh6UmlQMDhoNTVGSmhzRnk0ZVRhQWJ6N2c2?=
- =?utf-8?B?L2dWT2h0V0VkWHdEZkMrbTZKbDNxcngwbXlVQW5QZ1p6SkVCdWx0Wk81Tk1y?=
- =?utf-8?B?NFFzSnNXMzgxK0xROEFheXJPemtGclovcTBtTzRDUXIwWUNxRTcyNXJNc2Zj?=
- =?utf-8?B?WmFBSDJlWTZLc2pXR1hyWUcvNlE1czFQN0FYM2FCaVcrRktPUTN0a0Q1a202?=
- =?utf-8?B?WjFGNUFXMkdhZHRzczF4MkFWMFRGbE9yQjVBcDhoemFIUG1JNzhDa0JHb3Rh?=
- =?utf-8?B?WEVtNG9EOVRnUGdmVVhkUzVYWmY3cTRJTE1CNTZURjAybGlNSHRsd2lSZTUw?=
- =?utf-8?B?SU96ZFZZVW1VK2I3MnFhVjBlaVdyRlZXcmc1MlMwbTFSTHFZL0M0Ulc5NjF0?=
- =?utf-8?B?YzcxM2JCWjdoYy9pRmF2Z1NWM0NzblF6bXFhb05TQm03ang0UzRIc295WTBo?=
- =?utf-8?B?eWtOWDlqUjBBWXFGeXZxUnlYbXhzamdRQlR3THFWWTFkQXh4eW1BSVV2ZVl3?=
- =?utf-8?B?TnZwVmp4ZlB6Rk1yNXQ2K0dwaUdoZVQyci9WbWhoNEMwQ25Ka0tMM01XRy9y?=
- =?utf-8?B?aGhEUllObFlHbTB1d2pPWHZCVkJpUThRNGF2YThjS2F0VElDc3ZWSzRURDhM?=
- =?utf-8?B?dGVWYjVqNklidk9iV25wcUFkaHdRYVRDYWJNZEwwWUxyM0J3LzZYSUNKb3hu?=
- =?utf-8?B?aGExZlR0M20rU2dpa20xREViQjJ4aWZXSTRIRVhVK1pMT0xaaURIQ0hHK3U1?=
- =?utf-8?B?YUt6WmFtT2RyUzY1eEtGdnNiK2p1aUMybTZadUFhdU5MMEFVemEzcE9VOHp6?=
- =?utf-8?B?eXppK25rZGRKOThXdVRpTlpaeDNrS3NtNXZWaWZ2cHh4bExoZWNTWDE3VWVU?=
- =?utf-8?B?b3luQmRadE83Q1BnOHJOUGkwVkxLbGcvZllDNnFBd29EL3hXclVNZ1lEaHBz?=
- =?utf-8?B?eVl0TC9PMjh5aW42UHh0bTRsbjJ4elU2Uk5JYmMwVm0rd0ZvRTVkTFVxeWY1?=
- =?utf-8?B?QTREVHJ3NkN4VEhZNUozb0dnQzMxS0hHZTg3eE5LMk16ZHdwMUsvcmF4MFhQ?=
- =?utf-8?B?VDBRaDRlaVhudnc0R2E5bUM1bmM4V2hJWjZVZDFNMmZsMllyb2N5cnBUWjNL?=
- =?utf-8?B?UlJnTlNPenZ1cXpySTBnTTBhWkMvekdKT2VVcXRldkc4bUQ0UjFIMUdMNzFp?=
- =?utf-8?B?dDB4UFdWOElvbG1TSEUxM0V6Y1N0SEY1NWFZVXBhakpnMUp3Z1Z3TEUrVXA3?=
- =?utf-8?B?QnZBZWkwUDdUME9rbWhOdmRWRmpyT3orSDd3MmtSakRoQmR0dnhCUWZ0Q2ZT?=
- =?utf-8?B?RTRJTFJOclBkSkZoSDI3bjB2Zit4azJybzlQamhEZ0hQSkE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWpYRk8vSlRmN0U5VWU0bDN6bzJZZ2ZvdFhyR1Z4N0NOaXZCLzNkRHFJdmVi?=
- =?utf-8?B?ODN3TlpXbnNDYTFiVlRaM3J4RzFVYTNDZmg0REo3Z0REWW9yMWY3a3BjZ21m?=
- =?utf-8?B?eGFWMEN4VEc1MTcvWS9FTWo3WG1LcVBYbEI4SXEySDFDbUdlcVpZYUtndmZ1?=
- =?utf-8?B?bzI2MG5yK3JQUnFNbXE5T3pMSjRXQWt6Y1oxbE1yWEs1UGswU3oyOGxDOXZJ?=
- =?utf-8?B?ZWQ4c2xnL2ZpRFg1cU4xUVdmRmFLK0Z6MExaRjlNUkxNaWxwMmNFcTRVSVhN?=
- =?utf-8?B?aWhOd09kYVVManRURXpyY3ZFNDdEeThFRGUrQVlDM2V6cm9ITjlZdXlxZ0Fa?=
- =?utf-8?B?S3JBU084TzFsL1MyQW1MWE56d3JaaDQwWVZCclpVQWluZjFkOWtUZS9POFdZ?=
- =?utf-8?B?dzFzZUJIb3VVUFZGNmFVTkhSYklsVzBoNm1KME1wd09EWkpacERpUHpGSW1X?=
- =?utf-8?B?VG9nTmx0cEN2UHdJelREZmdqbksvaHFBcmlrbWJRWEk2RjY4NEZWbU1vaXNl?=
- =?utf-8?B?N010NlVubE9tRWNkK0t3UUJ1SkpHRWh5M2RiRVNpZzFheUlKeHBuVGFlY3RH?=
- =?utf-8?B?SU16R1J1OG9saUhHRDhiRjJzUVpWbzVEYVVDV1B5dWtpMVZ1ekJqZGdZYzNN?=
- =?utf-8?B?Zk5DSDcwWjUzVFJDVE9lMkVhbnFSTFJWQWppVC9nUlZrZEpBRUNJdjdwYjlO?=
- =?utf-8?B?ZmgxUkk2ZE5PbE16SWJ5L1AzZ2trZHk3M0ZyZ0V1Q0ZQUW9EVnlQdG90ZnFM?=
- =?utf-8?B?QnlkSUtsRWswSXFxSm1XZGlxeDQydExscUVvdXRDVEUrbW9iVlA0dW4vanZx?=
- =?utf-8?B?NENySHgrYkVSK1hTQm13eFdWV2VzWjBJWW10MjFKNWgxbmcwUjByemNLT1dJ?=
- =?utf-8?B?cGtGQUdQa0tSc3BaZ0MvcVk4NXNSQUpib0J0Z2pobG9mVi8yUW1EZU1uYndv?=
- =?utf-8?B?L09TMjJaVW5naWtwNjd0QnhXWVpMc2JGZE9UeHFoaXd1a010bldXTUlobWlj?=
- =?utf-8?B?bTRVNndDbU1ZdEpSakZBUUlwcUpjRCtjNnM3S3RWa043T3ZqY2dHOGoxSlZn?=
- =?utf-8?B?QUs1d0lORElEVmFyak5HWTBrMWZ2K2x0dGVxSFd5Q2hvbi9EekFqOHc4aFJF?=
- =?utf-8?B?NmU4VWNvNEZ3Ui9WTURqeUZEbmpaTzkrc3F6bk1oYnBpeXpzU052WW8rRVVp?=
- =?utf-8?B?TXZTcHZVb2UzWGk5eExCQ1c3aVh2Um9vMzNqRlkzMHBKVXhGZGVoZUdTVnBE?=
- =?utf-8?B?M3hTOGFKNC9EUm8wbmJXczgyMlc3NVN3bnVRRUtCVGt6VXdBTGRSVWJpQjJt?=
- =?utf-8?B?MU1LWkpReDFSbUlpVHhJVFJYdFZJdDloak80UElPY0FlUlFxVCtZQVkxOHBq?=
- =?utf-8?B?UTFQNXN6a3I1K2E3NUNiREJMUjFLUDd2TkJZV0dGRXRxL0YxUG1Ha0Q5aHBs?=
- =?utf-8?B?S1hCcWV6UjFsWDdFWVpIek43ZWcyZGRKWFc4UTlZekFvYTdJZDBxQjJMbStB?=
- =?utf-8?B?WnFPZXlML3hEM3o4UnZrbk9MYm9IZ2o0OGNVZ0ZZQ0tPZnBXRllaT3pFbWZI?=
- =?utf-8?B?MTBFWFRSb2FMcDJQZ1RlUHpZV0ZjUCtCTFBVMnh5NnBFcnF5enFrYlFTVEJM?=
- =?utf-8?B?QVBpL20yaC9YcUtwQ0JVcjJXbzJoWGhGZExrKzFsbHJzM09VeGZGUkEvbmE5?=
- =?utf-8?B?RUt6clJadFN4VHRib1lJTzlGNC9ick5TeEJyNjgyNHJkdlRkN21uWEtwbXdj?=
- =?utf-8?B?VmhMcDl1Y2ZQZlJ0UUVNeVpVdUU4WnlZZWJHb3U2aTltRy9ZRkx4bnF1SjRr?=
- =?utf-8?B?ZmpaNWlUczJvUlJhZEk4bThEWlVwUUdpbEx3NVRRWGFMK3B0V2VYaElKMDE3?=
- =?utf-8?B?aVhORVZMZHRISWZ1Z29ZVkxHTUNVUW9zN0orUDJ6bkpuTUxHcEZSays5eXBP?=
- =?utf-8?B?TXNaTWliZE9HV2YvMDFEa3Bjb1hMTWV0WDlSVmtTa3prZ0kzUklpYVJaUXJY?=
- =?utf-8?B?NGRrVlRIdnhqU3FXZ3drckFjbVFVUEhZOVFEUjVVa3dyTFBNZy9CYnBjVndj?=
- =?utf-8?B?d0ttV2hUY1NVM0pSWFV0ajVhSFVORUN2MVgwTHcxK1BMQ1Vsc2JYU01HT0Iv?=
- =?utf-8?Q?5bxEqiJ7mNvV06dZNstl5NpQY?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76d5cf79-43bb-4915-c8f4-08de1b4b5321
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 02:39:06.5725
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2pLqa6XU+AKiRwMpwguNSJEHuBjCU5Q9lVVBjJxdruew43TsE+NYTyKE3OCtNtIx1ImRcyofKvNOKFJhf8EPgQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8359
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251103-rgmii_delay_2600-v3-1-e2af2656f7d7@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_183911_753879_1C987C65 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20251103_183924_361443_19E6F984 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,194 +80,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/3/25 01:02, Marek Vasut wrote:
-> The DT binding for this bridge describe register offsets for the LDB,
-
-I'm repeating my comment on v1:
-s/describe/describes/
-
-> parse the register offsets from DT instead of hard-coding them in the
-> driver. No functional change.
+On Mon, Nov 03, 2025 at 03:39:16PM +0800, Jacky Chou wrote:
+> Create the new compatibles to identify AST2600 MAC0/1 and MAC3/4.
+> Add conditional schema constraints for Aspeed AST2600 MAC controllers:
+> - For "aspeed,ast2600-mac01", require rx/tx-internal-delay-ps properties
+>   with 45ps step.
+> - For "aspeed,ast2600-mac23", require rx/tx-internal-delay-ps properties
+>   with 250ps step.
+> - Both require the "scu" property.
+> Other compatible values remain unrestricted.
 > 
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 > ---
-> Cc: Abel Vesa <abelvesa@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-clk@vger.kernel.org
-> ---
-> V2: - Switch to of_property_read_reg()
->     - Parse single-register LDB variants from DT too
-> ---
->  drivers/gpu/drm/bridge/fsl-ldb.c | 58 ++++++++++++++++++++------------
->  1 file changed, 36 insertions(+), 22 deletions(-)
+>  .../devicetree/bindings/net/faraday,ftgmac100.yaml | 50 ++++++++++++++++++++++
+>  1 file changed, 50 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
-> index 5c3cf37200bce..2357cb2fbbe39 100644
-> --- a/drivers/gpu/drm/bridge/fsl-ldb.c
-> +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
-> @@ -8,6 +8,7 @@
->  #include <linux/mfd/syscon.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_address.h>
->  #include <linux/of_graph.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
-> @@ -61,24 +62,13 @@ enum fsl_ldb_devtype {
->  };
+> diff --git a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+> index d14410018bcf..de646e7e3bca 100644
+> --- a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+> +++ b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+> @@ -19,6 +19,12 @@ properties:
+>                - aspeed,ast2500-mac
+>                - aspeed,ast2600-mac
+>            - const: faraday,ftgmac100
+> +      - items:
+> +          - enum:
+> +              - aspeed,ast2600-mac01
+> +              - aspeed,ast2600-mac23
+> +          - const: aspeed,ast2600-mac
+> +          - const: faraday,ftgmac100
 >  
->  struct fsl_ldb_devdata {
-> -	u32 ldb_ctrl;
-> -	u32 lvds_ctrl;
->  	bool lvds_en_bit;
-> -	bool single_ctrl_reg;
->  };
+>    reg:
+>      maxItems: 1
+> @@ -69,6 +75,12 @@ properties:
+>    mdio:
+>      $ref: /schemas/net/mdio.yaml#
 >  
->  static const struct fsl_ldb_devdata fsl_ldb_devdata[] = {
-
-As I pointed out in v1 comment, this patch should remove struct
-fsl_ldb_devdata.
-
-> -	[IMX6SX_LDB] = {
-> -		.ldb_ctrl = 0x18,
-> -		.single_ctrl_reg = true,
-> -	},
-> -	[IMX8MP_LDB] = {
-> -		.ldb_ctrl = 0x5c,
-> -		.lvds_ctrl = 0x128,
-> -	},
-> +	[IMX6SX_LDB] = { },
-> +	[IMX8MP_LDB] = { },
->  	[IMX93_LDB] = {
-> -		.ldb_ctrl = 0x20,
-> -		.lvds_ctrl = 0x24,
->  		.lvds_en_bit = true,
->  	},
->  };
-> @@ -90,8 +80,11 @@ struct fsl_ldb {
->  	struct clk *clk;
->  	struct regmap *regmap;
->  	const struct fsl_ldb_devdata *devdata;
-> +	u64 ldb_ctrl;
-> +	u64 lvds_ctrl;
->  	bool ch0_enabled;
->  	bool ch1_enabled;
-> +	bool single_ctrl_reg;
->  };
->  
->  static bool fsl_ldb_is_dual(const struct fsl_ldb *fsl_ldb)
-> @@ -204,15 +197,15 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
->  		reg |=	(fsl_ldb->ch0_enabled ? LDB_CTRL_DI0_VSYNC_POLARITY : 0) |
->  			(fsl_ldb->ch1_enabled ? LDB_CTRL_DI1_VSYNC_POLARITY : 0);
->  
-> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, reg);
-> +	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, reg);
->  
-> -	if (fsl_ldb->devdata->single_ctrl_reg)
-> +	if (fsl_ldb->single_ctrl_reg)
->  		return;
->  
->  	/* Program LVDS_CTRL */
->  	reg = LVDS_CTRL_CC_ADJ(2) | LVDS_CTRL_PRE_EMPH_EN |
->  	      LVDS_CTRL_PRE_EMPH_ADJ(3) | LVDS_CTRL_VBG_EN;
-> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
-> +	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
->  
->  	/* Wait for VBG to stabilize. */
->  	usleep_range(15, 20);
-> @@ -220,7 +213,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
->  	reg |=	(fsl_ldb->ch0_enabled ? LVDS_CTRL_CH0_EN : 0) |
->  		(fsl_ldb->ch1_enabled ? LVDS_CTRL_CH1_EN : 0);
->  
-> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
-> +	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
->  }
->  
->  static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
-> @@ -231,12 +224,12 @@ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
->  	/* Stop channel(s). */
->  	if (fsl_ldb->devdata->lvds_en_bit)
->  		/* Set LVDS_CTRL_LVDS_EN bit to disable. */
-> -		regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl,
-> +		regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl,
->  			     LVDS_CTRL_LVDS_EN);
->  	else
-> -		if (!fsl_ldb->devdata->single_ctrl_reg)
-> -			regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, 0);
-> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, 0);
-> +		if (!fsl_ldb->single_ctrl_reg)
-> +			regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, 0);
-> +	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, 0);
->  
->  	clk_disable_unprepare(fsl_ldb->clk);
->  }
-> @@ -296,7 +289,7 @@ static int fsl_ldb_probe(struct platform_device *pdev)
->  	struct device_node *remote1, *remote2;
->  	struct drm_panel *panel;
->  	struct fsl_ldb *fsl_ldb;
-> -	int dual_link;
-> +	int dual_link, idx, ret;
->  
->  	fsl_ldb = devm_drm_bridge_alloc(dev, struct fsl_ldb, bridge, &funcs);
->  	if (IS_ERR(fsl_ldb))
-> @@ -309,6 +302,27 @@ static int fsl_ldb_probe(struct platform_device *pdev)
->  	fsl_ldb->dev = &pdev->dev;
->  	fsl_ldb->bridge.of_node = dev->of_node;
->  
-> +	/* No "reg-names" property likely means single-register LDB */
-> +	idx = of_property_match_string(dev->of_node, "reg-names", "ldb");
-
-You don't need to match reg-names.  Instead, just call of_property_read_reg()
-twice to get the first reg and the second reg by passing indexes 0 and 1 to it.
-If the second reg is not found, then set fsl_ldb->single_ctrl_reg to true.
-
-It would be good to take this chance to clean up reg and reg-names properties
-in fsl,ldb.yaml.  See this complaint:
-
-DTC [C] arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtb
-arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtb: bridge@18 (fsl,imx6sx-ldb): reg: [[24, 4]] is too short
-	from schema $id: http://devicetree.org/schemas/display/bridge/fsl,ldb.yaml#
-
-
-> +	if (idx < 0) {
-> +		fsl_ldb->single_ctrl_reg = true;
-> +		idx = 0;
-> +	}
+> +  scu:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the SCU (System Control Unit) syscon node for Aspeed platform.
+> +      This reference is used by the MAC controller to configure the RGMII delays.
 > +
-> +	ret = of_property_read_reg(dev->of_node, idx, &fsl_ldb->ldb_ctrl, NULL);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!fsl_ldb->single_ctrl_reg) {
-> +		idx = of_property_match_string(dev->of_node, "reg-names", "lvds");
-> +		if (idx < 0)
-> +			return idx;
-> +
-> +		ret = of_property_read_reg(dev->of_node, idx, &fsl_ldb->lvds_ctrl, NULL);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	fsl_ldb->clk = devm_clk_get(dev, "ldb");
->  	if (IS_ERR(fsl_ldb->clk))
->  		return PTR_ERR(fsl_ldb->clk);
+>  required:
+>    - compatible
+>    - reg
+> @@ -88,6 +100,44 @@ allOf:
+>      else:
+>        properties:
+>          resets: false
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: aspeed,ast2600-mac01
+> +    then:
+> +      properties:
+> +        rx-internal-delay-ps:
+> +          minimum: 0
+> +          maximum: 1395
+> +          multipleOf: 45
 
+I would add a default: 0
 
--- 
-Regards,
-Liu Ying
+> +        tx-internal-delay-ps:
+> +          minimum: 0
+> +          maximum: 1395
+> +          multipleOf: 45
+
+and also here.
+
+> +      required:
+> +        - scu
+> +        - rx-internal-delay-ps
+> +        - tx-internal-delay-ps
+
+and then these are not required, but optional.
+
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: aspeed,ast2600-mac23
+> +    then:
+> +      properties:
+> +        rx-internal-delay-ps:
+> +          minimum: 0
+> +          maximum: 7750
+> +          multipleOf: 250
+> +        tx-internal-delay-ps:
+> +          minimum: 0
+> +          maximum: 7750
+> +          multipleOf: 250
+> +      required:
+> +        - scu
+> +        - rx-internal-delay-ps
+> +        - tx-internal-delay-ps
+
+Same again here.
+
+	Andrew
 
