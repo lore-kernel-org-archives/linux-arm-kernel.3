@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBE7CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2598CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 03:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRIS9Quy51a3mNw2C7dYSGFB2RcLs93hOIiFJCI5w1w=; b=0r0YXUoO4/sGSAlH6xuBuvZjVG
-	pFxsz1KjHOZy5SqDN/EmrF/YlZ0yGCmuyg3BENvpebgwSlXQCSAHTYvqIjLwKohDGRdX05n5pGaZ2
-	n4Ra9dV6ADJKjWnjZny9yembKAOA52JJzD+C0JwaCzWuQS8WmlP8XFXX/+hZfRwzJQwxpjtKvWZKr
-	A8rHgFUPanzzZA7jXhMHmu4ChJQ5MxVnzGuff9/jT3xBozOwR73bF4jXlQHETBEHogeO/PaK6Xb6T
-	9pKRHcuXQ46k0ani2wzs5VaOoAFjEom85CHkNiBgSKgn5S+CzOifHSS8eJYXB8Cr8G4r9G0bTuaUj
-	tAxmb9wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/LVRVU1wb4ki3KWvhjOwWIYph+e4orXiwLs8iLuRhYs=; b=qWYabg5V8PH9x0zRufZXA+9WmJ
+	PU5gHijRgyg1S3F0QBkuZ58tjGzRgT35WX14ngv0R+sdMCTaAK9D2qlriKWmY6r8gvYj/UwvsdP7J
+	46T/10rr+RQwVrxm0XoIMQS79y832r77FViX1YnZwkGbLbqAxwAUcsTv3Ca7Mebd8Cl46HV+HBDvC
+	NYjHRHKRBhU/ASrgPUu32nEp+f4kVJtPYgTmIbWk3evmbrhd2Q5FjNVo2MbVeGKfll996o98dgooH
+	D1g+tlExzLALenC0j0HZcnwmt1rAWJ3ZXn7XBJgTwxB/BRwo7wR4JukYvEDXb3TSbX8rD1MbkMRfA
+	QW7IY7Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7WP-0000000B2VR-3PZD;
-	Tue, 04 Nov 2025 03:15:49 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vG7Wn-0000000B2c9-0ahJ;
+	Tue, 04 Nov 2025 03:16:13 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG7WK-0000000B2Tf-1urk;
-	Tue, 04 Nov 2025 03:15:47 +0000
-X-UUID: 8b9aaa66b92c11f0a52f393f94899d25-20251103
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=yRIS9Quy51a3mNw2C7dYSGFB2RcLs93hOIiFJCI5w1w=;
-	b=Rs5Uao0s8TyLHYaLLyEZQ7G9D0ZWI15aAru4eP/eyQx9bxKQE45hzRrc43DzfF4TC7FdqtiqtClc3Mgp6fI6kW0ucop2oqp7kPXWUTb+9tAS7V51EFOu56YeZdgEPyMAKO6gcPUQXwnWyrF1kB2BzaY94KC7zLg5DuUOvaxJoGs=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:fbdc5e09-12b1-43dc-800b-2dcf376ef2dd,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:1078e07c-f9d7-466d-a1f7-15b5fcad2ce6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8b9aaa66b92c11f0a52f393f94899d25-20251103
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <niklaus.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 40326313; Mon, 03 Nov 2025 20:15:42 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Tue, 4 Nov 2025 11:15:39 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Tue, 4 Nov 2025 11:15:39 +0800
-From: niklaus.liu <Niklaus.Liu@mediatek.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, <zhigang.qin@mediatek.com>, <sen.chu@mediatek.com>,
-	Niklaus Liu <niklaus.liu@mediatek.com>
-Subject: [PATCH 1/1] soc: mediatek: mtk-regulator-coupler: Add support for MT8189
-Date: Tue, 4 Nov 2025 11:15:11 +0800
-Message-ID: <20251104031533.9419-2-Niklaus.Liu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20251104031533.9419-1-Niklaus.Liu@mediatek.com>
-References: <20251104031533.9419-1-Niklaus.Liu@mediatek.com>
+	id 1vG7Wf-0000000B2ZW-3RRS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 03:16:10 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4d0trb68f1z9tp6;
+	Tue,  4 Nov 2025 04:15:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1762226159;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/LVRVU1wb4ki3KWvhjOwWIYph+e4orXiwLs8iLuRhYs=;
+	b=bz/Sz5G8bDTmcs8MxDKW4GltYYSQcPT2kwltLV72ozxSYKorHJ6pdUKASScZlcbdRoFCM2
+	+7Jeezt4eCpWWGH3Qb4y2RGeYLhwPKOlEL2QJ/jSua12nB+hF4SgfY2UW7QCY0NGNglDgd
+	yIAItR7wjisn+gU69yYQaJYsOCS4gwJOStdU3IEWLPzRCu+ALZsOlWi5a9yFgUBC6oRHz4
+	LdylWetW3JFdrmXR6WVwlaz0impWKUT4Lsn04B96gBH1p53vhSDXKRkUaZqrqhSLehXQSL
+	n4xVKjRpMZdTgdg5ublAxVhue9ALk4uIxmX2cTeWiwiY4qtW53gOZIN6AoYg4w==
+Message-ID: <3064e20f-92c8-4e3b-82bc-ef949f312826@mailbox.org>
+Date: Tue, 4 Nov 2025 04:07:26 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Subject: Re: [PATCH] drm/bridge: fsl-ldb: Parse register offsets from DT
+To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
+Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20251017154029.105099-1-marek.vasut@mailbox.org>
+ <dc4b1b65-542f-4bd2-bd91-af3fe4223b63@nxp.com>
+ <55d44163-4f37-462f-b860-c862cb5ada5a@mailbox.org>
+ <b65d9221-bdb3-4e69-beed-6b7646c5d5eb@nxp.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <b65d9221-bdb3-4e69-beed-6b7646c5d5eb@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 2b6b09f05eb987a5cbe
+X-MBO-RS-META: m56ydbxsgw89ewsit8a191x7o38ki4um
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_191546_915491_D1A26F1D 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20251103_191606_012237_D1D36A5C 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,52 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Niklaus Liu <niklaus.liu@mediatek.com>
+On 11/4/25 3:26 AM, Liu Ying wrote:
 
-Enhance the regulator coupler driver to support GPU power control on the
-MediaTek MT8189 platform. This update ensures proper coordination of
-multiple regulators required for GPU operation,improving power management
-and system stability.
+Hello Liu,
 
-Signed-off-by: Niklaus Liu <niklaus.liu@mediatek.com>
----
- drivers/soc/mediatek/mtk-regulator-coupler.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+>>>> +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+>>>> @@ -61,24 +61,16 @@ enum fsl_ldb_devtype {
+>>>>    };
+>>>>      struct fsl_ldb_devdata {
+>>>> -    u32 ldb_ctrl;
+>>>> -    u32 lvds_ctrl;
+>>>>        bool lvds_en_bit;
+>>>>        bool single_ctrl_reg;
+>>>
+>>> single_ctrl_reg can be dropped then, as it can be expressed by failing to
+>>> get the second register.
+>>>
+>>> Furthermore, with this done, lvds_en_bit is the only member left and hence
+>>> struct fsl_ldb_devdata can also be dropped, as IIRC there is no need to
+>>> use a structure for device data with only a flag.
+>> I plan to add more bits into the driver match data when adding the MX95,
+>> so I would like to retain these instead of removing them and the adding
+>> them back.
+> 
+> i.MX95 LDB supports two LVDS channels.  Two DRM bridges are needed in single
+> or separate LDB mode, while one DRM bridge is needed in split LDB mode.
 
-diff --git a/drivers/soc/mediatek/mtk-regulator-coupler.c b/drivers/soc/mediatek/mtk-regulator-coupler.c
-index 0b6a2884145e..f6e3b2a3a5a8 100644
---- a/drivers/soc/mediatek/mtk-regulator-coupler.c
-+++ b/drivers/soc/mediatek/mtk-regulator-coupler.c
-@@ -42,6 +42,18 @@ static int mediatek_regulator_balance_voltage(struct regulator_coupler *coupler,
- 	int max_uV = INT_MAX;
- 	int ret;
- 
-+	/*
-+	 * When vsram_gpu is enabled or disabled and the use_count of the
-+	 * vsram_gpu regulator is zero, the regulator coupler driver will
-+	 * execute regulator_do_balance_voltage, which adjusts the vsram_gpu
-+	 * voltage to the minimum value. This may result in vsram_gpu being
-+	 * lower than vgpu. Therefore, when enabling or disabling vsram_gpu,
-+	 * the 8189 temporarily skips the regulator coupler driver's modification
-+	 * of the vsram_gpu voltage.
-+	 */
-+	if (of_machine_is_compatible("mediatek,mt8189") && rdev == mrc->vsram_rdev)
-+		return 0;
-+
- 	/*
- 	 * If the target device is on, setting the SRAM voltage directly
- 	 * is not supported as it scales through its coupled supply voltage.
-@@ -148,7 +160,8 @@ static int mediatek_regulator_coupler_init(void)
- 	if (!of_machine_is_compatible("mediatek,mt8183") &&
- 	    !of_machine_is_compatible("mediatek,mt8186") &&
- 	    !of_machine_is_compatible("mediatek,mt8188") &&
--	    !of_machine_is_compatible("mediatek,mt8192"))
-+	    !of_machine_is_compatible("mediatek,mt8192") &&
-+	    !of_machine_is_compatible("mediatek,mt8189"))
- 		return 0;
- 
- 	return regulator_coupler_register(&mediatek_coupler.coupler);
--- 
-2.46.0
+What do you refer to by "split LDB mode" , some interleaving or some 
+such thing ?
 
+> Also, each channel connects to a standalone LVDS PHY.  All these could make
+> it intrusive to support i.MX95 LDB in fsl-ldb.c.  Maybe, we could discuss
+> about this later, but IMO this patch should remove struct fsl_ldb_devdata.
+> It doesn't hurt if we really need to add it back.
+OK. The current integration seems to be working fine. Which exact case 
+are you concerned about, do you have an example ?
 
