@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1827CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 14:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA9CCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 14:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fdNDyOX4NAmg5jJPp/BSNYVyFEaiphE74uzwC/EVG8Y=; b=J/i09iwNR9BpqTJpYNus2ic2l+
-	B1WvpqPBz3BVUs91hK0hArzHQI270s/Nq8PHmXrllSpS3+HAr43dA9tYTlCir2T1OAdQgoPM1dxh8
-	72lzrA62oRRZ4SMTmZdrrzP84xaopQoA5HR9cGB8iHk7mmcjKn8gSy1tDpt1bWW/46tHFsa3j1F+N
-	Z+cxkz0QdiwAKjbrwgtfGx2pWWz72HhlNbedYHHaDirKaYtV+ooD4CIRnfVvWnaJ4KINRVt8QmDiT
-	mf0331Ok4PRK4t93GMixyQ1FbTQsvt77Oj7Xn8yZX+WA+UB+pLKnypxoKcVQdojINA8303vcI7gGI
-	brU8+FAg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nz03hoH+v5IpDCASP5NMSrf3ufzt2WmP9y5Ixf4/Cso=; b=IpQKtnM7HTd33ciAyZc0xQrSsA
+	oQQqyFa91haOQDWA2c/mpZ17d0lSvh+SPmlH5UAAQN1t28EaBbiyYBuou/0k4tDZ7jym/3KOs/aPq
+	qON8F2C5I3dVu/eGPQw0Dsbp/EYLLJkJaPQmhyuBqXuvsh5+tC8pbQzun10wbTOP0Oi3Ma2Jfb5DP
+	extg6GkmJS4K3Q2n36lpQu4tJ9VJm3h8/o6P+sdNLAqDr9orJEjGTLG+KkQIStHZbS7tz3++52qNL
+	kGS/HGw57DO7yJHtkHf3dDA8y2cw1x8/RxGOwztRG0pJ7yH+DcDMfOSH9Rv3xnOvAQpLv2BYhFot7
+	SlBZaLLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGILu-0000000C0Cc-1iGI;
-	Tue, 04 Nov 2025 14:49:42 +0000
+	id 1vGIP5-0000000C0QW-0Hnp;
+	Tue, 04 Nov 2025 14:52:59 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGILq-0000000C0Bu-2yw5
+	id 1vGIP1-0000000C0PW-3aQq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 14:49:41 +0000
+	Tue, 04 Nov 2025 14:52:57 +0000
 Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id 7F3761F8C1;
-	Tue,  4 Nov 2025 15:49:31 +0100 (CET)
+	by mail11.truemail.it (Postfix) with ESMTPA id 590521F8C1;
+	Tue,  4 Nov 2025 15:52:53 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1762267771;
-	bh=fdNDyOX4NAmg5jJPp/BSNYVyFEaiphE74uzwC/EVG8Y=; h=From:To:Subject;
-	b=d5Opm/36Lqni0IV5t3VtljEiTBIc1zBAT/56ZepB/aCPiJtkzot2RtEU4RKpAeFKC
-	 XddB/mkvKvpgFrWLmumzpOhgRiZr/2Ow2/R8KfX7su4Et6N+BUxgv/iOf91NOh4Rtm
-	 THst4LYgwlr/GUn3oiocudX1KGRVSgtMuT6utnSLH2w2X0TviEEjzqjIyN0jCs+O2P
-	 bgsi8vzl2W7392y31J8cSXNaYezvZo1J4IMJoEPhZ/B402pTcbEY8EO/Knbja/qpdE
-	 3iYBa8HHxpt3K3rXcw5KKxTL3nbhBtH/6vLVD/c6M9Xf4rGgnRupFgrCTwVTqBrUni
-	 oNvgLAdr8iKLg==
+	s=default; t=1762267973;
+	bh=Nz03hoH+v5IpDCASP5NMSrf3ufzt2WmP9y5Ixf4/Cso=; h=From:To:Subject;
+	b=zU/v75GCHC1izVCeM3Twfug1Y3HyU/nuJyaOrzeeTzAOoj0yISkW6WrYLULYYCkkM
+	 /JEStHKZKMhbZcUW1CduXHhyZQoGAbmWHB7fiZcBzjt5iL2Z3uCvu3FbSI5Eqs1gS4
+	 MwWQpO/n7YxTqCSencuSzvkA6dQOEV9YOoNc2wthVLk9i8wpX6kEfhxY248gBgc0g9
+	 yX59Vw4V7+5WfPSP9rqsWOKaalr1WgZtZZO4KxLwBLqcDZkWiUUPthUrm0wpgFXh1f
+	 PjWsabaCBX6GNmUSO/5A5UtN14D2zkVCm42ZlwCy6eAmvbcU8ow5ZDWLycl1orHZ+6
+	 tpSePJzsWpYWQ==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -46,20 +46,24 @@ To: Nishanth Menon <nm@ti.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+Cc: =?UTF-8?q?Jo=C3=A3o=20Paulo=20Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 0/3] arm64: dts: ti: Add Aquila AM69 Support
-Date: Tue,  4 Nov 2025 15:49:10 +0100
-Message-ID: <20251104144915.60445-1-francesco@dolcini.it>
+	linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: [PATCH v1 1/3] dt-bindings: arm: ti: add Toradex Aquila AM69
+Date: Tue,  4 Nov 2025 15:52:35 +0100
+Message-ID: <20251104145240.61219-1-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251104144915.60445-1-francesco@dolcini.it>
+References: <20251104144915.60445-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_064939_794052_925BB9F1 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20251104_065256_055994_4A73BA35 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +78,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+From: João Paulo Gonçalves <joao.goncalves@toradex.com>
 
-This patch series adds support for the Toradex Aquila AM69 SoM and its
-currently available carrier boards: the Aquila Development Board and Clover.
-
-The Aquila AM69 SoM is based on the TI AM69 SoC from the Jacinto 7 family and
-is designed for high-end embedded computing. The SoM features up to 32GB of
-LPDDR4 RAM and 256GB eMMC storage, extensive multimedia support (3x Quad CSI,
-2x Quad DSI, DisplayPort, 5x Audio I2S/TDM), six Ethernet interfaces (1x 1G, 4x
-2.5G SGMII, 1x 10G), USB 3.2 Host and DRD support and a Wi-Fi 7/BT 5.3 module.
-Additionally, it includes an RX8130 RTC, I2C EEPROM and Temperature Sensor and
-an optional TPM 2.0.
+Add DT compatible strings for the Toradex Aquila AM69 SoM and its
+supported carrier boards: the Aquila Development Board and the Clover
+carrier board.
 
 Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/ti-am69
 Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
 Link: https://www.toradex.com/products/carrier-board/clover
+Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-João Paulo Gonçalves (2):
-  dt-bindings: arm: ti: add Toradex Aquila AM69
-  arm64: dts: ti: am69-aquila: Add Clover
-
-Parth Pancholi (1):
-  arm64: dts: ti: Add Aquila AM69 Support
-
- .../devicetree/bindings/arm/ti/k3.yaml        |    8 +
- arch/arm64/boot/dts/ti/Makefile               |    2 +
- .../boot/dts/ti/k3-am69-aquila-clover.dts     |  451 ++++
- arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts |  576 ++++++
- arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi    | 1840 +++++++++++++++++
- 5 files changed, 2877 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
- create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
- create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi
-
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 2e15029dbc67..c6eb72462bef 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -158,6 +158,14 @@ properties:
+               - ti,am654-evm
+           - const: ti,am654
+ 
++      - description: K3 AM69 SoC Toradex Aquila Modules and Carrier Boards
++        items:
++          - enum:
++              - toradex,aquila-am69-clover   # Aquila AM69 Module on Clover Board
++              - toradex,aquila-am69-dev      # Aquila AM69 Module on Aquila Development Board
++          - const: toradex,aquila-am69       # Aquila AM69 Module
++          - const: ti,j784s4
++
+       - description: K3 J7200 SoC
+         oneOf:
+           - const: ti,j7200
 -- 
 2.47.3
 
