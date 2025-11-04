@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EE4CCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F18CCFA07
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 16:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaRSA/9H5/P6gwgX371CjFBbwmnK77gJo5iwSc1cq58=; b=LhLZYXKf2ak9lMWKCEUBsc8TEb
-	XKxtQKq8F/wU6b5tR4lo2f4RMB9R8Y0MZO7f/oKQTOIsAQSx+JK6bGg/hiE672q3XVy8VuvuTdC8U
-	G5Z2Kdb8DEjDaO9vwxKlDARht2WGeE3rATwId3pWp5S6KJphIpEQ3Aeu/Y1yJiTcT3bIiOYHm4RtS
-	RZv7JKuxZMicSDq2BUVY7RdZFzlxFgOuloLS3PNHdB1e2tqMTAj0yZdiacQ53SEDsDw539g0GaH/8
-	Xu3p86KFozWePpU90FJNqKXkGTln2wMO1qrURtJNaSc8I0CqN8aJ5DHI9EDJrCEGUyldFDhzbjDN8
-	/eNHeOvw==;
+	bh=d80HKrmgR+pZLy2ODhvM+LC7qgtvg8pKXHJRFyqW7Xo=; b=l/aaLsOngndGpOmcSXWdrfhCEu
+	+jfin3WPgtMfg3US7HIsnA4ADRLywx6biSVf4hEojosSucTP39VTA65SxpxmkbQiwrL7oDBLYsJZc
+	tMJQ4OQwqyRSAFAJ1ONDuGb+Kcyev9NAHpSataPBkNzJUDOMgypocg4/BEkH9ektv8HvknMLdLtdJ
+	+TgrX1n/nS13Eu2Qz9ycYCj+Af7iwxGh8G2oc/xVnplSToXgNcn5TO20TyReGS5CVetAsIIszYVYn
+	Z4E68EM4TiVAPaWroiBeZY44aJiFWNOI3K8/2luOnrKJQxhYRVbeCRF99TtOSZIQBQVNt36uytY68
+	EkDAkZvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJY4-0000000C9yp-1Ymf;
-	Tue, 04 Nov 2025 16:06:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGJZ1-0000000CA42-32pe;
+	Tue, 04 Nov 2025 16:07:19 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGJY3-0000000C9yf-07hD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 16:06:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20187601EF;
-	Tue,  4 Nov 2025 16:06:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99A37C116B1;
-	Tue,  4 Nov 2025 16:06:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762272377;
-	bh=cqnsj9XBWpA/oXMHKuywF+Rto0eI5dkzdtMZHlTkuqY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J0VT8l1YwCz0aL5Sk09v0FM4wvGDp5jij9JpYzehChgsUIj2u6uqPYDJB7zV782j1
-	 RecSNVoTaDhPf0H+nE3KEStkTYStPtppR/swvppzJ2uzFfQZi7ousHGgrxo4SElonq
-	 JWxZynB1J1tkgJsFw+a8Ftck4Izuo/a2BsXqNCUtSQlqJj1QRN5uGqx79WZqW9NqKE
-	 /bCXMvn+ElEJj31ot6BotlPjou3zy3dZbozlCHYfvgWy0shS3OU99oNNwN8h4i0W+s
-	 x1m7I6nXGhwZJ1idJbHp9Wr9ya/JyaYuB1j2D7dhb+EdscmNmDFsDOniANWq3v7zKa
-	 ZYnMPZ+lnnvDw==
-Date: Tue, 4 Nov 2025 16:06:12 +0000
-From: Will Deacon <will@kernel.org>
-To: Hanjun Guo <guohanjun@huawei.com>
-Cc: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
-Message-ID: <aQokdBkjFqw9ZGRt@willie-the-truck>
-References: <20251017073935.1746365-1-fj1078ii@aa.jp.fujitsu.com>
- <a93e845a-b084-a680-7158-68363c492b75@huawei.com>
+	id 1vGJYy-0000000CA3V-3Tt4;
+	Tue, 04 Nov 2025 16:07:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1762272432;
+	bh=a5GxNjkCvPp2VLoH8Oqj+okJ074BdV9VCpmANAZjfs4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=PeySt5v1mQGqEoAZrjwuWa1I332AXwYr7l1tvudB6QVbiqM+THUOecHhiQBpliTxG
+	 t717t1jBvYxmiRDgfaDLXX2P7TcaAKYORth9yOMX0UO50BVPp/G+QLLxp4UMv50pH5
+	 R4XN3HXRjYsFrGlSkJk36I16mU0U1evVz1Y2FmBxhiZJX8kpPQlm3S1DWwt0kCUMxu
+	 2iNtpiw7hwxMdMZyQ9af3PBZ3X7OMbYtbGCyavd64WJDPfLDS1hMqSadhOXOyv/JU+
+	 Q5fjWW7bpeqCs/kEhhXxZrKEJtf8F/Q3zObpGYSDL0++qLV5iZdMWEKxswT0GE2Q6O
+	 RWkXFjMbveLuQ==
+Received: from [IPv6:2606:6d00:17:ebd3::5ac] (unknown [IPv6:2606:6d00:17:ebd3::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5CF3417E0CA1;
+	Tue,  4 Nov 2025 17:07:10 +0100 (CET)
+Message-ID: <b4c041d6603fcc107c466bd1ed8c402c96aef5e1.camel@collabora.com>
+Subject: Re: [PATCH v4 02/15] media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps
+ controls
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Hans Verkuil <hverkuil+cisco@kernel.org>, Detlev Casanova
+	 <detlev.casanova@collabora.com>, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Ricardo
+ Ribalda <ribalda@chromium.org>, Hans Verkuil <hverkuil@kernel.org>, Hans de
+ Goede <hansg@kernel.org>,  Yunke Cao <yunkec@google.com>, Jonathan Corbet
+ <corbet@lwn.net>, Laurent Pinchart	 <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,  James Cowgill
+ <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+Date: Tue, 04 Nov 2025 11:07:08 -0500
+In-Reply-To: <6eaa8b26-edab-4bfa-9c6a-1fbb54c36b4e@kernel.org>
+References: <20251022174508.284929-1-detlev.casanova@collabora.com>
+	 <20251022174508.284929-3-detlev.casanova@collabora.com>
+	 <6eaa8b26-edab-4bfa-9c6a-1fbb54c36b4e@kernel.org>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-EgYc8K706Xiy5xAdYVZQ"
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a93e845a-b084-a680-7158-68363c492b75@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251104_080717_187519_60BB59A2 
+X-CRM114-Status: GOOD (  29.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +98,292 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 09:23:05PM +0800, Hanjun Guo wrote:
-> On 2025/10/17 15:39, Kazuhiro Abe wrote:
-> > AGDI has two types of signaling modes: SDEI and interrupt.
-> > Currently, the AGDI driver only supports SDEI.
-> > Therefore, add support for interrupt signaling mode
-> > The interrupt vector is retrieved from the AGDI table, and call panic
-> > function when an interrupt occurs.
-> > 
-> > Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> > Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+
+--=-EgYc8K706Xiy5xAdYVZQ
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+Le jeudi 23 octobre 2025 =C3=A0 10:04 +0200, Hans Verkuil a =C3=A9crit=C2=
+=A0:
+> On 22/10/2025 19:44, Detlev Casanova wrote:
+> > The vdpu381 decoder found on newer Rockchip SoC need the information
+> > from the long term and short term ref pic sets from the SPS.
+> >=20
+> > So far, it wasn't included in the v4l2 API, so add it with new dynamic
+> > sized controls.
+> >=20
+> > Each element of the hevc_ext_sps_lt_rps array contains the long term re=
+f
+> > pic set at that index.
+> > Each element of the hevc_ext_sps_st_rps contains the short term ref pic
+> > set at that index, as the raw data.
+> > It is the role of the drivers to calculate the reference sets values.
+> >=20
+> > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 > > ---
-> > Hanjun, I have addressed all your comments.
-> > Please review them.
-> > 
-> > v3->v4
-> >   - Add a comment to the flags member.
-> >   - Fix agdi_interrupt_probe.
-> >   - Fix agdi_interrupt_remove.
-> >   - Add space in struct initializsation.
-> >   - Delete curly braces.
-> 
-> Looks good to me,
-> 
-> Acked-by: Hanjun Guo <guohanjun@huawei.com>
+> > =C2=A0drivers/media/v4l2-core/v4l2-ctrls-core.c | 18 +++++++
+> > =C2=A0drivers/media/v4l2-core/v4l2-ctrls-defs.c | 10 ++++
+> > =C2=A0include/uapi/linux/v4l2-controls.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 | 61 +++++++++++++++++++++++
+> > =C2=A0include/uapi/linux/videodev2.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +
+> > =C2=A04 files changed, 91 insertions(+)
+> >=20
+> > diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/=
+v4l2-core/v4l2-ctrls-core.c
+> > index 7c660cd61e48..b330bd7719e9 100644
+> > --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> > +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> > @@ -418,6 +418,12 @@ void v4l2_ctrl_type_op_log(const struct v4l2_ctrl =
+*ctrl)
+> > =C2=A0	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
+> > =C2=A0		pr_cont("HEVC_SLICE_PARAMS");
+> > =C2=A0		break;
+> > +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
+> > +		pr_cont("HEVC_EXT_SPS_ST_RPS");
+> > +		break;
+> > +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
+> > +		pr_cont("HEVC_EXT_SPS_LT_RPS");
+> > +		break;
+> > =C2=A0	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
+> > =C2=A0		pr_cont("HEVC_SCALING_MATRIX");
+> > =C2=A0		break;
+> > @@ -1248,6 +1254,12 @@ static int std_validate_compound(const struct v4=
+l2_ctrl *ctrl, u32 idx,
+> > =C2=A0	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
+> > =C2=A0		break;
+> > =C2=A0
+> > +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
+> > +		break;
+> > +
+> > +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
+> > +		break;
+> > +
+>=20
+> There is nothing to validate here? Any value is fine? Just checking...
+>=20
+> Is this something that should be added to the visl driver so it is tested=
+ during regression
+> tests? Or does this not apply to visl?
+>=20
+> I haven't looked in-depth into this, but I wondered about it.
 
-I wasn't cc'd on the original patch but I couldn't figure out why it
-uses IRQF_NO_AUTOEN when requesting the irq given that the first thing
-it does is enable it.
+Seems appropriate to add to VISL.
 
-Will
+Nicolas
+
+>=20
+> Regards,
+>=20
+> 	Hans
+>=20
+> > =C2=A0	case V4L2_CTRL_TYPE_HDR10_CLL_INFO:
+> > =C2=A0		break;
+> > =C2=A0
+> > @@ -2000,6 +2012,12 @@ static struct v4l2_ctrl *v4l2_ctrl_new(struct v4=
+l2_ctrl_handler *hdl,
+> > =C2=A0	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
+> > =C2=A0		elem_size =3D sizeof(struct v4l2_ctrl_hevc_slice_params);
+> > =C2=A0		break;
+> > +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
+> > +		elem_size =3D sizeof(struct v4l2_ctrl_hevc_ext_sps_st_rps);
+> > +		break;
+> > +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
+> > +		elem_size =3D sizeof(struct v4l2_ctrl_hevc_ext_sps_lt_rps);
+> > +		break;
+> > =C2=A0	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
+> > =C2=A0		elem_size =3D sizeof(struct v4l2_ctrl_hevc_scaling_matrix);
+> > =C2=A0		break;
+> > diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/media/=
+v4l2-core/v4l2-ctrls-defs.c
+> > index ad41f65374e2..167286c9e424 100644
+> > --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> > +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> > @@ -1233,6 +1233,8 @@ const char *v4l2_ctrl_get_name(u32 id)
+> > =C2=A0	case V4L2_CID_STATELESS_HEVC_DECODE_MODE:		return "HEVC Decode M=
+ode";
+> > =C2=A0	case V4L2_CID_STATELESS_HEVC_START_CODE:		return "HEVC Start Cod=
+e";
+> > =C2=A0	case V4L2_CID_STATELESS_HEVC_ENTRY_POINT_OFFSETS:	return "HEVC E=
+ntry Point Offsets";
+> > +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS:		return "HEVC Short Term=
+ Ref Sets";
+> > +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS:		return "HEVC Long Term =
+Ref Sets";
+> > =C2=A0	case V4L2_CID_STATELESS_AV1_SEQUENCE:			return "AV1 Sequence Par=
+ameters";
+> > =C2=A0	case V4L2_CID_STATELESS_AV1_TILE_GROUP_ENTRY:		return "AV1 Tile =
+Group Entry";
+> > =C2=A0	case V4L2_CID_STATELESS_AV1_FRAME:			return "AV1 Frame Parameter=
+s";
+> > @@ -1578,6 +1580,14 @@ void v4l2_ctrl_fill(u32 id, const char **name, e=
+num v4l2_ctrl_type *type,
+> > =C2=A0		*type =3D V4L2_CTRL_TYPE_U32;
+> > =C2=A0		*flags |=3D V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
+> > =C2=A0		break;
+> > +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS:
+> > +		*type =3D V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS;
+> > +		*flags |=3D V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
+> > +		break;
+> > +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS:
+> > +		*type =3D V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS;
+> > +		*flags |=3D V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
+> > +		break;
+> > =C2=A0	case V4L2_CID_STATELESS_VP9_COMPRESSED_HDR:
+> > =C2=A0		*type =3D V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR;
+> > =C2=A0		break;
+> > diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4=
+l2-controls.h
+> > index 2d30107e047e..dd9e29afa155 100644
+> > --- a/include/uapi/linux/v4l2-controls.h
+> > +++ b/include/uapi/linux/v4l2-controls.h
+> > @@ -2093,6 +2093,8 @@ struct v4l2_ctrl_mpeg2_quantisation {
+> > =C2=A0#define V4L2_CID_STATELESS_HEVC_DECODE_MODE	(V4L2_CID_CODEC_STATE=
+LESS_BASE + 405)
+> > =C2=A0#define V4L2_CID_STATELESS_HEVC_START_CODE	(V4L2_CID_CODEC_STATEL=
+ESS_BASE + 406)
+> > =C2=A0#define V4L2_CID_STATELESS_HEVC_ENTRY_POINT_OFFSETS (V4L2_CID_COD=
+EC_STATELESS_BASE + 407)
+> > +#define V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS=C2=A0 (V4L2_CID_CODEC_S=
+TATELESS_BASE + 408)
+> > +#define V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS=C2=A0 (V4L2_CID_CODEC_S=
+TATELESS_BASE + 409)
+> > =C2=A0
+> > =C2=A0enum v4l2_stateless_hevc_decode_mode {
+> > =C2=A0	V4L2_STATELESS_HEVC_DECODE_MODE_SLICE_BASED,
+> > @@ -2548,6 +2550,65 @@ struct v4l2_ctrl_hevc_scaling_matrix {
+> > =C2=A0	__u8	scaling_list_dc_coef_32x32[2];
+> > =C2=A0};
+> > =C2=A0
+> > +#define V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED	0x1
+> > +
+> > +/*
+> > + * struct v4l2_ctrl_hevc_ext_sps_st_rps - HEVC short term RPS paramete=
+rs
+> > + *
+> > + * Dynamic size 1-dimension array for short term RPS. The number of el=
+ements
+> > + * is v4l2_ctrl_hevc_sps::num_short_term_ref_pic_sets. It can contain =
+up to 65 elements.
+> > + *
+> > + * @delta_idx_minus1: Specifies the delta compare to the index. See de=
+tails in section 7.4.8
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "Short-term reference pict=
+ure set semantics" of the specification.
+> > + * @delta_rps_sign: Sign of the delta as specified in section 7.4.8 "S=
+hort-term reference picture
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 set semantics" of the specification.
+> > + * @abs_delta_rps_minus1: Absolute delta RPS as specified in section 7=
+.4.8 "Short-term reference
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pi=
+cture set semantics" of the specification.
+> > + * @num_negative_pics: Number of short-term RPS entries that have pict=
+ure order count values less
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 than the picture ord=
+er count value of the current picture.
+> > + * @num_positive_pics: Number of short-term RPS entries that have pict=
+ure order count values
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 greater than the pic=
+ture order count value of the current picture.
+> > + * @used_by_curr_pic: Bit j specifies if short-term RPS j is used by t=
+he current picture.
+> > + * @use_delta_flag: Bit j equals to 1 specifies that the j-th entry in=
+ the source candidate
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 short-term RPS is included in this can=
+didate short-term RPS.
+> > + * @delta_poc_s0_minus1: Specifies the negative picture order count de=
+lta for the i-th entry in
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 the shor=
+t-term RPS. See details in section 7.4.8 "Short-term reference
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture =
+set semantics" of the specification.
+> > + * @delta_poc_s1_minus1: Specifies the positive picture order count de=
+lta for the i-th entry in
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 the shor=
+t-term RPS. See details in section 7.4.8 "Short-term reference
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture =
+set semantics" of the specification.
+> > + * @flags: See V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_{}
+> > + */
+> > +struct v4l2_ctrl_hevc_ext_sps_st_rps {
+> > +	__u8	delta_idx_minus1;
+> > +	__u8	delta_rps_sign;
+> > +	__u16	abs_delta_rps_minus1;
+> > +	__u8	num_negative_pics;
+> > +	__u8	num_positive_pics;
+> > +	__u32	used_by_curr_pic;
+> > +	__u32	use_delta_flag;
+> > +	__u16	delta_poc_s0_minus1[16];
+> > +	__u16	delta_poc_s1_minus1[16];
+> > +	__u8	flags;
+> > +};
+> > +
+> > +#define V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT		0x1
+> > +
+> > +/*
+> > + * struct v4l2_ctrl_hevc_ext_sps_lt_rps - HEVC long term RPS parameter=
+s
+> > + *
+> > + * Dynamic size 1-dimension array for long term RPS. The number of ele=
+ments
+> > + * is v4l2_ctrl_hevc_sps::num_long_term_ref_pics_sps. It can contain u=
+p to 65 elements.
+> > + *
+> > + * @lt_ref_pic_poc_lsb_sps: picture order count modulo MaxPicOrderCntL=
+sb of the i-th candidate
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 long-term reference picture.
+> > + * @flags: See V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_{}
+> > + */
+> > +struct v4l2_ctrl_hevc_ext_sps_lt_rps {
+> > +	__u16	lt_ref_pic_poc_lsb_sps;
+> > +	__u8	flags;
+> > +};
+> > +
+> > =C2=A0/* Stateless VP9 controls */
+> > =C2=A0
+> > =C2=A0#define V4L2_VP9_LOOP_FILTER_FLAG_DELTA_ENABLED	0x1
+> > diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videod=
+ev2.h
+> > index becd08fdbddb..ae1d33fd37b7 100644
+> > --- a/include/uapi/linux/videodev2.h
+> > +++ b/include/uapi/linux/videodev2.h
+> > @@ -1981,6 +1981,8 @@ enum v4l2_ctrl_type {
+> > =C2=A0	V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS	=3D 0x0272,
+> > =C2=A0	V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX	=3D 0x0273,
+> > =C2=A0	V4L2_CTRL_TYPE_HEVC_DECODE_PARAMS	=3D 0x0274,
+> > +	V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS	=3D 0x0275,
+> > +	V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS	=3D 0x0276,
+> > =C2=A0
+> > =C2=A0	V4L2_CTRL_TYPE_AV1_SEQUENCE	=C2=A0=C2=A0=C2=A0 =3D 0x280,
+> > =C2=A0	V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY =3D 0x281,
+>=20
+
+--=-EgYc8K706Xiy5xAdYVZQ
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaQokrAAKCRDZQZRRKWBy
+9CRrAP0T63QfmgbLlSMXTPW4GUXXWbfgHP1Hwo6UUnxwbExjVgD7Bd45RyDtdQKA
+BrpngGZRRjg65wceMOHG9pObvy+VUQQ=
+=T/U4
+-----END PGP SIGNATURE-----
+
+--=-EgYc8K706Xiy5xAdYVZQ--
 
