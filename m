@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E56CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8A6CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 11:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fj2SbyxXmiKjzW12lEreh+2amPcsYkSH41R8tYD90kA=; b=rD+qEkbqQMjwqo4L2/CQUSCq97
-	DJuBHLIFS29s+0bDJdsoIgT/Dh3xmSfEKOPUmr9pjIHKwzlENXPnxll+6WjvAQHq499lxiZVO48X8
-	rOQ6+L6rLN7BKbgfm2/epqv2ogElkeYAbdIdH27xhaf/VMhQ/BQD9v1H/XTJDNpCagaEL1/Lnjw2M
-	gUMoNtytPYwJB9U68bgjgMZPy9hgnypXwzBzK9DXiMXRGi9leDOwhrHZXSDEefqJfW7HiSRH+1Wsk
-	NoP1iVsoQTmtDkhaEAvPj7agxHPa07q5m/vg0NY6nQC94Zh3Y90Q94XTwCaKNU33L9uk37OS2vw79
-	K7Wtdlkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8S8W8Ce89aAd6Lp63iqNC1/ehzjUmA4uJIWdv2wfyI=; b=mPqZldMOzcPuSxcJvFC60ex5hs
+	gx0CCTGEQBr2AVdXt4HritE/c9WLramg1tPz/9hWRhh6FeqRj/I3IikPKq2TY2v1AAHo8gA/TM5FW
+	jLSdYUjU8khrrgXLMSrOCAFMbpr6Dv8O9CRTLTUDWhOborjCIjsFvs3hqizvUkOwn3G9PxjyorPtN
+	jskF4dIVGmMIVozuG/llVdTuOs1gcuk0ZMJ5Mxn75bO+ddnzU+AZpxaLj/AC9E42sh4h0rOZ4uTps
+	ypsVw1UXyP+kowSrsLMC18YDnb5TjCCvpjuijwrA3UQXnOLmExsDbalPtROCUbz8WSRCA0cbOwttt
+	CPZjjK4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGF3O-0000000BhWZ-1Jl3;
-	Tue, 04 Nov 2025 11:18:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGF3N-0000000BhWP-0CbS;
-	Tue, 04 Nov 2025 11:18:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43032601E9;
-	Tue,  4 Nov 2025 11:18:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B317C116D0;
-	Tue,  4 Nov 2025 11:18:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762255099;
-	bh=fj2SbyxXmiKjzW12lEreh+2amPcsYkSH41R8tYD90kA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ODIrewYxNyso5c2rt/VaDZXqgu/poQAMspD22EfeDrIJbVyn4oYhMRhMiLZ3qAgQM
-	 646/Ez+EWV9QVIhoNBw2pROpZDEOiCXfsf1Lw9CMtAdzROmReaKwBQitI8cITstrBR
-	 R2YkRwgMMe/di/6klhrmqWO8JOxOKDx8Y00TCmnERpBx2G4GCyXGA3TgsPV3CRKlRS
-	 Xn54IYZ1CudQXLGmYh9j0tPVxXQOVFvgz+dc15piV3SyStL/Hca+G7MDF2oRq2Xrx6
-	 qUw7DKCEB/AzoBgG6M/YY08dYwEZl+S28yzseIKCiFYiI0Jc/6O5VSUSNH9YVBneL6
-	 bF2yNORuo+3FQ==
-Date: Tue, 4 Nov 2025 12:18:17 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Chen Ni <nichen@iscas.ac.cn>
-Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] pwm: mediatek: Remove unneeded semicolon
-Message-ID: <3sgj7ykavhum3svp657khyp3udqrov7nuzvuaaneu6fo7wlxys@uyhlvrl7lnqi>
-References: <20251105214847.1279520-1-nichen@iscas.ac.cn>
+	id 1vGFDe-0000000BiPm-2Afw;
+	Tue, 04 Nov 2025 11:28:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGFDa-0000000BiP0-4ADJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 11:28:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D54651C2B;
+	Tue,  4 Nov 2025 03:28:44 -0800 (PST)
+Received: from [10.1.38.100] (e126510-lin.cambridge.arm.com [10.1.38.100])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15B213F63F;
+	Tue,  4 Nov 2025 03:28:44 -0800 (PST)
+Message-ID: <216d54f1-334f-4600-9ecb-f7788b1abd7d@arm.com>
+Date: Tue, 4 Nov 2025 11:28:42 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fc7lriu56xblnb2a"
-Content-Disposition: inline
-In-Reply-To: <20251105214847.1279520-1-nichen@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 11/12] x86/xen: use lazy_mmu_state when
+ context-switching
+To: "David Hildenbrand (Red Hat)" <david@kernel.org>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-12-kevin.brodsky@arm.com>
+ <c7c8a233-2103-4b48-b65e-ec81666d20e4@kernel.org>
+ <285faae4-dab6-4819-847a-889bdf87d5d7@arm.com>
+ <a326d1eb-62f1-4add-8dc9-cea7d7e4ed3c@kernel.org>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <a326d1eb-62f1-4add-8dc9-cea7d7e4ed3c@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251104_032855_181021_99BFF9E5 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,45 +89,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 03/11/2025 19:23, David Hildenbrand (Red Hat) wrote:
+> On 03.11.25 19:29, Kevin Brodsky wrote:
+>> On 03/11/2025 16:15, David Hildenbrand (Red Hat) wrote:
+>>> On 29.10.25 11:09, Kevin Brodsky wrote:
+>>>> [...]
+>>>>
+>>>> @@ -437,7 +436,7 @@ static void xen_end_context_switch(struct
+>>>> task_struct *next)
+>>>>          xen_mc_flush();
+>>>>        leave_lazy(XEN_LAZY_CPU);
+>>>> -    if (test_and_clear_ti_thread_flag(task_thread_info(next),
+>>>> TIF_LAZY_MMU_UPDATES))
+>>>> +    if (next->lazy_mmu_state.active)
+>>>
+>>> This is nasty. If in_lazy_mmu_mode() is not sufficient, we will want
+>>> to have a separate helper that makes it clear what the difference
+>>> between both variants is.
+>>
+>> in_lazy_mmu_mode() operates on current, but here we're operating on a
+>> different task. The difference is more fundamental than just passing a
+>> task_struct * or not: in_lazy_mmu_mode() is about whether we're
+>> currently in lazy MMU mode, i.e. not paused and not in interrupt
+>> context. A task that isn't scheduled is never in lazy MMU mode -
+>> lazy_mmu_state.active is just the saved state to be restored when
+>> scheduled again.
+>>
+>> My point here is that we could have a helper for this use-case, but it
+>> should not be used in other situations (at least not on current). Maybe
+>> __task_lazy_mmu_active(task)? I do wonder if accessing lazy_mmu_state
+>> directly isn't expressing the intention well enough though (checking the
+>> saved state).
+>
+>
+> Likely there should be a
+>
+> /**
+>  * task_lazy_mmu_active - test whether the lazy-mmu mode is active for a
+>  *              task
+>  * @task: ...
+>  *
+>  * The lazy-mmu mode is active if a task has lazy-mmu mode enabled and
+>  * currently not paused.
+>  */
+> static inline bool task_lazy_mmu_active(struct task_struct *task)
+> {
+>     return task->lazy_mmu_state.active;
+> }
+>
+> /**
+>  * in_lazy_mmu_mode() - test whether current is in lazy-mmu mode
+>  *
+>  * Test whether the current task is in lazy-mmu mode: whether the
+>  * interrupts are enabled and the lazy-mmu mode is active for the
+>  * current task.
+>  */
+>  static inline bool in_lazy_mmu_mode(void)
+>  {
+> +    if (in_interrupt())
+> +        return false;
+> +
+>      return task_lazy_mmu_active(current);
+>  }
+>
+>
+> Something like that. Maybe we can find better terminology.
 
---fc7lriu56xblnb2a
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: mediatek: Remove unneeded semicolon
-MIME-Version: 1.0
+That's probably the clearest yes, will make the change. I can't think of
+more self-documenting names, spelling out the difference in the comments
+is likely the best we can do.
 
-Hello,
-
-On Thu, Nov 06, 2025 at 05:48:47AM +0800, Chen Ni wrote:
-> Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
-> semantic patch at scripts/coccinelle/misc/semicolon.cocci.
->=20
-> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
-
-Applied to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-=2E I added a reference to the commit that introduced it and fixed the
-author date assuming you're not living in the future :-)
-
-Best regards
-Uwe
-
---fc7lriu56xblnb2a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkJ4PYACgkQj4D7WH0S
-/k4PGQf/cEvFbnM8Pdp7I6Y6+Z2EVEtr1DR5c1dnmi1a4/Nk1P8D8V364eyXb7WH
-vmf+iI01U7XBfybzS49Z5EpJyXixcffYr83siyshJK2YADFKV5APYMlQ9w1uiC1k
-pIA2gMyqGxk6BkgaEyotHKdgX/JTByR9nP2ks4i736D/+8Exu4LA8WHjHc8yd/ht
-C5Zmqe1HnBB7MKlWw4SwvXvXdpU+cYY7pztBsaP8dMdN/dGBc5aafbWvL2YCdQjX
-CeEIyGQ14pUWk+bm8gup5I975XOrYmaIdnGEPmNxC3/1M1xyxfop+LbZ16QsrN9U
-qd6i5iUddF4Fva29kBrfvHMuVDgsFg==
-=XArI
------END PGP SIGNATURE-----
-
---fc7lriu56xblnb2a--
+- Kevin
 
