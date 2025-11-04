@@ -4,101 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34769CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 10:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C40F8CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 10:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VzTHhy3GAbklolyt8qy1XMnUZAQnKYr+cBkCn68R7OE=; b=OV2HrvLK6YFFmYFsSFpqxQS0qR
-	x6pBYhxsOfH+j0VOFqZLhlgHVfz9AqwRqTOr8lVn06HnPu5kCfnTfYfJ9erWoqQvdqTKvP0xjzuEC
-	EkDXHDtpTCHD09Op3NFfDepEXxT/GCLzFPxysQjnzy8hQTs9cz3jate5OmAZvK5hg7JCpuOAiVJi9
-	6LfWRM4auIda83hqjCcV0PUkjsdGSQO5d/w2l/HNy1hqIMDUrZZFBSJnWrySensKjaeU5m3QiycMd
-	U3bmEOa9VmYXNMlN232waAZgUrMm+VqSU4e//1eeEsgvyhtEE91alZB9LrYL6mkksuBPSDXTxzGO/
-	6UiM2+zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dBPVZv8ZAjPrctbt7IeOOktebaSybrHF8X5GDqBvhPw=; b=U884bWw49Yq7Blb6jTScUnrT3h
+	FpTBp20Zv4+q5NyyLBKwNX5TNR5+jYqjyTVIMJoPeIJzMavkGTqqq+YpvmCHZU2aK9Jl/xidW/ekB
+	yB6D6J2k/4uKZHH/YcBHUnukyJmh4LUjjFsxEppWegirIlRPz95Rb4CNJ4Ghl+a1Ai9SATZWFgXmx
+	t9nFUMkaUFanDOwiJiMcJjFf37YI66KyWv27cViJXlQK+6f0sQTxkmC9LhB4T1w8lJfWQWYyFVakF
+	+uFgMkFVJIdLxvCY+Mr1bUuWJundxyZsRImvVjnLWCRd1Dk0ESSgNZ9Aky4HPIQEiB+cyPiG8ObPT
+	rmJNiMfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGE49-0000000Bb78-0A7P;
-	Tue, 04 Nov 2025 10:15:05 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vGEDD-0000000Bbf9-2cB5;
+	Tue, 04 Nov 2025 10:24:27 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGE45-0000000Bb5y-04JQ
+	id 1vGED9-0000000BbeW-2p0j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 10:15:03 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47728f914a4so27334085e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 02:15:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1762251298; x=1762856098; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VzTHhy3GAbklolyt8qy1XMnUZAQnKYr+cBkCn68R7OE=;
-        b=vEoInxTz4mti2Fm1cx03WIY8jbXFxlkbO7dktPy5sJdD6l2h8mA8BxH3jFk+udmziS
-         gW/n8P2q3KyCTLbgFGvWr/6sxbTfH3vuqLtl9NYhB3q5HXf7uZll0njNufO4wqTQUzy7
-         1L3NFKT9u4n2g6WFKyffZrsolOGUDxnJSI+BhC2sBfWJhGI8wI/8IbjYSREB3HHyhzPd
-         8owxwI+MGNIY+yXQJtm39ooUF9sObtPq+rzzdgozKMWQSHyYtmxlwH7VSihcKq7f5ITK
-         2NLlPz1gC4/raS5k4JZo1fcWsuOwc+v5MZLdbxuwuFS7mga7i0dDl+p3ucpJl0elUMkW
-         eJ/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762251298; x=1762856098;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VzTHhy3GAbklolyt8qy1XMnUZAQnKYr+cBkCn68R7OE=;
-        b=COnGTtMy6IjFk4gwgR5cVy1gv/7dqy7UNggmVnWAU08xu/HOb+KXpgHrblhwaKFkev
-         perM50UVE+AEDQ6kYNsFQzcp0XkHP9IwoOVXuRvw3MW1OgLryCJ/WoFlR1OEGQGzZ4RS
-         bF5XNkkPpVFEpxT10BWv39ak7wDnwsPzHtz72u2bJ0JierZHKtIuxdLRXozaLoCgfQSg
-         UnCAQU1O9LUy6CxprKEAgynBToVFNJZ7MZiiS2MJGOwp2wU9Wzf6ksCCYnEmW9qIogI8
-         55IXDvWDJCSYJK+Xg1V7TVbZM07KSg73vkyzpfy/xtw0wE1XMQkWQK4nCMxWLilDhQc3
-         1vew==
-X-Forwarded-Encrypted: i=1; AJvYcCXq366Eq7j3ItawWfGwJalwkMbziomB5zClxgVOUggeFA0xLq3AfH2JVgKeHc5TVNGbaRH3sPsInFmUxuTQyGEd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yydb+/Ay6GU9aGuxMb5ZJxdCGIcKvfmHWzDQH12VqMiORBey0Z6
-	B3cLVxN0S6UOXDBxWMY4tXc32d9c0eqN4cDs8vkDiFLWr4ZGV23b1nf9wz2f08TsAMw=
-X-Gm-Gg: ASbGnctC8IWgKZWH6ZI0UmDd1o7vjuUyldfmH+uIuhjcCZfoyvC/XcIIQbnG/2sOMRF
-	Hp61cUmXEh5sfnKGHv1t/RQ65QNMOsPC1KlpQN5S58COQnQEUxeOvgzR6DijzEP6iEHsBhAbWGx
-	vWaNh3XRadVYsg/rmqZ5WMJ3tapgNQd7PRku7l4EqSPeI1PpqgoRYnsU4o5tDKLd+np2BepovB3
-	ILfwiko5NCxhQhU33MeLegHz+zNfrGvwsVyFOE/kBfn6ngREYoIRCONY1M6lybjGRt46BHqdaUO
-	yz4ZaK6G3zB+R5oNPfzFiSM4G9q9EqOObveZs/PSJ1JuKgj8lP1ysEPjMVwD15jW4Y7NLaKXnW/
-	ZToEINEOTGjVYVdjiza1GQ+fg9vyITO7sLEtUfG4vt66aZLR8N0tXKnWB56IXpqagUeiCj2bJmL
-	auzjLMsiEfBw==
-X-Google-Smtp-Source: AGHT+IFW39f8luyhpSRptudm6R2xZGEcdodo7MnF7yu9NJ2j+0Jo9qKayBjVFzg4CRgrhQRxcMSJYw==
-X-Received: by 2002:a05:600c:3489:b0:477:cb6:805e with SMTP id 5b1f17b1804b1-477307e0513mr122942125e9.18.1762251298482;
-        Tue, 04 Nov 2025 02:14:58 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:8c13:6331:568f:92f3])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429dc18ef89sm3810253f8f.6.2025.11.04.02.14.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 02:14:57 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>,  Chuan Liu
- <chuan.liu@amlogic.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
-  Kevin Hilman <khilman@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
-  Michael Turquette <mturquette@baylibre.com>,  Dmitry Rokosov
- <ddrokosov@sberdevices.ru>,  robh+dt <robh+dt@kernel.org>,  Rob Herring
- <robh@kernel.org>,  devicetree <devicetree@vger.kernel.org>,  linux-clk
- <linux-clk@vger.kernel.org>,  linux-amlogic
- <linux-amlogic@lists.infradead.org>,  linux-kernel
- <linux-kernel@vger.kernel.org>,  linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v4 5/5] clk: meson: t7: add t7 clock peripherals
- controller driver
-In-Reply-To: <3b9a5978-aa02-486b-85f5-6443dc607dd5@amlogic.com> (Jian Hu's
-	message of "Tue, 4 Nov 2025 17:17:50 +0800")
-References: <20251030094345.2571222-1-jian.hu@amlogic.com>
-	<20251030094345.2571222-6-jian.hu@amlogic.com>
-	<1jbjlnxuug.fsf@starbuckisacylon.baylibre.com>
-	<3b9a5978-aa02-486b-85f5-6443dc607dd5@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Tue, 04 Nov 2025 11:14:57 +0100
-Message-ID: <1j1pmew1cu.fsf@starbuckisacylon.baylibre.com>
+	Tue, 04 Nov 2025 10:24:25 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3228B14839C7;
+	Tue,  4 Nov 2025 11:24:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1762251856; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=dBPVZv8ZAjPrctbt7IeOOktebaSybrHF8X5GDqBvhPw=;
+	b=gRF93W3lpRdwy25l5NWJ3tEGdnnvKife1be96721Lgu80iB8DwHlcXqZpFoeRsIh8V1Qrr
+	gfzismOMmeOhcydzxRLlUHHDSpRRyv1+2MvyDTQaDp4Pw5tQPBIAsaNeLpKbFvkRFi2sKE
+	zKdY+NgcIduDDOWphmLh+mFvo3RXLVSsa3yKbQd9eBExN622o+NyzK4ytb9rLp6L/ByE9Q
+	0I7hnZCZyU5oAOXb0uixzeS90BP36vcb30lb/cLcj61DyIQT7cZd7h6fp9GRD87+Eoqdgc
+	RMtkAMEgsy8igmm2iiUDNHjIK9z3EgtyR9lLhqwl/QaDxo6bJRuC0pQ8tKGa6w==
+Date: Tue, 4 Nov 2025 11:24:05 +0100
+From: Alexander Dahl <ada@thorsis.com>
+To: Josua Mayer <josua@solid-run.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jon Nettleton <jon@solid-run.com>,
+	Mikhail Anikin <mikhail.anikin@solid-run.com>,
+	Yazan Shhady <yazan.shhady@solid-run.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-input@vger.kernel.org" <linux-input@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-leds@vger.kernel.org" <linux-leds@vger.kernel.org>
+Subject: Re: [PATCH 08/10] arm64: dts: add description for solidrun imx8mp
+ hummingboard-iiot
+Message-ID: <20251104-sandal-playset-6f4ad0665c7b@thorsis.com>
+Mail-Followup-To: Josua Mayer <josua@solid-run.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jon Nettleton <jon@solid-run.com>,
+	Mikhail Anikin <mikhail.anikin@solid-run.com>,
+	Yazan Shhady <yazan.shhady@solid-run.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-input@vger.kernel.org" <linux-input@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-leds@vger.kernel.org" <linux-leds@vger.kernel.org>
+References: <20251027-imx8mp-hb-iiot-v1-0-683f86357818@solid-run.com>
+ <20251027-imx8mp-hb-iiot-v1-8-683f86357818@solid-run.com>
+ <2c54b7b7-4eb4-44a0-8025-8da16a28efd4@solid-run.com>
+ <20251029-jittery-ambiguity-14e03ad2f0df@thorsis.com>
+ <054eecb5-1296-4c41-ae86-1779abe0360c@solid-run.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <054eecb5-1296-4c41-ae86-1779abe0360c@solid-run.com>
+User-Agent: Mutt/2.2.12 (2023-09-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_021501_175760_2DC503D7 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20251104_022424_342645_0EF10499 
+X-CRM114-Status: GOOD (  35.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,90 +119,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 04 Nov 2025 at 17:17, Jian Hu <jian.hu@amlogic.com> wrote:
+Hello Josua,
 
->>> +
->>> +static struct clk_regmap t7_dspa =3D {
->>> +     .data =3D &(struct clk_regmap_mux_data){
->>> +             .offset =3D DSPA_CLK_CTRL0,
->>> +             .mask =3D 0x1,
->>> +             .shift =3D 15,
->>> +     },
->>> +     .hw.init =3D &(struct clk_init_data){
->>> +             .name =3D "dspa",
->>> +             .ops =3D &clk_regmap_mux_ops,
->>> +             .parent_hws =3D (const struct clk_hw *[]) {
->>> +                     &t7_dspa_a.hw,
->>> +                     &t7_dspa_b.hw,
->>> +             },
->>> +             .num_parents =3D 2,
->>> +             .flags =3D CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>> ......
->>> +
->>> +static struct clk_regmap t7_anakin_0 =3D {
->> Nitpick: for the DSP it was a/b, here it is 0/1
->> Could you pick one way or the other and stick to it ?
->
->
-> ok , I will use 0/1 for DSP.
+Am Thu, Oct 30, 2025 at 04:44:40PM +0000 schrieb Josua Mayer:
+> Hi Alex,
+> 
+> Am 29.10.25 um 10:23 schrieb Alexander Dahl:
+> > Hello Josua,
+> >
+> > Am Tue, Oct 28, 2025 at 12:24:36PM +0000 schrieb Josua Mayer:
+> >> Am 27.10.25 um 18:48 schrieb Josua Mayer:
+> >>
+> >>> Add description for the SolidRun i.MX8MP HummingBoard IIoT.
+> >>> The board is a new design around the i.MX8MP System on Module, not
+> >>> sharing much with previous HummingBoards.
+> >>>
+> >>> It comes with some common features:
+> >>> - 3x USB-3.0 Type A connector
+> >>> - 2x 1Gbps RJ45 Ethernet
+> >>> - USB Type-C Console Port
+> >>> - microSD connector
+> >>> - RTC with backup battery
+> >>> - RGB Status LED
+> >>> - 1x M.2 M-Key connector with PCI-E Gen. 3 x1
+> >>> - 1x M.2 B-Key connector with USB-2.0/3.0 + SIM card holder
+> >>> - 1x LVDS Display Connector
+> >>> - 1x DSI Display Connector
+> >>> - GPIO header
+> >>> - 2x RS232/RS485 ports (configurable)
+> >>> - 2x CAN
+> >>>
+> >>> In addition there is a board-to-board expansion connector to support
+> >>> custom daughter boards with access to SPI, a range of GPIOs and -
+> >>> notably - CAN and UART. Both 2x CAN and 2x UART can be muxed either
+> >>> to this b2b connector, or a termianl block connector on the base board.
+> >>>
+> >>> The routing choice for UART and CAN is expressed through gpio
+> >>> mux-controllers in DT and can be changed by applying dtb addons.
+> >>>
+> >>> Four dtb addons are provided:
+> >>>
+> >>> - dsi panel Winstar WJ70N3TYJHMNG0
+> >>> - lvds panel Winstar WF70A8SYJHLNGA
+> >>> - RS485 on UART port "A" (default rs232)
+> >>> - RS485 on UART port "B" (default rs232)
+> >>>
+> >>> Signed-off-by: Josua Mayer <josua@solid-run.com>
+> >>> ---
+> >>>  arch/arm64/boot/dts/freescale/Makefile             |   6 +
+> >>>  ...hummingboard-iiot-panel-dsi-WJ70N3TYJHMNG0.dtso |  70 ++
+> >>>  ...ummingboard-iiot-panel-lvds-WF70A8SYJHLNGA.dtso | 105 +++
+> >>>  .../imx8mp-hummingboard-iiot-rs485-a.dtso          |  18 +
+> >>>  .../imx8mp-hummingboard-iiot-rs485-b.dtso          |  18 +
+> >>>  .../dts/freescale/imx8mp-hummingboard-iiot.dts     | 710 +++++++++++++++++++++
+> >>>  6 files changed, 927 insertions(+)
+> >> cut
+> >>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-hummingboard-iiot.dts b/arch/arm64/boot/dts/freescale/imx8mp-hummingboard-iiot.dts
+> >>> new file mode 100644
+> >>> index 0000000000000..2e4cb676bc9da
+> >>> --- /dev/null
+> >>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-hummingboard-iiot.dts
+> >> cut
+> >>> +	led-controller@30 {
+> >>> +		compatible = "ti,lp5562";
+> >>> +		reg = <0x30>;
+> >>> +		/* use internal clock, could use external generated by rtc */
+> >>> +		clock-mode = /bits/ 8 <1>;
+> >>> +		#address-cells = <1>;
+> >>> +		#size-cells = <0>;
+> >>> +
+> >>> +		multi-led@0 {
+> >>> +			reg = <0x0>;
+> >>> +			color = <LED_COLOR_ID_RGB>;
+> >>> +			#address-cells = <1>;
+> >>> +			#size-cells = <0>;
+> >>> +
+> >>> +			led@0 {
+> >>> +				reg = <0x0>;
+> >>> +				color = <LED_COLOR_ID_RED>;
+> >>> +				led-cur = /bits/ 8 <0x32>;
+> >>> +				max-cur = /bits/ 8 <0x64>;
+> >>> +			};
+> >>> +
+> >>> +			led@1 {
+> >>> +				reg = <0x1>;
+> >>> +				color = <LED_COLOR_ID_GREEN>;
+> >>> +				led-cur = /bits/ 8 <0x19>;
+> >>> +				max-cur = /bits/ 8 <0x32>;
+> >>> +			};
+> >>> +
+> >>> +			led@2 {
+> >>> +				reg = <0x2>;
+> >>> +				color = <LED_COLOR_ID_BLUE>;
+> >>> +				led-cur = /bits/ 8 <0x19>;
+> >>> +				max-cur = /bits/ 8 <0x32>;
+> >>> +			};
+> >>> +		};
+> >>> +
+> >>> +		led@3 {
+> >>> +			reg = <3>;
+> >>> +			chan-name = "D8";
+> >> chan-name gives the led the name D6 in sysfs.
+> >>
+> >> The bindings do not allow however setting chan-name on
+> >> the multi-led, and it has an auto-generated name in sysfs.
+> >>
+> >> Am I missing something? Can multi-leds have a custom name?
+> > The sysfs names are auto-generated based on the attributes "color",
+> > "function", and "label" with the last being discouraged for new
+> > designs.
+> Thank you for reminding me of this one!
+> > If the "ti,lp5562" driver does nothing special,you could
+> > add "function" to the multi-led node and see if that fits your needs.
+> The board is not a complete product by itself so we have not chosen
+> a specific function for each led.
+> Therefore only color and label are actually applicable.
 
-I think I prefer a/b if you don't mind. see below for why ...
+In such cases I use a generic function and the enumerator,
+something like this (in this case for a different led driver):
 
->
->>> +     .data =3D &(struct clk_regmap_gate_data){
->>> +             .offset =3D ANAKIN_CLK_CTRL,
->>> +             .bit_idx =3D 8,
->>> +     },
->>> +     .hw.init =3D &(struct clk_init_data) {
->>> +             .name =3D "anakin_0",
->>> +             .ops =3D &clk_regmap_gate_ops,
->>> +             .parent_hws =3D (const struct clk_hw *[]) { &t7_anakin_0_=
-div.hw },
->>> +             .num_parents =3D 1,
->>> +             .flags =3D CLK_SET_RATE_GATE | CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
+    led_11_red: led-0 {
+            function = LED_FUNCTION_INDICATOR;
+            function-enumerator = <0>;
+            color = <LED_COLOR_ID_RED>;
+            gpios = <&pioC 18 GPIO_ACTIVE_HIGH>;
+    };
 
-[...]
+…
 
->>> +
->>> +static struct clk_regmap t7_anakin_clk =3D {
->>> +     .data =3D &(struct clk_regmap_gate_data){
->>> +             .offset =3D ANAKIN_CLK_CTRL,
->>> +             .bit_idx =3D 30,
->>> +     },
->>> +     .hw.init =3D &(struct clk_init_data) {
->>> +             .name =3D "anakin_clk",
->> Again, not a great name, especially considering the one above.
->> Is this really really how the doc refers to these 2 clocks ?
->
->
-> bit30 gate clock is after bit31 mux clock,=C2=A0 and the gate clock is th=
-e final
-> output clock, it is used to gate anakin clock.
->
-> I will rename bit31 as anakin_pre, rename bit30 as anakin.
+    led_13_red: led-2 {
+            function = LED_FUNCTION_INDICATOR;
+            function-enumerator = <1>;
+            color = <LED_COLOR_ID_RED>;
+            gpios = <&pioC 20 GPIO_ACTIVE_HIGH>;
+    };
 
-Ok for the last element
+This gives stable sysfs paths like this:
 
-... but I don't  like "_pre" for a mux selecting one the 2 glitch free
-path. It does not help understanding the tree.
+  /sys/class/leds/red:indicator-0
+  /sys/class/leds/red:indicator-1
 
-For such mux, when it is not the last element, I would suggest
-"_ab_sel" ... at least it is clear what it does so, "anakin_ab_sel" ?
+Of course only with a LED driver supporting that automatic naming
+scheme.
 
+> After testing on v6.18-rc1 I can state that leds-lp5562 driver does
+> something special - function and label properties do not have any
+> impact on the names in sysfs.
+> 
+> However I could set label on both LEDs regardless?
 
->
->>> +             .ops =3D &clk_regmap_gate_ops,
->>> +             .parent_hws =3D (const struct clk_hw *[]) {
->>> +                     &t7_anakin.hw
->>> +             },
->>> +             .num_parents =3D 1,
->>> +             .flags =3D CLK_SET_RATE_PARENT
->>> +     },
->>> +};
->>> +
+When using the 'label' attribute, color and function attributes are
+more or less informational only, because label determines the sysfs
+path.  Someone could change the leds-lp5562 driver to behave like the
+other drivers, but then I would advise to explicitly set label in this
+case, so you won't end up with changed sysfs paths after the driver is
+changed.
+
+Not sure if this helps you.  Sorry.
+
+Greets
+Alex
+
+> 
+> >
+> > Adding linux-leds to Cc, because this is a LED related question.
+> >
+> > Greets
+> > Alex
+> >
+> >> In v6.6 leds-lp5562 driver if I set in each multi-led led@[0-2] sub-node
+> >> chan-name to the same string "D7" - then the sysfs name becomes D7.
+> >>
+> >>> +			color = <LED_COLOR_ID_GREEN>;
+> >>> +			led-cur = /bits/ 8 <0x19>;
+> >>> +			max-cur = /bits/ 8 <0x64>;
+> >>> +		};
+> >>> +	};
 
