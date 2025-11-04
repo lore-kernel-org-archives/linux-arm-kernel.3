@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AFABCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 23:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F16CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 23:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7z8AC+yiHAIwmarbixp3f4qrcLuRr1Vhyqm82NW6W2M=; b=FAU68aGiI3l3Fxtit2sKJwW+dR
-	CNtbYwoK141TKR55d1BNiWyuAGxketcJj6/I5uZgxHAHwhHgFKM7kqDpxTsF/3aFSD1rSUGki8+rC
-	OUuwEmUewQMQ71UL+JyrkL6mjBMHgKHP8EJFooNkhXIZWv8ajwfTU8E3C+yIKY+MBBfg/VookazHA
-	MA+J2QdAleqRJvjCFSOYoafIZ5Littof6tjGDn+dOoRslxSKCTXTgzDUAlMshY2F//hZWVp2c44a5
-	xJMJTx/9t2C/hUHgZFjYkJYBQi8kTG/q9HzpxXf/acig9Up6NvCxxFwvyJZLA7crpCeI9igNJwNVn
-	BMEVXmlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AdyO4gh7iAlQFSoy5CIG4DgiFWF/85SRrg5mDm9g9P0=; b=kAqsjksaLI0r99ClJvm0qNEHjc
+	XWr1y4SNiTCMv9q67PCrXN87ZSYclwmKF5Qq7t3+r/XoM3Pc7GonOeJawZK6ziullejbt3TlvuCZP
+	MeK1ANe/U8G87oVfvst3mTAN7SrE2b18cmufNkJ3j5V6djMrJEWlEeamoEDBZEx93Xyew1rVZ78Ha
+	wGHuVwH6rIkqaHvZIfr72kA21ecAXqWfCceCOAyqb5Q03HGkD4FOUY8pK+WszlhiYFHo7o8U6I/vx
+	1UyUEZT9SShag1678B+JMCZvwD2dRo0LK9T2AMuwZxQH+rqkilRpbeF2H97cqbGNQZBv+sIuXe9qw
+	rl9Nm5Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGQ7H-0000000CjDj-1L50;
-	Tue, 04 Nov 2025 23:07:07 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1vGQYp-0000000Cky4-1T5G;
+	Tue, 04 Nov 2025 23:35:35 +0000
+Received: from mail-il1-f206.google.com ([209.85.166.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGQ7D-0000000CjCX-1jgv
+	id 1vGQYm-0000000Ckxi-3FVA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 23:07:04 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-79af647cef2so5668810b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 15:07:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1762297622; x=1762902422; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7z8AC+yiHAIwmarbixp3f4qrcLuRr1Vhyqm82NW6W2M=;
-        b=08XmNY1Sk3N+E9lpXo+kPpgv3LENLHcv6y3m0BGf3MyMK6aSrDZR5Niwysqv4lxMF+
-         CDDCKb2Vbe4OBYMc+zTFmnHe4udLTAYS9BZWOmNshw3iT2200OANS7OUZcYb1is77qPc
-         z3s5krkPp/vqBrB/a6np6x/58p1W+DDmEvitOGpCSYCx1K2xcBhEwr8Qx7u7Y5e6W2QF
-         sXnV70+IxR0pX9WhBLg94wqZjwg9VomcJknmrCpNPQlnDNAU0K0l9Ve8+jy8HxyVyAfS
-         4aPxLwQghmtumSkyVNbSihmvGi1E6rUwHVFjJJMWdkj2pcdgx191RAa1GdUyXsRR44FC
-         0dMQ==
+	Tue, 04 Nov 2025 23:35:34 +0000
+Received: by mail-il1-f206.google.com with SMTP id e9e14a558f8ab-43323ffc26bso23872495ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 15:35:31 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762297622; x=1762902422;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7z8AC+yiHAIwmarbixp3f4qrcLuRr1Vhyqm82NW6W2M=;
-        b=P9PRWFh463kTDZFjQsd7ejZ9fhSc17TecSUGstiso/ycnPzDTjPZma3BP569U5pkx8
-         40A5cubTHErK9fqrdz+Ap43ABRRQLzCJlfzu6zym3ZKzEx7lwCZZRuXEZF3sOB5Un5EF
-         sCapkUwH9nXqi/+1cIrgMX7YGYcNgY/rsMAAYrh6v2WXPmiZ8s/KccOuyM58BOhIO40h
-         qs5pE8cO1b9U3kqffYiniYsdG5MLn2WRFTEHoZteIwdam/D/x9YIIUyuD1Wn7ckWEcOa
-         fMYMINzKnpprptvRsgomKCLFj5dheT92lFu+12nhRpMz/UpvOVU4/ct9sJU6DHPTMpzz
-         N4Tg==
-X-Forwarded-Encrypted: i=1; AJvYcCWGUModNOUL/YdTBL1GvdymtkkdirFUudjF0uV0q2ojlSvHOC4Whbj3CfsrFSpvjmjj8BXFoGbVI32vS6Rmufrj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8NKdWptOTvfb53PuU3FxoITUL1Tu+1rKFzLyRCloCbhw5gAgt
-	BLrnnLiheDufotpC6h/+mx6EDbO3TqVgcbcawIuFfCvPZKk185ViWDAkOfsHeyslH9E=
-X-Gm-Gg: ASbGncvclFnhNfALxsoX/xLJJJXLrTn0jyLgvv1fmDTW7nNmwEbwSA/Tp8iafwyH+qE
-	Z8zDtgFcGE88IsB7ALRlGogLICxlvvctU866UqY7u+OVY23MzwGdXXKPXEDywYoZijY+A4A9Tcx
-	Mm1gte4gYcCyGqUtFAWiSogii+ePYAY+uzc5XDmM/UIe7de6KXB1CAD6K13qRfow8Gy+ySDDIqd
-	VRSRGYliAbTwXuJfHFt+100CJzuKDrnPjepmbeqDU3LaYI9cPTKJ+EZqUKwSHbhl6FGPsh8sxFc
-	6Oj5/AKwZLy8ow/vB9FFgnBGx2LD7aQX7ozmx/D2lLE7yFpBN5uLE8TOaBsI8X/B7fRFnFfxZRQ
-	EsOyCDpiMIaBdAGaxowtNBqwqGOJHLPxNCwf6lRnJjprKHOXEWO34CZ6U3No9tzvACGr4qlk3/w
-	==
-X-Google-Smtp-Source: AGHT+IEmNKJYP343ceTj40sn2ysBbxZxF2rHm3xoHDdRm81PPZZipomUwb5FT4ZE7dqDQV5SPUTNhQ==
-X-Received: by 2002:a05:6a21:32a2:b0:2ff:3752:8375 with SMTP id adf61e73a8af0-34f85f23b25mr1132220637.45.1762297622638;
-        Tue, 04 Nov 2025 15:07:02 -0800 (PST)
-Received: from localhost ([71.212.208.158])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7acd633bf6bsm4132570b3a.56.2025.11.04.15.07.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 15:07:02 -0800 (PST)
-From: Kevin Hilman <khilman@baylibre.com>
-To: nm@ti.com, vigneshr@ti.com, aaro.koskinen@iki.fi, andreas@kemnade.info, 
- rogerq@kernel.org, tony@atomide.com, Parvathi Pudi <parvathi@couthit.com>
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, danishanwar@ti.com, pratheesh@ti.com, 
- j-rameshbabu@ti.com, praneeth@ti.com, srk@ti.com, rogerq@ti.com, 
- krishna@couthit.com, mohan@couthit.com, pmohan@couthit.com, 
- basharath@couthit.com
-In-Reply-To: <20251103125451.1679404-1-parvathi@couthit.com>
-References: <20251103125451.1679404-1-parvathi@couthit.com>
-Subject: Re: [RESEND PATCH] ARM: multi_v7_defconfig: Enable TI PRU Ethernet
- driver
-Message-Id: <176229762178.2840692.4781785513910576373.b4-ty@baylibre.com>
-Date: Tue, 04 Nov 2025 15:07:01 -0800
+        d=1e100.net; s=20230601; t=1762299331; x=1762904131;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AdyO4gh7iAlQFSoy5CIG4DgiFWF/85SRrg5mDm9g9P0=;
+        b=PGea4Opfkv0yD5gwbLZdft8GXycbAw3+utWGgGFgS5/6rFGkRYKJVH6YTvKjspizuB
+         vldKEHpNaaxws9LL7wtZ1x7Q0HVMblzYmQzNcX68e7CQNpLawtAzzgJzxUkWNkTVPFBF
+         GDU7z7qsbWkVNAhr2k9x99BwBj8eyS9D/M7uFexBcAm60DeNEpH1XtsTxXCnvrJYaqit
+         ugZ9Y8cYhSLWh4JztktAiDv9EMh7qgJN1wOqHe+bruzx6pHX/y383dwSHsthP4sna2n6
+         OI62sqxuOhhT3jNz48bJuuCcp7JY6CnTcgSXTUi5PVsdFza+urT42g9PI5rkx64AHQUn
+         wH4A==
+X-Forwarded-Encrypted: i=1; AJvYcCVa84lvF6HTdvhITgdKBLYHAWTdwuZm/cKDUfLmL9BNpVN7NoysPG/wN390Aa3TCorJVBapTLgg8bcsneTKokLX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1LRaQO6i/4VBpsY5J3IyF0vuR4fVyTzjAQR+WVen0ZGtXviBl
+	/L3iPVbVGxO+b8+8eRs1HNVnfQI2uvA+Wah4TV0kKGIsRGnedM/tZBb5Trnhc9vGXtkIS5TJjn/
+	hCB7q0Anmz6SnRMrssbv28AgoYgFlqsVcPWHIr7PE72lpzJfvbF0HTN8Tw2Y=
+X-Google-Smtp-Source: AGHT+IH6T+lKfQ6V0XGJrssHrVvl4K2lTnnaX2x+LBqWLou2vuLX+a7xgEa7XLvHl76HJdP0qxUDo2d0Xg7vLWcsNbDALNxYcSFU
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-56183
+X-Received: by 2002:a05:6e02:1a8b:b0:433:2dd5:f571 with SMTP id
+ e9e14a558f8ab-433407eb3bcmr17291995ab.25.1762299330934; Tue, 04 Nov 2025
+ 15:35:30 -0800 (PST)
+Date: Tue, 04 Nov 2025 15:35:30 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <690a8dc2.050a0220.3d0d33.0018.GAE@google.com>
+Subject: [syzbot] [arm?] WARNING in fpsimd_restore_current_state
+From: syzbot <syzbot+d4ab35af21e99d07ce67@syzkaller.appspotmail.com>
+To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com, 
+	will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_150703_479774_7700EC9A 
-X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-CacheID: sfid-20251104_153532_823133_83BE9F5D 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,25 +77,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
-On Mon, 03 Nov 2025 18:24:51 +0530, Parvathi Pudi wrote:
-> The Programmable Real-time Unit and Industrial Communication Subsystem
-> Megabit (ICSSM) is a microcontroller subsystem in TI SoCs such as
-> AM57x, AM437x, and AM335x. It provides real-time processing
-> capabilities for industrial communication and custom peripheral interfaces.
-> 
-> Currently, EVMs based on AM57x, AM437x, and AM335x use the ICSSM driver
-> for PRU-based Ethernet functionality.
-> 
-> [...]
+syzbot found the following issue on:
 
-Applied, thanks!
+HEAD commit:    dcb6fa37fd7b Linux 6.18-rc3
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-kernelci
+console output: https://syzkaller.appspot.com/x/log.txt?x=11a79704580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=b8b659f0cab27b22
+dashboard link: https://syzkaller.appspot.com/bug?extid=d4ab35af21e99d07ce67
+compiler:       Debian clang version 20.1.8 (++20250708063551+0c9f909b7976-1~exp1~20250708183702.136), Debian LLD 20.1.8
+userspace arch: arm64
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=115fdf34580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=1441d258580000
 
-[1/1] ARM: multi_v7_defconfig: Enable TI PRU Ethernet driver
-      commit: 7d9ebbffc545033897aeb30f2a0a45ead1668bf1
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/ae6bec0d0398/disk-dcb6fa37.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/dcc732da66c3/vmlinux-dcb6fa37.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/301d1bbdecc2/Image-dcb6fa37.gz.xz
 
-Best regards,
--- 
-Kevin Hilman <khilman@baylibre.com>
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+d4ab35af21e99d07ce67@syzkaller.appspotmail.com
 
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 6720 at arch/arm64/kernel/fpsimd.c:370 task_fpsimd_load arch/arm64/kernel/fpsimd.c:370 [inline]
+WARNING: CPU: 0 PID: 6720 at arch/arm64/kernel/fpsimd.c:370 fpsimd_restore_current_state+0x4cc/0x708 arch/arm64/kernel/fpsimd.c:1746
+Modules linked in:
+CPU: 0 UID: 0 PID: 6720 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 10/03/2025
+pstate: 83400005 (Nzcv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+pc : task_fpsimd_load arch/arm64/kernel/fpsimd.c:370 [inline]
+pc : fpsimd_restore_current_state+0x4cc/0x708 arch/arm64/kernel/fpsimd.c:1746
+lr : task_fpsimd_load arch/arm64/kernel/fpsimd.c:370 [inline]
+lr : fpsimd_restore_current_state+0x4cc/0x708 arch/arm64/kernel/fpsimd.c:1746
+sp : ffff8000a1047de0
+x29: ffff8000a1047de0 x28: ffff0000dcfd9ec0 x27: 0000000000000000
+x26: 0000000000000000 x25: 0000000000000008 x24: 0000000000000040
+x23: 00000000000020ff x22: dfff800000000000 x21: 1fffe0001b9fb3d8
+x20: 0000000000000000 x19: ffff0000dcfd9ec0 x18: 1fffe000337db690
+x17: ffff80008ae011f8 x16: ffff80008052ae04 x15: 0000000000000001
+x14: 1fffe0001b9fb3d8 x13: 0000000000000000 x12: 0000000000000000
+x11: ffff60001b9fb3d9 x10: 0000000000ff0100 x9 : 0000000000000000
+x8 : ffff0000dcfd9ec0 x7 : 0000000000000000 x6 : 0000000000000000
+x5 : 0000000000000001 x4 : 0000000000000008 x3 : ffff8000801f8344
+x2 : 0000000000000001 x1 : 0000000000000000 x0 : 0000000000000000
+Call trace:
+ task_fpsimd_load arch/arm64/kernel/fpsimd.c:370 [inline] (P)
+ fpsimd_restore_current_state+0x4cc/0x708 arch/arm64/kernel/fpsimd.c:1746 (P)
+ arch_exit_to_user_mode_work arch/arm64/include/asm/entry-common.h:25 [inline]
+ exit_to_user_mode_loop+0xe4/0x178 kernel/entry/common.c:46
+ exit_to_user_mode_prepare include/linux/irq-entry-common.h:225 [inline]
+ arm64_exit_to_user_mode arch/arm64/kernel/entry-common.c:103 [inline]
+ el0_svc+0x170/0x254 arch/arm64/kernel/entry-common.c:747
+ el0t_64_sync_handler+0x84/0x12c arch/arm64/kernel/entry-common.c:765
+ el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:596
+irq event stamp: 129
+hardirqs last  enabled at (127): [<ffff80008ae151bc>] __raw_spin_unlock_irq include/linux/spinlock_api_smp.h:159 [inline]
+hardirqs last  enabled at (127): [<ffff80008ae151bc>] _raw_spin_unlock_irq+0x30/0x80 kernel/locking/spinlock.c:202
+hardirqs last disabled at (129): [<ffff80008adecb80>] el1_brk64+0x20/0x54 arch/arm64/kernel/entry-common.c:434
+softirqs last  enabled at (8): [<ffff8000801f95fc>] local_bh_enable+0x10/0x34 include/linux/bottom_half.h:32
+softirqs last disabled at (128): [<ffff8000801f95c8>] local_bh_disable+0x10/0x34 include/linux/bottom_half.h:19
+---[ end trace 0000000000000000 ]---
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want syzbot to run the reproducer, reply with:
+#syz test: git://repo/address.git branch-or-commit-hash
+If you attach or paste a git patch, syzbot will apply it before testing.
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
 
