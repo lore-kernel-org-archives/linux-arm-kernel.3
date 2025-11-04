@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D18CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905A8CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 15:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnNZOT45Lf/KmCoaGdgEu9DkDsJZ5DF/84P5CB5Ox8Q=; b=vAv97xg5AzzA21gxb5Vvt8gvz5
-	GpWJRolnACxJA520+9duWc91dt9rjRf5oN6Sa/UF1cgIzy+uXT8Cml2gwf3ltyV2Mr9BzLKFKicWV
-	3FWE9yia/rUkgXDqNOEs11W8yJd4CJNUE2bgUzWiO9PTHx7CnIOzvwROwSTEosv2MX8XrcZuuwANB
-	0VBFa/C1GzC89upvf8hob/1RxScrzCeIjSsDjOqbT1WvtZwRqW/maBngGvn8/JAKiVpJC6aipKXE7
-	eTO9gU9ysarDPCzft6rKiOR3Og3Ls4YArWk3VVuQz9iIynraTW4U52uIgUGbYw6A7M8DtWiFEBtaG
-	GHrBFSig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5mpUIW6+CyzXZCjIETW1X/eFRIiBeTonduLxFWGZK/o=; b=47FdC1fhQ4zIxI48MlzygtHshT
+	OKy257xz1F9PZRpGTDNCXtXHSJ8wie5YJHT3D2uXnkkzU3MRvte0Gw/LxN5HcRR+MdPsBSCRH4lCv
+	lmifNLSksPKOGZe8AtI/Y803ukRNRsUqtpkTW5/0sokmtdJehwtbHHgIqXJgh6/gg/La1w3L6zSVE
+	TX3IqEa0LWjFgIwtf7v1fCAQ2LZOrNty3daWHI1XxqWkL7BnvGDD9y87PLlZCsJfvIxflgjZp70Gw
+	oEed2GteKPzj+0V5npGzogISvrnrPFRgT0U1mUwRH2S6U82KJv+/OKgun61kcwbTNvJeSea6PlquO
+	nj2HTPwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIWA-0000000C20G-1Tiu;
-	Tue, 04 Nov 2025 15:00:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGIcg-0000000C2Xr-19DV;
+	Tue, 04 Nov 2025 15:07:02 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGIW8-0000000C1zy-2YH7;
-	Tue, 04 Nov 2025 15:00:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB994601EC;
-	Tue,  4 Nov 2025 15:00:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B73C4CEF7;
-	Tue,  4 Nov 2025 15:00:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762268415;
-	bh=ebMwlcOllEAmVux6uigBYvOvQ1U699pEuwenpk8GAa8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EpYT4giRowe6c94+e/O49vmTAnRcdfwZ9BkTVxBfzSYWtXoUvG0xiGmllObuw0CNI
-	 EWg1qvF9vAw9LLzr4AzKDAQTb0tnnGHgF7sZdQxK+PreK1mJU+YuTq1V9/ZOIXyNjX
-	 IEQF+GTYmE1SqYnyCgBu1p4ddfaFlecE6gfs+FWa/2yNX4x4gmMs2YJNPF7sskkzEN
-	 KT7Qou+0EQoMyafMIgLxtuitNanOeADgO2OnfkM+wLpdc9HSCdMl2agtwE8Z9lk8oB
-	 72RWkrV0w50Nv5xXUezTyrjbwSjP/T4DyqAlmcmOiqexhD/wxPXJHekqTkTxGuJRtz
-	 bdqr3E09iK3yw==
-Date: Tue, 4 Nov 2025 16:00:08 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, bhelgaas@google.com, heiko@sntech.de,
-	mani@kernel.org, yue.wang@amlogic.com, pali@kernel.org,
-	neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
-	khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <aQoU-JhWz6IYTpGi@ryzen>
-References: <20250620155507.1022099-2-18255117159@163.com>
- <20250902174828.GA1165373@bhelgaas>
- <aLlmV8Qiaph1PHFY@ryzen>
+	id 1vGIcd-0000000C2XM-1Ltc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Nov 2025 15:07:00 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-640b4a52950so2878622a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 07:06:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762268817; x=1762873617; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5mpUIW6+CyzXZCjIETW1X/eFRIiBeTonduLxFWGZK/o=;
+        b=T+kmMkguZu4qwNIpSUn+zmdzUIOwkzkDC+zCt8NSWCI7m9U6YXU0TOXn2MGlZRRhHw
+         TEIlU46s4bF8a481Lxy6dCZuQb3zOmZKCSiU8lmp0XI9+eqhtbavYwzV/Lf0nmQ0s7Z8
+         RQ6l8htN/8TrpS4E/Nf3Q65He62dMU6DdIQ7gTa+eyBd65K5O3Yuuae4ssz3r7tHZ2Pg
+         K+wiOtoToEZmiID/L5yGA0vGocvEj+z+zVUtkZw6QUJjev5uj7CHgrJ9LvktiaOOEl/n
+         1eDWAno0hx2ggvtwtYFRSC9z+qVtLCXOLG/CO0zSP/ohQx/Hwv8LIG7l7FXkMaIzRI0J
+         AL1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762268817; x=1762873617;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5mpUIW6+CyzXZCjIETW1X/eFRIiBeTonduLxFWGZK/o=;
+        b=kQS0pCixuBje+1TrPVVm42QaH9LY6GXdxJpVaceZ0YDE2eEafh1rE/sGakHkNH00DC
+         ObZlE47GuNiXIICLI5Gtsihg4PCKFH3MeerFnyNqT2ErM3vGYmelB4M/LeWyP75jLsfV
+         Q4pG2WAXIp7yJn6769GxxTcRw1asVO645C/vhZb5wh9O3u2hQyB2sDoEKtxYInspM65a
+         izNEGzEeR5A/Rx6qgtEbolCqgaHSmwSgKs81C4ntLEz3MJXklCsigxGTpXvYR1lOUUEJ
+         33ubnAQ4CT5KLcXsdq+0i3ZYR0BJVhLmzdyYwNU1LPbV4I+weBh7PSM6HaRv977XbXGE
+         x9wg==
+X-Forwarded-Encrypted: i=1; AJvYcCXlHUcoa+q1REJB5irhXg/ByYsYjXhNZbgv/AtMQ8Apv27V70I2RFom3cRSctOBPXbeTp/TzCh4DASDdN2RDoFh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5adJCOqyCLL6j9Gaf7+T4AzJ0K78suOSswWpdTkFGHHpJfD8y
+	5IE8LyywhJVCNIk6x1SqTD3vVscJGtj9jeeLnzHSsyP9ZSEazGkBaALk
+X-Gm-Gg: ASbGncvdxmpzDg7iFXdXgS77vyfujgD5mqp4kDRVp7YO8/h3t1CTTUhRHBk3/p3957W
+	90ABnPQLiptQRsGj5iy4ZpgTQFCJVb6jXygON6nJ8SLTp8TJQ2s2y6aeDSWfg7AoTf4MkjQQfnh
+	PYcuPbk84sV7oXCQ+o0Lxnkl8DWBBK8EuOy1CTkxudJKYiy103Eha6K16CM4EK2UVmis9QLkzjS
+	PGC+GQEnpdt/bKagXePWtyJ3TrO6tErAtnpVrIcLXQXCy9Xn8+QEKigQAxwBGRVxO84XZx0LA+q
+	xv2QdJaRRlzHaF8mpIO4DUg5MAhmHiEzsOJW6I35i4bVBOaZRmUv+o5Nxh3VIkp6y3V8EGfe0oH
+	Nc2K2AHESYaODKx72o0GwJe7fEND1dGsXeKVoX1OYwn2mEFItUWWo1ZuntmgJqkJzw3jEjDrRvf
+	bXB6JHPhp5tJu6AauSf1nvkL6IAw==
+X-Google-Smtp-Source: AGHT+IHpPTJa2+j0h+Cs4K2bC2PC8wb2EuNR51cOnJgsXf5x4woRyQv45qLS4utiEScOeGGzpAw/cg==
+X-Received: by 2002:a05:6402:50c8:b0:63c:4537:75c0 with SMTP id 4fb4d7f45d1cf-640770823a5mr12779586a12.38.1762268817213;
+        Tue, 04 Nov 2025 07:06:57 -0800 (PST)
+Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-640e6805da3sm2342014a12.15.2025.11.04.07.06.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Nov 2025 07:06:55 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/3] Switch to using AIPSTZ5 on i.MX8MP
+Date: Tue,  4 Nov 2025 07:06:09 -0800
+Message-ID: <20251104150612.1874-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLlmV8Qiaph1PHFY@ryzen>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251104_070659_394074_CA9C7FAE 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,124 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Hans,
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Any chance that you have time to re-spin this series?
+This series is a combination of the previously dropped patches from [1]
+and the config-related patch from [2]. This enables the usage of AIPSTZ5
+on i.MX8MP-based platforms.
 
-I've seen some new DWC based drivers like NXP that also want to
-configure MPS.
+[1]: https://lore.kernel.org/lkml/20250610160152.1113930-1-laurentiumihalcea111@gmail.com/
+[2]: https://lore.kernel.org/lkml/20250707234628.164151-1-laurentiumihalcea111@gmail.com/
 
-Most likely we know the reason... The PCI core does not change it
-without this series.
+---
+Changes in v2:
 
+* squash patch 3 into patch 4.
+* rewrite commit message of patch 1 to state that this driver is used
+  for the IMX8MP-EVK board.
+* rewrite commit message of patch 2 to (hopefully) better describe
+  why we need this change.
+* link to v1: https://lore.kernel.org/lkml/20250821105634.1893-1-laurentiumihalcea111@gmail.com/
+---
 
-Kind regards,
-Niklas
+Laurentiu Mihalcea (3):
+  arm64: defconfig: enable i.MX AIPSTZ driver
+  arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+  arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
 
-On Thu, Sep 04, 2025 at 12:13:43PM +0200, Niklas Cassel wrote:
-> On Tue, Sep 02, 2025 at 12:48:28PM -0500, Bjorn Helgaas wrote:
-> > On Fri, Jun 20, 2025 at 11:55:06PM +0800, Hans Zhang wrote:
-> > > Current PCIe initialization logic may leave root ports operating with
-> > > non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> > > configuration is handled during bus enumeration, root port MPS values
-> > > inherited from firmware or hardware defaults ...
-> > 
-> > Apparently Root Port MPS configuration is different from that for
-> > downstream devices?
-> 
-> pci_host_probe() will call pci_scan_root_bus_bridge(), which will call
-> pci_scan_single_device(), which will call pci_device_add(), which will
-> call pci_configure_device(), which will call pci_configure_mps().
-> 
-> This will be done for both bridges and endpoints.
-> 
-> The bridge will be scanned/added first, before devices behind the bridge.
-> 
-> 
-> While pci_configure_device()/pci_configure_mps() will be called for both
-> bridges and endpoints, pci_configure_mps() will do an early return for
-> devices where pci_upstream_bridge() returns NULL, i.e. for devices where
-> that does not have an upstream bridge, i.e. for the root bridge itself:
-> https://github.com/torvalds/linux/blob/v6.17-rc4/drivers/pci/probe.c#L2181-L2182
-> 
-> So MPS will not be touched for root bridges.
-> 
-> This patch ensures that MPS for root bridges gets initialized to MPSS
-> (Max supported MPS).
-> 
-> Later, when pci_configure_device()/pci_configure_mps() is called for a
-> device behind the bridge, if the MPSS of the device behind the bridge is
-> smaller than the MPS of the bridge, the code reduces the MPS of the bridge:
-> https://github.com/torvalds/linux/blob/v6.17-rc4/drivers/pci/probe.c#L2205
-> 
-> 
-> My only question with this patch is if there is a bridge behind a bridge,
-> will the bridge behind the bridge still have pci_pcie_type() ==
-> PCI_EXP_TYPE_ROOT_PORT ?
-> 
-> If so, perhaps we should modify this patch from:
-> 
-> +       if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-> +           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
-> +               pcie_write_mps(dev, 128 << dev->pcie_mpss);
-> +       }
-> +
->         if (!bridge || !pci_is_pcie(bridge))
->                 return;
-> 
-> 
-> to:
-> 
-> +       if (!bridge && pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-> +           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
-> +               pcie_write_mps(dev, 128 << dev->pcie_mpss);
-> +       }
-> +
->         if (!bridge || !pci_is_pcie(bridge))
->                 return;
-> 
-> 
-> 
-> > > During host controller probing phase, when PCIe bus tuning is enabled,
-> > > the implementation now configures root port MPS settings to their
-> > > hardware-supported maximum values. Specifically, when configuring the MPS
-> > > for a PCIe device, if the device is a root port and the bus tuning is not
-> > > disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
-> > > match the Root Port's maximum supported payload size. The Max Read Request
-> > > Size (MRRS) is subsequently adjusted through existing companion logic to
-> > > maintain compatibility with PCIe specifications.
-> > > 
-> > > Note that this initial setting of the root port MPS to the maximum might
-> > > be reduced later during the enumeration of downstream devices if any of
-> > > those devices do not support the maximum MPS of the root port.
-> > > 
-> > > Explicit initialization at host probing stage ensures consistent PCIe
-> > > topology configuration before downstream devices perform their own MPS
-> > > negotiations. This proactive approach addresses platform-specific
-> > > requirements where controller drivers depend on properly initialized
-> > > root port settings, while maintaining backward compatibility through
-> > > PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
-> > > utilized without altering existing device negotiation behaviors.
-> > 
-> > This last paragraph seems kind of like marketing without any real
-> > content.  Is there something important in there?
-> > 
-> > Nits:
-> > s/root port/Root Port/
-> > 
-> > Reword "implementation now configures" to be clear about whether "now"
-> > refers to before this patch or after.
-> > 
-> > Update the MRRS "to maintain compatibility" part.  I'm dubious about
-> > there being a spec compatibility issue with respect to MRRS.  Cite the
-> > relevant section if there is an issue.
-> 
-> I'm not sure why the commit message mentions MRRS at all.
-> 
-> Sure, pcie_write_mrrs() might set MRRS to MPS, but that is existing logic
-> and not really related to the change in this patch IMO.
-> 
-> 
-> Kind regards,
-> Niklas
+ arch/arm64/boot/dts/freescale/imx8mp-aipstz.h | 33 +++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     | 16 ++++++---
+ arch/arm64/configs/defconfig                  |  1 +
+ 3 files changed, 46 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
+
+-- 
+2.43.0
+
 
