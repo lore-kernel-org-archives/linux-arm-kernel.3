@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA26CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8836BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+TfhXHUSw3+oJhe7TatHLLAgu2372no2ChD3eKy/l5s=; b=D+p4x+bUh5LB7rlhQAKQnCygEZ
-	4Fmtm56807M77WX96AJLH7n92+xkUHPmmEhojEm4J5/QRTCfCMMGEDz/RduCJcQ2QQtYN6qsG3a1E
-	XIBFXBkJ77eOm+hxVKzXwH3jQcOItyfg0NcAoygbN4BZNTdiq1ujpt7dqVxpCzBLgl3YdH9PV3v22
-	b7p8hnDudmfvJRi0kKtsIOsZkE5GRw4bcoQKCnlGYyIHlMjA5NSronfx+SkfNVjOR17OV74Bv5zt5
-	x3rSCoWqUzTUKTL25RL6JzJZZdasqcusbnKl0oFwQnmbuE4Vh1Beb5n/hRzcOWYBSFKXZKHQWjAoY
-	8s8e/VZw==;
+	bh=JP58G636U6B/N0cRqF4Ram5dNdEoiyDnL80+1fpgwkM=; b=F6IFYZ3s5gk8uc7Je6hJGjsuSC
+	Vmm9kGtkjKBh2YovWNdLbt2XtF3dyaNDRBU7uczLxOQlj0MvF2fZ7HbeFja8EHh/MkovMuPeCzaAg
+	sh1V4GX0R8mKIMcuzqB9fMFL1g/Q+fi2Cyf3LZblV8CmuzyjgoCnMtx4W3KTAxZEHiRCP0YsN7CAr
+	LwJ4YzD7PN4hpZg+XiGBz4o71PHtwTqR7t6uzYBUe4wLgFKWttY5WidxaQusq/xSKoREYR9Myh821
+	j3Iia0cftXWaxL9I4qRYq69djXgo3I0XLY2PWX3IB1Z62WXXMhtQQ9RWv2XleEqknAI/V/ueJ7/Wr
+	wfjVq9SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCOY-0000000BQGQ-30Fb;
-	Tue, 04 Nov 2025 08:28:02 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCOV-0000000BQFb-1RG7
+	id 1vGCRp-0000000BQe8-0goH;
+	Tue, 04 Nov 2025 08:31:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGCRh-0000000BQd2-2pRm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 08:28:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 936BE4E414EF;
-	Tue,  4 Nov 2025 08:27:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6937E606EF;
-	Tue,  4 Nov 2025 08:27:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3101E10B50096;
-	Tue,  4 Nov 2025 09:27:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762244875; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=+TfhXHUSw3+oJhe7TatHLLAgu2372no2ChD3eKy/l5s=;
-	b=EBXHeENpL10W0F4oCmAVTOvzdSsmtfVjnvaAroBm8VttjnVHcjXb/WGl/w75922sMk7AQt
-	lHtJfqbXyq9DJ0SqVQhmvCy3LcbEDJcnkCbMZ9nmUZciFDquW9SUtVP1zEsveKzE68tpt7
-	wDrrbjJnR1ECFRllShwir2ZobUoR6HwPU9EASh+bjRRC6DHDyWD6BzcaHbLKZNTPsvXuKb
-	NLUN5TGAlU+x3zDcd8VH7m9UgcMHPkzolvkaEuytnCzR+H9VYKgxTOUEut6xc4LAQSt1k0
-	DOPPzhQ7fW0hEAe9r6Mkvn1yDotU0jYcQTKY/yw0IJ7gdrg06oisVUtR/zqJdA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Vladimir Zapolskiy <vz@mleia.com>
-Cc: Haotian Zhang <vulab@iscas.ac.cn>,  richard@nod.at,  vigneshr@ti.com,
-  piotr.wojtaszczyk@timesys.com,  dmitry.torokhov@gmail.com,
-  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mtd: rawnand: lpc32xx_slc: fix GPIO descriptor leak on
- probe error and remove
-In-Reply-To: <57f7989d-6f05-4b1b-a31b-4b1dca308ffb@mleia.com> (Vladimir
-	Zapolskiy's message of "Mon, 3 Nov 2025 18:21:47 +0200")
-References: <20251028094747.1089-1-vulab@iscas.ac.cn>
-	<57f7989d-6f05-4b1b-a31b-4b1dca308ffb@mleia.com>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Tue, 04 Nov 2025 09:27:51 +0100
-Message-ID: <871pmeb3so.fsf@bootlin.com>
+	Tue, 04 Nov 2025 08:31:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 921441CE0;
+	Tue,  4 Nov 2025 00:31:08 -0800 (PST)
+Received: from [10.57.86.251] (unknown [10.57.86.251])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E0EB3F694;
+	Tue,  4 Nov 2025 00:31:14 -0800 (PST)
+Message-ID: <26c8aa23-068c-44e3-b899-f77bc18954b4@arm.com>
+Date: Tue, 4 Nov 2025 08:31:11 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: mm: Don't sleep in split_kernel_leaf_mapping()
+ when in atomic context
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, yang@os.amperecomputing.com, david@redhat.com,
+ ardb@kernel.org, dev.jain@arm.com, scott@os.amperecomputing.com,
+ cl@gentwo.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Guenter Roeck <groeck@google.com>
+References: <20251103125738.3073566-1-ryan.roberts@arm.com>
+ <aQjMUhspJrRQn5Ew@willie-the-truck>
+ <3611cfeb-53d5-4db5-95a1-1d095edfc3c9@arm.com>
+In-Reply-To: <3611cfeb-53d5-4db5-95a1-1d095edfc3c9@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_002759_888510_A00E0EEC 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20251104_003119_847023_B9637791 
+X-CRM114-Status: GOOD (  48.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,55 +69,319 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 03/11/2025 16:28, Ryan Roberts wrote:
+> Thanks for the fast review!
+> 
+> 
+> On 03/11/2025 15:37, Will Deacon wrote:
+>> On Mon, Nov 03, 2025 at 12:57:37PM +0000, Ryan Roberts wrote:
+>>> It has been reported that split_kernel_leaf_mapping() is trying to sleep
+>>> in non-sleepable context. It does this when acquiring the
+>>> pgtable_split_lock mutex, when either CONFIG_DEBUG_PAGEALLOC or
+>>> CONFIG_KFENCE are enabled, which change linear map permissions within
+>>> softirq context during memory allocation and/or freeing. All other paths
+>>> into this function are called from sleepable context and so are safe.
+>>>
+>>> But it turns out that the memory for which these 2 features may attempt
+>>> to modify the permissions is always mapped by pte, so there is no need
+>>> to attempt to split the mapping. So let's exit early in these cases and
+>>> avoid attempting to take the mutex.
+>>>
+>>> There is one wrinkle to this approach; late-initialized kfence allocates
+>>> it's pool from the buddy which may be block mapped. So we must hook that
+>>> allocation and convert it to pte-mappings up front. Previously this was
+>>> done as a side-effect of kfence protecting all the individual pages in
+>>> its pool at init-time, but this no longer works due to the added early
+>>> exit path in split_kernel_leaf_mapping().
+>>>
+>>> So instead, do this via the existing arch_kfence_init_pool() arch hook,
+>>> and reuse the existing linear_map_split_to_ptes() infrastructure. This
+>>> will now also be more efficient as a result.
+>>>
+>>> Closes: https://lore.kernel.org/all/f24b9032-0ec9-47b1-8b95-c0eeac7a31c5@roeck-us.net/
+>>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+>>> Tested-by: Guenter Roeck <groeck@google.com>
+>>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>>> ---
+>>>
+>>> Hi All,
+>>>
+>>> This is a fuller fix than the suggestion I sent yesterday, and works correctly
+>>> with late-init kfence (thanks to Yang Shi for pointing that out).
+>>>
+>>> I've verified this on AmpereOne with CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE
+>>> individually, and I've also forced it to take the linear_map_split_to_ptes() to
+>>> verify that I haven't broken it during the refactoring.
+>>>
+>>> I've kept Guenter's T-b since the early-init kfence path that he was testing is
+>>> unchanged.
+>>>
+>>> Assuming nobody spots any issues, I'fd like to get it into the next round of
+>>> arm64 bug fixes for this cycle.
+>>>
+>>> Thanks,
+>>> Ryan
+>>>
+>>>
+>>>  arch/arm64/include/asm/kfence.h |  4 +-
+>>>  arch/arm64/mm/mmu.c             | 92 +++++++++++++++++++++++----------
+>>>  2 files changed, 68 insertions(+), 28 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
+>>> index a81937fae9f6..4a921e06d750 100644
+>>> --- a/arch/arm64/include/asm/kfence.h
+>>> +++ b/arch/arm64/include/asm/kfence.h
+>>> @@ -10,8 +10,6 @@
+>>>
+>>>  #include <asm/set_memory.h>
+>>>
+>>> -static inline bool arch_kfence_init_pool(void) { return true; }
+>>> -
+>>>  static inline bool kfence_protect_page(unsigned long addr, bool protect)
+>>>  {
+>>>  	set_memory_valid(addr, 1, !protect);
+>>> @@ -25,8 +23,10 @@ static inline bool arm64_kfence_can_set_direct_map(void)
+>>>  {
+>>>  	return !kfence_early_init;
+>>>  }
+>>> +bool arch_kfence_init_pool(void);
+>>>  #else /* CONFIG_KFENCE */
+>>>  static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
+>>> +static inline bool arch_kfence_init_pool(void) { return false; }
+>>
+>> Why do we need this for the !KFENCE case?
+> 
+> We don't, my bad. I'll remove.
+> 
+>>
+>>>  #endif /* CONFIG_KFENCE */
+>>>
+>>>  #endif /* __ASM_KFENCE_H */
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index b8d37eb037fc..0385e9b17ab0 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -708,6 +708,16 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
+>>>  	return ret;
+>>>  }
+>>>
+>>> +static inline bool force_pte_mapping(void)
+>>> +{
+>>> +	bool bbml2 = system_capabilities_finalized() ?
+>>> +		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+>>> +
+>>> +	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+>>> +			   is_realm_world())) ||
+>>> +		debug_pagealloc_enabled();
+>>> +}
+>>> +
+>>>  static DEFINE_MUTEX(pgtable_split_lock);
+>>>
+>>>  int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>>  	if (!system_supports_bbml2_noabort())
+>>>  		return 0;
+>>>
+>>> +	/*
+>>> +	 * If the region is within a pte-mapped area, there is no need to try to
+>>> +	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
+>>> +	 * change permissions from softirq context so for those cases (which are
+>>> +	 * always pte-mapped), we must not go any further because taking the
+>>> +	 * mutex below may sleep.
+>>> +	 */
+>>> +	if (force_pte_mapping() || is_kfence_address((void *)start))
+>>> +		return 0;
+>>> +
+>>>  	/*
+>>>  	 * Ensure start and end are at least page-aligned since this is the
+>>>  	 * finest granularity we can split to.
+>>> @@ -758,30 +778,30 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>>  	return ret;
+>>>  }
+>>>
+>>> -static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+>>> -					  unsigned long next,
+>>> -					  struct mm_walk *walk)
+>>> +static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+>>> +				   unsigned long next, struct mm_walk *walk)
+>>>  {
+>>> +	gfp_t gfp = *(gfp_t *)walk->private;
+>>>  	pud_t pud = pudp_get(pudp);
+>>>  	int ret = 0;
+>>>
+>>>  	if (pud_leaf(pud))
+>>> -		ret = split_pud(pudp, pud, GFP_ATOMIC, false);
+>>> +		ret = split_pud(pudp, pud, gfp, false);
+>>>
+>>>  	return ret;
+>>>  }
+>>>
+>>> -static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>>> -					  unsigned long next,
+>>> -					  struct mm_walk *walk)
+>>> +static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>>> +				   unsigned long next, struct mm_walk *walk)
+>>>  {
+>>> +	gfp_t gfp = *(gfp_t *)walk->private;
+>>>  	pmd_t pmd = pmdp_get(pmdp);
+>>>  	int ret = 0;
+>>>
+>>>  	if (pmd_leaf(pmd)) {
+>>>  		if (pmd_cont(pmd))
+>>>  			split_contpmd(pmdp);
+>>> -		ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
+>>> +		ret = split_pmd(pmdp, pmd, gfp, false);
+>>>
+>>>  		/*
+>>>  		 * We have split the pmd directly to ptes so there is no need to
+>>> @@ -793,9 +813,8 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>>>  	return ret;
+>>>  }
+>>>
+>>> -static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>>> -					  unsigned long next,
+>>> -					  struct mm_walk *walk)
+>>> +static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>>> +				   unsigned long next, struct mm_walk *walk)
+>>>  {
+>>>  	pte_t pte = __ptep_get(ptep);
+>>>
+>>> @@ -805,12 +824,24 @@ static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>>>  	return 0;
+>>>  }
+>>>
+>>> -static const struct mm_walk_ops split_to_ptes_ops __initconst = {
+>>> +static const struct mm_walk_ops split_to_ptes_ops = {
+>>>  	.pud_entry	= split_to_ptes_pud_entry,
+>>>  	.pmd_entry	= split_to_ptes_pmd_entry,
+>>>  	.pte_entry	= split_to_ptes_pte_entry,
+>>>  };
+>>>
+>>> +static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp)
+>>> +{
+>>> +	int ret;
+>>> +
+>>> +	arch_enter_lazy_mmu_mode();
+>>> +	ret = walk_kernel_page_table_range_lockless(start, end,
+>>> +					&split_to_ptes_ops, NULL, &gfp);
+>>> +	arch_leave_lazy_mmu_mode();
+>>
+>> Why are you entering/leaving lazy mode now? linear_map_split_to_ptes()
+>> calls flush_tlb_kernel_range() right after this so now it looks like
+>> we have more barriers than we need there.
+> 
+> Without the lazy mmu block, every write to every pte (or pmd/pud) will cause a
+> dsb and isb to be emitted. With the lazy mmu block, we only emit a single
+> dsb/isb at the end of the block.
+> 
+> linear_map_split_to_ptes() didn't previously have a lazy mmu block; that was an
+> oversight, I believe. So when refactoring I thought it made sense to make it
+> common for both cases.
+> 
+> Yes, the flush_tlb_kernel_range() also has the barriers, so the lazy mmu mode is
+> reducing from a gazillion barriers to 2. We could further optimize from 2 to 1,
+> but I doubt the performance improvement will be measurable.
+> 
+> Perhaps I've misunderstood your point...?
 
-On 03/11/2025 at 18:21:47 +02, Vladimir Zapolskiy <vz@mleia.com> wrote:
+Having thought about this, I just wanted to add a few details; if KFENCE is
+enabled and can be used to allocate a page (actually I think it is currently
+only used for slab allocations), then allocation of a new page table page (which
+can be triggered while splitting the mappings to ptes) may get hooked by KFENCE
+and will cause a page unprotection request, which will cause us to enter a
+nested lazy mmu block and will cause a call into split_kernel_leaf_mapping().
 
-> On 10/28/25 11:47, Haotian Zhang wrote:
->> The driver calls gpiod_get_optional() in the probe function but
->> never calls gpiod_put() in the remove function or in the probe
->> error path. This leads to a GPIO descriptor resource leak.
->> The lpc32xx_mlc.c driver in the same directory handles this
->> correctly by calling gpiod_put() on both paths.
->> Add gpiod_put() in the remove function and in the probe error path
->> to fix the resource leak.
->> Fixes: 6b923db2867c ("mtd: rawnand: lpc32xx_slc: switch to using gpiod
->> API")
->> Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
->
-> The problem is well identified, thank you for the fix.
->
->> ---
->>   drivers/mtd/nand/raw/lpc32xx_slc.c | 2 ++
->>   1 file changed, 2 insertions(+)
->> diff --git a/drivers/mtd/nand/raw/lpc32xx_slc.c
->> b/drivers/mtd/nand/raw/lpc32xx_slc.c
->> index b54d76547ffb..fea3705a2138 100644
->> --- a/drivers/mtd/nand/raw/lpc32xx_slc.c
->> +++ b/drivers/mtd/nand/raw/lpc32xx_slc.c
->> @@ -937,6 +937,7 @@ static int lpc32xx_nand_probe(struct platform_device=
- *pdev)
->>   	dma_release_channel(host->dma_chan);
->>   enable_wp:
->>   	lpc32xx_wp_enable(host);
->> +	gpiod_put(host->wp_gpio);
->>     	return res;
->>   }
->> @@ -962,6 +963,7 @@ static void lpc32xx_nand_remove(struct platform_devi=
-ce *pdev)
->>   	writel(tmp, SLC_CTRL(host->io_base));
->>     	lpc32xx_wp_enable(host);
->> +	gpiod_put(host->wp_gpio);
->>   }
->>     static int lpc32xx_nand_resume(struct platform_device *pdev)
->
-> The fix can be greatly improved though, I kindly ask you to send v2 by sw=
-itching
-> from gpiod_get_optional() to resource managed
-> devm_gpiod_get_optional().
+The nested lazy mmu block is safe but non-optimal since we will emit the
+barriers when we exit the nested block and will consider ourself not in lazy mmu
+mode for the remainder of the outer block; so we will emit more barriers than
+necessary there. That's an existing problem that Kevin has a series to address.
 
-I've already applied this fix, however I will welcome a follow-up patch.
+Calling split_kernel_leaf_mapping() is safe since it will exit early since the
+ptp memory whose permissions are being changed must be in a region that is
+already pte-mapped (i.e. the KFENCE pool). So it won't attempt to grab the mutex
+and there will never be any deadlock. This is a special (slightly simpler) case
+of the circular issue that Kevin is trying to solve for kpkeys.
+
+But as I say - as far as I can tell, KFENCE will never be used for a page
+allocation so this is theoretical anyway. You could construct a similar argument
+with CONFIG_DEBUG_PAGEALLOC, but in that case force_pte_mapping() would be true
+and the whole linear map would be mapped by pte from the start and we would
+never be trying to split the mappings in the first place.
+
+I'm babbling, but the TL;DR is that I believe this is all safe and optimal in
+practice.
+
+> 
+>>
+>>> +
+>>> +	return ret;
+>>> +}
+>>> +
+>>>  static bool linear_map_requires_bbml2 __initdata;
+>>>
+>>>  u32 idmap_kpti_bbml2_flag;
+>>> @@ -847,11 +878,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
+>>>  		 * PTE. The kernel alias remains static throughout runtime so
+>>>  		 * can continue to be safely mapped with large mappings.
+>>>  		 */
+>>> -		ret = walk_kernel_page_table_range_lockless(lstart, kstart,
+>>> -						&split_to_ptes_ops, NULL, NULL);
+>>> +		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
+>>>  		if (!ret)
+>>> -			ret = walk_kernel_page_table_range_lockless(kend, lend,
+>>> -						&split_to_ptes_ops, NULL, NULL);
+>>> +			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
+>>>  		if (ret)
+>>>  			panic("Failed to split linear map\n");
+>>>  		flush_tlb_kernel_range(lstart, lend);
+>>> @@ -1002,6 +1031,27 @@ static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
+>>>  	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
+>>>  	__kfence_pool = phys_to_virt(kfence_pool);
+>>>  }
+>>> +
+>>> +bool arch_kfence_init_pool(void)
+>>> +{
+>>> +	unsigned long start = (unsigned long)__kfence_pool;
+>>> +	unsigned long end = start + KFENCE_POOL_SIZE;
+>>> +	int ret;
+>>> +
+>>> +	/* Exit early if we know the linear map is already pte-mapped. */
+>>> +	if (!system_supports_bbml2_noabort() || force_pte_mapping())
+>>> +		return true;
+>>> +
+>>> +	/* Kfence pool is already pte-mapped for the early init case. */
+>>> +	if (kfence_early_init)
+>>> +		return true;
+>>> +
+>>> +	mutex_lock(&pgtable_split_lock);
+>>> +	ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
+>>> +	mutex_unlock(&pgtable_split_lock);
+
+I think it's worth adding a comment here to say that TLB invalidation is not
+required here since we know that bbml2 is supported. So while we have split the
+pgtables, the TLB may still contain the larger mappings, but they will be
+naturally evicted over time, and if/when the permissions are changed for smaller
+regions those small regions will be invalidated which will cause any
+intersecting large TLB entries to be invalidated.
+
+I'll add for the next version.
 
 Thanks,
-Miqu=C3=A8l
+Ryan
+
+
+>>> +
+>>> +	return ret ? false : true;
+>>
+>> return !ret
+> 
+> Yes good point - will fix in the next spin.
+> 
+> Thanks,
+> Ryan
+> 
+>>
+>> Will
+> 
+
 
