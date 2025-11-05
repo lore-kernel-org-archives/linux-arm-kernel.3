@@ -4,110 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9498CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 06:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32488CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 06:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SowBz4FuxCIhHBwO2dD4Ym/m7NoUT7fdaCFqmF4nQmI=; b=w3SX7Vfx0u1//pQGykrIrF4+Ww
-	PGUaRwuzjqbl8mWAcWn1a8hqmbfDjDWK/WMOeEOYjG2Y8LFrCw9JF2gsnQ7qq2s+U4H7Ewa2LwCE2
-	xjdo2twysjz2MeUinoNKBgnCz1dH2cLi2XVtytYfGaqR6+6ObkmJeauMW/yGJbRatQL1PqyrYo+Wv
-	/kTCiRxuQvYOtlJy2HtYMwO1LHrNGG1WFlefcCfyl5VdN8Sbj6DldSFYsiOmnJ7BPWN25gHrUbl/g
-	Uan4W+LT1nlW8evp5WbjWMonmOHS1ZB7+Aq9yV1ehlgNQaeX30GCoVUZT8N4G+XtTsZlZyE1ZNiUs
-	pSibyWkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Date:Content-Transfer-Encoding:Message-ID:Subject:To:From:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KSMVrGeVII0CqF5TK1P9h0S2HR5G7KT2cLLZ17gvFMo=; b=2hoq18/CGagFlDl6ePEba4VAgA
+	McsUKy7Hv7D9VR4BVgqoEdNqCokVJEv75NIFKztDvTEhpaIyvpll0KI1h8J6POl2wHqtkQbVL1/kC
+	fRSygrNASyAaRrG8pO6eHLmq7WhFr3bKMBb88xAbHM5SecKhguQ7IUOyAjJwFIJq0sSyzqh43bRIk
+	bBs7lQnN/Jbl74eA7ju3lefDg4m5+uajVm2Og3Mhcl9SQ5h16JhElvUQ4bnmfbN973NEdUN5QY/iy
+	2x7lrjJpb+6MdqpiKJ78sBKPGMNM3+gfS5SYCW5uXUxRQFm2sqUyHzXBBxZ7+wqSK0O5/RW3b7tyS
+	tDp9zNmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGX7w-0000000D584-44wj;
-	Wed, 05 Nov 2025 06:36:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGXDE-0000000D5RU-31pI;
+	Wed, 05 Nov 2025 06:41:44 +0000
+Received: from 210-65-1-144.hinet-ip.hinet.net ([210.65.1.144] helo=cdmsr1.hinet.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGX7u-0000000D57Y-1lig
+	id 1vGXDB-0000000D5R6-2zlj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 06:36:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36D3344065;
-	Wed,  5 Nov 2025 06:36:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 363C4C4CEF8;
-	Wed,  5 Nov 2025 06:36:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762324573;
-	bh=cyiUtBMf0HVK7nta4KCI5/6yhs0aN0/f1yRIycEVfeE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ciKBTREZ5bs98apzuR0e1OEKOkhwJJg/YRyZEThRF8K5pXzGx5ScMrxwZINOK9hmm
-	 85gderGg7s9AzQiSW19lp1c8lIYxPI9x4qLqXUm9ZbGIhPSqgmljvpTaNgWs2RWPfh
-	 yis4KDlrpogHI7B43C63tCkC6l/+7Pq00x0vZ3y3BgYC/LqE0r6A5F+UdzqMJq4vtY
-	 6dD8sHXzj/WJCkiWGMhnM3Zv/uRFrU2RSvVUngmdiG2VjSLolN2M8q8R0YPcs69rWr
-	 xNPdO0L6VPd8MfMxHX6Y2aye6oQkR/9+WJMwzil2DC/0eGQhO2vBUP6wEPohmj0kQF
-	 6a3i5fjeERILQ==
-Message-ID: <08ecbe3a-258b-4d02-b4cb-bb767e013d68@kernel.org>
-Date: Wed, 5 Nov 2025 07:36:08 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: defconfig: enable i.MX AIPSTZ driver
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Daniel Baluta <daniel.baluta@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251104150612.1874-1-laurentiumihalcea111@gmail.com>
- <20251104150612.1874-2-laurentiumihalcea111@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251104150612.1874-2-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+	Wed, 05 Nov 2025 06:41:43 +0000
+Received: from cmsr1.hinet.net ([10.199.216.80])
+	by cdmsr1.hinet.net (8.15.2/8.15.2) with ESMTPS id 5A56fWHh627750
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 5 Nov 2025 14:41:33 +0800
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=msa.hinet.net;
+	s=default; t=1762324893; bh=buh6PEF6pJSjk7LJzMg0h8eeWIg=;
+	h=From:To:Subject:Date;
+	b=CjM/NqWINqeWszjoJQSXGUMnN7ecBxuSQXex4cmVpsM7sN9drIpmiU3EuJj7WGbcV
+	 jv6OV89pWL/e9PO2kjN+qA/97vf8l5JMsnONhQRgSqa8bVJIurJU67Y1G3urIcDDmd
+	 xiljawklNkTsksWOASXmh8NGcWKoqWITxcnTnUxo=
+Received: from [127.0.0.1] (36-229-45-97.dynamic-ip.hinet.net [36.229.45.97])
+	by cmsr1.hinet.net (8.15.2/8.15.2) with ESMTPS id 5A56coXs374331
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 5 Nov 2025 14:39:37 +0800
+From: Procurement 73526 <Linux-arm-kernel@msa.hinet.net>
+To: linux-arm-kernel@lists.infradead.org
+Subject: =?UTF-8?B?TkVXIFBPIDYxODIyIFdlZG5lc2RheSwgTm92ZW1iZXIgNSwgMjAyNSBhdCAwNzozOTozNiBBTQ==?=
+Message-ID: <78d3850e-e11a-95bf-4ddf-1a66a5b5ca1e@msa.hinet.net>
 Content-Transfer-Encoding: 7bit
+Date: Wed, 05 Nov 2025 06:39:36 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+X-CMAE-Score: 0
+X-CMAE-Analysis: v=2.4 cv=e6elSrp/ c=1 sm=1 tr=0 ts=690af129
+	a=Z4yCq34gZZIglq7SYWyWWA==:117 a=IkcTkHD0fZMA:10 a=5KLPUuaC_9wA:10
+	a=pz8J27t7F6_C_cTTL8cA:9 a=QEXdDO2ut3YA:10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_223614_504378_B2D9BE45 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20251104_224142_101212_EA3AEE7A 
+X-CRM114-Status: UNSURE (   2.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +68,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Procurement <purchase@pathnsithu.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/11/2025 16:06, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> Enable the i.MX AIPSTZ driver, which is used for i.MX8MP-based boards such
-> as NXP's IMX8MP-EVK.
-> 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 03d89f29e7c1..ae5d32ea9fc3 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -271,6 +271,7 @@ CONFIG_GOOGLE_FIRMWARE=y
->  CONFIG_GOOGLE_CBMEM=m
->  CONFIG_GOOGLE_COREBOOT_TABLE=m
->  CONFIG_EFI_CAPSULE_LOADER=y
-> +CONFIG_IMX_AIPSTZ=y
+Hi Linux-arm-kernel,
 
-This should be a module.
+Please provide a quote for your products:
 
-Best regards,
-Krzysztof
+Include:
+1.Pricing (per unit)
+2.Delivery cost & timeline
+3.Quote expiry date
+
+Deadline: October
+
+Thanks!
+
+Danny Peddinti
+
+Noble alliance trade
 
