@@ -4,218 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91680CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A124CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYlp6GvbrHMp89MN1H7tBo0hdr2V36Lec8HKcmNpLPs=; b=GQhWZXhdfFPB6cgEUaf4v8NZQo
-	bC3UfE0j+5NJyS0exLCusL/tEtOZbQ0HcQIjanf6QqUKN652QPpRja5ZDStGT9CGobkXPd24TbxAa
-	NzKqfQP4SEIdWrTKAsXZhuPZftgWXR342Om5S/hu62umryK7EJoJ++/7DkgZM5UbflqyhOitmXD2t
-	hF6qONH6BqEgCfC+o15YL68hapkRHKCCt7QmSiWTcJ7oKTOT9ydbI4NL5vnmSp/LLSETCLLD4k/IV
-	ZqmyJ3gbtSOqpiGmPkTB2Ir5SZx1JSkv1+i+RHfsaH21E4/DCGMy31TZcnFGbbHx0q8OV4RkNIkA5
-	//gonhcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+LvaX4EPEoHtGWdcOKi4KdBLQBe4M94Gewe05R3R7ko=; b=naRRxhbnq7LtewPpMm2sYDVlAZ
+	RuPLms67/1PLYYJ5g91GkN482NkxLsP5mAm8JPyayJcXzW1ST4DsAuiWSwXHovpHCMK2UmZ1nYSha
+	EuK1ZTFv5yngX8vIqJQOQQrYvxAuTCpxs65n1Nbnyh8+OXykUKljXCGXAOZicl7L9XmjgBvWjXaCS
+	ZwDw1Y9GxZ9+0my/WCGmij3a9GMU3XS8Flr2CBEJrlr9Z2EbW5K6yxv5xQf7L2fy/axFimSUFoYDF
+	GjiSoLtphe/WqUXoraty6mXnXER1prVo30jr1gdV3Ym0mwprmy2d1b2xj7Qhkf5ivv9tQE5IfXPZ5
+	nxAN0KnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYwa-0000000DITk-10Ey;
-	Wed, 05 Nov 2025 08:32:40 +0000
-Received: from esa13.fujitsucc.c3s2.iphmx.com ([68.232.156.96])
+	id 1vGZ09-0000000DIxL-0zAz;
+	Wed, 05 Nov 2025 08:36:21 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYwX-0000000DIT3-0tFw
+	id 1vGZ07-0000000DIwu-2Et1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 08:32:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
-  t=1762331558; x=1793867558;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=e6SZ9S8LJZcI7h2O+RQP4d0IV62bgygFXQZz8IpwNP8=;
-  b=XZDCOwoOS42mCntG8Z3gHCwZf97E38OEXskj9fB20ZHLTb4eTfz6SuSV
-   L+POUlBjxckaPwveBCfyzp+0l91BVUWpsuFfHuGfYGBzEj8zs8qa/oloj
-   Qs013MepSp3XJ9JovF8TtKu+ljsEvNSyEANLgLvcy8fG3PgX7x50ZiHrq
-   ZSQ6unCZImTrwnJz64EYWo8po3RKL/KebH7yzC5I7zxrHyxPt1MAz+YMk
-   L1YVoNoIqp94tUvJ5XMjZu4EPD1eOAzU/DYklpzhcLCWTwVkwIx0B/blr
-   cTC0ryQ4Q8GEJY+j6i7J6/fs2wlDUfBT2GH9g2aMy2GiFRLuGqk9llo3E
-   A==;
-X-CSE-ConnectionGUID: tcWFhOHvSY6YokHnXw3iCg==
-X-CSE-MsgGUID: 9vK3edvGSDmWvxp3JHpXxw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11603"; a="172623419"
-X-IronPort-AV: E=Sophos;i="6.19,281,1754924400"; 
-   d="scan'208";a="172623419"
-Received: from mail-japanwestazon11010025.outbound.protection.outlook.com (HELO OS0P286CU011.outbound.protection.outlook.com) ([52.101.228.25])
-  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2025 17:32:24 +0900
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I92rX/SnuGrdKRTPYt2fjgRoeqXuRRtum5QWZydoF/7d7EdgvqvYqOnPirqE55IV1pPs2YLeMgS+PBNt7k8c5oftlCK285RYxRkqeVmQDqrbBjS2PSFEPPc/mcJhBtineO2jnsuzzeEEhNfSznThpHQ8IuacyjoW97pbQCUHjyRPN+uRMAGBctOeMVz23fczj1n1Pvdn0ADjIK0Ak5PSW0/QXNho3ElP2y+Gy9dzldYiDZGhoVGIjRGWl1BpcWfv5uVPm7lOOrB358+Yu2+Z6wN3avyjKN4UUaK6cGIUUbJoV7D0xP0fef5gVDErRfvn5XSEK14FJFfXOrMgTbN6LA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WYlp6GvbrHMp89MN1H7tBo0hdr2V36Lec8HKcmNpLPs=;
- b=i4vtkMaFAXruNZxLqC5Bdv/E8BBpoHk2a6P+x/tYw/uI2ixM2ROUkLjZORkfELz0hyZAQJObyYSH72hkssyILFlIcmKwxNW46hG8tEzQNIQLItNmBh+NwczOSYpvAdRSOU5gDvQ6H+4ixsDrl8S0bVFQXMcvURpQET0V4k7dfYfioeuKJ4yBxrm+ILFcOi0HsKckdYrbAMvi51AoCEZKFrpaFdCybKKi7N27i1JQkq7JK8q6MCWktFgB82D5c9sOM+W29pRaewhY0FTNT3jnSMn9ldRpCzQlCMGdmbQox2ByL3wrbW4S+TFy8bgpQzdzIw7zJbv6tZIuwqDFrK4y6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WYlp6GvbrHMp89MN1H7tBo0hdr2V36Lec8HKcmNpLPs=;
- b=FmL88YNSLC+7uXQZ6ro5FHWS6R4nUYjdtJv01ORcIehAVFSJ3rZyPi6FNOAE8c2CSmTD8TD/8tnvcgeuKClRAhQuyHn7KnOykohqNZqCiTEH8MDjhNQAsNQGm2T7fvbxi7CC+CKokFitbDmoLjNJTvSjuFQE9pR45uVmVggzaTCMVG+MCgzNGZCvcGVecaoM+mZi5L7bGBDMPIL3jRe1dazmxt5Ib3VsMDrMCp8fMiIcWJwucy++uBWKgHHswJgIFXub2NesL95HXl8ffJ2xGrv3IO+tCgXtaActSdBVcPaEyjC7aI+GRB17NNp6jYJsB36et3jVc3SBEz5cCJNlTQ==
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
- by TYCPR01MB10116.jpnprd01.prod.outlook.com (2603:1096:400:1ec::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.8; Wed, 5 Nov
- 2025 08:32:19 +0000
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
- 08:32:19 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: 'James Morse' <james.morse@arm.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>
-CC: D Scott Phillips OS <scott@os.amperecomputing.com>,
-	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
-	"lcherian@marvell.com" <lcherian@marvell.com>, "bobo.shaobowang@huawei.com"
-	<bobo.shaobowang@huawei.com>, "baolin.wang@linux.alibaba.com"
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
-	<xhao@linux.alibaba.com>, "peternewman@google.com" <peternewman@google.com>,
-	"dfustini@baylibre.com" <dfustini@baylibre.com>, "amitsinght@marvell.com"
-	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Dave Martin
-	<dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>, Shanker Donthineni
-	<sdonthineni@nvidia.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
-	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>, Rob Herring <robh@kernel.org>, Rohit Mathew
-	<rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown
-	<lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
-	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Jeremy
- Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>
-Subject: RE: [PATCH v3 23/29] arm_mpam: Add mpam_msmon_read() to read monitor
- value
-Thread-Topic: [PATCH v3 23/29] arm_mpam: Add mpam_msmon_read() to read monitor
- value
-Thread-Index: AQHcP5gi3HY59E83yESxgvOX1gpTFrTj2YYA
-Date: Wed, 5 Nov 2025 08:32:19 +0000
-Message-ID: <OSZPR01MB8798C425E5A820C2E0AAA7BC8BC5A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-24-james.morse@arm.com>
-In-Reply-To: <20251017185645.26604-24-james.morse@arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=a2991e45-b8b1-42d1-88f5-c8ade33ba2ae;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-11-05T08:15:33Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYCPR01MB10116:EE_
-x-ms-office365-filtering-correlation-id: 35466d70-c6d7-498e-64ed-08de1c45d596
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700021|1580799027;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?bE1jNlpEUDd1NUNlcmJUcERDakhRU2MyQlBrWjZsYysvMXc5eEpOQ1BG?=
- =?iso-2022-jp?B?UDkvaFhiNXVOb1NFRjBqM3UwUlZFRC9haEFkNEk4bnlUR243aWlJY2U4?=
- =?iso-2022-jp?B?VUU0VDRxdmcyMnBRNkp2bC85UUtBSmtEL2MyWVBNM3NFN213cFAvNzlM?=
- =?iso-2022-jp?B?VmpEczloTnhsa04rSU9JcnpPbU9SUDI5YWNHckhsbEw4QThqTGhwK1A3?=
- =?iso-2022-jp?B?a2lBUUdlQktwWW54YlRmRzJyUTFjVCtSVmpDeGtnUTY0NzlNak5XTTFh?=
- =?iso-2022-jp?B?dkJwRWo5UE04Y2IxeDB1TWxkL2FGeTBwTFJvc204a2ptSHNPNHQwZUNv?=
- =?iso-2022-jp?B?L3FsK014Q0FVa1Jjci9ETnUxdDJ2NGo4S3paeUIrc1FkZGlKL3o1dVdQ?=
- =?iso-2022-jp?B?LzVRaUM3UGdsN1NMWkZPTWhPMGFXRE43bDZ1K3p0Q3ljUllvMUZ2WEdH?=
- =?iso-2022-jp?B?VUZnSDZXaUNvd3lxc2N1cUdCS3B5WkFjREFPOEd3QWVBUnFWWEwra212?=
- =?iso-2022-jp?B?QWg3RW9sRjFDOEE4TTMzUGQraUd2VWJaZXpPRkowSUJ4a0pwS0N0dFBT?=
- =?iso-2022-jp?B?S0F6ZGMzOElZTU9CQ3N1L1lKNE1jRlB2VlRZaE9tSHVOQzlYVy9RNlRy?=
- =?iso-2022-jp?B?cnNVSGdlYU1SeFU0aUlXcllGN3laQzN0eHRlMkpobmw0a0orNjdqU0Z2?=
- =?iso-2022-jp?B?dTgyNDhYU2RZYkJKNFcxMFF3RHRaTE1UNFNZQnlVYmZnM1ZKRFNKS244?=
- =?iso-2022-jp?B?dnkyR09rTFdVUHdGaUppQXVoR0g0L3lMUjMxK3lvUnc3RndycDB0VXBy?=
- =?iso-2022-jp?B?VjUwaU1GdTJkRll2V1IrTU0yczRvb05kV1F6MkFRTnJmN2ltYitTU2kz?=
- =?iso-2022-jp?B?TVNMV3gzUE5DWE0xandOZU9melU2OVJZaFVQbll2QndKcTBZdU1qNTY0?=
- =?iso-2022-jp?B?QUxSSG9Pbm9vRXRHM0dkSG9rZFNpb29FWEFyMDd5bWVJbnRiaXhyNGJm?=
- =?iso-2022-jp?B?YU1aM1kvdXd3dlM0eUlML2pJbExvUGFCS1k2VHVsa1NsMG0rc2Y1NDJh?=
- =?iso-2022-jp?B?Y3J1dmFqc1lDNkVEYW1MZVpQZ0JodlBpMWhidkpnWEd1OWFncUdwZFFt?=
- =?iso-2022-jp?B?SlNZUEQ5MUp3b2xRN29nTDVDRy9OOHloY3pFSDUzNnp4Z295eFRUc0xX?=
- =?iso-2022-jp?B?RFR6UDQvSnFxUzZoeXNVd0w4MW5DUHlyRXFlQWVUODVtaFV3RmZ5emQ1?=
- =?iso-2022-jp?B?OFBlUlFJUmZUeEloRldaR1BIQjZxQm1QYTZWQVFtN25pSG5BS1RCc0Vk?=
- =?iso-2022-jp?B?bWY3U0Y1K3AyVndkYTEyMkhWNEhXOG5scmFJeUZ5dXZxaHdlbDAzQ2lQ?=
- =?iso-2022-jp?B?WW90MlQwdklndFgrcUZldThvYXlpbTY0emZlYkVOQ1NsQTVuTFdqRzdU?=
- =?iso-2022-jp?B?MGdvV2RHTXFDcndvWXVNQjR1VlJZOHJrZ3hzbHdzSnVSVDIyNmZxdlo4?=
- =?iso-2022-jp?B?L1MwUVlKbk8wTGV1QVhFRXgyNW9iU3cvVjUwMUpwaHhLTC85bnJVZG1r?=
- =?iso-2022-jp?B?Y1J1VHhsY1ZFTEs0SGlBRUZuMHhxQVVQd29NSTcvSVZsVWU1Mzk5TDFU?=
- =?iso-2022-jp?B?U1NRbkVmemJIdDZPWVc5SmlpVHhLNnJuSDRzN2MyNk5ySFN0empnbWEz?=
- =?iso-2022-jp?B?RG8xVjBsOSs1TEY3RC9nUDBBNVZyYlFhSnQwZlRkaWk4cVRlMjhYbkVu?=
- =?iso-2022-jp?B?TjNoRWxwYnNqdzZnSmU4eFZ3Qk43dG9PSlRlZXcwTnBqdk5reHc5YUgx?=
- =?iso-2022-jp?B?NW1VVStnZHYxV04wTU1NeUpiUHkrMkNBK3VWOE9VbDJqQUY5M0FZRzVC?=
- =?iso-2022-jp?B?ZmFNQnhhKzFRelJwTk1ESVRLdDlQeTJBS054T21CNVpYUFJyMFNpenR3?=
- =?iso-2022-jp?B?aHlJUEJIMHRSZnE3VjNWN0FlWis5Z3JaamlzNnJWNjdrM2c2MURmaHpV?=
- =?iso-2022-jp?B?ZDNXUUJPZk0zdm5DMStVR3BOd2JXU0U4azhIN0piZXlmTDRKZDhkMk1O?=
- =?iso-2022-jp?B?aWFaaUxERDI0Y2dOV0ZGUWY4S0U4T3JxMTRvenU1NFJQNzQ1NFkzVzdr?=
- =?iso-2022-jp?B?dU4yWklyTHJORmZvTHdHQ2dlcUZGU2x4alR4QTY5bmg0UzE5NkZ3SXlt?=
- =?iso-2022-jp?B?ckYyVERiaVl2d1dBV3hsK0xKM0lmMEZnNmYrRTB5TTdmUDdvYmdpS3Zo?=
- =?iso-2022-jp?B?TzF2bFI1ZGdGQ1pGL29wVEhzTDEvRC9Qcz0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700021)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?WTM2RmJtUlF5SjNzQUQyT2ZwM084Q3ZMVEQyaENrRitXT244c3kvWlFl?=
- =?iso-2022-jp?B?T2JMU2NmZlpKTUxVUVhEb0hpMDFETXpENElOUUxzaDBlMWs1WmN0bWk2?=
- =?iso-2022-jp?B?SHUwMFdxcUVmaU1CakpBS0xXcysvUS9tWFFpTGg2MjcvQW5CZGhTOUsr?=
- =?iso-2022-jp?B?UFFNUFRLUlpNRFRZNkM2SVFoNlRNL3NoKzZlQXZlcm1lTGVCUmowdUtM?=
- =?iso-2022-jp?B?d0dlZmxQdnJjL2dQcVZBc0xnUXVlcEQvSmUyMGc2NXlIMTVURG9GTS9Z?=
- =?iso-2022-jp?B?RndESmpiZHlieHR1eGIycjQrbzhKdTVicXJmRnhycXBRbENWRG93Qm5I?=
- =?iso-2022-jp?B?ME1JSHZmT1kwblB2V1Y1Q0ZsbTRYTmkwN3hsNnExOWI1TGd1SnhISzd2?=
- =?iso-2022-jp?B?b1d5RG1FL2YzTHVvOXR1ZDcyVTZtNjVBOXNZeUNVbTNWaVJxRGZXZmZz?=
- =?iso-2022-jp?B?dm9vMGFWdzBjMW1nM0hVOWJjWnlxQlM3a2xuQ1crVS84Skd1QmIrOEg3?=
- =?iso-2022-jp?B?QTlpRzVoaFpKL1B0Q2pCSFpRZDFMVGgxVmQvSXcwQ2U3UGlYZkhnaDQy?=
- =?iso-2022-jp?B?a2tlZnFoR2phTlBna0Y5TTlnTXVGcVlIUkZ2QlF4MWhvUmRUZjg2TFVs?=
- =?iso-2022-jp?B?M21vWHZ3ZXF6aksrVTBPcnF1UjEyYTRSc2pmalpqN0dqOWhMVnlQZTNZ?=
- =?iso-2022-jp?B?NzhYcmtYdFFObXI5cHJKZFlXMUx5K0M2VFNqUkFCdUZnYko4c1dsdC9v?=
- =?iso-2022-jp?B?alZPNXVJRmpSdDJrRUcyUDIzTzZES21lenV0U0VaNkxpa0lRNm4zYWdK?=
- =?iso-2022-jp?B?UHFTNS91NllROW1jT0F3ZE8vWXV2TG9OQ3k1dlpUd01LcXBYS3FnaW90?=
- =?iso-2022-jp?B?WjIwMElCWCtMMWJTOFVRZ0VMREpud2YwUzNxT2NNYlhrdFlVZS82TmFH?=
- =?iso-2022-jp?B?Tm1KS2tVc2dXNVQ5WW5BUE43OVFIN2RhS2NxZDlCak1UY0J6ekprdVgy?=
- =?iso-2022-jp?B?UDdaaGlhaHJaQURyM0d2OUNoNnI0RHZnMHo5dWo1T2YrMVFhd2FiRkZx?=
- =?iso-2022-jp?B?Um1vSlh0cDBIa3hBOStDQjlOVnptS2kwUVJLVmtYenFuNlZxbUdWS3N4?=
- =?iso-2022-jp?B?elJsMmZDaXpBQzIvUEUwcEYrMFlWK0NGMFU0aVBjWjJRL3pZRDM4ZFls?=
- =?iso-2022-jp?B?elhhaGs5YnM3VzUvZ3BRbWxxeXIwUnQxYUgwMU9VWFBsZ29lK3pLa2Fj?=
- =?iso-2022-jp?B?Uk9wOTI5a1hySDNIUjZ3VkVsQ0lSazJjeit6RFUzOVZneWZnU2NmL2hx?=
- =?iso-2022-jp?B?L3JZMVhuZlB6Vm0vUnh0dS9UZ3l5RDNXTnYxU0dHOUhzZExXelR6WHd0?=
- =?iso-2022-jp?B?dFpMZHNIYmEzWjdIVS94TjFCdi9idUtrbkd5bUsxZGh6UFRPZ1g0ZThK?=
- =?iso-2022-jp?B?S0JDQlBxeWlrem5DY2NhM1VLd0kyejBCa0xzL0RIUHVwRXZsdW8zaDB0?=
- =?iso-2022-jp?B?WTFaWDVoTmhFeWVmS2w1OTNRazgvRzdqUDN5Y3NSQmtKNVBQMlpCb0xh?=
- =?iso-2022-jp?B?L3VsQWhVY1hZU2h0NHhVWithcmVaa0FSbWxoRFh4SWFJY2tWcmlhSlJU?=
- =?iso-2022-jp?B?dkMwaUMwclZSTmZlT0R2TkE1UXZPc3pKdEdYc0d3elh1dmFKR2s4aFRD?=
- =?iso-2022-jp?B?V0E4Z0M0c0dzUkcvRGJKSFNWVitFSlRuVjZvbFIrR1JqZzFTK25xWXhp?=
- =?iso-2022-jp?B?ZCt5NUN5VkNic1pwTUhNUzc4c1d4Q3NNV2xpWm5rbmZ2NERNOFZuakNC?=
- =?iso-2022-jp?B?Nm93KytIeUJVSjZ0T0JqZDJOa1JBdDZ1S2M4YUFvKzQwSkc4eWdkaVU1?=
- =?iso-2022-jp?B?V09JUjAxV0pzcUVLZExNL1BRbkZYZ1B1NFZDSURjdEJ2VDhKZWxsM05h?=
- =?iso-2022-jp?B?cktBWWxxVE92MHhjVkp2OFhybW5WOUFxR3JHU3F3clY3b0FweHRzTVJD?=
- =?iso-2022-jp?B?MnlCM1lxVEhHc0huWFRnRE9TS0hZUnlBV2VheW85aTlVR2YrSGU5Q2JQ?=
- =?iso-2022-jp?B?UXpqMmFOZk5xWnh1K2h2a2JraXRKOC9ITE1kb0dSWEtSMmVUNU1GKzZP?=
- =?iso-2022-jp?B?K3BiK3Bva0JYc1dRMEZpNENDclBzc04zUGJJTGVZR09hbzFoaEFMOHdY?=
- =?iso-2022-jp?B?U3pjQUovd3ZCeTdXd3RXY010SGluWlBMRWp3TEUzR1JzT0lsckVVNG4x?=
- =?iso-2022-jp?B?Q0Rod2ZnN1JJb2dmWnV4czBuV2hCS1IzeUJ0RkZUc2hpc2xXNFlaOHRF?=
- =?iso-2022-jp?B?Zmd0WG1oV3NRU0IydStOd1V1Y2JGNzNvV3c9PQ==?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 05 Nov 2025 08:36:20 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7c290b18a76so4392892a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 00:36:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1762331778; x=1762936578; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+LvaX4EPEoHtGWdcOKi4KdBLQBe4M94Gewe05R3R7ko=;
+        b=d59i1/I/ppVYzYZENI23PJnRNTDak9oNKF1Oq1TIwLCYUIAS9+3OiETV7M4Hr8QN5d
+         lKI1xUzM26UQ60PRrtGnoi1jLcOaSpU1rnoY8n6LGQEr9Nu6cRk6naz6tFCF1EHG7/5J
+         EdYJe0smUbtMpbzcqv8TFJai7gOCw4YAW/Xbjo6NIMXLI20qURybejllbAjQEng+zT8H
+         Se0F1QHRl2lce42xxt9eJ+kGLJqZXAbqvXbodTbWxQEaVsYQYXQhHF/SAwCdEis0RC38
+         qPcNKlAkN1AkzhN9GtzXdXMBWCDvv+Nar15eO1NM8iSUUp6cuSSqhbVcCGjX0+BTjC6n
+         hSYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762331778; x=1762936578;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+LvaX4EPEoHtGWdcOKi4KdBLQBe4M94Gewe05R3R7ko=;
+        b=V6kyeOlnjuZjg6Wc9C7yjxj4zujRjRTw0qPT/+jC5eyE0iHc63udBwgBttiTQoIJ5h
+         yKWEKW3J3I1ILb+vraoTTXdrUs7LIsf7PCu4aRrz0pLRAcZr+v5atSiM7YKXTG3dRVNk
+         H6aI6PL+Prl6OKRT0HAxmtcK9qwBeX7AIpKRVRp/CdAQqFh9RTZNh2fHBpqc71/rr7c4
+         gRwY8PQskhGVhPgwhyEO+N3NWVXMI6XWJI5ydgHNUxpoE4kiK3eZbfTd5tj8wkO0ilkl
+         xp1a0mJ1LOLiotM9iAp4e7hcUq0fjNJ73okRBfcncwuFnv8X8HJZaZLVO4DNJGqg2ZVL
+         oXUg==
+X-Forwarded-Encrypted: i=1; AJvYcCW0OvbtMUe3qV2MiI2Grglgeqte/PUSbzKZzGXTjg7eLDaTIU+eplYHLNex0pL07VdzAqD5V1Cvp/PO0sfLWVLP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8BB8dL9rC9zRNlYxhufW12xuS0/1YD3BzTpaylZAOUaPBrEab
+	R2GIPwm3qY1G9rjDJLmfeOxVs1aHTN3cE2oUiD+wKSrnX51iZaEUVLXWDBkzYETHGgeuQL0uKje
+	kX+9P
+X-Gm-Gg: ASbGncuWCY7m4SwwHdKaBHagAt9e9f1dK9zBK5bwjDQhqRA0fTEwZwUCvwocbtMGSdl
+	XyiTY+2ilw5l5CGg7YOegUnF54lmZueZNxhT+/igglX68S7AlaCdfoCoD/qzMMbjLykiDxfz2I8
+	UdYnZCHNVDO7g+WKdukalpRQZsueVjPUmZisraDqBPYM8cc07YU2ucVw/BzPt99elOQm8YTCPo3
+	7oSt5mJuIXsR353RLl7DItNviM7T0pnQYHMw5TJc7FkoSALoiGm1PIQgZUQtwqDt4kHc13lEhxz
+	NlrZfPl3QcthhKc7OYBFV8/c5ePJrCl599UHjm8H/PedYzLgMEIoCy/3ixtG+3WBn8ds5FtvMa4
+	QvV5p8aQo07pOeZL6zpeI7mJ0vIZAYoxHfzM5Ky3Dk6x9Ykilw+qclCbH
+X-Google-Smtp-Source: AGHT+IFOtwzVqigPG5Pv48WZCvUZZFKqHqAR0nRj7q7nG+pF4gXpcJEujy77eb39aoy7P6BCN42M3w==
+X-Received: by 2002:a17:902:fc8e:b0:295:8c51:64ff with SMTP id d9443c01a7336-2962ad95d73mr37428255ad.29.1762331369297;
+        Wed, 05 Nov 2025 00:29:29 -0800 (PST)
+Received: from cleger.eu.int ([2001:41d0:420:f300::])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29601a741e3sm51870875ad.98.2025.11.05.00.29.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Nov 2025 00:29:28 -0800 (PST)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Himanshu Chauhan <hchauhan@ventanamicro.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: [PATCH v8 5/5] selftests/riscv: add SSE test module
+Date: Wed,  5 Nov 2025 08:26:37 +0000
+Message-ID: <20251105082639.342973-6-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251105082639.342973-1-cleger@rivosinc.com>
+References: <20251105082639.342973-1-cleger@rivosinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: j9dwNWL2J9YDJTaIqjPimCHO0KLojFRVbkFtPsSjLHi+nTKKGSmPY9BoPWkJQz9ysDlFl9hr/KMMRaP+j5EyJOzqElC+9Do3V7olOq6s83mpheMs38HDmHSKztAOAj22ZX6h37Ka4wjx0sqrAq8ReHhYOCy2/Oi0FetYYuKN0tHnTPOqUjTCu8ICS4Qbxlg7Pzp/WmzfE4acPGjKCkKlmT4+45Z7MdX2gE0FtKCogfAfnxftT7wYlPw1/2EHu/9GcIpoE+hPb4Mnoa8u81+UOdRySc+3875ZzWYFaFiloXY1bwdL4hZdcozCmhUOiQjc3UeYyIlRxKNQ765/jUj6qM6/qp84vHKTOJvR7I+htlz8iCt4j+MPscpNnmXgZi9NoGSNhnurAEZvK8+6u/yFAo8aW2nLPzVvmsy49tlSxOVBV15WXh0+wKo8GX81DV/yubQy6opDgx1cfXyALL0rX0YNk5FqFTXr5oFfs4Ox1Q7tl/9upnHM/CZezrvM1xrxU1LOnmg44cXHsydLzWM4em/lybArFlViLbd28tdG1AksxdO4cVJ3zkZ5Kw515D43lYQ8EmhwE6CQlEyLZlyjMZiPLXMSD0yBX63J3BxCZ27jD50GRzpJJyuHbHcA6PgY
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 35466d70-c6d7-498e-64ed-08de1c45d596
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Nov 2025 08:32:19.4463
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qp8yPFQXWpwLscGIIWZ/+LbZ72aCZ68289uRcJK2HrRYIq9YwR62ofZo3h0BRqA3RnxxezHM+lSgX/fxGrDHqvTyQ8Pyp3xa4dVHR0teV5U=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB10116
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_003237_992575_229D56F0 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20251105_003619_617378_22C934A8 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -230,353 +109,637 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello James,
+This module, once loaded, will execute a series of tests using the SSE
+framework. The provided script will check for any error reported by the
+test module.
 
-> Reading a monitor involves configuring what you want to monitor, and read=
-ing
-> the value. Components made up of multiple MSC may need values from each
-> MSC. MSCs may take time to configure, returning 'not ready'.
-> The maximum 'not ready' time should have been provided by firmware.
->=20
-> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns not r=
-eady,
-> then wait the full timeout value before trying again.
->=20
-> CC: Shanker Donthineni <sdonthineni@nvidia.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since v2:
->  * Fixed ctl_val/flt_val assignment that led to always reading counter 0.
->  * switch to using guard() version of srcu_read_lock()
->  * Fixed use of rcu helpers when srcu is wanted.
->  * Use return instead of break.
->  * Moved variable declarations into the loop.
->  * Use struct assignment instead of memset().
->  * Whitespace.
->=20
-> Changes since v1:
->  * Added XCL support.
->  * Merged FLT/CTL constants.
->  * a spelling mistake in a comment.
->  * moved structrues around.
-> ---
->  drivers/resctrl/mpam_devices.c  | 233
-> ++++++++++++++++++++++++++++++++
-> drivers/resctrl/mpam_internal.h |  19 +++
->  2 files changed, 252 insertions(+)
->=20
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_device=
-s.c
-> index a29f97cd176a..fb5414c6b3eb 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -880,6 +880,239 @@ static int mpam_msc_hw_probe(struct mpam_msc
-> *msc)
->  	return 0;
->  }
->=20
-> +struct mon_read {
-> +	struct mpam_msc_ris		*ris;
-> +	struct mon_cfg			*ctx;
-> +	enum mpam_device_features	type;
-> +	u64				*val;
-> +	int				err;
-> +};
-> +
-> +static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				   u32 *flt_val)
-> +{
-> +	struct mon_cfg *ctx =3D m->ctx;
-> +
-> +	/*
-> +	 * For CSU counters its implementation-defined what happens when
-> not
-> +	 * filtering by partid.
-> +	 */
-> +	*ctl_val =3D MSMON_CFG_x_CTL_MATCH_PARTID;
-> +
-> +	*flt_val =3D FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
-> +
-> +	if (m->ctx->match_pmg) {
-> +		*ctl_val |=3D MSMON_CFG_x_CTL_MATCH_PMG;
-> +		*flt_val |=3D FIELD_PREP(MSMON_CFG_x_FLT_PMG,
-> ctx->pmg);
-> +	}
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val |=3D MSMON_CFG_CSU_CTL_TYPE_CSU;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_csu_xcl,
-> &m->ris->props))
-> +			*flt_val |=3D
-> FIELD_PREP(MSMON_CFG_CSU_FLT_XCL,
-> +					       ctx->csu_exclude_clean);
-> +
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val |=3D MSMON_CFG_MBWU_CTL_TYPE_MBWU;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw,
-> &m->ris->props))
-> +			*flt_val |=3D
-> FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
-> +
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				    u32 *flt_val)
-> +{
-> +	struct mpam_msc *msc =3D m->ris->vmsc->msc;
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val =3D mpam_read_monsel_reg(msc, CFG_CSU_CTL);
-> +		*flt_val =3D mpam_read_monsel_reg(msc, CFG_CSU_FLT);
-> +		return;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val =3D mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> +		*flt_val =3D mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-> +		return;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Remove values set by the hardware to prevent apparent mismatches. */
-> +static void clean_msmon_ctl_val(u32 *cur_ctl) {
-> +	*cur_ctl &=3D ~MSMON_CFG_x_CTL_OFLOW_STATUS; }
-> +
-> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-> +				     u32 flt_val)
-> +{
-> +	struct mpam_msc *msc =3D m->ris->vmsc->msc;
-> +
-> +	/*
-> +	 * Write the ctl_val with the enable bit cleared, reset the counter,
-> +	 * then enable counter.
-> +	 */
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, CSU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val |
-> MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, MBWU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val |
-> MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Call with MSC lock held */
-> +static void __ris_msmon_read(void *arg) {
-> +	u64 now;
-> +	bool nrdy =3D false;
-> +	struct mon_read *m =3D arg;
-> +	struct mon_cfg *ctx =3D m->ctx;
-> +	struct mpam_msc_ris *ris =3D m->ris;
-> +	struct mpam_props *rprops =3D &ris->props;
-> +	struct mpam_msc *msc =3D m->ris->vmsc->msc;
-> +	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
-> +
-> +	if (!mpam_mon_sel_lock(msc)) {
-> +		m->err =3D -EIO;
-> +		return;
-> +	}
-> +	mon_sel =3D FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL,
-> ctx->mon) |
-> +		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> +	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> +
-> +	/*
-> +	 * Read the existing configuration to avoid re-writing the same values.
-> +	 * This saves waiting for 'nrdy' on subsequent reads.
-> +	 */
-> +	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> +	clean_msmon_ctl_val(&cur_ctl);
-> +	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
-> +	if (cur_flt !=3D flt_val || cur_ctl !=3D (ctl_val | MSMON_CFG_x_CTL_EN)=
-)
-> +		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
+Signed-off-by: Clément Léger <cleger@rivosinc.com>
+---
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ tools/testing/selftests/riscv/sse/Makefile    |   5 +
+ .../selftests/riscv/sse/module/Makefile       |  16 +
+ .../riscv/sse/module/riscv_sse_test.c         | 511 ++++++++++++++++++
+ .../selftests/riscv/sse/run_sse_test.sh       |  44 ++
+ 5 files changed, 577 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/riscv/sse/Makefile
+ create mode 100644 tools/testing/selftests/riscv/sse/module/Makefile
+ create mode 100644 tools/testing/selftests/riscv/sse/module/riscv_sse_test.c
+ create mode 100644 tools/testing/selftests/riscv/sse/run_sse_test.sh
 
-When reading the CSU counter of a different control group, the counter is c=
-leared to 0 by the write_msmon_ctl_flt_vals().
-
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		now =3D mpam_read_monsel_reg(msc, CSU);
-> +		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy,
-> rprops))
-> +			nrdy =3D now & MSMON___NRDY;
-> +		break;
-
-The first time read the counter(MSMON_CSU), all bits except nrdy are 0.
-
-This means when check the cache monitoring value the first time,
-cat mon_data/mon_L3_0*/llc_occupancy
-the result will be 0.
-From the second time, the result will return to normal.
-
-Best regards,
-Shaopeng TAN
-
-
-> +	case mpam_feat_msmon_mbwu:
-> +		now =3D mpam_read_monsel_reg(msc, MBWU);
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy,
-> rprops))
-> +			nrdy =3D now & MSMON___NRDY;
-> +		break;
-> +	default:
-> +		m->err =3D -EINVAL;
-> +		break;
-> +	}
-> +	mpam_mon_sel_unlock(msc);
-> +
-> +	if (nrdy) {
-> +		m->err =3D -EBUSY;
-> +		return;
-> +	}
-> +
-> +	now =3D FIELD_GET(MSMON___VALUE, now);
-> +	*m->val +=3D now;
-> +}
-> +
-> +static int _msmon_read(struct mpam_component *comp, struct mon_read
-> +*arg) {
-> +	int err,  any_err =3D 0;
-> +	struct mpam_vmsc *vmsc;
-> +
-> +	guard(srcu)(&mpam_srcu);
-> +	list_for_each_entry_srcu(vmsc, &comp->vmsc, comp_list,
-> +				 srcu_read_lock_held(&mpam_srcu)) {
-> +		struct mpam_msc *msc =3D vmsc->msc;
-> +		struct mpam_msc_ris *ris;
-> +
-> +		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
-> +
-> srcu_read_lock_held(&mpam_srcu)) {
-> +			arg->ris =3D ris;
-> +
-> +			err =3D smp_call_function_any(&msc->accessibility,
-> +						    __ris_msmon_read, arg,
-> +						    true);
-> +			if (!err && arg->err)
-> +				err =3D arg->err;
-> +
-> +			/*
-> +			 * Save one error to be returned to the caller, but
-> +			 * keep reading counters so that get reprogrammed.
-> On
-> +			 * platforms with NRDY this lets us wait once.
-> +			 */
-> +			if (err)
-> +				any_err =3D err;
-> +		}
-> +	}
-> +
-> +	return any_err;
-> +}
-> +
-> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg
-> *ctx,
-> +		    enum mpam_device_features type, u64 *val) {
-> +	int err;
-> +	struct mon_read arg;
-> +	u64 wait_jiffies =3D 0;
-> +	struct mpam_props *cprops =3D &comp->class->props;
-> +
-> +	might_sleep();
-> +
-> +	if (!mpam_is_enabled())
-> +		return -EIO;
-> +
-> +	if (!mpam_has_feature(type, cprops))
-> +		return -EOPNOTSUPP;
-> +
-> +	arg =3D (struct mon_read) {
-> +		.ctx =3D ctx,
-> +		.type =3D type,
-> +		.val =3D val,
-> +	};
-> +	*val =3D 0;
-> +
-> +	err =3D _msmon_read(comp, &arg);
-> +	if (err =3D=3D -EBUSY && comp->class->nrdy_usec)
-> +		wait_jiffies =3D usecs_to_jiffies(comp->class->nrdy_usec);
-> +
-> +	while (wait_jiffies)
-> +		wait_jiffies =3D schedule_timeout_uninterruptible(wait_jiffies);
-> +
-> +	if (err =3D=3D -EBUSY) {
-> +		arg =3D (struct mon_read) {
-> +			.ctx =3D ctx,
-> +			.type =3D type,
-> +			.val =3D val,
-> +		};
-> +		*val =3D 0;
-> +
-> +		err =3D _msmon_read(comp, &arg);
-> +	}
-> +
-> +	return err;
-> +}
-> +
->  static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16
-> wd)  {
->  	u32 num_words, msb;
-> diff --git a/drivers/resctrl/mpam_internal.h
-> b/drivers/resctrl/mpam_internal.h index 96a02ea95583..0c84e945c891 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -183,6 +183,22 @@ struct mpam_props {
->  #define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
->  #define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
->=20
-> +/* The values for MSMON_CFG_MBWU_FLT.RWBW */ enum
-> mon_filter_options {
-> +	COUNT_BOTH	=3D 0,
-> +	COUNT_WRITE	=3D 1,
-> +	COUNT_READ	=3D 2,
-> +};
-> +
-> +struct mon_cfg {
-> +	u16                     mon;
-> +	u8                      pmg;
-> +	bool                    match_pmg;
-> +	bool			csu_exclude_clean;
-> +	u32                     partid;
-> +	enum mon_filter_options opts;
-> +};
-> +
->  struct mpam_class {
->  	/* mpam_components in this class */
->  	struct list_head	components;
-> @@ -325,6 +341,9 @@ void mpam_disable(struct work_struct *work);  int
-> mpam_apply_config(struct mpam_component *comp, u16 partid,
->  		      struct mpam_config *cfg);
->=20
-> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg
-> *ctx,
-> +		    enum mpam_device_features, u64 *val);
-> +
->  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
-> cache_level,
->  				   cpumask_t *affinity);
->=20
-> --
-> 2.39.5
+diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+index 099b8c1f46f8..c62f58414b29 100644
+--- a/tools/testing/selftests/riscv/Makefile
++++ b/tools/testing/selftests/riscv/Makefile
+@@ -5,7 +5,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+ 
+ ifneq (,$(filter $(ARCH),riscv))
+-RISCV_SUBTARGETS ?= abi hwprobe mm sigreturn vector
++RISCV_SUBTARGETS ?= abi hwprobe mm sigreturn vector sse
+ else
+ RISCV_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/riscv/sse/Makefile b/tools/testing/selftests/riscv/sse/Makefile
+new file mode 100644
+index 000000000000..67eaee06f213
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/Makefile
+@@ -0,0 +1,5 @@
++TEST_GEN_MODS_DIR := module
++
++TEST_FILES := run_sse_test.sh
++
++include ../../lib.mk
+diff --git a/tools/testing/selftests/riscv/sse/module/Makefile b/tools/testing/selftests/riscv/sse/module/Makefile
+new file mode 100644
+index 000000000000..02018f083456
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/module/Makefile
+@@ -0,0 +1,16 @@
++TESTMODS_DIR := $(realpath $(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
++KDIR ?= /lib/modules/$(shell uname -r)/build
++
++obj-m += riscv_sse_test.o
++
++# Ensure that KDIR exists, otherwise skip the compilation
++modules:
++ifneq ("$(wildcard $(KDIR))", "")
++	$(Q)$(MAKE) -C $(KDIR) modules KBUILD_EXTMOD=$(TESTMODS_DIR)
++endif
++
++# Ensure that KDIR exists, otherwise skip the clean target
++clean:
++ifneq ("$(wildcard $(KDIR))", "")
++	$(Q)$(MAKE) -C $(KDIR) clean KBUILD_EXTMOD=$(TESTMODS_DIR)
++endif
+diff --git a/tools/testing/selftests/riscv/sse/module/riscv_sse_test.c b/tools/testing/selftests/riscv/sse/module/riscv_sse_test.c
+new file mode 100644
+index 000000000000..fcff1e346fee
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/module/riscv_sse_test.c
+@@ -0,0 +1,511 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2025 Rivos Inc.
++ */
++
++#define pr_fmt(fmt) "riscv_sse_test: " fmt
++
++#include <linux/array_size.h>
++#include <linux/completion.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/jiffies.h>
++#include <linux/module.h>
++#include <linux/riscv_sbi_sse.h>
++#include <linux/slab.h>
++#include <linux/smp.h>
++
++#include <asm/sbi.h>
++#include <asm/sse.h>
++
++#define RUN_LOOP_COUNT		1000
++#define SSE_FAILED_PREFIX	"FAILED: "
++#define sse_err(...)		pr_err(SSE_FAILED_PREFIX __VA_ARGS__)
++
++struct sse_event_desc {
++	u32 evt_id;
++	const char *name;
++	bool can_inject;
++};
++
++static struct sse_event_desc sse_event_descs[] = {
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS,
++		.name = "local_high_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP,
++		.name = "local_double_trap",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS,
++		.name = "global_high_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW,
++		.name = "local_pmu_overflow",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS,
++		.name = "local_low_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS,
++		.name = "global_low_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED,
++		.name = "local_software_injected",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED,
++		.name = "global_software_injected",
++	}
++};
++
++static struct sse_event_desc *sse_get_evt_desc(u32 evt)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(sse_event_descs); i++) {
++		if (sse_event_descs[i].evt_id == evt)
++			return &sse_event_descs[i];
++	}
++
++	return NULL;
++}
++
++static const char *sse_evt_name(u32 evt)
++{
++	struct sse_event_desc *desc = sse_get_evt_desc(evt);
++
++	return desc ? desc->name : NULL;
++}
++
++static bool sse_test_can_inject_event(u32 evt)
++{
++	struct sse_event_desc *desc = sse_get_evt_desc(evt);
++
++	return desc ? desc->can_inject : false;
++}
++
++static struct sbiret sbi_sse_ecall(int fid, unsigned long arg0, unsigned long arg1)
++{
++	return sbi_ecall(SBI_EXT_SSE, fid, arg0, arg1, 0, 0, 0, 0);
++}
++
++static int sse_event_attr_get(u32 evt, unsigned long attr_id,
++			      unsigned long *val)
++{
++	struct sbiret sret;
++	unsigned long *attr_buf, phys;
++
++	attr_buf = kmalloc(sizeof(unsigned long), GFP_KERNEL);
++	if (!attr_buf)
++		return -ENOMEM;
++
++	phys = virt_to_phys(attr_buf);
++
++	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_READ, evt, attr_id, 1,
++			 phys, 0, 0);
++	if (sret.error)
++		return sbi_err_map_linux_errno(sret.error);
++
++	*val = *attr_buf;
++
++	return 0;
++}
++
++static int sse_test_signal(u32 evt, unsigned int cpu)
++{
++	unsigned int hart_id = cpuid_to_hartid_map(cpu);
++	struct sbiret ret;
++
++	ret = sbi_sse_ecall(SBI_SSE_EVENT_INJECT, evt, hart_id);
++	if (ret.error) {
++		sse_err("Failed to signal event %x, error %ld\n", evt, ret.error);
++		return sbi_err_map_linux_errno(ret.error);
++	}
++
++	return 0;
++}
++
++static int sse_test_inject_event(struct sse_event *event, u32 evt, unsigned int cpu)
++{
++	int res;
++	unsigned long status;
++
++	if (sse_event_is_global(evt)) {
++		/*
++		 * Due to the fact the completion might happen faster than
++		 * the call to SBI_SSE_COMPLETE in the handler, if the event was
++		 * running on another CPU, we need to wait for the event status
++		 * to be !RUNNING.
++		 */
++		do {
++			res = sse_event_attr_get(evt, SBI_SSE_ATTR_STATUS, &status);
++			if (res) {
++				sse_err("Failed to get status for evt %x, error %d\n", evt, res);
++				return res;
++			}
++			status = status & SBI_SSE_ATTR_STATUS_STATE_MASK;
++		} while (status == SBI_SSE_STATE_RUNNING);
++
++		res = sse_event_set_target_cpu(event, cpu);
++		if (res) {
++			sse_err("Failed to set cpu for evt %x, error %d\n", evt, res);
++			return res;
++		}
++	}
++
++	return sse_test_signal(evt, cpu);
++}
++
++struct fast_test_arg {
++	u32 evt;
++	int cpu;
++	bool completion;
++};
++
++static int sse_test_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	int ret = 0;
++	struct fast_test_arg *targ = arg;
++	u32 test_evt = READ_ONCE(targ->evt);
++	int cpu = READ_ONCE(targ->cpu);
++
++	if (evt != test_evt) {
++		sse_err("Received SSE event id %x instead of %x\n", test_evt, evt);
++		ret = -EINVAL;
++	}
++
++	if (cpu != smp_processor_id()) {
++		sse_err("Received SSE event %d on CPU %d instead of %d\n", evt, smp_processor_id(),
++			cpu);
++		ret = -EINVAL;
++	}
++
++	WRITE_ONCE(targ->completion, true);
++
++	return ret;
++}
++
++static void sse_run_fast_test(struct fast_test_arg *test_arg, struct sse_event *event, u32 evt)
++{
++	unsigned long timeout;
++	int ret, cpu;
++
++	for_each_online_cpu(cpu) {
++		WRITE_ONCE(test_arg->completion, false);
++		WRITE_ONCE(test_arg->cpu, cpu);
++		/* Test arg is used on another CPU */
++		smp_wmb();
++
++		ret = sse_test_inject_event(event, evt, cpu);
++		if (ret) {
++			sse_err("event %s injection failed, err %d\n", sse_evt_name(evt), ret);
++			return;
++		}
++
++		timeout = jiffies + HZ / 100;
++		/* We can not use <linux/completion.h> since they are not NMI safe */
++		while (!READ_ONCE(test_arg->completion) &&
++		       time_before(jiffies, timeout)) {
++			cpu_relax();
++		}
++		if (!time_before(jiffies, timeout)) {
++			sse_err("Failed to wait for event %s completion on CPU %d\n",
++				sse_evt_name(evt), cpu);
++			return;
++		}
++	}
++}
++
++static void sse_test_injection_fast(void)
++{
++	int i, ret = 0, j;
++	u32 evt;
++	struct fast_test_arg test_arg;
++	struct sse_event *event;
++
++	pr_info("Starting SSE test (fast)\n");
++
++	for (i = 0; i < ARRAY_SIZE(sse_event_descs); i++) {
++		evt = sse_event_descs[i].evt_id;
++		WRITE_ONCE(test_arg.evt, evt);
++
++		if (!sse_event_descs[i].can_inject)
++			continue;
++
++		event = sse_event_register(evt, 0, sse_test_handler,
++					   (void *)&test_arg);
++		if (IS_ERR(event)) {
++			sse_err("Failed to register event %s, err %ld\n", sse_evt_name(evt),
++				PTR_ERR(event));
++			goto out;
++		}
++
++		ret = sse_event_enable(event);
++		if (ret) {
++			sse_err("Failed to enable event %s, err %d\n", sse_evt_name(evt), ret);
++			goto err_unregister;
++		}
++
++		pr_info("Starting testing event %s\n", sse_evt_name(evt));
++
++		for (j = 0; j < RUN_LOOP_COUNT; j++)
++			sse_run_fast_test(&test_arg, event, evt);
++
++		pr_info("Finished testing event %s\n", sse_evt_name(evt));
++
++		sse_event_disable(event);
++err_unregister:
++		sse_event_unregister(event);
++	}
++out:
++	pr_info("Finished SSE test (fast)\n");
++}
++
++struct priority_test_arg {
++	unsigned long evt;
++	struct sse_event *event;
++	bool called;
++	u32 prio;
++	struct priority_test_arg *next_evt_arg;
++	void (*check_func)(struct priority_test_arg *arg);
++};
++
++static int sse_hi_priority_test_handler(u32 evt, void *arg,
++					struct pt_regs *regs)
++{
++	struct priority_test_arg *targ = arg;
++	struct priority_test_arg *next = READ_ONCE(targ->next_evt_arg);
++
++	WRITE_ONCE(targ->called, 1);
++
++	if (next) {
++		sse_test_signal(next->evt, smp_processor_id());
++		if (!READ_ONCE(next->called)) {
++			sse_err("Higher priority event %s was not handled %s\n",
++				sse_evt_name(next->evt), sse_evt_name(evt));
++		}
++	}
++
++	return 0;
++}
++
++static int sse_low_priority_test_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	struct priority_test_arg *targ = arg;
++	struct priority_test_arg *next = READ_ONCE(targ->next_evt_arg);
++
++	WRITE_ONCE(targ->called, 1);
++
++	if (next) {
++		sse_test_signal(next->evt, smp_processor_id());
++		if (READ_ONCE(next->called)) {
++			sse_err("Lower priority event %s was handle before %s\n",
++				sse_evt_name(next->evt), sse_evt_name(evt));
++		}
++	}
++
++	return 0;
++}
++
++static void sse_test_injection_priority_arg(struct priority_test_arg *args, unsigned int args_size,
++					    sse_event_handler_fn handler, const char *test_name)
++{
++	unsigned int i;
++	int ret;
++	struct sse_event *event;
++	struct priority_test_arg *arg, *first_arg = NULL, *prev_arg = NULL;
++
++	pr_info("Starting SSE priority test (%s)\n", test_name);
++	for (i = 0; i < args_size; i++) {
++		arg = &args[i];
++
++		if (!sse_test_can_inject_event(arg->evt))
++			continue;
++
++		WRITE_ONCE(arg->called, false);
++		WRITE_ONCE(arg->next_evt_arg, NULL);
++		if (prev_arg)
++			WRITE_ONCE(prev_arg->next_evt_arg, arg);
++
++		prev_arg = arg;
++
++		if (!first_arg)
++			first_arg = arg;
++
++		event = sse_event_register(arg->evt, arg->prio, handler, (void *)arg);
++		if (IS_ERR(event)) {
++			sse_err("Failed to register event %s, err %ld\n", sse_evt_name(arg->evt),
++				PTR_ERR(event));
++			goto release_events;
++		}
++		arg->event = event;
++
++		if (sse_event_is_global(arg->evt)) {
++			/* Target event at current CPU */
++			ret = sse_event_set_target_cpu(event, smp_processor_id());
++			if (ret) {
++				sse_err("Failed to set event %s target CPU, err %d\n",
++					sse_evt_name(arg->evt), ret);
++				goto release_events;
++			}
++		}
++
++		ret = sse_event_enable(event);
++		if (ret) {
++			sse_err("Failed to enable event %s, err %d\n", sse_evt_name(arg->evt), ret);
++			goto release_events;
++		}
++	}
++
++	if (!first_arg) {
++		sse_err("No injectable event available\n");
++		return;
++	}
++
++	/* Inject first event, handler should trigger the others in chain. */
++	ret = sse_test_inject_event(first_arg->event, first_arg->evt, smp_processor_id());
++	if (ret) {
++		sse_err("SSE event %s injection failed\n", sse_evt_name(first_arg->evt));
++		goto release_events;
++	}
++
++	/*
++	 * Event are injected directly on the current CPU after calling sse_test_inject_event()
++	 * so that execution is premmpted right away, no need to wait for timeout.
++	 */
++	arg = first_arg;
++	while (arg) {
++		if (!READ_ONCE(arg->called)) {
++			sse_err("Event %s handler was not called\n",
++				sse_evt_name(arg->evt));
++			ret = -EINVAL;
++		}
++
++		event = arg->event;
++		arg = READ_ONCE(arg->next_evt_arg);
++	}
++
++release_events:
++
++	arg = first_arg;
++	while (arg) {
++		event = arg->event;
++		if (!event)
++			break;
++
++		sse_event_disable(event);
++		sse_event_unregister(event);
++		arg = READ_ONCE(arg->next_evt_arg);
++	}
++
++	pr_info("Finished SSE priority test (%s)\n", test_name);
++}
++
++static void sse_test_injection_priority(void)
++{
++	struct priority_test_arg default_hi_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP },
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS },
++	};
++
++	struct priority_test_arg default_low_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW },
++		{ .evt = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED },
++
++	};
++	struct priority_test_arg set_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED, .prio = 5 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS, .prio = 15 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS, .prio = 20 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, .prio = 25 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS, .prio = 30 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP, .prio = 35 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS, .prio = 40 },
++	};
++
++	struct priority_test_arg same_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, .prio = 0 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS, .prio = 20 },
++	};
++
++	sse_test_injection_priority_arg(default_hi_prio_args, ARRAY_SIZE(default_hi_prio_args),
++					sse_hi_priority_test_handler, "high");
++
++	sse_test_injection_priority_arg(default_low_prio_args, ARRAY_SIZE(default_low_prio_args),
++					sse_low_priority_test_handler, "low");
++
++	sse_test_injection_priority_arg(set_prio_args, ARRAY_SIZE(set_prio_args),
++					sse_low_priority_test_handler, "set");
++
++	sse_test_injection_priority_arg(same_prio_args, ARRAY_SIZE(same_prio_args),
++					sse_low_priority_test_handler, "same_prio_args");
++}
++
++static bool sse_get_inject_status(u32 evt)
++{
++	int ret;
++	unsigned long val;
++
++	/* Check if injection is supported */
++	ret = sse_event_attr_get(evt, SBI_SSE_ATTR_STATUS, &val);
++	if (ret)
++		return false;
++
++	return !!(val & BIT(SBI_SSE_ATTR_STATUS_INJECT_OFFSET));
++}
++
++static void sse_init_events(void)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(sse_event_descs); i++) {
++		struct sse_event_desc *desc = &sse_event_descs[i];
++
++		desc->can_inject = sse_get_inject_status(desc->evt_id);
++		if (!desc->can_inject)
++			pr_info("Can not inject event %s, tests using this event will be skipped\n",
++				desc->name);
++	}
++}
++
++static int __init sse_test_init(void)
++{
++	sse_init_events();
++
++	sse_test_injection_fast();
++	sse_test_injection_priority();
++
++	return 0;
++}
++
++static void __exit sse_test_exit(void)
++{
++}
++
++module_init(sse_test_init);
++module_exit(sse_test_exit);
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Clément Léger <cleger@rivosinc.com>");
++MODULE_DESCRIPTION("Test module for SSE");
+diff --git a/tools/testing/selftests/riscv/sse/run_sse_test.sh b/tools/testing/selftests/riscv/sse/run_sse_test.sh
+new file mode 100644
+index 000000000000..888bc4a99cb3
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/run_sse_test.sh
+@@ -0,0 +1,44 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++#
++# Copyright (C) 2025 Rivos Inc.
++
++MODULE_NAME=riscv_sse_test
++DRIVER="./module/${MODULE_NAME}.ko"
++
++check_test_failed_prefix() {
++	if dmesg | grep -q "${MODULE_NAME}: FAILED:";then
++		echo "${MODULE_NAME} failed, please check dmesg"
++		exit 1
++	fi
++}
++
++# Kselftest framework requirement - SKIP code is 4.
++ksft_skip=4
++
++check_test_requirements()
++{
++	uid=$(id -u)
++	if [ $uid -ne 0 ]; then
++		echo "$0: Must be run as root"
++		exit $ksft_skip
++	fi
++
++	if ! which insmod > /dev/null 2>&1; then
++		echo "$0: You need insmod installed"
++		exit $ksft_skip
++	fi
++
++	if [ ! -f $DRIVER ]; then
++		echo "$0: You need to compile ${MODULE_NAME} module"
++		exit $ksft_skip
++	fi
++}
++
++check_test_requirements
++
++insmod $DRIVER > /dev/null 2>&1
++rmmod $MODULE_NAME
++check_test_failed_prefix
++
++exit 0
+-- 
+2.43.0
 
 
