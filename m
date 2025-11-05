@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49622CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB20CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lghsdtJqQPkyeqPZcgsEqUxzm/bu72iLJp6V770hM8=; b=N8IIdTAZ4+zFt8oTSmHNE0LPPO
-	p88RMpNo7kx4Ce7Ua1MjGbDE+PA6pW7I1jhaJ8pxgnv8OGr0WgF/c3dqaOsML8vg/BbFMkbN1/Mjr
-	j2eVHA3DPAtXy6c5q3kWFtoZlp3aWwjTMh5Szbn9fEDF8+zmc+vnoZmuWQTba2nUnT26QEyS2UnBf
-	hcCExSICrDSzQRkna4ZZDP6cju75Hs/XfNIBnHF5nR4QSkDIIEq1ynPaZ+oRr8kziUQwM4Nw8iP4E
-	3U6de6cri5Xm7yDoyxo5GQ8ehRekJEXOZRzERGSYQSLPjWJSpd2M0P6uzURbnpoFng/iUv0O/2xGQ
-	Vtwu4xng==;
+	bh=ZU4F1r9F7jXURWtan/m4z+ut5FUI3K+h9OfKiGcAyxc=; b=LV/pPjnvNDsS/R4k6uP1nPyVkD
+	9AbIx/dNLseBkCf0F7yn2tjP2eo0YNdkutBLBeTRuxbkOaLXHumtZlENgysvCpAo5DOYD29S0sAXZ
+	jKyjLHvnVZvu9VG+rmr1NfLuzDu3wDZGC3G1Gs7M71qoFQY10yhnzhUmtrklcmzJFixsavIR7G1fH
+	vCbJzVv6MK0qQnB9zC7/EAq95AzVtQPBe122YAyLaBZ+m+BR23NuTJ2MU0I/grkU7Bv+/r4vMeoaq
+	xfSvNX4lR2WLP+xGBgjnGp3y1c/beOLxp0RwDuVSizcVEGfepxCAqSd6sWiBnqn8iwLY++Q2vQipB
+	aq9TGw6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhHO-0000000EA8C-3VDc;
-	Wed, 05 Nov 2025 17:26:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGhHs-0000000EAF2-2kjk;
+	Wed, 05 Nov 2025 17:27:12 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhHM-0000000EA7h-2PT3
+	id 1vGhHp-0000000EADw-2bSo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 17:26:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 31D7A41A7D;
-	Wed,  5 Nov 2025 17:26:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92223C4CEF8;
-	Wed,  5 Nov 2025 17:26:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762363600;
-	bh=YFkDJLxlVgB8fCGfrzLzPiyZl67TcHqa4QAD1eCk1n4=;
+	Wed, 05 Nov 2025 17:27:10 +0000
+Received: from pendragon.ideasonboard.com (82-203-161-95.bb.dnainternet.fi [82.203.161.95])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 0F214B5;
+	Wed,  5 Nov 2025 18:25:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762363513;
+	bh=0zh7mU6+Q2DgrXPwAM6Mbt58/5XP2Rm18IkdrvGTcKQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OParZvIIPyLR/7+d2Nc6dNNHFfgvciQYcDXNfvWRUfLM3ALdZr2Qma8M0FObiSEDX
-	 4yAZaB4HMBbFQrVX9l1Nc5Mz9Akx6GYVPeFSxJauPuNjV+cvXZHiYCJny752RKPXaZ
-	 nb6HFbh2rTIqP1/GSHtyqu5D4fAirasFidCHLVTYcLZQRPj1LLeRYNMtTIBUkecGZD
-	 NUQfI4i1crcBXLrqQ3YrkVWcmSf4kYDrq048l6zq2V/zPjyDvLarmgFinhmBNoPsqB
-	 5DP9Yf37WOYWdxdZegji5DJs83/ZGNy27MtOeueRr7A8jum6leEhur43LN6wcOt6ld
-	 1Fax28SwoFeww==
-Date: Wed, 5 Nov 2025 18:26:37 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 30/33] kthread: Add API to update preferred affinity on
- kthread runtime
-Message-ID: <aQuIzQo3tDbwoytv@localhost.localdomain>
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-31-frederic@kernel.org>
- <aO5Dn2AwQWn0SQKQ@horms.kernel.org>
+	b=e9Q2i3qmyZ20IOL7SdDM+WwB9D19VYgM5hqbItih+ttfImYlnN/blGMLwogAQtYPB
+	 bsrjefm/q4T1d3In/NUbRQrX4xYlYUtZu3BoGa5DzLIpv61oBNlzJkkAah0NPR1Mvr
+	 4geXc6/x8mJ2K/8w8L8Bl8RkgGyZi8B5hpa7hh4k=
+Date: Wed, 5 Nov 2025 19:27:03 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v3 1/3] media: dt-bindings: nxp,imx8-isi: Add i.MX95 ISI
+ compatible string
+Message-ID: <20251105172703.GC6046@pendragon.ideasonboard.com>
+References: <20251105-isi_imx95-v3-0-3987533cca1c@nxp.com>
+ <20251105-isi_imx95-v3-1-3987533cca1c@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aO5Dn2AwQWn0SQKQ@horms.kernel.org>
+In-Reply-To: <20251105-isi_imx95-v3-1-3987533cca1c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_092640_633398_DEA5472F 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20251105_092709_796111_9133944C 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +76,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Tue, Oct 14, 2025 at 01:35:43PM +0100, Simon Horman a écrit :
-> On Mon, Oct 13, 2025 at 10:31:43PM +0200, Frederic Weisbecker wrote:
-> 
-> ...
-> 
-> > @@ -900,6 +899,46 @@ int kthread_affine_preferred(struct task_struct *p, const struct cpumask *mask)
-> >  }
-> >  EXPORT_SYMBOL_GPL(kthread_affine_preferred);
-> >  
-> > +/**
-> > + * kthread_affine_preferred_update - update a kthread's preferred affinity
-> > + * @p: thread created by kthread_create().
-> > + * @cpumask: new mask of CPUs (might not be online, must be possible) for @k
-> > + *           to run on.
-> 
-> nit: @mask: ...
+Hi Guoniu,
 
-Thanks! I'm dropping the current patch anyway but...
+Thank you for the patch.
 
+On Wed, Nov 05, 2025 at 01:55:10PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 > 
-> Likewise for the documentation of kthread_affine_preferred()
-> in a subsequent patch in this series.
+> The ISI module on i.MX95 supports up to eight channels and four link
+> sources to obtain the image data for processing in its pipelines. It
+> can process up to eight image sources at the same time.
+> 
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 
-...fixing it to that patch.
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+> ---
+>  .../devicetree/bindings/media/nxp,imx8-isi.yaml    | 27 +++++++++++++++++++++-
+>  1 file changed, 26 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> index f43b91984f0152fbbcf80db3b3bbad7e8ad6c11e..c5cf4a9787ee7f31273bd097d2200402fb346773 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> @@ -23,6 +23,7 @@ properties:
+>        - fsl,imx8mp-isi
+>        - fsl,imx8ulp-isi
+>        - fsl,imx93-isi
+> +      - fsl,imx95-isi
+>  
+>    reg:
+>      maxItems: 1
+> @@ -49,7 +50,7 @@ properties:
+>    interrupts:
+>      description: Processing pipeline interrupts, one per pipeline
+>      minItems: 1
+> -    maxItems: 2
+> +    maxItems: 8
+>  
+>    power-domains:
+>      maxItems: 1
+> @@ -98,6 +99,7 @@ allOf:
+>      then:
+>        properties:
+>          interrupts:
+> +          minItems: 2
+>            maxItems: 2
+>          ports:
+>            properties:
+> @@ -109,6 +111,29 @@ allOf:
+>              - port@0
+>              - port@1
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx95-isi
+> +    then:
+> +      properties:
+> +        interrupts:
+> +          minItems: 8
+> +        ports:
+> +          properties:
+> +            port@0:
+> +              description: Pixel Link Slave 0
+> +            port@1:
+> +              description: Pixel Link Slave 1
+> +            port@2:
+> +              description: MIPI CSI-2 RX 0
+> +            port@3:
+> +              description: MIPI CSI-2 RX 1
+> +          required:
+> +            - port@2
+> +            - port@3
+> +
+>  additionalProperties: false
+>  
+>  examples:
 
 -- 
-Frederic Weisbecker
-SUSE Labs
+Regards,
+
+Laurent Pinchart
 
