@@ -4,59 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DD6CCFA19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FCFCCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+LBPJdHDUVGD44kDBk8PRElfmiTn5z89gRTN/5hRI4=; b=s22BMIjGAH7oyOIes7S/5n7Q8j
-	SQEb9XR/RGDkmSMPzTyfjr4SBddMaq9lIlojs3OujCdzBvtDPuk+pEo9RMXGg+SrHyhPbf7cnRflH
-	u8dtfd2b9RwF3xvmfZERmcxxDX5F6yMAvxXpmoFRSHMbwXs7qeFQG9Z+0EihAL9HGBCDNYam8JE2D
-	JtbG3PKAt31RBhyp7tKXrBXLZoeIra+WZbipi3thjCseF7TYJVFSfsbQybX0Ur0ewkaYIm1OBqVG2
-	O7eLQW+GUs9UUIl3iK47fWUolcUsoNGhdS4Gv7VTyiHwC1W41vIG8lg4FBy1+cV9o/BogEqpZQcR+
-	UPTN83AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ranMJA7nhTTLeDvlm0qxHCF2jeri90ZrthFQur/cI2M=; b=avJ4di2aVNdAOcAs0nPYm6wbQw
+	BWU0Ic+HSziNBJjVCphhr/z7OGHbkapH4bH4t3UN6S1TKrIuSmZXEa/uqn4Le+3wvaG51iv5jQ3Oe
+	JYh+POZ0G0UpjeVX3CKlwBZ16xAF3d6x8ZqcdzxhQgYo4ezwdIMHW43ma3TQ6LxEU756UlMEsxugI
+	eGbgIprVJWmNp8Pq4zGRBMrIGL0tYtxA6DjB8PyubwgoarE1K1XQR5u54d9L+WpVLK//iSUWwGmE9
+	r6dT+X67LcIRx2Vgws3cDwbgEvINp00BoTOiDUqfm65VcVZRD9HreYX1MKuEBFFNAS2aZSQydQnlx
+	BEQUCQhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfI7-0000000DuXw-3jP5;
-	Wed, 05 Nov 2025 15:19:19 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vGfJN-0000000DuqG-3Ztk;
+	Wed, 05 Nov 2025 15:20:37 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfI4-0000000DuVj-2LWJ
+	id 1vGfJK-0000000DupM-3EhW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:19:18 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1vGfHy-0002IK-4f; Wed, 05 Nov 2025 16:19:10 +0100
-From: Michael Tretter <m.tretter@pengutronix.de>
-Date: Wed, 05 Nov 2025 16:18:50 +0100
-Subject: [PATCH 2/2] media: staging: imx: configure src_mux in csi_start
+	Wed, 05 Nov 2025 15:20:37 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-426f1574a14so4213468f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 07:20:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1762356033; x=1762960833; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ranMJA7nhTTLeDvlm0qxHCF2jeri90ZrthFQur/cI2M=;
+        b=P1MQ5hcM2KFGnyw9pKxGWKWbCuFLDd14MkHV1HSp3GEibmGbjrFs16t4fsjdBtq2Ot
+         yfXgV6oXKVtfSZqgMAG8PZpjLMa8RWnPuMMRMgL6oqR2sr6gItC1paAuOdVHXnjWw8Ch
+         DJhZLVIkkhv1FfZvV5oqFBLMIHV40k3UKligXWMC/RN46H8X/wwr/+WGVdCyoYZib86k
+         B/FBxpXmgRVRIrAfmYIvKxxihpeECKS2HnVhtBMiXfqGVrpSllI9HzlIVxuaf+ii/Yoa
+         ChHh87RbD15vft1iV9jI6/yKxaELRLjBzjkZMtJ+Jb6mfrtTJawv6ek6BYzgifOMT4UN
+         FV5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762356033; x=1762960833;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ranMJA7nhTTLeDvlm0qxHCF2jeri90ZrthFQur/cI2M=;
+        b=YnQVzZGB1uLk2OjlK4UPwzN09gwH2GgwBzu1EArozDKw7WrYgk+4qLecyMhCOhFVer
+         zIoYv7OvwBDcVb3AuDqgwXj5vBI70QI7uRQPYlSZF9r7jf1rvFdvXMta08Fu74bgRMxd
+         5zU+29QyKByNtBImtxf+HEmW/XiV3lLko6P/yXhjcBE/t4c2vdUc175+QNnu7wLMeIgj
+         ggLqlai7QebYVOvAezolgkscbf9pMmYmAxPJydYGEO21MgTXO0C61rTQyrtrnvIyaxk2
+         FE6JS/7SuHKsjzNKoBKkq6QTpr2bAl/0TluSKt/+3YP9zFKH9oGOZiTiwBQCrnSvDKOh
+         rtxA==
+X-Forwarded-Encrypted: i=1; AJvYcCUW/LwPvpHEfwE0UZ2HPYBze2Zti3PVB8FD/qiAHsfNJupRl/QY/sUKvXMWJR7TU3sAw2YC2K0df8GEcyRAHMeA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVK0Fu79g1AQCCU7CkfY7+KNXDy3K2ADksLZTyxpPZO2FJMXdM
+	1c+H1GgD67lZvC3f25L+seVJuCIaIi43MPGBwA6gpzo3+ABHscX62+34CJnUrcHGre0=
+X-Gm-Gg: ASbGncslgjq7G3eSogRI6EAHZasx8XuQ6axLkPREFqKQZsnkGy4Y+XFAFjepuS7D4pI
+	7EXd6o/+AyK0XCQyDvwevjM9Hq+kdvpHg5J13nr25/lDgayNmiT8EB+B1TsA9qiUlvNKrud8Xl9
+	4ci9lIzihIIiQr3wZRGxx5zzRPLzzyK5/ccCMheIKR/9UMI06NwuKrgjmgQiuyNRIvj4YYLk9WV
+	mzkj1slov6BEIqoIdiz+QEfsTGFd4E/X0ZnhA3gIhfjLB+6XPVLpjVITNyBqQTg2qaX9MCLh8C/
+	J/Obo4iXL9imdXvvRSJHPissnw3Za8eR6h/Bruln1nIluXg7XtmE8LSO3YEKRHMm0tTLmk8Agm6
+	SI2wAiq5Ns3zHbv0CndwqKjRMCUb+Zm4ex36s1h1VA5g40CebII3QHgquqduVJvy54hRdqplUY5
+	mm6PbB8NX9jhnUFMbP5cpQ1SY=
+X-Google-Smtp-Source: AGHT+IHUa1UagvSj8MVB8CHfM78Fkv+vbGeo68mTbHX615SxRGVOlXbaT5kn8JdN3BRCGmBUMVJgvw==
+X-Received: by 2002:a05:6000:22ca:b0:429:c774:dbfc with SMTP id ffacd0b85a97d-429e32c8168mr3259102f8f.12.1762356032871;
+        Wed, 05 Nov 2025 07:20:32 -0800 (PST)
+Received: from localhost.localdomain ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc200878sm11018117f8f.45.2025.11.05.07.20.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Nov 2025 07:20:32 -0800 (PST)
+From: Marco Crivellari <marco.crivellari@suse.com>
+To: linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Cc: Tejun Heo <tj@kernel.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: [PATCH] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
+Date: Wed,  5 Nov 2025 16:20:23 +0100
+Message-ID: <20251105152023.259813-1-marco.crivellari@suse.com>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251105-media-imx-fixes-v1-2-99e48b4f5cbc@pengutronix.de>
-References: <20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de>
-In-Reply-To: <20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de>
-To: Steve Longerbeam <slongerbeam@gmail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Hans Verkuil <hans.verkuil@cisco.com>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
- Michael Tretter <michael.tretter@pengutronix.de>, 
- Michael Tretter <m.tretter@pengutronix.de>
-X-Mailer: b4 0.14.3
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_071916_608152_A20A6A39 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20251105_072034_842334_762F4330 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,112 +108,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After media_pipeline_start() was called, the media graph is assumed to
-be validated. It won't be validated again if a second stream starts.
+Currently if a user enqueues a work item using schedule_delayed_work() the
+used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
+WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
+schedule_work() that is using system_wq and queue_work(), that makes use
+again of WORK_CPU_UNBOUND.
 
-The imx-media-csi driver, however, changes hardware configuration in the
-link_validate() callback. This can result in started streams with
-misconfigured hardware.
+This lack of consistency cannot be addressed without refactoring the API.
 
-In the concrete example, the ipu2_csi1_mux is driven by a parallel video
-input. After the media pipeline has been started with this
-configuration, a second stream is configured to use ipu1_csi0 with
-MIPI-CSI input from imx6-mipi-csi2. This may require the reconfiguration
-of ipu1_csi0 with ipu_set_csi_src_mux(). Since the media pipeline is
-already running, link_validate won't be called, and the ipu1_csi0 won't
-be reconfigured. The resulting video is broken, because the
-ipu1_csi0_mux is misconfigured, but no error is reported.
+This patch continues the effort to refactor worqueue APIs, which has begun
+with the change introducing new workqueues and a new alloc_workqueue flag:
 
-Move ipu_set_csi_src_mux from csi_link_validate to csi_start to ensure
-that input to ipu1_csi0 is configured correctly when starting the
-stream. This is a local reconfiguration in ipu1_csi0 and is possible
-while the media pipeline is running.
+commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
+commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
 
-Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
-Fixes: 4a34ec8e470c ("[media] media: imx: Add CSI subdev driver")
-Cc: stable@vger.kernel.org
+Replace system_wq with system_percpu_wq, keeping the same behavior.
+The old wq (system_wq) will be kept for a few release cycles.
+
+Suggested-by: Tejun Heo <tj@kernel.org>
+Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
 ---
- drivers/staging/media/imx/imx-media-csi.c | 44 +++++++++++++++++--------------
- 1 file changed, 24 insertions(+), 20 deletions(-)
+ drivers/phy/allwinner/phy-sun4i-usb.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
-index 55a7d8f38465..1bc644f73a9d 100644
---- a/drivers/staging/media/imx/imx-media-csi.c
-+++ b/drivers/staging/media/imx/imx-media-csi.c
-@@ -744,6 +744,28 @@ static int csi_setup(struct csi_priv *priv,
- 	return 0;
- }
- 
-+static void csi_set_src(struct csi_priv *priv,
-+			struct v4l2_mbus_config *mbus_cfg)
-+{
-+	bool is_csi2;
-+
-+	is_csi2 = !is_parallel_bus(mbus_cfg);
-+	if (is_csi2) {
-+		/*
-+		 * NOTE! It seems the virtual channels from the mipi csi-2
-+		 * receiver are used only for routing by the video mux's,
-+		 * or for hard-wired routing to the CSI's. Once the stream
-+		 * enters the CSI's however, they are treated internally
-+		 * in the IPU as virtual channel 0.
-+		 */
-+		ipu_csi_set_mipi_datatype(priv->csi, 0,
-+					  &priv->format_mbus[CSI_SINK_PAD]);
-+	}
-+
-+	/* select either parallel or MIPI-CSI2 as input to CSI */
-+	ipu_set_csi_src_mux(priv->ipu, priv->csi_id, is_csi2);
-+}
-+
- static int csi_start(struct csi_priv *priv)
- {
- 	struct v4l2_mbus_config mbus_cfg = { .type = 0 };
-@@ -760,6 +782,8 @@ static int csi_start(struct csi_priv *priv)
- 	input_fi = &priv->frame_interval[CSI_SINK_PAD];
- 	output_fi = &priv->frame_interval[priv->active_output_pad];
- 
-+	csi_set_src(priv, &mbus_cfg);
-+
- 	/* start upstream */
- 	ret = v4l2_subdev_call(priv->src_sd, video, s_stream, 1);
- 	ret = (ret && ret != -ENOIOCTLCMD) ? ret : 0;
-@@ -1130,7 +1154,6 @@ static int csi_link_validate(struct v4l2_subdev *sd,
- {
- 	struct csi_priv *priv = v4l2_get_subdevdata(sd);
- 	struct v4l2_mbus_config mbus_cfg = { .type = 0 };
--	bool is_csi2;
- 	int ret;
- 
- 	ret = v4l2_subdev_link_validate_default(sd, link,
-@@ -1145,25 +1168,6 @@ static int csi_link_validate(struct v4l2_subdev *sd,
- 		return ret;
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index 59d38d88efb0..e2fbf8ccf99e 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -359,7 +359,7 @@ static int sun4i_usb_phy_init(struct phy *_phy)
+ 		/* Force ISCR and cable state updates */
+ 		data->id_det = -1;
+ 		data->vbus_det = -1;
+-		queue_delayed_work(system_wq, &data->detect, 0);
++		queue_delayed_work(system_percpu_wq, &data->detect, 0);
  	}
  
--	mutex_lock(&priv->lock);
--
--	is_csi2 = !is_parallel_bus(&mbus_cfg);
--	if (is_csi2) {
--		/*
--		 * NOTE! It seems the virtual channels from the mipi csi-2
--		 * receiver are used only for routing by the video mux's,
--		 * or for hard-wired routing to the CSI's. Once the stream
--		 * enters the CSI's however, they are treated internally
--		 * in the IPU as virtual channel 0.
--		 */
--		ipu_csi_set_mipi_datatype(priv->csi, 0,
--					  &priv->format_mbus[CSI_SINK_PAD]);
--	}
--
--	/* select either parallel or MIPI-CSI2 as input to CSI */
--	ipu_set_csi_src_mux(priv->ipu, priv->csi_id, is_csi2);
--
--	mutex_unlock(&priv->lock);
- 	return ret;
+ 	return 0;
+@@ -482,7 +482,7 @@ static int sun4i_usb_phy_power_on(struct phy *_phy)
+ 
+ 	/* We must report Vbus high within OTG_TIME_A_WAIT_VRISE msec. */
+ 	if (phy->index == 0 && sun4i_usb_phy0_poll(data))
+-		mod_delayed_work(system_wq, &data->detect, DEBOUNCE_TIME);
++		mod_delayed_work(system_percpu_wq, &data->detect, DEBOUNCE_TIME);
+ 
+ 	return 0;
+ }
+@@ -503,7 +503,7 @@ static int sun4i_usb_phy_power_off(struct phy *_phy)
+ 	 * Vbus gpio to not trigger an edge irq on Vbus off, so force a rescan.
+ 	 */
+ 	if (phy->index == 0 && !sun4i_usb_phy0_poll(data))
+-		mod_delayed_work(system_wq, &data->detect, POLL_TIME);
++		mod_delayed_work(system_percpu_wq, &data->detect, POLL_TIME);
+ 
+ 	return 0;
+ }
+@@ -542,7 +542,7 @@ static int sun4i_usb_phy_set_mode(struct phy *_phy,
+ 
+ 	data->id_det = -1; /* Force reprocessing of id */
+ 	data->force_session_end = true;
+-	queue_delayed_work(system_wq, &data->detect, 0);
++	queue_delayed_work(system_percpu_wq, &data->detect, 0);
+ 
+ 	return 0;
+ }
+@@ -654,7 +654,7 @@ static void sun4i_usb_phy0_id_vbus_det_scan(struct work_struct *work)
+ 		extcon_set_state_sync(data->extcon, EXTCON_USB, vbus_det);
+ 
+ 	if (sun4i_usb_phy0_poll(data))
+-		queue_delayed_work(system_wq, &data->detect, POLL_TIME);
++		queue_delayed_work(system_percpu_wq, &data->detect, POLL_TIME);
  }
  
-
+ static irqreturn_t sun4i_usb_phy0_id_vbus_det_irq(int irq, void *dev_id)
+@@ -662,7 +662,7 @@ static irqreturn_t sun4i_usb_phy0_id_vbus_det_irq(int irq, void *dev_id)
+ 	struct sun4i_usb_phy_data *data = dev_id;
+ 
+ 	/* vbus or id changed, let the pins settle and then scan them */
+-	mod_delayed_work(system_wq, &data->detect, DEBOUNCE_TIME);
++	mod_delayed_work(system_percpu_wq, &data->detect, DEBOUNCE_TIME);
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -676,7 +676,7 @@ static int sun4i_usb_phy0_vbus_notify(struct notifier_block *nb,
+ 
+ 	/* Properties on the vbus_power_supply changed, scan vbus_det */
+ 	if (val == PSY_EVENT_PROP_CHANGED && psy == data->vbus_power_supply)
+-		mod_delayed_work(system_wq, &data->detect, DEBOUNCE_TIME);
++		mod_delayed_work(system_percpu_wq, &data->detect, DEBOUNCE_TIME);
+ 
+ 	return NOTIFY_OK;
+ }
 -- 
-2.47.3
+2.51.1
 
 
