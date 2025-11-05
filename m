@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 602D0CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEB5CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obs5QabdERcPxLnjJp0UEyjNC2ZFr2WFHzRj7Dz361U=; b=iOH7cy2elA57vpiRy90a6AaqiW
-	cwW+sScsL6dSSBe1/ZT8uGU4+UCwhXgBJTfqNgpw99y9bAzVj2HcwPs10yjrvsxyM447YRp96aIg+
-	7pB4smMttAteybWE517yXzD06TaLp8Ex4OOHfaJxgsRSvqbtE+9RbjtuMV9X/bVOPPAC2ATL0AIIE
-	eENY+9/MYPoLoSSluyM+cBNJdUJBsIlTyUUGiyVPob9kIN72nEnv+v2JRGVeeAAPLUNiGQwVNZBPB
-	aEPC/PY+NU4uAPRGqgl/7BpvFs7gQwxBvNBA9mqgGPRFpD5HogDXm97y+ZmW8ZNMDM1h6zB9KHSkm
-	Yd8m78jw==;
+	bh=wkO/YIgxaPM/wEK82kFqjfst+ouG4RuvuAOrJV+EoBw=; b=p57YPPMMvII7g93V8f0Is3Akbb
+	I92O1ecCyxbRvCjc2IBpt19c9J4H2C0ZLga+MpBDLB75t+0RvxZ3vSOzNl9mHCX7SR8CZ5pwjtmaU
+	LQ7Ya4b0xEnzAmr2RvGJ8MGYtfD7+Dv3AA2HptB5aORWp77jwrtLXMHq9kyT45ekr+LrbOFBso0Jb
+	w1OsjuKYcH+WQfV6SpjK9yQIZGrW7NFUhtHR2v4j/UQu/teORN0eYEpd6hSCBU9SDiRDC62KmR+yq
+	zCPXiUJLKZEuIoM6zgQrJ2oxwsZGaGUI27oBKjZs0m6Pc/uAV4ckHOtXubp1rNOSSbAtHFfPDsOXe
+	a1yO7E6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgvN-0000000E8DB-1MWb;
-	Wed, 05 Nov 2025 17:03:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGh3O-0000000E8i3-1Ct5;
+	Wed, 05 Nov 2025 17:12:14 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgvK-0000000E8CY-1R3w
+	id 1vGh3L-0000000E8hd-2dxL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 17:03:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC43B44318;
-	Wed,  5 Nov 2025 17:03:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7475AC4CEF5;
-	Wed,  5 Nov 2025 17:03:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762362232;
-	bh=fg8T6HLm59/38dJ+JLRKlWSwFCUyza7TxNKcYtn9qTc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oqdTQMEpi2Ckqu0wfUfjkgZ2N/CsHg3nchqrCOWiqlI5Lm+SoWMDuo1Qvs7w2GYda
-	 wo6oU2hbtYFYsvlS1VYTAJ0tdkxXsyOsK5RvOYEIUlVkvwtAqAdHUqZ5IqkoihrMc3
-	 m6iFlsk6vbN/fkpS0UH839f2gSKLGzT9qO+Fj6Zv9xaZSK/s29nByz9Y42RTIYR7Bo
-	 okwduZ3FHNzw8oaqW8wOdLx72JNesjcaLIDWuupT9/AUM2ZKczMAgOLmZNZ0zMvW3n
-	 FCq8vnik0cRJUMgP/JBaiL2NpSXKlq5FNN2UgMjNQa1phl6zF+2do2Jk0CE8IooHhV
-	 g+wXBR0QEOawQ==
-Date: Wed, 5 Nov 2025 17:03:48 +0000
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/mm: Add a fallback stub for pgd_page_paddr()
-Message-ID: <aQuDdE_Tj3di7q3P@willie-the-truck>
-References: <20251014110633.304961-1-anshuman.khandual@arm.com>
- <aQoORmgliayA0s_a@willie-the-truck>
- <e660e033-6300-4deb-b034-4d26746d8d01@arm.com>
+	Wed, 05 Nov 2025 17:12:12 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8b144ec3aa8so3704085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 09:12:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1762362730; x=1762967530; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=wkO/YIgxaPM/wEK82kFqjfst+ouG4RuvuAOrJV+EoBw=;
+        b=O/ix7KegO6emTsMSWFVVjxf9TaAtfvq7DyeONK5KnlLDNIJ2I/bUISWTWYF0s8XWO6
+         AOYyloRjO2zZqkXGNlpSabTDpwVIjRDIjVd2XJXqIdgFYM6QBFG7gLRjb3zcSQyYQgUg
+         N6RREmM9DLtfE46yjCjTIERspb2zIkMTZxBAnHzXAcxAClQOxKyAh8UT/eAj0IF643IJ
+         FM+Y5evnG+W7u1AukYKpcmSFlvDhB5SF624lefavWdxnIbLkOs321Js80GpjIzRb6dJF
+         Tk7B3o2/MGDmuKD4nkR02pTztpE9pyDGAFzbONJBTTHb3Um6qt2sCQXd3CA0VeU/gUMd
+         Rl3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762362730; x=1762967530;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wkO/YIgxaPM/wEK82kFqjfst+ouG4RuvuAOrJV+EoBw=;
+        b=UOBLBDQdHctzUGFORYAwIdgjAzyI7ygqT4uD6aT60hN8LFRuPRJkZrN6X3GEF7Y54l
+         zQcYXm7IDHFOuF3h1cxPbs2VWLwegi0k3YIbD5KtMGK87qis6Bor7c2L/DS/8txMq8qv
+         ckuFyf69wCr+eLsS5DoGLR5CqWmde+cmqR5HcfuR541vAg8Qnz1k9Ti/UezNInLv80g1
+         SFCIVd7PGgNOfSXlvPX9Q1d2P7E1T3jmGMXANlAmjBR/Oj3kq4s680MKQG/4wUweo3uA
+         txa1WAC/Ep1rLXbkPMtE/rGIZotFfgzOFcB4pfZN8E1tjeoWeneB4kuVmoZ3MyvjT18t
+         hb3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVvO8eoFpQTm2ZGhbTFmihLQKtHK3eOpPmUeihbJWKqmxIBxJRtVIbCame7161vks7m2cOPANRPKt3padjfap0U@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX0CrFoU4vhv1scmTYK8n22TxELneKmzv1CLgGxDS5tqh7PsUt
+	F8ew7c7vI45knPmTD/31Gjb5qDa33/2Y+iv2jeHNeSx/+Kf0pNlaLjpSWqTEzR1iWso=
+X-Gm-Gg: ASbGnctFZGPCirO02wCxw/qN2he3rX55z9js94+0qG+zYo01WXLgo63eSlVYrR6tD+c
+	WCw9tJNIUoN0tbv+sPOrqStEX5N4ZaPLHfeHZQ7zdEIOqkdMdiYfBY2T6MWQBszwchg9GvF05tu
+	YLf1BROoUOUbYyV+drvV/ap3its5hunhvnD22eg3JC7utuKv0tgW7fkJYFwNj6LeBMmObbg36HH
+	iEURMUJQw+R/SNyR6A9QFwvatUV3qAferF+YwkPhtK8BlbkGNEjEoGwYlTGUs0wha6M8+fjgh+q
+	A9WWnab0a9KnCkD9z0ARIng/DwOQdCvEoKCmVmSX1RUY8RIHLmQbaRZIanWC3FuM+hQ0qg1Zpxu
+	AoswML3a6i9UhnV4+iqlpiLoZEdU5dNoJ0RzlDc7rfvMsMmWgHQFYTZlgVNjYOfC61C/3nUiuLM
+	QZQZ85yjtfMgS/xY/O576t0CgFN98CmqexJT/NWtMj7Z5baA==
+X-Google-Smtp-Source: AGHT+IE+H5A+GWBd94mKAScAzkbN/plh8wCL54OtyUq33k2cpyVKMqW/YnW1kIG+WLt6H619/vMFBw==
+X-Received: by 2002:ac8:7e93:0:b0:4ed:2140:7a96 with SMTP id d75a77b69052e-4ed7262fff1mr49444101cf.58.1762362729905;
+        Wed, 05 Nov 2025 09:12:09 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ed5fabbbc9sm40585631cf.6.2025.11.05.09.12.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Nov 2025 09:12:09 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1vGh3I-00000007Bqn-3NXB;
+	Wed, 05 Nov 2025 13:12:08 -0400
+Date: Wed, 5 Nov 2025 13:12:08 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 15/28] iommu/arm-smmu-v3: Load the driver later in KVM
+ mode
+Message-ID: <20251105171208.GN1204670@ziepe.ca>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-16-smostafa@google.com>
+ <aMQmA9cLaeYWG5_C@willie-the-truck>
+ <aNKwROPzDCWgJBGQ@google.com>
+ <20250923173806.GF2547959@ziepe.ca>
+ <aNppE9A3PDiDg_1W@google.com>
+ <20251002151308.GG3195829@ziepe.ca>
+ <aQt9-kTCe8TpuyVq@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <e660e033-6300-4deb-b034-4d26746d8d01@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aQt9-kTCe8TpuyVq@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_090354_425814_5E2315D0 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20251105_091211_704290_8A8CA7C3 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +117,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 08:24:40AM +0530, Anshuman Khandual wrote:
-> On 04/11/25 8:01 PM, Will Deacon wrote:
-> > On Tue, Oct 14, 2025 at 12:06:33PM +0100, Anshuman Khandual wrote:
-> >> Add a fallback stub for pgd_page_paddr() when (PGTBALE_LEVELS <= 4) which
-> > 
-> > typo
-> 
-> Sure will change - s/Add/Adds
-> > 
-> >> helps in intercepting any unintended usage and which is also in line with
-> >> existing stubs for similar [pud|p4d]_page_paddr() helpers.
-> > 
-> > Are you saying the kernel compiles in this case without your patch? Which
-> > definition of pgd_page_paddr() does it end up using?
-> 
-> Kernel compiles for PGTBALE_LEVELS <= 4 just fine without this patch as both
-> its current users p4d_offset_phys() and p4d_offset_lockless() are wrapped in
-> with PGTBALE_LEVELS > 4.
+On Wed, Nov 05, 2025 at 04:40:26PM +0000, Mostafa Saleh wrote:
+> However, that didn’t work because, as from Linux perspective the
+> nested driver was bound to all the SMMUs which means that any
+> device that is connected to an SMMUv3 has its dependencies met, which
+> caused those drivers to start probing without IOMMU ops.
 
-Ok, but your patch is trying to catch broken users of the macro, right?
-So my question is, would such a user compile today? If not, then your
-patch is pointless.
+??
 
-Will
+What code is doing this?
+
+If a struct device gets a fwspec attached to it then it should not
+permit any driver to probe until iommu_init_device() has
+succeeded. This broadly needs to work to support iommu drivers as
+modules that are loaded by the initrd.
+
+So the general principal of causing devices to not progress should
+already be there and work, if it doesn't then maybe it needs some
+fixing.
+
+I expect iommu_init_device() to fail on devices up until the actual
+iommu driver is loaded. iommu_fwspec_ops() should fail because
+iommu_from_fwnode() will not find fwnode in the iommu_device_list
+until the iommu subsystem driver is bound, the kvm driver cannot
+supply this.
+
+So where do things go wrong for you?
+
+> It seems device links are not the write tool to use.
+
+Yes
+ 
+> So far, the requirements we need to satisfy are:
+> 1- No driver should bind to the SMMUs before KVM initialises.
+
+Using the above I'd expect a sequence where the KVM SMMU driver loads
+first, it does it's bit, then once KVM is happy it creates the actual
+SMMU driver which registers in iommu_device_list and triggers driver
+binding.
+
+This is basically an identical sequence to loading an iommu driver
+from the initrd - just the trigger for the delayed load is the kvm
+creating the device, not udev runnign.
+
+> 2- Check if KVM is initialised from the SMMUv3 driver,
+>    if not -EPROBE_DEFER (as Will suggested), that will guarded by the
+>    KVM driver macro and cmdline to enable protected mode.
+
+SMMUv3 driver shouldn't even be bound until KVM is ready and it is an
+actual working driver? Do this by not creating the struct device until
+it is ready.
+
+Also Greg will not like if you use platform devices here, use an aux
+device..
+
+Jason
 
