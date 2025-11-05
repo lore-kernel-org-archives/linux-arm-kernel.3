@@ -4,97 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FAC4CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 04:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3EECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 05:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YULlj58qL4zgqYnaxIvN0IRxkfnew4hxgBmocTGIAOg=; b=YbvGoju+MN1zHpqqDGOIoHbyg+
-	nCY4AQh/Ix2MkWWjDI0fSDrt/8OteLfEXCoEPgja1HvOV+1oZ2KR8kzXCKj0W7PbMTNQGDVN/zqbj
-	/TkK+jJin9nDapdpYirNeQ9BwLjPWLC/6Te9C00TaGSpJDPO5SJdLKLGsJCb+4gqortTL+wCTkrHX
-	Xq4jzPcPVv4TtPJJrsXOWc45eWV6cekIpB24rqb8iHDdS91wm0Aom2b82VtOfeA1VULjJWgFpyU8o
-	KJRx58R58V4Tq5Bhztx8ONb6nG/jToDu8pjzjqaL4r7Ze8aV1xhZ9rtNduIEvo+2Fg9pfJckuGvRc
-	9PasT/4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OAqN/DnbRe0RFyNpxxcRoQaMRf5VJQpm5qiCdR15c1o=; b=OW80yZ9gHqov73ZpS8xfKMiM3y
+	hF9e6fU06AaAWtq28YIXPTtknAI80sJHby5v0DE/J+VXipYQyL/XGYSoHMdWeWq8Mnq3MSdQPCJYv
+	hj3BoRpvjBpbdQgcECaDaDM0gDL1euIOeaRFzzEwIfqzoFX2wGTkVY4l/pg72xesW8uTb5OJzPnWD
+	naIKPTrdVl44zed4uVnoKmoHgB5RCAe7ijE58rHtXDfLS1ulsNpPq+9xW6Im2fN2MX3bQ60SKZwYz
+	PF8+leg3UmBpIC+c0WkwOZOboVBGJ2jEOM0LziIL/KEdNhxLWDS1H7gUBWBgRHtu/Tu2qgVf4OKsg
+	Qdn4dpbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGVRv-0000000D0rn-0l10;
-	Wed, 05 Nov 2025 04:48:47 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGVRr-0000000D0rQ-3u4d
+	id 1vGW6k-0000000D2Od-2cQW;
+	Wed, 05 Nov 2025 05:30:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGW6i-0000000D2OG-0Wwt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 04:48:46 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b679450ecb6so4749477a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 20:48:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762318123; x=1762922923; darn=lists.infradead.org;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YULlj58qL4zgqYnaxIvN0IRxkfnew4hxgBmocTGIAOg=;
-        b=BcnTeOu/GPHKyViSd2YKz05Kqpw1NNuw5RUYA7qhFjVevofZ0MosDw4+8iFl576ZuP
-         hoe7PyhEMKehzFBIHjpxXFrKlTw30oy5PhqIcGR1x4vyNRhivC8+1CbpNtLIQtc/5CF+
-         0RuUDpqgJ+CALJ7pQ0FboFMPvNU2TgXq6wuoD/8z4U6pF43PkiQAIPCfQJuDkTr8pc6o
-         BnQJvKU2saqRRPna6CIDcO7VXTRS56IqCG8sS4NvATvEiz/2F0ZqVgv2OoXUtZbEJYgI
-         jk+CnOJjcaKTQnI3TYZKukgAcKc7ZIEGbNIhwLKtNMNdQUGm5Zb0GaQBYhFxsjbVOVuW
-         0Mlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762318123; x=1762922923;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YULlj58qL4zgqYnaxIvN0IRxkfnew4hxgBmocTGIAOg=;
-        b=BYqPVZzJxqIL9a0bo+3O/6wAkLxAj0uTNh5W9X1O75x+wsDx35xL8gezhlI60zeF/L
-         hIz+qLuN1W9sxn/D0aQ/QpEu5yarGsCvzWPIOL6f0RFJrKuUebZCflsX0hjae2j3iS0V
-         0ftVybEblvy5ryQB5rkX7/k04OJZtiC2zyuS4ND+91SRe2zvBAX5Ik9RNEPMPB1M/CPF
-         TaWIH/1NuDGuvnuNYEK49JQ1kMokBiOhvzY147dLIYDalCPgjS2/nweYIYQVd1dtwwh2
-         2avrc0sf8ChAIHeWAAmpRzkI/LW9sQQid+humX8QVrHCpfyvJ+i521/yWto5qQfnFLgr
-         vOqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX2ExnB+3PDm28CbYP5bpADwvNnteGMCAqa0phgbe56EE6or5Sd+OdgAocYI35+8vTf2HWwFWDWnL7+5mbNpf7Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7w3zCf7fJ6+naj7iAL6lR0hDJX5IAPKRZYgdZ7K1xizhmseiU
-	OS3wUxHu2bxDOZcI7z3c1z2VL8ubLgRJBaYXZrxF+dl9BQrciNT3jfHq
-X-Gm-Gg: ASbGncuSADa1o1COO1PTOcjG6e3mubPq3d/Ge/wH3I71H7t1oRQZh+6o68meoRbs/KU
-	qMgPnC+2oKFDvwvfbGZ7G2O13diIu4SrJOFyNjOjqGK0lSbSs4lO9VD/MfeXFd0sLohjFJJYlK0
-	zw6MgJ6NIKrHrysMpbbrID/DuEOJjS7vgQo1thx6SNyS6QV3OFHJYxJr4KREYbCeCdWZ2TYcXHh
-	Ajw0iWxmwgDTc7Mz4onzWTz2NC7Y7R+QUjDydHhzgiuHmcdnC5E1KRtS8gFy2EAS0uaKEV77U1V
-	4JGsgPKKCGT3MiQPi6vBy3Db6S5eCD7un0WZIfLEYucAC6kHvA2O8FEtRpoG3JzUtXH26Ylu6KD
-	0bMA4R6owdr+uY2wJK9AqSR5jGByvS5I5GLgoZ3XXTImt1t16w+w/CgtExPA69l597kjtQA==
-X-Google-Smtp-Source: AGHT+IEGT+eOgR9ydzqm23BJtuNpA3RB5HWaj5Ha9KjzqVJ/S6kqSTkQbIaWCHaOF+SdxbuTbYvUtA==
-X-Received: by 2002:a05:6a20:7483:b0:34e:63bd:81c1 with SMTP id adf61e73a8af0-34f839f5a57mr2604485637.3.1762318122822;
-        Tue, 04 Nov 2025 20:48:42 -0800 (PST)
-Received: from dw-tp ([171.76.85.117])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7acd6824811sm4742988b3a.64.2025.11.04.20.48.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 20:48:42 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
-	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	David Hildenbrand <david@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
-	David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, 
-	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, 
-	Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>, 
-	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-Subject: Re: [PATCH v4 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
-In-Reply-To: <20251029100909.3381140-6-kevin.brodsky@arm.com>
-Date: Wed, 05 Nov 2025 10:10:33 +0530
-Message-ID: <87o6ph3xdq.ritesh.list@gmail.com>
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com> <20251029100909.3381140-6-kevin.brodsky@arm.com>
+	Wed, 05 Nov 2025 05:30:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC9E616F2;
+	Tue,  4 Nov 2025 21:30:46 -0800 (PST)
+Received: from [10.164.18.45] (unknown [10.164.18.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9D8C3F63F;
+	Tue,  4 Nov 2025 21:30:52 -0800 (PST)
+Message-ID: <f5dbffae-52a5-4992-95a8-d47c925e286f@arm.com>
+Date: Wed, 5 Nov 2025 11:00:49 +0530
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Drop redundant extern declaration for
+ rodata_full
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+ ryan.roberts@arm.com
+References: <20251015023609.427911-1-anshuman.khandual@arm.com>
+ <aQofCMqxiqujZP-g@willie-the-truck>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <aQofCMqxiqujZP-g@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_204843_994313_4B860289 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20251104_213056_273715_AC2D6FC8 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,67 +67,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kevin Brodsky <kevin.brodsky@arm.com> writes:
+On 04/11/25 9:13 PM, Will Deacon wrote:
+> On Wed, Oct 15, 2025 at 03:36:09AM +0100, Anshuman Khandual wrote:
+>> Drop the redundant extern declaration 'rodata_full' which can be included
+>> via the header <asm/setup.h> after moving exiting declaration outside the
+>> function arch_parse_debug_rodata(). While here also drop 'rodata_enabled'
+>> which is anyways available via the generic header <linux/init.h>.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/include/asm/mmu_context.h | 2 --
+>>  arch/arm64/include/asm/setup.h       | 4 +---
+>>  2 files changed, 1 insertion(+), 5 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
+>> index 0375ca3162ff..e4b3563e1d96 100644
+>> --- a/arch/arm64/include/asm/mmu_context.h
+>> +++ b/arch/arm64/include/asm/mmu_context.h
+>> @@ -26,8 +26,6 @@
+>>  #include <asm/sysreg.h>
+>>  #include <asm/tlbflush.h>
+>>  
+>> -extern bool rodata_full;
+>> -
+>>  static inline void contextidr_thread_switch(struct task_struct *next)
+>>  {
+>>  	if (!IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR))
+>> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
+>> index 3d96dde4d214..902f1aab520f 100644
+>> --- a/arch/arm64/include/asm/setup.h
+>> +++ b/arch/arm64/include/asm/setup.h
+>> @@ -12,12 +12,10 @@
+>>   */
+>>  extern phys_addr_t __fdt_pointer __initdata;
+>>  extern u64 __cacheline_aligned boot_args[4];
+>> +extern bool rodata_full;
+>>  
+>>  static inline bool arch_parse_debug_rodata(char *arg)
+>>  {
+>> -	extern bool rodata_enabled;
+>> -	extern bool rodata_full;
+>> -
+>>  	if (!arg)
+>>  		return false;
+> 
+> It would probably be cleaner to make 'rodata_full' static in mm/pageattr.c,
+> move the guts of arch_parse_debug_rodata in there and then consolidate
+> can_set_direct_map() and force_pte_mapping().
+> 
+> You need to talk to Ryan for the last part, as David's made some
+> suggestions around that too.
 
-> Architectures currently opt in for implementing lazy_mmu helpers by
-> defining __HAVE_ARCH_ENTER_LAZY_MMU_MODE.
->
-> In preparation for introducing a generic lazy_mmu layer that will
-> require storage in task_struct, let's switch to a cleaner approach:
-> instead of defining a macro, select a CONFIG option.
->
-> This patch introduces CONFIG_ARCH_HAS_LAZY_MMU_MODE and has each
-> arch select it when it implements lazy_mmu helpers.
-> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is removed and <linux/pgtable.h>
-> relies on the new CONFIG instead.
->
-> On x86, lazy_mmu helpers are only implemented if PARAVIRT_XXL is
-> selected. This creates some complications in arch/x86/boot/, because
-> a few files manually undefine PARAVIRT* options. As a result
-> <asm/paravirt.h> does not define the lazy_mmu helpers, but this
-> breaks the build as <linux/pgtable.h> only defines them if
-> !CONFIG_ARCH_HAS_LAZY_MMU_MODE. There does not seem to be a clean
-> way out of this - let's just undefine that new CONFIG too.
->
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  arch/arm64/Kconfig                                 | 1 +
->  arch/arm64/include/asm/pgtable.h                   | 1 -
->  arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 2 --
->  arch/powerpc/platforms/Kconfig.cputype             | 1 +
->  arch/sparc/Kconfig                                 | 1 +
->  arch/sparc/include/asm/tlbflush_64.h               | 2 --
->  arch/x86/Kconfig                                   | 1 +
->  arch/x86/boot/compressed/misc.h                    | 1 +
->  arch/x86/boot/startup/sme.c                        | 1 +
->  arch/x86/include/asm/paravirt.h                    | 1 -
->  include/linux/pgtable.h                            | 2 +-
->  mm/Kconfig                                         | 3 +++
->  12 files changed, 10 insertions(+), 7 deletions(-)
+Sure will talk to Ryan about this. But for the above suggestion - probably something
+like the following (untested) should work.
 
-Maybe we can add this to ... ?
+diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
+index 0dbe3b29049b..ddb964e916e1 100644
+--- a/arch/arm64/include/asm/mmu_context.h
++++ b/arch/arm64/include/asm/mmu_context.h
+@@ -26,8 +26,6 @@
+ #include <asm/sysreg.h>
+ #include <asm/tlbflush.h>
+ 
+-extern bool rodata_full;
+-
+ static inline void contextidr_thread_switch(struct task_struct *next)
+ {
+ 	if (!IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR))
+diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
+index 3d96dde4d214..fa77a7208826 100644
+--- a/arch/arm64/include/asm/setup.h
++++ b/arch/arm64/include/asm/setup.h
+@@ -13,32 +13,7 @@
+ extern phys_addr_t __fdt_pointer __initdata;
+ extern u64 __cacheline_aligned boot_args[4];
+ 
+-static inline bool arch_parse_debug_rodata(char *arg)
+-{
+-	extern bool rodata_enabled;
+-	extern bool rodata_full;
+-
+-	if (!arg)
+-		return false;
+-
+-	if (!strcmp(arg, "on")) {
+-		rodata_enabled = rodata_full = true;
+-		return true;
+-	}
+-
+-	if (!strcmp(arg, "off")) {
+-		rodata_enabled = rodata_full = false;
+-		return true;
+-	}
+-
+-	if (!strcmp(arg, "noalias")) {
+-		rodata_enabled = true;
+-		rodata_full = false;
+-		return true;
+-	}
+-
+-	return false;
+-}
++bool arch_parse_debug_rodata(char *arg);
+ #define arch_parse_debug_rodata arch_parse_debug_rodata
+ 
+ #endif
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index b8d37eb037fc..030ee4ba8a7a 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1014,9 +1014,7 @@ static inline bool force_pte_mapping(void)
+ 	bool bbml2 = system_capabilities_finalized() ?
+ 		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+ 
+-	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+-			   is_realm_world())) ||
+-		debug_pagealloc_enabled();
++	return debug_pagealloc_enabled() || (!bbml2 && can_set_direct_map());
+ }
+ 
+ static void __init map_mem(pgd_t *pgdp)
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index 5135f2d66958..60d372c630eb 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -80,7 +80,31 @@ static const struct mm_walk_ops pageattr_ops = {
+ 	.pte_entry	= pageattr_pte_entry,
+ };
+ 
+-bool rodata_full __ro_after_init = true;
++static bool rodata_full __ro_after_init = true;
++
++bool arch_parse_debug_rodata(char *arg)
++{
++	if (!arg)
++		return false;
++
++	if (!strcmp(arg, "on")) {
++		rodata_enabled = rodata_full = true;
++		return true;
++	}
++
++	if (!strcmp(arg, "off")) {
++		rodata_enabled = rodata_full = false;
++		return true;
++	}
++
++	if (!strcmp(arg, "noalias")) {
++		rodata_enabled = true;
++		rodata_full = false;
++		return true;
++	}
++
++	return false;
++}
+ 
+ bool can_set_direct_map(void)
+ {
+-- 
+2.30.2
 
-Documentation/features/vm/lazy_mmu/arch-support.txt
 
-#
-# Feature name:          lazy_mmu mode
-#         Kconfig:       ARCH_HAS_LAZY_MMU_MODE
-#         description:   arch supports arch_{enter|flush|leave}_lazy_mmu_mode()
-#
-    -----------------------
-    |         arch |status|
-    -----------------------
-    |       arm64: |  ok  |
-    |     powerpc: |  ok  |
-    |       sparc: |  ok  |
-    |         x86: |  ok  |
-    -----------------------
-
-
-As for this patch, the changes are mostly straight forward around the
-configs part. This looks good to me. Please feel free to add: 
-
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-
--ritesh
 
