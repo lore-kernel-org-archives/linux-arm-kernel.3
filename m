@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6AACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 13:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1BD0CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 13:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=06qBPm1fhFSKR8WuXfgSJkBHchOvYaGI3r+Tq1ruRHM=; b=WmcV8bk63rjQe7PpKhmKxl73Sn
-	5vrnwlpu0EnHPKj2mY+ssV40lRGgF12S+Z4j/dU2EOxWCfxw1fbTvTRtZILvhvyJQn8HYNtK6ACOo
-	x9Lm2Sxx6Ue42CFGaYDZRJGQLdwlb7WCRXLhrGbmITf33i/gk6XU4gZqgIIs+DQevn7Ndhc1fR+2s
-	d4qGMNsSAE30U7hUtfk+b5VLF+2bwvpVt0QLdPZdifSTPd2zqHud+Fpk2knZHaK0EP1c7SaMep5cM
-	IC/HwZNYOK5cIYtq3mU7SX/znGc9ofCXlaoIeyv5cGCbdmkl+nRtXHWE+gm0LVZtC8pxGDydepWGe
-	LXB/Bgew==;
+	bh=anJy0kovOnmwnKwTf1uVV5HwRBu0s+Xw6msJvdrAWkM=; b=Prt1DnQ1DYF3vU8O59MaX8yhwX
+	hRuLy4ipGyUKArX62W+qaZFe9OAxaihjGSbZ14COh+g3OVlUkXhMU4/BUnnOV7hwhe2Fvx7tV1eKC
+	75r1++mkRQHfTWnlyELmWPkeTgF9/snPz31eDXd31s2iyETvI1OZ5VffWdeAsEZY7AAjRKYGZJvgS
+	vuMktsdBYpJvwWJwfH8uPgwDlpdrFf6Nq9cZacrTN+hvuLRArWfoH1jT8oUc9NmrQmQmnE+h8qV+G
+	QZnIuYu835Os0Bz3p77T6dJmbLjvpI1CzeUj0RFQnR2YI70V7s0duTokGx6dcNvH6SJrHmh6kqXQs
+	SmWS804g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGdNi-0000000DkZU-3qxc;
-	Wed, 05 Nov 2025 13:16:58 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1vGdPL-0000000DkmY-2f1t;
+	Wed, 05 Nov 2025 13:18:39 +0000
+Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGdNh-0000000DkYa-0nH6
+	id 1vGdPJ-0000000Dklj-0KDO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 13:16:58 +0000
+	Wed, 05 Nov 2025 13:18:38 +0000
 Mime-Version: 1.0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1762348604;
+	s=key1; t=1762348704;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=06qBPm1fhFSKR8WuXfgSJkBHchOvYaGI3r+Tq1ruRHM=;
-	b=nuFi3+XJIUC4IMIZbpTNvnro4Irl5tYMnQEv6fg/Kkvl/IljVEvTDKotl6REwLqxDISxs1
-	jThgRGnSFy2QBbD3kavo6bUiH81wPE88IxmoVUcgZFaqwcJLuolnq0lVd9iUCAbB9WtBZJ
-	DXX7B1rwDawDtBkYA6jbdjAFiuSeJaLipBy5O2IdmxEimmOSL2m/teOlY/62usQ0UKCA72
-	YkJeImAlO5eo6SX7oI+p+l20fKbwhNW8ixTRCMvu3x/THQH8TppAJ4pAC9gO8W/4fDyLSb
-	ORun7XhsHZ7QsaF72kfVFoe81YBN2F09k+BeOKzG5qgJotzcvXV4PRBCVeQZOQ==
+	bh=anJy0kovOnmwnKwTf1uVV5HwRBu0s+Xw6msJvdrAWkM=;
+	b=aa6b5568Qh3/bE4wzKB/hpYPvmdW4nlyMx41tGjnmZuoU64FMmoh4cXl1BRU5DJ6tuo+nI
+	3HSYeLTC7A200JHb4jozfS3Q0HgGytOBgeky7yw/BxPCMnlkdGUMCr+Xooh2VOJaWNvruP
+	BbBMVUyM3OUs1s+qs+7rdLcCskHKQe7q47xlfLhSUdGa4V0LtZvnYUjzOa+HAbeokkQGPq
+	Xe5gFcTNi0N3+crmQfPC192PhyQd03iDeVnEwTxdEwVRH2R2MCNzUfbPSO3XYuzSqXY4+i
+	IWJzneP/ljxJaSA6odMvzs1zM5cn/jb+7sYU87vOWDBcBTGBP/ObrAsTfnVg3g==
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 05 Nov 2025 14:16:42 +0100
-Message-Id: <DE0SFV203UMS.1ZV2JE6QEPN29@cknow-tech.com>
-To: "Heiko Stuebner" <heiko@sntech.de>
+Date: Wed, 05 Nov 2025 14:18:21 +0100
+Message-Id: <DE0SH4UBVXBH.77ADEH3224GK@cknow-tech.com>
 Cc: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
  <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <linux-clk@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
  <michael.riesch@collabora.com>
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: use SCMI clock id for cpu
- clock on rk356x
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: add missing clocks for cpu
+ cores on rk356x
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Heiko Stuebner" <heiko@sntech.de>
 References: <20251103234926.416137-1-heiko@sntech.de>
- <20251103234926.416137-3-heiko@sntech.de>
-In-Reply-To: <20251103234926.416137-3-heiko@sntech.de>
+ <20251103234926.416137-4-heiko@sntech.de>
+In-Reply-To: <20251103234926.416137-4-heiko@sntech.de>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_051657_364585_ABC2E80D 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20251105_051837_258363_5ED196A1 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
-
 On Tue Nov 4, 2025 at 12:49 AM CET, Heiko Stuebner wrote:
-> Instead of hard-coding 0, use the more descriptive ID from the binding
-> to reference the SCMI clock for the cpu on rk356x.
+> All cpu cores are supplied by the same clock, but all except the first
+> core are missing that clocks reference - add the missing ones.
 
-Any particular reason you only did it for the cpu, but not the gpu?
-
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/b=
-oot/dts/rockchip/rk356x-base.dtsi
-> index a3361527d4fe..d0c76401b45e 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> @@ -53,7 +53,7 @@ cpu0: cpu@0 {
->  			device_type =3D "cpu";
->  			compatible =3D "arm,cortex-a55";
->  			reg =3D <0x0 0x0>;
-> -			clocks =3D <&scmi_clk 0>;
-> +			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
-
-Regardless of the above comment, feel free to add
+I noticed it myself some time ago (but failed to sent a patch), so
 
 Reviewed-by: Diederik de Haas <diederik@cknow-tech.com>
 
 Cheers,
   Diederik
 
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/b=
+oot/dts/rockchip/rk356x-base.dtsi
+> index d0c76401b45e..a1815f8a96e1 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> @@ -69,6 +69,7 @@ cpu1: cpu@100 {
+>  			device_type =3D "cpu";
+>  			compatible =3D "arm,cortex-a55";
+>  			reg =3D <0x0 0x100>;
+> +			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
+>  			#cooling-cells =3D <2>;
+>  			enable-method =3D "psci";
+>  			i-cache-size =3D <0x8000>;
+> @@ -84,6 +85,7 @@ cpu2: cpu@200 {
+>  			device_type =3D "cpu";
+>  			compatible =3D "arm,cortex-a55";
+>  			reg =3D <0x0 0x200>;
+> +			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
+>  			#cooling-cells =3D <2>;
+>  			enable-method =3D "psci";
+>  			i-cache-size =3D <0x8000>;
+> @@ -99,6 +101,7 @@ cpu3: cpu@300 {
+>  			device_type =3D "cpu";
+>  			compatible =3D "arm,cortex-a55";
+>  			reg =3D <0x0 0x300>;
+> +			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
 >  			#cooling-cells =3D <2>;
 >  			enable-method =3D "psci";
 >  			i-cache-size =3D <0x8000>;
