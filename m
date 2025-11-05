@@ -4,90 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C202CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010E2CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDe6kRSygVEphf3RSRGt9HkF/eyEhvziT45X27VBXsM=; b=ZUmICiCEDOEZ5SxFS/4bDOmwTT
-	kZ8SBI40KzfH4Na0WICnWjIFgQfejew98QYVoZxIKBPXhTPMQzBEEhaG1054oaIFky2yMzjh9efXW
-	CAyCant1fPEQ8C6t1Aj0GVlrrDWYwxbdJ6IIA4LdjTMs/3CStsjvlCVyprl9UGs7ZCpJ6H0aC8JJu
-	/0dH5dBMRfgA0YLlyPt5aiLThNemiNWJRRVRMnPwN7LTwhtDsD1s6K29Kl5boJ+Jj4dC5EYYbK/0i
-	b6SncCeRxf8FPJvLlSCzZ6EJLc8WQ1ND3ZP/HFAMS9lUvxhS2fKvHQMGjnV5AjiBmGCsCHkvqiH5G
-	HVVe+t6A==;
+	bh=FnXwRYQFncUvBCSbCcRboaE62N6tY8I8sJFrFvzKjsY=; b=4gTrMrF5AjE+Myt/2cwgJBDBdL
+	fDrofRNoAAxixKozA2kU+waDfdP9ssqFggeZFw2oa+KPUbzv5Qgl4k/EQhWmUB2emFsxTlvisftQX
+	eEkk2/gDbedu6bgiwKUULRBIK+vlesinLg0ST8Hdh9nN/l67GdrvBLvMB11YwdSi45EQi79WSJrDA
+	W8JUY2ystxRdTMPZxzeKndixPRLl1gurQCWywUxN+h78J4aKjWKEVHPq7Yte1y8s/fmuWSEzu/QfE
+	glkLK4NHv6bVyBs6qmYHCYb65aq8do82Hj8HFkouPCNOvC8nC8L4TePZv7R99XJP/XGECpQ3Rofiv
+	jktEhGzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYVU-0000000DFi9-1Tde;
-	Wed, 05 Nov 2025 08:04:40 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1vGYgD-0000000DGGW-1NK8;
+	Wed, 05 Nov 2025 08:15:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYVR-0000000DFhg-3TAk
+	id 1vGYgB-0000000DGGO-3Lcy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 08:04:38 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-341b2e98486so192244a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 00:04:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762329877; x=1762934677; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GDe6kRSygVEphf3RSRGt9HkF/eyEhvziT45X27VBXsM=;
-        b=bB0AxSc3guVr/z11LRk41bxE7+4xsLs/FvdWF6ZjhsqTEHaycY1diYuG4lE/pLSAiR
-         K5rx2SLRzMIwWF1dWUUYKUOQEv9p/wrmjrctp0kLbvb0GrfL2NwU2gcfIrVpzz5j6Ss9
-         iseu4LZZWagJkgA/9sKRMEH2UC0z0iyflnruahnypa8bTnQG/itudy/MXnYNOajQW+Sz
-         dRUuazVMXplph89+FY3CMtpNPy/ATs3qYX6ytXR2IxALJ1qfNT94KTOzMb1KqqnthDB8
-         yHeHrrXBIa/U/595oIhqI+iBr7zf7blY7YGeTCCHfkr4IL8uB6MwJmie4Lq6xrFBX/tK
-         GkeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762329877; x=1762934677;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GDe6kRSygVEphf3RSRGt9HkF/eyEhvziT45X27VBXsM=;
-        b=FO4MMxHoYFOftgNzSzsdjbIVu7R+AmVYtLHvAmrhZVuoagEDlozZRzFc3TtQT4gASZ
-         x8hyGyKFte3BGwAUYC6BRq2dvaA9ifPr8pVFF5brp2JPG082pC+PYyrsAp/n4tBwFGy1
-         eiCto4gf3EYNLeLSz7tx0anBOkYDq8wpMudJrvblKQd+R1Vai0ZzSsXbwwkfaOfMuwLT
-         r1xtGj/VLoYl32Wx0xU9sqfq5KHNsb/Wh9aoEUpsbTFijKsL9Rb71zhwnBYfX2X7Jlql
-         ngYYcdOPobYwekKXTAla5XIyHgASK3rj/LLol0HOpDyGKE/gF3tHoqg/XaLQNqcoDX6i
-         XZ/A==
-X-Forwarded-Encrypted: i=1; AJvYcCWilHuRFJE4mEECbHjEkM3GKg/iOj/NLaQtHbDqLcrpoATuHSXCrMxmjsCnlyZuxWsix5FCbSjQ4jDQdGpKDv0F@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlwuPbmVtzXvf6FDd9Wtuatpl5F+9BdP5cIbajkMsWIDsaWlCN
-	8VqNflSn9TGGQYfy85xJuxlk4mT59kmpORTAvdK4s+kyiOokgIuAqUwRAFJ+HnbHi+vaWVf/6aX
-	2T2cNvEKeWFM5gMrFRyO9UOjBHOx5TKiTfPDs
-X-Gm-Gg: ASbGncuJaX/49+zHopd7rkT3tC3LoUbZd6L5mYhHYIQcfboNitHtCC3PxtVEslJy4/E
-	nHIm8CLt1ep+/P4v2PQsNW3oq/20RB269B4OcVn+9SJYRXFKmakbikxH2uvaCDiKA6j+OQ9imHo
-	6XLr4GmjFcfjwDzrqoE0RO1ROhMiTr9owYa9+91/4hS11uOOdRjL5+ZUNxXHcMawbVELw6b+0eC
-	dCrfEpAOoQlPwN7if86yByMZhA1fnT3JcMhgh79IDZCeGrOEC4s5NUIFZEs/NP94cow0iI=
-X-Google-Smtp-Source: AGHT+IE3kiYdO6A81tH3ocwujCNPCljvOzypJY9CyERGKSeoHzPi5nZ+xfnpKr+voNC9lIaFIPYuRWd+eHWQF6ZoNDQ=
-X-Received: by 2002:a17:90b:582e:b0:32e:6fae:ba52 with SMTP id
- 98e67ed59e1d1-341a6c1e406mr2591161a91.6.1762329876771; Wed, 05 Nov 2025
- 00:04:36 -0800 (PST)
+	Wed, 05 Nov 2025 08:15:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D118060202;
+	Wed,  5 Nov 2025 08:15:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22257C4CEF8;
+	Wed,  5 Nov 2025 08:15:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762330542;
+	bh=zewZiWOOxPStBdSA5lafB87yz14VKUzeh4rI3J4mpak=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o0zCFW5Dl5y/9or/8qLwdvR6Rg8KVPWYbfSEmz5DQT4NKo7T9Ufnc6Ma1JW63vwUe
+	 I2YWVOq++E7sd3U9E1m6/LLnT4ZdEn6uW45+KStw+Oa/8XhH8aHe2HPRzLvTnj4P71
+	 1x+XJormSF2+ZE3bOA/vOjdMj+/9zId5PsgYCVMMg9QdLKcw0oOJCVzcq3LNdhcihd
+	 FNI32HCf423SsavWK9li/OYcBHHrCdanK/SE7c9UaErCn9Vlh2gcOkYp2TQcOaePXM
+	 2BQ4eJ83hkaFB4OvLIEOFRZC+wyxsWIcCtWNyBYvSUfeX9aUu4NO7qjoBpj4fhRmns
+	 Y2i4dOCxW9Qkg==
+Message-ID: <7ba7e32b-f00a-4f77-88da-047126a8c3f9@kernel.org>
+Date: Wed, 5 Nov 2025 09:15:38 +0100
 MIME-Version: 1.0
-References: <20251031-imx-dsp-2025-10-31-v1-0-282f66f55804@nxp.com>
-In-Reply-To: <20251031-imx-dsp-2025-10-31-v1-0-282f66f55804@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 5 Nov 2025 16:04:23 +0800
-X-Gm-Features: AWmQ_bka9Xr4B-LvpKHRbIbtt5BkAdNQKoTwEnWv8Ppu3FZE5Ou4N-m9M6c5JNE
-Message-ID: <CAA+D8AMgXCcQuH3SWh2UU5ib0h3EqdJOdXTkwyFx4duv7qL2Ug@mail.gmail.com>
-Subject: Re: [PATCH 00/11] remoteproc: imx_dsp_rproc: Refactor to use new ops
- and remove switch-case logic
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	Frank Li <frank.li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Iuliana Prodan <iuliana.prodan@nxp.com>, linux-remoteproc@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_000437_865032_1BB0CBD8 
-X-CRM114-Status: GOOD (  15.44  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/7] dt-bindings: arm: Add support for Qualcomm TGU
+ trace
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>
+Cc: andersson@kernel.org, alexander.shishkin@linux.intel.com,
+ kernel@oss.qualcomm.com, mike.leach@linaro.org, suzuki.poulose@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+ devicetree@vger.kernel.org
+References: <20251104064043.88972-1-songwei.chai@oss.qualcomm.com>
+ <20251104064043.88972-2-songwei.chai@oss.qualcomm.com>
+ <20251105-industrious-oxpecker-of-valor-af17fa@kuoka>
+ <746b292f-fc3a-43a8-89b1-76f61ccc0630@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <746b292f-fc3a-43a8-89b1-76f61ccc0630@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,57 +120,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 5:14=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
->
-> This patchset aligns imx_dsp_rproc with the cleanup and modernization
-> previously applied to imx_rproc.c. The goal is to simplify the driver by
-> transitioning to the new ops-based method, eliminating the legacy
-> switch-case logic for a cleaner and more maintainable design.
->
-> Patches 1=E2=80=935: General cleanup, including code simplification and a=
-doption
->              of the devres API.
-> Patches 6=E2=80=9310: Transition to the new ops-based approach, removing =
-the
->               switch-case structure.
-> Patch 11: Remove the obsolete enum imx_rproc_method.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On 05/11/2025 09:11, Songwei Chai wrote:
+> 
+> On 11/5/2025 3:49 PM, Krzysztof Kozlowski wrote:
+>> On Mon, Nov 03, 2025 at 10:40:37PM -0800, Songwei Chai wrote:
+>>> The Trigger Generation Unit (TGU) is designed to detect patterns or
+>>> sequences within a specific region of the System on Chip (SoC). Once
+>>> configured and activated, it monitors sense inputs and can detect a
+>>> pre-programmed state or sequence across clock cycles, subsequently
+>>> producing a trigger.
+>>>
+>> I do not understand: You got review which you ignored and then you
+>> removed pieces of this code to make it incorrect. Go back to previous
+>> versions so you won't waste our time re-doing review.
+> 
+> Hi Krzysztof,
+> 
+> The previous reviewed-by is no longer applicable because in this 
+> version, we moved
+> 
+> the driver from /drivers/hwtracing/coresight/ to 
+> /drivers/hwtracing/qcom/. This means the
+> 
+> required compatible has changed from "/qcom,coresight-tgu/" to "/qcom,tgu/".
+> 
+> Since this involves changes to devicetree binding, i didn't not carry 
+> over the previous review tags.
 
-Reviewed-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+And which part of changelog explains the exact reasons to drop review
+tags? Not mentioning that changelog is almost impossible to find, buried
+under 10 pages of some repetitive introduction
 
-Best regards
-Shengjiu wang
-> ---
-> Peng Fan (11):
->       remoteproc: imx_dsp_rproc: simplify power domain attach and error h=
-andling
->       remoteproc: imx_dsp_rproc: Use devm_rproc_add() helper
->       remoteproc: imx_dsp_rproc: Use devm_pm_runtime_enable() helper
->       remoteproc: imx_dsp_rproc: Use dev_err_probe() for firmware and mod=
-e errors
->       remoteproc: imx_dsp_rproc: Drop extra space
->       remoteproc: imx_dsp_rproc: Use start/stop/detect_mode ops from imx_=
-rproc_dcfg
->       remoteproc: imx_dsp_rproc: Move imx_dsp_rproc_dcfg closer to imx_ds=
-p_rproc_of_match
->       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_MMIO switch case
->       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_SCU_API switch case
->       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_RESET_CONTROLLER swit=
-ch case
->       remoteproc: imx_rproc: Remove enum imx_rproc_method
->
->  drivers/remoteproc/imx_dsp_rproc.c | 344 ++++++++++++++++++++-----------=
-------
->  drivers/remoteproc/imx_rproc.h     |  14 --
->  2 files changed, 184 insertions(+), 174 deletions(-)
-> ---
-> base-commit: 131f3d9446a6075192cdd91f197989d98302faa6
-> change-id: 20251031-imx-dsp-2025-10-31-260b2b979258
->
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
->
->
+Did you read submitting patches?
+
+> 
+> Meanwhile apologize for the confusion caused by my oversight in not 
+> mentioning the dt-binding changes in the
+
+You made many more changes to the binding - nothing explained, no
+rationale for any of that.
+
+All qcom coresight bindings are called coresight and I do not see reason
+why this is being changed.
+
+Best regards,
+Krzysztof
 
