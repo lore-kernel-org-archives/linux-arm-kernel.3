@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84656CCFA00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 08:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD68CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IwoMQZgAiMDGMp0dhfCLY+pPdAnU6iLDOBK8OSYXqYw=; b=xBt40KIyjl7Lc+0V+ZQXPlfZD2
-	upZuzKyf5GV2dvFftp8X0BowfQ8aBKM2isDWlweTU21yT8ekvHmvz0xzJWNhcmfJ5dUn7KJcxR3ID
-	LwWps5bSirHyGNIcGIPx0LGGR/bN29C53DySQO31kwIe7qTXlkWojR3iCX8qDNHsmCJS+MKFnRjDN
-	NY4rcy9zvg0wvf8ETklFCHm5zr2AfKE6FVFr4ao3NTOlphoEE5zpl0Fzj2MaYNEBS4Hi3jwbx7Xnj
-	rhEWFFSZ9PTWgn5PJc0ytsnFITJRO3kwX3ulWUCvKrfHOmQI+bPRdXqIEQUIVcYuEyTzm0ZNmTd/n
-	thaeCoqQ==;
+	bh=tnfcvaksRPKklhkGVZFWEH1eyMy2i0IOXmhjqtvAMyo=; b=RQ5su5PMfnFWMrNt0oyb6dtqbh
+	vahEv1jKlrarzQrx9WH+ieQN7tmetvEqY4lWNXRJbt6DQQuo6Rebp8T43GIzD+ug6TUZXgjx1E+re
+	07f0NPB50OHxMxs14MBIp141Bq962kvJpCi+q9SaFeVOpOBYD9nmK3wfnYmy1gwQm1ixmXVGAGXQF
+	TKP0ezK05TLV1Quw+FiU/tasttdGQqCzMrkfu02wy0eOW6hPF8rRGYJw50RgcKArz1YkuQSS2DnLz
+	/rF1Uy2fTy7C4edXRVWUyxWqOj/KCP2T7pzQ/pIooAIbyALNmmSw39OfEBI5xQll6TZD9Ck2GtNKw
+	DjESiaSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCaP-0000000BRiP-0THD;
-	Tue, 04 Nov 2025 08:40:17 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vGULu-0000000CxPH-2vAY;
+	Wed, 05 Nov 2025 03:38:30 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCaM-0000000BRfv-0luE;
-	Tue, 04 Nov 2025 08:40:15 +0000
-X-UUID: 61070952b95911f09f706fa2197c6ceb-20251104
+	id 1vGULr-0000000CxO3-2GyB;
+	Wed, 05 Nov 2025 03:38:28 +0000
+X-UUID: e187d2bab9f811f0a52f393f94899d25-20251104
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=IwoMQZgAiMDGMp0dhfCLY+pPdAnU6iLDOBK8OSYXqYw=;
-	b=qr9fTJGJSKkue7JxTPdOtzaA2qPGmSg6HBiyh//RgVLBvP9PoAfM/fqJ54tdyOE1QEleqxKzAKAghZ5mWZhq1xEbIMjepuTiCGpAzbCo+PsHPLxDoDSfGFblfeJq7r/o5xmLhNcJg+zM0qts+G49lut98hEqWt1SWIpJEJvPfOs=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=tnfcvaksRPKklhkGVZFWEH1eyMy2i0IOXmhjqtvAMyo=;
+	b=OVG9PyAOLiQi9F19TyjkOk+H+CTWe0cxl88RyEexot0Evf9ecwDJ2M7weAxz5znzPCZZvpUU4pJTOzpbLsjBaHxJfPGyh5e68dwUnLNuffBFYnF/CAYfbx/kW/5xWK62vTdEU23HDrsQV1NzYAkrupu+PB/nYxiJK/uhn02ULPw=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:73afe2ec-8c6a-4c5b-aec7-edaa18568d24,IP:0,UR
+X-CID-O-INFO: VERSION:1.3.6,REQID:0f25fddb-ae67-4301-b3ad-e21abe0729b8,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:4d55e618-3399-4579-97ab-008f994989ea,B
+X-CID-META: VersionHash:a9d874c,CLOUDID:f7e0eb7c-f9d7-466d-a1f7-15b5fcad2ce6,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:-7|-6|
 	0|15|50,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0
 	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 61070952b95911f09f706fa2197c6ceb-20251104
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+X-UUID: e187d2bab9f811f0a52f393f94899d25-20251104
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
 	(envelope-from <niklaus.liu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1103907573; Tue, 04 Nov 2025 01:36:37 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+	with ESMTP id 325739178; Tue, 04 Nov 2025 20:38:23 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Tue, 4 Nov 2025 16:36:35 +0800
+ 15.2.1748.26; Wed, 5 Nov 2025 11:38:20 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Tue, 4 Nov 2025 16:36:34 +0800
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Wed, 5 Nov 2025 11:38:20 +0800
 From: niklaus.liu <Niklaus.Liu@mediatek.com>
 To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
 	<angelogioacchino.delregno@collabora.com>
@@ -65,15 +65,15 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	Niklaus Liu <niklaus.liu@mediatek.com>, niklaus.liu
 	<Niklaus.Liu@mediatek.com>
 Subject: 
-Date: Tue, 4 Nov 2025 16:34:12 +0800
-Message-ID: <20251104083630.13541-1-Niklaus.Liu@mediatek.com>
+Date: Wed, 5 Nov 2025 11:38:02 +0800
+Message-ID: <20251105033817.20427-1-Niklaus.Liu@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_004014_230403_B2C42BC8 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20251104_193827_593177_132E91FF 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,13 +88,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is based on linux-next, tag: next-20251103
-
 Refer to the discussion in the link:
-v1: https://patchwork.kernel.org/project/linux-mediatek/patch/20251103134241.3773-2-Niklaus.Liu@mediatek.com/
-v2: https://patchwork.kernel.org/project/linux-mediatek/patch/20251104031533.9419-2-Niklaus.Liu@mediatek.com/
+v3: https://patchwork.kernel.org/project/linux-mediatek/patch/20251104071252.12539-2-Niklaus.Liu@mediatek.com/
 
-Subject: [PATCH v3 0/1] soc: mediatek: mtk-regulator-coupler: Add support for MT8189
+Subject: [PATCH v4 0/1] soc: mediatek: mtk-regulator-coupler: Add support for MT8189
+
+changes in v4:
+ - reply comment:
+1. MTK hardware requires that vsram_gpu must be higher than vgpu; this rule must be satisfied.
+
+2. When the GPU powers on, the mtcmos driver first calls regulator_enable to turn on vgpu, then calls regulator_enable to 
+turn on vsram_gpu. When enabling vgpu, mediatek_regulator_balance_voltage sets the voltages for both vgpu and vsram_gpu. 
+However, when enabling vsram_gpu, mediatek_regulator_balance_voltage is also executed, and at this time, the vsram_gpu voltage 
+is set to the minimum voltage specified in the DTS, which does not comply with the requirement that vsram_gpu must be higher than vgpu.
+
+3.During suspend, the voltages of vgpu and vsram_gpu should remain unchanged, and when resuming, vgpu and vsram_gpu should be 
+restored to their previous voltages. When the vgpu voltage is adjusted, mediatek_regulator_balance_voltage already synchronizes the 
+adjustment of vsram_gpu voltage. Therefore, adjusting the vsram_gpu voltage again in mediatek_regulator_balance_voltage is redundant. 
+
 
 changes in v3:
  - modify for comment[add the new entry by alphabetical order]
@@ -111,6 +122,8 @@ If the user calls mediatek_regulator_balance_voltage again for GPU_SRAM, it may 
 
 changes in v1:
  - mediatek-regulator-coupler mechanism for platform MT8189
+
+*** BLURB HERE ***
 
 Niklaus Liu (1):
   soc: mediatek: mtk-regulator-coupler: Add support for MT8189
