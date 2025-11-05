@@ -4,136 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B45FCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50707CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hoOO0E96ahCdATo2vQq4UFuH8BQoyWGvRJ67v+d6zmY=; b=dI69OfqofHwStXEYMGY/RIIV0j
-	walkKBylGxZVPcabJTEZLEa8/XmCR3D2ed2yiPZtVb3jJXjLjCkUExfFgnmb58JPGt/we99pCQc0I
-	7BaTiytvjAbpaSeAyvVJ/oJkxeVLa9iBi8DLJopu3WLAh7K6LopPpNLDjOigdDez/iwmETEU02Gn9
-	CNPlfO91Hn23VmTEguLVaibptcIBknQxeMTrJI85uu2Gffljg3ObKwNay5QRNvEl6awcV1n8Be+KT
-	cLgLYYY/f+13maSfbrBDCHAuIKNSEQBcD7L+5a1BzkeBoWJ+pKE7/HFVY44SpFVYXhbA7fOEce5dD
-	s87wNOgg==;
+	bh=EPtLryQQWx89i+zmKj4fWT5f6CWWHYksI706KvUuijc=; b=Wrv66GiBqXaEbz4n2VyjVRgftk
+	j0YWOPhaNDgkxAn/lAP2dZfRBavnAMtTVIRJ7UgxHHi6uoZq8r2f2NdUE62s9ykc182kb2RmvYMsP
+	HkmPjJy7dTbg5zi3nfDfJ31zLAM2BEypGb+D1HsK5sCh5FAUeU2XBiCcVvE2S7NxFd/3PKetgY+wP
+	eC5KN6NQ900a5SY7hRQoxnFFeqITmLn4URBmI7fv1o6zCRuYZzhxm3iwesgEHh9EhXn2wlJxNymlS
+	6iif/xhSv/5tSQQ0USMcNqS8JfhP3/z4g/I8qlKQgjql0WbGPl6BFhC8K+TmvTYq8VMtgr6rv/z5Q
+	JfL+gJkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGg8G-0000000E20c-0Yom;
-	Wed, 05 Nov 2025 16:13:12 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vGg8Q-0000000E22A-1p6F;
+	Wed, 05 Nov 2025 16:13:22 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGg8D-0000000E208-1oux
+	id 1vGg8N-0000000E21N-3xDx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:13:10 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A54HYRj019236;
-	Wed, 5 Nov 2025 16:12:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=hoOO0E96ahCdATo2vQq4UFuH8BQoyW
-	GvRJ67v+d6zmY=; b=SGkprtBRmnhHNGgfbF3sg7Go+c8inCeDqeC9AZjQfWNjqP
-	UlImdvXnB2eMzCk0pwDJKkF+IyFhEL/jEE8u1kZi8IReERwiQ1FVxGw+w2LhH+sy
-	2G0xn4JOOstfTzc1c06KaQNGCHeOXa9vK9rwN0ha3pMsSVpC2jcrtdLnZUA5XPvR
-	m+dXvo/F5oe8kUj+LdeKJtJbBvr0BqSaBvx8WxcuOGrxYtiM/WL6KzUAgfQRUPkh
-	RrK27EIk9Nv7KGFJk1CZtMDciaSlLsrEXmshoHrTVS3KKkC1OsBwg3P57glcc1m8
-	Yx7AzbSh81g2JkUW5G52BRvU1+355886S8zrCK3Q==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a57mra2tj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 05 Nov 2025 16:12:27 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5A5FVr3J003755;
-	Wed, 5 Nov 2025 16:12:27 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a57mra2tb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 05 Nov 2025 16:12:27 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A5Fg5qS009863;
-	Wed, 5 Nov 2025 16:12:26 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4a5x1kgw7a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 05 Nov 2025 16:12:26 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A5GCOji52167096
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 5 Nov 2025 16:12:24 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3071320043;
-	Wed,  5 Nov 2025 16:12:24 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 136CC20040;
-	Wed,  5 Nov 2025 16:12:23 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed,  5 Nov 2025 16:12:23 +0000 (GMT)
-Date: Wed, 5 Nov 2025 17:12:21 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Ritesh Harjani <ritesh.list@gmail.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Hildenbrand <david@redhat.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        David Woodhouse <dwmw2@infradead.org>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
-        x86@kernel.org
-Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
-Message-ID: <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com>
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-8-kevin.brodsky@arm.com>
- <87ms5050g0.ritesh.list@gmail.com>
-MIME-Version: 1.0
+	Wed, 05 Nov 2025 16:13:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uAr7+EJ0c+cak+571FQYa83h+g0+Z3j53eh8OyWJceNJlLAHuOVlYdxT+km9cRbbOPJHW/dnYtrq1zvPOz/VXJ7pW9Gtsx/wEpGrU/2hHYBdlTPrCIpjx3q3iwe53QO5Uvtqxsd+pgYrbIPnlUsnVMpFqDgu2cfh14rmYJlqsDXUEVLo7aTc707xOY7b7BHYbP5tQW5iDLGOzL+Lts3F0dFpFULTuvLtmQrFyMhik1kM5XlgcA2LsvK3bD0YG3ZfQ0zZkOcPuskXLPzYzO2butmAiRmSykAa/elvPD+bohqn7dPT/TihGHSg8SX9eQ3kC0pJU+xSpTA51N01K0Sg2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EPtLryQQWx89i+zmKj4fWT5f6CWWHYksI706KvUuijc=;
+ b=ANi3Pd0AfjSkis3Bcb8jdtcoD2s3VLAV1WAZWExvNLj94KvBYLg3BJHtnNWRZVNSzAlPX9Vc8XLgfABcSfkoDT8gPEYQ19kpemnv3+glhkSrafTsnXHvZegTyJP8Ke9gh1SxhhM6QOcrch+vntKE9M4QX0rGCzbeCta/HdYS1UrYImKZnjkBRrMHOYJaA2VHaKL3GsM3MLAk4Vm8nNPbJETDjHgwze3ljcaoZcx2iAfeJBWLqcV17xPTEsmrRcalM5AHfVwthoK5UgvUcS+gRztcMB+wiW7phBk8+BnhVOO7mUFpIt95AXaqP6fYY8R8aKtEFqGnNXXvsh1eJFdilQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EPtLryQQWx89i+zmKj4fWT5f6CWWHYksI706KvUuijc=;
+ b=bp2WKdEByi2yCrjF+sXJWcwlW9wvtzcV/mlWhbO44dXw6rV8loLcwOzctG7RjnbxPxWdi9T+XP8b2fuSeCK0qFS3l4mwjUuAawaSE4odzWAB8atAz0Uii2msoPBBbX/cPVlMy72tMkt7lCd+nYQBtjIEF/uNZ8hHNiSmzQ0qbaMDu65aqofv4a/3Ecx1idQlbw+khT+Voaykf6FGow49WTyu+3Te9OeXzNFgPnnPh+kn79A+2L88TR9mbsj4VFbCA7IoWHBTHoYYfO0SYFgdeesvAi8TKA+ILWnjppVEp+vXNFqCpGSQi4s96Jf6vXeOCWm0uWG1pe+ywyV8YpTUfw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+ by VI0PR04MB12078.eurprd04.prod.outlook.com (2603:10a6:800:313::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Wed, 5 Nov
+ 2025 16:13:15 +0000
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad%7]) with mapi id 15.20.9298.007; Wed, 5 Nov 2025
+ 16:13:15 +0000
+Date: Thu, 6 Nov 2025 00:06:36 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com
+Subject: Re: [PATCH 2/2] usb: dwc3: imx8mp: disable auto suspend for host role
+Message-ID: <63knf2kyyqmo2znym7suhb5ua2si2xse7ptufoo77jkddldjyu@3hat6xulwgbe>
+References: <20251105074504.1427926-1-xu.yang_2@nxp.com>
+ <20251105074504.1427926-2-xu.yang_2@nxp.com>
+ <aQtw+dNQEWkKxs5D@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87ms5050g0.ritesh.list@gmail.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 0NFs_GrYa4zcH0BLNom4mOsajrCSPUxj
-X-Authority-Analysis: v=2.4 cv=MKhtWcZl c=1 sm=1 tr=0 ts=690b776c cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=CPQ9TFRCZcvXz5jfQC4A:9 a=CjuIK1q_8ugA:10 a=DXsff8QfwkrTrK3sU8N1:22
- a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
-X-Proofpoint-ORIG-GUID: NNqKmXG2tTtHuvXhjQOh-riRMNlVPLAT
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAwMSBTYWx0ZWRfX2KnrArcnBxcH
- TeGoejtsfYJDuRV3FbvjuDEBFMmDeOQEbaaSQExJ7765sDaLesq0lIorOycsEibo64TNmmHRSNz
- 6XIuQLSaO5SrKkE/QNnJd3smjWHr0HSQ+uA+bMkugv+Df6gPVeHmGXHRAMUP3/n0rbDuuZ3m9UR
- Vw/WmiOn8NrnsxKTvVsuwmGs5I8kM0QBGFJCMl0xuCoTJbnjBxb2U37aEnIf2iT73qQhw1Rsaku
- Qftv0wlHgsh4K3kTYYn5/INUGE4LK5ev6oQVqwHTw5VhjuNirNmgcqWMIXq1s/3gqUc/RmuAgWN
- rH1ZA/5Add3j27sIoKtigY6uE1hzOktXQSO9iyvuDIkbiOtgLSq15NhyhwbIusKnV/r5/eZHbpi
- xbMKu5ZjKQ3ntqUuRquH+Yb1K/SdzA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-05_06,2025-11-03_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 bulkscore=0 impostorscore=0 clxscore=1015
- lowpriorityscore=0 malwarescore=0 adultscore=0 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010001
+In-Reply-To: <aQtw+dNQEWkKxs5D@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: SG2PR02CA0081.apcprd02.prod.outlook.com
+ (2603:1096:4:90::21) To PAXPR04MB8829.eurprd04.prod.outlook.com
+ (2603:10a6:102:20c::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|VI0PR04MB12078:EE_
+X-MS-Office365-Filtering-Correlation-Id: e947cbba-7c4e-4092-ac17-08de1c8639bc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|1800799024|376014|7416014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?odfF7I980FflcP+U3abM+Vo9lloS59fXIZ8jnrOM3u0BD+hho5rwaNEP7Fw9?=
+ =?us-ascii?Q?SOI4UQFB0T10vcDqYcE2fTdgIvkoPDdIw1PeeKvRFcCiT09B2Nao5EGJxHu5?=
+ =?us-ascii?Q?2lnHpLObLSRgHyCEwSFkUMlgbX/xACUoyMtcHJv5Z72EYBpgD2WQiR5Zz4iP?=
+ =?us-ascii?Q?M22YGYtN+B+4ebPm0UwCVDpJsKWFQcVLkZ9LawyEbqokwhyiycLHf9C/bWL7?=
+ =?us-ascii?Q?kLzZb8ZWERdcaKtMtK/PmN5rQAJRbj/3EJEfaQSiGbH4gRQIVNBJ6M8NHz5J?=
+ =?us-ascii?Q?IsQE71b3q7ZGZeOYyywFFCEgnrICnu89tSvpJPbSaAZL370yoWWuS7uFEp6d?=
+ =?us-ascii?Q?EE/Bs27UOsquBW1nJk8CQPOWD2Bxu7wp63VUSeQYD7BC9Mdtw13jNgu+VTOC?=
+ =?us-ascii?Q?gFDwoi5IEc28bAqXhgXlpGTX4zdzOgx8FMf/f2xSgbPo5nCVReV7Dx/mV4YY?=
+ =?us-ascii?Q?NyJA+P48st3a+EiIJ8kzYelHQMbyNt8czfEUzdB8HXRxi8QBIyzOhoMP2DlC?=
+ =?us-ascii?Q?OR2zlpUY2N/ARvZGyyXXL9pUjpeDgsgD+MO/VaOTYs1WQEY1yrXCz+3RYslh?=
+ =?us-ascii?Q?4i4/TSmHE5ASIU41mfZzyqFaEe4iHxtEPlzXGBylYnUJI+5u2Lsgb8xAaGPo?=
+ =?us-ascii?Q?DGZQ5QOyPCO1Zw7HXrMLHmFoDHpuk+tCX0yefwStlx6LGNLm+AnBsq6+8ehx?=
+ =?us-ascii?Q?BSNUx4X2IzwflOqxx9A7E5YpxNeb894hWnAVMjylcfwszSZp9CwHFmJM/MwH?=
+ =?us-ascii?Q?cbJxFMPT70H1eLlB02sNWDbf8xIG2rbAUdF3z/zos7AgThkRJMKQbr+MIP0V?=
+ =?us-ascii?Q?GDM6lMWXHj9jF1+Xo3CNMQ6nt04ixFPYLkIbz1CmGlSS8gO06q1ZvPFhTi+F?=
+ =?us-ascii?Q?RNgBGUgqYPT7Za93chW3Kk5+KLV9tYC7FDIlQdBRjNEHLseznl38on2kBBjn?=
+ =?us-ascii?Q?P5zDzxggrwpSp5mLfLTNSu6stqdLNn6kzRXDXPQdhZ4ceCSBoAokcm4+HY5U?=
+ =?us-ascii?Q?u3YEdam/l1F+qDCjNCHx4zcUp4lkXcUQxDVtl0Ksz0UGNHOkJnZ0PBEVY+Qi?=
+ =?us-ascii?Q?KKj7S1ptUvlU0lp8IwOad5L1+ss1u46rxuGF2fqlzw4MgaLnN/LU40Kncpy9?=
+ =?us-ascii?Q?eWvTNNgXnDMuzH3qGfAve5n++BpzPVO8eUGkQ/kIoqloKmm9AwwezvdOYjHQ?=
+ =?us-ascii?Q?SolZwo3OJrEDI7teBTc+93PLMJfuurA9seCIe+fVZWnDk0RRUqIVjYxnIaY/?=
+ =?us-ascii?Q?Z6sKbHR7wuZVOkH6RPAqc/I/oNn0aiT456G5FD7wMue/wvS+vf5uU4xowYjc?=
+ =?us-ascii?Q?GV0gsviNMr2DzRduKt3TSX2nH2xS6eCh6mREHIL6ulm1zioU9rUMQlD96aUw?=
+ =?us-ascii?Q?13UiUQFWG81ZR8QumM0ePUYVHgEZhFIujQ8c+i+CLFVavipE5oam/bAYqTg1?=
+ =?us-ascii?Q?nAh4j8Qu1SpHvhXUx+1GZBL6Frfs9CgIrJqFAW46VIX/rG24LAr8rUzJjVup?=
+ =?us-ascii?Q?/l0NrKyFmQYzyx1YvoZCJtWbPCrBV3nFIgq4?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(1800799024)(376014)(7416014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R8t3ZPcg7SypRbI4tpJKF1i+gOYvr3RHW9YbmCulkXbgSyvNqGNkGQuOR6aE?=
+ =?us-ascii?Q?mGW96p7R0HPayNtg/joz+f8yozaZk7BvhBXd5tYubij4YCoxJ+pYwE+QyL9e?=
+ =?us-ascii?Q?VhUgUG8Lv5gN7towz1bJmDMhgrtW8nduh1s2N3d5JNTex+PdeAr6UsqVn0Gr?=
+ =?us-ascii?Q?jTig94r7glszzz/13ssPmE4XfSomI5U+FA+urZptROWGmGGTC5rKNNvbNAPl?=
+ =?us-ascii?Q?BSzWY93ZjflBk3PkHr5mb4r5QIdrWYzKzh3S1HshcqnlbRJDDubrz9M5TOMZ?=
+ =?us-ascii?Q?vSncs8tMgOk9/YxDe3fAfSrL3VT2Q/W7y7sSGMM3+2WdlTRGt0N7dCqIb5Vj?=
+ =?us-ascii?Q?d8HpfbbiN+ya25I9QK9U7HxvxGDCN6I7I5t0p9oFwDwfkkSrRKda64wj3a6t?=
+ =?us-ascii?Q?XD6fW6YG66a/aUWad4DrlqBQhrFgnbRmXx5uGq4Pli1F5qCDEkVgSpePapoI?=
+ =?us-ascii?Q?/rZTXkEghJKoURf8TyWb68a0b8ntns5c90C//BKnRuvNzpymxDRTaEA9K8WH?=
+ =?us-ascii?Q?nZSkIiQf8jojzXsfqOH3oazUGexuiM5J3cQtWY5wGJbOUKS6hiO0QgPf4jV2?=
+ =?us-ascii?Q?HiKu8gJ3q7t2oU3C9FPlgNo4ZxpAdR6ACOJdneRUPD+6bo8yoS05C0AITyRA?=
+ =?us-ascii?Q?4mkmxcQh7p7YO8Mt4P9B5d1gSZiZe3FPY2fUexTW8mu3N1FSUIjAo0fE0Nuq?=
+ =?us-ascii?Q?Wt97hDOze1C8wRIL/hhUttlKxGNoCk931CiFWhlRZ0CfjmVgdIWdFVivOFEn?=
+ =?us-ascii?Q?HJMIidPJe4as/Iu2ZWbs3q9zaf0RL9qx6XU+3defx9WLNpakrvsDIGPsgLtR?=
+ =?us-ascii?Q?79lXneJxM8zIIaeNUuGE+kVKDHJLVh5yBZj3YQj76f25EzjKcJr+oSivmF+i?=
+ =?us-ascii?Q?ScpddypxrkRFroR5HrTG34B8iaHuq6/fAg40mPP5ec81fK60SZzrooVkQ/87?=
+ =?us-ascii?Q?8G1SljJhfh2MN3zo9Vzwr8w0p+uzjXzWenKWUQwtNx1xY80hDUxrtslmJQRw?=
+ =?us-ascii?Q?+fIZEmOxlP6pEemOAXXm1aCwVQdn6Z5aLX5Id2ITUfQUcWNWMPbHyt6hLsoo?=
+ =?us-ascii?Q?fcPo4Ek2tQbFNNGMNedBtVGjP3/BugboZnb9L+Q4DtPGFhhmh8UhrIZGOKjn?=
+ =?us-ascii?Q?9tp3Qe3GbwnRjhFZXPMCB9896Oj2CAQW6KS3D3gksMEl8PVGfe+Ffl8XRoEG?=
+ =?us-ascii?Q?Yx/+rnNs8RGXjEEy+asrZv6ZM5k+UTwNfucCheyZtau3xQovolBqeFsqrmnt?=
+ =?us-ascii?Q?FHxIy98TjqDDkvNw7QD/SU2OdBmo5sWlVsZaeELw1EmntvwNuvdT6OdV4Lq4?=
+ =?us-ascii?Q?U26yeLh66+jWN8E346JO+MwWq35ExqHKKIpW6+F/fO5EBvE8ACjNWpnP8PfA?=
+ =?us-ascii?Q?3KIIGSC19kMdjKrt/k5LWDLfmAjouK2LKuBKQid3QPe9ctpcDUkHKKbil3YP?=
+ =?us-ascii?Q?tc+VZlGzF5p9zsZQ5qmro9rVETKaQLrqT/Tgl825QsX2CausZ1qwzqUFalSr?=
+ =?us-ascii?Q?NICCM7m0oLK1LaHtl8HwgVpjmymXPGH3EwIJbJKg2KfIdGVpBlX/qGi9m1sl?=
+ =?us-ascii?Q?ngBrYXFJz6ejueLJ/twetkkHVhtJ30OdGURkgOoO?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e947cbba-7c4e-4092-ac17-08de1c8639bc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 16:13:15.4571
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 52shyonmxu9hR1PhzJZbCtboL4t2Pvy+7wyySyZM4fZ6Ai7s8mjbQ1yrvaWOTNHE7WfnPXRqjD/tJ89uvDnNIA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_081309_763435_047E946A 
-X-CRM114-Status: GOOD (  24.07  )
+X-CRM114-CacheID: sfid-20251105_081319_988436_836FE09B 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,96 +160,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 02:19:03PM +0530, Ritesh Harjani wrote:
-> > + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
-> > + * currently enabled.
-> >   */
-> >  #ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
-> >  static inline void lazy_mmu_mode_enable(void)
-> >  {
-> > -	arch_enter_lazy_mmu_mode();
-> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-> > +
-> > +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
-> > +	/* enable() must not be called while paused */
-> > +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
-> > +
-> > +	if (state->nesting_level++ == 0) {
-> > +		state->active = true;
-> > +		arch_enter_lazy_mmu_mode();
-> > +	}
-> >  }
+On Wed, Nov 05, 2025 at 10:44:57AM -0500, Frank Li wrote:
+> On Wed, Nov 05, 2025 at 03:45:03PM +0800, Xu Yang wrote:
+> > Do dwc3 core auto suspend enable for device and disable for host
+> > , this can make sure dwc3 core device auto suspend setting is
+> > correct all the time, the background of disable dwc3 core device
+> > auto suspend is to make its parent device suspend immediately
+> > (so wakeup enable can be enabled) after xhci-plat device suspended,
 > 
-> Some architectures disables preemption in their
-> arch_enter_lazy_mmu_mode(). So shouldn't the state->active = true should
-> happen after arch_enter_lazy_mmu_mode() has disabled preemption()? i.e.
+> Does wakeup only enable at runtime pm suspend? why core delay runtime
 
-Do you have some scenario in mind that could cause an issue?
-IOW, what could go wrong if the process is scheduled to another
-CPU before preempt_disable() is called?
+Yes.
 
->   static inline void lazy_mmu_mode_enable(void)
->   {
->  -	arch_enter_lazy_mmu_mode();
->  +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
->  +
->  +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
->  +	/* enable() must not be called while paused */
->  +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
->  +
->  +	if (state->nesting_level++ == 0) {
->  +		arch_enter_lazy_mmu_mode();
->  +		state->active = true;
->  +	}
->   }
-> 
-> ... I think it make more sense to enable the state after the arch_**
-> call right.
+> pm suspend impact wakeup function?
 
-But then in_lazy_mmu_mode() would return false if called from
-arch_enter_lazy_mmu_mode(). Not big problem, but still..
+If xhci is suspended, I mean the wakeup function comes from external glue logic.
 
-> >  static inline void lazy_mmu_mode_disable(void)
-> >  {
-> > -	arch_leave_lazy_mmu_mode();
-> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-> > +
-> > +	VM_WARN_ON_ONCE(state->nesting_level == 0);
-> > +	VM_WARN_ON(!state->active);
-> > +
-> > +	if (--state->nesting_level == 0) {
-> > +		state->active = false;
-> > +		arch_leave_lazy_mmu_mode();
-> > +	} else {
-> > +		/* Exiting a nested section */
-> > +		arch_flush_lazy_mmu_mode();
-> > +	}
-> >  }
+When xhci is suspended, it will stop host controller (RUN_STOP = 0) which means
+it can't detect connect/disconnect event. Meanwhile, if dwc3 is active, the
+wakeup IRQs (in glue) is still disabled. when a device is attached, xhci can't
+detect this event and the external wakeup logic is still unfunctional. When dwc3
+is suspended, the previous connect event can't be fired again even though wakeup
+IRQ is enabled. So that event will be lost. 
+
+Thanks,
+Xu Yang
+
 > 
-> This looks ok though.
+> Frank
 > 
-> >  
-> >  static inline void lazy_mmu_mode_pause(void)
-> >  {
-> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-> > +
-> > +	VM_WARN_ON(state->nesting_level == 0 || !state->active);
-> > +
-> > +	state->active = false;
-> >  	arch_leave_lazy_mmu_mode();
-> >  }
-> >  
-> >  static inline void lazy_mmu_mode_resume(void)
-> >  {
-> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-> > +
-> > +	VM_WARN_ON(state->nesting_level == 0 || state->active);
-> > +
-> > +	state->active = true;
-> >  	arch_enter_lazy_mmu_mode();
-> >  }
-> 
-> Ditto.
-> 
-> -ritesh
+> > for device mode, we keep the dwc3 core device auto suspend is to
+> > give some wait for gadget to be enumerated.
 
