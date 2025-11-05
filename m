@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6597CCCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E31CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owespfVGz8MXP/0l0HIYarQkUGbR6B8mmTrzJWhWaXA=; b=UnfVGzgd9P/HJ/B7aDjgi0ydHW
-	yYhGNxiI3uO3wdqmgEJBt8et0jiyrlHCBLIYVAYvTlmfJU8CkkuXHrwHFPKmbcrI+XccySWa+jn+P
-	KvbCMLHtcguI7xIPb5YssoGRN89iQYpeJeFd+M8D5e9lF09wIXD9HAZDY/GMdhVJk3J+9hB/h7maY
-	QxzP2382IfYdB9WHTC4ObPW35mrRfT4JxPLKvNqbKl4vVypxnchlJ7s3ffbMT9kDIp1HykN1fpk5J
-	wEUdStz1v1Xr5GQLnF9QCZTb+fsDub9Nhn32LIPc18MULa3R0J30K45ZxUnv5GMpgRNhCe6Isn5jK
-	Y25MAfTw==;
+	bh=++09DX5Kr/cWbiaoDWd6CXQyso+aKi4c8sdLh6Pg8e0=; b=xsO1TisAPOQW27D/URuFPdpwOz
+	7+EbNRQHzouJ6Dr8tI7KBbA6u1Y67i3CwP9qN+uIG4igJIzbr9RegGLztJ4H2PqSl3TxTBcz1cklA
+	cGyVY/8tCBVeqtHrMy8DUkSwdZ1bEQ+DthjFCSge/HAt40Injx4v20L6XsIdejpBTJopTKtmJv0OG
+	vUZ5wSWui7DxBjOnVHwMQ5g96wJ9CJotVjcM9B2Mepa0jHoDEvwRKL1BDiXkpj18k2MMggAArLNxv
+	9r3a0XBvYUEkraA5FBeFPG4HoQat5jQDZx2VivZ6oGphHO9yQLjsQZPzz1L3fulh5sR6jD1qVf5ZK
+	fi4Rk8jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfWP-0000000Dws3-47f7;
-	Wed, 05 Nov 2025 15:34:06 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfWN-0000000Dwre-2Dvx
+	id 1vGfWl-0000000Dwva-1btO;
+	Wed, 05 Nov 2025 15:34:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGfWj-0000000Dwuk-0Bgm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:34:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vGfWG-0004ZV-Fp; Wed, 05 Nov 2025 16:33:56 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vGfWG-007DdL-0W;
-	Wed, 05 Nov 2025 16:33:56 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vGfWG-00000000By3-0HJ8;
-	Wed, 05 Nov 2025 16:33:56 +0100
-Message-ID: <18cf6a292f8e3335092b39249712569d46327a5b.camel@pengutronix.de>
-Subject: Re: [PATCH 2/2] media: staging: imx: configure src_mux in csi_start
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Michael Tretter <m.tretter@pengutronix.de>, Steve Longerbeam
-	 <slongerbeam@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Pengutronix Kernel Team
-	 <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Hans Verkuil
-	 <hans.verkuil@cisco.com>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, Michael
- Tretter	 <michael.tretter@pengutronix.de>
-Date: Wed, 05 Nov 2025 16:33:55 +0100
-In-Reply-To: <20251105-media-imx-fixes-v1-2-99e48b4f5cbc@pengutronix.de>
-References: <20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de>
-	 <20251105-media-imx-fixes-v1-2-99e48b4f5cbc@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1+deb13u1 
+	Wed, 05 Nov 2025 15:34:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2C8514BF;
+	Wed,  5 Nov 2025 07:34:16 -0800 (PST)
+Received: from arm.com (unknown [10.1.26.217])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB02A3F63F;
+	Wed,  5 Nov 2025 07:34:23 -0800 (PST)
+Date: Wed, 5 Nov 2025 15:34:21 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <aQtufeFU-PAE6YDk@arm.com>
+References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
+ <aQUAR9MRxP6_qtEH@arm.com>
+ <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
+ <aQU7l-qMKJTx4znJ@arm.com>
+ <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
+ <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
+ <aQoyPox1DjlBT32O@arm.com>
+ <d132771d-3a3f-486c-b674-de4ec976e929@paulmck-laptop>
+ <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_073403_597200_BABA5A52 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20251105_073425_340081_99B33E8C 
+X-CRM114-Status: GOOD (  29.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +70,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2025-11-05 at 16:18 +0100, Michael Tretter wrote:
-> After media_pipeline_start() was called, the media graph is assumed to
-> be validated. It won't be validated again if a second stream starts.
->=20
-> The imx-media-csi driver, however, changes hardware configuration in the
-> link_validate() callback. This can result in started streams with
-> misconfigured hardware.
->=20
-> In the concrete example, the ipu2_csi1_mux is driven by a parallel video
-> input. After the media pipeline has been started with this
-> configuration, a second stream is configured to use ipu1_csi0 with
-> MIPI-CSI input from imx6-mipi-csi2. This may require the reconfiguration
-> of ipu1_csi0 with ipu_set_csi_src_mux(). Since the media pipeline is
-> already running, link_validate won't be called, and the ipu1_csi0 won't
-> be reconfigured. The resulting video is broken, because the
-> ipu1_csi0_mux is misconfigured, but no error is reported.
-  ^^^^^^^^^^^^^
-   ipu1_csi0 ?
+On Tue, Nov 04, 2025 at 12:10:36PM -0800, Paul E. McKenney wrote:
+> On Tue, Nov 04, 2025 at 10:43:02AM -0800, Paul E. McKenney wrote:
+> > On Tue, Nov 04, 2025 at 05:05:02PM +0000, Catalin Marinas wrote:
+> > > For the SRCU case, STADD especially together with the DMB after lock and
+> > > before unlock, executing it far does slow things down. A microbenchmark
+> > > doing this in a loop is a lot worse than it would appear in practice
+> > > (saturating buses down the path to memory).
+> > 
+> > In this srcu_read_lock_fast_updown() case, there was no DMB.  But for
+> > srcu_read_lock() and srcu_read_lock_nmisafe(), yes, there would be a DMB.
+> > (The srcu_read_lock_fast_updown() is new and is in my -rcu tree.)
+> > 
+> > > A quick test to check this theory, if that's the functions you were
+> > > benchmarking (it generates LDADD instead):
+> > 
+> > Thank you for digging into this!
+> 
+> And this_cpu_inc_return() does speed things up on my hardware to about
+> the same extent as did the prefetch instruction, so thank you again.
+> However, it gets me more than a 4x slowdown on x86, so I cannot make
+> this change in common code.
 
-> Move ipu_set_csi_src_mux from csi_link_validate to csi_start to ensure
-> that input to ipu1_csi0 is configured correctly when starting the
-> stream. This is a local reconfiguration in ipu1_csi0 and is possible
-> while the media pipeline is running.
->=20
-> Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
-> Fixes: 4a34ec8e470c ("[media] media: imx: Add CSI subdev driver")
-> Cc: stable@vger.kernel.org
-> ---
->  drivers/staging/media/imx/imx-media-csi.c | 44 +++++++++++++++++--------=
-------
->  1 file changed, 24 insertions(+), 20 deletions(-)
->=20
-> diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/=
-media/imx/imx-media-csi.c
-> index 55a7d8f38465..1bc644f73a9d 100644
-> --- a/drivers/staging/media/imx/imx-media-csi.c
-> +++ b/drivers/staging/media/imx/imx-media-csi.c
-> @@ -744,6 +744,28 @@ static int csi_setup(struct csi_priv *priv,
->  	return 0;
->  }
-> =20
-> +static void csi_set_src(struct csi_priv *priv,
-> +			struct v4l2_mbus_config *mbus_cfg)
-> +{
-> +	bool is_csi2;
-> +
-> +	is_csi2 =3D !is_parallel_bus(mbus_cfg);
-> +	if (is_csi2) {
-> +		/*
-> +		 * NOTE! It seems the virtual channels from the mipi csi-2
-> +		 * receiver are used only for routing by the video mux's,
-> +		 * or for hard-wired routing to the CSI's. Once the stream
-> +		 * enters the CSI's however, they are treated internally
-> +		 * in the IPU as virtual channel 0.
-> +		 */
-> +		ipu_csi_set_mipi_datatype(priv->csi, 0,
-> +					  &priv->format_mbus[CSI_SINK_PAD]);
-> +	}
-> +
-> +	/* select either parallel or MIPI-CSI2 as input to CSI */
-> +	ipu_set_csi_src_mux(priv->ipu, priv->csi_id, is_csi2);
-> +}
-> +
->  static int csi_start(struct csi_priv *priv)
->  {
->  	struct v4l2_mbus_config mbus_cfg =3D { .type =3D 0 };
-> @@ -760,6 +782,8 @@ static int csi_start(struct csi_priv *priv)
->  	input_fi =3D &priv->frame_interval[CSI_SINK_PAD];
->  	output_fi =3D &priv->frame_interval[priv->active_output_pad];
-> =20
-> +	csi_set_src(priv, &mbus_cfg);
-> +
->  	/* start upstream */
->  	ret =3D v4l2_subdev_call(priv->src_sd, video, s_stream, 1);
->  	ret =3D (ret && ret !=3D -ENOIOCTLCMD) ? ret : 0;
-> @@ -1130,7 +1154,6 @@ static int csi_link_validate(struct v4l2_subdev *sd=
-,
->  {
->  	struct csi_priv *priv =3D v4l2_get_subdevdata(sd);
->  	struct v4l2_mbus_config mbus_cfg =3D { .type =3D 0 };
-> -	bool is_csi2;
->  	int ret;
-> =20
->  	ret =3D v4l2_subdev_link_validate_default(sd, link,
-> @@ -1145,25 +1168,6 @@ static int csi_link_validate(struct v4l2_subdev *s=
-d,
->  		return ret;
->  	}
-> =20
-> -	mutex_lock(&priv->lock);
+Definitely not suggesting that we use the 'return' variants in the
+generic code. More likely change the arm64 code to use them for the
+per-CPU atomics.
 
-This warrants a comment in the patch description: csi_start() is called
-with priv->lock already locked.
+> So, my thought is to push arm64-only this_cpu_inc_return() into SRCU via
+> something like this_cpu_inc_srcu(), but not for the upcoming merge window,
+> but the one after that, sticking with my current interrupt-disabling
+> non-atomic approach in the meantime (which gets me most of the benefit).
+> Alternatively, would it work for me to put that cache-prefetch instruction
+> into SRCU for arm64?  My guess is "absolutely not!", but I figured that
+> I should ask.
 
+Given that this_cpu_*() are meant for the local CPU, there's less risk
+of cache line bouncing between CPUs, so I'm happy to change them to
+either use PRFM or LDADD (I think I prefer the latter). This would not
+be a generic change for the other atomics, only the per-CPU ones.
 
-regards
-Philipp
+> But if both of these approaches proves problematic, I might need some
+> way to distinguish between systems having slow LSE and those that do not.
+
+It's not that systems have slow or fast atomics, more like they are slow
+or fast for specific use-cases. Their default behaviour may differ and
+at least in the Arm Ltd cases, this is configurable. An STADD executed
+in the L1 cache (near) may be better for your case and some
+microbenchmarks but not necessarily for others. I've heard of results of
+database use-cases where STADD executed far is better than LDADD
+executed near when the location is shared between multiple CPUs. In
+these cases even a PRFM can be problematic as it tends to bring a unique
+copy of the cacheline invalidating the others (well, again, microarch
+specific).
+
+For the Arm Ltd implementations, I think the behaviour for most of the
+(recent) CPUs is that load atomics, CAS, SWP are executed near while the
+store atomics far (subject to configuration, errata, interconnect). Arm
+should probably provide some guidance here so that other implementers
+and software people know how/when to use them.
+
+-- 
+Catalin
 
