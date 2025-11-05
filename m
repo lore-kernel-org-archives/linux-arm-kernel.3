@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B8ECCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F50CCFA17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nyV24Ug9h2miOZuQYzzzzCQ77a+ROx/LQ3aQQQpEEY=; b=Y3mvgLxvaf+CcOA64iapxt/3Mp
-	dSr4OrvWi14dhQB3HwXYRTS0AYw111eGPPjn8zrk6Wx4DbpF5sp4/IjgNh1etVH0eXkYLjsLMCxMr
-	01F+myuyKyKvWhLT3KBKVHifxHQtdzBhoafLPu9+knRcNT6Hgdo7X9EH/k90AQX9ZKtyXyzZ2DLY7
-	si/9PrnIUCdG+tRS0THCbjXrN2VI5sf1D9msxRxT5IO1FUb+LKEOcLYWUWEJ3AvzLd/28ArCI8OtE
-	BqevSFJkRe3pjU8RBpWig+r7XKdomPDN0ZZiURdcnySHE9Y1Oyyg/KHLlinJtdnSTcADQ3oIkKIoh
-	OdPakXwQ==;
+	bh=CS//WAipPfjSfjlGPO7nyoViLe54hOkmqQ/3rPaesvk=; b=gwqWgy3lbI3KQBTeXj3lNWOxMh
+	MuEVcP4jBAYtjx+juq5U9nAYNKe1XUf4ckFmqiM21XUYRUs4kwUAKQIW3Am28/cuLcWGcIwfQFj9p
+	ng9IeAy1vdeloqWvwaafS5HnsSVrHtKRAP/LGDbdtfj/PMiBZ1j4oFQOtqMZEKfoGzvTrTiNzFfR9
+	xuT59IIg5UYsXT1xOrfhSzk2VhT9cxO9CsflNGi54KbNJ2KWGmPEiqM195q92h1FBzJI3Z4dTgWqe
+	c8wMNFtIj/GYQJsPurjx8AI12A4jr83SJTrv22ui6FaC0GPBG4eQAOmdKhqc1/W9ucxM0WtV2szT3
+	Rh5Z0XmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZJt-0000000DKgC-1FWa;
-	Wed, 05 Nov 2025 08:56:45 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vGZJv-0000000DKiC-3HKJ;
+	Wed, 05 Nov 2025 08:56:47 +0000
+Received: from mail-m19731109.qiye.163.com ([220.197.31.109])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZJq-0000000DKf2-1hhU;
-	Wed, 05 Nov 2025 08:56:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1762332999;
-	bh=kBp4Td7c7VXvdJdflYb0aWyuRBLxQrptcQOf2UCMU7E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ip5xis/3G2I0Atgv3TPwLeesXyCBzCZNyX+tpF7mDwEnOSEI7RG+vQw6lE0wIsUds
-	 6nxpdrDz7CnDqSmUkkqb2m9Ib6xPz2+QIbC4xVPRQLPM+kUHNmx0jqZspwjornd4sY
-	 xmY9Jwl6MATfCL+9bVf1V3YNiNiNccGUeD71BH09hM1SOFT5oYwiVTDLc6gLjQnvfC
-	 cyIIbsTGTavWkn0c449imX25A/VBZurd9QnrdHLfhfEtJJs32R7eCK4Wehz3K0eYRL
-	 f3kuDzDiSuQ3RmSsg75OqlGnh7fi3r8Y7VH5zaW+H1/fXPoL63bCUS/eqy/RzfPOkI
-	 fiRJtfvCT3feg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EBD3B17E12AA;
-	Wed,  5 Nov 2025 09:56:38 +0100 (CET)
-Message-ID: <7d67d78e-3d97-4551-8fde-01667f2ca260@collabora.com>
-Date: Wed, 5 Nov 2025 09:56:38 +0100
+	id 1vGZJr-0000000DKf3-10Fb;
+	Wed, 05 Nov 2025 08:56:45 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2879b25b7;
+	Wed, 5 Nov 2025 16:56:37 +0800 (GMT+08:00)
+Message-ID: <67b605b0-7046-448a-bc9b-d3ac56333809@rock-chips.com>
+Date: Wed, 5 Nov 2025 16:56:36 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re:
-To: "niklaus.liu" <Niklaus.Liu@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com, sirius.wang@mediatek.com,
- vince-wl.liu@mediatek.com, jh.hsu@mediatek.com, zhigang.qin@mediatek.com,
- sen.chu@mediatek.com
-References: <20251105033817.20427-1-Niklaus.Liu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251105033817.20427-1-Niklaus.Liu@mediatek.com>
+Cc: shawn.lin@rock-chips.com, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
+To: Geraldo Nascimento <geraldogabriel@gmail.com>
+References: <4b5ffcccfef2a61838aa563521672a171acb27b2.1762321976.git.geraldogabriel@gmail.com>
+ <ba120577-42da-424d-8102-9d085c1494c8@rock-chips.com>
+ <aQsIXcQzeYop6a0B@geday>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <aQsIXcQzeYop6a0B@geday>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9a533b783109cckunmc8d35d74ceaecc
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx9ITVYeTElJGBkZTklCTB5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=TtlfyECiKclZk4FcAtw4aOhBtS/6otJUxxK+rAlXHPyEBcTD1Hd+1B6FhZ5RcW1dRr8TZ7OS/MXNgEhhSBtlHTYmY7dJpqJ/fBNYu1jEWRl5T8x236EefqlPHoh1GsqivMeI8Y4gCRslOhyb2IGJqfYP5GIf3hccAsYL8uh4Yjg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=CS//WAipPfjSfjlGPO7nyoViLe54hOkmqQ/3rPaesvk=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_005642_599618_16D3ECB7 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20251105_005643_768528_36AA98E7 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,83 +78,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/11/25 04:38, niklaus.liu ha scritto:
-> Refer to the discussion in the link:
-> v3: https://patchwork.kernel.org/project/linux-mediatek/patch/20251104071252.12539-2-Niklaus.Liu@mediatek.com/
+在 2025/11/05 星期三 16:18, Geraldo Nascimento 写道:
+> On Wed, Nov 05, 2025 at 02:35:28PM +0800, Shawn Lin wrote:
+>> Hi Geraldo,
+>>
+>> 在 2025/11/05 星期三 13:55, Geraldo Nascimento 写道:
+>>> The PERST# side-band signal is defined by PCIe spec as an open-drain
+>>
+>> I couldn't find any clue that says PERST# is an open-drain signal. Could
+>> you quote it from PCI Express Card Electromechanical Specification?
+>>
+>>> active-low signal that depends on a pull-up resistor to keep the
+>>> signal high when deasserted. Align bindings to the spec.
+>>
+>> This is not true from my POV. An open-drain PCIe side-band  signal
+>> is used for both of EP and RC to achieve some special work-flow, like
+>> CLKREQ# for L1ss, etc. Since both ends could control it. But PERST# is a
+>> fundamental reset signal driven by RC which should be in sure state,
+>> high or low, has nothing to do with open-drain.
+>>
+>>>
+>>> Note that the relevant driver hacks the active-low signal as
+>>> active-high and switches the normal polarity of PERST#
+>>> assertion/deassertion, 1 and 0 in that order, and instead uses
+>>> 0 to signal low (assertion) and 1 to signal deassertion.
+>>>
+>>> Incidentally, this change makes hardware that refused to work
+>>> with the Rockchip-IP PCIe core working for me, which was the
+>>> object of many fool's errands.
+>>>
+>>> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+>>> ---
+>>>    arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi | 8 ++++++--
+>>>    1 file changed, 6 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+>>> index aa70776e898a..8dcb03708145 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+>>> @@ -383,9 +383,9 @@ &pcie_phy {
+>>>    };
+>>>    
+>>>    &pcie0 {
+>>> -	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
+>>> +	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>>
+>> So my biggest guess is we don't need this change at all.
+>> gpio0b4 is used as gpio function, the problem you faced is that it
+>> didn't set gpio0b4 as pull-up, because the defaut state is pull-down.
+>>
+>> Maybe the drive current of this IO is too weak, making it unable to
+>> fully drive high in the pull-down state? If that's the case, can you see
+>> a half-level signal on the oscilloscope?
+>>
+>>>    	num-lanes = <4>;
+>>> -	pinctrl-0 = <&pcie_clkreqnb_cpm>;
+>>> +	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
+>>>    	pinctrl-names = "default";
+>>>    	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
+>>>    	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
+>>> @@ -408,6 +408,10 @@ pcie {
+>>>    		pcie_pwr: pcie-pwr {
+>>>    			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
+>>>    		};
+>>> +		pcie_perst: pcie-perst {
+>>> +			rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
+>>> +		};
+>>> +
+>>>    	};
+>>>    
+>>>    	pmic {
+>>
 > 
-> Subject: [PATCH v4 0/1] soc: mediatek: mtk-regulator-coupler: Add support for MT8189
+> Hi Shawn, glad to hear from you.
+> 
+> Perhaps the following change is better? It resolves the issue
+> without the added complication of open drain. After you questioned
+> if open drain is actually part of the spec, I remembered that
+> GPIO_OPEN_DRAIN is actually (GPIO_SINGLE_ENDED | GPIO_LINE_OPEN_DRAIN)
+> so I decided to test with just GPIO_SINGLE_ENDED and it works.
 
-The subject of this email is .. empty. That's really bad, and it's the second time
-that it happens. Please make sure that you're sending emails the right way, and/or
-fix your client.
 
-While at it, please also fix your name, as it should appear as "Niklaus Liu" and
-not as "niklaus.liu".
+Does that work for you too?
+
+&pcie0 {
+	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
+  	num-lanes = <4>;
+-	pinctrl-0 = <&pcie_clkreqnb_cpm>;
++	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
+  	pinctrl-names = "default";
+  	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
+  	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
+@@ -408,6 +408,10 @@ pcie {
+  		pcie_pwr: pcie-pwr {
+  			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
+  		};
++		pcie_perst: pcie-perst {
++			rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++
+  	};
 
 > 
-> changes in v4:
->   - reply comment:
+> Thanks,
+> Geraldo Nascimento
+> 
+> ---
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+> index aa70776e898a..b3d19dce539f 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+> @@ -383,7 +383,7 @@ &pcie_phy {
+>   };
+>   
+>   &pcie0 {
+> -	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
+> +	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_SINGLE_ENDED)>;
+>   	num-lanes = <4>;
+>   	pinctrl-0 = <&pcie_clkreqnb_cpm>;
+>   	pinctrl-names = "default";
+> 
 
-Niklaus, please just reply inline to the emails instead of sending an entirely new
-version just for a reply: it's easier for everyone to follow, and it's also easier
-for me to read, and for you to send a reply by clicking one button :-)
-
-> 1. MTK hardware requires that vsram_gpu must be higher than vgpu; this rule must be satisfied.
-> 
-> 2. When the GPU powers on, the mtcmos driver first calls regulator_enable to turn on vgpu, then calls regulator_enable to
-> turn on vsram_gpu. When enabling vgpu, mediatek_regulator_balance_voltage sets the voltages for both vgpu and vsram_gpu.
-> However, when enabling vsram_gpu, mediatek_regulator_balance_voltage is also executed, and at this time, the vsram_gpu voltage
-> is set to the minimum voltage specified in the DTS, which does not comply with the requirement that vsram_gpu must be higher than vgpu.
-> 
-
-2. -> There's your problem! VSRAM_GPU has to be turned on *first*, VGPU has to be
-turned on *last* instead.
-
-Logically, you need SRAM up before the GPU is up as if the GPU tries to use SRAM
-it'll produce unpowered access issues: even though it's *very* unlikely for that
-to happen on older Mali, it's still a logical mistake that might, one day, come
-back at us and create instabilities.
-
-Now, the easy fix is to just invert the regulators in MFG nodes. As I explained
-*multiple* times, you have a misconfiguration in your DT.
-
-GPU subsystem main MFG -> VSRAM
-GPU core complex MFG -> VGPU
-GPU per-core MFG -> nothing
-
-> 3.During suspend, the voltages of vgpu and vsram_gpu should remain unchanged, and when resuming, vgpu and vsram_gpu should be
-> restored to their previous voltages. When the vgpu voltage is adjusted, mediatek_regulator_balance_voltage already synchronizes the
-> adjustment of vsram_gpu voltage. Therefore, adjusting the vsram_gpu voltage again in mediatek_regulator_balance_voltage is redundant.
-
-If you fix your DT, N.3 won't happen.
-
-Regards,
-Angelo
-
-> 
-> 
-> changes in v3:
->   - modify for comment[add the new entry by alphabetical order]
-> 
-> changes in v2:
->   - change title for patch
->   - reply comment: This is a software regulator coupler mechanism, and the regulator-coupled-with
-> configuration has been added in the MT8189 device tree. This patchaddresses an issue reported by a
-> Chromebook customer. When the GPU regulator is turned on, mediatek_regulator_balance_voltage already
-> sets both the GPU and GPU_SRAM voltages at the same time, so there is no need to adjust the GPU_SRAM
-> voltage again in a second round. Therefore, a return is set for MT8189.
-> If the user calls mediatek_regulator_balance_voltage again for GPU_SRAM, it may cause abnormal behavior of GPU_SRAM.
-> 
-> 
-> changes in v1:
->   - mediatek-regulator-coupler mechanism for platform MT8189
-> 
-> *** BLURB HERE ***
-> 
-> Niklaus Liu (1):
->    soc: mediatek: mtk-regulator-coupler: Add support for MT8189
-> 
->   drivers/soc/mediatek/mtk-regulator-coupler.c | 13 +++++++++++++
->   1 file changed, 13 insertions(+)
-> 
 
