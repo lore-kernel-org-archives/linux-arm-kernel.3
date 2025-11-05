@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33733CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 18:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83A7DCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 18:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qxp96h2I6kX3Mja03vnTA19BKV8e6QrKGlO1/Ok+vOI=; b=B98eM6AiN3HQxJ/Da8hl5Zmpnk
-	BU6jqKBlpICFlhN55BeIaO+DPihopl4lLpUwawBR9g+RkmexLFE8Moqzewi/We+XjYaJECteDbJPX
-	BrvbfKwJgps33OotBYjAEEXCfnm/sQjUYmGdm1dz1Z4fdqLeavNU3zNMA1AtHKLTz8T+jccigGgwi
-	HeRVzXFsNnA2mxfrHVIrs4pGkX8NriGDVEdceMIDfF6J6uTyzW44HZmVWyvSaADkQcbWvQdqr220s
-	0Ft1+Wu6vD4y3vh/6d7HLcTC+XECAGqFwf0jOWxhtiGpAnon5xYMwSKdJOQLJOBEPmiSbR9naBTwt
-	jSiJjSBA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uwR+qaVYQqLnehz8yvAmtBQRj6IOKxDjbyqTslh5Xos=; b=PwaX7/ZWq+Ea8FjxLtPl8s625+
+	4TKuz0cCQicvTofYeCu4m3Mhyi4rxU+K6QzmQJE42NsLAEXu9QKHKHUZelghGbXcucbzrsyxcA4br
+	BrgY1YxC4gs+K92218GdnVlsSjx15Q6aOTidJ5msvhCJ191ZCnrQtThC3DwSiffYA6IABKf6x9zy7
+	U3WElSsRv/7K2fDr9ZFMZQt3jYKD/5EjPE7GWPEZnncHw3bBjpjcE8rMDjB7fyCp18t5H+aUTT+Ei
+	FDS/MMUWPPpv/A7wl6Q7FiX82V48rCqZSnMubhWtyL0Lmpkb2yOVc2N5eexDaq5hW0Ni7ppstBuxm
+	psw3XTiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGiId-0000000EF5d-2Qyz;
-	Wed, 05 Nov 2025 18:32:03 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1vGiWQ-0000000EGKC-3j4K;
+	Wed, 05 Nov 2025 18:46:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGiIa-0000000EF56-15aE
+	id 1vGiWM-0000000EGJZ-3tMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 18:32:01 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id E7D91C0005E6;
-	Wed,  5 Nov 2025 10:31:57 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com E7D91C0005E6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1762367518;
-	bh=euyM+3gDdbJVoDyKJqxz5X77e6ESc9izIMr3hTGFNAo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=F6DK0h1tIEFarpFGuFs9seiLVL0OlWqf7UpgGYP7BsuNeo3U7URUMwWt3VMboemHx
-	 do3FdwovimTxK0KoUslusORpyELH/yRQKWmXHSEf04W94sKcWUpUl9TsrflZI5ppbK
-	 844F5uV89ai9+rogj/0MqKWJNyTpmhm1mzqjgzT4=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 90F9818000530;
-	Wed,  5 Nov 2025 10:31:27 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: soc@kernel.org
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	khilman@kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL] Broadcom devicetree-arm64 fixes for 6.18 (part 2)
-Date: Wed,  5 Nov 2025 10:31:25 -0800
-Message-ID: <20251105183126.3923882-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 05 Nov 2025 18:46:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FC9441946;
+	Wed,  5 Nov 2025 18:46:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C404DC116B1;
+	Wed,  5 Nov 2025 18:46:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762368372;
+	bh=/7ve3+tQimCzMR5/qtDRaI5WhPCdOJsQTnRzqLXdSwA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=h+P8klHQZq/i1nHmkWblnzc1Yb4JZoInNn+x9o6PpIPgOE0rR2RYzuvy29dJxWRV5
+	 nI8yHkl5fgSJHmEMcr+vHfBwITeyD6SFdBcVCWlnk2II0X1MXyqO7mrnry6VDQPmM5
+	 s3a5z0KxOxwpUoZQQKdXIwjRtL/x3tUsi/zkwABEEDKzUoHcTED/FAuGp4z/Q89pR7
+	 tJdjBN2VGmzHLbJ0s9GixUa2kRe6EQor5r3ekl6GJYO2gOmmL9zbVlCJHrX/sBcnSw
+	 jDZGmSGAYGvfz2Ydl5Z2+0WXcYRCpHFsgRPC5YJ+MnHij6/U3p6mR4XIEV73DYqugy
+	 BIFbVVmPiNr4w==
+Date: Wed, 5 Nov 2025 10:46:10 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Manish Chopra <manishc@marvell.com>, Marco Crivellari
+ <marco.crivellari@suse.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Sunil Goutham <sgoutham@marvell.com>, Richard
+ Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
+ Jacob Keller <jacob.e.keller@intel.com>, Kory Maincent
+ <kory.maincent@bootlin.com>, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v2 1/7] bnx2x: convert to use ndo_hwtstamp
+ callbacks
+Message-ID: <20251105104610.726fb780@kernel.org>
+In-Reply-To: <f28ee997-ed08-4123-83ab-3496e88ed815@linux.dev>
+References: <20251103150952.3538205-1-vadim.fedorenko@linux.dev>
+	<20251103150952.3538205-2-vadim.fedorenko@linux.dev>
+	<20251104173737.3f655692@kernel.org>
+	<f28ee997-ed08-4123-83ab-3496e88ed815@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_103200_414561_6B98BD93 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251105_104615_110562_086F1378 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 6146a0f1dfae5d37442a9ddcba012add260bceb0:
+On Wed, 5 Nov 2025 13:33:08 +0000 Vadim Fedorenko wrote:
+> >>   	bp->hwtstamp_ioctl_called = true;
+> >> -	bp->tx_type = config.tx_type;
+> >> -	bp->rx_filter = config.rx_filter;
+> >> +	bp->tx_type = config->tx_type;
+> >> +	bp->rx_filter = config->rx_filter;
+> >>   
+> >>   	rc = bnx2x_configure_ptp_filters(bp);  
+> > 
+> > bnx2x_configure_ptp_filters() may return -ERANGE if settings were not applied.
+> > This may already be semi-broken but with the get in place we will make
+> > it even worse.  
+> 
+> Ah, you mean in case of -ERANGE we will still have new filter
+> configuration set in bp object? It's easy to fix, but it will be
+> some kind of change of behavior. If it's acceptable, I'm happy to send 
+> v3 of the patchset.>
 
-  Linux 6.18-rc4 (2025-11-02 11:28:02 -0800)
-
-are available in the Git repository at:
-
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.18/devicetree-arm64-fixes-v2
-
-for you to fetch changes up to 5e44c5a2cc84bed6b92cdfd9c567fcdb9f792604:
-
-  arm64: dts: broadcom: bcm2712: rpi-5: Add ethernet0 alias (2025-11-05 10:28:16 -0800)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM64-based SoCs Device Tree fixes
-for 6.18, please pull the following:
-
-- Andrea assigns clocks rates for the Ethernet controller for the
-  Raspberry Pi 5 systems
-
-- Laurent adds an ethernet0 alias to allow client programs consuming
-  that alias to populate the correct Ethernet address for the Raspberry
-  Pi 5 systems
-
-----------------------------------------------------------------
-Andrea della Porta (1):
-      arm64: dts: broadcom: Assign clock rates in eth node for RPi5
-
-Laurent Pinchart (1):
-      arm64: dts: broadcom: bcm2712: rpi-5: Add ethernet0 alias
-
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+True, you can probably make the -ERANGE handling a separate patch 
+for ultimate clarity.
 
