@@ -4,178 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3AAACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B44DCCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tERNCa6zNHrxTseU3BMPb9w5opzMhl4aHDvzY7w/aIo=; b=U2kd3dMwvDSsLzwCAzHxHzlIw2
-	Vw3PFNUD8bQfvHkZCumFdkMt+ye36D0jOnNl8Vp+pnttq0OzPHDkO4ppywK6VNUrQPh3Y4yL3qSod
-	5MBaNuU4EsQN115HPVdCzRc+ziJON3VbAq+EWOUpcqeTeuTXxDoQ8CeQ8R9u0xtFOw6Q+tu3ugUpP
-	v0S538xGpRrLTHEd4kP5+ktvP4T/uYZavmsLbP7kDBc8Phh7vh2zaB5nlKZfNOsG1zi9+JEePQCMK
-	yWQWaVd6hlYkUfVnqzQHzWOJDQpyQHF3RaBPvfi4EKs5IXv0t+kBsRGQh5yEs/iggLlNjXHw9lwM4
-	2j3GuBhg==;
+	bh=vKgmFp8nWO8h1GDsmGQ0ELe9pnrWzbP46AUHBVd32Bk=; b=UOasYiV6HwcqxY0hKU8JCgibll
+	/vllfIwDcJOsRtVeqHyOMOfHWi8kxOSgOMAj3RhIKPNl+s3/gr0p6hzj2Hb2cG0GBXhTHVCco4VQR
+	pDkDOL3F6QDMVjaxaqByQl6UrRy4ry+HXsY3uouYzezxbcse+XVRsElRgPtwr0/eMH1YG5/5Zxef8
+	/RGphh83s1jFPZ+6odB/y3k/Q+7XYROu796+8AxT8WV9eZeiHnKld781BVxFFGyHm250GIvg/CElX
+	v1JZpG7/fg+4lKoZqaydZ2h7MV5F0wOceSdexaZKlmUli7WMm2kmHkxy2d7UpCGnBavjsTcId65Bk
+	nuWZG9kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgnl-0000000E723-29LE;
-	Wed, 05 Nov 2025 16:56:05 +0000
-Received: from mail-francesouthazon11011040.outbound.protection.outlook.com ([40.107.130.40] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vGgok-0000000E7ST-1jPg;
+	Wed, 05 Nov 2025 16:57:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgni-0000000E6xP-295X
+	id 1vGgoh-0000000E7RM-42Eq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:56:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BUyHhVB9Im3rFhXg5FMLMLAnpw8NYxwC3eKpuw8Fa22v1N5d400l6UVj3vTAykQLfi9FnFkJrLKBKy+3sdrqAJN26CPCCexG9VgnBIAmkaStW5cVTQZkukK41DegelRRDggmt24gjK0oLJ//9NzxWnlXDp6rGyU5RQa5Drta+bm4rp0BZlP/iW7ASFe7JKCVPXq1oRXZEak/4uXEi2S6Ml4MXstcx+Y2hMRCslumNE471FfjtCxF/UR1WDfa9mYLTC99OacpkUfmQWedDtkNtPKvwAQ01kXscLBbbSDzrlxTHYEq9KdpQOe42jVVw58s+PZPjeU7Ig0S+uf/nKbxwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tERNCa6zNHrxTseU3BMPb9w5opzMhl4aHDvzY7w/aIo=;
- b=X+yIg3jW1Co/f8cvXagi+cZ0B0BdthVKC0+3NvvmrfmuNLW2I3QooVtS0Rz89t53HorSFpoMiHVLon6azjKN4oSYOj9/s7hi5j1VyAGY77m2mv+jwIS/A4T0494AG7w9yy55AUCV79VR+oy9yBYWpbvHBzFuBvSsWkQpIa1IQ8eIlDMgwtsmnAun1lICOFWoJZyGrfHEEd4kH1ig8FxlC55MIHGwPx+6pVyRQACHYmHpbdgGyVGRLUALqClCOt5NIK+0He0AJE7oY8BhicvxYj1Gm6BF09lRdHljgo0MDsuucPG03FWX4c/6nDteGLw1EXdhv3Vm00LIdSIE3BamUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tERNCa6zNHrxTseU3BMPb9w5opzMhl4aHDvzY7w/aIo=;
- b=Of74tMLIAJHOCk/m5XYrwBKmLzZYZLCVJDcZ/pvsyqV9sc80qgevyAzL5ntsWOrUFqLV9YeBKhWEI/5N7p+n0V4bcjqB6qE4gH3gr60dnv84t/xW+2D1kW0UnmuDj7eDxMqnqHlv9Ua//mkIiqbvxrrCkGQ5vOeYXBrqYg9xe6fr1itACxTYYVD1GULsshCiNvyFbOyibi7N4UIgY+ggKSA0EDvWDhkTPO+5hivc2J4Vq3g3cMrDl/L4/Q4j/Byb4ThAKyC0ZMcPCTjM3uXPRXatrE97tlD6yzu6kfY2LhZx2XYdvQrhkgGdpMex2kUcx/56iC99g4I7/hKl6L5C1w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PAXPR04MB8877.eurprd04.prod.outlook.com (2603:10a6:102:20c::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.7; Wed, 5 Nov
- 2025 16:56:00 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
- 16:56:00 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 05 Nov 2025 11:55:30 -0500
-Subject: [PATCH 3/3] ARM: dts: imx: add required clocks and clock-names for
- ccm
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251105-ccm_dts-v1-3-6aadcdf97cb8@nxp.com>
-References: <20251105-ccm_dts-v1-0-6aadcdf97cb8@nxp.com>
-In-Reply-To: <20251105-ccm_dts-v1-0-6aadcdf97cb8@nxp.com>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762361743; l=7991;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=qGgRnor8vbwiJSkJfhqAkBdVyHO+qlr4GmNtTL6oih0=;
- b=6K93NYxnioj/TEazhXh0pODrUhkmGoZLntUIuqEJgLy8mrblmFsBHmV7D/9bEyEaGF9kaJMh9
- oHgN3irV1xhDWlWrD/QeA99mAlzO946MhgVIr2Om3fgcK4N93bWSwKW
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BY5PR13CA0007.namprd13.prod.outlook.com
- (2603:10b6:a03:180::20) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 05 Nov 2025 16:57:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 224DB43FDE;
+	Wed,  5 Nov 2025 16:57:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61FC2C4CEF5;
+	Wed,  5 Nov 2025 16:57:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762361823;
+	bh=nhM7jbKOW56d3hh/niEe2UapYbSyWoAGZQptKDlqI44=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XkrNSQmVRGDQ0lt4n06gp9o429LO1OThSwSo+tIIP2EJBJlS8ww/ro7sMmGiVdhrM
+	 t1rgH6uGlaXnjmVa+q0tT6T/wHZzevQNMI/p1TJa24pvFPEM/3OqPC7DF47OIz9o9m
+	 rS7nbd/l2kvzZuGV09bu3MD4TN55uh1avGCcK3xopWmiC5ZLktsFp0az7HaETHuJoY
+	 Vh1Stje19/PGgTlt9Jb499Vr+Bcz3Vt9T3rYp8qWR+6Y0CAW4VMy94J4OlikA0BiAP
+	 dy2pVF6eF1/01q9zF36JMleysXGqAX5oXg57tsMBxZrtmIJQPGP9L3s7oIbUpsJ6fD
+	 yvwf0f0RHi11g==
+Date: Wed, 5 Nov 2025 17:57:00 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Waiman Long <llong@redhat.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 22/33] kthread: Include unbound kthreads in the managed
+ affinity list
+Message-ID: <aQuB3Oy7i6Z0SJlA@localhost.localdomain>
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-23-frederic@kernel.org>
+ <ba437129-062a-4a2f-a753-64945e9a13ff@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PAXPR04MB8877:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8525efb4-61d8-416f-e813-08de1c8c3294
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|7416014|376014|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R1lGS0RHSFBrWGNwcHNEaWRpTXdINVN2cXhTUzZLaDJtS0tDclV1aU54akxs?=
- =?utf-8?B?bitFaUg0TkFkelJVWWlMdEhwaGtKclk4by9zZVhabkJVdkh3Z0pnV2tabUxG?=
- =?utf-8?B?TDErTnFIT3p2ZVpJVURXY1JtSVNlVDBLL2M4QnJGU0lWOU9oWmVpUWdaU2Zm?=
- =?utf-8?B?VXh3QlV2eisyZ21JV2E4aTdTOFZySFFhVGtOdnFvc1pwd0daWkZxa2ZTT20y?=
- =?utf-8?B?Y0xWRTRnaXl6alFiWld0bG1lSTZjaC9SbmxCczBCS20wT3EwbDZ1bGhkVGVE?=
- =?utf-8?B?azVNREE1cHNlV3pwQ2pqOVVDUmFzK1B0UzJBNFdXUUZzTEpyMWpycnNYcTE5?=
- =?utf-8?B?ZGlpL1htOUsxUzJpKy9lOVN4ZVhiVWlSRGxEK01hL1VseWJtTnR0K1VVTk91?=
- =?utf-8?B?ZHo5dG1GNU04enpYVXVIcE1vK0pTbjJxN041RUF1Tk5pNFVYL0ZuWFN5OE9u?=
- =?utf-8?B?QXJJZGVXV3M1bkYxeHRFVmxFNmVLM08vd0RNejg5SVNram9DUk5Vd3J2YVdI?=
- =?utf-8?B?SmRSam0xNGJ3eDRQNWJuK3lqcUVCRjg2dEIvOEpKSlJ5aEtsYzliMmRlWklv?=
- =?utf-8?B?UEdabWRGUGpXcnVlNmJIUXZ1Q3IxUlBsbk9Na3FDWVFoajRpeUFGWEp6RDFK?=
- =?utf-8?B?RlFOQ1EvcmlqL25tY01OMVliYjc3SjZqb3FVamtPS0FUVG1NM2Fua0VtYmU2?=
- =?utf-8?B?QVlxSDA1OVFjYWxLbzRXcEN4OERHakMxYzM4Tk56enA4eVhJOGl6OU1lRzJF?=
- =?utf-8?B?RFMyL1pnRzREV2p6UVlWenFsM2NUVVZKVCtLVnJ4ekd4Vi9uVVY3U3doOHND?=
- =?utf-8?B?TTZleXEwbllXeFdGQVZKbGkwZFQ5SVY0eTFvQTU2RCtqSDdiMzczRzBCZjQ5?=
- =?utf-8?B?dmRUakJJdkptVWVSUUdtRWZ1K1JVRjJHMnA4NVFwY2xoWFIxTzUzTUxlVWg3?=
- =?utf-8?B?ZHA1ZzhzQUxna3lvajNDeTBHV0lROFZQZGc3VXArcG5MaFgyZzEzZ05jV1Vn?=
- =?utf-8?B?Y2J1ZmdVUVNRbGQ5V1hTakI4QVFnQnU4bFhtaFEzb0xHS2tBNXJpOVYwZXhW?=
- =?utf-8?B?aWhNZ2hwRlNVMXdsUC9razExVkNZQzUwUzQycHhlcGh6czlJWW5ibFN5Ukdx?=
- =?utf-8?B?czhIMFl0RjQ3K1NiZjBiQWZTOTlzQmVaUVJ2OCtPelBoVkk5ejMzK1E4ekdv?=
- =?utf-8?B?WmE4T0l6TGRKRmxOdmxKdFpNMDhkTWhMUlFjV3RMTkpoeTZ0SForaVdTZ2dE?=
- =?utf-8?B?dE02MlpMRko3MC8xTCtiWktjQ01lRS85Z09vZy9hVnUvSzJaYU9oc2ZUVU5r?=
- =?utf-8?B?TXRDcnNKcE1KNkRQMzhHVmRtdkJZbUkrZXVMNTExVGlLT2NqcGR6NVFjRW0x?=
- =?utf-8?B?L0E2dGRVbVB1cnZEU1ZGWWxqNGlBUzZaak4reFRFUXcyWVk2OWthSXh4aGhm?=
- =?utf-8?B?OURURUpuRU41YUphekV0YTNhTTNTbHd6WnlCYUtKZUtuUmNoZVBVMEFTK2U4?=
- =?utf-8?B?RGNFNDFEcEsxOWhMbC9Zb0U4eWc0RWpmdkVZeWY0NmtwTzkxU2ErVE13VDll?=
- =?utf-8?B?TWs1eG5yYXdxVWtCd1ZtVnB3NnJsUHFpUDdmRFJjTlNQK09adGsyUnM0dnd0?=
- =?utf-8?B?cTlPWUZDTmRyZGFsQWJKV05xSWxkOWRQVkk1Rkx5VVlJNlVTQ2NSYkNTeFgr?=
- =?utf-8?B?cFEwclpkM1Y1bXBVS0EwQVlLTlc2dWF6ZzZ1YS9mUm9pc0RtZWh0MHk0d290?=
- =?utf-8?B?N1ZpVW5RTytYZWE4bkNtSitWV2JaMDRoalhnK2dlSGVDeUxhTE5BQklrcXBu?=
- =?utf-8?B?VnovMThkUSsrT0QrQjdjUXFNdTliS2cwcW5ENURHWjFBVzFxcmk0Y2FQQ05X?=
- =?utf-8?B?VmlrUHJDZHRwOEpVVUl2OC8vMDZ1RjhiUUFweE9QS1cyV251ZDlhQkdUcFdC?=
- =?utf-8?B?MGhxRDBYUGR0UklMOTNJblBWd215emV4aFgrbGZGNDhVa1hjQldwR0c4S29n?=
- =?utf-8?Q?sxts2+1bs9EcWoTPqQAtYJAj7zFA44=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NHZCL1lwd0s3ZEFzSytmQ2Zmb3lKbXBtNjF0L2hwRzRUM1BRUmNGTmRHd3VY?=
- =?utf-8?B?MXpLRU1wNlcxUkRzak94RFhINW56TFhXTHQvOWxXbFpCblFhK1NCcmFDNE1R?=
- =?utf-8?B?SEVCalFRcVFSeXNSb2JRSC9ENWtuK2ZwOE9XSFpyU0h1Y0Y2S2U4VlFtMEgx?=
- =?utf-8?B?cDlGUW5LM2N5ZTFjaE9Ubm82eTJkVXBOcVlxQkI3YnMxMHNoZ09GaC9PVkdt?=
- =?utf-8?B?NXdpdlMzalAwZ084Qm1QZ0oxUTNNcWlDZzh5dzdBUEdYQUdEWlErV2I4RFNu?=
- =?utf-8?B?NU0zZVpyMFNsNHcyTGdGMjgzK0xVeVU0aGtVa3Qva1RyMklNblNZcG5nQlE3?=
- =?utf-8?B?bVZkQ2xzMjNPWmkyR2hZL09SeFVIWmRYUjc0citqQWt4eHhyNmI2UWxLb1FE?=
- =?utf-8?B?ZzltQ1VaVWNLL3lVT0FCRThhckhKVzBsdUdyYTFSaFhQRC9xYUE0cWN5azdU?=
- =?utf-8?B?T1haYmZvSnZaZVFZbVhNdFltSzY3Q1ZLVWJUdXF1djlpZ3NWeUcxd1FZTWNR?=
- =?utf-8?B?eGdaQXcwOEJmVE5JUnpBVFJvVjlYWG9PeWkrbGEvZFNkRmtJc1FxLy9ZQWNj?=
- =?utf-8?B?RU5jL3FlVGk4eWFNZ1hDbnJIVzRNMnVDU1h0VTdFU3Raajc4RnVHNHovL00v?=
- =?utf-8?B?cXdMcGJETkVzbEd3WHRmQU9GdDh6QUpKbGZzVlZqNnhQOFRDS1kxMFQrYlBD?=
- =?utf-8?B?RkNWR2V4RFVUa2pvQ29Hd0VxSksyLzFPekY2ejE4RUo4L1RhTnZneXd3VEFK?=
- =?utf-8?B?QUMwdUNnaVVhaVdoYVJ5cjhvRnNIemdVcU5WcWlaUzM2Q3h0ejcvWnZTSkNI?=
- =?utf-8?B?Z1ZsYWtzM0t1a0lNWVIrSlFKeHRacVZXSWZFeEg4enNCOHMydUJuN0d0b1BS?=
- =?utf-8?B?N3AwaDMxTSt5SU5iWXdjTDVuM24wMGJjQi9GbHYyN2V0aG16VURQbGpNTS9I?=
- =?utf-8?B?cGd4bFg4Z2RoT0I5UUxMQ04vdGNxczhoMGxpdEFRTjkzZkRlUFRZd0JnNE5j?=
- =?utf-8?B?MTFzZW0rUUE1MEpzbWkxUUdxTXl0SUppQTNLa00xVVlFb1F1LzhCRXV2ajVt?=
- =?utf-8?B?Q042TlFCL2QyaGJRSHkvWjhMOTJLTnZwTHZaQldqbUorZTE0QWljUGpWWkRY?=
- =?utf-8?B?QXlYY0xEVm5ja0JhNExnUHA1UE1tNFhFa3V0RFRTS21nQnlyWENEVStNc201?=
- =?utf-8?B?cnIvVU1Od0hQeWVjOWhMUUVDMVowdGVXTkJwbDdkQnlrTUgzZFZRYTB1RUJp?=
- =?utf-8?B?ZUZmUk9YZldSamxmY25zQnVIMTJEWnNNS0M0d0hqSEZHWEFtejZZdDBvbWtr?=
- =?utf-8?B?UHhYZXgvdEJlajJUeE5ndUNYQnQ0TmZUUU8vNTlIWVRBTk4yZHNWWk44b0lF?=
- =?utf-8?B?bEpqdEc3TC9HcHo3NnA0NEhKbmF1UlkwRTFxK1A3WWQxN0R4YlgzNlFWbHVM?=
- =?utf-8?B?a09RTmJhVTQwREhLc2ZJd3BneTZTTHFJdit5T2thU1pBSWpadGd5SnRNcnBJ?=
- =?utf-8?B?OGY3SDc1WG9ieE82NEpNSnVGQU85aC95Um9hRWpJOFB2cmQ4WDVHL05vaGZt?=
- =?utf-8?B?ZDRCZDIxQnR5dzF6dDFmL2U1N1JleEMvN3VEMTBrZ3ZSS2poUnBRUmtKY0Zk?=
- =?utf-8?B?eUs3V1o5bURzSEdYcUFDVzcyckNMdkVjSXFkbWs2QTlzdDIyTXB6WXZBS0Z6?=
- =?utf-8?B?cVRzVUtDMUpleTlWcEx2TGFuS3hLUmxjKzFwWERjbXFoeVRLUDBwTFpPbzk5?=
- =?utf-8?B?ZE9xbXl2eWk5NXpTWVV2REdjZUVSeGVDSFpQOFFWN2pnZi85Ui82QTZVVkNF?=
- =?utf-8?B?U0szMlVLZnRQcXl3QmJ5OUdpYytWN1JMek04dGRYL0pMK3JwbWhxM1UxWjhk?=
- =?utf-8?B?T1JyczVpYVZiS2d2WGZVVmV2UU1rNEZBWUt5MUlsUE1mdFlTQzd3MDR5MG0w?=
- =?utf-8?B?aTJ4ckdCQXFHbzhJd25BWDJGSzVjWlRLbXpGYlZVT2ZxNzJQaEgrTWw2ZVQ3?=
- =?utf-8?B?NmhtYktIUHZZM3JBWSt1R3cvbnJOb0xZbGNDUmdSUi8vZFBIM1E4UHp4Vmk3?=
- =?utf-8?B?cUxCTExaSEdGTmk2R0dGdU8wa2syOVBvOFJnVmI1TmptcWlLY29nMWdGcUg4?=
- =?utf-8?Q?/4cPx9ojgSM3auJdX3+xcXvLe?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8525efb4-61d8-416f-e813-08de1c8c3294
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 16:56:00.4952
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QhnufqPDgLiGZZzB72MtnEoDZpWSDuCW2X9H/XShsfBift6RkTHDefjuHh1Vi4NXn1jtFMnLXs/zR2S4cvgDOQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8877
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ba437129-062a-4a2f-a753-64945e9a13ff@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_085602_563196_3DC32228 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20251105_085704_048963_1C0FE484 
+X-CRM114-Status: GOOD (  36.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,178 +99,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add required clocks and clock-names for ccm to fix below CHECK_DTBS
-warnings:
-  arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dtb: clock-controller@20c4000 (fsl,imx6q-ccm): clock-names:0: 'osc' was expected
-        from schema $id: http://devicetree.org/schemas/clock/imx6q-clock.yaml#
+Le Tue, Oct 21, 2025 at 06:42:59PM -0400, Waiman Long a écrit :
+> 
+> On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
+> > The managed affinity list currently contains only unbound kthreads that
+> > have affinity preferences. Unbound kthreads globally affine by default
+> > are outside of the list because their affinity is automatically managed
+> > by the scheduler (through the fallback housekeeping mask) and by cpuset.
+> > 
+> > However in order to preserve the preferred affinity of kthreads, cpuset
+> > will delegate the isolated partition update propagation to the
+> > housekeeping and kthread code.
+> > 
+> > Prepare for that with including all unbound kthreads in the managed
+> > affinity list.
+> > 
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > ---
+> >   kernel/kthread.c | 59 ++++++++++++++++++++++++------------------------
+> >   1 file changed, 30 insertions(+), 29 deletions(-)
+> > 
+> > diff --git a/kernel/kthread.c b/kernel/kthread.c
+> > index c4dd967e9e9c..cba3d297f267 100644
+> > --- a/kernel/kthread.c
+> > +++ b/kernel/kthread.c
+> > @@ -365,9 +365,10 @@ static void kthread_fetch_affinity(struct kthread *kthread, struct cpumask *cpum
+> >   	if (kthread->preferred_affinity) {
+> >   		pref = kthread->preferred_affinity;
+> >   	} else {
+> > -		if (WARN_ON_ONCE(kthread->node == NUMA_NO_NODE))
+> > -			return;
+> > -		pref = cpumask_of_node(kthread->node);
+> > +		if (kthread->node == NUMA_NO_NODE)
+> > +			pref = housekeeping_cpumask(HK_TYPE_KTHREAD);
+> > +		else
+> > +			pref = cpumask_of_node(kthread->node);
+> >   	}
+> >   	cpumask_and(cpumask, pref, housekeeping_cpumask(HK_TYPE_KTHREAD));
+> > @@ -380,32 +381,29 @@ static void kthread_affine_node(void)
+> >   	struct kthread *kthread = to_kthread(current);
+> >   	cpumask_var_t affinity;
+> > -	WARN_ON_ONCE(kthread_is_per_cpu(current));
+> > +	if (WARN_ON_ONCE(kthread_is_per_cpu(current)))
+> > +		return;
+> > -	if (kthread->node == NUMA_NO_NODE) {
+> > -		housekeeping_affine(current, HK_TYPE_KTHREAD);
+> > -	} else {
+> > -		if (!zalloc_cpumask_var(&affinity, GFP_KERNEL)) {
+> > -			WARN_ON_ONCE(1);
+> > -			return;
+> > -		}
+> > -
+> > -		mutex_lock(&kthread_affinity_lock);
+> > -		WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
+> > -		list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
+> > -		/*
+> > -		 * The node cpumask is racy when read from kthread() but:
+> > -		 * - a racing CPU going down will either fail on the subsequent
+> > -		 *   call to set_cpus_allowed_ptr() or be migrated to housekeepers
+> > -		 *   afterwards by the scheduler.
+> > -		 * - a racing CPU going up will be handled by kthreads_online_cpu()
+> > -		 */
+> > -		kthread_fetch_affinity(kthread, affinity);
+> > -		set_cpus_allowed_ptr(current, affinity);
+> > -		mutex_unlock(&kthread_affinity_lock);
+> > -
+> > -		free_cpumask_var(affinity);
+> > +	if (!zalloc_cpumask_var(&affinity, GFP_KERNEL)) {
+> > +		WARN_ON_ONCE(1);
+> > +		return;
+> >   	}
+> > +
+> > +	mutex_lock(&kthread_affinity_lock);
+> > +	WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
+> > +	list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
+> > +	/*
+> > +	 * The node cpumask is racy when read from kthread() but:
+> > +	 * - a racing CPU going down will either fail on the subsequent
+> > +	 *   call to set_cpus_allowed_ptr() or be migrated to housekeepers
+> > +	 *   afterwards by the scheduler.
+> > +	 * - a racing CPU going up will be handled by kthreads_online_cpu()
+> > +	 */
+> > +	kthread_fetch_affinity(kthread, affinity);
+> > +	set_cpus_allowed_ptr(current, affinity);
+> > +	mutex_unlock(&kthread_affinity_lock);
+> > +
+> > +	free_cpumask_var(affinity);
+> >   }
+> >   static int kthread(void *_create)
+> > @@ -924,8 +922,11 @@ static int kthreads_online_cpu(unsigned int cpu)
+> >   			ret = -EINVAL;
+> >   			continue;
+> >   		}
+> > -		kthread_fetch_affinity(k, affinity);
+> > -		set_cpus_allowed_ptr(k->task, affinity);
+> > +
+> > +		if (k->preferred_affinity || k->node != NUMA_NO_NODE) {
+> > +			kthread_fetch_affinity(k, affinity);
+> > +			set_cpus_allowed_ptr(k->task, affinity);
+> > +		}
+> >   	}
+> 
+> My understanding of kthreads_online_cpu() is that hotplug won't affect the
+> affinity returned from kthread_fetch_affinity().
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi            | 5 +++--
- arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts            | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi       | 4 ++--
- 10 files changed, 21 insertions(+), 20 deletions(-)
+It should. The onlining CPU is considered online at this point and might
+be part of the returned kthread_fetch_affinity().
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts
-index 9bb36db131c21956a33f0a5a013c5bb4cffe1890..50448135329d21f4dfb6259d28d98c961e73604b 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts
-@@ -193,8 +193,8 @@ &can1 {
- };
- 
- &clks {
--	clocks = <&clock_ksz8081>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clock_ksz8081>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clock_ksz8081>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts
-index 5ed55f74b398f24a69245dbf88f5c93ee0d347d8..de06006d8c6989ea09712c882b0eb01e347d2f13 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts
-@@ -66,8 +66,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&rmii_clk>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&rmii_clk>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&rmii_clk>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts
-index 47a6d63c8e04cf28795310aafcdd3b2b05740830..38dfcf1b0c73b0114042937e02cf596802d21e8c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts
-@@ -119,8 +119,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&clock_ksz8081>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clock_ksz8081>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clock_ksz8081>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts
-index 84f34da06267ebd477fbe71b465a44ffe5b4c098..9483ca1a1192b31d74a969c9a01bf047d5aebdaf 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts
-@@ -101,8 +101,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
-index 0ef24a07dedf986efdf4ce8ad4032814752e7271..ff64b94df5af9f9e103a792c77577635978633da 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
-@@ -199,8 +199,8 @@ &can1 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts
-index 2160b71778355623a9f124975e2cd4dfba4be900..d1c49eabfa3730950bb524ec37456c692bf9c50c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts
-@@ -294,8 +294,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_LDB_DI0_SEL>, <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clks IMX6QDL_CLK_PLL5_VIDEO_DIV>, <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi
-index d5baec5e7a7824c05ca64c36a1839efff0bd7f71..fb674ac2c2485a818ae593c63388bcec548a100e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi
-@@ -71,8 +71,9 @@ IMX_AUDMUX_V2_PDCR_RXDSEL(MX51_AUDMUX_PORT1_SSI0)
- };
- 
- &clks {
--	clocks = <&rtc_sqw>;
--	clock-names = "ckil";
-+	clocks = <&osc>, <&rtc_sqw>, <&ckih1>, <&anaclk1>, <&anaclk2>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2";
-+
- 	assigned-clocks = <&clks IMX6QDL_CLK_LDB_DI0_SEL>,
- 			  <&clks IMX6QDL_CLK_LDB_DI1_SEL>;
- 	assigned-clock-parents = <&clks IMX6QDL_CLK_PLL2_PFD0_352M>,
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
-index 76b0007d20ad22eee738ab40ed126435a8fd17fd..75a6bf4b5308062518a4d1e94e32ee4fe89dac43 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
-@@ -160,8 +160,8 @@ vdiv_hitch_pos: voltage-divider-hitch-pos {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts b/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts
-index 0e02e448db1085e7f508e55cd55d4441d2f51a54..c8bf04238bf565eb2fd1595031d6d1e813aa33ed 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts
-@@ -57,8 +57,8 @@ &can1 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-index c93dbc595ef6eceda5fdf7b90dac57bfed59e489..5fd7c4b52871eafa6bd6c092ed1bd7b516da3a2b 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-@@ -238,8 +238,8 @@ adc: adc@0 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet1_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
+> However, set_cpus_allowed_ptr() will mask out all the offline CPUs. So if the given
+> "cpu" to be brought online is in the returned affinity, we should call
+> set_cpus_allowed_ptr() to add this cpu into its affinity mask though the
+> current code will call it even it is not strictly necessary.
+
+I'm not sure I understand what you mean.
+
+> This change will not do this update to NUMA_NO_NODE kthread with no preferred_affinity,
+> is this a problem?
+
+Ah, so unbound kthreads without preferred affinity are already affine to all
+possible CPUs (or housekeeping), whether those CPUs are online or not. So we
+don't need to add newly online CPUs to them.
+
+kthreads with a preferred affinity or node are different because if none of
+their preferred CPUs are online, they must be affine to housekeeping. But as
+soon as one of their preferred CPU becomes online, they must be affine to them.
+
+Hence the different treatment. I'm adding a big comment to explain that.
+
+Thanks!
 
 -- 
-2.34.1
-
+Frederic Weisbecker
+SUSE Labs
 
