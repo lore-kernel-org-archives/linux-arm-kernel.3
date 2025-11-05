@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B80BCCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 13:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4862CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 13:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLLjmh7Zi80OTRhBmaeIPk4X4MfnEcR9oOda/GKVfy0=; b=zfCuBrGl9Yy1AWkFzCsFUjRlMJ
-	G2fqpJakGq+0X871EO0ISJSAfbp4jQLbl8B4+AZdYlC5fhLLZEENU8BjZTkk6xjK4u1V0kwJnMTdH
-	sywuPFOetqbj2zmL5DcCukad2YKH++fp88RUbJ1hy6KCOTDFlMnCTTdtv3fphq3U9rG6qraI+Lby7
-	7tovuJDY7Q+nGEvbTqsqVvtSg+4rN+KizbK+1R760ASxnvjGsf4m27ZWjoRCYWY230C8YkDEd+tb/
-	oQh3LqMZ9AkY3u6PYWPFeLEx3iXZ7i1l0cJJWnWvxDrttxR5CBPkNB6ZRqlTNYQ3GtBG4owofN2mH
-	U07bvKvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E0ixb7GMsnOWkEi1aAM8HlFRsmoAcl10ETJQIWoehyM=; b=DmK1Hj3Bj+mD1Y97JcDqlKtYW8
+	fCmr/IkuOI8Ub5W6TRRXh6POoWXFQZnWb4diUO03PCRFrgPJ7gbvQAyB+ALe5TN1g4YBIVhmpyqkd
+	KtoedNFH3SY933AlIEwIVME/jNuqC3BRY7zVuyNXvSa28q9yEcTv0NupG06yLk5MyA9rnBmHQrPTp
+	sdMJaHJaekTHYXDzjXA9o5jWXi+3+em9Pz8f1n1wcXe2Xi2Njpi69FDfpGYvYjjvvzzV1kF0xR/Uy
+	wOo0sZCAY06LEyAPxJGKKrpU6hytlfsGHXh7tJmcjVAl2Kzh/sh3XC/G4zZg8TscCN0jb3uchUNw1
+	bSxbyDHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGdW0-0000000DlNB-2i0d;
-	Wed, 05 Nov 2025 13:25:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGdVy-0000000DlMj-0t9V
+	id 1vGdWe-0000000DlSL-0FjE;
+	Wed, 05 Nov 2025 13:26:12 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGdWY-0000000DlQu-3Dgt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 13:25:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8A40169E;
-	Wed,  5 Nov 2025 05:25:20 -0800 (PST)
-Received: from arm.com (unknown [10.1.26.217])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CFFF3F63F;
-	Wed,  5 Nov 2025 05:25:27 -0800 (PST)
-Date: Wed, 5 Nov 2025 13:25:25 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yicong Yang <yangyccccc@gmail.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Willy Tarreau <w@1wt.eu>
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <aQtQRSoL8GGVNrUQ@arm.com>
-References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
- <aQUAR9MRxP6_qtEH@arm.com>
- <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
- <aQU7l-qMKJTx4znJ@arm.com>
- <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
- <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
- <aQXtqoUEtDr-xUeS@arm.com>
- <3868c862-cf16-4259-829e-e9004028b3c1@gmail.com>
+	Wed, 05 Nov 2025 13:26:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=E0ixb7GMsnOWkEi1aAM8HlFRsmoAcl10ETJQIWoehyM=; b=U/LuntPCDlWzd/OP1uqIoyWv3h
+	zP6dvfRZXh+1LP0a1VgY/FrNJhUTCE7T7trEQfyp+VBY1VIRsvVTjKA1od+cSRwZ+t8OJd8zwqo52
+	DIAGLnLCrCO5a8rSjRqs7M7c9F7WDbaFmLKJKOqqt75srKcvOzjdQGVeu7IZdn6NKc89M2RQFCbmi
+	pCBwqoUF4r9mXWntFNN/tx894hbu9BsADw59Nl75JZYDcXViBeSMENAFMyPSaU2XISfqAiNAjCw+P
+	uig9zbubG+Vn5KaOV4F3gM5NkESRHiogIDxp9ARXE1vQPh7CZDLx2eq0N4w9f6J4Yr3Rd4JHlD5JQ
+	JIykmDUg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34720)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vGdWP-000000003RK-2Ar9;
+	Wed, 05 Nov 2025 13:25:57 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vGdWM-000000005js-0lOQ;
+	Wed, 05 Nov 2025 13:25:54 +0000
+Date: Wed, 5 Nov 2025 13:25:54 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/11] net: stmmac: ingenic: convert to
+ set_phy_intf_sel()
+Message-ID: <aQtQYlEY9crH0IKo@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3868c862-cf16-4259-829e-e9004028b3c1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_052530_308911_37C21309 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20251105_052607_095577_05376CAE 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,24 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 01, 2025 at 07:41:02PM +0800, Yicong Yang wrote:
-> FYI, there's a version to allow prefetech added prior to LSE
-> opertaions by one boot option [1], if we want to reconsidered in this
-> way, it's more flexible and can be controlled by the OS without
-> touching the system configurations (may need to update the firmware).
+Convert ingenic to use the new ->set_phy_intf_sel() method that was
+recently introduced in net-next.
 
-I'm against adding boot time options for this. We either add them
-permanently if beneficial for most microarchitectures or we get back to
-the hardware people to ask for improvements (or, potentially, imp def
-configurations like we have on a few of the Arm Ltd implementations).
+This is the largest of the conversions, as there is scope for cleanups
+along with the conversion.
 
-> But need to add the prefetch in per-cpu implementation as you've
-> noticed above (didn't add it since no prefetch for LL/SC
-> implementation there, maybe a missing?)
-
-Maybe no-one stressed these to notice any difference between LL/SC and
-LSE.
+ .../net/ethernet/stmicro/stmmac/dwmac-ingenic.c    | 169 ++++++---------------
+ 1 file changed, 47 insertions(+), 122 deletions(-)
 
 -- 
-Catalin
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
