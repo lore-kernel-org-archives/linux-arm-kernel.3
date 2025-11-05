@@ -4,114 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41307CCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D6A3CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6enmMFMSCbNivDuYlJ7WipeeKQT5O9/nsHPzfv6Cl84=; b=gXTOlIfEXgF72eqfYXXpRO3gWY
-	+7GH6HXRVBl93lAnzDUiKbwwEB85NijO8HBo6i7zJFFaz/8/t4iHYvNUKD5LJykPNdq/32Ko+k3T3
-	oD63+6nYdxr6VLhPurE8oitXVT8qHcWa5MJvEoJr4R7uPhQrw8qJFE37+5jaK6poeHtjASYnw+LON
-	HYqTtft/c4ktOenDYoUtqfpurOxd6TD5tRJMiB7lDrSTmmvQCi3a7AP18wsh0zTqaKMAVeXnB61ri
-	INRiX9YEOxDmy3dMGUxqYsdBzygLwRCQ1zaW1zX/W4l4n2I2GKkmj9kz6SLjaobYkYU972D4YopvH
-	PGCdgTzQ==;
+	bh=r6IAr6ThWrXT0VQC+S0LBlsjUYHMVkUu3AebSU18ydI=; b=iO7hIZRiFSJML4bEKC/nKVWDZ6
+	/iFGlTHL+0pTX25lwQu5AMcHPyoqmUu2ouzU/Cw59bgWiPXZeub4cHC6YV+X+/N1Ok5V3wHoaakAw
+	wAgtS8bIDMB91GQeG2nHLAbxxUqiLvdh0VkBOHVLyhOIuO7dlVLuLQlbvJhAjJxXvYChzMsQjlMrx
+	rowhpZoMTsIOje7qNYccZ+pQ5aPXxv2c4tNQ4ZMcjUGvLgDgR/h82Yqx9bYspw1Jj9ry9sR0YfVC0
+	18X41TTIYqZjFw/lKKzR3Ky/8LxNMH+/r79dFlLyB7Udl15kTHyIneb53OwgbW/6Rr+hd3c3S6fNN
+	EzTlP4NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZeB-0000000DMqa-3Kwb;
-	Wed, 05 Nov 2025 09:17:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGZhz-0000000DN8z-2yEd;
+	Wed, 05 Nov 2025 09:21:39 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZeA-0000000DMqQ-0pga
+	id 1vGZhx-0000000DN8E-35dK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 09:17:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A89560200;
-	Wed,  5 Nov 2025 09:17:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D2C8C116B1;
-	Wed,  5 Nov 2025 09:17:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762334260;
-	bh=xA2XI2nOTFCzjuA/dAgtuOVq3V1uHZV8QqpLPavhtMw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PR5BRBM+GHfaT11n3edlqO5gTOnihCbbzacBv8aVlfTz+Cmppr4r0CLRvCYL9cpRr
-	 k388BdCslmsQpTkG8yAdU1CNGO6YsWksU8eNoCGmv8aIbCLhdrrRWJiOd62f4gRACc
-	 LHluNe2Gf9TqnAp44Nuud1FsnoL9BwGX3SWvroEUMMSBH+JgYIOapJJ+V8AZNKJOf2
-	 mGZxNj5eWhV5ykycz94BPhtDsYiW/C4XbkUd37wQCPt4X6XujN5RlqV8NiY35Y/VKu
-	 FLCJXPHnF7BvonxWTLI1ko1WMKfhjtE1k4JADvYTZToA+4vjGJKABbXR5Q9KC1XD0N
-	 WGT1N6NHzir2A==
-Message-ID: <a1694c50-47a5-4f5c-abb1-6fec7a490e7a@kernel.org>
-Date: Wed, 5 Nov 2025 10:17:35 +0100
+	Wed, 05 Nov 2025 09:21:38 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-ba599137cf8so404226a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 01:21:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762334497; x=1762939297; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r6IAr6ThWrXT0VQC+S0LBlsjUYHMVkUu3AebSU18ydI=;
+        b=b5AskRm+H2W9VfbvwVgp8LiQyhNTKvTkmSBileWiqsTP3Wcor+3syzyzmtWDy45YDj
+         ZDoPEY6AB58scCEnVJ7Y/yES/PWprY1iF1YcQI5m0XDaWlUzsO0A3pgAFnmzwH0id3W2
+         esxF5QMi2CEOt2hB2qtIRGiM22iEDsrCVJWKtIrYlbFWmuE48vxdU23fd8CB8O/v5mZn
+         1HXz2gOU2ZxKyZ1s+/Se+yEW7vpwEVhlvC6iZR7N2GavdrQCqhGJHmshgiT28aPxxcUG
+         oq1WvTCSUSz5s7iIUjSmMUF1ItDaLtHSXKNwIKwWIR95SuZxdqCy2XbdbaJXwoD3jYyO
+         JNyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762334497; x=1762939297;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=r6IAr6ThWrXT0VQC+S0LBlsjUYHMVkUu3AebSU18ydI=;
+        b=d3nYQ7HOax+VQhKvndcICujb2Yp6nOk4PXjRjPDEt/HcJhICrh0AFUAiNegxM4VmIr
+         3bzinqqLj2BqdwCT1AoCE+Ar5hfHBgydr9HNYZ1+IE5Dtng28awl9pJtQ/onk6OM/AML
+         1s+3IejY5gDRkplrDkPr2K0QJ/Rrrc8bVC3FHZJT2FStuQXHVhO7XWutcsf+cTVQVAhz
+         1TqequAc/og/7uurMvh5sNL29/1hxwQ772SbcaYorSj4t1O/+ooL4qz/Zqw/6EXG339i
+         cjrTw13e4wcM5w/Lhy6fL+j9glsaSTOMblYziqzRvIs9IiJdZIDQDKRGAFES+RgkM+1s
+         MjSg==
+X-Forwarded-Encrypted: i=1; AJvYcCWsoeM6eD+KVrWzjxZzk5NArRj1drblgpbq29+Eu+gbWJbJ53uR/aR+s6SP2194PWoo907ZkZjUJ32HoMvWwsLt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEAVJeUp9x7c5bcldYjyphsMbVFKZJdUV4rFVAIZ7rtSb+AInP
+	JgihN+cNnousJjb6pyPFZU81u/ZmQtap9rDiL7PG4JMmkQ/7+Uxtv7KTwSYX04GqBR3l/1bLujI
+	d9b6WrbMeEa9ho6Q8cq7vbCKdo4m2HGk=
+X-Gm-Gg: ASbGncsmxi5Tt0dI46qEZ1otPs7Lwrf9PxhtnLWmZfEHpG/PjmqjkoDPRppYozFRn+A
+	+WzMKFPA3LsMSXasC+SDhM6qu+YGdAWTcX3shDxi/C+L8hQcqPb4glv9/DtFxxi5ciD+CUzqL8v
+	hl/yZsAybbde9beXWloBYPvD/TzREyIUpavAbkw6yfHZIcJXfJ5s4Tn5ZvmFacWOY9VcpE8dkFr
+	Yo8godMXBq+UfSjYqdqmbeM/PbDtGFw7Ua/wQ5+Q5Bs4T7Z5yGRlCuAeQ==
+X-Google-Smtp-Source: AGHT+IEhLgnnarruJw6eIIB+8bTnN8uYAF3Chn6W7iyK13efG69zCQaoyAaLYmuTmnpZholD6kqVshKjrwpDBWN3vSI=
+X-Received: by 2002:a05:6a20:d049:b0:345:4b5a:16b7 with SMTP id
+ adf61e73a8af0-34e278f999bmr7748938637.11.1762334496625; Wed, 05 Nov 2025
+ 01:21:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: qcom: hamoa: enable ETR and CTCU devices
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Jie Gan <jie.gan@oss.qualcomm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251104-enable-etr-and-ctcu-for-hamoa-v1-0-af552cfb902c@oss.qualcomm.com>
- <20251104-enable-etr-and-ctcu-for-hamoa-v1-2-af552cfb902c@oss.qualcomm.com>
- <25b7abfe-1881-41e5-914b-ee16ce63ed3e@oss.qualcomm.com>
- <8a7dd1b4-505a-4507-8cc1-75d955c706eb@oss.qualcomm.com>
- <7affc5e7-14b9-4959-9943-40e416f64d92@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <7affc5e7-14b9-4959-9943-40e416f64d92@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251031-imx-dsp-2025-10-31-v1-0-282f66f55804@nxp.com>
+ <20251031-imx-dsp-2025-10-31-v1-3-282f66f55804@nxp.com> <aQUEzx6sobI4Yes5@lizhi-Precision-Tower-5810>
+In-Reply-To: <aQUEzx6sobI4Yes5@lizhi-Precision-Tower-5810>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Wed, 5 Nov 2025 11:24:04 +0200
+X-Gm-Features: AWmQ_blaxwVbzKBmJKN_0Fj3HFefT03QXEkDQ4Lh8h-h3RbucXTuRrqR5o2qb58
+Message-ID: <CAEnQRZBNzo6RKjNf4JxxxjxtLCFfEGMMt2fSK4MdVeSjtF5aag@mail.gmail.com>
+Subject: Re: [PATCH 03/11] remoteproc: imx_dsp_rproc: Use devm_pm_runtime_enable()
+ helper
+To: Frank Li <Frank.li@nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
+	Iuliana Prodan <iuliana.prodan@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_012137_795085_59F6B145 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,44 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/11/2025 10:09, Konrad Dybcio wrote:
-> On 11/5/25 2:14 AM, Jie Gan wrote:
->>
->>
->> On 11/4/2025 8:47 PM, Konrad Dybcio wrote:
->>> On 11/4/25 9:10 AM, Jie Gan wrote:
->>>> Embedded Trace Router(ETR) is working as a DDR memory sink to collect
->>>> tracing data from source device.
->>>>
->>>> The CTCU serves as the control unit for the ETR device, managing its
->>>> behavior to determine how trace data is collected.
->>>>
->>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>> ---
->>>>   arch/arm64/boot/dts/qcom/hamoa.dtsi | 160 +++++++++++++++++++++++++++++++++++-
->>>>   1 file changed, 159 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/qcom/hamoa.dtsi b/arch/arm64/boot/dts/qcom/hamoa.dtsi
->>>> index a17900eacb20..ca4a473614ee 100644
->>>> --- a/arch/arm64/boot/dts/qcom/hamoa.dtsi
->>>> +++ b/arch/arm64/boot/dts/qcom/hamoa.dtsi
->>>> @@ -6713,6 +6713,35 @@ data-pins {
->>>>               };
->>>>           };
->>>>   +        ctcu@10001000 {
->>>> +            compatible = "qcom,hamoa-ctcu","qcom,sa8775p-ctcu";
->>>
->>> Missing space between after the comma
->>>
->>> no issues otherwise
->>
->> sorry for the mistake. Do I need send a new version to fix it?
-> 
-> I think you do since Krzysztof made some comments
+On Fri, Oct 31, 2025 at 8:50=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
+>
+> On Fri, Oct 31, 2025 at 05:08:32PM +0800, Peng Fan wrote:
+> > Replace manual pm_runtime_enable() with devm_pm_runtime_enable() to
+> > leverage device-managed cleanup and simplify resource handling.
+> >
+> > pm_runtime_disable_action() not only calls pm_runtime_disable(), but
+> > also calls pm_runtime_dont_use_autosuspend(). The current driver
+> > only calls pm_runtime_disable(). But this should be fine here to use
+> > devm_pm_runtime_enable().
+>
+> looks like this paragaph is reduntant.
 
+This is not redundant! But it can be phrased better.
 
-Not a technical ones, but about the process.
+```
+Current code on the cleanup path just disables runtime PM for a device.
 
-Best regards,
-Krzysztof
+Using resource managed version devm_pm_runtime_enable registers a
+cleanup callback that
+sets autosuspend to false and then disables runtime PM for a device.
+So, basically the same
+functionality as we don't use autosuspend anyway.
+```
+
+thanks,
+Daniel.
 
