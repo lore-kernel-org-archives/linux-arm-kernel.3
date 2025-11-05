@@ -4,108 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010E2CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EC5CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FnXwRYQFncUvBCSbCcRboaE62N6tY8I8sJFrFvzKjsY=; b=4gTrMrF5AjE+Myt/2cwgJBDBdL
-	fDrofRNoAAxixKozA2kU+waDfdP9ssqFggeZFw2oa+KPUbzv5Qgl4k/EQhWmUB2emFsxTlvisftQX
-	eEkk2/gDbedu6bgiwKUULRBIK+vlesinLg0ST8Hdh9nN/l67GdrvBLvMB11YwdSi45EQi79WSJrDA
-	W8JUY2ystxRdTMPZxzeKndixPRLl1gurQCWywUxN+h78J4aKjWKEVHPq7Yte1y8s/fmuWSEzu/QfE
-	glkLK4NHv6bVyBs6qmYHCYb65aq8do82Hj8HFkouPCNOvC8nC8L4TePZv7R99XJP/XGECpQ3Rofiv
-	jktEhGzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
+	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s+5STQiedTkkBZfdZVWrZUEqJP58615+ORN4NGsJkx0=; b=fgxCE3gyUrGmMw
+	yfHKrjuitieI8Xm1LJ6Hw+zxF1fkxt6+RbuD0sA2Mxp1fwcX+HNapyEdI7rFNUAYnI7IsIRRF35uI
+	VYsOdQCx4jBPBV/6rM++JO6um5KDIDYsCYGVZ8hbxvSWhf/1BZe+IeuidAFrUE7Nt8bQ2ZmvOB8uj
+	vk31odrCIrS6/j/VNgIdtno12+zN4zqqPWSlTZrK0LJwK/6FJM013M526+ibyF27XjyokgumJPAjT
+	UaFq2vJdXP8spAVSI4750tgtFqZE94J7lNsn+eTYnEm94Gr9jTNw7KzH8aCJGxnjXbUA6pEbSokFW
+	Hf3VLGGvXVT5Ub/SmCiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYgD-0000000DGGW-1NK8;
-	Wed, 05 Nov 2025 08:15:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGYhY-0000000DGPa-3cLH;
+	Wed, 05 Nov 2025 08:17:08 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYgB-0000000DGGO-3Lcy
+	id 1vGYhU-0000000DGOf-39jk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 08:15:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D118060202;
-	Wed,  5 Nov 2025 08:15:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22257C4CEF8;
-	Wed,  5 Nov 2025 08:15:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762330542;
-	bh=zewZiWOOxPStBdSA5lafB87yz14VKUzeh4rI3J4mpak=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o0zCFW5Dl5y/9or/8qLwdvR6Rg8KVPWYbfSEmz5DQT4NKo7T9Ufnc6Ma1JW63vwUe
-	 I2YWVOq++E7sd3U9E1m6/LLnT4ZdEn6uW45+KStw+Oa/8XhH8aHe2HPRzLvTnj4P71
-	 1x+XJormSF2+ZE3bOA/vOjdMj+/9zId5PsgYCVMMg9QdLKcw0oOJCVzcq3LNdhcihd
-	 FNI32HCf423SsavWK9li/OYcBHHrCdanK/SE7c9UaErCn9Vlh2gcOkYp2TQcOaePXM
-	 2BQ4eJ83hkaFB4OvLIEOFRZC+wyxsWIcCtWNyBYvSUfeX9aUu4NO7qjoBpj4fhRmns
-	 Y2i4dOCxW9Qkg==
-Message-ID: <7ba7e32b-f00a-4f77-88da-047126a8c3f9@kernel.org>
-Date: Wed, 5 Nov 2025 09:15:38 +0100
+	Wed, 05 Nov 2025 08:17:06 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A52RI1Z026493;
+	Wed, 5 Nov 2025 08:16:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=pp1;
+	 bh=s+5STQiedTkkBZfdZVWrZUEqJP58615+ORN4NGsJkx0=; b=CgZgBBqy443y
+	sY5evTdzSwfmByH19x5ltAA5PWtHIueqEmzseeyYjeKWOnrGzztJPHKJOmj78PAD
+	efxgggS8ogtVIzS9imp/nGNqhJyM2ktzTFB/DCWC1ETa+gUX9G/28nF8zQC1TgWa
+	Ez+8T1GPqZDf7VN7i8jAKyxkdnWHmQ2OgD6ZToBmZRSef7gzXf8V3hdxG+V28n3Q
+	IjnHyEHnhuSWMuowmhDcrj/64mbRryCGCrh59oXP2iNc69ar865pZ5sAh+GJIbrL
+	9Q64qceirSTH5//o0vWoXSEtIeEA8EC6kHaIDxS7WL4NaBCAUE2pD28wv2PSny9T
+	nGMra7e3eA==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59v1yt17-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 08:16:59 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A56mji1025588;
+	Wed, 5 Nov 2025 08:16:58 GMT
+Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a5vhsqafu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 08:16:58 +0000
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A58GvVc64225788
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 5 Nov 2025 08:16:57 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2E6995803F;
+	Wed,  5 Nov 2025 08:16:57 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9D52F58056;
+	Wed,  5 Nov 2025 08:16:56 +0000 (GMT)
+Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Wed,  5 Nov 2025 08:16:56 +0000 (GMT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/7] dt-bindings: arm: Add support for Qualcomm TGU
- trace
-To: Songwei Chai <songwei.chai@oss.qualcomm.com>
-Cc: andersson@kernel.org, alexander.shishkin@linux.intel.com,
- kernel@oss.qualcomm.com, mike.leach@linaro.org, suzuki.poulose@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
- devicetree@vger.kernel.org
-References: <20251104064043.88972-1-songwei.chai@oss.qualcomm.com>
- <20251104064043.88972-2-songwei.chai@oss.qualcomm.com>
- <20251105-industrious-oxpecker-of-valor-af17fa@kuoka>
- <746b292f-fc3a-43a8-89b1-76f61ccc0630@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <746b292f-fc3a-43a8-89b1-76f61ccc0630@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Date: Wed, 05 Nov 2025 09:16:56 +0100
+From: Harald Freudenberger <freude@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, David Howells <dhowells@redhat.com>,
+        Ard
+ Biesheuvel <ardb@kernel.org>,
+        "Jason A . Donenfeld" <Jason@zx2c4.com>,
+        Holger Dengler <dengler@linux.ibm.com>,
+        Herbert Xu
+ <herbert@gondor.apana.org.au>,
+        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/15] SHA-3 library
+Mail-Reply-To: freude@linux.ibm.com
+In-Reply-To: <20251104182738.GA2419@sol>
+References: <20251026055032.1413733-1-ebiggers@kernel.org>
+ <ba3ff3d5183ab78b3d02d8db30223def@linux.ibm.com> <20251029163216.GA1603@sol>
+ <fa8bc10f36b1aeb9ffe1abf6350adbc1@linux.ibm.com> <20251030171453.GA1624@sol>
+ <c39f6b6c110def0095e5da5becc12085@linux.ibm.com> <20251104182738.GA2419@sol>
+Message-ID: <70461134f12796b1166978c8628b5cf3@linux.ibm.com>
+X-Sender: freude@linux.ibm.com
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 3cSBYsQDAYYlgB92Vh8do0Svxw9CzUFf
+X-Proofpoint-ORIG-GUID: 3cSBYsQDAYYlgB92Vh8do0Svxw9CzUFf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAyMSBTYWx0ZWRfX2Qk0c/WbAtrg
+ T6Ulspt3JNVc+F3EHppWNFkTWNHYi3x7rBS3WrsD93mTbSRs48lxvUoOpVf9GjuDVHG27KxQ5cF
+ qgkaWOEys7mf54mKioHD+5s2X7M3ct4LMHP7PmVVxQb6BZtP6rFbcKrtOXbiclR5zT0f8NjrIS0
+ I0kB+L/5lbHhHKYt88J+ld87p3HQAJu5L2DmOOs5mK1d1yBHnlZtifMeE8Q1gBhu/IIWKVVDYxU
+ +rp2hwOOeeEfgK39W9UMMCh/yYGLQSUtu2HhLV1rFWHNRH7ylEr+CwEG3Gnu3WMsQgO781+Gs/9
+ I5t5wFKuWRLCXcK6LuY+UvYVUXCri5SyjpL/q9TINMI+V3RJeVtbrUnzzYUfblSjV2OdryIvwy7
+ s30e6gPCDUK7MD+9rT+1+3KQMy7Y1w==
+X-Authority-Analysis: v=2.4 cv=H8HWAuYi c=1 sm=1 tr=0 ts=690b07fb cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=5X5LY1NTxJEeGDfTEVgA:9 a=CjuIK1q_8ugA:10 a=V-P4VFR5b4V6Rcv5HO6H:22
+ a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-05_03,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
+ impostorscore=0 clxscore=1015 bulkscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010021
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_001705_260770_9D80AEE9 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,52 +126,251 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: freude@linux.ibm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/11/2025 09:11, Songwei Chai wrote:
+On 2025-11-04 19:27, Eric Biggers wrote:
+> On Tue, Nov 04, 2025 at 12:07:40PM +0100, Harald Freudenberger wrote:
+>> > Thanks!  Is this with the whole series applied?  Those numbers are
+>> > pretty fast, so probably at least the Keccak acceleration part is
+>> > worthwhile.  But just to reiterate what I asked for:
+>> >
+>> >     Also, it would be helpful to provide the benchmark output from just
+>> >     before "lib/crypto: s390/sha3: Add optimized Keccak function", just
+>> >     after it, and after "lib/crypto: s390/sha3: Add optimized one-shot
+>> >     SHA-3 digest functions".
+>> >
+>> > So I'd like to see how much each change helped, which isn't clear if you
+>> > show only the result at the end.
+>> >
+>> > If there's still no evidence that "lib/crypto: s390/sha3: Add optimized
+>> > one-shot SHA-3 digest functions" actually helps significantly vs. simply
+>> > doing the Keccak acceleration, then we should drop it for simplicity.
+> [...]
+>> commit b2e169dd8ca5 lib/crypto: s390/sha3: Add optimized one-shot 
+>> SHA-3
+>> digest functions:
+>> 
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     1..21
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 1 
+>> test_hash_test_vectors
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 2
+>> test_hash_all_lens_up_to_4096
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 3
+>> test_hash_incremental_updates
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 4
+>> test_hash_buffer_overruns
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 6
+>> test_hash_alignment_consistency
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 7
+>> test_hash_ctx_zeroization
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 8
+>> test_hash_interrupt_context_1
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 9
+>> test_hash_interrupt_context_2
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 10 
+>> test_sha3_224_basic
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 11 
+>> test_sha3_256_basic
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 12 
+>> test_sha3_384_basic
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 13 
+>> test_sha3_512_basic
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 14 
+>> test_shake128_basic
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 15 
+>> test_shake256_basic
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 16 
+>> test_shake128_nist
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 17 
+>> test_shake256_nist
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 18
+>> test_shake_all_lens_up_to_4096
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 19
+>> test_shake_multiple_squeezes
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 20
+>> test_shake_with_guarded_bufs
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1: 12
+>> MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16: 80
+>> MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=64: 785
+>> MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=127:
+>> 812 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=128:
+>> 1619 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=200:
+>> 2319 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=256:
+>> 2176 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=511:
+>> 4881 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=512:
+>> 4968 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1024:
+>> 7565 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=3173:
+>> 11909 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=4096:
+>> 10378 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16384:
+>> 12273 MB/s
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+>> Nov 04 10:50:50 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 
+>> skip:0
+>> total:21
+>> 
+>> commit 02266b8a383e lib/crypto: s390/sha3: Add optimized Keccak 
+>> functions:
+>> 
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     # module: sha3_kunit
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     1..21
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 1 
+>> test_hash_test_vectors
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 2
+>> test_hash_all_lens_up_to_4096
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 3
+>> test_hash_incremental_updates
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 4
+>> test_hash_buffer_overruns
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 5 test_hash_overlaps
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 6
+>> test_hash_alignment_consistency
+>> Nov 04 10:55:37 b3545008.lnxne.boe kernel:     ok 7
+>> test_hash_ctx_zeroization
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 8
+>> test_hash_interrupt_context_1
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 9
+>> test_hash_interrupt_context_2
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 10 
+>> test_sha3_224_basic
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 11 
+>> test_sha3_256_basic
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 12 
+>> test_sha3_384_basic
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 13 
+>> test_sha3_512_basic
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 14 
+>> test_shake128_basic
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 15 
+>> test_shake256_basic
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 16 
+>> test_shake128_nist
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 17 
+>> test_shake256_nist
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 18
+>> test_shake_all_lens_up_to_4096
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 19
+>> test_shake_multiple_squeezes
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 20
+>> test_shake_with_guarded_bufs
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1: 12
+>> MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16: 211
+>> MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=64: 835
+>> MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=127:
+>> 1557 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=128:
+>> 1617 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=200:
+>> 1457 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=256:
+>> 1830 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=511:
+>> 3035 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=512:
+>> 3245 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=1024:
+>> 5319 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=3173:
+>> 9969 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=4096:
+>> 11123 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     # benchmark_hash: 
+>> len=16384:
+>> 12767 MB/s
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel:     ok 21 benchmark_hash
+>> Nov 04 10:55:38 b3545008.lnxne.boe kernel: # sha3: pass:21 fail:0 
+>> skip:0
+>> total:21
 > 
-> On 11/5/2025 3:49 PM, Krzysztof Kozlowski wrote:
->> On Mon, Nov 03, 2025 at 10:40:37PM -0800, Songwei Chai wrote:
->>> The Trigger Generation Unit (TGU) is designed to detect patterns or
->>> sequences within a specific region of the System on Chip (SoC). Once
->>> configured and activated, it monitors sense inputs and can detect a
->>> pre-programmed state or sequence across clock cycles, subsequently
->>> producing a trigger.
->>>
->> I do not understand: You got review which you ignored and then you
->> removed pieces of this code to make it incorrect. Go back to previous
->> versions so you won't waste our time re-doing review.
+> Thanks.  So the results before and after "lib/crypto: s390/sha3: Add
+> optimized one-shot SHA-3 digest functions" are:
 > 
-> Hi Krzysztof,
+>     Length (bytes)      Before            After
+>     ==============    ==========        ==========
+>          1               12 MB/s           12 MB/s
+>         16              211 MB/s           80 MB/s
+>         64              835 MB/s          785 MB/s
+>        127             1557 MB/s          812 MB/s
+>        128             1617 MB/s         1619 MB/s
+>        200             1457 MB/s         2319 MB/s
+>        256             1830 MB/s         2176 MB/s
+>        511             3035 MB/s         4881 MB/s
+>        512             3245 MB/s         4968 MB/s
+>       1024             5319 MB/s         7565 MB/s
+>       3173             9969 MB/s        11909 MB/s
+>       4096            11123 MB/s        10378 MB/s
+>      16384            12767 MB/s        12273 MB/s
 > 
-> The previous reviewed-by is no longer applicable because in this 
-> version, we moved
+> Unfortunately that seems inconclusive.  len=200, 256, 511, 512, 1024,
+> 3173 improved.  But len=16, 64, 127, 4096, 16384 regressed.
 > 
-> the driver from /drivers/hwtracing/coresight/ to 
-> /drivers/hwtracing/qcom/. This means the
+> I expected the most improvement on short lengths.  The fact that some 
+> of
+> the short lengths actually regressed is concerning.
 > 
-> required compatible has changed from "/qcom,coresight-tgu/" to "/qcom,tgu/".
+> It's also clear the the Keccak acceleration itself matters far more 
+> than
+> this additional one-shot optimization, as expected.  The generic code
+> maxed out at only 259 MB/s for you.
 > 
-> Since this involves changes to devicetree binding, i didn't not carry 
-> over the previous review tags.
+> I suggest we hold off on "lib/crypto: s390/sha3: Add optimized one-shot
+> SHA-3 digest functions" for now, to avoid the extra maintainence cost
+> and opportunity for bugs.
+> 
+> If you can provide more accurate numbers that show it's worthwhile, we
+> can reconsider.  Maybe set the CPU to a fixed frequency, and run
+> sha3_kunit multiple times (triggered via KUnit's debugfs interface)?
+> 
+> - Eric
 
-And which part of changelog explains the exact reasons to drop review
-tags? Not mentioning that changelog is almost impossible to find, buried
-under 10 pages of some repetitive introduction
+The focus should be on the small data. Let me see what I can do ...
+I used a zVM guest for this. Instead use an LPAR may be an option and
+some CPU pinning. And do some more tests to be able to calculate a gauss
+distribution. However, not within the next few days.
+So I agree with you: let's hold back the one-shot optimization.
 
-Did you read submitting patches?
-
-> 
-> Meanwhile apologize for the confusion caused by my oversight in not 
-> mentioning the dt-binding changes in the
-
-You made many more changes to the binding - nothing explained, no
-rationale for any of that.
-
-All qcom coresight bindings are called coresight and I do not see reason
-why this is being changed.
-
-Best regards,
-Krzysztof
+Harald Freudenberger
 
