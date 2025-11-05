@@ -4,100 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AFECCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5996ACCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0eEl5tuPcKQIbbiQU4HmtriawKnG+Y/aITWPg2eK/vk=; b=q1RTfRmfiakN5hblZGPxn7T67S
-	QImrvqtjYqwDaftCVPb9yedjh6CM4nstmoRp/HtvJbRmqn41eLrZ+rGR6A3WJDazviMXl4+Sj8Td3
-	0Ab/EQmTTcO7yQre/rKem8M+2zv45AM5U9jpqa5Wg59oGHw5zPHzuN8u1whJK1XKkSJM1OtnWkapF
-	I4HvxHW63jZKPmYaoKiVKTOMBFMHg8+0hyiLk18AEUi6xD/iQoblkT4DGbYKxc6bfLokxzLYosT9c
-	D/7Z0ZkXA0fvvexMPfjPkisrSBM9jMjWlnFXOyD3VRKAoeZUQacPWyAb2PSFw/lHRkopbNmGdUh4r
-	1AB3HjkA==;
+	bh=ZY2ovksieRapgk658pHLWkUZACRChu2RMh3Rj1+1OEY=; b=tT9i3L5hiEtOiH3A5w+CjhzUcv
+	6zv9Wr7sKhMRrrmG5RJS+4epz5lRia6RfB4vNvzMzAdRuRISmQ9O6JPInA2WHSwXS9qOLh44az2TC
+	lgoJ7xWilNQz1r1asBCCH85uYEdVuqd8bF7T1tD9ETk44AyPxC3zc88e2ZvegpEvJf93A6HWRSxgZ
+	OqkPaEs6rsh7JAhL6vjuSwkXlq4vcOoYLYa8VpHKW+0D2R21ThufjPOn+W90KQ5BphU86Oq+87MWM
+	tlvP8EbpvWTRtrqN50RDzIPOmYz9gox2HsZlM7jMnno53RQH4BvMb0sLgOhuB/D6G7CJHmsRQEzOu
+	1sd6tmaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgYn-0000000E5Hv-2BPx;
-	Wed, 05 Nov 2025 16:40:37 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vGgcZ-0000000E5io-1fTC;
+	Wed, 05 Nov 2025 16:44:31 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgYk-0000000E5H9-0xTy
+	id 1vGgcW-0000000E5i7-4Ag2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:40:35 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47754e0a13bso33745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 08:40:32 -0800 (PST)
+	Wed, 05 Nov 2025 16:44:30 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4711b95226dso155705e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 08:44:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762360831; x=1762965631; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=0eEl5tuPcKQIbbiQU4HmtriawKnG+Y/aITWPg2eK/vk=;
-        b=XSeT7RTPrCxqQTmPR932sRxaPKPUhI9xrRnBheQYt0E1JNI/+C9yMMJYeGSbO3MV7R
-         qLhAB2yY8K/wIgmSuGJz8j2t6uffP4rYe3yTp0b1GnVaThmwk7RB8FokXyYHN8ckTdqM
-         /EYFLLbSmDH/0ar0pqz/g8eF6zEiSVwFE7vZp9iFxVoYaJBhO+7BUYWI8UZBTRYhEvCG
-         O2IXTY6t2p0M28SpO3iAKQpPTWIvgsGCkZpkMRByghPMREPAL9ChGRu8YWbQWn9U0KLo
-         u8S3jCUugLF/BZL7iv/O7wXwd6ZEYrXKIf6ek3w/g8hSyPXvMu7yOVkANfUCOjub21Ly
-         oaag==
+        d=gmail.com; s=20230601; t=1762361067; x=1762965867; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZY2ovksieRapgk658pHLWkUZACRChu2RMh3Rj1+1OEY=;
+        b=b/U4VMUoQT5ifINeMrEfRMQqK9jEfD3KOSX/Wge+B1c6t+PAmZNWMWg0z4XuVYxky9
+         VBA2OVUjyx5RKEU0PxmTGFgxOvbz7dH4rpFNrQGW4tv/AchIUUq2G/uhQeBBSD8P2BTi
+         C8uc5FcE24Us9Hg5fJcQY1IvAaMVQAMv4uWCOwpbnxMMDPpZtNrOR9r9BcaHpMIH76qG
+         ucvWvlwAUhGOgK9anga5ZrKGcfA5Zi66T6ptR2IqF7Hfp4SX8unMTzviMzAYMdem3FLb
+         ot7U7cka0dM18mouRILcQq/4Wzxq6omlZRhVwzqb+5u/6ulB+4HJa/dpZJpsY82KOHEF
+         TqMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762360831; x=1762965631;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0eEl5tuPcKQIbbiQU4HmtriawKnG+Y/aITWPg2eK/vk=;
-        b=Qr1jiX5rT9zRUqsxdtUOFY4c4e4DDZ8sX7MzeCP8V0+bEiv+C1xiv/sG5dClC+qI+f
-         Y4BAfrPwdUbchnF5tSCR11tTG7TOrX9Fd1ibXh2or3nVmRBjYo0IjI2L5DTgX+1cZlF/
-         zttGR55iendFxpz2Bok2XUmQjGmzzeU21pSQfTTgMsgTBsRBO547Ab/VqhTV74tXZlki
-         WeX34s6wK0IvO64LNTmWgmDs0qiovrjztq5FkIXwa4IXBVr171f/y3es+YdONHs88El3
-         zMVfJq+d3FXoU+VFeEBvR3Yrv0+4tLdu5jjjrokHziMxCrIVjqV55PQE3Wu0j111qwcS
-         k9uA==
-X-Forwarded-Encrypted: i=1; AJvYcCVP8ZczXgTA2TPnYbqr15eBOzonbeAHALIEer4Rfl+IoaewPc7ejhoYWFkX0C5+71sJkO98qerRvPaViw8d1PV6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaknbDIdbocVuPCEUuxTPMW/3ouoDqz9kg/bhFzkkPu3peCMle
-	25UidGWuJ2bhYk2tXLMuAN75/j2QfibQt5B12YSrmjEZ0ZSvQrmhomvgsXuQ7uStjw==
-X-Gm-Gg: ASbGncvR2qfCqCeNPDt1xmVkqvR+DLZhB3LOLBDKc3eDR7y3E1pCZwLGsUfovOpU03H
-	yhne0byr7SYQ0tMrxnoD4+ckyjLhUSb/hx2ZoLgqbmEtyOeBuobBclKfPq0bLxtqQqgDOquvmah
-	DP8kxFPQ3k6bYZkZoyZlA9M12bgKKP1AKDabbcH5qVguMIVRrsYgwgjhGEF7xU56Z7CkduNtsDb
-	rnWO2iif+8ZQNab1dAjnbTxkSX8TuWdWLnOpMOwMs/KPDgGki697AlXx6i6ZfZP/fY855AvtZii
-	adiHygcJG5n5eZWInPYTzyjryBLe4kM0JukatxeO9u5BreArBFuzZUAv8/QWA75FNOZ0twYIADn
-	SGG4um7jHathaALnQrH9nmk1OZx4prZUS+r8a8j2Nmt/3tCYbkyorcrrJuRpJvl1XI2LQr6xVhp
-	hZQxnhlU+G6OGoTYbgqIsEAO6u0Vqsgf1TfWTvlRPTIj/MpkYVEFgvvfjk/sOk
-X-Google-Smtp-Source: AGHT+IEy+8V+O2C0Flc9TdN/DCHlTtarKl1lxRtJWgoMhvht/+272KjjM3JvTIZWVNcKN9O18oV/xA==
-X-Received: by 2002:a05:600c:3ba3:b0:477:1afe:b962 with SMTP id 5b1f17b1804b1-4775dae9364mr3187645e9.1.1762360831358;
-        Wed, 05 Nov 2025 08:40:31 -0800 (PST)
-Received: from google.com (54.140.140.34.bc.googleusercontent.com. [34.140.140.54])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc200878sm11360022f8f.45.2025.11.05.08.40.30
+        d=1e100.net; s=20230601; t=1762361067; x=1762965867;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZY2ovksieRapgk658pHLWkUZACRChu2RMh3Rj1+1OEY=;
+        b=GXR2nLCpDqIXq+uIy/v0u/RPnbkhViHKFfGraHipn1vJN3N9wPZZBjOVPZ1RFDt/z3
+         G9jMsV9hZTMgzX0WkNwHrZ3Oj4u0+SXHWH+6kbGUj+PZrzDUcxmxqxNIWmKucUYUNCmL
+         Zx56Mk0RPhrqa9VaGNpRpf3X8xryYRfM1jG1LyhO0dbNNzZVM0DKSbZgFhJCbSADO/vv
+         DHPKsiSP1/X6AuMMjmQmr8T4g6IOj9D1YWuD6gB1GRRPoMGI7MW4TBiP5PVUZQ+VGWKC
+         4H1Jrla1+SrIFoBOXUK1dz1UgCprrpt51slPA9ytTy0uI2RKnJamEmiCi9PF0Rj8tfuk
+         jpKw==
+X-Forwarded-Encrypted: i=1; AJvYcCWx9PCr03PhbiwM0NSzNcKikuhSSvHCWqRCpVC+wWhsF1pt8gYqg9UAIcZ+STomlQ534VvDCi2hQTYLO6a2HBGs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA29uf0db2jmJiM6CDQs40h2VVS2MqVVp4eIe+JVe3/fYt8z9j
+	MPI3tGKj8osUvqDxiimyoUgaowjAsSDginE8h9bE0N9W7Xf88vLFaBkK
+X-Gm-Gg: ASbGncu6YCZXomkMq6ErszW9zoB+V76oDEKPQAkgjeOSfR0slSduVUs9yWwUykAYK1n
+	NibQiKPlkUX7x33HRECfzUU9FpZI5YE4mVerOlJAfAmykzNTB1674or50VLCBTRKjHjtatSAiyg
+	+FkTDlm315gFM6b5iHAkl1a65ewaxyXsQ+GnFrj6ek4sXf0L6j7aHEBP2QXEPDmOVBcLZrtRxdp
+	OT2+GUD5RNXlfOTj8T3V1lGL8Yqidi51LDbSqag1Zn7q7UHQnRE6oay9djlrpT/28DSWTtoLFz4
+	OfyPbNfcTNShvM743QsTZiKOVtlvldtbkU5aYUsCGTAcn4IriSptCNK4gb/BCgSvErZIvE/HvtK
+	M0akXd7b5/UXu9RDs7ilAvSY0CYtvhNFyrpZE2jBTSBQZqKOY2pPJQFE0iUH3qcnkSI57Lr/TD8
+	NKl69GlnPMFQ9/KmDiTNOuYiCqE6lcZ/kWnyiIVsdh7+GupbX7KtGi0v6adw==
+X-Google-Smtp-Source: AGHT+IGU8h8RqLt1fJTOpph+Kb6J+YXpLSWNisJ5Rw8ElaLdkndSmhqlDVbaDGVZcwA5Mkqog8YWaw==
+X-Received: by 2002:a05:600c:1c90:b0:477:589e:6c2f with SMTP id 5b1f17b1804b1-4775ce1eabamr35876305e9.22.1762361066679;
+        Wed, 05 Nov 2025 08:44:26 -0800 (PST)
+Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc1fdef7sm11938330f8f.43.2025.11.05.08.44.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 08:40:30 -0800 (PST)
-Date: Wed, 5 Nov 2025 16:40:26 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 15/28] iommu/arm-smmu-v3: Load the driver later in KVM
- mode
-Message-ID: <aQt9-kTCe8TpuyVq@google.com>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-16-smostafa@google.com>
- <aMQmA9cLaeYWG5_C@willie-the-truck>
- <aNKwROPzDCWgJBGQ@google.com>
- <20250923173806.GF2547959@ziepe.ca>
- <aNppE9A3PDiDg_1W@google.com>
- <20251002151308.GG3195829@ziepe.ca>
+        Wed, 05 Nov 2025 08:44:24 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Marco Crivellari <marco.crivellari@suse.com>
+Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko <mhocko@suse.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
+Date: Wed, 05 Nov 2025 17:44:22 +0100
+Message-ID: <12772271.O9o76ZdvQC@jernej-laptop>
+In-Reply-To: <20251105152023.259813-1-marco.crivellari@suse.com>
+References: <20251105152023.259813-1-marco.crivellari@suse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251002151308.GG3195829@ziepe.ca>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_084034_299413_6B5FA862 
-X-CRM114-Status: GOOD (  28.90  )
+X-CRM114-CacheID: sfid-20251105_084429_093575_DA1D3781 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,89 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 02, 2025 at 12:13:08PM -0300, Jason Gunthorpe wrote:
-> On Mon, Sep 29, 2025 at 11:10:11AM +0000, Mostafa Saleh wrote:
-> > Another possible solution, to keep a device bound to the KVM driver,
-> > is to probe the SMMUs from the KVM driver, then to create child devices;
-> > possibly use something as device_set_of_node_from_dev to bind those to
-> > the main SMMUv3 or find another way to probe the main SMMUv3 without
-> > changes.
-> 
-> I do prefer something more like this one, I think it is nice that the
-> kvm specific driver will remain bound and visible so there is some
-> breadcrumbs about what happened to the system for debugging/etc.
-> 
-> Not sure how to do it, but I think it should be achievable..
-> 
-> Maybe even a simple faux/aux device and just pick up the of_node from
-> the parent..
+Dne sreda, 5. november 2025 ob 16:20:23 Srednjeevropski standardni =C4=8Das=
+ je Marco Crivellari napisal(a):
+> Currently if a user enqueues a work item using schedule_delayed_work() the
+> used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
+> WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
+> schedule_work() that is using system_wq and queue_work(), that makes use
+> again of WORK_CPU_UNBOUND.
+>=20
+> This lack of consistency cannot be addressed without refactoring the API.
+>=20
+> This patch continues the effort to refactor worqueue APIs, which has begun
+> with the change introducing new workqueues and a new alloc_workqueue flag:
+>=20
+> commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
+> commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
+>=20
+> Replace system_wq with system_percpu_wq, keeping the same behavior.
+> The old wq (system_wq) will be kept for a few release cycles.
+>=20
+> Suggested-by: Tejun Heo <tj@kernel.org>
+> Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
 
-I spent some time looking into this
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-With the approach of creating new devices as:
+Best regards,
+Jernej
 
-	pdev = platform_device_alloc(dev_name(dev), PLATFORM_DEVID_AUTO);
-	pdev->dev.parent = dev;
-	device_set_node(&pdev->dev, dev->fwnode);
-	platform_device_add_resources(pdev, cur_pdev->resource,
-				      cur_pdev->num_resources);
-	platform_device_add(pdev);
 
-That is done from an init call after KVM init, where the KVM driver
-probes the SMMUs, which then does
-	bus_rescan_devices(&platform_bus_type);
-
-In the KVM driver probe, it had:
-	if (pdev->dev.parent->driver == &smmuv3_nesting_driver.driver)
-		return -ENODEV;
-
-Which causes the main SMMU driver to probe the new devices.
-
-However, that didn’t work because, as from Linux perspective the
-nested driver was bound to all the SMMUs which means that any
-device that is connected to an SMMUv3 has its dependencies met, which
-caused those drivers to start probing without IOMMU ops.
-
-Also, the approach with bind/unbind seemed to not work reliably
-because of the same reason.
-
-Looking into the probe path, it roughly does.
-1) Device / Driver matching driver_match_device
-2) Check suppliers before probe (device_links_check_suppliers)
-3) Actual probe
-
-I can’t see a way of adding dependencies in #1
-
-For #2, there 2 problems,
-i) It’s not clear how to create links, something as fwnode_link_add()
-   won’t work as one of the devices won’t have fwnode and device_link_add()
-   will need the device to be already created (and not sure how
-   to guarantee it won’t probe)
-ii) Assuming we were able to create the link, it will be set to
-    DL_STATE_AVAILABLE once the nested driver probes, which won’t prevent
-    the main driver from probing till KVM initialises.
-
-It seems device links are not the write tool to use.
-
-So far, the requirements we need to satisfy are:
-1- No driver should bind to the SMMUs before KVM initialises.
-2- Back the nested driver with devices and possibly link them
-
-The only possible solutions I see:
-1- Keep patch as is
-2- Check if KVM is initialised from the SMMUv3 driver,
-   if not -EPROBE_DEFER (as Will suggested), that will guarded by the
-   KVM driver macro and cmdline to enable protected mode.
-
-Then if needed, we can create devices from the nested driver and link
-them to the main ones in same initcall after the devices are created.
-
-I can to look into more suggestions, otherwise, I will try with #2
-with the -EPROBE_DEFER.
-
-Thanks,
-Mostafa
-
-> 
-> Jason
 
